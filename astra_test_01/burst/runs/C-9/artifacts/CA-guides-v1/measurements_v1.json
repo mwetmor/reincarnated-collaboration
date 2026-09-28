@@ -1,0 +1,315 @@
+{
+ "measurements": {
+  "id_snap_max_distance": 0,
+  "legend_classes_with_no_visible_pixel": [],
+  "depth_floor_median_mm": 7999.0,
+  "depth_wall_max_mm": 64999.0,
+  "depth_expected_floor_mm": 8000,
+  "depth_expected_wall_mm": 65000.0,
+  "clamp_px": [
+   21,
+   1188,
+   9091,
+   8042
+  ],
+  "clamp_rule": "camera centre = player plate px - (anchor - view/2); the clamp is the walkable region's screen bbox expanded by the anchor frame. Identical in form to the cliffside runtime's own limits (parallax.json camera.limits).",
+  "crown_clearance": {
+   "method": "block-max elevation (8 px blocks) under a sliding 1920x1080 frame, evaluated at every camera centre the clamp allows",
+   "highest_building_point_ever_in_frame_m": 56.0029296875,
+   "rising_wall_crown_m": 57.0,
+   "rising_wall_crown_declared_m": 34.0,
+   "clearance_m": 0.9970703125,
+   "crown_pixels_on_plate": 293527,
+   "crown_blocks_on_plate": 4916,
+   "crown_blocks_inside_any_reachable_frame": 0,
+   "crown_test": "PASS",
+   "analytic_bound_m": 9.815518791895203,
+   "analytic_bound_note": "at plate scale a 1080 frame with the anchor at row 595 can show at most 9.8155 m of elevation above the player's own plan position, and less as the wall recedes; so any wall above that is off the top."
+  },
+  "walkable_area_plan_m2": 2353.92,
+  "walkable_area_on_screen_m2": 2134.8999230672252,
+  "walkable_occlusion_loss_pct": 9.304482604879304,
+  "walkable_class_area_on_screen_m2": {
+   "nave_floor": 780.438,
+   "crossing_floor": 391.174,
+   "transept_floor": 389.785,
+   "chancel_floor": 68.102,
+   "dais": 142.051,
+   "apse_floor": 27.794,
+   "apron_bluefire": 233.295,
+   "apron_fire": 28.846,
+   "pool_candidate": 73.415
+  },
+  "rise_test": {
+   "rule": "an element rises to wall_rise_m iff raising it hides NO MORE walkable floor than cutting it to near_cut_m would (tolerance 0.5 m2). This is the reason BOTH corrigenda give for cutting a side low, applied as the test itself, so no per-element list of faces exists anywhere in this generator.",
+   "mode": "compass",
+   "tolerance_m2": 0.5,
+   "elements": [
+    {
+     "element": "R1-nave-west",
+     "rises": false,
+     "hidden_at_full_height_m2": 156.64000000000001,
+     "hidden_at_cut_height_m2": 1.08,
+     "extra_cost_m2": 155.56,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "R2-chancel-west",
+     "rises": true,
+     "hidden_at_full_height_m2": 0.0,
+     "hidden_at_cut_height_m2": 0.0,
+     "extra_cost_m2": 0.0,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "R3-transeptW-n",
+     "rises": true,
+     "hidden_at_full_height_m2": 0.0,
+     "hidden_at_cut_height_m2": 0.0,
+     "extra_cost_m2": 0.0,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "R5-transeptW-end",
+     "rises": true,
+     "hidden_at_full_height_m2": 0.0,
+     "hidden_at_cut_height_m2": 0.0,
+     "extra_cost_m2": 0.0,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "R6-apse",
+     "rises": true,
+     "hidden_at_full_height_m2": 0.0,
+     "hidden_at_cut_height_m2": 0.0,
+     "extra_cost_m2": 0.0,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "crossing_pier_-12.084_12.084",
+     "rises": true,
+     "hidden_at_full_height_m2": 0.0,
+     "hidden_at_cut_height_m2": 0.0,
+     "extra_cost_m2": 0.0,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "crossing_pier_12.084_12.084",
+     "rises": false,
+     "hidden_at_full_height_m2": 57.44,
+     "hidden_at_cut_height_m2": 1.6,
+     "extra_cost_m2": 55.839999999999996,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "crossing_pier_-12.084_-12.084",
+     "rises": false,
+     "hidden_at_full_height_m2": 71.12,
+     "hidden_at_cut_height_m2": 1.5600000000000003,
+     "extra_cost_m2": 69.56,
+     "probe_m": 25.664088417080983
+    },
+    {
+     "element": "crossing_pier_12.084_-12.084",
+     "rises": false,
+     "hidden_at_full_height_m2": 56.400000000000006,
+     "hidden_at_cut_height_m2": 2.7600000000000002,
+     "extra_cost_m2": 53.64000000000001,
+     "probe_m": 25.664088417080983
+    }
+   ],
+   "demoted_from_rising": []
+  },
+  "void_fraction_inside_frame_union_pct": 0.0,
+  "framings": [
+   {
+    "name": "south_entry",
+    "player_m": [
+     0.0,
+     -49.11
+    ],
+    "plate_px": [
+     1861.9534187662152,
+     6816.763703818406
+    ],
+    "plate": {
+     "frame_rect_px": [
+      900,
+      6222,
+      2820,
+      7302
+     ],
+     "highest_point_in_frame_m": 1.4780498970016023,
+     "topmost_rising_masonry_row": 0
+    },
+    "fit": {
+     "frame_rect_px": [
+      196,
+      5786,
+      3521,
+      7657
+     ],
+     "highest_point_in_frame_m": 11.599908445868618,
+     "topmost_rising_masonry_row": 0
+    }
+   },
+   {
+    "name": "mid_nave_crossing",
+    "player_m": [
+     0.0,
+     -7.0
+    ],
+    "plate_px": [
+     4857.968518252159,
+     4425.502462364668
+    ],
+    "plate": {
+     "frame_rect_px": [
+      3896,
+      3831,
+      5816,
+      4911
+     ],
+     "highest_point_in_frame_m": 0.00915541313801782,
+     "topmost_rising_masonry_row": -1
+    },
+    "fit": {
+     "frame_rect_px": [
+      3192,
+      3395,
+      6517,
+      5266
+     ],
+     "highest_point_in_frame_m": 18.366491187914853,
+     "topmost_rising_masonry_row": 0
+    }
+   },
+   {
+    "name": "near_dais",
+    "player_m": [
+     0.0,
+     13.0
+    ],
+    "plate_px": [
+     6280.915608960277,
+     3289.78114132276
+    ],
+    "plate": {
+     "frame_rect_px": [
+      5319,
+      2695,
+      7239,
+      3775
+     ],
+     "highest_point_in_frame_m": 1.5835202563515676,
+     "topmost_rising_masonry_row": 0
+    },
+    "fit": {
+     "frame_rect_px": [
+      4615,
+      2259,
+      7940,
+      4130
+     ],
+     "highest_point_in_frame_m": 15.31114671549554,
+     "topmost_rising_masonry_row": 0
+    }
+   }
+  ],
+  "zoom_analysis": {
+   "frame_ground_depth_m": 13.448287172787731,
+   "frame_screen_width_m": 19.082157428672204,
+   "nave_wall_to_wall_along_view_axis_m": 15.39214946953141,
+   "ppm_to_fit_both_nave_walls": 87.91064299411863,
+   "ppm_to_see": {
+    "triforium_bottom": 82.30112410368639,
+    "clerestory_bottom": 58.09491113201392,
+    "clerestory_top": 37.985134201701406
+   },
+   "person_px_to_fit_both_nave_walls": 113.58240354429385,
+   "person_px_at": {
+    "triforium_bottom": 106.33478691219803,
+    "clerestory_bottom": 75.05984958508094,
+    "clerestory_top": 49.077593959476005
+   }
+  },
+  "chunk_grid": [
+   11,
+   7
+  ],
+  "chunks_kept": 73,
+  "chunks_dropped": 4,
+  "chunks_in_clamp": 67,
+  "camera_clamp_plate_rect_px": [
+   0.472989052345838,
+   1199.4620570059583,
+   9106.355797128344,
+   8026.211941478012
+  ],
+  "wall_rise_built_m": 57.0,
+  "wall_rise_solved_m": 55.58533354936924,
+  "plate_top_elevation_m": 28.0
+ },
+ "outputs": {
+  "framing_mid_nave_crossing.png": {
+   "sha256": "e6040dfd056c1b9d49e73d14ea98aab12bbeae6228d210a30c286daaaaa77a22",
+   "bytes": 64030
+  },
+  "framing_mid_nave_crossing_fit.png": {
+   "sha256": "19627b6097fe3d3e58cac7fbc218fc14c163230b9bb639a04b75636900443fe1",
+   "bytes": 139418
+  },
+  "framing_mid_nave_crossing_plate.png": {
+   "sha256": "f5f21e04368bebcdbf3d30eefc5cfe5d4dc5365db0e04951bc376be0600e41ae",
+   "bytes": 66676
+  },
+  "framing_near_dais.png": {
+   "sha256": "4efd6995a94da2b7c3dbd854f12307cc327a6e9af6d6e660cd0fc87db28bba6d",
+   "bytes": 69693
+  },
+  "framing_near_dais_fit.png": {
+   "sha256": "7473e41cbc0e5de1da22afccadf00c6d3b7c88643e177f69f005b9779abbd366",
+   "bytes": 202169
+  },
+  "framing_near_dais_plate.png": {
+   "sha256": "3dde04d5ec1d1079189acb1d14f5026d0907f016d6b6d7133a083106c6e4a444",
+   "bytes": 75232
+  },
+  "framing_south_entry.png": {
+   "sha256": "31c7d9bba581917922e0c4c1fdcfa2e29219af9e3ed913ae4d93a4bce6e91813",
+   "bytes": 65425
+  },
+  "framing_south_entry_fit.png": {
+   "sha256": "6aabb1049747632137fbcbd2884a9b80c58adeb7ca32e53e7fddf47783642f60",
+   "bytes": 161453
+  },
+  "framing_south_entry_plate.png": {
+   "sha256": "71b2a431656c23569b04d704f692aa3a3c437dd4c7d934737687a7b5aff09445",
+   "bytes": 71108
+  },
+  "ortho_canvas_v1_depth_mm.png": {
+   "sha256": "378fdd907218ddc2a2b9bc4bd74d20c9e30a77eadcb2c7ad2bc943453ef7fdef",
+   "bytes": 3545179
+  },
+  "ortho_canvas_v1_guide.png": {
+   "sha256": "618be0e30099a470d74a32a90cbb997165d50c70f832bb6568ced41383a2e762",
+   "bytes": 670558
+  },
+  "ortho_canvas_v1_id.png": {
+   "sha256": "a3ada75c729ca20ef01c6af027601637ca945541d37913966a357e7860306d4f",
+   "bytes": 547064
+  },
+  "ortho_canvas_v1_walkable.png": {
+   "sha256": "0c0efd5d1372cf2af87a2a733e6c41c8d40142df156056c78b9c902e03ba7b81",
+   "bytes": 136037
+  },
+  "ortho_canvas_v1_window_holes.png": {
+   "sha256": "71663dffcdb7b684b96f5fe748f772b3aacdf9abeba3bb1e0ab2824d8017c735",
+   "bytes": 116656
+  },
+  "overview_flat_v1.png": {
+   "sha256": "5b3e1fac7a601101bc05b46e5396c7d060def870e7230effbdfa842dbda5f6f3",
+   "bytes": 586608
+  }
+ }
+}

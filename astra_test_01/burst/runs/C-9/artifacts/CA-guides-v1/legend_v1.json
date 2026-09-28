@@ -1,0 +1,351 @@
+{
+ "legend": [
+  {
+   "index": 0,
+   "name": "void_outside_frame",
+   "rgb": [
+    0,
+    200,
+    0
+   ],
+   "walkable": false,
+   "guide_grey": [
+    0,
+    255,
+    0
+   ]
+  },
+  {
+   "index": 1,
+   "name": "opening_to_outside",
+   "rgb": [
+    0,
+    255,
+    0
+   ],
+   "walkable": false,
+   "guide_grey": [
+    0,
+    255,
+    0
+   ]
+  },
+  {
+   "index": 2,
+   "name": "nave_floor",
+   "rgb": [
+    46,
+    204,
+    64
+   ],
+   "walkable": true,
+   "guide_grey": [
+    228,
+    228,
+    222
+   ]
+  },
+  {
+   "index": 3,
+   "name": "crossing_floor",
+   "rgb": [
+    1,
+    255,
+    112
+   ],
+   "walkable": true,
+   "guide_grey": [
+    232,
+    232,
+    226
+   ]
+  },
+  {
+   "index": 4,
+   "name": "transept_floor",
+   "rgb": [
+    127,
+    219,
+    255
+   ],
+   "walkable": true,
+   "guide_grey": [
+    224,
+    224,
+    219
+   ]
+  },
+  {
+   "index": 5,
+   "name": "chancel_floor",
+   "rgb": [
+    255,
+    220,
+    0
+   ],
+   "walkable": true,
+   "guide_grey": [
+    220,
+    220,
+    215
+   ]
+  },
+  {
+   "index": 6,
+   "name": "dais",
+   "rgb": [
+    240,
+    18,
+    190
+   ],
+   "walkable": true,
+   "guide_grey": [
+    214,
+    214,
+    209
+   ]
+  },
+  {
+   "index": 7,
+   "name": "apse_floor",
+   "rgb": [
+    177,
+    13,
+    201
+   ],
+   "walkable": true,
+   "guide_grey": [
+    210,
+    210,
+    205
+   ]
+  },
+  {
+   "index": 8,
+   "name": "crater",
+   "rgb": [
+    255,
+    65,
+    54
+   ],
+   "walkable": false,
+   "guide_grey": [
+    44,
+    40,
+    40
+   ]
+  },
+  {
+   "index": 9,
+   "name": "crypt_void",
+   "rgb": [
+    17,
+    17,
+    17
+   ],
+   "walkable": false,
+   "guide_grey": [
+    20,
+    20,
+    24
+   ]
+  },
+  {
+   "index": 10,
+   "name": "apron_bluefire",
+   "rgb": [
+    0,
+    116,
+    217
+   ],
+   "walkable": true,
+   "guide_grey": [
+    196,
+    200,
+    208
+   ]
+  },
+  {
+   "index": 11,
+   "name": "apron_fire",
+   "rgb": [
+    255,
+    133,
+    27
+   ],
+   "walkable": true,
+   "guide_grey": [
+    208,
+    198,
+    190
+   ]
+  },
+  {
+   "index": 12,
+   "name": "pier",
+   "rgb": [
+    133,
+    20,
+    75
+   ],
+   "walkable": false,
+   "guide_grey": [
+    84,
+    84,
+    90
+   ]
+  },
+  {
+   "index": 13,
+   "name": "wall_rising",
+   "rgb": [
+    58,
+    58,
+    62
+   ],
+   "walkable": false,
+   "guide_grey": [
+    120,
+    120,
+    126
+   ]
+  },
+  {
+   "index": 14,
+   "name": "wall_cutlow",
+   "rgb": [
+    96,
+    96,
+    102
+   ],
+   "walkable": false,
+   "guide_grey": [
+    104,
+    104,
+    110
+   ]
+  },
+  {
+   "index": 15,
+   "name": "room_beyond_floor",
+   "rgb": [
+    0,
+    190,
+    200
+   ],
+   "walkable": false,
+   "guide_grey": [
+    132,
+    132,
+    138
+   ]
+  },
+  {
+   "index": 16,
+   "name": "room_beyond_wall",
+   "rgb": [
+    80,
+    80,
+    86
+   ],
+   "walkable": false,
+   "guide_grey": [
+    74,
+    74,
+    80
+   ]
+  },
+  {
+   "index": 17,
+   "name": "triforium_dark",
+   "rgb": [
+    61,
+    153,
+    112
+   ],
+   "walkable": false,
+   "guide_grey": [
+    30,
+    30,
+    34
+   ]
+  },
+  {
+   "index": 18,
+   "name": "clerestory_tracery",
+   "rgb": [
+    203,
+    203,
+    199
+   ],
+   "walkable": false,
+   "guide_grey": [
+    150,
+    150,
+    154
+   ]
+  },
+  {
+   "index": 19,
+   "name": "cross_mount_empty",
+   "rgb": [
+    255,
+    255,
+    255
+   ],
+   "walkable": false,
+   "guide_grey": [
+    38,
+    38,
+    42
+   ]
+  },
+  {
+   "index": 20,
+   "name": "breach_stair",
+   "rgb": [
+    118,
+    112,
+    100
+   ],
+   "walkable": false,
+   "guide_grey": [
+    96,
+    92,
+    86
+   ]
+  },
+  {
+   "index": 21,
+   "name": "exterior_ground",
+   "rgb": [
+    140,
+    136,
+    128
+   ],
+   "walkable": false,
+   "guide_grey": [
+    118,
+    116,
+    110
+   ]
+  },
+  {
+   "index": 22,
+   "name": "pool_candidate",
+   "rgb": [
+    255,
+    0,
+    255
+   ],
+   "walkable": true,
+   "guide_grey": [
+    216,
+    214,
+    208
+   ]
+  }
+ ],
+ "window_hole_rule": "id class 'opening_to_outside' (#00ff00 in the id mask) -- the triforium open bays, the whole clerestory, the west-top breach and the north chancel breach. 'void_outside_frame' (0,200,0) is background, NOT a window.",
+ "note": "id colours are flat index colours, NEAREST only. Snap readback to the nearest legend colour; this build measured max distance 0 (0 = byte-exact)."
+}

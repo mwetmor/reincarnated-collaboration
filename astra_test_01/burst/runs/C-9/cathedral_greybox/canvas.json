@@ -1,0 +1,115 @@
+{
+ "canvas_px": [
+  9108,
+  8028
+ ],
+ "origin_screen_px": [
+  -5356,
+  -4028
+ ],
+ "plate_top_elevation_m": 28.0,
+ "wall_rise_built_m": 57.0,
+ "wall_rise_solved_m": 55.58533354936924,
+ "ppm": 100.617553710938,
+ "tile_px": 4096,
+ "tiles": [
+  {
+   "name": "t_0_0",
+   "origin_px": [
+    0,
+    0
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  },
+  {
+   "name": "t_0_1",
+   "origin_px": [
+    4096,
+    0
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  },
+  {
+   "name": "t_0_2",
+   "origin_px": [
+    8192,
+    0
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  },
+  {
+   "name": "t_1_0",
+   "origin_px": [
+    0,
+    4096
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  },
+  {
+   "name": "t_1_1",
+   "origin_px": [
+    4096,
+    4096
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  },
+  {
+   "name": "t_1_2",
+   "origin_px": [
+    8192,
+    4096
+   ],
+   "size_px": [
+    4096,
+    4096
+   ]
+  }
+ ],
+ "world_to_plate": "plate_px = (ppm*(P.r) - origin_x, -(pxg*(P.d) + pxe*h) - origin_y)",
+ "r_plan_NE": [
+  0.7071067811865476,
+  0.7071067811865475
+ ],
+ "d_plan_NW": [
+  -0.7071067811865475,
+  0.7071067811865476
+ ],
+ "pxg": 80.3076247646877,
+ "pxe": 60.618293603726684,
+ "clamp": {
+  "plate_rect_px": [
+   0.472989052345838,
+   1199.4620570059583,
+   9106.355797128344,
+   8026.211941478012
+  ],
+  "camera_centre_px": [
+   960.4729890523458,
+   1739.4620570059583,
+   8146.355797128345,
+   7486.211941478012
+  ],
+  "limits_px": [
+   0.472989052345838,
+   1199.4620570059583,
+   9106.355797128344,
+   8026.211941478012
+  ],
+  "rule": "camera centre = player plate px - (anchor - view/2); the clamp is the walkable region's screen bbox expanded by the anchor frame. Identical in form to the cliffside runtime's own limits (parallax.json camera.limits)."
+ }
+}

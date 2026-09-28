@@ -1,0 +1,310 @@
+{
+ "generated": "2026-09-27",
+ "author": "drax (presentation seam)",
+ "run": "C-9",
+ "product": "CA-guides-v1 \u2014 cathedral arena grey box",
+ "authorities": [
+  "R-C9-43",
+  "R-C9-44",
+  "R-C9-45",
+  "crack-law Corrigendum 2 sec 2",
+  "crack-law Corrigendum 4",
+  "rdr-art-illuminated-archive-brief sec 3 / sec 4"
+ ],
+ "projection": {
+  "_prov": "MEASURED (ppm, alpha) + RULED-as-compass-word (yaw)",
+  "ppm_plate": 100.617553710938,
+  "alpha_deg": 52.9535411256029,
+  "yaw_deg": 45.0,
+  "yaw_reason": "R-C9-45 cl.1 'from the SOUTH-EAST looking NORTH-WEST'. SE is 45 deg exactly; 45 deg is the only yaw at which both rising walls present equally. The GD runtime's 47 deg is a yaw in referent axes, which carry no compass.",
+  "px_per_m_screen_right": 100.617553710938,
+  "px_per_m_along_view": 80.3076247646877,
+  "px_per_m_elevation": 60.618293603726684,
+  "d_plan_NW": [
+   -0.7071067811865475,
+   0.7071067811865476
+  ],
+  "r_plan_NE": [
+   0.7071067811865476,
+   0.7071067811865475
+  ],
+  "cliffside_cross_check_residual_px": [
+   0.0,
+   8.526512829121202e-14
+  ],
+  "rule": "screen_x = ppm*((P-O).r) ; screen_y = -(ppm*sin(a)*((P-O).d) + ppm*cos(a)*h)"
+ },
+ "figure_height_conflict": {
+  "_prov": "MEASURED, CARRIED UNRESOLVED (greyroom manifest scale_figures)",
+  "keeper_convention_px": 130.0,
+  "keeper_px_implies_body_m": 2.144567131002313,
+  "kc2_h_fig_m": 1.9,
+  "kc2_h_fig_px_on_this_plate": 115.17475784708071,
+  "note": "this grey box adopts the PLATE SCALE (what '130 px' pins) and carries both figures."
+ },
+ "runtime_camera": {
+  "_prov": "MEASURED (cliffside_B/parallax/parallax.json)",
+  "view_px": [
+   1920,
+   1080
+  ],
+  "anchor_px": [
+   962,
+   595
+  ],
+  "walk_px_s": 247,
+  "walk_m_s": 2.454840044209393,
+  "run_px_s": 494,
+  "run_m_s": 4.909680088418786,
+  "kind": "2D camera, 1:1 on the plate"
+ },
+ "room": {
+  "_prov": "MEASURED extent + MEASURED walkable area (arena geometry v1, sha 68d895d757029964...)",
+  "extent_ew_m": 57.285,
+  "extent_ns_m": 76.66499999999999,
+  "walkable_area_target_m2": 2354.3412243939315,
+  "bbox_m": [
+   -28.6425,
+   -51.11,
+   28.6425,
+   25.554999999999996
+  ],
+  "origin": "the CROSSING centre",
+  "nave_chancel_ratio": 2.0,
+  "y_north": 25.554999999999996,
+  "y_south": -51.11,
+  "limb_width_m": 21.767786533885157,
+  "limb_half_m": 10.883893266942579,
+  "gross_cruciform_m2": 2441.9584756291247,
+  "net_walkable_m2": 2354.3412243939315,
+  "net_walkable_residual_m2": 0.0,
+  "limb_width_prov": "DERIVED: solves gross(w) - crater - crypt = the MEASURED walkable area inside the MEASURED extent. Not chosen.",
+  "measured_central_vessel_width_m": 13.128921855872903,
+  "bay_m": 6.564460927936452
+ },
+ "elevation": {
+  "_prov": "DECLARED (heights); RULED (that they rise out of frame, R-C9-43 cl.1)",
+  "wall_rise_m": 34.0,
+  "near_cut_m": 0.9,
+  "arcade": [
+   0.0,
+   12.0
+  ],
+  "triforium": [
+   12.0,
+   17.0
+  ],
+  "clerestory": [
+   17.0,
+   26.0
+  ],
+  "vault_spring_m": 26.0,
+  "dais_h": 1.2,
+  "cross_mount": {
+   "cx": 0.0,
+   "base_h": 14.0,
+   "height": 6.0,
+   "width": 3.6,
+   "arm_thick": 1.2
+  }
+ },
+ "rise_rule": {
+  "_prov": "DERIVED from the camera azimuth. No list of faces is authored.",
+  "rule": "a wall rises to wall_rise_m iff its INNER normal n satisfies n . SE > 0 where SE = (+1,-1)/sqrt(2); otherwise it is cut to near_cut_m.",
+  "consequence": "rising: apse wall, transept NORTH walls, nave/chancel WEST arcade, west transept end wall.  cut low: south facade, transept SOUTH walls, nave/chancel EAST arcade, east transept end wall."
+ },
+ "crater": {
+  "_prov": "DECLARED radius",
+  "centre_m": [
+   0.0,
+   0.0
+  ],
+  "radius_m": 4.5,
+  "walkable": false,
+  "hazard": true,
+  "reason": "leaves 6.38 m of walkable floor between the crater lip and each crossing edge -- room to circle it, which is the ruled funnel-to-the-middle (Corr.4 cl.4). Under half the crossing width."
+ },
+ "entrances": [
+  {
+   "id": "E-CRYPT",
+   "kind": "crypt_mouth_floor_hole",
+   "one_way": true,
+   "centre_m": [
+    24.0,
+    0.0
+   ],
+   "size_m": [
+    6.0,
+    4.0
+   ],
+   "apron": "bluefire",
+   "_prov": "DECLARED position (by the cut-low east wall, R-C9-45 cl.1)"
+  },
+  {
+   "id": "E-SE-FIRE",
+   "kind": "fire_breach_south_facade",
+   "one_way": true,
+   "centre_m": [
+    6.874998181817942,
+    -51.11
+   ],
+   "width_m": 4.0,
+   "apron": "fire",
+   "_prov": "DERIVED from MEASURED ||p05|| = 7.16 m: placed on the south facade so its distance from the declared player spawn reproduces the decoded near-ambush distance exactly.",
+   "p05_norm_m": 7.16,
+   "dist_from_spawn_m": 7.16
+  },
+  {
+   "id": "E-N-CHANCEL",
+   "kind": "chancel_breach_ground_with_broken_stair",
+   "one_way": true,
+   "centre_m": [
+    -7.0,
+    25.554999999999996
+   ],
+   "width_m": 4.0,
+   "apron": "bluefire",
+   "_prov": "DECLARED position (beside the apse, R-C9-45 / Corr.4 cl.3)"
+  }
+ ],
+ "spawn": {
+  "player_spawn_m": [
+   0.0,
+   -49.11
+  ],
+  "_prov": "DECLARED: 2.0 m inside the south door on the nave axis (R-C9-45 cl.2 'road in through the south facade')"
+ },
+ "apron": {
+  "depth_m": 3.0,
+  "cross_time_s": 1.2220755511449959,
+  "_prov": "DERIVED from MEASURED walk rate 2.455 m/s and the RULED D-LIFT-1/2 cadence (~1 s ticks, death ~6 s): crossed in ~one tick, so crossable-not-campable.",
+  "rule": "apron = dilate(mouth, depth) INTERSECT walkable floor"
+ },
+ "pool_registration": {
+  "_prov": "DERIVED transform on MEASURED interior points",
+  "transform": {
+   "yaw_deg": 180.0,
+   "X_new": "-old_x + 0.712500",
+   "Y_new": "old_y + -22.325000",
+   "derivation": "(a) the re-ruling puts the apse NORTH and the entry SOUTH; (b) the bbox 57.285 x 76.665 is not square so +-90 deg cannot map bbox to bbox; (c) 0 deg keeps the apse south and is refuted by (a). 180 deg is forced.",
+   "bbox_corner_residual_m": 3.552713678800501e-15
+  },
+  "k_disjoint": 0.5345182416334159,
+  "radius_caveat": "radius_disjoint = upper_bound * k_disjoint. The INTERIOR POINTS are MEASURED; the RADII are an upper bound scaled by drax's k_disjoint call. Every overlap verdict is recomputed at BOTH radii and flagged if it flips.",
+  "pools": [
+   {
+    "id": "Z-614",
+    "witness_shot": 614,
+    "old_m": [
+     -18.525,
+     -4.2749999999999995
+    ],
+    "arena_m": [
+     19.237499999999997,
+     -26.6
+    ],
+    "radius_disjoint_m": 6.276313193259568,
+    "radius_upper_bound_m": 11.741999999999999
+   },
+   {
+    "id": "Z-618",
+    "witness_shot": 618,
+    "old_m": [
+     -19.095,
+     36.195
+    ],
+    "arena_m": [
+     19.807499999999997,
+     13.869999999999997
+    ],
+    "radius_disjoint_m": 6.702858750083035,
+    "radius_upper_bound_m": 12.54
+   },
+   {
+    "id": "Z-620",
+    "witness_shot": 620,
+    "old_m": [
+     -1.9949999999999999,
+     43.31999999999999
+    ],
+    "arena_m": [
+     2.7074999999999987,
+     20.99499999999999
+    ],
+    "radius_disjoint_m": 7.281742005772023,
+    "radius_upper_bound_m": 13.622999999999998
+   },
+   {
+    "id": "Z-622",
+    "witness_shot": 622,
+    "old_m": [
+     13.964999999999998,
+     28.214999999999996
+    ],
+    "arena_m": [
+     -13.2525,
+     5.8899999999999935
+    ],
+    "radius_disjoint_m": 3.549468383566698,
+    "radius_upper_bound_m": 6.640499999999999
+   },
+   {
+    "id": "Z-623",
+    "witness_shot": 623,
+    "old_m": [
+     19.095,
+     38.474999999999994
+    ],
+    "arena_m": [
+     -18.3825,
+     16.14999999999999
+    ],
+    "radius_disjoint_m": 7.921560341007223,
+    "radius_upper_bound_m": 14.819999999999999
+   },
+   {
+    "id": "Z-626",
+    "witness_shot": 626,
+    "old_m": [
+     21.09,
+     -1.9949999999999999
+    ],
+    "arena_m": [
+     -20.3775,
+     -24.320000000000004
+    ],
+    "radius_disjoint_m": 5.514624698931952,
+    "radius_upper_bound_m": 10.317
+   }
+  ]
+ },
+ "camera_clamp": {
+  "_prov": "DERIVED from the MEASURED runtime camera + the projection law",
+  "visible_elevation_at_own_position_m": 9.815518791895203,
+  "visible_ground_ahead_m": 7.409010062785834,
+  "min_wall_height_for_crown_clearance_m": 17.816403857557678,
+  "crown_rise_px": 2061.0219825267072,
+  "crown_clearance_px": 981.0219825267072,
+  "crown_clearance_m": 16.183596142442322,
+  "zoom_gd": {
+   "ppm": 75.668403,
+   "px_per_m_elevation": 45.587368211680925,
+   "min_wall_height_m": 23.690773176137636,
+   "crown_clearance_px": 469.97051919715136
+  },
+  "ppm_that_would_reveal": {
+   "triforium_bottom": 82.30112410368639,
+   "clerestory_bottom": 58.09491113201392,
+   "clerestory_top": 37.985134201701406
+  }
+ },
+ "surround": {
+  "_prov": "DECLARED",
+  "nw_m": 10.0,
+  "se_m": 12.0,
+  "aisle_w": 4.5,
+  "aisle_wall": 1.5,
+  "chapel_d": 2.5,
+  "pier_w": 1.6
+ }
+}

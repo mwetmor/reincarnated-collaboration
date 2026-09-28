@@ -1,0 +1,1162 @@
+{
+ "pools": [
+  {
+   "id": "Z-614",
+   "witness_shot": 614,
+   "old_m": [
+    -18.525,
+    -4.2749999999999995
+   ],
+   "arena_m": [
+    19.237499999999997,
+    -26.6
+   ],
+   "radius_disjoint_m": 6.276313193259568,
+   "radius_upper_bound_m": 11.741999999999999,
+   "disjoint": {
+    "overlap_walkable_m2": 0.0,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 0.0,
+    "on_floor": false,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": false
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 39.6,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 0.0,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": false
+   },
+   "verdict": "DROP-OFF-FLOOR",
+   "reason": "at the disjoint radius the disc does not overlap the cruciform walkable floor anywhere (0.000 m2): it lies in the rooms beyond, off the arena.",
+   "verdict_flips_at_upper_bound": true,
+   "verdict_if_declared_gallery_aprons_counted": "DROP-OFF-FLOOR"
+  },
+  {
+   "id": "Z-618",
+   "witness_shot": 618,
+   "old_m": [
+    -19.095,
+    36.195
+   ],
+   "arena_m": [
+    19.807499999999997,
+    13.869999999999997
+   ],
+   "radius_disjoint_m": 6.702858750083035,
+   "radius_upper_bound_m": 12.54,
+   "disjoint": {
+    "overlap_walkable_m2": 32.040000000000006,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 0.0,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": false
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 192.44000000000003,
+    "overlap_entrance_ruled_m2": 27.160000000000004,
+    "overlap_entrance_with_declared_galleries_m2": 27.160000000000004,
+    "on_floor": true,
+    "coincides_ruled": true,
+    "coincides_with_declared_galleries": true
+   },
+   "verdict": "KEEP",
+   "reason": "overlaps walkable floor (32.040 m2) and overlaps no RULED entrance mouth or apron.",
+   "verdict_flips_at_upper_bound": true,
+   "verdict_if_declared_gallery_aprons_counted": "KEEP"
+  },
+  {
+   "id": "Z-620",
+   "witness_shot": 620,
+   "old_m": [
+    -1.9949999999999999,
+    43.31999999999999
+   ],
+   "arena_m": [
+    2.7074999999999987,
+    20.99499999999999
+   ],
+   "radius_disjoint_m": 7.281742005772023,
+   "radius_upper_bound_m": 13.622999999999998,
+   "disjoint": {
+    "overlap_walkable_m2": 144.32000000000002,
+    "overlap_entrance_ruled_m2": 6.0,
+    "overlap_entrance_with_declared_galleries_m2": 62.36000000000001,
+    "on_floor": true,
+    "coincides_ruled": true,
+    "coincides_with_declared_galleries": true
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 348.1600000000001,
+    "overlap_entrance_ruled_m2": 57.24,
+    "overlap_entrance_with_declared_galleries_m2": 158.08000000000004,
+    "on_floor": true,
+    "coincides_ruled": true,
+    "coincides_with_declared_galleries": true
+   },
+   "verdict": "DROP-COINCIDES-WITH-ENTRANCE",
+   "reason": "the disc overlaps a RULED entrance mouth or its hazard apron (6.000 m2).",
+   "verdict_flips_at_upper_bound": false,
+   "verdict_if_declared_gallery_aprons_counted": "DROP-COINCIDES-WITH-ENTRANCE"
+  },
+  {
+   "id": "Z-622",
+   "witness_shot": 622,
+   "old_m": [
+    13.964999999999998,
+    28.214999999999996
+   ],
+   "arena_m": [
+    -13.2525,
+    5.8899999999999935
+   ],
+   "radius_disjoint_m": 3.549468383566698,
+   "radius_upper_bound_m": 6.640499999999999,
+   "disjoint": {
+    "overlap_walkable_m2": 39.84,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 1.3200000000000003,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": true
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 129.84,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 19.360000000000003,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": true
+   },
+   "verdict": "KEEP",
+   "reason": "overlaps walkable floor (39.840 m2) and overlaps no RULED entrance mouth or apron.",
+   "verdict_flips_at_upper_bound": false,
+   "verdict_if_declared_gallery_aprons_counted": "DROP-COINCIDES-WITH-DECLARED-GALLERY-APRON"
+  },
+  {
+   "id": "Z-623",
+   "witness_shot": 623,
+   "old_m": [
+    19.095,
+    38.474999999999994
+   ],
+   "arena_m": [
+    -18.3825,
+    16.14999999999999
+   ],
+   "radius_disjoint_m": 7.921560341007223,
+   "radius_upper_bound_m": 14.819999999999999,
+   "disjoint": {
+    "overlap_walkable_m2": 23.080000000000002,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 84.48000000000002,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": true
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 275.88000000000005,
+    "overlap_entrance_ruled_m2": 33.88,
+    "overlap_entrance_with_declared_galleries_m2": 186.84000000000003,
+    "on_floor": true,
+    "coincides_ruled": true,
+    "coincides_with_declared_galleries": true
+   },
+   "verdict": "KEEP",
+   "reason": "overlaps walkable floor (23.080 m2) and overlaps no RULED entrance mouth or apron.",
+   "verdict_flips_at_upper_bound": true,
+   "verdict_if_declared_gallery_aprons_counted": "DROP-COINCIDES-WITH-DECLARED-GALLERY-APRON"
+  },
+  {
+   "id": "Z-626",
+   "witness_shot": 626,
+   "old_m": [
+    21.09,
+    -1.9949999999999999
+   ],
+   "arena_m": [
+    -20.3775,
+    -24.320000000000004
+   ],
+   "radius_disjoint_m": 5.514624698931952,
+   "radius_upper_bound_m": 10.317,
+   "disjoint": {
+    "overlap_walkable_m2": 0.0,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 0.0,
+    "on_floor": false,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": false
+   },
+   "upper_bound": {
+    "overlap_walkable_m2": 4.2,
+    "overlap_entrance_ruled_m2": 0.0,
+    "overlap_entrance_with_declared_galleries_m2": 9.040000000000001,
+    "on_floor": true,
+    "coincides_ruled": false,
+    "coincides_with_declared_galleries": true
+   },
+   "verdict": "DROP-OFF-FLOOR",
+   "reason": "at the disjoint radius the disc does not overlap the cruciform walkable floor anywhere (0.000 m2): it lies in the rooms beyond, off the arena.",
+   "verdict_flips_at_upper_bound": true,
+   "verdict_if_declared_gallery_aprons_counted": "DROP-OFF-FLOOR"
+  }
+ ],
+ "props": [
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 0,
+   "centre_m": [
+    -11.633893266942579,
+    -51.11
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -51.11
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 1,
+   "centre_m": [
+    -11.633893266942579,
+    -44.405648877823765
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -44.405648877823765
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 2,
+   "centre_m": [
+    -11.633893266942579,
+    -37.70129775564752
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -37.70129775564752
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 3,
+   "centre_m": [
+    -11.633893266942579,
+    -30.99694663347129
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -30.99694663347129
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 4,
+   "centre_m": [
+    -11.633893266942579,
+    -24.29259551129505
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -24.29259551129505
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R1-nave-west",
+   "bay": 5,
+   "centre_m": [
+    -11.633893266942579,
+    -17.588244389118813
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -17.588244389118813
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R2-chancel-west",
+   "bay": 0,
+   "centre_m": [
+    -11.633893266942579,
+    10.883893266942579
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R2-chancel-west",
+   "bay": 1,
+   "centre_m": [
+    -11.633893266942579,
+    18.219446633471286
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": 18.219446633471286
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R3-transeptW-n",
+   "bay": 0,
+   "centre_m": [
+    -28.6425,
+    11.633893266942579
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R3-transeptW-n",
+   "bay": 1,
+   "centre_m": [
+    -22.722964422314192,
+    11.633893266942579
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R3-transeptW-n",
+   "bay": 2,
+   "centre_m": [
+    -16.803428844628385,
+    11.633893266942579
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R5-transeptW-end",
+   "bay": 0,
+   "centre_m": [
+    -29.3925,
+    -10.883893266942579
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -10.883893266942579
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R5-transeptW-end",
+   "bay": 1,
+   "centre_m": [
+    -29.3925,
+    -3.627964422314193
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": -3.627964422314193
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R5-transeptW-end",
+   "bay": 2,
+   "centre_m": [
+    -29.3925,
+    3.627964422314193
+   ],
+   "footprint_m": [
+    1.5,
+    1.6
+   ],
+   "height_m": 57.0,
+   "sort_line": 3.627964422314193
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R6-apse",
+   "bay": 0,
+   "centre_m": [
+    -10.883893266942579,
+    26.304999999999996
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 25.554999999999996
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R6-apse",
+   "bay": 1,
+   "centre_m": [
+    -3.627964422314193,
+    26.304999999999996
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 25.554999999999996
+  },
+  {
+   "kind": "arcade_pier",
+   "wall": "R6-apse",
+   "bay": 2,
+   "centre_m": [
+    3.627964422314193,
+    26.304999999999996
+   ],
+   "footprint_m": [
+    1.6,
+    1.5
+   ],
+   "height_m": 57.0,
+   "sort_line": 25.554999999999996
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    -12.083893266942578,
+    12.083893266942578
+   ],
+   "footprint_m": [
+    2.4,
+    2.4
+   ],
+   "height_m": 0.9,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    12.083893266942578,
+    12.083893266942578
+   ],
+   "footprint_m": [
+    2.4,
+    2.4
+   ],
+   "height_m": 0.9,
+   "sort_line": 10.883893266942579
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    -12.083893266942578,
+    -12.083893266942578
+   ],
+   "footprint_m": [
+    2.4,
+    2.4
+   ],
+   "height_m": 0.9,
+   "sort_line": -13.283893266942577
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    12.083893266942578,
+    -12.083893266942578
+   ],
+   "footprint_m": [
+    2.4,
+    2.4
+   ],
+   "height_m": 0.9,
+   "sort_line": -13.283893266942577
+  }
+ ],
+ "spawn_galleries": [
+  {
+   "id": "SG-R1-nave-west-b5",
+   "wall": "R1-nave-west",
+   "centre_m": [
+    -10.883893266942579,
+    -14.236068828030694
+   ],
+   "z": [
+    12.6,
+    17.01130533665287
+   ],
+   "width_m": 4.022610673305742,
+   "kind": "descend_from_above",
+   "foot_m": [
+    -10.883893266942579,
+    -14.236068828030694
+   ]
+  },
+  {
+   "id": "SG-R2-chancel-west-b1",
+   "wall": "R2-chancel-west",
+   "centre_m": [
+    -10.883893266942579,
+    21.88722331673564
+   ],
+   "z": [
+    12.6,
+    17.200666009958614
+   ],
+   "width_m": 4.401332019917225,
+   "kind": "descend_from_above",
+   "foot_m": [
+    -10.883893266942579,
+    21.88722331673564
+   ]
+  },
+  {
+   "id": "SG-R3-transeptW-n-b1",
+   "wall": "R3-transeptW-n",
+   "centre_m": [
+    -19.76319663347129,
+    10.883893266942579
+   ],
+   "z": [
+    12.6,
+    16.775860673305743
+   ],
+   "width_m": 3.5517213466114836,
+   "kind": "descend_from_above",
+   "foot_m": [
+    -19.76319663347129,
+    10.883893266942579
+   ]
+  },
+  {
+   "id": "SG-R5-transeptW-end-b1",
+   "wall": "R5-transeptW-end",
+   "centre_m": [
+    -28.6425,
+    0.0
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032,
+   "kind": "descend_from_above",
+   "foot_m": [
+    -28.6425,
+    0.0
+   ]
+  },
+  {
+   "id": "SG-R6-apse-b1",
+   "wall": "R6-apse",
+   "centre_m": [
+    0.0,
+    25.554999999999996
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032,
+   "kind": "descend_from_above",
+   "foot_m": [
+    0.0,
+    25.554999999999996
+   ]
+  }
+ ],
+ "wall_rise": {
+  "declared_m": 34.0,
+  "solved_required_m": 55.58533354936924,
+  "built_m": 57.0,
+  "rule": "h > [PXG*(s_player - s_crown) + anchor_y]/PXE + z_player, maximised over every (crown, player) pair that can share a 1920x1080 frame. Corrigendum 3 cl.1 asked for 'tall enough that no crown is visible at any camera position'; 34 m was DECLARED and the pixel measurement refuted it."
+ },
+ "rise_test": {
+  "rule": "an element rises to wall_rise_m iff raising it hides NO MORE walkable floor than cutting it to near_cut_m would (tolerance 0.5 m2). This is the reason BOTH corrigenda give for cutting a side low, applied as the test itself, so no per-element list of faces exists anywhere in this generator.",
+  "mode": "compass",
+  "tolerance_m2": 0.5,
+  "elements": [
+   {
+    "element": "R1-nave-west",
+    "rises": false,
+    "hidden_at_full_height_m2": 156.64000000000001,
+    "hidden_at_cut_height_m2": 1.08,
+    "extra_cost_m2": 155.56,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "R2-chancel-west",
+    "rises": true,
+    "hidden_at_full_height_m2": 0.0,
+    "hidden_at_cut_height_m2": 0.0,
+    "extra_cost_m2": 0.0,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "R3-transeptW-n",
+    "rises": true,
+    "hidden_at_full_height_m2": 0.0,
+    "hidden_at_cut_height_m2": 0.0,
+    "extra_cost_m2": 0.0,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "R5-transeptW-end",
+    "rises": true,
+    "hidden_at_full_height_m2": 0.0,
+    "hidden_at_cut_height_m2": 0.0,
+    "extra_cost_m2": 0.0,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "R6-apse",
+    "rises": true,
+    "hidden_at_full_height_m2": 0.0,
+    "hidden_at_cut_height_m2": 0.0,
+    "extra_cost_m2": 0.0,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "crossing_pier_-12.084_12.084",
+    "rises": true,
+    "hidden_at_full_height_m2": 0.0,
+    "hidden_at_cut_height_m2": 0.0,
+    "extra_cost_m2": 0.0,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "crossing_pier_12.084_12.084",
+    "rises": false,
+    "hidden_at_full_height_m2": 57.44,
+    "hidden_at_cut_height_m2": 1.6,
+    "extra_cost_m2": 55.839999999999996,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "crossing_pier_-12.084_-12.084",
+    "rises": false,
+    "hidden_at_full_height_m2": 71.12,
+    "hidden_at_cut_height_m2": 1.5600000000000003,
+    "extra_cost_m2": 69.56,
+    "probe_m": 25.664088417080983
+   },
+   {
+    "element": "crossing_pier_12.084_-12.084",
+    "rises": false,
+    "hidden_at_full_height_m2": 56.400000000000006,
+    "hidden_at_cut_height_m2": 2.7600000000000002,
+    "extra_cost_m2": 53.64000000000001,
+    "probe_m": 25.664088417080983
+   }
+  ],
+  "demoted_from_rising": []
+ },
+ "openings": [
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -10.883893266942579,
+    -47.75782443891188
+   ],
+   "z": [
+    12.6,
+    17.01130533665287
+   ],
+   "width_m": 4.022610673305742
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 1,
+   "width_m": 6.704351122176237,
+   "z": [
+    12.0,
+    17.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -41.05347331673565
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 2,
+   "width_m": 6.704351122176237,
+   "z": [
+    12.0,
+    17.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -34.349122194559406
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 3,
+   "width_m": 6.704351122176237,
+   "z": [
+    12.0,
+    17.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -27.644771072383172
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 4,
+   "centre_m": [
+    -10.883893266942579,
+    -20.94041995020693
+   ],
+   "z": [
+    12.6,
+    17.01130533665287
+   ],
+   "width_m": 4.022610673305742
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -10.883893266942579,
+    -47.75782443891188
+   ],
+   "z": [
+    18.5,
+    24.343696558598467
+   ],
+   "width_m": 3.6873931171969305
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 1,
+   "width_m": 6.704351122176237,
+   "z": [
+    17.0,
+    26.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -41.05347331673565
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 2,
+   "width_m": 6.704351122176237,
+   "z": [
+    17.0,
+    26.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -34.349122194559406
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 3,
+   "width_m": 6.704351122176237,
+   "z": [
+    17.0,
+    26.0
+   ],
+   "centre_m": [
+    -10.883893266942579,
+    -27.644771072383172
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 4,
+   "centre_m": [
+    -10.883893266942579,
+    -20.94041995020693
+   ],
+   "z": [
+    18.5,
+    24.343696558598467
+   ],
+   "width_m": 3.6873931171969305
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 5,
+   "centre_m": [
+    -10.883893266942579,
+    -14.236068828030694
+   ],
+   "z": [
+    18.5,
+    24.343696558598467
+   ],
+   "width_m": 3.6873931171969305
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -10.883893266942579,
+    14.551669950206932
+   ],
+   "z": [
+    12.6,
+    17.200666009958614
+   ],
+   "width_m": 4.401332019917225
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -10.883893266942579,
+    14.551669950206932
+   ],
+   "z": [
+    18.5,
+    24.517277175795396
+   ],
+   "width_m": 4.03455435159079
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -10.883893266942579,
+    21.88722331673564
+   ],
+   "z": [
+    18.5,
+    24.517277175795396
+   ],
+   "width_m": 4.03455435159079
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -25.682732211157095,
+    10.883893266942579
+   ],
+   "z": [
+    12.6,
+    16.775860673305743
+   ],
+   "width_m": 3.5517213466114836
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "triforium",
+   "bay": 2,
+   "centre_m": [
+    -13.843661055785482,
+    10.883893266942579
+   ],
+   "z": [
+    12.6,
+    16.775860673305743
+   ],
+   "width_m": 3.5517213466114836
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -25.682732211157095,
+    10.883893266942579
+   ],
+   "z": [
+    18.5,
+    24.127872283863596
+   ],
+   "width_m": 3.2557445677271937
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -19.76319663347129,
+    10.883893266942579
+   ],
+   "z": [
+    18.5,
+    24.127872283863596
+   ],
+   "width_m": 3.2557445677271937
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "clerestory",
+   "bay": 2,
+   "centre_m": [
+    -13.843661055785482,
+    10.883893266942579
+   ],
+   "z": [
+    18.5,
+    24.127872283863596
+   ],
+   "width_m": 3.2557445677271937
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -28.6425,
+    -7.255928844628386
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "triforium",
+   "bay": 2,
+   "centre_m": [
+    -28.6425,
+    7.255928844628386
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -28.6425,
+    -7.255928844628386
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -28.6425,
+    0.0
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "clerestory",
+   "bay": 2,
+   "centre_m": [
+    -28.6425,
+    7.255928844628386
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R6-apse",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -7.255928844628386,
+    25.554999999999996
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032
+  },
+  {
+   "wall": "R6-apse",
+   "band": "triforium",
+   "bay": 2,
+   "centre_m": [
+    7.255928844628386,
+    25.554999999999996
+   ],
+   "z": [
+    12.6,
+    17.176778653388517
+   ],
+   "width_m": 4.353557306777032
+  },
+  {
+   "wall": "R6-apse",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -7.255928844628386,
+    25.554999999999996
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R6-apse",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    0.0,
+    25.554999999999996
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R6-apse",
+   "band": "clerestory",
+   "bay": 2,
+   "centre_m": [
+    7.255928844628386,
+    25.554999999999996
+   ],
+   "z": [
+    18.5,
+    24.495380432272807
+   ],
+   "width_m": 3.9907608645456127
+  },
+  {
+   "wall": "R6-apse",
+   "band": "chancel_breach",
+   "bay": -1,
+   "centre_m": [
+    -7.0,
+    25.554999999999996
+   ],
+   "z": [
+    0.0,
+    5.0
+   ],
+   "width_m": 4.0
+  }
+ ],
+ "crossing_piers": [
+  {
+   "centre_m": [
+    -12.083893266942578,
+    12.083893266942578
+   ],
+   "rises": false,
+   "height_m": 0.9,
+   "probe_m": 25.664088417080983
+  },
+  {
+   "centre_m": [
+    12.083893266942578,
+    12.083893266942578
+   ],
+   "rises": false,
+   "height_m": 0.9,
+   "probe_m": 25.664088417080983
+  },
+  {
+   "centre_m": [
+    -12.083893266942578,
+    -12.083893266942578
+   ],
+   "rises": false,
+   "height_m": 0.9,
+   "probe_m": 25.664088417080983
+  },
+  {
+   "centre_m": [
+    12.083893266942578,
+    -12.083893266942578
+   ],
+   "rises": false,
+   "height_m": 0.9,
+   "probe_m": 25.664088417080983
+  }
+ ],
+ "walkable_area_raster_m2": 2353.92,
+ "walkable_area_target_m2": 2354.3412243939315,
+ "raster_cell_m": 0.2,
+ "apron_area_m2": {
+  "bluefire": 309.28000000000003,
+  "fire": 32.720000000000006
+ }
+}
