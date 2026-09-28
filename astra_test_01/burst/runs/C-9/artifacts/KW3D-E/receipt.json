@@ -1,0 +1,86 @@
+{
+  "task_id": "KW3D-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "KW3D-E_a",
+      "path": "out/KW3D-E_a.png",
+      "sha256": "5b4a91923eb53573a7ce753c3a490b8803888596fe8f279dd5ed27957202f696",
+      "prompt": "EDIT the supplied 1536x1024 sprite sheet. Precise background correction ONLY: replace the entire dark grey/brown/blue shaded background with completely flat solid bright green, RGB(0,255,0), hexadecimal #00ff00. Every background pixel must be this same green, including gaps between limbs and polearms and every edge and corner of the canvas. No gradient, texture, vignette, light pool, shadow, haze or scenery. Preserve all twelve painted knights and their pollaxes exactly as they are: identical pixels, poses, silhouettes, positions, sizes, colours, ink lines, heraldry and details. Keep the existing four-column, three-row arrangement and 1536x1024 canvas. Do not repaint, move, duplicate, remove or resize any knight or weapon. No text or borders. The sole change is dark background to uniform #00ff00 green.",
+      "references": [
+        {
+          "role": "Original edit target and geometry authority",
+          "path": "in/01_kw3d_walk_E_sheet.png"
+        },
+        {
+          "role": "Approved knight identity and painting reference used in initial edit",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Underlying armour and mail reference used in initial edit",
+          "path": "in/03_RP-E_a.png"
+        },
+        {
+          "role": "Immediate retry edit target: initial variant a",
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6231e573-d64b-460f-a7ac-4267edb368cc.png"
+        }
+      ],
+      "elapsed_s": 26.016
+    },
+    {
+      "name": "KW3D-E_b",
+      "path": "out/KW3D-E_b.png",
+      "sha256": "a4c502bde807d5f20ec57e2ee83a1c1e74c139793eff63ae0d2d7fe3ecf0f97f",
+      "prompt": "EDIT the supplied 1536x1024 sprite sheet. Precise background correction ONLY: replace the entire dark grey/brown/blue shaded background with completely flat solid bright green, RGB(0,255,0), hexadecimal #00ff00. Every background pixel must be this same green, including gaps between limbs and polearms and every edge and corner of the canvas. No gradient, texture, vignette, light pool, shadow, haze or scenery. Preserve all twelve painted knights and their pollaxes exactly as they are: identical pixels, poses, silhouettes, positions, sizes, colours, ink lines, heraldry and details. Keep the existing four-column, three-row arrangement and 1536x1024 canvas. Do not repaint, move, duplicate, remove or resize any knight or weapon. No text or borders. The sole change is dark background to uniform #00ff00 green.",
+      "references": [
+        {
+          "role": "Original edit target and geometry authority",
+          "path": "in/01_kw3d_walk_E_sheet.png"
+        },
+        {
+          "role": "Approved knight identity and painting reference used in initial edit",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Underlying armour and mail reference used in initial edit",
+          "path": "in/03_RP-E_a.png"
+        },
+        {
+          "role": "Immediate retry edit target: initial variant b",
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6dfc3256-8e47-4d25-b9a1-143eb382c1c6.png"
+        }
+      ],
+      "elapsed_s": 63.549
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a had a dark shaded background instead of flat green.",
+      "change": "One edit retry requesting only replacement of the background with #00ff00."
+    },
+    {
+      "reason": "Variant b had a dark shaded background instead of flat green.",
+      "change": "One edit retry requesting only replacement of the background with #00ff00."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both PNGs are 1536x1024 and visibly retain twelve frames in a 4x3 arrangement.",
+      "Green backgrounds appear slightly mottled; exact #00ff00 uniformity is unverified.",
+      "Local silhouettes and armour details differ from the geometry source; exact outline preservation was not achieved.",
+      "Armour rendering is smoother and glossier than the requested watercolor-and-hatching hand."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/KW3D-E_a.png",
+      "sha256": "5b4a91923eb53573a7ce753c3a490b8803888596fe8f279dd5ed27957202f696"
+    },
+    {
+      "path": "out/KW3D-E_b.png",
+      "sha256": "a4c502bde807d5f20ec57e2ee83a1c1e74c139793eff63ae0d2d7fe3ecf0f97f"
+    }
+  ]
+}

@@ -13424,9 +13424,110 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KW3D-E",
+      "type": "GENERATE",
+      "experiment": "P7-3d-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "8a12fdecae72b5c8a85e3ea2dae5be52bf2f08815bd4256fa6598417b29e421f",
+      "started": "2026-09-28T10:44:04.406000+00:00",
+      "ended": "2026-09-28T10:48:39.073282+00:00",
+      "minutes": 4.577740366666694,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6231e573-d64b-460f-a7ac-4267edb368cc.png",
+            "sha256": "c7276b5e54a76683731674712aa8d0f884b9bb71a243dddfed6c79121c00c89d"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6dfc3256-8e47-4d25-b9a1-143eb382c1c6.png",
+            "sha256": "26d78d0e121ca246743d4863dd7da7193c1e9be5a8a1d6520f4fd0ae3d609d11"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-7a497134-d9c2-4b8f-b48c-4cf951d1fd15.png",
+            "sha256": "5b4a91923eb53573a7ce753c3a490b8803888596fe8f279dd5ed27957202f696"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-9507abed-a496-44c2-bb2c-885f215e43eb.png",
+            "sha256": "a4c502bde807d5f20ec57e2ee83a1c1e74c139793eff63ae0d2d7fe3ecf0f97f"
+          }
+        ]
+      },
+      "receipt_sha256": "dafc49a532532c2fad7502a1f038a87c31c53be32ecf8da49c46cb1fbe2ed4a8",
+      "artifacts": [
+        {
+          "name": "KW3D-E_a.png",
+          "sha256": "5b4a91923eb53573a7ce753c3a490b8803888596fe8f279dd5ed27957202f696"
+        },
+        {
+          "name": "KW3D-E_b.png",
+          "sha256": "a4c502bde807d5f20ec57e2ee83a1c1e74c139793eff63ae0d2d7fe3ecf0f97f"
+        },
+        {
+          "name": "exec-6231e573-d64b-460f-a7ac-4267edb368cc.provenance.json",
+          "sha256": "7f36182555902635fe44782769145368b26960a41bfe63a43a6e44117250f480"
+        },
+        {
+          "name": "exec-6dfc3256-8e47-4d25-b9a1-143eb382c1c6.provenance.json",
+          "sha256": "2e05e4a46b844b3f7679a17df9c6fcdcc3f00e9cbc766fe673ef8022244a42b3"
+        },
+        {
+          "name": "exec-7a497134-d9c2-4b8f-b48c-4cf951d1fd15.provenance.json",
+          "sha256": "fc7742fd32da4d7d20b403a4564d3b0147e822e937223c9877957ed8136f8b2f"
+        },
+        {
+          "name": "exec-9507abed-a496-44c2-bb2c-885f215e43eb.provenance.json",
+          "sha256": "694caab02b6bd78dc2ddf4264b72b14befe203887a96d92cb67a7117eb59e508"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6231e573-d64b-460f-a7ac-4267edb368cc.png",
+          "sha256": "c7276b5e54a76683731674712aa8d0f884b9bb71a243dddfed6c79121c00c89d"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-6dfc3256-8e47-4d25-b9a1-143eb382c1c6.png",
+          "sha256": "26d78d0e121ca246743d4863dd7da7193c1e9be5a8a1d6520f4fd0ae3d609d11"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-7a497134-d9c2-4b8f-b48c-4cf951d1fd15.png",
+          "sha256": "5b4a91923eb53573a7ce753c3a490b8803888596fe8f279dd5ed27957202f696"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e79d-689c-76e1-8955-bed1951e1fa8/exec-9507abed-a496-44c2-bb2c-885f215e43eb.png",
+          "sha256": "a4c502bde807d5f20ec57e2ee83a1c1e74c139793eff63ae0d2d7fe3ecf0f97f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 348,
+  "images_used": 352,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -13644,6 +13745,11 @@
       "id": "M-C9-3D-Mb2",
       "ts": "2026-09-28",
       "note": "3D knight second pass (drax edc9ed827). The pollaxe: fan outboard and forward (sign verified in all eight views; bearing 70 deg from three converging instruments; the fan must go edge-on somewhere, 70 deg costs least); helm clearance at least 67 mm through the run. Joints articulated (the cuisse and greave overlap the knee, a poleyn cup, the ankle lap, the toe lame nests 40 mm under the sabaton): walk 0 parted joints, run 1 hairline (1.12 px); foot plant unchanged; 2,142 green sole texels refilled within their piece. Motion from video: a per-frame pose fit to the Grok cells raises silhouette IoU from 0.607 to 0.836 (walk) and 0.411 to 0.675 (run), but re-imposing the foot plant wrecks it (down to 0.21), because the fit leaves the root free and the solved root wanders over a metre; the fix is structural (the plant inside the fit objective), not shipped. The frames under review are the procedural cycle. Conductor eye at 3x: the legs are now continuous but read boxy and heavy next to Grok; the hip and mail skirt are still the weakest paint."
+    },
+    {
+      "id": "M-C9-3D-PAINTOVER-1",
+      "ts": "2026-09-28",
+      "note": "KW3D-E: Astra one-sheet paint-over of the 12 procedural 3D walk frames (4x3 on #00ff00; seed_E as the look source, RP-E_a for the under-armour). Both variants read as the approved knight (heraldry, helm, fan blade, painted hand) and held the 3D poses: silhouette IoU vs the 3D guide frames 0.87-0.91 per frame, mean 0.891 (a) and 0.893 (b), the gap mostly the thin haft. Cut back into 512 frames at the original placement (knight3d/out/sprites_astra_{a,b}/walk/E/). Five-way MP4 (Grok, rig, raw 3D, 3D+Astra a, 3D+Astra b; real speed and 1/3): agentic_orchestration/drax/captures/2026-09-28-knight3d-Mb/knight3d_astra_paintover_walk_E.mp4. Open: frame-to-frame flicker is for Matt's eye (no instrument yet); the motion is still the procedural cycle (the plant-constrained Grok fit is in flight with drax)."
     }
   ],
   "halts": [],
@@ -14144,6 +14250,14 @@
       "topic": "3D knight: the leg rigging is poor and the feet look chopped; Astra to fix the paint afterwards",
       "ruling": "Matt verbatim: \"It may help to have Astra fix the painting work. But the bones/frame isnt rigged well around the legs and the feet look chopped up.\" Confirmed at zoom: the toe section separates from the sabaton; unpainted soles; rigid leg plates with no overlap open and kink at the knee and ankle; the swing leg drags. Dispatch to drax, in order: (1) articulated joints (a poleyn cup, overlapping ankle and sabaton lames, a toe lame sliding under), asserted on renders (no background and no dark plug inside joint regions); (2) motion transferred from the Grok E clips by a per-frame pose fit, then pinned feet, ground and cadence enforced; (3) sole paint cleanup; (4) re-render, the comparison MP4 and a zoomed leg strip, then STOP for Matt. The Astra one-sheet paint-over is approved in principle (Matt) and runs AFTER the geometry and motion are right.",
       "ts": "2026-09-28T00:07:51"
+    },
+    {
+      "id": "R-C9-59",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "3D knight: the drax motion fix and the Astra paint-over, in parallel",
+      "ruling": "Matt verbatim: \"Ok, try the drax and Astra fixes for the knight walk\". (A) drax: a plant-constrained joint pose fit to the Grok cells (the root constrained by stance pins, ground, cadence and stride; periodic), frames to out/sprites_fit/. (B) Astra KW3D-E: a one-sheet paint-over of the 12 current procedural walk frames (a 4x3 grid on #00ff00, sheet layout in CS9-guides/kw3d_walk_E_sheet_layout.json), with seed_E as the look source and RP-E_a for the under-armour; two variants; the sheet cut back into 512 frames at the original placement for comparison.",
+      "ts": "2026-09-28T06:44:16"
     }
   ],
   "grok_calls": [
