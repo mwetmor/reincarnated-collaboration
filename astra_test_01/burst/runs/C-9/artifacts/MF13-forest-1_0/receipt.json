@@ -1,0 +1,35 @@
+{
+  "task_id": "MF13-forest-1_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "MF13-forest-1_0.png",
+      "path": "out/MF13-forest-1_0.png",
+      "sha256": "606435699ad3fc498a669bbb31f65ab4410f96dd84472799516863b290d2e855",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the forest canvas, and deliver ONE 1536x1024 PNG. Image 2 is only the approved watercolor-and-ink STYLE reference, never content. ADD MIST ON TOP of Image 1 only: light, translucent pale-violet/lavender banks and wisps resting in hollows and along the existing river, with violet smoky haze drifting from the existing fire front. Mist is strongest in the upper, farther land, becoming almost absent at the lower foreground/scorched land. This middle forest mist is light and airy, lighter than far-distance mist; forest detail remains legible through it. Paint transparent watercolor washes with soft irregular uneven edges, subtle granulation and pooling, a little warm sunset gold along upper edges; never a smooth airbrushed gradient or uniform flat grey fog. Keep existing fire and its warm glow clearly visible through the haze. STRICT INVARIANTS: every hill, individual tree, rock, river, flame, fire front and smoke plume stays exactly where and what it is, merely veiled locally by the added mist. Preserve original framing, geometry, camera, horizon silhouette, palette, and forest rendering. All pure #00ff00 area above land must remain identical flat pure #00ff00, with NO mist or paint in the green area. Do not add a sky. Do not add buildings, fires, figures, text, borders, vignette or repeated elements. Do not shift, regenerate, replace, simplify or rearrange the landscape. Style register: late-medieval/early-Renaissance illuminated manuscript stylized landscape, rendered as hand-painted 1990s tactics role-playing watercolor-and-ink illustration. Crisp dark sepia-to-near-black wavering pen contour, varied line weight, fine hand-drawn hatching, uneven transparent washes, pale cream bare-paper highlights, second darker washes plus hatching for shadows. Mineral lapis, vermilion, verdigris, yellow ochre, madder, warm stone greys at moderate values; retain the original parallax layer's deep violet-indigo shadows and low sunset light from screen-left. Purple smoky haze thickens with distance. Saturated warm only in existing fire; preserve the exempt pure green keying plate. No glossy highlights, lens effects or digital gradients. The edit is solely the addition of painted mist, with all original content preserved.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_1_0_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 37.506
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-1_0.png",
+      "sha256": "606435699ad3fc498a669bbb31f65ab4410f96dd84472799516863b290d2e855"
+    }
+  ]
+}

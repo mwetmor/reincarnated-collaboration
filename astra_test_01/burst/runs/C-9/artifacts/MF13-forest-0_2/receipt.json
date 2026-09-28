@@ -1,0 +1,38 @@
+{
+  "task_id": "MF13-forest-0_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-forest-0_2.png",
+      "path": "out/MF13-forest-0_2.png",
+      "sha256": "c89cbe56e07868be00179ed5490fe6e03fe03339fd184ea6a058e47da85e2a6e",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1 only. Deliver one 1536x1024 PNG with exactly the same framing and composition. IMAGE 1 is the finished MID FOREST parallax layer crop and is the immutable canvas. IMAGE 2 is only the approved watercolor-and-ink painting-hand reference, never a source of content or geometry.\nADD MIST ON TOP of IMAGE 1: light, translucent pale violet-lavender banks and wisps nestled in the existing hollows, with violet smoky haze drifting from the existing forest fire front. Strongest in the upper, farther part of the crop; taper to almost no added mist in the lower scorched foreground. This is lighter middle-distance mist, not dense far-distance fog. Existing flames and their warm light must remain clearly visible through it. Upper edges of some wisps catch a delicate touch of warm gold from the low sun at screen-left. Make the mist distinctly hand-painted transparent watercolor washes, softly irregular edges, uneven pooling, granulation and subtle pigment blooms, with gaps showing the existing terrain. No airbrushed gradient, no uniform grey fog blanket.\nSTRICT PRESERVATION: every existing hill, tree, rock, hollow, fire, ember and smoke plume remains exactly where and what it is, only transparently veiled where added mist lies. Preserve the original dark pen contours, hatching, terrain and fire shapes beneath the veil. Do not repaint, move, substitute, duplicate or invent any landscape features. No zoom, crop, camera change or restaging. This supplied crop shows land and fire all the way to its edges: do not invent a river or sky or green region. If any pure #00ff00 pixels are present in the edit canvas, leave them flat pure #00ff00 without mist.\nREGISTER STYLE: late-medieval and early-Renaissance illuminated-manuscript subject, composition, iconography and mineral palette, rendered in hand-painted watercolor and ink of 1990s tactics role-playing character illustration. Crisp dark sepia-to-near-black wavering variable-weight pen contours and hand hatching, uneven transparent washes with pale highlights. Preserve the darker parallax terrain with violet-indigo shade and warm gold sun-facing slopes; saturated warm restricted to existing fire. New mist matches the existing painting hand and the transparent pigment handling in IMAGE 2. No glossy highlights, lens effects or digital gradients. No new buildings, towns, figures, fires, text, border or vignette. Nothing repeats. Change only the added mist.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_mf13_forest_0_2_canvas.png"
+        },
+        {
+          "role": "style_only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 38.901
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied crop contains no visible green plate or identifiable river; neither was introduced.",
+      "Composition preservation was assessed visually; exact pixel preservation was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-0_2.png",
+      "sha256": "c89cbe56e07868be00179ed5490fe6e03fe03339fd184ea6a058e47da85e2a6e"
+    }
+  ]
+}

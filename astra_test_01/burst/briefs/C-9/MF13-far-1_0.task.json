@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST MF13-far-1_0 — Run C-9, parallax layer: ADD MIST (Matt R-C9-50: \"paint it\"). task_id \"MF13-far-1_0\".\n\nIMAGE 1 is a 1536x1024 crop of a finished painted parallax layer, the FAR layer: distant rolling wooded hills and a winding river under a low sunset, a few small fires with smoke; above the land it is flat pure #00ff00 (a keying plate; the sky is a separate layer). Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 image that is IMAGE 1 with MIST ADDED: THICK banks of soft pale-violet mist lying IN THE VALLEYS between the hills and along the river, THICKEST toward the horizon (the top of the land) where whole ranges fade into violet haze with only their crests showing, thinning toward the bottom of the layer; hilltops and ridges rise OUT of the mist as dark silhouettes; where a fire burns, its glow shows warm through the mist. Paint the mist in the same hand as the image: transparent watercolor washes with soft uneven edges, never an airbrushed gradient or a flat grey fog; the mist is light violet-lavender (lit by the low sun it catches a little warm gold on its upper edges). The mist is ADDED ON TOP: every hill, tree, rock, river, fire and plume stays exactly where and what it is, only veiled where the mist lies. The flat pure #00ff00 above the land stays flat pure #00ff00 (no mist painted into it). No new buildings, fires, figures, text, border or vignette. Nothing repeats.\nSTYLE: the REGISTER CARD above (PARALLAX LIGHT: a purple smoky haze thickening with distance); IMAGE 2 only as the approved painted style of this level (not its content).\n\nOne image_gen call. ONE retry only if the mist is missing or reads as flat fog, the land or fires moved or changed, or mist was painted over the #00ff00 plate — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/MF13-far-1_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"MF13-far-1_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/mf13_far_1_0_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (C-9 parallax layer crop)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (not its content)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/MF13-far-1_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-mist-banks"
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "MF13-forest-1_1",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "MF13-forest-1_1.png",
+      "path": "out/MF13-forest-1_1.png",
+      "sha256": "40a76c2aa207170e729a3f54c9dd70b1aae4b0e04b42d7e56405e2524ddb3039",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the existing forest canvas; IMAGE 2 is supporting watercolor-and-ink STYLE ONLY, never its content. Deliver one 1536x1024 image.\nAdd LIGHT mist ON TOP of Image 1: soft transparent pale violet-lavender banks and wisps resting in hollows and along the existing river, with violet smoky haze drifting from the existing fire front. Strongest in the upper/farther forest, thinning toward the bottom, almost absent over the lower scorched land. This is lighter mist than far-distance fog. Existing flames and their warm glow remain clearly visible through the haze. Mist catches a little warm gold on its upper edges from the low sunset at screen-left.\nSTRICT PRESERVATION: Keep the exact framing, elevated three-quarter orthographic view, and every existing hill, tree, rock, river, fire and smoke plume in precisely the same position and shape. Add only translucent mist; do not redraw, move, remove, duplicate or invent scene elements. Do not change the existing colors except by transparent mist veiling. Preserve any existing pure #00ff00 plate completely untouched, with no mist on it; do not create green areas where none exist. No new buildings, fire, figures, text, border or vignette. Nothing repeats.\nREGISTER: Subject, composition, iconography and palette derive from late-medieval and early-Renaissance illuminated manuscripts c.1400–1530. Rendering is hand-painted watercolor-and-ink illustration as in 1990s tactics role-playing character illustration: crisp dark sepia-to-near-black wavering variable-weight pen contour and fine hand-drawn hatching, transparent uneven washes. The hand must show: washes pool at edges, granulate, bloom softly, sometimes stop short of the contour or overrun it slightly; shadows use a second wash and hatching, never digital gradients. Mist must be a translucent watercolor wash with soft irregular uneven edges, never an airbrushed gradient or a uniform flat grey fog. One coherent hand-painted illustration. Pale cream and paper highlights, moderate mineral lapis, vermilion, verdigris, ochre, madder, lead white and warm stone greys, rich color in small accents, darkest marks are ink and hatching. Preserve existing parallax darkness and sunset/fire: warm sun-facing edges from screen-left, deep violet-indigo shaded areas and purple haze thickening with distance. Saturated warmth only in existing fire; no sky added. No towns or villages. Keep all existing scene geometry absolutely fixed. IMAGE 2 informs only the tactile wash/ink handling of the added mist; do not transplant its road, rocks, plants or green backdrop.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_1_1_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 41.611
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied forest crop contains no visible green plate; its existing framing was preserved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-1_1.png",
+      "sha256": "40a76c2aa207170e729a3f54c9dd70b1aae4b0e04b42d7e56405e2524ddb3039"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "MF13-forest-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-forest-2_1.png",
+      "path": "out/MF13-forest-2_1.png",
+      "sha256": "b7b60f9b0d987cd0d0ad37ff3aafb0a36abc92b09c8acf2d43b422335b0f4d8d",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1 ONLY. Deliver one 1536x1024 PNG, identical framing and exact same scene, with MIST ADDED ON TOP. Image 1 is the finished mid-forest parallax canvas and is the sole source for all geometry, content, composition and existing colors. Image 2 is solely a reference for hand-painted transparent watercolor-and-ink handling, never its content or layout. Preserve every hill, tree, rock, flame, ember, scorched trunk and existing smoke plume exactly in its original location, shape and size. Do not repaint or rearrange the scene. Add light, translucent pale violet-lavender mist banks and delicate wisps through forest hollows, strongest in the upper farther forest, with violet smoky haze drifting from the existing fire front, becoming sparser downward and fading to almost none in the lower scorched foreground. This is light middle-distance mist: the trees remain readable through it, and all the existing fire and its warm glow remain clearly visible through the haze. The added mist must visibly be painted: irregular transparent watercolor washes, fine pigment granulation, soft uneven wet edges, slight pooling and soft watercolor blooms, overlapping wisps with gaps, no smooth airbrushed gradient and no uniform flat grey fog. A little muted warm gold catches upper mist edges from the low sun at screen-left. Preserve the original dark violet-indigo shadows and warm sunward slopes. Keep the crisp dark sepia-to-near-black wavery pen lines and fine hand hatching visible under the washes. Subject vocabulary is late-medieval and early-Renaissance illuminated manuscript landscape, c. 1400-1530, rendering is hand-painted watercolor and pen-and-ink character illustration of the kind made for 1990s tactics role-playing games. Mineral colors, pale cream highlights, rich accents, saturated warm only in existing fire. No added digital lighting effects, glossy highlights, lens effects or filled black shadows. Fixed elevated three-quarter orthographic game view, unchanged. Do not introduce anything from Image 2. No new buildings, towns, villages, fires, figures, river, sky, text, border or vignette; no duplicates. If any pure #00ff00 plate exists in the source, leave it exactly pure #00ff00 and entirely untouched by mist. The actual attached crop shows forest edge-to-edge without a visible river or green sky region: preserve this crop exactly, do not invent missing described features. Change only the added translucent mist; preserve all original underlying objects and fire positions.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_2_1_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 40.141
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied crop contains no visible river or green sky plate; neither was introduced.",
+      "Composition preservation was visually assessed; exact pixel-level preservation is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-2_1.png",
+      "sha256": "b7b60f9b0d987cd0d0ad37ff3aafb0a36abc92b09c8acf2d43b422335b0f4d8d"
+    }
+  ]
+}

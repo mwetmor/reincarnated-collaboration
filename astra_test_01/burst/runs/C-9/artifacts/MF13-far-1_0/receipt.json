@@ -1,0 +1,43 @@
+{
+  "task_id": "MF13-far-1_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-far-1_0.png",
+      "path": "out/MF13-far-1_0.png",
+      "sha256": "3eb0563224cb5cb4c0659dd0f12eed65217cab359f3dd0eaaaa4be877fbfe4fb",
+      "prompt": "Use case: lighting-weather. EDIT Image 1 only. Deliver one 1536x1024 PNG, identical framing and land silhouette. Image 1 is the exact painted FAR parallax layer canvas; Image 2 is supporting watercolor-and-ink STYLE ONLY, never its content. ADD THICK BANKS OF PALE VIOLET-LAVENDER MIST ON TOP OF THE EXISTING LAND. Mist lies in valleys between the hills and along the winding river, thickest at the horizon/top of land, veiling whole distant ranges so only crests emerge; thin it toward the bottom. Dark hilltops and ridges rise out of mist. Existing fires shine warmly through the mist. Paint mist as transparent hand-laid watercolor washes, with soft irregular uneven edges, pigment granulation and pooling, subtle warm gold on upper mist edges. Make distinct valley banks with layered depth, never uniform flat grey fog, never airbrushed gradients. PRESERVE every existing hill, tree, rock, river, fire and smoke plume at exactly its original position and form: only veil them with mist. Preserve original crisp dark sepia-to-near-black wavering pen contours and fine hand hatching where visible. Preserve the existing distant rolling wooded landscape, sunset lighting from screen-left, violet-indigo shadows and small fires. The entire pure #00ff00 keying area ABOVE the land must remain flat pure #00ff00 with EXACTLY THE SAME BOUNDARY; no mist or other paint may enter green pixels. No sky added. No new buildings, fires, figures, objects, text, border, vignette or repeated elements. Do not repaint or rearrange the landscape. Register: late-medieval/early-Renaissance illuminated-manuscript mineral colors and stylized forms, rendered as hand-painted 1990s tactics role-playing character illustration in watercolor and ink; uneven transparent washes, pale cream paper highlights, second darker washes and hand hatching, no glossy highlights, lens effects or digital gradients. Moderate lapis, vermilion, verdigris, ochre, madder, warm stone grey; richer warm colors only on existing fires. Fixed elevated three-quarter orthographic view unchanged. Edit only by adding painted valley mist, preserve everything else.\nCRITICAL CORRECTION FOR RETRY: The previous attempt shifted all landscape features upward by about 37 pixels and textured the green plate. Start again from ORIGINAL IMAGE 1. Lock the original land outline and all feature coordinates pixel-for-pixel. The highest central crest is at approximately (768,633), not y=596; left land edge starts near y=697. Original left fire is near (372,968), original right fire near (1426,970). Keep those positions. Keep the green plate absolutely solid RGB(0,255,0), untextured, unshaded, and do not change any green pixel. Do not zoom, crop, translate or stretch the artwork. Add irregular transparent lavender watercolor valley mist only inside original land pixels, strongest near the original horizon, with all original crests and structures retained. Preserve the original composition exactly.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_far_1_0_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 23.967
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First attempt shifted the landscape upward approximately 37 pixels and introduced visible texture into the green plate.",
+      "change": "Restarted from the original canvas with explicit landmark coordinates and stronger composition and solid-green preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry restores apparent landscape alignment and adds lavender valley mist, but the green plate still appears subtly textured rather than uniformly pure #00ff00.",
+      "Exact pixel preservation of landscape features is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-far-1_0.png",
+      "sha256": "3eb0563224cb5cb4c0659dd0f12eed65217cab359f3dd0eaaaa4be877fbfe4fb"
+    }
+  ]
+}

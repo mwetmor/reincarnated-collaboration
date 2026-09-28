@@ -1,0 +1,35 @@
+{
+  "task_id": "MF13-forest-1_2",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "MF13-forest-1_2.png",
+      "path": "out/MF13-forest-1_2.png",
+      "sha256": "6fdb17e282322b12aa4902104e1d057d8579401d4ae6d927ca67db05537c02f3",
+      "prompt": "Use case: lighting-weather. EDIT Image 1 only, at its exact 1536x1024 size and identical crop. Image 1 is the finished mid-forest parallax canvas and the immutable composition. Image 2 is ONLY a reference for hand-painted watercolor-and-ink technique; do not import its road, cliff, flowers, green regions, or content. Add mist ON TOP of Image 1, changing nothing else: light, transparent pale-violet/lavender banks and slender irregular wisps lying in existing hollows and along the existing river, with violet smoky haze drifting from the existing fire front. Mist is strongest in the upper/farther part, tapering irregularly to almost none in the lower scorched foreground. It must be lighter and less dense than far-distance fog, leave terrain legible, and keep every existing fire and its warm glow clearly visible through the veil. Catch a little muted warm gold on the upper edges of the lavender mist from the low sun at screen-left. Paint mist as uneven transparent watercolor washes, soft broken irregular edges, subtle pigment pooling, granulation and organic watery blooms, never an airbrushed gradient or a flat grey fog sheet. Preserve every hill, tree, rock, river bend, fallen trunk, flame and existing smoke plume exactly in place and identity, only optically veiled where new mist lies. Preserve existing dark sepia-to-near-black wavering pen contours and fine hand hatching. Style register: late-medieval and early-Renaissance illuminated-manuscript subject, composition, iconography and mineral palette, joined with hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games; visibly uneven washes and bare-paper highlights, pale cream highlights, darkest marks in pen line and hatching, no filled black shadow masses. Moderate lapis, vermilion, verdigris, ochre, madder, lead white and warm stone greys; rich color in small accents. Parallax light retains deeper violet-indigo shadow and screen-left sunset warmth, purple haze thickening with distance; saturated warm only in existing fire and sunset elements. No digital lighting effects. Keep elevated three-quarter orthographic camera unchanged. No new sky or green area: this specific crop is entirely terrain. If any pure #00ff00 keying pixels occur in Image 1, preserve them exactly and paint no mist into them. No new buildings, fires, figures, trees, rocks, text, border or vignette. No repeated elements. This is a restrained mist-overlay edit, not a repaint of the land. Deliver ONE 1536x1024 image.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_1_2_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 30.791
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-1_2.png",
+      "sha256": "6fdb17e282322b12aa4902104e1d057d8579401d4ae6d927ca67db05537c02f3"
+    }
+  ]
+}

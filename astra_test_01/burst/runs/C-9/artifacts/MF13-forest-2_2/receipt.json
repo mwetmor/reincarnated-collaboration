@@ -1,0 +1,38 @@
+{
+  "task_id": "MF13-forest-2_2",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "MF13-forest-2_2.png",
+      "path": "out/MF13-forest-2_2.png",
+      "sha256": "3a113ef92b878f3ffa681c157b0ad9d44aab230f359f8a0ed059c6c85e827c63",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the forest canvas; IMAGE 2 is only a reference for the hand-painted watercolor-and-ink technique, never its content. Deliver one 1536x1024 image. Add mist ON TOP of IMAGE 1 while preserving its exact crop, camera, composition, and every existing hill, tree, rock, fallen trunk, river, fire and smoke plume at its original position and shape. Do not repaint or redesign the terrain. Add LIGHT pale violet-lavender banks and wisps in hollows and along the river, plus a violet smoky haze drifting from the fire front. The added haze is strongest in the upper farther part, thinning irregularly toward the middle and fading to almost none in the lower scorched land. The mist is lighter than far-distance mist, translucent so the underlying ink detail remains legible. Fire and its existing warm glow remain clearly visible through the haze. Mist catches a little warm gold on upper edges from the low sun at screen-left. Paint atmospheric washes with soft UNEVEN edges, water pooling, subtle granulation and irregular soft watercolor blooms, occasional bare-paper breaks; not a uniform grey veil, not an airbrushed gradient. Preserve crisp dark sepia-to-near-black wavering pen contours and hand-drawn fine hatching; retain the original terrain painting beneath the transparent mist.\nREGISTER: merge late-medieval and early-Renaissance illuminated-manuscript subject/composition/iconography/palette (c.1400–1530) with hand-painted watercolor-and-ink illustration for 1990s tactical role-playing games. Mineral lapis blue, vermilion, verdigris, yellow ochre, madder, lead white, warm stone grey at moderate values; pale cream highlights, darkest marks are ink and hatching. Rich color stays in small accents; no large saturated fills or black fields. For this parallax background the existing darker land, violet-indigo shadows, low screen-left sunset light and fire are retained; saturated warm only for existing fire. The hand must show: uneven transparent washes, pooling, granulation, soft blooms, variable pen weights, hand hatching instead of smooth digital shading. No glossy highlights or lens effects. Fixed elevated three-quarter orthographic view, stylized manuscript landscape, no photographic treatment. Do not introduce sky, buildings, settlements, new fires, figures, text, border or vignette. Nothing repeats or is duplicated. If any flat pure #00ff00 keying region exists in IMAGE 1, preserve it exactly and paint no mist into it; do not add a green area where none exists. IMAGE 2 contributes rendering technique only, no road, cliffs, flowers or green shapes from it. Change ONLY by adding the specified translucent mist; all source objects and fire placements stay unchanged.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_2_2_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 39.554
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied forest crop contains no visible green keying region.",
+      "Placement preservation was assessed visually; pixel-exact preservation was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-2_2.png",
+      "sha256": "3a113ef92b878f3ffa681c157b0ad9d44aab230f359f8a0ed059c6c85e827c63"
+    }
+  ]
+}

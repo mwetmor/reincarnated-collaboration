@@ -1,0 +1,35 @@
+{
+  "task_id": "MF13-forest-0_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "MF13-forest-0_0.png",
+      "path": "out/MF13-forest-0_0.png",
+      "sha256": "5931c5fea4a4bb7c34ec498af6f2db04a034e624cb17b08834f975720fb805dd",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the finished MID FOREST parallax layer. Deliver one 1536x1024 PNG, same exact framing and land silhouette. IMAGE 2 is ONLY a reference for hand-painted watercolor and ink technique, never its content. Add MIST ON TOP of IMAGE 1 only: light, translucent pale violet-lavender banks and wisps lying in existing hollows and along any existing river, with violet smoky haze drifting from the existing fire front. Haze is strongest in the upper/farther part of the land, fading to almost none in the lower foreground/scorched land. This mid-layer mist is light and delicate, not dense distant fog. Keep the fire and its warm glow clearly visible through the haze. Mist catches a little warm gold along its upper edges from the low sunset at screen-left. Paint the mist as transparent hand-laid watercolor washes with soft UNEVEN edges, subtle pooling, granulation and soft blooms, never airbrushed gradients or flat grey fog. Preserve every hill, tree, rock, river, flame and smoke plume exactly where and what it is: only veil existing features locally with the added mist. Do not invent a river or other object if not visible. Preserve original crisp dark sepia-to-near-black wavering ink lines and hand hatching beneath translucent washes. Keep the same elevated three-quarter orthographic view, manuscript-stylized landscape, violet-indigo shadows and gold-lit slopes. Rendering is hand-painted watercolor-and-ink illustration of the kind made for 1990s tactics role-playing games; medieval/early Renaissance illuminated manuscript mineral hues, moderate values with warm saturation only in existing fire. Do not repaint or restyle the entire source. CRITICAL: the entire flat pure #00ff00 area above the land must remain EXACTLY flat pure #00ff00 with the identical silhouette edge, no mist, smoke, sky or marks added to any green pixel. No new buildings, fires, trees, rocks, figures, text, border or vignette. No repeated elements. No glossy highlights, lens effects or digital gradients. Change ONLY the addition of painted translucent mist inside the existing land region; preserve all existing content and composition.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_0_0_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 27.359
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-0_0.png",
+      "sha256": "5931c5fea4a4bb7c34ec498af6f2db04a034e624cb17b08834f975720fb805dd"
+    }
+  ]
+}

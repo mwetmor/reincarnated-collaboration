@@ -1,0 +1,38 @@
+{
+  "task_id": "MF13-forest-0_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-forest-0_1.png",
+      "path": "out/MF13-forest-0_1.png",
+      "sha256": "d72f0957bf09df0f480495a7a8fd48cd7acd943e1e69f916935cb99747085f5d",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1 only; output one 1536x1024 PNG. IMAGE 1 is the finished mid-forest parallax canvas and is the exact composition to preserve. IMAGE 2 is supporting painted STYLE reference only, never content. Add ONLY light, translucent pale violet-lavender mist ON TOP of the existing painting: irregular soft banks and delicate wisps nestled between existing trees and hollows, plus light violet smoky haze drifting from the existing fire front. Mist is strongest across the upper farther portion, becomes lighter through the middle, and fades to almost none over the lower scorched rocky ground. Keep the original fire clearly visible and warmly luminous through the translucent mist. Paint mist as hand-laid transparent watercolor washes with uneven soft edges, subtle granulation and pigment pooling, small pale paper-like openings, occasional warm gold along upper sun-facing edges from the low sun at screen-left. Avoid uniform opaque grey fog, smooth digital gradients or airbrush effects. Preserve every existing hill, tree, rock, flame, ember and smoke plume exactly in its original position, shape and identity; only veil them where the added mist lies. Preserve framing, camera, full extent and underlying colors. No repainting or rearrangement. The actual supplied crop has no visible river or green background; do not invent either. If any pure #00ff00 keying pixels exist, preserve them exactly with no mist on them. Do not add sky, buildings, fires, figures, text, borders or vignette. No duplicated motifs. Rendering register: subject vocabulary derives from late-medieval and early-Renaissance illuminated manuscripts c. 1400–1530, painted with the hand-made watercolor-and-ink character illustration technique of 1990s tactics role-playing games. Crisp dark sepia-to-near-black wavering pen contours and fine hand-drawn hatching remain visible through transparent uneven washes. Mineral lapis, vermilion, verdigris, ochre, madder, warm stone grey and pale cream; no large newly saturated areas or black fills. Parallax lighting is darker sunset from screen-left with violet-indigo shadow and purple smoky haze thickening with distance; saturated warmth remains in existing fire. This is an additive atmosphere edit of IMAGE 1, not a redesign or style replacement. Return only the edited image.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_0_1_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 26.86
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied canvas has no visible river or green keying area; neither was added.",
+      "Composition preservation was visually inspected, not verified pixel-for-pixel."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-0_1.png",
+      "sha256": "d72f0957bf09df0f480495a7a8fd48cd7acd943e1e69f916935cb99747085f5d"
+    }
+  ]
+}

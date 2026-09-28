@@ -1,0 +1,43 @@
+{
+  "task_id": "MF13-far-0_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-far-0_0.png",
+      "path": "out/MF13-far-0_0.png",
+      "sha256": "1b5a6ad23189a18acab413fd2b7ee2fe95df8c89f195340f632ef1db0fac5df8",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the finished 1536x1024 FAR parallax landscape canvas. Image 2 is supporting watercolor-and-ink STYLE reference only, never content. Deliver one 1536x1024 image. Add THICK banks of pale violet-lavender MIST on top of the existing land, lying low IN THE VALLEYS between the wooded hills and along the existing river. Mist is THICKEST toward the horizon at the top of the land: whole distant ranges fade into violet haze with only their crests showing. It thins toward the bottom. Existing hilltops and ridges rise out of mist as dark silhouettes. Existing fire warmth shows through the mist. Paint mist as transparent handmade watercolor washes with soft irregular uneven edges, granulation, pooling and delicate blooms, a little warm gold on upper edges lit by low sunset at screen-left. No airbrushed gradient, no flat grey fog. Preserve absolutely the original composition, framing, land silhouette and placement and identity of every hill, tree, rock, river, fire and smoke plume; they are only veiled where mist lies. Preserve all flat pure #00ff00 above the land EXACTLY: no mist or any paint in the green area. Keep the original dark violet-indigo landscape and watercolor texture, crisp dark sepia-to-near-black variable pen contours and hand hatching. Merge late-medieval/early-Renaissance illuminated manuscript landscape subject and mineral palette with hand-painted watercolor-and-ink tactics role-playing illustration rendering of the 1990s. Uneven transparent washes, pale paper highlights, moderate mineral hues: lapis, vermilion, verdigris, ochre, madder, warm stone grey. Rich color on small accents, saturated warmth only on existing fires. Background sunset illumination from screen-left, violet smoky distance. Fixed elevated three-quarter orthographic view. No new buildings, towns, villages, fires, figures, text, border, vignette, duplicated features, photographic rendering, glossy highlights, lens effects or digital gradients. This is a mist overlay edit, not a repaint or rearrangement of the landscape. Maintain identical 1536x1024 framing and pure green keying plate.\nCORRECTION FOR RETRY: The first attempt introduced texture into the green keying area. The large green area is a technical mask, NOT painted paper: it MUST remain perfectly flat uniform RGB(0,255,0), #00ff00, with no noise, mottling, grain, haze, mist, color variation or feathering. Preserve the exact original green/land boundary from Image 1. Confine all watercolor paint strictly inside existing land pixels. Preserve source landscape details and existing flame and smoke contours unchanged beneath the valley mist. Do not place gold mist on the outer skyline boundary. Mist should remain mostly lavender with only subtle warm upper edges, strongest inside distant valleys. Edit the original Image 1 again, using Image 2 only for the painted mist's hand.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_far_0_0_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 31.992
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "The first output visibly textured the flat green plate.",
+      "change": "Re-edited the original with stronger uniform #00ff00 preservation and strict confinement of mist to land."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still appears to introduce subtle texture into the green plate; exact #00ff00 preservation is not established.",
+      "Landscape and fire placement appear preserved, but exact pixel-level preservation is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-far-0_0.png",
+      "sha256": "1b5a6ad23189a18acab413fd2b7ee2fe95df8c89f195340f632ef1db0fac5df8"
+    }
+  ]
+}

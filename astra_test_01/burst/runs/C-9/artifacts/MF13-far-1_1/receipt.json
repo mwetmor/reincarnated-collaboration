@@ -1,0 +1,39 @@
+{
+  "task_id": "MF13-far-1_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-far-1_1.png",
+      "path": "out/MF13-far-1_1.png",
+      "sha256": "d50b1d518b6e7d94d8bd7de9c234af7e64bcb297b6b65dd08228af7b2be1a870",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the finished FAR parallax landscape canvas. Image 2 is supporting painted STYLE ONLY, never its content. Deliver exactly ONE 1536x1024 image with the identical framing and geometry of Image 1. ADD MIST ON TOP ONLY: thick banks of pale violet-lavender mist lying in the valleys between the wooded hills and along the winding river. Make the mist thickest toward the top of the land / top of this crop, where whole distant ranges fade into violet haze with only their crests showing. Thin the mist progressively toward the bottom, preserving clearly visible foreground detail. Ridges and hilltops rise out of the valley mist as dark silhouettes. Existing fires remain warm and visible through the mist. Paint irregular layered translucent watercolor washes with soft uneven edges, pigment granulation and gentle natural pooling, subtle warm gold along sun-facing upper mist edges. Mist must feel painted by hand, with distinct valley banks, not a uniform grey overlay or an airbrushed gradient. PRESERVE EXACTLY every existing hill, individual tree, rock, winding river bend, fire and smoke plume in its original position, shape and identity; only veil them where mist lies. Keep all composition, camera, framing and canvas bounds unchanged. The actual Image 1 crop is land edge-to-edge; do not invent a sky or green region. If any pure #00ff00 keying area exists in the target, preserve it perfectly with no mist over it. Do not borrow green areas or terrain from Image 2. No new buildings, fires, figures, text, border, vignette or repeated elements. Preserve the late-medieval and early-Renaissance illuminated-manuscript landscape subject, mineral palette and stylized rocks and trees, with hand-painted watercolor-and-ink illustration rendering of 1990s tactics role-playing illustration: crisp dark sepia to near-black slightly wavering varied-weight pen contours and fine hand-drawn hatching, uneven transparent washes and pale paper highlights. Background lighting remains low sunset from screen-left with warm gold on sun-facing slopes and deep violet-indigo elsewhere, purple smoky haze increasing into the distance. Rich saturated warm is restricted to existing fires and reflected sunset; preserve existing palette elsewhere. No glossy highlights, lens effects, digital gradients, filled black shadows, towns or villages. This is a local mist addition to Image 1, not a redesigned landscape.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_far_1_1_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 40.673
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied target crop contains no visible green keying area.",
+      "Some golden mist edges are brighter than the requested subtle warmth.",
+      "Major landscape features remain visually aligned; exact preservation of every small detail is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-far-1_1.png",
+      "sha256": "d50b1d518b6e7d94d8bd7de9c234af7e64bcb297b6b65dd08228af7b2be1a870"
+    }
+  ]
+}

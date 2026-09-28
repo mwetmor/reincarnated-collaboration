@@ -1,0 +1,43 @@
+{
+  "task_id": "MF13-forest-2_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-forest-2_0",
+      "path": "out/MF13-forest-2_0.png",
+      "sha256": "c3d8226077aa337d796eeaff39d344469d9ea87e243d4aa8e448f5a8ed4decaa",
+      "prompt": "EDIT the FIRST reference image. Output ONE 1536x1024 PNG. Highest priority: preserve the bright solid GREEN #00ff00 region covering the upper quarter of this image. This green is a required opaque chroma-key mask, NOT a sky. It MUST remain RGB(0,255,0), completely uniform, with exactly the existing jagged forest boundary. Do not darken, recolor, veil, replace or paint any part of the green region. No atmospheric effects above the existing forest silhouette. The previous attempt wrongly replaced this green area with dark haze; correct that mistake in this fresh edit of the ORIGINAL reference.\nOnly add delicate translucent pale violet-lavender watercolor mist ON THE FOREST BELOW THE GREEN BOUNDARY. Irregular low banks and small wisps in existing hollows, strongest among the distant trees in the upper forest, thinner through the middle, almost absent in the foreground. Light mid-distance mist, not dense far-distance fog. Soft uneven hand-painted wash edges, subtle pigment granulation and pooling, a trace of pale warm ochre on upper edges. Add a little violet smoky haze over the existing lower-right smoke front while preserving every flame and plume. Keep warm fire clearly visible. No flat fog, no airbrushed gradients.\nKeep the entire existing landscape exactly in place: all tree clusters, rocks, ridges, detail, forest horizon, fire, smoke, colors, framing and camera. Do not invent rivers, scorched ground, buildings or any new content. Do not repaint or restyle the scene. Nothing repeats. No text, border or vignette. Keep the lower forest clear. The ONLY change is light localized mist veiling parts of the forest, strictly below the green mask boundary.\nSECOND reference is only the approved hand-painted watercolor and ink technique, none of its content. Maintain crisp dark sepia ink contours, irregular hand hatching, uneven transparent washes, mineral palette, stylized illuminated-manuscript landscape rendered in hand-painted 1990s tactical role-playing illustration technique. Preserve existing sunset-lit dark violet-indigo forest, warm screen-left slopes, existing orange fire; no added sky, no glossy highlights or lens effects. Existing elevated three-quarter orthographic composition remains identical. REMEMBER: the top area must stay brilliant solid #00ff00 GREEN, not black, purple, grey, mist, or sky.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_forest_2_0_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 36.638
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "The first edit replaced the #00ff00 plate with dark haze.",
+      "change": "Retried from the original references with green preservation prioritized and mist explicitly confined below the forest silhouette."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both attempts replaced the required green plate with dark violet-black haze. The saved retry is not suitable for the required chroma keying.",
+      "Mist is present and fire remains visible; exact preservation of all underlying landscape details is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-forest-2_0.png",
+      "sha256": "c3d8226077aa337d796eeaff39d344469d9ea87e243d4aa8e448f5a8ed4decaa"
+    }
+  ]
+}

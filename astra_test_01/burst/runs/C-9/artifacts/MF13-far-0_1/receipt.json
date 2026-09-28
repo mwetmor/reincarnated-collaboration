@@ -1,0 +1,38 @@
+{
+  "task_id": "MF13-far-0_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MF13-far-0_1.png",
+      "path": "out/MF13-far-0_1.png",
+      "sha256": "8db4c98ec2e09ca180599cb36fd9956bcaaf247366f4fe0a89cfdc5c483fca30",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the landscape canvas, and deliver exactly one 1536x1024 image. IMAGE 2 is only a supporting painted STYLE reference; import none of its content, geometry or green background. Add MIST ON TOP of Image 1 while preserving the exact framing, terrain, every hill, ridge, tree, rock, fire and smoke plume in its original position and identity. Do not redraw or rearrange the landscape. Paint THICK banks of pale violet-lavender mist lying down IN THE VALLEYS between hills, most opaque toward the top/distant part of the land, where whole ranges fade into lavender haze with only their dark crests showing. The mist thins toward the bottom, leaving foreground ridges and details mostly clear. Hilltops and ridges emerge from the mist as existing dark silhouettes. Existing fires show warm through mist, retaining all original flame and smoke positions. The new mist must visibly be transparent hand-laid watercolor washes: irregular soft edges, pooling and granulation, varied density, soft watercolor blooms, a little muted warm gold on upper edges from low sunset at screen-left. It must be substantial valley mist, not just a uniform color tint, not flat grey fog, not smooth airbrushed gradients. Preserve underlying pen details wherever not veiled. Style: late-medieval and early-Renaissance illuminated-manuscript landscape subject, composition, iconography and mineral palette merged with hand-painted watercolor-and-ink tactics role-playing illustration of the 1990s. Crisp dark sepia-to-near-black wavering pen contours, fine hand hatching, uneven transparent watercolor, pale cream highlights; lapis, vermilion, verdigris, yellow ochre, madder, warm stone greys. Background low-sunset lighting: warm gold sun-facing slopes at screen-left, violet-indigo shaded slopes, purple haze increasing with distance. Preserve existing saturation and lighting; saturated warm only in existing fires. Fixed elevated three-quarter orthographic view. No new buildings, towns, villages, fires, figures, rivers, objects, text, border, vignette, repetitions, duplicated forms, lens effects or glossy highlights. Image 1 as supplied is entirely landscape without visible green sky plate or visible river: preserve this actual crop, invent neither. If any pure #00ff00 plate pixels exist, preserve them exactly and leave mist off those pixels. Change ONLY by adding the described painted mist over the original landscape.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mf13_far_0_1_canvas.png"
+        },
+        {
+          "role": "style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 38.773
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied canvas contains no visible green plate or river; its actual landscape content was preserved.",
+      "Landscape and fire placement were visually checked; exact preservation of every underlying detail is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MF13-far-0_1.png",
+      "sha256": "8db4c98ec2e09ca180599cb36fd9956bcaaf247366f4fe0a89cfdc5c483fca30"
+    }
+  ]
+}
