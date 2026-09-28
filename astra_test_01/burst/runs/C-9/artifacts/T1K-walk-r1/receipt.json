@@ -1,0 +1,86 @@
+{
+  "task_id": "T1K-walk-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1K-walk-r1_a",
+      "path": "out/T1K-walk-r1_a.png",
+      "sha256": "d6632ce2039555b81360281d7ab8e857106659a700d6d43ba2278e31f5feddf3",
+      "prompt": "Edit the attached sheet. Replace the entire dark background with completely flat, opaque, bright chroma-key green, RGB (0,255,0), hex #00FF00. This is a sprite sheet for keying. All four corners, every space between the twelve knights, and all enclosed gaps between limbs and poleaxes must be exactly the same bright pure green. Keep all twelve painted knights and their weapons unchanged: identical outlines, positions, sizes, orientations, walk poses, colours, details, ink contours and watercolor rendering. Preserve the 4-column by 3-row arrangement and 1536x1024 dimensions. No gradients, background shading, halos, glows, light columns, cast shadows, borders, labels or text. The entire background MUST be bright flat #00FF00.",
+      "references": [
+        {
+          "role": "Original edit target",
+          "path": "in/01_t1_keys_walk_canvas.png"
+        },
+        {
+          "role": "Initial character and painting reference",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "Initial pollaxe design reference",
+          "path": "in/03_KP-1_a.png"
+        },
+        {
+          "role": "Direct retry edit target: initial variant a",
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-db71b774-552d-46c7-91e6-5e8858e84655.png"
+        }
+      ],
+      "elapsed_s": 31.342
+    },
+    {
+      "name": "T1K-walk-r1_b",
+      "path": "out/T1K-walk-r1_b.png",
+      "sha256": "60e8e1446db04a85b9b67b889b718f49980eb21ae47670d281cdd30f3001f7d3",
+      "prompt": "Edit the attached sheet. Replace the entire dark background with completely flat, opaque, bright chroma-key green, RGB (0,255,0), hex #00FF00. This is a sprite sheet for keying. All four corners, every space between the twelve knights, and all enclosed gaps between limbs and poleaxes must be exactly the same bright pure green. Keep all twelve painted knights and their weapons unchanged: identical outlines, positions, sizes, orientations, walk poses, colours, details, ink contours and watercolor rendering. Preserve the 4-column by 3-row arrangement and 1536x1024 dimensions. No gradients, background shading, halos, glows, light columns, cast shadows, borders, labels or text. The entire background MUST be bright flat #00FF00.",
+      "references": [
+        {
+          "role": "Original edit target",
+          "path": "in/01_t1_keys_walk_canvas.png"
+        },
+        {
+          "role": "Initial character and painting reference",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "Initial pollaxe design reference",
+          "path": "in/03_KP-1_a.png"
+        },
+        {
+          "role": "Direct retry edit target: initial variant b",
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-6d57bd5a-7000-4bb9-bd93-b2534dc97d8f.png"
+        }
+      ],
+      "elapsed_s": 62.726
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a replaced the green plate with a dark gradient.",
+      "change": "Edited initial variant a to replace its background with flat #00FF00 while preserving figures."
+    },
+    {
+      "reason": "Variant b replaced the green plate with a dark gradient.",
+      "change": "Edited initial variant b to replace its background with flat #00FF00 while preserving figures."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both outputs are 1536x1024 with twelve figures and visually bright green backgrounds; exact background RGB uniformity and pixel-perfect silhouette alignment remain unverified.",
+      "Broad red lining panels remain in several frames.",
+      "Armour highlights and shading appear smoother and glossier than the requested watercolor hand.",
+      "Each variant exhausted its permitted retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1K-walk-r1_a.png",
+      "sha256": "d6632ce2039555b81360281d7ab8e857106659a700d6d43ba2278e31f5feddf3"
+    },
+    {
+      "path": "out/T1K-walk-r1_b.png",
+      "sha256": "60e8e1446db04a85b9b67b889b718f49980eb21ae47670d281cdd30f3001f7d3"
+    }
+  ]
+}

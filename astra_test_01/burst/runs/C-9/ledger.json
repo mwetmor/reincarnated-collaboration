@@ -15016,9 +15016,110 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T1K-walk-r1",
+      "type": "GENERATE",
+      "experiment": "T1-paint-keys",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "32bb0341325eddae71b3169c86533eba34ed1199accdd5c7d761839f8d94b404",
+      "started": "2026-09-28T22:43:03.306312+00:00",
+      "ended": "2026-09-28T22:47:24.265095+00:00",
+      "minutes": 4.349275571533266,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-55dfb24f-5fc0-4121-a28b-804658fac57a.png",
+            "sha256": "60e8e1446db04a85b9b67b889b718f49980eb21ae47670d281cdd30f3001f7d3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-6d57bd5a-7000-4bb9-bd93-b2534dc97d8f.png",
+            "sha256": "0e062a5601224c012b4b5675d323135bca06344278a0e998a006c0e8bed0e067"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-bbf1411c-6d9e-4cad-870a-999a9704a761.png",
+            "sha256": "d6632ce2039555b81360281d7ab8e857106659a700d6d43ba2278e31f5feddf3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-db71b774-552d-46c7-91e6-5e8858e84655.png",
+            "sha256": "0c1e0b94564f1228f24f1f278495b3d93b06dfc928f63de88b65017234db1c8a"
+          }
+        ]
+      },
+      "receipt_sha256": "ec08ffabf42421824087bf23821cd6be6d30f93d789473ba1cb63c654587c977",
+      "artifacts": [
+        {
+          "name": "T1K-walk-r1_a.png",
+          "sha256": "d6632ce2039555b81360281d7ab8e857106659a700d6d43ba2278e31f5feddf3"
+        },
+        {
+          "name": "T1K-walk-r1_b.png",
+          "sha256": "60e8e1446db04a85b9b67b889b718f49980eb21ae47670d281cdd30f3001f7d3"
+        },
+        {
+          "name": "exec-55dfb24f-5fc0-4121-a28b-804658fac57a.provenance.json",
+          "sha256": "632a9e3b46d360b68efd16ce9a7c6a1971c87fa34c9f7809ae30ed81533f8177"
+        },
+        {
+          "name": "exec-6d57bd5a-7000-4bb9-bd93-b2534dc97d8f.provenance.json",
+          "sha256": "b8c44fddedc6481d8f504fef8da122ea514674c620da04369b7d79467461788a"
+        },
+        {
+          "name": "exec-bbf1411c-6d9e-4cad-870a-999a9704a761.provenance.json",
+          "sha256": "60f0e941b7be928c42c4d412627752872116667048872e89c011f1108ff51bc6"
+        },
+        {
+          "name": "exec-db71b774-552d-46c7-91e6-5e8858e84655.provenance.json",
+          "sha256": "18288160b7f132091a6ec9762260ca8aac09f13f8944f386d18564a07047c3e0"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-55dfb24f-5fc0-4121-a28b-804658fac57a.png",
+          "sha256": "60e8e1446db04a85b9b67b889b718f49980eb21ae47670d281cdd30f3001f7d3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-6d57bd5a-7000-4bb9-bd93-b2534dc97d8f.png",
+          "sha256": "0e062a5601224c012b4b5675d323135bca06344278a0e998a006c0e8bed0e067"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-bbf1411c-6d9e-4cad-870a-999a9704a761.png",
+          "sha256": "d6632ce2039555b81360281d7ab8e857106659a700d6d43ba2278e31f5feddf3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ea2f-9ad1-7361-a27d-6cff2b47eb0f/exec-db71b774-552d-46c7-91e6-5e8858e84655.png",
+          "sha256": "0c1e0b94564f1228f24f1f278495b3d93b06dfc928f63de88b65017234db1c8a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 410,
+  "images_used": 414,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -15291,6 +15392,11 @@
       "id": "M-C9-PAINT-PLATE",
       "ts": "2026-09-28",
       "note": "Astra plate failure, measured across today's pipeline paint sheets: the green plate is replaced by a dark gradient with light columns behind the figures in 7 of 18 variants (T1P walk-E b, walk-SE b; T1K-walk a and b even after its internal retry; T2P walk-E a, walk-SE a, idle-SE a and b). The painting inside is sound in every failure. Mitigations: (1) a plate-first paragraph added to all remaining briefs, with re-fires T1K-walk-r1 and T2P-idle-SE-r1; (2) a robust matte in the cut-back (alpha from the render's own guides_mask, dilated, trimmed by a per-sheet background model handling green OR dark gradient), built once by the knight3d session and shared with T2, so no sheet ever needs a re-fire for its background. Chosen variants so far: T1 walk E a, walk SE a, idle E b, idle SE b, idle keys a; T2 walk E b, walk SE b, idle E a. T1K idle keys IoU 0.906 (a). T2P IoU 0.95. Manticore wave B fired (run E/SE, walk and idle keys, idle SE r1)."
+    },
+    {
+      "id": "M-C9-SIZE-FIX",
+      "ts": "2026-09-28",
+      "note": "Matt: \"Is the keeper larger?\" Yes: the integration scene patcher had copied the Keeper's cell scale (0.629) onto the knight's cells (a comment asserted the difference away). Each skin now derives its scale from its own cells (sprite 0.751, 3D 0.755). size_probe (player-view capture differenced against a skins-hidden frame, props split by row width, validated against 238.75): Keeper / sprites / 3D = 150.0 / 150.0 / 151.1 px at S, 148.9 / 150.0 / 148.9 at E, all within 2 px. Live: keeper.pck 3f12d0e2 (loadout 182f570 pushed under R-C9-61). Camera: 110.556 (camera.json) and 117.5 are one camera in two conventions (117.5 x cos 19.77 = 110.57); the standing contract between seams is a declared PIXEL target (199 px crown-to-sole at ground row 398), fitted on the armed idle median over 8 azimuths. T1K-walk-r1 (plate-first re-fire): both variants kept the plate; b IoU 0.934. T1 walk and idle now have every painted input."
     }
   ],
   "halts": [],
