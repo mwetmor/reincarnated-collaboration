@@ -12393,9 +12393,594 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "2f001f600303bb2066a862d2fb5d1e1fb12d281abc83f255bae170928ecae8e1",
       "exit": 0
+    },
+    {
+      "id": "MF13-forest-0_0",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "72b487481bb44817ae10469d11149c26ecc01d21d58135ff90a0259e6d5e9d45",
+      "started": "2026-09-28T00:43:17.914161+00:00",
+      "ended": "2026-09-28T00:44:58.556824+00:00",
+      "minutes": 1.677375496533447,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-59f5-78f0-960e-7fbe6f1981e0/exec-1aeca73f-d5bf-4b76-9704-a5b3a2c3ac83.png",
+            "sha256": "5931c5fea4a4bb7c34ec498af6f2db04a034e624cb17b08834f975720fb805dd"
+          }
+        ]
+      },
+      "receipt_sha256": "c32a9d31ae285c4c5d55234c766bd15e5b1028f84a9c3fc092ceb130da2582a0",
+      "artifacts": [
+        {
+          "name": "MF13-forest-0_0.png",
+          "sha256": "5931c5fea4a4bb7c34ec498af6f2db04a034e624cb17b08834f975720fb805dd"
+        },
+        {
+          "name": "exec-1aeca73f-d5bf-4b76-9704-a5b3a2c3ac83.provenance.json",
+          "sha256": "a964a00f4e5a40c90b65babb0416fa07065c7d4f68ff29dc9ebc5da7d7846d7b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-59f5-78f0-960e-7fbe6f1981e0/exec-1aeca73f-d5bf-4b76-9704-a5b3a2c3ac83.png",
+          "sha256": "5931c5fea4a4bb7c34ec498af6f2db04a034e624cb17b08834f975720fb805dd"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-far-1_1",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "0884173c0c28c0aee639f3dcc0019502623fa34918ecd90239cb7f9c13a9fedc",
+      "started": "2026-09-28T00:43:17.914156+00:00",
+      "ended": "2026-09-28T00:45:27.498635+00:00",
+      "minutes": 2.1597376770834673,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-59be-7321-882a-b0de4c9986d2/exec-414efee9-cf80-4ce9-acf5-3281fffe856c.png",
+            "sha256": "d50b1d518b6e7d94d8bd7de9c234af7e64bcb297b6b65dd08228af7b2be1a870"
+          }
+        ]
+      },
+      "receipt_sha256": "58d30213ca35a2510ffe1d66300191099ff0b5b699ed4f647b5e4c0539eb73f9",
+      "artifacts": [
+        {
+          "name": "MF13-far-1_1.png",
+          "sha256": "d50b1d518b6e7d94d8bd7de9c234af7e64bcb297b6b65dd08228af7b2be1a870"
+        },
+        {
+          "name": "exec-414efee9-cf80-4ce9-acf5-3281fffe856c.provenance.json",
+          "sha256": "4bde34053e2bbc01418f942067e9d98e935cc5c352a9b1625014edbf7bb606f3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-59be-7321-882a-b0de4c9986d2/exec-414efee9-cf80-4ce9-acf5-3281fffe856c.png",
+          "sha256": "d50b1d518b6e7d94d8bd7de9c234af7e64bcb297b6b65dd08228af7b2be1a870"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-far-0_1",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "39c208f37695e68fabb638d76953025a8649f585833ca12fa00a3a152b020908",
+      "started": "2026-09-28T00:43:17.913906+00:00",
+      "ended": "2026-09-28T00:45:29.646309+00:00",
+      "minutes": 2.1955373242999485,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-5a40-7e43-9aca-292e8cf30392/exec-adfdae4b-dee0-4982-b151-390ddc3af593.png",
+            "sha256": "8db4c98ec2e09ca180599cb36fd9956bcaaf247366f4fe0a89cfdc5c483fca30"
+          }
+        ]
+      },
+      "receipt_sha256": "9a360863e938ea36deac1d10be2f233c645697e909d59aa6dff2945b51e2717f",
+      "artifacts": [
+        {
+          "name": "MF13-far-0_1.png",
+          "sha256": "8db4c98ec2e09ca180599cb36fd9956bcaaf247366f4fe0a89cfdc5c483fca30"
+        },
+        {
+          "name": "exec-adfdae4b-dee0-4982-b151-390ddc3af593.provenance.json",
+          "sha256": "21b88be40826f9b844432663ce769a96355cdd221b787a4c92984722186930a1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-5a40-7e43-9aca-292e8cf30392/exec-adfdae4b-dee0-4982-b151-390ddc3af593.png",
+          "sha256": "8db4c98ec2e09ca180599cb36fd9956bcaaf247366f4fe0a89cfdc5c483fca30"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-far-1_0",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "02903241687c8f3f37e6b936d4d702409e62588c967302e104bb43538cb6b61f",
+      "started": "2026-09-28T00:43:17.914053+00:00",
+      "ended": "2026-09-28T00:45:42.102511+00:00",
+      "minutes": 2.40313543333347,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-59ee-7ab2-a15a-e5eec8e00489/exec-87532dc0-43ab-4e78-afda-c4b55db151ce.png",
+            "sha256": "756688c7d8a677fa5fb339c0bd1507d8128f7426bd2406861277af569d4039df"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-59ee-7ab2-a15a-e5eec8e00489/exec-a962facd-8cc5-4b9c-be92-62f4f0ee2576.png",
+            "sha256": "3eb0563224cb5cb4c0659dd0f12eed65217cab359f3dd0eaaaa4be877fbfe4fb"
+          }
+        ]
+      },
+      "receipt_sha256": "ac1c05fa3d8e340b8ae0778a79da084dd537c1f602a39e9b5736158953e593b5",
+      "artifacts": [
+        {
+          "name": "MF13-far-1_0.png",
+          "sha256": "3eb0563224cb5cb4c0659dd0f12eed65217cab359f3dd0eaaaa4be877fbfe4fb"
+        },
+        {
+          "name": "exec-87532dc0-43ab-4e78-afda-c4b55db151ce.provenance.json",
+          "sha256": "b805c0106a2bb6cc7bf9a6d7301616578c2bb38247823620ec373cf547cec66f"
+        },
+        {
+          "name": "exec-a962facd-8cc5-4b9c-be92-62f4f0ee2576.provenance.json",
+          "sha256": "42840250ed3a41254fa4a5804c53f549fe1c67afc567a9b46a0e4597cea078cd"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-59ee-7ab2-a15a-e5eec8e00489/exec-87532dc0-43ab-4e78-afda-c4b55db151ce.png",
+          "sha256": "756688c7d8a677fa5fb339c0bd1507d8128f7426bd2406861277af569d4039df"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-59ee-7ab2-a15a-e5eec8e00489/exec-a962facd-8cc5-4b9c-be92-62f4f0ee2576.png",
+          "sha256": "3eb0563224cb5cb4c0659dd0f12eed65217cab359f3dd0eaaaa4be877fbfe4fb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-far-0_0",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "14c8fec978c01aaed472be0f9419071fdec9a20227ca310e9fde65bc0589c40b",
+      "started": "2026-09-28T00:43:17.914100+00:00",
+      "ended": "2026-09-28T00:46:08.037101+00:00",
+      "minutes": 2.835377780566826,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-5989-7352-87c9-3eb32dae1df7/exec-0b9eff10-6a67-4fa3-b6b1-f4c3474da371.png",
+            "sha256": "1b5a6ad23189a18acab413fd2b7ee2fe95df8c89f195340f632ef1db0fac5df8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e577-5989-7352-87c9-3eb32dae1df7/exec-c681aafb-e1d7-494b-9134-e97ec8351543.png",
+            "sha256": "e9600c390b9b0e4cf1fcbc83d7bc328456e7cd1c39aa1bbf4fe5898b5beadc84"
+          }
+        ]
+      },
+      "receipt_sha256": "dbb5ad18a67869fe9e71350cb9c7a64e5c3a4f0e8222e9bb376900e1b9f02e8f",
+      "artifacts": [
+        {
+          "name": "MF13-far-0_0.png",
+          "sha256": "1b5a6ad23189a18acab413fd2b7ee2fe95df8c89f195340f632ef1db0fac5df8"
+        },
+        {
+          "name": "exec-0b9eff10-6a67-4fa3-b6b1-f4c3474da371.provenance.json",
+          "sha256": "b62c12b66cee9e497db8167a5e8d03534805d3628e76662c0e0cfe6deed771c8"
+        },
+        {
+          "name": "exec-c681aafb-e1d7-494b-9134-e97ec8351543.provenance.json",
+          "sha256": "c45bc7b6312e47e35de814b629f453a6a8269590174f6273600c1c9ddb2bc033"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-5989-7352-87c9-3eb32dae1df7/exec-0b9eff10-6a67-4fa3-b6b1-f4c3474da371.png",
+          "sha256": "1b5a6ad23189a18acab413fd2b7ee2fe95df8c89f195340f632ef1db0fac5df8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e577-5989-7352-87c9-3eb32dae1df7/exec-c681aafb-e1d7-494b-9134-e97ec8351543.png",
+          "sha256": "e9600c390b9b0e4cf1fcbc83d7bc328456e7cd1c39aa1bbf4fe5898b5beadc84"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-forest-0_1",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "cac7f39d3a3ee95c7007b52ad3df58264e54006d4321771b452f586cfde73743",
+      "started": "2026-09-28T00:46:33.359630+00:00",
+      "ended": "2026-09-28T00:48:19.049324+00:00",
+      "minutes": 1.7614773187500152,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7d51-8e98-b140b1edf4cd/exec-cc27d31f-c087-416b-b253-3fee6b425383.png",
+            "sha256": "d72f0957bf09df0f480495a7a8fd48cd7acd943e1e69f916935cb99747085f5d"
+          }
+        ]
+      },
+      "receipt_sha256": "1c6ebd24097363a0e7dd313ca8d00f3c22e83c26fee7cbdcdbad7da37b1fb9db",
+      "artifacts": [
+        {
+          "name": "MF13-forest-0_1.png",
+          "sha256": "d72f0957bf09df0f480495a7a8fd48cd7acd943e1e69f916935cb99747085f5d"
+        },
+        {
+          "name": "exec-cc27d31f-c087-416b-b253-3fee6b425383.provenance.json",
+          "sha256": "585da49195b84323941e5b402193d97cebdc503fee62fbfd01a7413836890b89"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7d51-8e98-b140b1edf4cd/exec-cc27d31f-c087-416b-b253-3fee6b425383.png",
+          "sha256": "d72f0957bf09df0f480495a7a8fd48cd7acd943e1e69f916935cb99747085f5d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-forest-1_0",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "3924dd05448e2b159b43a300c1ae70700bcef73675fb54db696372c58bb6d38a",
+      "started": "2026-09-28T00:46:33.359513+00:00",
+      "ended": "2026-09-28T00:48:20.506396+00:00",
+      "minutes": 1.7857607673666887,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-75b0-aff9-dca73d1e5a42/exec-6282dd3f-f8a8-4daf-88a9-df6b513c487e.png",
+            "sha256": "606435699ad3fc498a669bbb31f65ab4410f96dd84472799516863b290d2e855"
+          }
+        ]
+      },
+      "receipt_sha256": "ad34fd452bafde68b2dc1046efe1dfc40af421b96141e121d99f0c33b179309c",
+      "artifacts": [
+        {
+          "name": "MF13-forest-1_0.png",
+          "sha256": "606435699ad3fc498a669bbb31f65ab4410f96dd84472799516863b290d2e855"
+        },
+        {
+          "name": "exec-6282dd3f-f8a8-4daf-88a9-df6b513c487e.provenance.json",
+          "sha256": "94d2e6d92a16e136cf976a1d7ca5500842e15c06867e403a18e4214d132cc19a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-75b0-aff9-dca73d1e5a42/exec-6282dd3f-f8a8-4daf-88a9-df6b513c487e.png",
+          "sha256": "606435699ad3fc498a669bbb31f65ab4410f96dd84472799516863b290d2e855"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-forest-1_1",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "5ff25ae25ce4ea11d5413b3919a4c280204466dd2ea3d4a09537b779ce69f5b5",
+      "started": "2026-09-28T00:46:33.359602+00:00",
+      "ended": "2026-09-28T00:48:37.498317+00:00",
+      "minutes": 2.0689602409666503,
+      "image_calls": 1,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-77d2-8df7-41a07e404b60/exec-15d4151d-1074-459b-902f-b7a7e91b1b33.png",
+            "sha256": "40a76c2aa207170e729a3f54c9dd70b1aae4b0e04b42d7e56405e2524ddb3039"
+          }
+        ]
+      },
+      "receipt_sha256": "b63c350cf76b9620cd458592c70382411e9500c173d5226a0c6741dd8afecd81",
+      "artifacts": [
+        {
+          "name": "MF13-forest-1_1.png",
+          "sha256": "40a76c2aa207170e729a3f54c9dd70b1aae4b0e04b42d7e56405e2524ddb3039"
+        },
+        {
+          "name": "exec-15d4151d-1074-459b-902f-b7a7e91b1b33.provenance.json",
+          "sha256": "f53055b8e66dc9a48ca151629977fdc4a5baf542a752b92ea4a2a14796e1035d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-77d2-8df7-41a07e404b60/exec-15d4151d-1074-459b-902f-b7a7e91b1b33.png",
+          "sha256": "40a76c2aa207170e729a3f54c9dd70b1aae4b0e04b42d7e56405e2524ddb3039"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "MF13-forest-2_0",
+      "type": "GENERATE",
+      "experiment": "P5-mist-banks",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "2c6d60c11cba6eb26a5418f0199e99fd64af2ed54d43fab119cfad0dd03ff001",
+      "started": "2026-09-28T00:46:33.359476+00:00",
+      "ended": "2026-09-28T00:49:33.112620+00:00",
+      "minutes": 2.995864095150076,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7403-acc3-9ce55e55fcab/exec-720dbddd-7e70-402e-839f-81aceb104e6a.png",
+            "sha256": "c3d8226077aa337d796eeaff39d344469d9ea87e243d4aa8e448f5a8ed4decaa"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7403-acc3-9ce55e55fcab/exec-a2c3c105-3017-4bdd-ac52-8e896b4c0c3c.png",
+            "sha256": "3c9e3bda8d47391961972e3ac078377bdfd80c03917ea85dc4680a87991e73ee"
+          }
+        ]
+      },
+      "receipt_sha256": "9c5c8ba081a1ead8ea5dcedb408bb1cb92014b81b4006bceb9ba0838c6e79fb1",
+      "artifacts": [
+        {
+          "name": "MF13-forest-2_0.png",
+          "sha256": "c3d8226077aa337d796eeaff39d344469d9ea87e243d4aa8e448f5a8ed4decaa"
+        },
+        {
+          "name": "exec-720dbddd-7e70-402e-839f-81aceb104e6a.provenance.json",
+          "sha256": "1261c4ab6e65cd615f61c88b353d44889fda01c14f70475d394c46a9aa6899a8"
+        },
+        {
+          "name": "exec-a2c3c105-3017-4bdd-ac52-8e896b4c0c3c.provenance.json",
+          "sha256": "f3d34aca6cd6ff9c2183d2d47d8afe6002ad4102efaedab563c343e649b3811c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7403-acc3-9ce55e55fcab/exec-720dbddd-7e70-402e-839f-81aceb104e6a.png",
+          "sha256": "c3d8226077aa337d796eeaff39d344469d9ea87e243d4aa8e448f5a8ed4decaa"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e57a-509a-7403-acc3-9ce55e55fcab/exec-a2c3c105-3017-4bdd-ac52-8e896b4c0c3c.png",
+          "sha256": "3c9e3bda8d47391961972e3ac078377bdfd80c03917ea85dc4680a87991e73ee"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 324,
+  "images_used": 336,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -13003,6 +13588,22 @@
       "topic": "Sol bake-off on hold pending a Codex update",
       "ruling": "Matt verbatim: \"Ok hold off on the test. I probably need to update codex as gpt 6 sol is super new\". The bake-off is HELD. Astra remains the painter. When Codex is updated, the conductor re-checks the models list for GPT-6 Sol and re-proposes the bake-off; the per-burst ledger records the new codex_version so the upgrade is visible as a lane change. Update between waves, not while bursts are in flight.",
       "ts": "2026-09-27T20:05:43"
+    },
+    {
+      "id": "R-C9-50",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Paint mist banks into the B far and forest layers",
+      "ruling": "Matt verbatim: \"Mist: yes, paint it.\" Astra EDIT bursts MF13-far-* (2x2) and MF13-forest-* (3x3) ADD painted violet mist: thick in the far valleys and toward the horizon, lighter in the forest band, fading over the scorched land; land, fires and plumes unchanged; the #00ff00 plate stays flat. Feathered reassembly to L13_layer_far/forest (mist_paint.py). Landmark sprites are separate and untouched. drax then swaps the sources and re-checks rows. Painter: Astra (the bake-off is undecided; this is cliffside work, which stays Astra).",
+      "ts": "2026-09-27T20:43:17"
+    },
+    {
+      "id": "R-C9-51",
+      "class": "matt",
+      "veto_open": true,
+      "topic": "Rig on the large monitor: five defects; common thread and pipeline verdict",
+      "ruling": "Matt listed five rig defects seen on the large monitor: (1) flat-footed feet; (2) no coordination between the legs and the hips/body; (3) the far hand does not grip or lock onto the pollaxe and moves at a different pace; (4) visible breaks between pieces (forearm and upper arm, nape and gorget, under the tabard); (5) a stray line tying the left hand to the chest. He asked for the common thread, whether a systematic fix exists, and whether another 2D approach is needed given modular gear. Verdict (agentic_orchestration/gandalf/notes/2026-09-28-humanoid-animation-common-thread-verdict.md): the rig animates a PICTURE (one still bakes occlusion, contours, projection, and no structure); 3/4/5 are fixable within cut-out, but 1/2 are its ceiling. Recommend a 3D humanoid proxy with the eight approved stills PROJECTED as paint, a render-time ink outline, retargeted clips, grip sockets and gear as separate meshes, rendered to the existing sprite-sheet format. A spike on E is proposed with gates M-a/M-b/M-c. Awaiting Matt.",
+      "ts": "2026-09-27T20:56:42"
     }
   ],
   "grok_calls": [
