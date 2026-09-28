@@ -1,0 +1,41 @@
+{
+ "aim_up_m": 1.14056602374854,
+ "elevation_deg": 19.77,
+ "fitted_against": "res://frames/knight_test.tres",
+ "keeper_cycle_s": {
+  "k_idle": 2.0,
+  "k_run": 0.551724137931034,
+  "k_walk": 0.579710144927536
+ },
+ "note": "C-9 R-C9-61 T3. Written by tools/fit_knight3d.gd -- a measured fit of the 3D camera to the sprite cells in this build, not a typed constant. Re-run after swapping the sprite source.",
+ "passes": [
+  {
+   "aim_up_m": 1.14056602374854,
+   "height": 202.0,
+   "height_err": 0.0,
+   "pass": 0,
+   "ppm": 114.728711340206,
+   "sole": 408.0,
+   "sole_err": 0.0
+  }
+ ],
+ "px_per_m_candidates_rejected": {
+  "110.185": "knight3d/10_render.py BODY_PX / 1.80",
+  "117.5": "meshy_test/render_anim.py ortho_scale",
+  "why": "both are camera-side numbers for a 1.80 m figure; what has to match is the PROJECTED height on the cells that shipped, so it is measured"
+ },
+ "px_per_m_screen": 114.728711340206,
+ "residual_px": {
+  "height": 0.0,
+  "sole": 0.0
+ },
+ "sole_row": 408.0,
+ "sprite_target": {
+  "animation": "walk_E",
+  "frames": 12,
+  "height": 202.0,
+  "height_spread": 11.0,
+  "sole": 408.0
+ },
+ "view_px": 512
+}

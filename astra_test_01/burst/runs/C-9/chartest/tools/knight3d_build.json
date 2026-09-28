@@ -1,0 +1,192 @@
+{
+ "note": "C-9 R-C9-61 T3 runtime-3D knight build. Written by tools/build_knight3d.py (Blender 5.2.0 LTS).",
+ "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/meshy_t1",
+ "figure_height_m": 1.8,
+ "sole_z_m": 0.0,
+ "mesh_bbox_m": {
+  "lo": [
+   -0.5007,
+   -0.1816,
+   0.0
+  ],
+  "hi": [
+   0.5007,
+   0.1816,
+   1.8
+  ]
+ },
+ "clips": [
+  {
+   "name": "idle",
+   "source": "idle.glb",
+   "action": "Armature|Idle|baselayer",
+   "frames": [
+    0.8,
+    96.8
+   ],
+   "seconds": 4.0,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 0.0008,
+     "2": -0.0007
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "name": "walk",
+   "source": "walk.glb",
+   "action": "Armature|walking_man|baselayer",
+   "frames": [
+    0.8,
+    25.6
+   ],
+   "seconds": 1.0333,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 0.0,
+     "2": -0.0
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "name": "run",
+   "source": "run.glb",
+   "action": "Armature|running|baselayer",
+   "frames": [
+    0.8,
+    16.0
+   ],
+   "seconds": 0.6333,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 0.0,
+     "2": 0.0
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "name": "attack",
+   "source": "attack.glb",
+   "action": "retarget_clip",
+   "frames": [
+    1.6,
+    72.8
+   ],
+   "seconds": 2.9667,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": -0.3814,
+     "2": 8.0651
+    }
+   },
+   "status": "ok"
+  }
+ ],
+ "knight": {
+  "tris_before": 115345,
+  "tris_after": 18000,
+  "decimate_ratio": 0.15605,
+  "tex_before": [
+   2048,
+   2048
+  ],
+  "tex_after": [
+   1024,
+   1024
+  ],
+  "shading": "smooth (for a watertight inverted-hull outline)",
+  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/chartest/godot/models/knight_t3.glb",
+  "glb_mb": 1.73
+ },
+ "bones": {
+  "RightHand": {
+   "head_m": [
+    -0.4339,
+    -0.0143,
+    0.9301
+   ],
+   "tail_m": [
+    -8.3459,
+    -3.1814,
+    -22.4093
+   ],
+   "length_m": 24.8467
+  },
+  "LeftHand": {
+   "head_m": [
+    0.4332,
+    -0.0149,
+    0.9284
+   ],
+   "tail_m": [
+    4.3545,
+    -2.9313,
+    -24.0924
+   ],
+   "length_m": 25.4937
+  }
+ },
+ "pollaxe": {
+  "tris_before": 8041,
+  "tris_after": 4000,
+  "decimate_ratio": 0.49745,
+  "tex_before": [
+   2048,
+   2048
+  ],
+  "tex_after": [
+   512,
+   512
+  ],
+  "bbox_lo_m": [
+   -0.2036,
+   -0.0652,
+   -0.9519
+  ],
+  "bbox_hi_m": [
+   0.2081,
+   0.066,
+   0.9511
+  ],
+  "long_axis_blender": "Z",
+  "length_m": 1.903,
+  "origin_is_mid_shaft": true,
+  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/chartest/godot/models/pollaxe_t3.glb",
+  "glb_mb": 0.24
+ }
+}

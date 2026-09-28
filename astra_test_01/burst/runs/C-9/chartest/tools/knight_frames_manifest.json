@@ -1,0 +1,47 @@
+{
+  "note": "C-9 R-C9-61 T1: the knight test skin's frame set. The BUILDER reads this; to swap the placeholder for the real 8-direction set, change source_root and set placeholder=false. That is the one-line change the dispatch asks for.",
+  "source_root": "meshy_test/paint_a",
+  "placeholder": true,
+  "placeholder_note": "PLACEHOLDER: runs/C-9/meshy_test/paint_a is the Meshy+Astra E walk ONLY -- one direction, one action. It is used for all 8 directions and stretched across the other states so the pipeline can be wired and walked now. Every direction shows the same E-facing cycle, so the knight does NOT turn. That is expected and is labelled on the HUD; it is not a rig fault.",
+  "real_set_when_ready": "meshy_t1/sprites_t1",
+  "layout": "{state}/{dir}/f_NN.png  (the real set may instead use {state}/{dir}/{state}_{dir}_NN.png; the builder accepts either)   Paths are relative to the RUN dir, runs/C-9.",
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "states": {
+    "idle": {
+      "fps": 8.0,
+      "loop": true,
+      "from": "walk",
+      "frames": [
+        0
+      ],
+      "why": "the placeholder has no idle cycle; frame 0 held. The Keeper's idle is 16 frames over 2.0 s."
+    },
+    "walk": {
+      "fps": 20.7,
+      "loop": true,
+      "from": "walk",
+      "why": "12 frames at 20.7 fps = 0.5797 s, the Keeper's own walk stride, read from frames/keeper.tres"
+    },
+    "run": {
+      "fps": 21.75,
+      "loop": true,
+      "from": "walk",
+      "why": "PLACEHOLDER reuse: the same 12 walk frames played in 0.5517 s, the Keeper's run stride. A real run cycle replaces this with meshy run.glb output."
+    },
+    "attack": {
+      "fps": 20.0,
+      "loop": false,
+      "from": null,
+      "why": "not delivered by the placeholder. The skin falls back to idle and says so once on the console, rather than silently showing a walk."
+    }
+  }
+}
