@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST MC-1 — Run C-9 pipeline test T2 (Matt R-C9-62): CHARACTER SHEET of a four-legged demon for a 3D model. task_id \"MC-1\".\n\nIMAGE 1 is a page from a 13th-century bestiary: the MANTICORE, a four-legged beast with the lean body of a great hound, blue-grey hide with the ribs showing, long legs ending in clawed paws, a long thin whip-like tail, and the calm, bearded, long-haired face of a MAN where the beast's head should be. Matt calls it \"the creepy hellhound/dog with a bearded man's face\": keep exactly that creature and that uncanny calm human face.\nIMAGE 2 is this game level's approved character sheet (a knight): it shows the painted hand, the sheet format and the finish to match.\nDeliver ONE 1536x1024 CHARACTER SHEET on flat pure #00ff00 in a 2x2 grid, the SAME creature in four views at the SAME scale, each view centred in its quarter, soles on one ground line per row:\ntop-left FRONT (facing the viewer); top-right RIGHT SIDE (in profile facing the viewer's right, as IMAGE 1); bottom-left BACK (seen from behind); bottom-right LEFT SIDE (in profile facing the viewer's left).\nPOSE (for building and rigging a 3D model): a NEUTRAL standing pose, all four legs straight and planted slightly apart so that in the side views the near and far legs do not hide each other; weight even; head level, looking straight ahead, mouth closed; tail extended straight back and slightly down, not curled over the body; nothing held, nothing overlapping.\nThe creature: a hound's body the size of a large wolf, lean and ribbed, blue-grey hide with a darker spine and paler belly, a light mane of hair around the face; the face a bearded man's (long hair, full beard, calm eyes) as IMAGE 1 paints it; clawed dog paws; the same markings and colours in all four views (it must be ONE consistent creature).\nSTYLE: the REGISTER CARD above, matched to IMAGE 2's hand (dark ink line, hatching, transparent washes, manuscript palette). No ground, no shadows, no text, no labels, no cell borders, no other figures.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if a view is missing or has the wrong facing, the creature differs between views, legs overlap so a leg is hidden in a side view, the pose is not neutral, or the background is not flat green — name the reason. Copy outputs to out/MC-1_a.png and out/MC-1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"MC-1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/manticore_rochester_src.jpg",
+   "role": "IMAGE 1 — the manticore (Rochester Bestiary, BL Royal 12 F xiii f.24v, c.1230, public domain): the creature's design"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KA-1/KA-1_a.png",
+   "role": "IMAGE 2 — this level's approved character sheet (the knight): the painted hand, format and finish to match"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/MC-1_a.png",
+  "out/MC-1_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T2-monster-sheet"
+}

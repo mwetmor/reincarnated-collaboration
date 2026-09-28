@@ -14693,6 +14693,14 @@
       "topic": "Go on pipeline tests T1-T3; T2 subject from PD four-legged painted-book demons; T1 walk on desktop AND web, on the ORIGINAL cliffside route",
       "ruling": "Matt verbatim: \"Go on 1-3 now. Ill work on the credentials for the 4th test a bit later. Regarding the decisions: For the monster, please search through the public domain of medieval, renaissance and other painted book demons with 4 legs and share candidates with me. Use the 2-legged demon as a fallback. For the walk test, both desktop app and web.. just use the original vercel with the keeper as the A/B version lags out due to the multiple scene switch I think.\" Dispositions: T1 is the knight via a weapon-free A-pose four-view sheet (KA-1) and a pollaxe sheet (KP-1), then Meshy model and rig, walk/run/idle plus one pollaxe attack, the pollaxe on a hand socket, 8 directions, Astra paint (E and SE) plus EbSynth keys for the rest. Integration into the ORIGINAL web route /playtest/cliffside/ (the Keeper scene) as a character toggle, Keeper default, plus the desktop app. The loadout push is authorized for this route for T1. T2 subject: PD four-legged demon candidates for Matt, the Spinola two-legged demon as fallback; a quadruped cannot use the Meshy API rig (humanoid only), so the rig path is decided with the pick. T3: the runtime-3D look in Godot on the T1 model. T4 (Kling and Ludo) waits for Matt's credentials. The A/B route lag (suspected scene switching) is noted for later.",
       "ts": "2026-09-28T16:54:22"
+    },
+    {
+      "id": "R-C9-62",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "T2 monster: the manticore (the 'creepy hellhound with a bearded man's face')",
+      "ruling": "Matt verbatim: \"Regarding the monster, I do like the one that looks like a creepy hellhound/dog with a bearded man's face.\" = the MANTICORE, Rochester Bestiary (British Library Royal MS 12 F xiii f.24v, c.1230, public domain via Wikimedia Commons). Registered in the ART-1 refs ledger (attach_to_generator true) and the C-9 inputs manifest (manticore_rochester_src.jpg). T2 route: Astra MC-1 four-view neutral-pose character sheet in the level's hand -> Meshy multi-image-to-3D (no A/T pose; a quadruped) -> rig and animate in Blender by drax (Rigify wolf/quadruped meta-rig, automatic weights, keyed hound walk, run, idle and a lunge-bite; the Opus-in-Blender process tested on a creature), because the Meshy API rig and motion retarget are biped-only -> the same T1 render and paint pipeline (8 directions, Astra keys, EbSynth). Also recorded: Meshy multi-image view order = the first image is the front, the rest in any order.",
+      "ts": "2026-09-28T17:08:30"
     }
   ],
   "grok_calls": [
