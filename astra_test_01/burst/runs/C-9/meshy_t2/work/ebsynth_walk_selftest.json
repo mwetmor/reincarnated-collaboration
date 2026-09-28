@@ -1,0 +1,181 @@
+{
+ "clip": "walk",
+ "variant": "__render__",
+ "frames": 12,
+ "keys": [
+  0,
+  6
+ ],
+ "guides": [
+  {
+   "name": "pos",
+   "weight": 4.0
+  },
+  {
+   "name": "part",
+   "weight": 2.0
+  },
+  {
+   "name": "mask",
+   "weight": 2.0
+  }
+ ],
+ "alpha_source": "out/<clip>/guides_mask (the render's own silhouette); the painted keys' silhouette drifts ~5 % from it and that drift is deliberately NOT carried into the propagated directions, so all eight stay aligned",
+ "dirs": {
+  "S": {
+   "keys": [
+    0,
+    6
+   ],
+   "frames": 12,
+   "selftest": {
+    "per_frame": [
+     {
+      "frame": 0,
+      "mae": 3.32,
+      "mae_static_key": 2.39
+     },
+     {
+      "frame": 1,
+      "mae": 12.34,
+      "mae_static_key": 31.18
+     },
+     {
+      "frame": 2,
+      "mae": 13.97,
+      "mae_static_key": 42.32
+     },
+     {
+      "frame": 3,
+      "mae": 14.79,
+      "mae_static_key": 47.0
+     },
+     {
+      "frame": 4,
+      "mae": 14.04,
+      "mae_static_key": 47.3
+     },
+     {
+      "frame": 5,
+      "mae": 14.19,
+      "mae_static_key": 45.59
+     },
+     {
+      "frame": 6,
+      "mae": 3.38,
+      "mae_static_key": 47.06
+     },
+     {
+      "frame": 7,
+      "mae": 12.0,
+      "mae_static_key": 54.46
+     },
+     {
+      "frame": 8,
+      "mae": 12.94,
+      "mae_static_key": 53.97
+     },
+     {
+      "frame": 9,
+      "mae": 15.27,
+      "mae_static_key": 53.88
+     },
+     {
+      "frame": 10,
+      "mae": 14.16,
+      "mae_static_key": 48.0
+     },
+     {
+      "frame": 11,
+      "mae": 12.07,
+      "mae_static_key": 38.38
+     }
+    ],
+    "mae_mean": 11.87,
+    "mae_static_key_mean": 42.63
+   },
+   "ebsynth_runs": 22,
+   "mean_s": 13.676,
+   "blend": "inverse circular temporal distance, inside the mask only",
+   "out": "work/ebs_selftest/walk/S"
+  },
+  "W": {
+   "keys": [
+    0,
+    6
+   ],
+   "frames": 12,
+   "selftest": {
+    "per_frame": [
+     {
+      "frame": 0,
+      "mae": 3.74,
+      "mae_static_key": 2.63
+     },
+     {
+      "frame": 1,
+      "mae": 11.42,
+      "mae_static_key": 36.29
+     },
+     {
+      "frame": 2,
+      "mae": 13.38,
+      "mae_static_key": 37.96
+     },
+     {
+      "frame": 3,
+      "mae": 14.29,
+      "mae_static_key": 51.32
+     },
+     {
+      "frame": 4,
+      "mae": 12.53,
+      "mae_static_key": 51.03
+     },
+     {
+      "frame": 5,
+      "mae": 10.73,
+      "mae_static_key": 43.26
+     },
+     {
+      "frame": 6,
+      "mae": 3.55,
+      "mae_static_key": 35.03
+     },
+     {
+      "frame": 7,
+      "mae": 11.09,
+      "mae_static_key": 37.49
+     },
+     {
+      "frame": 8,
+      "mae": 11.94,
+      "mae_static_key": 42.38
+     },
+     {
+      "frame": 9,
+      "mae": 12.61,
+      "mae_static_key": 55.96
+     },
+     {
+      "frame": 10,
+      "mae": 12.8,
+      "mae_static_key": 52.87
+     },
+     {
+      "frame": 11,
+      "mae": 10.53,
+      "mae_static_key": 42.06
+     }
+    ],
+    "mae_mean": 10.72,
+    "mae_static_key_mean": 40.69
+   },
+   "ebsynth_runs": 22,
+   "mean_s": 12.939,
+   "blend": "inverse circular temporal distance, inside the mask only",
+   "out": "work/ebs_selftest/walk/W"
+  }
+ },
+ "total_ebsynth_s": 585.5
+}

@@ -1,0 +1,459 @@
+{
+ "note": "C-9 meshy_t2 painted sprites",
+ "frame_px": 512,
+ "px_per_m": 110.1852,
+ "sole_row": 398,
+ "elevation_deg": 19.77,
+ "azimuths": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "gates": {
+  "matte_max_area_ratio": 1.6,
+  "pose_min_iou": 0.8,
+  "pose_warn_iou": 0.9
+ },
+ "source": {
+  "walk": {
+   "E": "b",
+   "SE": "b",
+   "keys": null
+  },
+  "idle": {
+   "E": "a",
+   "SE": "salvage_a",
+   "keys": null
+  },
+  "run": {
+   "E": null,
+   "SE": null,
+   "keys": null
+  },
+  "attack": {
+   "E": null,
+   "SE": null,
+   "keys": null
+  }
+ },
+ "states": {
+  "idle": {
+   "E": {
+    "variant": "a",
+    "source": "paint_a/idle/E",
+    "frames": 12,
+    "kind": "painted",
+    "iou_min": 0.9444,
+    "iou_mean": 0.953,
+    "opaque_frac_max": 0.0294,
+    "area_ratio_max": 1.0268,
+    "bad_frames": [],
+    "warn_frames": [],
+    "per_frame": [
+     {
+      "opaque_frac": 0.0292,
+      "area_ratio": 1.019,
+      "iou": 0.9455,
+      "verdict": "ok",
+      "frame": 0
+     },
+     {
+      "opaque_frac": 0.0292,
+      "area_ratio": 1.0264,
+      "iou": 0.9458,
+      "verdict": "ok",
+      "frame": 1
+     },
+     {
+      "opaque_frac": 0.0292,
+      "area_ratio": 1.0241,
+      "iou": 0.9447,
+      "verdict": "ok",
+      "frame": 2
+     },
+     {
+      "opaque_frac": 0.0289,
+      "area_ratio": 1.0158,
+      "iou": 0.953,
+      "verdict": "ok",
+      "frame": 3
+     },
+     {
+      "opaque_frac": 0.029,
+      "area_ratio": 1.0184,
+      "iou": 0.9623,
+      "verdict": "ok",
+      "frame": 4
+     },
+     {
+      "opaque_frac": 0.0289,
+      "area_ratio": 1.0184,
+      "iou": 0.9659,
+      "verdict": "ok",
+      "frame": 5
+     },
+     {
+      "opaque_frac": 0.0294,
+      "area_ratio": 1.0195,
+      "iou": 0.9658,
+      "verdict": "ok",
+      "frame": 6
+     },
+     {
+      "opaque_frac": 0.0292,
+      "area_ratio": 1.0128,
+      "iou": 0.9637,
+      "verdict": "ok",
+      "frame": 7
+     },
+     {
+      "opaque_frac": 0.0294,
+      "area_ratio": 1.0268,
+      "iou": 0.9467,
+      "verdict": "ok",
+      "frame": 8
+     },
+     {
+      "opaque_frac": 0.0293,
+      "area_ratio": 1.0264,
+      "iou": 0.9444,
+      "verdict": "ok",
+      "frame": 9
+     },
+     {
+      "opaque_frac": 0.0291,
+      "area_ratio": 1.0244,
+      "iou": 0.9466,
+      "verdict": "ok",
+      "frame": 10
+     },
+     {
+      "opaque_frac": 0.029,
+      "area_ratio": 1.0149,
+      "iou": 0.9519,
+      "verdict": "ok",
+      "frame": 11
+     }
+    ],
+    "assembled": true
+   },
+   "SE": {
+    "variant": "salvage_a",
+    "source": "paint_salvage_a/idle/SE",
+    "frames": 12,
+    "kind": "painted",
+    "iou_min": 0.893,
+    "iou_mean": 0.9026,
+    "opaque_frac_max": 0.0303,
+    "area_ratio_max": 1.1198,
+    "bad_frames": [],
+    "warn_frames": [
+     0,
+     1,
+     6,
+     7,
+     10,
+     11
+    ],
+    "per_frame": [
+     {
+      "opaque_frac": 0.0295,
+      "area_ratio": 1.1158,
+      "iou": 0.8962,
+      "verdict": "pose_warn",
+      "frame": 0
+     },
+     {
+      "opaque_frac": 0.0297,
+      "area_ratio": 1.1182,
+      "iou": 0.8943,
+      "verdict": "pose_warn",
+      "frame": 1
+     },
+     {
+      "opaque_frac": 0.0295,
+      "area_ratio": 1.0989,
+      "iou": 0.91,
+      "verdict": "ok",
+      "frame": 2
+     },
+     {
+      "opaque_frac": 0.0296,
+      "area_ratio": 1.0952,
+      "iou": 0.9131,
+      "verdict": "ok",
+      "frame": 3
+     },
+     {
+      "opaque_frac": 0.0299,
+      "area_ratio": 1.1022,
+      "iou": 0.9073,
+      "verdict": "ok",
+      "frame": 4
+     },
+     {
+      "opaque_frac": 0.0299,
+      "area_ratio": 1.1034,
+      "iou": 0.9063,
+      "verdict": "ok",
+      "frame": 5
+     },
+     {
+      "opaque_frac": 0.0303,
+      "area_ratio": 1.1134,
+      "iou": 0.8982,
+      "verdict": "pose_warn",
+      "frame": 6
+     },
+     {
+      "opaque_frac": 0.03,
+      "area_ratio": 1.1179,
+      "iou": 0.8945,
+      "verdict": "pose_warn",
+      "frame": 7
+     },
+     {
+      "opaque_frac": 0.0292,
+      "area_ratio": 1.1013,
+      "iou": 0.908,
+      "verdict": "ok",
+      "frame": 8
+     },
+     {
+      "opaque_frac": 0.0289,
+      "area_ratio": 1.0967,
+      "iou": 0.9118,
+      "verdict": "ok",
+      "frame": 9
+     },
+     {
+      "opaque_frac": 0.0295,
+      "area_ratio": 1.1198,
+      "iou": 0.893,
+      "verdict": "pose_warn",
+      "frame": 10
+     },
+     {
+      "opaque_frac": 0.0293,
+      "area_ratio": 1.1133,
+      "iou": 0.8982,
+      "verdict": "pose_warn",
+      "frame": 11
+     }
+    ],
+    "assembled": true
+   }
+  },
+  "walk": {
+   "E": {
+    "variant": "b",
+    "source": "paint_b/walk/E",
+    "frames": 12,
+    "kind": "painted",
+    "iou_min": 0.935,
+    "iou_mean": 0.9524,
+    "opaque_frac_max": 0.0334,
+    "area_ratio_max": 1.0355,
+    "bad_frames": [],
+    "warn_frames": [],
+    "per_frame": [
+     {
+      "opaque_frac": 0.0324,
+      "area_ratio": 1.0355,
+      "iou": 0.9496,
+      "verdict": "ok",
+      "frame": 0
+     },
+     {
+      "opaque_frac": 0.0328,
+      "area_ratio": 1.0233,
+      "iou": 0.9544,
+      "verdict": "ok",
+      "frame": 1
+     },
+     {
+      "opaque_frac": 0.0314,
+      "area_ratio": 1.0266,
+      "iou": 0.9448,
+      "verdict": "ok",
+      "frame": 2
+     },
+     {
+      "opaque_frac": 0.0326,
+      "area_ratio": 1.0323,
+      "iou": 0.935,
+      "verdict": "ok",
+      "frame": 3
+     },
+     {
+      "opaque_frac": 0.032,
+      "area_ratio": 1.03,
+      "iou": 0.9459,
+      "verdict": "ok",
+      "frame": 4
+     },
+     {
+      "opaque_frac": 0.0313,
+      "area_ratio": 1.0243,
+      "iou": 0.9562,
+      "verdict": "ok",
+      "frame": 5
+     },
+     {
+      "opaque_frac": 0.0323,
+      "area_ratio": 1.0255,
+      "iou": 0.9505,
+      "verdict": "ok",
+      "frame": 6
+     },
+     {
+      "opaque_frac": 0.0331,
+      "area_ratio": 1.0304,
+      "iou": 0.9503,
+      "verdict": "ok",
+      "frame": 7
+     },
+     {
+      "opaque_frac": 0.032,
+      "area_ratio": 1.0245,
+      "iou": 0.9581,
+      "verdict": "ok",
+      "frame": 8
+     },
+     {
+      "opaque_frac": 0.0334,
+      "area_ratio": 1.0204,
+      "iou": 0.9619,
+      "verdict": "ok",
+      "frame": 9
+     },
+     {
+      "opaque_frac": 0.0332,
+      "area_ratio": 1.0245,
+      "iou": 0.9622,
+      "verdict": "ok",
+      "frame": 10
+     },
+     {
+      "opaque_frac": 0.031,
+      "area_ratio": 1.0223,
+      "iou": 0.9597,
+      "verdict": "ok",
+      "frame": 11
+     }
+    ],
+    "assembled": true
+   },
+   "SE": {
+    "variant": "b",
+    "source": "paint_b/walk/SE",
+    "frames": 12,
+    "kind": "painted",
+    "iou_min": 0.9471,
+    "iou_mean": 0.9565,
+    "opaque_frac_max": 0.0266,
+    "area_ratio_max": 1.0267,
+    "bad_frames": [],
+    "warn_frames": [],
+    "per_frame": [
+     {
+      "opaque_frac": 0.0256,
+      "area_ratio": 1.0016,
+      "iou": 0.9604,
+      "verdict": "ok",
+      "frame": 0
+     },
+     {
+      "opaque_frac": 0.0254,
+      "area_ratio": 1.0006,
+      "iou": 0.9596,
+      "verdict": "ok",
+      "frame": 1
+     },
+     {
+      "opaque_frac": 0.0264,
+      "area_ratio": 1.0032,
+      "iou": 0.9644,
+      "verdict": "ok",
+      "frame": 2
+     },
+     {
+      "opaque_frac": 0.0266,
+      "area_ratio": 1.0075,
+      "iou": 0.9635,
+      "verdict": "ok",
+      "frame": 3
+     },
+     {
+      "opaque_frac": 0.0265,
+      "area_ratio": 1.0128,
+      "iou": 0.9566,
+      "verdict": "ok",
+      "frame": 4
+     },
+     {
+      "opaque_frac": 0.0261,
+      "area_ratio": 1.0053,
+      "iou": 0.9471,
+      "verdict": "ok",
+      "frame": 5
+     },
+     {
+      "opaque_frac": 0.0255,
+      "area_ratio": 1.0027,
+      "iou": 0.9537,
+      "verdict": "ok",
+      "frame": 6
+     },
+     {
+      "opaque_frac": 0.0261,
+      "area_ratio": 1.0206,
+      "iou": 0.953,
+      "verdict": "ok",
+      "frame": 7
+     },
+     {
+      "opaque_frac": 0.0262,
+      "area_ratio": 1.0213,
+      "iou": 0.9558,
+      "verdict": "ok",
+      "frame": 8
+     },
+     {
+      "opaque_frac": 0.0257,
+      "area_ratio": 1.0267,
+      "iou": 0.9517,
+      "verdict": "ok",
+      "frame": 9
+     },
+     {
+      "opaque_frac": 0.025,
+      "area_ratio": 1.0218,
+      "iou": 0.9592,
+      "verdict": "ok",
+      "frame": 10
+     },
+     {
+      "opaque_frac": 0.0262,
+      "area_ratio": 1.0232,
+      "iou": 0.9526,
+      "verdict": "ok",
+      "frame": 11
+     }
+    ],
+    "assembled": true
+   }
+  }
+ },
+ "refused": [],
+ "totals": {
+  "directions_assembled": 4,
+  "directions_expected": 32,
+  "frames_assembled": 48
+ }
+}
