@@ -34,6 +34,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-09-28 — JOIN KEY: R-J1 RULED (the middle sits between Grim Dawn and the other games; levers left open) · ARCHITECT pass filed · Q86–Q89 queued
+
+Matt re-opened the KC2 EoR-arena work with its successor goal: prove the replica, then move it to the middle so other ARPG kits can join. **R-J1 (Matt, class `matt`, KC2-PLAY ledger KP-82):** *"Between grim dawn and the other games.. then we leave levers open specifically to be tweaked as we go to reach our own version of fun."* Course of record: `agentic_orchestration/gandalf/notes/2026-09-28-join-key-architect-pass.md`. Deltas that GOVERN:
+- **The middle is GD ↔ the roster games, not GD ↔ our spec.** Our element / resource / stat spec is a later *profile* (a setting of the levers), not the shape of the middle.
+- **Architecture:** one substrate executing game-neutral **primitives**; per-game **adapters** (GD = #1, TSR-3); **levers** discovered from the divergence register + an ablation map + a schema-pressure census; **profiles** = lever-setting vectors (GD-REFERENT = the sealed referent; era profiles; the house profile). All levers **OPEN** at the GD-referent setting until ruled.
+- **Gap named:** the KC2 oracle / packs / runtime and the cross-game kit layer (`corpus.db`, GD-SLICE, kit compiler, `kits-export/`) have **never been connected**. That connection IS the join key (Failure Mode 2, made concrete).
+- **Sequence:** Phase A seals **REFERENT-v1** (Q85, T30, prereg v1.6, v3.4 cut, the energy-cost / unkillable / spawn-zone defects, T-A/T-B/T-C) → ablation map → Phase B (self-join of `gd-eor-warlord.json` · census · adapter refactor under a golden-master replay · lever registry v0 · E-1 · two foreign kits).
+- **Queued for Matt:** Q86 mechanism-not-numbers · Q87 viability definition · Q88 kit slate (rec: real join #2 = D2 WW Barb) · Q89 close KC2-PLAY at the seal + charter JOIN-1. **E-1 / E-2 / grade-vocabulary unification / GD-SLICE lock: GATED+TRACKED** with named criteria (ARCHITECT § 5). No code, no run fired.
+
+
 ### 2026-09-10 — DISK-RECLAIM RUN (gandalf RUN-CONDUCTOR): 28→50 GiB FREE; ENGINE OUTPUT/ ARCHIVED IN-PLACE; THREE SOLE-COPY SAVES; TELEMETRY RECORD DEFECTS SURFACED
 
 Matt-ruled disk-reclaim run (T20 condition re-opened at 28 GiB/94%). Full record: `agentic_orchestration/gandalf/notes/2026-09-10-disk-reclaim-rulings-and-ledger.md`. Engine-state deltas that GOVERN:
