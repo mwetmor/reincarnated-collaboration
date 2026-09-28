@@ -1,0 +1,63 @@
+{
+  "task_id": "KA-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "KA-1_a",
+      "path": "out/KA-1_a.png",
+      "sha256": "e41bc9ed259cf6202404d8e87f6648ebab8cf8cf122d8f3a3868f91914f3d2cd",
+      "prompt": "EDIT the attached original knight sheet. Variant a, diagnosed retry: previous attempt incorrectly made a dark gradient background. The entire background MUST remain solid RGB (0,255,0), pure #00ff00, identical to this original reference. Green must fill every empty area including between limbs. No vignette, backdrop shading, halo, shadow, ground or environment. Deliver 1536x1024.\nChange ONLY the weapons and arm poses: erase every pollaxe completely in all four views, reconstruct the hidden armour and heraldry. Empty open gauntlets with relaxed fingers. Straight arms at 30 degrees away from vertical in relaxed A-pose; clear green gaps between each arm and tabard in front and back. In each side view extend near arm slightly forward so hand and forearm visibly clear the front edge of tabard. Legs straight and slightly apart, weight even, head level. Preserve the reference placement and baseline. Four columns unchanged: FRONT, RIGHT side facing screen-right, BACK, LEFT side facing screen-left. Exactly the original same knight, helm, visor, gorget, plate details, blue tabard, gold crosses and diagonal blue/gold bands. Back tabard BLUE AND GOLD exactly like original back view, red only narrow side lining. Copy original dark ink contours, hatching and watercolor hand exactly. Preserve the original four-view character design and colours; no restyling. No text, borders or labels. MOST IMPORTANT: preserve the supplied flat vivid green background.",
+      "references": [
+        {
+          "role": "IMAGE 1 — original four-view turnaround, edit target",
+          "path": "in/01_ka_sheet_canvas.png"
+        }
+      ],
+      "elapsed_s": 34.235
+    },
+    {
+      "name": "KA-1_b",
+      "path": "out/KA-1_b.png",
+      "sha256": "bbc1dbe089a6925bd6d07136657ae0261ed57252f19f1ccad578616180c5668a",
+      "prompt": "EDIT the attached original knight sheet. Variant b, diagnosed retry: previous attempt incorrectly made a dark gradient background. The entire background MUST remain solid RGB (0,255,0), pure #00ff00, identical to this original reference. Green must fill every empty area including between limbs. No vignette, backdrop shading, halo, shadow, ground or environment. Deliver 1536x1024.\nChange ONLY the weapons and arm poses: erase every pollaxe completely in all four views, reconstruct the hidden armour and heraldry. Empty open gauntlets with relaxed fingers. Straight arms at 30 degrees away from vertical in relaxed A-pose; clear green gaps between each arm and tabard in front and back. In each side view extend near arm slightly forward so hand and forearm visibly clear the front edge of tabard. Legs straight and slightly apart, weight even, head level. Preserve the reference placement and baseline. Four columns unchanged: FRONT, RIGHT side facing screen-right, BACK, LEFT side facing screen-left. Exactly the original same knight, helm, visor, gorget, plate details, blue tabard, gold crosses and diagonal blue/gold bands. Back tabard BLUE AND GOLD exactly like original back view, red only narrow side lining. Copy original dark ink contours, hatching and watercolor hand exactly. Preserve the original four-view character design and colours; no restyling. No text, borders or labels. MOST IMPORTANT: preserve the supplied flat vivid green background.",
+      "references": [
+        {
+          "role": "IMAGE 1 — original four-view turnaround, edit target",
+          "path": "in/01_ka_sheet_canvas.png"
+        }
+      ],
+      "elapsed_s": 27.736
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a produced a dark gradient background instead of flat green.",
+      "change": "Retried from the original with stronger green-background preservation and side-arm clearance instructions."
+    },
+    {
+      "reason": "Variant b produced a dark gradient background instead of flat green.",
+      "change": "Retried from the original with stronger green-background preservation and side-arm clearance instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both sheets shift the figures and sole baseline upward relative to the reference.",
+      "Side-view forearms still overlap the tabard; complete clearance was not achieved.",
+      "Exact heraldic and armour-detail consistency is not fully preserved.",
+      "Backgrounds appear green, but exact uniform #00ff00 was not numerically verified.",
+      "The first image-tool result was inadvertently printed with base64 data."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/KA-1_a.png",
+      "sha256": "e41bc9ed259cf6202404d8e87f6648ebab8cf8cf122d8f3a3868f91914f3d2cd"
+    },
+    {
+      "path": "out/KA-1_b.png",
+      "sha256": "bbc1dbe089a6925bd6d07136657ae0261ed57252f19f1ccad578616180c5668a"
+    }
+  ]
+}
