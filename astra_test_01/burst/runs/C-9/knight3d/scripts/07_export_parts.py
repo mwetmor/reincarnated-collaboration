@@ -19,7 +19,7 @@ not -- see work/pollaxe_consistency.json).
 
 Writes out/parts_mesh.npz and out/parts_index.json.
 """
-import json, os, sys
+import json, math, os, sys
 import numpy as np
 from scipy.spatial import ConvexHull
 
@@ -99,24 +99,39 @@ def panel_shell(half_w, y, z_top, z_bot, thick, segs=8):
     return np.array(verts, float), np.array(faces, np.int32)
 
 
-def pollaxe(p, tag="pollaxe"):
-    """The pollaxe as its own rigid mesh, MEASURED off the E matte rather than
-    guessed (the first pass had a 38 mm haft and a head a third the right size).
+def pollaxe(p, tag="pollaxe", bearing_deg=None):
+    """The pollaxe as its own rigid mesh, MEASURED off the E matte.
 
-    From work/masks/E_axe.npy at the E view's fitted scale (481 px/m):
         total length          2.235 m   (spear point to butt cap)
         haft diameter         0.0624 m
-        head span across      0.443 m   (blade fan one side, fluke the other)
+        head span across      0.443 m   (fan one side, fluke the other)
         head height           0.295 m
         head centre           0.541 m above the grip
         spear point           0.239 m above the head
-    Built at the fitted grip point, vertical, which is what every still shows.
+
+    R-C9-57, Matt: "the poleaxe blade is pointing backwards." It was: the fan
+    was built on -Y, behind the knight, and the fluke on +Y in front of him.
+    15_blade_side.py measures which side the fan is on in the figure's own
+    frame, from the eight mattes, and all four cardinals agree on the SIGN --
+    the fan is OUTBOARD (the figure's +X, away from the body) and FORWARD
+    (+Y), with the fluke on the near side. So the head is rotated about the
+    haft axis by `head_bearing_deg`, measured from forward toward the figure's
+    right; the GRIP does not move.
+
+    The blade is also no longer a slab. It is a FAN: narrow where it meets the
+    haft and widening to a curved outer edge, which is what made the first one
+    read as a plank.
     """
     gx, gy, gz = p["grip_x"], p["grip_y"], p["grip_z"]
+    bd = math.radians(p.get("head_bearing_deg", 45.0) if bearing_deg is None
+                      else bearing_deg)
+    # the fan's direction in the ground plane, and the perpendicular (the
+    # head's thickness direction)
+    fdir = np.array([math.sin(bd), math.cos(bd), 0.0])
+    fper = np.array([math.cos(bd), -math.sin(bd), 0.0])
     L_up, L_dn = 0.689, 1.306
     r = 0.0312
-    head_c = gz + 0.541
-    hh = 0.295 / 2.0
+    head_c = np.array([gx, gy, gz + 0.541])
     pieces = {}
     ang = np.linspace(0, 2 * np.pi, 16, endpoint=False)
     ring = np.stack([np.cos(ang), np.sin(ang)], -1)
@@ -125,28 +140,32 @@ def pollaxe(p, tag="pollaxe"):
         hp.append(np.stack([gx + r * ring[:, 0], gy + r * ring[:, 1],
                             np.full(len(ang), z)], -1))
     pieces[tag + "_haft"] = np.concatenate(hp, 0)
-    # the blade: a fan, wide at its outer edge, on the -Y side
+
+    # THE FAN: half-height grows with distance from the haft, and the outer
+    # edge is sampled as an arc so the hull's outline curves.
+    t_half = 0.018   # a fan is thin, but at game scale 26 mm edge-on was a
+                     # sliver; 36 mm still reads as a blade from the two
+                     # directions where it is nearly edge-on
     blade = []
-    for dy, z0, z1 in ((-0.020, -hh * 0.80, hh * 0.80),
-                       (-0.150, -hh * 0.95, hh * 1.00),
-                       (-0.272, -hh * 0.62, hh * 0.92)):
-        for dz in (z0, z1):
-            for dx in (-0.013, 0.013):
-                blade.append((gx + dx, gy + dy, head_c + dz))
+    for dist, hh in ((0.022, 0.050), (0.090, 0.086), (0.168, 0.113),
+                     (0.232, 0.134), (0.272, 0.132)):
+        for dz in (-hh, -hh * 0.45, hh * 0.45, hh):
+            for th in (-t_half, t_half):
+                blade.append(head_c + fdir * dist + fper * th + np.array([0, 0, dz]))
     pieces[tag + "_blade"] = np.array(blade)
-    # the fluke/spike on the +Y side, shorter
+
+    # the fluke on the near side, short and tapering to a point
     spike = []
-    for dy, hz in ((0.020, hh * 0.52), (0.092, hh * 0.34), (0.171, hh * 0.09)):
+    for dist, hz in ((0.022, 0.052), (0.092, 0.034), (0.171, 0.009)):
         for dz in (-hz, hz):
-            for dx in (-0.012, 0.012):
-                spike.append((gx + dx, gy + dy, head_c + dz))
+            for th in (-0.012, 0.012):
+                spike.append(head_c - fdir * dist + fper * th + np.array([0, 0, dz]))
     pieces[tag + "_spike"] = np.array(spike)
-    # the spear point above the head
+
     pt = []
     for dz, rr in ((0.0, 0.026), (0.115, 0.018), (0.239, 0.004)):
         for a_ in np.linspace(0, 2 * np.pi, 10, endpoint=False):
-            pt.append((gx + rr * np.cos(a_), gy + rr * np.sin(a_),
-                       gz + L_up + dz))
+            pt.append((gx + rr * np.cos(a_), gy + rr * np.sin(a_), gz + L_up + dz))
     pieces[tag + "_point"] = np.array(pt)
     butt = []
     for dz, rr in ((0.0, 0.040), (-0.045, 0.030)):

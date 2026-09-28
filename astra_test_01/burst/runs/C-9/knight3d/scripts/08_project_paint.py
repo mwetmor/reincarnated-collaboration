@@ -257,6 +257,14 @@ def main():
     seen = accw > 1e-9
     col = np.zeros((len(ti), 3))
     col[seen] = acc[seen] / accw[seen, None]
+    # NO GREEN ON THE MODEL (R-C9-58). A sample can pass every test and still
+    # land on an anti-aliased matte edge, carrying a little of the #00ff00
+    # plate with it; blended over a sabaton sole, which only a couple of views
+    # see at all, that is enough to tint it. Any texel whose resolved colour is
+    # green-dominant is treated as UNSEEN and filled from its own piece.
+    greenish = seen & ((col[:, 1] - np.maximum(col[:, 0], col[:, 2])) > 18)
+    n_green = int(greenish.sum())
+    seen = seen & ~greenish
 
     tex = np.zeros((ATLAS, ATLAS, 3), np.uint8)
     unseen = np.zeros((ATLAS, ATLAS), bool)
@@ -321,6 +329,7 @@ def main():
         atlas=ATLAS, triangles=NT,
         atlas_coverage_pct=round(100.0 * float(valid.mean()), 2),
         texels_total=int(len(ti)), texels_unseen=int((~seen).sum()),
+        texels_rejected_green=n_green,
         unseen_pct=round(100.0 * float((~seen).mean()), 2),
         graze_cutoff=GRAZE, facing_power=FACING_POW, depth_eps_m=DEPTH_EPS,
         sources=[dict(dir=d, file=f, weight=w, is_rpe=r) for d, f, w, r in sources],

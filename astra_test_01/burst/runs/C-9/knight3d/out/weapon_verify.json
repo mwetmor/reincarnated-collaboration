@@ -1,0 +1,76 @@
+{
+ "note": "C-9 knight3d: verify the pollaxe fix (R-C9-57).",
+ "head_bearing_deg": 70.0,
+ "all_signs_agree": true,
+ "per_view": {
+  "S": {
+   "render_asym": -0.7035,
+   "still_asym": -0.5605,
+   "sign_agrees": true
+  },
+  "SE": {
+   "render_asym": -0.7556,
+   "still_asym": -0.2317,
+   "sign_agrees": true
+  },
+  "E": {
+   "render_asym": 0.593,
+   "still_asym": 0.2595,
+   "sign_agrees": true
+  },
+  "NE": {
+   "render_asym": 0.7091,
+   "still_asym": 0.2599,
+   "sign_agrees": true
+  },
+  "N": {
+   "render_asym": 0.7111,
+   "still_asym": 0.5712,
+   "sign_agrees": true
+  },
+  "NW": {
+   "render_asym": 0.7695,
+   "still_asym": 0.3652,
+   "sign_agrees": true
+  },
+  "W": {
+   "render_asym": -0.7873,
+   "still_asym": -0.1143,
+   "sign_agrees": true
+  },
+  "SW": {
+   "render_asym": -0.705,
+   "still_asym": -0.3122,
+   "sign_agrees": true
+  }
+ },
+ "clearance": {
+  "rest_m": 0.0834,
+  "walk_min_m": 0.0743,
+  "walk_per_frame_m": [
+   0.084,
+   0.0853,
+   0.0859,
+   0.0856,
+   0.084,
+   0.0808,
+   0.0771,
+   0.0745,
+   0.0743,
+   0.0762,
+   0.079,
+   0.0819
+  ],
+  "run_min_m": 0.0668,
+  "run_per_frame_m": [
+   0.0735,
+   0.0812,
+   0.0788,
+   0.0758,
+   0.0705,
+   0.0668,
+   0.0669,
+   0.0677
+  ]
+ }
+}

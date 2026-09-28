@@ -81,7 +81,16 @@ DEFAULTS = dict(
     uparm_r=0.062, forearm_r=0.053, gauntlet_r=0.068,
     arm_len_upper=0.300, arm_len_fore=0.275,
     hip_x=0.098,        # hip joint offset from centreline
-    thigh_r=0.090, shin_r=0.070, poleyn_r=0.082,
+    thigh_r=0.090, shin_r=0.070, poleyn_r=0.098,
+    # ARTICULATION (R-C9-58). Real plate does not butt piece to piece at a
+    # joint; the lames OVERLAP, and the poleyn is a cup sitting over both the
+    # cuisse and the greave. Built as butt joints first, the knee and the
+    # ankle opened under bend and the toe tore away from the sabaton. Each
+    # piece now runs PAST its joint by these margins, so no bend in the used
+    # range can open a gap.
+    knee_lap=0.060,     # cuisse past the knee, greave above it
+    ankle_lap=0.050,    # greave past the ankle, sabaton up to meet it
+    toe_lap=0.040,      # the toe lame slides UNDER the sabaton, not beside it
     foot_len=0.310, foot_w=0.100, foot_h=0.100, toe_frac=0.44,
     toe_tip_w=0.016,        # the sabaton comes to a LONG taper, near a point
     toe_tip_h=0.020,
@@ -95,6 +104,17 @@ DEFAULTS = dict(
     # (gx = +0.195 H, gy = +0.162 H from the eight mattes; gz from the E still's
     # grip mark at 0.3005 H below the crown -- knight_rig_E.json)
     grip_x=0.351, grip_y=0.292, grip_z=1.259,
+    # The pollaxe HEAD's bearing about the haft axis, degrees from the
+    # figure's FORWARD (+Y) toward its RIGHT (+X). R-C9-57: the first build
+    # had the fan on -Y, behind the knight, which is what Matt saw. Three
+    # instruments agree on ~70 deg -- fan outboard with a forward lean, fluke
+    # on the near side: the head's area centroid over eight mattes (71.7 deg),
+    # the same fit on the fan's reach, and a sweep of the rendered head's
+    # eight-view asymmetry profile against the stills' (peak 70 deg, flat from
+    # 60 to 100 because the stills draw the head at nearly the same
+    # orientation whatever the yaw). NOT fitted by the silhouette fitter: the
+    # weapon is excluded from the body fit.
+    head_bearing_deg=70.0,
     leg_L_pitch=0.0, leg_L_splay=4.0, foot_L_yaw=14.0,
     leg_R_pitch=0.0, leg_R_splay=4.0, foot_R_yaw=-14.0,
     knee_L_pitch=0.0, knee_R_pitch=0.0,
@@ -109,7 +129,7 @@ SHAPE_KEYS = [
     "tabard_half_w", "tabard_y", "tabard_z_bot", "tabard_arc",
     "shoulder_x", "pauldron_r",
     "uparm_r", "forearm_r", "gauntlet_r",
-    "thigh_r", "shin_r", "poleyn_r",
+    "thigh_r", "shin_r", "poleyn_r", "knee_lap", "ankle_lap", "toe_lap",
     "foot_len", "foot_w", "foot_heel_back",
     "toe_frac", "toe_tip_w", "toe_tip_h", "toe_rise",
     "helm_apex", "visor_r", "visor_y", "visor_len", "visor_drop", "visor_tip_r",
@@ -433,24 +453,42 @@ def build_parts(p):
         Rk = Rl @ _rot("x", g("knee_%s_pitch" % side))
         ank = knee + Rk @ np.array([0, 0, -(z_knee - z_ank)])
         BL = "Left" if side == "L" else "Right"
+        kl, al = g("knee_lap"), g("ankle_lap")
+        d_th = knee - hip; d_th = d_th / max(np.linalg.norm(d_th), 1e-9)
+        d_sh = ank - knee; d_sh = d_sh / max(np.linalg.norm(d_sh), 1e-9)
+        # the cuisse runs PAST the knee; the greave starts ABOVE it; the
+        # poleyn is a cup over both
         parts.append(("cuisse_%s" % side, "%sUpLeg" % BL,
-                      _capsule_pts(hip, knee, g("thigh_r"), g("thigh_r") * 0.80)))
+                      _capsule_pts(hip, knee + d_th * kl,
+                                   g("thigh_r"), g("thigh_r") * 0.86)))
         parts.append(("poleyn_%s" % side, "%sLeg" % BL,
-                      _ellipsoid_pts(knee, (g("poleyn_r"), g("poleyn_r") * 0.95,
-                                            g("poleyn_r") * 0.88))))
+                      _ellipsoid_pts(knee + d_sh * 0.004,
+                                     (g("poleyn_r"), g("poleyn_r") * 0.96,
+                                      g("poleyn_r") * 1.02))))
         parts.append(("greave_%s" % side, "%sLeg" % BL,
-                      _capsule_pts(knee, ank, g("shin_r") * 1.02, g("shin_r") * 0.72)))
+                      _capsule_pts(knee - d_sh * kl, ank + d_sh * al,
+                                   g("shin_r") * 1.04, g("shin_r") * 0.80)))
         # foot: heel block on Foot, pointed toe on ToeBase (the toe MUST break)
         fy = _rot("z", g("foot_%s_yaw" % side))
         fl, fw, fh, tf = g("foot_len"), g("foot_w"), g("foot_h"), g("toe_frac")
         hb = g("foot_heel_back")
-        heel_c = ank + fy @ np.array([0, fl * ((1 - tf) / 2 - hb), -(z_ank - fh / 2)])
+        # the sabaton runs UP past the ankle to overlap the greave
+        top = z_ank + g("ankle_lap") * 0.9
+        heel_c = ank + fy @ np.array([0, fl * ((1 - tf) / 2 - hb), 0]) \
+            - np.array([0, 0, z_ank - top / 2])
         parts.append(("sabaton_%s" % side, "%sFoot" % BL,
-                      _box_pts(heel_c, (fw / 2, fl * (1 - tf) / 2, fh / 2), fy)))
+                      _box_pts(heel_c, (fw / 2, fl * (1 - tf) / 2, top / 2), fy)))
         # the toe: a LONG taper to a near-point, lifted a little at the tip
         toe_c = ank + fy @ np.array([0, fl * (1 - tf / 2 - hb), -(z_ank - fh * 0.40)])
         tw2, th2, ri = g("toe_tip_w") / 2, g("toe_tip_h") / 2, g("toe_rise")
+        tl = g("toe_lap")
+        # the toe lame slides UNDER the sabaton: its rear runs back inside the
+        # piece behind it and is slightly narrower there, so it nests
         toe_pts = np.array([
+            [-fw / 2 * 0.90, -fl * tf / 2 - tl, -fh * 0.26],
+            [fw / 2 * 0.90, -fl * tf / 2 - tl, -fh * 0.26],
+            [-fw / 2 * 0.86, -fl * tf / 2 - tl, fh * 0.34],
+            [fw / 2 * 0.86, -fl * tf / 2 - tl, fh * 0.34],
             [-fw / 2, -fl * tf / 2, -fh * 0.40], [fw / 2, -fl * tf / 2, -fh * 0.40],
             [-fw / 2 * 0.96, -fl * tf / 2, fh * 0.50], [fw / 2 * 0.96, -fl * tf / 2, fh * 0.50],
             # a mid rib so the taper is a curve, not a single straight bevel
