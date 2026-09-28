@@ -14817,6 +14817,14 @@
       "topic": "T2 monster: the manticore (the 'creepy hellhound with a bearded man's face')",
       "ruling": "Matt verbatim: \"Regarding the monster, I do like the one that looks like a creepy hellhound/dog with a bearded man's face.\" = the MANTICORE, Rochester Bestiary (British Library Royal MS 12 F xiii f.24v, c.1230, public domain via Wikimedia Commons). Registered in the ART-1 refs ledger (attach_to_generator true) and the C-9 inputs manifest (manticore_rochester_src.jpg). T2 route: Astra MC-1 four-view neutral-pose character sheet in the level's hand -> Meshy multi-image-to-3D (no A/T pose; a quadruped) -> rig and animate in Blender by drax (Rigify wolf/quadruped meta-rig, automatic weights, keyed hound walk, run, idle and a lunge-bite; the Opus-in-Blender process tested on a creature), because the Meshy API rig and motion retarget are biped-only -> the same T1 render and paint pipeline (8 directions, Astra keys, EbSynth). Also recorded: Meshy multi-image view order = the first image is the front, the rest in any order.",
       "ts": "2026-09-28T17:08:30"
+    },
+    {
+      "id": "R-C9-63",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "T1/T3 live: E and W inverted; the pollaxe floats",
+      "ruling": "Matt verbatim: \"With the Meshy version, E and W are inverted. Also the poleaxe floats near the character awkwardly.\" Confirmed in drax's cmp_facing.png: with the Keeper walking right, both knight skins face left, and the runtime pollaxe lies horizontal. Dispatched to drax (integration): apply the rig facing offset (179.74 deg measured by the knight3d session) and check the yaw sign (E/W swap with N/S right = a sign or mirror error); mirror the placeholder for W; assert facing from a player-view capture with real key input; switch the runtime walk/run/idle to the text-to-motion carry clips with the pollaxe on the right-hand bone (position and rotation), asserting the haft through the gauntlet bbox and within 20 deg of vertical; rebuild and push under R-C9-61.",
+      "ts": "2026-09-28T18:04:15"
     }
   ],
   "grok_calls": [
