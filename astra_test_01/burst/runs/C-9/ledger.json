@@ -13525,9 +13525,110 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KW3D-E-fit",
+      "type": "GENERATE",
+      "experiment": "P7-3d-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "62feb75f36bdfbe9ede909fe83dd6fa49ff9d127122f5f6b2cbeb01681c7fb0d",
+      "started": "2026-09-28T11:09:10.133093+00:00",
+      "ended": "2026-09-28T11:14:21.014997+00:00",
+      "minutes": 5.181448097916533,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-00dfa2ee-ab51-4ec3-96f8-f295fca741fa.png",
+            "sha256": "087aee92dda42c075e41a0d7a9d1be58a1b704544d2cff00b4c22afff6e9c029"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-2b6054bf-3eef-4bf2-81c4-30ab2008f6ce.png",
+            "sha256": "0d0b02ae9a456227018ae3dbb36e7148c48aa92bb35d149ef8a9b4c34bc6a511"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-715a9078-ad48-4942-bdfb-23eec6f9a133.png",
+            "sha256": "cafcbca38e817404d913c72b6986a7bf57f4897b1354fc97ebc3f5acfbc2bf36"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-c8fe3a96-f9cb-418f-948a-6fc6b53f35ab.png",
+            "sha256": "3299821c998916402e621564b16f9f3958b629565b909e39c31db7c047ed8919"
+          }
+        ]
+      },
+      "receipt_sha256": "e365d71e251266a274728e9889b8ca06478f7b213d598a4f223158385e9aec26",
+      "artifacts": [
+        {
+          "name": "KW3D-E-fit_a.png",
+          "sha256": "087aee92dda42c075e41a0d7a9d1be58a1b704544d2cff00b4c22afff6e9c029"
+        },
+        {
+          "name": "KW3D-E-fit_b.png",
+          "sha256": "0d0b02ae9a456227018ae3dbb36e7148c48aa92bb35d149ef8a9b4c34bc6a511"
+        },
+        {
+          "name": "exec-00dfa2ee-ab51-4ec3-96f8-f295fca741fa.provenance.json",
+          "sha256": "4e133011781160abebadb9f509c475a165d15439a192cf5acb3b7d88003cda87"
+        },
+        {
+          "name": "exec-2b6054bf-3eef-4bf2-81c4-30ab2008f6ce.provenance.json",
+          "sha256": "fd1548519e7689d24a4cf87973fb67320d7f84284761b4e95bd8436ed25b897c"
+        },
+        {
+          "name": "exec-715a9078-ad48-4942-bdfb-23eec6f9a133.provenance.json",
+          "sha256": "1c6327753d21dfa2892bcfa93f52d039939e7518294acd0603a7157237295a37"
+        },
+        {
+          "name": "exec-c8fe3a96-f9cb-418f-948a-6fc6b53f35ab.provenance.json",
+          "sha256": "34bed48172fe8c65a099c6caeeadf4278f13318620d93457c07e07ad0070f446"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-00dfa2ee-ab51-4ec3-96f8-f295fca741fa.png",
+          "sha256": "087aee92dda42c075e41a0d7a9d1be58a1b704544d2cff00b4c22afff6e9c029"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-2b6054bf-3eef-4bf2-81c4-30ab2008f6ce.png",
+          "sha256": "0d0b02ae9a456227018ae3dbb36e7148c48aa92bb35d149ef8a9b4c34bc6a511"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-715a9078-ad48-4942-bdfb-23eec6f9a133.png",
+          "sha256": "cafcbca38e817404d913c72b6986a7bf57f4897b1354fc97ebc3f5acfbc2bf36"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e7b4-5778-73f1-9afd-e28e5242d426/exec-c8fe3a96-f9cb-418f-948a-6fc6b53f35ab.png",
+          "sha256": "3299821c998916402e621564b16f9f3958b629565b909e39c31db7c047ed8919"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 352,
+  "images_used": 356,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -13750,6 +13851,11 @@
       "id": "M-C9-3D-PAINTOVER-1",
       "ts": "2026-09-28",
       "note": "KW3D-E: Astra one-sheet paint-over of the 12 procedural 3D walk frames (4x3 on #00ff00; seed_E as the look source, RP-E_a for the under-armour). Both variants read as the approved knight (heraldry, helm, fan blade, painted hand) and held the 3D poses: silhouette IoU vs the 3D guide frames 0.87-0.91 per frame, mean 0.891 (a) and 0.893 (b), the gap mostly the thin haft. Cut back into 512 frames at the original placement (knight3d/out/sprites_astra_{a,b}/walk/E/). Five-way MP4 (Grok, rig, raw 3D, 3D+Astra a, 3D+Astra b; real speed and 1/3): agentic_orchestration/drax/captures/2026-09-28-knight3d-Mb/knight3d_astra_paintover_walk_E.mp4. Open: frame-to-frame flicker is for Matt's eye (no instrument yet); the motion is still the procedural cycle (the plant-constrained Grok fit is in flight with drax)."
+    },
+    {
+      "id": "M-C9-3D-FIT-PAINT",
+      "ts": "2026-09-28",
+      "note": "drax 11bf1d3cd: the plant-constrained cycle solve (the root recovered by linear least squares per evaluation, slip in the cost, joints as periodic Fourier series). Walk IoU vs Grok 0.628 procedural to 0.641 constrained (0.838 unconstrained ceiling); run 0.426 to 0.500; slip 1.38 mm walk and 0.67 mm run; 0 parted joints. Finding: at walk_px_s 247 with the Keeper cadence the knight is kinematically jogging (Froude 1.12); planted feet need stance 0.42, not 0.52; a true walk at stance 0.52 reaches about 175 px/s. KW3D-E-fit: an Astra paint-over of the fitted walk, IoU vs the fitted 3D frames 0.924 (a) and 0.925 (b). The conductor eye: the paint is consistent and on-model; the fitted pose CROUCHES deep with a wide lunge (the cost of planting the feet at this speed), while Grok stays upright because the video slides its feet. MP4: agentic_orchestration/drax/captures/2026-09-28-knight3d-Mb/knight3d_fit_astra_walk_E.mp4. A decision for Matt: walk speed vs planted feet vs upright posture."
     }
   ],
   "halts": [],
