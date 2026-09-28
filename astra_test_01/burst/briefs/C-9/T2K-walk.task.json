@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST T2K-walk — Run C-9 pipeline test T2 (Matt R-C9-62): PAINT-OVER of the 3D manticore, walk, key frames in six directions, on one sheet. task_id \"T2K-walk\".\n\nIMAGE 1 is a SHEET of 12 KEY FRAMES of ONE WALK CYCLE (a slow four-beat hound walk) of a four-legged creature, a 4x3 grid on flat pure #00ff00, each frame centred in its own cell, seen from different directions in reading order: row 1: facing the viewer (south), facing the viewer (south), facing away to the upper-right (north-east), facing away to the upper-right (north-east); row 2: seen from behind (north), seen from behind (north), facing away to the upper-left (north-west), facing away to the upper-left (north-west); row 3: facing the viewer's left (west), facing the viewer's left (west), facing the lower-left (south-west), facing the lower-left (south-west).\nThe frames are renders of a 3D model: their POSES, OUTLINES, POSITIONS and SIZES are correct, but their surface is flat and plastic.\nIMAGE 2 is the APPROVED character sheet of this creature, the MANTICORE (four views: top-left front, top-right its right side facing the viewer's right, bottom-left back, bottom-right its left side facing the viewer's left): its lean hound body with ribs showing, blue-grey hide with a darker spine and paler belly, clawed paws, the long whip tail, and the calm bearded, long-haired face of a MAN with a mane around it; and the painter's hand (dark ink line, hatching, transparent washes). IMAGE 3 is the 13th-century bestiary page it comes from: the face and the uncanny calm to keep.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY figure is repainted as the manticore of IMAGE 2 seen from that cell's direction, in EXACTLY that frame's pose, outline, position and size: same place in its cell, same leg, tail and head angles, paws on the same spots. Paint every frame as ONE consistent creature in ONE consistent hand: the same hide, markings, mane, face and colours in every frame (this is an animation: any change between frames will flicker). The face stays the calm bearded man's face of IMAGE 2 and IMAGE 3 in every frame.\nKeep the background flat pure #00ff00 and the 4x3 grid exactly as laid out: no frame added, removed, merged or reordered, no cell borders, no text, no ground shadows.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 2: copy its hand; do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a frame's pose, facing or position changed, a frame is missing or duplicated, the creature differs between frames, or the background is not flat green — name the reason. Copy outputs to out/T2K-walk_a.png and out/T2K-walk_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T2K-walk\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t2_mc_keys_p0_canvas.png",
+   "role": "IMAGE 1 — the sheet to EDIT (12 walk frames of the Meshy 3D manticore; poses correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MC-1/MC-1_a.png",
+   "role": "IMAGE 2 — the approved four-view character sheet of the manticore (look, markings, face, hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/manticore_rochester_src.jpg",
+   "role": "IMAGE 3 — the bestiary source (Rochester Bestiary, c.1230, public domain): the face and its calm"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T2K-walk_a.png",
+  "out/T2K-walk_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T2-paint"
+}

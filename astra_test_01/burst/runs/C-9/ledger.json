@@ -14699,6 +14699,11 @@
       "id": "M-C9-T1-PAINT-1",
       "ts": "2026-09-28",
       "note": "T1 Astra paint-over, full sheets: T1P-walk-E, walk-SE, idle-E, idle-SE (8 variants). Both walk b variants returned a dark background (plate 0.0), unusable; all others usable. Cut back via drax layout JSONs to meshy_t1/paint_{a,b}/. Silhouette IoU vs render: walk-E a 0.833, walk-SE a 0.962, idle-E a 0.860 / b 0.913, idle-SE a 0.924 / b 0.928. Chosen: walk E a, walk SE a, idle E b, idle SE b. Flicker proxy (frame-to-frame change / texture energy): T1P 1.54-1.56 vs Grok video 1.70 vs the earlier accepted MW3D paint 1.90, so the one-sheet paint adds no flicker. Key sheets fired: T1K-walk, T1K-idle (6 directions x 2 keys each; IMAGE 2 = a new 3x2 composite of the approved stills registered as inputs/turnaround6_S_SW_W_NW_N_NE.png). carry_run2 (a cyclic text-to-motion jog) applied to the rig and handed to drax. Size: the live knight skins are short of the Keeper (sprite about 16%, 3D about 4%, measured on drax insets); both are to match the Keeper's 150.2 canvas px (the knight_fit rule)."
+    },
+    {
+      "id": "M-C9-T2-RIG",
+      "ts": "2026-09-28",
+      "note": "T2 manticore rigged and animated in Blender by drax (0f9d7c5b): quadruped rig with a rigid human head (5,129 verts at 100% head weight, feathered into the ruff; no jaw: the painted mouth is closed under a fused beard); welding before bone heat fixed 35,996 unsolved vertices; poses authored in world axes and conjugated per bone. Clips: idle 12@5, walk lateral four-beat 12@15 (0.93 m/s, slide 1.8 mm), run rotary gallop 8@19 (4.21 m/s, slide 2.6 mm at a 6 mm band), attack lunge-bite 12@17 (1.1 mm). Residual: the fore paw dips 5-6 px below ground at the gallop and lunge extremes (mesh geometry). World scale 110.185 px/m -> 132 px tall (a 1.20 m creature vs a 1.80 m knight). 12 Astra canvases (8 full + 4 key sheets), cut-back round-trip IoU >= 0.976. Paint briefs T2P-* and T2K-* written (IMAGE 2 = the MC-1 sheet, IMAGE 3 = the Rochester source); first wave fired (walk and idle, E and SE)."
     }
   ],
   "halts": [],
