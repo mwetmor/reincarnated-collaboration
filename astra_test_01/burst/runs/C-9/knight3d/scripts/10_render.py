@@ -170,11 +170,14 @@ def main():
     target_sole = float(np.mean(grok_soles)) if grok_soles else SOLE_Y
     ty = SOLE_Y * SS
 
+    src_prefix = os.environ.get("K3D_ANIM", "anim")      # "anim" or "anim_fit"
+    sprite_root = os.environ.get("K3D_SPRITEDIR", "sprites")
     if what == "rest":
         seq = [(Jr, {})]
         tag = "rest"
     else:
-        z = np.load(os.path.join(OUT, "anim_%s.npz" % what), allow_pickle=True)
+        z = np.load(os.path.join(OUT, "%s_%s.npz" % (src_prefix, what)),
+                    allow_pickle=True)
         nm = [str(x) for x in z["names"]]
         rn = [str(x) for x in z["rot_names"]]
         seq = [({k: z["joints"][i][j] for j, k in enumerate(nm)},
@@ -182,22 +185,26 @@ def main():
                for i in range(len(z["joints"]))]
         tag = what
 
-    # one calibration pass: render the middle frame, measure, correct
-    probe = seq[len(seq) // 2]
-    if what == "rest":
-        tvp = tri_v0
-    else:
-        Tp = PS.bone_transforms(Jr, probe[0], probe[1])
-        tvp = PS.pose_tris(tri_v0, tri_id, names, part_bone, part_kind, Tp, p)
-    bigp, _, _ = render_frame(tvp, tri_uv, tri_id, tex, AZI[dirs[0]], theta,
-                              scale, tx, ty, W, H, line_px)
-    sm = downsample(bigp, SS)
-    got = float(np.where((sm[..., 3] > 8).any(axis=1))[0].max())
-    ty -= (got - target_sole) * SS
+    # Calibration over the WHOLE cycle, not one probe frame. Calibrating on a
+    # single frame leaves the cycle 3-8 px off the game's ground line whenever
+    # that frame is not at the cycle's own lowest sole, which it generally is
+    # not; the sole line the eye reads is the lowest one over the loop.
+    soles = []
+    for Jp_, ov_ in seq:
+        if what == "rest":
+            tvp = tri_v0
+        else:
+            Tp = PS.bone_transforms(Jr, Jp_, ov_)
+            tvp = PS.pose_tris(tri_v0, tri_id, names, part_bone, part_kind, Tp, p)
+        bigp, _, _ = render_frame(tvp, tri_uv, tri_id, tex, AZI[dirs[0]], theta,
+                                  scale, tx, ty, W, H, line_px)
+        sm = downsample(bigp, SS)
+        soles.append(float(np.where((sm[..., 3] > 8).any(axis=1))[0].max()))
+    ty -= (float(np.max(soles)) - target_sole) * SS
 
     stats = []
     for d in dirs:
-        outdir = os.path.join(OUT, "sprites", tag, d)
+        outdir = os.path.join(OUT, sprite_root, tag, d)
         os.makedirs(outdir, exist_ok=True)
         for i, (Jp, ov) in enumerate(seq):
             if what == "rest":
@@ -218,14 +225,15 @@ def main():
             print("  %s %s %02d  top=%3d sole=%3d h=%3d  unseen %.1f %% of visible"
                   % (tag, d, i, stats[-1]["top"], stats[-1]["sole"], stats[-1]["h"],
                      100.0 * stats[-1]["unseen_px_visible"] / max(stats[-1]["visible_px"], 1)))
-    with open(os.path.join(OUT, "render_%s.json" % tag), "w") as f:
+    rname = "render_%s%s.json" % (tag, "_fit" if src_prefix != "anim" else "")
+    with open(os.path.join(OUT, rname), "w") as f:
         json.dump(dict(note="C-9 knight3d render into the game's sprite format.",
                        frame=FRAME, sole_y=SOLE_Y, px_per_m=PX_PER_M,
                        supersample=SS, theta=theta, azimuths=AZI,
                        grok_sole_target=round(target_sole, 2),
                        ground_calibration_px=round(ty / SS - SOLE_Y, 2),
                        line_px_at_render=round(line_px, 2), frames=stats), f, indent=1)
-    print("wrote", os.path.join(OUT, "sprites", tag))
+    print("wrote", os.path.join(OUT, sprite_root, tag))
 
 
 if __name__ == "__main__":

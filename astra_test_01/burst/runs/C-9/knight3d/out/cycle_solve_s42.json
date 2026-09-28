@@ -1,0 +1,150 @@
+{
+ "note": "C-9 knight3d R-C9-59: whole-cycle solve with the plant constraint inside the objective and the root eliminated by a linear solve rather than searched.",
+ "lambda_slip": 14.0,
+ "lambda_penetration": 6.0,
+ "channels": [
+  "pel_yaw",
+  "pel_list",
+  "lean",
+  "counter",
+  "L_hip",
+  "L_splay",
+  "L_knee",
+  "L_ank",
+  "L_toe",
+  "R_hip",
+  "R_splay",
+  "R_knee",
+  "R_ank",
+  "R_toe",
+  "A_pitch",
+  "A_elbow"
+ ],
+ "gaits": {
+  "walk": {
+   "frames": [
+    {
+     "frame": 0,
+     "grok_frame": 0,
+     "iou_procedural": 0.6958,
+     "iou_unconstrained_fit": 0.886,
+     "iou_constrained_solve": 0.5545
+    },
+    {
+     "frame": 1,
+     "grok_frame": 1,
+     "iou_procedural": 0.6121,
+     "iou_unconstrained_fit": 0.8186,
+     "iou_constrained_solve": 0.536
+    },
+    {
+     "frame": 2,
+     "grok_frame": 2,
+     "iou_procedural": 0.6483,
+     "iou_unconstrained_fit": 0.8364,
+     "iou_constrained_solve": 0.7336
+    },
+    {
+     "frame": 3,
+     "grok_frame": 3,
+     "iou_procedural": 0.6615,
+     "iou_unconstrained_fit": 0.7962,
+     "iou_constrained_solve": 0.6805
+    },
+    {
+     "frame": 4,
+     "grok_frame": 4,
+     "iou_procedural": 0.6121,
+     "iou_unconstrained_fit": 0.8836,
+     "iou_constrained_solve": 0.6842
+    },
+    {
+     "frame": 5,
+     "grok_frame": 5,
+     "iou_procedural": 0.554,
+     "iou_unconstrained_fit": 0.8628,
+     "iou_constrained_solve": 0.7127
+    },
+    {
+     "frame": 6,
+     "grok_frame": 6,
+     "iou_procedural": 0.6549,
+     "iou_unconstrained_fit": 0.8671,
+     "iou_constrained_solve": 0.7341
+    },
+    {
+     "frame": 7,
+     "grok_frame": 7,
+     "iou_procedural": 0.6337,
+     "iou_unconstrained_fit": 0.8597,
+     "iou_constrained_solve": 0.7689
+    },
+    {
+     "frame": 8,
+     "grok_frame": 8,
+     "iou_procedural": 0.5199,
+     "iou_unconstrained_fit": 0.6715,
+     "iou_constrained_solve": 0.5103
+    },
+    {
+     "frame": 9,
+     "grok_frame": 9,
+     "iou_procedural": 0.6178,
+     "iou_unconstrained_fit": 0.7977,
+     "iou_constrained_solve": 0.7366
+    },
+    {
+     "frame": 10,
+     "grok_frame": 10,
+     "iou_procedural": 0.6948,
+     "iou_unconstrained_fit": 0.9013,
+     "iou_constrained_solve": 0.5116
+    },
+    {
+     "frame": 11,
+     "grok_frame": 11,
+     "iou_procedural": 0.6299,
+     "iou_unconstrained_fit": 0.8764,
+     "iou_constrained_solve": 0.5243
+    }
+   ],
+   "mean_iou_procedural": 0.6279,
+   "mean_iou_unconstrained": 0.8381,
+   "mean_iou_constrained": 0.6406,
+   "slip_rms_mm": 1.376,
+   "penetration_mm": 3.974,
+   "harmonics": 3,
+   "travel_m_per_cycle": 1.7157881848756982,
+   "fps": 20.700362256339485,
+   "root_y_mm": [
+    -15.3,
+    -13.2,
+    -8.3,
+    -1.1,
+    6.5,
+    12.0,
+    15.0,
+    14.7,
+    10.3,
+    1.6,
+    -8.2,
+    -13.9
+   ],
+   "root_z_mm": [
+    -99.2,
+    -43.9,
+    9.8,
+    20.4,
+    -9.6,
+    -36.3,
+    -59.6,
+    -79.4,
+    -95.9,
+    -129.6,
+    -156.3,
+    -141.5
+   ],
+   "seconds": 219.7
+  }
+ }
+}

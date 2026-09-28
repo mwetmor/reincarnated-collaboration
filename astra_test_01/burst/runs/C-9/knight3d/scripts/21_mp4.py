@@ -18,9 +18,11 @@ CAP = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/" \
       "drax/captures/2026-09-28-knight3d-Mb"
 CROP = (96, 120, 416, 440)
 BG = (238, 236, 232)
+SPRITES = os.environ.get("K3D_SPRITEDIR", "sprites")
+TAG = os.environ.get("K3D_TAG", "")
 ROWS = [("GROK", os.path.join(CB, "sprites_knight", "%s", "E", "%s_E_%02d.png")),
         ("CUT-OUT", os.path.join(OUT, "rig", "%s", "rig_%s_E_%02d.png")),
-        ("3D BODY", os.path.join(OUT, "sprites", "%s", "E", "%s_E_%02d.png"))]
+        ("3D BODY", os.path.join(OUT, SPRITES, "%s", "E", "%s_E_%02d.png"))]
 
 
 def load(path, zoom=2, crop=CROP):
@@ -77,7 +79,7 @@ def main():
                 im = panels(gait, i)
                 for _ in range(3):
                     im.save(os.path.join(tmp, "f_%05d.png" % k)); k += 1
-    out = os.path.join(CAP, "knight3d_Mb2_grok_rig_3d.mp4")
+    out = os.path.join(CAP, "knight3d_Mb%s_grok_rig_3d.mp4" % (TAG or "2"))
     cmd = ["ffmpeg", "-y", "-framerate", "20.7", "-i", os.path.join(tmp, "f_%05d.png"),
            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-vf",
            "pad=ceil(iw/2)*2:ceil(ih/2)*2", out]
@@ -103,10 +105,10 @@ def main():
                 src = pat % (gait, gait, i)
                 if os.path.exists(src):
                     im.paste(load(src, 3, LEG), (150 + i * w, y))
-        pth = os.path.join(K3, "overlays", "M-b2_%s_E_legs.png" % gait)
+        pth = os.path.join(K3, "overlays", "M-b%s_%s_E_legs.png" % (TAG or "2", gait))
         im.save(pth); made.append(pth); print("wrote", pth)
     shutil.rmtree(tmp)
-    with open(os.path.join(OUT, "mp4_paths.json"), "w") as f:
+    with open(os.path.join(OUT, "mp4_paths%s.json" % TAG), "w") as f:
         json.dump(dict(files=made, crop=list(CROP), leg_crop=list(LEG)), f, indent=1)
 
 

@@ -93,12 +93,15 @@ def main():
     rep = {"note": __doc__.strip().splitlines()[0], "gaits": {}}
     worst = 0
     for gait in ("walk", "run"):
-        f = os.path.join(OUT, "anim_%s.npz" % gait)
+        pre = os.environ.get("K3D_ANIM", "anim")
+        spr = os.environ.get("K3D_SPRITEDIR", "sprites")
+        rsuf = "_fit" if pre != "anim" else ""
+        f = os.path.join(OUT, "%s_%s.npz" % (pre, gait))
         if not os.path.exists(f):
             continue
         z = np.load(f, allow_pickle=True)
         nm = [str(x) for x in z["names"]]; rn = [str(x) for x in z["rot_names"]]
-        rj = json.load(open(os.path.join(OUT, "render_%s.json" % gait)))
+        rj = json.load(open(os.path.join(OUT, "render_%s%s.json" % (gait, rsuf))))
         ty = (rj["sole_y"] + rj["ground_calibration_px"]) * SS
         per = []
         for i in range(len(z["joints"])):
@@ -165,7 +168,7 @@ def main():
                 lum = np.zeros((H, W))
                 # luma is taken from the rendered frame's own pixels
                 img = np.asarray(Image.open(os.path.join(
-                    OUT, "sprites", gait, "E", "%s_E_%02d.png" % (gait, i))).convert("RGBA"))
+                    OUT, spr, gait, "E", "%s_E_%02d.png" % (gait, i))).convert("RGBA"))
                 big = np.kron(img[..., :3], np.ones((SS, SS, 1), np.uint8))[:H, :W]
                 lum = big @ np.array([0.299, 0.587, 0.114])
                 med = float(np.median(lum[mine])) if mine.any() else 0.0
@@ -187,7 +190,9 @@ def main():
             print("      frame %02d  %-8s parted=%s sep %5.1f  hole %4d  plug %4d"
                   % (i, k, v.get("parted"), v.get("sep_px", 0), v["hole"], v["plug"]))
     rep["worst_separation_px_at_%dx" % SS] = worst
-    with open(os.path.join(OUT, "joint_assert.json"), "w") as f:
+    with open(os.path.join(OUT, "joint_assert%s.json"
+                           % ("_fit" if os.environ.get("K3D_ANIM", "anim") != "anim"
+                              else "")), "w") as f:
         json.dump(rep, f, indent=1)
     print("worst joint separation %.1f px at %dx supersample (=%.2f px at 512)"
           % (worst, SS, worst / SS))
