@@ -29,21 +29,33 @@
       "fps": 20.7,
       "loop": true,
       "from": "walk",
-      "why": "12 frames at 20.7 fps = 0.5797 s, the Keeper's own walk stride, read from frames/keeper.tres"
+      "why": "12 frames at 20.7 fps = 0.5797 s, the Keeper's own walk stride, read from frames/keeper.tres",
+      "cadence": "walk"
     },
     "run": {
       "fps": 21.75,
       "loop": true,
       "from": "walk",
-      "why": "PLACEHOLDER reuse: the same 12 walk frames played in 0.5517 s, the Keeper's run stride. A real run cycle replaces this with meshy run.glb output."
+      "why": "The painted RUN cells are on hold at the run's Astra image cap, so the run plays the WALK cells at the Keeper's RUN stride. `cadence` derives the fps from however many walk cells actually shipped, so this stays correct whatever the frame count is. When painted run cells land, set from='run' and drop hud_note.",
+      "cadence": "run",
+      "hud_note": "run = walk frames (paint pending)"
     },
     "attack": {
       "fps": 20.0,
       "loop": false,
       "from": null,
-      "why": "not delivered by the placeholder. The skin falls back to idle and says so once on the console, rather than silently showing a walk."
+      "why": "Not delivered -- the attack paint is behind the same image cap. The skin falls back to idle and says so once on the console rather than silently showing a walk. The 3D skin keeps its own real attack clip; only the SPRITE skin is short of paint.",
+      "hud_note": "no attack (paint pending)"
     }
   },
   "source_faces": "W",
-  "source_faces_note": "The stand-in column faces LEFT on screen -- it is W-facing art. Measured against the Keeper's own cells, where E faces right and W faces left. The builder mirrors it for E-ward directions. A real per-direction set has its own art for every direction: set this to the empty string and nothing is mirrored."
+  "source_faces_note": "The stand-in column faces LEFT on screen -- it is W-facing art. Measured against the Keeper's own cells, where E faces right and W faces left. The builder mirrors it for E-ward directions. A real per-direction set has its own art for every direction: set this to the empty string and nothing is mirrored.",
+  "swap_when_sprites_t1_lands": {
+    "source_root": "meshy_t1/sprites_t1",
+    "placeholder": false,
+    "source_faces": "",
+    "states.idle.from": "idle",
+    "states.idle.frames": null,
+    "note": "The first delivery is IDLE + WALK in all 8 directions only. run stays from='walk' with its hud_note; attack stays from=null. source_faces goes EMPTY -- a real per-direction set has its own art for every direction and must mirror nothing."
+  }
 }

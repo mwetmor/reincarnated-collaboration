@@ -92,5 +92,15 @@
   "figure_h_canvas_px": 150.2135416666667,
   "row_min_px": 8,
   "rule": "cliffside_B/frames/knight_fit.json -- every player figure is 150.2135 canvas px crown-to-sole, props split off"
+ },
+ "hud_notes": [
+  "PLACEHOLDER: one painted column shown in all 8 directions -- the knight does not turn",
+  "idle = walk frames (paint pending)",
+  "run = walk frames (paint pending)",
+  "no attack (paint pending)"
+ ],
+ "states_from_another_state": {
+  "idle": "walk",
+  "run": "walk"
  }
 }

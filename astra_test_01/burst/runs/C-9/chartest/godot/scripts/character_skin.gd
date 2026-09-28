@@ -60,8 +60,16 @@ func _ready() -> void:
 
 	if FileAccess.file_exists("res://frames/knight_test.json"):
 		var j = JSON.parse_string(FileAccess.get_file_as_string("res://frames/knight_test.json"))
-		if typeof(j) == TYPE_DICTIONARY and bool(j.get("placeholder", false)):
-			_placeholder_note = "  ⚠ PLACEHOLDER: one painted E walk shown in all 8 directions — the knight does not turn"
+		if typeof(j) == TYPE_DICTIONARY:
+			# Whatever the BUILDER says is provisional about this set, not just whether
+			# the whole thing is a stand-in. The note used to be gated on a single
+			# `placeholder` flag, so the moment real art landed it would have gone silent
+			# while still being true of the states the painter had not reached -- and
+			# "the run you are watching is really the walk" is precisely the thing a
+			# reviewer must not have to discover for themselves.
+			var notes: Array = j.get("hud_notes", [])
+			if not notes.is_empty():
+				_placeholder_note = "  ⚠ " + " · ".join(PackedStringArray(notes))
 	_build_hud()
 	_apply()
 	print("character_skin: skins available %d  (keeper=%s knight2d=%s knight3d=%s)"

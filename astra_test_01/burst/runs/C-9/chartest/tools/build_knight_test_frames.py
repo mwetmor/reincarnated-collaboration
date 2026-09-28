@@ -117,6 +117,24 @@ def body_bounds(path):
     return int(keep.min()), int(keep.max())
 
 
+def state_fps(cfg, n_frames, cad):
+    """Frames per second for one animation.
+
+    `cadence` derives it from the frame count that actually shipped -- fps = frames /
+    the Keeper's stride for that gait -- instead of trusting a number typed when the
+    stand-in happened to have twelve frames. That matters most for the state fed from
+    ANOTHER state's frames: the run plays the WALK cells at running speed, so its fps
+    depends on how many walk cells the painter delivered, which is not something this
+    file can know in advance. A literal `fps` still wins if no cadence is named.
+    """
+    key = cfg.get("cadence")
+    if key and n_frames:
+        stride = cad.get("%s_E" % key)
+        if stride and stride[1] > 0:
+            return float(n_frames) / (stride[0] / stride[1])
+    return float(cfg["fps"])
+
+
 def find_frames(root, state, direction):
     """Accept either f_NN.png or {state}_{dir}_NN.png, and fall back to the E column
     when a direction is missing -- which is the stand-in's whole situation."""
@@ -150,11 +168,14 @@ def main():
              cad["run_E"][0], cad["run_E"][1], cad["run_E"][0] / cad["run_E"][1]))
 
     anims, substituted, missing, mirrored = [], {}, [], {}
+    borrowed_state = {}
     for state, cfg in man["states"].items():
         src_state = cfg.get("from")
         if src_state is None:
             missing.append(state)
             continue
+        if src_state != state:
+            borrowed_state[state] = src_state
         for d in DIRS:
             frames, borrowed = find_frames(root, src_state, d)
             if not frames:
@@ -188,7 +209,8 @@ def main():
                 mirrored.setdefault(state, []).append(d)
             if borrowed:
                 substituted.setdefault(state, []).append(d)
-            anims.append({"name": "%s_%s" % (state, d), "fps": float(cfg["fps"]),
+            anims.append({"name": "%s_%s" % (state, d),
+                          "fps": state_fps(cfg, len(names), cad),
                           "loop": bool(cfg.get("loop", True)), "frames": names})
 
     # ---- SpriteFrames ----
@@ -237,6 +259,22 @@ def main():
                "rule": "cliffside_B/frames/knight_fit.json -- every player figure is "
                        "150.2135 canvas px crown-to-sole, props split off"}
 
+    # HUD notes. NOT gated on `placeholder`: a finished set can still be missing a
+    # state's paint, and "the run is really the walk" is exactly the thing a reviewer
+    # must not have to discover. The old note only appeared while the whole set was a
+    # stand-in, so the moment real art landed the caveat would have gone silent while
+    # remaining true.
+    hud = []
+    if man.get("placeholder"):
+        hud.append("PLACEHOLDER: one painted column shown in all 8 directions "
+                   "-- the knight does not turn")
+    for st, src in sorted(borrowed_state.items()):
+        hud.append(man["states"][st].get(
+            "hud_note", "%s = %s frames (paint pending)" % (st, src)))
+    for st, cfg in sorted(man["states"].items()):
+        if cfg.get("from") is None:
+            hud.append(cfg.get("hud_note", "no %s (paint pending)" % st))
+
     report = {
         "note": "C-9 R-C9-61 T1 knight test skin. Written by tools/build_knight_test_frames.py.",
         "source_root": str(root), "placeholder": bool(man.get("placeholder")),
@@ -251,6 +289,8 @@ def main():
                                 for k, v in cad.items() if k in ("walk_E", "run_E", "idle_E")},
         "fps_per_state": {s: c["fps"] for s, c in man["states"].items()},
         "fit": fit,
+        "hud_notes": hud,
+        "states_from_another_state": borrowed_state,
     }
     (PROJ / "frames" / ("%s.json" % a.out_name)).write_text(json.dumps(report, indent=1))
 
@@ -264,6 +304,8 @@ def main():
     for s in sorted(mirrored):
         print("   %-6s MIRRORED (source faces %s): %s"
               % (s, man.get("source_faces", "?"), " ".join(sorted(mirrored[s]))))
+    for n in hud:
+        print("   HUD: %s" % n)
     if missing:
         print("   NOT BUILT (the skin falls back to idle and says so once): %s" % " ".join(missing))
 
