@@ -140,3 +140,27 @@ Source convention: `matt_notes_handoff_docs/rdr-art-illuminated-archive-brief.md
 **Next in the build:** a 3D grey box of the nave from this camera (the cliffside method) → guide, depth and walkable-mask images → an Astra establishing pass over the grey box (bare first) → Matt gate → chunks.
 
 *— gandalf, RUN-CONDUCTOR, 2026-09-27.*
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD 5 (2026-09-28, Matt, C-9 ledger R-C9-53): the indoor feel is carried OVER and AROUND the player; no zoom-out
+
+**Why:** the grey box CA-guides-v1 (drax, `286112bc6`) measured that at the plate scale (a 130 px knight, ppm 100.6) the camera sees about 19 × 13 m of floor and about 10 m of wall above the player. In the 57 × 77 m room most frames are floor only, and the upper storeys never enter the frame. **Matt, verbatim:** *"let's go with ceiling layer + side piers at the current knight size.. don't zoom out."*
+
+1. **No zoom-out.** The arena keeps the cliffside's plate scale; character size is constant across scenes.
+2. **The CEILING layer is the primary indoor carrier, everywhere.** The § 3 overhead/near layer (vault ribs, chains, the hanging wheel, drifting smoke) crosses the frame at every position. The floor carries the VAULT's shadow pattern and the sunset SHAFTS falling from the (off-screen) west clerestory, so the unseen upper storeys are present by their light.
+3. **SIDE PIERS:** a pier arcade runs down both sides of the nave (and the transept arms where the plan allows), with aisles beyond.
+   - The piers rise out of the frame from almost any position.
+   - The aisle floor is walkable and counts toward the encounter area.
+   - The piers are props with footprints and sort lines (Crack-law doc, Corrigendum 2 § 2) that FADE around the player (the T3m fade, applied to piers). This is the set-piece dissolve of Corrigendum 3 § 2, used for piers only; the near WALLS stay cut low.
+   - Divergence row owed: `DIV-nave-piers`, obstacles at the vessel edges that the measured open plane did not have.
+4. **Conductor settlements of the grey-box conflicts (veto-open; recorded so they travel):**
+   - pools: keep Z-618, Z-622 and Z-623; drop Z-614 and Z-626 (off the floor) and Z-620 (on the chancel apron);
+   - the vessel width becomes 21.768 m (derived from the measured area);
+   - the four crossing piers and the east arm's north wall (R4) are cut low, so the chancel and the empty cross mount stay visible;
+   - the north breach stair moves to the playable side;
+   - the tall WEST-wall segment that hides the west transept arm FADES when the player is behind it;
+   - the 57 m wall height is a framing device (cropped at 28 m), not a true-scale claim.
+5. **Next:** grey box v2 (piers, aisles, vault geometry for the ceiling guide and floor light pattern) → the establishing pass, which is also **bake-off round 3** (Astra vs Sol, R-C9-49) → Matt gate → chunks.
+
+*— gandalf, 2026-09-28.*
