@@ -12816,6 +12816,14 @@
       "topic": "Bake-off blocked: no GPT-6 Sol in Codex on this account",
       "ruling": "Verified 2026-09-27. The Codex CLI 0.153.4 models list (models_cache fetched 21:31Z today) offers gpt-6-astra, gpt-reserve, gpt-5.6-sol (described as Older coding model for complex work), gpt-5.6-terra, gpt-5.6-luna, gpt-5.5 and codex-auto-review. There is no GPT-6 Sol. A direct probe with -m gpt-6-sol returns 400 not supported when using Codex with a ChatGPT account, the identical error a nonsense model id returns (control), so the probe cannot distinguish a model that is not rolled out from one that does not exist. The only Sol reachable (gpt-5.6-sol) is older than Astra, not newer; a bake-off against it would not test what Matt asked. Held for Matt: where the model appears (the ChatGPT app vs Codex), and whether to re-check when Codex lists it. The grey box proceeds regardless.",
       "ts": "2026-09-27T19:54:25"
+    },
+    {
+      "id": "R-C9-49b",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Sol bake-off on hold pending a Codex update",
+      "ruling": "Matt verbatim: \"Ok hold off on the test. I probably need to update codex as gpt 6 sol is super new\". The bake-off is HELD. Astra remains the painter. When Codex is updated, the conductor re-checks the models list for GPT-6 Sol and re-proposes the bake-off; the per-burst ledger records the new codex_version so the upgrade is visible as a lane change. Update between waves, not while bursts are in flight.",
+      "ts": "2026-09-27T20:05:43"
     }
   ],
   "grok_calls": [
