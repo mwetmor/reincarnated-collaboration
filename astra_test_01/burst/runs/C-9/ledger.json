@@ -13895,6 +13895,14 @@
       "topic": "Grey box v2 review: pier occlusion; sun shafts become a runtime layer",
       "ruling": "Grey box v2 (drax 288f78745): a cruciform basilica with 40 piers, walkable aisles and a vault; walkable residual -4.5e-13 m2; a pier in 100% of reachable frames. Conductor measurement on the full canvas: 58.9% of walkable pixels lie behind the pier/fade layer before any fade, 38.6% under the vault layer, 67.4% under either. drax plate-only 3.99% could not see the piers once they left the plate. The indoor read works; fight readability does not. Commissioned variants v2a (ghosted shafts above about 4 m), v2b (a ruined arcade: two-thirds of the piers broken at 2-7 m, crack-law E3), v2c (fewer, slimmer piers: about 9-10 m bays, 1.4 m section), all with the vault as ribs only. Effective occlusion is measured with the fade; Matt picks. Also ruled: fading props are not in the plate (signed off); per the card LIGHT line the floor is painted soft and even, and the sunset shafts become a runtime additive light layer (floor_light_v2 as its mask; 46.07 deg declared artistic). The establishing pass (bake-off round 3) waits for the pier choice.",
       "ts": "2026-09-27T21:34:54"
+    },
+    {
+      "id": "R-C9-55",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Cathedral piers: the middle option; blasted ruins, debris kept off the floor",
+      "ruling": "Matt verbatim: \"Regarding cathedral piers, I agree with the middle option that drax recommended. Make the ruined pillars look as if they've crumbles due to the fighting and blasts of magic and fire. The broken pieces should be visinle nearby somewhere but not covering the floor.\" Build (CA-guides-v3): v2's ruin rule on the piers that cost the most floor, with the graded ghost (d) on the survivors, keeping most of the vault as thin ribs. Broken tops are jagged and blasted (scorch and shatter are paint). Fallen drums, capitals and vault stones go in NON-walkable dead space near their piers (plinth footprints, rooms-beyond margins, crater rim, against cut-low walls), asserted at 0 walkable pixels under debris. This overrides crack-law rule 4 (the talus cone) for readability; a divergence row is owed.",
+      "ts": "2026-09-27T22:49:08"
     }
   ],
   "grok_calls": [
