@@ -1,0 +1,305 @@
+{
+ "state": "walk",
+ "source": "clips.blend",
+ "frame": 512,
+ "px_per_m": 110.1852,
+ "px_per_m_source": "knight 198.333 px / 1.80 m",
+ "sole_y": 398.0,
+ "elevation_deg": 19.77,
+ "aim_z": 1.37822,
+ "aim_z_method": "analytic: measured sole plane -> row 398 at this px/m and elevation",
+ "ground_ref_z": 0.00876,
+ "sole_z_range_m": [
+  0.00101,
+  0.01717
+ ],
+ "azimuths": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "frames": 12,
+ "fps": 15.0,
+ "period_s": 0.8,
+ "speed_m_s": 0.93,
+ "stride_m": 0.744,
+ "cycle": true,
+ "ignored_unskinned": [],
+ "facing": "+Y in the blend; no facing correction needed (the rig was built facing +Y)",
+ "guides": {
+  "bind_bbox_lo": [
+   -0.25166,
+   -0.91292,
+   -0.0
+  ],
+  "bind_bbox_span": [
+   0.49873,
+   1.82222,
+   1.2021
+  ],
+  "bone_colours": {
+   "root": [
+    0.7,
+    0.105,
+    0.105
+   ],
+   "hips": [
+    0.7824,
+    1.0,
+    0.075
+   ],
+   "tail_01": [
+    0.0,
+    0.7,
+    0.3294
+   ],
+   "tail_02": [
+    0.15,
+    0.4,
+    1.0
+   ],
+   "tail_03": [
+    0.6619,
+    0.0525,
+    0.7
+   ],
+   "tail_04": [
+    1.0,
+    0.1765,
+    0.0
+   ],
+   "tail_05": [
+    0.455,
+    0.7,
+    0.105
+   ],
+   "tail_06": [
+    0.075,
+    1.0,
+    0.6735
+   ],
+   "tail_07": [
+    0.0,
+    0.0824,
+    0.7
+   ],
+   "spine_01": [
+    1.0,
+    0.15,
+    0.9
+   ],
+   "spine_02": [
+    0.7,
+    0.281,
+    0.0525
+   ],
+   "spine_03": [
+    0.4118,
+    1.0,
+    0.0
+   ],
+   "chest": [
+    0.105,
+    0.7,
+    0.595
+   ],
+   "neck_01": [
+    0.1294,
+    0.075,
+    1.0
+   ],
+   "neck_02": [
+    0.7,
+    0.0,
+    0.4941
+   ],
+   "head": [
+    1.0,
+    0.6,
+    0.15
+   ],
+   "shoulder.R": [
+    0.2049,
+    0.7,
+    0.0525
+   ],
+   "upperarm.R": [
+    0.0,
+    1.0,
+    1.0
+   ],
+   "forearm.R": [
+    0.245,
+    0.105,
+    0.7
+   ],
+   "fcannon.R": [
+    1.0,
+    0.075,
+    0.5647
+   ],
+   "fpaw.R": [
+    0.7,
+    0.4941,
+    0.0
+   ],
+   "shoulder.L": [
+    0.2,
+    1.0,
+    0.15
+   ],
+   "upperarm.L": [
+    0.0525,
+    0.5857,
+    0.7
+   ],
+   "forearm.L": [
+    0.4118,
+    0.0,
+    1.0
+   ],
+   "fcannon.L": [
+    0.7,
+    0.105,
+    0.315
+   ],
+   "fpaw.L": [
+    1.0,
+    0.8912,
+    0.075
+   ],
+   "thigh.R": [
+    0.0,
+    0.7,
+    0.0824
+   ],
+   "shin.R": [
+    0.15,
+    0.7,
+    1.0
+   ],
+   "hcannon.R": [
+    0.4334,
+    0.0525,
+    0.7
+   ],
+   "hpaw.R": [
+    1.0,
+    0.0,
+    0.1765
+   ],
+   "thigh.L": [
+    0.665,
+    0.7,
+    0.105
+   ],
+   "shin.L": [
+    0.075,
+    1.0,
+    0.3471
+   ],
+   "hcannon.L": [
+    0.0,
+    0.3294,
+    0.7
+   ],
+   "hpaw.L": [
+    0.8,
+    0.15,
+    1.0
+   ]
+  }
+ },
+ "passes": {
+  "colour": {
+   "S": "colour/S",
+   "SE": "colour/SE",
+   "E": "colour/E",
+   "NE": "colour/NE",
+   "N": "colour/N",
+   "NW": "colour/NW",
+   "W": "colour/W",
+   "SW": "colour/SW"
+  },
+  "pos": {
+   "S": "guides_pos/S",
+   "SE": "guides_pos/SE",
+   "E": "guides_pos/E",
+   "NE": "guides_pos/NE",
+   "N": "guides_pos/N",
+   "NW": "guides_pos/NW",
+   "W": "guides_pos/W",
+   "SW": "guides_pos/SW"
+  },
+  "part": {
+   "S": "guides_part/S",
+   "SE": "guides_part/SE",
+   "E": "guides_part/E",
+   "NE": "guides_part/NE",
+   "N": "guides_part/N",
+   "NW": "guides_part/NW",
+   "W": "guides_part/W",
+   "SW": "guides_part/SW"
+  },
+  "mask": {
+   "S": "guides_mask/S",
+   "SE": "guides_mask/SE",
+   "E": "guides_mask/E",
+   "NE": "guides_mask/NE",
+   "N": "guides_mask/N",
+   "NW": "guides_mask/NW",
+   "W": "guides_mask/W",
+   "SW": "guides_mask/SW"
+  }
+ },
+ "ground_check": {
+  "target_row": 398.0,
+  "view": "E",
+  "frames": [
+   {
+    "frame": 0,
+    "midline_ground_row": 398.0,
+    "predicted_lowest_row": 405.33,
+    "rendered_lowest_row": 404,
+    "near_side_offset_px": 7.33
+   },
+   {
+    "frame": 1,
+    "midline_ground_row": 398.0,
+    "predicted_lowest_row": 405.4,
+    "rendered_lowest_row": 404,
+    "near_side_offset_px": 7.4
+   },
+   {
+    "frame": 2,
+    "midline_ground_row": 398.0,
+    "predicted_lowest_row": 405.05,
+    "rendered_lowest_row": 404,
+    "near_side_offset_px": 7.05
+   },
+   {
+    "frame": 3,
+    "midline_ground_row": 398.0,
+    "predicted_lowest_row": 403.91,
+    "rendered_lowest_row": 402,
+    "near_side_offset_px": 5.91
+   }
+  ],
+  "note": "midline_ground_row is the line the game draws and must be 398; rendered_lowest_row sits below it by the near-side paw's x * px_per_m * sin(elev), and predicted_lowest_row confirms the projection model against the render"
+ }
+}

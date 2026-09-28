@@ -1,0 +1,549 @@
+{
+ "note": "C-9 meshy_t2 step 10: Astra paint canvases for the MANTICORE (Rochester Bestiary, c.1230), quadruped rig built and animated in Blender because the Meshy API rig is biped-only.",
+ "schema": "identical to meshy_t1/astra_in so one cut-back serves both",
+ "sheet_px": [
+  1536,
+  1024
+ ],
+ "cell_px": [
+  384,
+  341
+ ],
+ "row_heights": [
+  341,
+  341,
+  342
+ ],
+ "game_frame_px": 512,
+ "grid": [
+  4,
+  3
+ ],
+ "plate": "#00ff00",
+ "px_per_m": 110.1852,
+ "px_per_m_source": "the knight's 198.333 px / 1.80 m; the manticore renders at the same WORLD scale and so comes out ~132 px tall",
+ "sole_row": 398,
+ "elevation_deg": 19.77,
+ "azimuths": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "full_paint_dirs": [
+  "E",
+  "SE"
+ ],
+ "key_dirs": [
+  "S",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "clips": {
+  "walk": {
+   "frames": 12,
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "run": {
+   "frames": 8,
+   "keys": [
+    0,
+    4
+   ]
+  },
+  "idle": {
+   "frames": 12,
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "attack": {
+   "frames": 12,
+   "keys": [
+    0,
+    6
+   ]
+  }
+ },
+ "sheets": [
+  {
+   "file": "mc_walk_E.png",
+   "kind": "full",
+   "state": "walk",
+   "dir": "E",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    146,
+    240,
+    218,
+    194
+   ],
+   "scale": 1.76147
+  },
+  {
+   "file": "mc_walk_SE.png",
+   "kind": "full",
+   "state": "walk",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    171,
+    279,
+    172,
+    153
+   ],
+   "scale": 2.23256
+  },
+  {
+   "file": "mc_run_E.png",
+   "kind": "full",
+   "state": "run",
+   "dir": "E",
+   "part": 0,
+   "cells": 8,
+   "crop": [
+    135,
+    229,
+    235,
+    209
+   ],
+   "scale": 1.63404
+  },
+  {
+   "file": "mc_run_SE.png",
+   "kind": "full",
+   "state": "run",
+   "dir": "SE",
+   "part": 0,
+   "cells": 8,
+   "crop": [
+    163,
+    268,
+    183,
+    162
+   ],
+   "scale": 2.09836
+  },
+  {
+   "file": "mc_idle_E.png",
+   "kind": "full",
+   "state": "idle",
+   "dir": "E",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    147,
+    243,
+    217,
+    192
+   ],
+   "scale": 1.76959
+  },
+  {
+   "file": "mc_idle_SE.png",
+   "kind": "full",
+   "state": "idle",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    173,
+    281,
+    169,
+    151
+   ],
+   "scale": 2.27219
+  },
+  {
+   "file": "mc_attack_E.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "E",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    143,
+    240,
+    224,
+    198
+   ],
+   "scale": 1.71429
+  },
+  {
+   "file": "mc_attack_SE.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    170,
+    281,
+    172,
+    153
+   ],
+   "scale": 2.23256
+  },
+  {
+   "file": "mc_keys_p0.png",
+   "kind": "keys",
+   "part": 0,
+   "cells": 12,
+   "crop": [
+    146,
+    235,
+    221,
+    196
+   ],
+   "scale": 1.73756,
+   "contents": [
+    {
+     "state": "walk",
+     "dir": "S",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "S",
+     "frame": 6
+    },
+    {
+     "state": "walk",
+     "dir": "NE",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "NE",
+     "frame": 6
+    },
+    {
+     "state": "walk",
+     "dir": "N",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "N",
+     "frame": 6
+    },
+    {
+     "state": "walk",
+     "dir": "NW",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "NW",
+     "frame": 6
+    },
+    {
+     "state": "walk",
+     "dir": "W",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "W",
+     "frame": 6
+    },
+    {
+     "state": "walk",
+     "dir": "SW",
+     "frame": 0
+    },
+    {
+     "state": "walk",
+     "dir": "SW",
+     "frame": 6
+    }
+   ]
+  },
+  {
+   "file": "mc_keys_p1.png",
+   "kind": "keys",
+   "part": 1,
+   "cells": 12,
+   "crop": [
+    142,
+    225,
+    235,
+    208
+   ],
+   "scale": 1.63404,
+   "contents": [
+    {
+     "state": "run",
+     "dir": "S",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "S",
+     "frame": 4
+    },
+    {
+     "state": "run",
+     "dir": "NE",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "NE",
+     "frame": 4
+    },
+    {
+     "state": "run",
+     "dir": "N",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "N",
+     "frame": 4
+    },
+    {
+     "state": "run",
+     "dir": "NW",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "NW",
+     "frame": 4
+    },
+    {
+     "state": "run",
+     "dir": "W",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "W",
+     "frame": 4
+    },
+    {
+     "state": "run",
+     "dir": "SW",
+     "frame": 0
+    },
+    {
+     "state": "run",
+     "dir": "SW",
+     "frame": 4
+    }
+   ]
+  },
+  {
+   "file": "mc_keys_p2.png",
+   "kind": "keys",
+   "part": 2,
+   "cells": 12,
+   "crop": [
+    146,
+    237,
+    221,
+    197
+   ],
+   "scale": 1.73756,
+   "contents": [
+    {
+     "state": "idle",
+     "dir": "S",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "S",
+     "frame": 6
+    },
+    {
+     "state": "idle",
+     "dir": "NE",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "NE",
+     "frame": 6
+    },
+    {
+     "state": "idle",
+     "dir": "N",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "N",
+     "frame": 6
+    },
+    {
+     "state": "idle",
+     "dir": "NW",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "NW",
+     "frame": 6
+    },
+    {
+     "state": "idle",
+     "dir": "W",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "W",
+     "frame": 6
+    },
+    {
+     "state": "idle",
+     "dir": "SW",
+     "frame": 0
+    },
+    {
+     "state": "idle",
+     "dir": "SW",
+     "frame": 6
+    }
+   ]
+  },
+  {
+   "file": "mc_keys_p3.png",
+   "kind": "keys",
+   "part": 3,
+   "cells": 12,
+   "crop": [
+    144,
+    233,
+    226,
+    201
+   ],
+   "scale": 1.69912,
+   "contents": [
+    {
+     "state": "attack",
+     "dir": "S",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "S",
+     "frame": 6
+    },
+    {
+     "state": "attack",
+     "dir": "NE",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "NE",
+     "frame": 6
+    },
+    {
+     "state": "attack",
+     "dir": "N",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "N",
+     "frame": 6
+    },
+    {
+     "state": "attack",
+     "dir": "NW",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "NW",
+     "frame": 6
+    },
+    {
+     "state": "attack",
+     "dir": "W",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "W",
+     "frame": 6
+    },
+    {
+     "state": "attack",
+     "dir": "SW",
+     "frame": 0
+    },
+    {
+     "state": "attack",
+     "dir": "SW",
+     "frame": 6
+    }
+   ]
+  }
+ ],
+ "totals": {
+  "sheets": 12,
+  "full": 8,
+  "key": 4,
+  "key_cells": 48
+ },
+ "guides": {
+  "walk": {
+   "pos": "out/walk/guides_pos/{dir}/pos_{dir}_{NN}.png",
+   "part": "out/walk/guides_part/{dir}/part_{dir}_{NN}.png",
+   "mask": "out/walk/guides_mask/{dir}/mask_{dir}_{NN}.png",
+   "colour": "out/walk/colour/{dir}/walk_{dir}_{NN}.png",
+   "frames": 12
+  },
+  "run": {
+   "pos": "out/run/guides_pos/{dir}/pos_{dir}_{NN}.png",
+   "part": "out/run/guides_part/{dir}/part_{dir}_{NN}.png",
+   "mask": "out/run/guides_mask/{dir}/mask_{dir}_{NN}.png",
+   "colour": "out/run/colour/{dir}/run_{dir}_{NN}.png",
+   "frames": 8
+  },
+  "idle": {
+   "pos": "out/idle/guides_pos/{dir}/pos_{dir}_{NN}.png",
+   "part": "out/idle/guides_part/{dir}/part_{dir}_{NN}.png",
+   "mask": "out/idle/guides_mask/{dir}/mask_{dir}_{NN}.png",
+   "colour": "out/idle/colour/{dir}/idle_{dir}_{NN}.png",
+   "frames": 12
+  },
+  "attack": {
+   "pos": "out/attack/guides_pos/{dir}/pos_{dir}_{NN}.png",
+   "part": "out/attack/guides_part/{dir}/part_{dir}_{NN}.png",
+   "mask": "out/attack/guides_mask/{dir}/mask_{dir}_{NN}.png",
+   "colour": "out/attack/colour/{dir}/attack_{dir}_{NN}.png",
+   "frames": 12
+  }
+ },
+ "ebsynth_weights": {
+  "pos": 4.0,
+  "part": 2.0,
+  "mask": 2.0,
+  "ref": "knight3d/scripts/24_ebsynth.py"
+ },
+ "next_steps": [
+  "gandalf fires the Astra bursts on astra_in/mc_*.png",
+  "drax cuts each painted sheet back with its _sheet_layout.json",
+  "EbSynth propagates the six two-key directions, guides pos(4) part(2) mask(2)",
+  "assemble sprites_t2/{state}/{dir}/{state}_{dir}_NN.png plus a manifest"
+ ]
+}

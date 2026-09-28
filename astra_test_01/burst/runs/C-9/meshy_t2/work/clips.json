@@ -1,0 +1,3200 @@
+{
+ "walk": {
+  "frames": 12,
+  "period_s": 0.8,
+  "fps": 15.0,
+  "speed_m_s": 0.93,
+  "stride_m": 0.744,
+  "duty": 0.7,
+  "phase": {
+   "hpaw.L": 0.0,
+   "fpaw.L": 0.25,
+   "hpaw.R": 0.5,
+   "fpaw.R": 0.75
+  },
+  "cycle": true,
+  "stance_excursion_m": 0.5208,
+  "stance_centre_y": {
+   "fpaw.L": 0.58,
+   "fpaw.R": 0.58,
+   "hpaw.L": -0.255,
+   "hpaw.R": -0.255
+  },
+  "ik": [
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.34922,
+      0.06858
+     ],
+     "got": [
+      -0.11514,
+      0.34514,
+      0.06907
+     ],
+     "residual_m": 0.00411,
+     "abduction_deg": -0.145,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.6544,
+      0.01
+     ],
+     "got": [
+      0.11498,
+      0.65349,
+      0.00997
+     ],
+     "residual_m": 0.00091,
+     "abduction_deg": 1.046,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00252,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      0.0054,
+      0.01
+     ],
+     "got": [
+      -0.1464,
+      0.00464,
+      0.01007
+     ],
+     "residual_m": 0.00368,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.00539,
+     "sole_z_m": 0.00439,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.3666,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.36753,
+      0.01038
+     ],
+     "residual_m": 0.001,
+     "abduction_deg": 0.628,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0131,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.46189,
+      0.08335
+     ],
+     "got": [
+      -0.11506,
+      0.4582,
+      0.0842
+     ],
+     "residual_m": 0.00379,
+     "abduction_deg": -0.314,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.5924,
+      0.01
+     ],
+     "got": [
+      0.11494,
+      0.59094,
+      0.01005
+     ],
+     "residual_m": 0.00146,
+     "abduction_deg": 0.181,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00165,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.0566,
+      0.01
+     ],
+     "got": [
+      -0.14964,
+      -0.05761,
+      0.01045
+     ],
+     "residual_m": 0.00117,
+     "abduction_deg": -1.538,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00798,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.4286,
+      0.01
+     ],
+     "got": [
+      0.14998,
+      -0.42768,
+      0.00981
+     ],
+     "residual_m": 0.00094,
+     "abduction_deg": -1.067,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01166,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.62902,
+      0.05479
+     ],
+     "got": [
+      -0.11501,
+      0.62721,
+      0.05521
+     ],
+     "residual_m": 0.00185,
+     "abduction_deg": -0.361,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.5304,
+      0.01
+     ],
+     "got": [
+      0.11364,
+      0.52884,
+      0.01018
+     ],
+     "residual_m": 0.00208,
+     "abduction_deg": -1.022,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00209,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.1186,
+      0.01
+     ],
+     "got": [
+      -0.14994,
+      -0.11969,
+      0.01027
+     ],
+     "residual_m": 0.00113,
+     "abduction_deg": -2.797,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00981,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.4906,
+      0.01
+     ],
+     "got": [
+      0.14994,
+      -0.48995,
+      0.0101
+     ],
+     "residual_m": 0.00067,
+     "abduction_deg": -3.067,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01301,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.8404,
+      0.01
+     ],
+     "got": [
+      -0.11511,
+      0.84155,
+      0.00934
+     ],
+     "residual_m": 0.00133,
+     "abduction_deg": -1.137,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0047,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.4684,
+      0.01
+     ],
+     "got": [
+      0.11474,
+      0.46538,
+      0.01063
+     ],
+     "residual_m": 0.00309,
+     "abduction_deg": -2.089,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00261,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.1806,
+      0.01
+     ],
+     "got": [
+      -0.14999,
+      -0.18177,
+      0.01009
+     ],
+     "residual_m": 0.00118,
+     "abduction_deg": -3.362,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01202,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.48578,
+      0.06858
+     ],
+     "got": [
+      0.14919,
+      -0.48511,
+      0.06756
+     ],
+     "residual_m": 0.00146,
+     "abduction_deg": -4.142,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.7784,
+      0.01
+     ],
+     "got": [
+      -0.1152,
+      0.77869,
+      0.00893
+     ],
+     "residual_m": 0.00112,
+     "abduction_deg": -1.954,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00405,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.4064,
+      0.01
+     ],
+     "got": [
+      0.11477,
+      0.40286,
+      0.01084
+     ],
+     "residual_m": 0.00365,
+     "abduction_deg": -2.297,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00254,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.2426,
+      0.01
+     ],
+     "got": [
+      -0.15006,
+      -0.2441,
+      0.00984
+     ],
+     "residual_m": 0.00151,
+     "abduction_deg": -3.204,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01327,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.37311,
+      0.08335
+     ],
+     "got": [
+      0.15027,
+      -0.37176,
+      0.08183
+     ],
+     "residual_m": 0.00205,
+     "abduction_deg": -3.283,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.7164,
+      0.01
+     ],
+     "got": [
+      -0.11515,
+      0.71617,
+      0.00913
+     ],
+     "residual_m": 0.00091,
+     "abduction_deg": -2.2,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00668,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.3444,
+      0.01
+     ],
+     "got": [
+      0.1149,
+      0.34077,
+      0.01078
+     ],
+     "residual_m": 0.00371,
+     "abduction_deg": -1.17,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00126,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.3046,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.30499,
+      0.00997
+     ],
+     "residual_m": 0.00039,
+     "abduction_deg": -2.148,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00886,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.20598,
+      0.05479
+     ],
+     "got": [
+      0.15012,
+      -0.2054,
+      0.05407
+     ],
+     "residual_m": 0.00093,
+     "abduction_deg": -1.978,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.6544,
+      0.01
+     ],
+     "got": [
+      -0.11498,
+      0.65349,
+      0.00997
+     ],
+     "residual_m": 0.00091,
+     "abduction_deg": -1.046,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0038,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.34922,
+      0.06858
+     ],
+     "got": [
+      0.11514,
+      0.34514,
+      0.06907
+     ],
+     "residual_m": 0.00411,
+     "abduction_deg": 0.145,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.3666,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.36753,
+      0.01038
+     ],
+     "residual_m": 0.001,
+     "abduction_deg": -0.628,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.016,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      0.0054,
+      0.01
+     ],
+     "got": [
+      0.1464,
+      0.00464,
+      0.01007
+     ],
+     "residual_m": 0.00368,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.00539,
+     "sole_z_m": 0.00424,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.5924,
+      0.01
+     ],
+     "got": [
+      -0.11494,
+      0.59094,
+      0.01005
+     ],
+     "residual_m": 0.00146,
+     "abduction_deg": -0.181,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00801,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.46189,
+      0.08335
+     ],
+     "got": [
+      0.11506,
+      0.4582,
+      0.0842
+     ],
+     "residual_m": 0.00379,
+     "abduction_deg": 0.314,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.4286,
+      0.01
+     ],
+     "got": [
+      -0.14998,
+      -0.42768,
+      0.00981
+     ],
+     "residual_m": 0.00094,
+     "abduction_deg": 1.067,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01459,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.0566,
+      0.01
+     ],
+     "got": [
+      0.14964,
+      -0.05761,
+      0.01045
+     ],
+     "residual_m": 0.00117,
+     "abduction_deg": 1.538,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00797,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.5304,
+      0.01
+     ],
+     "got": [
+      -0.11364,
+      0.52884,
+      0.01018
+     ],
+     "residual_m": 0.00208,
+     "abduction_deg": 1.022,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00772,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.62902,
+      0.05479
+     ],
+     "got": [
+      0.11501,
+      0.62721,
+      0.05521
+     ],
+     "residual_m": 0.00185,
+     "abduction_deg": 0.361,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.4906,
+      0.01
+     ],
+     "got": [
+      -0.14994,
+      -0.48995,
+      0.0101
+     ],
+     "residual_m": 0.00067,
+     "abduction_deg": 3.067,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01717,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.1186,
+      0.01
+     ],
+     "got": [
+      0.14994,
+      -0.11969,
+      0.01027
+     ],
+     "residual_m": 0.00113,
+     "abduction_deg": 2.797,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00983,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.4684,
+      0.01
+     ],
+     "got": [
+      -0.11474,
+      0.46538,
+      0.01063
+     ],
+     "residual_m": 0.00309,
+     "abduction_deg": 2.089,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00793,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.8404,
+      0.01
+     ],
+     "got": [
+      0.11511,
+      0.84155,
+      0.00934
+     ],
+     "residual_m": 0.00133,
+     "abduction_deg": 1.137,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00101,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.48578,
+      0.06858
+     ],
+     "got": [
+      -0.14919,
+      -0.48511,
+      0.06756
+     ],
+     "residual_m": 0.00146,
+     "abduction_deg": 4.142,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.1806,
+      0.01
+     ],
+     "got": [
+      0.14999,
+      -0.18177,
+      0.01009
+     ],
+     "residual_m": 0.00118,
+     "abduction_deg": 3.362,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01137,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.4064,
+      0.01
+     ],
+     "got": [
+      -0.11477,
+      0.40286,
+      0.01084
+     ],
+     "residual_m": 0.00365,
+     "abduction_deg": 2.297,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00915,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.7784,
+      0.01
+     ],
+     "got": [
+      0.1152,
+      0.77869,
+      0.00893
+     ],
+     "residual_m": 0.00112,
+     "abduction_deg": 1.954,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00106,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.37311,
+      0.08335
+     ],
+     "got": [
+      -0.15027,
+      -0.37176,
+      0.08183
+     ],
+     "residual_m": 0.00205,
+     "abduction_deg": 3.283,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.2426,
+      0.01
+     ],
+     "got": [
+      0.15006,
+      -0.2441,
+      0.00984
+     ],
+     "residual_m": 0.00151,
+     "abduction_deg": 3.204,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01111,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.3444,
+      0.01
+     ],
+     "got": [
+      -0.1149,
+      0.34077,
+      0.01078
+     ],
+     "residual_m": 0.00371,
+     "abduction_deg": 1.17,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00715,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.7164,
+      0.01
+     ],
+     "got": [
+      0.11515,
+      0.71617,
+      0.00913
+     ],
+     "residual_m": 0.00091,
+     "abduction_deg": 2.2,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00128,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.20598,
+      0.05479
+     ],
+     "got": [
+      -0.15012,
+      -0.20539,
+      0.05407
+     ],
+     "residual_m": 0.00093,
+     "abduction_deg": 1.978,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.3046,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.30499,
+      0.00997
+     ],
+     "residual_m": 0.00039,
+     "abduction_deg": 2.148,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00883,
+     "planted": true
+    }
+   }
+  ],
+  "max_residual_m": 0.00411,
+  "sole_z_range_m": [
+   0.00101,
+   0.01717
+  ]
+ },
+ "run": {
+  "frames": 8,
+  "period_s": 0.42,
+  "fps": 19.0476,
+  "speed_m_s": 4.2,
+  "stride_m": 1.764,
+  "duty": 0.27,
+  "phase": {
+   "hpaw.L": 0.0,
+   "hpaw.R": 0.14,
+   "fpaw.R": 0.44,
+   "fpaw.L": 0.58
+  },
+  "cycle": true,
+  "stance_excursion_m": 0.4763,
+  "stance_centre_y": {
+   "fpaw.L": 0.58,
+   "fpaw.R": 0.58,
+   "hpaw.L": -0.255,
+   "hpaw.R": -0.255
+  },
+  "ik": [
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.37973,
+      0.19948
+     ],
+     "got": [
+      -0.11479,
+      0.37474,
+      0.19971
+     ],
+     "residual_m": 0.005,
+     "abduction_deg": 0.691,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.4506,
+      0.22937
+     ],
+     "got": [
+      0.11469,
+      0.44529,
+      0.22975
+     ],
+     "residual_m": 0.00533,
+     "abduction_deg": -0.96,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.01686,
+      0.01
+     ],
+     "got": [
+      -0.14989,
+      -0.01813,
+      0.01071
+     ],
+     "residual_m": 0.00146,
+     "abduction_deg": 0.251,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01256,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.15437,
+      0.10271
+     ],
+     "got": [
+      0.15012,
+      -0.15498,
+      0.10196
+     ],
+     "residual_m": 0.00098,
+     "abduction_deg": -0.047,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.44174,
+      0.22997
+     ],
+     "got": [
+      -0.11458,
+      0.43625,
+      0.23047
+     ],
+     "residual_m": 0.00553,
+     "abduction_deg": 1.494,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.5348,
+      0.19814
+     ],
+     "got": [
+      0.11498,
+      0.53065,
+      0.19726
+     ],
+     "residual_m": 0.00424,
+     "abduction_deg": -0.007,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.23736,
+      0.01
+     ],
+     "got": [
+      -0.15,
+      -0.23917,
+      0.00995
+     ],
+     "residual_m": 0.00182,
+     "abduction_deg": -0.177,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0155,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.03242,
+      0.01997
+     ],
+     "got": [
+      0.14997,
+      -0.03331,
+      0.02026
+     ],
+     "residual_m": 0.00094,
+     "abduction_deg": -0.282,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.52376,
+      0.204
+     ],
+     "got": [
+      -0.11502,
+      0.5167,
+      0.20272
+     ],
+     "residual_m": 0.00718,
+     "abduction_deg": 0.447,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.63588,
+      0.1338
+     ],
+     "got": [
+      0.11495,
+      0.63312,
+      0.13348
+     ],
+     "residual_m": 0.00278,
+     "abduction_deg": -0.19,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.45786,
+      0.01
+     ],
+     "got": [
+      -0.15004,
+      -0.45706,
+      0.0097
+     ],
+     "residual_m": 0.00085,
+     "abduction_deg": 0.512,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01475,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.2109,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.21222,
+      0.00997
+     ],
+     "residual_m": 0.00132,
+     "abduction_deg": 0.082,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01151,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.62292,
+      0.14268
+     ],
+     "got": [
+      -0.11524,
+      0.62109,
+      0.14125
+     ],
+     "residual_m": 0.00233,
+     "abduction_deg": 0.732,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.75212,
+      0.05339
+     ],
+     "got": [
+      0.11524,
+      0.7518,
+      0.05225
+     ],
+     "residual_m": 0.00121,
+     "abduction_deg": 0.083,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.47174,
+      0.16911
+     ],
+     "got": [
+      -0.15016,
+      -0.47373,
+      0.16816
+     ],
+     "residual_m": 0.00221,
+     "abduction_deg": 0.865,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.4314,
+      0.01
+     ],
+     "got": [
+      0.15009,
+      -0.43036,
+      0.00939
+     ],
+     "residual_m": 0.00121,
+     "abduction_deg": -0.114,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00876,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.73742,
+      0.0634
+     ],
+     "got": [
+      -0.10454,
+      0.73745,
+      0.0599
+     ],
+     "residual_m": 0.01103,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.01222,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.7123,
+      0.01
+     ],
+     "got": [
+      0.11381,
+      0.71234,
+      0.00797
+     ],
+     "residual_m": 0.00235,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.0386,
+     "sole_z_m": -0.04257,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.4181,
+      0.22679
+     ],
+     "got": [
+      -0.15262,
+      -0.42819,
+      0.20465
+     ],
+     "residual_m": 0.02447,
+     "abduction_deg": 0.902,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.47642,
+      0.15602
+     ],
+     "got": [
+      0.15011,
+      -0.47862,
+      0.15537
+     ],
+     "residual_m": 0.0023,
+     "abduction_deg": -0.462,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.73876,
+      0.01
+     ],
+     "got": [
+      -0.11195,
+      0.73901,
+      0.00774
+     ],
+     "residual_m": 0.0038,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.0331,
+     "sole_z_m": -0.03923,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.4918,
+      0.01
+     ],
+     "got": [
+      0.11373,
+      0.48963,
+      0.00894
+     ],
+     "residual_m": 0.00273,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.01,
+     "sole_z_m": -0.00486,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.34286,
+      0.21842
+     ],
+     "got": [
+      -0.15291,
+      -0.34786,
+      0.20013
+     ],
+     "residual_m": 0.01919,
+     "abduction_deg": 0.389,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.42577,
+      0.22392
+     ],
+     "got": [
+      0.15029,
+      -0.42733,
+      0.22232
+     ],
+     "residual_m": 0.00225,
+     "abduction_deg": -0.541,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.51826,
+      0.01
+     ],
+     "got": [
+      -0.1152,
+      0.51628,
+      0.00912
+     ],
+     "residual_m": 0.00218,
+     "abduction_deg": -0.664,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00671,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.34643,
+      0.09798
+     ],
+     "got": [
+      0.11494,
+      0.34201,
+      0.09851
+     ],
+     "residual_m": 0.00445,
+     "abduction_deg": -0.35,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.24962,
+      0.16767
+     ],
+     "got": [
+      -0.15025,
+      -0.25043,
+      0.16626
+     ],
+     "residual_m": 0.00164,
+     "abduction_deg": -0.018,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.35289,
+      0.22207
+     ],
+     "got": [
+      0.15029,
+      -0.35435,
+      0.21965
+     ],
+     "residual_m": 0.00283,
+     "abduction_deg": -0.152,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.34401,
+      0.07419
+     ],
+     "got": [
+      -0.11501,
+      0.34086,
+      0.07426
+     ],
+     "residual_m": 0.00315,
+     "abduction_deg": -0.462,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.38597,
+      0.20699
+     ],
+     "got": [
+      0.11479,
+      0.38069,
+      0.20749
+     ],
+     "residual_m": 0.0053,
+     "abduction_deg": -1.095,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.14048,
+      0.09304
+     ],
+     "got": [
+      -0.15007,
+      -0.13976,
+      0.09266
+     ],
+     "residual_m": 0.00081,
+     "abduction_deg": 0.038,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.26168,
+      0.17536
+     ],
+     "got": [
+      0.15024,
+      -0.26257,
+      0.17394
+     ],
+     "residual_m": 0.00168,
+     "abduction_deg": 0.006,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    }
+   }
+  ],
+  "max_residual_m": 0.02447,
+  "sole_z_range_m": [
+   -0.04257,
+   0.0155
+  ]
+ },
+ "idle": {
+  "frames": 12,
+  "period_s": 2.4,
+  "fps": 5.0,
+  "speed_m_s": 0.0,
+  "stride_m": 0.0,
+  "duty": 1.0,
+  "phase": {
+   "fpaw.L": 0.0,
+   "fpaw.R": 0.0,
+   "hpaw.L": 0.0,
+   "hpaw.R": 0.0
+  },
+  "cycle": true,
+  "stance_excursion_m": 0.0,
+  "stance_centre_y": {
+   "fpaw.L": 0.58,
+   "fpaw.R": 0.58,
+   "hpaw.L": -0.255,
+   "hpaw.R": -0.255
+  },
+  "ik": [
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.10604,
+      0.74193,
+      0.00863
+     ],
+     "residual_m": 0.00907,
+     "abduction_deg": -0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": -0.00147,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.10604,
+      0.74193,
+      0.00863
+     ],
+     "residual_m": 0.00907,
+     "abduction_deg": 0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0011,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15002,
+      -0.23935,
+      0.01007
+     ],
+     "residual_m": 0.00135,
+     "abduction_deg": -0.115,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01668,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15002,
+      -0.23935,
+      0.01007
+     ],
+     "residual_m": 0.00135,
+     "abduction_deg": 0.115,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01226,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11512,
+      0.7421,
+      0.00934
+     ],
+     "residual_m": 0.00068,
+     "abduction_deg": -0.612,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00683,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11512,
+      0.7421,
+      0.00934
+     ],
+     "residual_m": 0.00068,
+     "abduction_deg": 0.612,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00159,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.23939,
+      0.01014
+     ],
+     "residual_m": 0.0014,
+     "abduction_deg": -0.123,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01695,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.23939,
+      0.01014
+     ],
+     "residual_m": 0.0014,
+     "abduction_deg": 0.123,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01259,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11513,
+      0.74212,
+      0.00925
+     ],
+     "residual_m": 0.00077,
+     "abduction_deg": -0.603,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00571,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11513,
+      0.74212,
+      0.00925
+     ],
+     "residual_m": 0.00077,
+     "abduction_deg": 0.603,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00163,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.23946,
+      0.01019
+     ],
+     "residual_m": 0.00147,
+     "abduction_deg": -0.129,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01705,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.23946,
+      0.01019
+     ],
+     "residual_m": 0.00147,
+     "abduction_deg": 0.129,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01282,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11523,
+      0.7421,
+      0.00928
+     ],
+     "residual_m": 0.00076,
+     "abduction_deg": -0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00642,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11522,
+      0.7421,
+      0.00928
+     ],
+     "residual_m": 0.00076,
+     "abduction_deg": 0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00158,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15,
+      -0.23952,
+      0.01026
+     ],
+     "residual_m": 0.00154,
+     "abduction_deg": -0.132,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01713,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15,
+      -0.23952,
+      0.01026
+     ],
+     "residual_m": 0.00154,
+     "abduction_deg": 0.132,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01296,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11512,
+      0.7421,
+      0.00928
+     ],
+     "residual_m": 0.00073,
+     "abduction_deg": -0.608,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00651,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11512,
+      0.7421,
+      0.00928
+     ],
+     "residual_m": 0.00073,
+     "abduction_deg": 0.608,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00157,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15002,
+      -0.2396,
+      0.01011
+     ],
+     "residual_m": 0.0016,
+     "abduction_deg": -0.128,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01697,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15002,
+      -0.2396,
+      0.01011
+     ],
+     "residual_m": 0.0016,
+     "abduction_deg": 0.128,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01275,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11512,
+      0.7421,
+      0.00934
+     ],
+     "residual_m": 0.00068,
+     "abduction_deg": -0.612,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00683,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11512,
+      0.7421,
+      0.00934
+     ],
+     "residual_m": 0.00068,
+     "abduction_deg": 0.612,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00159,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15002,
+      -0.23964,
+      0.00996
+     ],
+     "residual_m": 0.00164,
+     "abduction_deg": -0.123,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01677,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15002,
+      -0.23964,
+      0.00996
+     ],
+     "residual_m": 0.00164,
+     "abduction_deg": 0.123,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01242,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.10622,
+      0.74193,
+      0.00866
+     ],
+     "residual_m": 0.00888,
+     "abduction_deg": -0.587,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": -0.00144,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.10622,
+      0.74193,
+      0.00866
+     ],
+     "residual_m": 0.00888,
+     "abduction_deg": 0.587,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00112,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15003,
+      -0.23951,
+      0.01002
+     ],
+     "residual_m": 0.00151,
+     "abduction_deg": -0.115,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01663,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15003,
+      -0.23951,
+      0.01001
+     ],
+     "residual_m": 0.00151,
+     "abduction_deg": 0.115,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01222,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11503,
+      0.74197,
+      0.00992
+     ],
+     "residual_m": 9e-05,
+     "abduction_deg": -0.028,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00129,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11503,
+      0.74197,
+      0.00992
+     ],
+     "residual_m": 9e-05,
+     "abduction_deg": 0.028,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00249,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15003,
+      -0.23962,
+      0.00989
+     ],
+     "residual_m": 0.00163,
+     "abduction_deg": -0.107,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01573,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15003,
+      -0.23962,
+      0.00989
+     ],
+     "residual_m": 0.00163,
+     "abduction_deg": 0.107,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01185,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11503,
+      0.74191,
+      0.00999
+     ],
+     "residual_m": 0.0001,
+     "abduction_deg": -0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00235,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11503,
+      0.74191,
+      0.00999
+     ],
+     "residual_m": 0.0001,
+     "abduction_deg": 0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00266,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15004,
+      -0.23957,
+      0.00993
+     ],
+     "residual_m": 0.00157,
+     "abduction_deg": -0.1,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01484,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15004,
+      -0.23957,
+      0.00993
+     ],
+     "residual_m": 0.00157,
+     "abduction_deg": 0.1,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0117,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11501,
+      0.74188,
+      0.01003
+     ],
+     "residual_m": 0.00012,
+     "abduction_deg": -0.058,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00276,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11501,
+      0.74188,
+      0.01003
+     ],
+     "residual_m": 0.00012,
+     "abduction_deg": 0.058,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00264,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15003,
+      -0.23949,
+      0.00998
+     ],
+     "residual_m": 0.00149,
+     "abduction_deg": -0.099,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01453,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15003,
+      -0.23949,
+      0.00998
+     ],
+     "residual_m": 0.00149,
+     "abduction_deg": 0.099,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01167,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11504,
+      0.74192,
+      0.00996
+     ],
+     "residual_m": 0.0001,
+     "abduction_deg": -0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00234,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11504,
+      0.74192,
+      0.00996
+     ],
+     "residual_m": 0.0001,
+     "abduction_deg": 0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00263,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15003,
+      -0.23941,
+      0.01
+     ],
+     "residual_m": 0.00141,
+     "abduction_deg": -0.101,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01487,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15003,
+      -0.23941,
+      0.01
+     ],
+     "residual_m": 0.00141,
+     "abduction_deg": 0.101,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01176,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11499,
+      0.7419,
+      0.01016
+     ],
+     "residual_m": 0.00019,
+     "abduction_deg": -0.029,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00146,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11499,
+      0.7419,
+      0.01016
+     ],
+     "residual_m": 0.00019,
+     "abduction_deg": 0.029,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0027,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15003,
+      -0.23936,
+      0.01002
+     ],
+     "residual_m": 0.00136,
+     "abduction_deg": -0.107,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0158,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15003,
+      -0.23936,
+      0.01002
+     ],
+     "residual_m": 0.00136,
+     "abduction_deg": 0.107,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01197,
+     "planted": true
+    }
+   }
+  ],
+  "max_residual_m": 0.00907,
+  "sole_z_range_m": [
+   -0.00147,
+   0.01713
+  ]
+ },
+ "attack": {
+  "frames": 12,
+  "period_s": 0.7,
+  "fps": 17.1429,
+  "speed_m_s": 0.0,
+  "stride_m": 0.0,
+  "duty": 1.0,
+  "phase": {
+   "fpaw.L": 0.0,
+   "fpaw.R": 0.0,
+   "hpaw.L": 0.0,
+   "hpaw.R": 0.0
+  },
+  "cycle": false,
+  "stance_excursion_m": 0.0,
+  "stance_centre_y": {
+   "fpaw.L": 0.58,
+   "fpaw.R": 0.58,
+   "hpaw.L": -0.255,
+   "hpaw.R": -0.255
+  },
+  "ik": [
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.10604,
+      0.74193,
+      0.00863
+     ],
+     "residual_m": 0.00907,
+     "abduction_deg": -0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": -0.00147,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.10601,
+      0.74193,
+      0.00861
+     ],
+     "residual_m": 0.0091,
+     "abduction_deg": 0.6,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0011,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14999,
+      -0.23949,
+      0.01017
+     ],
+     "residual_m": 0.0015,
+     "abduction_deg": -0.114,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01695,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14999,
+      -0.23949,
+      0.01017
+     ],
+     "residual_m": 0.0015,
+     "abduction_deg": 0.114,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0125,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11518,
+      0.74196,
+      0.00892
+     ],
+     "residual_m": 0.0011,
+     "abduction_deg": -0.635,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00385,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11518,
+      0.74196,
+      0.00892
+     ],
+     "residual_m": 0.0011,
+     "abduction_deg": 0.635,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00164,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.23927,
+      0.01
+     ],
+     "residual_m": 0.00127,
+     "abduction_deg": -0.068,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01416,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.23927,
+      0.01
+     ],
+     "residual_m": 0.00127,
+     "abduction_deg": 0.068,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01162,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      -0.11537,
+      0.74237,
+      0.00779
+     ],
+     "residual_m": 0.00227,
+     "abduction_deg": -0.252,
+     "joint_below_ground_m": 0.04076,
+     "sole_z_m": -0.04501,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.01
+     ],
+     "got": [
+      0.11537,
+      0.74237,
+      0.00779
+     ],
+     "residual_m": 0.00227,
+     "abduction_deg": 0.252,
+     "joint_below_ground_m": 0.04076,
+     "sole_z_m": -0.0438,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14964,
+      -0.23883,
+      0.00956
+     ],
+     "residual_m": 0.00101,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.00492,
+     "sole_z_m": 0.00445,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14964,
+      -0.23883,
+      0.00956
+     ],
+     "residual_m": 0.00101,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.00492,
+     "sole_z_m": 0.00443,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.08259
+     ],
+     "got": [
+      -0.10035,
+      0.74504,
+      0.07027
+     ],
+     "residual_m": 0.01938,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.03205,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.08259
+     ],
+     "got": [
+      0.10035,
+      0.74504,
+      0.07027
+     ],
+     "residual_m": 0.01938,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.03205,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14902,
+      -0.23861,
+      0.00932
+     ],
+     "residual_m": 0.00134,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.01338,
+     "sole_z_m": -0.00811,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14902,
+      -0.23861,
+      0.00932
+     ],
+     "residual_m": 0.00134,
+     "abduction_deg": 0.0,
+     "joint_below_ground_m": 0.01338,
+     "sole_z_m": -0.00845,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.742,
+      0.15864
+     ],
+     "got": [
+      -0.11535,
+      0.74194,
+      0.15669
+     ],
+     "residual_m": 0.00199,
+     "abduction_deg": 0.415,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.742,
+      0.15864
+     ],
+     "got": [
+      0.11535,
+      0.74194,
+      0.15669
+     ],
+     "residual_m": 0.00199,
+     "abduction_deg": -0.415,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15001,
+      -0.23933,
+      0.01004
+     ],
+     "residual_m": 0.00133,
+     "abduction_deg": -0.081,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0153,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15001,
+      -0.23933,
+      0.01004
+     ],
+     "residual_m": 0.00133,
+     "abduction_deg": 0.081,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01187,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.78144,
+      0.20115
+     ],
+     "got": [
+      -0.11528,
+      0.7807,
+      0.1995
+     ],
+     "residual_m": 0.00183,
+     "abduction_deg": 0.363,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.7901,
+      0.20115
+     ],
+     "got": [
+      0.11528,
+      0.78946,
+      0.19948
+     ],
+     "residual_m": 0.00181,
+     "abduction_deg": -0.312,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14997,
+      -0.23838,
+      0.01006
+     ],
+     "residual_m": 0.00039,
+     "abduction_deg": 0.04,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00952,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14997,
+      -0.23838,
+      0.01006
+     ],
+     "residual_m": 0.00039,
+     "abduction_deg": -0.04,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00952,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.83537,
+      0.20837
+     ],
+     "got": [
+      -0.11519,
+      0.83405,
+      0.20711
+     ],
+     "residual_m": 0.00183,
+     "abduction_deg": 0.13,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.85586,
+      0.20837
+     ],
+     "got": [
+      0.1152,
+      0.8548,
+      0.2071
+     ],
+     "residual_m": 0.00167,
+     "abduction_deg": -0.084,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14991,
+      -0.23894,
+      0.01044
+     ],
+     "residual_m": 0.00104,
+     "abduction_deg": 0.149,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01666,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14991,
+      -0.23894,
+      0.01044
+     ],
+     "residual_m": 0.00104,
+     "abduction_deg": -0.149,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01312,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.88138,
+      0.17974
+     ],
+     "got": [
+      -0.11521,
+      0.88002,
+      0.17835
+     ],
+     "residual_m": 0.00196,
+     "abduction_deg": -0.748,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.91197,
+      0.17974
+     ],
+     "got": [
+      0.11524,
+      0.91101,
+      0.17843
+     ],
+     "residual_m": 0.00164,
+     "abduction_deg": 0.729,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14979,
+      -0.23924,
+      0.01088
+     ],
+     "residual_m": 0.00154,
+     "abduction_deg": 0.29,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01796,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14979,
+      -0.23924,
+      0.01088
+     ],
+     "residual_m": 0.00154,
+     "abduction_deg": -0.29,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.0155,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.86726,
+      0.11713
+     ],
+     "got": [
+      -0.11498,
+      0.8667,
+      0.11721
+     ],
+     "residual_m": 0.00056,
+     "abduction_deg": -0.039,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.89476,
+      0.11713
+     ],
+     "got": [
+      0.11503,
+      0.89403,
+      0.11697
+     ],
+     "residual_m": 0.00074,
+     "abduction_deg": 0.178,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": null,
+     "planted": false
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14983,
+      -0.23918,
+      0.01079
+     ],
+     "residual_m": 0.00143,
+     "abduction_deg": 0.236,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01787,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14983,
+      -0.23918,
+      0.01079
+     ],
+     "residual_m": 0.00143,
+     "abduction_deg": -0.236,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01466,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.83224,
+      0.01
+     ],
+     "got": [
+      -0.11423,
+      0.83242,
+      0.0155
+     ],
+     "residual_m": 0.00556,
+     "abduction_deg": -0.794,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01276,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.85205,
+      0.01
+     ],
+     "got": [
+      0.1139,
+      0.85193,
+      0.01748
+     ],
+     "residual_m": 0.00756,
+     "abduction_deg": 0.868,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00875,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14992,
+      -0.23891,
+      0.0104
+     ],
+     "residual_m": 0.001,
+     "abduction_deg": 0.142,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01636,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14992,
+      -0.23891,
+      0.0104
+     ],
+     "residual_m": 0.001,
+     "abduction_deg": -0.142,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01296,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.7895,
+      0.01
+     ],
+     "got": [
+      -0.11652,
+      0.78946,
+      0.01064
+     ],
+     "residual_m": 0.00165,
+     "abduction_deg": -0.243,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00839,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.79993,
+      0.01
+     ],
+     "got": [
+      0.11517,
+      0.8004,
+      0.01065
+     ],
+     "residual_m": 0.00082,
+     "abduction_deg": 0.24,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00249,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.14991,
+      -0.23849,
+      0.01035
+     ],
+     "residual_m": 0.00061,
+     "abduction_deg": 0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01136,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.14991,
+      -0.23849,
+      0.01035
+     ],
+     "residual_m": 0.00061,
+     "abduction_deg": -0.048,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01135,
+     "planted": true
+    }
+   },
+   {
+    "fpaw.L": {
+     "target": [
+      -0.115,
+      0.75511,
+      0.01
+     ],
+     "got": [
+      -0.11494,
+      0.7555,
+      0.01033
+     ],
+     "residual_m": 0.00051,
+     "abduction_deg": 0.094,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00167,
+     "planted": true
+    },
+    "fpaw.R": {
+     "target": [
+      0.115,
+      0.75799,
+      0.01
+     ],
+     "got": [
+      0.11501,
+      0.75799,
+      0.01005
+     ],
+     "residual_m": 5e-05,
+     "abduction_deg": 0.034,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.00259,
+     "planted": true
+    },
+    "hpaw.L": {
+     "target": [
+      -0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      -0.15,
+      -0.2396,
+      0.01025
+     ],
+     "residual_m": 0.00162,
+     "abduction_deg": -0.14,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01716,
+     "planted": true
+    },
+    "hpaw.R": {
+     "target": [
+      0.15,
+      -0.238,
+      0.01
+     ],
+     "got": [
+      0.15,
+      -0.2396,
+      0.01025
+     ],
+     "residual_m": 0.00162,
+     "abduction_deg": 0.14,
+     "joint_below_ground_m": 0.0,
+     "sole_z_m": 0.01308,
+     "planted": true
+    }
+   }
+  ],
+  "max_residual_m": 0.01938,
+  "sole_z_range_m": [
+   -0.04501,
+   0.01796
+  ]
+ },
+ "ground_ref_z": 0.00876,
+ "ground_ref_note": "median measured sole z over every planted foot of every clip; the renderer puts row 398 here, not on the nominal z=0"
+}

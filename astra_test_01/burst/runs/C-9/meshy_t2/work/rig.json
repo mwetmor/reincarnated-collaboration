@@ -1,0 +1,254 @@
+{
+ "canonical": {
+  "head_low": true,
+  "bulk": [
+   0.52498,
+   0.00799
+  ],
+  "scale_factor": 0.958522,
+  "withers_break_bin": 64,
+  "withers_raw_z": 1.04327,
+  "withers_y_m": 0.55625,
+  "topline_step_at_break": 0.08264
+ },
+ "bones": 34,
+ "bone_names": [
+  "root",
+  "hips",
+  "tail_01",
+  "tail_02",
+  "tail_03",
+  "tail_04",
+  "tail_05",
+  "tail_06",
+  "tail_07",
+  "spine_01",
+  "spine_02",
+  "spine_03",
+  "chest",
+  "neck_01",
+  "neck_02",
+  "head",
+  "shoulder.R",
+  "upperarm.R",
+  "forearm.R",
+  "fcannon.R",
+  "fpaw.R",
+  "shoulder.L",
+  "upperarm.L",
+  "forearm.L",
+  "fcannon.L",
+  "fpaw.L",
+  "thigh.R",
+  "shin.R",
+  "hcannon.R",
+  "hpaw.R",
+  "thigh.L",
+  "shin.L",
+  "hcannon.L",
+  "hpaw.L"
+ ],
+ "n_tail_bones": 7,
+ "tail_length_m": 0.7858,
+ "bone_heat": true,
+ "landmarks": {
+  "sacrum": {
+   "p": [
+    0.0,
+    -0.1,
+    0.755
+   ],
+   "src": "derived"
+  },
+  "lumbar": {
+   "p": [
+    0.0,
+    0.07,
+    0.75
+   ],
+   "src": "derived"
+  },
+  "thorax_mid": {
+   "p": [
+    0.0,
+    0.24,
+    0.748
+   ],
+   "src": "derived"
+  },
+  "thorax_fwd": {
+   "p": [
+    0.0,
+    0.41,
+    0.775
+   ],
+   "src": "derived"
+  },
+  "withers": {
+   "p": [
+    0.0,
+    0.53,
+    0.83
+   ],
+   "src": "derived"
+  },
+  "neck_base": {
+   "p": [
+    0.0,
+    0.62,
+    0.9
+   ],
+   "src": "derived"
+  },
+  "atlas": {
+   "p": [
+    0.0,
+    0.7,
+    0.965
+   ],
+   "src": "derived"
+  },
+  "skull_top": {
+   "p": [
+    0.0,
+    0.755,
+    1.175
+   ],
+   "src": "measured"
+  },
+  "tail_root": {
+   "p": [
+    0.0,
+    -0.28,
+    0.672
+   ],
+   "src": "derived"
+  },
+  "hip": {
+   "p": [
+    0.092,
+    -0.235,
+    0.662
+   ],
+   "src": "anatomical"
+  },
+  "stifle": {
+   "p": [
+    0.125,
+    -0.19,
+    0.47
+   ],
+   "src": "derived"
+  },
+  "hock": {
+   "p": [
+    0.15,
+    -0.373,
+    0.119
+   ],
+   "src": "measured"
+  },
+  "h_heel": {
+   "p": [
+    0.15,
+    -0.32,
+    0.028
+   ],
+   "src": "measured"
+  },
+  "h_toe": {
+   "p": [
+    0.15,
+    -0.238,
+    0.01
+   ],
+   "src": "measured"
+  },
+  "scap_top": {
+   "p": [
+    0.07,
+    0.52,
+    0.88
+   ],
+   "src": "derived"
+  },
+  "shoulder": {
+   "p": [
+    0.105,
+    0.645,
+    0.68
+   ],
+   "src": "anatomical"
+  },
+  "elbow": {
+   "p": [
+    0.105,
+    0.59,
+    0.45
+   ],
+   "src": "measured"
+  },
+  "carpus": {
+   "p": [
+    0.1,
+    0.593,
+    0.105
+   ],
+   "src": "measured"
+  },
+  "f_heel": {
+   "p": [
+    0.112,
+    0.63,
+    0.028
+   ],
+   "src": "measured"
+  },
+  "f_toe": {
+   "p": [
+    0.115,
+    0.742,
+    0.01
+   ],
+   "src": "measured"
+  }
+ },
+ "head_island_verts": 5129,
+ "cross_body_weight_removed": 290.92,
+ "bone_heat_unsolved_vertices": 0,
+ "vertices": 35809,
+ "welded": {
+  "before": 48195,
+  "after": 35809,
+  "removed": 12386
+ },
+ "jaw": {
+  "built": false,
+  "reason": "closed painted mouth under a full beard; the beard is continuous with the chest ruff -- no mouth opening and no jaw seam exists to drive"
+ },
+ "role_map": {
+  "hips": "hips",
+  "spine": "spine_02",
+  "chest": "chest",
+  "neck": "neck_01",
+  "head": "head",
+  "root": "root",
+  "l_foot": "hpaw.L",
+  "r_foot": "hpaw.R",
+  "l_frontfoot": "fpaw.L",
+  "r_frontfoot": "fpaw.R",
+  "feet": [
+   "fpaw.L",
+   "fpaw.R",
+   "hpaw.L",
+   "hpaw.R"
+  ]
+ },
+ "skinned_mesh": "Mesh_0",
+ "character": {
+  "withers_m": 1.0,
+  "head_top_m": 1.2021,
+  "length_m": 1.8222,
+  "width_m": 0.4987
+ }
+}

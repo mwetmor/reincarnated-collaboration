@@ -1,0 +1,465 @@
+{
+ "contact_band_m": 0.006,
+ "bands_m": [
+  0.006,
+  0.012,
+  0.02
+ ],
+ "clips": {
+  "idle": {
+   "frames": 12,
+   "period_s": 2.4,
+   "fps": 5.0,
+   "authored_speed_m_s": 0.0,
+   "measured_speed_m_s": 0.0,
+   "speed_error_pct": null,
+   "stride_m": 0.0,
+   "stride_over_withers": 0.0,
+   "froude": 0.0,
+   "canvas_px_s": 0.0,
+   "max_slide_m": 0.00016,
+   "max_slide_by_band_m": {
+    "0.006": 0.00017,
+    "0.012": 0.00017,
+    "0.02": 0.00017
+   },
+   "feet": {
+    "fpaw.L": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0,
+     "back_speed_min_m_s": -0.0008,
+     "back_speed_max_m_s": 0.0008,
+     "lateral_speed_max_m_s": 0.0454,
+     "vertical_speed_max_m_s": 0.0063,
+     "contact_travel_m": 0.009,
+     "slide_max_m_per_frame": 0.00016,
+     "slide_max_pct_of_stride": null
+    },
+    "fpaw.R": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0,
+     "back_speed_min_m_s": -0.0008,
+     "back_speed_max_m_s": 0.0008,
+     "lateral_speed_max_m_s": 0.0454,
+     "vertical_speed_max_m_s": 0.0063,
+     "contact_travel_m": 0.009,
+     "slide_max_m_per_frame": 0.00016,
+     "slide_max_pct_of_stride": null
+    },
+    "hpaw.L": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0,
+     "back_speed_min_m_s": -0.0006,
+     "back_speed_max_m_s": 0.0006,
+     "lateral_speed_max_m_s": 0.0001,
+     "vertical_speed_max_m_s": 0.0008,
+     "contact_travel_m": 0.0,
+     "slide_max_m_per_frame": 0.00012,
+     "slide_max_pct_of_stride": null
+    },
+    "hpaw.R": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0,
+     "back_speed_min_m_s": -0.0006,
+     "back_speed_max_m_s": 0.0006,
+     "lateral_speed_max_m_s": 0.0001,
+     "vertical_speed_max_m_s": 0.0008,
+     "contact_travel_m": 0.0,
+     "slide_max_m_per_frame": 0.00012,
+     "slide_max_pct_of_stride": null
+    }
+   },
+   "hips_bob_m": 0.014,
+   "root_motion": {
+    "in_place": true,
+    "per_frame_forward_m": 0.0,
+    "per_cycle_forward_m": 0.0,
+    "note": "the clip is in place; the game advances the sprite by per_frame_forward_m each frame"
+   }
+  },
+  "walk": {
+   "frames": 12,
+   "period_s": 0.8,
+   "fps": 15.0,
+   "authored_speed_m_s": 0.93,
+   "measured_speed_m_s": 0.9332,
+   "speed_error_pct": 0.34,
+   "stride_m": 0.7465,
+   "stride_over_withers": 0.747,
+   "froude": 0.089,
+   "canvas_px_s": 102.8,
+   "max_slide_m": 0.00185,
+   "max_slide_by_band_m": {
+    "0.006": 0.00184,
+    "0.012": 0.00184,
+    "0.02": 0.00184
+   },
+   "feet": {
+    "fpaw.L": {
+     "contact_frames": 9,
+     "duty": 0.75,
+     "frames": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.939,
+     "back_speed_min_m_s": 0.9313,
+     "back_speed_max_m_s": 0.9519,
+     "lateral_speed_max_m_s": 0.0196,
+     "vertical_speed_max_m_s": 0.0125,
+     "contact_travel_m": 0.5008,
+     "slide_max_m_per_frame": 0.00146,
+     "slide_max_pct_of_stride": 0.196
+    },
+    "fpaw.R": {
+     "contact_frames": 9,
+     "duty": 0.75,
+     "frames": [
+      9,
+      10,
+      11,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "back_speed_mean_m_s": 0.939,
+     "back_speed_min_m_s": 0.9313,
+     "back_speed_max_m_s": 0.9519,
+     "lateral_speed_max_m_s": 0.0196,
+     "vertical_speed_max_m_s": 0.0125,
+     "contact_travel_m": 0.5008,
+     "slide_max_m_per_frame": 0.00146,
+     "slide_max_pct_of_stride": 0.196
+    },
+    "hpaw.L": {
+     "contact_frames": 9,
+     "duty": 0.75,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "back_speed_mean_m_s": 0.9274,
+     "back_speed_min_m_s": 0.9023,
+     "back_speed_max_m_s": 0.9381,
+     "lateral_speed_max_m_s": 0.0486,
+     "vertical_speed_max_m_s": 0.0086,
+     "contact_travel_m": 0.4946,
+     "slide_max_m_per_frame": 0.00185,
+     "slide_max_pct_of_stride": 0.248
+    },
+    "hpaw.R": {
+     "contact_frames": 9,
+     "duty": 0.75,
+     "frames": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      0,
+      1,
+      2
+     ],
+     "back_speed_mean_m_s": 0.9274,
+     "back_speed_min_m_s": 0.9023,
+     "back_speed_max_m_s": 0.9381,
+     "lateral_speed_max_m_s": 0.0486,
+     "vertical_speed_max_m_s": 0.0086,
+     "contact_travel_m": 0.4946,
+     "slide_max_m_per_frame": 0.00185,
+     "slide_max_pct_of_stride": 0.248
+    }
+   },
+   "hips_bob_m": 0.0239,
+   "root_motion": {
+    "in_place": true,
+    "per_frame_forward_m": 0.062,
+    "per_cycle_forward_m": 0.744,
+    "note": "the clip is in place; the game advances the sprite by per_frame_forward_m each frame"
+   }
+  },
+  "run": {
+   "frames": 8,
+   "period_s": 0.42,
+   "fps": 19.048,
+   "authored_speed_m_s": 4.2,
+   "measured_speed_m_s": 4.2112,
+   "speed_error_pct": 0.267,
+   "stride_m": 1.7687,
+   "stride_over_withers": 1.769,
+   "froude": 1.808,
+   "canvas_px_s": 464.0,
+   "max_slide_m": 0.00261,
+   "max_slide_by_band_m": {
+    "0.006": 0.00261,
+    "0.012": 0.04159,
+    "0.02": 0.04159
+   },
+   "feet": {
+    "fpaw.L": {
+     "contact_frames": 2,
+     "duty": 0.25,
+     "frames": [
+      5,
+      6
+     ],
+     "back_speed_mean_m_s": 4.2426,
+     "back_speed_min_m_s": 4.2426,
+     "back_speed_max_m_s": 4.2426,
+     "lateral_speed_max_m_s": 0.0619,
+     "vertical_speed_max_m_s": 0.0263,
+     "contact_travel_m": 0.2228,
+     "slide_max_m_per_frame": 0.00224,
+     "slide_max_pct_of_stride": 0.127
+    },
+    "fpaw.R": {
+     "contact_frames": 2,
+     "duty": 0.25,
+     "frames": [
+      4,
+      5
+     ],
+     "back_speed_mean_m_s": 4.2422,
+     "back_speed_min_m_s": 4.2422,
+     "back_speed_max_m_s": 4.2422,
+     "lateral_speed_max_m_s": 0.0017,
+     "vertical_speed_max_m_s": 0.0184,
+     "contact_travel_m": 0.2227,
+     "slide_max_m_per_frame": 0.00222,
+     "slide_max_pct_of_stride": 0.126
+    },
+    "hpaw.L": {
+     "contact_frames": 3,
+     "duty": 0.375,
+     "frames": [
+      0,
+      1,
+      2
+     ],
+     "back_speed_mean_m_s": 4.1803,
+     "back_speed_min_m_s": 4.1502,
+     "back_speed_max_m_s": 4.2104,
+     "lateral_speed_max_m_s": 0.002,
+     "vertical_speed_max_m_s": 0.0146,
+     "contact_travel_m": 0.4389,
+     "slide_max_m_per_frame": 0.00261,
+     "slide_max_pct_of_stride": 0.148
+    },
+    "hpaw.R": {
+     "contact_frames": 2,
+     "duty": 0.25,
+     "frames": [
+      2,
+      3
+     ],
+     "back_speed_mean_m_s": 4.155,
+     "back_speed_min_m_s": 4.155,
+     "back_speed_max_m_s": 4.155,
+     "lateral_speed_max_m_s": 0.0014,
+     "vertical_speed_max_m_s": 0.0109,
+     "contact_travel_m": 0.2181,
+     "slide_max_m_per_frame": 0.00236,
+     "slide_max_pct_of_stride": 0.134
+    }
+   },
+   "hips_bob_m": 0.06,
+   "root_motion": {
+    "in_place": true,
+    "per_frame_forward_m": 0.2205,
+    "per_cycle_forward_m": 1.764,
+    "note": "the clip is in place; the game advances the sprite by per_frame_forward_m each frame"
+   }
+  },
+  "attack": {
+   "frames": 12,
+   "period_s": 0.7,
+   "fps": 17.143,
+   "authored_speed_m_s": 0.0,
+   "measured_speed_m_s": 0.0,
+   "speed_error_pct": null,
+   "stride_m": 0.0,
+   "stride_over_withers": 0.0,
+   "froude": 0.0,
+   "canvas_px_s": 0.0,
+   "max_slide_m": 0.00111,
+   "max_slide_by_band_m": {
+    "0.006": 0.00111,
+    "0.012": 0.00111,
+    "0.02": 0.00111
+   },
+   "feet": {
+    "fpaw.L": {
+     "contact_frames": 3,
+     "duty": 0.25,
+     "frames": [
+      0,
+      1,
+      2
+     ],
+     "back_speed_mean_m_s": -0.0038,
+     "back_speed_min_m_s": -0.0071,
+     "back_speed_max_m_s": -0.0004,
+     "lateral_speed_max_m_s": 0.1568,
+     "vertical_speed_max_m_s": 0.0194,
+     "contact_travel_m": 0.0093,
+     "slide_max_m_per_frame": 0.00041,
+     "slide_max_pct_of_stride": null
+    },
+    "fpaw.R": {
+     "contact_frames": 3,
+     "duty": 0.25,
+     "frames": [
+      0,
+      1,
+      2
+     ],
+     "back_speed_mean_m_s": -0.0037,
+     "back_speed_min_m_s": -0.0071,
+     "back_speed_max_m_s": -0.0004,
+     "lateral_speed_max_m_s": 0.1572,
+     "vertical_speed_max_m_s": 0.0194,
+     "contact_travel_m": 0.0094,
+     "slide_max_m_per_frame": 0.00041,
+     "slide_max_pct_of_stride": null
+    },
+    "hpaw.L": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0002,
+     "back_speed_min_m_s": -0.0163,
+     "back_speed_max_m_s": 0.019,
+     "lateral_speed_max_m_s": 0.017,
+     "vertical_speed_max_m_s": 0.0122,
+     "contact_travel_m": 0.0001,
+     "slide_max_m_per_frame": 0.00111,
+     "slide_max_pct_of_stride": null
+    },
+    "hpaw.R": {
+     "contact_frames": 12,
+     "duty": 1.0,
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     "back_speed_mean_m_s": 0.0002,
+     "back_speed_min_m_s": -0.0163,
+     "back_speed_max_m_s": 0.019,
+     "lateral_speed_max_m_s": 0.017,
+     "vertical_speed_max_m_s": 0.0122,
+     "contact_travel_m": 0.0001,
+     "slide_max_m_per_frame": 0.00111,
+     "slide_max_pct_of_stride": null
+    }
+   },
+   "hips_bob_m": 0.088,
+   "root_motion": {
+    "in_place": true,
+    "per_frame_forward_m": 0.0,
+    "per_cycle_forward_m": 0.0,
+    "note": "the clip is in place; the game advances the sprite by per_frame_forward_m each frame"
+   }
+  }
+ }
+}
