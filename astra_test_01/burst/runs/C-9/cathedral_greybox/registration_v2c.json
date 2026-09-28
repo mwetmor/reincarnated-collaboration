@@ -1,0 +1,1841 @@
+{
+ "solve": {
+  "limb_width_m": 22.334971445227822,
+  "vessel_width_m": 10.534971445227821,
+  "aisle_width_m": 4.5,
+  "pier_section_m": 1.4,
+  "pier_line_x_m": 5.967485722613911,
+  "n_piers": 26,
+  "pier_footprint_total_m2": 50.959999999999994,
+  "bay_pitches_m": {
+   "nave_south": 9.028502855477214,
+   "chancel_north": 9.793757138693042,
+   "arm_west": 11.337507138693041,
+   "arm_east": 11.337507138693041
+  },
+  "bay_target_m": 9.5,
+  "bay_band_m": [
+   9.0,
+   10.0
+  ],
+  "gross_cruciform_m2": 2492.9184756291243,
+  "crater_m2": 63.61725123519331,
+  "crypt_m2": 24.0,
+  "net_walkable_m2": 2354.341224393931,
+  "target_m2": 2354.3412243939315,
+  "residual_m2": -4.547473508864641e-13,
+  "raster_check_m2": 2358.7200000000003,
+  "raster_cell_m": 0.2,
+  "note": "the pier COUNT depends on the width (the arms lengthen as the limb narrows), so this is a fixed point, bisected, not a quadratic."
+ },
+ "wall_rise": {
+  "declared_m": 34.0,
+  "solved_required_m": 55.13231332234722,
+  "built_m": 56.5,
+  "scope": "the PLATE's rising walls only. Piers are FADE-layer props and are not in the plate, so they do not enter this solve."
+ },
+ "pier_height": {
+  "built_m": 122.0,
+  "architectural_springing_m": 26.0,
+  "rule": "tall enough that every pier top projects above the canvas top, so no pier crown can enter any frame. Free: the pier is not in the plate."
+ },
+ "variant": "c",
+ "variant_params": {
+  "pier_section_m": 1.4,
+  "bay_target_m": 9.5,
+  "ruined": false,
+  "bands": [
+   [
+    0.0,
+    null,
+    1.0
+   ]
+  ],
+  "ghost_classes": [
+   "nave_pier",
+   "pier_ghost_1",
+   "pier_ghost_2",
+   "pier_ghost_3"
+  ]
+ },
+ "broken_piers": {},
+ "pier_occlusion_cost_m2": {
+  "-28.642,-5.967": 0.24,
+  "-28.642,5.967": 0.2,
+  "-17.305,-5.967": 28.76,
+  "-17.305,5.967": 12.36,
+  "-5.967,-51.110": 13.12,
+  "-5.967,-42.081": 13.16,
+  "-5.967,-33.053": 13.2,
+  "-5.967,-24.024": 28.12,
+  "-5.967,-14.996": 47.6,
+  "-5.967,15.761": 13.16,
+  "-5.967,25.555": 0.16,
+  "5.967,-51.110": 44.04,
+  "5.967,-42.081": 44.68,
+  "5.967,-33.053": 45.2,
+  "5.967,-24.024": 49.08,
+  "5.967,-14.996": 49.08,
+  "5.967,15.761": 25.2,
+  "5.967,25.555": 0.2,
+  "17.305,-5.967": 47.16,
+  "17.305,5.967": 44.4,
+  "28.642,-5.967": 35.36,
+  "28.642,5.967": 15.24
+ },
+ "vault_fallen_bays": [],
+ "piers": [
+  {
+   "centre_m": [
+    -28.6425,
+    -5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 0.24000000000000005
+  },
+  {
+   "centre_m": [
+    -28.6425,
+    5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 0.2
+  },
+  {
+   "centre_m": [
+    -17.304993,
+    -5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 28.760000000000005
+  },
+  {
+   "centre_m": [
+    -17.304993,
+    5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 12.360000000000001
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -51.11
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 13.120000000000003
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -42.081497
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 13.16
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -33.052994
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 13.200000000000001
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -24.024491
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 28.12
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -14.995989
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 47.6
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    -5.967486
+   ],
+   "corner": true,
+   "height_m": 0.9,
+   "broken": false,
+   "bands": []
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    5.967486
+   ],
+   "corner": true,
+   "height_m": 0.9,
+   "broken": false,
+   "bands": []
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    15.761243
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 13.16
+  },
+  {
+   "centre_m": [
+    -5.967486,
+    25.555
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 0.16000000000000003
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -51.11
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 44.040000000000006
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -42.081497
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 44.68000000000001
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -33.052994
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 45.2
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -24.024491
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 49.080000000000005
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -14.995989
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 49.080000000000005
+  },
+  {
+   "centre_m": [
+    5.967486,
+    -5.967486
+   ],
+   "corner": true,
+   "height_m": 0.9,
+   "broken": false,
+   "bands": []
+  },
+  {
+   "centre_m": [
+    5.967486,
+    5.967486
+   ],
+   "corner": true,
+   "height_m": 0.9,
+   "broken": false,
+   "bands": []
+  },
+  {
+   "centre_m": [
+    5.967486,
+    15.761243
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 25.200000000000003
+  },
+  {
+   "centre_m": [
+    5.967486,
+    25.555
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 0.2
+  },
+  {
+   "centre_m": [
+    17.304993,
+    -5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 47.160000000000004
+  },
+  {
+   "centre_m": [
+    17.304993,
+    5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 44.400000000000006
+  },
+  {
+   "centre_m": [
+    28.6425,
+    -5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 35.36000000000001
+  },
+  {
+   "centre_m": [
+    28.6425,
+    5.967486
+   ],
+   "corner": false,
+   "height_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_m2": 15.240000000000002
+  }
+ ],
+ "props": [
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -28.6425,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 0.24000000000000005,
+   "sort_line_y_m": -6.667486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -28.6425,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 0.2,
+   "sort_line_y_m": 5.267486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -17.304993,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 28.760000000000005,
+   "sort_line_y_m": -6.667486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -17.304993,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 12.360000000000001,
+   "sort_line_y_m": 5.267486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    -51.11
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 13.120000000000003,
+   "sort_line_y_m": -51.81,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    -42.081497
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 13.16,
+   "sort_line_y_m": -42.781497,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    -33.052994
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 13.200000000000001,
+   "sort_line_y_m": -33.752994,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    -24.024491
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 28.12,
+   "sort_line_y_m": -24.724491,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    -14.995989
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 47.6,
+   "sort_line_y_m": -15.695988999999999,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    -5.967486,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 0.9,
+   "sort_line_y_m": -6.667486,
+   "fade": false,
+   "rises": false,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    -5.967486,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 0.9,
+   "sort_line_y_m": 5.267486,
+   "fade": false,
+   "rises": false,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    15.761243
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 13.16,
+   "sort_line_y_m": 15.061243000000001,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    -5.967486,
+    25.555
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 0.16000000000000003,
+   "sort_line_y_m": 24.855,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    -51.11
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 44.040000000000006,
+   "sort_line_y_m": -51.81,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    -42.081497
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 44.68000000000001,
+   "sort_line_y_m": -42.781497,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    -33.052994
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 45.2,
+   "sort_line_y_m": -33.752994,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    -24.024491
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 49.080000000000005,
+   "sort_line_y_m": -24.724491,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    -14.995989
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 49.080000000000005,
+   "sort_line_y_m": -15.695988999999999,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    5.967486,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 0.9,
+   "sort_line_y_m": -6.667486,
+   "fade": false,
+   "rises": false,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "crossing_pier",
+   "centre_m": [
+    5.967486,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 0.9,
+   "sort_line_y_m": 5.267486,
+   "fade": false,
+   "rises": false,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    15.761243
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 25.200000000000003,
+   "sort_line_y_m": 15.061243000000001,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    5.967486,
+    25.555
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 0.2,
+   "sort_line_y_m": 24.855,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    17.304993,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 47.160000000000004,
+   "sort_line_y_m": -6.667486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    17.304993,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 44.400000000000006,
+   "sort_line_y_m": 5.267486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    28.6425,
+    -5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 35.36000000000001,
+   "sort_line_y_m": -6.667486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "nave_pier",
+   "centre_m": [
+    28.6425,
+    5.967486
+   ],
+   "footprint_m": [
+    1.4,
+    1.4
+   ],
+   "height_m": 26.0,
+   "architectural_top_m": 26.0,
+   "broken": false,
+   "bands": [
+    {
+     "cls": "nave_pier",
+     "z": [
+      0.35,
+      122.0
+     ],
+     "opacity": 1.0,
+     "open_top": true
+    }
+   ],
+   "hides_walkable_at_full_height_m2": 15.240000000000002,
+   "sort_line_y_m": 5.267486,
+   "fade": true,
+   "rises": true,
+   "id_class": "nave_pier"
+  },
+  {
+   "kind": "fading_wall_segment",
+   "wall": "R1-nave-west",
+   "bay": 2,
+   "centre_m": [
+    -11.167485722613911,
+    -26.145928576633693
+   ],
+   "hides_walkable_m2": 26.12,
+   "height_m": 56.5,
+   "fade": true,
+   "id_class": "wall_rising_fade",
+   "sort_line_y_m": -26.145928576633693
+  },
+  {
+   "kind": "fading_wall_segment",
+   "wall": "R1-nave-west",
+   "bay": 3,
+   "centre_m": [
+    -11.167485722613911,
+    -16.160300007287173
+   ],
+   "hides_walkable_m2": 128.72,
+   "height_m": 56.5,
+   "fade": true,
+   "id_class": "wall_rising_fade",
+   "sort_line_y_m": -16.160300007287173
+  }
+ ],
+ "fade_wall_bays": [
+  {
+   "wall": "R1-nave-west",
+   "bay": 2,
+   "hides_m2": 26.12,
+   "centre_m": [
+    -11.167485722613911,
+    -26.145928576633693
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "bay": 3,
+   "hides_m2": 128.72,
+   "centre_m": [
+    -11.167485722613911,
+    -16.160300007287173
+   ]
+  }
+ ],
+ "spawn_galleries": [
+  {
+   "id": "SG-R1-nave-west-b3",
+   "wall": "R1-nave-west",
+   "centre_m": [
+    -11.167485722613911,
+    -16.160300007287173
+   ],
+   "z": [
+    12.6,
+    17.995688570803956
+   ],
+   "width_m": 5.991377141607913,
+   "kind": "descend_from_above"
+  },
+  {
+   "id": "SG-R2-chancel-west-b1",
+   "wall": "R2-chancel-west",
+   "centre_m": [
+    -11.167485722613911,
+    21.958121430653478
+   ],
+   "z": [
+    12.6,
+    17.158127141607913
+   ],
+   "width_m": 4.316254283215826,
+   "kind": "descend_from_above"
+  },
+  {
+   "id": "SG-R3-transeptW-n-b1",
+   "wall": "R3-transeptW-n",
+   "centre_m": [
+    -15.536239291960433,
+    11.167485722613911
+   ],
+   "z": [
+    12.6,
+    17.62125214160791
+   ],
+   "width_m": 5.242504283215826,
+   "kind": "descend_from_above"
+  },
+  {
+   "id": "SG-R5-transeptW-end-b1",
+   "wall": "R5-transeptW-end",
+   "centre_m": [
+    -28.6425,
+    5.5837428613069555
+   ],
+   "z": [
+    12.6,
+    18.350245716784173
+   ],
+   "width_m": 6.700491433568346,
+   "kind": "descend_from_above"
+  },
+  {
+   "id": "SG-R6-apse-b1",
+   "wall": "R6-apse",
+   "centre_m": [
+    5.5837428613069555,
+    25.554999999999996
+   ],
+   "z": [
+    12.6,
+    18.350245716784173
+   ],
+   "width_m": 6.700491433568346,
+   "kind": "descend_from_above"
+  }
+ ],
+ "openings": [
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -11.167485722613911,
+    -46.11718571532674
+   ],
+   "z": [
+    12.6,
+    17.995688570803956
+   ],
+   "width_m": 5.991377141607913,
+   "faded": false
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 1,
+   "width_m": 9.985628569346522,
+   "z": [
+    12.0,
+    17.0
+   ],
+   "centre_m": [
+    -11.167485722613911,
+    -36.13155714598021
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "triforium",
+   "bay": 2,
+   "centre_m": [
+    -11.167485722613911,
+    -26.145928576633693
+   ],
+   "z": [
+    12.6,
+    17.995688570803956
+   ],
+   "width_m": 5.991377141607913,
+   "faded": true
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -11.167485722613911,
+    -46.11718571532674
+   ],
+   "z": [
+    18.5,
+    25.246047856570293
+   ],
+   "width_m": 5.492095713140587,
+   "faded": false
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 1,
+   "width_m": 9.985628569346522,
+   "z": [
+    17.0,
+    26.0
+   ],
+   "centre_m": [
+    -11.167485722613911,
+    -36.13155714598021
+   ]
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 2,
+   "centre_m": [
+    -11.167485722613911,
+    -26.145928576633693
+   ],
+   "z": [
+    18.5,
+    25.246047856570293
+   ],
+   "width_m": 5.492095713140587,
+   "faded": true
+  },
+  {
+   "wall": "R1-nave-west",
+   "band": "clerestory",
+   "bay": 3,
+   "centre_m": [
+    -11.167485722613911,
+    -16.160300007287173
+   ],
+   "z": [
+    18.5,
+    25.246047856570293
+   ],
+   "width_m": 5.492095713140587,
+   "faded": true
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -11.167485722613911,
+    14.764364291960433
+   ],
+   "z": [
+    12.6,
+    17.158127141607913
+   ],
+   "width_m": 4.316254283215826,
+   "faded": false
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -11.167485722613911,
+    14.764364291960433
+   ],
+   "z": [
+    18.5,
+    24.478283213140585
+   ],
+   "width_m": 3.956566426281174,
+   "faded": false
+  },
+  {
+   "wall": "R2-chancel-west",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -11.167485722613911,
+    21.958121430653478
+   ],
+   "z": [
+    18.5,
+    24.478283213140585
+   ],
+   "width_m": 3.956566426281174,
+   "faded": false
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -24.273746430653475,
+    11.167485722613911
+   ],
+   "z": [
+    12.6,
+    17.62125214160791
+   ],
+   "width_m": 5.242504283215826,
+   "faded": false
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -24.273746430653475,
+    11.167485722613911
+   ],
+   "z": [
+    18.5,
+    24.902814463140587
+   ],
+   "width_m": 4.805628926281174,
+   "faded": false
+  },
+  {
+   "wall": "R3-transeptW-n",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -15.536239291960433,
+    11.167485722613911
+   ],
+   "z": [
+    18.5,
+    24.902814463140587
+   ],
+   "width_m": 4.805628926281174,
+   "faded": false
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -28.6425,
+    -5.5837428613069555
+   ],
+   "z": [
+    12.6,
+    18.350245716784173
+   ],
+   "width_m": 6.700491433568346,
+   "faded": false
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -28.6425,
+    -5.5837428613069555
+   ],
+   "z": [
+    18.5,
+    25.571058573718826
+   ],
+   "width_m": 6.142117147437651,
+   "faded": false
+  },
+  {
+   "wall": "R5-transeptW-end",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    -28.6425,
+    5.5837428613069555
+   ],
+   "z": [
+    18.5,
+    25.571058573718826
+   ],
+   "width_m": 6.142117147437651,
+   "faded": false
+  },
+  {
+   "wall": "R6-apse",
+   "band": "triforium",
+   "bay": 0,
+   "centre_m": [
+    -5.5837428613069555,
+    25.554999999999996
+   ],
+   "z": [
+    12.6,
+    18.350245716784173
+   ],
+   "width_m": 6.700491433568346,
+   "faded": false
+  },
+  {
+   "wall": "R6-apse",
+   "band": "clerestory",
+   "bay": 0,
+   "centre_m": [
+    -5.5837428613069555,
+    25.554999999999996
+   ],
+   "z": [
+    18.5,
+    25.571058573718826
+   ],
+   "width_m": 6.142117147437651,
+   "faded": false
+  },
+  {
+   "wall": "R6-apse",
+   "band": "clerestory",
+   "bay": 1,
+   "centre_m": [
+    5.5837428613069555,
+    25.554999999999996
+   ],
+   "z": [
+    18.5,
+    25.571058573718826
+   ],
+   "width_m": 6.142117147437651,
+   "faded": false
+  },
+  {
+   "wall": "R6-apse",
+   "band": "chancel_breach",
+   "bay": -1,
+   "centre_m": [
+    -7.0,
+    25.554999999999996
+   ],
+   "z": [
+    0.0,
+    5.0
+   ],
+   "width_m": 4.0
+  }
+ ],
+ "pools": [
+  {
+   "id": "Z-614",
+   "arena_m": [
+    19.237499999999997,
+    -26.6
+   ],
+   "radius_disjoint_m": 6.276313193259568,
+   "verdict": "DROP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 0.0
+  },
+  {
+   "id": "Z-618",
+   "arena_m": [
+    19.807499999999997,
+    13.869999999999997
+   ],
+   "radius_disjoint_m": 6.702858750083035,
+   "verdict": "KEEP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 34.480000000000004
+  },
+  {
+   "id": "Z-620",
+   "arena_m": [
+    2.7074999999999987,
+    20.99499999999999
+   ],
+   "radius_disjoint_m": 7.281742005772023,
+   "verdict": "DROP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 141.52
+  },
+  {
+   "id": "Z-622",
+   "arena_m": [
+    -13.2525,
+    5.8899999999999935
+   ],
+   "radius_disjoint_m": 3.549468383566698,
+   "verdict": "KEEP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 39.6
+  },
+  {
+   "id": "Z-623",
+   "arena_m": [
+    -18.3825,
+    16.14999999999999
+   ],
+   "radius_disjoint_m": 7.921560341007223,
+   "verdict": "KEEP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 27.840000000000003
+  },
+  {
+   "id": "Z-626",
+   "arena_m": [
+    -20.3775,
+    -24.320000000000004
+   ],
+   "radius_disjoint_m": 5.514624698931952,
+   "verdict": "DROP",
+   "settled_by": "R-C9-53 cl.4",
+   "overlap_walkable_v2_m2": 0.0
+  }
+ ],
+ "rise_report": [
+  {
+   "element": "R1-nave-west",
+   "hidden_at_full_height_m2": 147.0
+  },
+  {
+   "element": "R2-chancel-west",
+   "hidden_at_full_height_m2": 0.0
+  },
+  {
+   "element": "R3-transeptW-n",
+   "hidden_at_full_height_m2": 0.0
+  },
+  {
+   "element": "R5-transeptW-end",
+   "hidden_at_full_height_m2": 0.0
+  },
+  {
+   "element": "R6-apse",
+   "hidden_at_full_height_m2": 0.0
+  }
+ ],
+ "vault_bays": 34,
+ "vault": {
+  "vessel_spring_m": 26.0,
+  "vessel_crown_m": 34.0,
+  "aisle_spring_m": 11.0,
+  "aisle_crown_m": 14.0,
+  "lantern_crown_m": 37.0,
+  "rib_section_m": 0.45,
+  "bays": 34
+ },
+ "apron_area_m2": {
+  "bluefire": 404.28000000000003,
+  "fire": 32.480000000000004
+ },
+ "aisle_area_m2": 1011.5600000000001
+}

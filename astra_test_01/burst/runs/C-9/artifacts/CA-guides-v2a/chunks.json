@@ -1,0 +1,3492 @@
+{
+ "ruling": "R-C9-43/44/45 + R-C9-53 -- CA-GREYBOX-V2",
+ "canvas_px": [
+  9236,
+  8124
+ ],
+ "chunk_px": [
+  1536,
+  1024
+ ],
+ "step_px": [
+  1280,
+  768
+ ],
+ "overlap_px": [
+  256,
+  256
+ ],
+ "px_per_m": 100.617553710938,
+ "projection": {
+  "_prov": "MEASURED (ppm, alpha) + RULED-as-compass-word (yaw)",
+  "ppm_plate": 100.617553710938,
+  "alpha_deg": 52.9535411256029,
+  "yaw_deg": 45.0,
+  "yaw_reason": "R-C9-45 cl.1 'from the SOUTH-EAST looking NORTH-WEST'. SE is 45 deg exactly; 45 deg is the only yaw at which both rising walls present equally. The GD runtime's 47 deg is a yaw in referent axes, which carry no compass.",
+  "px_per_m_screen_right": 100.617553710938,
+  "px_per_m_along_view": 80.3076247646877,
+  "px_per_m_elevation": 60.618293603726684,
+  "d_plan_NW": [
+   -0.7071067811865475,
+   0.7071067811865476
+  ],
+  "r_plan_NE": [
+   0.7071067811865476,
+   0.7071067811865475
+  ],
+  "cliffside_cross_check_residual_px": [
+   0.0,
+   8.526512829121202e-14
+  ],
+  "rule": "screen_x = ppm*((P-O).r) ; screen_y = -(ppm*sin(a)*((P-O).d) + ppm*cos(a)*h)"
+ },
+ "origin_screen_px": [
+  -5427,
+  -4079
+ ],
+ "camera_clamp_plate_rect_px": [
+  0.3256345169402266,
+  1205.0332041642819,
+  9234.273680756669,
+  8122.640794319688
+ ],
+ "keep_rule": "architecture fraction >= 1 %",
+ "layers": {
+  "plate": "guide/id/mask/depth/window",
+  "fade": "fade_layer_v2_* -- piers and the occluding west-wall bays; NOT in the plate, because a fading prop must have floor painted behind it",
+  "overhead": "overhead_vault_v2_* and per-chunk _vault.png -- the ceiling layer, scroll > 1, edge-anchored (T3p)",
+  "floor_light": "floor_light_v2.png and per-chunk _light.png -- greyscale; the vault's banding and the sunset shafts. A PAINTER'S CUE, never geometry"
+ },
+ "depth_format": {
+  "png": "16-bit greyscale",
+  "decode": "elevation_m = value/1000 - 8.000",
+  "floor_plane": 8000,
+  "not_foreground": 65535
+ },
+ "guide_rule": "every opening to the OUTSIDE and every un-architected background pixel is flat pure #00ff00",
+ "guide_legend": {
+  "void_outside_frame": {
+   "id_rgb": [
+    0,
+    200,
+    0
+   ],
+   "guide_grey": [
+    0,
+    255,
+    0
+   ],
+   "walkable": false
+  },
+  "opening_to_outside": {
+   "id_rgb": [
+    0,
+    255,
+    0
+   ],
+   "guide_grey": [
+    0,
+    255,
+    0
+   ],
+   "walkable": false
+  },
+  "nave_floor": {
+   "id_rgb": [
+    46,
+    204,
+    64
+   ],
+   "guide_grey": [
+    228,
+    228,
+    222
+   ],
+   "walkable": true
+  },
+  "crossing_floor": {
+   "id_rgb": [
+    1,
+    255,
+    112
+   ],
+   "guide_grey": [
+    232,
+    232,
+    226
+   ],
+   "walkable": true
+  },
+  "transept_floor": {
+   "id_rgb": [
+    127,
+    219,
+    255
+   ],
+   "guide_grey": [
+    224,
+    224,
+    219
+   ],
+   "walkable": true
+  },
+  "chancel_floor": {
+   "id_rgb": [
+    255,
+    220,
+    0
+   ],
+   "guide_grey": [
+    220,
+    220,
+    215
+   ],
+   "walkable": true
+  },
+  "dais": {
+   "id_rgb": [
+    240,
+    18,
+    190
+   ],
+   "guide_grey": [
+    214,
+    214,
+    209
+   ],
+   "walkable": true
+  },
+  "apse_floor": {
+   "id_rgb": [
+    177,
+    13,
+    201
+   ],
+   "guide_grey": [
+    210,
+    210,
+    205
+   ],
+   "walkable": true
+  },
+  "crater": {
+   "id_rgb": [
+    255,
+    65,
+    54
+   ],
+   "guide_grey": [
+    44,
+    40,
+    40
+   ],
+   "walkable": false
+  },
+  "crypt_void": {
+   "id_rgb": [
+    17,
+    17,
+    17
+   ],
+   "guide_grey": [
+    20,
+    20,
+    24
+   ],
+   "walkable": false
+  },
+  "apron_bluefire": {
+   "id_rgb": [
+    0,
+    116,
+    217
+   ],
+   "guide_grey": [
+    196,
+    200,
+    208
+   ],
+   "walkable": true
+  },
+  "apron_fire": {
+   "id_rgb": [
+    255,
+    133,
+    27
+   ],
+   "guide_grey": [
+    208,
+    198,
+    190
+   ],
+   "walkable": true
+  },
+  "pier": {
+   "id_rgb": [
+    133,
+    20,
+    75
+   ],
+   "guide_grey": [
+    84,
+    84,
+    90
+   ],
+   "walkable": false
+  },
+  "wall_rising": {
+   "id_rgb": [
+    58,
+    58,
+    62
+   ],
+   "guide_grey": [
+    120,
+    120,
+    126
+   ],
+   "walkable": false
+  },
+  "wall_cutlow": {
+   "id_rgb": [
+    96,
+    96,
+    102
+   ],
+   "guide_grey": [
+    104,
+    104,
+    110
+   ],
+   "walkable": false
+  },
+  "room_beyond_floor": {
+   "id_rgb": [
+    0,
+    190,
+    200
+   ],
+   "guide_grey": [
+    132,
+    132,
+    138
+   ],
+   "walkable": false
+  },
+  "room_beyond_wall": {
+   "id_rgb": [
+    80,
+    80,
+    86
+   ],
+   "guide_grey": [
+    74,
+    74,
+    80
+   ],
+   "walkable": false
+  },
+  "triforium_dark": {
+   "id_rgb": [
+    61,
+    153,
+    112
+   ],
+   "guide_grey": [
+    30,
+    30,
+    34
+   ],
+   "walkable": false
+  },
+  "clerestory_tracery": {
+   "id_rgb": [
+    203,
+    203,
+    199
+   ],
+   "guide_grey": [
+    150,
+    150,
+    154
+   ],
+   "walkable": false
+  },
+  "cross_mount_empty": {
+   "id_rgb": [
+    255,
+    255,
+    255
+   ],
+   "guide_grey": [
+    38,
+    38,
+    42
+   ],
+   "walkable": false
+  },
+  "breach_stair": {
+   "id_rgb": [
+    118,
+    112,
+    100
+   ],
+   "guide_grey": [
+    96,
+    92,
+    86
+   ],
+   "walkable": false
+  },
+  "exterior_ground": {
+   "id_rgb": [
+    140,
+    136,
+    128
+   ],
+   "guide_grey": [
+    118,
+    116,
+    110
+   ],
+   "walkable": false
+  },
+  "pool_candidate": {
+   "id_rgb": [
+    255,
+    0,
+    255
+   ],
+   "guide_grey": [
+    216,
+    214,
+    208
+   ],
+   "walkable": true
+  },
+  "aisle_floor": {
+   "id_rgb": [
+    60,
+    160,
+    120
+   ],
+   "guide_grey": [
+    222,
+    222,
+    217
+   ],
+   "walkable": true
+  },
+  "nave_pier": {
+   "id_rgb": [
+    220,
+    40,
+    120
+   ],
+   "guide_grey": [
+    76,
+    76,
+    82
+   ],
+   "walkable": false
+  },
+  "vault_rib": {
+   "id_rgb": [
+    90,
+    200,
+    255
+   ],
+   "guide_grey": [
+    128,
+    128,
+    134
+   ],
+   "walkable": false
+  },
+  "vault_cell": {
+   "id_rgb": [
+    40,
+    110,
+    160
+   ],
+   "guide_grey": [
+    96,
+    96,
+    102
+   ],
+   "walkable": false
+  },
+  "pier_ghost_1": {
+   "id_rgb": [
+    235,
+    110,
+    190
+   ],
+   "guide_grey": [
+    76,
+    76,
+    82
+   ],
+   "walkable": false
+  },
+  "pier_ghost_2": {
+   "id_rgb": [
+    250,
+    160,
+    215
+   ],
+   "guide_grey": [
+    76,
+    76,
+    82
+   ],
+   "walkable": false
+  },
+  "pier_ghost_3": {
+   "id_rgb": [
+    255,
+    205,
+    235
+   ],
+   "guide_grey": [
+    76,
+    76,
+    82
+   ],
+   "walkable": false
+  },
+  "wall_rising_fade": {
+   "id_rgb": [
+    150,
+    90,
+    200
+   ],
+   "guide_grey": [
+    120,
+    120,
+    126
+   ],
+   "walkable": false
+  }
+ },
+ "paint_order_rule": "row by row, top to bottom, left to right; a chunk is painted after its left and above neighbours (when kept)",
+ "paint_order": [
+  {
+   "step": 1,
+   "chunk": "cath_0_1",
+   "index": [
+    0,
+    1
+   ],
+   "origin_px": [
+    1280,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.2422,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_1_guide.png",
+    "id": "chunks/cath_0_1_id.png",
+    "mask": "chunks/cath_0_1_mask.png",
+    "depth": "chunks/cath_0_1_depth.png",
+    "window": "chunks/cath_0_1_window.png",
+    "light": "chunks/cath_0_1_light.png",
+    "vault": "chunks/cath_0_1_vault.png"
+   }
+  },
+  {
+   "step": 2,
+   "chunk": "cath_0_2",
+   "index": [
+    0,
+    2
+   ],
+   "origin_px": [
+    2560,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.9316,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0684,
+   "vault_fraction": 0.1241,
+   "paint_after": [
+    "cath_0_1"
+   ],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_2_guide.png",
+    "id": "chunks/cath_0_2_id.png",
+    "mask": "chunks/cath_0_2_mask.png",
+    "depth": "chunks/cath_0_2_depth.png",
+    "window": "chunks/cath_0_2_window.png",
+    "light": "chunks/cath_0_2_light.png",
+    "vault": "chunks/cath_0_2_vault.png"
+   }
+  },
+  {
+   "step": 3,
+   "chunk": "cath_0_3",
+   "index": [
+    0,
+    3
+   ],
+   "origin_px": [
+    3840,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.8631,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.1369,
+   "vault_fraction": 0.0873,
+   "paint_after": [
+    "cath_0_2"
+   ],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_3_guide.png",
+    "id": "chunks/cath_0_3_id.png",
+    "mask": "chunks/cath_0_3_mask.png",
+    "depth": "chunks/cath_0_3_depth.png",
+    "window": "chunks/cath_0_3_window.png",
+    "light": "chunks/cath_0_3_light.png",
+    "vault": "chunks/cath_0_3_vault.png"
+   }
+  },
+  {
+   "step": 4,
+   "chunk": "cath_0_4",
+   "index": [
+    0,
+    4
+   ],
+   "origin_px": [
+    5120,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.9127,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0873,
+   "vault_fraction": 0.0383,
+   "paint_after": [
+    "cath_0_3"
+   ],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_4_guide.png",
+    "id": "chunks/cath_0_4_id.png",
+    "mask": "chunks/cath_0_4_mask.png",
+    "depth": "chunks/cath_0_4_depth.png",
+    "window": "chunks/cath_0_4_window.png",
+    "light": "chunks/cath_0_4_light.png",
+    "vault": "chunks/cath_0_4_vault.png"
+   }
+  },
+  {
+   "step": 5,
+   "chunk": "cath_0_5",
+   "index": [
+    0,
+    5
+   ],
+   "origin_px": [
+    6400,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.949,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.051,
+   "vault_fraction": 0.1108,
+   "paint_after": [
+    "cath_0_4"
+   ],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_5_guide.png",
+    "id": "chunks/cath_0_5_id.png",
+    "mask": "chunks/cath_0_5_mask.png",
+    "depth": "chunks/cath_0_5_depth.png",
+    "window": "chunks/cath_0_5_window.png",
+    "light": "chunks/cath_0_5_light.png",
+    "vault": "chunks/cath_0_5_vault.png"
+   }
+  },
+  {
+   "step": 6,
+   "chunk": "cath_0_6",
+   "index": [
+    0,
+    6
+   ],
+   "origin_px": [
+    7680,
+    0
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": false,
+   "fg_fraction": 0.332,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_0_5"
+   ],
+   "corner_overlaps_already_painted": [],
+   "files": {
+    "guide": "chunks/cath_0_6_guide.png",
+    "id": "chunks/cath_0_6_id.png",
+    "mask": "chunks/cath_0_6_mask.png",
+    "depth": "chunks/cath_0_6_depth.png",
+    "window": "chunks/cath_0_6_window.png",
+    "light": "chunks/cath_0_6_light.png",
+    "vault": "chunks/cath_0_6_vault.png"
+   }
+  },
+  {
+   "step": 7,
+   "chunk": "cath_1_1",
+   "index": [
+    1,
+    1
+   ],
+   "origin_px": [
+    1280,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.2853,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0285,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_0_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_1_guide.png",
+    "id": "chunks/cath_1_1_id.png",
+    "mask": "chunks/cath_1_1_mask.png",
+    "depth": "chunks/cath_1_1_depth.png",
+    "window": "chunks/cath_1_1_window.png",
+    "light": "chunks/cath_1_1_light.png",
+    "vault": "chunks/cath_1_1_vault.png"
+   }
+  },
+  {
+   "step": 8,
+   "chunk": "cath_1_2",
+   "index": [
+    1,
+    2
+   ],
+   "origin_px": [
+    2560,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.811,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.189,
+   "vault_fraction": 0.1077,
+   "paint_after": [
+    "cath_1_1",
+    "cath_0_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_1",
+    "cath_0_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_2_guide.png",
+    "id": "chunks/cath_1_2_id.png",
+    "mask": "chunks/cath_1_2_mask.png",
+    "depth": "chunks/cath_1_2_depth.png",
+    "window": "chunks/cath_1_2_window.png",
+    "light": "chunks/cath_1_2_light.png",
+    "vault": "chunks/cath_1_2_vault.png"
+   }
+  },
+  {
+   "step": 9,
+   "chunk": "cath_1_3",
+   "index": [
+    1,
+    3
+   ],
+   "origin_px": [
+    3840,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8216,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.1784,
+   "vault_fraction": 0.2476,
+   "paint_after": [
+    "cath_1_2",
+    "cath_0_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_2",
+    "cath_0_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_3_guide.png",
+    "id": "chunks/cath_1_3_id.png",
+    "mask": "chunks/cath_1_3_mask.png",
+    "depth": "chunks/cath_1_3_depth.png",
+    "window": "chunks/cath_1_3_window.png",
+    "light": "chunks/cath_1_3_light.png",
+    "vault": "chunks/cath_1_3_vault.png"
+   }
+  },
+  {
+   "step": 10,
+   "chunk": "cath_1_4",
+   "index": [
+    1,
+    4
+   ],
+   "origin_px": [
+    5120,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.7309,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.2691,
+   "vault_fraction": 0.2485,
+   "paint_after": [
+    "cath_1_3",
+    "cath_0_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_3",
+    "cath_0_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_4_guide.png",
+    "id": "chunks/cath_1_4_id.png",
+    "mask": "chunks/cath_1_4_mask.png",
+    "depth": "chunks/cath_1_4_depth.png",
+    "window": "chunks/cath_1_4_window.png",
+    "light": "chunks/cath_1_4_light.png",
+    "vault": "chunks/cath_1_4_vault.png"
+   }
+  },
+  {
+   "step": 11,
+   "chunk": "cath_1_5",
+   "index": [
+    1,
+    5
+   ],
+   "origin_px": [
+    6400,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8087,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.1913,
+   "vault_fraction": 0.1603,
+   "paint_after": [
+    "cath_1_4",
+    "cath_0_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_4",
+    "cath_0_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_5_guide.png",
+    "id": "chunks/cath_1_5_id.png",
+    "mask": "chunks/cath_1_5_mask.png",
+    "depth": "chunks/cath_1_5_depth.png",
+    "window": "chunks/cath_1_5_window.png",
+    "light": "chunks/cath_1_5_light.png",
+    "vault": "chunks/cath_1_5_vault.png"
+   }
+  },
+  {
+   "step": 12,
+   "chunk": "cath_1_6",
+   "index": [
+    1,
+    6
+   ],
+   "origin_px": [
+    7680,
+    768
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.3406,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0161,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_1_5",
+    "cath_0_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_0_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_1_6_guide.png",
+    "id": "chunks/cath_1_6_id.png",
+    "mask": "chunks/cath_1_6_mask.png",
+    "depth": "chunks/cath_1_6_depth.png",
+    "window": "chunks/cath_1_6_window.png",
+    "light": "chunks/cath_1_6_light.png",
+    "vault": "chunks/cath_1_6_vault.png"
+   }
+  },
+  {
+   "step": 13,
+   "chunk": "cath_2_0",
+   "index": [
+    2,
+    0
+   ],
+   "origin_px": [
+    0,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.087,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [],
+   "corner_overlaps_already_painted": [
+    "cath_1_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_0_guide.png",
+    "id": "chunks/cath_2_0_id.png",
+    "mask": "chunks/cath_2_0_mask.png",
+    "depth": "chunks/cath_2_0_depth.png",
+    "window": "chunks/cath_2_0_window.png",
+    "light": "chunks/cath_2_0_light.png",
+    "vault": "chunks/cath_2_0_vault.png"
+   }
+  },
+  {
+   "step": 14,
+   "chunk": "cath_2_1",
+   "index": [
+    2,
+    1
+   ],
+   "origin_px": [
+    1280,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.7076,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0617,
+   "vault_fraction": 0.0201,
+   "paint_after": [
+    "cath_2_0",
+    "cath_1_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_1_guide.png",
+    "id": "chunks/cath_2_1_id.png",
+    "mask": "chunks/cath_2_1_mask.png",
+    "depth": "chunks/cath_2_1_depth.png",
+    "window": "chunks/cath_2_1_window.png",
+    "light": "chunks/cath_2_1_light.png",
+    "vault": "chunks/cath_2_1_vault.png"
+   }
+  },
+  {
+   "step": 15,
+   "chunk": "cath_2_2",
+   "index": [
+    2,
+    2
+   ],
+   "origin_px": [
+    2560,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.913,
+   "walkable_fraction": 0.1685,
+   "window_fraction": 0.087,
+   "vault_fraction": 0.0655,
+   "paint_after": [
+    "cath_2_1",
+    "cath_1_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_1",
+    "cath_1_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_2_guide.png",
+    "id": "chunks/cath_2_2_id.png",
+    "mask": "chunks/cath_2_2_mask.png",
+    "depth": "chunks/cath_2_2_depth.png",
+    "window": "chunks/cath_2_2_window.png",
+    "light": "chunks/cath_2_2_light.png",
+    "vault": "chunks/cath_2_2_vault.png"
+   }
+  },
+  {
+   "step": 16,
+   "chunk": "cath_2_3",
+   "index": [
+    2,
+    3
+   ],
+   "origin_px": [
+    3840,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9636,
+   "walkable_fraction": 0.3541,
+   "window_fraction": 0.0364,
+   "vault_fraction": 0.26,
+   "paint_after": [
+    "cath_2_2",
+    "cath_1_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_2",
+    "cath_1_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_3_guide.png",
+    "id": "chunks/cath_2_3_id.png",
+    "mask": "chunks/cath_2_3_mask.png",
+    "depth": "chunks/cath_2_3_depth.png",
+    "window": "chunks/cath_2_3_window.png",
+    "light": "chunks/cath_2_3_light.png",
+    "vault": "chunks/cath_2_3_vault.png"
+   }
+  },
+  {
+   "step": 17,
+   "chunk": "cath_2_4",
+   "index": [
+    2,
+    4
+   ],
+   "origin_px": [
+    5120,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9231,
+   "walkable_fraction": 0.1961,
+   "window_fraction": 0.0769,
+   "vault_fraction": 0.3264,
+   "paint_after": [
+    "cath_2_3",
+    "cath_1_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_3",
+    "cath_1_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_4_guide.png",
+    "id": "chunks/cath_2_4_id.png",
+    "mask": "chunks/cath_2_4_mask.png",
+    "depth": "chunks/cath_2_4_depth.png",
+    "window": "chunks/cath_2_4_window.png",
+    "light": "chunks/cath_2_4_light.png",
+    "vault": "chunks/cath_2_4_vault.png"
+   }
+  },
+  {
+   "step": 18,
+   "chunk": "cath_2_5",
+   "index": [
+    2,
+    5
+   ],
+   "origin_px": [
+    6400,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8533,
+   "walkable_fraction": 0.0902,
+   "window_fraction": 0.1467,
+   "vault_fraction": 0.0734,
+   "paint_after": [
+    "cath_2_4",
+    "cath_1_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_4",
+    "cath_1_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_5_guide.png",
+    "id": "chunks/cath_2_5_id.png",
+    "mask": "chunks/cath_2_5_mask.png",
+    "depth": "chunks/cath_2_5_depth.png",
+    "window": "chunks/cath_2_5_window.png",
+    "light": "chunks/cath_2_5_light.png",
+    "vault": "chunks/cath_2_5_vault.png"
+   }
+  },
+  {
+   "step": 19,
+   "chunk": "cath_2_6",
+   "index": [
+    2,
+    6
+   ],
+   "origin_px": [
+    7680,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.6792,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0491,
+   "vault_fraction": 0.0262,
+   "paint_after": [
+    "cath_2_5",
+    "cath_1_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_6_guide.png",
+    "id": "chunks/cath_2_6_id.png",
+    "mask": "chunks/cath_2_6_mask.png",
+    "depth": "chunks/cath_2_6_depth.png",
+    "window": "chunks/cath_2_6_window.png",
+    "light": "chunks/cath_2_6_light.png",
+    "vault": "chunks/cath_2_6_vault.png"
+   }
+  },
+  {
+   "step": 20,
+   "chunk": "cath_2_7",
+   "index": [
+    2,
+    7
+   ],
+   "origin_px": [
+    8960,
+    1536
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.2854,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_2_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_1_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_2_7_guide.png",
+    "id": "chunks/cath_2_7_id.png",
+    "mask": "chunks/cath_2_7_mask.png",
+    "depth": "chunks/cath_2_7_depth.png",
+    "window": "chunks/cath_2_7_window.png",
+    "light": "chunks/cath_2_7_light.png",
+    "vault": "chunks/cath_2_7_vault.png"
+   }
+  },
+  {
+   "step": 21,
+   "chunk": "cath_3_0",
+   "index": [
+    3,
+    0
+   ],
+   "origin_px": [
+    0,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.5899,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_2_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_0_guide.png",
+    "id": "chunks/cath_3_0_id.png",
+    "mask": "chunks/cath_3_0_mask.png",
+    "depth": "chunks/cath_3_0_depth.png",
+    "window": "chunks/cath_3_0_window.png",
+    "light": "chunks/cath_3_0_light.png",
+    "vault": "chunks/cath_3_0_vault.png"
+   }
+  },
+  {
+   "step": 22,
+   "chunk": "cath_3_1",
+   "index": [
+    3,
+    1
+   ],
+   "origin_px": [
+    1280,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9969,
+   "walkable_fraction": 0.0268,
+   "window_fraction": 0.0031,
+   "vault_fraction": 0.0067,
+   "paint_after": [
+    "cath_3_0",
+    "cath_2_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_0",
+    "cath_2_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_1_guide.png",
+    "id": "chunks/cath_3_1_id.png",
+    "mask": "chunks/cath_3_1_mask.png",
+    "depth": "chunks/cath_3_1_depth.png",
+    "window": "chunks/cath_3_1_window.png",
+    "light": "chunks/cath_3_1_light.png",
+    "vault": "chunks/cath_3_1_vault.png"
+   }
+  },
+  {
+   "step": 23,
+   "chunk": "cath_3_2",
+   "index": [
+    3,
+    2
+   ],
+   "origin_px": [
+    2560,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9966,
+   "walkable_fraction": 0.6765,
+   "window_fraction": 0.0034,
+   "vault_fraction": 0.1812,
+   "paint_after": [
+    "cath_3_1",
+    "cath_2_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_1",
+    "cath_2_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_2_guide.png",
+    "id": "chunks/cath_3_2_id.png",
+    "mask": "chunks/cath_3_2_mask.png",
+    "depth": "chunks/cath_3_2_depth.png",
+    "window": "chunks/cath_3_2_window.png",
+    "light": "chunks/cath_3_2_light.png",
+    "vault": "chunks/cath_3_2_vault.png"
+   }
+  },
+  {
+   "step": 24,
+   "chunk": "cath_3_3",
+   "index": [
+    3,
+    3
+   ],
+   "origin_px": [
+    3840,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.8578,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.2548,
+   "paint_after": [
+    "cath_3_2",
+    "cath_2_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_2",
+    "cath_2_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_3_guide.png",
+    "id": "chunks/cath_3_3_id.png",
+    "mask": "chunks/cath_3_3_mask.png",
+    "depth": "chunks/cath_3_3_depth.png",
+    "window": "chunks/cath_3_3_window.png",
+    "light": "chunks/cath_3_3_light.png",
+    "vault": "chunks/cath_3_3_vault.png"
+   }
+  },
+  {
+   "step": 25,
+   "chunk": "cath_3_4",
+   "index": [
+    3,
+    4
+   ],
+   "origin_px": [
+    5120,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.8004,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.2854,
+   "paint_after": [
+    "cath_3_3",
+    "cath_2_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_3",
+    "cath_2_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_4_guide.png",
+    "id": "chunks/cath_3_4_id.png",
+    "mask": "chunks/cath_3_4_mask.png",
+    "depth": "chunks/cath_3_4_depth.png",
+    "window": "chunks/cath_3_4_window.png",
+    "light": "chunks/cath_3_4_light.png",
+    "vault": "chunks/cath_3_4_vault.png"
+   }
+  },
+  {
+   "step": 26,
+   "chunk": "cath_3_5",
+   "index": [
+    3,
+    5
+   ],
+   "origin_px": [
+    6400,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.6489,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.2394,
+   "paint_after": [
+    "cath_3_4",
+    "cath_2_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_4",
+    "cath_2_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_5_guide.png",
+    "id": "chunks/cath_3_5_id.png",
+    "mask": "chunks/cath_3_5_mask.png",
+    "depth": "chunks/cath_3_5_depth.png",
+    "window": "chunks/cath_3_5_window.png",
+    "light": "chunks/cath_3_5_light.png",
+    "vault": "chunks/cath_3_5_vault.png"
+   }
+  },
+  {
+   "step": 27,
+   "chunk": "cath_3_6",
+   "index": [
+    3,
+    6
+   ],
+   "origin_px": [
+    7680,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9987,
+   "walkable_fraction": 0.0417,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0212,
+   "paint_after": [
+    "cath_3_5",
+    "cath_2_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_5",
+    "cath_2_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_6_guide.png",
+    "id": "chunks/cath_3_6_id.png",
+    "mask": "chunks/cath_3_6_mask.png",
+    "depth": "chunks/cath_3_6_depth.png",
+    "window": "chunks/cath_3_6_window.png",
+    "light": "chunks/cath_3_6_light.png",
+    "vault": "chunks/cath_3_6_vault.png"
+   }
+  },
+  {
+   "step": 28,
+   "chunk": "cath_3_7",
+   "index": [
+    3,
+    7
+   ],
+   "origin_px": [
+    8960,
+    2304
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9879,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_3_6",
+    "cath_2_7"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_2_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_3_7_guide.png",
+    "id": "chunks/cath_3_7_id.png",
+    "mask": "chunks/cath_3_7_mask.png",
+    "depth": "chunks/cath_3_7_depth.png",
+    "window": "chunks/cath_3_7_window.png",
+    "light": "chunks/cath_3_7_light.png",
+    "vault": "chunks/cath_3_7_vault.png"
+   }
+  },
+  {
+   "step": 29,
+   "chunk": "cath_4_0",
+   "index": [
+    4,
+    0
+   ],
+   "origin_px": [
+    0,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9758,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_3_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_0_guide.png",
+    "id": "chunks/cath_4_0_id.png",
+    "mask": "chunks/cath_4_0_mask.png",
+    "depth": "chunks/cath_4_0_depth.png",
+    "window": "chunks/cath_4_0_window.png",
+    "light": "chunks/cath_4_0_light.png",
+    "vault": "chunks/cath_4_0_vault.png"
+   }
+  },
+  {
+   "step": 30,
+   "chunk": "cath_4_1",
+   "index": [
+    4,
+    1
+   ],
+   "origin_px": [
+    1280,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.7084,
+   "walkable_fraction": 0.0164,
+   "window_fraction": 0.2916,
+   "vault_fraction": 0.0529,
+   "paint_after": [
+    "cath_4_0",
+    "cath_3_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_0",
+    "cath_3_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_1_guide.png",
+    "id": "chunks/cath_4_1_id.png",
+    "mask": "chunks/cath_4_1_mask.png",
+    "depth": "chunks/cath_4_1_depth.png",
+    "window": "chunks/cath_4_1_window.png",
+    "light": "chunks/cath_4_1_light.png",
+    "vault": "chunks/cath_4_1_vault.png"
+   }
+  },
+  {
+   "step": 31,
+   "chunk": "cath_4_2",
+   "index": [
+    4,
+    2
+   ],
+   "origin_px": [
+    2560,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8741,
+   "walkable_fraction": 0.5345,
+   "window_fraction": 0.1259,
+   "vault_fraction": 0.2873,
+   "paint_after": [
+    "cath_4_1",
+    "cath_3_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_1",
+    "cath_3_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_2_guide.png",
+    "id": "chunks/cath_4_2_id.png",
+    "mask": "chunks/cath_4_2_mask.png",
+    "depth": "chunks/cath_4_2_depth.png",
+    "window": "chunks/cath_4_2_window.png",
+    "light": "chunks/cath_4_2_light.png",
+    "vault": "chunks/cath_4_2_vault.png"
+   }
+  },
+  {
+   "step": 32,
+   "chunk": "cath_4_3",
+   "index": [
+    4,
+    3
+   ],
+   "origin_px": [
+    3840,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.8496,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.1698,
+   "paint_after": [
+    "cath_4_2",
+    "cath_3_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_2",
+    "cath_3_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_3_guide.png",
+    "id": "chunks/cath_4_3_id.png",
+    "mask": "chunks/cath_4_3_mask.png",
+    "depth": "chunks/cath_4_3_depth.png",
+    "window": "chunks/cath_4_3_window.png",
+    "light": "chunks/cath_4_3_light.png",
+    "vault": "chunks/cath_4_3_vault.png"
+   }
+  },
+  {
+   "step": 33,
+   "chunk": "cath_4_4",
+   "index": [
+    4,
+    4
+   ],
+   "origin_px": [
+    5120,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7695,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.1054,
+   "paint_after": [
+    "cath_4_3",
+    "cath_3_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_3",
+    "cath_3_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_4_guide.png",
+    "id": "chunks/cath_4_4_id.png",
+    "mask": "chunks/cath_4_4_mask.png",
+    "depth": "chunks/cath_4_4_depth.png",
+    "window": "chunks/cath_4_4_window.png",
+    "light": "chunks/cath_4_4_light.png",
+    "vault": "chunks/cath_4_4_vault.png"
+   }
+  },
+  {
+   "step": 34,
+   "chunk": "cath_4_5",
+   "index": [
+    4,
+    5
+   ],
+   "origin_px": [
+    6400,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7389,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.2803,
+   "paint_after": [
+    "cath_4_4",
+    "cath_3_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_4",
+    "cath_3_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_5_guide.png",
+    "id": "chunks/cath_4_5_id.png",
+    "mask": "chunks/cath_4_5_mask.png",
+    "depth": "chunks/cath_4_5_depth.png",
+    "window": "chunks/cath_4_5_window.png",
+    "light": "chunks/cath_4_5_light.png",
+    "vault": "chunks/cath_4_5_vault.png"
+   }
+  },
+  {
+   "step": 35,
+   "chunk": "cath_4_6",
+   "index": [
+    4,
+    6
+   ],
+   "origin_px": [
+    7680,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0637,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0517,
+   "paint_after": [
+    "cath_4_5",
+    "cath_3_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_5",
+    "cath_3_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_6_guide.png",
+    "id": "chunks/cath_4_6_id.png",
+    "mask": "chunks/cath_4_6_mask.png",
+    "depth": "chunks/cath_4_6_depth.png",
+    "window": "chunks/cath_4_6_window.png",
+    "light": "chunks/cath_4_6_light.png",
+    "vault": "chunks/cath_4_6_vault.png"
+   }
+  },
+  {
+   "step": 36,
+   "chunk": "cath_4_7",
+   "index": [
+    4,
+    7
+   ],
+   "origin_px": [
+    8960,
+    3072
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_4_6",
+    "cath_3_7"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_3_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_4_7_guide.png",
+    "id": "chunks/cath_4_7_id.png",
+    "mask": "chunks/cath_4_7_mask.png",
+    "depth": "chunks/cath_4_7_depth.png",
+    "window": "chunks/cath_4_7_window.png",
+    "light": "chunks/cath_4_7_light.png",
+    "vault": "chunks/cath_4_7_vault.png"
+   }
+  },
+  {
+   "step": 37,
+   "chunk": "cath_5_0",
+   "index": [
+    5,
+    0
+   ],
+   "origin_px": [
+    0,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9267,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0733,
+   "vault_fraction": 0.0152,
+   "paint_after": [
+    "cath_4_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_0_guide.png",
+    "id": "chunks/cath_5_0_id.png",
+    "mask": "chunks/cath_5_0_mask.png",
+    "depth": "chunks/cath_5_0_depth.png",
+    "window": "chunks/cath_5_0_window.png",
+    "light": "chunks/cath_5_0_light.png",
+    "vault": "chunks/cath_5_0_vault.png"
+   }
+  },
+  {
+   "step": 38,
+   "chunk": "cath_5_1",
+   "index": [
+    5,
+    1
+   ],
+   "origin_px": [
+    1280,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.4196,
+   "walkable_fraction": 0.0008,
+   "window_fraction": 0.5804,
+   "vault_fraction": 0.2298,
+   "paint_after": [
+    "cath_5_0",
+    "cath_4_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_0",
+    "cath_4_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_1_guide.png",
+    "id": "chunks/cath_5_1_id.png",
+    "mask": "chunks/cath_5_1_mask.png",
+    "depth": "chunks/cath_5_1_depth.png",
+    "window": "chunks/cath_5_1_window.png",
+    "light": "chunks/cath_5_1_light.png",
+    "vault": "chunks/cath_5_1_vault.png"
+   }
+  },
+  {
+   "step": 39,
+   "chunk": "cath_5_2",
+   "index": [
+    5,
+    2
+   ],
+   "origin_px": [
+    2560,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9393,
+   "walkable_fraction": 0.4501,
+   "window_fraction": 0.0607,
+   "vault_fraction": 0.1983,
+   "paint_after": [
+    "cath_5_1",
+    "cath_4_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_1",
+    "cath_4_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_2_guide.png",
+    "id": "chunks/cath_5_2_id.png",
+    "mask": "chunks/cath_5_2_mask.png",
+    "depth": "chunks/cath_5_2_depth.png",
+    "window": "chunks/cath_5_2_window.png",
+    "light": "chunks/cath_5_2_light.png",
+    "vault": "chunks/cath_5_2_vault.png"
+   }
+  },
+  {
+   "step": 40,
+   "chunk": "cath_5_3",
+   "index": [
+    5,
+    3
+   ],
+   "origin_px": [
+    3840,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7917,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0997,
+   "paint_after": [
+    "cath_5_2",
+    "cath_4_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_2",
+    "cath_4_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_3_guide.png",
+    "id": "chunks/cath_5_3_id.png",
+    "mask": "chunks/cath_5_3_mask.png",
+    "depth": "chunks/cath_5_3_depth.png",
+    "window": "chunks/cath_5_3_window.png",
+    "light": "chunks/cath_5_3_light.png",
+    "vault": "chunks/cath_5_3_vault.png"
+   }
+  },
+  {
+   "step": 41,
+   "chunk": "cath_5_4",
+   "index": [
+    5,
+    4
+   ],
+   "origin_px": [
+    5120,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.6542,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.1459,
+   "paint_after": [
+    "cath_5_3",
+    "cath_4_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_3",
+    "cath_4_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_4_guide.png",
+    "id": "chunks/cath_5_4_id.png",
+    "mask": "chunks/cath_5_4_mask.png",
+    "depth": "chunks/cath_5_4_depth.png",
+    "window": "chunks/cath_5_4_window.png",
+    "light": "chunks/cath_5_4_light.png",
+    "vault": "chunks/cath_5_4_vault.png"
+   }
+  },
+  {
+   "step": 42,
+   "chunk": "cath_5_5",
+   "index": [
+    5,
+    5
+   ],
+   "origin_px": [
+    6400,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.6507,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0826,
+   "paint_after": [
+    "cath_5_4",
+    "cath_4_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_4",
+    "cath_4_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_5_guide.png",
+    "id": "chunks/cath_5_5_id.png",
+    "mask": "chunks/cath_5_5_mask.png",
+    "depth": "chunks/cath_5_5_depth.png",
+    "window": "chunks/cath_5_5_window.png",
+    "light": "chunks/cath_5_5_light.png",
+    "vault": "chunks/cath_5_5_vault.png"
+   }
+  },
+  {
+   "step": 43,
+   "chunk": "cath_5_6",
+   "index": [
+    5,
+    6
+   ],
+   "origin_px": [
+    7680,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0395,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0562,
+   "paint_after": [
+    "cath_5_5",
+    "cath_4_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_5",
+    "cath_4_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_6_guide.png",
+    "id": "chunks/cath_5_6_id.png",
+    "mask": "chunks/cath_5_6_mask.png",
+    "depth": "chunks/cath_5_6_depth.png",
+    "window": "chunks/cath_5_6_window.png",
+    "light": "chunks/cath_5_6_light.png",
+    "vault": "chunks/cath_5_6_vault.png"
+   }
+  },
+  {
+   "step": 44,
+   "chunk": "cath_5_7",
+   "index": [
+    5,
+    7
+   ],
+   "origin_px": [
+    8960,
+    3840
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_5_6",
+    "cath_4_7"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_4_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_5_7_guide.png",
+    "id": "chunks/cath_5_7_id.png",
+    "mask": "chunks/cath_5_7_mask.png",
+    "depth": "chunks/cath_5_7_depth.png",
+    "window": "chunks/cath_5_7_window.png",
+    "light": "chunks/cath_5_7_light.png",
+    "vault": "chunks/cath_5_7_vault.png"
+   }
+  },
+  {
+   "step": 45,
+   "chunk": "cath_6_0",
+   "index": [
+    6,
+    0
+   ],
+   "origin_px": [
+    0,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8568,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.1432,
+   "vault_fraction": 0.0577,
+   "paint_after": [
+    "cath_5_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_0_guide.png",
+    "id": "chunks/cath_6_0_id.png",
+    "mask": "chunks/cath_6_0_mask.png",
+    "depth": "chunks/cath_6_0_depth.png",
+    "window": "chunks/cath_6_0_window.png",
+    "light": "chunks/cath_6_0_light.png",
+    "vault": "chunks/cath_6_0_vault.png"
+   }
+  },
+  {
+   "step": 46,
+   "chunk": "cath_6_1",
+   "index": [
+    6,
+    1
+   ],
+   "origin_px": [
+    1280,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8364,
+   "walkable_fraction": 0.2395,
+   "window_fraction": 0.1636,
+   "vault_fraction": 0.2065,
+   "paint_after": [
+    "cath_6_0",
+    "cath_5_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_0",
+    "cath_5_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_1_guide.png",
+    "id": "chunks/cath_6_1_id.png",
+    "mask": "chunks/cath_6_1_mask.png",
+    "depth": "chunks/cath_6_1_depth.png",
+    "window": "chunks/cath_6_1_window.png",
+    "light": "chunks/cath_6_1_light.png",
+    "vault": "chunks/cath_6_1_vault.png"
+   }
+  },
+  {
+   "step": 47,
+   "chunk": "cath_6_2",
+   "index": [
+    6,
+    2
+   ],
+   "origin_px": [
+    2560,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.857,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0747,
+   "paint_after": [
+    "cath_6_1",
+    "cath_5_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_1",
+    "cath_5_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_2_guide.png",
+    "id": "chunks/cath_6_2_id.png",
+    "mask": "chunks/cath_6_2_mask.png",
+    "depth": "chunks/cath_6_2_depth.png",
+    "window": "chunks/cath_6_2_window.png",
+    "light": "chunks/cath_6_2_light.png",
+    "vault": "chunks/cath_6_2_vault.png"
+   }
+  },
+  {
+   "step": 48,
+   "chunk": "cath_6_3",
+   "index": [
+    6,
+    3
+   ],
+   "origin_px": [
+    3840,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.9212,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0927,
+   "paint_after": [
+    "cath_6_2",
+    "cath_5_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_2",
+    "cath_5_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_3_guide.png",
+    "id": "chunks/cath_6_3_id.png",
+    "mask": "chunks/cath_6_3_mask.png",
+    "depth": "chunks/cath_6_3_depth.png",
+    "window": "chunks/cath_6_3_window.png",
+    "light": "chunks/cath_6_3_light.png",
+    "vault": "chunks/cath_6_3_vault.png"
+   }
+  },
+  {
+   "step": 49,
+   "chunk": "cath_6_4",
+   "index": [
+    6,
+    4
+   ],
+   "origin_px": [
+    5120,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.8599,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.1026,
+   "paint_after": [
+    "cath_6_3",
+    "cath_5_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_3",
+    "cath_5_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_4_guide.png",
+    "id": "chunks/cath_6_4_id.png",
+    "mask": "chunks/cath_6_4_mask.png",
+    "depth": "chunks/cath_6_4_depth.png",
+    "window": "chunks/cath_6_4_window.png",
+    "light": "chunks/cath_6_4_light.png",
+    "vault": "chunks/cath_6_4_vault.png"
+   }
+  },
+  {
+   "step": 50,
+   "chunk": "cath_6_5",
+   "index": [
+    6,
+    5
+   ],
+   "origin_px": [
+    6400,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7735,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0465,
+   "paint_after": [
+    "cath_6_4",
+    "cath_5_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_4",
+    "cath_5_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_5_guide.png",
+    "id": "chunks/cath_6_5_id.png",
+    "mask": "chunks/cath_6_5_mask.png",
+    "depth": "chunks/cath_6_5_depth.png",
+    "window": "chunks/cath_6_5_window.png",
+    "light": "chunks/cath_6_5_light.png",
+    "vault": "chunks/cath_6_5_vault.png"
+   }
+  },
+  {
+   "step": 51,
+   "chunk": "cath_6_6",
+   "index": [
+    6,
+    6
+   ],
+   "origin_px": [
+    7680,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.163,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0012,
+   "paint_after": [
+    "cath_6_5",
+    "cath_5_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_5",
+    "cath_5_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_6_guide.png",
+    "id": "chunks/cath_6_6_id.png",
+    "mask": "chunks/cath_6_6_mask.png",
+    "depth": "chunks/cath_6_6_depth.png",
+    "window": "chunks/cath_6_6_window.png",
+    "light": "chunks/cath_6_6_light.png",
+    "vault": "chunks/cath_6_6_vault.png"
+   }
+  },
+  {
+   "step": 52,
+   "chunk": "cath_6_7",
+   "index": [
+    6,
+    7
+   ],
+   "origin_px": [
+    8960,
+    4608
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_6_6",
+    "cath_5_7"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_5_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_6_7_guide.png",
+    "id": "chunks/cath_6_7_id.png",
+    "mask": "chunks/cath_6_7_mask.png",
+    "depth": "chunks/cath_6_7_depth.png",
+    "window": "chunks/cath_6_7_window.png",
+    "light": "chunks/cath_6_7_light.png",
+    "vault": "chunks/cath_6_7_vault.png"
+   }
+  },
+  {
+   "step": 53,
+   "chunk": "cath_7_0",
+   "index": [
+    7,
+    0
+   ],
+   "origin_px": [
+    0,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9955,
+   "walkable_fraction": 0.113,
+   "window_fraction": 0.0045,
+   "vault_fraction": 0.0318,
+   "paint_after": [
+    "cath_6_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_0_guide.png",
+    "id": "chunks/cath_7_0_id.png",
+    "mask": "chunks/cath_7_0_mask.png",
+    "depth": "chunks/cath_7_0_depth.png",
+    "window": "chunks/cath_7_0_window.png",
+    "light": "chunks/cath_7_0_light.png",
+    "vault": "chunks/cath_7_0_vault.png"
+   }
+  },
+  {
+   "step": 54,
+   "chunk": "cath_7_1",
+   "index": [
+    7,
+    1
+   ],
+   "origin_px": [
+    1280,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7474,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0351,
+   "paint_after": [
+    "cath_7_0",
+    "cath_6_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_0",
+    "cath_6_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_1_guide.png",
+    "id": "chunks/cath_7_1_id.png",
+    "mask": "chunks/cath_7_1_mask.png",
+    "depth": "chunks/cath_7_1_depth.png",
+    "window": "chunks/cath_7_1_window.png",
+    "light": "chunks/cath_7_1_light.png",
+    "vault": "chunks/cath_7_1_vault.png"
+   }
+  },
+  {
+   "step": 55,
+   "chunk": "cath_7_2",
+   "index": [
+    7,
+    2
+   ],
+   "origin_px": [
+    2560,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.9324,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.1095,
+   "paint_after": [
+    "cath_7_1",
+    "cath_6_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_1",
+    "cath_6_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_2_guide.png",
+    "id": "chunks/cath_7_2_id.png",
+    "mask": "chunks/cath_7_2_mask.png",
+    "depth": "chunks/cath_7_2_depth.png",
+    "window": "chunks/cath_7_2_window.png",
+    "light": "chunks/cath_7_2_light.png",
+    "vault": "chunks/cath_7_2_vault.png"
+   }
+  },
+  {
+   "step": 56,
+   "chunk": "cath_7_3",
+   "index": [
+    7,
+    3
+   ],
+   "origin_px": [
+    3840,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.5542,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0275,
+   "paint_after": [
+    "cath_7_2",
+    "cath_6_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_2",
+    "cath_6_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_3_guide.png",
+    "id": "chunks/cath_7_3_id.png",
+    "mask": "chunks/cath_7_3_mask.png",
+    "depth": "chunks/cath_7_3_depth.png",
+    "window": "chunks/cath_7_3_window.png",
+    "light": "chunks/cath_7_3_light.png",
+    "vault": "chunks/cath_7_3_vault.png"
+   }
+  },
+  {
+   "step": 57,
+   "chunk": "cath_7_4",
+   "index": [
+    7,
+    4
+   ],
+   "origin_px": [
+    5120,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.3567,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0114,
+   "paint_after": [
+    "cath_7_3",
+    "cath_6_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_3",
+    "cath_6_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_4_guide.png",
+    "id": "chunks/cath_7_4_id.png",
+    "mask": "chunks/cath_7_4_mask.png",
+    "depth": "chunks/cath_7_4_depth.png",
+    "window": "chunks/cath_7_4_window.png",
+    "light": "chunks/cath_7_4_light.png",
+    "vault": "chunks/cath_7_4_vault.png"
+   }
+  },
+  {
+   "step": 58,
+   "chunk": "cath_7_5",
+   "index": [
+    7,
+    5
+   ],
+   "origin_px": [
+    6400,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.3725,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0197,
+   "paint_after": [
+    "cath_7_4",
+    "cath_6_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_4",
+    "cath_6_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_5_guide.png",
+    "id": "chunks/cath_7_5_id.png",
+    "mask": "chunks/cath_7_5_mask.png",
+    "depth": "chunks/cath_7_5_depth.png",
+    "window": "chunks/cath_7_5_window.png",
+    "light": "chunks/cath_7_5_light.png",
+    "vault": "chunks/cath_7_5_vault.png"
+   }
+  },
+  {
+   "step": 59,
+   "chunk": "cath_7_6",
+   "index": [
+    7,
+    6
+   ],
+   "origin_px": [
+    7680,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.7965,
+   "walkable_fraction": 0.0042,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_7_5",
+    "cath_6_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_5",
+    "cath_6_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_6_guide.png",
+    "id": "chunks/cath_7_6_id.png",
+    "mask": "chunks/cath_7_6_mask.png",
+    "depth": "chunks/cath_7_6_depth.png",
+    "window": "chunks/cath_7_6_window.png",
+    "light": "chunks/cath_7_6_light.png",
+    "vault": "chunks/cath_7_6_vault.png"
+   }
+  },
+  {
+   "step": 60,
+   "chunk": "cath_7_7",
+   "index": [
+    7,
+    7
+   ],
+   "origin_px": [
+    8960,
+    5376
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.394,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_7_6",
+    "cath_6_7"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_6_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_7_7_guide.png",
+    "id": "chunks/cath_7_7_id.png",
+    "mask": "chunks/cath_7_7_mask.png",
+    "depth": "chunks/cath_7_7_depth.png",
+    "window": "chunks/cath_7_7_window.png",
+    "light": "chunks/cath_7_7_light.png",
+    "vault": "chunks/cath_7_7_vault.png"
+   }
+  },
+  {
+   "step": 61,
+   "chunk": "cath_8_0",
+   "index": [
+    8,
+    0
+   ],
+   "origin_px": [
+    0,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9792,
+   "walkable_fraction": 0.1105,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_7_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_0_guide.png",
+    "id": "chunks/cath_8_0_id.png",
+    "mask": "chunks/cath_8_0_mask.png",
+    "depth": "chunks/cath_8_0_depth.png",
+    "window": "chunks/cath_8_0_window.png",
+    "light": "chunks/cath_8_0_light.png",
+    "vault": "chunks/cath_8_0_vault.png"
+   }
+  },
+  {
+   "step": 62,
+   "chunk": "cath_8_1",
+   "index": [
+    8,
+    1
+   ],
+   "origin_px": [
+    1280,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7882,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0422,
+   "paint_after": [
+    "cath_8_0",
+    "cath_7_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_0",
+    "cath_7_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_1_guide.png",
+    "id": "chunks/cath_8_1_id.png",
+    "mask": "chunks/cath_8_1_mask.png",
+    "depth": "chunks/cath_8_1_depth.png",
+    "window": "chunks/cath_8_1_window.png",
+    "light": "chunks/cath_8_1_light.png",
+    "vault": "chunks/cath_8_1_vault.png"
+   }
+  },
+  {
+   "step": 63,
+   "chunk": "cath_8_2",
+   "index": [
+    8,
+    2
+   ],
+   "origin_px": [
+    2560,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.7058,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0577,
+   "paint_after": [
+    "cath_8_1",
+    "cath_7_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_1",
+    "cath_7_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_2_guide.png",
+    "id": "chunks/cath_8_2_id.png",
+    "mask": "chunks/cath_8_2_mask.png",
+    "depth": "chunks/cath_8_2_depth.png",
+    "window": "chunks/cath_8_2_window.png",
+    "light": "chunks/cath_8_2_light.png",
+    "vault": "chunks/cath_8_2_vault.png"
+   }
+  },
+  {
+   "step": 64,
+   "chunk": "cath_8_3",
+   "index": [
+    8,
+    3
+   ],
+   "origin_px": [
+    3840,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.094,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_8_2",
+    "cath_7_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_2",
+    "cath_7_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_3_guide.png",
+    "id": "chunks/cath_8_3_id.png",
+    "mask": "chunks/cath_8_3_mask.png",
+    "depth": "chunks/cath_8_3_depth.png",
+    "window": "chunks/cath_8_3_window.png",
+    "light": "chunks/cath_8_3_light.png",
+    "vault": "chunks/cath_8_3_vault.png"
+   }
+  },
+  {
+   "step": 65,
+   "chunk": "cath_8_4",
+   "index": [
+    8,
+    4
+   ],
+   "origin_px": [
+    5120,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0155,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_8_3",
+    "cath_7_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_3",
+    "cath_7_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_4_guide.png",
+    "id": "chunks/cath_8_4_id.png",
+    "mask": "chunks/cath_8_4_mask.png",
+    "depth": "chunks/cath_8_4_depth.png",
+    "window": "chunks/cath_8_4_window.png",
+    "light": "chunks/cath_8_4_light.png",
+    "vault": "chunks/cath_8_4_vault.png"
+   }
+  },
+  {
+   "step": 66,
+   "chunk": "cath_8_5",
+   "index": [
+    8,
+    5
+   ],
+   "origin_px": [
+    6400,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9153,
+   "walkable_fraction": 0.0247,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_8_4",
+    "cath_7_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_4",
+    "cath_7_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_5_guide.png",
+    "id": "chunks/cath_8_5_id.png",
+    "mask": "chunks/cath_8_5_mask.png",
+    "depth": "chunks/cath_8_5_depth.png",
+    "window": "chunks/cath_8_5_window.png",
+    "light": "chunks/cath_8_5_light.png",
+    "vault": "chunks/cath_8_5_vault.png"
+   }
+  },
+  {
+   "step": 67,
+   "chunk": "cath_8_6",
+   "index": [
+    8,
+    6
+   ],
+   "origin_px": [
+    7680,
+    6144
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.2344,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_8_5",
+    "cath_7_6"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_7_5",
+    "cath_7_7"
+   ],
+   "files": {
+    "guide": "chunks/cath_8_6_guide.png",
+    "id": "chunks/cath_8_6_id.png",
+    "mask": "chunks/cath_8_6_mask.png",
+    "depth": "chunks/cath_8_6_depth.png",
+    "window": "chunks/cath_8_6_window.png",
+    "light": "chunks/cath_8_6_light.png",
+    "vault": "chunks/cath_8_6_vault.png"
+   }
+  },
+  {
+   "step": 68,
+   "chunk": "cath_9_0",
+   "index": [
+    9,
+    0
+   ],
+   "origin_px": [
+    0,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.6043,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_8_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_0_guide.png",
+    "id": "chunks/cath_9_0_id.png",
+    "mask": "chunks/cath_9_0_mask.png",
+    "depth": "chunks/cath_9_0_depth.png",
+    "window": "chunks/cath_9_0_window.png",
+    "light": "chunks/cath_9_0_light.png",
+    "vault": "chunks/cath_9_0_vault.png"
+   }
+  },
+  {
+   "step": 69,
+   "chunk": "cath_9_1",
+   "index": [
+    9,
+    1
+   ],
+   "origin_px": [
+    1280,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.2427,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0034,
+   "paint_after": [
+    "cath_9_0",
+    "cath_8_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_0",
+    "cath_8_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_1_guide.png",
+    "id": "chunks/cath_9_1_id.png",
+    "mask": "chunks/cath_9_1_mask.png",
+    "depth": "chunks/cath_9_1_depth.png",
+    "window": "chunks/cath_9_1_window.png",
+    "light": "chunks/cath_9_1_light.png",
+    "vault": "chunks/cath_9_1_vault.png"
+   }
+  },
+  {
+   "step": 70,
+   "chunk": "cath_9_2",
+   "index": [
+    9,
+    2
+   ],
+   "origin_px": [
+    2560,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.1945,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0034,
+   "paint_after": [
+    "cath_9_1",
+    "cath_8_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_1",
+    "cath_8_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_2_guide.png",
+    "id": "chunks/cath_9_2_id.png",
+    "mask": "chunks/cath_9_2_mask.png",
+    "depth": "chunks/cath_9_2_depth.png",
+    "window": "chunks/cath_9_2_window.png",
+    "light": "chunks/cath_9_2_light.png",
+    "vault": "chunks/cath_9_2_vault.png"
+   }
+  },
+  {
+   "step": 71,
+   "chunk": "cath_9_3",
+   "index": [
+    9,
+    3
+   ],
+   "origin_px": [
+    3840,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_9_2",
+    "cath_8_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_2",
+    "cath_8_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_3_guide.png",
+    "id": "chunks/cath_9_3_id.png",
+    "mask": "chunks/cath_9_3_mask.png",
+    "depth": "chunks/cath_9_3_depth.png",
+    "window": "chunks/cath_9_3_window.png",
+    "light": "chunks/cath_9_3_light.png",
+    "vault": "chunks/cath_9_3_vault.png"
+   }
+  },
+  {
+   "step": 72,
+   "chunk": "cath_9_4",
+   "index": [
+    9,
+    4
+   ],
+   "origin_px": [
+    5120,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9829,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_9_3",
+    "cath_8_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_3",
+    "cath_8_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_4_guide.png",
+    "id": "chunks/cath_9_4_id.png",
+    "mask": "chunks/cath_9_4_mask.png",
+    "depth": "chunks/cath_9_4_depth.png",
+    "window": "chunks/cath_9_4_window.png",
+    "light": "chunks/cath_9_4_light.png",
+    "vault": "chunks/cath_9_4_vault.png"
+   }
+  },
+  {
+   "step": 73,
+   "chunk": "cath_9_5",
+   "index": [
+    9,
+    5
+   ],
+   "origin_px": [
+    6400,
+    6912
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.4151,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_9_4",
+    "cath_8_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_8_4",
+    "cath_8_6"
+   ],
+   "files": {
+    "guide": "chunks/cath_9_5_guide.png",
+    "id": "chunks/cath_9_5_id.png",
+    "mask": "chunks/cath_9_5_mask.png",
+    "depth": "chunks/cath_9_5_depth.png",
+    "window": "chunks/cath_9_5_window.png",
+    "light": "chunks/cath_9_5_light.png",
+    "vault": "chunks/cath_9_5_vault.png"
+   }
+  },
+  {
+   "step": 74,
+   "chunk": "cath_10_0",
+   "index": [
+    10,
+    0
+   ],
+   "origin_px": [
+    0,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.2147,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_9_0"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_1"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_0_guide.png",
+    "id": "chunks/cath_10_0_id.png",
+    "mask": "chunks/cath_10_0_mask.png",
+    "depth": "chunks/cath_10_0_depth.png",
+    "window": "chunks/cath_10_0_window.png",
+    "light": "chunks/cath_10_0_light.png",
+    "vault": "chunks/cath_10_0_vault.png"
+   }
+  },
+  {
+   "step": 75,
+   "chunk": "cath_10_1",
+   "index": [
+    10,
+    1
+   ],
+   "origin_px": [
+    1280,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.9756,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_10_0",
+    "cath_9_1"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_0",
+    "cath_9_2"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_1_guide.png",
+    "id": "chunks/cath_10_1_id.png",
+    "mask": "chunks/cath_10_1_mask.png",
+    "depth": "chunks/cath_10_1_depth.png",
+    "window": "chunks/cath_10_1_window.png",
+    "light": "chunks/cath_10_1_light.png",
+    "vault": "chunks/cath_10_1_vault.png"
+   }
+  },
+  {
+   "step": 76,
+   "chunk": "cath_10_2",
+   "index": [
+    10,
+    2
+   ],
+   "origin_px": [
+    2560,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_10_1",
+    "cath_9_2"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_1",
+    "cath_9_3"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_2_guide.png",
+    "id": "chunks/cath_10_2_id.png",
+    "mask": "chunks/cath_10_2_mask.png",
+    "depth": "chunks/cath_10_2_depth.png",
+    "window": "chunks/cath_10_2_window.png",
+    "light": "chunks/cath_10_2_light.png",
+    "vault": "chunks/cath_10_2_vault.png"
+   }
+  },
+  {
+   "step": 77,
+   "chunk": "cath_10_3",
+   "index": [
+    10,
+    3
+   ],
+   "origin_px": [
+    3840,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 1.0,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_10_2",
+    "cath_9_3"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_2",
+    "cath_9_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_3_guide.png",
+    "id": "chunks/cath_10_3_id.png",
+    "mask": "chunks/cath_10_3_mask.png",
+    "depth": "chunks/cath_10_3_depth.png",
+    "window": "chunks/cath_10_3_window.png",
+    "light": "chunks/cath_10_3_light.png",
+    "vault": "chunks/cath_10_3_vault.png"
+   }
+  },
+  {
+   "step": 78,
+   "chunk": "cath_10_4",
+   "index": [
+    10,
+    4
+   ],
+   "origin_px": [
+    5120,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.8563,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_10_3",
+    "cath_9_4"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_3",
+    "cath_9_5"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_4_guide.png",
+    "id": "chunks/cath_10_4_id.png",
+    "mask": "chunks/cath_10_4_mask.png",
+    "depth": "chunks/cath_10_4_depth.png",
+    "window": "chunks/cath_10_4_window.png",
+    "light": "chunks/cath_10_4_light.png",
+    "vault": "chunks/cath_10_4_vault.png"
+   }
+  },
+  {
+   "step": 79,
+   "chunk": "cath_10_5",
+   "index": [
+    10,
+    5
+   ],
+   "origin_px": [
+    6400,
+    7680
+   ],
+   "size_px": [
+    1536,
+    1024
+   ],
+   "in_camera_clamp": true,
+   "fg_fraction": 0.0587,
+   "walkable_fraction": 0.0,
+   "window_fraction": 0.0,
+   "vault_fraction": 0.0,
+   "paint_after": [
+    "cath_10_4",
+    "cath_9_5"
+   ],
+   "corner_overlaps_already_painted": [
+    "cath_9_4"
+   ],
+   "files": {
+    "guide": "chunks/cath_10_5_guide.png",
+    "id": "chunks/cath_10_5_id.png",
+    "mask": "chunks/cath_10_5_mask.png",
+    "depth": "chunks/cath_10_5_depth.png",
+    "window": "chunks/cath_10_5_window.png",
+    "light": "chunks/cath_10_5_light.png",
+    "vault": "chunks/cath_10_5_vault.png"
+   }
+  }
+ ],
+ "dropped": [
+  {
+   "chunk": "cath_0_0",
+   "origin_px": [
+    0,
+    0
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_0_7",
+   "origin_px": [
+    8960,
+    0
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_1_0",
+   "origin_px": [
+    0,
+    768
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_1_7",
+   "origin_px": [
+    8960,
+    768
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_8_7",
+   "origin_px": [
+    8960,
+    6144
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_9_6",
+   "origin_px": [
+    7680,
+    6912
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_9_7",
+   "origin_px": [
+    8960,
+    6912
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_10_6",
+   "origin_px": [
+    7680,
+    7680
+   ],
+   "fg_fraction": 0.0
+  },
+  {
+   "chunk": "cath_10_7",
+   "origin_px": [
+    8960,
+    7680
+   ],
+   "fg_fraction": 0.0
+  }
+ ]
+}

@@ -1,0 +1,246 @@
+{
+ "solve": {
+  "limb_width_m": 23.573477568512928,
+  "vessel_width_m": 10.573477568512928,
+  "aisle_width_m": 4.5,
+  "pier_section_m": 2.0,
+  "pier_line_x_m": 6.286738784256464,
+  "n_piers": 40,
+  "pier_footprint_total_m2": 160.0,
+  "bay_pitches_m": {
+   "nave_south": 6.403323030820502,
+   "chancel_north": 6.422753738581179,
+   "arm_west": 5.588940303935885,
+   "arm_east": 5.588940303935884
+  },
+  "bay_target_m": 6.5,
+  "bay_band_m": [
+   6.0,
+   7.0
+  ],
+  "gross_cruciform_m2": 2601.958475629124,
+  "crater_m2": 63.61725123519331,
+  "crypt_m2": 24.0,
+  "net_walkable_m2": 2354.341224393931,
+  "target_m2": 2354.3412243939315,
+  "residual_m2": -4.547473508864641e-13,
+  "raster_check_m2": 2362.32,
+  "raster_cell_m": 0.2,
+  "note": "the pier COUNT depends on the width (the arms lengthen as the limb narrows), so this is a fixed point, bisected, not a quadratic."
+ },
+ "wall_rise": {
+  "declared_m": 34.0,
+  "solved_required_m": 53.99014021293464,
+  "built_m": 55.0,
+  "scope": "the PLATE's rising walls only. Piers are FADE-layer props and are not in the plate, so they do not enter this solve."
+ },
+ "pier_height": {
+  "built_m": 123.0,
+  "architectural_springing_m": 26.0,
+  "rule": "tall enough that every pier top projects above the canvas top, so no pier crown can enter any frame. Free: the pier is not in the plate."
+ },
+ "id_snap_max_distance": 0,
+ "crown_blocks_inside_any_reachable_frame": 0,
+ "crown_test": "PASS",
+ "reachable_camera_positions_blocks": 290515,
+ "frames_with_rising_pier_or_wall": 289955,
+ "frames_with_rising_pier_or_wall_pct": 99.80723886890522,
+ "frames_with_rising_pier": 289337,
+ "frames_with_rising_pier_pct": 99.5945131920899,
+ "frames_with_pier_to_vault_springing": 290515,
+ "frames_with_pier_to_vault_springing_pct": 100.0,
+ "vault_springing_m": 26.0,
+ "id_fade_snap_max_distance": 0,
+ "fading_wall_pixels": 1320284,
+ "walkable_area_on_screen_m2": 2268.012857746141,
+ "walkable_occlusion_loss_pct": 3.992140872272143,
+ "void_fraction_inside_frame_union_pct": 0.0,
+ "variant": "d",
+ "variant_params": {
+  "pier_section_m": 2.0,
+  "bay_target_m": 6.5,
+  "ruined": false,
+  "bands": [
+   [
+    0.0,
+    4.0,
+    1.0
+   ],
+   [
+    4.0,
+    8.0,
+    0.6
+   ],
+   [
+    8.0,
+    14.0,
+    0.3
+   ],
+   [
+    14.0,
+    null,
+    0.12
+   ]
+  ],
+  "ghost_classes": [
+   "nave_pier",
+   "pier_ghost_1",
+   "pier_ghost_2",
+   "pier_ghost_3"
+  ]
+ },
+ "fade_preview_radius_m": 6.0,
+ "effective_floor_occlusion": {
+  "radius_m": 12.0,
+  "stands_sampled": 594,
+  "fade_radius_m": 6.0,
+  "opacity_weighted_pct": 29.122498137607984,
+  "fully_opaque_pct": 21.60412907933586,
+  "no_fade_opacity_weighted_pct": 33.14726883010768,
+  "definition": "mean over every stand on a 2 m lattice of the walkable floor within 12 m that any layer obscures -- plate occluders, the vault layer, and every fading occluder more than 6 m away -- weighted by that layer's opacity. This is the metric v2 got wrong: v2 measured the PLATE after the occluders had left the plate."
+ },
+ "vault_floor_coverage_pct": 12.155846506357193,
+ "floor_light": {
+  "sun_elevation_deg_solved": 46.067006839209476,
+  "sun_azimuth": "due WEST (screen upper-left)",
+  "true_sunset_deg": 12.0,
+  "sunset_shaft_lands_x_m": 74.49891824109494,
+  "model": "0.18 base + 0.62 shaft (pier-shadowed) + 0.14 window-proximity ambient - 0.09 vault-rib banding at the 6.403 m bay pitch",
+  "west_openings_used": 14
+ },
+ "chunk_grid": [
+  11,
+  8
+ ],
+ "chunks_kept": 79,
+ "chunks_dropped": 9,
+ "chunks_in_clamp": 73,
+ "framings": [
+  {
+   "name": "south_entry",
+   "player_m": [
+    0.0,
+    -49.11
+   ],
+   "frame_rect_px": [
+    971,
+    6273,
+    2891,
+    7353
+   ],
+   "pier_in_frame": true,
+   "vault_in_frame": true,
+   "wall_in_frame": true
+  },
+  {
+   "name": "mid_nave_crossing",
+   "player_m": [
+    0.0,
+    -7.0
+   ],
+   "frame_rect_px": [
+    3967,
+    3882,
+    5887,
+    4962
+   ],
+   "pier_in_frame": true,
+   "vault_in_frame": true,
+   "wall_in_frame": false
+  },
+  {
+   "name": "near_dais",
+   "player_m": [
+    0.0,
+    13.0
+   ],
+   "frame_rect_px": [
+    5390,
+    2746,
+    7310,
+    3826
+   ],
+   "pier_in_frame": true,
+   "vault_in_frame": true,
+   "wall_in_frame": false
+  },
+  {
+   "name": "west_aisle",
+   "player_m": [
+    -9.536738784256464,
+    -26.0
+   ],
+   "frame_rect_px": [
+    1937,
+    4419,
+    3857,
+    5499
+   ],
+   "pier_in_frame": true,
+   "vault_in_frame": true,
+   "wall_in_frame": true
+  }
+ ],
+ "outputs": {
+  "fade_layerguide.png": {
+   "sha256": "6bb597b03c09d0d5118428a0229d052db5ff6ee48923350e0bc99148a9024c8b",
+   "bytes": 349719
+  },
+  "fade_layermask.png": {
+   "sha256": "52305e1dcbd960dd193975700906bce3bec8d026b2630ab62cd9cf4f61011443",
+   "bytes": 108846
+  },
+  "floor_light.png": {
+   "sha256": "253063c2cede01d047153cf6f1bc287b55bd28f208673b5da87922a6fc93c9bb",
+   "bytes": 909947
+  },
+  "framing_mid_nave_crossing.png": {
+   "sha256": "afdd7d423bf71a5ebb0fcc21306efef82aa8fa7a0532c7b151ead776603962b5",
+   "bytes": 88342
+  },
+  "framing_near_dais.png": {
+   "sha256": "a4157fc80a5f2cb4b0f9aaaf64e0b21c2b25c7ad9fc6296c240a0986749637ad",
+   "bytes": 97139
+  },
+  "framing_south_entry.png": {
+   "sha256": "2d091e788591c65175145c111bb61a863f2157536dac9d56b68748ca3fde373b",
+   "bytes": 77417
+  },
+  "framing_west_aisle.png": {
+   "sha256": "58b9af7ae77115e9fc0559fd3f21cc0b78d9082224bfdfa7bef4b800592a9994",
+   "bytes": 87096
+  },
+  "ortho_canvas_depth_mm.png": {
+   "sha256": "7a1ed50bbf02c1d9c6a0b8f5c29c83895dc44314da9c7c9cfb875e39af091c77",
+   "bytes": 3760084
+  },
+  "ortho_canvas_id.png": {
+   "sha256": "06e5b6310303bfaca9c1570f9ebf39c8543c3938e219bc2ca44d4951f81dce5c",
+   "bytes": 643992
+  },
+  "ortho_canvas_v2guide.png": {
+   "sha256": "6e30fce9ff6b18963724af1b327dacefe90caa427f06056bf16b87562371781c",
+   "bytes": 798953
+  },
+  "ortho_canvas_walkable.png": {
+   "sha256": "9af60d99fad4c6d9b9906c8b3187e267f48639f7de2894991ee0e2b5bd643817",
+   "bytes": 185935
+  },
+  "ortho_canvas_window_holes.png": {
+   "sha256": "5d14e2c1964a515c387a9cd1fba6d1056e53f145d1f03800034f38f0f687e20c",
+   "bytes": 117283
+  },
+  "overhead_vaultguide.png": {
+   "sha256": "63c7dd2357411f5f783fb995aedfc06a7bbd4d5d2ad402381ecc2925f283bcc8",
+   "bytes": 605622
+  },
+  "overhead_vaultmask.png": {
+   "sha256": "c585388101d84c7c30b211307a5c274fd42be5ca5c7e99fa150e5f3e272f3c96",
+   "bytes": 228058
+  },
+  "overview_flat.png": {
+   "sha256": "2d3ed2441094d35eeea3439863bd34fc55cb83a079b7a755052c5ef11c33a1d7",
+   "bytes": 711684
+  }
+ }
+}
