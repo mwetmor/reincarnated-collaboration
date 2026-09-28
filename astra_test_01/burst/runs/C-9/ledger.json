@@ -13882,6 +13882,14 @@
       "topic": "Landmark smoke re-tinted violet-grey",
       "ruling": "From the R-C9-50 bridge capture: the cathedral and tower plumes read green-olive over the violet sky (residual plate tint plus simultaneous contrast of neutral grey on violet). The conductor re-tinted L12_sprite_cathedral and L12_sprite_tower: non-fire, low-saturation, partial-alpha pixels only, multiplied (1.04, 0.86, 1.10) toward violet-grey (card PARALLAX LIGHT: violet shadow, purple smoky haze). Fire, masonry and alpha are unchanged. drax to rebuild and push the route.",
       "ts": "2026-09-27T21:13:12"
+    },
+    {
+      "id": "R-C9-54",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Grey box v2 review: pier occlusion; sun shafts become a runtime layer",
+      "ruling": "Grey box v2 (drax 288f78745): a cruciform basilica with 40 piers, walkable aisles and a vault; walkable residual -4.5e-13 m2; a pier in 100% of reachable frames. Conductor measurement on the full canvas: 58.9% of walkable pixels lie behind the pier/fade layer before any fade, 38.6% under the vault layer, 67.4% under either. drax plate-only 3.99% could not see the piers once they left the plate. The indoor read works; fight readability does not. Commissioned variants v2a (ghosted shafts above about 4 m), v2b (a ruined arcade: two-thirds of the piers broken at 2-7 m, crack-law E3), v2c (fewer, slimmer piers: about 9-10 m bays, 1.4 m section), all with the vault as ribs only. Effective occlusion is measured with the fade; Matt picks. Also ruled: fading props are not in the plate (signed off); per the card LIGHT line the floor is painted soft and even, and the sunset shafts become a runtime additive light layer (floor_light_v2 as its mask; 46.07 deg declared artistic). The establishing pass (bake-off round 3) waits for the pier choice.",
+      "ts": "2026-09-27T21:34:54"
     }
   ],
   "grok_calls": [
