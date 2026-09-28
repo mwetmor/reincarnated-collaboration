@@ -516,6 +516,34 @@ func play_clip(clip: String, at: float) -> void:
 	_anim.seek(at, true)
 
 
+func set_weapon_visible(on: bool) -> void:
+	"""Hide the pollaxe WITHOUT disarming.
+
+	set_armed() also swaps the clip set, which is right for a weapon-off knight and
+	wrong for a measurement: the haft has to come off the silhouette while the POSE
+	stays the one the player sees. camera.json's 199 px is measured with the pollaxe
+	split off, and a crown-to-sole that includes a haft is measuring the weapon -- the
+	same cell reads 241 px with it and 199 without, by their own note."""
+	if _pollaxe != null:
+		_pollaxe.visible = on
+
+
+func set_rest_pose() -> void:
+	"""Stand the knight in his BIND POSE and hold him there.
+
+	For calibration only. A clip is a moving target: camera.json's 199 px is "the
+	painted knight standing", and measuring it against a Meshy idle animation compares
+	two different poses -- which is how the same camera read 202 px on the walk and
+	231 px on the idle, a 14 percent swing no human silhouette makes. The bind pose has
+	no phase, no raised limb and no frame to pick, so two sessions measuring it are
+	measuring the same thing."""
+	if _anim != null:
+		_anim.stop()
+	if _skel != null:
+		_skel.reset_bone_poses()
+	_clip = ""
+
+
 func viewport() -> SubViewport:
 	return _vp
 

@@ -1,7 +1,7 @@
 {
- "aim_up_m": 1.14056602374854,
+ "aim_up_m": 1.16372695974815,
  "elevation_deg": 19.77,
- "fitted_against": "res://frames/knight_test.tres",
+ "fitted_against": "res://frames/camera_meshy_t1.json",
  "keeper_cycle_s": {
   "k_idle": 2.0,
   "k_run": 0.551724137931034,
@@ -10,32 +10,54 @@
  "note": "C-9 R-C9-61 T3. Written by tools/fit_knight3d.gd -- a measured fit of the 3D camera to the sprite cells in this build, not a typed constant. Re-run after swapping the sprite source.",
  "passes": [
   {
-   "aim_up_m": 1.14056602374854,
-   "height": 202.0,
-   "height_err": 0.0,
+   "aim_up_m": 1.16372695974815,
+   "height": 197.0,
+   "height_err": 2.0008,
    "pass": 0,
-   "ppm": 114.728711340206,
-   "sole": 408.0,
+   "ppm": 110.809687190013,
+   "sole": 397.0,
+   "sole_err": 1.0
+  },
+  {
+   "aim_up_m": 1.1726607072766,
+   "height": 199.0,
+   "height_err": 0.000799999999998136,
+   "pass": 1,
+   "ppm": 111.935108622144,
+   "sole": 399.0,
+   "sole_err": -1.0
+  },
+  {
+   "aim_up_m": 1.16372695974815,
+   "height": 199.0,
+   "height_err": 0.000799999999998136,
+   "pass": 2,
+   "ppm": 111.935108622144,
+   "sole": 398.0,
    "sole_err": 0.0
   }
  ],
- "px_per_m_candidates_rejected": {
-  "110.185": "knight3d/10_render.py BODY_PX / 1.80",
-  "117.5": "meshy_test/render_anim.py ortho_scale",
-  "why": "both are camera-side numbers for a 1.80 m figure; what has to match is the PROJECTED height on the cells that shipped, so it is measured"
+ "px_per_m_note": {
+  "110.185": "knight_fit.json's carried-over figure_h_src_px / 1.80",
+  "110.556": "meshy_t1/camera.json -- 199 px / 1.80 m, measured on the Grok cells",
+  "114.729": "my earlier fit, against the PLACEHOLDER cells, which are a paint-over of a 117.5 px/m render and measure 202 px where the game's measure 199. Correct about the cells; the cells were not the game. Retired.",
+  "117.5": "gandalf / meshy_test render_anim.py ortho_scale; 117.5 * cos(19.77) = 110.574, so these two are ONE camera in two conventions, not a disagreement",
+  "what_this_number_is": "orthographic screen pixels per metre of SCREEN-VERTICAL world extent: Camera3D.size = view_px / this. It is NOT camera.json's px_per_m, which is projected crown-to-sole pixels per metre of CHARACTER HEIGHT. The two differ by roughly cos(elevation)."
  },
- "px_per_m_screen": 114.728711340206,
+ "px_per_m_screen": 111.935108622144,
  "residual_px": {
-  "height": 0.0,
+  "height": 0.000799999999998136,
   "sole": 0.0
  },
- "sole_row": 408.0,
+ "sole_row": 398.0,
  "sprite_target": {
-  "animation": "walk_E",
-  "frames": 12,
-  "height": 202.0,
-  "height_spread": 11.0,
-  "sole": 408.0
+  "character_height_m": 1.8,
+  "declared_px_per_m": 110.556,
+  "frames": 1,
+  "height": 199.0008,
+  "height_spread": 0.0,
+  "sole": 398.0,
+  "source": "res://frames/camera_meshy_t1.json"
  },
  "view_px": 512
 }

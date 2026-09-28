@@ -24,6 +24,7 @@ scene that is already running -- no new scene, nothing swapped at the scene leve
 The Keeper's own nodes are not touched.
 """
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -33,10 +34,47 @@ SCENE = PROJ / "scenes" / "cliffside.tscn"
 BEGIN = "; --- C-9 R-C9-61 character toggle (written by tools/patch_scene.py) ---"
 END = "; --- end C-9 R-C9-61 character toggle ---"
 
-# The Keeper's own visual transform, copied so the skins land on the same feet.
-OFFSET = "Vector2(-256, -400)"
-SCALE = "Vector2(0.629166666667, 0.629166666667)"
 VIEW = 512               # SubViewport is square, like the sprite cells
+
+# THE FIGURE-HEIGHT RULE (cliffside_B/frames/knight_fit.json): every player figure is
+# 150.2135 canvas px crown-to-sole. That is a property of the SCENE, so each skin
+# computes its OWN scale from its OWN cells -- 150.2135 / (that set's crown-to-sole).
+#
+# This block used to copy the Keeper's transform verbatim, on the reasoning that both
+# sets are 512x512 cells on the same ground row and "registering it any other way would
+# be inventing a correction for a difference that is not there". The difference was
+# there and the comment argued it away: her cells hold a 238.75 px figure and the
+# knight's hold 200, so the same scale makes him 16% shorter. Matt saw it at once --
+# "Is the keeper larger?" -- which is what a scale error looks like from the only side
+# that matters. Nothing here is copied from another character now; every number below
+# is read from the file that measured the set it applies to.
+FIGURE_H_CANVAS_PX = 150.2135416666667
+
+
+def read_json(path, what):
+    if not path.exists():
+        raise SystemExit("missing %s (%s) -- run its builder first" % (path, what))
+    return json.loads(path.read_text())
+
+
+def sprite_transform():
+    fit = read_json(PROJ / "frames" / "knight_test.json",
+                    "knight sprite set")["fit"]
+    return fit["scale"], fit["pivot_y_src_px"], fit["figure_h_src_px"]
+
+
+def view_transform():
+    """The 3D skin's Sprite2D transform.
+
+    The SubViewport is rendered to the sprite pipeline's own cell format -- 512 px,
+    ground row 398, a 1.80 m figure at camera.json's declared height -- so the composited
+    Sprite2D takes the SAME transform a sprite cell of that format would. When sprites_t1
+    lands in that format the two skins' transforms coincide, which is the point: the
+    player should not be able to tell which one is running from where the figure sits.
+    """
+    cam = read_json(PROJ / "frames" / "camera_meshy_t1.json", "sprite-pipeline camera")
+    body = float(cam["px_per_m"]) * float(cam.get("character_height_m", 1.8))
+    return FIGURE_H_CANVAS_PX / body, float(cam["ground_row_y"]), body
 
 
 def strip(t):
@@ -52,6 +90,12 @@ def main():
                     help="also add the Knight3D SubViewport (needs the merged GLB)")
     a = ap.parse_args()
 
+    spr_scale, spr_pivot, spr_body = sprite_transform()
+    v_scale, v_pivot, v_body = view_transform()
+    print("sprite skin: %6.2f cell px figure -> scale %.6f, pivot y %.0f" % (spr_body, spr_scale, spr_pivot))
+    print("3D skin    : %6.2f cell px figure -> scale %.6f, pivot y %.0f" % (v_body, v_scale, v_pivot))
+    print("both stand %.2f canvas px, the Keeper's own figure height" % FIGURE_H_CANVAS_PX)
+
     t = SCENE.read_text()
     before = len(t)
     t = strip(t)
@@ -64,8 +108,8 @@ def main():
         'visible = false',
         'sprite_frames = ExtResource("KnightFrames")',
         'centered = false',
-        'offset = %s' % OFFSET,
-        'scale = %s' % SCALE,
+        'offset = Vector2(-256, %g)' % (-spr_pivot),
+        'scale = Vector2(%.12g, %.12g)' % (spr_scale, spr_scale),
         'animation = &"idle_S"',
         '',
     ]
@@ -81,8 +125,8 @@ def main():
             # the scene it is saved in and is brittle to write by hand.
             '[node name="View" type="Sprite2D" parent="Actors/Keeper/Knight3D"]',
             'centered = false',
-            'offset = %s' % OFFSET,
-            'scale = %s' % SCALE,
+            'offset = Vector2(-256, %g)' % (-v_pivot),
+            'scale = Vector2(%.12g, %.12g)' % (v_scale, v_scale),
             '',
             '[node name="VP" type="SubViewport" parent="Actors/Keeper/Knight3D"]',
             'disable_3d = false',

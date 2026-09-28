@@ -31,6 +31,9 @@ import json
 import re
 import shutil
 import sys
+
+import numpy as np
+from PIL import Image
 from pathlib import Path
 
 PROJ = Path(__file__).resolve().parent.parent / "godot"
@@ -79,6 +82,39 @@ def needs_mirror(target_dir, source_faces):
     if target_dir in WESTWARD:
         return source_faces == "E"
     return False
+
+
+# THE FIGURE-HEIGHT RULE, from cliffside_B/frames/knight_fit.json: every player figure
+# stands the same height on screen, 150.2135 canvas px crown-to-sole. The Keeper gets
+# there as 238.75 cell px x 0.629167; the C-9 knight as 198.33 x 0.7574. It is a
+# property of the SCENE, not of a character, so a new skin does not inherit another
+# character's cell scale -- which is exactly the mistake that shipped: the Keeper's
+# 0.629167 applied to the knight's shorter cells left him 17% short and Matt asked why
+# the Keeper was larger.
+FIGURE_H_CANVAS_PX = 150.2135416666667
+ROW_MIN_PX = 8          # a prop is a few px wide; a torso is tens -- see body_bounds
+
+
+def body_bounds(path):
+    """Crown-to-sole with a thin prop (staff, haft) split off, plus the sole row.
+
+    Their 238.75 for the Keeper is a staff-split number: her raw silhouette runs to 247
+    because the staff clears her head, and a pollaxe haft does the same to the knight.
+    Any height meant to be compared with theirs has to split the same way.
+
+    ROW_MIN_PX is an absolute row width, not a fraction of the widest row. The fraction
+    form (25%) clipped the crown and the soles, which are legitimately narrow, and came
+    in 3.5 px low. VALIDATED against their published figure: sweeping this threshold
+    over the Keeper's own idle cells, everything from 4 to 14 px lands within 1.8 px of
+    238.75 and 8 px lands within 0.16 -- a broad plateau, so this is a measurement and
+    not a constant fitted to one number.
+    """
+    a = np.asarray(Image.open(path).convert("RGBA"))[..., 3] > 8
+    w = a.sum(axis=1)
+    keep = np.where(w >= ROW_MIN_PX)[0]
+    if not len(keep):
+        return None
+    return int(keep.min()), int(keep.max())
 
 
 def find_frames(root, state, direction):
@@ -173,6 +209,34 @@ def main():
                    + "\n".join(ext) + "\n\n[resource]\nanimations = ["
                    + ",\n".join(blocks) + "]\n")
 
+    # --- measure what was built, and size it to the figure-height rule -------------
+    # Measured on the IDLE frames, because that is the pose the rule is stated for --
+    # their 238.75 is the Keeper's idle -- and because scale and assertion must agree
+    # about which pose they mean. A walk frame mid-stride reads shorter than a standing
+    # one (legs split, hip dropped, crown down while the planted sole stays), so sizing
+    # on a walk frame and then asserting on a standing one builds in a disagreement.
+    idle_anims = [an for an in anims if an["name"].startswith("idle")]
+    uniq = sorted({p for an in (idle_anims or anims) for p in an["frames"]})
+    measured_on = "idle" if idle_anims else "all states (no idle built)"
+    heights, soles = [], []
+    for rel in uniq:
+        b = body_bounds(PROJ / rel)
+        if b:
+            heights.append(b[1] - b[0])
+            soles.append(b[1])
+    fit = {}
+    if heights:
+        body = float(np.median(heights))
+        fit = {"measured_on": measured_on,
+               "figure_h_src_px": round(body, 3),
+               "figure_h_spread_px": [int(min(heights)), int(max(heights))],
+               "pivot_y_src_px": float(max(soles)),
+               "scale": FIGURE_H_CANVAS_PX / body,
+               "figure_h_canvas_px": FIGURE_H_CANVAS_PX,
+               "row_min_px": ROW_MIN_PX,
+               "rule": "cliffside_B/frames/knight_fit.json -- every player figure is "
+                       "150.2135 canvas px crown-to-sole, props split off"}
+
     report = {
         "note": "C-9 R-C9-61 T1 knight test skin. Written by tools/build_knight_test_frames.py.",
         "source_root": str(root), "placeholder": bool(man.get("placeholder")),
@@ -186,10 +250,15 @@ def main():
         "keeper_cadence_used": {k: {"frames": v[0], "fps": v[1]}
                                 for k, v in cad.items() if k in ("walk_E", "run_E", "idle_E")},
         "fps_per_state": {s: c["fps"] for s, c in man["states"].items()},
+        "fit": fit,
     }
     (PROJ / "frames" / ("%s.json" % a.out_name)).write_text(json.dumps(report, indent=1))
 
     print("built %d animations, %d textures -> %s" % (len(anims), len(ids), out))
+    if fit:
+        print("   figure %.2f cell px (spread %s) -> scale %.6f for %.2f canvas px; pivot y %.0f"
+              % (fit["figure_h_src_px"], fit["figure_h_spread_px"], fit["scale"],
+                 fit["figure_h_canvas_px"], fit["pivot_y_src_px"]))
     for s in sorted(substituted):
         print("   %-6s fed from the fallback column: %s" % (s, " ".join(sorted(substituted[s]))))
     for s in sorted(mirrored):
