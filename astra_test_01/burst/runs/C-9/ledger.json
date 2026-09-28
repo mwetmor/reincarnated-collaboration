@@ -13222,9 +13222,211 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CAE3-sol",
+      "type": "GENERATE",
+      "experiment": "BAKEOFF-SOL-R3",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c5ad2f7671c59697223d0fa8e571e2249c7e95dc7ab2407bf24a0e00c3096781",
+      "started": "2026-09-28T03:07:05.895013+00:00",
+      "ended": "2026-09-28T03:13:53.035486+00:00",
+      "minutes": 6.785627004166599,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-3b3d51d8-4dd7-4d35-9c5b-dd42d6a7e466.png",
+            "sha256": "73f77c0feffb6481f69d5608adfb620dc03d288d0bc1695a1cd6a6075f71a1b8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-5683c3df-6ac9-441f-8a1e-d8ce862c0c73.png",
+            "sha256": "25bddc9d6aba8afc07d97bb941d30251327e34f10f476815bbc402966df508d9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-ceae35d8-7d2f-499f-9ea7-371fe90ec271.png",
+            "sha256": "153e448d188c918d349abc615a7f9eed27dc3092ef835ae2b39fd58dde7cf474"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-ed3a5e4b-5110-4cc1-ad4a-8af8fd9078ee.png",
+            "sha256": "5222dce93bb5ba50f1e9f528cd269d4425f66a5c57a0d6bab1b41d11753b60d3"
+          }
+        ]
+      },
+      "receipt_sha256": "7126f0cc5dc6d7945f9adfa40bb9214047d56a782dd75360dc6b927532dead09",
+      "artifacts": [
+        {
+          "name": "CAE3-sol_a.png",
+          "sha256": "153e448d188c918d349abc615a7f9eed27dc3092ef835ae2b39fd58dde7cf474"
+        },
+        {
+          "name": "CAE3-sol_b.png",
+          "sha256": "25bddc9d6aba8afc07d97bb941d30251327e34f10f476815bbc402966df508d9"
+        },
+        {
+          "name": "exec-3b3d51d8-4dd7-4d35-9c5b-dd42d6a7e466.provenance.json",
+          "sha256": "3d1e146fc20e904d8ad4972aea39dc101453ddd1d0e317dd93f6f07fc91bdeba"
+        },
+        {
+          "name": "exec-5683c3df-6ac9-441f-8a1e-d8ce862c0c73.provenance.json",
+          "sha256": "06fe53e42823c53983134a124875e1362c028784ee042a339f8920cbad91f13e"
+        },
+        {
+          "name": "exec-ceae35d8-7d2f-499f-9ea7-371fe90ec271.provenance.json",
+          "sha256": "b4f9cd27d16973766e7c17e620185351407ec108aa9614f0573bffb9a5469bc3"
+        },
+        {
+          "name": "exec-ed3a5e4b-5110-4cc1-ad4a-8af8fd9078ee.provenance.json",
+          "sha256": "b1ccbd0bb8bad5b4b0c2be89755a1ed582604be5164f7d7e65ee5673e84d1fe9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-3b3d51d8-4dd7-4d35-9c5b-dd42d6a7e466.png",
+          "sha256": "73f77c0feffb6481f69d5608adfb620dc03d288d0bc1695a1cd6a6075f71a1b8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-5683c3df-6ac9-441f-8a1e-d8ce862c0c73.png",
+          "sha256": "25bddc9d6aba8afc07d97bb941d30251327e34f10f476815bbc402966df508d9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-ceae35d8-7d2f-499f-9ea7-371fe90ec271.png",
+          "sha256": "153e448d188c918d349abc615a7f9eed27dc3092ef835ae2b39fd58dde7cf474"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e5fb-00cb-7090-ad9e-9d944d36eb1a/exec-ed3a5e4b-5110-4cc1-ad4a-8af8fd9078ee.png",
+          "sha256": "5222dce93bb5ba50f1e9f528cd269d4425f66a5c57a0d6bab1b41d11753b60d3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-sol",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "2f001f600303bb2066a862d2fb5d1e1fb12d281abc83f255bae170928ecae8e1",
+      "exit": 0
+    },
+    {
+      "id": "CAE3-astra",
+      "type": "GENERATE",
+      "experiment": "BAKEOFF-SOL-R3",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "23ac9d032b8856f69eae062305e02a153069149d45f6b8201df9b0b9a4c56140",
+      "started": "2026-09-28T03:14:01.713452+00:00",
+      "ended": "2026-09-28T03:21:12.434637+00:00",
+      "minutes": 7.178639625699968,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-4c03704d-e584-4cdb-bc99-a98d96b8d166.png",
+            "sha256": "32df868a78cb7e47cee66519b99d5a5e260addb7b5f3f4e9597bf62009ab0b91"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-6a2559a9-7288-4848-b9db-43482e672348.png",
+            "sha256": "82225ce18b31c2c0a307d4ac161dded266f95908c0b3767b854ca6fdf43756b7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-b9e0c386-3da9-4b47-8ea7-796dcb24b273.png",
+            "sha256": "0658e0e7de091989c1898f8a5c6708f00c8c5842bd15e91bfd1343a0caa33d8c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-c1dacc9e-effd-4cf6-bad3-956828a8efc2.png",
+            "sha256": "eb91b6778846f9e79a4fa962f7f5b70af4636d6e5d273f3d076517d818568de8"
+          }
+        ]
+      },
+      "receipt_sha256": "58b9ff77f9b243fb46649f487f46b7147066da94da41c8d0fe7f36984cd61c7e",
+      "artifacts": [
+        {
+          "name": "CAE3-astra_a.png",
+          "sha256": "eb91b6778846f9e79a4fa962f7f5b70af4636d6e5d273f3d076517d818568de8"
+        },
+        {
+          "name": "CAE3-astra_b.png",
+          "sha256": "82225ce18b31c2c0a307d4ac161dded266f95908c0b3767b854ca6fdf43756b7"
+        },
+        {
+          "name": "exec-4c03704d-e584-4cdb-bc99-a98d96b8d166.provenance.json",
+          "sha256": "1c049adf47f7e8ec2880f93b10de9e3a2d8c800eac34227642359314953d893f"
+        },
+        {
+          "name": "exec-6a2559a9-7288-4848-b9db-43482e672348.provenance.json",
+          "sha256": "5d8af5f75455e61568c46f49fc95c4f3cf836c73040373a183a44c41c8aad54a"
+        },
+        {
+          "name": "exec-b9e0c386-3da9-4b47-8ea7-796dcb24b273.provenance.json",
+          "sha256": "ac98478344a55ee5b7601d320b26de508ba4c503180e3af222c797d836e67d3b"
+        },
+        {
+          "name": "exec-c1dacc9e-effd-4cf6-bad3-956828a8efc2.provenance.json",
+          "sha256": "996aab07084f7dcec96ba07948353240639de4541f42d1f5bf15f3e65635dd99"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-4c03704d-e584-4cdb-bc99-a98d96b8d166.png",
+          "sha256": "32df868a78cb7e47cee66519b99d5a5e260addb7b5f3f4e9597bf62009ab0b91"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-6a2559a9-7288-4848-b9db-43482e672348.png",
+          "sha256": "82225ce18b31c2c0a307d4ac161dded266f95908c0b3767b854ca6fdf43756b7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-b9e0c386-3da9-4b47-8ea7-796dcb24b273.png",
+          "sha256": "0658e0e7de091989c1898f8a5c6708f00c8c5842bd15e91bfd1343a0caa33d8c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e601-538f-7a80-8d67-c9b4e197020b/exec-c1dacc9e-effd-4cf6-bad3-956828a8efc2.png",
+          "sha256": "eb91b6778846f9e79a4fa962f7f5b70af4636d6e5d273f3d076517d818568de8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 340,
+  "images_used": 348,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -13427,6 +13629,11 @@
       "id": "M-C9-3D-Ma",
       "ts": "2026-09-28",
       "note": "3D-body spike, gate M-a reached (drax e2888465). Fitted ortho camera elevation 19.77 deg (from ground-contact geometry, leave-one-out range 18.2-23.1; independently confirmed by the silhouette sweep peaking at 20 deg against the fitted body; a free-theta fit was degenerate and is kept as lineage). Silhouette IoU, Blender mesh vs the stills: mean 0.871 (0.853 NW to 0.901 N); 0.895 with per-view pose deltas. Worst bands: feet 0.764 and helm 0.819, both proxy shape (a round helm with no visor snout; a blunt sabaton toe), to be fixed before projection. Skeleton: 35 bones, Mixamo humanoid naming plus Rigify map; 26 rigid plate pieces, one bone each, including a separate sabaton toe; 3 skinned (mail skirt, tabard front/back per R-C9-36); grip sockets. The stills disagree with each other: azimuth steps off by up to -11.5/+9.5 deg on the diagonals; scale spread 8.1%; the pollaxe drawn at a near-fixed screen offset rather than rotating with the body (no single grip fits, rms 51 px); E stance staggered. Note: the stills (about 20 deg) are painted much flatter than the world plate camera (52.95 deg pitch). Awaiting Matt at M-a."
+    },
+    {
+      "id": "M-C9-BAKEOFF-3",
+      "ts": "2026-09-28",
+      "note": "Painter bake-off round 3 (R-C9-49): the cathedral establishing painting over grey box v3 (the heart crop: crossing, nave piers, broken piers, debris, crater, crypt; vault ribs omitted from the guide as they read as floating frames). Same brief and refs for both (CAE3-astra / CAE3-sol; Sol via bakeoff_sol.sh, profile restored and verified). Both held the geometry (every pier, crater, crypt and debris piece in place). Conductor eye: ASTRA added the order's iconography unprompted in form (sun discs and chains carved on the piers, from 'a faith of the SUN and the CHAIN'), scorched the broken pier tops more strongly and gave a warmer sunset read; its crater reads flatter (a dark ellipse with a scorch ring). SOL gave the crater real depth (a shaft of broken stone into darkness) and cleaner stone, but plain piers and pale break tops. Both: the piers read slender because the grey box piers are plain 2 m square prisms; a compound (clustered-shaft) pier section is a guide-v4 candidate. Also: the conductor's geometry-adherence instrument (guide edges near painted edges) saturated at 0.999-1.000 for all four, which means it cannot discriminate (any textured painting has edges near everything); discarded, not reported as evidence. Matt's eye decides."
     }
   ],
   "halts": [],

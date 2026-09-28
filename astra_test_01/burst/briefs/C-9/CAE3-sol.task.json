@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST CAE3-sol — Run C-9 cathedral arena, ESTABLISHING PAINTING over grey box v3 (Matt R-C9-43..55; painter bake-off round 3, R-C9-49). task_id \"CAE3-sol\".\n\nIMAGE 1 is a flat-shaded GEOMETRY GUIDE of the heart of the arena, rendered from our fixed game camera: orthographic (no vanishing point), elevated three-quarter view looking from the south-east toward the north-west. Paint over it: keep every boundary, every pier and every opening exactly where the guide puts it. You are adding SURFACE, not changing geometry. The guide's greys mean:\n- PALE GREY-WHITE planes = the stone FLOOR of the nave, aisles, crossing and chancel (walkable): smooth dressed flagstones in cold grey-white, the brightest and calmest area; soft even light on it; no painted light shafts and no cast-shadow drama.\n- TALL DARK PRISMS running off the TOP edge = intact massive PIERS of the nave arcade: Romanesque mass with gothic verticals, grey-white and black stone, rising out of the frame (never paint their tops).\n- SHORTER DARK PRISMS with JAGGED DARK-BROWN tops = piers BROKEN by the battle: their tops shattered and scorched by blasts of magic and fire (blackened, cracked, raw pale stone inside the fresh breaks).\n- SMALL GREY-BROWN blocks near the broken piers = the FALLEN pieces (drums, capitals, vault stones) lying where they fell BESIDE their piers, never on the open floor.\n- The BLACK ELLIPSE at the centre = the demon-gate BLAST CRATER at the crossing: a hole torn through the floor into darkness, a scorched ring darkest at its lip, radial cracks running outward along the flagstone joints, debris thrown away from it.\n- The BLACK SQUARE at lower right = the CRYPT mouth: broken stairs down, COLD BLUE FIRE at its mouth; the pale bluish-grey zone around it = the blue-fire hazard apron on the floor.\n- Mid-grey planes and walls at upper left and upper right = the rising walls and the arcades opening onto ROOMS BEYOND (side aisles and chapels, darker); the very dark bands = gallery openings; any flat pure #00ff00 = an opening to the outside: paint it as flat pure #00ff00.\nTHE PLACE: the nave of a vast fortress-cathedral of a crusading order that held a border against hell and lost it this week — mass before grace; a faith of the SUN and the CHAIN; iron only where structural. Beautiful, smooth stone violated locally and legibly: cracks follow the joints and appear only where something fell or blew; fire burns UP and blackens stone above it; a blast is radial and decays with distance. The order's fire is warm; what comes from below is cold (the only saturated cold is demonic). It is dusk: a low warm sunset glow reaches in from the upper left, violet shadow elsewhere, a thin purple smoky haze in the air.\nBARE: architecture, floor, damage and the fallen pier pieces only — no furniture, pews, statues, candles, bodies, banners or gates. No characters, no text, no UI, no border or vignette.\nSTYLE: the REGISTER CARD above, matched to IMAGE 2 (this level's approved painted hand: line, hatching, washes); IMAGE 3 for the dark sunset colour mood only (not its content).\n\nTwo image_gen EDIT calls on IMAGE 1: variants a and b. ONE retry per variant only if the geometry moved, piers are missing or added, the crater or crypt is missing, furniture or figures appear, or text appears — name the reason. Copy outputs to out/CAE3-sol_a.png and out/CAE3-sol_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CAE3-sol\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/cae3_guide_heart.png",
+   "role": "IMAGE 1 — the geometry guide to paint over (grey box v3, the heart of the arena)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — this level's approved painted hand (line, hatching, washes)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MOOD-far/MOOD-far_a.png",
+   "role": "IMAGE 3 — the approved dark sunset mood and purple haze (colour only)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/CAE3-sol_a.png",
+  "out/CAE3-sol_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "BAKEOFF-SOL-R3"
+}

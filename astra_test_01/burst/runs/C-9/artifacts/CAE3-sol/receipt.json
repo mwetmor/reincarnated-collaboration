@@ -1,0 +1,77 @@
+{
+  "task_id": "CAE3-sol",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "CAE3-sol_a",
+      "path": "out/CAE3-sol_a.png",
+      "sha256": "153e448d188c918d349abc615a7f9eed27dc3092ef835ae2b39fd58dde7cf474",
+      "prompt": "Use case: style-transfer. Edit IMAGE 1 by painting its surfaces, preserving its exact geometry at every pixel boundary. IMAGE 1 is the sole composition/geometry authority. IMAGE 2 is the watercolor-and-ink hand reference only. IMAGE 3 is sunset/violet palette and smoke mood only: copy none of its landscape or buildings.\nFixed elevated three-quarter ORTHOGRAPHIC camera looking from southeast toward northwest, no vanishing point. Keep the identical canvas, crop, silhouettes, occlusions, every pier, opening, floor boundary, block, crater and crypt position. Do not redesign architecture or reveal hidden areas. Tall prisms cut off by the top edge stay cut off: NO tops added.\nPaint the heart of a vast crusading fortress-cathedral devastated this week: Romanesque mass with gothic verticals, faith of the SUN and CHAIN. Pale grey-white planes are smooth dressed cold grey-white stone FLOOR: brightest, calmest, spacious, with only sparse fine joints and no decorative floor patterns. Tall dark prisms are intact massive stone PIERS rising beyond frame; transform their flat grey into pale grey-white and black-stone accents with ink contours and restrained hatching, not solid dark pillars. Short prisms with jagged brown tops are BROKEN PIERS: preserve each silhouette and exact location, paint shattered scorched tops with cracked blackened edges and fresh pale stone interiors. Small blocks are fallen drums/capitals/vault stones: preserve their positions beside piers, never scatter debris across open floor.\nThe central BLACK ELLIPSE is the blast CRATER, its exact footprint and occlusion by the foreground pier unchanged: a deep hole torn through floor, darkest narrow scorched lip, irregular fractured stone edges within the footprint, a few radial cracks along joints decaying away from it. Lower-right BLACK SQUARE is the CRYPT mouth, preserve exact position and occlusion: broken stairs descend into darkness, COLD BLUE FIRE at its mouth and the existing pale blue-grey hazard apron. Do not move either opening. Midgrey walls at upper left/right are arcades opening into darker side aisles and chapels; dark bands are galleries. Any pure #00ff00 outside opening must remain pure #00ff00.\nOnly architecture, floor, local damage and those fallen pieces. No furniture, pews, statues, candles, bodies, banners, gates, figures, text, UI, border or vignette. Cracks only where impact or blast occurred. Fire burns upward and stains above it. Small warm order-fire accents and cold blue demonic flame only where appropriate; no extra openings or props.\nHand-painted illustration merging late-medieval/early-Renaissance illuminated-manuscript subject, iconography and mineral palette with 1990s tactics role-playing character-illustration rendering. Closely match IMAGE 2: crisp DARK sepia-to-near-black wavering pen outlines with varying weight; individually drawn fine hatching; transparent uneven watercolor washes pooling at edges, granulating, softly blooming, sometimes stopping short or slightly overrunning contours; second darker wash plus hatching for shade. Large pale cream and bare-paper highlights. One hand-painted illustration, never photographic or polished digital painting. No airbrushed gradients, glossy highlights, optical glow, lens effects, or large flat black surfaces; deepest accents limited to linework and necessary holes.\nModerate mineral palette: lapis, vermilion, verdigris, ochre, madder, lead white, warm stone grey. Rich small accents about 10–20% distributed on architecture/fire, NEVER rich floor fills. Gold only sacred/preserved objects. Dusk mood: restrained low warm sunset from screen upper-left on upper architecture, violet shadows in rooms and thin purple smoky air, using IMAGE 3 for color only. Walkable floor remains pale, bright and evenly lit without shafts or cast-shadow drama. Architectural surfaces remain readable and pale. No nighttime sky or landscape.\nGeometry preservation takes priority: this is painting OVER the supplied guide, not reinterpreting its layout.\nVariant a: emphasize delicate pale stone washes and crisp pen hatching while preserving all specified geometry.\nGEOMETRY CORRECTION RETRY: The previous attempt added projecting base mouldings to piers and arched trim that changed the guide openings. Start again from IMAGE 1. Strictly trace every original polygon silhouette. No added plinths, projecting bases, capitals, ribs, arch surrounds, or reshaped openings. All architectural articulation must be ink/wash painted INSIDE original silhouettes. The central ellipse must not grow: original left edge x569, upper edge y465, bottom y687 on 1536x1024 canvas; its right side stays occluded behind the original central pier. Maintain exact original jagged broken-top bounds. Match guide geometry first. Keep the floor a smooth pale cold grey-white quiet wash, very sparse fine joints, no cast shadows or mottled dense texture. Dusk color is restrained on upper walls and recesses only; no bright orange light flooding the floor.",
+      "references": [
+        {
+          "role": "IMAGE 1 — geometry guide and edit target",
+          "path": "in/01_cae3_guide_heart.png"
+        },
+        {
+          "role": "IMAGE 2 — painted hand: line, hatching, washes",
+          "path": "in/02_S1-ink_b.png"
+        },
+        {
+          "role": "IMAGE 3 — sunset colour and purple haze only",
+          "path": "in/03_MOOD-far_a.png"
+        }
+      ],
+      "elapsed_s": 53.335
+    },
+    {
+      "name": "CAE3-sol_b",
+      "path": "out/CAE3-sol_b.png",
+      "sha256": "25bddc9d6aba8afc07d97bb941d30251327e34f10f476815bbc402966df508d9",
+      "prompt": "Use case: style-transfer. Edit IMAGE 1 by painting its surfaces, preserving its exact geometry at every pixel boundary. IMAGE 1 is the sole composition/geometry authority. IMAGE 2 is the watercolor-and-ink hand reference only. IMAGE 3 is sunset/violet palette and smoke mood only: copy none of its landscape or buildings.\nFixed elevated three-quarter ORTHOGRAPHIC camera looking from southeast toward northwest, no vanishing point. Keep the identical canvas, crop, silhouettes, occlusions, every pier, opening, floor boundary, block, crater and crypt position. Do not redesign architecture or reveal hidden areas. Tall prisms cut off by the top edge stay cut off: NO tops added.\nPaint the heart of a vast crusading fortress-cathedral devastated this week: Romanesque mass with gothic verticals, faith of the SUN and CHAIN. Pale grey-white planes are smooth dressed cold grey-white stone FLOOR: brightest, calmest, spacious, with only sparse fine joints and no decorative floor patterns. Tall dark prisms are intact massive stone PIERS rising beyond frame; transform their flat grey into pale grey-white and black-stone accents with ink contours and restrained hatching, not solid dark pillars. Short prisms with jagged brown tops are BROKEN PIERS: preserve each silhouette and exact location, paint shattered scorched tops with cracked blackened edges and fresh pale stone interiors. Small blocks are fallen drums/capitals/vault stones: preserve their positions beside piers, never scatter debris across open floor.\nThe central BLACK ELLIPSE is the blast CRATER, its exact footprint and occlusion by the foreground pier unchanged: a deep hole torn through floor, darkest narrow scorched lip, irregular fractured stone edges within the footprint, a few radial cracks along joints decaying away from it. Lower-right BLACK SQUARE is the CRYPT mouth, preserve exact position and occlusion: broken stairs descend into darkness, COLD BLUE FIRE at its mouth and the existing pale blue-grey hazard apron. Do not move either opening. Midgrey walls at upper left/right are arcades opening into darker side aisles and chapels; dark bands are galleries. Any pure #00ff00 outside opening must remain pure #00ff00.\nOnly architecture, floor, local damage and those fallen pieces. No furniture, pews, statues, candles, bodies, banners, gates, figures, text, UI, border or vignette. Cracks only where impact or blast occurred. Fire burns upward and stains above it. Small warm order-fire accents and cold blue demonic flame only where appropriate; no extra openings or props.\nHand-painted illustration merging late-medieval/early-Renaissance illuminated-manuscript subject, iconography and mineral palette with 1990s tactics role-playing character-illustration rendering. Closely match IMAGE 2: crisp DARK sepia-to-near-black wavering pen outlines with varying weight; individually drawn fine hatching; transparent uneven watercolor washes pooling at edges, granulating, softly blooming, sometimes stopping short or slightly overrunning contours; second darker wash plus hatching for shade. Large pale cream and bare-paper highlights. One hand-painted illustration, never photographic or polished digital painting. No airbrushed gradients, glossy highlights, optical glow, lens effects, or large flat black surfaces; deepest accents limited to linework and necessary holes.\nModerate mineral palette: lapis, vermilion, verdigris, ochre, madder, lead white, warm stone grey. Rich small accents about 10–20% distributed on architecture/fire, NEVER rich floor fills. Gold only sacred/preserved objects. Dusk mood: restrained low warm sunset from screen upper-left on upper architecture, violet shadows in rooms and thin purple smoky air, using IMAGE 3 for color only. Walkable floor remains pale, bright and evenly lit without shafts or cast-shadow drama. Architectural surfaces remain readable and pale. No nighttime sky or landscape.\nGeometry preservation takes priority: this is painting OVER the supplied guide, not reinterpreting its layout.\nVariant b: an independent painted interpretation, emphasize broken pale stone interiors and subtle violet washes on architecture, preserving all specified geometry.\nGEOMETRY CORRECTION RETRY: The previous attempt added projecting base mouldings to piers and arched trim that changed the guide openings. Start again from IMAGE 1. Strictly trace every original polygon silhouette. No added plinths, projecting bases, capitals, ribs, arch surrounds, or reshaped openings. All architectural articulation must be ink/wash painted INSIDE original silhouettes. The central ellipse must not grow: original left edge x569, upper edge y465, bottom y687 on 1536x1024 canvas; its right side stays occluded behind the original central pier. Maintain exact original jagged broken-top bounds. Match guide geometry first. Keep the floor a smooth pale cold grey-white quiet wash, very sparse fine joints, no cast shadows or mottled dense texture. Dusk color is restrained on upper walls and recesses only; no bright orange light flooding the floor.",
+      "references": [
+        {
+          "role": "IMAGE 1 — geometry guide and edit target",
+          "path": "in/01_cae3_guide_heart.png"
+        },
+        {
+          "role": "IMAGE 2 — painted hand: line, hatching, washes",
+          "path": "in/02_S1-ink_b.png"
+        },
+        {
+          "role": "IMAGE 3 — sunset colour and purple haze only",
+          "path": "in/03_MOOD-far_a.png"
+        }
+      ],
+      "elapsed_s": 59.517
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a added projecting pier bases and changed opening silhouettes with architectural trim.",
+      "change": "Repeated the edit from IMAGE 1 with explicit silhouette tracing, no projecting mouldings or reshaped openings, and crater bounds."
+    },
+    {
+      "reason": "Variant b added projecting pier bases and reshaped openings into arches.",
+      "change": "Repeated the edit from IMAGE 1 with explicit silhouette tracing, no projecting mouldings or reshaped openings, and crater bounds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Exact boundary preservation is not achieved: crater rims vary from the guide, especially in variant b.",
+      "Cracking and weathering extend beyond localized impact zones.",
+      "Some floor shadows and warm washes remain despite the calm, evenly lit floor requirement."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/CAE3-sol_a.png",
+      "sha256": "153e448d188c918d349abc615a7f9eed27dc3092ef835ae2b39fd58dde7cf474"
+    },
+    {
+      "path": "out/CAE3-sol_b.png",
+      "sha256": "25bddc9d6aba8afc07d97bb941d30251327e34f10f476815bbc402966df508d9"
+    }
+  ]
+}

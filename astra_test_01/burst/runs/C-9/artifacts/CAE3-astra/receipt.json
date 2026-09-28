@@ -1,0 +1,77 @@
+{
+  "task_id": "CAE3-astra",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "CAE3-astra_a",
+      "path": "out/CAE3-astra_a.png",
+      "sha256": "eb91b6778846f9e79a4fa962f7f5b70af4636d6e5d273f3d076517d818568de8",
+      "prompt": "Use case: style-transfer. Variant a. EDIT IMAGE 1 directly: paint its existing surfaces while preserving its exact 1536x1024 framing, fixed elevated three-quarter orthographic camera looking from southeast to northwest, all silhouettes, boundaries, occlusions, pier footprints and openings. Image 1 is the geometry edit target. Image 2 is the approved pen-and-watercolor hand ONLY. Image 3 supplies dark sunset and purple haze COLOR MOOD ONLY, never its landscape or buildings.\nGEOMETRY IS IMMUTABLE: preserve every tall prism running off the top edge as an intact massive cathedral pier, without showing its top. Preserve every short prism with jagged brown top as a broken pier, at its exact height, position and silhouette. Preserve the small loose blocks beside piers as fallen capitals, drums and vault stones in the same locations. Do not add, remove, widen, move or reshape any pier, opening, floor boundary or block. The center black ellipse stays exactly positioned and sized and partly hidden by the same foreground pier: a demon-gate blast crater, a hole through the floor into darkness, scorched at its lip with localized radial cracks following flagstone joints and damage decaying outward. The lower-right black square stays exactly positioned and occluded: the crypt stair opening, broken stairs descending, cold blue flame at its mouth. The existing pale blue-grey apron marks its local floor hazard. Keep the large central walkable floor empty and serene. Midgrey walls and planes at upper left and right are cathedral walls and arcade openings into darker side aisles and chapels; the darkest bands are gallery openings. Any pure green exterior opening in the guide must remain pure #00ff00.\nPLACE AND MATERIALS: a vast fortress-cathedral nave of a crusading order, faith of the SUN and CHAIN, lost in battle this week. Romanesque mass with gothic verticals. Architecture, floor, battle damage and existing fallen pier pieces ONLY. Smooth dressed cold grey-white stone floors are the BRIGHTEST and CALMEST region, large pale cream-white surfaces, extremely restrained joints, no floor pattern or ornament. Grey-white and black stone piers expressed mainly as pale stone with dark ink and hatching, not large filled black faces. Shattered pier tops have scorched cracks and raw pale stone within fresh breaks; blackening runs upward above local burns. Damage is locally motivated, never universal cracked rubble. Iron only where structural. Subtle sun-and-chain architectural carving is allowed on existing stone, never freestanding objects.\nMERGED STYLE: late-medieval and early-Renaissance illuminated manuscript architecture, iconography and mineral palette, circa 1400-1530, rendered as hand-painted watercolor-and-ink illustration of the kind made for 1990s tactics role-playing games. Match Image 2's crisp DARK sepia-to-near-black wavering pen contours, variable line weight, fine individual hand-drawn hatching on stone and transparent uneven watercolor. Washes pool at edges, granulate, softly bloom, occasionally stop short of or overrun the line. Shadows use a second darker wash plus hatching, never smooth digital gradients. Large surfaces remain pale with cream and bare-paper highlights. It must read as one hand-painted illustration. No photographic surfaces, glossy highlights, optical effects, airbrushed gradients or dramatic beams. Moderate mineral hues: lapis blue, vermilion, verdigris, yellow ochre, madder, lead white and warm stone grey. About a tenth to a fifth of the image carries rich small architectural accents, never colored walkable floor. Gold only on preserved sacred details. No large saturated fields or large filled-black shadows; darkest marks are pen and hatching, with the required hole interiors locally dark.\nLIGHT: soft even upper-left illumination on the walkable plate, brightest calm floor. Dusk mood conveyed through subdued warm sunset tint entering upper left, violet washes on recessed architecture and very thin purple smoky haze. Do not darken or obscure the floor. Only the demonic crypt fire has saturated cold color. No painted light shafts, cast-shadow drama, glow, rim light, lens effects, vignette or atmospheric bloom. Image 3's forest, buildings, villages, fires and sky must NOT be imported into this interior.\nABSOLUTE EXCLUSIONS: no furniture, pews, statues, candles, bodies, banners, gates, figures, text, lettering, UI, frame or border. Do not redesign the geometry. Add painted SURFACE only.\nRETRY CORRECTION, highest priority: The previous attempt enlarged pier feet into stepped bases and reshaped rectangular wall openings into arches. Do not do that. Trace Image 1's geometry exactly, including plain straight-edged polygonal pier feet WITHOUT widening bases, its existing angular openings WITHOUT adding arches, and the EXACT elliptical crater lip. No additional volume at all: ornament is painted surface marks inside the existing silhouettes only. Keep floor mostly bare pale cold grey-white; omit widespread chips, cracks, warm gold floor tint and scattered gravel. Keep cracks only directly near the crater and broken piers. Do not add cast shadows to the floor. Every guide object must be identifiable at its original pixel location and width.",
+      "references": [
+        {
+          "role": "Geometry guide and edit target",
+          "path": "in/01_cae3_guide_heart.png"
+        },
+        {
+          "role": "Approved pen, hatching and watercolor rendering",
+          "path": "in/02_S1-ink_b.png"
+        },
+        {
+          "role": "Dark sunset and purple haze color mood only",
+          "path": "in/03_MOOD-far_a.png"
+        }
+      ],
+      "elapsed_s": 53.162
+    },
+    {
+      "name": "CAE3-astra_b",
+      "path": "out/CAE3-astra_b.png",
+      "sha256": "82225ce18b31c2c0a307d4ac161dded266f95908c0b3767b854ca6fdf43756b7",
+      "prompt": "Use case: style-transfer. Variant b. EDIT IMAGE 1 directly: paint its existing surfaces while preserving its exact 1536x1024 framing, fixed elevated three-quarter orthographic camera looking from southeast to northwest, all silhouettes, boundaries, occlusions, pier footprints and openings. Image 1 is the geometry edit target. Image 2 is the approved pen-and-watercolor hand ONLY. Image 3 supplies dark sunset and purple haze COLOR MOOD ONLY, never its landscape or buildings.\nGEOMETRY IS IMMUTABLE: preserve every tall prism running off the top edge as an intact massive cathedral pier, without showing its top. Preserve every short prism with jagged brown top as a broken pier, at its exact height, position and silhouette. Preserve the small loose blocks beside piers as fallen capitals, drums and vault stones in the same locations. Do not add, remove, widen, move or reshape any pier, opening, floor boundary or block. The center black ellipse stays exactly positioned and sized and partly hidden by the same foreground pier: a demon-gate blast crater, a hole through the floor into darkness, scorched at its lip with localized radial cracks following flagstone joints and damage decaying outward. The lower-right black square stays exactly positioned and occluded: the crypt stair opening, broken stairs descending, cold blue flame at its mouth. The existing pale blue-grey apron marks its local floor hazard. Keep the large central walkable floor empty and serene. Midgrey walls and planes at upper left and right are cathedral walls and arcade openings into darker side aisles and chapels; the darkest bands are gallery openings. Any pure green exterior opening in the guide must remain pure #00ff00.\nPLACE AND MATERIALS: a vast fortress-cathedral nave of a crusading order, faith of the SUN and CHAIN, lost in battle this week. Romanesque mass with gothic verticals. Architecture, floor, battle damage and existing fallen pier pieces ONLY. Smooth dressed cold grey-white stone floors are the BRIGHTEST and CALMEST region, large pale cream-white surfaces, extremely restrained joints, no floor pattern or ornament. Grey-white and black stone piers expressed mainly as pale stone with dark ink and hatching, not large filled black faces. Shattered pier tops have scorched cracks and raw pale stone within fresh breaks; blackening runs upward above local burns. Damage is locally motivated, never universal cracked rubble. Iron only where structural. Subtle sun-and-chain architectural carving is allowed on existing stone, never freestanding objects.\nMERGED STYLE: late-medieval and early-Renaissance illuminated manuscript architecture, iconography and mineral palette, circa 1400-1530, rendered as hand-painted watercolor-and-ink illustration of the kind made for 1990s tactics role-playing games. Match Image 2's crisp DARK sepia-to-near-black wavering pen contours, variable line weight, fine individual hand-drawn hatching on stone and transparent uneven watercolor. Washes pool at edges, granulate, softly bloom, occasionally stop short of or overrun the line. Shadows use a second darker wash plus hatching, never smooth digital gradients. Large surfaces remain pale with cream and bare-paper highlights. It must read as one hand-painted illustration. No photographic surfaces, glossy highlights, optical effects, airbrushed gradients or dramatic beams. Moderate mineral hues: lapis blue, vermilion, verdigris, yellow ochre, madder, lead white and warm stone grey. About a tenth to a fifth of the image carries rich small architectural accents, never colored walkable floor. Gold only on preserved sacred details. No large saturated fields or large filled-black shadows; darkest marks are pen and hatching, with the required hole interiors locally dark.\nLIGHT: soft even upper-left illumination on the walkable plate, brightest calm floor. Dusk mood conveyed through subdued warm sunset tint entering upper left, violet washes on recessed architecture and very thin purple smoky haze. Do not darken or obscure the floor. Only the demonic crypt fire has saturated cold color. No painted light shafts, cast-shadow drama, glow, rim light, lens effects, vignette or atmospheric bloom. Image 3's forest, buildings, villages, fires and sky must NOT be imported into this interior.\nABSOLUTE EXCLUSIONS: no furniture, pews, statues, candles, bodies, banners, gates, figures, text, lettering, UI, frame or border. Do not redesign the geometry. Add painted SURFACE only.\nSTRICT SURFACE-ONLY LOCK: Trace Image 1 exactly: plain straight-edged polygonal pier feet WITHOUT widening bases, existing angular openings WITHOUT adding arches, exact elliptical crater lip. Ornament is painted surface marks inside existing silhouettes only. No additional volume. Floor mostly bare pale cold grey-white, no widespread chips, cracks, gold floor tint or scattered gravel. Cracks only directly near crater and broken piers, running along joints. No cast shadows on floor. Every guide object must remain at its original pixel location, width and height. For this variant emphasize cool lead-white stone, crisp dark sepia hand hatching and pale restrained washes; dusk violet stays in recessed walls and slight warm ochre stays on upper-left architectural planes. Sun-and-chain motifs are modest surface carving only. Rich color remains in small preserved architectural details, not in the floor.\nRETRY CORRECTION: The upper-right narrow opening was raised and rounded, changing the geometry. Correct this by exactly tracing ALL opening cutouts from Image 1. Particularly the narrow cutout near x1342-1375 begins around y280, with the guide's angular notch, NOT an arch extending upward to y190. The larger opening near x1201-1262 starts around y365 with its exact angular V edge. Preserve the left-side openings too. No new arch, rounded opening, sill, widened edge or structural ornament anywhere. Treat every guide silhouette as a fixed stencil. Surface decoration must never change an edge. Keep small painted mineral-color architectural accents confined within existing pier faces. Keep architecture mostly pale grey-white, rich color only small accents, deep violet only recessed areas. Retain the exact guide ellipse and crypt cutout.",
+      "references": [
+        {
+          "role": "Geometry guide and edit target",
+          "path": "in/01_cae3_guide_heart.png"
+        },
+        {
+          "role": "Approved pen, hatching and watercolor rendering",
+          "path": "in/02_S1-ink_b.png"
+        },
+        {
+          "role": "Dark sunset and purple haze color mood only",
+          "path": "in/03_MOOD-far_a.png"
+        }
+      ],
+      "elapsed_s": 55.153
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a added widened pier bases and reshaped openings.",
+      "change": "Re-edited Image 1 with explicit silhouette tracing, plain pier feet and unchanged angular openings."
+    },
+    {
+      "reason": "Variant b raised and rounded the upper-right narrow opening.",
+      "change": "Re-edited Image 1 with coordinate-specific opening constraints and fixed boundary instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Final geometry is visually close to the guide; exact boundary preservation is not verified.",
+      "Both floors retain warm washes and faint shadow-like patches; some damage extends beyond impact zones.",
+      "Rich accent coverage appears below the requested tenth-to-fifth proportion."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/CAE3-astra_a.png",
+      "sha256": "eb91b6778846f9e79a4fa962f7f5b70af4636d6e5d273f3d076517d818568de8"
+    },
+    {
+      "path": "out/CAE3-astra_b.png",
+      "sha256": "82225ce18b31c2c0a307d4ac161dded266f95908c0b3767b854ca6fdf43756b7"
+    }
+  ]
+}
