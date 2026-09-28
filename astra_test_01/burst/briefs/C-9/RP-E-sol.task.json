@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST RP-E-sol — (painter bake-off, Matt R-C9-49) Run C-9 P7, puppet-rig UNDER-LAYERS for the east-facing knight (Matt: \"there is still a gap of black area between the lower thigh and upper thigh/hips\"). task_id \"RP-E-sol\".\n\nWHY: the knight is being animated as a 2D cut-out PUPPET (separate painted parts on bones). In IMAGE 1 his tabard hides his upper thighs and hips, so no armour was ever painted there, and when a leg swings forward that area shows as a hole. A puppet needs the hidden layers painted.\n\nIMAGE 1 is the knight facing the viewer's RIGHT (east), painted in the hand of a c. 1530 Flemish manuscript, background flat green. Use image_gen in EDIT mode on IMAGE 1 and deliver TWO images, each the SAME SIZE as IMAGE 1, with the knight at EXACTLY the same position, scale and pose, so every pixel lines up when the images are stacked:\n(a) out/RP-E-sol_a.png — the SAME knight with his TABARD REMOVED ENTIRELY (both hanging flaps, the red lining and the heraldry gone). Paint what the tabard was covering, as the plate armour of the same man and period: the lower breastplate and its skirt of overlapping steel lames (fauld) at the waist, a short skirt of mail below it at the hips, and BOTH thighs in full as steel cuisses running continuously from the hip joint down into the knee cops that are already painted. The upper thighs must be complete, round, armoured shapes meeting the hips with no gap.\n(b) out/RP-E-sol_b.png — the same as (a) and ALSO with his NEAR leg (the leg nearer the viewer) REMOVED from the hip down, so the FAR leg is seen COMPLETE from the hip joint to the foot, including the parts the near leg was hiding. Paint the far thigh, knee and shin continuous and whole. Everything else stays as in (a).\nIn BOTH: keep EVERYTHING ELSE EXACTLY as in IMAGE 1: head and helm, gorget, arms, hands, the pollaxe, the knees, greaves and sabatons already painted, pose, direction, size, position, flat pure #00ff00 background. Same steel colour, same dark ink line, same hatching and washes: paint in EXACTLY the same hand as IMAGE 1. For this step the REGISTER CARD above is satisfied BY THE IMAGE: do not restyle.\n\nTwo image_gen EDIT calls (a, then b; b may edit a). ONE retry per image only if the figure moved or rescaled, anything other than the named parts changed, a gap remains between thigh and hip, the tabard is still visible, or the background is not flat green; name the reason. Copy outputs to out/RP-E-sol_a.png and out/RP-E-sol_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"RP-E-sol\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seed_E_v1.png",
+   "role": "IMAGE 1 — THE IMAGE TO EDIT: the approved east-facing knight (seed_E)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/RP-E-sol_a.png",
+  "out/RP-E-sol_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "BAKEOFF-SOL"
+}

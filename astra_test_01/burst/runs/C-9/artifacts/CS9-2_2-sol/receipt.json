@@ -1,0 +1,47 @@
+{
+  "task_id": "CS9-2_2-sol",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_2.png",
+      "path": "out/chunk_2_2.png",
+      "sha256": "fc79c1f7f8922a5b930ddade11b6f61afa04080cee025b7c96a3cdfa54ea5f1f",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536x1024 cliffside terrain canvas. Deliver exactly one 1536x1024 PNG. IMAGE 1 is the only composition and geometry source. IMAGE 2 is the approved painted style reference. IMAGE 3 is a manuscript reference for small rich-colour accents only; do not copy its content or layout.\n\nPreserve the finished artwork in IMAGE 1 EXACTLY: the top 256 rows and left 256 columns, including their corner, are immutable finished pixels from adjoining terrain tiles. Preserve every pure #00ff00 void pixel and its exact silhouette. Change ONLY the flat guide regions outside those painted strips. Continue existing stones, flowers, grasses, ink contours, hatching and watercolor seamlessly across the inner edges at x=256 and y=256. There must be no straight seam or join line.\n\nThe unpainted olive region is grassy cliff-top ground: continue the neighboring grass, little wildflowers, moss and bare rock patches; no boulders or props. The small tan area is pale worn beaten earth with soft earth-to-grass edges, sparse pebbles and faint ruts. Walkable earth must be the brightest and calmest region. The light grey band is the rocky cliff rim. Dark grey planes and lighter ribs are sheer rock faces descending toward the viewer: paint continuous stylised stacked manuscript stone, faceted warm ochre and warm-grey blocks with crisp dark pen contours, fine hand hatching and a second uneven wash for shade. Continue those faces all the way to their exact green boundaries and bottom of frame, becoming subtly paler and hazier low down; do not add a bottom edge or ledge. The right cliff must also continue downward from its finished upper strip, matching the geometry guide exactly. Keep EVERY guide boundary at the same position. No bridge is present in this canvas; do not invent one. Pure bright green is a technical void mask and must remain flat pure #00ff00 without texture or decoration.\n\nStyle: merge late-medieval and early-Renaissance illuminated manuscript landscape forms, c.1400–1530, with hand-painted watercolor-and-ink tactics role-playing character illustration from the 1990s. Match IMAGE 2 and the existing painted strips precisely. Crisp dark sepia-to-near-black wavering pen outlines varying in weight; hand-drawn fine hatching, never printed texture. Transparent uneven watercolor washes with pooling along edges, granulation and soft blooms, slight undershoot/overrun of contours. Large surfaces pale cream with bare-paper highlights. Model shade by a second darker wash and pen hatching, never gradients. Mineral hues: lapis, vermilion, verdigris, yellow ochre, madder, lead white, warm stone grey. Rich color restricted to small off-path wildflower clusters in vermilion, lapis, white and gold-yellow, verdigris moss and ochre lichen, approximately a tenth to a fifth of the painted region. No metallic gold on ordinary terrain. No large saturated painted surfaces, no large black shadow fills. The green technical mask is the sole exception to the palette. Darkest marks are ink lines and hatching.\n\nFixed elevated three-quarter orthographic game view; no perspective shrinking toward the top. Soft even daylight from screen upper-left. No dramatic lighting, cast shadows, glow, rim light, lens effects, glossy highlights or digital gradients. One coherent hand-painted illustration. No characters, creatures, buildings, added objects, text, UI, border or vignette. Preserve exact canvas dimensions, protected painted strips, all geometric boundaries and the pure-green mask.\n\nRETRY CORRECTION — absolute geometry fidelity takes priority over decorative details. The previous attempt allowed small cliffside plants to protrude into the green and slightly shifted the left cliff/void contour. In this new edit of the ORIGINAL IMAGE 1, treat all green pixels as a hard locked mask, and all existing painted strip pixels as hard locked artwork. Paint strictly inside the non-green flat-guide regions. Every flower, leaf, ink stroke and stone must remain INSIDE the existing cliff silhouette. The left cliff meets the green at the ORIGINAL irregular boundary, including the inward bend near y=500 and outward bend near y=675; reproduce these contours exactly, with no added vegetation crossing them. Do not smooth or reinterpret any boundary. Preserve original top/left painted pixels without recoloring or redrawing.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_2_2_canvas.png"
+        },
+        {
+          "role": "approved painted style",
+          "path": "in/02_S1-ink_b.png"
+        },
+        {
+          "role": "manuscript colour accents",
+          "path": "in/03_trh-07-july-bridge.jpg"
+        }
+      ],
+      "elapsed_s": 25.704
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output extended foliage into the green void and shifted the cliff silhouette.",
+      "change": "Repeated the edit from the original canvas with stronger locked-mask and exact-boundary instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The delivered grassy rim appears narrower than the geometry guide near the bottom.",
+      "Exact preservation of painted-strip pixels and pure #00ff00 pixels remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_2.png",
+      "sha256": "fc79c1f7f8922a5b930ddade11b6f61afa04080cee025b7c96a3cdfa54ea5f1f"
+    }
+  ]
+}

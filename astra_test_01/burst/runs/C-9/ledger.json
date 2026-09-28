@@ -12219,9 +12219,183 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS9-2_2-sol",
+      "type": "GENERATE",
+      "experiment": "BAKEOFF-SOL",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "0e0260c157574403084bd445aeea9d9b06dd7c247fae45d41a2bbceed18d50b2",
+      "started": "2026-09-28T00:11:25.157189+00:00",
+      "ended": "2026-09-28T00:14:31.500974+00:00",
+      "minutes": 3.105697858333345,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-79b1-bb4e-6786a8b7663f/exec-93dfd3e2-a05d-4331-bdbd-88b44de26002.png",
+            "sha256": "fc79c1f7f8922a5b930ddade11b6f61afa04080cee025b7c96a3cdfa54ea5f1f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-79b1-bb4e-6786a8b7663f/exec-bef4cd1d-71d2-4a08-a8e1-933c3bdcd2b4.png",
+            "sha256": "98fc5ab116cfbccdf1823e2a9b22a44eccda3d15d44d0da51b1ffac847b36f4e"
+          }
+        ]
+      },
+      "receipt_sha256": "74cb798df1aaa42f905c6a683719ba302da8515ea7c6b3cd8c087c60e91d6ea6",
+      "artifacts": [
+        {
+          "name": "chunk_2_2.png",
+          "sha256": "fc79c1f7f8922a5b930ddade11b6f61afa04080cee025b7c96a3cdfa54ea5f1f"
+        },
+        {
+          "name": "exec-93dfd3e2-a05d-4331-bdbd-88b44de26002.provenance.json",
+          "sha256": "76b44f345f0bd9dbba901d5de44c5ba6662cb27a658900ad05005a971b144786"
+        },
+        {
+          "name": "exec-bef4cd1d-71d2-4a08-a8e1-933c3bdcd2b4.provenance.json",
+          "sha256": "69f8c794d35232a3dd688ab4053fbb5209d4416f69ebfb64637db59b86200dc7"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-79b1-bb4e-6786a8b7663f/exec-93dfd3e2-a05d-4331-bdbd-88b44de26002.png",
+          "sha256": "fc79c1f7f8922a5b930ddade11b6f61afa04080cee025b7c96a3cdfa54ea5f1f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-79b1-bb4e-6786a8b7663f/exec-bef4cd1d-71d2-4a08-a8e1-933c3bdcd2b4.png",
+          "sha256": "98fc5ab116cfbccdf1823e2a9b22a44eccda3d15d44d0da51b1ffac847b36f4e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-sol",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "2f001f600303bb2066a862d2fb5d1e1fb12d281abc83f255bae170928ecae8e1",
+      "exit": 0
+    },
+    {
+      "id": "RP-E-sol",
+      "type": "GENERATE",
+      "experiment": "BAKEOFF-SOL",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "95bd19d1ccb2e97da530d0751712a1b739a5ec532ca2ee25725a5876d1e239ca",
+      "started": "2026-09-28T00:11:25.157724+00:00",
+      "ended": "2026-09-28T00:15:35.574421+00:00",
+      "minutes": 4.173577865983437,
+      "image_calls": 4,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-2e9d7890-277b-48f8-a2e6-cea3bb440230.png",
+            "sha256": "e6fadf76ae4f88f2fc6a5798d7f0e8d808eb26aba237bf505d27f0990da43de6"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-9c2ac54c-abbf-4eb8-9862-be6073abcc0c.png",
+            "sha256": "b6a03ddb347ba196600c64e64888c4e9f8c201d00d378c42d1e117a4efa3c93a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-9cea66a0-0c45-4da2-9bc7-3ab789dfdd72.png",
+            "sha256": "3aad852fa22365526075e31dad917bcb62bdedc8686e6b0182186d1ef3740d8f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-aae7b78d-8967-425c-8cbb-0ee2ed7f35c1.png",
+            "sha256": "9f2f6edb6e5fb09781cb41b0b96c3ed65e9a42a0b06b13ae43412a31fc9243dc"
+          }
+        ]
+      },
+      "receipt_sha256": "f7f031b8386177c0ef169937769099788276649270d1c01008a124fbe9c018e3",
+      "artifacts": [
+        {
+          "name": "RP-E-sol_a.png",
+          "sha256": "b6a03ddb347ba196600c64e64888c4e9f8c201d00d378c42d1e117a4efa3c93a"
+        },
+        {
+          "name": "RP-E-sol_b.png",
+          "sha256": "3aad852fa22365526075e31dad917bcb62bdedc8686e6b0182186d1ef3740d8f"
+        },
+        {
+          "name": "exec-2e9d7890-277b-48f8-a2e6-cea3bb440230.provenance.json",
+          "sha256": "4b22c049bab02656362e425810d925ca15003beb61059c074bdcc5ae12b88033"
+        },
+        {
+          "name": "exec-9c2ac54c-abbf-4eb8-9862-be6073abcc0c.provenance.json",
+          "sha256": "025d8391e2ef0dbf58f9a3f6cc2db01d453996f65e76bcac28ae64524ba0400d"
+        },
+        {
+          "name": "exec-9cea66a0-0c45-4da2-9bc7-3ab789dfdd72.provenance.json",
+          "sha256": "1630cb832bdc217f143f0241dcb72804ccf9b6f1c5f366fd17e274cda64013ca"
+        },
+        {
+          "name": "exec-aae7b78d-8967-425c-8cbb-0ee2ed7f35c1.provenance.json",
+          "sha256": "61fb8cc8945c271be91483f6028acf265122db1804f1684a02e78182255d311a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-2e9d7890-277b-48f8-a2e6-cea3bb440230.png",
+          "sha256": "e6fadf76ae4f88f2fc6a5798d7f0e8d808eb26aba237bf505d27f0990da43de6"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-9c2ac54c-abbf-4eb8-9862-be6073abcc0c.png",
+          "sha256": "b6a03ddb347ba196600c64e64888c4e9f8c201d00d378c42d1e117a4efa3c93a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-9cea66a0-0c45-4da2-9bc7-3ab789dfdd72.png",
+          "sha256": "3aad852fa22365526075e31dad917bcb62bdedc8686e6b0182186d1ef3740d8f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e55a-2529-7213-a6ea-30c7faf6cfaf/exec-aae7b78d-8967-425c-8cbb-0ee2ed7f35c1.png",
+          "sha256": "9f2f6edb6e5fb09781cb41b0b96c3ed65e9a42a0b06b13ae43412a31fc9243dc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-sol",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "2f001f600303bb2066a862d2fb5d1e1fb12d281abc83f255bae170928ecae8e1",
+      "exit": 0
     }
   ],
-  "images_used": 318,
+  "images_used": 324,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -12404,6 +12578,11 @@
       "id": "M-C9-HIP-FAULD-MIST",
       "ts_note": "R-C9-47/48 SHIPPED. (1) THE HIP GAP WAS A DARK PLUG, NOT A HOLE. joint_gap() read 0.00 while Matt saw black: the probe counts TRANSPARENT pixels and the slot between the tabard flaps held an OPAQUE x0.68 backdrop at luma 75 against the thigh's 96, plus a flat grey cloned slab. 8th instrument on the standing list and the FIRST A PLAYER FOUND FIRST. Cause was never geometry -- no painted armour existed under the tabard, so every fill was invented. RP-E supplies it: new part hip_fauld, 23,942 px from RP-E_a cut at the mail hem (seed rows 768-900), on the hip bone, drawn IN FRONT of both thighs and behind the flaps; thigh caps repainted from RP-E's own cuisse; body_backdrop DELETED. Slot transparency 12.31%->2.55%, slot luma 96.0 vs a 75.3 thigh plate. CROTCH NEEDED NOTHING -- in RP-E_a every row 760-1020 is one contiguous run of armour; no plug reinstated. Tone -2.5 (a) / -4.7 (b), measured on helm+greaves which agree to 0.06; b's greave +15.34 rejected as it intersects two different legs (IoU 0.52). (2) PROBE now fails on a dark plug by asking 'darker than the SOURCE says', not 'is it dark' -- the first version flagged the fix as worse than the bug because painted mail is legitimately dark (71). Every part 0.99-1.00 of source; hip_fauld exactly 1.000. (3) R-C9-48 MIST: a flat cap matched A's PEAK only (B mean 0.443 vs A 0.341, median 0.518 vs 0.333) -> 260 px high. Full alpha HISTOGRAM matched over 512 quantiles + a measured -90 px screen trim (the horizon rule uses the LAYER's width; the screen shows 1920 of 4340 columns). Bank row bridge A 975 / B 981 (+6), plateau A 614 / B 615 (+1). All three layers now within 6 px at both cameras: far -6/0, forest -6/-2, mist +6/+1. probe_rig.gd 0 failures; app GREEN 15/15. LIVE pck sha256 f5d058f44169f1a30dd82491e01f2251ca391547b0794417901482815173085c, 68,603,060 B, loadout e9647fa..39dda0a pushed, toggles verified live. collab + godot committed not pushed.",
       "ts": "2026-09-27T18:06:24"
+    },
+    {
+      "id": "M-C9-BAKEOFF-1",
+      "ts": "2026-09-28",
+      "note": "Painter bake-off, rounds 1-2 (Matt R-C9-49). Same briefs and canvases; the lane profile was temporarily pointed at gpt-6-sol by conductor_scripts/bakeoff_sol.sh (trap-restored; restore verified by sha 04725bed; ledger rows record model gpt-6-sol, codex 0.157.1). One sample per model, so thin. RP-E under-layers: registration a greaves+feet IoU Astra 0.992 / Sol 0.988; helm untouched-region drift Astra 18.6 / Sol 16.2 (a), 28.9 / 25.3 (b); b far-leg similar in both. Chunk 2_2: guide green IoU 0.995 both; strip drift L/T Astra 10.7/11.9, Sol 12.4/10.2; inner-edge step ratio (1.0 = invisible join) Astra 0.84/0.95, Sol 0.94/0.99. Eye (conductor): Sol cliff rock is more uniform vertical striation (a repetition risk) and its verge carries fewer flower accents than Astra (card ACCENTS line). Time: Sol 4.2 vs 4.6 min (RP-E), 3.1 vs 3.5 (chunk); same image-call counts. Reading: a tie on edit fidelity, Sol about 10% faster, Astra richer on accents and variety. Round 3 (cathedral establishing pass over the grey box, Matt eye) decides."
     }
   ],
   "halts": [],
