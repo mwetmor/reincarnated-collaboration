@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST KA-1 — Run C-9 pipeline test T1 (Matt R-C9-61): the knight's CHARACTER SHEET for a 3D model, weapon-free, in A-POSE. task_id \"KA-1\".\n\nIMAGE 1 is a character turnaround sheet: the SAME knight in four views, each in its own column of the sheet, all at the same scale with the soles on one ground line, on flat pure #00ff00: column 1 FRONT, column 2 his RIGHT side (he faces the viewer's right), column 3 BACK, column 4 his LEFT side (he faces the viewer's left).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet with the same four views in the same four columns, at the same scale and on the same ground line, in which the knight:\n1. holds NO WEAPON: the pollaxe is removed completely from every view (nothing of its haft, head or butt remains) and both hands are EMPTY, open gauntlets with relaxed fingers;\n2. stands in a relaxed A-POSE: both arms straight and held AWAY from the body at about 30 degrees, so that in the front and back views a clear gap of green shows between each arm and the torso and tabard; in the side views the near arm hangs slightly forward, clear of the tabard; legs straight, feet a little apart, weight even; head level, facing the same way as the body;\n3. is otherwise EXACTLY the same knight: the same helm and visor, gorget, pauldrons and every plate; the same blue tabard with the same gold crosses and the same diagonal gold-and-blue bands on the FRONT and on the BACK (the back of the tabard is blue and gold exactly as IMAGE 1's back view shows, never red; red lining shows only at the tabard's side edges); the same colours, the same dark ink line, hatching and washes.\nPaint what the pollaxe and the old arm positions were hiding, continuing the armour and tabard exactly as painted. All four views must show ONE consistent knight: a 3D model will be built from these four images. No shadows, no ground, no text, no labels, no cell borders.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 1: copy its hand; do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if any part of the pollaxe remains, an arm touches the torso in the front or back view, a view changed its facing, the knight differs between views, the tabard back is red, or the background is not flat green — name the reason. Copy outputs to out/KA-1_a.png and out/KA-1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KA-1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/ka_sheet_canvas.png",
+   "role": "IMAGE 1 — the knight's four-view turnaround to EDIT (the approved stills, holding the pollaxe)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KA-1_a.png",
+  "out/KA-1_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T1-knight-sheet"
+}

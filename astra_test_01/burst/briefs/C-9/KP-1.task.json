@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST KP-1 — Run C-9 pipeline test T1 (Matt R-C9-61): the POLLAXE alone, as a separate model sheet. task_id \"KP-1\".\n\nIMAGE 1 shows a knight holding a POLLAXE: a long wooden haft with metal langets, topped by a spear point, with a fan-shaped axe blade on one side and a hammer or fluke on the other, and a metal butt cap.\nUse image_gen to deliver ONE 1536x1024 image on flat pure #00ff00 showing ONLY THE POLLAXE (NO knight, no hand, no gauntlet), in TWO VIEWS side by side, both standing vertical at the SAME scale and height (butt at the bottom, point at the top, the full length filling most of the height):\nLEFT: the BROADSIDE view, exactly the pollaxe painted in IMAGE 1 (same head shape and proportions, same colours, same dark ink line and washes), with the parts of the haft hidden by his hand and body completed;\nRIGHT: the SAME pollaxe turned 90 degrees about its haft, seen EDGE-ON: the axe blade as a thin edge, the spear point and the hammer in profile, the haft and butt identical.\nNo shadows, no ground, no text, no labels.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 1: copy its hand; do not restyle.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if any part of the knight remains, the two views differ in length or design, or the background is not flat green — name the reason. Copy outputs to out/KP-1_a.png and out/KP-1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KP-1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/kp_pollaxe_canvas.png",
+   "role": "IMAGE 1 — the knight holding the pollaxe (east-facing approved still): the source of the weapon's design"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KP-1_a.png",
+  "out/KP-1_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T1-weapon-sheet"
+}
