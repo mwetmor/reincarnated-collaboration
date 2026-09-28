@@ -38,10 +38,25 @@ const ELEVATION_DEG := 19.77          # the sprite pipeline's fitted camera elev
 const LINE_PX := 1.1                  # ink weight, in output pixels
 const LINE_COLOR := Color(0.055, 0.043, 0.063)
 
-# Azimuth per facing, adopted verbatim from the sprite pipeline (knight3d/10_render.py
-# AZI) so the two knights are photographed from the same eight places. The SIGN of the
-# rotation is the one thing a table cannot settle -- it depends on which way the model
-# faces after the glTF y-up conversion -- so it is verified by capture, not by argument.
+# Azimuth per facing, adopted from the sprite pipeline (knight3d/10_render.py AZI) so
+# the two knights are photographed from the same eight places.
+#
+# AZIMUTH_SIGN is the correction Matt caught on the live route: "with the Meshy version,
+# E and W are inverted." The table was right and the sense of rotation was not.
+#
+# The shape of the error names its own fix. A reversed rig forward is a 180 deg offset
+# and swaps BOTH axes: E with W and N with S. What was on the route swapped E and W
+# while N and S stayed correct -- verified by where the pollaxe lands, since it is in
+# the RIGHT hand and so appears on the viewer's left from the front and on the right
+# from behind, which is what the captures show. Only a SIGN flip does that: az -> -az
+# fixes E (90) and W (270) while leaving S (0) and N (180) untouched.
+#
+# My first facing check compared the three skins at ONE direction, saw them agree, and
+# called the convention settled. Agreement at a single direction cannot tell "all
+# correct" from "all mirrored" -- and an E/W swap is invisible to it by construction.
+# tools/facing_probe.gd now walks all eight, and facing_screen_x() below lets the check
+# be an assertion rather than a look.
+const AZIMUTH_SIGN := -1.0
 const AZIMUTH := {
 	"S": 0.0, "SE": 45.0, "E": 90.0, "NE": 135.0,
 	"N": 180.0, "NW": 225.0, "W": 270.0, "SW": 315.0,
@@ -51,7 +66,15 @@ const AZIMUTH := {
 # stands in for cast so the CAST button shows something of his own, and jump falls back
 # to idle. Both substitutions are announced once on the console rather than left to look
 # like a missing animation.
-const CLIP_FOR := {
+# Two clip sets. The weapon decides which locomotion is right: Meshy's motion library
+# swings both arms free, which is correct unarmed and windmills a polearm; the
+# text-to-motion CARRY clips hold the right hand at chest height for one. The attack
+# exists once and serves both.
+const CLIP_ARMED := {
+	"idle": "c_idle", "walk": "c_walk", "run": "c_run",
+	"cast": "k_attack", "jump": "c_idle",
+}
+const CLIP_BARE := {
 	"idle": "k_idle", "walk": "k_walk", "run": "k_run",
 	"cast": "k_attack", "jump": "k_idle",
 }
@@ -61,7 +84,7 @@ const CLIP_FOR := {
 # a clip is that its stride has to agree with a GROUND SPEED, and idle has no ground
 # speed to agree with. Forcing the 4.0 s idle into the Keeper's 2.0 s would double its
 # tempo for no reason anyone could point at.
-const RETIME := ["k_walk", "k_run"]
+const RETIME := ["k_walk", "k_run", "c_walk", "c_run"]
 
 # The pollaxe carry. The haft's long axis is the model's local +Y and the HEAD is at
 # +Y -- measured off the mesh (radius per slice along the haft jumps from 0.03 m to
@@ -77,10 +100,14 @@ const RETIME := ["k_walk", "k_run"]
 #     arms freely, so a haft welded to the wrist would windmill. Mounted to the body at
 #     the hand's POSITION, it reads as carried. That is a stand-in, and the real fix is
 #     upstream: a carry clip, or an additive arm pose over the generic one.
-const MOUNT_OFFSET := Vector3(0.0, -0.03, 0.04)   # wrist -> where the fingers close
-const CARRY_LEAN_DEG := -12.0         # haft leaned back over the shoulder
-const HAFT_GRIP_M := 0.22             # mid-shaft to the grip; puts the butt near the
-									  # ground and the head above the helm
+# The pollaxe socket, read from meshy_t1/work/socket_pollaxe.json -- the knight3d
+# session's MEASURED bone-space transform, including the blade bearing they fitted so
+# the axe fan reads wide from the directions the player sees most. Reused rather than
+# re-derived: two sessions fitting the same grip independently is two answers.
+#
+# Read at runtime, not transcribed, so their re-fit reaches this build by re-running.
+const SOCKET_JSON := "res://frames/socket_pollaxe.json"
+const HAFT_LEN_M := 1.903      # measured in build_knight3d.py, head at local +Y
 
 var _vp: SubViewport
 var _view: Sprite2D
@@ -102,6 +129,10 @@ var _clip := ""
 var _said := {}
 var _facing := "S"
 var _keeper_cycle := {}          # clip -> the Keeper's own cycle length, seconds
+var _socket_basis := Basis()
+var _socket_offset := Vector3.ZERO
+var _armed := true
+var _clip_len := {}              # clip -> ONE STRIDE in seconds, measured at build time
 var _base_len := {}                   # clip -> its own length in seconds
 
 
@@ -140,6 +171,10 @@ func _ready() -> void:
 		for n in _anim.get_animation_list():
 			_base_len[n] = _anim.get_animation(n).length
 
+	if FileAccess.file_exists("res://frames/knight_t3_clips.json"):
+		var cj = JSON.parse_string(FileAccess.get_file_as_string("res://frames/knight_t3_clips.json"))
+		if typeof(cj) == TYPE_DICTIONARY:
+			_clip_len = cj.get("clips", {})
 	_flatten_shading()
 	_add_outline()
 	_add_camera()
@@ -275,7 +310,7 @@ func _add_camera() -> void:
 
 func _aim_camera(facing: String) -> void:
 	_facing = facing
-	var az: float = deg_to_rad(float(AZIMUTH.get(facing, 0.0)))
+	var az: float = deg_to_rad(AZIMUTH_SIGN * float(AZIMUTH.get(facing, 0.0)))
 	var el := deg_to_rad(ELEVATION_DEG)
 	var d := 20.0
 	# The offset from aim to camera. y-up Godot; the model faces +Z after the glTF
@@ -297,6 +332,7 @@ func _aim_camera(facing: String) -> void:
 
 # --- the pollaxe --------------------------------------------------------------
 func _add_pollaxe() -> void:
+	_read_socket()
 	if _skel == null or not ResourceLoader.exists(POLLAXE):
 		push_warning("knight3d: no skeleton or no pollaxe model; the knight goes unarmed")
 		return
@@ -324,20 +360,74 @@ func _add_pollaxe() -> void:
 	_place_pollaxe()
 
 
+func _read_socket() -> void:
+	if not FileAccess.file_exists(SOCKET_JSON):
+		push_warning("knight3d: no %s; the pollaxe will sit at the bare hand origin"
+			% SOCKET_JSON)
+		return
+	var j = JSON.parse_string(FileAccess.get_file_as_string(SOCKET_JSON))
+	if typeof(j) != TYPE_DICTIONARY:
+		return
+	# The socket was FITTED IN BLENDER, which is Z-up; Godot and the exported glTF are
+	# Y-up. Applying its euler and its offset as written puts the axe head at the
+	# knight's knee -- upright, near the hand, and upside down, which is what a rotation
+	# applied in the wrong frame looks like when the frames differ by one axis swap.
+	#
+	# Blender (x, y, z) maps to glTF (x, z, -y), which is a -90 deg turn about X. A
+	# POINT is carried by that map; a ROTATION has to be conjugated by it, C*R*C_inv,
+	# or it is a rotation about the wrong axes. The same C also carries the weapon's own
+	# long axis, which is Blender Z in their frame and glTF Y in mine -- so one change of
+	# basis settles the bone frame and the weapon frame together, rather than two
+	# separate hand-fitted corrections that could each be wrong in a compensating way.
+	var C := Basis.from_euler(Vector3(-PI / 2.0, 0.0, 0.0))
+	var e = j.get("rotation_euler_xyz_deg", [0, 0, 0])
+	var r_blender := Basis.from_euler(Vector3(
+		deg_to_rad(float(e[0])), deg_to_rad(float(e[1])), deg_to_rad(float(e[2]))))
+	# END-FOR-END. After the change of basis the haft sits upright and through the fist
+	# -- both assertions pass -- with the axe head 80 px BELOW it, in all eight
+	# directions. The socket file and this build number the haft's ends oppositely:
+	# `grip_below_fraction` says their grip is measured DOWN from the head, while the
+	# head in pollaxe_t3.glb is at local +Y (measured: the per-slice radius along the
+	# haft goes 0.03 m -> 0.21 m over the top third). A half turn about the weapon's own
+	# X puts the head up without disturbing where the haft crosses the hand.
+	#
+	# It also leaves their fitted blade bearing intact: that fit maximises the apparent
+	# fan width |sin(a-b)|, which is unchanged by a half turn.
+	#
+	# "Upright" could not have caught this -- an inverted pollaxe is exactly as vertical
+	# as a carried one, and the angle check passed on all eight while the head was at the
+	# knight's knee. Hence a separate assertion for which END is up.
+	_socket_basis = C * r_blender * C.inverse() * Basis.from_euler(Vector3(PI, 0.0, 0.0))
+	var o = j.get("offset", [0, 0, 0])
+	# The file states its own units through `scale`: ~100 means the offset is in the
+	# armature's centimetres. Dividing by it makes this a length in metres rather than a
+	# number that happens to be right on one rig.
+	var s = j.get("scale", [1, 1, 1])
+	var k: float = maxf(float(s[0]), 1e-6)
+	_socket_offset = C * Vector3(float(o[0]) / k, float(o[1]) / k, float(o[2]) / k)
+	print("knight3d: socket offset %s m, euler %s deg (from %s)"
+		% [str(_socket_offset), str(e), SOCKET_JSON])
+
+
 func _place_pollaxe() -> void:
+	"""Mount the pollaxe on the RIGHT-HAND bone: position AND rotation.
+
+	The first version took only the hand's POSITION and got its orientation from the
+	body, because the motion library's free-swinging arms would have windmilled a haft
+	welded to the wrist. With the carry clips that reason is gone -- the hand is
+	authored holding a polearm -- and a socket that ignores the wrist cannot follow it,
+	which is what "the poleaxe floats near the character awkwardly" looks like.
+
+	The bone's basis is orthonormalized because this armature is centimetre-scaled: its
+	raw basis carries a 0.01 factor that would shrink the pollaxe to a toothpick. The
+	socket offset is therefore applied in METRES, converted from the file's own
+	centimetre units by its declared scale, rather than inherited."""
 	if _pollaxe == null or _attach == null:
 		return
-	if _skel == null:
-		return
-	var hand: Vector3 = _attach.global_transform.origin
-	# orthonormalized() because this armature is centimetre-scaled: its raw basis carries
-	# a 0.01 factor that would shrink the pollaxe to a toothpick.
-	var body: Basis = _skel.global_transform.basis.orthonormalized()
-	var basis: Basis = body * Basis.from_euler(Vector3(deg_to_rad(CARRY_LEAN_DEG), 0.0, 0.0))
-	# The haft's origin is mid-shaft (measured: 1.903 m long, origin within 10% of
-	# centre), so mid-shaft sits HAFT_GRIP_M up the haft from the gripping hand.
-	var origin: Vector3 = hand + body * MOUNT_OFFSET + basis.y * HAFT_GRIP_M
-	_pollaxe.global_transform = Transform3D(basis, origin)
+	var t := _attach.global_transform
+	var b: Basis = t.basis.orthonormalized()
+	var basis: Basis = b * _socket_basis
+	_pollaxe.global_transform = Transform3D(basis, t.origin + b * _socket_offset)
 
 
 # --- the toggle's interface ----------------------------------------------------
@@ -361,7 +451,8 @@ func drive(state: String, facing: String) -> void:
 	_place_pollaxe()
 	if _anim == null:
 		return
-	var want: String = String(CLIP_FOR.get(state, "k_idle"))
+	var set_now: Dictionary = CLIP_ARMED if (_armed and _pollaxe != null) else CLIP_BARE
+	var want: String = String(set_now.get(state, set_now.get("idle", "k_idle")))
 	if not _base_len.has(want):
 		if not _said.has(state):
 			print("knight3d: no clip for state ", state, "; holding idle")
@@ -377,12 +468,23 @@ func drive(state: String, facing: String) -> void:
 
 
 func _speed_for(clip: String) -> float:
-	if not RETIME.has(clip) or not _base_len.has(clip):
+	"""Match the Keeper's cadence per STRIDE, not per clip.
+
+	The library walk is one stride in 1.03 s; the carry walk is three in 3.37 s. Scaling
+	whole clips onto her 0.58 s stride would run the carry walk at nearly six times
+	speed. frames/knight_t3_clips.json carries the stride length measured at build time
+	from a foot's vertical track, so the runtime does not re-derive it and cannot
+	disagree with the file it shipped from."""
+	if not RETIME.has(clip):
 		return 1.0
-	var target := float(_keeper_cycle.get(clip, 0.0))
-	if target <= 0.0:
+	var stride := float((_clip_len.get(clip, {}) as Dictionary).get("seconds", 0.0))
+	if stride <= 0.0:
+		stride = float(_base_len.get(clip, 0.0))
+	var key := "k_run" if clip.ends_with("run") else "k_walk"
+	var target := float(_keeper_cycle.get(key, 0.0))
+	if target <= 0.0 or stride <= 0.0:
 		return 1.0
-	return float(_base_len[clip]) / target
+	return stride / target
 
 
 # --- calibration hooks --------------------------------------------------------
@@ -399,8 +501,10 @@ func set_fit(ppm: float, aim_up_m: float) -> void:
 
 
 func set_armed(on: bool) -> void:
+	_armed = on
 	if _pollaxe != null:
 		_pollaxe.visible = on
+	_clip = ""        # force the clip set to be re-picked on the next drive()
 
 
 func play_clip(clip: String, at: float) -> void:
@@ -418,6 +522,85 @@ func viewport() -> SubViewport:
 
 func clip_length(clip: String) -> float:
 	return float(_base_len.get(clip, 0.0))
+
+
+# --- measurements, so facing and weapon can be ASSERTED rather than eyeballed --------
+func _forward_world() -> Vector3:
+	"""Which way the body is actually pointing, derived from the FEET.
+
+	Not from a bone's local axis: which axis of a hand or a hip means "forward" is a
+	rigging convention this project did not choose and cannot check. Toes point the way
+	a person walks, so ankle->toe is a direction with a real referent, and averaging the
+	two feet cancels the stride. Horizontal component only -- a raised foot tilts up."""
+	if _skel == null:
+		return Vector3.ZERO
+	var sum := Vector3.ZERO
+	for pair in [["RightFoot", "RightToeBase"], ["LeftFoot", "LeftToeBase"]]:
+		var a := _skel.find_bone(pair[0])
+		var b := _skel.find_bone(pair[1])
+		if a < 0 or b < 0:
+			continue
+		var pa: Vector3 = (_skel.global_transform * _skel.get_bone_global_pose(a)).origin
+		var pb: Vector3 = (_skel.global_transform * _skel.get_bone_global_pose(b)).origin
+		var d := pb - pa
+		d.y = 0.0
+		if d.length() > 1e-5:
+			sum += d.normalized()
+	return Vector3.ZERO if sum.length() < 1e-5 else sum.normalized()
+
+
+func facing_check() -> Dictionary:
+	"""Where the body points, in the CAMERA's terms -- which is how a player reads it.
+
+	screen_x > 0 means the figure faces screen-right; toward_camera > 0 means it faces
+	out of the screen. Those two signs pin all eight directions without an image."""
+	if _cam == null:
+		return {}
+	var f := _forward_world()
+	if f == Vector3.ZERO:
+		return {"ok": false, "why": "no foot bones to derive forward from"}
+	var b := _cam.global_transform.basis
+	return {"ok": true, "facing": _facing,
+			"screen_x": snappedf(f.dot(b.x), 0.001),
+			"toward_camera": snappedf(f.dot(b.z), 0.001)}
+
+
+func weapon_check() -> Dictionary:
+	"""Is the pollaxe actually IN THE FIST, and does it stand up?
+
+	Both measured analytically off the transforms and projected through the camera --
+	no image analysis, so it is exact and cheap enough to run every frame of a probe.
+	  haft_deg_from_vertical  the angle of the haft as drawn
+	  grip_miss_px            how far the hand sits from the haft's line, on screen
+	A haft that floats beside the hand and a haft that lies across the body are two
+	different faults and this reports them separately."""
+	if _pollaxe == null or _attach == null or _cam == null:
+		return {"ok": false, "why": "unarmed"}
+	var b := _cam.global_transform.basis
+	var h: Vector3 = _pollaxe.global_transform.basis.y.normalized()
+	var sx := h.dot(b.x)
+	var sy := h.dot(b.y)
+	var deg := rad_to_deg(atan2(absf(sx), absf(sy)))
+	# screen-space distance from the hand to the haft's infinite line
+	var hand: Vector3 = _attach.global_transform.origin
+	var mid: Vector3 = _pollaxe.global_transform.origin
+	var d := hand - mid
+	var p := Vector2(d.dot(b.x), d.dot(b.y))
+	var u := Vector2(sx, sy)
+	var miss := 0.0
+	if u.length() > 1e-6:
+		u = u.normalized()
+		miss = absf(p.x * u.y - p.y * u.x) * _ppm
+	# Is the AXE HEAD at the top? "Upright" alone cannot tell a carried pollaxe from an
+	# upside-down one -- both are vertical, and the angle check passed on all eight
+	# directions while the head was down by the knight's knee. The head is at the
+	# weapon's local +Y (measured: the radius per slice along the haft jumps from 0.03 m
+	# to 0.21 m over the top third), so its height above the fist is the question.
+	var head: Vector3 = mid + h * (HAFT_LEN_M * 0.5)
+	var head_px := (head - hand).dot(b.y) * _ppm
+	return {"ok": true, "haft_deg_from_vertical": snappedf(deg, 0.01),
+			"grip_miss_px": snappedf(miss, 0.01),
+			"head_above_fist_px": snappedf(head_px, 0.01), "clip": _clip}
 
 
 func status() -> Dictionary:

@@ -56,6 +56,31 @@ def keeper_cadence(proj):
             for f, n, s in re.findall(pat, body, re.S)}
 
 
+# Which way a direction leads on screen. E-ward directions must lead with the face to
+# the right, W-ward to the left; N and S are dead-on and no profile is right for them.
+EASTWARD = {"E", "NE", "SE"}
+WESTWARD = {"W", "NW", "SW"}
+
+
+def needs_mirror(target_dir, source_faces):
+    """Should this direction's frames be flipped?
+
+    Matt, on the live route: "E and W are inverted." The stand-in column faces LEFT --
+    checked against the Keeper's own cells, where E faces right and W faces left -- so
+    it is W-facing art, and feeding it unflipped to all eight directions makes the
+    knight moonwalk east. `source_faces` is stated in the manifest rather than decided
+    here, because when a real per-direction set lands each direction has its own art and
+    NOTHING should be mirrored: that is a property of the source, not of this code.
+    """
+    if source_faces not in ("E", "W"):
+        return False
+    if target_dir in EASTWARD:
+        return source_faces == "W"
+    if target_dir in WESTWARD:
+        return source_faces == "E"
+    return False
+
+
 def find_frames(root, state, direction):
     """Accept either f_NN.png or {state}_{dir}_NN.png, and fall back to the E column
     when a direction is missing -- which is the stand-in's whole situation."""
@@ -88,7 +113,7 @@ def main():
           % (cad["walk_E"][0], cad["walk_E"][1], cad["walk_E"][0] / cad["walk_E"][1],
              cad["run_E"][0], cad["run_E"][1], cad["run_E"][0] / cad["run_E"][1]))
 
-    anims, substituted, missing = [], {}, []
+    anims, substituted, missing, mirrored = [], {}, [], {}
     for state, cfg in man["states"].items():
         src_state = cfg.get("from")
         if src_state is None:
@@ -109,14 +134,22 @@ def main():
             # By source they collapse to twelve, and the SpriteFrames just references the
             # same texture from several animations. When a real per-direction set lands,
             # nothing is shared and this collapses to nothing automatically.
+            flip = needs_mirror(d, man.get("source_faces", ""))
             names = []
             for i, f in enumerate(frames):
-                rel = "sprites_knight/%s/%s/%s" % (src_state, f.parent.name, f.name)
+                sub = f.parent.name + ("_mirror" if flip else "")
+                rel = "sprites_knight/%s/%s/%s" % (src_state, sub, f.name)
                 dest = out_sprites.parent / rel
                 if not dest.exists():
                     dest.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copyfile(f, dest)
+                    if flip:
+                        from PIL import Image
+                        Image.open(f).transpose(Image.FLIP_LEFT_RIGHT).save(dest)
+                    else:
+                        shutil.copyfile(f, dest)
                 names.append(rel)
+            if flip:
+                mirrored.setdefault(state, []).append(d)
             if borrowed:
                 substituted.setdefault(state, []).append(d)
             anims.append({"name": "%s_%s" % (state, d), "fps": float(cfg["fps"]),
@@ -148,6 +181,8 @@ def main():
         "states_built": sorted({an["name"].rsplit("_", 1)[0] for an in anims}),
         "states_missing_from_source": missing,
         "directions_substituted_from_E": substituted,
+        "source_faces": man.get("source_faces", ""),
+        "directions_mirrored": mirrored,
         "keeper_cadence_used": {k: {"frames": v[0], "fps": v[1]}
                                 for k, v in cad.items() if k in ("walk_E", "run_E", "idle_E")},
         "fps_per_state": {s: c["fps"] for s, c in man["states"].items()},
@@ -156,7 +191,10 @@ def main():
 
     print("built %d animations, %d textures -> %s" % (len(anims), len(ids), out))
     for s in sorted(substituted):
-        print("   %-6s directions fed from the E column: %s" % (s, " ".join(sorted(substituted[s]))))
+        print("   %-6s fed from the fallback column: %s" % (s, " ".join(sorted(substituted[s]))))
+    for s in sorted(mirrored):
+        print("   %-6s MIRRORED (source faces %s): %s"
+              % (s, man.get("source_faces", "?"), " ".join(sorted(mirrored[s]))))
     if missing:
         print("   NOT BUILT (the skin falls back to idle and says so once): %s" % " ".join(missing))
 

@@ -1,0 +1,77 @@
+{
+ "note": "C-9 R-C9-61 T3. Per-clip stride lengths measured by tools/build_knight3d.py from a foot's vertical track. `seconds` is ONE STRIDE, not the clip length -- the library walk and the text-to-motion carry walk hold different numbers of strides in the same gait.",
+ "clips": {
+  "k_idle": {
+   "status": "not a locomotion clip",
+   "strides": 1,
+   "seconds": 4.0,
+   "confidence": null
+  },
+  "k_walk": {
+   "status": "no periodicity (using whole clip)",
+   "strides": 1,
+   "seconds": 1.0333,
+   "confidence": -0.132,
+   "rejected": {
+    "lag_frames": 6,
+    "implied_stride_s": 0.25,
+    "plausible_human_stride": false,
+    "repeats": 4.13
+   }
+  },
+  "k_run": {
+   "status": "no periodicity (using whole clip)",
+   "strides": 1,
+   "seconds": 0.6333,
+   "confidence": -0.141,
+   "rejected": {
+    "lag_frames": 4,
+    "implied_stride_s": 0.1667,
+    "plausible_human_stride": false,
+    "repeats": 3.8
+   }
+  },
+  "k_attack": {
+   "status": "not a locomotion clip",
+   "strides": 1,
+   "seconds": 2.9667,
+   "confidence": null
+  },
+  "c_idle": {
+   "status": "not a locomotion clip",
+   "strides": 1,
+   "seconds": 3.9667,
+   "confidence": null
+  },
+  "c_walk": {
+   "status": "ok",
+   "strides": 3.53,
+   "seconds": 1.125,
+   "confidence": 0.869,
+   "lag_frames": 27,
+   "plausible_human_stride": true,
+   "loop_fix": {
+    "trimmed": true,
+    "keys_removed": 4320,
+    "kept_strides": 3,
+    "kept_to_frame": 83
+   },
+   "seconds_after_trim": 3.3667
+  },
+  "c_run": {
+   "status": "ok",
+   "strides": 4.45,
+   "seconds": 0.6667,
+   "confidence": 0.394,
+   "lag_frames": 16,
+   "plausible_human_stride": true,
+   "loop_fix": {
+    "trimmed": true,
+    "keys_removed": 2160,
+    "kept_strides": 4,
+    "kept_to_frame": 66
+   },
+   "seconds_after_trim": 2.6667
+  }
+ }
+}

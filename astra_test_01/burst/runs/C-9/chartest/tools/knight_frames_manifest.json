@@ -43,5 +43,7 @@
       "from": null,
       "why": "not delivered by the placeholder. The skin falls back to idle and says so once on the console, rather than silently showing a walk."
     }
-  }
+  },
+  "source_faces": "W",
+  "source_faces_note": "The stand-in column faces LEFT on screen -- it is W-facing art. Measured against the Keeper's own cells, where E faces right and W faces left. The builder mirrors it for E-ward directions. A real per-direction set has its own art for every direction: set this to the empty string and nothing is mirrored."
 }

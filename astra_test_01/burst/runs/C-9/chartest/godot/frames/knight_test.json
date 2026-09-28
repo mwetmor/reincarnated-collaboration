@@ -4,7 +4,7 @@
  "placeholder": true,
  "placeholder_note": "PLACEHOLDER: runs/C-9/meshy_test/paint_a is the Meshy+Astra E walk ONLY -- one direction, one action. It is used for all 8 directions and stretched across the other states so the pipeline can be wired and walked now. Every direction shows the same E-facing cycle, so the knight does NOT turn. That is expected and is labelled on the HUD; it is not a rig fault.",
  "animations": 24,
- "textures": 12,
+ "textures": 24,
  "states_built": [
   "idle",
   "run",
@@ -39,6 +39,24 @@
    "NW",
    "N",
    "NE",
+   "SE"
+  ]
+ },
+ "source_faces": "W",
+ "directions_mirrored": {
+  "idle": [
+   "NE",
+   "E",
+   "SE"
+  ],
+  "walk": [
+   "NE",
+   "E",
+   "SE"
+  ],
+  "run": [
+   "NE",
+   "E",
    "SE"
   ]
  },

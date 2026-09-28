@@ -17,7 +17,7 @@
  },
  "clips": [
   {
-   "name": "idle",
+   "name": "k_idle",
    "source": "idle.glb",
    "action": "Armature|Idle|baselayer",
    "frames": [
@@ -39,10 +39,16 @@
      "2": -0.0007
     }
    },
+   "stride": {
+    "status": "not a locomotion clip",
+    "strides": 1,
+    "seconds": 4.0,
+    "confidence": null
+   },
    "status": "ok"
   },
   {
-   "name": "walk",
+   "name": "k_walk",
    "source": "walk.glb",
    "action": "Armature|walking_man|baselayer",
    "frames": [
@@ -64,10 +70,22 @@
      "2": -0.0
     }
    },
+   "stride": {
+    "status": "no periodicity (using whole clip)",
+    "strides": 1,
+    "seconds": 1.0333,
+    "confidence": -0.132,
+    "rejected": {
+     "lag_frames": 6,
+     "implied_stride_s": 0.25,
+     "plausible_human_stride": false,
+     "repeats": 4.13
+    }
+   },
    "status": "ok"
   },
   {
-   "name": "run",
+   "name": "k_run",
    "source": "run.glb",
    "action": "Armature|running|baselayer",
    "frames": [
@@ -89,10 +107,22 @@
      "2": 0.0
     }
    },
+   "stride": {
+    "status": "no periodicity (using whole clip)",
+    "strides": 1,
+    "seconds": 0.6333,
+    "confidence": -0.141,
+    "rejected": {
+     "lag_frames": 4,
+     "implied_stride_s": 0.1667,
+     "plausible_human_stride": false,
+     "repeats": 3.8
+    }
+   },
    "status": "ok"
   },
   {
-   "name": "attack",
+   "name": "k_attack",
    "source": "attack.glb",
    "action": "retarget_clip",
    "frames": [
@@ -114,6 +144,123 @@
      "2": 8.0651
     }
    },
+   "stride": {
+    "status": "not a locomotion clip",
+    "strides": 1,
+    "seconds": 2.9667,
+    "confidence": null
+   },
+   "status": "ok"
+  },
+  {
+   "name": "c_idle",
+   "source": "carry_idle.glb",
+   "action": "retarget_clip",
+   "frames": [
+    1.6,
+    96.8
+   ],
+   "seconds": 3.9667,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 0.9139,
+     "2": -0.1618
+    }
+   },
+   "stride": {
+    "status": "not a locomotion clip",
+    "strides": 1,
+    "seconds": 3.9667,
+    "confidence": null
+   },
+   "status": "ok"
+  },
+  {
+   "name": "c_walk",
+   "source": "carry_walk.glb",
+   "action": "retarget_clip",
+   "frames": [
+    1.6,
+    82.4
+   ],
+   "seconds": 3.3667,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 27.1682,
+     "2": 349.6551
+    }
+   },
+   "stride": {
+    "status": "ok",
+    "strides": 3.53,
+    "seconds": 1.125,
+    "confidence": 0.869,
+    "lag_frames": 27,
+    "plausible_human_stride": true,
+    "loop_fix": {
+     "trimmed": true,
+     "keys_removed": 4320,
+     "kept_strides": 3,
+     "kept_to_frame": 83
+    },
+    "seconds_after_trim": 3.3667
+   },
+   "status": "ok"
+  },
+  {
+   "name": "c_run",
+   "source": "carry_run.glb",
+   "action": "retarget_clip",
+   "frames": [
+    1.6,
+    65.6
+   ],
+   "seconds": 2.6667,
+   "bones_addressed": 24,
+   "bones_unknown_to_rig": [],
+   "in_place": {
+    "up_channel": 1,
+    "axis_verticality": [
+     0.0715,
+     0.8381,
+     0.5408
+    ],
+    "removed_cm": {
+     "0": 372.5121,
+     "2": 408.4935
+    }
+   },
+   "stride": {
+    "status": "ok",
+    "strides": 4.45,
+    "seconds": 0.6667,
+    "confidence": 0.394,
+    "lag_frames": 16,
+    "plausible_human_stride": true,
+    "loop_fix": {
+     "trimmed": true,
+     "keys_removed": 2160,
+     "kept_strides": 4,
+     "kept_to_frame": 66
+    },
+    "seconds_after_trim": 2.6667
+   },
    "status": "ok"
   }
  ],
@@ -131,7 +278,7 @@
   ],
   "shading": "smooth (for a watertight inverted-hull outline)",
   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/chartest/godot/models/knight_t3.glb",
-  "glb_mb": 1.73
+  "glb_mb": 1.86
  },
  "bones": {
   "RightHand": {

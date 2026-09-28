@@ -60,11 +60,21 @@ POLLAXE_TEX = 512
 # Which file each clip comes from, and what the game calls it.  attack.glb ships two
 # actions -- the 3.03 s 'retarget_clip' is the swing; 'clip0' is the same 0.07 s stub
 # rigged.glb carries -- so the clip is named explicitly rather than taken by position.
+#
+# TWO SETS, because the weapon decides which locomotion is right:
+#   k_*  Meshy's MOTION LIBRARY -- generic human locomotion, both arms swinging free.
+#        Correct for the knight with no weapon; a haft welded to that wrist windmills.
+#   c_*  Meshy TEXT-TO-MOTION carry clips, same rig, right hand up at chest for a
+#        polearm. Correct for the knight carrying the pollaxe.
+# The attack exists only once, so it serves both.
 CLIPS = [
-    ("idle", "idle.glb", "Armature|Idle|baselayer"),
-    ("walk", "walk.glb", "Armature|walking_man|baselayer"),
-    ("run", "run.glb", "Armature|running|baselayer"),
-    ("attack", "attack.glb", "retarget_clip"),
+    ("k_idle", "idle.glb", "Armature|Idle|baselayer"),
+    ("k_walk", "walk.glb", "Armature|walking_man|baselayer"),
+    ("k_run", "run.glb", "Armature|running|baselayer"),
+    ("k_attack", "attack.glb", "retarget_clip"),
+    ("c_idle", "carry_idle.glb", "retarget_clip"),
+    ("c_walk", "carry_walk.glb", "retarget_clip"),
+    ("c_run", "carry_run.glb", "retarget_clip"),
 ]
 
 
@@ -237,6 +247,132 @@ def dedrift(arm, act):
     return out
 
 
+def assign(arm, act):
+    """Make `act` the armature's active action on both action APIs."""
+    if arm.animation_data is None:
+        arm.animation_data_create()
+    arm.animation_data.action = act
+    if hasattr(arm.animation_data, "action_slot"):
+        try:
+            arm.animation_data.action_slot = act.slots[0]
+        except Exception:
+            pass
+
+
+def trim_to_whole_strides(act, f0, lag, strides):
+    """Cut a locomotion clip back to a whole number of strides so it can LOOP.
+
+    The carry walk holds 3.52 strides and the carry run 2.6.  Played as a loop, the
+    last frame is half a stride away from the first, so the figure snaps mid-step
+    every time round -- once every four seconds, on the clip a player watches most.
+    Dropping the partial stride costs half a second of motion and buys a seam.
+    Returns the number of keyframes removed, so a no-op is visible as a no-op.
+    """
+    keep_to = f0 + int(strides) * lag
+    if int(strides) < 1:
+        return {"trimmed": False, "why": "less than one whole stride"}
+    removed = 0
+    for fc in action_fcurves(act):
+        doomed = [k for k in fc.keyframe_points if k.co.x > keep_to + 0.001]
+        for k in reversed(doomed):
+            fc.keyframe_points.remove(k)
+            removed += 1
+        fc.update()
+    return {"trimmed": removed > 0, "keys_removed": removed,
+            "kept_strides": int(strides), "kept_to_frame": keep_to}
+
+
+def stride_seconds(arm, act, locomotion):
+    """How long ONE STRIDE of this clip lasts, measured from a foot's height.
+
+    WHY NOT THE CLIP LENGTH.  Retiming locomotion to the Keeper's cadence means
+    matching time per STRIDE, not per file.  The motion-library walk is 1.03 s and
+    the text-to-motion carry walk is 3.97 s; scaling both whole clips onto the
+    Keeper's 0.58 s stride would run the carry walk at nearly four times speed.
+
+    A foot's vertical track rises and falls once per stride, so the stride is that
+    signal's period.
+
+    HOW THE PERIOD IS FOUND, and why the obvious way does not work.  The first
+    version took the argmax of an autocorrelation over lags 6..n/2 and returned
+    0.25 s -- lag 6, the FLOOR OF ITS OWN SEARCH RANGE -- for every clip it claimed
+    to measure, including a 4 s walk.  Autocorrelation decays smoothly from 1 at
+    lag 0, so its maximum over any range that starts near zero is the start of the
+    range; and normalising by the whole signal's energy while summing only the
+    overlap made short lags look better still.  The argmax was answering "which lag
+    is smallest", which it did correctly.  That is the third time on this project a
+    period measurement has returned a search bound for every input.
+
+    So: normalise each lag against the energy of the two windows it actually
+    compares, wait for the correlation to fall below zero -- past the self-similarity
+    shoulder, where a genuine repeat must live -- and take the peak AFTER that.
+
+    CONFIDENCE TRAVELS WITH THE NUMBER.  A clip holding a single stride has nothing
+    to correlate against and no period to find; that is not a failure, and it must
+    read as "one stride, whole clip" rather than as a fitted cadence.
+    """
+    total = (act.frame_range[1] - act.frame_range[0]) / 24.0
+    if not locomotion:
+        return {"status": "not a locomotion clip", "strides": 1,
+                "seconds": round(total, 4), "confidence": None}
+    bone = arm.pose.bones.get("RightToeBase") or arm.pose.bones.get("RightFoot")
+    if bone is None:
+        return {"status": "no foot bone", "strides": 1, "seconds": round(total, 4)}
+    assign(arm, act)
+    f0, f1 = [int(round(v)) for v in act.frame_range]
+    n = f1 - f0 + 1
+    h = []
+    for fr in range(f0, f1 + 1):
+        bpy.context.scene.frame_set(fr)
+        bpy.context.view_layer.update()
+        h.append((arm.matrix_world @ bone.matrix).translation.z)
+    mean = sum(h) / n
+    x = [v - mean for v in h]
+    if sum(v * v for v in x) <= 1e-12:
+        return {"status": "foot does not move", "strides": 1,
+                "seconds": round(total, 4), "confidence": 0.0}
+
+    def r_at(lag):
+        m = n - lag
+        if m < 8:
+            return -2.0
+        a = sum(x[i] * x[i + lag] for i in range(m))
+        ea = sum(x[i] * x[i] for i in range(m))
+        eb = sum(x[i + lag] * x[i + lag] for i in range(m))
+        d = (ea * eb) ** 0.5
+        return -2.0 if d <= 1e-12 else a / d
+
+    lags = list(range(2, max(3, n // 2 + 1)))
+    r = [r_at(k) for k in lags]
+    first_neg = next((i for i, v in enumerate(r) if v < 0.0), None)
+    if first_neg is None:
+        # never decorrelates: one stride or less, nothing to find
+        return {"status": "no repeat within the clip (one stride)", "strides": 1,
+                "seconds": round(total, 4), "confidence": round(max(r), 3) if r else 0.0}
+    tail = r[first_neg:]
+    best_i = max(range(len(tail)), key=lambda i: tail[i])
+    lag = lags[first_neg + best_i]
+    conf = tail[best_i]
+    per = lag / 24.0
+    # Accept on THREE agreeing facts, not one threshold. The carry run peaks at 0.394 --
+    # under any round number one would pick, and pointing at a 0.71 s stride repeating
+    # four times in a 3 s clip, which is a run. A bare cutoff would have called that
+    # aperiodic and played the run four times too slow; a cutoff low enough to admit it
+    # would admit noise. Correlation, human plausibility and a repeat count are
+    # independent, and noise does not satisfy all three.
+    plausible = 0.35 <= per <= 1.6
+    repeats = total / per
+    if not (conf >= 0.35 and plausible and repeats >= 2.0):
+        return {"status": "no periodicity (using whole clip)", "strides": 1,
+                "seconds": round(total, 4), "confidence": round(conf, 3),
+                "rejected": {"lag_frames": lag, "implied_stride_s": round(per, 4),
+                             "plausible_human_stride": plausible,
+                             "repeats": round(repeats, 2)}}
+    return {"status": "ok", "strides": round(total / per, 2), "seconds": round(per, 4),
+            "confidence": round(conf, 3), "lag_frames": lag,
+            "plausible_human_stride": bool(0.35 <= per <= 1.6)}
+
+
 def bbox_world(ob):
     pts = [ob.matrix_world @ Vector(c) for c in ob.bound_box]
     lo = Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts)))
@@ -281,8 +417,26 @@ def build_knight(report):
             report["clips"].append({"name": game_name, "status": "action %r not found; saw %s"
                                     % (action_name, [a.name for a in got])})
         else:
-            act.name = "k_" + game_name
+            act.name = game_name
             act.use_fake_user = True
+            # Measure on THE CLIP\'S OWN ARMATURE (arm2), never on the base one.
+            # Assigning a foreign action to the base armature looked equivalent and is
+            # not: on Blender 4.4+ slotted actions the slot binding does not follow, so
+            # the base armature quietly kept playing the PREVIOUS clip and c_walk was
+            # measured against c_idle\'s motionless foot -- "no periodicity", confidence
+            # -0.035, on a walk whose hip track is visibly periodic. Sampling the
+            # armature the importer bound the action to makes that class of mistake
+            # impossible rather than merely unlikely: that armature has no other action.
+            locomotion = game_name.endswith("walk") or game_name.endswith("run")
+            stride = stride_seconds(arm2 if arm2 is not None else arm, act, locomotion)
+            if locomotion and stride.get("status") == "ok" \
+                    and stride.get("strides", 0) >= 2 \
+                    and abs(stride["strides"] - round(stride["strides"])) > 0.12:
+                stride["loop_fix"] = trim_to_whole_strides(
+                    act, int(round(act.frame_range[0])), stride["lag_frames"],
+                    stride["strides"])
+                stride["seconds_after_trim"] = round(
+                    (act.frame_range[1] - act.frame_range[0]) / 24.0, 4)
             # Which bones does this action actually address?  An action built for a
             # different rig would import fine and animate nothing; this is the check
             # that the rigs really are the same one.
@@ -298,6 +452,7 @@ def build_knight(report):
                 "bones_addressed": len(addressed),
                 "bones_unknown_to_rig": sorted(addressed - bones),
                 "in_place": dedrift(arm, act),
+                "stride": stride,
                 "status": "ok",
             })
         for o in added:
@@ -357,6 +512,20 @@ def build_knight(report):
     report["knight"]["glb"] = out
     report["knight"]["glb_mb"] = round(os.path.getsize(out) / 1e6, 2)
 
+    # Sidecar the runtime reads for per-clip cadence. Written here because the stride
+    # is a property of the ANIMATION, measured where the animation is; making the
+    # runtime re-derive it would be a second implementation free to disagree.
+    clips_json = {
+        "note": "C-9 R-C9-61 T3. Per-clip stride lengths measured by "
+                "tools/build_knight3d.py from a foot's vertical track. `seconds` is ONE "
+                "STRIDE, not the clip length -- the library walk and the text-to-motion "
+                "carry walk hold different numbers of strides in the same gait.",
+        "clips": {c["name"]: c.get("stride", {}) for c in report["clips"]
+                  if c.get("status") == "ok"},
+    }
+    with open(os.path.join(PROJ, "frames", "knight_t3_clips.json"), "w") as fh:
+        json.dump(clips_json, fh, indent=1)
+
 
 def build_pollaxe(report):
     wipe()
@@ -407,8 +576,12 @@ def main():
              report["pollaxe"]["tex_before"], report["pollaxe"]["tex_after"],
              report["pollaxe"]["glb_mb"]))
     print("figure %.4f m, sole z %.4f m" % (report["figure_height_m"], report["sole_z_m"]))
+    print("  %-9s %-9s %-8s %-9s %s" % ("clip", "length", "strides", "stride s", "confidence"))
     for c in report["clips"]:
-        print("  clip %-7s %s" % (c["name"], json.dumps(c)))
+        s = c.get("stride", {})
+        print("  %-9s %7.3f s %7s %9s   %-6s  %s"
+              % (c["name"], c.get("seconds", 0.0), s.get("strides", "?"),
+                 s.get("seconds", "?"), s.get("confidence", "?"), s.get("status", "")))
     src_mb = sum(os.path.getsize(os.path.join(SRC, f)) for _n, f, _a in CLIPS
                  if os.path.exists(os.path.join(SRC, f))) / 1e6
     print("delivered as %.1f MB of per-clip GLBs; shipping %.2f MB"
