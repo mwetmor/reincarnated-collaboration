@@ -3,7 +3,7 @@
  "offsets": {
   "sky": -115.0,
   "far_ruins": 25.0,
-  "forest_valley": 310.0,
+  "forest_valley": 311.0,
   "mist": 341.0
  },
  "offsets_x": {
@@ -20,22 +20,22 @@
     7.0
    ],
    "d_backing": 0.9529,
-   "plate_px_fraction": 0.375,
+   "plate_px_fraction": 0.3751,
    "plate_leak_before_floor": 0.0,
    "plate_leak_after_floor": 0.0,
    "alpha_floor": 0.06,
-   "forced_opaque_below_plate_px": 2206,
-   "smoke_band_px": 1894,
-   "naive_band_px": 3769,
-   "smoke_over_plate_px": 1894,
+   "forced_opaque_below_plate_px": 2017,
+   "smoke_band_px": 852,
+   "naive_band_px": 2551,
+   "smoke_over_plate_px": 872,
    "fringe_residual_over_sky_255": {
-    "hard_key_mean": 0.91,
-    "hard_key_p99": 0.0,
-    "unmix_mean": 13.84,
-    "unmix_p99": 66.8,
-    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 1894 px",
-    "improvement_x": 0.07,
-    "smoke_a_hard_key_would_delete_pct": 99.52
+    "hard_key_mean": 2.23,
+    "hard_key_p99": 45.53,
+    "unmix_mean": 22.07,
+    "unmix_p99": 78.37,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 872 px",
+    "improvement_x": 0.1,
+    "smoke_a_hard_key_would_delete_pct": 98.97
    }
   },
   "forest_valley": {
@@ -49,16 +49,16 @@
    "plate_leak_before_floor": 0.3259,
    "plate_leak_after_floor": 0.0024,
    "alpha_floor": 0.06,
-   "forced_opaque_below_plate_px": 16997,
-   "smoke_band_px": 3414,
-   "naive_band_px": 13693,
-   "smoke_over_plate_px": 9453,
+   "forced_opaque_below_plate_px": 5124,
+   "smoke_band_px": 2149,
+   "naive_band_px": 10384,
+   "smoke_over_plate_px": 8203,
    "fringe_residual_over_sky_255": {
     "hard_key_mean": 0.0,
     "hard_key_p99": 0.0,
-    "unmix_mean": -0.63,
-    "unmix_p99": 16.87,
-    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 9453 px",
+    "unmix_mean": -0.78,
+    "unmix_p99": 16.14,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 8203 px",
     "improvement_x": "n/a (unmix residual ~0)",
     "smoke_a_hard_key_would_delete_pct": 100.0
    }

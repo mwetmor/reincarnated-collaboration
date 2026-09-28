@@ -13,12 +13,16 @@ plus parallax/layers_b/offsets.json.
              tiles_b/tile_0_0.png    (0,0,4096,4096)
              tiles_b/tile_4096_0.png (4096,0,1280,4096)
   sky     CS9-assembly/L11_layer_sky.png          opaque, no key (darker sunset)
-  far     CS9-assembly/L12_layer_far.png          hills only -- the tower and cathedral
+  far     CS9-assembly/L13_layer_far.png          hills only -- the tower and cathedral
                                                   are REMOVED from the layer and placed
-                                                  as sprites instead (R-C9-42); #00ff00
-                                                  above the land -> UNMIX
-  forest  CS9-assembly/L12_layer_forest.png       full-width burning band, 9 de-glitch
-                                                  edits; #00ff00 above the treeline -> UNMIX
+                                                  as sprites instead (R-C9-42) -- plus
+                                                  VIOLET MIST BANKS painted into the
+                                                  valleys (R-C9-50, Matt: "Mist: yes,
+                                                  paint it"); #00ff00 above the land,
+                                                  unchanged from L12 -> UNMIX
+  forest  CS9-assembly/L13_layer_forest.png       full-width burning band, 9 de-glitch
+                                                  edits, same painted mist; #00ff00
+                                                  above the treeline -> UNMIX
   mist    CS9-assembly/L10_layer_mist.png         light on black -> alpha=luminance,
                                                   capped 220/255, TINTED purple
 
@@ -292,10 +296,10 @@ def main():
     sky_src = Image.open(SRC / "L11_layer_sky.png").convert("RGB")
     jobs = [
         ("sky.png", sky_src, "L11_layer_sky.png", "opaque"),
-        ("far_ruins.png", Image.open(SRC / "L12_layer_far.png").convert("RGB"),
-         "L12_layer_far.png", "unmix"),
-        ("forest_valley.png", Image.open(SRC / "L12_layer_forest.png").convert("RGB"),
-         "L12_layer_forest.png", "unmix"),
+        ("far_ruins.png", Image.open(SRC / "L13_layer_far.png").convert("RGB"),
+         "L13_layer_far.png", "unmix"),
+        ("forest_valley.png", Image.open(SRC / "L13_layer_forest.png").convert("RGB"),
+         "L13_layer_forest.png", "unmix"),
         ("mist.png", Image.open(SRC / "L10_layer_mist.png").convert("RGB"),
          "L10_layer_mist.png (tinted %s)" % list(map(int, MIST_TINT * 255)), "mist"),
     ]
