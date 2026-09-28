@@ -1,6 +1,6 @@
 {
  "state": "run",
- "source": "run.glb",
+ "source": "carry_run2.glb",
  "frame": 512,
  "px_per_m": 110.556,
  "sole_y": 398.0,
@@ -32,27 +32,18 @@
  ],
  "frames": 8,
  "fps": 14.5006,
- "carry_pose": true,
+ "carry_pose": false,
  "weapon": "socket_pollaxe.json",
- "carry": {
-  "mode": "chest-carry, hand pinned to a grip frame on the haft",
-  "chest_bone": "Spine",
-  "hand_bone": "RightHand",
-  "grip_world": [
-   0.3395,
-   0.4271,
-   1.26
+ "carry": null,
+ "upright": {
+  "mean_wrist_quat": [
+   0.02235,
+   0.28019,
+   -0.84887,
+   0.44768
   ],
-  "arm_reach_m": 0.5315,
-  "yaw_deg": 67.5,
-  "carry_extra_yaw_deg": -92.5,
-  "ik_bone": "RightForeArm",
-  "ik_note": "IK on the bone whose TAIL is the hand's head",
-  "free_arm_damped": [
-   "LeftArm",
-   "LeftForeArm"
-  ],
-  "free_arm_influence": 0.5
+  "fan_bearing_deg": -22.5,
+  "note": "socket rotation re-solved from the clip's mean wrist"
  },
  "guides": {
   "bind_bbox_lo": [

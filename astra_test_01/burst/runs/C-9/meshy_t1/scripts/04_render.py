@@ -57,6 +57,12 @@ CARRY = "--carry" in a
 # With --upright the socket's ROTATION is re-solved from the clip's own mean
 # wrist orientation so the haft stands vertical, and the fan keeps its bearing.
 UPRIGHT = "--upright" in a
+# ALIGN-HANDS. --upright is wrong for a thrust: it would hold the haft vertical
+# through an attack that drives it forward. A two-handed polearm's haft lies
+# along the line BETWEEN THE HANDS, so for the attack the socket rotation is
+# solved to put the weapon's own long axis on that line -- which is also what
+# makes the haft pass through both gauntlets.
+ALIGN_HANDS = "--align-hands" in a
 # FACING IS A PROPERTY OF THE RIG, NOT OF THE CLIP. Derived per clip it is
 # right for locomotion and NOISE for anything else: this knight's idle gave
 # -90 deg from a 0.0001 m stance displacement and rendered facing the camera in
@@ -137,7 +143,7 @@ def bake_guides(objs, arm):
                 bone_colours={b: [round(c, 4) for c in pal[b]] for b in bones})
 
 
-def fit_upright_socket(arm, R, sk, info, times):
+def fit_upright_socket(arm, R, sk, info, times, align_hands=False):
     """Re-solve the socket's rotation so the haft stands UPRIGHT in this clip.
 
     The weapon's world rotation is (hand world rotation) x (socket rotation).
@@ -166,11 +172,36 @@ def fit_upright_socket(arm, R, sk, info, times):
     mq.normalize()
     bearing = sk["fit"].get("carry_fan_bearing_deg", sk["fit"]["target_fan_bearing_deg"])
     fan_local = sk["fit"]["weapon_fan_local_bearing_deg"]
-    desired = Matrix.Rotation(math.radians(bearing - fan_local), 4, 'Z')
+    if align_hands:
+        oh = R.get("l_hand"); wh = R.get("r_hand")
+        acc_d = Vector((0.0, 0.0, 0.0))
+        for t in times:
+            sc.frame_set(int(t), subframe=float(t) - int(t))
+            a_ = arm.matrix_world @ arm.pose.bones[wh].head
+            b_ = arm.matrix_world @ arm.pose.bones[oh].head
+            v = b_ - a_
+            if v.length > 1e-6:
+                acc_d += v.normalized()
+        if acc_d.length > 1e-6:
+            d = acc_d.normalized()
+            # rotation taking the weapon's long axis (+Z) onto the hand line
+            z = Vector((0.0, 0.0, 1.0))
+            ax = z.cross(d)
+            if ax.length < 1e-8:
+                desired = Matrix.Identity(4) if z.dot(d) > 0 else \
+                    Matrix.Rotation(math.pi, 4, 'X')
+            else:
+                desired = Matrix.Rotation(math.acos(max(-1, min(1, z.dot(d)))),
+                                          4, ax.normalized())
+        else:
+            desired = Matrix.Rotation(math.radians(bearing - fan_local), 4, 'Z')
+    else:
+        desired = Matrix.Rotation(math.radians(bearing - fan_local), 4, 'Z')
     R_sock = mq.to_matrix().to_4x4().inverted() @ desired
     return dict(rot_matrix=R_sock,
                 mean_wrist_quat=[round(v, 5) for v in mq],
                 fan_bearing_deg=bearing,
+                mode="align-hands" if align_hands else "upright",
                 note="socket rotation re-solved from the clip's mean wrist")
 
 
@@ -357,9 +388,10 @@ def main():
         roots = [o for o in sc.objects if o.name not in before and o.parent is None]
         carry_info = None
         upright_info = None
-        if UPRIGHT and not CARRY:
+        if (UPRIGHT or ALIGN_HANDS) and not CARRY:
             upright_info = fit_upright_socket(arm, R, sk, info,
-                                             info["resample"]["frames"])
+                                              info["resample"]["frames"],
+                                              align_hands=ALIGN_HANDS)
         M = (Matrix.Translation(Vector(sk["offset"]))
              @ (Euler([math.radians(v) for v in sk["rotation_euler_xyz_deg"]],
                       'XYZ').to_matrix().to_4x4() if not upright_info

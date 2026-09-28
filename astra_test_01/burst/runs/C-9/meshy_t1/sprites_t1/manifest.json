@@ -1,0 +1,165 @@
+{
+ "note": "C-9 meshy_t1 T1 sprite set.",
+ "px_per_m": 110.556,
+ "frame_px": 512,
+ "ground_row_y": 398.0,
+ "elevation_deg": 19.77,
+ "azimuths_deg": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "source_faces": [],
+ "states": {
+  "idle": {
+   "frames": 12,
+   "fps": 3.0,
+   "cycle_period_s": 4.0,
+   "dirs": {
+    "S": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/S",
+     "green_px_before": 3368,
+     "green_px_after": 0
+    },
+    "SE": {
+     "source": "painted_full(b)",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "paint_b/idle/SE",
+     "green_px_before": 5,
+     "green_px_after": 0
+    },
+    "E": {
+     "source": "painted_full(b)",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "paint_b/idle/E",
+     "green_px_before": 21,
+     "green_px_after": 0
+    },
+    "NE": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/NE",
+     "green_px_before": 3696,
+     "green_px_after": 0
+    },
+    "N": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/N",
+     "green_px_before": 3475,
+     "green_px_after": 0
+    },
+    "NW": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/NW",
+     "green_px_before": 2551,
+     "green_px_after": 0
+    },
+    "W": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/W",
+     "green_px_before": 2556,
+     "green_px_after": 0
+    },
+    "SW": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/idle/SW",
+     "green_px_before": 3693,
+     "green_px_after": 0
+    }
+   },
+   "complete": true
+  },
+  "walk": {
+   "frames": 12,
+   "fps": 20.7004,
+   "cycle_period_s": 0.5797,
+   "dirs": {
+    "S": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/S",
+     "green_px_before": 5369,
+     "green_px_after": 0
+    },
+    "SE": {
+     "source": "painted_full(a)",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "paint_a/walk/SE",
+     "green_px_before": 6,
+     "green_px_after": 0
+    },
+    "E": {
+     "source": "painted_full(a)",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "paint_a/walk/E",
+     "green_px_before": 15,
+     "green_px_after": 0
+    },
+    "NE": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/NE",
+     "green_px_before": 7019,
+     "green_px_after": 0
+    },
+    "N": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/N",
+     "green_px_before": 5169,
+     "green_px_after": 0
+    },
+    "NW": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/NW",
+     "green_px_before": 3674,
+     "green_px_after": 0
+    },
+    "W": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/W",
+     "green_px_before": 4514,
+     "green_px_after": 0
+    },
+    "SW": {
+     "source": "ebsynth_2key",
+     "frames_written": 12,
+     "rejected": [],
+     "src_dir": "ebs_t1/walk/SW",
+     "green_px_before": 5883,
+     "green_px_after": 0
+    }
+   },
+   "complete": true
+  }
+ },
+ "complete": true
+}
