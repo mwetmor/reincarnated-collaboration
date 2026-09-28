@@ -1,0 +1,89 @@
+{
+  "task_id": "MW3D-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MW3D-E_a",
+      "path": "out/MW3D-E_a.png",
+      "sha256": "5f8ae8c3973601e0a4b7adbe06a2562510ccd423249cd705649a9853bbbed1bd",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1536x1024 twelve-frame knight sprite sheet. Correct ONLY the background: replace the entire dark gradient background with one completely uniform flat solid RGB (0,255,0), hex #00ff00 bright chroma green. Every background pixel outside the twelve knights must be this same bright green, including gaps between their arms and bodies and between legs. No gradient, texture, shadow, glow, floor or vignette anywhere in the background. Keep all twelve painted knights unchanged: same ink and watercolor surface, same armour, helmet, heraldry, colors, silhouettes, exact pixel positions, sizes, limb angles and foot locations. Preserve all twelve distinct frames and their original 4-column 3-row layout and reading order. Hands stay empty, no weapons. No labels, borders or text. This is a background-color correction only; deliver the full same-size sheet.",
+      "references": [
+        {
+          "role": "Original edit target: twelve-frame pose and layout authority",
+          "path": "in/01_meshy_walk_E_sheet.png"
+        },
+        {
+          "role": "Initial paint-over appearance and painting reference",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Initial paint-over underlying armour and mail reference",
+          "path": "in/03_RP-E_a.png"
+        },
+        {
+          "role": "Direct retry edit target: initial variant a, copied to out/MW3D-E_a.png before retry",
+          "path": "/Users/admin/.codex/generated_images/01a0e8c6-246e-73a2-8e4b-a8239671032b/exec-7d4e734e-cc78-4e7e-a041-b1076c45aced.png"
+        }
+      ],
+      "elapsed_s": 35.477
+    },
+    {
+      "name": "MW3D-E_b",
+      "path": "out/MW3D-E_b.png",
+      "sha256": "9ad7831f7948936c3e7d322c092fec1ad88ace74b20da4330439ab7c65d506ab",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1536x1024 twelve-frame knight sprite sheet. Correct ONLY the background: replace the entire dark gradient background with one completely uniform flat solid RGB (0,255,0), hex #00ff00 bright chroma green. Every background pixel outside the twelve knights must be this same bright green, including gaps between their arms and bodies and between legs. No gradient, texture, shadow, glow, floor or vignette anywhere in the background. Keep all twelve painted knights unchanged: same ink and watercolor surface, same armour, helmet, heraldry, colors, silhouettes, exact pixel positions, sizes, limb angles and foot locations. Preserve all twelve distinct frames and their original 4-column 3-row layout and reading order. Hands stay empty, no weapons. No labels, borders or text. This is a background-color correction only; deliver the full same-size sheet.",
+      "references": [
+        {
+          "role": "Original edit target: twelve-frame pose and layout authority",
+          "path": "in/01_meshy_walk_E_sheet.png"
+        },
+        {
+          "role": "Initial paint-over appearance and painting reference",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Initial paint-over underlying armour and mail reference",
+          "path": "in/03_RP-E_a.png"
+        },
+        {
+          "role": "Direct retry edit target: initial variant b, copied to out/MW3D-E_b.png before retry",
+          "path": "/Users/admin/.codex/generated_images/01a0e8c6-246e-73a2-8e4b-a8239671032b/exec-46489bf0-12f3-4c6e-92fa-6f20e84f730f.png"
+        }
+      ],
+      "elapsed_s": 70.653
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a had a dark gradient background instead of flat green.",
+      "change": "One background-only EDIT retry requesting uniform #00ff00 while preserving all twelve painted figures."
+    },
+    {
+      "reason": "Variant b had a dark gradient background instead of flat green.",
+      "change": "One background-only EDIT retry requesting uniform #00ff00 while preserving all twelve painted figures."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both outputs are verified 1536x1024 and visually contain twelve frames with empty hands.",
+      "Source-sheet facing was preserved; the supplied figures visually face screen-left despite the task describing east/right.",
+      "Exact silhouette registration and identical frame-to-frame details are not established; helm and armour contours visibly differ from the source.",
+      "Variant a omits the prominent diagonal gold-and-blue heraldic panel.",
+      "Armour highlights remain glossy relative to the register's pale watercolor requirement.",
+      "Retry backgrounds appear green, but exact uniform #00ff00 was not verified pixel-by-pixel.",
+      "elapsed_s records each final retry call; initial calls took 43.025 seconds for a and 94.719 seconds for b."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MW3D-E_a.png",
+      "sha256": "5f8ae8c3973601e0a4b7adbe06a2562510ccd423249cd705649a9853bbbed1bd"
+    },
+    {
+      "path": "out/MW3D-E_b.png",
+      "sha256": "9ad7831f7948936c3e7d322c092fec1ad88ace74b20da4330439ab7c65d506ab"
+    }
+  ]
+}
