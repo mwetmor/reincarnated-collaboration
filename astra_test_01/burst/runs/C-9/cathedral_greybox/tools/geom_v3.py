@@ -67,8 +67,14 @@ VIEW_W, VIEW_H = SPEC["runtime_camera"]["view_px"]
 ANC_X, ANC_Y = SPEC["runtime_camera"]["anchor_px"]
 
 # ---- v2 DECLARED constants ------------------------------------------------------------
-VARIANT = (sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in "abcdz" else "a")
+# CA-guides-v3 -- THE CANONICAL GUIDE SET (R-C9-55, Matt's middle option).
+# "Make the ruined pillars look as if they've crumbled due to the fighting and blasts of magic
+#  and fire. The broken pieces should be visible nearby somewhere but not covering the floor."
+VARIANT = "3"
+BREAK_FRAC = float(sys.argv[1]) if len(sys.argv) > 1 else 0.50
 VP = dict(
+ **{"3": dict(sec=2.0, bay=6.5, ruin=True,
+              bands=[(0.0, 4.0, 1.00), (4.0, 8.0, 0.60), (8.0, 14.0, 0.30), (14.0, None, 0.12)])},
  a=dict(sec=2.0, bay=6.5,  ruin=False, bands=[(0.0, 4.0, 1.00), (4.0, None, 0.35)]),
  b=dict(sec=2.0, bay=6.5,  ruin=True,  bands=[(0.0, None, 1.00)]),
  c=dict(sec=1.4, bay=9.5,  ruin=False, bands=[(0.0, None, 1.00)]),
@@ -77,6 +83,10 @@ VP = dict(
                                               (8.0, 14.0, 0.30), (14.0, None, 0.12)]),
 )[VARIANT]
 GHOST_CLS = ["nave_pier", "pier_ghost_1", "pier_ghost_2", "pier_ghost_3"]
+BREAK_TOP = 1.0        # the jagged, blasted zone at the top of a broken stub
+DEBRIS_PER_PIER = 3
+DEBRIS_KINDS = [("drum", 1.10, 0.65), ("capital", 1.40, 0.85), ("vault_stone", 0.80, 0.45)]
+DEBRIS_R_MAX = 9.0
 PIER_SEC = VP["sec"]  # square pier section. "thick piers you could hide a horse behind"
                       # (crack-law sec 1, mass before grace). The lineage's arcade pier is
                       # 1.6 m; this is heavier on purpose. A horse is ~2.4 x 0.8 m, so 2.0 m
@@ -123,6 +133,8 @@ LEGEND = [
  (28, "pier_ghost_1",       (235,110,190), False, ( 76, 76, 82)),
  (29, "pier_ghost_2",       (250,160,215), False, ( 76, 76, 82)),
  (30, "pier_ghost_3",       (255,205,235), False, ( 76, 76, 82)),
+ (31, "pier_break",         (255, 90, 40), False, ( 58, 52, 50)),
+ (32, "debris",             (190,120, 50), False, ( 92, 88, 82)),
  (27, "wall_rising_fade",    (150, 90,200), False, (120,120,126)),   # the occluding W segment
 ]
 # ⚑ Sort by index. snap() in the post pass returns a legend LIST POSITION, while IDX[name]
@@ -424,9 +436,11 @@ for (ppx, ppy) in PIERS:
                                             ppy-PIER_SEC/2, ppy+PIER_SEC/2, RISE_DECLARED)
 BROKEN = {}
 if VP["ruin"]:
+    # Break the piers whose loss buys the MOST visibility: rank by the walkable area each one
+    # hides and break from the top down. R-C9-55: "break the ones whose loss buys the most".
     ranked = sorted(pier_cost, key=lambda k: pier_cost[k])
-    n_keep = max(1, round(len(ranked)/3.0))
-    intact = set(ranked[:n_keep])
+    n_break = int(round(len(ranked)*BREAK_FRAC))
+    intact = set(ranked[:len(ranked)-n_break])
     # broken heights: golden-ratio low-discrepancy over [2, 7], then a pass that pushes any two
     # NEIGHBOURING piers at least 0.8 m apart, so no run of the arcade repeats a height.
     order = sorted(set(pier_cost) - intact, key=lambda k: (round(k[0], 3), round(k[1], 3)))
@@ -453,9 +467,10 @@ for (ppx, ppy) in PIERS:
                               bands=[]))
         continue
     brk = BROKEN.get(key)
+    use_bands = [(0.0, None, 1.00)] if brk is not None else VP["bands"]
     top_final = brk if brk is not None else None      # None = to the sprite height, set later
     bands = []
-    for bi, (z0, z1, op) in enumerate(VP["bands"]):
+    for bi, (z0, z1, op) in enumerate(use_bands):
         cls = GHOST_CLS[min(bi, len(GHOST_CLS)-1)]
         z1e = z1
         if brk is not None:
@@ -465,6 +480,32 @@ for (ppx, ppy) in PIERS:
             z1e = RISE_DECLARED                        # patched to the sprite height below
         zz0 = max(z0, PIER_PLINTH)
         if z1e is not None and z1e <= zz0: continue
+        if brk is not None and z1e >= brk - 1e-6:
+            # the shaft up to the blasted zone, then a jagged crown: the 2 m section is diced
+            # into 0.5 m cells, each ending at its own height. No clean cut anywhere.
+            shaft_top = max(zz0, brk - BREAK_TOP)
+            box(cls, ppx-PIER_SEC/2, ppx+PIER_SEC/2, ppy-PIER_SEC/2, ppy+PIER_SEC/2,
+                zz0, shaft_top, f=1)
+            n_c = 4
+            cw_ = PIER_SEC/n_c
+            # the blast came from the crossing: cells on the crossing-facing side lose more
+            bdir = np.array([-ppx, -ppy]); nrm = np.hypot(*bdir) or 1.0; bdir = bdir/nrm
+            pk = abs(hash((round(ppx, 3), round(ppy, 3)))) % 9973
+            for ci in range(n_c):
+                for cj in range(n_c):
+                    ox_ = ppx - PIER_SEC/2 + (ci+0.5)*cw_
+                    oy_ = ppy - PIER_SEC/2 + (cj+0.5)*cw_
+                    facing = float(np.dot([ox_-ppx, oy_-ppy], bdir))/(PIER_SEC/2)
+                    r_ = (((pk + ci*37 + cj*101)*0.6180339887498949) % 1.0)
+                    top = brk - 0.15 - 0.85*r_ - 0.55*max(facing, 0.0)
+                    top = max(shaft_top + 0.12, min(brk, top))
+                    box("pier_break", ox_-cw_/2, ox_+cw_/2, oy_-cw_/2, oy_+cw_/2,
+                        shaft_top, top, f=1)
+            bands.append(dict(cls=cls, z=[zz0, shaft_top], opacity=op, open_top=False))
+            bands.append(dict(cls="pier_break", z=[shaft_top, brk], opacity=1.0, open_top=False,
+                              note="jagged blast crown; SCORCH AND SHATTER ARE PAINT -- this "
+                                   "class marks where the brief calls for them"))
+            break
         box(cls, ppx-PIER_SEC/2, ppx+PIER_SEC/2, ppy-PIER_SEC/2, ppy+PIER_SEC/2,
             zz0, z1e, f=1)
         bands.append(dict(cls=cls, z=[zz0, z1e], opacity=op, open_top=(z1 is None and brk is None)))
@@ -487,17 +528,93 @@ for fw in fade_walls:
                       height_m=RISE_DECLARED, fade=True, id_class="wall_rising_fade",
                       sort_line_y_m=fw["centre_m"][1]))
 
+# ===================================================== 4b. DEBRIS (R-C9-55 cl.3)
+# "The broken pieces should be visible nearby somewhere but not covering the floor."
+# Fallen drums, capitals and vault stones go ONLY into non-walkable dead space: the pier plinth
+# footprints, the margins under the arcade arches, the crater rim, and against the cut-low walls.
+# Placement is by ASSERTION, not by eye -- a piece is accepted only if its whole footprint
+# rasterises clear of every walkable cell.
+# ⚑ THIS OVERRIDES CRACK-LAW RULE 4's TALUS CONE. A cone at the angle of repose spills onto the
+#    floor by construction; readability wins. Divergence row: DIV-debris-no-talus.
+DEBRIS = []
+_taken = np.zeros_like(walk)
+_near_arena = ((GX >= X_W - 6.0) & (GX <= X_E + 6.0) & (GY >= Y_S - 6.0) & (GY <= Y_N + 6.0))
+_dead = (~walk) & _near_arena
+# First cut sampled random polar offsets and placed ZERO pieces: the dead space near a pier is
+# its own 2 m plinth and a 1.5 m wall band, and random sampling of a disc essentially never
+# lands a footprint wholly inside either. Scan the dead cells that actually exist, nearest first.
+_KMAX = int(math.ceil(DEBRIS_R_MAX/CELL)) + 4
+for pr in pier_rows:
+    if not pr.get("broken"): continue
+    bx_, by_ = pr["centre_m"]
+    ci0 = int((bx_-gx0)/CELL); cj0 = int((by_-gy0)/CELL)
+    i0 = max(ci0-_KMAX, 0); i1 = min(ci0+_KMAX+1, NX)
+    j0 = max(cj0-_KMAX, 0); j1 = min(cj0+_KMAX+1, NY)
+    LX = GX[i0:i1, j0:j1]; LY = GY[i0:i1, j0:j1]
+    Lwalk = walk[i0:i1, j0:j1]; Ldead = _dead[i0:i1, j0:j1]
+    dist = np.hypot(LX-bx_, LY-by_)
+    cand = np.nonzero(Ldead & (dist <= DEBRIS_R_MAX))
+    if len(cand[0]) == 0: continue
+    order = np.argsort(dist[cand])
+    placed = 0
+    seed = abs(hash((round(bx_, 3), round(by_, 3), "deb"))) % 9973
+    for oi in order:
+        if placed >= DEBRIS_PER_PIER: break
+        a_, b_ = cand[0][oi], cand[1][oi]
+        # round BEFORE testing: the record carries a rounded centre, and a 0.5 mm shift can
+        # flip a cell exactly on the footprint boundary -- which is what made the assertion
+        # fire on pieces the placement test had just cleared.
+        cx_ = round(float(LX[a_, b_]), 3); cy_ = round(float(LY[a_, b_]), 3)
+        kind, size, hgt = DEBRIS_KINDS[(seed + placed*5 + int(oi)) % len(DEBRIS_KINDS)]
+        h_ = size/2.0
+        sel = (np.abs(LX-cx_) <= h_) & (np.abs(LY-cy_) <= h_)
+        if not sel.any(): continue
+        if (sel & Lwalk).any(): continue                     # the assertion, per candidate
+        if not Ldead[sel].all(): continue
+        Ltaken = _taken[i0:i1, j0:j1]
+        if (sel & Ltaken).any(): continue
+        _taken[i0:i1, j0:j1] |= (np.abs(LX-cx_) <= h_+0.25) & (np.abs(LY-cy_) <= h_+0.25)
+        box("debris", cx_-h_, cx_+h_, cy_-h_, cy_+h_, -0.05, hgt)
+        rec = dict(kind=kind, centre_m=[cx_, cy_],
+                   footprint_m=[size, size], height_m=hgt,
+                   from_pier_m=[bx_, by_], distance_m=round(float(dist[a_, b_]), 3),
+                   sort_line_y_m=round(cy_-h_, 3))
+        DEBRIS.append(rec)
+        PROPS.append(dict(kind="debris_"+kind, centre_m=rec["centre_m"],
+                          footprint_m=[size, size], height_m=hgt, fade=False,
+                          id_class="debris", sort_line_y_m=rec["sort_line_y_m"],
+                          from_pier_m=[bx_, by_]))
+        placed += 1
+# hard assertion, in plan, before anything is rendered
+_dmask = np.zeros_like(walk)
+for d_ in DEBRIS:
+    cx_, cy_ = d_["centre_m"]; h_ = d_["footprint_m"][0]/2.0
+    _dmask |= (np.abs(GX-cx_) <= h_) & (np.abs(GY-cy_) <= h_)
+DEBRIS_ON_WALKABLE = int((_dmask & walk).sum())
+# "not covering the floor" also means not HIDING much of it: a 0.85 m stone hides 0.64 m of
+# floor to its north-west. Measured, not assumed.
+_docc = np.zeros_like(walk)
+for d_ in DEBRIS:
+    cx_, cy_ = d_["centre_m"]; h_ = d_["footprint_m"][0]/2.0
+    for t in np.arange(0.0, d_["height_m"]*COT_A + CELL, CELL):
+        qx = GX - DV[0]*t; qy = GY - DV[1]*t
+        _docc |= (np.abs(qx-cx_) <= h_) & (np.abs(qy-cy_) <= h_)
+DEBRIS_OCCLUDES_M2 = float((_docc & walk).sum())*CELL*CELL
+assert DEBRIS_ON_WALKABLE == 0, "debris on walkable floor: %d cells" % DEBRIS_ON_WALKABLE
+
 # ===================================================== 5. VAULT (overhead layer)
 BROKEN_PTS = [k for k in BROKEN]
 def bay_fallen(x0, x1, y0, y1):
-    """crack law E3: a pier fails and the bays it carried come down. A bay falls if any pier
-    within half a section of one of its four corners is broken."""
+    """crack law E3: a pier fails and the bays it carried come down -- but a bay standing on
+    four supports does not fall when it loses ONE. It falls on losing TWO. R-C9-55: "only the
+    vault bays carried by broken piers fall; keep most of the vault"."""
     if not BROKEN: return False
+    n = 0
     for cx_ in (x0, x1):
         for cy_ in (y0, y1):
-            for (bx, by) in BROKEN_PTS:
-                if abs(bx-cx_) <= PIER_SEC and abs(by-cy_) <= PIER_SEC: return True
-    return False
+            if any(abs(bx-cx_) <= PIER_SEC and abs(by-cy_) <= PIER_SEC for (bx, by) in BROKEN_PTS):
+                n += 1
+    return n >= 2
 def vault_bay(x0, x1, y0, y1, spring, crown, axis=1):
     """TRANSVERSE RIBS AND SPRINGERS ONLY. First cut drew boundary ribs, diagonals and a filled
     cell and MEASURED 30.49 % floor coverage -- a rib at 34 m throws a band of its own width
@@ -660,7 +777,7 @@ for fw in fade_walls:
     m = np.zeros(walk.shape, np.float32)
     m[band_occlusion(fx0, fx1, fy0, fy1, 0.0, RISE_DECLARED)] = 1.0
     occl_stack.append(m); occl_centres.append(fw["centre_m"])
-np.savez_compressed(os.path.join(PROJ, "occl_v2%s.npz" % VARIANT),
+np.savez_compressed(os.path.join(PROJ, "occl_v3.npz"),
                     walk=walk, occl=np.array(occl_stack, np.float32),
                     centres=np.array(occl_centres, np.float64),
                     grid=np.array([gx0, gy0, CELL, walk.shape[0], walk.shape[1]]))
@@ -756,12 +873,12 @@ canvas = dict(canvas_px=[CANVAS_W, CANVAS_H], origin_screen_px=[px0, py0], ppm=P
 # ===================================================== 9. WRITE
 json.dump(dict(legend=[dict(index=i, name=n, rgb=list(c), walkable=w, guide_grey=list(g))
                        for i, n, c, w, g in LEGEND], boxes=BOXES, discs=DISCS),
-          open(os.path.join(PROJ, "geometry_v2%s.json" % VARIANT), "w"))
-json.dump(canvas, open(os.path.join(PROJ, "canvas_v2%s.json" % VARIANT), "w"), indent=1)
-json.dump(dict(geometry="geometry_v2%s.json" % VARIANT, canvas="canvas_v2%s.json" % VARIANT,
+          open(os.path.join(PROJ, "geometry_v3.json"), "w"))
+json.dump(canvas, open(os.path.join(PROJ, "canvas_v3.json"), "w"), indent=1)
+json.dump(dict(geometry="geometry_v3.json", canvas="canvas_v3.json",
                out_dir="/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/"
-                       "7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/ca2_tiles_%s" % VARIANT,
-               tscn="res://cathedral_greybox_v2%s.tscn" % VARIANT,
+                       "7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/ca3_tiles",
+               tscn="res://cathedral_greybox_v3.tscn",
                passes=["guide", "id", "height", "fade", "id_fade", "vault", "arch"]),
           open(os.path.join(PROJ, "build_target.json"), "w"), indent=1)
 json.dump(dict(
@@ -786,7 +903,20 @@ json.dump(dict(
         ruined=VP["ruin"], bands=VP["bands"], ghost_classes=GHOST_CLS),
     broken_piers={"%.3f,%.3f" % k: round(v, 3) for k, v in BROKEN.items()},
     pier_occlusion_cost_m2={"%.3f,%.3f" % k: round(v, 3) for k, v in pier_cost.items()},
-    vault_fallen_bays=vault_fallen,
+    vault_fallen_bays=vault_fallen, break_fraction=BREAK_FRAC,
+    debris=DEBRIS, debris_on_walkable_cells=DEBRIS_ON_WALKABLE,
+    debris_footprint_total_m2=sum(d["footprint_m"][0]**2 for d in DEBRIS),
+    debris_occludes_walkable_m2=DEBRIS_OCCLUDES_M2,
+    debris_rule="fallen drums, capitals and vault stones only in non-walkable dead space near "
+                "their own pier: plinth footprints, the margins under the arcade arches, the "
+                "crater rim, against the cut-low walls. Accepted only if the whole footprint "
+                "rasterises clear of every walkable cell. OVERRIDES crack-law rule 4's talus "
+                "cone (DIV-debris-no-talus): a cone at the angle of repose spills onto the "
+                "floor by construction.",
+    break_profile="jagged: the 2 m section is diced into 0.5 m cells, each ending at its own "
+                  "height, biased lower on the crossing-facing side (the blast came from the "
+                  "demon gate). Class 'pier_break' marks the blasted crown -- SCORCH AND "
+                  "SHATTER ARE PAINT, and this is where the brief calls for them.",
     piers=pier_rows, props=PROPS, fade_wall_bays=fade_walls,
     spawn_galleries=SPAWN_GALLERIES, openings=OPENINGS, pools=pool_rows,
     rise_report=rise_report, vault_bays=len(vault_bays),
@@ -796,7 +926,7 @@ json.dump(dict(
     apron_area_m2=dict(bluefire=float(apron_blue.sum())*CELL*CELL,
                        fire=float(apron_fire.sum())*CELL*CELL),
     aisle_area_m2=float((aisle & walk).sum())*CELL*CELL),
-    open(os.path.join(PROJ, "registration_v2%s.json" % VARIANT), "w"), indent=1)
+    open(os.path.join(PROJ, "registration_v3.json"), "w"), indent=1)
 
 print("VARIANT %s  pier %.2f m  bay target %.2f  ruined=%s  bands=%s"
       % (VARIANT, PIER_SEC, BAY_TARGET, VP["ruin"], VP["bands"]))
@@ -811,7 +941,9 @@ print("CROWN  walls: solved %.4f m, built %.1f m | piers (fade layer): %.1f m" %
 print("FADE   %d rising piers + %d wall bays (%s)"
       % (sum(1 for p in pier_rows if not p["corner"]), len(fade_walls),
          ", ".join("%s b%d %.1fm2" % (f["wall"], f["bay"], f["hides_m2"]) for f in fade_walls)))
-print("RUIN   %d broken of %d rising piers; %d vault bays fell"
-      % (len(BROKEN), len(pier_cost), len(vault_fallen)))
+print("RUIN   %d broken of %d rising piers (frac %.2f); %d of %d vault bays fell"
+      % (len(BROKEN), len(pier_cost), BREAK_FRAC, len(vault_fallen), len(vault_fallen)+len(vault_bays)))
+print("DEBRIS %d pieces; walkable cells under a footprint: %d (assertion 0); hides %.2f m2 of floor"
+      % (len(DEBRIS), DEBRIS_ON_WALKABLE, DEBRIS_OCCLUDES_M2))
 print("VAULT  %d bays, %d boxes total, canvas %d x %d, tiles %d"
       % (len(vault_bays), len(BOXES), CANVAS_W, CANVAS_H, len(tiles)))
