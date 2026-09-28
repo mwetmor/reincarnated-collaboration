@@ -1,9 +1,23 @@
 {
  "sheet": "meshy_run_E.png",
- "cell": 512,
+ "sheet_px": [
+  1536,
+  1024
+ ],
+ "cell_px": [
+  384,
+  341
+ ],
+ "row_heights": [
+  341,
+  341,
+  342
+ ],
  "cols": 4,
  "rows": 3,
+ "game_frame_px": 512,
  "plate": "#00ff00",
+ "cut_back": "for each cell: crop the painted cell, resize to its crop[2]xcrop[3], paste at (crop[0], crop[1]) into a 512x512 frame",
  "n_cells": 8,
  "cells": [
   {
@@ -12,78 +26,82 @@
    "row": 0,
    "x": 0,
    "y": 0,
-   "w": 512,
-   "h": 512,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 0,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_00.png"
   },
   {
    "cell": 1,
    "col": 1,
    "row": 0,
-   "x": 512,
+   "x": 384,
    "y": 0,
-   "w": 512,
-   "h": 512,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 1,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_01.png"
   },
   {
    "cell": 2,
    "col": 2,
    "row": 0,
-   "x": 1024,
+   "x": 768,
    "y": 0,
-   "w": 512,
-   "h": 512,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 2,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_02.png"
   },
   {
    "cell": 3,
    "col": 3,
    "row": 0,
-   "x": 1536,
+   "x": 1152,
    "y": 0,
-   "w": 512,
-   "h": 512,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 3,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_03.png"
   },
   {
@@ -91,79 +109,83 @@
    "col": 0,
    "row": 1,
    "x": 0,
-   "y": 512,
-   "w": 512,
-   "h": 512,
+   "y": 341,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 4,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_04.png"
   },
   {
    "cell": 5,
    "col": 1,
    "row": 1,
-   "x": 512,
-   "y": 512,
-   "w": 512,
-   "h": 512,
+   "x": 384,
+   "y": 341,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 5,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_05.png"
   },
   {
    "cell": 6,
    "col": 2,
    "row": 1,
-   "x": 1024,
-   "y": 512,
-   "w": 512,
-   "h": 512,
+   "x": 768,
+   "y": 341,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 6,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_06.png"
   },
   {
    "cell": 7,
    "col": 3,
    "row": 1,
-   "x": 1536,
-   "y": 512,
-   "w": 512,
-   "h": 512,
+   "x": 1152,
+   "y": 341,
+   "w": 384,
+   "h": 341,
    "state": "run",
    "dir": "E",
    "frame": 7,
    "crop": [
-    123,
-    160,
-    247,
-    247
+    111,
+    159,
+    279,
+    248
    ],
-   "scale": 2.07287,
+   "frame_px": 512,
+   "scale": 1.37634,
    "source": "out/run/colour/E/run_E_07.png"
   }
  ],

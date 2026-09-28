@@ -1,0 +1,36 @@
+{
+ "note": "C-9 meshy_t1: the ONE camera the sprite pipeline uses. Measured, not carried over from a stored constant. Read this rather than hard-coding.",
+ "frame_px": 512,
+ "elevation_deg": 19.77,
+ "azimuths_deg": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "ground_row_y": 398.0,
+ "px_per_m": 110.556,
+ "character_height_m": 1.8,
+ "projection": "orthographic",
+ "derivation": {
+  "method": "the Grok cells' own crown-to-sole, with the pollaxe split off",
+  "grok_idle_E_body_px": 199,
+  "grok_idle_E_note": "identical on all 12 frames -- the painted knight standing",
+  "grok_walk_E_body_px_mean": 197.83,
+  "px_per_m": "199 / 1.80 = 110.556",
+  "why_not_the_stored_constant": "110.185 came from knight_fit.json's stored figure_h_src_px of 198.333, which is close but is a carried-over number, not a measurement of these cells",
+  "pollaxe_must_be_split_first": "the haft rises above the helm, so a plain content bbox of a Grok cell measures the weapon: the same cell reads 241 px with it and 199 px without"
+ },
+ "disagreement_to_resolve": {
+  "integration_session": 114.729,
+  "gandalf": 117.5,
+  "drax_measured": 110.556,
+  "what_114.729_implies": "a 1.80 m model renders 206.5 px crown-to-sole",
+  "what_i_measure": "199 px on every Grok idle frame; the walk mean is 197.8; the only way I reach 206+ is by including haft pixels the splitter missed (the contaminated per-frame maxima run to 231 on the walk and 250 on the run)",
+  "ask": "if the integration fit matched a body height, which frames and what height in px? If it fitted the scene plate rather than the sprite cells it is measuring a different quantity and both can be right."
+ }
+}

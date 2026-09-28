@@ -1,14 +1,15 @@
 {
  "state": "idle",
- "source": "idle.glb",
+ "source": "carry_idle.glb",
  "frame": 512,
- "px_per_m": 110.1852,
+ "px_per_m": 110.556,
  "sole_y": 398.0,
+ "camera_json": "meshy_t1/camera.json",
  "character_height_m": 1.8,
  "elevation_deg": 19.77,
  "facing_yaw_corrected_deg": 179.738,
  "facing_source": "given",
- "aim_z": 1.18622,
+ "aim_z": 1.25914,
  "azimuths": {
   "S": 0,
   "SE": 45,
@@ -30,18 +31,19 @@
   "SW"
  ],
  "frames": 12,
- "fps": 2.9691,
- "carry_pose": true,
+ "fps": 3.0,
+ "carry_pose": false,
  "weapon": "socket_pollaxe.json",
- "carry": {
-  "mode": "chest-parented carry",
-  "chest_bone": "Spine",
-  "grip_world": [
-   0.3688,
-   0.3774,
-   1.26
+ "carry": null,
+ "upright": {
+  "mean_wrist_quat": [
+   0.11934,
+   -0.06746,
+   -0.96485,
+   -0.22423
   ],
-  "yaw_deg": 160.0
+  "fan_bearing_deg": -22.5,
+  "note": "socket rotation re-solved from the clip's mean wrist"
  },
  "guides": {
   "bind_bbox_lo": [

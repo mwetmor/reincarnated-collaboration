@@ -2,13 +2,14 @@
  "state": "run",
  "source": "run.glb",
  "frame": 512,
- "px_per_m": 110.1852,
+ "px_per_m": 110.556,
  "sole_y": 398.0,
+ "camera_json": "meshy_t1/camera.json",
  "character_height_m": 1.8,
  "elevation_deg": 19.77,
  "facing_yaw_corrected_deg": 179.738,
  "facing_source": "given",
- "aim_z": 1.2248,
+ "aim_z": 1.22069,
  "azimuths": {
   "S": 0,
   "SE": 45,
@@ -34,14 +35,24 @@
  "carry_pose": true,
  "weapon": "socket_pollaxe.json",
  "carry": {
-  "mode": "chest-parented carry",
+  "mode": "chest-carry, hand pinned to a grip frame on the haft",
   "chest_bone": "Spine",
+  "hand_bone": "RightHand",
   "grip_world": [
    0.3395,
    0.4271,
    1.26
   ],
-  "yaw_deg": 160.0
+  "arm_reach_m": 0.5315,
+  "yaw_deg": 67.5,
+  "carry_extra_yaw_deg": -92.5,
+  "ik_bone": "RightForeArm",
+  "ik_note": "IK on the bone whose TAIL is the hand's head",
+  "free_arm_damped": [
+   "LeftArm",
+   "LeftForeArm"
+  ],
+  "free_arm_influence": 0.5
  },
  "guides": {
   "bind_bbox_lo": [

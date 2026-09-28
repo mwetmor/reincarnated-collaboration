@@ -31,6 +31,9 @@
    0.43342,
    0.02493,
    0.93013
-  ]
+  ],
+  "carry_fan_bearing_deg": -22.5,
+  "carry_extra_yaw_deg": -92.5,
+  "carry_yaw_rationale": "apparent fan width |sin(a-b)|: at b=-22.5 it is 0.924 in both E (a=90) and SE (a=45) against 0.34 and 0.42 at the all-directions optimum of 70; S and N drop to 0.38. Carry pose only; the attack keeps the hand socket at the 70 deg bearing."
  }
 }

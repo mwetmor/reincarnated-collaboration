@@ -24,9 +24,19 @@
 #    is not, while leaving the sway and the vertical bob intact -- which
 #    zeroing the root outright would destroy.
 #
-#  * SPEED FROM THE FEET. These clips arrive in place, so the ground speed is
-#    not in the root at all: it is in the stance foot, which slides backward
-#    under the body at exactly the travel speed. Measured there.
+#  * TWO CLIP CONVENTIONS, DETECTED NOT ASSUMED. Meshy's free library clips
+#    arrive IN PLACE: the ground speed is not in the root at all, it is in the
+#    stance foot sliding backward under the body. Its text-to-motion clips
+#    TRAVEL: the root moves and the stance foot stays put. Measuring the wrong
+#    one silently returns nonsense -- the carry walk read 0.173 m/s on the
+#    stance foot when it is really doing 1.22 m/s in the root. So the root's
+#    linear drift decides which measurement is the speed.
+#
+#  * CYCLE BY SELF-SIMILARITY, with the root removed. A travelling 4 s walk is
+#    several strides, not one cycle; the "does the last frame repeat the first"
+#    test only works on a clip that is already one loop. The period is found by
+#    comparing root-relative poses at every lag and taking the best, so a long
+#    clip is cut to its own stride.
 import bpy, json, math, os, sys
 import numpy as np
 from mathutils import Vector
@@ -47,6 +57,11 @@ GAME = {"walk": dict(px_s=247.0, period=0.5797, frames=12),
 
 ROLES = {
     "hips": ["hips", "pelvis", "root"],
+    # CHEST is its own role and is resolved BEFORE spine: Meshy names the
+    # chain Spine, Spine01, Spine02, so an exact match on "spine" lands on the
+    # LOWEST one, near the pelvis. Carrying a weapon relative to that puts the
+    # grip too low and too far forward to reach.
+    "chest": ["spine02", "spine2", "chest", "upperchest", "spine_03"],
     "spine": ["spine"], "head": ["head"], "neck": ["neck"],
     "l_upleg": ["leftupleg", "l_upleg", "thigh_l", "leftthigh"],
     "r_upleg": ["rightupleg", "r_upleg", "thigh_r", "rightthigh"],
@@ -121,16 +136,54 @@ def main():
         P[b] = np.array(P[b])
     N = f1 - f0 + 1
 
-    # ---- is the last frame a duplicate of the first? (a looping clip usually
-    #      repeats it, and counting it would stretch the cycle by one frame)
+    # ---- root-relative pose stack, for cycle detection -------------------
+    hips0 = R.get("hips", bones[0])
+    Q = np.stack([P[b] - P[hips0] for b in bones], 1)      # (N, nbones, 3)
+
+    def pose_dist(lag):
+        n = N - lag
+        if n < 3:
+            return 1e9
+        return float(np.linalg.norm(Q[:n] - Q[lag:lag + n], axis=2).mean())
+
     d_loop = float(np.mean([np.linalg.norm(P[b][-1] - P[b][0]) for b in bones]))
     d_step = float(np.mean([np.linalg.norm(P[b][1] - P[b][0]) for b in bones]))
     dup = d_loop < 0.4 * d_step
-    cycle_frames = (N - 1) if dup else N
+    base = (N - 1) if dup else N
+    # a cycle must be at least 6 frames and at most the clip; pick the lag that
+    # best repeats the pose, preferring the SHORTEST such lag so a clip holding
+    # several strides is cut to one
+    cands = [(lag, pose_dist(lag)) for lag in range(6, max(7, int(N * 0.7)))]
+    # How much does this clip MOVE at all? A near-static idle looks
+    # self-similar at every lag, so without this guard the detector returns the
+    # smallest lag it is allowed to (it returned 6 frames for a 4 s idle).
+    motion = float(np.linalg.norm(Q - Q.mean(0, keepdims=True), axis=2).mean())
+    cycle_frames, cyc_score, cyc_why = base, None, "clip length"
+    if cands and motion > 0.02:
+        ds = np.array([c[1] for c in cands])
+        best = float(ds.min()); med = float(np.median(ds))
+        # a real period is a clear MINIMUM against the typical lag, not merely
+        # the smallest number in a flat curve
+        bi = int(np.argmin(ds))
+        # A period is a genuine MINIMUM, so the curve must rise again after it.
+        # A monotonically rising curve has its smallest value at the smallest
+        # lag searched and means "no repeat", not "a 6-frame cycle" -- which is
+        # what a 4 s idle returned before this test.
+        rises = bool(ds[bi:].max() > 1.5 * best) and bi >= 2
+        if med > 0 and best < 0.60 * med and rises:
+            cycle_frames = int(min(c[0] for c in cands if c[1] <= best * 1.15))
+            cyc_score = round(best / med, 4); cyc_why = "pose self-similarity"
+        elif not rises:
+            cyc_why = "no clear period (self-similarity never recovers)"
+        else:
+            cyc_why = "no clear period (flat self-similarity curve)"
+    elif cands:
+        cyc_why = "near-static clip; whole clip is the loop"
+    cyc_curve = {int(c[0]): round(c[1], 5) for c in cands[::2]}
     period = cycle_frames / fps
 
     # ---- root drift: fit and remove the LINEAR horizontal component
-    hips = R.get("hips", bones[0])
+    hips = hips0
     t = np.arange(N)
     drift = {}
     for k, ax in ((0, "x"), (1, "y")):
@@ -138,7 +191,8 @@ def main():
         drift[ax] = dict(per_frame=float(m), over_cycle=float(m * cycle_frames))
     drift_len = math.hypot(drift["x"]["over_cycle"], drift["y"]["over_cycle"])
 
-    # ---- ground speed from the stance foot
+    # ---- ground speed: root travel if the clip travels, else the stance foot
+    travels = drift_len > 0.30
     speeds, stance = {}, {}
     for side in ("l", "r"):
         key = R.get(side + "_toe") or R.get(side + "_foot")
@@ -162,7 +216,9 @@ def main():
         speeds[key] = float(np.linalg.norm(dxy) / dt)
         stance[key] = dict(frames=len(best), fraction=round(len(best) / cycle_frames, 3),
                            disp_m=[round(float(v), 4) for v in dxy])
-    sp = float(np.median(list(speeds.values()))) if speeds else 0.0
+    sp_foot = float(np.median(list(speeds.values()))) if speeds else 0.0
+    sp_root = drift_len / period if period else 0.0
+    sp = sp_root if travels else sp_foot
 
     g = GAME.get(NAME, GAME["attack"])
     out = dict(
@@ -177,6 +233,11 @@ def main():
         root_linear_drift=drift, root_drift_over_cycle_m=round(drift_len, 5),
         in_place_already=bool(drift_len < 0.02),
         stance=stance, foot_speeds_m_s={k: round(v, 4) for k, v in speeds.items()},
+        clip_travels=bool(travels),
+        speed_source="root travel" if travels else "stance foot",
+        speed_from_root_m_s=round(sp_root, 4), speed_from_feet_m_s=round(sp_foot, 4),
+        cycle_detected_by=cyc_why, cycle_selfsim_ratio=cyc_score,
+        pose_motion=round(motion, 5), selfsim_curve=cyc_curve,
         clip_ground_speed_m_s=round(sp, 4),
         clip_stride_m=round(sp * period, 4),
     )

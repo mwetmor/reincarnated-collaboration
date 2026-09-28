@@ -33,26 +33,33 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 T1 = os.path.dirname(HERE)
 OUT = os.path.join(T1, "out")
 ASTRA = os.path.join(T1, "astra_in")
-CELL = 512
+# Astra paints at 1536x1024 (3:2). A 2048x1536 sheet would come back resampled
+# to that and every cell would be distorted, so the sheet IS 1536x1024: a 4x3
+# grid of 384-wide cells, rows 341/341/342 so they fill the height exactly.
+SHEET_W, SHEET_H = 1536, 1024
 COLS, ROWS = 4, 3
+CELL_W = SHEET_W // COLS
+ROW_H = [SHEET_H // ROWS] * ROWS
+ROW_H[-1] += SHEET_H - sum(ROW_H)
+CELL = CELL_W
 PLATE = (0, 255, 0)
 FULL_DIRS = ["E", "SE"]
 ALL_DIRS = ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]
 STATES = ["walk", "run", "idle", "attack"]
 
 
-def on_plate(path, box=None):
+def on_plate(path, box=None, size=None):
     im = Image.open(path).convert("RGBA")
     bg = Image.new("RGBA", im.size, PLATE + (255,))
     bg.alpha_composite(im)
     rgb = bg.convert("RGB")
     if box:
         rgb = rgb.crop((box[0], box[1], box[0] + box[2], box[1] + box[3]))
-        rgb = rgb.resize((CELL, CELL), Image.LANCZOS)
+        rgb = rgb.resize(size or (CELL_W, ROW_H[0]), Image.LANCZOS)
     return rgb
 
 
-def union_box(paths, margin=14):
+def union_box(paths, margin=14, aspect=None):
     """One crop shared by the whole clip+direction, so the cut-back needs a
     single offset and scale rather than one per cell."""
     lo = [10 ** 9, 10 ** 9]; hi = [-1, -1]
@@ -66,41 +73,56 @@ def union_box(paths, margin=14):
         lo[1] = min(lo[1], int(ys.min())); hi[1] = max(hi[1], int(ys.max()))
     if hi[0] < 0:
         return [0, 0, CELL, CELL]
+    FR = 512
     x0 = max(lo[0] - margin, 0); y0 = max(lo[1] - margin, 0)
-    x1 = min(hi[0] + margin, CELL - 1); y1 = min(hi[1] + margin, CELL - 1)
+    x1 = min(hi[0] + margin, FR - 1); y1 = min(hi[1] + margin, FR - 1)
     w = x1 - x0 + 1; h = y1 - y0 + 1
-    side = max(w, h)                       # square, so the cell is not stretched
+    # the crop must carry the CELL's aspect, or the figure is stretched when it
+    # is scaled in; the cell is wider than tall and the knight is taller than
+    # wide, so height is the binding dimension
+    ar = aspect if aspect else 1.0
+    ch = max(h, int(round(w / ar)))
+    cw = int(round(ch * ar))
     cx = x0 + w / 2.0; cy = y0 + h / 2.0
-    x0 = int(round(max(0, min(CELL - side, cx - side / 2.0))))
-    y0 = int(round(max(0, min(CELL - side, cy - side / 2.0))))
-    return [x0, y0, int(side), int(side)]
+    x0 = int(round(max(0, min(FR - cw, cx - cw / 2.0))))
+    y0 = int(round(max(0, min(FR - ch, cy - ch / 2.0))))
+    return [x0, y0, int(min(cw, FR)), int(min(ch, FR))]
 
 
 def sheet(cells, name, meta):
-    im = Image.new("RGB", (CELL * COLS, CELL * ROWS), PLATE)
+    im = Image.new("RGB", (SHEET_W, SHEET_H), PLATE)
     lay = []
+    ytop = [sum(ROW_H[:r]) for r in range(ROWS)]
     for i, c in enumerate(cells):
         if i >= COLS * ROWS:
             break
         r, k = divmod(i, COLS)
-        im.paste(on_plate(c["path"], c.get("box")), (k * CELL, r * CELL))
+        cw, ch = CELL_W, ROW_H[r]
+        im.paste(on_plate(c["path"], c.get("box"), (cw, ch)), (k * cw, ytop[r]))
         lay.append(dict(cell=i, col=k, row=r,
-                        x=k * CELL, y=r * CELL, w=CELL, h=CELL,
+                        x=k * cw, y=ytop[r], w=cw, h=ch,
                         state=c["state"], dir=c["dir"], frame=c["frame"],
-                        crop=c.get("box"),
-                        scale=round(CELL / float(c["box"][2]), 5) if c.get("box") else 1.0,
+                        crop=c.get("box"), frame_px=512,
+                        scale=round(cw / float(c["box"][2]), 5) if c.get("box") else 1.0,
                         source=os.path.relpath(c["path"], T1)))
     p = os.path.join(ASTRA, name + ".png")
     im.save(p)
-    j = dict(sheet=name + ".png", cell=CELL, cols=COLS, rows=ROWS,
-             plate="#00ff00", n_cells=len(lay), cells=lay, **meta)
+    j = dict(sheet=name + ".png", sheet_px=[SHEET_W, SHEET_H],
+             cell_px=[CELL_W, ROW_H[0]], row_heights=ROW_H, cols=COLS, rows=ROWS,
+             game_frame_px=512, plate="#00ff00",
+             cut_back="for each cell: crop the painted cell, resize to its "
+                      "crop[2]xcrop[3], paste at (crop[0], crop[1]) into a "
+                      "512x512 frame",
+             n_cells=len(lay), cells=lay, **meta)
     json.dump(j, open(os.path.join(ASTRA, name + "_sheet_layout.json"), "w"), indent=1)
     return p, j
 
 
 def main():
     os.makedirs(ASTRA, exist_ok=True)
-    man = {"note": __doc__.strip().splitlines()[0], "cell_px": CELL,
+    man = {"note": __doc__.strip().splitlines()[0],
+           "sheet_px": [SHEET_W, SHEET_H], "cell_px": [CELL_W, ROW_H[0]],
+           "row_heights": ROW_H, "game_frame_px": 512,
            "grid": [COLS, ROWS], "plate": "#00ff00",
            "full_paint_dirs": FULL_DIRS, "sheets": []}
     have = {}
@@ -119,7 +141,7 @@ def main():
         for d in FULL_DIRS:
             src = os.path.join(OUT, st, "colour", d)
             paths = [os.path.join(src, "%s_%s_%02d.png" % (st, d, i)) for i in range(n)]
-            box = union_box(paths)
+            box = union_box(paths, aspect=CELL_W / float(ROW_H[0]))
             cells = [dict(path=paths[i], state=st, dir=d, frame=i, box=box)
                      for i in range(n)]
             for s in range(0, len(cells), COLS * ROWS):
@@ -148,7 +170,7 @@ def main():
                 src = os.path.join(OUT, st, "colour", d)
                 allp = [os.path.join(src, "%s_%s_%02d.png" % (st, d, i))
                         for i in range(n)]
-                box = union_box(allp)
+                box = union_box(allp, aspect=CELL_W / float(ROW_H[0]))
                 keys.append(dict(path=os.path.join(src, "%s_%s_%02d.png" % (st, d, f)),
                                  state=st, dir=d, frame=f, box=box))
     for s in range(0, len(keys), COLS * ROWS):

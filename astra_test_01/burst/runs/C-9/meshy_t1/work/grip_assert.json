@@ -1,0 +1,178 @@
+{
+ "note": "C-9 meshy_t1: ASSERT the gauntlet is actually on the haft (R-C9-61 blocker 1).",
+ "reach_px": 3,
+ "min_hand_px": 12,
+ "states": {
+  "walk": {
+   "per_dir": {
+    "S": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "SE": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "E": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "NE": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "N": {
+     "pass_": 0,
+     "fail": 0,
+     "occluded": 12,
+     "frames": 12
+    },
+    "NW": {
+     "pass_": 0,
+     "fail": 0,
+     "occluded": 12,
+     "frames": 12
+    },
+    "W": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "SW": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    }
+   },
+   "frames_total": 96,
+   "passed": 72,
+   "occluded": 24,
+   "failed": 0,
+   "pass_rate_of_visible": 1.0
+  },
+  "run": {
+   "per_dir": {
+    "S": {
+     "pass_": 5,
+     "fail": 3,
+     "occluded": 0,
+     "frames": 8
+    },
+    "SE": {
+     "pass_": 6,
+     "fail": 2,
+     "occluded": 0,
+     "frames": 8
+    },
+    "E": {
+     "pass_": 0,
+     "fail": 8,
+     "occluded": 0,
+     "frames": 8
+    },
+    "NE": {
+     "pass_": 0,
+     "fail": 8,
+     "occluded": 0,
+     "frames": 8
+    },
+    "N": {
+     "pass_": 5,
+     "fail": 3,
+     "occluded": 0,
+     "frames": 8
+    },
+    "NW": {
+     "pass_": 3,
+     "fail": 1,
+     "occluded": 4,
+     "frames": 8
+    },
+    "W": {
+     "pass_": 0,
+     "fail": 0,
+     "occluded": 8,
+     "frames": 8
+    },
+    "SW": {
+     "pass_": 0,
+     "fail": 7,
+     "occluded": 1,
+     "frames": 8
+    }
+   },
+   "frames_total": 64,
+   "passed": 19,
+   "occluded": 13,
+   "failed": 32,
+   "pass_rate_of_visible": 0.3725
+  },
+  "idle": {
+   "per_dir": {
+    "S": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "SE": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "E": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "NE": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "N": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "NW": {
+     "pass_": 3,
+     "fail": 0,
+     "occluded": 9,
+     "frames": 12
+    },
+    "W": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    },
+    "SW": {
+     "pass_": 12,
+     "fail": 0,
+     "occluded": 0,
+     "frames": 12
+    }
+   },
+   "frames_total": 96,
+   "passed": 87,
+   "occluded": 9,
+   "failed": 0,
+   "pass_rate_of_visible": 1.0
+  }
+ }
+}

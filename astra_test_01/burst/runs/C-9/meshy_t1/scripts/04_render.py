@@ -50,6 +50,13 @@ HEIGHT = float(a[a.index("--height") + 1]) if "--height" in a else None
 # untouched. Off by default: it changes the authored motion, which is a design
 # call, not a rendering one.
 CARRY = "--carry" in a
+# UPRIGHT. A socket fitted in the bind pose carries the bind wrist with it, so
+# on a clip whose hand is authored differently the haft comes out at whatever
+# angle that wrist implies -- measured on the text-to-motion carry walk, the
+# pollaxe lay HORIZONTAL across the body while the grip itself was perfect.
+# With --upright the socket's ROTATION is re-solved from the clip's own mean
+# wrist orientation so the haft stands vertical, and the fan keeps its bearing.
+UPRIGHT = "--upright" in a
 # FACING IS A PROPERTY OF THE RIG, NOT OF THE CLIP. Derived per clip it is
 # right for locomotion and NOISE for anything else: this knight's idle gave
 # -90 deg from a 0.0001 m stance displacement and rendered facing the camera in
@@ -57,10 +64,16 @@ CARRY = "--carry" in a
 FACE = float(a[a.index("--face") + 1]) if "--face" in a else None
 MIN_DISP = 0.15
 AZI = {"S": 0, "SE": 45, "E": 90, "NE": 135, "N": 180, "NW": 225, "W": 270, "SW": 315}
-FRAME = 512
-BODY_PX = 198.33333333333334          # the Grok cells' helm-to-sole
-SOLE_Y = 398.0                        # the game's ground row
-ELEV = 19.77
+# ONE camera, read from meshy_t1/camera.json so the integration session and
+# this pipeline cannot drift apart. BODY_PX is no longer a stored constant: the
+# scale comes from the measured px/m.
+_CAM = json.load(open(os.path.join(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))), "camera.json")))
+FRAME = _CAM["frame_px"]
+PX_PER_M = _CAM["px_per_m"]
+BODY_PX = PX_PER_M * _CAM["character_height_m"]
+SOLE_Y = _CAM["ground_row_y"]
+ELEV = _CAM["elevation_deg"]
 
 
 def skinned(sc, arm):
@@ -124,31 +137,89 @@ def bake_guides(objs, arm):
                 bone_colours={b: [round(c, 4) for c in pal[b]] for b in bones})
 
 
+def fit_upright_socket(arm, R, sk, info, times):
+    """Re-solve the socket's rotation so the haft stands UPRIGHT in this clip.
+
+    The weapon's world rotation is (hand world rotation) x (socket rotation).
+    Averaging the hand's rotation over the cycle and asking for a weapon whose
+    local +Z is world +Z, with the fan at its target bearing, gives
+        socket = mean_hand_rotation^-1 x desired_world_rotation
+    so the haft is vertical on average and wobbles only as the wrist does,
+    which is what a carried polearm looks like.
+    """
+    hand = R.get("r_hand")
+    if not hand:
+        return None
+    sc = bpy.context.scene
+    qs = []
+    for t in times:
+        sc.frame_set(int(t), subframe=float(t) - int(t))
+        qs.append((arm.matrix_world @ arm.pose.bones[hand].matrix).to_quaternion())
+    ref = qs[0]
+    acc = Vector((0.0, 0.0, 0.0, 0.0))
+    for q in qs:
+        if q.dot(ref) < 0:
+            q = -q
+        acc += Vector((q.w, q.x, q.y, q.z))
+    from mathutils import Quaternion
+    mq = Quaternion((acc.x, acc.y, acc.z, acc.w))
+    mq.normalize()
+    bearing = sk["fit"].get("carry_fan_bearing_deg", sk["fit"]["target_fan_bearing_deg"])
+    fan_local = sk["fit"]["weapon_fan_local_bearing_deg"]
+    desired = Matrix.Rotation(math.radians(bearing - fan_local), 4, 'Z')
+    R_sock = mq.to_matrix().to_4x4().inverted() @ desired
+    return dict(rot_matrix=R_sock,
+                mean_wrist_quat=[round(v, 5) for v in mq],
+                fan_bearing_deg=bearing,
+                note="socket rotation re-solved from the clip's mean wrist")
+
+
 def add_carry_ik(arm, R, sk, roots, wobjs):
-    """CARRY POSE, by inverting the attachment.
+    """CARRY POSE: weapon on the chest, hand pinned to a grip frame on the haft.
 
-    Socketing the weapon to the HAND and then steering the hand does not work:
-    IK sets the hand's position but not its rotation, and a bone-relative
-    socket inherits whatever wrist the solver picks -- tried both ways, the
-    pollaxe came out lying across the body either time.
+    Socketing the weapon to the HAND and steering the hand does not work -- IK
+    sets the hand's position and says nothing about its rotation, so the haft
+    inherits whatever wrist the solver picks. Inverting it (weapon on the
+    chest) fixes the haft, but a POSITION-ONLY IK still leaves the gauntlet
+    facing anywhere, and measured on the part-ID guide the hand touched the
+    haft in only 19 % of visible walk frames -- the pollaxe stood in front of
+    the knight, detached.
 
-    So for a carry the weapon is parented to the CHEST, upright, at the grip
-    offset measured from the approved E still, and the HAND is IK-solved onto
-    a point on its haft. The weapon cannot tilt because nothing downstream of
-    the chest touches it, and the grip cannot drift because the hand is
-    constrained to the haft itself -- the same grip-socket argument as
-    R-C9-51, reached from the other end.
+    So the hand is pinned to a full GRIP FRAME carried on the weapon:
+      * the frame is the hand's own transform in WEAPON space, taken from the
+        bind-pose socket fit (inverse of the socket's bone-space matrix), so
+        it is the grip that was fitted, not a new guess;
+      * IK brings the hand to it and lets the elbow solve;
+      * COPY_ROTATION lands the gauntlet's orientation on it.
+    The free arm is damped toward its bind pose so it does not flail against a
+    now-static weapon arm.
     """
     import bpy as _b
     hand = R.get("r_hand")
-    chest = R.get("spine") or R.get("hips")
+    chest = R.get("chest") or R.get("spine") or R.get("hips")
     if not (hand and chest and roots):
         return None
     H = 1.80
     cb = arm.data.bones[chest]
     cw = arm.matrix_world @ arm.pose.bones[chest].head
     grip_w = Vector((cw.x + 0.195 * H, cw.y + 0.162 * H, 0.700 * H))
-    yaw = sk["fit"]["socket_yaw_deg"]
+    # CLAMP THE GRIP INTO REACH. The offsets come from the painted knight's
+    # proportions; this rig's arm may be shorter, and an unreachable target
+    # leaves the IK pulling and stopping short -- measured 0.27 m short, which
+    # is a floating haft. Pull the target toward the shoulder until it is
+    # inside 95 % of the arm's length.
+    sh_name = R.get("r_arm")
+    if sh_name:
+        shoulder = arm.matrix_world @ arm.pose.bones[sh_name].head
+        el_name = R.get("r_fore"); hd_name = R.get("r_hand")
+        if el_name and hd_name:
+            el = arm.matrix_world @ arm.pose.bones[el_name].head
+            hd = arm.matrix_world @ arm.pose.bones[hd_name].head
+            reach = (el - shoulder).length + (hd - el).length
+            d = grip_w - shoulder
+            if d.length > 0.95 * reach:
+                grip_w = shoulder + d.normalized() * (0.95 * reach)
+    yaw = sk["fit"]["socket_yaw_deg"] + sk["fit"].get("carry_extra_yaw_deg", 0.0)
     gz = sk["fit"]["grip_local_z"]
     M_world = (Matrix.Translation(grip_w)
                @ Matrix.Rotation(math.radians(yaw), 4, 'Z')
@@ -159,19 +230,66 @@ def add_carry_ik(arm, R, sk, roots, wobjs):
         o.parent = arm; o.parent_type = 'BONE'; o.parent_bone = chest
         o.matrix_parent_inverse = Matrix.Identity(4)
         o.matrix_basis = parent_w.inverted() @ M_world
-    # the hand goes to the haft, not the other way round
-    emp = _b.data.objects.new("grip_target", None)
+
+    # the GRIP FRAME: the hand's transform in weapon space, from the socket fit
+    # The SCALE must be in this matrix. Meshy's armature imports at 0.01, so
+    # bone space is 100x world: the socket's offset reads 16.1 units for a
+    # 0.161 m grip. Inverting the matrix without the scale put the grip frame
+    # 16 METRES from the hand -- out of reach, so the IK gave up, the arm hung,
+    # and the assert read 0 % where it had been 19 %.
+    M_sock = (Matrix.Translation(Vector(sk["offset"]))
+              @ Euler([math.radians(v) for v in sk["rotation_euler_xyz_deg"]],
+                      'XYZ').to_matrix().to_4x4()
+              @ Matrix.Diagonal(Vector(sk["scale"]).to_4d()))
+    hand_in_weapon = M_sock.inverted()
+    emp = _b.data.objects.new("grip_frame", None)
     _b.context.scene.collection.objects.link(emp)
     emp.parent = roots[0]
     emp.matrix_parent_inverse = Matrix.Identity(4)
-    emp.matrix_basis = Matrix.Translation(Vector((0, 0, gz)))
+    emp.matrix_basis = hand_in_weapon
     _b.context.view_layer.objects.active = arm
     _b.ops.object.mode_set(mode='POSE')
-    c = arm.pose.bones[hand].constraints.new('IK')
-    c.target = emp; c.chain_count = 3
+    pbh = arm.pose.bones[hand]
+    # IK DRIVES A BONE'S TAIL, so it must go on the bone whose TAIL is the
+    # joint being placed -- the forearm, whose tail IS the hand's head. Put on
+    # the hand itself it drives the hand's tail, and on a Meshy auto-rig the
+    # hand is a childless LEAF whose tail sits 24.8 m away: driving that to the
+    # grip leaves the head nowhere near it. This is why every earlier attempt
+    # failed, hand-socketed and chest-carried alike.
+    fore = R.get("r_fore")
+    ikbone = arm.pose.bones[fore] if fore else pbh
+    c = ikbone.constraints.new('IK'); c.target = emp
+    c.chain_count = 2 if fore else 3
+    cr = pbh.constraints.new('COPY_ROTATION')
+    cr.target = emp; cr.target_space = 'WORLD'; cr.owner_space = 'WORLD'
+    ik_on = ikbone.name
+
+    # damp the free arm so it does not flail against a static weapon arm
+    damped = []
+    for role in ("l_arm", "l_fore"):
+        bn = R.get(role)
+        if not bn:
+            continue
+        e2 = _b.data.objects.new("bind_%s" % bn, None)
+        _b.context.scene.collection.objects.link(e2)
+        e2.matrix_world = arm.matrix_world @ arm.pose.bones[bn].matrix
+        e2.parent = arm; e2.parent_type = 'BONE'; e2.parent_bone = chest
+        e2.matrix_parent_inverse = parent_w.inverted()
+        e2.matrix_basis = parent_w.inverted() @ (arm.matrix_world
+                                                 @ arm.pose.bones[bn].matrix)
+        cc = arm.pose.bones[bn].constraints.new('COPY_ROTATION')
+        cc.target = e2; cc.target_space = 'WORLD'; cc.owner_space = 'WORLD'
+        cc.influence = 0.5
+        damped.append(bn)
     _b.ops.object.mode_set(mode='OBJECT')
-    return dict(mode="chest-parented carry", chest_bone=chest,
-                grip_world=[round(v, 4) for v in grip_w], yaw_deg=yaw)
+    return dict(mode="chest-carry, hand pinned to a grip frame on the haft",
+                chest_bone=chest, hand_bone=hand,
+                grip_world=[round(v, 4) for v in grip_w],
+                arm_reach_m=round(reach, 4) if sh_name and el_name else None,
+                yaw_deg=round(yaw, 3),
+                carry_extra_yaw_deg=sk["fit"].get("carry_extra_yaw_deg", 0.0),
+                ik_bone=ik_on, ik_note="IK on the bone whose TAIL is the hand's head",
+                free_arm_damped=damped, free_arm_influence=0.5)
 
 
 def bake_weapon_guides(wobjs, guides):
@@ -238,9 +356,14 @@ def main():
         wobjs = [o for o in sc.objects if o.name not in before and o.type == 'MESH']
         roots = [o for o in sc.objects if o.name not in before and o.parent is None]
         carry_info = None
+        upright_info = None
+        if UPRIGHT and not CARRY:
+            upright_info = fit_upright_socket(arm, R, sk, info,
+                                             info["resample"]["frames"])
         M = (Matrix.Translation(Vector(sk["offset"]))
-             @ Euler([math.radians(v) for v in sk["rotation_euler_xyz_deg"]],
-                     'XYZ').to_matrix().to_4x4()
+             @ (Euler([math.radians(v) for v in sk["rotation_euler_xyz_deg"]],
+                      'XYZ').to_matrix().to_4x4() if not upright_info
+                else upright_info["rot_matrix"])
              @ Matrix.Diagonal(Vector(sk["scale"]).to_4d()))
         pbname = sk["bone"]
         for o in ([] if CARRY else roots):
@@ -259,7 +382,7 @@ def main():
 
     # ---- scale from the CHARACTER -----------------------------------------
     h = HEIGHT if HEIGHT else info["character_height_m"]
-    px_per_m = BODY_PX / h
+    px_per_m = PX_PER_M if HEIGHT else BODY_PX / h
 
     # ---- camera ------------------------------------------------------------
     cam = bpy.data.objects.new('cam', bpy.data.cameras.new('cam'))
@@ -314,6 +437,7 @@ def main():
 
     rep = dict(state=STATE, source=os.path.basename(SRC), frame=FRAME,
                px_per_m=round(px_per_m, 4), sole_y=SOLE_Y,
+               camera_json="meshy_t1/camera.json",
                character_height_m=h, elevation_deg=ELEV,
                facing_yaw_corrected_deg=round(face_yaw, 3),
                facing_source=face_src,
@@ -321,6 +445,8 @@ def main():
                frames=len(times), fps=info["resample"]["out_fps"],
                carry_pose=bool(CARRY), weapon=os.path.basename(SOCKET) if SOCKET else None,
                carry=(carry_info if SOCKET else None),
+               upright=({k: v for k, v in upright_info.items() if k != "rot_matrix"}
+                        if SOCKET and upright_info else None),
                guides=guides, passes={})
 
     def render_pass(tag, subdir):
