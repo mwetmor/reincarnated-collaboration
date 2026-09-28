@@ -1,6 +1,6 @@
 {
- "note": "C-9 knight3d M-a: fitted knight proxy, standard humanoid skeleton.",
- "skeleton_standard": "Mixamo humanoid (bone names as emitted by Mixamo without the 'mixamorig:' namespace); any Mixamo/Rigify humanoid clip retargets onto it.",
+ "note": "C-9 knight3d: fitted knight, standard humanoid skeleton. Geometry comes from knight_proxy.build_parts() via 07_export_parts.py; this script only assembles it.",
+ "skeleton_standard": "Mixamo humanoid naming (without the 'mixamorig:' namespace); any Mixamo/Rigify humanoid clip retargets.",
  "rigify_map": {
   "Hips": "spine",
   "Spine": "spine.001",
@@ -29,7 +29,7 @@
   "TAB_F_01..03 / TAB_B_01..03": "tabard pendulum below the waist (R-C9-36); above the waist the tabard is weighted 1.0 to Hips and is RIGID",
   "SKIRT_F/B/L/R": "mail-skirt quadrant links",
   "SOCK_WeaponMain": "weapon parent socket on the main (right) hand",
-  "SOCK_WeaponGripFar": "far-hand grip socket up the haft; the off hand IK-locks to it so it cannot drift (Matt defect 3)",
+  "SOCK_WeaponGripFar": "far-hand grip socket up the haft; a child of SOCK_WeaponMain, so it travels with the weapon and the off hand IK-locks to it -- the two grips cannot drift apart",
   "SOCK_OffHand": "off-hand attachment"
  },
  "bones": [
@@ -39,25 +39,30 @@
   "Spine2",
   "Neck",
   "Head",
+  "HeadTop_End",
   "LeftShoulder",
   "LeftArm",
   "LeftForeArm",
   "LeftHand",
+  "LeftHandEnd",
   "SOCK_OffHand",
   "RightShoulder",
   "RightArm",
   "RightForeArm",
   "RightHand",
+  "RightHandEnd",
   "SOCK_WeaponMain",
   "SOCK_WeaponGripFar",
   "LeftUpLeg",
   "LeftLeg",
   "LeftFoot",
   "LeftToeBase",
+  "LeftToe_End",
   "RightUpLeg",
   "RightLeg",
   "RightFoot",
   "RightToeBase",
+  "RightToe_End",
   "TAB_F_01",
   "TAB_F_02",
   "TAB_F_03",
@@ -74,33 +79,82 @@
   "visor": "Head",
   "gorget": "Neck",
   "breastplate": "Spine2",
-  "waist_plate": "Spine",
+  "waist": "Spine",
   "fauld": "Hips",
   "pauldron_L": "LeftArm",
   "rerebrace_L": "LeftArm",
   "couter_L": "LeftForeArm",
   "vambrace_L": "LeftForeArm",
   "gauntlet_L": "LeftHand",
-  "cuisse_L": "LeftUpLeg",
-  "poleyn_L": "LeftLeg",
-  "greave_L": "LeftLeg",
-  "sabaton_L": "LeftFoot",
-  "sabaton_toe_L": "LeftToeBase",
   "pauldron_R": "RightArm",
   "rerebrace_R": "RightArm",
   "couter_R": "RightForeArm",
   "vambrace_R": "RightForeArm",
   "gauntlet_R": "RightHand",
+  "cuisse_L": "LeftUpLeg",
+  "poleyn_L": "LeftLeg",
+  "greave_L": "LeftLeg",
+  "sabaton_L": "LeftFoot",
+  "sabaton_toe_L": "LeftToeBase",
   "cuisse_R": "RightUpLeg",
   "poleyn_R": "RightLeg",
   "greave_R": "RightLeg",
   "sabaton_R": "RightFoot",
-  "sabaton_toe_R": "RightToeBase"
+  "sabaton_toe_R": "RightToeBase",
+  "pollaxe_haft": "SOCK_WeaponMain",
+  "pollaxe_blade": "SOCK_WeaponMain",
+  "pollaxe_spike": "SOCK_WeaponMain",
+  "pollaxe_point": "SOCK_WeaponMain",
+  "pollaxe_butt": "SOCK_WeaponMain"
  },
  "deforming_pieces": [
   "mail_skirt",
   "tabard_front",
   "tabard_back"
+ ],
+ "weapon_pieces": [
+  "pollaxe_haft",
+  "pollaxe_blade",
+  "pollaxe_spike",
+  "pollaxe_point",
+  "pollaxe_butt"
+ ],
+ "atlas_triangles": 4804,
+ "atlas_objects": [
+  "helm",
+  "visor",
+  "gorget",
+  "breastplate",
+  "waist",
+  "fauld",
+  "pauldron_L",
+  "rerebrace_L",
+  "couter_L",
+  "vambrace_L",
+  "gauntlet_L",
+  "pauldron_R",
+  "rerebrace_R",
+  "couter_R",
+  "vambrace_R",
+  "gauntlet_R",
+  "cuisse_L",
+  "poleyn_L",
+  "greave_L",
+  "sabaton_L",
+  "sabaton_toe_L",
+  "cuisse_R",
+  "poleyn_R",
+  "greave_R",
+  "sabaton_R",
+  "sabaton_toe_R",
+  "mail_skirt",
+  "tabard_front",
+  "tabard_back",
+  "pollaxe_haft",
+  "pollaxe_blade",
+  "pollaxe_spike",
+  "pollaxe_point",
+  "pollaxe_butt"
  ],
  "joints": {
   "Hips": [
@@ -131,7 +185,7 @@
   "Head": [
    0.0,
    0.0,
-   1.47
+   1.5435
   ],
   "HeadTop_End": [
    0.0,
@@ -149,19 +203,19 @@
    1.35
   ],
   "LeftForeArm": [
-   -0.2485,
-   0.0685,
-   1.0498
+   -0.2633,
+   0.0737,
+   1.0534
   ],
   "LeftHand": [
-   -0.2951,
-   0.1487,
-   0.7951
+   -0.3084,
+   0.1344,
+   0.7751
   ],
   "LeftHandEnd": [
-   -0.3149,
-   0.1827,
-   0.6871
+   -0.3264,
+   0.1586,
+   0.6641
   ],
   "LeftUpLeg": [
    -0.1423,
@@ -169,24 +223,24 @@
    0.9251
   ],
   "LeftLeg": [
-   -0.1641,
-   -0.0145,
-   0.4056
+   -0.1649,
+   -0.0151,
+   0.3854
   ],
   "LeftFoot": [
    -0.1757,
-   -0.0222,
-   0.1295
+   -0.0223,
+   0.1292
   ],
   "LeftToeBase": [
-   -0.2524,
-   0.1197,
-   0.0549
+   -0.2346,
+   0.0986,
+   0.0604
   ],
   "LeftToe_End": [
-   -0.2919,
-   0.1927,
-   0.0355
+   -0.2909,
+   0.2141,
+   0.039
   ],
   "RightShoulder": [
    0.045,
@@ -199,19 +253,19 @@
    1.35
   ],
   "RightForeArm": [
-   0.2339,
-   0.1032,
-   1.0583
+   0.2308,
+   0.0964,
+   1.0557
   ],
   "RightHand": [
-   0.1413,
-   0.2639,
+   0.1287,
+   0.2771,
    1.2559
   ],
   "RightHandEnd": [
-   0.1019,
-   0.3321,
-   1.3397
+   0.0879,
+   0.3492,
+   1.3357
   ],
   "RightUpLeg": [
    0.1423,
@@ -219,86 +273,210 @@
    0.9251
   ],
   "RightLeg": [
-   0.2002,
-   -0.0218,
-   0.4087
+   0.2025,
+   -0.0226,
+   0.3886
   ],
   "RightFoot": [
-   0.231,
+   0.2311,
    -0.0334,
-   0.1341
+   0.1338
   ],
   "RightToeBase": [
-   0.2788,
-   0.1208,
-   0.0595
+   0.2849,
+   0.0899,
+   0.065
   ],
   "RightToe_End": [
-   0.3033,
-   0.2,
-   0.0401
+   0.3363,
+   0.2076,
+   0.0437
+  ],
+  "TAB_F_01": [
+   0.0,
+   0.1425,
+   1.1619
+  ],
+  "TAB_F_02": [
+   0.0,
+   0.1425,
+   1.0087
+  ],
+  "TAB_F_03": [
+   0.0,
+   0.1425,
+   0.8555
+  ],
+  "TAB_F_04": [
+   0.0,
+   0.1425,
+   0.7022
+  ],
+  "TAB_B_01": [
+   0.0,
+   -0.1425,
+   1.1619
+  ],
+  "TAB_B_02": [
+   0.0,
+   -0.1425,
+   1.0087
+  ],
+  "TAB_B_03": [
+   0.0,
+   -0.1425,
+   0.8555
+  ],
+  "TAB_B_04": [
+   0.0,
+   -0.1425,
+   0.7022
+  ],
+  "SKIRT_F": [
+   0.0,
+   0.1463,
+   0.9051
+  ],
+  "SKIRT_F_end": [
+   0.0,
+   0.1434,
+   0.6958
+  ],
+  "SKIRT_B": [
+   0.0,
+   -0.1463,
+   0.9051
+  ],
+  "SKIRT_B_end": [
+   0.0,
+   -0.1434,
+   0.6958
+  ],
+  "SKIRT_L": [
+   -0.1463,
+   0.0,
+   0.9051
+  ],
+  "SKIRT_L_end": [
+   -0.1434,
+   0.0,
+   0.6958
+  ],
+  "SKIRT_R": [
+   0.1463,
+   0.0,
+   0.9051
+  ],
+  "SKIRT_R_end": [
+   0.1434,
+   0.0,
+   0.6958
+  ],
+  "SOCK_WeaponMain": [
+   0.1287,
+   0.2771,
+   1.2559
+  ],
+  "SOCK_WeaponMain_end": [
+   0.1287,
+   0.2771,
+   1.3759
+  ],
+  "SOCK_WeaponGripFar": [
+   0.1287,
+   0.2771,
+   1.5559
+  ],
+  "SOCK_WeaponGripFar_end": [
+   0.1287,
+   0.2771,
+   1.6759
+  ],
+  "SOCK_OffHand": [
+   -0.3084,
+   0.1344,
+   0.7751
+  ],
+  "SOCK_OffHand_end": [
+   -0.3084,
+   0.1344,
+   0.8751
   ]
  },
  "params": {
   "z_crown": 1.8,
-  "z_neck": 1.47,
+  "z_neck": 1.5434999999999999,
   "z_shoulder": 1.35,
   "z_elbow": 1.185,
   "z_waist": 1.161888,
   "z_hip": 0.925130976,
-  "z_knee": 0.4049725075,
-  "z_ankle": 0.12847999999999998,
+  "z_knee": 0.384723882125,
+  "z_ankle": 0.12815879999999996,
   "helm_rx": 0.13138271999999998,
-  "helm_ry": 0.1734251904,
-  "helm_rz": 0.1622576592,
-  "helm_y": 0.014276361673728,
-  "visor_r": 0.08441058634657432,
-  "visor_y": 0.108390744,
-  "gorget_r": 0.1565661597696,
-  "gorget_h": 0.085,
-  "chest_rx": 0.26276543999999996,
-  "chest_ry": 0.18255283200000003,
-  "chest_rz": 0.28461646079999997,
+  "helm_ry": 0.17255914835544,
+  "helm_rz": 0.1356474030912,
+  "helm_y": 0.01697032254264981,
+  "head_x": 0.0,
+  "head_y": 0.0,
+  "helm_apex": 0.01588905154759046,
+  "visor_r": 0.10435990070415356,
+  "visor_y": 0.09704618390662469,
+  "visor_len": 0.061478246860800015,
+  "visor_drop": 0.03902976,
+  "visor_tip_r": 0.0270028,
+  "gorget_r_top": 0.09697907438714878,
+  "gorget_r_bot": 0.157605,
+  "gorget_h": 0.07182744800000002,
+  "gorget_z_off": 0.010097779507200002,
+  "chest_rx": 0.24900310007999996,
+  "chest_ry": 0.20126449728000004,
+  "chest_rz": 0.26970967366559995,
   "waist_rx": 0.152,
   "waist_ry": 0.12544,
-  "fauld_r_top": 0.1991115,
-  "fauld_r_bot": 0.16627287600000001,
-  "fauld_z_bot": 1.0248448,
-  "skirt_r_top": 0.21829500000000002,
-  "skirt_r_bot": 0.232848,
+  "fauld_r_top": 0.21414266606879998,
+  "fauld_r_bot": 0.20556924883697664,
+  "fauld_z_bot": 0.7539578224639999,
+  "fauld_ry_scale": 1.0,
+  "skirt_ry_scale": 1.0,
+  "skirt_r_top": 0.243879174,
+  "skirt_r_bot": 0.20490624,
   "skirt_z_bot": 0.6958145039999999,
-  "tabard_half_w": 0.2309051304,
-  "tabard_y": 0.15,
-  "tabard_z_bot": 0.7392000000000001,
-  "tabard_t": 0.017036799999999998,
+  "tabard_half_w": 0.25861374604799997,
+  "tabard_y": 0.1425,
+  "tabard_z_bot": 0.7022400000000001,
+  "tabard_t": 0.015059645990242596,
+  "tabard_arc": 0.07854,
   "shoulder_x": 0.2085726956544,
   "pauldron_r": 0.057726573132799996,
-  "uparm_r": 0.08308461791131731,
+  "uparm_r": 0.08702075168486598,
   "forearm_r": 0.08920471883710464,
-  "gauntlet_r": 0.044566644469282414,
+  "gauntlet_r": 0.04354139788509927,
   "arm_len_upper": 0.310464,
-  "arm_len_fore": 0.27104000000000006,
+  "arm_len_fore": 0.28838656000000007,
   "hip_x": 0.14230823039999999,
   "thigh_r": 0.12446784,
-  "shin_r": 0.09219840000000001,
-  "poleyn_r": 0.1100245918464,
-  "foot_len": 0.2942034479999999,
-  "foot_w": 0.12139763328000001,
-  "foot_h": 0.10773383040000001,
-  "toe_frac": 0.2818711866432,
-  "foot_heel_back": 0.1695172248,
-  "arm_L_pitch": 14.8,
-  "arm_L_roll": 30.199999999999996,
-  "fore_L_pitch": 5.199999999999999,
-  "grip_x": 0.14126650429622611,
-  "grip_y": 0.2639333259607968,
+  "shin_r": 0.081134592,
+  "poleyn_r": 0.10452336225408,
+  "foot_len": 0.3089136203999999,
+  "foot_w": 0.12109413919680002,
+  "foot_h": 0.11877654801600002,
+  "toe_frac": 0.4158091586336706,
+  "toe_tip_w": 0.022721619558400002,
+  "toe_tip_h": 0.013776637952000001,
+  "toe_rise": 0.014917515782399998,
+  "foot_heel_back": 0.14880221992944,
+  "arm_L_pitch": 17.2,
+  "arm_L_roll": 36.599999999999994,
+  "fore_L_pitch": -2.0000000000000004,
+  "grip_x": 0.12865061437014905,
+  "grip_y": 0.27712999225883667,
   "grip_z": 1.2558524999999998,
   "leg_L_pitch": -1.6,
   "leg_L_splay": -2.4,
-  "foot_L_yaw": 28.4,
+  "foot_L_yaw": 26.0,
   "leg_R_pitch": -2.4,
   "leg_R_splay": -6.4,
-  "foot_R_yaw": -17.200000000000003,
+  "foot_R_yaw": -23.6,
   "knee_L_pitch": 0.0,
   "knee_R_pitch": 0.0
  }

@@ -142,8 +142,8 @@ SHAPE_DESCENT = kp.SHAPE_KEYS + [
     "leg_L_splay", "leg_R_splay", "leg_L_pitch", "leg_R_pitch",
     "foot_L_yaw", "foot_R_yaw",
     "z_hip", "z_knee", "z_shoulder", "z_neck", "z_waist",
-    "arm_len_upper", "arm_len_fore", "gorget_r", "waist_rx", "waist_ry",
-    "visor_r", "visor_y", "helm_y", "foot_h", "toe_frac", "foot_heel_back",
+    "arm_len_upper", "arm_len_fore", "waist_rx", "waist_ry",
+    "helm_y", "foot_h",
     "z_ankle", "tabard_t", "fauld_z_bot", "skirt_r_top",
 ]
 

@@ -1,0 +1,98 @@
+{
+ "note": "C-9 knight3d step 3b: the walk and run cycles, keyed on the skeleton.",
+ "canvas_px_per_m": 83.45196759259258,
+ "gaits": {
+  "walk": {
+   "name": "walk",
+   "frames": 12,
+   "period_s": 0.5797,
+   "fps": 20.700362256339485,
+   "travel_m_per_cycle": 1.7157881848756982,
+   "step_m": 0.8578940924378491,
+   "travel_canvas_px_per_cycle": 143.1859,
+   "stance_fraction": 0.52,
+   "pelvis_height_m": [
+    0.8497,
+    0.8522,
+    0.8873,
+    0.9042,
+    0.9017,
+    0.8666,
+    0.8497,
+    0.8522,
+    0.8873,
+    0.9042,
+    0.9017,
+    0.8666
+   ],
+   "pelvis_drop_m": 0.0755,
+   "pelvis_drop_pct_of_height": 4.19,
+   "tabard_deg_peak": 6.0,
+   "skirt_deg_peak": 3.5,
+   "tabard_lag_s": 0.1,
+   "foot_plant": {
+    "Right": {
+     "max_slip_of_a_touching_vertex_mm": 0.989,
+     "vertex_pairs_tested": 110,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 131.37
+    },
+    "Left": {
+     "max_slip_of_a_touching_vertex_mm": 0.989,
+     "vertex_pairs_tested": 95,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 131.37
+    },
+    "ground_penetration_mm": 0.0,
+    "contact_world_y_spread_mm_at_8x_framerate": {
+     "R": 0.0,
+     "L": 0.0
+    }
+   }
+  },
+  "run": {
+   "name": "run",
+   "frames": 8,
+   "period_s": 0.5517,
+   "fps": 14.500634402755121,
+   "travel_m_per_cycle": 3.265828330501716,
+   "step_m": 1.632914165250858,
+   "travel_canvas_px_per_cycle": 272.53979999999996,
+   "stance_fraction": 0.3,
+   "pelvis_height_m": [
+    0.8617,
+    0.8549,
+    0.9049,
+    0.8563,
+    0.8617,
+    0.8549,
+    0.9049,
+    0.8563
+   ],
+   "pelvis_drop_m": 0.0702,
+   "pelvis_drop_pct_of_height": 3.9,
+   "tabard_deg_peak": 10.0,
+   "skirt_deg_peak": 5.5,
+   "tabard_lag_s": 0.1,
+   "foot_plant": {
+    "Right": {
+     "max_slip_of_a_touching_vertex_mm": 9.278,
+     "vertex_pairs_tested": 16,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 231.47
+    },
+    "Left": {
+     "max_slip_of_a_touching_vertex_mm": 9.278,
+     "vertex_pairs_tested": 16,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 231.47
+    },
+    "ground_penetration_mm": 0.0,
+    "contact_world_y_spread_mm_at_8x_framerate": {
+     "R": 0.0,
+     "L": 0.0
+    }
+   }
+  }
+ }
+}

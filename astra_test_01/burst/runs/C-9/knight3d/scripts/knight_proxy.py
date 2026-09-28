@@ -52,21 +52,40 @@ DEFAULTS = dict(
     z_knee=0.565,       # 0.686 H           (E still 1012)
     z_ankle=0.146,      # 0.919 H           (E still 1215)
     # --- widths / depths --------------------------------------------------
+    # HELM: a close helm -- ovoid skull, a bellows VISOR that projects forward
+    # as a rounded snout below the skull's centre, and a GORGET collar that
+    # FLARES outward to a rolled lip. (M-a reported the helm band at 0.819,
+    # the second-worst, because the proxy had a plain sphere and a straight
+    # collar; R-C9-56 step 0.)
     helm_rx=0.112, helm_ry=0.132, helm_rz=0.130, helm_y=0.010,
-    visor_r=0.068, visor_y=0.095,
-    gorget_r=0.112, gorget_h=0.085,
+    # the painted head is NOT on the body centreline: the M-a overlays show
+    # the proxy helm offset from the painted one in the same sense in every
+    # view. One (head_x, head_y) for the whole head assembly, fitted.
+    head_x=0.0, head_y=0.0,
+    helm_apex=0.012,        # the crown rises to a slight point above the ovoid
+    visor_r=0.060,          # visor half-height/width at the face
+    visor_y=0.070,          # how far forward the visor root sits
+    visor_len=0.085,        # how far the snout projects beyond its root
+    visor_drop=0.045,       # how far BELOW the skull centre the snout sits
+    visor_tip_r=0.034,      # the snout's radius at its front
+    gorget_r_top=0.098, gorget_r_bot=0.158, gorget_h=0.105, gorget_z_off=0.012,
     chest_rx=0.190, chest_ry=0.132, chest_rz=0.175,
     waist_rx=0.152, waist_ry=0.112,
     fauld_r_top=0.172, fauld_r_bot=0.205, fauld_z_bot=0.860,
+    fauld_ry_scale=1.0, skirt_ry_scale=1.0,   # set by layered(), not fitted
     skirt_r_top=0.198, skirt_r_bot=0.240, skirt_z_bot=0.745,
     tabard_half_w=0.185, tabard_y=0.150, tabard_z_bot=0.800, tabard_t=0.022,
+    tabard_arc=0.085,       # how far the drape curves back at its edges
     shoulder_x=0.205,   # shoulder joint offset from centreline
     pauldron_r=0.104,
     uparm_r=0.062, forearm_r=0.053, gauntlet_r=0.068,
     arm_len_upper=0.300, arm_len_fore=0.275,
     hip_x=0.098,        # hip joint offset from centreline
     thigh_r=0.090, shin_r=0.070, poleyn_r=0.082,
-    foot_len=0.310, foot_w=0.100, foot_h=0.100, toe_frac=0.38,
+    foot_len=0.310, foot_w=0.100, foot_h=0.100, toe_frac=0.44,
+    toe_tip_w=0.016,        # the sabaton comes to a LONG taper, near a point
+    toe_tip_h=0.020,
+    toe_rise=0.022,         # and lifts slightly at the very tip
     foot_heel_back=0.25,   # heel BEHIND the ankle, as a fraction of foot_len
                            # (the first fit had none, and the overlays showed it)
     # --- rest pose (deg) ---------------------------------------------------
@@ -87,17 +106,27 @@ SHAPE_KEYS = [
     "chest_rx", "chest_ry", "chest_rz",
     "fauld_r_top", "fauld_r_bot",
     "skirt_r_bot", "skirt_z_bot",
-    "tabard_half_w", "tabard_y", "tabard_z_bot",
+    "tabard_half_w", "tabard_y", "tabard_z_bot", "tabard_arc",
     "shoulder_x", "pauldron_r",
     "uparm_r", "forearm_r", "gauntlet_r",
     "thigh_r", "shin_r", "poleyn_r",
     "foot_len", "foot_w", "foot_heel_back",
+    "toe_frac", "toe_tip_w", "toe_tip_h", "toe_rise",
+    "helm_apex", "visor_r", "visor_y", "visor_len", "visor_drop", "visor_tip_r",
+    "gorget_r_top", "gorget_r_bot", "gorget_h", "gorget_z_off",
+    "head_x", "head_y",
     "hip_x",
 ]
 SHAPE_BOUNDS = {k: (0.55 * DEFAULTS[k], 1.75 * DEFAULTS[k]) for k in SHAPE_KEYS}
 SHAPE_BOUNDS["tabard_z_bot"] = (0.62, 0.95)
 SHAPE_BOUNDS["skirt_z_bot"] = (0.60, 0.88)
 SHAPE_BOUNDS["tabard_y"] = (0.10, 0.24)
+SHAPE_BOUNDS["tabard_arc"] = (0.02, 0.15)
+SHAPE_BOUNDS["toe_frac"] = (0.30, 0.58)
+SHAPE_BOUNDS["gorget_z_off"] = (-0.03, 0.06)
+SHAPE_BOUNDS["toe_rise"] = (0.0, 0.06)
+SHAPE_BOUNDS["head_x"] = (-0.10, 0.10)
+SHAPE_BOUNDS["head_y"] = (-0.10, 0.10)
 
 POSE_KEYS = ["arm_L_pitch", "arm_L_roll", "fore_L_pitch",
              "grip_x", "grip_y", "grip_z",
@@ -156,12 +185,12 @@ def _capsule_pts(a, b, ra, rb=None, n=9):
     return np.concatenate(out, 0)
 
 
-def _cone_pts(z0, r0, z1, r1, centre_xy=(0.0, 0.0), n=20):
+def _cone_pts(z0, r0, z1, r1, centre_xy=(0.0, 0.0), n=20, ry_scale=1.0):
     ang = np.linspace(0, 2 * np.pi, n, endpoint=False)
     out = []
     for z, r in ((z0, r0), (z1, r1)):
         out.append(np.stack([centre_xy[0] + r * np.cos(ang),
-                             centre_xy[1] + r * np.sin(ang),
+                             centre_xy[1] + r * ry_scale * np.sin(ang),
                              np.full(n, z)], -1))
     return np.concatenate(out, 0)
 
@@ -199,8 +228,104 @@ def _box_pts(centre, half, R=None):
 # --------------------------------------------------------------- the proxy
 
 def build(p):
-    """build_parts + prehull: what the fitter should use."""
-    return prehull(build_parts(p))
+    """build_parts + layer order + prehull: what the fitter should use."""
+    return prehull(build_parts(layered(p)))
+
+
+def layered(p):
+    """Apply the LAYER ORDER, which a silhouette fit cannot see.
+
+    A silhouette says how deep the hips are; it does not say whether the depth
+    belongs to the fauld or to the tabard hanging over it. The fit put the
+    tabard INSIDE the fauld, so in the render the fauld poked through the
+    tabard and took the tabard's gold with it.
+
+    The garment order is not in doubt: mail skirt, then fauld, then the tabard
+    over both. So: the TABARD becomes the outermost layer at exactly the depth
+    the fit measured, and the fauld and skirt are flattened in Y (their X is
+    untouched) to sit behind it. The OUTER SILHOUETTE is unchanged in both the
+    frontal and the profile views by construction -- only the order changes.
+    """
+    q = dict(p)
+    g = lambda k: q.get(k, DEFAULTS[k])
+    t2 = g("tabard_t") / 2.0
+    depth = max(g("fauld_r_bot"), g("skirt_r_bot"), g("tabard_y") + t2)
+    q["tabard_y"] = depth - t2
+    inner = depth - t2 - 0.016              # behind the tabard's inner face
+    q["fauld_ry_scale"] = min(1.0, inner / max(g("fauld_r_bot"), 1e-6))
+    q["skirt_ry_scale"] = min(1.0, (inner + 0.010) / max(g("skirt_r_bot"), 1e-6))
+    return q
+
+
+def joints(p):
+    """The skeleton's joint positions for these parameters.
+
+    ONE definition, used by build_parts(), by the Blender builder and by the
+    animator -- the M-a drift (a mesh written twice and fitted once) is not
+    going to be repeated for the skeleton.
+    """
+    g = lambda k: p.get(k, DEFAULTS[k])
+    z_sh, z_hip = g("z_shoulder"), g("z_hip")
+    z_waist, z_knee, z_ank = g("z_waist"), g("z_knee"), g("z_ankle")
+    J = {}
+    J["Hips"] = np.array([0.0, 0.0, z_hip])
+    J["Spine"] = np.array([0.0, 0.0, z_hip + 0.09])
+    J["Spine1"] = np.array([0.0, 0.0, z_waist])
+    J["Spine2"] = np.array([0.0, 0.0, 0.5 * (z_waist + z_sh) + 0.02])
+    J["Neck"] = np.array([0.0, 0.0, z_sh + 0.055])
+    J["Head"] = np.array([g("head_x") * 0.6, g("head_y") * 0.6, g("z_neck")])
+    J["HeadTop_End"] = np.array([g("head_x"), g("head_y"), g("z_crown")])
+    for side, sx, S in (("Left", -1.0, "L"), ("Right", 1.0, "R")):
+        J[side + "Shoulder"] = np.array([sx * 0.045, 0.0, z_sh + 0.045])
+        sh = np.array([sx * g("shoulder_x"), 0.0, z_sh])
+        J[side + "Arm"] = sh
+        if S == "R":
+            el, wr = _ik2(sh, np.array([g("grip_x"), g("grip_y"), g("grip_z")]),
+                          g("arm_len_upper"), g("arm_len_fore"),
+                          pole=np.array([0.35, -0.45, -1.0]))
+        else:
+            R1 = _rot("z", -sx * g("arm_L_roll")) @ _rot("x", g("arm_L_pitch"))
+            el = sh + R1 @ np.array([0, 0, -g("arm_len_upper")])
+            R2 = R1 @ _rot("x", g("fore_L_pitch"))
+            wr = el + R2 @ np.array([0, 0, -g("arm_len_fore")])
+        J[side + "ForeArm"] = el
+        J[side + "Hand"] = wr
+        d = wr - el
+        d = d / max(np.linalg.norm(d), 1e-9)
+        J[side + "HandEnd"] = wr + d * 0.115
+        hip = np.array([sx * g("hip_x"), 0.0, z_hip])
+        Rl = _rot("y", sx * g("leg_%s_splay" % S)) @ _rot("x", g("leg_%s_pitch" % S))
+        knee = hip + Rl @ np.array([0, 0, -(z_hip - z_knee)])
+        Rk = Rl @ _rot("x", g("knee_%s_pitch" % S))
+        ank = knee + Rk @ np.array([0, 0, -(z_knee - z_ank)])
+        fy = _rot("z", g("foot_%s_yaw" % S))
+        fl, tf, hb = g("foot_len"), g("toe_frac"), g("foot_heel_back")
+        toe = ank + fy @ np.array([0, fl * (1 - tf - hb), -(z_ank - g("foot_h") * 0.5)])
+        J[side + "UpLeg"] = hip
+        J[side + "Leg"] = knee
+        J[side + "Foot"] = ank
+        J[side + "ToeBase"] = toe
+        J[side + "Toe_End"] = toe + fy @ np.array([0, fl * tf, -g("foot_h") * 0.18])
+    # non-standard chains (tabard pendulum R-C9-36, mail-skirt quadrants) and
+    # the weapon sockets -- here too, so the animator and the Blender builder
+    # cannot disagree about where they start.
+    z0, z1 = z_waist, g("tabard_z_bot")
+    for tag, ys in (("F", 1.0), ("B", -1.0)):
+        for i in range(4):
+            J["TAB_%s_%02d" % (tag, i + 1)] = np.array(
+                [0.0, ys * g("tabard_y"), z0 + (z1 - z0) * i / 3.0])
+    for tag, (dx, dy) in (("F", (0, 1)), ("B", (0, -1)), ("L", (-1, 0)), ("R", (1, 0))):
+        J["SKIRT_%s" % tag] = np.array([dx * g("skirt_r_top") * 0.6,
+                                        dy * g("skirt_r_top") * 0.6, z_hip - 0.02])
+        J["SKIRT_%s_end" % tag] = np.array([dx * g("skirt_r_bot") * 0.7,
+                                            dy * g("skirt_r_bot") * 0.7, g("skirt_z_bot")])
+    J["SOCK_WeaponMain"] = J["RightHand"].copy()
+    J["SOCK_WeaponMain_end"] = J["RightHand"] + np.array([0.0, 0.0, 0.12])
+    J["SOCK_WeaponGripFar"] = J["RightHand"] + np.array([0.0, 0.0, 0.30])
+    J["SOCK_WeaponGripFar_end"] = J["RightHand"] + np.array([0.0, 0.0, 0.42])
+    J["SOCK_OffHand"] = J["LeftHand"].copy()
+    J["SOCK_OffHand_end"] = J["LeftHand"] + np.array([0.0, 0.0, 0.10])
+    return J
 
 
 def build_parts(p):
@@ -214,15 +339,25 @@ def build_parts(p):
     z_knee, z_ank = g("z_knee"), g("z_ankle")
 
     # --- head ------------------------------------------------------------
+    hx, hy = g("head_x"), g("head_y")
     hrz = g("helm_rz")
-    hz = z_crown - hrz
-    parts.append(("helm", "Head", _ellipsoid_pts((0, g("helm_y"), hz),
-                                                 (g("helm_rx"), g("helm_ry"), hrz))))
-    parts.append(("visor", "Head", _ellipsoid_pts((0, g("visor_y"), hz - 0.012),
-                                                  (g("visor_r") * 0.85, g("visor_r"),
-                                                   g("visor_r") * 0.78))))
-    parts.append(("gorget", "Neck", _cone_pts(z_neck - g("gorget_h") / 2, g("gorget_r") * 0.86,
-                                              z_neck + g("gorget_h") / 2, g("gorget_r"))))
+    hz = z_crown - hrz - g("helm_apex")
+    skull = _ellipsoid_pts((hx, hy + g("helm_y"), hz),
+                           (g("helm_rx"), g("helm_ry"), hrz))
+    apex = _ellipsoid_pts((hx, hy + g("helm_y") - 0.012, hz + hrz * 0.55),
+                          (g("helm_rx") * 0.42, g("helm_ry") * 0.42,
+                           hrz * 0.45 + g("helm_apex")))
+    parts.append(("helm", "Head", np.concatenate([skull, apex], 0)))
+    # the visor snout: a tapered capsule from the face forward and down
+    vroot = np.array([hx, hy + g("visor_y"), hz - g("visor_drop")])
+    vtip = vroot + np.array([0.0, g("visor_len"), -g("visor_len") * 0.22])
+    parts.append(("visor", "Head",
+                  _capsule_pts(vroot, vtip, g("visor_r"), g("visor_tip_r"))))
+    gz = z_neck + g("gorget_z_off")
+    parts.append(("gorget", "Neck",
+                  _cone_pts(gz + g("gorget_h") / 2, g("gorget_r_top"),
+                            gz - g("gorget_h") / 2, g("gorget_r_bot"),
+                            centre_xy=(hx * 0.6, hy * 0.6))))
 
     # --- torso ------------------------------------------------------------
     z_chest = 0.5 * (z_sh + z_waist) + 0.02
@@ -233,16 +368,30 @@ def build_parts(p):
                   _ellipsoid_pts((0, 0.0, z_waist - 0.02),
                                  (g("waist_rx"), g("waist_ry"), 0.085))))
     parts.append(("fauld", "Hips",
-                  _cone_pts(z_hip + 0.055, g("fauld_r_top"), g("fauld_z_bot"), g("fauld_r_bot"))))
+                  _cone_pts(z_hip + 0.055, g("fauld_r_top"), g("fauld_z_bot"),
+                            g("fauld_r_bot"), ry_scale=p.get("fauld_ry_scale", 1.0))))
     parts.append(("mail_skirt", "Hips",          # deforms; proxy is a cone
-                  _cone_pts(z_hip - 0.02, g("skirt_r_top"), g("skirt_z_bot"), g("skirt_r_bot"))))
+                  _cone_pts(z_hip - 0.02, g("skirt_r_top"), g("skirt_z_bot"),
+                            g("skirt_r_bot"), ry_scale=p.get("skirt_ry_scale", 1.0))))
 
-    # tabard: two panels front and back, hanging from the shoulders
+    # The tabard: two panels front and back, hanging from the shoulders and
+    # DRAPED -- each is an arc across the body, deepest on the centreline and
+    # curving back at its edges, not a flat slab. Written as a slab first;
+    # once layered() moved it outside the fauld (which it must be -- it hangs
+    # over it) a slab's corners stuck out in the oblique views and cost 2.4
+    # points of IoU. A drape costs nothing, because that is the shape it is.
     tw, ty, tzb, tt = g("tabard_half_w"), g("tabard_y"), g("tabard_z_bot"), g("tabard_t")
+    arc = g("tabard_arc")
+    ztop = z_sh + 0.03
     for sgn, nm in ((1, "tabard_front"), (-1, "tabard_back")):
-        parts.append((nm, "Tabard_01",
-                      _box_pts((0, sgn * ty, 0.5 * (z_sh + 0.03 + tzb)),
-                               (tw, tt, 0.5 * (z_sh + 0.03 - tzb)))))
+        pts = []
+        for fx in np.linspace(-1.0, 1.0, 7):
+            x = fx * tw
+            y = sgn * (ty - arc * fx * fx)
+            for z in (ztop, tzb):
+                pts.append((x, y + sgn * tt / 2, z))
+                pts.append((x, y - sgn * tt / 2, z))
+        parts.append((nm, "Tabard_01", np.array(pts)))
 
     # --- arms -------------------------------------------------------------
     for side, sx in (("L", -1.0), ("R", 1.0)):
@@ -298,12 +447,18 @@ def build_parts(p):
         heel_c = ank + fy @ np.array([0, fl * ((1 - tf) / 2 - hb), -(z_ank - fh / 2)])
         parts.append(("sabaton_%s" % side, "%sFoot" % BL,
                       _box_pts(heel_c, (fw / 2, fl * (1 - tf) / 2, fh / 2), fy)))
+        # the toe: a LONG taper to a near-point, lifted a little at the tip
         toe_c = ank + fy @ np.array([0, fl * (1 - tf / 2 - hb), -(z_ank - fh * 0.40)])
+        tw2, th2, ri = g("toe_tip_w") / 2, g("toe_tip_h") / 2, g("toe_rise")
         toe_pts = np.array([
             [-fw / 2, -fl * tf / 2, -fh * 0.40], [fw / 2, -fl * tf / 2, -fh * 0.40],
-            [-fw / 2, -fl * tf / 2, fh * 0.42], [fw / 2, -fl * tf / 2, fh * 0.42],
-            [-fw * 0.06, fl * tf / 2, -fh * 0.34], [fw * 0.06, fl * tf / 2, -fh * 0.34],
-            [-fw * 0.06, fl * tf / 2, fh * 0.02], [fw * 0.06, fl * tf / 2, fh * 0.02]])
+            [-fw / 2 * 0.96, -fl * tf / 2, fh * 0.50], [fw / 2 * 0.96, -fl * tf / 2, fh * 0.50],
+            # a mid rib so the taper is a curve, not a single straight bevel
+            [-fw * 0.30, fl * tf * 0.10, -fh * 0.38], [fw * 0.30, fl * tf * 0.10, -fh * 0.38],
+            [-fw * 0.28, fl * tf * 0.10, fh * 0.26], [fw * 0.28, fl * tf * 0.10, fh * 0.26],
+            [-tw2, fl * tf / 2, -fh * 0.40 + ri], [tw2, fl * tf / 2, -fh * 0.40 + ri],
+            [-tw2, fl * tf / 2, -fh * 0.40 + ri + 2 * th2],
+            [tw2, fl * tf / 2, -fh * 0.40 + ri + 2 * th2]])
         parts.append(("sabaton_toe_%s" % side, "%sToeBase" % BL,
                       (toe_pts @ fy.T) + toe_c))
     return parts
@@ -328,15 +483,19 @@ def project(pts, alpha_deg, theta_deg):
     return np.stack([pts @ r, pts @ u], -1)
 
 
-from scipy.spatial import ConvexHull as _CH, QhullError as _QE
+try:
+    from scipy.spatial import ConvexHull as _CH
+except Exception:          # Blender ships no scipy; it only needs build_parts()
+    _CH = None
 
 
 def _hull(xy):
     """2D convex hull vertices in order (qhull; C speed -- this runs inside
     the fitter's inner loop tens of thousands of times)."""
+    if _CH is None:
+        raise RuntimeError("_hull needs scipy; run the fitter under system python")
     try:
-        h = _CH(xy)
-        return xy[h.vertices]
+        return xy[_CH(xy).vertices]
     except Exception:
         return xy
 
@@ -348,7 +507,7 @@ def prehull(parts):
     hull vertices."""
     out = []
     for name, bone, pts in parts:
-        if len(pts) > 12:
+        if _CH is not None and len(pts) > 12:
             try:
                 pts = pts[_CH(pts).vertices]
             except Exception:

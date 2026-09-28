@@ -1,0 +1,286 @@
+{
+ "note": "C-9 knight3d: meshes built from knight_proxy.build_parts() at the fitted params. Rigid pieces are the convex hull of the fitter's own point cloud, so built == fitted.",
+ "params": {
+  "z_crown": 1.8,
+  "z_neck": 1.5434999999999999,
+  "z_shoulder": 1.35,
+  "z_elbow": 1.185,
+  "z_waist": 1.161888,
+  "z_hip": 0.925130976,
+  "z_knee": 0.384723882125,
+  "z_ankle": 0.12815879999999996,
+  "helm_rx": 0.13138271999999998,
+  "helm_ry": 0.17255914835544,
+  "helm_rz": 0.1356474030912,
+  "helm_y": 0.01697032254264981,
+  "head_x": 0.0,
+  "head_y": 0.0,
+  "helm_apex": 0.01588905154759046,
+  "visor_r": 0.10435990070415356,
+  "visor_y": 0.09704618390662469,
+  "visor_len": 0.061478246860800015,
+  "visor_drop": 0.03902976,
+  "visor_tip_r": 0.0270028,
+  "gorget_r_top": 0.09697907438714878,
+  "gorget_r_bot": 0.157605,
+  "gorget_h": 0.07182744800000002,
+  "gorget_z_off": 0.010097779507200002,
+  "chest_rx": 0.24900310007999996,
+  "chest_ry": 0.20126449728000004,
+  "chest_rz": 0.26970967366559995,
+  "waist_rx": 0.152,
+  "waist_ry": 0.12544,
+  "fauld_r_top": 0.21414266606879998,
+  "fauld_r_bot": 0.20556924883697664,
+  "fauld_z_bot": 0.7539578224639999,
+  "fauld_ry_scale": 1.0,
+  "skirt_ry_scale": 1.0,
+  "skirt_r_top": 0.243879174,
+  "skirt_r_bot": 0.20490624,
+  "skirt_z_bot": 0.6958145039999999,
+  "tabard_half_w": 0.25861374604799997,
+  "tabard_y": 0.1425,
+  "tabard_z_bot": 0.7022400000000001,
+  "tabard_t": 0.015059645990242596,
+  "tabard_arc": 0.07854,
+  "shoulder_x": 0.2085726956544,
+  "pauldron_r": 0.057726573132799996,
+  "uparm_r": 0.08702075168486598,
+  "forearm_r": 0.08920471883710464,
+  "gauntlet_r": 0.04354139788509927,
+  "arm_len_upper": 0.310464,
+  "arm_len_fore": 0.28838656000000007,
+  "hip_x": 0.14230823039999999,
+  "thigh_r": 0.12446784,
+  "shin_r": 0.081134592,
+  "poleyn_r": 0.10452336225408,
+  "foot_len": 0.3089136203999999,
+  "foot_w": 0.12109413919680002,
+  "foot_h": 0.11877654801600002,
+  "toe_frac": 0.4158091586336706,
+  "toe_tip_w": 0.022721619558400002,
+  "toe_tip_h": 0.013776637952000001,
+  "toe_rise": 0.014917515782399998,
+  "foot_heel_back": 0.14880221992944,
+  "arm_L_pitch": 17.2,
+  "arm_L_roll": 36.599999999999994,
+  "fore_L_pitch": -2.0000000000000004,
+  "grip_x": 0.12865061437014905,
+  "grip_y": 0.27712999225883667,
+  "grip_z": 1.2558524999999998,
+  "leg_L_pitch": -1.6,
+  "leg_L_splay": -2.4,
+  "foot_L_yaw": 26.0,
+  "leg_R_pitch": -2.4,
+  "leg_R_splay": -6.4,
+  "foot_R_yaw": -23.6,
+  "knee_L_pitch": 0.0,
+  "knee_R_pitch": 0.0
+ },
+ "parts": {
+  "helm": {
+   "bone": "Head",
+   "kind": "rigid",
+   "nv": 138,
+   "nf": 272
+  },
+  "visor": {
+   "bone": "Head",
+   "kind": "rigid",
+   "nv": 48,
+   "nf": 92
+  },
+  "gorget": {
+   "bone": "Neck",
+   "kind": "rigid",
+   "nv": 40,
+   "nf": 76
+  },
+  "breastplate": {
+   "bone": "Spine2",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "waist": {
+   "bone": "Spine",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "fauld": {
+   "bone": "Hips",
+   "kind": "rigid",
+   "nv": 40,
+   "nf": 76
+  },
+  "pauldron_L": {
+   "bone": "LeftArm",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "rerebrace_L": {
+   "bone": "LeftArm",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "couter_L": {
+   "bone": "LeftForeArm",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "vambrace_L": {
+   "bone": "LeftForeArm",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "gauntlet_L": {
+   "bone": "LeftHand",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "pauldron_R": {
+   "bone": "RightArm",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "rerebrace_R": {
+   "bone": "RightArm",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "couter_R": {
+   "bone": "RightForeArm",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "vambrace_R": {
+   "bone": "RightForeArm",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "gauntlet_R": {
+   "bone": "RightHand",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "cuisse_L": {
+   "bone": "LeftUpLeg",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "poleyn_L": {
+   "bone": "LeftLeg",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "greave_L": {
+   "bone": "LeftLeg",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "sabaton_L": {
+   "bone": "LeftFoot",
+   "kind": "rigid",
+   "nv": 8,
+   "nf": 12
+  },
+  "sabaton_toe_L": {
+   "bone": "LeftToeBase",
+   "kind": "rigid",
+   "nv": 12,
+   "nf": 20
+  },
+  "cuisse_R": {
+   "bone": "RightUpLeg",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "poleyn_R": {
+   "bone": "RightLeg",
+   "kind": "rigid",
+   "nv": 128,
+   "nf": 252
+  },
+  "greave_R": {
+   "bone": "RightLeg",
+   "kind": "rigid",
+   "nv": 64,
+   "nf": 124
+  },
+  "sabaton_R": {
+   "bone": "RightFoot",
+   "kind": "rigid",
+   "nv": 8,
+   "nf": 12
+  },
+  "sabaton_toe_R": {
+   "bone": "RightToeBase",
+   "kind": "rigid",
+   "nv": 12,
+   "nf": 20
+  },
+  "mail_skirt": {
+   "bone": "Hips",
+   "kind": "deform_skirt",
+   "nv": 194,
+   "nf": 384
+  },
+  "tabard_front": {
+   "bone": "TAB_F_01",
+   "kind": "deform_tabard_F",
+   "nv": 36,
+   "nf": 68
+  },
+  "tabard_back": {
+   "bone": "TAB_B_01",
+   "kind": "deform_tabard_B",
+   "nv": 36,
+   "nf": 68
+  },
+  "pollaxe_haft": {
+   "bone": "SOCK_WeaponMain",
+   "kind": "weapon",
+   "nv": 32,
+   "nf": 60
+  },
+  "pollaxe_blade": {
+   "bone": "SOCK_WeaponMain",
+   "kind": "weapon",
+   "nv": 12,
+   "nf": 20
+  },
+  "pollaxe_spike": {
+   "bone": "SOCK_WeaponMain",
+   "kind": "weapon",
+   "nv": 12,
+   "nf": 20
+  },
+  "pollaxe_point": {
+   "bone": "SOCK_WeaponMain",
+   "kind": "weapon",
+   "nv": 30,
+   "nf": 56
+  },
+  "pollaxe_butt": {
+   "bone": "SOCK_WeaponMain",
+   "kind": "weapon",
+   "nv": 20,
+   "nf": 36
+  }
+ }
+}

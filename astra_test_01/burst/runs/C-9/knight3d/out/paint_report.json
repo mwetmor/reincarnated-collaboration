@@ -1,0 +1,338 @@
+{
+ "note": "C-9 knight3d 3a: projection paint from the eight approved stills, each through its own fitted camera and pose, blended by facing.",
+ "atlas": 2048,
+ "triangles": 4804,
+ "atlas_coverage_pct": 59.91,
+ "texels_total": 2512625,
+ "texels_unseen": 1406734,
+ "unseen_pct": 55.99,
+ "graze_cutoff": 0.18,
+ "facing_power": 4.0,
+ "depth_eps_m": 0.012,
+ "sources": [
+  {
+   "dir": "S",
+   "file": "seed_S_v2.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "SE",
+   "file": "seed_SE.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "E",
+   "file": "seed_E.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "NE",
+   "file": "seed_NE.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "N",
+   "file": "seed_N.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "NW",
+   "file": "seed_NW.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "W",
+   "file": "seed_W.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "SW",
+   "file": "seed_SW_v2.png",
+   "weight": 1.0,
+   "is_rpe": false
+  },
+  {
+   "dir": "E",
+   "file": "RP-E_a.png",
+   "weight": 0.42,
+   "is_rpe": true
+  },
+  {
+   "dir": "E",
+   "file": "RP-E_b.png",
+   "weight": 0.42,
+   "is_rpe": true
+  }
+ ],
+ "per_source": {
+  "S:seed_S_v2.png": {
+   "texels_seen": 314897,
+   "texels_owned": 314897,
+   "rejected_outline_px": 51467,
+   "weapon_align_shift_px": [
+    -77.1,
+    -104.1
+   ]
+  },
+  "SE:seed_SE.png": {
+   "texels_seen": 268820,
+   "texels_owned": 160395,
+   "rejected_outline_px": 64627,
+   "weapon_align_shift_px": [
+    -173.6,
+    -67.0
+   ]
+  },
+  "E:seed_E.png": {
+   "texels_seen": 275107,
+   "texels_owned": 226712,
+   "rejected_outline_px": 64497,
+   "weapon_align_shift_px": [
+    52.7,
+    -7.7
+   ]
+  },
+  "NE:seed_NE.png": {
+   "texels_seen": 261594,
+   "texels_owned": 221379,
+   "rejected_outline_px": 61944,
+   "weapon_align_shift_px": [
+    70.8,
+    -53.3
+   ]
+  },
+  "N:seed_N.png": {
+   "texels_seen": 309378,
+   "texels_owned": 255505,
+   "rejected_outline_px": 55653,
+   "weapon_align_shift_px": [
+    96.1,
+    -124.1
+   ]
+  },
+  "NW:seed_NW.png": {
+   "texels_seen": 260131,
+   "texels_owned": 150427,
+   "rejected_outline_px": 46238,
+   "weapon_align_shift_px": [
+    177.9,
+    37.1
+   ]
+  },
+  "W:seed_W.png": {
+   "texels_seen": 270440,
+   "texels_owned": 165706,
+   "rejected_outline_px": 52465,
+   "weapon_align_shift_px": [
+    -31.5,
+    3.8
+   ]
+  },
+  "SW:seed_SW_v2.png": {
+   "texels_seen": 253362,
+   "texels_owned": 99873,
+   "rejected_outline_px": 51019,
+   "weapon_align_shift_px": [
+    -43.3,
+    -37.4
+   ]
+  },
+  "E:RP-E_a.png": {
+   "texels_seen": 198568,
+   "texels_owned": 11276,
+   "rejected_outline_px": 51871,
+   "weapon_align_shift_px": [
+    0.0,
+    0.0
+   ]
+  },
+  "E:RP-E_b.png": {
+   "texels_seen": 170710,
+   "texels_owned": 2044,
+   "rejected_outline_px": 43836,
+   "weapon_align_shift_px": [
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "per_piece_unseen": {
+  "waist": {
+   "texels": 53455,
+   "unseen": 53455,
+   "unseen_pct": 100.0
+  },
+  "mail_skirt": {
+   "texels": 211163,
+   "unseen": 199562,
+   "unseen_pct": 94.51
+  },
+  "visor": {
+   "texels": 28913,
+   "unseen": 24362,
+   "unseen_pct": 84.26
+  },
+  "fauld": {
+   "texels": 194648,
+   "unseen": 153773,
+   "unseen_pct": 79.0
+  },
+  "couter_R": {
+   "texels": 24666,
+   "unseen": 18696,
+   "unseen_pct": 75.8
+  },
+  "gorget": {
+   "texels": 55237,
+   "unseen": 41849,
+   "unseen_pct": 75.76
+  },
+  "tabard_front": {
+   "texels": 265237,
+   "unseen": 196555,
+   "unseen_pct": 74.11
+  },
+  "couter_L": {
+   "texels": 24670,
+   "unseen": 16403,
+   "unseen_pct": 66.49
+  },
+  "tabard_back": {
+   "texels": 266051,
+   "unseen": 171285,
+   "unseen_pct": 64.38
+  },
+  "gauntlet_L": {
+   "texels": 6232,
+   "unseen": 3877,
+   "unseen_pct": 62.21
+  },
+  "rerebrace_R": {
+   "texels": 67198,
+   "unseen": 41163,
+   "unseen_pct": 61.26
+  },
+  "rerebrace_L": {
+   "texels": 67071,
+   "unseen": 36661,
+   "unseen_pct": 54.66
+  },
+  "pauldron_R": {
+   "texels": 12495,
+   "unseen": 6741,
+   "unseen_pct": 53.95
+  },
+  "pauldron_L": {
+   "texels": 12496,
+   "unseen": 6607,
+   "unseen_pct": 52.87
+  },
+  "cuisse_L": {
+   "texels": 153047,
+   "unseen": 78215,
+   "unseen_pct": 51.11
+  },
+  "poleyn_L": {
+   "texels": 33816,
+   "unseen": 15623,
+   "unseen_pct": 46.2
+  },
+  "gauntlet_R": {
+   "texels": 6238,
+   "unseen": 2863,
+   "unseen_pct": 45.9
+  },
+  "sabaton_toe_L": {
+   "texels": 19136,
+   "unseen": 8535,
+   "unseen_pct": 44.6
+  },
+  "poleyn_R": {
+   "texels": 33780,
+   "unseen": 14850,
+   "unseen_pct": 43.96
+  },
+  "vambrace_R": {
+   "texels": 63891,
+   "unseen": 27950,
+   "unseen_pct": 43.75
+  },
+  "sabaton_toe_R": {
+   "texels": 19251,
+   "unseen": 8318,
+   "unseen_pct": 43.21
+  },
+  "sabaton_L": {
+   "texels": 41722,
+   "unseen": 18012,
+   "unseen_pct": 43.17
+  },
+  "greave_L": {
+   "texels": 49349,
+   "unseen": 20594,
+   "unseen_pct": 41.73
+  },
+  "cuisse_R": {
+   "texels": 153171,
+   "unseen": 63687,
+   "unseen_pct": 41.58
+  },
+  "vambrace_L": {
+   "texels": 63854,
+   "unseen": 25877,
+   "unseen_pct": 40.53
+  },
+  "breastplate": {
+   "texels": 208583,
+   "unseen": 83741,
+   "unseen_pct": 40.15
+  },
+  "sabaton_R": {
+   "texels": 41579,
+   "unseen": 16673,
+   "unseen_pct": 40.1
+  },
+  "greave_R": {
+   "texels": 49261,
+   "unseen": 19059,
+   "unseen_pct": 38.69
+  },
+  "pollaxe_point": {
+   "texels": 8446,
+   "unseen": 1786,
+   "unseen_pct": 21.15
+  },
+  "helm": {
+   "texels": 75022,
+   "unseen": 14912,
+   "unseen_pct": 19.88
+  },
+  "pollaxe_spike": {
+   "texels": 14555,
+   "unseen": 2870,
+   "unseen_pct": 19.72
+  },
+  "pollaxe_butt": {
+   "texels": 5818,
+   "unseen": 1046,
+   "unseen_pct": 17.98
+  },
+  "pollaxe_blade": {
+   "texels": 55940,
+   "unseen": 7164,
+   "unseen_pct": 12.81
+  },
+  "pollaxe_haft": {
+   "texels": 126634,
+   "unseen": 3970,
+   "unseen_pct": 3.14
+  }
+ }
+}

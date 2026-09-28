@@ -1,0 +1,374 @@
+{
+ "note": "C-9 knight3d GATE M-b numbers. Step 0 (reshaped helm/sabaton + layer order), step 1 (clean render camera), 3a (projection paint), 3b (walk+run), 3c (game sprites).",
+ "step0_shapes": {
+  "changed": "helm: ovoid skull + apex, bellows VISOR snout, flaring GORGET. sabaton: long tapering toe with a mid rib and a lifted tip. plus an explicit LAYER ORDER (tabard outside fauld/skirt) and a curved tabard drape, both of which a silhouette fit cannot see.",
+  "band_iou_mean": {
+   "helm_head": 0.81,
+   "torso_arms": 0.928,
+   "tabard_fauld": 0.896,
+   "legs": 0.846,
+   "feet": 0.765
+  },
+  "band_iou_at_M_a": {
+   "helm_head": 0.819,
+   "torso_arms": 0.927,
+   "tabard_fauld": 0.904,
+   "legs": 0.833,
+   "feet": 0.764
+  },
+  "blender_mesh_vs_still_mean": 0.8745626341934745,
+  "blender_vs_analytic_mean": 0.9803587210240261
+ },
+ "step1_render_camera": {
+  "projection": "orthographic",
+  "elevation_deg": 19.765049365787767,
+  "azimuths_deg": "EXACT 45-degree steps (S 0 ... SW 315)",
+  "one_scale_px_per_m": 110.18518518518519,
+  "frame": "512x512 RGBA",
+  "ground_line_y": 397.75,
+  "ground_calibration_px": -26.25,
+  "supersample": 4,
+  "note": "the stills' own fitted elevation, so the comparison against Grok and the cut-out rig is at their angle; the world plate's 52.95 deg is not used here"
+ },
+ "step3a_paint": {
+  "atlas": 2048,
+  "triangles": 4804,
+  "sources": "the eight stills, each through ITS OWN fitted camera and pose deltas, plus RP-E_a/_b as reduced-weight E sources depth-tested without the tabard",
+  "blend": "facing^4.0, winner-owns; grazing cutoff 0.18",
+  "atlas_unseen_pct": 55.99,
+  "rendered_unseen_pct": 9.81,
+  "weapon_painted_from": "the four CARDINAL views only",
+  "ink_line_measured_px_per_1000H": 5.592869154388213,
+  "ink_line_at_game_scale_px": 1.11,
+  "per_source": {
+   "S:seed_S_v2.png": {
+    "texels_seen": 314897,
+    "texels_owned": 314897,
+    "rejected_outline_px": 51467,
+    "weapon_align_shift_px": [
+     -77.1,
+     -104.1
+    ]
+   },
+   "SE:seed_SE.png": {
+    "texels_seen": 268820,
+    "texels_owned": 160395,
+    "rejected_outline_px": 64627,
+    "weapon_align_shift_px": [
+     -173.6,
+     -67.0
+    ]
+   },
+   "E:seed_E.png": {
+    "texels_seen": 275107,
+    "texels_owned": 226712,
+    "rejected_outline_px": 64497,
+    "weapon_align_shift_px": [
+     52.7,
+     -7.7
+    ]
+   },
+   "NE:seed_NE.png": {
+    "texels_seen": 261594,
+    "texels_owned": 221379,
+    "rejected_outline_px": 61944,
+    "weapon_align_shift_px": [
+     70.8,
+     -53.3
+    ]
+   },
+   "N:seed_N.png": {
+    "texels_seen": 309378,
+    "texels_owned": 255505,
+    "rejected_outline_px": 55653,
+    "weapon_align_shift_px": [
+     96.1,
+     -124.1
+    ]
+   },
+   "NW:seed_NW.png": {
+    "texels_seen": 260131,
+    "texels_owned": 150427,
+    "rejected_outline_px": 46238,
+    "weapon_align_shift_px": [
+     177.9,
+     37.1
+    ]
+   },
+   "W:seed_W.png": {
+    "texels_seen": 270440,
+    "texels_owned": 165706,
+    "rejected_outline_px": 52465,
+    "weapon_align_shift_px": [
+     -31.5,
+     3.8
+    ]
+   },
+   "SW:seed_SW_v2.png": {
+    "texels_seen": 253362,
+    "texels_owned": 99873,
+    "rejected_outline_px": 51019,
+    "weapon_align_shift_px": [
+     -43.3,
+     -37.4
+    ]
+   },
+   "E:RP-E_a.png": {
+    "texels_seen": 198568,
+    "texels_owned": 11276,
+    "rejected_outline_px": 51871,
+    "weapon_align_shift_px": [
+     0.0,
+     0.0
+    ]
+   },
+   "E:RP-E_b.png": {
+    "texels_seen": 170710,
+    "texels_owned": 2044,
+    "rejected_outline_px": 43836,
+    "weapon_align_shift_px": [
+     0.0,
+     0.0
+    ]
+   }
+  }
+ },
+ "step3b_motion": {
+  "walk": {
+   "name": "walk",
+   "frames": 12,
+   "period_s": 0.5797,
+   "fps": 20.700362256339485,
+   "travel_m_per_cycle": 1.7157881848756982,
+   "step_m": 0.8578940924378491,
+   "travel_canvas_px_per_cycle": 143.1859,
+   "stance_fraction": 0.52,
+   "pelvis_height_m": [
+    0.8497,
+    0.8522,
+    0.8873,
+    0.9042,
+    0.9017,
+    0.8666,
+    0.8497,
+    0.8522,
+    0.8873,
+    0.9042,
+    0.9017,
+    0.8666
+   ],
+   "pelvis_drop_m": 0.0755,
+   "pelvis_drop_pct_of_height": 4.19,
+   "tabard_deg_peak": 6.0,
+   "skirt_deg_peak": 3.5,
+   "tabard_lag_s": 0.1,
+   "foot_plant": {
+    "Right": {
+     "max_slip_of_a_touching_vertex_mm": 0.989,
+     "vertex_pairs_tested": 110,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 131.37
+    },
+    "Left": {
+     "max_slip_of_a_touching_vertex_mm": 0.989,
+     "vertex_pairs_tested": 95,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 131.37
+    },
+    "ground_penetration_mm": 0.0,
+    "contact_world_y_spread_mm_at_8x_framerate": {
+     "R": 0.0,
+     "L": 0.0
+    }
+   }
+  },
+  "run": {
+   "name": "run",
+   "frames": 8,
+   "period_s": 0.5517,
+   "fps": 14.500634402755121,
+   "travel_m_per_cycle": 3.265828330501716,
+   "step_m": 1.632914165250858,
+   "travel_canvas_px_per_cycle": 272.53979999999996,
+   "stance_fraction": 0.3,
+   "pelvis_height_m": [
+    0.8617,
+    0.8549,
+    0.9049,
+    0.8563,
+    0.8617,
+    0.8549,
+    0.9049,
+    0.8563
+   ],
+   "pelvis_drop_m": 0.0702,
+   "pelvis_drop_pct_of_height": 3.9,
+   "tabard_deg_peak": 10.0,
+   "skirt_deg_peak": 5.5,
+   "tabard_lag_s": 0.1,
+   "foot_plant": {
+    "Right": {
+     "max_slip_of_a_touching_vertex_mm": 9.278,
+     "vertex_pairs_tested": 16,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 231.47
+    },
+    "Left": {
+     "max_slip_of_a_touching_vertex_mm": 9.278,
+     "vertex_pairs_tested": 16,
+     "sabaton_min_z_mm": 0.0,
+     "sabaton_max_z_mm": 231.47
+    },
+    "ground_penetration_mm": 0.0,
+    "contact_world_y_spread_mm_at_8x_framerate": {
+     "R": 0.0,
+     "L": 0.0
+    }
+   }
+  }
+ },
+ "step3c_output": {
+  "walk_frames": 12,
+  "run_frames": 8,
+  "walk_fps": 20.700362256339485,
+  "run_fps": 14.500634402755121
+ },
+ "touchups_for_astra": [
+  {
+   "piece": "mail_skirt",
+   "bone": "Hips",
+   "atlas_unseen_pct": 94.51,
+   "rendered_px": 49207,
+   "rendered_unseen_px": 44609,
+   "render_unseen_pct": 90.66
+  },
+  {
+   "piece": "visor",
+   "bone": "Head",
+   "atlas_unseen_pct": 84.26,
+   "rendered_px": 715,
+   "rendered_unseen_px": 224,
+   "render_unseen_pct": 31.33
+  },
+  {
+   "piece": "gauntlet_L",
+   "bone": "LeftHand",
+   "atlas_unseen_pct": 62.21,
+   "rendered_px": 2313,
+   "rendered_unseen_px": 637,
+   "render_unseen_pct": 27.54
+  },
+  {
+   "piece": "couter_R",
+   "bone": "RightForeArm",
+   "atlas_unseen_pct": 75.8,
+   "rendered_px": 2875,
+   "rendered_unseen_px": 564,
+   "render_unseen_pct": 19.62
+  },
+  {
+   "piece": "sabaton_L",
+   "bone": "LeftFoot",
+   "atlas_unseen_pct": 43.17,
+   "rendered_px": 21542,
+   "rendered_unseen_px": 3108,
+   "render_unseen_pct": 14.43
+  },
+  {
+   "piece": "tabard_back",
+   "bone": "TAB_B_01",
+   "atlas_unseen_pct": 64.38,
+   "rendered_px": 73412,
+   "rendered_unseen_px": 8915,
+   "render_unseen_pct": 12.14
+  },
+  {
+   "piece": "gauntlet_R",
+   "bone": "RightHand",
+   "atlas_unseen_pct": 45.9,
+   "rendered_px": 2904,
+   "rendered_unseen_px": 329,
+   "render_unseen_pct": 11.33
+  },
+  {
+   "piece": "sabaton_R",
+   "bone": "RightFoot",
+   "atlas_unseen_pct": 40.1,
+   "rendered_px": 19172,
+   "rendered_unseen_px": 2051,
+   "render_unseen_pct": 10.7
+  },
+  {
+   "piece": "sabaton_toe_L",
+   "bone": "LeftToeBase",
+   "atlas_unseen_pct": 44.6,
+   "rendered_px": 11157,
+   "rendered_unseen_px": 1036,
+   "render_unseen_pct": 9.29
+  },
+  {
+   "piece": "cuisse_L",
+   "bone": "LeftUpLeg",
+   "atlas_unseen_pct": 51.11,
+   "rendered_px": 63483,
+   "rendered_unseen_px": 5052,
+   "render_unseen_pct": 7.96
+  },
+  {
+   "piece": "vambrace_R",
+   "bone": "RightForeArm",
+   "atlas_unseen_pct": 43.75,
+   "rendered_px": 26863,
+   "rendered_unseen_px": 2075,
+   "render_unseen_pct": 7.72
+  },
+  {
+   "piece": "pollaxe_point",
+   "bone": "SOCK_WeaponMain",
+   "atlas_unseen_pct": 21.15,
+   "rendered_px": 5353,
+   "rendered_unseen_px": 408,
+   "render_unseen_pct": 7.62
+  },
+  {
+   "piece": "fauld",
+   "bone": "Hips",
+   "atlas_unseen_pct": 79.0,
+   "rendered_px": 24220,
+   "rendered_unseen_px": 1838,
+   "render_unseen_pct": 7.59
+  },
+  {
+   "piece": "tabard_front",
+   "bone": "TAB_F_01",
+   "atlas_unseen_pct": 74.11,
+   "rendered_px": 44484,
+   "rendered_unseen_px": 3150,
+   "render_unseen_pct": 7.08
+  },
+  {
+   "piece": "sabaton_toe_R",
+   "bone": "RightToeBase",
+   "atlas_unseen_pct": 43.21,
+   "rendered_px": 9594,
+   "rendered_unseen_px": 600,
+   "render_unseen_pct": 6.25
+  },
+  {
+   "piece": "poleyn_L",
+   "bone": "LeftLeg",
+   "atlas_unseen_pct": 46.2,
+   "rendered_px": 8652,
+   "rendered_unseen_px": 529,
+   "render_unseen_pct": 6.11
+  },
+  {
+   "piece": "vambrace_L",
+   "bone": "LeftForeArm",
+   "atlas_unseen_pct": 40.53,
+   "rendered_px": 38124,
+   "rendered_unseen_px": 2311,
+   "render_unseen_pct": 6.06
+  }
+ ]
+}
