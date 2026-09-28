@@ -1,0 +1,73 @@
+{
+  "task_id": "T2P-walk-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-walk-E_a",
+      "path": "out/T2P-walk-E_a.png",
+      "sha256": "42a6590c0f107116db3da2e71349b53667536ffd0d5c1f98158da57ade849f4e",
+      "prompt": "CRITICAL BACKGROUND REQUIREMENT: the entire canvas outside the twelve creatures must be solid RGB(0,255,0), hexadecimal #00ff00, exactly as in Image 1. Absolutely no dark background, no mottling, no background shading or lighting, no vignette. This is a chroma-key sprite sheet. The preceding attempt incorrectly made a dark mottled backdrop; prevent that error.\nUse case: style-transfer. EDIT Image 1, the supplied 12-frame east-facing manticore walk sprite sheet. Deliver exactly one 1536x1024 PNG sheet. Image 1 is the immutable geometry and layout target; Image 2 is the approved character identity, colours, markings and painter's hand reference; Image 3 is the historical bestiary reference for the calm human face. Paint over the existing figures ONLY. Preserve precisely every frame's silhouette, pose, position, proportions, head angle, tail curve, all four leg angles, and paw positions. Retain all 12 distinct successive slow four-beat hound walk poses in reading order in the exact existing 4-column by 3-row layout. Every creature faces screen RIGHT in the existing profile view. Do not replace the poses with a repeated standing pose. Do not move, enlarge or reduce any figure. Same creature and same hand in all twelve frames, with no design or colour flicker.\nCopy Image 2's hand-painted watercolor-and-ink character illustration exactly: lean ribbed hound body, blue-grey hide, darker spine, pale cream belly, clawed paws, long whip tail, dark blue-grey neck mane, long wavy ochre-blond hair and a calm bearded MAN'S face. Keep the face human, composed and uncanny as in Images 2 and 3. Crisp dark sepia-to-near-black pen contours, slightly wavering with varied weight; fine hand-drawn hatching and transparent uneven watercolor washes with edge pooling, granulation, soft blooms and slight wash misregistration. Pale cream paper highlights within the figures; shadow formed with a second wash and hatching. Moderate mineral hues, calm pale broad surfaces, small richer accents from the approved character. The darkest marks are ink and hatching, never filled black shadow. Soft even upper-left daylight, no cast shadows. It must read as a single hand-painted illustration in the approved reference's hand, without glossy highlights, glow, rim lighting, lens effects, airbrushing or digital gradients.\nBackground remains perfectly flat pure #00ff00 everywhere outside the figures, including between legs. Green is the required sprite matting background. No scenery, ground, texture in green, shadows, grid lines, borders, text or labels. Do not add, remove, reorder, duplicate or merge frames. The only change is repainting surfaces and ink linework to match Image 2, with exact Image 1 geometry preserved. Variant a.\nFinal priority: retain Image 1's uniformly bright pure green background unchanged. Paint only inside the existing creature silhouettes.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; walk poses and layout",
+          "path": "in/01_t2_mc_walk_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Image 3 — bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 36.968
+    },
+    {
+      "name": "T2P-walk-E_b",
+      "path": "out/T2P-walk-E_b.png",
+      "sha256": "edf61db1c3600d9ef1ed92cc5257441eddddd91695a9956fe738aa9f43845fc3",
+      "prompt": "EDIT the first attached image directly. Variant b. Output one 1536x1024 PNG. Keep its solid bright GREEN background unchanged: RGB 0,255,0 (#00ff00). Keep all twelve figures in their precise existing poses, outlines, positions and sizes, in the same 4x3 layout and reading order. All face right. Retain every distinct four-legged hound walking pose, every paw position, head angle and tail curve. Change only the painting within each figure, matching the second attached image's approved manticore and ink-and-watercolor hand exactly. The third attached image guides its calm bearded human face.\nTwelve consistent depictions of one creature: lean blue-grey ribbed hound body, dark spine, pale belly, clawed paws, long whip tail, blue-grey mane and long wavy blond hair, calm bearded man's face. Hand-painted transparent watercolor, uneven washes with pooling and granulation, cream highlights, dark varying pen contours and fine hand hatching. Moderate mineral colours from Image 2. Soft even daylight from upper left. No glossy highlights or digital gradients. No design variation between frames. Copy Image 2's hand without restyling.\nBACKGROUND MUST BE PURE FLAT BRIGHT GREEN. No dark backdrop, texture, gradients, shadows, scenery, cell borders or text. Preserve green even between the legs. Repaint the creatures only; everything outside their silhouettes remains the original flat green. Exactly twelve frames with no addition, removal, duplication, merging or reordering.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; walk poses and layout",
+          "path": "in/01_t2_mc_walk_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Image 3 — bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 26.273
+    }
+  ],
+  "calls_used": 3,
+  "retries": [
+    {
+      "reason": "Variant a produced a dark mottled background instead of flat #00ff00.",
+      "change": "Repeated the edit from the original references, placing explicit RGB background preservation instructions first and last. The dark background persisted."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Variant a retains a dark mottled background after its permitted retry and does not satisfy the background requirement.",
+      "Variant b appears green; exact #00ff00 uniformity and pixel-exact silhouette preservation were not numerically verified.",
+      "Both delivered PNGs are confirmed 1536x1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-walk-E_a.png",
+      "sha256": "42a6590c0f107116db3da2e71349b53667536ffd0d5c1f98158da57ade849f4e"
+    },
+    {
+      "path": "out/T2P-walk-E_b.png",
+      "sha256": "edf61db1c3600d9ef1ed92cc5257441eddddd91695a9956fe738aa9f43845fc3"
+    }
+  ]
+}

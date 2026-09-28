@@ -1,0 +1,80 @@
+{
+  "task_id": "T1K-idle",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1K-idle_a",
+      "path": "out/T1K-idle_a.png",
+      "sha256": "d17d2cfb9642f07bdf004517199154b2c8872af741315a8df2ea48cfbc57702f",
+      "prompt": "CRITICAL CORRECTION: The whole empty background MUST be solid RGB(0,255,0), hexadecimal #00FF00, identical to IMAGE 1. A previous attempt wrongly substituted a dark brown gradient background. This is unacceptable. The mineral palette and pale-paper rules apply ONLY INSIDE THE FIGURE SILHOUETTES. Outside figures and weapons keep every pixel bright chroma-key green, including gaps between limbs and shafts. No gradient, vignette, atmosphere, halo, brown, grey or black anywhere in the background.\nUse case: style-transfer. EDIT IMAGE 1, retaining its exact 1536x1024 canvas and every existing silhouette and location. Produce one painted key-frame sheet of twelve idle poses in its existing four-column, three-row arrangement on flat pure #00ff00. IMAGE 1 is the edit target and sole authority for pose, silhouette, position, size, camera, facing, limb angles, feet placement, and pollaxe placement. IMAGE 2 is the approved character identity and painting-hand reference. IMAGE 3 is the exact pollaxe design reference, broadside and edge-on.\nPaint directly over each existing figure of IMAGE 1, preserving its outline and the subtle differences between the two idle keys for each direction. Do not rearrange, recenter or redesign the poses. Row 1: south, south, north-east, north-east. Row 2: north, north, north-west, north-west. Row 3: west, west, south-west, south-west. Match these to IMAGE 2's views: top row south, south-west, west; bottom row north-west, north, north-east. Keep the fixed elevated three-quarter orthographic view of IMAGE 1. Exactly twelve figures, each in its original cell, no added, omitted, merged, duplicated or reordered frames. Keep each upright pollaxe precisely where it is in IMAGE 1, at the same angle, with the right gauntlet closed around the haft.\nAll twelve are the SAME knight of IMAGE 2: exact helm and visor, gorget, articulated plate armour, blue tabard bearing gold crosses and diagonal gold-and-blue bands on BOTH front and back. Repaint large red tabard areas of IMAGE 1 as this blue-and-gold tabard. Red lining appears only as a narrow edge at parted flaps and hem, as in IMAGE 2. Copy IMAGE 3's pollaxe design accurately while preserving IMAGE 1's projected weapon outline, location and orientation.\nCopy the painter's hand of IMAGE 2, without restyling: hand-painted watercolor and ink character illustration of the kind made for 1990s tactics role-playing games, using late-medieval and early-Renaissance illuminated manuscript iconography and mineral colors. Crisp dark sepia-to-near-black slightly wavering pen outlines of varying weight; fine hand-drawn hatching on armour and cloth. Uneven transparent watercolor washes, pooling at edges, granulation and soft blooms, small pale paper gaps. Second darker washes and hatching create shade. Large surfaces calm and pale, cream and bare-paper highlights, warm stone-grey metal. Moderate mineral lapis blue, yellow ochre heraldry, restrained vermilion lining; rich color in small clothing accents, roughly one tenth to one fifth of the image's painted areas. No glossy highlights, glow, rim light, lens effects, airbrushed or digital gradients, filled black shadows or photographic surfaces. Soft even daylight from screen upper-left. The result reads as one consistent hand-painted illustration across all twelve figures.\nKeep the entire background exactly flat pure #00ff00. No ground shadows, scenery, cell borders, labels, text, extra objects or decorations. This is a surface-only paint-over: every pose, facing, position, size, outline, limb angle, foot location and weapon grip must remain locked to IMAGE 1.\nFinal priority: preserve IMAGE 1 exactly as the layout/pose/facing/silhouette source, including the two subtly distinct keys in each pair. Both west figures in row 3 columns 1 and 2 must retain their original viewer-left facing; do not rotate their heads or bodies away. Repaint surfaces only. Pure bright #00FF00 background across the entire sheet, without exception. Output 1536x1024.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target; frame geometry, poses and layout",
+          "path": "in/01_t1_keys_idle_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved knight identity, heraldry and painting hand",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "IMAGE 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 75.7
+    },
+    {
+      "name": "T1K-idle_b",
+      "path": "out/T1K-idle_b.png",
+      "sha256": "36ca20920dc9501bb2a8bdfb651fc9cb6f6fa99c4af696adcaa081631a641321",
+      "prompt": "CRITICAL CORRECTION: The whole empty background MUST be solid RGB(0,255,0), hexadecimal #00FF00, identical to IMAGE 1. A previous attempt wrongly substituted a dark brown gradient background. This is unacceptable. The mineral palette and pale-paper rules apply ONLY INSIDE THE FIGURE SILHOUETTES. Outside figures and weapons keep every pixel bright chroma-key green, including gaps between limbs and shafts. No gradient, vignette, atmosphere, halo, brown, grey or black anywhere in the background.\nUse case: style-transfer. EDIT IMAGE 1, retaining its exact 1536x1024 canvas and every existing silhouette and location. Produce one painted key-frame sheet of twelve idle poses in its existing four-column, three-row arrangement on flat pure #00ff00. IMAGE 1 is the edit target and sole authority for pose, silhouette, position, size, camera, facing, limb angles, feet placement, and pollaxe placement. IMAGE 2 is the approved character identity and painting-hand reference. IMAGE 3 is the exact pollaxe design reference, broadside and edge-on.\nPaint directly over each existing figure of IMAGE 1, preserving its outline and the subtle differences between the two idle keys for each direction. Do not rearrange, recenter or redesign the poses. Row 1: south, south, north-east, north-east. Row 2: north, north, north-west, north-west. Row 3: west, west, south-west, south-west. Match these to IMAGE 2's views: top row south, south-west, west; bottom row north-west, north, north-east. Keep the fixed elevated three-quarter orthographic view of IMAGE 1. Exactly twelve figures, each in its original cell, no added, omitted, merged, duplicated or reordered frames. Keep each upright pollaxe precisely where it is in IMAGE 1, at the same angle, with the right gauntlet closed around the haft.\nAll twelve are the SAME knight of IMAGE 2: exact helm and visor, gorget, articulated plate armour, blue tabard bearing gold crosses and diagonal gold-and-blue bands on BOTH front and back. Repaint large red tabard areas of IMAGE 1 as this blue-and-gold tabard. Red lining appears only as a narrow edge at parted flaps and hem, as in IMAGE 2. Copy IMAGE 3's pollaxe design accurately while preserving IMAGE 1's projected weapon outline, location and orientation.\nCopy the painter's hand of IMAGE 2, without restyling: hand-painted watercolor and ink character illustration of the kind made for 1990s tactics role-playing games, using late-medieval and early-Renaissance illuminated manuscript iconography and mineral colors. Crisp dark sepia-to-near-black slightly wavering pen outlines of varying weight; fine hand-drawn hatching on armour and cloth. Uneven transparent watercolor washes, pooling at edges, granulation and soft blooms, small pale paper gaps. Second darker washes and hatching create shade. Large surfaces calm and pale, cream and bare-paper highlights, warm stone-grey metal. Moderate mineral lapis blue, yellow ochre heraldry, restrained vermilion lining; rich color in small clothing accents, roughly one tenth to one fifth of the image's painted areas. No glossy highlights, glow, rim light, lens effects, airbrushed or digital gradients, filled black shadows or photographic surfaces. Soft even daylight from screen upper-left. The result reads as one consistent hand-painted illustration across all twelve figures.\nKeep the entire background exactly flat pure #00ff00. No ground shadows, scenery, cell borders, labels, text, extra objects or decorations. This is a surface-only paint-over: every pose, facing, position, size, outline, limb angle, foot location and weapon grip must remain locked to IMAGE 1.\nFinal priority: preserve IMAGE 1 exactly as the layout/pose/facing/silhouette source, including the two subtly distinct keys in each pair. Both west figures in row 3 columns 1 and 2 must retain their original viewer-left facing; do not rotate their heads or bodies away. Repaint surfaces only. Pure bright #00FF00 background across the entire sheet, without exception. Output 1536x1024.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target; frame geometry, poses and layout",
+          "path": "in/01_t1_keys_idle_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved knight identity, heraldry and painting hand",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "IMAGE 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 40.445
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a introduced a dark gradient background instead of flat green; some helmet facings also drifted.",
+      "change": "Repeated the edit from the original references with explicit RGB background instructions and reinforced pose and facing preservation."
+    },
+    {
+      "reason": "Variant b introduced a dark gradient background instead of flat green; some helmet facings also drifted.",
+      "change": "Repeated the edit from the original references with explicit RGB background instructions and reinforced pose and facing preservation."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both delivered PNGs are 1536x1024 and retain twelve figures in the four-column, three-row layout.",
+      "Exact silhouette and pose preservation was not achieved; helmet facings visibly drift, particularly in row 2 column 2 and row 3 column 2.",
+      "Some red lining areas remain broader than requested.",
+      "Armour highlights appear glossier than the requested pale watercolor treatment.",
+      "Backgrounds appear green; exact uniform #00ff00 pixels were not verified.",
+      "Both permitted retries are exhausted; remaining discrepancies require conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1K-idle_a.png",
+      "sha256": "d17d2cfb9642f07bdf004517199154b2c8872af741315a8df2ea48cfbc57702f"
+    },
+    {
+      "path": "out/T1K-idle_b.png",
+      "sha256": "36ca20920dc9501bb2a8bdfb651fc9cb6f6fa99c4af696adcaa081631a641321"
+    }
+  ]
+}

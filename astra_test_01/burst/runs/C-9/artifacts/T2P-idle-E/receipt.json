@@ -1,0 +1,78 @@
+{
+  "task_id": "T2P-idle-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-idle-E_a",
+      "path": "out/T2P-idle-E_a.png",
+      "sha256": "efed289995622510f9efe70f4557a4af905449213cc498bb57414769a18ee798",
+      "prompt": "CORRECTION FOR RETRY: The prior attempt incorrectly replaced the green background with a dark gradient. The backdrop MUST remain opaque, uniform, bright chroma-key green RGB(0,255,0), hex #00ff00, across the entire canvas outside the creature silhouettes. Green background preservation is mandatory. Keep the original green background from IMAGE 1 untouched. Do not reinterpret the backdrop as transparency or as a presentation background. No vignette, halos, gradients or lighting behind the figures.\n\nUse case: style-transfer. EDIT IMAGE 1, the supplied 1536x1024 sprite sheet, as a strict surface-only paint-over. Deliver one 1536x1024 PNG. IMAGE 1 is the sole authority for all geometry: preserve every frame's exact silhouette, pose, head angle, leg angle, tail curve, paw contact coordinates, position, dimensions and spacing. Preserve all twelve distinct idle-loop frames in reading order, four columns by three rows. They face screen RIGHT (east), with the subtle breathing, head-turn and tail variations already present. Do not redraw a single repeated pose into all cells. Do not borrow the layout or poses from the other references. IMAGE 2 is the approved identity and painting-hand reference: copy that hand without restyling. IMAGE 3 supplies the calm, uncanny human expression. Repaint the interior surfaces and trace the existing silhouettes in crisp dark sepia-to-near-black pen, with slightly wavering varied-weight contours and fine hand-drawn hatching. The creature is a lean four-legged hound-bodied manticore, blue-grey hide, darker spine, pale belly, visible pale curved ribs, clawed paws, long whip tail, a calm bearded MAN'S face, long ochre-blond wavy hair and blue-grey mane. Use precisely the same identity, face, hide markings, palette, line weight and painting treatment across every frame, preserving only the source animation changes. Match IMAGE 2's transparent hand-laid watercolor washes: uneven pooling at edges, granulation, gentle blooms, occasional tiny wash overruns or shortfalls; darker second washes plus hatching for shade. Leave generous pale cream highlights; darkest marks are contours and hatching, never broad filled shadows. Mineral colors at moderate value; restrained lapis and verdigris blue-grey, yellow ochre hair, pale warm skin, warm stone greys and lead-white highlights; small rich accents only. One consistent hand-painted illustration throughout, with no glossy highlights, glow, rim lighting, lens effects, smooth digital gradients or plastic surfaces. Soft even daylight from screen upper-left. Preserve IMAGE 1's camera and profile presentation. Outside the twelve exact figure silhouettes retain perfectly flat pure #00ff00 green, including all inter-frame space. No background texture, floor, ground shadows, borders, grid lines, lettering, added objects, extra frames, omitted frames, merged frames, reordered frames, or cropped parts. The only requested change is replacing IMAGE 1's surface appearance with the approved illustration of IMAGE 2.",
+      "references": [
+        {
+          "role": "edit target; frame geometry and layout",
+          "path": "in/01_t2_mc_idle_E_canvas.png"
+        },
+        {
+          "role": "approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 57.13
+    },
+    {
+      "name": "T2P-idle-E_b",
+      "path": "out/T2P-idle-E_b.png",
+      "sha256": "3d688c660dcd53b140c701e5cf38146a372ebd3a3fd39f50e677ae7105d3f495",
+      "prompt": "CORRECTION FOR RETRY: The prior attempt incorrectly replaced the green background with a dark gradient. The backdrop MUST remain opaque, uniform, bright chroma-key green RGB(0,255,0), hex #00ff00, across the entire canvas outside the creature silhouettes. Green background preservation is mandatory. Keep the original green background from IMAGE 1 untouched. Do not reinterpret the backdrop as transparency or as a presentation background. No vignette, halos, gradients or lighting behind the figures.\n\nUse case: style-transfer. EDIT IMAGE 1, the supplied 1536x1024 sprite sheet, as a strict surface-only paint-over. Deliver one 1536x1024 PNG. IMAGE 1 is the sole authority for all geometry: preserve every frame's exact silhouette, pose, head angle, leg angle, tail curve, paw contact coordinates, position, dimensions and spacing. Preserve all twelve distinct idle-loop frames in reading order, four columns by three rows. They face screen RIGHT (east), with the subtle breathing, head-turn and tail variations already present. Do not redraw a single repeated pose into all cells. Do not borrow the layout or poses from the other references. IMAGE 2 is the approved identity and painting-hand reference: copy that hand without restyling. IMAGE 3 supplies the calm, uncanny human expression. Repaint the interior surfaces and trace the existing silhouettes in crisp dark sepia-to-near-black pen, with slightly wavering varied-weight contours and fine hand-drawn hatching. The creature is a lean four-legged hound-bodied manticore, blue-grey hide, darker spine, pale belly, visible pale curved ribs, clawed paws, long whip tail, a calm bearded MAN'S face, long ochre-blond wavy hair and blue-grey mane. Use precisely the same identity, face, hide markings, palette, line weight and painting treatment across every frame, preserving only the source animation changes. Match IMAGE 2's transparent hand-laid watercolor washes: uneven pooling at edges, granulation, gentle blooms, occasional tiny wash overruns or shortfalls; darker second washes plus hatching for shade. Leave generous pale cream highlights; darkest marks are contours and hatching, never broad filled shadows. Mineral colors at moderate value; restrained lapis and verdigris blue-grey, yellow ochre hair, pale warm skin, warm stone greys and lead-white highlights; small rich accents only. One consistent hand-painted illustration throughout, with no glossy highlights, glow, rim lighting, lens effects, smooth digital gradients or plastic surfaces. Soft even daylight from screen upper-left. Preserve IMAGE 1's camera and profile presentation. Outside the twelve exact figure silhouettes retain perfectly flat pure #00ff00 green, including all inter-frame space. No background texture, floor, ground shadows, borders, grid lines, lettering, added objects, extra frames, omitted frames, merged frames, reordered frames, or cropped parts. The only requested change is replacing IMAGE 1's surface appearance with the approved illustration of IMAGE 2.",
+      "references": [
+        {
+          "role": "edit target; frame geometry and layout",
+          "path": "in/01_t2_mc_idle_E_canvas.png"
+        },
+        {
+          "role": "approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 22.327
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a initially replaced the required green background with a dark gradient.",
+      "change": "Retried from the original references with an explicit leading requirement to preserve opaque uniform RGB(0,255,0)."
+    },
+    {
+      "reason": "Variant b initially replaced the required green background with a dark gradient.",
+      "change": "Retried from the original references with an explicit leading requirement to preserve opaque uniform RGB(0,255,0)."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both saved sheets are confirmed 1536x1024 and visually contain twelve east-facing figures in a 4x3 layout.",
+      "Small head, mane and paw contour changes remain; exact source silhouette and pose preservation cannot be claimed.",
+      "Retry backgrounds appear green, but pixel-exact uniform #00ff00 was not verified.",
+      "Frame-to-frame painting consistency was inspected visually, not through animation playback."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-idle-E_a.png",
+      "sha256": "efed289995622510f9efe70f4557a4af905449213cc498bb57414769a18ee798"
+    },
+    {
+      "path": "out/T2P-idle-E_b.png",
+      "sha256": "3d688c660dcd53b140c701e5cf38146a372ebd3a3fd39f50e677ae7105d3f495"
+    }
+  ]
+}

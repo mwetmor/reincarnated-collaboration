@@ -1,0 +1,73 @@
+{
+  "task_id": "T2P-walk-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-walk-SE_a",
+      "path": "out/T2P-walk-SE_a.png",
+      "sha256": "ffcc613fb1604cfed6191def11e188111013d7b1bceac7235d3558f2585885da",
+      "prompt": "EDIT — style-transfer paint-over. Output one 1536x1024 PNG sprite sheet. IMAGE 1 is the edit target and exact geometry master: twelve successive frames of one slow four-beat hound walk facing screen lower-right (SE), in a 4-column by 3-row grid, reading order. IMAGE 2 is the approved character identity and painting-hand reference, not a layout reference. IMAGE 3 supports the calm human face and manuscript origin only. Repaint only the figures' surfaces in IMAGE 1 with the precise watercolor-and-ink hand of IMAGE 2. Preserve every frame's silhouette, pose, location, dimensions, head angle, tail angle, leg angle, occlusion, and paw contact locations exactly. Keep the original elevated three-quarter orthographic view and SE facing in all twelve cells. Do not substitute the profile poses from IMAGE 2 or IMAGE 3. Preserve all twelve distinct walk phases, with no missing, duplicated, reordered or merged frame. Creature identity in every cell: the same lean rib-showing hound body, blue-grey hide, darker spine, pale belly, clawed paws, long whip tail, dark blue-grey mane, long ochre-blond hair and beard, and calm bearded MAN'S face from IMAGE 2, with the uncanny serenity of IMAGE 3. Keep markings, colors, face, proportions and painting hand consistent across the animation. Copy IMAGE 2's crisp dark sepia-to-near-black slightly wavering variable pen contours, fine hand hatching and uneven transparent watercolor washes, pooled edges, subtle granulation and pale cream paper highlights. Shadows are a second wash and pen hatching; darkest marks are ink, no filled black shadows. Moderate manuscript mineral hues; calm pale large surfaces, restrained richer small accents. Soft even light from screen upper-left. No glossy highlights, glow, rim light, bloom, lens effects, digital gradients or ground shadows. Background is exactly flat pure #00ff00 throughout, including spaces between limbs; no background texture or scenery. No cell borders, text or extra elements. Preserve IMAGE 1's exact canvas and grid. This is variant a: one consistent hand-painted sheet.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target and geometry master",
+          "path": "in/01_t2_mc_walk_SE_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "IMAGE 3 — manuscript source and calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 36.58
+    },
+    {
+      "name": "T2P-walk-SE_b",
+      "path": "out/T2P-walk-SE_b.png",
+      "sha256": "06cf72b8bc3c93cc9b39151aa91a1eade5fcedcf463bfed6782e4645ca8488e3",
+      "prompt": "EDIT IMAGE 1 as a paint-over, variant b. Deliver exactly one 1536x1024 sprite sheet on a FLAT OPAQUE PURE GREEN (#00ff00) background. Preserve the green background of IMAGE 1 exactly; do not replace, shade, texture or make it transparent. IMAGE 1 fixes every silhouette, location and pose: twelve distinct successive frames of a slow four-beat hound walk facing lower-right (SE) at an elevated three-quarter orthographic angle, in the original 4x3 grid and reading order. Trace each existing frame precisely: same outline, dimensions, head angle, limb angles, tail curve and paw locations. Change only the painting of the creatures, matching IMAGE 2's approved character and hand. IMAGE 2 supplies lean rib-showing blue-grey hound body, darker spine, pale belly, claws, whip tail, dark mane, long ochre-blond hair and beard, calm human male face, and crisp dark variable pen outline, fine hatching and transparent uneven watercolor washes. IMAGE 3 supplies the same uncanny calm human expression and manuscript origin. Do not import their poses or layouts. Keep identical character identity, markings, palette, face and painting treatment across all twelve animation frames. Hand-painted ink and watercolor: moderate mineral colors, uneven washes with pooled edges and soft granulation, pale cream highlights, fine hand-drawn hatching and darker second washes for shade. Ink lines are the darkest marks. Soft even daylight from screen upper-left on figures. No glossy highlights, lighting effects, gradients, large black masses or cast shadows. No borders, text, scenery, missing frames, duplicates or frame reordering. Background and all gaps must stay solid bright RGB 0,255,0; no dark background, no vignette, no background shadows. Preserve exact original frame geometry.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target and geometry master",
+          "path": "in/01_t2_mc_walk_SE_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "IMAGE 3 — manuscript source and calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 34.745
+    }
+  ],
+  "calls_used": 3,
+  "retries": [
+    {
+      "reason": "Variant a displayed a mottled dark background instead of flat #00ff00.",
+      "change": "One background-only EDIT requested opaque RGB(0,255,0), preserving painted figures and original geometry. The retry still displayed a non-green background; the initial a output was retained."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Variant a contains an alpha channel and does not display the required flat green background; its allowed retry did not resolve this.",
+      "Both files are 1536x1024 with twelve visible frames. Exact silhouette, paw-position and inter-frame consistency were assessed visually, not verified pixelwise.",
+      "Variant b displays a green background and has no alpha channel; exact #00ff00 uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-walk-SE_a.png",
+      "sha256": "ffcc613fb1604cfed6191def11e188111013d7b1bceac7235d3558f2585885da"
+    },
+    {
+      "path": "out/T2P-walk-SE_b.png",
+      "sha256": "06cf72b8bc3c93cc9b39151aa91a1eade5fcedcf463bfed6782e4645ca8488e3"
+    }
+  ]
+}

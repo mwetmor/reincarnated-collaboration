@@ -1,0 +1,79 @@
+{
+  "task_id": "T1K-walk",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1K-walk_a",
+      "path": "out/T1K-walk_a.png",
+      "sha256": "e036205ccbb7eb0ddd2eaa90dde5d0de41695861a2dcf22075b3f65ac7ee045d",
+      "prompt": "RETRY: The previous attempt incorrectly replaced the green background with a dark gradient. Correct this specific defect. The entire empty background MUST remain solid pure RGB(0,255,0), hex #00ff00, exactly as in Image 1. No backdrop shading, vignettes, spotlights, halos, texture or gradients anywhere outside the figure outlines. This is a chroma-key sprite sheet. Paint ONLY inside the existing twelve figure-and-weapon silhouettes. Leave ALL green pixels of Image 1 unchanged.\n\nUse case: style-transfer. EDIT IMAGE 1, preserving its exact canvas and geometry. Deliver one 1536x1024 PNG sheet containing precisely the same twelve walk key frames in the same 4-column by 3-row grid on flat pure #00ff00. Image 1 is the edit target and sole authority for silhouettes, poses, facing, positions, sizes, limb angles, foot placements, pollaxe placement and angle, and camera. Image 2 is the approved knight identity and watercolor-and-ink painting reference, never a layout or pose reference. Image 3 is the exact pollaxe design reference, broadside and edge-on.\nPaint directly over every figure of Image 1 without relocating or redrawing its pose. Keep every outline and joint in place, including each individual bent knee, crossed leg, lifted heel, gauntlet and pole. Keep the upright pollaxe in that frame's original position, its haft enclosed by the knight's right gauntlet. Maintain the fixed elevated three-quarter orthographic view of Image 1.\nReading order is strictly: row 1 SOUTH, SOUTH, NORTH-EAST, NORTH-EAST; row 2 NORTH, NORTH, NORTH-WEST, NORTH-WEST; row 3 WEST, WEST, SOUTH-WEST, SOUTH-WEST. Each pair has two different steps of the same walk cycle; preserve both individual steps exactly. Match each to Image 2's appropriate identity view: Image 2 top row SOUTH, SOUTH-WEST, WEST; bottom row NORTH-WEST, NORTH, NORTH-EAST. Preserve the back of the helmet in all rear views; do not turn any head or body toward the camera.\nReplace only the surface treatment with the precise approved painter's hand of Image 2: same enclosed rounded helm and perforated visor, gorget, articulated pale steel plate armour, lapis blue tabard, gold crosses and diagonal gold-and-blue bands on BOTH front and back, and same pollaxe design from Image 3. Replace broad red tabard panels in Image 1 with blue-and-gold heraldic cloth. Red lining is only a narrow sliver at parted flaps and hem. All twelve are one identical knight, consistent armour, heraldry, colours and weapon.\nRendering: late-medieval and early-Renaissance illuminated manuscript subject, iconography and mineral palette, rendered as hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Copy Image 2, do not restyle. Crisp dark sepia-to-near-black wavering varied-weight pen contours; fine hand-drawn hatching on armour and cloth; transparent uneven watercolor washes that pool, granulate and softly bloom at shape edges, occasionally stopping short or slightly overrunning the line; shadows made by second darker washes and hatching. Large armour areas pale warm stone grey and cream bare-paper highlights; moderate mineral colours, rich colour only in small clothing and heraldic accents. Darkest marks are outlines and hatching. No glossy highlights, glow, rim light, lens effects, digital gradients, airbrushing, filled black shadows, or photographic finish. Soft even daylight from screen upper-left. No cast shadows or ground shadows.\nPreserve the pure #00ff00 background exactly, entirely uniform. No added elements, no floor, no borders, no text, no labels. No frame added, removed, merged, duplicated or reordered. Do not substitute standing turnaround poses for the walking poses. Every original figure's footprint and enclosing outline must remain in exactly its original place.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target; walk poses and layout",
+          "path": "in/01_t1_keys_walk_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved knight identity and painting style",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "IMAGE 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 71.749
+    },
+    {
+      "name": "T1K-walk_b",
+      "path": "out/T1K-walk_b.png",
+      "sha256": "ce34dd68f413fb07cfb4b97d5eeabdde087a05cd8f9616b5cf1c0b9b4d4e5ac3",
+      "prompt": "RETRY: The previous attempt incorrectly replaced the green background with a dark gradient. Correct this specific defect. The entire empty background MUST remain solid pure RGB(0,255,0), hex #00ff00, exactly as in Image 1. No backdrop shading, vignettes, spotlights, halos, texture or gradients anywhere outside the figure outlines. This is a chroma-key sprite sheet. Paint ONLY inside the existing twelve figure-and-weapon silhouettes. Leave ALL green pixels of Image 1 unchanged.\n\nUse case: style-transfer. EDIT IMAGE 1, preserving its exact canvas and geometry. Deliver one 1536x1024 PNG sheet containing precisely the same twelve walk key frames in the same 4-column by 3-row grid on flat pure #00ff00. Image 1 is the edit target and sole authority for silhouettes, poses, facing, positions, sizes, limb angles, foot placements, pollaxe placement and angle, and camera. Image 2 is the approved knight identity and watercolor-and-ink painting reference, never a layout or pose reference. Image 3 is the exact pollaxe design reference, broadside and edge-on.\nPaint directly over every figure of Image 1 without relocating or redrawing its pose. Keep every outline and joint in place, including each individual bent knee, crossed leg, lifted heel, gauntlet and pole. Keep the upright pollaxe in that frame's original position, its haft enclosed by the knight's right gauntlet. Maintain the fixed elevated three-quarter orthographic view of Image 1.\nReading order is strictly: row 1 SOUTH, SOUTH, NORTH-EAST, NORTH-EAST; row 2 NORTH, NORTH, NORTH-WEST, NORTH-WEST; row 3 WEST, WEST, SOUTH-WEST, SOUTH-WEST. Each pair has two different steps of the same walk cycle; preserve both individual steps exactly. Match each to Image 2's appropriate identity view: Image 2 top row SOUTH, SOUTH-WEST, WEST; bottom row NORTH-WEST, NORTH, NORTH-EAST. Preserve the back of the helmet in all rear views; do not turn any head or body toward the camera.\nReplace only the surface treatment with the precise approved painter's hand of Image 2: same enclosed rounded helm and perforated visor, gorget, articulated pale steel plate armour, lapis blue tabard, gold crosses and diagonal gold-and-blue bands on BOTH front and back, and same pollaxe design from Image 3. Replace broad red tabard panels in Image 1 with blue-and-gold heraldic cloth. Red lining is only a narrow sliver at parted flaps and hem. All twelve are one identical knight, consistent armour, heraldry, colours and weapon.\nRendering: late-medieval and early-Renaissance illuminated manuscript subject, iconography and mineral palette, rendered as hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Copy Image 2, do not restyle. Crisp dark sepia-to-near-black wavering varied-weight pen contours; fine hand-drawn hatching on armour and cloth; transparent uneven watercolor washes that pool, granulate and softly bloom at shape edges, occasionally stopping short or slightly overrunning the line; shadows made by second darker washes and hatching. Large armour areas pale warm stone grey and cream bare-paper highlights; moderate mineral colours, rich colour only in small clothing and heraldic accents. Darkest marks are outlines and hatching. No glossy highlights, glow, rim light, lens effects, digital gradients, airbrushing, filled black shadows, or photographic finish. Soft even daylight from screen upper-left. No cast shadows or ground shadows.\nPreserve the pure #00ff00 background exactly, entirely uniform. No added elements, no floor, no borders, no text, no labels. No frame added, removed, merged, duplicated or reordered. Do not substitute standing turnaround poses for the walking poses. Every original figure's footprint and enclosing outline must remain in exactly its original place.",
+      "references": [
+        {
+          "role": "IMAGE 1 — edit target; walk poses and layout",
+          "path": "in/01_t1_keys_walk_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved knight identity and painting style",
+          "path": "in/02_turnaround6_S_SW_W_NW_N_NE.png"
+        },
+        {
+          "role": "IMAGE 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 36.735
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a replaced the required flat green background with a dark gradient.",
+      "change": "Repeated the edit using the original three references, explicitly requiring all background pixels to remain pure #00ff00."
+    },
+    {
+      "reason": "Variant b replaced the required flat green background with a dark gradient.",
+      "change": "Repeated the edit using the original three references, explicitly requiring all background pixels to remain pure #00ff00."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both saved retries still have dark gradient backgrounds instead of pure #00ff00.",
+      "Broad red lining remains visible in several frames.",
+      "Exact silhouette preservation and approved armour identity are not fully achieved.",
+      "Both files are 1536x1024 and contain twelve figures in a 4x3 arrangement.",
+      "One retry per variant was exhausted; further correction is returned to the conductor."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1K-walk_a.png",
+      "sha256": "e036205ccbb7eb0ddd2eaa90dde5d0de41695861a2dcf22075b3f65ac7ee045d"
+    },
+    {
+      "path": "out/T1K-walk_b.png",
+      "sha256": "ce34dd68f413fb07cfb4b97d5eeabdde087a05cd8f9616b5cf1c0b9b4d4e5ac3"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "task_id": "T2P-idle-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-idle-SE_a",
+      "path": "out/T2P-idle-SE_a.png",
+      "sha256": "09f745d15b887b8fc6bbfa4516f4646910ef2610d1bb31b80ab44a8b204c86fb",
+      "prompt": "CRITICAL RETRY CORRECTION: The prior attempt incorrectly replaced the green background with mottled grey. The background MUST be solid RGB(0,255,0), hexadecimal #00ff00, exactly as in the ORIGINAL Image 1. Green is an intentional chroma-key plate, exempt from the figure palette restrictions. Preserve the original green unchanged; apply watercolor and ink ONLY INSIDE the twelve creature silhouettes. No grey, brown, vignette, gradient, paper, glow or mottling anywhere in the background. Use case: style-transfer. EDIT IMAGE 1 directly. Output one 1536x1024 PNG sprite sheet.\nINPUT ROLES: Image 1 is the immutable composition and pose canvas: 12 frames of ONE idle animation in a 4-column by 3-row grid, reading left to right then top to bottom. Image 2 is the approved creature identity, markings, palette and exact painter's hand. Image 3 is supporting reference for the calm bearded human face.\nPAINT-OVER ONLY: Repaint the surfaces of every existing figure in Image 1 using Image 2's dark ink contours, fine hand hatching and transparent watercolor washes. Preserve EXACTLY each frame's silhouette, pose, position, dimensions, head angle, leg angle, tail angle and paw contact locations. Retain all twelve original, subtly different poses; do not replace them with copies of one pose. Maintain the fixed elevated three-quarter orthographic camera and south-east facing, toward the viewer's lower right. Keep every figure in its existing cell with precisely the same footprint. No added, removed, reordered, merged or duplicated frame. No grid lines, text, borders, props or ground shadows.\nIDENTITY: Every frame is the SAME consistent manticore of Image 2: a lean four-legged hound body with visible ribs, blue-grey hide, darker spine, paler belly, clawed paws, long whip tail, and a calm MAN'S face with beard and long ochre-blond hair surrounded by a dark blue-grey mane. Preserve Image 1's exact slow head-turn sequence, breathing and tail sway. Keep the approved face and uncanny calm of Images 2 and 3, adapting it to each original head angle. Identical anatomy, mane, hide markings, colors and painting technique throughout so the animation does not flicker.\nHAND AND PALETTE: Copy Image 2's hand, do not restyle. Subject and iconography come from manuscript bestiary illustration; rendering is hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Crisp dark sepia-to-near-black slightly wavering pen contour of varying weight, fine hand-drawn hatching. Uneven transparent washes pool at edges, granulate and softly bloom, sometimes stopping short of or slightly overrunning the contour. Model shadows with a second darker wash plus hatching. Pale cream bare-paper highlights within the figures, calm moderate-value mineral blue-grey and warm ochre washes, rich color limited to small accents. Darkest marks are ink and hatching, never filled black shadows. No glossy highlights, glow, rim light, lens effects, airbrushing or digital gradients. Soft even daylight from screen upper-left. The figures must read as one hand-painted illustration.\nBACKGROUND INVARIANT: All empty background pixels remain flat pure #00ff00 green, including gaps between legs and around every tail and hair contour. No paper background, texture, shading, scenery or shadows in the green. No other objects. The original sheet controls all geometry; Image 2 controls only identity and painted surfaces.",
+      "references": [
+        {
+          "role": "edit target; frame geometry and poses",
+          "path": "in/01_t2_mc_idle_SE_canvas.png"
+        },
+        {
+          "role": "approved identity, palette and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 38.024
+    },
+    {
+      "name": "T2P-idle-SE_b",
+      "path": "out/T2P-idle-SE_b.png",
+      "sha256": "1dd5d940efa2d5580ade3fbf5d71222d43300469ba8b8355165eb8f7eaac3327",
+      "prompt": "CRITICAL RETRY CORRECTION: The prior attempt incorrectly replaced the green background with mottled grey. The background MUST be solid RGB(0,255,0), hexadecimal #00ff00, exactly as in the ORIGINAL Image 1. Green is an intentional chroma-key plate, exempt from the figure palette restrictions. Preserve the original green unchanged; apply watercolor and ink ONLY INSIDE the twelve creature silhouettes. No grey, brown, vignette, gradient, paper, glow or mottling anywhere in the background. Use case: style-transfer. EDIT IMAGE 1 directly. Output one 1536x1024 PNG sprite sheet.\nINPUT ROLES: Image 1 is the immutable composition and pose canvas: 12 frames of ONE idle animation in a 4-column by 3-row grid, reading left to right then top to bottom. Image 2 is the approved creature identity, markings, palette and exact painter's hand. Image 3 is supporting reference for the calm bearded human face.\nPAINT-OVER ONLY: Repaint the surfaces of every existing figure in Image 1 using Image 2's dark ink contours, fine hand hatching and transparent watercolor washes. Preserve EXACTLY each frame's silhouette, pose, position, dimensions, head angle, leg angle, tail angle and paw contact locations. Retain all twelve original, subtly different poses; do not replace them with copies of one pose. Maintain the fixed elevated three-quarter orthographic camera and south-east facing, toward the viewer's lower right. Keep every figure in its existing cell with precisely the same footprint. No added, removed, reordered, merged or duplicated frame. No grid lines, text, borders, props or ground shadows.\nIDENTITY: Every frame is the SAME consistent manticore of Image 2: a lean four-legged hound body with visible ribs, blue-grey hide, darker spine, paler belly, clawed paws, long whip tail, and a calm MAN'S face with beard and long ochre-blond hair surrounded by a dark blue-grey mane. Preserve Image 1's exact slow head-turn sequence, breathing and tail sway. Keep the approved face and uncanny calm of Images 2 and 3, adapting it to each original head angle. Identical anatomy, mane, hide markings, colors and painting technique throughout so the animation does not flicker.\nHAND AND PALETTE: Copy Image 2's hand, do not restyle. Subject and iconography come from manuscript bestiary illustration; rendering is hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Crisp dark sepia-to-near-black slightly wavering pen contour of varying weight, fine hand-drawn hatching. Uneven transparent washes pool at edges, granulate and softly bloom, sometimes stopping short of or slightly overrunning the contour. Model shadows with a second darker wash plus hatching. Pale cream bare-paper highlights within the figures, calm moderate-value mineral blue-grey and warm ochre washes, rich color limited to small accents. Darkest marks are ink and hatching, never filled black shadows. No glossy highlights, glow, rim light, lens effects, airbrushing or digital gradients. Soft even daylight from screen upper-left. The figures must read as one hand-painted illustration.\nBACKGROUND INVARIANT: All empty background pixels remain flat pure #00ff00 green, including gaps between legs and around every tail and hair contour. No paper background, texture, shading, scenery or shadows in the green. No other objects. The original sheet controls all geometry; Image 2 controls only identity and painted surfaces.",
+      "references": [
+        {
+          "role": "edit target; frame geometry and poses",
+          "path": "in/01_t2_mc_idle_SE_canvas.png"
+        },
+        {
+          "role": "approved identity, palette and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "bestiary source; calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 36.654
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a replaced the required flat green background with mottled grey.",
+      "change": "Retried from the original references with explicit RGB(0,255,0) preservation and background exemption from figure palette restrictions."
+    },
+    {
+      "reason": "Variant b replaced the required flat green background with mottled grey.",
+      "change": "Retried from the original references with explicit RGB(0,255,0) preservation and background exemption from figure palette restrictions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both delivered 1536x1024 sheets retain mottled grey backgrounds instead of pure #00ff00 despite retries.",
+      "Exact silhouette preservation and frame-to-frame marking consistency are not established by visual inspection.",
+      "One permitted retry per variant exhausted; no further generation or corrective processing performed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-idle-SE_a.png",
+      "sha256": "09f745d15b887b8fc6bbfa4516f4646910ef2610d1bb31b80ab44a8b204c86fb"
+    },
+    {
+      "path": "out/T2P-idle-SE_b.png",
+      "sha256": "1dd5d940efa2d5580ade3fbf5d71222d43300469ba8b8355165eb8f7eaac3327"
+    }
+  ]
+}
