@@ -14275,6 +14275,11 @@
       "id": "M-C9-T2-MODEL",
       "ts": "2026-09-28",
       "note": "T2 manticore: Astra MC-1 four-view neutral-pose sheet (both variants consistent; variant a used: leaner, ribbed, bearded man's face, whip tail). Meshy multi-image-to-3D (no pose mode, quad 40k, 30 credits, about 4 min) gives a faithful model. The conductor's quick 8-view render guessed up wrong for a quadruped (a viewer issue, not a model issue). Dispatched a new drax session: quadruped rig in Blender (the Meshy rig is biped-only), keyed idle, walk (four-beat), run (lope) and lunge-bite with measured plant, 8-direction renders plus guides plus Astra canvases (compatible with the T1 pipeline)."
+    },
+    {
+      "id": "M-C9-T1-RENDER",
+      "ts": "2026-09-28",
+      "note": "T1 pipeline steps 1-5 (drax d2796c99): in-place Meshy clips measured. Run plants at the game's 494 px/s (x1.208, 0.1% slide). Walk plants only at 223 px/s (x1.869; at 247 px/s about 9.9% slide): the third independent finding that 247 px/s exceeds a natural walk for a 1.8 m figure (Froude at M-b, stance at R-C9-59, mocap now). Decision to Matt. The weapon socket is data; the carry mode parents the pollaxe to the chest with the hand solved to the haft. 8 dirs x 4 clips rendered with the weapon layer and guides; scale 110.185 px/m verified against a Grok cell. 16 Astra canvases emitted. The conductor HELD the Astra fire: (1) the grip is not visible (the pollaxe floats in front; the hand never lands on the haft) and the axe head is edge-on in E; (2) canvases are 2048x1536 (4:3) vs Astra's 1536x1024 output. Returned to drax with a full-transform hand-to-haft pin, a part-adjacency assertion, a carry-pose head yaw, and 1536x1024 sheets. Sides: inconclusive but immaterial (the knight is largely side-symmetric); no rebuild."
     }
   ],
   "halts": [],
