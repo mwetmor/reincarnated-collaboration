@@ -1,0 +1,79 @@
+{
+  "task_id": "T1P-idle-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1P-idle-E_a",
+      "path": "out/T1P-idle-E_a.png",
+      "sha256": "5970c996fe5e2ce7e19856a2a378023ace2d552ed8805f0002b438f4b0f0dbb6",
+      "prompt": "CRITICAL CORRECTION: the previous attempt incorrectly replaced the chroma green with a dark gradient. This retry must preserve the original image's SOLID PURE RGB(0,255,0) background exactly. There must be NO dark backdrop, gradient, vignette, atmospheric background, shadows or spotlight. Every background pixel outside the painted knight silhouettes must be uniform bright chroma green #00ff00. Start again from Image 1, keeping all its geometry.\nUse case: style-transfer. EDIT the first reference image, preserving its exact 1536x1024 canvas. Deliver one 1536x1024 PNG sprite sheet. Image 1 is the edit target and sole geometry authority: twelve frames of ONE knight's idle loop facing screen RIGHT (east), in reading order on its existing 4-column by 3-row grid. Image 2 is the approved character identity and painting-hand reference. Image 3 is the exact pollaxe design reference, broadside and edge-on views. Repaint every figure in Image 1 with the armour, helm, perforated visor, gorget, gauntlets, blue-and-gold tabard and pollaxe details of Image 2, using Image 3 for weapon design. Preserve EXACTLY each individual frame's existing pose, silhouette, position, size, leg and arm angles, feet locations, head angle, camera and weapon location and angle. Keep the subtle differences between the twelve original poses: do not replace them with twelve copies of one pose. Each gauntlet stays closed around its existing pollaxe haft. The upright weapon stays in the right hand, anchored exactly where it is in that input frame. Preserve the original fixed elevated three-quarter orthographic view. Do not inherit the composition or dimensions of Images 2 or 3.\nPaint all twelve figures in ONE identical hand, consistent armour details, heraldry, helm, proportions, weapon and colours without animation flicker. Blue tabard bears gold crosses and diagonal blue-and-gold bands exactly as Image 2. Replace Image 1's broad red cloth sections with the approved blue-and-gold cloth. Red lining is only a narrow edge where flaps part and along hem. Copy Image 2's hand, do not restyle.\nRegister: late-medieval and early-Renaissance illuminated-manuscript subject, iconography and mineral palette, combined with hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Crisp dark sepia-to-near-black pen contour with slight hand wavering and variable weight; fine hand-drawn hatching on armour and cloth. Transparent UNEVEN washes with edge pooling, granulation, soft pigment blooms, occasional slight stops short of or overruns across the line. Pale cream and bare-paper highlights across calm pale armour; darker second wash plus hatching for shade. Lapis blue, yellow ochre gold heraldry, narrow vermilion lining, lead white and warm grey. Rich colour restricted to clothing accents, roughly a tenth to a fifth of the painted figure; no large filled black shadows. One hand-painted illustration, no glossy specular highlights, no glow, no rim light, no lens effects, no airbrushed or digital gradients. Soft even daylight from screen upper-left. No cast or ground shadows.\nBackground MUST remain perfectly flat pure #00ff00, all the way to every edge, with no paper texture or colour variation on background. Preserve all green space and the original 4x3 cell layout. Exactly twelve figures; none added, missing, merged, duplicated or reordered. No cell borders, text, labels or extraneous objects. Change surface painting only; original frame geometry is locked.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; frame geometry",
+          "path": "in/01_t1_idle_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved knight and painting hand",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Image 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 33.607
+    },
+    {
+      "name": "T1P-idle-E_b",
+      "path": "out/T1P-idle-E_b.png",
+      "sha256": "22382083dfad1df209b56305b5c224a6dd94a5ed8de14fd774c516ce25c811b0",
+      "prompt": "VARIANT B. Preserve Image 1's solid pure RGB(0,255,0) chroma-green background unchanged. Paint strictly inside its existing figure silhouettes: preserve every pose, outline, foot position and weapon placement. The red areas of the input tabard must become blue-and-gold cloth; leave red ONLY as a hairline lining edge, no broad red panel.\nUse case: style-transfer. EDIT the first reference image, preserving its exact 1536x1024 canvas. Deliver one 1536x1024 PNG sprite sheet. Image 1 is the edit target and sole geometry authority: twelve frames of ONE knight's idle loop facing screen RIGHT (east), in reading order on its existing 4-column by 3-row grid. Image 2 is the approved character identity and painting-hand reference. Image 3 is the exact pollaxe design reference, broadside and edge-on views. Repaint every figure in Image 1 with the armour, helm, perforated visor, gorget, gauntlets, blue-and-gold tabard and pollaxe details of Image 2, using Image 3 for weapon design. Preserve EXACTLY each individual frame's existing pose, silhouette, position, size, leg and arm angles, feet locations, head angle, camera and weapon location and angle. Keep the subtle differences between the twelve original poses: do not replace them with twelve copies of one pose. Each gauntlet stays closed around its existing pollaxe haft. The upright weapon stays in the right hand, anchored exactly where it is in that input frame. Preserve the original fixed elevated three-quarter orthographic view. Do not inherit the composition or dimensions of Images 2 or 3.\nPaint all twelve figures in ONE identical hand, consistent armour details, heraldry, helm, proportions, weapon and colours without animation flicker. Blue tabard bears gold crosses and diagonal blue-and-gold bands exactly as Image 2. Replace Image 1's broad red cloth sections with the approved blue-and-gold cloth. Red lining is only a narrow edge where flaps part and along hem. Copy Image 2's hand, do not restyle.\nRegister: late-medieval and early-Renaissance illuminated-manuscript subject, iconography and mineral palette, combined with hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. Crisp dark sepia-to-near-black pen contour with slight hand wavering and variable weight; fine hand-drawn hatching on armour and cloth. Transparent UNEVEN washes with edge pooling, granulation, soft pigment blooms, occasional slight stops short of or overruns across the line. Pale cream and bare-paper highlights across calm pale armour; darker second wash plus hatching for shade. Lapis blue, yellow ochre gold heraldry, narrow vermilion lining, lead white and warm grey. Rich colour restricted to clothing accents, roughly a tenth to a fifth of the painted figure; no large filled black shadows. One hand-painted illustration, no glossy specular highlights, no glow, no rim light, no lens effects, no airbrushed or digital gradients. Soft even daylight from screen upper-left. No cast or ground shadows.\nBackground MUST remain perfectly flat pure #00ff00, all the way to every edge, with no paper texture or colour variation on background. Preserve all green space and the original 4x3 cell layout. Exactly twelve figures; none added, missing, merged, duplicated or reordered. No cell borders, text, labels or extraneous objects. Change surface painting only; original frame geometry is locked.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; frame geometry",
+          "path": "in/01_t1_idle_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved knight and painting hand",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Image 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 32.824
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a replaced the required green background with a dark gradient.",
+      "change": "Repeated the edit from the original references with stronger flat RGB(0,255,0) preservation instructions; retained this retry."
+    },
+    {
+      "reason": "Variant b changed individual head angles and leg contours.",
+      "change": "Repeated the edit with stricter tracing and joint-position instructions. The retry introduced a dark background, so the original green-background b was retained."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both delivered PNGs are 1536x1024 and visibly contain twelve figures in a 4x3 layout.",
+      "Exact silhouettes, head angles, leg contours and frame-to-frame identity were not fully preserved.",
+      "Variant a retains broader red lining than requested.",
+      "Backgrounds appear green but exact uniform #00ff00 was not pixel-verified.",
+      "Exact pollaxe design and the requested pale watercolor treatment remain imperfect."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1P-idle-E_a.png",
+      "sha256": "5970c996fe5e2ce7e19856a2a378023ace2d552ed8805f0002b438f4b0f0dbb6"
+    },
+    {
+      "path": "out/T1P-idle-E_b.png",
+      "sha256": "22382083dfad1df209b56305b5c224a6dd94a5ed8de14fd774c516ce25c811b0"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "task_id": "T1P-idle-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1P-idle-SE_a",
+      "path": "out/T1P-idle-SE_a.png",
+      "sha256": "2a32f6a779b5ff9ae09b7d0cf933cc2d600a97936cb89954f73c5b11a13f7f05",
+      "prompt": "EDIT the supplied sprite sheet. Correct ONLY the background: replace ALL of the dark gradient background, its haze, shadows and halos with perfectly uniform solid vivid chroma-key green RGB(0,255,0), hexadecimal #00ff00. All corners, all margins, all gaps between figures, and all spaces enclosed between limbs and weapons must be exactly this same flat green. No gradient, no lighting or texture in the background. Preserve all twelve painted knights exactly as they are: same pixels of their painted surfaces, same poses, silhouettes, sizes, positions, tabards, armour, ink contours, feet, gauntlet grips and weapons. Preserve the 4-column by 3-row arrangement and 1536x1024 canvas. No text or cell borders. This is a background correction only; the hand-painted knight illustrations must remain unchanged.",
+      "references": [
+        {
+          "role": "Original edit target and pose authority",
+          "path": "in/01_t1_idle_SE_canvas.png"
+        },
+        {
+          "role": "Knight identity and painting reference",
+          "path": "in/02_seed_SE_v1.png"
+        },
+        {
+          "role": "Pollaxe design reference",
+          "path": "in/03_KP-1_a.png"
+        },
+        {
+          "role": "Initial variant a used for background correction",
+          "path": "/Users/admin/.codex/generated_images/01a0ea20-864f-7093-8833-5531d31e4da9/exec-025e22ac-2ccf-4541-bd3d-93cdb9bcc0d9.png"
+        }
+      ],
+      "elapsed_s": 68.176
+    },
+    {
+      "name": "T1P-idle-SE_b",
+      "path": "out/T1P-idle-SE_b.png",
+      "sha256": "23baa3ca9bb8602ff1f3a7130e627409a29c36fd37318837d9c23e4d8ace6e6a",
+      "prompt": "EDIT the supplied sprite sheet. Correct ONLY the background: replace ALL of the dark gradient background, its haze, shadows and halos with perfectly uniform solid vivid chroma-key green RGB(0,255,0), hexadecimal #00ff00. All corners, all margins, all gaps between figures, and all spaces enclosed between limbs and weapons must be exactly this same flat green. No gradient, no lighting or texture in the background. Preserve all twelve painted knights exactly as they are: same pixels of their painted surfaces, same poses, silhouettes, sizes, positions, tabards, armour, ink contours, feet, gauntlet grips and weapons. Preserve the 4-column by 3-row arrangement and 1536x1024 canvas. No text or cell borders. This is a background correction only; the hand-painted knight illustrations must remain unchanged.",
+      "references": [
+        {
+          "role": "Original edit target and pose authority",
+          "path": "in/01_t1_idle_SE_canvas.png"
+        },
+        {
+          "role": "Knight identity and painting reference",
+          "path": "in/02_seed_SE_v1.png"
+        },
+        {
+          "role": "Pollaxe design reference",
+          "path": "in/03_KP-1_a.png"
+        },
+        {
+          "role": "Initial variant b used for background correction",
+          "path": "/Users/admin/.codex/generated_images/01a0ea20-864f-7093-8833-5531d31e4da9/exec-33c5e160-2cb4-4cd9-af1d-78769d2cc5f7.png"
+        }
+      ],
+      "elapsed_s": 63.123
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a had a dark gradient background.",
+      "change": "One background-only correction requesting uniform #00ff00."
+    },
+    {
+      "reason": "Variant b had a dark gradient background.",
+      "change": "One background-only correction requesting uniform #00ff00."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both outputs are confirmed 1536x1024 and visually contain 12 frames.",
+      "Armour contours and pollaxe tips visibly depart from the original silhouettes; exact pose preservation and animation consistency are not assured.",
+      "Backgrounds visually appear green; exact uniform #00ff00 was not measured.",
+      "An initial relative-path request was rejected during argument deserialization before generation; four subsequent image calls produced images.",
+      "The first successful tool result was inadvertently printed with its encoded image data."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1P-idle-SE_a.png",
+      "sha256": "2a32f6a779b5ff9ae09b7d0cf933cc2d600a97936cb89954f73c5b11a13f7f05"
+    },
+    {
+      "path": "out/T1P-idle-SE_b.png",
+      "sha256": "23baa3ca9bb8602ff1f3a7130e627409a29c36fd37318837d9c23e4d8ace6e6a"
+    }
+  ]
+}

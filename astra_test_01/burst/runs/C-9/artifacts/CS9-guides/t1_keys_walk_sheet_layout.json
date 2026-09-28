@@ -1,0 +1,278 @@
+{
+ "sheet": "meshy_keys_p0.png",
+ "sheet_px": [
+  1536,
+  1024
+ ],
+ "cell_px": [
+  384,
+  341
+ ],
+ "row_heights": [
+  341,
+  341,
+  342
+ ],
+ "cols": 4,
+ "rows": 3,
+ "game_frame_px": 512,
+ "plate": "#00ff00",
+ "cut_back": "for each cell: crop the painted cell, resize to its crop[2]xcrop[3], paste at (crop[0], crop[1]) into a 512x512 frame",
+ "n_cells": 12,
+ "cells": [
+  {
+   "cell": 0,
+   "col": 0,
+   "row": 0,
+   "x": 0,
+   "y": 0,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "S",
+   "frame": 0,
+   "crop": [
+    106,
+    151,
+    295,
+    262
+   ],
+   "frame_px": 512,
+   "scale": 1.30169,
+   "source": "out/walk/colour/S/walk_S_00.png"
+  },
+  {
+   "cell": 1,
+   "col": 1,
+   "row": 0,
+   "x": 384,
+   "y": 0,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "S",
+   "frame": 6,
+   "crop": [
+    106,
+    151,
+    295,
+    262
+   ],
+   "frame_px": 512,
+   "scale": 1.30169,
+   "source": "out/walk/colour/S/walk_S_06.png"
+  },
+  {
+   "cell": 2,
+   "col": 2,
+   "row": 0,
+   "x": 768,
+   "y": 0,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "NE",
+   "frame": 0,
+   "crop": [
+    107,
+    140,
+    306,
+    272
+   ],
+   "frame_px": 512,
+   "scale": 1.2549,
+   "source": "out/walk/colour/NE/walk_NE_00.png"
+  },
+  {
+   "cell": 3,
+   "col": 3,
+   "row": 0,
+   "x": 1152,
+   "y": 0,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "NE",
+   "frame": 6,
+   "crop": [
+    107,
+    140,
+    306,
+    272
+   ],
+   "frame_px": 512,
+   "scale": 1.2549,
+   "source": "out/walk/colour/NE/walk_NE_06.png"
+  },
+  {
+   "cell": 4,
+   "col": 0,
+   "row": 1,
+   "x": 0,
+   "y": 341,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "N",
+   "frame": 0,
+   "crop": [
+    100,
+    133,
+    316,
+    281
+   ],
+   "frame_px": 512,
+   "scale": 1.21519,
+   "source": "out/walk/colour/N/walk_N_00.png"
+  },
+  {
+   "cell": 5,
+   "col": 1,
+   "row": 1,
+   "x": 384,
+   "y": 341,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "N",
+   "frame": 6,
+   "crop": [
+    100,
+    133,
+    316,
+    281
+   ],
+   "frame_px": 512,
+   "scale": 1.21519,
+   "source": "out/walk/colour/N/walk_N_06.png"
+  },
+  {
+   "cell": 6,
+   "col": 2,
+   "row": 1,
+   "x": 768,
+   "y": 341,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "NW",
+   "frame": 0,
+   "crop": [
+    94,
+    129,
+    319,
+    283
+   ],
+   "frame_px": 512,
+   "scale": 1.20376,
+   "source": "out/walk/colour/NW/walk_NW_00.png"
+  },
+  {
+   "cell": 7,
+   "col": 3,
+   "row": 1,
+   "x": 1152,
+   "y": 341,
+   "w": 384,
+   "h": 341,
+   "state": "walk",
+   "dir": "NW",
+   "frame": 6,
+   "crop": [
+    94,
+    129,
+    319,
+    283
+   ],
+   "frame_px": 512,
+   "scale": 1.20376,
+   "source": "out/walk/colour/NW/walk_NW_06.png"
+  },
+  {
+   "cell": 8,
+   "col": 0,
+   "row": 2,
+   "x": 0,
+   "y": 682,
+   "w": 384,
+   "h": 342,
+   "state": "walk",
+   "dir": "W",
+   "frame": 0,
+   "crop": [
+    103,
+    133,
+    306,
+    272
+   ],
+   "frame_px": 512,
+   "scale": 1.2549,
+   "source": "out/walk/colour/W/walk_W_00.png"
+  },
+  {
+   "cell": 9,
+   "col": 1,
+   "row": 2,
+   "x": 384,
+   "y": 682,
+   "w": 384,
+   "h": 342,
+   "state": "walk",
+   "dir": "W",
+   "frame": 6,
+   "crop": [
+    103,
+    133,
+    306,
+    272
+   ],
+   "frame_px": 512,
+   "scale": 1.2549,
+   "source": "out/walk/colour/W/walk_W_06.png"
+  },
+  {
+   "cell": 10,
+   "col": 2,
+   "row": 2,
+   "x": 768,
+   "y": 682,
+   "w": 384,
+   "h": 342,
+   "state": "walk",
+   "dir": "SW",
+   "frame": 0,
+   "crop": [
+    102,
+    142,
+    301,
+    267
+   ],
+   "frame_px": 512,
+   "scale": 1.27575,
+   "source": "out/walk/colour/SW/walk_SW_00.png"
+  },
+  {
+   "cell": 11,
+   "col": 3,
+   "row": 2,
+   "x": 1152,
+   "y": 682,
+   "w": 384,
+   "h": 342,
+   "state": "walk",
+   "dir": "SW",
+   "frame": 6,
+   "crop": [
+    102,
+    142,
+    301,
+    267
+   ],
+   "frame_px": 512,
+   "scale": 1.27575,
+   "source": "out/walk/colour/SW/walk_SW_06.png"
+  }
+ ],
+ "kind": "keys",
+ "part": 0
+}

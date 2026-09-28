@@ -1,0 +1,80 @@
+{
+  "task_id": "T1P-walk-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T1P-walk-E_a",
+      "path": "out/T1P-walk-E_a.png",
+      "sha256": "bb2784bfc7615a3751c4f61a1323b4c02c8fbd5a9a3600a71b04a108903e68db",
+      "prompt": "MANDATORY BACKGROUND: flat opaque solid RGB(0,255,0), hex #00ff00. This is a chroma-key sprite sheet. Every pixel outside the knights must remain this exact bright green. No gradient, vignette, lighting, texture, shadow or haze anywhere in the background. Prior attempts incorrectly replaced green with a dark gradient: correct this. EDIT THE FIRST PROVIDED IMAGE, retaining its original green background and all twelve original poses. Use case: style-transfer. EDIT Image 1 as a locked paint-over; output one 1536x1024 PNG sprite sheet. Image 1 is the edit target and sole authority for geometry: twelve east-facing walk-cycle frames, reading order, four columns and three rows. Image 2 is the approved knight identity and exact painting-hand reference. Image 3 is the exact pollaxe design reference (broadside and edge-on). Change ONLY the painted surfaces of all twelve figures in Image 1 to match Image 2. Preserve EXACTLY every frame's silhouette, pose, joint angles, figure dimensions, position in its cell, foot locations, camera and upright pollaxe position and angle. Do not rearrange or normalize the individual frames. Each right gauntlet stays closed around its existing haft. Repaint the helm and visor, gorget, plate armour, blue tabard, gold crosses and diagonal gold-and-blue bands to match Image 2 identically in all twelve frames. Large red tabard areas in Image 1 become the blue-and-gold tabard; red lining is only a narrow visible edge at split flaps and hem. Paint the pollaxe to Image 3's design while keeping Image 1's weapon placement and silhouette. Maintain twelve distinct original poses, no duplicated or omitted frame. One consistent hand and identical equipment, heraldry and colours throughout to prevent animation flicker. Copy Image 2's hand: crisp dark sepia-to-near-black wavering pen contours, fine hand-drawn hatching, transparent uneven watercolor washes that pool at edges, softly granulate and bloom; second darker wash plus hatching for shade, pale cream bare-paper highlights. Late-medieval and early-Renaissance manuscript subject, iconography and mineral palette, with hand-painted 1990s tactics role-playing character illustration rendering. Moderate lapis blue, vermilion, yellow ochre, lead white and warm stone greys; rich colour confined to clothing accents, large armour surfaces pale and calm. Soft even upper-left daylight. No glossy highlights, glow, rim light, digital gradients, filled dark shadows or cast ground shadows. Preserve the background as uniform pure #00ff00 everywhere outside the original figure silhouettes, including all gaps between limbs and equipment. Keep the original 4x3 grid layout without visible cell borders. No text, no extra objects. The green is a technical matting plate, exempt from the illustration palette. Do not restyle the approved painting. FINAL CRITICAL REQUIREMENT: the entire empty canvas is flat bright pure #00ff00 green, exactly as in input Image 1.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; twelve original poses and layout",
+          "path": "in/01_t1_walk_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved knight identity and painting hand",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Image 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 34.9
+    },
+    {
+      "name": "T1P-walk-E_b",
+      "path": "out/T1P-walk-E_b.png",
+      "sha256": "a1009b7e6ca8b30bd27e9740162e0a562eee262b4032abd4a536d2e46ef6f28f",
+      "prompt": "MANDATORY BACKGROUND: flat opaque solid RGB(0,255,0), hex #00ff00. This is a chroma-key sprite sheet. Every pixel outside the knights must remain this exact bright green. No gradient, vignette, lighting, texture, shadow or haze anywhere in the background. Prior attempts incorrectly replaced green with a dark gradient: correct this. EDIT THE FIRST PROVIDED IMAGE, retaining its original green background and all twelve original poses. Use case: style-transfer. EDIT Image 1 as a locked paint-over; output one 1536x1024 PNG sprite sheet. Image 1 is the edit target and sole authority for geometry: twelve east-facing walk-cycle frames, reading order, four columns and three rows. Image 2 is the approved knight identity and exact painting-hand reference. Image 3 is the exact pollaxe design reference (broadside and edge-on). Change ONLY the painted surfaces of all twelve figures in Image 1 to match Image 2. Preserve EXACTLY every frame's silhouette, pose, joint angles, figure dimensions, position in its cell, foot locations, camera and upright pollaxe position and angle. Do not rearrange or normalize the individual frames. Each right gauntlet stays closed around its existing haft. Repaint the helm and visor, gorget, plate armour, blue tabard, gold crosses and diagonal gold-and-blue bands to match Image 2 identically in all twelve frames. Large red tabard areas in Image 1 become the blue-and-gold tabard; red lining is only a narrow visible edge at split flaps and hem. Paint the pollaxe to Image 3's design while keeping Image 1's weapon placement and silhouette. Maintain twelve distinct original poses, no duplicated or omitted frame. One consistent hand and identical equipment, heraldry and colours throughout to prevent animation flicker. Copy Image 2's hand: crisp dark sepia-to-near-black wavering pen contours, fine hand-drawn hatching, transparent uneven watercolor washes that pool at edges, softly granulate and bloom; second darker wash plus hatching for shade, pale cream bare-paper highlights. Late-medieval and early-Renaissance manuscript subject, iconography and mineral palette, with hand-painted 1990s tactics role-playing character illustration rendering. Moderate lapis blue, vermilion, yellow ochre, lead white and warm stone greys; rich colour confined to clothing accents, large armour surfaces pale and calm. Soft even upper-left daylight. No glossy highlights, glow, rim light, digital gradients, filled dark shadows or cast ground shadows. Preserve the background as uniform pure #00ff00 everywhere outside the original figure silhouettes, including all gaps between limbs and equipment. Keep the original 4x3 grid layout without visible cell borders. No text, no extra objects. The green is a technical matting plate, exempt from the illustration palette. Do not restyle the approved painting. FINAL CRITICAL REQUIREMENT: the entire empty canvas is flat bright pure #00ff00 green, exactly as in input Image 1.",
+      "references": [
+        {
+          "role": "Image 1 — edit target; twelve original poses and layout",
+          "path": "in/01_t1_walk_E_canvas.png"
+        },
+        {
+          "role": "Image 2 — approved knight identity and painting hand",
+          "path": "in/02_seed_E_v1.png"
+        },
+        {
+          "role": "Image 3 — pollaxe design",
+          "path": "in/03_KP-1_a.png"
+        }
+      ],
+      "elapsed_s": 68.898
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a initially replaced the required green background with a dark gradient.",
+      "change": "Repeated the edit from the three original references with explicit leading and trailing solid RGB(0,255,0) requirements."
+    },
+    {
+      "reason": "Variant b initially replaced the required green background with a dark gradient.",
+      "change": "Repeated the edit from the three original references with explicit leading and trailing solid RGB(0,255,0) requirements."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both saved sheets are 1536x1024 and contain twelve frames in a 4x3 layout.",
+      "Variant a has a visibly textured green background; exact uniform #00ff00 is not established.",
+      "Variant b retains a dark gradient background after its permitted retry.",
+      "Figure silhouettes, foot contours and pollaxe heads drift from the source geometry; equipment and heraldry are not perfectly consistent across frames.",
+      "Armour remains glossy, and some red lining areas are broader than requested.",
+      "Both permitted retries and the four-image-call cap are exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T1P-walk-E_a.png",
+      "sha256": "bb2784bfc7615a3751c4f61a1323b4c02c8fbd5a9a3600a71b04a108903e68db"
+    },
+    {
+      "path": "out/T1P-walk-E_b.png",
+      "sha256": "a1009b7e6ca8b30bd27e9740162e0a562eee262b4032abd4a536d2e46ef6f28f"
+    }
+  ]
+}
