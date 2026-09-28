@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST T1P-walk-E — Run C-9 pipeline test T1 (Matt R-C9-61): PAINT-OVER of the 3D knight's walk cycle facing E, on one sheet. task_id \"T1P-walk-E\".\n\nIMAGE 1 is a SPRITE SHEET: 12 animation frames of ONE WALK CYCLE of a knight facing the viewer's RIGHT (east), in reading order (left to right, top to bottom), each frame centred in its own cell of a 4x3 grid on flat pure #00ff00. The frames are renders of a 3D model: their POSES, OUTLINES, POSITIONS and SIZES are correct, but their surface is flat, pale and plastic. He carries his POLLAXE upright in his right hand.\nIMAGE 2 is the approved painting of this same knight facing the same way, holding the same pollaxe: his exact helm and visor, gorget, plate armour, blue tabard with gold crosses and diagonal gold-and-blue bands, and the painter's hand (dark ink line, hatching, transparent washes). IMAGE 3 is the pollaxe itself (broadside and edge-on views): its exact design.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY one of the 12 figures is repainted as the knight of IMAGE 2, in EXACTLY that frame's pose, outline, position and size: same place in its cell, same leg and arm angles, feet on the same spot, the pollaxe in the same position and at the same angle as in IMAGE 1, painted to IMAGE 3's design, with his gauntlet closed around the haft.\nPaint all 12 in ONE consistent hand, so the armour, tabard heraldry, helm, pollaxe and colours are IDENTICAL from frame to frame (this is an animation: any change between frames will flicker).\nThe tabard's RED LINING shows only as a narrow edge where the tabard's flaps part and at its hem, as in IMAGE 2: wherever IMAGE 1 shows large red areas on the tabard, paint them as the blue-and-gold tabard of IMAGE 2.\nKeep the background flat pure #00ff00 and the 4x3 grid exactly as laid out: no frame added, removed, merged or reordered, no cell borders, no text, no ground shadows.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 2: copy its hand; do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a frame's pose or position changed, a frame is missing or duplicated, the knight differs between frames, the pollaxe moved or left his hand, or the background is not flat green — name the reason. Copy outputs to out/T1P-walk-E_a.png and out/T1P-walk-E_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T1P-walk-E\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t1_walk_E_canvas.png",
+   "role": "IMAGE 1 — the sprite sheet to EDIT (12 walk frames of the Meshy 3D knight facing E; poses correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seed_E_v1.png",
+   "role": "IMAGE 2 — the approved painting of this knight facing E (look, armour, heraldry, pollaxe grip, hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KP-1/KP-1_a.png",
+   "role": "IMAGE 3 — the pollaxe's design (broadside and edge-on)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T1P-walk-E_a.png",
+  "out/T1P-walk-E_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T1-paint"
+}
