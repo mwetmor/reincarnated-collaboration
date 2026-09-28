@@ -13869,6 +13869,14 @@
       "topic": "Cathedral indoor feel: ceiling layer + side piers at the current knight size; no zoom-out",
       "ruling": "Matt verbatim: \"Regarding the cathedral indoor feel, lets go with ceiling layer + side piers at the current knight size.. dont zoom out.\" Recorded as Corrigendum-forward 5 in the arena scene plan: the ceiling layer and the vault shadow and light shafts on the floor everywhere; pier arcades down both nave sides with walkable aisles, the piers as fading props; conductor settlements of the grey-box conflicts (veto-open). Next: grey box v2, then the establishing pass as bake-off round 3.",
       "ts": "2026-09-27T21:10:42"
+    },
+    {
+      "id": "R-C9-53a",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Landmark smoke re-tinted violet-grey",
+      "ruling": "From the R-C9-50 bridge capture: the cathedral and tower plumes read green-olive over the violet sky (residual plate tint plus simultaneous contrast of neutral grey on violet). The conductor re-tinted L12_sprite_cathedral and L12_sprite_tower: non-fire, low-saturation, partial-alpha pixels only, multiplied (1.04, 0.86, 1.10) toward violet-grey (card PARALLAX LIGHT: violet shadow, purple smoky haze). Fire, masonry and alpha are unchanged. drax to rebuild and push the route.",
+      "ts": "2026-09-27T21:13:12"
     }
   ],
   "grok_calls": [
