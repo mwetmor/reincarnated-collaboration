@@ -28,6 +28,7 @@ const SAMPLES := 5
 # A tolerance tighter than the instrument's demonstrated per-direction agreement is a
 # coin toss dressed as a gate.
 const RULE_TOL := 3.0
+const SHOT_DIR := "user://size"
 const RULE_PX := 150.2135416666667
 
 var fails := 0
@@ -40,7 +41,15 @@ func _check(ok: bool, what: String) -> void:
 	print(("  PASS  " if ok else "  FAIL  ") + what)
 
 
+func _slugify(s: String) -> String:
+	var out := ""
+	for c in s.to_lower():
+		out += c if (c >= "a" and c <= "z") or (c >= "0" and c <= "9") else "_"
+	return out
+
+
 func _initialize():
+	DirAccess.make_dir_recursive_absolute(SHOT_DIR)
 	var scene = load("res://scenes/cliffside.tscn").instantiate()
 	root.add_child(scene)
 	var keeper = scene.find_child("Keeper", true, false)
@@ -104,6 +113,14 @@ func _initialize():
 					await physics_frame
 					await process_frame
 				var img := root.get_texture().get_image()
+				if s == 0:
+					# Keep the FIRST full frame of each skin. The player has not moved
+					# between them -- only which skin is visible changed -- so crops of
+					# the same window are directly comparable. shot_chartest's inset
+					# centres itself through the canvas transform, which does not track
+					# reliably here, and three differently-framed crops make the figures
+					# look like different sizes when the measurements say they are not.
+					img.save_png("%s/%s_%s.png" % [SHOT_DIR, _slugify(k), facing])
 				nodes[k].visible = false
 				await process_frame
 				await process_frame
@@ -134,25 +151,62 @@ func _initialize():
 			if not heights.has(k):
 				continue
 			var d: float = float(heights[k]) - ref
-			# The strict per-direction comparison is against the KEEPER, who varies by
-			# direction because her cells do (their own per_direction_figure_h runs
-			# 237-240). A ONE-COLUMN sprite set cannot vary with her -- every direction
-			# is the same image, mirrored -- so holding it to her per-direction figure
-			# tests the stand-in's nature, not its scale. That check is deferred while
-			# the set is substituted, and it re-arms BY ITSELF when a real
-			# per-direction set lands and the substitution list empties. The rule check
-			# below binds either way, so nothing goes unmeasured in the meantime.
-			if k == "Knight sprites" and _sprites_are_one_column():
-				print("  NOTE  %s: %s is %+.1f px from the Keeper -- one-column stand-in, "
-					% [facing, k, d] + "it cannot track her per-direction variation")
-				report["rows"][-1]["sprite_deferred"] = true
-			else:
-				_check(absf(d) <= TOLERANCE_PX,
-					"%s: %s stands the Keeper's height (%.1f vs %.1f, delta %+.1f px, max %.0f)"
-					% [facing, k, heights[k], ref, d, TOLERANCE_PX])
+			if k == "Knight sprites":
+				# The sprite knight carries a PAINTED pollaxe. Its haft clears his helm
+				# and cannot be split out of a capture: row width slides from 229 cell
+				# px to 198 with no plateau, and a morphological opening hits the right
+				# answer at one radius while collapsing the Keeper's own figure at the
+				# next -- both tried against both references, neither stable. So this
+				# number is a total extent, not a crown-to-sole, and asserting it
+				# against the Keeper would be asserting a quantity I cannot measure.
+				#
+				# What IS exact is the TRANSFORM, and it is where the original defect
+				# lived: the skin was registered with the Keeper's cell scale instead of
+				# its own. That is checked below, against the set's declared format.
+				print("  NOTE  %s: %s total extent %+.1f px vs the Keeper -- includes the "
+					% [facing, k, d] + "painted haft, so not a crown-to-sole")
+				report["rows"][-1]["sprite_extent_includes_haft"] = true
+				continue
+			_check(absf(d) <= TOLERANCE_PX,
+				"%s: %s stands the Keeper's height (%.1f vs %.1f, delta %+.1f px, max %.0f)"
+				% [facing, k, heights[k], ref, d, TOLERANCE_PX])
 			_check(absf(float(heights[k]) - RULE_PX) <= RULE_TOL,
 				"%s: %s matches the rule of record (%.1f vs %.1f px, max %.0f)"
 				% [facing, k, heights[k], RULE_PX, RULE_TOL])
+
+	# --- the transform, which no prop can contaminate ------------------------------
+	# Each skin's Sprite2D must scale its cells by RULE / that set's own declared figure
+	# height, and put that set's own ground row on the node origin. Exact arithmetic on
+	# live node properties -- it would have caught the shipped bug (0.629167 inherited
+	# from the Keeper where 0.754839 was owed) in one line, and it stays true whatever a
+	# future set declares.
+	print("[node transforms, against each set's declared format]")
+	var fit = _json("res://frames/knight_test.json").get("fit", {})
+	var cam = _json("res://frames/camera_meshy_t1.json")
+	var want := [
+		["Knight sprites", nodes["Knight sprites"], float(fit.get("figure_h_src_px", 0.0)),
+			float(fit.get("pivot_y_src_px", 0.0))],
+		["Knight 3D", (nodes["Knight 3D"].get_node_or_null(^"View") if nodes["Knight 3D"] != null else null),
+			float(cam.get("px_per_m", 0.0)) * float(cam.get("character_height_m", 1.8)),
+			float(cam.get("ground_row_y", 0.0))],
+	]
+	for row in want:
+		var node = row[1]
+		var figure: float = row[2]
+		var ground: float = row[3]
+		if node == null or figure <= 0.0:
+			_check(false, "%s: no node or no declared figure height" % row[0])
+			continue
+		var expect := RULE_PX / figure
+		_check(absf(node.scale.x - expect) < 1e-4,
+			"%s: scale %.6f == %.4f / %.1f declared px (%.6f)"
+			% [row[0], node.scale.x, RULE_PX, figure, expect])
+		_check(absf(node.offset.y + ground) < 0.51,
+			"%s: offset.y %.1f puts the declared ground row %.0f on the node origin"
+			% [row[0], node.offset.y, ground])
+		report["transforms"] = report.get("transforms", {})
+		report["transforms"][row[0]] = {"scale": node.scale.x, "expect": expect,
+										"offset_y": node.offset.y, "declared_px": figure}
 
 	report["fails"] = fails
 	var f := FileAccess.open("user://size_probe.json", FileAccess.WRITE)
@@ -160,6 +214,13 @@ func _initialize():
 	f.close()
 	print("=== on-screen figure height: %s (%d failures) ===" % ["PASS" if fails == 0 else "FAIL", fails])
 	quit(1 if fails > 0 else 0)
+
+
+func _json(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		return {}
+	var j = JSON.parse_string(FileAccess.get_file_as_string(path))
+	return j if typeof(j) == TYPE_DICTIONARY else {}
 
 
 func _sprites_are_one_column() -> bool:

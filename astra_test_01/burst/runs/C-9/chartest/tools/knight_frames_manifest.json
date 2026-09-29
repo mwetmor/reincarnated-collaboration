@@ -1,8 +1,8 @@
 {
   "note": "C-9 R-C9-61 T1: the knight test skin's frame set. The BUILDER reads this; to swap the placeholder for the real 8-direction set, change source_root and set placeholder=false. That is the one-line change the dispatch asks for.",
-  "source_root": "meshy_test/paint_a",
-  "placeholder": true,
-  "placeholder_note": "PLACEHOLDER: runs/C-9/meshy_test/paint_a is the Meshy+Astra E walk ONLY -- one direction, one action. It is used for all 8 directions and stretched across the other states so the pipeline can be wired and walked now. Every direction shows the same E-facing cycle, so the knight does NOT turn. That is expected and is labelled on the HUD; it is not a rig fault.",
+  "source_root": "meshy_t1/sprites_t1",
+  "placeholder": false,
+  "placeholder_note": "Not a placeholder. sprites_t1: walk and idle painted/propagated in all 8 directions, 192 cells. RUN and ATTACK paint are still pending at the run's image cap.",
   "real_set_when_ready": "meshy_t1/sprites_t1",
   "layout": "{state}/{dir}/f_NN.png  (the real set may instead use {state}/{dir}/{state}_{dir}_NN.png; the builder accepts either)   Paths are relative to the RUN dir, runs/C-9.",
   "directions": [
@@ -19,11 +19,8 @@
     "idle": {
       "fps": 8.0,
       "loop": true,
-      "from": "walk",
-      "frames": [
-        0
-      ],
-      "why": "the placeholder has no idle cycle; frame 0 held. The Keeper's idle is 16 frames over 2.0 s."
+      "from": "idle",
+      "why": "Real painted idle, 12 frames per direction. fps comes from the DELIVERED set's own manifest (3.0, a 4.0 s cycle) -- an idle has no ground speed to match, so the painter's tempo is the right one and is read rather than re-typed."
     },
     "walk": {
       "fps": 20.7,
@@ -48,14 +45,6 @@
       "hud_note": "no attack (paint pending)"
     }
   },
-  "source_faces": "W",
-  "source_faces_note": "The stand-in column faces LEFT on screen -- it is W-facing art. Measured against the Keeper's own cells, where E faces right and W faces left. The builder mirrors it for E-ward directions. A real per-direction set has its own art for every direction: set this to the empty string and nothing is mirrored.",
-  "swap_when_sprites_t1_lands": {
-    "source_root": "meshy_t1/sprites_t1",
-    "placeholder": false,
-    "source_faces": "",
-    "states.idle.from": "idle",
-    "states.idle.frames": null,
-    "note": "The first delivery is IDLE + WALK in all 8 directions only. run stays from='walk' with its hud_note; attack stays from=null. source_faces goes EMPTY -- a real per-direction set has its own art for every direction and must mirror nothing."
-  }
+  "source_faces": "",
+  "source_faces_note": "The stand-in column faces LEFT on screen -- it is W-facing art. Measured against the Keeper's own cells, where E faces right and W faces left. The builder mirrors it for E-ward directions. A real per-direction set has its own art for every direction: set this to the empty string and nothing is mirrored."
 }

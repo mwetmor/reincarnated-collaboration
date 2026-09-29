@@ -1,10 +1,10 @@
 {
  "note": "C-9 R-C9-61 T1 knight test skin. Written by tools/build_knight_test_frames.py.",
- "source_root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/meshy_test/paint_a",
- "placeholder": true,
- "placeholder_note": "PLACEHOLDER: runs/C-9/meshy_test/paint_a is the Meshy+Astra E walk ONLY -- one direction, one action. It is used for all 8 directions and stretched across the other states so the pipeline can be wired and walked now. Every direction shows the same E-facing cycle, so the knight does NOT turn. That is expected and is labelled on the HUD; it is not a rig fault.",
+ "source_root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/meshy_t1/sprites_t1",
+ "placeholder": false,
+ "placeholder_note": "Not a placeholder. sprites_t1: walk and idle painted/propagated in all 8 directions, 192 cells. RUN and ATTACK paint are still pending at the run's image cap.",
  "animations": 24,
- "textures": 24,
+ "textures": 192,
  "states_built": [
   "idle",
   "run",
@@ -13,53 +13,9 @@
  "states_missing_from_source": [
   "attack"
  ],
- "directions_substituted_from_E": {
-  "idle": [
-   "S",
-   "SW",
-   "W",
-   "NW",
-   "N",
-   "NE",
-   "SE"
-  ],
-  "walk": [
-   "S",
-   "SW",
-   "W",
-   "NW",
-   "N",
-   "NE",
-   "SE"
-  ],
-  "run": [
-   "S",
-   "SW",
-   "W",
-   "NW",
-   "N",
-   "NE",
-   "SE"
-  ]
- },
- "source_faces": "W",
- "directions_mirrored": {
-  "idle": [
-   "NE",
-   "E",
-   "SE"
-  ],
-  "walk": [
-   "NE",
-   "E",
-   "SE"
-  ],
-  "run": [
-   "NE",
-   "E",
-   "SE"
-  ]
- },
+ "directions_substituted_from_E": {},
+ "source_faces": "",
+ "directions_mirrored": {},
  "keeper_cadence_used": {
   "idle_E": {
    "frames": 16,
@@ -82,25 +38,52 @@
  },
  "fit": {
   "measured_on": "idle",
-  "figure_h_src_px": 200.0,
+  "sized_from": "the set's declared format",
+  "declared_figure_px": 199.0008,
+  "measured_figure_px_includes_props": 229.0,
+  "figure_h_src_px": 199.001,
   "figure_h_spread_px": [
-   200,
-   200
+   214,
+   246
   ],
-  "pivot_y_src_px": 401.0,
-  "scale": 0.7510677083333336,
+  "pivot_y_src_px": 398.0,
+  "measured_sole_rows": [
+   392,
+   401
+  ],
+  "scale": 0.7548388833947739,
   "figure_h_canvas_px": 150.2135416666667,
   "row_min_px": 8,
   "rule": "cliffside_B/frames/knight_fit.json -- every player figure is 150.2135 canvas px crown-to-sole, props split off"
  },
+ "source_manifest": {
+  "note": "C-9 meshy_t1 T1 sprite set.",
+  "px_per_m": 110.556,
+  "frame_px": 512,
+  "ground_row_y": 398.0,
+  "elevation_deg": 19.77,
+  "azimuths_deg": {
+   "S": 0,
+   "SE": 45,
+   "E": 90,
+   "NE": 135,
+   "N": 180,
+   "NW": 225,
+   "W": 270,
+   "SW": 315
+  },
+  "source_faces": [],
+  "complete": true
+ },
+ "source_state_fps": {
+  "idle": 3.0,
+  "walk": 20.7004
+ },
  "hud_notes": [
-  "PLACEHOLDER: one painted column shown in all 8 directions -- the knight does not turn",
-  "idle = walk frames (paint pending)",
   "run = walk frames (paint pending)",
   "no attack (paint pending)"
  ],
  "states_from_another_state": {
-  "idle": "walk",
   "run": "walk"
  }
 }

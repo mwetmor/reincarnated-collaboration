@@ -117,7 +117,7 @@ def body_bounds(path):
     return int(keep.min()), int(keep.max())
 
 
-def state_fps(cfg, n_frames, cad):
+def state_fps(cfg, n_frames, cad, src_fps=None):
     """Frames per second for one animation.
 
     `cadence` derives it from the frame count that actually shipped -- fps = frames /
@@ -132,6 +132,11 @@ def state_fps(cfg, n_frames, cad):
         stride = cad.get("%s_E" % key)
         if stride and stride[1] > 0:
             return float(n_frames) / (stride[0] / stride[1])
+    # Then whatever the SOURCE SET declares. The painter chose the tempo of a state
+    # with no ground speed to answer to -- an idle -- and that choice is theirs to make,
+    # not something to re-type here where it can drift from the art it describes.
+    if src_fps:
+        return float(src_fps)
     return float(cfg["fps"])
 
 
@@ -155,6 +160,12 @@ def main():
 
     man = json.loads(Path(a.manifest).read_text())
     root = (RUN / man["source_root"]).resolve()
+    # The delivered set may ship its own manifest; read its declared cadence.
+    src_man = {}
+    src_man_path = root / "manifest.json"
+    if src_man_path.exists():
+        src_man = json.loads(src_man_path.read_text())
+        print("source manifest: %s" % src_man_path)
     if not root.is_dir():
         raise SystemExit("source_root does not exist: %s" % root)
     cad = keeper_cadence(PROJ)
@@ -210,7 +221,9 @@ def main():
             if borrowed:
                 substituted.setdefault(state, []).append(d)
             anims.append({"name": "%s_%s" % (state, d),
-                          "fps": state_fps(cfg, len(names), cad),
+                          "fps": state_fps(
+                              cfg, len(names), cad,
+                              (src_man.get("states", {}).get(src_state, {}) or {}).get("fps")),
                           "loop": bool(cfg.get("loop", True)), "frames": names})
 
     # ---- SpriteFrames ----
@@ -246,13 +259,39 @@ def main():
         if b:
             heights.append(b[1] - b[0])
             soles.append(b[1])
+    # PREFER THE SET'S DECLARED FORMAT over my own measurement of it.
+    #
+    # The delivered cells were RENDERED to camera.json -- px_per_m 110.556, a 1.80 m
+    # figure, ground row 398 -- and the set repeats that in its own manifest. Measuring
+    # them back is a check, not the source of truth, and on painted cells the check does
+    # not work: the knight carries a pollaxe whose haft clears his helm, and no
+    # threshold splits it. Row width slides from 229 px down to 198 with no plateau, and
+    # a morphological opening hits 200 at one radius while collapsing the Keeper's own
+    # figure at the next. Both instruments were tried against BOTH references and
+    # neither found a stable answer, so this reports what it measured, says it includes
+    # the haft, and sizes the skin from the declared format instead of inventing a
+    # crown-to-sole it cannot see.
+    #
+    # This is also the interface that survives the next delivery: a declared pixel
+    # target cannot be corrupted by a px/m convention, and the 3D skin is fitted to the
+    # same one, so the two skins coincide by construction rather than by coincidence.
+    declared = None
+    if src_man.get("px_per_m"):
+        declared = float(src_man["px_per_m"]) * float(src_man.get("character_height_m", 1.8))
+
     fit = {}
     if heights:
-        body = float(np.median(heights))
+        measured = float(np.median(heights))
+        body = declared if declared else measured
         fit = {"measured_on": measured_on,
+               "sized_from": ("the set's declared format" if declared
+                              else "measurement of the delivered cells"),
+               "declared_figure_px": declared,
+               "measured_figure_px_includes_props": round(measured, 3),
                "figure_h_src_px": round(body, 3),
                "figure_h_spread_px": [int(min(heights)), int(max(heights))],
-               "pivot_y_src_px": float(max(soles)),
+               "pivot_y_src_px": float(src_man.get("ground_row_y", max(soles))),
+               "measured_sole_rows": [int(min(soles)), int(max(soles))],
                "scale": FIGURE_H_CANVAS_PX / body,
                "figure_h_canvas_px": FIGURE_H_CANVAS_PX,
                "row_min_px": ROW_MIN_PX,
@@ -289,6 +328,9 @@ def main():
                                 for k, v in cad.items() if k in ("walk_E", "run_E", "idle_E")},
         "fps_per_state": {s: c["fps"] for s, c in man["states"].items()},
         "fit": fit,
+        "source_manifest": {k: v for k, v in src_man.items() if k != "states"} if src_man else {},
+        "source_state_fps": {k: v.get("fps") for k, v in
+                             (src_man.get("states", {}) or {}).items()},
         "hud_notes": hud,
         "states_from_another_state": borrowed_state,
     }
@@ -296,9 +338,13 @@ def main():
 
     print("built %d animations, %d textures -> %s" % (len(anims), len(ids), out))
     if fit:
-        print("   figure %.2f cell px (spread %s) -> scale %.6f for %.2f canvas px; pivot y %.0f"
-              % (fit["figure_h_src_px"], fit["figure_h_spread_px"], fit["scale"],
+        print("   figure %.2f cell px (%s) -> scale %.6f for %.2f canvas px; pivot y %.0f"
+              % (fit["figure_h_src_px"], fit["sized_from"], fit["scale"],
                  fit["figure_h_canvas_px"], fit["pivot_y_src_px"]))
+        print("   cross-check: measured %.1f px (spread %s) INCLUDING the painted haft; "
+              "soles %s vs declared ground row %.0f"
+              % (fit["measured_figure_px_includes_props"], fit["figure_h_spread_px"],
+                 fit["measured_sole_rows"], fit["pivot_y_src_px"]))
     for s in sorted(substituted):
         print("   %-6s fed from the fallback column: %s" % (s, " ".join(sorted(substituted[s]))))
     for s in sorted(mirrored):
