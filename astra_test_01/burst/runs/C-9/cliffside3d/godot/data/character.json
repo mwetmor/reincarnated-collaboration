@@ -58,5 +58,19 @@
    "shield"
   ]
  ],
- "morph_with_helmet": "helmet_on"
+ "morph_with_helmet": "helmet_on",
+ "arm_layer": {
+  "_from": "the export's own manifest.json arm_layer block",
+  "action": "shield_carry_L",
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "when_piece": "shield",
+  "never_over": [
+   "attack"
+  ]
+ }
 }

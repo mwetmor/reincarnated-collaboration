@@ -40,6 +40,7 @@ var vp: SubViewport
 var cam: Camera3D
 var report := {}
 var _wf := 0
+var _rf := 0
 var _af := 0
 
 
@@ -51,6 +52,7 @@ func _initialize() -> void:
 			out_dir = args[i + 1]
 	DirAccess.make_dir_recursive_absolute(out_dir + "/walkframes")
 	DirAccess.make_dir_recursive_absolute(out_dir + "/attackframes")
+	DirAccess.make_dir_recursive_absolute(out_dir + "/runframes")
 	Engine.physics_ticks_per_second = int(FPS)
 	vp = SubViewport.new()
 	vp.size = SHOT
@@ -76,6 +78,7 @@ func _initialize() -> void:
 							   "tree path, cycling the stacks through the fade")
 	report["bridge"] = await _leg(k, BRIDGE_START, BRIDGE_DIR, BRIDGE_FRAMES, BRIDGE_AIM,
 								  BRIDGE_ZOOM, "across the bridge, cycling the stacks")
+	report["run"] = await _run_leg(k)
 	report["attack"] = await _attack(k)
 
 	var f := FileAccess.open(out_dir + "/gearcap.json", FileAccess.WRITE)
@@ -124,6 +127,36 @@ func _leg(k, start: Vector2, dir: Vector2, frames: int, aim: Vector2, zoom: floa
 	return {"label": label, "frames": frames,
 			"measured_px_s": snappedf((last - first).length() / (float(frames) * DT), 0.1),
 			"stack_changes": changes, "frames_with_a_faded_occluder": faded}
+
+
+func _run_leg(k) -> Dictionary:
+	"""The full kit at a run, across the bridge. The arm layer is on for a run, so this is
+	also where a shield held in a carry pose has to survive the widest gait he has."""
+	print("[gearcap] the full kit at a run, across the bridge")
+	k.set_physics_process(false)
+	k.visible = true
+	k.set_gear_stack(k.gear_stack_count() - 1)
+	_place(k, BRIDGE_START)
+	scene.look_at_canvas(BRIDGE_AIM, 0.0, BRIDGE_ZOOM)
+	for i in 8:
+		await physics_frame
+		await process_frame
+	var first := CliffWorld.canvas_of(k.global_position, scene.right, scene.up)
+	# 26 FRAMES, NOT 40. At 647.5 canvas px/s a second and two thirds carries him 1080 px
+	# and the bridge is about 560 long: he ran off the far end and stopped against the
+	# cliff, which averaged 453.8 px/s and read as a speed defect rather than a path that
+	# ran out. One second of run is the crossing.
+	var frames := 26
+	for i in frames:
+		k.drive_dir(BRIDGE_DIR, true, DT)          # running
+		await physics_frame
+		scene.settle_fade()
+		await _frame("runframes")
+	var last := CliffWorld.canvas_of(k.global_position, scene.right, scene.up)
+	k.set_physics_process(true)
+	return {"frames": frames, "stack": k.gear_stack,
+			"measured_px_s": snappedf((last - first).length() / (float(frames) * DT), 0.1),
+			"declared_run_px_s": k.cfg.get("run_px_s", 0)}
 
 
 func _attack(k) -> Dictionary:
@@ -180,9 +213,11 @@ func _frame(folder: String) -> void:
 	_mirror()
 	await process_frame
 	await process_frame
-	var n := _wf if folder == "walkframes" else _af
+	var n: int = _wf if folder == "walkframes" else (_rf if folder == "runframes" else _af)
 	vp.get_texture().get_image().save_jpg("%s/%s/f_%04d.jpg" % [out_dir, folder, n], 0.92)
 	if folder == "walkframes":
 		_wf += 1
+	elif folder == "runframes":
+		_rf += 1
 	else:
 		_af += 1

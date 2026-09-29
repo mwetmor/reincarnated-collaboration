@@ -72,6 +72,7 @@ static func build(body_skel: Skeleton3D, manifest_path: String, dir: String,
 			var local := mi.transform          # relative to the source Skeleton3D
 			var skin := mi.skin
 			var mat := mi.get_active_material(0)
+			mi.owner = null                    # it belongs to the source scene until it does not
 			mi.get_parent().remove_child(mi)
 			body_skel.add_child(mi)
 			mi.transform = local               # the same place under an identical rig
@@ -83,8 +84,31 @@ static func build(body_skel: Skeleton3D, manifest_path: String, dir: String,
 			_set_layer(mi, CHAR_LAYER)
 			_add_outline(mi, figure_scale, mesh_scale)
 			taken.append(mi)
+		# MARKERS COME ACROSS TOO. axe.glb carries a Node3D named `axe_edge` under a
+		# RightHand BoneAttachment3D -- the edge marker the last report asked for. Taking
+		# only the MeshInstance3D and freeing the source drops it, and the one thing it
+		# exists to answer goes back to being unanswerable. Recreate the attachment on the
+		# body's own skeleton and hang the marker off it with the same local transform.
+		var marks := {}
+		for n in src.find_children("*", "Node3D", true, false):
+			var par := n.get_parent()
+			if not (par is BoneAttachment3D):
+				continue
+			if n is MeshInstance3D or n is Skeleton3D:
+				continue
+			var att := BoneAttachment3D.new()
+			att.name = name + "_" + String((par as BoneAttachment3D).bone_name)
+			att.bone_name = (par as BoneAttachment3D).bone_name
+			body_skel.add_child(att)
+			var mk := Node3D.new()
+			mk.name = String(n.name)
+			att.add_child(mk)
+			mk.transform = (n as Node3D).transform
+			marks[String(n.name)] = mk
 		src.queue_free()
 		pieces[name] = taken
+		if not marks.is_empty():
+			pieces["_markers_" + name] = marks
 		report[name] = {
 			"glb": String(spec["glb"]),
 			"manifest_mode": String(spec.get("mode", "?")),
@@ -96,6 +120,7 @@ static func build(body_skel: Skeleton3D, manifest_path: String, dir: String,
 			"near_empty_objects": empties,
 			"manifest_bones": spec.get("bones", []),
 			"manifest_offset_m": spec.get("offset_m", 0.0),
+			"markers": marks.keys(),
 		}
 	out["_pieces"] = pieces
 	out["_report"] = report
@@ -152,6 +177,8 @@ void fragment() { ALBEDO = line_color.rgb; }
 
 static func show_pieces(gear: Dictionary, on: Array) -> void:
 	for name in (gear["_pieces"] as Dictionary):
+		if String(name).begins_with("_markers_"):
+			continue
 		var want: bool = on.has(name)
 		for mi in (gear["_pieces"][name] as Array):
 			(mi as MeshInstance3D).visible = want

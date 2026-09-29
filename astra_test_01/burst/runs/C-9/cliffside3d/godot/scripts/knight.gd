@@ -61,6 +61,9 @@ var _figure_scale := 1.0
 var _forward_axis := Vector3(0, 0, -1)
 var gear := {}
 var gear_stack := 0
+var _tree: AnimationTree
+var _base_node: AnimationNodeAnimation
+var _layer_on := false
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -114,7 +117,71 @@ func _ready() -> void:
 	_add_pollaxe()
 	_set_layer(_rig, CHAR_LAYER)
 	_build_gear()
+	_build_anim_tree()
 	play(_roles.get("idle", ""))
+
+
+func _build_anim_tree() -> void:
+	"""The shield-carry arm layer, as an AnimationTree Blend2 filtered to four bones.
+
+	`shield_carry_L` is ONE FRAME and it carries tracks for all 24 bones -- measured,
+	tools/probe_gear2.gd -- so it is a whole static body pose, not an arm pose. Blended
+	unfiltered it would freeze him mid-stride. The filter is what makes it an arm layer,
+	and the four paths are taken from the clip's OWN track list rather than composed from
+	bone names, so a path that does not exist in the clip cannot be filtered by accident."""
+	var spec: Dictionary = cfg.get("arm_layer", {})
+	var action := String(spec.get("action", ""))
+	if _anim == null or action == "" or not _clip_len.has(action):
+		return
+	var want: Array = spec.get("bones", [])
+	var ca := _anim.get_animation(action)
+	var bt := AnimationNodeBlendTree.new()
+	var base := AnimationNodeAnimation.new()
+	var carry := AnimationNodeAnimation.new()
+	carry.animation = action
+	var b2 := AnimationNodeBlend2.new()
+	b2.filter_enabled = true
+	var filtered := 0
+	for i in ca.get_track_count():
+		var pth: NodePath = ca.track_get_path(i)
+		if want.has(String(pth.get_concatenated_subnames())):
+			b2.set_filter_path(pth, true)
+			filtered += 1
+	_base_node = base
+	bt.add_node("base", base, Vector2(0, 0))
+	bt.add_node("carry", carry, Vector2(0, 160))
+	bt.add_node("blend", b2, Vector2(260, 60))
+	bt.connect_node("blend", 0, "base")
+	bt.connect_node("blend", 1, "carry")
+	bt.connect_node("output", 0, "blend")
+	_tree = AnimationTree.new()
+	_tree.name = "AnimTree"
+	_tree.tree_root = bt
+	_anim.get_parent().add_child(_tree)
+	_tree.anim_player = _tree.get_path_to(_anim)
+	# ROOT_NODE, or the tree resolves nothing. Track paths are `Skeleton3D:Hips` and they
+	# are relative to the tree's root_node, whose default is its own parent -- which is not
+	# necessarily the node the AnimationPlayer resolves against. Left unset, the tree runs,
+	# reports a blend amount, and poses no bone: every displacement came back 0.000 m and
+	# the left hand swept 0.000 m over a walk cycle. Point it at the player's own root.
+	_tree.root_node = _tree.get_path_to(_anim.get_node(_anim.root_node))
+	_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
+	_tree.active = true
+	_anim.active = false                 # one mixer drives the skeleton, not two
+	print("arm layer: '%s' filtered to %d of %d tracks (%s)" %
+		[action, filtered, ca.get_track_count(), str(want)])
+
+
+func _layer_weight(clip: String) -> float:
+	"""1 while the shield is carried, and 0 over the attack -- the slash is the right arm
+	and the left has to swing free. The rule is the export's, kept where it can be read."""
+	var spec: Dictionary = cfg.get("arm_layer", {})
+	if _tree == null or not _layer_on:
+		return 0.0
+	for never in spec.get("never_over", []):
+		if clip == String(_roles.get(String(never), String(never))):
+			return 0.0
+	return 1.0
 
 
 func _build_gear() -> void:
@@ -144,6 +211,10 @@ func set_gear_stack(i: int) -> void:
 	var on: Array = stacks[gear_stack]
 	CharGear.show_pieces(gear, on)
 	_set_morph("helmet" in on)
+	# the arm layer follows the SHIELD, so stacks 0-3 are untouched by it
+	_layer_on = String((cfg.get("arm_layer", {}) as Dictionary).get("when_piece", "shield")) in on
+	if _tree != null:
+		_tree.set("parameters/blend/blend_amount", _layer_weight(_clip))
 
 
 func cycle_gear() -> void:
@@ -441,11 +512,23 @@ func play(clip: String) -> void:
 			if String(_roles[role]) != "" and String(clip).contains(role):
 				clip = String(_roles[role])
 				break
-	if _anim == null or not _clip_len.has(clip) or clip == _clip:
+	if _anim == null or not _clip_len.has(clip):
+		return
+	var w := _layer_weight(clip)
+	if _tree != null:
+		_tree.set("parameters/blend/blend_amount", w)
+	if clip == _clip:
 		return
 	_clip = clip
-	_anim.speed_scale = 1.0
-	_anim.play(clip, 0.15)
+	if _base_node != null:
+		# A NODE PROPERTY, not a tree parameter. `tree.set("parameters/base/animation", ..)`
+		# is accepted, stores nothing, and reads back null -- the tree then runs with no
+		# clip selected and poses not one bone, while still reporting active = true and a
+		# blend amount. That is how a character ends up frozen with every diagnostic green.
+		_base_node.animation = clip
+	elif _tree == null:
+		_anim.speed_scale = 1.0
+		_anim.play(clip, 0.15)
 
 
 func status() -> Dictionary:

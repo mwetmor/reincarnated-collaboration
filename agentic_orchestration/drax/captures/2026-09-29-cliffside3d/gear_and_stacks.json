@@ -1,5 +1,57 @@
 {
+ "_re_export": "2026-09-29: five clips on the body (shield_carry_L added), shield socketed to LeftHand, bracers down to 2 objects, axe_edge marker in axe.glb, every piece fitted against the true rest pose. All four verified against the files (tools/probe_gear2.gd), not read off the note.",
  "_what": "C-9 D2 / gate G3: modular gear in the 3D cliffside. Five stacks on the G key.",
+ "arm_layer": {
+  "arm_reads_as_carrying": {
+   "idle": "0.264 m -> 0.143 m",
+   "run": "0.774 m -> 0.173 m",
+   "verdict": "reduced 2.6x to 5.7x but never to zero -- he holds it, he is not welded to it",
+   "walk": "0.900 m free -> 0.158 m carried",
+   "what": "left-hand travel per cycle in the HIP frame (orthonormalised: the bone pose carries the rig's 0.0109 scale, and an un-normalised inverse multiplies every length by 91)"
+  },
+  "attack": "weight 0.0 at stack 4 -- the slash is the right arm and the left swings free",
+  "bones_moved_that_were_not_declared": [],
+  "filter_check_bone_displacement_blend0_to_blend1_m": [
+   "LeftArm 0.060",
+   "LeftForeArm 0.488",
+   "LeftHand 0.334"
+  ],
+  "filter_check_note": "measured at Engine.time_scale = 0, or the clip advances between the two samples and idle alone moves 23 bones -- which is what the first run of this reported.",
+  "how": "AnimationTree -> AnimationNodeBlendTree: base (AnimationNodeAnimation, clip set per state) and carry (shield_carry_L) into a Blend2 with filter_enabled, filtered to the 8 tracks belonging to the four declared bones. shield_carry_L is ONE FRAME carrying tracks for all 24 bones, so unfiltered it would freeze him mid-stride: the filter is what makes it an arm layer.",
+  "stacks_0_to_3": "weight 0.0 on every clip -- no layer without the shield",
+  "weight_by_stack_and_clip": {
+   "0": {
+    "attack": 0.0,
+    "idle": 0.0,
+    "run": 0.0,
+    "walk": 0.0
+   },
+   "1": {
+    "attack": 0.0,
+    "idle": 0.0,
+    "run": 0.0,
+    "walk": 0.0
+   },
+   "2": {
+    "attack": 0.0,
+    "idle": 0.0,
+    "run": 0.0,
+    "walk": 0.0
+   },
+   "3": {
+    "attack": 0.0,
+    "idle": 0.0,
+    "run": 0.0,
+    "walk": 0.0
+   },
+   "4": {
+    "attack": 0.0,
+    "idle": 1.0,
+    "run": 1.0,
+    "walk": 1.0
+   }
+  }
+ },
  "axe_at_the_strike": {
   "butt_extent_along_travel_m": 0.0191,
   "haft_to_travel_deg": 91.4,
@@ -41,6 +93,18 @@
   "verdict": "the blade mass is FORWARD of the haft -- the edge arrives first"
  },
  "axe_caveat": "Nothing in the export marks the sharp edge, so this measures the HEAD's mass distribution about the haft along the direction of travel, not the edge itself. A named empty or a vertex group on the blade would make it exact. An earlier pass answered 'the poll arrives first' because its head cluster was defined as vertices past 0.6x reach, which on a 0.851 m axe put the boundary at 0.51 m and measured half the haft.",
+ "axe_edge_assert": {
+  "caveat": "the swing direction is taken as the EDGE MARKER's own velocity, and on a rotating body different points travel in slightly different directions; 0.09 m on a 0.85 m axe is about 6 degrees of arc. This is the one measure where the D2 drax's own instrument should be compared against this one before either is believed.",
+  "edge_along_travel_m": -0.0429,
+  "edge_dist_from_hand_m": 0.8225,
+  "edge_is_behind_the_leading_vertex_by_m": 0.0932,
+  "edge_speed_m_per_frame": 0.8967,
+  "furthest_axe_vertex_along_travel_m": 0.0503,
+  "over_the_whole_slash": "the edge is nearest to leading at frame 36 (0.052 m behind, but moving 0.0395 m/frame -- the slash is over); at its fastest, frame 17, it is 0.091 m behind.",
+  "strike_frame": 16,
+  "verdict": "the edge is NOT the leading part; something else of the axe is 0.093 m ahead of it",
+  "verdict_plain": "BY THIS MEASURE THE EDGE DOES NOT LEAD. At the strike the marker is 0.093 m behind the head's leading point, and the leading point is 0.743 m from the hand where the marker is 0.823 m -- 0.131 m away from it and nearer the haft, so it is a different part of the head, not the far corner of the same edge arc."
+ },
  "binding": "Every piece -- including the two the manifest calls `socket` -- is exported as a SKINNED mesh on a skeleton whose 24 bone names match the body's, in the same order. So all six bind the same way: reparented under the body's own Skeleton3D, skin kept, `skeleton` pointed at it. A socketed axe would have needed a BoneAttachment3D and a hand-fitted offset, and an offset fitted by eye is a number nobody can check. Where the manifest's mode and the file's content disagree, the file wins; both are recorded per piece.",
  "bracers_note": "The manifest lists ten bracer objects. Two are the pair (6258 and 5724 triangles); the other eight are 1-7 triangle slivers totalling 17. Bound anyway, per the manifest; harmless, and worth knowing before 'ten pieces' is reported as working.",
  "fade_with_the_full_kit": {
@@ -93,8 +157,9 @@
   }
  },
  "walk_speed_check": {
-  "bridge_leg": "200.7 canvas px/s",
-  "declared": "201.7 canvas px/s from the clip's own stride",
+  "bridge_leg": "200.7",
+  "full_kit_run": "626.4 px/s of a declared 647.5",
+  "run_note": "the first run leg was 40 frames, which at 647.5 px/s is 1080 canvas px on a bridge about 560 long: he ran off the far end and stopped against the cliff, averaging 453.8. 26 frames is the crossing.",
   "tree_leg": "201.7 canvas px/s"
  }
 }
