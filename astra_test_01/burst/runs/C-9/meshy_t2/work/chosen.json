@@ -1,7 +1,30 @@
 {
- "_note": "variant choices from gandalf (RUN-CONDUCTOR) as sheets land. A value maps to paint_<value>/; 'salvage_a' = the a sheet re-cut with meshy_t1's robust matte after Astra lost the green plate. null = not fired / not chosen.",
- "walk": {"E": "b", "SE": "b", "keys": null},
- "idle": {"E": "a", "SE": "salvage_a", "keys": null},
- "run":  {"E": null, "SE": null, "keys": null},
- "attack": {"E": null, "SE": null, "keys": null}
+ "_note": "variant choices from gandalf (RUN-CONDUCTOR). A value maps to paint_<value>/. 'salvage_a' = the a sheet re-cut through the geometry-first matte after Astra lost the plate. 'keys' may be one variant for all six propagated directions, or a per-direction map chosen by 19_pick_keys.py (both keys of a direction always come from the SAME candidate, so EbSynth's two keys agree).",
+ "walk": {
+  "E": "b",
+  "SE": "b",
+  "keys": "b"
+ },
+ "idle": {
+  "E": "a",
+  "SE": "salvage_a",
+  "keys": {
+   "S": "k3",
+   "NE": "k3",
+   "N": "k2",
+   "NW": "k4",
+   "W": "k1",
+   "SW": "k1"
+  }
+ },
+ "run": {
+  "E": "b",
+  "SE": "b",
+  "keys": null
+ },
+ "attack": {
+  "E": null,
+  "SE": null,
+  "keys": null
+ }
 }

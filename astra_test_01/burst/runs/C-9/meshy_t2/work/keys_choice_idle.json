@@ -1,0 +1,767 @@
+{
+ "clip": "idle",
+ "layout": "mc_keys_p2_sheet_layout.json",
+ "candidates": {
+  "k1": "T2K-idle-salvage_cand1.png",
+  "k2": "T2K-idle-salvage_cand2.png",
+  "k3": "T2K-idle-salvage_cand3.png",
+  "k4": "T2K-idle-salvage_cand4.png"
+ },
+ "thresholds": {
+  "pose_min": 0.8,
+  "pose_warn": 0.9,
+  "head_min": 0.7,
+  "head_warn": 0.82,
+  "matte_max": 1.6
+ },
+ "dirs": {
+  "S": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9508,
+       "erode_px": 1,
+       "area_ratio": 1.1566,
+       "head_iou": 0.9283,
+       "face_ratio": 0.745,
+       "head_px": 925,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9548,
+       "erode_px": 1,
+       "area_ratio": 1.1457,
+       "head_iou": 0.9273,
+       "face_ratio": 0.845,
+       "head_px": 903,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.99195
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.948,
+       "erode_px": 1,
+       "area_ratio": 1.1571,
+       "head_iou": 0.9258,
+       "face_ratio": 0.842,
+       "head_px": 925,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.954,
+       "erode_px": 1,
+       "area_ratio": 1.153,
+       "head_iou": 0.9287,
+       "face_ratio": 0.87,
+       "head_px": 903,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.9758999999999998
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9435,
+       "erode_px": 1,
+       "area_ratio": 1.1637,
+       "head_iou": 0.9275,
+       "face_ratio": 0.719,
+       "head_px": 925,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.958,
+       "erode_px": 1,
+       "area_ratio": 1.1387,
+       "head_iou": 0.9247,
+       "face_ratio": 0.701,
+       "head_px": 903,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 1.0463500000000001
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9489,
+       "erode_px": 1,
+       "area_ratio": 1.1652,
+       "head_iou": 0.9289,
+       "face_ratio": 0.736,
+       "head_px": 925,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9579,
+       "erode_px": 1,
+       "area_ratio": 1.1487,
+       "head_iou": 0.9269,
+       "face_ratio": 0.787,
+       "head_px": 903,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 1.01885
+    }
+   },
+   "chosen": "k3",
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "NE": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9506,
+       "erode_px": 1,
+       "area_ratio": 1.1266,
+       "head_iou": 0.9412,
+       "face_ratio": 1.242,
+       "head_px": 1129,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9506,
+       "erode_px": 1,
+       "area_ratio": 1.1188,
+       "head_iou": 0.9411,
+       "face_ratio": 1.829,
+       "head_px": 1050,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.5066499999999999
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9505,
+       "erode_px": 1,
+       "area_ratio": 1.1258,
+       "head_iou": 0.9383,
+       "face_ratio": 1.311,
+       "head_px": 1129,
+       "verdict": "face_warn"
+      },
+      {
+       "iou": 0.9505,
+       "erode_px": 1,
+       "area_ratio": 1.1182,
+       "head_iou": 0.937,
+       "face_ratio": 1.784,
+       "head_px": 1050,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.527
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9504,
+       "erode_px": 1,
+       "area_ratio": 1.1315,
+       "head_iou": 0.9328,
+       "face_ratio": 1.079,
+       "head_px": 1129,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9507,
+       "erode_px": 1,
+       "area_ratio": 1.1186,
+       "head_iou": 0.9436,
+       "face_ratio": 1.568,
+       "head_px": 1050,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.6328
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.949,
+       "erode_px": 1,
+       "area_ratio": 1.1347,
+       "head_iou": 0.9299,
+       "face_ratio": 1.351,
+       "head_px": 1129,
+       "verdict": "face_warn"
+      },
+      {
+       "iou": 0.9518,
+       "erode_px": 1,
+       "area_ratio": 1.1198,
+       "head_iou": 0.9375,
+       "face_ratio": 1.735,
+       "head_px": 1050,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.5464499999999998
+    }
+   },
+   "chosen": "k3",
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "N": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9451,
+       "erode_px": 1,
+       "area_ratio": 1.1597,
+       "head_iou": 0.9393,
+       "face_ratio": 2.072,
+       "head_px": 978,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9463,
+       "erode_px": 1,
+       "area_ratio": 1.1609,
+       "head_iou": 0.9368,
+       "face_ratio": 2.354,
+       "head_px": 956,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.23649999999999993
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9523,
+       "erode_px": 1,
+       "area_ratio": 1.1365,
+       "head_iou": 0.9435,
+       "face_ratio": 1.621,
+       "head_px": 978,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9481,
+       "erode_px": 1,
+       "area_ratio": 1.1407,
+       "head_iou": 0.931,
+       "face_ratio": 1.885,
+       "head_px": 956,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.4711000000000002
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.946,
+       "erode_px": 1,
+       "area_ratio": 1.1422,
+       "head_iou": 0.9437,
+       "face_ratio": 2.072,
+       "head_px": 978,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9476,
+       "erode_px": 1,
+       "area_ratio": 1.1445,
+       "head_iou": 0.9382,
+       "face_ratio": 2.461,
+       "head_px": 956,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.1846000000000001
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9369,
+       "erode_px": 1,
+       "area_ratio": 1.1708,
+       "head_iou": 0.926,
+       "face_ratio": 1.931,
+       "head_px": 978,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9418,
+       "erode_px": 1,
+       "area_ratio": 1.1669,
+       "head_iou": 0.9264,
+       "face_ratio": 2.493,
+       "head_px": 956,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.15339999999999998
+    }
+   },
+   "chosen": "k2",
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "NW": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9569,
+       "erode_px": 1,
+       "area_ratio": 1.1393,
+       "head_iou": 0.9362,
+       "face_ratio": 2.199,
+       "head_px": 1029,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.952,
+       "erode_px": 1,
+       "area_ratio": 1.1422,
+       "head_iou": 0.9368,
+       "face_ratio": 1.42,
+       "head_px": 1134,
+       "verdict": "face_warn"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.3206
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9591,
+       "erode_px": 1,
+       "area_ratio": 1.1251,
+       "head_iou": 0.9423,
+       "face_ratio": 2.356,
+       "head_px": 1029,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9515,
+       "erode_px": 1,
+       "area_ratio": 1.1273,
+       "head_iou": 0.9427,
+       "face_ratio": 1.555,
+       "head_px": 1134,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.24465000000000003
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9546,
+       "erode_px": 1,
+       "area_ratio": 1.1355,
+       "head_iou": 0.9433,
+       "face_ratio": 2.575,
+       "head_px": 1029,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9494,
+       "erode_px": 1,
+       "area_ratio": 1.1279,
+       "head_iou": 0.9388,
+       "face_ratio": 1.556,
+       "head_px": 1134,
+       "verdict": "FACE_DRIFT"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.13129999999999997
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9534,
+       "erode_px": 1,
+       "area_ratio": 1.1373,
+       "head_iou": 0.9378,
+       "face_ratio": 2.176,
+       "head_px": 1029,
+       "verdict": "FACE_DRIFT"
+      },
+      {
+       "iou": 0.9493,
+       "erode_px": 1,
+       "area_ratio": 1.1365,
+       "head_iou": 0.9353,
+       "face_ratio": 1.426,
+       "head_px": 1134,
+       "verdict": "face_warn"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.32894999999999985
+    }
+   },
+   "chosen": "k4",
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "W": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9494,
+       "erode_px": 1,
+       "area_ratio": 1.1445,
+       "head_iou": 0.9297,
+       "face_ratio": 1.152,
+       "head_px": 1258,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9505,
+       "erode_px": 1,
+       "area_ratio": 1.1501,
+       "head_iou": 0.925,
+       "face_ratio": 1.021,
+       "head_px": 1269,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.8359000000000002
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9538,
+       "erode_px": 1,
+       "area_ratio": 1.1273,
+       "head_iou": 0.9433,
+       "face_ratio": 1.313,
+       "head_px": 1258,
+       "verdict": "face_warn"
+      },
+      {
+       "iou": 0.9501,
+       "erode_px": 1,
+       "area_ratio": 1.1354,
+       "head_iou": 0.9292,
+       "face_ratio": 1.144,
+       "head_px": 1269,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.7581999999999999
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9496,
+       "erode_px": 1,
+       "area_ratio": 1.1372,
+       "head_iou": 0.9358,
+       "face_ratio": 1.254,
+       "head_px": 1258,
+       "verdict": "face_warn"
+      },
+      {
+       "iou": 0.9514,
+       "erode_px": 1,
+       "area_ratio": 1.1405,
+       "head_iou": 0.9303,
+       "face_ratio": 1.153,
+       "head_px": 1269,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.78775
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9552,
+       "erode_px": 1,
+       "area_ratio": 1.1372,
+       "head_iou": 0.9353,
+       "face_ratio": 1.283,
+       "head_px": 1258,
+       "verdict": "face_warn"
+      },
+      {
+       "iou": 0.9485,
+       "erode_px": 1,
+       "area_ratio": 1.1459,
+       "head_iou": 0.9304,
+       "face_ratio": 1.163,
+       "head_px": 1269,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.7722
+    }
+   },
+   "chosen": "k1",
+   "keys": [
+    0,
+    6
+   ]
+  },
+  "SW": {
+   "candidates": {
+    "k1": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9555,
+       "erode_px": 1,
+       "area_ratio": 1.1521,
+       "head_iou": 0.9358,
+       "face_ratio": 0.895,
+       "head_px": 1189,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9308,
+       "erode_px": 1,
+       "area_ratio": 1.1749,
+       "head_iou": 0.933,
+       "face_ratio": 0.848,
+       "head_px": 1056,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.9498
+    },
+    "k2": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9606,
+       "erode_px": 1,
+       "area_ratio": 1.1431,
+       "head_iou": 0.9363,
+       "face_ratio": 1.075,
+       "head_px": 1189,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9408,
+       "erode_px": 1,
+       "area_ratio": 1.1601,
+       "head_iou": 0.9209,
+       "face_ratio": 0.975,
+       "head_px": 1056,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.8637500000000001
+    },
+    "k3": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9621,
+       "erode_px": 1,
+       "area_ratio": 1.1455,
+       "head_iou": 0.9318,
+       "face_ratio": 1.027,
+       "head_px": 1189,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.9428,
+       "erode_px": 1,
+       "area_ratio": 1.1533,
+       "head_iou": 0.9325,
+       "face_ratio": 1.006,
+       "head_px": 1056,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.8952000000000001
+    },
+    "k4": {
+     "frames": [
+      0,
+      6
+     ],
+     "rows": [
+      {
+       "iou": 0.9567,
+       "erode_px": 1,
+       "area_ratio": 1.1499,
+       "head_iou": 0.9282,
+       "face_ratio": 0.973,
+       "head_px": 1189,
+       "verdict": "ok"
+      },
+      {
+       "iou": 0.937,
+       "erode_px": 1,
+       "area_ratio": 1.1621,
+       "head_iou": 0.9259,
+       "face_ratio": 0.841,
+       "head_px": 1056,
+       "verdict": "ok"
+      }
+     ],
+     "acceptable": true,
+     "score": 0.9134500000000001
+    }
+   },
+   "chosen": "k1",
+   "keys": [
+    0,
+    6
+   ]
+  }
+ },
+ "choice": {
+  "S": "k3",
+  "NE": "k3",
+  "N": "k2",
+  "NW": "k4",
+  "W": "k1",
+  "SW": "k1"
+ },
+ "refire": [],
+ "face_drift_ratio": {
+  "S": 0.72,
+  "NE": 1.57,
+  "N": 1.89,
+  "NW": 2.18,
+  "W": 1.15,
+  "SW": 0.9
+ },
+ "face_drift_flagged": [
+  "N",
+  "NE",
+  "NW"
+ ]
+}

@@ -15,11 +15,20 @@ assemble, it will not error, and it will look like a sprite in a listing.
 
   MATTE gate    painted opaque pixels divided by the RENDER'S OWN mask area
                 for that exact frame. A ratio, not an absolute.
-  POSE gate     IoU of the painted alpha against the same render mask. The
-                paint is allowed to move the silhouette a little -- it is a
-                painting, not a filter -- but a cell cut back with the wrong
-                layout, or painted off the pose, falls off a cliff. Refused
-                under 0.80, warned under 0.90.
+  POSE gate     IoU of the painted alpha against the same render mask, taken
+                as the BEST over eroding the alpha by 0, 1 or 2 px, with the
+                winning radius recorded.
+
+                The sweep is not a fudge, it is the fix for a gate that was
+                measuring the wrong thing. A chroma-key matte hugs the paint
+                and scores 0.95 raw; the geometry-first matte deliberately
+                keeps the painted INK BAND, which sits outside the render
+                silhouette, and scores 0.88 raw for the same painting --
+                0.944-0.969 once one pixel comes off. Measured on the same
+                cells both ways. Ranking two matte styles on raw IoU
+                therefore ranks band width, not pose fidelity, and would have
+                had me reject the better matte. The winning radius is itself
+                the diagnosis: 0 is a tight key, 1 is an ink band, 2 is fat.
 
 The MATTE gate was first written as "opaque fraction of the 512 frame > 25 %",
 on the assumption that a lost plate arrives as a full-frame rectangle at alpha
@@ -37,13 +46,15 @@ worth catching, and a sheet-level average hides exactly that.
 import argparse, json, os, shutil, sys
 import numpy as np
 from PIL import Image
+from scipy import ndimage as ndi
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "out")
 SPR = os.path.join(ROOT, "sprites_t2")
 FRAME = 512
-MATTE_MAX_AREA_RATIO = 1.60      # measured: good 1.04, plate-lost 3.68 and 5.16
+MATTE_MAX_AREA_RATIO = 1.60      # measured: tight 1.02-1.04, ink-band 1.13-1.22,
+                                 # plate-lost 3.68 and 5.16
 POSE_MIN = 0.80
 POSE_WARN = 0.90
 CLIPS = {"idle": 12, "walk": 12, "run": 8, "attack": 12}
@@ -62,10 +73,17 @@ def grade(png, clip, d, i):
     opaque = a > 128
     frac = float(opaque.mean())
     m = render_mask(clip, d, i)
-    iou = None; ratio = None
+    iou = None; ratio = None; erode = None; iou_raw = None
     if m is not None:
-        inter = float((opaque & m).sum()); union = float((opaque | m).sum())
-        iou = inter / max(union, 1.0)
+        best = (-1.0, 0)
+        for r in (0, 1, 2):
+            e = opaque if r == 0 else ndi.binary_erosion(opaque, np.ones((2 * r + 1,) * 2))
+            v = float((e & m).sum()) / max(float((e | m).sum()), 1.0)
+            if r == 0:
+                iou_raw = v
+            if v > best[0]:
+                best = (v, r)
+        iou, erode = best
         ratio = float(opaque.sum()) / max(float(m.sum()), 1.0)
     verdict = "ok"
     if ratio is not None and ratio > MATTE_MAX_AREA_RATIO:
@@ -77,6 +95,8 @@ def grade(png, clip, d, i):
     return dict(opaque_frac=round(frac, 4),
                 area_ratio=(round(ratio, 4) if ratio is not None else None),
                 iou=(round(iou, 4) if iou is not None else None),
+                iou_raw=(round(iou_raw, 4) if iou_raw is not None else None),
+                erode_px=erode,
                 verdict=verdict)
 
 
@@ -101,7 +121,10 @@ def main():
             continue                       # notes and comments live in the file too
         n = CLIPS[clip]
         for d, variant in sorted(dirs.items()):
-            if variant is None:
+            # "keys" is not a direction: it names the variant(s) EbSynth
+            # propagates the other six directions from, and 16_ebsynth.py
+            # writes those straight into sprites_t2. Skipped here.
+            if variant is None or d == "keys":
                 continue
             src_root = args.source or os.path.join(ROOT, "paint_%s" % variant)
             sd = os.path.join(src_root, clip, d)
@@ -149,8 +172,10 @@ def main():
                             os.path.join(dd, "%s_%s_%02d.png" % (clip, d, i)))
             entry["assembled"] = True
             man["states"].setdefault(clip, {})[d] = entry
-            print("  %-6s %-3s variant %s  IoU %.3f..%.3f  area x%.2f  %s"
-                  % (clip, d, variant, min(ious), max(ious),
+            er = max(r.get("erode_px") or 0 for r in rows)
+            print("  %-6s %-3s variant %-9s IoU %.3f..%.3f (erode %d px)  "
+                  "area x%.2f  %s"
+                  % (clip, d, variant, min(ious), max(ious), er,
                      entry["area_ratio_max"],
                      ("%d warn" % len(warn)) if warn else "clean"))
     man["source"] = {k: v for k, v in chosen.items() if not k.startswith("_")}

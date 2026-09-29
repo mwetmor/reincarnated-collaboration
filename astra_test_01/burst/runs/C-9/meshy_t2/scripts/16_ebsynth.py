@@ -116,12 +116,23 @@ def main():
     dirs = args.dirs.split(",")
 
     variant = args.variant
+    per_dir = None
     if args.selftest:
         variant = "__render__"
     elif variant is None:
         ch = json.load(open(os.path.join(ROOT, "work", "chosen.json")))
         variant = (ch.get(clip) or {}).get("keys")
-        if variant is None:
+        if isinstance(variant, dict):
+            # per-direction choice from 19_pick_keys.py: a failed key sheet can
+            # still yield six usable directions from four salvaged candidates,
+            # as long as BOTH keys of a direction come from the same one
+            per_dir = variant
+            missing_dir = [d for d in dirs if d not in per_dir]
+            if missing_dir:
+                raise SystemExit("no candidate chosen for %s %s"
+                                 % (clip, ",".join(missing_dir)))
+            variant = "per-direction"
+        elif variant is None:
             raise SystemExit("no keys variant chosen for %s; pass --variant "
                              "or set chosen.json[%r]['keys']" % (clip, clip))
     paint = (os.path.join(OUT) if args.selftest
@@ -130,9 +141,11 @@ def main():
     def style_src(d, k):
         if args.selftest:
             return os.path.join(OUT, clip, "colour", d, "%s_%s_%02d.png" % (clip, d, k))
-        return os.path.join(paint, clip, d, "%s_%s_%02d.png" % (clip, d, k))
+        root = (os.path.join(ROOT, "paint_%s" % per_dir[d]) if per_dir else paint)
+        return os.path.join(root, clip, d, "%s_%s_%02d.png" % (clip, d, k))
 
-    rep = dict(clip=clip, variant=variant, frames=n, keys=keys,
+    rep = dict(clip=clip, variant=variant, variant_per_dir=per_dir,
+               frames=n, keys=keys,
                guides=[dict(name=nm, weight=w) for nm, w in GUIDES],
                alpha_source="out/<clip>/guides_mask (the render's own silhouette); "
                             "the painted keys' silhouette drifts ~5 % from it and "
