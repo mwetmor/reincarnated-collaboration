@@ -49,10 +49,11 @@ def asset_for(o: dict) -> tuple[str, str] | None:
     if c == "rock_outcrop":
         return ("rock_large", "tripo") if h >= 1.0 else ("rock_small", "tripo")
     if c == "heather":
-        # the concept has heather AND juniper; only juniper was built, so heather clumps
-        # take the juniper model at their own measured size. Named here rather than hidden:
-        # if the difference reads at the play camera it needs its own sheet.
-        return "juniper", "tripo"
+        # PROCEDURAL TUSSOCKS, not the juniper model. These are low ground cover; putting a
+        # bush model on them made 19 clumps wear the wrong thing. Real stems rather than
+        # crossed alpha cards, because a card has no silhouette the depth-and-normal edge
+        # pass can find, and every other object in this scene gets an ink line.
+        return "heather", "procedural"
     return None
 
 
@@ -61,6 +62,8 @@ def main() -> int:
     plates = json.loads((HERE / "asset_plates.json").read_text())
     out = {"variant": "a", "px_per_metre": objs["px_per_metre"],
            "mound_centre_scene_xz": list(MOUND_CENTRE),
+           "default_ground": "height_a_authored",
+           "ground_note": "authored is the DEFAULT; marigold ships as a toggle for comparison",
            "stone_scale": STONE_SCALE,
            "assets": {k: {"height_m": v["height_m"], "width_m": v["width_m"]}
                       for k, v in plates["assets"].items()},
@@ -95,6 +98,13 @@ def main() -> int:
                          "height_m": round(h, 3),
                          "measured_class": o["class"],
                          "yaw_deg": o.get("yaw_deg")})
+        # THE BIRCHES: eleven of them, from a SECOND prompted pass (37_more_birches.py).
+        # The first asked once and got one; SAM2's 68 proposals had none. Five narrower
+        # prompts unioned, then filtered against the ONE confirmed birch as a yardstick --
+        # necessary, because the loosest prompt returned 7.75% of the frame and the union
+        # over-includes as readily as a single prompt under-includes. 30 components in,
+        # 11 out, heights 1.44-3.35 m.
+        # (legacy single-mask path below, kept for the ground-contact solve)
         # THE BIRCHES COME FROM THE PROMPTED MASK, not from SAM2 -- SAM2's 68 automatic
         # proposals never isolated one (best overlap 0.00), so a scene built from the
         # object list alone would have had no trees in it at all. Their ground contact is
@@ -102,21 +112,28 @@ def main() -> int:
         import numpy as np
         from PIL import Image
         from scipy import ndimage
-        tp = HERE / "work" / "evf_a_trees.png"
+        tp = HERE / "work" / "evf_a_birch_union.png"
         if tp.exists():
             tm = np.asarray(Image.open(tp).convert("L")) > 127
             lab, n = ndimage.label(tm)
             K = objs["px_per_metre"]
+            ART_IMG = HERE.parent / "artifacts" / "T10C-barrow" / "T10C-barrow_a.png"
             R = (0.681998491287231, -0.731353580951691)
             U = (-0.583728015422821, -0.54433536529541)
             F = (-0.440612882375717, -0.410878270864487)
             SIN_P, COS_P = 0.798147439956665, 0.602462172508240
             for i in range(1, n + 1):
                 m = lab == i
-                if m.sum() < 300:
+                if m.sum() < 600:
                     continue
                 ys, xs = np.nonzero(m)
                 bh = ys.max() - ys.min() + 1
+                bw = xs.max() - xs.min() + 1
+                fill = m.sum() / float(bh * bw)
+                Lm = float(np.asarray(Image.open(ART_IMG).convert("RGB"))[m].mean())
+                if bh / (K * COS_P) < 1.4 or Lm < 102 or fill > 0.71 \
+                        or (bh / (K * COS_P)) / (bw / K) < 1.21:
+                    continue
                 base = ys >= ys.max() - max(2, int(bh * 0.03))
                 bx, by = float(xs[base].mean()), float(ys[base].mean())
                 uu = (bx - 1536 / 2.0) / K

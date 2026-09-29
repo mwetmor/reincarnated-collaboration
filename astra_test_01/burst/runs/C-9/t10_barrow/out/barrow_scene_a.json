@@ -5,6 +5,8 @@
   0.0,
   -4.0
  ],
+ "default_ground": "height_a_authored",
+ "ground_note": "authored is the DEFAULT; marigold ships as a toggle for comparison",
  "stone_scale": 1.0,
  "assets": {
   "standing_stone_tall": {
@@ -79,8 +81,8 @@
  "instances": {
   "height_a_marigold": [
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.808,
      0.061
@@ -90,8 +92,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.808,
      0.061
@@ -134,8 +136,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      1.492,
      -0.759
@@ -145,8 +147,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      9.802,
      -0.669
@@ -167,8 +169,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      3.222,
      -6.319
@@ -211,8 +213,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      7.232,
      -0.239
@@ -255,8 +257,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      6.042,
      -0.129
@@ -266,8 +268,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.332,
      1.531
@@ -299,8 +301,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.362,
      1.091
@@ -321,8 +323,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      1.232,
      -4.309
@@ -365,8 +367,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.932,
      5.061
@@ -376,8 +378,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      1.212,
      -0.209
@@ -442,8 +444,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -1.128,
      0.611
@@ -475,8 +477,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      1.302,
      0.151
@@ -519,8 +521,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.198,
      -0.219
@@ -541,8 +543,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      2.942,
      3.441
@@ -574,8 +576,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      6.942,
      -2.499
@@ -607,8 +609,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      6.012,
      -0.889
@@ -651,8 +653,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      5.962,
      -0.439
@@ -720,10 +722,120 @@
     "asset": "birch",
     "source": "tripo_or_procedural",
     "scene_xz": [
-     7.585,
-     -1.025
+     -1.615,
+     -0.104
     ],
-    "height_m": 3.36,
+    "height_m": 1.44,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.074,
+     -4.358
+    ],
+    "height_m": 3.02,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     0.216,
+     -0.614
+    ],
+    "height_m": 2.52,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.203,
+     -2.845
+    ],
+    "height_m": 3.28,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     5.126,
+     -5.255
+    ],
+    "height_m": 1.58,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.981,
+     -1.291
+    ],
+    "height_m": 1.71,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     5.433,
+     -3.497
+    ],
+    "height_m": 1.64,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     6.582,
+     -3.076
+    ],
+    "height_m": 2.45,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     7.592,
+     -1.031
+    ],
+    "height_m": 3.35,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     2.06,
+     3.841
+    ],
+    "height_m": 1.99,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     8.779,
+     -0.214
+    ],
+    "height_m": 1.89,
     "measured_class": "birch (evf mask; SAM2 never found one)",
     "yaw_deg": null
    },
@@ -738,8 +850,8 @@
   ],
   "height_a_authored": [
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -1.251,
      -0.322
@@ -749,8 +861,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -1.251,
      -0.322
@@ -793,8 +905,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      1.049,
      -1.142
@@ -804,8 +916,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      9.359,
      -1.052
@@ -826,8 +938,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      2.779,
      -6.702
@@ -870,8 +982,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      6.789,
      -0.622
@@ -914,8 +1026,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      5.599,
      -0.512
@@ -925,8 +1037,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.111,
      1.148
@@ -958,8 +1070,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.081,
      0.708
@@ -980,8 +1092,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.789,
      -4.692
@@ -1024,8 +1136,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.489,
      4.678
@@ -1035,8 +1147,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.769,
      -0.592
@@ -1101,8 +1213,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -1.571,
      0.228
@@ -1134,8 +1246,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      0.859,
      -0.232
@@ -1178,8 +1290,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      -0.641,
      -0.602
@@ -1200,8 +1312,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      2.499,
      3.058
@@ -1233,8 +1345,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      6.499,
      -2.882
@@ -1266,8 +1378,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      5.569,
      -1.272
@@ -1310,8 +1422,8 @@
     "yaw_deg": null
    },
    {
-    "asset": "juniper",
-    "source": "tripo",
+    "asset": "heather",
+    "source": "procedural",
     "scene_xz": [
      5.519,
      -0.822
@@ -1379,10 +1491,120 @@
     "asset": "birch",
     "source": "tripo_or_procedural",
     "scene_xz": [
-     7.142,
-     -1.408
+     -2.058,
+     -0.487
     ],
-    "height_m": 3.36,
+    "height_m": 1.44,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     3.631,
+     -4.741
+    ],
+    "height_m": 3.02,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     -0.227,
+     -0.997
+    ],
+    "height_m": 2.52,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     3.76,
+     -3.228
+    ],
+    "height_m": 3.28,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.683,
+     -5.638
+    ],
+    "height_m": 1.58,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.538,
+     -1.674
+    ],
+    "height_m": 1.71,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.99,
+     -3.88
+    ],
+    "height_m": 1.64,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     6.139,
+     -3.459
+    ],
+    "height_m": 2.45,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     7.149,
+     -1.414
+    ],
+    "height_m": 3.35,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.617,
+     3.458
+    ],
+    "height_m": 1.99,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     8.336,
+     -0.597
+    ],
+    "height_m": 1.89,
     "measured_class": "birch (evf mask; SAM2 never found one)",
     "yaw_deg": null
    },
