@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST T10P-B — Run C-9 Phase 2, T10 the Frost King's Barrow (Matt R-C9-73: a fully generated pipeline): MODEL SHEET for 3D assets, painted as ALBEDO. task_id \"T10P-B\".\n\n**Why this sheet exists.** A 3D model is built from these four views, placed in a snowbound\nlevel, and **lit there by a real sun**. The world is being built the way the character was\nbuilt, so the same two things decide whether the sheet works.\n\n**One object in four views, not four objects.** The same silhouette, the same stone, the\nsame carving, the same every mark, seen from four sides. The two profiles are each other's\nmirror — that is the one constraint a drawing cannot fake and a multiview build cannot\nrecover from.\n\n**Paint the surface, not the lighting.** Soft, even, shadowless light from nowhere in\nparticular. No key, no bright side and dark side, no rim light, no cast shadow, no shadow\non the ground, no ambient dark gathering in the cracks. Tone comes from the object's own\ncolours and from the pen hatching. Light that is painted in happens twice when the engine\nlights it — that is the whole finding of T9.\n\n**SNOW IS PAINTED AS SURFACE COLOUR, NOT AS LIGHT.** Where the concept shows a cap of snow\non a stone or a rock, paint it: cream-white, granular, with its own soft edge and the pen\nline around it. It is the object's albedo, the same as its lichen. A shader adds snow to\nupward faces on top of this, so paint what is *there*, not what the sun does to it.\n\n**SHEET.** Flat pure #00ff00, nothing else. The four views of one object at exactly the\nsame scale, on one ground line, each filling most of its cell. Columns left to right:\n**FRONT**, **RIGHT SIDE** (profile, facing the viewer's right), **BACK**, **LEFT SIDE**.\nNo ground, no shadow, no text, no labels, no cell borders, no other objects, nothing\noverlapping.\n\n**STYLE:** the REGISTER CARD governs line, washes, light and plate; its manuscript-subject\nclause does not apply. Paint in IMAGE 2's hand (`inputs/nb_style_ref_matt.png`) — the same\nhand the barbarian is painted in.\n\n---\n\n**Sheet:** 1536×1024 landscape, 4 columns × 2 rows. Top row the **lintel**, bottom row the\n**post**.\n\n**TOP ROW — THE LINTEL.** A massive single slab of grey granite laid flat as the beam over\na barrow doorway: about two and a quarter metres long, roughly a metre deep front to back,\nits ends rough-broken, its top surface flat and weathered. Its **whole front face** carries\na continuous band of deep-cut Norse knotwork in dark red ochre — interlaced serpents\nrunning out from a central **wheel cross**. The back face is plain, undressed rock. A ridge\nof snow lies along the top edge.\n**These four views are the LINTEL ALONE** — no posts, no doorway, no mound, nothing under\nit or beside it.\n\n**BOTTOM ROW — THE POST.** One of the two upright jambs: a squared granite pillar about two\nmetres tall and half a metre across, its inner face dressed flat, its outer face rough.\nThe front face carries a vertical panel of the same dark red ochre knotwork, a plaited band\nrunning its full height. Snow caught on its top and in the carving. **The post alone** — no\nlintel, no second post, no doorway opening.\n\nDeliver ONE 1536x1024 landscape sheet.\nBACKGROUND: keep flat pure #00ff00. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image (the views are cut out afterwards).\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if a view is missing or has the wrong facing, an object differs between its views, a view carries a cast shadow or a strong light direction, or objects overlap — name the reason. Never retry for the background colour. Copy outputs to out/T10P-B_a.png and out/T10P-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T10P-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t10_barrow_lintel_plate.png",
+   "role": "IMAGE 1 — identity plate: barrow lintel as painted in the approved Barrow concept (T10C-barrow_a), 1.18 m tall"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t10_barrow_post_plate.png",
+   "role": "IMAGE 2 — identity plate: barrow post as painted in the approved Barrow concept (T10C-barrow_a), 2.04 m tall"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 — STYLE reference ONLY (Matt-supplied, R-C9-69): the hand the barbarian was painted in"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T10P-B_a.png",
+  "out/T10P-B_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T10-assets"
+}
