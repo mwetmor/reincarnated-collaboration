@@ -1,0 +1,1814 @@
+{
+ "variant": "a",
+ "px_per_metre": 140.86,
+ "n_objects": 64,
+ "by_class": {
+  "barrow_door": {
+   "n": 5,
+   "height_m": {
+    "min": 0.58,
+    "median": 1.84,
+    "max": 2.04
+   }
+  },
+  "heather": {
+   "n": 19,
+   "height_m": {
+    "min": 0.39,
+    "median": 0.81,
+    "max": 2.19
+   }
+  },
+  "ice": {
+   "n": 6,
+   "height_m": {
+    "min": 0.6,
+    "median": 0.86,
+    "max": 1.14
+   }
+  },
+  "rock_outcrop": {
+   "n": 30,
+   "height_m": {
+    "min": 0.29,
+    "median": 0.65,
+    "max": 1.84
+   }
+  },
+  "standing_stones": {
+   "n": 4,
+   "height_m": {
+    "min": 1.24,
+    "median": 2.42,
+    "max": 2.71
+   }
+  }
+ },
+ "objects": [
+  {
+   "mask": "sam2_a_000.png",
+   "class": "heather",
+   "screen_bbox": [
+    366,
+    83,
+    426,
+    207
+   ],
+   "area_px": 5444,
+   "height_m": 1.47,
+   "width_m": 0.43,
+   "world_xz": [
+    -3.87,
+    0.15
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.71,
+   "aspect": 2.05,
+   "Lab": [
+    50.2,
+    4.7,
+    13.6
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_001.png",
+   "class": "heather",
+   "screen_bbox": [
+    366,
+    83,
+    426,
+    207
+   ],
+   "area_px": 5471,
+   "height_m": 1.47,
+   "width_m": 0.43,
+   "world_xz": [
+    -3.87,
+    0.15
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 2.05,
+   "Lab": [
+    50.3,
+    4.6,
+    13.5
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_002.png",
+   "class": "standing_stones",
+   "screen_bbox": [
+    1233,
+    43,
+    1332,
+    272
+   ],
+   "area_px": 16969,
+   "height_m": 2.71,
+   "width_m": 0.71,
+   "world_xz": [
+    1.02,
+    -4.27
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.74,
+   "aspect": 2.3,
+   "Lab": [
+    45.8,
+    6.5,
+    12.6
+   ],
+   "prompted_share": {
+    "standing_stones": 0.95
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_003.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1019,
+    341,
+    1124,
+    496
+   ],
+   "area_px": 11401,
+   "height_m": 1.84,
+   "width_m": 0.75,
+   "world_xz": [
+    1.37,
+    -1.72
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.69,
+   "aspect": 1.47,
+   "Lab": [
+    49.4,
+    4.3,
+    11.5
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_004.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1099,
+    0,
+    1153,
+    74
+   ],
+   "area_px": 3503,
+   "height_m": 0.88,
+   "width_m": 0.39,
+   "world_xz": [
+    -1.07,
+    -4.58
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.85,
+   "aspect": 1.36,
+   "Lab": [
+    46.1,
+    5.3,
+    11.1
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_005.png",
+   "class": "heather",
+   "screen_bbox": [
+    621,
+    150,
+    712,
+    335
+   ],
+   "area_px": 13549,
+   "height_m": 2.19,
+   "width_m": 0.65,
+   "world_xz": [
+    -1.57,
+    -0.67
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.79,
+   "aspect": 2.02,
+   "Lab": [
+    49.6,
+    8.3,
+    18.1
+   ],
+   "prompted_share": {
+    "standing_stones": 0.16
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_006.png",
+   "class": "heather",
+   "screen_bbox": [
+    1384,
+    936,
+    1535,
+    1023
+   ],
+   "area_px": 9875,
+   "height_m": 1.04,
+   "width_m": 1.08,
+   "world_xz": [
+    6.74,
+    -0.58
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.74,
+   "aspect": 0.58,
+   "Lab": [
+    37.9,
+    6.9,
+    14.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_007.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1173,
+    13,
+    1212,
+    95
+   ],
+   "area_px": 2505,
+   "height_m": 0.98,
+   "width_m": 0.28,
+   "world_xz": [
+    -0.64,
+    -4.77
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.75,
+   "aspect": 2.08,
+   "Lab": [
+    46.1,
+    4.1,
+    5.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_008.png",
+   "class": "heather",
+   "screen_bbox": [
+    1150,
+    0,
+    1535,
+    49
+   ],
+   "area_px": 12817,
+   "height_m": 0.59,
+   "width_m": 2.74,
+   "world_xz": [
+    0.16,
+    -6.23
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.66,
+   "aspect": 0.13,
+   "Lab": [
+    86.2,
+    3.8,
+    14.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_009.png",
+   "class": "ice",
+   "screen_bbox": [
+    75,
+    417,
+    245,
+    484
+   ],
+   "area_px": 6754,
+   "height_m": 0.8,
+   "width_m": 1.21,
+   "world_xz": [
+    -3.21,
+    3.06
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.58,
+   "aspect": 0.4,
+   "Lab": [
+    50.1,
+    -3.2,
+    -18.0
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_010.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    319,
+    676,
+    403,
+    725
+   ],
+   "area_px": 2961,
+   "height_m": 0.59,
+   "width_m": 0.6,
+   "world_xz": [
+    -0.66,
+    3.47
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.7,
+   "aspect": 0.59,
+   "Lab": [
+    59.9,
+    -2.4,
+    -9.1
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_011.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    217,
+    984,
+    270,
+    1023
+   ],
+   "area_px": 1407,
+   "height_m": 0.47,
+   "width_m": 0.38,
+   "world_xz": [
+    -0.39,
+    4.66
+   ],
+   "ground_h_m": -2.17,
+   "fill": 0.65,
+   "aspect": 0.74,
+   "Lab": [
+    45.0,
+    3.9,
+    3.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_012.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    0,
+    176,
+    149,
+    239
+   ],
+   "area_px": 6446,
+   "height_m": 0.75,
+   "width_m": 1.06,
+   "world_xz": [
+    -5.35,
+    2.16
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.67,
+   "aspect": 0.43,
+   "Lab": [
+    60.5,
+    -1.6,
+    -8.8
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_013.png",
+   "class": "heather",
+   "screen_bbox": [
+    1027,
+    914,
+    1231,
+    1023
+   ],
+   "area_px": 11858,
+   "height_m": 1.3,
+   "width_m": 1.46,
+   "world_xz": [
+    4.17,
+    -0.15
+   ],
+   "ground_h_m": -2.1,
+   "fill": 0.53,
+   "aspect": 0.54,
+   "Lab": [
+    35.8,
+    5.1,
+    12.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_014.png",
+   "class": "ice",
+   "screen_bbox": [
+    0,
+    443,
+    76,
+    539
+   ],
+   "area_px": 5374,
+   "height_m": 1.14,
+   "width_m": 0.55,
+   "world_xz": [
+    -3.52,
+    4.11
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 1.26,
+   "Lab": [
+    55.8,
+    -3.0,
+    -15.6
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_015.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    144,
+    864,
+    235,
+    976
+   ],
+   "area_px": 6166,
+   "height_m": 1.33,
+   "width_m": 0.65,
+   "world_xz": [
+    -0.9,
+    4.49
+   ],
+   "ground_h_m": -2.26,
+   "fill": 0.59,
+   "aspect": 1.23,
+   "Lab": [
+    41.5,
+    3.0,
+    2.6
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_016.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1364,
+    116,
+    1405,
+    178
+   ],
+   "area_px": 1945,
+   "height_m": 0.74,
+   "width_m": 0.3,
+   "world_xz": [
+    0.84,
+    -5.27
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.74,
+   "aspect": 1.5,
+   "Lab": [
+    40.2,
+    4.8,
+    6.6
+   ],
+   "prompted_share": {
+    "standing_stones": 0.16
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_017.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1195,
+    456,
+    1259,
+    499
+   ],
+   "area_px": 1873,
+   "height_m": 0.52,
+   "width_m": 0.46,
+   "world_xz": [
+    2.16,
+    -2.51
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.65,
+   "aspect": 0.68,
+   "Lab": [
+    52.5,
+    4.7,
+    9.4
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_018.png",
+   "class": "heather",
+   "screen_bbox": [
+    1039,
+    723,
+    1093,
+    755
+   ],
+   "area_px": 1282,
+   "height_m": 0.39,
+   "width_m": 0.39,
+   "world_xz": [
+    2.98,
+    -0.04
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.71,
+   "aspect": 0.6,
+   "Lab": [
+    54.6,
+    4.7,
+    13.8
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_019.png",
+   "class": "ice",
+   "screen_bbox": [
+    208,
+    461,
+    335,
+    540
+   ],
+   "area_px": 5592,
+   "height_m": 0.94,
+   "width_m": 0.91,
+   "world_xz": [
+    -2.12,
+    2.62
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.55,
+   "aspect": 0.62,
+   "Lab": [
+    51.7,
+    -3.3,
+    -17.8
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_020.png",
+   "class": "heather",
+   "screen_bbox": [
+    307,
+    345,
+    384,
+    413
+   ],
+   "area_px": 3830,
+   "height_m": 0.81,
+   "width_m": 0.55,
+   "world_xz": [
+    -2.73,
+    1.62
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.71,
+   "aspect": 0.88,
+   "Lab": [
+    44.7,
+    5.2,
+    12.7
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_021.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    234,
+    365,
+    288,
+    389
+   ],
+   "area_px": 996,
+   "height_m": 0.29,
+   "width_m": 0.39,
+   "world_xz": [
+    -3.26,
+    1.87
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 0.45,
+   "Lab": [
+    54.3,
+    4.5,
+    11.9
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_022.png",
+   "class": "barrow_door",
+   "screen_bbox": [
+    729,
+    183,
+    798,
+    341
+   ],
+   "area_px": 9131,
+   "height_m": 1.87,
+   "width_m": 0.5,
+   "world_xz": [
+    -1.07,
+    -1.12
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.82,
+   "aspect": 2.27,
+   "Lab": [
+    47.9,
+    7.9,
+    18.2
+   ],
+   "prompted_share": {
+    "standing_stones": 0.54,
+    "barrow_door": 0.57
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_023.png",
+   "class": "heather",
+   "screen_bbox": [
+    375,
+    289,
+    451,
+    382
+   ],
+   "area_px": 4948,
+   "height_m": 1.11,
+   "width_m": 0.55,
+   "world_xz": [
+    -2.7,
+    1.18
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.68,
+   "aspect": 1.22,
+   "Lab": [
+    52.9,
+    4.0,
+    12.5
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_024.png",
+   "class": "ice",
+   "screen_bbox": [
+    344,
+    515,
+    425,
+    567
+   ],
+   "area_px": 2807,
+   "height_m": 0.62,
+   "width_m": 0.58,
+   "world_xz": [
+    -1.51,
+    2.32
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.65,
+   "aspect": 0.65,
+   "Lab": [
+    54.3,
+    -3.3,
+    -14.2
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_025.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1037,
+    147,
+    1093,
+    206
+   ],
+   "area_px": 2716,
+   "height_m": 0.71,
+   "width_m": 0.4,
+   "world_xz": [
+    -0.54,
+    -3.43
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.79,
+   "aspect": 1.05,
+   "Lab": [
+    39.0,
+    5.6,
+    6.7
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_026.png",
+   "class": "heather",
+   "screen_bbox": [
+    964,
+    0,
+    1040,
+    39
+   ],
+   "area_px": 2407,
+   "height_m": 0.47,
+   "width_m": 0.55,
+   "world_xz": [
+    -1.83,
+    -4.22
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.78,
+   "aspect": 0.52,
+   "Lab": [
+    44.6,
+    6.1,
+    14.8
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_027.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    376,
+    604,
+    429,
+    634
+   ],
+   "area_px": 1132,
+   "height_m": 0.37,
+   "width_m": 0.38,
+   "world_xz": [
+    -0.98,
+    2.63
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.68,
+   "aspect": 0.57,
+   "Lab": [
+    49.1,
+    5.2,
+    11.7
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_028.png",
+   "class": "barrow_door",
+   "screen_bbox": [
+    852,
+    142,
+    896,
+    190
+   ],
+   "area_px": 1697,
+   "height_m": 0.58,
+   "width_m": 0.32,
+   "world_xz": [
+    -1.59,
+    -2.51
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.77,
+   "aspect": 1.09,
+   "Lab": [
+    51.0,
+    7.8,
+    20.5
+   ],
+   "prompted_share": {
+    "barrow_door": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_029.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    647,
+    0,
+    724,
+    47
+   ],
+   "area_px": 2748,
+   "height_m": 0.57,
+   "width_m": 0.55,
+   "world_xz": [
+    -3.59,
+    -2.23
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.73,
+   "aspect": 0.62,
+   "Lab": [
+    49.5,
+    4.3,
+    11.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_030.png",
+   "class": "heather",
+   "screen_bbox": [
+    0,
+    657,
+    68,
+    733
+   ],
+   "area_px": 3961,
+   "height_m": 0.91,
+   "width_m": 0.49,
+   "world_xz": [
+    -2.13,
+    5.15
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.75,
+   "aspect": 1.12,
+   "Lab": [
+    41.3,
+    11.9,
+    11.1
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_031.png",
+   "class": "heather",
+   "screen_bbox": [
+    527,
+    278,
+    628,
+    352
+   ],
+   "area_px": 4833,
+   "height_m": 0.88,
+   "width_m": 0.72,
+   "world_xz": [
+    -1.85,
+    -0.12
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.63,
+   "aspect": 0.74,
+   "Lab": [
+    39.5,
+    3.6,
+    12.9
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_032.png",
+   "class": "ice",
+   "screen_bbox": [
+    327,
+    472,
+    422,
+    522
+   ],
+   "area_px": 3588,
+   "height_m": 0.6,
+   "width_m": 0.68,
+   "world_xz": [
+    -1.92,
+    2.17
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.73,
+   "aspect": 0.53,
+   "Lab": [
+    66.4,
+    -2.4,
+    -7.3
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_033.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    836,
+    933,
+    945,
+    1023
+   ],
+   "area_px": 6788,
+   "height_m": 1.07,
+   "width_m": 0.78,
+   "world_xz": [
+    3.24,
+    2.02
+   ],
+   "ground_h_m": -1.05,
+   "fill": 0.68,
+   "aspect": 0.83,
+   "Lab": [
+    45.8,
+    4.4,
+    11.6
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_034.png",
+   "class": "barrow_door",
+   "screen_bbox": [
+    718,
+    113,
+    1038,
+    212
+   ],
+   "area_px": 23250,
+   "height_m": 1.18,
+   "width_m": 2.28,
+   "world_xz": [
+    -0.84,
+    -3.04
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 0.31,
+   "Lab": [
+    56.8,
+    5.3,
+    14.5
+   ],
+   "prompted_share": {
+    "barrow_door": 0.99
+   },
+   "yaw_deg": -47.0,
+   "yaw_note": "long axis across the screen; perpendicular to the camera azimuth"
+  },
+  {
+   "mask": "sam2_a_035.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    76,
+    117,
+    144,
+    170
+   ],
+   "area_px": 2564,
+   "height_m": 0.64,
+   "width_m": 0.49,
+   "world_xz": [
+    -5.45,
+    1.36
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.69,
+   "aspect": 0.78,
+   "Lab": [
+    46.2,
+    4.2,
+    4.9
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_036.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    410,
+    373,
+    462,
+    426
+   ],
+   "area_px": 2017,
+   "height_m": 0.64,
+   "width_m": 0.38,
+   "world_xz": [
+    -2.12,
+    1.13
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.7,
+   "aspect": 1.02,
+   "Lab": [
+    50.1,
+    3.9,
+    11.4
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_037.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    36,
+    615,
+    123,
+    684
+   ],
+   "area_px": 3707,
+   "height_m": 0.82,
+   "width_m": 0.62,
+   "world_xz": [
+    -2.28,
+    4.67
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.6,
+   "aspect": 0.8,
+   "Lab": [
+    39.1,
+    2.4,
+    9.4
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_038.png",
+   "class": "heather",
+   "screen_bbox": [
+    238,
+    161,
+    329,
+    223
+   ],
+   "area_px": 3839,
+   "height_m": 0.74,
+   "width_m": 0.65,
+   "world_xz": [
+    -4.19,
+    0.7
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.66,
+   "aspect": 0.68,
+   "Lab": [
+    45.9,
+    5.9,
+    15.6
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_040.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    910,
+    965,
+    990,
+    1023
+   ],
+   "area_px": 3386,
+   "height_m": 0.7,
+   "width_m": 0.58,
+   "world_xz": [
+    3.03,
+    1.13
+   ],
+   "ground_h_m": -2.06,
+   "fill": 0.71,
+   "aspect": 0.73,
+   "Lab": [
+    46.4,
+    5.0,
+    9.0
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_041.png",
+   "class": "barrow_door",
+   "screen_bbox": [
+    926,
+    208,
+    957,
+    363
+   ],
+   "area_px": 3425,
+   "height_m": 1.84,
+   "width_m": 0.23,
+   "world_xz": [
+    -0.16,
+    -1.81
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.69,
+   "aspect": 4.88,
+   "Lab": [
+    46.0,
+    5.0,
+    16.7
+   ],
+   "prompted_share": {
+    "standing_stones": 0.49,
+    "barrow_door": 0.98
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_042.png",
+   "class": "heather",
+   "screen_bbox": [
+    529,
+    342,
+    595,
+    387
+   ],
+   "area_px": 2105,
+   "height_m": 0.54,
+   "width_m": 0.48,
+   "world_xz": [
+    -1.76,
+    0.24
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.68,
+   "aspect": 0.69,
+   "Lab": [
+    57.3,
+    9.9,
+    25.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_043.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    17,
+    21,
+    119,
+    66
+   ],
+   "area_px": 3416,
+   "height_m": 0.54,
+   "width_m": 0.73,
+   "world_xz": [
+    -6.34,
+    0.97
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 0.45,
+   "Lab": [
+    47.8,
+    3.8,
+    5.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_044.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    456,
+    535,
+    551,
+    590
+   ],
+   "area_px": 3279,
+   "height_m": 0.66,
+   "width_m": 0.68,
+   "world_xz": [
+    -0.83,
+    1.89
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.61,
+   "aspect": 0.58,
+   "Lab": [
+    48.9,
+    4.6,
+    12.0
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_045.png",
+   "class": "barrow_door",
+   "screen_bbox": [
+    948,
+    212,
+    1020,
+    384
+   ],
+   "area_px": 10634,
+   "height_m": 2.04,
+   "width_m": 0.52,
+   "world_xz": [
+    0.1,
+    -1.82
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.84,
+   "aspect": 2.37,
+   "Lab": [
+    49.4,
+    9.4,
+    19.0
+   ],
+   "prompted_share": {
+    "barrow_door": 0.48
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_046.png",
+   "class": "heather",
+   "screen_bbox": [
+    447,
+    186,
+    499,
+    235
+   ],
+   "area_px": 1798,
+   "height_m": 0.59,
+   "width_m": 0.38,
+   "world_xz": [
+    -3.26,
+    -0.13
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.68,
+   "aspect": 0.94,
+   "Lab": [
+    47.9,
+    8.3,
+    18.6
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_047.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    786,
+    613,
+    868,
+    652
+   ],
+   "area_px": 2116,
+   "height_m": 0.47,
+   "width_m": 0.59,
+   "world_xz": [
+    0.04,
+    -0.51
+   ],
+   "ground_h_m": -2.06,
+   "fill": 0.64,
+   "aspect": 0.48,
+   "Lab": [
+    78.2,
+    2.6,
+    -5.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_049.png",
+   "class": "heather",
+   "screen_bbox": [
+    360,
+    737,
+    418,
+    774
+   ],
+   "area_px": 1481,
+   "height_m": 0.45,
+   "width_m": 0.42,
+   "world_xz": [
+    -0.12,
+    3.53
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.66,
+   "aspect": 0.64,
+   "Lab": [
+    59.4,
+    8.9,
+    22.7
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_050.png",
+   "class": "standing_stones",
+   "screen_bbox": [
+    1116,
+    121,
+    1205,
+    225
+   ],
+   "area_px": 6370,
+   "height_m": 1.24,
+   "width_m": 0.64,
+   "world_xz": [
+    -0.13,
+    -3.63
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.67,
+   "aspect": 1.17,
+   "Lab": [
+    55.0,
+    3.9,
+    12.3
+   ],
+   "prompted_share": {
+    "standing_stones": 0.81
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_051.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    174,
+    98,
+    224,
+    155
+   ],
+   "area_px": 2046,
+   "height_m": 0.68,
+   "width_m": 0.36,
+   "world_xz": [
+    -5.13,
+    0.83
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.69,
+   "aspect": 1.14,
+   "Lab": [
+    50.3,
+    4.7,
+    7.8
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_052.png",
+   "class": "heather",
+   "screen_bbox": [
+    1355,
+    569,
+    1442,
+    647
+   ],
+   "area_px": 4808,
+   "height_m": 0.93,
+   "width_m": 0.62,
+   "world_xz": [
+    3.88,
+    -2.41
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.69,
+   "aspect": 0.9,
+   "Lab": [
+    36.6,
+    8.3,
+    17.7
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_053.png",
+   "class": "ice",
+   "screen_bbox": [
+    209,
+    462,
+    334,
+    539
+   ],
+   "area_px": 5495,
+   "height_m": 0.92,
+   "width_m": 0.89,
+   "world_xz": [
+    -2.12,
+    2.6
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.56,
+   "aspect": 0.62,
+   "Lab": [
+    51.7,
+    -3.3,
+    -17.8
+   ],
+   "prompted_share": {
+    "ice": 1.0
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_055.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1057,
+    598,
+    1113,
+    630
+   ],
+   "area_px": 1204,
+   "height_m": 0.39,
+   "width_m": 0.4,
+   "world_xz": [
+    2.33,
+    -0.98
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.64,
+   "aspect": 0.58,
+   "Lab": [
+    87.8,
+    2.7,
+    8.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_056.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1244,
+    975,
+    1297,
+    1023
+   ],
+   "area_px": 1697,
+   "height_m": 0.58,
+   "width_m": 0.38,
+   "world_xz": [
+    4.62,
+    -0.68
+   ],
+   "ground_h_m": -2.14,
+   "fill": 0.64,
+   "aspect": 0.91,
+   "Lab": [
+    50.7,
+    8.8,
+    6.4
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_057.png",
+   "class": "heather",
+   "screen_bbox": [
+    1114,
+    657,
+    1170,
+    695
+   ],
+   "area_px": 1410,
+   "height_m": 0.46,
+   "width_m": 0.4,
+   "world_xz": [
+    2.95,
+    -0.8
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.63,
+   "aspect": 0.68,
+   "Lab": [
+    62.5,
+    7.7,
+    21.2
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_058.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1381,
+    216,
+    1439,
+    278
+   ],
+   "area_px": 2368,
+   "height_m": 0.74,
+   "width_m": 0.42,
+   "world_xz": [
+    1.63,
+    -4.82
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.64,
+   "aspect": 1.07,
+   "Lab": [
+    45.8,
+    4.8,
+    5.1
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_060.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    930,
+    912,
+    1016,
+    954
+   ],
+   "area_px": 2501,
+   "height_m": 0.51,
+   "width_m": 0.62,
+   "world_xz": [
+    2.84,
+    0.42
+   ],
+   "ground_h_m": -2.06,
+   "fill": 0.67,
+   "aspect": 0.49,
+   "Lab": [
+    48.5,
+    3.9,
+    11.4
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_061.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1331,
+    190,
+    1390,
+    245
+   ],
+   "area_px": 2415,
+   "height_m": 0.66,
+   "width_m": 0.43,
+   "world_xz": [
+    1.21,
+    -4.8
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.72,
+   "aspect": 0.93,
+   "Lab": [
+    36.3,
+    4.4,
+    7.5
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_062.png",
+   "class": "heather",
+   "screen_bbox": [
+    1068,
+    853,
+    1130,
+    900
+   ],
+   "area_px": 1648,
+   "height_m": 0.57,
+   "width_m": 0.45,
+   "world_xz": [
+    2.9,
+    -0.35
+   ],
+   "ground_h_m": -2.06,
+   "fill": 0.54,
+   "aspect": 0.76,
+   "Lab": [
+    46.6,
+    10.7,
+    24.0
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_063.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    99,
+    664,
+    177,
+    728
+   ],
+   "area_px": 3013,
+   "height_m": 0.77,
+   "width_m": 0.56,
+   "world_xz": [
+    -1.77,
+    4.69
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.59,
+   "aspect": 0.82,
+   "Lab": [
+    44.0,
+    3.9,
+    11.3
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_064.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    1109,
+    999,
+    1152,
+    1023
+   ],
+   "area_px": 693,
+   "height_m": 0.29,
+   "width_m": 0.31,
+   "world_xz": [
+    3.94,
+    0.11
+   ],
+   "ground_h_m": -2.1,
+   "fill": 0.63,
+   "aspect": 0.57,
+   "Lab": [
+    35.8,
+    6.0,
+    7.8
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_065.png",
+   "class": "standing_stones",
+   "screen_bbox": [
+    1232,
+    43,
+    1332,
+    272
+   ],
+   "area_px": 17119,
+   "height_m": 2.71,
+   "width_m": 0.72,
+   "world_xz": [
+    1.02,
+    -4.27
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.74,
+   "aspect": 2.28,
+   "Lab": [
+    45.8,
+    6.5,
+    12.6
+   ],
+   "prompted_share": {
+    "standing_stones": 0.95
+   },
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_066.png",
+   "class": "rock_outcrop",
+   "screen_bbox": [
+    106,
+    53,
+    167,
+    102
+   ],
+   "area_px": 2011,
+   "height_m": 0.59,
+   "width_m": 0.44,
+   "world_xz": [
+    -5.74,
+    0.8
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.65,
+   "aspect": 0.81,
+   "Lab": [
+    50.5,
+    3.7,
+    5.5
+   ],
+   "prompted_share": {},
+   "yaw_deg": null
+  },
+  {
+   "mask": "sam2_a_067.png",
+   "class": "standing_stones",
+   "screen_bbox": [
+    1158,
+    192,
+    1238,
+    371
+   ],
+   "area_px": 5891,
+   "height_m": 2.12,
+   "width_m": 0.58,
+   "world_xz": [
+    1.27,
+    -3.24
+   ],
+   "ground_h_m": 0.0,
+   "fill": 0.4,
+   "aspect": 2.22,
+   "Lab": [
+    37.4,
+    2.9,
+    4.9
+   ],
+   "prompted_share": {
+    "standing_stones": 0.97
+   },
+   "yaw_deg": null
+  }
+ ]
+}

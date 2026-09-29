@@ -1,0 +1,62 @@
+{
+ "variant": "a",
+ "grid_m": 0.05,
+ "size": [
+  300,
+  300
+ ],
+ "constraints": {
+  "tarn_drop_m": 1.15,
+  "mound_rise_m": 1.7,
+  "outcrop_rise_m": 0.55,
+  "ground_slope_m_per_m": 0.055,
+  "blend_m": 0.85
+ },
+ "mound": {
+  "centre_xz": [
+   4.43,
+   3.56
+  ],
+  "radius_m": 2.6,
+  "rise_m": 1.7
+ },
+ "tarn": {
+  "level_m": -1.19,
+  "cells": 3422,
+  "drop_m": 1.15
+ },
+ "plan_shift_between_passes": {
+  "mean_m": 0.202,
+  "p95_m": 0.747,
+  "max_m": 0.899
+ },
+ "heightfield": {
+  "extent_m": [
+   15.0,
+   15.0
+  ],
+  "height_range_m": [
+   -1.189,
+   1.178
+  ],
+  "relief_m": 2.367,
+  "slope_deg": {
+   "median": 3.1,
+   "p90": 23.7,
+   "over_45_pct": 0.35,
+   "over_70_pct": 0.0
+  },
+  "roughness_lap_rms_m": 0.0009
+ },
+ "png": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/t10_barrow/out/height_a_authored.png",
+  "encoding": "16-bit, 0 = min height, 65535 = max",
+  "metres_per_pixel": 0.05,
+  "height_min_m": -1.1894,
+  "height_max_m": 1.1778,
+  "world_origin_xz": [
+   -7.049,
+   -7.088
+  ]
+ }
+}

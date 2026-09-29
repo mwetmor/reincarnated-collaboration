@@ -1,0 +1,402 @@
+{
+ "scores": {
+  "stone_tall": {
+   "a": {
+    "mirror_iou": 0.978,
+    "self_iou_front": 0.912,
+    "self_iou_back": 0.945,
+    "heights_px": [
+     478,
+     476,
+     478,
+     478
+    ],
+    "widths_px": [
+     251,
+     174,
+     272,
+     174
+    ],
+    "height_cv": 0.0018,
+    "width_cv": 0.2038
+   },
+   "b": {
+    "mirror_iou": 0.984,
+    "self_iou_front": 0.843,
+    "self_iou_back": 0.814,
+    "heights_px": [
+     470,
+     471,
+     471,
+     470
+    ],
+    "widths_px": [
+     248,
+     170,
+     249,
+     169
+    ],
+    "height_cv": 0.0011,
+    "width_cv": 0.189
+   }
+  },
+  "stone_mid": {
+   "a": {
+    "mirror_iou": 0.989,
+    "self_iou_front": 0.938,
+    "self_iou_back": 0.936,
+    "heights_px": [
+     483,
+     484,
+     484,
+     485
+    ],
+    "widths_px": [
+     278,
+     192,
+     291,
+     192
+    ],
+    "height_cv": 0.0015,
+    "width_cv": 0.1951
+   },
+   "b": {
+    "mirror_iou": 0.96,
+    "self_iou_front": 0.887,
+    "self_iou_back": 0.852,
+    "heights_px": [
+     489,
+     488,
+     489,
+     486
+    ],
+    "widths_px": [
+     276,
+     181,
+     279,
+     185
+    ],
+    "height_cv": 0.0025,
+    "width_cv": 0.2054
+   }
+  },
+  "lintel": {
+   "a": {
+    "mirror_iou": 0.943,
+    "self_iou_front": 0.974,
+    "self_iou_back": 0.956,
+    "heights_px": [
+     177,
+     179,
+     181,
+     183
+    ],
+    "widths_px": [
+     571,
+     135,
+     582,
+     128
+    ],
+    "height_cv": 0.0124,
+    "width_cv": 0.6287
+   },
+   "b": {
+    "mirror_iou": 0.966,
+    "self_iou_front": 0.972,
+    "self_iou_back": 0.963,
+    "heights_px": [
+     173,
+     179,
+     178,
+     176
+    ],
+    "widths_px": [
+     544,
+     125,
+     554,
+     128
+    ],
+    "height_cv": 0.013,
+    "width_cv": 0.6256
+   }
+  },
+  "post": {
+   "a": {
+    "mirror_iou": 0.966,
+    "self_iou_front": 0.934,
+    "self_iou_back": 0.963,
+    "heights_px": [
+     488,
+     486,
+     489,
+     487
+    ],
+    "widths_px": [
+     171,
+     144,
+     164,
+     142
+    ],
+    "height_cv": 0.0023,
+    "width_cv": 0.0806
+   },
+   "b": {
+    "mirror_iou": 0.973,
+    "self_iou_front": 0.967,
+    "self_iou_back": 0.967,
+    "heights_px": [
+     542,
+     539,
+     539,
+     538
+    ],
+    "widths_px": [
+     183,
+     134,
+     171,
+     134
+    ],
+    "height_cv": 0.0028,
+    "width_cv": 0.1409
+   }
+  },
+  "rock_large": {
+   "a": {
+    "mirror_iou": 0.99,
+    "self_iou_front": 0.914,
+    "self_iou_back": 0.915,
+    "heights_px": [
+     515,
+     520,
+     520,
+     520
+    ],
+    "widths_px": [
+     381,
+     337,
+     372,
+     338
+    ],
+    "height_cv": 0.0042,
+    "width_cv": 0.0554
+   },
+   "b": {
+    "mirror_iou": 0.983,
+    "self_iou_front": 0.92,
+    "self_iou_back": 0.939,
+    "heights_px": [
+     490,
+     486,
+     483,
+     486
+    ],
+    "widths_px": [
+     375,
+     325,
+     382,
+     326
+    ],
+    "height_cv": 0.0051,
+    "width_cv": 0.0756
+   }
+  },
+  "rock_small": {
+   "a": {
+    "mirror_iou": 0.815,
+    "self_iou_front": 0.831,
+    "self_iou_back": 0.855,
+    "heights_px": [
+     174,
+     193,
+     171,
+     197
+    ],
+    "widths_px": [
+     415,
+     291,
+     387,
+     344
+    ],
+    "height_cv": 0.062,
+    "width_cv": 0.1303
+   },
+   "b": {
+    "mirror_iou": 0.97,
+    "self_iou_front": 0.793,
+    "self_iou_back": 0.883,
+    "heights_px": [
+     186,
+     183,
+     171,
+     183
+    ],
+    "widths_px": [
+     391,
+     311,
+     407,
+     313
+    ],
+    "height_cv": 0.0319,
+    "width_cv": 0.1234
+   }
+  },
+  "birch": {
+   "a": {
+    "mirror_iou": 0.681,
+    "self_iou_front": 0.215,
+    "self_iou_back": 0.284,
+    "heights_px": [
+     721,
+     729,
+     717,
+     712
+    ],
+    "widths_px": [
+     480,
+     429,
+     472,
+     450
+    ],
+    "height_cv": 0.0086,
+    "width_cv": 0.0435
+   },
+   "b": {
+    "mirror_iou": 0.674,
+    "self_iou_front": 0.236,
+    "self_iou_back": 0.198,
+    "heights_px": [
+     723,
+     729,
+     734,
+     736
+    ],
+    "widths_px": [
+     513,
+     467,
+     491,
+     476
+    ],
+    "height_cv": 0.0069,
+    "width_cv": 0.0358
+   }
+  },
+  "stone_short": {
+   "a": {
+    "mirror_iou": 0.859,
+    "self_iou_front": 0.69,
+    "self_iou_back": 0.818,
+    "heights_px": [
+     336,
+     343,
+     335,
+     340
+    ],
+    "widths_px": [
+     360,
+     238,
+     372,
+     246
+    ],
+    "height_cv": 0.0095,
+    "width_cv": 0.2046
+   },
+   "b": {
+    "mirror_iou": 0.911,
+    "self_iou_front": 0.712,
+    "self_iou_back": 0.828,
+    "heights_px": [
+     340,
+     341,
+     341,
+     341
+    ],
+    "widths_px": [
+     357,
+     235,
+     376,
+     233
+    ],
+    "height_cv": 0.0013,
+    "width_cv": 0.2218
+   }
+  },
+  "juniper": {
+   "a": {
+    "mirror_iou": 0.892,
+    "self_iou_front": 0.776,
+    "self_iou_back": 0.777,
+    "heights_px": [
+     281,
+     268,
+     267,
+     265
+    ],
+    "widths_px": [
+     422,
+     323,
+     387,
+     332
+    ],
+    "height_cv": 0.0233,
+    "width_cv": 0.1108
+   },
+   "b": {
+    "mirror_iou": 0.835,
+    "self_iou_front": 0.596,
+    "self_iou_back": 0.82,
+    "heights_px": [
+     317,
+     279,
+     312,
+     279
+    ],
+    "widths_px": [
+     433,
+     290,
+     407,
+     315
+    ],
+    "height_cv": 0.0601,
+    "width_cv": 0.1664
+   }
+  }
+ },
+ "picks": {
+  "stone_tall": {
+   "variant": "b",
+   "why": "mirror within 0.02; lower height_cv (0.0011)"
+  },
+  "stone_mid": {
+   "variant": "a",
+   "why": "higher mirror_iou (0.989 vs 0.960)"
+  },
+  "lintel": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.966 vs 0.943)"
+  },
+  "post": {
+   "variant": "a",
+   "why": "mirror within 0.02; lower height_cv (0.0023)"
+  },
+  "rock_large": {
+   "variant": "a",
+   "why": "mirror within 0.02; lower height_cv (0.0042)"
+  },
+  "rock_small": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.970 vs 0.815)"
+  },
+  "birch": {
+   "variant": "b",
+   "why": "mirror within 0.02; lower height_cv (0.0069)"
+  },
+  "stone_short": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.911 vs 0.859)"
+  },
+  "juniper": {
+   "variant": "a",
+   "why": "higher mirror_iou (0.892 vs 0.835)"
+  }
+ }
+}

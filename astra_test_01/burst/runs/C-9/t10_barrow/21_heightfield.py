@@ -399,7 +399,26 @@ def main() -> int:
                   "encoding": "16-bit, 0 = min height, 65535 = max",
                   "metres_per_pixel": g, "height_min_m": round(lo, 4),
                   "height_max_m": round(hi, 4),
-                  "metres_per_level": round(span / 65535.0, 8)}
+                  "metres_per_level": round(span / 65535.0, 8),
+                  "world_origin_xz": [round(float(px.min()), 3), round(float(pz.min()), 3)]}
+    # THE BARROW'S PLAN CENTRE, in THIS grid's cells. Both heightfields must anchor the
+    # mound to the same place in the scene or the comparison at the play camera is of two
+    # different layouts rather than of two surfaces. Without it each grid lands wherever
+    # its own min corner fell, which is not a place -- and the drop-in reported the mound
+    # at 1.17 m on one and 0.44 m on the other for exactly that reason.
+    door = load_mask(v, "barrow_door", (H, W))
+    if door is not None and door.any():
+        dz, dx = np.nonzero(door)
+        du = (dx - W / 2.0) / K
+        dv = -(dz - H / 2.0) / K
+        dD = (COS_PITCH * dv - 0.0) / SIN_PITCH
+        mx = float((RIGHT[0] * du + UP[0] * dv + FWD[0] * dD).mean()) - float(px.min())
+        mz = float((RIGHT[2] * du + UP[2] * dv + FWD[2] * dD).mean()) - float(pz.min())
+        azi = np.array([FWD[0], FWD[2]])
+        azi = azi / np.linalg.norm(azi)
+        rep["mound"] = {"centre_xz": [round(mx + azi[0] * 2.2, 2), round(mz + azi[1] * 2.2, 2)],
+                        "from": "barrow_door mask, pushed 2.2 m away from the camera",
+                        "note": "grid-local metres; the drop-in anchors this to the scene"}
     (out / ("height_%s_%s.json" % (v, a.depth))).write_text(json.dumps(rep, indent=1) + "\n")
     print(json.dumps(rep, indent=1))
     return 0
