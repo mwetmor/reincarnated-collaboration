@@ -81,7 +81,7 @@ func _ready() -> void:
 	collision_mask = CliffWorld.TERRAIN_BIT
 	var shape := CollisionShape3D.new()
 	var cap := CapsuleShape3D.new()
-	cap.height = 1.8 * _figure_scale
+	cap.height = float(cfg.get("model_height_m", 1.8)) * _figure_scale
 	cap.radius = 0.35 * _figure_scale
 	shape.shape = cap
 	shape.position = Vector3(0, cap.height * 0.5, 0)
@@ -278,6 +278,25 @@ func _bind_roles() -> void:
 			_roles[role] = _roles["idle"]
 	print("character: %s  clips %s -> %s" %
 		[String(cfg.get("model", "?")).get_file(), str(have), str(_roles)])
+
+
+func set_figure_scale(s: float) -> void:
+	"""TRUE SCALE, on demand. 1.25178 is the painted world's own metric -- the art draws a
+	person larger than the world's metres say -- and T9-0 asks what he looks like at 1.0,
+	a 1.85 m man among props modelled at true size. The capsule and the ink width follow,
+	or he keeps a collider and a line built for a bigger man."""
+	_figure_scale = s
+	var shape := get_child(0) as CollisionShape3D
+	if shape != null and shape.shape is CapsuleShape3D:
+		var cap := shape.shape as CapsuleShape3D
+		cap.height = float(cfg.get("model_height_m", 1.8)) * s
+		cap.radius = 0.35 * s
+		shape.position = Vector3(0, cap.height * 0.5, 0)
+	if _outline != null and _mesh != null:
+		var ms: float = maxf(_mesh.global_transform.basis.get_scale().x, 1e-9) / maxf(_rig.scale.x, 1e-9)
+		(_outline.material_override as ShaderMaterial).set_shader_parameter("width_model",
+			(float(cfg.get("outline_px", LINE_PX)) / PPM) / maxf(s * ms, 1e-9))
+	_drive()
 
 
 func _find(n: Node, cls: String) -> Node:

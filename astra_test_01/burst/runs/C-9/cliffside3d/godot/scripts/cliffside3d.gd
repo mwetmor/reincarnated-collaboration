@@ -40,6 +40,9 @@ var fwd := Vector3.FORWARD
 var plate_on := true
 var _fg: Array[MeshInstance3D] = []
 var _proj_mat: ShaderMaterial
+var _proj_mat_lit: ShaderMaterial
+var lit := false
+var _terrain_ink: Array[MeshInstance3D] = []
 var report := {}
 
 
@@ -117,6 +120,7 @@ func _build_knight(space: PhysicsDirectSpaceState3D) -> void:
 	if not g.is_empty():
 		k.global_position = (g["position"] as Vector3) + Vector3.UP * 0.05
 	report["knight_scale"] = fs
+	_fig_painted = fs
 
 
 # --- geometry: the builder, verbatim -----------------------------------------
@@ -343,6 +347,15 @@ void fragment() {
 	}
 }
 """
+	# THE LIT TWIN. Same projection, same void fill, same everything -- but SHADED, so the
+	# painted plate becomes ALBEDO under a real sun instead of carrying its own light.
+	# `unshaded` is a render_mode and cannot be switched at run time, so it is two
+	# materials and the L key swaps them. The plate already has its light painted in, so
+	# this DOUBLE-LIGHTS by construction; that is what T9-0 exists to look at.
+	var sh_lit := Shader.new()
+	sh_lit.code = sh.code.replace("render_mode unshaded, cull_back, depth_draw_opaque;",
+		"render_mode cull_back, depth_draw_opaque;").replace(
+		"\t\tALBEDO = c.rgb;\n\t}", "\t\tALBEDO = c.rgb;\n\t}\n\tROUGHNESS = 0.94;\n\tMETALLIC = 0.0;")
 	_proj_mat = ShaderMaterial.new()
 	_proj_mat.shader = sh
 	var tex: Texture2D = load("res://plate/plate_v4.png")
@@ -353,6 +366,10 @@ void fragment() {
 	_proj_mat.set_shader_parameter("umin", V4_UMIN)
 	_proj_mat.set_shader_parameter("vmax", V4_VMAX)
 	_proj_mat.set_shader_parameter("canvas", Vector2(CANVAS.x, CANVAS.y))
+	_proj_mat_lit = ShaderMaterial.new()
+	_proj_mat_lit.shader = sh_lit
+	for pnm in ["plate", "axis_right", "axis_up", "ppm", "umin", "vmax", "canvas"]:
+		_proj_mat_lit.set_shader_parameter(pnm, _proj_mat.get_shader_parameter(pnm))
 
 
 func _apply_projector() -> void:
@@ -452,6 +469,7 @@ func character_box() -> Rect2:
 const CAM_OFFSET := Vector2(-2, -55)      # the 2D route's own camera offset from the player
 const FADE_STEPS := [0.35, 0.50, 1.0]
 var _fade_step := 0
+var _fig_painted := 1.25177951388889
 var _yaw := 0.0
 var _hud: Label
 
@@ -510,8 +528,78 @@ func _update_hud() -> void:
 	var f: float = CliffWorld.fade_min
 	var fs := "off" if f >= 0.999 else ("%d%%" % int(round(f * 100.0)))
 	_hud.text = ("Arrows/WASD move  ·  Shift run  ·  Space/click attack  ·  "
-		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  Q/E camera  ·  P plate"
-		% [n + 1, total, nm, fs])
+		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  L world (%s)  ·  Q/E camera  ·  P plate"
+		% [n + 1, total, nm, fs, "LIT, true scale" if lit else "painted"])
+
+
+func set_lit(on: bool) -> void:
+	"""T9-0: the world lit the way the character is lit.
+
+	Four things move together, because any one of them alone answers nothing:
+	  the TERRAIN takes the shaded projector and starts casting and receiving shadows;
+	  the SUN stops being masked to the character and lights everything, with shadows on --
+	    it is the same direction the painting's own key implies, which build_lights already
+	    derived, so the light does not move when the mode does;
+	  the PROPS take the shaded card, or a lit man stands among unlit cardboard;
+	  the CHARACTER drops to TRUE SCALE 1.0, because a world modelled at true size and a
+	    figure at the painting's 1.25178 metric is the mismatch this test is about.
+	Painted mode restores all four, so everything already play-tested is untouched."""
+	lit = on
+	for mi in _fg:
+		mi.material_override = _proj_mat_lit if on else _proj_mat
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if on \
+			else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var sun := get_node_or_null(^"Lights/Sunset") as DirectionalLight3D
+	if sun != null:
+		sun.light_cull_mask = 0xFFFFF if on else CHAR_LAYER
+		sun.shadow_enabled = on
+		sun.light_energy = 1.35 if on else 1.15
+		sun.directional_shadow_max_distance = 120.0
+	var props := get_node_or_null(^"Props")
+	if props != null:
+		for c in props.get_children():
+			var mi := c as MeshInstance3D
+			if mi == null or not mi.has_meta("tex"):
+				continue
+			var keep: float = float((mi.material_override as ShaderMaterial).get_shader_parameter("fade"))
+			mi.material_override = CliffWorld.card_material_lit(mi.get_meta("tex")) if on \
+				else CliffWorld.card_material(mi.get_meta("tex"))
+			(mi.material_override as ShaderMaterial).set_shader_parameter("fade", keep)
+	if knight != null:
+		knight.set_figure_scale(1.0 if on else float(_fig_painted))
+	_set_terrain_ink(on)
+	_update_hud()
+
+
+func _set_terrain_ink(on: bool) -> void:
+	"""The character's ink line, on the terrain. The outline pass offsets VERTEX along the
+	normal in MODEL space, and these meshes are already in world metres, so the width is
+	the same 1.1 output px the figure uses -- no per-mesh scale to undo. Built once, then
+	shown and hidden."""
+	if _terrain_ink.is_empty() and on:
+		var sh := Shader.new()
+		sh.code = """
+shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_opaque, shadows_disabled;
+uniform float width_model = 0.011;
+uniform vec4 line_color : source_color = vec4(0.055, 0.043, 0.063, 1.0);
+void vertex() { VERTEX += normalize(NORMAL) * width_model; }
+void fragment() { ALBEDO = line_color.rgb; }
+"""
+		var mat := ShaderMaterial.new()
+		mat.shader = sh
+		mat.set_shader_parameter("width_model", 1.1 / PPM)
+		for mi in _fg:
+			var o := MeshInstance3D.new()
+			o.name = mi.name + "_ink"
+			o.mesh = mi.mesh
+			mi.add_child(o)
+			o.global_transform = mi.global_transform
+			o.material_override = mat
+			o.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_terrain_ink.append(o)
+	for o in _terrain_ink:
+		o.visible = on
 
 
 func cycle_fade() -> void:
@@ -563,3 +651,5 @@ func _unhandled_input(e: InputEvent) -> void:
 		_update_hud()
 	elif e.is_action_pressed("fade_cycle"):
 		cycle_fade()
+	elif e.is_action_pressed("lit_toggle"):
+		set_lit(not lit)

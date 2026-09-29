@@ -1,0 +1,51 @@
+{
+ "_what": "C-9 T9-0 (R-C9-71): 'lit world' mode, L toggles painted <-> lit. Painted is the default, so everything already play-tested is unchanged.",
+ "double_lighting": {
+  "bridge": {
+   "mean_luma_lit": 87.7,
+   "mean_luma_painted": 113.6,
+   "median_drop_on_lit_pixels": 12.7,
+   "pct_near_black_lit": 19.05,
+   "pct_near_black_painted": 1.7,
+   "pct_of_frame_that_lost_over_half_its_light": 16.21
+  },
+  "tree": {
+   "mean_luma_lit": 88.9,
+   "mean_luma_painted": 105.6,
+   "median_drop_on_lit_pixels": 18.3,
+   "pct_near_black_lit": 6.87,
+   "pct_near_black_painted": 2.68,
+   "pct_of_frame_that_lost_over_half_its_light": 0.03
+  }
+ },
+ "figure": {
+  "scale_1.00000": {
+   "canvas_px": 123.3,
+   "world_height_m": 1.85
+  },
+  "scale_1.25178": {
+   "canvas_px": 154.3,
+   "world_height_m": 2.316
+  }
+ },
+ "props_in_lit_mode": "shaded as cards. They lose the highlights painted into them and read flat and dark next to a lit figure -- worst on the tree canopy, which in painted mode carries its own dappled light and in lit mode becomes a dark silhouette. This is the clearest argument in the capture for making them real 3D.",
+ "scale": {
+  "blockout_geometry_is_TRUE_scale": {
+   "bridge_plank": "3.11 x 1.80 x 0.18 m",
+   "bridge_post_mesh": "0.24 x 1.20 x 0.24 m"
+  },
+  "figure_painted_1.25178": "2.316 m, 154.3 canvas px",
+  "figure_true_1.0": "1.85 m, 123.3 canvas px",
+  "painted_prop_cards_are_NOT": {
+   "bridge_post_card": "1.732 m tall vs the modelled post's 1.20 m -- 1.44x",
+   "cache_crates_barrel": "2.161 m",
+   "rock_a": "1.044 x 0.990 m",
+   "stump_a": "1.716 m -- a tree stump as tall as a man",
+   "tree_living_a": "9.337 m"
+  },
+  "the_finding": "the painting's props and the painting's FIGURE agree with each other at 1.25178; the blockout's geometry is at true scale and disagrees with both. Matt's 'he is too large' is the same disagreement seen from the other side: at 1.0 he agrees with the bridge he is standing on and no longer agrees with the stumps beside it."
+ },
+ "terrain_ink": "built and rendering, 14 meshes, same 1.1 output px as the figure -- the meshes are already in world metres so there is no per-mesh scale to undo. It reads heavier on a 40 m box face than on a man, because the line is a constant screen width and the silhouette it traces is 20x longer. Visible along the cliff edge in T9_bridge.jpg.",
+ "verdict": "IT DEPENDS ENTIRELY ON WHICH WAY A SURFACE FACES. On open hillside that faces the key -- the tree path -- lit mode costs 16% of the mean luminance and crushes 0.03% of the frame: it reads as a slightly warmer, more saturated version of the same picture. On the bridge, where the cliff wall faces away from the key, near-black goes from 1.70% to 19.05% of the frame and 16.21% of the frame loses more than half its light. The cliff face is a 98 x 40 m greybox wall: its normal is a flat box face with no relation to the detailed cliff the painter shaded, so N.L and the painted shading disagree completely and the surface goes out.",
+ "what_L_switches": "four things at once, because any one alone answers nothing: the terrain takes a SHADED projector and starts casting and receiving shadows; the sun stops being masked to the character and lights everything, with shadows on, in the same direction the painting's key implies; the props take a shaded card; and the character drops to TRUE SCALE 1.0."
+}

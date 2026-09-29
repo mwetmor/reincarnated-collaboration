@@ -82,6 +82,39 @@ static func card_mesh(w_m: float, h_m: float) -> QuadMesh:
 	return q
 
 
+static var _card_sh_lit: Shader
+
+
+static func card_material_lit(tex: Texture2D) -> ShaderMaterial:
+	"""The same cut-out card, SHADED. T9-0's question is whether a world lit the way the
+	barbarian is lit reads better than a world that carries its light in the paint, and a
+	prop that stays unlit while the ground around it turns is not part of the experiment.
+	The card's paint already contains its own light, so this double-lights exactly as the
+	terrain does -- that is the thing being looked at, not a fault to hide."""
+	if _card_sh_lit == null:
+		_card_sh_lit = Shader.new()
+		_card_sh_lit.code = """
+shader_type spatial;
+render_mode cull_disabled, depth_draw_opaque, shadows_disabled;
+uniform sampler2D tex : source_color, filter_linear_mipmap;
+uniform float cutoff = 0.35;
+uniform float fade = 1.0;
+float ign(vec2 fc) { return fract(52.9829189 * fract(0.06711056 * fc.x + 0.00583715 * fc.y)); }
+void fragment() {
+	vec4 c = texture(tex, UV);
+	if (c.a < cutoff) discard;
+	if (fade < 0.999 && fade <= ign(FRAGCOORD.xy)) discard;
+	ALBEDO = c.rgb;
+	ROUGHNESS = 0.92;
+	METALLIC = 0.0;
+}
+"""
+	var m := ShaderMaterial.new()
+	m.shader = _card_sh_lit
+	m.set_shader_parameter("tex", tex)
+	return m
+
+
 static func card_material(tex: Texture2D) -> ShaderMaterial:
 	var sh := Shader.new()
 	sh.code = """
@@ -249,6 +282,7 @@ static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: Str
 		mi.set_meta("d0", (centre - fwd * bias).dot(fwd))
 		mi.set_meta("y0", pos.y - anc.y + h * 0.5)
 		mi.set_meta("fade_when_behind", bool(a.get("fade_when_behind", false)))
+		mi.set_meta("tex", tex)                 # so the lit/painted toggle can re-dress it
 		mi.set_meta("fade_t", 0.0)
 		placed += 1
 	clearance.sort()
