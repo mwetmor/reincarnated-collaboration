@@ -18530,6 +18530,12 @@
       "topic": "T8 barbarian (R-C9-69): NB-1 base-body sheet + first Meshy 3D build",
       "result": "NB-1 a/b delivered (4 image calls; both lost the plate, both retries spent on the background and failed). Variant a chosen for the first build (closer to the brief: less bodybuilder, one braid). Matte by fal BiRefNet v2; true painted heights 695-706 px (1.6% spread). Meshy multi-image-to-3d (a-pose, 60k quad) SUCCEEDED in 216 s: nb_t8/nb_a.glb. Look renders at 52.95 and 0 deg: nb_t8/nb_a_3d_look.png. FINDING: the asymmetry marker caught a mirrored back view - the right-arm tattoo also appears on the back of the LEFT arm (Meshy projected the back view mirrored); the painted-texture step replaces this texture. Meshy re-posed the arms to a wider A, palms forward.",
       "ts": "2026-09-28T23:52:02"
+    },
+    {
+      "id": "M-C9-T7A-1",
+      "topic": "T7-A: the cliffside in true 3D by camera-projected paint (drax, collab df1a8625f; nothing pushed)",
+      "result": "WORKS for the terrain: rebuilt from a verbatim copy of cliffside_blockout.gd, depth map byte-identical to ortho_canvas_v4_2_depth_mm.png; the game camera is ORTHOGRAPHIC (2D route scrolls 1:1 over the ortho canvas) so projection is linear; vs live 2D median |diff| 3.67 bridge / 4.67 plateau, best shift (0,0); per-pixel occlusion by the painted bridge deck; lights on the character only; character at 52.95 deg (R-C9-68). Figure scale 1.25178 (a 1.80 m body -> 2.25 m world to meet 150.2135 px). UNSOLVED -> T7-A.2 (fresh drax): 49 props do not render over the projected terrain (need ~80 m bias; projector material implicated); background layers must be a screen-space backdrop (ortho cannot parallax) and are misplaced vertically; coverage voids to measure. Captures agentic_orchestration/drax/captures/2026-09-29-cliffside3d/; desktop app staged.",
+      "ts": "2026-09-29T00:26:17"
     }
   ],
   "halts": [
