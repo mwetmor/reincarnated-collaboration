@@ -122,7 +122,15 @@ func _initialize() -> void:
 	report["missing"] = missing
 	print("[t10] placed %s ; missing %s" % [JSON.stringify(placed), JSON.stringify(missing)])
 
-	# HIM, at true scale, on the ground, as the ruler
+	# HIM, at true scale, on the ground, as the ruler -- behind a flag, because he is the
+	# one part of this scene that expects the cliffside's own setup around him, and a probe
+	# that hangs waiting for him tells you nothing about the assets.
+	var want_knight := not OS.get_cmdline_user_args().has("--no-knight")
+	print("[t10] terrain and props done; knight=%s" % want_knight)
+	if not want_knight:
+		await _shoot()
+		quit(0)
+		return
 	var k: CharacterBody3D = preload("res://scripts/knight.gd").new()
 	root3.add_child(k)
 	await process_frame
@@ -139,6 +147,11 @@ func _initialize() -> void:
 		await physics_frame
 		await process_frame
 
+	await _shoot()
+	quit(0)
+
+
+func _shoot() -> void:
 	cam = Camera3D.new()
 	cam.projection = Camera3D.PROJECTION_ORTHOGONAL
 	cam.keep_aspect = Camera3D.KEEP_HEIGHT
@@ -163,7 +176,6 @@ func _initialize() -> void:
 	var f := FileAccess.open(out_dir + "/t10_shots.json", FileAccess.WRITE)
 	f.store_string(JSON.stringify(report, " "))
 	f.close()
-	quit(0)
 
 
 func _aabb(n: Node3D) -> AABB:

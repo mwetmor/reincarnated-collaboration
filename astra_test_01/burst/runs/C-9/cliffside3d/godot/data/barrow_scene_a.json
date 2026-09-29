@@ -1,0 +1,1621 @@
+{
+ "variant": "a",
+ "px_per_metre": 140.86,
+ "mound_centre_scene_xz": [
+  0.0,
+  -4.0
+ ],
+ "default_ground": "height_a_authored",
+ "ground_note": "authored is the DEFAULT; marigold ships as a toggle for comparison",
+ "stone_scale": 1.0,
+ "assets": {
+  "standing_stone_tall": {
+   "height_m": 2.71,
+   "width_m": 0.72
+  },
+  "standing_stone_mid": {
+   "height_m": 2.71,
+   "width_m": 0.71
+  },
+  "standing_stone_short": {
+   "height_m": 1.24,
+   "width_m": 0.64
+  },
+  "barrow_lintel": {
+   "height_m": 1.18,
+   "width_m": 2.28
+  },
+  "barrow_post": {
+   "height_m": 2.04,
+   "width_m": 0.52
+  },
+  "rock_outcrop_large": {
+   "height_m": 1.84,
+   "width_m": 0.75
+  },
+  "rock_outcrop_small": {
+   "height_m": 0.54,
+   "width_m": 0.73
+  },
+  "dead_birch": {
+   "height_m": 3.36,
+   "width_m": 1.38
+  },
+  "juniper_bush": {
+   "height_m": 1.15,
+   "width_m": 0.87
+  }
+ },
+ "frames": {
+  "height_a_marigold": {
+   "grid_origin_xz": [
+    -7.942,
+    -7.831
+   ],
+   "mound_centre_in_grid_xz": [
+    4.88,
+    3.92
+   ],
+   "scene_offset_xz": [
+    -4.88,
+    -7.92
+   ],
+   "formula": "scene = (world - grid_origin) + scene_offset"
+  },
+  "height_a_authored": {
+   "grid_origin_xz": [
+    -7.049,
+    -7.088
+   ],
+   "mound_centre_in_grid_xz": [
+    4.43,
+    3.56
+   ],
+   "scene_offset_xz": [
+    -4.43,
+    -7.56
+   ],
+   "formula": "scene = (world - grid_origin) + scene_offset"
+  }
+ },
+ "instances": {
+  "height_a_marigold": [
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.808,
+     0.061
+    ],
+    "height_m": 1.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.808,
+     0.061
+    ],
+    "height_m": 1.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_tall",
+    "source": "tripo",
+    "scene_xz": [
+     4.082,
+     -4.359
+    ],
+    "height_m": 2.71,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     4.432,
+     -1.809
+    ],
+    "height_m": 1.84,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.992,
+     -4.669
+    ],
+    "height_m": 0.88,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     1.492,
+     -0.759
+    ],
+    "height_m": 2.19,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     9.802,
+     -0.669
+    ],
+    "height_m": 1.04,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.422,
+     -4.859
+    ],
+    "height_m": 0.98,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     3.222,
+     -6.319
+    ],
+    "height_m": 0.59,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.402,
+     3.381
+    ],
+    "height_m": 0.59,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.672,
+     4.571
+    ],
+    "height_m": 0.47,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.288,
+     2.071
+    ],
+    "height_m": 0.75,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     7.232,
+     -0.239
+    ],
+    "height_m": 1.3,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     2.162,
+     4.401
+    ],
+    "height_m": 1.33,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     3.902,
+     -5.359
+    ],
+    "height_m": 0.74,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     5.222,
+     -2.599
+    ],
+    "height_m": 0.52,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     6.042,
+     -0.129
+    ],
+    "height_m": 0.39,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.332,
+     1.531
+    ],
+    "height_m": 0.81,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -0.198,
+     1.781
+    ],
+    "height_m": 0.29,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     1.992,
+     -1.209
+    ],
+    "height_m": 1.87,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.362,
+     1.091
+    ],
+    "height_m": 1.11,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.522,
+     -3.519
+    ],
+    "height_m": 0.71,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     1.232,
+     -4.309
+    ],
+    "height_m": 0.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.082,
+     2.541
+    ],
+    "height_m": 0.37,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     1.472,
+     -2.599
+    ],
+    "height_m": 0.58,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -0.528,
+     -2.319
+    ],
+    "height_m": 0.57,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.932,
+     5.061
+    ],
+    "height_m": 0.91,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     1.212,
+     -0.209
+    ],
+    "height_m": 0.88,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     6.302,
+     1.931
+    ],
+    "height_m": 1.07,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "lintel",
+    "source": "tripo",
+    "scene_xz": [
+     2.222,
+     -3.129
+    ],
+    "height_m": 1.18,
+    "measured_class": "barrow_door",
+    "yaw_deg": -47.0
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.388,
+     1.271
+    ],
+    "height_m": 0.64,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     0.942,
+     1.041
+    ],
+    "height_m": 0.64,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     0.782,
+     4.581
+    ],
+    "height_m": 0.82,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -1.128,
+     0.611
+    ],
+    "height_m": 0.74,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     6.092,
+     1.041
+    ],
+    "height_m": 0.7,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     2.902,
+     -1.899
+    ],
+    "height_m": 1.84,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     1.302,
+     0.151
+    ],
+    "height_m": 0.54,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -3.278,
+     0.881
+    ],
+    "height_m": 0.54,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.232,
+     1.801
+    ],
+    "height_m": 0.66,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     3.162,
+     -1.909
+    ],
+    "height_m": 2.04,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.198,
+     -0.219
+    ],
+    "height_m": 0.59,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     3.102,
+     -0.599
+    ],
+    "height_m": 0.47,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     2.942,
+     3.441
+    ],
+    "height_m": 0.45,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_short",
+    "source": "tripo",
+    "scene_xz": [
+     2.932,
+     -3.719
+    ],
+    "height_m": 1.24,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.068,
+     0.741
+    ],
+    "height_m": 0.68,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     6.942,
+     -2.499
+    ],
+    "height_m": 0.93,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     5.392,
+     -1.069
+    ],
+    "height_m": 0.39,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     7.682,
+     -0.769
+    ],
+    "height_m": 0.58,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     6.012,
+     -0.889
+    ],
+    "height_m": 0.46,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     4.692,
+     -4.909
+    ],
+    "height_m": 0.74,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     5.902,
+     0.331
+    ],
+    "height_m": 0.51,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     4.272,
+     -4.889
+    ],
+    "height_m": 0.66,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     5.962,
+     -0.439
+    ],
+    "height_m": 0.57,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.292,
+     4.601
+    ],
+    "height_m": 0.77,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     7.002,
+     0.021
+    ],
+    "height_m": 0.29,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_tall",
+    "source": "tripo",
+    "scene_xz": [
+     4.082,
+     -4.359
+    ],
+    "height_m": 2.71,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.678,
+     0.711
+    ],
+    "height_m": 0.59,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_mid",
+    "source": "tripo",
+    "scene_xz": [
+     4.332,
+     -3.329
+    ],
+    "height_m": 2.12,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     -1.615,
+     -0.104
+    ],
+    "height_m": 1.44,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.074,
+     -4.358
+    ],
+    "height_m": 3.02,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     0.216,
+     -0.614
+    ],
+    "height_m": 2.52,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.203,
+     -2.845
+    ],
+    "height_m": 3.28,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     5.126,
+     -5.255
+    ],
+    "height_m": 1.58,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.981,
+     -1.291
+    ],
+    "height_m": 1.71,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     5.433,
+     -3.497
+    ],
+    "height_m": 1.64,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     6.582,
+     -3.076
+    ],
+    "height_m": 2.45,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     7.592,
+     -1.031
+    ],
+    "height_m": 3.35,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     2.06,
+     3.841
+    ],
+    "height_m": 1.99,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     8.779,
+     -0.214
+    ],
+    "height_m": 1.89,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "raven",
+    "source": "t9_reuse",
+    "glb": "runs/C-9/t9_props/reduced/raven.glb",
+    "height_m": 0.28,
+    "perch_on_tallest_stone": true,
+    "note": "the T9 build; perch height comes from the stone it sits on"
+   }
+  ],
+  "height_a_authored": [
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -1.251,
+     -0.322
+    ],
+    "height_m": 1.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -1.251,
+     -0.322
+    ],
+    "height_m": 1.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_tall",
+    "source": "tripo",
+    "scene_xz": [
+     3.639,
+     -4.742
+    ],
+    "height_m": 2.71,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     3.989,
+     -2.192
+    ],
+    "height_m": 1.84,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.549,
+     -5.052
+    ],
+    "height_m": 0.88,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     1.049,
+     -1.142
+    ],
+    "height_m": 2.19,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     9.359,
+     -1.052
+    ],
+    "height_m": 1.04,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.979,
+     -5.242
+    ],
+    "height_m": 0.98,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     2.779,
+     -6.702
+    ],
+    "height_m": 0.59,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.959,
+     2.998
+    ],
+    "height_m": 0.59,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.229,
+     4.188
+    ],
+    "height_m": 0.47,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.731,
+     1.688
+    ],
+    "height_m": 0.75,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     6.789,
+     -0.622
+    ],
+    "height_m": 1.3,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     1.719,
+     4.018
+    ],
+    "height_m": 1.33,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     3.459,
+     -5.742
+    ],
+    "height_m": 0.74,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     4.779,
+     -2.982
+    ],
+    "height_m": 0.52,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     5.599,
+     -0.512
+    ],
+    "height_m": 0.39,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.111,
+     1.148
+    ],
+    "height_m": 0.81,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -0.641,
+     1.398
+    ],
+    "height_m": 0.29,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     1.549,
+     -1.592
+    ],
+    "height_m": 1.87,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.081,
+     0.708
+    ],
+    "height_m": 1.11,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.079,
+     -3.902
+    ],
+    "height_m": 0.71,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.789,
+     -4.692
+    ],
+    "height_m": 0.47,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.639,
+     2.158
+    ],
+    "height_m": 0.37,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     1.029,
+     -2.982
+    ],
+    "height_m": 0.58,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -0.971,
+     -2.702
+    ],
+    "height_m": 0.57,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.489,
+     4.678
+    ],
+    "height_m": 0.91,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.769,
+     -0.592
+    ],
+    "height_m": 0.88,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_large",
+    "source": "tripo",
+    "scene_xz": [
+     5.859,
+     1.548
+    ],
+    "height_m": 1.07,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "lintel",
+    "source": "tripo",
+    "scene_xz": [
+     1.779,
+     -3.512
+    ],
+    "height_m": 1.18,
+    "measured_class": "barrow_door",
+    "yaw_deg": -47.0
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.831,
+     0.888
+    ],
+    "height_m": 0.64,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     0.499,
+     0.658
+    ],
+    "height_m": 0.64,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     0.339,
+     4.198
+    ],
+    "height_m": 0.82,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -1.571,
+     0.228
+    ],
+    "height_m": 0.74,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     5.649,
+     0.658
+    ],
+    "height_m": 0.7,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     2.459,
+     -2.282
+    ],
+    "height_m": 1.84,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     0.859,
+     -0.232
+    ],
+    "height_m": 0.54,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -3.721,
+     0.498
+    ],
+    "height_m": 0.54,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     1.789,
+     1.418
+    ],
+    "height_m": 0.66,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "post",
+    "source": "tripo",
+    "scene_xz": [
+     2.719,
+     -2.292
+    ],
+    "height_m": 2.04,
+    "measured_class": "barrow_door",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     -0.641,
+     -0.602
+    ],
+    "height_m": 0.59,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     2.659,
+     -0.982
+    ],
+    "height_m": 0.47,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     2.499,
+     3.058
+    ],
+    "height_m": 0.45,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_short",
+    "source": "tripo",
+    "scene_xz": [
+     2.489,
+     -4.102
+    ],
+    "height_m": 1.24,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -2.511,
+     0.358
+    ],
+    "height_m": 0.68,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     6.499,
+     -2.882
+    ],
+    "height_m": 0.93,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     4.949,
+     -1.452
+    ],
+    "height_m": 0.39,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     7.239,
+     -1.152
+    ],
+    "height_m": 0.58,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     5.569,
+     -1.272
+    ],
+    "height_m": 0.46,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     4.249,
+     -5.292
+    ],
+    "height_m": 0.74,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     5.459,
+     -0.052
+    ],
+    "height_m": 0.51,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     3.829,
+     -5.272
+    ],
+    "height_m": 0.66,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "heather",
+    "source": "procedural",
+    "scene_xz": [
+     5.519,
+     -0.822
+    ],
+    "height_m": 0.57,
+    "measured_class": "heather",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     0.849,
+     4.218
+    ],
+    "height_m": 0.77,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     6.559,
+     -0.362
+    ],
+    "height_m": 0.29,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_tall",
+    "source": "tripo",
+    "scene_xz": [
+     3.639,
+     -4.742
+    ],
+    "height_m": 2.71,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "rock_small",
+    "source": "tripo",
+    "scene_xz": [
+     -3.121,
+     0.328
+    ],
+    "height_m": 0.59,
+    "measured_class": "rock_outcrop",
+    "yaw_deg": null
+   },
+   {
+    "asset": "stone_mid",
+    "source": "tripo",
+    "scene_xz": [
+     3.889,
+     -3.712
+    ],
+    "height_m": 2.12,
+    "measured_class": "standing_stones",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     -2.058,
+     -0.487
+    ],
+    "height_m": 1.44,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     3.631,
+     -4.741
+    ],
+    "height_m": 3.02,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     -0.227,
+     -0.997
+    ],
+    "height_m": 2.52,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     3.76,
+     -3.228
+    ],
+    "height_m": 3.28,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.683,
+     -5.638
+    ],
+    "height_m": 1.58,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.538,
+     -1.674
+    ],
+    "height_m": 1.71,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     4.99,
+     -3.88
+    ],
+    "height_m": 1.64,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     6.139,
+     -3.459
+    ],
+    "height_m": 2.45,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     7.149,
+     -1.414
+    ],
+    "height_m": 3.35,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     1.617,
+     3.458
+    ],
+    "height_m": 1.99,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "birch",
+    "source": "tripo_or_procedural",
+    "scene_xz": [
+     8.336,
+     -0.597
+    ],
+    "height_m": 1.89,
+    "measured_class": "birch (evf mask; SAM2 never found one)",
+    "yaw_deg": null
+   },
+   {
+    "asset": "raven",
+    "source": "t9_reuse",
+    "glb": "runs/C-9/t9_props/reduced/raven.glb",
+    "height_m": 0.28,
+    "perch_on_tallest_stone": true,
+    "note": "the T9 build; perch height comes from the stone it sits on"
+   }
+  ]
+ }
+}
