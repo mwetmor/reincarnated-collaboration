@@ -22746,6 +22746,12 @@
       "topic": "The idle-scale defect: origin located; all consumed artifacts clean",
       "note": "T8-barbarian.glb patched in place the same way (its own feet measured: -0.17987 m; its armature scale a different float, read per file); 309 of 15,550,436 bytes changed; lint FAIL -> WARN exit 0. Sweep of all 31 GLBs in the run: every consumed artifact clean. ORIGIN: nb_t8/nbt_idle.glb, the raw Meshy download of library action 0 (Idle) - the other raw Meshy downloads (rigged, walk, run, attack) carry no scale track. So it is ONE library action shipping a retarget scale, not a systemic Meshy flaw; which actions carry it is unknown per-action, and the lint (scale FAIL catches single-clip files where the band rule is blind; the band rule catches multi-clip files where a 5% rule is noisy) answers it per character at no cost. Kept as evidence (conductor agrees): the raw download and both pre-fix copies.",
       "ts": "2026-09-29T09:57:54"
+    },
+    {
+      "id": "N-C9-W1D",
+      "topic": "Clip timing and hip-sway fixes at source (a1f6c92)",
+      "note": "run_armed: fps was hard-coded 30 vs the 24 fps scene AND duration was taken over keys instead of intervals (same direction, 19%); now 21 keys / 20 intervals / 0.8333 s / 3.795 m/s, every published number re-read from the shipped GLB sampler times (46_clip_timing.py). De-root now subtracts the first-to-last line (not least-squares, which does not pass through the endpoints) so the oscillation survives: hip excursion restored run 0.137, strafe L/R 0.184/0.177, idle_armed 0.528 (Axe Stance steps, net 0), walk 0.082 m. Strafe speeds: net vs stepping differ on strafe_R (it has stationary portions) - stepping is the blend speed (L 0.844, R 0.536 m/s). Lint no FAIL (only attack_chop drifts, deliberately).",
+      "ts": "2026-09-29T15:51:03"
     }
   ]
 }
