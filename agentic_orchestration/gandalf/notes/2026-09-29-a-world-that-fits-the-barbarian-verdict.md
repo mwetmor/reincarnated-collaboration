@@ -73,3 +73,20 @@ Matt: *"there is no shield grip… the shield is not moving as a shield would ne
 - an **armed carry** layer that holds the axe's orientation while the arm still swings.
 
 *— gandalf, 2026-09-29. Anchors: R-C9-67/68/69/70/71; M-C9-T7A-2, M-C9-T7B, M-C9-T9-0, M-C9-T9-SLICE.*
+
+## 6 · Amendment (Matt, R-C9-73): the Barrow, fully generated, with no Synty
+
+Matt: *"I agree with the barrow and most of the process. I want to stay away from synty though as I would like to explore a fully generated pipeline first."* The hybrid of § 2 path C is replaced by a **fully generated** path. Nothing is bought; everything comes from generators or our own code:
+
+1. **Layout from the approved concept painting:**
+   - monocular depth (fal) is unprojected through the known 52.95° orthographic camera into a true-scale heightfield;
+   - segmentation (SAM) turns each painted object into a placement;
+   - the painting's colour regions become the ground-material splat map;
+   - the painting is never projected as a texture (the T9 lesson: its light is painted in).
+2. **Assets:** Astra four-view sheets, with identity plates cut from the concept, then Tripo, then a painted albedo. Procedural trees are the fallback for thin branches.
+3. **Ground:** 4–5 Astra seamless albedo tiles, with a wrap test.
+4. **Sky and distance:** a generated panorama (the World Labs pano stage).
+5. **One render stack in code:** a watercolour light ramp shared by the world and the barbarian, screen-space ink edges, a top-face snow layer, fog, falling snow, paper grain.
+6. **Motion:** the Meshy library, native to his rig, plus text-to-motion for the gaps.
+
+If it works, the process generalises: **any approved concept painting can become a playable 3D level by the same steps.** That is the pipeline question behind the test.
