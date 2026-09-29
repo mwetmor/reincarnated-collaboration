@@ -1,0 +1,148 @@
+{
+ "alpha_sweep": {
+  "0.00": {
+   "idle_armed": {
+    "p95": 159.6,
+    "rev": 4
+   },
+   "walk_armed_m": {
+    "p95": 68.8,
+    "rev": 3
+   },
+   "run_armed_L": {
+    "p95": 122.8,
+    "rev": 1
+   },
+   "run_armed_R": {
+    "p95": 170.0,
+    "rev": 1
+   }
+  },
+  "0.30": {
+   "idle_armed": {
+    "p95": 115.4,
+    "rev": 2
+   },
+   "walk_armed_m": {
+    "p95": 48.2,
+    "rev": 2
+   },
+   "run_armed_L": {
+    "p95": 86.1,
+    "rev": 1
+   },
+   "run_armed_R": {
+    "p95": 119.2,
+    "rev": 1
+   }
+  },
+  "0.45": {
+   "idle_armed": {
+    "p95": 91.8,
+    "rev": 2
+   },
+   "walk_armed_m": {
+    "p95": 37.9,
+    "rev": 0
+   },
+   "run_armed_L": {
+    "p95": 67.7,
+    "rev": 1
+   },
+   "run_armed_R": {
+    "p95": 93.7,
+    "rev": 1
+   }
+  },
+  "0.60": {
+   "idle_armed": {
+    "p95": 67.4,
+    "rev": 2
+   },
+   "walk_armed_m": {
+    "p95": 27.6,
+    "rev": 0
+   },
+   "run_armed_L": {
+    "p95": 49.2,
+    "rev": 1
+   },
+   "run_armed_R": {
+    "p95": 68.1,
+    "rev": 1
+   }
+  },
+  "0.75": {
+   "idle_armed": {
+    "p95": 42.4,
+    "rev": 1
+   },
+   "walk_armed_m": {
+    "p95": 17.3,
+    "rev": 0
+   },
+   "run_armed_L": {
+    "p95": 30.8,
+    "rev": 0
+   },
+   "run_armed_R": {
+    "p95": 42.6,
+    "rev": 1
+   }
+  }
+ },
+ "run_blend": {
+  "run_armed_L": {
+   "lateral_drift_m": 0.0462,
+   "mean_foot_slide_m": 0.0,
+   "mean_yaw_deg": -38.79,
+   "yaw_range_deg": 6.16
+  },
+  "run_armed_R": {
+   "lateral_drift_m": 0.0457,
+   "mean_foot_slide_m": 0.0,
+   "mean_yaw_deg": -14.91,
+   "yaw_range_deg": 12.67
+  },
+  "run_armed_fwd": {
+   "lateral_drift_m": 0.0316,
+   "mean_foot_slide_m": 0.0,
+   "mean_yaw_deg": -32.4,
+   "yaw_range_deg": 4.67
+  }
+ },
+ "final_alpha": {
+  "idle_armed": 0.75,
+  "walk_armed_m": 0.45,
+  "run_armed_L": 0.45,
+  "run_armed_R": 0.6,
+  "run_armed_fwd": 0.6
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "clips": [
+   "attack",
+   "attack_chop",
+   "block",
+   "idle",
+   "idle_armed",
+   "run",
+   "run_armed",
+   "run_armed_L",
+   "run_armed_R",
+   "run_armed_unarmedsrc",
+   "shield_bash",
+   "shield_carry_L",
+   "shield_guard_L",
+   "walk",
+   "walk_armed",
+   "walk_armed_unarmedsrc"
+  ],
+  "morphs": [
+   "grip_L",
+   "grip_R",
+   "helmet_on"
+  ]
+ }
+}

@@ -421,70 +421,129 @@
    }
   },
   "final": {
-   "alpha": 0.95,
-   "locked": [
-    "idle_armed",
-    "walk_armed",
-    "run_armed",
-    "run_armed_L",
-    "run_armed_R"
+   "per_clip_alpha": {
+    "idle_armed": 0.75,
+    "walk_armed_m": 0.45,
+    "run_armed_L": 0.45,
+    "run_armed_R": 0.6,
+    "run_armed_fwd": 0.6
+   },
+   "why_per_clip": "one alpha cannot serve all four: they start from different baselines. walk_armed is the awkward one -- its RATE is already inside the 40-70 band at alpha 0 and its THREE reversals are the defect, so any lock that fixes the reversals pushes the rate below the band. Reversals win; they are the complaint metric.",
+   "sweep": {
+    "0.00": {
+     "idle_armed": {
+      "p95": 159.6,
+      "rev": 4
+     },
+     "walk_armed_m": {
+      "p95": 68.8,
+      "rev": 3
+     },
+     "run_armed_L": {
+      "p95": 122.8,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 170.0,
+      "rev": 1
+     }
+    },
+    "0.30": {
+     "idle_armed": {
+      "p95": 115.4,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 48.2,
+      "rev": 2
+     },
+     "run_armed_L": {
+      "p95": 86.1,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 119.2,
+      "rev": 1
+     }
+    },
+    "0.45": {
+     "idle_armed": {
+      "p95": 91.8,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 37.9,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 67.7,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 93.7,
+      "rev": 1
+     }
+    },
+    "0.60": {
+     "idle_armed": {
+      "p95": 67.4,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 27.6,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 49.2,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 68.1,
+      "rev": 1
+     }
+    },
+    "0.75": {
+     "idle_armed": {
+      "p95": 42.4,
+      "rev": 1
+     },
+     "walk_armed_m": {
+      "p95": 17.3,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 30.8,
+      "rev": 0
+     },
+     "run_armed_R": {
+      "p95": 42.6,
+      "rev": 1
+     }
+    }
+   },
+   "idle_reference": [
+    71.2,
+    1
    ],
-   "not_locked": [
-    "attack",
-    "attack_chop",
-    "block",
-    "shield_bash"
-   ],
-   "not_locked_why": "deliberate arm motion; a wrist lock would fight the animation",
-   "right_wrist_deg_s_p95_and_reversals": {
-    "idle": [
-     71.18,
-     1
-    ],
+   "result": {
     "idle_armed": [
-     8.66,
-     0
-    ],
-    "run": [
-     726.15,
-     7
-    ],
-    "run_armed": [
-     36.58,
+     42.4,
      1
-    ],
-    "run_armed_L": [
-     6.17,
-     0
-    ],
-    "run_armed_R": [
-     8.67,
-     0
-    ],
-    "walk": [
-     209.53,
-     5
     ],
     "walk_armed": [
-     3.36,
+     37.9,
      0
-    ]
-   },
-   "before_for_comparison": {
-    "idle": [
-     71.17,
+    ],
+    "run_armed_L": [
+     67.7,
      1
     ],
-    "walk": [
-     209.53,
-     5
-    ],
-    "run": [
-     726.15,
-     7
+    "run_armed_R": [
+     68.1,
+     1
     ]
    },
-   "dial_note": "walk_armed lands at 3.4 deg/s, calmer than the idle's 71.2. The reversal count is the complaint metric and it is 0, but if the hand reads stiff, alpha is one number: 0.85 gives 3 reversals on the unarmed run, 0.75 gives 5."
+   "previous": "alpha 0.95 everywhere, which put walk_armed at 3.4 deg/s -- a weld"
   }
  },
  "shield_grip_defect": {
@@ -514,7 +573,7 @@
     "attack_chop"
    ],
    "block": "block",
-   "left_arm_layer": "shield_guard_L while the shield is equipped -- on idle, walk, run and block. NOT on the attacks: the attack clips move the whole body and a static left-arm layer fights them.",
+   "left_arm_layer": "shield_guard_L",
    "morphs": "grip_R while the axe is equipped, grip_L while the shield is",
    "run_diagonals": [
     "run_armed_L",
@@ -543,13 +602,19 @@
    "run_armed",
    "run_armed_L",
    "run_armed_R",
+   "run_armed_diagblend_REJECTED",
    "shield_bash",
    "shield_carry_L",
    "shield_guard_L",
    "walk",
    "walk_armed",
    "walk_armed_unarmedsrc"
-  ]
+  ],
+  "rejected": {
+   "run_armed_diagblend_REJECTED": "the 50/50 blend of the two diagonals. Body yaw -32.40 deg: still angled. Both source clips lean the SAME way (-38.79 and -14.91), so their mean is the mean angle, not zero. Kept in the file only as evidence; do not use.",
+   "shield_carry_L": "see superseded above -- 128 of 1829 inside the torso",
+   "walk_armed_unarmedsrc": "the unarmed walk with the lock; walk_armed is Meshy armed motion and better"
+  }
  },
  "shield_centre_grip": {
   "face_before_world": [
@@ -596,19 +661,79 @@
   },
   "guard_layer": {
    "clip": "shield_guard_L",
-   "source": "Meshy 580 Sword and Shield Alert Turn Left, left arm chain at its peak frame",
-   "bones": [
-    "LeftShoulder",
-    "LeftArm",
-    "LeftForeArm",
-    "LeftHand"
-   ],
-   "penetration_of_1829_sampled": {
-    "guard": 12,
-    "rest": 17,
-    "carry": 128
+   "source": "Meshy 138 Block1, left-arm chain at 0.70 weight",
+   "chosen_by": "sweep, work/guard_sweep.json",
+   "sweep": {
+    "0.00": {
+     "inside": 17,
+     "boss_above_sternum_m": -0.3235,
+     "boss_fwd_m": 0.1303,
+     "boss_below_head_m": 0.7976,
+     "visible_m2": {
+      "S": 0.0568,
+      "SE": 0.2977,
+      "E": 0.4215
+     }
+    },
+    "0.50": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.0924,
+     "boss_fwd_m": 0.572,
+     "boss_below_head_m": 0.3817,
+     "visible_m2": {
+      "S": 0.1754,
+      "SE": 0.0747,
+      "E": 0.2898
+     }
+    },
+    "0.60": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.2133,
+     "boss_fwd_m": 0.5883,
+     "boss_below_head_m": 0.2608,
+     "visible_m2": {
+      "S": 0.2437,
+      "SE": 0.0015,
+      "E": 0.2247
+     }
+    },
+    "0.70": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.331,
+     "boss_fwd_m": 0.5763,
+     "boss_below_head_m": 0.1431,
+     "visible_m2": {
+      "S": 0.3092,
+      "SE": 0.0722,
+      "E": 0.1519
+     }
+    },
+    "0.80": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.4386,
+     "boss_fwd_m": 0.538,
+     "boss_below_head_m": 0.0355,
+     "visible_m2": {
+      "S": 0.3667,
+      "SE": 0.1412,
+      "E": 0.0755
+     }
+    },
+    "1.00": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.6001,
+     "boss_fwd_m": 0.399,
+     "boss_below_head_m": -0.126,
+     "visible_m2": {
+      "S": 0.438,
+      "SE": 0.2447,
+      "E": 0.0684
+     }
+    }
    },
-   "shortfall": "ss_alert_L's left arm is a LOW FORWARD carry, not a raised guard. In the S view the shield sits beside the torso rather than in front of it. The grip is right and the face now points forward; the arm position is not yet a guard. Candidate fixes: the block clip's left-arm pose, or text-to-motion for a held guard."
+   "why_070": "boss +0.331 m above the sternum and +0.576 m in front, still 0.143 m BELOW the head so the full block at 1.00 stays visibly different. 0.309 m2 of face visible from the south = 56% of the disc, against 0.057 m2 (10%) for the old carry-derived guard. Penetration 12 of 1829, unchanged.",
+   "why_not_060": "it sits nicely on every other measure and from the SOUTH-EAST the disc turns exactly edge-on: 0.002 m2. It vanishes.",
+   "viewing_note": "at 52.95 degrees the camera is high, so a shield held 0.58 m in FRONT of the chest projects BELOW and BESIDE the torso rather than overlapping it. That is projection, not placement -- the numbers say it is in front. Worth a look before calling it done."
   }
  },
  "clip_hygiene_on_merge": {
@@ -637,5 +762,30 @@
   "verdict": "WARN",
   "fails": [],
   "warns": 8
+ },
+ "gaps": {
+  "straight_armed_run": {
+   "status": "OPEN",
+   "blend_attempt": "rejected, body yaw -32.40 deg",
+   "text_to_motion": {
+    "spent_credits": 10,
+    "prompt": "running forward holding an axe in the right hand and a round shield on the left arm",
+    "duration_s": 2.0,
+    "returned": "SMPL-H FBX, 52 bones, 60 frames -- generic motion, NOT a clip on his rig",
+    "file": "anims/t2m_run_armed.fbx",
+    "remaining": "a retarget SMPL-H -> the 24-bone Meshy rig. Role map is 1:1 for 20 bones (Pelvis->Hips, Spine1/2/3->Spine/Spine01/Spine02, L_Collar->LeftShoulder, L_Shoulder->LeftArm, L_Elbow->LeftForeArm, L_Wrist->LeftHand, L_Hip/Knee/Ankle/Foot->LeftUpLeg/Leg/Foot/ToeBase, and mirrored); the 30 finger bones drop to grip_R/grip_L."
+   },
+   "shipped_meanwhile": "run_armed = the unarmed run with the wrist locked. It runs straight."
+  },
+  "armed_strafe": {
+   "status": "OPEN",
+   "note": "nothing in the library; text-to-motion is the route"
+  }
+ },
+ "credits": {
+  "w1_library": 33,
+  "w1_text_to_motion": 10,
+  "total": 43,
+  "authorised": 60
  }
 }
