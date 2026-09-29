@@ -181,7 +181,7 @@
   "cause": "a broad-shouldered figure presents his full shoulder span facing N or S and is edge-on facing E or W. The gear REDUCES the effect -- shield and mantle add bulk to the side views -- so bare is the worst case."
  },
  "clip_hygiene": {
-  "defect": "the idle clip carried a constant Hips SCALE of 1.176471 = 20/17 exactly -- a 1.70 m source retargeted to a 2.00 m target -- on a rig that is 1.85 m. Hips is the skeleton root, so the whole character was 17.6% bigger whenever he stood still. Present in Meshy's output and carried through T8 and D2 untouched; still present in nb_t8/artifacts/T8-barbarian.glb, which the exporter now neutralises on the way past.",
+  "defect": "the idle clip carried a constant Hips SCALE of 1.176471 = 20/17 exactly -- a 1.70 m source retargeted to a 2.00 m target -- on a rig that is 1.85 m. Hips is the skeleton root, so the whole character was 17.6% bigger whenever he stood still. Present in Meshy's output and carried through T8 and D2 untouched; nb_t8/artifacts/T8-barbarian.glb carried the same defect and was patched the same way on 2026-09-29 (its own offset measured independently from its own feet: -0.17987 m, matching to five decimals); the exporter also neutralises it on the way past, so a rebuild from a fresh Meshy clip is clean too.",
   "fix": {
    "scale_track": "Hips scale set to 1.0 at every key in idle",
    "reground": "idle root translation.y shifted -16.5286 glTF units (-0.17987 m), ONE constant offset derived from the feet, centred on the loop's min/max so the breathing survives",
@@ -265,7 +265,15 @@
    ],
    "note": "the residual idle-to-walk difference is posture: idle pelvis 0.905-0.942 m against walk 0.955-1.034 and rest 1.021. Bone spans are identical, so this is a relaxed stance, not a size change."
   },
-  "lint": "scripts/21_lint_export.py -- runs inside 15_export_scene.py on every export"
+  "lint": "scripts/21_lint_export.py -- runs inside 15_export_scene.py on every export",
+  "upstream_T8": {
+   "file": "nb_t8/artifacts/T8-barbarian.glb",
+   "patched": "2026-09-29",
+   "lint": "FAIL -> WARN (exit 0)",
+   "before_state_kept": "nb_t8/work/T8-barbarian-preclipfix.glb (not tracked in git)",
+   "bytes_changed": "309 of 15,550,436, all inside accessors 82 (idle/Hips.translation) and 85 (idle/Hips.scale); JSON chunk byte-identical",
+   "note": "the armature node scale here is 0.010882347822189331 against nb-body's 0.010882345028221607 -- different floats in the two files, which is why the patcher reads the factor from each file instead of reusing a constant"
+  }
  },
  "screen_size_by_clip_S_52.95": {
   "before_idle": {

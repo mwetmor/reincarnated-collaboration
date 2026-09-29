@@ -1,0 +1,261 @@
+{
+ "file": "nb_t8/artifacts/T8-barbarian.glb",
+ "rest": {
+  "height": 1.85,
+  "floor": -0.0,
+  "hips_z": 1.0207,
+  "spans": {
+   "LeftShoulder-RightShoulder": 0.08492,
+   "Head-head_end": 0.22082,
+   "LeftArm-LeftForeArm": 0.28915
+  }
+ },
+ "before": {
+  "attack": {
+   "frames": [
+    0,
+    36
+   ],
+   "mid": 18,
+   "foot": {
+    "min": 0.0644,
+    "max": 0.0886,
+    "spread_cm": 2.42
+   },
+   "height": {
+    "min": 1.516,
+    "max": 1.7711,
+    "median": 1.5786,
+    "at_mid": 1.6644
+   },
+   "hips_z": {
+    "min": 0.8682,
+    "max": 1.033
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  },
+  "idle": {
+   "frames": [
+    0,
+    96
+   ],
+   "mid": 48,
+   "foot": {
+    "min": 0.0091,
+    "max": 0.0246,
+    "spread_cm": 1.56
+   },
+   "height": {
+    "min": 2.0226,
+    "max": 2.0514,
+    "median": 2.0394,
+    "at_mid": 2.0226
+   },
+   "hips_z": {
+    "min": 1.0852,
+    "max": 1.1218
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.09991,
+    "Head-head_end": 0.25979,
+    "LeftArm-LeftForeArm": 0.34018
+   }
+  },
+  "run": {
+   "frames": [
+    0,
+    16
+   ],
+   "mid": 8,
+   "foot": {
+    "min": -0.0397,
+    "max": 0.0709,
+    "spread_cm": 11.06
+   },
+   "height": {
+    "min": 1.7255,
+    "max": 1.8258,
+    "median": 1.7732,
+    "at_mid": 1.7575
+   },
+   "hips_z": {
+    "min": 0.9291,
+    "max": 0.9987
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  },
+  "walk": {
+   "frames": [
+    0,
+    25
+   ],
+   "mid": 12,
+   "foot": {
+    "min": -0.0218,
+    "max": -0.0032,
+    "spread_cm": 1.87
+   },
+   "height": {
+    "min": 1.792,
+    "max": 1.8623,
+    "median": 1.8238,
+    "at_mid": 1.8352
+   },
+   "hips_z": {
+    "min": 0.955,
+    "max": 1.0336
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  }
+ },
+ "stripped": {
+  "idle": {
+   "Hips": [
+    1.17647,
+    1.176471
+   ]
+  }
+ },
+ "grounded": {
+  "idle": {
+   "dz": -0.179869,
+   "basis_delta": [
+    -1.456227,
+    -16.240234,
+    -2.706807
+   ],
+   "keys": 291,
+   "before": {
+    "min": 0.1705,
+    "max": 0.1892
+   },
+   "after": {
+    "min": -0.0093,
+    "max": 0.0093,
+    "worst_cm": 0.93
+   }
+  }
+ },
+ "after": {
+  "attack": {
+   "frames": [
+    0,
+    36
+   ],
+   "mid": 18,
+   "foot": {
+    "min": 0.0644,
+    "max": 0.0886,
+    "spread_cm": 2.42
+   },
+   "height": {
+    "min": 1.516,
+    "max": 1.7711,
+    "median": 1.5786,
+    "at_mid": 1.6644
+   },
+   "hips_z": {
+    "min": 0.8682,
+    "max": 1.033
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  },
+  "idle": {
+   "frames": [
+    0,
+    96
+   ],
+   "mid": 48,
+   "foot": {
+    "min": -0.0093,
+    "max": 0.0093,
+    "spread_cm": 1.87
+   },
+   "height": {
+    "min": 1.7192,
+    "max": 1.7437,
+    "median": 1.7335,
+    "at_mid": 1.7192
+   },
+   "hips_z": {
+    "min": 0.9054,
+    "max": 0.942
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  },
+  "run": {
+   "frames": [
+    0,
+    16
+   ],
+   "mid": 8,
+   "foot": {
+    "min": -0.0397,
+    "max": 0.0709,
+    "spread_cm": 11.06
+   },
+   "height": {
+    "min": 1.7255,
+    "max": 1.8258,
+    "median": 1.7732,
+    "at_mid": 1.7575
+   },
+   "hips_z": {
+    "min": 0.9291,
+    "max": 0.9987
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  },
+  "walk": {
+   "frames": [
+    0,
+    25
+   ],
+   "mid": 12,
+   "foot": {
+    "min": -0.0218,
+    "max": -0.0032,
+    "spread_cm": 1.87
+   },
+   "height": {
+    "min": 1.792,
+    "max": 1.8623,
+    "median": 1.8238,
+    "at_mid": 1.8352
+   },
+   "hips_z": {
+    "min": 0.955,
+    "max": 1.0336
+   },
+   "spans_at_mid": {
+    "LeftShoulder-RightShoulder": 0.08492,
+    "Head-head_end": 0.22082,
+    "LeftArm-LeftForeArm": 0.28915
+   }
+  }
+ }
+}
