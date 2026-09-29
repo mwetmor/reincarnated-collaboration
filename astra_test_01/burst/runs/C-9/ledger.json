@@ -19772,6 +19772,12 @@
       "topic": "Disk emergency: free space fell to 37.8-38 GiB (KC2 halted again below its 40 GiB floor)",
       "note": "Cause: C-9 subagents' uncompressed capture frame dumps in this session's shared scratchpad (T7-A iterations capF-capK/cap1 ~2.9 GB; knight-phase mp4 frame folders; old idle_* test folders); plus a drax peak of ~7.7 GB scratch during the manticore assembly. Action (charter s4, this run's own scratch): deleted 70 scratchpad sub-folders idle >= 20 min, 5.63 GB; kept 7 folders written in the last 20 min (running agents). Manifest cleanup/manifest_scratchpad.json. Free space back to 43 GiB (df -h). New standing rules sent to active agents: encode captures straight to video, no frame dumps left behind; the session scratchpad is SHARED - never glob-delete, own sub-folders only; check df -h before any >500 MB write and stop below 42 GiB. A background disk watch now wakes the conductor below 42 GiB.",
       "ts": "2026-09-29T00:41:07"
+    },
+    {
+      "id": "N-C9-CLEANUP-3",
+      "topic": "R-C9-70 cleanup round 2a executed: C-5/t3 (audited manifest)",
+      "note": "Disk watch fired at 40 GiB (steady ~2 GB/30 min from this run: drax captures, renders, transcripts, Godot Metal caches); heavy writers PAUSED per charter s4 (T8, T7-A.2). Executed the audited manifest cleanup/manifest_c5_t3.json(.gz) (subagent audit; committed before deletion): 55,879 files, 5.87 GB, 0 skipped on re-verification (untracked, exists, size match, kept-type guard). SUPERSEDED 2.24 GB (FL1-fire-8dir-v43, superseded by v44 per R-C5-136/R-C5-138; FL-2b per R-C5-96/97) + REGENERABLE 3.62 GB (Movie-Maker bakes, raw frames whose videos are kept, byte-identical copies of artifacts of record, Godot import caches). NOT deleted: the conditional v44 raw frames (2.15 GB; the final pack) - kept. Free 40 -> 46 GiB; agents RESUMED; disk watch re-armed at 42 GiB. Log cleanup/deletions_c5_t3.log.gz.",
+      "ts": "2026-09-29T00:57:44"
     }
   ]
 }
