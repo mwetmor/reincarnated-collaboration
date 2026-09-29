@@ -20330,6 +20330,12 @@
       "topic": "R-C9-70 cleanup round 2b: capture frame dumps (audited manifest, split)",
       "note": "Audit (subagent) manifest_captures.json: 16,528 files, 12.47 GB. EXECUTED the drax part only: 1,440 files, 6.72 GB, 0 skipped (c8-whirlwind A/B of superseded builds warlord2/3; w4 superseded by warlord5; w5 = current playable - its cap/ frames are the exact source of the kept whirlwind_warlord5.mp4; the NYQUIST-1-invalidated physics-frame trial captures). Kept: every MP4, the strips, the builds (runs/C-8/cliffside_v40-warlord*, lineage) and the tracked capture scripts (re-capturable). HELD for Matt: the galadriel part (15,088 files, 5.75 GB, July-August captures): its regenerability rests on source videos that exist ONLY on the external volume /Volumes/reincarnated (4.23 GB re-extracted and matched file by file; 1.52 GB on the author declaration + proven source), and it reverses galadriel 2026-09-10 keep decision (her open NEEDS-MATT item 1). Also kept by the audit: C-5 v44 final-pack raw frames (2.15 GB, conditional). Free space 55 -> 60 GiB. Cumulative R-C9-70 cleanup so far: 4.71 + 5.63 (scratch) + 5.87 + 6.72 = 22.93 GB.",
       "ts": "2026-09-29T01:34:47"
+    },
+    {
+      "id": "N-C9-D2-SHIELD",
+      "topic": "D2 shield vs the run clip: design call (gandalf SCENEWRIGHT; Matt may override)",
+      "note": "Measured (D2 drax, crossing-parity inside-test): after re-binding, shield penetration fell idle 110->3, attack 196->111, walk 285->264 vertices (of 1,864 sampled), but the RUN stays 280-430 across every bind sweep (outward 0.09-0.24 m, forward -0.15..+0.30, tilt 0.25-0.70, diameter 0.70-0.87, upper-arm bind): the left elbow never comes closer than 0.37 m to the spine while the shield radius is 0.41 m, so the rim reaches into the torso whatever the bind; it clears only below ~0.19 m radius (a buckler). DECISION: keep the full round shield; add an equipment-driven layer shield_carry_L (a single-pose clip on the shared rig, filtered to the left arm chain) blended over idle/walk/run when the shield is equipped (not over attack) - the standard shield-bearer solution, reusable by every shield-carrying character. Also done: axe edge marked (empty axe_edge; strike f16 edge +0.643 m beyond the hand, LEADS in 23 of 36 frames); bracer slivers removed (10 -> 2 objects). Instrument lesson recorded: a bounded nearest-surface test read a clean pass because the bound excluded the deepest penetrations.",
+      "ts": "2026-09-29T03:42:08"
     }
   ]
 }
