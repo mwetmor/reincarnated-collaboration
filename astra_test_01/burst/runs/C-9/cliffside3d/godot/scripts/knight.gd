@@ -105,6 +105,7 @@ var _strafe_w := 0.0
 var _block_req_frame := -1
 var _armed := false
 var _root_speeds := {}
+var _manifest_px_s := {}
 var _root_dirs := {}
 var _strafing := false
 var _strafe_side := "l"
@@ -145,6 +146,7 @@ func _ready() -> void:
 		_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 		for n in _anim.get_animation_list():
 			_clip_len[n] = _anim.get_animation(n).length
+	_manifest_px_s = _read_manifest_speeds()
 	_root_speeds = _deroot_all()
 	var fa = cfg.get("forward_axis", null)
 	if fa != null:
@@ -1052,11 +1054,49 @@ func _clip_px_s(role: String, key: String, key_armed: String, fallback: float) -
 	return clip_px_s(clip, key, key_armed, fallback)
 
 
+func _read_manifest_speeds() -> Dictionary:
+	"""Locomotion speeds READ FROM THE SHIPPED EXPORT MANIFEST, not copied into this scene's
+	own config. Two rounds running, a hand-copied number went stale against a re-export --
+	a duration that was 19% wrong, then speeds measured by a different method -- and a copy
+	is the thing that goes stale. The manifest travels with the GLB, so it cannot.
+
+	STEPPING, where the manifest offers it. Net displacement over a whole clip is the wrong
+	number for a blend space whenever the clip has stationary portions: strafe_R's net is
+	0.340 m/s against a stepping 0.536, because it stands still for part of the clip, and a
+	blend space drives the body only while he is travelling. Where there is no stepping
+	figure, `speed_m_s` over one gait cycle is the same quantity."""
+	var out := {}
+	var path := String(cfg.get("gear_manifest", ""))
+	if path == "" or not ResourceLoader.exists(path):
+		return out
+	var raw = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not (raw is Dictionary):
+		return out
+	var lip = (raw as Dictionary).get("locomotion_in_place", null)
+	if not (lip is Dictionary):
+		return out
+	for name in (lip as Dictionary):
+		var e = (lip as Dictionary)[name]
+		if not (e is Dictionary):
+			continue
+		var v = (e as Dictionary).get("stepping_speed_m_s", (e as Dictionary).get("speed_m_s", null))
+		if v == null:
+			continue
+		out[String(name)] = float(v) * PPM
+	if not out.is_empty():
+		print("manifest speeds (canvas px/s at the reference scale): %s" % str(out))
+	return out
+
+
 func clip_px_s(clip: String, key: String, key_armed: String, fallback: float) -> float:
 	"""A clip's OWN measured stance rate, rescaled to the live figure, in preference to any
 	per-role number. The clips no longer travel -- the export de-roots at source now -- so
 	there is no track left to read a speed off, and the measurement in `clip_px_s` is what
 	replaces it."""
+	if _manifest_px_s.has(clip):
+		var at2: float = float(cfg.get("speed_measured_at_scale", 0.0))
+		var m: float = float(_manifest_px_s[clip])
+		return m * (_figure_scale / at2) if at2 > 0.0 else m
 	var tbl: Dictionary = cfg.get("clip_px_s", {})
 	if tbl.has(clip):
 		var at: float = float(cfg.get("speed_measured_at_scale", 0.0))
