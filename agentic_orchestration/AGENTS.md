@@ -33,22 +33,24 @@ This team is structured to attack all four. It is **not** primarily about parall
 >
 > **Model re-pin + legolas role split — 2026-07-24 (Matt-ratified, commit `57172ddb`).** Claude Opus 5 launched at Opus 4.8's exact price point, making the upgrade cost-neutral; the team moved to it except one deliberate cheap lane. `legolas` split into two agents on two models along the known/unknown boundary. **The Model column below is a MIRROR — `.claude/agents/<name>.md` frontmatter is the source of truth.** This column had silently drifted from the live pins before the 2026-07-24 audit (it listed five agents as Sonnet who were actually on Opus 4.8); if they disagree again, the frontmatter wins and this table is the bug.
 
+> **Re-pin to Opus 5.5 — 2026-09-29 (Matt directive: "opus 5.5 is now cheaper and more capable than other models").** Nine agents moved `claude-opus-5` → `claude-opus-5-5`. `legolas` held on Opus 5 pending Matt's reading of "except Legolas"; `legolas-crawler` stays on Haiku 4.5, the deliberate cheap lane. Running agents keep the model they started with; only new spawns change.
+
 ### The team (12 entities)
 
 | Entity | Role | Model | Writes production code? |
 |---|---|---|---|
 | **Matt** (Senior Architect) | Final approval; design direction | (human) | No (reviews) |
-| `knight-rider` | Orchestrator / Communicator | **Opus 5** | **No** — coordinates only |
-| `jack-ryan` | Analyst / QA — technical critique side | **Opus 5** | **No** — reviews + maintains design docs |
-| `gandalf` | Story and Design Steward — generative critique side | **Opus 5** | **No** — design docs and pushback only |
-| `rocket` | Developer (content generation) | **Opus 5** | Yes |
-| `gamora` | Developer (simulation + spirit guide) | **Opus 5** | Yes |
-| `star-lord` | Developer (output / telemetry / LLM) | **Opus 5** | Yes |
-| `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5** | Yes |
+| `knight-rider` | Orchestrator / Communicator | **Opus 5.5** | **No** — coordinates only |
+| `jack-ryan` | Analyst / QA — technical critique side | **Opus 5.5** | **No** — reviews + maintains design docs |
+| `gandalf` | Story and Design Steward — generative critique side | **Opus 5.5** | **No** — design docs and pushback only |
+| `rocket` | Developer (content generation) | **Opus 5.5** | Yes |
+| `gamora` | Developer (simulation + spirit guide) | **Opus 5.5** | Yes |
+| `star-lord` | Developer (output / telemetry / LLM) | **Opus 5.5** | Yes |
+| `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5.5** | Yes |
 | `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5** | **No** — read-only research output |
 | `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Haiku 4.5** | **No** — read-only extraction output |
-| `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5** | **No** — schemas, curation, abstraction analysis |
-| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
+| `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5.5** | **No** — schemas, curation, abstraction analysis |
+| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5.5** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
 
 **The known/unknown research split (Matt ruling, 2026-07-24).** The research seam divides on whether the territory is mapped. `legolas` establishes method where none exists; `legolas-crawler` executes method at volume where it does. *He finds out how; the crawler does it at volume.* The cheap lane is safe only under two conditions written into its charter: (1) the **non-improvisation law** — it HALTs and escalates rather than guessing, and a HALT is a success, not a failure; (2) the **TSR-4 tier-2 dependency** — it may only feed lanes carrying in-pipe mechanical asserts on every row. An unguarded lane does not get the cheap crawler.
 

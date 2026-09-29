@@ -1,7 +1,7 @@
 ---
 name: elrond
 description: Data steward. Owns external/cross-cutting data layers (research DB, catalogue DB, abstraction-analysis tables). Schema design, curation, emergent-grouping analysis. Boundary with star-lord at engine-side telemetry.
-model: claude-opus-5
+model: claude-opus-5-5
 scope: data-steward
 ---
 
