@@ -1,0 +1,584 @@
+{
+ "rocks": {
+  "variant": "b",
+  "mirror_iou": 0.934,
+  "front_azimuth_deg": 115,
+  "front_iou": 0.901,
+  "front_iou_spread_over_azimuth": 0.255,
+  "sheet_iou_tripo": {
+   "front": 0.902,
+   "back": 0.715,
+   "left": 0.87,
+   "right": 0.884
+  },
+  "sheet_iou_reduced": {
+   "front": 0.901,
+   "back": 0.715,
+   "left": 0.867,
+   "right": 0.883
+  },
+  "sheet_iou_tripo_mean": 0.843,
+  "sheet_iou_reduced_mean": 0.842,
+  "side_pair_asis": 0.875,
+  "side_pair_swapped": 0.55,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": null,
+   "reduced": null,
+   "thin_px": 3,
+   "tripo_tol4px": null,
+   "reduced_tol4px": null
+  },
+  "thin_recall_reduced_vs_tripo": null,
+  "thin_width": {
+   "sheet": {
+    "median_w": 249,
+    "p90_w": 250,
+    "thin_px": 3,
+    "area_px": 44713,
+    "thin_frac": 0.0001
+   },
+   "raw": {
+    "median_w": 6,
+    "p90_w": 163,
+    "thin_px": 13,
+    "area_px": 45310,
+    "thin_frac": 0.0003
+   },
+   "red": {
+    "median_w": 4,
+    "p90_w": 5,
+    "thin_px": 8,
+    "area_px": 45234,
+    "thin_frac": 0.0002
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9959,
+   "min": 0.985,
+   "worst_az": 25,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9962,
+   "min": 0.9875,
+   "worst_az": 240,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1480532,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 648,
+   "reduced": 648
+  },
+  "boundary_edges": {
+   "tripo": 324,
+   "reduced": 324
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   1.0,
+   0.970201,
+   0.975161
+  ],
+  "size_gltf_reduced": [
+   1.000782,
+   0.970552,
+   0.976252
+  ]
+ },
+ "stump": {
+  "variant": "b",
+  "mirror_iou": 0.882,
+  "front_azimuth_deg": 110,
+  "front_iou": 0.74,
+  "front_iou_spread_over_azimuth": 0.186,
+  "sheet_iou_tripo": {
+   "front": 0.736,
+   "back": 0.749,
+   "left": 0.672,
+   "right": 0.648
+  },
+  "sheet_iou_reduced": {
+   "front": 0.74,
+   "back": 0.749,
+   "left": 0.671,
+   "right": 0.647
+  },
+  "sheet_iou_tripo_mean": 0.701,
+  "sheet_iou_reduced_mean": 0.702,
+  "side_pair_asis": 0.659,
+  "side_pair_swapped": 0.601,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.341,
+   "reduced": 0.32,
+   "thin_px": 678,
+   "tripo_tol4px": 0.588,
+   "reduced_tol4px": 0.583
+  },
+  "thin_recall_reduced_vs_tripo": 0.705,
+  "thin_width": {
+   "sheet": {
+    "median_w": 9,
+    "p90_w": 124,
+    "thin_px": 678,
+    "area_px": 29927,
+    "thin_frac": 0.0227
+   },
+   "raw": {
+    "median_w": 9,
+    "p90_w": 124,
+    "thin_px": 413,
+    "area_px": 28510,
+    "thin_frac": 0.0145
+   },
+   "red": {
+    "median_w": 11,
+    "p90_w": 123,
+    "thin_px": 425,
+    "area_px": 28479,
+    "thin_frac": 0.0149
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9818,
+   "min": 0.969,
+   "worst_az": 270,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9731,
+   "min": 0.9518,
+   "worst_az": 105,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1496900,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 536,
+   "reduced": 536
+  },
+  "boundary_edges": {
+   "tripo": 268,
+   "reduced": 268
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.910048,
+   0.931807,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.913059,
+   0.937012,
+   1.002162
+  ]
+ },
+ "log": {
+  "variant": "a",
+  "mirror_iou": 0.874,
+  "front_azimuth_deg": 85,
+  "front_iou": 0.953,
+  "front_iou_spread_over_azimuth": 0.653,
+  "sheet_iou_tripo": {
+   "front": 0.948,
+   "back": 0.902,
+   "left": 0.728,
+   "right": 0.743
+  },
+  "sheet_iou_reduced": {
+   "front": 0.953,
+   "back": 0.905,
+   "left": 0.73,
+   "right": 0.745
+  },
+  "sheet_iou_tripo_mean": 0.83,
+  "sheet_iou_reduced_mean": 0.833,
+  "side_pair_asis": 0.738,
+  "side_pair_swapped": 0.713,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.669,
+   "reduced": 0.688,
+   "thin_px": 263,
+   "tripo_tol4px": 1.0,
+   "reduced_tol4px": 1.0
+  },
+  "thin_recall_reduced_vs_tripo": 0.875,
+  "thin_width": {
+   "sheet": {
+    "median_w": 16,
+    "p90_w": 251,
+    "thin_px": 263,
+    "area_px": 16159,
+    "thin_frac": 0.0163
+   },
+   "raw": {
+    "median_w": 14,
+    "p90_w": 249,
+    "thin_px": 337,
+    "area_px": 16230,
+    "thin_frac": 0.0208
+   },
+   "red": {
+    "median_w": 13,
+    "p90_w": 250,
+    "thin_px": 300,
+    "area_px": 16205,
+    "thin_frac": 0.0185
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9899,
+   "min": 0.9748,
+   "worst_az": 120,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.985,
+   "min": 0.9709,
+   "worst_az": 345,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1496106,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 204,
+   "reduced": 204
+  },
+  "boundary_edges": {
+   "tripo": 102,
+   "reduced": 102
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.299791,
+   0.346013,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.301719,
+   0.347128,
+   1.001217
+  ]
+ },
+ "cairn": {
+  "variant": "a",
+  "mirror_iou": 0.972,
+  "front_azimuth_deg": 95,
+  "front_iou": 0.954,
+  "front_iou_spread_over_azimuth": 0.275,
+  "sheet_iou_tripo": {
+   "front": 0.955,
+   "back": 0.95,
+   "left": 0.934,
+   "right": 0.935
+  },
+  "sheet_iou_reduced": {
+   "front": 0.954,
+   "back": 0.95,
+   "left": 0.934,
+   "right": 0.935
+  },
+  "sheet_iou_tripo_mean": 0.944,
+  "sheet_iou_reduced_mean": 0.943,
+  "side_pair_asis": 0.935,
+  "side_pair_swapped": 0.859,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": null,
+   "reduced": null,
+   "thin_px": 19,
+   "tripo_tol4px": null,
+   "reduced_tol4px": null
+  },
+  "thin_recall_reduced_vs_tripo": null,
+  "thin_width": {
+   "sheet": {
+    "median_w": 254,
+    "p90_w": 255,
+    "thin_px": 19,
+    "area_px": 33355,
+    "thin_frac": 0.0006
+   },
+   "raw": {
+    "median_w": 87,
+    "p90_w": 256,
+    "thin_px": 30,
+    "area_px": 32282,
+    "thin_frac": 0.0009
+   },
+   "red": {
+    "median_w": 86,
+    "p90_w": 256,
+    "thin_px": 27,
+    "area_px": 32258,
+    "thin_frac": 0.0008
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9922,
+   "min": 0.9824,
+   "worst_az": 90,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9957,
+   "min": 0.9891,
+   "worst_az": 255,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1478944,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 496,
+   "reduced": 496
+  },
+  "boundary_edges": {
+   "tripo": 248,
+   "reduced": 248
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.693774,
+   0.916949,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.69424,
+   0.917696,
+   1.000305
+  ]
+ },
+ "skull": {
+  "variant": "b",
+  "mirror_iou": 0.754,
+  "front_azimuth_deg": 95,
+  "front_iou": 0.74,
+  "front_iou_spread_over_azimuth": 0.474,
+  "sheet_iou_tripo": {
+   "front": 0.741,
+   "back": 0.618,
+   "left": 0.617,
+   "right": 0.679
+  },
+  "sheet_iou_reduced": {
+   "front": 0.74,
+   "back": 0.617,
+   "left": 0.616,
+   "right": 0.678
+  },
+  "sheet_iou_tripo_mean": 0.664,
+  "sheet_iou_reduced_mean": 0.663,
+  "side_pair_asis": 0.647,
+  "side_pair_swapped": 0.377,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.483,
+   "reduced": 0.467,
+   "thin_px": 964,
+   "tripo_tol4px": 0.939,
+   "reduced_tol4px": 0.927
+  },
+  "thin_recall_reduced_vs_tripo": 0.904,
+  "thin_width": {
+   "sheet": {
+    "median_w": 7,
+    "p90_w": 34,
+    "thin_px": 964,
+    "area_px": 21509,
+    "thin_frac": 0.0448
+   },
+   "raw": {
+    "median_w": 6,
+    "p90_w": 53,
+    "thin_px": 1189,
+    "area_px": 22018,
+    "thin_frac": 0.054
+   },
+   "red": {
+    "median_w": 6,
+    "p90_w": 51,
+    "thin_px": 1161,
+    "area_px": 21976,
+    "thin_frac": 0.0528
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.977,
+   "min": 0.9447,
+   "worst_az": 25,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9733,
+   "min": 0.9492,
+   "worst_az": 270,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1427370,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 6,
+   "reduced": 6
+  },
+  "nonmanifold_edges": {
+   "tripo": 396,
+   "reduced": 396
+  },
+  "boundary_edges": {
+   "tripo": 198,
+   "reduced": 198
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.807894,
+   0.866287,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.809608,
+   0.866586,
+   1.001333
+  ]
+ },
+ "shield": {
+  "variant": "b",
+  "mirror_iou": 0.768,
+  "front_azimuth_deg": 90,
+  "front_iou": 0.842,
+  "front_iou_spread_over_azimuth": 0.605,
+  "sheet_iou_tripo": {
+   "front": 0.842,
+   "back": 0.769,
+   "left": 0.857,
+   "right": 0.81
+  },
+  "sheet_iou_reduced": {
+   "front": 0.842,
+   "back": 0.773,
+   "left": 0.857,
+   "right": 0.808
+  },
+  "sheet_iou_tripo_mean": 0.82,
+  "sheet_iou_reduced_mean": 0.82,
+  "side_pair_asis": 0.833,
+  "side_pair_swapped": 0.182,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.336,
+   "reduced": 0.336,
+   "thin_px": 110,
+   "tripo_tol4px": 0.945,
+   "reduced_tol4px": 0.945
+  },
+  "thin_recall_reduced_vs_tripo": 0.946,
+  "thin_width": {
+   "sheet": {
+    "median_w": 14,
+    "p90_w": 137,
+    "thin_px": 110,
+    "area_px": 17887,
+    "thin_frac": 0.0061
+   },
+   "raw": {
+    "median_w": 13,
+    "p90_w": 130,
+    "thin_px": 130,
+    "area_px": 16454,
+    "thin_frac": 0.0079
+   },
+   "red": {
+    "median_w": 12,
+    "p90_w": 130,
+    "thin_px": 132,
+    "area_px": 16536,
+    "thin_frac": 0.008
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9765,
+   "min": 0.9218,
+   "worst_az": 155,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9861,
+   "min": 0.9507,
+   "worst_az": 0,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1444660,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 228,
+   "reduced": 228
+  },
+  "boundary_edges": {
+   "tripo": 114,
+   "reduced": 114
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.412178,
+   1.0,
+   0.539913
+  ],
+  "size_gltf_reduced": [
+   0.412398,
+   1.00001,
+   0.539707
+  ]
+ }
+}
