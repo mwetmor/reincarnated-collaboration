@@ -1,0 +1,1151 @@
+{
+ "test": "C-9 T6 -- 3D generator bake-off on fal.ai, judged against Meshy (Matt R-C9-66)",
+ "camera": {
+  "projection": "orthographic",
+  "elevation_deg": 52.95354112560294,
+  "authority": "Matt R-C9-68 -- the world camera\u2019s real angle, NOT the 19.77\u00b0 sprite convention",
+  "silhouette_pass_elevation_deg": 0.0,
+  "silhouette_pass_reason": "the painted plates are flat orthographic; an IoU against them must be measured in their own projection. Doubles as the 0\u00b0 side-on geometry read."
+ },
+ "normalisation": {
+  "frame": "Z up, character faces +Y, feet on z=0, midline x=0, height 1.0 m",
+  "azimuth_0": "camera at +Y, sees the face",
+  "mirror_policy": "a flip is applied only on evidence >= 0.05 margin; no model cleared that bar, so NO model was mirrored. Both Tripo models reject the flip decisively (margin ~0.38); every 180\u00b0 model is within ~0.006 either way, which is noise on a bilaterally symmetric subject."
+ },
+ "models": {
+  "knight_meshy": {
+   "subject": "knight",
+   "generator": "meshy",
+   "label": "Meshy (baseline)",
+   "endpoint": "meshy multi-image-to-3d",
+   "views_given": "front,right,back,left",
+   "sha256": "c294053cc1235ea93032f1eae14fd1ee386576902f979469e3687f146e6417a3",
+   "glb_mb": 7.55,
+   "elapsed_s": 210.8,
+   "price_usd_per_generation": null,
+   "price_published": "30 credits (\"Multi-Image to 3D ... Mesh with 2K textures - 30 credits\"), confirmed by the task's own consumed_credits=30.",
+   "price_basis": "DERIVED, not published: Meshy publishes NO dollars-per-credit rate anywhere. Plan price / included credits gives $0.60 on Pro ($20 / 1,000 cr), $0.40 on Premium ($40 / 3,000), $0.375 on Ultra ($100 / 8,000). Not like-for-like with fal: fal bills marginally per request, this is a subscription rate amortised over a monthly allotment that does not roll over, so it holds only at full utilisation.",
+   "price_source": "https://docs.meshy.ai/en/api/pricing + https://help.meshy.ai/en/articles/12062933",
+   "triangles": 115567,
+   "vertices": 58198,
+   "triangles_as_delivered": 115567,
+   "vertices_as_delivered": 89553,
+   "textures": [
+    "2048x2048"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 20,
+   "main_island_area_frac": 0.999603,
+   "floating_fragments_lt1pct": 19,
+   "fragment_area_pct": 0.0397,
+   "island_area_fracs_top8": [
+    0.999603,
+    0.000147,
+    6.9e-05,
+    4.1e-05,
+    3.1e-05,
+    1.3e-05,
+    1.2e-05,
+    1.1e-05
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 0.0147,
+     "tris": 23,
+     "bbox_min": [
+      0.101,
+      -0.035,
+      0.689
+     ],
+     "bbox_max": [
+      0.106,
+      -0.021,
+      0.703
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0069,
+     "tris": 8,
+     "bbox_min": [
+      0.046,
+      0.048,
+      0.549
+     ],
+     "bbox_max": [
+      0.052,
+      0.05,
+      0.561
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0041,
+     "tris": 6,
+     "bbox_min": [
+      0.089,
+      -0.027,
+      0.512
+     ],
+     "bbox_max": [
+      0.096,
+      -0.024,
+      0.517
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0031,
+     "tris": 6,
+     "bbox_min": [
+      -0.016,
+      0.054,
+      0.54
+     ],
+     "bbox_max": [
+      -0.013,
+      0.058,
+      0.548
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0013,
+     "tris": 2,
+     "bbox_min": [
+      0.08,
+      0.052,
+      0.447
+     ],
+     "bbox_max": [
+      0.084,
+      0.053,
+      0.452
+     ],
+     "outside_main_body_xy": false
+    }
+   ],
+   "detached_area_pct_total": 0.0301,
+   "largest_detached_pct": 0.0147,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 333,
+   "boundary_edges": 1927,
+   "approx_watertight": false,
+   "euler_characteristic": -249,
+   "surface_area_m2": 1.38652,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.0377,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0239,
+   "silhouette_iou": {
+    "front": 0.7702,
+    "right": 0.7067,
+    "back": 0.7865,
+    "left": 0.716
+   },
+   "silhouette_iou_mean": 0.7449,
+   "silhouette_iou_mean_ex_back": 0.731,
+   "silhouette_iou_mean_trim1_99": 0.7542,
+   "plate_colour_agreement": {
+    "front": 0.5374,
+    "right": 0.4973,
+    "back": 0.5034,
+    "left": 0.4908
+   },
+   "rig_probe": {
+    "tris": 115567,
+    "decimate_ratio_to_300k": 1.0,
+    "under_300k_as_delivered": true,
+    "islands": 20,
+    "main_island_area_frac": 0.999603,
+    "single_humanoid_island": true,
+    "floating_fragments": 19,
+    "arm_gap_max_runs": 5,
+    "arm_gap_at_height_frac": 0.641,
+    "arm_gap_widths_px": [
+     3,
+     11,
+     13,
+     3
+    ],
+    "arm_gap_rows_in_torso_band": 121,
+    "arms_clear_of_torso": true
+   }
+  },
+  "knight_hunyuan3d_31_pro": {
+   "subject": "knight",
+   "generator": "hunyuan3d_31_pro",
+   "label": "Hunyuan3D 3.1 Pro",
+   "endpoint": "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+   "views_given": "front,left,right,back",
+   "sha256": "0512fa52fac3db52e3d70caf3a5c080fbf529816d4cfc9c414c30aadca4e1b82",
+   "glb_mb": 34.99,
+   "elapsed_s": 159.9,
+   "price_usd_per_generation": 0.525,
+   "price_published": "\"Your request will cost $0.375 per generation. ... Enabling PBR materials adds $0.15. Using multi-view images adds $0.15. Custom face count adds $0.15.\"",
+   "price_basis": "$0.375 base + $0.15 multi-view (4 images sent). enable_pbr=False = schema default, no adder. face_count NOT sent (see run_bakeoff.py), so no custom-face-count adder.",
+   "price_source": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+   "triangles": 500000,
+   "vertices": 249992,
+   "triangles_as_delivered": 500000,
+   "vertices_as_delivered": 295681,
+   "textures": [
+    "4096x4096"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": -8,
+   "surface_area_m2": 1.26801,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.0307,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0045,
+   "silhouette_iou": {
+    "front": 0.8578,
+    "right": 0.7256,
+    "back": 0.8488,
+    "left": 0.746
+   },
+   "silhouette_iou_mean": 0.7945,
+   "silhouette_iou_mean_ex_back": 0.7765,
+   "silhouette_iou_mean_trim1_99": 0.8313,
+   "plate_colour_agreement": {
+    "front": 0.5874,
+    "right": 0.5159,
+    "back": 0.5541,
+    "left": 0.5134
+   },
+   "rig_probe": {
+    "tris": 500000,
+    "decimate_ratio_to_300k": 0.6,
+    "under_300k_as_delivered": false,
+    "islands": 1,
+    "main_island_area_frac": 1.0,
+    "single_humanoid_island": true,
+    "floating_fragments": 0,
+    "arm_gap_max_runs": 5,
+    "arm_gap_at_height_frac": 0.488,
+    "arm_gap_widths_px": [
+     3,
+     22,
+     22,
+     2
+    ],
+    "arm_gap_rows_in_torso_band": 107,
+    "arms_clear_of_torso": true
+   }
+  },
+  "knight_rodin_25": {
+   "subject": "knight",
+   "generator": "rodin_25",
+   "label": "Rodin v2.5",
+   "endpoint": "fal-ai/hyper3d/rodin/v2.5",
+   "views_given": "front,right,back,left",
+   "sha256": "36bec50b98a0532bb43223eb96ea061003c01b041d317b144e090fc50fae0010",
+   "glb_mb": 23.29,
+   "elapsed_s": 186.8,
+   "price_usd_per_generation": 0.4,
+   "price_published": "\"Your request will cost $0.4 per generation. If HighPack is added to the addons, it will cost an additional $0.8 per generation.\"",
+   "price_basis": "Flat $0.40. addons.high_pack not set. hd_texture=True is a SEPARATE unpriced boolean, not the priced HighPack addon.",
+   "price_source": "https://fal.ai/models/fal-ai/hyper3d/rodin/v2.5",
+   "triangles": 500000,
+   "vertices": 249996,
+   "triangles_as_delivered": 500000,
+   "vertices_as_delivered": 387664,
+   "textures": [
+    "2048x2048"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "emission",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": -4,
+   "surface_area_m2": 1.15804,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1235,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0113,
+   "silhouette_iou": {
+    "front": 0.8452,
+    "right": 0.8556,
+    "back": 0.8961,
+    "left": 0.8563
+   },
+   "silhouette_iou_mean": 0.8633,
+   "silhouette_iou_mean_ex_back": 0.8524,
+   "silhouette_iou_mean_trim1_99": 0.8835,
+   "plate_colour_agreement": {
+    "front": 0.626,
+    "right": 0.5946,
+    "back": 0.5789,
+    "left": 0.5823
+   },
+   "rig_probe": {
+    "tris": 500000,
+    "decimate_ratio_to_300k": 0.6,
+    "under_300k_as_delivered": false,
+    "islands": 1,
+    "main_island_area_frac": 1.0,
+    "single_humanoid_island": true,
+    "floating_fragments": 0,
+    "arm_gap_max_runs": 5,
+    "arm_gap_at_height_frac": 0.646,
+    "arm_gap_widths_px": [
+     2,
+     5,
+     5,
+     2
+    ],
+    "arm_gap_rows_in_torso_band": 108,
+    "arms_clear_of_torso": true
+   }
+  },
+  "knight_tripo_h31_mv": {
+   "subject": "knight",
+   "generator": "tripo_h31_mv",
+   "label": "Tripo H3.1 multiview",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "views_given": "front,left,back,right",
+   "sha256": "fd2c2c45f9e05271e1707e5812a0393b677f698a00af60bfd8fbf0991f474cb4",
+   "glb_mb": 44.76,
+   "elapsed_s": 158.5,
+   "price_usd_per_generation": 0.4,
+   "price_published": "\"Your request will cost $0.20 (without textures), $0.30 (with standard textures), or $0.40 (with HD textures), plus an additional $0.20 for detailed geometry and $0.05 for quad mesh if selected.\"",
+   "price_basis": "texture=True + texture_quality=\"detailed\" = the HD tier ($0.40). geometry_quality left at default \"standard\", so no +$0.20. CAVEAT: the page says \"HD\", the schema enum says \"detailed\"; the two-value mapping forces it but the page never literally equates them ($0.30 vs $0.40).",
+   "price_source": "https://fal.ai/models/tripo3d/h3.1/multiview-to-3d",
+   "triangles": 1447702,
+   "vertices": 723853,
+   "triangles_as_delivered": 1447702,
+   "vertices_as_delivered": 743684,
+   "textures": [
+    "4096x4096"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": 2,
+   "surface_area_m2": 0.99807,
+   "yaw_applied_deg": 90,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1442,
+   "mirror_argmax": false,
+   "mirror_margin": 0.3767,
+   "silhouette_iou": {
+    "front": 0.8589,
+    "right": 0.8815,
+    "back": 0.9024,
+    "left": 0.8803
+   },
+   "silhouette_iou_mean": 0.8808,
+   "silhouette_iou_mean_ex_back": 0.8736,
+   "silhouette_iou_mean_trim1_99": 0.8966,
+   "plate_colour_agreement": {
+    "front": 0.6218,
+    "right": 0.593,
+    "back": 0.6555,
+    "left": 0.5867
+   },
+   "rig_probe": {
+    "tris": 1447702,
+    "decimate_ratio_to_300k": 0.2072,
+    "under_300k_as_delivered": false,
+    "islands": 1,
+    "main_island_area_frac": 1.0,
+    "single_humanoid_island": true,
+    "floating_fragments": 0,
+    "arm_gap_max_runs": 6,
+    "arm_gap_at_height_frac": 0.427,
+    "arm_gap_widths_px": [
+     1,
+     48,
+     45,
+     2,
+     2
+    ],
+    "arm_gap_rows_in_torso_band": 107,
+    "arms_clear_of_torso": true
+   }
+  },
+  "knight_trellis2": {
+   "subject": "knight",
+   "generator": "trellis2",
+   "label": "TRELLIS 2",
+   "endpoint": "fal-ai/trellis-2",
+   "views_given": "knight: front / manticore: right",
+   "sha256": "a34085f32f274c512ed6c047d20dd89cb46c05c9e26699cc2c8c13e1405719f0",
+   "glb_mb": 18.06,
+   "elapsed_s": 41.1,
+   "price_usd_per_generation": 0.3,
+   "price_published": "\"Your request will cost 0.25 $ for 512p resolution, 0.3 $ for 1024p resolution and 0.35 $ for 1536p resolution.\"",
+   "price_basis": "Defaults sent; schema default resolution=1024 -> $0.30. The priced field is `resolution`, NOT `texture_size` (default 2048, unpriced).",
+   "price_source": "https://fal.ai/models/fal-ai/trellis-2",
+   "triangles": 491940,
+   "vertices": 243948,
+   "triangles_as_delivered": 491940,
+   "vertices_as_delivered": 343357,
+   "textures": [
+    "2048x2048",
+    "2048x2048"
+   ],
+   "texture_count": 2,
+   "colour_map_socket": "base_color",
+   "islands": 3,
+   "main_island_area_frac": 0.999695,
+   "floating_fragments_lt1pct": 2,
+   "fragment_area_pct": 0.0305,
+   "island_area_fracs_top8": [
+    0.999695,
+    0.000304,
+    1e-06
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 0.0304,
+     "tris": 480,
+     "bbox_min": [
+      -0.007,
+      -0.026,
+      0.479
+     ],
+     "bbox_max": [
+      0.001,
+      0.015,
+      0.492
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0001,
+     "tris": 10,
+     "bbox_min": [
+      0.008,
+      -0.088,
+      0.847
+     ],
+     "bbox_max": [
+      0.01,
+      -0.087,
+      0.849
+     ],
+     "outside_main_body_xy": false
+    }
+   ],
+   "detached_area_pct_total": 0.0305,
+   "largest_detached_pct": 0.0304,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 1685,
+   "boundary_edges": 17,
+   "approx_watertight": false,
+   "euler_characteristic": -355,
+   "surface_area_m2": 2.13917,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.0384,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0144,
+   "silhouette_iou": {
+    "front": 0.8336,
+    "right": 0.736,
+    "back": 0.8965,
+    "left": 0.7359
+   },
+   "silhouette_iou_mean": 0.8005,
+   "silhouette_iou_mean_ex_back": 0.7685,
+   "silhouette_iou_mean_trim1_99": 0.8276,
+   "plate_colour_agreement": {
+    "front": 0.6356,
+    "right": 0.5446,
+    "back": 0.5297,
+    "left": 0.551
+   },
+   "rig_probe": {
+    "tris": 491940,
+    "decimate_ratio_to_300k": 0.6098,
+    "under_300k_as_delivered": false,
+    "islands": 3,
+    "main_island_area_frac": 0.999695,
+    "single_humanoid_island": true,
+    "floating_fragments": 2,
+    "arm_gap_max_runs": 7,
+    "arm_gap_at_height_frac": 0.456,
+    "arm_gap_widths_px": [
+     9,
+     23,
+     3,
+     1,
+     24,
+     8
+    ],
+    "arm_gap_rows_in_torso_band": 118,
+    "arms_clear_of_torso": true
+   }
+  },
+  "knight_hi3d_v3": {
+   "subject": "knight",
+   "generator": "hi3d_v3",
+   "label": "Hi3D v3.0",
+   "endpoint": "hitem3d/hi3d/v3.0/image-to-3d",
+   "views_given": "knight: front / manticore: right",
+   "sha256": "d6e144c3a74907b7ecc2485d53cd7be91ceea838ad3f12102488462287c21589",
+   "glb_mb": 49.89,
+   "elapsed_s": 548.6,
+   "price_usd_per_generation": 2.1,
+   "price_published": "\"Your request is billed at $0.02 per credit. ... On v3.0, your request will cost $2.10 (2048\u00b3quality) or $9.10 (2048\u00b3master).\"",
+   "price_basis": "$2.10 published verbatim for this configuration: resolution default \"2048quality\", enable_texture=True. enable_pbr was NOT sent and its default is TRUE, so PBR (5 cr) is billed -- had we sent enable_pbr=False it would be $2.00. = 90 geometry + 10 texture + 5 PBR credits at $0.02.",
+   "price_source": "https://fal.ai/models/hitem3d/hi3d/v3.0/image-to-3d",
+   "triangles": 2000000,
+   "vertices": 999924,
+   "triangles_as_delivered": 2000000,
+   "vertices_as_delivered": 1018241,
+   "textures": [
+    "8192x8192",
+    "8192x8192"
+   ],
+   "texture_count": 2,
+   "colour_map_socket": "base_color",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": -76,
+   "surface_area_m2": 1.18067,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.0987,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0217,
+   "silhouette_iou": {
+    "front": 0.8408,
+    "right": 0.8024,
+    "back": 0.8889,
+    "left": 0.7963
+   },
+   "silhouette_iou_mean": 0.8321,
+   "silhouette_iou_mean_ex_back": 0.8132,
+   "silhouette_iou_mean_trim1_99": 0.8387,
+   "plate_colour_agreement": {
+    "front": 0.6134,
+    "right": 0.5065,
+    "back": 0.533,
+    "left": 0.5299
+   },
+   "rig_probe": {
+    "tris": 2000000,
+    "decimate_ratio_to_300k": 0.15,
+    "under_300k_as_delivered": false,
+    "islands": 1,
+    "main_island_area_frac": 1.0,
+    "single_humanoid_island": true,
+    "floating_fragments": 0,
+    "arm_gap_max_runs": 5,
+    "arm_gap_at_height_frac": 0.644,
+    "arm_gap_widths_px": [
+     4,
+     9,
+     9,
+     2
+    ],
+    "arm_gap_rows_in_torso_band": 119,
+    "arms_clear_of_torso": true
+   }
+  },
+  "manticore_meshy": {
+   "subject": "manticore",
+   "generator": "meshy",
+   "label": "Meshy (baseline)",
+   "endpoint": "meshy multi-image-to-3d",
+   "views_given": "front,right,back,left",
+   "sha256": "28514eb6896b142e93625d60c00af49ba428b8365a410737b7a27bc8fa9ceca0",
+   "glb_mb": 5.24,
+   "elapsed_s": 278.4,
+   "price_usd_per_generation": null,
+   "price_published": "30 credits (\"Multi-Image to 3D ... Mesh with 2K textures - 30 credits\"), confirmed by the task's own consumed_credits=30.",
+   "price_basis": "DERIVED, not published: Meshy publishes NO dollars-per-credit rate anywhere. Plan price / included credits gives $0.60 on Pro ($20 / 1,000 cr), $0.40 on Premium ($40 / 3,000), $0.375 on Ultra ($100 / 8,000). Not like-for-like with fal: fal bills marginally per request, this is a subscription rate amortised over a monthly allotment that does not roll over, so it holds only at full utilisation.",
+   "price_source": "https://docs.meshy.ai/en/api/pricing + https://help.meshy.ai/en/articles/12062933",
+   "triangles": 71577,
+   "vertices": 35809,
+   "triangles_as_delivered": 71577,
+   "vertices_as_delivered": 48195,
+   "textures": [
+    "2048x2048"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 4,
+   "main_island_area_frac": 0.999965,
+   "floating_fragments_lt1pct": 3,
+   "fragment_area_pct": 0.0035,
+   "island_area_fracs_top8": [
+    0.999965,
+    1.8e-05,
+    1.4e-05,
+    3e-06
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 0.0018,
+     "tris": 16,
+     "bbox_min": [
+      0.055,
+      0.605,
+      0.002
+     ],
+     "bbox_max": [
+      0.061,
+      0.607,
+      0.009
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0014,
+     "tris": 18,
+     "bbox_min": [
+      -0.022,
+      0.473,
+      0.8
+     ],
+     "bbox_max": [
+      -0.017,
+      0.48,
+      0.804
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0003,
+     "tris": 9,
+     "bbox_min": [
+      -0.076,
+      0.581,
+      0.818
+     ],
+     "bbox_max": [
+      -0.074,
+      0.583,
+      0.822
+     ],
+     "outside_main_body_xy": false
+    }
+   ],
+   "detached_area_pct_total": 0.0035,
+   "largest_detached_pct": 0.0018,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 12,
+   "boundary_edges": 81,
+   "approx_watertight": false,
+   "euler_characteristic": -10,
+   "surface_area_m2": 1.70803,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1676,
+   "mirror_argmax": true,
+   "mirror_margin": 0.0048,
+   "silhouette_iou": {
+    "front": 0.442,
+    "right": 0.4166,
+    "back": 0.2878,
+    "left": 0.6777
+   },
+   "silhouette_iou_mean": 0.456,
+   "silhouette_iou_mean_ex_back": 0.5121,
+   "silhouette_iou_mean_trim1_99": 0.509,
+   "plate_colour_agreement": {
+    "front": 0.5539,
+    "right": 0.597,
+    "back": 0.5998,
+    "left": 0.6102
+   }
+  },
+  "manticore_hunyuan3d_31_pro": {
+   "subject": "manticore",
+   "generator": "hunyuan3d_31_pro",
+   "label": "Hunyuan3D 3.1 Pro",
+   "endpoint": "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+   "views_given": "front,left,right,back",
+   "sha256": "7a26062e4ab002e62a8a78f8540f844a1e3f8fbad3b2323c2728524e97a971bc",
+   "glb_mb": 37.44,
+   "elapsed_s": 158.6,
+   "price_usd_per_generation": 0.525,
+   "price_published": "\"Your request will cost $0.375 per generation. ... Enabling PBR materials adds $0.15. Using multi-view images adds $0.15. Custom face count adds $0.15.\"",
+   "price_basis": "$0.375 base + $0.15 multi-view (4 images sent). enable_pbr=False = schema default, no adder. face_count NOT sent (see run_bakeoff.py), so no custom-face-count adder.",
+   "price_source": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+   "triangles": 498420,
+   "vertices": 249212,
+   "triangles_as_delivered": 498420,
+   "vertices_as_delivered": 283418,
+   "textures": [
+    "4096x4096"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 3,
+   "main_island_area_frac": 0.972531,
+   "floating_fragments_lt1pct": 1,
+   "fragment_area_pct": 0.924,
+   "island_area_fracs_top8": [
+    0.972531,
+    0.01823,
+    0.00924
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 1.823,
+     "tris": 9864,
+     "bbox_min": [
+      -0.638,
+      -0.46,
+      0.465
+     ],
+     "bbox_max": [
+      -0.55,
+      -0.363,
+      0.636
+     ],
+     "outside_main_body_xy": true
+    },
+    {
+     "area_pct": 0.924,
+     "tris": 4006,
+     "bbox_min": [
+      -1.013,
+      -0.965,
+      0.244
+     ],
+     "bbox_max": [
+      -0.717,
+      -0.909,
+      0.275
+     ],
+     "outside_main_body_xy": true
+    }
+   ],
+   "detached_area_pct_total": 2.747,
+   "largest_detached_pct": 1.823,
+   "largest_detached_off_body": true,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": 2,
+   "surface_area_m2": 2.09506,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.147,
+   "mirror_argmax": true,
+   "mirror_margin": 0.0021,
+   "silhouette_iou": {
+    "front": 0.3548,
+    "right": 0.3876,
+    "back": 0.2245,
+    "left": 0.6374
+   },
+   "silhouette_iou_mean": 0.4011,
+   "silhouette_iou_mean_ex_back": 0.4599,
+   "silhouette_iou_mean_trim1_99": 0.4516,
+   "plate_colour_agreement": {
+    "front": 0.5263,
+    "right": 0.5624,
+    "back": 0.5333,
+    "left": 0.6018
+   }
+  },
+  "manticore_rodin_25": {
+   "subject": "manticore",
+   "generator": "rodin_25",
+   "label": "Rodin v2.5",
+   "endpoint": "fal-ai/hyper3d/rodin/v2.5",
+   "views_given": "front,right,back,left",
+   "sha256": "ceaa9e62d77b82be8d18886d2e029fbbce9c8a4c9b3b97d73b4f6c79005f1fb0",
+   "glb_mb": 22.4,
+   "elapsed_s": 136.6,
+   "price_usd_per_generation": 0.4,
+   "price_published": "\"Your request will cost $0.4 per generation. If HighPack is added to the addons, it will cost an additional $0.8 per generation.\"",
+   "price_basis": "Flat $0.40. addons.high_pack not set. hd_texture=True is a SEPARATE unpriced boolean, not the priced HighPack addon.",
+   "price_source": "https://fal.ai/models/fal-ai/hyper3d/rodin/v2.5",
+   "triangles": 500000,
+   "vertices": 250002,
+   "triangles_as_delivered": 500000,
+   "vertices_as_delivered": 342084,
+   "textures": [
+    "2048x2048"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "emission",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": 2,
+   "surface_area_m2": 1.66362,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1423,
+   "mirror_argmax": true,
+   "mirror_margin": 0.0061,
+   "silhouette_iou": {
+    "front": 0.4339,
+    "right": 0.3394,
+    "back": 0.2757,
+    "left": 0.5957
+   },
+   "silhouette_iou_mean": 0.4112,
+   "silhouette_iou_mean_ex_back": 0.4563,
+   "silhouette_iou_mean_trim1_99": 0.4662,
+   "plate_colour_agreement": {
+    "front": 0.5106,
+    "right": 0.5136,
+    "back": 0.5029,
+    "left": 0.5738
+   }
+  },
+  "manticore_tripo_h31_mv": {
+   "subject": "manticore",
+   "generator": "tripo_h31_mv",
+   "label": "Tripo H3.1 multiview",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "views_given": "front,left,back,right",
+   "sha256": "edce2a5074a5fe86be920bd1773209dd2bcede97722afd1753351bb108b17576",
+   "glb_mb": 45.66,
+   "elapsed_s": 161.1,
+   "price_usd_per_generation": 0.4,
+   "price_published": "\"Your request will cost $0.20 (without textures), $0.30 (with standard textures), or $0.40 (with HD textures), plus an additional $0.20 for detailed geometry and $0.05 for quad mesh if selected.\"",
+   "price_basis": "texture=True + texture_quality=\"detailed\" = the HD tier ($0.40). geometry_quality left at default \"standard\", so no +$0.20. CAVEAT: the page says \"HD\", the schema enum says \"detailed\"; the two-value mapping forces it but the page never literally equates them ($0.30 vs $0.40).",
+   "price_source": "https://fal.ai/models/tripo3d/h3.1/multiview-to-3d",
+   "triangles": 1455660,
+   "vertices": 727834,
+   "triangles_as_delivered": 1455660,
+   "vertices_as_delivered": 749876,
+   "textures": [
+    "4096x4096"
+   ],
+   "texture_count": 1,
+   "colour_map_socket": "base_color",
+   "islands": 2,
+   "main_island_area_frac": 0.981315,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    0.981315,
+    0.018685
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 1.8685,
+     "tris": 34850,
+     "bbox_min": [
+      -0.884,
+      -0.441,
+      0.209
+     ],
+     "bbox_max": [
+      -0.544,
+      0.002,
+      0.33
+     ],
+     "outside_main_body_xy": true
+    }
+   ],
+   "detached_area_pct_total": 1.8685,
+   "largest_detached_pct": 1.8685,
+   "largest_detached_off_body": true,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": 4,
+   "surface_area_m2": 2.16294,
+   "yaw_applied_deg": 90,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.191,
+   "mirror_argmax": false,
+   "mirror_margin": 0.3895,
+   "silhouette_iou": {
+    "front": 0.4024,
+    "right": 0.3454,
+    "back": 0.2553,
+    "left": 0.832
+   },
+   "silhouette_iou_mean": 0.4588,
+   "silhouette_iou_mean_ex_back": 0.5266,
+   "silhouette_iou_mean_trim1_99": 0.5013,
+   "plate_colour_agreement": {
+    "front": 0.5461,
+    "right": 0.596,
+    "back": 0.6046,
+    "left": 0.6452
+   }
+  },
+  "manticore_trellis2": {
+   "subject": "manticore",
+   "generator": "trellis2",
+   "label": "TRELLIS 2",
+   "endpoint": "fal-ai/trellis-2",
+   "views_given": "knight: front / manticore: right",
+   "sha256": "80934f74c32069818ef3aac473e9eb8ea0702b53d4570e7ea71a337d23701409",
+   "glb_mb": 22.62,
+   "elapsed_s": 133.8,
+   "price_usd_per_generation": 0.3,
+   "price_published": "\"Your request will cost 0.25 $ for 512p resolution, 0.3 $ for 1024p resolution and 0.35 $ for 1536p resolution.\"",
+   "price_basis": "Defaults sent; schema default resolution=1024 -> $0.30. The priced field is `resolution`, NOT `texture_size` (default 2048, unpriced).",
+   "price_source": "https://fal.ai/models/fal-ai/trellis-2",
+   "triangles": 498469,
+   "vertices": 237861,
+   "triangles_as_delivered": 498470,
+   "vertices_as_delivered": 461270,
+   "textures": [
+    "2048x2048",
+    "2048x2048"
+   ],
+   "texture_count": 2,
+   "colour_map_socket": "base_color",
+   "islands": 140,
+   "main_island_area_frac": 0.989364,
+   "floating_fragments_lt1pct": 139,
+   "fragment_area_pct": 1.0636,
+   "island_area_fracs_top8": [
+    0.989364,
+    0.002558,
+    0.000342,
+    0.000334,
+    0.000294,
+    0.000292,
+    0.00029,
+    0.00029
+   ],
+   "detached_islands": [
+    {
+     "area_pct": 0.2558,
+     "tris": 1548,
+     "bbox_min": [
+      -0.014,
+      0.661,
+      0.809
+     ],
+     "bbox_max": [
+      0.026,
+      0.737,
+      0.838
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0342,
+     "tris": 606,
+     "bbox_min": [
+      -0.096,
+      0.268,
+      0.541
+     ],
+     "bbox_max": [
+      -0.076,
+      0.288,
+      0.656
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0334,
+     "tris": 462,
+     "bbox_min": [
+      0.087,
+      0.276,
+      0.558
+     ],
+     "bbox_max": [
+      0.101,
+      0.289,
+      0.656
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0294,
+     "tris": 324,
+     "bbox_min": [
+      0.085,
+      0.249,
+      0.565
+     ],
+     "bbox_max": [
+      0.095,
+      0.262,
+      0.649
+     ],
+     "outside_main_body_xy": false
+    },
+    {
+     "area_pct": 0.0292,
+     "tris": 172,
+     "bbox_min": [
+      0.023,
+      0.698,
+      0.885
+     ],
+     "bbox_max": [
+      0.044,
+      0.717,
+      0.905
+     ],
+     "outside_main_body_xy": false
+    }
+   ],
+   "detached_area_pct_total": 0.382,
+   "largest_detached_pct": 0.2558,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 6344,
+   "boundary_edges": 5,
+   "approx_watertight": false,
+   "euler_characteristic": -5030,
+   "surface_area_m2": 4.45164,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1127,
+   "mirror_argmax": true,
+   "mirror_margin": 0.0021,
+   "silhouette_iou": {
+    "front": 0.4537,
+    "right": 0.4431,
+    "back": 0.306,
+    "left": 0.5299
+   },
+   "silhouette_iou_mean": 0.4332,
+   "silhouette_iou_mean_ex_back": 0.4756,
+   "silhouette_iou_mean_trim1_99": 0.458,
+   "plate_colour_agreement": {
+    "front": 0.5226,
+    "right": 0.6028,
+    "back": 0.5638,
+    "left": 0.5472
+   }
+  },
+  "manticore_hi3d_v3": {
+   "subject": "manticore",
+   "generator": "hi3d_v3",
+   "label": "Hi3D v3.0",
+   "endpoint": "hitem3d/hi3d/v3.0/image-to-3d",
+   "views_given": "knight: front / manticore: right",
+   "sha256": "f43580f32b4bf45d39c1f3f53fab84b2ac7a57163d8fae55edec75455b1bf739",
+   "glb_mb": 50.05,
+   "elapsed_s": 451.3,
+   "price_usd_per_generation": 2.1,
+   "price_published": "\"Your request is billed at $0.02 per credit. ... On v3.0, your request will cost $2.10 (2048\u00b3quality) or $9.10 (2048\u00b3master).\"",
+   "price_basis": "$2.10 published verbatim for this configuration: resolution default \"2048quality\", enable_texture=True. enable_pbr was NOT sent and its default is TRUE, so PBR (5 cr) is billed -- had we sent enable_pbr=False it would be $2.00. = 90 geometry + 10 texture + 5 PBR credits at $0.02.",
+   "price_source": "https://fal.ai/models/hitem3d/hi3d/v3.0/image-to-3d",
+   "triangles": 2000000,
+   "vertices": 1000002,
+   "triangles_as_delivered": 2000000,
+   "vertices_as_delivered": 1012441,
+   "textures": [
+    "8192x8192",
+    "8192x8192"
+   ],
+   "texture_count": 2,
+   "colour_map_socket": "base_color",
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "floating_fragments_lt1pct": 0,
+   "fragment_area_pct": 0.0,
+   "island_area_fracs_top8": [
+    1.0
+   ],
+   "detached_islands": [],
+   "detached_area_pct_total": 0.0,
+   "largest_detached_pct": 0.0,
+   "largest_detached_off_body": false,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "approx_watertight": true,
+   "euler_characteristic": 2,
+   "surface_area_m2": 1.66456,
+   "yaw_applied_deg": 180,
+   "flip_x_applied": false,
+   "yaw_margin_iou": 0.1454,
+   "mirror_argmax": false,
+   "mirror_margin": 0.0368,
+   "silhouette_iou": {
+    "front": 0.5024,
+    "right": 0.6911,
+    "back": 0.2558,
+    "left": 0.3629
+   },
+   "silhouette_iou_mean": 0.4531,
+   "silhouette_iou_mean_ex_back": 0.5188,
+   "silhouette_iou_mean_trim1_99": 0.4895,
+   "plate_colour_agreement": {
+    "front": 0.5335,
+    "right": 0.6108,
+    "back": 0.5347,
+    "left": 0.5776
+   }
+  }
+ },
+ "caveats": [
+  "MANTICORE back-view IoU (0.225-0.306 for all six) measures the PLATE, not the model: the painted back plate draws the tail as a vertical spike above the skull, so its height box is roughly twice the creature\u2019s. No generator reproduces that. Read the manticore on front/right/left (mean_ex_back).",
+  "Silhouette scale and alignment come from the largest blob; the full mask including detached fragments is what is scored. Without the largest-blob guard a 200-pixel flake set the scale for a million-triangle mesh and the orientation fit chose the wrong yaw on an IoU of 0.22.",
+  "Triangle and vertex counts are AFTER an exact-position weld. glTF splits vertices at UV seams, so the delivered index buffer reports every seam as a hole; delivered counts are kept alongside as *_as_delivered.",
+  "Rodin v2.5 with material=\"Shaded\" delivers a BLACK base colour and routes its map into Emission at strength 1: its \"texture\" is a LIGHTING BAKE, not an albedo. The unlit pass reads that socket so Rodin is visible at all, but Rodin\u2019s row is not an apples-to-apples base-colour comparison -- it already contains shading that will fight any light you later put on it.",
+  "Meshy\u2019s price is derived from plan price / included credits because Meshy publishes no per-credit dollar rate. It is a subscription amortisation, not a marginal per-request price like fal\u2019s."
+ ]
+}

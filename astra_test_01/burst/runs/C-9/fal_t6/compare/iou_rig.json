@@ -1,0 +1,651 @@
+{
+ "iou": {
+  "knight_meshy": {
+   "p0_100": {
+    "front": {
+     "iou": 0.7702,
+     "colour": 0.5374
+    },
+    "right": {
+     "iou": 0.7067,
+     "colour": 0.4973
+    },
+    "back": {
+     "iou": 0.7865,
+     "colour": 0.5034
+    },
+    "left": {
+     "iou": 0.716,
+     "colour": 0.4908
+    },
+    "mean_iou": 0.7449,
+    "mean_iou_ex_back": 0.731,
+    "mean_colour": 0.5072
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.7995,
+     "colour": 0.5701
+    },
+    "right": {
+     "iou": 0.7068,
+     "colour": 0.4945
+    },
+    "back": {
+     "iou": 0.7871,
+     "colour": 0.5084
+    },
+    "left": {
+     "iou": 0.7234,
+     "colour": 0.4882
+    },
+    "mean_iou": 0.7542,
+    "mean_iou_ex_back": 0.7432,
+    "mean_colour": 0.5153
+   }
+  },
+  "knight_hunyuan3d_31_pro": {
+   "p0_100": {
+    "front": {
+     "iou": 0.8578,
+     "colour": 0.5874
+    },
+    "right": {
+     "iou": 0.7256,
+     "colour": 0.5159
+    },
+    "back": {
+     "iou": 0.8488,
+     "colour": 0.5541
+    },
+    "left": {
+     "iou": 0.746,
+     "colour": 0.5134
+    },
+    "mean_iou": 0.7945,
+    "mean_iou_ex_back": 0.7765,
+    "mean_colour": 0.5427
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.8859,
+     "colour": 0.5923
+    },
+    "right": {
+     "iou": 0.7897,
+     "colour": 0.5143
+    },
+    "back": {
+     "iou": 0.8586,
+     "colour": 0.5585
+    },
+    "left": {
+     "iou": 0.791,
+     "colour": 0.5094
+    },
+    "mean_iou": 0.8313,
+    "mean_iou_ex_back": 0.8222,
+    "mean_colour": 0.5436
+   }
+  },
+  "knight_rodin_25": {
+   "p0_100": {
+    "front": {
+     "iou": 0.8452,
+     "colour": 0.626
+    },
+    "right": {
+     "iou": 0.8556,
+     "colour": 0.5946
+    },
+    "back": {
+     "iou": 0.8961,
+     "colour": 0.5789
+    },
+    "left": {
+     "iou": 0.8563,
+     "colour": 0.5823
+    },
+    "mean_iou": 0.8633,
+    "mean_iou_ex_back": 0.8524,
+    "mean_colour": 0.5955
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.9038,
+     "colour": 0.6681
+    },
+    "right": {
+     "iou": 0.8696,
+     "colour": 0.5734
+    },
+    "back": {
+     "iou": 0.8897,
+     "colour": 0.5773
+    },
+    "left": {
+     "iou": 0.871,
+     "colour": 0.5773
+    },
+    "mean_iou": 0.8835,
+    "mean_iou_ex_back": 0.8815,
+    "mean_colour": 0.599
+   }
+  },
+  "knight_tripo_h31_mv": {
+   "p0_100": {
+    "front": {
+     "iou": 0.8589,
+     "colour": 0.6218
+    },
+    "right": {
+     "iou": 0.8815,
+     "colour": 0.593
+    },
+    "back": {
+     "iou": 0.9024,
+     "colour": 0.6555
+    },
+    "left": {
+     "iou": 0.8803,
+     "colour": 0.5867
+    },
+    "mean_iou": 0.8808,
+    "mean_iou_ex_back": 0.8736,
+    "mean_colour": 0.6142
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.9203,
+     "colour": 0.6644
+    },
+    "right": {
+     "iou": 0.8797,
+     "colour": 0.5928
+    },
+    "back": {
+     "iou": 0.9047,
+     "colour": 0.6457
+    },
+    "left": {
+     "iou": 0.8819,
+     "colour": 0.5921
+    },
+    "mean_iou": 0.8966,
+    "mean_iou_ex_back": 0.894,
+    "mean_colour": 0.6238
+   }
+  },
+  "knight_trellis2": {
+   "p0_100": {
+    "front": {
+     "iou": 0.8336,
+     "colour": 0.6356
+    },
+    "right": {
+     "iou": 0.736,
+     "colour": 0.5446
+    },
+    "back": {
+     "iou": 0.8965,
+     "colour": 0.5297
+    },
+    "left": {
+     "iou": 0.7359,
+     "colour": 0.551
+    },
+    "mean_iou": 0.8005,
+    "mean_iou_ex_back": 0.7685,
+    "mean_colour": 0.5652
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.9199,
+     "colour": 0.6409
+    },
+    "right": {
+     "iou": 0.7429,
+     "colour": 0.5424
+    },
+    "back": {
+     "iou": 0.899,
+     "colour": 0.525
+    },
+    "left": {
+     "iou": 0.7488,
+     "colour": 0.5481
+    },
+    "mean_iou": 0.8276,
+    "mean_iou_ex_back": 0.8039,
+    "mean_colour": 0.5641
+   }
+  },
+  "knight_hi3d_v3": {
+   "p0_100": {
+    "front": {
+     "iou": 0.8408,
+     "colour": 0.6134
+    },
+    "right": {
+     "iou": 0.8024,
+     "colour": 0.5065
+    },
+    "back": {
+     "iou": 0.8889,
+     "colour": 0.533
+    },
+    "left": {
+     "iou": 0.7963,
+     "colour": 0.5299
+    },
+    "mean_iou": 0.8321,
+    "mean_iou_ex_back": 0.8132,
+    "mean_colour": 0.5457
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.9237,
+     "colour": 0.6971
+    },
+    "right": {
+     "iou": 0.7672,
+     "colour": 0.5106
+    },
+    "back": {
+     "iou": 0.8895,
+     "colour": 0.5329
+    },
+    "left": {
+     "iou": 0.7742,
+     "colour": 0.5305
+    },
+    "mean_iou": 0.8387,
+    "mean_iou_ex_back": 0.8217,
+    "mean_colour": 0.5678
+   }
+  },
+  "manticore_meshy": {
+   "p0_100": {
+    "front": {
+     "iou": 0.442,
+     "colour": 0.5539
+    },
+    "right": {
+     "iou": 0.4166,
+     "colour": 0.597
+    },
+    "back": {
+     "iou": 0.2878,
+     "colour": 0.5998
+    },
+    "left": {
+     "iou": 0.6777,
+     "colour": 0.6102
+    },
+    "mean_iou": 0.456,
+    "mean_iou_ex_back": 0.5121,
+    "mean_colour": 0.5902
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.5023,
+     "colour": 0.5492
+    },
+    "right": {
+     "iou": 0.5136,
+     "colour": 0.6116
+    },
+    "back": {
+     "iou": 0.3104,
+     "colour": 0.5981
+    },
+    "left": {
+     "iou": 0.7096,
+     "colour": 0.6066
+    },
+    "mean_iou": 0.509,
+    "mean_iou_ex_back": 0.5752,
+    "mean_colour": 0.5914
+   }
+  },
+  "manticore_hunyuan3d_31_pro": {
+   "p0_100": {
+    "front": {
+     "iou": 0.3548,
+     "colour": 0.5263
+    },
+    "right": {
+     "iou": 0.3876,
+     "colour": 0.5624
+    },
+    "back": {
+     "iou": 0.2245,
+     "colour": 0.5333
+    },
+    "left": {
+     "iou": 0.6374,
+     "colour": 0.6018
+    },
+    "mean_iou": 0.4011,
+    "mean_iou_ex_back": 0.4599,
+    "mean_colour": 0.5559
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.4343,
+     "colour": 0.52
+    },
+    "right": {
+     "iou": 0.4617,
+     "colour": 0.5543
+    },
+    "back": {
+     "iou": 0.2348,
+     "colour": 0.5311
+    },
+    "left": {
+     "iou": 0.6757,
+     "colour": 0.5768
+    },
+    "mean_iou": 0.4516,
+    "mean_iou_ex_back": 0.5239,
+    "mean_colour": 0.5455
+   }
+  },
+  "manticore_rodin_25": {
+   "p0_100": {
+    "front": {
+     "iou": 0.4339,
+     "colour": 0.5106
+    },
+    "right": {
+     "iou": 0.3394,
+     "colour": 0.5136
+    },
+    "back": {
+     "iou": 0.2757,
+     "colour": 0.5029
+    },
+    "left": {
+     "iou": 0.5957,
+     "colour": 0.5738
+    },
+    "mean_iou": 0.4112,
+    "mean_iou_ex_back": 0.4563,
+    "mean_colour": 0.5252
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.4914,
+     "colour": 0.4916
+    },
+    "right": {
+     "iou": 0.4651,
+     "colour": 0.5144
+    },
+    "back": {
+     "iou": 0.2998,
+     "colour": 0.5319
+    },
+    "left": {
+     "iou": 0.6087,
+     "colour": 0.563
+    },
+    "mean_iou": 0.4662,
+    "mean_iou_ex_back": 0.5217,
+    "mean_colour": 0.5252
+   }
+  },
+  "manticore_tripo_h31_mv": {
+   "p0_100": {
+    "front": {
+     "iou": 0.4024,
+     "colour": 0.5461
+    },
+    "right": {
+     "iou": 0.3454,
+     "colour": 0.596
+    },
+    "back": {
+     "iou": 0.2553,
+     "colour": 0.6046
+    },
+    "left": {
+     "iou": 0.832,
+     "colour": 0.6452
+    },
+    "mean_iou": 0.4588,
+    "mean_iou_ex_back": 0.5266,
+    "mean_colour": 0.598
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.4562,
+     "colour": 0.5506
+    },
+    "right": {
+     "iou": 0.4847,
+     "colour": 0.6034
+    },
+    "back": {
+     "iou": 0.2778,
+     "colour": 0.6097
+    },
+    "left": {
+     "iou": 0.7866,
+     "colour": 0.6309
+    },
+    "mean_iou": 0.5013,
+    "mean_iou_ex_back": 0.5758,
+    "mean_colour": 0.5987
+   }
+  },
+  "manticore_trellis2": {
+   "p0_100": {
+    "front": {
+     "iou": 0.4537,
+     "colour": 0.5226
+    },
+    "right": {
+     "iou": 0.4431,
+     "colour": 0.6028
+    },
+    "back": {
+     "iou": 0.306,
+     "colour": 0.5638
+    },
+    "left": {
+     "iou": 0.5299,
+     "colour": 0.5472
+    },
+    "mean_iou": 0.4332,
+    "mean_iou_ex_back": 0.4756,
+    "mean_colour": 0.5591
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.5378,
+     "colour": 0.5193
+    },
+    "right": {
+     "iou": 0.4531,
+     "colour": 0.5994
+    },
+    "back": {
+     "iou": 0.3204,
+     "colour": 0.5555
+    },
+    "left": {
+     "iou": 0.5207,
+     "colour": 0.5528
+    },
+    "mean_iou": 0.458,
+    "mean_iou_ex_back": 0.5039,
+    "mean_colour": 0.5567
+   }
+  },
+  "manticore_hi3d_v3": {
+   "p0_100": {
+    "front": {
+     "iou": 0.5024,
+     "colour": 0.5335
+    },
+    "right": {
+     "iou": 0.6911,
+     "colour": 0.6108
+    },
+    "back": {
+     "iou": 0.2558,
+     "colour": 0.5347
+    },
+    "left": {
+     "iou": 0.3629,
+     "colour": 0.5776
+    },
+    "mean_iou": 0.4531,
+    "mean_iou_ex_back": 0.5188,
+    "mean_colour": 0.5641
+   },
+   "p1_99": {
+    "front": {
+     "iou": 0.5355,
+     "colour": 0.5404
+    },
+    "right": {
+     "iou": 0.7034,
+     "colour": 0.6092
+    },
+    "back": {
+     "iou": 0.2668,
+     "colour": 0.5111
+    },
+    "left": {
+     "iou": 0.4524,
+     "colour": 0.6064
+    },
+    "mean_iou": 0.4895,
+    "mean_iou_ex_back": 0.5638,
+    "mean_colour": 0.5668
+   }
+  }
+ },
+ "knight_rig_probe": {
+  "knight_meshy": {
+   "tris": 115567,
+   "decimate_ratio_to_300k": 1.0,
+   "under_300k_as_delivered": true,
+   "islands": 20,
+   "main_island_area_frac": 0.999603,
+   "single_humanoid_island": true,
+   "floating_fragments": 19,
+   "arm_gap_max_runs": 5,
+   "arm_gap_at_height_frac": 0.641,
+   "arm_gap_widths_px": [
+    3,
+    11,
+    13,
+    3
+   ],
+   "arm_gap_rows_in_torso_band": 121,
+   "arms_clear_of_torso": true
+  },
+  "knight_hunyuan3d_31_pro": {
+   "tris": 500000,
+   "decimate_ratio_to_300k": 0.6,
+   "under_300k_as_delivered": false,
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "single_humanoid_island": true,
+   "floating_fragments": 0,
+   "arm_gap_max_runs": 5,
+   "arm_gap_at_height_frac": 0.488,
+   "arm_gap_widths_px": [
+    3,
+    22,
+    22,
+    2
+   ],
+   "arm_gap_rows_in_torso_band": 107,
+   "arms_clear_of_torso": true
+  },
+  "knight_rodin_25": {
+   "tris": 500000,
+   "decimate_ratio_to_300k": 0.6,
+   "under_300k_as_delivered": false,
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "single_humanoid_island": true,
+   "floating_fragments": 0,
+   "arm_gap_max_runs": 5,
+   "arm_gap_at_height_frac": 0.646,
+   "arm_gap_widths_px": [
+    2,
+    5,
+    5,
+    2
+   ],
+   "arm_gap_rows_in_torso_band": 108,
+   "arms_clear_of_torso": true
+  },
+  "knight_tripo_h31_mv": {
+   "tris": 1447702,
+   "decimate_ratio_to_300k": 0.2072,
+   "under_300k_as_delivered": false,
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "single_humanoid_island": true,
+   "floating_fragments": 0,
+   "arm_gap_max_runs": 6,
+   "arm_gap_at_height_frac": 0.427,
+   "arm_gap_widths_px": [
+    1,
+    48,
+    45,
+    2,
+    2
+   ],
+   "arm_gap_rows_in_torso_band": 107,
+   "arms_clear_of_torso": true
+  },
+  "knight_trellis2": {
+   "tris": 491940,
+   "decimate_ratio_to_300k": 0.6098,
+   "under_300k_as_delivered": false,
+   "islands": 3,
+   "main_island_area_frac": 0.999695,
+   "single_humanoid_island": true,
+   "floating_fragments": 2,
+   "arm_gap_max_runs": 7,
+   "arm_gap_at_height_frac": 0.456,
+   "arm_gap_widths_px": [
+    9,
+    23,
+    3,
+    1,
+    24,
+    8
+   ],
+   "arm_gap_rows_in_torso_band": 118,
+   "arms_clear_of_torso": true
+  },
+  "knight_hi3d_v3": {
+   "tris": 2000000,
+   "decimate_ratio_to_300k": 0.15,
+   "under_300k_as_delivered": false,
+   "islands": 1,
+   "main_island_area_frac": 1.0,
+   "single_humanoid_island": true,
+   "floating_fragments": 0,
+   "arm_gap_max_runs": 5,
+   "arm_gap_at_height_frac": 0.644,
+   "arm_gap_widths_px": [
+    4,
+    9,
+    9,
+    2
+   ],
+   "arm_gap_rows_in_torso_band": 119,
+   "arms_clear_of_torso": true
+  }
+ }
+}
