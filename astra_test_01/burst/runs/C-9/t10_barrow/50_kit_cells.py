@@ -100,7 +100,39 @@ def min_ink_split(prof: np.ndarray, ncol: int) -> tuple:
     for k in range(1, ncol):
         c = int(round(W * k / ncol))
         lo, hi = max(1, c - W // 8), min(W - 1, c + W // 8)
-        x = lo + int(np.argmin(p[lo:hi]))
+        # WIDEST EMPTY GAP FIRST, MINIMUM INK ONLY IF THERE IS NO GAP.
+        #
+        # Minimum ink was the whole rule and it cut T10K-A2's rocks in the wrong places.
+        # Once the three rocks were drawn SET APART as asked, the gaps BETWEEN the rocks of
+        # one view became as empty as the gaps between views -- and "emptiest column" cannot
+        # rank two columns that are both exactly zero. It took a 6 px gap inside view 1 over
+        # the 47 px gap that actually ends it, and moved a rock from one view into the next:
+        # four cells that each look like a plausible rock cluster and are not four views of
+        # one. That is the T9 failure this file was written to stop, arriving through the
+        # repair rather than through the thing repaired.
+        #
+        # Width is the discriminator and it separates cleanly here -- inter-view gaps 38, 39
+        # and 47 px against intra-view gaps of 6 and 8. Minimum ink is kept as the fallback
+        # because it is right for the case it was built for: the elk skull's antlers
+        # INTERLOCK, there is no empty column anywhere, and least-ink is the only signal
+        # left. One rule, two regimes, chosen by whether a gap exists at all.
+        seg = p[lo:hi]
+        empty = seg <= 0.005
+        runs_, s = [], None
+        for i, v in enumerate(empty):
+            if v and s is None:
+                s = i
+            elif not v and s is not None:
+                runs_.append((s, i))
+                s = None
+        if s is not None:
+            runs_.append((s, len(empty)))
+        runs_ = [r for r in runs_ if r[1] - r[0] >= 3]
+        if runs_:
+            a, b = max(runs_, key=lambda r: r[1] - r[0])
+            x = lo + (a + b) // 2
+        else:
+            x = lo + int(np.argmin(seg))
         cuts.append(x)
         cost.append(round(float(p[x]), 4))
     bounds = [(a, b) for a, b in zip([0] + cuts, cuts + [W])]

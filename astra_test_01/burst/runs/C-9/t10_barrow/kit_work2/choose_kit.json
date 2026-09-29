@@ -1,0 +1,246 @@
+{
+ "scores": {
+  "rocks": {
+   "a": {
+    "mirror_iou": 0.897,
+    "pair_iou": 0.872,
+    "self_iou_front": 0.759,
+    "self_iou_back": 0.776,
+    "heights_px": [
+     172,
+     184,
+     175,
+     186
+    ],
+    "widths_px": [
+     344,
+     280,
+     339,
+     297
+    ],
+    "height_cv": 0.0329,
+    "width_cv": 0.0864,
+    "px": [
+     35442,
+     28969,
+     34536,
+     30603
+    ]
+   },
+   "b": {
+    "mirror_iou": 0.827,
+    "pair_iou": 0.908,
+    "self_iou_front": 0.805,
+    "self_iou_back": 0.789,
+    "heights_px": [
+     188,
+     187,
+     189,
+     190
+    ],
+    "widths_px": [
+     369,
+     294,
+     366,
+     321
+    ],
+    "height_cv": 0.0059,
+    "width_cv": 0.0933,
+    "px": [
+     35315,
+     30535,
+     34714,
+     33019
+    ]
+   }
+  },
+  "stump": {
+   "a": {
+    "mirror_iou": 0.953,
+    "pair_iou": 0.923,
+    "self_iou_front": 0.702,
+    "self_iou_back": 0.749,
+    "heights_px": [
+     223,
+     225,
+     223,
+     227
+    ],
+    "widths_px": [
+     376,
+     331,
+     375,
+     330
+    ],
+    "height_cv": 0.0074,
+    "width_cv": 0.0638,
+    "px": [
+     39216,
+     33079,
+     39141,
+     32979
+    ]
+   },
+   "b": {
+    "mirror_iou": 0.768,
+    "pair_iou": 0.834,
+    "self_iou_front": 0.711,
+    "self_iou_back": 0.716,
+    "heights_px": [
+     236,
+     235,
+     225,
+     240
+    ],
+    "widths_px": [
+     400,
+     304,
+     372,
+     340
+    ],
+    "height_cv": 0.0236,
+    "width_cv": 0.1012,
+    "px": [
+     40651,
+     32812,
+     37681,
+     34177
+    ]
+   }
+  },
+  "skull": {
+   "a": {
+    "mirror_iou": 0.855,
+    "pair_iou": 0.637,
+    "self_iou_front": 0.609,
+    "self_iou_back": 0.589,
+    "heights_px": [
+     155,
+     158,
+     150,
+     155
+    ],
+    "widths_px": [
+     361,
+     345,
+     401,
+     338
+    ],
+    "height_cv": 0.0186,
+    "width_cv": 0.0676,
+    "px": [
+     26705,
+     27747,
+     28458,
+     26529
+    ]
+   },
+   "b": {
+    "mirror_iou": 0.953,
+    "pair_iou": 0.853,
+    "self_iou_front": 0.899,
+    "self_iou_back": 0.939,
+    "heights_px": [
+     154,
+     163,
+     145,
+     162
+    ],
+    "widths_px": [
+     367,
+     354,
+     370,
+     354
+    ],
+    "height_cv": 0.0464,
+    "width_cv": 0.0203,
+    "px": [
+     26061,
+     25174,
+     25790,
+     25432
+    ]
+   }
+  },
+  "boulder": {
+   "a": {
+    "mirror_iou": 0.971,
+    "pair_iou": 0.939,
+    "self_iou_front": 0.953,
+    "self_iou_back": 0.947,
+    "heights_px": [
+     146,
+     148,
+     145,
+     147
+    ],
+    "widths_px": [
+     385,
+     341,
+     392,
+     340
+    ],
+    "height_cv": 0.0076,
+    "width_cv": 0.0662,
+    "px": [
+     49284,
+     39419,
+     48551,
+     39631
+    ]
+   },
+   "b": {
+    "mirror_iou": 0.971,
+    "pair_iou": 0.946,
+    "self_iou_front": 0.918,
+    "self_iou_back": 0.93,
+    "heights_px": [
+     137,
+     138,
+     141,
+     140
+    ],
+    "widths_px": [
+     355,
+     354,
+     360,
+     353
+    ],
+    "height_cv": 0.0114,
+    "width_cv": 0.0076,
+    "px": [
+     42106,
+     39686,
+     42067,
+     40212
+    ]
+   }
+  }
+ },
+ "picks": {
+  "rocks": {
+   "variant": "a",
+   "why": "higher mirror_iou (0.897 vs 0.827)",
+   "mirror_iou": 0.897,
+   "pair_iou": 0.872
+  },
+  "stump": {
+   "variant": "a",
+   "why": "higher mirror_iou (0.953 vs 0.768)",
+   "mirror_iou": 0.953,
+   "pair_iou": 0.923
+  },
+  "skull": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.953 vs 0.855)",
+   "mirror_iou": 0.953,
+   "pair_iou": 0.853
+  },
+  "boulder": {
+   "variant": "b",
+   "why": "mirror within 0.02; higher pair_iou (0.946 vs 0.939)",
+   "mirror_iou": 0.971,
+   "pair_iou": 0.946
+  }
+ }
+}

@@ -46,7 +46,6 @@ import numpy as np
 from PIL import Image
 
 HERE = pathlib.Path(__file__).resolve().parent
-WORK = HERE / "kit_work"
 KIT = HERE / "kit"
 PLAY_YAW = 47.0
 PLAY_PITCH = 52.95354112560294
@@ -77,7 +76,7 @@ RETIRED_BECAUSE = {
 #   height   canonical Y extent          across   canonical X extent
 #   disc     widest row of the front silhouette, as a fraction of its X extent
 #   length   canonical X extent, with a transverse scale on Y and Z (see the docstring)
-SPEC = {
+SPEC_KIT = {
     "rocks":  {"anchor": "height", "m": 0.50, "what": "largest of three snow-capped rocks",
                "brief": "largest ~0.5 m high, cluster ~1.1 m across",
                "secondary": ("across", 1.10)},
@@ -94,6 +93,28 @@ SPEC = {
     "shield": {"anchor": "disc",   "m": 0.85, "what": "split round shield on two crossed spears",
                "brief": "shield ~0.85 m, spears ~1.9 m", "secondary": ("spear", 1.90)},
 }
+
+# THE RE-ISSUE. T10K-A2 and T10K-D replace rocks, stump and skull and add the boulder; the
+# four write into the same kit/ and supersede the entries of the same name. Anchors follow
+# the same rule as the first round -- the dimension the brief names FIRST -- so the two sets
+# are comparable, and the secondary misses are recorded the same way.
+#
+# Measured on the picked cells before any build, drawn against stated (across:height):
+#     rocks   2.00 vs 2.20   stump 1.69 vs 3.00   skull 2.38 vs 2.89   boulder 2.59 vs 2.00
+# The first round missed by 2.18-2.45x in one direction; this one is 0.56-1.30, and the
+# boulder overshoots -- it is FLATTER than asked, not squatter. Not stretched, per dispatch.
+SPEC_KIT2 = {
+    "rocks":   {"anchor": "across", "m": 1.10, "what": "three snow-capped rocks set apart",
+                "brief": "1.1 m across, largest 0.5 m high", "secondary": ("height", 0.50)},
+    "stump":   {"anchor": "height", "m": 0.30, "what": "low broad frost-covered birch stump",
+                "brief": "0.3 m high x 0.9 m across", "secondary": ("across", 0.90)},
+    "skull":   {"anchor": "across", "m": 1.30, "what": "elk skull lying on its side, antlers flat",
+                "brief": "1.3 m across x ~0.45 m high", "secondary": ("height", 0.45)},
+    "boulder": {"anchor": "across", "m": 1.00, "what": "low flat-topped boulder",
+                "brief": "1.0 m long x 0.5 m high", "secondary": ("height", 0.50)},
+}
+
+SETS = {"kit": ("kit_work", SPEC_KIT), "kit2": ("kit_work2", SPEC_KIT2)}
 
 
 def sil(p: pathlib.Path) -> np.ndarray:
@@ -130,7 +151,12 @@ def canon_size(glb: pathlib.Path, a0: float) -> list:
 
 
 def main() -> int:
-    want = sys.argv[1:] or list(SPEC)
+    global WORK, SPEC
+    args = sys.argv[1:]
+    setname = args[0] if args and args[0] in SETS else "kit"
+    WORK = HERE / SETS[setname][0]
+    SPEC = SETS[setname][1]
+    want = [a for a in args if a not in SETS] or list(SPEC)
     KIT.mkdir(exist_ok=True)
     meas = json.loads((WORK / "kit_measure.json").read_text())
     out = {}
@@ -195,10 +221,12 @@ def main() -> int:
                 got = trunk_frac(front) * Ly * sy
             elif kind == "spear":
                 got = sy_m          # spear tip height above the ground it is stuck in
+            elif kind == "height":
+                got = sy_m
             sec = {"what": kind, "brief_m": want_m, "measured_m": round(got, 3),
                    "ratio": round(got / want_m, 3)}
 
-        st = STATUS.get(obj, "keep")
+        st = "keep" if setname == "kit2" else STATUS.get(obj, "keep")
         out[obj] = {
             "status": st,
             "retired_because": RETIRED_BECAUSE.get(obj),
