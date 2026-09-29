@@ -1,0 +1,123 @@
+{
+ "body": "nb-body.glb",
+ "height_m": 1.85,
+ "scale_applied": 1.0,
+ "facing": "-Y",
+ "his_right": "-X",
+ "up": "+Z",
+ "body_shape_keys": [
+  "helmet_on"
+ ],
+ "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
+ "layer_order": [
+  "body",
+  "byrnie",
+  "mantle",
+  "bracers",
+  "helmet",
+  "shield",
+  "axe"
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.31579
+ },
+ "pieces": [
+  {
+   "piece": "helmet",
+   "mode": "bone",
+   "bones": [
+    "Head"
+   ],
+   "objects": [
+    "helmet"
+   ],
+   "faces": 12000,
+   "offset_m": 0.0,
+   "glb": "helmet.glb"
+  },
+  {
+   "piece": "bracers",
+   "mode": "bone",
+   "bones": [
+    "RightForeArm",
+    "LeftForeArm",
+    "LeftForeArm",
+    "RightForeArm",
+    "LeftForeArm",
+    "LeftForeArm",
+    "LeftForeArm",
+    "RightForeArm",
+    "LeftForeArm",
+    "LeftForeArm"
+   ],
+   "objects": [
+    "bracers_00",
+    "bracers_01",
+    "bracers_02",
+    "bracers_03",
+    "bracers_04",
+    "bracers_05",
+    "bracers_06",
+    "bracers_07",
+    "bracers_08",
+    "bracers_09"
+   ],
+   "faces": 12000,
+   "offset_m": 0.002,
+   "glb": "bracers.glb"
+  },
+  {
+   "piece": "byrnie",
+   "mode": "skin",
+   "bones": [
+    "skinned"
+   ],
+   "objects": [
+    "byrnie"
+   ],
+   "faces": 26000,
+   "offset_m": 0.005,
+   "glb": "byrnie.glb"
+  },
+  {
+   "piece": "mantle",
+   "mode": "skin",
+   "bones": [
+    "skinned"
+   ],
+   "objects": [
+    "mantle"
+   ],
+   "faces": 24000,
+   "offset_m": 0.008,
+   "glb": "mantle.glb"
+  },
+  {
+   "piece": "axe",
+   "mode": "socket",
+   "bones": [
+    "RightHand"
+   ],
+   "objects": [
+    "axe"
+   ],
+   "faces": 9000,
+   "offset_m": 0.0,
+   "glb": "axe.glb"
+  },
+  {
+   "piece": "shield",
+   "mode": "socket",
+   "bones": [
+    "LeftForeArm"
+   ],
+   "objects": [
+    "shield"
+   ],
+   "faces": 9000,
+   "offset_m": 0.0,
+   "glb": "shield.glb"
+  }
+ ]
+}

@@ -215,3 +215,199 @@ def socket_weapon(pc, arm, bone, length, grip, axis_hint=None, extra_rot=None,
     return dict(scale=round(float(s), 5), long_axis="XYZ"[la],
                 head_end="max" if head_max else "min", bone=bone,
                 length_m=length, grip_frac=grip)
+
+
+def helmet_on_key(body, helmet, arm, clearance=0.010, name="helmet_on"):
+    """A shape key that compresses the hair UNDER the helmet.
+
+    The dome was invisible because the base build's hair is a solid volume that
+    the helmet sits inside: he read as wearing a brow band with red braids on
+    top. Offsetting the helmet outward was the wrong fix -- it flattens the
+    helmet onto the scalp. Games move the HAIR, not the hat.
+
+    Every candidate vertex is tested by casting a ray OUTWARD from the head
+    centre through it. If that ray meets the helmet, the vertex lies under the
+    dome, and it is pulled back along the same ray to just inside the helmet's
+    surface. A radial test is what "under the dome" actually means, and it
+    leaves the braid and the beard alone by construction: they hang below the
+    rim, so a ray through them does not meet the helmet.
+
+    Returns (moved, tested, key) so the caller can report rather than assert.
+    """
+    from mathutils.bvhtree import BVHTree
+    # matrix_world is only recomputed on depsgraph evaluation, and align_space
+    # has just changed it. Without this the helmet reads at its pre-parenting
+    # transform and the candidate box comes back EMPTY -- "0 of 0", which looks
+    # like a wrong predicate and is a stale matrix. Third time this has bitten
+    # in this run.
+    bpy.context.view_layer.update()
+    # THE BVH IS BUILT IN WORLD SPACE. align_space() gives every piece the
+    # body's object transform, and Meshy ships that body at 0.01 scale -- so a
+    # ray cast in the helmet's LOCAL space with a 1.0 distance reaches one
+    # centimetre and hits nothing. The first version of this returned "0 of
+    # 15523 moved", which looks exactly like a mis-aimed ray and was a unit.
+    hco = np.empty(len(helmet.data.vertices) * 3)
+    helmet.data.vertices.foreach_get("co", hco)
+    HW = (hco.reshape(-1, 3) @ np.array(helmet.matrix_world.to_3x3()).T
+          + np.array(helmet.matrix_world.translation))
+    helmet.data.calc_loop_triangles()
+    HT = [list(map(int, t.vertices)) for t in helmet.data.loop_triangles]
+    hb = BVHTree.FromPolygons([Vector(p) for p in HW.tolist()], HT)
+    hz0, hz1 = float(HW[:, 2].min()), float(HW[:, 2].max())
+    C = np.array(arm.matrix_world @ arm.pose.bones["Head"].head)
+    C[2] = hz0 + 0.30 * (hz1 - hz0)          # centre inside the dome, not the neck
+
+    if not body.data.shape_keys:
+        body.shape_key_add(name="Basis", from_mix=False)
+    key = body.shape_key_add(name=name, from_mix=False)
+    M = body.matrix_world
+    Mi = M.inverted()
+    co = np.empty(len(body.data.vertices) * 3)
+    body.data.vertices.foreach_get("co", co)
+    P = co.reshape(-1, 3)
+    PW = P @ np.array(M.to_3x3()).T + np.array(M.translation)
+    # candidates: at or above the helmet's rim, within its lateral reach
+    cand = np.where((PW[:, 2] > hz0 - 0.01) &
+                    (np.linalg.norm(PW[:, :2] - C[:2], axis=1) < 0.30))[0]
+    print("      helmet world z %.3f..%.3f, ray centre %s; body z %.3f..%.3f; "
+          "%d candidates" % (hz0, hz1, np.round(C, 3), PW[:, 2].min(),
+                             PW[:, 2].max(), len(cand)))
+    moved = 0
+    for i in cand:
+        v = PW[i]
+        d = v - C
+        L = float(np.linalg.norm(d))
+        if L < 1e-5:
+            continue
+        dirn = d / L
+        # TWO TESTS, because one radial ray is not enough. A ray from the head
+        # centre through a hair vertex catches everything directly under the
+        # dome, and MISSES hair that leaves the scalp at a grazing angle and
+        # re-emerges through the shell further out -- which left 24% of the
+        # helmet's silhouette still showing hair. The second test asks the
+        # other question: is this vertex on the OUTSIDE of the helmet surface
+        # and close to it? If so it is poking through, wherever the ray went.
+        hit = hb.ray_cast(Vector(C.tolist()), Vector(dirn.tolist()), 1.0)
+        if hit[0] is not None:
+            h = float((hit[0] - Vector(C.tolist())).length)
+            if L > h - clearance:
+                nw = C + dirn * max(h - clearance, 0.01)
+                key.data[int(i)].co = Mi @ Vector(nw.tolist())
+                moved += 1
+                continue
+        near = hb.find_nearest(Vector(v.tolist()), 0.06)
+        if near[0] is None:
+            continue
+        outward = (Vector(v.tolist()) - near[0]).dot(near[1])
+        if outward > -clearance:
+            nw = np.array((near[0] - near[1] * clearance).to_tuple())
+            key.data[int(i)].co = Mi @ Vector(nw.tolist())
+            moved += 1
+    return moved, len(cand), key
+
+
+def socket_weapon2(pc, arm, bone, length, grip, axis_world, face_world,
+                   offset_world=(0, 0, 0), anchor="head"):
+    """Place a weapon with an EXPLICIT orientation, at rest.
+
+    The first version mapped the piece's LONG AXIS to the bone axis and let the
+    rest follow. That is wrong for a shield, whose long axis is arbitrary --
+    it is a disc, and the only direction that means anything is its NORMAL --
+    and it hung the axe down past the knee. So the caller states the two
+    directions that matter and they are measured on the mesh, not assumed:
+
+      axis_world   where the weapon's own long axis should point, in world
+                   space at rest. For the axe that is up, so the head is up.
+                   For the shield it is the disc's normal, pointing outward.
+      face_world   where the weapon's LATERAL feature should point -- the axe's
+                   cutting edge, the shield's boss. Measured as the direction
+                   from the long axis to the mass at the head end.
+
+    Binding is by vertex group and an armature modifier, not by a parent
+    transform, so getting the REST pose right is the whole job: the bone then
+    carries it through every clip.
+    """
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    V = (co.reshape(-1, 3) @ np.array(pc.matrix_world.to_3x3()).T
+         + np.array(pc.matrix_world.translation))
+    span = V.max(0) - V.min(0)
+    la = int(np.argmax(span))
+    if anchor == "normal":                 # a disc: the long axis is the THIN one
+        la = int(np.argmin(span))
+    s = length / max(span[int(np.argmax(span))], 1e-9)
+    V = V * s
+    lo, hi = V[:, la].min(), V[:, la].max()
+    t = (V[:, la] - lo) / max(hi - lo, 1e-9)
+    oth = [i for i in range(3) if i != la]
+
+    def bulk(m):
+        if m.sum() < 10:
+            return 0.0
+        q = V[m][:, oth]
+        return float(np.prod(q.max(0) - q.min(0)))
+    head_max = bulk(t > 0.75) > bulk(t < 0.25)
+    # the lateral feature: where the mass sits at the head end, off the axis
+    hm = (t > 0.70) if head_max else (t < 0.30)
+    axis_mid = np.array([np.median(V[:, oth[0]]), np.median(V[:, oth[1]])])
+    off = V[hm][:, oth].mean(0) - axis_mid if hm.sum() > 10 else np.array([1.0, 0.0])
+    F = np.zeros(3)
+    F[oth[0]], F[oth[1]] = off[0], off[1]
+    if np.linalg.norm(F) < 1e-9:
+        F[oth[0]] = 1.0
+    F = F / np.linalg.norm(F)
+    L = np.zeros(3); L[la] = 1.0 if head_max else -1.0
+    # grip point along the long axis, measured from the BUTT end
+    gp = (lo + grip * (hi - lo)) if head_max else (hi - grip * (hi - lo))
+    ctr = np.array([np.median(V[:, 0]), np.median(V[:, 1]), np.median(V[:, 2])])
+    ctr[la] = gp
+    V = V - ctr
+    # build the rotation: L -> axis_world, F -> face_world (orthogonalised)
+    A = np.array(axis_world, float); A /= np.linalg.norm(A)
+    Fw = np.array(face_world, float)
+    Fw = Fw - A * float(Fw @ A)
+    Fw /= max(np.linalg.norm(Fw), 1e-9)
+    Tw = np.cross(A, Fw)
+    Tl = np.cross(L, F)
+    Msrc = np.stack([L, F, Tl], 1)
+    Mdst = np.stack([A, Fw, Tw], 1)
+    R = Mdst @ np.linalg.inv(Msrc)
+    bh = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    V = V @ R.T + bh + np.array(offset_world, float)
+    pc.data.vertices.foreach_set("co", V.ravel())
+    pc.matrix_world = Matrix.Identity(4)
+    pc.data.update()
+    g = pc.vertex_groups.new(name=bone)
+    g.add(list(range(len(pc.data.vertices))), 1.0, 'REPLACE')
+    m = pc.modifiers.new('arm', 'ARMATURE'); m.object = arm
+    return dict(scale=round(float(s), 5), long_axis="XYZ"[la],
+                span_scaled_m=[round(float(v * s), 4) for v in span],
+                bone_head=[round(float(v), 4) for v in bh],
+                head_end="max" if head_max else "min", bone=bone,
+                face_local=[round(float(v), 3) for v in F],
+                axis_world=[round(float(v), 3) for v in A],
+                face_world=[round(float(v), 3) for v in Fw])
+
+
+def rescale_piece(pc, factor):
+    """Scale a piece about the world origin.
+
+    The pieces were isolated against the 1.70 m Meshy rig; the hand-off body is
+    the T8 GLB at the declared 1.85 m. align_space preserves WORLD position, so
+    a piece carried across keeps its 1.70 m size and floats: the helmet exported
+    15 cm below the crown of the head it belongs to. The export's own scale step
+    did not catch it, because that step measures the BODY -- which was already
+    1.85 and needed no scaling -- and never looked at what it was scaling FOR.
+    Both bodies have feet on z = 0 and midline x = 0, so a scale about the
+    origin is the whole correction.
+    """
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    P = co.reshape(-1, 3)
+    W = P @ np.array(pc.matrix_world.to_3x3()).T + np.array(pc.matrix_world.translation)
+    W = W * factor
+    Mi = pc.matrix_world.inverted()
+    L = W @ np.array(Mi.to_3x3()).T + np.array(Mi.translation)
+    pc.data.vertices.foreach_set("co", L.ravel())
+    pc.data.update()
+    return factor

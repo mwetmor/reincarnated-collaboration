@@ -84,7 +84,17 @@ for item in [s for s in SPEC.split(",") if s]:
     if mode == "socket":
         ln = float(parts[3]) if len(parts) > 3 else 0.82
         gr = float(parts[4]) if len(parts) > 4 else 0.3
-        info = G.socket_weapon(pc, arm, bones[0], ln, gr)
+        # AXE: haft up so the head rides high, cutting edge forward (-Y) so it
+        # leads a forward swing. SHIELD: the disc's NORMAL outward on his left
+        # (+X), boss forward, sitting on the outside of the forearm.
+        SPECS = dict(
+            axe=dict(axis_world=(0, 0, 1), face_world=(0, -1, 0),
+                     offset_world=(0, 0, 0), anchor="head"),
+            shield=dict(axis_world=(1, 0.25, 0), face_world=(0, -1, 0),
+                        offset_world=(0.09, 0, -0.13), anchor="normal"))
+        sp = SPECS.get(nm, dict(axis_world=(0, 0, 1), face_world=(0, -1, 0),
+                                offset_world=(0, 0, 0), anchor="head"))
+        info = G.socket_weapon2(pc, arm, bones[0], ln, gr, **sp)
         G.align_space(pc, body[0])
         made = [(pc, bones[0])]
         ok = len(pc.data.vertices)
@@ -105,6 +115,13 @@ for item in [s for s in SPEC.split(",") if s]:
                         bones=[b for _, b in made]))
     print("  + %-8s %-5s %6d -> %5d faces, %d pushed out, bound to %s"
           % (nm, mode, n0, n1, pushed, [b for _, b in made]))
+    if nm == "helmet":
+        mv, ca, kk = G.helmet_on_key(body[0], made[0][0], arm)
+        kk.value = 1.0
+        print("      helmet_on shape key: %d of %d candidate head vertices "
+              "pulled under the dome" % (mv, ca))
+        fitinfo[-1]["helmet_on_moved"] = mv
+        fitinfo[-1]["helmet_on_candidates"] = ca
 
 act = arm.animation_data.action if arm.animation_data else None
 f0, f1 = (int(v) for v in act.frame_range) if act else (1, 2)
