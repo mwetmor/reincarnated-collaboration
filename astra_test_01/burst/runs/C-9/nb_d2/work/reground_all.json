@@ -1,0 +1,222 @@
+{
+ "attack": {
+  "dz": -0.064424,
+  "basis_delta": [
+   -0.521574,
+   -5.816813,
+   -0.969493
+  ],
+  "keys": 111,
+  "before": {
+   "min": 0.0644,
+   "max": 0.0886
+  },
+  "after": {
+   "min": 0.0,
+   "max": 0.0242,
+   "worst_cm": 2.42
+  }
+ },
+ "attack_chop": {
+  "dz": 0.056661,
+  "basis_delta": [
+   0.458726,
+   5.115909,
+   0.852673
+  ],
+  "keys": 555,
+  "before": {
+   "min": -0.0567,
+   "max": 0.7494
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.806,
+   "worst_cm": 80.6
+  }
+ },
+ "block": {
+  "dz": 0.090379,
+  "basis_delta": [
+   0.731698,
+   8.160201,
+   1.360068
+  ],
+  "keys": 255,
+  "before": {
+   "min": -0.0904,
+   "max": 0.1362
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.2266,
+   "worst_cm": 22.66
+  }
+ },
+ "idle": {
+  "skipped": "already within 2 cm of the floor",
+  "feet": [
+   -0.0094,
+   0.0093
+  ]
+ },
+ "idle_armed": {
+  "dz": 0.555226,
+  "basis_delta": [
+   4.49507,
+   50.13089,
+   8.35536
+  ],
+  "keys": 444,
+  "before": {
+   "min": -0.5552,
+   "max": 0.02
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.5753,
+   "worst_cm": 57.53
+  }
+ },
+ "run": {
+  "skipped": "already within 2 cm of the floor",
+  "feet": [
+   -0.0397,
+   0.0709
+  ]
+ },
+ "run_armed": {
+  "skipped": "already within 2 cm of the floor",
+  "feet": [
+   -0.0397,
+   0.0709
+  ]
+ },
+ "run_armed_L": {
+  "dz": 0.064035,
+  "basis_delta": [
+   0.518421,
+   5.781651,
+   0.963633
+  ],
+  "keys": 48,
+  "before": {
+   "min": -0.064,
+   "max": 0.3999
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.4639,
+   "worst_cm": 46.39
+  }
+ },
+ "run_armed_R": {
+  "dz": -0.087305,
+  "basis_delta": [
+   -0.706818,
+   -7.882728,
+   -1.313821
+  ],
+  "keys": 48,
+  "before": {
+   "min": 0.0873,
+   "max": 0.2933
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.2059,
+   "worst_cm": 20.59
+  }
+ },
+ "run_armed_diagblend_REJECTED": {
+  "dz": 0.021178,
+  "basis_delta": [
+   0.171452,
+   1.912102,
+   0.318692
+  ],
+  "keys": 48,
+  "before": {
+   "min": -0.0212,
+   "max": 0.1645
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.1857,
+   "worst_cm": 18.57
+  }
+ },
+ "run_armed_t2m": {
+  "dz": 0.924385,
+  "basis_delta": [
+   7.483751,
+   83.461899,
+   13.910667
+  ],
+  "keys": 180,
+  "before": {
+   "min": -0.9244,
+   "max": -0.82
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.1044,
+   "worst_cm": 10.44
+  }
+ },
+ "shield_bash": {
+  "dz": -0.059973,
+  "basis_delta": [
+   -0.485539,
+   -5.414929,
+   -0.902511
+  ],
+  "keys": 177,
+  "before": {
+   "min": 0.06,
+   "max": 0.5356
+  },
+  "after": {
+   "min": 0.0,
+   "max": 0.4756,
+   "worst_cm": 47.56
+  }
+ },
+ "walk": {
+  "skipped": "already within 2 cm of the floor",
+  "feet": [
+   -0.0218,
+   -0.0032
+  ]
+ },
+ "walk_armed": {
+  "dz": 0.012352,
+  "basis_delta": [
+   0.100002,
+   1.11526,
+   0.185881
+  ],
+  "keys": 129,
+  "before": {
+   "min": -0.0124,
+   "max": 0.1036
+  },
+  "after": {
+   "min": -0.0,
+   "max": 0.116,
+   "worst_cm": 11.6
+  }
+ },
+ "walk_armed_unarmedsrc": {
+  "skipped": "already within 2 cm of the floor",
+  "feet": [
+   -0.0218,
+   -0.0032
+  ]
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "isolated": []
+ }
+}

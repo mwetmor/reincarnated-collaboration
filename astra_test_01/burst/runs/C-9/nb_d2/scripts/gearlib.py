@@ -765,22 +765,33 @@ def foot_track(arm, meshes, act, masks):
     return np.array(zs)
 
 
-def reground_from_feet(arm, meshes, act, bone='Hips', target=0.0):
+def reground_from_feet(arm, meshes, act, bone='Hips', target=0.0, mode='min'):
     """Drop or lift a clip by ONE constant offset so its foot contact sits at
     `target`, derived from where the feet actually are.
 
     CONSTANT, not per frame. Per-frame grounding welds the feet to the floor
     and deletes whatever vertical motion the clip has -- on an idle that is the
-    breathing, and the hips would gain a compensating counter-bob to pay for
-    it. The offset centres the residual (min+max)/2 rather than using the
-    median, because what matters is the WORST frame's distance from the floor.
+    breathing, and the hips would gain a compensating counter-bob to pay for it.
+
+    mode='min' puts the DEEPEST foot on the floor. mode='centre' centres the
+    residual at (min+max)/2.
+
+    CENTRE WAS THE ORIGINAL AND IT IS WRONG IN GENERAL. It was chosen against a
+    single idle whose feet spanned 1.87 cm, where halving the error to +/-0.93
+    cm was the whole point. Applied to clips with a real foot excursion it is a
+    disaster: attack_chop's feet span -0.057 to +0.749 m (a leap), and centring
+    put the planted foot 0.40 m UNDERGROUND -- taking a clip that was correct
+    and breaking it. The deepest foot is the planted one, so grounding it is
+    the rule that holds for an idle, a walk, a run with a flight phase and a
+    leap alike.
 
     Not derived by dividing by the scale factor: the scale and the root
     translation came from the same retarget but they are not the same error,
     and the feet are the only ground truth available."""
     masks = {ob.name: foot_verts(ob) for ob in meshes}
     before = foot_track(arm, meshes, act, masks)
-    dz = target - float(before.min() + before.max()) / 2.0
+    dz = target - (float(before.min()) if mode == 'min'
+                   else float(before.min() + before.max()) / 2.0)
     d_b, n = shift_root(act, arm, bone, dz)
     after = foot_track(arm, meshes, act, masks)
     return dict(dz=round(float(dz), 6), basis_delta=d_b, keys=n,
