@@ -1,0 +1,71 @@
+{
+ "band_px": 80,
+ "feather": "cosine to zero at the band edge",
+ "repairs": {
+  "T10S-snow": {
+   "original": "T10T-snow-r1",
+   "variant_sent": "a",
+   "repaired_variant": "b",
+   "before": 1.68,
+   "after": 1.18,
+   "vertical_wrap": 1.01,
+   "horizontal_wrap": 1.18,
+   "band_detail_ratio": 0.867,
+   "bands_taken": [
+    "rows",
+    "cols"
+   ],
+   "outside_band_identical": true,
+   "outside_band_px": 1199025,
+   "pass": true
+  },
+  "T10S-rock": {
+   "original": "T10T-rock",
+   "variant_sent": "b",
+   "repaired_variant": "b",
+   "before": 1.71,
+   "after": 0.99,
+   "vertical_wrap": 0.99,
+   "horizontal_wrap": 0.9,
+   "band_detail_ratio": 0.773,
+   "bands_taken": [
+    "rows",
+    "cols"
+   ],
+   "outside_band_identical": true,
+   "outside_band_px": 1199025,
+   "pass": true
+  },
+  "T10S-bark": {
+   "original": "T10T-bark",
+   "variant_sent": "a",
+   "repaired_variant": "b",
+   "before": 1.86,
+   "after": 0.81,
+   "vertical_wrap": 0.81,
+   "horizontal_wrap": 0.81,
+   "band_detail_ratio": 0.767,
+   "bands_taken": [
+    "rows"
+   ],
+   "outside_band_identical": true,
+   "outside_band_px": 1373130,
+   "pass": true
+  }
+ },
+ "passed_first_time": {
+  "T10T-path": {
+   "variant": "b",
+   "ratio": 1.2
+  },
+  "T10T-heather": {
+   "variant": "b",
+   "ratio": 1.43
+  },
+  "T10T-ice": {
+   "variant": "a",
+   "ratio": 1.48
+  }
+ },
+ "final_px": 1024
+}
