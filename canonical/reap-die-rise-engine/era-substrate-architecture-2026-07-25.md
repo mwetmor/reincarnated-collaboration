@@ -105,7 +105,7 @@ built and validated is now *every era's* substrate. Specifically:
 
 | Fork | Question | Re-entry trigger |
 |---|---|---|
-| **E-1 Cross-era power normalization** | What does level-90-PoE vs level-99-D2 mean in one arena? (Anchor candidates: normalized-TTK-vs-reference-monsters, percentile-within-lane) | First cross-era arena design session; gates nothing before it |
+| ~~**E-1 Cross-era power normalization**~~ ✓ **RULED 2026-09-28 (Matt)** | **Joined kits are tuned toward OUR balance thresholds** (doc 50 bounded viability) by the battle sim; each kit's home-game margin is still measured and recorded as its fidelity cost. Companion ruling: every game's kit-internal mechanisms enter natively; ONE kit↔world boundary rulebook, GD default, widened by lever (`agentic_orchestration/gandalf/notes/2026-09-28-join-key-architect-pass.md` § 8) | Governs JOIN-1 Phase B |
 | **E-2 Per-era signature-feel checklists** | The 3–5 elements per era + parameter-space coverage check (§5.2) | First era-profile authoring session (after GD program's L0-CLOSE) |
 
 ## 8. Thematic ratification

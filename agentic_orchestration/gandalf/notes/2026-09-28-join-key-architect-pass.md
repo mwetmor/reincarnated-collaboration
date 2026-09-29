@@ -1,6 +1,6 @@
 # The join key — ARCHITECT pass: from arena replica to the substrate other kits join
 
-> **STATUS:** CURRENT — ARCHITECT pass (open-questions gate) for the successor to Run KC2-PLAY. **Not a charter; nothing fires from this note.** It sets the course, records one Matt ruling, and gates the rest.
+> **STATUS:** CURRENT — ⚑ **§ 8 (ELICITOR rulings, 2026-09-28) GOVERNS over §§ 1, 3, 5 where they differ.** ARCHITECT pass (open-questions gate) for the successor to Run KC2-PLAY. **Not a charter; nothing fires from this note.** It sets the course, records one Matt ruling, and gates the rest.
 > **Date:** 2026-09-28 · **Author:** gandalf (`ARCHITECT`) · **Authority:** Matt's session ask + ruling **R-J1** (§ 1), recorded in the KC2-PLAY ledger as **KP-82**.
 > **Builds on (does not replace):** `canonical/reap-die-rise-engine/era-substrate-architecture-2026-07-25.md` (one substrate, many masks; three layers; fidelity grades; E-1/E-2 open) · TRUE-SOURCES rulings TSR-2/3/4 (`gandalf/notes/2026-07-23-true-sources-grill-brief.md` § 4) · `gandalf/notes/2026-09-21-the-commission-rule.md` (Failure Mode 2) · KC2-PLAY charter + ledger `gandalf/notes/2026-09-20-kc2-play-run-charter.md` and hand-off `agentic_orchestration/skill_handoff_2026-09-24.md`.
 
@@ -107,5 +107,21 @@ The house profile: levers moved by playtest, each move a ruling priced by its fe
 gamora: oracle, prereg v1.6, ablation runs, E-1 math · star-lord: the v3.4 cut, pack schema generalisation · drax: runtime primitives, adapter refactor, golden-master gate · elrond: `corpus.db` ↔ primitives join, GD-SLICE lock · legolas: commissions under the Commission Rule, foreign-lane anchors · galadriel: T-B footage instrument · jack-ryan: Gate-1 on the JOIN-1 charter, Gate-2 at the REFERENT-v1 seal, grade-vocabulary unification.
 
 ---
+
+## 8 · Corrigendum-forward 1 — the ELICITOR session (Matt, 2026-09-28, class `matt`; ledger KP-83)
+
+Every fork in § 5 was ruled in one session. **Q86 was not answered as posed. Matt reframed it, and the reframe is better than the lean.**
+
+| # | Ruling | What it changes |
+|---|---|---|
+| **Q85** | **RESET, two attempts.** Prereg v1.6 gets a fresh two-graded-run allowance | Next graded T-A unblocked once v1.6 lands |
+| **Q86** | Matt: *"Is there any reason not to simply add all of the mechanisms into the game? This will create a larger, more complex game which is fine because we will run everything through the battle sim and tune the kits to the game's balance thresholds."* Then, on the restated fork: **ONE BOUNDARY RULEBOOK, GD DEFAULT.** | **Supersedes § 1's "generalise the mechanism" and § 3's primitive-only framing.** Every game's **kit-internal** mechanisms (resources, skill behaviours, leech, energy shield, reservation, fury, procs) enter **natively, as-is**: a union, not an abstraction. Only the **kit↔world boundary** is shared: hit resolution, damage type vs resistance, mitigation order, CC/status on monsters, the tick clock. It starts as Grim Dawn's validated rules and is widened only where a foreign kit's interaction cannot be expressed; each widening is a lever, OPEN. **The join key is the boundary rulebook**, not a schema every kit is squeezed through. B1's census becomes a sort: each foreign mechanism is **INTERNAL** (add it) or **BOUNDARY** (adjudicate it). |
+| **Q87** | **The exact rows plus Matt's yes.** All 26 EXACT T-A rows green under v1.6 + coverage 89/89 mapped + T-B reported as DIAGNOSTIC (consistent with F5) + Matt's T-C "it feels like my video" | ⚑ **Correction to § 5's framing:** "feel-load-bearing rows" was circular (the ablation map that identifies them runs *after* the seal). The prereg's own EXACT gate replaces it |
+| **Q88** | **D2 Whirlwind Barb is the first real join.** Paper slate: D2 WW Barb · PoE1 Cyclone · PoE2 Bonestorm · one cooldown-only kit | — |
+| **Q89** | **KC2-PLAY closes at the REFERENT-v1 seal; JOIN-1 is chartered for the ablation map + Phase B** | JOIN-1 charter + Gate-1 before any Phase-B work |
+| **E-1** | **Tune toward OUR BALANCE THRESHOLDS** (doc 50, bounded viability): the battle sim brings every joined kit into the game's balance band. Each kit's **home-game margin** is still MEASURED and recorded, so the distance each kit moved from home is known, never hidden | **§ 5's matched-margin lean is withdrawn as the target;** it survives as the measurement of fidelity cost. Era-substrate § 7 E-1 marked RULED |
+| Push | Push `main` now, C-9 commits riding as sealed ancestors | Pushed with this record |
+
+**Net architecture (governs):** one substrate · **the union of every roster game's kit-internal mechanisms** · **one boundary rulebook** (GD default, widened by lever) · profiles over the levers (GD-REFERENT replays the seal; the house profile is tuned to the balance thresholds) · the golden-master replay unchanged.
 
 **Signed:** gandalf (`ARCHITECT`), 2026-09-28. The replica earns the right to be moved by being proved first; the middle earns the right to be tuned by being measured first.
