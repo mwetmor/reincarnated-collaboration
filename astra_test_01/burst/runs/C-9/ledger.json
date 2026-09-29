@@ -15120,7 +15120,7 @@
     }
   ],
   "images_used": 414,
-  "images_cap": 400,
+  "images_cap": 1500,
   "experiments": {},
   "milestones": [
     {
@@ -15404,7 +15404,8 @@
       "id": "H-C9-1",
       "ts": "2026-09-28T22:45:45Z",
       "kind": "cap reached (charter section 5)",
-      "detail": "Run image cap 400 (charter section 4) reached: images_used 414 / cap 400. Wave t2paintB (T2P-run-E, T2P-run-SE, T2K-walk, T2K-idle, T2P-idle-SE-r1) refused by the lane with 'insufficient run image budget'; no burst ran, nothing was spent. Overrun of 14: the lane's check (images_used + image_cap > images_cap at burst start) does not reserve budget for bursts already in flight, so parallel bursts in one wave each saw the same pre-wave count (a lane defect, to go to jack-ryan). Spend since the pipeline review (R-C9-60 onward): about 70 images (T1 sheets 8, T2 sheet 4, T1 paint 16, T1 keys 12, T2 paint 14, and others). Remaining to finish T1 and T2 (run and attack E/SE, run/attack keys for both, T2 walk/idle keys, T2 idle-SE re-fire): about 80 images plus about 20 retry buffer. Conductor proposal to Matt: raise the C-9 run cap 400 -> 550. Until ruled: no Astra bursts; non-image work continues (knight walk/idle EbSynth plus assembly, integration, the matte)."
+      "detail": "Run image cap 400 (charter section 4) reached: images_used 414 / cap 400. Wave t2paintB (T2P-run-E, T2P-run-SE, T2K-walk, T2K-idle, T2P-idle-SE-r1) refused by the lane with 'insufficient run image budget'; no burst ran, nothing was spent. Overrun of 14: the lane's check (images_used + image_cap > images_cap at burst start) does not reserve budget for bursts already in flight, so parallel bursts in one wave each saw the same pre-wave count (a lane defect, to go to jack-ryan). Spend since the pipeline review (R-C9-60 onward): about 70 images (T1 sheets 8, T2 sheet 4, T1 paint 16, T1 keys 12, T2 paint 14, and others). Remaining to finish T1 and T2 (run and attack E/SE, run/attack keys for both, T2 walk/idle keys, T2 idle-SE re-fire): about 80 images plus about 20 retry buffer. Conductor proposal to Matt: raise the C-9 run cap 400 -> 550. Until ruled: no Astra bursts; non-image work continues (knight walk/idle EbSynth plus assembly, integration, the matte).",
+      "resolved": "2026-09-28 by Matt R-C9-64 (cap lifted)"
     }
   ],
   "rulings": [
@@ -15944,6 +15945,14 @@
       "topic": "T1/T3 live: E and W inverted; the pollaxe floats",
       "ruling": "Matt verbatim: \"With the Meshy version, E and W are inverted. Also the poleaxe floats near the character awkwardly.\" Confirmed in drax's cmp_facing.png: with the Keeper walking right, both knight skins face left, and the runtime pollaxe lies horizontal. Dispatched to drax (integration): apply the rig facing offset (179.74 deg measured by the knight3d session) and check the yaw sign (E/W swap with N/S right = a sign or mirror error); mirror the placeholder for W; assert facing from a player-view capture with real key input; switch the runtime walk/run/idle to the text-to-motion carry clips with the pollaxe on the right-hand bone (position and rotation), asserting the haft through the gauntlet bbox and within 20 deg of vertical; rebuild and push under R-C9-61.",
       "ts": "2026-09-28T18:04:15"
+    },
+    {
+      "id": "R-C9-64",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Run image cap lifted (H-C9-1 resolved): the 400 cap was miscalculated; the real limit is ChatGPT's weekly Astra allowance",
+      "ruling": "Matt verbatim: \"Limit reset. Please continue. Also, please note that ChatGPT Astra usage is under 50% for the week so ignore the 400 picture cap as it was calculated incorrectly.\" Disposition: H-C9-1 resolved. The ledger images_cap is raised 400 -> 1500 as a guard, not a budget: the binding limit is the ChatGPT weekly Astra allowance (under 50% used as of 2026-09-28), watched by Matt. The lane check stays on, so the ledger still counts every image. The lane defect (no reservation for in-flight bursts in a parallel wave) goes to jack-ryan unchanged. Work resumes: T2 wave B re-fired (run E/SE, attack E/SE, keys walk/run/idle/attack); the T2P-idle-SE re-fire is DROPPED because the T1 robust matte salvaged the original sheet (salvage_a, IoU 0.903, residual 0.05/255).",
+      "ts": "2026-09-28T21:07:13"
     }
   ],
   "grok_calls": [
@@ -16529,7 +16538,7 @@
   "run": "C-9",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md",
   "charter_sha256_12": "ba0700e71807",
-  "images_cap_note": "C-9 run cap 400 (charter § 4); M1 sub-cap 16 enforced by the conductor",
+  "images_cap_note": "Matt R-C9-64 (2026-09-28): the charter's 400 cap was miscalculated and is lifted; 1500 is a guard, not a budget. The binding limit is ChatGPT's weekly Astra allowance (under 50% used as of 2026-09-28). History: C-9 run cap 400 (charter section 4); M1 sub-cap 16; H-C9-1 at 414/400.",
   "notes": [
     {
       "id": "N-C9-1",
