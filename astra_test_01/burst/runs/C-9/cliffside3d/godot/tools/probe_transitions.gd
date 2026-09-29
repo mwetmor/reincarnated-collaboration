@@ -38,6 +38,13 @@ func _initialize() -> void:
 	for i in 60:
 		await process_frame
 	var k = scene.knight
+	for a in OS.get_cmdline_user_args():
+		if a.begins_with("--tau="):
+			k.CYCLE_TAU_S = float(a.substr(6))
+			print("  [A/B] CYCLE_TAU_S = %.3f s" % k.CYCLE_TAU_S)
+	if "--no-sync" in OS.get_cmdline_user_args():
+		k.sync_group = false
+		print("  [A/B] SYNC GROUP OFF -- pre-sync behaviour, same instrument")
 	k.set_physics_process(false)
 	k.set_gear_stack(k.gear_stack_count() - 1)
 	var skel: Skeleton3D = k._skel
@@ -112,6 +119,7 @@ func _initialize() -> void:
 		var slides := []
 		var foot_lows := []
 		var prev_foot := Vector3.ZERO
+		var prev_h := 1e9
 		var prev_low := -1
 		var settled := -1
 		var prev_pose := _pose(skel)
@@ -128,10 +136,22 @@ func _initialize() -> void:
 			# at 5 m/s, correctly, and not a slide. A planted foot is one at the bottom of
 			# its own range, so the range is collected first and the filter applied after.
 			foot_lows.append(foot.y - k.global_position.y)
-			if low == prev_low:
-				slides.append([(foot - prev_foot).length(), foot.y - k.global_position.y])
+			# ON THE FLOOR, or there is no planted foot to measure. Walking him in one
+			# direction for 86 frames at up to 6.4 m/s takes him off the plateau: the body
+			# was travelling 0.569 m per frame where its speed says 0.084, which is a fall,
+			# and the "planted" foot was falling with it. Every spike over 0.25 m in the
+			# first run of this was that, not a blend artefact.
+			var h: float = foot.y - k.global_position.y
+			# BOTH ENDS of the pair must be on the ground. Checking only the current frame
+			# counts the frame a foot lands on: at 6.4 m/s that foot was 0.4 m behind and
+			# airborne one frame earlier, so its "travel" is the swing, measured correctly,
+			# and it is not a slide. Ground contact in a 24 fps run lasts 2-3 frames, so
+			# there are real planted PAIRS -- they just have to be asked for.
+			if low == prev_low and k.is_on_floor():
+				slides.append([(foot - prev_foot).length(), h, prev_h])
 			prev_low = low
 			prev_foot = foot
+			prev_h = h
 			var pose := _pose(skel)
 			if settled < 0 and k.speed_px_s() <= 0.0:
 				settled = frames
@@ -142,7 +162,8 @@ func _initialize() -> void:
 		var floor_y: float = foot_lows[0] if foot_lows.size() > 0 else 0.0
 		var planted := []
 		for s in slides:
-			if float(s[1]) <= floor_y + 0.03:        # within 3 cm of its lowest: planted
+			if float(s[1]) <= floor_y + 0.03 and float(s[2]) <= floor_y + 0.03 \
+					and absf(float(s[1]) - float(s[2])) <= 0.010:
 				planted.append(float(s[0]))
 		planted.sort()
 		var med: float = planted[planted.size() / 2] if planted.size() > 0 else 0.0
@@ -157,7 +178,55 @@ func _initialize() -> void:
 			"seconds": snappedf(float(settled) * DT, 0.01),
 			"planted_foot_median_m": snappedf(med, 0.0001),
 			"planted_foot_worst_m": snappedf(worst, 0.0001),
-			"planted_frames": planted.size(), "sampled_frames": slides.size()}
+			"planted_frames": planted.size(), "sampled_frames": slides.size(),
+			"planted_mm_sorted": planted.map(func(x): return snappedf(x * 1000.0, 0.1))}
+		say("    every planted pair, mm: %s" % str(planted.map(func(x): return snappedf(x * 1000.0, 0.1))))
+
+	# ---- 2b. the walk<->run change, which is where the 219 mm frame lived ---
+	say("")
+	say("[2b] WALK -> RUN -> WALK, held at each, planted-foot travel throughout")
+	var g2 := CliffWorld.ground_at(space, SPOT, scene.right, scene.up, scene.fwd)
+	k.global_position = (g2["position"] as Vector3) + Vector3.UP * 0.05
+	k.velocity = Vector3.ZERO
+	var legs := [["walk", false, 22, 1.0], ["run", true, 26, 1.0],
+				 ["walk", false, 22, -1.0], ["run", true, 26, -1.0]]
+	var sl := []
+	var lows := []
+	var pl := -1
+	var pf := Vector3.ZERO
+	var ph := 1e9
+	for leg in legs:
+		for i in int(leg[2]):
+			k.drive_dir(Vector2(float(leg[3]), 0), bool(leg[1]), DT)
+			await physics_frame
+			var lf: Vector3 = skel.global_transform * skel.get_bone_global_pose(skel.find_bone("LeftToeBase")).origin
+			var rf: Vector3 = skel.global_transform * skel.get_bone_global_pose(skel.find_bone("RightToeBase")).origin
+			var low: int = 0 if lf.y <= rf.y else 1
+			var foot: Vector3 = lf if low == 0 else rf
+			lows.append(foot.y - k.global_position.y)
+			var h2: float = foot.y - k.global_position.y
+			if low == pl and k.is_on_floor():
+				sl.append([(foot - pf).length(), h2, ph, String(leg[0])])
+			pl = low
+			pf = foot
+			ph = h2
+	lows.sort()
+	var fy: float = lows[0] if lows.size() > 0 else 0.0
+	var planted2 := []
+	for s in sl:
+		if float(s[1]) <= fy + 0.03 and float(s[2]) <= fy + 0.03 \
+				and absf(float(s[1]) - float(s[2])) <= 0.010:
+			planted2.append(float(s[0]))
+	planted2.sort()
+	var m2: float = planted2[planted2.size() / 2] if planted2.size() > 0 else 0.0
+	var w2: float = planted2[-1] if planted2.size() > 0 else 0.0
+	say("    planted-foot travel: median %.4f m, worst %.4f m per frame  (%d planted of %d)"
+		% [m2, w2, planted2.size(), sl.size()])
+	report["walk_run_walk"] = {"planted_median_m": snappedf(m2, 0.0001),
+		"planted_worst_m": snappedf(w2, 0.0001), "planted_frames": planted2.size(),
+		"sampled_frames": sl.size(),
+		"planted_mm_sorted": planted2.map(func(x): return snappedf(x * 1000.0, 0.1))}
+	say("    every planted pair, mm: %s" % str(planted2.map(func(x): return snappedf(x * 1000.0, 0.1))))
 
 	# ---- 3. the attack fade ------------------------------------------------
 	say("")

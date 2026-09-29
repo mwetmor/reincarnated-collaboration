@@ -62,7 +62,34 @@ var _forward_axis := Vector3(0, 0, -1)
 var gear := {}
 var gear_stack := 0
 var _tree: AnimationTree
-var _loco_node: AnimationNodeBlendSpace1D
+var _walk_len := 1.0
+var _run_len := 1.0
+var _phase_aligned := false
+## A/B SWITCH, for measurement only. Off = the pre-sync behaviour: run weight read
+## LINEARLY off speed (what a BlendSpace1D's own point mapping does), both clips at their
+## authored rate, no phase alignment. It exists because the "10.2 mm median, one frame at
+## 219 mm" recorded for the pre-sync build was measured with an instrument that counted
+## airborne frames and tested only one end of each pair -- so those numbers cannot be
+## compared with today's. One instrument has to measure both builds. Default ON.
+var sync_group := true
+## How fast the locked cycle length may change. Nothing else in the rig is rate-limited.
+## SWEPT, not chosen -- the probe takes --tau= and the two named cases disagree, so the
+## value is the one that minimises the WORST frame across both (the sweep is deterministic,
+## so these are reproducible; what shifts with tau is which pairs qualify as planted):
+##     tau     run-stop worst    crossover worst    joint    crossover planted of 84
+##     off       218.5 mm          142.3 mm        218.5          1
+##     0.08      172.3              75.5           172.3         19
+##     0.15      138.1              55.4           138.1         16
+##     0.18      126.9             113.2           126.9          9
+##     0.20      119.6             104.7           119.6         13   <-- lowest joint
+##     0.25      101.1             180.9           180.9         15
+##     0.40       64.7             190.3           190.3         16
+## Longer helps the stop monotonically and hurts the crossover past 0.15.
+var CYCLE_TAU_S := 0.20
+var _cycle_len := 0.0
+var _prev_w := 0.0
+var _walk_contact := 0.0
+var _run_contact := 0.0
 var _speed := 0.0
 var _move_dir := Vector2(0, 1)
 var _yaw_cur := 0.0
@@ -143,32 +170,42 @@ func _build_anim_tree() -> void:
 	var ca := _anim.get_animation(action)
 	var bt := AnimationNodeBlendTree.new()
 
-	# LOCOMOTION IS A BLEND SPACE ON GROUND SPEED, not a clip chosen by a state name. The
-	# snap Matt saw is what a state switch looks like: idle and walk are different poses and
-	# nothing crosses between them, so the body teleports from one to the other inside a
-	# frame. A blend space has no switch -- the pose IS a function of how fast he is
-	# actually travelling, and the smoothing on that speed is what gives a human beat to
-	# starting and stopping.
-	var loco := AnimationNodeBlendSpace1D.new()
+	# LOCOMOTION IS A NORMALIZED-PHASE SYNC GROUP, not a blend space.
+	#
+	# A BlendSpace1D got the pose right and the FEET wrong: the walk is 25 frames and the
+	# run is 16, so at any mixed weight the two clips are at unrelated phases and the
+	# blended foot is part-stance part-swing. That is what the 219 mm frame at the
+	# walk-run crossover was. Godot's `sync` keeps both clips RUNNING; it does not make
+	# their cycles the same length, which is the thing that matters.
+	#
+	# So each locomotion clip gets an AnimationNodeTimeScale, and both are driven every
+	# frame to len_clip / len_blended with len_blended = lerp(walk_len, run_len, w). Both
+	# cycles then take the same wall-clock time AT EVERY WEIGHT, not only during the
+	# crossover -- which means their relative phase is CONSTANT, and aligning it once at
+	# start is enough to keep it aligned for the run of the program.
+	#
+	# Built as explicit Blend2s rather than a blend space because AnimationNodeTimeScale is
+	# an AnimationNode and a blend point has to be an AnimationRootNode: the two-stage
+	# blend below reproduces a three-point 1D space exactly and leaves every parameter at a
+	# path this script can address.
 	var tr: Dictionary = cfg.get("transitions", {})
 	var wsp := float(cfg.get("walk_px_s", WALK_PX_S))
 	var rsp := float(cfg.get("run_px_s", RUN_PX_S))
-	loco.min_space = 0.0
-	loco.max_space = rsp
-	for pair in [[String(_roles.get("idle", "idle")), 0.0],
-				 [String(_roles.get("walk", "walk")), wsp],
-				 [String(_roles.get("run", "run")), rsp]]:
-		var an := AnimationNodeAnimation.new()
-		an.animation = String(pair[0])
-		loco.add_blend_point(an, float(pair[1]))
-	# PHASE SYNC, so the feet do not scissor while the blend crosses from walk to run: the
-	# walk cycle is 25 frames and the run is 16, and two clips of different length left to
-	# run on their own clocks meet at whatever phases they happen to be in.
-	if "sync" in loco:
-		loco.set("sync", true)
-		print("anim tree: blend space sync = %s" % str(loco.get("sync")))
-	else:
-		print("anim tree: this AnimationNodeBlendSpace1D has NO sync property")
+	var a_idle := AnimationNodeAnimation.new()
+	a_idle.animation = String(_roles.get("idle", "idle"))
+	var a_walk := AnimationNodeAnimation.new()
+	a_walk.animation = String(_roles.get("walk", "walk"))
+	var a_run := AnimationNodeAnimation.new()
+	a_run.animation = String(_roles.get("run", "run"))
+	var ts_walk := AnimationNodeTimeScale.new()
+	var ts_run := AnimationNodeTimeScale.new()
+	var seek_run := AnimationNodeTimeSeek.new()
+	var bl_iw := AnimationNodeBlend2.new()
+	var bl_wr := AnimationNodeBlend2.new()
+	bl_iw.sync = true
+	bl_wr.sync = true
+	_walk_len = float(_clip_len.get(a_walk.animation, 1.0))
+	_run_len = float(_clip_len.get(a_run.animation, 1.0))
 
 	# THE ATTACK IS A ONE-SHOT OVER THE TOP, not a fourth blend point. It is not a speed, it
 	# interrupts, and it has to fade in and back out to whatever he was doing.
@@ -189,17 +226,30 @@ func _build_anim_tree() -> void:
 	var carry := AnimationNodeAnimation.new()
 	carry.animation = action
 
-	bt.add_node("loco", loco, Vector2(0, 0))
-	bt.add_node("atk", atk, Vector2(0, 140))
-	bt.add_node("oneshot", shot, Vector2(240, 40))
-	bt.add_node("carry", carry, Vector2(240, 220))
-	bt.add_node("blend", b2, Vector2(470, 100))
-	bt.connect_node("oneshot", 0, "loco")
+	bt.add_node("a_idle", a_idle, Vector2(0, -160))
+	bt.add_node("a_walk", a_walk, Vector2(0, -60))
+	bt.add_node("a_run", a_run, Vector2(0, 40))
+	bt.add_node("ts_walk", ts_walk, Vector2(180, -60))
+	bt.add_node("ts_run", ts_run, Vector2(180, 40))
+	bt.add_node("seek_run", seek_run, Vector2(300, 40))
+	bt.add_node("bl_iw", bl_iw, Vector2(430, -110))
+	bt.add_node("bl_wr", bl_wr, Vector2(560, -40))
+	bt.add_node("atk", atk, Vector2(0, 160))
+	bt.add_node("oneshot", shot, Vector2(700, 20))
+	bt.add_node("carry", carry, Vector2(700, 220))
+	bt.add_node("blend", b2, Vector2(870, 100))
+	bt.connect_node("ts_walk", 0, "a_walk")
+	bt.connect_node("ts_run", 0, "a_run")
+	bt.connect_node("seek_run", 0, "ts_run")
+	bt.connect_node("bl_iw", 0, "a_idle")
+	bt.connect_node("bl_iw", 1, "ts_walk")
+	bt.connect_node("bl_wr", 0, "bl_iw")
+	bt.connect_node("bl_wr", 1, "seek_run")
+	bt.connect_node("oneshot", 0, "bl_wr")
 	bt.connect_node("oneshot", 1, "atk")
 	bt.connect_node("blend", 0, "oneshot")
 	bt.connect_node("blend", 1, "carry")
 	bt.connect_node("output", 0, "blend")
-	_loco_node = loco
 	_tree = AnimationTree.new()
 	_tree.name = "AnimTree"
 	_tree.tree_root = bt
@@ -209,8 +259,45 @@ func _build_anim_tree() -> void:
 	_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 	_tree.active = true
 	_anim.active = false
-	print("anim tree: loco blend space 0/%.1f/%.1f px/s, attack one-shot %.2f/%.2f s, arm layer '%s' filtered to %d of %d tracks"
-		% [wsp, rsp, shot.fadein_time, shot.fadeout_time, action, filtered, ca.get_track_count()])
+	_walk_contact = _contact_phase(String(_roles.get("walk", "walk")))
+	_run_contact = _contact_phase(String(_roles.get("run", "run")))
+	print("anim tree: left-toe contact at phase %.3f of the walk and %.3f of the run"
+		% [_walk_contact, _run_contact])
+	print("anim tree: sync group walk %.4f s / run %.4f s at %.1f/%.1f px/s, attack one-shot %.2f/%.2f s, arm layer '%s' filtered to %d of %d tracks"
+		% [_walk_len, _run_len, wsp, rsp, shot.fadein_time, shot.fadeout_time, action,
+		   filtered, ca.get_track_count()])
+
+
+func _contact_phase(clip: String) -> float:
+	"""The phase at which the LEFT toe is lowest -- the clip's own statement of when that
+	foot is down. Read off the animation's track rather than assumed to be frame 0."""
+	if _anim == null or not _clip_len.has(clip) or _skel == null:
+		return 0.0
+	var a := _anim.get_animation(clip)
+	var bone := _skel.find_bone("LeftToeBase")
+	if bone < 0:
+		return 0.0
+	var n: int = maxi(int(round(a.length * 24.0)), 1)
+	var best := 1e9
+	var at := 0.0
+	var save := _anim.current_animation
+	var mode := _anim.callback_mode_process
+	_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	var was_active := _anim.active
+	_anim.active = true
+	_anim.play(clip)
+	for i in n:
+		var tt: float = a.length * float(i) / float(n)
+		_anim.seek(tt, true, true)
+		var y: float = _skel.get_bone_global_pose(bone).origin.y
+		if y < best:
+			best = y
+			at = float(i) / float(n)
+	_anim.active = was_active
+	_anim.callback_mode_process = mode
+	if save != "":
+		_anim.play(save)
+	return at
 
 
 func _layer_weight(clip: String) -> float:
@@ -541,7 +628,7 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 	if want <= 0.0 and _speed < float(tr.get("stop_snap_px_s", 5.0)):
 		_speed = 0.0                     # an exponential never arrives; a walker does
 	if _tree != null:
-		_tree.set("parameters/loco/blend_position", _speed)
+		_set_loco(_speed, dt)
 	# the state name is kept for the capture tools that read it
 	if attacking():
 		state = "attack"
@@ -570,6 +657,97 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 		velocity.y = 0.0
 	_drive(dt)
 	_place_pollaxe()
+
+
+func _set_loco(v: float, dt: float) -> void:
+	"""Position the two blends and set both time scales, every frame.
+
+	THE WEIGHT IS SOLVED FROM THE ANIMATION, not read off the speed, and that correction is
+	the whole of the sync group working rather than making things worse.
+
+	Locking both cycles to len_blended = lerp(walk_len, run_len, w) is what aligns the
+	phases -- but it also means the blended FOOT speed is
+
+	    S(w) = lerp(stride_walk, stride_run, w) / lerp(walk_len, run_len, w)
+
+	and that is NOT lerp(walk_speed, run_speed, w), because a ratio of interpolations is not
+	the interpolation of ratios. Setting w from the speed linearly, as a blend space does,
+	therefore puts the feet at S(w) while the body travels at v -- and the first build of
+	this took the walk-run median from 10 mm to 116 mm per frame, six times worse than the
+	blend space it replaced. The tell was that it got worse at the crossover and better at
+	the ends, which is exactly where lerp and S agree.
+
+	So: solve S(w) = v. S is monotone between the two clips' own speeds, so a short bisection
+	is exact enough and costs nothing. At w = 0 and w = 1, S returns the clips' natural
+	speeds, so the ends are untouched and the middle now agrees with the ground."""
+	var wsp := float(cfg.get("walk_px_s", WALK_PX_S))
+	var rsp := float(cfg.get("run_px_s", RUN_PX_S))
+	var a: float = clampf(v / maxf(wsp, 1e-6), 0.0, 1.0)
+	var w := 0.0
+	if v > wsp and not sync_group:
+		w = clampf((v - wsp) / maxf(rsp - wsp, 1e-6), 0.0, 1.0)
+	elif v > wsp:
+		var lo := 0.0
+		var hi := 1.0
+		for _i in 20:
+			w = (lo + hi) * 0.5
+			if _foot_speed(w, wsp, rsp) < v:
+				lo = w
+			else:
+				hi = w
+		w = clampf((lo + hi) * 0.5, 0.0, 1.0)
+	_tree.set("parameters/bl_iw/blend_amount", a)
+	_tree.set("parameters/bl_wr/blend_amount", w)
+	# ALIGN ONLY WHILE THE RUN IS WEIGHTLESS. Seeking a branch that is contributing to the
+	# pose teleports it: firing the alignment at the moment the run first took weight put a
+	# 1.09 m foot step into a single frame, twice per walk-run-walk, which is a seek and not
+	# a slide. While w is 0 the seek is invisible, and because the target tracks the walk's
+	# own phase the run advances correctly rather than being pinned. The locked cycle length
+	# then holds the alignment for as long as the run has weight, which is exactly when it
+	# may not be touched.
+	if w <= 0.0 and sync_group:
+		align_phase()
+	_prev_w = w
+	if not sync_group:
+		_tree.set("parameters/ts_walk/scale", 1.0)
+		_tree.set("parameters/ts_run/scale", 1.0)
+		return
+	# SLEW THE LOCKED CYCLE LENGTH, don't jump it. The pose blend w must track speed
+	# exactly or the feet slide for as long as the ramp lasts -- but the CLIP TIMING need
+	# not, and jumping it does harm: stopping from a run collapses w by 0.4 in one frame,
+	# which re-times both clips in the middle of a stance and moves a foot that is already
+	# on the ground. Measured over the 2 frames above walk speed in a run stop.
+	var target: float = lerpf(_walk_len, _run_len, w)
+	if _cycle_len <= 0.0 or dt <= 0.0:
+		_cycle_len = target
+	else:
+		_cycle_len = lerpf(_cycle_len, target, 1.0 - exp(-dt / CYCLE_TAU_S))
+	var blended: float = _cycle_len
+	_tree.set("parameters/ts_walk/scale", _walk_len / maxf(blended, 1e-6))
+	_tree.set("parameters/ts_run/scale", _run_len / maxf(blended, 1e-6))
+
+
+func _foot_speed(w: float, wsp: float, rsp: float) -> float:
+	"""What the blended feet actually travel at, in canvas px/s, at run weight w."""
+	var stride_w: float = wsp * _walk_len
+	var stride_r: float = rsp * _run_len
+	return lerpf(stride_w, stride_r, w) / maxf(lerpf(_walk_len, _run_len, w), 1e-6)
+
+
+func align_phase() -> void:
+	"""Seek the run so its planted-foot contact lands on the walk's.
+
+	The contact frames are read from the CLIPS THEMSELVES in _contact_phase, not chosen:
+	the phase at which the left toe is at its lowest is what a contact is. Seeking the run
+	branch to (walk_phase - walk_contact + run_contact) * run_len puts the two contacts on
+	the same instant, and the constant cycle length above keeps them there."""
+	if _tree == null:
+		return
+	var wl: float = maxf(_walk_len, 1e-6)
+	var wp: float = fmod(maxf(float(_tree.get("parameters/a_walk/current_position")), 0.0), wl) / wl
+	var target: float = fposmod(wp - _walk_contact + _run_contact, 1.0) * _run_len
+	_tree.set("parameters/seek_run/seek_request", target)
+	_phase_aligned = true
 
 
 func speed_px_s() -> float:
@@ -657,7 +835,7 @@ func play(clip: String) -> void:
 			elif clip == String(_roles.get("run", "run")):
 				sp = float(cfg.get("run_px_s", RUN_PX_S))
 			_speed = sp
-			_tree.set("parameters/loco/blend_position", sp)
+			_set_loco(sp, 0.0)
 	elif _tree == null:
 		_anim.speed_scale = 1.0
 		_anim.play(clip, 0.15)

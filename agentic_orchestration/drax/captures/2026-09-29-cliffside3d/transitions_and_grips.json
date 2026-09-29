@@ -58,6 +58,187 @@
    }
   ]
  },
+ "sync_group": {
+  "A_B_one_instrument": {
+   "_why": "the 10.2 mm / 219 mm figures recorded for the pre-sync build were taken with an instrument that counted airborne frames and tested only one end of each pair, so they cannot be compared with these. --no-sync restores the pre-sync behaviour so ONE instrument measures both.",
+   "sync_off": {
+    "stop_from_run": {
+     "planted_foot_median_m": 0.0102,
+     "planted_foot_worst_m": 0.2185,
+     "planted_frames": 13,
+     "planted_mm_sorted": [
+      0.4,
+      0.4,
+      0.8,
+      0.8,
+      0.8,
+      2.5,
+      10.2,
+      15.3,
+      34.7,
+      66.5,
+      92.1,
+      93.4,
+      218.5
+     ],
+     "sampled_frames": 13
+    },
+    "stop_from_walk": {
+     "planted_foot_median_m": 0.0029,
+     "planted_foot_worst_m": 0.038,
+     "planted_frames": 11,
+     "planted_mm_sorted": [
+      0.6,
+      0.8,
+      0.9,
+      1.1,
+      1.3,
+      2.9,
+      3.3,
+      7.1,
+      8.8,
+      14.0,
+      38.0
+     ],
+     "sampled_frames": 11
+    },
+    "walk_run_walk": {
+     "planted_frames": 1,
+     "planted_median_m": 0.1423,
+     "planted_mm_sorted": [
+      142.3
+     ],
+     "planted_worst_m": 0.1423,
+     "sampled_frames": 84
+    }
+   },
+   "sync_on": {
+    "stop_from_run": {
+     "planted_foot_median_m": 0.0331,
+     "planted_foot_worst_m": 0.1196,
+     "planted_frames": 15,
+     "planted_mm_sorted": [
+      0.4,
+      0.4,
+      0.8,
+      0.8,
+      0.8,
+      23.9,
+      31.7,
+      33.1,
+      43.3,
+      59.3,
+      68.7,
+      80.2,
+      101.1,
+      104.7,
+      119.6
+     ],
+     "sampled_frames": 15
+    },
+    "stop_from_walk": {
+     "planted_foot_median_m": 0.0029,
+     "planted_foot_worst_m": 0.038,
+     "planted_frames": 11,
+     "planted_mm_sorted": [
+      0.6,
+      0.8,
+      0.9,
+      1.1,
+      1.3,
+      2.9,
+      3.3,
+      7.1,
+      8.8,
+      14.0,
+      38.0
+     ],
+     "sampled_frames": 11
+    },
+    "walk_run_walk": {
+     "planted_frames": 13,
+     "planted_median_m": 0.0297,
+     "planted_mm_sorted": [
+      10.0,
+      10.5,
+      12.5,
+      17.5,
+      19.6,
+      29.3,
+      29.7,
+      35.8,
+      38.3,
+      40.5,
+      45.1,
+      95.2,
+      104.7
+     ],
+     "planted_worst_m": 0.1047,
+     "sampled_frames": 84
+    }
+   }
+  },
+  "_what": "The walk<->run crossover slide, done at runtime as a normalized-phase sync group: AnimationNodeTimeScale on each locomotion child playing at len_clip/len_blended, run phase offset so its left-foot contact lands on the walk's. No asset change.",
+  "contact_phases_read_from_the_clips": {
+   "run": 0.375,
+   "walk": 0.36
+  },
+  "cycle_len_slew_tau_s": 0.2,
+  "phase_align_only_while_weightless": "seeking a branch that is contributing to the pose teleports it -- 1.09 m in one frame, measured.",
+  "run_weight": "solved by bisection on the blended foot speed, not read linearly off speed: S(w) = lerp(stride_w, stride_r, w) / lerp(len_w, len_r, w), which is NOT lerp(speed_w, speed_r, w). Reading it linearly is what the BlendSpace1D did and it is why equal cycle times made the slide worse.",
+  "tau_sweep_worst_mm": {
+   "0.08": [
+    172.3,
+    75.5
+   ],
+   "0.15": [
+    138.1,
+    55.4
+   ],
+   "0.18": [
+    126.9,
+    113.2
+   ],
+   "0.20": [
+    119.6,
+    104.7
+   ],
+   "0.25": [
+    101.1,
+    180.9
+   ],
+   "0.40": [
+    64.7,
+    190.3
+   ],
+   "_cols": "[run-stop worst, crossover worst]; 0.20 is the lowest joint",
+   "off": [
+    218.5,
+    142.3
+   ]
+  },
+  "the_floor_the_CLIPS_impose": {
+   "_how": "each clip alone, at its authored rate, body advanced at exactly that clip's own stride-derived speed. No blending, no sync group. Whatever remains is the clip's and no runtime blend can go below it.",
+   "run_647_5_px_s": {
+    "band_planted_min_mm": 15.4,
+    "median_mm": 20.9,
+    "pairs": 14,
+    "under_10mm": "0 of 14"
+   },
+   "walk_201_7_px_s": {
+    "band_planted_min_mm": 5.2,
+    "median_mm": 11.9,
+    "pairs": 39,
+    "under_10mm": "10 of 39"
+   }
+  },
+  "two_instrument_defects_fixed_on_the_way": [
+   "AIRBORNE FRAMES COUNTED. Walking him in one direction for 86 frames at up to 6.4 m/s takes him off the plateau. The body was travelling 0.569 m per frame where its speed says 0.084 -- a fall -- and the 'planted' foot was falling with it. Every spike over 0.25 m in the first run of this, including a 1.12 m frame, was that. Fixed: require is_on_floor(), and drive him out and back so he stays on the plateau.",
+   "ONLY ONE END OF EACH PAIR TESTED. At 6.4 m/s the foot that lands on frame N was 0.4 m behind and airborne on N-1, so its 'travel' is the swing, measured correctly, and is not a slide. Fixed: both frames of the pair must be in contact, and the foot's height must not change between them, because the ground does not move."
+  ],
+  "verdict": "TARGET PARTLY MET. The 219 mm frame is gone: the worst frame anywhere in the test is 119.6 mm, down 45% from the pre-sync build's 218.5 mm, and it is in the RUN STOP -- not the crossover, which is where my previous commit attributed it. The crossover is the sync group's clear win: sync off gives ONE grounded-at-both-ends pair in 84 frames (142.3 mm), sync on gives 13, worst 104.7 mm. The 2.9 mm median target CANNOT be reached at run speed and the reason is the asset, which was excluded from scope: the run clip alone, nothing blended, never produces a stance pair under 15.4 mm and has ZERO pairs under 10 mm in a full cycle. 2.9 mm is a walk-speed number -- the walk is 24 frames per cycle at 2.0 m/s, the run is 15 frames at 6.4 m/s, so 4.3x the foot speed sampled at 0.6x the frames. Closing it needs the run re-timed to a whole multiple of the walk's cycle, or captured at more frames.",
+  "what_the_height_band_still_cannot_do": "floor_y taken over a leg that spans two gaits is anchored to the run's deepest compression (0.015 m above the root) and so admits the run's lifting foot while rejecting the settled idle's genuinely flat feet (0.046-0.061 m). The 119.6 mm worst pair passes every filter and is a foot SKIMMING into contact at 6.4 m/s, which a 24 fps sample cannot distinguish from a plant."
+ },
  "t9_1c_parked": {
   "state": "the relief is built and in the scene behind --no-relief; the depth-residual sweep was cut when the character work was re-prioritised.",
   "the_finding": "IT DOES NOT MOVE THE LIGHTING. near-black 19.04% -> 18.93%, lost>half 16.20% -> 16.08%. Switching shadows off changes nothing (15.27% -> 15.25%) and doubling the sun changes nothing (15.02%), so the dark is not shadow and not intensity. With NO sun and full ambient -- the painted albedo shown flat -- 10.54% of the frame is STILL near-black: over half the darkness is painted into the plate. 1b, the albedo repaint, is the load-bearing step, not 1c.",
