@@ -1,0 +1,51 @@
+{
+ "grip_R": {
+  "weapon": "axe",
+  "bone": "RightHand",
+  "channel": [
+   -0.548,
+   0.8354,
+   -0.043
+  ],
+  "shaft_radius_m": 0.02608,
+  "close_to_m": 0.03608,
+  "moved": 3174,
+  "max_move_m": 0.06827,
+  "gap_open": {
+   "min_m": 0.0,
+   "median_m": 0.00438
+  },
+  "gap_closed": {
+   "min_m": 0.0,
+   "median_m": 0.00274
+  },
+  "hand_vertices": 1698
+ },
+ "grip_L": {
+  "weapon": "shield",
+  "bone": "LeftHand",
+  "channel": [
+   0.1622,
+   -0.1784,
+   -0.9705
+  ],
+  "shaft_radius_m": 0.016,
+  "close_to_m": 0.026,
+  "moved": 4126,
+  "max_move_m": 0.04429,
+  "gap_open": {
+   "min_m": 4e-05,
+   "median_m": 0.09228
+  },
+  "gap_closed": {
+   "min_m": 0.01517,
+   "median_m": 0.08401
+  },
+  "hand_vertices": 1734,
+  "gap_closed_after_nudge": {
+   "min_m": 0.00131,
+   "median_m": 0.07251
+  }
+ },
+ "shield_nudge_m": 0.01512
+}

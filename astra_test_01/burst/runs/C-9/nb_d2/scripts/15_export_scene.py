@@ -124,6 +124,9 @@ for item in [x for x in SPEC.split(",") if x]:
               % (np.round(ep, 4).tolist(), nedge))
         manifest_extra = dict(edge_marker="axe_edge",
                               edge_world=[round(float(v), 4) for v in ep])
+    if nm == "axe":
+        _off = G.centre_shaft_on_fist(pc, body[0], arm, bones[0])
+        print("   axe shaft moved %.4f m to pass through the fist" % _off)
     if CARRY:
         for pbx in arm.pose.bones:
             pbx.matrix_basis = Matrix.Identity(4)
@@ -168,6 +171,81 @@ def export(objs, path, anim=False, extra=()):
                               export_morph=True, export_image_format='AUTO')
     return round(os.path.getsize(path) / 1e6, 2)
 
+
+# ---- grip morphs: close the hands round the weapons ------------------------
+# The rig has 24 bones and NO FINGERS, so the hands cannot be posed and Meshy
+# ships them open and flat. An open flat hand cannot hold anything however
+# perfectly the weapon is bound -- and the binding was already right (axe 100%
+# RightHand, shield 100% LeftHand, zero multi-group vertices). So the hands are
+# closed with morphs, driven by the equipment like helmet_on.
+_made = {nm: (m[0][0], m[0][1]) for nm, mode, m in made_all if mode == "socket"}
+for _nm, _key, _bone in (("axe", "grip_R", "RightHand"),
+                         ("shield", "grip_L", "LeftHand")):
+    if _nm not in _made:
+        continue
+    _pc = _made[_nm][0]
+    if _nm == "shield" and CARRY:
+        for bn, flat in CARRY.items():
+            arm.pose.bones[bn].matrix_basis = Matrix(
+                [flat[i * 4:(i + 1) * 4] for i in range(4)])
+        bpy.context.view_layer.update()
+    _c, _chan, _al, _pal = G.hand_frame(body[0], arm, _bone)
+    if _nm == "axe":
+        _r, _ = G.shaft_radius(_pc, arm, _bone)
+        _r = float(min(max(_r, 0.012), 0.028))
+    else:
+        _r = 0.016
+    _k, _mv, _mx = G.grip_key(body[0], arm, _bone, _c, _chan, _r + 0.010, _key)
+    if _k:
+        _k.value = 0.0                    # OFF by default; the scene drives it
+    print("   %s: closes to %.4f m, %d vertices moved, max %.4f m"
+          % (_key, _r + 0.010, _mv, _mx))
+    if _nm == "shield":
+        # closing the left fist pulls it OFF the shield -- the disc has no bar
+        # where the hand is, so the fingers close on air and the minimum gap
+        # goes 0 -> 15 mm. The hand is now the right shape, so the shield comes
+        # to meet it. Both sides measured POSED: comparing the shield's bind
+        # data against a posed fist computed 0.9 mm for a 15 mm gap.
+        _k.value = 1.0
+        bpy.context.view_layer.update()
+        _dg = bpy.context.evaluated_depsgraph_get()
+        _eb = body[0].evaluated_get(_dg); _me = _eb.to_mesh()
+        _cv = np.empty(len(_me.vertices) * 3); _me.vertices.foreach_get("co", _cv)
+        _BW = (_cv.reshape(-1, 3) @ np.array(_eb.matrix_world.to_3x3()).T
+               + np.array(_eb.matrix_world.translation))
+        _eb.to_mesh_clear()
+        _gi = body[0].vertex_groups[_bone].index
+        _hand = [v.index for v in body[0].data.vertices
+                 if any(g.group == _gi and g.weight > 0.30 for g in v.groups)]
+        _fist = _BW[_hand]
+        _eo = _pc.evaluated_get(_dg); _m2 = _eo.to_mesh()
+        _sv = np.empty(len(_m2.vertices) * 3); _m2.vertices.foreach_get("co", _sv)
+        _SWp = (_sv.reshape(-1, 3) @ np.array(_eo.matrix_world.to_3x3()).T
+                + np.array(_eo.matrix_world.translation))
+        _eo.to_mesh_clear()
+        _d = np.linalg.norm(_SWp[::4, None, :] - _fist[None, ::12, :], axis=2)
+        _i, _j = np.unravel_index(np.argmin(_d), _d.shape)
+        _dp = _fist[::12][_j] - _SWp[::4][_i]
+        _pbL = arm.pose.bones[_bone]
+        _Rp = arm.matrix_world.to_3x3() @ _pbL.matrix.to_3x3()
+        _Rr = arm.matrix_world.to_3x3() @ _pbL.bone.matrix_local.to_3x3()
+        _st = np.array((_Rr @ _Rp.inverted() @ Vector(_dp.tolist())).to_tuple()) * 0.92
+        _co2 = np.empty(len(_pc.data.vertices) * 3)
+        _pc.data.vertices.foreach_get("co", _co2)
+        _Pp = _co2.reshape(-1, 3)
+        _Wp = (_Pp @ np.array(_pc.matrix_world.to_3x3()).T
+               + np.array(_pc.matrix_world.translation)) + _st
+        _Mi2 = _pc.matrix_world.inverted()
+        _pc.data.vertices.foreach_set(
+            "co", (_Wp @ np.array(_Mi2.to_3x3()).T + np.array(_Mi2.translation)).ravel())
+        _pc.data.update()
+        print("   shield nudged %.4f m to meet the closed fist"
+              % float(np.linalg.norm(_st)))
+        _k.value = 0.0
+    if _nm == "shield" and CARRY:
+        for pbx in arm.pose.bones:
+            pbx.matrix_basis = Matrix.Identity(4)
+        bpy.context.view_layer.update()
 
 # the shield's arm layer, authored in scripts/17_shield_carry.py and passed in
 # as pose matrices so the search is not repeated and so this script -- the one

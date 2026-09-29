@@ -473,3 +473,183 @@ def axe_edge_marker(pc, arm, bone, name="axe_edge"):
     e.matrix_parent_inverse = Matrix.Translation(Vector((0, -b.length, 0)))
     e.matrix_world = Matrix.Translation(Vector(p.tolist()))
     return e, p, len(edge)
+
+
+def grip_key(body, arm, bone, axis_pt, axis_dir, radius, name, weight_min=0.30):
+    """A morph that closes a hand around a cylinder.
+
+    This rig has NO FINGER BONES -- 24 bones, wrist straight to nothing -- so
+    the hand cannot be posed. Meshy ships it open and flat from the A-pose, and
+    an open flat hand can never look like it is holding anything. The fix is
+    the same shape as helmet_on: move the MESH, driven by the equipment.
+
+    Each hand vertex is pulled radially toward the weapon's own axis, weighted
+    by how far it lies along the hand from the wrist -- the wrist does not move,
+    the fingertips close completely. The hand's direction is measured from the
+    mesh, NOT from the bone: RightHand is a childless leaf whose tail runs 24 m
+    off into space, which is exactly the trap that cost a day on the knight.
+    """
+    gi = body.vertex_groups[bone].index
+    sel, wts = [], []
+    for v in body.data.vertices:
+        for g in v.groups:
+            if g.group == gi and g.weight > weight_min:
+                sel.append(v.index); wts.append(g.weight)
+                break
+    if not sel:
+        return None, 0, 0.0
+    sel = np.array(sel)
+    M = body.matrix_world
+    co = np.empty(len(body.data.vertices) * 3)
+    body.data.vertices.foreach_get("co", co)
+    P = co.reshape(-1, 3)
+    W = P @ np.array(M.to_3x3()).T + np.array(M.translation)
+    wrist = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    d = np.linalg.norm(W[sel] - wrist, axis=1)
+    far = W[sel][d > np.percentile(d, 75)]
+    hand_dir = far.mean(0) - wrist
+    hand_dir /= max(np.linalg.norm(hand_dir), 1e-9)
+    hand_len = float(d.max()) or 1e-9
+    A = np.array(axis_pt, float)
+    U = np.array(axis_dir, float); U /= max(np.linalg.norm(U), 1e-9)
+    if not body.data.shape_keys:
+        body.shape_key_add(name="Basis", from_mix=False)
+    key = body.shape_key_add(name=name, from_mix=False)
+    Mi = M.inverted()
+    moved, maxmove = 0, 0.0
+    for k, vi in enumerate(sel):
+        v = W[vi]
+        alpha = float(np.clip(((v - wrist) @ hand_dir) / hand_len, 0.0, 1.0)) ** 1.2
+        rel = v - A
+        along = float(rel @ U)
+        perp = rel - along * U
+        r = float(np.linalg.norm(perp))
+        if r < 1e-6:
+            continue
+        target = min(r, radius)
+        newr = r * (1.0 - alpha) + target * alpha
+        if abs(newr - r) < 1e-5:
+            continue
+        nv = A + along * U + perp * (newr / r)
+        key.data[int(vi)].co = Mi @ Vector(nv.tolist())
+        moved += 1
+        maxmove = max(maxmove, float(np.linalg.norm(nv - v)))
+    return key, moved, maxmove
+
+
+def hand_frame(body, arm, bone, weight_min=0.30):
+    """A fist's own axes, measured from the hand mesh.
+
+    PCA over the hand's vertices gives three directions: along the hand
+    (wrist to fingertips), ACROSS the palm -- which is the channel a gripped
+    shaft runs through -- and the palm's normal. Taking the channel from the
+    hand rather than from the weapon is what makes it work for both hands: the
+    shield has no shaft to measure, and measuring the axe's gave a 4.7 cm
+    "haft" radius because the blade sits near the fist.
+    """
+    gi = body.vertex_groups[bone].index
+    idx = [v.index for v in body.data.vertices
+           if any(g.group == gi and g.weight > weight_min for g in v.groups)]
+    M = body.matrix_world
+    co = np.empty(len(body.data.vertices) * 3)
+    body.data.vertices.foreach_get("co", co)
+    W = (co.reshape(-1, 3) @ np.array(M.to_3x3()).T + np.array(M.translation))[idx]
+    c = W.mean(0)
+    _, _, vt = np.linalg.svd(W - c, full_matrices=False)
+    wrist = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    along = vt[0] if abs(vt[0] @ (c - wrist)) > abs(vt[1] @ (c - wrist)) else vt[1]
+    along = along * (1.0 if along @ (c - wrist) > 0 else -1.0)
+    rest = [v for v in (vt[0], vt[1], vt[2]) if abs(v @ along) < 0.9]
+    channel = rest[0] if rest else vt[2]
+    palm = np.cross(along, channel)
+    return c, channel / np.linalg.norm(channel), along, palm / max(
+        np.linalg.norm(palm), 1e-9)
+
+
+def shaft_radius(pc, arm, bone, frac=0.30, band=0.05):
+    """The radius of the weapon's SHAFT where the hand closes on it -- measured
+    on the thin section near the bone, not on the whole silhouette. The blade
+    sits close enough to the fist that a naive perpendicular spread there
+    returned 0.0466 m: a 9 cm axe handle."""
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    V = (co.reshape(-1, 3) @ np.array(pc.matrix_world.to_3x3()).T
+         + np.array(pc.matrix_world.translation))
+    c = V.mean(0)
+    _, _, vt = np.linalg.svd((V - c)[:: max(1, len(V) // 4000)], full_matrices=False)
+    U = vt[0] / max(np.linalg.norm(vt[0]), 1e-9)
+    bh = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    rel = V - bh
+    along = rel @ U
+    near = np.abs(along) < band
+    if near.sum() < 30:
+        return 0.02, U
+    perp = rel[near] - np.outer(along[near], U)
+    r = np.linalg.norm(perp, axis=1)
+    # the SHAFT is the inner core; the blade is the outliers
+    return float(np.percentile(r, 25)), U
+
+
+def weapon_axis(pc, arm, bone):
+    """The weapon's own long axis and a point on it, at the bone -- the channel
+    a fist must close around."""
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    V = (co.reshape(-1, 3) @ np.array(pc.matrix_world.to_3x3()).T
+         + np.array(pc.matrix_world.translation))
+    c = V.mean(0)
+    X = V - c
+    u, sgl, vt = np.linalg.svd(X[:: max(1, len(X) // 4000)], full_matrices=False)
+    U = vt[0] / max(np.linalg.norm(vt[0]), 1e-9)
+    bh = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    # radius of the shaft near the bone: the spread perpendicular to U there
+    rel = V - bh
+    along = rel @ U
+    near = V[np.abs(along) < 0.06]
+    if len(near) > 20:
+        rel2 = near - bh
+        perp = rel2 - np.outer(rel2 @ U, U)
+        rad = float(np.percentile(np.linalg.norm(perp, axis=1), 60))
+    else:
+        rad = 0.02
+    return bh, U, rad
+
+
+def centre_shaft_on_fist(pc, body, arm, bone, weight_min=0.30):
+    """Slide a weapon along its own cross-section so its shaft axis passes
+    THROUGH the fist, not beside it.
+
+    Closing the hand is only half of "snapped to his grip": the close-ups
+    showed a properly closed fist with the haft running past the knuckles.
+    The weapon's ORIENTATION is deliberate -- the axe rides head-up -- so it is
+    not re-aimed; it is translated perpendicular to its own shaft until the
+    shaft's axis meets the centre of the hand.
+    """
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    P = co.reshape(-1, 3)
+    W = P @ np.array(pc.matrix_world.to_3x3()).T + np.array(pc.matrix_world.translation)
+    c = W.mean(0)
+    _, _, vt = np.linalg.svd((W - c)[:: max(1, len(W) // 4000)], full_matrices=False)
+    U = vt[0] / max(np.linalg.norm(vt[0]), 1e-9)
+    gi = body.vertex_groups[bone].index
+    idx = [v.index for v in body.data.vertices
+           if any(g.group == gi and g.weight > weight_min for g in v.groups)]
+    Mb = body.matrix_world
+    bco = np.empty(len(body.data.vertices) * 3)
+    body.data.vertices.foreach_get("co", bco)
+    BW = (bco.reshape(-1, 3) @ np.array(Mb.to_3x3()).T + np.array(Mb.translation))[idx]
+    fist = BW.mean(0)
+    # the shaft's axis near the fist, and the perpendicular offset to the fist
+    rel = W - fist
+    along = rel @ U
+    near = np.abs(along) < 0.07
+    base = W[near].mean(0) if near.sum() > 20 else c
+    d = fist - base
+    perp = d - (d @ U) * U
+    Mi = pc.matrix_world.inverted()
+    W2 = W + perp
+    P2 = W2 @ np.array(Mi.to_3x3()).T + np.array(Mi.translation)
+    pc.data.vertices.foreach_set("co", P2.ravel())
+    pc.data.update()
+    return float(np.linalg.norm(perp))

@@ -6,7 +6,9 @@
  "his_right": "-X",
  "up": "+Z",
  "body_shape_keys": [
-  "helmet_on"
+  "helmet_on",
+  "grip_R",
+  "grip_L"
  ],
  "binding_note": "every piece, sockets included, is a SKINNED mesh on the same 24 bones; the scene binds all of them to the body's Skeleton3D",
  "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
@@ -108,42 +110,74 @@
    ],
    "faces": 9000,
    "offset_m": 0.0,
-   "glb": "shield.glb",
-   "bone": "LeftHand",
-   "bone_note": "socketed to LeftHand IN the carry pose. A rest-pose bind puts the disc through his chest once the forearm crosses: idle 117 -> 277 inside."
+   "glb": "shield.glb"
   }
  ],
- "arm_layer": {
-  "action": "shield_carry_L",
-  "bones": [
-   "LeftShoulder",
-   "LeftArm",
-   "LeftForeArm",
-   "LeftHand"
-  ],
-  "rule": "when the shield is equipped, blend shield_carry_L on these four bones at weight 1 over idle, walk and run; do NOT apply it over attack -- the slash uses the right arm and the left must swing free",
-  "instrument": "crossing parity against the posed body mesh, 1864 shield vertices sampled",
-  "shield_vertices_inside_body": {
-   "idle": {
-    "before": 183,
-    "after": 12,
-    "worst_depth_m": 0.084
+ "shape_key_rules": {
+  "helmet_on": "1 when the helmet is equipped, 0 when removed",
+  "grip_R": "1 while the axe is equipped, 0 when not -- closes the right hand round the haft",
+  "grip_L": "1 while the shield is equipped, 0 when not -- closes the left hand round the grip bar"
+ },
+ "grip": {
+  "note": "the rig has 24 bones and NO FINGER BONES, so the hands cannot be posed; Meshy ships them open and flat from the A-pose. The weapon BINDING was already rigid -- axe 100% RightHand, shield 100% LeftHand, zero vertices with more than one group, minimum weight 1.0000, verified by reading the exported GLBs back. The open hand was the tell, not the bind.",
+  "haft_to_right_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0044
    },
-   "walk": {
-    "before": 313,
-    "after": 3,
-    "worst_depth_m": 0.003
-   },
-   "run": {
-    "before": 389,
-    "after": 14,
-    "worst_depth_m": 0.011
-   },
-   "attack": {
-    "no_layer": 326,
-    "worst_depth_m": 0.082
+   "closed": {
+    "min": 0.0,
+    "median": 0.0027
    }
   },
-  "grip": "nearest shield vertex 0.063 m from the left hand"
+  "grip_bar_to_left_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0923
+   },
+   "closed_before_nudge": {
+    "min": 0.0152,
+    "median": 0.084
+   },
+   "closed_after_nudge": {
+    "min": 0.0013,
+    "median": 0.0725
+   }
+  },
+  "axe_shaft_recentred_m": 0.048,
+  "shield_nudge_m": 0.0151
+ },
+ "silhouette_by_facing": {
+  "instrument": "ortho at 52.95 deg, ONE camera scale for every facing, 512 px",
+  "finding": "height is near-flat (the scene measured 154-157 px head-to-feet); the difference Matt sees is WIDTH and therefore AREA",
+  "bare_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 78
+   },
+   "area_px": {
+    "N_S": 24920,
+    "E_W": 16380
+   },
+   "N_S_area_larger_pct": 52
+  },
+  "kit_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 163
+   },
+   "area_px": {
+    "N_S": 31741,
+    "E_W": 26792
+   },
+   "N_S_area_larger_pct": 18
+  },
+  "bare_walk_pass": {
+   "N_S_area_larger_pct": 10
+  },
+  "kit_walk_pass": {
+   "N_S_area_larger_pct": 6
+  },
+  "cause": "a broad-shouldered figure presents his full shoulder span facing N or S and is edge-on facing E or W. The gear REDUCES the effect -- shield and mantle add bulk to the side views -- so bare is the worst case."
  }
 }
