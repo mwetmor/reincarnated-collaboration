@@ -66,9 +66,13 @@ for spec in SHEETS:
         ppm = c.get("px_per_m", L["px_per_m"])
         right, up = np.array(c["screen_right"]), np.array(c["screen_up"])
         aim = np.array(c["aim"])
-        el = np.radians(c.get("elevation_deg", L["elevation_deg"]))
-        az = np.radians(c["azimuth_deg"])
-        vdir = np.array([np.sin(az) * np.cos(el), np.cos(az) * np.cos(el), np.sin(el)])
+        if "view_dir" in c:
+            vdir = np.array(c["view_dir"], float)
+        else:
+            el = np.radians(c.get("elevation_deg", L["elevation_deg"]))
+            az = np.radians(c["azimuth_deg"])
+            vdir = np.array([np.sin(az) * np.cos(el), np.cos(az) * np.cos(el),
+                             np.sin(el)])
         al = np.array(Image.open(os.path.join(
             ROOT, "work", "_cells_%s" % name, "cell_%s.png" % d)
         ).convert("RGBA"))[:, :, 3] > 8

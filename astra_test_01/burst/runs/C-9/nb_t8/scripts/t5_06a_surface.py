@@ -139,10 +139,13 @@ out = dict(tex_tri=tex_tri.astype(np.int32), tex_pos=tex_pos, tex_nrm=tex_nrm,
 for name in SHEETS:
     L = json.load(open(os.path.join(ROOT, "work", "layout_%s.json" % name)))
     for d, c in L["cells"].items():
-        el = math.radians(c.get("elevation_deg", L["elevation_deg"]))
-        az = math.radians(c["azimuth_deg"])
-        vdir = np.array([math.sin(az) * math.cos(el),
-                         math.cos(az) * math.cos(el), math.sin(el)])
+        if "view_dir" in c:
+            vdir = np.array(c["view_dir"], float)
+        else:
+            el = math.radians(c.get("elevation_deg", L["elevation_deg"]))
+            az = math.radians(c["azimuth_deg"])
+            vdir = np.array([math.sin(az) * math.cos(el),
+                             math.cos(az) * math.cos(el), math.sin(el)])
         vis = (fn @ vdir) > 0.05
         n_face = int(vis.sum())
         for i in np.where(vis)[0]:

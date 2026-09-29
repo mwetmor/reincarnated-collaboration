@@ -72,6 +72,10 @@ SUBJECT = a[a.index("--subject") + 1] if "--subject" in a else "body"
 # and ruinous for the two face close-ups, which spent the sheet's most valuable
 # cells on the back of his head.
 YAW = float(a[a.index("--yaw") + 1]) if "--yaw" in a else 0.0
+# --tex renders the cells with a SUPPLIED texture instead of the model's own.
+# Sheet B's canvas is sheet A's paint projected back onto him, so the canvas is
+# a render of this model wearing A's bake.
+TEXOVR = a[a.index("--tex") + 1] if "--tex" in a else None
 SCALE = float(a[a.index("--scale") + 1]) if "--scale" in a else 1.0
 # A PLAN lets one sheet mix cells that do not share a camera: four top-down
 # body views beside two head close-ups, each with its own elevation, subject
@@ -98,6 +102,19 @@ import t2lib_ref as T
 _load(BLEND)
 sc = bpy.context.scene
 objs = _skinned([o for o in sc.objects if o.type == 'MESH'])
+if TEXOVR:
+    _img = bpy.data.images.load(os.path.abspath(TEXOVR))
+    _img.colorspace_settings.name = 'sRGB'
+    _n = 0
+    for _o in objs:
+        for _s in _o.material_slots:
+            if _s.material and _s.material.node_tree:
+                for _nd in _s.material.node_tree.nodes:
+                    if _nd.type == 'TEX_IMAGE':
+                        _nd.image = _img; _n += 1
+    print("   texture overridden with %s (%d node(s))"
+          % (os.path.basename(TEXOVR), _n))
+    assert _n, "no image texture node to override"
 T.unlit(objs)                       # base colour -> emission: the Meshy texture
 
 P = []
@@ -304,6 +321,17 @@ for d in IDS:
     bpy.ops.render.render(write_still=True)
     layout["cells"][d] = dict(
         dir=c["dir"], azimuth_deg=AZI[c["dir"]], elevation_deg=c["elev"],
+        # THE CAMERA, ONCE. This layout used to carry the camera twice -- as a
+        # basis (right/up/aim, built WITH --yaw) and as an azimuth number
+        # (without it). They agreed for every model until one arrived yawed,
+        # and then consumers that recomputed a view direction from the azimuth
+        # were 180 degrees out while the projection stayed right: the bake
+        # painted each surface with the colours of the surface behind it, and
+        # the back of his head came out wearing his face. The projection
+        # self-test could not see it, because the self-test exercises the
+        # basis path and the defect was in the other one.
+        view_dir=[round(float(v), 6) for v in
+                  ((pos - aim) / max((pos - aim).length, 1e-9))],
         subject=c["subject"], rect=[x0, y0, wpx, hpx],
         ortho_scale=round(cam.data.ortho_scale, 6),
         cam_location=[round(float(v), 6) for v in cam.location],
