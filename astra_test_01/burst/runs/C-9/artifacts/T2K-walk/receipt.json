@@ -1,0 +1,72 @@
+{
+  "task_id": "T2K-walk",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2K-walk_a",
+      "path": "out/T2K-walk_a.png",
+      "sha256": "37be90308465b7db71701b81dfafe94b7fb23652a32c0ac45e9ac9aea196fe86",
+      "prompt": "EDIT IMAGE 1 IN PLACE. Output 1536x1024. The entire empty background MUST be brilliant solid green #00FF00, exactly like Image 1 and Image 2. Keep this green visible across the entire canvas between all creatures and at all edges. This is a green-screen sprite sheet. Background RGB (0,255,0) is mandatory. Do not paint anything on the green background.\nApply the watercolor, crisp dark ink contour and fine hatching of Image 2 ONLY INSIDE the existing twelve creature silhouettes of Image 1. Image 3 supplies the calm human facial identity. Preserve all positions, silhouettes, head angles, paws, limb angles, tails and the 4x3 arrangement of Image 1 exactly. Twelve distinct walk keys, two per direction: first row south/south/north-east/north-east; second row north/north/north-west/north-west; third row west/west/south-west/south-west. The upper-right four creatures face AWAY: preserve the back-of-head visibility from Image 1, do not turn their faces into side profiles. No text, borders, ground or shadows.\nSame lean ribbed blue-grey hound body, dark spine, pale belly, clawed feet, whip tail, layered mane and long blond-brown hair with a calm bearded man's face as Image 2. All frames are the SAME creature, identically painted and marked. Uneven transparent hand-painted washes, pale cream highlights, pigment pooling, granulation, dark wavering ink line and hand hatching. Moderate mineral colours, soft even upper-left daylight. No gradients or light effects anywhere.\nCorrection to previous attempt: its dark gradient background was incorrect; preserve original bright pure green without any change. Preserve the original away-facing head orientations. Use Image 1 as edit target, Image 2 as hand/identity reference, Image 3 as face reference.",
+      "references": [
+        {
+          "role": "Edit target: twelve walk poses and layout",
+          "path": "in/01_t2_mc_keys_p0_canvas.png"
+        },
+        {
+          "role": "Approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Bestiary source: calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 94.439
+    },
+    {
+      "name": "T2K-walk_b",
+      "path": "out/T2K-walk_b.png",
+      "sha256": "8e1faf6837038fe9dfdfa9619bcf68909b6b2526445bd69a566b0d71d169ebea",
+      "prompt": "EDIT IMAGE 1 IN PLACE. Output 1536x1024. The entire empty background MUST be brilliant solid green #00FF00, exactly like Image 1 and Image 2. Keep this green visible across the entire canvas between all creatures and at all edges. This is a green-screen sprite sheet. Background RGB (0,255,0) is mandatory. Do not paint anything on the green background.\nApply the watercolor, crisp dark ink contour and fine hatching of Image 2 ONLY INSIDE the existing twelve creature silhouettes of Image 1. Image 3 supplies the calm human facial identity. Preserve all positions, silhouettes, head angles, paws, limb angles, tails and the 4x3 arrangement of Image 1 exactly. Twelve distinct walk keys, two per direction: first row south/south/north-east/north-east; second row north/north/north-west/north-west; third row west/west/south-west/south-west. The upper-right four creatures face AWAY: preserve the back-of-head visibility from Image 1, do not turn their faces into side profiles. No text, borders, ground or shadows.\nSame lean ribbed blue-grey hound body, dark spine, pale belly, clawed feet, whip tail, layered mane and long blond-brown hair with a calm bearded man's face as Image 2. All frames are the SAME creature, identically painted and marked. Uneven transparent hand-painted washes, pale cream highlights, pigment pooling, granulation, dark wavering ink line and hand hatching. Moderate mineral colours, soft even upper-left daylight. No gradients or light effects anywhere.\nPreserve original bright pure green without any change. Preserve the original away-facing head orientations. Use Image 1 as edit target, Image 2 as hand/identity reference, Image 3 as face reference.",
+      "references": [
+        {
+          "role": "Edit target: twelve walk poses and layout",
+          "path": "in/01_t2_mc_keys_p0_canvas.png"
+        },
+        {
+          "role": "Approved character identity and painting hand",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Bestiary source: calm human face",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 53.71
+    }
+  ],
+  "calls_used": 3,
+  "retries": [
+    {
+      "reason": "Variant a initially replaced the green background with a dark gradient and turned rear-facing heads toward profile.",
+      "change": "Retried from the original references with stronger instructions to preserve solid #00ff00 and the original away-facing head orientations."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Both delivered sheets visually retain twelve frames and bright green corners and gaps; exact background RGB and pixel-level silhouette preservation were not measured.",
+      "Dimensions verified as 1536x1024 for both outputs."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2K-walk_a.png",
+      "sha256": "37be90308465b7db71701b81dfafe94b7fb23652a32c0ac45e9ac9aea196fe86"
+    },
+    {
+      "path": "out/T2K-walk_b.png",
+      "sha256": "8e1faf6837038fe9dfdfa9619bcf68909b6b2526445bd69a566b0d71d169ebea"
+    }
+  ]
+}

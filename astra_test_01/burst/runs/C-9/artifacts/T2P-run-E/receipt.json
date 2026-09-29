@@ -1,0 +1,77 @@
+{
+  "task_id": "T2P-run-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-run-E_a",
+      "path": "out/T2P-run-E_a.png",
+      "sha256": "ebd65a0cc6160b37dcad715db084abec0d2facdbf6a5630dc80e4e9a3674ce3d",
+      "prompt": "EDIT the supplied sprite sheet. Change ONLY the background. Replace the entire dark background and ALL halos with a single uniform solid vivid green RGB(0,255,0), hex #00ff00. This is an opaque chroma-key sprite plate. Every pixel outside the eight painted creatures must be pure green, including corners, gaps, between legs, and the whole empty bottom third. Preserve all eight creatures exactly as painted, in exactly the same positions, outlines, sizes and poses. Preserve their ink, watercolor, faces, legs and tails unchanged. Keep 1536x1024 dimensions. Eight right-facing creatures in the upper two rows of a 4x3 grid, empty green third row. Output the corrected sheet with pure flat green background.",
+      "references": [
+        {
+          "role": "Original layout and pose source",
+          "path": "in/01_t2_mc_run_E_canvas.png"
+        },
+        {
+          "role": "Approved identity and painting style",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Calm human face reference",
+          "path": "in/03_manticore_rochester_src.jpg"
+        },
+        {
+          "role": "Retry edit target: initial variant a",
+          "path": "/Users/admin/.codex/generated_images/01a0eab3-e902-7470-a656-d5df141d673d/exec-b7ba1f70-8299-4f91-942b-7cea7efe38e9.png"
+        }
+      ],
+      "elapsed_s": 76.777
+    },
+    {
+      "name": "T2P-run-E_b",
+      "path": "out/T2P-run-E_b.png",
+      "sha256": "420f90c0025575552e39bc906881b2d2025601f3993908d57bfa18d8deb09226",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, the 1536x1024 sprite sheet. Output exactly one 1536x1024 sheet. FIRST REQUIREMENT: retain every background pixel as flat pure #00ff00 (RGB 0,255,0), including all corners, all gaps, and the entire empty third row. No gradient, vignette, texture, glow, ground, shadow, text or cell borders. Image 1 is the immutable layout and pose template: eight east-facing run frames in reading order, four across row one and four across row two of an invisible 4x3 grid. Row three stays completely empty green. Paint only inside the existing creature silhouettes. Preserve EXACTLY each frame's outline, position, size, pose, paw coordinates and head, leg and tail angles. Do not rearrange or redraw the motion. Image 2 is the approved identity and painter's hand reference, not a layout reference. Repaint all eight figures as this same manticore: lean four-legged hound body, visible ribs, blue-grey hide, darker spine, pale cream belly, clawed paws, long whip tail, dark blue-grey mane, long wavy ochre hair and a calm bearded HUMAN man's profile facing right. Image 3 supplies the man's uncanny calm only; copy no scenery. Keep identical face, markings, hide, mane, palette and line treatment across the eight frames so the animation will not flicker. Copy Image 2's hand-painted watercolor and ink surface: crisp dark sepia-to-near-black contours of slightly variable weight, fine hand-drawn hatching, transparent uneven washes with edge pooling and granulation, pale cream and bare-paper highlights. Shadows are darker wash plus hatching. Mineral blue-grey, warm ochre hair, pale flesh and cream; rich colour confined to small accents. Soft even upper-left daylight. No glossy highlights, no rim light, no airbrushed gradients, no filled dark shadows. This is a surface-only paint-over preserving the original sheet's exact geometry. The green chroma-key plate must remain uniformly pure #00ff00.\nVARIANT B. The background is an opaque bright green colour field, not transparency. Retain the original bright green field verbatim; do not beautify, relight, shade or replace it. Apply watercolor-and-ink painting solely to the existing eight silhouettes.",
+      "references": [
+        {
+          "role": "Edit target: layout and poses",
+          "path": "in/01_t2_mc_run_E_canvas.png"
+        },
+        {
+          "role": "Approved identity and painting style",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Calm human face reference",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 34.59
+    }
+  ],
+  "calls_used": 3,
+  "retries": [
+    {
+      "reason": "Initial variant a replaced the green background with a dark gradient and halos.",
+      "change": "Edited initial variant a to replace only its background with uniform #00ff00 while preserving the painted figures."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Both files are confirmed 1536x1024; visual inspection shows eight right-facing frames, bright green gaps and corners, and an empty third row.",
+      "Exact background RGB values and pixel-exact silhouette preservation were not measured.",
+      "Variant a elapsed_s includes its initial generation and corrective retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-run-E_a.png",
+      "sha256": "ebd65a0cc6160b37dcad715db084abec0d2facdbf6a5630dc80e4e9a3674ce3d"
+    },
+    {
+      "path": "out/T2P-run-E_b.png",
+      "sha256": "420f90c0025575552e39bc906881b2d2025601f3993908d57bfa18d8deb09226"
+    }
+  ]
+}

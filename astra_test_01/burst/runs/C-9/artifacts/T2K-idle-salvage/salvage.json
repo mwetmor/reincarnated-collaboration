@@ -1,0 +1,25 @@
+{
+ "note": "Conductor harvest of the four images T2K-idle generated before its receipt reported FAILED (every variant and retry lost the green plate; the painter also flagged rear three-quarter heads drifting toward profile). SHA-256 of each verified against the lane's own record (generated_images_new in T2K-idle_run.json and the ledger). Harvested for the geometry-first matte (meshy_t1/scripts/14_cutback.py), not as a lane output; per-frame IoU gates decide which cells ship. R-C9-64 context: background loss is no longer a retry reason.",
+ "candidates": [
+  {
+   "file": "T2K-idle-salvage_cand1.png",
+   "sha256": "90c9e598a22e4b36f76c91b7f59cd599dd549bb5d8d78ce0b03c5af1315447d8",
+   "source": "/Users/admin/.codex/generated_images/01a0eab3-e943-7410-8ebd-1a521cb10dd8/exec-53b7dae2-2a11-427a-a81f-50a8d7e4a56d.png"
+  },
+  {
+   "file": "T2K-idle-salvage_cand2.png",
+   "sha256": "6efa07968dc7fac4d4db544fa3b5e0cbc5c6d3645d8a3870c440686d0706591b",
+   "source": "/Users/admin/.codex/generated_images/01a0eab3-e943-7410-8ebd-1a521cb10dd8/exec-69d151a1-a0a5-46a3-baea-182d38091078.png"
+  },
+  {
+   "file": "T2K-idle-salvage_cand3.png",
+   "sha256": "9d464ed2ad94a9b717c165385518cf10de94e24c630013d69f462c6d12fb302d",
+   "source": "/Users/admin/.codex/generated_images/01a0eab3-e943-7410-8ebd-1a521cb10dd8/exec-b045127f-47db-458e-aa73-eb706ac4ba47.png"
+  },
+  {
+   "file": "T2K-idle-salvage_cand4.png",
+   "sha256": "15059c27f5f41145b4d94ca84247b1317516df1af9147655c80820b18d6398e3",
+   "source": "/Users/admin/.codex/generated_images/01a0eab3-e943-7410-8ebd-1a521cb10dd8/exec-e3e4c1aa-dc05-420c-b4b0-397a14db3209.png"
+  }
+ ]
+}

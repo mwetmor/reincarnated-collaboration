@@ -1,0 +1,77 @@
+{
+  "task_id": "T2P-run-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "T2P-run-SE_a",
+      "path": "out/T2P-run-SE_a.png",
+      "sha256": "bfc8dc4e43869cc0e73895a98e4375fe71d2189f38c53e26156c0ab4bc8c6ca9",
+      "prompt": "EDIT Image 1 in place. Deliver one 1536x1024 sheet. The canvas is BRIGHT SOLID GREEN, RGB(0,255,0), hex #00ff00. Preserve that exact solid green from the source across all corners, gaps, and the whole empty bottom third. The green plate occupies most of the image. Only the existing eight creature silhouettes receive paint.\nImage 1 is the edit target and absolute pose/layout authority. Keep its eight run-cycle frames in the first two rows of its 4x3 grid. Third row stays empty GREEN. Trace every silhouette precisely: identical positions, dimensions, leg and paw locations, tail curves and head angles. Keep the south-east facing elevated three-quarter orthographic view and reading order.\nImage 2 is the approved identity and rendering reference. Repaint the eight silhouettes with its lean blue-grey hound body, pale ribs, darker spine, pale belly, clawed paws, whip tail, dark mane and calm bearded long-haired human male face. Image 3 reinforces the calm human expression. Every frame is the SAME creature and SAME hand, with consistent face, hair, mane, markings and colors.\nCopy Image 2's crisp dark sepia pen contour, fine hand-drawn hatching and uneven transparent watercolor washes, pooled edges, granulation, pale cream highlights, restrained mineral blue-grey and warm ochre hair. Shadows inside figures use hatching and a second wash. Soft even daylight from upper-left. Preserve the original exact pose and outline.\nBACKGROUND LOCK: ALL SPACE OUTSIDE THE EIGHT FIGURES IS UNIFORM OPAQUE PURE #00ff00, INCLUDING THE FULL EMPTY THIRD ROW. No text or cell borders. This is a chroma-key sprite sheet, not a scene. The previous attempt incorrectly changed the green plate; retain the original pure green this time.",
+      "references": [
+        {
+          "role": "Edit target; pose and layout authority",
+          "path": "in/01_t2_mc_run_SE_canvas.png"
+        },
+        {
+          "role": "Approved creature identity and painting style",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Manuscript source; calm human expression",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 36.048
+    },
+    {
+      "name": "T2P-run-SE_b",
+      "path": "out/T2P-run-SE_b.png",
+      "sha256": "69aaf64f8019205357cc294ebc638170eac2ea7aaf55f7b5acd2fc542c5898e4",
+      "prompt": "EDIT Image 1 in place. Deliver one 1536x1024 sheet. The canvas is BRIGHT SOLID GREEN, RGB(0,255,0), hex #00ff00. Preserve that exact solid green from the source across all corners, gaps, and the whole empty bottom third. The green plate occupies most of the image. Only the existing eight creature silhouettes receive paint.\nImage 1 is the edit target and absolute pose/layout authority. Keep its eight run-cycle frames in the first two rows of its 4x3 grid. Third row stays empty GREEN. Trace every silhouette precisely: identical positions, dimensions, leg and paw locations, tail curves and head angles. Keep the south-east facing elevated three-quarter orthographic view and reading order.\nImage 2 is the approved identity and rendering reference. Repaint the eight silhouettes with its lean blue-grey hound body, pale ribs, darker spine, pale belly, clawed paws, whip tail, dark mane and calm bearded long-haired human male face. Image 3 reinforces the calm human expression. Every frame is the SAME creature and SAME hand, with consistent face, hair, mane, markings and colors.\nCopy Image 2's crisp dark sepia pen contour, fine hand-drawn hatching and uneven transparent watercolor washes, pooled edges, granulation, pale cream highlights, restrained mineral blue-grey and warm ochre hair. Shadows inside figures use hatching and a second wash. Soft even daylight from upper-left. Preserve the original exact pose and outline.\nBACKGROUND LOCK: ALL SPACE OUTSIDE THE EIGHT FIGURES IS UNIFORM OPAQUE PURE #00ff00, INCLUDING THE FULL EMPTY THIRD ROW. No text or cell borders. This is a chroma-key sprite sheet, not a scene. The previous attempt incorrectly changed the green plate; retain the original pure green this time.",
+      "references": [
+        {
+          "role": "Edit target; pose and layout authority",
+          "path": "in/01_t2_mc_run_SE_canvas.png"
+        },
+        {
+          "role": "Approved creature identity and painting style",
+          "path": "in/02_MC-1_a.png"
+        },
+        {
+          "role": "Manuscript source; calm human expression",
+          "path": "in/03_manticore_rochester_src.jpg"
+        }
+      ],
+      "elapsed_s": 72.65
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a replaced the green background with a dark gradient.",
+      "change": "Repeated the edit from the original references with a shorter prompt emphasizing the uniform RGB(0,255,0) background."
+    },
+    {
+      "reason": "Variant b replaced the green background with a dark gradient.",
+      "change": "Repeated the edit from the original references with a shorter prompt emphasizing the uniform RGB(0,255,0) background."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both delivered sheets are 1536x1024 with eight figures and an empty green third row.",
+      "Minor silhouette deviations remain, including tail tips and painted contours; exact outline preservation was not achieved.",
+      "Green backgrounds were visually inspected; exact per-pixel #00ff00 uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/T2P-run-SE_a.png",
+      "sha256": "bfc8dc4e43869cc0e73895a98e4375fe71d2189f38c53e26156c0ab4bc8c6ca9"
+    },
+    {
+      "path": "out/T2P-run-SE_b.png",
+      "sha256": "69aaf64f8019205357cc294ebc638170eac2ea7aaf55f7b5acd2fc542c5898e4"
+    }
+  ]
+}
