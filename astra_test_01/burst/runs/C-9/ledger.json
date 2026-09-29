@@ -18536,6 +18536,12 @@
       "topic": "T7-A: the cliffside in true 3D by camera-projected paint (drax, collab df1a8625f; nothing pushed)",
       "result": "WORKS for the terrain: rebuilt from a verbatim copy of cliffside_blockout.gd, depth map byte-identical to ortho_canvas_v4_2_depth_mm.png; the game camera is ORTHOGRAPHIC (2D route scrolls 1:1 over the ortho canvas) so projection is linear; vs live 2D median |diff| 3.67 bridge / 4.67 plateau, best shift (0,0); per-pixel occlusion by the painted bridge deck; lights on the character only; character at 52.95 deg (R-C9-68). Figure scale 1.25178 (a 1.80 m body -> 2.25 m world to meet 150.2135 px). UNSOLVED -> T7-A.2 (fresh drax): 49 props do not render over the projected terrain (need ~80 m bias; projector material implicated); background layers must be a screen-space backdrop (ortho cannot parallax) and are misplaced vertically; coverage voids to measure. Captures agentic_orchestration/drax/captures/2026-09-29-cliffside3d/; desktop app staged.",
       "ts": "2026-09-29T00:26:17"
+    },
+    {
+      "id": "M-C9-T6",
+      "topic": "T6: 3D generator bake-off (Meshy baseline vs Hunyuan3D 3.1 Pro, Rodin 2.5, Tripo H3.1 multiview, TRELLIS 2, Hi3D v3) on the knight A-pose sheet and the manticore sheet; renders at 52.95 deg (R-C9-68)",
+      "result": "WINNER for humanoids: Tripo H3.1 multiview (tripo3d/h3.1/multiview-to-3d, $0.40, ~160 s): knight silhouette IoU 0.881 (Rodin 0.863, Hi3D 0.832, TRELLIS 0.800, Hunyuan 0.794, Meshy 0.745); one watertight island; arm/torso clearance 48 px (Meshy 13, Rodin 5); delivered yawed 90 deg; 1.45M tris (decimate x0.21 before rigging). Meshy is the messiest mesh (1,927 open edges, 20 islands) and keeps almost no ink (0.09% near-black vs plate 15.5%). Rodin Shaded = lighting bake on emission (black albedo) - a defect for lit scenes. TRELLIS 2 and Hi3D are single-image endpoints by schema. Hunyuan invented the surcoat back despite the back plate. Every generator slimmed the manticore. fal spend $7.45. Consequence: the barbarian B is also being built with Tripo; T8 picks by measurement. Collab 4b16b091, 2405f086; compare sheets runs/C-9/fal_t6/compare/. Repo hygiene: astra_test_01/.gitignore now ignores *.glb *.spz *.ply *.blend *.blend1 *.npz.",
+      "ts": "2026-09-29T00:34:36"
     }
   ],
   "halts": [

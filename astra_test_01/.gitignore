@@ -1,3 +1,10 @@
 *.png
 *.zip
 __pycache__/
+# 3D models and heavy binary intermediates (C-9 Phase 2 repo/disk hygiene, 2026-09-29): never committed by accident; `git add -f` if one ever must be.
+*.glb
+*.spz
+*.ply
+*.blend
+*.blend1
+*.npz
