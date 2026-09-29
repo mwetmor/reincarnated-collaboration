@@ -580,7 +580,8 @@
     "run_armed_R"
    ],
    "shield_bash": "shield_bash",
-   "strafe_left": "strafe_L_armed"
+   "strafe_left": "strafe_L_armed",
+   "strafe_right": "strafe_R_armed"
   },
   "unarmed": {
    "idle": "idle",
@@ -609,6 +610,7 @@
    "shield_carry_L",
    "shield_guard_L",
    "strafe_L_armed",
+   "strafe_R_armed",
    "walk",
    "walk_armed",
    "walk_armed_unarmedsrc"
@@ -765,7 +767,7 @@
  "lint": {
   "verdict": "WARN",
   "fails": [],
-  "warns": 11
+  "warns": 13
  },
  "gaps": {
   "straight_armed_run": {
@@ -787,11 +789,9 @@
   }
  },
  "credits": {
-  "w1_library": 33,
-  "w1_t2m_run": 10,
-  "w1b_t2m_strafe": 10,
-  "total": 53,
-  "authorised": 60
+  "total": 63,
+  "authorised": 70,
+  "detail": "33 library + 10 run + 10 strafe_L + 10 strafe_R"
  },
  "retargeter": {
   "script": "scripts/41_retarget_smplh.py",
@@ -1124,5 +1124,38 @@
     "isolated": []
    }
   }
+ },
+ "locomotion_in_place": {
+  "rule": "every locomotion clip ships IN PLACE, with its speed here. A speed the consumer can read beats root motion it has to strip, and the scene was already de-rooting at load.",
+  "speeds_m_s": {
+   "run_armed": 4.74,
+   "strafe_L_armed": 0.93,
+   "strafe_R_armed": 0.42,
+   "walk_armed": null
+  },
+  "walk_note": "Meshy's Walk Fight Forward is in-place at source (net root travel 0.004 m), so there is no travel to derive a speed from. The scene sets the walk speed.",
+  "asymmetry_warning": "the two strafes are NOT mirrors and NOT the same speed: 0.93 m/s left against 0.42 m/s right. Do not assume symmetry when blending them."
+ },
+ "run_armed_trim": {
+  "was": "~4 gait cycles in 2.0 s (60 frames), which broke the scene's walk/run sync group",
+  "now": "ONE gait cycle: 20 frames, 0.667 s, 3.1626 m of travel at 4.74 m/s",
+  "method": "contact onset to the next onset of the SAME foot. The contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed 0.05 m -- a fixed one found NO contacts at all, because this run's feet span 0.000 to 0.104 m and 0.05 sits mid-swing.",
+  "foot_slide": "0.00000 m. The scene measured 316 mm through a crossover on the 4-cycle version; a crossover is two cycles meeting, so one cycle has none.",
+  "supersedes": "run_armed_locked -- armed legs now, not unarmed legs with a wrist lock"
+ },
+ "root_motion": {
+  "derooted": [
+   "idle_armed",
+   "run_armed",
+   "strafe_L_armed",
+   "strafe_R_armed",
+   "walk_armed"
+  ],
+  "idle_armed_was": "0.8994 m of horizontal drift over its own loop -- a drifting idle is a defect",
+  "left_rooted": {
+   "attack_chop": "0.7519 m lunge, kept because the scene roots it"
+  },
+  "lint_rule": "WARN on net root horizontal travel over 0.05 m in any clip whose name is not locomotion. It reproduced the scene's numbers exactly (0.899 and 0.752 m) on a file this lint had already passed -- it checked root HEIGHT and never once looked sideways.",
+  "deroot_note": "de-rooting must happen in ARMATURE space. The first attempt zeroed matrix_basis.translation.x/y, which is the bone's own rotated rest basis, and the drift survived it untouched."
  }
 }

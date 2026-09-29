@@ -18,6 +18,11 @@
 #         translation by more than 5%. Legitimate for a crouch or a jump start,
 #         so it warns rather than fails -- but it is how a re-grounded clip
 #         announces itself.
+#   WARN  net root HORIZONTAL travel over 0.05 m in a non-locomotion clip.
+#         Added after the scene found idle_armed drifting 0.8994 m over its own
+#         loop and attack_chop 0.7519 m -- root motion in clips nobody thought
+#         had any, in a file this lint had already passed. It checked root
+#         HEIGHT and never once looked sideways.
 #   WARN  a clip whose root-height BAND does not overlap any other clip's band.
 #         Added after the fact, because the rule above does not discriminate:
 #         on the broken file it fired on attack, idle and run, and only one of
@@ -30,6 +35,7 @@ import json, struct, sys
 import numpy as np
 
 SCALE_TOL, ROOT_TOL = 1e-3, 0.05
+ROOT_TRAVEL_TOL = 0.05          # metres of horizontal drift allowed off-locomotion
 CT = {5120: ('b', 1), 5121: ('B', 1), 5122: ('h', 2), 5123: ('H', 2),
       5125: ('I', 4), 5126: ('f', 4)}
 NC = {'SCALAR': 1, 'VEC2': 2, 'VEC3': 3, 'VEC4': 4, 'MAT4': 16}
@@ -85,6 +91,16 @@ def lint(path):
     for sk in g.get('skins', []):
         joints.update(sk.get('joints', []))
     roots = [j for j in joints if parent.get(j) not in joints]
+    # metres per glTF unit: the product of the scales on the root joint's
+    # ancestors. READ, never assumed -- this rig's is 0.010882 (Meshy's 0.01
+    # object scale times the T8 fit to a 1.85 m body), and a hard-coded 0.01
+    # would understate every drift by 8.8%.
+    MPU = 1.0
+    if roots:
+        _k = parent.get(roots[0])
+        while _k is not None:
+            MPU *= float(nodes[_k].get('scale', [1, 1, 1])[1])
+            _k = parent.get(_k)
     fails, warns, clips = [], [], {}
     for an in g.get('animations', []):
         cn = an.get('name', '?')
@@ -108,6 +124,19 @@ def lint(path):
                         "> %.0e)" % (path.split('/')[-1], cn, name(nidx),
                                      np.round(vals[0], 4).tolist(), dev, SCALE_TOL))
             if pth == 'translation' and nidx in roots:
+                # horizontal drift: glTF is Y-up, so X and Z are the ground plane
+                net = float(np.hypot(vals[-1][0] - vals[0][0],
+                                     vals[-1][2] - vals[0][2]))
+                rec['root_travel_units'] = round(net, 3)
+                is_loco = any(k in cn.lower() for k in
+                              ('walk', 'run', 'strafe', 'sprint', 'jog', 'dodge'))
+                rec['locomotion'] = is_loco
+                if not is_loco and net * MPU > ROOT_TRAVEL_TOL:
+                    warns.append(
+                        "%s: clip '%s' drifts %.3f m horizontally over its own "
+                        "length (%.1f units) and is not locomotion -- a clip that "
+                        "walks away from where it started"
+                        % (path.split('/')[-1], cn, net * MPU, net))
                 rec['root'] = name(nidx)
                 rec['root_height'] = dict(
                     first=round(float(vals[0][UP]), 4),
