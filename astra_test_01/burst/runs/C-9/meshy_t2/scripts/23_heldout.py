@@ -45,16 +45,29 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sets", nargs="+", required=True)
     ap.add_argument("--out", default=os.path.join(WORK, "heldout.json"))
+    ap.add_argument("--ykey-clip", default="idle")
     args = ap.parse_args()
     chosen = json.load(open(os.path.join(WORK, "chosen.json")))
     rep = dict(note="mean |dRGB| 0-255 vs the Astra-painted frame, inside the "
                     "render mask, on frames the propagation did not see",
                sets={})
+    # The key is RECOMPUTED, not read from onekey_plan_<V>.json. Running
+    # 22_onekey.py once per clip rewrites that file each time, so the last
+    # clip to finish is the only one left in it and every other clip's key
+    # came back as a KeyError. Recomputing by the same mean-pose rule the
+    # builder uses is both correct and immune to that.
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "ok", os.path.join(HERE, "22_onekey.py"))
+    ok = importlib.util.module_from_spec(spec)
+    import sys as _sys
+    _argv = _sys.argv; _sys.argv = ["x"]
+    spec.loader.exec_module(ok)
+    _sys.argv = _argv
     plans = {}
     for s in args.sets:
         name, root = s.split("=", 1)
-        pf = os.path.join(WORK, "onekey_plan_%s.json" % name.upper())
-        plans[name] = json.load(open(pf)) if os.path.exists(pf) else None
+        plans[name] = ok
         rep["sets"][name] = dict(root=root, dirs={})
     print("%-6s %-7s %-4s %7s %7s %6s" % ("set", "clip", "dir", "n", "MAE", "key"))
     for name, root in (s.split("=", 1) for s in args.sets):
@@ -77,9 +90,11 @@ def main():
                     held = [0, n // 2]
                 key = None
                 if plan:
-                    e = plan["keys"].get("%s/%s" % (clip, d)) or plan["keys"].get(d)
-                    if e and e["src_clip"] == clip:
-                        key = e["src_frame"]
+                    kc = args.ykey_clip if name.lower() == "y" else clip
+                    kroot, kcands = plan.paint_root(chosen, kc, d)
+                    if kroot:
+                        kf, _ = plan.mean_pose_frame(kc, d, kcands)
+                        key = kf if kc == clip else None
                 errs = []
                 for i in held:
                     if i == key:

@@ -44,6 +44,35 @@ def best_iou(a, m):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--source", default=None,
+                    help="copy sprites from here into sprites_t2/ first")
+    ap.add_argument("--method", default="mixed",
+                    help="Y = one key per direction driving all clips; "
+                         "X = one key per clip per direction; "
+                         "mixed = painted E/SE plus propagation")
+    ap.add_argument("--ykey-clip", default="idle")
+    ap.add_argument("--dest", default=SPR)
+    args = ap.parse_args()
+    if args.source:
+        import shutil
+        n = 0
+        for clip, fr in CLIPS:
+            for d in DIRS:
+                sd = os.path.join(ROOT, args.source, clip, d)
+                dd = os.path.join(args.dest, clip, d)
+                if not os.path.isdir(sd):
+                    continue
+                os.makedirs(dd, exist_ok=True)
+                for i in range(fr):
+                    f = "%s_%s_%02d.png" % (clip, d, i)
+                    if os.path.exists(os.path.join(sd, f)):
+                        shutil.copy(os.path.join(sd, f), os.path.join(dd, f))
+                        n += 1
+        print("copied %d frames from %s into %s"
+              % (n, args.source, os.path.relpath(args.dest, ROOT)))
+    globals()["SPR"] = args.dest
     chosen = json.load(open(os.path.join(WORK, "chosen.json")))
     plant = json.load(open(os.path.join(WORK, "plant.json")))
     clipinfo = json.load(open(os.path.join(WORK, "clips.json")))
@@ -58,9 +87,21 @@ def main():
         sole_row=398, elevation_deg=19.77,
         azimuths={"S": 0, "SE": 45, "E": 90, "NE": 135, "N": 180, "NW": 225,
                   "W": 270, "SW": 315},
-        path="sprites_t2/{state}/{dir}/{state}_{dir}_NN.png",
-        painted_dirs=PAINTED,
-        propagated_dirs=[d for d in DIRS if d not in PAINTED],
+        path="%s/{state}/{dir}/{state}_{dir}_NN.png"
+             % os.path.basename(args.dest.rstrip("/")),
+        method=args.method,
+        method_note=({
+            "Y": "EVERY direction of EVERY clip is EbSynth-propagated from ONE "
+                 "painted key per direction, taken from the %s clip. Eight "
+                 "painted keys for the whole character. Works because the pos "
+                 "guide is clip-invariant, so an idle key can drive an attack "
+                 "frame." % args.ykey_clip,
+            "X": "one painted key per clip per direction; 32 keys.",
+            "mixed": "E and SE painted every frame; the other six propagated "
+                     "from two keys."}[args.method]),
+        painted_dirs=([] if args.method in ("X", "Y") else PAINTED),
+        propagated_dirs=(DIRS if args.method in ("X", "Y")
+                         else [d for d in DIRS if d not in PAINTED]),
         ebsynth=dict(guides=dict(pos=4.0, part=2.0, mask=2.0), keys="0 and n/2",
                      blend="inverse circular temporal distance, inside the mask"),
         states={}, missing=[], face_drift={})
@@ -78,7 +119,7 @@ def main():
         kc = os.path.join(WORK, "keys_choice_%s.json" % clip)
         drift = json.load(open(kc))["face_drift_ratio"] if os.path.exists(kc) else {}
         for d in DIRS:
-            dd = os.path.join(SPR, clip, d)
+            dd = os.path.join(args.dest, clip, d)
             rows, miss = [], []
             for i in range(n):
                 f = os.path.join(dd, "%s_%s_%02d.png" % (clip, d, i))
@@ -96,7 +137,16 @@ def main():
                 st["dirs"][d] = dict(present=False)
                 continue
             src = chosen.get(clip, {})
-            if d in PAINTED:
+            if args.method in ("X", "Y"):
+                kc = args.ykey_clip if args.method == "Y" else clip
+                s2 = chosen.get(kc, {})
+                if d in PAINTED:
+                    variant = s2.get(d)
+                else:
+                    k = s2.get("keys")
+                    variant = (k.get(d) if isinstance(k, dict) else k)
+                kind = "propagated"
+            elif d in PAINTED:
                 variant, kind = src.get(d), "painted"
             else:
                 k = src.get("keys")
@@ -124,7 +174,7 @@ def main():
                          frames=frames,
                          frames_expected=sum(n * 8 for _, n in CLIPS),
                          complete=done == 32 and not man["missing"])
-    json.dump(man, open(os.path.join(SPR, "manifest.json"), "w"), indent=1)
+    json.dump(man, open(os.path.join(args.dest, "manifest.json"), "w"), indent=1)
     print("sprites_t2: %d/32 directions, %d/%d frames, complete=%s"
           % (done, frames, man["totals"]["frames_expected"], man["totals"]["complete"]))
     for clip, _ in CLIPS:

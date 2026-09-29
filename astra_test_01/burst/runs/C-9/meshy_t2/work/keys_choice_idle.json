@@ -1135,5 +1135,6 @@
  },
  "face_drift_flagged": [
   "N"
- ]
+ ],
+ "face_ratio_note": "The face ratio is a PROXY: bare-skin area in the head box, warm AND light. It correctly flagged NE and NW, where a full profile face was drawn against a render showing the back of the head, and correctly showed T2K-idle-r2 fixing both (NE 1.6->1.0, NW 2.2->1.2). On N it reads 1.6 with NO FACE PRESENT in either image -- the render itself scores 0.065 and the key 0.106, and the warm+light pixels in both are lit hair and neck tone, not a face. Checked by hue: R-G is 0.151 on the N RENDER, i.e. the render s own warm pixels read as skin-like too, so the test cannot separate them there. The crops decide: overlays/T2_r2_heads.png shows no face in N in either. N is accepted."
 }
