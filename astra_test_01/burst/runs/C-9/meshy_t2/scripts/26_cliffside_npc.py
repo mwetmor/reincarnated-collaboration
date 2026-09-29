@@ -82,6 +82,14 @@ const DIRECTIONS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 @export var patrol_a: Vector2 = Vector2.ZERO
 @export var patrol_b: Vector2 = Vector2.ZERO
 @export var pause_seconds: float = 2.4
+## Turn around when the body stops advancing. The cliffside's floor collision
+## is authored for the PLAYER, and a patrol laid across it can put the NPC
+## into a wall: measured, it walked east from x=2680 and jammed at x=3023,
+## 77 px short of its target, then pushed into that wall for the rest of the
+## run at full walk speed with the animation playing. A patrol that can only
+## turn when it REACHES its target cannot recover from never reaching it.
+@export var stuck_speed_frac: float = 0.25
+@export var stuck_seconds: float = 0.6
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var _target: Vector2
@@ -89,6 +97,8 @@ var _home: Vector2
 var _pausing: float = 0.0
 var _facing: String = "S"
 var _state: String = "idle"
+var _stuck: float = 0.0
+var _last_pos: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
     _home = global_position
@@ -98,6 +108,7 @@ func _ready() -> void:
         patrol_b = _home + Vector2(360, 0)
     _target = patrol_b
     _pausing = pause_seconds
+    _last_pos = global_position
     _play()
 
 func _physics_process(delta: float) -> void:
@@ -111,6 +122,7 @@ func _physics_process(delta: float) -> void:
     if to_target.length() < 8.0:
         _target = patrol_a if _target == patrol_b else patrol_b
         _pausing = pause_seconds
+        _stuck = 0.0
         velocity = Vector2.ZERO
         _set_state("idle")
         move_and_slide()
@@ -120,6 +132,16 @@ func _physics_process(delta: float) -> void:
     _facing = DIRECTIONS[posmod(roundi(dir.angle() / (PI / 4.0)) + 6, 8)]
     _set_state("walk")
     move_and_slide()
+    var advanced := global_position.distance_to(_last_pos)
+    _last_pos = global_position
+    if advanced < walk_speed * delta * stuck_speed_frac:
+        _stuck += delta
+        if _stuck >= stuck_seconds:
+            _stuck = 0.0
+            _target = patrol_a if _target == patrol_b else patrol_b
+            _pausing = pause_seconds
+    else:
+        _stuck = 0.0
 
 func _set_state(s: String) -> void:
     if s == _state and sprite.animation == "%s_%s" % [_state, _facing]:
@@ -214,7 +236,9 @@ def main():
                                                   "cliffside_B_app"))
     ap.add_argument("--x", type=float, default=2680.0)
     ap.add_argument("--y", type=float, default=2407.32)
-    ap.add_argument("--span", type=float, default=420.0)
+    # 300 px, not 420: the probe showed the body jams at x=3023 against the
+    # cliffside collision, so a 420 px span put the far end inside a wall.
+    ap.add_argument("--span", type=float, default=300.0)
     args = ap.parse_args()
     app = os.path.abspath(args.app)
     rel = "sprites_manticore"
