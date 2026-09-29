@@ -27,6 +27,11 @@ var svs := []
 var mf := 0
 
 func _initialize() -> void:
+	# WATCHDOG. A SceneTree script whose coroutine dies on an error never reaches quit(), and
+	# this one runs under the SHARED heavy lock: on 2026-09-29 a null load killed stance.gd
+	# mid-await and it held the lock for ten minutes with the integration build queued behind
+	# it. A timer on the main loop fires whether or not the coroutine is alive.
+	create_timer(float(OS.get_environment("LAB_WATCHDOG_S")) if OS.has_environment("LAB_WATCHDOG_S") else 240.0).timeout.connect(func(): push_error("LAB WATCHDOG: quitting a hung script"); quit(4))
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--"):
 			var kv: PackedStringArray = a.substr(2).split("=", true, 1)
@@ -65,12 +70,15 @@ func _initialize() -> void:
 	print("[lab] %s from %s, rung %s, clip '%s' (%.3f s), armed=%s, scale %.2f"
 		% [action, from, rung, clip, float(k._clip_len.get(clip, 0.0)), str(k.armed()), SCALE])
 	# ---- lead-in -----------------------------------------------------------------
-	var lead: int = LEAD_RUN if from == "run" else LEAD_IDLE
+	var lead: int = 0 if action == "idle" else (LEAD_RUN if from == "run" else LEAD_IDLE)
 	for i in lead:
 		await _frame(Vector2(1, 0) if from == "run" else Vector2.ZERO, from == "run", "lead", clip, film)
 	# ---- the action --------------------------------------------------------------
 	var t0 := frames.size()
-	if rung == "R0" or rung == "R1":
+	if action == "idle":
+		for i in int(float(k._clip_len.get("idle_armed", 6.0)) / DT):
+			await _frame(Vector2.ZERO, false, "act", clip, film)
+	elif rung == "R0" or rung == "R1":
 		await _raw_action(clip, film)
 	else:
 		if action == "block":
@@ -93,7 +101,7 @@ func _initialize() -> void:
 
 # ---------------------------------------------------------------------------------
 func _clip_for(action: String) -> String:
-	var role: String = {"slash": "attack", "chop": "chop", "bash": "bash", "block": "block"}[action]
+	var role: String = {"slash": "attack", "chop": "chop", "bash": "bash", "block": "block", "idle": "idle"}[action]
 	return String(k._roles.get(role, ""))
 
 func _apply_rung(rung: String, action: String) -> void:

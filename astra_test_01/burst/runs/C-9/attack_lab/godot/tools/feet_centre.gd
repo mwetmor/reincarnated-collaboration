@@ -4,6 +4,11 @@ extends SceneTree
 # from his own capsule -- and a blend into or out of it drags him across the ground.
 # Raw clips (cache bypassed), rig space, metres at figure scale 1.0.
 func _initialize() -> void:
+	# WATCHDOG. A SceneTree script whose coroutine dies on an error never reaches quit(), and
+	# this one runs under the SHARED heavy lock: on 2026-09-29 a null load killed stance.gd
+	# mid-await and it held the lock for ten minutes with the integration build queued behind
+	# it. A timer on the main loop fires whether or not the coroutine is alive.
+	create_timer(float(OS.get_environment("LAB_WATCHDOG_S")) if OS.has_environment("LAB_WATCHDOG_S") else 240.0).timeout.connect(func(): push_error("LAB WATCHDOG: quitting a hung script"); quit(4))
 	var ps := ResourceLoader.load("res://models/gear/nb-body.glb", "", ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
 	var r := ps.instantiate()
 	root.add_child(r)

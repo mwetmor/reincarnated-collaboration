@@ -9,6 +9,11 @@ const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
 func _initialize() -> void:
+	# WATCHDOG. A SceneTree script whose coroutine dies on an error never reaches quit(), and
+	# this one runs under the SHARED heavy lock: on 2026-09-29 a null load killed stance.gd
+	# mid-await and it held the lock for ten minutes with the integration build queued behind
+	# it. A timer on the main loop fires whether or not the coroutine is alive.
+	create_timer(float(OS.get_environment("LAB_WATCHDOG_S")) if OS.has_environment("LAB_WATCHDOG_S") else 240.0).timeout.connect(func(): push_error("LAB WATCHDOG: quitting a hung script"); quit(4))
 	var ground := StaticBody3D.new()
 	ground.collision_layer = CliffWorld.TERRAIN_BIT
 	var cs := CollisionShape3D.new(); var box := BoxShape3D.new(); box.size = Vector3(600, 1, 600)

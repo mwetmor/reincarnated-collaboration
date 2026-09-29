@@ -8,6 +8,7 @@ LOCK=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/
 FONT=/System/Library/Fonts/Supplemental/Arial.ttf
 mkdir -p "$DEST" $S
 cd $LAB
+export LAB_WATCHDOG_S=900     # a chop film renders ~880 frames
 for act in slash chop bash block; do for from in idle run; do
   FREE=$(df -g /System/Volumes/Data | tail -1 | awk '{print $4}')
   if [ "$FREE" -lt 42 ]; then echo "STOP: only ${FREE} GiB free"; exit 3; fi
