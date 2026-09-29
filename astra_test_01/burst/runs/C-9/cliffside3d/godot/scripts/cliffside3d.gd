@@ -654,9 +654,14 @@ func _update_hud() -> void:
 			nm = String(names[n])
 	var f: float = CliffWorld.fade_min
 	var fs := "off" if f >= 0.999 else ("%d%%" % int(round(f * 100.0)))
-	_hud.text = ("Arrows/WASD move  ·  Shift run  ·  Space/click attack  ·  "
-		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  L world (%s)  ·  [ ] size (%.2f)  ·  Q/E camera  ·  P plate"
-		% [n + 1, total, nm, fs, "lit" if lit else "painted",
+	# the armed line only advertises keys that DO something: chop, block and bash are the
+	# armed set's, and an unarmed barbarian has no shield to bash with.
+	var armed: bool = knight != null and knight.armed()
+	var fight: String = "Space/click slash  ·  X chop  ·  B/right-click block  ·  C bash" if armed \
+		else "Space/click attack"
+	_hud.text = ("Arrows/WASD move  ·  Shift run  ·  " + fight + "  ·  "
+		+ "G gear (%d/%d: %s%s)  ·  F tree fade (%s)  ·  L world (%s)  ·  [ ] size (%.2f)  ·  Q/E camera  ·  P plate"
+		% [n + 1, total, nm, " · ARMED" if armed else "", fs, "lit" if lit else "painted",
 		   knight._figure_scale if knight != null else 1.0])
 
 

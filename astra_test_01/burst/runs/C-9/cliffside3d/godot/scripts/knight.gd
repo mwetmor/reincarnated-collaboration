@@ -96,6 +96,15 @@ var _yaw_cur := 0.0
 var _yaw_init := false
 var _layer_on := false
 var _attack_t := 0.0
+var _strikes: Array[String] = []
+var _blocking := false
+var _block_w := 0.0
+var _strafe_w := 0.0
+var _block_req_frame := -1
+var _armed := false
+var _root_speeds := {}
+var _root_dirs := {}
+var _strafing := false
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -133,16 +142,14 @@ func _ready() -> void:
 		_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 		for n in _anim.get_animation_list():
 			_clip_len[n] = _anim.get_animation(n).length
+	_root_speeds = _deroot_all()
 	var fa = cfg.get("forward_axis", null)
 	if fa != null:
 		_forward_axis = Vector3(float(fa[0]), 0.0, float(fa[2])).normalized()
 	_bind_roles()
 	# A walk that stops at the end of its 25 frames is not a walk. glTF carries no loop
 	# flag, so Godot imports every clip as one-shot and the ones that cycle are named here.
-	for n in cfg.get("loop", []):
-		var real := String(_roles.get(String(n), String(n)))
-		if _anim != null and _clip_len.has(real):
-			_anim.get_animation(real).loop_mode = Animation.LOOP_LINEAR
+	_loop_locomotion()
 	_style()
 	_add_outline()
 	_read_socket()
@@ -162,7 +169,7 @@ func _build_anim_tree() -> void:
 	unfiltered it would freeze him mid-stride. The filter is what makes it an arm layer,
 	and the four paths are taken from the clip's OWN track list rather than composed from
 	bone names, so a path that does not exist in the clip cannot be filtered by accident."""
-	var spec: Dictionary = cfg.get("arm_layer", {})
+	var spec: Dictionary = cfg.get("arm_layer_armed", _layer_spec())
 	var action := String(spec.get("action", ""))
 	if _anim == null or action == "" or not _clip_len.has(action):
 		return
@@ -189,8 +196,8 @@ func _build_anim_tree() -> void:
 	# blend below reproduces a three-point 1D space exactly and leaves every parameter at a
 	# path this script can address.
 	var tr: Dictionary = cfg.get("transitions", {})
-	var wsp := float(cfg.get("walk_px_s", WALK_PX_S))
-	var rsp := float(cfg.get("run_px_s", RUN_PX_S))
+	var wsp := walk_px_s()
+	var rsp := run_px_s()
 	var a_idle := AnimationNodeAnimation.new()
 	a_idle.animation = String(_roles.get("idle", "idle"))
 	var a_walk := AnimationNodeAnimation.new()
@@ -207,13 +214,26 @@ func _build_anim_tree() -> void:
 	_walk_len = float(_clip_len.get(a_walk.animation, 1.0))
 	_run_len = float(_clip_len.get(a_run.animation, 1.0))
 
-	# THE ATTACK IS A ONE-SHOT OVER THE TOP, not a fourth blend point. It is not a speed, it
-	# interrupts, and it has to fade in and back out to whatever he was doing.
-	var shot := AnimationNodeOneShot.new()
-	shot.fadein_time = float(tr.get("attack_fade_in_s", 0.10))
-	shot.fadeout_time = float(tr.get("attack_fade_out_s", 0.25))
-	var atk := AnimationNodeAnimation.new()
-	atk.animation = String(_roles.get("attack", "attack"))
+	# THE STRIKES ARE ONE-SHOTS OVER THE TOP, not blend points. They are not speeds, they
+	# interrupt, and each has to fade in and back out to whatever he was doing.
+	#
+	# THREE SEPARATE ONE-SHOTS, not one node re-pointed before each fire. Re-pointing works
+	# -- an AnimationNodeAnimation does re-pose when its `animation` property is mutated on
+	# a live tree, measured in tools/probe_armed.gd -- but a node re-pointed WHILE its own
+	# one-shot is fading out changes the clip under the fade, and "is a strike running" then
+	# has no single answer. Three nodes cost nothing when idle: a one-shot that is not
+	# active passes input 0 through untouched.
+	var fin := float(tr.get("attack_fade_in_s", 0.10))
+	var fout := float(tr.get("attack_fade_out_s", 0.25))
+	# BUILT FROM THE UNION OF BOTH CLIP SETS, not from the roles live right now. The graph
+	# is constructed once; if the chop and bash nodes were built from the unarmed roles --
+	# which is the state at _ready, because the gear stack starts at 0 -- they would never
+	# exist and picking up the axe could not create them. Whether a strike may FIRE is a
+	# question for try_strike; whether it has a node is not.
+	var am: Dictionary = cfg.get("clips_armed", {})
+	var strikes := {"slash": String(am.get("attack", _roles.get("attack", "attack"))),
+					"chop": String(am.get("chop", "")),
+					"bash": String(am.get("bash", ""))}
 
 	var b2 := AnimationNodeBlend2.new()
 	b2.filter_enabled = true
@@ -226,6 +246,14 @@ func _build_anim_tree() -> void:
 	var carry := AnimationNodeAnimation.new()
 	carry.animation = action
 
+	# THE BLOCK IS A HOLD, so it is a Blend2 this script drives and not a one-shot: a
+	# one-shot runs for its clip's length and cannot be held for as long as a key is down.
+	# Full body, above the guard and below the strikes.
+	var blk := AnimationNodeBlend2.new()
+	blk.sync = true
+	var a_block := AnimationNodeAnimation.new()
+	a_block.animation = String(am.get("block", ""))
+
 	bt.add_node("a_idle", a_idle, Vector2(0, -160))
 	bt.add_node("a_walk", a_walk, Vector2(0, -60))
 	bt.add_node("a_run", a_run, Vector2(0, 40))
@@ -234,10 +262,10 @@ func _build_anim_tree() -> void:
 	bt.add_node("seek_run", seek_run, Vector2(300, 40))
 	bt.add_node("bl_iw", bl_iw, Vector2(430, -110))
 	bt.add_node("bl_wr", bl_wr, Vector2(560, -40))
-	bt.add_node("atk", atk, Vector2(0, 160))
-	bt.add_node("oneshot", shot, Vector2(700, 20))
-	bt.add_node("carry", carry, Vector2(700, 220))
-	bt.add_node("blend", b2, Vector2(870, 100))
+	bt.add_node("carry", carry, Vector2(560, 220))
+	bt.add_node("blend", b2, Vector2(700, 60))
+	bt.add_node("a_block", a_block, Vector2(700, 260))
+	bt.add_node("blk", blk, Vector2(860, 100))
 	bt.connect_node("ts_walk", 0, "a_walk")
 	bt.connect_node("ts_run", 0, "a_run")
 	bt.connect_node("seek_run", 0, "ts_run")
@@ -245,11 +273,40 @@ func _build_anim_tree() -> void:
 	bt.connect_node("bl_iw", 1, "ts_walk")
 	bt.connect_node("bl_wr", 0, "bl_iw")
 	bt.connect_node("bl_wr", 1, "seek_run")
-	bt.connect_node("oneshot", 0, "bl_wr")
-	bt.connect_node("oneshot", 1, "atk")
-	bt.connect_node("blend", 0, "oneshot")
+	# the guard rides over LOCOMOTION ONLY -- everything below this point overrides it
+	# THE STRAFE REPLACES LOCOMOTION, it does not ride over it -- a side-step is a different
+	# gait, not a modifier on a walk -- so it sits between the blend space and the guard.
+	var strf := AnimationNodeBlend2.new()
+	strf.sync = true
+	var a_strafe := AnimationNodeAnimation.new()
+	a_strafe.animation = String(am.get("strafe", ""))
+	bt.add_node("a_strafe", a_strafe, Vector2(560, 380))
+	bt.add_node("strf", strf, Vector2(660, -40))
+	bt.connect_node("strf", 0, "bl_wr")
+	bt.connect_node("strf", 1, "a_strafe")
+	bt.connect_node("blend", 0, "strf")
 	bt.connect_node("blend", 1, "carry")
-	bt.connect_node("output", 0, "blend")
+	bt.connect_node("blk", 0, "blend")
+	bt.connect_node("blk", 1, "a_block")
+	var prev := "blk"
+	var x := 1020.0
+	for key in ["slash", "chop", "bash"]:
+		var clip := String(strikes[key])
+		if clip == "" or not _clip_len.has(clip):
+			continue
+		var an := AnimationNodeAnimation.new()
+		an.animation = clip
+		var os_n := AnimationNodeOneShot.new()
+		os_n.fadein_time = fin
+		os_n.fadeout_time = fout
+		bt.add_node("a_" + key, an, Vector2(x, 280))
+		bt.add_node("os_" + key, os_n, Vector2(x, 100))
+		bt.connect_node("os_" + key, 0, prev)
+		bt.connect_node("os_" + key, 1, "a_" + key)
+		_strikes.append("os_" + key)
+		prev = "os_" + key
+		x += 170.0
+	bt.connect_node("output", 0, prev)
 	_tree = AnimationTree.new()
 	_tree.name = "AnimTree"
 	_tree.tree_root = bt
@@ -263,9 +320,10 @@ func _build_anim_tree() -> void:
 	_run_contact = _contact_phase(String(_roles.get("run", "run")))
 	print("anim tree: left-toe contact at phase %.3f of the walk and %.3f of the run"
 		% [_walk_contact, _run_contact])
-	print("anim tree: sync group walk %.4f s / run %.4f s at %.1f/%.1f px/s, attack one-shot %.2f/%.2f s, arm layer '%s' filtered to %d of %d tracks"
-		% [_walk_len, _run_len, wsp, rsp, shot.fadein_time, shot.fadeout_time, action,
-		   filtered, ca.get_track_count()])
+	print("anim tree: %s | sync group walk %.4f s / run %.4f s at %.1f/%.1f px/s | strikes %s at %.2f/%.2f s | arm layer '%s' filtered to %d of %d tracks | block '%s'"
+		% ["ARMED" if armed() else "unarmed", _walk_len, _run_len, wsp, rsp, str(_strikes),
+		   fin, fout, action, filtered, ca.get_track_count(),
+		   String(_roles.get("block", "-"))])
 
 
 func _contact_phase(clip: String) -> float:
@@ -313,12 +371,12 @@ func _layer_weight(clip: String) -> float:
 
 	`never_over` is still honoured, and is now empty: the exclusion is data, not code, so
 	the next reversal is one line of JSON and not a hunt through a method."""
-	var spec: Dictionary = cfg.get("arm_layer", {})
 	if _tree == null or not _layer_on:
 		return 0.0
-	for never in spec.get("never_over", []):
-		if clip == String(_roles.get(String(never), String(never))):
-			return 0.0
+	# NO `never_over` LIST ANY MORE, because the GRAPH says it. The guard blend sits below
+	# the block and below all three strike one-shots, so a block or a swing owns the left
+	# arm for as long as it runs and hands it back on its own fade. An exclusion expressed
+	# as wiring cannot disagree with itself the way a list of clip names can.
 	return 1.0
 
 
@@ -350,8 +408,13 @@ func set_gear_stack(i: int) -> void:
 	CharGear.show_pieces(gear, on)
 	for morph in (cfg.get("morph_rules", {}) as Dictionary):
 		_set_morph(String(morph), String(cfg["morph_rules"][morph]) in on)
-	# the arm layer follows the SHIELD, so stacks 0-3 are untouched by it
-	_layer_on = String((cfg.get("arm_layer", {}) as Dictionary).get("when_piece", "shield")) in on
+	# THE CLIP SET FOLLOWS THE GEAR. Picking up an axe and a shield changes how he stands,
+	# walks and runs, not only what is in his hands -- that is the whole point of the armed
+	# set -- so the stack change re-points the tree before anything else reads it.
+	var was := _armed
+	_layer_on = armed()
+	if armed() != was:
+		_apply_clip_set()
 	if _tree != null:
 		_tree.set("parameters/blend/blend_amount", _layer_weight(_clip))
 
@@ -379,6 +442,116 @@ func _read_cfg() -> Dictionary:
 	return j if typeof(j) == TYPE_DICTIONARY else {}
 
 
+func _deroot_all() -> Dictionary:
+	"""Convert every TRAVELLING clip into an in-place clip plus a speed.
+
+	FOUR OF THE ARMED CLIPS CARRY ROOT MOTION and the rest do not -- measured,
+	tools/probe_root.gd, as the Hips track's net horizontal travel over the clip:
+
+	    run_armed       8.6617 m   4.337 m/s    the retargeted straight armed run
+	    strafe_L_armed  1.8591 m   0.931 m/s
+	    idle_armed      0.8994 m   0.184 m/s    an IDLE that walks nearly a metre
+	    attack_chop     0.7519 m   0.123 m/s    the chop lunges
+
+	walk, run, walk_armed, run_armed_locked, block and shield_bash are in place (net under
+	9 mm). Mixing the two kinds in one blend space cannot work: this scene drives the BODY
+	at a speed and expects the clip to cycle underneath, so a travelling clip would move him
+	twice and a travelling IDLE would slide him sideways while he stands still.
+
+	Godot's own answer, AnimationTree.root_motion_track, is tree-wide: it would strip the
+	Hips track from the in-place clips too and take their bob and sway with it. So the
+	conversion is done here instead, per clip, once, at load -- subtract a linear ramp from
+	the Hips track's HORIZONTAL components so the net is zero, leave the vertical alone so
+	the grounding and the bob survive. What comes out is the clip the blend space needs and
+	a number that is the speed it was travelling at, which is the same number the blend
+	space wants to drive the body with. Nothing is invented: the speed is the clip's own.
+
+	Detected, not listed, so a re-export that fixes one cannot leave a stale entry behind."""
+	var out := {}
+	if _anim == null or _skel == null:
+		return out
+	var m_per_unit: float = _skel.global_transform.basis.get_scale().x / maxf(_figure_scale, 1e-9)
+	for name in _anim.get_animation_list():
+		var a := _anim.get_animation(name)
+		var tr := -1
+		for i in a.get_track_count():
+			if a.track_get_type(i) == Animation.TYPE_POSITION_3D \
+					and String(a.track_get_path(i).get_concatenated_subnames()) == "Hips":
+				tr = i
+				break
+		if tr < 0 or a.track_get_key_count(tr) < 2 or a.length <= 0.0:
+			continue
+		var n := a.track_get_key_count(tr)
+		var first: Vector3 = a.track_get_key_value(tr, 0)
+		var last: Vector3 = a.track_get_key_value(tr, n - 1)
+		var net := Vector3(last.x - first.x, 0.0, last.z - first.z)
+		var net_m: float = net.length() * m_per_unit
+		if net_m < 0.25:
+			continue
+		for i in n:
+			var tt: float = a.track_get_key_time(tr, i)
+			var v: Vector3 = a.track_get_key_value(tr, i)
+			var f: float = tt / a.length
+			a.track_set_key_value(tr, i, Vector3(v.x - net.x * f, v.y, v.z - net.z * f))
+		out[name] = snappedf(net_m / a.length, 0.001)
+		# the direction it was travelling, in MODEL space -- which is how the scene knows
+		# that strafe_L_armed goes to his left without being told which way "L" means.
+		_root_dirs[name] = net.normalized()
+		print("de-rooted %-16s %.4f m over %.4f s = %.3f m/s removed, heading %s (%+.1f deg off +Z)"
+			% [name, net_m, a.length, net_m / a.length, str(net.normalized().snappedf(0.01)),
+			   rad_to_deg(atan2(net.normalized().x, net.normalized().z))])
+	return out
+
+
+func _loop_locomotion() -> void:
+	"""A walk that stops at the end of its cycle is not a walk. glTF carries no loop flag,
+	so Godot imports every clip as one-shot -- and the ARMED clips are new, so idle_armed,
+	walk_armed and run_armed all arrive loop=0 exactly as idle/walk/run did. Looped here
+	by ROLE, so whichever set is live is the set that cycles."""
+	if _anim == null:
+		return
+	for n in cfg.get("loop", []):
+		var real := String(_roles.get(String(n), String(n)))
+		if _clip_len.has(real):
+			_anim.get_animation(real).loop_mode = Animation.LOOP_LINEAR
+
+
+func armed() -> bool:
+	"""ARMED IS A PROPERTY OF WHAT HE IS HOLDING, not a stack index. The export manifest's
+	rule is that armed is this character's default because he ships with an axe and a
+	shield, and that the unarmed clips stay because an unarmed barbarian is a real state.
+	So the test is whether every piece in `armed_when_pieces` is actually equipped -- which
+	stays true if the stack list is ever re-ordered or a sixth stack is added."""
+	var need: Array = cfg.get("armed_when_pieces", [])
+	if need.is_empty():
+		return false
+	var stacks: Array = cfg.get("gear_stacks", [])
+	if gear_stack >= stacks.size():
+		return false
+	var on: Array = stacks[gear_stack]
+	for piece in need:
+		if not (String(piece) in on):
+			return false
+	return true
+
+
+func _layer_spec() -> Dictionary:
+	"""shield_guard_L when armed, and NOT shield_carry_L, which the export supersedes: it
+	was authored for the old shield placement and now puts 128 of 1829 sampled vertices
+	inside his torso against 12 for the guard."""
+	# ALWAYS the guard, in both states. shield_carry_L is superseded by the export and must
+	# not be in the running scene at all: whether the layer COUNTS is _layer_on's business
+	# (it follows the shield), and leaving a retired clip wired in at weight 0 is how it
+	# comes back. The unarmed state simply runs it at zero.
+	if cfg.has("arm_layer_armed"):
+		return cfg.get("arm_layer_armed", {})
+	return cfg.get("arm_layer", {})
+
+
+func _clip_map() -> Dictionary:
+	return cfg.get("clips_armed", {}) if armed() else cfg.get("clips", {})
+
+
 func _bind_roles() -> void:
 	"""Bind idle/walk/run/attack to whatever this GLB's clips are called.
 
@@ -386,8 +559,13 @@ func _bind_roles() -> void:
 	word, then idle. A rigged model that names its clips for what they do therefore drops
 	in with no edit at all, and one that does not is one line of JSON -- neither needs a
 	change to this script, which is the point of the slot."""
-	var want: Dictionary = cfg.get("clips", {})
+	var want: Dictionary = _clip_map()
 	var have := _clip_len.keys()
+	_armed = armed()
+	# chop, block and bash are ARMED-ONLY and are left empty when he is not: an unarmed man
+	# has no shield to bash with, and a role bound to a fallback would give him one.
+	for role in ["chop", "block", "bash", "strafe"]:
+		_roles[role] = String(want.get(role, "")) if _clip_len.has(String(want.get(role, ""))) else ""
 	for role in ["idle", "walk", "run", "attack"]:
 		var pick := ""
 		var declared := String(want.get(role, ""))
@@ -573,28 +751,71 @@ func canvas_velocity_to_world(v_px: Vector2) -> Vector3:
 
 
 func attacking() -> bool:
+	"""Any of the three strikes. They are separate one-shots, so "is he swinging" is the
+	OR of them and not a single flag -- and every caller that roots him during a swing
+	(drive_dir) or refuses to start another (try_strike) reads this one function."""
 	if _tree != null:
-		return bool(_tree.get("parameters/oneshot/active"))
+		for n in _strikes:
+			if bool(_tree.get("parameters/%s/active" % n)):
+				return true
+		return false
 	return _attack_t > 0.0
 
 
-func try_attack() -> bool:
-	"""Start the slash if one is not already running. No re-trigger mid-swing: the clip's
-	own length IS the cooldown, which is also the only honest answer available -- an
-	AnimationNodeAnimation restarts when its clip NAME changes, so re-selecting `attack`
-	while attack is playing would not restart it and the input would silently do nothing."""
+func blocking() -> bool:
+	return _blocking
+
+
+func try_strike(which: String) -> bool:
+	"""Fire one of the three strikes if none is already running. No re-trigger mid-swing:
+	the clip's own length IS the cooldown, and it is also the only honest answer available
+	-- a one-shot re-fired while active restarts its fade, not the swing.
+
+	A strike also CANCELS A BLOCK. Holding a shield up and swinging an axe through it is
+	the one combination the guard layer cannot express, and the block is full-body."""
+	var node := "os_" + which
+	if not (node in _strikes):
+		return false
+	# the node exists in both states; the ROLE only binds when armed, so an unarmed man
+	# cannot chop or shield-bash and the keys simply do nothing.
+	var role: String = {"slash": "attack", "chop": "chop", "bash": "bash"}.get(which, which)
+	if String(_roles.get(role, "")) == "":
+		return false
 	if attacking():
 		return false
 	if _tree != null:
-		_tree.set("parameters/oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		_blocking = false
+		_tree.set("parameters/%s/request" % node, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		return true
 	_attack_t = float(_clip_len.get(String(_roles.get("attack", "attack")), 1.5))
 	return true
 
 
+func try_attack() -> bool:
+	return try_strike("slash")
+
+
+func set_block(on: bool) -> void:
+	"""Held, not fired. The weight is smoothed in _drive so the pose arrives over
+	`block_fade_s` rather than snapping, and the frame the request landed on is recorded so
+	the latency to the pose can be MEASURED rather than asserted."""
+	if on == _blocking:
+		return
+	if on and (String(_roles.get("block", "")) == "" or attacking()):
+		return
+	_blocking = on
+	if on:
+		_block_req_frame = Engine.get_physics_frames()
+
+
 func _physics_process(dt: float) -> void:
 	if Input.is_action_just_pressed("attack"):
-		try_attack()
+		try_strike("slash")
+	if Input.is_action_just_pressed("attack_chop"):
+		try_strike("chop")
+	if Input.is_action_just_pressed("shield_bash"):
+		try_strike("bash")
+	set_block(Input.is_action_pressed("block"))
 	drive_dir(Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")),
@@ -618,10 +839,24 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 	if dir.length() > 0.01:
 		dir = dir.normalized()
 		_move_dir = dir
-		want = float(cfg.get("run_px_s", RUN_PX_S)) if running \
-			else float(cfg.get("walk_px_s", WALK_PX_S))
-	if attacking():
-		want = 0.0                       # the slash roots him, as before
+		want = run_px_s() if running else walk_px_s()
+	# BLOCKING: he side-steps the way the strafe clip goes, and TURNS to face anything else.
+	# There is one strafe clip and it goes one way, so a right-hand input has no animation
+	# to play -- turning to face it is the honest answer, and it keeps "he can still turn"
+	# true without inventing a mirrored clip the export does not have.
+	_strafing = false
+	if _blocking and dir.length() > 0.01:
+		var sclip := String(_roles.get("strafe", ""))
+		if _root_dirs.has(sclip) and strafe_px_s() > 0.0:
+			var wdir := canvas_velocity_to_world(dir).normalized()
+			var local: Vector3 = Basis(Vector3.UP, _yaw_cur).inverse() * wdir
+			var sd: Vector3 = _root_dirs[sclip]
+			if local.normalized().dot(sd.normalized()) > 0.6:
+				_strafing = true
+	if _strafing:
+		want = strafe_px_s()
+	elif attacking() or _blocking:
+		want = 0.0                       # a strike roots him, and so does a brace
 	var tau: float = float(tr.get("accel_tau_s", 0.10)) if want > _speed \
 		else float(tr.get("decel_tau_s", 0.15))
 	_speed += (want - _speed) * (1.0 - exp(-dt / maxf(tau, 1e-4)))
@@ -634,13 +869,15 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 		state = "attack"
 	elif _speed <= 0.0:
 		state = "idle"
-	elif _speed > float(cfg.get("walk_px_s", WALK_PX_S)) * 1.2:
+	elif _speed > walk_px_s() * 1.2:
 		state = "run"
 	else:
 		state = "walk"
+	if _blocking:
+		state = "block"
 	if hold != "":
 		state = hold
-	if _move_dir.length() > 0.01:
+	if _move_dir.length() > 0.01 and not _strafing:
 		facing = _facing_for(_move_dir)
 	var v := canvas_velocity_to_world(_move_dir * _speed)
 	velocity = Vector3(v.x, velocity.y - 18.0 * dt, v.z)
@@ -680,8 +917,8 @@ func _set_loco(v: float, dt: float) -> void:
 	So: solve S(w) = v. S is monotone between the two clips' own speeds, so a short bisection
 	is exact enough and costs nothing. At w = 0 and w = 1, S returns the clips' natural
 	speeds, so the ends are untouched and the middle now agrees with the ground."""
-	var wsp := float(cfg.get("walk_px_s", WALK_PX_S))
-	var rsp := float(cfg.get("run_px_s", RUN_PX_S))
+	var wsp := walk_px_s()
+	var rsp := run_px_s()
 	var a: float = clampf(v / maxf(wsp, 1e-6), 0.0, 1.0)
 	var w := 0.0
 	if v > wsp and not sync_group:
@@ -727,6 +964,54 @@ func _set_loco(v: float, dt: float) -> void:
 	_tree.set("parameters/ts_run/scale", _run_len / maxf(blended, 1e-6))
 
 
+func walk_px_s() -> float:
+	return _clip_px_s("walk", "walk_px_s", "walk_px_s_armed", WALK_PX_S)
+
+
+func run_px_s() -> float:
+	return _clip_px_s("run", "run_px_s", "run_px_s_armed", RUN_PX_S)
+
+
+func strafe_px_s() -> float:
+	var clip := String(_roles.get("strafe", ""))
+	if _root_speeds.has(clip):
+		return float(_root_speeds[clip]) * PPM * _figure_scale
+	return 0.0
+
+
+func _clip_px_s(role: String, key: String, key_armed: String, fallback: float) -> float:
+	"""A DE-ROOTED CLIP ALREADY TOLD US ITS SPEED, so use that in preference to anything in
+	JSON: it is the clip's own travel, measured off the very track that was removed, and it
+	cannot drift out of date the way a hand-copied number can. _root_speeds is metres per
+	second at figure scale 1.0, so the live scale multiplies in directly and there is no
+	second convention to keep straight."""
+	var clip := String(_roles.get(role, ""))
+	if _root_speeds.has(clip):
+		return float(_root_speeds[clip]) * PPM * _figure_scale
+	return _speed_for(key, key_armed, fallback)
+
+
+func _speed_for(key: String, key_armed: String, fallback: float) -> float:
+	"""The live gait speed, in canvas px/s -- ARMED SET and FIGURE SCALE both applied here
+	so there is exactly one answer and every caller gets the same one.
+
+	THE FIGURE SCALE MATTERS AND WAS BEING IGNORED. Both speeds were derived from the clips'
+	strides at figure scale 1.25178 and then driven unchanged at the 1.10 default, so the
+	ground moved 13.8% faster than his legs. Measured on the walk clip alone, nothing
+	blended: stance-foot travel 6.8 mm/frame median at 1.25178 against 11.4 mm at 1.10, and
+	24 of 39 pairs under 10 mm against 13 of 39. About 40% of what was recorded last session
+	as "the walk clip's own floor" was this, not the clip.
+
+	A stride is a length on the model, so it scales with the model. Nothing else does."""
+	var base: float = float(cfg.get(key, fallback))
+	if _armed and cfg.has(key_armed):
+		base = float(cfg.get(key_armed, base))
+	var at: float = float(cfg.get("speed_measured_at_scale", 0.0))
+	if at > 0.0:
+		base *= _figure_scale / at
+	return base
+
+
 func _foot_speed(w: float, wsp: float, rsp: float) -> float:
 	"""What the blended feet actually travel at, in canvas px/s, at run weight w."""
 	var stride_w: float = wsp * _walk_len
@@ -763,6 +1048,53 @@ func _facing_for(d: Vector2) -> String:
 	return names[i]
 
 
+func _apply_clip_set() -> void:
+	"""Re-point the live tree at the other clip set. The nodes are mutated in place rather
+	than the tree rebuilt: an AnimationNodeAnimation DOES re-pose when its `animation`
+	property is set on a running tree (measured, tools/probe_armed.gd), and a rebuild would
+	drop the locomotion phase and pop him mid-stride.
+
+	Everything derived FROM the clips is re-derived here too. Forgetting any one of them is
+	a foot slide: the cycle lengths drive the sync group's time scales, and the contact
+	phases are what the run is aligned against."""
+	if _tree == null or _anim == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null:
+		return
+	_bind_roles()
+	_loop_locomotion()
+	for pair in [["a_idle", "idle"], ["a_walk", "walk"], ["a_run", "run"], ["a_block", "block"],
+				 ["a_strafe", "strafe"],
+				 ["a_slash", "attack"], ["a_chop", "chop"], ["a_bash", "bash"]]:
+		var nm := String(pair[0])
+		if not bt.has_node(nm):
+			continue
+		var clip := String(_roles.get(String(pair[1]), ""))
+		if clip != "" and _clip_len.has(clip):
+			(bt.get_node(nm) as AnimationNodeAnimation).animation = clip
+	var spec := _layer_spec()
+	var action := String(spec.get("action", ""))
+	if action != "" and _clip_len.has(action) and bt.has_node("carry"):
+		(bt.get_node("carry") as AnimationNodeAnimation).animation = action
+		var b2 := bt.get_node("blend") as AnimationNodeBlend2
+		var want: Array = spec.get("bones", [])
+		var ca := _anim.get_animation(action)
+		for i in ca.get_track_count():
+			var pth: NodePath = ca.track_get_path(i)
+			b2.set_filter_path(pth, want.has(String(pth.get_concatenated_subnames())))
+	_walk_len = float(_clip_len.get(String(_roles.get("walk", "walk")), 1.0))
+	_run_len = float(_clip_len.get(String(_roles.get("run", "run")), 1.0))
+	_walk_contact = _contact_phase(String(_roles.get("walk", "walk")))
+	_run_contact = _contact_phase(String(_roles.get("run", "run")))
+	_cycle_len = 0.0
+	align_phase()
+	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
+		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),
+		   String(_roles.get("walk", "")), _walk_len, walk_px_s(),
+		   String(_roles.get("run", "")), _run_len, run_px_s(), action])
+
+
 func _drive(dt := 0.0) -> void:
 	"""The yaw, turned rather than snapped.
 
@@ -791,6 +1123,19 @@ func _drive(dt := 0.0) -> void:
 		_yaw_cur = target
 	var yaw := Basis(Vector3.UP, _yaw_cur)
 	_rig.global_transform = Transform3D(yaw.scaled(Vector3.ONE * _figure_scale), global_position)
+	# THE BLOCK WEIGHT, eased rather than switched. He turns while blocking because the yaw
+	# above reads `facing`, which drive_dir keeps updating from the key, and only the SPEED
+	# is forced to zero.
+	if _tree != null:
+		var sw: float = 1.0 if _strafing else 0.0
+		var bw: float = 0.0 if _strafing else (1.0 if _blocking else 0.0)
+		var bt: float = float((cfg.get("transitions", {}) as Dictionary).get("block_fade_s",
+			float(cfg.get("block_fade_s", 0.12))))
+		var step: float = 1.0 if bt <= 0.0 or dt <= 0.0 else dt / bt
+		_block_w = move_toward(_block_w, bw, step)
+		_strafe_w = move_toward(_strafe_w, sw, step)
+		_tree.set("parameters/blk/blend_amount", _block_w)
+		_tree.set("parameters/strf/blend_amount", _strafe_w)
 
 
 func _canvas_dir_for(f: String) -> Vector2:
@@ -831,9 +1176,9 @@ func play(clip: String) -> void:
 		else:
 			var sp := 0.0
 			if clip == String(_roles.get("walk", "walk")):
-				sp = float(cfg.get("walk_px_s", WALK_PX_S))
+				sp = walk_px_s()
 			elif clip == String(_roles.get("run", "run")):
-				sp = float(cfg.get("run_px_s", RUN_PX_S))
+				sp = run_px_s()
 			_speed = sp
 			_set_loco(sp, 0.0)
 	elif _tree == null:

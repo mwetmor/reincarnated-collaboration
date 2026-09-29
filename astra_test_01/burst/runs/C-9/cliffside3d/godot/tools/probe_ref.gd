@@ -14,6 +14,10 @@ func _initialize():
 	k.set_physics_process(false)
 	var skel: Skeleton3D = k._skel
 	var space: PhysicsDirectSpaceState3D = scene.get_world_3d().direct_space_state
+	for a in OS.get_cmdline_user_args():
+		if a.begins_with("--scale="):
+			k.set_figure_scale(float(a.substr(8)))
+	print("  figure scale %.5f" % k._figure_scale)
 	var lt := skel.find_bone("LeftToeBase")
 	var rt := skel.find_bone("RightToeBase")
 	for spec in [["walk", false], ["run", true]]:
