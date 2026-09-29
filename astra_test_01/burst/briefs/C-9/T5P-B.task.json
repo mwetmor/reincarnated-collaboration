@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST T5P-B — Run C-9 test T5 (Matt R-C9-66; the game camera's real 53-degree angle, R-C9-68): the PAINTED TEXTURE of the 3D manticore, step 2: the views from above and the face close-ups. task_id \"T5P-B\".\n\nIMAGE 1 is a sheet of SEVEN renders of ONE 3D model of a four-legged creature standing still, on flat pure #00ff00:\n- top left, two whole-body views from HIGH ABOVE, looking steeply down (the game camera's real angle): first, from BEHIND (the back and spine, the hair seen from above, the tail running toward the bottom of the sheet); second, from the FRONT (the face foreshortened near the bottom, the back rising behind it, the tail pointing up);\n- bottom row, two whole-body views from high above, in profile: left, facing the viewer's LEFT (west); right, facing the viewer's RIGHT (east);\n- top right, three CLOSE-UPS of the HEAD at three times the scale: from above and in front (the face foreshortened under the crown of the hair); from the front at a slight downward angle; from the lower right, three-quarter (south-east).\nThey are renders of the model: every OUTLINE, POSITION and SIZE is correct and must not change; the surface is flat and plastic.\nIMAGE 2 is THE SAME MODEL ALREADY PAINTED from eight directions around it. Match it EXACTLY: the same hide colours and mottling, the same ribs and spine ridge, the same mane, the same hair colour and waves, and the SAME FACE (eyes, nose, beard, colouring). This sheet adds the views from above and the close-ups of that same painting: where views overlap, the two paintings must agree, because both are projected onto one model.\nIMAGE 3 is the approved character sheet of the MANTICORE (identity). IMAGE 4 is the 13th-century bestiary page it comes from: the face's uncanny calm.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY view is repainted as IMAGE 2's manticore seen from that direction, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE, blended with IMAGE 2. So:\n1. ONE creature: the same hide, markings, ribs, mane and face as IMAGE 2. A marking that moves between paintings shows as a seam or a double.\n2. Paint the SURFACE, not the lighting: soft even light as the register card says; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. Tone comes from the hide's own colours and the pen hatching.\n3. Stay inside the outlines: do not paint beyond a silhouette and do not change any outline.\nFACE CLOSE-UPS: the SAME calm bearded man as IMAGE 2, seen larger: the same face, the same hair and beard colour, the same hand (ink line, washes, hatching). More detail is welcome; a NEW face (younger, more handsome, different eyes or nose) is not. In the view from behind, no face at all: hair, mane and back only.\n\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines, so the background colour does not decide success. Spend retries ONLY on the faults named below.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 2 and IMAGE 3: copy their hand; do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, facing or position changed, a view is missing, the creature or its face differs from IMAGE 2, or a face is painted in the view from behind — name the reason. Never retry for the background colour. Copy outputs to out/T5P-B_a.png and out/T5P-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T5P-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t5_sheet_b_canvas.png",
+   "role": "IMAGE 1 — the sheet to EDIT (4 whole-body views at 52.95 deg + 3 head close-ups of the Meshy 3D manticore at rest; outlines correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T5P-A/T5P-A_a.png",
+   "role": "IMAGE 2 — the SAME model already painted from eight directions (T5P-A variant a): the painting to match exactly"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MC-1/MC-1_a.png",
+   "role": "IMAGE 3 — the approved four-view character sheet of the manticore (identity)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/manticore_rochester_src.jpg",
+   "role": "IMAGE 4 — the bestiary source (Rochester Bestiary, c.1230, public domain): the face and its calm"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T5P-B_a.png",
+  "out/T5P-B_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T5-texture"
+}

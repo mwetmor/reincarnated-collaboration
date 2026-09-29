@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST T5P-A — Run C-9 test T5 (Matt R-C9-66): the PAINTED TEXTURE of the 3D manticore, step 1: its eight views. task_id \"T5P-A\".\n\nIMAGE 1 is a sheet of EIGHT VIEWS of ONE 3D model of a four-legged creature standing still in one neutral pose, seen from eight directions around it at the same slight downward angle, on flat pure #00ff00. Top row, left to right: seen from BEHIND (north); facing away to the upper right (north-east); facing away to the upper left (north-west); facing the viewer's LEFT in profile (west). Bottom row, left to right: facing the viewer's RIGHT in profile (east); facing the lower right (south-east); facing the lower left (south-west); FACING THE VIEWER (south). They are renders of the model: every OUTLINE, POSITION and SIZE is correct and must not change; the surface is flat and plastic.\nIMAGE 2 is the APPROVED character sheet of this creature, the MANTICORE: its lean hound body with ribs showing, blue-grey hide with a darker spine and paler belly, clawed paws, the long whip tail, the calm bearded, long-haired face of a MAN with a mane around it; and the painter's hand (dark ink line, hatching, transparent washes). IMAGE 3 is the 13th-century bestiary page it comes from: the face and its calm.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY view is repainted as the manticore of IMAGE 2 seen from that direction, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE: it will be projected back onto the 3D model from these eight directions and the views are blended together. So:\n1. ONE creature: the same hide colour, markings, ribs, mane, face and paws in every view. A marking that moves between views shows as a seam or a double.\n2. Paint the SURFACE, not the lighting: soft even light as the register card says; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. Tone comes from the hide's own colours and the pen hatching.\n3. Stay inside the outlines: do not paint beyond a silhouette and do not change a leg, tail or head outline.\nHEAD: paint the face only where IMAGE 1 shows it (the front, the two front three-quarters and the two profiles). In the view from behind and the two rear three-quarters, paint the back of the head, the hair and the mane, with no face.\n\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines, so the background colour does not decide success. Spend retries ONLY on the faults named below.\nSTYLE: the REGISTER CARD above is satisfied BY IMAGE 2: copy its hand; do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, facing or position changed, a view is missing, the creature differs between views, or a face is painted on a head turned away — name the reason. Never retry for the background colour. Copy outputs to out/T5P-A_a.png and out/T5P-A_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T5P-A\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t5_sheet_a_canvas.png",
+   "role": "IMAGE 1 — the sheet to EDIT (eight views of the Meshy 3D manticore at rest, 19.77 deg; outlines correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MC-1/MC-1_a.png",
+   "role": "IMAGE 2 — the approved four-view character sheet of the manticore (look, markings, face, hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/manticore_rochester_src.jpg",
+   "role": "IMAGE 3 — the bestiary source (Rochester Bestiary, c.1230, public domain): the face and its calm"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T5P-A_a.png",
+  "out/T5P-A_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T5-texture"
+}
