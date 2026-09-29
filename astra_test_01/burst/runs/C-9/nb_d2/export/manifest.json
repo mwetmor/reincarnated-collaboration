@@ -1244,5 +1244,68 @@
   ],
   "attribution": "the clip a number belongs to is taken from the JSON path first, then the text; names shorter than 5 characters are not matched from text, because \"run\" and \"walk\" are words before they are clip names",
   "limitation": "the speed check is INTERNAL. The clips ship in place, so there is no travel left in the GLB to verify a speed against -- it can only confirm the manifest states one speed rather than several."
+ },
+ "root_offset_fix": {
+  "defect": "three clips stood away from the rig origin, where every consumer stands the body: idle_armed by 1.10 m on average, run_armed by 1.83 m, attack_chop by 0.48 m at its first frame. A displaced clip is drawn away from its own capsule, and every blend into or out of it drags the whole figure across the ground by the difference -- out of idle_armed into the slash, a 1.32 m lurch. Found by the scene (attack_lab), Matt's glitch in the chop and attack.",
+  "cause": "45_deroot_trim.py removes drift with the first-to-last line and then ADDS BACK the clip's first-frame position (FIT[0]), so a clip is de-rooted about wherever it started. Meshy's Axe Stance starts 1.1 m off; run_armed was trimmed from the middle of a travelling take, 1.87 m along it; attack_chop is KEEP_ROOT and was never touched. The lint could not see it: its travel rule asks whether a clip MOVES, and a de-rooted clip does not move -- it stands elsewhere.",
+  "fix": "scripts/49_recentre.py: a constant horizontal shift on the Hips translation, as a BINARY ACCESSOR PATCH -- loops centred on their mean, one-shots on their first frame. A rigid shift changes no pose, so there is no Blender round-trip and nothing is resampled. 3 accessors, 2713 bytes changed, none outside them.",
+  "clips": {
+   "attack_chop": {
+    "closest_m": 0.3749,
+    "mean_m": 0.505,
+    "first_m": 0.4833,
+    "action": "recentred on its FIRST FRAME (one-shot)",
+    "shift_m": 0.4833,
+    "shift_units": [
+     4.7482,
+     0.0,
+     44.156
+    ],
+    "after": {
+     "closest_m": 0.0,
+     "mean_m": 0.4655,
+     "first_m": 0.0
+    },
+    "keys": 185
+   },
+   "idle_armed": {
+    "closest_m": 0.8255,
+    "mean_m": 1.0962,
+    "first_m": 1.1262,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.0942,
+    "shift_units": [
+     -84.4138,
+     0.0,
+     54.6328
+    ],
+    "after": {
+     "closest_m": 0.0207,
+     "mean_m": 0.1777,
+     "first_m": 0.04
+    },
+    "keys": 148
+   },
+   "run_armed": {
+    "closest_m": 1.7621,
+    "mean_m": 1.8298,
+    "first_m": 1.8723,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.8298,
+    "shift_units": [
+     58.3264,
+     0.0,
+     157.7019
+    ],
+    "after": {
+     "closest_m": 0.008,
+     "mean_m": 0.0379,
+     "first_m": 0.045
+    },
+    "keys": 21
+   }
+  },
+  "lint": "21_lint_export.py now FAILs a clip whose root never comes within 0.25 m of its rest position. On the unpatched file it fails exactly these three; after the patch, none, and the WARN set is identical before and after (13 = 13).",
+  "upstream": "45_deroot_trim.py should anchor at the rest position rather than at FIT[0], or a re-run will put the offset back. Not changed here: 49 runs after it and the lint now guards it."
  }
 }

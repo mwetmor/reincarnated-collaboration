@@ -1,0 +1,181 @@
+{
+ "tolerance_m": 0.25,
+ "metres_per_unit": 0.010882345028221607,
+ "rest_units": [
+  -0.6429066061973572,
+  93.79000854492188,
+  0.43902087211608887
+ ],
+ "clips": {
+  "attack": {
+   "closest_m": 0.0182,
+   "mean_m": 0.0914,
+   "first_m": 0.0242,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "attack_chop": {
+   "closest_m": 0.3749,
+   "mean_m": 0.505,
+   "first_m": 0.4833,
+   "action": "recentred on its FIRST FRAME (one-shot)",
+   "shift_m": 0.4833,
+   "shift_units": [
+    4.7482,
+    0.0,
+    44.156
+   ],
+   "after": {
+    "closest_m": 0.0,
+    "mean_m": 0.4655,
+    "first_m": 0.0
+   },
+   "keys": 185
+  },
+  "block": {
+   "closest_m": 0.0257,
+   "mean_m": 0.0631,
+   "first_m": 0.0418,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle": {
+   "closest_m": 0.0128,
+   "mean_m": 0.0233,
+   "first_m": 0.0128,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle_armed": {
+   "closest_m": 0.8255,
+   "mean_m": 1.0962,
+   "first_m": 1.1262,
+   "action": "recentred on its MEAN (loop)",
+   "shift_m": 1.0942,
+   "shift_units": [
+    -84.4138,
+    0.0,
+    54.6328
+   ],
+   "after": {
+    "closest_m": 0.0207,
+    "mean_m": 0.1777,
+    "first_m": 0.04
+   },
+   "keys": 148
+  },
+  "run": {
+   "closest_m": 0.0072,
+   "mean_m": 0.0183,
+   "first_m": 0.0088,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run_armed": {
+   "closest_m": 1.7621,
+   "mean_m": 1.8298,
+   "first_m": 1.8723,
+   "action": "recentred on its MEAN (loop)",
+   "shift_m": 1.8298,
+   "shift_units": [
+    58.3264,
+    0.0,
+    157.7019
+   ],
+   "after": {
+    "closest_m": 0.008,
+    "mean_m": 0.0379,
+    "first_m": 0.045
+   },
+   "keys": 21
+  },
+  "run_armed_diagblend_REJECTED": {
+   "closest_m": 0.0347,
+   "mean_m": 0.0643,
+   "first_m": 0.0432,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run_armed_L": {
+   "closest_m": 0.0311,
+   "mean_m": 0.0689,
+   "first_m": 0.0411,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run_armed_locked": {
+   "closest_m": 0.0072,
+   "mean_m": 0.0183,
+   "first_m": 0.0088,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run_armed_R": {
+   "closest_m": 0.0147,
+   "mean_m": 0.0616,
+   "first_m": 0.0407,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "shield_bash": {
+   "closest_m": 0.0611,
+   "mean_m": 0.1683,
+   "first_m": 0.1069,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "shield_carry_L": {
+   "closest_m": 0.0,
+   "mean_m": 0.0,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "shield_guard_L": {
+   "closest_m": 0.0,
+   "mean_m": 0.0,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "strafe_L_armed": {
+   "closest_m": 0.0,
+   "mean_m": 0.0663,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "strafe_R_armed": {
+   "closest_m": 0.0,
+   "mean_m": 0.0686,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk": {
+   "closest_m": 0.0114,
+   "mean_m": 0.0382,
+   "first_m": 0.0174,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk_armed": {
+   "closest_m": 0.023,
+   "mean_m": 0.0575,
+   "first_m": 0.0801,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk_armed_unarmedsrc": {
+   "closest_m": 0.0114,
+   "mean_m": 0.0382,
+   "first_m": 0.0174,
+   "action": "none -- passes within 0.25 m of the rest position"
+  }
+ },
+ "accessors_patched": 3,
+ "bin_bytes_changed": 2713,
+ "bin_bytes_changed_outside_patches": 0,
+ "lint_verdict": "WARN",
+ "lint_fails": [],
+ "lint_warns": [
+  "nb-body.glb: clip 'attack' starts root 'Hips' at 77.715 against rest 93.790 (17.1% > 5%)",
+  "nb-body.glb: clip 'attack_chop' drifts 0.752 m horizontally over its own length (69.1 units) and is not locomotion -- a clip that walks away from where it started",
+  "nb-body.glb: clip 'attack_chop' starts root 'Hips' at 117.474 against rest 93.790 (25.3% > 5%)",
+  "nb-body.glb: clip 'block' starts root 'Hips' at 100.810 against rest 93.790 (7.5% > 5%)",
+  "nb-body.glb: clip 'idle' starts root 'Hips' at 85.393 against rest 93.790 (9.0% > 5%)",
+  "nb-body.glb: clip 'idle_armed' starts root 'Hips' at 102.044 against rest 93.790 (8.8% > 5%)",
+  "nb-body.glb: clip 'run' starts root 'Hips' at 87.123 against rest 93.790 (7.1% > 5%)",
+  "nb-body.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
+  "nb-body.glb: clip 'run_armed_L' starts root 'Hips' at 100.515 against rest 93.790 (7.2% > 5%)",
+  "nb-body.glb: clip 'run_armed_locked' starts root 'Hips' at 87.123 against rest 93.790 (7.1% > 5%)",
+  "nb-body.glb: clip 'run_armed_R' starts root 'Hips' at 87.212 against rest 93.790 (7.0% > 5%)",
+  "nb-body.glb: clip 'strafe_L_armed' starts root 'Hips' at 86.758 against rest 93.790 (7.5% > 5%)",
+  "nb-body.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.453 against rest 93.790 (11.0% > 5%)"
+ ]
+}
