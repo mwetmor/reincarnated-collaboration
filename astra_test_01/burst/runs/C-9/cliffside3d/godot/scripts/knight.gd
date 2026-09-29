@@ -1,0 +1,266 @@
+extends CharacterBody3D
+## C-9 R-C9-66 — a character in the true-3D cliffside, at the WORLD CAMERA'S REAL ANGLE.
+##
+## Matt, R-C9-68, verbatim: "Use the real 53 degree angle." So the character is a real
+## object seen by the player_lock camera at its own 52.95 deg pitch -- it occludes and
+## is occluded per pixel, the lights reach it, and it turns as it walks, with no
+## eight-direction set to pick from and no flat card to sort.
+##
+## The alternative that was going to be built alongside -- rendering the character by
+## its own camera at the 19.77 deg the approved art is PAINTED at, then compositing it
+## as a card -- is dropped on that ruling. Worth recording what it would have cost, in
+## case the question returns: a composited card is flat, so it carries ONE depth for the
+## whole figure, and a rock that should hide a walker's legs while leaving his head in
+## view has to hide all of him or none. Real 3D has no such problem. What real 3D costs
+## instead is that the world camera sees a figure from 33 degrees higher than any
+## painted frame contains -- helm crowns and shoulder tops nobody has drawn.
+##
+## THE OCCUPANT IS A STAND-IN. R-C9-69 replaces it with a Norse barbarian whose sheet is
+## being painted now. The Meshy knight is here to check scale, ground contact, occlusion
+## and light, and is deliberately not polished.
+
+const PPM := 100.617553710938
+const CHAR_LAYER := 4
+const WALK_PX_S := 247.0          # parallax.json movement, the Keeper's own
+const RUN_PX_S := 494.0
+const SOCKET := "res://data/socket_pollaxe.json"
+const LINE_PX := 1.1
+
+var right := Vector3.RIGHT
+var up := Vector3.UP
+var fwd := Vector3.FORWARD
+var facing := "S"
+var state := "idle"
+
+var _rig: Node3D
+var _skel: Skeleton3D
+var _anim: AnimationPlayer
+var _mesh: MeshInstance3D
+var _outline: MeshInstance3D
+var _pollaxe: Node3D
+var _attach: BoneAttachment3D
+var _socket_basis := Basis()
+var _socket_offset := Vector3.ZERO
+var _clip := ""
+var _clip_len := {}
+var _figure_scale := 1.0
+
+
+func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
+	right = r
+	up = u
+	fwd = f
+	_figure_scale = figure_scale
+
+
+func _ready() -> void:
+	var shape := CollisionShape3D.new()
+	var cap := CapsuleShape3D.new()
+	cap.height = 1.8 * _figure_scale
+	cap.radius = 0.35 * _figure_scale
+	shape.shape = cap
+	shape.position = Vector3(0, cap.height * 0.5, 0)
+	add_child(shape)
+
+	_rig = (load("res://models/knight_t3.glb") as PackedScene).instantiate()
+	_rig.scale = Vector3.ONE * _figure_scale
+	add_child(_rig)
+	_skel = _find(_rig, "Skeleton3D") as Skeleton3D
+	_mesh = _find(_rig, "MeshInstance3D") as MeshInstance3D
+	_anim = _find(_rig, "AnimationPlayer") as AnimationPlayer
+	if _anim != null:
+		_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
+		for n in _anim.get_animation_list():
+			_clip_len[n] = _anim.get_animation(n).length
+	_style()
+	_add_outline()
+	_read_socket()
+	_add_pollaxe()
+	_set_layer(_rig, CHAR_LAYER)
+	play("c_idle")
+
+
+func _find(n: Node, cls: String) -> Node:
+	if n.get_class() == cls:
+		return n
+	for c in n.get_children():
+		var r := _find(c, cls)
+		if r != null:
+			return r
+	return null
+
+
+func _set_layer(n: Node, layer: int) -> void:
+	if n is VisualInstance3D:
+		(n as VisualInstance3D).layers = layer
+	for c in n.get_children():
+		_set_layer(c, layer)
+
+
+func _style() -> void:
+	# LIT here, unlike the T3 skin. In the 2D scene the knight was composited into a
+	# painting and had to carry his own light; here he is the one object in a real
+	# scene with real lights, and the whole point of item 4 is to see whether that
+	# makes him sit IN the painting rather than on top of it.
+	var src := _mesh.get_active_material(0) as BaseMaterial3D
+	var m := StandardMaterial3D.new()
+	m.albedo_texture = src.albedo_texture if src != null and src.albedo_texture != null \
+		else (src.emission_texture if src != null else null)
+	m.roughness = 0.62
+	m.metallic = 0.25
+	_mesh.material_override = m
+	_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+
+
+func _add_outline() -> void:
+	var sh := Shader.new()
+	sh.code = """
+shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_opaque, shadows_disabled;
+uniform float width_model = 0.01;
+uniform vec4 line_color : source_color = vec4(0.055, 0.043, 0.063, 1.0);
+void vertex() { VERTEX += normalize(NORMAL) * width_model; }
+void fragment() { ALBEDO = line_color.rgb; }
+"""
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	# 1.1 output px, in metres, in model units. The world camera is orthographic at a
+	# known px/m, so this is one number and not a distance-dependent one.
+	var w_world := LINE_PX / PPM
+	mat.set_shader_parameter("width_model", w_world / maxf(_figure_scale, 1e-6))
+	_outline = MeshInstance3D.new()
+	_outline.name = "InkLine"
+	_outline.mesh = _mesh.mesh
+	_outline.skin = _mesh.skin
+	_mesh.get_parent().add_child(_outline)
+	_outline.transform = _mesh.transform
+	if _skel != null:
+		_outline.skeleton = _outline.get_path_to(_skel)
+	_outline.material_override = mat
+	_outline.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
+
+func _read_socket() -> void:
+	if not FileAccess.file_exists(SOCKET):
+		return
+	var j = JSON.parse_string(FileAccess.get_file_as_string(SOCKET))
+	if typeof(j) != TYPE_DICTIONARY:
+		return
+	# The same change of basis and half-turn the chartest build needed: the socket was
+	# fitted in Blender (Z-up) and this runtime is Y-up, so its rotation is conjugated
+	# rather than applied, and the two number the haft's ends oppositely.
+	var C := Basis.from_euler(Vector3(-PI / 2.0, 0.0, 0.0))
+	var e = j.get("rotation_euler_xyz_deg", [0, 0, 0])
+	var rb := Basis.from_euler(Vector3(deg_to_rad(float(e[0])), deg_to_rad(float(e[1])),
+									   deg_to_rad(float(e[2]))))
+	_socket_basis = C * rb * C.inverse() * Basis.from_euler(Vector3(PI, 0.0, 0.0))
+	var o = j.get("offset", [0, 0, 0])
+	var s = j.get("scale", [1, 1, 1])
+	var k: float = maxf(float(s[0]), 1e-6)
+	_socket_offset = C * Vector3(float(o[0]) / k, float(o[1]) / k, float(o[2]) / k)
+
+
+func _add_pollaxe() -> void:
+	if _skel == null or not ResourceLoader.exists("res://models/pollaxe_t3.glb"):
+		return
+	if _skel.find_bone("RightHand") < 0:
+		return
+	_attach = BoneAttachment3D.new()
+	_skel.add_child(_attach)
+	_attach.bone_name = "RightHand"
+	_pollaxe = (load("res://models/pollaxe_t3.glb") as PackedScene).instantiate()
+	_skel.get_parent().add_child(_pollaxe)
+	for mi in _pollaxe.find_children("*", "MeshInstance3D", true, false):
+		var src := (mi as MeshInstance3D).get_active_material(0) as BaseMaterial3D
+		var m := StandardMaterial3D.new()
+		if src != null:
+			m.albedo_texture = src.albedo_texture if src.albedo_texture != null else src.emission_texture
+		m.roughness = 0.7
+		(mi as MeshInstance3D).material_override = m
+	_set_layer(_pollaxe, CHAR_LAYER)
+
+
+func _place_pollaxe() -> void:
+	if _pollaxe == null or _attach == null:
+		return
+	var t := _attach.global_transform
+	var b: Basis = t.basis.orthonormalized()
+	_pollaxe.global_transform = Transform3D(b * _socket_basis * _figure_scale,
+											t.origin + b * _socket_offset * _figure_scale)
+
+
+func _azimuth_for(f: String) -> float:
+	var t := {"S": 0.0, "SE": 45.0, "E": 90.0, "NE": 135.0,
+			  "N": 180.0, "NW": 225.0, "W": 270.0, "SW": 315.0}
+	return float(t.get(f, 0.0))
+
+
+# --- movement, in CANVAS pixels ------------------------------------------------
+func canvas_velocity_to_world(v_px: Vector2) -> Vector3:
+	"""A canvas-space velocity as a velocity on the ground.
+
+	The 2D route moves 247 px/s in CANVAS pixels, and the canvas is an elevated
+	orthographic view, so a metre of ground travelled up-screen is foreshortened while a
+	metre travelled across-screen is not. Moving the body at a fixed metres-per-second
+	would therefore travel visibly slower up the screen than across it. Solving for the
+	ground vector whose PROJECTION is the wanted canvas velocity keeps the feel the 2D
+	route has: level-local +x is exactly the guide camera's right, and level-local +z
+	projects onto its up at -sin(pitch)."""
+	var a := v_px.x / PPM
+	var lz := Vector3(sin(deg_to_rad(47.0)), 0.0, cos(deg_to_rad(47.0)))
+	var k := -lz.dot(up)                       # = sin(pitch)
+	var b := (v_px.y / PPM) / maxf(k, 1e-6)
+	return right * a + lz * b
+
+
+func _physics_process(dt: float) -> void:
+	var dir := Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+	var running := Input.is_action_pressed("run_modifier")
+	var speed := RUN_PX_S if running else WALK_PX_S
+	if dir.length() > 0.01:
+		dir = dir.normalized()
+		facing = _facing_for(dir)
+		state = "run" if running else "walk"
+	else:
+		state = "idle"
+	var v := canvas_velocity_to_world(dir * speed)
+	velocity = Vector3(v.x, velocity.y - 18.0 * dt, v.z)
+	move_and_slide()
+	if is_on_floor():
+		velocity.y = 0.0
+	_drive()
+	_place_pollaxe()
+
+
+func _facing_for(d: Vector2) -> String:
+	var ang := rad_to_deg(atan2(-d.y, d.x))
+	var names := ["E", "NE", "N", "NW", "W", "SW", "S", "SE"]
+	var i := int(round(ang / 45.0)) % 8
+	if i < 0:
+		i += 8
+	return names[i]
+
+
+func _drive() -> void:
+	var want: String = String({"idle": "c_idle", "walk": "c_walk", "run": "c_run"}.get(state, "c_idle"))
+	play(want)
+	# In TRUE 3D the body itself turns; there is no eight-direction set to pick from,
+	# which is the half of this test that costs nothing.
+	var az := deg_to_rad(_azimuth_for(facing))
+	var yaw := Basis(Vector3.UP, az + PI)
+	_rig.global_transform = Transform3D(yaw.scaled(Vector3.ONE * _figure_scale), global_position)
+
+
+func play(clip: String) -> void:
+	if _anim == null or not _clip_len.has(clip) or clip == _clip:
+		return
+	_clip = clip
+	_anim.speed_scale = 1.0
+	_anim.play(clip, 0.15)
+
+
+func status() -> Dictionary:
+	return {"facing": facing, "state": state, "clip": _clip,
+			"figure_scale": _figure_scale, "pos": [global_position.x, global_position.y, global_position.z]}

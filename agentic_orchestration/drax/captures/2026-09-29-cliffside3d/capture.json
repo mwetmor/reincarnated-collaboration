@@ -1,0 +1,102 @@
+{
+ "knight_scale": 1.25177951388889,
+ "movie_frames": 229,
+ "view_a": [
+  "plateau",
+  "bridge"
+ ],
+ "view_b": {
+  "occluder": "bridge + south abutment (projected geometry)",
+  "swept": [
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1471.77001953125
+    ],
+    "knight_depth_m": 2.93,
+    "step": 0
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1421.77001953125
+    ],
+    "knight_depth_m": 2.11,
+    "step": 1
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1371.77001953125
+    ],
+    "knight_depth_m": 0.83,
+    "step": 2
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1321.77001953125
+    ],
+    "knight_depth_m": -0.45,
+    "step": 3
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1271.77001953125
+    ],
+    "knight_depth_m": -1.74,
+    "step": 4
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1221.77001953125
+    ],
+    "knight_depth_m": -3.02,
+    "step": 5
+   },
+   {
+    "canvas_px": [
+     3078.09008789062,
+     1171.77001953125
+    ],
+    "knight_depth_m": -4.3,
+    "step": 6
+   }
+  ]
+ },
+ "view_c": {
+  "orbit_samples": 121,
+  "stills": [
+   {
+    "file": "c_yaw_+00",
+    "yaw_deg": 0.0,
+    "zoom": 1.0
+   },
+   {
+    "file": "c_yaw_+15",
+    "yaw_deg": 15.0,
+    "zoom": 1.18
+   },
+   {
+    "file": "c_yaw_+00",
+    "yaw_deg": 0.0,
+    "zoom": 1.25
+   },
+   {
+    "file": "c_yaw_-15",
+    "yaw_deg": -15.0,
+    "zoom": 1.18
+   }
+  ],
+  "yaw_range_deg": [
+   -15,
+   15
+  ],
+  "zoom_range": [
+   0.75,
+   1.25
+  ]
+ }
+}
