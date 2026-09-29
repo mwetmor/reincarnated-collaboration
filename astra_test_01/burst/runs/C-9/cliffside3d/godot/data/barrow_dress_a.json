@@ -1,0 +1,3267 @@
+{
+ "_what": "C-9 T10-1b: dressing read off the concept painting by segmentation; see tools/barrow_paint_dress.py",
+ "frame": {
+  "image_px": [
+   1536,
+   1024
+  ],
+  "K_px_per_m": 140.86,
+  "ortho_size_m": 7.2696,
+  "aim_scene_xyz": [
+   2.619,
+   0.0,
+   -0.472
+  ],
+  "figure_scene_xz": [
+   3.478,
+   0.28
+  ],
+  "_aim": "the painting's centre pixel unprojected at h = 0: the flat floor"
+ },
+ "counts": {
+  "stones": 9,
+  "rocks": 89,
+  "juniper": 28,
+  "heather": 157,
+  "birches": 7,
+  "logs": 1
+ },
+ "class_px": {
+  "other": 1005466,
+  "stone": 160557,
+  "rock": 180941,
+  "shrub": 209434,
+  "tree": 16466
+ },
+ "instances": [
+  {
+   "asset": "stone_short",
+   "scene_xz": [
+    -1.212,
+    -0.367
+   ],
+   "height_m": 1.43,
+   "yaw_deg": 279.5,
+   "width_mul": 0.97,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "plain stone, far left of the ring"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    -1.245,
+    -1.702
+   ],
+   "height_m": 1.8,
+   "yaw_deg": 344.6,
+   "width_mul": 1.057,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "behind the ring, left, cut by the top edge"
+  },
+  {
+   "asset": "stone_tall",
+   "scene_xz": [
+    -0.153,
+    -0.851
+   ],
+   "height_m": 2.84,
+   "yaw_deg": 10.2,
+   "width_mul": 1.003,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "the big carved spiral stone left of the door"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    0.936,
+    -0.975
+   ],
+   "height_m": 2.19,
+   "yaw_deg": 30.2,
+   "width_mul": 0.918,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "the carved stone flanking the door on the left"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    -0.898,
+    -2.791
+   ],
+   "height_m": 1.6,
+   "yaw_deg": 336.4,
+   "width_mul": 0.9,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "behind the mound, cut by the top edge"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    0.764,
+    -4.638
+   ],
+   "height_m": 1.5,
+   "yaw_deg": 142.9,
+   "width_mul": 1.008,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "behind the mound, cut by the top edge"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    1.567,
+    -5.043
+   ],
+   "height_m": 1.7,
+   "yaw_deg": 136.6,
+   "width_mul": 0.973,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "behind the mound right, cut by the top edge"
+  },
+  {
+   "asset": "stone_short",
+   "scene_xz": [
+    1.98,
+    -5.226
+   ],
+   "height_m": 1.01,
+   "yaw_deg": 59.8,
+   "width_mul": 1.031,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "small stone behind the ring, right"
+  },
+  {
+   "asset": "stone_mid",
+   "scene_xz": [
+    4.035,
+    -2.212
+   ],
+   "height_m": 1.84,
+   "yaw_deg": 79.1,
+   "width_mul": 1.037,
+   "source": "painting_annotation",
+   "class": "stone",
+   "priority": true,
+   "note": "the snow-capped stone in front of the door, right"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -0.073,
+    -4.041
+   ],
+   "height_m": 0.33,
+   "yaw_deg": 185.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    0.526,
+    -4.462
+   ],
+   "height_m": 0.34,
+   "yaw_deg": 288.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -3.738,
+    0.541
+   ],
+   "height_m": 0.46,
+   "yaw_deg": 336.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.008,
+    -4.731
+   ],
+   "height_m": 0.36,
+   "yaw_deg": 160.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -2.799,
+    1.008
+   ],
+   "height_m": 1.27,
+   "yaw_deg": 25.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -3.094,
+    0.591
+   ],
+   "height_m": 1.27,
+   "yaw_deg": 198.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -2.361,
+    0.238
+   ],
+   "height_m": 0.84,
+   "yaw_deg": 332.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -1.278,
+    -1.092
+   ],
+   "height_m": 0.56,
+   "yaw_deg": 154.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -1.95,
+    -0.593
+   ],
+   "height_m": 0.32,
+   "yaw_deg": 321.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    3.782,
+    -6.401
+   ],
+   "height_m": 0.59,
+   "yaw_deg": 157.9,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -3.117,
+    1.284
+   ],
+   "height_m": 0.72,
+   "yaw_deg": 210.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -2.037,
+    -0.213
+   ],
+   "height_m": 0.32,
+   "yaw_deg": 206.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.196,
+    -3.774
+   ],
+   "height_m": 1.18,
+   "yaw_deg": 244.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -1.575,
+    0.257
+   ],
+   "height_m": 0.4,
+   "yaw_deg": 4.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    4.044,
+    -5.365
+   ],
+   "height_m": 0.34,
+   "yaw_deg": 101.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -1.7,
+    1.043
+   ],
+   "height_m": 0.36,
+   "yaw_deg": 112.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -0.495,
+    1.459
+   ],
+   "height_m": 1.02,
+   "yaw_deg": 259.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    0.333,
+    1.25
+   ],
+   "height_m": 1.45,
+   "yaw_deg": 301.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    -0.056,
+    0.933
+   ],
+   "height_m": 1.29,
+   "yaw_deg": 312.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    0.545,
+    0.696
+   ],
+   "height_m": 1.56,
+   "yaw_deg": 103.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    0.315,
+    0.21
+   ],
+   "height_m": 1.0,
+   "yaw_deg": 311.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    3.649,
+    -4.302
+   ],
+   "height_m": 0.3,
+   "yaw_deg": 23.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    0.682,
+    -0.39
+   ],
+   "height_m": 0.9,
+   "yaw_deg": 114.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.01,
+    -1.788
+   ],
+   "height_m": 0.83,
+   "yaw_deg": 166.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.436,
+    -2.089
+   ],
+   "height_m": 0.71,
+   "yaw_deg": 113.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.551,
+    -1.531
+   ],
+   "height_m": 0.36,
+   "yaw_deg": 96.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.356,
+    -1.009
+   ],
+   "height_m": 0.3,
+   "yaw_deg": 162.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.625,
+    -1.01
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 250.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    5.645,
+    -4.708
+   ],
+   "height_m": 0.64,
+   "yaw_deg": 79.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    -0.623,
+    1.426
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 50.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.119,
+    -3.013
+   ],
+   "height_m": 1.91,
+   "yaw_deg": 226.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    5.656,
+    -3.249
+   ],
+   "height_m": 1.42,
+   "yaw_deg": 306.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.856,
+    -3.307
+   ],
+   "height_m": 1.88,
+   "yaw_deg": 344.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.527,
+    -3.687
+   ],
+   "height_m": 1.24,
+   "yaw_deg": 321.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    4.6,
+    -3.731
+   ],
+   "height_m": 0.42,
+   "yaw_deg": 231.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    4.535,
+    -3.296
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 174.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    4.761,
+    -2.925
+   ],
+   "height_m": 1.05,
+   "yaw_deg": 65.9,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    3.181,
+    -1.622
+   ],
+   "height_m": 0.32,
+   "yaw_deg": 45.9,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    0.951,
+    1.278
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 346.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    1.861,
+    1.384
+   ],
+   "height_m": 0.89,
+   "yaw_deg": 90.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.515,
+    -4.037
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 140.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.645,
+    2.163
+   ],
+   "height_m": 0.4,
+   "yaw_deg": 359.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    0.284,
+    4.184
+   ],
+   "height_m": 0.62,
+   "yaw_deg": 141.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    1.305,
+    4.302
+   ],
+   "height_m": 1.19,
+   "yaw_deg": 187.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    1.853,
+    3.832
+   ],
+   "height_m": 0.59,
+   "yaw_deg": 262.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    7.753,
+    -2.091
+   ],
+   "height_m": 0.94,
+   "yaw_deg": 141.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    7.811,
+    -2.727
+   ],
+   "height_m": 1.02,
+   "yaw_deg": 260.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    7.434,
+    -3.056
+   ],
+   "height_m": 0.79,
+   "yaw_deg": 197.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.255,
+    -1.333
+   ],
+   "height_m": 0.43,
+   "yaw_deg": 138.9,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    2.694,
+    2.291
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 200.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    5.644,
+    -0.534
+   ],
+   "height_m": 0.31,
+   "yaw_deg": 119.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    7.056,
+    -0.052
+   ],
+   "height_m": 1.59,
+   "yaw_deg": 192.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.664,
+    -0.365
+   ],
+   "height_m": 1.33,
+   "yaw_deg": 169.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.726,
+    -1.238
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 231.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.982,
+    5.477
+   ],
+   "height_m": 1.48,
+   "yaw_deg": 130.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.64,
+    5.111
+   ],
+   "height_m": 1.3,
+   "yaw_deg": 258.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.946,
+    4.551
+   ],
+   "height_m": 1.09,
+   "yaw_deg": 180.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.659,
+    4.126
+   ],
+   "height_m": 0.86,
+   "yaw_deg": 182.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.503,
+    4.846
+   ],
+   "height_m": 0.56,
+   "yaw_deg": 148.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    8.365,
+    -0.647
+   ],
+   "height_m": 1.45,
+   "yaw_deg": 288.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    8.132,
+    -1.131
+   ],
+   "height_m": 1.21,
+   "yaw_deg": 223.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    5.913,
+    1.212
+   ],
+   "height_m": 1.08,
+   "yaw_deg": 137.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    5.655,
+    0.756
+   ],
+   "height_m": 0.98,
+   "yaw_deg": 42.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    8.438,
+    -1.443
+   ],
+   "height_m": 0.94,
+   "yaw_deg": 67.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    8.763,
+    -1.896
+   ],
+   "height_m": 1.09,
+   "yaw_deg": 219.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.142,
+    -0.797
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 188.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    1.534,
+    5.53
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 155.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.544,
+    -0.719
+   ],
+   "height_m": 0.5,
+   "yaw_deg": 179.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.736,
+    -0.913
+   ],
+   "height_m": 0.48,
+   "yaw_deg": 145.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.462,
+    6.322
+   ],
+   "height_m": 1.43,
+   "yaw_deg": 165.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.034,
+    6.047
+   ],
+   "height_m": 1.41,
+   "yaw_deg": 32.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    2.429,
+    5.588
+   ],
+   "height_m": 1.1,
+   "yaw_deg": 246.6,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.452,
+    0.661
+   ],
+   "height_m": 0.49,
+   "yaw_deg": 264.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    4.134,
+    3.407
+   ],
+   "height_m": 0.59,
+   "yaw_deg": 81.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.292,
+    2.215
+   ],
+   "height_m": 1.63,
+   "yaw_deg": 194.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    5.993,
+    1.802
+   ],
+   "height_m": 1.32,
+   "yaw_deg": 169.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.781,
+    1.691
+   ],
+   "height_m": 1.3,
+   "yaw_deg": 113.3,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_large",
+   "scene_xz": [
+    6.307,
+    1.465
+   ],
+   "height_m": 1.01,
+   "yaw_deg": 337.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.507,
+    1.149
+   ],
+   "height_m": 0.44,
+   "yaw_deg": 185.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.035,
+    0.505
+   ],
+   "height_m": 0.31,
+   "yaw_deg": 296.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    8.017,
+    -0.34
+   ],
+   "height_m": 0.51,
+   "yaw_deg": 54.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    5.484,
+    2.69
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 139.2,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.326,
+    0.506
+   ],
+   "height_m": 0.37,
+   "yaw_deg": 284.7,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    9.003,
+    -1.188
+   ],
+   "height_m": 0.49,
+   "yaw_deg": 137.4,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    7.624,
+    0.264
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 152.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    2.936,
+    5.813
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 221.1,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    9.434,
+    -1.155
+   ],
+   "height_m": 0.37,
+   "yaw_deg": 164.0,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    3.387,
+    5.33
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 304.8,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "rock_small",
+   "scene_xz": [
+    6.12,
+    2.399
+   ],
+   "height_m": 0.39,
+   "yaw_deg": 262.5,
+   "source": "painting_seg",
+   "class": "rock"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    5.19,
+    -4.742
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 117.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.383,
+    3.446
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 231.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.34,
+    4.613
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 130.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    8.264,
+    -1.752
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 163.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.845,
+    4.972
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 317.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    7.923,
+    0.479
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 253.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    9.366,
+    -1.317
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 22.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.785,
+    -2.907
+   ],
+   "height_m": 1.4,
+   "yaw_deg": 108.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    3.944,
+    -5.727
+   ],
+   "height_m": 0.75,
+   "yaw_deg": 333.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    1.072,
+    -1.46
+   ],
+   "height_m": 1.4,
+   "yaw_deg": 287.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    1.613,
+    -1.598
+   ],
+   "height_m": 1.4,
+   "yaw_deg": 349.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    3.885,
+    -5.26
+   ],
+   "height_m": 0.67,
+   "yaw_deg": 142.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    -2.511,
+    1.586
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 143.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    0.826,
+    -0.623
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 188.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    4.643,
+    -4.142
+   ],
+   "height_m": 0.88,
+   "yaw_deg": 279.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    4.556,
+    -3.397
+   ],
+   "height_m": 0.82,
+   "yaw_deg": 0.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    4.536,
+    -2.15
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 299.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    6.58,
+    -3.024
+   ],
+   "height_m": 1.1,
+   "yaw_deg": 162.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    0.521,
+    4.647
+   ],
+   "height_m": 0.98,
+   "yaw_deg": 280.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    1.712,
+    3.553
+   ],
+   "height_m": 0.71,
+   "yaw_deg": 49.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    8.172,
+    -2.449
+   ],
+   "height_m": 1.01,
+   "yaw_deg": 180.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    7.294,
+    -1.873
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 270.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    7.433,
+    -0.574
+   ],
+   "height_m": 0.8,
+   "yaw_deg": 234.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    6.058,
+    0.809
+   ],
+   "height_m": 0.57,
+   "yaw_deg": 55.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.261,
+    5.702
+   ],
+   "height_m": 1.01,
+   "yaw_deg": 74.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    7.077,
+    0.656
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 188.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    2.198,
+    6.396
+   ],
+   "height_m": 0.64,
+   "yaw_deg": 277.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "juniper",
+   "scene_xz": [
+    8.422,
+    -0.056
+   ],
+   "height_m": 0.57,
+   "yaw_deg": 178.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.473,
+    -3.455
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 140.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.042,
+    -3.995
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 343.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.397,
+    -3.854
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 73.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.99,
+    -6.687
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 97.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.072,
+    -2.698
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 133.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.04,
+    -2.91
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 183.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.259,
+    -4.126
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 226.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.006,
+    -2.391
+   ],
+   "height_m": 0.37,
+   "yaw_deg": 30.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.557,
+    -4.093
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 86.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.688,
+    -5.713
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 327.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.527,
+    0.166
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 0.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.226,
+    -0.118
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 314.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.86,
+    -1.834
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 116.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.2,
+    -1.976
+   ],
+   "height_m": 0.36,
+   "yaw_deg": 230.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.074,
+    -2.914
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 345.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.009,
+    -0.275
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 34.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.244,
+    -1.711
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 155.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.54,
+    -2.892
+   ],
+   "height_m": 0.59,
+   "yaw_deg": 54.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.018,
+    -3.403
+   ],
+   "height_m": 0.48,
+   "yaw_deg": 345.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.635,
+    -2.472
+   ],
+   "height_m": 0.95,
+   "yaw_deg": 275.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.039,
+    -4.095
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 39.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.397,
+    -1.929
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 76.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.667,
+    -2.192
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 101.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.794,
+    -4.999
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 144.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.247,
+    0.374
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 226.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.462,
+    -2.028
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 48.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.241,
+    -1.755
+   ],
+   "height_m": 0.42,
+   "yaw_deg": 151.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.151,
+    -3.803
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 53.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.672,
+    -3.331
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 58.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.327,
+    4.021
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 52.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.237,
+    -2.37
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 262.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.428,
+    4.525
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 301.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.282,
+    3.414
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 25.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.97,
+    3.354
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 357.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.348,
+    -1.38
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 232.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.823,
+    -3.027
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 177.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.917,
+    4.494
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 234.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.275,
+    -2.403
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 96.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.888,
+    3.488
+   ],
+   "height_m": 0.36,
+   "yaw_deg": 303.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.372,
+    0.642
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 90.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.886,
+    -1.034
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 257.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.508,
+    4.287
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 255.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.622,
+    4.112
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 267.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.38,
+    2.202
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 304.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.103,
+    -0.575
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 174.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.469,
+    4.733
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 347.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.342,
+    2.855
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 86.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.48,
+    0.627
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 70.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.768,
+    0.37
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 9.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.12,
+    -1.261
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 13.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.185,
+    -0.875
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 205.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -3.01,
+    0.035
+   ],
+   "height_m": 0.95,
+   "yaw_deg": 16.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.564,
+    -4.62
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 105.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -3.21,
+    -0.09
+   ],
+   "height_m": 0.65,
+   "yaw_deg": 88.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.746,
+    -2.667
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 96.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.846,
+    -5.056
+   ],
+   "height_m": 0.47,
+   "yaw_deg": 332.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.613,
+    -1.489
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 30.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.926,
+    -2.305
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 257.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.326,
+    -2.869
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 74.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -2.824,
+    -0.099
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 316.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.915,
+    -3.953
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 301.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.284,
+    -1.229
+   ],
+   "height_m": 0.57,
+   "yaw_deg": 90.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.432,
+    -2.482
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 159.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -2.416,
+    -0.342
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 196.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.238,
+    -5.189
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 83.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.681,
+    -2.137
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 256.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.678,
+    -4.653
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 116.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.905,
+    -4.324
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 265.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.784,
+    -6.286
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 187.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.996,
+    -1.108
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 155.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.17,
+    -0.87
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 266.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.536,
+    -0.163
+   ],
+   "height_m": 0.37,
+   "yaw_deg": 350.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.297,
+    -5.766
+   ],
+   "height_m": 0.72,
+   "yaw_deg": 332.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.607,
+    -0.625
+   ],
+   "height_m": 0.59,
+   "yaw_deg": 108.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.813,
+    0.408
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 242.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.666,
+    -5.259
+   ],
+   "height_m": 0.51,
+   "yaw_deg": 186.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.168,
+    -3.758
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 176.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.899,
+    -0.364
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 199.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.951,
+    0.829
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 49.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.256,
+    -3.344
+   ],
+   "height_m": 0.44,
+   "yaw_deg": 275.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -2.547,
+    1.651
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 341.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.911,
+    0.392
+   ],
+   "height_m": 0.66,
+   "yaw_deg": 66.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -1.013,
+    0.789
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 118.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.94,
+    -4.549
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 35.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.48,
+    0.308
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 68.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    -0.731,
+    0.695
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 214.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.768,
+    -0.535
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 5.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.861,
+    -0.217
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 74.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.332,
+    -0.983
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 328.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.431,
+    -0.017
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 143.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.436,
+    -1.121
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 339.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.936,
+    -1.696
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 169.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.967,
+    -4.621
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 305.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.615,
+    -4.78
+   ],
+   "height_m": 0.61,
+   "yaw_deg": 41.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.372,
+    -0.478
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 154.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.842,
+    -3.717
+   ],
+   "height_m": 0.68,
+   "yaw_deg": 116.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.003,
+    -1.233
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 147.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.202,
+    -3.408
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 23.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.401,
+    -4.316
+   ],
+   "height_m": 0.54,
+   "yaw_deg": 231.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.879,
+    -1.925
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 97.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.864,
+    -3.336
+   ],
+   "height_m": 0.64,
+   "yaw_deg": 282.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.381,
+    1.119
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 272.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.706,
+    1.006
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 340.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.472,
+    -4.067
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 221.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.271,
+    0.843
+   ],
+   "height_m": 0.46,
+   "yaw_deg": 166.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.539,
+    0.412
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 306.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.542,
+    -1.722
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 78.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.257,
+    1.145
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 112.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.127,
+    -4.064
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 115.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.84,
+    1.785
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 132.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.749,
+    -1.716
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 341.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.565,
+    -1.244
+   ],
+   "height_m": 0.42,
+   "yaw_deg": 161.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.205,
+    -2.022
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 19.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.445,
+    -2.752
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 289.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.885,
+    -1.092
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 153.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.746,
+    -2.239
+   ],
+   "height_m": 0.74,
+   "yaw_deg": 116.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.508,
+    3.065
+   ],
+   "height_m": 0.44,
+   "yaw_deg": 211.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.914,
+    -1.778
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 244.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.0,
+    -0.733
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 23.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.088,
+    -1.821
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 329.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.077,
+    3.709
+   ],
+   "height_m": 0.4,
+   "yaw_deg": 92.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.561,
+    -0.236
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 110.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.596,
+    -0.263
+   ],
+   "height_m": 0.95,
+   "yaw_deg": 155.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.297,
+    -1.667
+   ],
+   "height_m": 0.49,
+   "yaw_deg": 223.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.921,
+    -1.056
+   ],
+   "height_m": 0.55,
+   "yaw_deg": 248.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    0.904,
+    5.358
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 31.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    1.109,
+    4.943
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 76.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.238,
+    0.815
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 58.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.811,
+    4.252
+   ],
+   "height_m": 0.82,
+   "yaw_deg": 228.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.16,
+    1.277
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 176.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.355,
+    -0.999
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 236.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.666,
+    1.099
+   ],
+   "height_m": 0.48,
+   "yaw_deg": 37.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.404,
+    4.662
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 10.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.184,
+    3.93
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 313.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.11,
+    4.049
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 187.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.342,
+    -1.014
+   ],
+   "height_m": 0.49,
+   "yaw_deg": 262.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.389,
+    3.185
+   ],
+   "height_m": 0.45,
+   "yaw_deg": 100.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.05,
+    0.059
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 193.1,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.833,
+    -1.775
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 129.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.048,
+    4.963
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 22.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.013,
+    -1.838
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 87.0,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    2.926,
+    4.938
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 30.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.037,
+    0.66
+   ],
+   "height_m": 0.38,
+   "yaw_deg": 143.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    7.985,
+    -0.409
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 312.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.067,
+    -1.401
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 335.9,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.232,
+    4.883
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 114.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    4.408,
+    3.531
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 322.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.186,
+    -1.476
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 320.8,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.371,
+    -1.544
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 37.4,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    6.303,
+    1.733
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 53.6,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.065,
+    3.4
+   ],
+   "height_m": 0.52,
+   "yaw_deg": 234.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.199,
+    -0.144
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 11.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.806,
+    4.658
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 185.5,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    8.827,
+    -0.726
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 86.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    9.579,
+    -1.298
+   ],
+   "height_m": 0.41,
+   "yaw_deg": 316.2,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    3.028,
+    5.728
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 296.7,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "heather",
+   "scene_xz": [
+    5.676,
+    2.888
+   ],
+   "height_m": 0.35,
+   "yaw_deg": 336.3,
+   "source": "painting_seg",
+   "class": "shrub"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    -1.986,
+    -0.366
+   ],
+   "height_m": 1.4,
+   "yaw_deg": 310.9,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    5.481,
+    -5.065
+   ],
+   "height_m": 2.86,
+   "yaw_deg": 208.2,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    5.037,
+    -3.814
+   ],
+   "height_m": 1.56,
+   "yaw_deg": 122.8,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    6.638,
+    -1.794
+   ],
+   "height_m": 2.53,
+   "yaw_deg": 160.8,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    1.262,
+    3.431
+   ],
+   "height_m": 1.63,
+   "yaw_deg": 190.1,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    6.606,
+    -2.777
+   ],
+   "height_m": 1.2,
+   "yaw_deg": 40.3,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "birch",
+   "scene_xz": [
+    6.922,
+    -1.959
+   ],
+   "height_m": 1.2,
+   "yaw_deg": 198.6,
+   "source": "painting_seg",
+   "class": "tree"
+  },
+  {
+   "asset": "log",
+   "scene_xz": [
+    7.708,
+    -1.521
+   ],
+   "height_m": 0.4254,
+   "yaw_deg": 285.5,
+   "source": "painting_annotation",
+   "class": "tree",
+   "note": "the painting's fallen dead tree; painted length 3.13 m"
+  }
+ ]
+}

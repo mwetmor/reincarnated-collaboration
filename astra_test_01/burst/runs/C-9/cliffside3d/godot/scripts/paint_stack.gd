@@ -459,6 +459,15 @@ uniform float char_mark_tol = 0.12;
 // the same colour, drawing less of itself, which is what a pen does on something small.
 uniform float thin_mark_ref = 0.25;
 uniform float thin_pen_scale = 0.28;
+// NO LINE WHOSE NEAR SIDE IS SNOW (T10-1b). The 3D snow field writes ROUGHNESS 0.75. Its drift
+// crests and trail edges are real depth breaks, and the pen drew them as flecks -- small black
+// ticks scattered across a white field, which read as dirt. Tested on the CENTRE tap only, and
+// that is the whole trick: the positive-side second difference draws a line on the NEAR
+// surface, so where a stone stands in snow the silhouette pixel IS the stone and keeps its
+// line, while a crest whose near side is snow is skipped. Neighbour taps are not tested --
+// that would also take the line off every object where it meets the snow.
+uniform float snow_exclude = 1.0;
+uniform float snow_mark_ref = 0.75;
 
 float _lin_depth(vec2 uv, mat4 inv_proj) {
 	float d = texture(depth_tex, uv).r;
@@ -563,6 +572,8 @@ void fragment() {
 						   max(_is_thin(uv + vec2(0.0, o.y)), _is_thin(uv - vec2(0.0, o.y)))),
 					   _is_thin(uv));
 		e *= mix(1.0, clamp(thin_pen_scale, 0.0, 1.0), th);
+		float sn = 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - snow_mark_ref));
+		e *= 1.0 - sn * clamp(snow_exclude, 0.0, 1.0);
 		col = mix(col, ink_color, clamp(e, 0.0, 1.0));
 	}
 	if (grade_on > 0.5) {
@@ -619,6 +630,15 @@ static func _periodic_value_noise(size: int, lattice: int, seed_i: int) -> Packe
 static func make_fbm_texture(size := 512, seed_i := 7411, octaves := 4) -> ImageTexture:
 	"""A tileable fbm in R, G and B (three independent fields, so one texture serves the
 	wash, the mottle and the snow threshold without them correlating)."""
+	return ImageTexture.create_from_image(make_fbm_image(size, seed_i, octaves))
+
+
+static func make_fbm_image(size := 512, seed_i := 7411, octaves := 4) -> Image:
+	"""The fbm as a CPU Image, mipmapped, RGB8. Split out of make_fbm_texture so a caller that
+	needs the bytes keeps THIS image rather than reading the texture back: ImageTexture.
+	get_image() is a GPU readback, it can change the format (Metal has no RGB8), and under the
+	headless dummy renderer it can come back empty -- which a byte lookup reads as zero noise,
+	cleanly, on every probe."""
 	var img := Image.create(size, size, false, Image.FORMAT_RGB8)
 	var chans := []
 	for ch in 3:
@@ -642,7 +662,7 @@ static func make_fbm_texture(size := 512, seed_i := 7411, octaves := 4) -> Image
 			var i := y * size + x
 			img.set_pixel(x, y, Color(chans[0][i], chans[1][i], chans[2][i]))
 	img.generate_mipmaps()
-	return ImageTexture.create_from_image(img)
+	return img
 
 
 static func make_paper_texture(size := 512) -> ImageTexture:
@@ -868,6 +888,7 @@ static func splat_weight_texture(png: String, classes := 5, blur_px := 7,
 			worst = maxf(worst, absf((1.0 - q) - fields[implied_class * n + i]))
 	var tex := ImageTexture.create_from_image(packed)
 	out["tex"] = tex
+	out["img"] = packed          # the CPU copy: see make_fbm_image for why not get_image()
 	out["report"] = {
 		"png": png, "size": [w, h], "classes": classes,
 		"blur_px_per_pass": blur_px, "passes": 2,

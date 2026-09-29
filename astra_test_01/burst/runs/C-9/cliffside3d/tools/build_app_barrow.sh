@@ -185,7 +185,9 @@ if [ -n "$PCK" ]; then
            scripts/barrow_stand_in.gd scripts/knight.gd scripts/gear.gd \
            data/character.json data/gear_manifest.json \
            data/barrow_scene_a.json data/barrow_assets.json \
-           scripts/barrow_flat.gd scripts/barrow_heightfield.gd \
+           scripts/barrow_flat.gd scripts/barrow_heightfield.gd scripts/snow_field.gd \
+           data/barrow_dress_a.json data/kit_assets.json models/barrow/kit/log.glb \
+           models/barrow/juniper.glb models/barrow/birch.glb \
            data/height_a_authored.png data/splat_ids_a_marigold.png \
            textures/barrow/snow.png textures/barrow/rock.png textures/barrow/ice.png \
            models/barrow/stone_tall.glb models/barrow/lintel.glb models/barrow/heather.glb \

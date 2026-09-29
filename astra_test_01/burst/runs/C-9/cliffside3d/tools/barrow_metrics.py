@@ -249,6 +249,7 @@ def main():
                                         # box instead of his silhouette, and the whole
                                         # outline_on_him section came back null with no error.
                                         "barrow_char_noknight",
+                                        "barrow_veil_before", "barrow_fog_on",
                                         "barrow_char_ramp_on", "barrow_char_ramp_off",
                                         "barrow_char_original",
                                         "barrow_wide_on", "barrow_wide_off",
@@ -371,6 +372,35 @@ def main():
                 "ink_px": int((eh >= 0.5).sum()),
                 "width": width_estimators(eh >= 0.5, mass=np.clip(eh, 0, 1)),
             }
+
+    # ---- THE VEIL: luma contrast on the LOWER THIRD of the play frame ---------
+    # The coordinator's test: "prove the veil is gone with a luma-contrast number on the lower
+    # third of the play frame, before and after." The lower third because that is where the
+    # veil sat -- the ground in front of him, furthest from the props that carry their own
+    # contrast. RMS contrast is the standard deviation of LINEAR luma (the veil is a lift toward
+    # a flat white, which is exactly what drives a standard deviation down); p95-p5 is reported
+    # beside it because a std can also rise from a few dark pixels. The fog-on frame is the
+    # attribution control: if the veil were the fog, fog-on would sit near "before".
+    def lower_third(img):
+        h = img.shape[0]
+        lu = srgb_to_linear(img[int(h * 2 / 3):, :, :]) @ LW
+        return {"rms_contrast_linear": round(float(lu.std()), 5),
+                "mean_luma_linear": round(float(lu.mean()), 5),
+                "p05_p95_linear": [round(float(np.percentile(lu, 5)), 5),
+                                   round(float(np.percentile(lu, 95)), 5)],
+                "p95_minus_p05": round(float(np.percentile(lu, 95) - np.percentile(lu, 5)), 5)}
+    veil = {}
+    for nm in ("barrow_veil_before", "barrow_stack_on", "barrow_fog_on", "barrow_stack_off"):
+        if imgs.get(nm) is not None:
+            veil[nm] = lower_third(imgs[nm])
+    if "barrow_veil_before" in veil and "barrow_stack_on" in veil:
+        b0 = veil["barrow_veil_before"]["rms_contrast_linear"]
+        a0 = veil["barrow_stack_on"]["rms_contrast_linear"]
+        veil["verdict"] = {"rms_before": b0, "rms_after": a0,
+                           "ratio_after_over_before": round(a0 / max(b0, 1e-9), 3),
+                           "spread_before": veil["barrow_veil_before"]["p95_minus_p05"],
+                           "spread_after": veil["barrow_stack_on"]["p95_minus_p05"]}
+    rep["veil_lower_third"] = veil
 
     # ---- 3 + 4. shadows -----------------------------------------------------
     on = imgs["barrow_stack_on"]

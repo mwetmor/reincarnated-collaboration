@@ -39,8 +39,9 @@ func _initialize() -> void:
 	k.set_gear_stack(k.gear_stack_count() - 1)
 	k.state = "idle"
 	scene.set_hud_visible(false)
-	scene.place_knight(4.2, -0.3, "NE")
-	scene.park_camera(scene._aim_for(k.global_position), 1.0)
+	scene.place_knight(3.48, 0.28, "N")
+	# CENTRED ON HIM: the aim is his chest, not the 2D route's 55 px lift above his feet
+	scene.park_camera(k.global_position + Vector3(0, 0.9, 0), 1.0)
 	await _settle()
 	await _shot("look_play")
 	scene.set_stack(false)
@@ -55,6 +56,14 @@ func _initialize() -> void:
 	scene.park_camera(Vector3(4.25, scene.world.height_at(4.25, -4.35) + 1.35, -4.35), 2.35)
 	await _settle()
 	await _shot("look_scale")
+	# THE PAINTING'S OWN FRAMING: 1536x1024, ortho height 1024 / 140.86 = 7.2696 m, aimed at
+	# the painting's centre pixel unprojected onto the flat floor, him where the painting has him
+	vp.size = Vector2i(1536, 1024)
+	scene.place_knight(3.48, 0.28, "N")
+	await _settle()
+	scene.park_camera(Vector3(2.619, 0.0, -0.472), (1024.0 / 100.617553710938) / 7.2696)
+	await _settle()
+	await _shot("look_painting_frame")
 	print("[look] -> %s" % out_dir)
 	quit(0)
 

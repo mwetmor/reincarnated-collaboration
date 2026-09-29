@@ -27,7 +27,9 @@ const DT := 1.0 / 24.0
 # stand-in's hill; the measured barrow's painted square runs x -4.43..10.57, z -7.56..7.44,
 # and the mound is at (0, -4). From (5.6, 1.6) the frame reaches about 6.7 m along
 # (-0.73, -0.68) at the play zoom, which puts the door, the ring and the tarn up-screen.
-const STAND := Vector2(5.6, 1.6)
+# T10-1b: HE STANDS WHERE THE PAINTING HAS HIM -- the painted figure's base unprojected onto
+# the flat floor, (3.48, 0.28), the middle of the painting's own clearing.
+const STAND := Vector2(3.48, 0.28)
 const WALK_FROM := Vector2(7.9, 5.1)
 # beside the tallest standing stone, for the scale still -- half a metre off its face, on the
 # camera side, so both are unoccluded and the eye can put one against the other
@@ -44,6 +46,7 @@ var vp: SubViewport
 var scene
 var report := {}
 var _mf := 0
+var _body_off := Vector2.ZERO
 
 
 func _initialize() -> void:
@@ -77,14 +80,19 @@ func _initialize() -> void:
 	report["viewport"] = {"size": [SHOT.x, SHOT.y], "msaa": "4x"}
 
 	var k = scene.knight
-	k.set_physics_process(false)
-	scene.freeze_pose(true)
+	# FULL KIT FIRST, WITH THE ANIMATION RUNNING, AND ONLY THEN FREEZE. The old order froze the
+	# mixer and THEN switched to the armed stack, so the armed tree never processed and the
+	# skeleton showed an un-derooted pose: his Hips 1.87 m from his node. That is why last
+	# pass's stills had him up-left of where he stood. And even settled, the armed idle draws
+	# his body 1.35 m from his node (knight.gd, not this seam's) -- so every still below places
+	# and aims at his BODY, via _stand_body, and the offset is reported.
 	k.set_gear_stack(k.gear_stack_count() - 1)       # full kit: axe, shield, helmet, byrnie, mantle
-	k.state = "idle"
-	scene.place_knight(STAND.x, STAND.y, "NE")
+	k.set_physics_process(false)
 	scene.set_hud_visible(false)
-	scene.park_camera(scene._aim_for(k.global_position), 1.0)
+	await _stand_body(STAND, "N")
+	scene.park_camera(scene.body_centroid(), 1.0)
 	await _settle()
+	report["centring"] = _centring()
 
 	# ---- true scale, in pixels, from his own bones --------------------------
 	var rect: Rect2 = scene.character_screen_rect()
@@ -111,6 +119,15 @@ func _initialize() -> void:
 
 	# ---- the snow layer, area-weighted over the real faces ------------------
 	report["snow"] = scene.snow_report()
+
+	# ---- THE VEIL, BEFORE AND AFTER, in one run ----------------------------
+	# Before: the ground's own FBM snow blend on, the 3D snow field hidden, the fog as shipped.
+	# After: the delivered look. Nothing else differs -- pose, camera, grade, pens, props.
+	scene.set_veil_before(true)
+	await _settle()
+	await _shot("barrow_veil_before")
+	scene.set_veil_before(false)
+	await _settle()
 
 	# ---- the stills ---------------------------------------------------------
 	# the delivered look, and the same frame with the stack off
@@ -161,10 +178,11 @@ func _initialize() -> void:
 	await _settle()
 	await _shot("barrow_air_off")
 	scene.set_particles(true)
-	scene.set_fog(false)
-	await _settle()
-	await _shot("barrow_fog_off")
+	# THE FOG IS OFF BY DEFAULT NOW, so the diagnostic flips: the frame WITH the old height fog
 	scene.set_fog(true)
+	await _settle()
+	await _shot("barrow_fog_on")
+	scene.set_fog(false)
 	await _settle()
 
 	# ---- HIM, before and after the ramp, world unchanged --------------------
@@ -236,6 +254,34 @@ func _initialize() -> void:
 	report["ink_shadow_audit"] = scene.ink_shadow_audit()
 	report["shadow_bias_sweep"] = await _bias_sweep(k)
 
+	# ---- THE PAINTING'S OWN FRAMING, and the class-ID pass for coverage ----
+	# 1536x1024, ortho height 1024 / 140.86 = 7.2696 m, aimed at the painting's centre pixel
+	# unprojected onto the flat floor; his BODY where the painting's figure stands.
+	var fr: Dictionary = scene.report.get("dress_source", {}).get("frame", {})
+	if not fr.is_empty():
+		var prev_size := vp.size
+		vp.size = Vector2i(int(fr["image_px"][0]), int(fr["image_px"][1]))
+		await _stand_body(Vector2(float(fr["figure_scene_xz"][0]), float(fr["figure_scene_xz"][1])), "N")
+		var aim_a: Array = fr["aim_scene_xyz"]
+		var zoom_p: float = (float(fr["image_px"][1]) / PPM) / float(fr["ortho_size_m"])
+		scene.park_camera(Vector3(float(aim_a[0]), float(aim_a[1]), float(aim_a[2])), zoom_p)
+		await _settle()
+		await _shot("barrow_painting_frame")
+		# the ID pass: MSAA OFF, because a class colour blended with its neighbour at an edge
+		# is a pixel of neither class
+		vp.msaa_3d = Viewport.MSAA_DISABLED
+		scene.set_class_id_view(true)
+		await _settle()
+		await _shot("barrow_painting_ids")
+		scene.set_class_id_view(false)
+		vp.msaa_3d = Viewport.MSAA_4X
+		vp.size = prev_size
+		report["painting_frame"] = {"frame": fr, "zoom": snappedf(zoom_p, 0.0001),
+			"his_body_at": _v3(scene.body_centroid())}
+		await _stand_body(STAND, "N")
+		scene.park_camera(scene.body_centroid(), 1.0)
+		await _settle()
+
 	# ---- the wide framing, for the eye -------------------------------------
 	# aimed between the mound at (0, -4) and the ring stones at x 2.5..3.9, z -2.3..-4.7, wide
 	# enough to hold both: 10.73 m of screen height at zoom 0.45 is 23.8 m of frame
@@ -252,7 +298,9 @@ func _initialize() -> void:
 	# ---- HIM BESIDE A TALL STONE, for scale --------------------------------
 	# The one frame that answers "how big is any of this" without a caption. He is 1.85 m and
 	# the stone is 2.71 m, both measured, both in one frame at one zoom.
-	var stone: Node3D = scene.prop_node("stone_tall_03")
+	# THE STONE THE RAVEN IS ON: the tallest stone actually built (see _perch_raven), found by
+	# reference rather than by a node name that the placement order can change
+	var stone: Node3D = scene.get("_tallest_stone")
 	# WHERE HE STANDS IS FOUND, NOT PICKED. The first hand-picked spot put a birch between him
 	# and the camera: the one frame whose whole job is "how big is he next to this" had a tree
 	# across his chest. 36 positions on a 1.5 m circle round the stone, keep the ones on the
@@ -267,7 +315,10 @@ func _initialize() -> void:
 		# far away in the only space that matters, which is the picture. So each candidate is
 		# scored by the screen rectangles: his own, and every other prop's, both unprojected
 		# through the camera that will take the frame.
-		var best := -1.0
+		# -INF, NOT -1: with 290 props every candidate's rect overlaps something, every
+		# clearance is negative, and a -1 floor accepted none -- the still fell back to a
+		# hand-typed spot 5.9 m from the stone. The least-overlapped spot is the answer.
+		var best := -INF
 		for ri in 4:
 			var rad: float = 1.3 + 0.32 * float(ri)
 			for i in 48:
@@ -301,10 +352,11 @@ func _initialize() -> void:
 						  (stand.y + stone.global_position.z) * 0.5)
 		report["scale_stand_screen_clearance_px"] = snappedf(best, 0.1)
 		report["_scale_stand_rule"] = "the point on 1.3-2.3 m around the stone, camera side, whose SCREEN rect is furthest from every other prop's"
-	scene.place_knight(stand.x, stand.y, "NW")
-	await _settle()
-	var look := Vector3(look_at.x, scene.world.height_at(look_at.x, look_at.y) + 1.35,
-						look_at.y)
+	await _stand_body(stand, "N")
+	# CENTRED ON HIM, per the coordinator; the stone is beside him in the same frame
+	var bcs: Vector3 = scene.body_centroid()
+	var look := Vector3((bcs.x * 2.0 + stone.global_position.x) / 3.0 if stone != null else bcs.x,
+						1.1, (bcs.z * 2.0 + stone.global_position.z) / 3.0 if stone != null else bcs.z)
 	scene.park_camera(look, 2.35)
 	await _settle()
 	await _shot("barrow_scale_beside_stone")
@@ -324,8 +376,8 @@ func _initialize() -> void:
 			"gap_m": snappedf(Vector2(stone.global_position.x - stand.x,
 									  stone.global_position.z - stand.y).length(), 0.01),
 		}
+	await _stand_body(STAND, "N")
 	scene.unpark_camera()
-	scene.place_knight(STAND.x, STAND.y, "NE")
 	await _settle()
 
 	# ---- FRAME COST, on this M2, at 1920x1080 ------------------------------
@@ -347,54 +399,109 @@ func _initialize() -> void:
 	}
 	scene.set_stack(true)
 
-	# ---- the walk: across the ring to the barrow door, then block and slash -
-	# DRIVEN AT A TARGET, not along a fixed canvas vector. The old loop pushed him along
-	# (0.62, -1.0) for 96 frames and landed wherever that put him -- which on the stand-in's
-	# hill was fine and on the measured barrow is 4 m past the door. _canvas_dir_to converts a
-	# desired GROUND direction back through the camera law, so the movie ends at the doorway
-	# on any ground.
-	var door := Vector2(3.0, -2.2)
-	scene.place_knight(WALK_FROM.x, WALK_FROM.y, "NE")
+	# ---- THE WALK: from the tarn's edge to the barrow door, block and slash, and back
+	#      through a drift -------------------------------------------------------------
+	# Driven at waypoints through the camera law (_canvas_dir_to), and FILMED ON HIS BODY: the
+	# game camera follows his node, and while he stands armed his body is 1.35 m from it, so a
+	# movie shot on the game camera frames him off-centre exactly when he stops to fight. The
+	# capture moves the camera itself, eased onto his bone centroid, and keeps the snowfall
+	# emitter over him as the scene's own _process would.
+	var wp: Dictionary = scene.walk_waypoints()
+	var legs: Array = wp["route"]
+	var fight_leg := int(wp["fight_at"])
+	scene.freeze_pose(false)
+	scene.place_knight(float(legs[0].x), float(legs[0].y), "N")
 	k.set_physics_process(false)
 	await _settle()
+	scene.set_process(false)
+	var aim: Vector3 = scene.body_centroid()
+	var leg := 1
 	var phase := []
-	var arrived := -1
+	var fight_t := -1
+	var deepest := 0.0
+	var best_left := 1e9
+	var best_i := 0
+	var stuck := []
 	for i in walk_n:
 		var kp: Vector3 = k.global_position
-		var left := Vector2(door.x - kp.x, door.y - kp.z).length()
-		if arrived < 0 and (left < 0.75 or i > int(float(walk_n) * 0.62)):
-			arrived = i
-		if arrived < 0:
-			# he runs the first stretch and walks the last two metres in, because arriving at
-			# a barrow door at a dead run is not the shot
-			k.drive_dir(_canvas_dir_to(k, door), left > 3.2, DT)
-			phase.append("walk")
-		elif i < arrived + 6:
-			k.drive_dir(Vector2.ZERO, false, DT)          # the stop, before anything else
-			phase.append("stop")
-		elif i < arrived + 26:
-			k.set_block(true)
-			k.drive_dir(Vector2.ZERO, false, DT)
-			phase.append("block")
+		# THE FIGHT IS A WINDOW, not a latch: 56 frames at the door, then the route resumes. The
+		# first version tested `fight_t < 0` for arrival, which is false forever once he has
+		# fought -- so every leg after the door would have been walked until the movie ran out.
+		# ...AND IT LASTS UNTIL THE SWING IS OVER. drive_dir roots him while a strike plays and
+		# the slash outruns 30 frames: resuming mid-swing read as 24 frames of no progress, and
+		# the stuck rule skipped the leg to the drift -- the one leg the walk exists for.
+		var fighting: bool = fight_t >= 0 and (i < fight_t + 56
+			or (k.attacking() and i < fight_t + 110))
+		if fighting:
+			var ft := i - fight_t
+			if ft < 6:
+				k.drive_dir(Vector2.ZERO, false, DT)
+				phase.append("stop")
+			elif ft < 26:
+				k.set_block(true)
+				k.drive_dir(Vector2.ZERO, false, DT)
+				phase.append("block")
+			else:
+				if k.blocking():
+					k.set_block(false)
+				if not k.attacking() and phase[phase.size() - 1] != "slash":
+					k.try_strike("slash")
+				k.drive_dir(Vector2.ZERO, false, DT)
+				phase.append("slash")
+				best_left = 1e9
+				best_i = i
+		elif leg < legs.size():
+			var tgt: Vector2 = legs[leg]
+			var left := Vector2(tgt.x - kp.x, tgt.y - kp.z).length()
+			# STUCK IS A MEASUREMENT, NOT A HANG: under 5 cm of progress on this waypoint in 24
+			# frames means something solid is in the way -- the leg is logged and counted as
+			# reached, so the movie finishes its route and the report says where it was blocked
+			if left < best_left - 0.05:
+				best_left = left
+				best_i = i
+			elif i - best_i > 24:
+				stuck.append({"leg": leg, "at_xz": [snappedf(kp.x, 0.01), snappedf(kp.z, 0.01)],
+							  "left_m": snappedf(left, 0.01)})
+				left = 0.0
+			if left < 0.45:
+				if leg == fight_leg and fight_t < 0:
+					fight_t = i                  # arrived at the door: stop, block, slash
+				leg += 1
+				best_left = 1e9
+				best_i = i
+				k.drive_dir(Vector2.ZERO, false, DT)
+				phase.append("arrive_%d" % (leg - 1))
+			else:
+				k.drive_dir(_canvas_dir_to(k, tgt), false, DT)
+				phase.append("walk_to_%d" % leg)
+				if scene.snow != null:
+					deepest = maxf(deepest, scene.snow.depth_at(Vector2(kp.x, kp.z)))
 		else:
-			if k.blocking():
-				k.set_block(false)
-			if not k.attacking() and phase[phase.size() - 1] != "slash":
-				k.try_strike("slash")
 			k.drive_dir(Vector2.ZERO, false, DT)
-			phase.append("slash")
+			phase.append("done")
+		var bc: Vector3 = scene.body_centroid()
+		aim = aim.lerp(bc + Vector3(0, 0.1, 0), 0.22)
+		scene.look_at_world(aim)
+		if scene.snowfall != null:
+			scene.snowfall.global_position = aim + scene.up * 9.0 - scene.fwd * 6.0
 		await physics_frame
 		await _frame()
+	scene.set_process(true)
 	var counts := {}
-	for s in phase:
-		counts[s] = int(counts.get(s, 0)) + 1
+	for s2 in phase:
+		counts[s2] = int(counts.get(s2, 0)) + 1
 	report["walk_frames"] = _mf
 	report["walk_fps"] = FPS
-	report["walk"] = {"from_xz": [WALK_FROM.x, WALK_FROM.y], "to_xz": [door.x, door.y],
-		"ended_at_xz": [snappedf(k.global_position.x, 0.01), snappedf(k.global_position.z, 0.01)],
-		"distance_left_m": snappedf(Vector2(door.x - k.global_position.x,
-											door.y - k.global_position.z).length(), 0.01),
-		"phase_frames": counts, "seconds": snappedf(float(walk_n) / FPS, 0.01)}
+	report["walk"] = {"route": ["the tarn shore, inside the shore rocks", "the clearing",
+			"the barrow door (stop, block, slash)", "east of the door", "the drift",
+			"the tarn shore"],
+		"waypoints_xz": legs.map(func(v): return [snappedf(v.x, 0.01), snappedf(v.y, 0.01)]),
+		"legs_completed": leg - 1, "ended_at_xz": [snappedf(k.global_position.x, 0.01),
+		snappedf(k.global_position.z, 0.01)],
+		"deepest_snow_waded_m": snappedf(deepest, 0.001),
+		"blocked_legs": stuck,
+		"phase_frames": counts, "seconds": snappedf(float(walk_n) / FPS, 0.01),
+		"_camera": "eased onto his bone centroid each frame, not the game camera (see above)"}
 
 	var f := FileAccess.open(out_dir + "/barrow.json", FileAccess.WRITE)
 	f.store_string(JSON.stringify(report, " "))
@@ -450,8 +557,8 @@ func _bias_sweep(k) -> Dictionary:
 	sun.shadow_normal_bias = was_nb
 	sun.shadow_bias = was_b
 	scene.unpark_camera()
-	scene.place_knight(STAND.x, STAND.y, "NE")
-	scene.park_camera(scene._aim_for(scene.knight.global_position), 1.0)
+	await _stand_body(STAND, "N")
+	scene.park_camera(scene.body_centroid(), 1.0)
 	await _settle()
 	var contact := await _contact_gap(k)
 	scene.set_particles(true)
@@ -586,6 +693,50 @@ func _contact_gap(k) -> Dictionary:
 
 func _dif(a: Color, b: Color) -> float:
 	return absf(a.r - b.r) + absf(a.g - b.g) + absf(a.b - b.b)
+
+
+func _stand_body(target: Vector2, facing: String) -> void:
+	"""Put his BODY -- the centroid of his bones -- on `target`, frozen in the armed idle.
+
+	Unfreeze, place the node, let the armed tree run 30 frames so the pose and the turn settle,
+	freeze, MEASURE where the body ended up relative to the node, and move the node by minus
+	that. The pose is frozen and his physics is off, so the body moves rigidly with the node.
+	Reported per call, so a body that did not land is a number, not a surprise in a still."""
+	var k = scene.knight
+	scene.freeze_pose(false)
+	scene.place_knight(target.x, target.y, facing)
+	for i in 30:
+		k.drive_dir(Vector2.ZERO, false, DT)
+		await physics_frame
+		await process_frame
+	scene.freeze_pose(true)
+	k.state = "idle"
+	var bc: Vector3 = scene.body_centroid()
+	var off := Vector2(bc.x - k.global_position.x, bc.z - k.global_position.z)
+	_body_off = off
+	k.global_position = Vector3(target.x - off.x, k.global_position.y, target.y - off.y)
+	await _settle()
+	var bc2: Vector3 = scene.body_centroid()
+	var entry := {"target": [snappedf(target.x, 0.01), snappedf(target.y, 0.01)],
+		"body_offset_from_node_m": snappedf(off.length(), 0.001),
+		"body_miss_m": snappedf(Vector2(bc2.x - target.x, bc2.z - target.y).length(), 0.001)}
+	if not report.has("body_placements"):
+		report["body_placements"] = []
+	report["body_placements"].append(entry)
+
+
+func _centring() -> Dictionary:
+	"""Where he lands on screen, from his bones -- the check that "centre the look-at on him"
+	actually centred him. The frame centre is (960, 540)."""
+	var r: Rect2 = scene.character_screen_rect()
+	var c := r.position + r.size * 0.5
+	return {"his_bone_rect_centre_px": [snappedf(c.x, 0.1), snappedf(c.y, 0.1)],
+			"frame_centre_px": [SHOT.x * 0.5, SHOT.y * 0.5],
+			"miss_px": snappedf(c.distance_to(Vector2(SHOT.x * 0.5, SHOT.y * 0.5)), 0.1)}
+
+
+func _v3(v: Vector3) -> Array:
+	return [snappedf(v.x, 0.001), snappedf(v.y, 0.001), snappedf(v.z, 0.001)]
 
 
 func _screen_rect(base: Vector3, width_m: float, height_m: float) -> Rect2:

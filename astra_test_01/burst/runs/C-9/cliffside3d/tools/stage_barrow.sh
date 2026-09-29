@@ -4,13 +4,10 @@
 # ONE copy of each. The stills are renamed to the order they should be looked at in, because
 # a folder listing is the only sequencing a reviewer gets.
 #
-# THE OLD NUMBERED STILLS ARE DELETED FIRST, and by an EXPLICIT LIST rather than a glob. The
-# set changed with the T10 integration -- the stand-in's hill is gone, a scale shot and an
-# outline before/after are new -- so a `cp -f` over the old names would leave any still whose
-# number no longer exists sitting in the folder looking current. A glob would be the obvious
-# way to clear them and is the wrong one: this folder also holds the .app and the movie, and
-# `rm *.png` in a directory someone else also writes to is how a review folder loses work
-# that took twenty minutes to produce.
+# THE PREVIOUS SETS ARE DELETED FIRST, by an EXPLICIT LIST rather than a glob. This folder also
+# holds the .app, the movie, and other sessions' material (scatter kit.png, snow lab/), and
+# `rm *.png` in a directory someone else also writes to is how a review folder loses work that
+# took twenty minutes to produce. Anything not on these lists is left alone.
 #
 #   usage: tools/stage_barrow.sh CAPTURE_DIR
 set -euo pipefail
@@ -19,29 +16,33 @@ CAP=${1:?usage: stage_barrow.sh CAPTURE_DIR}
 STAGE=${STAGE:-"$HOME/Desktop/Astra Burst Review - 2026-09-26/C-9 barrow"}
 mkdir -p "$STAGE"
 
-# the previous set, by name. Anything not on this list is left alone.
+# the stand-in set (15:20) and the T10 integration set (17:33), by name
 for old in "1 - play camera, stack ON.png" "2 - play camera, stack OFF.png" \
            "3 - the barrow, stack ON.png" "4 - the barrow, stack OFF.png" \
            "5 - him, before and after the ramp.png" "6 - snow layer off.png" \
-           "7 - ink pass off.png" "8 - fog off.png"; do
+           "7 - ink pass off.png" "8 - fog off.png" \
+           "1 - play camera, the look stack ON.png" "2 - play camera, the look stack OFF.png" \
+           "3 - the barrow and the stone ring.png" "4 - the barrow and the ring, stack OFF.png" \
+           "5 - him beside a tall stone, for scale.png" "6 - him, before and after the ramp.png" \
+           "7 - his outline, BOTH pens (the 15-20 build).png" "8 - the snow layer off.png" \
+           "9 - the ink pass off.png" "10 - the fog off.png"; do
   rm -f "$STAGE/$old"
 done
 
 cp_if() { [ -f "$1" ] && cp -f "$1" "$2" || echo "   (missing: $(basename "$1"))" >&2; }
 
-cp_if "$CAP/barrow_stack_on.png"            "$STAGE/1 - play camera, the look stack ON.png"
-cp_if "$CAP/barrow_stack_off.png"           "$STAGE/2 - play camera, the look stack OFF.png"
-cp_if "$CAP/barrow_wide_on.png"             "$STAGE/3 - the barrow and the stone ring.png"
-cp_if "$CAP/barrow_wide_off.png"            "$STAGE/4 - the barrow and the ring, stack OFF.png"
-cp_if "$CAP/barrow_scale_beside_stone.png"  "$STAGE/5 - him beside a tall stone, for scale.png"
-cp_if "$CAP/barrow_char_before_after.png"   "$STAGE/6 - him, before and after the ramp.png"
-cp_if "$CAP/barrow_stack_on_2pens.png"      "$STAGE/7 - his outline, BOTH pens (the 15-20 build).png"
-cp_if "$CAP/barrow_snow_off.png"            "$STAGE/8 - the snow layer off.png"
-cp_if "$CAP/barrow_ink_off.png"             "$STAGE/9 - the ink pass off.png"
-cp_if "$CAP/barrow_fog_off.png"             "$STAGE/10 - the fog off.png"
+cp_if "$CAP/barrow_stack_on.png"                  "$STAGE/1 - play camera, AFTER - 3D snow, no veil.png"
+cp_if "$CAP/barrow_veil_before.png"               "$STAGE/2 - play camera, BEFORE - the veil.png"
+cp_if "$CAP/barrow_wide_on.png"                   "$STAGE/3 - the barrow, wide.png"
+cp_if "$CAP/paint_vs_render_side_by_side.png"     "$STAGE/4 - the painting and the render, side by side.png"
+cp_if "$CAP/paint_vs_render_overlay50.png"        "$STAGE/5 - the render at 50 percent over the painting.png"
+cp_if "$CAP/paint_coverage_map.png"               "$STAGE/6 - coverage per class, bright = placed, dim = missed.png"
+cp_if "$CAP/barrow_scale_beside_stone.png"        "$STAGE/7 - him beside a tall stone, for scale.png"
+cp_if "$CAP/barrow_stack_off.png"                 "$STAGE/8 - play camera, the look stack OFF.png"
 [ -f "$CAP/C-9 barrow walk.mp4" ] && cp -f "$CAP/C-9 barrow walk.mp4" "$STAGE/C-9 barrow walk.mp4"
-cp_if "$CAP/barrow.json"                    "$STAGE/measurements - scene.json"
-cp_if "$CAP/barrow_metrics.json"            "$STAGE/measurements - frames.json"
+cp_if "$CAP/barrow.json"                          "$STAGE/measurements - scene.json"
+cp_if "$CAP/barrow_metrics.json"                  "$STAGE/measurements - frames.json"
+cp_if "$CAP/paint_coverage.json"                  "$STAGE/measurements - painting coverage.json"
 xattr -dr com.apple.quarantine "$STAGE" 2>/dev/null || true
 echo "== staged -> $STAGE"
 ls -la "$STAGE"

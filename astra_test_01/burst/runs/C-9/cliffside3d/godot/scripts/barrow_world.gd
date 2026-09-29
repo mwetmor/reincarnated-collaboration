@@ -109,6 +109,7 @@ const SUN_SCREEN_AZ_DEG := 305.0
 # zero: the terrain is faceted at 0.55 m quads, so a base sitting exactly on the sampled
 # height still shows daylight under one corner when the quad tilts between samples.
 const PROP_SINK_M := 0.02
+const LOD_THRESHOLD_PX := 2.0
 
 var cam: Camera3D
 var sun: DirectionalLight3D
@@ -198,6 +199,14 @@ func _ready() -> void:
 	# the two differ by 1.4 m at the hollow. It returned a number, the number was plausible,
 	# and it was a number about a surface that was no longer in the scene.
 	_select_ground()
+	# THE MESH-LOD ERROR THRESHOLD, 1 px -> 2 px, and it is the frame budget's lever.
+	# T10-1b's dressing put the frame at 16.83 ms against 16.7 (tools/probe_cost.gd). Measured
+	# per asset, every Tripo instance cost ~25 us WHATEVER ITS SIZE ON SCREEN -- a 0.4 m rock as
+	# much as a 1.6 m one -- while the 272-face procedural heather cost ~1 us: vertex work, in
+	# four passes, on meshes whose imported LODs the default 1 px threshold barely uses. At
+	# 2 px: 15.98 ms. At 4: 14.83. At 8: 14.28. Two pixels of silhouette error sits under the
+	# 1.1 px hull pen and the paper grain; four is the next lever if the budget tightens.
+	get_viewport().mesh_lod_threshold = LOD_THRESHOLD_PX
 	_build_camera()
 	_build_light_and_air()
 	_build_surfaces()
@@ -208,6 +217,8 @@ func _ready() -> void:
 		snowfall.global_position = a + up * 9.0 - fwd * 6.0
 	else:
 		await _build_knight()
+	_build_play_bounds()
+	_build_snow()
 	_build_post()
 	_build_hud()
 	_check_key_collisions()
@@ -236,7 +247,15 @@ func _build_camera() -> void:
 	cam.projection = Camera3D.PROJECTION_ORTHOGONAL
 	cam.keep_aspect = Camera3D.KEEP_HEIGHT
 	cam.size = float(_view_height()) / PPM
-	cam.near = 0.05
+	# THE NEAR PLANE SITS 22 m SHORT OF THE AIM, not at 0.05, and the shadow reach follows the
+	# zoom (_shadow_reach) instead of a fixed 110 m. The HYPOTHESIS was that the directional
+	# shadow is fitted from near to max distance and that 0.05..110 m put every prop in the scene
+	# into the shadow pass every frame. MEASURED, it bought nothing: 16.95 ms before, 16.99 after
+	# (tools/probe_cost.gd, ABAB, spreads 0.05/0.11) -- so either the fit does not work that way
+	# or the pass was not the cost. It is kept because it is correct (the frame sits at 60 +- 4 m
+	# of view depth, nothing is nearer than ~48 m) and it concentrates the map's resolution; it
+	# is NOT claimed as a saving.
+	cam.near = CAM_STANDOFF - 22.0
 	cam.far = CAM_STANDOFF + 300.0
 	cam.cull_mask = 0xFFFFF
 	add_child(cam)
@@ -305,7 +324,7 @@ func _build_light_and_air() -> void:
 	env_node.environment = PaintStack.barrow_environment({
 		"fog_height": floor_m + BASIN_MIST_M,
 	})
-	sun.directional_shadow_max_distance = CAM_STANDOFF + SHADOW_REACH_AHEAD
+	sun.directional_shadow_max_distance = _shadow_reach(1.0)
 	add_child(env_node)
 	var sd := PaintStack.sun_screen_dir(sun, cam)
 	var e := sun.global_transform.basis.z
@@ -412,10 +431,14 @@ func _build_surfaces() -> void:
 	# the sizes come down or the generation moves to a thread; either way it has to be a
 	# number before it can be a decision.
 	var t0 := Time.get_ticks_msec()
-	fbm = PaintStack.make_fbm_texture(512, 7411, 4)
+	var fbm_img := PaintStack.make_fbm_image(512, 7411, 4)
+	fbm = ImageTexture.create_from_image(fbm_img)
 	paper = PaintStack.make_paper_texture(512)
 	flake = PaintStack.make_flake_texture(24)
 	var t_tex := Time.get_ticks_msec() - t0
+	# the fbm as raw bytes, for the snow mask's patch noise: mip level 0 is the first 512*512*3
+	# of an RGB8 image, and it is THIS image, not a readback of the texture made from it
+	_fbm_bytes = fbm_img.get_data()
 	var t_tile := Time.get_ticks_msec()
 	_load_ground_textures()
 	t_tile = Time.get_ticks_msec() - t_tile
@@ -458,7 +481,20 @@ func _build_surfaces() -> void:
 	# material, one tile scale, one drift: a mound with its own material would be a second
 	# ground pretending to be a structure.
 	if _flat != null:
-		_mound = _build_mound(ground)
+		# THE MOUND GETS ITS OWN COPY of the ground material, and the copy KEEPS its snow layer.
+		# Under the 3D snow field the ground's layer goes to 0 -- that layer is the milky veil --
+		# but the mound stands up out of the field, so with the ground's material it would come
+		# out bare tile from crown to foot. Same tiles, same splat, same ramp; only snow_amount
+		# differs, which is the one thing that has to.
+		var mound_mat := ground.duplicate() as ShaderMaterial
+		# PATCHIER THAN THE FLOOR WAS: a higher threshold with a wide jitter, so the crown holds
+		# snow and the flanks break up -- a uniform white dome shows none of its 20-30 cm lumps,
+		# because a lump reads by the light and the snow boundary across it, not by an outline
+		mound_mat.set_shader_parameter("snow_threshold", 0.80)
+		mound_mat.set_shader_parameter("snow_jitter", 0.50)
+		mound_mat.set_shader_parameter("snow_soft", 0.12)
+		_mound = _build_mound(mound_mat)
+		_world_mats.append(mound_mat)
 	var t_terr := Time.get_ticks_msec() - t1
 
 	# THE REAL BARROW, OR THE STAND-IN'S HILL -- never a mixture. The 70 placements were
@@ -468,6 +504,8 @@ func _build_surfaces() -> void:
 	var groups: Array = []
 	if (_hf != null or _flat != null) and FileAccess.file_exists(SCENE_JSON):
 		groups = _build_scene_props(stone, rock, wood)
+		var dres := _build_density()
+		_pending_drifts = dres.get("drifts", [])
 	else:
 		var props: Dictionary = world.build_props(self, stone, rock, wood)
 		var tree_meshes: Array = []
@@ -526,7 +564,12 @@ func _load_ground_textures() -> void:
 		splat = PaintStack.splat_weight_texture(SPLAT_PNG, SPLAT_CLASSES.size(), SPLAT_BLUR_PX, 0)
 		_splat = splat.get("tex")
 		if _splat != null:
-			_splat_img = _splat.get_image()
+			_splat_img = splat.get("img") if splat.get("img") != null else _splat.get_image()
+			# THE BYTES THE FAST LOOKUPS READ. Declared, never filled, for one run: every one of
+			# 22,500 mask cells came back "snow" at depth 0.981, the tarn got full snow, and
+			# nothing errored -- _splat_w_fast returns pure snow when its cache is empty, by
+			# design, for the area outside the painting. The per-class tally is what caught it.
+			_splat_bytes = _splat_img.get_data()
 	else:
 		missing.append(SPLAT_PNG)
 	report["ground_textures"] = {
@@ -603,7 +646,8 @@ const MOUND_R := 2.6
 const MOUND_RISE := 1.70
 const MOUND_CELL := 0.12
 const PASSAGE_HALF_W := 1.10
-const PASSAGE_SOFT := 0.35
+const PASSAGE_SOFT := 0.80         # a sloped cutting, not a cliff: at 0.35 the passage walls
+								   # read as one lit vertical plane across the mound
 const WALL_SEGMENTS := 16          # the blocking wall, as boxes, with the passage left open
 
 
@@ -643,10 +687,14 @@ func _mound_h(x: float, z: float) -> float:
 		return 0.0
 	var u: float = clampf(1.0 - pow(r / MOUND_R, 2.0), 0.0, 1.0)
 	var h: float = MOUND_RISE * pow(u, 1.15)
-	# A PERFECT DOME READS AS A TENT. 7 cm of two-octave wobble, faded out at the rim so the
-	# foot still meets the floor cleanly, is enough to make it a mound of earth. Deterministic
-	# (sin/cos, no RNG) so two runs of the capture are the same picture.
-	h += (sin(x * 2.31 + z * 1.07) * 0.045 + sin(x * 5.13 - z * 4.41) * 0.025) * u
+	# A PERFECT DOME READS AS A TENT, and 7 cm of wobble did not stop it (T10-1b: "more relief,
+	# 20-30 cm lumps, not 7 cm"). Three octaves, the largest 0.14 m at a 4.6 m wavelength, so
+	# the crown carries two or three real humps and a hollow; peak excursion 0.26 m. Faded out
+	# at the rim by `u` so the foot still meets the floor, and clamped at zero so a trough near
+	# the rim cannot dig below it. Deterministic (sin, no RNG): one capture, one mound.
+	h += (sin(x * 1.37 + z * 0.61 + 0.4) * 0.14 + sin(x * 2.9 - z * 2.3 + 1.1) * 0.09
+		+ sin(x * 5.13 - z * 4.41) * 0.03) * u
+	h = maxf(h, 0.0)
 	var dd := _door_dir()
 	var along := d.dot(dd)
 	var lat: float = absf(d.x * dd.y - d.y * dd.x)
@@ -746,6 +794,640 @@ func _build_mound(mat: Material) -> MeshInstance3D:
 	return mi
 
 
+# =============================================================================
+#  T10-1b — THE SNOW HE STEPS THROUGH, THE EDGE OF THE WORLD, AND THE DRESSING
+# =============================================================================
+# The coordinator's calls after stills 1, 3, 5 and 10 (verbatim intent):
+#   1. the milky veil is NOT the fog -- it is the ground's own FBM snow blend. SnowField in,
+#      the ground's snow_amount to 0 under it, height fog off in the play area.
+#   2. snow depth follows the splat: snow full, heather thin with tussocks through, rock thin
+#      and patchy, path trodden thin, ice none.
+#   3. bound the play area: the island plus a margin, invisible colliders, the boundary
+#      dressed densely so the edge reads as land.
+#   4. density inside from the kit, three scales, a clear combat floor and a path to the door.
+#   5. heather its own snow rule.  6. the mound 20-30 cm lumps and drift skirts.
+
+const PLAY_MARGIN_M := 2.0
+const SNOW_AREA_M := 34.0
+const WIND := Vector2(0.62, 0.78)
+const DENSITY_SEED := 20260929
+# THE COMBAT FLOOR IS WHERE THE PAINTING ALREADY PUT OPEN GROUND. The splat's path class is a
+# blob at x 2.6..5.7, z -0.7..3.6 -- trodden, open, and exactly where he spawns. It is not a
+# circle picked to look tidy; it is the one place in the concept nobody drew anything on.
+# RE-CENTRED ON THE PAINTING'S OWN CLEARING. The first circle, (4.3, 0.5) r 2.5, was read off
+# the splat's path blob and reached x 6.8 -- into the painting's right-hand outcrop, rejecting
+# eleven painted rocks there. The clearing the painting has is the open snow round the figure,
+# and the figure's painted base unprojects to (3.48, 0.28).
+const COMBAT_C := Vector2(3.48, 0.28)
+const COMBAT_R := 2.1
+const DOOR_MOUTH := Vector2(2.7, -2.9)
+# ON THE ICE MARGIN, not beside it: (1.6, 3.0) sat between three of the scene list's own shore
+# rocks (rock_small at (1.96, 3.00), (1.64, 2.16), a birch at (1.62, 3.46)), and the return leg
+# stopped 0.95 m short of it against one. The concept's shore rocks stay where it painted them.
+# THE WALK STARTS ON THE TARN'S SHORE, INSIDE THE SHORE ROCKS -- and that is a finding, not a
+# preference. The painting lines the tarn with rocks, and T10's list places them: a birch and
+# four small rocks from (1.62, 3.46) to (0.50, 0.66), with gaps between their colliders of
+# 0.06, 0.24, 0.55 and 0.61 m. His capsule is 0.70 m across. Two routes through them were
+# tried and measured: the first slid along a rock 0.95 m short of the ice; the second wedged
+# in the 0.61 m gap for five legs. The concept's shore stays as painted; the walk begins where
+# the ice is in view over the rocks.
+const TARN_EDGE := Vector2(2.6, 1.7)
+const CORRIDOR_R := 0.7
+# THE RETURN LEG'S DRIFT, fixed rather than searched for: it is a waypoint of the walk, so
+# the ground round it and the legs to and from it are cleared of props like the other
+# corridors -- a painted rock across the return leg would stop him dead in the movie.
+const WALK_DRIFT := Vector2(2.9, 0.9)
+# WHERE HE STOPS AT THE DOOR: on the threshold, clear of the posts. DOOR_MOUTH (2.7, -2.9) is
+# the passage mouth and it is BEHIND the door posts from the clearing, so a walk aimed at it
+# slid along a post for 329 frames and never arrived. He fights facing the door, from here.
+const DOOR_STOP := Vector2(3.4, -1.6)       # 0.35 m east of the first try: rock_small at
+											 # (2.66, -0.98) grazed the approach by 0.14 m
+# THE WAY OUT OF THE DOOR GOES EAST FIRST: a scene-list rock_small at (2.66, -0.98) lies 0.10 m
+# off the straight line from the door to the drift.
+const DOOR_BYPASS := Vector2(3.6, -0.6)
+# PER-CLASS SNOW. `mul` scales the depth, `patch` is how much of the class is BARE (compared
+# against a noise field, so the bare share is measured afterwards rather than asserted),
+# `trod` tints it as walked-on. snow full; path thin and trodden so it reads as a path; rock
+# thin and patchy; heather thin and MORE patchy, so its warm tile survives and the tussocks
+# stand out of it; ice none, so the tarn stays bare ice.
+const SNOW_BY_CLASS := {
+	"snow":    {"mul": 1.00, "patch": 0.00, "trod": 0.00},
+	"path":    {"mul": 0.36, "patch": 0.12, "trod": 0.85},
+	"rock":    {"mul": 0.45, "patch": 0.46, "trod": 0.00},
+	"heather": {"mul": 0.24, "patch": 0.60, "trod": 0.00},
+	"ice":     {"mul": 0.00, "patch": 0.00, "trod": 0.00},
+}
+
+var snow: SnowField
+var fog_on := false
+var _density_root: Node3D
+var _density_report := {}
+var _splat_bytes := PackedByteArray()
+var _fbm_bytes := PackedByteArray()
+var _walk_drift := Vector2.ZERO
+var _veil_before := false
+var _pending_drifts: Array = []
+var _clearing_rejects: Array = []
+
+
+func _play_rect() -> Rect2:
+	"""The walkable area: the painted square plus PLAY_MARGIN_M on every side."""
+	return Rect2(_splat_origin - Vector2(PLAY_MARGIN_M, PLAY_MARGIN_M),
+				 _splat_size + Vector2(PLAY_MARGIN_M, PLAY_MARGIN_M) * 2.0)
+
+
+func _build_play_bounds() -> void:
+	"""FOUR INVISIBLE WALLS on the ground's own collision layer, so move_and_slide stops him at
+	the edge of the dressed land rather than letting him walk into 30 m of empty snow. Invisible
+	because the edge is supposed to read as land -- rocks, birches, drifts -- not as a fence;
+	the dressing along the boundary is what the eye sees, the wall is what the body meets."""
+	var r := _play_rect()
+	var body := StaticBody3D.new()
+	body.name = "PlayBounds"
+	body.collision_layer = BarrowFlat.TERRAIN_BIT
+	body.collision_mask = 0
+	add_child(body)
+	var t := 0.6
+	var h := 3.0
+	var specs := [
+		[Vector3(r.position.x + r.size.x * 0.5, h * 0.5, r.position.y - t * 0.5), Vector3(r.size.x + 2 * t, h, t)],
+		[Vector3(r.position.x + r.size.x * 0.5, h * 0.5, r.end.y + t * 0.5), Vector3(r.size.x + 2 * t, h, t)],
+		[Vector3(r.position.x - t * 0.5, h * 0.5, r.position.y + r.size.y * 0.5), Vector3(t, h, r.size.y)],
+		[Vector3(r.end.x + t * 0.5, h * 0.5, r.position.y + r.size.y * 0.5), Vector3(t, h, r.size.y)],
+	]
+	for s in specs:
+		var cs := CollisionShape3D.new()
+		var b := BoxShape3D.new()
+		b.size = s[1]
+		cs.shape = b
+		cs.position = s[0]
+		body.add_child(cs)
+	report["play_bounds"] = {"rect_xz": [snappedf(r.position.x, 0.01), snappedf(r.position.y, 0.01),
+		snappedf(r.size.x, 0.01), snappedf(r.size.y, 0.01)], "margin_m": PLAY_MARGIN_M,
+		"walls": 4, "_": "invisible; the dressing is what the eye meets, the wall what the body meets"}
+
+
+func _splat_w_fast(x: float, z: float) -> PackedFloat32Array:
+	"""The five class weights at (x, z) -- snow, path, rock, heather, ice -- off the SAME packed
+	weight image the ground shader samples, read as bytes (not Image.get_pixel, which allocates
+	a Color per call) and relaxed to pure snow outside the painted square exactly as the shader
+	relaxes it."""
+	var w := PackedFloat32Array([1.0, 0.0, 0.0, 0.0, 0.0])
+	if _splat_bytes.is_empty() or _splat_img == null:
+		return w
+	var iw := _splat_img.get_width()
+	var ih := _splat_img.get_height()
+	var u: float = (x - _splat_origin.x) / _splat_size.x
+	var v: float = (z - _splat_origin.y) / _splat_size.y
+	var dx: float = maxf(maxf(-u, u - 1.0), 0.0) * _splat_size.x
+	var dz: float = maxf(maxf(-v, v - 1.0), 0.0) * _splat_size.y
+	var t: float = clampf(sqrt(dx * dx + dz * dz) / 6.0, 0.0, 1.0)
+	t = t * t * (3.0 - 2.0 * t)
+	if t >= 1.0:
+		return w
+	var px: int = clampi(int(clampf(u, 0.0, 1.0) * float(iw - 1)), 0, iw - 1)
+	var pz: int = clampi(int(clampf(v, 0.0, 1.0) * float(ih - 1)), 0, ih - 1)
+	var o := (pz * iw + px) * 4
+	var f := 1.0 - t
+	var r := float(_splat_bytes[o]) / 255.0 * f
+	var g := float(_splat_bytes[o + 1]) / 255.0 * f
+	var b := float(_splat_bytes[o + 2]) / 255.0 * f
+	var a := float(_splat_bytes[o + 3]) / 255.0 * f
+	w[1] = r
+	w[2] = g
+	w[3] = b
+	w[4] = a
+	w[0] = maxf(1.0 - (r + g + b + a), 0.0)
+	return w
+
+
+func _noise01(x: float, z: float, scale: float, ch := 1) -> float:
+	"""The fbm texture's channel `ch` at (x, z) * scale, wrapped, nearest -- off the bytes."""
+	if _fbm_bytes.is_empty():
+		return 0.5
+	var n := 512
+	var u := fposmod(x * scale, 1.0)
+	var v := fposmod(z * scale, 1.0)
+	var i: int = clampi(int(u * float(n)), 0, n - 1)
+	var j: int = clampi(int(v * float(n)), 0, n - 1)
+	return float(_fbm_bytes[(j * n + i) * 3 + ch]) / 255.0
+
+
+func _dist_to_seg(p: Vector2, a: Vector2, b: Vector2) -> float:
+	var ab := b - a
+	var t: float = clampf((p - a).dot(ab) / maxf(ab.length_squared(), 1e-9), 0.0, 1.0)
+	return p.distance_to(a + ab * t)
+
+
+func _in_clear(p: Vector2, pad := 0.0) -> bool:
+	"""The combat floor and the two corridors -- to the door, and from the tarn edge."""
+	if p.distance_to(COMBAT_C) < COMBAT_R + pad:
+		return true
+	if _dist_to_seg(p, COMBAT_C, DOOR_MOUTH) < CORRIDOR_R + pad:
+		return true
+	if _dist_to_seg(p, TARN_EDGE, COMBAT_C) < CORRIDOR_R + pad:
+		return true
+	if _dist_to_seg(p, WALK_DRIFT, TARN_EDGE) < CORRIDOR_R + pad:
+		return true
+	if _dist_to_seg(p, DOOR_STOP, DOOR_BYPASS) < CORRIDOR_R + pad:
+		return true
+	if _dist_to_seg(p, DOOR_BYPASS, WALK_DRIFT) < CORRIDOR_R + pad:
+		return true
+	if p.distance_to(WALK_DRIFT) < 1.0 + pad:
+		return true
+	return false
+
+
+func _clear_zone_discs() -> Array:
+	var out := [{"c": COMBAT_C, "r": COMBAT_R}]
+	for seg in [[COMBAT_C, DOOR_MOUTH], [TARN_EDGE, COMBAT_C]]:
+		# (the return legs are cleared of PROPS in _in_clear but NOT of drifts: the drift is
+		# the point of the return leg)
+		var a: Vector2 = seg[0]
+		var b: Vector2 = seg[1]
+		var n: int = maxi(int(ceil(a.distance_to(b) / 0.6)), 1)
+		for k in n + 1:
+			out.append({"c": a.lerp(b, float(k) / float(n)), "r": CORRIDOR_R})
+	return out
+
+
+func _snow_mask_grid() -> Dictionary:
+	"""THE SNOW FOLLOWS THE SPLAT, precomputed on a 0.1 m grid over the painted square and its
+	6 m relax band, and handed to SnowField as arrays. Outside it the field is full snow.
+
+	Patchiness is a threshold on an independent noise channel (G, so it does not correlate with
+	the ramp's wash in R): a class with patch 0.52 goes BARE wherever the noise is under 0.52,
+	with a 0.08 soft edge. fbm is not uniform -- it bunches round 0.5 -- so the bare share each
+	class actually gets is MEASURED here and reported, not read off the constant."""
+	var cell := 0.1
+	var org := _splat_origin - Vector2(6.5, 6.5)
+	var size := _splat_size + Vector2(13.0, 13.0)
+	var nx := int(ceil(size.x / cell)) + 1
+	var nz := int(ceil(size.y / cell)) + 1
+	var mul := PackedFloat32Array()
+	var trod := PackedFloat32Array()
+	mul.resize(nx * nz)
+	trod.resize(nx * nz)
+	var names: Array = SPLAT_CLASSES
+	var cls_cells := [0, 0, 0, 0, 0]
+	var cls_bare := [0, 0, 0, 0, 0]
+	var cls_mul := [0.0, 0.0, 0.0, 0.0, 0.0]
+	for j in nz:
+		var z := org.y + float(j) * cell
+		for i in nx:
+			var x := org.x + float(i) * cell
+			var w := _splat_w_fast(x, z)
+			var nv := _noise01(x, z, 0.09, 1) * 0.7 + _noise01(x, z, 0.31, 2) * 0.3
+			var m := 0.0
+			var tr := 0.0
+			var top := 0
+			for c in 5:
+				if w[c] > w[top]:
+					top = c
+				var spec: Dictionary = SNOW_BY_CLASS[names[c]]
+				var keep := smoothstep(float(spec["patch"]) - 0.08, float(spec["patch"]) + 0.08, nv) \
+					if float(spec["patch"]) > 0.0 else 1.0
+				m += w[c] * float(spec["mul"]) * keep
+				tr += w[c] * float(spec["trod"])
+			# THE PATH TO THE DOOR is trodden whatever the splat says under it: a corridor the
+			# player is meant to take has to look like one, and the painting's path class stops
+			# a metre short of the passage.
+			# THE TARN IS BARE: ice suppresses the snow faster than its blend weight alone, so
+			# the 0.35 m feather of the splat does not leave a skin of snow over the shore ice.
+			m *= clampf(1.0 - w[4] * 1.6, 0.0, 1.0)
+			var dd := _dist_to_seg(Vector2(x, z), COMBAT_C, DOOR_MOUTH)
+			if dd < CORRIDOR_R:
+				var k := 1.0 - smoothstep(CORRIDOR_R * 0.55, CORRIDOR_R, dd)
+				m = lerpf(m, minf(m, 0.36), k)
+				tr = maxf(tr, 0.85 * k)
+			mul[j * nx + i] = m
+			trod[j * nx + i] = tr
+			# the per-class tally, inside the painted square only
+			var u := (x - _splat_origin.x) / _splat_size.x
+			var v := (z - _splat_origin.y) / _splat_size.y
+			if u >= 0.0 and u <= 1.0 and v >= 0.0 and v <= 1.0:
+				cls_cells[top] += 1
+				cls_mul[top] += m
+				if m * 0.12 < 0.015:
+					cls_bare[top] += 1
+	var per := {}
+	for c in 5:
+		per[names[c]] = {"cells": cls_cells[c],
+			"mean_depth_mul": snappedf(cls_mul[c] / maxf(float(cls_cells[c]), 1.0), 0.001),
+			"bare_share_base_layer": snappedf(float(cls_bare[c]) / maxf(float(cls_cells[c]), 1.0), 0.001),
+			"spec": SNOW_BY_CLASS[names[c]]}
+	report["snow_by_class"] = per
+	return {"origin": org, "cell_m": cell, "nx": nx, "nz": nz, "mul": mul, "trod": trod}
+
+
+# --- density ------------------------------------------------------------------
+func _est_radius(cls: String, h: float, man: Dictionary, kit: Dictionary) -> float:
+	"""Footprint radius BEFORE placing, to reject overlaps without building and discarding
+	nodes. From the manifests' own raw proportions and the same pitch stretch the placement
+	applies, so it agrees with the fitted AABB to within the model's own asymmetry."""
+	if kit.has(cls):
+		return float(kit[cls].get("footprint_radius_m", 0.5)) * (h / maxf(float(kit[cls].get("height_m", h)), 1e-3))
+	var s: Dictionary = man.get(cls, {})
+	var raw: Array = s.get("raw_aabb_m", [1.0, 1.0, 1.0])
+	var py := 1.0 / cos(deg_to_rad(PL_PITCH_DEG)) if bool(s.get("pitch_correct", true)) else 1.0
+	var k: float = h / maxf(float(raw[1]) * py, 1e-4)
+	return maxf(float(raw[0]), float(raw[2])) * k * 0.5
+
+
+func _free_at_scaled(p: Vector2, r: float, taken: Array, k: float) -> bool:
+	for q in taken:
+		if p.distance_to(q["c"]) < (r + float(q["r"])) * k:
+			return false
+	return true
+
+
+func _free_at(p: Vector2, r: float, taken: Array, pad: float) -> bool:
+	for q in taken:
+		if p.distance_to(q["c"]) < r + float(q["r"]) + pad:
+			return false
+	return true
+
+
+func _build_density() -> Dictionary:
+	"""THE PAINTING'S DRESSING, THEN THE BOUNDARY.
+
+	Inside the painted square the density target is the concept painting itself (the
+	coordinator's refinement): every row of data/barrow_dress_a.json -- the outcrops packed
+	from rock_large along each painted outcrop's base, the junipers where the growth is dark,
+	the heather where it is warm, the dead birches, the fallen trunk -- placed through the same
+	_place_prop as the 70, and REJECTED where it would overlap something already standing (the
+	70 came from the same painting, so the dress and the list meet at the same outcrops), where
+	it would stand on the tarn's ice, or where it would block the combat clearing.
+
+	Outside it, the BOUNDARY: walked at 1.5 m steps, a cluster at most steps, straddling the
+	line, with a drift at each -- so the invisible wall is met among rocks and birches, and the
+	edge reads as land.
+
+	Deterministic: one seed, so two captures are one scene."""
+	var rng := RandomNumberGenerator.new()
+	rng.seed = DENSITY_SEED
+	var man := {}
+	if FileAccess.file_exists(ASSETS_JSON):
+		var mj = JSON.parse_string(FileAccess.get_file_as_string(ASSETS_JSON))
+		if typeof(mj) == TYPE_DICTIONARY:
+			man = mj.get("models", {})
+	var kit := {}
+	if FileAccess.file_exists("res://data/kit_assets.json"):
+		var kj = JSON.parse_string(FileAccess.get_file_as_string("res://data/kit_assets.json"))
+		if typeof(kj) == TYPE_DICTIONARY:
+			for k in kj.get("models", {}):
+				var e: Dictionary = kj["models"][k]
+				if String(e.get("status", "")) == "keep" and ResourceLoader.exists(String(e.get("glb", ""))):
+					kit[k] = e
+	var pitch := 1.0 / cos(deg_to_rad(PL_PITCH_DEG))
+	if _density_root == null:
+		_density_root = Node3D.new()
+		_density_root.name = "Density"
+		add_child(_density_root)
+	var saved_root := _props_root
+	_props_root = _density_root            # _place_prop parents under _props_root
+
+	var taken := []
+	for root in [saved_root, _density_root]:
+		for nm in prop_names_of(root):
+			var n := root.get_node(NodePath(String(nm))) as Node3D
+			var rec: Dictionary = _place_report.get(String(nm), {})
+			var sz: Array = rec.get("local_size_m", [0.5, 0.5, 0.5])
+			taken.append({"c": Vector2(n.global_position.x, n.global_position.z),
+						  "r": maxf(float(sz[0]), float(sz[2])) * 0.5})
+	taken.append({"c": MOUND_XZ, "r": MOUND_R})
+	var pr := _play_rect()
+	var ctr := [3000]                      # an Array: a lambda captures an int BY VALUE
+	var counts := {"painted": 0, "boundary": 0}
+	var by_asset := {}
+	var skips := {"overlap": 0, "ice": 0, "clearing": 0, "outside": 0, "missing": 0}
+	var drifts := []
+
+	var place := func(cls: String, p: Vector2, h: float, yaw: float, tier: String, wm: float) -> bool:
+		var r := _est_radius(cls, h, man, kit)
+		if tier == "painted":
+			if not pr.has_point(p):
+				skips["outside"] += 1
+				return false
+			if _in_clear(p, 0.0):
+				skips["clearing"] += 1
+				_clearing_rejects.append({"asset": cls, "xz": [snappedf(p.x, 0.01), snappedf(p.y, 0.01)]})
+				return false
+			if _splat_w_fast(p.x, p.y)[4] > 0.6:
+				skips["ice"] += 1
+				return false
+			# PAINTED PIECES PACK. An outcrop is rocks touching and overlapping rocks, and heather
+			# grows in the gaps between them; the painting's rows come at 0.6-0.75 m spacing and
+			# the first test here -- 60% of this footprint against the neighbours' full one --
+			# rejected 162 of 250 of them, which is the painting thinned back to T10's sparsity.
+			# Rejected now only when two centres nearly coincide: under 45% of their radii summed.
+			# SHRUBS GROW AMONG THE ROCKS: in the painting every outcrop is laced with juniper and
+			# heather, so a shrub is rejected only when it nearly coincides with something
+			var k_pack := 0.25 if (cls == "juniper" or cls == "heather") else 0.45
+			if not _free_at_scaled(p, r, taken, k_pack):
+				skips["overlap"] += 1
+				return false
+		else:
+			if _in_clear(p, r * 0.5) or _splat_w_fast(p.x, p.y)[4] > 0.25:
+				return false
+			if not _free_at(p, r, taken, 0.12):
+				return false
+		var spec: Dictionary = kit[cls] if kit.has(cls) else man.get(cls, {})
+		var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
+		if not ResourceLoader.exists(glb):
+			skips["missing"] += 1
+			return false
+		var pc: bool = bool(spec.get("pitch_correct", true)) and not kit.has(cls)
+		ctr[0] += 1
+		var e := _place_prop(cls, glb, {"pitch_correct": pc, "yaw_deg": yaw,
+				"width_m": spec.get("width_m", null), "height_m": spec.get("height_m", h)},
+			{}, {"scene_xz": [p.x, p.y], "height_m": h, "yaw_deg": yaw, "width_mul": wm},
+			h, false, pitch, int(ctr[0]))
+		if e.is_empty():
+			return false
+		taken.append({"c": p, "r": maxf(float(e["size_m"][0]), float(e["size_m"][2])) * 0.5})
+		counts[tier] += 1
+		by_asset[cls] = int(by_asset.get(cls, 0)) + 1
+		return true
+
+	# ---- THE PAINTING --------------------------------------------------------
+	var wanted := {}
+	for row in _dress:
+		if bool(row.get("priority", false)):
+			continue                          # the stones, already placed first
+		var cls := String(row.get("asset", ""))
+		wanted[cls] = int(wanted.get(cls, 0)) + 1
+		var xz: Array = row.get("scene_xz", [0.0, 0.0])
+		var yaw = row.get("yaw_deg", null)
+		place.call(cls, Vector2(float(xz[0]), float(xz[1])), float(row.get("height_m", 1.0)),
+			float(yaw) if yaw != null else rng.randf() * 360.0, "painted",
+			float(row.get("width_mul", 1.0)))
+
+	# ---- the BOUNDARY: dense, straddling the line, with a drift at each cluster ----
+	var per := 2.0 * (pr.size.x + pr.size.y)
+	var steps := int(per / 1.5)
+	var pool := ["rock_large", "rock_small", "rock_small", "birch", "juniper", "rock_small",
+				 "birch", "log", "cairn", "rock_large", "juniper"]
+	for s2 in steps:
+		var along := float(s2) / float(steps) * per
+		var edge_p: Vector2
+		var inward: Vector2
+		if along < pr.size.x:
+			edge_p = Vector2(pr.position.x + along, pr.position.y)
+			inward = Vector2(0, 1)
+		elif along < pr.size.x + pr.size.y:
+			edge_p = Vector2(pr.end.x, pr.position.y + (along - pr.size.x))
+			inward = Vector2(-1, 0)
+		elif along < 2.0 * pr.size.x + pr.size.y:
+			edge_p = Vector2(pr.end.x - (along - pr.size.x - pr.size.y), pr.end.y)
+			inward = Vector2(0, -1)
+		else:
+			edge_p = Vector2(pr.position.x, pr.end.y - (along - 2.0 * pr.size.x - pr.size.y))
+			inward = Vector2(1, 0)
+		if rng.randf() > 0.8:
+			continue
+		var tangent := Vector2(inward.y, -inward.x)
+		var base := edge_p + inward * rng.randf_range(-0.5, 0.9) + tangent * rng.randf_range(-0.5, 0.5)
+		for k2 in rng.randi_range(1, 3):
+			var cls3: String = pool[rng.randi() % pool.size()]
+			if not kit.has(cls3) and not man.has(cls3):
+				continue
+			var off := Vector2(rng.randf_range(-0.8, 0.8), rng.randf_range(-0.8, 0.8))
+			var hh3: float
+			match cls3:
+				"rock_large": hh3 = rng.randf_range(0.9, 1.6) * rng.randf_range(0.85, 1.15)
+				"rock_small": hh3 = rng.randf_range(0.35, 0.75) * rng.randf_range(0.85, 1.15)
+				"birch": hh3 = rng.randf_range(2.2, 3.4)
+				"juniper": hh3 = rng.randf_range(0.8, 1.3)
+				_: hh3 = float(kit.get(cls3, {}).get("height_m", 1.0)) * rng.randf_range(0.92, 1.08)
+			place.call(cls3, base + off, hh3, rng.randf() * 360.0, "boundary", 1.0)
+		drifts.append({"c": base - inward * 0.4, "r": rng.randf_range(1.0, 1.7),
+					   "h": rng.randf_range(0.28, 0.55), "squash": rng.randf_range(1.2, 2.0),
+					   "rot": atan2(tangent.y, tangent.x)})
+
+	_props_root = saved_root
+	_density_report = {"seed": DENSITY_SEED, "placed": counts, "by_asset": by_asset,
+		"painted_rows_wanted": wanted, "painted_rows_skipped": skips,
+		"clearing_rejects": _clearing_rejects,
+		"boundary_drifts": drifts.size(), "kit_used": kit.keys(),
+		"_kit_not_used": "rocks and stump are 'superseded', skull 'retired' in kit_assets.json"}
+	report["density"] = _density_report
+	return {"drifts": drifts}
+
+
+func prop_names_of(root: Node) -> Array:
+	var o := []
+	if root != null:
+		for c in root.get_children():
+			o.append(String((c as Node).name))
+	return o
+
+
+func _build_snow() -> void:
+	"""THE SNOW FIELD: every ground-standing prop is an obstacle, radius from its FITTED AABB,
+	and the mound is one too; the depth follows the splat; the combat floor and the corridors
+	take no open-ground drift; the boundary takes the drifts _build_density laid out; and one
+	deliberate drift lies across the return route from the door, so the walk goes through it."""
+	var t0 := Time.get_ticks_msec()
+	snow = SnowField.new()
+	snow.name = "SnowField"
+	snow.fbm_tex = fbm
+	snow.depth_grid = _snow_mask_grid()
+	snow.clear_zones = _clear_zone_discs()
+	var drifts: Array = _pending_drifts.duplicate()
+	# THE WALK'S DRIFT, at its fixed waypoint (see WALK_DRIFT): the return leg wades it.
+	_walk_drift = WALK_DRIFT
+	# UNMASKED: it lies on the painting's path class, where the splat mask would thin any drift
+	# to a third -- and a drift he does not have to wade is not the drift the walk is for
+	drifts.append({"c": _walk_drift, "r": 1.25, "h": 0.55, "squash": 1.5,
+				   "rot": atan2(WIND.y, WIND.x), "unmasked": true})
+	snow.extra_piles = drifts
+	var obstacles := []
+	for root in [_props_root, _density_root]:
+		if root == null:
+			continue
+		for n in root.get_children():
+			var node := n as Node3D
+			var rec: Dictionary = _place_report.get(String(node.name), {})
+			if String(rec.get("asset", "")) == "raven" or rec.is_empty():
+				continue
+			var sz: Array = rec.get("local_size_m", [0.5, 0.5, 0.5])
+			obstacles.append({"pos": node.global_position,
+							  "radius_m": maxf(float(sz[0]), float(sz[2])) * 0.5,
+							  "height_m": float(sz[1])})
+	obstacles.append({"pos": Vector3(MOUND_XZ.x, 0.0, MOUND_XZ.y), "radius_m": MOUND_R,
+					  "height_m": MOUND_RISE})
+	var pr := _play_rect()
+	var ctr := pr.get_center()
+	snow.setup(Rect2(ctr - Vector2(SNOW_AREA_M, SNOW_AREA_M) * 0.5, Vector2(SNOW_AREA_M, SNOW_AREA_M)),
+			   0.0, obstacles, WIND)
+	add_child(snow)
+	if knight != null:
+		snow.track(knight)
+	_ground_mat.set_shader_parameter("snow_amount", 0.0)
+	var br := snow.bake_report()
+	br["obstacles"] = obstacles.size()
+	br["walk_drift_xz"] = [snappedf(_walk_drift.x, 0.01), snappedf(_walk_drift.y, 0.01)]
+	br["walk_drift_depth_m"] = snappedf(snow.depth_at(_walk_drift), 0.001)
+	br["build_ms"] = Time.get_ticks_msec() - t0
+	br["area_xz"] = [snappedf(ctr.x - SNOW_AREA_M * 0.5, 0.01), snappedf(ctr.y - SNOW_AREA_M * 0.5, 0.01),
+					 SNOW_AREA_M, SNOW_AREA_M]
+	report["snow_field"] = br
+
+
+# --- the A/B hooks ------------------------------------------------------------------
+func set_veil_before(on: bool) -> void:
+	"""THE 17:20 LOOK, for the before/after: the ground's own FBM snow blend back on, the 3D
+	snow field hidden, and the height fog as it shipped. Everything else -- pose, camera, grade,
+	pens, props -- identical, so the pair isolates exactly the veil."""
+	_veil_before = on
+	if _ground_mat != null:
+		_ground_mat.set_shader_parameter("snow_amount", 1.0 if on else (0.0 if snow != null else 1.0))
+	if snow != null:
+		snow.set_visible_snow(not on)
+	fog_on = on
+	_apply_stack()
+
+
+func set_snowfield_visible(on: bool) -> void:
+	if snow != null:
+		snow.set_visible_snow(on)
+
+
+func set_density_visible(on: bool) -> void:
+	if _density_root != null:
+		_density_root.visible = on
+
+
+func body_centroid() -> Vector3:
+	"""WHERE HIS BODY IS, which is not always where his node is.
+
+	Measured this pass (tools/drax_pos.gd): in the unarmed idle his Hips sit 0.02 m from his
+	node; in the ARMED idle -- full kit, no input, his own physics loop -- they sit 1.35 m away
+	in +z and 0.2 m higher, and stay there. It is inside the armed animation in knight.gd, which
+	this seam does not edit. It is also why last pass's stills had him up-left of where he
+	stood. So the captures aim at, and place, THIS -- the centroid of his bones -- rather than
+	the node, and report the offset."""
+	if knight == null:
+		return Vector3.ZERO
+	var acc := Vector3.ZERO
+	var n := 0
+	for s in knight.find_children("*", "Skeleton3D", true, false):
+		var sk := s as Skeleton3D
+		for b in sk.get_bone_count():
+			acc += sk.global_transform * sk.get_bone_global_pose(b).origin
+			n += 1
+	return acc / float(maxi(n, 1)) if n > 0 else knight.global_position
+
+
+const ID_COLOURS := {"stone": Color(1, 0, 0), "rock": Color(0, 1, 0), "shrub": Color(0, 0, 1),
+					 "tree": Color(1, 1, 0)}
+const ID_CLASS := {"stone_tall": "stone", "stone_mid": "stone", "stone_short": "stone",
+				   "lintel": "stone", "post": "stone", "rock_large": "rock", "rock_small": "rock",
+				   "cairn": "rock", "juniper": "shrub", "heather": "shrub", "birch": "tree",
+				   "log": "tree"}
+var _id_saved := []
+
+
+func set_class_id_view(on: bool) -> void:
+	"""THE COVERAGE INSTRUMENT'S RENDER: every prop in its class colour, unshaded, on black,
+	and nothing else -- no ground, no snow, no mound, no him, no pens, no grade. The painting is
+	segmented into the same four classes once (tools/barrow_paint_dress.py), and the coverage of
+	a class is the share of the painting's pixels of that class that a 3D object of that class
+	covers in this frame. Every change is recorded with an explicit kind and restored exactly."""
+	if on:
+		_id_saved.clear()
+		for root in [_props_root, _density_root]:
+			if root == null:
+				continue
+			for nm in prop_names_of(root):
+				var node := root.get_node(NodePath(String(nm))) as Node3D
+				var cls := String(ID_CLASS.get(String(_place_report.get(String(nm), {}).get("asset", "")), ""))
+				for mi in node.find_children("*", "MeshInstance3D", true, false):
+					var m := mi as MeshInstance3D
+					_id_saved.append({"kind": "mesh", "n": m, "mat": m.material_override, "vis": m.visible})
+					if cls == "" or String(m.name).ends_with("_ink"):
+						m.visible = false
+						continue
+					var sm := StandardMaterial3D.new()
+					sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+					sm.albedo_color = ID_COLOURS[cls]
+					m.material_override = sm
+		var hide := [knight, _mound, snow, snowfall, gust, post_q]
+		hide.append_array(find_children("BarrowGround", "MeshInstance3D", true, false))
+		for n in hide:
+			if n != null:
+				_id_saved.append({"kind": "node", "n": n, "vis": (n as Node3D).visible})
+				(n as Node3D).visible = false
+		var env := env_node.environment
+		_id_saved.append({"kind": "env", "bg": env.background_mode, "col": env.background_color,
+						  "fog": env.fog_enabled})
+		env.background_mode = Environment.BG_COLOR
+		env.background_color = Color(0, 0, 0)
+		env.fog_enabled = false
+	else:
+		for s in _id_saved:
+			match String(s["kind"]):
+				"mesh":
+					(s["n"] as MeshInstance3D).material_override = s["mat"]
+					(s["n"] as Node3D).visible = bool(s["vis"])
+				"node":
+					(s["n"] as Node3D).visible = bool(s["vis"])
+				"env":
+					var env := env_node.environment
+					env.background_mode = s["bg"]
+					env.background_color = s["col"]
+					env.fog_enabled = s["fog"]
+		_id_saved.clear()
+
+
+func walk_waypoints() -> Dictionary:
+	return {"tarn_edge": TARN_EDGE, "door": DOOR_STOP, "drift": _walk_drift,
+			"combat_c": COMBAT_C, "bypass": DOOR_BYPASS,
+			"route": [TARN_EDGE, COMBAT_C, DOOR_STOP, DOOR_BYPASS, _walk_drift, TARN_EDGE],
+			"fight_at": 2}
+
+
 # --- the real barrow: 70 placements, the measured way ------------------------
 # The scene list in barrow_scene_a.json is 70 instances emitted FOR A NAMED GROUND. Three
 # rules from T10_HANDOFF govern every one of them and each has a silent failure:
@@ -770,6 +1452,66 @@ const PROP_CLASS_TO_SCENE_ASSET := {
 const MEGALITH := ["stone_tall", "stone_mid", "stone_short", "lintel", "post"]
 # see the note at the skip site: two of the eleven birches are inside a megalith
 const DROP_INTERPENETRATING := true
+
+
+func _drop_prop(e: Dictionary) -> void:
+	"""FREE A PLACED PROP AND EVERYTHING THAT STILL POINTS AT IT. A plain queue_free() left its
+	hull-pen meshes in _prop_inks and its ramp in _world_mats; the next set_hull_ink_visible
+	hit a freed object and stopped halfway down the list, so the pen-isolation frames hid
+	SOME of the props' pens and not others -- and nothing said so except a SCRIPT ERROR in a
+	capture log. The pens are removed from the list before the node goes."""
+	var node := e["node"] as Node3D
+	var dead := {}
+	for mi in node.find_children("*_ink", "MeshInstance3D", true, false):
+		dead[mi] = true
+	var kept: Array = []
+	for mi in _prop_inks:
+		if not dead.has(mi):
+			kept.append(mi)
+	_prop_inks = kept
+	var mats := {}
+	for mi in node.find_children("*", "MeshInstance3D", true, false):
+		var mo := (mi as MeshInstance3D).material_override
+		if mo != null:
+			mats[mo] = true
+	var wm: Array[ShaderMaterial] = []
+	for m in _world_mats:
+		if not mats.has(m):
+			wm.append(m)
+	_world_mats = wm
+	_place_report.erase(String(node.name))
+	node.queue_free()
+
+
+var _dress: Array = []
+
+
+func _load_dress() -> Array:
+	var path := "res://data/barrow_dress_a.json"
+	if not FileAccess.file_exists(path):
+		return []
+	var d = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if typeof(d) != TYPE_DICTIONARY:
+		return []
+	report["dress_source"] = {"file": path, "counts": d.get("counts", {}), "frame": d.get("frame", {}),
+		"_how": "tools/barrow_paint_dress.py -- the concept painting segmented once; stones annotated by hand"}
+	_paint_frame = d.get("frame", {})
+	return d.get("instances", [])
+
+
+var _paint_frame := {}
+
+
+func _inside_painted_stone(e: Dictionary, stones: Array) -> Dictionary:
+	"""Is this prop's centre inside a painted stone's footprint (0.8 of its radius)."""
+	var x := float(e["scene_xz"][0])
+	var z := float(e["scene_xz"][1])
+	for q in stones:
+		var r: float = maxf(float(q["size_m"][0]), float(q["size_m"][2])) * 0.5 * 0.8
+		var d := Vector2(x - float(q["scene_xz"][0]), z - float(q["scene_xz"][1])).length()
+		if d < r:
+			return {"asset": q["asset"], "d": d}
+	return {}
 
 
 func _overlaps_placed(e: Dictionary, placed: Array) -> Dictionary:
@@ -823,7 +1565,14 @@ func _prop_params(cls: String) -> Dictionary:
 			# rather than through a second code path.
 			return {"snow_threshold": 2.0, "snow_jitter": 0.0, "snow_soft": 0.05,
 					"mottle_scale": 6.0, "mottle_amp": 0.10, "hatch_scale": 24.0}
-		"birch", "juniper":
+		"juniper":
+			# THE PAINTING'S JUNIPER IS DARK: a dark green-brown clump with a dusting on top. On
+			# the birch rule its twiggy mesh -- mostly small up-facing faces -- took snow on
+			# nearly all of them and came out pale grey, the opposite of what it is there for.
+			return {"snow_threshold": 1.02, "snow_jitter": 0.18, "snow_soft": 0.08,
+					"snow_noise_scale": 3.2, "mottle_scale": 5.0, "mottle_amp": 0.20,
+					"hatch_scale": 22.0, "hatch_amp": 0.08, "mesh_mark": 0.25}
+		"birch":
 			return {"snow_threshold": 0.92, "snow_jitter": 0.20, "snow_soft": 0.08,
 					"snow_noise_scale": 3.2, "mottle_scale": 5.0, "mottle_amp": 0.24,
 					"hatch_scale": 22.0, "hatch_amp": 0.10, "mesh_mark": 0.25}
@@ -917,6 +1666,9 @@ func _build_scene_props(stone_mat: ShaderMaterial, rock_mat: ShaderMaterial,
 	_props_root = Node3D.new()
 	_props_root.name = "BarrowProps"
 	add_child(_props_root)
+	_density_root = Node3D.new()
+	_density_root.name = "Density"
+	add_child(_density_root)
 
 	var by_class := {}
 	var rep_mat := {}
@@ -925,6 +1677,37 @@ func _build_scene_props(stone_mat: ShaderMaterial, rock_mat: ShaderMaterial,
 	var seen := {}
 	var tris := 0
 	var idx := 0
+
+	# THE PAINTED STONES GO IN FIRST, and they win. Nine of the painting's twelve standing
+	# stones were never placed (T10's segmentation found four), and two rows of the scene list
+	# sit ON painted stones: a birch on the big carved spiral stone -- the same mask bleed as
+	# T10_HANDOFF fault 5 -- and a small rock on the snow-capped stone in front of the door.
+	# Placed first, the stones are what the interpenetration rule below tests the old rows
+	# against, so those two drop out by the same rule that already drops birches inside stones.
+	_dress = _load_dress()
+	var painted_stones := []
+	var painted_idx := 0
+	var saved_root := _props_root
+	_props_root = _density_root
+	for row in _dress:
+		if not bool(row.get("priority", false)):
+			continue
+		var cls0 := String(row.get("asset", ""))
+		var spec0: Dictionary = man.get(cls0, {})
+		var glb0 := String(spec0.get("glb", "res://models/barrow/%s.glb" % cls0))
+		if not ResourceLoader.exists(glb0):
+			continue
+		# THEIR OWN COUNTER. Sharing `idx` renamed every scene-list node that came after them --
+		# stone_tall_03 became stone_tall_12 -- and the capture's scale still, which asks for
+		# stone_tall_03 by name, silently fell back to a hand-typed position beside no stone.
+		painted_idx += 1
+		var e0 := _place_prop(cls0, glb0, spec0, sizes, row,
+			float(row.get("height_m", 1.5)) * stone_scale, false, pitch, 2000 + painted_idx)
+		if not e0.is_empty():
+			painted_stones.append(e0)
+			tris += int(e0["tris"])
+	_props_root = saved_root
+	placed.append_array(painted_stones)
 	for row in _scene_list:
 		var cls := String(row.get("asset", ""))
 		idx += 1
@@ -977,6 +1760,13 @@ func _build_scene_props(stone_mat: ShaderMaterial, rock_mat: ShaderMaterial,
 		# and the upstream fault is visible rather than papered over.
 		# TODO(drax): remove when the T10 birch list is re-cut against a second sheet
 		# (T10_HANDOFF fault 2 already queues that sheet).
+		var hit_p := _inside_painted_stone(e, painted_stones)
+		if not hit_p.is_empty() and cls != "heather":
+			skipped.append({"asset": cls, "at": e["scene_xz"],
+							"why": "stands on a PAINTED standing stone -- the painting has a stone here, not a %s" % cls,
+							"gap_m": snappedf(float(hit_p["d"]), 0.001)})
+			_drop_prop(e)
+			continue
 		if DROP_INTERPENETRATING and cls != "heather":
 			var hit := _overlaps_placed(e, placed)
 			if not hit.is_empty():
@@ -984,7 +1774,7 @@ func _build_scene_props(stone_mat: ShaderMaterial, rock_mat: ShaderMaterial,
 								"why": "footprint centre inside %s -- upstream mask overlap"
 									% String(hit["asset"]),
 								"gap_m": snappedf(float(hit["d"]), 0.001)})
-				(e["node"] as Node3D).queue_free()
+				_drop_prop(e)
 				continue
 		placed.append(e)
 		tris += int(e["tris"])
@@ -1072,6 +1862,12 @@ func _place_prop(cls: String, glb: String, spec: Dictionary, sizes: Dictionary,
 		var wk := want / cur
 		fit.scale = Vector3(fit.scale.x * wk, fit.scale.y, fit.scale.z * wk)
 
+	# 3b. the painted stones' +-10%: a WIDTH variation, so the painted height -- the ruler
+	# reading -- stays exactly as measured while the three models stop reading as three copies
+	var wm := float(row.get("width_mul", 1.0))
+	if absf(wm - 1.0) > 1e-4:
+		fit.scale = Vector3(fit.scale.x * wm, fit.scale.y, fit.scale.z * wm)
+
 	# 4. centre the footprint on the origin and put the base at y = 0
 	var b := _node_aabb(root)
 	fit.position = Vector3(-(b.position.x + b.size.x * 0.5), -b.position.y,
@@ -1118,6 +1914,9 @@ func _place_prop(cls: String, glb: String, spec: Dictionary, sizes: Dictionary,
 
 	var saved := PaintStack.adopt_prop(root, fbm, PaintStack.INK, _hull_for(cls) / PPM,
 									   _prop_params(cls))
+	# (Small props DO still cast. Turning shadows off below 0.65 m was tried as a budget cut and
+	# measured at 16.97 -> 16.98 ms -- nothing -- because the cost is per-instance vertex work in
+	# every pass, not the shadow pass; see LOD_THRESHOLD_PX for the lever that was.)
 	var mat = null
 	var tris := 0
 	for e in saved.get("meshes", []):
@@ -1168,8 +1967,13 @@ func _perch_raven(man: Dictionary, sizes: Dictionary, pitch: float, placed: Arra
 			row = r
 	if row.is_empty():
 		return
+	# THE SCENE LIST'S OWN MEGALITHS ONLY. The painted stones are placed first now, and one of
+	# them -- the big carved spiral stone, 2.83 m -- is taller than the serpent stone (2.71 m),
+	# so "the tallest" moved the raven off the stone the painting puts it on.
 	var best = null
 	for e in placed:
+		if (e["node"] as Node3D).get_parent() != _props_root:
+			continue
 		if String(e["asset"]) in MEGALITH and (best == null or float(e["top_y"]) > float(best["top_y"])):
 			best = e
 	if best == null:
@@ -1220,7 +2024,7 @@ func verify_placements(names: Array) -> Dictionary:
 		probe.global_position.y - _surface_y(0.0, 0.0), 0.0001)
 	probe.queue_free()
 	for nm in names:
-		var n := _props_root.get_node_or_null(NodePath(String(nm))) as Node3D
+		var n := prop_node(String(nm))
 		if n == null:
 			out["props"][String(nm)] = {"_": "not found"}
 			continue
@@ -1274,17 +2078,24 @@ func verify_placements(names: Array) -> Dictionary:
 
 
 func prop_names() -> Array:
+	"""Every placed prop -- the scene list's AND the dressing's. The density root was added in
+	T10-1b; a verification that walked only the first root would pass a floating rock in the
+	second without ever looking at it."""
 	var o := []
-	if _props_root != null:
-		for c in _props_root.get_children():
-			o.append(String((c as Node).name))
+	for root in [_props_root, _density_root]:
+		if root != null:
+			for c in root.get_children():
+				o.append(String((c as Node).name))
 	return o
 
 
 func prop_node(nm: String) -> Node3D:
-	if _props_root == null:
-		return null
-	return _props_root.get_node_or_null(NodePath(nm)) as Node3D
+	for root in [_props_root, _density_root]:
+		if root != null:
+			var n := root.get_node_or_null(NodePath(nm)) as Node3D
+			if n != null:
+				return n
+	return null
 
 
 func _build_particles() -> void:
@@ -1384,7 +2195,11 @@ func _apply_stack() -> void:
 	if post_q != null:
 		post_q.visible = stack_on
 	var env := env_node.environment
-	env.fog_enabled = stack_on
+	# FOG OFF BY DEFAULT (T10-1b). Still 10 of the 17:20 set -- the fog off -- was nearly
+	# identical to still 1, and the coordinator read the veil as the ground's own FBM snow
+	# blend, not the fog. It was bought for a hollow the floor no longer has; it is kept only
+	# as the `fog_on` switch the veil before/after uses to reproduce the old look.
+	env.fog_enabled = stack_on and fog_on
 	_update_hud()
 
 
@@ -1394,9 +2209,16 @@ func set_stack(on: bool) -> void:
 
 
 func set_snow(on: bool) -> void:
+	"""N. The snow: the 3D field AND the props' own snow layer. The GROUND's shader layer
+	stays at 0 whenever the field exists -- it is the milky veil the field replaces, and
+	turning it back on here would put both under one key."""
 	snow_on = on
 	for m in _world_mats:
+		if m == _ground_mat and snow != null:
+			continue
 		m.set_shader_parameter("snow_amount", 1.0 if on else 0.0)
+	if snow != null:
+		snow.set_visible_snow(on)
 	_update_hud()
 
 
@@ -1513,11 +2335,23 @@ func _update_hud() -> void:
 # --- what the capture tool needs -----------------------------------------------
 # All of it small, all of it here rather than reached into from tools/, so a later session
 # changing the scene can see what the measurements depend on.
+func _shadow_reach(zoom: float) -> float:
+	"""How far past the camera the shadow map must reach for this zoom: the standoff, the
+	frame's own half-depth on the ground (screen height / tan(pitch) / 2, so 4.05 m at the play
+	zoom), and 6 m for casters just outside the frame whose shadows fall in (0.70x a 3.4 m birch
+	is 2.4 m). The old fixed 110 m put the whole scene in the shadow pass."""
+	var half_depth: float = (float(_view_height()) / PPM / maxf(zoom, 1e-3)) \
+		/ tan(deg_to_rad(PL_PITCH_DEG)) * 0.5
+	return CAM_STANDOFF + half_depth + 6.0
+
+
 func park_camera(aim: Vector3, zoom := 1.0) -> void:
 	"""Stop following him and hold one frame. A measurement taken while the camera is easing
 	toward a target measures the ease."""
 	set_process(false)
 	cam.size = (float(_view_height()) / PPM) / maxf(zoom, 1e-3)
+	if sun != null:
+		sun.directional_shadow_max_distance = _shadow_reach(zoom)
 	_sync_post_scale()
 	look_at_world(aim)
 	if snowfall != null:
@@ -1526,6 +2360,8 @@ func park_camera(aim: Vector3, zoom := 1.0) -> void:
 
 func unpark_camera() -> void:
 	cam.size = float(_view_height()) / PPM
+	if sun != null:
+		sun.directional_shadow_max_distance = _shadow_reach(1.0)
 	_sync_post_scale()
 	set_process(true)
 
@@ -1574,7 +2410,8 @@ func set_hull_ink_visible(on: bool) -> void:
 	# that hid only his would attribute every stone's outline to the screen-space pass -- the
 	# two populations would be mixed in one number and the number would look fine.
 	for mi in _prop_inks:
-		(mi as MeshInstance3D).visible = on
+		if is_instance_valid(mi):
+			(mi as MeshInstance3D).visible = on
 
 
 func freeze_pose(on: bool) -> void:
@@ -1633,7 +2470,8 @@ func set_ramp_on_world(on: bool) -> void:
 
 
 func set_fog(on: bool) -> void:
-	env_node.environment.fog_enabled = on
+	fog_on = on
+	env_node.environment.fog_enabled = stack_on and on
 
 
 func place_knight(x: float, z: float, facing := "NE") -> void:
