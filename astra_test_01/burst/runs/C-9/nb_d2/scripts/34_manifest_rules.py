@@ -38,3 +38,16 @@ if rep.get("hygiene"):
     m["clip_hygiene_on_merge"] = rep["hygiene"]
 json.dump(m, open(MP, "w"), indent=1)
 print("manifest clip_selection written; clips: %s" % clips)
+
+# THE MANIFEST LINT RUNS ON EVERY WRITE. The scene reads speeds from this file
+# at load, so a stale number here is a shipped defect. One survived a
+# correction because the fix was written into a new block and the old block was
+# left saying something else.
+import subprocess
+_g = os.path.join(ROOT, "export", "nb-body.glb")
+if os.path.exists(_g):
+    _r = subprocess.run([sys.executable,
+                         os.path.join(HERE, "48_manifest_lint.py"), MP, _g],
+                        capture_output=True, text=True)
+    print(_r.stdout.rstrip())
+    assert _r.returncode == 0, "manifest disagrees with the GLB -- see above"

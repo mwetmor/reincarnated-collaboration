@@ -1158,10 +1158,12 @@
   "asymmetry_warning": "the strafes are not mirrors and not the same speed"
  },
  "run_armed_trim": {
-  "was": "~4 gait cycles in 2.0 s (60 frames), which broke the scene's walk/run sync group",
-  "now": "ONE gait cycle: 20 frames, 0.667 s, 3.1626 m of travel at 4.74 m/s",
-  "method": "contact onset to the next onset of the SAME foot. The contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed 0.05 m -- a fixed one found NO contacts at all, because this run's feet span 0.000 to 0.104 m and 0.05 sits mid-swing.",
-  "foot_slide": "0.00000 m. The scene measured 316 mm through a crossover on the 4-cycle version; a crossover is two cycles meeting, so one cycle has none.",
+  "numbers_live_in": "locomotion_in_place.run_armed -- duration, keys, cycle travel and speed. THIS BLOCK STATES NO NUMBERS ON PURPOSE.",
+  "why": "this block used to repeat the duration and speed and went stale: it still carried the pre-correction pair after the corrected one had been written into locomotion_in_place. The scene reads speeds from the manifest at load, so a second answer in the same file is a defect in the product, not a documentation slip. scripts/48_manifest_lint.py now fails on it. The stale values themselves are in the commit that removed them -- deliberately NOT quoted here, because a quoted number is indistinguishable from a live one to any check, and adding an exemption for \"historical\" numbers would be a hole wide enough to drive the original defect back through.",
+  "was": "several gait cycles, which broke the walk/run sync group that assumes one cycle per clip",
+  "now": "one gait cycle, contact onset to the next onset of the SAME foot, with the closing key included so the declared duration is the cycle period",
+  "method": "the contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed height -- a fixed one found NO contacts at all, because this run's feet span a range in which the fixed value sat mid-swing and was crossed four times a stride in each direction.",
+  "foot_slide": "zero. The scene measured 316 mm through a crossover on the multi-cycle version; a crossover is two cycles meeting, so one cycle has none.",
   "supersedes": "run_armed_locked -- armed legs now, not unarmed legs with a wrist lock"
  },
  "root_motion": {
@@ -1231,5 +1233,16 @@
    "walk_armed": 0.0,
    "walk_armed_unarmedsrc": 0.0082
   }
+ },
+ "manifest_lint": {
+  "script": "scripts/48_manifest_lint.py",
+  "runs": "python3 scripts/48_manifest_lint.py export/manifest.json export/nb-body.glb",
+  "checks": [
+   "every \"<n> s\" attributed to a clip, against the GLB sampler times",
+   "every \"<n> m/s\" attributed to a clip, against the single declared speed",
+   "the declared speed against the declared travel and duration"
+  ],
+  "attribution": "the clip a number belongs to is taken from the JSON path first, then the text; names shorter than 5 characters are not matched from text, because \"run\" and \"walk\" are words before they are clip names",
+  "limitation": "the speed check is INTERNAL. The clips ship in place, so there is no travel left in the GLB to verify a speed against -- it can only confirm the manifest states one speed rather than several."
  }
 }
