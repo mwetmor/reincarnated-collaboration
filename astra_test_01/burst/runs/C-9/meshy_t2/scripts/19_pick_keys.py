@@ -159,12 +159,32 @@ def grade(png, clip, d, i):
                 head_px=npx, verdict=verdict)
 
 
+def mean_pose_frame(clip, d, candidates):
+    """The candidate frame whose silhouette is nearest the clip's mean pose --
+    the same rule 22_onekey.py uses to pick the key, so the two agree."""
+    import numpy as _np
+    n = {"idle": 12, "walk": 12, "run": 8, "attack": 12}[clip]
+    allm = [np.asarray(Image.open(os.path.join(
+        OUT, clip, "guides_mask", d, "mask_%s_%02d.png" % (d, i))).convert("RGBA"))[..., 3] > 128
+        for i in range(n)]
+    best, bi = -1.0, candidates[0]
+    for c in candidates:
+        mc = allm[c]
+        v = float(_np.mean([(mc & m).sum() / max((mc | m).sum(), 1) for m in allm]))
+        if v > best:
+            best, bi = v, c
+    return bi
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("clip")
     ap.add_argument("layout")
     ap.add_argument("cands", nargs="+")
     ap.add_argument("--dest", default=None)
+    ap.add_argument("--single-key", action="store_true",
+                    help="score each candidate ONLY on the frame that will be "
+                         "used as the single EbSynth key")
     ap.add_argument("--apply", action="store_true",
                     help="write the choice into work/chosen.json")
     args = ap.parse_args()
@@ -222,6 +242,20 @@ def main():
                                                     r["face_ratio"]) for r in rows),
                      ("OK" if ok else "/".join(sorted({r["verdict"] for r in rows
                                                        if r["verdict"] != "ok"})))))
+        if args.single_key:
+            # ONE key ships, so only that key's numbers may choose it. Scoring
+            # on the worst of both keys picked a sheet for a frame the
+            # pipeline will never use: on NE the two-key score chose k3
+            # (face 1.1 / 1.6) over k5, whose key0 -- the frame Y actually
+            # takes -- is the better 1.0.
+            kf = mean_pose_frame(clip, d, keys[d])
+            ki = keys[d].index(kf)
+            for name, v in per.items():
+                r = v["rows"][ki]
+                v["key_frame"] = kf
+                v["acceptable"] = r["verdict"] not in (
+                    "MATTE_FAT", "POSE_FAIL", "HEAD_FAIL", "MISSING")
+                v["score"] = r["iou"] + 0.5 * r["head_iou"] - 0.5 * r["face_ratio"]
         good = {k: v for k, v in per.items() if v["acceptable"]}
         pick = max(good, key=lambda k: good[k]["score"]) if good else None
         rep["dirs"][d] = dict(candidates=per, chosen=pick, keys=keys[d])
@@ -234,9 +268,12 @@ def main():
 
     rep["choice"] = choice
     rep["refire"] = refire
-    drift = {d: round(max(r["face_ratio"]
-                          for r in rep["dirs"][d]["candidates"][choice[d]]["rows"]), 2)
-             for d in choice}
+    def _fr(d):
+        c = rep["dirs"][d]["candidates"][choice[d]]
+        if args.single_key and "key_frame" in c:
+            return c["rows"][keys[d].index(c["key_frame"])]["face_ratio"]
+        return max(r["face_ratio"] for r in c["rows"])
+    drift = {d: round(_fr(d), 2) for d in choice}
     rep["face_drift_ratio"] = drift
     rep["face_drift_flagged"] = sorted([d for d, v in drift.items() if v > FACE_WARN])
     json.dump(rep, open(os.path.join(ROOT, "work", "keys_choice_%s.json" % clip), "w"),

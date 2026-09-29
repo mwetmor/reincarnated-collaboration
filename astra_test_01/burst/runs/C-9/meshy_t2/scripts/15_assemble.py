@@ -103,10 +103,13 @@ def grade(png, clip, d, i):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--chosen", default=os.path.join(ROOT, "work", "chosen.json"))
+    ap.add_argument("--dest", default=None,
+                    help="write the sprites here instead of sprites_t2/")
     ap.add_argument("--source", default=None,
                     help="override the paint root (e.g. a re-matted tree)")
     args = ap.parse_args()
     chosen = json.load(open(args.chosen))
+    dest_root = args.dest or SPR
     man = dict(note="C-9 meshy_t2 painted sprites",
                frame_px=FRAME, px_per_m=110.1852, sole_row=398,
                elevation_deg=19.77,
@@ -165,7 +168,7 @@ def main():
                       % (clip, d, variant,
                          ", ".join("f%02d %s" % (r["frame"], r["verdict"]) for r in bad[:4])))
                 continue
-            dd = os.path.join(SPR, clip, d)
+            dd = os.path.join(dest_root, clip, d)
             os.makedirs(dd, exist_ok=True)
             for i in range(n):
                 shutil.copy(os.path.join(sd, "%s_%s_%02d.png" % (clip, d, i)),
@@ -185,8 +188,8 @@ def main():
                          directions_expected=sum(8 for _ in CLIPS),
                          frames_assembled=sum(e["frames"] for c in man["states"].values()
                                               for e in c.values() if e["assembled"]))
-    os.makedirs(SPR, exist_ok=True)
-    json.dump(man, open(os.path.join(SPR, "manifest.json"), "w"), indent=1)
+    os.makedirs(dest_root, exist_ok=True)
+    json.dump(man, open(os.path.join(dest_root, "manifest.json"), "w"), indent=1)
     print("assembled %d of 32 directions (%d frames); refused %d"
           % (done, man["totals"]["frames_assembled"], len(refused)))
     for r in refused:
