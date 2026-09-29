@@ -34,6 +34,17 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-09-29 — KC2-PLAY SEAL LAP: SUBSTRATE FINAL AT BATON v3.4.2, PORT ON IT, PREREG v1.6 SEALED; GRADED T-A HOLDS FOR Q83(b) · JOIN-1 CHARTER GO ON MATT'S WORD
+
+Unattended seal lap (KC2-PLAY ledger KP-84 → KP-109; governing text `agentic_orchestration/gandalf/notes/2026-09-28-kc2-play-seal-lap-plan.md`). Deltas that GOVERN:
+- **Substrate of record = baton v3.4.2** (model `5cab7433…` / reference `978f54ab…`, ROWSET-shaped pack digests), via v3.4 → v3.4.1 → v3.4.2. It adds: C-2 per-cast energy costs; C-7 insufficient-energy REFUSE; the nine campaign-attack records re-lifted under CRUCIBLE (one slot actually moved; 13 declared oracle holes); the Crucible per-wave damage multiplier (×1.830 @ w160; the DoT limb too); **the global-magnitude fold** (×5.418 @ w160; 344/344 actors; additive into the pool).
+- **Port (godot) on v3.4.2**, `.app` rebuilt and verified by running it: pursuit halts at the oracle's 2.4 m (it had parked 80 % of bodies at max reach); the fold is carried; coverage 89/89. On Matt's seed at w160, **per-body intake ×0.95 the referent**, heal:intake 1.50 (referent 1.01).
+- **Findings that stand:** GD leech is full per-target and UNCAPPED (C-8; no cap anywhere). **The oracle is NOT unkillable:** its sealed stack kills the player at waves 151–156 (KP-100, a corrigendum of KP-95/96); its per-body intake runs ~×1.9 HIGH (**C-11 registered**). C-10's wave physical modifier is sourced but ≤ 2.2 % and ×1.000 at w159/160 (declared, not folded).
+- **Prereg v1.6 SEALED** (`db2c0ca3…`, 29 EXACT); jack-ryan pre-read PASS-WITH-WARNS. **Graded attempt 1 HOLDS for Matt's Q83(b)** (`TA-X-06` cannot be honestly greened under Q87; the run will not exempt its own cap).
+- **JOIN-1 charter v0.3** (`agentic_orchestration/gandalf/notes/2026-09-29-join-1-run-charter.md`): Gate-1 → re-check → re-check 2 = **GO for launch on Matt's word** (queue **Q90**, five forks). The golden master is a numeric fixture diff (J-P2 + Addendum-1, engine `bec6d254` / `291dc582`), because **no EXACT row grades the mitigation order**.
+- **Open on Matt:** Q83(b) · T-C play session (the seal) · Q90. T30 DONE (footage verified + mounted). T32 optional (C-7 resume cadence footage).
+
+
 ### 2026-09-28 — JOIN KEY: R-J1 RULED (the middle sits between Grim Dawn and the other games; levers left open) · ARCHITECT pass filed · Q86–Q89 queued
 
 Matt re-opened the KC2 EoR-arena work with its successor goal: prove the replica, then move it to the middle so other ARPG kits can join. **R-J1 (Matt, class `matt`, KC2-PLAY ledger KP-82):** *"Between grim dawn and the other games.. then we leave levers open specifically to be tweaked as we go to reach our own version of fun."* Course of record: `agentic_orchestration/gandalf/notes/2026-09-28-join-key-architect-pass.md`. Deltas that GOVERN:
