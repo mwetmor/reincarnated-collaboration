@@ -18554,6 +18554,12 @@
       "topic": "Manticore NPC (D3, R-C9-66): per-frame paint in all 8 directions, assembled; NPC walking in the 2D cliffside (local; not pushed)",
       "result": "All 24 new sheets pass matte + gates (pose IoU 0.925-0.985, matte 1.03-1.13); 32 direction-clips, 352 frames; variants 13 b / 11 a. Face gate instrument defect found and fixed (a ratio against N views divided by ~0; blonde hair counted as skin) - no re-fires needed; three N sheets warn (a little warm pink on back-of-head). Head drift, same instrument, PAINT 4.56 overall vs EbSynth X 6.16 / Y 6.70; paint wins 7 of 8 directions (N the exception). NPC capture meshy_t2/captures/T2_npc_cliffside.mp4 + one still per direction; scale shares the Keeper's 0.629167 (true relative size); measured natural speed 64.7 px/s (player 247) - pace is Matt's call. Commits 5ce341589, 78e40538b. Push held: R-C9-61 authorised the route push for T1 - Matt's word for T2.",
       "ts": "2026-09-29T00:41:07"
+    },
+    {
+      "id": "M-C9-T4",
+      "topic": "Test 4 CLOSED: the video branch (Kling v3 Pro vs Ludo x3) on the same knight still + drive video, measured with the T1/T2 drift instrument (pos-matching replaced by 2D rigid registration; rotation deliberately not absorbed; scale-normalised; validated in fallback_check.json and sensitivity.json)",
+      "result": "Helm drift, phase-matched median: Kling 4.66 (~ a +/-5 deg per-frame helm rotation; identity vs still 21.6, a restaged pollaxe, a 24.9 helm excursion f86-97) | Ludo transfer-motion hydra 1.83 (at the instrument floor), forge 0.39 (helm does not move at all), text \"walking\" 1.56 | Astra per-frame benchmark 12.18 = 1.49x its own resolution-matched floor. Motion: Kling alone reproduces the drive cadence (0.882 strides/s) and foot contact; Ludo loses gait (-17% to -35% cadence) and none of its trimmed sheets loops cleanly. Verdict: no video route is a backbone (Ludo holds the face and loses the gait, Kling the reverse); Ludo transfer-motion hydra is the one to keep for look-dev/reference motion (~480 credits per character for 8 dirs x 4 actions; Kling ~$26.88). Both still need the 3D rig for drive videos. The drift source is per-frame GENERATION: the fix is a route where the head is not regenerated per frame (painted texture on the rig, or propagation), which is the Phase 2 route. Commit 29d623b67; t4_close/REPORT.md, METHOD.md, helm_strip.png, helm_quad.mp4. (Subagent could not rm its 2.8 MB scratch - permission denied; left in place, harmless.)",
+      "ts": "2026-09-29T00:52:07"
     }
   ],
   "halts": [
