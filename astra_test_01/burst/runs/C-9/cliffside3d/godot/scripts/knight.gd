@@ -24,6 +24,10 @@ const CHAR_LAYER := 4
 const WALK_PX_S := 247.0          # parallax.json movement, the Keeper's own
 const RUN_PX_S := 494.0
 const CHARACTER := "res://data/character.json"
+# preloaded rather than referenced by class_name: a global class is only visible once the
+# editor's class cache has been rebuilt, and an exported app that loads before that has a
+# character with no gear and no error anybody sees.
+const CharGear := preload("res://scripts/gear.gd")
 const LINE_PX := 1.1
 
 ## THE SLOT IS SWAPPABLE, and nothing below names the knight.
@@ -55,6 +59,8 @@ var _clip := ""
 var _clip_len := {}
 var _figure_scale := 1.0
 var _forward_axis := Vector3(0, 0, -1)
+var gear := {}
+var gear_stack := 0
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -107,7 +113,51 @@ func _ready() -> void:
 	_read_socket()
 	_add_pollaxe()
 	_set_layer(_rig, CHAR_LAYER)
+	_build_gear()
 	play(_roles.get("idle", ""))
+
+
+func _build_gear() -> void:
+	if _skel == null or String(cfg.get("gear_manifest", "")) == "":
+		return
+	var ms: float = maxf(_mesh.global_transform.basis.get_scale().x, 1e-9)
+	gear = CharGear.build(_skel, String(cfg["gear_manifest"]), String(cfg.get("gear_dir", "")),
+						  _figure_scale, ms)
+	set_gear_stack(0)
+	print("gear: %s" % JSON.stringify(gear.get("_report", {})))
+
+
+func gear_stack_count() -> int:
+	return (cfg.get("gear_stacks", []) as Array).size()
+
+
+func set_gear_stack(i: int) -> void:
+	"""Five stacks, cumulative: base / +helmet+bracers / +byrnie / +mantle / +axe+shield.
+
+	The helmet_on morph FOLLOWS THE HELMET and nothing else changes with it. It compresses
+	the crown hair so the helmet has somewhere to sit; leaving it at 0 under a helmet is a
+	head of hair through a steel cap, and setting it without one is a dent in a bare skull."""
+	var stacks: Array = cfg.get("gear_stacks", [])
+	if stacks.is_empty() or gear.is_empty():
+		return
+	gear_stack = posmod(i, stacks.size())
+	var on: Array = stacks[gear_stack]
+	CharGear.show_pieces(gear, on)
+	_set_morph("helmet" in on)
+
+
+func cycle_gear() -> void:
+	set_gear_stack(gear_stack + 1)
+
+
+func _set_morph(on: bool) -> void:
+	var want := String(cfg.get("morph_with_helmet", ""))
+	if want == "" or _mesh == null or _mesh.mesh == null:
+		return
+	for i in _mesh.mesh.get_blend_shape_count():
+		if String(_mesh.mesh.get_blend_shape_name(i)) == want:
+			_mesh.set_blend_shape_value(i, 1.0 if on else 0.0)
+			return
 
 
 func _read_cfg() -> Dictionary:

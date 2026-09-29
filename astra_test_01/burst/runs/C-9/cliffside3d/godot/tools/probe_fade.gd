@@ -70,6 +70,15 @@ func _initialize() -> void:
 	vp.add_child(cam)
 	cam.current = true
 
+	# THE FULL KIT. The fade rule is about his screen box against a card's rect, and the
+	# box comes from the collision capsule rather than the mesh -- so a mantle and a shield
+	# do not change it by themselves. Running it geared is how that assumption gets checked
+	# rather than asserted: what a bigger silhouette changes is how much of him a tree can
+	# take away, which is the number this reports.
+	if scene.knight.gear_stack_count() > 0:
+		scene.knight.set_gear_stack(scene.knight.gear_stack_count() - 1)
+		for i in 8:
+			await process_frame
 	var report := {}
 	report["tree"] = await _walk(TREE, true)
 	report["post"] = await _walk(POST, false)

@@ -1,0 +1,100 @@
+{
+ "_what": "C-9 D2 / gate G3: modular gear in the 3D cliffside. Five stacks on the G key.",
+ "axe_at_the_strike": {
+  "butt_extent_along_travel_m": 0.0191,
+  "haft_to_travel_deg": 91.4,
+  "head_cluster_vertices": 96,
+  "head_extends_back_m": -0.0524,
+  "head_extends_forward_m": 0.071,
+  "head_extent_along_travel_m": -0.0208,
+  "head_leads_butt_by_m": -0.0398,
+  "head_reach_from_hand_m": 0.8511,
+  "strike_frame": 16,
+  "swept": [
+   {
+    "frame": 14,
+    "head_dist_m": 0.8511,
+    "head_step_m": 0.0
+   },
+   {
+    "frame": 15,
+    "head_dist_m": 0.8511,
+    "head_step_m": 0.7627
+   },
+   {
+    "frame": 16,
+    "head_dist_m": 0.8511,
+    "head_step_m": 0.9575
+   },
+   {
+    "frame": 17,
+    "head_dist_m": 0.8511,
+    "head_step_m": 1.0807
+   },
+   {
+    "frame": 18,
+    "head_dist_m": 0.8511,
+    "head_step_m": 0.9741
+   }
+  ],
+  "tracked_head_vertex_speed_m_per_frame": 0.9575,
+  "verdict": "the blade mass is FORWARD of the haft -- the edge arrives first"
+ },
+ "axe_caveat": "Nothing in the export marks the sharp edge, so this measures the HEAD's mass distribution about the haft along the direction of travel, not the edge itself. A named empty or a vertex group on the blade would make it exact. An earlier pass answered 'the poll arrives first' because its head cluster was defined as vertices past 0.6x reach, which on a 0.851 m axe put the boundary at 0.51 m and measured half the haft.",
+ "binding": "Every piece -- including the two the manifest calls `socket` -- is exported as a SKINNED mesh on a skeleton whose 24 bone names match the body's, in the same order. So all six bind the same way: reparented under the body's own Skeleton3D, skin kept, `skeleton` pointed at it. A socketed axe would have needed a BoneAttachment3D and a hand-fitted offset, and an offset fitted by eye is a number nobody can check. Where the manifest's mode and the file's content disagree, the file wins; both are recorded per piece.",
+ "bracers_note": "The manifest lists ten bracer objects. Two are the pair (6258 and 5724 triangles); the other eight are 1-7 triangle slivers totalling 17. Bound anyway, per the manifest; harmless, and worth knowing before 'ten pieces' is reported as working.",
+ "fade_with_the_full_kit": {
+  "controls_still_hold": "bridge_post_1 (unflagged) never fades, at any step; the same flagged tree stays solid at 1.000 while he is in front of it and its rect overlaps him",
+  "silhouette_px_bare_vs_geared": "14698 -> 43731, about 3x",
+  "tree_step_1": "67.6% of him visible -> 86.3% with the fade",
+  "tree_step_5": "68.2% -> 86.6%",
+  "tree_step_8": "78.6% -> 90.0%"
+ },
+ "gear_report_at_load": null,
+ "poke_through": {
+  "screen_instrument_numbers_for_the_record": {
+   "attack": "4.882%",
+   "idle": "7.277%",
+   "run": "4.914%",
+   "walk": "4.018%"
+  },
+  "verdict": "NONE VISIBLE at the play camera on the worst frame of each clip -- see GEAR_poke_worst_frames.jpg.",
+  "why_no_number": "Two numerical instruments were built and neither is reportable, which is the honest answer rather than a number I have shown to be wrong. (1) Screen-space -- body pixels drawn in front of a garment inside its silhouette -- reported 4.0-7.3%, and saving the worst frames showed what it had counted: his own forearm and shield crossing his chest. A body part in front of a garment is not poke-through, and no screen test can tell the two apart. (2) Geometric -- the torso unrolled about its spine into height x angle cells, furthest body vertex against nearest garment vertex -- reported 133-294 mm over renders that are clean, and got WORSE with 15x denser sampling, so it is structurally wrong rather than starved: a crude cell cannot represent a shoulder or an armpit, where body and shell are at radii no single cell comparison can match. A correct test needs a nearest-surface query with the garment's own normals, which is not a thing to bolt on at the end of a session."
+ },
+ "shield_caveat": "GEOMETRIC: shield vertices inside a capsule of radius 0.250 m about the spine, which turns with him. A screen test reported 21-37% 'torso through the shield' and what it had found was a forearm; a world-axis AABB reported 198 of 407 vertices inside a box the torso rattles around in. The capsule number is real and the pictures agree: see GEAR_shield_worst_frames.jpg, where the run frame shows the shield passing through his side.",
+ "shield_vs_torso": {
+  "attack": {
+   "frames": 36,
+   "shield_vertices_sampled": 7315,
+   "worst_frame": 0,
+   "worst_intrusion_depth_m": 0.1756,
+   "worst_vertices_inside_torso_box": 856
+  },
+  "idle": {
+   "frames": 96,
+   "shield_vertices_sampled": 7315,
+   "worst_frame": 78,
+   "worst_intrusion_depth_m": 0.2339,
+   "worst_vertices_inside_torso_box": 978
+  },
+  "run": {
+   "frames": 16,
+   "shield_vertices_sampled": 7315,
+   "worst_frame": 12,
+   "worst_intrusion_depth_m": 0.2487,
+   "worst_vertices_inside_torso_box": 3564
+  },
+  "walk": {
+   "frames": 25,
+   "shield_vertices_sampled": 7315,
+   "worst_frame": 19,
+   "worst_intrusion_depth_m": 0.1273,
+   "worst_vertices_inside_torso_box": 665
+  }
+ },
+ "walk_speed_check": {
+  "bridge_leg": "200.7 canvas px/s",
+  "declared": "201.7 canvas px/s from the clip's own stride",
+  "tree_leg": "201.7 canvas px/s"
+ }
+}

@@ -491,3 +491,5 @@ func set_void_fill(on: bool) -> void:
 func _unhandled_input(e: InputEvent) -> void:
 	if e.is_action_pressed("plate_toggle"):
 		set_plate(not plate_on)
+	elif e.is_action_pressed("gear_cycle") and knight != null:
+		knight.cycle_gear()

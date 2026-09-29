@@ -1,10 +1,23 @@
 {
- "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is. `clips` maps the four ROLES the scene drives to whatever the GLB calls them; a clip named for its role is found without an entry here. `forward_axis` is the direction the MODEL faces in its own space -- MEASURED from the walk clip's stance foot, not read off an exporter's convention -- and the scene derives the yaw from it, so nothing here depends on which way a particular artist built his figure. `walk_px_s`/`run_px_s` come from the clips' own stride, so the feet do not slide.",
- "model": "res://models/T8-barbarian.glb",
+ "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is. `clips` maps the four ROLES the scene drives to whatever the GLB calls them; a clip named for its role is found without an entry here. `forward_axis` is the direction the MODEL faces in its own space -- MEASURED from the walk clip's stance foot, not read off an exporter's convention -- and the scene derives the yaw from it, so nothing here depends on which way a particular artist built his figure. `walk_px_s`/`run_px_s` come from the clips' own stride, so the feet do not slide. `gear_manifest` adds the D2 modular pieces: they are built hidden and shown in stacks by the G key.",
+ "model": "res://models/gear/nb-body.glb",
  "model_height_m": 1.85,
- "forward_axis": [0.0, 0.0, 1.0],
- "clips": {"idle": "idle", "walk": "walk", "run": "run", "attack": "attack"},
- "loop": ["idle", "walk", "run"],
+ "forward_axis": [
+  0.0,
+  0.0,
+  1.0
+ ],
+ "clips": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run",
+  "attack": "attack"
+ },
+ "loop": [
+  "idle",
+  "walk",
+  "run"
+ ],
  "walk_px_s": 201.7,
  "run_px_s": 647.5,
  "outline_px": 1.1,
@@ -16,5 +29,34 @@
   "walk": "stride 1.6680 m per 1.0417 s cycle -> 2.004 m/s at figure scale -> 201.7 canvas px/s (0.82x the Keeper's 247)",
   "run": "stride 3.4272 m per 0.6667 s cycle -> 6.435 m/s at figure scale -> 647.5 canvas px/s (1.31x the Keeper's 494)",
   "instrument": "tools/probe_stride.gd -- median per-frame travel of the lower (stance) foot, read in metres through the Skeleton3D's own transform"
- }
+ },
+ "gear_manifest": "res://data/gear_manifest.json",
+ "gear_dir": "res://models/gear",
+ "gear_stacks": [
+  [],
+  [
+   "helmet",
+   "bracers"
+  ],
+  [
+   "helmet",
+   "bracers",
+   "byrnie"
+  ],
+  [
+   "helmet",
+   "bracers",
+   "byrnie",
+   "mantle"
+  ],
+  [
+   "helmet",
+   "bracers",
+   "byrnie",
+   "mantle",
+   "axe",
+   "shield"
+  ]
+ ],
+ "morph_with_helmet": "helmet_on"
 }
