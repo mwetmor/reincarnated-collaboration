@@ -20680,9 +20680,312 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T10S-snow",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "d2d99156e716fca15d1af85b983eea7676bfb9124bb8b2100971b4e42ea27527",
+      "started": "2026-09-29T18:49:11.178488+00:00",
+      "ended": "2026-09-29T18:53:41.496675+00:00",
+      "minutes": 4.5053051152834085,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-3f865892-23bd-499f-814d-231f70b4d79a.png",
+            "sha256": "c2a1a2173d9af7aff76a527c9290bb61df1730dee67057c93ce952b9a7135eda"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-7aa2f8c3-672a-4be6-9d69-897c3117c3b1.png",
+            "sha256": "8421d687e3622b6f0e80cdcb56b64040cbccda72408d695c4e67a39200463bd5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-dedecdd9-5352-4a6a-8cd0-984794ad4e43.png",
+            "sha256": "b8e7d8b1e3c4cded5bedd2320237ba74cd931b1bb0839a2caca1d79802798715"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-e9a7d4a9-9946-4336-b78c-6ee988a75ae8.png",
+            "sha256": "16098223a5c4aa868a54b024c2d64cb511d6ffd5174e62f56ff0d43b9f5da907"
+          }
+        ]
+      },
+      "receipt_sha256": "5ddb20decaa0246381b0f584d031f5e4151c11587f325f5f09f662d7262697ce",
+      "artifacts": [
+        {
+          "name": "T10S-snow_a.png",
+          "sha256": "b8e7d8b1e3c4cded5bedd2320237ba74cd931b1bb0839a2caca1d79802798715"
+        },
+        {
+          "name": "T10S-snow_b.png",
+          "sha256": "c2a1a2173d9af7aff76a527c9290bb61df1730dee67057c93ce952b9a7135eda"
+        },
+        {
+          "name": "exec-3f865892-23bd-499f-814d-231f70b4d79a.provenance.json",
+          "sha256": "df694eba30d80c60ecf4563aecb64573d233112da879d45400c3ca9e8e4d5246"
+        },
+        {
+          "name": "exec-7aa2f8c3-672a-4be6-9d69-897c3117c3b1.provenance.json",
+          "sha256": "85ade1ad5bd73b89aa2a930bb9471c91f3dff66353bd7ff038a870d75cd69d7d"
+        },
+        {
+          "name": "exec-dedecdd9-5352-4a6a-8cd0-984794ad4e43.provenance.json",
+          "sha256": "e1a8cda69e40697a97e739f3162b1177fbcbde0dc804fb3391bb84883cb5bc0d"
+        },
+        {
+          "name": "exec-e9a7d4a9-9946-4336-b78c-6ee988a75ae8.provenance.json",
+          "sha256": "277fd0e86e1166a83ea3acac5c828e6a6dcce8492b468e9dbd0f9bf1d6cffd2b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-3f865892-23bd-499f-814d-231f70b4d79a.png",
+          "sha256": "c2a1a2173d9af7aff76a527c9290bb61df1730dee67057c93ce952b9a7135eda"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-7aa2f8c3-672a-4be6-9d69-897c3117c3b1.png",
+          "sha256": "8421d687e3622b6f0e80cdcb56b64040cbccda72408d695c4e67a39200463bd5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-dedecdd9-5352-4a6a-8cd0-984794ad4e43.png",
+          "sha256": "b8e7d8b1e3c4cded5bedd2320237ba74cd931b1bb0839a2caca1d79802798715"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df76-7982-8254-bb7cecf0d59b/exec-e9a7d4a9-9946-4336-b78c-6ee988a75ae8.png",
+          "sha256": "16098223a5c4aa868a54b024c2d64cb511d6ffd5174e62f56ff0d43b9f5da907"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10S-bark",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ed7a7ae34319d5c74c2bb2357507d4a9a780fcf771276180f87c6f4458684fe4",
+      "started": "2026-09-29T18:49:11.178398+00:00",
+      "ended": "2026-09-29T18:54:53.982585+00:00",
+      "minutes": 5.7134041347167415,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-0bcca38a-0d0b-4996-b92f-c17df8959190.png",
+            "sha256": "09c1dc7a92290e82178717ca971426b0c0979b990fd7d597f910ef2a18cde4f4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-16b0bde0-3c82-4630-b2df-945a7ef8a502.png",
+            "sha256": "6147289ddb7d1cfeaf95a4cecdc0c30fc1143d811d80cc0ac5e8d02c0303925b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-8cb48d2a-27d9-47f4-a774-89e463a09066.png",
+            "sha256": "ad4723d965ddb5f487500fce2bb9a6f2a5abf01ed7c6b912e36dbb0c258ecfa5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-dd6ffc79-6589-45e8-a2ee-4431cbab121e.png",
+            "sha256": "ebf9dbb88f58a017c954783faf5219086f6bf2e93db98a5519af5e3df75f2b6a"
+          }
+        ]
+      },
+      "receipt_sha256": "864d4dd637c0c479ffb3305f911b176a731675c9ef6def202b24617c427f1575",
+      "artifacts": [
+        {
+          "name": "T10S-bark_a.png",
+          "sha256": "ad4723d965ddb5f487500fce2bb9a6f2a5abf01ed7c6b912e36dbb0c258ecfa5"
+        },
+        {
+          "name": "T10S-bark_b.png",
+          "sha256": "6147289ddb7d1cfeaf95a4cecdc0c30fc1143d811d80cc0ac5e8d02c0303925b"
+        },
+        {
+          "name": "exec-0bcca38a-0d0b-4996-b92f-c17df8959190.provenance.json",
+          "sha256": "37d6849f72c5d6a6959263236956fd0a4181a8c1595147f937058b28c6d0d1a9"
+        },
+        {
+          "name": "exec-16b0bde0-3c82-4630-b2df-945a7ef8a502.provenance.json",
+          "sha256": "c4510663fa44ae9c0b7223c29fd95ba56bb10c03f10f89c7735824e402af7c7d"
+        },
+        {
+          "name": "exec-8cb48d2a-27d9-47f4-a774-89e463a09066.provenance.json",
+          "sha256": "41b27d266b6b8ac4bee3f87e2abf5c10d229710d5f9017ea2353a80c41b5320a"
+        },
+        {
+          "name": "exec-dd6ffc79-6589-45e8-a2ee-4431cbab121e.provenance.json",
+          "sha256": "e4829883bbd38dd3e09e4f1790679ba9578444111967db1b0f80edd57f180de8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-0bcca38a-0d0b-4996-b92f-c17df8959190.png",
+          "sha256": "09c1dc7a92290e82178717ca971426b0c0979b990fd7d597f910ef2a18cde4f4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-16b0bde0-3c82-4630-b2df-945a7ef8a502.png",
+          "sha256": "6147289ddb7d1cfeaf95a4cecdc0c30fc1143d811d80cc0ac5e8d02c0303925b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-8cb48d2a-27d9-47f4-a774-89e463a09066.png",
+          "sha256": "ad4723d965ddb5f487500fce2bb9a6f2a5abf01ed7c6b912e36dbb0c258ecfa5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df54-7621-9216-a1197db1a95e/exec-dd6ffc79-6589-45e8-a2ee-4431cbab121e.png",
+          "sha256": "ebf9dbb88f58a017c954783faf5219086f6bf2e93db98a5519af5e3df75f2b6a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10S-rock",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "b1fcd2b65b912f0dbcc62d0956e416987b4edb521a7005b0676ed5d9970cb531",
+      "started": "2026-09-29T18:49:11.178404+00:00",
+      "ended": "2026-09-29T18:55:13.926085+00:00",
+      "minutes": 6.045807572216533,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-62da65f6-c954-46a7-bb7b-54142313baf7.png",
+            "sha256": "da751f044bf8775bad57f83eb06af92a6f2b1430d50ded6a8591982d3606d27c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-bb4ded48-e44f-4ea6-9dfe-e7d586b6d329.png",
+            "sha256": "9185eaf2c2a8c158dac5b26cdf7142ffb3e75b87deada709fe6e4f3f8ab918ab"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-ed0f8f6c-5e07-4436-bba3-39957055843d.png",
+            "sha256": "edf8a99d90cdeb8e7abd5f578eec43226ded55b8ce9cc7288613e5b49437f3bc"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-edd851a7-5f3d-4bfd-9f91-1f35b74bf35d.png",
+            "sha256": "2d3a6ab6b5113916eb860094cd9a1afa997df527d813c605b61b46adfe1552d5"
+          }
+        ]
+      },
+      "receipt_sha256": "a1954f50d6ce5b59bfba120f078cffb9cdca660b37bd296781d737439eeef5bf",
+      "artifacts": [
+        {
+          "name": "T10S-rock_a.png",
+          "sha256": "da751f044bf8775bad57f83eb06af92a6f2b1430d50ded6a8591982d3606d27c"
+        },
+        {
+          "name": "T10S-rock_b.png",
+          "sha256": "2d3a6ab6b5113916eb860094cd9a1afa997df527d813c605b61b46adfe1552d5"
+        },
+        {
+          "name": "exec-62da65f6-c954-46a7-bb7b-54142313baf7.provenance.json",
+          "sha256": "2e3089a75ea977dd612ccc09232c2aad6989392a20fb34b9521e4814702786eb"
+        },
+        {
+          "name": "exec-bb4ded48-e44f-4ea6-9dfe-e7d586b6d329.provenance.json",
+          "sha256": "aba53128224ce0517b5e49c65e0d4989461a1f6cb1aa9746a2d7cc4481c6d6cb"
+        },
+        {
+          "name": "exec-ed0f8f6c-5e07-4436-bba3-39957055843d.provenance.json",
+          "sha256": "54f15e591c8ed485a330d20c971227e552fe8fcbaef40dc4aed7a09e2a908d97"
+        },
+        {
+          "name": "exec-edd851a7-5f3d-4bfd-9f91-1f35b74bf35d.provenance.json",
+          "sha256": "183766f3b5476d7174fab0b72e5e9bc670a466af79b2d72492b3f51392880549"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-62da65f6-c954-46a7-bb7b-54142313baf7.png",
+          "sha256": "da751f044bf8775bad57f83eb06af92a6f2b1430d50ded6a8591982d3606d27c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-bb4ded48-e44f-4ea6-9dfe-e7d586b6d329.png",
+          "sha256": "9185eaf2c2a8c158dac5b26cdf7142ffb3e75b87deada709fe6e4f3f8ab918ab"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-ed0f8f6c-5e07-4436-bba3-39957055843d.png",
+          "sha256": "edf8a99d90cdeb8e7abd5f578eec43226ded55b8ce9cc7288613e5b49437f3bc"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee7f-df43-7473-a3f5-e9f8cba4aa02/exec-edd851a7-5f3d-4bfd-9f91-1f35b74bf35d.png",
+          "sha256": "2d3a6ab6b5113916eb860094cd9a1afa997df527d813c605b61b46adfe1552d5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 603,
+  "images_used": 615,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -21153,6 +21456,12 @@
       "topic": "T10 Barrow: layout, both heightfields, tiles seam-tested, sheets chosen, 60 instances placed (Tripo in flight)",
       "result": "Heightfields as a drop-in (BarrowHeightfield, same interface as the stand-in): DERIVED (Marigold depth, variant a) relief 4.00 m, median slope 18.8 deg, roughness 0.126 m, the barrow reading as a hollow; AUTHORED (plan from the painting by ruler through the figure + four constants: tarn flat 1.15 m low, mound 1.70 m dome, ground sloping 0.055 m/m, outcrops +0.55 m) relief 2.37 m, median slope 3.1 deg -> the authored one is the DEFAULT, the derived one a toggle. Depth calibration: ground vs figure disagree 1.71x (a systematic monocular bias) -> relief +/-70%, plan positions good. Both grids anchored to the barrow (0,-4) before comparing. Tiles (roll-by-half cross vs own interior; forced-step control 10.26): PASS path b 1.20, heather b 1.43, ice a 1.48; FAIL snow-r1 a 1.68, rock b 1.71, bark a 1.86 (vertical only) -> seam EDITs T10S-snow/rock/bark fired. Sheets by mirror IoU: 8 of 9 at 0.86-0.99; birch 0.674 (the predicted failure) -> procedural birch built (1,436 verts, height forced to 3.36 m). 60 instances with a global stone_scale lever (1.37 = twice his height). Tripo builds slow (1 of 9 after ~25 min). Ordered: heather as procedural ground-cover clumps (not the juniper model), a second prompted pass for more birches.",
       "ts": "2026-09-29T14:49:41"
+    },
+    {
+      "id": "M-C9-ARMED-SCENE",
+      "topic": "The armed motion set wired into the 3D app (Matt feedback on axe/shield handling)",
+      "result": "Armed = holding the axe and shield (equipment, not a stack index): idle_armed / walk_armed / run_armed_locked + the shield_guard_L left-arm layer + grip morphs; unarmed untouched; shield_carry_L removed from the running scene. Graph: locomotion -> strafe -> guard (filtered left arm) -> block (held Blend2) -> slash / chop / bash one-shots. Inputs: Space/click slash, X chop, C bash, hold B/right-click block; while blocking, a strafe-side input side-steps with strafe_L_armed (left only - no mirroring), any other input turns him, no running. Measured: shield vs torso 0 of 2,439 inside a 0.40 m spine capsule in armed idle/walk/run; axe edge leads (slash best margin 0.773, chop 0.927, via axe_edge + seek()); block latency 0.125 s; crossover foot slide median 25.2 / worst 30.4 mm with run_armed_locked (run_armed holds ~4 gait cycles and broke the sync group: worst 316 mm -> one-cycle trim ordered). Found: root motion in idle_armed (0.90 m) and attack_chop (0.75 m) - derooted at load, source fix + a lint rule ordered; a speed bug (speeds derived at 1.25178 driven at 1.10: ground 13.8% faster than the legs; ~40% of the earlier walk-slide floor) fixed; Godot served a stale import cache after the GLB swap (re-import after every swap). Capture d3_armed.mp4; app rebuilt (440 MB).",
+      "ts": "2026-09-29T14:59:57"
     }
   ],
   "halts": [
