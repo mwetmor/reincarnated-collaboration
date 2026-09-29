@@ -1,0 +1,458 @@
+{
+ "_what": "R-C9-70 occluder fade and R-C9-69 barbarian integration. The T7-A.2 files beside these (OCCL_tree.jpg, OCCL_post.jpg, t7a_cliffside3d.mp4) predate both and still show the knight stand-in with no fade; FADE_tree.jpg supersedes OCCL_tree.jpg for the occlusion story.",
+ "barbarian": {
+  "bridge": {
+   "declared_walk_px_s": 201.7,
+   "frames": 64,
+   "frames_with_a_faded_occluder": 0,
+   "from_canvas_px": [
+    3118.1,
+    1468.7
+   ],
+   "label": "across the bridge",
+   "measured_px_s": 200.7,
+   "median_step_px": 8.4,
+   "path_length_canvas_px": 535.2,
+   "seconds": 2.67,
+   "straight_line_px_s": 200.7,
+   "to_canvas_px": [
+    3325.9,
+    975.7
+   ],
+   "travelled_canvas_px": 535.1
+  },
+  "character": {
+   "figure_scale": 1.25177951388889,
+   "model": "T8-barbarian.glb",
+   "run_px_s": 647.5,
+   "walk_px_s": 201.7
+  },
+  "idle_attack": {
+   "attack_clip": "attack",
+   "attack_frames": 36,
+   "canvas_px": [
+    2996.0,
+    1337.0
+   ],
+   "idle_frames": 120,
+   "tail_frames": 24
+  },
+  "side_by_side": {
+   "he_stands_at_canvas_px": [
+    3380.0,
+    1120.0
+   ],
+   "spot_canvas_px": [
+    3459.8798828125,
+    1027.18005371094
+   ]
+  },
+  "tree": {
+   "declared_walk_px_s": 201.7,
+   "frames": 50,
+   "frames_with_a_faded_occluder": 50,
+   "from_canvas_px": [
+    1666.0,
+    2702.0
+   ],
+   "label": "tree path, through the fade",
+   "measured_px_s": 202.0,
+   "median_step_px": 8.4,
+   "path_length_canvas_px": 420.8,
+   "seconds": 2.08,
+   "straight_line_px_s": 201.7,
+   "to_canvas_px": [
+    2086.2,
+    2705.0
+   ],
+   "travelled_canvas_px": 420.2
+  }
+ },
+ "facings": {
+  "expected_px": 154.4,
+  "figure_scale": 1.25177951388889,
+  "rows": [
+   {
+    "bbox_height_canvas_px": 219.1,
+    "facing": "S",
+    "figure_height_canvas_px": 155.2,
+    "screen_bbox": [
+     853.0,
+     336.0,
+     231.0,
+     482.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 201.8,
+    "facing": "SE",
+    "figure_height_canvas_px": 154.3,
+    "screen_bbox": [
+     815.0,
+     326.0,
+     306.0,
+     444.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 194.5,
+    "facing": "E",
+    "figure_height_canvas_px": 154.3,
+    "screen_bbox": [
+     798.0,
+     323.0,
+     355.0,
+     428.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 215.0,
+    "facing": "NE",
+    "figure_height_canvas_px": 155.1,
+    "screen_bbox": [
+     864.0,
+     325.0,
+     209.0,
+     473.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 216.8,
+    "facing": "N",
+    "figure_height_canvas_px": 155.4,
+    "screen_bbox": [
+     865.0,
+     314.0,
+     209.0,
+     477.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 215.5,
+    "facing": "NW",
+    "figure_height_canvas_px": 156.4,
+    "screen_bbox": [
+     801.0,
+     281.0,
+     333.0,
+     474.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 214.1,
+    "facing": "W",
+    "figure_height_canvas_px": 157.4,
+    "screen_bbox": [
+     767.0,
+     270.0,
+     348.0,
+     471.0
+    ]
+   },
+   {
+    "bbox_height_canvas_px": 222.3,
+    "facing": "SW",
+    "figure_height_canvas_px": 156.6,
+    "screen_bbox": [
+     850.0,
+     322.0,
+     203.0,
+     489.0
+    ]
+   }
+  ],
+  "spot_canvas_px": [
+   2285.6201171875,
+   2407.32006835938
+  ],
+  "zoom": 2.2
+ },
+ "fade": {
+  "flagged_props": 13,
+  "measured": {
+   "control_same_tree_up_and_down": [
+    {
+     "canvas_px": [
+      1896.0,
+      2965.0
+     ],
+     "card_depth_at_his_feet_m": -3.61,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": -8.27,
+     "overlaps": false,
+     "step": 0
+    },
+    {
+     "canvas_px": [
+      1896.0,
+      2885.0
+     ],
+     "card_depth_at_his_feet_m": -4.66,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": -7.67,
+     "overlaps": true,
+     "step": 1
+    },
+    {
+     "canvas_px": [
+      1896.0,
+      2805.0
+     ],
+     "card_depth_at_his_feet_m": -5.72,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": -7.07,
+     "overlaps": true,
+     "step": 2
+    },
+    {
+     "canvas_px": [
+      1896.0,
+      2725.0
+     ],
+     "card_depth_at_his_feet_m": -6.77,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.47,
+     "overlaps": true,
+     "step": 3
+    },
+    {
+     "canvas_px": [
+      1896.0,
+      2645.0
+     ],
+     "card_depth_at_his_feet_m": -7.82,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -5.87,
+     "overlaps": true,
+     "step": 4
+    },
+    {
+     "canvas_px": [
+      1896.0,
+      2565.0
+     ],
+     "card_depth_at_his_feet_m": -8.87,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -5.27,
+     "overlaps": true,
+     "step": 5
+    }
+   ],
+   "post": [
+    {
+     "canvas_px": [
+      2996.0,
+      1447.0
+     ],
+     "card_depth_at_his_feet_m": 7.88,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": 3.11,
+     "overlaps": false,
+     "step": 0
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1387.0
+     ],
+     "card_depth_at_his_feet_m": 7.09,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": 3.56,
+     "overlaps": true,
+     "step": 1
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1337.0
+     ],
+     "card_depth_at_his_feet_m": 6.43,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": 3.94,
+     "overlaps": true,
+     "step": 2
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1282.0
+     ],
+     "card_depth_at_his_feet_m": 5.71,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": 4.35,
+     "overlaps": true,
+     "step": 3
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1247.0
+     ],
+     "card_depth_at_his_feet_m": 5.65,
+     "card_faded": false,
+     "fade_opacity": 1.0,
+     "he_is": "in front of it",
+     "knight_depth_m": 4.39,
+     "overlaps": true,
+     "step": 4
+    }
+   ],
+   "tree": [
+    {
+     "canvas_px": [
+      1666.0,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 0
+    },
+    {
+     "canvas_px": [
+      1718.5,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "hidden_faded_px": 2575,
+     "hidden_no_fade_px": 6653,
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "silhouette_px": 14698,
+     "step": 1,
+     "visible_faded_pct": 82.5,
+     "visible_no_fade_pct": 54.7
+    },
+    {
+     "canvas_px": [
+      1771.0,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 2
+    },
+    {
+     "canvas_px": [
+      1823.5,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 3
+    },
+    {
+     "canvas_px": [
+      1876.0,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 4
+    },
+    {
+     "canvas_px": [
+      1928.5,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "hidden_faded_px": 2573,
+     "hidden_no_fade_px": 6745,
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "silhouette_px": 15786,
+     "step": 5,
+     "visible_faded_pct": 83.7,
+     "visible_no_fade_pct": 57.3
+    },
+    {
+     "canvas_px": [
+      1981.0,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 6
+    },
+    {
+     "canvas_px": [
+      2033.5,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "step": 7
+    },
+    {
+     "canvas_px": [
+      2086.0,
+      2705.0
+     ],
+     "card_depth_at_his_feet_m": -7.03,
+     "card_faded": true,
+     "fade_opacity": 0.35,
+     "he_is": "behind it",
+     "hidden_faded_px": 1439,
+     "hidden_no_fade_px": 3399,
+     "knight_depth_m": -6.32,
+     "overlaps": true,
+     "silhouette_px": 15821,
+     "step": 8,
+     "visible_faded_pct": 90.9,
+     "visible_no_fade_pct": 78.5
+    }
+   ]
+  },
+  "rule": "a prop fades only when it carries fade_when_behind, its canvas rect overlaps his, AND it is in front of him; dithered to 35% over 0.2 s, eased in and out",
+  "why_dither_not_alpha": "an alpha fade would reclassify the card as transparent -- no depth write, sorted per object -- which is the defect that made every prop invisible before T7-A.2. A discard keeps it opaque."
+ }
+}

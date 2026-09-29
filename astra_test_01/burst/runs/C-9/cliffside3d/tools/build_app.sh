@@ -168,7 +168,7 @@ if [ -n "$PCK" ]; then
   # preset's include_filter is *.json) and for those a hit does mean the file is there.
   for p in plate/plate_v4.png data/v4_layout.json data/v4_zones.png data/parallax.json \
            data/figure.json data/character.json data/landmarks.json props/props.json \
-           models/knight_t3.glb scripts/cliffside_blockout.gd \
+           models/T8-barbarian.glb scripts/cliffside_blockout.gd \
            layers/sky.png layers/far_ruins.png layers/forest_valley.png layers/mist.png \
            layers/landmarks/cathedral.png layers/landmarks/tower.png \
            props/assets/tree_living_a.png props/assets/bridge_post_1.png; do

@@ -1,12 +1,20 @@
 {
- "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is: swap `model` for the T8 barbarian GLB and the scene takes him, at the same measured figure scale, with the same lights, outline and ground contact. `clips` maps the four ROLES the scene drives to whatever the GLB's AnimationPlayer calls them; a clip named for its role (idle/walk/run/attack) is found without editing this file, and an unmatched role falls back to idle rather than to nothing. `prop` is optional -- a GLB with no matching bone simply carries nothing.",
- "model": "res://models/knight_t3.glb",
- "model_height_m": 1.8,
- "clips": {"idle": "c_idle", "walk": "c_walk", "run": "c_run", "attack": "k_attack"},
+ "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is. `clips` maps the four ROLES the scene drives to whatever the GLB calls them; a clip named for its role is found without an entry here. `forward_axis` is the direction the MODEL faces in its own space -- MEASURED from the walk clip's stance foot, not read off an exporter's convention -- and the scene derives the yaw from it, so nothing here depends on which way a particular artist built his figure. `walk_px_s`/`run_px_s` come from the clips' own stride, so the feet do not slide.",
+ "model": "res://models/T8-barbarian.glb",
+ "model_height_m": 1.85,
+ "forward_axis": [0.0, 0.0, 1.0],
+ "clips": {"idle": "idle", "walk": "walk", "run": "run", "attack": "attack"},
+ "loop": ["idle", "walk", "run"],
+ "walk_px_s": 201.7,
+ "run_px_s": 647.5,
  "outline_px": 1.1,
- "prop": {
-  "model": "res://models/pollaxe_t3.glb",
-  "bone": "RightHand",
-  "socket": "res://data/socket_pollaxe.json"
+ "_measured": {
+  "source": "runs/C-9/nb_t8/artifacts/T8-barbarian.glb, sidecar T8-barbarian.json",
+  "height_from_bones_m": 1.857,
+  "world_height_m": 2.3158,
+  "reads_px": 154.4,
+  "walk": "stride 1.6680 m per 1.0417 s cycle -> 2.004 m/s at figure scale -> 201.7 canvas px/s (0.82x the Keeper's 247)",
+  "run": "stride 3.4272 m per 0.6667 s cycle -> 6.435 m/s at figure scale -> 647.5 canvas px/s (1.31x the Keeper's 494)",
+  "instrument": "tools/probe_stride.gd -- median per-frame travel of the lower (stance) foot, read in metres through the Skeleton3D's own transform"
  }
 }

@@ -99,9 +99,26 @@ shader_type spatial;
 render_mode unshaded, cull_disabled, depth_draw_opaque, shadows_disabled;
 uniform sampler2D tex : source_color, filter_linear_mipmap;
 uniform float cutoff = 0.35;
+uniform float fade = 1.0;
+
+// A DITHER, not an alpha fade, and that is the whole reason this material still works.
+// Fading by ALPHA would reclassify the card as transparent -- no depth write, sorted per
+// object -- which is exactly the defect that made every prop invisible until an hour ago.
+// Discarding a share of the pixels instead keeps the material OPAQUE: it still writes
+// depth, it is still sorted by the depth buffer, and the character behind it shows
+// through the holes. Screen-door transparency, and it costs the sort nothing.
+//
+// Interleaved gradient noise rather than an ordered Bayer matrix: it needs no array
+// literal, it is stable per screen pixel so a held frame does not shimmer, and its
+// pattern reads as a stipple rather than as a grid over painted foliage.
+float ign(vec2 fc) {
+	return fract(52.9829189 * fract(0.06711056 * fc.x + 0.00583715 * fc.y));
+}
+
 void fragment() {
 	vec4 c = texture(tex, UV);
 	if (c.a < cutoff) discard;
+	if (fade < 0.999 && fade <= ign(FRAGCOORD.xy)) discard;
 	ALBEDO = c.rgb;
 }
 """
@@ -221,12 +238,80 @@ static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: Str
 			clearance.append(snappedf(bias, 0.01))
 		mi.global_transform = Transform3D(Basis(flat, Vector3.UP, n), centre - fwd * bias)
 		mi.set_meta("anchor_px", pos)
+		# WHAT THE FADE TEST NEEDS, stored once because none of it changes: the sprite's
+		# canvas rect, the card centre's depth and its canvas y. Both the card and a
+		# standing body rise at the same rate on screen -- the card is stretched by
+		# 1/cos(pitch) precisely so that one canvas pixel of sprite is one canvas pixel of
+		# world -- so the depth difference between them is CONSTANT over their overlap and
+		# one comparison settles it. That is what keeps the fade from flickering as he
+		# walks up and down a trunk.
+		mi.set_meta("rect_px", Rect2(pos - anc, Vector2(w, h)))
+		mi.set_meta("d0", (centre - fwd * bias).dot(fwd))
+		mi.set_meta("y0", pos.y - anc.y + h * 0.5)
+		mi.set_meta("fade_when_behind", bool(a.get("fade_when_behind", false)))
+		mi.set_meta("fade_t", 0.0)
 		placed += 1
 	clearance.sort()
 	return {"placed": placed, "asset_missing": missed, "no_ground_hit": no_ground,
 			"instances": (data["instances"] as Array).size(),
 			"needed_clearance": clearance.size(),
 			"clearance_max_m": clearance[-1] if clearance.size() > 0 else 0.0}
+
+
+const FADE_MIN := 0.35               # how much of an occluder survives, per R-C9-70
+const FADE_SECONDS := 0.2            # in and out
+const FADE_MARGIN_M := 0.05          # how far in front it must be before it counts
+
+
+static func canvas_of(w: Vector3, right: Vector3, up: Vector3) -> Vector2:
+	return Vector2((w.dot(right) - V4_UMIN) * PPM, (V4_VMAX - w.dot(up)) * PPM)
+
+
+static func update_fade(root: Node3D, box: Rect2, char_depth: float, fwd: Vector3,
+						dt: float, enabled := true) -> Dictionary:
+	"""Fade an occluder that is HIDING the character, and only that.
+
+	THE RULE, per the R-C9-70 design call: true 3D depth stays -- a walker uphill of a
+	tree is nearer the camera and in front of it, and we do not imitate the 2D y-sort.
+	What the 2D route's `fade_when_behind` flag was protecting is the player, not the
+	ordering, and that is worth keeping on its own terms: the measured tree sweep hides
+	97% of him at its worst step, which is a lost character.
+
+	So a card fades when three things hold at once -- it carries the flag, its rect
+	overlaps his, and it is in front of him -- and never otherwise. A prop he stands in
+	FRONT of fails the third test and stays solid, which is the half of this that is easy
+	to get wrong and easy to check.
+
+	`dt` is seconds; pass something large to snap, which is what the capture tools do so a
+	measurement is of the settled state rather than of whatever the ease had reached."""
+	var holder := root.get_node_or_null(^"Props")
+	var out := {}
+	if holder == null:
+		return out
+	# one canvas pixel of rise, in metres of depth. Negative: up-screen is nearer.
+	var k: float = Vector3.UP.dot(fwd) / (PPM * PITCH_COS)
+	for c in holder.get_children():
+		var mi := c as MeshInstance3D
+		if mi == null or not mi.has_meta("fade_when_behind"):
+			continue
+		var want := 0.0
+		if enabled and bool(mi.get_meta("fade_when_behind")):
+			var rect: Rect2 = mi.get_meta("rect_px")
+			if rect.intersects(box):
+				# his feet are the reference; the difference is constant over the overlap
+				var y_feet: float = box.position.y + box.size.y
+				var card_d: float = float(mi.get_meta("d0")) \
+					+ (float(mi.get_meta("y0")) - y_feet) * k
+				if card_d < char_depth - FADE_MARGIN_M:
+					want = 1.0
+		var tnow: float = float(mi.get_meta("fade_t"))
+		tnow = move_toward(tnow, want, dt / FADE_SECONDS)
+		mi.set_meta("fade_t", tnow)
+		var op: float = lerpf(1.0, FADE_MIN, smoothstep(0.0, 1.0, tnow))
+		(mi.material_override as ShaderMaterial).set_shader_parameter("fade", op)
+		if op < 0.999:
+			out[String(mi.name)] = snappedf(op, 0.001)
+	return out
 
 
 static func _clearance(space: PhysicsDirectSpaceState3D, pos: Vector2, anc: Vector2,

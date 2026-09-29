@@ -420,6 +420,54 @@ func look_at_canvas(px: Vector2, yaw_deg := 0.0, zoom := 1.0) -> void:
 	CliffWorld.place_background(self, px, aim, r, u3, f)
 
 
+# --- the occluder fade ---------------------------------------------------------
+var fade_enabled := true
+var fade_state := {}
+
+
+func character_box() -> Rect2:
+	"""His screen footprint, in canvas pixels, from his COLLISION CAPSULE rather than his
+	mesh: the capsule is declared by the character slot, so a swapped-in model gets the
+	right box without this scene knowing anything about its skeleton."""
+	if knight == null:
+		return Rect2()
+	var fs: float = knight._figure_scale
+	var h: float = float(knight.cfg.get("model_height_m", 1.8)) * fs
+	var r := 0.35 * fs
+	var o := knight.global_position
+	var lo := Vector2(1e9, 1e9)
+	var hi := Vector2(-1e9, -1e9)
+	for i in 8:
+		var p := o + Vector3(r if (i & 1) else -r,
+							 h if (i & 2) else 0.0,
+							 r if (i & 4) else -r)
+		var c := CliffWorld.canvas_of(p, right, up)
+		lo = Vector2(minf(lo.x, c.x), minf(lo.y, c.y))
+		hi = Vector2(maxf(hi.x, c.x), maxf(hi.y, c.y))
+	return Rect2(lo, hi - lo)
+
+
+func _process(dt: float) -> void:
+	if knight == null:
+		return
+	fade_state = CliffWorld.update_fade(self, character_box(),
+		knight.global_position.dot(fwd), fwd, dt, fade_enabled)
+
+
+func settle_fade() -> void:
+	"""Snap the ease to its target. The capture tools call this so a measurement is of the
+	settled state and not of however far 0.2 s of easing had got by the frame it grabbed."""
+	if knight == null:
+		return
+	fade_state = CliffWorld.update_fade(self, character_box(),
+		knight.global_position.dot(fwd), fwd, 999.0, fade_enabled)
+
+
+func set_fade_enabled(on: bool) -> void:
+	fade_enabled = on
+	settle_fade()
+
+
 func canvas_to_world(px: Vector2, depth_m := 0.0) -> Vector3:
 	return right * (V4_UMIN + px.x / PPM) + up * (V4_VMAX - px.y / PPM) + fwd * depth_m
 

@@ -54,6 +54,7 @@ var _socket_offset := Vector3.ZERO
 var _clip := ""
 var _clip_len := {}
 var _figure_scale := 1.0
+var _forward_axis := Vector3(0, 0, -1)
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -91,7 +92,16 @@ func _ready() -> void:
 		_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 		for n in _anim.get_animation_list():
 			_clip_len[n] = _anim.get_animation(n).length
+	var fa = cfg.get("forward_axis", null)
+	if fa != null:
+		_forward_axis = Vector3(float(fa[0]), 0.0, float(fa[2])).normalized()
 	_bind_roles()
+	# A walk that stops at the end of its 25 frames is not a walk. glTF carries no loop
+	# flag, so Godot imports every clip as one-shot and the ones that cycle are named here.
+	for n in cfg.get("loop", []):
+		var real := String(_roles.get(String(n), String(n)))
+		if _anim != null and _clip_len.has(real):
+			_anim.get_animation(real).loop_mode = Animation.LOOP_LINEAR
 	_style()
 	_add_outline()
 	_read_socket()
@@ -185,7 +195,12 @@ void fragment() { ALBEDO = line_color.rgb; }
 	# 1.1 output px, in metres, in model units. The world camera is orthographic at a
 	# known px/m, so this is one number and not a distance-dependent one.
 	var w_world := float(cfg.get("outline_px", LINE_PX)) / PPM
-	mat.set_shader_parameter("width_model", w_world / maxf(_figure_scale, 1e-6))
+	# The shader offsets VERTEX, which is in the MESH's own units -- and a rig authored in
+	# centimetres arrives with a 0.0109 scale on its mesh node, so a width in metres would
+	# come out a hundredth of the line it should be. Measure the mesh's own scale instead
+	# of assuming the model is in metres.
+	var ms: float = maxf(_mesh.global_transform.basis.get_scale().x, 1e-9)
+	mat.set_shader_parameter("width_model", w_world / maxf(_figure_scale * ms, 1e-9))
 	_outline = MeshInstance3D.new()
 	_outline.name = "InkLine"
 	_outline.mesh = _mesh.mesh
@@ -277,20 +292,50 @@ func canvas_velocity_to_world(v_px: Vector2) -> Vector3:
 
 
 func _physics_process(dt: float) -> void:
-	var dir := Vector2(
+	drive_dir(Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
-	var running := Input.is_action_pressed("run_modifier")
-	var speed := RUN_PX_S if running else WALK_PX_S
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")),
+		Input.is_action_pressed("run_modifier"), dt)
+
+
+func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
+	"""One step of movement from a CANVAS direction.
+
+	Split out of _physics_process so the capture tools can walk him the way the player
+	does -- at his own speed, over the real ground, with move_and_slide -- instead of
+	teleporting him frame to frame. A teleported body is the one thing that cannot show
+	whether the feet slide, which is the whole reason the speeds were taken from the
+	clips' stride in the first place."""
+	# FROM THE CLIPS, not from the Keeper's numbers. A speed chosen independently of the
+	# animation is a foot slide by construction; these come from the stance foot's own
+	# travel per cycle (tools/probe_stride.gd) and are written into character.json.
+	var speed: float = float(cfg.get("run_px_s", RUN_PX_S)) if running \
+		else float(cfg.get("walk_px_s", WALK_PX_S))
 	if dir.length() > 0.01:
 		dir = dir.normalized()
 		facing = _facing_for(dir)
 		state = "run" if running else "walk"
 	else:
+		dir = Vector2.ZERO
 		state = "idle"
+	if hold != "":
+		state = hold
 	var v := canvas_velocity_to_world(dir * speed)
 	velocity = Vector3(v.x, velocity.y - 18.0 * dt, v.z)
+	# MOVE_AND_SLIDE PICKS ITS OWN DELTA, and which one it picks depends on WHERE IT IS
+	# CALLED FROM: the physics delta inside a physics frame, the PROCESS delta outside one.
+	# A capture loop that renders between ticks calls it from a process frame, so a body
+	# asked for 201.7 canvas px/s walked 80.7 -- exactly 24/60 of it, the render delta over
+	# the physics delta -- and the feet slid by that factor. It looked like slope loss and
+	# was not: the ground along both paths measures 0.0 deg from horizontal. Compensating
+	# for whichever delta it is about to use makes one call mean one `dt` of travel, from
+	# anywhere.
+	var implicit: float = get_physics_process_delta_time() if Engine.is_in_physics_frame() \
+		else get_process_delta_time()
+	var boost: float = dt / maxf(implicit, 1e-6)
+	velocity *= boost
 	move_and_slide()
+	velocity /= boost
 	if is_on_floor():
 		velocity.y = 0.0
 	_drive()
@@ -308,11 +353,31 @@ func _facing_for(d: Vector2) -> String:
 
 func _drive() -> void:
 	play(String(_roles.get(state, _roles.get("idle", ""))))
-	# In TRUE 3D the body itself turns; there is no eight-direction set to pick from,
-	# which is the half of this test that costs nothing.
-	var az := deg_to_rad(_azimuth_for(facing))
-	var yaw := Basis(Vector3.UP, az + PI)
+	# In TRUE 3D the body itself turns; there is no eight-direction set to pick from.
+	#
+	# The yaw is DERIVED, not tabulated. It takes the model's own forward axis onto the
+	# world direction that this facing MOVES in -- through canvas_velocity_to_world, the
+	# same map the movement uses -- so the body cannot face one way and travel another, and
+	# a swapped-in model needs no constant here. The previous form added a flat 180 deg,
+	# which is one model's convention written into the scene.
+	var wf := canvas_velocity_to_world(_canvas_dir_for(facing))
+	wf.y = 0.0
+	if wf.length() < 1e-6:
+		wf = Vector3.FORWARD
+	wf = wf.normalized()
+	var mf: Vector3 = _forward_axis
+	var yaw := Basis(Vector3.UP, atan2(wf.x, wf.z) - atan2(mf.x, mf.z))
 	_rig.global_transform = Transform3D(yaw.scaled(Vector3.ONE * _figure_scale), global_position)
+
+
+func _canvas_dir_for(f: String) -> Vector2:
+	"""The canvas direction a facing name means -- the exact inverse of _facing_for."""
+	var names := ["E", "NE", "N", "NW", "W", "SW", "S", "SE"]
+	var i := names.find(f)
+	if i < 0:
+		i = 6
+	var a := deg_to_rad(float(i) * 45.0)
+	return Vector2(cos(a), -sin(a))
 
 
 func play(clip: String) -> void:
