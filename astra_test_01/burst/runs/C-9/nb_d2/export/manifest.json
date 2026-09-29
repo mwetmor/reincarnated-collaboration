@@ -179,5 +179,124 @@
    "N_S_area_larger_pct": 6
   },
   "cause": "a broad-shouldered figure presents his full shoulder span facing N or S and is edge-on facing E or W. The gear REDUCES the effect -- shield and mantle add bulk to the side views -- so bare is the worst case."
+ },
+ "clip_hygiene": {
+  "defect": "the idle clip carried a constant Hips SCALE of 1.176471 = 20/17 exactly -- a 1.70 m source retargeted to a 2.00 m target -- on a rig that is 1.85 m. Hips is the skeleton root, so the whole character was 17.6% bigger whenever he stood still. Present in Meshy's output and carried through T8 and D2 untouched; still present in nb_t8/artifacts/T8-barbarian.glb, which the exporter now neutralises on the way past.",
+  "fix": {
+   "scale_track": "Hips scale set to 1.0 at every key in idle",
+   "reground": "idle root translation.y shifted -16.5286 glTF units (-0.17987 m), ONE constant offset derived from the feet, centred on the loop's min/max so the breathing survives",
+   "metres_per_gltf_unit": 0.01088235,
+   "method": "binary accessor patch; the 21 MB texture is never re-encoded"
+  },
+  "proof_size_is_now_equal": {
+   "instrument": "rigid bone spans -- a uniform scale moves them, no pose can. Silhouette height cannot do this job: at 52.95 deg a vertical metre projects to 0.6025 screen-metres and a FORE-AFT metre to 0.7981, so stride affects screen height more than stature does",
+   "before": {
+    "idle": [
+     0.09991,
+     0.25979,
+     0.34017
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.17647
+   },
+   "after": {
+    "idle": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.0
+   },
+   "spans": [
+    "LeftShoulder-RightShoulder",
+    "Head-head_end",
+    "LeftArm-LeftForeArm"
+   ]
+  },
+  "grounding": {
+   "idle_feet_m": {
+    "before": [
+     0.1705,
+     0.1892
+    ],
+    "after": [
+     -0.0093,
+     0.0093
+    ]
+   },
+   "worst_frame_cm": 0.93,
+   "tolerance_cm": 1.0,
+   "walk_feet_m": [
+    -0.0218,
+    -0.0032
+   ],
+   "run_feet_m": [
+    -0.0397,
+    0.0709
+   ],
+   "note": "walk and run untouched; their renders are byte-identical"
+  },
+  "standing_height_m": {
+   "rest": 1.85,
+   "idle": [
+    1.7192,
+    1.7437
+   ],
+   "walk": [
+    1.792,
+    1.8623
+   ],
+   "run": [
+    1.7255,
+    1.8258
+   ],
+   "attack": [
+    1.516,
+    1.7711
+   ],
+   "note": "the residual idle-to-walk difference is posture: idle pelvis 0.905-0.942 m against walk 0.955-1.034 and rest 1.021. Bone spans are identical, so this is a relaxed stance, not a size change."
+  },
+  "lint": "scripts/21_lint_export.py -- runs inside 15_export_scene.py on every export"
+ },
+ "screen_size_by_clip_S_52.95": {
+  "before_idle": {
+   "h": 323,
+   "w": 148,
+   "area": 28958
+  },
+  "before_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "before_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  },
+  "after_idle": {
+   "h": 275,
+   "w": 126,
+   "area": 21016
+  },
+  "after_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "after_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  }
  }
 }

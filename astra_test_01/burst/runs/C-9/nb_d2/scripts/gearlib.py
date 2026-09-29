@@ -653,3 +653,157 @@ def centre_shaft_on_fist(pc, body, arm, bone, weight_min=0.30):
     pc.data.vertices.foreach_set("co", P2.ravel())
     pc.data.update()
     return float(np.linalg.norm(perp))
+
+
+# ---- clip hygiene ---------------------------------------------------------
+# Meshy's library clips arrive retargeted, and the retarget can ride in the
+# clip as a JOINT SCALE. The barbarian's idle carried a constant Hips scale of
+# 1.176471 -- exactly 20/17, a 1.70 m source retargeted to a 2.00 m target --
+# on a rig that is 1.85 m. Hips is the skeleton root, so the whole character
+# was 17.6% bigger whenever he stood still, and Matt found it by playing:
+# "the walking is smaller than the running which is smaller than the idling."
+#
+# Nothing on the authoring side was going to call it wrong. It is valid glTF,
+# it is what Meshy meant to write, and every clip looked correct on its own.
+# It is only wrong RELATIVE TO THE OTHER CLIPS -- which is why the check that
+# catches it (scripts/21_lint_export.py) reads the shipped file, and why the
+# one that verifies the fix compares clips against each other.
+
+def act_fcurves(act):
+    """Blender 5.x moved fcurves into slotted action layers/strips/channelbags
+    and removed act.fcurves. Handle both so this survives the next upgrade."""
+    if hasattr(act, 'layers') and len(act.layers):
+        out = []
+        for layer in act.layers:
+            for strip in layer.strips:
+                for cb in getattr(strip, 'channelbags', []):
+                    out.extend(cb.fcurves)
+        return out
+    return list(getattr(act, 'fcurves', []))
+
+
+def strip_bone_scale(actions, tol=1e-3):
+    """Set every pose-bone scale track to 1.0. Returns what it changed."""
+    found = {}
+    for act in actions:
+        for fc in act_fcurves(act):
+            if not fc.data_path.endswith('.scale'):
+                continue
+            vals = sorted({round(k.co[1], 6) for k in fc.keyframe_points})
+            if all(abs(v - 1.0) <= tol for v in vals):
+                continue
+            bn = fc.data_path.split('"')[1] if '"' in fc.data_path else '?'
+            found.setdefault(act.name, {}).setdefault(bn, set()).update(vals)
+            for k in fc.keyframe_points:
+                k.co[1] = k.handle_left[1] = k.handle_right[1] = 1.0
+            fc.update()
+    return {a: {b: sorted(v) for b, v in d.items()} for a, d in found.items()}
+
+
+def shift_root(act, arm, bone, dz_world):
+    """Add a constant world +Z offset to a root bone's location track.
+
+    Pose location lives in the BONE'S OWN REST BASIS, not in world space, so a
+    raw += on the Z channel is wrong for any rig whose root bone is not axis
+    aligned -- and it would still look plausible. Convert through the bone's
+    rest matrix, then VERIFY by measuring the feet again."""
+    d_a = arm.matrix_world.inverted().to_3x3() @ Vector((0.0, 0.0, dz_world))
+    d_b = arm.data.bones[bone].matrix_local.to_3x3().inverted() @ d_a
+    n = 0
+    for fc in act_fcurves(act):
+        if fc.data_path != 'pose.bones["%s"].location' % bone:
+            continue
+        for k in fc.keyframe_points:
+            k.co[1] += d_b[fc.array_index]
+            k.handle_left[1] += d_b[fc.array_index]
+            k.handle_right[1] += d_b[fc.array_index]
+        fc.update()
+        n += len(fc.keyframe_points)
+    return [round(float(x), 6) for x in d_b], n
+
+
+FOOT_BONES = ('LeftFoot', 'LeftToeBase', 'RightFoot', 'RightToeBase')
+
+
+def foot_verts(ob, bones=FOOT_BONES):
+    """Vertices whose DOMINANT group is a foot or toe. The lowest point of the
+    whole mesh is usually the feet -- 'usually' is how a dropped hand or a
+    hanging strap ends up defining where the floor is."""
+    gi = {vg.index: vg.name for vg in ob.vertex_groups}
+    keep = [v.index for v in ob.data.vertices if v.groups and
+            gi.get(max(v.groups, key=lambda x: x.weight).group) in bones]
+    return np.array(keep, dtype=int)
+
+
+def world_verts(ob):
+    """Deformed world-space vertices -- the skinned result, not the rest mesh."""
+    ev = ob.evaluated_get(bpy.context.evaluated_depsgraph_get())
+    me = ev.to_mesh()
+    co = np.empty(len(me.vertices) * 3)
+    me.vertices.foreach_get('co', co)
+    co = co.reshape(-1, 3)
+    M = np.array(ob.matrix_world)
+    w = co @ M[:3, :3].T + M[:3, 3]
+    ev.to_mesh_clear()
+    return w
+
+
+def foot_track(arm, meshes, act, masks):
+    """Lowest foot height at every frame of a clip."""
+    sc = bpy.context.scene
+    prev = arm.animation_data.action
+    arm.animation_data.action = act
+    f0, f1 = (int(round(x)) for x in act.frame_range)
+    zs = []
+    for f in range(f0, f1 + 1):
+        sc.frame_set(f)
+        bpy.context.view_layer.update()
+        lo = [world_verts(ob)[masks[ob.name]][:, 2].min()
+              for ob in meshes if len(masks[ob.name])]
+        zs.append(float(min(lo)))
+    arm.animation_data.action = prev
+    return np.array(zs)
+
+
+def reground_from_feet(arm, meshes, act, bone='Hips', target=0.0):
+    """Drop or lift a clip by ONE constant offset so its foot contact sits at
+    `target`, derived from where the feet actually are.
+
+    CONSTANT, not per frame. Per-frame grounding welds the feet to the floor
+    and deletes whatever vertical motion the clip has -- on an idle that is the
+    breathing, and the hips would gain a compensating counter-bob to pay for
+    it. The offset centres the residual (min+max)/2 rather than using the
+    median, because what matters is the WORST frame's distance from the floor.
+
+    Not derived by dividing by the scale factor: the scale and the root
+    translation came from the same retarget but they are not the same error,
+    and the feet are the only ground truth available."""
+    masks = {ob.name: foot_verts(ob) for ob in meshes}
+    before = foot_track(arm, meshes, act, masks)
+    dz = target - float(before.min() + before.max()) / 2.0
+    d_b, n = shift_root(act, arm, bone, dz)
+    after = foot_track(arm, meshes, act, masks)
+    return dict(dz=round(float(dz), 6), basis_delta=d_b, keys=n,
+                before=dict(min=round(float(before.min()), 4),
+                            max=round(float(before.max()), 4)),
+                after=dict(min=round(float(after.min()), 4),
+                           max=round(float(after.max()), 4),
+                           worst_cm=round(float(np.abs(after).max()) * 100, 2)))
+
+
+def bone_span(arm, pairs=(('LeftShoulder', 'RightShoulder'),
+                          ('Head', 'head_end'),
+                          ('LeftArm', 'LeftForeArm'))):
+    """Distances between joint heads, in world space. THE DECISIVE INSTRUMENT
+    for "is he bigger in this clip": a uniform scale changes every one of these
+    and a pose change cannot change any of them, because they are rigid bone
+    spans. Silhouette height mixes the two -- a bent knee shortens it just as a
+    scale does -- so height alone can neither convict nor acquit."""
+    bpy.context.view_layer.update()
+    out = {}
+    for a_, b_ in pairs:
+        if a_ in arm.pose.bones and b_ in arm.pose.bones:
+            pa = (arm.matrix_world @ arm.pose.bones[a_].matrix).translation
+            pb = (arm.matrix_world @ arm.pose.bones[b_].matrix).translation
+            out['%s-%s' % (a_, b_)] = round(float((pa - pb).length), 5)
+    return out

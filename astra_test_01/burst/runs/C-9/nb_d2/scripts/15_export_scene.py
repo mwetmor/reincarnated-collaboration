@@ -49,6 +49,33 @@ arm.animation_data.action = None
 for _pb in arm.pose.bones:
     _pb.matrix_basis = Matrix.Identity(4)
 bpy.context.view_layer.update()
+# ---- clip hygiene: no joint scale, every changed clip grounded from its feet
+# Matt, playing: "the walking is smaller than the running which is smaller than
+# the idling... Definitively, the idling is much larger than the others."
+#
+# The idle carried a constant Hips SCALE of 1.176471 -- exactly 20/17, a 1.70 m
+# source retargeted to a 2.00 m target, on a rig that is 1.85 m. Hips is the
+# skeleton ROOT, so the whole character grew 17.6% whenever he stood still.
+# Valid glTF, and correct-looking in isolation: it is only wrong RELATIVE to
+# the other clips, which is why it survived every check until a player saw all
+# three clips in one session. scripts/21_lint_export.py now fails on it.
+CLIPFIX = dict(stripped=G.strip_bone_scale(bpy.data.actions), grounded={},
+               rest_span=G.bone_span(arm))
+print("stripped joint scale tracks: %s" % json.dumps(CLIPFIX["stripped"]))
+for _act in [a for a in bpy.data.actions if a.name in CLIPFIX["stripped"]]:
+    r = G.reground_from_feet(arm, body, _act)
+    CLIPFIX["grounded"][_act.name] = r
+    print("   re-grounded %-8s by %+.4f m: feet %+.4f..%+.4f -> %+.4f..%+.4f "
+          "(worst frame %.2f cm off the floor)"
+          % (_act.name, r["dz"], r["before"]["min"], r["before"]["max"],
+             r["after"]["min"], r["after"]["max"], r["after"]["worst_cm"]))
+# the rest-pose guard AGAIN -- measuring the feet drove the rig through a clip,
+# and everything below fits against the bone's posed head.
+arm.animation_data.action = None
+for _pb in arm.pose.bones:
+    _pb.matrix_basis = Matrix.Identity(4)
+bpy.context.view_layer.update()
+
 BV, BT, names, W, tree = G.body_sampler(body[0])
 PIECE_REF_H = 1.70                # the rig the pieces were isolated against
 BH_NOW = float(BV[:, 2].max() - BV[:, 2].min())
@@ -276,13 +303,29 @@ if os.path.exists(CP):
 
 mb = export(body, os.path.join(OUT, "nb-body.glb"), anim=True)
 print("wrote nb-body.glb (%.2f MB) with the helmet_on morph and the clips" % mb)
+# THE LINT RUNS ON EVERY EXPORT. An authoring-side check would have passed the
+# 1.176 Hips scale -- it was valid, intentional and locally correct. Only a
+# check that reads the shipped file and compares the clips against each other
+# catches it, so it runs here, on the artefact, every time.
+sys.path.insert(0, HERE)
+import importlib
+_lint = importlib.import_module("21_lint_export") if os.path.exists(
+    os.path.join(HERE, "21_lint_export.py")) else None
+if _lint:
+    _r = _lint.lint(os.path.join(OUT, "nb-body.glb"))
+    for _f in _r["fails"]:
+        print("  LINT FAIL  %s" % _f)
+    for _w in _r["warns"]:
+        print("  LINT WARN  %s" % _w)
+    print("  LINT VERDICT: %s" % _r["verdict"])
+    assert not _r["fails"], "export lint failed -- see above"
 edge_empty = bpy.data.objects.get("axe_edge")
 for nm, mode, made in made_all:
     p = os.path.join(OUT, "%s.glb" % nm)
     sz = export([o for o, _ in made], p,
                 extra=[edge_empty] if (nm == "axe" and edge_empty) else ())
     print("wrote %-12s %.2f MB" % (os.path.basename(p), sz))
-json.dump(dict(body="nb-body.glb", height_m=HGT, scale_applied=round(float(s), 6),
+json.dump(dict(body="nb-body.glb", clip_hygiene=CLIPFIX, height_m=HGT, scale_applied=round(float(s), 6),
                facing="-Y", his_right="-X", up="+Z",
                body_shape_keys=["helmet_on"],
                binding_note=("every piece, sockets included, is a SKINNED mesh "
