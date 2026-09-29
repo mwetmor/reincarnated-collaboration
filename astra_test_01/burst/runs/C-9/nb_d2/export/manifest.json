@@ -1126,15 +1126,36 @@
   }
  },
  "locomotion_in_place": {
-  "rule": "every locomotion clip ships IN PLACE, with its speed here. A speed the consumer can read beats root motion it has to strip, and the scene was already de-rooting at load.",
-  "speeds_m_s": {
-   "run_armed": 4.74,
-   "strafe_L_armed": 0.93,
-   "strafe_R_armed": 0.42,
-   "walk_armed": null
+  "rule": "locomotion ships IN PLACE; speeds here. Measured from the SHIPPED GLB in seconds, not from frame counts.",
+  "measurement": "glTF sampler inputs are TIMES IN SECONDS, so duration is read from the file. The previous manifest said 0.667 s for a clip that is 0.8333 s: FPS was hard-coded 30 where Blender's scene is 24, and the duration was taken over KEYS where it spans INTERVALS. Two errors the same direction, 19% of speed.",
+  "run_armed": {
+   "seconds": 0.8333,
+   "keys": 21,
+   "intervals": 20,
+   "cycle_travel_m": 3.1626,
+   "speed_m_s": 3.795,
+   "note": "one gait cycle, closing key included so the declared duration IS the cycle period"
   },
-  "walk_note": "Meshy's Walk Fight Forward is in-place at source (net root travel 0.004 m), so there is no travel to derive a speed from. The scene sets the walk speed.",
-  "asymmetry_warning": "the two strafes are NOT mirrors and NOT the same speed: 0.93 m/s left against 0.42 m/s right. Do not assume symmetry when blending them."
+  "strafe_L_armed": {
+   "seconds": 2.4583,
+   "keys": 60,
+   "net_speed_m_s": 0.756,
+   "stepping_speed_m_s": 0.844
+  },
+  "strafe_R_armed": {
+   "seconds": 2.4583,
+   "keys": 60,
+   "net_speed_m_s": 0.34,
+   "stepping_speed_m_s": 0.536
+  },
+  "walk_armed": {
+   "seconds": 1.75,
+   "keys": 43,
+   "speed_m_s": null,
+   "note": "in-place at source; the scene sets the walk speed"
+  },
+  "two_methods": "NET is displacement over the whole clip; STEPPING accumulates only over intervals with a foot down. They agree on strafe_L (0.756 / 0.844) and diverge on strafe_R (0.340 / 0.536) because strafe_R has stationary portions. USE STEPPING for a locomotion blend -- it is the speed while he is actually travelling. The scene measured 0.767 and 0.562 contact-filtered; the residual difference is the contact threshold.",
+  "asymmetry_warning": "the strafes are not mirrors and not the same speed"
  },
  "run_armed_trim": {
   "was": "~4 gait cycles in 2.0 s (60 frames), which broke the scene's walk/run sync group",
@@ -1157,5 +1178,58 @@
   },
   "lint_rule": "WARN on net root horizontal travel over 0.05 m in any clip whose name is not locomotion. It reproduced the scene's numbers exactly (0.899 and 0.752 m) on a file this lint had already passed -- it checked root HEIGHT and never once looked sideways.",
   "deroot_note": "de-rooting must happen in ARMATURE space. The first attempt zeroed matrix_basis.translation.x/y, which is the bone's own rotated rest basis, and the drift survived it untouched."
+ },
+ "deroot": {
+  "rule": "remove the FIRST-TO-LAST LINE only, keeping the oscillation",
+  "why": "pinning the hips to their frame-0 horizontal position took the net travel AND the sway: every armed clip came back at 0.000 m hip excursion against 0.072 and 0.078 for the untouched unarmed run and walk. That sway is the weight shifting foot to foot; without it he glides.",
+  "not_least_squares": "a least-squares line minimises total error but does not pass through the endpoints, so the residual ends somewhere other than where it started and idle_armed still tripped the drift rule. The endpoint line makes residual[0] == residual[-1] by construction: net travel exactly zero.",
+  "hip_sway_m": {
+   "run_armed": {
+    "before": 0.0,
+    "after": 0.137
+   },
+   "strafe_L_armed": {
+    "before": 0.0,
+    "after": 0.1838
+   },
+   "strafe_R_armed": {
+    "before": 0.0,
+    "after": 0.1772
+   },
+   "idle_armed": {
+    "before": 0.0,
+    "after": 0.5277
+   },
+   "walk_armed": {
+    "before": 0.0,
+    "after": 0.0818
+   }
+  },
+  "reference_untouched": {
+   "run": 0.0716,
+   "walk": 0.0783
+  },
+  "idle_armed_note": "0.528 m of sway is real -- Meshy's Axe Stance steps -- and its net travel is 0.0",
+  "net_travel_after": {
+   "attack": 0.0027,
+   "attack_chop": 0.7519,
+   "block": 0.0001,
+   "idle": 0.0004,
+   "idle_armed": 0.0,
+   "run": 0.0,
+   "run_armed": 0.0,
+   "run_armed_L": 0.0032,
+   "run_armed_R": 0.0061,
+   "run_armed_diagblend_REJECTED": 0.0213,
+   "run_armed_locked": 0.0,
+   "shield_bash": 0.0021,
+   "shield_carry_L": 0.0,
+   "shield_guard_L": 0.0,
+   "strafe_L_armed": 0.0,
+   "strafe_R_armed": 0.0,
+   "walk": 0.0082,
+   "walk_armed": 0.0,
+   "walk_armed_unarmedsrc": 0.0082
+  }
  }
 }

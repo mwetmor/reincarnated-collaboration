@@ -1,0 +1,99 @@
+{
+ "attack_chop": {
+  "frames_in": [
+   0,
+   184
+  ],
+  "net_root_travel_m": 0.7519,
+  "action": "left rooted on purpose (the scene roots the lunge)"
+ },
+ "idle_armed": {
+  "frames_in": [
+   0,
+   147
+  ],
+  "net_root_travel_m": 0.0,
+  "frames_out": [
+   0,
+   147
+  ],
+  "derooted": true
+ },
+ "run_armed": {
+  "frames_in": [
+   0,
+   20
+  ],
+  "net_root_travel_m": 0.0,
+  "speed_m_s": 0.0,
+  "frames_out": [
+   0,
+   20
+  ],
+  "derooted": true
+ },
+ "strafe_L_armed": {
+  "frames_in": [
+   0,
+   59
+  ],
+  "net_root_travel_m": 0.0,
+  "speed_m_s": 0.0,
+  "frames_out": [
+   0,
+   59
+  ],
+  "derooted": true
+ },
+ "strafe_R_armed": {
+  "frames_in": [
+   1,
+   60
+  ],
+  "net_root_travel_m": 0.8359,
+  "speed_m_s": 0.34,
+  "frames_out": [
+   0,
+   59
+  ],
+  "derooted": true
+ },
+ "walk_armed": {
+  "frames_in": [
+   0,
+   42
+  ],
+  "net_root_travel_m": 0.0,
+  "speed_m_s": 0.0,
+  "frames_out": [
+   0,
+   42
+  ],
+  "derooted": true
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "clips": [
+   "attack",
+   "attack_chop",
+   "block",
+   "idle",
+   "idle_armed",
+   "run",
+   "run_armed",
+   "run_armed_L",
+   "run_armed_R",
+   "run_armed_diagblend_REJECTED",
+   "run_armed_locked",
+   "shield_bash",
+   "shield_carry_L",
+   "shield_guard_L",
+   "strafe_L_armed",
+   "strafe_R_armed",
+   "walk",
+   "walk_armed",
+   "walk_armed_unarmedsrc"
+  ]
+ }
+}
