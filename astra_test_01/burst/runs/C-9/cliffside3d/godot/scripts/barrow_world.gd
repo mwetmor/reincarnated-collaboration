@@ -399,8 +399,8 @@ func _build_post() -> void:
 	post_mat = PaintStack.post_material(paper, PaintStack.INK, {
 		"line_px": 1.25,
 		"depth_edge_px": 3.4,
-		"normal_edge": 0.60,
-		"normal_weight": 0.85,
+		"normal_edge": 1.05,
+		"normal_weight": 0.30,
 		"ink_gain": 1.15,
 		"ref_m_per_px": PLAY_M_PER_PX,
 	})
@@ -412,7 +412,8 @@ func _build_post() -> void:
 											  int(round(PaintStack.INK.g * 255.0)),
 											  int(round(PaintStack.INK.b * 255.0))]},
 		"screen_space": {"operator": "Roberts cross on linear depth and the view-space normal buffer",
-						 "line_px": 1.25, "depth_edge_m": 0.055, "normal_edge": 0.60},
+						 "line_px": 1.25, "depth_edge_px": 3.4, "normal_edge": 1.05,
+						 "normal_weight": 0.30},
 		"hull": "kept on the character and RE-ISSUED in the same colour with fog_disabled, so the two lines are one pen",
 	}
 

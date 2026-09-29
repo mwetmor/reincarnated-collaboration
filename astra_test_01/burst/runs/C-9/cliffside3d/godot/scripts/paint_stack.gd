@@ -249,8 +249,20 @@ uniform float ref_m_per_px = 0.00994;    // the play camera's own, the tuning re
 uniform float depth_edge_px = 4.2;
 uniform float depth_edge_floor = 0.45;   // the fraction of the threshold where the line begins
 uniform float slope_slack = 1.7;
-uniform float normal_edge = 0.62;
-uniform float normal_weight = 0.85;
+// THE CREASE TERM IS DELIBERATELY TIMID, and the first setting was not.
+//
+// At normal_edge 0.60 / weight 0.85 the pass drew clean silhouettes AND filled the interior
+// facets of every low-poly stone as broad wedges, and stippled the barbarian's dense mesh all
+// over. Measured on the ink mask: the silhouette population sits at p10 = 1.0 px, the filled
+// wedges at p90 = 12.4 px, and BOTH are full strength -- so no strength threshold separates
+// them and the median width of "the line" was 4.2 px for a line that looks about 1.5.
+//
+// A silhouette is a DEPTH break and the depth term already draws it. The crease term exists
+// only for the edges depth cannot see -- where two surfaces meet at similar depth -- so it is
+// set to fire on turns sharper than about 60 degrees (|dn| >= 1.0 for a 60 degree turn) and
+// to draw faintly when it does.
+uniform float normal_edge = 1.05;
+uniform float normal_weight = 0.30;
 uniform float normal_fade_m = 70.0;      // creases stop being drawn past here
 uniform float ink_gain = 1.15;
 uniform float sky_depth_m = 400.0;       // beyond this there is no geometry to outline
