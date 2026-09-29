@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST NB-W1 — Run C-9 Phase 2, deliverable D2 (Matt R-C9-69/70): the Norse barbarian's WEAPONS as a MODEL SHEET for 3D. task_id \"NB-W1\".\n\nIMAGE 1 is his approved character sheet (the man who carries these; for scale and hand). IMAGE 2 is a STYLE reference ONLY (the hand; never its character).\nDeliver ONE 1536x1024 sheet on flat pure #00ff00 showing TWO objects, each alone (no hands, no person), each in THREE orthographic views, all at ONE common scale, soles/bases on one ground line per row, nothing overlapping:\nTOP ROW, the BEARDED AXE (one-handed; an ash-wood haft about 75 cm long, standing upright, head at the top): left, the axe head in FULL SIDE VIEW (the classic bearded blade shape, its cutting edge facing the viewer's right); middle, EDGE-ON (turned 90 degrees: the blade seen as a thin wedge); right, the OTHER SIDE (turned 180 degrees from the first).\nBOTTOM ROW, the ROUND SHIELD (about 80 cm across, standing on its rim): left, the FRONT face (wooden planks painted in two colours, vermilion and cream, in four quarters, with a domed iron BOSS at the centre and a rawhide-bound rim); middle, EDGE-ON (the thin profile with the boss projecting on the front); right, the BACK (the plank grain, the iron grip bar across the centre behind the boss).\nThe objects are the same in every view (a 3D model will be built from each row). Paint in IMAGE 2's hand (dark ink line, transparent washes, hatching), matched to IMAGE 1. Soft even light, no cast shadows, no ground, no text, no labels.\nBACKGROUND: keep flat pure #00ff00. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if a view is missing, an object differs between its views, the objects overlap, or a person or hand appears — name the reason. Never retry for the background colour. Copy outputs to out/NB-W1_a.png and out/NB-W1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-W1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 1 — his approved character sheet (NB-1 variant b): scale and hand"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 — STYLE reference ONLY (Matt-supplied, R-C9-69)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/NB-W1_a.png",
+  "out/NB-W1_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T8-gear"
+}

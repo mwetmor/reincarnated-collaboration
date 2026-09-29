@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST NB-G1 — Run C-9 Phase 2, deliverable D2 (Matt R-C9-69/70): MODULAR GEAR for the Norse barbarian: layer 1, RIGID pieces: helmet and bracers. task_id \"NB-G1\".\n\nIMAGE 1 is his APPROVED four-view character sheet (1024x1536 portrait, 2x2 grid on #00ff00: top-left FRONT, top-right his RIGHT side facing the viewer's right, bottom-left BACK, bottom-right his LEFT side facing the viewer's left), the Norse barbarian's BASE BODY. IMAGE 2 is a STYLE reference ONLY (the hand; never its character).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1024x1536 sheet: the SAME four views, the SAME grid, the SAME pose, scale, ground lines and positions, the SAME man (face, hair, braids, beard and ring, skin, trousers, leg wraps, shoes, belt), with ONLY the gear below ADDED. A 3D model of this gear will be built from these four views and fitted onto his existing 3D body, so the gear must sit on the body exactly as the four views agree, and must NOT change his pose, proportions or outline anywhere it does not cover.\nTHE GEAR TO ADD:\n- a Norse SPANGENHELM: a conical iron helmet of riveted segments on a brow band, with a straight NASAL GUARD down over the nose; plain dark iron with a little bronze on the brow band; NO horns, NO wings, NO face mask; it sits on his head over the braided hair, and the long braid still hangs down his back below it;\n- plain brown LEATHER BRACERS laced on both FOREARMS, from the wrist to just below the elbow; the knotwork tattoo on his RIGHT upper arm stays fully visible above the right bracer.\nEverything else stays exactly as IMAGE 1 paints it. Paint in IMAGE 1's hand (IMAGE 2's ink line, washes and hatching). Soft even light, no cast shadows, no ground, no text, no labels.\nBACKGROUND: keep flat pure #00ff00. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view is missing or changed facing, his pose, proportions or outline changed where the gear does not cover him, the gear differs between views, the helmet has horns or wings, or the tattoo is covered — name the reason. Never retry for the background colour. Copy outputs to out/NB-G1_a.png and out/NB-G1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-G1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 1 — the approved base-body sheet to EDIT (NB-1 variant b, R-C9-70)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 — STYLE reference ONLY (Matt-supplied, R-C9-69)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/NB-G1_a.png",
+  "out/NB-G1_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T8-gear"
+}
