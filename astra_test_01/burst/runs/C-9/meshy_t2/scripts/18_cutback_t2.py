@@ -37,16 +37,33 @@ than forked.
 1. A QUADRUPED HAS A HOLE A BIPED DOES NOT. Their matte finishes with
    `binary_fill_holes`, which on the knight closes the odd gap between a limb
    and the tabard. On a hound standing side-on it welds the gap BETWEEN THE
-   LEGS shut, and fills it with whatever the background was -- a solid green
-   wedge in the middle of the animal, about 10 px across at game scale, on
-   run E frames 0/4/6 and run SE frame 0. It is what drove their own residual
-   assert to 3.54/255 on run SE (their assert is <3, so the script did say so;
-   the number was right and the cause was not obvious from it). Corrected
-   afterwards, on the written frames, using the one thing that knows where the
-   holes are: the RENDER MASK. Its own enclosed holes, eroded by the ink band
-   so the painted contour on both sides survives, are punched back out.
+   LEGS shut and fills it with the background -- a solid green wedge about
+   10 px across at game scale, 19 % of the alpha on run SE frame 7. It is what
+   drove their own residual assert to 3.54/255 on run SE; the assert fired and
+   the cause was not legible from the number.
+
+   Fixed FIRST by punching back the render mask's own enclosed holes -- which
+   missed frame 7 entirely, because there the render's leg gap is OPEN at the
+   bottom and only becomes enclosed after the ink-band dilation makes the two
+   painted legs touch. A correction keyed on "holes the render has" cannot see
+   a hole the matte itself creates. The general form is used instead: their
+   alpha may not stray outside the render mask dilated by the ink band, which
+   is the region they build it from in the first place, so the clamp is a
+   no-op everywhere except exactly where fill_holes overreached.
    Worth passing to the T1 session: any view where the knight's arm clears his
    torso has the same shape of hole.
+
+1b. GREEN FRINGE ON THE SHEETS THAT SUCCEEDED. When the plate SURVIVES, the
+   kept ink band includes the anti-aliased pixels between the ink line and the
+   plate, and the resize back to frame scale blends in more: measured, 73-82 %
+   of the rim is green-dominant on run E and run SE, and zero on walk E, idle E
+   and attack E -- which are the sheets whose plate was LOST and so had no
+   green to bleed. The failure is the right way round only by accident. Fixed
+   by despill: where G exceeds both R and B, G is pulled down to their max.
+   Safe on this creature by measurement rather than by eye -- across 102 721
+   opaque pixels of unpainted render, ZERO are green-dominant, because the
+   palette is blue-grey, blonde, flesh and sepia ink. The knight's
+   plate-surviving sheets will have the same halo.
 
 2. One thing does NOT line up, and it is T2's fault rather than theirs: the run
 is 8 frames on a 12-cell plate, so four cells are blank and my layout writes
@@ -137,42 +154,44 @@ def main():
 
     ink = max(2, int(round(mod.INK_PX_PER_1000H / 1000.0 * KNIGHT_BODY_PX
                            * live[0]["scale"])))
-    repunch(live, args.dest, ink)
+    correct(live, args.dest, ink)
 
 
-def repunch(cells, dest, ink_sheet_px):
-    """Punch the render mask's own enclosed holes back out of the alpha."""
-    fixed = 0; px = 0
+def correct(cells, dest, ink_sheet_px):
+    """Clamp the alpha to the render mask's ink-dilated neighbourhood, and
+    despill the green plate out of what is left."""
+    clamped = clamp_px = spilled = spill_px = 0
     for c in cells:
         p = os.path.join(dest, c["state"], c["dir"],
                          "%s_%s_%02d.png" % (c["state"], c["dir"], c["frame"]))
-        if not os.path.exists(p):
-            continue
         mp = os.path.join(OUT, c["state"], "guides_mask", c["dir"],
                           "mask_%s_%02d.png" % (c["dir"], c["frame"]))
-        if not os.path.exists(mp):
+        if not (os.path.exists(p) and os.path.exists(mp)):
             continue
         m = np.asarray(Image.open(mp).convert("RGBA"))[..., 3] > 128
-        holes = ndi.binary_fill_holes(m) & ~m
-        if not holes.any():
-            continue
-        # keep the ink band on BOTH sides of the gap: erode the hole by the
-        # same width the matte grew the figure by, in FRAME pixels
         ink_frame = max(1, int(round(ink_sheet_px / max(c["scale"], 1e-6))))
-        holes = ndi.binary_erosion(holes, np.ones((2 * ink_frame + 1,) * 2))
-        if not holes.any():
-            continue
-        im = Image.open(p).convert("RGBA")
-        arr = np.array(im)
-        hit = holes & (arr[..., 3] > 0)
-        if not hit.any():
-            continue
-        arr[..., 3][holes] = 0
+        allowed = ndi.binary_dilation(m, np.ones((2 * ink_frame + 1,) * 2))
+        arr = np.array(Image.open(p).convert("RGBA"))
+        a = arr[..., 3] > 0
+        stray = a & ~allowed
+        if stray.any():
+            arr[..., 3][stray] = 0
+            clamped += 1; clamp_px += int(stray.sum())
+        a = arr[..., 3] > 0
+        rgb = arr[..., :3].astype(np.int16)
+        mx = np.maximum(rgb[..., 0], rgb[..., 2])
+        spill = a & ((rgb[..., 1] - mx) > 8)
+        if spill.any():
+            arr[..., 1][spill] = mx[spill]
+            spilled += 1; spill_px += int(spill.sum())
         Image.fromarray(arr, "RGBA").save(p)
-        fixed += 1; px += int(hit.sum())
-    if fixed:
-        print("adapter: re-punched render-mask holes in %d of %d cells "
-              "(%d px of welded background removed)" % (fixed, len(cells), px))
+    if clamped:
+        print("adapter: clamped alpha to the ink-dilated render mask in %d of "
+              "%d cells (%d px of welded background removed)"
+              % (clamped, len(cells), clamp_px))
+    if spilled:
+        print("adapter: despilled green plate from %d of %d cells (%d px)"
+              % (spilled, len(cells), spill_px))
 
 
 if __name__ == "__main__":

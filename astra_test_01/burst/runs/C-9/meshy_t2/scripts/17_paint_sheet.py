@@ -13,6 +13,12 @@ knee that moved or a tail that vanished.
 Also writes overlays/T2_paint_status.png: one row per direction of all 32,
 so what is painted, what is refused and what has not been fired yet is one
 picture rather than three lists.
+
+And, once EbSynth has run, overlays/T2_sprites_<clip>.png: the finished
+sprites, all eight directions, every frame, with each row marked PAINTED (the
+two Astra directions) or EBS (propagated from two keys). Reading them in one
+grid is the only way to see whether the propagated six sit in the same world
+as the painted two -- per-direction IoU cannot say whether the COLOUR matches.
 """
 import json, os, sys
 from PIL import Image, ImageDraw
@@ -99,6 +105,41 @@ def status_sheet(man):
     print("wrote", p, im.size)
 
 
+def sprites_strip(clip, n):
+    """All eight directions of a finished clip, painted rows marked."""
+    crop = (135, 235, 410, 425)
+    tw = 175
+    th = int(tw * (crop[3] - crop[1]) / (crop[2] - crop[0]))
+    W = 96 + tw * n
+    H = 26 + th * 8
+    im = Image.new("RGB", (W, H), PAPER)
+    dr = ImageDraw.Draw(im)
+    dr.text((8, 8), "C-9 T2 manticore  %s  sprites_t2, all 8 directions x %d "
+                    "frames (S=0, SE=45, E=90 ...).  E and SE are Astra "
+                    "paint-overs; the other six are EbSynth from two keys."
+            % (clip.upper(), n), fill=(22, 22, 22))
+    any_found = False
+    for r, d in enumerate(DIRS):
+        y = 22 + r * th
+        tag = "PAINT" if d in ("E", "SE") else "EBS"
+        dr.text((8, y + th // 2 - 10), d, fill=(20, 20, 20))
+        dr.text((8, y + th // 2 + 3), tag,
+                fill=(30, 110, 40) if tag == "PAINT" else (110, 90, 30))
+        for i in range(n):
+            t = load(os.path.join(SPR, clip, d, "%s_%s_%02d.png" % (clip, d, i)), crop)
+            if t is None:
+                continue
+            any_found = True
+            im.paste(t.resize((tw, th), Image.LANCZOS), (96 + i * tw, y))
+        dr.line([(0, y), (W, y)], fill=(216, 216, 216))
+    if not any_found:
+        return None
+    p = os.path.join(OVER, "T2_sprites_%s.png" % clip)
+    im.save(p)
+    print("wrote", p, im.size)
+    return p
+
+
 def main():
     mp = os.path.join(SPR, "manifest.json")
     if not os.path.exists(mp):
@@ -111,6 +152,8 @@ def main():
             if e and e.get("assembled") and e.get("kind") == "painted":
                 pair_sheet(man, clip, d, n)
     status_sheet(man)
+    for clip, n in CLIPS:
+        sprites_strip(clip, n)
 
 
 if __name__ == "__main__":
