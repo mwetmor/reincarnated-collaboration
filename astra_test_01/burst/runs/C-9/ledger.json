@@ -22677,6 +22677,14 @@
       "topic": "The full Barrow area is built blockout-first and painted over (the cliffside method), not extracted from a freehand concept",
       "ruling": "Matt asked: \"Should we not paint the whole area first for placement? That was what worked for the cliff side. Please ultra think through how others have had success with pipelines like this..\" Conductor answer: yes, paint the whole area first, but OVER a gameplay blockout, as the cliffside was (geometry first, so painting and geometry agree by construction); industry order is blockout -> paintover -> art; hero pieces placed exactly, small things scattered by rules from painted density masks; ground decals carry density in top-down ARPGs; single-image-to-3D-scene extraction (the T10 method) loses small and hidden things. Matt verbatim: \"Yes, please set up the full scene that way.\" Method (T10-2): (1) gameplay blockout of the whole area (flat floor, bounds, clearings, path, barrow + door, the full stone ring, outcrop masses) -> Matt reviews a top-down map and a playable greybox BEFORE any painting; (2) paint over it chunk by chunk at the play camera with the guided-paint lane (overlapping 1536x1024 canvases, painted neighbours pasted into overlaps); (3) from the paint-over: hero identity plates, per-class density masks, the ground layout; (4) build: hero models at the blockout transforms, the scatter kit by the masks, the 3D snow, optional painted decals; (5) check: render-over-painting overlay per chunk with per-class coverage. T10-1b (the one-screen look test) continues; its parts carry over. The fal hold (N-C9-FAL-CAP) is NOT lifted by this ruling: new models stay held until Matt answers the budget question.",
       "ts": "2026-09-29T18:06:42"
+    },
+    {
+      "id": "R-C9-76",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "fal.ai: spend continues within the account balance; the hold on the kit builds is lifted",
+      "ruling": "Matt verbatim: \"I have $5.85 remaining FAL credits, so I should be good for now. Any other credits I need for anything else?\" Disposition: the N-C9-FAL-CAP hold is lifted; fal spend continues within the remaining account balance, with a running total kept against it. Planned: the four held kit re-issue builds ($1.60) + four new models matched to the painting (two layered outcrops, a heather clump, a thin dead tree; $1.60) = $3.20, leaving about $2.65. Other services checked for Matt (no purchase needed): Meshy balance 2,204 credits (API read); Astra 133 of 300 Phase 2 images (planned ~12 for the new models + ~20-30 for the full-area paint-over); World Labs 5,190 of 7,000 (nothing planned); Ludo ~1,000 (nothing planned). Flagged: a modest fal top-up would keep the full-area build from stalling on hero models.",
+      "ts": "2026-09-29T19:30:59"
     }
   ],
   "grok_calls": [
