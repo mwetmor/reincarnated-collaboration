@@ -1,0 +1,17 @@
+{
+ "source": "plate_v4.png",
+ "plate_px": [
+  5376,
+  4096
+ ],
+ "relief_px": [
+  1344,
+  1024
+ ],
+ "canvas_px_per_texel": 4,
+ "highpass_sigma_texels": 8.0,
+ "encoding": "8-bit grey, 128 = no displacement, 0 = -1, 255 = +1",
+ "robust_scale_p95_of_abs_highpass": 0.2151,
+ "painted_fraction": 0.5918,
+ "note": "multiply by the scene's amplitude and displace along the VIEW direction, not the surface normal: under this orthographic camera a displacement along fwd changes depth and normals and leaves screen position -- and therefore the projected paint and the silhouette -- exactly untouched."
+}

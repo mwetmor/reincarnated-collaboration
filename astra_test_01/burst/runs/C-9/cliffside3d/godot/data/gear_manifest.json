@@ -6,7 +6,9 @@
  "his_right": "-X",
  "up": "+Z",
  "body_shape_keys": [
-  "helmet_on"
+  "helmet_on",
+  "grip_R",
+  "grip_L"
  ],
  "binding_note": "every piece, sockets included, is a SKINNED mesh on the same 24 bones; the scene binds all of them to the body's Skeleton3D",
  "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
@@ -108,42 +110,201 @@
    ],
    "faces": 9000,
    "offset_m": 0.0,
-   "glb": "shield.glb",
-   "bone": "LeftHand",
-   "bone_note": "socketed to LeftHand IN the carry pose. A rest-pose bind puts the disc through his chest once the forearm crosses: idle 117 -> 277 inside."
+   "glb": "shield.glb"
   }
  ],
- "arm_layer": {
-  "action": "shield_carry_L",
-  "bones": [
-   "LeftShoulder",
-   "LeftArm",
-   "LeftForeArm",
-   "LeftHand"
-  ],
-  "rule": "when the shield is equipped, blend shield_carry_L on these four bones at weight 1 over idle, walk and run; do NOT apply it over attack -- the slash uses the right arm and the left must swing free",
-  "instrument": "crossing parity against the posed body mesh, 1864 shield vertices sampled",
-  "shield_vertices_inside_body": {
-   "idle": {
-    "before": 183,
-    "after": 12,
-    "worst_depth_m": 0.084
+ "shape_key_rules": {
+  "helmet_on": "1 when the helmet is equipped, 0 when removed",
+  "grip_R": "1 while the axe is equipped, 0 when not -- closes the right hand round the haft",
+  "grip_L": "1 while the shield is equipped, 0 when not -- closes the left hand round the grip bar"
+ },
+ "grip": {
+  "note": "the rig has 24 bones and NO FINGER BONES, so the hands cannot be posed; Meshy ships them open and flat from the A-pose. The weapon BINDING was already rigid -- axe 100% RightHand, shield 100% LeftHand, zero vertices with more than one group, minimum weight 1.0000, verified by reading the exported GLBs back. The open hand was the tell, not the bind.",
+  "haft_to_right_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0044
    },
-   "walk": {
-    "before": 313,
-    "after": 3,
-    "worst_depth_m": 0.003
-   },
-   "run": {
-    "before": 389,
-    "after": 14,
-    "worst_depth_m": 0.011
-   },
-   "attack": {
-    "no_layer": 326,
-    "worst_depth_m": 0.082
+   "closed": {
+    "min": 0.0,
+    "median": 0.0027
    }
   },
-  "grip": "nearest shield vertex 0.063 m from the left hand"
+  "grip_bar_to_left_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0923
+   },
+   "closed_before_nudge": {
+    "min": 0.0152,
+    "median": 0.084
+   },
+   "closed_after_nudge": {
+    "min": 0.0013,
+    "median": 0.0725
+   }
+  },
+  "axe_shaft_recentred_m": 0.048,
+  "shield_nudge_m": 0.0151
+ },
+ "silhouette_by_facing": {
+  "instrument": "ortho at 52.95 deg, ONE camera scale for every facing, 512 px",
+  "finding": "height is near-flat (the scene measured 154-157 px head-to-feet); the difference Matt sees is WIDTH and therefore AREA",
+  "bare_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 78
+   },
+   "area_px": {
+    "N_S": 24920,
+    "E_W": 16380
+   },
+   "N_S_area_larger_pct": 52
+  },
+  "kit_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 163
+   },
+   "area_px": {
+    "N_S": 31741,
+    "E_W": 26792
+   },
+   "N_S_area_larger_pct": 18
+  },
+  "bare_walk_pass": {
+   "N_S_area_larger_pct": 10
+  },
+  "kit_walk_pass": {
+   "N_S_area_larger_pct": 6
+  },
+  "cause": "a broad-shouldered figure presents his full shoulder span facing N or S and is edge-on facing E or W. The gear REDUCES the effect -- shield and mantle add bulk to the side views -- so bare is the worst case."
+ },
+ "clip_hygiene": {
+  "defect": "the idle clip carried a constant Hips SCALE of 1.176471 = 20/17 exactly -- a 1.70 m source retargeted to a 2.00 m target -- on a rig that is 1.85 m. Hips is the skeleton root, so the whole character was 17.6% bigger whenever he stood still. Present in Meshy's output and carried through T8 and D2 untouched; nb_t8/artifacts/T8-barbarian.glb carried the same defect and was patched the same way on 2026-09-29 (its own offset measured independently from its own feet: -0.17987 m, matching to five decimals); the exporter also neutralises it on the way past, so a rebuild from a fresh Meshy clip is clean too.",
+  "fix": {
+   "scale_track": "Hips scale set to 1.0 at every key in idle",
+   "reground": "idle root translation.y shifted -16.5286 glTF units (-0.17987 m), ONE constant offset derived from the feet, centred on the loop's min/max so the breathing survives",
+   "metres_per_gltf_unit": 0.01088235,
+   "method": "binary accessor patch; the 21 MB texture is never re-encoded"
+  },
+  "proof_size_is_now_equal": {
+   "instrument": "rigid bone spans -- a uniform scale moves them, no pose can. Silhouette height cannot do this job: at 52.95 deg a vertical metre projects to 0.6025 screen-metres and a FORE-AFT metre to 0.7981, so stride affects screen height more than stature does",
+   "before": {
+    "idle": [
+     0.09991,
+     0.25979,
+     0.34017
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.17647
+   },
+   "after": {
+    "idle": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.0
+   },
+   "spans": [
+    "LeftShoulder-RightShoulder",
+    "Head-head_end",
+    "LeftArm-LeftForeArm"
+   ]
+  },
+  "grounding": {
+   "idle_feet_m": {
+    "before": [
+     0.1705,
+     0.1892
+    ],
+    "after": [
+     -0.0093,
+     0.0093
+    ]
+   },
+   "worst_frame_cm": 0.93,
+   "tolerance_cm": 1.0,
+   "walk_feet_m": [
+    -0.0218,
+    -0.0032
+   ],
+   "run_feet_m": [
+    -0.0397,
+    0.0709
+   ],
+   "note": "walk and run untouched; their renders are byte-identical"
+  },
+  "standing_height_m": {
+   "rest": 1.85,
+   "idle": [
+    1.7192,
+    1.7437
+   ],
+   "walk": [
+    1.792,
+    1.8623
+   ],
+   "run": [
+    1.7255,
+    1.8258
+   ],
+   "attack": [
+    1.516,
+    1.7711
+   ],
+   "note": "the residual idle-to-walk difference is posture: idle pelvis 0.905-0.942 m against walk 0.955-1.034 and rest 1.021. Bone spans are identical, so this is a relaxed stance, not a size change."
+  },
+  "lint": "scripts/21_lint_export.py -- runs inside 15_export_scene.py on every export",
+  "upstream_T8": {
+   "file": "nb_t8/artifacts/T8-barbarian.glb",
+   "patched": "2026-09-29",
+   "lint": "FAIL -> WARN (exit 0)",
+   "before_state_kept": "nb_t8/work/T8-barbarian-preclipfix.glb (not tracked in git)",
+   "bytes_changed": "309 of 15,550,436, all inside accessors 82 (idle/Hips.translation) and 85 (idle/Hips.scale); JSON chunk byte-identical",
+   "note": "the armature node scale here is 0.010882347822189331 against nb-body's 0.010882345028221607 -- different floats in the two files, which is why the patcher reads the factor from each file instead of reusing a constant"
+  }
+ },
+ "screen_size_by_clip_S_52.95": {
+  "before_idle": {
+   "h": 323,
+   "w": 148,
+   "area": 28958
+  },
+  "before_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "before_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  },
+  "after_idle": {
+   "h": 275,
+   "w": 126,
+   "area": 21016
+  },
+  "after_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "after_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  }
  }
 }

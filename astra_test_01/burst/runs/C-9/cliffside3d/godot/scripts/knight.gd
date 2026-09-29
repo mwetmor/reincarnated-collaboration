@@ -62,7 +62,11 @@ var _forward_axis := Vector3(0, 0, -1)
 var gear := {}
 var gear_stack := 0
 var _tree: AnimationTree
-var _base_node: AnimationNodeAnimation
+var _loco_node: AnimationNodeBlendSpace1D
+var _speed := 0.0
+var _move_dir := Vector2(0, 1)
+var _yaw_cur := 0.0
+var _yaw_init := false
 var _layer_on := false
 var _attack_t := 0.0
 
@@ -120,6 +124,7 @@ func _ready() -> void:
 	_build_gear()
 	_build_anim_tree()
 	play(_roles.get("idle", ""))
+	_drive()
 
 
 func _build_anim_tree() -> void:
@@ -137,9 +142,42 @@ func _build_anim_tree() -> void:
 	var want: Array = spec.get("bones", [])
 	var ca := _anim.get_animation(action)
 	var bt := AnimationNodeBlendTree.new()
-	var base := AnimationNodeAnimation.new()
-	var carry := AnimationNodeAnimation.new()
-	carry.animation = action
+
+	# LOCOMOTION IS A BLEND SPACE ON GROUND SPEED, not a clip chosen by a state name. The
+	# snap Matt saw is what a state switch looks like: idle and walk are different poses and
+	# nothing crosses between them, so the body teleports from one to the other inside a
+	# frame. A blend space has no switch -- the pose IS a function of how fast he is
+	# actually travelling, and the smoothing on that speed is what gives a human beat to
+	# starting and stopping.
+	var loco := AnimationNodeBlendSpace1D.new()
+	var tr: Dictionary = cfg.get("transitions", {})
+	var wsp := float(cfg.get("walk_px_s", WALK_PX_S))
+	var rsp := float(cfg.get("run_px_s", RUN_PX_S))
+	loco.min_space = 0.0
+	loco.max_space = rsp
+	for pair in [[String(_roles.get("idle", "idle")), 0.0],
+				 [String(_roles.get("walk", "walk")), wsp],
+				 [String(_roles.get("run", "run")), rsp]]:
+		var an := AnimationNodeAnimation.new()
+		an.animation = String(pair[0])
+		loco.add_blend_point(an, float(pair[1]))
+	# PHASE SYNC, so the feet do not scissor while the blend crosses from walk to run: the
+	# walk cycle is 25 frames and the run is 16, and two clips of different length left to
+	# run on their own clocks meet at whatever phases they happen to be in.
+	if "sync" in loco:
+		loco.set("sync", true)
+		print("anim tree: blend space sync = %s" % str(loco.get("sync")))
+	else:
+		print("anim tree: this AnimationNodeBlendSpace1D has NO sync property")
+
+	# THE ATTACK IS A ONE-SHOT OVER THE TOP, not a fourth blend point. It is not a speed, it
+	# interrupts, and it has to fade in and back out to whatever he was doing.
+	var shot := AnimationNodeOneShot.new()
+	shot.fadein_time = float(tr.get("attack_fade_in_s", 0.10))
+	shot.fadeout_time = float(tr.get("attack_fade_out_s", 0.25))
+	var atk := AnimationNodeAnimation.new()
+	atk.animation = String(_roles.get("attack", "attack"))
+
 	var b2 := AnimationNodeBlend2.new()
 	b2.filter_enabled = true
 	var filtered := 0
@@ -148,29 +186,31 @@ func _build_anim_tree() -> void:
 		if want.has(String(pth.get_concatenated_subnames())):
 			b2.set_filter_path(pth, true)
 			filtered += 1
-	_base_node = base
-	bt.add_node("base", base, Vector2(0, 0))
-	bt.add_node("carry", carry, Vector2(0, 160))
-	bt.add_node("blend", b2, Vector2(260, 60))
-	bt.connect_node("blend", 0, "base")
+	var carry := AnimationNodeAnimation.new()
+	carry.animation = action
+
+	bt.add_node("loco", loco, Vector2(0, 0))
+	bt.add_node("atk", atk, Vector2(0, 140))
+	bt.add_node("oneshot", shot, Vector2(240, 40))
+	bt.add_node("carry", carry, Vector2(240, 220))
+	bt.add_node("blend", b2, Vector2(470, 100))
+	bt.connect_node("oneshot", 0, "loco")
+	bt.connect_node("oneshot", 1, "atk")
+	bt.connect_node("blend", 0, "oneshot")
 	bt.connect_node("blend", 1, "carry")
 	bt.connect_node("output", 0, "blend")
+	_loco_node = loco
 	_tree = AnimationTree.new()
 	_tree.name = "AnimTree"
 	_tree.tree_root = bt
 	_anim.get_parent().add_child(_tree)
 	_tree.anim_player = _tree.get_path_to(_anim)
-	# ROOT_NODE, or the tree resolves nothing. Track paths are `Skeleton3D:Hips` and they
-	# are relative to the tree's root_node, whose default is its own parent -- which is not
-	# necessarily the node the AnimationPlayer resolves against. Left unset, the tree runs,
-	# reports a blend amount, and poses no bone: every displacement came back 0.000 m and
-	# the left hand swept 0.000 m over a walk cycle. Point it at the player's own root.
 	_tree.root_node = _tree.get_path_to(_anim.get_node(_anim.root_node))
 	_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 	_tree.active = true
-	_anim.active = false                 # one mixer drives the skeleton, not two
-	print("arm layer: '%s' filtered to %d of %d tracks (%s)" %
-		[action, filtered, ca.get_track_count(), str(want)])
+	_anim.active = false
+	print("anim tree: loco blend space 0/%.1f/%.1f px/s, attack one-shot %.2f/%.2f s, arm layer '%s' filtered to %d of %d tracks"
+		% [wsp, rsp, shot.fadein_time, shot.fadeout_time, action, filtered, ca.get_track_count()])
 
 
 func _layer_weight(clip: String) -> float:
@@ -221,7 +261,8 @@ func set_gear_stack(i: int) -> void:
 	gear_stack = posmod(i, stacks.size())
 	var on: Array = stacks[gear_stack]
 	CharGear.show_pieces(gear, on)
-	_set_morph("helmet" in on)
+	for morph in (cfg.get("morph_rules", {}) as Dictionary):
+		_set_morph(String(morph), String(cfg["morph_rules"][morph]) in on)
 	# the arm layer follows the SHIELD, so stacks 0-3 are untouched by it
 	_layer_on = String((cfg.get("arm_layer", {}) as Dictionary).get("when_piece", "shield")) in on
 	if _tree != null:
@@ -232,8 +273,10 @@ func cycle_gear() -> void:
 	set_gear_stack(gear_stack + 1)
 
 
-func _set_morph(on: bool) -> void:
-	var want := String(cfg.get("morph_with_helmet", ""))
+func _set_morph(want: String, on: bool) -> void:
+	"""helmet_on compresses the crown under the helmet; grip_R and grip_L close the fists
+	round the haft and the grip bar. The rig has 24 bones and NO FINGER BONES, so a morph is
+	the only way a hand can close -- which is why an open flat hand was what Matt saw."""
 	if want == "" or _mesh == null or _mesh.mesh == null:
 		return
 	for i in _mesh.mesh.get_blend_shape_count():
@@ -443,6 +486,8 @@ func canvas_velocity_to_world(v_px: Vector2) -> Vector3:
 
 
 func attacking() -> bool:
+	if _tree != null:
+		return bool(_tree.get("parameters/oneshot/active"))
 	return _attack_t > 0.0
 
 
@@ -451,10 +496,12 @@ func try_attack() -> bool:
 	own length IS the cooldown, which is also the only honest answer available -- an
 	AnimationNodeAnimation restarts when its clip NAME changes, so re-selecting `attack`
 	while attack is playing would not restart it and the input would silently do nothing."""
-	if _attack_t > 0.0:
+	if attacking():
 		return false
-	var nm := String(_roles.get("attack", "attack"))
-	_attack_t = float(_clip_len.get(nm, 1.5))
+	if _tree != null:
+		_tree.set("parameters/oneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		return true
+	_attack_t = float(_clip_len.get(String(_roles.get("attack", "attack")), 1.5))
 	return true
 
 
@@ -468,44 +515,51 @@ func _physics_process(dt: float) -> void:
 
 
 func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
-	"""One step of movement from a CANVAS direction.
+	"""One step of movement from a CANVAS direction, with a human beat on either end.
 
-	Split out of _physics_process so the capture tools can walk him the way the player
-	does -- at his own speed, over the real ground, with move_and_slide -- instead of
-	teleporting him frame to frame. A teleported body is the one thing that cannot show
-	whether the feet slide, which is the whole reason the speeds were taken from the
-	clips' stride in the first place."""
-	# FROM THE CLIPS, not from the Keeper's numbers. A speed chosen independently of the
-	# animation is a foot slide by construction; these come from the stance foot's own
-	# travel per cycle (tools/probe_stride.gd) and are written into character.json.
-	var speed: float = float(cfg.get("run_px_s", RUN_PX_S)) if running \
-		else float(cfg.get("walk_px_s", WALK_PX_S))
+	ONE SPEED DRIVES BOTH THE BODY AND THE BLEND, and that is the whole of the no-slide
+	guarantee. If the animation blended on the key and the body moved at the key, a ramp
+	would still be honest; but if either smoothed and the other did not, the feet would
+	slide for exactly as long as the ramp lasted. So the smoothed speed is the only speed:
+	the body travels at it and the blend space is positioned at it.
+
+	Accel and decel have different time constants because starting and stopping do not feel
+	alike -- and because stopping from a run has further to come down than stopping from a
+	walk, an exponential gives the run the longer stop for free."""
+	var tr: Dictionary = cfg.get("transitions", {})
+	var want := 0.0
 	if dir.length() > 0.01:
 		dir = dir.normalized()
-		facing = _facing_for(dir)
-		state = "run" if running else "walk"
-	else:
-		dir = Vector2.ZERO
+		_move_dir = dir
+		want = float(cfg.get("run_px_s", RUN_PX_S)) if running \
+			else float(cfg.get("walk_px_s", WALK_PX_S))
+	if attacking():
+		want = 0.0                       # the slash roots him, as before
+	var tau: float = float(tr.get("accel_tau_s", 0.10)) if want > _speed \
+		else float(tr.get("decel_tau_s", 0.15))
+	_speed += (want - _speed) * (1.0 - exp(-dt / maxf(tau, 1e-4)))
+	if want <= 0.0 and _speed < float(tr.get("stop_snap_px_s", 5.0)):
+		_speed = 0.0                     # an exponential never arrives; a walker does
+	if _tree != null:
+		_tree.set("parameters/loco/blend_position", _speed)
+	# the state name is kept for the capture tools that read it
+	if attacking():
+		state = "attack"
+	elif _speed <= 0.0:
 		state = "idle"
+	elif _speed > float(cfg.get("walk_px_s", WALK_PX_S)) * 1.2:
+		state = "run"
+	else:
+		state = "walk"
 	if hold != "":
 		state = hold
-	# THE SLASH ROOTS HIM. It is a full-body clip, so walking through it puts his legs in
-	# one animation and his ground speed in another -- the foot slide this whole character
-	# was built to avoid, reintroduced by the one input that is allowed to interrupt.
-	if _attack_t > 0.0:
-		_attack_t -= dt
-		state = "attack"
-		dir = Vector2.ZERO
-	var v := canvas_velocity_to_world(dir * speed)
+	if _move_dir.length() > 0.01:
+		facing = _facing_for(_move_dir)
+	var v := canvas_velocity_to_world(_move_dir * _speed)
 	velocity = Vector3(v.x, velocity.y - 18.0 * dt, v.z)
 	# MOVE_AND_SLIDE PICKS ITS OWN DELTA, and which one it picks depends on WHERE IT IS
 	# CALLED FROM: the physics delta inside a physics frame, the PROCESS delta outside one.
-	# A capture loop that renders between ticks calls it from a process frame, so a body
-	# asked for 201.7 canvas px/s walked 80.7 -- exactly 24/60 of it, the render delta over
-	# the physics delta -- and the feet slid by that factor. It looked like slope loss and
-	# was not: the ground along both paths measures 0.0 deg from horizontal. Compensating
-	# for whichever delta it is about to use makes one call mean one `dt` of travel, from
-	# anywhere.
+	# Compensating for whichever it is about to use makes one call mean one `dt` of travel.
 	var implicit: float = get_physics_process_delta_time() if Engine.is_in_physics_frame() \
 		else get_process_delta_time()
 	var boost: float = dt / maxf(implicit, 1e-6)
@@ -514,8 +568,12 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 	velocity /= boost
 	if is_on_floor():
 		velocity.y = 0.0
-	_drive()
+	_drive(dt)
 	_place_pollaxe()
+
+
+func speed_px_s() -> float:
+	return _speed
 
 
 func _facing_for(d: Vector2) -> String:
@@ -527,22 +585,33 @@ func _facing_for(d: Vector2) -> String:
 	return names[i]
 
 
-func _drive() -> void:
-	play(String(_roles.get(state, _roles.get("idle", ""))))
-	# In TRUE 3D the body itself turns; there is no eight-direction set to pick from.
-	#
-	# The yaw is DERIVED, not tabulated. It takes the model's own forward axis onto the
-	# world direction that this facing MOVES in -- through canvas_velocity_to_world, the
-	# same map the movement uses -- so the body cannot face one way and travel another, and
-	# a swapped-in model needs no constant here. The previous form added a flat 180 deg,
-	# which is one model's convention written into the scene.
-	var wf := canvas_velocity_to_world(_canvas_dir_for(facing))
+func _drive(dt := 0.0) -> void:
+	"""The yaw, turned rather than snapped.
+
+	A facing that jumps 45 degrees in a frame is the same defect as a pose that jumps: the
+	eye cannot read it as movement. The target comes from the direction he is actually
+	travelling when he is travelling, and from the facing name when he is not, so a tool
+	that sets `facing` directly still turns him."""
+	var wf: Vector3
+	if _move_dir.length() > 0.01 and _speed > 0.0:
+		wf = canvas_velocity_to_world(_move_dir)
+	else:
+		wf = canvas_velocity_to_world(_canvas_dir_for(facing))
 	wf.y = 0.0
 	if wf.length() < 1e-6:
 		wf = Vector3.FORWARD
 	wf = wf.normalized()
 	var mf: Vector3 = _forward_axis
-	var yaw := Basis(Vector3.UP, atan2(wf.x, wf.z) - atan2(mf.x, mf.z))
+	var target: float = atan2(wf.x, wf.z) - atan2(mf.x, mf.z)
+	if not _yaw_init:
+		_yaw_cur = target
+		_yaw_init = true
+	elif dt > 0.0:
+		var tau: float = float((cfg.get("transitions", {}) as Dictionary).get("turn_tau_s", 0.12))
+		_yaw_cur = lerp_angle(_yaw_cur, target, clampf(1.0 - exp(-dt / maxf(tau, 1e-4)), 0.0, 1.0))
+	else:
+		_yaw_cur = target
+	var yaw := Basis(Vector3.UP, _yaw_cur)
 	_rig.global_transform = Transform3D(yaw.scaled(Vector3.ONE * _figure_scale), global_position)
 
 
@@ -575,12 +644,20 @@ func play(clip: String) -> void:
 	if clip == _clip:
 		return
 	_clip = clip
-	if _base_node != null:
-		# A NODE PROPERTY, not a tree parameter. `tree.set("parameters/base/animation", ..)`
-		# is accepted, stores nothing, and reads back null -- the tree then runs with no
-		# clip selected and poses not one bone, while still reporting active = true and a
-		# blend amount. That is how a character ends up frozen with every diagnostic green.
-		_base_node.animation = clip
+	if _tree != null:
+		# The tools drive this by clip name; the tree is driven by speed and a one-shot.
+		# Translate rather than make every caller learn the new shape.
+		var atk_name := String(_roles.get("attack", "attack"))
+		if clip == atk_name:
+			try_attack()
+		else:
+			var sp := 0.0
+			if clip == String(_roles.get("walk", "walk")):
+				sp = float(cfg.get("walk_px_s", WALK_PX_S))
+			elif clip == String(_roles.get("run", "run")):
+				sp = float(cfg.get("run_px_s", RUN_PX_S))
+			_speed = sp
+			_tree.set("parameters/loco/blend_position", sp)
 	elif _tree == null:
 		_anim.speed_scale = 1.0
 		_anim.play(clip, 0.15)

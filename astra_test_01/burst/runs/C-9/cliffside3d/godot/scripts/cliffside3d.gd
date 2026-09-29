@@ -49,6 +49,7 @@ var report := {}
 func _ready() -> void:
 	_build_geometry()
 	_read_frame()
+	_relief_walls()
 	_make_projector()
 	_apply_projector()
 	_build_camera()
@@ -95,6 +96,13 @@ func _build_world() -> void:
 		right, up, fwd, 47.0)
 	_build_knight(space)
 	look_at_canvas(_aim_px)          # the background exists now; place it for this aim
+	if knight != null:
+		var steps0: Array = knight.cfg.get("scale_steps", [])
+		var want0: float = float(knight.cfg.get("scale_default_painted", _fig_painted))
+		for i in steps0.size():
+			if absf(float(steps0[i]) - want0) < 1e-6:
+				_size_step = i
+		knight.set_figure_scale(want0)
 	_build_hud()
 
 
@@ -244,6 +252,96 @@ func _read_frame() -> void:
 	probe.queue_free()
 	report["basis"] = {"right": [right.x, right.y, right.z], "up": [up.x, up.y, up.z],
 					   "fwd": [fwd.x, fwd.y, fwd.z]}
+
+
+# --- T9-1c: real relief on the cliff walls -------------------------------------
+const RELIEF_AMPLITUDE_M := 2.5
+const RELIEF_TAPER_M := 3.0
+
+
+func _relief_walls() -> Dictionary:
+	"""Give the cliff faces normals that mean something.
+
+	THE DISPLACEMENT IS ALONG THE VIEW DIRECTION, NOT THE SURFACE NORMAL, and that is the
+	whole reason this can be done without disturbing anything. Under an orthographic camera
+	a point's screen position is (dot(w, right), dot(w, up)); `fwd` is orthogonal to both,
+	so moving a vertex along it changes NEITHER. The silhouette is untouched to the pixel,
+	and the projector -- which maps world to canvas through those same two axes -- keeps
+	painting every vertex exactly the texel it painted before. What changes is depth, and
+	the normals that follow from it. That is the entire content of T9-1c.
+
+	Displacing along the surface normal would have been the obvious move and would have
+	slid the paint across the rock, which is the one thing the whole test forbids.
+
+	The wall is not the single flat face I called it in the T9-0 report: it is 73,630
+	triangles in 38 bands. Its defect is that it is an EXTRUDED OUTLINE, so every normal is
+	horizontal and a low key can only graze it. The existing vertices are dense enough --
+	about 0.3 m across, 1 m down -- to carry metre-scale relief without subdivision, which
+	also means the topology, and so the boundary edges, are untouched.
+
+	Tapered to zero at the top and bottom of each wall: the top edge is shared with the flat
+	landmass surface, and pushing it back along the view would open a crack at the rim."""
+	var out := {}
+	# --no-relief leaves the walls as the builder made them, so the same capture tool can
+	# shoot the before and the after without two builds of the app.
+	if OS.get_cmdline_user_args().has("--no-relief"):
+		report["relief"] = {"disabled": true}
+		return out
+	var relief: Image = null
+	if ResourceLoader.exists("res://data/relief_v4.png"):
+		relief = (load("res://data/relief_v4.png") as Texture2D).get_image()
+	if relief == null:
+		report["relief"] = {"error": "no relief_v4.png"}
+		return out
+	var rw := float(relief.get_width())
+	var rh := float(relief.get_height())
+	for mi in _fg:
+		if not String(mi.name).ends_with("_wall"):
+			continue
+		var m := mi.mesh
+		var arrays := m.surface_get_arrays(0)
+		var verts: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var lo := 1e9
+		var hi := -1e9
+		for v in verts:
+			lo = minf(lo, v.y)
+			hi = maxf(hi, v.y)
+		var moved := 0
+		var maxd := 0.0
+		var sum := 0.0
+		var xf := mi.global_transform
+		for i in verts.size():
+			var w: Vector3 = xf * verts[i]
+			var cx := (w.dot(right) - V4_UMIN) * PPM / float(CANVAS.x) * rw
+			var cy := (V4_VMAX - w.dot(up)) * PPM / float(CANVAS.y) * rh
+			if cx < 0.0 or cy < 0.0 or cx >= rw or cy >= rh:
+				continue
+			var g: float = relief.get_pixel(int(cx), int(cy)).r * 2.0 - 1.0
+			# zero at the rim and at the foot, full in between
+			var taper: float = clampf((verts[i].y - lo) / RELIEF_TAPER_M, 0.0, 1.0) \
+				* clampf((hi - verts[i].y) / RELIEF_TAPER_M, 0.0, 1.0)
+			var d: float = g * RELIEF_AMPLITUDE_M * taper
+			if absf(d) > 0.0005:
+				moved += 1
+				maxd = maxf(maxd, absf(d))
+				sum += absf(d)
+			# fwd is a world direction; the mesh is in its own space
+			verts[i] = verts[i] + (xf.basis.inverse() * (fwd * d))
+		arrays[Mesh.ARRAY_VERTEX] = verts
+		arrays[Mesh.ARRAY_NORMAL] = null        # recomputed from the new surface
+		arrays[Mesh.ARRAY_TANGENT] = null
+		var nm := ArrayMesh.new()
+		nm.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		var st := SurfaceTool.new()
+		st.create_from(nm, 0)
+		st.generate_normals()
+		mi.mesh = st.commit()
+		out[String(mi.name)] = {"vertices": verts.size(), "displaced": moved,
+			"max_abs_m": snappedf(maxd, 0.001),
+			"mean_abs_m": snappedf(sum / maxf(float(moved), 1.0), 0.001)}
+	report["relief"] = {"amplitude_m": RELIEF_AMPLITUDE_M, "taper_m": RELIEF_TAPER_M,
+						"walls": out}
+	return out
 
 
 # --- the projector ------------------------------------------------------------
@@ -470,6 +568,7 @@ const CAM_OFFSET := Vector2(-2, -55)      # the 2D route's own camera offset fro
 const FADE_STEPS := [0.35, 0.50, 1.0]
 var _fade_step := 0
 var _fig_painted := 1.25177951388889
+var _size_step := 0
 var _yaw := 0.0
 var _hud: Label
 
@@ -528,8 +627,9 @@ func _update_hud() -> void:
 	var f: float = CliffWorld.fade_min
 	var fs := "off" if f >= 0.999 else ("%d%%" % int(round(f * 100.0)))
 	_hud.text = ("Arrows/WASD move  ·  Shift run  ·  Space/click attack  ·  "
-		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  L world (%s)  ·  Q/E camera  ·  P plate"
-		% [n + 1, total, nm, fs, "LIT, true scale" if lit else "painted"])
+		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  L world (%s)  ·  [ ] size (%.2f)  ·  Q/E camera  ·  P plate"
+		% [n + 1, total, nm, fs, "lit" if lit else "painted",
+		   knight._figure_scale if knight != null else 1.0])
 
 
 func set_lit(on: bool) -> void:
@@ -566,7 +666,15 @@ func set_lit(on: bool) -> void:
 				else CliffWorld.card_material(mi.get_meta("tex"))
 			(mi.material_override as ShaderMaterial).set_shader_parameter("fade", keep)
 	if knight != null:
-		knight.set_figure_scale(1.0 if on else float(_fig_painted))
+		# each mode has its own default size until Matt picks one with [ and ]
+		var steps: Array = knight.cfg.get("scale_steps", [])
+		var want: float = float(knight.cfg.get("scale_default_lit", 1.0)) if on \
+			else float(knight.cfg.get("scale_default_painted", _fig_painted))
+		_size_step = 0
+		for i in steps.size():
+			if absf(float(steps[i]) - want) < 1e-6:
+				_size_step = i
+		knight.set_figure_scale(want)
 	_set_terrain_ink(on)
 	_update_hud()
 
@@ -600,6 +708,21 @@ void fragment() { ALBEDO = line_color.rgb; }
 			_terrain_ink.append(o)
 	for o in _terrain_ink:
 		o.visible = on
+
+
+func step_size(d: int) -> void:
+	"""[ and ]: 1.00 true, 1.10, 1.25178 sprite-matched. Matt picks his own size by playing
+	rather than by being told one, which is the only way this particular question gets
+	settled -- the painted world and the painted figure agree at 1.25178 and the blockout
+	geometry is at true scale, so there is no single number that is right about both."""
+	if knight == null:
+		return
+	var steps: Array = knight.cfg.get("scale_steps", [])
+	if steps.is_empty():
+		return
+	_size_step = clampi(_size_step + d, 0, steps.size() - 1)
+	knight.set_figure_scale(float(steps[_size_step]))
+	_update_hud()
 
 
 func cycle_fade() -> void:
@@ -653,3 +776,7 @@ func _unhandled_input(e: InputEvent) -> void:
 		cycle_fade()
 	elif e.is_action_pressed("lit_toggle"):
 		set_lit(not lit)
+	elif e.is_action_pressed("size_down"):
+		step_size(-1)
+	elif e.is_action_pressed("size_up"):
+		step_size(1)

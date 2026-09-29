@@ -1,0 +1,85 @@
+{
+ "_what": "Transitions, grips and the size key, after Matt's play-test.",
+ "grips": {
+  "measured_by_stack": {
+   "0": "all 0",
+   "1-3": "helmet_on 1, both grips 0",
+   "4": "all three at 1.0"
+  },
+  "morphs": [
+   "helmet_on",
+   "grip_R",
+   "grip_L"
+  ],
+  "rules": {
+   "grip_L": "shield",
+   "grip_R": "axe",
+   "helmet_on": "helmet"
+  },
+  "stills": "GRIPS.jpg -- the right fist closed on the haft reads clearly at the strike; the idle framings are obstructed by the mantle and the shield, which is a framing limit of shooting a hand inside a kitted figure, not a grip that failed."
+ },
+ "idle_scale_bug": {
+  "checked": "no scale track",
+  "rigid_spans_across_clips": {
+   "idle": {
+    "head_length": 20.2918,
+    "shoulder_span": 7.8038
+   },
+   "run": {
+    "head_length": 20.2918,
+    "shoulder_span": 7.8038
+   },
+   "walk": {
+    "head_length": 20.2918,
+    "shoulder_span": 7.8038
+   }
+  },
+  "verdict": "the corrected GLB is bound: the idle carries NO Hips scale track, and the shoulder span and head length are identical across idle, walk and run to four decimals (+0.00%). Screen silhouette height was NOT used for this, per the note that fore-aft extent projects 0.798 screen-metres per metre against stature's 0.603."
+ },
+ "size_key": {
+  "defaults": "1.00 in lit mode, 1.10 in painted, until Matt picks",
+  "keys": "[ and ]",
+  "note": "canvas px are measured head_end-to-feet in the IDLE pose, which stands with bent knees -- a perfectly straight 1.85 m figure would read 112 px at scale 1.0. These numbers are also 15% below the ones reported before the idle fix, which is the 17.6% Hips scale coming out.",
+  "steps": [
+   {
+    "canvas_px": 103.8,
+    "scale": 1.0,
+    "world_height_m": 1.85
+   },
+   {
+    "canvas_px": 114.3,
+    "scale": 1.1,
+    "world_height_m": 2.035
+   },
+   {
+    "canvas_px": 130.6,
+    "scale": 1.25177951388889,
+    "world_height_m": 2.316
+   }
+  ]
+ },
+ "t9_1c_parked": {
+  "state": "the relief is built and in the scene behind --no-relief; the depth-residual sweep was cut when the character work was re-prioritised.",
+  "the_finding": "IT DOES NOT MOVE THE LIGHTING. near-black 19.04% -> 18.93%, lost>half 16.20% -> 16.08%. Switching shadows off changes nothing (15.27% -> 15.25%) and doubling the sun changes nothing (15.02%), so the dark is not shadow and not intensity. With NO sun and full ambient -- the painted albedo shown flat -- 10.54% of the frame is STILL near-black: over half the darkness is painted into the plate. 1b, the albedo repaint, is the load-bearing step, not 1c.",
+  "what_was_measured": "the displacement is along the VIEW direction, so the painted registration is exact: the tree frame is pixel-identical before and after (0 of 2,073,600 px differ), the bridge frame differs on 0.58% purely from depth reordering at the chasm lip. Near wall: 10,324 of 37,810 vertices moved, mean 0.445 m, max 2.5 m."
+ },
+ "transitions": {
+  "attack_one_shot_s": 1.5,
+  "brief_was": "0.25-0.35 s from a walk, 0.4-0.5 s from a run",
+  "how": "locomotion is an AnimationNodeBlendSpace1D on GROUND SPEED (idle 0 / walk 201.7 / run 647.5 canvas px/s), sync on; the attack is an AnimationNodeOneShot over the top (0.10 s in, 0.25 s out); the facing turn is an exponential lerp on the yaw. There is no state switch left in the locomotion, which is what the snap was.",
+  "one_speed_drives_both": "the smoothed speed positions the blend AND moves the body. If either smoothed and the other did not, the feet would slide for exactly as long as the ramp lasted.",
+  "planted_foot_travel_m_per_frame": {
+   "run": {
+    "median": 0.0102,
+    "worst": 0.2185
+   },
+   "walk": {
+    "median": 0.0029,
+    "worst": 0.038
+   }
+  },
+  "slide_note": "a planted foot is one that does not move, because the ground does not. So the test is the stance foot's travel IN WORLD SPACE while planted -- filtered to frames where it is within 3 cm of its own lowest, because at a run the SWINGING foot can be the lower of the two for a frame and travels 0.22 m in it, correctly. The walk stop is 2.9 mm per frame, which is 7 cm/s against a body doing 2 m/s. The run stop is 10.2 mm median with one frame at 219 mm at the walk-run crossover: that single frame is the phase mismatch between a 25-frame walk and a 16-frame run. Godot's blend-space `sync` keeps both clips running but cannot time-lock clips of different length. The asset fix is to re-time the run to a whole multiple of the walk's cycle; shortening the ramp already took the median from 61 mm to 10 mm.",
+  "stop_from_run_s": 0.46,
+  "stop_from_walk_s": 0.33
+ }
+}
