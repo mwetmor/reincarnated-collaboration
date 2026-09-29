@@ -1,0 +1,58 @@
+{
+ "clip": "walk",
+ "pos_tol": 0.035,
+ "note": "mean |dRGB| in 0-255 between consecutive frames after matching pixels by the pos guide; shuffled order is the negative control",
+ "sets": {
+  "render": {
+   "E": {
+    "pairs": 12,
+    "body_mean": 9.83,
+    "body_max": 10.67,
+    "head_mean": 10.73,
+    "head_max": 11.15,
+    "matched_frac": 0.992
+   },
+   "E_shuffled": {
+    "pairs": 12,
+    "body_mean": 10.16,
+    "body_max": 11.38,
+    "head_mean": 10.95,
+    "head_max": 11.26,
+    "matched_frac": 0.982
+   },
+   "SE": {
+    "pairs": 12,
+    "body_mean": 8.89,
+    "body_max": 9.56,
+    "head_mean": 9.85,
+    "head_max": 10.42,
+    "matched_frac": 0.991
+   },
+   "SE_shuffled": {
+    "pairs": 12,
+    "body_mean": 9.77,
+    "body_max": 10.48,
+    "head_mean": 10.02,
+    "head_max": 10.63,
+    "matched_frac": 0.977
+   },
+   "S": {
+    "pairs": 12,
+    "body_mean": 7.99,
+    "body_max": 8.42,
+    "head_mean": 9.25,
+    "head_max": 10.35,
+    "matched_frac": 0.99
+   },
+   "S_shuffled": {
+    "pairs": 12,
+    "body_mean": 8.91,
+    "body_max": 9.55,
+    "head_mean": 9.56,
+    "head_max": 10.36,
+    "matched_frac": 0.96
+   }
+  }
+ },
+ "control": {}
+}
