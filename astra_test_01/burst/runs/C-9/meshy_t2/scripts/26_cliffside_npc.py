@@ -69,90 +69,108 @@ def build_tres(app, rel):
 NPC_GD = '''extends CharacterBody2D
 ## C-9 T2 manticore NPC -- Rochester Bestiary, c.1230.
 ##
-## Walks a short patrol and idles at each end. Eight authored directions, never
-## mirrored: the sprites were rendered per direction, so a mirrored W would put
-## the man\'s parting and the tail\'s curve on the wrong side.
+## Walks a CLOSED LOOP of eight legs and idles at two opposite corners. Eight
+## authored directions, never mirrored: the sprites were rendered per
+## direction, so a mirrored W would put the man\'s parting and the tail\'s curve
+## on the wrong side.
+##
+## THE LOOP IS EIGHT EQUAL LEGS, ONE PER DIRECTION, so it closes exactly:
+## the eight unit compass vectors sum to zero. A horizontal there-and-back
+## showed only E and W, which is half the painted work invisible.
 ##
 ## SPEED is measured, not chosen. The walk cycle plants its feet at 0.933 m/s
-## (1.9 mm of residual slide over the cycle), and the scene draws this sprite at
-## 69.33 px per metre, so 64.7 px/s is the only speed at which the feet do not
-## skate. The player walks at 247 px/s; this creature is not the player.
+## (1.9 mm of residual slide), and the scene draws this sprite at 69.33 px per
+## metre, so 64.7 px/s is the only speed at which the feet do not skate. The
+## player walks at 247 px/s; this creature is not the player.
 const DIRECTIONS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 @export var walk_speed: float = 64.7
-@export var patrol_a: Vector2 = Vector2.ZERO
-@export var patrol_b: Vector2 = Vector2.ZERO
-@export var pause_seconds: float = 2.4
-## Turn around when the body stops advancing. The cliffside's floor collision
-## is authored for the PLAYER, and a patrol laid across it can put the NPC
-## into a wall: measured, it walked east from x=2680 and jammed at x=3023,
-## 77 px short of its target, then pushed into that wall for the rest of the
-## run at full walk speed with the animation playing. A patrol that can only
-## turn when it REACHES its target cannot recover from never reaching it.
+@export var waypoints: PackedVector2Array = PackedVector2Array()
+@export var pause_at: PackedInt32Array = PackedInt32Array([0, 4])
+@export var pause_seconds: float = 1.5
+## Advance when the body stops moving. The cliffside\'s floor collision is
+## authored for the PLAYER, and a leg laid across it pins the NPC: measured,
+## it walked east from x=2680, jammed at x=3023 and pushed into that wall for
+## the rest of the run at full speed with the animation playing. A path that
+## can only advance when it REACHES a waypoint cannot recover from never
+## reaching one.
 @export var stuck_speed_frac: float = 0.25
 @export var stuck_seconds: float = 0.6
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-var _target: Vector2
-var _home: Vector2
+var _i: int = 0
 var _pausing: float = 0.0
 var _facing: String = "S"
 var _state: String = "idle"
 var _stuck: float = 0.0
 var _last_pos: Vector2 = Vector2.ZERO
+var _skipped: int = 0
 
 func _ready() -> void:
-    _home = global_position
-    if patrol_a == Vector2.ZERO:
-        patrol_a = _home
-    if patrol_b == Vector2.ZERO:
-        patrol_b = _home + Vector2(360, 0)
-    _target = patrol_b
-    _pausing = pause_seconds
-    _last_pos = global_position
-    _play()
+	if waypoints.size() < 2:
+		# a small octagon around the spawn, so the node is still usable if no
+		# path was authored on the instance
+		var p := global_position
+		var L := 90.0
+		var d := 0.70710678
+		var steps := [Vector2(0, 1), Vector2(d, d), Vector2(1, 0), Vector2(d, -d),
+			Vector2(0, -1), Vector2(-d, -d), Vector2(-1, 0), Vector2(-d, d)]
+		var wp := PackedVector2Array()
+		for st in steps:
+			wp.append(p)
+			p += st * L
+		waypoints = wp
+	_i = 0
+	_pausing = pause_seconds
+	_last_pos = global_position
+	_play()
 
 func _physics_process(delta: float) -> void:
-    if _pausing > 0.0:
-        _pausing -= delta
-        velocity = Vector2.ZERO
-        _set_state("idle")
-        move_and_slide()
-        return
-    var to_target := _target - global_position
-    if to_target.length() < 8.0:
-        _target = patrol_a if _target == patrol_b else patrol_b
-        _pausing = pause_seconds
-        _stuck = 0.0
-        velocity = Vector2.ZERO
-        _set_state("idle")
-        move_and_slide()
-        return
-    var dir := to_target.normalized()
-    velocity = dir * walk_speed
-    _facing = DIRECTIONS[posmod(roundi(dir.angle() / (PI / 4.0)) + 6, 8)]
-    _set_state("walk")
-    move_and_slide()
-    var advanced := global_position.distance_to(_last_pos)
-    _last_pos = global_position
-    if advanced < walk_speed * delta * stuck_speed_frac:
-        _stuck += delta
-        if _stuck >= stuck_seconds:
-            _stuck = 0.0
-            _target = patrol_a if _target == patrol_b else patrol_b
-            _pausing = pause_seconds
-    else:
-        _stuck = 0.0
+	if _pausing > 0.0:
+		_pausing -= delta
+		velocity = Vector2.ZERO
+		_set_state("idle")
+		move_and_slide()
+		return
+	var target: Vector2 = waypoints[(_i + 1) % waypoints.size()]
+	var to_target := target - global_position
+	if to_target.length() < 8.0:
+		_arrive()
+		return
+	var dir := to_target.normalized()
+	velocity = dir * walk_speed
+	_facing = DIRECTIONS[posmod(roundi(dir.angle() / (PI / 4.0)) + 6, 8)]
+	_set_state("walk")
+	move_and_slide()
+	var advanced := global_position.distance_to(_last_pos)
+	_last_pos = global_position
+	if advanced < walk_speed * delta * stuck_speed_frac:
+		_stuck += delta
+		if _stuck >= stuck_seconds:
+			_skipped += 1
+			_arrive()
+	else:
+		_stuck = 0.0
+
+func _arrive() -> void:
+	_i = (_i + 1) % waypoints.size()
+	_stuck = 0.0
+	_last_pos = global_position
+	if _i in pause_at:
+		_pausing = pause_seconds
+	velocity = Vector2.ZERO
+	_set_state("idle")
+	move_and_slide()
 
 func _set_state(s: String) -> void:
-    if s == _state and sprite.animation == "%s_%s" % [_state, _facing]:
-        return
-    _state = s
-    _play()
+	if s == _state and sprite.animation == "%s_%s" % [_state, _facing]:
+		return
+	_state = s
+	_play()
 
 func _play() -> void:
-    var want := "%s_%s" % [_state, _facing]
-    if sprite.sprite_frames != null and sprite.sprite_frames.has_animation(want):
-        sprite.play(want)
+	var want := "%s_%s" % [_state, _facing]
+	if sprite.sprite_frames != null and sprite.sprite_frames.has_animation(want):
+		sprite.play(want)
 '''
 
 
@@ -187,7 +205,21 @@ def npc_tscn(frames_path, script_path):
             % (script_path, frames_path, SOLE_ROW, SPRITE_SCALE, SPRITE_SCALE))
 
 
-def patch_scene(tscn, npc_scene_path, pos, a, b):
+def octagon(origin, leg):
+    """Eight equal legs, one per compass direction, in the order S SE E NE N
+    NW W SW. The eight unit compass vectors sum to zero, so a loop of equal
+    legs closes EXACTLY -- no fudge waypoint and no drift back to the start."""
+    d = 0.70710678
+    steps = [(0, 1), (d, d), (1, 0), (d, -d), (0, -1), (-d, -d), (-1, 0), (-d, d)]
+    pts, p = [], list(origin)
+    for sx, sy in steps:
+        pts.append((round(p[0], 2), round(p[1], 2)))
+        p[0] += sx * leg
+        p[1] += sy * leg
+    return pts
+
+
+def patch_scene(tscn, npc_scene_path, pos, wps, pause_at):
     src = open(tscn).read()
     marker = "; C-9 T2 manticore NPC"
     # Strip EVERY existing ManticoreNPC block, by node header rather than by
@@ -219,12 +251,14 @@ def patch_scene(tscn, npc_scene_path, pos, a, b):
     # the marker is its OWN line: a .tscn comment is ";" at the START of a
     # line, so appending it to the node declaration would make the node header
     # unparseable rather than commented.
+    flat = ", ".join("%s, %s" % (x, y) for x, y in wps)
     node = ('\n%s\n[node name="ManticoreNPC" parent="Actors" '
             'instance=ExtResource("ManticoreNPC")]\n'
             'position = Vector2(%s, %s)\n'
-            'patrol_a = Vector2(%s, %s)\n'
-            'patrol_b = Vector2(%s, %s)\n'
-            % (marker, pos[0], pos[1], a[0], a[1], b[0], b[1]))
+            'waypoints = PackedVector2Array(%s)\n'
+            'pause_at = PackedInt32Array(%s)\n'
+            % (marker, pos[0], pos[1], flat,
+               ", ".join(str(i) for i in pause_at)))
     if not src.endswith("\n"):
         src += "\n"
     open(tscn, "w").write(src + node)
@@ -236,9 +270,8 @@ def main():
                                                   "cliffside_B_app"))
     ap.add_argument("--x", type=float, default=2680.0)
     ap.add_argument("--y", type=float, default=2407.32)
-    # 300 px, not 420: the probe showed the body jams at x=3023 against the
-    # cliffside collision, so a 420 px span put the far end inside a wall.
-    ap.add_argument("--span", type=float, default=300.0)
+    # leg length of the octagon; the loop spans about 2.4 legs each way
+    ap.add_argument("--leg", type=float, default=90.0)
     args = ap.parse_args()
     app = os.path.abspath(args.app)
     rel = "sprites_manticore"
@@ -276,12 +309,14 @@ def main():
     open(cs, "w").write(CAPTURE_TSCN)
     print("wrote", os.path.relpath(cg, app), "and", os.path.relpath(cs, app))
 
+    wps = octagon((args.x, args.y), args.leg)
     patch_scene(os.path.join(app, "scenes", "cliffside.tscn"),
                 "res://scenes/manticore_npc.tscn",
-                (args.x, args.y), (args.x, args.y),
-                (args.x + args.span, args.y))
-    print("patched scenes/cliffside.tscn: NPC at (%.0f, %.0f), patrol span %.0f px"
-          % (args.x, args.y, args.span))
+                (args.x, args.y), wps, (0, 4))
+    xs = [w[0] for w in wps]; ys = [w[1] for w in wps]
+    print("patched scenes/cliffside.tscn: octagon at (%.0f, %.0f), leg %.0f px, "
+          "extent x %.0f-%.0f y %.0f-%.0f, idle at waypoints 0 and 4"
+          % (args.x, args.y, args.leg, min(xs), max(xs), min(ys), max(ys)))
     px_per_m_screen = PX_PER_M * SPRITE_SCALE
     print("scale %.6f shared with the keeper; screen world %.2f px/m; "
           "walk %.2f m/s -> %.1f px/s"
