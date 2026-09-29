@@ -92,23 +92,58 @@
    "glb": "axe.glb",
    "edge_marker": "axe_edge",
    "edge_world": [
-    -0.5975,
-    -0.2875,
-    1.5142
+    -0.4595,
+    -0.3341,
+    1.5835
    ]
   },
   {
    "piece": "shield",
    "mode": "socket",
    "bones": [
-    "LeftForeArm"
+    "LeftHand"
    ],
    "objects": [
     "shield"
    ],
    "faces": 9000,
    "offset_m": 0.0,
-   "glb": "shield.glb"
+   "glb": "shield.glb",
+   "bone": "LeftHand",
+   "bone_note": "socketed to LeftHand IN the carry pose. A rest-pose bind puts the disc through his chest once the forearm crosses: idle 117 -> 277 inside."
   }
- ]
+ ],
+ "arm_layer": {
+  "action": "shield_carry_L",
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "rule": "when the shield is equipped, blend shield_carry_L on these four bones at weight 1 over idle, walk and run; do NOT apply it over attack -- the slash uses the right arm and the left must swing free",
+  "instrument": "crossing parity against the posed body mesh, 1864 shield vertices sampled",
+  "shield_vertices_inside_body": {
+   "idle": {
+    "before": 183,
+    "after": 12,
+    "worst_depth_m": 0.084
+   },
+   "walk": {
+    "before": 313,
+    "after": 3,
+    "worst_depth_m": 0.003
+   },
+   "run": {
+    "before": 389,
+    "after": 14,
+    "worst_depth_m": 0.011
+   },
+   "attack": {
+    "no_layer": 326,
+    "worst_depth_m": 0.082
+   }
+  },
+  "grip": "nearest shield vertex 0.063 m from the left hand"
+ }
 }

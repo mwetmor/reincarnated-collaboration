@@ -9,7 +9,7 @@
 # a skinned glTF round trip collapsed every one of them.
 import bpy, json, math, os, sys
 import numpy as np
-from mathutils import Vector
+from mathutils import Vector, Matrix
 HERE = os.path.dirname(os.path.abspath(
     [x for x in sys.argv if x.endswith("10_swap.py")][0]))
 sys.path.insert(0, HERE)
@@ -57,6 +57,15 @@ for o in [o for o in sc.objects if o.type == 'MESH' and not o.vertex_groups]:
     bpy.data.objects.remove(o, do_unlink=True)
 img = bpy.data.images.load(os.path.abspath(TEX))
 unlit(body, img)
+# REST POSE BEFORE FITTING. socket_weapon2 and bone_bind read the bone's
+# POSED head, and a glTF import leaves the armature on whatever action it
+# picked -- so a piece could be bound against frame 1 of some clip instead of
+# the rest pose. Two baselines of the same shield disagreed (idle 3 against
+# 117) and that disagreement is the only reason it was found.
+arm.animation_data.action = None
+for _pb in arm.pose.bones:
+    _pb.matrix_basis = Matrix.Identity(4)
+bpy.context.view_layer.update()
 BV, BT, names, W, tree = G.body_sampler(body[0])
 worn, fitinfo = [], []
 for item in [s for s in SPEC.split(",") if s]:

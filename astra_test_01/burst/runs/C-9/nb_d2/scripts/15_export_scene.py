@@ -40,6 +40,15 @@ for o in body:
                 if nd.type == 'TEX_IMAGE':
                     nd.image = img
                     nd.image.colorspace_settings.name = 'sRGB'
+# REST POSE BEFORE FITTING. socket_weapon2 and bone_bind read the bone's
+# POSED head, and a glTF import leaves the armature on whatever action it
+# picked -- so a piece could be bound against frame 1 of some clip instead of
+# the rest pose. Two baselines of the same shield disagreed (idle 3 against
+# 117) and that disagreement is the only reason it was found.
+arm.animation_data.action = None
+for _pb in arm.pose.bones:
+    _pb.matrix_basis = Matrix.Identity(4)
+bpy.context.view_layer.update()
 BV, BT, names, W, tree = G.body_sampler(body[0])
 PIECE_REF_H = 1.70                # the rig the pieces were isolated against
 BH_NOW = float(BV[:, 2].max() - BV[:, 2].min())
@@ -58,8 +67,14 @@ SPECS = dict(axe=dict(axis_world=(0, 0, 1), face_world=(0, -1, 0)),
              # shield's radius is 0.41 m, so the rim reaches the torso whatever
              # the bind does, and the run's arm swing rolls the disc through
              # him. That needs a smaller shield or a different run clip.
-             shield=dict(axis_world=(1, 0.70, 0), face_world=(0, -1, 0),
-                         offset_world=(0.20, -0.18, -0.13), anchor="normal"))
+             # THE SHIELD IS BOUND IN THE CARRY POSE, to LeftHand. A rest-pose
+             # bind is the wrong bind for a carried shield: socketed at rest and
+             # then carried, the forearm swings across his chest and takes the
+             # disc with it (idle 117 -> 277 vertices inside). Bound in the pose
+             # it is carried in, with its normal outward-and-forward at that
+             # moment, the layer clears him: walk 313 -> 3, run 389 -> 14.
+             shield=dict(axis_world=(0.50, -0.87, 0.0), face_world=(0, 0, 1),
+                         offset_world=(0.02, -0.06, 0.0), anchor="normal"))
 for item in [x for x in SPEC.split(",") if x]:
     parts = item.split(":")
     nm, mode = parts[0], parts[1]
@@ -69,6 +84,14 @@ for item in [x for x in SPEC.split(",") if x]:
                  axe=9000, shield=9000).get(nm, 16000)
     offs = dict(helmet=0.0, bracers=0.002, byrnie=0.005, mantle=0.008,
                 axe=0.0, shield=0.0).get(nm, 0.004)
+    CARRY = None
+    if nm == "shield" and os.path.exists(os.path.join(ROOT, "work", "carry_pose.json")):
+        CARRY = json.load(open(os.path.join(ROOT, "work", "carry_pose.json")))
+        for bn, flat in CARRY.items():
+            arm.pose.bones[bn].matrix_basis = Matrix(
+                [flat[i * 4:(i + 1) * 4] for i in range(4)])
+        bpy.context.view_layer.update()
+        print("   posed the left arm to shield_carry_L before socketing")
     before = set(sc.objects)
     src = "builds" if mode == "socket" else "pieces"
     pc = G.import_piece(os.path.join(ROOT, src, "%s.glb" % nm), before)
@@ -101,6 +124,10 @@ for item in [x for x in SPEC.split(",") if x]:
               % (np.round(ep, 4).tolist(), nedge))
         manifest_extra = dict(edge_marker="axe_edge",
                               edge_world=[round(float(v), 4) for v in ep])
+    if CARRY:
+        for pbx in arm.pose.bones:
+            pbx.matrix_basis = Matrix.Identity(4)
+        bpy.context.view_layer.update()
     if nm == "helmet":
         mv, ca, kk = G.helmet_on_key(body[0], made[0][0], arm)
         kk.value = 0.0                    # OFF by default; the consumer sets it
@@ -141,6 +168,33 @@ def export(objs, path, anim=False, extra=()):
                               export_morph=True, export_image_format='AUTO')
     return round(os.path.getsize(path) / 1e6, 2)
 
+
+# the shield's arm layer, authored in scripts/17_shield_carry.py and passed in
+# as pose matrices so the search is not repeated and so this script -- the one
+# that also builds helmet_on -- is the single source of the finished body.
+CP = os.path.join(ROOT, "work", "carry_pose.json")
+if os.path.exists(CP):
+    cp = json.load(open(CP))
+    cact = bpy.data.actions.new("shield_carry_L")
+    prev = arm.animation_data.action if arm.animation_data else None
+    arm.animation_data.action = cact
+    for f in (0, 1):
+        sc.frame_set(f)
+        for bn, flat in cp.items():
+            pbx = arm.pose.bones[bn]
+            pbx.matrix_basis = Matrix([flat[i * 4:(i + 1) * 4] for i in range(4)])
+            pbx.rotation_mode = 'QUATERNION'
+            pbx.keyframe_insert("rotation_quaternion", frame=f)
+            pbx.keyframe_insert("location", frame=f)
+    cact.use_fake_user = True
+    arm.animation_data.action = prev
+    for pbx in arm.pose.bones:
+        pbx.matrix_basis = Matrix.Identity(4)
+    bpy.context.view_layer.update()
+    tr = arm.animation_data.nla_tracks.new()
+    tr.name = "shield_carry_L"
+    tr.strips.new("shield_carry_L", 0, cact)
+    print("added shield_carry_L on %s" % list(cp))
 
 mb = export(body, os.path.join(OUT, "nb-body.glb"), anim=True)
 print("wrote nb-body.glb (%.2f MB) with the helmet_on morph and the clips" % mb)

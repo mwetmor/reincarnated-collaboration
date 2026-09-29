@@ -1,0 +1,90 @@
+{
+ "target_hand": [
+  0.1,
+  -0.32,
+  1.3
+ ],
+ "elbow_out": 0.3,
+ "chain": [
+  "LeftShoulder",
+  "LeftArm",
+  "LeftForeArm",
+  "LeftHand"
+ ],
+ "elbow_world": [
+  0.2941,
+  -0.2601,
+  1.3405
+ ],
+ "hand_world": [
+  -0.0196,
+  -0.1707,
+  0.8618
+ ],
+ "clips": {
+  "idle": {
+   "layer_applied": true,
+   "before": {
+    "worst_frame": 13,
+    "inside": 183,
+    "depth_m": 0.0512,
+    "sampled": 1864
+   },
+   "after": {
+    "worst_frame": 53,
+    "inside": 12,
+    "depth_m": 0.0836,
+    "sampled": 1864
+   }
+  },
+  "walk": {
+   "layer_applied": true,
+   "before": {
+    "worst_frame": 20,
+    "inside": 313,
+    "depth_m": 0.0736,
+    "sampled": 1864
+   },
+   "after": {
+    "worst_frame": 0,
+    "inside": 3,
+    "depth_m": 0.0026,
+    "sampled": 1864
+   }
+  },
+  "run": {
+   "layer_applied": true,
+   "before": {
+    "worst_frame": 5,
+    "inside": 389,
+    "depth_m": 0.0673,
+    "sampled": 1864
+   },
+   "after": {
+    "worst_frame": 1,
+    "inside": 14,
+    "depth_m": 0.0114,
+    "sampled": 1864
+   }
+  },
+  "attack": {
+   "layer_applied": false,
+   "before": {
+    "worst_frame": 12,
+    "inside": 326,
+    "depth_m": 0.0818,
+    "sampled": 1864
+   },
+   "after": null
+  },
+  "grip": {
+   "nearest_vertex_m": 0.0625,
+   "hand_to_centre_m": 0.4254,
+   "hand_world": [
+    -0.0196,
+    -0.1707,
+    0.8618
+   ]
+  }
+ }
+}
