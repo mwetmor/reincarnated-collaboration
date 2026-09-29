@@ -1,0 +1,41 @@
+; C-9 T10-1b SNOW LAB -- a sandbox for the snow layer the barbarian steps through.
+; Separate project on purpose: runs/C-9/cliffside3d is being edited live by the
+; integration session, so nothing here imports, writes or runs inside it.
+config_version=5
+
+[application]
+config/name="C-9 Snow Lab"
+run/main_scene="res://scenes/snow_lab.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor_plugins]
+enabled=PackedStringArray()
+
+[input]
+move_left={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194319),Object(InputEventKey,"physical_keycode":65)]}
+move_right={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194321),Object(InputEventKey,"physical_keycode":68)]}
+move_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194320),Object(InputEventKey,"physical_keycode":87)]}
+move_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194322),Object(InputEventKey,"physical_keycode":83)]}
+run_modifier={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194325)]}
+gear_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":71)]}
+snow_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":78)]}
+attack={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":32)]}
+attack_chop={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":88)]}
+block={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":66)]}
+shield_bash={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":67)]}
+ink_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":73)]}
+
+[rendering]
+renderer/rendering_method="forward_plus"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2
+
+[editor]
+movie_writer/fps=30
+movie_writer/mjpeg_quality=0.9
+movie_writer/disable_vsync=true
+movie_writer/speaker_mode=0
