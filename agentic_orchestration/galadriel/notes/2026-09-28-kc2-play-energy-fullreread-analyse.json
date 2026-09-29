@@ -1,0 +1,1251 @@
+{
+ "stage": "analyse",
+ "n_common_rows": 10959,
+ "atlas_trace": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/s2-energy-60hz.json",
+ "vision_trace": "agentic_orchestration/galadriel/notes/2026-09-28-kc2-play-energy-fullreread-population.json",
+ "cross_reader_population": {
+  "n": 10959,
+  "both_parsed": 10501,
+  "exact_agreement": 9588,
+  "agreement_rate": 0.913056,
+  "n_disagreements": 913,
+  "atlas_parsed_vision_not": 2,
+  "vision_parsed_atlas_not": 455,
+  "neither_parsed": 1,
+  "atlas_parse_rate": 0.95839,
+  "vision_parse_rate": 0.999726,
+  "disagreement_sample": [
+   {
+    "t": 685.8667,
+    "atlas": 145,
+    "vision": 1456
+   },
+   {
+    "t": 685.9833,
+    "atlas": 146,
+    "vision": 1465
+   },
+   {
+    "t": 686.2833,
+    "atlas": 1398,
+    "vision": 1498
+   },
+   {
+    "t": 686.3,
+    "atlas": 1399,
+    "vision": 1499
+   },
+   {
+    "t": 686.4833,
+    "atlas": 1531,
+    "vision": 1537
+   },
+   {
+    "t": 687.0833,
+    "atlas": 1573,
+    "vision": 1578
+   },
+   {
+    "t": 687.5333,
+    "atlas": 1551,
+    "vision": 1555
+   },
+   {
+    "t": 687.6667,
+    "atlas": 1534,
+    "vision": 1539
+   },
+   {
+    "t": 687.8,
+    "atlas": 160,
+    "vision": 1520
+   },
+   {
+    "t": 688.0167,
+    "atlas": 1504,
+    "vision": 1509
+   },
+   {
+    "t": 688.05,
+    "atlas": 108,
+    "vision": 1498
+   },
+   {
+    "t": 688.1333,
+    "atlas": 101,
+    "vision": 1491
+   },
+   {
+    "t": 688.15,
+    "atlas": 103,
+    "vision": 1493
+   },
+   {
+    "t": 688.1667,
+    "atlas": 106,
+    "vision": 1496
+   },
+   {
+    "t": 688.1833,
+    "atlas": 107,
+    "vision": 1497
+   },
+   {
+    "t": 688.2,
+    "atlas": 108,
+    "vision": 1498
+   },
+   {
+    "t": 688.2167,
+    "atlas": 105,
+    "vision": 1485
+   },
+   {
+    "t": 688.2333,
+    "atlas": 106,
+    "vision": 1486
+   },
+   {
+    "t": 688.25,
+    "atlas": 108,
+    "vision": 1488
+   },
+   {
+    "t": 688.45,
+    "atlas": 1471,
+    "vision": 1477
+   },
+   {
+    "t": 688.5667,
+    "atlas": 146,
+    "vision": 1474
+   },
+   {
+    "t": 688.65,
+    "atlas": 1462,
+    "vision": 1467
+   },
+   {
+    "t": 688.7167,
+    "atlas": 1471,
+    "vision": 1474
+   },
+   {
+    "t": 688.7333,
+    "atlas": 1471,
+    "vision": 1475
+   },
+   {
+    "t": 688.85,
+    "atlas": 1447,
+    "vision": 1487
+   },
+   {
+    "t": 688.8667,
+    "atlas": 1484,
+    "vision": 1489
+   },
+   {
+    "t": 688.9,
+    "atlas": 1491,
+    "vision": 1493
+   },
+   {
+    "t": 688.9667,
+    "atlas": 1434,
+    "vision": 1484
+   },
+   {
+    "t": 689.0,
+    "atlas": 1501,
+    "vision": 1503
+   },
+   {
+    "t": 689.0667,
+    "atlas": 1507,
+    "vision": 1502
+   },
+   {
+    "t": 689.6333,
+    "atlas": 1481,
+    "vision": 1483
+   },
+   {
+    "t": 689.6833,
+    "atlas": 144,
+    "vision": 1488
+   },
+   {
+    "t": 689.7,
+    "atlas": 1449,
+    "vision": 1489
+   },
+   {
+    "t": 689.7833,
+    "atlas": 1441,
+    "vision": 1481
+   },
+   {
+    "t": 689.9333,
+    "atlas": 146,
+    "vision": 1465
+   },
+   {
+    "t": 690.05,
+    "atlas": 1441,
+    "vision": 1445
+   },
+   {
+    "t": 690.2167,
+    "atlas": 188,
+    "vision": 1428
+   },
+   {
+    "t": 690.3,
+    "atlas": 160,
+    "vision": 1420
+   },
+   {
+    "t": 690.3167,
+    "atlas": 161,
+    "vision": 1421
+   },
+   {
+    "t": 690.3333,
+    "atlas": 162,
+    "vision": 1422
+   },
+   {
+    "t": 690.35,
+    "atlas": 164,
+    "vision": 1424
+   },
+   {
+    "t": 690.3667,
+    "atlas": 165,
+    "vision": 1425
+   },
+   {
+    "t": 690.6333,
+    "atlas": 1371,
+    "vision": 1373
+   },
+   {
+    "t": 690.75,
+    "atlas": 1351,
+    "vision": 1381
+   },
+   {
+    "t": 690.9833,
+    "atlas": 182,
+    "vision": 1422
+   },
+   {
+    "t": 691.0,
+    "atlas": 14,
+    "vision": 1424
+   },
+   {
+    "t": 691.0167,
+    "atlas": 185,
+    "vision": 1425
+   },
+   {
+    "t": 691.0333,
+    "atlas": 166,
+    "vision": 1426
+   },
+   {
+    "t": 691.05,
+    "atlas": 167,
+    "vision": 1427
+   },
+   {
+    "t": 691.0667,
+    "atlas": 14,
+    "vision": 1428
+   },
+   {
+    "t": 691.4,
+    "atlas": 136,
+    "vision": 1365
+   },
+   {
+    "t": 691.5167,
+    "atlas": 137,
+    "vision": 1376
+   },
+   {
+    "t": 691.5667,
+    "atlas": 136,
+    "vision": 1365
+   },
+   {
+    "t": 691.5833,
+    "atlas": 1330,
+    "vision": 1339
+   },
+   {
+    "t": 691.7167,
+    "atlas": 1347,
+    "vision": 1342
+   },
+   {
+    "t": 691.8333,
+    "atlas": 1323,
+    "vision": 1321
+   },
+   {
+    "t": 691.8833,
+    "atlas": 132,
+    "vision": 1325
+   },
+   {
+    "t": 691.9,
+    "atlas": 1317,
+    "vision": 1312
+   },
+   {
+    "t": 691.95,
+    "atlas": 1371,
+    "vision": 1321
+   },
+   {
+    "t": 691.9667,
+    "atlas": 137,
+    "vision": 1325
+   },
+   {
+    "t": 692.1,
+    "atlas": 1333,
+    "vision": 1334
+   },
+   {
+    "t": 692.1167,
+    "atlas": 1351,
+    "vision": 1361
+   },
+   {
+    "t": 692.15,
+    "atlas": 1344,
+    "vision": 1349
+   },
+   {
+    "t": 692.3167,
+    "atlas": 130,
+    "vision": 1398
+   },
+   {
+    "t": 692.3333,
+    "atlas": 130,
+    "vision": 1399
+   },
+   {
+    "t": 692.7,
+    "atlas": 1440,
+    "vision": 1449
+   },
+   {
+    "t": 692.7333,
+    "atlas": 1470,
+    "vision": 1479
+   },
+   {
+    "t": 692.8333,
+    "atlas": 1471,
+    "vision": 1472
+   },
+   {
+    "t": 692.8833,
+    "atlas": 1467,
+    "vision": 1462
+   },
+   {
+    "t": 692.9,
+    "atlas": 1461,
+    "vision": 1463
+   },
+   {
+    "t": 693.0667,
+    "atlas": 1454,
+    "vision": 1455
+   },
+   {
+    "t": 693.1333,
+    "atlas": 1468,
+    "vision": 1460
+   },
+   {
+    "t": 693.3167,
+    "atlas": 1434,
+    "vision": 1444
+   },
+   {
+    "t": 693.45,
+    "atlas": 185,
+    "vision": 1425
+   },
+   {
+    "t": 693.4667,
+    "atlas": 186,
+    "vision": 1426
+   },
+   {
+    "t": 693.4833,
+    "atlas": 187,
+    "vision": 1427
+   },
+   {
+    "t": 693.5,
+    "atlas": 189,
+    "vision": 1429
+   },
+   {
+    "t": 693.5667,
+    "atlas": 180,
+    "vision": 1420
+   },
+   {
+    "t": 693.5833,
+    "atlas": 161,
+    "vision": 1421
+   },
+   {
+    "t": 693.6,
+    "atlas": 182,
+    "vision": 1422
+   },
+   {
+    "t": 693.6167,
+    "atlas": 12,
+    "vision": 1423
+   },
+   {
+    "t": 693.6333,
+    "atlas": 185,
+    "vision": 1425
+   },
+   {
+    "t": 693.8333,
+    "atlas": 1197,
+    "vision": 1397
+   },
+   {
+    "t": 693.85,
+    "atlas": 1199,
+    "vision": 1399
+   },
+   {
+    "t": 694.0667,
+    "atlas": 138,
+    "vision": 1395
+   },
+   {
+    "t": 694.0833,
+    "atlas": 130,
+    "vision": 1398
+   },
+   {
+    "t": 694.1,
+    "atlas": 138,
+    "vision": 1399
+   },
+   {
+    "t": 694.1167,
+    "atlas": 143,
+    "vision": 1400
+   },
+   {
+    "t": 694.15,
+    "atlas": 134,
+    "vision": 1388
+   },
+   {
+    "t": 694.1667,
+    "atlas": 138,
+    "vision": 1390
+   },
+   {
+    "t": 694.2333,
+    "atlas": 130,
+    "vision": 1380
+   },
+   {
+    "t": 694.4167,
+    "atlas": 1351,
+    "vision": 1381
+   },
+   {
+    "t": 695.1333,
+    "atlas": 1367,
+    "vision": 3621
+   },
+   {
+    "t": 695.2833,
+    "atlas": 1367,
+    "vision": 1362
+   },
+   {
+    "t": 695.3333,
+    "atlas": 1357,
+    "vision": 1352
+   },
+   {
+    "t": 695.4,
+    "atlas": 1389,
+    "vision": 1369
+   },
+   {
+    "t": 695.45,
+    "atlas": 1373,
+    "vision": 1374
+   },
+   {
+    "t": 695.5333,
+    "atlas": 1397,
+    "vision": 1392
+   },
+   {
+    "t": 695.6667,
+    "atlas": 1411,
+    "vision": 1415
+   },
+   {
+    "t": 696.2333,
+    "atlas": 156,
+    "vision": 1542
+   },
+   {
+    "t": 696.4667,
+    "atlas": 1580,
+    "vision": 1589
+   },
+   {
+    "t": 697.0333,
+    "atlas": 1587,
+    "vision": 1582
+   },
+   {
+    "t": 697.1833,
+    "atlas": 1581,
+    "vision": 1587
+   },
+   {
+    "t": 697.3833,
+    "atlas": 1587,
+    "vision": 1582
+   },
+   {
+    "t": 697.4667,
+    "atlas": 157,
+    "vision": 1575
+   },
+   {
+    "t": 697.5,
+    "atlas": 1573,
+    "vision": 1578
+   },
+   {
+    "t": 697.5167,
+    "atlas": 1571,
+    "vision": 1579
+   },
+   {
+    "t": 697.5333,
+    "atlas": 1583,
+    "vision": 1580
+   },
+   {
+    "t": 697.5667,
+    "atlas": 1565,
+    "vision": 1568
+   },
+   {
+    "t": 697.65,
+    "atlas": 1575,
+    "vision": 1576
+   },
+   {
+    "t": 697.8333,
+    "atlas": 156,
+    "vision": 1564
+   },
+   {
+    "t": 698.4667,
+    "atlas": 1511,
+    "vision": 1517
+   },
+   {
+    "t": 698.5333,
+    "atlas": 1511,
+    "vision": 1513
+   },
+   {
+    "t": 698.6833,
+    "atlas": 1400,
+    "vision": 1500
+   },
+   {
+    "t": 698.7,
+    "atlas": 1447,
+    "vision": 1487
+   },
+   {
+    "t": 698.85,
+    "atlas": 1461,
+    "vision": 1483
+   },
+   {
+    "t": 699.1833,
+    "atlas": 1454,
+    "vision": 1456
+   },
+   {
+    "t": 699.2333,
+    "atlas": 1480,
+    "vision": 1460
+   },
+   {
+    "t": 699.2833,
+    "atlas": 140,
+    "vision": 1449
+   },
+   {
+    "t": 699.35,
+    "atlas": 1434,
+    "vision": 1439
+   },
+   {
+    "t": 699.3833,
+    "atlas": 146,
+    "vision": 1442
+   },
+   {
+    "t": 699.4167,
+    "atlas": 1434,
+    "vision": 1444
+   },
+   {
+    "t": 699.4333,
+    "atlas": 144,
+    "vision": 1445
+   },
+   {
+    "t": 699.55,
+    "atlas": 184,
+    "vision": 1424
+   },
+   {
+    "t": 699.5667,
+    "atlas": 186,
+    "vision": 1426
+   },
+   {
+    "t": 699.5833,
+    "atlas": 167,
+    "vision": 1427
+   },
+   {
+    "t": 699.6167,
+    "atlas": 189,
+    "vision": 1429
+   },
+   {
+    "t": 699.7667,
+    "atlas": 1413,
+    "vision": 1410
+   },
+   {
+    "t": 699.8667,
+    "atlas": 1401,
+    "vision": 1403
+   },
+   {
+    "t": 699.95,
+    "atlas": 1194,
+    "vision": 1394
+   },
+   {
+    "t": 699.9833,
+    "atlas": 1307,
+    "vision": 1397
+   },
+   {
+    "t": 700.1833,
+    "atlas": 1351,
+    "vision": 1383
+   },
+   {
+    "t": 700.2167,
+    "atlas": 1381,
+    "vision": 1385
+   },
+   {
+    "t": 700.35,
+    "atlas": 1368,
+    "vision": 1366
+   },
+   {
+    "t": 700.5,
+    "atlas": 1361,
+    "vision": 1363
+   },
+   {
+    "t": 700.55,
+    "atlas": 1357,
+    "vision": 1352
+   },
+   {
+    "t": 700.5667,
+    "atlas": 1351,
+    "vision": 1353
+   },
+   {
+    "t": 700.6,
+    "atlas": 135,
+    "vision": 1356
+   },
+   {
+    "t": 700.65,
+    "atlas": 134,
+    "vision": 1345
+   },
+   {
+    "t": 700.7167,
+    "atlas": 133,
+    "vision": 1336
+   },
+   {
+    "t": 700.75,
+    "atlas": 1335,
+    "vision": 1339
+   },
+   {
+    "t": 700.8167,
+    "atlas": 134,
+    "vision": 1344
+   },
+   {
+    "t": 700.8333,
+    "atlas": 134,
+    "vision": 1345
+   },
+   {
+    "t": 700.85,
+    "atlas": 134,
+    "vision": 1346
+   },
+   {
+    "t": 700.9833,
+    "atlas": 135,
+    "vision": 1356
+   },
+   {
+    "t": 701.3333,
+    "atlas": 1388,
+    "vision": 1380
+   },
+   {
+    "t": 701.3833,
+    "atlas": 1381,
+    "vision": 1384
+   },
+   {
+    "t": 701.45,
+    "atlas": 134,
+    "vision": 1346
+   },
+   {
+    "t": 701.8167,
+    "atlas": 1377,
+    "vision": 1372
+   },
+   {
+    "t": 701.85,
+    "atlas": 1373,
+    "vision": 1374
+   },
+   {
+    "t": 701.9333,
+    "atlas": 1388,
+    "vision": 1380
+   },
+   {
+    "t": 701.9667,
+    "atlas": 1353,
+    "vision": 1383
+   },
+   {
+    "t": 702.0,
+    "atlas": 1346,
+    "vision": 1386
+   },
+   {
+    "t": 702.0333,
+    "atlas": 130,
+    "vision": 1398
+   },
+   {
+    "t": 702.05,
+    "atlas": 1349,
+    "vision": 1399
+   },
+   {
+    "t": 702.2333,
+    "atlas": 181,
+    "vision": 1421
+   },
+   {
+    "t": 702.3,
+    "atlas": 14,
+    "vision": 1421
+   },
+   {
+    "t": 702.3167,
+    "atlas": 182,
+    "vision": 1422
+   },
+   {
+    "t": 702.3833,
+    "atlas": 183,
+    "vision": 1423
+   },
+   {
+    "t": 702.4,
+    "atlas": 184,
+    "vision": 1424
+   },
+   {
+    "t": 702.4167,
+    "atlas": 185,
+    "vision": 1425
+   },
+   {
+    "t": 702.4667,
+    "atlas": 181,
+    "vision": 1424
+   },
+   {
+    "t": 702.4833,
+    "atlas": 186,
+    "vision": 1426
+   },
+   {
+    "t": 702.5,
+    "atlas": 187,
+    "vision": 1427
+   },
+   {
+    "t": 702.5167,
+    "atlas": 188,
+    "vision": 1428
+   },
+   {
+    "t": 702.5333,
+    "atlas": 1430,
+    "vision": 1439
+   },
+   {
+    "t": 702.55,
+    "atlas": 186,
+    "vision": 1426
+   },
+   {
+    "t": 702.5667,
+    "atlas": 187,
+    "vision": 1427
+   },
+   {
+    "t": 702.5833,
+    "atlas": 188,
+    "vision": 1428
+   },
+   {
+    "t": 702.65,
+    "atlas": 188,
+    "vision": 1428
+   },
+   {
+    "t": 702.8333,
+    "atlas": 1,
+    "vision": 1432
+   },
+   {
+    "t": 702.9167,
+    "atlas": 184,
+    "vision": 1424
+   },
+   {
+    "t": 703.0167,
+    "atlas": 186,
+    "vision": 1426
+   },
+   {
+    "t": 703.1,
+    "atlas": 181,
+    "vision": 1424
+   },
+   {
+    "t": 703.1167,
+    "atlas": 185,
+    "vision": 1425
+   },
+   {
+    "t": 703.2,
+    "atlas": 163,
+    "vision": 1423
+   },
+   {
+    "t": 703.2167,
+    "atlas": 184,
+    "vision": 1424
+   },
+   {
+    "t": 703.2333,
+    "atlas": 105,
+    "vision": 1425
+   },
+   {
+    "t": 703.3333,
+    "atlas": 184,
+    "vision": 1424
+   },
+   {
+    "t": 703.4,
+    "atlas": 181,
+    "vision": 1421
+   },
+   {
+    "t": 703.4167,
+    "atlas": 182,
+    "vision": 1422
+   },
+   {
+    "t": 703.4333,
+    "atlas": 183,
+    "vision": 1423
+   },
+   {
+    "t": 703.5,
+    "atlas": 180,
+    "vision": 1420
+   },
+   {
+    "t": 703.5167,
+    "atlas": 181,
+    "vision": 1421
+   },
+   {
+    "t": 703.6,
+    "atlas": 180,
+    "vision": 1420
+   },
+   {
+    "t": 703.6167,
+    "atlas": 181,
+    "vision": 1421
+   },
+   {
+    "t": 703.6333,
+    "atlas": 182,
+    "vision": 1422
+   },
+   {
+    "t": 703.65,
+    "atlas": 187,
+    "vision": 1427
+   },
+   {
+    "t": 703.9167,
+    "atlas": 1411,
+    "vision": 1413
+   },
+   {
+    "t": 704.1667,
+    "atlas": 1407,
+    "vision": 1402
+   },
+   {
+    "t": 704.1833,
+    "atlas": 140,
+    "vision": 1404
+   },
+   {
+    "t": 704.2,
+    "atlas": 1403,
+    "vision": 1406
+   },
+   {
+    "t": 704.4,
+    "atlas": 134,
+    "vision": 1388
+   },
+   {
+    "t": 704.4167,
+    "atlas": 1300,
+    "vision": 1390
+   },
+   {
+    "t": 704.4333,
+    "atlas": 1301,
+    "vision": 1391
+   },
+   {
+    "t": 704.5167,
+    "atlas": 1340,
+    "vision": 1390
+   },
+   {
+    "t": 704.5333,
+    "atlas": 1343,
+    "vision": 1391
+   },
+   {
+    "t": 704.55,
+    "atlas": 1342,
+    "vision": 1392
+   },
+   {
+    "t": 704.6167,
+    "atlas": 1340,
+    "vision": 1390
+   },
+   {
+    "t": 704.6333,
+    "atlas": 1341,
+    "vision": 1391
+   }
+  ]
+ },
+ "above_ceiling_apportionment": {
+  "question": "2026-09-21 closed holding this open: 'with one confirmed above-ceiling frame I cannot apportion the other 1,186.'  This is that apportionment.",
+  "atlas_above_ceiling": 1194,
+  "vision_CONFIRMS_above_ceiling": 1178,
+  "vision_confirms_EXACT_same_value": 1112,
+  "vision_REFUTES_at_or_below": 16,
+  "vision_unreadable": 0,
+  "confirmed_share_of_readable": 0.9866,
+  "confirmed_and_NOT_one_substitution_from_1594": 745,
+  "vision_above_that_atlas_did_not_see": 29
+ },
+ "arm_atlas": {
+  "reader": "glyph atlas (committed 2026-08-25)",
+  "census": {
+   "max_gate_pass": 10360,
+   "marg_min": 0.0,
+   "margin_rejected": 0,
+   "neighbour_median_rejected": 315,
+   "roundtrip_excursion_rejected": 86,
+   "used": 9959
+  },
+  "n_clean": 9959,
+  "ceiling_duty_AT_1594": 0.2801,
+  "at_or_above_ceiling_frac": 0.399,
+  "above_ceiling_n": 1184,
+  "above_ceiling_frac": 0.1189,
+  "clamp_decomposition": {
+   "identity_check_max_abs_residual": 0.0,
+   "identity": "spend + spill == |dE| for every tick, exactly",
+   "n_ticks": 1626,
+   "SPEND": {
+    "sum": 18025.0,
+    "per_s_over_182_65": 98.7,
+    "per_s_over_161_0": 112.0
+   },
+   "SPILL": {
+    "sum": 11723.0,
+    "per_s_over_182_65": 64.2,
+    "per_s_over_161_0": 72.8,
+    "frac_of_published_gross": 0.3941
+   },
+   "TOTAL_as_published": {
+    "sum": 29748.0,
+    "per_s_over_182_65": 162.9,
+    "per_s_over_161_0": 184.8
+   },
+   "drop_all_above_ceiling_starts": {
+    "n_ticks": 1011,
+    "per_s_over_161_0": 104.1
+   },
+   "clamp_signature": {
+    "n_ticks_starting_above_ceiling": 615,
+    "frac_of_tick_count": 0.3782,
+    "frac_of_tick_mass": 0.4366,
+    "n_landing_EXACTLY_on_1594": 424,
+    "frac_landing_EXACTLY_on_1594": 0.6894,
+    "median_size_starting_above": -16.0,
+    "median_size_starting_at_or_below": -13.0,
+    "why_it_matters": "a fall that TERMINATES at the operating ceiling in 69 % of cases, with a characteristic size of -16 against the -13 of the below-ceiling population, is two different quantities sharing one tick rule"
+   }
+  },
+  "reproduction_control": {
+   "source": "notes/2026-09-21-kc2-play-energy-globe-reread.json CL block",
+   "n_ticks": {
+    "expected": 1626,
+    "got": 1626,
+    "EXACT": true
+   },
+   "SPEND_sum": {
+    "expected": 18025.0,
+    "got": 18025.0,
+    "EXACT": true
+   },
+   "SPILL_sum": {
+    "expected": 11723.0,
+    "got": 11723.0,
+    "EXACT": true
+   },
+   "census": {
+    "expected": {
+     "max_gate_pass": 10360,
+     "neighbour_median_rejected": 315,
+     "roundtrip_excursion_rejected": 86,
+     "used": 9959
+    },
+    "got": {
+     "max_gate_pass": 10360,
+     "neighbour_median_rejected": 315,
+     "roundtrip_excursion_rejected": 86,
+     "used": 9959
+    },
+    "EXACT": true
+   },
+   "ceiling_duty_AT_1594": {
+    "expected": 0.2801,
+    "got": 0.2801,
+    "EXACT": true
+   },
+   "spill_share": {
+    "expected": 0.3941,
+    "got": 0.3941,
+    "EXACT": true
+   },
+   "ALL_EXACT": true
+  }
+ },
+ "arm_vision": {
+  "reader": "Apple Vision (this lap, full re-read)",
+  "census": {
+   "max_gate_pass": 10953,
+   "marg_min": 0.0,
+   "margin_rejected": 0,
+   "neighbour_median_rejected": 0,
+   "roundtrip_excursion_rejected": 0,
+   "used": 10953
+  },
+  "n_clean": 10953,
+  "ceiling_duty_AT_1594": 0.2556,
+  "at_or_above_ceiling_frac": 0.367,
+  "above_ceiling_n": 1220,
+  "above_ceiling_frac": 0.1114,
+  "clamp_decomposition": {
+   "identity_check_max_abs_residual": 0.0,
+   "identity": "spend + spill == |dE| for every tick, exactly",
+   "n_ticks": 1819,
+   "SPEND": {
+    "sum": 16835.0,
+    "per_s_over_182_65": 92.2,
+    "per_s_over_161_0": 104.6
+   },
+   "SPILL": {
+    "sum": 9785.0,
+    "per_s_over_182_65": 53.6,
+    "per_s_over_161_0": 60.8,
+    "frac_of_published_gross": 0.3676
+   },
+   "TOTAL_as_published": {
+    "sum": 26620.0,
+    "per_s_over_182_65": 145.7,
+    "per_s_over_161_0": 165.3
+   },
+   "drop_all_above_ceiling_starts": {
+    "n_ticks": 1177,
+    "per_s_over_161_0": 98.7
+   },
+   "clamp_signature": {
+    "n_ticks_starting_above_ceiling": 642,
+    "frac_of_tick_count": 0.3529,
+    "frac_of_tick_mass": 0.4028,
+    "n_landing_EXACTLY_on_1594": 450,
+    "frac_landing_EXACTLY_on_1594": 0.7009,
+    "median_size_starting_above": -15.0,
+    "median_size_starting_at_or_below": -13.0,
+    "why_it_matters": "a fall that TERMINATES at the operating ceiling in 69 % of cases, with a characteristic size of -16 against the -13 of the below-ceiling population, is two different quantities sharing one tick rule"
+   }
+  }
+ },
+ "vision_above_ceiling_anatomy": {
+  "definition": "An above-ceiling read is REACHABLE if a single glyph substitution turns 1594 into it (1595-1599, 1694, 1794, 1894, 1994). Everything else needs two or three simultaneous substitutions, which the atlas's own error profile does not produce.",
+  "n_above_ceiling_raw": 1223,
+  "reachable_by_ONE_substitution": {
+   "n": 445,
+   "frac": 0.3639,
+   "median_marg": 0.0
+  },
+  "NOT_reachable_by_one_substitution": {
+   "n": 778,
+   "frac": 0.6361,
+   "median_marg": 0.0,
+   "top_values": [
+    [
+     1610,
+     83
+    ],
+    [
+     1614,
+     80
+    ],
+    [
+     1615,
+     55
+    ],
+    [
+     1608,
+     48
+    ],
+    [
+     1605,
+     43
+    ],
+    [
+     1612,
+     42
+    ],
+    [
+     1603,
+     40
+    ],
+    [
+     1604,
+     38
+    ],
+    [
+     1606,
+     34
+    ],
+    [
+     1609,
+     32
+    ],
+    [
+     1607,
+     26
+    ],
+    [
+     1613,
+     25
+    ]
+   ]
+  },
+  "median_marg_AT_1594": 0.0,
+  "excess_over_ceiling": {
+   "median": 11.0,
+   "p75": 19.0,
+   "p95": 27.0,
+   "max": 2117.0,
+   "frac_within_21": 0.8798
+  }
+ },
+ "vision_anatomy_marg_fields_are_MEANINGLESS": "every *_marg value in vision_above_ceiling_anatomy is the 0.0 placeholder from vision_erows(); Apple Vision has no template margin. Do not quote them.",
+ "decode_confound": "see the decodecheck stage: re-running the committed atlas tonight reproduces 10,816 of 10,959 August rows, so 1.3 % of any atlas-vs-Vision difference is not the reader."
+}

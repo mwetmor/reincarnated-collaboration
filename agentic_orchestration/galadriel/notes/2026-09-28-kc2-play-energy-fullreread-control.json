@@ -1,0 +1,776 @@
+{
+ "stage": "control",
+ "swift_sha256": "1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1",
+ "ebox": [
+  1240,
+  1004,
+  104,
+  26
+ ],
+ "n_hand_reads": 16,
+ "scale_sweep": {
+  "x1": {
+   "scale": 1,
+   "n": 16,
+   "parsed": 16,
+   "exact": 16,
+   "rows": [
+    {
+     "t": 686.0,
+     "hand": 1466,
+     "src": "atlas-spec.json",
+     "vision": 1466,
+     "conf": 1.0,
+     "raw": "1466/2576",
+     "match": true
+    },
+    {
+     "t": 688.18,
+     "hand": 1497,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1497,
+     "conf": 1.0,
+     "raw": "1497/2576",
+     "match": true
+    },
+    {
+     "t": 692.0,
+     "hand": 1314,
+     "src": "atlas-spec.json",
+     "vision": 1314,
+     "conf": 1.0,
+     "raw": "1314/2576",
+     "match": true
+    },
+    {
+     "t": 695.0,
+     "hand": 1370,
+     "src": "atlas-spec.json",
+     "vision": 1370,
+     "conf": 1.0,
+     "raw": "1370/2576",
+     "match": true
+    },
+    {
+     "t": 702.05,
+     "hand": 1399,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1399,
+     "conf": 1.0,
+     "raw": "1399/2576",
+     "match": true
+    },
+    {
+     "t": 702.6,
+     "hand": 1430,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1430,
+     "conf": 1.0,
+     "raw": "1430/2576",
+     "match": true
+    },
+    {
+     "t": 702.9,
+     "hand": 1437,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1437,
+     "conf": 1.0,
+     "raw": "1437/2576",
+     "match": true
+    },
+    {
+     "t": 703.15,
+     "hand": 1434,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1434,
+     "conf": 1.0,
+     "raw": "1434/2576",
+     "match": true
+    },
+    {
+     "t": 703.7,
+     "hand": 1417,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1417,
+     "conf": 1.0,
+     "raw": "1417/2576",
+     "match": true
+    },
+    {
+     "t": 705.0,
+     "hand": 1376,
+     "src": "atlas-spec.json",
+     "vision": 1376,
+     "conf": 1.0,
+     "raw": "1376/2576",
+     "match": true
+    },
+    {
+     "t": 712.0,
+     "hand": 1509,
+     "src": "atlas-spec.json",
+     "vision": 1509,
+     "conf": 1.0,
+     "raw": "1509/2576",
+     "match": true
+    },
+    {
+     "t": 725.0,
+     "hand": 1594,
+     "src": "atlas-spec.json",
+     "vision": 1594,
+     "conf": 1.0,
+     "raw": "1594/2576",
+     "match": true
+    },
+    {
+     "t": 735.0,
+     "hand": 1610,
+     "src": "atlas-spec.json",
+     "vision": 1610,
+     "conf": 1.0,
+     "raw": "1610/2576",
+     "match": true
+    },
+    {
+     "t": 805.0,
+     "hand": 1541,
+     "src": "atlas-spec.json",
+     "vision": 1541,
+     "conf": 1.0,
+     "raw": "1541/2576",
+     "match": true
+    },
+    {
+     "t": 820.0,
+     "hand": 1588,
+     "src": "atlas-spec.json",
+     "vision": 1588,
+     "conf": 1.0,
+     "raw": "1588/2576",
+     "match": true
+    },
+    {
+     "t": 855.0,
+     "hand": 1591,
+     "src": "atlas-spec.json",
+     "vision": 1591,
+     "conf": 1.0,
+     "raw": "1591/2576",
+     "match": true
+    }
+   ]
+  },
+  "x4": {
+   "scale": 4,
+   "n": 16,
+   "parsed": 16,
+   "exact": 16,
+   "rows": [
+    {
+     "t": 686.0,
+     "hand": 1466,
+     "src": "atlas-spec.json",
+     "vision": 1466,
+     "conf": 1.0,
+     "raw": "1466/2576",
+     "match": true
+    },
+    {
+     "t": 688.18,
+     "hand": 1497,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1497,
+     "conf": 1.0,
+     "raw": "1497/2576",
+     "match": true
+    },
+    {
+     "t": 692.0,
+     "hand": 1314,
+     "src": "atlas-spec.json",
+     "vision": 1314,
+     "conf": 1.0,
+     "raw": "1314/2576",
+     "match": true
+    },
+    {
+     "t": 695.0,
+     "hand": 1370,
+     "src": "atlas-spec.json",
+     "vision": 1370,
+     "conf": 1.0,
+     "raw": "1370/2576",
+     "match": true
+    },
+    {
+     "t": 702.05,
+     "hand": 1399,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1399,
+     "conf": 1.0,
+     "raw": "1399/2576",
+     "match": true
+    },
+    {
+     "t": 702.6,
+     "hand": 1430,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1430,
+     "conf": 1.0,
+     "raw": "1430/2576",
+     "match": true
+    },
+    {
+     "t": 702.9,
+     "hand": 1437,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1437,
+     "conf": 1.0,
+     "raw": "1437/2576",
+     "match": true
+    },
+    {
+     "t": 703.15,
+     "hand": 1434,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1434,
+     "conf": 1.0,
+     "raw": "1434/2576",
+     "match": true
+    },
+    {
+     "t": 703.7,
+     "hand": 1417,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1417,
+     "conf": 1.0,
+     "raw": "1417/2576",
+     "match": true
+    },
+    {
+     "t": 705.0,
+     "hand": 1376,
+     "src": "atlas-spec.json",
+     "vision": 1376,
+     "conf": 1.0,
+     "raw": "1376/2576",
+     "match": true
+    },
+    {
+     "t": 712.0,
+     "hand": 1509,
+     "src": "atlas-spec.json",
+     "vision": 1509,
+     "conf": 1.0,
+     "raw": "1509/2576",
+     "match": true
+    },
+    {
+     "t": 725.0,
+     "hand": 1594,
+     "src": "atlas-spec.json",
+     "vision": 1594,
+     "conf": 1.0,
+     "raw": "1594/2576",
+     "match": true
+    },
+    {
+     "t": 735.0,
+     "hand": 1610,
+     "src": "atlas-spec.json",
+     "vision": 1610,
+     "conf": 1.0,
+     "raw": "1610/2576",
+     "match": true
+    },
+    {
+     "t": 805.0,
+     "hand": 1541,
+     "src": "atlas-spec.json",
+     "vision": 1541,
+     "conf": 1.0,
+     "raw": "1541/2576",
+     "match": true
+    },
+    {
+     "t": 820.0,
+     "hand": 1588,
+     "src": "atlas-spec.json",
+     "vision": 1588,
+     "conf": 1.0,
+     "raw": "1588/2576",
+     "match": true
+    },
+    {
+     "t": 855.0,
+     "hand": 1591,
+     "src": "atlas-spec.json",
+     "vision": 1591,
+     "conf": 1.0,
+     "raw": "1591/2576",
+     "match": true
+    }
+   ]
+  },
+  "x6": {
+   "scale": 6,
+   "n": 16,
+   "parsed": 16,
+   "exact": 16,
+   "rows": [
+    {
+     "t": 686.0,
+     "hand": 1466,
+     "src": "atlas-spec.json",
+     "vision": 1466,
+     "conf": 1.0,
+     "raw": "1466/2576",
+     "match": true
+    },
+    {
+     "t": 688.18,
+     "hand": 1497,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1497,
+     "conf": 1.0,
+     "raw": "1497/2576",
+     "match": true
+    },
+    {
+     "t": 692.0,
+     "hand": 1314,
+     "src": "atlas-spec.json",
+     "vision": 1314,
+     "conf": 1.0,
+     "raw": "1314/2576",
+     "match": true
+    },
+    {
+     "t": 695.0,
+     "hand": 1370,
+     "src": "atlas-spec.json",
+     "vision": 1370,
+     "conf": 1.0,
+     "raw": "1370/2576",
+     "match": true
+    },
+    {
+     "t": 702.05,
+     "hand": 1399,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1399,
+     "conf": 1.0,
+     "raw": "1399/2576",
+     "match": true
+    },
+    {
+     "t": 702.6,
+     "hand": 1430,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1430,
+     "conf": 1.0,
+     "raw": "1430/2576",
+     "match": true
+    },
+    {
+     "t": 702.9,
+     "hand": 1437,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1437,
+     "conf": 1.0,
+     "raw": "1437/2576",
+     "match": true
+    },
+    {
+     "t": 703.15,
+     "hand": 1434,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1434,
+     "conf": 1.0,
+     "raw": "1434/2576",
+     "match": true
+    },
+    {
+     "t": 703.7,
+     "hand": 1417,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1417,
+     "conf": 1.0,
+     "raw": "1417/2576",
+     "match": true
+    },
+    {
+     "t": 705.0,
+     "hand": 1376,
+     "src": "atlas-spec.json",
+     "vision": 1376,
+     "conf": 1.0,
+     "raw": "1376/2576",
+     "match": true
+    },
+    {
+     "t": 712.0,
+     "hand": 1509,
+     "src": "atlas-spec.json",
+     "vision": 1509,
+     "conf": 1.0,
+     "raw": "1509/2576",
+     "match": true
+    },
+    {
+     "t": 725.0,
+     "hand": 1594,
+     "src": "atlas-spec.json",
+     "vision": 1594,
+     "conf": 1.0,
+     "raw": "1594/2576",
+     "match": true
+    },
+    {
+     "t": 735.0,
+     "hand": 1610,
+     "src": "atlas-spec.json",
+     "vision": 1610,
+     "conf": 1.0,
+     "raw": "1610/2576",
+     "match": true
+    },
+    {
+     "t": 805.0,
+     "hand": 1541,
+     "src": "atlas-spec.json",
+     "vision": 1541,
+     "conf": 1.0,
+     "raw": "1541/2576",
+     "match": true
+    },
+    {
+     "t": 820.0,
+     "hand": 1588,
+     "src": "atlas-spec.json",
+     "vision": 1588,
+     "conf": 1.0,
+     "raw": "1588/2576",
+     "match": true
+    },
+    {
+     "t": 855.0,
+     "hand": 1591,
+     "src": "atlas-spec.json",
+     "vision": 1591,
+     "conf": 1.0,
+     "raw": "1591/2576",
+     "match": true
+    }
+   ]
+  },
+  "x8": {
+   "scale": 8,
+   "n": 16,
+   "parsed": 16,
+   "exact": 16,
+   "rows": [
+    {
+     "t": 686.0,
+     "hand": 1466,
+     "src": "atlas-spec.json",
+     "vision": 1466,
+     "conf": 1.0,
+     "raw": "1466/2576",
+     "match": true
+    },
+    {
+     "t": 688.18,
+     "hand": 1497,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1497,
+     "conf": 1.0,
+     "raw": "1497/2576",
+     "match": true
+    },
+    {
+     "t": 692.0,
+     "hand": 1314,
+     "src": "atlas-spec.json",
+     "vision": 1314,
+     "conf": 1.0,
+     "raw": "1314/2576",
+     "match": true
+    },
+    {
+     "t": 695.0,
+     "hand": 1370,
+     "src": "atlas-spec.json",
+     "vision": 1370,
+     "conf": 1.0,
+     "raw": "1370/2576",
+     "match": true
+    },
+    {
+     "t": 702.05,
+     "hand": 1399,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1399,
+     "conf": 1.0,
+     "raw": "1399/2576",
+     "match": true
+    },
+    {
+     "t": 702.6,
+     "hand": 1430,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1430,
+     "conf": 1.0,
+     "raw": "1430/2576",
+     "match": true
+    },
+    {
+     "t": 702.9,
+     "hand": 1437,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1437,
+     "conf": 1.0,
+     "raw": "1437/2576",
+     "match": true
+    },
+    {
+     "t": 703.15,
+     "hand": 1434,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1434,
+     "conf": 1.0,
+     "raw": "1434/2576",
+     "match": true
+    },
+    {
+     "t": 703.7,
+     "hand": 1417,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1417,
+     "conf": 1.0,
+     "raw": "1417/2576",
+     "match": true
+    },
+    {
+     "t": 705.0,
+     "hand": 1376,
+     "src": "atlas-spec.json",
+     "vision": 1376,
+     "conf": 1.0,
+     "raw": "1376/2576",
+     "match": true
+    },
+    {
+     "t": 712.0,
+     "hand": 1509,
+     "src": "atlas-spec.json",
+     "vision": 1509,
+     "conf": 1.0,
+     "raw": "1509/2576",
+     "match": true
+    },
+    {
+     "t": 725.0,
+     "hand": 1594,
+     "src": "atlas-spec.json",
+     "vision": 1594,
+     "conf": 1.0,
+     "raw": "1594/2576",
+     "match": true
+    },
+    {
+     "t": 735.0,
+     "hand": 1610,
+     "src": "atlas-spec.json",
+     "vision": 1610,
+     "conf": 1.0,
+     "raw": "1610/2576",
+     "match": true
+    },
+    {
+     "t": 805.0,
+     "hand": 1541,
+     "src": "atlas-spec.json",
+     "vision": 1541,
+     "conf": 1.0,
+     "raw": "1541/2576",
+     "match": true
+    },
+    {
+     "t": 820.0,
+     "hand": 1588,
+     "src": "atlas-spec.json",
+     "vision": 1588,
+     "conf": 1.0,
+     "raw": "1588/2576",
+     "match": true
+    },
+    {
+     "t": 855.0,
+     "hand": 1591,
+     "src": "atlas-spec.json",
+     "vision": 1591,
+     "conf": 1.0,
+     "raw": "1591/2576",
+     "match": true
+    }
+   ]
+  },
+  "x12": {
+   "scale": 12,
+   "n": 16,
+   "parsed": 16,
+   "exact": 15,
+   "rows": [
+    {
+     "t": 686.0,
+     "hand": 1466,
+     "src": "atlas-spec.json",
+     "vision": 1466,
+     "conf": 1.0,
+     "raw": "1466/2576",
+     "match": true
+    },
+    {
+     "t": 688.18,
+     "hand": 1497,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1497,
+     "conf": 1.0,
+     "raw": "1497/2576",
+     "match": true
+    },
+    {
+     "t": 692.0,
+     "hand": 1314,
+     "src": "atlas-spec.json",
+     "vision": 1314,
+     "conf": 1.0,
+     "raw": "1314/2576",
+     "match": true
+    },
+    {
+     "t": 695.0,
+     "hand": 1370,
+     "src": "atlas-spec.json",
+     "vision": 1570,
+     "conf": 1.0,
+     "raw": "1570/2576",
+     "match": false
+    },
+    {
+     "t": 702.05,
+     "hand": 1399,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1399,
+     "conf": 1.0,
+     "raw": "1399/2576",
+     "match": true
+    },
+    {
+     "t": 702.6,
+     "hand": 1430,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1430,
+     "conf": 1.0,
+     "raw": "1430/2576",
+     "match": true
+    },
+    {
+     "t": 702.9,
+     "hand": 1437,
+     "src": "MD-B4app-2b 1.1 exc",
+     "vision": 1437,
+     "conf": 1.0,
+     "raw": "1437/2576",
+     "match": true
+    },
+    {
+     "t": 703.15,
+     "hand": 1434,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1434,
+     "conf": 1.0,
+     "raw": "1434/2576",
+     "match": true
+    },
+    {
+     "t": 703.7,
+     "hand": 1417,
+     "src": "MD-B4app-2b 1.3 blind strip",
+     "vision": 1417,
+     "conf": 1.0,
+     "raw": "1417/2576",
+     "match": true
+    },
+    {
+     "t": 705.0,
+     "hand": 1376,
+     "src": "atlas-spec.json",
+     "vision": 1376,
+     "conf": 1.0,
+     "raw": "1376/2576",
+     "match": true
+    },
+    {
+     "t": 712.0,
+     "hand": 1509,
+     "src": "atlas-spec.json",
+     "vision": 1509,
+     "conf": 1.0,
+     "raw": "1509/2576",
+     "match": true
+    },
+    {
+     "t": 725.0,
+     "hand": 1594,
+     "src": "atlas-spec.json",
+     "vision": 1594,
+     "conf": 1.0,
+     "raw": "1594/2576",
+     "match": true
+    },
+    {
+     "t": 735.0,
+     "hand": 1610,
+     "src": "atlas-spec.json",
+     "vision": 1610,
+     "conf": 1.0,
+     "raw": "1610/2576",
+     "match": true
+    },
+    {
+     "t": 805.0,
+     "hand": 1541,
+     "src": "atlas-spec.json",
+     "vision": 1541,
+     "conf": 1.0,
+     "raw": "1541/2576",
+     "match": true
+    },
+    {
+     "t": 820.0,
+     "hand": 1588,
+     "src": "atlas-spec.json",
+     "vision": 1588,
+     "conf": 1.0,
+     "raw": "1588/2576",
+     "match": true
+    },
+    {
+     "t": 855.0,
+     "hand": 1591,
+     "src": "atlas-spec.json",
+     "vision": 1591,
+     "conf": 1.0,
+     "raw": "1591/2576",
+     "match": true
+    }
+   ]
+  }
+ },
+ "chosen_scale": 1,
+ "chosen_rule": "smallest factor reproducing every hand read; else the best-scoring factor, declared as imperfect",
+ "clean_sweep": true
+}

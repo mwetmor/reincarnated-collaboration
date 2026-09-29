@@ -1,0 +1,24 @@
+{
+ "stage": "decodecheck",
+ "n": 10959,
+ "atlas_AUGUST_vs_atlas_TONIGHT": {
+  "identical_rows": 10816,
+  "rate": 0.986951,
+  "differing_rows": 143,
+  "meaning": "the DECODE + environment term: same reader, same box, same file, different day"
+ },
+ "reader_gap_SAME_decode": {
+  "both_parsed": 10358,
+  "agree": 9487,
+  "rate": 0.91591,
+  "meaning": "atlas vs Vision with the decode held FIXED -- this is the reader gap with the confound removed"
+ },
+ "reader_gap_CROSS_decode": {
+  "both_parsed": 10501,
+  "agree": 9588,
+  "rate": 0.913056,
+  "meaning": "atlas(August) vs Vision(tonight) -- the headline number, which CONTAINS the decode term"
+ },
+ "atlas_parse_rate_tonight": 0.945342,
+ "atlas_parse_rate_august": 0.95839
+}

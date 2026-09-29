@@ -354,6 +354,65 @@ one commit.*
 
 ---
 
+### ⚑ 1.7.5 `T30` IS CLOSED — AND THE FULL RE-READ CONFIRMS § 1.7.4 RATHER THAN OVERTURNING IT
+
+**Appended 2026-09-28 (KC2-PLAY SEAL LAP, W1) with `galadriel/notes/2026-09-28-kc2-play-energy-fullreread.md`.**
+**Append only; §§ 1.7.3 and 1.7.4 are left standing and are extended here, not edited.**
+
+⚑ **`T30` IS CLOSED.** The Pi share is mounted; the referent MP4 was verified **on the mount** at
+`479,438,089 B` and sha256 `4c60960d98e9d729e17469044dbe7b4341b253d7d36ba26fe09564d6056a4de8`,
+derived twice by two tools and compared **by machine** against legolas's `pm4q_digests.json` pin —
+never retyped. Path, bytes and digest all EXACT. § 1.7.4's re-pricing (*"mount, verify, re-read"*) was
+correct.
+
+**The full Apple Vision re-read of all 10,959 combat frames is done. What it does to this file's
+entitlements — and note that it RELAXES none of them without also naming a new one:**
+
+* ⚑ **§ 1.7.4's central open question is ANSWERED, and in favour of the reads.** It could confirm one
+  above-ceiling frame and declined to apportion the rest. Of **1,194** atlas above-ceiling reads,
+  Apple Vision **CONFIRMS 1,178 and refutes 16** — **98.66 % of the readable** — with **745** of the
+  confirmations unreachable by any single glyph substitution from 1594, and **29** more the atlas
+  missed. **The above-ceiling population is REAL.** § 1.7.3 bullet 3's withdrawn clause stays
+  withdrawn, now at population scale rather than on one frame.
+* ⚑ **A NEW LIMITATION, against the cleaning this corpus depends on.** `clean()`, run **unchanged** on
+  the strong reader, rejects **0 rows to the neighbour median and 0 to the round-trip excursion
+  filter** (against 315 and 86 on the atlas). **The MD-B4app-2b cleaning stack is a READER-REPAIR
+  LAYER, not a physics filter.** Any figure in this file whose value depends on that cleaning should
+  be re-derived on a strong reader before it is quoted.
+* ⚑ **A SECOND NEW LIMITATION: the committed atlas energy trace is NOT bit-reproducible.** Re-running
+  the committed atlas over the same window on the same file today reproduces **10,816 of 10,959**
+  August rows (98.70 %). The decode term is 1.3 % and moves the measured reader gap by 0.29 pp — small,
+  but it caps any exact-reproduction claim made against `s2-energy-60hz.json`.
+* **The gross-drain limitation is UNCHANGED in kind and its size is re-measured.** Strong-reader SPEND
+  is **104.6 /s** over the classified 161.0 s against the committed **112.0**; spill share **0.3676**
+  against **0.3941**. ⚑ **This lands INSIDE the `[104.1, 112.0]` bracket the re-read note shipped — the
+  bracket is CORROBORATED, not superseded.** The superseding candidate is published in the seal-lap
+  note and **routed to gamora / the conductor; it is NOT applied here.**
+* **`TB-CH-01` (channel uptime, 0.8375) remains UNAFFECTED**, for the reason §§ 1.7.3–1.7.4 both give:
+  tick *presence*, not tick *magnitude*. Unchanged, and re-checked a third time.
+* **A provenance limitation of my own is DISCHARGED.** The re-read note's § 8 item 5 declared the
+  `energy-sheet.png` row↔label alignment to be *inferred from order and value*. It is now **pixel-
+  matched** (worst MAD 0.3808, smallest separation 8.8201) and the inference was **correct**: rows
+  0, 1, 2, 3, 4, 5, 6, 10, 11, 13. No number moves.
+* ⚑ **A hypothesis I formed and LOST, recorded.** The sheet's crop box proved to be `x = 1239`, one
+  pixel left of `EBOX`, and I expected that mismatch to be the mechanism of the atlas's error rate.
+  A nine-offset sweep across all 10,959 frames is **FLAT to four decimals** — the atlas reader
+  segments glyph runs before classifying and is translation-invariant over that range. **The offset is
+  not the mechanism.** The mechanism is a dropped leading digit: **305 three-digit reads where the
+  globe shows four.**
+
+**NO FIGURE IN THIS FILE MOVES.** Nothing above is rewritten; no constant, denominator, status or
+verdict is edited. **`u` stays `UNPINNABLE-FROM-COMMITTED-PIXELS`** — 104.6 /s agrees with neither
+176.4 nor ≈190, which is § 1.7.4's own conclusion reached on better pixels.
+
+*§ 1.7.5 appended 2026-09-28 by galadriel, KC2-PLAY SEAL LAP seat W1. **APPEND ONLY.** Every clause
+records a limitation, discharges one of my own, or answers a question I had declared unanswerable —
+none asserts a row to be discriminating, and T-B remains DIAGNOSTIC per Matt's F5. **THIS FILE'S SHA
+HAS MOVED AGAIN; the new value is stated in the return, for prereg v1.6's author.** Reverts as one
+commit.*
+
+---
+
 # PART 2 — THE `u` RIDER (`R-KP-0c`)
 
 ## 2.0 The question as the charter puts it

@@ -1,0 +1,145 @@
+{
+ "stage": "sheet",
+ "purpose": "replace the INFERRED row<->label alignment with a pixel-matched one, now that the footage is reachable",
+ "sheet": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/energy-sheet.png",
+ "sheet_sha256": "762ba62053d6b4452ca73af6cb49770a1b7651b8a7b860fa693fffb5c8d5798a",
+ "upscale_was_nearest_neighbour_VERIFIED": true,
+ "sheet_box_LOCATED": [
+  1239,
+  1004,
+  105,
+  26
+ ],
+ "sheet_box_vs_EBOX": {
+  "EBOX": [
+   1240,
+   1004,
+   104,
+   26
+  ],
+  "delta_x": -1,
+  "delta_y": 0,
+  "delta_w": 1
+ },
+ "sheet_box_location_quality": {
+  "mad": 0.3221,
+  "runner_up_mad": 24.7269,
+  "searched": "22 x 21 offsets",
+  "probe_t": 735.0
+ },
+ "n_rows": 14,
+ "n_labels": 10,
+ "assignment": [
+  {
+   "t": 686.0,
+   "hand": "1466/2576",
+   "best_row": 0,
+   "mad": 0.3532,
+   "runner_up_row": 4,
+   "runner_up_mad": 19.8808,
+   "separation": 19.5276,
+   "row_already_taken": false
+  },
+  {
+   "t": 692.0,
+   "hand": "1314/2576",
+   "best_row": 1,
+   "mad": 0.2792,
+   "runner_up_row": 2,
+   "runner_up_mad": 20.9988,
+   "separation": 20.7195,
+   "row_already_taken": false
+  },
+  {
+   "t": 695.0,
+   "hand": "1370/2576",
+   "best_row": 2,
+   "mad": 0.3274,
+   "runner_up_row": 3,
+   "runner_up_mad": 11.1719,
+   "separation": 10.8446,
+   "row_already_taken": false
+  },
+  {
+   "t": 705.0,
+   "hand": "1376/2576",
+   "best_row": 3,
+   "mad": 0.3385,
+   "runner_up_row": 2,
+   "runner_up_mad": 11.3339,
+   "separation": 10.9955,
+   "row_already_taken": false
+  },
+  {
+   "t": 712.0,
+   "hand": "1509/2576",
+   "best_row": 4,
+   "mad": 0.3311,
+   "runner_up_row": 10,
+   "runner_up_mad": 16.0808,
+   "separation": 15.7497,
+   "row_already_taken": false
+  },
+  {
+   "t": 725.0,
+   "hand": "1594/2576",
+   "best_row": 5,
+   "mad": 0.3037,
+   "runner_up_row": 8,
+   "runner_up_mad": 9.1238,
+   "separation": 8.8201,
+   "row_already_taken": false
+  },
+  {
+   "t": 735.0,
+   "hand": "1610/2576",
+   "best_row": 6,
+   "mad": 0.3221,
+   "runner_up_row": 5,
+   "runner_up_mad": 16.3005,
+   "separation": 15.9784,
+   "row_already_taken": false
+  },
+  {
+   "t": 805.0,
+   "hand": "1541/2576",
+   "best_row": 10,
+   "mad": 0.2894,
+   "runner_up_row": 9,
+   "runner_up_mad": 15.8364,
+   "separation": 15.547,
+   "row_already_taken": false
+  },
+  {
+   "t": 820.0,
+   "hand": "1588/2576",
+   "best_row": 11,
+   "mad": 0.3808,
+   "runner_up_row": 5,
+   "runner_up_mad": 12.1766,
+   "separation": 11.7957,
+   "row_already_taken": false
+  },
+  {
+   "t": 855.0,
+   "hand": "1591/2576",
+   "best_row": 13,
+   "mad": 0.3282,
+   "runner_up_row": 7,
+   "runner_up_mad": 10.7875,
+   "separation": 10.4593,
+   "row_already_taken": false
+  }
+ ],
+ "worst_mad": 0.3808,
+ "smallest_separation": 8.8201,
+ "all_distinct_rows": true,
+ "monotone_in_time": true,
+ "unmatched_rows": [
+  7,
+  8,
+  9,
+  12
+ ],
+ "verdict": "ALIGNMENT RESOLVED BY PIXELS"
+}
