@@ -15473,9 +15473,365 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T2P-attack-SE",
+      "type": "GENERATE",
+      "experiment": "T2-paint",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "be34c2c890771fa8eedddce44cfde22845472bd7458bc2a1ecb5c9fc3f0566c7",
+      "started": "2026-09-29T01:14:18.808063+00:00",
+      "ended": "2026-09-29T01:17:51.224241+00:00",
+      "minutes": 3.540214331949634,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1607-7000-9363-938e3f3c2748/exec-439d62e2-ce48-4041-af4a-2ef753292ec3.png",
+            "sha256": "e8cbedea3b9655b9f906fa23c82a5b957957d7c17d99974f8fadf0b067b9925b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1607-7000-9363-938e3f3c2748/exec-b2ac1e7e-5bb6-4235-98c0-1c6b1b681aad.png",
+            "sha256": "16c5e440b61f0162d28e709cff0762cb0552087bec90a92bf7e52125c1021428"
+          }
+        ]
+      },
+      "receipt_sha256": "5eca88f9627ba53150717a5d4b87a96e48730691c92cd6863c8f71d42f8fd89a",
+      "artifacts": [
+        {
+          "name": "T2P-attack-SE_a.png",
+          "sha256": "e8cbedea3b9655b9f906fa23c82a5b957957d7c17d99974f8fadf0b067b9925b"
+        },
+        {
+          "name": "T2P-attack-SE_b.png",
+          "sha256": "16c5e440b61f0162d28e709cff0762cb0552087bec90a92bf7e52125c1021428"
+        },
+        {
+          "name": "exec-439d62e2-ce48-4041-af4a-2ef753292ec3.provenance.json",
+          "sha256": "211ad54e902d876410fdebae1fee7515fa44897af535281d4e59dd9d70e934fa"
+        },
+        {
+          "name": "exec-b2ac1e7e-5bb6-4235-98c0-1c6b1b681aad.provenance.json",
+          "sha256": "c39b97af265d11c1b7657f56a85e69b66871b9d9be15608f6bf2180181b73e01"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1607-7000-9363-938e3f3c2748/exec-439d62e2-ce48-4041-af4a-2ef753292ec3.png",
+          "sha256": "e8cbedea3b9655b9f906fa23c82a5b957957d7c17d99974f8fadf0b067b9925b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1607-7000-9363-938e3f3c2748/exec-b2ac1e7e-5bb6-4235-98c0-1c6b1b681aad.png",
+          "sha256": "16c5e440b61f0162d28e709cff0762cb0552087bec90a92bf7e52125c1021428"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T2P-attack-E",
+      "type": "GENERATE",
+      "experiment": "T2-paint",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f31bed8e7848cac8b4c9c7fb8aabd9327618cd834bd446776f38a1ae976c6d01",
+      "started": "2026-09-29T01:14:18.804861+00:00",
+      "ended": "2026-09-29T01:17:51.254357+00:00",
+      "minutes": 3.540821695133248,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7b31-8dc6-7e4e7ae1f821/exec-985f18c4-e204-406d-a7e7-669c33cbe6ac.png",
+            "sha256": "611c78007ea6b36656f43f3a927e4be7aee7f7076a75cf1286cae18f2fa44341"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7b31-8dc6-7e4e7ae1f821/exec-ef5b6063-893b-42f5-a86f-d82ee5126ecf.png",
+            "sha256": "a7b2a983dd80b41ac1941ed8d2e2880a5fa6bce5de123b40341ea3436113fede"
+          }
+        ]
+      },
+      "receipt_sha256": "e3f67f628e729441d8a7620a6ea1d0c95f66cff8fa5c95ed9b2683d254237dca",
+      "artifacts": [
+        {
+          "name": "T2P-attack-E_a.png",
+          "sha256": "611c78007ea6b36656f43f3a927e4be7aee7f7076a75cf1286cae18f2fa44341"
+        },
+        {
+          "name": "T2P-attack-E_b.png",
+          "sha256": "a7b2a983dd80b41ac1941ed8d2e2880a5fa6bce5de123b40341ea3436113fede"
+        },
+        {
+          "name": "exec-985f18c4-e204-406d-a7e7-669c33cbe6ac.provenance.json",
+          "sha256": "a73a1fb391c397177d0f917de9d00c0685ab07081c59dc8636e875eb1a7b8bd5"
+        },
+        {
+          "name": "exec-ef5b6063-893b-42f5-a86f-d82ee5126ecf.provenance.json",
+          "sha256": "ed9888bce0678064f0a72921fe30ae871298583f9b6d6dfe14aa94bc34dfde6d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7b31-8dc6-7e4e7ae1f821/exec-985f18c4-e204-406d-a7e7-669c33cbe6ac.png",
+          "sha256": "611c78007ea6b36656f43f3a927e4be7aee7f7076a75cf1286cae18f2fa44341"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7b31-8dc6-7e4e7ae1f821/exec-ef5b6063-893b-42f5-a86f-d82ee5126ecf.png",
+          "sha256": "a7b2a983dd80b41ac1941ed8d2e2880a5fa6bce5de123b40341ea3436113fede"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T2K-attack",
+      "type": "GENERATE",
+      "experiment": "T2-paint",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a3ef2bbc4dd65d72cbc6a90885bad987cc4d6551eccb9a58c4afcba5cb5dbd78",
+      "started": "2026-09-29T01:14:18.804855+00:00",
+      "ended": "2026-09-29T01:20:10.365317+00:00",
+      "minutes": 5.859340077783175,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-0f742cbc-a650-4d97-b6a9-244a7669aed9.png",
+            "sha256": "cb9a8f986f99e16ae8b7dd0a3b721a415819ade9e8ead8ce4adaee628d425059"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-2279f7e1-f927-4adf-94a4-3823d358e056.png",
+            "sha256": "0bdea3c3d50cfda3dfa599ce280bea32eb846e64d24b60c4586d1e22ed189ea7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-453499e3-4d5a-4fa1-b370-f39c7037f973.png",
+            "sha256": "bd0b40ea5e579c0afbc913a2b43d9ced899dd93e41724f338c961ad4e1a3520a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-ca1d2060-bc91-4cd4-98bb-f6b9c9e7219f.png",
+            "sha256": "04c21abc825e89c6f6168ea27678fe8ba3c07cb03c3772ceacfe7be4155cd257"
+          }
+        ]
+      },
+      "receipt_sha256": "3b16799579d6329f71d782e66207f08efb83da1bf5d26200b56aab5603f950be",
+      "artifacts": [
+        {
+          "name": "T2K-attack_a.png",
+          "sha256": "04c21abc825e89c6f6168ea27678fe8ba3c07cb03c3772ceacfe7be4155cd257"
+        },
+        {
+          "name": "T2K-attack_b.png",
+          "sha256": "0bdea3c3d50cfda3dfa599ce280bea32eb846e64d24b60c4586d1e22ed189ea7"
+        },
+        {
+          "name": "exec-0f742cbc-a650-4d97-b6a9-244a7669aed9.provenance.json",
+          "sha256": "8811587df1d2fd426a5cfbea922103554333d4905617cdf3f4439884e35b6b42"
+        },
+        {
+          "name": "exec-2279f7e1-f927-4adf-94a4-3823d358e056.provenance.json",
+          "sha256": "54fe0554ba59b6b87fed7a0c671f69fc1cf204195d31d6b37a4c26b936f63d0b"
+        },
+        {
+          "name": "exec-453499e3-4d5a-4fa1-b370-f39c7037f973.provenance.json",
+          "sha256": "ed575be857374d549d1f60abdd425afffb6a330a441c78a17c51ddee6d84b5bb"
+        },
+        {
+          "name": "exec-ca1d2060-bc91-4cd4-98bb-f6b9c9e7219f.provenance.json",
+          "sha256": "bec5352bae0bd41779c35b6fcb14c6710d84eb4c10008dfc21f234c9ba5ab1a3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-0f742cbc-a650-4d97-b6a9-244a7669aed9.png",
+          "sha256": "cb9a8f986f99e16ae8b7dd0a3b721a415819ade9e8ead8ce4adaee628d425059"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-2279f7e1-f927-4adf-94a4-3823d358e056.png",
+          "sha256": "0bdea3c3d50cfda3dfa599ce280bea32eb846e64d24b60c4586d1e22ed189ea7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-453499e3-4d5a-4fa1-b370-f39c7037f973.png",
+          "sha256": "bd0b40ea5e579c0afbc913a2b43d9ced899dd93e41724f338c961ad4e1a3520a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-7702-ae10-a6e33c92fc1c/exec-ca1d2060-bc91-4cd4-98bb-f6b9c9e7219f.png",
+          "sha256": "04c21abc825e89c6f6168ea27678fe8ba3c07cb03c3772ceacfe7be4155cd257"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T2K-run",
+      "type": "GENERATE",
+      "experiment": "T2-paint",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "dbb4bae6f557364107c395fe57610610ed6b6ae28d3c38df56f50fe350e24628",
+      "started": "2026-09-29T01:14:18.804860+00:00",
+      "ended": "2026-09-29T01:20:22.859315+00:00",
+      "minutes": 6.067572754866948,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-7e48b8e5-1080-4783-afa6-9c003cde78f4.png",
+            "sha256": "1a6e3c0ea2ded6fa995a706db27019ab5d8efb7ff2c1942ebf43096d772e7c2f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-be7f0188-95d8-431e-b837-c58c73f2d5ba.png",
+            "sha256": "4c3399228cc60c0483d4251dca064e259ef081ba283890940795ea82e892e899"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-ce131760-e5c5-47a4-8c6d-b5b4942f5ea9.png",
+            "sha256": "9846241bc73798ce71153596cb261d8a370fcde71a26f68e4c8a71a8c1371e31"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-eb10b701-2217-4b81-8a8d-45940551c74e.png",
+            "sha256": "f4598cc6b0e49d508d5b5465629339d03f0f2b6dc1bb69e8dbd1667e4ce8967f"
+          }
+        ]
+      },
+      "receipt_sha256": "0d2e2a89739ed979b48eaa8ac0717b3ceebb4df07699f244e5e7fdadaa693b36",
+      "artifacts": [
+        {
+          "name": "T2K-run_a.png",
+          "sha256": "1a6e3c0ea2ded6fa995a706db27019ab5d8efb7ff2c1942ebf43096d772e7c2f"
+        },
+        {
+          "name": "T2K-run_b.png",
+          "sha256": "f4598cc6b0e49d508d5b5465629339d03f0f2b6dc1bb69e8dbd1667e4ce8967f"
+        },
+        {
+          "name": "exec-7e48b8e5-1080-4783-afa6-9c003cde78f4.provenance.json",
+          "sha256": "3e03704ad3d13e7e7e71aa90e16a3ccda5f514c3e658bb09c886103a92d5070e"
+        },
+        {
+          "name": "exec-be7f0188-95d8-431e-b837-c58c73f2d5ba.provenance.json",
+          "sha256": "3ad76d121942c912fe90be3ac28ec0f381533a3eea03985b846a7e7dbd641208"
+        },
+        {
+          "name": "exec-ce131760-e5c5-47a4-8c6d-b5b4942f5ea9.provenance.json",
+          "sha256": "667a318e02f88f3e7a9d4a74c6e46b851cf9e34f376dbcd2557c157589910cc9"
+        },
+        {
+          "name": "exec-eb10b701-2217-4b81-8a8d-45940551c74e.provenance.json",
+          "sha256": "b92235c92effe615f119be44377d986caeeae717379d02c9012fd7108ad43f36"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-7e48b8e5-1080-4783-afa6-9c003cde78f4.png",
+          "sha256": "1a6e3c0ea2ded6fa995a706db27019ab5d8efb7ff2c1942ebf43096d772e7c2f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-be7f0188-95d8-431e-b837-c58c73f2d5ba.png",
+          "sha256": "4c3399228cc60c0483d4251dca064e259ef081ba283890940795ea82e892e899"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-ce131760-e5c5-47a4-8c6d-b5b4942f5ea9.png",
+          "sha256": "9846241bc73798ce71153596cb261d8a370fcde71a26f68e4c8a71a8c1371e31"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eaba-1608-72a3-8fba-c12778e5529f/exec-eb10b701-2217-4b81-8a8d-45940551c74e.png",
+          "sha256": "f4598cc6b0e49d508d5b5465629339d03f0f2b6dc1bb69e8dbd1667e4ce8967f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 428,
+  "images_used": 440,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -15758,6 +16114,11 @@
       "id": "M-C9-T2-WAVEB",
       "ts": "2026-09-29",
       "note": "T2 wave B (after R-C9-64): T2P-run-E b IoU 0.951, run-SE b 0.973, T2K-walk b 0.928 (plates intact on all six). T2K-idle FAILED: all four generations lost the plate and the painter refused delivery (it also flagged rear three-quarter heads drifting toward profile). The conductor harvested the four images (sha256 verified against the lane's generated_images record) into artifacts/T2K-idle-salvage/ for the geometry-first matte; per-frame gates decide. Policy change (conductor): background loss is no longer a retry reason in briefs (the matte cuts by 3D outline; retries go to pose/identity/frame count). Applied to T2P-attack-E/SE and T2K-run/attack (wave B3 fired). T2 idle-SE: salvage_a via the T1 matte (IoU 0.903, residual 0.05/255), re-fire dropped. T1: sprites_t1 walk+idle 8-dir landed (knight3d 3cc7d871d; held-out EbSynth error 37.2 vs render 57.1); integration swap dispatched. T1 attack review: the weapon is reversed at the strike (head trails, butt leads), fix dispatched (head beyond the lead hand, asserted). T1 run: carry_run2 is a jog (plants at 336 px/s vs 494); a sprint carry_run3 was generated for measurement."
+    },
+    {
+      "id": "M-C9-T1-LIVE",
+      "ts": "2026-09-29",
+      "note": "T1 painted knight (walk + idle, 8 directions, 192 cells; E/SE painted in full, six directions EbSynth-propagated from painted keys) LIVE on /playtest/cliffside/?c=keeper (keeper.pck b23e5d15, verified by full download; loadout 8de7bee pushed under R-C9-61). Probes: toggle 0 failures, facing+weapon 40/40, size 0 failures. Facing verified from the grid AND at full res by the conductor (E right, W left, N/S by the right-hand rule; nothing mirrored). Size: the painted haft clears the helm (cells measure 229 px with the haft vs the 199 declared), so no splitter survives both references; the sprite skin is sized from the set's DECLARED format (199 px at row 398), the same contract the 3D camera uses; the on-screen assertion for that skin becomes a NOTE, replaced by 'scale = 150.2135 / declared figure height; offset puts the declared ground row on the node origin' (0.754839, -398 for both skins). Run plays walk cells (labelled paint pending); attack falls back to idle."
     }
   ],
   "halts": [
