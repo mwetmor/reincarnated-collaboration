@@ -1,0 +1,163 @@
+{
+ "variant": "a",
+ "px_per_metre": 140.86,
+ "scale_note": "height_m = bbox_px / (K * cos(pitch)); width_m = bbox_px / K; K fixed by the barbarian at 1.85 m. No depth model involved.",
+ "assets": {
+  "standing_stone_tall": {
+   "plate": "plates/T10_standing_stone_tall.png",
+   "source": "sam2:standing_stones#0",
+   "screen_bbox": [
+    1232,
+    43,
+    1332,
+    272
+   ],
+   "crop_px": [
+    121,
+    250
+   ],
+   "height_m": 2.71,
+   "width_m": 0.72,
+   "mask_px": 17119
+  },
+  "standing_stone_mid": {
+   "plate": "plates/T10_standing_stone_mid.png",
+   "source": "sam2:standing_stones#1",
+   "screen_bbox": [
+    1233,
+    43,
+    1332,
+    272
+   ],
+   "crop_px": [
+    120,
+    250
+   ],
+   "height_m": 2.71,
+   "width_m": 0.71,
+   "mask_px": 16969
+  },
+  "standing_stone_short": {
+   "plate": "plates/T10_standing_stone_short.png",
+   "source": "sam2:standing_stones#2",
+   "screen_bbox": [
+    1116,
+    121,
+    1205,
+    225
+   ],
+   "crop_px": [
+    110,
+    125
+   ],
+   "height_m": 1.24,
+   "width_m": 0.64,
+   "mask_px": 6370
+  },
+  "barrow_lintel": {
+   "plate": "plates/T10_barrow_lintel.png",
+   "source": "sam2:barrow_door#0",
+   "screen_bbox": [
+    718,
+    113,
+    1038,
+    212
+   ],
+   "crop_px": [
+    341,
+    120
+   ],
+   "height_m": 1.18,
+   "width_m": 2.28,
+   "mask_px": 23250
+  },
+  "barrow_post": {
+   "plate": "plates/T10_barrow_post.png",
+   "source": "sam2:barrow_door#1",
+   "screen_bbox": [
+    948,
+    212,
+    1020,
+    384
+   ],
+   "crop_px": [
+    93,
+    193
+   ],
+   "height_m": 2.04,
+   "width_m": 0.52,
+   "mask_px": 10634
+  },
+  "rock_outcrop_large": {
+   "plate": "plates/T10_rock_outcrop_large.png",
+   "source": "sam2:rock_outcrop#0",
+   "screen_bbox": [
+    1019,
+    341,
+    1124,
+    496
+   ],
+   "crop_px": [
+    126,
+    176
+   ],
+   "height_m": 1.84,
+   "width_m": 0.75,
+   "mask_px": 11401
+  },
+  "rock_outcrop_small": {
+   "plate": "plates/T10_rock_outcrop_small.png",
+   "source": "sam2:rock_outcrop#6",
+   "screen_bbox": [
+    17,
+    21,
+    119,
+    66
+   ],
+   "crop_px": [
+    123,
+    66
+   ],
+   "height_m": 0.54,
+   "width_m": 0.73,
+   "mask_px": 3416
+  },
+  "dead_birch": {
+   "plate": "plates/T10_dead_birch.png",
+   "source": "evf:trees#0",
+   "screen_bbox": [
+    1189,
+    533,
+    1382,
+    817
+   ],
+   "crop_px": [
+    214,
+    305
+   ],
+   "height_m": 3.36,
+   "width_m": 1.38,
+   "mask_px": 20894
+  },
+  "juniper_bush": {
+   "plate": "plates/T10_juniper_bush.png",
+   "source": "evf:juniper#1",
+   "screen_bbox": [
+    229,
+    705,
+    350,
+    802
+   ],
+   "crop_px": [
+    142,
+    118
+   ],
+   "height_m": 1.15,
+   "width_m": 0.87,
+   "mask_px": 6035
+  }
+ },
+ "reuse": {
+  "raven": "T9 build at runs/C-9/t9_props/reduced/raven.glb, 0.28 m"
+ }
+}

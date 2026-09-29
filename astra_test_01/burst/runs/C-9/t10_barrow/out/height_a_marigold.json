@@ -1,0 +1,207 @@
+{
+ "variant": "a",
+ "depth_model": "marigold",
+ "image": [
+  1536,
+  1024
+ ],
+ "figure": {
+  "bbox": [
+   716,
+   486,
+   815,
+   642
+  ],
+  "screen_px_tall": 157,
+  "assumed_m": 1.85,
+  "px_per_metre": 140.86,
+  "scene_metres": [
+   10.9,
+   9.11
+  ]
+ },
+ "masks_pct": {
+  "figure": 0.52,
+  "standing_stones": 4.71,
+  "barrow_door": 3.0,
+  "trees": 1.34,
+  "juniper": 2.27,
+  "rock": 7.29,
+  "raven": 0.58
+ },
+ "terrain_pct": 83.37,
+ "depth_sense": "direct (bright = far)",
+ "depth_smooth_px": 24.0,
+ "calib_figure": {
+  "d_head": 13455.0,
+  "d_foot": 19887.0,
+  "raw_delta": 6432.0,
+  "expected_m": 1.4766,
+  "metres_per_raw_unit": 0.00023
+ },
+ "calib_ground": {
+  "raw_per_screen_metre": 5623.401,
+  "flat_ground_D_per_v": 0.754826,
+  "metres_per_raw_unit": 0.00013,
+  "open_snow_pct": 73.22
+ },
+ "calib_agreement_ratio": 1.71,
+ "calib_sweep": [
+  {
+   "alpha": 2e-05,
+   "coverage": 0.88355,
+   "footprint_of_bbox": 0.47058,
+   "relief": 3.76687,
+   "over70": 0.00688,
+   "over45": 0.03611,
+   "median_slope": 19.11306,
+   "mult_of_alpha_figure": 0.1
+  },
+  {
+   "alpha": 3e-05,
+   "coverage": 0.88623,
+   "footprint_of_bbox": 0.47228,
+   "relief": 3.59329,
+   "over70": 0.00834,
+   "over45": 0.04376,
+   "median_slope": 16.62901,
+   "mult_of_alpha_figure": 0.15
+  },
+  {
+   "alpha": 5e-05,
+   "coverage": 0.88894,
+   "footprint_of_bbox": 0.47486,
+   "relief": 3.43256,
+   "over70": 0.00938,
+   "over45": 0.05609,
+   "median_slope": 15.99257,
+   "mult_of_alpha_figure": 0.2
+  },
+  {
+   "alpha": 7e-05,
+   "coverage": 0.8937,
+   "footprint_of_bbox": 0.48051,
+   "relief": 3.11683,
+   "over70": 0.0119,
+   "over45": 0.07655,
+   "median_slope": 14.84642,
+   "mult_of_alpha_figure": 0.3
+  },
+  {
+   "alpha": 0.0001,
+   "coverage": 0.89838,
+   "footprint_of_bbox": 0.48242,
+   "relief": 3.01972,
+   "over70": 0.01492,
+   "over45": 0.09718,
+   "median_slope": 15.53603,
+   "mult_of_alpha_figure": 0.45
+  },
+  {
+   "alpha": 0.00015,
+   "coverage": 0.90222,
+   "footprint_of_bbox": 0.4802,
+   "relief": 4.60384,
+   "over70": 0.0205,
+   "over45": 0.13412,
+   "median_slope": 20.2268,
+   "mult_of_alpha_figure": 0.65
+  },
+  {
+   "alpha": 0.00023,
+   "coverage": 0.90685,
+   "footprint_of_bbox": 0.46939,
+   "relief": 7.93346,
+   "over70": 0.035,
+   "over45": 0.22698,
+   "median_slope": 28.03571,
+   "mult_of_alpha_figure": 1.0
+  },
+  {
+   "alpha": 0.00034,
+   "coverage": 0.90954,
+   "footprint_of_bbox": 0.44529,
+   "relief": 13.45052,
+   "over70": 0.05124,
+   "over45": 0.30876,
+   "median_slope": 35.26659,
+   "mult_of_alpha_figure": 1.5
+  },
+  {
+   "alpha": 0.00051,
+   "coverage": 0.90538,
+   "footprint_of_bbox": 0.39955,
+   "relief": 21.53165,
+   "over70": 0.06251,
+   "over45": 0.39036,
+   "median_slope": 39.94969,
+   "mult_of_alpha_figure": 2.2
+  }
+ ],
+ "calib_tiling": {
+  "metres_per_raw_unit": 2.3e-05,
+  "rule": "largest relief whose surface keeps <1% of cells over 70 deg"
+ },
+ "alpha_used": {
+  "value": 0.0001342,
+  "source": "ground regression",
+  "vs_figure": 0.585,
+  "vs_tiling": 5.847
+ },
+ "heightfield": {
+  "grid_m": 0.05,
+  "size": [
+   300,
+   300
+  ],
+  "extent_m": [
+   15.0,
+   15.0
+  ],
+  "height_range_m": [
+   -2.348,
+   1.651
+  ],
+  "relief_m": 3.999,
+  "coverage_pct": 90.08,
+  "footprint_pct_of_bbox": 48.23,
+  "slope_deg": {
+   "median": 18.8,
+   "p90": 48.0,
+   "over_45_pct": 12.56,
+   "over_70_pct": 1.73
+  },
+  "roughness_lap_rms_m": 0.1262
+ },
+ "splat": {
+  "classes": [
+   "snow",
+   "path",
+   "rock",
+   "grass",
+   "ice"
+  ],
+  "screen_pct": {
+   "snow": 28.08,
+   "path": 14.29,
+   "rock": 25.12,
+   "grass": 25.95,
+   "ice": 6.56
+  },
+  "grid_pct": {
+   "snow": 38.42,
+   "path": 5.7,
+   "rock": 21.48,
+   "grass": 25.98,
+   "ice": 8.42
+  }
+ },
+ "png": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/t10_barrow/out/height_a_marigold.png",
+  "encoding": "16-bit, 0 = min height, 65535 = max",
+  "metres_per_pixel": 0.05,
+  "height_min_m": -2.3483,
+  "height_max_m": 1.6506,
+  "metres_per_level": 6.102e-05
+ }
+}
