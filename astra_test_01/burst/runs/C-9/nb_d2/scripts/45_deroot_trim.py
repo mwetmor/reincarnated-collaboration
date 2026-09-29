@@ -46,6 +46,44 @@ for o in [o for o in sc.objects if o.type == 'MESH' and not o.vertex_groups]:
     bpy.data.objects.remove(o, do_unlink=True)
 A = {x.name: x for x in bpy.data.actions}
 BONES = [b.name for b in arm.pose.bones]
+# the Hips' REST position in armature space -- the point every consumer stands the body on
+_hl = arm.data.bones["Hips"].head_local
+REST_XY = np.array([_hl.x, _hl.y])
+
+
+def action_fcurves(act):
+    """Every fcurve of an action, on either action API. Blender 4.4+ moved them into
+    layers -> strips -> channelbags (slotted actions) and later removed Action.fcurves;
+    this script has to run on the Blender that is installed, whichever that is."""
+    if hasattr(act, "fcurves"):
+        return list(act.fcurves)
+    out = []
+    for layer in getattr(act, "layers", []):
+        for strip in layer.strips:
+            for cb in getattr(strip, "channelbags", []):
+                out.extend(cb.fcurves)
+    return out
+
+
+def shift_root(act, dx, dy):
+    """Move a clip RIGIDLY by a constant horizontal (armature-space) offset, without
+    resampling anything: the delta is carried into the Hips bone's own BASIS space (for a
+    root bone, armature translation = matrix_local.3x3 @ basis.location + matrix_local.t) and
+    added to its location keys and their handles. Used for KEEP_ROOT clips, whose lunge
+    must survive, so they START at the rest position instead of wherever the take began."""
+    hb = arm.data.bones["Hips"]
+    d = hb.matrix_local.to_3x3().inverted() @ Vector((dx, dy, 0.0))
+    n = 0
+    for fc in action_fcurves(act):
+        if fc.data_path != 'pose.bones["Hips"].location':
+            continue
+        for kp in fc.keyframe_points:
+            kp.co[1] += d[fc.array_index]
+            kp.handle_left[1] += d[fc.array_index]
+            kp.handle_right[1] += d[fc.array_index]
+            n += 1
+        fc.update()
+    return n
 rep = {}
 
 
@@ -109,6 +147,18 @@ def write(act, rows, idx, deroot, name):
     H = np.array([[rows[i]["hips_arm"].x, rows[i]["hips_arm"].y] for i in idx])
     t = np.linspace(0.0, 1.0, len(idx))[:, None]
     FIT = H[0][None, :] + (H[-1] - H[0])[None, :] * t
+    # THE ANCHOR IS THE REST POSITION, NOT THE CLIP'S FIRST FRAME. (Fixed 2026-09-29, attack_lab.)
+    # This used to add back FIT[0] -- wherever the clip happened to start -- so every clip was
+    # de-rooted ABOUT ITS OWN STARTING POINT and shipped standing there: Meshy's Axe Stance
+    # starts 1.135 m off, and run_armed's trimmed cycle came from 1.874 m along a travelling
+    # take. Every consumer stands the body at the origin, so those clips were drawn a metre
+    # or two away from his capsule and every blend in or out of them dragged him across the
+    # ground (Matt's chop/attack glitch). The residual H - FIT is the sway with the travel
+    # taken out; centring ITS MEAN on the rest position keeps the sway and puts the clip where
+    # the body stands. 49_recentre.py and the lint's offset rule remain as guards; on this
+    # script's output they find nothing to do.
+    RESID = H - FIT
+    ANCHOR = REST_XY - RESID.mean(axis=0)
     base = None
     for j, i in enumerate(idx):
         sc.frame_set(j)
@@ -126,8 +176,8 @@ def write(act, rows, idx, deroot, name):
             # axes are the world's.
             hb = arm.pose.bones["Hips"]
             m = hb.matrix.copy()
-            m.translation = Vector((m.translation.x - FIT[j][0] + FIT[0][0],
-                                    m.translation.y - FIT[j][1] + FIT[0][1],
+            m.translation = Vector((m.translation.x - FIT[j][0] + ANCHOR[0],
+                                    m.translation.y - FIT[j][1] + ANCHOR[1],
                                     m.translation.z))
             hb.matrix = m
             bpy.context.view_layer.update()
@@ -147,8 +197,17 @@ for nm in list(A):
     net = float(Vector((h1.x - h0.x, h1.y - h0.y, 0)).length)
     info = dict(frames_in=[f0, f1], net_root_travel_m=round(net, 4))
     if nm in KEEP_ROOT:
-        info["action"] = "left rooted on purpose (the scene roots the lunge)"
+        # the lunge is kept (the scene roots it) -- but the clip must START where the body
+        # stands. attack_chop's take begins 0.487 m off; shift it rigidly to rest.
+        a0 = rows[0]["hips_arm"]
+        dx, dy = REST_XY[0] - a0.x, REST_XY[1] - a0.y
+        keys = shift_root(A[nm], dx, dy)
+        info["action"] = "left rooted on purpose (the scene roots the lunge); start moved to rest"
+        info["start_shift_m"] = round(float(np.hypot(dx, dy) * arm.matrix_world.to_scale()[0]), 4)
+        info["hips_location_keys_shifted"] = keys
         rep[nm] = info
+        print("  %-16s rooted lunge kept; first frame moved %.4f m onto the rest position (%d keys)"
+              % (nm, info["start_shift_m"], keys))
         continue
     idx = list(range(len(rows)))
     # only trim while the clip STILL has real travel -- a second pass over an
