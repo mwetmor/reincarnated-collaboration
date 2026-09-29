@@ -20118,9 +20118,571 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T10T-snow",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "3ba19239d347cc8d799875afef8116154fb4d9a7695cb063289d7909f52ebbc9",
+      "started": "2026-09-29T18:20:35.341838+00:00",
+      "ended": "2026-09-29T18:25:53.394214+00:00",
+      "minutes": 5.300931503467049,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-5180a47a-dd7c-4f08-8b07-c4267a528f62.png",
+            "sha256": "8bb6784caca77feb898296f946c874d27e2b61e327c3e2f68407c8bee8b23e31"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-8b75e08c-d8f8-4e6f-aead-75f491f4a7f4.png",
+            "sha256": "44e2a83baa6c2d37cbf99f9993eb891966e735f8b107fd3674a52a374acbc690"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-bdcecae4-0cec-4696-8040-0b4d87192f27.png",
+            "sha256": "353526ee3334fceb44a699f8861aef045d807bbe294c2ffcb1f1c0441d167c92"
+          }
+        ],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "4539b926b36f9aef1b412c0c5caaf1972e0936cfd6a5d45a84907de904bdfd61",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-5180a47a-dd7c-4f08-8b07-c4267a528f62.png",
+          "sha256": "8bb6784caca77feb898296f946c874d27e2b61e327c3e2f68407c8bee8b23e31"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-8b75e08c-d8f8-4e6f-aead-75f491f4a7f4.png",
+          "sha256": "44e2a83baa6c2d37cbf99f9993eb891966e735f8b107fd3674a52a374acbc690"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7230-87ad-2e27f62fd761/exec-bdcecae4-0cec-4696-8040-0b4d87192f27.png",
+          "sha256": "353526ee3334fceb44a699f8861aef045d807bbe294c2ffcb1f1c0441d167c92"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "T10T-rock",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1d9295e1bf7d406703147030cc42311cdb3159909b02d037a781bd2d4ce7644f",
+      "started": "2026-09-29T18:20:35.342052+00:00",
+      "ended": "2026-09-29T18:26:29.089154+00:00",
+      "minutes": 5.895857642366415,
+      "image_calls": 3,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-9149edfa-19d3-4450-b93f-73d050e57379.png",
+            "sha256": "5f6138d6fdf3f14c416c64710136756ff32796b9455c867e565e62fff8b22715"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-d51d1b2c-2948-48ee-938b-6debbcfe757c.png",
+            "sha256": "a2cb6d500c9fe4af6758c13101e1c82dbf42e8af8ff52a5d51ea6ae30903b4ab"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-d564fd2c-b420-462e-9e45-abb395b6b139.png",
+            "sha256": "9b48831ec9e2f4caac429155552cc71262be292cd23907917eb999ec4b4d0679"
+          }
+        ]
+      },
+      "receipt_sha256": "d1cbd050b759f437c71c0834eb2584dca26958f332ae1856d26dd5807e540186",
+      "artifacts": [
+        {
+          "name": "T10T-rock_a.png",
+          "sha256": "9b48831ec9e2f4caac429155552cc71262be292cd23907917eb999ec4b4d0679"
+        },
+        {
+          "name": "T10T-rock_b.png",
+          "sha256": "5f6138d6fdf3f14c416c64710136756ff32796b9455c867e565e62fff8b22715"
+        },
+        {
+          "name": "exec-9149edfa-19d3-4450-b93f-73d050e57379.provenance.json",
+          "sha256": "64c4b54f9c20c010192a735e7d588d85bcb77419d7ed6d134f28daad077426b1"
+        },
+        {
+          "name": "exec-d51d1b2c-2948-48ee-938b-6debbcfe757c.provenance.json",
+          "sha256": "c46db94521e192c86046768bef5b0c7d9e36dba752ab6a4966eae854bd5b18ef"
+        },
+        {
+          "name": "exec-d564fd2c-b420-462e-9e45-abb395b6b139.provenance.json",
+          "sha256": "3d2d19c7390d5bff8b93f308aa0b94675738f92fda54237f611b0624e91a2ab9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-9149edfa-19d3-4450-b93f-73d050e57379.png",
+          "sha256": "5f6138d6fdf3f14c416c64710136756ff32796b9455c867e565e62fff8b22715"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-d51d1b2c-2948-48ee-938b-6debbcfe757c.png",
+          "sha256": "a2cb6d500c9fe4af6758c13101e1c82dbf42e8af8ff52a5d51ea6ae30903b4ab"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-79f0-9b3b-98b701f1ba63/exec-d564fd2c-b420-462e-9e45-abb395b6b139.png",
+          "sha256": "9b48831ec9e2f4caac429155552cc71262be292cd23907917eb999ec4b4d0679"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10T-path",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a51bf2d8d394115e7ddc465ecb83e1920d22fb9b8025f12b49f8ebf5a5756724",
+      "started": "2026-09-29T18:20:35.341894+00:00",
+      "ended": "2026-09-29T18:27:28.864116+00:00",
+      "minutes": 6.892119284733296,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-3490b8e4-bb0a-46d3-b156-18b91c03210c.png",
+            "sha256": "74c91301a9e92db24f66e693c0b6653d69183306b4cc8a37ec2cc8f9ab0d8d2b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-9b268ac6-4c42-4bd8-9650-e034f5c1bf60.png",
+            "sha256": "f87070ee68419906996cde7216cacd4c8d10afbd64a4a68aa701a9749dc59c25"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-bb2ad777-cbca-4cf4-9913-d6b4cde7b129.png",
+            "sha256": "cca6f08a91bfacd7ec19f19023ecedb71681c1c67636e286bae32a8f3cc54f14"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-f209f46c-d57a-4d3a-a36a-961f10559ab9.png",
+            "sha256": "46cfd430a2df79384d0c47592f183ad661a5daa866d55cbf0eea6156c92cac86"
+          }
+        ]
+      },
+      "receipt_sha256": "94d41d8c08db06a9b7dc1b0b6f450d54ebfda681e49b3c6746c5bc0256106158",
+      "artifacts": [
+        {
+          "name": "T10T-path_a.png",
+          "sha256": "f87070ee68419906996cde7216cacd4c8d10afbd64a4a68aa701a9749dc59c25"
+        },
+        {
+          "name": "T10T-path_b.png",
+          "sha256": "74c91301a9e92db24f66e693c0b6653d69183306b4cc8a37ec2cc8f9ab0d8d2b"
+        },
+        {
+          "name": "exec-3490b8e4-bb0a-46d3-b156-18b91c03210c.provenance.json",
+          "sha256": "a5cefb2f76eb16351ad56f0aef4b5e5a22624221f6fafeb26a29b4f5d40155ad"
+        },
+        {
+          "name": "exec-9b268ac6-4c42-4bd8-9650-e034f5c1bf60.provenance.json",
+          "sha256": "bc4607088340b05f4d930c608a6fd5398e95b657f894c6130da525ec9cad7695"
+        },
+        {
+          "name": "exec-bb2ad777-cbca-4cf4-9913-d6b4cde7b129.provenance.json",
+          "sha256": "e98f57bd92e0bbe44696367b3ffeb5359ea3b86f07a8b67de283d9070692cb19"
+        },
+        {
+          "name": "exec-f209f46c-d57a-4d3a-a36a-961f10559ab9.provenance.json",
+          "sha256": "19709497232f0e0ecd0cd58c74c09f5f79eee44660a1ae4f5f659811eba8e795"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-3490b8e4-bb0a-46d3-b156-18b91c03210c.png",
+          "sha256": "74c91301a9e92db24f66e693c0b6653d69183306b4cc8a37ec2cc8f9ab0d8d2b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-9b268ac6-4c42-4bd8-9650-e034f5c1bf60.png",
+          "sha256": "f87070ee68419906996cde7216cacd4c8d10afbd64a4a68aa701a9749dc59c25"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-bb2ad777-cbca-4cf4-9913-d6b4cde7b129.png",
+          "sha256": "cca6f08a91bfacd7ec19f19023ecedb71681c1c67636e286bae32a8f3cc54f14"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7533-a72d-e86ce7fae51f/exec-f209f46c-d57a-4d3a-a36a-961f10559ab9.png",
+          "sha256": "46cfd430a2df79384d0c47592f183ad661a5daa866d55cbf0eea6156c92cac86"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10T-heather",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "5616fb003ec005158296f74476583cc5696b518a34e4cf550e3c83f87118d6c3",
+      "started": "2026-09-29T18:20:35.341874+00:00",
+      "ended": "2026-09-29T18:27:57.699109+00:00",
+      "minutes": 7.372706090283463,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-042ffafc-06d9-42df-8486-6072e445f235.png",
+            "sha256": "e76656f44fecd41b9c01d5dc73cf57b8ea238df329ba2f45b1a30388591b4929"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-17c0a503-4545-49a5-a14f-dc6db6644588.png",
+            "sha256": "beb62a0aeec187bf73c7a6cd1eaa6ac2ca090358425b34ac31afe891bdd94608"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-96bf1441-9297-41bd-9322-8e579a910843.png",
+            "sha256": "fbf06535f1f14d095815b2bbbd9a10e7ef4b774030c35458fe4d3e9740d18fe8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-ca2e521e-80a4-45c5-9598-fbb06d839eb1.png",
+            "sha256": "2f8165012d288d2a68e197030f59de273afe4b9820d723558434bb5202292233"
+          }
+        ]
+      },
+      "receipt_sha256": "0d773afe153c9a20f0db203c805d0b437e7589a785598b60814e594bac876a72",
+      "artifacts": [
+        {
+          "name": "T10T-heather_a.png",
+          "sha256": "fbf06535f1f14d095815b2bbbd9a10e7ef4b774030c35458fe4d3e9740d18fe8"
+        },
+        {
+          "name": "T10T-heather_b.png",
+          "sha256": "beb62a0aeec187bf73c7a6cd1eaa6ac2ca090358425b34ac31afe891bdd94608"
+        },
+        {
+          "name": "exec-042ffafc-06d9-42df-8486-6072e445f235.provenance.json",
+          "sha256": "455c339189689faa5b629a0d638c198fd80814d50d324b09aee18dab0fbeac9d"
+        },
+        {
+          "name": "exec-17c0a503-4545-49a5-a14f-dc6db6644588.provenance.json",
+          "sha256": "b3a3342818a7f5a70f58813275edb7eec48e7202603ce91b613f04f9b6c6ac03"
+        },
+        {
+          "name": "exec-96bf1441-9297-41bd-9322-8e579a910843.provenance.json",
+          "sha256": "9da5db875b637e56a25c5864b674dfcd2882f0103d744bf281b4bb3fc6b25088"
+        },
+        {
+          "name": "exec-ca2e521e-80a4-45c5-9598-fbb06d839eb1.provenance.json",
+          "sha256": "a7a5aa4463bb1d2ad45bb06e1f1b834c0e1ba18f3fd060056581952ecea57019"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-042ffafc-06d9-42df-8486-6072e445f235.png",
+          "sha256": "e76656f44fecd41b9c01d5dc73cf57b8ea238df329ba2f45b1a30388591b4929"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-17c0a503-4545-49a5-a14f-dc6db6644588.png",
+          "sha256": "beb62a0aeec187bf73c7a6cd1eaa6ac2ca090358425b34ac31afe891bdd94608"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-96bf1441-9297-41bd-9322-8e579a910843.png",
+          "sha256": "fbf06535f1f14d095815b2bbbd9a10e7ef4b774030c35458fe4d3e9740d18fe8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7922-8d4b-ab64e45ad7bf/exec-ca2e521e-80a4-45c5-9598-fbb06d839eb1.png",
+          "sha256": "2f8165012d288d2a68e197030f59de273afe4b9820d723558434bb5202292233"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10T-ice",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1c8c4228f05489d9eb8e25ba772c3225f675a5c0d4224a6dcf91d7138961ad60",
+      "started": "2026-09-29T18:20:35.341834+00:00",
+      "ended": "2026-09-29T18:28:09.921101+00:00",
+      "minutes": 7.576409504166804,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-03da9841-a5c4-4d91-8a94-dc505f8a0748.png",
+            "sha256": "7d6ff3c036444320c4401769ecb4f3d688aca3ff75b55864c74613f57bf1f909"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-44a61ac4-cc27-42a3-b7c9-a4721e061483.png",
+            "sha256": "b1026ffb9a516e831597f36c67cc3400519a632c345f6691f2f935d5b6269e3c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-71a2455c-0ae3-4766-8875-0283af841330.png",
+            "sha256": "4e57c657e487d7d64ec1962b3e2ea41853fde32f83fcfe74ad2c2eb2a225a87d"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-f2fbe51a-9d13-4786-b97c-ccd71d073e6b.png",
+            "sha256": "9c1853e9207a0cb0e3ef92f65362032933a5f38412c26e1492ae14629f596982"
+          }
+        ]
+      },
+      "receipt_sha256": "666d6f9193cced2e26996eff87e64cfaaa262b542eaed507e2f466d20816bb8a",
+      "artifacts": [
+        {
+          "name": "T10T-ice_a.png",
+          "sha256": "b1026ffb9a516e831597f36c67cc3400519a632c345f6691f2f935d5b6269e3c"
+        },
+        {
+          "name": "T10T-ice_b.png",
+          "sha256": "4e57c657e487d7d64ec1962b3e2ea41853fde32f83fcfe74ad2c2eb2a225a87d"
+        },
+        {
+          "name": "exec-03da9841-a5c4-4d91-8a94-dc505f8a0748.provenance.json",
+          "sha256": "df56945557515fb5c9ec607c92fc5dc0f783fbee6a5f578d7d9856e82642e1b2"
+        },
+        {
+          "name": "exec-44a61ac4-cc27-42a3-b7c9-a4721e061483.provenance.json",
+          "sha256": "702fb30b5162b5529de81e9dd394b94023d2fce31ed077f4b248b2e1ff21fae8"
+        },
+        {
+          "name": "exec-71a2455c-0ae3-4766-8875-0283af841330.provenance.json",
+          "sha256": "60ae71f501f91efac887233b48fa1b47fce8d3ca4436a43d6cde615131b703c9"
+        },
+        {
+          "name": "exec-f2fbe51a-9d13-4786-b97c-ccd71d073e6b.provenance.json",
+          "sha256": "e1d580da357c5a76a470758bd92c017a1cf07144d4e0fd8ae3c8c3a5c8c82cbc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-03da9841-a5c4-4d91-8a94-dc505f8a0748.png",
+          "sha256": "7d6ff3c036444320c4401769ecb4f3d688aca3ff75b55864c74613f57bf1f909"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-44a61ac4-cc27-42a3-b7c9-a4721e061483.png",
+          "sha256": "b1026ffb9a516e831597f36c67cc3400519a632c345f6691f2f935d5b6269e3c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-71a2455c-0ae3-4766-8875-0283af841330.png",
+          "sha256": "4e57c657e487d7d64ec1962b3e2ea41853fde32f83fcfe74ad2c2eb2a225a87d"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee65-ab13-7823-9ea9-55a0e3510848/exec-f2fbe51a-9d13-4786-b97c-ccd71d073e6b.png",
+          "sha256": "9c1853e9207a0cb0e3ef92f65362032933a5f38412c26e1492ae14629f596982"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10T-snow-r1",
+      "type": "GENERATE",
+      "experiment": "T10-tiles",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "79d9e353e4bd6be79a5cdffae0e6064aa2f6d657f856a9557e2c74008bb305ba",
+      "started": "2026-09-29T18:28:47.529257+00:00",
+      "ended": "2026-09-29T18:35:48.795579+00:00",
+      "minutes": 7.021189250683529,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-1eff9cd3-dcb8-4b10-ab1b-4f8980d9ccc9.png",
+            "sha256": "24cd4014379432c3f0013380f878589eecc83b6be9fedba1d1f1a025856e1af3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-3cfec26c-82ca-4d15-a41d-9f56db4c85f7.png",
+            "sha256": "71e695ed659311a56f78b5dd9c470645a202cbf43e409cccc634c2be82b86bfb"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-71183386-3dec-4dea-a7f7-16fa4e3f5643.png",
+            "sha256": "ad8040eb35d4cde35f0f4cf97c695dcc6eedb18491f0c13cd232cc6607b16495"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-b4fc3df4-3794-4338-9300-59e1567dac67.png",
+            "sha256": "6ddec94f458e861db61a80d2ca7a1e0d877137aba97fc70f7e990d0f094e22a7"
+          }
+        ]
+      },
+      "receipt_sha256": "8ed2029e915b5211fdb00c4bd3a08172c2a3584b0b7b25a02179fd40be94fbb6",
+      "artifacts": [
+        {
+          "name": "T10T-snow-r1_a.png",
+          "sha256": "ad8040eb35d4cde35f0f4cf97c695dcc6eedb18491f0c13cd232cc6607b16495"
+        },
+        {
+          "name": "T10T-snow-r1_b.png",
+          "sha256": "24cd4014379432c3f0013380f878589eecc83b6be9fedba1d1f1a025856e1af3"
+        },
+        {
+          "name": "exec-1eff9cd3-dcb8-4b10-ab1b-4f8980d9ccc9.provenance.json",
+          "sha256": "c54681e524658471b84768e34cc482baefd8cab5fe950c820ac18270a88d9927"
+        },
+        {
+          "name": "exec-3cfec26c-82ca-4d15-a41d-9f56db4c85f7.provenance.json",
+          "sha256": "d1d7036749e664b2cd40ce52b41623b07a2585f2adcbcd088542dc8557a12cd4"
+        },
+        {
+          "name": "exec-71183386-3dec-4dea-a7f7-16fa4e3f5643.provenance.json",
+          "sha256": "0975eae324377a500f1231ddc90fbb728c6ce956f4ffb71b3920ff2771abfb63"
+        },
+        {
+          "name": "exec-b4fc3df4-3794-4338-9300-59e1567dac67.provenance.json",
+          "sha256": "c649821d1a4ecfe01d7afecf0a055a92cb0a722babb127670d8d3665c45071a8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-1eff9cd3-dcb8-4b10-ab1b-4f8980d9ccc9.png",
+          "sha256": "24cd4014379432c3f0013380f878589eecc83b6be9fedba1d1f1a025856e1af3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-3cfec26c-82ca-4d15-a41d-9f56db4c85f7.png",
+          "sha256": "71e695ed659311a56f78b5dd9c470645a202cbf43e409cccc634c2be82b86bfb"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-71183386-3dec-4dea-a7f7-16fa4e3f5643.png",
+          "sha256": "ad8040eb35d4cde35f0f4cf97c695dcc6eedb18491f0c13cd232cc6607b16495"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ee6d-2de3-79e3-aa1c-4fccf3d923d0/exec-b4fc3df4-3794-4338-9300-59e1567dac67.png",
+          "sha256": "6ddec94f458e861db61a80d2ca7a1e0d877137aba97fc70f7e990d0f094e22a7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 581,
+  "images_used": 603,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -20585,6 +21147,12 @@
       "topic": "W1b: a reusable text-to-motion retargeter (SMPL-H -> his 24-bone rig) - generated custom motion is now a pipeline capability (53 of 60 credits)",
       "result": "41_retarget_smplh.py: each bone transported in its own rest frame, P_dst = [P_src . R_src^-1] . R_dst (bridges the source T-pose vs his A-pose: arm chains drop 0.028 m vs 0.490 m); 22 bones mapped; root scaled by leg length (x1.0423). Rest-alignment error 0.000000 deg - and exactly why three bugs got through it: (1) the Meshy rig names its spine BACKWARDS (Spine02 lowest, Spine highest) so the map drove the lower spine from the upper (verify_map() topology check added: every source parent-child edge must be an ancestor relation in the destination); (2) world translations assigned into armature space (0.01 object scale: 0.9 m underground; rotations unaffected so the check still read 0); (3) the grounding rule centred the residual, which put attack_chop planted foot 0.40 m underground -> now grounds the minimum. Also found by the band rule: idle_armed (Meshy Axe Stance) sat 0.35 m low -> every clip now re-grounded (43_reground_all.py; the in-script grounding does not survive glTF export - known gap, run after every retarget). Shipped: run_armed (retargeted t2m straight armed run: 4.33 m/s, heading residual 9.21 deg vs 32.4 for the rejected diagonal blend, 0 foot slide, wrist 0 reversals) and strafe_L_armed (sideways at 104 deg by definition, 0 slide). nb-body.glb 18 clips, 3 morphs, lint no FAIL.",
       "ts": "2026-09-29T14:24:41"
+    },
+    {
+      "id": "M-C9-T10-LAYOUT",
+      "topic": "T10 Barrow: layout, both heightfields, tiles seam-tested, sheets chosen, 60 instances placed (Tripo in flight)",
+      "result": "Heightfields as a drop-in (BarrowHeightfield, same interface as the stand-in): DERIVED (Marigold depth, variant a) relief 4.00 m, median slope 18.8 deg, roughness 0.126 m, the barrow reading as a hollow; AUTHORED (plan from the painting by ruler through the figure + four constants: tarn flat 1.15 m low, mound 1.70 m dome, ground sloping 0.055 m/m, outcrops +0.55 m) relief 2.37 m, median slope 3.1 deg -> the authored one is the DEFAULT, the derived one a toggle. Depth calibration: ground vs figure disagree 1.71x (a systematic monocular bias) -> relief +/-70%, plan positions good. Both grids anchored to the barrow (0,-4) before comparing. Tiles (roll-by-half cross vs own interior; forced-step control 10.26): PASS path b 1.20, heather b 1.43, ice a 1.48; FAIL snow-r1 a 1.68, rock b 1.71, bark a 1.86 (vertical only) -> seam EDITs T10S-snow/rock/bark fired. Sheets by mirror IoU: 8 of 9 at 0.86-0.99; birch 0.674 (the predicted failure) -> procedural birch built (1,436 verts, height forced to 3.36 m). 60 instances with a global stone_scale lever (1.37 = twice his height). Tripo builds slow (1 of 9 after ~25 min). Ordered: heather as procedural ground-cover clumps (not the juniper model), a second prompted pass for more birches.",
+      "ts": "2026-09-29T14:49:41"
     }
   ],
   "halts": [
