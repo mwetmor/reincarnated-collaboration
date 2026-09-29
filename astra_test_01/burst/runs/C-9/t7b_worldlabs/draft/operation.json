@@ -1,0 +1,66 @@
+{
+ "operation_id": "d9a06acb-acac-4e06-b16e-0c5b8f148648",
+ "created_at": "2026-09-29T04:15:19Z",
+ "updated_at": "2026-09-29T04:15:48Z",
+ "expires_at": "2026-09-29T07:15:19Z",
+ "done": true,
+ "error": null,
+ "metadata": {
+  "progress": {
+   "status": "SUCCEEDED",
+   "description": "World generation completed successfully"
+  },
+  "world_id": "fc3c617f-03c2-4efc-8fe4-36af2a322e77",
+  "operation_type": "world_generation",
+  "public_model_name": "marble-1.0-draft"
+ },
+ "response": {
+  "world_id": "fc3c617f-03c2-4efc-8fe4-36af2a322e77",
+  "display_name": "",
+  "tags": null,
+  "assets": {
+   "mesh": {
+    "collider_mesh_url": "https://cdn.marble.worldlabs.ai/fc3c617f-03c2-4efc-8fe4-36af2a322e77/15bd3304.glb",
+    "hq_mesh_url": null,
+    "full_res_mesh_url": null
+   },
+   "imagery": {
+    "pano_url": null
+   },
+   "splats": {
+    "spz_urls": {
+     "500k": "https://cdn.marble.worldlabs.ai/fc3c617f-03c2-4efc-8fe4-36af2a322e77/f6c55a83-0d36-449a-b40f-35a9c6f08d3f_sand_500k.spz",
+     "100k": "https://cdn.marble.worldlabs.ai/fc3c617f-03c2-4efc-8fe4-36af2a322e77/7ea81b7c-594d-42e0-ae73-9879de0cc2dd_sand_100k.spz",
+     "full_res": "https://cdn.marble.worldlabs.ai/fc3c617f-03c2-4efc-8fe4-36af2a322e77/1fcc5e3c-ee6f-4906-a167-45ebdcb65342_sand.spz"
+    },
+    "semantics_metadata": null
+   },
+   "thumbnail_url": "https://cdn.marble.worldlabs.ai/fc3c617f-03c2-4efc-8fe4-36af2a322e77/79d3366c-b55d-4f0b-bc69-ab582b8494fb_sand_mpi/thumbnail.webp",
+   "caption": "The scene is a hand-painted watercolor in an illuminated-manuscript style, depicting a high sandstone cliff under a dramatic sunset, evoking a somber and foreboding tone. A dirt path traces the uneven terrain along the top of this cliff, leading to a wooden plank bridge that spans a narrow chasm. Below the chasm, a deep gorge is filled with billowy, purplish-pink clouds, suggesting immense depth and an ethereal, otherworldly quality. In the far distance, a vast forest valley burns fiercely, with flames and smoke rising from the canopy, illuminating ruined stone spires that pierce the smoky horizon. The path continues in both directions along the cliff edge, revealing more of the rugged, grass-flecked sandstone and scattered small wildflowers. To the left, the path winds further into the burning valley, offering a wider view of the conflagration and additional ruined structures amidst the inferno. To the right, the cliff path extends towards an unburned, serene landscape, providing a stark contrast to the destruction in the distance. The overall vista suggests a dramatic narrative unfolding across an expansive and varied landscape, from perilous heights to a devastated valley, all under the vibrant hues of a setting sun. The 360 scene is faultless."
+  },
+  "created_at": null,
+  "updated_at": null,
+  "permission": {
+   "public": false,
+   "allowed_readers": [],
+   "allowed_writers": [],
+   "allow_id_access": false
+  },
+  "world_prompt": null,
+  "world_marble_url": "https://marble.worldlabs.ai/world/fc3c617f-03c2-4efc-8fe4-36af2a322e77",
+  "model": null
+ },
+ "cost": {
+  "total_credits": 230,
+  "line_items": [
+   {
+    "name": "Pano generation (image, non-pano)",
+    "credits": 80
+   },
+   {
+    "name": "Draft world generation",
+    "credits": 150
+   }
+  ]
+ }
+}

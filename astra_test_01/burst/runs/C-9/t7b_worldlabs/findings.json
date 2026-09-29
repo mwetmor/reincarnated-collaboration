@@ -1,0 +1,235 @@
+{
+ "test": "T7-B \u2014 cliffside B as a 3D world via World Labs Marble",
+ "run": "C-9 Phase 2",
+ "authority": "Matt R-C9-66; camera R-C9-68",
+ "agent": "drax",
+ "date": "2026-09-29",
+ "camera_law": {
+  "source": "reincarnated-godot/scripts/cliffside_blockout.gd",
+  "projection": "orthographic",
+  "pitch_deg": 52.95354112560294,
+  "yaw_deg": 47.0,
+  "ppm_accepted": 100.617553710938,
+  "game_frame_m": {
+   "h": 10.734,
+   "w": 19.082
+  }
+ },
+ "verdict": {
+  "draft": "REJECT as a level. Style preserved; topography invented (cliff edge -> pit); geometry is a single-viewpoint depth shell, no metric anchor.",
+  "standard_marble_1_1": "REJECT as a level. Same shell architecture, 2.4x larger and metrically anchored, but at the game's own on-screen scale the surface has no legible detail left.",
+  "recommendation": "Prefer T7-A (camera-projected painting on the Godot blockout). Marble is worth keeping ONLY as a 360 backdrop / parallax source."
+ },
+ "credits": {
+  "start": 7000.0,
+  "draft": 230,
+  "standard": 1580,
+  "spent": 1810,
+  "end": 5190.0,
+  "cap": 5000,
+  "exports_ply_and_uploads": 0,
+  "line_items": {
+   "draft": [
+    {
+     "name": "Pano generation (image, non-pano)",
+     "credits": 80
+    },
+    {
+     "name": "Draft world generation",
+     "credits": 150
+    }
+   ],
+   "standard": [
+    {
+     "name": "Pano generation (image, non-pano)",
+     "credits": 80
+    },
+    {
+     "name": "World generation",
+     "credits": 1500
+    }
+   ]
+  }
+ },
+ "input": {
+  "chosen": "cliffside_B_chasm_B_wide_2133x1200.png",
+  "keeper_px": [
+   3230,
+   1350
+  ],
+  "camera_topleft_px": [
+   2268.0,
+   755.0
+  ],
+  "uncovered_clearcolor_fraction": 0.0,
+  "sha256": "ac00850804bfaa9bb3f2d907ffd163ab5d01fdb62e3449dba98df44289ba9309",
+  "sources": [
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/layers_b/sky.png",
+    "sha256": "8f364f6c8d693cf056e51a35803a607cdfe18161a11034c7caa123febf9a1ec0"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/layers_b/far_ruins.png",
+    "sha256": "62b38582c4381f208f47ebe0697626272dc6fd06ffe545919841a55e885731f2"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/sprites_landmarks/tower.png",
+    "sha256": "2de3fe47e2ede5ca54fd3d9b764230d14171a9696528ce4decf8e38b84ee59b3"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/sprites_landmarks/cathedral.png",
+    "sha256": "a0e1fcaa9674ad3e81d3e3bcfa049342e320f8658dfcb96af11db07029c4e8c4"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/layers_b/forest_valley.png",
+    "sha256": "c2a9567e552e42867ccb31c3645c9f07dd1b0d042351c56d9d9beb864f0ab0c8"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/layers_b/mist.png",
+    "sha256": "3f1d16f8db393c0244d13244ee3b6c721e94396033abb3ce8e1e0adb618066c9"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/tiles_b/tile_0_0.png",
+    "sha256": "9c7fe10c54e548e12723c4b89d0d5e6920d5636ae32684b52fd95fa7ac0f1521"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside_B/parallax/tiles_b/tile_4096_0.png",
+    "sha256": "793fe8abf6d9ff4134ec00bafcd43524cfcdcd0776ad7814e748bd64082ee2a5"
+   }
+  ],
+  "parallax_validation": {
+   "instrument": "scripts/validate_parallax.py vs cliffside_B/frames/horizon_rows.json (R-C9-41, measured through Godot)",
+   "far_ruins_residual_px": {
+    "max": 5.8,
+    "mean": 0.8,
+    "exact_of": "6 of 8"
+   }
+  }
+ },
+ "worlds": {
+  "draft": {
+   "model": "marble-1.0-draft",
+   "world_id": "fc3c617f-03c2-4efc-8fe4-36af2a322e77",
+   "gen_seconds": 29,
+   "semantics_metadata": null,
+   "collider": {
+    "triangles": 96813,
+    "bbox_min": [
+     -13.246,
+     -4.27,
+     -9.074
+    ],
+    "bbox_max": [
+     4.137,
+     11.666,
+     18.178
+    ],
+    "total_area_units2": 654.9,
+    "slope_census_by_area_pct": {
+     "within_10deg_of_horizontal": 5.5,
+     "within_30deg": 23.6,
+     "within_45deg": 40.2,
+     "steeper_than_60deg": 38.7
+    },
+    "flat_area_within_10u": 64.3,
+    "flat_area_within_20u": 151.0
+   },
+   "splat_radial_bands_pct_from_viewpoint": {
+    "0-3u": 53.9,
+    "3-10u": 26.8,
+    "10-20u": 5.3,
+    "20-40u": 3.5,
+    "40-200u": 10.6
+   },
+   "pano_px": [
+    2304,
+    1152
+   ]
+  },
+  "standard": {
+   "model": "marble-1.1",
+   "world_id": "02621a00-594a-4a78-91d2-c85ffcc27115",
+   "gen_seconds": 309,
+   "semantics_metadata": {
+    "metric_scale_factor": 2.5609546,
+    "ground_plane_offset": 1.6618603
+   },
+   "collider": {
+    "triangles": 156881,
+    "bbox_min": [
+     -13.311,
+     -5.485,
+     -16.415
+    ],
+    "bbox_max": [
+     8.165,
+     12.004,
+     17.683
+    ],
+    "total_area_units2": 993.2,
+    "slope_census_by_area_pct": {
+     "within_10deg_of_horizontal": 2.6,
+     "within_30deg": 18.2,
+     "within_45deg": 33.3,
+     "steeper_than_60deg": 44.6
+    },
+    "flat_area_within_10u": 73.7,
+    "flat_area_within_20u": 178.8
+   },
+   "collider_metric": {
+    "bbox_span_m": [
+     55.0,
+     44.8,
+     87.3
+    ],
+    "surface_area_m2": 6514.0,
+    "flat_under_30deg_m2": 1173.0,
+    "mean_tri_edge_m": 0.29
+   },
+   "pano_px": [
+    4608,
+    2304
+   ]
+  }
+ },
+ "detail_density": {
+  "note": "why the standard world fails at the game's own scale",
+  "std_surface_m2": 6514.0,
+  "splats_per_m2": {
+   "500k": 76.8,
+   "full_res_~2M": 307.0
+  },
+  "painted_plate_px_per_m2": 10124.0,
+  "shortfall_x": {
+   "500k": 132,
+   "full_res": 33
+  },
+  "per_game_frame": {
+   "splats_500k": 15722,
+   "painted_px": 2073600
+  }
+ },
+ "style_fidelity_dE76": {
+  "method": "mass-weighted mean nearest-neighbour dE76, 8-colour Lab k-means, generated->source",
+  "draft_pano": 9.55,
+  "standard_pano": 10.37,
+  "standard_gameframe_render": 12.52,
+  "control_same_scene_A_register": 18.9,
+  "control_other_C9_painted_layer": 11.93,
+  "control_character_turnaround": 73.99,
+  "reading": "Marble's pano (9.55/10.37) is closer to our B painting than the SAME SCENE in our own A register (18.9). Colour register genuinely preserved."
+ },
+ "renderer": {
+  "why": "no CUDA on this M2",
+  "splats": "scripts/render_splats.py \u2014 numba CPU EWA rasteriser, exact 3D covariance, depth-sorted alpha compositing, orthographic (linear, no perspective Jacobian)",
+  "mesh": "scripts/mesh_render.py \u2014 numba z-buffer over the collider GLB",
+  "glb": "scripts/glb_probe.py \u2014 hand-written GLB/glTF reader (no trimesh/pygltflib here)",
+  "cross_check": {
+   "claim": "GLB and PLY are parsed by two independent hand-written readers and pushed through the same camera",
+   "mesh_pixels_inside_splat_pixels": 1.0,
+   "mesh_coverage": 0.166,
+   "splat_coverage": 0.621,
+   "note": "excess splat coverage is the far painted shell, which has no collider"
+  }
+ }
+}
