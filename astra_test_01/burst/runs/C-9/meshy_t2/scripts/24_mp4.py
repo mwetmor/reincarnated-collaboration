@@ -126,18 +126,19 @@ def faces(args):
         cw = max((boxes[d][2] - boxes[d][0]) for d in dirs) * zoom
         ch = max((boxes[d][3] - boxes[d][1]) for d in dirs) * zoom
         W = 70 + cw * len(sets)
-        H = 26 + ch * len(dirs)
+        HDR = 40                       # two lines: title, then column labels
+        H = HDR + ch * len(dirs)
         frames = []
         for rep in range(args.loops):
             for i in range(n):
                 im = Image.new("RGB", (W, H), (250, 249, 247))
                 dr = ImageDraw.Draw(im)
-                dr.text((8, 7), "C-9 T2 manticore  %s  head at %dx  frame %02d/%d"
+                dr.text((8, 6), "C-9 T2 manticore  %s  head at %dx  frame %02d/%d"
                         % (clip.upper(), zoom, i, n), fill=(20, 20, 20))
                 for c, (name, root) in enumerate(sets):
-                    dr.text((70 + c * cw + 6, 7), name, fill=(25, 25, 25))
+                    dr.text((70 + c * cw + 6, 24), name, fill=(25, 25, 25))
                 for r, d in enumerate(dirs):
-                    y = 24 + r * ch
+                    y = HDR + r * ch
                     dr.text((8, y + ch // 2), d, fill=(20, 20, 20))
                     for c, (name, root) in enumerate(sets):
                         t = load(root, clip, d, i, boxes[d], zoom)
