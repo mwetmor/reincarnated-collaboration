@@ -22764,6 +22764,17 @@
       "topic": "Armed motion in the 3D app after the clip fixes (ff29a8819)",
       "note": "run_armed reads 0.8333 s in the scene (matches the manifest); de-root finds only attack_chop. Speeds now read from the shipped manifest at load (stepping_speed_m_s preferred) - a hand-copied number went stale twice. Slide (same instrument, armed): crossover worst 294.6 -> 144.4 mm, run-stop worst 747.1 -> 142.1 mm (the outliers were the blend weight chasing a speed from a 19%-short cycle period). Stops 0.29 s walk / 0.42 s run. Hip sway visible. d3_armed_v2.mp4 re-captured; app rebuilt (471 MB). Tidy ordered: a stale run_armed_trim block in the manifest + a lint check that manifest numbers match the GLB sampler times. The T10 render drax was stopped by the conductor mid-work (its queued messages had in fact been picked up; its uncommitted key-collision fixes kept and a pen-floor change reverted by the fresh integration drax).",
       "ts": "2026-09-29T15:55:52"
+    },
+    {
+      "id": "N-C9-MANIFEST-LINT",
+      "topic": "The stale run_armed_trim block removed; a manifest-vs-GLB lint on every manifest write (D2 drax, collab 860c2d107)",
+      "note": "Fixed by deletion: run_armed_trim now states no numbers and points at locomotion_in_place (0.8333 s / 3.795 m/s), so the file the scene reads speeds from at load has one answer per question. 48_manifest_lint.py (wired into 34_manifest_rules.py) asserts every clip-attributed duration against the GLB sampler times, every clip-attributed speed against the one declared speed, and the declared speed against travel/duration: 19 clips, 0 mismatches. GLB unchanged, not re-exported. Its first version missed the defect it was written for (the clip name was the KEY of the block, not in its text) and reported two phantoms (bare words run/walk); now path-first matching, no text match under five characters. Recorded limitation: the speed check is internal (clips ship in place, so the GLB has no travel to check a speed against). RECORD NOTE: the drax reported the commit as 3f7b0d4, which resolves to no object in the repo; the real commit is 860c2d107 (three files: manifest.json, 34_manifest_rules.py, 48_manifest_lint.py), verified with git show.",
+      "ts": "2026-09-29T15:58:59"
+    },
+    {
+      "id": "N-C9-ARMED-V3-CORR",
+      "note": "Correction to N-C9-ARMED-V3: its last sentence says the stopped render drax uncommitted key-collision fixes were kept and its pen-floor change reverted by the fresh integration drax. At the time of writing that was ASSIGNED, not done: the integration drax (ab82173) was still mid-run and paint_stack.gd / barrow_world.gd were still uncommitted edits in the worktree. The outcome is recorded at the integration drax report, not here.",
+      "ts": "2026-09-29T15:58:59"
     }
   ]
 }
