@@ -18213,9 +18213,163 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T8P-A",
+      "type": "GENERATE",
+      "experiment": "T8-texture",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f3e22307f1589f2f87c6877a31aa3a19e27bdd5dbd2d9c4cd48b354c8f14587f",
+      "started": "2026-09-29T05:02:08.385628+00:00",
+      "ended": "2026-09-29T05:06:01.148333+00:00",
+      "minutes": 3.879411395833207,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eb8a-b49c-7a01-ae76-ccc4ca7fa05e/exec-92fc9a1b-13ca-4c2c-8066-79698d783ac5.png",
+            "sha256": "d0a77d58246a3916477e7111f7e08c98b3c178bdadd4a232df3e82631e4ccdfe"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eb8a-b49c-7a01-ae76-ccc4ca7fa05e/exec-cdc92f29-9e8f-40d4-99c0-b842d2e51d38.png",
+            "sha256": "ca8532e0a1a32029645fa2bd3f06d941727cd80824f27f295b290dd70ff46779"
+          }
+        ]
+      },
+      "receipt_sha256": "cb49e75daa5d00c91c5fa5fb628985339fa2352f608c2deb3665e88bf59cf229",
+      "artifacts": [
+        {
+          "name": "T8P-A_a.png",
+          "sha256": "d0a77d58246a3916477e7111f7e08c98b3c178bdadd4a232df3e82631e4ccdfe"
+        },
+        {
+          "name": "T8P-A_b.png",
+          "sha256": "ca8532e0a1a32029645fa2bd3f06d941727cd80824f27f295b290dd70ff46779"
+        },
+        {
+          "name": "exec-92fc9a1b-13ca-4c2c-8066-79698d783ac5.provenance.json",
+          "sha256": "8fa245f792dfced822cb2561a7a6867e1b91a4abb726441de1130a7f711a69a4"
+        },
+        {
+          "name": "exec-cdc92f29-9e8f-40d4-99c0-b842d2e51d38.provenance.json",
+          "sha256": "caa4b5eab2696ed5c0cb80110fc77092f3f192be0871df1ff8b0737e2a6cf110"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eb8a-b49c-7a01-ae76-ccc4ca7fa05e/exec-92fc9a1b-13ca-4c2c-8066-79698d783ac5.png",
+          "sha256": "d0a77d58246a3916477e7111f7e08c98b3c178bdadd4a232df3e82631e4ccdfe"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eb8a-b49c-7a01-ae76-ccc4ca7fa05e/exec-cdc92f29-9e8f-40d4-99c0-b842d2e51d38.png",
+          "sha256": "ca8532e0a1a32029645fa2bd3f06d941727cd80824f27f295b290dd70ff46779"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T8P-B",
+      "type": "GENERATE",
+      "experiment": "T8-texture",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "11af1a3aef5db29fb5c6473e449a30449df2912733c159945d21ff61dd31be35",
+      "started": "2026-09-29T05:17:33.895269+00:00",
+      "ended": "2026-09-29T05:21:52.770657+00:00",
+      "minutes": 4.312780406949847,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eb98-cc43-7c13-8c89-3235c2112fdc/exec-22d5bb51-f9fa-4db4-ae79-9fb25cad32ca.png",
+            "sha256": "7d9096544928becf1fd44a1c14709eb11b42638da9346b102557fe5999e2494f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0eb98-cc43-7c13-8c89-3235c2112fdc/exec-948905f3-d43b-43f8-8f52-c6641e8f1911.png",
+            "sha256": "1423d30c1f87c73fee91a17668e58996a7f71118aae0c1628cf294cf65a0a1c2"
+          }
+        ]
+      },
+      "receipt_sha256": "7408e03039ba752703f92582eb2b9542100f5b6a6e1731b952e993a9110bacb1",
+      "artifacts": [
+        {
+          "name": "T8P-B_a.png",
+          "sha256": "7d9096544928becf1fd44a1c14709eb11b42638da9346b102557fe5999e2494f"
+        },
+        {
+          "name": "T8P-B_b.png",
+          "sha256": "1423d30c1f87c73fee91a17668e58996a7f71118aae0c1628cf294cf65a0a1c2"
+        },
+        {
+          "name": "exec-22d5bb51-f9fa-4db4-ae79-9fb25cad32ca.provenance.json",
+          "sha256": "64fcf332a7b3762215bf04d65b473ee2980180ee7b19a1232c780d400b5cf8fe"
+        },
+        {
+          "name": "exec-948905f3-d43b-43f8-8f52-c6641e8f1911.provenance.json",
+          "sha256": "d5c1a418d8946a64badc70d3786b4a6cd10af3b212bc8bab85eeb19f41e2d28f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eb98-cc43-7c13-8c89-3235c2112fdc/exec-22d5bb51-f9fa-4db4-ae79-9fb25cad32ca.png",
+          "sha256": "7d9096544928becf1fd44a1c14709eb11b42638da9346b102557fe5999e2494f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0eb98-cc43-7c13-8c89-3235c2112fdc/exec-948905f3-d43b-43f8-8f52-c6641e8f1911.png",
+          "sha256": "1423d30c1f87c73fee91a17668e58996a7f71118aae0c1628cf294cf65a0a1c2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 515,
+  "images_used": 519,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -19784,6 +19938,12 @@
       "topic": "R-C9-70 cleanup round 2a executed: C-5/t3 (audited manifest)",
       "note": "Disk watch fired at 40 GiB (steady ~2 GB/30 min from this run: drax captures, renders, transcripts, Godot Metal caches); heavy writers PAUSED per charter s4 (T8, T7-A.2). Executed the audited manifest cleanup/manifest_c5_t3.json(.gz) (subagent audit; committed before deletion): 55,879 files, 5.87 GB, 0 skipped on re-verification (untracked, exists, size match, kept-type guard). SUPERSEDED 2.24 GB (FL1-fire-8dir-v43, superseded by v44 per R-C5-136/R-C5-138; FL-2b per R-C5-96/97) + REGENERABLE 3.62 GB (Movie-Maker bakes, raw frames whose videos are kept, byte-identical copies of artifacts of record, Godot import caches). NOT deleted: the conditional v44 raw frames (2.15 GB; the final pack) - kept. Free 40 -> 46 GiB; agents RESUMED; disk watch re-armed at 42 GiB. Log cleanup/deletions_c5_t3.log.gz.",
       "ts": "2026-09-29T00:57:44"
+    },
+    {
+      "id": "N-C9-CLEANUP-4",
+      "topic": "R-C9-70 cleanup round 2b: capture frame dumps (audited manifest, split)",
+      "note": "Audit (subagent) manifest_captures.json: 16,528 files, 12.47 GB. EXECUTED the drax part only: 1,440 files, 6.72 GB, 0 skipped (c8-whirlwind A/B of superseded builds warlord2/3; w4 superseded by warlord5; w5 = current playable - its cap/ frames are the exact source of the kept whirlwind_warlord5.mp4; the NYQUIST-1-invalidated physics-frame trial captures). Kept: every MP4, the strips, the builds (runs/C-8/cliffside_v40-warlord*, lineage) and the tracked capture scripts (re-capturable). HELD for Matt: the galadriel part (15,088 files, 5.75 GB, July-August captures): its regenerability rests on source videos that exist ONLY on the external volume /Volumes/reincarnated (4.23 GB re-extracted and matched file by file; 1.52 GB on the author declaration + proven source), and it reverses galadriel 2026-09-10 keep decision (her open NEEDS-MATT item 1). Also kept by the audit: C-5 v44 final-pack raw frames (2.15 GB, conditional). Free space 55 -> 60 GiB. Cumulative R-C9-70 cleanup so far: 4.71 + 5.63 (scratch) + 5.87 + 6.72 = 22.93 GB.",
+      "ts": "2026-09-29T01:34:47"
     }
   ]
 }
