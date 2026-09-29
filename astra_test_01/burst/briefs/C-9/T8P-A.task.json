@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST T8P-A — Run C-9 Phase 2, test T8 (Matt R-C9-69/70): the PAINTED TEXTURE of the 3D Norse barbarian, sheet 1 of 2. task_id \"T8P-A\".\n\nIMAGE 1 is a sheet of TEN renders of ONE 3D model of a man standing in a relaxed A-pose, on flat pure #00ff00. Top row, left to right: facing the viewer's LEFT in profile (west); facing the viewer's RIGHT in profile (east); facing the lower left (south-west); facing the lower right (south-east); facing away to the upper left (north-west); facing away to the upper right (north-east). Bottom row, left to right: FACING THE VIEWER (south); seen from BEHIND (north); a CLOSE-UP of his FACE from the front; a CLOSE-UP of his face from the lower right, three-quarter. They are renders of the model: every OUTLINE, POSE, POSITION and SIZE is correct and must not change; the surface is flat and too smooth.\nIMAGE 2 is his APPROVED character sheet: the Norse barbarian, bare-chested, red-gold braided hair and braided beard with a small bronze ring, weathered freckled skin with pale scars, loose woad-blue wool trousers gathered below the knee, pale linen leg wraps, brown leather shoes and belt, and ONE band of blue-grey knotwork tattoo around his RIGHT upper arm. IMAGE 3 is a STYLE reference ONLY: copy its HAND (the warm dark-brown ink line that varies in weight, transparent watercolor washes that pool and granulate, fine hatching in the shadows, cream paper highlights); copy nothing else from it.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY figure is repainted as the barbarian of IMAGE 2 seen from that direction, in IMAGE 3's hand, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE: it will be projected back onto the 3D model from these ten cameras and blended into one texture. So:\n1. ONE man in ten views, not ten men: the same skin tone, freckles and scars, the same hair and beard colour and braids, the same trouser blue and weave, the same leg wraps, shoes and belt in every view. Any disagreement between views becomes a seam.\n2. Paint the SURFACE, not the lighting: soft even light as the register card says; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. Tone comes from his own colours and the pen hatching.\n3. Stay inside the outlines: do not paint beyond a silhouette, do not change any outline, pose, hand or foot.\nTHE TATTOO: the knotwork band is on his RIGHT upper arm ONLY, exactly where IMAGE 1 shows it (it shows in the east, south-east, north-east, front and back views). Never add it to his left arm; never drop it from his right arm.\nTHE TWO FACE CLOSE-UPS are his identity: the same face as IMAGE 2, larger — calm, level gaze, mouth closed, the full red-gold beard gathered into its braid with the bronze ring, the braided hair. More detail is welcome; a different face is not.\n\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines, so the background colour does not decide success. Spend retries ONLY on the faults named below.\nSTYLE: the REGISTER CARD above governs line, washes, light and plate; its manuscript-subject clause does not apply to this figure (Matt R-C9-69). Paint in IMAGE 3's hand with IMAGE 2's look.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, the man differs between views, the tattoo is on the wrong arm or missing, or a face close-up is a different face — name the reason. Never retry for the background colour. Copy outputs to out/T8P-A_a.png and out/T8P-A_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T8P-A\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t8_sheet_a_canvas.png",
+   "role": "IMAGE 1 — the sheet to EDIT (8 body views at 19.77 deg + 2 face close-ups of the rigged Tripo barbarian at rest; outlines correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 2 — his approved four-view character sheet (NB-1 variant b, Matt R-C9-70): the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 — STYLE reference ONLY (Matt-supplied, R-C9-69): the hand; never its character, costume, staff or pose"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T8P-A_a.png",
+  "out/T8P-A_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T8-texture"
+}
