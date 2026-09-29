@@ -19100,6 +19100,12 @@
       "topic": "T5 CLOSED: the painted-texture 3D creature (manticore) - paint once, render every angle",
       "result": "Two Astra paint sheets (A: 8-view ring at 19.77 deg; B: 4 views at 52.95 deg + 3 head close-ups) projected and baked into one 2048 texture with facing^4 x texel-density weighting (close-ups win the face 10:1). Identity holds across 16 angles at 52.95 deg; nothing drifts because nothing is regenerated per frame. Unseen 8.78% (the 2 px erosion band) -> 0.93% bare after island fill. FINDING: independently painted sheets disagree on their overlap (mean 34.24/255; half shading, half features drawn in different places -> seams and double marks); lever = the second sheet painted OVER the first projection (proved in T8: -55% to -67%). Variant choice by measured registration (A_a, B_b). Captures meshy_t2_tex/artifacts/T5-turntable-53.png, T5-head-53.png. This is the route T8/D1-D2 used.",
       "ts": "2026-09-29T03:02:02"
+    },
+    {
+      "id": "M-C9-D2-SCENE",
+      "topic": "G3 ready: the barbarian gear toggles in the 3D cliffside (G cycles 5 stacks); app staged (371 MB); not pushed",
+      "result": "All six pieces arrive as skinned meshes on the same 24 bones (sockets included) and bind to the body Skeleton3D; helmet_on morph follows the helmet; ink outline built per gear mesh. Poke-through: none visible at the play camera on the worst frame of each clip (two numeric instruments built and rejected as not measuring poke-through: screen-space counted his own forearm/shield; the unrolled-cell test cannot represent shoulders). Axe head mass leads the swing (+0.071 m forward of the haft, haft-to-travel 91.4 deg; the edge itself unmarked -> marking ordered). DEFECT: the shield clips the torso (run f12: 3,564 of 7,315 vertices inside a 0.25 m spine capsule, 0.249 m deep) -> bind-offset fix ordered to the D2 drax. Fade holds with the ~3x bigger silhouette (visible through a faded tree 67.6-78.6% -> 86.3-90.0%; controls unchanged). Walk speed with the full kit 201.7 / 200.7 px/s. Captures d2_gear_walk.mp4, d2_gear_attack.mp4, GEAR_stacks_close.jpg, GEAR_stack0-4_bridge.jpg, gear_and_stacks.json.",
+      "ts": "2026-09-29T03:24:42"
     }
   ],
   "halts": [
