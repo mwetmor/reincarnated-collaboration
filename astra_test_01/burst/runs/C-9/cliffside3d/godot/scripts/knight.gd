@@ -173,8 +173,18 @@ func _build_anim_tree() -> void:
 
 
 func _layer_weight(clip: String) -> float:
-	"""1 while the shield is carried, and 0 over the attack -- the slash is the right arm
-	and the left has to swing free. The rule is the export's, kept where it can be read."""
+	"""1 whenever the shield is carried, over every clip INCLUDING the attack.
+
+	THE EXPORT'S MANIFEST SAYS THE OPPOSITE and it is worth reading here rather than
+	silently disagreeing with it: `do NOT apply it over attack -- the slash uses the right
+	arm and the left must swing free`. Reversed by design call on this scene's own
+	measurements. Without the layer the shield is 0.249 m inside his torso through the
+	slash -- 1107 of 2439 sampled vertices -- and with it 54 at 0.067 m. A free-swinging
+	left arm is only free if it is not holding a shield; a shield-bearer keeps his guard up
+	while he strikes with the other hand.
+
+	`never_over` is still honoured, and is now empty: the exclusion is data, not code, so
+	the next reversal is one line of JSON and not a hunt through a method."""
 	var spec: Dictionary = cfg.get("arm_layer", {})
 	if _tree == null or not _layer_on:
 		return 0.0
