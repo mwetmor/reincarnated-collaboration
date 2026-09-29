@@ -1,6 +1,6 @@
 # Run C-9 · Phase 2: the character pipeline, conducted autonomously (charter)
 
-> **STATUS:** DRAFT for Matt's approval (the run-authorization boundary). Author gandalf (ARCHITECT, then RUN-CONDUCTOR), 2026-09-28.
+> **STATUS:** CURRENT — APPROVED by Matt 2026-09-28 (R-C9-70: "Yes, as drafted"; barbarian B; all four cleanup categories under the § 4 rule, the Godot logs/temp after the KC2 conductor confirms). Author gandalf (ARCHITECT, then RUN-CONDUCTOR), 2026-09-28.
 >
 > **Matt, verbatim:** *"Can we turn this into an automated RUN conducted by you? One thing to consider is storage space on this PC... We may need to delete some of our recent work and also make a plan to delete more as we go potentially. There is a battle simulation run also going on right now and they have an auto halt at 40GB of space where we are currently at 51GB of available space."*
 >
