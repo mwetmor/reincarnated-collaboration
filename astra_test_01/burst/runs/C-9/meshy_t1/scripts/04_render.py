@@ -26,7 +26,7 @@
 #    skinning. `part` is a flat colour per DOMINANT BONE GROUP, which is the
 #    single-skinned-mesh analogue of the per-piece guide. Both render unlit,
 #    so they arrive flat.
-import bpy, colorsys, json, math, os, sys
+import bpy, colorsys, json, math, os, re, sys
 import numpy as np
 from mathutils import Vector, Matrix, Euler
 
@@ -41,6 +41,13 @@ SOCKET = a[a.index("--weapon") + 1] if "--weapon" in a else None
 # in the run, so walk and run would render the same character at two different
 # sizes and the sprites would pop between states.
 HEIGHT = float(a[a.index("--height") + 1]) if "--height" in a else None
+# NEGATIVE CONTROL for the thrust assert. Reverses the hand line, reproducing the
+# defect the assert exists to catch. An assert that passes on the broken version
+# is not an assert, so this flag stays in the script rather than being a patch
+# someone applied once and threw away. Never use it for a delivered render.
+FLIP_HAND_LINE = "--flip-hand-line" in a
+# run the asserts and stop, without spending the render
+ASSERT_ONLY = "--assert-only" in a
 # CARRY POSE. A library locomotion clip swings both arms freely, so a weapon
 # socketed to the hand swings with it -- measured on this walk, the pollaxe
 # reaches near-horizontal and points backwards by frame 8. That is not a
@@ -173,17 +180,35 @@ def fit_upright_socket(arm, R, sk, info, times, align_hands=False):
     bearing = sk["fit"].get("carry_fan_bearing_deg", sk["fit"]["target_fan_bearing_deg"])
     fan_local = sk["fit"]["weapon_fan_local_bearing_deg"]
     if align_hands:
+        # THE SIGN ALONG THE HAND LINE MATTERS. Aligning to (other hand - weapon
+        # hand) put the axe head and spear point BEHIND the helm and drove the
+        # butt cap forward: a reversed thrust. The head must lie beyond the LEAD
+        # hand, so the line is taken from the REAR hand to the LEAD one.
+        #
+        # Lead and rear are decided ONCE, at the strike frame -- the frame where
+        # a hand reaches furthest along the character's forward axis -- and held
+        # for the whole clip. Deciding per frame would flip the weapon end over
+        # end as the hands cross.
         oh = R.get("l_hand"); wh = R.get("r_hand")
-        acc_d = Vector((0.0, 0.0, 0.0))
+        fwd = Vector((0.0, 1.0, 0.0))          # facing is normalised to +Y
+        poses = []
         for t in times:
             sc.frame_set(int(t), subframe=float(t) - int(t))
-            a_ = arm.matrix_world @ arm.pose.bones[wh].head
-            b_ = arm.matrix_world @ arm.pose.bones[oh].head
-            v = b_ - a_
+            poses.append((arm.matrix_world @ arm.pose.bones[wh].head,
+                          arm.matrix_world @ arm.pose.bones[oh].head))
+        strike = max(range(len(poses)),
+                     key=lambda i: max(poses[i][0] @ fwd, poses[i][1] @ fwd))
+        lead_is_weapon_hand = (poses[strike][0] @ fwd) >= (poses[strike][1] @ fwd)
+        acc_d = Vector((0.0, 0.0, 0.0))
+        for pw, po in poses:
+            lead, rear = (pw, po) if lead_is_weapon_hand else (po, pw)
+            v = lead - rear
             if v.length > 1e-6:
                 acc_d += v.normalized()
         if acc_d.length > 1e-6:
             d = acc_d.normalized()
+            if FLIP_HAND_LINE:
+                d = -d
             # rotation taking the weapon's long axis (+Z) onto the hand line
             z = Vector((0.0, 0.0, 1.0))
             ax = z.cross(d)
@@ -198,7 +223,18 @@ def fit_upright_socket(arm, R, sk, info, times, align_hands=False):
     else:
         desired = Matrix.Rotation(math.radians(bearing - fan_local), 4, 'Z')
     R_sock = mq.to_matrix().to_4x4().inverted() @ desired
-    return dict(rot_matrix=R_sock,
+    extra = {}
+    if align_hands:
+        extra = dict(strike_frame=strike,
+                     flipped_negative_control=FLIP_HAND_LINE,
+                     lead_hand_bone=R.get("r_hand") if lead_is_weapon_hand
+                     else R.get("l_hand"),
+                     rear_hand_bone=R.get("l_hand") if lead_is_weapon_hand
+                     else R.get("r_hand"),
+                     lead_hand=("weapon hand (%s)" % R.get("r_hand"))
+                     if lead_is_weapon_hand else ("off hand (%s)" % R.get("l_hand")),
+                     hand_line=[round(v, 4) for v in d] if acc_d.length > 1e-6 else None)
+    return dict(rot_matrix=R_sock, **extra,
                 mean_wrist_quat=[round(v, 5) for v in mq],
                 fan_bearing_deg=bearing,
                 mode="align-hands" if align_hands else "upright",
@@ -321,6 +357,154 @@ def add_carry_ik(arm, R, sk, roots, wobjs):
                 carry_extra_yaw_deg=sk["fit"].get("carry_extra_yaw_deg", 0.0),
                 ik_bone=ik_on, ik_note="IK on the bone whose TAIL is the hand's head",
                 free_arm_damped=damped, free_arm_influence=0.5)
+
+
+
+def assert_thrust(sc, arm, R, objs, wobjs, times, wmeta, upright_info):
+    """Does the weapon POINT lead, and does it stay out of the body?
+
+    Two questions, and the render cannot answer the first one: a reversed thrust
+    and a correct one both put a haft across the frame, which is how the first
+    attack pass shipped with the axe head behind the helm. The sign lives in 3D,
+    so it is measured in 3D.
+
+      LEADS   at the strike frame, the point must be beyond the LEAD HAND along
+              the character's forward axis, and forward of the pelvis.
+      CLEAR   in EVERY frame, the weapon must be outside the body mesh -- not
+              merely at some distance from a bone, which would need a per-rig
+              radius and would not transfer to the manticore. Signed distance
+              from a BVH of the posed mesh answers it for any rig.
+
+    CLEAR samples the WHOLE HAFT, not just the point. Testing the point alone
+    was the first version and it passed while the render plainly showed the butt
+    cap crossing the helm: correcting the sign rotates the weapon 180 degrees
+    about the grip, so it moves whatever was fouling the helm from one end of
+    the haft to the other and a point-only test follows it out of the way.
+
+    CLEAR also NAMES THE PART it is inside, and ignores the hands and forearms.
+    A hand closed around a haft puts the haft inside the hand mesh -- that is
+    what holding something IS -- so a bare inside/outside test reports a foul on
+    every correctly gripped weapon. The second version did exactly that: it read
+    a constant +0.0095 m at u=0.54 on every non-striking frame (the grip against
+    its own palm, rigidly socketed, so the same number forever -- a constant is
+    a tell) and it counted the REAR hand's grip at u=0.42 as a body
+    penetration. Only a part that is not a hand or a forearm is a foul.
+    """
+    from mathutils.bvhtree import BVHTree
+    GRIP_PART = re.compile(r'hand|fore|wrist|finger|thumb', re.I)
+    fwd = Vector((0.0, 1.0, 0.0))
+    lead = upright_info.get("lead_hand_bone")
+    if not lead or not wobjs:
+        return None
+    # the point: the haft axis at the head end of the weapon's long axis
+    hx, hy = wmeta.get("haft_axis_xy", [0.0, 0.0])
+    zlo, zhi = wmeta["bbox_lo"][2], wmeta["bbox_hi"][2]
+    tip_z = zhi if wmeta.get("head_end") == "max" else zlo
+    butt_z = zlo if wmeta.get("head_end") == "max" else zhi
+    P_tip = Vector((hx, hy, tip_z)); P_butt = Vector((hx, hy, butt_z))
+    NS = 25
+    haft = [(k / (NS - 1.0), P_butt.lerp(P_tip, k / (NS - 1.0))) for k in range(NS)]
+    dg = bpy.context.evaluated_depsgraph_get()
+    rows = []
+    for i, t in enumerate(times):
+        sc.frame_set(int(t), subframe=float(t) - int(t))
+        W = wobjs[0].matrix_world
+        tip = W @ P_tip; butt = W @ P_butt
+        lh = arm.matrix_world @ arm.pose.bones[lead].head
+        pel = arm.matrix_world @ arm.pose.bones[R["hips"]].head
+        # inside-ness against the posed body, whichever mesh is nearest.
+        # The BVH is built ONCE PER FRAME: building it inside the point loop
+        # made 25x the trees and turned a 20 s render into minutes.
+        trees = []
+        for ob in objs:
+            me = ob.evaluated_get(dg).data
+            gname = {g.index: g.name for g in ob.vertex_groups}
+
+            def vg(poly_i, me=me, ob=ob, gname=gname):
+                """Dominant vertex group over the hit polygon = the body part."""
+                if poly_i is None or poly_i >= len(me.polygons):
+                    return None
+                tot = {}
+                for vi in me.polygons[poly_i].vertices:
+                    for g in ob.data.vertices[vi].groups:
+                        tot[g.group] = tot.get(g.group, 0.0) + g.weight
+                return gname.get(max(tot, key=tot.get)) if tot else None
+            trees.append((ob, BVHTree.FromObject(ob, dg),
+                          ob.matrix_world.inverted(), vg))
+
+        def signed(pt):
+            w = None, None
+            for ob, bvh, inv, vg in trees:
+                hit = bvh.find_nearest(inv @ pt)
+                if hit[0] is None:
+                    continue
+                loc = ob.matrix_world @ hit[0]
+                nor = ob.matrix_world.to_3x3() @ hit[1]
+                v = pt - loc
+                sd = v.length * (1.0 if v.dot(nor) >= 0 else -1.0)
+                if w[0] is None or sd < w[0]:
+                    w = sd, vg(hit[2])
+            return w
+        worst, worst_part = signed(tip)
+        haft_sd = [(u,) + signed(W @ q) for u, q in haft]
+        haft_sd = [r for r in haft_sd if r[1] is not None]
+        # a hand or forearm on the haft is a GRIP, not a foul
+        fouls = [r for r in haft_sd if not GRIP_PART.search(r[2] or "")]
+        hw_u, hw_v, hw_p = min(fouls, key=lambda r: r[1]) if fouls else (None, None, None)
+        gr_u, gr_v, gr_p = min(haft_sd, key=lambda r: r[1]) if haft_sd else (None,) * 3
+        rows.append(dict(
+            i=i, frame=round(float(t), 3),
+            tip_beyond_lead_hand_m=round((tip - lh).dot(fwd), 4),
+            tip_forward_of_pelvis_m=round((tip - pel).dot(fwd), 4),
+            butt_beyond_lead_hand_m=round((butt - lh).dot(fwd), 4),
+            tip_signed_dist_to_body_m=round(worst, 4) if worst is not None else None,
+            haft_min_signed_dist_m=round(hw_v, 4) if hw_v is not None else None,
+            haft_min_at=round(hw_u, 3) if hw_u is not None else None,
+            haft_min_part=hw_p,
+            nearest_any_part=gr_p,
+            nearest_any_m=round(gr_v, 4) if gr_v is not None else None,
+            tip_nearest_part=worst_part,
+            tip_z=round(tip.z, 4)))
+    st = int(upright_info.get("strike_frame", 0))
+    st = min(st, len(rows) - 1)
+    pen = [r for r in rows if r["haft_min_signed_dist_m"] is not None
+           and r["haft_min_signed_dist_m"] < 0]
+    res = dict(
+        strike_index=st, strike_row=rows[st], per_frame=rows,
+        lead_hand_bone=lead,
+        LEADS=bool(rows[st]["tip_beyond_lead_hand_m"] > 0
+                   and rows[st]["tip_forward_of_pelvis_m"] > 0),
+        CLEAR=bool(not pen),
+        frames_penetrating=[r["i"] for r in pen],
+        min_signed_dist_m=round(min(
+            (r["haft_min_signed_dist_m"] for r in rows
+             if r["haft_min_signed_dist_m"] is not None), default=0.0), 4),
+        tip_min_signed_dist_m=round(min(
+            (r["tip_signed_dist_to_body_m"] for r in rows
+             if r["tip_signed_dist_to_body_m"] is not None), default=0.0), 4),
+        worst_frame=min(
+            (r for r in rows if r["haft_min_signed_dist_m"] is not None),
+            key=lambda r: r["haft_min_signed_dist_m"], default={}).get("i"),
+        worst_at_along_haft=min(
+            (r for r in rows if r["haft_min_signed_dist_m"] is not None),
+            key=lambda r: r["haft_min_signed_dist_m"], default={}).get("haft_min_at"),
+        worst_part=min(
+            (r for r in rows if r["haft_min_signed_dist_m"] is not None),
+            key=lambda r: r["haft_min_signed_dist_m"], default={}).get("haft_min_part"),
+        # the reversed pass would show this NEGATIVE at the strike: the sign of
+        # this one number is the whole defect
+        strike_tip_beyond_lead_hand_m=rows[st]["tip_beyond_lead_hand_m"])
+    print("  thrust assert: LEADS %s (tip %+.3f m beyond lead hand %s, %+.3f m "
+          "forward of pelvis)  CLEAR %s (worst non-grip %+.4f m into '%s' at "
+          "u=%s on frame %s; tip alone %+.4f m%s)"
+          % ("PASS" if res["LEADS"] else "FAIL",
+             rows[st]["tip_beyond_lead_hand_m"], lead,
+             rows[st]["tip_forward_of_pelvis_m"],
+             "PASS" if res["CLEAR"] else "FAIL", res["min_signed_dist_m"],
+             res["worst_part"], res["worst_at_along_haft"], res["worst_frame"],
+             res["tip_min_signed_dist_m"],
+             "" if res["CLEAR"] else ", frames %s" % res["frames_penetrating"]))
+    return res
 
 
 def bake_weapon_guides(wobjs, guides):
@@ -495,6 +679,12 @@ def main():
             out[d] = dd
         return out
 
+    if SOCKET and wobjs and upright_info and upright_info.get("mode") == "align-hands":
+        rep["thrust_assert"] = assert_thrust(
+            sc, arm, R, objs, wobjs, times,
+            json.load(open(os.path.join("work", "weapon.json"))), upright_info)
+    if ASSERT_ONLY:
+        return
     rep["passes"]["colour"] = render_pass(STATE, "colour")
     if wobjs:
         # the weapon as its OWN layer, for modular gear, then the body alone

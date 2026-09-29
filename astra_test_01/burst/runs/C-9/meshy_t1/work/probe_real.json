@@ -1,0 +1,102 @@
+{
+ "files": {
+  "rigged.glb": {
+   "meshes": {
+    "char1": {
+     "skinned": true,
+     "verts": 89762,
+     "bbox_lo": [
+      -0.5007,
+      -0.1816,
+      0.0
+     ],
+     "bbox_hi": [
+      0.5007,
+      0.1816,
+      1.8
+     ],
+     "n_vgroups": 24
+    },
+    "Icosphere": {
+     "skinned": false,
+     "verts": 42,
+     "bbox_lo": [
+      -0.9511,
+      -1.0,
+      -1.0
+     ],
+     "bbox_hi": [
+      0.9511,
+      1.0,
+      1.0
+     ],
+     "n_vgroups": 0
+    }
+   },
+   "fps": 24,
+   "character_z": [
+    0.0,
+    1.8
+   ],
+   "character_height": 1.8,
+   "action": "Armature|clip0|baselayer",
+   "frame_range": [
+    7,
+    7
+   ],
+   "foot_tracks": {
+    "LeftToeBase": [
+     [
+      0.17797,
+      -0.06838,
+      0.04015
+     ]
+    ],
+    "RightToeBase": [
+     [
+      -0.17662,
+      -0.06796,
+      0.0399
+     ]
+    ],
+    "LeftFoot": [
+     [
+      0.14771,
+      0.04476,
+      0.12915
+     ]
+    ],
+    "RightFoot": [
+     [
+      -0.14394,
+      0.04568,
+      0.13055
+     ]
+    ]
+   },
+   "char_lowest_z_per_frame": [
+    0.0
+   ]
+  },
+  "pollaxe.glb": {
+   "meshes": {
+    "Mesh_0": {
+     "skinned": false,
+     "verts": 8923,
+     "bbox_lo": [
+      -0.2036,
+      -0.0652,
+      -0.9519
+     ],
+     "bbox_hi": [
+      0.2081,
+      0.066,
+      0.9511
+     ],
+     "n_vgroups": 0
+    }
+   },
+   "fps": 24
+  }
+ }
+}

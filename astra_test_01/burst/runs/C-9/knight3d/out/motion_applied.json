@@ -1,0 +1,171 @@
+{
+ "note": "C-9 knight3d: FIT THE POSE TO THE GROK VIDEO, frame by frame (R-C9-58).",
+ "gaits": {
+  "walk": {
+   "frames": [
+    {
+     "frame": 0,
+     "grok_frame": 0,
+     "iou_procedural": 0.6781,
+     "iou_fitted": 0.8782,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 1,
+     "grok_frame": 1,
+     "iou_procedural": 0.5933,
+     "iou_fitted": 0.8155,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 2,
+     "grok_frame": 2,
+     "iou_procedural": 0.628,
+     "iou_fitted": 0.8364,
+     "iou_constrained": 0.0004
+    },
+    {
+     "frame": 3,
+     "grok_frame": 3,
+     "iou_procedural": 0.6448,
+     "iou_fitted": 0.7953,
+     "iou_constrained": 0.0101
+    },
+    {
+     "frame": 4,
+     "grok_frame": 4,
+     "iou_procedural": 0.5878,
+     "iou_fitted": 0.8777,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 5,
+     "grok_frame": 5,
+     "iou_procedural": 0.5383,
+     "iou_fitted": 0.8711,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 6,
+     "grok_frame": 6,
+     "iou_procedural": 0.648,
+     "iou_fitted": 0.8654,
+     "iou_constrained": 0.0228
+    },
+    {
+     "frame": 7,
+     "grok_frame": 7,
+     "iou_procedural": 0.6133,
+     "iou_fitted": 0.8514,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 8,
+     "grok_frame": 8,
+     "iou_procedural": 0.4943,
+     "iou_fitted": 0.65,
+     "iou_constrained": 0.0207
+    },
+    {
+     "frame": 9,
+     "grok_frame": 9,
+     "iou_procedural": 0.589,
+     "iou_fitted": 0.8075,
+     "iou_constrained": 0.1036
+    },
+    {
+     "frame": 10,
+     "grok_frame": 10,
+     "iou_procedural": 0.6635,
+     "iou_fitted": 0.8953,
+     "iou_constrained": 0.0788
+    },
+    {
+     "frame": 11,
+     "grok_frame": 11,
+     "iou_procedural": 0.6091,
+     "iou_fitted": 0.8916,
+     "iou_constrained": 0.0575
+    }
+   ],
+   "travel_m_per_cycle": 1.7157881848756982,
+   "fps": 20.700362256339485,
+   "mean_iou_procedural": 0.6073,
+   "mean_iou_fitted": 0.8363,
+   "mean_iou_constrained": 0.0245,
+   "stride_retarget_k": 1.6,
+   "grok_implied_m_per_cycle": 0.8927,
+   "max_slip_mm": 0.0,
+   "ground_penetration_mm": -106.12
+  },
+  "run": {
+   "frames": [
+    {
+     "frame": 0,
+     "grok_frame": 0,
+     "iou_procedural": 0.4117,
+     "iou_fitted": 0.7127,
+     "iou_constrained": 0.0
+    },
+    {
+     "frame": 1,
+     "grok_frame": 2,
+     "iou_procedural": 0.394,
+     "iou_fitted": 0.5183,
+     "iou_constrained": 0.0728
+    },
+    {
+     "frame": 2,
+     "grok_frame": 3,
+     "iou_procedural": 0.4248,
+     "iou_fitted": 0.7082,
+     "iou_constrained": 0.0051
+    },
+    {
+     "frame": 3,
+     "grok_frame": 4,
+     "iou_procedural": 0.4521,
+     "iou_fitted": 0.6779,
+     "iou_constrained": 0.2516
+    },
+    {
+     "frame": 4,
+     "grok_frame": 6,
+     "iou_procedural": 0.417,
+     "iou_fitted": 0.5131,
+     "iou_constrained": 0.4394
+    },
+    {
+     "frame": 5,
+     "grok_frame": 8,
+     "iou_procedural": 0.3523,
+     "iou_fitted": 0.6935,
+     "iou_constrained": 0.6431
+    },
+    {
+     "frame": 6,
+     "grok_frame": 9,
+     "iou_procedural": 0.4022,
+     "iou_fitted": 0.7746,
+     "iou_constrained": 0.5332
+    },
+    {
+     "frame": 7,
+     "grok_frame": 10,
+     "iou_procedural": 0.4335,
+     "iou_fitted": 0.8013,
+     "iou_constrained": 0.0
+    }
+   ],
+   "travel_m_per_cycle": 3.265828330501716,
+   "fps": 14.500634402755121,
+   "mean_iou_procedural": 0.411,
+   "mean_iou_fitted": 0.6749,
+   "mean_iou_constrained": 0.2431,
+   "stride_retarget_k": 1.2777,
+   "grok_implied_m_per_cycle": 2.5561,
+   "max_slip_mm": 0.0,
+   "ground_penetration_mm": -78.93
+  }
+ }
+}
