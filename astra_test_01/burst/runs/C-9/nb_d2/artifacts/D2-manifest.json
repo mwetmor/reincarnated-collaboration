@@ -1,0 +1,78 @@
+{
+ "character": "Norse barbarian (T8 base), 24-bone Meshy rig, faces -Y, his right -X",
+ "base_glb": "runs/C-9/nb_t8/artifacts/T8-barbarian.glb",
+ "body_texture": "runs/C-9/nb_t8/work/texture_AB.png (unchanged by every stack)",
+ "note": "Pieces are fitted INLINE from pieces/*.glb by scripts/gearlib.py. A skinned glTF round trip collapsed every piece, because Meshy ships the body mesh at 0.01 object scale and a metre-space piece parented to that armature shrinks by 100.",
+ "layer_order": [
+  "body",
+  "byrnie",
+  "mantle",
+  "bracers",
+  "helmet",
+  "shield",
+  "axe"
+ ],
+ "pieces": [
+  {
+   "name": "helmet",
+   "source": "NB-G1_b dressed build",
+   "bind": "bone",
+   "bone": "Head",
+   "faces": 12000,
+   "offset_m": 0.0,
+   "note": "not offset: a helmet worn over hair reads as inside the body"
+  },
+  {
+   "name": "bracers",
+   "source": "NB-G1_b dressed build",
+   "bind": "bone",
+   "bones": [
+    "LeftForeArm",
+    "RightForeArm"
+   ],
+   "split": true,
+   "faces": 12000,
+   "offset_m": 0.002
+  },
+  {
+   "name": "byrnie",
+   "source": "NB-G2_a dressed build",
+   "bind": "skin",
+   "rig": "same 24 bones, weights nearest-face interpolated from the body",
+   "faces": 26000,
+   "offset_m": 0.005,
+   "poke_worst_pct": 1.2,
+   "poke_mean_pct": 0.9
+  },
+  {
+   "name": "mantle",
+   "source": "NB-G3_b dressed build",
+   "bind": "skin",
+   "rig": "same 24 bones, weights nearest-face interpolated from the body",
+   "faces": 24000,
+   "offset_m": 0.008,
+   "poke_worst_pct": 0.63,
+   "poke_mean_pct": 0.43
+  },
+  {
+   "name": "axe",
+   "source": "NB-W1_b object sheet",
+   "bind": "socket",
+   "bone": "RightHand",
+   "length_m": 0.82,
+   "grip_frac": 0.28,
+   "faces": 9000,
+   "status": "PLACED, ORIENTATION NOT FITTED"
+  },
+  {
+   "name": "shield",
+   "source": "NB-W1_b object sheet",
+   "bind": "socket",
+   "bone": "LeftForeArm",
+   "length_m": 0.78,
+   "grip_frac": 0.5,
+   "faces": 9000,
+   "status": "PLACED, ORIENTATION NOT FITTED"
+  }
+ ]
+}
