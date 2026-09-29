@@ -90,3 +90,13 @@ Matt: *"I agree with the barrow and most of the process. I want to stay away fro
 6. **Motion:** the Meshy library, native to his rig, plus text-to-motion for the gaps.
 
 If it works, the process generalises: **any approved concept painting can become a playable 3D level by the same steps.** That is the pipeline question behind the test.
+
+## 7 · Amendment (Matt, R-C9-74): what the first play-test changed
+
+Matt played the stand-in Barrow (the render stack over placeholder stones) and sent five notes, verbatim in the ledger. Each becomes a rule for this world and for every level after it:
+
+1. **Flat play floors.** Combat happens on one level. Elevation comes only from architected steps (stairs, a dais); mounds and outcrops are scenery at the edges. *"The hills are probably not great for gameplay as they may confuse combat."*
+2. **The snow is 3D, and the density starts there.** A deformable snow layer lies over the flat floor: drifts banked against every object, loose piles and windrows in the open, and a trail he ploughs that slowly refills. It answers *"it seems like you should step through snow piles but none exist"*, and it beds every object into the ground so nothing sits on a painting like a sticker. It's visual only; the floor stays flat for combat.
+3. **Dressing at three scales:** hero pieces, mid pieces (rock clusters, stumps, logs, cairns, debris) and small scatter, with combat clearings kept open. A six-object scatter kit is being made by the same generated pipeline (T10K-A/B/C). *"The 3D objects and their sparsity seems at odds with the painted ground."*
+4. **Short shadows that touch their objects.** The 17° winter sun cast shadows about 3.3× their objects' height, and a large bias pulled them off their bases. The sun goes to about 55°, and every shadow must touch its caster.
+5. **One pen, one weight, and a thin one.** The barbarian's line doubled when the world's screen-space line was drawn over his own. He returns to the weight Matt approved in the 3D cliffside, and the world matches it.

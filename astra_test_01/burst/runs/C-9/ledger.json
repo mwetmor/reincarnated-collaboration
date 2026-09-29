@@ -22783,6 +22783,12 @@
       "id": "N-C9-ARMED-V3-CORR",
       "note": "Correction to N-C9-ARMED-V3: its last sentence says the stopped render drax uncommitted key-collision fixes were kept and its pen-floor change reverted by the fresh integration drax. At the time of writing that was ASSIGNED, not done: the integration drax (ab82173) was still mid-run and paint_stack.gd / barrow_world.gd were still uncommitted edits in the worktree. The outcome is recorded at the integration drax report, not here.",
       "ts": "2026-09-29T15:58:59"
+    },
+    {
+      "id": "N-C9-T10-1B",
+      "topic": "T10-1b opened after R-C9-74: three lanes in parallel",
+      "note": "(a) INTEGRATION (drax ab82173, in the Barrow project): R-C9-74 notes 1/3/5 folded into the in-flight pass: flat walkable floor (mound and outcrops become edge scenery, tarn flat ice), sun 17 -> ~55 deg with shadows touching their bases (bias down from normal_bias 3.0), one line weight on him at the approved cliffside value (hull outline_px 1.1; the Barrow stacked a 3.76 px screen-space line on top) and the world line matched. (b) SNOW LAB (drax aaed0e2b, SEPARATE sandbox project runs/C-9/snow_lab/godot/, copies from git HEAD, the Barrow project read-only): a SnowField module (setup(area, floor_y, obstacles, wind) / track(body)): 0.10-0.15 m base depth, wind drifts banked against obstacles, a trail that refills in ~60 s, kicked snow; visual only; measured acceptance incl. an ink control and <= 3 ms. (c) SCATTER KIT: briefs T10K-A (rock cluster / birch stump), T10K-B (fallen birch log / cairn), T10K-C (elk skull and ribs / fallen shield and two spears), from the T10P template with the concept painting as a palette-only reference; refs_guard OK; fired as wave t10k (6 images planned). A kit drax takes the sheets to Tripo when they land and delivers OUTSIDE the Barrow project (t10_barrow/kit/). Density placement and the snow drop-in follow in the Barrow after the integration report. Rules added to the world verdict note section 7.",
+      "ts": "2026-09-29T16:18:31"
     }
   ]
 }
