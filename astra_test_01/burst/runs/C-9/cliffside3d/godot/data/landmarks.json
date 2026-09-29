@@ -1,0 +1,9 @@
+{
+ "_source": "Transcribed out of runs/C-9/cliffside_B/scenes/cliffside.tscn -- the live 2D route's own scene -- from the nodes between its '--- C-9 R-C9-42 far-layer landmarks (written by tools/place_landmarks_b.py) ---' markers. These are Sprite2D children of Layer_far_ruins, so they ride that layer's parallax rather than having one of their own, and they sit above its own sprite by z_index. They are not in parallax.json, which is why the first 3D background lacked them, and they are the violet skyline the plateau view shows.",
+ "landmarks": [
+  {"name": "cathedral", "layer": "far_ruins", "file": "landmarks/cathedral.png",
+   "position": [461.013, 850.405], "scale": 0.759494, "z_index": 3},
+  {"name": "tower", "layer": "far_ruins", "file": "landmarks/tower.png",
+   "position": [1241.966, 687.91], "scale": 0.351724, "z_index": 2}
+ ]
+}

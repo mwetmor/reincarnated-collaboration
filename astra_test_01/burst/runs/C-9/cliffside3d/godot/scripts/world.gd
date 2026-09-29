@@ -16,8 +16,10 @@ const PPM := 100.617553710938
 const V4_UMIN := -23.2673988342285
 const V4_VMAX := 18.5067100524902
 const CHAR_LAYER := 4
+const TERRAIN_BIT := 1 << 1          # the collision layer the projected terrain lives on
 const PITCH_COS := 0.602462407085    # cos(PL_PITCH_DEG); a vertical metre's screen share
-const PROP_LIFT := 0.05              # a hair off the ground, to break the surface tie
+const PROP_LIFT := 0.0               # see build_props: a lift is a misregistration
+const HALF_VIEW := Vector2(960.0, 540.0)   # the 2D route's own half-view, in canvas px
 
 
 static func canvas_to_plane(px: Vector2, right: Vector3, up: Vector3) -> Vector3:
@@ -38,6 +40,9 @@ static func add_collision(fg: Array, owner: Node) -> int:
 		if m.mesh == null:
 			continue
 		var body := StaticBody3D.new()
+		# ITS OWN COLLISION LAYER, so ground_at can ask for the GROUND and get it.
+		body.collision_layer = TERRAIN_BIT
+		body.collision_mask = 0
 		var shape := CollisionShape3D.new()
 		shape.shape = m.mesh.create_trimesh_shape()
 		body.add_child(shape)
@@ -58,6 +63,14 @@ static func ground_at(space: PhysicsDirectSpaceState3D, px: Vector2, right: Vect
 	var from := canvas_to_plane(px, right, up) - fwd * 150.0
 	var q := PhysicsRayQueryParameters3D.create(from, from + fwd * 400.0)
 	q.collide_with_areas = false
+	# TERRAIN ONLY, and this is not tidiness. The ray starts 150 m in FRONT of the guide
+	# plane and travels away from the camera, so anything standing between the camera and
+	# the ground is hit FIRST -- including the character's own capsule. Unmasked, asking
+	# "where is the ground under this canvas pixel" while the walker is near that pixel
+	# returns a point on the WALKER, and placing him there moves him onto his own shoulder,
+	# a metre and a half off the ground, every frame. That is what put the stand-in 500 px
+	# from where the record said he was during the bridge-post sweep.
+	q.collision_mask = TERRAIN_BIT
 	var hit := space.intersect_ray(q)
 	return hit
 
@@ -77,6 +90,12 @@ shader_type spatial;
 // than blending so the cards SORT BY DEPTH like solid geometry -- which is the entire
 // point of putting them in 3D. Alpha blending would put them back in a painter's-order
 // queue and hand back the sorting problem the 2D route already has.
+//
+// AND IT MUST NOT ASSIGN `ALPHA`. `discard` is the scissor; writing ALPHA = 1.0 next to
+// it says "opaque" to a reader and "transparent" to Godot, which puts the card in the
+// alpha pass with no depth write and no depth sort. That is what made the cards
+// invisible -- see the note on the projector shader in cliffside3d.gd. Leaving ALPHA
+// alone keeps the material opaque, which is what a tree is.
 render_mode unshaded, cull_disabled, depth_draw_opaque, shadows_disabled;
 uniform sampler2D tex : source_color, filter_linear_mipmap;
 uniform float cutoff = 0.35;
@@ -84,7 +103,6 @@ void fragment() {
 	vec4 c = texture(tex, UV);
 	if (c.a < cutoff) discard;
 	ALBEDO = c.rgb;
-	ALPHA = 1.0;
 }
 """
 	var m := ShaderMaterial.new()
@@ -123,6 +141,14 @@ void fragment() {
 
 static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: String,
 						right: Vector3, up: Vector3, fwd: Vector3) -> Dictionary:
+	"""All 49 of props.json's instances, as cards standing on the real geometry.
+
+	`dir` is a res:// path, NOT a globalized one. The earlier version globalized it, which
+	works in the editor -- Godot's importer will resolve an absolute path via the .import
+	file sitting next to it -- and cannot work in an exported build, where res:// lives in
+	the pck and globalize_path returns a filename that is not on disk. Same trap the zones
+	PNG fell into. Every asset here is loaded through res:// so the editor run and the
+	.app load the same bytes by the same route."""
 	var data = JSON.parse_string(FileAccess.get_file_as_string(dir + "/props.json"))
 	if typeof(data) != TYPE_DICTIONARY:
 		return {"error": "no props.json"}
@@ -132,9 +158,16 @@ static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: Str
 	var holder := Node3D.new()
 	holder.name = "Props"
 	root.add_child(holder)
+	# horizontal screen axis and true world up. `right` already has y = 0 under this
+	# camera, so `flat` is `right`; it is recomputed rather than assumed.
+	var flat := right
+	flat.y = 0.0
+	flat = flat.normalized()
+	var n := flat.cross(Vector3.UP)
 	var placed := 0
 	var missed := 0
 	var no_ground := 0
+	var clearance := []
 	for inst in data["instances"]:
 		var a = assets.get(String(inst["asset"]))
 		if a == null:
@@ -149,62 +182,156 @@ static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: Str
 		var anc := Vector2(float(a["anchor"][0]), float(a["anchor"][1]))
 		var w := float(tex.get_width())
 		var h := float(tex.get_height())
-		# the sprite's own centre, in canvas pixels, with its anchor on `pos`
-		var centre_px := pos - anc + Vector2(w, h) * 0.5
 		var hit := ground_at(space, pos, right, up, fwd)
-		var depth := 0.0
 		if hit.is_empty():
 			no_ground += 1
-		else:
-			# how far along the view ray the ground sits, so the card sorts with it
-			depth = (hit["position"] as Vector3).dot(fwd)
+		var base: Vector3 = hit["position"] if not hit.is_empty() else \
+			canvas_to_plane(pos, right, up)
 		var mi := MeshInstance3D.new()
 		mi.name = String(inst["asset"])
 		# A card that STANDS UP IN THE WORLD, not one lying in the guide camera's plane.
-		#
-		# The flat version was swallowed by the terrain and it took a while to see why,
-		# because physics said there was nothing in the way: the raycast found the ground
-		# at depth -6.77 and the card sat at -11.77, five metres nearer, and it still
-		# never drew. The error was not in the depth of the card's ORIGIN but in the
-		# depth of everything above it. A card in the guide plane has CONSTANT depth over
-		# its whole height, while the ground behind it does not: rising a metre in world
-		# Y moves a surface sin(pitch) = 0.80 m NEARER the camera, so a slope or a cliff
-		# face climbs toward the viewer as it climbs the screen and cuts straight through
-		# a tall flat card. Biasing the card forward only postponed that -- it needed
-		# 80 m to clear, which should have been the clue that the fix was not a bias.
-		#
-		# Standing the card vertically gives it the same depth gradient as the world it
-		# stands in, which is what a real tree has. To look the same as the painted
-		# sprite it is then stretched by 1/cos(pitch): a vertical metre only spends
-		# cos(pitch) of a metre on screen at this elevation, so the card must be that
-		# much taller to cover the pixels the painter painted.
+		# A card in the guide plane carries ONE depth over its whole height, so a rising
+		# slope behind it cuts through it; standing it vertically gives it the depth
+		# gradient a real tree has. To cover the same screen pixels the painter painted it
+		# is then stretched by 1/cos(pitch): a vertical metre spends only cos(pitch) of a
+		# metre on screen at this elevation.
 		var h_world := (h / PPM) / PITCH_COS
 		mi.mesh = card_mesh(w / PPM, h_world)
 		mi.material_override = card_material(tex)
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		holder.add_child(mi)
-		var base := canvas_to_plane(Vector2(centre_px.x, pos.y), right, up)
-		base = base - fwd * (base.dot(fwd) - depth)
-		if not hit.is_empty():
-			base = hit["position"]
-			base.x = (canvas_to_plane(Vector2(centre_px.x, pos.y), right, up)).x if false else base.x
-		# horizontal axis that faces the camera, and true world up
-		var flat := right
-		flat.y = 0.0
-		flat = flat.normalized()
-		var n := flat.cross(Vector3.UP)
-		mi.global_transform = Transform3D(Basis(flat, Vector3.UP, n),
-			base + Vector3.UP * (h_world * 0.5 * (1.0 - float(anc.y) / maxf(h, 1.0)) + PROP_LIFT)
-			+ flat * ((centre_px.x - pos.x) / PPM))
+		# WHERE THE CARD'S CENTRE GOES, above the anchor.
+		#
+		# The anchor is `anc.y` px BELOW the sprite's top, so it is `h - anc.y` px above
+		# the sprite's bottom, so the sprite's centre is (anc.y - h/2) px ABOVE it. The
+		# previous form was h_world*0.5*(1 - anc.y/h), which is the mirror of that: for a
+		# foot-anchored sprite (anc.y = h, the common case here) it returns 0 and buries
+		# half the card -- 4.55 m for tree_living_a, which is most of a tree.
+		var lift := h_world * (anc.y / maxf(h, 1.0) - 0.5)
+		var centre := base + Vector3.UP * (lift + PROP_LIFT) \
+			+ flat * ((w * 0.5 - anc.x) / PPM)
+		# CLEARANCE, measured rather than biased. A card standing at the ground point can
+		# still be cut by terrain that rises in front of it. Sample the real surface over
+		# the card's own screen rect and push the card forward by exactly the worst
+		# overlap found, plus a 2 cm margin -- no more. A fixed bias large enough for the
+		# worst prop would float every other one in front of the character, which is the
+		# one thing the occlusion view exists to show.
+		var bias := _clearance(space, pos, anc, w, h, h_world, base, right, up, fwd)
+		if bias > 0.0:
+			clearance.append(snappedf(bias, 0.01))
+		mi.global_transform = Transform3D(Basis(flat, Vector3.UP, n), centre - fwd * bias)
+		mi.set_meta("anchor_px", pos)
 		placed += 1
+	clearance.sort()
 	return {"placed": placed, "asset_missing": missed, "no_ground_hit": no_ground,
-			"instances": (data["instances"] as Array).size()}
+			"instances": (data["instances"] as Array).size(),
+			"needed_clearance": clearance.size(),
+			"clearance_max_m": clearance[-1] if clearance.size() > 0 else 0.0}
+
+
+static func _clearance(space: PhysicsDirectSpaceState3D, pos: Vector2, anc: Vector2,
+					   w: float, h: float, h_world: float, base: Vector3,
+					   right: Vector3, up: Vector3, fwd: Vector3) -> float:
+	"""How far forward this card must move so the terrain stops cutting it.
+
+	For a grid of points over the card's canvas rect: the card's own depth there (it is
+	vertical, so depth falls by dot(UP, fwd) per metre of height) against the terrain's
+	depth on the same ray. The answer is the largest amount by which the card is BEHIND
+	the surface it is painted over, and zero when it never is."""
+	var dy := Vector3.UP.dot(fwd)            # how much nearer a metre of height is
+	var top_px := pos.y - anc.y              # the sprite's top edge, in canvas y
+	var bot_px := top_px + h                 # and its bottom edge
+	var base_d := base.dot(fwd)
+	var foot_y := h_world * (anc.y / maxf(h, 1.0) - 1.0) + PROP_LIFT   # card bottom, rel. base
+	var worst := 0.0
+	for iy in 6:
+		var y_px: float = bot_px - (bot_px - top_px) * (float(iy) / 5.0)
+		var m_above: float = (bot_px - y_px) / maxf(h, 1.0) * h_world  # metres up the card
+		var card_depth: float = base_d + (foot_y + m_above) * dy
+		for ix in 5:
+			var x_px: float = pos.x - anc.x + w * (float(ix) / 4.0)
+			var g := ground_at(space, Vector2(x_px, y_px), right, up, fwd)
+			if g.is_empty():
+				continue
+			worst = maxf(worst, card_depth - (g["position"] as Vector3).dot(fwd))
+	return (worst + 0.02) if worst > 0.0 else 0.0
 
 
 # --- the painted background, as cards at their parallax depths -----------------
+static func build_plate_backdrop(root: Node3D, plate: Texture2D, canvas: Vector2,
+								 right: Vector3, up: Vector3, fwd: Vector3,
+								 depth: float) -> Dictionary:
+	"""The part of the PAINTING that has no geometry to land on.
+
+	The plate is 54% opaque and 40% transparent, and the transparent part is where the 2D
+	route lets its parallax layers through. The opaque part is not all terrain: the painter
+	also put the chasm's clouds, and the haze along its far lip, INTO the plate -- they are
+	Foreground pixels in the 2D, drawn over every parallax layer. Projected onto geometry
+	they vanish, because there is no geometry in a chasm. That was the single largest
+	remaining disagreement with the 2D: at the bridge, a block of 120x120 px differing by
+	78/255, and sampling it settles what it is -- screen (930,810) reads [253 216 180] in
+	the live 2D and plate_v4.png reads [253 216 180] at the canvas pixel under it, exactly,
+	while the 3D read the forest layer behind it.
+
+	So: one quad, the size of the canvas, lying in the GUIDE PLANE -- canvas-locked, like
+	the painting it carries, not screen-locked like the parallax -- wearing the same
+	projection the terrain wears, discarding where the plate is transparent. It sits just
+	BEHIND the farthest terrain, so every real surface still wins, and in FRONT of the
+	parallax cards, which is the 2D's own z order (Foreground 0 over mist -10 over forest
+	-20 over ruins -30 over sky -40)."""
+	var sh := Shader.new()
+	sh.code = """
+shader_type spatial;
+// The same world -> canvas map the projector uses, deliberately: one derivation of the
+// camera, not two that resemble each other. Alpha-blended and depth_draw_never because
+// this IS the painting's own alpha -- the 40% of the plate the painter left clear so the
+// parallax could show through.
+render_mode unshaded, cull_disabled, blend_mix, depth_draw_never, shadows_disabled;
+uniform sampler2D plate : source_color, filter_linear_mipmap;
+uniform vec3 axis_right;
+uniform vec3 axis_up;
+uniform float ppm;
+uniform float umin;
+uniform float vmax;
+uniform vec2 canvas;
+varying vec3 world_pos;
+void vertex() { world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz; }
+void fragment() {
+	float x_px = (dot(world_pos, axis_right) - umin) * ppm;
+	float y_px = (vmax - dot(world_pos, axis_up)) * ppm;
+	vec2 uv = vec2(x_px / canvas.x, y_px / canvas.y);
+	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) discard;
+	vec4 c = texture(plate, uv);
+	if (c.a < 0.02) discard;
+	ALBEDO = c.rgb;
+	ALPHA = c.a;
+}
+"""
+	var m := ShaderMaterial.new()
+	m.shader = sh
+	m.set_shader_parameter("plate", plate)
+	m.set_shader_parameter("axis_right", right)
+	m.set_shader_parameter("axis_up", up)
+	m.set_shader_parameter("ppm", PPM)
+	m.set_shader_parameter("umin", V4_UMIN)
+	m.set_shader_parameter("vmax", V4_VMAX)
+	m.set_shader_parameter("canvas", canvas)
+	var mi := MeshInstance3D.new()
+	mi.name = "PlateBackdrop"
+	mi.mesh = card_mesh(canvas.x / PPM, canvas.y / PPM)
+	mi.material_override = m
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	root.add_child(mi)
+	var centre := canvas_to_plane(canvas * 0.5, right, up)
+	centre = centre - fwd * (centre.dot(fwd) - depth)
+	mi.global_transform = Transform3D(Basis(right, up, -fwd), centre)
+	return {"depth_m": snappedf(depth, 0.01),
+			"size_m": [snappedf(canvas.x / PPM, 0.01), snappedf(canvas.y / PPM, 0.01)]}
+
+
 static func build_background(root: Node3D, layers_dir: String, parallax_json: String,
 							 right: Vector3, up: Vector3, fwd: Vector3,
-							 _unused: float) -> Array:
+							 base_depth: float) -> Array:
 	"""The four painted layers, as cards behind the geometry.
 	
 	AN ORTHOGRAPHIC CAMERA CANNOT PARALLAX, and that is worth stating plainly because
@@ -213,17 +340,23 @@ static func build_background(root: Node3D, layers_dir: String, parallax_json: St
 	camera moves -- everything at every depth translates together. Placing the sky at
 	1632 m and scaling it 8.3x to compensate, as a perspective reading of `scroll_scale`
 	would have you do, produces a sky eight times too big that still does not parallax.
-	
-	So depth here buys ORDERING and nothing else: each card sits just far enough back to
-	be behind the geometry and behind the layer in front of it. The scroll rate is not a
-	geometric fact at all -- it is a compositing device the 2D route applies by hand --
-	so it is applied by hand here too, in drift(), as an offset proportional to how far
-	the camera has moved. That is the honest reconstruction: the 2D scene's parallax was
-	never geometry, and dressing it up as geometry would be a worse lie than copying it.
-	
-	The alternative is a perspective game camera, which would parallax for free and
-	would stop the projected plate matching the 2D route pixel for pixel. That trade is
-	in the report, not decided here."""
+
+	So depth here buys ORDERING and nothing else, matching the 2D route's z_index: sky
+	-40, far_ruins -30, forest_valley -20, mist -10. The scroll rate is a compositing
+	device the 2D applies by hand, so it is applied by hand here too, in place().
+
+	THE PLACEMENT LAW IS MEASURED, not read off the file. parallax.json gives each layer a
+	`position`, and the previous version treated that as an absolute canvas position --
+	which put the forest 1027 px too high, over the band where the 2D shows the violet
+	ruins. Godot's Parallax2D does not use it that way. Interrogating the LIVE 2D scene at
+	four camera points (tools/probe_2d_layers.gd in the chartest project; each layer's
+	get_global_transform_with_canvas()) gives, to the last decimal place:
+
+	    layer top-left, in canvas px  =  P + (1 - s) * (camera_aim - HALF_VIEW)
+
+	so `position` is an offset from a camera-relative origin, not a canvas coordinate. The
+	same measurement confirms the drift: over a 1000 px camera move each layer's canvas
+	position advanced by exactly (1-s)*1000, and its SCREEN position by -s*1000."""
 	var pj = JSON.parse_string(FileAccess.get_file_as_string(parallax_json))
 	var out := []
 	if typeof(pj) != TYPE_DICTIONARY:
@@ -231,56 +364,102 @@ static func build_background(root: Node3D, layers_dir: String, parallax_json: St
 	var holder := Node3D.new()
 	holder.name = "Background"
 	root.add_child(holder)
-	var depth := 60.0
+	# BEHIND the plate backdrop, in the 2D's own z order: sky farthest, mist nearest.
+	var depth := base_depth + 32.0
 	for L in pj["layers"]:
 		var file := String(L["file"]).get_file()
 		var path := layers_dir + "/" + file
 		if not ResourceLoader.exists(path):
 			continue
 		var tex: Texture2D = load(path)
-		var s := maxf(float(L["scroll_scale"]), 0.02)
+		var s := maxf(float(L["scroll_scale"]), 0.0)
 		var pos_px := Vector2(float(L["position"][0]), float(L["position"][1]))
 		var w := float(tex.get_width())
 		var h := float(tex.get_height())
-		var centre_px := pos_px + Vector2(w, h) * 0.5
 		var mi := MeshInstance3D.new()
 		mi.name = String(L["name"])
 		mi.mesh = card_mesh(w / PPM, h / PPM)      # natural size: ortho, so depth is free
 		mi.material_override = layer_material(tex)
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		holder.add_child(mi)
-		var centre := canvas_to_plane(centre_px, right, up)
-		centre = centre - fwd * (centre.dot(fwd) - depth)
-		mi.global_transform = Transform3D(Basis(right, up, -fwd), centre)
 		mi.set_meta("scroll_scale", s)
-		mi.set_meta("home", centre)
-		out.append({"name": String(L["name"]), "scroll_scale": s,
-					"order_depth_m": depth, "size_m": [snappedf(w / PPM, 0.01), snappedf(h / PPM, 0.01)]})
+		# the layer's centre offset from its top-left, in canvas px
+		mi.set_meta("p_px", pos_px + Vector2(w, h) * 0.5)
+		mi.set_meta("order_depth", depth)
+		var lm := _add_landmarks(mi, layers_dir, String(L["name"]), Vector2(w, h))
+		out.append({"name": String(L["name"]), "scroll_scale": s, "z": int(L.get("z", 0)),
+					"p_px": [pos_px.x, pos_px.y], "order_depth_m": depth,
+					"landmarks": lm,
+					"size_m": [snappedf(w / PPM, 0.01), snappedf(h / PPM, 0.01)]})
 		depth -= 8.0
 	return out
 
 
-static func drift(root: Node3D, cam_aim: Vector3, home_aim: Vector3,
-				  right: Vector3, up: Vector3) -> void:
-	"""Apply the 2D route's parallax by hand, since the camera cannot.
-	
-	A layer at scroll_scale s moves s times as fast as the world, so relative to the
-	world it LAGS by (1 - s) of the camera's travel. Same arithmetic the 2D route does,
-	written where it belongs: on the thing that is pretending to be far away."""
+static func _add_landmarks(layer: MeshInstance3D, layers_dir: String, layer_name: String,
+						   layer_px: Vector2) -> Array:
+	"""The cathedral and the tower that ride the far-ruins layer.
+
+	They are Sprite2D CHILDREN of Layer_far_ruins in the 2D scene -- not entries in
+	parallax.json, which is why the first 3D background had a skyline with nothing on it.
+	Making them children of the layer card here reproduces that exactly: they inherit the
+	layer's parallax by construction instead of having the same rate applied to them a
+	second time, and their z_index becomes a few centimetres toward the camera."""
+	var out := []
+	if not FileAccess.file_exists("res://data/landmarks.json"):
+		return out
+	var j = JSON.parse_string(FileAccess.get_file_as_string("res://data/landmarks.json"))
+	if typeof(j) != TYPE_DICTIONARY:
+		return out
+	for lm in j.get("landmarks", []):
+		if String(lm.get("layer", "")) != layer_name:
+			continue
+		var path := layers_dir + "/" + String(lm["file"])
+		if not ResourceLoader.exists(path):
+			continue
+		var tex: Texture2D = load(path)
+		var k := float(lm.get("scale", 1.0))
+		var sz := Vector2(tex.get_width(), tex.get_height()) * k
+		var pos := Vector2(float(lm["position"][0]), float(lm["position"][1]))
+		var mi := MeshInstance3D.new()
+		mi.name = "Landmark_" + String(lm["name"])
+		mi.mesh = card_mesh(sz.x / PPM, sz.y / PPM)
+		mi.material_override = layer_material(tex)
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		layer.add_child(mi)
+		# offset of this sprite's centre from the layer sprite's centre, in canvas px
+		var off := (pos + sz * 0.5) - layer_px * 0.5
+		mi.position = Vector3(off.x / PPM, -off.y / PPM,
+							  0.2 + 0.1 * float(lm.get("z_index", 0)))
+		out.append({"name": String(lm["name"]), "size_px": [snappedf(sz.x, 0.1), snappedf(sz.y, 0.1)],
+					"offset_px": [snappedf(off.x, 0.1), snappedf(off.y, 0.1)]})
+	return out
+
+
+static func place_background(root: Node3D, aim_px: Vector2, aim: Vector3,
+							 r: Vector3, u: Vector3, f: Vector3) -> void:
+	"""Put every layer where the live 2D puts it, for THIS camera aim.
+
+	Computed from the aim each time rather than accumulated from a home position: an
+	offset that is re-derived cannot drift out of step with the camera, and the law above
+	is closed-form anyway.
+
+	The cards are built in the CURRENT camera's basis (r, u, f), not the fixed guide
+	basis. A screen-space backdrop is what the 2D has; carrying it in the camera's own
+	frame keeps it a backdrop when the camera orbits, instead of turning it edge-on."""
 	var holder := root.get_node_or_null(^"Background")
 	if holder == null:
 		return
-	var d := cam_aim - home_aim
-	var du := d.dot(right)
-	var dv := d.dot(up)
 	for c in holder.get_children():
 		var mi := c as MeshInstance3D
 		if mi == null or not mi.has_meta("scroll_scale"):
 			continue
 		var s: float = mi.get_meta("scroll_scale")
-		var home: Vector3 = mi.get_meta("home")
-		var lag := (1.0 - s)
-		mi.global_position = home + right * (du * lag) + up * (dv * lag)
+		var p: Vector2 = mi.get_meta("p_px")
+		var d: float = mi.get_meta("order_depth")
+		# centre, in canvas px, then as an offset from where the camera is looking
+		var off: Vector2 = (p + (1.0 - s) * (aim_px - HALF_VIEW)) - aim_px
+		mi.global_transform = Transform3D(Basis(r, u, -f),
+			aim + r * (off.x / PPM) - u * (off.y / PPM) + f * d)
 
 
 # --- lights, for the character only -------------------------------------------

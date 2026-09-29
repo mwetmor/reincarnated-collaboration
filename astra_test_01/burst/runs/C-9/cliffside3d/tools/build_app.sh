@@ -161,9 +161,17 @@ if [ -n "$PCK" ]; then
   # texture exports cleanly and renders a grey box that looks like a build problem
   # rather than a missing asset.
   MISSING=0
+  # NOTE on what a hit here means: a PNG is IMPORTED to .ctex, so its path survives in the
+  # pck only inside the .import entry -- the grep matches the entry, not the file. That is
+  # the trap that shipped an app which passed this fence and then failed at launch on
+  # `Error opening file data/v4_zones.png`. The JSONs below travel as real files (the
+  # preset's include_filter is *.json) and for those a hit does mean the file is there.
   for p in plate/plate_v4.png data/v4_layout.json data/v4_zones.png data/parallax.json \
-           data/figure.json models/knight_t3.glb scripts/cliffside_blockout.gd \
-           layers/sky.png layers/far_ruins.png layers/forest_valley.png layers/mist.png; do
+           data/figure.json data/character.json data/landmarks.json props/props.json \
+           models/knight_t3.glb scripts/cliffside_blockout.gd \
+           layers/sky.png layers/far_ruins.png layers/forest_valley.png layers/mist.png \
+           layers/landmarks/cathedral.png layers/landmarks/tower.png \
+           props/assets/tree_living_a.png props/assets/bridge_post_1.png; do
     grep -a -q "$p" "$PCK" || { echo "   missing from pck: $p" >&2; MISSING=1; }
   done
   [ "$MISSING" -eq 0 ] && ck 0 "plate, layout, layers and model in the pck" \

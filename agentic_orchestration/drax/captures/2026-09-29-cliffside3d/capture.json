@@ -1,11 +1,138 @@
 {
+ "background": [
+  {
+   "landmarks": [],
+   "name": "sky",
+   "order_depth_m": 123.945976257324,
+   "p_px": [
+    0.0,
+    0.0
+   ],
+   "scroll_scale": 0.12,
+   "size_m": [
+    23.21,
+    14.33
+   ],
+   "z": -40
+  },
+  {
+   "landmarks": [
+    {
+     "name": "cathedral",
+     "offset_px": [
+      -618.1,
+      180.2
+     ],
+     "size_px": [
+      625.8,
+      493.7
+     ]
+    },
+    {
+     "name": "tower",
+     "offset_px": [
+      -25.2,
+      -102.5
+     ],
+     "size_px": [
+      249.7,
+      253.2
+     ]
+    }
+   ],
+   "name": "far_ruins",
+   "order_depth_m": 115.945976257324,
+   "p_px": [
+    0.0,
+    -416.0
+   ],
+   "scroll_scale": 0.25,
+   "size_m": [
+    27.67,
+    18.23
+   ],
+   "z": -30
+  },
+  {
+   "landmarks": [],
+   "name": "forest_valley",
+   "order_depth_m": 107.945976257324,
+   "p_px": [
+    0.0,
+    537.0
+   ],
+   "scroll_scale": 0.45,
+   "size_m": [
+    34.55,
+    24.23
+   ],
+   "z": -20
+  },
+  {
+   "landmarks": [],
+   "name": "mist",
+   "order_depth_m": 99.9459762573242,
+   "p_px": [
+    0.0,
+    568.0
+   ],
+   "scroll_scale": 0.7,
+   "size_m": [
+    43.13,
+    31.72
+   ],
+   "z": -10
+  }
+ ],
+ "coverage_void": {
+  "bridge": {
+   "void_pct_of_view": 0.0,
+   "void_px": 0
+  },
+  "plateau": {
+   "void_pct_of_view": 0.0,
+   "void_px": 0
+  }
+ },
  "knight_scale": 1.25177951388889,
- "movie_frames": 229,
+ "match_vs_2d": {
+  "bridge": {
+   "best_shift": [
+    0,
+    0
+   ],
+   "best_shift_mean": 2.31,
+   "mean": 2.31,
+   "median": 1.0,
+   "p95": 11.0,
+   "pct_within_8": 87.6
+  },
+  "plateau": {
+   "best_shift": [
+    0,
+    0
+   ],
+   "best_shift_mean": 5.01,
+   "mean": 5.01,
+   "median": 2.0,
+   "p95": 22.0,
+   "pct_within_8": 75.05
+  }
+ },
+ "movie_frames": 305,
+ "props": {
+  "asset_missing": 0,
+  "clearance_max_m": 0.14,
+  "instances": 49,
+  "needed_clearance": 45,
+  "no_ground_hit": 0,
+  "placed": 49
+ },
  "view_a": [
   "plateau",
   "bridge"
  ],
- "view_b": {
+ "view_b_geometry": {
   "occluder": "bridge + south abutment (projected geometry)",
   "swept": [
    {
@@ -21,7 +148,7 @@
      3078.09008789062,
      1421.77001953125
     ],
-    "knight_depth_m": 2.11,
+    "knight_depth_m": 3.3,
     "step": 1
    },
    {
@@ -29,7 +156,7 @@
      3078.09008789062,
      1371.77001953125
     ],
-    "knight_depth_m": 0.83,
+    "knight_depth_m": 3.68,
     "step": 2
    },
    {
@@ -37,7 +164,7 @@
      3078.09008789062,
      1321.77001953125
     ],
-    "knight_depth_m": -0.45,
+    "knight_depth_m": 4.05,
     "step": 3
    },
    {
@@ -45,7 +172,7 @@
      3078.09008789062,
      1271.77001953125
     ],
-    "knight_depth_m": -1.74,
+    "knight_depth_m": 4.4,
     "step": 4
    },
    {
@@ -53,7 +180,7 @@
      3078.09008789062,
      1221.77001953125
     ],
-    "knight_depth_m": -3.02,
+    "knight_depth_m": 4.78,
     "step": 5
    },
    {
@@ -61,10 +188,239 @@
      3078.09008789062,
      1171.77001953125
     ],
-    "knight_depth_m": -4.3,
+    "ground": "no hit",
     "step": 6
    }
   ]
+ },
+ "view_b_props": {
+  "_note": "The post row is shot by tools/shot_post.gd, not by this tool's own sweep. capture.gd framed the post alone at zoom 1.9 and the stand-in came back 174 silhouette px of an expected ~2500, behind the abutment rock: same placement, same depths to the centimetre, and a camera that cut him out of his own demonstration. shot_post.gd uses the framing the measurement used -- aim at the midpoint of prop and body -- and both are in frame.",
+  "post": {
+   "_instrument": "tools/shot_post.gd",
+   "anchor_px": [
+    2996.0,
+    1247.0
+   ],
+   "asset": "bridge_post_1",
+   "framing": "aim at the midpoint of prop and body, zoom 1.15",
+   "swept": [
+    {
+     "canvas_px": [
+      2996.0,
+      1447.0
+     ],
+     "card_origin_depth_m": 3.9,
+     "hidden_by_card_px": 152,
+     "knight_depth_m": 3.11,
+     "offset_px": 200.0,
+     "post_hidden_by_knight_px": 0,
+     "post_hidden_pct": 0.0,
+     "post_px": 4697,
+     "silhouette_px": 13801,
+     "step": 0
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1387.0
+     ],
+     "card_origin_depth_m": 3.9,
+     "hidden_by_card_px": 205,
+     "knight_depth_m": 3.56,
+     "offset_px": 140.0,
+     "post_hidden_by_knight_px": 7,
+     "post_hidden_pct": 0.1,
+     "post_px": 4692,
+     "silhouette_px": 13813,
+     "step": 1
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1337.0
+     ],
+     "card_origin_depth_m": 3.9,
+     "hidden_by_card_px": 191,
+     "knight_depth_m": 3.94,
+     "offset_px": 90.0,
+     "post_hidden_by_knight_px": 742,
+     "post_hidden_pct": 15.8,
+     "post_px": 4689,
+     "silhouette_px": 13831,
+     "step": 2
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1282.0
+     ],
+     "card_origin_depth_m": 3.9,
+     "hidden_by_card_px": 210,
+     "knight_depth_m": 4.35,
+     "offset_px": 35.0,
+     "post_hidden_by_knight_px": 1967,
+     "post_hidden_pct": 41.9,
+     "post_px": 4697,
+     "silhouette_px": 13809,
+     "step": 3
+    },
+    {
+     "canvas_px": [
+      2996.0,
+      1247.0
+     ],
+     "card_origin_depth_m": 3.9,
+     "hidden_by_card_px": 204,
+     "knight_depth_m": 4.39,
+     "offset_px": 0.0,
+     "post_hidden_by_knight_px": 1806,
+     "post_hidden_pct": 38.5,
+     "post_px": 4697,
+     "silhouette_px": 13821,
+     "step": 4
+    }
+   ]
+  },
+  "tree": {
+   "anchor_px": [
+    1896.01403808594,
+    2765.0
+   ],
+   "asset": "tree_living_a",
+   "card_origin_depth_m": -10.56,
+   "measured_at_px": [
+    480,
+    270
+   ],
+   "swept": [
+    {
+     "canvas_px": [
+      1666.0,
+      2705.0
+     ],
+     "hidden_by_props_px": 448,
+     "hidden_pct": 42.4,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 1057,
+     "step": 0
+    },
+    {
+     "canvas_px": [
+      1718.5,
+      2705.0
+     ],
+     "hidden_by_props_px": 614,
+     "hidden_pct": 66.5,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 924,
+     "step": 1
+    },
+    {
+     "canvas_px": [
+      1771.0,
+      2705.0
+     ],
+     "hidden_by_props_px": 455,
+     "hidden_pct": 48.0,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 947,
+     "step": 2
+    },
+    {
+     "canvas_px": [
+      1823.5,
+      2705.0
+     ],
+     "hidden_by_props_px": 248,
+     "hidden_pct": 31.2,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 795,
+     "step": 3
+    },
+    {
+     "canvas_px": [
+      1876.0,
+      2705.0
+     ],
+     "hidden_by_props_px": 236,
+     "hidden_pct": 36.3,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 650,
+     "step": 4
+    },
+    {
+     "canvas_px": [
+      1928.5,
+      2705.0
+     ],
+     "hidden_by_props_px": 522,
+     "hidden_pct": 97.2,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 537,
+     "step": 5
+    },
+    {
+     "canvas_px": [
+      1981.0,
+      2705.0
+     ],
+     "hidden_by_props_px": 167,
+     "hidden_pct": 55.5,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 301,
+     "step": 6
+    },
+    {
+     "canvas_px": [
+      2033.5,
+      2705.0
+     ],
+     "hidden_by_props_px": 104,
+     "hidden_pct": 55.3,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 188,
+     "step": 7
+    },
+    {
+     "canvas_px": [
+      2086.0,
+      2705.0
+     ],
+     "hidden_by_props_px": 74,
+     "hidden_pct": 92.5,
+     "knight_depth_m": -6.34,
+     "props_hidden_by_knight_px": 0,
+     "props_hidden_pct": 0.0,
+     "props_px": 24532,
+     "silhouette_px": 80,
+     "step": 8
+    }
+   ]
+  }
  },
  "view_c": {
   "orbit_samples": 121,
@@ -90,6 +446,8 @@
     "zoom": 1.18
    }
   ],
+  "void_at_yaw15_pct": 0.0,
+  "void_at_yaw15_px": 1,
   "yaw_range_deg": [
    -15,
    15

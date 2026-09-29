@@ -1,0 +1,12 @@
+{
+ "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is: swap `model` for the T8 barbarian GLB and the scene takes him, at the same measured figure scale, with the same lights, outline and ground contact. `clips` maps the four ROLES the scene drives to whatever the GLB's AnimationPlayer calls them; a clip named for its role (idle/walk/run/attack) is found without editing this file, and an unmatched role falls back to idle rather than to nothing. `prop` is optional -- a GLB with no matching bone simply carries nothing.",
+ "model": "res://models/knight_t3.glb",
+ "model_height_m": 1.8,
+ "clips": {"idle": "c_idle", "walk": "c_walk", "run": "c_run", "attack": "k_attack"},
+ "outline_px": 1.1,
+ "prop": {
+  "model": "res://models/pollaxe_t3.glb",
+  "bone": "RightHand",
+  "socket": "res://data/socket_pollaxe.json"
+ }
+}

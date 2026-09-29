@@ -67,42 +67,31 @@ func _build_world() -> void:
 	var g := CliffWorld.ground_at(space, Vector2(2285.62, 2407.32), right, up, fwd)
 	_fg_depth = 20.0 if g.is_empty() else absf((g["position"] as Vector3).dot(fwd) - cam.global_position.dot(fwd))
 	report["fg_depth_m"] = snappedf(_fg_depth, 0.01)
-	# PROPS ARE OFF, and this is the test's main negative result.
-	#
-	# The 2D route composites its trees, stumps, crates and bridge furniture as separate
-	# sprites over the plate (props.json: 49 of them), so they are not in the projected
-	# painting at all -- they were the whole of the disagreement when the projection was
-	# first differenced against the live 2D. Placing them as cards was tried two ways and
-	# neither renders:
-	#
-	#   flat in the guide plane   invisible. Physics says nothing is in the way: the ray
-	#                             finds the ground at depth -6.77 and the card sits at
-	#                             -11.77, five metres nearer. It still never draws, and
-	#                             it takes ~80 m of forward bias to appear -- which is
-	#                             not a depth tie, it is something else.
-	#   standing in world Y       invisible too, with the height stretched by 1/cos(pitch)
-	#                             so it covers the painted pixels and its depth gradient
-	#                             matches the ground's.
-	#
-	# What is known: the same cards DO render when the terrain's projector material is
-	# removed, and a plain 3D body (the knight) placed by the SAME raycast at the SAME
-	# ground point renders correctly and is not occluded. So the terrain's rendered depth
-	# and its collided depth disagree for cards while agreeing for bodies, and I could
-	# not close that in the time this deserved.
-	#
-	# Left off rather than forced: a 80 m bias would put every prop in front of the
-	# character too, which destroys the one thing view (b) exists to show. The occlusion
-	# demonstration uses the bridge post instead -- real projected geometry, no cards.
-	report["props"] = {"built": false, "reason": "cards do not render over the projected "
-		+ "terrain; see the note in _build_world. 49 instances in props.json are absent "
-		+ "from the 3D scene and present in the 2D reference."}
-	report["background"] = CliffWorld.build_background(self,
-		ProjectSettings.globalize_path("res://layers"),
-		ProjectSettings.globalize_path("res://data/parallax.json"),
-		right, up, fwd, _fg_depth)
-	report["lights"] = CliffWorld.build_lights(self, space,
-		ProjectSettings.globalize_path("res://props"), right, up, fwd, 47.0)
+	# PROPS ARE ON. The previous session left them out because the cards would not render
+	# over the projected terrain, and read that as a depth problem it could not close. It
+	# was not a depth problem: the projector shader wrote ALPHA, which made the ENTIRE
+	# painted terrain a TRANSPARENT surface -- no depth written, sorted per object -- and
+	# the cards, whose shader also wrote ALPHA, joined that same list and lost the sort to
+	# meshes the size of a cliff. Both writes are gone; see the note on the projector
+	# shader. Measured in tools/probe_card2.gd, confirmed in tools/probe_card3.gd.
+	report["props"] = CliffWorld.build_props(self, space, "res://props", right, up, fwd)
+	# The backdrop goes just behind the FARTHEST terrain, measured from the meshes rather
+	# than picked: every real surface must still win the depth test against it.
+	var far_edge := -1e9
+	for mi in _fg:
+		var ab: AABB = mi.global_transform * mi.get_aabb()
+		for c in 8:
+			far_edge = maxf(far_edge, ab.get_endpoint(c).dot(fwd))
+	report["terrain_far_edge_m"] = snappedf(far_edge, 0.01)
+	report["plate_backdrop"] = CliffWorld.build_plate_backdrop(self,
+		load("res://plate/plate_v4.png"), Vector2(CANVAS.x, CANVAS.y),
+		right, up, fwd, far_edge + 2.0)
+	report["background"] = CliffWorld.build_background(self, "res://layers",
+		"res://data/parallax.json", right, up, fwd, far_edge + 2.0)
+	report["lights"] = CliffWorld.build_lights(self, space, "res://props",
+		right, up, fwd, 47.0)
 	_build_knight(space)
+	look_at_canvas(_aim_px)          # the background exists now; place it for this aim
 
 
 func _build_knight(space: PhysicsDirectSpaceState3D) -> void:
@@ -261,6 +250,26 @@ shader_type spatial;
 // occlusion and its own time of day. Lighting it again would double every shadow the
 // painter put there. The character is lit instead -- that is the only thing in this
 // scene that is not already painted.
+//
+// AND IT NEVER ASSIGNS `ALPHA`, WHICH IS LOAD-BEARING AND WAS THE BUG.
+//
+// This shader used to end every branch with `ALPHA = 1.0;`, which reads as a statement
+// that the surface is opaque and is the opposite instruction to Godot. A spatial shader
+// that WRITES ALPHA at all is classified TRANSPARENT (unless it also carries
+// depth_draw_always, depth_prepass_alpha, or is a scissored BaseMaterial3D). A
+// transparent surface WRITES NO DEPTH and is sorted per-OBJECT, back to front, against
+// every other transparent surface. So the whole painted terrain -- 14 meshes -- was
+// being drawn in the alpha pass with an empty depth buffer, and a prop card (whose own
+// shader also wrote ALPHA) joined the same list, lost the per-object sort to meshes the
+// size of a cliff, and was painted over. Measured, tools/probe_card2.gd: every variant
+// that writes ALPHA draws 0 px; every variant that does not draws 119141 px, the same
+// count an opaque StandardMaterial3D gives. It was never a depth tie -- that is why
+// disabling the depth TEST did not help either, and why the previous session found that
+// only ~80 m of forward bias brought a card back: 80 m is where the card's sort key
+// passes the terrain's, not where it wins a depth test.
+//
+// Removing the write costs nothing visible: ALPHA defaults to 1.0, and the plate
+// re-renders to within 7 px of 2,073,600 (0.0003%) of the version that wrote it.
 render_mode unshaded, cull_back, depth_draw_opaque;
 
 uniform sampler2D plate : source_color, filter_linear_mipmap;
@@ -272,11 +281,45 @@ uniform float vmax;
 uniform vec2 canvas;
 uniform vec4 void_color : source_color = vec4(0.10, 0.09, 0.13, 1.0);
 uniform float show_void = 0.0;   // 1.0 paints uncovered geometry, for the coverage report
+uniform float void_fill = 1.0;   // 0.0 leaves the flat dark, for the before/after
 
 varying vec3 world_pos;
 
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
+vec3 fill_void(vec2 uv) {
+	// NEAREST PAINTED TEXEL, searched in the PROJECTOR'S OWN SPACE rather than on screen.
+	//
+	// A void is a place the guide camera could not see, so the painter left no paint
+	// there: a surface facing away, or the inside of a chasm lip. From the play camera
+	// those are slivers at silhouette edges -- a texel or two of geometry that the paint
+	// stops just short of -- and a flat dark reads there as a seam. Growing the nearest
+	// paint outward closes the seam with the colour of the surface it belongs to.
+	//
+	// Rings outward at LOD 0, and LOD 0 on purpose: a coarser mip averages in the RGB of
+	// texels whose alpha is zero, which is whatever the painter left under paint nobody
+	// was meant to see -- the same undefined colour that turned the chasm magenta once
+	// already. Reach stops at 64 texels. Beyond that a void is not a seam but a genuinely
+	// unpainted region, and inventing 200 texels of rock there would be painting, not
+	// filling; those keep the flat dark and stay visible in the coverage map.
+	if (void_fill < 0.5) return void_color.rgb;
+	vec2 p = clamp(uv, vec2(0.0), vec2(1.0));
+	vec2 texel = vec2(1.0) / canvas;
+	for (int ring = 0; ring < 7; ring++) {
+		float r = exp2(float(ring));               // 1, 2, 4 ... 64 texels
+		vec3 acc = vec3(0.0);
+		float wsum = 0.0;
+		for (int i = 0; i < 12; i++) {
+			float a = 6.28318530718 * float(i) / 12.0;
+			vec2 q = clamp(p + vec2(cos(a), sin(a)) * r * texel, vec2(0.0), vec2(1.0));
+			vec4 s = texture(plate, q);
+			if (s.a >= 0.02) { acc += s.rgb; wsum += 1.0; }
+		}
+		if (wsum > 0.0) return acc / wsum;
+	}
+	return void_color.rgb;
 }
 
 void fragment() {
@@ -292,11 +335,10 @@ void fragment() {
 		// insides of the chasm. Discarding leaves a hole in the silhouette; filling
 		// with a flat dark keeps the shape and reads as unpainted rock, which is the
 		// honest thing for a test whose job is to find exactly these places.
-		if (show_void > 0.5) { ALBEDO = vec3(1.0, 0.0, 1.0); ALPHA = 1.0; }
-		else { ALBEDO = void_color.rgb; ALPHA = 1.0; }
+		if (show_void > 0.5) { ALBEDO = vec3(1.0, 0.0, 1.0); }
+		else { ALBEDO = fill_void(uv); }
 	} else {
 		ALBEDO = c.rgb;
-		ALPHA = 1.0;
 	}
 }
 """
@@ -342,7 +384,7 @@ func _build_camera() -> void:
 	look_at_canvas(Vector2(2285.62, 2407.32))
 
 
-var _home_aim := Vector3.ZERO
+var _aim_px := Vector2(2285.62, 2407.32)   # the spawn; where the camera looks
 
 
 func _view_height() -> int:
@@ -370,9 +412,12 @@ func look_at_canvas(px: Vector2, yaw_deg := 0.0, zoom := 1.0) -> void:
 	cam.size = (float(_view_height()) / PPM) / zoom
 	var pos := aim - f * 200.0
 	cam.look_at_from_position(pos, aim, Vector3.UP)
-	if _home_aim == Vector3.ZERO:
-		_home_aim = aim
-	CliffWorld.drift(self, aim, _home_aim, right, up)
+	_aim_px = px
+	# The painted backdrop is re-placed for THIS aim, by the law measured off the live 2D
+	# (see CliffWorld.place_background). It is a compositing device, not geometry: an
+	# orthographic camera cannot parallax, so the layers are moved by hand at exactly the
+	# rate the 2D moves them.
+	CliffWorld.place_background(self, px, aim, r, u3, f)
 
 
 func canvas_to_world(px: Vector2, depth_m := 0.0) -> Vector3:
@@ -387,6 +432,12 @@ func set_plate(on: bool) -> void:
 
 func show_void(on: bool) -> void:
 	_proj_mat.set_shader_parameter("show_void", 1.0 if on else 0.0)
+
+
+func set_void_fill(on: bool) -> void:
+	"""Nearest-painted-texel fill for uncovered geometry. Off shows the flat dark the
+	coverage report was measured against."""
+	_proj_mat.set_shader_parameter("void_fill", 1.0 if on else 0.0)
 
 
 func _unhandled_input(e: InputEvent) -> void:

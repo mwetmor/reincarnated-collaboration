@@ -23,8 +23,18 @@ const PPM := 100.617553710938
 const CHAR_LAYER := 4
 const WALK_PX_S := 247.0          # parallax.json movement, the Keeper's own
 const RUN_PX_S := 494.0
-const SOCKET := "res://data/socket_pollaxe.json"
+const CHARACTER := "res://data/character.json"
 const LINE_PX := 1.1
+
+## THE SLOT IS SWAPPABLE, and nothing below names the knight.
+##
+## Who stands here is data/character.json: a GLB path, the four clip ROLES the scene
+## drives, and an optional hand prop. The T8 barbarian arrives as a textured, rigged GLB
+## with idle/walk/run/attack, so he replaces one string in that file. The scale he stands
+## at is data/figure.json's measured 1.25178 -- a property of this painted world's metric,
+## not of the model -- so it carries across the swap unchanged.
+var cfg := {}
+var _roles := {}
 
 var right := Vector3.RIGHT
 var up := Vector3.UP
@@ -54,6 +64,10 @@ func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
 
 
 func _ready() -> void:
+	# He stands ON the terrain layer and is not ON it: CliffWorld.ground_at masks to the
+	# terrain, so his own body can never answer the question "where is the ground".
+	collision_layer = 1
+	collision_mask = CliffWorld.TERRAIN_BIT
 	var shape := CollisionShape3D.new()
 	var cap := CapsuleShape3D.new()
 	cap.height = 1.8 * _figure_scale
@@ -62,7 +76,12 @@ func _ready() -> void:
 	shape.position = Vector3(0, cap.height * 0.5, 0)
 	add_child(shape)
 
-	_rig = (load("res://models/knight_t3.glb") as PackedScene).instantiate()
+	cfg = _read_cfg()
+	var model := String(cfg.get("model", "res://models/knight_t3.glb"))
+	if not ResourceLoader.exists(model):
+		push_error("character: no model at %s" % model)
+		return
+	_rig = (load(model) as PackedScene).instantiate()
 	_rig.scale = Vector3.ONE * _figure_scale
 	add_child(_rig)
 	_skel = _find(_rig, "Skeleton3D") as Skeleton3D
@@ -72,12 +91,51 @@ func _ready() -> void:
 		_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 		for n in _anim.get_animation_list():
 			_clip_len[n] = _anim.get_animation(n).length
+	_bind_roles()
 	_style()
 	_add_outline()
 	_read_socket()
 	_add_pollaxe()
 	_set_layer(_rig, CHAR_LAYER)
-	play("c_idle")
+	play(_roles.get("idle", ""))
+
+
+func _read_cfg() -> Dictionary:
+	if not FileAccess.file_exists(CHARACTER):
+		return {}
+	var j = JSON.parse_string(FileAccess.get_file_as_string(CHARACTER))
+	return j if typeof(j) == TYPE_DICTIONARY else {}
+
+
+func _bind_roles() -> void:
+	"""Bind idle/walk/run/attack to whatever this GLB's clips are called.
+
+	Declared names first, then the role word itself, then any clip that CONTAINS the role
+	word, then idle. A rigged model that names its clips for what they do therefore drops
+	in with no edit at all, and one that does not is one line of JSON -- neither needs a
+	change to this script, which is the point of the slot."""
+	var want: Dictionary = cfg.get("clips", {})
+	var have := _clip_len.keys()
+	for role in ["idle", "walk", "run", "attack"]:
+		var pick := ""
+		var declared := String(want.get(role, ""))
+		if declared != "" and _clip_len.has(declared):
+			pick = declared
+		elif _clip_len.has(role):
+			pick = role
+		else:
+			for n in have:
+				if String(n).to_lower().contains(role):
+					pick = String(n)
+					break
+		_roles[role] = pick
+	if String(_roles.get("idle", "")) == "" and have.size() > 0:
+		_roles["idle"] = String(have[0])
+	for role in ["walk", "run", "attack"]:
+		if String(_roles.get(role, "")) == "":
+			_roles[role] = _roles["idle"]
+	print("character: %s  clips %s -> %s" %
+		[String(cfg.get("model", "?")).get_file(), str(have), str(_roles)])
 
 
 func _find(n: Node, cls: String) -> Node:
@@ -126,7 +184,7 @@ void fragment() { ALBEDO = line_color.rgb; }
 	mat.shader = sh
 	# 1.1 output px, in metres, in model units. The world camera is orthographic at a
 	# known px/m, so this is one number and not a distance-dependent one.
-	var w_world := LINE_PX / PPM
+	var w_world := float(cfg.get("outline_px", LINE_PX)) / PPM
 	mat.set_shader_parameter("width_model", w_world / maxf(_figure_scale, 1e-6))
 	_outline = MeshInstance3D.new()
 	_outline.name = "InkLine"
@@ -141,9 +199,11 @@ void fragment() { ALBEDO = line_color.rgb; }
 
 
 func _read_socket() -> void:
-	if not FileAccess.file_exists(SOCKET):
+	var prop: Dictionary = cfg.get("prop", {})
+	var path := String(prop.get("socket", ""))
+	if path == "" or not FileAccess.file_exists(path):
 		return
-	var j = JSON.parse_string(FileAccess.get_file_as_string(SOCKET))
+	var j = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if typeof(j) != TYPE_DICTIONARY:
 		return
 	# The same change of basis and half-turn the chartest build needed: the socket was
@@ -161,14 +221,17 @@ func _read_socket() -> void:
 
 
 func _add_pollaxe() -> void:
-	if _skel == null or not ResourceLoader.exists("res://models/pollaxe_t3.glb"):
+	var prop: Dictionary = cfg.get("prop", {})
+	var model := String(prop.get("model", ""))
+	var bone := String(prop.get("bone", "RightHand"))
+	if _skel == null or model == "" or not ResourceLoader.exists(model):
 		return
-	if _skel.find_bone("RightHand") < 0:
+	if _skel.find_bone(bone) < 0:
 		return
 	_attach = BoneAttachment3D.new()
 	_skel.add_child(_attach)
-	_attach.bone_name = "RightHand"
-	_pollaxe = (load("res://models/pollaxe_t3.glb") as PackedScene).instantiate()
+	_attach.bone_name = bone
+	_pollaxe = (load(model) as PackedScene).instantiate()
 	_skel.get_parent().add_child(_pollaxe)
 	for mi in _pollaxe.find_children("*", "MeshInstance3D", true, false):
 		var src := (mi as MeshInstance3D).get_active_material(0) as BaseMaterial3D
@@ -244,8 +307,7 @@ func _facing_for(d: Vector2) -> String:
 
 
 func _drive() -> void:
-	var want: String = String({"idle": "c_idle", "walk": "c_walk", "run": "c_run"}.get(state, "c_idle"))
-	play(want)
+	play(String(_roles.get(state, _roles.get("idle", ""))))
 	# In TRUE 3D the body itself turns; there is no eight-direction set to pick from,
 	# which is the half of this test that costs nothing.
 	var az := deg_to_rad(_azimuth_for(facing))
@@ -254,6 +316,16 @@ func _drive() -> void:
 
 
 func play(clip: String) -> void:
+	# ROLE OR CLIP NAME, either works: the scene and the capture tools drive "c_walk" by
+	# habit, and a swapped-in model may not have a clip by that name. A role is resolved
+	# through the binding; anything else is taken as a literal clip name.
+	if _roles.has(clip):
+		clip = String(_roles[clip])
+	elif _anim != null and not _clip_len.has(clip):
+		for role in _roles:
+			if String(_roles[role]) != "" and String(clip).contains(role):
+				clip = String(_roles[role])
+				break
 	if _anim == null or not _clip_len.has(clip) or clip == _clip:
 		return
 	_clip = clip
