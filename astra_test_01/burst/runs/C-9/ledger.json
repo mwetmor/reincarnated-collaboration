@@ -19118,6 +19118,12 @@
       "topic": "D2 COMPLETE in the scene (G3 ready): modular gear with G-key stacks, shield carry layer, verified axe",
       "result": "shield_carry_L now applies over attack too (rule reversal kept as data: character.json never_over empty): attack 1107 (0.249 m, f18) -> 57 (0.069 m, f35 = recovery frame); idle 545->0, walk 934->0, run 1481->0 (0.25 m spine capsule, 2,439 shield vertices). Axe: BLADE SIDE LEADS at the strike - the leading point is the beard toe (+0.1255 m toward the edge across the haft; poll at -0.1006 m); still AXE_edge_verdict.jpg. The scene drax withdrew its earlier contrary verdict: AnimationTree frame-stepping after play() was non-deterministic (the pose at frame 16 moved 0.095 m between runs, once onto the poll); AnimationPlayer.seek() is exact and repeatable. Final G3 captures: GEAR_stacks_close.jpg, d2_gear_walk.mp4, d2_gear_run.mp4 (626.4 px/s), d2_gear_attack.mp4; staged app 371 MB (press G). D2 total: Tripo $2.00, 4 Astra sheets, 0 Meshy.",
       "ts": "2026-09-29T04:23:42"
+    },
+    {
+      "id": "M-C9-PLAYTEST",
+      "topic": "Both judgment builds are play-testable by Matt on the desktop (not pushed)",
+      "result": "(1) 3D: ~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/C-9 Cliffside 3D.app (371 MB): the painted barbarian + gear; added Space/left-click attack (roots him; cooldown = clip length), F cycles tree fade 35% -> 50% -> off, a live controls HUD, and - found by playing - a camera FOLLOW (the view had never moved after build) and the Q/E orbit (declared but read by nothing). Played through System Events keystrokes for real: stayed up, 0 errors. The crash dialog (two .ips, 00:20:58 and 00:22:42, SIGSEGV in a script _ready) predates every current build by ~4 h; not reproduced; dismissed. (2) 2D: .../C-9 cliffside 2D + manticore/C-9 Cliffside Manticore.app (330 MB): the manticore walks an octagon loop covering all 8 painted directions with idles facing S and N, placed by physics test_move over 99 candidate origins (legs travel 83-88 of 90 px; 0 blocked); a pinned-patrol bug found only by launching for real (the far end sat inside the player collision; walk anim playing while the body stood still) - fixed with a blocked-turn recovery; 0 errors.",
+      "ts": "2026-09-29T07:37:36"
     }
   ],
   "halts": [
