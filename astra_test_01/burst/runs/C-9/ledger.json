@@ -21462,6 +21462,12 @@
       "topic": "The armed motion set wired into the 3D app (Matt feedback on axe/shield handling)",
       "result": "Armed = holding the axe and shield (equipment, not a stack index): idle_armed / walk_armed / run_armed_locked + the shield_guard_L left-arm layer + grip morphs; unarmed untouched; shield_carry_L removed from the running scene. Graph: locomotion -> strafe -> guard (filtered left arm) -> block (held Blend2) -> slash / chop / bash one-shots. Inputs: Space/click slash, X chop, C bash, hold B/right-click block; while blocking, a strafe-side input side-steps with strafe_L_armed (left only - no mirroring), any other input turns him, no running. Measured: shield vs torso 0 of 2,439 inside a 0.40 m spine capsule in armed idle/walk/run; axe edge leads (slash best margin 0.773, chop 0.927, via axe_edge + seek()); block latency 0.125 s; crossover foot slide median 25.2 / worst 30.4 mm with run_armed_locked (run_armed holds ~4 gait cycles and broke the sync group: worst 316 mm -> one-cycle trim ordered). Found: root motion in idle_armed (0.90 m) and attack_chop (0.75 m) - derooted at load, source fix + a lint rule ordered; a speed bug (speeds derived at 1.25178 driven at 1.10: ground 13.8% faster than the legs; ~40% of the earlier walk-slide floor) fixed; Godot served a stale import cache after the GLB swap (re-import after every swap). Capture d3_armed.mp4; app rebuilt (440 MB).",
       "ts": "2026-09-29T14:59:57"
+    },
+    {
+      "id": "M-C9-W1C",
+      "topic": "Motion source fixes: one-cycle armed run, root motion removed at source, generated strafe right (63 of 70 credits)",
+      "result": "run_armed trimmed to one gait cycle (20 frames, 0.667 s, 4.74 m/s; contact threshold made relative to the clip own foot range - a fixed 0.05 m found no contacts) - foot slide 0.00000 m; supersedes run_armed_locked. De-root in ARMATURE space (the first attempt zeroed the bone rest-basis translation and the drift survived - the third space mix-up of the run): idle_armed drift 0.8994 m -> 0; attack_chop keeps its 0.7519 m lunge (deliberate). strafe_R_armed from text-to-motion via the same retargeter (topology verified, rest-alignment 0.000000 deg, grounded, in place) - NOT a mirror; speeds strafe_L 0.93 vs strafe_R 0.42 m/s. New lint rule: WARN on net root horizontal travel > 0.05 m in any non-locomotion clip (reproduced 0.899 / 0.752 m on a file the height-only lint had passed). nb-body.glb 19 clips, 3 morphs, lint no FAIL.",
+      "ts": "2026-09-29T15:06:21"
     }
   ],
   "halts": [
