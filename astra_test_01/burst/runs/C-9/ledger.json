@@ -21286,9 +21286,211 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T10K-A2",
+      "type": "GENERATE",
+      "experiment": "T10-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "e2b27805821a081fb5956547ba114786c9dafc9f14b00530e97f121beaddccea",
+      "started": "2026-09-29T21:23:33.138406+00:00",
+      "ended": "2026-09-29T21:30:30.018450+00:00",
+      "minutes": 6.948046683333329,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-655ce4a7-c632-4158-84a8-3ece02049c2e.png",
+            "sha256": "b6f3fac40dc48c2aefb970cf1ccd9ca8ec415f7bfb9dcef22ecd23efef9c324a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-99647479-2179-40aa-a0e4-069843feef8b.png",
+            "sha256": "c3859b06ecf7d095b0c056d67860898a522591c5e7c4c7f0881247574e812f42"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-9d085d57-b062-451f-b1f4-3dad2e902827.png",
+            "sha256": "40ed9e0e21dc6c7a91d4671aeef6840889b59160ebfd482ba6f74b6c09895bdf"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-fc7ca96f-4036-40ad-8388-c4aad867e6ce.png",
+            "sha256": "8bd5d65b048fbeaef8e9064d173944db339f049585bcf361176dc08f2ce9cc01"
+          }
+        ]
+      },
+      "receipt_sha256": "ea70d9ce4f1301315379da76a5e19b8594ea1401b5f11acf7cc751899e87645b",
+      "artifacts": [
+        {
+          "name": "T10K-A2_a.png",
+          "sha256": "c3859b06ecf7d095b0c056d67860898a522591c5e7c4c7f0881247574e812f42"
+        },
+        {
+          "name": "T10K-A2_b.png",
+          "sha256": "8bd5d65b048fbeaef8e9064d173944db339f049585bcf361176dc08f2ce9cc01"
+        },
+        {
+          "name": "exec-655ce4a7-c632-4158-84a8-3ece02049c2e.provenance.json",
+          "sha256": "f3e91f1669d2bd6ef55193feb7a509902f36d963fbe55ece20d884c623836d6a"
+        },
+        {
+          "name": "exec-99647479-2179-40aa-a0e4-069843feef8b.provenance.json",
+          "sha256": "80a5dbe7bcee6e82edf1aa0b57208ff4142a7bd0d0aeedb7fd0fae56a60c7f1e"
+        },
+        {
+          "name": "exec-9d085d57-b062-451f-b1f4-3dad2e902827.provenance.json",
+          "sha256": "24373c352212e8a38f8b63b371c10f5c504a843a3c7e879019af45351157b9eb"
+        },
+        {
+          "name": "exec-fc7ca96f-4036-40ad-8388-c4aad867e6ce.provenance.json",
+          "sha256": "d4bfef38164f3e5365653aef7c6d8b64f303b937a47206ff18411ecbd61a5624"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-655ce4a7-c632-4158-84a8-3ece02049c2e.png",
+          "sha256": "b6f3fac40dc48c2aefb970cf1ccd9ca8ec415f7bfb9dcef22ecd23efef9c324a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-99647479-2179-40aa-a0e4-069843feef8b.png",
+          "sha256": "c3859b06ecf7d095b0c056d67860898a522591c5e7c4c7f0881247574e812f42"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-9d085d57-b062-451f-b1f4-3dad2e902827.png",
+          "sha256": "40ed9e0e21dc6c7a91d4671aeef6840889b59160ebfd482ba6f74b6c09895bdf"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-31da-78c2-945e-3a8639103006/exec-fc7ca96f-4036-40ad-8388-c4aad867e6ce.png",
+          "sha256": "8bd5d65b048fbeaef8e9064d173944db339f049585bcf361176dc08f2ce9cc01"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T10K-D",
+      "type": "GENERATE",
+      "experiment": "T10-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "bf70b3f1a0280da3394f629725c738a77fdee770abc7cff72926b99f5cd2af60",
+      "started": "2026-09-29T21:23:33.138404+00:00",
+      "ended": "2026-09-29T21:30:45.668914+00:00",
+      "minutes": 7.208864615283286,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-0a8dd9a2-fe68-45cd-b8d5-19c42849146c.png",
+            "sha256": "4d1a0da956cbdb568bde4ebf01016c3295cf4983a0afc00e51105a320b96cc50"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-306823b2-3e1c-436f-949a-94f3869b93f5.png",
+            "sha256": "691ab9da832f147a6f704885b3eb22a42a76450048636697883bfb64018fd350"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-ddd80555-8e6e-4470-a984-9024c32f3d2c.png",
+            "sha256": "212311bff4fe268af392b7ff755a12421a14bd567428b720302c8fc273aeb21a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-dfde6887-3ca6-4306-982c-a5a18cd0b5ee.png",
+            "sha256": "caca8cca8dc2ce97f8a290dcccf236e001c6eedb44f2bf4dbd729b8c64c1b323"
+          }
+        ]
+      },
+      "receipt_sha256": "3644b8256ed3ee27ce668a3b93f0ab10822ba93fd82468008f4cb2c749ea158e",
+      "artifacts": [
+        {
+          "name": "T10K-D_a.png",
+          "sha256": "caca8cca8dc2ce97f8a290dcccf236e001c6eedb44f2bf4dbd729b8c64c1b323"
+        },
+        {
+          "name": "T10K-D_b.png",
+          "sha256": "691ab9da832f147a6f704885b3eb22a42a76450048636697883bfb64018fd350"
+        },
+        {
+          "name": "exec-0a8dd9a2-fe68-45cd-b8d5-19c42849146c.provenance.json",
+          "sha256": "d9f1c991c193bf54bb93ee28b95006984b7db0befa7f30e5178b1320e69e78b4"
+        },
+        {
+          "name": "exec-306823b2-3e1c-436f-949a-94f3869b93f5.provenance.json",
+          "sha256": "a97a2eb92c221b4b67e22d6ef5169d0955db3ff6aa478d544c9b30ee86bcf367"
+        },
+        {
+          "name": "exec-ddd80555-8e6e-4470-a984-9024c32f3d2c.provenance.json",
+          "sha256": "6baf470bed559b183176fe2115bac701d5767b6edafb977909261e575330b018"
+        },
+        {
+          "name": "exec-dfde6887-3ca6-4306-982c-a5a18cd0b5ee.provenance.json",
+          "sha256": "847fd46a9a40d5bbd874d78d430420754c4b90124495957c50fd4c774d56f237"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-0a8dd9a2-fe68-45cd-b8d5-19c42849146c.png",
+          "sha256": "4d1a0da956cbdb568bde4ebf01016c3295cf4983a0afc00e51105a320b96cc50"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-306823b2-3e1c-436f-949a-94f3869b93f5.png",
+          "sha256": "691ab9da832f147a6f704885b3eb22a42a76450048636697883bfb64018fd350"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-ddd80555-8e6e-4470-a984-9024c32f3d2c.png",
+          "sha256": "212311bff4fe268af392b7ff755a12421a14bd567428b720302c8fc273aeb21a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef0d-336f-7bb2-bfba-ea815476bfb8/exec-dfde6887-3ca6-4306-982c-a5a18cd0b5ee.png",
+          "sha256": "caca8cca8dc2ce97f8a290dcccf236e001c6eedb44f2bf4dbd729b8c64c1b323"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 627,
+  "images_used": 635,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -23116,6 +23318,12 @@
       "topic": "fal.ai Phase 2 spend at its $20 cap: four authorised kit builds HELD for Matt (G5); the Astra over-cap alarm was a counting error",
       "note": "Matt asked which budget was past. ASTRA: none; the conductor first counted 309 of 300 by including the last day of Phase 1; from R-C9-70 (23:56 EDT = 03:56Z) Phase 2 is 125 of 300. FAL.AI (Phase 2 cap $20; every Tripo build runs through fal): recorded in the ledger: Kling T4a $0.84, T6 bake-off $7.45, D2 gear $2.00, T9 props $2.00, T10 assets $3.60, kit $2.40 = $18.29; uncosted: the T8 barbarian Tripo build(s), BiRefNet mattes, Marigold/SAM2/evf-sam, est. under $1.50 -> running total est. $19-20. The conductor authorised $1.60 more (four kit re-issue builds) without checking the running total; HELD at the build step pending Matt (charter G5), the kit drax told. LESSON: a per-service running spend total, checked before any authorisation; a cap counted only at the end is not a cap. Matt dashboard is the authoritative figure.",
       "ts": "2026-09-29T17:26:51"
+    },
+    {
+      "id": "N-C9-T10K-REISSUE",
+      "topic": "Kit re-issue sheets delivered (T10K-A2, T10K-D; wave t10k2)",
+      "note": "Both exit 0, audit clean, 8 image calls (Phase 2 Astra now 133 of 300). Conductor look: every object now draws its stated proportion: three rocks set apart (~2:1), a low broad stump with spreading roots (~2:1), the elk skull lying on its side with its antlers flat (~3:1), a low flat-topped boulder (~2.5:1). The plate was lost to a dark vignette on all four (harmless). The proportions clause plus the gutter clause worked where the first issue ignored stated numbers by ~2.2x. Next: scoring and mattes by the kit drax; the four Tripo builds ($1.60) HELD for Matt per N-C9-FAL-CAP.",
+      "ts": "2026-09-29T17:31:14"
     }
   ]
 }
