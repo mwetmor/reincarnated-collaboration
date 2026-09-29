@@ -33,10 +33,17 @@ for o in [o for o in sc.objects if o.type == 'MESH' and not o.vertex_groups]:
 before = set(sc.objects)
 pc = G.import_piece(os.path.join(ROOT, "builds", "axe.glb"), before)
 G.decimate(pc, 9000)
-info = G.socket_weapon2(pc, arm, "RightHand", 0.82, 0.22,
+info = G.socket_weapon2(pc, arm, "RightHand", 0.89, 0.22,
                         axis_world=(0, 0, 1), face_world=(0, -1, 0))
 G.align_space(pc, body[0])
 bpy.context.view_layer.update()
+# THE EDGE IS NOW MARKED, not inferred. The previous version took the cutting
+# edge to be the mesh vertex furthest from the hand -- a proxy for the blade,
+# and a proxy is exactly what let a reversed pollaxe read as correct. The empty
+# sits on the measured cutting arc and travels in the GLB.
+edge_obj, edge_p, nedge = G.axe_edge_marker(pc, arm, "RightHand")
+print("edge marker placed from %d edge vertices at %s"
+      % (nedge, np.round(edge_p, 4).tolist()))
 act = arm.animation_data.action
 f0, f1 = (int(v) for v in act.frame_range)
 fwd = np.array([0.0, -1.0, 0.0])          # he faces -Y
@@ -47,14 +54,8 @@ for i in range(f1 - f0):
     dg = bpy.context.evaluated_depsgraph_get()
     hand = np.array(arm.matrix_world @ arm.pose.bones["RightHand"].head)
     pel = np.array(arm.matrix_world @ arm.pose.bones["Hips"].head)
-    eo = pc.evaluated_get(dg); me = eo.to_mesh()
-    cv = np.empty(len(me.vertices) * 3); me.vertices.foreach_get("co", cv)
-    V = (cv.reshape(-1, 3) @ np.array(eo.matrix_world.to_3x3()).T
-         + np.array(eo.matrix_world.translation))
-    # the cutting EDGE: the vertex furthest from the hand, at the head end
-    d = np.linalg.norm(V - hand, axis=1)
-    edge = V[int(np.argmax(d))]
-    eo.to_mesh_clear()
+    bpy.context.view_layer.update()
+    edge = np.array(edge_obj.matrix_world.translation)
     rows.append(dict(i=i, hand_fwd=float(hand @ fwd),
                      edge_beyond_hand=float((edge - hand) @ fwd),
                      edge_fwd_of_pelvis=float((edge - pel) @ fwd),

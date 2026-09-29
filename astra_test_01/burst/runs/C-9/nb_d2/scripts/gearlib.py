@@ -145,6 +145,21 @@ def bone_bind(pc, arm, bones, split):
         bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.mesh.separate(type='LOOSE'); bpy.ops.object.mode_set(mode='OBJECT')
         parts = [o for o in bpy.context.selected_objects if o.type == 'MESH']
+    # DROP THE SLIVERS. Decimating a two-piece mesh leaves a scatter of 1-7
+    # triangle fragments -- the bracers exported as 10 objects, the pair plus
+    # eight slivers totalling 17 triangles. They are not gear, they are
+    # decimation debris, and every one of them becomes a node the scene has to
+    # bind. Anything under 1% of the largest part goes.
+    if len(parts) > 1:
+        sizes = [(len(o.data.polygons), o) for o in parts]
+        biggest = max(n for n, _ in sizes)
+        drop = [o for n, o in sizes if n < max(0.01 * biggest, 8)]
+        for o in drop:
+            bpy.data.objects.remove(o, do_unlink=True)
+        parts = [o for o in parts if o not in drop]
+        if drop:
+            print("      dropped %d sliver(s) of %d objects (largest %d tris)"
+                  % (len(drop), len(sizes), biggest))
     out = []
     for o in parts:
         cv = np.empty(len(o.data.vertices) * 3); o.data.vertices.foreach_get("co", cv)
@@ -411,3 +426,50 @@ def rescale_piece(pc, factor):
     pc.data.vertices.foreach_set("co", L.ravel())
     pc.data.update()
     return factor
+
+
+def axe_edge_marker(pc, arm, bone, name="axe_edge"):
+    """A named empty on the cutting edge, parented to the weapon's bone.
+
+    "The edge leads at the strike" was inferred from the head's mass
+    distribution -- the vertex furthest from the hand. That is a proxy, and a
+    proxy is what let a reversed pollaxe read as correct in a still. An empty
+    ON the edge is the thing itself, and it travels in the GLB as a node the
+    scene can read directly.
+
+    The edge is measured: take the head end of the haft, then within it the
+    vertices furthest from the haft axis -- that is the cutting arc, not the
+    butt, not the socket.
+    """
+    # align_space has just changed this object's transform, and matrix_world is
+    # only recomputed on depsgraph evaluation. Reading it stale put the edge
+    # marker at 54.9 m instead of 0.549 -- a clean factor of 100, which is the
+    # body's object scale, which is the same trap that collapsed every fitted
+    # piece and blinded two helmet tests. Fifth time in this run; it is cheap
+    # to prevent and expensive to diagnose.
+    bpy.context.view_layer.update()
+    co = np.empty(len(pc.data.vertices) * 3)
+    pc.data.vertices.foreach_get("co", co)
+    V = (co.reshape(-1, 3) @ np.array(pc.matrix_world.to_3x3()).T
+         + np.array(pc.matrix_world.translation))
+    bh = np.array(arm.matrix_world @ arm.pose.bones[bone].head)
+    d = np.linalg.norm(V - bh, axis=1)
+    head = V[d > np.percentile(d, 80)]                 # the business end
+    axis = head.mean(0) - bh
+    axis /= max(np.linalg.norm(axis), 1e-9)
+    rel = head - bh
+    lat = rel - np.outer(rel @ axis, axis)
+    far = np.linalg.norm(lat, axis=1)
+    edge = head[far > np.percentile(far, 85)]
+    p = edge.mean(0)
+    e = bpy.data.objects.new(name, None)
+    e.empty_display_type = 'PLAIN_AXES'
+    e.empty_display_size = 0.05
+    bpy.context.scene.collection.objects.link(e)
+    e.parent = arm
+    e.parent_type = 'BONE'
+    e.parent_bone = bone
+    b = arm.data.bones[bone]
+    e.matrix_parent_inverse = Matrix.Translation(Vector((0, -b.length, 0)))
+    e.matrix_world = Matrix.Translation(Vector(p.tolist()))
+    return e, p, len(edge)

@@ -8,6 +8,7 @@
  "body_shape_keys": [
   "helmet_on"
  ],
+ "binding_note": "every piece, sockets included, is a SKINNED mesh on the same 24 bones; the scene binds all of them to the body's Skeleton3D",
  "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
  "layer_order": [
   "body",
@@ -41,27 +42,11 @@
    "mode": "bone",
    "bones": [
     "RightForeArm",
-    "LeftForeArm",
-    "LeftForeArm",
-    "RightForeArm",
-    "LeftForeArm",
-    "LeftForeArm",
-    "LeftForeArm",
-    "RightForeArm",
-    "LeftForeArm",
     "LeftForeArm"
    ],
    "objects": [
     "bracers_00",
-    "bracers_01",
-    "bracers_02",
-    "bracers_03",
-    "bracers_04",
-    "bracers_05",
-    "bracers_06",
-    "bracers_07",
-    "bracers_08",
-    "bracers_09"
+    "bracers_01"
    ],
    "faces": 12000,
    "offset_m": 0.002,
@@ -104,7 +89,13 @@
    ],
    "faces": 9000,
    "offset_m": 0.0,
-   "glb": "axe.glb"
+   "glb": "axe.glb",
+   "edge_marker": "axe_edge",
+   "edge_world": [
+    -0.5975,
+    -0.2875,
+    1.5142
+   ]
   },
   {
    "piece": "shield",

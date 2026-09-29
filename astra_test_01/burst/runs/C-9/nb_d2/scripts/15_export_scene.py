@@ -48,8 +48,18 @@ print("body is %.4f m; pieces were built against %.2f m -> scaling each by "
       "x%.5f" % (BH_NOW, PIECE_REF_H, PSCALE))
 made_all, manifest = [], []
 SPECS = dict(axe=dict(axis_world=(0, 0, 1), face_world=(0, -1, 0)),
-             shield=dict(axis_world=(1, 0.25, 0), face_world=(0, -1, 0),
-                         offset_world=(0.09, 0, -0.13), anchor="normal"))
+             # Chosen by sweep against the posed body mesh across all four
+             # clips (scripts/16_shield_clear.py). Offset is outward 0.20,
+             # forward 0.18, down 0.13 in the forearm's rest frame; the 0.70
+             # tilt lays the disc's normal back so its rim sweeps past him
+             # rather than through him. Idle 110 -> 3 vertices inside, attack
+             # 196 -> 111, walk 285 -> 264. The RUN does not respond: see the
+             # report -- his elbow is 0.37-0.47 m from the spine and this
+             # shield's radius is 0.41 m, so the rim reaches the torso whatever
+             # the bind does, and the run's arm swing rolls the disc through
+             # him. That needs a smaller shield or a different run clip.
+             shield=dict(axis_world=(1, 0.70, 0), face_world=(0, -1, 0),
+                         offset_world=(0.20, -0.18, -0.13), anchor="normal"))
 for item in [x for x in SPEC.split(",") if x]:
     parts = item.split(":")
     nm, mode = parts[0], parts[1]
@@ -85,6 +95,12 @@ for item in [x for x in SPEC.split(",") if x]:
         made = G.bone_bind(pc, arm, bones, split)
         for o, _ in made:
             G.align_space(o, body[0])
+    if nm == "axe":
+        e, ep, nedge = G.axe_edge_marker(pc, arm, bones[0])
+        print("   axe_edge empty at %s from %d edge vertices"
+              % (np.round(ep, 4).tolist(), nedge))
+        manifest_extra = dict(edge_marker="axe_edge",
+                              edge_world=[round(float(v), 4) for v in ep])
     if nm == "helmet":
         mv, ca, kk = G.helmet_on_key(body[0], made[0][0], arm)
         kk.value = 0.0                    # OFF by default; the consumer sets it
@@ -92,9 +108,12 @@ for item in [x for x in SPEC.split(",") if x]:
     for i, (o, b) in enumerate(made):
         o.name = "%s_%02d" % (nm, i) if len(made) > 1 else nm
     made_all.append((nm, mode, made))
-    manifest.append(dict(piece=nm, mode=mode, bones=[b for _, b in made],
-                         objects=[o.name for o, _ in made], faces=faces,
-                         offset_m=offs, glb="%s.glb" % nm))
+    entry = dict(piece=nm, mode=mode, bones=[b for _, b in made],
+                 objects=[o.name for o, _ in made], faces=faces,
+                 offset_m=offs, glb="%s.glb" % nm)
+    if nm == "axe":
+        entry.update(manifest_extra)
+    manifest.append(entry)
     print("  + %-8s %-6s %d object(s)" % (nm, mode, len(made)))
 
 # scale the whole assembly to the declared height, measured on the BODY
@@ -111,9 +130,9 @@ bpy.context.view_layer.update()
 print("scaled x%.5f: body height %.4f -> %.4f m" % (s, H0, H0 * s))
 
 
-def export(objs, path, anim=False):
+def export(objs, path, anim=False, extra=()):
     bpy.ops.object.select_all(action='DESELECT')
-    for o in objs:
+    for o in list(objs) + list(extra):
         o.select_set(True)
     arm.select_set(True)
     bpy.context.view_layer.objects.active = arm
@@ -125,13 +144,18 @@ def export(objs, path, anim=False):
 
 mb = export(body, os.path.join(OUT, "nb-body.glb"), anim=True)
 print("wrote nb-body.glb (%.2f MB) with the helmet_on morph and the clips" % mb)
+edge_empty = bpy.data.objects.get("axe_edge")
 for nm, mode, made in made_all:
     p = os.path.join(OUT, "%s.glb" % nm)
-    sz = export([o for o, _ in made], p)
+    sz = export([o for o, _ in made], p,
+                extra=[edge_empty] if (nm == "axe" and edge_empty) else ())
     print("wrote %-12s %.2f MB" % (os.path.basename(p), sz))
 json.dump(dict(body="nb-body.glb", height_m=HGT, scale_applied=round(float(s), 6),
                facing="-Y", his_right="-X", up="+Z",
                body_shape_keys=["helmet_on"],
+               binding_note=("every piece, sockets included, is a SKINNED mesh "
+                             "on the same 24 bones; the scene binds all of them "
+                             "to the body's Skeleton3D"),
                helmet_on="set to 1 when the helmet is equipped, 0 when removed",
                layer_order=["body", "byrnie", "mantle", "bracers", "helmet",
                             "shield", "axe"],

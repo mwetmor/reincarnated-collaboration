@@ -22,6 +22,8 @@ SPEC = a[a.index("--gear") + 1] if "--gear" in a else ""
 EL = float(a[a.index("--elev") + 1]) if "--elev" in a else 52.95
 RES = int(a[a.index("--res") + 1]) if "--res" in a else 300
 POKE = "--poke" in a or "--pokeonly" in a
+ACTION = a[a.index("--action") + 1] if "--action" in a else None
+ONLY = int(a[a.index("--only-frame") + 1]) if "--only-frame" in a else None
 ROOT = os.path.dirname(HERE)
 
 
@@ -90,8 +92,8 @@ for item in [s for s in SPEC.split(",") if s]:
         SPECS = dict(
             axe=dict(axis_world=(0, 0, 1), face_world=(0, -1, 0),
                      offset_world=(0, 0, 0), anchor="head"),
-            shield=dict(axis_world=(1, 0.25, 0), face_world=(0, -1, 0),
-                        offset_world=(0.09, 0, -0.13), anchor="normal"))
+            shield=dict(axis_world=(1, 0.70, 0), face_world=(0, -1, 0),
+                        offset_world=(0.20, -0.18, -0.13), anchor="normal"))
         sp = SPECS.get(nm, dict(axis_world=(0, 0, 1), face_world=(0, -1, 0),
                                 offset_world=(0, 0, 0), anchor="head"))
         info = G.socket_weapon2(pc, arm, bones[0], ln, gr, **sp)
@@ -123,9 +125,15 @@ for item in [s for s in SPEC.split(",") if s]:
         fitinfo[-1]["helmet_on_moved"] = mv
         fitinfo[-1]["helmet_on_candidates"] = ca
 
+if ACTION:
+    acts = {x.name: x for x in bpy.data.actions}
+    assert ACTION in acts, "no action %s in %s" % (ACTION, list(acts))
+    arm.animation_data.action = acts[ACTION]
 act = arm.animation_data.action if arm.animation_data else None
 f0, f1 = (int(v) for v in act.frame_range) if act else (1, 2)
 nfr = max(1, f1 - f0)
+if ONLY is not None:
+    f0, nfr = f0 + ONLY, 1
 V = []
 for o in body:
     co = np.empty(len(o.data.vertices) * 3); o.data.vertices.foreach_get("co", co)

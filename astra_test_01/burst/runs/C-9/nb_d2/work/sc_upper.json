@@ -1,0 +1,91 @@
+{
+ "offset": {
+  "outward": 0.22,
+  "forward": 0.12,
+  "up": -0.22,
+  "tilt": 0.25
+ },
+ "radius": 0.25,
+ "length": 0.8,
+ "socket": {
+  "scale": 0.79934,
+  "long_axis": "X",
+  "span_scaled_m": [
+   0.1508,
+   0.7994,
+   0.8
+  ],
+  "bone_head": [
+   -0.0102,
+   -0.312,
+   1.2142
+  ],
+  "head_end": "min",
+  "bone": "LeftArm",
+  "face_local": [
+   0.0,
+   0.894,
+   0.448
+  ],
+  "axis_world": [
+   -0.97,
+   0.243,
+   0.0
+  ],
+  "face_world": [
+   -0.243,
+   -0.97,
+   0.0
+  ]
+ },
+ "clips": {
+  "idle": {
+   "frames": 96,
+   "verts": 7455,
+   "sampled": 1864,
+   "worst_frame": 58,
+   "mesh_inside": 151,
+   "mesh_depth_m": 0.0476,
+   "capsule_inside": 129,
+   "capsule_depth_m": 0.03,
+   "capsule_worst_any_frame": 132,
+   "capsule_worst_depth_m": 0.0316
+  },
+  "walk": {
+   "frames": 25,
+   "verts": 7455,
+   "sampled": 1864,
+   "worst_frame": 10,
+   "mesh_inside": 303,
+   "mesh_depth_m": 0.0766,
+   "capsule_inside": 619,
+   "capsule_depth_m": 0.0631,
+   "capsule_worst_any_frame": 1482,
+   "capsule_worst_depth_m": 0.1861
+  },
+  "run": {
+   "frames": 16,
+   "verts": 7455,
+   "sampled": 1864,
+   "worst_frame": 6,
+   "mesh_inside": 426,
+   "mesh_depth_m": 0.1044,
+   "capsule_inside": 1371,
+   "capsule_depth_m": 0.1083,
+   "capsule_worst_any_frame": 1746,
+   "capsule_worst_depth_m": 0.2362
+  },
+  "attack": {
+   "frames": 36,
+   "verts": 7455,
+   "sampled": 1864,
+   "worst_frame": 12,
+   "mesh_inside": 351,
+   "mesh_depth_m": 0.0851,
+   "capsule_inside": 1445,
+   "capsule_depth_m": 0.2235,
+   "capsule_worst_any_frame": 1923,
+   "capsule_worst_depth_m": 0.2235
+  }
+ }
+}
