@@ -19,6 +19,14 @@
 #         so it warns rather than fails -- but it is how a re-grounded clip
 #         announces itself.
 #   WARN  net root HORIZONTAL travel over 0.05 m in a non-locomotion clip.
+#   FAIL  a clip whose root NEVER comes within 0.25 m of its rest position,
+#         horizontally. Added 2026-09-29 (attack_lab): the travel rule asks whether
+#         a clip MOVES, first frame to last, and a de-rooted clip does not move -- it
+#         just stands somewhere else. idle_armed stood 1.10 m off, run_armed 1.83 m,
+#         attack_chop 0.49 m, and every blend in or out of them dragged the figure
+#         across the ground by the difference. A lunge STARTS at the rest position, so
+#         "never within" separates the two: the three displaced clips never come nearer
+#         than 0.367 m, and every other clip passes within 0.069 m.
 #         Added after the scene found idle_armed drifting 0.8994 m over its own
 #         loop and attack_chop 0.7519 m -- root motion in clips nobody thought
 #         had any, in a file this lint had already passed. It checked root
@@ -36,6 +44,7 @@ import numpy as np
 
 SCALE_TOL, ROOT_TOL = 1e-3, 0.05
 ROOT_TRAVEL_TOL = 0.05          # metres of horizontal drift allowed off-locomotion
+ROOT_OFFSET_TOL = 0.25          # a clip whose root never comes this near its rest spot
 CT = {5120: ('b', 1), 5121: ('B', 1), 5122: ('h', 2), 5123: ('H', 2),
       5125: ('I', 4), 5126: ('f', 4)}
 NC = {'SCALAR': 1, 'VEC2': 2, 'VEC3': 3, 'VEC4': 4, 'MAT4': 16}
@@ -137,6 +146,18 @@ def lint(path):
                         "length (%.1f units) and is not locomotion -- a clip that "
                         "walks away from where it started"
                         % (path.split('/')[-1], cn, net * MPU, net))
+                # WHERE the clip stands, not only whether it moves
+                hz = np.hypot(vals[:, 0] - rest[nidx][0], vals[:, 2] - rest[nidx][2]) * MPU
+                rec['root_offset_m'] = dict(closest=round(float(hz.min()), 4),
+                                            mean=round(float(hz.mean()), 4),
+                                            first=round(float(hz[0]), 4))
+                if float(hz.min()) > ROOT_OFFSET_TOL:
+                    fails.append(
+                        "%s: clip '%s' stands %.3f m from the rest position and never "
+                        "comes nearer than %.3f m -- a consumer stands the body at the "
+                        "origin, so this clip is drawn away from its own capsule and every "
+                        "blend in or out of it drags the figure across the ground"
+                        % (path.split('/')[-1], cn, float(hz.mean()), float(hz.min())))
                 rec['root'] = name(nidx)
                 rec['root_height'] = dict(
                     first=round(float(vals[0][UP]), 4),

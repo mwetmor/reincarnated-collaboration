@@ -1,0 +1,1311 @@
+{
+ "body": "nb-body.glb",
+ "height_m": 1.85,
+ "scale_applied": 1.0,
+ "facing": "-Y",
+ "his_right": "-X",
+ "up": "+Z",
+ "body_shape_keys": [
+  "grip_L",
+  "grip_R",
+  "helmet_on"
+ ],
+ "binding_note": "every piece, sockets included, is a SKINNED mesh on the same 24 bones; the scene binds all of them to the body's Skeleton3D",
+ "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
+ "layer_order": [
+  "body",
+  "byrnie",
+  "mantle",
+  "bracers",
+  "helmet",
+  "shield",
+  "axe"
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.31579
+ },
+ "pieces": [
+  {
+   "piece": "helmet",
+   "mode": "bone",
+   "bones": [
+    "Head"
+   ],
+   "objects": [
+    "helmet"
+   ],
+   "faces": 12000,
+   "offset_m": 0.0,
+   "glb": "helmet.glb"
+  },
+  {
+   "piece": "bracers",
+   "mode": "bone",
+   "bones": [
+    "RightForeArm",
+    "LeftForeArm"
+   ],
+   "objects": [
+    "bracers_00",
+    "bracers_01"
+   ],
+   "faces": 12000,
+   "offset_m": 0.002,
+   "glb": "bracers.glb"
+  },
+  {
+   "piece": "byrnie",
+   "mode": "skin",
+   "bones": [
+    "skinned"
+   ],
+   "objects": [
+    "byrnie"
+   ],
+   "faces": 26000,
+   "offset_m": 0.005,
+   "glb": "byrnie.glb"
+  },
+  {
+   "piece": "mantle",
+   "mode": "skin",
+   "bones": [
+    "skinned"
+   ],
+   "objects": [
+    "mantle"
+   ],
+   "faces": 24000,
+   "offset_m": 0.008,
+   "glb": "mantle.glb"
+  },
+  {
+   "piece": "axe",
+   "mode": "socket",
+   "bones": [
+    "RightHand"
+   ],
+   "objects": [
+    "axe"
+   ],
+   "faces": 9000,
+   "offset_m": 0.0,
+   "glb": "axe.glb",
+   "edge_marker": "axe_edge",
+   "edge_world": [
+    -0.4595,
+    -0.3341,
+    1.5835
+   ]
+  },
+  {
+   "piece": "shield",
+   "mode": "socket",
+   "bones": [
+    "LeftHand"
+   ],
+   "objects": [
+    "shield"
+   ],
+   "faces": 9000,
+   "offset_m": 0.0,
+   "glb": "shield.glb"
+  }
+ ],
+ "shape_key_rules": {
+  "helmet_on": "1 when the helmet is equipped, 0 when removed",
+  "grip_R": "1 while the axe is equipped, 0 when not -- closes the right hand round the haft",
+  "grip_L": "1 while the shield is equipped, 0 when not -- closes the left hand round the grip bar"
+ },
+ "grip": {
+  "note": "the rig has 24 bones and NO FINGER BONES, so the hands cannot be posed; Meshy ships them open and flat from the A-pose. The weapon BINDING was already rigid -- axe 100% RightHand, shield 100% LeftHand, zero vertices with more than one group, minimum weight 1.0000, verified by reading the exported GLBs back. The open hand was the tell, not the bind.",
+  "haft_to_right_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0044
+   },
+   "closed": {
+    "min": 0.0,
+    "median": 0.0027
+   }
+  },
+  "grip_bar_to_left_fist_m": {
+   "open_hand": {
+    "min": 0.0,
+    "median": 0.0923
+   },
+   "closed_before_nudge": {
+    "min": 0.0152,
+    "median": 0.084
+   },
+   "closed_after_nudge": {
+    "min": 0.0013,
+    "median": 0.0725
+   }
+  },
+  "axe_shaft_recentred_m": 0.048,
+  "shield_nudge_m": 0.0151
+ },
+ "silhouette_by_facing": {
+  "instrument": "ortho at 52.95 deg, ONE camera scale for every facing, 512 px",
+  "finding": "height is near-flat (the scene measured 154-157 px head-to-feet); the difference Matt sees is WIDTH and therefore AREA",
+  "bare_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 78
+   },
+   "area_px": {
+    "N_S": 24920,
+    "E_W": 16380
+   },
+   "N_S_area_larger_pct": 52
+  },
+  "kit_rest": {
+   "width_px": {
+    "N_S": 196,
+    "E_W": 163
+   },
+   "area_px": {
+    "N_S": 31741,
+    "E_W": 26792
+   },
+   "N_S_area_larger_pct": 18
+  },
+  "bare_walk_pass": {
+   "N_S_area_larger_pct": 10
+  },
+  "kit_walk_pass": {
+   "N_S_area_larger_pct": 6
+  },
+  "cause": "a broad-shouldered figure presents his full shoulder span facing N or S and is edge-on facing E or W. The gear REDUCES the effect -- shield and mantle add bulk to the side views -- so bare is the worst case."
+ },
+ "clip_hygiene": {
+  "defect": "the idle clip carried a constant Hips SCALE of 1.176471 = 20/17 exactly -- a 1.70 m source retargeted to a 2.00 m target -- on a rig that is 1.85 m. Hips is the skeleton root, so the whole character was 17.6% bigger whenever he stood still. Present in Meshy's output and carried through T8 and D2 untouched; nb_t8/artifacts/T8-barbarian.glb carried the same defect and was patched the same way on 2026-09-29 (its own offset measured independently from its own feet: -0.17987 m, matching to five decimals); the exporter also neutralises it on the way past, so a rebuild from a fresh Meshy clip is clean too.",
+  "fix": {
+   "scale_track": "Hips scale set to 1.0 at every key in idle",
+   "reground": "idle root translation.y shifted -16.5286 glTF units (-0.17987 m), ONE constant offset derived from the feet, centred on the loop's min/max so the breathing survives",
+   "metres_per_gltf_unit": 0.01088235,
+   "method": "binary accessor patch; the 21 MB texture is never re-encoded"
+  },
+  "proof_size_is_now_equal": {
+   "instrument": "rigid bone spans -- a uniform scale moves them, no pose can. Silhouette height cannot do this job: at 52.95 deg a vertical metre projects to 0.6025 screen-metres and a FORE-AFT metre to 0.7981, so stride affects screen height more than stature does",
+   "before": {
+    "idle": [
+     0.09991,
+     0.25979,
+     0.34017
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.17647
+   },
+   "after": {
+    "idle": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "every_other_clip": [
+     0.08492,
+     0.22082,
+     0.28914
+    ],
+    "ratio": 1.0
+   },
+   "spans": [
+    "LeftShoulder-RightShoulder",
+    "Head-head_end",
+    "LeftArm-LeftForeArm"
+   ]
+  },
+  "grounding": {
+   "idle_feet_m": {
+    "before": [
+     0.1705,
+     0.1892
+    ],
+    "after": [
+     -0.0093,
+     0.0093
+    ]
+   },
+   "worst_frame_cm": 0.93,
+   "tolerance_cm": 1.0,
+   "walk_feet_m": [
+    -0.0218,
+    -0.0032
+   ],
+   "run_feet_m": [
+    -0.0397,
+    0.0709
+   ],
+   "note": "walk and run untouched; their renders are byte-identical"
+  },
+  "standing_height_m": {
+   "rest": 1.85,
+   "idle": [
+    1.7192,
+    1.7437
+   ],
+   "walk": [
+    1.792,
+    1.8623
+   ],
+   "run": [
+    1.7255,
+    1.8258
+   ],
+   "attack": [
+    1.516,
+    1.7711
+   ],
+   "note": "the residual idle-to-walk difference is posture: idle pelvis 0.905-0.942 m against walk 0.955-1.034 and rest 1.021. Bone spans are identical, so this is a relaxed stance, not a size change."
+  },
+  "lint": "scripts/21_lint_export.py -- runs inside 15_export_scene.py on every export",
+  "upstream_T8": {
+   "file": "nb_t8/artifacts/T8-barbarian.glb",
+   "patched": "2026-09-29",
+   "lint": "FAIL -> WARN (exit 0)",
+   "before_state_kept": "nb_t8/work/T8-barbarian-preclipfix.glb (not tracked in git)",
+   "bytes_changed": "309 of 15,550,436, all inside accessors 82 (idle/Hips.translation) and 85 (idle/Hips.scale); JSON chunk byte-identical",
+   "note": "the armature node scale here is 0.010882347822189331 against nb-body's 0.010882345028221607 -- different floats in the two files, which is why the patcher reads the factor from each file instead of reusing a constant"
+  }
+ },
+ "screen_size_by_clip_S_52.95": {
+  "before_idle": {
+   "h": 323,
+   "w": 148,
+   "area": 28958
+  },
+  "before_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "before_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  },
+  "after_idle": {
+   "h": 275,
+   "w": 126,
+   "area": 21016
+  },
+  "after_walk": {
+   "h": 241,
+   "w": 199,
+   "area": 24596
+  },
+  "after_run": {
+   "h": 198,
+   "w": 168,
+   "area": 20578
+  }
+ },
+ "clips": [
+  "idle",
+  "walk",
+  "run",
+  "attack",
+  "walk_armed",
+  "run_armed"
+ ],
+ "arm_layers": [
+  "shield_carry_L"
+ ],
+ "armed_carry": {
+  "complaint": "Matt: the axe \"waffles back and forth awkwardly.. not the way someone should hold a weapon\", and \"the axe is better when idling.\"",
+  "cause": "the Meshy walk and run are UNARMED motion. A free hand counter-rotates against the forearm through the stride -- life on an empty hand, flop on a rigid 0.8 m axe. Nothing in those clips treats the left arm as holding a shield either.",
+  "fix": "new clips walk_armed / run_armed: the wrist joint slerped 95% toward the IDLE's mean carry angle, per frame, both arms. walk and run are left untouched for an unarmed barbarian.",
+  "why_not_a_layer": "shield_carry_L is a static two-frame pose, so it works as a layer. A wrist lock depends on where the forearm is on that frame, so it is per-frame data that a static pose layer cannot express at all.",
+  "alpha": 0.95,
+  "alpha_sweep_right_wrist": {
+   "0.00_before": {
+    "walk_rev": 5,
+    "walk_p95": 209.5,
+    "run_rev": 7,
+    "run_p95": 726.1
+   },
+   "0.60": {
+    "walk_rev": 3,
+    "walk_p95": 84.2,
+    "run_rev": 7,
+    "run_p95": 292.4
+   },
+   "0.75": {
+    "walk_rev": 1,
+    "walk_p95": 52.7,
+    "run_rev": 5,
+    "run_p95": 182.9
+   },
+   "0.85": {
+    "walk_rev": 0,
+    "walk_p95": 31.6,
+    "run_rev": 3,
+    "run_p95": 109.8
+   },
+   "0.95": {
+    "walk_rev": 0,
+    "walk_p95": 10.6,
+    "run_rev": 1,
+    "run_p95": 36.6
+   },
+   "1.00": {
+    "walk_rev": 0,
+    "walk_p95": 0.0,
+    "run_rev": 0,
+    "run_p95": 0.0,
+    "note": "a dead weld, no follow-through"
+   }
+  },
+  "measured": {
+   "instrument": "wrist rotation in the forearm's frame, deg/s p95 and direction reversals per cycle",
+   "idle_reference": {
+    "axe": [
+     71.17,
+     1
+    ],
+    "shield": [
+     59.16,
+     1
+    ]
+   },
+   "before": {
+    "walk": {
+     "axe": [
+      209.53,
+      5
+     ],
+     "shield": [
+      257.81,
+      3
+     ]
+    },
+    "run": {
+     "axe": [
+      726.15,
+      7
+     ],
+     "shield": [
+      482.85,
+      7
+     ]
+    }
+   },
+   "after": {
+    "walk_armed": {
+     "axe": [
+      10.59,
+      0
+     ],
+     "shield": [
+      12.98,
+      0
+     ]
+    },
+    "run_armed": {
+     "axe": [
+      36.58,
+      1
+     ],
+     "shield": [
+      24.3,
+      0
+     ]
+    }
+   }
+  },
+  "final": {
+   "per_clip_alpha": {
+    "idle_armed": 0.75,
+    "walk_armed_m": 0.45,
+    "run_armed_L": 0.45,
+    "run_armed_R": 0.6,
+    "run_armed_fwd": 0.6
+   },
+   "why_per_clip": "one alpha cannot serve all four: they start from different baselines. walk_armed is the awkward one -- its RATE is already inside the 40-70 band at alpha 0 and its THREE reversals are the defect, so any lock that fixes the reversals pushes the rate below the band. Reversals win; they are the complaint metric.",
+   "sweep": {
+    "0.00": {
+     "idle_armed": {
+      "p95": 159.6,
+      "rev": 4
+     },
+     "walk_armed_m": {
+      "p95": 68.8,
+      "rev": 3
+     },
+     "run_armed_L": {
+      "p95": 122.8,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 170.0,
+      "rev": 1
+     }
+    },
+    "0.30": {
+     "idle_armed": {
+      "p95": 115.4,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 48.2,
+      "rev": 2
+     },
+     "run_armed_L": {
+      "p95": 86.1,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 119.2,
+      "rev": 1
+     }
+    },
+    "0.45": {
+     "idle_armed": {
+      "p95": 91.8,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 37.9,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 67.7,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 93.7,
+      "rev": 1
+     }
+    },
+    "0.60": {
+     "idle_armed": {
+      "p95": 67.4,
+      "rev": 2
+     },
+     "walk_armed_m": {
+      "p95": 27.6,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 49.2,
+      "rev": 1
+     },
+     "run_armed_R": {
+      "p95": 68.1,
+      "rev": 1
+     }
+    },
+    "0.75": {
+     "idle_armed": {
+      "p95": 42.4,
+      "rev": 1
+     },
+     "walk_armed_m": {
+      "p95": 17.3,
+      "rev": 0
+     },
+     "run_armed_L": {
+      "p95": 30.8,
+      "rev": 0
+     },
+     "run_armed_R": {
+      "p95": 42.6,
+      "rev": 1
+     }
+    }
+   },
+   "idle_reference": [
+    71.2,
+    1
+   ],
+   "result": {
+    "idle_armed": [
+     42.4,
+     1
+    ],
+    "walk_armed": [
+     37.9,
+     0
+    ],
+    "run_armed_L": [
+     67.7,
+     1
+    ],
+    "run_armed_R": [
+     68.1,
+     1
+    ]
+   },
+   "previous": "alpha 0.95 everywhere, which put walk_armed at 3.4 deg/s -- a weld"
+  }
+ },
+ "shield_grip_defect": {
+  "status": "MEASURED, NOT YET SHIPPED -- needs the guard layer to pay for the torso cost",
+  "finding": "the fist sits 0.4599 m from the boss = 109.4% of the shield radius (0.4204 m). His hand is OFF THE DISC, past the rim. There is no grip, exactly as Matt said.",
+  "how_it_happened": "the D2 socket sweep optimised ONE objective -- shield vertices inside the torso -- and a placement holding the disc at arm's length with its RIM near the hand scores perfectly on it. Nothing asked whether the hand was on the grip. Then R-C9-71 measured \"grip bar to left fist min 0.0013 m\" and called the grip closed: a TRUE number for the nearest shield surface, which was the rim. A nearest-surface distance cannot say WHICH surface.",
+  "correction": "the manifest's earlier grip_bar_to_left_fist figures describe the RIM, not a grip",
+  "centre_grip_fix": {
+   "shift_m": 0.4656,
+   "standoff_m": 0.0973,
+   "result": "fist at 0.0% of radius in every pose (the shield is 100% bound to LeftHand, so a rest-frame offset is preserved by the skinning)",
+   "torso_cost": {
+    "rest": "0 -> 14 of 1829 sampled",
+    "carry": "0 -> 49 of 1829 sampled",
+    "note": "for scale, D2's pre-layer state was 313 (walk) and 389 (run) inside"
+   }
+  }
+ },
+ "clip_selection": {
+  "rule": "ARMED is the default for this character: he ships with an axe and a shield. The unarmed clips stay because the body has no gear welded to it and an unarmed barbarian is a real state, not a fallback.",
+  "armed": {
+   "idle": "idle_armed",
+   "walk": "walk_armed",
+   "run": "run_armed",
+   "attack": [
+    "attack",
+    "attack_chop"
+   ],
+   "block": "block",
+   "left_arm_layer": "shield_guard_L",
+   "morphs": "grip_R while the axe is equipped, grip_L while the shield is",
+   "run_diagonals": [
+    "run_armed_L",
+    "run_armed_R"
+   ],
+   "shield_bash": "shield_bash",
+   "strafe_left": "strafe_L_armed",
+   "strafe_right": "strafe_R_armed"
+  },
+  "unarmed": {
+   "idle": "idle",
+   "walk": "walk",
+   "run": "run",
+   "attack": "attack",
+   "left_arm_layer": null,
+   "morphs": null
+  },
+  "superseded": {
+   "shield_carry_L": "DO NOT USE. It was authored for the old shield placement. With the shield re-centred on the fist it puts 128 of 1829 sampled vertices inside his torso, against 12 for shield_guard_L. Kept only so a scene already referencing the name does not break; switch to shield_guard_L."
+  },
+  "available": [
+   "attack",
+   "attack_chop",
+   "block",
+   "idle",
+   "idle_armed",
+   "run",
+   "run_armed",
+   "run_armed_L",
+   "run_armed_R",
+   "run_armed_diagblend_REJECTED",
+   "run_armed_locked",
+   "shield_bash",
+   "shield_carry_L",
+   "shield_guard_L",
+   "strafe_L_armed",
+   "strafe_R_armed",
+   "walk",
+   "walk_armed",
+   "walk_armed_unarmedsrc"
+  ],
+  "rejected": {
+   "run_armed_diagblend_REJECTED": "the 50/50 blend of the two diagonals. Body yaw -32.40 deg: still angled. Both source clips lean the SAME way (-38.79 and -14.91), so their mean is the mean angle, not zero. Kept in the file only as evidence; do not use.",
+   "shield_carry_L": "see superseded above -- 128 of 1829 inside the torso",
+   "walk_armed_unarmedsrc": "the unarmed walk with the lock; walk_armed is Meshy armed motion and better",
+   "run_armed_locked": "the unarmed run with the wrist locked; superseded by the retargeted run, kept as a fallback"
+  }
+ },
+ "shield_centre_grip": {
+  "face_before_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "face_target_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "turn_deg": 0.0,
+  "face_after_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "residual_deg": 0.0,
+  "radius_m": 0.4204,
+  "thickness_m": 0.1546,
+  "fist_before_pct": 0.0,
+  "shift_m": 0.0,
+  "standoff_m": 0.0973,
+  "penetration": {
+   "rest": {
+    "inside_before": 17,
+    "inside_after": 17,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "carry": {
+    "inside_before": 128,
+    "inside_after": 128,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "guard": {
+    "inside_before": 12,
+    "inside_after": 12,
+    "sampled": 1829,
+    "fist_pct_radius": 0.1
+   }
+  },
+  "guard_layer": {
+   "clip": "shield_guard_L",
+   "source": "Meshy 138 Block1, left-arm chain at 0.70 weight",
+   "chosen_by": "sweep, work/guard_sweep.json",
+   "sweep": {
+    "0.00": {
+     "inside": 17,
+     "boss_above_sternum_m": -0.3235,
+     "boss_fwd_m": 0.1303,
+     "boss_below_head_m": 0.7976,
+     "visible_m2": {
+      "S": 0.0568,
+      "SE": 0.2977,
+      "E": 0.4215
+     }
+    },
+    "0.50": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.0924,
+     "boss_fwd_m": 0.572,
+     "boss_below_head_m": 0.3817,
+     "visible_m2": {
+      "S": 0.1754,
+      "SE": 0.0747,
+      "E": 0.2898
+     }
+    },
+    "0.60": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.2133,
+     "boss_fwd_m": 0.5883,
+     "boss_below_head_m": 0.2608,
+     "visible_m2": {
+      "S": 0.2437,
+      "SE": 0.0015,
+      "E": 0.2247
+     }
+    },
+    "0.70": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.331,
+     "boss_fwd_m": 0.5763,
+     "boss_below_head_m": 0.1431,
+     "visible_m2": {
+      "S": 0.3092,
+      "SE": 0.0722,
+      "E": 0.1519
+     }
+    },
+    "0.80": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.4386,
+     "boss_fwd_m": 0.538,
+     "boss_below_head_m": 0.0355,
+     "visible_m2": {
+      "S": 0.3667,
+      "SE": 0.1412,
+      "E": 0.0755
+     }
+    },
+    "1.00": {
+     "inside": 12,
+     "boss_above_sternum_m": 0.6001,
+     "boss_fwd_m": 0.399,
+     "boss_below_head_m": -0.126,
+     "visible_m2": {
+      "S": 0.438,
+      "SE": 0.2447,
+      "E": 0.0684
+     }
+    }
+   },
+   "why_070": "boss +0.331 m above the sternum and +0.576 m in front, still 0.143 m BELOW the head so the full block at 1.00 stays visibly different. 0.309 m2 of face visible from the south = 56% of the disc, against 0.057 m2 (10%) for the old carry-derived guard. Penetration 12 of 1829, unchanged.",
+   "why_not_060": "it sits nicely on every other measure and from the SOUTH-EAST the disc turns exactly edge-on: 0.002 m2. It vanishes.",
+   "viewing_note": "at 52.95 degrees the camera is high, so a shield held 0.58 m in FRONT of the chest projects BELOW and BESIDE the torso rather than overlapping it. That is projection, not placement -- the numbers say it is in front. Worth a look before calling it done."
+  }
+ },
+ "clip_hygiene_on_merge": {
+  "stripped": {}
+ },
+ "clip_sources": {
+  "meshy_library_credits_spent": 33,
+  "authorised": 40,
+  "fetched": {
+   "idle_armed": "85 Axe Stance",
+   "(unused)": "335 Axe Breathe and Look Around",
+   "walk_armed": "21 Walk Fight Forward",
+   "run_armed_L": "9 ForwardLeft Run Fight",
+   "run_armed_R": "10 ForwardRight Run Fight",
+   "shield_guard_L source": "580 Sword and Shield Alert Turn Left",
+   "shield_bash": "220 Shield Push Left",
+   "block": "138 Block1",
+   "(rejected)": "141 Block4 and 145 Block9 -- sword parries, the right hand leads",
+   "attack_chop": "237 Charged Axe Chop"
+  },
+  "lint_on_every_fetch": "11 of 11 clean of joint scale tracks: 5 PASS, 6 WARN, 0 FAIL",
+  "lint_note": "the 1.176471 Hips scale was specific to Meshy's Idle action; none of these eleven repeat it. The check still ran on all eleven.",
+  "synty": "OUT per Matt 2026-09-29 -- nothing from those packs was used"
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 13
+ },
+ "gaps": {
+  "straight_armed_run": {
+   "status": "OPEN",
+   "blend_attempt": "rejected, body yaw -32.40 deg",
+   "text_to_motion": {
+    "spent_credits": 10,
+    "prompt": "running forward holding an axe in the right hand and a round shield on the left arm",
+    "duration_s": 2.0,
+    "returned": "SMPL-H FBX, 52 bones, 60 frames -- generic motion, NOT a clip on his rig",
+    "file": "anims/t2m_run_armed.fbx",
+    "remaining": "a retarget SMPL-H -> the 24-bone Meshy rig. Role map is 1:1 for 20 bones (Pelvis->Hips, Spine1/2/3->Spine/Spine01/Spine02, L_Collar->LeftShoulder, L_Shoulder->LeftArm, L_Elbow->LeftForeArm, L_Wrist->LeftHand, L_Hip/Knee/Ankle/Foot->LeftUpLeg/Leg/Foot/ToeBase, and mirrored); the 30 finger bones drop to grip_R/grip_L."
+   },
+   "shipped_meanwhile": "run_armed = the unarmed run with the wrist locked. It runs straight."
+  },
+  "armed_strafe": {
+   "status": "OPEN",
+   "note": "nothing in the library; text-to-motion is the route"
+  }
+ },
+ "credits": {
+  "total": 63,
+  "authorised": 70,
+  "detail": "33 library + 10 run + 10 strafe_L + 10 strafe_R"
+ },
+ "retargeter": {
+  "script": "scripts/41_retarget_smplh.py",
+  "purpose": "SMPL-H text-to-motion -> the 24-bone Meshy rig. The fully generated pipeline: any action the library lacks comes from text.",
+  "bones_mapped": 22,
+  "of_total": 24,
+  "unmapped": [
+   "head_end",
+   "headfront"
+  ],
+  "transport": "P_dst(f) = [ P_src(f) . R_src^-1 ] . R_dst -- each bone in its own rest frame",
+  "rest_alignment_error_deg": 0.0,
+  "rest_pose_difference": {
+   "source_arm_chain_z": [
+    0.2251,
+    0.2534
+   ],
+   "dest_arm_chain_z": [
+    1.4624,
+    0.9709
+   ],
+   "note": "the source rests in a T-pose (arm chain horizontal, 0.028 m drop); his rig rests in an A-pose (0.49 m drop). The rest-frame transport is what makes them interchangeable."
+  },
+  "root_scale": {
+   "source_leg_m": 0.7795,
+   "dest_leg_m": 0.8125,
+   "factor": 1.0423,
+   "why": "leg length, not height: stride and hip height both follow the legs, and height includes a head and neck that have nothing to do with how far a step travels"
+  },
+  "map": {
+   "Pelvis": "Hips",
+   "Spine1": "Spine02",
+   "Spine2": "Spine01",
+   "Spine3": "Spine",
+   "Neck": "neck",
+   "Head": "Head",
+   "L_Collar": "LeftShoulder",
+   "L_Shoulder": "LeftArm",
+   "L_Elbow": "LeftForeArm",
+   "L_Wrist": "LeftHand",
+   "R_Collar": "RightShoulder",
+   "R_Shoulder": "RightArm",
+   "R_Elbow": "RightForeArm",
+   "R_Wrist": "RightHand",
+   "L_Hip": "LeftUpLeg",
+   "L_Knee": "LeftLeg",
+   "L_Ankle": "LeftFoot",
+   "L_Foot": "LeftToeBase",
+   "R_Hip": "RightUpLeg",
+   "R_Knee": "RightLeg",
+   "R_Ankle": "RightFoot",
+   "R_Foot": "RightToeBase"
+  },
+  "checks": {
+   "verify_map": "every parent-child edge in the source must be an ancestor relation between the mapped destination bones",
+   "why": "the rest-alignment error CANNOT catch a bad map -- it recomputes both sides from whatever pair it is handed, so a perfect transport onto the wrong bone scores 0.000000 degrees. It did, for an inverted spine map."
+  },
+  "known_gap": "the in-script grounding does not survive the glTF export; both retargeted clips came back ~0.9 m underground and were fixed by scripts/43_reground_all.py afterwards. Run it after every retarget until this is traced."
+ },
+ "retargeted_clips": {
+  "run_armed": {
+   "travel_m": 8.6617,
+   "seconds": 2.0,
+   "speed_m_s": 4.33,
+   "foot_slide_mean_m": 0.0,
+   "foot_slide_max_m": 0.0,
+   "body_yaw_deg": 6.44,
+   "travel_dir_deg": 15.64,
+   "heading_offset_deg": 9.21,
+   "wrist": [
+    27.6,
+    0
+   ],
+   "foot_range_m": [
+    -0.0,
+    0.1044
+   ],
+   "verdict": "SHIPPED. 9.21 deg heading offset is the number to argue with; the rejected diagonal blend was 32.4."
+  },
+  "strafe_L_armed": {
+   "travel_m": 1.8591,
+   "seconds": 2.0,
+   "speed_m_s": 0.93,
+   "foot_slide_mean_m": 0.0,
+   "foot_slide_max_m": 0.0,
+   "body_yaw_deg": 0.34,
+   "travel_dir_deg": 104.37,
+   "heading_offset_deg": 104.03,
+   "wrist": [
+    40.3,
+    0
+   ],
+   "foot_range_m": [
+    0.0,
+    0.1039
+   ],
+   "verdict": "SHIPPED. 104.03 deg offset from facing is what a LEFT STRAFE should be (~90): he travels sideways while facing forward."
+  }
+ },
+ "grounding_fix": {
+  "rule": "the DEEPEST foot goes on the floor (mode=min), not the midpoint of the range",
+  "why": "the midpoint rule was chosen against ONE idle spanning 1.87 cm. Applied across the set it put attack_chop -- a leap, feet spanning -0.057 to +0.749 m -- 0.40 m UNDERGROUND: it took a correct clip and broke it.",
+  "idle_armed_defect": "found by the band rule on a file already shipped: root height 44.9-61.7 against 83-122 for every other clip, about 0.35 m low. Missed because clip hygiene only re-grounded clips whose SCALE was stripped, and Axe Stance has no scale track.",
+  "applied": {
+   "attack": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     0.0,
+     0.0242
+    ]
+   },
+   "attack_chop": {
+    "dz": 5e-06,
+    "basis_delta": [
+     4.1e-05,
+     0.000455,
+     7.6e-05
+    ],
+    "keys": 555,
+    "before": {
+     "min": -0.0,
+     "max": 0.806
+    },
+    "after": {
+     "min": 0.0,
+     "max": 0.806,
+     "worst_cm": 80.6
+    }
+   },
+   "block": {
+    "dz": 4e-06,
+    "basis_delta": [
+     2.8e-05,
+     0.000318,
+     5.3e-05
+    ],
+    "keys": 255,
+    "before": {
+     "min": -0.0,
+     "max": 0.2266
+    },
+    "after": {
+     "min": 0.0,
+     "max": 0.2266,
+     "worst_cm": 22.66
+    }
+   },
+   "idle": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0093,
+     0.0093
+    ]
+   },
+   "idle_armed": {
+    "dz": 6e-06,
+    "basis_delta": [
+     4.8e-05,
+     0.000536,
+     8.9e-05
+    ],
+    "keys": 444,
+    "before": {
+     "min": -0.0,
+     "max": 0.5753
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.5753,
+     "worst_cm": 57.53
+    }
+   },
+   "run": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0397,
+     0.0709
+    ]
+   },
+   "run_armed": {
+    "dz": 5e-06,
+    "basis_delta": [
+     4.2e-05,
+     0.000473,
+     7.9e-05
+    ],
+    "keys": 180,
+    "before": {
+     "min": -0.0,
+     "max": 0.1044
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1044,
+     "worst_cm": 10.44
+    }
+   },
+   "run_armed_L": {
+    "dz": -2e-06,
+    "basis_delta": [
+     -1.3e-05,
+     -0.000148,
+     -2.5e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": 0.0,
+     "max": 0.4639
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.4639,
+     "worst_cm": 46.39
+    }
+   },
+   "run_armed_R": {
+    "dz": 3e-06,
+    "basis_delta": [
+     2.2e-05,
+     0.000251,
+     4.2e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": -0.0,
+     "max": 0.2059
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.2059,
+     "worst_cm": 20.59
+    }
+   },
+   "run_armed_diagblend_REJECTED": {
+    "dz": -1e-06,
+    "basis_delta": [
+     -5e-06,
+     -6e-05,
+     -1e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": 0.0,
+     "max": 0.1857
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1857,
+     "worst_cm": 18.57
+    }
+   },
+   "run_armed_locked": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0397,
+     0.0709
+    ]
+   },
+   "shield_bash": {
+    "dz": 8e-06,
+    "basis_delta": [
+     6.1e-05,
+     0.000684,
+     0.000114
+    ],
+    "keys": 177,
+    "before": {
+     "min": -0.0,
+     "max": 0.4756
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.4756,
+     "worst_cm": 47.56
+    }
+   },
+   "strafe_L_armed": {
+    "dz": 0.904324,
+    "basis_delta": [
+     7.321305,
+     81.65062,
+     13.608703
+    ],
+    "keys": 180,
+    "before": {
+     "min": -0.9043,
+     "max": -0.8005
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1039,
+     "worst_cm": 10.39
+    }
+   },
+   "walk": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0218,
+     -0.0032
+    ]
+   },
+   "walk_armed": {
+    "dz": 1e-06,
+    "basis_delta": [
+     1.2e-05,
+     0.000129,
+     2.2e-05
+    ],
+    "keys": 129,
+    "before": {
+     "min": -0.0,
+     "max": 0.116
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.116,
+     "worst_cm": 11.6
+    }
+   },
+   "walk_armed_unarmedsrc": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0218,
+     -0.0032
+    ]
+   },
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "isolated": []
+   }
+  }
+ },
+ "locomotion_in_place": {
+  "rule": "locomotion ships IN PLACE; speeds here. Measured from the SHIPPED GLB in seconds, not from frame counts.",
+  "measurement": "glTF sampler inputs are TIMES IN SECONDS, so duration is read from the file. The previous manifest said 0.667 s for a clip that is 0.8333 s: FPS was hard-coded 30 where Blender's scene is 24, and the duration was taken over KEYS where it spans INTERVALS. Two errors the same direction, 19% of speed.",
+  "run_armed": {
+   "seconds": 0.8333,
+   "keys": 21,
+   "intervals": 20,
+   "cycle_travel_m": 3.1626,
+   "speed_m_s": 3.795,
+   "note": "one gait cycle, closing key included so the declared duration IS the cycle period"
+  },
+  "strafe_L_armed": {
+   "seconds": 2.4583,
+   "keys": 60,
+   "net_speed_m_s": 0.756,
+   "stepping_speed_m_s": 0.844
+  },
+  "strafe_R_armed": {
+   "seconds": 2.4583,
+   "keys": 60,
+   "net_speed_m_s": 0.34,
+   "stepping_speed_m_s": 0.536
+  },
+  "walk_armed": {
+   "seconds": 1.75,
+   "keys": 43,
+   "speed_m_s": null,
+   "note": "in-place at source; the scene sets the walk speed"
+  },
+  "two_methods": "NET is displacement over the whole clip; STEPPING accumulates only over intervals with a foot down. They agree on strafe_L (0.756 / 0.844) and diverge on strafe_R (0.340 / 0.536) because strafe_R has stationary portions. USE STEPPING for a locomotion blend -- it is the speed while he is actually travelling. The scene measured 0.767 and 0.562 contact-filtered; the residual difference is the contact threshold.",
+  "asymmetry_warning": "the strafes are not mirrors and not the same speed"
+ },
+ "run_armed_trim": {
+  "numbers_live_in": "locomotion_in_place.run_armed -- duration, keys, cycle travel and speed. THIS BLOCK STATES NO NUMBERS ON PURPOSE.",
+  "why": "this block used to repeat the duration and speed and went stale: it still carried the pre-correction pair after the corrected one had been written into locomotion_in_place. The scene reads speeds from the manifest at load, so a second answer in the same file is a defect in the product, not a documentation slip. scripts/48_manifest_lint.py now fails on it. The stale values themselves are in the commit that removed them -- deliberately NOT quoted here, because a quoted number is indistinguishable from a live one to any check, and adding an exemption for \"historical\" numbers would be a hole wide enough to drive the original defect back through.",
+  "was": "several gait cycles, which broke the walk/run sync group that assumes one cycle per clip",
+  "now": "one gait cycle, contact onset to the next onset of the SAME foot, with the closing key included so the declared duration is the cycle period",
+  "method": "the contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed height -- a fixed one found NO contacts at all, because this run's feet span a range in which the fixed value sat mid-swing and was crossed four times a stride in each direction.",
+  "foot_slide": "zero. The scene measured 316 mm through a crossover on the multi-cycle version; a crossover is two cycles meeting, so one cycle has none.",
+  "supersedes": "run_armed_locked -- armed legs now, not unarmed legs with a wrist lock"
+ },
+ "root_motion": {
+  "derooted": [
+   "idle_armed",
+   "run_armed",
+   "strafe_L_armed",
+   "strafe_R_armed",
+   "walk_armed"
+  ],
+  "idle_armed_was": "0.8994 m of horizontal drift over its own loop -- a drifting idle is a defect",
+  "left_rooted": {
+   "attack_chop": "0.7519 m lunge, kept because the scene roots it"
+  },
+  "lint_rule": "WARN on net root horizontal travel over 0.05 m in any clip whose name is not locomotion. It reproduced the scene's numbers exactly (0.899 and 0.752 m) on a file this lint had already passed -- it checked root HEIGHT and never once looked sideways.",
+  "deroot_note": "de-rooting must happen in ARMATURE space. The first attempt zeroed matrix_basis.translation.x/y, which is the bone's own rotated rest basis, and the drift survived it untouched."
+ },
+ "deroot": {
+  "rule": "remove the FIRST-TO-LAST LINE only, keeping the oscillation",
+  "why": "pinning the hips to their frame-0 horizontal position took the net travel AND the sway: every armed clip came back at 0.000 m hip excursion against 0.072 and 0.078 for the untouched unarmed run and walk. That sway is the weight shifting foot to foot; without it he glides.",
+  "not_least_squares": "a least-squares line minimises total error but does not pass through the endpoints, so the residual ends somewhere other than where it started and idle_armed still tripped the drift rule. The endpoint line makes residual[0] == residual[-1] by construction: net travel exactly zero.",
+  "hip_sway_m": {
+   "run_armed": {
+    "before": 0.0,
+    "after": 0.137
+   },
+   "strafe_L_armed": {
+    "before": 0.0,
+    "after": 0.1838
+   },
+   "strafe_R_armed": {
+    "before": 0.0,
+    "after": 0.1772
+   },
+   "idle_armed": {
+    "before": 0.0,
+    "after": 0.5277
+   },
+   "walk_armed": {
+    "before": 0.0,
+    "after": 0.0818
+   }
+  },
+  "reference_untouched": {
+   "run": 0.0716,
+   "walk": 0.0783
+  },
+  "idle_armed_note": "0.528 m of sway is real -- Meshy's Axe Stance steps -- and its net travel is 0.0",
+  "net_travel_after": {
+   "attack": 0.0027,
+   "attack_chop": 0.7519,
+   "block": 0.0001,
+   "idle": 0.0004,
+   "idle_armed": 0.0,
+   "run": 0.0,
+   "run_armed": 0.0,
+   "run_armed_L": 0.0032,
+   "run_armed_R": 0.0061,
+   "run_armed_diagblend_REJECTED": 0.0213,
+   "run_armed_locked": 0.0,
+   "shield_bash": 0.0021,
+   "shield_carry_L": 0.0,
+   "shield_guard_L": 0.0,
+   "strafe_L_armed": 0.0,
+   "strafe_R_armed": 0.0,
+   "walk": 0.0082,
+   "walk_armed": 0.0,
+   "walk_armed_unarmedsrc": 0.0082
+  }
+ },
+ "manifest_lint": {
+  "script": "scripts/48_manifest_lint.py",
+  "runs": "python3 scripts/48_manifest_lint.py export/manifest.json export/nb-body.glb",
+  "checks": [
+   "every \"<n> s\" attributed to a clip, against the GLB sampler times",
+   "every \"<n> m/s\" attributed to a clip, against the single declared speed",
+   "the declared speed against the declared travel and duration"
+  ],
+  "attribution": "the clip a number belongs to is taken from the JSON path first, then the text; names shorter than 5 characters are not matched from text, because \"run\" and \"walk\" are words before they are clip names",
+  "limitation": "the speed check is INTERNAL. The clips ship in place, so there is no travel left in the GLB to verify a speed against -- it can only confirm the manifest states one speed rather than several."
+ },
+ "root_offset_fix": {
+  "defect": "three clips stood away from the rig origin, where every consumer stands the body: idle_armed by 1.10 m on average, run_armed by 1.83 m, attack_chop by 0.48 m at its first frame. A displaced clip is drawn away from its own capsule, and every blend into or out of it drags the whole figure across the ground by the difference -- out of idle_armed into the slash, a 1.32 m lurch. Found by the scene (attack_lab), Matt's glitch in the chop and attack.",
+  "cause": "45_deroot_trim.py removes drift with the first-to-last line and then ADDS BACK the clip's first-frame position (FIT[0]), so a clip is de-rooted about wherever it started. Meshy's Axe Stance starts 1.1 m off; run_armed was trimmed from the middle of a travelling take, 1.87 m along it; attack_chop is KEEP_ROOT and was never touched. The lint could not see it: its travel rule asks whether a clip MOVES, and a de-rooted clip does not move -- it stands elsewhere.",
+  "fix": "scripts/49_recentre.py: a constant horizontal shift on the Hips translation, as a BINARY ACCESSOR PATCH -- loops centred on their mean, one-shots on their first frame. A rigid shift changes no pose, so there is no Blender round-trip and nothing is resampled. 3 accessors, 2713 bytes changed, none outside them.",
+  "clips": {
+   "attack_chop": {
+    "closest_m": 0.3749,
+    "mean_m": 0.505,
+    "first_m": 0.4833,
+    "action": "recentred on its FIRST FRAME (one-shot)",
+    "shift_m": 0.4833,
+    "shift_units": [
+     4.7482,
+     0.0,
+     44.156
+    ],
+    "after": {
+     "closest_m": 0.0,
+     "mean_m": 0.4655,
+     "first_m": 0.0
+    },
+    "keys": 185
+   },
+   "idle_armed": {
+    "closest_m": 0.8255,
+    "mean_m": 1.0962,
+    "first_m": 1.1262,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.0942,
+    "shift_units": [
+     -84.4138,
+     0.0,
+     54.6328
+    ],
+    "after": {
+     "closest_m": 0.0207,
+     "mean_m": 0.1777,
+     "first_m": 0.04
+    },
+    "keys": 148
+   },
+   "run_armed": {
+    "closest_m": 1.7621,
+    "mean_m": 1.8298,
+    "first_m": 1.8723,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.8298,
+    "shift_units": [
+     58.3264,
+     0.0,
+     157.7019
+    ],
+    "after": {
+     "closest_m": 0.008,
+     "mean_m": 0.0379,
+     "first_m": 0.045
+    },
+    "keys": 21
+   }
+  },
+  "lint": "21_lint_export.py now FAILs a clip whose root never comes within 0.25 m of its rest position. On the unpatched file it fails exactly these three; after the patch, none, and the WARN set is identical before and after (13 = 13).",
+  "upstream": "45_deroot_trim.py should anchor at the rest position rather than at FIT[0], or a re-run will put the offset back. Not changed here: 49 runs after it and the lint now guards it."
+ }
+}
