@@ -1,0 +1,29 @@
+{
+ "clip": "attack",
+ "pos_tol": 0.01,
+ "blur_sigma": 3.0,
+ "erode_px": 2,
+ "render_floor": "the render scores ~1.9 body / ~2.0 head; that is the instrument's floor, not a drift measurement",
+ "note": "mean |dRGB| in 0-255 between consecutive frames after matching pixels by the pos guide; shuffled order is the negative control",
+ "sets": {
+  "y": {
+   "E": {
+    "pairs": 12,
+    "body_mean": 4.07,
+    "body_max": 4.66,
+    "head_mean": 5.82,
+    "head_max": 10.4,
+    "matched_frac": 0.982
+   },
+   "E_shuffled": {
+    "pairs": 12,
+    "body_mean": 4.93,
+    "body_max": 6.47,
+    "head_mean": 7.88,
+    "head_max": 13.56,
+    "matched_frac": 0.977
+   }
+  }
+ },
+ "control": {}
+}

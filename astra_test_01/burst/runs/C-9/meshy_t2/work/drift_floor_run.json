@@ -1,0 +1,77 @@
+{
+ "clip": "run",
+ "pos_tol": 0.01,
+ "blur_sigma": 3.0,
+ "erode_px": 2,
+ "render_floor": "the render scores ~1.9 body / ~2.0 head; that is the instrument's floor, not a drift measurement",
+ "note": "mean |dRGB| in 0-255 between consecutive frames after matching pixels by the pos guide; shuffled order is the negative control",
+ "sets": {
+  "render": {
+   "E": {
+    "pairs": 8,
+    "body_mean": 2.03,
+    "body_max": 2.26,
+    "head_mean": 1.95,
+    "head_max": 2.01,
+    "matched_frac": 0.954
+   },
+   "E_shuffled": {
+    "pairs": 8,
+    "body_mean": 2.24,
+    "body_max": 2.45,
+    "head_mean": 2.04,
+    "head_max": 2.38,
+    "matched_frac": 0.949
+   },
+   "SE": {
+    "pairs": 8,
+    "body_mean": 2.06,
+    "body_max": 2.33,
+    "head_mean": 2.09,
+    "head_max": 2.34,
+    "matched_frac": 0.95
+   },
+   "SE_shuffled": {
+    "pairs": 8,
+    "body_mean": 2.63,
+    "body_max": 3.03,
+    "head_mean": 2.5,
+    "head_max": 3.18,
+    "matched_frac": 0.91
+   },
+   "S": {
+    "pairs": 8,
+    "body_mean": 3.0,
+    "body_max": 3.83,
+    "head_mean": 2.5,
+    "head_max": 3.22,
+    "matched_frac": 0.888
+   },
+   "S_shuffled": {
+    "pairs": 8,
+    "body_mean": 3.31,
+    "body_max": 4.49,
+    "head_mean": 2.82,
+    "head_max": 3.85,
+    "matched_frac": 0.853
+   },
+   "NE": {
+    "pairs": 8,
+    "body_mean": 2.17,
+    "body_max": 2.63,
+    "head_mean": 1.98,
+    "head_max": 2.05,
+    "matched_frac": 0.956
+   },
+   "NE_shuffled": {
+    "pairs": 8,
+    "body_mean": 2.46,
+    "body_max": 2.71,
+    "head_mean": 2.14,
+    "head_max": 2.73,
+    "matched_frac": 0.937
+   }
+  }
+ },
+ "control": {}
+}

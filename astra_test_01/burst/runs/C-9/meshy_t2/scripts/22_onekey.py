@@ -69,6 +69,24 @@ def mask_of(clip, d, i):
     return np.asarray(Image.open(gp(clip, d, i, "mask")).convert("RGBA"))[..., 3] > 128
 
 
+def composite(raw, clip, d, i, outp):
+    """EbSynth colour under the render's own ANTI-ALIASED alpha.
+
+    Thresholding the mask at >128 and writing alpha 255 inside it put a hard
+    cut through the dark ink contour EbSynth reproduces at the silhouette, and
+    the propagated heads came out with a black rim the painted ones do not
+    have. That is a compositing difference, not a property of one-key
+    propagation, and it would have been scored as drift -- so the two methods
+    are put on the same edge before they are compared. The render mask's alpha
+    is already anti-aliased; it is used as-is.
+    """
+    a = np.asarray(Image.open(gp(clip, d, i, "mask")).convert("RGBA"))[..., 3]
+    rgb = np.asarray(Image.open(raw).convert("RGB"))
+    rgba = np.dstack([rgb, a]).astype(np.uint8)
+    rgba[..., :3][a == 0] = 0
+    Image.fromarray(rgba, "RGBA").save(outp)
+
+
 def mean_pose_frame(clip, d, candidates):
     """The candidate whose silhouette is most like all the clip's frames."""
     n = CLIPS[clip]
@@ -186,11 +204,7 @@ def main():
             if r.returncode != 0:
                 raise RuntimeError(r.stderr.decode()[-400:])
             times.append(time.time() - t)
-            rgb = np.asarray(Image.open(raw).convert("RGB"))
-            rgba = np.zeros((FRAME, FRAME, 4), np.uint8)
-            rgba[..., :3][m] = rgb[m]
-            rgba[..., 3][m] = 255
-            Image.fromarray(rgba, "RGBA").save(outp)
+            composite(raw, clip, d, i, outp)
         rep["dirs"]["%s/%s" % (clip, d)] = dict(
             key="%s f%02d" % (kc, ki), runs=len(times),
             mean_s=round(float(np.mean(times)), 2) if times else None)

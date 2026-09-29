@@ -1,0 +1,45 @@
+{
+ "clip": "walk",
+ "pos_tol": 0.01,
+ "blur_sigma": 3.0,
+ "erode_px": 2,
+ "render_floor": "the render scores ~1.9 body / ~2.0 head; that is the instrument's floor, not a drift measurement",
+ "note": "mean |dRGB| in 0-255 between consecutive frames after matching pixels by the pos guide; shuffled order is the negative control",
+ "sets": {
+  "twokey": {
+   "S": {
+    "pairs": 12,
+    "body_mean": 4.66,
+    "body_max": 6.03,
+    "head_mean": 7.94,
+    "head_max": 11.98,
+    "matched_frac": 0.946
+   },
+   "S_shuffled": {
+    "pairs": 12,
+    "body_mean": 6.66,
+    "body_max": 9.82,
+    "head_mean": 11.75,
+    "head_max": 20.92,
+    "matched_frac": 0.906
+   },
+   "NE": {
+    "pairs": 12,
+    "body_mean": 4.18,
+    "body_max": 5.62,
+    "head_mean": 3.4,
+    "head_max": 4.78,
+    "matched_frac": 0.957
+   },
+   "NE_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.55,
+    "body_max": 6.59,
+    "head_mean": 4.09,
+    "head_max": 4.88,
+    "matched_frac": 0.922
+   }
+  }
+ },
+ "control": {}
+}

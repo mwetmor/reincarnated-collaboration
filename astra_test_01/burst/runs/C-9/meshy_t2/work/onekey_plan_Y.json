@@ -2,66 +2,13 @@
  "variant": "Y",
  "key_rule": "one key per direction from the idle clip, driving all clips",
  "keys": {
-  "S": {
-   "src_clip": "idle",
-   "src_frame": 0,
-   "src": "paint_k3/idle/S/idle_S_00.png"
-  },
-  "SE": {
-   "src_clip": "idle",
-   "src_frame": 7,
-   "src": "paint_salvage_a/idle/SE/idle_SE_07.png"
-  },
   "E": {
    "src_clip": "idle",
    "src_frame": 7,
    "src": "paint_a/idle/E/idle_E_07.png"
-  },
-  "NE": {
-   "src_clip": "idle",
-   "src_frame": 0,
-   "src": "paint_k3/idle/NE/idle_NE_00.png"
-  },
-  "N": {
-   "src_clip": "idle",
-   "src_frame": 0,
-   "src": "paint_k2/idle/N/idle_N_00.png"
-  },
-  "NW": {
-   "src_clip": "idle",
-   "src_frame": 6,
-   "src": "paint_k4/idle/NW/idle_NW_06.png"
-  },
-  "W": {
-   "src_clip": "idle",
-   "src_frame": 6,
-   "src": "paint_k1/idle/W/idle_W_06.png"
-  },
-  "SW": {
-   "src_clip": "idle",
-   "src_frame": 6,
-   "src": "paint_k1/idle/SW/idle_SW_06.png"
   }
  },
  "scores": {
-  "idle/S": {
-   "0": 0.9478,
-   "6": 0.9473
-  },
-  "idle/SE": {
-   "0": 0.9228,
-   "1": 0.9183,
-   "2": 0.913,
-   "3": 0.9047,
-   "4": 0.9055,
-   "5": 0.9123,
-   "6": 0.9221,
-   "7": 0.9257,
-   "8": 0.9221,
-   "9": 0.9158,
-   "10": 0.9177,
-   "11": 0.9207
-  },
   "idle/E": {
    "0": 0.9308,
    "1": 0.9263,
@@ -75,27 +22,7 @@
    "9": 0.9251,
    "10": 0.9241,
    "11": 0.9285
-  },
-  "idle/NE": {
-   "0": 0.9125,
-   "6": 0.912
-  },
-  "idle/N": {
-   "0": 0.9093,
-   "6": 0.9088
-  },
-  "idle/NW": {
-   "0": 0.9099,
-   "6": 0.9106
-  },
-  "idle/W": {
-   "0": 0.94,
-   "6": 0.9402
-  },
-  "idle/SW": {
-   "0": 0.9208,
-   "6": 0.9213
   }
  },
- "ebsynth_runs": 344
+ "ebsynth_runs": 12
 }
