@@ -1,0 +1,109 @@
+{
+ "_what": "C-9 T10-1d: prop triangles in barrow_scene_a.json (height_a_authored, 70 instances) before and after the welded re-reduction, counted per instance rather than per asset.",
+ "instances": {
+  "heather": 19,
+  "stone_tall": 2,
+  "rock_large": 3,
+  "rock_small": 27,
+  "post": 4,
+  "lintel": 1,
+  "stone_short": 1,
+  "stone_mid": 1,
+  "birch": 11,
+  "raven": 1
+ },
+ "current_total": 1235127,
+ "new_total": 625168,
+ "rows": [
+  {
+   "asset": "rock_small",
+   "instances": 27,
+   "tris_current": 23999,
+   "tris_new": 10000,
+   "scene_current": 647973,
+   "scene_new": 270000,
+   "iou_vs_unreduced": 0.999
+  },
+  {
+   "asset": "heather",
+   "instances": 19,
+   "tris_current": 272,
+   "tris_new": 272,
+   "scene_current": 5168,
+   "scene_new": 5168,
+   "iou_vs_unreduced": null
+  },
+  {
+   "asset": "birch",
+   "instances": 11,
+   "tris_current": 23999,
+   "tris_new": 20000,
+   "scene_current": 263989,
+   "scene_new": 220000,
+   "iou_vs_unreduced": 0.9095
+  },
+  {
+   "asset": "post",
+   "instances": 4,
+   "tris_current": 24000,
+   "tris_new": 10000,
+   "scene_current": 96000,
+   "scene_new": 40000,
+   "iou_vs_unreduced": 0.9927
+  },
+  {
+   "asset": "rock_large",
+   "instances": 3,
+   "tris_current": 24000,
+   "tris_new": 10000,
+   "scene_current": 72000,
+   "scene_new": 30000,
+   "iou_vs_unreduced": 0.996
+  },
+  {
+   "asset": "stone_tall",
+   "instances": 2,
+   "tris_current": 24000,
+   "tris_new": 10000,
+   "scene_current": 48000,
+   "scene_new": 20000,
+   "iou_vs_unreduced": 0.9942
+  },
+  {
+   "asset": "lintel",
+   "instances": 1,
+   "tris_current": 23999,
+   "tris_new": 10000,
+   "scene_current": 23999,
+   "scene_new": 10000,
+   "iou_vs_unreduced": 0.9945
+  },
+  {
+   "asset": "stone_short",
+   "instances": 1,
+   "tris_current": 23998,
+   "tris_new": 10000,
+   "scene_current": 23998,
+   "scene_new": 10000,
+   "iou_vs_unreduced": 0.9947
+  },
+  {
+   "asset": "stone_mid",
+   "instances": 1,
+   "tris_current": 24000,
+   "tris_new": 10000,
+   "scene_current": 24000,
+   "scene_new": 10000,
+   "iou_vs_unreduced": 0.9963
+  },
+  {
+   "asset": "raven",
+   "instances": 1,
+   "tris_current": 30000,
+   "tris_new": 10000,
+   "scene_current": 30000,
+   "scene_new": 10000,
+   "iou_vs_unreduced": 0.9866
+  }
+ ]
+}

@@ -1,0 +1,185 @@
+{
+ "stone_tall": {
+  "curve": {
+   "10000": {
+    "mean": 0.9942,
+    "min": 0.9879
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9942,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "stone_mid": {
+  "curve": {
+   "10000": {
+    "mean": 0.9963,
+    "min": 0.9894
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9963,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "stone_short": {
+  "curve": {
+   "10000": {
+    "mean": 0.9947,
+    "min": 0.9854
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9947,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "lintel": {
+  "curve": {
+   "10000": {
+    "mean": 0.9945,
+    "min": 0.9839
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9945,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "post": {
+  "curve": {
+   "10000": {
+    "mean": 0.9927,
+    "min": 0.9831
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9927,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "rock_large": {
+  "curve": {
+   "10000": {
+    "mean": 0.996,
+    "min": 0.9904
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.996,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "rock_small": {
+  "curve": {
+   "10000": {
+    "mean": 0.999,
+    "min": 0.9987
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.999,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "birch": {
+  "curve": {
+   "10000": {
+    "mean": 0.8561,
+    "min": 0.8159
+   },
+   "14000": {
+    "mean": 0.8855,
+    "min": 0.7903
+   },
+   "20000": {
+    "mean": 0.9095,
+    "min": 0.7765
+   },
+   "28000": {
+    "mean": 0.9374,
+    "min": 0.8615
+   },
+   "40000": {
+    "mean": 0.9252,
+    "min": 0.7933
+   },
+   "56000": {
+    "mean": 0.9417,
+    "min": 0.848
+   },
+   "80000": {
+    "mean": 0.9663,
+    "min": 0.8614
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": null,
+  "reached_gate": false,
+  "best_mean": 0.9663,
+  "best_tris": 80000,
+  "pick_rule": "cheapest rung beating the current file (0.8863)",
+  "picked_tris": 20000,
+  "current_file_iou": 0.8863
+ },
+ "juniper": {
+  "curve": {
+   "10000": {
+    "mean": 0.9491,
+    "min": 0.8975
+   },
+   "14000": {
+    "mean": 0.9661,
+    "min": 0.9586
+   },
+   "20000": {
+    "mean": 0.9703,
+    "min": 0.9495
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 20000,
+  "reached_gate": true,
+  "best_mean": 0.9703,
+  "best_tris": 20000,
+  "picked_tris": 20000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ },
+ "raven": {
+  "curve": {
+   "10000": {
+    "mean": 0.9866,
+    "min": 0.9785
+   }
+  },
+  "gate": 0.97,
+  "accepted_tris": 10000,
+  "reached_gate": true,
+  "best_mean": 0.9866,
+  "best_tris": 10000,
+  "picked_tris": 10000,
+  "pick_rule": "cheapest rung at or above the 0.97 gate"
+ }
+}

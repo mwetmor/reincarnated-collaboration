@@ -8,7 +8,7 @@
    "tris": {
     "current": 24000,
     "unreduced": 1476199,
-    "v2": 23997
+    "v2": 9999
    },
    "open_edges": {
     "current": 9594,
@@ -26,11 +26,11 @@
     "v2": 130
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9975,
-    "v2_min": 0.9943,
+    "v2_mean": 0.9942,
+    "v2_min": 0.9879,
     "current_mean": 0.9961,
     "current_min": 0.9861,
-    "worst_az": 60,
+    "worst_az": 210,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -47,21 +47,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.191409,
+     -0.192284,
      -0.500283,
-     -0.269466
+     -0.270508
     ],
     [
-     0.19164,
-     0.500385,
-     0.26998
+     0.191484,
+     0.501185,
+     0.2698
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.000907,
-    "max_corner": 0.000187
+    "min_corner": 0.001014,
+    "max_corner": 0.000826
    },
-   "aabb_max_corner_delta_scene_mm": 4.078,
+   "aabb_max_corner_delta_scene_mm": 4.555,
    "drop_in": true
   },
   "stone_mid": {
@@ -69,7 +69,7 @@
    "tris": {
     "current": 24000,
     "unreduced": 1418038,
-    "v2": 23996
+    "v2": 9998
    },
    "open_edges": {
     "current": 10930,
@@ -87,8 +87,8 @@
     "v2": 158
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9982,
-    "v2_min": 0.9948,
+    "v2_mean": 0.9963,
+    "v2_min": 0.9894,
     "current_mean": 0.9979,
     "current_min": 0.9945,
     "worst_az": 120,
@@ -108,21 +108,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.212358,
-     -0.500103,
-     -0.297453
+     -0.213082,
+     -0.500394,
+     -0.297553
     ],
     [
-     0.212611,
-     0.499918,
-     0.297509
+     0.212261,
+     0.500569,
+     0.297554
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 7.8e-05,
-    "max_corner": 0.000363
+    "min_corner": 0.000725,
+    "max_corner": 0.000401
    },
-   "aabb_max_corner_delta_scene_mm": 1.633,
+   "aabb_max_corner_delta_scene_mm": 3.258,
    "drop_in": true
   },
   "stone_short": {
@@ -130,7 +130,7 @@
    "tris": {
     "current": 23998,
     "unreduced": 1424812,
-    "v2": 23994
+    "v2": 9998
    },
    "open_edges": {
     "current": 11230,
@@ -148,11 +148,11 @@
     "v2": 270
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9978,
-    "v2_min": 0.9876,
+    "v2_mean": 0.9947,
+    "v2_min": 0.9854,
     "current_mean": 0.9959,
     "current_min": 0.9881,
-    "worst_az": 270,
+    "worst_az": 180,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -169,21 +169,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.35119,
-     -0.447602,
-     -0.500274
+     -0.351815,
+     -0.4473,
+     -0.499617
     ],
     [
-     0.35137,
-     0.447606,
-     0.499979
+     0.351236,
+     0.448304,
+     0.499528
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.00063,
-    "max_corner": 0.000354
+    "min_corner": 0.000657,
+    "max_corner": 0.000508
    },
-   "aabb_max_corner_delta_scene_mm": 1.449,
+   "aabb_max_corner_delta_scene_mm": 1.51,
    "drop_in": true
   },
   "lintel": {
@@ -191,7 +191,7 @@
    "tris": {
     "current": 23999,
     "unreduced": 1485332,
-    "v2": 23998
+    "v2": 9998
    },
    "open_edges": {
     "current": 7709,
@@ -209,11 +209,11 @@
     "v2": 84
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9989,
-    "v2_min": 0.9986,
+    "v2_mean": 0.9945,
+    "v2_min": 0.9839,
     "current_mean": 0.9954,
     "current_min": 0.9834,
-    "worst_az": 180,
+    "worst_az": 300,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -230,21 +230,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.130005,
-     -0.157707,
+     -0.13079,
+     -0.157909,
      -0.500029
     ],
     [
-     0.12993,
-     0.15784,
-     0.500171
+     0.129881,
+     0.157983,
+     0.500148
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.00038,
-    "max_corner": 0.000129
+    "min_corner": 0.000405,
+    "max_corner": 0.000143
    },
-   "aabb_max_corner_delta_scene_mm": 1.438,
+   "aabb_max_corner_delta_scene_mm": 1.533,
    "drop_in": true
   },
   "post": {
@@ -252,7 +252,7 @@
    "tris": {
     "current": 24000,
     "unreduced": 1492596,
-    "v2": 23998
+    "v2": 9998
    },
    "open_edges": {
     "current": 8252,
@@ -270,8 +270,8 @@
     "v2": 94
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9962,
-    "v2_min": 0.9875,
+    "v2_mean": 0.9927,
+    "v2_min": 0.9831,
     "current_mean": 0.9942,
     "current_min": 0.9862,
     "worst_az": 240,
@@ -291,21 +291,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.156677,
-     -0.500231,
-     -0.17288
+     -0.156738,
+     -0.500583,
+     -0.172931
     ],
     [
-     0.156212,
-     0.500086,
-     0.173037
+     0.156964,
+     0.50047,
+     0.17344
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.000181,
-    "max_corner": 0.000355
+    "min_corner": 0.000239,
+    "max_corner": 0.000397
    },
-   "aabb_max_corner_delta_scene_mm": 1.202,
+   "aabb_max_corner_delta_scene_mm": 1.343,
    "drop_in": true
   },
   "rock_large": {
@@ -313,7 +313,7 @@
    "tris": {
     "current": 24000,
     "unreduced": 1456452,
-    "v2": 23994
+    "v2": 9998
    },
    "open_edges": {
     "current": 12094,
@@ -331,11 +331,11 @@
     "v2": 278
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9992,
-    "v2_min": 0.999,
+    "v2_mean": 0.996,
+    "v2_min": 0.9904,
     "current_mean": 0.9963,
     "current_min": 0.9915,
-    "worst_az": 30,
+    "worst_az": 300,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -352,21 +352,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.385313,
-     -0.49978,
-     -0.410054
+     -0.385975,
+     -0.49996,
+     -0.410787
     ],
     [
-     0.385318,
-     0.500144,
-     0.410201
+     0.385116,
+     0.500434,
+     0.410952
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.000829,
-    "max_corner": 0.000406
+    "min_corner": 9.6e-05,
+    "max_corner": 0.000345
    },
-   "aabb_max_corner_delta_scene_mm": 2.532,
+   "aabb_max_corner_delta_scene_mm": 1.053,
    "drop_in": true
   },
   "rock_small": {
@@ -374,7 +374,7 @@
    "tris": {
     "current": 23999,
     "unreduced": 1450640,
-    "v2": 23996
+    "v2": 9998
    },
    "open_edges": {
     "current": 10919,
@@ -392,11 +392,11 @@
     "v2": 174
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9988,
-    "v2_min": 0.9953,
+    "v2_mean": 0.999,
+    "v2_min": 0.9987,
     "current_mean": 0.9981,
     "current_min": 0.9873,
-    "worst_az": 60,
+    "worst_az": 150,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -413,21 +413,21 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.423412,
-     -0.183612,
-     -0.500174
+     -0.423558,
+     -0.183502,
+     -0.500171
     ],
     [
-     0.423237,
-     0.183648,
-     0.500011
+     0.423329,
+     0.183729,
+     0.499862
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.000132,
-    "max_corner": 7.2e-05
+    "min_corner": 0.000278,
+    "max_corner": 0.000144
    },
-   "aabb_max_corner_delta_scene_mm": 0.322,
+   "aabb_max_corner_delta_scene_mm": 0.679,
    "drop_in": true
   },
   "birch": {
@@ -435,7 +435,7 @@
    "tris": {
     "current": 23999,
     "unreduced": 1469529,
-    "v2": 23998
+    "v2": 19998
    },
    "open_edges": {
     "current": 18495,
@@ -453,11 +453,11 @@
     "v2": 103
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9364,
-    "v2_min": 0.8703,
+    "v2_mean": 0.9095,
+    "v2_min": 0.7765,
     "current_mean": 0.8863,
     "current_min": 0.809,
-    "worst_az": 30,
+    "worst_az": 240,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -474,7 +474,7 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.314556,
+     -0.314642,
      -0.499991,
      -0.355658
     ],
@@ -496,7 +496,7 @@
    "tris": {
     "current": 24000,
     "unreduced": 1449078,
-    "v2": 23994
+    "v2": 19994
    },
    "open_edges": {
     "current": 20762,
@@ -514,8 +514,8 @@
     "v2": 344
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9752,
-    "v2_min": 0.9501,
+    "v2_mean": 0.9703,
+    "v2_min": 0.9495,
     "current_mean": 0.9685,
     "current_min": 0.9587,
     "worst_az": 30,
@@ -557,7 +557,7 @@
    "tris": {
     "current": 30000,
     "unreduced": 1453112,
-    "v2": 29994
+    "v2": 9998
    },
    "open_edges": {
     "current": 22214,
@@ -575,11 +575,11 @@
     "v2": 258
    },
    "iou_vs_unreduced_play": {
-    "v2_mean": 0.9948,
-    "v2_min": 0.9788,
+    "v2_mean": 0.9866,
+    "v2_min": 0.9785,
     "current_mean": 0.9852,
     "current_min": 0.9687,
-    "worst_az": 60,
+    "worst_az": 240,
     "n": 12
    },
    "aabb_gltf_current": [
@@ -596,19 +596,19 @@
    ],
    "aabb_gltf_v2": [
     [
-     -0.439006,
-     -0.500231,
-     -0.267554
+     -0.440232,
+     -0.501485,
+     -0.267792
     ],
     [
-     0.439697,
-     0.499884,
-     0.267478
+     0.438398,
+     0.500369,
+     0.267495
     ]
    ],
    "aabb_max_corner_delta_raw_units": {
-    "min_corner": 0.000516,
-    "max_corner": 0.001305
+    "min_corner": 0.001226,
+    "max_corner": 0.002604
    },
    "aabb_max_corner_delta_scene_mm": null,
    "drop_in": true

@@ -110,10 +110,10 @@ def main() -> int:
         # not touch, so it is entitled to move the outline -- whether that is a gain or a
         # cost is only readable against what the file being replaced scored.
         probe(src, WORK / ("%s_src" % a))
-        probe(new, WORK / ("%s_new" % a))
+        probe(new, WORK / ("%s_new10k" % a))
         probe(cur, WORK / ("%s_cur" % a))
         d1 = {int(p.stem.split("az")[1]): p for p in (WORK / ("%s_src" % a)).glob("*_az*.png")}
-        d2 = {int(p.stem.split("az")[1]): p for p in (WORK / ("%s_new" % a)).glob("*_az*.png")}
+        d2 = {int(p.stem.split("az")[1]): p for p in (WORK / ("%s_new10k" % a)).glob("*_az*.png")}
         d3 = {int(p.stem.split("az")[1]): p for p in (WORK / ("%s_cur" % a)).glob("*_az*.png")}
         ks = sorted(set(d1) & set(d2) & set(d3))
         xs = [iou(sil(d1[k]), sil(d2[k])) for k in ks]
