@@ -193,6 +193,8 @@ def width_estimators(mask, mass=None):
             w = (h[sel] * v[sel]) / np.sqrt(h[sel] ** 2 + v[sel] ** 2)
             out["w_perp_median"] = round(float(np.median(w)), 3)
             out["w_perp_mean"] = round(float(w.mean()), 3)
+            out["w_perp_p50"] = round(float(np.percentile(w, 50)), 3)
+            out["w_perp_p90"] = round(float(np.percentile(w, 90)), 3)
             out["w_perp_p10_p90"] = [round(float(np.percentile(w, 10)), 3),
                                      round(float(np.percentile(w, 90)), 3)]
         out["ink_mass_px"] = round(float(m[mask].sum()), 1)
@@ -237,6 +239,16 @@ def main():
     need = ["barrow_stack_on", "barrow_stack_off", "barrow_nograde_ink_on",
             "barrow_nograde_ink_off", "barrow_nograde_hull_off", "barrow_stack_on_nopen"]
     imgs = {n: load(n) for n in need + ["barrow_ink_off", "barrow_snow_off",
+                                        "barrow_stack_on_2pens",
+                                        "barrow_nograde_charhull_on",
+                                        "barrow_nograde_charhull_off",
+                                        "barrow_scale_beside_stone",
+                                        # NEVER LOADED, and three blocks below ask for it with
+                                        # .get() and silently do nothing when it is None: the
+                                        # character before/after was measured over his bounding
+                                        # box instead of his silhouette, and the whole
+                                        # outline_on_him section came back null with no error.
+                                        "barrow_char_noknight",
                                         "barrow_char_ramp_on", "barrow_char_ramp_off",
                                         "barrow_char_original",
                                         "barrow_wide_on", "barrow_wide_off",
@@ -302,6 +314,63 @@ def main():
             "verdict": "PASS" if de76(l1, l2) < 5 else "FAIL",
             "nominal_ink_srgb": [round(float(v), 4) for v in INK_SRGB],
         }
+
+    # ---- R-C9-74 note 5: THE OUTLINE AROUND HIM, BEFORE AND AFTER -----------
+    # Matt: "There is a WAY too thick outline of black around the barbarian." Two pens were
+    # landing on him -- his hull at outline_px 1.1 and the screen-space depth line on top of
+    # it. The pair below differs ONLY in whether the screen-space pass skips his pixels, so
+    # the width difference between them is the second pen and nothing else.
+    #
+    # MASKED TO HIM AND A 6 px SKIRT, not to his bounding box. His box is mostly snow, and it
+    # also contains a standing stone at some camera positions -- whose hull line would be
+    # counted as part of his outline and would not move between the two frames, diluting the
+    # very quantity being measured.
+    if imgs.get("barrow_char_noknight") is not None and imgs.get("barrow_stack_on_nopen") is not None:
+        nk = srgb_to_linear(imgs["barrow_char_noknight"])
+        nopen_l = srgb_to_linear(imgs["barrow_stack_on_nopen"])
+        base = srgb_to_linear(imgs["barrow_stack_on"])
+        him = np.abs(imgs["barrow_stack_on"] - imgs["barrow_char_noknight"]).max(axis=-1) > 6 / 255
+        him = ndimage.binary_erosion(him, iterations=1)
+        near_him = ndimage.binary_dilation(him, iterations=6)
+        rep["outline_on_him"] = {
+            "_mask": "his silhouette (stack_on minus char_noknight, eroded 1) dilated 6 px",
+            "his_px": int(him.sum()), "mask_px": int(near_him.sum()),
+        }
+        for label, frame in (("after_one_pen", "barrow_stack_on"),
+                             ("before_two_pens", "barrow_stack_on_2pens")):
+            if imgs.get(frame) is None:
+                continue
+            e = ink_strength(srgb_to_linear(imgs[frame]), nopen_l, ink_lin)
+            e = np.where(near_him, e, 0.0)
+            rep["outline_on_him"][label] = {
+                "ink_px": int((e >= 0.5).sum()),
+                "width": width_estimators(e >= 0.5, mass=np.clip(e, 0, 1)),
+            }
+        # NOT `a` AND NOT `b`. `a` is the argparse namespace -- this file already carries a
+        # comment saying so, twenty lines further down, put there by whoever broke --json the
+        # first time. I read it, wrote `a` anyway, and broke --json the second time: the whole
+        # metrics run died at the last line, AFTER the twelve-minute capture it measures.
+        w_after = rep["outline_on_him"].get("after_one_pen", {}).get("width", {})
+        w_before = rep["outline_on_him"].get("before_two_pens", {}).get("width", {})
+        if w_after.get("w_perp_p50") and w_before.get("w_perp_p50"):
+            rep["outline_on_him"]["verdict"] = {
+                "p50_before_px": w_before["w_perp_p50"], "p50_after_px": w_after["w_perp_p50"],
+                "p90_before_px": w_before.get("w_perp_p90"), "p90_after_px": w_after.get("w_perp_p90"),
+                "ink_px_before": rep["outline_on_him"]["before_two_pens"]["ink_px"],
+                "ink_px_after": rep["outline_on_him"]["after_one_pen"]["ink_px"],
+                "requirement": "no wider than the hull alone, which is the cliffside 3D weight",
+            }
+        # HIS HULL PEN BY ITSELF, from the pair that hides only his line. This is the number
+        # the requirement is written against: his delivered line when the screen-space pass is
+        # off him should BE his hull line, not merely close to it.
+        if imgs.get("barrow_nograde_charhull_on") is not None \
+                and imgs.get("barrow_nograde_charhull_off") is not None:
+            eh = ink_strength(srgb_to_linear(imgs["barrow_nograde_charhull_on"]),
+                              srgb_to_linear(imgs["barrow_nograde_charhull_off"]), ink_lin)
+            rep["outline_on_him"]["his_hull_pen_alone"] = {
+                "ink_px": int((eh >= 0.5).sum()),
+                "width": width_estimators(eh >= 0.5, mass=np.clip(eh, 0, 1)),
+            }
 
     # ---- 3 + 4. shadows -----------------------------------------------------
     on = imgs["barrow_stack_on"]

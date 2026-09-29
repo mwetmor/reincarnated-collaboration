@@ -60,12 +60,31 @@ const TERRAIN_BIT := 1 << 1        # knight.gd masks its ground ray to this; do 
 const RAMP_UNIFORMS := """
 uniform vec3 shadow_color : source_color = vec3(0.34, 0.37, 0.56);
 uniform float shadow_energy = 0.62;
+// THE BAND EDGES ARE A FUNCTION OF THE SUN'S ELEVATION, and moving the sun without moving
+// them flattens the world (snow-lab drax, following R-C9-74 note 3).
+//
+// `raw` is ndl * 0.5 + 0.5, so FLAT GROUND under a sun at elevation E sits at
+// 0.5 + sin(E)/2: at 17 degrees that is 0.646, in the MIDDLE band, with the top band held
+// for surfaces actually turned toward the light. At 55 degrees it is 0.910 -- past e1 = 0.70
+// by a wide margin, and so is every sun-facing slope, so the whole lit half of the scene
+// collapses into m2 = 1.00 and has no form left. Nothing errors. The picture just goes flat,
+// and it looks like a fog or an exposure problem rather than like a ramp tuned for a
+// different sun.
+//
+// Re-derived arithmetically for a 55 degree sun rather than nudged by eye:
+//   e1 0.90, soft 0.075  -- the top band starts just above flat ground, so a crest turned
+//                           into the light separates from the flat beside it
+//   m1 0.60              -- the middle band lifts, because at this elevation a surface in it
+//                           is a flank catching light, not a shadow side
+// Giving away-flank / flat / lit crest = 0.60 / 0.84 / 1.00, against 0.56 / 1.00 / 1.00 at
+// the old constants. e0 and m0 are unchanged: the dark end is about facing AWAY from the
+// light, which the elevation does not move.
 uniform float band_e0 = 0.47;
-uniform float band_e1 = 0.70;
+uniform float band_e1 = 0.90;
 uniform float band_m0 = 0.10;
-uniform float band_m1 = 0.56;
+uniform float band_m1 = 0.60;
 uniform float band_m2 = 1.00;
-uniform float band_soft = 0.085;
+uniform float band_soft = 0.075;
 uniform float wash_amp = 0.17;
 uniform float wash_scale = 0.62;
 uniform float shadow_bite = 1.0;
@@ -127,6 +146,11 @@ uniform float snow_jitter = 0.30;
 uniform float snow_soft = 0.13;
 uniform float snow_noise_scale = 0.85;
 uniform float snow_mottle = 0.09;
+// WHAT THIS MESH IS, for the screen-space pen, written into the roughness channel. 1.0 is
+// ordinary world; 0.25 says "thin" -- twigs and sprigs, where a full-strength line is wider
+// than the thing it outlines. Both shaders are `specular_disabled`, so this changes no pixel
+// of the render and costs nothing. See POST_SHADER.
+uniform float mesh_mark = 1.0;
 varying vec3 v_world;
 varying vec3 v_wnormal;
 """ + RAMP_BODY + """
@@ -156,6 +180,138 @@ void fragment() {
 	float sm = _fbm2(wash_noise, v_world.xz * 1.9);
 	vec3 snow = snow_color * (1.0 - snow_mottle * 0.5 + sm * snow_mottle);
 	ALBEDO = mix(base, snow, k);
+	ROUGHNESS = mesh_mark;
+}
+
+void light() {
+	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
+		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
+		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+}
+"""
+
+# --- the ground, wearing the six painted tiles ---------------------------------
+# WORLD_SHADER with one thing added and nothing removed: the base colour comes from five
+# generated 1024² tiles blended by the concept's own splat map instead of from a constant.
+# The ramp, the mottle, the hatch, the wash and the snow layer are the SAME code, so the
+# ground is not a second shading model wearing the first one's colours.
+#
+# FIVE DECISIONS, each of which has a way of being silently wrong:
+#
+# 1. THE TILE UV IS WORLD METRES, NOT MESH UV. barrow_heightfield.gd emits UV = xz * 0.25,
+#    which is a perfectly good UV and is NOT metres; tiling on it would put the tile at a
+#    scale nothing states. `v_world.xz / tile_m` means the number in `tile_m` IS the size of
+#    one tile on the ground, in metres, and can be checked with a ruler in the frame.
+#
+# 2. THE SPLAT IS SAMPLED AS WEIGHTS, NOT AS IDS. The shipped map is a 300x300 image of
+#    class ids 0..4. Bilinear filtering of ids is meaningless -- halfway between snow (0) and
+#    rock (2) is path (1), which is not a blend, it is a third material appearing along every
+#    border. So the ids are expanded to five weight fields and BLURRED ON THE CPU before
+#    upload (splat_weight_texture), and what the GPU filters is a weight.
+#
+# 3. FOUR CHANNELS CARRY FIVE CLASSES and the fifth is `1 - sum`. The implied class is SNOW,
+#    deliberately: the quantisation error of four 8-bit channels lands entirely on the
+#    implied one (up to 4/255), and snow is the class that is already near 1 where it
+#    matters. Implying ICE instead would spread a 1.6% ice wash over the whole moor.
+#
+# 4. OUTSIDE THE PAINTED 15 m THE MOOR IS SNOW. The concept covers 15x15 m of a 92x92 m
+#    world; the weights relax to pure snow over `splat_relax_m`, the same way the heightfield
+#    relaxes to its rim level, so the join is a gradient rather than a square edge.
+#
+# 5. THE PROCEDURAL SNOW LAYER IS SCALED PER CLASS. At the ground's shipped threshold every
+#    up-facing triangle came back 100% covered -- which is why the stand-in frame is a white
+#    desert -- and a tile map under a total snow layer is a tile map nobody can see. `keep`
+#    is how much of the drift each class holds: snow all of it, heather and rock little. The
+#    CPU mirror in measure_snow takes the same factor through `amount_scale`, so the measured
+#    share is of what is actually drawn.
+const GROUND_SHADER := """
+shader_type spatial;
+render_mode specular_disabled, cull_back;
+""" + RAMP_UNIFORMS + """
+uniform vec3 base_color : source_color = vec3(0.44, 0.42, 0.47);
+uniform sampler2D tile_snow : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform sampler2D tile_path : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform sampler2D tile_rock : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform sampler2D tile_heather : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform sampler2D tile_ice : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
+// RGBA = path, rock, heather, ice. Snow is 1 - their sum. NO source_color hint: these are
+// weights, not colour, and an sRGB decode on them would bend every border.
+uniform sampler2D splat_w : filter_linear, repeat_disable;
+uniform vec2 splat_origin = vec2(-4.43, -7.56);   // world xz of the splat's (0,0) corner
+uniform vec2 splat_size = vec2(15.0, 15.0);
+uniform float splat_relax_m = 6.0;
+uniform float tile_m = 2.5;                       // METRES per tile repeat. Stated, not implied.
+uniform float detile_mix = 0.35;                  // second sample, rotated and rescaled
+uniform float tile_tint = 1.0;                    // 0 = flat base_color, for the A/B
+// how much of the world-space drift each class holds: snow, path, rock, heather, ice
+uniform vec4 snow_keep_path_rock_heather_ice = vec4(0.45, 0.30, 0.22, 0.25);
+uniform float snow_keep_snow = 1.0;
+uniform sampler2D mottle_noise : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform float mottle_amp = 0.13;
+uniform float mottle_scale = 0.33;
+uniform float hatch_amp = 0.05;
+uniform float hatch_scale = 5.5;
+uniform float snow_amount = 1.0;
+uniform vec3 snow_color : source_color = vec3(0.800, 0.828, 0.876);
+uniform float snow_threshold = 0.58;
+uniform float snow_jitter = 0.30;
+uniform float snow_soft = 0.13;
+uniform float snow_noise_scale = 0.85;
+uniform float snow_mottle = 0.09;
+varying vec3 v_world;
+varying vec3 v_wnormal;
+""" + RAMP_BODY + """
+void vertex() {
+	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	v_wnormal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+}
+
+// TWO SAMPLES OF THE SAME TILE, the second turned 90 degrees and at 0.61x, mixed. A 2.5 m
+// tile repeats six times across the painted ground and the lattice is plain at the play
+// camera; one extra fetch per class breaks it without a second texture to author.
+vec3 _tile2(sampler2D t, vec2 uv, vec2 uv2, float m) {
+	return mix(texture(t, uv).rgb, texture(t, uv2).rgb, m);
+}
+
+float snow_coverage(vec3 wpos, vec3 wn, sampler2D mn, float thr, float jit, float soft,
+		float nscale, float amount) {
+	float up = dot(normalize(wn), vec3(0.0, 1.0, 0.0));
+	float sn = _fbm2(mn, wpos.xz * nscale + vec2(11.3, 4.7));
+	float t = thr + (sn - 0.5) * jit;
+	return smoothstep(t, t + soft, up) * clamp(amount, 0.0, 1.0);
+}
+
+void fragment() {
+	vec2 suv = (v_world.xz - splat_origin) / splat_size;
+	vec4 w = texture(splat_w, clamp(suv, vec2(0.0), vec2(1.0)));
+	float w_snow = clamp(1.0 - (w.r + w.g + w.b + w.a), 0.0, 1.0);
+	// how far outside the painted square we are, IN METRES, and the relax to plain snow
+	vec2 d = max(max(-suv, suv - vec2(1.0)), vec2(0.0)) * splat_size;
+	float t_out = smoothstep(0.0, splat_relax_m, length(d));
+	float w0 = mix(w_snow, 1.0, t_out);
+	vec4 wr = w * (1.0 - t_out);                  // path, rock, heather, ice
+	float wsum = max(w0 + wr.r + wr.g + wr.b + wr.a, 1e-4);
+
+	vec2 tuv = v_world.xz / max(tile_m, 1e-3);
+	vec2 tuv2 = vec2(tuv.y, -tuv.x) * 0.61 + vec2(0.37, 0.19);
+	vec3 tiles = (_tile2(tile_snow, tuv, tuv2, detile_mix) * w0
+				+ _tile2(tile_path, tuv, tuv2, detile_mix) * wr.r
+				+ _tile2(tile_rock, tuv, tuv2, detile_mix) * wr.g
+				+ _tile2(tile_heather, tuv, tuv2, detile_mix) * wr.b
+				+ _tile2(tile_ice, tuv, tuv2, detile_mix) * wr.a) / wsum;
+	vec3 base = mix(base_color, tiles, clamp(tile_tint, 0.0, 1.0));
+
+	float m = _fbm2(mottle_noise, v_world.xz * mottle_scale + v_world.y * 0.17);
+	base *= (1.0 - mottle_amp * 0.5 + m * mottle_amp);
+	float h = texture(mottle_noise, v_world.xz * hatch_scale + vec2(0.5, 0.17)).r;
+	base *= (1.0 - hatch_amp * 0.5 + h * hatch_amp);
+
+	float keep = (snow_keep_snow * w0 + dot(snow_keep_path_rock_heather_ice, wr)) / wsum;
+	float k = snow_coverage(v_world, v_wnormal, mottle_noise, snow_threshold, snow_jitter,
+			snow_soft, snow_noise_scale, snow_amount) * keep;
+	float sm = _fbm2(wash_noise, v_world.xz * 1.9);
+	vec3 snow = snow_color * (1.0 - snow_mottle * 0.5 + sm * snow_mottle);
+	ALBEDO = mix(base, snow, k);
 	ROUGHNESS = 1.0;
 }
 
@@ -175,13 +331,19 @@ render_mode specular_disabled, cull_back;
 """ + RAMP_UNIFORMS + """
 uniform sampler2D albedo_tex : source_color, hint_default_white, filter_linear_mipmap;
 uniform vec3 tint : source_color = vec3(1.0);
+// HIS MARK IN THE ROUGHNESS CHANNEL. See POST_SHADER: the screen-space pen has to know which
+// pixels are him so it can leave them to his hull line, and the normal-roughness buffer's
+// alpha is the only per-pixel channel a post pass can read that nothing else is using --
+// both shaders here are `specular_disabled`, so ROUGHNESS changes no pixel of the render.
+// 0.5 against the world's 1.0 is half the channel apart; anything within 0.12 of it is him.
+uniform float char_mark = 0.5;
 varying vec3 v_world;
 """ + RAMP_BODY + """
 void vertex() { v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz; }
 
 void fragment() {
 	ALBEDO = texture(albedo_tex, UV).rgb * tint;
-	ROUGHNESS = 1.0;
+	ROUGHNESS = char_mark;
 }
 
 void light() {
@@ -246,9 +408,8 @@ uniform float line_px = 1.3;
 //                                        what stops a steep slope reading as a cliff edge
 uniform float m_per_px = 0.00994;        // cam.size / viewport rows; the scene keeps it current
 uniform float ref_m_per_px = 0.00994;    // the play camera's own, the tuning reference
-uniform float depth_edge_px = 4.2;
+uniform float depth_edge_px = 3.0;
 uniform float depth_edge_floor = 0.45;   // the fraction of the threshold where the line begins
-uniform float slope_slack = 1.7;
 // THE CREASE TERM IS DELIBERATELY TIMID, and the first setting was not.
 //
 // At normal_edge 0.60 / weight 0.85 the pass drew clean silhouettes AND filled the interior
@@ -272,6 +433,32 @@ uniform vec3 grade_high : source_color = vec3(1.035, 1.012, 0.975);
 uniform float grade_sat = 1.05;
 uniform float paper_amount = 0.085;
 uniform float paper_scale = 1.0;
+// ONE PASS ON HIM, NOT TWO (R-C9-74 note 5). Matt, on the 15:20 build: "There is a WAY too
+// thick outline of black around the barbarian." He was getting BOTH pens: his own hull line
+// at outline_px 1.1 -- the one approved in the cliffside 3D app -- and this pass's depth
+// line on top of it, which at the time measured 3.76 px median. Two lines side by side read
+// as one thick line, and no amount of tuning either one alone fixes it.
+//
+// The fix keeps HIS hull, because that is exactly the approved look, and takes this pass off
+// him: every tap that lands on his pixels kills the edge there, including the taps on the
+// GROUND side of his silhouette -- otherwise the pass would still draw a line hugging his
+// outside edge and the two would still stack. `char_exclude` 0 puts it back, which is how
+// the before/after is measured on one run rather than two.
+uniform float char_exclude = 1.0;
+uniform float char_mark_ref = 0.5;
+uniform float char_mark_tol = 0.12;
+// THE PEN, TURNED DOWN ON THINGS THINNER THAN IT. A heather sprig and a birch twig are a few
+// millimetres across; at the play camera that is under a pixel, and every one of them is a
+// depth break of half a metre against the ground behind. The pen draws all of them at full
+// strength and there is nothing left of the plant -- measured on look_play at 1920x1080: the
+// nineteen tussocks and every birch canopy rendered as solid ink with no internal structure,
+// which is not a stylised tree, it is a blot.
+//
+// NOT ZERO. At zero they lose their silhouette entirely and read as smudges on the snow. At
+// 0.28 the twigs come through as grey and the trunks still carry a line -- the same pen at
+// the same colour, drawing less of itself, which is what a pen does on something small.
+uniform float thin_mark_ref = 0.25;
+uniform float thin_pen_scale = 0.28;
 
 float _lin_depth(vec2 uv, mat4 inv_proj) {
 	float d = texture(depth_tex, uv).r;
@@ -280,6 +467,17 @@ float _lin_depth(vec2 uv, mat4 inv_proj) {
 }
 
 vec3 _nrm(vec2 uv) { return texture(nrm_tex, uv).xyz * 2.0 - 1.0; }
+
+// IS THIS PIXEL THE CHARACTER. CHAR_SHADER writes ROUGHNESS = char_mark (0.5) where the
+// world writes 1.0, and both are `specular_disabled` so the channel changes no pixel of the
+// render -- it is a free per-pixel tag in a buffer this pass is already sampling.
+float _is_char(vec2 uv) {
+	return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - char_mark_ref));
+}
+
+float _is_thin(vec2 uv) {
+	return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - thin_mark_ref));
+}
 
 void vertex() { POSITION = vec4(VERTEX.xy * 2.0, 1.0, 1.0); }
 
@@ -297,16 +495,41 @@ void fragment() {
 		// needed loosening rather than a sampling pattern that had collapsed.
 		float span_px = max(line_px, 1.0);
 		vec2 o = (span_px * 0.5) / VIEWPORT_SIZE;
-		float d00 = _lin_depth(uv + vec2(-o.x, -o.y), INV_PROJECTION_MATRIX);
-		float d11 = _lin_depth(uv + vec2( o.x,  o.y), INV_PROJECTION_MATRIX);
-		float d10 = _lin_depth(uv + vec2( o.x, -o.y), INV_PROJECTION_MATRIX);
-		float d01 = _lin_depth(uv + vec2(-o.x,  o.y), INV_PROJECTION_MATRIX);
 		float dc = _lin_depth(uv, INV_PROJECTION_MATRIX);
-		float gd = max(abs(d11 - d00), abs(d10 - d01));
-		vec3 nc = _nrm(uv);
-		// what a locally FLAT surface carrying this normal would produce across the span
-		float planar = (abs(nc.x) + abs(nc.y)) / max(abs(nc.z), 0.12) * m_per_px * span_px;
-		float thresh = depth_edge_px * m_per_px + planar * slope_slack;
+		// THE DEPTH EDGE IS A SECOND DIFFERENCE, not a first one, and that is the fix.
+		//
+		// A first difference (Roberts) measures how fast depth changes. A silhouette and a
+		// steeply-raked facet BOTH change depth fast, so no threshold on a first difference
+		// separates them -- which is why the facet interiors of every stone inked solid. I
+		// tried to correct for it by predicting the gradient a planar surface of that normal
+		// would produce and subtracting it, but the prediction divides by the normal's view-Z
+		// and a silhouette is EXACTLY where that goes to zero. The two cases are the same
+		// condition for that operator. Raising the clamp floor 0.12 -> 0.35 to compensate ran
+		// the wrong way and made it worse still: median 3.76 -> 6.99 px, p90 12.9 -> 18.3.
+		//
+		// A SECOND difference has no such problem, by construction: for ANY plane, at any
+		// rake, d(u+o) + d(u-o) - 2*d(u) is zero. Curvature gives a little, a depth
+		// DISCONTINUITY gives metres. So the operator itself distinguishes a silhouette from
+		// a slope, and there is nothing to tune per-angle.
+		float dxp = _lin_depth(uv + vec2(o.x, 0.0), INV_PROJECTION_MATRIX);
+		float dxm = _lin_depth(uv - vec2(o.x, 0.0), INV_PROJECTION_MATRIX);
+		float dyp = _lin_depth(uv + vec2(0.0, o.y), INV_PROJECTION_MATRIX);
+		float dym = _lin_depth(uv - vec2(0.0, o.y), INV_PROJECTION_MATRIX);
+		// THE SIGN IS THE OTHER HALF OF THE FIX, and it is what makes this pen the SAME
+		// WEIGHT as the hull (R-C9-74 note 5: "one pen, one weight").
+		//
+		// A second difference at a depth step is non-zero on BOTH pixels straddling it, with
+		// OPPOSITE SIGNS: the foreground pixel sees (fg, fg, bg) and gets +(bg - fg), the
+		// background pixel sees (fg, bg, bg) and gets -(bg - fg). Taking abs() draws both, so
+		// the operator's natural line is two pixels -- measured at p50 2.29 px against the
+		// hull's 1.16, which is exactly 2x and not a coincidence.
+		//
+		// Keeping only the POSITIVE side draws the line on the NEAR surface, which is where a
+		// hull pen draws it and where a pen drawn by hand goes: the contour belongs to the
+		// object, not to the sky behind it. One pixel, on the object, same colour, same
+		// weight.
+		float gd = max(max(dxp + dxm - 2.0 * dc, dyp + dym - 2.0 * dc), 0.0);
+		float thresh = depth_edge_px * m_per_px;
 		// WEIGHT BY THE SIZE OF THE DEPTH BREAK, per the brief: a silhouette against far
 		// ground is metres and draws full strength; a crease is centimetres and draws faint.
 		float e_depth = smoothstep(thresh * depth_edge_floor, thresh, gd);
@@ -327,8 +550,19 @@ void fragment() {
 		// against the sky gets half a line: correct-looking, thinner than every other edge in
 		// the frame, and thinner by an amount no parameter accounts for. A silhouette against
 		// the sky is the most important line in the picture; it is not the one to shave.
-		float dmin = min(min(min(d00, d11), min(d10, d01)), dc);
+		float dmin = min(min(min(dxp, dxm), min(dyp, dym)), dc);
 		e *= 1.0 - step(sky_depth_m, dmin);
+		// HIM, AND THE SKIRT AROUND HIM. Any tap on the character suppresses the edge: his
+		// own creases, his silhouette, and the ground pixel just outside it that the depth
+		// break also fires on. Five taps, the same five the depth term already fetched.
+		float ch = max(max(max(_is_char(uv + vec2(o.x, 0.0)), _is_char(uv - vec2(o.x, 0.0))),
+						   max(_is_char(uv + vec2(0.0, o.y)), _is_char(uv - vec2(0.0, o.y)))),
+					   _is_char(uv));
+		e *= 1.0 - ch * clamp(char_exclude, 0.0, 1.0);
+		float th = max(max(max(_is_thin(uv + vec2(o.x, 0.0)), _is_thin(uv - vec2(o.x, 0.0))),
+						   max(_is_thin(uv + vec2(0.0, o.y)), _is_thin(uv - vec2(0.0, o.y)))),
+					   _is_thin(uv));
+		e *= mix(1.0, clamp(thin_pen_scale, 0.0, 1.0), th);
 		col = mix(col, ink_color, clamp(e, 0.0, 1.0));
 	}
 	if (grade_on > 0.5) {
@@ -454,9 +688,21 @@ static func make_flake_texture(size := 24) -> ImageTexture:
 # =============================================================================
 #  MATERIALS
 # =============================================================================
+static var _shader_cache := {}
+
+
 static func _shader(code: String) -> Shader:
+	"""ONE Shader RESOURCE PER SOURCE, shared by every material that uses it.
+
+	A fresh Shader per material means a fresh COMPILE per material, and the props turned that
+	from a detail into the scene's whole load time: 70 prop meshes is 70 compiles of the same
+	120 lines, and on Metal each one is a pipeline build. Sharing the resource is also what
+	lets `_world_mats` set a uniform on 70 materials without 70 pipeline swaps at draw."""
+	if _shader_cache.has(code):
+		return _shader_cache[code]
 	var s := Shader.new()
 	s.code = code
+	_shader_cache[code] = s
 	return s
 
 
@@ -469,6 +715,255 @@ static func world_material(fbm: Texture2D, base: Color, params := {}) -> ShaderM
 	for k in params:
 		m.set_shader_parameter(k, params[k])
 	return m
+
+
+static func ground_material(fbm: Texture2D, tiles: Dictionary, splat: Texture2D,
+		params := {}) -> ShaderMaterial:
+	"""The tiled ground. `tiles` is keyed by splat-class NAME, so a missing tile is a missing
+	key rather than a silently-shifted index -- the class order (snow, path, rock, heather,
+	ice) is stated in three places in this project and an off-by-one between any two of them
+	would paint the tarn with heather and look like an art decision."""
+	var m := ShaderMaterial.new()
+	m.shader = _shader(GROUND_SHADER)
+	m.set_shader_parameter("wash_noise", fbm)
+	m.set_shader_parameter("mottle_noise", fbm)
+	for k in ["snow", "path", "rock", "heather", "ice"]:
+		if tiles.has(k) and tiles[k] != null:
+			m.set_shader_parameter("tile_" + k, tiles[k])
+	if splat != null:
+		m.set_shader_parameter("splat_w", splat)
+	for k in params:
+		m.set_shader_parameter(k, params[k])
+	return m
+
+
+static func load_tile(path: String) -> ImageTexture:
+	"""OFF A REAL FILE, WITH MIPMAPS GENERATED HERE, for the same reason
+	barrow_heightfield.gd loads its PNG rather than its import: what the importer produces
+	for these is a mipless CompressedTexture2D (mipmaps/generate=false in every one of the
+	six .import files), and a 1024² tile repeating every 2.5 m minifies about 5:1 at the play
+	camera. Without mips that is not "slightly soft", it is a crawling moiré that reads as a
+	broken shader. Generating them here also keeps the .import files -- generated artifacts a
+	re-import rewrites -- out of the commit.
+
+	COSTS ~35 ms PER TILE and there are five; timed by the caller and reported, because it is
+	cold-start time Matt pays looking at a black window."""
+	var img := _image_from(path)
+	if img == null:
+		push_error("[paintstack] cannot load tile %s" % path)
+		return null
+	img.generate_mipmaps()
+	return ImageTexture.create_from_image(img)
+
+
+static func _image_from(path: String) -> Image:
+	"""THE IMPORTED RESOURCE FIRST, THE RAW FILE SECOND, and the order is about the exported
+	.app rather than about the editor.
+
+	Image.load() on a res:// path reads the FILE. In an export the file is only in the pck if
+	an include_filter puts it there -- otherwise all six tiles come back null and the ground
+	renders in base_color, which looks like a lighting bug and is a missing-asset bug. Godot
+	says so itself: `Loaded resource as image file, this will not work on export`.
+
+	load() reads the IMPORTED resource, which always ships. Both are kept because they fail in
+	opposite conditions: the import can be absent in a fresh checkout before the first
+	--import, and the raw file can be absent in an export. Whichever answers, answers."""
+	var res = load(path)
+	if res is Texture2D:
+		var i: Image = (res as Texture2D).get_image()
+		if i != null:
+			if i.is_compressed():
+				i.decompress()
+			return i
+	var img := Image.new()
+	if img.load(path) != OK:
+		return null
+	if img.is_compressed():
+		img.decompress()
+	return img
+
+
+static func splat_weight_texture(png: String, classes := 5, blur_px := 7,
+		implied_class := 0) -> Dictionary:
+	"""ID MAP -> BLURRED WEIGHT MAP, on the CPU, once at load.
+
+	The shipped splat is an 8-bit image whose VALUE is a class id. Three things make it
+	unusable as-is on the GPU and all three are silent:
+
+	  - bilinear filtering of ids invents classes at every border (see GROUND_SHADER note 2);
+	  - nearest filtering gives a hard 5 cm staircase along every border at 0.05 m/px;
+	  - the importer compresses it, and a lossy id is a different material.
+
+	So: expand to `classes` weight fields, blur each with two box passes (a box twice is
+	close enough to a Gaussian for a border feather and is O(n) rather than O(n*r)), and
+	normalise so the five sum to exactly 1. `implied_class` is dropped from the packing and
+	reconstructed in the shader as 1 - sum, which is where all four channels' quantisation
+	error lands -- so it must be the class that is near 1 over the largest area.
+
+	Returns the texture AND the numbers: the class shares before and after the blur (a blur
+	that moved a share by more than a couple of points has eaten a thin feature), and the
+	worst reconstruction error of the implied channel, measured rather than reasoned about."""
+	var out := {"tex": null, "report": {}}
+	var img := _image_from(png)
+	if img == null:
+		push_error("[paintstack] cannot load splat %s" % png)
+		return out
+	var w := img.get_width()
+	var h := img.get_height()
+	var n := w * h
+	# ONE FLAT ARRAY, class-major, and not an Array of PackedFloat32Array. `fields[c][i] = v`
+	# on the nested form does not write: indexing an Array yields the packed array BY VALUE,
+	# so the write lands on a temporary and is thrown away -- in Godot 4.6 it raises rather
+	# than silently dropping it, which is the only reason this was a crash and not an
+	# all-snow ground that looked like a tuning problem.
+	var fields := PackedFloat32Array()
+	fields.resize(n * classes)
+	var raw_counts := []
+	for c in classes:
+		raw_counts.append(0)
+	for y in h:
+		for x in w:
+			# 8-bit grey: the id is the byte. get_pixel returns 0..1, so *255 and round.
+			var id: int = clampi(int(round(img.get_pixel(x, y).r * 255.0)), 0, classes - 1)
+			fields[id * n + y * w + x] = 1.0
+			raw_counts[id] += 1
+	for c in classes:
+		var f := fields.slice(c * n, (c + 1) * n)
+		for _pass in 2:
+			f = _box_blur(f, w, h, blur_px)
+		for i in n:
+			fields[c * n + i] = f[i]
+	# normalise, and count what each class ends up owning
+	var blurred_sum := []
+	for c in classes:
+		blurred_sum.append(0.0)
+	for i in n:
+		var s := 0.0
+		for c in classes:
+			s += fields[c * n + i]
+		s = maxf(s, 1e-6)
+		for c in classes:
+			var v: float = fields[c * n + i] / s
+			fields[c * n + i] = v
+			blurred_sum[c] = float(blurred_sum[c]) + v
+	# pack: every class except the implied one, in ascending class order, into RGBA
+	var order := []
+	for c in classes:
+		if c != implied_class:
+			order.append(c)
+	var packed := Image.create(w, h, false, Image.FORMAT_RGBA8)
+	var worst := 0.0
+	for y in h:
+		for x in w:
+			var i := y * w + x
+			var v := [0.0, 0.0, 0.0, 0.0]
+			for j in mini(order.size(), 4):
+				v[j] = fields[int(order[j]) * n + i]
+			packed.set_pixel(x, y, Color(v[0], v[1], v[2], v[3]))
+			# what the shader will reconstruct for the implied class, through the same
+			# 8-bit rounding the texture will store
+			var q := 0.0
+			for j in mini(order.size(), 4):
+				q += round(float(v[j]) * 255.0) / 255.0
+			worst = maxf(worst, absf((1.0 - q) - fields[implied_class * n + i]))
+	var tex := ImageTexture.create_from_image(packed)
+	out["tex"] = tex
+	out["report"] = {
+		"png": png, "size": [w, h], "classes": classes,
+		"blur_px_per_pass": blur_px, "passes": 2,
+		"implied_class": implied_class,
+		"packed_rgba_classes": order.slice(0, 4),
+		"share_before_blur_pct": _shares(raw_counts, float(n)),
+		"share_after_blur_pct": _shares(blurred_sum, float(n)),
+		"worst_implied_channel_error": snappedf(worst, 1e-5),
+		"_error_budget": "4 channels at 1/255 each; anything over 0.02 means the implied class is the wrong one",
+	}
+	return out
+
+
+static func _shares(counts: Array, total: float) -> Array:
+	var o := []
+	for c in counts:
+		o.append(snappedf(float(c) / maxf(total, 1.0) * 100.0, 0.01))
+	return o
+
+
+static func _box_blur(src: PackedFloat32Array, w: int, h: int, r: int) -> PackedFloat32Array:
+	"""Separable running-sum box blur with CLAMPED edges. Clamped and not wrapped: the splat
+	is a 15 m square of a 92 m world, not a tiling texture, and wrapping would carry the
+	tarn's ice round to the far edge."""
+	var tmp := PackedFloat32Array()
+	tmp.resize(w * h)
+	var dst := PackedFloat32Array()
+	dst.resize(w * h)
+	var inv := 1.0 / float(2 * r + 1)
+	for y in h:
+		var row := y * w
+		var acc := 0.0
+		for k in range(-r, r + 1):
+			acc += src[row + clampi(k, 0, w - 1)]
+		for x in w:
+			tmp[row + x] = acc * inv
+			acc += src[row + clampi(x + r + 1, 0, w - 1)] - src[row + clampi(x - r, 0, w - 1)]
+	for x in w:
+		var acc2 := 0.0
+		for k in range(-r, r + 1):
+			acc2 += tmp[clampi(k, 0, h - 1) * w + x]
+		for y in h:
+			dst[y * w + x] = acc2 * inv
+			acc2 += tmp[clampi(y + r + 1, 0, h - 1) * w + x] - tmp[clampi(y - r, 0, h - 1) * w + x]
+	return dst
+
+
+static func adopt_prop(node: Node3D, fbm: Texture2D, ink: Color, hull_world_m: float,
+		params := {}) -> Dictionary:
+	"""A LOADED GLB, BROUGHT UNDER THE SAME LIGHT AND GIVEN THE SAME PEN.
+
+	Identical in spirit to adopt_character and different in one way that matters: the props
+	arrive with NO ink line, so one is built here -- a copy of each mesh, inflated along its
+	own normal and culled front, in the one pen. That is the T9 hull, and the T9 failure mode
+	comes with it: on an OPEN mesh the inflated copy is not a rim, it IS the surface, flat and
+	1 cm proud. These are closed image-to-3D solids so it is the right pen for them -- but the
+	measurement is what says so, not this comment, and the capture isolates the hull's pixels
+	by hiding exactly these meshes.
+
+	`hull_world_m` is the line's width IN WORLD METRES and is divided by the node's own scale,
+	because VERTEX += NORMAL * width happens in model space and the fit scale is applied after
+	it. A prop normalised to 2.71 m from a 1.0 m export carries a scale of 2.71, and a width
+	not divided by it draws a line 2.71x too thick on exactly the tallest stones."""
+	var saved := {"meshes": [], "inks": []}
+	for n in node.find_children("*", "MeshInstance3D", true, false):
+		var mi := n as MeshInstance3D
+		if mi.mesh == null or String(mi.name).ends_with("_ink"):
+			continue
+		var tex: Texture2D = null
+		var act := mi.get_active_material(0) as BaseMaterial3D
+		if act != null:
+			tex = act.albedo_texture if act.albedo_texture != null else act.emission_texture
+		var p := params.duplicate()
+		p["use_tex"] = tex != null
+		var ramp := world_material(fbm, Color(0.62, 0.60, 0.58), p)
+		if tex != null:
+			ramp.set_shader_parameter("albedo_tex", tex)
+		saved["meshes"].append({"mi": mi, "mat": mi.material_override, "ramp": ramp})
+		mi.material_override = ramp
+		# A HULL WIDTH OF ZERO MEANS NO HULL, and it is how a caller says "this mesh has no
+		# inside". See barrow_world._hull_for: on a heather tussock or a birch's twigs the
+		# inflated copy is not a rim around the stem, it IS the stem -- at the play camera a
+		# 3 m tree with 8 mm twigs inked solid black, and nineteen tussocks read as scribble.
+		if hull_world_m <= 0.0:
+			continue
+		# the pen, as a sibling so it inherits the same transform
+		var sc: Vector3 = mi.global_transform.basis.get_scale()
+		var s: float = maxf((absf(sc.x) + absf(sc.y) + absf(sc.z)) / 3.0, 1e-6)
+		var line := MeshInstance3D.new()
+		line.name = String(mi.name) + "_ink"
+		line.mesh = mi.mesh
+		line.material_override = hull_ink_material(hull_world_m / s, ink)
+		line.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.add_child(line)
+		saved["inks"].append({"mi": line, "width_model": hull_world_m / s})
+	return saved
 
 
 static func char_material(fbm: Texture2D, albedo: Texture2D, params := {}) -> ShaderMaterial:
@@ -605,7 +1100,7 @@ static func set_character_param(saved: Dictionary, key: String, value) -> void:
 # =============================================================================
 #  LIGHT, SKY AND AIR
 # =============================================================================
-static func winter_sun(elev_deg := 17.0, screen_az_deg := 305.0) -> DirectionalLight3D:
+static func winter_sun(elev_deg := 55.0, screen_az_deg := 305.0) -> DirectionalLight3D:
 	"""ONE light. Low, pale-warm, from screen upper-LEFT.
 
 	`screen_az_deg` is an azimuth in the camera's own yaw frame, so "upper left" stays
@@ -626,12 +1121,39 @@ static func winter_sun(elev_deg := 17.0, screen_az_deg := 305.0) -> DirectionalL
 	l.light_energy = 0.90
 	l.shadow_enabled = true
 	l.shadow_blur = 1.7
-	# A 17-DEGREE SUN IS THE WORST CASE FOR SHADOW BIAS. Grazing light turns a shadow-map
-	# texel of size s into a depth error of s/tan(17 deg) = 3.3 s, so the bias that a noon
-	# sun needs is about a third of what this one does. Under-biased, a 0.55 m terrain grid
-	# self-shadows in facets and reads as a broken mesh.
-	l.shadow_bias = 0.13
-	l.shadow_normal_bias = 3.0
+	# THE SUN CAME UP FROM 17 DEGREES TO 55, AND THE BIAS CAME DOWN WITH IT (R-C9-74 note 3).
+	# Matt, on the 15:20 build: "The lighting on the character and 3D objects throws very odd
+	# shadows on the ground." Two measured causes, and both are this function's:
+	#
+	#   LENGTH. A shadow is height/tan(elevation) long. At 17 degrees that is 3.27x the
+	#     caster -- a 1.85 m man throwing a 6.0 m shadow across the frame, which is what
+	#     "very odd" is. At 55 degrees it is 0.70x, inside the 0.8x the ruling asks for.
+	#   THE GAP AT THE FOOT. shadow_normal_bias pushes the shadow lookup along the SURFACE
+	#     NORMAL, so it moves the shadow away from its caster's base by roughly
+	#     normal_bias * texel / tan(elev). At 3.0 and 17 degrees that gap is visible; it is
+	#     why every shadow started a hand's breadth from the thing casting it.
+	#
+	# Raising the sun shrinks the depth error a texel represents by tan(55)/tan(17) = 4.7x,
+	# so the bias that 17 degrees needed is 4.7x more than 55 does. 0.55 and 0.03 are the
+	# sweep is tools/probe_shadow.gd and its answer was not the one I expected: on the mound
+	# -- the scene's only curved surface, and so the only thing that CAN self-shadow now the
+	# floor is flat -- there is NO measurable acne at any normal_bias from 0.0 to 3.0. Against
+	# a shadows-off control at 0.18407 dark share, the excess runs 0.0124 / 0.0119 / 0.0122 /
+	# 0.0116 / 0.0105 / 0.0038 for 0.0 / 0.15 / 0.35 / 0.55 / 1.2 / 3.0, and that excess is the
+	# props' REAL shadows, not acne: it is flat until 1.2 and then collapses, which is bias
+	# eating the shadow rather than cleaning it.
+	#
+	# The snow-lab drax derives these instead by scaling the shipped 17-degree pair by
+	# tan(17)/tan(55) = 0.214, which gives 0.028 / 0.64. That agrees with the measurement on
+	# the bias term (0.028 against 0.03) and is four times larger on the normal term. The
+	# sweep says smaller is safe here and smaller keeps the shadow attached, so the measured
+	# value stands and theirs is recorded beside it rather than silently discarded.
+	#
+	# So "the smallest value with no acne" is measured as 0.0, and 0.15 is taken instead --
+	# one step of margin for geometry the sweep does not cover, keeping 95.8% of the shadow
+	# area that zero produces where 3.0 keeps 30%. Blur unchanged, per the ruling.
+	l.shadow_bias = 0.03
+	l.shadow_normal_bias = 0.15
 	# ONE SPLIT, because the camera is ORTHOGRAPHIC. Cascades exist to spend shadow
 	# resolution where a perspective frustum is narrow and save it where it is wide; an
 	# orthographic frustum is a BOX of constant cross-section, so there is no wide end to
@@ -685,18 +1207,30 @@ static func barrow_environment(params := {}) -> Environment:
 	# DISTANCE FOG, pale blue, in DEPTH mode so where it starts is a metre value and not a
 	# density to be guessed at; plus height fog that pools in the basin. Property names read
 	# off Environment itself in tools/probe_gfx.gd rather than remembered.
+	# NO DISTANCE FOG. It was measured changing EXACTLY 0.0% of the play frame -- the frame
+	# spans ~53-67 m of view depth and the fog began at 68 m, so it ended where the fog
+	# started. Rather than drag it inward, it is off: a 13 m deep tactical frame has no
+	# distance for aerial perspective to describe, and the wide framings get theirs from the
+	# sky. What is left is the HEIGHT term alone, pooling in the basin, which is the one
+	# place in this world where low mist is a thing the player can be standing in.
+	#
+	# EXPONENTIAL mode with fog_density 0 is what leaves the height term running by itself;
+	# DEPTH mode gates on fog_depth_begin and takes the height fog with it. That is measured
+	# in tools/probe_fog.gd, not assumed -- it is exactly the kind of coupling that returns
+	# a clean zero and looks like a tuning problem.
 	env.fog_enabled = true
-	env.fog_mode = Environment.FOG_MODE_DEPTH
-	env.fog_light_color = Color(0.800, 0.860, 0.935)
+	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
+	env.fog_light_color = Color(0.815, 0.870, 0.940)
 	env.fog_light_energy = 1.0
-	env.fog_sun_scatter = 0.06
-	env.fog_density = 0.72
-	env.fog_depth_begin = 34.0
-	env.fog_depth_end = 205.0
-	env.fog_depth_curve = 1.45
-	env.fog_sky_affect = 0.30
-	env.fog_height = -0.6
-	env.fog_height_density = 0.10
+	env.fog_sun_scatter = 0.05
+	env.fog_density = 0.0                 # the distance term, off
+	env.fog_sky_affect = 0.0
+	env.fog_height = 0.0                  # the scene sets this to the basin's own rim
+	# 0.18: chosen off the measured sweep (tools/probe_fog.gd), not by eye. At the play camera
+	# over the basin it lifts the frame by about 2.8% per channel across 98% of it, with the
+	# mound control -- which stands 5.9 m above the fog top -- changing by EXACTLY 0.00%.
+	# The sweep: 0.006 -> 0.10%, 0.025 -> 0.42%, 0.05 -> 0.83%, 0.20 -> 3.07%, 0.55 -> 7.05%.
+	env.fog_height_density = 0.18
 	env.fog_aerial_perspective = 0.0
 	for k in params:
 		env.set(k, params[k])
@@ -849,7 +1383,8 @@ static func _param(mat: ShaderMaterial, key: String, fallback: float) -> float:
 	return fallback if v == null else float(v)
 
 
-static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictionary:
+static func measure_snow(groups: Array, img: Image, covered_at := 0.5,
+		max_tris_per_group := 24000) -> Dictionary:
 	"""AREA-WEIGHTED over the real triangles, not per texel: the snow layer is a world-space
 	function, so it has no texel grid of its own, and triangle area is the honest measure of
 	"how much of the surface".
@@ -883,11 +1418,37 @@ static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictio
 		var soft := _param(mat, "snow_soft", 0.13)
 		var nsc := _param(mat, "snow_noise_scale", 0.85)
 		var amt := _param(mat, "snow_amount", 1.0)
+		# THE GROUND SCALES THE DRIFT PER SPLAT CLASS (GROUND_SHADER note 5) and this is the
+		# CPU's copy of that factor -- supplied by the scene as a Callable over world xz, so
+		# there is no second implementation of the splat lookup living in here to drift out of
+		# step with the first. A group without one measures the plain layer, as before.
+		var keep: Callable = g.get("amount_scale", Callable())
 		var up_a := [0.0, 0.0, 0.0, 0.0]
 		var sn_a := [0.0, 0.0, 0.0, 0.0]
 		var down_a := 0.0
 		var down_snow := 0.0
 		var tris := 0
+		# A UNIFORM STRIDE, because the props are now 1.2 MILLION triangles and this loop is
+		# GDScript doing a transform and two bilinear noise fetches per triangle. At 1:1 it
+		# does not finish; at a stride it is the same estimator on an evenly spaced sample of
+		# the same population, and the areas it sums are the areas of the triangles it took
+		# -- so every share stays a ratio of like to like. The stride is reported; a share
+		# taken at stride 50 and a share taken at 1 that disagree would mean the sample is
+		# not uniform, and the terrain group (stride 1) is the control for that.
+		var total_tris := 0
+		for mi0 in g["meshes"]:
+			var nd0 := mi0 as MeshInstance3D
+			if nd0 == null or nd0.mesh == null:
+				continue
+			for s0 in nd0.mesh.get_surface_count():
+				# the index COUNT, not a copy of the index array -- see barrow_world's note
+				if nd0.mesh is ArrayMesh:
+					total_tris += (nd0.mesh as ArrayMesh).surface_get_array_index_len(s0) / 3
+				else:
+					var ix0 = nd0.mesh.surface_get_arrays(s0)[Mesh.ARRAY_INDEX]
+					total_tris += (ix0.size() / 3) if ix0 != null else 0
+		var stride: int = maxi(1, int(ceil(float(total_tris) / float(maxi(max_tris_per_group, 1)))))
+		var step := 3 * stride
 		for mi in g["meshes"]:
 			var node := mi as MeshInstance3D
 			if node == null or node.mesh == null:
@@ -901,7 +1462,7 @@ static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictio
 				var ix = a[Mesh.ARRAY_INDEX]
 				if ix == null:
 					continue
-				for t in range(0, ix.size(), 3):
+				for t in range(0, ix.size() - 2, step):
 					var p0 := xf * v[ix[t]]
 					var p1 := xf * v[ix[t + 1]]
 					var p2 := xf * v[ix[t + 2]]
@@ -910,7 +1471,10 @@ static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictio
 						continue
 					var wn := (nb * ((nn[ix[t]] + nn[ix[t + 1]] + nn[ix[t + 2]]) / 3.0)).normalized()
 					var cen := (p0 + p1 + p2) / 3.0
-					var k := snow_at(img, cen, wn, thr, jit, soft, nsc, amt)
+					var a_here := amt
+					if keep.is_valid():
+						a_here *= float(keep.call(cen))
+					var k := snow_at(img, cen, wn, thr, jit, soft, nsc, a_here)
 					var u := wn.dot(Vector3.UP)
 					tris += 1
 					if u <= 0.0:
@@ -934,7 +1498,10 @@ static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictio
 			tot_snow[bi] += sn_a[bi]
 		out["groups"][String(g["name"])] = {
 			"params": {"threshold": thr, "jitter": jit, "soft": soft, "noise_scale": nsc},
-			"triangles": tris,
+			"triangles_in_group": total_tris,
+			"triangles_sampled": tris,
+			"stride": stride,
+			"per_class_amount_scale": keep.is_valid(),
 			"by_band": rows,
 			"down_or_side_facing_control": {
 				"area_m2": snappedf(down_a, 0.1),
@@ -972,6 +1539,9 @@ static func measure_snow(groups: Array, img: Image, covered_at := 0.5) -> Dictio
 			"horizontal_face_share": snappedf(flat / 100.0, 0.001),
 			"vertical_face_share": snappedf(vert / 100.0, 0.001),
 			"_expect": "1.0 and 0.0",
+			"_of": "the LAYER function alone, before any per-class amount_scale -- that factor "
+				+ "is a property of the ground's splat, not of this function, and folding it "
+				+ "in would make a correct shader fail a check about something else",
 		}
 	out["instrument_check_known_faces"] = checks
 	return out

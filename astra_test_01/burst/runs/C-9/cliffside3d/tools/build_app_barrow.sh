@@ -86,7 +86,7 @@ advanced_options=false
 dedicated_server=false
 custom_features=""
 export_filter="all_resources"
-include_filter="*.json"
+include_filter="*.json,data/height_a_*.png,data/splat_ids_*.png,textures/barrow/*.png"
 exclude_filter="tools/*"
 export_path="build/$NAME.app"
 patches=PackedStringArray()
@@ -184,6 +184,11 @@ if [ -n "$PCK" ]; then
   for p in scenes/barrow.tscn scripts/barrow_world.gd scripts/paint_stack.gd \
            scripts/barrow_stand_in.gd scripts/knight.gd scripts/gear.gd \
            data/character.json data/gear_manifest.json \
+           data/barrow_scene_a.json data/barrow_assets.json \
+           scripts/barrow_flat.gd scripts/barrow_heightfield.gd \
+           data/height_a_authored.png data/splat_ids_a_marigold.png \
+           textures/barrow/snow.png textures/barrow/rock.png textures/barrow/ice.png \
+           models/barrow/stone_tall.glb models/barrow/lintel.glb models/barrow/heather.glb \
            models/gear/nb-body.glb models/gear/axe.glb models/gear/shield.glb \
            models/gear/helmet.glb models/gear/byrnie.glb models/gear/mantle.glb \
            models/gear/bracers.glb; do
@@ -206,6 +211,13 @@ if [ -z "${SKIP_LAUNCH_CHECK:-}" ]; then
     && ck 0 "app launches and quits cleanly" || ck 1 "app launches (see $LOG/launch.log)"
   grep -iE "parse error|failed to load|SCRIPT ERROR|cannot load" "$LOG/launch.log" \
     && ck 1 "no script errors at launch" || ck 0 "no script errors at launch"
+  # THE SHIPPED APP MUST BE ON THE FLAT GROUND, AND ONLY THE RUNNING APP CAN SAY SO. The pck
+  # fence above proves the FILES are there; barrow_world falls back to the procedural stand-in
+  # if a ground fails to load, and that fallback is one line in a JSON and a scene that still
+  # looks finished. The scene prints its choice at _ready, so the launch log is the evidence.
+  grep -q "\[barrow\] ground=flat" "$LOG/launch.log" \
+    && ck 0 "the app opens on the flat barrow ground (printed by the scene itself)" \
+    || ck 1 "the app opens on the flat barrow ground -- see $LOG/launch.log"
 fi
 
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }

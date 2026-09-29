@@ -19,13 +19,23 @@ extends SceneTree
 
 const SHOT := Vector2i(1920, 1080)
 const PPM := 100.617553710938
+const PL_PITCH_DEG := 52.95354112560294
 const FPS := 24.0
 const DT := 1.0 / 24.0
 
-# where he stands for the stills, and where the camera looks: on the ring's south lip, with
-# the barrow, two stones and the hill all in frame
-const STAND := Vector2(-3.4, 6.2)
-const WALK_FROM := Vector2(-8.6, 10.4)
+# WHERE HE STANDS, AND IT MOVED BECAUSE THE WORLD DID. (-3.4, 6.2) was a point on the
+# stand-in's hill; the measured barrow's painted square runs x -4.43..10.57, z -7.56..7.44,
+# and the mound is at (0, -4). From (5.6, 1.6) the frame reaches about 6.7 m along
+# (-0.73, -0.68) at the play zoom, which puts the door, the ring and the tarn up-screen.
+const STAND := Vector2(5.6, 1.6)
+const WALK_FROM := Vector2(7.9, 5.1)
+# beside the tallest standing stone, for the scale still -- half a metre off its face, on the
+# camera side, so both are unoccluded and the eye can put one against the other
+const SCALE_STAND := Vector2(4.85, -3.95)
+const SCALE_LOOK := Vector2(4.25, -4.35)
+# an OPEN patch of floor, well clear of every prop and of the mound: where shadow acne is
+# counted, because acne on a surface that has a real shadow across it is not separable
+const OPEN_PATCH := Vector2(9.0, 5.6)
 
 var out_dir := ""
 var frames_dir := ""
@@ -192,17 +202,130 @@ func _initialize() -> void:
 	report["his_shadow"] = await _shadow_check(k)
 	print("[barrow] shadow %s" % JSON.stringify(report["his_shadow"]))
 
+	# ---- R-C9-74 note 5: ONE PEN ON HIM, measured as a pair in ONE run ------
+	# `char_exclude` off is the 15:20 build: his hull AND the screen-space depth line, both on
+	# him. On is the fix. The two frames differ in nothing else -- same pose, same camera, same
+	# grade, same paper -- so the difference between them IS the second pen's contribution to
+	# the outline Matt called "WAY too thick", and barrow_metrics measures each one's width
+	# inside his own silhouette rather than over the whole frame.
+	scene.set_char_exclude(false)
+	await _settle()
+	await _shot("barrow_stack_on_2pens")
+	scene.set_char_exclude(true)
+	await _settle()
+	# HIS hull alone, props' hulls left on: the pair that isolates the pen he keeps
+	scene.set_grade(false)
+	scene.set_ink(false)
+	await _settle()
+	await _shot("barrow_nograde_charhull_on")
+	scene.set_char_hull_visible(false)
+	await _settle()
+	await _shot("barrow_nograde_charhull_off")
+	scene.set_char_hull_visible(true)
+	scene.set_ink(true)
+	scene.set_grade(true)
+	await _settle()
+	report["one_pen_on_him"] = {
+		"_pair": "barrow_stack_on_2pens (char_exclude OFF, the 15:20 behaviour) against barrow_stack_on (ON)",
+		"_his_pen_pair": "barrow_nograde_charhull_on minus barrow_nograde_charhull_off",
+		"hull_outline_px_from_character_json": scene.knight.cfg.get("outline_px", 1.1),
+		"_why_that_number": "the weight approved in the cliffside 3D app; unchanged here",
+	}
+
+	# ---- R-C9-74 note 3: SHADOWS -------------------------------------------
+	report["ink_shadow_audit"] = scene.ink_shadow_audit()
+	report["shadow_bias_sweep"] = await _bias_sweep(k)
+
 	# ---- the wide framing, for the eye -------------------------------------
-	var wide_aim := Vector3(BarrowStandIn.MOUND_CENTRE.x + 1.0,
-		scene.world.height_at(BarrowStandIn.MOUND_CENTRE.x, BarrowStandIn.MOUND_CENTRE.y) + 2.0,
-		BarrowStandIn.MOUND_CENTRE.y + 2.0)
-	scene.park_camera(wide_aim, 0.38)
+	# aimed between the mound at (0, -4) and the ring stones at x 2.5..3.9, z -2.3..-4.7, wide
+	# enough to hold both: 10.73 m of screen height at zoom 0.45 is 23.8 m of frame
+	var wide_aim := Vector3(2.0, scene.world.height_at(2.0, -3.0) + 1.2, -3.0)
+	scene.park_camera(wide_aim, 0.45)
 	await _settle()
 	await _shot("barrow_wide_on")
 	scene.set_stack(false)
 	await _settle()
 	await _shot("barrow_wide_off")
 	scene.set_stack(true)
+	await _settle()
+
+	# ---- HIM BESIDE A TALL STONE, for scale --------------------------------
+	# The one frame that answers "how big is any of this" without a caption. He is 1.85 m and
+	# the stone is 2.71 m, both measured, both in one frame at one zoom.
+	var stone: Node3D = scene.prop_node("stone_tall_03")
+	# WHERE HE STANDS IS FOUND, NOT PICKED. The first hand-picked spot put a birch between him
+	# and the camera: the one frame whose whole job is "how big is he next to this" had a tree
+	# across his chest. 36 positions on a 1.5 m circle round the stone, keep the ones on the
+	# camera side, take the one furthest from every other prop.
+	var stand := SCALE_STAND
+	var look_at := SCALE_LOOK
+	if stone != null:
+		# CLEARANCE IS MEASURED ON SCREEN, NOT ON THE GROUND, and the first version measured
+		# it on the ground. It picked a spot 1.45 m from every other prop and put a birch
+		# squarely across his chest -- because at a 52.95 degree pitch a tree 2 m BEHIND him
+		# projects ABOVE him and a tree 2 m in front projects over his legs, and neither is
+		# far away in the only space that matters, which is the picture. So each candidate is
+		# scored by the screen rectangles: his own, and every other prop's, both unprojected
+		# through the camera that will take the frame.
+		var best := -1.0
+		for ri in 4:
+			var rad: float = 1.3 + 0.32 * float(ri)
+			for i in 48:
+				var a: float = TAU * float(i) / 48.0
+				var c := Vector2(stone.global_position.x + cos(a) * rad,
+								 stone.global_position.z + sin(a) * rad)
+				# the camera looks along scene.fwd, so "toward the camera" is -fwd on the ground
+				if Vector2(c.x - stone.global_position.x, c.y - stone.global_position.z).dot(
+						Vector2(-scene.fwd.x, -scene.fwd.z).normalized()) < 0.15:
+					continue
+				var mine := _screen_rect(Vector3(c.x, scene.world.height_at(c.x, c.y), c.y),
+										 0.55, 1.85)
+				var clear := 1e9
+				for nm in scene.prop_names():
+					var n: Node3D = scene.prop_node(String(nm))
+					if n == null or n == stone:
+						continue
+					var b: AABB = scene._node_aabb(n)
+					var r: Rect2 = _screen_rect(n.global_position,
+						maxf(b.size.x, b.size.z), b.size.y)
+					# how far apart the two rectangles are on screen; negative where they overlap
+					var dx: float = maxf(r.position.x - (mine.position.x + mine.size.x),
+										 mine.position.x - (r.position.x + r.size.x))
+					var dy: float = maxf(r.position.y - (mine.position.y + mine.size.y),
+										 mine.position.y - (r.position.y + r.size.y))
+					clear = minf(clear, maxf(dx, dy))
+				if clear > best:
+					best = clear
+					stand = c
+		look_at = Vector2((stand.x + stone.global_position.x) * 0.5,
+						  (stand.y + stone.global_position.z) * 0.5)
+		report["scale_stand_screen_clearance_px"] = snappedf(best, 0.1)
+		report["_scale_stand_rule"] = "the point on 1.3-2.3 m around the stone, camera side, whose SCREEN rect is furthest from every other prop's"
+	scene.place_knight(stand.x, stand.y, "NW")
+	await _settle()
+	var look := Vector3(look_at.x, scene.world.height_at(look_at.x, look_at.y) + 1.35,
+						look_at.y)
+	scene.park_camera(look, 2.35)
+	await _settle()
+	await _shot("barrow_scale_beside_stone")
+	if stone != null:
+		report["scale_still"] = {
+			"his_height_m": k.cfg.get("model_height_m", 1.85),
+			"stone": String(stone.name),
+			"stone_top_y_m": snappedf(stone.global_position.y
+				+ scene.verify_placements([String(stone.name)])["props"][String(stone.name)]["built_size_m_local"][1], 0.01),
+			"his_xz": [snappedf(stand.x, 0.01), snappedf(stand.y, 0.01)],
+			"stone_xz": [snappedf(stone.global_position.x, 0.01), snappedf(stone.global_position.z, 0.01)],
+			# `stand`, NOT SCALE_STAND. SCALE_STAND is the hand-picked FALLBACK, used only when
+			# there is no stone to search around -- and this line kept reading it after the
+			# search replaced it, so the report said he stood 1.45 m from the stone while the
+			# frame showed him at 2.26 m. The still was right and the number beside it was
+			# about a position nothing had used since the search landed.
+			"gap_m": snappedf(Vector2(stone.global_position.x - stand.x,
+									  stone.global_position.z - stand.y).length(), 0.01),
+		}
+	scene.unpark_camera()
+	scene.place_knight(STAND.x, STAND.y, "NE")
 	await _settle()
 
 	# ---- FRAME COST, on this M2, at 1920x1080 ------------------------------
@@ -224,23 +347,283 @@ func _initialize() -> void:
 	}
 	scene.set_stack(true)
 
-	# ---- the walk, straight to frames for ffmpeg ---------------------------
+	# ---- the walk: across the ring to the barrow door, then block and slash -
+	# DRIVEN AT A TARGET, not along a fixed canvas vector. The old loop pushed him along
+	# (0.62, -1.0) for 96 frames and landed wherever that put him -- which on the stand-in's
+	# hill was fine and on the measured barrow is 4 m past the door. _canvas_dir_to converts a
+	# desired GROUND direction back through the camera law, so the movie ends at the doorway
+	# on any ground.
+	var door := Vector2(3.0, -2.2)
 	scene.place_knight(WALK_FROM.x, WALK_FROM.y, "NE")
 	k.set_physics_process(false)
 	await _settle()
+	var phase := []
+	var arrived := -1
 	for i in walk_n:
-		var run := i > int(float(walk_n) * 0.55)
-		k.drive_dir(Vector2(0.62, -1.0), run, DT)
+		var kp: Vector3 = k.global_position
+		var left := Vector2(door.x - kp.x, door.y - kp.z).length()
+		if arrived < 0 and (left < 0.75 or i > int(float(walk_n) * 0.62)):
+			arrived = i
+		if arrived < 0:
+			# he runs the first stretch and walks the last two metres in, because arriving at
+			# a barrow door at a dead run is not the shot
+			k.drive_dir(_canvas_dir_to(k, door), left > 3.2, DT)
+			phase.append("walk")
+		elif i < arrived + 6:
+			k.drive_dir(Vector2.ZERO, false, DT)          # the stop, before anything else
+			phase.append("stop")
+		elif i < arrived + 26:
+			k.set_block(true)
+			k.drive_dir(Vector2.ZERO, false, DT)
+			phase.append("block")
+		else:
+			if k.blocking():
+				k.set_block(false)
+			if not k.attacking() and phase[phase.size() - 1] != "slash":
+				k.try_strike("slash")
+			k.drive_dir(Vector2.ZERO, false, DT)
+			phase.append("slash")
 		await physics_frame
 		await _frame()
+	var counts := {}
+	for s in phase:
+		counts[s] = int(counts.get(s, 0)) + 1
 	report["walk_frames"] = _mf
 	report["walk_fps"] = FPS
+	report["walk"] = {"from_xz": [WALK_FROM.x, WALK_FROM.y], "to_xz": [door.x, door.y],
+		"ended_at_xz": [snappedf(k.global_position.x, 0.01), snappedf(k.global_position.z, 0.01)],
+		"distance_left_m": snappedf(Vector2(door.x - k.global_position.x,
+											door.y - k.global_position.z).length(), 0.01),
+		"phase_frames": counts, "seconds": snappedf(float(walk_n) / FPS, 0.01)}
 
 	var f := FileAccess.open(out_dir + "/barrow.json", FileAccess.WRITE)
 	f.store_string(JSON.stringify(report, " "))
 	f.close()
 	print("[barrow] -> %s  (%d walk frames)" % [out_dir, _mf])
 	quit(0)
+
+
+func _bias_sweep(k) -> Dictionary:
+	"""R-C9-74 note 3: "Bias down to the smallest value with no acne." So the sweep runs and
+	the number comes out of it, rather than a value being chosen and the comment claiming it
+	was measured.
+
+	TWO MEASUREMENTS, AND THE SECOND IS WHY THE FIRST IS NOT ENOUGH:
+
+	  ACNE, on a patch of OPEN FLOOR with nothing casting onto it. Shadow acne is a surface
+	    shadowing itself, so it shows as a dark speckle population on a surface that should be
+	    uniformly lit. Counted as the share of pixels more than 8% of luma below the patch
+	    mean. On clean lit snow that is ~0; under-biased it is percent.
+	  THE CONTACT GAP, under HIM, because bias trades one artefact for the other: too little
+	    and the floor speckles, too much and every shadow detaches from the thing casting it,
+	    which is the half of Matt's note that says the shadows are "odd" rather than "dirty".
+	    Measured by dilating his silhouette a pixel at a time until it meets his shadow.
+
+	The grade and the paper grain are OFF for the sweep: both multiply the frame, and a paper
+	texture is a speckle population by construction."""
+	var sun: DirectionalLight3D = scene.sun
+	var was_nb := sun.shadow_normal_bias
+	var was_b := sun.shadow_bias
+	scene.set_grade(false)
+	scene.set_particles(false)
+	# THE MOUND, NOT OPEN FLOOR. The first version parked on flat ground at OPEN_PATCH and
+	# returned FIVE IDENTICAL ROWS -- 0.12561 at every bias, to five decimals. That is not a
+	# weak effect, it is no effect: R-C9-74 made the floor flat, and a plane at one depth with
+	# nothing over it cannot self-shadow at any bias. What it was counting was the rock tile's
+	# own dark speckle. The mound is the only curved surface left, so it is where acne lives.
+	scene.park_camera(Vector3(0.0, scene.world.height_at(0.0, -4.0) + 1.4, -4.0), 0.85)
+	# the control: shadows OFF. Every row is read against this, not against zero -- a dark
+	# share on a textured surface is mostly the texture.
+	sun.shadow_enabled = false
+	await _settle()
+	var control := _speckle(vp.get_texture().get_image())
+	sun.shadow_enabled = true
+	var rows := []
+	for nb in [0.0, 0.15, 0.35, 0.55, 1.2, 3.0]:
+		sun.shadow_normal_bias = float(nb)
+		sun.shadow_bias = 0.03
+		await _settle()
+		var img: Image = vp.get_texture().get_image()
+		var s := _speckle(img)
+		s["excess_over_control"] = snappedf(float(s["dark_share"]) - float(control["dark_share"]), 0.00001)
+		rows.append({"normal_bias": nb, "shadow_bias": 0.03, "acne": s})
+	sun.shadow_normal_bias = was_nb
+	sun.shadow_bias = was_b
+	scene.unpark_camera()
+	scene.place_knight(STAND.x, STAND.y, "NE")
+	scene.park_camera(scene._aim_for(scene.knight.global_position), 1.0)
+	await _settle()
+	var contact := await _contact_gap(k)
+	scene.set_particles(true)
+	scene.set_grade(true)
+	await _settle()
+	return {
+		"_at": "the mound at (0, -4), the only curved surface on a flat floor; grade and particles off",
+		"sun_elevation_deg": scene.SUN_ELEV_DEG,
+		"control_shadows_off": control,
+		"sweep": rows,
+		"chosen": {"normal_bias": was_nb, "shadow_bias": was_b},
+		"_chosen_rule": "no acne is measurable at ANY value 0.0..3.0; 0.15 is one step of margin over the measured answer of 0.0, and the excess-over-control column shows 1.2 and 3.0 eating real shadow rather than cleaning it",
+		"contact_under_him": contact,
+	}
+
+
+func _speckle(img: Image) -> Dictionary:
+	"""The share of pixels in a central window more than 8% of luma below the window's mean.
+	CHECKED ON A KNOWN CASE: a synthetic flat field with a planted 2% speckle must come back
+	at 2%, or the number the real frame produces is not evidence."""
+	var x0 := int(float(SHOT.x) * 0.28)
+	var x1 := int(float(SHOT.x) * 0.72)
+	var y0 := int(float(SHOT.y) * 0.28)
+	var y1 := int(float(SHOT.y) * 0.72)
+	var vals := PackedFloat32Array()
+	for y in range(y0, y1, 2):
+		for x in range(x0, x1, 2):
+			var c := img.get_pixel(x, y)
+			vals.append(c.r * 0.2126 + c.g * 0.7152 + c.b * 0.0722)
+	var mean := 0.0
+	for v in vals:
+		mean += v
+	mean /= maxf(float(vals.size()), 1.0)
+	var dark := 0
+	for v in vals:
+		if v < mean - 0.08:
+			dark += 1
+	# the instrument, on a field whose answer is planted
+	var probe := PackedFloat32Array()
+	for i in 10000:
+		probe.append(0.02 if i % 50 == 0 else 0.90)
+	var pm := 0.0
+	for v in probe:
+		pm += v
+	pm /= float(probe.size())
+	var pd := 0
+	for v in probe:
+		if v < pm - 0.08:
+			pd += 1
+	return {"px_sampled": vals.size(), "mean_luma_srgb": snappedf(mean, 0.0001),
+			"dark_share": snappedf(float(dark) / maxf(float(vals.size()), 1.0), 0.00001),
+			"instrument_check_planted_2pct": snappedf(float(pd) / float(probe.size()), 0.0001)}
+
+
+func _contact_gap(k) -> Dictionary:
+	"""HOW MANY PIXELS OF DAYLIGHT BETWEEN HIM AND HIS SHADOW. R-C9-74 asks for zero.
+
+	His silhouette is (him) minus (him hidden), with shadows OFF so his own shadow is not in
+	it. His shadow is (him, shadows on) minus (him hidden, shadows on) minus the silhouette.
+	The gap is then found by growing the silhouette one pixel at a time until it touches the
+	shadow -- which needs no distance transform and answers in the unit the ruling asks for."""
+	var sun: DirectionalLight3D = scene.sun
+	var box := 260
+	var rect: Rect2 = scene.character_screen_rect()
+	var cx := int(rect.position.x + rect.size.x * 0.5)
+	var cy := int(rect.position.y + rect.size.y * 0.5)
+	var x0: int = clampi(cx - box, 0, SHOT.x - 1)
+	var y0: int = clampi(cy - box, 0, SHOT.y - 1)
+	var x1: int = clampi(cx + box, 0, SHOT.x - 1)
+	var y1: int = clampi(cy + box, 0, SHOT.y - 1)
+	var w := x1 - x0
+	var h := y1 - y0
+	sun.shadow_enabled = false
+	await _settle()
+	var a_off: Image = vp.get_texture().get_image()
+	k.visible = false
+	await _settle()
+	var b_off: Image = vp.get_texture().get_image()
+	k.visible = true
+	sun.shadow_enabled = true
+	await _settle()
+	var a_on: Image = vp.get_texture().get_image()
+	k.visible = false
+	await _settle()
+	var b_on: Image = vp.get_texture().get_image()
+	k.visible = true
+	await _settle()
+	var sil := []
+	var shd := []
+	sil.resize(w * h)
+	shd.resize(w * h)
+	var n_sil := 0
+	var n_shd := 0
+	for j in h:
+		for i in w:
+			var p := Vector2i(x0 + i, y0 + j)
+			var d_off := _dif(a_off.get_pixel(p.x, p.y), b_off.get_pixel(p.x, p.y))
+			var d_on := _dif(a_on.get_pixel(p.x, p.y), b_on.get_pixel(p.x, p.y))
+			var s: bool = d_off > 0.012
+			sil[j * w + i] = s
+			var sh: bool = (not s) and d_on > 0.012
+			shd[j * w + i] = sh
+			n_sil += 1 if s else 0
+			n_shd += 1 if sh else 0
+	var gap := -1
+	var cur: Array = sil.duplicate()
+	for step in 8:
+		for j in h:
+			for i in w:
+				if cur[j * w + i] and shd[j * w + i]:
+					gap = step
+					break
+			if gap >= 0:
+				break
+		if gap >= 0:
+			break
+		var nxt: Array = cur.duplicate()
+		for j in range(1, h - 1):
+			for i in range(1, w - 1):
+				if cur[j * w + i]:
+					nxt[j * w + i - 1] = true
+					nxt[j * w + i + 1] = true
+					nxt[(j - 1) * w + i] = true
+					nxt[(j + 1) * w + i] = true
+		cur = nxt
+	return {"his_px": n_sil, "his_shadow_px": n_shd,
+			"gap_px": gap, "_requirement": "0 -- the shadow must touch his base",
+			"shadow_as_share_of_his_body": snappedf(float(n_shd) / maxf(float(n_sil), 1.0), 0.01),
+			"_was_at_17_deg": 1.62,
+			"_window_px": [w, h]}
+
+
+func _dif(a: Color, b: Color) -> float:
+	return absf(a.r - b.r) + absf(a.g - b.g) + absf(a.b - b.b)
+
+
+func _screen_rect(base: Vector3, width_m: float, height_m: float) -> Rect2:
+	"""A standing thing's footprint on screen: the eight corners of a width x height x width
+	box at `base`, unprojected through the play camera and bounded. Unprojecting the corners
+	rather than the centre is the point -- at this pitch a 3 m tree's crown lands a long way
+	up-screen of its foot, and a centre-to-centre distance cannot see that at all."""
+	var cam: Camera3D = scene.cam
+	var lo := Vector2(1e9, 1e9)
+	var hi := Vector2(-1e9, -1e9)
+	var h: float = width_m * 0.5
+	for sx in [-h, h]:
+		for sz in [-h, h]:
+			for sy in [0.0, height_m]:
+				var p := cam.unproject_position(base + Vector3(sx, sy, sz))
+				lo = lo.min(p)
+				hi = hi.max(p)
+	return Rect2(lo, hi - lo)
+
+
+func _canvas_dir_to(k, target: Vector2) -> Vector2:
+	"""A ground target, back through the camera law, into the canvas direction knight.gd
+	drives on. The forward map is knight.canvas_velocity_to_world: world = right * (vx/PPM)
+	+ lz * ((vy/PPM)/sin(pitch)). Solving it is a 2x2 in the (right, lz) basis, and the
+	sin(pitch) is the whole of why a naive "walk up-screen" vector does not point where it
+	looks -- up-screen on the GROUND is 1/sin(52.95) = 1.254x longer than it appears."""
+	var p: Vector3 = k.global_position
+	var d := Vector2(target.x - p.x, target.y - p.z)
+	if d.length() < 1e-5:
+		return Vector2.ZERO
+	var r := Vector2(scene.right.x, scene.right.z)
+	var lz := Vector2(sin(deg_to_rad(47.0)), cos(deg_to_rad(47.0)))
+	var det: float = r.x * lz.y - r.y * lz.x
+	if absf(det) < 1e-9:
+		return Vector2(0.62, -1.0).normalized()
+	var a: float = (d.x * lz.y - d.y * lz.x) / det
+	var b: float = (r.x * d.y - r.y * d.x) / det
+	return Vector2(a, b * sin(deg_to_rad(PL_PITCH_DEG))).normalized()
 
 
 func _time_frames(stack: bool, n: int, res: Vector2i) -> Dictionary:
