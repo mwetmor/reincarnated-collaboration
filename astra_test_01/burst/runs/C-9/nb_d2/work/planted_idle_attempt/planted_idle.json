@@ -1,0 +1,45 @@
+{
+ "slot": {
+  "was": "OBArmature.001",
+  "now": "OBArmature"
+ },
+ "merged": {
+  "source": "axe_breathe.glb",
+  "frames": [
+   0,
+   271
+  ],
+  "kept_as": "idle_armed_stance (the Axe Stance, unchanged)",
+  "proof_it_animates_deg": 11.11
+ },
+ "stripped_scale": {},
+ "reground": {
+  "dz": -0.159311,
+  "basis_delta": [
+   -1.289754,
+   -14.384046,
+   -2.397368
+  ],
+  "keys": 1020,
+  "before": {
+   "min": 0.1593,
+   "max": 0.2451
+  },
+  "after": {
+   "min": 0.0,
+   "max": 0.0858,
+   "worst_cm": 8.58
+  }
+ },
+ "placement": {
+  "net_travel_m": 0.0002,
+  "mean_shift_m": 0.0632,
+  "hips_excursion_about_mean_m": 0.0629,
+  "hips_location_keys_shifted": 1020
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 14
+ }
+}

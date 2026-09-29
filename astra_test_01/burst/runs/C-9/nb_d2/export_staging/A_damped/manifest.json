@@ -1307,5 +1307,11 @@
   },
   "lint": "21_lint_export.py now FAILs a clip whose root never comes within 0.25 m of its rest position. On the unpatched file it fails exactly these three; after the patch, none, and the WARN set is identical before and after (13 = 13).",
   "upstream": "45_deroot_trim.py should anchor at the rest position rather than at FIT[0], or a re-run will put the offset back. Not changed here: 49 runs after it and the lint now guards it."
+ },
+ "idle_damped": {
+  "what": "idle_armed's horizontal hip offset from rest scaled x0.3338 so it stays within 0.10 m (was 0.300 m). Vertical motion untouched. scripts/51_damp_hips.py, a binary accessor patch: 148 keys, 1144 bytes, none outside the Hips translation accessor.",
+  "why": "An armed idle should stand planted, and the integration build measured the Axe Stance drawing his body up to 0.40 m from his node.",
+  "measured_cost": "none: planted-foot slide 35.8 -> 36.5 mm/frame median, 0.752 -> 0.740 m total (5 cm band), worst frame 72.1 -> 61.2. The big hip moves happen while a foot is in the air.",
+  "what_it_does_not_do": "make the Axe Stance planted. It is a footwork clip at source (the left thigh swings ~130 deg in Meshy's own file) and its feet still wander 1.37 m. A planted armed idle needs a different clip: Meshy 335 'Axe Breathe and Look Around' is planted in its own rig (feet 0.006 / 0.003 m), but the 33_assemble-style merge does not preserve that in this rig (feet orbit the hips, 0.37 / 0.48 m), so it needs a frame-aware retarget first. Not in this file."
  }
 }
