@@ -60,3 +60,12 @@
 - The ledger carries the record: milestones, notes and any halts, with verbatim Matt quotes for rulings.
 
 *— gandalf (ARCHITECT), 2026-09-28. Anchors: R-C9-60 … R-C9-69 (C-9 ledger); `2026-09-28-character-pipeline-review.md`; `2026-09-28-humanoid-animation-common-thread-verdict.md`.*
+
+## 6 · Amendment 2026-09-29 (Matt, R-C9-71)
+
+- **Verdict:** *"The barbarian is the best artwork that we've ever produced."* The one AI tell is the weapon grip. He's too large, and he looks larger facing N/S. *"The manticore fits the painted world perfectly."*
+- **D6 (new): T9, "a version of the world that fits him".**
+  - Build the scene the way he was built: real 3D props from painted sheets (Tripo plus a painted texture), a painted ALBEDO terrain lit by one real-time sun, the same ink outline, and true scale for everyone.
+  - Staged in steps: T9-0 (lit mode of the existing 3D cliffside, true scale, an L toggle) → T9-1 (an Astra albedo repaint of the terrain) → T9-2 (the bridge slice's props as real 3D).
+- **D1/D2 fixes:** the grip (rigid binding at 100% to the hand bones; `grip_R`/`grip_L` hand morphs), and a per-facing size measurement before any size fix.
+- **Pushes:** Matt authorised *"push now and as you go"* for this run (reincarnated-collaboration; the manticore to the live `/playtest/cliffside/` route in reincarnated-loadout). This session's permission system blocks `git push`, so **pushes are executed by Matt** (a one-line command per repo), or by the conductor once Matt adds a permission rule. No agent works around the block.
