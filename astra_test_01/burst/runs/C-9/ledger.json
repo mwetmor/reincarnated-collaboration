@@ -16119,6 +16119,11 @@
       "id": "M-C9-T1-LIVE",
       "ts": "2026-09-29",
       "note": "T1 painted knight (walk + idle, 8 directions, 192 cells; E/SE painted in full, six directions EbSynth-propagated from painted keys) LIVE on /playtest/cliffside/?c=keeper (keeper.pck b23e5d15, verified by full download; loadout 8de7bee pushed under R-C9-61). Probes: toggle 0 failures, facing+weapon 40/40, size 0 failures. Facing verified from the grid AND at full res by the conductor (E right, W left, N/S by the right-hand rule; nothing mirrored). Size: the painted haft clears the helm (cells measure 229 px with the haft vs the 199 declared), so no splitter survives both references; the sprite skin is sized from the set's DECLARED format (199 px at row 398), the same contract the 3D camera uses; the on-screen assertion for that skin becomes a NOTE, replaced by 'scale = 150.2135 / declared figure height; offset puts the declared ground row on the node origin' (0.754839, -398 for both skins). Run plays walk cells (labelled paint pending); attack falls back to idle."
+    },
+    {
+      "id": "M-C9-T1-STANDDOWN",
+      "ts": "2026-09-29",
+      "note": "Knight (T1) stood down per R-C9-65 (knight3d commits 2c2e4636 plus the stand-down commit; no sheets emitted; no jobs running; the manticore session correctly left alive). Findings carried forward to the pipeline, not the knight: (1) SPEED is measured on a clip's steady plateau, never its first window: text-to-motion clips accelerate and decelerate (spread walk 13%, run2 58%, run3 88%); run3 plateau plants at 623.5 px/s (+26%) and run2 at about 391 (-21%); the game's 3.266 m stride sits at their geometric mean, so a prompt between them should land it, or run3 plays at a 0.696 s cadence. The rig's true bind height (1.800 m) is the scale; a clip's pose-extreme 'height' is not. (2) WEAPON on a two-handed thrust: the head goes beyond the LEAD hand, chosen once per clip at the strike frame (tip +0.573 m beyond the lead hand and +1.113 m forward of the pelvis at the strike; a --flip-hand-line negative control stays in). (3) PENETRATION is tested per NAMED part, ignoring the gripping hands and forearms (a gripped haft is inside the fist by definition); only one real foul remained (frame 4, the lower haft 88 mm into the hips during the wind-up; about 10.5 deg about the grip would clear it)."
     }
   ],
   "halts": [
