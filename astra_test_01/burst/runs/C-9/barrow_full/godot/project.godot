@@ -1,0 +1,37 @@
+; C-9 T10-2 step 1: the Frost King's Barrow, full area, as a gameplay blockout (R-C9-74/75).
+; Sandbox copy of cliffside3d/godot/project.godot at HEAD: the [input] map is unchanged so the
+; controls are the standard ones; only the name and the main scene differ.
+config_version=5
+
+[application]
+config/name="C-9 Barrow blockout"
+run/main_scene="res://scenes/barrow_full.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[input]
+move_left={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194319),Object(InputEventKey,"physical_keycode":65)]}
+move_right={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194321),Object(InputEventKey,"physical_keycode":68)]}
+move_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194320),Object(InputEventKey,"physical_keycode":87)]}
+move_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194322),Object(InputEventKey,"physical_keycode":83)]}
+run_modifier={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194325)]}
+orbit_left={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":81)]}
+orbit_right={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":69)]}
+plate_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":80)]}
+gear_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":71)]}
+attack={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":32),Object(InputEventMouseButton,"button_index":1)]}
+fade_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":70)]}
+attack_chop={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":88)]}
+block={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":66),Object(InputEventMouseButton,"button_index":2)]}
+shield_bash={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":67)]}
+lit_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":76)]}
+size_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":91)]}
+size_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":93)]}
+
+[rendering]
+renderer/rendering_method="forward_plus"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2
