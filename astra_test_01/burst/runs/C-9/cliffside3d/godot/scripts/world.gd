@@ -258,7 +258,9 @@ static func build_props(root: Node3D, space: PhysicsDirectSpaceState3D, dir: Str
 			"clearance_max_m": clearance[-1] if clearance.size() > 0 else 0.0}
 
 
-const FADE_MIN := 0.35               # how much of an occluder survives, per R-C9-70
+# HOW MUCH OF AN OCCLUDER SURVIVES. A static var, not a const, because Matt chooses it at
+# run time with F: 0.35 as ruled, 0.50 for a lighter touch, 1.0 for no fade at all.
+static var fade_min := 0.35
 const FADE_SECONDS := 0.2            # in and out
 const FADE_MARGIN_M := 0.05          # how far in front it must be before it counts
 
@@ -307,7 +309,7 @@ static func update_fade(root: Node3D, box: Rect2, char_depth: float, fwd: Vector
 		var tnow: float = float(mi.get_meta("fade_t"))
 		tnow = move_toward(tnow, want, dt / FADE_SECONDS)
 		mi.set_meta("fade_t", tnow)
-		var op: float = lerpf(1.0, FADE_MIN, smoothstep(0.0, 1.0, tnow))
+		var op: float = lerpf(1.0, fade_min, smoothstep(0.0, 1.0, tnow))
 		(mi.material_override as ShaderMaterial).set_shader_parameter("fade", op)
 		if op < 0.999:
 			out[String(mi.name)] = snappedf(op, 0.001)

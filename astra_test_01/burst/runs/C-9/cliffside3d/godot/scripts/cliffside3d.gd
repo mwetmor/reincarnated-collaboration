@@ -92,6 +92,7 @@ func _build_world() -> void:
 		right, up, fwd, 47.0)
 	_build_knight(space)
 	look_at_canvas(_aim_px)          # the background exists now; place it for this aim
+	_build_hud()
 
 
 func _build_knight(space: PhysicsDirectSpaceState3D) -> void:
@@ -447,11 +448,77 @@ func character_box() -> Rect2:
 	return Rect2(lo, hi - lo)
 
 
+# --- playing it ----------------------------------------------------------------
+const CAM_OFFSET := Vector2(-2, -55)      # the 2D route's own camera offset from the player
+const FADE_STEPS := [0.35, 0.50, 1.0]
+var _fade_step := 0
+var _yaw := 0.0
+var _hud: Label
+
+
 func _process(dt: float) -> void:
 	if knight == null:
 		return
+	# THE CAMERA FOLLOWS HIM. It did not: look_at_canvas was called once at build and the
+	# view never moved again, so walking two seconds in any direction left the frame. The
+	# offset is the 2D route's own, so the player sits where the 2D puts him.
+	_yaw = clampf(_yaw + (Input.get_action_strength("orbit_right")
+		- Input.get_action_strength("orbit_left")) * 45.0 * dt, -25.0, 25.0)
+	look_at_canvas(CliffWorld.canvas_of(knight.global_position, right, up) + CAM_OFFSET, _yaw)
 	fade_state = CliffWorld.update_fade(self, character_box(),
 		knight.global_position.dot(fwd), fwd, dt, fade_enabled)
+	_update_hud()
+
+
+func _build_hud() -> void:
+	"""One line along the bottom, in the 2D route's register: a dark strip, small light
+	mono. It is the only thing on screen that is not the painting, so it stays one line."""
+	var layer := CanvasLayer.new()
+	layer.name = "HUD"
+	add_child(layer)
+	var bar := ColorRect.new()
+	bar.color = Color(0.055, 0.043, 0.063, 0.72)
+	bar.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	bar.offset_top = -26.0
+	bar.offset_bottom = 0.0
+	layer.add_child(bar)
+	_hud = Label.new()
+	_hud.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	_hud.offset_top = -24.0
+	_hud.offset_bottom = -2.0
+	_hud.offset_left = 10.0
+	_hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_hud.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_hud.add_theme_font_size_override("font_size", 14)
+	_hud.add_theme_color_override("font_color", Color(0.90, 0.88, 0.84))
+	layer.add_child(_hud)
+	_update_hud()
+
+
+func _update_hud() -> void:
+	if _hud == null:
+		return
+	var n := 0
+	var total := 0
+	var nm := "-"
+	if knight != null:
+		n = knight.gear_stack
+		total = knight.gear_stack_count()
+		var names: Array = knight.cfg.get("gear_stack_names", [])
+		if n < names.size():
+			nm = String(names[n])
+	var f: float = CliffWorld.fade_min
+	var fs := "off" if f >= 0.999 else ("%d%%" % int(round(f * 100.0)))
+	_hud.text = ("Arrows/WASD move  ·  Shift run  ·  Space/click attack  ·  "
+		+ "G gear (%d/%d: %s)  ·  F tree fade (%s)  ·  Q/E camera  ·  P plate"
+		% [n + 1, total, nm, fs])
+
+
+func cycle_fade() -> void:
+	_fade_step = (_fade_step + 1) % FADE_STEPS.size()
+	CliffWorld.fade_min = float(FADE_STEPS[_fade_step])
+	settle_fade()
+	_update_hud()
 
 
 func settle_fade() -> void:
@@ -493,3 +560,6 @@ func _unhandled_input(e: InputEvent) -> void:
 		set_plate(not plate_on)
 	elif e.is_action_pressed("gear_cycle") and knight != null:
 		knight.cycle_gear()
+		_update_hud()
+	elif e.is_action_pressed("fade_cycle"):
+		cycle_fade()

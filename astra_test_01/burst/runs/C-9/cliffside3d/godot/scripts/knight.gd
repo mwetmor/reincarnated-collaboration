@@ -64,6 +64,7 @@ var gear_stack := 0
 var _tree: AnimationTree
 var _base_node: AnimationNodeAnimation
 var _layer_on := false
+var _attack_t := 0.0
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -422,7 +423,25 @@ func canvas_velocity_to_world(v_px: Vector2) -> Vector3:
 	return right * a + lz * b
 
 
+func attacking() -> bool:
+	return _attack_t > 0.0
+
+
+func try_attack() -> bool:
+	"""Start the slash if one is not already running. No re-trigger mid-swing: the clip's
+	own length IS the cooldown, which is also the only honest answer available -- an
+	AnimationNodeAnimation restarts when its clip NAME changes, so re-selecting `attack`
+	while attack is playing would not restart it and the input would silently do nothing."""
+	if _attack_t > 0.0:
+		return false
+	var nm := String(_roles.get("attack", "attack"))
+	_attack_t = float(_clip_len.get(nm, 1.5))
+	return true
+
+
 func _physics_process(dt: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		try_attack()
 	drive_dir(Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")),
@@ -451,6 +470,13 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 		state = "idle"
 	if hold != "":
 		state = hold
+	# THE SLASH ROOTS HIM. It is a full-body clip, so walking through it puts his legs in
+	# one animation and his ground speed in another -- the foot slide this whole character
+	# was built to avoid, reintroduced by the one input that is allowed to interrupt.
+	if _attack_t > 0.0:
+		_attack_t -= dt
+		state = "attack"
+		dir = Vector2.ZERO
 	var v := canvas_velocity_to_world(dir * speed)
 	velocity = Vector3(v.x, velocity.y - 18.0 * dt, v.z)
 	# MOVE_AND_SLIDE PICKS ITS OWN DELTA, and which one it picks depends on WHERE IT IS
