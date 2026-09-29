@@ -73,10 +73,14 @@ for o in objs:
     co = np.empty(len(o.data.vertices) * 3); o.data.vertices.foreach_get("co", co)
     P.append(co.reshape(-1, 3) @ Mw + np.array(o.matrix_world.translation))
 P = np.vstack(P)
-if SUBJ == "head":
+if SUBJ.startswith("head"):
+    # top band only. The T5 version also kept the forward 45% of the DEPTH,
+    # which frames a quadruped's snout and, on a biped facing -Y, frames the
+    # back of his head instead -- the same filter that spent two paint cells on
+    # a braid before it was fixed in the sheet builder. It was still here.
+    frac = float(SUBJ[4:]) if len(SUBJ) > 4 else 0.86
     zmin, zmax = P[:, 2].min(), P[:, 2].max()
-    ymax, ymin = P[:, 1].max(), P[:, 1].min()
-    Q = P[(P[:, 2] > zmin + 0.80 * (zmax - zmin)) & (P[:, 1] > ymax - 0.45 * (ymax - ymin))]
+    Q = P[P[:, 2] > zmin + frac * (zmax - zmin)]
 else:
     Q = P
 

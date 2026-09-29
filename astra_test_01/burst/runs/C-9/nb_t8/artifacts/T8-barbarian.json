@@ -1,0 +1,36 @@
+{
+ "glb": "T8-barbarian.glb",
+ "declared_height_m": 1.85,
+ "measured_height_m": 1.85,
+ "feet_z": -0.0,
+ "facing": "-Y",
+ "his_right": "-X",
+ "up": "+Z",
+ "clips": [
+  {
+   "name": "walk",
+   "frames": 24,
+   "fps": 24
+  },
+  {
+   "name": "run",
+   "frames": 15,
+   "fps": 24
+  },
+  {
+   "name": "idle",
+   "frames": 96,
+   "fps": 24
+  },
+  {
+   "name": "attack",
+   "frames": 35,
+   "fps": 24
+  }
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.31579,
+  "note": "T7-A: figure scale 1.25178, so a 1.80 m body is 2.2532 m in the world to meet 150.2135 px. This figure is declared 1.85 m, so he is 2.3158 m in the world and reads 154.4 px -- 2.8% taller than a 1.80 m body, which is the point of a big Norseman. Declare 1.80 instead if he must match exactly."
+ }
+}
