@@ -195,6 +195,7 @@ func _initialize() -> void:
 	var pl := -1
 	var pf := Vector3.ZERO
 	var ph := 1e9
+	var pbody2: Vector3 = k.global_position
 	for leg in legs:
 		for i in int(leg[2]):
 			k.drive_dir(Vector2(float(leg[3]), 0), bool(leg[1]), DT)
@@ -206,7 +207,15 @@ func _initialize() -> void:
 			lows.append(foot.y - k.global_position.y)
 			var h2: float = foot.y - k.global_position.y
 			if low == pl and k.is_on_floor():
-				sl.append([(foot - pf).length(), h2, ph, String(leg[0])])
+				var trav: float = (foot - pf).length()
+				if trav > 0.25:
+					say("    >>> frame %d of leg '%s': travel %.4f m, body moved %.4f m, speed %.1f px/s, a=%.3f w=%.3f low=%d h=%.4f prev_h=%.4f onfloor=%s"
+						% [i, String(leg[0]), trav, (k.global_position - pbody2).length(),
+						   k.speed_px_s(), float(k._tree.get("parameters/bl_iw/blend_amount")),
+						   float(k._tree.get("parameters/bl_wr/blend_amount")), low, h2, ph,
+						   str(k.is_on_floor())])
+				sl.append([trav, h2, ph, String(leg[0])])
+			pbody2 = k.global_position
 			pl = low
 			pf = foot
 			ph = h2

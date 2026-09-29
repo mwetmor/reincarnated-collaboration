@@ -69,7 +69,7 @@ func _initialize():
 		say("   %-18s deepest foot %+.4f m" % [clip, lo])
 	say("")
 	var out := {}
-	for clip in ["walk", "walk_armed", "run", "run_armed", "run_armed_locked", "strafe_L_armed"]:
+	for clip in ["walk", "walk_armed", "run", "run_armed", "run_armed_locked", "strafe_L_armed", "strafe_R_armed"]:
 		if not anim.has_animation(clip):
 			say("%s: NOT IN THIS BUILD" % clip); continue
 		var a := anim.get_animation(clip)

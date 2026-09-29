@@ -88,6 +88,8 @@ var sync_group := true
 var CYCLE_TAU_S := 0.20
 var _cycle_len := 0.0
 var _prev_w := 0.0
+var _w_cur := 0.0
+var _w_init := false
 var _walk_contact := 0.0
 var _run_contact := 0.0
 var _speed := 0.0
@@ -105,6 +107,7 @@ var _armed := false
 var _root_speeds := {}
 var _root_dirs := {}
 var _strafing := false
+var _strafe_side := "l"
 
 
 func setup(r: Vector3, u: Vector3, f: Vector3, figure_scale: float) -> void:
@@ -279,7 +282,7 @@ func _build_anim_tree() -> void:
 	var strf := AnimationNodeBlend2.new()
 	strf.sync = true
 	var a_strafe := AnimationNodeAnimation.new()
-	a_strafe.animation = String(am.get("strafe", ""))
+	a_strafe.animation = String(am.get("strafe_l", ""))
 	bt.add_node("a_strafe", a_strafe, Vector2(560, 380))
 	bt.add_node("strf", strf, Vector2(660, -40))
 	bt.connect_node("strf", 0, "bl_wr")
@@ -503,6 +506,17 @@ func _deroot_all() -> Dictionary:
 	return out
 
 
+func _point_strafe() -> void:
+	if _tree == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null or not bt.has_node("a_strafe"):
+		return
+	var clip := String(_roles.get("strafe_" + _strafe_side, ""))
+	if clip != "" and _clip_len.has(clip):
+		(bt.get_node("a_strafe") as AnimationNodeAnimation).animation = clip
+
+
 func _loop_locomotion() -> void:
 	"""A walk that stops at the end of its cycle is not a walk. glTF carries no loop flag,
 	so Godot imports every clip as one-shot -- and the ARMED clips are new, so idle_armed,
@@ -564,7 +578,7 @@ func _bind_roles() -> void:
 	_armed = armed()
 	# chop, block and bash are ARMED-ONLY and are left empty when he is not: an unarmed man
 	# has no shield to bash with, and a role bound to a fallback would give him one.
-	for role in ["chop", "block", "bash", "strafe"]:
+	for role in ["chop", "block", "bash", "strafe_l", "strafe_r"]:
 		_roles[role] = String(want.get(role, "")) if _clip_len.has(String(want.get(role, ""))) else ""
 	for role in ["idle", "walk", "run", "attack"]:
 		var pick := ""
@@ -846,12 +860,26 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 	# true without inventing a mirrored clip the export does not have.
 	_strafing = false
 	if _blocking and dir.length() > 0.01:
-		var sclip := String(_roles.get("strafe", ""))
-		if _root_dirs.has(sclip) and strafe_px_s() > 0.0:
-			var wdir := canvas_velocity_to_world(dir).normalized()
-			var local: Vector3 = Basis(Vector3.UP, _yaw_cur).inverse() * wdir
-			var sd: Vector3 = _root_dirs[sclip]
-			if local.normalized().dot(sd.normalized()) > 0.6:
+		var wdir := canvas_velocity_to_world(dir).normalized()
+		var local: Vector3 = (Basis(Vector3.UP, _yaw_cur).inverse() * wdir).normalized()
+		var best := 0.6
+		var pick := ""
+		for s in ["l", "r"]:
+			var sd := _strafe_dir(s)
+			if sd == Vector3.ZERO:
+				continue
+			var d2: float = local.dot(sd)
+			if d2 > best:
+				best = d2
+				pick = s
+		if pick != "":
+			# SWITCH SIDES ONLY WHILE THE STRAFE IS WEIGHTLESS. Re-pointing the clip under a
+			# live blend is the same defect as seeking a branch that is contributing to the
+			# pose: it swaps the legs mid-step. At zero weight it is invisible.
+			if pick != _strafe_side and _strafe_w <= 0.0:
+				_strafe_side = pick
+				_point_strafe()
+			if pick == _strafe_side:
 				_strafing = true
 	if _strafing:
 		want = strafe_px_s()
@@ -933,6 +961,22 @@ func _set_loco(v: float, dt: float) -> void:
 			else:
 				hi = w
 		w = clampf((lo + hi) * 0.5, 0.0, 1.0)
+	# DAMP THE RUN WEIGHT, and only the run weight. The armed set narrowed the gait span to
+	# 94 -> 344 px/s, so the same speed ramp moves w far further per frame than the unarmed
+	# 202 -> 648 did, and walk_armed and run_armed are much less alike than walk and run --
+	# w jumping 0 -> 0.602 in one frame put a 1.68 m step into the crossover. That is a POSE
+	# SNAP, not ground slide: the body moved 0.10 m on the same frame.
+	#
+	# This is the one place the "one speed drives both" rule is deliberately bent, so the
+	# cost is named: while w lags, the blended foot speed is S(w_lagged) against a body at
+	# S(w_target), and the feet slip for the length of the lag. It is bounded by the slew
+	# and it buys a snap of metres for a slip of centimetres over about three frames. The
+	# BODY is untouched, so the stop times stay where the brief put them.
+	var wtau: float = float((cfg.get("transitions", {}) as Dictionary).get("loco_w_tau_s", 0.0))
+	if wtau > 0.0 and dt > 0.0 and _w_init:
+		w = lerpf(_w_cur, w, clampf(1.0 - exp(-dt / wtau), 0.0, 1.0))
+	_w_cur = w
+	_w_init = true
 	_tree.set("parameters/bl_iw/blend_amount", a)
 	_tree.set("parameters/bl_wr/blend_amount", w)
 	# ALIGN ONLY WHILE THE RUN IS WEIGHTLESS. Seeking a branch that is contributing to the
@@ -942,7 +986,11 @@ func _set_loco(v: float, dt: float) -> void:
 	# own phase the run advances correctly rather than being pinned. The locked cycle length
 	# then holds the alignment for as long as the run has weight, which is exactly when it
 	# may not be touched.
-	if w <= 0.0 and sync_group:
+	# SEEK ONLY AFTER A FULL FRAME AT ZERO WEIGHT, not on the frame weight first reaches it.
+	# On that frame the run has only just stopped contributing and a Blend2 with sync on is
+	# still advancing it; seeking then put a 1.68 m step into one frame of the armed
+	# crossover -- eleven times the next largest pair, which is a teleport and not a slide.
+	if w <= 0.0 and _prev_w <= 0.0 and sync_group:
 		align_phase()
 	_prev_w = w
 	if not sync_group:
@@ -972,11 +1020,24 @@ func run_px_s() -> float:
 	return _clip_px_s("run", "run_px_s", "run_px_s_armed", RUN_PX_S)
 
 
-func strafe_px_s() -> float:
-	var clip := String(_roles.get("strafe", ""))
-	if _root_speeds.has(clip):
-		return float(_root_speeds[clip]) * PPM * _figure_scale
-	return 0.0
+func strafe_px_s(side := "") -> float:
+	"""THE TWO STRAFES ARE NOT MIRRORS AND NOT THE SAME SPEED -- the export says so and the
+	measurement agrees: 77.2 px/s left against 56.5 right, at the reference scale. Driving
+	both at one number slides the feet on whichever one it is not."""
+	var s := side if side != "" else _strafe_side
+	var clip := String(_roles.get("strafe_" + s, "")) if s != "" else ""
+	if clip == "":
+		return 0.0
+	return clip_px_s(clip, "", "", 0.0)
+
+
+func _strafe_dir(side: String) -> Vector3:
+	var clip := String(_roles.get("strafe_" + side, ""))
+	var dirs: Dictionary = cfg.get("strafe_dirs", {})
+	if clip == "" or not dirs.has(clip):
+		return Vector3.ZERO
+	var a: Array = dirs[clip]
+	return Vector3(float(a[0]), float(a[1]), float(a[2])).normalized()
 
 
 func _clip_px_s(role: String, key: String, key_armed: String, fallback: float) -> float:
@@ -988,6 +1049,19 @@ func _clip_px_s(role: String, key: String, key_armed: String, fallback: float) -
 	var clip := String(_roles.get(role, ""))
 	if _root_speeds.has(clip):
 		return float(_root_speeds[clip]) * PPM * _figure_scale
+	return clip_px_s(clip, key, key_armed, fallback)
+
+
+func clip_px_s(clip: String, key: String, key_armed: String, fallback: float) -> float:
+	"""A clip's OWN measured stance rate, rescaled to the live figure, in preference to any
+	per-role number. The clips no longer travel -- the export de-roots at source now -- so
+	there is no track left to read a speed off, and the measurement in `clip_px_s` is what
+	replaces it."""
+	var tbl: Dictionary = cfg.get("clip_px_s", {})
+	if tbl.has(clip):
+		var at: float = float(cfg.get("speed_measured_at_scale", 0.0))
+		var v: float = float(tbl[clip])
+		return v * (_figure_scale / at) if at > 0.0 else v
 	return _speed_for(key, key_armed, fallback)
 
 
@@ -1065,7 +1139,7 @@ func _apply_clip_set() -> void:
 	_bind_roles()
 	_loop_locomotion()
 	for pair in [["a_idle", "idle"], ["a_walk", "walk"], ["a_run", "run"], ["a_block", "block"],
-				 ["a_strafe", "strafe"],
+
 				 ["a_slash", "attack"], ["a_chop", "chop"], ["a_bash", "bash"]]:
 		var nm := String(pair[0])
 		if not bt.has_node(nm):
@@ -1088,6 +1162,7 @@ func _apply_clip_set() -> void:
 	_walk_contact = _contact_phase(String(_roles.get("walk", "walk")))
 	_run_contact = _contact_phase(String(_roles.get("run", "run")))
 	_cycle_len = 0.0
+	_point_strafe()
 	align_phase()
 	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
 		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),

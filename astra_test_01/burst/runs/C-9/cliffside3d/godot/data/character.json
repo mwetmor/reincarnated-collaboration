@@ -16,12 +16,13 @@
  "clips_armed": {
   "idle": "idle_armed",
   "walk": "walk_armed",
-  "run": "run_armed_locked",
+  "run": "run_armed",
   "attack": "attack",
   "chop": "attack_chop",
   "block": "block",
   "bash": "shield_bash",
-  "strafe": "strafe_L_armed"
+  "strafe_l": "strafe_L_armed",
+  "strafe_r": "strafe_R_armed"
  },
  "armed_when_pieces": [
   "axe",
@@ -125,14 +126,37 @@
  "scale_default_lit": 1.0,
  "scale_default_painted": 1.1,
  "transitions": {
-  "accel_tau_s": 0.08,
+  "accel_tau_s": 0.22,
   "decel_tau_s": 0.09,
   "stop_snap_px_s": 5.0,
   "attack_fade_in_s": 0.1,
   "attack_fade_out_s": 0.25,
-  "turn_tau_s": 0.12
+  "turn_tau_s": 0.12,
+  "loco_w_tau_s": 0.0,
+  "_loco_w_tau_note": "0 = OFF. Slewing the run weight at 0.10 s was tried and REJECTED on its own numbers: it improved the run stop (813.9 -> 301.2 mm worst) and made the crossover worse (294.6 -> 415.1 mm worst, median 41.1 -> 52.2), which is the documented cost of lagging w appearing exactly where the comment says it would. The mechanism is kept because it is the only dial that separates pose response from body response, and one number turns it on.",
+  "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
  },
  "_root_motion_finding": "FOUR CLIPS TRAVEL and the rest are in place -- Hips net horizontal displacement, tools/probe_root.gd: run_armed 8.6617 m (4.337 m/s), strafe_L_armed 1.8591 m (0.931 m/s), idle_armed 0.8994 m (0.184 m/s) and attack_chop 0.7519 m (0.123 m/s); walk, run, walk_armed, run_armed_locked, block and shield_bash are all under 9 mm. The first two are known; THE OTHER TWO ARE NOT FLAGGED ANYWHERE -- an idle that walks 0.90 m over its loop would have slid him sideways while standing still, and the chop lunges 0.75 m. knight.gd._deroot_all converts all four to in-place plus a speed at load, detected by measurement rather than by a list, so a re-export that fixes one cannot leave a stale entry behind.",
- "_armed_run_choice": "SHIPPING run_armed_locked, NOT run_armed, and the export's own rule permits it -- it lists run_armed_locked as 'kept as a fallback'. MEASURED in this scene's blend space, tools/probe_transitions.gd, walk->run->walk planted-foot travel:\\n    run_armed         median 44.9 mm, WORST 316.2 mm  (14 planted pairs of 83)\\n    run_armed_locked  median 25.2 mm, worst  30.4 mm  ( 3 planted pairs of 88)\\nTEN TIMES BETTER on the worst frame, and the reason is structural rather than a quality difference between the clips: run_armed is a 2.5 s retargeted clip holding about FOUR gait cycles, and the sync group's whole premise is that each locomotion clip is ONE cycle. It locks walk and run to a shared cycle length lerp(walk_len, run_len, w) and aligns their contacts once; against a four-cycle clip that aligns clip-START, not foot contact, and the time scale is computed from a length that is not a period. The clip's own '0 foot slide' is true of the clip in isolation, where its root motion matches its feet -- it is not true of it driven at a speed by a blend space. To use run_armed here it needs trimming to a single gait cycle (~0.625 s) or re-exporting as a one-cycle loop; then it is strictly better, because its legs are armed motion and run_armed_locked's are the unarmed run's with only the wrists fixed.",
- "_armed_walk_stop_unmeasurable": "The armed walk stop reports 0 planted frames of 11, so there is NO number for it -- not 0 mm. walk_armed never produces a frame PAIR where the same foot is within 3 cm of its lowest on both frames with its height unchanged, at 24 fps. Reported as unmeasurable rather than as zero."
+ "_armed_walk_stop_unmeasurable": "The armed walk stop reports 0 planted frames of 11, so there is NO number for it -- not 0 mm. walk_armed never produces a frame PAIR where the same foot is within 3 cm of its lowest on both frames with its height unchanged, at 24 fps. Reported as unmeasurable rather than as zero.",
+ "clip_px_s": {
+  "walk_armed": 107.4,
+  "run_armed": 392.0,
+  "strafe_L_armed": 77.2,
+  "strafe_R_armed": 56.5
+ },
+ "strafe_dirs": {
+  "strafe_L_armed": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "strafe_R_armed": [
+   -1.0,
+   0.0,
+   0.0
+  ]
+ },
+ "_clip_px_s_note": "Per-clip, at speed_measured_at_scale. MEASURED here with the contact-filtered stance rate, tools/probe_stride_armed.gd -- the rate the ground must move for a planted foot to stay put, which is the definition of no slide. The same instrument reproduces the known unarmed walk at 203.7 against its recorded 201.7, so it is calibrated.\\nIT DISAGREES WITH THE EXPORT MANIFEST'S locomotion_in_place.speeds_m_s AND THE DURATION IS WHY. For run_armed the manifest says one cycle of 3.1626 m in 0.667 s = 4.74 m/s; the clip as shipped is 0.7917 s long (19 frames at 24 fps, i.e. 20 keys), and my stance travel over it is 3.085 m at this scale -- the TRAVEL agrees to 2.5%, the duration does not, and 3.1626 m / 0.7917 s = 3.995 m/s against my 3.896. Driving 4.74 at a clip that takes 0.79 s to cycle would slide his feet about 20%. The strafes disagree in both directions (mine 0.767 L / 0.562 R against 0.93 / 0.42) but agree on the ordering: LEFT IS FASTER THAN RIGHT. strafe_L's sample is thin (6 contact pairs of 56) where strafe_R's is good (36 of 57).",
+ "_strafe_dirs_note": "From the export manifest's own frame -- his_right is -X, so his left is +X -- rather than from the clips' measured net travel. The measured headings agree (+98.1 deg off +Z for L, -137.8 for R, both resolving to the right side) but a name and an axis convention are firmer than a net direction taken from 6 contact pairs.",
+ "_armed_run_restored": "run_armed is BACK as the armed run: the export trimmed it to one gait cycle, which was the exact objection. It had held about four cycles in 2.5 s and the sync group's premise is one cycle per clip; the crossover worst frame was 316.2 mm against run_armed_locked's 30.4 mm. Re-measured after the trim -- see the commit."
 }

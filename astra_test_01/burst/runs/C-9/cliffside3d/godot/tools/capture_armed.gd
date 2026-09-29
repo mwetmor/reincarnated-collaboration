@@ -29,22 +29,21 @@ func _initialize():
 	_k.facing = "S"
 	print("[cap] armed=%s  walk %.1f  run %.1f  strafe %.1f px/s" %
 		[_k.armed(), _k.walk_px_s(), _k.run_px_s(), _k.strafe_px_s()])
-	await _hold(Vector2.ZERO, false, 10)          # stand
-	await _hold(Vector2(1, 0), false, 34)         # walk armed
+	await _hold(Vector2.ZERO, false, 8)           # stand
+	await _hold(Vector2(1, 0), false, 26)         # armed walk
+	await _hold(Vector2(1, 0), true, 34)          # armed run
 	await _hold(Vector2.ZERO, false, 14)          # stop, into the guard
 	_k.set_block(true)
-	await _hold(Vector2.ZERO, false, 26)          # block, held
-	await _hold(Vector2(-1, 0), false, 22)        # strafe while blocking
+	await _hold(Vector2.ZERO, false, 14)          # block, held
+	await _hold(Vector2(-1, 0), false, 22)        # strafe one way
+	await _hold(Vector2(1, 0), false, 22)         # strafe the other
 	_k.set_block(false)
-	await _hold(Vector2.ZERO, false, 12)          # release
+	await _hold(Vector2.ZERO, false, 10)          # release
 	_k.try_strike("slash")
 	await _until_done(46)
 	_k.try_strike("chop")
-	await _until_done(60)
-	_k.try_strike("bash")
-	await _until_done(46)
-	await _hold(Vector2(1, 0), true, 40)          # run armed
-	await _hold(Vector2.ZERO, false, 16)          # stop
+	await _until_done(64)
+	await _hold(Vector2.ZERO, false, 10)
 	print("[cap] -> %s  (%d frames)" % [out_dir, _mf])
 	quit(0)
 
