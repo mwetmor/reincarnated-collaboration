@@ -97,11 +97,20 @@ def main():
                  "guide is clip-invariant, so an idle key can drive an attack "
                  "frame." % args.ykey_clip,
             "X": "one painted key per clip per direction; 32 keys.",
+            "paint": "EVERY direction of EVERY clip is an Astra per-frame "
+                     "paint-over of the render -- 32 sheets, 352 painted "
+                     "frames, no propagation anywhere. Chosen by R-C9-66 "
+                     "after Matt watched the face MP4s: on this creature "
+                     "(long hair, beard, fur) per-frame paint holds steadier "
+                     "than one-key propagation. X and Y are kept as recorded "
+                     "alternates in sprites_x/ and sprites_y/.",
             "mixed": "E and SE painted every frame; the other six propagated "
                      "from two keys."}[args.method]),
-        painted_dirs=([] if args.method in ("X", "Y") else PAINTED),
-        propagated_dirs=(DIRS if args.method in ("X", "Y")
-                         else [d for d in DIRS if d not in PAINTED]),
+        painted_dirs=(DIRS if args.method == "paint"
+                      else ([] if args.method in ("X", "Y") else PAINTED)),
+        propagated_dirs=([] if args.method == "paint"
+                         else (DIRS if args.method in ("X", "Y")
+                               else [d for d in DIRS if d not in PAINTED])),
         ebsynth=dict(guides=dict(pos=4.0, part=2.0, mask=2.0), keys="0 and n/2",
                      blend="inverse circular temporal distance, inside the mask"),
         states={}, missing=[], face_drift={})
@@ -137,7 +146,9 @@ def main():
                 st["dirs"][d] = dict(present=False)
                 continue
             src = chosen.get(clip, {})
-            if args.method in ("X", "Y"):
+            if args.method == "paint":
+                variant, kind = src.get(d), "painted"
+            elif args.method in ("X", "Y"):
                 kc = args.ykey_clip if args.method == "Y" else clip
                 s2 = chosen.get(kc, {})
                 if d in PAINTED:

@@ -1,0 +1,141 @@
+{
+ "clip": "walk",
+ "pos_tol": 0.01,
+ "blur_sigma": 3.0,
+ "erode_px": 2,
+ "render_floor": "the render scores ~1.9 body / ~2.0 head; that is the instrument's floor, not a drift measurement",
+ "note": "mean |dRGB| in 0-255 between consecutive frames after matching pixels by the pos guide; shuffled order is the negative control",
+ "sets": {
+  "y": {
+   "S": {
+    "pairs": 12,
+    "body_mean": 5.18,
+    "body_max": 6.58,
+    "head_mean": 9.46,
+    "head_max": 15.53,
+    "matched_frac": 0.946
+   },
+   "S_shuffled": {
+    "pairs": 12,
+    "body_mean": 6.8,
+    "body_max": 8.16,
+    "head_mean": 12.47,
+    "head_max": 16.4,
+    "matched_frac": 0.906
+   },
+   "SE": {
+    "pairs": 12,
+    "body_mean": 4.15,
+    "body_max": 5.02,
+    "head_mean": 5.89,
+    "head_max": 7.24,
+    "matched_frac": 0.96
+   },
+   "SE_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.11,
+    "body_max": 5.89,
+    "head_mean": 7.1,
+    "head_max": 9.98,
+    "matched_frac": 0.925
+   },
+   "E": {
+    "pairs": 12,
+    "body_mean": 4.67,
+    "body_max": 5.74,
+    "head_mean": 4.42,
+    "head_max": 6.76,
+    "matched_frac": 0.972
+   },
+   "E_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.7,
+    "body_max": 6.91,
+    "head_mean": 5.51,
+    "head_max": 7.81,
+    "matched_frac": 0.948
+   },
+   "NE": {
+    "pairs": 12,
+    "body_mean": 5.2,
+    "body_max": 10.16,
+    "head_mean": 6.32,
+    "head_max": 13.67,
+    "matched_frac": 0.957
+   },
+   "NE_shuffled": {
+    "pairs": 12,
+    "body_mean": 7.87,
+    "body_max": 10.3,
+    "head_mean": 9.19,
+    "head_max": 12.99,
+    "matched_frac": 0.926
+   },
+   "N": {
+    "pairs": 12,
+    "body_mean": 3.24,
+    "body_max": 3.78,
+    "head_mean": 4.55,
+    "head_max": 6.24,
+    "matched_frac": 0.96
+   },
+   "N_shuffled": {
+    "pairs": 12,
+    "body_mean": 4.45,
+    "body_max": 5.58,
+    "head_mean": 4.82,
+    "head_max": 7.11,
+    "matched_frac": 0.941
+   },
+   "NW": {
+    "pairs": 12,
+    "body_mean": 4.45,
+    "body_max": 5.65,
+    "head_mean": 6.27,
+    "head_max": 11.87,
+    "matched_frac": 0.951
+   },
+   "NW_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.82,
+    "body_max": 7.62,
+    "head_mean": 7.24,
+    "head_max": 11.82,
+    "matched_frac": 0.909
+   },
+   "W": {
+    "pairs": 12,
+    "body_mean": 4.26,
+    "body_max": 4.95,
+    "head_mean": 4.93,
+    "head_max": 6.52,
+    "matched_frac": 0.964
+   },
+   "W_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.11,
+    "body_max": 7.18,
+    "head_mean": 5.92,
+    "head_max": 8.83,
+    "matched_frac": 0.948
+   },
+   "SW": {
+    "pairs": 12,
+    "body_mean": 4.83,
+    "body_max": 5.68,
+    "head_mean": 7.56,
+    "head_max": 13.39,
+    "matched_frac": 0.95
+   },
+   "SW_shuffled": {
+    "pairs": 12,
+    "body_mean": 5.92,
+    "body_max": 7.41,
+    "head_mean": 8.09,
+    "head_max": 13.34,
+    "matched_frac": 0.916
+   }
+  }
+ },
+ "control": {}
+}
