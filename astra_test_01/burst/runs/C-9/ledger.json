@@ -22691,6 +22691,14 @@
       "topic": "fal.ai: spend continues within the account balance; the hold on the kit builds is lifted",
       "ruling": "Matt verbatim: \"I have $5.85 remaining FAL credits, so I should be good for now. Any other credits I need for anything else?\" Disposition: the N-C9-FAL-CAP hold is lifted; fal spend continues within the remaining account balance, with a running total kept against it. Planned: the four held kit re-issue builds ($1.60) + four new models matched to the painting (two layered outcrops, a heather clump, a thin dead tree; $1.60) = $3.20, leaving about $2.65. Other services checked for Matt (no purchase needed): Meshy balance 2,204 credits (API read); Astra 133 of 300 Phase 2 images (planned ~12 for the new models + ~20-30 for the full-area paint-over); World Labs 5,190 of 7,000 (nothing planned); Ludo ~1,000 (nothing planned). Flagged: a modest fal top-up would keep the full-area build from stalling on hero models.",
       "ts": "2026-09-29T19:30:59"
+    },
+    {
+      "id": "R-C9-77",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "The grey Barrow doubles as a Crucible-style wave arena: tested without monsters first, then animated monsters with the Barrow King as the last enemy",
+      "ruling": "Matt verbatim: \"Looking at the grey room for the frost kings barrow, I wonder if we could re-purpose it with some spawn points and make a version of the crucible arena.. I can run the tests in the current arena without monsters, and then once it passes, we could make an altered version of it with animated monsters where the barrow king is the last enemy.\" Context: the Crucible wave-arena is already a named candidate end-game mode (current-to-end-state-game, ruling F-V2-1) and KC2-PLAY built a playable one (reincarnated-godot kc2_play: a deterministic wave sim with emitter anchors and the Keeper as the last-wave warlord). Disposition (gandalf SCENEWRIGHT): PHASE 1 now, folded into blockout v2: six spawn points as flat rune decals in the ring gaps (r 7.5 about (0, 2): NE, NW, E, W, the entrance, and one on the tarn ice), the barrow door cutting as the BOSS GATE, the arena centre as the player station, visible in the app with a hide key; distances, sightlines and path lengths to the station measured. Matt tests it without monsters. PHASE 2 after his pass: animated monsters built by the character pipeline (a draugr base body with armour variants via the gear system, and the Barrow King, larger and crowned), which doubles as the D5 second-character repeatability test; waves from the spawn points; the King walks out of the barrow door as the last enemy. OPEN FORK for Phase 2 (not needed now; conductor lean): drive the fights with the existing KC2 wave-arena runtime (one combat truth; the Barrow becomes its first themed arena) rather than a scene-side prototype loop.",
+      "ts": "2026-09-29T19:45:56"
     }
   ],
   "grok_calls": [
