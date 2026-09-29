@@ -1,0 +1,128 @@
+{
+ "_what": "C-9 T9-1a: the bridge slice's props as real models, at TRUE scale.",
+ "_scale": "The rail post is the blockout's own 1.20 m (cliffside_blockout.gd:659). The others come from the painted sprite divided by 1.457 -- the measured ratio between the four painted posts (1.72-1.81 m) and the geometry they stand on. The raven does not obey it: 1.457 still leaves a 0.62 m bird, so it is scaled from life at 0.28 m.",
+ "_yaw": "Measured, not assumed: probe_props3d.gd renders each model through the cliff camera's basis every 15 degrees and 13_normalise.py keeps the yaw whose silhouette best matches the painted sprite.",
+ "models": {
+  "post": {
+   "glb": "res://models/props/post.glb",
+   "height_m": 1.2,
+   "axis": "height",
+   "yaw_deg": 225.0,
+   "pitch_correct": true,
+   "width_m": 0.22,
+   "matched_sprite": "bridge_post_0",
+   "match_iou": 0.903,
+   "iou_spread_over_yaw": 0.058,
+   "raw_aabb_m": [
+    0.335,
+    1.0002,
+    0.3383
+   ],
+   "tris": 30000
+  },
+  "snag": {
+   "glb": "res://models/props/snag.glb",
+   "height_m": 2.93,
+   "axis": "height",
+   "yaw_deg": 315.0,
+   "pitch_correct": true,
+   "width_m": null,
+   "matched_sprite": "bridge_obj_01_a",
+   "match_iou": 0.484,
+   "iou_spread_over_yaw": 0.254,
+   "raw_aabb_m": [
+    0.5324,
+    1.001,
+    0.7435
+   ],
+   "tris": 29998
+  },
+  "stump": {
+   "glb": "res://models/props/stump.glb",
+   "height_m": 0.8,
+   "axis": "height",
+   "yaw_deg": 255.0,
+   "pitch_correct": true,
+   "width_m": null,
+   "matched_sprite": "bridge_obj_01_c",
+   "match_iou": 0.728,
+   "iou_spread_over_yaw": 0.063,
+   "raw_aabb_m": [
+    0.9148,
+    0.8357,
+    1.0007
+   ],
+   "tris": 30000
+  },
+  "rope": {
+   "glb": "res://models/props/rope.glb",
+   "height_m": 0.65,
+   "axis": "across",
+   "yaw_deg": 15.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "matched_sprite": "bridge_obj_02_a",
+   "match_iou": 0.569,
+   "iou_spread_over_yaw": 0.158,
+   "raw_aabb_m": [
+    0.9969,
+    0.3255,
+    1.0007
+   ],
+   "tris": 29999
+  },
+  "raven": {
+   "glb": "res://models/props/raven.glb",
+   "height_m": 0.28,
+   "axis": "height",
+   "yaw_deg": 195.0,
+   "pitch_correct": true,
+   "width_m": null,
+   "matched_sprite": "raven_perched",
+   "match_iou": 0.73,
+   "iou_spread_over_yaw": 0.322,
+   "raw_aabb_m": [
+    0.88,
+    1.001,
+    0.5347
+   ],
+   "tris": 30000
+  }
+ },
+ "instances": {
+  "bridge_obj_01_a": {
+   "model": "snag",
+   "yaw_deg": 0.0
+  },
+  "bridge_obj_01_c": {
+   "model": "stump",
+   "yaw_deg": 0.0
+  },
+  "bridge_obj_02_a": {
+   "model": "rope",
+   "yaw_deg": 0.0
+  },
+  "bridge_post_0": {
+   "model": "post",
+   "yaw_deg": 0.0
+  },
+  "bridge_post_1": {
+   "model": "post",
+   "yaw_deg": 90.0
+  },
+  "bridge_post_2": {
+   "model": "post",
+   "yaw_deg": 180.0
+  },
+  "bridge_post_3": {
+   "model": "post",
+   "yaw_deg": 270.0
+  },
+  "raven_perched": {
+   "model": "raven",
+   "yaw_deg": 0.0,
+   "perch_on": "bridge_post_3",
+   "perch_height_m": 1.2
+  }
+ }
+}

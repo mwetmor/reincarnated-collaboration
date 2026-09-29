@@ -88,6 +88,32 @@ func _initialize() -> void:
 	k.facing = "NE"
 	k.state = "idle"
 	k._drive()
+	k.set_figure_scale(1.0)
+	await _settle()
+
+	# ---- HOW TALL HE IS, and the props against him -------------------------
+	# Two numbers, because they answer different questions and the silhouette alone is
+	# misleading: differencing him out of the frame gives 188 px, but he is wearing a round
+	# shield on his back that stands above his head and carrying an axe. Foot to crown is
+	# the number the props are compared against, because a rail post is not chest-high on a
+	# man's shield.
+	var skel: Skeleton3D = null
+	for n in k.find_children("*", "Skeleton3D", true, false):
+		if (n as Skeleton3D).find_bone("head_end") >= 0:
+			skel = n
+	var hb := skel.find_bone("head_end")
+	var top: Vector3 = skel.global_transform * skel.get_bone_global_pose(hb).origin
+	var him: float = absf(CliffWorld.canvas_of(top, scene.right, scene.up).y
+		- CliffWorld.canvas_of(Vector3(top.x, k.global_position.y, top.z), scene.right, scene.up).y)
+	report["figure_head_end_canvas_px"] = snappedf(him, 0.1)
+	var against := {}
+	for pname in scene._props3d_report.get("props", {}):
+		var pr: Dictionary = scene._props3d_report["props"][pname]
+		against[pname] = {"true_m": pr["target_m"], "px": pr["canvas_px_tall"],
+						  "card_px": pr["card_canvas_px_tall"],
+						  "share_of_him": snappedf(float(pr["canvas_px_tall"]) / maxf(him, 1.0), 0.01),
+						  "card_share_of_him": snappedf(float(pr["card_canvas_px_tall"]) / maxf(him, 1.0), 0.01)}
+	report["props_against_him"] = against
 
 	# ---- the five frames, one camera, one pose ------------------------------
 	scene.set_lit(false)
@@ -106,7 +132,68 @@ func _initialize() -> void:
 		await _shot("t9b_bridge_%s" % String(state[0]))
 		print("[t9b] %s captured" % String(state[0]))
 
+	# ---- WITH THE TERRAIN INK OFF -------------------------------------------
+	# 348,743 pixels of the lit frame -- 16.8% of it -- are EXACTLY RGB(14,11,16), which is
+	# `line_color` in the terrain ink's outline shader, vec4(0.055,0.043,0.063). Not dark
+	# paint, not N.L: one flat unshaded colour covering a whole wall. The outline pass
+	# inflates each mesh along its normals and draws it `cull_front`, which on a CLOSED
+	# mesh leaves a line and on the cliff's OPEN, single-sided wall skirts leaves the
+	# entire surface, 1 cm proud of the real one and winning the depth test.
+	# Worth two more frames, because if this is the near-black then the albedo repaint was
+	# never going to move it and neither was anything else that changes the LIGHT.
+	scene._set_terrain_ink(false)
+	for state in [["noink_base", false], ["noink_albedo_props", true]]:
+		scene.use_albedo_plate(bool(state[1]))
+		scene.use_props3d(bool(state[1]))
+		await _settle()
+		await _shot("t9b_bridge_%s" % String(state[0]))
+		print("[t9b] %s captured" % String(state[0]))
+	scene._set_terrain_ink(true)
+
+	# ---- THE PAINT WITH NO SUN ON IT ---------------------------------------
+	# T9-1c reported that with no sun and full ambient -- the painted albedo shown flat --
+	# 10.54% of this frame was STILL near-black, and concluded that over half the darkness
+	# was painted into the plate and that the repaint was therefore load-bearing. Now that
+	# the repaint exists, the same two frames say how much of that darkness was paint and
+	# how much is N.L on a greybox cliff. It is the only pair that can separate them, and
+	# it costs two frames.
+	var sun2 := scene.get_node_or_null(^"Lights/Sunset") as DirectionalLight3D
+	var env := (scene.get_node(^"Env") as WorldEnvironment).environment
+	var e0 := sun2.light_energy
+	var a0 := env.ambient_light_energy
+	var sh0 := sun2.shadow_enabled
+	sun2.light_energy = 0.0
+	sun2.shadow_enabled = false
+	env.ambient_light_energy = 1.0
+	for state in [["flat_base", false], ["flat_albedo", true]]:
+		scene.use_albedo_plate(bool(state[1]))
+		scene.use_props3d(true)
+		await _settle()
+		await _shot("t9b_bridge_%s" % String(state[0]))
+		print("[t9b] %s captured" % String(state[0]))
+	sun2.light_energy = e0
+	sun2.shadow_enabled = sh0
+	env.ambient_light_energy = a0
+	scene.use_albedo_plate(true)
+	await _settle()
+
 	# ---- him, in pixels, in the delivered state -----------------------------
+	# WITH HIS SHADOW OFF, and that is the point of the extra pair. Differencing the
+	# delivered frame against the same frame without him gives his body AND the shadow he
+	# throws -- which stretches away across the planks and made him measure 195 px tall
+	# and 223 wide, for a man the bone says is 104 px. Turning the sun's shadows off for
+	# these two frames leaves the difference as the man.
+	var sun3 := scene.get_node_or_null(^"Lights/Sunset") as DirectionalLight3D
+	var sh1 := sun3.shadow_enabled
+	sun3.shadow_enabled = false
+	await _settle()
+	await _shot("t9b_bridge_final_noshadow_knight")
+	k.visible = false
+	await _settle()
+	await _shot("t9b_bridge_final_noshadow_noknight")
+	k.visible = true
+	sun3.shadow_enabled = sh1
+	await _settle()
 	k.visible = false
 	await _settle()
 	await _shot("t9b_bridge_final_noknight")
@@ -138,6 +225,12 @@ func _initialize() -> void:
 		scene.settle_fade()
 		await _frame()
 	report["mp4_frames"] = _mf
+	report["terrain_ink"] = {"skipped_open_meshes": scene._ink_skipped,
+							 "ink_meshes": scene._terrain_ink.size()}
+	var op := {}
+	for mi in scene._fg:
+		op[String(mi.name)] = scene._has_boundary(mi.mesh)
+	report["fg_has_boundary"] = op
 
 	scene.set_lit(false)                      # the app ships in painted mode
 	var f := FileAccess.open(out_dir + "/t9b.json", FileAccess.WRITE)

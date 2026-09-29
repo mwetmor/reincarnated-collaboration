@@ -33,23 +33,16 @@ func _initialize() -> void:
 			step = int(args[i + 1])
 	DirAccess.make_dir_recursive_absolute(out_dir)
 
-	# The cliff camera's basis, taken from the builder rather than transcribed.
-	var bo = preload("res://scripts/cliffside_blockout.gd").new()
-	bo.build_only = true
-	bo._v4 = true
-	root.add_child(bo)
-	await process_frame
-	var right: Vector3 = bo.guide_right() if bo.has_method("guide_right") else Vector3.ZERO
-	var up: Vector3 = bo.guide_up() if bo.has_method("guide_up") else Vector3.ZERO
-	var fwd: Vector3 = bo.guide_fwd() if bo.has_method("guide_fwd") else Vector3.ZERO
-	if right == Vector3.ZERO:
-		# the scene reports these every run; they are constants of the v4 frame
-		right = Vector3(0.681998491287231, 0.0, -0.731353580951691)
-		up = Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
-		fwd = Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
+	# The cliff camera's basis. These are CONSTANTS of the v4 frame -- cliffside3d.gd prints
+	# them in its build report on every run, under "basis" -- and they are taken as
+	# constants rather than by standing up the builder, which needs a --layout this probe
+	# has no business supplying just to read three vectors off it.
+	var right := Vector3(0.681998491287231, 0.0, -0.731353580951691)
+	var up := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
+	var fwd := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
 	report["basis"] = {"right": [right.x, right.y, right.z], "up": [up.x, up.y, up.z],
-					   "fwd": [fwd.x, fwd.y, fwd.z]}
-	bo.queue_free()
+					   "fwd": [fwd.x, fwd.y, fwd.z],
+					   "_source": "cliffside3d.gd build report; v4 frame constants"}
 
 	var vp := SubViewport.new()
 	vp.size = S

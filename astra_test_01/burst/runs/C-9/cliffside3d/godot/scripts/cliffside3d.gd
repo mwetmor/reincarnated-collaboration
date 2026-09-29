@@ -30,6 +30,7 @@ const V4_VMAX := 18.5067100524902
 const VIEW := Vector2i(1920, 1080)
 const FG_BIT := 1                      # the builder's foreground layer
 const CHAR_LAYER := 4                  # the character's own visual layer; lights use it
+const PITCH_COS := 0.602462407085      # the guide camera's pitch: a vertical metre spends this on screen
 
 var blockout: Node3D
 var level: Node3D
@@ -54,6 +55,8 @@ var _props3d_on := true                    # honoured only in lit mode
 var _props3d: Dictionary = {}              # prop name -> Node3D of the real model
 var _props3d_report: Dictionary = {}
 var _post_boxes: Array[MeshInstance3D] = []   # the blockout's 1.20 m rail-post boxes
+var _ink_skipped: Array[String] = []          # meshes with a rim: the outline pass cannot serve them
+var _ink_built := false                       # the outline is built once, not once per L press
 
 
 func _ready() -> void:
@@ -719,25 +722,61 @@ func _build_props3d(space: PhysicsDirectSpaceState3D) -> void:
 		var node: Node3D = (load(path) as PackedScene).instantiate()
 		node.name = pname
 		holder.add_child(node)
-		# yaw FIRST, then measure: the generator delivers models yawed 90 degrees, and an
-		# AABB measured before the turn is the wrong box for a prop that is not square.
-		node.rotation = Vector3(0.0, deg_to_rad(float(spec.get("yaw_deg", 0.0))
-											   + float(inst.get("yaw_deg", 0.0))), 0.0)
+		# TWO AABBs, IN TWO FRAMES, FOR TWO DIFFERENT QUESTIONS -- and using one for both
+		# is wrong in a way that renders perfectly.
+		#   SIZE is measured UNROTATED. Godot's AABB is world-axis-aligned, so a square post
+		#   turned 45 degrees reports a box sqrt(2) wider than the post is: forcing THAT to
+		#   the blockout's 0.22 m would build a post 0.156 m thick.
+		#   PLACEMENT is measured AFTER the turn, because where a prop's centre and its
+		#   lowest point land is a fact about the turned object.
+		node.rotation = Vector3.ZERO
 		var ab := _node_aabb(node)
 		if ab.size.y <= 0.0 or ab.size.x <= 0.0:
 			_props3d_report["missing"].append("%s: empty AABB" % pname)
 			node.queue_free()
 			continue
+		# UN-FORESHORTEN. The model sheets were drawn from the painted sprites, and a
+		# sprite's vertical extent is the object's height times cos(pitch) = 0.602 -- so the
+		# painter drew squat objects and the generator faithfully built squat models. The
+		# rail post is the check, because it is the one prop whose true size is known
+		# independently (cliffside_blockout.gd:659): scaled to 1.20 m tall it is 0.402 m
+		# thick as built and 0.242 m after this stretch, against the blockout's 0.220. The
+		# stump and the snag agree. The rope does NOT and is flagged false in the manifest:
+		# it was drawn from 25 degrees above by instruction rather than copied off a sprite,
+		# and a flat object's screen height is its depth times sin(pitch).
+		var ys := 1.0 / PITCH_COS if bool(spec.get("pitch_correct", false)) else 1.0
 		var axis := String(spec.get("axis", "height"))
 		var target := float(spec.get("height_m", 1.0))
-		var s: float = target / (ab.size.y if axis == "height" else maxf(ab.size.x, ab.size.z))
-		node.scale = Vector3(s, s, s)
+		var s: float = target / (ab.size.y * ys if axis == "height"
+								 else maxf(ab.size.x, ab.size.z))
+		node.scale = Vector3(s, s * ys, s)
+		ab = _node_aabb(node)
+		# a forced cross-section, where the blockout has its own number for one
+		var wm = spec.get("width_m", null)
+		var pre_w := maxf(ab.size.x, ab.size.z)
+		if wm != null and pre_w > 0.0:
+			var k: float = float(wm) / pre_w
+			node.scale = Vector3(node.scale.x * k, node.scale.y, node.scale.z * k)
+		node.rotation = Vector3(0.0, deg_to_rad(float(spec.get("yaw_deg", 0.0))
+											   + float(inst.get("yaw_deg", 0.0))), 0.0)
 		ab = _node_aabb(node)
 
 		var base: Vector3
 		var perch := String(inst.get("perch_on", ""))
-		if perch != "" and grounds.has(perch):
-			base = (grounds[perch] as Vector3) + Vector3.UP * float(inst.get("perch_height_m", 1.2))
+		if perch != "":
+			# The raven stands on a POST, not on the ground under it, and the post is
+			# 1.20 m now instead of the card's 1.72 -- so a perch height is not optional
+			# decoration, it is the difference between a bird on a rail and a bird in
+			# the air. The perch's ground is looked up rather than read out of `grounds`:
+			# reading the cache makes this depend on the manifest's key ORDER, which is a
+			# dependency nothing declares and nothing checks, and which fails silently by
+			# putting the bird on the floor.
+			var pc := props.get_node_or_null(NodePath(perch)) as MeshInstance3D
+			var ppx: Vector2 = pc.get_meta("anchor_px") if pc != null else anchor_px
+			var ph := CliffWorld.ground_at(space, ppx, right, up, fwd)
+			base = (ph["position"] if not ph.is_empty()
+					else CliffWorld.canvas_to_plane(ppx, right, up)) \
+				   + Vector3.UP * float(inst.get("perch_height_m", 1.2))
 		else:
 			var hit := CliffWorld.ground_at(space, anchor_px, right, up, fwd)
 			base = hit["position"] if not hit.is_empty() else CliffWorld.canvas_to_plane(anchor_px, right, up)
@@ -758,14 +797,31 @@ func _build_props3d(space: PhysicsDirectSpaceState3D) -> void:
 			"model": mid, "target_m": target, "axis": axis,
 			"aabb_m": [snappedf(fin.size.x, 0.001), snappedf(fin.size.y, 0.001),
 					   snappedf(fin.size.z, 0.001)],
-			"canvas_px_tall": snappedf(fin.size.y * 0.602462407085 * PPM, 0.1),
-			"card_canvas_px_tall": snappedf((card.mesh as QuadMesh).size.y * 0.602462407085 * PPM, 0.1),
+			"canvas_px_tall": snappedf(fin.size.y * PITCH_COS * PPM, 0.1),
+			"card_canvas_px_tall": snappedf((card.mesh as QuadMesh).size.y * PITCH_COS * PPM, 0.1),
+			"pitch_corrected": bool(spec.get("pitch_correct", false)),
+			"width_before_override_m": snappedf(pre_w, 0.001),
+			"width_forced_m": wm,
 			"scale_applied": snappedf(s, 0.0001)}
 		_props3d_report["built"] += 1
 
 	for m in level.find_children("*", "MeshInstance3D", true, false):
 		var mi := m as MeshInstance3D
-		if String(mi.name).begins_with("bridge_post"):
+		# MATCHED BY SIZE, because the NAME IS NOT THERE. The builder asks for all four
+		# boxes to be called "bridge_post"; Godot keeps the name for the first and gives
+		# the other three "@MeshInstance3D@9", "@10", "@11" -- it does not append a number
+		# to the requested name, it DISCARDS the requested name. So `begins_with` found
+		# exactly one of four and reported "blockout_post_boxes: 1", and `contains` found
+		# the same one: the second guess failed for the first guess's reason, because both
+		# guessed at a name instead of looking. Three grey boxes would have been left
+		# standing inside three of the new posts.
+		#
+		# The meta does not separate them either -- posts and planks both carry
+		# class "bridge". Their SIZE does, and it is the thing that makes them rail posts:
+		# cliffside_blockout.gd:659 builds them 0.22 x 1.20 x 0.22.
+		var bm := mi.mesh as BoxMesh
+		if bm != null and absf(bm.size.y - 1.2) < 1e-3 \
+				and absf(bm.size.x - 0.22) < 1e-3 and absf(bm.size.z - 0.22) < 1e-3:
 			_post_boxes.append(mi)
 	_props3d_report["blockout_post_boxes"] = _post_boxes.size()
 	_props3d_report["status"] = "ok"
@@ -881,7 +937,8 @@ func _set_terrain_ink(on: bool) -> void:
 	normal in MODEL space, and these meshes are already in world metres, so the width is
 	the same 1.1 output px the figure uses -- no per-mesh scale to undo. Built once, then
 	shown and hidden."""
-	if _terrain_ink.is_empty() and on:
+	if not _ink_built and on:
+		_ink_built = true
 		var sh := Shader.new()
 		sh.code = """
 shader_type spatial;
@@ -895,6 +952,41 @@ void fragment() { ALBEDO = line_color.rgb; }
 		mat.shader = sh
 		mat.set_shader_parameter("width_model", 1.1 / PPM)
 		for mi in _fg:
+			# ONLY ON CLOSED MESHES, and this is the T9 defect, not a refinement.
+			#
+			# An inflate-and-cull-front outline works because the hull's BACK faces are
+			# hidden by the real mesh everywhere except at its silhouette. That argument
+			# needs the mesh to have an inside. The cliff walls are open, single-sided
+			# extruded skirts: their faces all point one way, so from the far side the hull
+			# is not a rim around the surface, it IS the surface -- drawn flat, unshaded,
+			# 1 cm proud of the real one, and winning the depth test.
+			#
+			# Measured: 348,743 pixels of the lit bridge frame, 16.8% of it, were EXACTLY
+			# RGB(14,11,16) -- this shader's own line_color -- and turning the pass off took
+			# near-black from 18.99% to 3.37%. That is 15.62 of the 18.99 points that T9-0
+			# raised as double-lighting, that T9-1c tried to fix with real cliff normals,
+			# and that T9-1b was commissioned to fix with an albedo repaint. None of them
+			# could move it: an unshaded pass drawn over the top is not lighting, which is
+			# exactly why shadows off, sun doubled and relief all measured as no-change.
+			#
+			# THE TEST IS "DOES THIS SURFACE HAVE A BOUNDARY", and the cheap substitute
+			# for it does not work. The first version summed area-weighted face normals and
+			# called a mesh closed when they cancelled -- which the cliff walls do, because
+			# each is a skirt running ALL THE WAY AROUND its landmass and so faces outward
+			# in every horizontal direction at once. It scored near_landmass_wall at 0.001,
+			# "closed", and skipping the two meshes it did flag changed the frame by nothing
+			# at all. Isolated one ink mesh at a time (tools/probe_ink.gd),
+			# near_landmass_wall_ink paints 161,277 px -- 7.78% of the frame -- and every
+			# other ink mesh paints zero.
+			#
+			# A tube is the case that breaks the outline and the case that cancels: no
+			# thickness, so cull_front removes the near shell instead of hiding anything,
+			# and what is left is the INSIDE of the far shell, inflated 1 cm, unoccluded,
+			# flat. Boundary edges are what distinguishes a tube from a box, so that is
+			# what gets counted.
+			if _has_boundary(mi.mesh):
+				_ink_skipped.append(String(mi.name))
+				continue
 			var o := MeshInstance3D.new()
 			o.name = mi.name + "_ink"
 			o.mesh = mi.mesh
@@ -903,8 +995,58 @@ void fragment() { ALBEDO = line_color.rgb; }
 			o.material_override = mat
 			o.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			_terrain_ink.append(o)
+	if on and not _ink_skipped.is_empty():
+		report["terrain_ink_skipped_open_meshes"] = _ink_skipped
 	for o in _terrain_ink:
 		o.visible = on
+
+
+func _has_boundary(mesh: Mesh) -> bool:
+	"""True if any edge belongs to exactly one triangle -- i.e. the surface has a rim.
+
+	WELDED BY POSITION, not by index, and that is not a detail. Godot's BoxMesh -- every
+	plank and every rail post here -- carries 24 vertices for 8 corners, because flat
+	normals and per-face UVs need the corners split. Counting edges on INDICES therefore
+	finds every edge used exactly once and calls a solid box open. The first version did
+	precisely that and reported all fourteen meshes open, which switched the outline off
+	across the entire scene: the frame's numbers came out right, for the wrong reason, and
+	the style would have quietly left the build.
+
+	Quantising to 0.1 mm welds the split corners back together and leaves genuinely
+	separate vertices apart."""
+	if mesh == null:
+		return false
+	var seen := {}
+	for s in mesh.get_surface_count():
+		var arr := mesh.surface_get_arrays(s)
+		if arr.is_empty():
+			continue
+		var v: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var idx = arr[Mesh.ARRAY_INDEX]
+		var n: int = idx.size() if idx != null else v.size()
+		var weld := {}
+		var canon := PackedInt32Array()
+		canon.resize(v.size())
+		for i in v.size():
+			var q := Vector3i(roundi(v[i].x * 10000.0), roundi(v[i].y * 10000.0),
+							  roundi(v[i].z * 10000.0))
+			if not weld.has(q):
+				weld[q] = weld.size()
+			canon[i] = int(weld[q])
+		var i2 := 0
+		while i2 + 2 < n:
+			for e in 3:
+				var a: int = canon[idx[i2 + e] if idx != null else i2 + e]
+				var b: int = canon[idx[i2 + (e + 1) % 3] if idx != null else i2 + (e + 1) % 3]
+				if a == b:
+					continue
+				var k: int = (mini(a, b) << 32) | maxi(a, b)
+				seen[k] = int(seen.get(k, 0)) + 1
+			i2 += 3
+	for k in seen:
+		if int(seen[k]) != 2:
+			return true
+	return false
 
 
 func step_size(d: int) -> void:

@@ -27,13 +27,28 @@ HERE = pathlib.Path(__file__).resolve().parent
 GODOT = HERE.parent / "cliffside3d" / "godot"
 PROPS = GODOT / "props"
 
-# model -> (painted sprite, true size in metres, which axis that size is on)
+# model -> (painted sprite, true size in m, axis, un-foreshorten?, forced width in m)
+#
+# THE SHEETS CARRY THE GUIDE CAMERA'S PITCH. The identity plates were the painted sprites,
+# and a sprite's vertical extent is the object's height x cos(pitch) = 0.602 -- so the
+# painter drew squat objects and Tripo faithfully built squat models. Undoing it is a
+# Y stretch of 1/cos(pitch) = 1.660, and it is CHECKED rather than asserted, on the one
+# prop whose true size is independently known: the rail post scaled to 1.20 m tall comes
+# out 0.402 m thick as built and 0.242 m after the stretch, against the blockout's 0.220.
+# The stump agrees too (w:h 1.197 raw -> 0.721 corrected, true 0.713) and so does the snag
+# (0.743 -> 0.447, true 0.512).
+#
+# THE ROPE IS THE EXCEPTION AND ITS OWN NUMBERS SAY SO: 3.074 raw -> 1.852 corrected
+# against a true 1.244, so the correction makes it WORSE. Its sheet was drawn from 25
+# degrees above by instruction, not copied off a sprite, and it is a flat object whose
+# screen height is depth x sin(pitch) rather than height x cos(pitch). Applying one
+# camera's foreshortening to a drawing made under another is the mistake, not the fix.
 OBJECTS = {
-    "post":  ("bridge_post_0",   1.20, "height"),   # the blockout's own post, exactly
-    "snag":  ("bridge_obj_01_a", 2.93, "height"),
-    "stump": ("bridge_obj_01_c", 0.80, "height"),
-    "rope":  ("bridge_obj_02_a", 0.65, "across"),
-    "raven": ("raven_perched",   0.28, "height"),
+    "post":  ("bridge_post_0",   1.20, "height", True,  0.22),   # blockout 0.22 x 1.20 x 0.22
+    "snag":  ("bridge_obj_01_a", 2.93, "height", True,  None),
+    "stump": ("bridge_obj_01_c", 0.80, "height", True,  None),
+    "rope":  ("bridge_obj_02_a", 0.65, "across", False, None),
+    "raven": ("raven_perched",   0.28, "height", True,  None),
 }
 # prop instance in props.json -> (model, extra yaw, perch)
 INSTANCES = {
@@ -79,7 +94,7 @@ def main() -> int:
     info = json.loads((probe / "props3d_probe.json").read_text())
 
     models = {}
-    for obj, (sprite, size_m, axis) in OBJECTS.items():
+    for obj, (sprite, size_m, axis, pitch, width_m) in OBJECTS.items():
         sp = mask(PROPS / "assets" / ("%s.png" % sprite), 40)
         rends = sorted(probe.glob("%s_yaw*.png" % obj))
         if not rends:
@@ -96,6 +111,7 @@ def main() -> int:
         models[obj] = {
             "glb": "res://models/props/%s.glb" % obj,
             "height_m": size_m, "axis": axis, "yaw_deg": float(best_y),
+            "pitch_correct": pitch, "width_m": width_m,
             "matched_sprite": sprite, "match_iou": round(best_iou, 3),
             "iou_spread_over_yaw": round(spread, 3),
             "raw_aabb_m": raw, "tris": info["models"][obj].get("tris"),

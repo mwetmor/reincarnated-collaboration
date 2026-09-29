@@ -1,0 +1,300 @@
+{
+ "luma": "mean",
+ "near_black_threshold": 24.0,
+ "painted": {
+  "mean_luma": 113.6,
+  "near_black_pct": 1.74
+ },
+ "lit_base": {
+  "mean_luma": 97.32,
+  "near_black_pct": 3.42,
+  "lost_over_half_pct": 1.85,
+  "median_drop_on_lit_pixels": 12.33
+ },
+ "lit_albedo": {
+  "mean_luma": 107.91,
+  "near_black_pct": 1.99,
+  "lost_over_half_pct": 1.47,
+  "median_drop_on_lit_pixels": 0.0
+ },
+ "lit_props": {
+  "mean_luma": 98.23,
+  "near_black_pct": 2.33,
+  "lost_over_half_pct": 1.21,
+  "median_drop_on_lit_pixels": 12.0
+ },
+ "lit_albedo_props": {
+  "mean_luma": 108.91,
+  "near_black_pct": 0.91,
+  "lost_over_half_pct": 0.96,
+  "median_drop_on_lit_pixels": 0.0
+ },
+ "noink_base": {
+  "mean_luma": 97.39,
+  "near_black_pct": 3.37,
+  "lost_over_half_pct": 1.76,
+  "median_drop_on_lit_pixels": 12.33
+ },
+ "noink_albedo_props": {
+  "mean_luma": 108.95,
+  "near_black_pct": 0.87,
+  "lost_over_half_pct": 0.93,
+  "median_drop_on_lit_pixels": 0.0
+ },
+ "flat_base": {
+  "mean_luma": 110.28,
+  "near_black_pct": 1.59,
+  "lost_over_half_pct": 0.19,
+  "median_drop_on_lit_pixels": 4.33
+ },
+ "flat_albedo": {
+  "mean_luma": 124.73,
+  "near_black_pct": 0.66,
+  "lost_over_half_pct": 0.41,
+  "median_drop_on_lit_pixels": 0.0
+ },
+ "attribution": {
+  "albedo plate alone": {
+   "mean_luma": 10.59,
+   "near_black_pp": -1.43,
+   "lost_over_half_pp": -0.38
+  },
+  "3D props alone": {
+   "mean_luma": 0.91,
+   "near_black_pp": -1.09,
+   "lost_over_half_pp": -0.64
+  },
+  "albedo + 3D props": {
+   "mean_luma": 11.59,
+   "near_black_pp": -2.51,
+   "lost_over_half_pp": -0.89
+  }
+ },
+ "figure_pixels": {
+  "screen_px_tall": 188,
+  "screen_px_wide": 102,
+  "px": 10515
+ },
+ "figure_head_end_canvas_px": 103.9,
+ "props_against_him": {
+  "bridge_obj_01_a": {
+   "card_px": 270.0,
+   "card_share_of_him": 2.6,
+   "px": 177.6,
+   "share_of_him": 1.71,
+   "true_m": 2.93
+  },
+  "bridge_obj_01_c": {
+   "card_px": 82.0,
+   "card_share_of_him": 0.79,
+   "px": 48.5,
+   "share_of_him": 0.47,
+   "true_m": 0.8
+  },
+  "bridge_obj_02_a": {
+   "card_px": 57.0,
+   "card_share_of_him": 0.55,
+   "px": 12.8,
+   "share_of_him": 0.12,
+   "true_m": 0.65
+  },
+  "bridge_post_0": {
+   "card_px": 110.0,
+   "card_share_of_him": 1.06,
+   "px": 72.7,
+   "share_of_him": 0.7,
+   "true_m": 1.2
+  },
+  "bridge_post_1": {
+   "card_px": 105.0,
+   "card_share_of_him": 1.01,
+   "px": 72.7,
+   "share_of_him": 0.7,
+   "true_m": 1.2
+  },
+  "bridge_post_2": {
+   "card_px": 105.0,
+   "card_share_of_him": 1.01,
+   "px": 72.7,
+   "share_of_him": 0.7,
+   "true_m": 1.2
+  },
+  "bridge_post_3": {
+   "card_px": 104.0,
+   "card_share_of_him": 1.0,
+   "px": 72.7,
+   "share_of_him": 0.7,
+   "true_m": 1.2
+  },
+  "raven_perched": {
+   "card_px": 150.0,
+   "card_share_of_him": 1.44,
+   "px": 17.0,
+   "share_of_him": 0.16,
+   "true_m": 0.28
+  }
+ },
+ "terrain_ink": {
+  "ink_meshes": 10,
+  "skipped_open_meshes": [
+   "near_landmass_top",
+   "far_plateau_top",
+   "near_landmass_wall",
+   "far_plateau_wall"
+  ]
+ },
+ "fg_has_boundary": {
+  "@MeshInstance3D@10": false,
+  "@MeshInstance3D@11": false,
+  "@MeshInstance3D@9": false,
+  "bridge_plank_0": false,
+  "bridge_plank_1": false,
+  "bridge_plank_2": false,
+  "bridge_plank_3_falls_out": false,
+  "bridge_plank_4": false,
+  "bridge_plank_5": false,
+  "bridge_post": false,
+  "far_plateau_top": true,
+  "far_plateau_wall": true,
+  "near_landmass_top": true,
+  "near_landmass_wall": true
+ },
+ "albedo_plate": "res://plate/plate_v4.png",
+ "props3d": {
+  "blockout_post_boxes": 4,
+  "built": 8,
+  "manifest": "res://data/props3d.json",
+  "missing": [],
+  "props": {
+   "bridge_obj_01_a": {
+    "aabb_m": [
+     1.591,
+     2.93,
+     1.591
+    ],
+    "axis": "height",
+    "canvas_px_tall": 177.6,
+    "card_canvas_px_tall": 270.0,
+    "model": "snag",
+    "pitch_corrected": true,
+    "scale_applied": 1.7634,
+    "target_m": 2.93,
+    "width_before_override_m": 1.311,
+    "width_forced_m": null
+   },
+   "bridge_obj_01_c": {
+    "aabb_m": [
+     0.694,
+     0.8,
+     0.659
+    ],
+    "axis": "height",
+    "canvas_px_tall": 48.5,
+    "card_canvas_px_tall": 82.0,
+    "model": "stump",
+    "pitch_corrected": true,
+    "scale_applied": 0.5767,
+    "target_m": 0.8,
+    "width_before_override_m": 0.577,
+    "width_forced_m": null
+   },
+   "bridge_obj_02_a": {
+    "aabb_m": [
+     0.794,
+     0.211,
+     0.795
+    ],
+    "axis": "across",
+    "canvas_px_tall": 12.8,
+    "card_canvas_px_tall": 57.0,
+    "model": "rope",
+    "pitch_corrected": false,
+    "scale_applied": 0.6496,
+    "target_m": 0.65,
+    "width_before_override_m": 0.65,
+    "width_forced_m": null
+   },
+   "bridge_post_0": {
+    "aabb_m": [
+     0.31,
+     1.2,
+     0.31
+    ],
+    "axis": "height",
+    "canvas_px_tall": 72.7,
+    "card_canvas_px_tall": 110.0,
+    "model": "post",
+    "pitch_corrected": true,
+    "scale_applied": 0.7228,
+    "target_m": 1.2,
+    "width_before_override_m": 0.245,
+    "width_forced_m": 0.22
+   },
+   "bridge_post_1": {
+    "aabb_m": [
+     0.31,
+     1.2,
+     0.31
+    ],
+    "axis": "height",
+    "canvas_px_tall": 72.7,
+    "card_canvas_px_tall": 105.0,
+    "model": "post",
+    "pitch_corrected": true,
+    "scale_applied": 0.7228,
+    "target_m": 1.2,
+    "width_before_override_m": 0.245,
+    "width_forced_m": 0.22
+   },
+   "bridge_post_2": {
+    "aabb_m": [
+     0.31,
+     1.2,
+     0.31
+    ],
+    "axis": "height",
+    "canvas_px_tall": 72.7,
+    "card_canvas_px_tall": 105.0,
+    "model": "post",
+    "pitch_corrected": true,
+    "scale_applied": 0.7228,
+    "target_m": 1.2,
+    "width_before_override_m": 0.245,
+    "width_forced_m": 0.22
+   },
+   "bridge_post_3": {
+    "aabb_m": [
+     0.31,
+     1.2,
+     0.31
+    ],
+    "axis": "height",
+    "canvas_px_tall": 72.7,
+    "card_canvas_px_tall": 104.0,
+    "model": "post",
+    "pitch_corrected": true,
+    "scale_applied": 0.7228,
+    "target_m": 1.2,
+    "width_before_override_m": 0.245,
+    "width_forced_m": 0.22
+   },
+   "raven_perched": {
+    "aabb_m": [
+     0.167,
+     0.28,
+     0.125
+    ],
+    "axis": "height",
+    "canvas_px_tall": 17.0,
+    "card_canvas_px_tall": 150.0,
+    "model": "raven",
+    "pitch_corrected": true,
+    "scale_applied": 0.1685,
+    "target_m": 0.28,
+    "width_before_override_m": 0.148,
+    "width_forced_m": null
+   }
+  },
+  "status": "ok"
+ }
+}
