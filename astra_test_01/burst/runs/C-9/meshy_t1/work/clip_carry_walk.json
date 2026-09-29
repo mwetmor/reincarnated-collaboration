@@ -232,7 +232,27 @@
   "speed_after_time_scale_m_s": 2.3744,
   "speed_ratio_game_over_clip": 2.4191,
   "residual_slide_if_timescaled": 0.1978,
-  "px_s_that_would_plant_the_feet": 198.2
+  "px_s_that_would_plant_the_feet": 198.2,
+  "steady": {
+   "n_windows": 69,
+   "cycle_frames": 27,
+   "window_seconds": 1.125,
+   "win_speed_min_m_s": 1.1714,
+   "win_speed_max_m_s": 1.3349,
+   "win_speed_plateau_m_s": 1.2527,
+   "spread": 0.1334,
+   "steady": false,
+   "arc_over_chord_max": 1.0011,
+   "px_s_min_at_game_cadence": 189.7,
+   "px_s_max_at_game_cadence": 216.2,
+   "px_s_plateau_at_game_cadence": 202.9,
+   "px_s_plateau_at_clip_cadence": 104.5,
+   "plateau_window_start_frame": 55,
+   "resampled_window_start_frame": 1,
+   "resample_window_is_plateau": true,
+   "plateau_stride_m": 1.4092,
+   "period_that_plants_plateau_s": 0.4761
+  }
  },
  "resample": {
   "n": 12,

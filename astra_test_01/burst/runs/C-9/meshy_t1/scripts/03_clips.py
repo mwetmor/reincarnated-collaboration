@@ -46,6 +46,8 @@ SRC, NAME, OUTP = a[0], a[1], a[2]
 
 # the game's cadence, from knight_fit.json / knight_foot_slide.json
 CANVAS_PX_PER_M = 150.21354166666666 / 1.80          # 83.452
+# the height every rig is normalised to at render time (04_render --height)
+RENDER_HEIGHT_M = 1.80
 GAME = {"walk": dict(px_s=247.0, period=0.5797, frames=12),
         "run": dict(px_s=494.0, period=0.5517, frames=8),
         # The idle and the attack keep their OWN duration: the game's idle slot
@@ -99,6 +101,50 @@ def role_map(arm):
         if best:
             got[role] = best; used.add(best)
     return got
+
+
+def steadiness(P, cyc, fps, game_period, game_px_s):
+    """Per-window arc speed over every cycle-length window of the root path."""
+    P = np.asarray(P)[:, :2]
+    d = np.diff(P, axis=0)
+    step = np.hypot(d[:, 0], d[:, 1])
+    dt = cyc / fps
+    rows = []
+    for s0 in range(0, max(1, len(P) - cyc)):
+        arc = float(step[s0:s0 + cyc].sum())
+        chord = float(np.hypot(*(P[s0 + cyc] - P[s0]))) if s0 + cyc < len(P) else arc
+        rows.append((s0, arc, chord, arc / dt, arc / max(chord, 1e-9)))
+    sp = np.array([r[3] for r in rows])
+    # Which window should be RESAMPLED? This script resamples from frame 1, which
+    # is the right answer only for a clip that starts at speed. On a ramping clip
+    # frame 1 is the ramp: carry_run3 reads 6.26 m/s there and 7.54 on its
+    # plateau. Report where the plateau starts so the renderer can be pointed at
+    # it; the resample itself still starts at frame 1 so already-shipped sheets
+    # stay reproducible. KNOWN GAP, tracked in the T1 notes.
+    # the PLATEAU is the modal speed, not the extreme: take the median of the
+    # middle half of the windows ranked by speed, so one ramp frame cannot set it
+    hi = np.sort(sp)[len(sp) // 2:]
+    plateau = float(np.median(hi))
+    spread = float((sp.max() - sp.min()) / max(sp.mean(), 1e-9))
+    ts = dt / game_period if game_period else 1.0
+    return dict(
+        n_windows=len(rows), cycle_frames=cyc, window_seconds=round(dt, 4),
+        win_speed_min_m_s=round(float(sp.min()), 4),
+        win_speed_max_m_s=round(float(sp.max()), 4),
+        win_speed_plateau_m_s=round(plateau, 4),
+        spread=round(spread, 4), steady=bool(spread < 0.10),
+        arc_over_chord_max=round(float(max(r[4] for r in rows)), 4),
+        px_s_min_at_game_cadence=round(float(sp.min()) * ts * CANVAS_PX_PER_M, 1),
+        px_s_max_at_game_cadence=round(float(sp.max()) * ts * CANVAS_PX_PER_M, 1),
+        px_s_plateau_at_game_cadence=round(plateau * ts * CANVAS_PX_PER_M, 1),
+        px_s_plateau_at_clip_cadence=round(plateau * CANVAS_PX_PER_M, 1),
+        plateau_window_start_frame=int(rows[int(np.argmin(np.abs(sp - plateau)))][0]) + 1,
+        resampled_window_start_frame=1,
+        resample_window_is_plateau=bool(
+            abs(sp[0] - plateau) / max(plateau, 1e-9) < 0.05),
+        plateau_stride_m=round(plateau * dt, 4),
+        period_that_plants_plateau_s=round(
+            plateau * dt * CANVAS_PX_PER_M / game_px_s, 4))
 
 
 def main():
@@ -254,6 +300,26 @@ def main():
                 (game_sp - sp * period / g["period"]) / game_sp, 4) if sp else None,
             px_s_that_would_plant_the_feet=round(
                 sp * period / g["period"] * CANVAS_PX_PER_M, 1) if sp else None)
+        # ---- IS THE CYCLE STEADY? ------------------------------------------
+        # A single speed for a whole clip assumes the clip holds one speed.
+        # carry_run3 does not: it accelerates from 6.26 m/s, plateaus at 7.5,
+        # then decelerates to a stop, so "the clip's speed" was whatever window
+        # happened to be measured -- and the window this script measures is
+        # frame 1, the acceleration ramp, the slowest usable part. Sweep every
+        # candidate cycle window and report the spread, so a ramp cannot pass as
+        # a cycle.
+        #
+        # Also report arc/chord per window: the earlier per-frame heading test
+        # called this clip a 111-degree curve, which was noise from the frames
+        # where it had nearly stopped. Arc over chord is immune to that.
+        out["verdict"]["steady"] = steadiness(P[hips], cycle_frames, fps, g["period"], g["px_s"])
+    # NOT height-normalised, and deliberately: the renderer does not rescale the
+    # rig, it fixes px/m from camera.json, and this rig's BIND height is exactly
+    # 1.800 m (bind_bbox_span z, identical in every render). The per-clip
+    # character_height_m above is a POSE EXTREME -- top of head at full stride
+    # extension minus the lowest sole, with the airborne rise folded in -- and
+    # it reads 1.829 / 1.843 / 1.910 for one unchanged rig. It is not a scale
+    # and must not be used as one.
     # resample times: N_out samples over exactly one cycle
     per = g["period"] or period
     nout = g["frames"] or int(round(period * 12))
@@ -271,6 +337,20 @@ def main():
               % (out["game"]["speed_m_s"], out["game"]["stride_m"],
                  v["time_scale_to_game_cadence"], v["speed_after_time_scale_m_s"],
                  100 * v["residual_slide_if_timescaled"], v["px_s_that_would_plant_the_feet"]))
+        st = v["steady"]
+        print("  steady? %s  window speed %.3f..%.3f m/s (spread %.1f%%)  "
+              "arc/chord max %.4f" % (
+                  "YES" if st["steady"] else "NO", st["win_speed_min_m_s"],
+                  st["win_speed_max_m_s"], 100 * st["spread"], st["arc_over_chord_max"]))
+        print("  plants at %.1f..%.1f px/s across windows at the game's cadence, "
+              "PLATEAU %.1f (target %.1f, +-10%% = %.1f..%.1f)" % (
+                  st["px_s_min_at_game_cadence"], st["px_s_max_at_game_cadence"],
+                  st["px_s_plateau_at_game_cadence"],
+                  g["px_s"], 0.9 * g["px_s"], 1.1 * g["px_s"]))
+        print("  period that would plant the PLATEAU stride exactly: %.4f s "
+              "(game %.4f s), plateau stride %.3f m (game %.3f m)" % (
+                  st["period_that_plants_plateau_s"], g["period"],
+                  st["plateau_stride_m"], out["game"]["stride_m"]))
     print("wrote", OUTP)
 
 
