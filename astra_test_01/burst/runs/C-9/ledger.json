@@ -22758,6 +22758,12 @@
       "topic": "Clip timing and hip-sway fixes at source (a1f6c92)",
       "note": "run_armed: fps was hard-coded 30 vs the 24 fps scene AND duration was taken over keys instead of intervals (same direction, 19%); now 21 keys / 20 intervals / 0.8333 s / 3.795 m/s, every published number re-read from the shipped GLB sampler times (46_clip_timing.py). De-root now subtracts the first-to-last line (not least-squares, which does not pass through the endpoints) so the oscillation survives: hip excursion restored run 0.137, strafe L/R 0.184/0.177, idle_armed 0.528 (Axe Stance steps, net 0), walk 0.082 m. Strafe speeds: net vs stepping differ on strafe_R (it has stationary portions) - stepping is the blend speed (L 0.844, R 0.536 m/s). Lint no FAIL (only attack_chop drifts, deliberately).",
       "ts": "2026-09-29T15:51:03"
+    },
+    {
+      "id": "N-C9-ARMED-V3",
+      "topic": "Armed motion in the 3D app after the clip fixes (ff29a8819)",
+      "note": "run_armed reads 0.8333 s in the scene (matches the manifest); de-root finds only attack_chop. Speeds now read from the shipped manifest at load (stepping_speed_m_s preferred) - a hand-copied number went stale twice. Slide (same instrument, armed): crossover worst 294.6 -> 144.4 mm, run-stop worst 747.1 -> 142.1 mm (the outliers were the blend weight chasing a speed from a 19%-short cycle period). Stops 0.29 s walk / 0.42 s run. Hip sway visible. d3_armed_v2.mp4 re-captured; app rebuilt (471 MB). Tidy ordered: a stale run_armed_trim block in the manifest + a lint check that manifest numbers match the GLB sampler times. The T10 render drax was stopped by the conductor mid-work (its queued messages had in fact been picked up; its uncommitted key-collision fixes kept and a pen-floor change reverted by the fresh integration drax).",
+      "ts": "2026-09-29T15:55:52"
     }
   ]
 }
