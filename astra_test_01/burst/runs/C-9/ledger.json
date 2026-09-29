@@ -23330,6 +23330,12 @@
       "topic": "Kit re-issue sheets delivered (T10K-A2, T10K-D; wave t10k2)",
       "note": "Both exit 0, audit clean, 8 image calls (Phase 2 Astra now 133 of 300). Conductor look: every object now draws its stated proportion: three rocks set apart (~2:1), a low broad stump with spreading roots (~2:1), the elk skull lying on its side with its antlers flat (~3:1), a low flat-topped boulder (~2.5:1). The plate was lost to a dark vignette on all four (harmless). The proportions clause plus the gutter clause worked where the first issue ignored stated numbers by ~2.2x. Next: scoring and mattes by the kit drax; the four Tripo builds ($1.60) HELD for Matt per N-C9-FAL-CAP.",
       "ts": "2026-09-29T17:31:14"
+    },
+    {
+      "id": "N-C9-T10-EXTRACT-GAP",
+      "topic": "Are the objects placed exactly as the painting has them? Partly: the extraction missed most of the painting density",
+      "note": "Matt asked. Conductor comparison of the concept (T10C-barrow_a) with barrow_scene_a.json (70 placements: heather 19, rock_small 27, rock_large 3, stone_tall 2 of which 1 an exact duplicate, stone_mid 1, stone_short 1, post 4, lintel 1, birch 11, raven 1). The big pieces are placed and sized as painted (K = 140.86 px/m through the figure; yaw matched to identity plates). But the painting holds about ten standing stones in a ring (3 placed plus the door posts), large layered rock outcrops on every edge and along the tarn shore (rendered as 27 copies of one small rock), dozens of juniper clumps (0 placed although juniper.glb exists) and dense heather (19 tussocks), and a fallen dead tree (none). The painting density lived in its brushwork; segmentation extracted only large, separable objects. This gap is most of R-C9-74 note 2 (sparsity). T10-1b density target re-stated to the integration drax as THE PAINTING ITSELF: place what extraction missed, measured by a render-over-painting overlay at the painting framing with per-class pixel coverage; departures only for the flat floor (R-C9-74) and the combat clearing (which the painting already has). New models needed to match it (a layered outcrop, a fallen dead tree) ride on the fal decision.",
+      "ts": "2026-09-29T17:46:40"
     }
   ]
 }
