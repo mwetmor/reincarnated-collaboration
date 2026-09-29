@@ -1,0 +1,153 @@
+{
+ "what": "C-9 T4 close-out: is the 2D fallback the same instrument as the pos-matched one?",
+ "pos_tol": 0.01,
+ "blur_sigma": 3.0,
+ "erode_px": 2,
+ "head_parts": [
+  "helm",
+  "visor"
+ ],
+ "frames": 12,
+ "rows": {
+  "paint": {
+   "pos_matched": {
+    "body": {
+     "n": 11,
+     "median": 14.46,
+     "p90": 18.57,
+     "max": 18.68,
+     "mean": 14.98,
+     "p10": 11.62,
+     "min": 11.23
+    },
+    "head": {
+     "n": 11,
+     "median": 8.13,
+     "p90": 13.67,
+     "max": 15.2,
+     "mean": 8.96,
+     "p10": 5.84,
+     "min": 4.94
+    },
+    "matched_frac": 0.829
+   },
+   "two_d": {
+    "body": {
+     "n": 11,
+     "median": 18.94,
+     "p90": 27.76,
+     "max": 33.58,
+     "mean": 21.33,
+     "p10": 15.63,
+     "min": 14.43
+    },
+    "head": {
+     "n": 11,
+     "median": 9.11,
+     "p90": 14.24,
+     "max": 25.24,
+     "mean": 10.93,
+     "p10": 7.32,
+     "min": 6.88
+    }
+   }
+  },
+  "render(floor)": {
+   "pos_matched": {
+    "body": {
+     "n": 11,
+     "median": 4.4,
+     "p90": 4.9,
+     "max": 5.11,
+     "mean": 4.14,
+     "p10": 2.7,
+     "min": 2.7
+    },
+    "head": {
+     "n": 11,
+     "median": 1.32,
+     "p90": 2.13,
+     "max": 2.76,
+     "mean": 1.55,
+     "p10": 1.13,
+     "min": 1.09
+    },
+    "matched_frac": 0.837
+   },
+   "two_d": {
+    "body": {
+     "n": 11,
+     "median": 13.14,
+     "p90": 16.08,
+     "max": 19.33,
+     "mean": 13.56,
+     "p10": 10.25,
+     "min": 9.81
+    },
+    "head": {
+     "n": 11,
+     "median": 8.2,
+     "p90": 26.19,
+     "max": 26.88,
+     "mean": 12.71,
+     "p10": 3.21,
+     "min": 2.58
+    }
+   }
+  },
+  "paint shuffled(control)": {
+   "pos_matched": {
+    "body": {
+     "n": 11,
+     "median": 20.95,
+     "p90": 27.29,
+     "max": 28.36,
+     "mean": 20.75,
+     "p10": 13.79,
+     "min": 11.23
+    },
+    "head": {
+     "n": 11,
+     "median": 12.98,
+     "p90": 23.28,
+     "max": 23.88,
+     "mean": 14.93,
+     "p10": 8.52,
+     "min": 8.13
+    },
+    "matched_frac": 0.717
+   },
+   "two_d": {
+    "body": {
+     "n": 11,
+     "median": 29.42,
+     "p90": 32.68,
+     "max": 33.89,
+     "mean": 27.26,
+     "p10": 20.19,
+     "min": 18.52
+    },
+    "head": {
+     "n": 11,
+     "median": 12.0,
+     "p90": 16.22,
+     "max": 24.99,
+     "mean": 12.88,
+     "p10": 8.28,
+     "min": 7.74
+    }
+   }
+  }
+ },
+ "ratios": {
+  "pos_matched_body_paint_over_floor": 3.29,
+  "pos_matched_body_shuffled_over_paint": 1.45,
+  "pos_matched_head_paint_over_floor": 6.16,
+  "pos_matched_head_shuffled_over_paint": 1.6,
+  "two_d_body_paint_over_floor": 1.44,
+  "two_d_body_shuffled_over_paint": 1.55,
+  "two_d_head_paint_over_floor": 1.11,
+  "two_d_head_shuffled_over_paint": 1.32
+ },
+ "reading": "The two instruments are compared on RATIOS, not on absolute values: they admit different pixels (pos-matching drops the unmatched fraction; the 2D crop admits whatever is in the box) so the levels differ by construction. What must agree is (a) paint scores above floor on both, and (b) shuffled scores above paint on both -- drift that is real and drift that has temporal structure."
+}

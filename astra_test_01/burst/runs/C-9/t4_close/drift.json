@@ -1,0 +1,2496 @@
+{
+ "what": "C-9 test 4: which video route holds the knight's identity frame to frame",
+ "instrument": {
+  "base": "meshy_t2/scripts/21_drift.py (T1/T2 low-pass drift)",
+  "kept": [
+   "gaussian sigma 3.0 px, mask-normalised",
+   "2 px silhouette erosion",
+   "mean |dRGB| in 0-255 over the shared silhouette",
+   "shuffled frame order as the negative control",
+   "a sequence that cannot drift as the floor"
+  ],
+  "changed": {
+   "why": "21_drift.py compensates for the animation with a POS GUIDE -- the rest-pose bind position under each pixel, baked per vertex before skinning. It exists only for frames we rendered ourselves from a rigged mesh. Kling and Ludo return video: no mesh, no bind pose, no pos pass, so the nearest-neighbour-in-pos-space match cannot be computed at all. The input is missing, not the method disputed.",
+   "substitution": "2D rigid registration: the crop is placed on the part's own position each frame, resampled to a common size, and the best integer translation within +-14 px is searched before the residual is taken. Rotation is deliberately NOT absorbed -- the complaint was that the helm morphs WHEN THE HEAD TURNS, and a rotation-free registration would explain away the frames the test exists to catch.",
+   "also_new": "scale normalisation. Kling returns 1440 px, Ludo 310-454 px, the still 1024 px; blurring all of them by 3 px would low-pass Ludo four times as hard as Kling and hand Ludo a lower score for free. Every helm crop is resampled to 96 px of helm and every body crop to 256 px of figure BEFORE the blur.",
+   "validation": "see validate_fallback.py -- the 2D fallback and the original pos-matched instrument are run on the SAME sequence (the knight's Astra walk E, the one candidate with pos guides on disk) and compared."
+  },
+  "helm_region": "crown row to the NECK PINCH, found per frame from the body's own row-width profile (the profile rises across the helm, falls to a minimum at the gorget, rises into the shoulders). The box is square, 1.5x the helm height, centred on the helm's column centroid: it MOVES with the helm and does not RESIZE.",
+  "weapon_split": "disk opening of radius ~1.6% of mask height. A 1xN HORIZONTAL opening (build_knight_frames.py's rule) is wrong here and was caught by probing: Kling re-stages the pollaxe at a lean, and a diagonal bar's horizontal runs are far wider than its thickness, so the horizontal opening left most of Kling's haft inside the body (6.9k weapon px against the still's 27.3k) and returned a confident wrong answer."
+ },
+ "reference_still": {
+  "path": "fal_t4/knight_E_ref_1024.png",
+  "figure_h_px": 701,
+  "helm_h_px": 123,
+  "haft": {
+   "len_pct_H": 63.19164505652573,
+   "angle_from_vertical_deg": 0.06546416760282814,
+   "straightness_pct": 1.5462750645881176,
+   "px": 10136
+  }
+ },
+ "drive": {
+  "path": "fal_t4/knight_carrywalk_E_drive.mp4",
+  "frames": 150,
+  "fps": 30.0,
+  "seconds": 5.0
+ },
+ "routes": {
+  "kling": {
+   "label": "Kling v3 Pro (motion-control)",
+   "frames": 150,
+   "fps": 30.0,
+   "seconds": 5.0,
+   "native": {
+    "figure_h_px_median": 980,
+    "helm_h_px_median": 174
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 149,
+    "median": 2.44,
+    "p90": 4.29,
+    "max": 24.34,
+    "mean": 3.21,
+    "p10": 1.55,
+    "min": 0.55,
+    "worst": [
+     {
+      "frames": [
+       94,
+       95
+      ],
+      "value": 24.34
+     },
+     {
+      "frames": [
+       88,
+       89
+      ],
+      "value": 24.27
+     },
+     {
+      "frames": [
+       61,
+       62
+      ],
+      "value": 22.97
+     }
+    ],
+    "shuffled": {
+     "n": 149,
+     "median": 7.34,
+     "p90": 23.02,
+     "max": 25.06,
+     "mean": 9.74,
+     "p10": 5.18,
+     "min": 2.01
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 150,
+    "median": 7.03,
+    "p90": 10.9,
+    "max": 24.25,
+    "mean": 8.48,
+    "p10": 5.5,
+    "min": 3.85,
+    "worst": [
+     {
+      "frame": 60,
+      "value": 24.25
+     },
+     {
+      "frame": 89,
+      "value": 24.23
+     },
+     {
+      "frame": 56,
+      "value": 24.21
+     }
+    ],
+    "comparable": true,
+    "note": ""
+   },
+   "body_drift_frame_to_frame": {
+    "n": 149,
+    "median": 6.6,
+    "p90": 10.62,
+    "max": 13.73,
+    "mean": 6.98,
+    "p10": 4.39,
+    "min": 0.66,
+    "worst": [
+     {
+      "frames": [
+       48,
+       49
+      ],
+      "value": 13.73
+     },
+     {
+      "frames": [
+       132,
+       133
+      ],
+      "value": 12.02
+     },
+     {
+      "frames": [
+       81,
+       82
+      ],
+      "value": 11.78
+     }
+    ],
+    "shuffled": {
+     "n": 149,
+     "median": 16.36,
+     "p90": 22.67,
+     "max": 28.21,
+     "mean": 16.22,
+     "p10": 9.31,
+     "min": 6.42
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 150,
+    "median": 21.57,
+    "p90": 24.39,
+    "max": 25.81,
+    "mean": 20.38,
+    "p10": 15.52,
+    "min": 13.82,
+    "worst": [
+     {
+      "frame": 137,
+      "value": 25.81
+     },
+     {
+      "frame": 87,
+      "value": 25.56
+     },
+     {
+      "frame": 97,
+      "value": 25.41
+     }
+    ],
+    "comparable": true
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     16,
+     16
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 147,
+    "median": 4.66,
+    "p90": 8.02,
+    "max": 24.9,
+    "mean": 6.1,
+    "p10": 2.74,
+    "min": 0.88,
+    "lag_frames": 3,
+    "worst": [
+     {
+      "frames": [
+       94,
+       97
+      ],
+      "value": 24.9
+     },
+     {
+      "frames": [
+       93,
+       96
+      ],
+      "value": 24.49
+     },
+     {
+      "frames": [
+       86,
+       89
+      ],
+      "value": 23.96
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 147,
+    "median": 10.21,
+    "p90": 17.59,
+    "max": 19.47,
+    "mean": 11.49,
+    "p10": 7.03,
+    "min": 4.43,
+    "lag_frames": 3
+   },
+   "cadence": {
+    "period_frames": 34,
+    "fps": 30.0,
+    "stride_period_s": 1.1333,
+    "strides_per_s": 0.882,
+    "strides_in_clip": 4.41,
+    "repeat_found": true,
+    "depth_ratio": 0.624,
+    "local_minima": [
+     17,
+     34,
+     50,
+     68,
+     85,
+     103,
+     119,
+     136
+    ],
+    "doubled_to": [
+     34
+    ],
+    "source": "smallest qualifying minimum of D(p), doubled past the step mirror to 34",
+    "profile": {
+     "3": 11.864,
+     "4": 13.344,
+     "5": 14.294,
+     "6": 14.841,
+     "7": 15.11,
+     "8": 15.202,
+     "9": 15.194,
+     "10": 15.098,
+     "11": 14.936,
+     "12": 14.54,
+     "13": 13.919,
+     "14": 12.942,
+     "15": 11.726,
+     "16": 10.756,
+     "17": 10.401,
+     "18": 10.908,
+     "19": 11.976,
+     "20": 13.094,
+     "21": 14.026,
+     "22": 14.678,
+     "23": 15.112,
+     "24": 15.298,
+     "25": 15.356,
+     "26": 15.347,
+     "27": 15.188,
+     "28": 14.869,
+     "29": 14.38,
+     "30": 13.553,
+     "31": 12.395,
+     "32": 10.892,
+     "33": 9.049,
+     "34": 8.228,
+     "35": 9.209,
+     "36": 10.752,
+     "37": 12.417,
+     "38": 13.672,
+     "39": 14.486,
+     "40": 14.984,
+     "41": 15.226,
+     "42": 15.304,
+     "43": 15.323,
+     "44": 15.23,
+     "45": 14.977,
+     "46": 14.51,
+     "47": 13.749,
+     "48": 12.675,
+     "49": 11.301,
+     "50": 10.252,
+     "51": 10.288,
+     "52": 10.825,
+     "53": 11.983,
+     "54": 13.212,
+     "55": 14.303,
+     "56": 15.014,
+     "57": 15.379,
+     "58": 15.556,
+     "59": 15.582,
+     "60": 15.466,
+     "61": 15.236,
+     "62": 14.848,
+     "63": 14.326,
+     "64": 13.515,
+     "65": 12.38,
+     "66": 10.917,
+     "67": 9.495,
+     "68": 9.098,
+     "69": 9.542,
+     "70": 10.956,
+     "71": 12.496,
+     "72": 13.747,
+     "73": 14.548,
+     "74": 14.983,
+     "75": 15.129,
+     "76": 15.154,
+     "77": 15.065,
+     "78": 14.96,
+     "79": 14.685,
+     "80": 14.225,
+     "81": 13.426,
+     "82": 12.234,
+     "83": 10.772,
+     "84": 9.86,
+     "85": 9.778,
+     "86": 10.517,
+     "87": 11.837,
+     "88": 13.165,
+     "89": 14.132,
+     "90": 14.679,
+     "91": 14.994,
+     "92": 15.134,
+     "93": 15.103,
+     "94": 14.972,
+     "95": 14.744,
+     "96": 14.385,
+     "97": 13.862,
+     "98": 13.195,
+     "99": 12.369,
+     "100": 11.468,
+     "101": 10.485,
+     "102": 9.986,
+     "103": 9.886,
+     "104": 10.636,
+     "105": 12.119,
+     "106": 13.383,
+     "107": 14.178,
+     "108": 14.72,
+     "109": 14.968,
+     "110": 14.988,
+     "111": 15.05,
+     "112": 14.976,
+     "113": 14.675,
+     "114": 14.03,
+     "115": 13.102,
+     "116": 11.614,
+     "117": 9.609,
+     "118": 6.743,
+     "119": 4.254,
+     "120": 6.452,
+     "121": 9.363,
+     "122": 11.762,
+     "123": 13.388,
+     "124": 14.365,
+     "125": 14.811,
+     "126": 15.085,
+     "127": 15.176,
+     "128": 15.09,
+     "129": 14.95,
+     "130": 15.035,
+     "131": 14.658,
+     "132": 14.018,
+     "133": 13.118,
+     "134": 12.05,
+     "135": 11.096,
+     "136": 10.336,
+     "137": 10.584,
+     "138": 11.53,
+     "139": 12.865,
+     "140": 14.011,
+     "141": 14.924,
+     "142": 15.45,
+     "143": 15.588,
+     "144": 15.506,
+     "145": 15.337,
+     "146": 15.291,
+     "147": 15.087
+    }
+   },
+   "foot_slide": {
+    "measurable": true,
+    "tracks": 12,
+    "planted_tracks": 10,
+    "body_translates": false,
+    "body_trend_pct_H_over_clip": 0.43,
+    "contact_frames_median": 10,
+    "slip_rms_pct_H_median": 1.02,
+    "slip_rms_pct_H_p90": 5.24,
+    "slip_rms_pct_H_max": 7.0,
+    "planted_travel_pct_H_median": 16.81,
+    "planted_travel_spread_pct_H": 33.22,
+    "per_track": [
+     {
+      "start": 11,
+      "frames": 4,
+      "planted": true,
+      "slip_rms_pct_H": 0.18,
+      "travel_pct_H": 8.02
+     },
+     {
+      "start": 0,
+      "frames": 16,
+      "planted": true,
+      "slip_rms_pct_H": 3.22,
+      "travel_pct_H": 15.4
+     },
+     {
+      "start": 20,
+      "frames": 10,
+      "planted": true,
+      "slip_rms_pct_H": 0.86,
+      "travel_pct_H": 17.78
+     },
+     {
+      "start": 44,
+      "frames": 8,
+      "planted": true,
+      "slip_rms_pct_H": 1.03,
+      "travel_pct_H": 16.59
+     },
+     {
+      "start": 21,
+      "frames": 33,
+      "planted": true,
+      "slip_rms_pct_H": 7.0,
+      "travel_pct_H": 48.04
+     },
+     {
+      "start": 56,
+      "frames": 9,
+      "planted": true,
+      "slip_rms_pct_H": 0.57,
+      "travel_pct_H": 15.11
+     },
+     {
+      "start": 73,
+      "frames": 6,
+      "planted": false,
+      "slip_rms_pct_H": 1.13,
+      "travel_pct_H": -1.46
+     },
+     {
+      "start": 54,
+      "frames": 31,
+      "planted": true,
+      "slip_rms_pct_H": 5.04,
+      "travel_pct_H": 46.14
+     },
+     {
+      "start": 89,
+      "frames": 9,
+      "planted": true,
+      "slip_rms_pct_H": 0.87,
+      "travel_pct_H": 16.96
+     },
+     {
+      "start": 90,
+      "frames": 29,
+      "planted": true,
+      "slip_rms_pct_H": 3.14,
+      "travel_pct_H": 47.57
+     },
+     {
+      "start": 119,
+      "frames": 31,
+      "planted": false,
+      "slip_rms_pct_H": 10.47,
+      "travel_pct_H": -44.51
+     },
+     {
+      "start": 139,
+      "frames": 11,
+      "planted": true,
+      "slip_rms_pct_H": 1.02,
+      "travel_pct_H": 16.66
+     }
+    ]
+   },
+   "pollaxe": {
+    "frames_with_haft": 142,
+    "len_pct_H_median": 114.9,
+    "len_cv_pct": 26.3,
+    "len_pct_H_range": [
+     41.7,
+     126.9
+    ],
+    "straightness_pct_median": 0.86,
+    "straightness_pct_p90": 2.08,
+    "angle_deg_median": 18.9,
+    "angle_deg_std": 3.98,
+    "d_angle_deg_p90": 2.78,
+    "d_angle_deg_max": 12.55
+   },
+   "loop_seam": {
+    "helm_last_to_first": 6.52,
+    "helm_consecutive_median": 2.44,
+    "helm_seam_ratio": 2.68,
+    "body_last_to_first": 15.59,
+    "body_consecutive_median": 6.6,
+    "body_seam_ratio": 2.36,
+    "pose_seam_ratio": 2.22,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "hydra": {
+   "label": "Ludo transfer-motion, hydra",
+   "frames": 64,
+   "fps": 21.943,
+   "seconds": 2.917,
+   "native": {
+    "figure_h_px_median": 525,
+    "helm_h_px_median": 91
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 63,
+    "median": 1.62,
+    "p90": 2.49,
+    "max": 4.84,
+    "mean": 1.72,
+    "p10": 0.99,
+    "min": 0.64,
+    "worst": [
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 4.84
+     },
+     {
+      "frames": [
+       3,
+       4
+      ],
+      "value": 3.02
+     },
+     {
+      "frames": [
+       2,
+       3
+      ],
+      "value": 2.74
+     }
+    ],
+    "shuffled": {
+     "n": 63,
+     "median": 2.91,
+     "p90": 3.9,
+     "max": 6.2,
+     "mean": 3.12,
+     "p10": 2.34,
+     "min": 1.56
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 64,
+    "median": 5.69,
+    "p90": 6.35,
+    "max": 7.0,
+    "mean": 5.75,
+    "p10": 5.26,
+    "min": 4.93,
+    "worst": [
+     {
+      "frame": 0,
+      "value": 7.0
+     },
+     {
+      "frame": 55,
+      "value": 6.58
+     },
+     {
+      "frame": 26,
+      "value": 6.52
+     }
+    ],
+    "comparable": true,
+    "note": ""
+   },
+   "body_drift_frame_to_frame": {
+    "n": 63,
+    "median": 4.91,
+    "p90": 7.53,
+    "max": 10.3,
+    "mean": 5.12,
+    "p10": 2.67,
+    "min": 1.95,
+    "worst": [
+     {
+      "frames": [
+       58,
+       59
+      ],
+      "value": 10.3
+     },
+     {
+      "frames": [
+       34,
+       35
+      ],
+      "value": 8.69
+     },
+     {
+      "frames": [
+       46,
+       47
+      ],
+      "value": 8.52
+     }
+    ],
+    "shuffled": {
+     "n": 63,
+     "median": 10.83,
+     "p90": 20.29,
+     "max": 24.26,
+     "mean": 11.67,
+     "p10": 5.1,
+     "min": 2.59
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 64,
+    "median": 12.7,
+    "p90": 16.69,
+    "max": 19.22,
+    "mean": 13.17,
+    "p10": 9.12,
+    "min": 7.49,
+    "worst": [
+     {
+      "frame": 6,
+      "value": 19.22
+     },
+     {
+      "frame": 36,
+      "value": 18.64
+     },
+     {
+      "frame": 10,
+      "value": 17.6
+     }
+    ],
+    "comparable": true
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     1,
+     1
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 62,
+    "median": 1.83,
+    "p90": 2.55,
+    "max": 4.81,
+    "mean": 1.94,
+    "p10": 1.42,
+    "min": 1.24,
+    "lag_frames": 2,
+    "worst": [
+     {
+      "frames": [
+       0,
+       2
+      ],
+      "value": 4.81
+     },
+     {
+      "frames": [
+       47,
+       49
+      ],
+      "value": 3.2
+     },
+     {
+      "frames": [
+       3,
+       5
+      ],
+      "value": 3.16
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 62,
+    "median": 7.69,
+    "p90": 10.05,
+    "max": 11.61,
+    "mean": 7.21,
+    "p10": 4.08,
+    "min": 2.44,
+    "lag_frames": 2
+   },
+   "cadence": {
+    "period_frames": 30,
+    "fps": 21.943,
+    "stride_period_s": 1.3672,
+    "strides_per_s": 0.731,
+    "strides_in_clip": 2.13,
+    "repeat_found": true,
+    "depth_ratio": 0.609,
+    "local_minima": [
+     15,
+     29,
+     44
+    ],
+    "doubled_to": [
+     30
+    ],
+    "source": "smallest qualifying minimum of D(p), doubled past the step mirror to 30",
+    "profile": {
+     "3": 9.376,
+     "4": 10.687,
+     "5": 11.533,
+     "6": 12.151,
+     "7": 12.428,
+     "8": 12.504,
+     "9": 12.375,
+     "10": 11.993,
+     "11": 11.272,
+     "12": 10.294,
+     "13": 9.128,
+     "14": 8.04,
+     "15": 7.816,
+     "16": 8.855,
+     "17": 9.94,
+     "18": 10.706,
+     "19": 11.32,
+     "20": 11.797,
+     "21": 12.087,
+     "22": 12.177,
+     "23": 12.091,
+     "24": 11.818,
+     "25": 11.226,
+     "26": 10.077,
+     "27": 8.462,
+     "28": 6.103,
+     "29": 4.915,
+     "30": 6.325,
+     "31": 8.168,
+     "32": 9.494,
+     "33": 10.379,
+     "34": 11.027,
+     "35": 11.653,
+     "36": 11.97,
+     "37": 12.127,
+     "38": 12.107,
+     "39": 11.868,
+     "40": 11.476,
+     "41": 10.749,
+     "42": 9.743,
+     "43": 8.609,
+     "44": 8.265,
+     "45": 9.189,
+     "46": 9.766,
+     "47": 9.781,
+     "48": 10.031,
+     "49": 10.351,
+     "50": 10.621,
+     "51": 11.107,
+     "52": 11.471,
+     "53": 11.707,
+     "54": 11.625,
+     "55": 11.624,
+     "56": 11.393,
+     "57": 10.988,
+     "58": 10.448,
+     "59": 9.952,
+     "60": 9.304,
+     "61": 8.06
+    }
+   },
+   "foot_slide": {
+    "measurable": true,
+    "tracks": 6,
+    "planted_tracks": 4,
+    "body_translates": false,
+    "body_trend_pct_H_over_clip": -1.16,
+    "contact_frames_median": 15,
+    "slip_rms_pct_H_median": 2.02,
+    "slip_rms_pct_H_p90": 3.39,
+    "slip_rms_pct_H_max": 3.74,
+    "planted_travel_pct_H_median": 29.24,
+    "planted_travel_spread_pct_H": 33.32,
+    "per_track": [
+     {
+      "start": 0,
+      "frames": 6,
+      "planted": false,
+      "slip_rms_pct_H": 0.31,
+      "travel_pct_H": -1.41
+     },
+     {
+      "start": 6,
+      "frames": 4,
+      "planted": false,
+      "slip_rms_pct_H": 0.74,
+      "travel_pct_H": -2.28
+     },
+     {
+      "start": 13,
+      "frames": 20,
+      "planted": true,
+      "slip_rms_pct_H": 2.58,
+      "travel_pct_H": 38.5
+     },
+     {
+      "start": 26,
+      "frames": 11,
+      "planted": true,
+      "slip_rms_pct_H": 1.46,
+      "travel_pct_H": 19.98
+     },
+     {
+      "start": 55,
+      "frames": 5,
+      "planted": true,
+      "slip_rms_pct_H": 0.41,
+      "travel_pct_H": 0.27
+     },
+     {
+      "start": 37,
+      "frames": 25,
+      "planted": true,
+      "slip_rms_pct_H": 3.74,
+      "travel_pct_H": 39.94
+     }
+    ]
+   },
+   "pollaxe": {
+    "frames_with_haft": 64,
+    "len_pct_H_median": 79.8,
+    "len_cv_pct": 25.1,
+    "len_pct_H_range": [
+     43.1,
+     119.5
+    ],
+    "straightness_pct_median": 1.16,
+    "straightness_pct_p90": 1.5,
+    "angle_deg_median": 1.0,
+    "angle_deg_std": 0.36,
+    "d_angle_deg_p90": 0.21,
+    "d_angle_deg_max": 0.46
+   },
+   "loop_seam": {
+    "helm_last_to_first": 6.51,
+    "helm_consecutive_median": 1.62,
+    "helm_seam_ratio": 4.01,
+    "body_last_to_first": 15.56,
+    "body_consecutive_median": 4.91,
+    "body_seam_ratio": 3.17,
+    "pose_seam_ratio": 1.28,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "forge": {
+   "label": "Ludo transfer-motion, forge",
+   "frames": 42,
+   "fps": 14.364,
+   "seconds": 2.924,
+   "native": {
+    "figure_h_px_median": 532,
+    "helm_h_px_median": 96
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 41,
+    "median": 0.38,
+    "p90": 0.43,
+    "max": 4.35,
+    "mean": 0.52,
+    "p10": 0.34,
+    "min": 0.33,
+    "worst": [
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 4.35
+     },
+     {
+      "frames": [
+       1,
+       2
+      ],
+      "value": 2.0
+     },
+     {
+      "frames": [
+       14,
+       15
+      ],
+      "value": 0.46
+     }
+    ],
+    "shuffled": {
+     "n": 41,
+     "median": 0.55,
+     "p90": 0.66,
+     "max": 6.6,
+     "mean": 0.88,
+     "p10": 0.4,
+     "min": 0.36
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 42,
+    "median": 6.46,
+    "p90": 6.57,
+    "max": 10.72,
+    "mean": 6.58,
+    "p10": 6.32,
+    "min": 6.23,
+    "worst": [
+     {
+      "frame": 0,
+      "value": 10.72
+     },
+     {
+      "frame": 1,
+      "value": 7.77
+     },
+     {
+      "frame": 33,
+      "value": 6.62
+     }
+    ],
+    "comparable": true,
+    "note": ""
+   },
+   "body_drift_frame_to_frame": {
+    "n": 41,
+    "median": 6.31,
+    "p90": 9.08,
+    "max": 11.43,
+    "mean": 6.5,
+    "p10": 4.68,
+    "min": 1.14,
+    "worst": [
+     {
+      "frames": [
+       30,
+       31
+      ],
+      "value": 11.43
+     },
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 11.13
+     },
+     {
+      "frames": [
+       18,
+       19
+      ],
+      "value": 9.31
+     }
+    ],
+    "shuffled": {
+     "n": 41,
+     "median": 9.1,
+     "p90": 13.64,
+     "max": 14.59,
+     "mean": 9.05,
+     "p10": 5.21,
+     "min": 2.09
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 42,
+    "median": 12.28,
+    "p90": 14.73,
+    "max": 16.38,
+    "mean": 11.83,
+    "p10": 8.55,
+    "min": 8.23,
+    "worst": [
+     {
+      "frame": 28,
+      "value": 16.38
+     },
+     {
+      "frame": 29,
+      "value": 15.3
+     },
+     {
+      "frame": 3,
+      "value": 15.28
+     }
+    ],
+    "comparable": true
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     0,
+     0
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 40,
+    "median": 0.39,
+    "p90": 0.44,
+    "max": 6.31,
+    "mean": 0.59,
+    "p10": 0.36,
+    "min": 0.34,
+    "lag_frames": 2,
+    "worst": [
+     {
+      "frames": [
+       0,
+       2
+      ],
+      "value": 6.31
+     },
+     {
+      "frames": [
+       1,
+       3
+      ],
+      "value": 2.09
+     },
+     {
+      "frames": [
+       7,
+       9
+      ],
+      "value": 0.49
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 40,
+    "median": 8.14,
+    "p90": 11.0,
+    "max": 14.68,
+    "mean": 7.95,
+    "p10": 5.15,
+    "min": 3.77,
+    "lag_frames": 2
+   },
+   "cadence": {
+    "period_frames": 25,
+    "fps": 14.364,
+    "stride_period_s": 1.7405,
+    "strides_per_s": 0.575,
+    "strides_in_clip": 1.68,
+    "repeat_found": true,
+    "depth_ratio": 0.58,
+    "local_minima": [
+     25
+    ],
+    "doubled_to": [],
+    "source": "smallest qualifying minimum of D(p)",
+    "profile": {
+     "3": 9.433,
+     "4": 9.531,
+     "5": 9.034,
+     "6": 8.805,
+     "7": 8.412,
+     "8": 8.307,
+     "9": 8.329,
+     "10": 8.138,
+     "11": 7.516,
+     "12": 7.813,
+     "13": 7.954,
+     "14": 8.03,
+     "15": 8.377,
+     "16": 9.007,
+     "17": 8.951,
+     "18": 8.727,
+     "19": 8.34,
+     "20": 8.014,
+     "21": 8.669,
+     "22": 9.048,
+     "23": 8.772,
+     "24": 7.282,
+     "25": 4.947,
+     "26": 6.664,
+     "27": 8.625,
+     "28": 9.878,
+     "29": 10.114,
+     "30": 9.665,
+     "31": 8.786,
+     "32": 7.813,
+     "33": 7.141,
+     "34": 6.941,
+     "35": 8.531,
+     "36": 9.804,
+     "37": 10.904,
+     "38": 9.831,
+     "39": 9.303
+    }
+   },
+   "foot_slide": {
+    "measurable": true,
+    "tracks": 6,
+    "planted_tracks": 6,
+    "body_translates": false,
+    "body_trend_pct_H_over_clip": -0.83,
+    "contact_frames_median": 8,
+    "slip_rms_pct_H_median": 3.21,
+    "slip_rms_pct_H_p90": 4.72,
+    "slip_rms_pct_H_max": 4.85,
+    "planted_travel_pct_H_median": 30.36,
+    "planted_travel_spread_pct_H": 21.73,
+    "per_track": [
+     {
+      "start": 0,
+      "frames": 7,
+      "planted": true,
+      "slip_rms_pct_H": 3.19,
+      "travel_pct_H": 20.08
+     },
+     {
+      "start": 3,
+      "frames": 13,
+      "planted": true,
+      "slip_rms_pct_H": 4.59,
+      "travel_pct_H": 38.06
+     },
+     {
+      "start": 14,
+      "frames": 5,
+      "planted": true,
+      "slip_rms_pct_H": 1.6,
+      "travel_pct_H": 26.5
+     },
+     {
+      "start": 17,
+      "frames": 10,
+      "planted": true,
+      "slip_rms_pct_H": 4.85,
+      "travel_pct_H": 34.22
+     },
+     {
+      "start": 24,
+      "frames": 5,
+      "planted": true,
+      "slip_rms_pct_H": 2.89,
+      "travel_pct_H": 12.33
+     },
+     {
+      "start": 29,
+      "frames": 13,
+      "planted": true,
+      "slip_rms_pct_H": 3.22,
+      "travel_pct_H": 37.81
+     }
+    ]
+   },
+   "pollaxe": {
+    "frames_with_haft": 42,
+    "len_pct_H_median": 104.7,
+    "len_cv_pct": 22.3,
+    "len_pct_H_range": [
+     54.0,
+     116.7
+    ],
+    "straightness_pct_median": 0.97,
+    "straightness_pct_p90": 1.66,
+    "angle_deg_median": 0.1,
+    "angle_deg_std": 0.03,
+    "d_angle_deg_p90": 0.06,
+    "d_angle_deg_max": 0.08
+   },
+   "loop_seam": {
+    "helm_last_to_first": 6.45,
+    "helm_consecutive_median": 0.38,
+    "helm_seam_ratio": 17.08,
+    "body_last_to_first": 14.93,
+    "body_consecutive_median": 6.31,
+    "body_seam_ratio": 2.37,
+    "pose_seam_ratio": 1.68,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "anim": {
+   "label": "Ludo animate-sprite, text prompt 'walking'",
+   "frames": 36,
+   "fps": 12.522,
+   "seconds": 2.875,
+   "native": {
+    "figure_h_px_median": 685,
+    "helm_h_px_median": 122
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 35,
+    "median": 1.39,
+    "p90": 1.93,
+    "max": 2.39,
+    "mean": 1.4,
+    "p10": 0.72,
+    "min": 0.54,
+    "worst": [
+     {
+      "frames": [
+       8,
+       9
+      ],
+      "value": 2.39
+     },
+     {
+      "frames": [
+       17,
+       18
+      ],
+      "value": 2.31
+     },
+     {
+      "frames": [
+       3,
+       4
+      ],
+      "value": 2.11
+     }
+    ],
+    "shuffled": {
+     "n": 35,
+     "median": 3.37,
+     "p90": 6.4,
+     "max": 7.27,
+     "mean": 3.92,
+     "p10": 1.89,
+     "min": 1.39
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 36,
+    "median": 5.16,
+    "p90": 7.31,
+    "max": 7.86,
+    "mean": 5.42,
+    "p10": 3.93,
+    "min": 3.63,
+    "worst": [
+     {
+      "frame": 33,
+      "value": 7.86
+     },
+     {
+      "frame": 35,
+      "value": 7.49
+     },
+     {
+      "frame": 34,
+      "value": 7.49
+     }
+    ],
+    "comparable": true,
+    "note": ""
+   },
+   "body_drift_frame_to_frame": {
+    "n": 35,
+    "median": 6.61,
+    "p90": 10.36,
+    "max": 11.76,
+    "mean": 6.85,
+    "p10": 4.08,
+    "min": 2.48,
+    "worst": [
+     {
+      "frames": [
+       21,
+       22
+      ],
+      "value": 11.76
+     },
+     {
+      "frames": [
+       33,
+       34
+      ],
+      "value": 10.59
+     },
+     {
+      "frames": [
+       30,
+       31
+      ],
+      "value": 10.54
+     }
+    ],
+    "shuffled": {
+     "n": 35,
+     "median": 13.37,
+     "p90": 20.77,
+     "max": 25.18,
+     "mean": 13.53,
+     "p10": 7.05,
+     "min": 3.78
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 36,
+    "median": 11.9,
+    "p90": 17.23,
+    "max": 19.03,
+    "mean": 12.71,
+    "p10": 9.06,
+    "min": 4.3,
+    "worst": [
+     {
+      "frame": 14,
+      "value": 19.03
+     },
+     {
+      "frame": 32,
+      "value": 17.83
+     },
+     {
+      "frame": 16,
+      "value": 17.44
+     }
+    ],
+    "comparable": true
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     1,
+     1
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 34,
+    "median": 1.56,
+    "p90": 2.14,
+    "max": 2.62,
+    "mean": 1.62,
+    "p10": 1.09,
+    "min": 0.87,
+    "lag_frames": 2,
+    "worst": [
+     {
+      "frames": [
+       21,
+       23
+      ],
+      "value": 2.62
+     },
+     {
+      "frames": [
+       8,
+       10
+      ],
+      "value": 2.3
+     },
+     {
+      "frames": [
+       10,
+       12
+      ],
+      "value": 2.16
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 34,
+    "median": 8.47,
+    "p90": 13.12,
+    "max": 15.08,
+    "mean": 9.26,
+    "p10": 6.15,
+    "min": 4.43,
+    "lag_frames": 2
+   },
+   "cadence": {
+    "period_frames": 18,
+    "fps": 12.522,
+    "stride_period_s": 1.4375,
+    "strides_per_s": 0.696,
+    "strides_in_clip": 2.0,
+    "repeat_found": true,
+    "depth_ratio": 0.529,
+    "local_minima": [
+     18
+    ],
+    "doubled_to": [],
+    "source": "smallest qualifying minimum of D(p)",
+    "profile": {
+     "3": 10.152,
+     "4": 11.285,
+     "5": 11.473,
+     "6": 11.369,
+     "7": 10.756,
+     "8": 9.717,
+     "9": 8.911,
+     "10": 8.827,
+     "11": 9.805,
+     "12": 10.571,
+     "13": 11.141,
+     "14": 11.601,
+     "15": 11.095,
+     "16": 10.026,
+     "17": 8.177,
+     "18": 5.141,
+     "19": 5.749,
+     "20": 7.559,
+     "21": 8.922,
+     "22": 10.328,
+     "23": 11.05,
+     "24": 11.481,
+     "25": 11.427,
+     "26": 11.183,
+     "27": 10.259,
+     "28": 8.783,
+     "29": 8.204,
+     "30": 7.777,
+     "31": 8.374,
+     "32": 9.405,
+     "33": 10.648
+    }
+   },
+   "foot_slide": {
+    "measurable": true,
+    "tracks": 4,
+    "planted_tracks": 4,
+    "body_translates": false,
+    "body_trend_pct_H_over_clip": -0.83,
+    "contact_frames_median": 9,
+    "slip_rms_pct_H_median": 2.41,
+    "slip_rms_pct_H_p90": 3.56,
+    "slip_rms_pct_H_max": 3.92,
+    "planted_travel_pct_H_median": 22.14,
+    "planted_travel_spread_pct_H": 13.21,
+    "per_track": [
+     {
+      "start": 0,
+      "frames": 12,
+      "planted": true,
+      "slip_rms_pct_H": 2.09,
+      "travel_pct_H": 20.86
+     },
+     {
+      "start": 8,
+      "frames": 6,
+      "planted": true,
+      "slip_rms_pct_H": 1.5,
+      "travel_pct_H": 21.47
+     },
+     {
+      "start": 14,
+      "frames": 16,
+      "planted": true,
+      "slip_rms_pct_H": 3.92,
+      "travel_pct_H": 39.16
+     },
+     {
+      "start": 26,
+      "frames": 7,
+      "planted": true,
+      "slip_rms_pct_H": 2.73,
+      "travel_pct_H": 22.81
+     }
+    ]
+   },
+   "pollaxe": {
+    "frames_with_haft": 36,
+    "len_pct_H_median": 107.3,
+    "len_cv_pct": 30.0,
+    "len_pct_H_range": [
+     45.3,
+     125.2
+    ],
+    "straightness_pct_median": 0.89,
+    "straightness_pct_p90": 1.61,
+    "angle_deg_median": 2.5,
+    "angle_deg_std": 1.99,
+    "d_angle_deg_p90": 1.53,
+    "d_angle_deg_max": 2.62
+   },
+   "loop_seam": {
+    "helm_last_to_first": 7.81,
+    "helm_consecutive_median": 1.39,
+    "helm_seam_ratio": 5.61,
+    "body_last_to_first": 18.48,
+    "body_consecutive_median": 6.61,
+    "body_seam_ratio": 2.79,
+    "pose_seam_ratio": 2.16,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "drive": {
+   "label": "FLOOR: Meshy carry-walk render (the drive)",
+   "frames": 150,
+   "fps": 30.0,
+   "seconds": 5.0,
+   "native": {
+    "figure_h_px_median": 553,
+    "helm_h_px_median": 94
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 149,
+    "median": 1.01,
+    "p90": 5.66,
+    "max": 6.82,
+    "mean": 1.69,
+    "p10": 0.65,
+    "min": 0.31,
+    "worst": [
+     {
+      "frames": [
+       38,
+       39
+      ],
+      "value": 6.82
+     },
+     {
+      "frames": [
+       79,
+       80
+      ],
+      "value": 6.18
+     },
+     {
+      "frames": [
+       80,
+       81
+      ],
+      "value": 6.15
+     }
+    ],
+    "shuffled": {
+     "n": 149,
+     "median": 3.33,
+     "p90": 6.4,
+     "max": 7.32,
+     "mean": 3.63,
+     "p10": 1.39,
+     "min": 0.41
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 150,
+    "median": 48.34,
+    "p90": 48.89,
+    "max": 49.11,
+    "mean": 48.22,
+    "p10": 47.49,
+    "min": 47.19,
+    "worst": [
+     {
+      "frame": 108,
+      "value": 49.11
+     },
+     {
+      "frame": 36,
+      "value": 49.04
+     },
+     {
+      "frame": 107,
+      "value": 49.04
+     }
+    ],
+    "comparable": false,
+    "note": "NOT a candidate and NOT comparable: this row never started from that still, so what is measured here is two different pictures of a knight. Reported only as a scale marker -- it is what 'a different figure entirely' costs on this instrument."
+   },
+   "body_drift_frame_to_frame": {
+    "n": 149,
+    "median": 3.39,
+    "p90": 4.28,
+    "max": 6.06,
+    "mean": 3.39,
+    "p10": 2.44,
+    "min": 1.78,
+    "worst": [
+     {
+      "frames": [
+       119,
+       120
+      ],
+      "value": 6.06
+     },
+     {
+      "frames": [
+       15,
+       16
+      ],
+      "value": 5.52
+     },
+     {
+      "frames": [
+       134,
+       135
+      ],
+      "value": 5.52
+     }
+    ],
+    "shuffled": {
+     "n": 149,
+     "median": 9.79,
+     "p90": 15.76,
+     "max": 19.58,
+     "mean": 9.9,
+     "p10": 4.17,
+     "min": 2.59
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 150,
+    "median": 42.82,
+    "p90": 45.18,
+    "max": 45.99,
+    "mean": 43.27,
+    "p10": 41.96,
+    "min": 40.94,
+    "worst": [
+     {
+      "frame": 70,
+      "value": 45.99
+     },
+     {
+      "frame": 71,
+      "value": 45.87
+     },
+     {
+      "frame": 55,
+      "value": 45.83
+     }
+    ],
+    "comparable": false
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     7,
+     8
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 147,
+    "median": 1.78,
+    "p90": 5.93,
+    "max": 8.22,
+    "mean": 2.75,
+    "p10": 1.15,
+    "min": 0.68,
+    "lag_frames": 3,
+    "worst": [
+     {
+      "frames": [
+       37,
+       40
+      ],
+      "value": 8.22
+     },
+     {
+      "frames": [
+       34,
+       37
+      ],
+      "value": 6.42
+     },
+     {
+      "frames": [
+       35,
+       38
+      ],
+      "value": 6.41
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 147,
+    "median": 5.83,
+    "p90": 8.72,
+    "max": 10.62,
+    "mean": 6.15,
+    "p10": 4.16,
+    "min": 3.03,
+    "lag_frames": 3
+   },
+   "cadence": {
+    "period_frames": 34,
+    "fps": 30.0,
+    "stride_period_s": 1.1333,
+    "strides_per_s": 0.882,
+    "strides_in_clip": 4.41,
+    "repeat_found": true,
+    "depth_ratio": 0.427,
+    "local_minima": [
+     17,
+     34,
+     50,
+     68,
+     84,
+     102,
+     119,
+     136
+    ],
+    "doubled_to": [
+     34
+    ],
+    "source": "smallest qualifying minimum of D(p), doubled past the step mirror to 34",
+    "profile": {
+     "3": 13.661,
+     "4": 16.101,
+     "5": 17.782,
+     "6": 18.881,
+     "7": 19.495,
+     "8": 19.78,
+     "9": 19.785,
+     "10": 19.479,
+     "11": 18.854,
+     "12": 17.824,
+     "13": 16.323,
+     "14": 14.34,
+     "15": 12.008,
+     "16": 10.263,
+     "17": 9.581,
+     "18": 10.372,
+     "19": 12.298,
+     "20": 14.527,
+     "21": 16.481,
+     "22": 17.984,
+     "23": 19.014,
+     "24": 19.62,
+     "25": 19.863,
+     "26": 19.821,
+     "27": 19.525,
+     "28": 18.908,
+     "29": 17.851,
+     "30": 16.262,
+     "31": 14.071,
+     "32": 11.374,
+     "33": 8.401,
+     "34": 6.648,
+     "35": 8.423,
+     "36": 10.908,
+     "37": 13.667,
+     "38": 15.936,
+     "39": 17.589,
+     "40": 18.767,
+     "41": 19.437,
+     "42": 19.756,
+     "43": 19.757,
+     "44": 19.427,
+     "45": 18.77,
+     "46": 17.676,
+     "47": 16.068,
+     "48": 13.934,
+     "49": 11.345,
+     "50": 9.673,
+     "51": 9.713,
+     "52": 10.774,
+     "53": 12.525,
+     "54": 14.598,
+     "55": 16.487,
+     "56": 17.96,
+     "57": 19.034,
+     "58": 19.659,
+     "59": 19.897,
+     "60": 19.849,
+     "61": 19.533,
+     "62": 18.862,
+     "63": 17.729,
+     "64": 16.154,
+     "65": 14.017,
+     "66": 11.586,
+     "67": 9.338,
+     "68": 8.285,
+     "69": 9.028,
+     "70": 11.038,
+     "71": 13.816,
+     "72": 16.056,
+     "73": 17.711,
+     "74": 18.848,
+     "75": 19.489,
+     "76": 19.729,
+     "77": 19.649,
+     "78": 19.264,
+     "79": 18.55,
+     "80": 17.322,
+     "81": 15.621,
+     "82": 13.392,
+     "83": 10.801,
+     "84": 9.425,
+     "85": 9.55,
+     "86": 10.497,
+     "87": 12.391,
+     "88": 14.52,
+     "89": 16.448,
+     "90": 17.959,
+     "91": 19.0,
+     "92": 19.568,
+     "93": 19.796,
+     "94": 19.747,
+     "95": 19.408,
+     "96": 18.707,
+     "97": 17.671,
+     "98": 16.174,
+     "99": 14.223,
+     "100": 12.172,
+     "101": 10.522,
+     "102": 10.016,
+     "103": 10.168,
+     "104": 11.162,
+     "105": 13.508,
+     "106": 15.685,
+     "107": 17.386,
+     "108": 18.629,
+     "109": 19.363,
+     "110": 19.718,
+     "111": 19.668,
+     "112": 19.341,
+     "113": 18.697,
+     "114": 17.53,
+     "115": 15.871,
+     "116": 13.594,
+     "117": 10.49,
+     "118": 6.211,
+     "119": 0.305,
+     "120": 5.832,
+     "121": 10.097,
+     "122": 13.387,
+     "123": 15.972,
+     "124": 17.748,
+     "125": 18.844,
+     "126": 19.376,
+     "127": 19.618,
+     "128": 19.611,
+     "129": 19.335,
+     "130": 18.725,
+     "131": 17.98,
+     "132": 16.744,
+     "133": 15.01,
+     "134": 12.959,
+     "135": 10.672,
+     "136": 8.642,
+     "137": 8.77,
+     "138": 11.236,
+     "139": 14.047,
+     "140": 16.706,
+     "141": 19.004,
+     "142": 20.407,
+     "143": 20.94,
+     "144": 20.653,
+     "145": 19.882,
+     "146": 19.221,
+     "147": 18.849
+    }
+   },
+   "foot_slide": {
+    "measurable": true,
+    "tracks": 15,
+    "planted_tracks": 14,
+    "body_translates": false,
+    "body_trend_pct_H_over_clip": 0.56,
+    "contact_frames_median": 15,
+    "slip_rms_pct_H_median": 4.11,
+    "slip_rms_pct_H_p90": 7.27,
+    "slip_rms_pct_H_max": 7.5,
+    "planted_travel_pct_H_median": 16.94,
+    "planted_travel_spread_pct_H": 28.83,
+    "per_track": [
+     {
+      "start": 0,
+      "frames": 18,
+      "planted": true,
+      "slip_rms_pct_H": 4.1,
+      "travel_pct_H": 22.03
+     },
+     {
+      "start": 4,
+      "frames": 16,
+      "planted": true,
+      "slip_rms_pct_H": 5.74,
+      "travel_pct_H": 16.7
+     },
+     {
+      "start": 21,
+      "frames": 11,
+      "planted": true,
+      "slip_rms_pct_H": 1.01,
+      "travel_pct_H": 18.87
+     },
+     {
+      "start": 20,
+      "frames": 33,
+      "planted": true,
+      "slip_rms_pct_H": 7.24,
+      "travel_pct_H": 52.3
+     },
+     {
+      "start": 40,
+      "frames": 15,
+      "planted": true,
+      "slip_rms_pct_H": 5.19,
+      "travel_pct_H": 20.75
+     },
+     {
+      "start": 57,
+      "frames": 9,
+      "planted": true,
+      "slip_rms_pct_H": 0.67,
+      "travel_pct_H": 14.43
+     },
+     {
+      "start": 55,
+      "frames": 32,
+      "planted": true,
+      "slip_rms_pct_H": 7.28,
+      "travel_pct_H": 47.97
+     },
+     {
+      "start": 90,
+      "frames": 10,
+      "planted": true,
+      "slip_rms_pct_H": 0.92,
+      "travel_pct_H": 17.17
+     },
+     {
+      "start": 74,
+      "frames": 34,
+      "planted": true,
+      "slip_rms_pct_H": 7.5,
+      "travel_pct_H": 10.19
+     },
+     {
+      "start": 108,
+      "frames": 12,
+      "planted": true,
+      "slip_rms_pct_H": 2.48,
+      "travel_pct_H": 14.08
+     },
+     {
+      "start": 108,
+      "frames": 12,
+      "planted": true,
+      "slip_rms_pct_H": 3.38,
+      "travel_pct_H": 8.01
+     },
+     {
+      "start": 120,
+      "frames": 17,
+      "planted": true,
+      "slip_rms_pct_H": 4.12,
+      "travel_pct_H": 19.51
+     },
+     {
+      "start": 123,
+      "frames": 16,
+      "planted": true,
+      "slip_rms_pct_H": 5.74,
+      "travel_pct_H": 16.7
+     },
+     {
+      "start": 139,
+      "frames": 11,
+      "planted": false,
+      "slip_rms_pct_H": 4.95,
+      "travel_pct_H": -15.6
+     },
+     {
+      "start": 140,
+      "frames": 10,
+      "planted": true,
+      "slip_rms_pct_H": 1.04,
+      "travel_pct_H": 16.63
+     }
+    ]
+   },
+   "pollaxe": {
+    "frames_with_haft": 15,
+    "frames": 150,
+    "note": "NO rigid weapon: fewer than half the frames hold a straight structure at least 40% of figure height"
+   },
+   "loop_seam": {
+    "helm_last_to_first": 3.49,
+    "helm_consecutive_median": 1.01,
+    "helm_seam_ratio": 3.45,
+    "body_last_to_first": 11.15,
+    "body_consecutive_median": 3.39,
+    "body_seam_ratio": 3.29,
+    "pose_seam_ratio": 3.09,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "render3d": {
+   "label": "FLOOR at the Astra row's resolution: the raw 3D render of the same knight3d walk E cycle",
+   "frames": 12,
+   "fps": 20.7,
+   "seconds": 0.58,
+   "native": {
+    "figure_h_px_median": 191,
+    "helm_h_px_median": 25
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 11,
+    "median": 8.2,
+    "p90": 26.19,
+    "max": 26.88,
+    "mean": 12.71,
+    "p10": 3.21,
+    "min": 2.58,
+    "worst": [
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 26.88
+     },
+     {
+      "frames": [
+       10,
+       11
+      ],
+      "value": 26.19
+     },
+     {
+      "frames": [
+       2,
+       3
+      ],
+      "value": 24.17
+     }
+    ],
+    "shuffled": {
+     "n": 11,
+     "median": 11.77,
+     "p90": 25.92,
+     "max": 26.93,
+     "mean": 15.8,
+     "p10": 5.09,
+     "min": 4.86
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 12,
+    "median": 20.14,
+    "p90": 26.22,
+    "max": 26.34,
+    "mean": 21.47,
+    "p10": 17.95,
+    "min": 17.83,
+    "worst": [
+     {
+      "frame": 0,
+      "value": 26.34
+     },
+     {
+      "frame": 11,
+      "value": 26.31
+     },
+     {
+      "frame": 4,
+      "value": 25.48
+     }
+    ],
+    "comparable": false,
+    "note": "NOT a candidate and NOT comparable: this row never started from that still, so what is measured here is two different pictures of a knight. Reported only as a scale marker -- it is what 'a different figure entirely' costs on this instrument."
+   },
+   "body_drift_frame_to_frame": {
+    "n": 11,
+    "median": 13.14,
+    "p90": 16.08,
+    "max": 19.33,
+    "mean": 13.56,
+    "p10": 10.25,
+    "min": 9.81,
+    "worst": [
+     {
+      "frames": [
+       10,
+       11
+      ],
+      "value": 19.33
+     },
+     {
+      "frames": [
+       4,
+       5
+      ],
+      "value": 16.08
+     },
+     {
+      "frames": [
+       9,
+       10
+      ],
+      "value": 15.02
+     }
+    ],
+    "shuffled": {
+     "n": 11,
+     "median": 18.84,
+     "p90": 23.53,
+     "max": 23.65,
+     "mean": 19.15,
+     "p10": 15.02,
+     "min": 13.25
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 12,
+    "median": 24.2,
+    "p90": 26.84,
+    "max": 29.64,
+    "mean": 24.21,
+    "p10": 21.96,
+    "min": 19.4,
+    "worst": [
+     {
+      "frame": 10,
+      "value": 29.64
+     },
+     {
+      "frame": 9,
+      "value": 26.97
+     },
+     {
+      "frame": 8,
+      "value": 25.6
+     }
+    ],
+    "comparable": false
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     16,
+     10
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 11,
+    "median": 8.2,
+    "p90": 26.19,
+    "max": 26.88,
+    "mean": 12.71,
+    "p10": 3.21,
+    "min": 2.58,
+    "lag_frames": 1,
+    "worst": [
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 26.88
+     },
+     {
+      "frames": [
+       10,
+       11
+      ],
+      "value": 26.19
+     },
+     {
+      "frames": [
+       2,
+       3
+      ],
+      "value": 24.17
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 11,
+    "median": 13.14,
+    "p90": 16.08,
+    "max": 19.33,
+    "mean": 13.56,
+    "p10": 10.25,
+    "min": 9.81,
+    "lag_frames": 1
+   },
+   "cadence": {
+    "period_frames": 12,
+    "fps": 20.7,
+    "stride_period_s": 0.5797,
+    "strides_per_s": 1.725,
+    "strides_in_clip": 1.0,
+    "repeat_found": false,
+    "depth_ratio": 0.955,
+    "local_minima": [],
+    "doubled_to": [],
+    "source": "NO repeat in range (no local minimum below 0.80 x mean); the clip is treated as ONE stride and the period is its length",
+    "profile": {
+     "3": 15.179,
+     "4": 15.293,
+     "5": 15.369,
+     "6": 16.135,
+     "7": 16.56,
+     "8": 16.376,
+     "9": 16.307
+    }
+   },
+   "foot_slide": {
+    "measurable": false,
+    "frames_per_stride": 12,
+    "note": "NOT MEASURABLE at 12 frames per stride (needs >= 16). Each foot is down for only 6-7 frames and the two cross within the linking tolerance, so the tracker welds them into one track spanning the whole clip and returns a slip number for an object that is not a foot. Reported as not measurable rather than as 10.6% of figure height."
+   },
+   "pollaxe": {
+    "frames_with_haft": 8,
+    "len_pct_H_median": 111.0,
+    "len_cv_pct": 12.6,
+    "len_pct_H_range": [
+     97.0,
+     144.7
+    ],
+    "straightness_pct_median": 0.83,
+    "straightness_pct_p90": 1.02,
+    "angle_deg_median": 5.5,
+    "angle_deg_std": 4.96,
+    "d_angle_deg_p90": 4.76,
+    "d_angle_deg_max": 5.63
+   },
+   "loop_seam": {
+    "helm_last_to_first": 4.35,
+    "helm_consecutive_median": 8.2,
+    "helm_seam_ratio": 0.53,
+    "body_last_to_first": 8.09,
+    "body_consecutive_median": 13.14,
+    "body_seam_ratio": 0.62,
+    "pose_seam_ratio": 0.92,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  },
+  "astra": {
+   "label": "BENCHMARK: Astra per-frame paint (knight3d walk E)",
+   "frames": 12,
+   "fps": 20.7,
+   "seconds": 0.58,
+   "native": {
+    "figure_h_px_median": 187,
+    "helm_h_px_median": 31
+   },
+   "helm_drift_frame_to_frame": {
+    "n": 11,
+    "median": 12.18,
+    "p90": 26.13,
+    "max": 26.92,
+    "mean": 15.9,
+    "p10": 7.68,
+    "min": 7.53,
+    "worst": [
+     {
+      "frames": [
+       8,
+       9
+      ],
+      "value": 26.92
+     },
+     {
+      "frames": [
+       9,
+       10
+      ],
+      "value": 26.13
+     },
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 25.7
+     }
+    ],
+    "shuffled": {
+     "n": 11,
+     "median": 9.25,
+     "p90": 26.54,
+     "max": 26.92,
+     "mean": 14.71,
+     "p10": 7.07,
+     "min": 6.54
+    }
+   },
+   "helm_drift_vs_reference_still": {
+    "n": 12,
+    "median": 23.94,
+    "p90": 26.5,
+    "max": 26.87,
+    "mean": 24.3,
+    "p10": 23.53,
+    "min": 22.58,
+    "worst": [
+     {
+      "frame": 1,
+      "value": 26.87
+     },
+     {
+      "frame": 9,
+      "value": 26.72
+     },
+     {
+      "frame": 7,
+      "value": 24.44
+     }
+    ],
+    "comparable": false,
+    "note": "NOT a candidate and NOT comparable: this row never started from that still, so what is measured here is two different pictures of a knight. Reported only as a scale marker -- it is what 'a different figure entirely' costs on this instrument."
+   },
+   "body_drift_frame_to_frame": {
+    "n": 11,
+    "median": 12.56,
+    "p90": 16.61,
+    "max": 17.97,
+    "mean": 13.26,
+    "p10": 10.53,
+    "min": 9.62,
+    "worst": [
+     {
+      "frames": [
+       8,
+       9
+      ],
+      "value": 17.97
+     },
+     {
+      "frames": [
+       2,
+       3
+      ],
+      "value": 16.61
+     },
+     {
+      "frames": [
+       9,
+       10
+      ],
+      "value": 16.1
+     }
+    ],
+    "shuffled": {
+     "n": 11,
+     "median": 19.65,
+     "p90": 22.74,
+     "max": 27.57,
+     "mean": 18.94,
+     "p10": 12.9,
+     "min": 9.62
+    }
+   },
+   "body_drift_vs_reference_still": {
+    "n": 12,
+    "median": 27.23,
+    "p90": 29.96,
+    "max": 31.03,
+    "mean": 27.62,
+    "p10": 24.92,
+    "min": 24.65,
+    "worst": [
+     {
+      "frame": 10,
+      "value": 31.03
+     },
+     {
+      "frame": 11,
+      "value": 29.97
+     },
+     {
+      "frame": 9,
+      "value": 29.88
+     }
+    ],
+    "comparable": false
+   },
+   "registration_shift_px": {
+    "helm_max_abs": [
+     10,
+     16
+    ],
+    "note": "dy,dx at 96 px of helm height; hitting the +-14 cap means the part moved further than the search and the residual is an upper bound"
+   },
+   "helm_drift_phase_matched": {
+    "n": 11,
+    "median": 12.18,
+    "p90": 26.13,
+    "max": 26.92,
+    "mean": 15.9,
+    "p10": 7.68,
+    "min": 7.53,
+    "lag_frames": 1,
+    "worst": [
+     {
+      "frames": [
+       8,
+       9
+      ],
+      "value": 26.92
+     },
+     {
+      "frames": [
+       9,
+       10
+      ],
+      "value": 26.13
+     },
+     {
+      "frames": [
+       0,
+       1
+      ],
+      "value": 25.7
+     }
+    ],
+    "why": "THE HEADLINE NUMBER, and the reason the raw frame-to-frame column cannot be read straight across the table. Adjacent frames are not the same amount of ANIMATION in every row: the Astra cell holds a whole stride in 12 frames, the drive takes 34, so the Astra row's neighbours are three times further apart in pose and the 2D registration has three times as much pose change to fail to absorb. Measured, not assumed: the raw floor is 1.01 at 34 frames per stride and 8.20 at 12. So every row is also measured at a lag of one twelfth of ITS OWN stride, which is the same pose increment everywhere."
+   },
+   "body_drift_phase_matched": {
+    "n": 11,
+    "median": 12.56,
+    "p90": 16.61,
+    "max": 17.97,
+    "mean": 13.26,
+    "p10": 10.53,
+    "min": 9.62,
+    "lag_frames": 1
+   },
+   "cadence": {
+    "period_frames": 12,
+    "fps": 20.7,
+    "stride_period_s": 0.5797,
+    "strides_per_s": 1.725,
+    "strides_in_clip": 1.0,
+    "repeat_found": false,
+    "depth_ratio": 0.81,
+    "local_minima": [],
+    "doubled_to": [],
+    "source": "NO repeat in range (no local minimum below 0.80 x mean); the clip is treated as ONE stride and the period is its length",
+    "profile": {
+     "3": 17.31,
+     "4": 18.119,
+     "5": 15.155,
+     "6": 13.271,
+     "7": 16.501,
+     "8": 17.154,
+     "9": 17.242
+    }
+   },
+   "foot_slide": {
+    "measurable": false,
+    "frames_per_stride": 12,
+    "note": "NOT MEASURABLE at 12 frames per stride (needs >= 16). Each foot is down for only 6-7 frames and the two cross within the linking tolerance, so the tracker welds them into one track spanning the whole clip and returns a slip number for an object that is not a foot. Reported as not measurable rather than as 10.6% of figure height."
+   },
+   "pollaxe": {
+    "frames_with_haft": 12,
+    "len_pct_H_median": 121.5,
+    "len_cv_pct": 2.6,
+    "len_pct_H_range": [
+     116.1,
+     126.5
+    ],
+    "straightness_pct_median": 0.7,
+    "straightness_pct_p90": 0.72,
+    "angle_deg_median": 3.9,
+    "angle_deg_std": 0.34,
+    "d_angle_deg_p90": 0.28,
+    "d_angle_deg_max": 0.29
+   },
+   "loop_seam": {
+    "helm_last_to_first": 10.66,
+    "helm_consecutive_median": 12.18,
+    "helm_seam_ratio": 0.88,
+    "body_last_to_first": 17.08,
+    "body_consecutive_median": 12.56,
+    "body_seam_ratio": 1.36,
+    "pose_seam_ratio": 0.88,
+    "note": "1.0 = the wrap is as smooth as an ordinary step; high = a visible jump at the loop point"
+   }
+  }
+ }
+}

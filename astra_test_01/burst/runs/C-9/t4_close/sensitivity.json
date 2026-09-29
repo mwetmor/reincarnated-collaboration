@@ -1,0 +1,90 @@
+{
+ "what": "C-9 T4 close-out: what does a drift number of N actually MEAN?",
+ "base": "fal_t4/drive (a rigged render: no drift by construction)",
+ "frames": 60,
+ "lag_frames": 3,
+ "lag_note": "the drive's own one twelfth of a stride (period 34), so these numbers sit on the same scale as the helm_drift_phase_matched column of drift.json",
+ "rows": {
+  "none (the floor)": {
+   "n": 57,
+   "median": 1.93,
+   "p90": 6.03,
+   "max": 8.22,
+   "mean": 3.03,
+   "p10": 1.16,
+   "min": 0.68
+  },
+  "helm scale +-1%": {
+   "n": 57,
+   "median": 1.9,
+   "p90": 6.01,
+   "max": 8.04,
+   "mean": 3.03,
+   "p10": 1.28,
+   "min": 0.74
+  },
+  "helm scale +-2%": {
+   "n": 57,
+   "median": 2.07,
+   "p90": 6.03,
+   "max": 8.27,
+   "mean": 3.11,
+   "p10": 1.36,
+   "min": 0.82
+  },
+  "helm scale +-4%": {
+   "n": 57,
+   "median": 2.46,
+   "p90": 6.61,
+   "max": 8.32,
+   "mean": 3.31,
+   "p10": 1.4,
+   "min": 1.02
+  },
+  "helm rotate +-1 deg": {
+   "n": 57,
+   "median": 2.01,
+   "p90": 6.02,
+   "max": 8.09,
+   "mean": 3.08,
+   "p10": 1.19,
+   "min": 0.82
+  },
+  "helm rotate +-2 deg": {
+   "n": 57,
+   "median": 2.33,
+   "p90": 6.09,
+   "max": 8.01,
+   "mean": 3.29,
+   "p10": 1.24,
+   "min": 0.86
+  },
+  "helm rotate +-4 deg": {
+   "n": 57,
+   "median": 3.53,
+   "p90": 6.37,
+   "max": 8.07,
+   "mean": 3.95,
+   "p10": 1.6,
+   "min": 1.12
+  },
+  "helm tone +-4/255": {
+   "n": 57,
+   "median": 3.93,
+   "p90": 6.99,
+   "max": 8.54,
+   "mean": 4.21,
+   "p10": 1.69,
+   "min": 1.15
+  },
+  "helm tone +-8/255": {
+   "n": 57,
+   "median": 6.49,
+   "p90": 9.94,
+   "max": 15.33,
+   "mean": 6.19,
+   "p10": 2.24,
+   "min": 1.52
+  }
+ }
+}
