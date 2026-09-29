@@ -7,6 +7,8 @@
  "_pitch_correct": "FALSE for every prop in this kit. These sheets were painted from words, not cut from the 52.95-degree concept, so the barrow's 1.660 Y stretch does not apply and is not applied.",
  "models": {
   "rocks": {
+   "status": "superseded",
+   "retired_because": "the sheet stacked the three rocks into a pile instead of setting them apart, so the cluster is 0.53 m across against a brief of 1.10. Re-issued in T10K-A2 at about 2:1.",
    "glb": "res://models/barrow/kit/rocks.glb",
    "what": "largest of three snow-capped rocks",
    "brief": "largest ~0.5 m high, cluster ~1.1 m across",
@@ -74,6 +76,8 @@
    "reduce_silhouette_iou": 0.9962
   },
   "stump": {
+   "status": "superseded",
+   "retired_because": "the sheet drew a tall stump with a tight root ball, so the roots reach 0.53 m against a brief of 1.20, and 40%% of the root fingers were lost in the build. Re-issued in T10K-A2, low and broad.",
    "glb": "res://models/barrow/kit/stump.glb",
    "what": "frost-covered birch stump",
    "brief": "~0.55 m high, roots ~1.2 m across",
@@ -141,6 +145,8 @@
    "reduce_silhouette_iou": 0.9731
   },
   "log": {
+   "status": "keep",
+   "retired_because": null,
    "glb": "res://models/barrow/kit/log.glb",
    "what": "fallen birch log",
    "brief": "~2.6 m long, ~0.3 m thick",
@@ -208,6 +214,8 @@
    "reduce_silhouette_iou": 0.985
   },
   "cairn": {
+   "status": "keep",
+   "retired_because": null,
    "glb": "res://models/barrow/kit/cairn.glb",
    "what": "cairn of stacked flat stones",
    "brief": "~1.0 m high",
@@ -270,7 +278,9 @@
    "reduce_silhouette_iou": 0.9957
   },
   "skull": {
-   "glb": "res://models/barrow/kit/skull.glb",
+   "status": "retired",
+   "retired_because": "pose, not scale: standing on its antler tips. Re-issued in T10K-D lying on its side. Moved to kit/retired/; do not ship.",
+   "glb": "res://models/barrow/kit/retired/skull.glb",
    "what": "elk skull with wide antlers, three ribs",
    "brief": "~1.3 m antler span",
    "height_m": 1.1272,
@@ -332,6 +342,8 @@
    "reduce_silhouette_iou": 0.9733
   },
   "shield": {
+   "status": "keep",
+   "retired_because": null,
    "glb": "res://models/barrow/kit/shield.glb",
    "what": "split round shield on two crossed spears",
    "brief": "shield ~0.85 m, spears ~1.9 m",

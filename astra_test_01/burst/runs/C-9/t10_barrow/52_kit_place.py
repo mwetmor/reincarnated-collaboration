@@ -16,12 +16,14 @@ endpoint wants front, LEFT, back, RIGHT. That reorder happens once, in 53_kit_bu
 """
 import json
 import pathlib
+import sys
 
 import numpy as np
 from PIL import Image
 
 HERE = pathlib.Path(__file__).resolve().parent
-WORK = HERE / "kit_work"
+SETS = {"kit": "kit_work", "kit2": "kit_work2"}
+WORK = HERE / SETS[sys.argv[1] if len(sys.argv) > 1 else "kit"]
 CANVAS = 1024
 FILL = 0.86
 BASE = 0.94

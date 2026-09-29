@@ -55,14 +55,22 @@ def main() -> None:
     d = ImageDraw.Draw(out)
     f_t, f_h, f_b, f_s = font(27, True), font(20, True), font(16), font(15)
     d.rectangle([0, 0, W, HEAD - 1], fill=(30, 33, 40))
-    d.text((PAD, 12), "C-9 T10-1b  scatter kit — six props at true scale, play camera "
-                      "(orthographic, pitch 52.954°, yaw 47°)", font=f_t,
-           fill=(238, 240, 246))
-    d.text((PAD, 50), "sheets T10K-A/B/C → BiRefNet matte → Tripo H3.1 multiview → ~8k "
-                      "tris. No pitch correction: these sheets were painted from words, "
-                      "not cut from the concept. Each prop's painted FRONT faces the "
-                      "camera; base at y = 0, centred on the footprint.",
-           font=f_s, fill=(162, 168, 182))
+    # The title counts the cast rather than asserting a number. It said "six props" for a
+    # sheet showing three, which is the same class of error as a stale dispatch header:
+    # the work changed and the label did not follow.
+    shown = [i["name"] for i in meta["items"] if i["name"] != "barbarian"]
+    pend = [k for k, v in man.items() if v.get("status") != "keep"]
+    d.text((PAD, 12), "C-9 T10-1b  scatter kit — %d prop%s at true scale, play camera "
+                      "(orthographic, pitch 52.954°, yaw 47°)"
+           % (len(shown), "" if len(shown) == 1 else "s"), font=f_t, fill=(238, 240, 246))
+    sub = ("sheets T10K-A/B/C → BiRefNet matte → Tripo H3.1 multiview → ~8k tris. No pitch "
+           "correction: these sheets were painted from words, not cut from the concept. "
+           "Each prop's painted FRONT faces the camera; base at y = 0, centred on the "
+           "footprint.")
+    if pend:
+        sub += ("   NOT SHOWN: %s — %s." % (", ".join(sorted(pend)),
+                "retired or superseded; re-issued sheets T10K-A2 / T10K-D awaiting build"))
+    d.text((PAD, 50), sub, font=f_s, fill=(162, 168, 182))
     y0 = im.height + HEAD
 
     ppm = meta["px_per_m"]

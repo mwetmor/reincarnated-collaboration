@@ -52,6 +52,27 @@ PLAY_YAW = 47.0
 PLAY_PITCH = 52.95354112560294
 SNOW_BED_MIN = 0.60
 
+# STATUS is what the integration drax reads to know what may be shipped, and it is in the
+# manifest rather than in a message because a message is not what gets swapped into a scene.
+#   keep        ships.
+#   retired     does NOT ship, and will not come back. The upright elk skull is retired on
+#               POSE, not on scale: a skull balanced on its antler tips is a thing no elk
+#               ever did, and it reads as a generator tell. Its GLB moves to kit/retired/.
+#   superseded  the asset works but misses its brief; a re-issued sheet is on the way.
+#               Left in kit/ so the scene is not short a prop, excluded from the sheet.
+STATUS = {"cairn": "keep", "log": "keep", "shield": "keep",
+          "skull": "retired", "rocks": "superseded", "stump": "superseded"}
+RETIRED_BECAUSE = {
+    "skull": "pose, not scale: standing on its antler tips. Re-issued in T10K-D lying on "
+             "its side. Moved to kit/retired/; do not ship.",
+    "rocks": "the sheet stacked the three rocks into a pile instead of setting them apart, "
+             "so the cluster is 0.53 m across against a brief of 1.10. Re-issued in "
+             "T10K-A2 at about 2:1.",
+    "stump": "the sheet drew a tall stump with a tight root ball, so the roots reach "
+             "0.53 m against a brief of 1.20, and 40%% of the root fingers were lost in "
+             "the build. Re-issued in T10K-A2, low and broad.",
+}
+
 # anchor: which measured dimension the brief's FIRST number is fixed to.
 #   height   canonical Y extent          across   canonical X extent
 #   disc     widest row of the front silhouette, as a fraction of its X extent
@@ -150,7 +171,11 @@ def main() -> int:
         # painted front at azimuth 0, so turning by 47 puts it at 47 -- facing the camera.
         pj = WORK / ("params_%s.json" % obj)
         pj.write_text(json.dumps({"a0": a0, "yaw": PLAY_YAW, "sx": sx, "sy": sy, "sz": sz}))
-        glb = KIT / ("%s.glb" % obj)
+        # A retired asset is still BUILT -- its numbers are the evidence for retiring it --
+        # but it is written to kit/retired/ so that "everything in kit/ ships" stays true.
+        dest = KIT / "retired" if STATUS.get(obj) == "retired" else KIT
+        dest.mkdir(parents=True, exist_ok=True)
+        glb = dest / ("%s.glb" % obj)
         r = subprocess.run(["blender", "--background", "--python", str(HERE / "57_kit_bake.py"),
                             "--", str(red), str(glb), str(pj)],
                            check=True, capture_output=True, text=True)
@@ -173,8 +198,12 @@ def main() -> int:
             sec = {"what": kind, "brief_m": want_m, "measured_m": round(got, 3),
                    "ratio": round(got / want_m, 3)}
 
+        st = STATUS.get(obj, "keep")
         out[obj] = {
-            "glb": "res://models/barrow/kit/%s.glb" % obj,
+            "status": st,
+            "retired_because": RETIRED_BECAUSE.get(obj),
+            "glb": ("res://models/barrow/kit/retired/%s.glb" if st == "retired"
+                    else "res://models/barrow/kit/%s.glb") % obj,
             "what": sp["what"], "brief": sp["brief"],
             "height_m": round(sy_m, 4), "axis": "height",
             "yaw_deg": 0.0, "pitch_correct": False, "width_m": None,

@@ -20,6 +20,7 @@ from the inside, and it is the one nothing checked for the time it mattered.
 import json
 import pathlib
 import subprocess
+import sys
 
 import numpy as np
 from PIL import Image
@@ -27,16 +28,34 @@ from scipy import ndimage
 
 HERE = pathlib.Path(__file__).resolve().parent
 ART = HERE.parent / "artifacts"
-WORK = HERE / "kit_work"
 VIEWS = ["front", "right", "back", "left"]
-REFINE = {"T10K-C"}   # rows 13 px apart; see the margin refine below
 MARGIN = 60
 
+# A SET is one batch of sheets with its own work directory. The re-issued sheets replace
+# three of the first six objects, so they are kept apart rather than written over the top:
+# the originals stay measurable, and a claim about "the stump" can name which stump.
+SETS = {
+    "kit": ("kit_work", {"T10K-C"}),
+    "kit2": ("kit_work2", set()),
+}
+SET = sys.argv[1] if len(sys.argv) > 1 else "kit"
+WORK = HERE / SETS[SET][0]
+REFINE = SETS[SET][1]          # sheets whose two rows are close enough to need an alpha refine
+
 # sheet -> [(object, n columns)] per band, top band first
-SHEETS = {
-    "T10K-A": [("rocks", 4), ("stump", 4)],
-    "T10K-B": [("log", 4), ("cairn", 4)],
-    "T10K-C": [("skull", 4), ("shield", 4)],
+ALL_SHEETS = {
+    "kit": {
+        "T10K-A": [("rocks", 4), ("stump", 4)],
+        "T10K-B": [("log", 4), ("cairn", 4)],
+        "T10K-C": [("skull", 4), ("shield", 4)],
+    },
+    # Re-issue: three rocks set apart and a low broad stump; the elk skull LYING DOWN and a
+    # low flat-topped boulder. The upright skull is retired -- an elk skull balanced on its
+    # antlers is a pose that reads as a generator tell, not as a thing found in snow.
+    "kit2": {
+        "T10K-A2": [("rocks", 4), ("stump", 4)],
+        "T10K-D": [("skull", 4), ("boulder", 4)],
+    },
 }
 
 
@@ -142,7 +161,7 @@ def main() -> None:
     WORK.mkdir(exist_ok=True)
     (WORK / "cells").mkdir(exist_ok=True)
     out = {}
-    for sid, bands in SHEETS.items():
+    for sid, bands in ALL_SHEETS[SET].items():
         for v in ("a", "b"):
             src = ART / sid / ("%s_%s.png" % (sid, v))
             if not src.exists():

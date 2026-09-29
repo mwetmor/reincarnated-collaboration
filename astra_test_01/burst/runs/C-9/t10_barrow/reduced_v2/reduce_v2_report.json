@@ -1,0 +1,617 @@
+{
+ "_what": "C-9 T10-1c: the nine barrow assets (and the raven) re-reduced with a weld-by-distance pass before the decimate. Open edges are gandalf's instrument: edges used by exactly one triangle, after welding at 1e-5.",
+ "_weld_tolerance": 1e-05,
+ "_drop_in_test": "max AABB corner delta vs the current Godot file < 0.005 in the GLB's own RAW units (Tripo normalises the max dimension to 1.0); the scene-millimetre column applies each asset's own target size and Y stretch from barrow_assets.json.",
+ "assets": {
+  "stone_tall": {
+   "source_build": "t10_barrow/builds/stone_tall.glb",
+   "tris": {
+    "current": 24000,
+    "unreduced": 1476199,
+    "v2": 23997
+   },
+   "open_edges": {
+    "current": 9594,
+    "unreduced": 133,
+    "v2": 133
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 130,
+    "v2": 130
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9975,
+    "v2_min": 0.9943,
+    "current_mean": 0.9961,
+    "current_min": 0.9861,
+    "worst_az": 60,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.19127,
+     -0.500283,
+     -0.270373
+    ],
+    [
+     0.191453,
+     0.500359,
+     0.26998
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.191409,
+     -0.500283,
+     -0.269466
+    ],
+    [
+     0.19164,
+     0.500385,
+     0.26998
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000907,
+    "max_corner": 0.000187
+   },
+   "aabb_max_corner_delta_scene_mm": 4.078,
+   "drop_in": true
+  },
+  "stone_mid": {
+   "source_build": "t10_barrow/builds/stone_mid.glb",
+   "tris": {
+    "current": 24000,
+    "unreduced": 1418038,
+    "v2": 23996
+   },
+   "open_edges": {
+    "current": 10930,
+    "unreduced": 158,
+    "v2": 158
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 158,
+    "v2": 158
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9982,
+    "v2_min": 0.9948,
+    "current_mean": 0.9979,
+    "current_min": 0.9945,
+    "worst_az": 120,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.212357,
+     -0.500134,
+     -0.297531
+    ],
+    [
+     0.212662,
+     0.500281,
+     0.297509
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.212358,
+     -0.500103,
+     -0.297453
+    ],
+    [
+     0.212611,
+     0.499918,
+     0.297509
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 7.8e-05,
+    "max_corner": 0.000363
+   },
+   "aabb_max_corner_delta_scene_mm": 1.633,
+   "drop_in": true
+  },
+  "stone_short": {
+   "source_build": "t10_barrow/builds/stone_short.glb",
+   "tris": {
+    "current": 23998,
+    "unreduced": 1424812,
+    "v2": 23994
+   },
+   "open_edges": {
+    "current": 11230,
+    "unreduced": 270,
+    "v2": 270
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 270,
+    "v2": 270
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9978,
+    "v2_min": 0.9876,
+    "current_mean": 0.9959,
+    "current_min": 0.9881,
+    "worst_az": 270,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.35182,
+     -0.447259,
+     -0.500274
+    ],
+    [
+     0.351236,
+     0.447796,
+     0.499625
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.35119,
+     -0.447602,
+     -0.500274
+    ],
+    [
+     0.35137,
+     0.447606,
+     0.499979
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.00063,
+    "max_corner": 0.000354
+   },
+   "aabb_max_corner_delta_scene_mm": 1.449,
+   "drop_in": true
+  },
+  "lintel": {
+   "source_build": "t10_barrow/builds/lintel.glb",
+   "tris": {
+    "current": 23999,
+    "unreduced": 1485332,
+    "v2": 23998
+   },
+   "open_edges": {
+    "current": 7709,
+    "unreduced": 84,
+    "v2": 84
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 84,
+    "v2": 84
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9989,
+    "v2_min": 0.9986,
+    "current_mean": 0.9954,
+    "current_min": 0.9834,
+    "worst_az": 180,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.130385,
+     -0.157707,
+     -0.500371
+    ],
+    [
+     0.129801,
+     0.15784,
+     0.500171
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.130005,
+     -0.157707,
+     -0.500029
+    ],
+    [
+     0.12993,
+     0.15784,
+     0.500171
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.00038,
+    "max_corner": 0.000129
+   },
+   "aabb_max_corner_delta_scene_mm": 1.438,
+   "drop_in": true
+  },
+  "post": {
+   "source_build": "t10_barrow/builds/post.glb",
+   "tris": {
+    "current": 24000,
+    "unreduced": 1492596,
+    "v2": 23998
+   },
+   "open_edges": {
+    "current": 8252,
+    "unreduced": 94,
+    "v2": 94
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 94,
+    "v2": 94
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9962,
+    "v2_min": 0.9875,
+    "current_mean": 0.9942,
+    "current_min": 0.9862,
+    "worst_az": 240,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.156595,
+     -0.500344,
+     -0.172699
+    ],
+    [
+     0.156567,
+     0.500249,
+     0.17307
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.156677,
+     -0.500231,
+     -0.17288
+    ],
+    [
+     0.156212,
+     0.500086,
+     0.173037
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000181,
+    "max_corner": 0.000355
+   },
+   "aabb_max_corner_delta_scene_mm": 1.202,
+   "drop_in": true
+  },
+  "rock_large": {
+   "source_build": "t10_barrow/builds/rock_large.glb",
+   "tris": {
+    "current": 24000,
+    "unreduced": 1456452,
+    "v2": 23994
+   },
+   "open_edges": {
+    "current": 12094,
+    "unreduced": 278,
+    "v2": 278
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 278,
+    "v2": 278
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9992,
+    "v2_min": 0.999,
+    "current_mean": 0.9963,
+    "current_min": 0.9915,
+    "worst_az": 30,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.385975,
+     -0.49996,
+     -0.410883
+    ],
+    [
+     0.385116,
+     0.500434,
+     0.410607
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.385313,
+     -0.49978,
+     -0.410054
+    ],
+    [
+     0.385318,
+     0.500144,
+     0.410201
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000829,
+    "max_corner": 0.000406
+   },
+   "aabb_max_corner_delta_scene_mm": 2.532,
+   "drop_in": true
+  },
+  "rock_small": {
+   "source_build": "t10_barrow/builds/rock_small.glb",
+   "tris": {
+    "current": 23999,
+    "unreduced": 1450640,
+    "v2": 23996
+   },
+   "open_edges": {
+    "current": 10919,
+    "unreduced": 180,
+    "v2": 174
+   },
+   "pieces": {
+    "current": 1,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 174,
+    "v2": 174
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9988,
+    "v2_min": 0.9953,
+    "current_mean": 0.9981,
+    "current_min": 0.9873,
+    "worst_az": 60,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.42328,
+     -0.183502,
+     -0.500104
+    ],
+    [
+     0.423229,
+     0.18372,
+     0.500006
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.423412,
+     -0.183612,
+     -0.500174
+    ],
+    [
+     0.423237,
+     0.183648,
+     0.500011
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000132,
+    "max_corner": 7.2e-05
+   },
+   "aabb_max_corner_delta_scene_mm": 0.322,
+   "drop_in": true
+  },
+  "birch": {
+   "source_build": "t10_barrow/builds/birch.glb",
+   "tris": {
+    "current": 23999,
+    "unreduced": 1469529,
+    "v2": 23998
+   },
+   "open_edges": {
+    "current": 18495,
+    "unreduced": 103,
+    "v2": 103
+   },
+   "pieces": {
+    "current": 720,
+    "unreduced": 8,
+    "v2": 8
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 103,
+    "v2": 103
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9364,
+    "v2_min": 0.8703,
+    "current_mean": 0.8863,
+    "current_min": 0.809,
+    "worst_az": 30,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.314859,
+     -0.50028,
+     -0.354681
+    ],
+    [
+     0.31315,
+     0.498539,
+     0.356911
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.314556,
+     -0.499991,
+     -0.355658
+    ],
+    [
+     0.314427,
+     0.499665,
+     0.355918
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000977,
+    "max_corner": 0.001277
+   },
+   "aabb_max_corner_delta_scene_mm": 7.125,
+   "drop_in": true
+  },
+  "juniper": {
+   "source_build": "t10_barrow/builds/juniper.glb",
+   "tris": {
+    "current": 24000,
+    "unreduced": 1449078,
+    "v2": 23994
+   },
+   "open_edges": {
+    "current": 20762,
+    "unreduced": 344,
+    "v2": 344
+   },
+   "pieces": {
+    "current": 1372,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 344,
+    "v2": 344
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9752,
+    "v2_min": 0.9501,
+    "current_mean": 0.9685,
+    "current_min": 0.9587,
+    "worst_az": 30,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.435179,
+     -0.357119,
+     -0.499713
+    ],
+    [
+     0.436952,
+     0.355183,
+     0.498096
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.435495,
+     -0.355361,
+     -0.499904
+    ],
+    [
+     0.436783,
+     0.356337,
+     0.499965
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.001758,
+    "max_corner": 0.001869
+   },
+   "aabb_max_corner_delta_scene_mm": 5.013,
+   "drop_in": true
+  },
+  "raven": {
+   "source_build": "t9_props/builds/raven.glb",
+   "tris": {
+    "current": 30000,
+    "unreduced": 1453112,
+    "v2": 29994
+   },
+   "open_edges": {
+    "current": 22214,
+    "unreduced": 258,
+    "v2": 258
+   },
+   "pieces": {
+    "current": 380,
+    "unreduced": 1,
+    "v2": 1
+   },
+   "edges_3plus": {
+    "current": 0,
+    "unreduced": 258,
+    "v2": 258
+   },
+   "iou_vs_unreduced_play": {
+    "v2_mean": 0.9948,
+    "v2_min": 0.9788,
+    "current_mean": 0.9852,
+    "current_min": 0.9687,
+    "worst_az": 60,
+    "n": 12
+   },
+   "aabb_gltf_current": [
+    [
+     -0.439006,
+     -0.500637,
+     -0.267038
+    ],
+    [
+     0.441002,
+     0.500356,
+     0.267689
+    ]
+   ],
+   "aabb_gltf_v2": [
+    [
+     -0.439006,
+     -0.500231,
+     -0.267554
+    ],
+    [
+     0.439697,
+     0.499884,
+     0.267478
+    ]
+   ],
+   "aabb_max_corner_delta_raw_units": {
+    "min_corner": 0.000516,
+    "max_corner": 0.001305
+   },
+   "aabb_max_corner_delta_scene_mm": null,
+   "drop_in": true
+  }
+ }
+}

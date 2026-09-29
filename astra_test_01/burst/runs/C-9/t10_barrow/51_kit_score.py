@@ -20,14 +20,17 @@ Two notes on reading the numbers:
 """
 import json
 import pathlib
+import sys
 
 import numpy as np
 from PIL import Image
 
 HERE = pathlib.Path(__file__).resolve().parent
-WORK = HERE / "kit_work"
 VIEWS = ["front", "right", "back", "left"]
-OBJECTS = ["rocks", "stump", "log", "cairn", "skull", "shield"]
+SETS = {"kit": ("kit_work", ["rocks", "stump", "log", "cairn", "skull", "shield"]),
+        "kit2": ("kit_work2", ["rocks", "stump", "skull", "boulder"])}
+SET = sys.argv[1] if len(sys.argv) > 1 else "kit"
+WORK, OBJECTS = HERE / SETS[SET][0], SETS[SET][1]
 END_ON = {"log"}          # RIGHT/LEFT are end-on views; scale spread across views is real
 
 

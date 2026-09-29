@@ -6,12 +6,23 @@ The camera is the one the scene is played at: orthographic, pitch 52.95354112560
 -- the same basis the props' yaw was baked against, so what this shows IS the face each prop
 presents in the barrow.
 
-THE BARBARIAN'S GLB CARRIES A STRAY. `nb-body.glb` holds `char1` (289,469 tris, 1.557 units
-tall) AND an 80-triangle `Icosphere` of size 1.9 x 2.0 x 2.0 centred on the origin. Taking
-the file's AABB as the figure's height makes him 2.5645 units, so scaling that to 1.85 m
-would have put the actual man at 1.12 m -- and the scale reference, which is the whole point
-of standing him next to the props, would have been quietly 40% wrong while looking fine.
-Only `char1` is imported.
+BLENDER ADDS A MESH TO THIS FILE ON IMPORT, AND IT IS NOT IN THE FILE. `nb-body.glb` holds
+exactly ONE mesh, `char1` (289,469 tris, 1.557 units tall) -- verified by parsing the GLB's
+own JSON chunk, which lists one mesh and 26 nodes, 24 of them bones. But importing it into
+Blender yields a THIRD object, an 80-triangle `Icosphere` of size 1.9 x 2.0 x 2.0 on the
+origin: it is the bone DISPLAY SHAPE the glTF importer generates, shared by all 24 bones,
+and it lands in a collection called `glTF_not_exported` with `hide_render` FALSE.
+
+So it renders, and it dominates the AABB. Taking the imported scene's bounds as the
+figure's height gives 2.5645 units, and scaling that to 1.85 m would have put the actual
+man at 1.12 m -- the scale reference, which is the whole point of standing him beside the
+props, quietly 40% wrong while looking entirely fine. Keeping only `char1` is what fixes
+it, and it is the mesh NAME that has to be filtered, not the count.
+
+Recorded carefully because the first version of this note blamed the file. It is a Blender
+artefact of importing a rigged glTF, reproducible in three lines, and anything that counts
+or bounds meshes after such an import has to drop that collection or it measures the
+importer. 61_open_edges.py drops it by collection for the same reason.
 
 Positions are computed, not eyeballed: with an orthographic camera the ground's screen-right
 axis is exactly (cos A, sin A, 0), so laying the props along it spaces them horizontally in
@@ -28,7 +39,9 @@ import mathutils
 
 argv = sys.argv[sys.argv.index("--") + 1:]
 KIT, BODY, OUT, META = argv[0], argv[1], argv[2], argv[3]
-ORDER = ["rocks", "stump", "cairn", "log", "skull", "shield"]
+# The cast comes from kit_assets.json, so the sheet cannot show a prop the manifest says
+# not to ship. Ordered small to large; anything not marked keep is left out.
+PREFERRED = ["rocks", "stump", "boulder", "cairn", "log", "skull", "shield"]
 YAW, PITCH = 47.0, 52.95354112560294
 GAP = 0.55
 BODY_H = 1.85
@@ -64,6 +77,11 @@ def load(path, keep=None):
             ms.append(o)
     return ms
 
+
+man = json.load(open(os.path.join(KIT, "kit_assets.json")))["models"]
+keep = [k for k in man if man[k].get("status", "keep") == "keep"]
+ORDER = [k for k in PREFERRED if k in keep] + sorted(k for k in keep if k not in PREFERRED)
+print("[contact] cast from manifest: %s" % ORDER)
 
 items = []
 for nm in ORDER:
