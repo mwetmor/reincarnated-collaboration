@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST T8P-B — Run C-9 Phase 2, test T8 (Matt R-C9-68/69/70): the PAINTED TEXTURE of the 3D Norse barbarian, sheet 2 of 2, at the GAME CAMERA (looking down at 53 degrees). task_id \"T8P-B\".\n\nIMAGE 1 is the SAME MAN, ALREADY PAINTED, seen from the game's own camera looking steeply down: his painted surface (from IMAGE 2) projected onto the 3D model and re-rendered from above. Top row, left to right: facing the lower left (south-west); facing the lower right (south-east); facing the viewer's LEFT in profile (west); facing the viewer's RIGHT in profile (east); facing away to the upper left (north-west); facing away to the upper right (north-east). Bottom row, left to right: FACING THE VIEWER (south); seen from BEHIND (north); a CLOSE-UP of his head from above and in front (the crown of braided hair, the face foreshortened below it); a CLOSE-UP of his head from above, lower right. Every OUTLINE, POSE, CROP and CAMERA in IMAGE 1 is fixed and must not change.\nIMAGE 2 is the painting IMAGE 1 was made from (sheet 1, the same man from ten low angles). IMAGE 3 is his approved character sheet (the look). IMAGE 4 is a STYLE reference ONLY: copy its HAND, never its character.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet.\nREPAINT THIS SURFACE; DO NOT PAINT A NEW VIEW. Everything already drawn on him in IMAGE 1 stays exactly where it is, at the same size and the same shape: the beard and its braid with the bronze ring, the braided hair and the long braid down his back, the knotwork band on his RIGHT upper arm, the belt and buckle, the diamond-twill trousers, the leg wraps and the shoes. Do not move, redraw or re-invent any of them: this painting is blended with IMAGE 2 on one model, and a feature drawn in a different place becomes a double. Nothing here needs inventing: under a third of one percent of what you see is unpainted model.\nWhat this pass is FOR: the surfaces a steep camera sees properly and a low one only grazes — the tops of the shoulders, the crown of the head and the braids from above, the upper back, the tops of the forearms. Give those the detail and the hand of IMAGE 2 and IMAGE 4 (ink line, hatching, transparent washes); leave everything else as found, only cleaner. Take the look from the painting (IMAGE 2), never from any flat, smooth or plastic shading in IMAGE 1.\nPaint the SURFACE, not the lighting: soft even light as the register card says; no cast shadows, no dark side, no rim light. Stay inside every outline. The tattoo is on his RIGHT upper arm ONLY; never on the left.\n\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines, so the background colour does not decide success. Spend retries ONLY on the faults named below.\nSTYLE: the REGISTER CARD above governs line, washes, light and plate; its manuscript-subject clause does not apply to this figure (Matt R-C9-69). Paint in IMAGE 4's hand with IMAGE 2's and IMAGE 3's look.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, a feature (braid, tattoo, belt, beard ring) moved, was redrawn elsewhere or disappeared, the tattoo is on the wrong arm, or a close-up shows a different face — name the reason. Never retry for the background colour. Copy outputs to out/T8P-B_a.png and out/T8P-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T8P-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t8_sheet_b_canvas.png",
+   "role": "IMAGE 1 — the sheet to EDIT (sheet A paint projected onto the rigged Tripo barbarian, re-rendered at 52.95 deg: 8 body views + 2 head close-ups)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T8P-A/T8P-A_b.png",
+   "role": "IMAGE 2 — the painting IMAGE 1 was made from (T8P-A variant b, chosen by registration)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 3 — his approved character sheet (NB-1 variant b, R-C9-70): the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 4 — STYLE reference ONLY (Matt-supplied, R-C9-69): the hand"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/T8P-B_a.png",
+  "out/T8P-B_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T8-texture"
+}
