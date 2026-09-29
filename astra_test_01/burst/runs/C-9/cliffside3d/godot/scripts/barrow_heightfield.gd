@@ -148,7 +148,18 @@ func build_terrain(parent: Node3D, mat: Material) -> MeshInstance3D:
 	for j in n:
 		for i in n:
 			var k := j * (n + 1) + i
-			idx.append_array([k, k + n + 1, k + n + 2, k, k + n + 2, k + 1])
+			# WINDING, and it is the render-stack drax's catch, not mine. Godot's front
+			# faces are CLOCKWISE seen from the front, so the obvious order -- the one that
+			# gives a +Y right-hand normal -- is BACK-facing, and a ground made of back
+			# faces is not dim or wrong-side-lit, it is INVISIBLE under the default cull.
+			#
+			# I checked it the wrong way first: probe_terrain.gd read the face normals,
+			# found all 55,778 pointing +Y, and I wrote "winding is correct" -- which
+			# asserted the convention I was most likely to have backwards instead of
+			# testing it. probe_terrain2.gd renders both orders through the play camera
+			# with backface culling on and counts pixels: the old order covers 0 of 25,600
+			# sampled pixels, this one covers 70.9%.
+			idx.append_array([k, k + n + 2, k + n + 1, k, k + 1, k + n + 2])
 	var arr := []
 	arr.resize(Mesh.ARRAY_MAX)
 	arr[Mesh.ARRAY_VERTEX] = verts

@@ -75,7 +75,15 @@ func _initialize() -> void:
 	world.build_terrain(root3, gm)
 	report["ground"] = world.report
 
-	var assets = JSON.parse_string(FileAccess.get_file_as_string("res://data/barrow_assets.json"))
+	var assets = null
+	if FileAccess.file_exists("res://data/barrow_assets.json"):
+		assets = JSON.parse_string(FileAccess.get_file_as_string("res://data/barrow_assets.json"))
+	if typeof(assets) != TYPE_DICTIONARY:
+		# Say so rather than letting JSON.parse_string log "Unknown error getting token" and
+		# leaving a null that quietly drops every Tripo asset from the scene.
+		push_warning("[t10] no barrow_assets.json -- run 40_normalise.py first; only the "
+					 + "procedural assets will be placed")
+		assets = null
 	var scene = JSON.parse_string(FileAccess.get_file_as_string("res://data/barrow_scene_a.json"))
 	var key := "height_a_authored" if ground.ends_with("authored.png") else "height_a_marigold"
 	var placed := {}
@@ -179,13 +187,26 @@ func _shoot() -> void:
 
 
 func _aabb(n: Node3D) -> AABB:
+	"""The node's bounds in ITS OWN space, without asking for a global transform.
+
+	Reading global_transform on a node that is not yet inside the tree returns identity and
+	logs `Condition "!is_inside_tree()" is true` -- once per instance here -- and identity
+	is a perfectly usable wrong answer: every model comes out sized against an AABB that
+	silently belongs to a different space. Walking the parent chain from the mesh up to `n`
+	gives the same box and never depends on when the node joined the tree."""
 	var out := AABB()
 	var first := true
 	for m in n.find_children("*", "MeshInstance3D", true, false):
 		var mi := m as MeshInstance3D
 		if mi.mesh == null:
 			continue
-		var ab: AABB = mi.global_transform * mi.get_aabb()
+		var x := Transform3D.IDENTITY
+		var cur: Node = mi
+		while cur != null and cur != n:
+			if cur is Node3D:
+				x = (cur as Node3D).transform * x
+			cur = cur.get_parent()
+		var ab: AABB = x * mi.get_aabb()
 		out = ab if first else out.merge(ab)
 		first = false
 	return out

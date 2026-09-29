@@ -21,6 +21,7 @@ const S := Vector2i(512, 512)
 
 var out_dir := ""
 var step := 15
+var mdir := "res://models/props"
 var report := {}
 
 
@@ -31,6 +32,8 @@ func _initialize() -> void:
 			out_dir = args[i + 1]
 		if args[i] == "--step" and i + 1 < args.size():
 			step = int(args[i + 1])
+		if args[i] == "--dir" and i + 1 < args.size():
+			mdir = args[i + 1]
 	DirAccess.make_dir_recursive_absolute(out_dir)
 
 	# The cliff camera's basis. These are CONSTANTS of the v4 frame -- cliffside3d.gd prints
@@ -58,7 +61,7 @@ func _initialize() -> void:
 	vp.add_child(cam)
 	cam.current = true
 
-	var dir := DirAccess.open("res://models/props")
+	var dir := DirAccess.open(mdir)
 	var names := []
 	if dir != null:
 		for f in dir.get_files():
@@ -68,7 +71,7 @@ func _initialize() -> void:
 	report["models"] = {}
 
 	for nm in names:
-		var node: Node3D = (load("res://models/props/%s.glb" % nm) as PackedScene).instantiate()
+		var node: Node3D = (load("%s/%s.glb" % [mdir, nm]) as PackedScene).instantiate()
 		var pivot := Node3D.new()
 		vp.add_child(pivot)
 		pivot.add_child(node)

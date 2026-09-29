@@ -36,7 +36,10 @@ OBJECTS = {
     "post":        ("T10_barrow_post.png",          2.04, "height", True,  None),
     "rock_large":  ("T10_rock_outcrop_large.png",   1.84, "height", True,  None),
     "rock_small":  ("T10_rock_outcrop_small.png",   0.54, "height", True,  None),
-    "birch":       ("T10_dead_birch.png",           3.36, "height", True,  None),
+    # WIDTH FORCED. Both builds come out ~2.35 m across at 3.36 m tall against the
+    # concept's measured 1.38 m -- Tripo 2.39, procedural 2.33 -- so the error is not one
+    # builder's, and a tree is the one asset where a horizontal squash is defensible.
+    "birch":       ("T10_dead_birch.png",           3.36, "height", True,  1.38),
     "juniper":     ("T10_juniper_bush.png",         1.15, "height", True,  None),
 }
 
