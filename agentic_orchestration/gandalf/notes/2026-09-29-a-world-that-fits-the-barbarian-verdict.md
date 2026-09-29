@@ -100,3 +100,17 @@ Matt played the stand-in Barrow (the render stack over placeholder stones) and s
 3. **Dressing at three scales:** hero pieces, mid pieces (rock clusters, stumps, logs, cairns, debris) and small scatter, with combat clearings kept open. A six-object scatter kit is being made by the same generated pipeline (T10K-A/B/C). *"The 3D objects and their sparsity seems at odds with the painted ground."*
 4. **Short shadows that touch their objects.** The 17° winter sun cast shadows about 3.3× their objects' height, and a large bias pulled them off their bases. The sun goes to about 55°, and every shadow must touch its caster.
 5. **One pen, one weight, and a thin one.** The barbarian's line doubled when the world's screen-space line was drawn over his own. He returns to the weight Matt approved in the 3D cliffside, and the world matches it.
+
+## 8 · Amendment (Matt, R-C9-75): blockout first, then paint over, for the full area
+
+Step 1 of § 6 is reversed. The Barrow's layout was pulled out of one freehand concept painting. That lost the painting's depth (two scale measures disagreed by 1.71×), its small things (only 70 objects came out), and its playability (it had hills). The full area is built the way the cliffside was: **geometry first, then painted over, so the painting and the geometry agree by construction.**
+
+1. **A gameplay blockout of the whole area**, per `2026-09-29-barrow-full-area-blockout-spec.md`. Matt reviews a map and walks the greybox before any painting.
+2. **Paint over it chunk by chunk** at the play camera with the guided-paint lane.
+3. **Take from the paint-over:** hero identity plates, per-class density masks, and the ground layout.
+4. **Build:**
+   - hero models at the blockout's exact transforms;
+   - the scatter kit placed by the masks;
+   - the 3D snow;
+   - optional painted decals.
+5. **Check** each chunk by overlaying the render on the painting and measuring per-class coverage.
