@@ -167,3 +167,65 @@ python -m reincarnated.simulation.kc2.run --config "$CFG" --arm "$ARM" --salt "$
 - `git tag -l 'kc2/*'` — **empty in `reincarnated-engine` and in `reincarnated-godot`**
 
 *Filed 2026-09-29 by jack-ryan, DESIGN-MODE Gate-1 re-check, pre-launch. Both target hashes derived before reading, per the brief's HALT condition. No production code. No push.*
+
+---
+
+# RE-CHECK 2 — 2026-09-29 — charter **v0.3** (`e84cbbcd4`)
+
+**Reviewer:** jack-ryan (DESIGN-MODE, Gate-1 re-check 2, pre-launch)
+**Verdict:** ⚑ **GO FOR LAUNCH ON MATT'S WORD. `RC-B1` DISCHARGED.** No BLOCK. **2 new WARN, both discharged by ONE corrigendum, and neither gates launch — they gate `J0-F`'s first hour.**
+**Target hashed before reading, per the brief's HALT condition:** `agentic_orchestration/gandalf/notes/2026-09-29-join-1-run-charter.md`, 146 lines — derived `e728e8f5529bc8e9bc90131c2439d9f8dacdc3393ede12a78e9c062a5c0173d6` — **matches `e728e8f5…`. PASSED.**
+**Principles applied:** 1 · 2 · 3 · 4 · 5. **Disciplines:** #1, #24, #73, #80, #86 · ADR-002 · CLAUDE.md `git -C` wrong-repo note (second face) · § 7 *derive-don't-relay* and *corrigenda-forward*.
+
+## 1. `RC-B1` — DISCHARGED, and on two clauses better than I asked
+
+| `RC-B1` discharge clause | v0.3 | Verdict |
+|---|---|---|
+| **1.** § 5 gains a gated pre-launch build row with seats | **`J0-F`**, first wave, before anything touches the join path: gamora (engine) · drax (godot); emitters + pinned normaliser; gate **jack-ryan Gate-2** | **DISCHARGED** |
+| **2.** PRE tag cut at a commit already containing a *behaviour-neutral* emitter, neutrality measured by invariance's first green | ⚑ **SUPERSEDED BY A BETTER ANSWER.** Emitters are **external harness scripts OUTSIDE the sealed packages**, importing the sealed code **unmodified**. Neutrality is then **structural, not measured** — the sealed tree is never patched, so "frozen" keeps its meaning by construction rather than by evidence. **This dissolves the problem instead of instrumenting it** | **DISCHARGED — exceeded** |
+| **3.** `GM-OQ-2` answered "PRE at freeze, POST at J2" | `J0-F` freezes **both sides**, and **"No J2 commit may land before J-S8 is frozen and its digests recorded."** Unambiguous, and stated as a precondition rather than a recommendation | **DISCHARGED in the charter** (see `RC2-W1` for where it is not) |
+| **4.** Engine worktree cut from `kc2/referent-v1-oracle` | `J-S6`: each tag in its **OWN** repo, named with its seat — engine tag by gamora, godot tag by drax; "the engine worktree is cut from the ENGINE tag" | **DISCHARGED** |
+| **5.** One line into **KC2-PLAY's** seal checklist so the tags get cut | ⚑ **MOOTED BY DESIGN, and that is the stronger disposition.** v0.3 moved tag-cutting **into JOIN-1's own first wave**. My clause 5 asked to *record* a cross-run obligation; v0.3 **removed the cross-run obligation**. An obligation you do not have cannot be dropped at a run boundary | **MOOTED — recorded, per the mooted-escalation corollary** |
+
+**Verified this session, not relayed:** `git tag -l 'kc2/*'` still empty in both repos — **correct and expected under v0.3**, which cuts them at `J0-F`, not at the seal. All four named target trees exist: `simulation/scripts/` (engine), `kc2_play/tools/` and `kc2_runtime/tools/` (godot).
+
+## 2. `RC-W1` … `RC-W4`
+
+| | Disposition | Verdict |
+|---|---|---|
+| **`RC-W1`** | § 4.3 split into **(i)** the J-S8 fixture diff — *the load-bearing half* — and **(ii)** the four EXECUTES rows *reported beside it*. **Every new particular verified line-by-line against J-P2, none relayed:** the four ids `TA-X-07/20/29/30` (J-P2 :91) · five arms (:114) · salts `0…4` (:115) · `G1.pth_raw`/`pth_effective` (:126) · `G2` positional intermediates + `armour_branch` (:127) · the single Z5 exception (:169) | ⚑ **DISCHARGED — exact.** It restored the field whose omission was the finding |
+| **`RC-W2`** | § 8 `J-P1` gains both branches: T-A structural-red after both attempts **or** T-C "no" → **JOIN-1 does not launch**; fixture survives a T-C round-trip unless the fix moves the reference, then **re-frozen, never amended** | **DISCHARGED** |
+| **`RC-W3`** | § 9.1 claims *"J-S7 and J-S8 paths now carry their repo."* True of those two rows | ⚑ **PARTIAL — see `RC2-W1`.** I named **`J-S3`, `J-S4` and the J-P2 limb**; the discharge line silently narrowed the finding to two rows |
+| **`RC-W4`** | `J-S7` records the tables as GITIGNORED and pins them by **a committed manifest of FILE sha256s derived at launch**; pin column changed to match | **DISCHARGED** |
+
+## 3. New — 2 WARN, one corrigendum clears both
+
+**`RC2-W1` — the instrument the two `J0-F` seats will open is UNAMENDED, and one of its stale clauses instructs a seat BY NAME to do the thing `RC-B1` was raised to prevent.** Verified: J-P2 is still `bec6d254` / FILE `54b62b56…` — the exact hash v0.3's `J-S8` cites as authoritative. Three clauses now contradict the charter that governs them:
+
+- ⚑ **:286 `GM-OQ-2` still answers "drax … at J2 alongside the rulebook."** The charter says both sides freeze at `J0-F` before any J2 commit. **This is `RC-B1`(b) verbatim, still live, in the row addressed to the seat who executes it.** A conductor reading § 9.1 sees RC-B1 discharged; drax reading his own answer row is told J2. That is #73 pointed at a person.
+- **:222 `--emit-fixture`** — a flag that exists nowhere in `src/reincarnated/`. Fails **loudly**; harmless.
+- **:204 / :211-212** — engine worktree cut from `kc2/referent-v1-runtime`. Under v0.3 that ref lives in **godot**, so in the engine it now fails **loudly** rather than silently. ⚑ **v0.3's per-repo split converted CLAUDE.md's second-face hazard into a first-face one. Worth naming as a gain: the repo separation is what made the wrong command safe.**
+- **`RC-W3`'s sharpest limb is here and undischarged:** J-P2 :139-141 emit to bare `research/evidence/join1/…` from a document living in `reincarnated-engine`, where **`research/` does not exist** (verified). `J-S3`/`J-S4` likewise still write `kits-export/…` bare. **`J0-F` is the wave that writes the fixture to that path**, and § 6's *"a write outside a seat's named tree"* HALT cannot bind on a path whose repo is unresolvable.
+
+**`RC2-W2` — `J0-F` states the emitters' INTENT unambiguously and their MECHANISM not at all.** *"External harness scripts under `simulation/scripts/` … run them in worktrees of the tags."* A worktree at `kc2/referent-v1-oracle` **predates the emitter and will not contain it.** Two readings: (a) run the script from the mainline tree with the worktree's `src/` ahead on `sys.path`; (b) copy the script into the worktree. **Only (a) satisfies both "sealed code unmodified" and "frozen"** — (b) writes into a tree the charter calls frozen, which is clause 2's defect re-entering through the door clause 2 closed. Also `kc2_runtime/tools/` **or** `kc2_play/tools/` is an unresolved OR in a path a HALT boundary binds on. **Say (a), and pick one port directory.**
+
+**`RC2-I1`** — v0.3 carries **zero relay defects**: every digest, row id, count and line pin re-derived by hand above. Third consecutive clean lap on § 7's *derive-don't-relay*.
+
+## 4. Action
+
+- [ ] **gamora — J-P2 corrigendum, the FIRST item of `J0-F`, before any emitter is built** (corrigenda-forward, § 7): re-answer `GM-OQ-2` to "**PRE at `J0-F` freeze for BOTH sides; J2 is the POST side**" · replace the `--emit-fixture` command block with the external-harness invocation · fix :204/:211-212 to `kc2/referent-v1-oracle` · repo-qualify :139-141. New FILE sha256 recorded, and `J-S8`'s citation in the charter updated to it.
+- [ ] **conductor** — `RC2-W2`: state reading (a) in `J0-F`; name ONE port directory; repo-qualify `J-S3`/`J-S4`.
+- [ ] **conductor** — § 9.1's `RC-W3` row reads "J-S7 and J-S8"; the finding named five sites. One line: `PARTIAL — J-S3/J-S4 and J-P2 carried in the corrigendum.`
+- [x] **jack-ryan** — Gate-2 seated at `J0-F` on the fixture and the four must-RED controls. Mine already.
+- [ ] **Matt** — **nothing new.** No new Matt surface; the launch sheet (§ 6, `J-L1…J-L5`) is unchanged by v0.3.
+
+**ADR-002.** Both WARNs are instrument-note text and charter wording in a not-yet-launched draft — **mine, and I approve them on execution with no re-gate.** I did not hold BLOCK: the charter governs and says so explicitly at `J-S8`, every stale J-P2 clause now fails loudly rather than silently, and the corrigendum lands inside a Gate-2 that is already mine. **Holding a launch on a stale copy of a superseded document would be over-gating — but the corrigendum is a precondition of `J0-F` executing, not a nicety, because `GM-OQ-2` currently tells drax the wrong thing in his own row.**
+
+**RE-CHECK 2 VERDICT: GO FOR LAUNCH ON MATT'S WORD.** `RC-B1` is discharged, twice over on the clauses that mattered — v0.3 did not instrument the patched-frozen-tree problem, it **removed the patch**; and it did not record the cross-run tag obligation, it **removed the cross-run dependency**. ⚑ **The residual is the shape this whole gate keeps finding: the charter moved and the instrument did not.** `RC-B1` was *"an instrument whose baseline is produced by the change it guards has no baseline."* `RC2-W1` is one notch smaller and one layer over — **a discharge recorded in the governing document while the executing document still carries the defect.** The fix is one corrigendum and it is the first hour of `J0-F`.
+
+### References — RE-CHECK 2
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-29-join-1-run-charter.md` — v0.3, `e84cbbcd4`, FILE `e728e8f5…` (§ 1 `J-S6`/`J-S7`/`J-S8` · § 4.3 · § 5 `J0-F` · § 8 `J-P1` · § 9.1)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-join1-golden-master-instrument-2026-09-29.md` — **UNAMENDED** at `bec6d254` / FILE `54b62b56…`; :91, :114-115, :126-127, :139-141, :169, :204, :211-212, :222, :286
+- Verified by hand: `git tag -l 'kc2/*'` empty both repos (expected under v0.3) · `simulation/scripts/` · `kc2_play/tools/` · `kc2_runtime/tools/` · `reincarnated-engine/research/` **absent**
+
+*Filed 2026-09-29 by jack-ryan, DESIGN-MODE Gate-1 re-check 2, pre-launch. Target hash derived before reading. No production code. No push.*
