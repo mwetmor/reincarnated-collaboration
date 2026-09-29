@@ -807,3 +807,88 @@ def bone_span(arm, pairs=(('LeftShoulder', 'RightShoulder'),
             pb = (arm.matrix_world @ arm.pose.bones[b_].matrix).translation
             out['%s-%s' % (a_, b_)] = round(float((pa - pb).length), 5)
     return out
+
+
+# ---- armed carry: stop the weapon waffling in locomotion -------------------
+# Matt: the axe "waffles back and forth awkwardly.. not the way someone should
+# hold a weapon", and "the axe is better when idling."
+#
+# Measured (scripts/26_wrist.py), right wrist relative to forearm:
+#   idle   71 deg/s p95, 1 reversal      <- the one he likes
+#   walk  210 deg/s p95, 5 reversals
+#   run   726 deg/s p95, 7 reversals
+#
+# The cause is that the Meshy walk and run are UNARMED motion. A free hand
+# counter-rotates against the forearm through the stride; that reads as life on
+# an empty hand and as flop on a rigid 0.8 m axe. So the fix is not to stop the
+# arm swinging -- it is to stop the WRIST articulating independently, which is
+# what a hand gripping a weapon actually does.
+#
+# Implemented as a blend toward a fixed carry angle rather than a hard clamp, so
+# the hand keeps a little follow-through instead of looking welded.
+
+def joint_rot(arm, child, parent):
+    """Child's rotation in the parent's frame -- the joint angle, rest offset
+    included. Whatever convention this uses, carry_lock must use the same one."""
+    return (arm.pose.bones[parent].matrix.to_3x3().inverted()
+            @ arm.pose.bones[child].matrix.to_3x3()).to_quaternion()
+
+
+def mean_joint_rot(arm, act, child, parent, frames=None):
+    """Average joint angle over a clip, by quaternion accumulation with sign
+    alignment -- averaging raw components across a q/-q flip gives a rotation
+    that is in neither half of the data."""
+    sc = bpy.context.scene
+    prev = arm.animation_data.action
+    arm.animation_data.action = act
+    f0, f1 = (int(round(x)) for x in act.frame_range)
+    acc, ref = None, None
+    for f in (frames or range(f0, f1 + 1)):
+        sc.frame_set(f)
+        bpy.context.view_layer.update()
+        q = joint_rot(arm, child, parent)
+        if ref is None:
+            ref, acc = q.copy(), np.array([q.w, q.x, q.y, q.z], dtype=float)
+        else:
+            v = np.array([q.w, q.x, q.y, q.z], dtype=float)
+            if float(np.dot(v, [ref.w, ref.x, ref.y, ref.z])) < 0:
+                v = -v
+            acc += v
+    arm.animation_data.action = prev
+    acc /= max(np.linalg.norm(acc), 1e-12)
+    from mathutils import Quaternion
+    return Quaternion((acc[0], acc[1], acc[2], acc[3]))
+
+
+def carry_lock(arm, act, child, parent, target_q, alpha=0.85):
+    """Blend a joint's rotation toward `target_q` across a whole clip.
+
+    Two passes on purpose: READ every frame first, then write. A single pass
+    would sample a hand this function has already moved, so the blend would
+    compound frame over frame and drift -- and it would still produce smooth,
+    plausible-looking output while doing it."""
+    sc = bpy.context.scene
+    prev = arm.animation_data.action
+    arm.animation_data.action = act
+    f0, f1 = (int(round(x)) for x in act.frame_range)
+    src, par = {}, {}
+    for f in range(f0, f1 + 1):
+        sc.frame_set(f)
+        bpy.context.view_layer.update()
+        src[f] = joint_rot(arm, child, parent)
+        par[f] = arm.pose.bones[parent].matrix.to_3x3().copy()
+    pb = arm.pose.bones[child]
+    pb.rotation_mode = 'QUATERNION'
+    for f in range(f0, f1 + 1):
+        sc.frame_set(f)
+        bpy.context.view_layer.update()
+        q = src[f].slerp(target_q, alpha)
+        keep = pb.matrix.translation.copy()
+        m = (par[f] @ q.to_matrix()).to_4x4()
+        m.translation = keep
+        pb.matrix = m
+        pb.keyframe_insert("rotation_quaternion", frame=f)
+    arm.animation_data.action = prev
+    return dict(child=child, parent=parent, alpha=alpha,
+                frames=[f0, f1],
+                target=[round(float(x), 6) for x in target_q])

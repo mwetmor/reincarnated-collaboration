@@ -1,0 +1,164 @@
+{
+ "question": "is there any armed walk or run available, and what does the Synty rig have that ours lacks?",
+ "synty": {
+  "root": "matt_notes_handoff_docs/recent-synty-packs/synty-animations",
+  "packs": {
+   "base_locomotion": 721,
+   "sword_combat": 243,
+   "idles": 670,
+   "bow_combat": null,
+   "emotes_taunts": null,
+   "goblin_locomotion": null
+  },
+  "ARMED_LOCOMOTION": 0,
+  "armed_locomotion_note": "ZERO. sword-combat has Idle / Attack / Block / Dodge / Hit / Death and NO Walk, Run, Strafe or Sprint folder at all (grep over all 243 filenames: 0 hits). base-locomotion is entirely unarmed (Feminine / Masculine / Neutral). No filename in any pack outside sword-combat mentions a weapon.",
+  "rig": {
+   "file": "idles/FBX/Characters/POLYGONRig_01.fbx",
+   "bones": 52,
+   "has_that_we_lack": [
+    "fingers: Thumb_01..03, IndexFinger_01..04, Finger_01..04 per hand",
+    "Prop_L and Prop_R -- DEDICATED WEAPON SOCKET BONES",
+    "Root above Hips (root motion)",
+    "Clavicle separate from Shoulder",
+    "Ball and Toes separate",
+    "Eyes, Eyebrows, Jaw"
+   ],
+   "prop_bones_significance": "Synty authored these clips with explicit weapon attachment points, so the sword's intended position AND ORIENTATION per frame is in the data. That is a better source for weapon carry than any wrist heuristic -- it is the animator's own answer to the question Matt is asking."
+  },
+  "usable_for_retarget": {
+   "idle": [
+    "Idle/Base/A_Idle_Base_Sword.fbx",
+    "Idle/Menacing01/A_Idle_Menacing01_Sword.fbx"
+   ],
+   "attack": [
+    "Attack/LightCombo01/A_Attack_LightCombo01A_Sword.fbx"
+   ],
+   "block": [
+    "Block/A_Block_Begin_Sword.fbx",
+    "Block/A_Block_Loop_Sword.fbx",
+    "Block/A_Block_End_Sword.fbx"
+   ],
+   "parry": [
+    "Block/A_Parry_F_Sword.fbx"
+   ],
+   "dodge": [
+    "Dodge/A_Dodge_B_Sword.fbx"
+   ],
+   "hit": [
+    "Hit/HitReact/A_Hit_F_React_Sword.fbx"
+   ],
+   "death": [
+    "Death/A_Death_F_01_Sword.fbx"
+   ]
+  }
+ },
+ "meshy": {
+  "library_entries": 678,
+  "queried": "GET /openapi/v1/animations/library (free)",
+  "ARMED_LOCOMOTION_EXISTS": true,
+  "armed_locomotion": [
+   [
+    21,
+    "Walk Fight Forward"
+   ],
+   [
+    689,
+    "Walk Fight Forward"
+   ],
+   [
+    20,
+    "Walk Fight Back"
+   ],
+   [
+    688,
+    "Walk Fight Back"
+   ],
+   [
+    9,
+    "ForwardLeft Run Fight"
+   ],
+   [
+    10,
+    "ForwardRight Run Fight"
+   ],
+   [
+    546,
+    "Walk Backward with Sword"
+   ],
+   [
+    548,
+    "Walk Backward with Sword & Shield"
+   ],
+   [
+    560,
+    "Spear Walk"
+   ],
+   [
+    574,
+    "Walk Turn Left with Weapon"
+   ],
+   [
+    580,
+    "Sword and Shield Alert Turn Left"
+   ],
+   [
+    590,
+    "Sword and Shield Alert Turn Right"
+   ]
+  ],
+  "armed_idles": [
+   [
+    85,
+    "Axe Stance"
+   ],
+   [
+    89,
+    "Combat Idel (sic)"
+   ],
+   [
+    335,
+    "Axe Breathe and Look Around"
+   ],
+   [
+    334,
+    "Lower Weapon, Look, Raise"
+   ]
+  ],
+  "blocking_category": 18,
+  "blocking": [
+   [
+    138,
+    "Block1"
+   ],
+   [
+    146,
+    "Block10"
+   ],
+   [
+    147,
+    "Sword Parry"
+   ],
+   [
+    220,
+    "Shield Push Left"
+   ]
+  ],
+  "axe_attacks": [
+   [
+    237,
+    "Charged Axe Chop"
+   ],
+   [
+    238,
+    "Axe Spin Attack"
+   ],
+   [
+    219,
+    "Right-hand Sword Slash (the current attack clip)"
+   ]
+  ],
+  "no_straight_armed_run": "nothing in either source is a straight armed RUN. Meshy's armed run entries are diagonals (ForwardLeft / ForwardRight Run Fight).",
+  "cost_note": "fetching any of these spends Meshy credits; the QUERY was free. Not fetched."
+ },
+ "conclusion": "Synty cannot supply armed locomotion and Meshy partly can. So walk and run had to be solved by correcting the existing unarmed clips (walk_armed / run_armed), which is what was built. Synty is the right source for the CLIPS WE LACK -- block, parry, dodge, hit, death, armed idle -- and its Prop_R bone is the right source for the axe's carry orientation."
+}

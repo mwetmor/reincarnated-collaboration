@@ -306,5 +306,135 @@
    "w": 168,
    "area": 20578
   }
+ },
+ "clips": [
+  "idle",
+  "walk",
+  "run",
+  "attack",
+  "walk_armed",
+  "run_armed"
+ ],
+ "arm_layers": [
+  "shield_carry_L"
+ ],
+ "armed_carry": {
+  "complaint": "Matt: the axe \"waffles back and forth awkwardly.. not the way someone should hold a weapon\", and \"the axe is better when idling.\"",
+  "cause": "the Meshy walk and run are UNARMED motion. A free hand counter-rotates against the forearm through the stride -- life on an empty hand, flop on a rigid 0.8 m axe. Nothing in those clips treats the left arm as holding a shield either.",
+  "fix": "new clips walk_armed / run_armed: the wrist joint slerped 95% toward the IDLE's mean carry angle, per frame, both arms. walk and run are left untouched for an unarmed barbarian.",
+  "why_not_a_layer": "shield_carry_L is a static two-frame pose, so it works as a layer. A wrist lock depends on where the forearm is on that frame, so it is per-frame data that a static pose layer cannot express at all.",
+  "alpha": 0.95,
+  "alpha_sweep_right_wrist": {
+   "0.00_before": {
+    "walk_rev": 5,
+    "walk_p95": 209.5,
+    "run_rev": 7,
+    "run_p95": 726.1
+   },
+   "0.60": {
+    "walk_rev": 3,
+    "walk_p95": 84.2,
+    "run_rev": 7,
+    "run_p95": 292.4
+   },
+   "0.75": {
+    "walk_rev": 1,
+    "walk_p95": 52.7,
+    "run_rev": 5,
+    "run_p95": 182.9
+   },
+   "0.85": {
+    "walk_rev": 0,
+    "walk_p95": 31.6,
+    "run_rev": 3,
+    "run_p95": 109.8
+   },
+   "0.95": {
+    "walk_rev": 0,
+    "walk_p95": 10.6,
+    "run_rev": 1,
+    "run_p95": 36.6
+   },
+   "1.00": {
+    "walk_rev": 0,
+    "walk_p95": 0.0,
+    "run_rev": 0,
+    "run_p95": 0.0,
+    "note": "a dead weld, no follow-through"
+   }
+  },
+  "measured": {
+   "instrument": "wrist rotation in the forearm's frame, deg/s p95 and direction reversals per cycle",
+   "idle_reference": {
+    "axe": [
+     71.17,
+     1
+    ],
+    "shield": [
+     59.16,
+     1
+    ]
+   },
+   "before": {
+    "walk": {
+     "axe": [
+      209.53,
+      5
+     ],
+     "shield": [
+      257.81,
+      3
+     ]
+    },
+    "run": {
+     "axe": [
+      726.15,
+      7
+     ],
+     "shield": [
+      482.85,
+      7
+     ]
+    }
+   },
+   "after": {
+    "walk_armed": {
+     "axe": [
+      10.59,
+      0
+     ],
+     "shield": [
+      12.98,
+      0
+     ]
+    },
+    "run_armed": {
+     "axe": [
+      36.58,
+      1
+     ],
+     "shield": [
+      24.3,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "shield_grip_defect": {
+  "status": "MEASURED, NOT YET SHIPPED -- needs the guard layer to pay for the torso cost",
+  "finding": "the fist sits 0.4599 m from the boss = 109.4% of the shield radius (0.4204 m). His hand is OFF THE DISC, past the rim. There is no grip, exactly as Matt said.",
+  "how_it_happened": "the D2 socket sweep optimised ONE objective -- shield vertices inside the torso -- and a placement holding the disc at arm's length with its RIM near the hand scores perfectly on it. Nothing asked whether the hand was on the grip. Then R-C9-71 measured \"grip bar to left fist min 0.0013 m\" and called the grip closed: a TRUE number for the nearest shield surface, which was the rim. A nearest-surface distance cannot say WHICH surface.",
+  "correction": "the manifest's earlier grip_bar_to_left_fist figures describe the RIM, not a grip",
+  "centre_grip_fix": {
+   "shift_m": 0.4656,
+   "standoff_m": 0.0973,
+   "result": "fist at 0.0% of radius in every pose (the shield is 100% bound to LeftHand, so a rest-frame offset is preserved by the skinning)",
+   "torso_cost": {
+    "rest": "0 -> 14 of 1829 sampled",
+    "carry": "0 -> 49 of 1829 sampled",
+    "note": "for scale, D2's pre-layer state was 313 (walk) and 389 (run) inside"
+   }
+  }
  }
 }

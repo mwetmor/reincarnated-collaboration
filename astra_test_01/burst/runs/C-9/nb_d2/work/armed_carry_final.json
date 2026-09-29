@@ -1,0 +1,158 @@
+{
+ "alpha": 0.95,
+ "before": {
+  "walk": {
+   "RightHand_in_RightForeArm": {
+    "rate_p95": 209.53,
+    "rate_max": 237.66,
+    "excursion_deg": 23.4,
+    "reversals": 5
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_p95": 257.81,
+    "rate_max": 326.47,
+    "excursion_deg": 30.69,
+    "reversals": 3
+   }
+  },
+  "run": {
+   "RightHand_in_RightForeArm": {
+    "rate_p95": 726.15,
+    "rate_max": 773.54,
+    "excursion_deg": 38.66,
+    "reversals": 7
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_p95": 482.85,
+    "rate_max": 485.84,
+    "excursion_deg": 22.45,
+    "reversals": 7
+   }
+  }
+ },
+ "after": {
+  "walk_armed": {
+   "RightHand_in_RightForeArm": {
+    "rate_p95": 10.59,
+    "rate_max": 12.1,
+    "excursion_deg": 1.17,
+    "reversals": 0
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_p95": 12.98,
+    "rate_max": 16.36,
+    "excursion_deg": 1.54,
+    "reversals": 0
+   }
+  },
+  "run_armed": {
+   "RightHand_in_RightForeArm": {
+    "rate_p95": 36.58,
+    "rate_max": 39.08,
+    "excursion_deg": 1.95,
+    "reversals": 1
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_p95": 24.3,
+    "rate_max": 24.38,
+    "excursion_deg": 1.13,
+    "reversals": 0
+   }
+  }
+ },
+ "sweep": {},
+ "target": {
+  "RightHand_in_RightForeArm": [
+   0.961863,
+   0.029583,
+   -0.214268,
+   -0.167432
+  ],
+  "LeftHand_in_LeftForeArm": [
+   0.976679,
+   0.014338,
+   0.213994,
+   0.009904
+  ]
+ },
+ "idle_reference": {
+  "RightHand_in_RightForeArm": {
+   "rate_p95": 71.17,
+   "rate_max": 81.72,
+   "excursion_deg": 35.11,
+   "reversals": 1
+  },
+  "LeftHand_in_LeftForeArm": {
+   "rate_p95": 59.16,
+   "rate_max": 81.26,
+   "excursion_deg": 18.73,
+   "reversals": 1
+  }
+ },
+ "locks": [
+  {
+   "clip": "walk_armed",
+   "child": "RightHand",
+   "parent": "RightForeArm",
+   "alpha": 0.95,
+   "frames": [
+    0,
+    25
+   ],
+   "target": [
+    0.961863,
+    0.029583,
+    -0.214268,
+    -0.167432
+   ]
+  },
+  {
+   "clip": "walk_armed",
+   "child": "LeftHand",
+   "parent": "LeftForeArm",
+   "alpha": 0.95,
+   "frames": [
+    0,
+    25
+   ],
+   "target": [
+    0.976679,
+    0.014338,
+    0.213994,
+    0.009904
+   ]
+  },
+  {
+   "clip": "run_armed",
+   "child": "RightHand",
+   "parent": "RightForeArm",
+   "alpha": 0.95,
+   "frames": [
+    0,
+    16
+   ],
+   "target": [
+    0.961863,
+    0.029583,
+    -0.214268,
+    -0.167432
+   ]
+  },
+  {
+   "clip": "run_armed",
+   "child": "LeftHand",
+   "parent": "LeftForeArm",
+   "alpha": 0.95,
+   "frames": [
+    0,
+    16
+   ],
+   "target": [
+    0.976679,
+    0.014338,
+    0.213994,
+    0.009904
+   ]
+  }
+ ]
+}
