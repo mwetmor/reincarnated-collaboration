@@ -579,7 +579,8 @@
     "run_armed_L",
     "run_armed_R"
    ],
-   "shield_bash": "shield_bash"
+   "shield_bash": "shield_bash",
+   "strafe_left": "strafe_L_armed"
   },
   "unarmed": {
    "idle": "idle",
@@ -603,9 +604,11 @@
    "run_armed_L",
    "run_armed_R",
    "run_armed_diagblend_REJECTED",
+   "run_armed_locked",
    "shield_bash",
    "shield_carry_L",
    "shield_guard_L",
+   "strafe_L_armed",
    "walk",
    "walk_armed",
    "walk_armed_unarmedsrc"
@@ -613,7 +616,8 @@
   "rejected": {
    "run_armed_diagblend_REJECTED": "the 50/50 blend of the two diagonals. Body yaw -32.40 deg: still angled. Both source clips lean the SAME way (-38.79 and -14.91), so their mean is the mean angle, not zero. Kept in the file only as evidence; do not use.",
    "shield_carry_L": "see superseded above -- 128 of 1829 inside the torso",
-   "walk_armed_unarmedsrc": "the unarmed walk with the lock; walk_armed is Meshy armed motion and better"
+   "walk_armed_unarmedsrc": "the unarmed walk with the lock; walk_armed is Meshy armed motion and better",
+   "run_armed_locked": "the unarmed run with the wrist locked; superseded by the retargeted run, kept as a fallback"
   }
  },
  "shield_centre_grip": {
@@ -761,7 +765,7 @@
  "lint": {
   "verdict": "WARN",
   "fails": [],
-  "warns": 8
+  "warns": 11
  },
  "gaps": {
   "straight_armed_run": {
@@ -784,8 +788,341 @@
  },
  "credits": {
   "w1_library": 33,
-  "w1_text_to_motion": 10,
-  "total": 43,
+  "w1_t2m_run": 10,
+  "w1b_t2m_strafe": 10,
+  "total": 53,
   "authorised": 60
+ },
+ "retargeter": {
+  "script": "scripts/41_retarget_smplh.py",
+  "purpose": "SMPL-H text-to-motion -> the 24-bone Meshy rig. The fully generated pipeline: any action the library lacks comes from text.",
+  "bones_mapped": 22,
+  "of_total": 24,
+  "unmapped": [
+   "head_end",
+   "headfront"
+  ],
+  "transport": "P_dst(f) = [ P_src(f) . R_src^-1 ] . R_dst -- each bone in its own rest frame",
+  "rest_alignment_error_deg": 0.0,
+  "rest_pose_difference": {
+   "source_arm_chain_z": [
+    0.2251,
+    0.2534
+   ],
+   "dest_arm_chain_z": [
+    1.4624,
+    0.9709
+   ],
+   "note": "the source rests in a T-pose (arm chain horizontal, 0.028 m drop); his rig rests in an A-pose (0.49 m drop). The rest-frame transport is what makes them interchangeable."
+  },
+  "root_scale": {
+   "source_leg_m": 0.7795,
+   "dest_leg_m": 0.8125,
+   "factor": 1.0423,
+   "why": "leg length, not height: stride and hip height both follow the legs, and height includes a head and neck that have nothing to do with how far a step travels"
+  },
+  "map": {
+   "Pelvis": "Hips",
+   "Spine1": "Spine02",
+   "Spine2": "Spine01",
+   "Spine3": "Spine",
+   "Neck": "neck",
+   "Head": "Head",
+   "L_Collar": "LeftShoulder",
+   "L_Shoulder": "LeftArm",
+   "L_Elbow": "LeftForeArm",
+   "L_Wrist": "LeftHand",
+   "R_Collar": "RightShoulder",
+   "R_Shoulder": "RightArm",
+   "R_Elbow": "RightForeArm",
+   "R_Wrist": "RightHand",
+   "L_Hip": "LeftUpLeg",
+   "L_Knee": "LeftLeg",
+   "L_Ankle": "LeftFoot",
+   "L_Foot": "LeftToeBase",
+   "R_Hip": "RightUpLeg",
+   "R_Knee": "RightLeg",
+   "R_Ankle": "RightFoot",
+   "R_Foot": "RightToeBase"
+  },
+  "checks": {
+   "verify_map": "every parent-child edge in the source must be an ancestor relation between the mapped destination bones",
+   "why": "the rest-alignment error CANNOT catch a bad map -- it recomputes both sides from whatever pair it is handed, so a perfect transport onto the wrong bone scores 0.000000 degrees. It did, for an inverted spine map."
+  },
+  "known_gap": "the in-script grounding does not survive the glTF export; both retargeted clips came back ~0.9 m underground and were fixed by scripts/43_reground_all.py afterwards. Run it after every retarget until this is traced."
+ },
+ "retargeted_clips": {
+  "run_armed": {
+   "travel_m": 8.6617,
+   "seconds": 2.0,
+   "speed_m_s": 4.33,
+   "foot_slide_mean_m": 0.0,
+   "foot_slide_max_m": 0.0,
+   "body_yaw_deg": 6.44,
+   "travel_dir_deg": 15.64,
+   "heading_offset_deg": 9.21,
+   "wrist": [
+    27.6,
+    0
+   ],
+   "foot_range_m": [
+    -0.0,
+    0.1044
+   ],
+   "verdict": "SHIPPED. 9.21 deg heading offset is the number to argue with; the rejected diagonal blend was 32.4."
+  },
+  "strafe_L_armed": {
+   "travel_m": 1.8591,
+   "seconds": 2.0,
+   "speed_m_s": 0.93,
+   "foot_slide_mean_m": 0.0,
+   "foot_slide_max_m": 0.0,
+   "body_yaw_deg": 0.34,
+   "travel_dir_deg": 104.37,
+   "heading_offset_deg": 104.03,
+   "wrist": [
+    40.3,
+    0
+   ],
+   "foot_range_m": [
+    0.0,
+    0.1039
+   ],
+   "verdict": "SHIPPED. 104.03 deg offset from facing is what a LEFT STRAFE should be (~90): he travels sideways while facing forward."
+  }
+ },
+ "grounding_fix": {
+  "rule": "the DEEPEST foot goes on the floor (mode=min), not the midpoint of the range",
+  "why": "the midpoint rule was chosen against ONE idle spanning 1.87 cm. Applied across the set it put attack_chop -- a leap, feet spanning -0.057 to +0.749 m -- 0.40 m UNDERGROUND: it took a correct clip and broke it.",
+  "idle_armed_defect": "found by the band rule on a file already shipped: root height 44.9-61.7 against 83-122 for every other clip, about 0.35 m low. Missed because clip hygiene only re-grounded clips whose SCALE was stripped, and Axe Stance has no scale track.",
+  "applied": {
+   "attack": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     0.0,
+     0.0242
+    ]
+   },
+   "attack_chop": {
+    "dz": 5e-06,
+    "basis_delta": [
+     4.1e-05,
+     0.000455,
+     7.6e-05
+    ],
+    "keys": 555,
+    "before": {
+     "min": -0.0,
+     "max": 0.806
+    },
+    "after": {
+     "min": 0.0,
+     "max": 0.806,
+     "worst_cm": 80.6
+    }
+   },
+   "block": {
+    "dz": 4e-06,
+    "basis_delta": [
+     2.8e-05,
+     0.000318,
+     5.3e-05
+    ],
+    "keys": 255,
+    "before": {
+     "min": -0.0,
+     "max": 0.2266
+    },
+    "after": {
+     "min": 0.0,
+     "max": 0.2266,
+     "worst_cm": 22.66
+    }
+   },
+   "idle": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0093,
+     0.0093
+    ]
+   },
+   "idle_armed": {
+    "dz": 6e-06,
+    "basis_delta": [
+     4.8e-05,
+     0.000536,
+     8.9e-05
+    ],
+    "keys": 444,
+    "before": {
+     "min": -0.0,
+     "max": 0.5753
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.5753,
+     "worst_cm": 57.53
+    }
+   },
+   "run": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0397,
+     0.0709
+    ]
+   },
+   "run_armed": {
+    "dz": 5e-06,
+    "basis_delta": [
+     4.2e-05,
+     0.000473,
+     7.9e-05
+    ],
+    "keys": 180,
+    "before": {
+     "min": -0.0,
+     "max": 0.1044
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1044,
+     "worst_cm": 10.44
+    }
+   },
+   "run_armed_L": {
+    "dz": -2e-06,
+    "basis_delta": [
+     -1.3e-05,
+     -0.000148,
+     -2.5e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": 0.0,
+     "max": 0.4639
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.4639,
+     "worst_cm": 46.39
+    }
+   },
+   "run_armed_R": {
+    "dz": 3e-06,
+    "basis_delta": [
+     2.2e-05,
+     0.000251,
+     4.2e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": -0.0,
+     "max": 0.2059
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.2059,
+     "worst_cm": 20.59
+    }
+   },
+   "run_armed_diagblend_REJECTED": {
+    "dz": -1e-06,
+    "basis_delta": [
+     -5e-06,
+     -6e-05,
+     -1e-05
+    ],
+    "keys": 48,
+    "before": {
+     "min": 0.0,
+     "max": 0.1857
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1857,
+     "worst_cm": 18.57
+    }
+   },
+   "run_armed_locked": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0397,
+     0.0709
+    ]
+   },
+   "shield_bash": {
+    "dz": 8e-06,
+    "basis_delta": [
+     6.1e-05,
+     0.000684,
+     0.000114
+    ],
+    "keys": 177,
+    "before": {
+     "min": -0.0,
+     "max": 0.4756
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.4756,
+     "worst_cm": 47.56
+    }
+   },
+   "strafe_L_armed": {
+    "dz": 0.904324,
+    "basis_delta": [
+     7.321305,
+     81.65062,
+     13.608703
+    ],
+    "keys": 180,
+    "before": {
+     "min": -0.9043,
+     "max": -0.8005
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.1039,
+     "worst_cm": 10.39
+    }
+   },
+   "walk": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0218,
+     -0.0032
+    ]
+   },
+   "walk_armed": {
+    "dz": 1e-06,
+    "basis_delta": [
+     1.2e-05,
+     0.000129,
+     2.2e-05
+    ],
+    "keys": 129,
+    "before": {
+     "min": -0.0,
+     "max": 0.116
+    },
+    "after": {
+     "min": -0.0,
+     "max": 0.116,
+     "worst_cm": 11.6
+    }
+   },
+   "walk_armed_unarmedsrc": {
+    "skipped": "already within 2 cm of the floor",
+    "feet": [
+     -0.0218,
+     -0.0032
+    ]
+   },
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "isolated": []
+   }
+  }
  }
 }
