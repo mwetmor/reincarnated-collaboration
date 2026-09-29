@@ -26,6 +26,7 @@ tall, so a portrait window would either cut the tail off or paint the animal
 at a third of the available resolution.
 """
 import json, os, sys
+import numpy as np
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +41,9 @@ ROW_H = [341, 341, 342]
 FRAME_PX = 512
 DIRS = ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]
 FULL_DIRS = ["E", "SE"]
+# R-C9-66: Matt chose per-frame paint as the PRIMARY method, so every
+# direction now needs a full 4x3 cycle sheet, not two keys.
+ALL_FULL = DIRS
 KEY_DIRS = [d for d in DIRS if d not in FULL_DIRS]
 CLIPS = [("walk", 12), ("run", 8), ("idle", 12), ("attack", 12)]
 PREFIX = "mc"                     # manticore, so the sheets cannot be confused
@@ -52,6 +56,59 @@ def colour_path(clip, d, i):
 
 def mask_path(clip, d, i):
     return os.path.join(OUT, clip, "guides_mask", d, "mask_%s_%02d.png" % (d, i))
+
+
+def srgb(x):
+    x = np.clip(np.asarray(x, dtype=np.float64), 0.0, 1.0)
+    return np.where(x <= 0.0031308, x * 12.92, 1.055 * np.power(x, 1 / 2.4) - 0.055)
+
+
+# WHICH WAY THE HEAD FACES IS SETTLED BY THE AZIMUTH, not by colour. The rig
+# faces +Y and S is the camera at 0 deg, so the geometry is exact and needs no
+# measuring. A bare-skin threshold cannot do it: measured over all 128 cells,
+# N spans 0.017-0.078 and NE/NW span 0.048-0.121, so they OVERLAP across
+# 0.048-0.078 and no single cut separates them. Labelling by colour put walk N
+# and idle N -- which are plainly the back of a head -- in the same class as
+# the rear three-quarters.
+#
+# The measurement still earns its place, for the thing the azimuth cannot
+# know: the head TURNS within a clip. So the nominal view comes from the
+# direction and the per-cell number flags the cells where the turn has moved
+# the head off it.
+NOMINAL_VIEW = {"S": "face", "SE": "face", "SW": "face",
+                "E": "profile", "W": "profile",
+                "NE": "edge", "NW": "edge", "N": "back"}
+TURN_TOL = 0.28          # fractional deviation from the direction's own median
+FACE_MEANING = {
+    "face": "the man's face is square to the camera - eyes, nose, mouth all visible",
+    "profile": "the face is in profile - one eye, the nose line, the full beard",
+    "edge": "REAR THREE-QUARTER: mostly the back of the head and hair, with only "
+            "a sliver of cheek and the edge of the beard. Do NOT draw a full face here",
+    "back": "THE BACK OF THE HEAD: hair only. No eye, no nose, no mouth",
+}
+
+
+def face_visibility(clip, d, i):
+    """How much of the man's face this cell shows, from the render itself."""
+    rp = json.load(open(os.path.join(OUT, clip, "render_%s.json" % clip)))
+    col = srgb(np.array(rp["guides"]["bone_colours"]["head"], dtype=np.float64))
+    a = np.asarray(Image.open(os.path.join(
+        OUT, clip, "guides_part", d, "part_%s_%02d.png" % (d, i))).convert("RGBA")
+    ).astype(np.float64)
+    hit = (a[..., 3] > 128) & (np.abs(a[..., :3] / 255.0 - col).max(-1) < 0.02)
+    if hit.sum() < 20:
+        return 0.0, "back"
+    ys, xs = np.nonzero(hit)
+    bb = (max(0, xs.min() - 10), max(0, ys.min() - 10),
+          min(FRAME_PX, xs.max() + 11), min(FRAME_PX, ys.max() + 11))
+    im = np.asarray(Image.open(os.path.join(
+        OUT, clip, "colour", d, "%s_%s_%02d.png" % (clip, d, i))).convert("RGBA")
+    ).astype(np.float64)
+    sub = im[bb[1]:bb[3], bb[0]:bb[2]]
+    al = sub[..., 3] > 128
+    rgb = sub[..., :3] / 255.0
+    sel = al & ((rgb[..., 0] - rgb[..., 2]) > 0.20) & (rgb.mean(-1) > 0.62)
+    return round(float(sel.sum()) / max(int(al.sum()), 1), 4)
 
 
 def cell_box(k):
@@ -119,30 +176,63 @@ def build(cells, crop, path, sheet_name):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dirs", default=None,
+                    help="directions to emit as FULL cycle sheets "
+                         "(default: E,SE only)")
+    ap.add_argument("--no-keys", action="store_true",
+                    help="skip the two-key plates (superseded by full sheets)")
+    args = ap.parse_args()
     os.makedirs(ASTRA, exist_ok=True)
     sheets = []
 
     for clip, n in CLIPS:
-        for d in FULL_DIRS:
+        for d in (args.dirs.split(",") if args.dirs else FULL_DIRS):
             paths = [(colour_path(clip, d, i), mask_path(clip, d, i)) for i in range(n)]
             crop = silhouette_bbox(paths)
             if crop is None:
                 print("  SKIP %s %s (no frames rendered)" % (clip, d)); continue
-            cells = [(colour_path(clip, d, i), dict(state=clip, dir=d, frame=i))
-                     if i < n else (None, dict(state=clip, dir=d, frame=None))
-                     for i in range(12)]
+            fvs = [face_visibility(clip, d, i) for i in range(n)]
+            med = float(np.median(fvs))
+            cells = []
+            for i in range(12):
+                if i < n:
+                    dev = (fvs[i] - med) / max(med, 1e-6)
+                    turn = ("more face than the rest of this sheet"
+                            if dev > TURN_TOL else
+                            ("less face than the rest of this sheet"
+                             if dev < -TURN_TOL else None))
+                    cells.append((colour_path(clip, d, i),
+                                  dict(state=clip, dir=d, frame=i,
+                                       face_visibility=fvs[i],
+                                       head_view=NOMINAL_VIEW[d],
+                                       head_turn=turn)))
+                else:
+                    cells.append((None, dict(state=clip, dir=d, frame=None)))
             name = "%s_%s_%s.png" % (PREFIX, clip, d)
             build(cells, crop, os.path.join(ASTRA, name), name)
+            views = {NOMINAL_VIEW[d]: list(range(n))}
+            turned = {c[1]["frame"]: c[1]["head_turn"] for c in cells[:n]
+                      if c[1].get("head_turn")}
             sheets.append(dict(file=name, kind="full", state=clip, dir=d, part=0,
                                cells=n, crop=crop,
-                               scale=round(CELL[0] / crop[2], 5)))
-            print("  %-22s %2d cells  crop %s  scale x%.3f"
-                  % (name, n, crop, CELL[0] / crop[2]))
+                               scale=round(CELL[0] / crop[2], 5),
+                               head_view=NOMINAL_VIEW[d],
+                               head_view_meaning=FACE_MEANING[NOMINAL_VIEW[d]],
+                               head_turn_cells=turned,
+                               face_visibility_median=round(med, 4),
+                               face_visibility=[c[1]["face_visibility"] for c in cells[:n]]))
+            print("  %-22s %2d cells  %-8s med %.3f%s"
+                  % (name, n, NOMINAL_VIEW[d], med,
+                     ("   TURN: " + "; ".join("f%d %s" % (k, v)
+                                              for k, v in sorted(turned.items())))
+                     if turned else ""))
 
     # key sheets: every clip x the six non-painted directions x 2 keys,
     # packed 12 to a plate exactly as meshy_t1 does
     key_cells = []
-    for clip, n in CLIPS:
+    for clip, n in ([] if args.no_keys else CLIPS):
         for d in KEY_DIRS:
             for kf in (0, n // 2):
                 key_cells.append((colour_path(clip, d, kf),
@@ -177,7 +267,21 @@ def main():
         sole_row=398, elevation_deg=19.77,
         azimuths={"S": 0, "SE": 45, "E": 90, "NE": 135, "N": 180, "NW": 225,
                   "W": 270, "SW": 315},
-        full_paint_dirs=FULL_DIRS, key_dirs=KEY_DIRS,
+        full_paint_dirs=(args.dirs.split(",") if args.dirs else FULL_DIRS),
+        key_dirs=KEY_DIRS,
+        nominal_view=NOMINAL_VIEW,
+        head_turn_tolerance=TURN_TOL,
+        face_meaning=FACE_MEANING,
+        face_note="head_view is fixed by the AZIMUTH -- the rig faces +Y and "
+                  "S is the camera at 0 deg, so it is exact. face_visibility is "
+                  "the bare-skin fraction of the head box measured on the "
+                  "render; it is NOT used to classify (N spans 0.017-0.078 and "
+                  "NE/NW span 0.048-0.121, so they overlap and no threshold "
+                  "separates them) but it does catch the head TURNING inside a "
+                  "clip, which the azimuth cannot know. head_turn_cells names "
+                  "the frames that sit more than 28 % off their own sheet's "
+                  "median -- those are the cells where a uniform instruction "
+                  "would be wrong.",
         clips={c: dict(frames=n, keys=[0, n // 2]) for c, n in CLIPS},
         sheets=sheets,
         totals=dict(sheets=len(sheets),

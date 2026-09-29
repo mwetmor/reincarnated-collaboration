@@ -1,5 +1,5 @@
 {
- "sheet": "mc_walk_E.png",
+ "sheet": "mc_run_W.png",
  "sheet_px": [
   1536,
   1024
@@ -18,7 +18,7 @@
  "game_frame_px": 512,
  "plate": "#00ff00",
  "cut_back": "for each cell: crop the painted cell, resize to crop[2]xcrop[3], paste at (crop[0], crop[1]) into a 512x512 frame",
- "n_cells": 12,
+ "n_cells": 8,
  "cells": [
   {
    "cell": 0,
@@ -29,18 +29,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_00.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_00.png",
+   "state": "run",
+   "dir": "W",
    "frame": 0,
-   "face_visibility": 0.1406,
+   "face_visibility": 0.135,
    "head_view": "profile",
    "head_turn": null
   },
@@ -53,18 +53,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_01.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_01.png",
+   "state": "run",
+   "dir": "W",
    "frame": 1,
-   "face_visibility": 0.1423,
+   "face_visibility": 0.1293,
    "head_view": "profile",
    "head_turn": null
   },
@@ -77,18 +77,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_02.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_02.png",
+   "state": "run",
+   "dir": "W",
    "frame": 2,
-   "face_visibility": 0.1398,
+   "face_visibility": 0.136,
    "head_view": "profile",
    "head_turn": null
   },
@@ -101,18 +101,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_03.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_03.png",
+   "state": "run",
+   "dir": "W",
    "frame": 3,
-   "face_visibility": 0.1419,
+   "face_visibility": 0.1307,
    "head_view": "profile",
    "head_turn": null
   },
@@ -125,18 +125,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_04.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_04.png",
+   "state": "run",
+   "dir": "W",
    "frame": 4,
-   "face_visibility": 0.1365,
+   "face_visibility": 0.1303,
    "head_view": "profile",
    "head_turn": null
   },
@@ -149,18 +149,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_05.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_05.png",
+   "state": "run",
+   "dir": "W",
    "frame": 5,
-   "face_visibility": 0.1374,
+   "face_visibility": 0.1306,
    "head_view": "profile",
    "head_turn": null
   },
@@ -173,18 +173,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_06.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_06.png",
+   "state": "run",
+   "dir": "W",
    "frame": 6,
-   "face_visibility": 0.1384,
+   "face_visibility": 0.1283,
    "head_view": "profile",
    "head_turn": null
   },
@@ -197,18 +197,18 @@
    "w": 384,
    "h": 341,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_07.png",
-   "state": "walk",
-   "dir": "E",
+   "scale": 1.63404,
+   "source": "out/run/colour/W/run_W_07.png",
+   "state": "run",
+   "dir": "W",
    "frame": 7,
-   "face_visibility": 0.1322,
+   "face_visibility": 0.1318,
    "head_view": "profile",
    "head_turn": null
   },
@@ -221,20 +221,17 @@
    "w": 384,
    "h": 342,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_08.png",
-   "state": "walk",
-   "dir": "E",
-   "frame": 8,
-   "face_visibility": 0.1348,
-   "head_view": "profile",
-   "head_turn": null
+   "scale": 1.63404,
+   "source": null,
+   "state": "run",
+   "dir": "W",
+   "frame": null
   },
   {
    "cell": 9,
@@ -245,20 +242,17 @@
    "w": 384,
    "h": 342,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_09.png",
-   "state": "walk",
-   "dir": "E",
-   "frame": 9,
-   "face_visibility": 0.1308,
-   "head_view": "profile",
-   "head_turn": null
+   "scale": 1.63404,
+   "source": null,
+   "state": "run",
+   "dir": "W",
+   "frame": null
   },
   {
    "cell": 10,
@@ -269,20 +263,17 @@
    "w": 384,
    "h": 342,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_10.png",
-   "state": "walk",
-   "dir": "E",
-   "frame": 10,
-   "face_visibility": 0.1343,
-   "head_view": "profile",
-   "head_turn": null
+   "scale": 1.63404,
+   "source": null,
+   "state": "run",
+   "dir": "W",
+   "frame": null
   },
   {
    "cell": 11,
@@ -293,20 +284,17 @@
    "w": 384,
    "h": 342,
    "crop": [
-    146,
-    240,
-    218,
-    194
+    142,
+    229,
+    235,
+    208
    ],
    "frame_px": 512,
-   "scale": 1.76147,
-   "source": "out/walk/colour/E/walk_E_11.png",
-   "state": "walk",
-   "dir": "E",
-   "frame": 11,
-   "face_visibility": 0.1359,
-   "head_view": "profile",
-   "head_turn": null
+   "scale": 1.63404,
+   "source": null,
+   "state": "run",
+   "dir": "W",
+   "frame": null
   }
  ]
 }
