@@ -19112,6 +19112,12 @@
       "topic": "D2: shield_carry_L arm layer authored and verified; shield clears in locomotion",
       "result": "Single-pose action on the shared rig, filtered to LeftShoulder/LeftArm/LeftForeArm/LeftHand, blended at weight 1 over idle/walk/run when the shield is equipped (never over attack). Crossing-parity worst frame (of 1,864 shield vertices): idle 183 -> 12, walk 313 -> 3, run 389 -> 14 (worst depths 0.084 / 0.003 / 0.011 m). Grip: nearest shield vertex 0.063 m from the left hand. The shield is now socketed to LeftHand in the carry pose (a forearm socket put the grip at the elbow). BUG FOUND AND FIXED: fitting scripts read posed bone heads because a glTF import leaves the armature on an arbitrary action - pieces had been bound against frame 1 of some clip, including in the shipped export; every fitting script now resets to rest first; earlier shield numbers superseded. Pose authoring: two-bone IK stopped 0.22 m short; a hand-built aim matrix threw the elbow a metre out while the numbers improved (caught only by rendering) -> joint angles swept and scored against a wrist target. Export verified by reading back: 5 animations incl. shield_carry_L, helmet_on morph, bracers 2 objects, axe_edge. Handed to the scene drax for wiring + G3 re-capture.",
       "ts": "2026-09-29T03:57:59"
+    },
+    {
+      "id": "M-C9-D2-DONE",
+      "topic": "D2 COMPLETE in the scene (G3 ready): modular gear with G-key stacks, shield carry layer, verified axe",
+      "result": "shield_carry_L now applies over attack too (rule reversal kept as data: character.json never_over empty): attack 1107 (0.249 m, f18) -> 57 (0.069 m, f35 = recovery frame); idle 545->0, walk 934->0, run 1481->0 (0.25 m spine capsule, 2,439 shield vertices). Axe: BLADE SIDE LEADS at the strike - the leading point is the beard toe (+0.1255 m toward the edge across the haft; poll at -0.1006 m); still AXE_edge_verdict.jpg. The scene drax withdrew its earlier contrary verdict: AnimationTree frame-stepping after play() was non-deterministic (the pose at frame 16 moved 0.095 m between runs, once onto the poll); AnimationPlayer.seek() is exact and repeatable. Final G3 captures: GEAR_stacks_close.jpg, d2_gear_walk.mp4, d2_gear_run.mp4 (626.4 px/s), d2_gear_attack.mp4; staged app 371 MB (press G). D2 total: Tripo $2.00, 4 Astra sheets, 0 Meshy.",
+      "ts": "2026-09-29T04:23:42"
     }
   ],
   "halts": [
