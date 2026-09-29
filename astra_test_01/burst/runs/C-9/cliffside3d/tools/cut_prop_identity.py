@@ -8,14 +8,15 @@ sheet is a sheet of THIS object, at the size this object really is.
 
 TRUE SCALE, and where each number comes from. The painting and the geometry disagree
 about how big a prop is, by a factor that is measurable rather than guessed: the four rail
-posts exist in BOTH -- 0.22 x 1.20 x 0.22 m in cliffside_blockout.gd:659, and 110 sprite
-px in the plate, which under (h/PPM)/cos(pitch) is 1.81 m. The painting draws its props
-**1.512x** larger than the geometry they stand on. That factor, applied to the props that
+posts exist in BOTH -- 0.22 x 1.20 x 0.22 m in cliffside_blockout.gd:659, and 110/105/105/
+104 sprite px in the plate, which under (h/PPM)/cos(pitch) are 1.81/1.73/1.73/1.72 m. The
+painting draws its props **1.457x** larger than the geometry they stand on -- the MEAN over
+the four, not the tallest of them, which is the number a single post would have given. That factor, applied to the props that
 have no blockout counterpart, is an INFERENCE from one measured class -- stated, not
 hidden, so it can be overruled.
 
 The raven is the exception and it is not close: the painted bird is 55 px of ink, 0.91 m
-tall. Divided by 1.512 that is still 0.60 m -- a raven is 0.28 m perched. For an animal
+tall. Divided by 1.457 that is still 0.62 m -- a raven is 0.28 m perched. For an animal
 the authority is the animal, so the raven is scaled from life and the factor is not used.
 """
 import json
@@ -30,13 +31,13 @@ OUT = HERE / "t9_1a"
 
 PPM = 100.617553710938
 PITCH_COS = 0.602462407085
-OVERSCALE = 1.512          # measured: painted rail post 1.81 m vs blockout 1.20 m
+OVERSCALE = 1.457          # measured: the four painted posts 1.72-1.81 m vs blockout 1.20 m
 GREEN = (0, 255, 0)
 
 # sheet -> rows; each row is (prop ids on that row, true height in metres, note key)
 SHEETS = {
     "T9P-A": {"title": "the scorched snag",
-              "rows": [(["bridge_obj_01_a"], 2.80)]},
+              "rows": [(["bridge_obj_01_a"], 2.93)]},
     "T9P-B": {"title": "the rail post and the burnt stump",
               "rows": [(["bridge_post_0", "bridge_post_1", "bridge_post_2",
                          "bridge_post_3"], 1.20),
@@ -46,7 +47,7 @@ SHEETS = {
                        (["raven_perched"], 0.28)]},
 }
 # props whose size is set across, not up (a coil on the ground)
-ACROSS = {"bridge_obj_02_a": 0.62}
+ACROSS = {"bridge_obj_02_a": 0.65}
 
 PLATE_W, PLATE_H = 1536, 1024
 PAD = 48

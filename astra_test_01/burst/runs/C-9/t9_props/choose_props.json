@@ -1,0 +1,226 @@
+{
+ "scores": {
+  "snag": {
+   "a": {
+    "mirror_iou": 0.609,
+    "self_iou_front": 0.383,
+    "self_iou_back": 0.593,
+    "heights_px": [
+     682,
+     683,
+     697,
+     705
+    ],
+    "widths_px": [
+     520,
+     445,
+     515,
+     431
+    ],
+    "height_cv": 0.014,
+    "width_cv": 0.0839
+   },
+   "b": {
+    "mirror_iou": 0.794,
+    "self_iou_front": 0.378,
+    "self_iou_back": 0.428,
+    "heights_px": [
+     700,
+     701,
+     707,
+     707
+    ],
+    "widths_px": [
+     547,
+     393,
+     516,
+     402
+    ],
+    "height_cv": 0.0046,
+    "width_cv": 0.1463
+   }
+  },
+  "post": {
+   "a": {
+    "mirror_iou": 0.977,
+    "self_iou_front": 0.976,
+    "self_iou_back": 0.983,
+    "heights_px": [
+     467,
+     468,
+     468,
+     466
+    ],
+    "widths_px": [
+     173,
+     172,
+     176,
+     172
+    ],
+    "height_cv": 0.0018,
+    "width_cv": 0.0095
+   },
+   "b": {
+    "mirror_iou": 0.978,
+    "self_iou_front": 0.979,
+    "self_iou_back": 0.984,
+    "heights_px": [
+     453,
+     456,
+     457,
+     456
+    ],
+    "widths_px": [
+     169,
+     170,
+     171,
+     167
+    ],
+    "height_cv": 0.0033,
+    "width_cv": 0.0087
+   }
+  },
+  "stump": {
+   "a": {
+    "mirror_iou": 0.846,
+    "self_iou_front": 0.817,
+    "self_iou_back": 0.829,
+    "heights_px": [
+     354,
+     345,
+     341,
+     352
+    ],
+    "widths_px": [
+     376,
+     308,
+     366,
+     326
+    ],
+    "height_cv": 0.0151,
+    "width_cv": 0.0813
+   },
+   "b": {
+    "mirror_iou": 0.766,
+    "self_iou_front": 0.823,
+    "self_iou_back": 0.866,
+    "heights_px": [
+     335,
+     338,
+     326,
+     329
+    ],
+    "widths_px": [
+     370,
+     317,
+     345,
+     335
+    ],
+    "height_cv": 0.0143,
+    "width_cv": 0.056
+   }
+  },
+  "rope": {
+   "a": {
+    "mirror_iou": 0.942,
+    "self_iou_front": 0.944,
+    "self_iou_back": 0.929,
+    "heights_px": [
+     189,
+     153,
+     183,
+     155
+    ],
+    "widths_px": [
+     347,
+     345,
+     342,
+     347
+    ],
+    "height_cv": 0.095,
+    "width_cv": 0.0059
+   },
+   "b": {
+    "mirror_iou": 0.962,
+    "self_iou_front": 0.937,
+    "self_iou_back": 0.958,
+    "heights_px": [
+     224,
+     215,
+     220,
+     215
+    ],
+    "widths_px": [
+     339,
+     336,
+     336,
+     338
+    ],
+    "height_cv": 0.0173,
+    "width_cv": 0.0039
+   }
+  },
+  "raven": {
+   "a": {
+    "mirror_iou": 0.805,
+    "self_iou_front": 0.928,
+    "self_iou_back": 0.88,
+    "heights_px": [
+     447,
+     440,
+     467,
+     448
+    ],
+    "widths_px": [
+     248,
+     409,
+     245,
+     370
+    ],
+    "height_cv": 0.0222,
+    "width_cv": 0.229
+   },
+   "b": {
+    "mirror_iou": 0.908,
+    "self_iou_front": 0.937,
+    "self_iou_back": 0.957,
+    "heights_px": [
+     437,
+     443,
+     446,
+     442
+    ],
+    "widths_px": [
+     243,
+     397,
+     228,
+     378
+    ],
+    "height_cv": 0.0073,
+    "width_cv": 0.2455
+   }
+  }
+ },
+ "picks": {
+  "snag": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.794 vs 0.609)"
+  },
+  "post": {
+   "variant": "a",
+   "why": "mirror within 0.02; lower height_cv (0.0018)"
+  },
+  "stump": {
+   "variant": "a",
+   "why": "higher mirror_iou (0.846 vs 0.766)"
+  },
+  "rope": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.962 vs 0.942)"
+  },
+  "raven": {
+   "variant": "b",
+   "why": "higher mirror_iou (0.908 vs 0.805)"
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/godot/plate/plate_v4.png",
+ "tiles": {
+  "top": {
+   "status": "ok",
+   "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/t9_1b/painted/t9_albedo_top.png",
+   "resampled_from": null,
+   "offset_dy_dx": [
+    0,
+    0
+   ],
+   "peak_sigma": 336.6,
+   "green_leak_px": 160,
+   "mean_luma_painted": {
+    "before": 120.41,
+    "after": 138.14
+   }
+  },
+  "bot_left": {
+   "status": "ok",
+   "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/t9_1b/painted/t9_albedo_bot_left.png",
+   "resampled_from": null,
+   "offset_dy_dx": [
+    0,
+    -1
+   ],
+   "peak_sigma": 289.0,
+   "green_leak_px": 4070,
+   "mean_luma_painted": {
+    "before": 127.84,
+    "after": 158.37
+   }
+  },
+  "bot_right": {
+   "status": "ok",
+   "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/t9_1b/painted/t9_albedo_bot_right.png",
+   "resampled_from": null,
+   "offset_dy_dx": [
+    0,
+    0
+   ],
+   "peak_sigma": 483.0,
+   "green_leak_px": 113,
+   "mean_luma_painted": {
+    "before": 109.8,
+    "after": 143.06
+   }
+  }
+ },
+ "feather": 96,
+ "edge_feather": 64,
+ "warnings": [
+  "top: 160 painted pixels came back keying-green -- filled from the nearest repainted neighbour",
+  "bot_left: 4070 painted pixels came back keying-green -- filled from the nearest repainted neighbour",
+  "bot_right: 113 painted pixels came back keying-green -- filled from the nearest repainted neighbour"
+ ],
+ "alpha_identical": true,
+ "untouched_outside_region": true,
+ "changed_px": 3421164,
+ "bridge_view": {
+  "plate_v4": {
+   "mean_luma_painted": 116.99,
+   "near_black_pct_painted": 3.1
+  },
+  "plate_v4_albedo": {
+   "mean_luma_painted": 142.53,
+   "near_black_pct_painted": 1.0
+  }
+ },
+ "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/godot/plate/plate_v4_albedo.png"
+}

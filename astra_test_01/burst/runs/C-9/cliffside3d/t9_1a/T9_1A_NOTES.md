@@ -16,20 +16,26 @@ the barbarian was painted in, so the props he stands among come from the same ha
 **True scale, and where each number comes from.** The painting and the geometry disagree
 about how big a prop is, and the disagreement is measurable rather than guessed: the rail
 posts exist in both. `cliffside_blockout.gd:659` builds them 0.22 × **1.20** × 0.22 m; the
-painted post is 110 sprite px, which under `(h/PPM)/cos(pitch)` is **1.81 m**. The painting
-draws its props **1.512×** larger than the geometry they stand on. Applied to the props
-that have no blockout twin, that factor is an *inference from one measured class* — stated
-so it can be overruled. The raven is the exception: 1.512 still leaves it 0.60 m, and a
-raven is 0.28 m, so the bird is scaled from life.
+four painted posts are 110, 105, 105 and 104 sprite px, which under `(h/PPM)/cos(pitch)`
+are 1.81, 1.73, 1.73 and 1.72 m. So the painting draws its props **1.457×** larger than the
+geometry they stand on (range 1.43–1.51 over the four; mean, not the tallest). Applied to
+the props that have no blockout twin, that factor is an *inference from one measured class*
+— stated so it can be overruled. The raven is the exception: 1.457 still leaves it 0.62 m,
+and a raven is 0.28 m, so the bird is scaled from life.
 
 | prop | painted implies | true target | on screen at true scale |
 |---|---|---|---|
-| rail post | 1.81 m h | **1.20 m h, 0.22 × 0.22 m** (blockout) | 72.7 px |
-| scorched snag | 4.27 m h, 2.19 m span | **2.80 m h, 1.45 m span** | 170 px |
-| burnt stump | 1.17 m h | **0.80 m h, 0.55 m across** | 48 px |
-| coil of rope | 0.94 m across | **0.62 m across, 0.15 m high** | 62 px across |
+| rail post | 1.72–1.81 m h | **1.20 m h, 0.22 × 0.22 m** (blockout) | 72.7 px |
+| scorched snag | 4.27 m h, 2.19 m span | **2.93 m h, 1.50 m span** | 178 px |
+| burnt stump | 1.17 m h | **0.80 m h, 0.57 m across** | 49 px |
+| coil of rope | 0.94 m across | **0.65 m across, 0.15 m high** | 65 px across |
 | perched raven | 0.91 m h | **0.28 m h, 0.50 m long** (from life) | 17 px |
-| *the barbarian, for comparison* | — | 1.85 m at figure scale 1.0 | **112.1 px** |
+| *the barbarian, for comparison* | — | figure scale 1.0 | **123.3 px** (measured, T9-0) |
+
+The barbarian's row is **measured, not derived**, and the two disagree: `character.json`
+calls him 1.85 m, which through the same projection would be 112 px, but T9-0 measured his
+`head_end` at **123.3 canvas px** at scale 1.0. The nominal metre figure is a label; the
+canvas pixels are the thing. Prop sizes are compared against 123.3.
 
 ---
 

@@ -45,6 +45,16 @@ var lit := false
 var _terrain_ink: Array[MeshInstance3D] = []
 var report := {}
 
+# --- T9: the world built the way the character was built ----------------------
+const ALBEDO_PLATE := "res://plate/plate_v4_albedo.png"
+const PROPS3D_MANIFEST := "res://data/props3d.json"
+var _albedo_tex: Texture2D = null          # null until the repaint lands
+var _albedo_on := true                     # honoured only in lit mode
+var _props3d_on := true                    # honoured only in lit mode
+var _props3d: Dictionary = {}              # prop name -> Node3D of the real model
+var _props3d_report: Dictionary = {}
+var _post_boxes: Array[MeshInstance3D] = []   # the blockout's 1.20 m rail-post boxes
+
 
 func _ready() -> void:
 	_build_geometry()
@@ -94,6 +104,8 @@ func _build_world() -> void:
 		"res://data/parallax.json", right, up, fwd, far_edge + 2.0)
 	report["lights"] = CliffWorld.build_lights(self, space, "res://props",
 		right, up, fwd, 47.0)
+	_build_props3d(space)
+	report["props3d"] = _props3d_report
 	_build_knight(space)
 	look_at_canvas(_aim_px)          # the background exists now; place it for this aim
 	if knight != null:
@@ -468,6 +480,19 @@ void fragment() {
 	_proj_mat_lit.shader = sh_lit
 	for pnm in ["plate", "axis_right", "axis_up", "ppm", "umin", "vmax", "canvas"]:
 		_proj_mat_lit.set_shader_parameter(pnm, _proj_mat.get_shader_parameter(pnm))
+	# T9-1b: THE ALBEDO PLATE, and it goes on the LIT PROJECTOR ONLY.
+	#
+	# Not on `_proj_mat`, because painted mode must stay the thing Matt played. And not on
+	# the plate BACKDROP either, which is a separate quad built in _build_world with its own
+	# explicit load: the backdrop carries the 7.35% of this frame that is painted plate with
+	# no geometry under it -- the chasm's cloud bank and the haze on its far lip -- and its
+	# shader is `unshaded` in both modes (world.gd:410), so that paint is never double-lit
+	# and has nothing to be relieved of. De-lighting a cloud only flattens it.
+	if ResourceLoader.exists(ALBEDO_PLATE):
+		_albedo_tex = load(ALBEDO_PLATE)
+		print("[c3d] albedo plate found: %s" % ALBEDO_PLATE)
+	else:
+		print("[c3d] no albedo plate at %s -- lit mode uses the painted plate" % ALBEDO_PLATE)
 
 
 func _apply_projector() -> void:
@@ -632,6 +657,174 @@ func _update_hud() -> void:
 		   knight._figure_scale if knight != null else 1.0])
 
 
+func _build_props3d(space: PhysicsDirectSpaceState3D) -> void:
+	"""T9-1a: the slice's props as REAL MODELS, standing on the terrain at TRUE scale.
+
+	A card is a photograph of a prop with the painter's light baked into it. Lit, it keeps
+	that light and takes the sun's as well, which is why T9-0 recorded the props reading
+	'flat and dark next to a lit figure'. These stand up, catch the same sun he catches,
+	and throw their own shadows.
+
+	TRUE SCALE is the point and it is not free. The four painted post cards are 104-110
+	canvas px; the blockout post they stand on is 1.20 m, which is 72.7 px. Measured in
+	tools/probe_t9_scale.gd: the worst stub of painted post left standing above a true-scale
+	model is 37.3 px. That is why the albedo repaint takes the painted posts out -- and why
+	the blockout's own post boxes are hidden here, since a modelled post occupies the space
+	they were standing in.
+
+	Scale is set from the MODEL'S OWN AABB against a target in metres, never from whatever
+	the exporter wrote: Meshy shipped this run a 0.01 object scale and it read as a correct
+	model until something was measured next to it."""
+	_props3d_report = {"manifest": PROPS3D_MANIFEST, "built": 0, "missing": [], "props": {}}
+	if not FileAccess.file_exists(PROPS3D_MANIFEST):
+		_props3d_report["status"] = "no manifest -- cards everywhere"
+		return
+	var data = JSON.parse_string(FileAccess.get_file_as_string(PROPS3D_MANIFEST))
+	if typeof(data) != TYPE_DICTIONARY:
+		_props3d_report["status"] = "manifest unreadable"
+		return
+	var models: Dictionary = data.get("models", {})
+	var insts: Dictionary = data.get("instances", {})
+	var props := get_node_or_null(^"Props")
+	if props == null:
+		_props3d_report["status"] = "no Props node"
+		return
+	var holder := Node3D.new()
+	holder.name = "Props3D"
+	add_child(holder)
+
+	var flat := right
+	flat.y = 0.0
+	flat = flat.normalized()
+	var n_axis := flat.cross(Vector3.UP)
+	var grounds := {}
+
+	for pname in insts:
+		var inst: Dictionary = insts[pname]
+		var mid := String(inst.get("model", ""))
+		if not models.has(mid):
+			_props3d_report["missing"].append("%s: no model '%s'" % [pname, mid])
+			continue
+		var spec: Dictionary = models[mid]
+		var path := String(spec.get("glb", ""))
+		if not ResourceLoader.exists(path):
+			_props3d_report["missing"].append("%s: %s not on disk" % [pname, path])
+			continue
+		var card := props.get_node_or_null(NodePath(pname)) as MeshInstance3D
+		if card == null:
+			_props3d_report["missing"].append("%s: no card to replace" % pname)
+			continue
+		var anchor_px: Vector2 = card.get_meta("anchor_px")
+
+		var node: Node3D = (load(path) as PackedScene).instantiate()
+		node.name = pname
+		holder.add_child(node)
+		# yaw FIRST, then measure: the generator delivers models yawed 90 degrees, and an
+		# AABB measured before the turn is the wrong box for a prop that is not square.
+		node.rotation = Vector3(0.0, deg_to_rad(float(spec.get("yaw_deg", 0.0))
+											   + float(inst.get("yaw_deg", 0.0))), 0.0)
+		var ab := _node_aabb(node)
+		if ab.size.y <= 0.0 or ab.size.x <= 0.0:
+			_props3d_report["missing"].append("%s: empty AABB" % pname)
+			node.queue_free()
+			continue
+		var axis := String(spec.get("axis", "height"))
+		var target := float(spec.get("height_m", 1.0))
+		var s: float = target / (ab.size.y if axis == "height" else maxf(ab.size.x, ab.size.z))
+		node.scale = Vector3(s, s, s)
+		ab = _node_aabb(node)
+
+		var base: Vector3
+		var perch := String(inst.get("perch_on", ""))
+		if perch != "" and grounds.has(perch):
+			base = (grounds[perch] as Vector3) + Vector3.UP * float(inst.get("perch_height_m", 1.2))
+		else:
+			var hit := CliffWorld.ground_at(space, anchor_px, right, up, fwd)
+			base = hit["position"] if not hit.is_empty() else CliffWorld.canvas_to_plane(anchor_px, right, up)
+			grounds[pname] = base
+		# plant it: AABB bottom on the ground point, AABB centre over the anchor
+		var c := ab.position + ab.size * 0.5
+		node.global_position = base + Vector3(node.global_position.x - c.x,
+											  node.global_position.y - ab.position.y,
+											  node.global_position.z - c.z)
+		for m in node.find_children("*", "MeshInstance3D", true, false):
+			var mi := m as MeshInstance3D
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+			mi.layers = FG_BIT
+		node.visible = false                       # painted mode is the default
+		_props3d[pname] = node
+		var fin := _node_aabb(node)
+		_props3d_report["props"][pname] = {
+			"model": mid, "target_m": target, "axis": axis,
+			"aabb_m": [snappedf(fin.size.x, 0.001), snappedf(fin.size.y, 0.001),
+					   snappedf(fin.size.z, 0.001)],
+			"canvas_px_tall": snappedf(fin.size.y * 0.602462407085 * PPM, 0.1),
+			"card_canvas_px_tall": snappedf((card.mesh as QuadMesh).size.y * 0.602462407085 * PPM, 0.1),
+			"scale_applied": snappedf(s, 0.0001)}
+		_props3d_report["built"] += 1
+
+	for m in level.find_children("*", "MeshInstance3D", true, false):
+		var mi := m as MeshInstance3D
+		if String(mi.name).begins_with("bridge_post"):
+			_post_boxes.append(mi)
+	_props3d_report["blockout_post_boxes"] = _post_boxes.size()
+	_props3d_report["status"] = "ok"
+
+
+func _node_aabb(n: Node3D) -> AABB:
+	var out := AABB()
+	var first := true
+	for m in n.find_children("*", "MeshInstance3D", true, false):
+		var mi := m as MeshInstance3D
+		if mi.mesh == null:
+			continue
+		var ab: AABB = mi.global_transform * mi.get_aabb()
+		out = ab if first else out.merge(ab)
+		first = false
+	return out
+
+
+func use_albedo_plate(on: bool) -> void:
+	_albedo_on = on
+	_apply_lit_sources()
+
+
+func use_props3d(on: bool) -> void:
+	_props3d_on = on
+	_apply_lit_sources()
+
+
+func albedo_plate_in_use() -> String:
+	if _albedo_tex == null:
+		return "<none: painted plate>"
+	return ALBEDO_PLATE if (lit and _albedo_on) else "res://plate/plate_v4.png"
+
+
+func props3d_report() -> Dictionary:
+	return _props3d_report
+
+
+func _apply_lit_sources() -> void:
+	"""Which plate the lit projector samples, and which props are standing.
+
+	Both are honoured ONLY in lit mode. Painted mode is the state Matt has played and
+	nothing here may reach it."""
+	var want_albedo: bool = lit and _albedo_on and _albedo_tex != null
+	if _proj_mat_lit != null:
+		_proj_mat_lit.set_shader_parameter("plate",
+			_albedo_tex if want_albedo else _proj_mat.get_shader_parameter("plate"))
+	var want_3d: bool = lit and _props3d_on
+	var props := get_node_or_null(^"Props")
+	for pname in _props3d:
+		(_props3d[pname] as Node3D).visible = want_3d
+		if props != null:
+			var card := props.get_node_or_null(NodePath(pname)) as MeshInstance3D
+			if card != null:
+				card.visible = not want_3d
+	for mi in _post_boxes:
+		mi.visible = not want_3d
+
+
 func set_lit(on: bool) -> void:
 	"""T9-0: the world lit the way the character is lit.
 
@@ -676,6 +869,10 @@ func set_lit(on: bool) -> void:
 				_size_step = i
 		knight.set_figure_scale(want)
 	_set_terrain_ink(on)
+	# LAST, and after the card swap above: _apply_lit_sources decides which props are
+	# standing, and set_lit's own loop has just handed every card a fresh material. Run in
+	# the other order and the cards it re-materialised are the ones this hides.
+	_apply_lit_sources()
 	_update_hud()
 
 

@@ -211,8 +211,48 @@ def run(grid_path: pathlib.Path, painted_dir: pathlib.Path, out_path: pathlib.Pa
             rep["warnings"].append("%s: correlation peak is weak (%.1f sigma, calibrated floor 700); "
                                    "the offset may be noise" % (tid, snr))
 
-        # did the painter leave #00ff00 inside painted pixels?
-        leak = int((np.abs(img.astype(np.int16) - GREEN).max(-1)[painted_mask] < 24).sum())
+        # KEYING GREEN LANDING ON A PIXEL THE PLATE CALLS PAINTED, filled from its
+        # NEIGHBOURS -- not from the original plate, which is the trap here.
+        #
+        # There are two ways this happens and they look identical in the return:
+        #   (a) the painter stopped a pixel or two short of the transparency boundary;
+        #   (b) the painter REMOVED AN OBJECT THAT STOOD AGAINST THE VOID, correctly, and
+        #       there was nothing behind it to paint but chasm.
+        # Case (b) is most of it: bridge_post_1 stands on the lip with the chasm behind it,
+        # and its own footprint is 3289 alpha>0 pixels of exactly this. The first version of
+        # this repair filled from the ORIGINAL plate and so PUT THE POST BACK -- 53.9% of
+        # its pixels byte-identical to the plate it had just been removed from, in the one
+        # place the step was asked to clear. It passed every assertion in this file.
+        #
+        # So the fill comes from the nearest NON-green repainted pixel instead: whatever
+        # the painter put beside the hole, which is ground where a post was removed and
+        # rock or grass where an edge crept. No original light returns and no green shows.
+        # It is the same answer the projector's own fill_void makes for unpainted geometry.
+        #
+        # Detection is by HUE, not by an exact match on #00ff00. Exact-match found 2512 px
+        # here and missed 1201 more where the green is antialiased against rock -- which is
+        # precisely the fringe along the chasm lip that the repair exists to remove.
+        # Verified on the original plate: this test fires on 0 of its alpha>0 pixels in all
+        # three tiles, so it cannot be mistaking the painting's own grass for the plate.
+        r_, g_, b_ = img[..., 0], img[..., 1], img[..., 2]
+        is_green = (g_ > 150) & (r_ < 110) & (b_ < 110) & (g_ - np.maximum(r_, b_) > 80)
+        leak_mask = is_green & painted_mask
+        leak = int(leak_mask.sum())
+        if leak:
+            # Fill from the nearest NON-GREEN pixel, and the mask handed to the transform
+            # is therefore `is_green` -- every green pixel -- not `leak_mask`.
+            #
+            # With leak_mask, the void's own green counts as valid background, because a
+            # green pixel at alpha==0 is not a leak. A leak pixel on the chasm boundary
+            # then has the void one step away and copies green from it. That is what it
+            # did: 2349 px of keying green survived the repair, all of them inside the
+            # repainted tiles and none in the plate it started from, and every assertion
+            # in this file still passed. The nearest non-green source is one word away and
+            # is the only source that can be right.
+            _, idx = ndimage.distance_transform_edt(is_green, return_indices=True)
+            img = img[idx[0], idx[1]]
+        # Paint pushed the OTHER way needs no repair: it lands under alpha==0, and RGB
+        # under alpha==0 is kept from the original by construction below.
 
         w = ramp_weight(th, tw, feather)
         acc[y0:y1, x0:x1] += img * w[..., None]
@@ -229,7 +269,7 @@ def run(grid_path: pathlib.Path, painted_dir: pathlib.Path, out_path: pathlib.Pa
             "mean_luma_painted": {"before": round(lum(before), 2), "after": round(lum(after), 2)},
         }
         if leak:
-            rep["warnings"].append("%s: %d painted pixels came back flat green" % (tid, leak))
+            rep["warnings"].append("%s: %d painted pixels came back keying-green -- filled from the nearest repainted neighbour" % (tid, leak))
 
     if not covered.any():
         raise SystemExit("no chunks were reassembled")

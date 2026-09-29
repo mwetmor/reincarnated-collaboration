@@ -86,8 +86,9 @@ stands at canvas (541–582, 449–553) at the deck's far corner, and `bridge_po
 casts at its own foot, and continue the ground behind it exactly as painted beside it —
 same sand, same grass, same stones, same rock ledges, running on naturally with no gap, no
 patch and no new object. *(Why: the posts are rebuilt as real 3D props at the blockout's
-true 1.20 m. The painted posts stand 1.81 m — 1.512× the geometry they sit on — so if they
-stay in the plate, 37 screen pixels of painted post stand above every real one.)*
+true 1.20 m. The four painted posts stand 1.72–1.81 m — 1.457× the geometry they sit on,
+mean over the four — so if they stay in the plate, 31–37 screen pixels of painted post stand
+above every real one.)*
 
 ## `bot_left` — the near plateau, the bridge's west landing, two rail posts, the chasm edge
 
