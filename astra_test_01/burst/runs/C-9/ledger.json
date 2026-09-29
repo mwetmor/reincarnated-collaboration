@@ -19094,6 +19094,12 @@
       "topic": "D2 modular gear: the swap test passes (base / + helmet+bracers / + byrnie / + fur mantle / + axe+shield) on ONE painted body, zero repaint; per-piece export",
       "result": "Helmet fixed with a helmet_on shape key (glTF morph) compressing crown hair under the helmet (two tests: radial + outside-and-near-the-shell): dome visible 19.0% -> 86.8%, hair through 76.5% -> 3.5% (ID-pass measured, 8 facings at 52.95 deg); braid and beard untouched by construction (candidates bounded above the rim). Weapons: axe on RightHand - cutting edge leads at strike frame 16 by +0.591 m (a CUT strike is where the edge, not the hand, reaches furthest forward: the knight thrust test would have failed a correct axe); shield on LeftForeArm oriented by its NORMAL (boss out), clear of the torso. Garment poke-through byrnie 1.20% / mantle 0.63% worst frame. Export runs/C-9/nb_d2/export/: nb-body.glb (helmet_on morph + 4 clips) + helmet/bracers/byrnie/mantle/axe/shield.glb + manifest.json, all at 1.85 m with the body transform baked in (a first export left pieces at the 1.70 m Meshy scale - caught by reading the files back). Cost D2: Tripo $2.00 (5 builds), 4 Astra sheets (NB-G1..3, NB-W1: ~12 images), 0 Meshy, ~5.5 h agent time. Next: in-scene gear toggles (G key, 5 stacks) for Matt gate G3.",
       "ts": "2026-09-29T03:01:36"
+    },
+    {
+      "id": "M-C9-T5",
+      "topic": "T5 CLOSED: the painted-texture 3D creature (manticore) - paint once, render every angle",
+      "result": "Two Astra paint sheets (A: 8-view ring at 19.77 deg; B: 4 views at 52.95 deg + 3 head close-ups) projected and baked into one 2048 texture with facing^4 x texel-density weighting (close-ups win the face 10:1). Identity holds across 16 angles at 52.95 deg; nothing drifts because nothing is regenerated per frame. Unseen 8.78% (the 2 px erosion band) -> 0.93% bare after island fill. FINDING: independently painted sheets disagree on their overlap (mean 34.24/255; half shading, half features drawn in different places -> seams and double marks); lever = the second sheet painted OVER the first projection (proved in T8: -55% to -67%). Variant choice by measured registration (A_a, B_b). Captures meshy_t2_tex/artifacts/T5-turntable-53.png, T5-head-53.png. This is the route T8/D1-D2 used.",
+      "ts": "2026-09-29T03:02:02"
     }
   ],
   "halts": [
