@@ -49,10 +49,18 @@ for nm in ("axe", "shield"):
     RIGS.append(next(o for o in add if o.type == 'ARMATURE'))
     WORN.append(m)
     print("loaded %s" % nm)
+# which left-arm layer to hold the shield in. The GUARD pose puts the disc in
+# front of the torso facing the enemy; the older CARRY pose only kept it off
+# his chest. Selected by name so the same script can show either.
+LAYER = a[a.index('--layer') + 1] if '--layer' in a else "guard"
 carry = {}
-CP = os.path.join(ROOT, "work", "carry_pose.json")
-if os.path.exists(CP):
-    carry = json.load(open(CP))
+for cand in (("guard_pose.json", "carry_pose.json") if LAYER == "guard"
+             else ("carry_pose.json",)):
+    q = os.path.join(ROOT, "work", cand)
+    if os.path.exists(q):
+        carry = json.load(open(q))
+        print("left-arm layer: %s" % cand)
+        break
 ACT = {x.name: x for x in bpy.data.actions}
 
 eng = [e.identifier for e in
@@ -83,7 +91,7 @@ def drive(cn, f):
             pb.matrix_basis = Matrix.Identity(4)
     sc.frame_set(f)
     bpy.context.view_layer.update()
-    if carry and cn != "attack":
+    if carry and not cn.startswith("attack"):
         for A in RIGS:
             for bn, flat in carry.items():
                 if bn in A.pose.bones:

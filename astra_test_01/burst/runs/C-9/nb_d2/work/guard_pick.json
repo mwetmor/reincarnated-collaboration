@@ -1,0 +1,211 @@
+{
+ "axe_breathe": {
+  "frames": [
+   0,
+   271
+  ],
+  "action": "Armature|Axe_Breathe_and_Look_Around|baselayer",
+  "peak": {
+   "f": 24,
+   "l_rise": -0.1656,
+   "r_rise": -0.1919,
+   "l_fwd": 0.3523,
+   "r_fwd": -0.0763,
+   "l_vs_head": -0.5333,
+   "guard_score": 0.3787
+  },
+  "l_rise_max": -0.1067,
+  "r_rise_max": -0.0691,
+  "l_fwd_max": 0.3549
+ },
+ "axe_chop": {
+  "frames": [
+   1,
+   185
+  ],
+  "action": "Armature|Charged_Axe_Chop|baselayer",
+  "peak": {
+   "f": 48,
+   "l_rise": 0.0341,
+   "r_rise": -0.4115,
+   "l_fwd": 0.358,
+   "r_fwd": 0.2973,
+   "l_vs_head": -0.1777,
+   "guard_score": 0.8036
+  },
+  "l_rise_max": 0.0447,
+  "r_rise_max": 0.8031,
+  "l_fwd_max": 0.4119
+ },
+ "axe_stance": {
+  "frames": [
+   1,
+   147
+  ],
+  "action": "Armature|Axe_Stance|baselayer",
+  "peak": {
+   "f": 39,
+   "l_rise": 0.0422,
+   "r_rise": -0.4636,
+   "l_fwd": 0.4305,
+   "r_fwd": 0.1351,
+   "l_vs_head": -0.1962,
+   "guard_score": 0.9362
+  },
+  "l_rise_max": 0.0422,
+  "r_rise_max": 0.6907,
+  "l_fwd_max": 0.4525
+ },
+ "block1": {
+  "frames": [
+   1,
+   84
+  ],
+  "action": "Armature|Block1|baselayer",
+  "peak": {
+   "f": 23,
+   "l_rise": 0.2697,
+   "r_rise": 0.2264,
+   "l_fwd": 0.4455,
+   "r_fwd": 0.3628,
+   "l_vs_head": -0.1149,
+   "guard_score": 0.4888
+  },
+  "l_rise_max": 0.4719,
+  "r_rise_max": 0.4192,
+  "l_fwd_max": 0.5067
+ },
+ "block4": {
+  "frames": [
+   1,
+   38
+  ],
+  "action": "Armature|Block4|baselayer",
+  "peak": {
+   "f": 1,
+   "l_rise": 0.2433,
+   "r_rise": 0.2709,
+   "l_fwd": 0.3888,
+   "r_fwd": 0.2575,
+   "l_vs_head": -0.1515,
+   "guard_score": 0.3612
+  },
+  "l_rise_max": 0.2961,
+  "r_rise_max": 0.4403,
+  "l_fwd_max": 0.4197
+ },
+ "block9": {
+  "frames": [
+   1,
+   68
+  ],
+  "action": "Armature|Block9|baselayer",
+  "peak": {
+   "f": 57,
+   "l_rise": 0.1997,
+   "r_rise": 0.0406,
+   "l_fwd": 0.3046,
+   "r_fwd": 0.0853,
+   "l_vs_head": -0.2065,
+   "guard_score": 0.4637
+  },
+  "l_rise_max": 0.3494,
+  "r_rise_max": 0.4365,
+  "l_fwd_max": 0.5251
+ },
+ "run_fight_L": {
+  "frames": [
+   1,
+   15
+  ],
+  "action": "Armature|ForwardLeft_Run_Fight|baselayer",
+  "peak": {
+   "f": 13,
+   "l_rise": 0.0174,
+   "r_rise": 0.0711,
+   "l_fwd": 0.4043,
+   "r_fwd": -0.0162,
+   "l_vs_head": -0.2587,
+   "guard_score": 0.3505
+  },
+  "l_rise_max": 0.0639,
+  "r_rise_max": 0.0711,
+  "l_fwd_max": 0.4043
+ },
+ "run_fight_R": {
+  "frames": [
+   1,
+   15
+  ],
+  "action": "Armature|ForwardRight_Run_Fight|baselayer",
+  "peak": {
+   "f": 12,
+   "l_rise": 0.0024,
+   "r_rise": -0.1377,
+   "l_fwd": 0.4324,
+   "r_fwd": -0.1825,
+   "l_vs_head": -0.2568,
+   "guard_score": 0.5724
+  },
+  "l_rise_max": 0.216,
+  "r_rise_max": -0.1326,
+  "l_fwd_max": 0.444
+ },
+ "shield_push": {
+  "frames": [
+   1,
+   58
+  ],
+  "action": "Armature|Shield_Push_Left|baselayer",
+  "peak": {
+   "f": 28,
+   "l_rise": 0.6038,
+   "r_rise": -0.1337,
+   "l_fwd": 0.5158,
+   "r_fwd": -0.3447,
+   "l_vs_head": 0.1985,
+   "guard_score": 1.2534
+  },
+  "l_rise_max": 0.6038,
+  "r_rise_max": 0.1464,
+  "l_fwd_max": 0.6552
+ },
+ "ss_alert_L": {
+  "frames": [
+   1,
+   33
+  ],
+  "action": "Armature|Sword_and_Shield_Alert_Turn_Left|baselayer",
+  "peak": {
+   "f": 1,
+   "l_rise": 0.0022,
+   "r_rise": -0.0537,
+   "l_fwd": 0.4947,
+   "r_fwd": -0.0284,
+   "l_vs_head": -0.3569,
+   "guard_score": 0.5507
+  },
+  "l_rise_max": 0.0619,
+  "r_rise_max": -0.0123,
+  "l_fwd_max": 0.4947
+ },
+ "walk_fight": {
+  "frames": [
+   1,
+   42
+  ],
+  "action": "Armature|Walk_Fight_Forward|baselayer",
+  "peak": {
+   "f": 18,
+   "l_rise": -0.0565,
+   "r_rise": 0.0682,
+   "l_fwd": 0.3754,
+   "r_fwd": 0.2271,
+   "l_vs_head": -0.4483,
+   "guard_score": 0.2507
+  },
+  "l_rise_max": -0.0283,
+  "r_rise_max": 0.1068,
+  "l_fwd_max": 0.3774
+ }
+}

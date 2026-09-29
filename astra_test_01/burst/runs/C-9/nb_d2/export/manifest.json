@@ -6,9 +6,9 @@
  "his_right": "-X",
  "up": "+Z",
  "body_shape_keys": [
-  "helmet_on",
+  "grip_L",
   "grip_R",
-  "grip_L"
+  "helmet_on"
  ],
  "binding_note": "every piece, sockets included, is a SKINNED mesh on the same 24 bones; the scene binds all of them to the body's Skeleton3D",
  "helmet_on": "set to 1 when the helmet is equipped, 0 when removed",
@@ -419,6 +419,72 @@
      ]
     }
    }
+  },
+  "final": {
+   "alpha": 0.95,
+   "locked": [
+    "idle_armed",
+    "walk_armed",
+    "run_armed",
+    "run_armed_L",
+    "run_armed_R"
+   ],
+   "not_locked": [
+    "attack",
+    "attack_chop",
+    "block",
+    "shield_bash"
+   ],
+   "not_locked_why": "deliberate arm motion; a wrist lock would fight the animation",
+   "right_wrist_deg_s_p95_and_reversals": {
+    "idle": [
+     71.18,
+     1
+    ],
+    "idle_armed": [
+     8.66,
+     0
+    ],
+    "run": [
+     726.15,
+     7
+    ],
+    "run_armed": [
+     36.58,
+     1
+    ],
+    "run_armed_L": [
+     6.17,
+     0
+    ],
+    "run_armed_R": [
+     8.67,
+     0
+    ],
+    "walk": [
+     209.53,
+     5
+    ],
+    "walk_armed": [
+     3.36,
+     0
+    ]
+   },
+   "before_for_comparison": {
+    "idle": [
+     71.17,
+     1
+    ],
+    "walk": [
+     209.53,
+     5
+    ],
+    "run": [
+     726.15,
+     7
+    ]
+   },
+   "dial_note": "walk_armed lands at 3.4 deg/s, calmer than the idle's 71.2. The reversal count is the complaint metric and it is 0, but if the hand reads stiff, alpha is one number: 0.85 gives 3 reversals on the unarmed run, 0.75 gives 5."
   }
  },
  "shield_grip_defect": {
@@ -436,5 +502,140 @@
     "note": "for scale, D2's pre-layer state was 313 (walk) and 389 (run) inside"
    }
   }
+ },
+ "clip_selection": {
+  "rule": "ARMED is the default for this character: he ships with an axe and a shield. The unarmed clips stay because the body has no gear welded to it and an unarmed barbarian is a real state, not a fallback.",
+  "armed": {
+   "idle": "idle_armed",
+   "walk": "walk_armed",
+   "run": "run_armed",
+   "attack": [
+    "attack",
+    "attack_chop"
+   ],
+   "block": "block",
+   "left_arm_layer": "shield_guard_L while the shield is equipped -- on idle, walk, run and block. NOT on the attacks: the attack clips move the whole body and a static left-arm layer fights them.",
+   "morphs": "grip_R while the axe is equipped, grip_L while the shield is",
+   "run_diagonals": [
+    "run_armed_L",
+    "run_armed_R"
+   ],
+   "shield_bash": "shield_bash"
+  },
+  "unarmed": {
+   "idle": "idle",
+   "walk": "walk",
+   "run": "run",
+   "attack": "attack",
+   "left_arm_layer": null,
+   "morphs": null
+  },
+  "superseded": {
+   "shield_carry_L": "DO NOT USE. It was authored for the old shield placement. With the shield re-centred on the fist it puts 128 of 1829 sampled vertices inside his torso, against 12 for shield_guard_L. Kept only so a scene already referencing the name does not break; switch to shield_guard_L."
+  },
+  "available": [
+   "attack",
+   "attack_chop",
+   "block",
+   "idle",
+   "idle_armed",
+   "run",
+   "run_armed",
+   "run_armed_L",
+   "run_armed_R",
+   "shield_bash",
+   "shield_carry_L",
+   "shield_guard_L",
+   "walk",
+   "walk_armed",
+   "walk_armed_unarmedsrc"
+  ]
+ },
+ "shield_centre_grip": {
+  "face_before_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "face_target_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "turn_deg": 0.0,
+  "face_after_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "residual_deg": 0.0,
+  "radius_m": 0.4204,
+  "thickness_m": 0.1546,
+  "fist_before_pct": 0.0,
+  "shift_m": 0.0,
+  "standoff_m": 0.0973,
+  "penetration": {
+   "rest": {
+    "inside_before": 17,
+    "inside_after": 17,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "carry": {
+    "inside_before": 128,
+    "inside_after": 128,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "guard": {
+    "inside_before": 12,
+    "inside_after": 12,
+    "sampled": 1829,
+    "fist_pct_radius": 0.1
+   }
+  },
+  "guard_layer": {
+   "clip": "shield_guard_L",
+   "source": "Meshy 580 Sword and Shield Alert Turn Left, left arm chain at its peak frame",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "penetration_of_1829_sampled": {
+    "guard": 12,
+    "rest": 17,
+    "carry": 128
+   },
+   "shortfall": "ss_alert_L's left arm is a LOW FORWARD carry, not a raised guard. In the S view the shield sits beside the torso rather than in front of it. The grip is right and the face now points forward; the arm position is not yet a guard. Candidate fixes: the block clip's left-arm pose, or text-to-motion for a held guard."
+  }
+ },
+ "clip_hygiene_on_merge": {
+  "stripped": {}
+ },
+ "clip_sources": {
+  "meshy_library_credits_spent": 33,
+  "authorised": 40,
+  "fetched": {
+   "idle_armed": "85 Axe Stance",
+   "(unused)": "335 Axe Breathe and Look Around",
+   "walk_armed": "21 Walk Fight Forward",
+   "run_armed_L": "9 ForwardLeft Run Fight",
+   "run_armed_R": "10 ForwardRight Run Fight",
+   "shield_guard_L source": "580 Sword and Shield Alert Turn Left",
+   "shield_bash": "220 Shield Push Left",
+   "block": "138 Block1",
+   "(rejected)": "141 Block4 and 145 Block9 -- sword parries, the right hand leads",
+   "attack_chop": "237 Charged Axe Chop"
+  },
+  "lint_on_every_fetch": "11 of 11 clean of joint scale tracks: 5 PASS, 6 WARN, 0 FAIL",
+  "lint_note": "the 1.176471 Hips scale was specific to Meshy's Idle action; none of these eleven repeat it. The check still ran on all eleven.",
+  "synty": "OUT per Matt 2026-09-29 -- nothing from those packs was used"
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 8
  }
 }

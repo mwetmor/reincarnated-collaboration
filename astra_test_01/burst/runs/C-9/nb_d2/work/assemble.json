@@ -1,0 +1,135 @@
+{
+ "merged": {
+  "idle_armed": {
+   "source": "axe_stance",
+   "frames": [
+    1,
+    147
+   ]
+  },
+  "walk_armed_m": {
+   "source": "walk_fight",
+   "frames": [
+    1,
+    42
+   ]
+  },
+  "run_armed_L": {
+   "source": "run_fight_L",
+   "frames": [
+    1,
+    15
+   ]
+  },
+  "run_armed_R": {
+   "source": "run_fight_R",
+   "frames": [
+    1,
+    15
+   ]
+  },
+  "attack_chop": {
+   "source": "axe_chop",
+   "frames": [
+    1,
+    185
+   ]
+  },
+  "block": {
+   "source": "block1",
+   "frames": [
+    1,
+    84
+   ]
+  },
+  "shield_bash": {
+   "source": "shield_push",
+   "frames": [
+    1,
+    58
+   ]
+  }
+ },
+ "hygiene": {
+  "stripped": {}
+ },
+ "shield": {
+  "face_before_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "face_target_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "turn_deg": 0.0,
+  "face_after_world": [
+   0.3002,
+   -0.9505,
+   0.08
+  ],
+  "residual_deg": 0.0,
+  "radius_m": 0.4204,
+  "thickness_m": 0.1546,
+  "fist_before_pct": 0.0,
+  "shift_m": 0.0,
+  "standoff_m": 0.0973,
+  "penetration": {
+   "rest": {
+    "inside_before": 17,
+    "inside_after": 17,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "carry": {
+    "inside_before": 128,
+    "inside_after": 128,
+    "sampled": 1829,
+    "fist_pct_radius": 0.0
+   },
+   "guard": {
+    "inside_before": 12,
+    "inside_after": 12,
+    "sampled": 1829,
+    "fist_pct_radius": 0.1
+   }
+  }
+ },
+ "guard": {
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "clip": "shield_guard_L"
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "clips": [
+   "attack",
+   "attack_chop",
+   "block",
+   "idle",
+   "idle_armed",
+   "run",
+   "run_armed",
+   "run_armed_L",
+   "run_armed_R",
+   "shield_bash",
+   "shield_carry_L",
+   "shield_guard_L",
+   "walk",
+   "walk_armed",
+   "walk_armed_m"
+  ],
+  "morphs": [
+   "grip_L",
+   "grip_R",
+   "helmet_on"
+  ]
+ }
+}

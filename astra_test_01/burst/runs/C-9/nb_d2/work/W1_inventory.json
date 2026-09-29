@@ -158,7 +158,56 @@
    ]
   ],
   "no_straight_armed_run": "nothing in either source is a straight armed RUN. Meshy's armed run entries are diagonals (ForwardLeft / ForwardRight Run Fight).",
-  "cost_note": "fetching any of these spends Meshy credits; the QUERY was free. Not fetched."
+  "cost_note": "fetching any of these spends Meshy credits; the QUERY was free. Not fetched.",
+  "covers_what_synty_would_have_given": {
+   "dying": 11,
+   "getting_hit": 11,
+   "blocking": 18,
+   "dodges": [
+    "Stand Dodge",
+    "Stand Dodge 1",
+    "Roll Dodge",
+    "Roll Dodge 1",
+    "Roll Dodge 2",
+    "Roll Dodge 3",
+    "Stand Dodge 2",
+    "Roll Dodge 4",
+    "Stand Dodge 3",
+    "Sit Dodge"
+   ],
+   "note": "dodge, hit-react and death are NOT gaps -- Meshy has 9 dodges, 11 GettingHit and 11 Dying actions. They are unarmed variants, which is the same situation as the walk and run and has the same remedy."
+  }
  },
- "conclusion": "Synty cannot supply armed locomotion and Meshy partly can. So walk and run had to be solved by correcting the existing unarmed clips (walk_armed / run_armed), which is what was built. Synty is the right source for the CLIPS WE LACK -- block, parry, dodge, hit, death, armed idle -- and its Prop_R bone is the right source for the axe's carry orientation."
+ "conclusion": "Synty cannot supply armed locomotion and Meshy partly can. So walk and run had to be solved by correcting the existing unarmed clips (walk_armed / run_armed), which is what was built. Synty is the right source for the CLIPS WE LACK -- block, parry, dodge, hit, death, armed idle -- and its Prop_R bone is the right source for the axe's carry orientation.",
+ "SCOPE_CHANGE_2026_09_29": {
+  "ruling": "Matt: \"I want to stay away from synty though as I would like to explore a fully generated pipeline first.\" Synty is OUT of W1 entirely -- no retarget, no Prop_R reference, nothing from those packs.",
+  "effect_on_work_already_done": "none. Nothing from Synty was used. The inventory above was a survey; the Prop_R retarget was PROPOSED and never built. walk_armed and run_armed are derived from Meshy's own unarmed walk and run by locking the wrist -- fully generated, no external motion data.",
+  "fill_for_gaps": "Meshy text-to-motion (~10 credits) or Hunyuan Motion on fal, whichever measures better"
+ },
+ "GAPS_NOT_FILLABLE_FROM_THE_LIBRARY": [
+  {
+   "gap": "a straight armed RUN",
+   "evidence": "Meshy has only diagonals: 9 ForwardLeft Run Fight, 10 ForwardRight Run Fight",
+   "candidates": [
+    "blend or retime the two diagonals (free, to be measured)",
+    "text-to-motion ~10 credits",
+    "the shipped run_armed: unarmed run with the wrist locked (already built, 0 credits)"
+   ]
+  },
+  {
+   "gap": "armed STRAFE in any direction",
+   "evidence": "nothing in WalkAndRun pairs a strafe with a weapon",
+   "candidates": [
+    "text-to-motion"
+   ]
+  },
+  {
+   "gap": "a shield block that leads with the LEFT arm",
+   "evidence": "Block1..Block10 are unlabelled; being measured by guard-score, see work/guard_pick.json",
+   "candidates": [
+    "whichever of the fetched blocks leads left",
+    "text-to-motion if none do"
+   ]
+  }
+ ]
 }

@@ -1,0 +1,205 @@
+{
+ "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
+ "spent": 33,
+ "clips": {
+  "axe_stance": {
+   "action_id": 85,
+   "task": "01a0ee43-cd4d-713b-b686-5a1764e24677",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 46,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/axe_stance.glb",
+   "mb": 9.37,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "axe_stance.glb: clip 'Armature|Axe_Stance|baselayer' starts root 'Hips' at 51.876 against rest 95.471 (45.7% > 5%)"
+    ],
+    "clips": [
+     "Armature|Axe_Stance|baselayer"
+    ]
+   }
+  },
+  "axe_breathe": {
+   "action_id": 335,
+   "task": "01a0ee44-8632-73df-ae73-939053755c96",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/axe_breathe.glb",
+   "mb": 9.42,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "axe_breathe.glb: clip 'Armature|Axe_Breathe_and_Look_Around|baselayer' starts root 'Hips' at 89.560 against rest 95.471 (6.2% > 5%)"
+    ],
+    "clips": [
+     "Armature|Axe_Breathe_and_Look_Around|baselayer"
+    ]
+   }
+  },
+  "walk_fight": {
+   "action_id": 21,
+   "task": "01a0ee45-7b50-7139-93e2-0f6eeb8bcf20",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/walk_fight.glb",
+   "mb": 9.32,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "walk_fight.glb: clip 'Armature|Walk_Fight_Forward|baselayer' starts root 'Hips' at 89.247 against rest 95.471 (6.5% > 5%)"
+    ],
+    "clips": [
+     "Armature|Walk_Fight_Forward|baselayer"
+    ]
+   }
+  },
+  "run_fight_L": {
+   "action_id": 9,
+   "task": "01a0ee45-f93b-7083-a68c-2e12578d3d73",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/run_fight_L.glb",
+   "mb": 9.3,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|ForwardLeft_Run_Fight|baselayer"
+    ]
+   }
+  },
+  "run_fight_R": {
+   "action_id": 10,
+   "task": "01a0ee46-76ae-74f9-92da-2dd777a333ba",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/run_fight_R.glb",
+   "mb": 9.3,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|ForwardRight_Run_Fight|baselayer"
+    ]
+   }
+  },
+  "ss_alert_L": {
+   "action_id": 580,
+   "task": "01a0ee46-f402-767c-8f3b-554a21f37871",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/ss_alert_L.glb",
+   "mb": 9.31,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "ss_alert_L.glb: clip 'Armature|Sword_and_Shield_Alert_Turn_Left|baselayer' starts root 'Hips' at 78.397 against rest 95.471 (17.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Sword_and_Shield_Alert_Turn_Left|baselayer"
+    ]
+   }
+  },
+  "shield_push": {
+   "action_id": 220,
+   "task": "01a0ee47-7135-72e7-92a5-08f4da9c61e6",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/shield_push.glb",
+   "mb": 9.33,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "shield_push.glb: clip 'Armature|Shield_Push_Left|baselayer' starts root 'Hips' at 84.556 against rest 95.471 (11.4% > 5%)"
+    ],
+    "clips": [
+     "Armature|Shield_Push_Left|baselayer"
+    ]
+   }
+  },
+  "block1": {
+   "action_id": 138,
+   "task": "01a0ee47-ef13-754a-bbcf-a5c8f4fd0d40",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 46,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/block1.glb",
+   "mb": 9.34,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Block1|baselayer"
+    ]
+   }
+  },
+  "block4": {
+   "action_id": 141,
+   "task": "01a0ee48-a824-7165-8d69-506a23332011",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/block4.glb",
+   "mb": 9.32,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Block4|baselayer"
+    ]
+   }
+  },
+  "block9": {
+   "action_id": 145,
+   "task": "01a0ee49-259e-73a7-9212-75163bb25622",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/block9.glb",
+   "mb": 9.33,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Block9|baselayer"
+    ]
+   }
+  },
+  "axe_chop": {
+   "action_id": 237,
+   "task": "01a0ee49-a3ef-70f3-a86f-d8c4f36fd4ee",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 46,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/axe_chop.glb",
+   "mb": 9.39,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "axe_chop.glb: clip 'Armature|Charged_Axe_Chop|baselayer' starts root 'Hips' at 47.890 against rest 95.471 (49.8% > 5%)"
+    ],
+    "clips": [
+     "Armature|Charged_Axe_Chop|baselayer"
+    ]
+   }
+  }
+ }
+}

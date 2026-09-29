@@ -1,0 +1,482 @@
+{
+ "file": "work/nb-body-final.glb",
+ "fps": 30.0,
+ "clips": {
+  "attack": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 326.91,
+    "rate_p95": 976.14,
+    "rate_max": 1943.09,
+    "excursion_deg": 113.22,
+    "reversals": 3,
+    "_n": 37
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 120.2,
+    "rate_p95": 461.82,
+    "rate_max": 607.0,
+    "excursion_deg": 52.43,
+    "reversals": 3,
+    "_n": 37
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 142.09,
+    "rate_p95": 551.66,
+    "rate_max": 842.0,
+    "excursion_deg": 38.05,
+    "reversals": 5,
+    "_n": 37
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 166.74,
+    "rate_p95": 533.25,
+    "rate_max": 592.28,
+    "excursion_deg": 99.2,
+    "reversals": 1,
+    "_n": 37
+   }
+  },
+  "attack_chop": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 4.64,
+    "rate_p95": 18.62,
+    "rate_max": 39.74,
+    "excursion_deg": 9.95,
+    "reversals": 0,
+    "_n": 185
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 49.78,
+    "rate_p95": 171.64,
+    "rate_max": 579.84,
+    "excursion_deg": 87.42,
+    "reversals": 8,
+    "_n": 185
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 46.95,
+    "rate_p95": 173.49,
+    "rate_max": 258.24,
+    "excursion_deg": 33.62,
+    "reversals": 11,
+    "_n": 185
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 41.73,
+    "rate_p95": 153.21,
+    "rate_max": 228.81,
+    "excursion_deg": 76.72,
+    "reversals": 11,
+    "_n": 185
+   }
+  },
+  "block": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 32.68,
+    "rate_p95": 92.7,
+    "rate_max": 137.25,
+    "excursion_deg": 14.84,
+    "reversals": 3,
+    "_n": 85
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 28.88,
+    "rate_p95": 60.59,
+    "rate_max": 80.05,
+    "excursion_deg": 16.67,
+    "reversals": 3,
+    "_n": 85
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 39.8,
+    "rate_p95": 80.08,
+    "rate_max": 136.21,
+    "excursion_deg": 9.91,
+    "reversals": 17,
+    "_n": 85
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 32.41,
+    "rate_p95": 107.28,
+    "rate_max": 142.21,
+    "excursion_deg": 13.75,
+    "reversals": 9,
+    "_n": 85
+   }
+  },
+  "idle": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 31.16,
+    "rate_p95": 71.18,
+    "rate_max": 81.71,
+    "excursion_deg": 35.11,
+    "reversals": 1,
+    "_n": 97
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 28.86,
+    "rate_p95": 59.19,
+    "rate_max": 81.27,
+    "excursion_deg": 18.73,
+    "reversals": 1,
+    "_n": 97
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 25.12,
+    "rate_p95": 50.71,
+    "rate_max": 63.83,
+    "excursion_deg": 22.98,
+    "reversals": 2,
+    "_n": 97
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 20.82,
+    "rate_p95": 41.51,
+    "rate_max": 71.42,
+    "excursion_deg": 19.06,
+    "reversals": 1,
+    "_n": 97
+   }
+  },
+  "idle_armed": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 2.91,
+    "rate_p95": 8.66,
+    "rate_max": 41.05,
+    "excursion_deg": 2.95,
+    "reversals": 0,
+    "_n": 148
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 2.68,
+    "rate_p95": 12.05,
+    "rate_max": 25.81,
+    "excursion_deg": 3.65,
+    "reversals": 0,
+    "_n": 148
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 45.24,
+    "rate_p95": 175.53,
+    "rate_max": 541.82,
+    "excursion_deg": 89.8,
+    "reversals": 9,
+    "_n": 148
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 43.7,
+    "rate_p95": 193.57,
+    "rate_max": 266.25,
+    "excursion_deg": 65.85,
+    "reversals": 12,
+    "_n": 148
+   }
+  },
+  "run": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 393.99,
+    "rate_p95": 726.15,
+    "rate_max": 773.54,
+    "excursion_deg": 38.66,
+    "reversals": 7,
+    "_n": 17
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 286.91,
+    "rate_p95": 482.85,
+    "rate_max": 485.84,
+    "excursion_deg": 22.45,
+    "reversals": 7,
+    "_n": 17
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 231.56,
+    "rate_p95": 509.18,
+    "rate_max": 576.61,
+    "excursion_deg": 26.98,
+    "reversals": 5,
+    "_n": 17
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 241.19,
+    "rate_p95": 552.83,
+    "rate_max": 599.33,
+    "excursion_deg": 47.02,
+    "reversals": 7,
+    "_n": 17
+   }
+  },
+  "run_armed": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 19.87,
+    "rate_p95": 36.58,
+    "rate_max": 39.1,
+    "excursion_deg": 1.95,
+    "reversals": 1,
+    "_n": 17
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 14.43,
+    "rate_p95": 24.26,
+    "rate_max": 24.41,
+    "excursion_deg": 1.14,
+    "reversals": 0,
+    "_n": 17
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 231.56,
+    "rate_p95": 509.18,
+    "rate_max": 576.61,
+    "excursion_deg": 26.98,
+    "reversals": 5,
+    "_n": 17
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 241.19,
+    "rate_p95": 552.83,
+    "rate_max": 599.33,
+    "excursion_deg": 47.02,
+    "reversals": 7,
+    "_n": 17
+   }
+  },
+  "run_armed_L": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 3.93,
+    "rate_p95": 6.17,
+    "rate_max": 6.71,
+    "excursion_deg": 0.71,
+    "reversals": 0,
+    "_n": 16
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 2.57,
+    "rate_p95": 6.68,
+    "rate_max": 7.6,
+    "excursion_deg": 0.43,
+    "reversals": 0,
+    "_n": 16
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 53.06,
+    "rate_p95": 103.04,
+    "rate_max": 108.23,
+    "excursion_deg": 12.44,
+    "reversals": 1,
+    "_n": 16
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 244.7,
+    "rate_p95": 453.51,
+    "rate_max": 481.14,
+    "excursion_deg": 46.9,
+    "reversals": 3,
+    "_n": 16
+   }
+  },
+  "run_armed_R": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 5.25,
+    "rate_p95": 8.67,
+    "rate_max": 9.12,
+    "excursion_deg": 1.0,
+    "reversals": 0,
+    "_n": 16
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 4.19,
+    "rate_p95": 8.34,
+    "rate_max": 8.8,
+    "excursion_deg": 0.49,
+    "reversals": 0,
+    "_n": 16
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 55.83,
+    "rate_p95": 144.56,
+    "rate_max": 154.13,
+    "excursion_deg": 12.93,
+    "reversals": 1,
+    "_n": 16
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 320.43,
+    "rate_p95": 720.58,
+    "rate_max": 876.07,
+    "excursion_deg": 71.56,
+    "reversals": 3,
+    "_n": 16
+   }
+  },
+  "shield_bash": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 69.7,
+    "rate_p95": 193.44,
+    "rate_max": 331.04,
+    "excursion_deg": 24.75,
+    "reversals": 7,
+    "_n": 59
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 132.71,
+    "rate_p95": 582.21,
+    "rate_max": 883.52,
+    "excursion_deg": 63.96,
+    "reversals": 5,
+    "_n": 59
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 43.76,
+    "rate_p95": 194.69,
+    "rate_max": 248.37,
+    "excursion_deg": 32.55,
+    "reversals": 3,
+    "_n": 59
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 74.26,
+    "rate_p95": 207.1,
+    "rate_max": 547.02,
+    "excursion_deg": 63.12,
+    "reversals": 5,
+    "_n": 59
+   }
+  },
+  "shield_guard_L": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 1.19,
+    "rate_p95": 1.19,
+    "rate_max": 1.19,
+    "excursion_deg": 0.0,
+    "reversals": 0,
+    "_n": 2
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 0.0,
+    "rate_p95": 0.0,
+    "rate_max": 0.0,
+    "excursion_deg": 0.0,
+    "reversals": 0,
+    "_n": 2
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 0.0,
+    "rate_p95": 0.0,
+    "rate_max": 0.0,
+    "excursion_deg": 0.0,
+    "reversals": 0,
+    "_n": 2
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 0.0,
+    "rate_p95": 0.0,
+    "rate_max": 0.0,
+    "excursion_deg": 0.0,
+    "reversals": 0,
+    "_n": 2
+   }
+  },
+  "walk": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 117.37,
+    "rate_p95": 209.53,
+    "rate_max": 237.66,
+    "excursion_deg": 23.4,
+    "reversals": 5,
+    "_n": 26
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 115.5,
+    "rate_p95": 257.82,
+    "rate_max": 326.47,
+    "excursion_deg": 30.69,
+    "reversals": 3,
+    "_n": 26
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 66.04,
+    "rate_p95": 138.43,
+    "rate_max": 140.37,
+    "excursion_deg": 15.3,
+    "reversals": 3,
+    "_n": 26
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 132.54,
+    "rate_p95": 304.13,
+    "rate_max": 378.45,
+    "excursion_deg": 49.23,
+    "reversals": 3,
+    "_n": 26
+   }
+  },
+  "walk_armed": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 1.6,
+    "rate_p95": 3.36,
+    "rate_max": 4.11,
+    "excursion_deg": 0.49,
+    "reversals": 0,
+    "_n": 43
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 2.07,
+    "rate_p95": 4.28,
+    "rate_max": 4.75,
+    "excursion_deg": 0.6,
+    "reversals": 0,
+    "_n": 43
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 37.76,
+    "rate_p95": 74.85,
+    "rate_max": 76.48,
+    "excursion_deg": 13.93,
+    "reversals": 3,
+    "_n": 43
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 38.58,
+    "rate_p95": 70.03,
+    "rate_max": 106.53,
+    "excursion_deg": 17.43,
+    "reversals": 3,
+    "_n": 43
+   }
+  },
+  "walk_armed_unarmedsrc": {
+   "RightHand_in_RightForeArm": {
+    "rate_mean": 5.85,
+    "rate_p95": 10.6,
+    "rate_max": 11.99,
+    "excursion_deg": 1.17,
+    "reversals": 0,
+    "_n": 26
+   },
+   "LeftHand_in_LeftForeArm": {
+    "rate_mean": 5.75,
+    "rate_p95": 12.85,
+    "rate_max": 16.4,
+    "excursion_deg": 1.54,
+    "reversals": 0,
+    "_n": 26
+   },
+   "RightForeArm_in_RightArm": {
+    "rate_mean": 66.04,
+    "rate_p95": 138.43,
+    "rate_max": 140.37,
+    "excursion_deg": 15.3,
+    "reversals": 3,
+    "_n": 26
+   },
+   "LeftForeArm_in_LeftArm": {
+    "rate_mean": 132.54,
+    "rate_p95": 304.13,
+    "rate_max": 378.45,
+    "excursion_deg": 49.23,
+    "reversals": 3,
+    "_n": 26
+   }
+  }
+ }
+}
