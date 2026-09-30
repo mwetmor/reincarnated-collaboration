@@ -1,0 +1,144 @@
+{
+ "legs": {
+  "A_stop_at_death": {
+   "per_salt": {
+    "0": {
+     "max_body_radius_m": 0.0,
+     "margin_to_R_wall_m": 43.758085029822276,
+     "n_wall_clamps_body": 0,
+     "n_wall_clamps_player": 0,
+     "max_player_radius_m": 0.0,
+     "max_wall_overlap_m": 0.0,
+     "n_spawn_placements": 0,
+     "n_spawn_outside_wall": 0,
+     "n_avoidance_vetoes": 0,
+     "waves_run": [
+      151,
+      152,
+      153,
+      154,
+      155,
+      156
+     ],
+     "last_wave_t_s": 7.183673469387756,
+     "\u2691 observation_only.max_radius_after_separation_m": 40.735155027609785,
+     "\u2691 observation_only.n_separation_displacements": 3685,
+     "\u2691 observation_only.n_post_separation_positions_beyond_R_wall": 0,
+     "raised": null,
+     "raised_raw": null
+    },
+    "1": {
+     "max_body_radius_m": 0.0,
+     "margin_to_R_wall_m": 43.758085029822276,
+     "n_wall_clamps_body": 0,
+     "n_wall_clamps_player": 0,
+     "max_player_radius_m": 0.0,
+     "max_wall_overlap_m": 0.0,
+     "n_spawn_placements": 0,
+     "n_spawn_outside_wall": 0,
+     "n_avoidance_vetoes": 0,
+     "waves_run": [
+      151,
+      152
+     ],
+     "last_wave_t_s": 4.408163265306123,
+     "\u2691 observation_only.max_radius_after_separation_m": 39.49257943470759,
+     "\u2691 observation_only.n_separation_displacements": 1877,
+     "\u2691 observation_only.n_post_separation_positions_beyond_R_wall": 0,
+     "raised": null,
+     "raised_raw": null
+    },
+    "2": {
+     "max_body_radius_m": 0.0,
+     "margin_to_R_wall_m": 43.758085029822276,
+     "n_wall_clamps_body": 0,
+     "n_wall_clamps_player": 0,
+     "max_player_radius_m": 0.0,
+     "max_wall_overlap_m": 0.0,
+     "n_spawn_placements": 0,
+     "n_spawn_outside_wall": 0,
+     "n_avoidance_vetoes": 0,
+     "waves_run": [
+      151,
+      152,
+      153,
+      154,
+      155
+     ],
+     "last_wave_t_s": 7.020408163265307,
+     "\u2691 observation_only.max_radius_after_separation_m": 40.73802346999941,
+     "\u2691 observation_only.n_separation_displacements": 3547,
+     "\u2691 observation_only.n_post_separation_positions_beyond_R_wall": 0,
+     "raised": null,
+     "raised_raw": null
+    },
+    "3": {
+     "max_body_radius_m": 0.0,
+     "margin_to_R_wall_m": 43.758085029822276,
+     "n_wall_clamps_body": 0,
+     "n_wall_clamps_player": 0,
+     "max_player_radius_m": 0.0,
+     "max_wall_overlap_m": 0.0,
+     "n_spawn_placements": 0,
+     "n_spawn_outside_wall": 0,
+     "n_avoidance_vetoes": 0,
+     "waves_run": [
+      151,
+      152
+     ],
+     "last_wave_t_s": 7.183673469387756,
+     "\u2691 observation_only.max_radius_after_separation_m": 39.49257682199562,
+     "\u2691 observation_only.n_separation_displacements": 1622,
+     "\u2691 observation_only.n_post_separation_positions_beyond_R_wall": 0,
+     "raised": null,
+     "raised_raw": null
+    },
+    "4": {
+     "max_body_radius_m": 0.0,
+     "margin_to_R_wall_m": 43.758085029822276,
+     "n_wall_clamps_body": 0,
+     "n_wall_clamps_player": 0,
+     "max_player_radius_m": 0.0,
+     "max_wall_overlap_m": 0.0,
+     "n_spawn_placements": 0,
+     "n_spawn_outside_wall": 0,
+     "n_avoidance_vetoes": 0,
+     "waves_run": [
+      151,
+      152
+     ],
+     "last_wave_t_s": 6.122448979591837,
+     "\u2691 observation_only.max_radius_after_separation_m": 39.492584677419075,
+     "\u2691 observation_only.n_separation_displacements": 1763,
+     "\u2691 observation_only.n_post_separation_positions_beyond_R_wall": 0,
+     "raised": null,
+     "raised_raw": null
+    }
+   },
+   "max_over_salts_m": 0.0,
+   "min_margin_m": 43.758085029822276,
+   "total_wall_clamps_body": 0,
+   "total_wall_clamps_player": 0
+  }
+ },
+ "\u2691 artifact_class": "NOT-A-GRADED-RUN. prereg v1.9 \u00a7 F.2j H-9. ORACLE side only. Read-only; nothing tuned (Law 3); no sealed cell opened (K-7).",
+ "R_wall_m": 43.758085029822276,
+ "R_wall_rederived_from_arena_json": 43.758085029822276,
+ "tick_period_s": 0.0816326530612245,
+ "config": {
+  "cell": "SEALED-KMILL | SEP-ON (upn4._overrides, contact_response='separate', geometry_on=True, seek_fold=True, DRIVE_TO_PACK, K_MILL PER_WAVE PX-LO)",
+  "arena": "ArenaFold(armed=True, avoidance=True) \u2014 W1 arm of record",
+  "loader": "load_profiles(dot_corrections=True, winner_surface=from_x8(P-n.2), pool_lift=load(), c11a=C11aLoader(CLASS))",
+  "simulate_wave": "c11a_corrections=C11aFold(C1 retaliation_gate, C4 duration_divisors, C2 aura CLASS)",
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "verdict_leg_A": "OUTCOME 1 (PASS): oracle inside R_wall with zero clamps on every salt",
+ "wall_s": 5.2,
+ "utc": "20260930T134119Z"
+}
