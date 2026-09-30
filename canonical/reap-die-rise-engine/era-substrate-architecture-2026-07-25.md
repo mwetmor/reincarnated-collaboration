@@ -68,7 +68,7 @@ LE is PARKED (fails both roster-rule disjuncts) with its reactivation trigger in
 ## 5. Era profiles (Q2 mechanics)
 
 An era profile = **a parameter dial-set + statline scaling on the validated substrate.**
-Profiles turn dials (`ViewDistance`, `numAttackSlots`, `EmoteBeforePursuingChance`, leash
+Profiles turn dials (`ViewDistance`, `numAttackSlots`, ~~`EmoteBeforePursuingChance`~~ *(⚑ 2026-09-29: a PROVEN DEAD record field, D-3 F-D3-3; it moves nothing and is not a dial. Source: `agentic_orchestration/legolas/findings/2026-09-29-gd-enemy-ai-own-files-inventory.md`; the live pursuit gates are Senses / AngerManagement / Pursuit / DistressCalls)*, leash
 radii, telegraph beats, pack size/composition, resist textures, on-death payload rates…);
 they **never fork the state machine** — that is what keeps the GD validation covering every
 era. Two disciplines make profiles rigorous instead of vibes:
