@@ -50,6 +50,21 @@ or **INFERENCE**. Nothing here is reported from memory.
 6. **`Combat_Stance` (action_id 89) is the direct answer to Matt's words.** The wrist lock's target
    angle is currently taken from the *idle*, by the authoring script's own comment. An idle is a carry
    pose. Matt is asking for a guard pose. The library has one.
+7. **There is no capture route to a weapon's motion anywhere — that is the state of the art, not a gap in
+   our pipeline.** Three video-mocap vendors state in writing that they do not track held objects; no
+   monocular research system delivers world-frame trajectory *and* articulated fingers *and* a held
+   object's 6DoF pose together; and **no human-object-interaction dataset contains a sword, axe, spear,
+   staff or club at all.** This makes rank 1 not merely the cheapest fix but the only one. For *authoring*
+   the channel, **Cascadeur** treats weapons as first-class, wants props *"already rigged and skinned"*
+   (exactly what rank 1 produces), works on our own skeleton and exports glTF — with one caveat to test
+   first: its docs suggest **rotation** trajectories may not be editable on a prop, and our channel is
+   pure rotation.
+8. **⚠ One licensing question nobody asked for, flagged because it is cheap now and expensive later.**
+   The SMPL/SMPL-X *model* licences forbid commercial use *"including, without limitation, incorporation
+   in a commercial product."* We retarget **SMPL-H** from Meshy text-to-motion. A joint-rotation format is
+   not the model, and Meshy presumably licenses its own derivation — but for a project with shipping
+   ambitions this deserves one question to Meshy and a recorded answer. **It blocks nothing in this
+   report** (§ Part 7, gap 13).
 
 ---
 
@@ -503,52 +518,204 @@ on disk:
 
 ### Q2 — Authoring melee attacks: who does which, and what works for a small team
 
-**This is the thinnest section in the report, and I want that stated plainly rather than padded.** The
-session's WebSearch budget (200 calls, shared across all four research passes) was exhausted before the
-tool survey completed, so the following is what I can stand behind. **Cascadeur's prop/weapon support and
-the SMPL-family research's handling of held objects are NOT CONFIRMED here** — see § Part 7 gaps 11–12, and
-treat them as open.
+**Headline: Cascadeur supports props and weapons as a first-class concept, it works on OUR skinned
+skeleton, and its trajectories are directly editable. It is the tool for authoring the weapon channel.**
+And the counterpart finding is an equally clean negative: **no video-to-mocap product will give you a
+weapon's trajectory** — three vendors say so in writing.
 
-**What the record does establish, and it is the part that matters most for us:**
+#### Cascadeur — affirmative, and specific
 
-**Weapon-first authoring is a named professional practice, not an exotic idea.** Eben Bradstreet, game
-animator, in a *Game Developer* feature co-authored with a HEMA instructor (VERIFIED —
+VERIFIED, all from Nekki's own docs:
+
+- **Props are named, and weapons are the example given** —
+  [rigging props](https://cascadeur.com/help/rig/advanced_rigging/adding_objects/rigging_props): *"Character
+  models can include **props** - separate object that the character holds in their hands, such as tools or
+  weapons."* And [adding props](https://cascadeur.com/help/rig/advanced_rigging/adding_objects/adding_props):
+  *"Sometimes you might need to supply a pre-existing character rig with additional parts: tools, weapons or
+  other objects."* … *"if the prop is supposed to be held in a hand, use a joint associated with that
+  hand."*
+- **The AI posing works on the weapon, not just the body** —
+  [AutoPosing](https://cascadeur.com/help/tools/animation_tools/autoposing#auto_posing_weapons): *"Aside from
+  the character body itself, AutoPosing is capable of working with props - such as weapons - that are
+  attached to the character."* … *"the prop has been successfully added to AutoPosing, and can now act as a
+  part of it."* The Quick Rigging tool gained *"Support for weapons and twists"* in 2022.2.
+- **A hand-held prop is expected to be FK-parented** —
+  [prototype objects](https://cascadeur.com/help/rig/rig_structure/rig_elements/prototype_objects): *"FK on
+  frame — If this is enabled, the rig element would follow its parent object. Mostly used for objects
+  characters hold in their hands (tools, weapons etc.)"*
+- **It consumes our skeleton and builds only a control rig on top** —
+  [FAQ](https://cascadeur.com/help/faq): *"you can only create control rigs for your models. The model has to
+  have a skinned skeleton before you import it into Cascadeur."* Formats in: FBX, DAE, USD. Out:
+  FBX / DAE / USD / **GLB / glTF**. **Our 26-bone rig with `weapon_r` is exactly what it wants.**
+- **Props must arrive already rigged and skinned — which is exactly what rank 1 produces.**
+  [adding props](https://cascadeur.com/help/rig/advanced_rigging/adding_objects/adding_props): *"We recommend
+  to use props that are already rigged and skinned to one or several [Joints]"*, and *"Cascadeur does not
+  support skinning. Therefore, this method can only be used for props that do not have to bend or otherwise
+  deform."* Our axe is a rigid mesh skinned 1.0 to `weapon_r`. **The two designs meet exactly.** (An
+  *un*rigged prop can still be attached but *"won't affect the way the character moves (because it has no
+  mass)"* — so the rank-1 rebind is what unlocks the useful path.)
+- **Trajectories are a first-class, directly editable object** —
+  [trajectories](https://cascadeur.com/help/tools/animation_tools/trajectories): *"A trajectory is a line
+  that shows the path traveled by a selected object across a selected interval."* In Trajectory Edit Mode
+  *"you can move, rotate and otherwise adjust any point of a trajectory by applying standard
+  Manipulators"*, and tangents let you shape the curve *"without needing to insert additional keyframes."*
+
+  ⚠ **But read the caveat on that same page carefully, because it may land squarely on our use case.**
+  Verbatim: *"**AutoPosing controllers will render neither the position nor rotation trajectories and the
+  Point controllers will render only the position trajectories.**"* **Our weapon channel is a ROTATION about
+  a grip point that does not move** (Part 2: rotating `weapon_r` leaves its origin at d = 0.0). So the one
+  thing we most want to author on a curve — the weapon's *rotation* over time — is precisely the thing this
+  sentence says may not render as an editable trajectory. Whether a prop *Rigid Body* is exempt is
+  **NOT FOUND**. **This is the single item to test before committing to Cascadeur**, and it downgrades the
+  tool from "the answer" to "the most promising candidate, with one hour of verification owed."
+- **Partial rigging is explicitly sanctioned** —
+  [quick rigging](https://cascadeur.com/help/rig/quick_rigging/quick_rigging_tool): *"You don't have to rig
+  every joint in the skeleton."* And [AutoPosing](https://cascadeur.com/help/tools/animation_tools/autoposing):
+  *"only slots on the **Body** panel are required for using AutoPosing."* **Our fingerless rig is not a
+  blocker.**
+- Also present: AutoPhysics (*"suggest a physically accurate version"* of your animation), Inbetweening
+  (ML interpolation), Motion Generation (*"produces an animation based on the trajectory of the
+  character"* — but *"animations produced by Motion Generation are not physically accurate"*), and, in
+  2026.2, **additive animation layers (Alpha)**, **easing**, BVH import, and *"support for a simple MCP
+  server"* ([2026.2 notes](https://cascadeur.com/help/category/319)).
+
+**The two costs, stated plainly.** [Plans](https://cascadeur.com/plans): the **free tier cannot export FBX
+at all** (*"Export to .casc format only"*) and is *"Only non-commercial use."* Indie is **$19/month or $8
+billed annually**, commercial up to $100k revenue; Pro $49/$33, unlimited. **For a project with shipping
+ambitions the free tier is not usable** — budget the Indie tier.
+
+**The second residual unknown, also NOT FOUND:** whether **moving the weapon poses the arms** — the reverse
+drive that rank 7 wants. The AutoPosing-weapons section shows the feature working in a GIF but never states
+the direction of causation. Together with the rotation-trajectory question above, that is **two things to
+settle in one sitting with a trial install** before any tooling commitment.
+
+#### Weapon-first authoring: one strong trade citation and one academic formalisation, and they agree
+
+Eben Bradstreet, game animator, *Game Developer*, Dec 2012 (VERIFIED —
 [Art of War](https://www.gamedeveloper.com/art/art-of-war-animating-realistic-sword-combat)):
 
-> "**the weapon leads the motions, just like your IK target leads your animation.**"
+> "Like the algorithms that drive your rig, **the weapon leads the motions, just like your IK target leads
+> your animation**."
 
-And Unity names the mechanism in its own docs (VERIFIED —
-[MultiReferentialConstraint](https://docs.unity3d.com/Packages/com.unity.animation.rigging@1.3/manual/constraints/MultiReferentialConstraint.html)):
+The same article supplies the guard-as-idle argument that rank 2b rests on, and it is stronger than what
+I quoted earlier:
 
-> "you could configure a character's hand to sometimes control the motion of a prop, and **the prop to
-> sometimes control the motion of the hand**." … "The movement of the **Driving** object influences all of
-> the other Reference Objects as if it were their parent."
+> "For the purpose of our animation, it's best to think of these stances as **our idle positions**… no
+> matter what sequence of cuts your characters perform… **they will always end their movement in one of
+> these poses**."
 
-That is weapon-first authoring as a shipped engine feature: designate the *weapon* as the driving object
-and the hands follow. Epic's equivalent is Two Bone IK per arm with a hand-IK weight
-(§ Q1), and Kubold's practical form is *"snap the effector to the barrel."*
+**And a self-collision warning that belongs in our QA set:** *"As you swing, pay attention to how often the
+pommel wants to intersect with your wrist, especially when you try to drop the blade to the lower right."*
 
-**What that means for a small team, and for us specifically.** The two halves compose:
-- The *arm* motion is cheap to source — the Meshy library has 174 `Fighting` clips (§ Part 4), and mocap
-  retargeting is a solved part of our pipeline.
-- The *weapon* motion is what nobody can give us, because no source clip was authored holding our axe. So
-  the weapon channel is the part we must author ourselves — which is precisely the channel rank 1 creates.
+**The academic formalisation is exactly "animate the weapon, solve the body" as a learned system.** OMOMO,
+SIGGRAPH Asia 2023, MIT-licensed code (VERIFIED — [arXiv 2309.16237](https://arxiv.org/abs/2309.16237v1)):
 
-**INFERENCE (mine):** the small-team answer is therefore **hybrid, not either/or** — library mocap for the
-body, hand-authored keys for the weapon bone. That is far cheaper than full keyframe authoring and far more
-controllable than pure retargeting, and it is the only split that puts authoring effort exactly where the
-information is missing. It is also what rank 3 describes.
+> "a conditional diffusion framework that can generate full-body manipulation behaviors **from only the
+> object motion**… OMOMO learns two separate denoising processes to **first predict hand positions from
+> object motion and subsequently synthesize full-body poses** based on the predicted hand positions."
 
-**Prop capture, for completeness:** if we ever did capture with a physical prop, the mocap vendors treat the
-prop as a single rigid bone and give you explicit rotation/translation offsets to calibrate it (§ Q1 —
-Vicon, OptiTrack, Xsens). Xsens even documents aligning a tracker axis to a sword's blade and calibrating
-in an N-pose — the physical analogue of rank 2a. **But the FBX export path is not established for any
-vendor** (§ Part 7 gap 7), so this is not a near-term option.
+And a capture idea worth remembering: *"we develop a novel system that captures full-body human
+manipulation motions by simply **attaching a smartphone to the object** being manipulated."* The pattern
+continues object-waypoint-conditioned through CHOIS (ECCV 2024), SimGenHOI (2025) and LYRIC (2026).
 
-**Not established in this pass** (honest NOT FOUNDs): Cascadeur's AI feature set, prop support, and custom-
-skeleton FBX round trip; Move.ai / DeepMotion / Rokoko Vision prop and finger support; whether WHAM, GVHMR,
-TRAM or any 2025–26 successor recovers a held object; and any published source on authoring for a rig with
-no finger bones (§ Q4 reaches the same conclusion from the LOD-budget side instead).
+**For Honor used the weapon's position as a motion-matching feature** — two independent written sources.
+VERIFIED — [Game Anim on Clavet's GDC 2016 talk](https://www.gameanim.com/2016/05/03/motion-matching-ubisofts-honor/):
+*"Match only a few bones. Match the local velocity. Match feet positions and velocities. **Match weapon
+positions** etc."*, corroborated by
+[Game Developer](https://www.gamedeveloper.com/programming/most-inspiring-game-animation-tech-talks-of-2016):
+*"in For Honor they also used the weapon position."* **And they deliberately avoided sword IK:** *"To avoid
+dealing with sword IK to match swords on slopes, he used the same solution as AC3 by simply pitching the
+characters' spines."* A sword-fighting game at AAA scale treated the weapon's position as a first-class
+matching feature *and* declined to IK the sword — a useful caution against over-engineering.
+
+**Both directions are real practice, and the reversal is reserved for two-handed grips** — which is exactly
+our sorceress. COMMUNITY — [Blender Artists](https://blenderartists.org/t/how-to-animate-a-human-holding-an-object-ex-sword-or-gun/1187506):
+*"Usually, you'll want to animate the character and let the prop follow, rather than vice versa"* … but for
+a two-hander, *"**Child-of both hand IK targets to the prop**"* and *"Child-of the left hand IK target to
+either the prop or the right hand."* Independent corroboration of rank 3's staff plan.
+
+**Trade guidance on the runtime form** (VENDOR — [MoCap Online, weapon animation systems](https://mocaponline.com/blogs/mocap-news/weapon-animation-systems-guide)):
+*"**Runtime IK solvers that pin the off-hand to a weapon-space target point solve this problem regardless of
+character proportions**."*
+
+**A shipped melee game's own patch notes, from a professional animator-developer.** Hellish Quart (Kubold),
+fetched via the Steam news API — verbatim lines worth reading as a list of the problems this domain
+actually has: *"added IK for Axe Pull mechanic, should be way more reliable now"* · *"fixed left hand IK
+during the Guardcrusher attack"* · *"better physics-animation blending on blade collisions"* · *"tweaked
+blending of some thrust animations for better trajectory"* · *"the muscles in the right arm are now
+dynamically weakened in the active frames"* · ***"in the moment of swords clashing, both fighters' wrist
+muscles go to 0 for a split second"*** · *"tweaked bodypart colliders to better fit the shiluettes [sic]"*.
+That second-to-last line is a hit-stop technique expressed in the *rig* rather than in time-scale, and it is
+the most interesting single idea I found on impact feel.
+
+#### Video-to-mocap: a clean, decisive negative on props
+
+**Three vendors state it in writing:**
+- Plask, the bluntest (VERIFIED — [docs/44](https://plask.ai/en-US/docs/44)): *"Recognition Limited to Human
+  Poses… **Capturing the movement of non-human objects for animation is not compatible with our system**."*
+- Autodesk Flow Studio, formerly Wonder Studio (VERIFIED —
+  [platform limitations](https://help.wonderdynamics.com/working-with-wonder-studio-getting-started/platform-limitations/)):
+  *"**character-object and character-character interactions are not supported**… when a person is
+  interacting with an object, that action or that object may not be represented accurately."* Their tips
+  page adds: *"Avoid direct Actor interactions with objects and other Actors."*
+- DeepMotion (VERIFIED — [capture guidelines](https://www.deepmotion.com/article/capture-guidelines-quick-guide)):
+  *"Avoid any objects or occlusion that may cover parts of the body."*
+
+The only affirmative object tracking found anywhere is **Move.ai Genesis's *ball* toggle** on the 6-camera
+enterprise product (*"Toggle finger and ball tracking on or off as required"*). Telling detail: Move's own
+page titled *"Can you capture objects?"* now **404s and is absent from their sitemap** — it was removed.
+
+**The SMPL-family research says the same thing in its own words.** WHAM's limitations section (VERIFIED —
+[ar5iv 2312.07531](https://ar5iv.labs.arxiv.org/html/2312.07531)): *"our contact estimation only applies to
+the feet… resulting in physically infeasible body support (**floating hands**) or sliding of the contact
+points. **More information on human-object interactions can be used to resolve this issue.**"* And on
+parameterisation, which matters because we retarget SMPL-H: **WHAM and TRAM emit SMPL body-only, no finger
+joints**; GVHMR names SMPL-X but regresses only the 21-joint body subset. Fingers appear only in Human3R
+(52×3, supervision unverified) and DanceHMR (55×3, explicit) — neither world-grounded *and* object-aware.
+
+Two decisive negatives from the sweep, quoted as found:
+- **"An explicitly weapon-like object (sword, axe, spear, staff, club) in any fetched dataset: NOT FOUND."**
+  The full verified inventory of elongated/tool-like objects across BEHAVE, InterCap, GRAB, ARCTIC and
+  HOI4D is: GRAB `hammer`, `knife`, `flashlight`; InterCap `umbrella`, `tennis racquet`; ARCTIC `scissors`,
+  `ketchup bottle`.
+- **"A monocular-video method that recovers world-frame global root trajectory AND articulated fingers AND
+  a held object's 6DoF pose, all three in one system: NOT FOUND."**
+
+**Conclusion, and it confirms rank 8:** there is no capture route to our weapon's motion. Marker-based
+optical mocap does it trivially as a 6DoF rigid body (§ Q1) and everything else refuses. **The weapon
+channel must be authored. That is not a limitation of our pipeline — it is the state of the art.**
+
+#### ⚠ A licensing risk this pass surfaced that nobody asked about
+
+The SMPL and SMPL-X **model** licences are non-commercial, verbatim (VERIFIED —
+[SMPL model licence](https://smpl.is.tue.mpg.de/modellicense.html)):
+
+> "To use the Software for the sole purpose of performing **non-commercial** scientific research,
+> non-commercial education, or non-commercial artistic projects" … "**Any other use, in particular any use
+> for commercial purposes, is prohibited. This includes, without limitation, incorporation in a commercial
+> product, use in a commercial service**" … "The software/data is also available for commercial licensing
+> through Meshcapade.com."
+
+**Why this is worth a named check rather than an alarm.** We do not use the SMPL model. We consume **Meshy's
+text-to-motion output, which arrives in SMPL-H parameterisation**, and we retarget it onto our own rig. A
+joint-rotation format is not the model, and Meshy presumably licenses whatever it uses. **But the project
+has shipping ambitions, and "our motion data is downstream of a non-commercially-licensed body model" is
+the kind of question that is cheap to answer now and expensive to answer later.**
+
+**Recommended action: one question to Meshy** — *what are the commercial-use terms of text-to-motion output,
+and is any SMPL-family model in its derivation?* — and record the answer. **This is a Matt-level item, not
+an engineering one.** It does not block any rank in § Part 6: every rank is authored motion or library
+mocap, and the library clips are Meshy's own animation assets, not SMPL output. Note also, for anyone
+tempted by the research code: WHAM and TRAM ship MIT *code* but require SMPL registration; GVHMR, Human3R,
+DuoMo, BEHAVE, GRAB, ARCTIC and InterCap are all non-commercial, and HTD-Refine is AGPL-3.0.
+
+#### The small-team answer
+
+**INFERENCE (mine), and the two halves compose:** the *arm* motion is cheap to source — 174 `Fighting`
+clips in a library we already query, and retargeting is solved in our pipeline. The *weapon* motion is what
+nobody can give us, because no source clip was authored holding our axe and no capture product will track
+it. **So the split is hybrid: library mocap for the body, authored keys for the weapon bone, in Cascadeur.**
+That puts authoring effort exactly where the information is missing, and it is what rank 3 describes.
 
 ### Q3 — Dual-wield, spin attacks, and keeping the edge leading
 
@@ -703,6 +870,19 @@ a concrete technique:
 
 **Recommendation up front: keep the grip morphs. Do not re-rig for fingers.** The evidence says fingers
 are the first thing that stops mattering at our register, and our current solution is the right one.
+
+**The standards themselves make fingers optional, which is the cleanest possible support.** The VRM 1.0
+humanoid spec marks **15 bones `Required` — hips, spine, head, both legs' upper/lower/foot, both arms'
+upper/lower/hand — and all thirty finger-bone rows carry no Required designation at all** (VERIFIED-RAW —
+[humanoid.md](https://raw.githubusercontent.com/vrm-c/vrm-specification/master/specification/VRMC_vrm-1.0/humanoid.md)).
+Unity's Humanoid has the same floor: *"A minimum of 15 bones. Your skeleton needs to have at least the
+required bones in place"* (VERIFIED — [Using Humanoid Characters](https://docs.unity3d.com/Manual/UsingHumanoidChars.html)).
+And the tools agree: Cascadeur states *"You don't have to rig every joint in the skeleton"* and that *"only
+slots on the **Body** panel are required for using AutoPosing"*; Autodesk Flow Studio needs exactly one —
+*"The Hips (pelvis) bone is the only bone that must be mapped… The rest of the bones are optional."*
+**Our 24-bone rig is above every documented floor.** (Worth knowing for the Godot seam: Godot's
+`SkeletonProfileHumanoid` *does* enumerate 56 bones including every finger segment and is read-only — but
+it is a retargeting preset we do not use, and the docs make no required-vs-optional claim.)
 
 **The industry's own LOD ordering settles it.** *"LOD bone reduction typically removes fingers first, then
 twist bones, then toe bones, and simplifies the spine"* (VENDOR —
@@ -1138,24 +1318,51 @@ what `21_lint_export.py` already is.
    **local**-error tolerance, per Unreal's model, so anti-aliasing noise does not fail a cell. Cheapest
    possible regression net for weapon motion, needing no new rendering.
 6. **Penetration**, extending `sc_tilt.json`'s existing capsule/mesh depth measurement to both weapons in
-   both hands across all clips. Interpenetration is a named, measured defect class in the literature.
+   both hands across all clips. Interpenetration is a named, measured defect class in the literature. **Add
+   one specific case the craft source names:** *"pay attention to how often the pommel wants to intersect
+   with your wrist, especially when you try to drop the blade to the lower right"* — so check the weapon's
+   **butt end against the forearm**, not just the head against the torso. Our current penetration probe
+   samples the whole mesh, which should catch it, but the pommel-vs-wrist case deserves to be named in the
+   report so a regression there is legible rather than a number going up.
 
 **Governing caveat, from the academic source:** human perception outperformed individual objective metrics
 in quality assessment. **These instruments are triage, not verdict.** They decide what reaches Matt's eye;
 they do not replace it.
 
-### Rank 7 — Weapon-first authoring: the ambitious option, and the one with the best craft pedigree
+### Rank 7 — Weapon-first authoring, and the tooling question: evaluate Cascadeur
 
-Author the *weapon's* path first and solve the arms by IK. A professional game animator states this as the
-natural frame — *"the weapon leads the motions, just like your IK target leads your animation"* — and Unity
-names the mechanism outright: *"you could configure a character's hand to sometimes control the motion of a
-prop, and the prop to sometimes control the motion of the hand"* (MultiReferentialConstraint).
+Author the *weapon's* path first and solve the arms by IK. This has the best pedigree of anything in the
+report: a professional game animator states it as the natural frame (*"the weapon leads the motions, just
+like your IK target leads your animation"*); Unity names the mechanism outright (*"the prop to sometimes
+control the motion of the hand"*); **For Honor used weapon position as a motion-matching feature**; and
+OMOMO (SIGGRAPH Asia 2023, MIT code) formalises it — *"generate full-body manipulation behaviors from only
+the object motion… first predict hand positions from object motion and subsequently synthesize full-body
+poses."*
 
 **It is the only approach that bounds the weapon's screen arc directly**, because the arc becomes the
-authored quantity rather than an emergent consequence of shoulder motion — i.e. it is the principled fix
-for defect (c), where ranks 1–5 are mitigations. **Hold it as a follow-on, not now:** it needs an authoring
-surface we do not have, and ranks 1–5 should be measured first. Revisit if rank 5's budget cannot be met
-by re-sourcing.
+authored quantity rather than an emergent consequence of shoulder motion — i.e. it is the principled fix for
+defect (c), where ranks 1–5 are mitigations.
+
+**The tooling answer is Cascadeur, provisionally.** It treats props/weapons as first-class, expects them
+*"already rigged and skinned"* (which rank 1 delivers), runs its AI posing on the prop, works on our own
+skinned skeleton, and exports GLB/glTF. **Two things must be verified first, in one sitting:** (a) can a
+prop's **rotation** be authored on an editable trajectory — the docs' caveat says AutoPosing controllers
+render no trajectories and Point controllers render position only, and our channel is pure rotation; and
+(b) does moving the weapon pose the arms, or only the reverse? Budget the **Indie tier ($8/month billed
+annually)** — the free tier cannot export FBX and is non-commercial only.
+
+**Sequencing: hold the full weapon-first workflow as a follow-on.** Ranks 1–5 should land and be measured
+first; a Cascadeur trial can run in parallel because it costs nothing but an evaluation. Revisit
+weapon-first properly if rank 5's arc budget cannot be met by re-sourcing.
+
+**And one caution from a AAA melee game that chose the opposite.** For Honor *"avoid[ed] dealing with sword
+IK"* entirely, solving height mismatches by *"simply pitching the characters' spines."* The default advice
+on Blender's own forum is likewise character-first — *"Usually, you'll want to animate the character and let
+the prop follow, rather than vice versa"* — **with the reversal reserved for two-handed grips**, where the
+same source says *"Child-of both hand IK targets to the prop."* **Both directions are real practice.** Our
+split should follow that line: **one-handed weapons stay character-first with an authored weapon channel
+(ranks 1–3); the two-handed staff is where reverse drive genuinely earns its keep (rank 3's sorceress
+plan).**
 
 ### Rank 8 — Explicit non-recommendations
 
@@ -1165,9 +1372,17 @@ by re-sourcing.
 - **Do not build the weapon channel on `BoneAttachment3D.override_pose`.** Godot's own docs warn it
   *"may cause unintended behavior when used at the same time with SkeletonModifier3D"* — and
   `TwoBoneIK3D`, which we rely on, is a `SkeletonModifier3D`.
-- **Do not reach for video mocap or text-to-motion for this work.** The Meshy library already holds
-  `Double_Blade_Spin`, `Axe_Spin_Attack`, `Combat_Stance`, `Sword_Shout`, the `Weapon_Combo` set and nine
-  mage casts (§ Part 4). Sourcing is not the bottleneck; the weapon channel is.
+- **Do not reach for video mocap or text-to-motion to capture the WEAPON.** This is now a settled negative,
+  not a judgement call: Plask says *"Capturing the movement of non-human objects for animation is not
+  compatible with our system"*; Autodesk Flow Studio says *"character-object and character-character
+  interactions are not supported"*; DeepMotion says *"Avoid any objects or occlusion."* The only affirmative
+  object tracking anywhere is Move.ai Genesis's *ball* toggle on a 6-camera rig, and Move's own
+  "Can you capture objects?" page has been deleted. On the research side, **no monocular system recovers
+  world-frame trajectory + articulated fingers + a held object's 6DoF pose together**, and no HOI dataset
+  contains a sword, axe, spear, staff or club at all. **The weapon channel must be authored. That is the
+  state of the art, not a gap in our pipeline.**
+- **Do not reach for the library for the weapon's angle either.** The Meshy library solves *body* sourcing
+  (§ Part 4) and nothing else — every clip was authored for other weapons or none.
 - **Do not raise the wrist-lock alpha further.** Measured: the strongest alpha produced the worst arc.
 
 ### 6.9 Suggested order of work
@@ -1217,16 +1432,23 @@ Steps 1–3 are cheap, verified, and answer the live complaint. **They should no
    design** and I could not resolve it from sources. It needs an A/B, not more reading.
 10. **The grip-offset calibration procedure is undocumented industry-wide**, against an abundance of
     documented *knobs*. We are not behind a best practice; there isn't one. That is why § 6.6 exists.
-11. **The authoring-tool survey did not complete** (§ Q2). The session's 200-call WebSearch budget was
-    exhausted across four parallel research passes. **Unresolved and worth one focused follow-up:** does
-    **Cascadeur** support animating a held prop/weapon, and does it round-trip FBX with an arbitrary custom
-    skeleton? If yes, it is the obvious place to author the weapon channel and would change rank 3's
-    tooling. This is the single highest-value unclosed question in the commission.
-12. **Whether any monocular video-mocap method recovers a HELD OBJECT is unresolved** — WHAM, GVHMR, TRAM
-    and any 2025–26 successor were not reached. A clean negative would usefully close the door; an
-    affirmative would open a sourcing option we have not considered. Likewise unconfirmed: Move.ai,
-    DeepMotion and Rokoko Vision prop and finger support.
-13. **Not verified in this pass:** whether Blender's glTF exporter drops our new bones under any export
+11. **RESOLVED after the first draft** — the authoring-tool survey landed late and § Q2 now carries it.
+    Cascadeur *does* support props/weapons, works on our skinned skeleton, and exports glTF. **Two specific
+    sub-questions remain and need a trial install, not more reading:** (a) can a prop's **rotation** be
+    authored on an editable trajectory (the docs say AutoPosing controllers render no trajectories and Point
+    controllers render position only — and our channel is pure rotation); (b) does moving the weapon pose the
+    arms, or only the reverse? **These are now the highest-value open items in the commission.**
+12. **RESOLVED, as a clean negative** — no consumer video-mocap product tracks a held prop (three vendors say
+    so in writing), no monocular research system delivers world-frame trajectory + fingers + object pose
+    together, and no HOI dataset contains a weapon-like object. § Q2 carries the quotes.
+13. **⚠ NEW, and it is a Matt-level question rather than a research gap.** The SMPL / SMPL-X **model**
+    licences forbid commercial use outright, *"including, without limitation, incorporation in a commercial
+    product."* We retarget **SMPL-H** from Meshy text-to-motion. A joint-rotation format is not the model,
+    and Meshy presumably licenses its own derivation — **but the project has shipping ambitions and this is
+    cheap to answer now and expensive later.** Recommended: ask Meshy what the commercial-use terms of
+    text-to-motion output are and whether any SMPL-family model sits in its derivation, then record the
+    answer. **Blocks nothing in § Part 6** — every rank is authored motion or Meshy's own library clips.
+14. **Not verified in this pass:** whether Blender's glTF exporter drops our new bones under any export
     setting we actually use. Making them deform bones should make this moot (upstream bugs cluster on the
     *non*-deform case), and the round trip passed at default settings — but confirm against the real export
     configuration in `15_export_scene.py`.
@@ -1312,6 +1534,18 @@ direction cell; camera projection geometry; Godot `TwoBoneIK3D` / `SkeletonModif
 - https://www.3dfiggins.com/Store/Support/SwordSwipe/ — Figgins, edge locators
 - https://www.remyjaspers.com/blog/melee_tracing_ue5/ — inter-frame arc sampling
 - https://lilura1.blogspot.com/2019/10/Baldurs-Gate-Retrospective-Review-Graphics-Backgrounds-Sprites-and-Animation.html (community)
+
+**Authoring tools, video mocap, and the SMPL-family research (Q2)**
+- Cascadeur: [props](https://cascadeur.com/help/rig/advanced_rigging/adding_objects/adding_props) · [rigging props](https://cascadeur.com/help/rig/advanced_rigging/adding_objects/rigging_props) · [AutoPosing incl. weapons](https://cascadeur.com/help/tools/animation_tools/autoposing) · [trajectories](https://cascadeur.com/help/tools/animation_tools/trajectories) · [Motion Generation](https://cascadeur.com/help/category/309) · [quick rigging](https://cascadeur.com/help/rig/quick_rigging/quick_rigging_tool) · [prototype objects](https://cascadeur.com/help/rig/rig_structure/rig_elements/prototype_objects) · [FAQ](https://cascadeur.com/help/faq) · [file menu](https://cascadeur.com/help/interface/main_menu/file_menu) · [2026.2 notes](https://cascadeur.com/help/category/319) · [plans/pricing](https://cascadeur.com/plans)
+- Video mocap, the prop negatives: [Plask docs/44](https://plask.ai/en-US/docs/44) · [Autodesk Flow Studio platform limitations](https://help.wonderdynamics.com/working-with-wonder-studio-getting-started/platform-limitations/) · [DeepMotion capture guidelines](https://www.deepmotion.com/article/capture-guidelines-quick-guide) · [Move.ai Genesis take processing](https://docs.move.ai/knowledge/genesis-processing-an-action-take) · [Rokoko Vision](https://www.rokoko.com/products/vision)
+- HMR research: [WHAM](https://arxiv.org/abs/2312.07531) + [ar5iv limitations](https://ar5iv.labs.arxiv.org/html/2312.07531) · [GVHMR](https://arxiv.org/abs/2409.06662) · [TRAM](https://arxiv.org/abs/2403.17346) · [Human3R](https://arxiv.org/abs/2510.06219) · [DuoMo](https://arxiv.org/abs/2603.03265) · [DanceHMR](https://arxiv.org/abs/2605.18102)
+- HOI datasets: [GRAB](https://arxiv.org/abs/2008.11200) · [InterCap](https://arxiv.org/abs/2209.12354) · [BEHAVE](https://arxiv.org/abs/2204.06950) · [ARCTIC](https://arxiv.org/abs/2204.13662) · [HOI4D](https://arxiv.org/abs/2203.01577) · [Open4DHOI](https://arxiv.org/abs/2512.00960)
+- Weapon-first formalisation: [OMOMO, SIGGRAPH Asia 2023](https://arxiv.org/abs/2309.16237v1) (MIT code) · [CHOIS, ECCV 2024](https://arxiv.org/abs/2312.03913v2)
+- Motion matching on weapon position: [Game Anim on Clavet GDC 2016](https://www.gameanim.com/2016/05/03/motion-matching-ubisofts-honor/) · [Game Developer](https://www.gamedeveloper.com/programming/most-inspiring-game-animation-tech-talks-of-2016) · [GDC Vault record](https://www.gdcvault.com/play/1023280/Motion-Matching-and-The-Road)
+- Hellish Quart patch notes: [Steam news API, appid 1000360](https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1000360) · [store page](https://store.steampowered.com/app/1000360/Hellish_Quart/)
+- Prop-as-parent practice: [Blender Artists](https://blenderartists.org/t/how-to-animate-a-human-holding-an-object-ex-sword-or-gun/1187506) (community) · [MoCap Online weapon systems](https://mocaponline.com/blogs/mocap-news/weapon-animation-systems-guide) (vendor)
+- **Licences:** [SMPL model licence](https://smpl.is.tue.mpg.de/modellicense.html) · [SMPL-X model licence](https://smpl-x.is.tue.mpg.de/modellicense.html)
+- Bone-set floors: [VRM 1.0 humanoid spec (raw)](https://raw.githubusercontent.com/vrm-c/vrm-specification/master/specification/VRMC_vrm-1.0/humanoid.md) · [Unity Humanoid](https://docs.unity3d.com/Manual/UsingHumanoidChars.html) · [Godot SkeletonProfileHumanoid](https://docs.godotengine.org/en/stable/classes/class_skeletonprofilehumanoid.html)
 
 **Rigs, tools, mocap**
 - https://syntystore.com/products/animation-sword-combat — *"make use of a prop bone"*
