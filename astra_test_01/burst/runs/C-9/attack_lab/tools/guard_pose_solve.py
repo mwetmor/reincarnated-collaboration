@@ -1,0 +1,263 @@
+"""T12: THE AXE-ARM GUARD POSE, authored by IK -- and the guard's orientation chosen for READABILITY.
+
+    python3 guard_pose_solve.py <body.glb (26 joints, the mount)> <out.json>
+
+1. READABILITY. Within the guard predicate (haft 30-60 deg from vertical, leaning forward and
+   outboard), the haft direction whose SCREEN projection at the play camera (orthographic, pitch
+   52.9535 deg, 77.8 px per metre) keeps the most length in the WORST of the eight direction cells
+   (camera yaw 47 + k x 45 deg off his forward). A haft leaning 37 deg toward the camera is
+   parallel to its view ray and vanishes -- the forward-guard trap legolas named -- so the worst
+   cell is what decides.
+2. THE POSE. The right arm solved in the CHEST frame (Spine) so that, at the unarmed idle's mean
+   chest, the mounted axe's haft lies on that direction and the grip sits in front of him at
+   belly-to-chest height, with the WRIST NEUTRAL (RightHand at its rest rotation) -- so the haft
+   stays in the fist's channel and the forearm comes out square to it -- and the arm as near the
+   fight walk's own mean arm as those allow (the natural prior). RightShoulder keeps the walk's.
+All in glTF units; metres = units x the Armature scale (0.010882)."""
+import json, math, os, sys
+import numpy as np
+from scipy.optimize import minimize
+HERE = os.path.dirname(os.path.abspath(__file__))
+SCR = os.path.normpath(os.path.join(HERE, "..", "..", "nb_d2", "scripts"))
+sys.path.insert(0, SCR)
+L = __import__('21_lint_export')
+W = __import__('52_weapon_bones')
+
+F = np.array([0, 0, 1.0]); U = np.array([0, 1.0, 0]); R = np.array([-1.0, 0, 0])
+PITCH = math.radians(52.9535411256029)
+PX_PER_M = 77.8
+CHAIN = ["RightShoulder", "RightArm", "RightForeArm", "RightHand", "weapon_r"]
+
+
+def quat_of(m):
+    return W.m2q(m)
+
+
+def rotvec_to_m(v):
+    a = float(np.linalg.norm(v))
+    if a < 1e-12:
+        return np.eye(3)
+    return W.axis_angle(v / a, a)
+
+
+def slerp_mean(qs):
+    ref = qs[0]; acc = np.zeros(4)
+    for q in qs:
+        q = np.asarray(q, float)
+        acc += q if np.dot(q, ref) >= 0 else -q
+    return acc / np.linalg.norm(acc)
+
+
+def cam_axes(yaw_deg):
+    y = math.radians(yaw_deg)
+    g = math.cos(y) * F + math.sin(y) * R
+    v = math.cos(PITCH) * g - math.sin(PITCH) * U
+    r = np.cross(v, U); r /= np.linalg.norm(r)
+    s = np.cross(r, v); s /= np.linalg.norm(s)
+    return r, s
+
+
+CELLS = [cam_axes(47 + 45 * k) for k in range(8)]
+
+
+def screen(h):
+    out = []
+    for r, s in CELLS:
+        x, y = float(h @ r), float(h @ s)
+        out.append((math.hypot(x, y), math.degrees(math.atan2(x, y))))
+    return out
+
+
+def main():
+    body, outp = sys.argv[1], sys.argv[2]
+    js, b = L.load_glb(body)
+    nodes = js['nodes']
+    idx = {n.get('name'): i for i, n in enumerate(nodes)}
+    anims = {a['name']: a for a in js['animations']}
+    mpu = 0.010882345028221607
+
+    def channel(anim, node, path):
+        for ch in anim['channels']:
+            if ch['target'].get('node') == node and ch['target'].get('path') == path:
+                s = anim['samplers'][ch['sampler']]
+                return L.read_accessor(js, b, s['input']).reshape(-1), L.read_accessor(js, b, s['output'])
+        return None, None
+
+    def local_at(anim, name, k):
+        i = idx[name]
+        M = W.trs(nodes[i])
+        t, v = channel(anim, i, 'rotation')
+        if t is not None:
+            M[:3, :3] = W.q2m(v[min(k, len(v) - 1)])
+        t2, v2 = channel(anim, i, 'translation')
+        if t2 is not None:
+            M[:3, 3] = v2[min(k, len(v2) - 1)]
+        return M
+
+    # ---- 1. readability -----------------------------------------------------------------------
+    best = None
+    table = []
+    # a MARGIN inside the predicate (tilt 30-60, forward and outboard > 0): the pose rides the
+    # chest, and a guard on the boundary fails half the frames of a breathing idle (tested: tilt
+    # 60 -> 54% of the idle's frames)
+    for tilt in np.arange(35.0, 55.01, 2.5):
+        for az in np.arange(15.0, 75.01, 5.0):
+            h = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * R) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
+            sc = screen(h)
+            lens = [l for l, _ in sc]
+            row = (min(lens), float(np.mean(lens)), tilt, az, sc)
+            table.append(row)
+            if best is None or (row[0], row[1]) > (best[0], best[1]):
+                best = row
+    wmin, wmean, tilt, az, sc = best
+    h_world = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * R) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
+    fwd45 = [r for r in table if abs(r[2] - 45) < 1e-6 and abs(r[3] - 45) < 1e-6][0]
+    print("readability: best guard haft tilt %.1f deg, azimuth %.0f deg (forward -> outboard): worst cell %.2f, mean %.2f of true length"
+          % (tilt, az, wmin, wmean))
+    print("   for scale, the centre of the predicate (tilt 45, azimuth 45): worst cell %.2f, mean %.2f" % (fwd45[0], fwd45[1]))
+    HAFT_M = 0.69
+    print("   per cell (camera yaw off his forward): " + "  ".join(
+        "%d: %.0f px @ %+.0f deg" % (47 + 45 * k, sc[k][0] * HAFT_M * PX_PER_M, sc[k][1]) for k in range(8)))
+
+    # ---- 2. the chest: the unarmed idle's, per frame and mean -----------------------------------
+    idle = anims['idle']
+    kt, _ = channel(idle, idx['RightHand'], 'rotation')
+    nk = len(kt)
+    chest_R = []
+    chest_p = []
+    spine_chain = ["Hips", "Spine02", "Spine01", "Spine"]
+    for k in range(nk):
+        M = np.eye(4)
+        for nm in spine_chain:
+            M = M @ local_at(idle, nm, k)
+        chest_R.append(M[:3, :3] / np.cbrt(np.linalg.det(M[:3, :3])))
+        chest_p.append(M[:3, 3])
+    # THE IDLE'S STANCE FRAME, not its mean: the unarmed idle is not quiet -- its hips turn up to 49
+    # deg and its chest swings over 138 deg of yaw, looking round with the feet planted -- so the new
+    # idle holds ONE of its frames (the one whose chest faces most nearly his forward) and keeps
+    # only its breathing, damped. The pose is solved at that chest.
+    def chest_fwd(Rm):
+        best_axis, best = None, -2
+        return Rm
+    # which chest axis is his forward? the one nearest +Z (his forward) at the mean
+    qm0 = slerp_mean([quat_of(Rm) for Rm in chest_R])
+    Cm0 = W.q2m(qm0)
+    ax = int(np.argmax([abs(float((Cm0 @ e) @ F)) for e in np.eye(3)]))
+    sgn = 1.0 if float((Cm0 @ np.eye(3)[ax]) @ F) > 0 else -1.0
+    yaws = []
+    for Rm in chest_R:
+        f = sgn * (Rm @ np.eye(3)[ax]); yaws.append(math.degrees(math.atan2(float(f @ R), float(f @ F))))
+    k0 = int(np.argmin([abs(y) for y in yaws]))
+    Cm = chest_R[k0]
+    print("idle stance frame: key %d (%.3f s) -- its chest faces %+.1f deg off his forward (the idle's range %+.1f..%+.1f)"
+          % (k0, float(kt[k0]), yaws[k0], min(yaws), max(yaws)))
+    h_c = Cm.T @ h_world                          # the guard haft, in the chest's own frame
+    # the fight walk's mean arm, as the natural prior (and its clavicle, kept)
+    wk = anims['walk_armed']
+    ref = {}
+    for nm in ["RightShoulder", "RightArm", "RightForeArm"]:
+        t3, v3 = channel(wk, idx[nm], 'rotation')
+        ref[nm] = W.q2m(slerp_mean(list(v3)))
+    rest = {nm: W.trs(nodes[idx[nm]]) for nm in CHAIN}
+
+    def chain(q_arm, q_fore):
+        Xs = rest["RightShoulder"].copy(); Xs[:3, :3] = ref["RightShoulder"]
+        Xa = rest["RightArm"].copy(); Xa[:3, :3] = q_arm
+        Xf = rest["RightForeArm"].copy(); Xf[:3, :3] = q_fore
+        Xh = rest["RightHand"]                   # NEUTRAL WRIST: the rest rotation
+        Xw = rest["weapon_r"]                    # the mount
+        M1 = Xs @ Xa
+        M2 = M1 @ Xf
+        M3 = M2 @ Xh
+        M4 = M3 @ Xw
+        return M1, M2, M3, M4
+
+    BOX = dict(fwd=(0.25, 0.45), out=(0.12, 0.32), up=(-0.35, -0.08))
+
+    def terms(x):
+        qa = ref["RightArm"] @ rotvec_to_m(x[:3])
+        qf = ref["RightForeArm"] @ rotvec_to_m(x[3:])
+        M1, M2, M3, M4 = chain(qa, qf)
+        haft = M4[:3, :3] @ np.array([0, 1.0, 0]); haft /= np.linalg.norm(haft)
+        edge = M4[:3, :3] @ np.array([0, 0, 1.0]); edge /= np.linalg.norm(edge)
+        grip_w = Cm @ M4[:3, 3] * mpu            # metres, in his frame, relative to the chest joint
+        ang = math.degrees(math.acos(max(-1, min(1, float(haft @ h_c)))))
+        pen = 0.0
+        for key, axis in (("fwd", F), ("out", R), ("up", U)):
+            lo, hi = BOX[key]; v = float(grip_w @ axis)
+            pen += max(0.0, lo - v) ** 2 + max(0.0, v - hi) ** 2
+        e_w = Cm @ edge
+        hd = math.degrees(math.atan2(float(e_w @ R), float(e_w @ F)))
+        epen = max(0.0, abs(hd) - 30.0) ** 2
+        prior = float(np.linalg.norm(x[:3])) ** 2 + float(np.linalg.norm(x[3:])) ** 2
+        elbow = M1[:3, 3]; wrist = M2[:3, 3]
+        fore_dir = (M3[:3, 3] - wrist); fore_dir /= np.linalg.norm(fore_dir)
+        up_dir = (wrist - elbow); up_dir /= np.linalg.norm(up_dir)
+        return dict(ang=ang, pen=pen, hd=hd, epen=epen, prior=prior, grip=grip_w, haft=haft, edge=edge,
+                    fore_haft=math.degrees(math.acos(max(-1, min(1, float(up_dir @ haft))))),
+                    elbow_flex=math.degrees(math.acos(max(-1, min(1, float(up_dir @ ((elbow - M1[:3, 3]) if False else up_dir)))))),
+                    qa=qa, qf=qf, M=(M1, M2, M3, M4))
+
+    def obj(x):
+        t = terms(x)
+        return t["ang"] ** 2 + 4e4 * t["pen"] + t["epen"] + 40.0 * t["prior"]
+
+    bestx, bestf = None, 1e18
+    rng = np.random.default_rng(7)
+    for trial in range(40):
+        x0 = rng.normal(0, 0.8, 6) if trial else np.zeros(6)
+        r = minimize(obj, x0, method="Nelder-Mead", options=dict(maxiter=6000, xatol=1e-5, fatol=1e-7))
+        r = minimize(obj, r.x, method="Powell", options=dict(maxiter=6000))
+        if r.fun < bestf:
+            bestf, bestx = r.fun, r.x
+    t = terms(bestx)
+    M1, M2, M3, M4 = t["M"]
+    # elbow flexion: the angle between the upper arm (shoulder joint -> elbow) and the forearm
+    sh = chain(t["qa"], t["qf"])[0]
+    shoulder = rest["RightShoulder"].copy(); shoulder[:3, :3] = ref["RightShoulder"]
+    p_sh = (shoulder @ rest["RightArm"])[:3, 3]
+    p_el = M2[:3, 3]; p_wr = M3[:3, 3]
+    ua = p_el - p_sh; fa = p_wr - p_el
+    flex = math.degrees(math.acos(max(-1, min(1, float(ua @ fa) / (np.linalg.norm(ua) * np.linalg.norm(fa))))))
+    fa_n = fa / np.linalg.norm(fa)
+    fore_vs_haft = math.degrees(math.acos(max(-1, min(1, float(fa_n @ t["haft"])))))
+    print("pose: haft %.2f deg off the guard; grip fwd %+.3f out %+.3f up %+.3f m of the chest (box fwd %s out %s up %s); edge heading %+.1f deg"
+          % (t["ang"], t["grip"] @ F, t["grip"] @ R, t["grip"] @ U, BOX["fwd"], BOX["out"], BOX["up"], t["hd"]))
+    print("      forearm to haft %.1f deg (square = 90); elbow bend %.1f deg; arm moved from the walk's mean arm by %.1f deg (upper) %.1f deg (fore)"
+          % (fore_vs_haft, flex, math.degrees(np.linalg.norm(bestx[:3])), math.degrees(np.linalg.norm(bestx[3:]))))
+    # the predicate over the idle's own chest motion (the pose rides the chest)
+    ok = 0
+    for k in range(nk):
+        hw = chest_R[k] @ t["haft"]; ew = chest_R[k] @ t["edge"]
+        tl = math.degrees(math.acos(max(-1, min(1, float(hw @ U)))))
+        hd = math.degrees(math.atan2(float(ew @ R), float(ew @ F)))
+        if 30 <= tl <= 60 and hw @ F > 0 and hw @ R > 0 and abs(hd) <= 45:
+            ok += 1
+    print("      the guard predicate over the unarmed idle's %d frames, riding its chest: %d%%" % (nk, round(100 * ok / nk)))
+    tl_ = []; fw_ = []; ou_ = []; hd_ = []; cang = []
+    for k in range(nk):
+        hw = chest_R[k] @ t["haft"]; ew = chest_R[k] @ t["edge"]
+        tl_.append(math.degrees(math.acos(max(-1, min(1, float(hw @ U)))))); fw_.append(float(hw @ F)); ou_.append(float(hw @ R))
+        hd_.append(math.degrees(math.atan2(float(ew @ R), float(ew @ F))))
+        dq = W.m2q(chest_R[k] @ Cm.T); cang.append(math.degrees(2 * math.acos(min(1.0, abs(float(dq[3]))))))
+    print("      over the idle: tilt %.1f..%.1f, fwd %+.2f..%+.2f, out %+.2f..%+.2f, edge %+.0f..%+.0f; the chest wanders %.1f deg (max) from its mean"
+          % (min(tl_), max(tl_), min(fw_), max(fw_), min(ou_), max(ou_), min(hd_), max(hd_), max(cang)))
+    out_stance = dict(key=k0, t=float(kt[k0]), chest_yaw=yaws[k0])
+    out = dict(stance=out_stance, readability=dict(tilt=tilt, azimuth=az, worst=wmin, mean=wmean,
+                                per_cell=[dict(cell_yaw=47 + 45 * k, screen_px=round(sc[k][0] * HAFT_M * PX_PER_M, 1),
+                                               screen_angle=round(sc[k][1], 1)) for k in range(8)],
+                                centre_45_45=dict(worst=fwd45[0], mean=fwd45[1])),
+               guard_world_his_frame=list(map(float, h_world)),
+               pose={"RightShoulder": list(map(float, quat_of(ref["RightShoulder"]))),
+                     "RightArm": list(map(float, quat_of(t["qa"]))),
+                     "RightForeArm": list(map(float, quat_of(t["qf"]))),
+                     "RightHand": list(map(float, quat_of(rest["RightHand"][:3, :3] / np.cbrt(np.linalg.det(rest["RightHand"][:3, :3])))))},
+               checks=dict(haft_off_guard_deg=t["ang"], grip_m=list(map(float, t["grip"])), edge_heading=t["hd"],
+                           forearm_to_haft_deg=fore_vs_haft, elbow_bend_deg=flex,
+                           predicate_idle_pct=round(100 * ok / nk)))
+    json.dump(out, open(outp, "w"), indent=1)
+    print("wrote %s" % outp)
+
+
+if __name__ == "__main__":
+    main()
