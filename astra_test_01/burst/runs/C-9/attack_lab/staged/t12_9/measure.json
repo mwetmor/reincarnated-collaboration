@@ -1,0 +1,433 @@
+{
+ "_note": "T12_9 -- T12_8 with its loops re-cut on the source's own keys (coordinator cross-lane finding 2026-09-30, after the D2 drax's D7 run seam, collab b3fa2d725). Staged, not installed.",
+ "set": {
+  "knight.gd": "ea761ba8c1359209f39234e2953b1d3c",
+  "character.json": "b676c2a3239d514badcef2543f8fe883",
+  "glbs_from": "nb_d2/export_staging/T12_9_loops/",
+  "nb-body.glb": "91e3c4f846692d6f1e0f2f5175f534f3",
+  "axe.glb": "d7762e1b40dc37a238d9da761cf4ec95",
+  "bracers.glb": "5254292e1d894902a60f4749c3cc7abb",
+  "byrnie.glb": "d1fe5c22eb60be92dc26cc1fff21a802",
+  "helmet.glb": "185ca9f74af564da3f2443195c0c030f",
+  "mantle.glb": "54669c6f2298950c9dc0ffcd8d936f70",
+  "shield.glb": "cdf1c9e12a521531e79ee24f8c1a1540",
+  "body_recipe": "T12_8's nb-body (8a59acf9) -> 55_clip_graft.py graft idle/walk/run = ../nb_t8/nbt_{idle,walk,run}.glb +loop+deroot (nb-body_graft 8e030e20) -> 54_weapon_channel.py pose --replace with T12_8's guard poses (guard_pose.json with the stance remapped; block, bash, chop) = 91e3c4f8. Only idle, walk, run and idle_guard differ from T12_8 (the other 21 clips, the nodes, skins, meshes and vertex data are byte-identical, checked)"
+ },
+ "pre_states": {
+  "A_installed": "knight bf23c13e, character b3b62c63, nb-body 07ccabd6 + the D2 pieces",
+  "B_T12_7": "knight ef8ebfb4, character bfaf4997, nb-body 8c5b43d7 + the T12_2 pieces",
+  "C_T12_8": "knight ea761ba8, character b676c2a3, nb-body 8a59acf9 + the T12_2 pieces",
+  "install_sh": "passes only on exactly A, B or C and prints which (dry-run on scratch symlink trees: A found, B found, C found, a mix of T12_8's scripts with T12_7's GLBs halts)"
+ },
+ "root_cause": "the D2 Blender merge (33_assemble) cut the T8 natives -- Meshy's rig-task walk, run and idle, keyed at 30 fps from 0.0333 s -- on a 24 fps grid from t = 0: a clamped hold on the first key, then the source read between its keys, ending 1/40 s short of the walk's cycle and exactly on the run's (0.6667 s for a 0.6333 s cycle). The same defect the D2 drax found in D7's run.",
+ "loops_s17_and_intervals": {
+  "idle": {
+   "T12_8": {
+    "keys": 97,
+    "T_s": 4.0,
+    "dt_s": 0.04167,
+    "closure_m": 0.0013,
+    "closure_deg": 0.25,
+    "closure_joint": "RightHand",
+    "first_frac": 0.007,
+    "last_frac": 0.074,
+    "wrap_frac": 0.047,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 121,
+    "T_s": 4.0,
+    "dt_s": 0.03333,
+    "closure_m": 0.0001,
+    "closure_deg": 0.012,
+    "closure_joint": "head_end",
+    "first_frac": 0.037,
+    "last_frac": 0.056,
+    "wrap_frac": 0.035,
+    "upper_only": false
+   }
+  },
+  "walk": {
+   "T12_8": {
+    "keys": 26,
+    "T_s": 1.0417,
+    "dt_s": 0.04167,
+    "closure_m": 0.0996,
+    "closure_deg": 11.343,
+    "closure_joint": "LeftToeBase",
+    "first_frac": 0.42,
+    "last_frac": 1.744,
+    "wrap_frac": 1.601,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 32,
+    "T_s": 1.0333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.0,
+    "closure_joint": "LeftToeBase",
+    "first_frac": 1.881,
+    "last_frac": 1.746,
+    "wrap_frac": 1.881,
+    "upper_only": false
+   }
+  },
+  "run": {
+   "T12_8": {
+    "keys": 17,
+    "T_s": 0.6667,
+    "dt_s": 0.04167,
+    "closure_m": 0.0,
+    "closure_deg": 0.0,
+    "closure_joint": "headfront",
+    "first_frac": 0.291,
+    "last_frac": 1.063,
+    "wrap_frac": 0.291,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 20,
+    "T_s": 0.6333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.0,
+    "closure_joint": "LeftToeBase",
+    "first_frac": 1.539,
+    "last_frac": 1.177,
+    "wrap_frac": 1.539,
+    "upper_only": false
+   }
+  },
+  "idle_guard": {
+   "T12_8": {
+    "keys": 97,
+    "T_s": 4.0,
+    "dt_s": 0.04167,
+    "closure_m": 0.0001,
+    "closure_deg": 0.043,
+    "closure_joint": "headfront",
+    "first_frac": 0.038,
+    "last_frac": 0.153,
+    "wrap_frac": 0.047,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 121,
+    "T_s": 4.0,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.001,
+    "closure_joint": "head_end",
+    "first_frac": 0.183,
+    "last_frac": 0.07,
+    "wrap_frac": 0.182,
+    "upper_only": false
+   }
+  },
+  "idle_armed": {
+   "T12_8": {
+    "keys": 184,
+    "T_s": 6.1,
+    "dt_s": 0.03333,
+    "closure_m": 1.1174,
+    "closure_deg": 105.401,
+    "closure_joint": "weapon_r",
+    "first_frac": 0.244,
+    "last_frac": 0.289,
+    "wrap_frac": 56.476,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 184,
+    "T_s": 6.1,
+    "dt_s": 0.03333,
+    "closure_m": 1.1174,
+    "closure_deg": 105.401,
+    "closure_joint": "weapon_r",
+    "first_frac": 0.244,
+    "last_frac": 0.289,
+    "wrap_frac": 56.476,
+    "upper_only": false
+   }
+  },
+  "walk_armed (upper)": {
+   "T12_8": {
+    "keys": 53,
+    "T_s": 1.7333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.004,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.57,
+    "last_frac": 1.01,
+    "wrap_frac": 0.57,
+    "upper_only": true
+   },
+   "T12_9": {
+    "keys": 53,
+    "T_s": 1.7333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.004,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.57,
+    "last_frac": 1.01,
+    "wrap_frac": 0.57,
+    "upper_only": true
+   }
+  },
+  "run_armed (upper)": {
+   "T12_8": {
+    "keys": 21,
+    "T_s": 0.8333,
+    "dt_s": 0.04167,
+    "closure_m": 0.0064,
+    "closure_deg": 2.437,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.812,
+    "last_frac": 0.637,
+    "wrap_frac": 0.814,
+    "upper_only": true
+   },
+   "T12_9": {
+    "keys": 21,
+    "T_s": 0.8333,
+    "dt_s": 0.04167,
+    "closure_m": 0.0064,
+    "closure_deg": 2.437,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.812,
+    "last_frac": 0.637,
+    "wrap_frac": 0.814,
+    "upper_only": true
+   }
+  },
+  "strafe_L_armed": {
+   "T12_8": {
+    "keys": 60,
+    "T_s": 2.4583,
+    "dt_s": 0.04167,
+    "closure_m": 0.199,
+    "closure_deg": 24.422,
+    "closure_joint": "LeftFoot",
+    "first_frac": 0.965,
+    "last_frac": 0.731,
+    "wrap_frac": 6.892,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 60,
+    "T_s": 2.4583,
+    "dt_s": 0.04167,
+    "closure_m": 0.199,
+    "closure_deg": 24.422,
+    "closure_joint": "LeftFoot",
+    "first_frac": 0.965,
+    "last_frac": 0.731,
+    "wrap_frac": 6.892,
+    "upper_only": false
+   }
+  },
+  "strafe_R_armed": {
+   "T12_8": {
+    "keys": 60,
+    "T_s": 2.4583,
+    "dt_s": 0.04167,
+    "closure_m": 0.0455,
+    "closure_deg": 6.451,
+    "closure_joint": "LeftFoot",
+    "first_frac": 0.974,
+    "last_frac": 0.837,
+    "wrap_frac": 2.842,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 60,
+    "T_s": 2.4583,
+    "dt_s": 0.04167,
+    "closure_m": 0.0455,
+    "closure_deg": 6.451,
+    "closure_joint": "LeftFoot",
+    "first_frac": 0.974,
+    "last_frac": 0.837,
+    "wrap_frac": 2.842,
+    "upper_only": false
+   }
+  },
+  "walk_armed": {
+   "T12_8": {
+    "keys": 53,
+    "T_s": 1.7333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.004,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.986,
+    "last_frac": 0.83,
+    "wrap_frac": 0.986,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 53,
+    "T_s": 1.7333,
+    "dt_s": 0.03333,
+    "closure_m": 0.0,
+    "closure_deg": 0.004,
+    "closure_joint": "LeftForeArm",
+    "first_frac": 0.986,
+    "last_frac": 0.83,
+    "wrap_frac": 0.986,
+    "upper_only": false
+   }
+  },
+  "run_armed": {
+   "T12_8": {
+    "keys": 21,
+    "T_s": 0.8333,
+    "dt_s": 0.04167,
+    "closure_m": 0.045,
+    "closure_deg": 5.963,
+    "closure_joint": "LeftToeBase",
+    "first_frac": 0.718,
+    "last_frac": 1.026,
+    "wrap_frac": 0.942,
+    "upper_only": false
+   },
+   "T12_9": {
+    "keys": 21,
+    "T_s": 0.8333,
+    "dt_s": 0.04167,
+    "closure_m": 0.045,
+    "closure_deg": 5.963,
+    "closure_joint": "LeftToeBase",
+    "first_frac": 0.718,
+    "last_frac": 1.026,
+    "wrap_frac": 0.942,
+    "upper_only": false
+   }
+  }
+ },
+ "loops_note": "closure = pose(0) vs pose(T), every skin joint, world metres (s17_loop_closure.py's definition; in place where the scene de-roots); '(upper)' = only the upper_armed bones the speed split plays from the clip (local rotations, positions in the hips' frame). first/last/wrap = that interval's largest joint step over the median step (wrap = pose(T) -> the second key, the step the loop takes when it wraps).",
+ "not_fixable_by_a_recut": {
+  "strafe_L_armed": "text-to-motion (t2m FBX: 60 frames at 30 fps) is not periodic: no window on its own frames closes better than 9.99 cm / 25.8 deg (keys 2..46); it wraps at 19.9 cm / 24.4 deg, a step 6.9x the median",
+  "strafe_R_armed": "the same source kind: best window 4.01 cm / 5.9 deg (keys 0..57); it wraps at 4.55 cm / 6.45 deg, 2.8x the median",
+  "run_armed": "its one-cycle cut is already the best window on its own frames: 4.50 cm / 5.96 deg full body; the scene plays only its upper body over the run's legs -- 0.52 cm / 1.48 deg on spine and head, 0.64 cm / 2.44 deg with the arms (which the guard layers own)",
+  "idle_armed": "not a loop: its source (Meshy 85 Axe_Stance) does not close (1.02 m / 105 deg at the source); not played -- the scene's armed idle is idle_guard",
+  "time_base": "all three t2m clips are the source's 30 fps frames placed 1:1 on a 24 fps timeline (the t2m FBX: 60 keys at 1/30 s; the strafes ship as 60 keys over 2.4583 s): they play 1.25x slower than generated. Not changed here: re-timing them changes the strafe speeds the scene drives (manifest stepping speeds) and the cadence Matt has seen -- a decision, not a re-cut"
+ },
+ "foot_lock_speeds_m_s": {
+  "_def": "so_d7 s6_footlock.py's definition in numpy: sampled at the clip's own keys, contact = the bottom 25% of each foot's height range, the median backward velocity over intervals planted at both ends; foot joints / toe joints, metres at the 1.85 m model",
+  "walk": {
+   "T12_8": [
+    1.582,
+    1.62
+   ],
+   "T12_9": [
+    1.581,
+    1.61
+   ],
+   "source_x1.08825": [
+    1.581,
+    1.61
+   ]
+  },
+  "run": {
+   "T12_8": [
+    3.607,
+    4.643
+   ],
+   "T12_8_by_foot": "joints L 4.161 R 3.054 -- the held first key read as a slow right foot",
+   "T12_9": [
+    3.984,
+    5.196
+   ],
+   "source_x1.08825": [
+    3.984,
+    5.195
+   ]
+  },
+  "scene_constants": "walk_px_s 201.7 / run_px_s 647.5 = 1.601 / 5.141 m/s at figure scale 1.0 (tools/speed_split.gd): within 0.6% / 1.1% of the toe foot-lock speeds -- unchanged, so character.json is unchanged"
+ },
+ "grounding": {
+  "finding": "T12_8's T8-native loops stood IN the floor: the deepest sole vertex over each clip at -0.94 cm (idle), -2.18 cm (walk), -3.97 cm (run) -- the D2 grounding measured the run at -0.0397 m itself and skipped it as 'within 2 cm'. T12_9 grounds them like every grafted clip (the deepest sole vertex over the clip at 0): he stands 1 cm higher at idle and rides 2.2 cm (walk) and 4.0 cm (run) higher, level with the block, bash and strikes. idle_guard's held stance: -0.38 cm -> +0.57 cm (the stance frame is not the idle's deepest)"
+ },
+ "idle_guard_stance": "held at the re-cut idle's key 53 (1.7667 s = source 1.8000 s), the key nearest T12_8's 1.7917 s: 1.84 cm / 1.58 deg from it at the worst joint. guard_pose_solve.py's argmin-|chest yaw| rule, re-run on the 30 fps keys, picks a DIFFERENT moment (0.833 s) -- a different stance -- so it was not used (nb_d2/export_staging/T12_9_loops/guard_pose_solved.json, for the record)",
+ "gate_T12_9": {
+  "table": "nb_d2/tables/weapon_table_T12_9_loops_91e3c4f8.json",
+  "gate": "nb_d2/tables/weapon_gate_T12_9_loops_91e3c4f8.json",
+  "verdict": "PASS (0 fail, 3 trail flags -- the same three as T12_8: attack 80.3 px, chop 61.8, bash 38.3)",
+  "holds": "6 of 6 at 100% guard, 0 penetration; medians idle tilt 54 edge -3, walk 35/-9, run 53/-14, block 56/-7, strafe L 55/-10, strafe R 42/-32",
+  "strikes": "slash +1.00/+0.97 (TTI 0.62 s, 174-252 px), chop +1.00/+1.00 (0.50 s, 94-156 px), 0 penetration in slash, chop and bash",
+  "loops_now": "the walk loops at 1.033 s (was 1.042), the run at 0.634 s (was 0.667)"
+ },
+ "speed_slide": {
+  "tool": "attack_lab/t12/godot/tools/speed_split.gd, figure scale 1.0, 1/24 s steps",
+  "T12_8": {
+   "speeds_m_s": [
+    1.601,
+    5.141
+   ],
+   "armed_slide_mm": "walk 4.4/39.4, run 14.2/21.3 (7 planted pairs), cross 23.3/55.4/138.2 (62 pairs)",
+   "unarmed_slide_mm": "walk 4.9/58.0, run 19.0/37.0 (7 pairs), cross 22.8/95.0/122.5 (59 pairs)"
+  },
+  "T12_9": {
+   "speeds_m_s": [
+    1.601,
+    5.141
+   ],
+   "armed_slide_mm": "walk 4.6/38.7, run 22.6/32.9 (16 planted pairs), cross 25.7/45.9/102.7 (105 pairs)",
+   "unarmed_slide_mm": "walk 4.4/39.3, run 24.1/40.5 (15 pairs), cross 24.6/59.1/68.2 (140 pairs)"
+  },
+  "ratio_armed_unarmed": [
+   1.0,
+   1.0
+  ],
+  "reading": "The crossover's worst frame fell 138 -> 103 mm (armed) and 122 -> 68 mm (unarmed); the unarmed walk's worst 58 -> 39 mm. The STEADY RUN's median rose 14.2 -> 22.6 mm/frame (armed) and 19.0 -> 24.1 (unarmed), over 7 planted pairs in T12_8's 2.5 s against 15-16 in T12_9's. The same pair rule (the lower toe within 3 cm of its lowest, height change <= 1 cm) on the RAW run clips at the drive speed (5.141 m/s, 1/24 s, 8 start phases, 60 rows): T12_8 ~19 pairs at 20.9 mm, T12_9 ~16 pairs at 18.6-20.3 mm. So T12_9 in the scene reads as its clip does (16 pairs, 22-24 mm) and it is T12_8's in-scene baseline that read LOW against its own clip (7 pairs, 14-19 mm) -- not explained. The median is toe roll, not drive-speed slide: the foot-lock speed at the clip's own keys (57_footlock.py) is 5.196 m/s on the toes against the drive speed 5.141 (1.1%, ~2.3 mm/frame)"
+ },
+ "films": {
+  "dir": "~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/",
+  "files": [
+   "t12_9_loops_walk_before_after.mp4",
+   "t12_9_loops_run_before_after.mp4"
+  ],
+  "what": "BEFORE T12_8 against AFTER T12_9, quarter speed, play and side cameras (tools/guard_film.gd with FILM_BEFORE_KNIGHT=knight_sword.gd + KNIGHT_CHARACTER=character_t12_8.json), frames piped to ffmpeg",
+  "checked": "frame-to-frame change of the side view: the BEFORE walk jumps 3.1x the median in one frame then crawls at 0.44-0.49x for three -- every 100 film frames, one walk cycle (the pop, then the hold); the AFTER walk stays 0.95-1.29x. The BEFORE run stalls at 0.51-0.55x every ~64 frames (one run cycle); the AFTER run's slowest steps are 0.72-0.76x, no period. Seen in the frames too: the trailing foot jumps forward under him at the wrap (film frames 156, 256)"
+ },
+ "lint": {
+  "21_lint_export": "T12_9 WARN, 0 fails (T12_8 now FAILs its new rows: SOURCE GRID idle/walk/run, LOOP SEAM walk)",
+  "new_rows": "SOURCE GRID (a registry loop keys on its source's own key times, 1e-4 s) and LOOP SEAM (pose(0) vs pose(T) within 5 mm / 1 deg; a source that does not close is a named seam_exception, WARN with its numbers) -- 56_clip_fidelity.seams, registry loops marked \"loop\": true",
+  "48_manifest_lint": "T12_9: 25 clips, 3 mismatches, all pre-existing and the same on T12_8 and the installed set: .run_armed_trim states 2.0 s / 0.667 s / 4.74 m/s for run_armed where the GLB says 0.8333 s. They are the t2m time base: 0.667 s is the source's 20 frames at 30 fps, 0.8333 s the same frames at 24"
+ },
+ "sword_gate": {
+  "_note": "the JOIN sword (nb_w2/export/sword.glb, D2 drax, ledger M-C9-W2-SWORD) gated with 53_weapon_gate.py on sword_edge, through the scene's tree (guard_accept.gd, ACCEPT_EDGE=sword_edge), the sword in the axe's slot (data/gear_manifest_sword.json; knight_sword.gd + KNIGHT_CHARACTER). Measured on T12_8 and again on T12_9 -- identical but for the re-cut loops' lengths",
+  "bodies": {
+   "roll_0": "T12_9 91e3c4f8 (T12_8 8a59acf9)",
+   "roll_-39": "nb_w2/scripts/w6_roll.py --roll -39 over it: T12_9 279d01fc (T12_8 ed4d4b38), weapon_r rest = nb_w2's nb-body_sword exactly, 7 weapon_r rotation tracks / 428 keys and 1 IBM rolled; lint WARN 0 fails with the rolled mount record beside it"
+  },
+  "roll_0": {
+   "HOLD": "6 of 6 PASS, 100% at guard; edge medians idle -3, walk -8, run -14, block -7, strafe L -10, strafe R -31 (the axe's own)",
+   "EDGE": "slash +0.99 at the strike / +0.96 over the swing PASS; chop +0.98/+0.98 PASS",
+   "PEN": "FAIL x6, all the POMMEL: block 7 points 4 mm into the hips on 48 of 48 frames; strafe L 15 points 16 mm into the heel of the right hand on 34 of 118; strafe R 1 point 2 mm (20 of 118); slash 3 points 4 mm (5 of 36); chop 2 points 4 mm (3 of 21); bash 1 point 5 mm at the right forearm (6 of 58)",
+   "verdict": "FAIL (6 PEN)"
+  },
+  "roll_-39": {
+   "HOLD": "6 of 6 PASS; edge medians idle +34, walk +30, run +21, block +30, strafe L +15, strafe R +10",
+   "EDGE": "slash +0.71/+0.65 FAIL; chop +0.64/+0.66 FAIL -- the edge 45-50 deg off the cut",
+   "PEN": "FAIL x4: block 2 points 3 mm; strafe L 2 points 9 mm; slash 2 points 7 mm; chop 4 points 6 mm (strafe R and bash 0)",
+   "verdict": "FAIL (2 EDGE, 4 PEN)"
+  },
+  "does_the_roll_hold": "NO. The roll does not change the blade's tilt, lean or reach (a turn about weapon_r's +Y; the sword's axis is 0.08 deg off +Y): the same 6 of 6 holds pass at both rolls. It turns the edge: holds move from -3..-31 to +10..+34 (both inside 45) and the strikes' edges go from leading (+0.96..+0.99) to 45-50 deg off the cut (FAIL). At roll 0 the sword's edge sits exactly where the axe's does -- the frame convention is shared (+Z an edge) -- so the axe's re-solved guard already carries it",
+  "why_the_D2_instrument_asked_for_it": "The two instruments agree on the POSE (their idle tilt 54.36 / fwd 0.287 / out 0.76 against 54.4 / 0.28 / 0.76) and on the SWORD'S FRAME (widest spread vs marker: 0.4 deg in weapon_r's frame, both +Z). An importer-free numpy evaluation of the GLB reproduces the Godot number (T12_5 idle_guard, weapon_r +Z heading -6.3 deg in both). Their readings at BOTH rolls (-48.4 at 0, -22.4 at -39) are reproduced to 0.1 deg by the marker's edge turned 70 deg about the blade: their world-space 'widest spread' is not the edge. The -39 roll corrects their instrument, not the sword. Its exact mechanism in the Blender evaluation is not found",
+  "tables": [
+   "nb_d2/tables/sword_table_T12_9_r0_91e3c4f8.json",
+   "nb_d2/tables/sword_gate_T12_9_r0_91e3c4f8.json",
+   "nb_d2/tables/sword_table_T12_9_rm39_279d01fc.json",
+   "nb_d2/tables/sword_gate_T12_9_rm39_279d01fc.json",
+   "nb_d2/tables/sword_table_T12_8_r0_8a59acf9.json",
+   "nb_d2/tables/sword_gate_T12_8_r0_8a59acf9.json",
+   "nb_d2/tables/sword_table_T12_8_rm39_ed4d4b38.json",
+   "nb_d2/tables/sword_gate_T12_8_rm39_ed4d4b38.json"
+  ]
+ }
+}

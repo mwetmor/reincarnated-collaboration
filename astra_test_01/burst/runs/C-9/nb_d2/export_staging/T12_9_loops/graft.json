@@ -1,0 +1,89 @@
+{
+ "clips": {
+  "idle": {
+   "source": "../nb_t8/nbt_idle.glb",
+   "source_anim": "Armature|Idle|baselayer",
+   "window": [
+    0.03333333507180214,
+    4.0333333015441895
+   ],
+   "keys": 121,
+   "length_s": 3.9999999664723873,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    -0.0
+   ],
+   "grounded_by_m": -0.17047,
+   "feet_span_m": [
+    0.0,
+    0.0188
+   ]
+  },
+  "walk": {
+   "source": "../nb_t8/nbt_walk.glb",
+   "source_anim": "Armature|walking_man|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.0666667222976685
+   ],
+   "keys": 32,
+   "length_s": 1.0333333872258663,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.02145,
+   "feet_span_m": [
+    0.0,
+    0.0189
+   ]
+  },
+  "run": {
+   "source": "../nb_t8/nbt_run.glb",
+   "source_anim": "Armature|running|baselayer",
+   "window": [
+    0.03333333507180214,
+    0.6666666865348816
+   ],
+   "keys": 20,
+   "length_s": 0.6333333514630795,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.03277,
+   "feet_span_m": [
+    0.0,
+    0.1484
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "nb-body_graft.glb: WEAPON REST -- weapon_r's rest is 0.204 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 21
+ }
+}

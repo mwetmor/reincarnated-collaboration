@@ -1,0 +1,332 @@
+{
+ "axe_bone": "weapon_r",
+ "bones": 26,
+ "clips": {
+  "attack": {
+   "edge_lead": {
+    "heading_global": -53.1724745389675,
+    "heading_strike": -53.1724745389675,
+    "on_travel_global": 0.709628701210022,
+    "on_travel_strike": 0.709628701210022,
+    "peak_t": 0.666666666666667,
+    "strike_global_t": 0.625,
+    "strike_t": 0.625,
+    "swing": [
+     0.541666666666667,
+     0.75
+    ],
+    "swing_mean": 0.6494276005136
+   },
+   "frames": 36,
+   "length_s": 1.5,
+   "mode": "tree",
+   "pass_frac": 0.222222222222222,
+   "pen_depth_m": 0.00659356871642558,
+   "pen_frames": 3,
+   "pen_max": 2,
+   "pen_parts": {
+    "butt:RightHand": 4,
+    "head:RightHand": 1
+   },
+   "pen_t": [
+    [
+     0.583,
+     2,
+     0.0066
+    ],
+    [
+     0.625,
+     2,
+     0.0063
+    ],
+    [
+     0.708,
+     1,
+     0.0046
+    ]
+   ],
+   "step_max": 60.5658455014229,
+   "strike_key": "slash",
+   "swing_arc_max": 239.558956754208,
+   "swing_arc_min": 178.278671184182,
+   "swing_vs_raw": {
+    "edge_dev_deg": 0.0,
+    "frames": 6,
+    "head_dev_m": 0.0,
+    "raw_edge": {
+     "heading_global": -53.1724745389675,
+     "heading_strike": -53.1724745389675,
+     "on_travel_global": 0.709628701210022,
+     "on_travel_strike": 0.709628701210022,
+     "peak_t": 0.666666666666667,
+     "strike_global_t": 0.625,
+     "strike_t": 0.625,
+     "swing": [
+      0.541666666666667,
+      0.75
+     ],
+     "swing_mean": 0.694245176759358
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 1.45833333333333,
+   "turn_max": 0.0000137468145189375,
+   "turn_med": 0.00000749183329395499
+  },
+  "block": {
+   "arc_max": 0.0,
+   "arc_min": 0.0,
+   "clip": "block",
+   "edge": 29.7126986955744,
+   "frames": 48,
+   "fwd": 0.338499486446381,
+   "head_out": 0.329026997089386,
+   "loop_s": 2.0,
+   "loops": 1,
+   "out": 0.756648898124695,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.00278248168099537,
+   "pen_frames": 48,
+   "pen_max": 2,
+   "pen_parts": {
+    "butt:Hips": 96
+   },
+   "tilt": 55.987402136053,
+   "turn_med": 0.0000032229247587081,
+   "turn_p90": 0.0000032229247587081
+  },
+  "chop_overhead_92": {
+   "edge_lead": {
+    "heading_global": -23.6248683487682,
+    "heading_strike": -23.6248683487682,
+    "on_travel_global": 0.641812145709991,
+    "on_travel_strike": 0.641812145709991,
+    "peak_t": 0.5,
+    "strike_global_t": 0.458333333333333,
+    "strike_t": 0.458333333333333,
+    "swing": [
+     0.416666666666667,
+     0.541666666666667
+    ],
+    "swing_mean": 0.656552794777562
+   },
+   "frames": 21,
+   "length_s": 0.866666734218597,
+   "mode": "tree",
+   "pass_frac": 0.142857142857143,
+   "pen_depth_m": 0.00640341392581867,
+   "pen_frames": 2,
+   "pen_max": 4,
+   "pen_parts": {
+    "butt:RightHand": 6
+   },
+   "pen_t": [
+    [
+     0.167,
+     2,
+     0.0064
+    ],
+    [
+     0.458,
+     4,
+     0.0059
+    ]
+   ],
+   "step_max": 56.0537076354027,
+   "strike_key": "chop",
+   "swing_arc_max": 148.700883877277,
+   "swing_arc_min": 84.1400526225567,
+   "swing_vs_raw": {
+    "edge_dev_deg": 0.0,
+    "frames": 4,
+    "head_dev_m": 0.0,
+    "raw_edge": {
+     "heading_global": -59.2856870218568,
+     "heading_strike": -59.2856870218568,
+     "on_travel_global": 0.680041432380676,
+     "on_travel_strike": 0.680041432380676,
+     "peak_t": 0.495238133839199,
+     "strike_global_t": 0.495238133839199,
+     "strike_t": 0.495238133839199,
+     "swing": [
+      0.412698444865999,
+      0.577777822812398
+     ],
+     "swing_mean": 0.671444250958331
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 0.833333333333333,
+   "turn_max": 0.0000147877924586297,
+   "turn_med": 0.00000973451741005653
+  },
+  "idle": {
+   "arc_max": 8.37192819113698,
+   "arc_min": 6.42377628320246,
+   "clip": "idle_guard",
+   "edge": 32.7904116249827,
+   "frames": 192,
+   "fwd": 0.288963854312897,
+   "head_out": 0.330415487289429,
+   "loop_s": 4.0,
+   "loops": 2,
+   "out": 0.759842097759247,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 54.3517664902263,
+   "turn_med": 0.0000032229247587081,
+   "turn_p90": 0.0000032229247587081
+  },
+  "run": {
+   "arc_max": 40.4462225410622,
+   "arc_min": 26.0015203930438,
+   "clip": "run",
+   "edge": 21.2755523642029,
+   "frames": 32,
+   "fwd": 0.376443803310394,
+   "head_out": 0.312297224998474,
+   "loop_s": 0.666928552546418,
+   "loops": 2,
+   "out": 0.718176424503326,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 53.1832474817368,
+   "turn_med": 0.0000164669901695907,
+   "turn_p90": 3.41393793515912
+  },
+  "shield_bash": {
+   "edge_lead": {
+    "heading_global": 40.7585302465719,
+    "heading_strike": 57.9216092201898,
+    "on_travel_global": 0.948378562927246,
+    "on_travel_strike": 0.290577173233032,
+    "peak_t": 1.16666666666667,
+    "strike_global_t": 1.33333333333333,
+    "strike_t": 1.20833333333333,
+    "swing": [
+     1.0,
+     1.20833333333333
+    ],
+    "swing_mean": -0.0378097892500944
+   },
+   "frames": 58,
+   "length_s": 2.40000009536743,
+   "mode": "tree",
+   "pass_frac": 0.0862068965517241,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "pen_t": [],
+   "step_max": 30.3058260858059,
+   "strike_key": "bash",
+   "swing_arc_max": 87.866642960906,
+   "swing_arc_min": 70.8895235054195,
+   "swing_vs_raw": {
+    "edge_dev_deg": 41.0927471413037,
+    "frames": 6,
+    "head_dev_m": 1.06503677368164,
+    "raw_edge": {
+     "heading_global": 36.5211346140501,
+     "heading_strike": 47.0821089094103,
+     "on_travel_global": -0.590454399585724,
+     "on_travel_strike": 0.832950472831726,
+     "peak_t": 1.15862073569462,
+     "strike_global_t": 1.324137983651,
+     "strike_t": 1.24137935967281,
+     "swing": [
+      0.993103487738248,
+      1.24137935967281
+     ],
+     "swing_mean": 0.268030114780633
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 2.375,
+   "turn_max": 0.0000032229247587081,
+   "turn_med": 0.0000032229247587081
+  },
+  "strafe_l": {
+   "arc_max": 41.8749971900834,
+   "arc_min": 36.1969286475127,
+   "clip": "strafe_L_armed",
+   "edge": 15.0714755692018,
+   "frames": 118,
+   "fwd": 0.143487885594368,
+   "head_out": 0.35088375210762,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.806911945343018,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.00911336747178026,
+   "pen_frames": 14,
+   "pen_max": 2,
+   "pen_parts": {
+    "butt:RightHand": 24
+   },
+   "tilt": 55.0450136155097,
+   "turn_med": 9.90870996196747,
+   "turn_p90": 14.3411774455465
+  },
+  "strafe_r": {
+   "arc_max": 48.9891132392455,
+   "arc_min": 42.3722819388378,
+   "clip": "strafe_R_armed",
+   "edge": 9.75295810227481,
+   "frames": 118,
+   "fwd": 0.563058018684387,
+   "head_out": 0.158705800771713,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.364968508481979,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 41.8463697237554,
+   "turn_med": 0.00000704039767757579,
+   "turn_p90": 0.0000128066046937739
+  },
+  "walk": {
+   "arc_max": 25.2855744346511,
+   "arc_min": 17.5903491047677,
+   "clip": "walk",
+   "edge": 30.3869296568511,
+   "frames": 50,
+   "fwd": 0.261563062667847,
+   "head_out": 0.222416907548904,
+   "loop_s": 1.04166662693024,
+   "loops": 2,
+   "out": 0.511482119560242,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 35.0608055946849,
+   "turn_med": 4.82471457544231,
+   "turn_p90": 8.01228830211956
+  }
+ },
+ "knight": "res://scripts/knight_sword.gd",
+ "label": "sword_rm39",
+ "model": "res://models/gear_sword/nb-body_rm39.glb",
+ "source": "tree"
+}

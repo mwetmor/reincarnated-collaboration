@@ -21,7 +21,7 @@ extends SceneTree
 #              at >= 50% of it) -- and speed-weighted over the swing. The edge's heading against
 #              his forward is reported for information (gate change, coordinator 2026-09-30: the
 #              slash is a lateral sweep). The old whole-clip strike frame is reported beside it.
-# env: KNIGHT (res:// script), ACCEPT_LABEL, ACCEPT_OUT (json)
+# env: KNIGHT (res:// script), ACCEPT_LABEL, ACCEPT_OUT (json), ACCEPT_EDGE (the edge marker; default axe_edge)
 const DT := 1.0 / 24.0
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
@@ -201,7 +201,10 @@ func _axe() -> void:
 	var ax := Vector3(1, 1, 1).normalized()
 	for it in 80:
 		ax = Vector3(xx * ax.x + xy * ax.y + xz * ax.z, xy * ax.x + yy * ax.y + yz * ax.z, xz * ax.x + yz * ax.y + zz * ax.z).normalized()
-	var mk: Node3D = (k.gear["_pieces"]["_markers_axe"] as Dictionary)["axe_edge"]
+	# ACCEPT_EDGE: the edge marker's name (default axe_edge; the JOIN sword in the axe slot carries sword_edge)
+	var mk_name: String = OS.get_environment("ACCEPT_EDGE") if OS.has_environment("ACCEPT_EDGE") else "axe_edge"
+	var mk: Node3D = (k.gear["_pieces"]["_markers_axe"] as Dictionary)[mk_name]
+	print("[accept] edge marker '%s' at %s in its bone's frame" % [mk_name, str(mk.transform.origin)])
 	var edge_l: Vector3 = mk.transform.origin
 	var att := mk.get_parent() as BoneAttachment3D
 	if att != null and skel.find_bone(att.bone_name) != ab:

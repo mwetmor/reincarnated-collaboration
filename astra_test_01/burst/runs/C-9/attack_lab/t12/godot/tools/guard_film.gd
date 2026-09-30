@@ -10,14 +10,15 @@ extends SceneTree
 # an ffmpeg this script starts (OS.execute_with_pipe), encoded at 24 fps -- quarter speed -- to
 # <FILM_MP4_DIR>/<FILM_PREFIX><action>_before_after.mp4; nothing touches the disk but the film. Else
 # frames to <FILM_OUT>/<action>/f_%05d.jpg. Run with --fixed-fps 96.
-# env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop)
+# env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop),
+#      FILM_BEFORE_KNIGHT (res:// script), FILM_BEFORE_TITLE, FILM_AFTER_TITLE
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
 const DT := 1.0 / 96.0
 const FACE := "SE"
 var ks := []
-var titles := ["BEFORE -- installed (knight bf23c13e)", (OS.get_environment("FILM_AFTER_TITLE") if OS.has_environment("FILM_AFTER_TITLE") else "AFTER -- T12 guard layer (staged)")]
+var titles := [(OS.get_environment("FILM_BEFORE_TITLE") if OS.has_environment("FILM_BEFORE_TITLE") else "BEFORE -- installed (knight bf23c13e)"), (OS.get_environment("FILM_AFTER_TITLE") if OS.has_environment("FILM_AFTER_TITLE") else "AFTER -- T12 guard layer (staged)")]
 var svs := []
 var cams := []
 var labs := []
@@ -50,7 +51,9 @@ func _initialize() -> void:
 	env.background_mode = Environment.BG_COLOR; env.background_color = Color(0.16, 0.17, 0.19)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR; env.ambient_light_color = Color(0.8, 0.8, 0.8)
 	we.environment = env; root.add_child(we)
-	for kp in ["res://scripts/knight_installed.gd", "res://scripts/knight.gd"]:
+	# FILM_BEFORE_KNIGHT: the before side's knight (default the installed one; knight_sword.gd + KNIGHT_CHARACTER
+	# puts any character file there -- e.g. the T12_8 body against T12_9)
+	for kp in [(OS.get_environment("FILM_BEFORE_KNIGHT") if OS.has_environment("FILM_BEFORE_KNIGHT") else "res://scripts/knight_installed.gd"), "res://scripts/knight.gd"]:
 		var k = load(kp).new()
 		k.setup(RIGHT, UP, FWD, 1.0)
 		root.add_child(k)

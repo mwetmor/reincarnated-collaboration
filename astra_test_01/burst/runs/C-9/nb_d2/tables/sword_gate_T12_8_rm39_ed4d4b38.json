@@ -1,0 +1,184 @@
+{
+ "rows": [
+  [
+   "HOLD",
+   "idle",
+   "PASS",
+   "100% of frames at guard (tilt 54, fwd +0.29, out +0.76, head out +0.33, edge +33, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "walk",
+   "PASS",
+   "100% of frames at guard (tilt 35, fwd +0.26, out +0.51, head out +0.22, edge +30, fist turn 4.8/8.0 deg)"
+  ],
+  [
+   "HOLD",
+   "run",
+   "PASS",
+   "100% of frames at guard (tilt 53, fwd +0.38, out +0.72, head out +0.31, edge +21, fist turn 0.0/3.4 deg)"
+  ],
+  [
+   "HOLD",
+   "block",
+   "PASS",
+   "100% of frames at guard (tilt 56, fwd +0.34, out +0.76, head out +0.33, edge +30, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_l",
+   "PASS",
+   "100% of frames at guard (tilt 55, fwd +0.14, out +0.81, head out +0.35, edge +15, fist turn 9.9/14.3 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_r",
+   "PASS",
+   "100% of frames at guard (tilt 42, fwd +0.56, out +0.36, head out +0.16, edge +10, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "EDGE",
+   "attack",
+   "FAIL",
+   "edge along the travel +0.71 at the strike (0.62 s; >= 0.707) and +0.65 over the swing (0.54-0.75 s; >= 0.8) | heading at the strike -53 deg (info)"
+  ],
+  [
+   "TTI",
+   "attack",
+   "PASS",
+   "strike frame 0.62 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "attack",
+   "PASS",
+   "the swing draws the head 178-240 px across the 8 cells (>= 42)"
+  ],
+  [
+   "EDGE",
+   "chop_overhead_92",
+   "FAIL",
+   "edge along the travel +0.64 at the strike (0.46 s; >= 0.707) and +0.66 over the swing (0.42-0.54 s; >= 0.8) | heading at the strike -24 deg (info)"
+  ],
+  [
+   "TTI",
+   "chop_overhead_92",
+   "PASS",
+   "strike frame 0.46 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "chop_overhead_92",
+   "PASS",
+   "the swing draws the head 84-149 px across the 8 cells (>= 42)"
+  ],
+  [
+   "ARC",
+   "idle",
+   "PASS",
+   "axe-head screen path 6-8 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "walk",
+   "PASS",
+   "axe-head screen path 18-25 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "run",
+   "PASS",
+   "axe-head screen path 26-40 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_l",
+   "PASS",
+   "axe-head screen path 36-42 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_r",
+   "PASS",
+   "axe-head screen path 42-49 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "attack",
+   "FLAG",
+   "peak step 60.6 px > 35 px: needs a trail"
+  ],
+  [
+   "ARC",
+   "chop_overhead_92",
+   "FLAG",
+   "peak step 56.1 px > 35 px: needs a trail"
+  ],
+  [
+   "PEN",
+   "idle",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 192 frames"
+  ],
+  [
+   "PEN",
+   "walk",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 50 frames"
+  ],
+  [
+   "PEN",
+   "run",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 32 frames"
+  ],
+  [
+   "PEN",
+   "block",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 2 (0.003 m deep), 48 of 48 frames -- butt:Hips 96"
+  ],
+  [
+   "PEN",
+   "strafe_l",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 2 (0.009 m deep), 14 of 118 frames -- butt:RightHand 24"
+  ],
+  [
+   "PEN",
+   "strafe_r",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 118 frames"
+  ],
+  [
+   "PEN",
+   "attack",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 2 (0.007 m deep), 3 of 36 frames -- butt:RightHand 4, head:RightHand 1"
+  ],
+  [
+   "PEN",
+   "chop_overhead_92",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 4 (0.006 m deep), 2 of 21 frames -- butt:RightHand 6"
+  ],
+  [
+   "PEN",
+   "shield_bash",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 58 frames"
+  ]
+ ],
+ "fails": [
+  "EDGE attack",
+  "EDGE chop_overhead_92",
+  "PEN block",
+  "PEN strafe_l",
+  "PEN attack",
+  "PEN chop_overhead_92"
+ ],
+ "flags": [
+  "attack",
+  "chop_overhead_92"
+ ]
+}

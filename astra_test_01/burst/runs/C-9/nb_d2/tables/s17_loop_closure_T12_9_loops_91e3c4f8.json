@@ -1,0 +1,92 @@
+{
+ "idle": {
+  "T_s": 4.0,
+  "joints": 26,
+  "worst_joint": "head_end",
+  "worst_joint_m": 0.000113,
+  "worst_rot_joint": "Spine",
+  "worst_rot_deg": 0.0117,
+  "hips_m": 7e-06,
+  "hips_rot_deg": 0.0011
+ },
+ "walk": {
+  "T_s": 1.033333,
+  "joints": 26,
+  "worst_joint": "RightLeg",
+  "worst_joint_m": 1e-06,
+  "worst_rot_joint": "RightLeg",
+  "worst_rot_deg": 0.0001,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ },
+ "run": {
+  "T_s": 0.633333,
+  "joints": 26,
+  "worst_joint": "RightLeg",
+  "worst_joint_m": 1e-06,
+  "worst_rot_joint": "RightUpLeg",
+  "worst_rot_deg": 0.0001,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ },
+ "idle_guard": {
+  "T_s": 4.0,
+  "joints": 26,
+  "worst_joint": "head_end",
+  "worst_joint_m": 9e-06,
+  "worst_rot_joint": "LeftHand",
+  "worst_rot_deg": 0.0011,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ },
+ "idle_armed": {
+  "T_s": 6.1,
+  "joints": 26,
+  "worst_joint": "weapon_r",
+  "worst_joint_m": 1.117387,
+  "worst_rot_joint": "weapon_r",
+  "worst_rot_deg": 105.4011,
+  "hips_m": 0.529808,
+  "hips_rot_deg": 31.6375
+ },
+ "walk_armed": {
+  "T_s": 1.733333,
+  "joints": 26,
+  "worst_joint": "LeftForeArm",
+  "worst_joint_m": 1.3e-05,
+  "worst_rot_joint": "LeftArm",
+  "worst_rot_deg": 0.0039,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0001
+ },
+ "run_armed": {
+  "T_s": 0.833333,
+  "joints": 26,
+  "worst_joint": "LeftToeBase",
+  "worst_joint_m": 0.044991,
+  "worst_rot_joint": "LeftLeg",
+  "worst_rot_deg": 5.9629,
+  "hips_m": 0.003051,
+  "hips_rot_deg": 0.5566
+ },
+ "strafe_L_armed": {
+  "T_s": 2.458333,
+  "joints": 26,
+  "worst_joint": "LeftFoot",
+  "worst_joint_m": 0.19904,
+  "worst_rot_joint": "RightToeBase",
+  "worst_rot_deg": 24.4221,
+  "hips_m": 0.010877,
+  "hips_rot_deg": 2.2432
+ },
+ "strafe_R_armed": {
+  "T_s": 2.458333,
+  "joints": 26,
+  "worst_joint": "LeftFoot",
+  "worst_joint_m": 0.045507,
+  "worst_rot_joint": "LeftLeg",
+  "worst_rot_deg": 6.4515,
+  "hips_m": 0.005946,
+  "hips_rot_deg": 1.6923
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "_note": "LOOP SEAM / SOURCE GRID (56_clip_fidelity.seams; 21_lint_export.py's rows): registry loops, pose(0) vs pose(T) and the key grid against the source's own keys",
+ "file": "export_staging/T12_8_guard/nb-body.glb",
+ "loops": [
+  {
+   "closure_m": 0.00128,
+   "closure_deg": 0.25,
+   "closure_joint": "RightHand",
+   "first_frac": 0.007,
+   "keys": 97,
+   "T_s": 4.0,
+   "clip": "idle",
+   "grid_status": "FAIL",
+   "grid_note": "97 keys at 0.0417 s against the source's 121 at 0.0333 s",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 6e-05,
+   "closure_deg": 0.043,
+   "closure_joint": "headfront",
+   "first_frac": 0.038,
+   "keys": 97,
+   "T_s": 4.0,
+   "clip": "idle_guard",
+   "grid_status": "NO SOURCE",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "headfront",
+   "first_frac": 0.291,
+   "keys": 17,
+   "T_s": 0.6667,
+   "clip": "run",
+   "grid_status": "FAIL",
+   "grid_note": "17 keys at 0.0417 s against the source's 20 at 0.0333 s",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.04499,
+   "closure_deg": 5.963,
+   "closure_joint": "LeftToeBase",
+   "first_frac": 0.718,
+   "keys": 21,
+   "T_s": 0.8333,
+   "clip": "run_armed",
+   "grid_status": "UNMEASURED",
+   "seam_status": "EXCEPTION",
+   "exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: the export's one-cycle cut is already the best closing window on the source's own frames (4.50 cm LeftToeBase / 5.96 deg full body; the scene plays only its upper body over the run's legs, where it is 0.52 cm / 1.48 deg on the spine and head, 0.64 cm / 2.44 deg with the arms, which the guard layers own). Measured 2026-09-30; a re-cut cannot close it"
+  },
+  {
+   "closure_m": 0.19904,
+   "closure_deg": 24.422,
+   "closure_joint": "LeftFoot",
+   "first_frac": 0.965,
+   "keys": 60,
+   "T_s": 2.4583,
+   "clip": "strafe_L_armed",
+   "grid_status": "UNMEASURED",
+   "seam_status": "EXCEPTION",
+   "exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: no window on its own frames closes better than 9.99 cm / 25.8 deg (keys 2..46); the whole clip wraps at 19.9 cm LeftFoot / 24.4 deg. A re-cut cannot close it: needs a decision (seam blend, re-source, or the mirrored strafe_R). Measured 2026-09-30"
+  },
+  {
+   "closure_m": 0.04551,
+   "closure_deg": 6.451,
+   "closure_joint": "LeftFoot",
+   "first_frac": 0.974,
+   "keys": 60,
+   "T_s": 2.4583,
+   "clip": "strafe_R_armed",
+   "grid_status": "UNMEASURED",
+   "seam_status": "EXCEPTION",
+   "exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: the best window on its own frames is 4.01 cm / 5.9 deg (keys 0..57); the whole clip wraps at 4.55 cm LeftFoot / 6.45 deg. A re-cut cannot close it. Measured 2026-09-30"
+  },
+  {
+   "closure_m": 0.09964,
+   "closure_deg": 11.343,
+   "closure_joint": "LeftToeBase",
+   "first_frac": 0.42,
+   "keys": 26,
+   "T_s": 1.0417,
+   "clip": "walk",
+   "grid_status": "FAIL",
+   "grid_note": "26 keys at 0.0417 s against the source's 32 at 0.0333 s",
+   "seam_status": "FAIL"
+  },
+  {
+   "closure_m": 1e-05,
+   "closure_deg": 0.004,
+   "closure_joint": "LeftForeArm",
+   "first_frac": 0.986,
+   "keys": 53,
+   "T_s": 1.7333,
+   "clip": "walk_armed",
+   "grid_status": "PASS",
+   "grid_note": "53 keys at 0.0333 s against the source's 53 at 0.0333 s",
+   "seam_status": "PASS"
+  }
+ ]
+}

@@ -59,6 +59,12 @@
 #         merge; they were 0.15-0.26 off, their hips turning up to 104 deg away from the source's.
 #         WARN for a `legacy` clip (unused, slated for removal). Only when the file carries clips
 #         the registry names, so a raw library fetch or another character's file is not judged by it.
+#   FAIL  SOURCE GRID / LOOP SEAM (N-C9 loop check, 2026-09-30): every registry clip marked "loop"
+#         keys on its source's OWN key times (no resampling) and closes -- pose(0) against pose(T)
+#         within 5 mm and 1 deg (56_clip_fidelity.seams; s17_loop_closure.py's definition). Found:
+#         the T8 walk popped 9.96 cm / 11.3 deg at every wrap and the run hitched (its first interval
+#         29% of normal) -- the D2 merge had cut Meshy's 30 fps keys on a 24 fps grid from t = 0. A
+#         loop whose SOURCE does not close is a named `seam_exception` (WARN with its numbers).
 import json, struct, sys
 import numpy as np
 
@@ -292,6 +298,27 @@ def lint(path, skeleton=True):
                         warns.append("%s: SOURCE FIDELITY -- clip '%s' is legacy (%s)" % (path.split('/')[-1], r['clip'], r.get('note', '')))
         except Exception as e:  # the lint must not die on its own instrument
             warns.append("%s: SOURCE FIDELITY not measured: %s" % (path.split('/')[-1], e))
+        # LOOP SEAM / SOURCE GRID -- the registry's loops close, on their sources' own keys
+        try:
+            import importlib, os as _os
+            sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+            F = importlib.import_module("56_clip_fidelity")
+            reg = F.registry()
+            if any(c in clips for c in reg.get("clips", {})):
+                for r in F.seams(path, reg):
+                    fn = path.split('/')[-1]
+                    if r['grid_status'] == "FAIL":
+                        fails.append("%s: SOURCE GRID -- loop '%s' is RESAMPLED: %s (re-cut it on the source's own keys: 55_clip_graft.py)"
+                                     % (fn, r['clip'], r.get('grid_note', '')))
+                    if r['seam_status'] == "FAIL":
+                        fails.append("%s: LOOP SEAM -- loop '%s' does not close: pose(0) vs pose(T) %.4f m (%s) / %.2f deg, limit %.3f m / %.1f deg; "
+                                     "first interval %.2f of the median" % (fn, r['clip'], r['closure_m'], r['closure_joint'], r['closure_deg'],
+                                                                          F.SEAM_M, F.SEAM_DEG, r['first_frac']))
+                    elif r['seam_status'] == "EXCEPTION":
+                        warns.append("%s: LOOP SEAM -- loop '%s' does not close (%.4f m %s / %.2f deg) -- named exception: %s"
+                                     % (fn, r['clip'], r['closure_m'], r['closure_joint'], r['closure_deg'], r['exception']))
+        except Exception as e:
+            warns.append("%s: LOOP SEAM not measured: %s" % (path.split('/')[-1], e))
     return dict(file=path, roots=[name(r) for r in roots],
                 joints=len(joints), clips=clips,
                 morphs=sorted({k for m in g.get('meshes', [])

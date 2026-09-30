@@ -192,6 +192,94 @@ def check(ship_glb, reg=None):
     return out
 
 
+
+# LOOP SEAM and SOURCE GRID (N-C9 loop check, 2026-09-30) -- for every registry clip marked "loop": true.
+# Found: the D2 Blender merge cut the T8 walk, run and idle on a 24 fps grid from t = 0 while Meshy keys
+# at 30 fps from 0.0333 s -- a clamped hold on the first key, and a cut short of (walk) or past (run) the
+# source's own cycle. The walk popped 9.96 cm / 11.3 deg at every wrap; the run's first interval moved
+# 29% of a normal one (a hitch every cycle). Same defect D2 found in D7's run (collab b3fa2d725).
+#   SOURCE GRID  a clip with a GLB source keys on the SOURCE'S OWN key times (its window, re-timed to
+#                start at 0) within 1e-4 s -- anything else was resampled.
+#   LOOP SEAM    pose(0) against pose(T) (s17_loop_closure.py's definition: every skin joint, world
+#                metres; in place when the scene de-roots it -- net hips travel >= 0.25 m): within
+#                SEAM_M and SEAM_DEG. A clip whose SOURCE does not close (text-to-motion) is a named
+#                `seam_exception`: reported with its numbers, not passed silently.
+SEAM_M, SEAM_DEG = 0.005, 1.0
+
+
+def _grid(m, clip):
+    by = {}
+    for (tt, vv) in m['anims'][clip].values():
+        if len(tt) > 2:
+            by.setdefault(len(tt), []).append(np.asarray(tt, float))
+    return max(by.items(), key=lambda kv: (len(kv[1]), kv[0]))[1][0]
+
+
+def seam(S, clip):
+    """closure (m, deg, joint), first interval / median, the grid, T"""
+    m = S.m
+    g = _grid(m, clip)
+    T = max(float(tt[-1]) for (tt, vv) in m['anims'][clip].values())
+    ks = list(g) + ([T] if abs(float(g[-1]) - T) > 1e-4 else [])
+    h = m['nid']['Hips']
+    js_ = sorted(set(j for j, nd in enumerate(m['nodes']) if nd.get('name') in S.joint_names))
+    def pose(t):
+        G = globals_at(m, clip, float(t))
+        return {j: G[j] for j in js_}, G[h][:3, 3]
+    P0, h0 = pose(ks[0]); P1, h1 = pose(ks[-1])
+    net = h1 - h0; net[1] = 0.0
+    # world positions are metres already (the Armature node carries the scale)
+    off = net if np.linalg.norm(net) >= 0.25 else np.zeros(3)
+    d = {j: float(np.linalg.norm(P0[j][:3, 3] - (P1[j][:3, 3] - off))) for j in js_}
+    def rd(A, B):
+        a = _rot(A); b = _rot(B); c = (np.trace(a.T @ b) - 1) / 2
+        return math.degrees(math.acos(max(-1.0, min(1.0, c))))
+    r = {j: rd(P0[j], P1[j]) for j in js_}
+    jw = max(d, key=d.get)
+    pp = [pose(t)[0] for t in ks]
+    st = [max(float(np.linalg.norm(pp[i][j][:3, 3] - pp[i + 1][j][:3, 3])) for j in js_) for i in range(len(pp) - 1)]
+    med = float(np.median(st)) or 1e-9
+    return dict(closure_m=round(d[jw], 5), closure_deg=round(max(r.values()), 3), closure_joint=m['nodes'][jw]['name'],
+                first_frac=round(st[0] / med, 3), keys=len(ks), T_s=round(T, 4), grid=g)
+
+
+def seams(ship_glb, reg=None):
+    reg = reg if reg is not None else registry()
+    S = Rig(ship_glb)
+    js, _b = L.load_glb(ship_glb)
+    S.joint_names = {js['nodes'][j].get('name') for sk in js.get('skins', []) for j in sk['joints']}
+    root = os.path.dirname(HERE)
+    out = []
+    for clip, e in sorted(reg.get("clips", {}).items()):
+        if not e.get("loop") or clip not in S.m['anims']:
+            continue
+        r = seam(S, clip)
+        r['clip'] = clip
+        # SOURCE GRID
+        src = os.path.join(root, e["source"]) if e.get("source") else None
+        r['grid_status'] = "NO SOURCE"
+        if src and src.endswith(".glb") and os.path.exists(src):
+            C = Rig(src)
+            sclip = next(iter(C.m['anims']))
+            sk = np.array(sorted(set(round(float(x), 6) for (tt, vv) in C.m['anims'][sclip].values() for x in tt)))
+            if e.get("window"):
+                sk = sk[(sk >= float(e["window"][0]) - 1e-6) & (sk <= float(e["window"][1]) + 1e-6)]
+            want = sk - sk[0]
+            g = np.asarray(r['grid'], float)
+            ok = len(g) == len(want) and float(np.abs(g - want).max()) <= 1e-4
+            r['grid_status'] = "PASS" if ok else "FAIL"
+            r['grid_note'] = "%d keys at %.4f s against the source's %d at %.4f s" % (
+                len(g), float(np.median(np.diff(g))), len(want), float(np.median(np.diff(want))))
+        elif src:
+            r['grid_status'] = "UNMEASURED"
+        r.pop('grid')
+        within = r['closure_m'] <= SEAM_M and r['closure_deg'] <= SEAM_DEG
+        r['seam_status'] = "PASS" if within else ("EXCEPTION" if e.get("seam_exception") else "FAIL")
+        if e.get("seam_exception"):
+            r['exception'] = e["seam_exception"]
+        out.append(r)
+    return out
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     outj = a[a.index('--json') + 1] if '--json' in a else None
