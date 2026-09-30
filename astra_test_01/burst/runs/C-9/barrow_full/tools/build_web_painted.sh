@@ -31,7 +31,7 @@ STAGE=$LOADOUT/public/playtest/barrow-painted
 GODOT=${GODOT:-/Applications/Godot.app/Contents/MacOS/Godot}
 HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py}
 MAX_FILE_MB=50
-GATE=${DISK_GATE_GIB:-25}
+GATE=${DISK_GATE_GIB:-20}
 NO_STAGE=0
 [ "${1:-}" = "--no-stage" ] && NO_STAGE=1
 

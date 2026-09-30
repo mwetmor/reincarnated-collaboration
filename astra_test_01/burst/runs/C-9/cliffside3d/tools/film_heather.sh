@@ -14,7 +14,7 @@ GODOT=${GODOT:-/Applications/Godot.app/Contents/MacOS/Godot}
 HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py}
 mkdir -p "$OUT"
 FREE=$(df -g /Users/admin | awk 'NR==2{print $4}')
-if [ "$FREE" -lt 25 ]; then echo "HALT: under 25 GiB free (R-C9-87)" >&2; exit 9; fi
+if [ "$FREE" -lt 20 ]; then echo "HALT: under 20 GiB free (R-C9-88)" >&2; exit 9; fi
 AVI="$OUT/heather_film.avi"
 rm -f "$AVI"
 python3 "$HEAVY_LOCK" C-9 -- "$GODOT" --path "$SRC" --resolution 1280x720 --fixed-fps 24 \

@@ -29,7 +29,7 @@ mkdir -p "$OUT"
 FREE=$(df -g /Users/admin | awk 'NR==2{print $4}')
 echo "== free disk: ${FREE} GiB"
 # the storage gate is 25 GiB since R-C9-87 (Matt, 2026-09-29); it was 42
-if [ "$FREE" -lt 25 ]; then echo "HALT: under 25 GiB free (R-C9-87)" >&2; exit 9; fi
+if [ "$FREE" -lt 20 ]; then echo "HALT: under 20 GiB free (R-C9-88)" >&2; exit 9; fi
 
 # --- 1. wait for the shared scripts to parse -------------------------------
 cat > "$SRC/tools/drax_parse.gd" <<'EOF'

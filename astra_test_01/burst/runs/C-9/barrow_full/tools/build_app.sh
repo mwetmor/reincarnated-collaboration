@@ -43,7 +43,7 @@ case "$SRC" in */cliffside3d/*) echo "refusing: this script never builds from cl
 
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 echo "== free disk: ${FREE} GiB"
-if [ "$FREE" -lt 42 ]; then echo "HALT: under 42 GiB free" >&2; exit 9; fi
+if [ "$FREE" -lt 20 ]; then echo "HALT: under 20 GiB free" >&2; exit 9; fi
 
 if [ -z "${C9_LOCKED:-}" ]; then
   [ -f "$HEAVY_LOCK" ] || { echo "HALT: heavy lock not found at $HEAVY_LOCK" >&2; exit 3; }

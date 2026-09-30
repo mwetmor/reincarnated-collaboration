@@ -2,14 +2,14 @@
 # C-9 Phase 2 T10-2 step 2 driver (R-C9-75/86): paint the full Barrow area over its greybox, 4x4 chunks, in dependency waves.
 # Each wave = every chunk whose neighbours are painted; stage -> brief -> refs_guard -> wave.sh (parallel) -> check.
 # A chunk whose burst is not exit 0 gets ONE retry (SUF=-r1); a second failure HALTs (lane two-attempt rule).
-# Disk guard: lane bursts are light (a few MB each), so storage gate 25 GiB (Matt R-C9-87).
+# Disk guard: lane bursts are light (a few MB each), so storage gate 20 GiB (Matt R-C9-88; was 25 under R-C9-87).
 B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst; C=$B/runs/C-9/conductor_scripts; CFG=$C/cfg_t10bf.json
 L=$HOME/astra-burst/logs/C-9; mkdir -p $L; LOG=$L/t10bf_drive.log
 cd $B
 echo "$(date -u +%FT%TZ) T10BF DRIVE START" >> $LOG
 typeset -A tried
 while true; do
-  until [ $(df -g /System/Volumes/Data | tail -1 | awk '{print $4}') -ge 25 ]; do echo "$(date -u +%FT%TZ) DISK GUARD: waiting (<25 GiB)" >> $LOG; sleep 120; done
+  until [ $(df -g /System/Volumes/Data | tail -1 | awk '{print $4}') -ge 20 ]; do echo "$(date -u +%FT%TZ) DISK GUARD: waiting (<20 GiB)" >> $LOG; sleep 120; done
   ready=($(python3 $C/guided_paint.py $CFG ready))
   [ ${#ready} -eq 0 ] && { echo "$(date -u +%FT%TZ) T10BF DRIVE DONE (nothing ready)" >> $LOG; break; }
   specs=()

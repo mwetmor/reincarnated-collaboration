@@ -25201,6 +25201,14 @@
       "topic": "All work unlocked; the storage gate reset to 25 GB; Matt will run the deletions at the Mac",
       "ruling": "Matt verbatim: \"For now, let us unlock all work. When I am back at the Mac, I will run the deletions/removals. Let us reset the storage gate at 25GB.\" Disposition: the C-9 disk gate (charter section 4, was pause heavy work below 42 GiB) is now 25 GiB by df -h (the conservative reading of 25 GB); all paused agents resumed; the disk watch restarted at 25; t10bf_drive.sh guard set to 25. The pending deletion (manifest_scratch_prune_5 + the integration drax old captures, ~3.5 GB) waits for Matt at the Mac (the permission settings block rm -rf for the agent). The KC2/JOIN-1 session keeps its own halt at 40 GiB unless its conductor applies Matt new gate: relayed to it verbatim.",
       "ts": "2026-09-29T22:40:40"
+    },
+    {
+      "id": "R-C9-88",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "The T12_10 install approved; the shared disk gate moves from 25 to 20 GiB, for C-9 and the sim run (KC2/JOIN-1)",
+      "ruling": "Matt verbatim: \"Agreed on the installs move the gate to 20GB here and in the sim run\". Disposition: (1) T12_10 installed by the conductor (attack_lab/staged/t12_10/install.sh), after which both phone pages are refreshed to match. (2) The gate is 20 GiB by df -g for C-9 and for the sim run, superseding R-C9-87's 25 (and KC2's KP-121). Every C-9 gate moved in the same commit: cliffside3d/tools build_web_barrow.sh, barrow_capture.sh, film_heather.sh; barrow_full/tools build_app_painted.sh, film_painted.sh, godot_locked.sh, build_web_painted.sh and build_app.sh (still at the old 42); conductor_scripts/t10bf_drive.sh; staged t12_10/install.sh. The background disk watch was stopped and restarted at 20 (the N-C9-DRIVE-STALL lesson: a running process keeps the gate it started with). The ruling was relayed verbatim to the KC2/JOIN-1 conductor (Sim Session) for its own record and gates; the heavy-build hold (N-C9-DISK-9) is lifted, and lanes stop at a commit boundary at 20.2. The cleanup manifests for Matt stand (5-8, ~12.7 GB).",
+      "ts": "2026-09-30T06:28:27"
     }
   ],
   "grok_calls": [

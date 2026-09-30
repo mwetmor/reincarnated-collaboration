@@ -42,7 +42,7 @@ NO_STAGE=0
 grep -q '^renderer/rendering_method.web="gl_compatibility"' "$SRC/project.godot" \
   || { echo "project.godot lacks rendering_method.web=gl_compatibility" >&2; exit 2; }
 FREE=$(df -g /Users/admin | awk 'NR==2{print $4}')
-[ "$FREE" -ge 25 ] || { echo "HALT: under 25 GiB free (R-C9-87)" >&2; exit 9; }
+[ "$FREE" -ge 20 ] || { echo "HALT: under 20 GiB free (R-C9-88)" >&2; exit 9; }
 
 if [ -z "${C9_LOCKED:-}" ]; then
   echo "== acquiring heavy lock"

@@ -14,7 +14,7 @@ SRC=$HERE/../godot
 OUT=${1:?usage: film_painted.sh OUT_DIR}
 GODOT=${GODOT:-/Applications/Godot.app/Contents/MacOS/Godot}
 HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py}
-GATE=${DISK_GATE_GIB:-25}
+GATE=${DISK_GATE_GIB:-20}
 mkdir -p "$OUT"
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi

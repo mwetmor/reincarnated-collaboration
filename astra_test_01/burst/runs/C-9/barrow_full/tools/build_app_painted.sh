@@ -49,7 +49,7 @@ STAGE=${STAGE:-"$HOME/Desktop/Astra Burst Review - 2026-09-26/C-9 barrow full"}
 case "$DEST" in "$SRC"/*) echo "refusing: destination inside source" >&2; exit 2;; esac
 case "$SRC" in */cliffside3d/*) echo "refusing: this script never builds from cliffside3d" >&2; exit 2;; esac
 
-GATE=${DISK_GATE_GIB:-25}          # the conductor's gate (2026-09-30)
+GATE=${DISK_GATE_GIB:-20}          # the conductor's gate (2026-09-30)
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 echo "== free disk: ${FREE} GiB (gate ${GATE})"
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi
