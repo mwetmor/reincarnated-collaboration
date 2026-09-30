@@ -119,6 +119,7 @@ var _foot_lock: Node = null
 var _strike_anim := ""        # the playing strike's AnimationNodeAnimation, e.g. "a_slash"
 var _strike_len := 0.0
 var _strike_out_sent := false
+var _rel_fire := {}             # strike key -> fired this frame (the clip position is stale until the tree runs)
 var _was_moving := false
 var _block_w := 0.0
 var _strafe_w := 0.0
@@ -395,13 +396,27 @@ func _build_anim_tree() -> void:
 			continue
 		var an := AnimationNodeAnimation.new()
 		an.animation = clip
+		# THE RECOVERY RELEASE (see _release_tick): rel_<key> hands the axe arm back to the guard
+		# after the strike's active swing. It sits INSIDE the one-shot, so the fade-out that
+		# follows starts from a strike whose arm is already at guard.
+		var g_n := AnimationNodeAnimation.new()
+		var rp := String(_release_spec().get("pose", ""))
+		g_n.animation = rp if _clip_len.has(rp) else clip
+		var rel := AnimationNodeBlend2.new()
+		rel.filter_enabled = true
+		# SYNCED: the held pose advances with the strike, so its time left is the strike's
+		rel.sync = true
 		var os_n := AnimationNodeOneShot.new()
 		os_n.fadein_time = fin
 		os_n.fadeout_time = fout
 		bt.add_node("a_" + key, an, Vector2(x, 280))
+		bt.add_node("g_" + key, g_n, Vector2(x, 400))
+		bt.add_node("rel_" + key, rel, Vector2(x, 190))
 		bt.add_node("os_" + key, os_n, Vector2(x, 100))
+		bt.connect_node("rel_" + key, 0, "a_" + key)
+		bt.connect_node("rel_" + key, 1, "g_" + key)
 		bt.connect_node("os_" + key, 0, prev)
-		bt.connect_node("os_" + key, 1, "a_" + key)
+		bt.connect_node("os_" + key, 1, "rel_" + key)
 		_strikes.append("os_" + key)
 		prev = "os_" + key
 		x += 170.0
@@ -989,6 +1004,7 @@ func try_strike(which: String) -> bool:
 			_tree.set("parameters/seek_block/seek_request", _block_t0)
 		_blocking = false
 		_tree.set("parameters/%s/request" % node, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		_rel_fire[which] = true
 		# the feet stay where they stand while the body blends into the strike
 		_strike_anim = "a_" + which
 		_strike_len = float(_clip_len.get(String(_roles.get(role, "")), 0.0))
@@ -1373,6 +1389,94 @@ func align_phase() -> void:
 	_phase_aligned = true
 
 
+func _release_spec() -> Dictionary:
+	var s = cfg.get("strike_release", {})
+	return s if s is Dictionary else {}
+
+
+func _apply_strike_release() -> void:
+	"""Point each strike's release at the guard pose and filter it to the spec's bones, the paths
+	taken from whichever clips key them (weapon_r is keyed by the channel, not by the pose)."""
+	if _tree == null or _anim == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null:
+		return
+	var spec := _release_spec()
+	var pose := String(spec.get("pose", ""))
+	var want: Array = spec.get("bones", [])
+	var paths := {}
+	for an_name in _anim.get_animation_list():
+		var a := _anim.get_animation(an_name)
+		for i in a.get_track_count():
+			var pth: NodePath = a.track_get_path(i)
+			if want.has(String(pth.get_concatenated_subnames())):
+				paths[String(pth)] = pth
+	var n_on := 0
+	for key in ["slash", "chop", "bash"]:
+		if not bt.has_node("rel_" + key):
+			continue
+		var clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)
+		var held := _release_pose_for(clip, pose)
+		(bt.get_node("g_" + key) as AnimationNodeAnimation).animation = held if held != "" else clip
+		var b2 := bt.get_node("rel_" + key) as AnimationNodeBlend2
+		for p in paths.values():
+			b2.set_filter_path(p, _clip_len.has(pose))
+		_tree.set("parameters/rel_%s/blend_amount" % key, 0.0)
+		n_on += 1
+	print("strike release: pose '%s', %d bone paths, %d strikes, swing ends %s, over %.2f s, guard throughout %s"
+		% [pose, paths.size(), n_on, JSON.stringify(spec.get("at_s", {})), float(spec.get("over_s", 0.08)),
+		   JSON.stringify(spec.get("guard_throughout", []))])
+
+
+func _release_pose_for(clip: String, pose: String) -> String:
+	"""The guard pose as a clip of the STRIKE's length (keys unchanged, so it holds the pose for
+	the whole strike): the release Blend2 then reports the strike's own time left."""
+	if not _clip_len.has(pose) or not _clip_len.has(clip):
+		return ""
+	var nm := "%s__%s" % [pose, clip]
+	if not _clip_len.has(nm):
+		var a := (_anim.get_animation(pose) as Animation).duplicate(true) as Animation
+		a.length = float(_clip_len[clip])
+		a.loop_mode = Animation.LOOP_NONE
+		_anim.get_animation_library("").add_animation(nm, a)
+		_clip_len[nm] = a.length
+	return nm
+
+
+func _release_tick(dt: float) -> void:
+	"""THE RECOVERY RELEASE, per frame: each strike hands the axe arm back to the guard from the end
+	of its active swing (`strike_release.at_s[clip]`) over `over_s`, eased. The weight is taken at
+	the position the clip WILL show after this step (current + dt): a release one frame late is an
+	arm one frame late, and the slash's first penetrating frame is the first after its swing."""
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null:
+		return
+	var spec := _release_spec()
+	var at_map: Dictionary = spec.get("at_s", {})
+	var over: float = maxf(float(spec.get("over_s", 0.08)), 1e-3)
+	for key in ["slash", "chop", "bash"]:
+		if not bt.has_node("rel_" + key):
+			continue
+		var r := 0.0
+		var clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)
+		var held: bool = (spec.get("guard_throughout", []) as Array).has(clip)
+		if held and (bool(_rel_fire.get(key, false)) or bool(_tree.get("parameters/os_%s/active" % key))):
+			_rel_fire[key] = false
+			r = 1.0
+		elif at_map.has(clip):
+			var pos := -1.0
+			if bool(_rel_fire.get(key, false)):
+				pos = 0.0
+				_rel_fire[key] = false
+			elif bool(_tree.get("parameters/os_%s/active" % key)):
+				pos = float(_tree.get("parameters/a_%s/current_position" % key))
+			if pos >= 0.0:
+				var a0 := float(at_map[clip])
+				r = smoothstep(a0, a0 + over, pos + dt)
+		_tree.set("parameters/rel_%s/blend_amount" % key, r)
+
+
 func _axe_guard_spec() -> Dictionary:
 	var s = cfg.get("arm_layer_armed_R", {})
 	return s if s is Dictionary else {}
@@ -1649,6 +1753,7 @@ func _apply_clip_set() -> void:
 	align_phase()
 	_apply_upper()
 	_apply_axe_guard()
+	_apply_strike_release()
 	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
 		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),
 		   String(_roles.get("walk", "")), _walk_len, walk_px_s(),
@@ -1706,6 +1811,7 @@ func _drive(dt := 0.0) -> void:
 		_tree.set("parameters/gsel/blend_amount", clampf(_block_w, 0.0, 1.0))
 		_tree.set("parameters/blend_r/blend_amount", _axe_guard_weight())
 		_tree.set("parameters/strf/blend_amount", _strafe_w)
+		_release_tick(dt)
 
 
 func _canvas_dir_for(f: String) -> Vector2:

@@ -1,6 +1,6 @@
 {
  "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
- "spent": 36,
+ "spent": 45,
  "clips": {
   "axe_stance": {
    "action_id": 85,
@@ -217,6 +217,63 @@
     "warns": [],
     "clips": [
      "Armature|Combat_Stance|baselayer"
+    ]
+   }
+  },
+  "double_combo": {
+   "action_id": 92,
+   "task": "01a0f0d4-6bd7-706c-b4e6-19034aff280d",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/double_combo.glb",
+   "mb": 9.33,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "double_combo.glb: clip 'Armature|Double_Combo_Attack|baselayer' drifts 1.454 m horizontally over its own length (145.4 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Double_Combo_Attack|baselayer"
+    ]
+   }
+  },
+  "triple_combo": {
+   "action_id": 105,
+   "task": "01a0f0d4-eaf9-7678-9c9e-edb0380134eb",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/triple_combo.glb",
+   "mb": 9.35,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "triple_combo.glb: clip 'Armature|Triple_Combo_Attack|baselayer' drifts 1.799 m horizontally over its own length (179.9 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Triple_Combo_Attack|baselayer"
+    ]
+   }
+  },
+  "weapon_combo_1": {
+   "action_id": 202,
+   "task": "01a0f0d5-6a4f-7436-8911-571b21f6eff5",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/weapon_combo_1.glb",
+   "mb": 9.35,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "weapon_combo_1.glb: clip 'Armature|Weapon_Combo_1|baselayer' drifts 2.489 m horizontally over its own length (248.9 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Weapon_Combo_1|baselayer"
     ]
    }
   }

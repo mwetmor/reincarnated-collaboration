@@ -52,7 +52,9 @@ func _initialize() -> void:
 	_axe()
 	_body()
 	for i in 4: await process_frame
-	ap.play("axe_guard_R"); ap.seek(0.0, true, true)
+	var gp: String = OS.get_environment("EXP_POSE") if OS.has_environment("EXP_POSE") else "axe_guard_R"
+	ap.play(gp); ap.seek(0.0, true, true)
+	print("[exp] guard pose '%s'" % gp)
 	for b in ARM: guard[b] = skel.get_bone_pose_rotation(skel.find_bone(b))
 	for spec in specs:
 		var p: PackedStringArray = spec.split(":")

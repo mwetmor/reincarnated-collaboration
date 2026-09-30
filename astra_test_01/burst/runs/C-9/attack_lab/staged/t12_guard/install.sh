@@ -1,12 +1,17 @@
 #!/bin/bash
-# T12 (c) -- THE AXE ARM'S GUARD -- INSTALL. STAGED, NOT RUN: run by the conductor on Matt's word.
+# T12 (c) -- THE AXE ARM'S GUARD, THE RECOVERY RELEASE, THE RE-SOURCED CHOP -- INSTALL.
+# STAGED, NOT RUN: run by the conductor on Matt's word, at a cliffside3d window.
 # Mirrors the speed-split install: pre-state check, atomic md5-verified install, re-import, both
 # app builds with their launch checks, the armed Barrow walk capture. Stops at the first failure.
-#   knight.gd       f9f37648  = attack_lab/tools/axeguard_patch.py over the installed bf23c13e
-#   character.json  c4b58ccd  = the installed b3b62c63 + arm_layer_armed_R (weight 0.85, block 1.0),
-#                               clips_armed.idle -> idle_guard, weapon_r in upper_armed.bones
-#   nb-body.glb     4f528dc9  = nb_d2/export_staging/T12_5_guard: the T12_2 mount rig + the guard
-#                               poses (54_weapon_channel.py pose) + the weapon_r channel at 0.85
+#   knight.gd       ef8ebfb4  = attack_lab/tools/strike_release_patch.py over
+#                               attack_lab/tools/axeguard_patch.py over the installed bf23c13e
+#   character.json  bfaf4997  = the installed b3b62c63 + arm_layer_armed_R (weight 0.85, block 1.0),
+#                               clips_armed.idle -> idle_guard, weapon_r in upper_armed.bones,
+#                               strike_release (the slash 0.75 s, the chop 0.578 s, the bash held),
+#                               clips_armed.chop -> chop_overhead_92
+#   nb-body.glb     8c5b43d7  = nb_d2/export_staging/T12_7_guard: the T12_2 mount rig + the guard
+#                               poses + the weapon_r channel at 0.85 (T12_5) + chop_overhead_92
+#                               (Meshy 92's first cut, 55_clip_graft.py) and its roll
 #   six pieces                = the T12_2 mount set (weapon_r / weapon_l in every skeleton)
 # ROLLBACK: staged/speed_split/{knight.gd,character.json} and the seven GLBs in
 # attack_lab/t12/godot/models/gear_orig/ are the pre-state, byte for byte (md5s below).
@@ -15,7 +20,7 @@ R=/Users/admin/Games/reincarnated-collaboration
 B=$R/astra_test_01/burst/runs/C-9
 C=$B/cliffside3d/godot
 ST=$B/attack_lab/staged/t12_guard
-GL=$B/nb_d2/export_staging/T12_5_guard
+GL=$B/nb_d2/export_staging/T12_7_guard
 LOCK=$B/../C-7/conductor_scripts/heavy_lock.py
 GODOT=/Applications/Godot.app/Contents/MacOS/Godot
 S=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/t12_guard_install
@@ -35,9 +40,9 @@ chk $C/models/gear/byrnie.glb bf4750af62f23c686ef807084d444c9a
 chk $C/models/gear/helmet.glb 9b8421429fd25e9a6abeaf619dc56faf
 chk $C/models/gear/mantle.glb 0e96a2c8a83841119e7c9067463f88d8
 chk $C/models/gear/shield.glb 0eb899d48c58651a6b2632b8cf033973
-chk $ST/knight.gd f9f37648fb85d9a4183ae09e3998a9e1
-chk $ST/character.json c4b58ccde9366d2c1a79cd2f25a5a4b0
-chk $GL/nb-body.glb 4f528dc97deddcb1a6223224374e4c4b
+chk $ST/knight.gd ef8ebfb463f039994736c86261f967ee
+chk $ST/character.json bfaf499789c3fc304ff37285b7a20da8
+chk $GL/nb-body.glb 8c5b43d7a415ac8b9dfd98318eac80c8
 echo "   ok"
 
 echo "== 2 install (atomic rename), md5 verified after each copy"
@@ -45,9 +50,9 @@ inst() { local src=$1 dst=$2 want=$3
   cp "$src" "$dst.tmp_install" && mv "$dst.tmp_install" "$dst"
   local got; got=$(md5 -q "$dst"); [ "$got" = "$want" ] || fail "$dst is $got, want $want"
   echo "   $(basename $dst)  $got  ok"; }
-inst $ST/knight.gd $C/scripts/knight.gd f9f37648fb85d9a4183ae09e3998a9e1
-inst $ST/character.json $C/data/character.json c4b58ccde9366d2c1a79cd2f25a5a4b0
-inst $GL/nb-body.glb $C/models/gear/nb-body.glb 4f528dc97deddcb1a6223224374e4c4b
+inst $ST/knight.gd $C/scripts/knight.gd ef8ebfb463f039994736c86261f967ee
+inst $ST/character.json $C/data/character.json bfaf499789c3fc304ff37285b7a20da8
+inst $GL/nb-body.glb $C/models/gear/nb-body.glb 8c5b43d7a415ac8b9dfd98318eac80c8
 inst $GL/axe.glb $C/models/gear/axe.glb d7762e1b40dc37a238d9da761cf4ec95
 inst $GL/bracers.glb $C/models/gear/bracers.glb 5254292e1d894902a60f4749c3cc7abb
 inst $GL/byrnie.glb $C/models/gear/byrnie.glb d1fe5c22eb60be92dc26cc1fff21a802
@@ -64,7 +69,7 @@ echo "== 4 build the cliffside 3D app"
 bash $B/cliffside3d/tools/build_app.sh > $S/build_cliffside.log 2>&1; RC=$?
 tail -6 $S/build_cliffside.log; [ $RC -eq 0 ] || fail "cliffside build exit $RC"
 LL=$B/cliffside3d/app/build/logs/launch.log
-echo "   launch.log: SCRIPT ERROR $(grep -ac 'SCRIPT ERROR' $LL), WARNING lines $(grep -ac 'WARNING' $LL), $(grep -a 'axe guard layer' $LL | tail -1)"
+echo "   launch.log: SCRIPT ERROR $(grep -ac 'SCRIPT ERROR' $LL), WARNING lines $(grep -ac 'WARNING' $LL), $(grep -a 'axe guard layer' $LL | tail -1), $(grep -a 'strike release' $LL | tail -1)"
 
 echo "== 5 build the Barrow app"
 bash $B/cliffside3d/tools/build_app_barrow.sh > $S/build_barrow.log 2>&1; RC=$?

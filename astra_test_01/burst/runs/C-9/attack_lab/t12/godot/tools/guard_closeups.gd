@@ -72,14 +72,24 @@ func _initialize() -> void:
 		var ap: AnimationPlayer = k._anim
 		ap.active = true
 		ap.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
-	for pair in [["slash", "attack"], ["chop", "attack_chop"]]:
-		var t: float = 0.5
-		if acc.has("clips") and (acc["clips"] as Dictionary).has(pair[1]):
-			t = float(acc["clips"][pair[1]]["edge_lead"]["strike_t"])
-		for k in ks:
-			var ap: AnimationPlayer = k._anim
-			ap.play(String(pair[1])); ap.seek(t, true, true)
-		await _shoot(String(pair[0]), "strike frame %.3f s" % t)
+	# the strikes: each knight's OWN clip for the role (the chop was re-sourced), at its own strike
+	# frame from its acceptance table (ACCEPT_JSON after, ACCEPT_JSON_BEFORE before)
+	var accb := {}
+	if OS.has_environment("ACCEPT_JSON_BEFORE"):
+		accb = JSON.parse_string(FileAccess.get_file_as_string(OS.get_environment("ACCEPT_JSON_BEFORE")))
+	for role in ["attack", "chop"]:
+		var notes := []
+		for i in 2:
+			var kk = ks[i]
+			var clip := String(kk._roles.get(role, ""))
+			var tab: Dictionary = acc if i == 1 else accb
+			var t: float = 0.5
+			if tab.has("clips") and (tab["clips"] as Dictionary).has(clip):
+				t = float(tab["clips"][clip]["edge_lead"]["strike_t"])
+			var ap: AnimationPlayer = kk._anim
+			ap.play(clip); ap.seek(t, true, true)
+			notes.append("%s at its strike frame %.3f s" % [clip, t])
+		await _shoot("slash" if role == "attack" else "chop", notes[1])
 	for view in ["play", "side"]:
 		var sheet := Image.create(TILE * 4, TILE * 4, false, Image.FORMAT_RGB8)
 		var order := ["idle", "walk", "run", "block", "strafe_l", "strafe_r", "slash", "chop"]

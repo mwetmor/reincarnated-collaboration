@@ -11,10 +11,10 @@ extends SceneTree
 #   fist turn  weapon_r's haft against its rest, in the hand's frame: the haft leaving the fist's
 #              channel (median / p90; 0 by construction when the axe is rigid in the hand)
 #   arc        the axe head's screen path per loop, per play-camera cell (8 cells, 77.8 px/m)
-#   pen        axe vertices INSIDE the posed body (every 4th vertex; crossing parity along +Y
-#              against the CPU-skinned body with its morphs), the FIST excluded (a point whose first
-#              hits above AND below are both RightHand-dominant triangles is inside the closed
-#              hand): the worst frame's count, and how many frames have any
+#   pen        axe vertices INSIDE the posed body (every 4th vertex; odd crossing parity along all
+#              SIX axis directions against the CPU-skinned body with its morphs), the FIST excluded
+#              geometrically (the stretch of haft the closed hand wraps, from the hand mesh): the
+#              worst frame's count, its depth (the nearest surface), and how many frames have any
 #   edge       strikes: the EDGE ALONG THE TRAVEL (the edge direction against the head's travel
 #              with the along-haft part removed) at the STRIKE FRAME -- the furthest forward of
 #              the hips INSIDE THE ACTIVE SWING (the frames contiguous with the head's peak speed
@@ -78,6 +78,7 @@ func _initialize() -> void:
 	s_ = skel.global_transform.basis.get_scale().x
 	_axe()
 	_body()
+	_fist()
 	# the proxy's skin registers with the skeleton on a later frame; a bake before that returns null
 	for i in 4: await process_frame
 	for i in 24: _step(Vector2.ZERO, false)
@@ -87,7 +88,7 @@ func _initialize() -> void:
 	var out := {"label": label, "knight": kp, "model": String(k.cfg.get("model", "")), "axe_bone": skel.get_bone_name(ab),
 				"source": "tree", "bones": skel.get_bone_count(), "clips": {}}
 	var states: PackedStringArray = (OS.get_environment("ACCEPT_STATES") if OS.has_environment("ACCEPT_STATES") else "idle,walk,run,block,strafe_l,strafe_r").split(",", false)
-	var strikes: PackedStringArray = (OS.get_environment("ACCEPT_STRIKES") if OS.has_environment("ACCEPT_STRIKES") else "attack,attack_chop").split(",", false)
+	var strikes: PackedStringArray = (OS.get_environment("ACCEPT_STRIKES") if OS.has_environment("ACCEPT_STRIKES") else "slash,chop,bash").split(",", false)
 	for st in states:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
 		var r := _hold(st)
@@ -96,18 +97,67 @@ func _initialize() -> void:
 			% [label, st, int(round(100.0 * float(r["pass_frac"]))), float(r["turn_med"]), float(r["turn_p90"]), float(r["arc_min"]), float(r["arc_max"]),
 			   int(r["pen_max"]), float(r["pen_depth_m"]), int(r["pen_frames"]), int(r["frames"]), JSON.stringify(r["pen_parts"]), float(r["tilt"]), float(r["fwd"]), float(r["out"]),
 			   float(r["head_out"]), float(r["edge"]), String(r["clip"]), float(r["loop_s"]), int(r["loops"])])
+	# STRIKES, through the TREE (what the scene shows: the one-shot, its fades, the recovery
+	# release) unless ACCEPT_STRIKE_MODE=raw; either way the clip is also sampled RAW, and the tree's
+	# active swing is compared with it frame for frame (the release must leave the swing unchanged).
+	# ACCEPT_CHOP=<clip> re-points the chop (lab: a candidate), ACCEPT_REL=<clip>:<s>,... sets its
+	# release (strike_release.at_s).
+	var smode: String = OS.get_environment("ACCEPT_STRIKE_MODE") if OS.has_environment("ACCEPT_STRIKE_MODE") else "tree"
+	var bt := tree.tree_root as AnimationNodeBlendTree
+	if OS.has_environment("ACCEPT_CHOP") and bt.has_node("a_chop"):
+		var cand := OS.get_environment("ACCEPT_CHOP")
+		(bt.get_node("a_chop") as AnimationNodeAnimation).animation = cand
+		k._roles["chop"] = cand
+		print("[accept] LAB: the chop re-pointed at '%s' (%.3f s)" % [cand, float(k._clip_len.get(cand, -1.0))])
+	if OS.has_environment("ACCEPT_REL") and k.cfg.has("strike_release"):
+		for kv in OS.get_environment("ACCEPT_REL").split(",", false):
+			((k.cfg["strike_release"] as Dictionary)["at_s"] as Dictionary)[kv.split(":")[0]] = float(kv.split(":")[1])
+		print("[accept] LAB: release at %s" % JSON.stringify(k.cfg["strike_release"]["at_s"]))
+	if k.has_method("_apply_strike_release"):
+		k._apply_strike_release()
+	var srows := {}
+	var skey := {}
+	for key in strikes:
+		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
+		if not bt.has_node("a_" + key): continue
+		var clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)
+		skey[clip] = key
+		if smode == "tree":
+			srows[clip] = _strike_tree(key, clip)
 	tree.active = false
 	ap.active = true
 	ap.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
-	for clip in strikes:
+	for clip in skey:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
-		var r2 := _strike(clip)
+		var raw := _strike_raw(clip, smode == "raw")
+		var rows: Array = srows[clip] if smode == "tree" else raw
+		var e_raw: Dictionary = _strike_metrics(raw)["edge_lead"]
+		var r2 := _strike_metrics(rows, e_raw["swing"])
+		r2["strike_key"] = String(skey[clip])
+		r2["mode"] = smode
+		r2["length_s"] = ap.get_animation(clip).length
+		# the swing, tree against raw: the axe head's largest separation over the swing's frames, the
+		# raw clip sampled at the tree's own frame times
+		var dev := 0.0; var n_dev := 0; var edev := 0.0
+		var e0: Dictionary = e_raw
+		for rr in rows:
+			var tr: float = float(rr["t"])
+			if tr < float(e0["swing"][0]) - 1e-3 or tr > float(e0["swing"][1]) + 1e-3: continue
+			ap.play(clip); ap.seek(tr, true, true)
+			var q := _frame()
+			dev = maxf(dev, ((rr["head"] as Vector3) - (q["head"] as Vector3)).length())
+			edev = maxf(edev, rad_to_deg((rr["e"] as Vector3).angle_to(q["e"] as Vector3)))
+			n_dev += 1
+		r2["swing_vs_raw"] = {"raw_edge": e0, "head_dev_m": dev, "edge_dev_deg": edev, "frames": n_dev}
 		out["clips"][clip] = r2
 		var e: Dictionary = r2["edge_lead"]
-		print("[accept] %-8s %-11s EDGE ALONG THE TRAVEL at the strike (%.3f s) %+.2f, over the swing (%.3f-%.3f s) %+.2f | heading at the strike %+4.0f (info) | whole-clip furthest forward %.3f s: along %+.2f, heading %+4.0f | fist turn in the swing %4.1f/%4.1f | pen worst %d (%.3f m deep), frames %d of %d %s | peak step %.1f px"
-			% [label, clip, float(e["strike_t"]), float(e["on_travel_strike"]), float(e["swing"][0]), float(e["swing"][1]), float(e["swing_mean"]),
-			   float(e["heading_strike"]), float(e["strike_global_t"]), float(e["on_travel_global"]), float(e["heading_global"]),
-			   float(r2["turn_med"]), float(r2["turn_max"]), int(r2["pen_max"]), float(r2["pen_depth_m"]), int(r2["pen_frames"]), int(r2["frames"]), JSON.stringify(r2["pen_parts"]), float(r2["step_max"])])
+		print("[accept] %-8s %-5s %-14s [%s] EDGE along the travel at the strike (%.3f s) %+.2f, over the swing (%.3f-%.3f s) %+.2f | heading %+4.0f (info) | swing vs raw: head %.4f m, edge %.2f deg over %d frames (raw %+.2f/%+.2f, %.3f-%.3f s) | swing arc %3.0f-%3.0f px, peak step %.1f px | fist turn in the swing %4.1f/%4.1f | pen worst %d (%.3f m), frames %d of %d %s"
+			% [label, String(skey[clip]), clip, smode, float(e["strike_t"]), float(e["on_travel_strike"]), float(e["swing"][0]), float(e["swing"][1]), float(e["swing_mean"]),
+			   float(e["heading_strike"]), dev, edev, n_dev, float(e0["on_travel_strike"]), float(e0["swing_mean"]), float(e0["swing"][0]), float(e0["swing"][1]),
+			   float(r2["swing_arc_min"]), float(r2["swing_arc_max"]), float(r2["step_max"]), float(r2["turn_med"]), float(r2["turn_max"]),
+			   int(r2["pen_max"]), float(r2["pen_depth_m"]), int(r2["pen_frames"]), int(r2["frames"]), JSON.stringify(r2["pen_parts"])])
+		if (r2["pen_t"] as Array).size() > 0:
+			print("[accept] %-8s %-14s penetrating frames (t, points, depth m): %s" % [label, clip, JSON.stringify(r2["pen_t"])])
 	var f := FileAccess.open(OS.get_environment("ACCEPT_OUT") if OS.has_environment("ACCEPT_OUT") else "/tmp/accept.json", FileAccess.WRITE)
 	f.store_string(JSON.stringify(out, " ")); f.close()
 	quit(0)
@@ -257,13 +307,55 @@ func _cross(tm: TriangleMesh, p: Vector3, d: Vector3) -> Array:
 		o = (r["position"] as Vector3) + d * 0.002
 	return [n, first, dist]
 
-var pen_depth := 0.0   # the last _pen call's deepest inside point (m): the nearer vertical exit
+var pen_depth := 0.0   # the last _pen call's deepest inside point (m): the nearest surface over the rays
+var fist_s := [0.0, 0.0]   # the closed fist's extent ALONG THE HAFT (axe-bone units), from the hand mesh
+var fist_r := 0.0          # the haft's radius at the grip, plus a margin (axe-bone units)
+const DIRS := [Vector3.UP, Vector3.DOWN, Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK]
+
+func _fist() -> void:
+	"""THE FIST, geometrically: the stretch of haft the closed hand wraps. The hand's own vertices
+	(RightHand weight > 0.5, the grip morph in) are put in the axe bone's rest frame; their extent
+	along the haft, within 6 cm of its axis, is the fist, +1 cm each side. An axe point inside that
+	stretch and within the haft's radius (+1 cm) is in the hand by construction."""
+	var arr := proxy.mesh.surface_get_arrays(0)
+	var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+	var bones = arr[Mesh.ARRAY_BONES]; var weights = arr[Mesh.ARRAY_WEIGHTS]
+	var nb: int = int(bones.size() / verts.size())
+	var rh := -1
+	for i in body.skin.get_bind_count():
+		if String(body.skin.get_bind_name(i)) == "RightHand": rh = i
+	var to_axe: Transform3D = body.skin.get_bind_pose(rh)
+	if skel.get_bone_name(ab) != "RightHand":
+		to_axe = skel.get_bone_rest(ab).affine_inverse() * to_axe
+	var lo := 1e9; var hi := -1e9
+	for vi in verts.size():
+		var w := 0.0
+		for j in nb:
+			if int(bones[vi * nb + j]) == rh: w += float(weights[vi * nb + j])
+		if w <= 0.5: continue
+		var q: Vector3 = to_axe * verts[vi]
+		var sa: float = (q - grip_l).dot(H)
+		if ((q - grip_l) - sa * H).length() * s_ > 0.06: continue
+		lo = minf(lo, sa); hi = maxf(hi, sa)
+	var rs := []
+	for pl in pts:
+		var sa2: float = (pl - grip_l).dot(H)
+		if absf(sa2) * s_ < 0.03: rs.append(((pl - grip_l) - sa2 * H).length())
+	rs.sort()
+	var r_haft: float = float(rs[int(rs.size() * 0.9)]) if rs.size() > 4 else 0.02 / s_
+	fist_s = [lo - 0.01 / s_, hi + 0.01 / s_]
+	fist_r = r_haft + 0.01 / s_
+	print("[accept] the fist: %.3f..%+.3f m along the haft from the grip (the hand mesh, +1 cm), haft radius %.4f m (+1 cm)"
+		% [float(fist_s[0]) * s_, float(fist_s[1]) * s_, r_haft * s_])
 
 func _pen(parts: Dictionary) -> int:
-	# INSIDE = odd crossings along +Y AND along -Y: two independent rays must agree, so a hole in
-	# the body mesh (an open neck, an eye socket) cannot pass for a penetration. A point where they
-	# disagree is counted apart ("open") and never as inside. The fist is excluded: first hits above
-	# AND below both RightHand-dominant. Parts are named by the first triangle hit above|below.
+	# INSIDE = an odd number of crossings along ALL SIX axis directions. Two opposite rays (the
+	# first instrument) were fooled by the body mesh itself -- overlapping layers and open seams
+	# at the wrist and the raised arm read as inside -- at up to 8.7 cm "deep" in points six rays
+	# put outside (attack_lab probe, 2026-09-30); a closed body answers odd in every direction.
+	# The fist is excluded geometrically (_fist), and so is any point the right hand encloses on all
+	# six sides (its first hit every way a RightHand-dominant triangle). Parts: the axe zone and
+	# the first bone hit above.
 	skel.notification(Skeleton3D.NOTIFICATION_UPDATE_SKELETON)
 	var baked: ArrayMesh = proxy.bake_mesh_from_current_skeleton_pose()
 	var tm: TriangleMesh = baked.generate_triangle_mesh()
@@ -272,24 +364,27 @@ func _pen(parts: Dictionary) -> int:
 	var inside := 0
 	pen_depth = 0.0
 	for pl in pts:
-		var p: Vector3 = g * pl
-		if p.x < bx.position.x or p.x > bx.end.x or p.z < bx.position.z or p.z > bx.end.z or p.y > bx.end.y: continue
-		var up: Array = _cross(tm, p, Vector3.UP)
-		var dn: Array = _cross(tm, p, Vector3.DOWN)
-		var ou: bool = int(up[0]) % 2 == 1; var od: bool = int(dn[0]) % 2 == 1
-		if not ou and not od: continue
-		var fu: int = int(up[1]); var fd: int = int(dn[1])
-		if fu >= 0 and fd >= 0 and tri_hand[fu] == 1 and tri_hand[fd] == 1: continue
-		if ou != od:
-			parts["_open"] = int(parts.get("_open", 0)) + 1
-			continue
-		inside += 1
-		pen_depth = maxf(pen_depth, minf(float(up[2]), float(dn[2])) * s_)
-		# which part of the AXE: the haft below the grip (butt), the haft above it, or the head
 		var sa: float = (pl - grip_l).dot(H)
-		var ra: float = ((pl - grip_l) - sa * H).length() * s_
-		var zone: String = "butt" if sa < 0.0 else ("head" if ra > 0.03 else "haft")
-		var part: String = "%s:%s|%s" % [zone, String(body.skin.get_bind_name(tri_bone[fu])) if fu >= 0 else "?", String(body.skin.get_bind_name(tri_bone[fd])) if fd >= 0 else "?"]
+		var ra: float = ((pl - grip_l) - sa * H).length()
+		if sa >= float(fist_s[0]) and sa <= float(fist_s[1]) and ra <= fist_r: continue
+		var p: Vector3 = g * pl
+		if not bx.has_point(p): continue
+		var odd := true; var near := 1e9; var fu := -1; var in_hand := true
+		for d in DIRS:
+			var c: Array = _cross(tm, p, d)
+			if int(c[0]) % 2 == 0:
+				odd = false; break
+			near = minf(near, float(c[2]))
+			if d == Vector3.UP: fu = int(c[1])
+			if int(c[1]) < 0 or tri_hand[int(c[1])] == 0: in_hand = false
+		if not odd: continue
+		# ...and a point the RIGHT HAND encloses on all six sides is in the hand whatever the fist
+		# stretch says (the butt's knob against the heel of the palm)
+		if in_hand: continue
+		inside += 1
+		pen_depth = maxf(pen_depth, near * s_)
+		var zone: String = "butt" if sa < 0.0 else ("head" if ra * s_ > 0.03 else "haft")
+		var part: String = "%s:%s" % [zone, String(body.skin.get_bind_name(tri_bone[fu])) if fu >= 0 else "?"]
 		parts[part] = int(parts.get(part, 0)) + 1
 	return inside
 
@@ -390,25 +485,59 @@ func _hold(st: String) -> Dictionary:
 	out["arc_min"] = float(arcs[0]); out["arc_max"] = float(arcs[-1])
 	return out
 
-func _strike(clip: String) -> Dictionary:
+func _row(t: float) -> Dictionary:
+	var m := _frame()
+	m["reach"] = ((m["head"] as Vector3) - skel.get_bone_global_pose(skel.find_bone("Hips")).origin * s_).dot(F)
+	m["t"] = t
+	var parts := {}
+	m["pen"] = _pen(parts)
+	m["pen_depth"] = pen_depth
+	m["pen_parts"] = parts
+	return m
+
+func _strike_tree(key: String, clip: String) -> Array:
+	"""Fire the strike from a settled guard and record every frame until its one-shot ends; t is the
+	clip's own position (parameters/a_<key>/current_position) at that frame."""
+	k.set_block(false)
+	for i in 48: _step(Vector2.ZERO, false)
+	k.global_position = Vector3(0, 0.03, 0); k.velocity = Vector3.ZERO
+	var rows := []
+	if not k.try_strike(key):
+		print("[accept] %s: try_strike refused" % key)
+		return rows
+	var has_rel := (tree.tree_root as AnimationNodeBlendTree).has_node("rel_" + key)
+	for i in 24 * 14:
+		_step(Vector2.ZERO, false)
+		if not bool(tree.get("parameters/os_%s/active" % key)):
+			break
+		var m := _row(float(tree.get("parameters/a_%s/current_position" % key)))
+		m["rel"] = float(tree.get("parameters/rel_%s/blend_amount" % key)) if has_rel else 0.0
+		rows.append(m)
+	for i in 6: _step(Vector2.ZERO, false)
+	return rows
+
+func _strike_raw(clip: String, with_pen: bool) -> Array:
 	var a := ap.get_animation(clip)
 	var n: int = int(round(a.length * 24.0))
 	ap.play(clip)
-	var rows := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0; var pen_t := []
-	var hipb := skel.find_bone("Hips")
+	var rows := []
 	for i in n + 1:
 		var t: float = a.length * float(i) / float(n)
 		ap.seek(t, true, true)
-		var m := _frame()
-		m["reach"] = ((m["head"] as Vector3) - skel.get_bone_global_pose(hipb).origin * s_).dot(F)
-		m["t"] = t
-		rows.append(m)
-		var p := _pen(parts)
-		pmax = maxi(pmax, p); dmax = maxf(dmax, pen_depth)
-		if p > 0:
-			pfr += 1
-			pen_t.append([snappedf(t, 0.001), p, snappedf(pen_depth, 0.0001)])
-	# the head's speed (central difference, as the residual solve took it) and the active swing
+		if with_pen:
+			rows.append(_row(t))
+		else:
+			var m := _frame()
+			m["reach"] = ((m["head"] as Vector3) - skel.get_bone_global_pose(skel.find_bone("Hips")).origin * s_).dot(F)
+			m["t"] = t; m["pen"] = 0; m["pen_depth"] = 0.0; m["pen_parts"] = {}
+			rows.append(m)
+	return rows
+
+func _strike_metrics(rows: Array, win := []) -> Dictionary:
+	# the head's speed (central difference, as the residual solve took it) and the active swing --
+	# the clip's own (detected on the RAW clip and passed in as `win`, [t0, t1]) when given: through
+	# the tree the fade-in is a fast move of the head from the guard into the clip's first pose,
+	# and it is not a swing
 	var sp := []
 	for i in rows.size():
 		var i0: int = maxi(i - 1, 0); var i1: int = mini(i + 1, rows.size() - 1)
@@ -419,6 +548,18 @@ func _strike(clip: String) -> Dictionary:
 	var w0 := pk; var w1 := pk
 	while w0 > 0 and float(sp[w0 - 1]) >= 0.5 * float(sp[pk]): w0 -= 1
 	while w1 < sp.size() - 1 and float(sp[w1 + 1]) >= 0.5 * float(sp[pk]): w1 += 1
+	if win.size() == 2:
+		w0 = -1; w1 = -1
+		for i in rows.size():
+			var ti: float = float(rows[i]["t"])
+			if ti >= float(win[0]) - 1e-3 and ti <= float(win[1]) + 1e-3:
+				if w0 < 0: w0 = i
+				w1 = i
+		if w0 < 0:
+			w0 = 0; w1 = 0
+		pk = w0
+		for i in range(w0, w1 + 1):
+			if float(sp[i]) > float(sp[pk]): pk = i
 	var cs := []
 	for i in rows.size():
 		var i0: int = maxi(i - 1, 0); var i1: int = mini(i + 1, rows.size() - 1)
@@ -436,21 +577,30 @@ func _strike(clip: String) -> Dictionary:
 	for i in range(w0, w1 + 1):
 		num += float(sp[i]) * float(cs[i]); den += float(sp[i]); tsw.append(float(rows[i]["turn"]))
 	tsw.sort()
-	var steps := []
+	var steps := []; var sarcs := []
 	for kk in 8:
 		var ax: Array = _cam_axes(kk)
-		var pk2 := 0.0
+		var pk2 := 0.0; var sa := 0.0
 		for i in range(1, rows.size()):
 			var dd: Vector3 = (rows[i]["head"] as Vector3) - (rows[i - 1]["head"] as Vector3)
-			pk2 = maxf(pk2, Vector2(dd.dot(ax[0]), dd.dot(ax[1])).length() * PX_PER_M)
-		steps.append(pk2)
-	steps.sort()
-	var ok := 0
+			var px: float = Vector2(dd.dot(ax[0]), dd.dot(ax[1])).length() * PX_PER_M
+			pk2 = maxf(pk2, px)
+			if i > w0 and i <= w1: sa += px
+		steps.append(pk2); sarcs.append(sa)
+	steps.sort(); sarcs.sort()
+	var ok := 0; var pmax := 0; var pfr := 0; var dmax := 0.0; var parts := {}; var pen_t := []
 	for r in rows:
 		if _guard(r): ok += 1
-	return {"frames": rows.size(), "pass_frac": float(ok) / float(rows.size()), "pen_max": pmax, "pen_frames": pfr, "pen_parts": parts,
-			"pen_depth_m": dmax, "pen_t": pen_t, "length_s": a.length,
-			"step_max": float(steps[-1]), "turn_med": float(tsw[tsw.size() / 2]), "turn_max": float(tsw[-1]),
+		var p: int = int(r["pen"])
+		pmax = maxi(pmax, p); dmax = maxf(dmax, float(r["pen_depth"]))
+		if p > 0:
+			pfr += 1
+			pen_t.append([snappedf(float(r["t"]), 0.001), p, snappedf(float(r["pen_depth"]), 0.0001)])
+		for kk in (r["pen_parts"] as Dictionary):
+			parts[kk] = int(parts.get(kk, 0)) + int(r["pen_parts"][kk])
+	return {"frames": rows.size(), "pass_frac": float(ok) / float(maxi(rows.size(), 1)), "pen_max": pmax, "pen_frames": pfr, "pen_parts": parts,
+			"pen_depth_m": dmax, "pen_t": pen_t, "step_max": float(steps[-1]), "swing_arc_min": float(sarcs[0]), "swing_arc_max": float(sarcs[-1]),
+			"turn_med": float(tsw[tsw.size() / 2]), "turn_max": float(tsw[-1]), "t_first": float(rows[0]["t"]), "t_last": float(rows[-1]["t"]),
 			"edge_lead": {"strike_t": float(rows[sf]["t"]), "on_travel_strike": float(cs[sf]), "heading_strike": float(rows[sf]["edge"]),
 						  "swing": [float(rows[w0]["t"]), float(rows[w1]["t"])], "swing_mean": num / maxf(den, 1e-9), "peak_t": float(rows[pk]["t"]),
 						  "strike_global_t": float(rows[gf]["t"]), "on_travel_global": float(cs[gf]), "heading_global": float(rows[gf]["edge"])}}

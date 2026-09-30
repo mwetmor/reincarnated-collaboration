@@ -1,0 +1,356 @@
+{
+ "axe_bone": "weapon_r",
+ "bones": 26,
+ "clips": {
+  "attack": {
+   "edge_lead": {
+    "heading_global": -93.9153755483479,
+    "heading_strike": -93.9153755483479,
+    "on_travel_global": 0.996990859508514,
+    "on_travel_strike": 0.996990859508514,
+    "peak_t": 0.708333333333333,
+    "strike_global_t": 0.625,
+    "strike_t": 0.625,
+    "swing": [
+     0.583333333333333,
+     0.75
+    ],
+    "swing_mean": 0.967640443218209
+   },
+   "frames": 36,
+   "length_s": 1.5,
+   "mode": "tree",
+   "pass_frac": 0.25,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "pen_t": [],
+   "step_max": 79.6829796791077,
+   "strike_key": "slash",
+   "swing_arc_max": 251.606519091129,
+   "swing_arc_min": 173.765882945061,
+   "swing_vs_raw": {
+    "edge_dev_deg": 0.0,
+    "frames": 5,
+    "head_dev_m": 0.0,
+    "raw_edge": {
+     "heading_global": -93.9153755483479,
+     "heading_strike": -93.9153755483479,
+     "on_travel_global": 0.996990859508514,
+     "on_travel_strike": 0.996990859508514,
+     "peak_t": 0.708333333333333,
+     "strike_global_t": 0.625,
+     "strike_t": 0.625,
+     "swing": [
+      0.583333333333333,
+      0.75
+     ],
+     "swing_mean": 0.997956825650772
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 1.45833333333333,
+   "turn_max": 0.00000874857599212778,
+   "turn_med": 0.00000788297007179464
+  },
+  "block": {
+   "arc_max": 0.0,
+   "arc_min": 0.0,
+   "clip": "block",
+   "edge": -6.27575480675211,
+   "frames": 48,
+   "fwd": 0.264266282320023,
+   "head_out": 0.554426729679108,
+   "loop_s": 2.0,
+   "loops": 1,
+   "out": 0.766300618648529,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 54.1534417023912,
+   "turn_med": 0.0000124091234981223,
+   "turn_p90": 0.0000124091234981223
+  },
+  "chop_overhead_92": {
+   "edge_lead": {
+    "heading_global": -68.8670051446898,
+    "heading_strike": -111.504272711514,
+    "on_travel_global": -0.952007651329041,
+    "on_travel_strike": 0.999341249465942,
+    "peak_t": 0.541666666666667,
+    "strike_global_t": 0.791666666666666,
+    "strike_t": 0.5,
+    "swing": [
+     0.416666666666667,
+     0.541666666666667
+    ],
+    "swing_mean": 0.998859195106818
+   },
+   "frames": 21,
+   "length_s": 0.866666734218597,
+   "mode": "tree",
+   "pass_frac": 0.0952380952380952,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "pen_t": [],
+   "step_max": 58.9641469717026,
+   "strike_key": "chop",
+   "swing_arc_max": 143.948569369316,
+   "swing_arc_min": 86.4552556574345,
+   "swing_vs_raw": {
+    "edge_dev_deg": 0.0,
+    "frames": 4,
+    "head_dev_m": 0.0,
+    "raw_edge": {
+     "heading_global": -105.670799246554,
+     "heading_strike": -105.670799246554,
+     "on_travel_global": 0.999300241470337,
+     "on_travel_strike": 0.999300241470337,
+     "peak_t": 0.536507978325798,
+     "strike_global_t": 0.495238133839199,
+     "strike_t": 0.495238133839199,
+     "swing": [
+      0.412698444865999,
+      0.577777822812398
+     ],
+     "swing_mean": 0.99870718275926
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 0.833333333333333,
+   "turn_max": 0.00000939150929454553,
+   "turn_med": 0.00000435340849424652
+  },
+  "idle": {
+   "arc_max": 10.9703657272839,
+   "arc_min": 8.57322674604511,
+   "clip": "idle_guard",
+   "edge": -6.31772782232843,
+   "frames": 192,
+   "fwd": 0.288029611110687,
+   "head_out": 0.550386667251587,
+   "loop_s": 4.0,
+   "loops": 2,
+   "out": 0.760716617107391,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 54.3995675691326,
+   "turn_med": 0.0000124091234981223,
+   "turn_p90": 0.0000124091234981223
+  },
+  "run": {
+   "arc_max": 48.9606301978231,
+   "arc_min": 32.2779470933601,
+   "clip": "run",
+   "edge": -14.7974076836023,
+   "frames": 32,
+   "fwd": 0.385322093963623,
+   "head_out": 0.523491680622101,
+   "loop_s": 0.666928552546418,
+   "loops": 2,
+   "out": 0.723544001579285,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 53.9623364245089,
+   "turn_med": 0.0944747230323668,
+   "turn_p90": 4.33044153285199
+  },
+  "shield_bash": {
+   "edge_lead": {
+    "heading_global": -46.4056869121552,
+    "heading_strike": -9.39222767623914,
+    "on_travel_global": -0.35138127207756,
+    "on_travel_strike": -0.457929313182831,
+    "peak_t": 1.04166666666667,
+    "strike_global_t": 0.333333333333333,
+    "strike_t": 1.125,
+    "swing": [
+     1.0,
+     1.125
+    ],
+    "swing_mean": -0.700631124116402
+   },
+   "frames": 58,
+   "length_s": 2.41666674613953,
+   "mode": "tree",
+   "pass_frac": 0.0862068965517241,
+   "pen_depth_m": 0.119567038748759,
+   "pen_frames": 10,
+   "pen_max": 41,
+   "pen_parts": {
+    "butt:Hips": 4,
+    "butt:RightUpLeg": 339
+   },
+   "pen_t": [
+    [
+     0.625,
+     4,
+     0.0028
+    ],
+    [
+     0.667,
+     27,
+     0.0646
+    ],
+    [
+     0.708,
+     40,
+     0.059
+    ],
+    [
+     0.75,
+     40,
+     0.1196
+    ],
+    [
+     0.792,
+     41,
+     0.1073
+    ],
+    [
+     0.833,
+     41,
+     0.1104
+    ],
+    [
+     0.875,
+     41,
+     0.1106
+    ],
+    [
+     0.917,
+     41,
+     0.0887
+    ],
+    [
+     0.958,
+     41,
+     0.084
+    ],
+    [
+     1.0,
+     27,
+     0.0538
+    ]
+   ],
+   "step_max": 24.2775143325329,
+   "strike_key": "bash",
+   "swing_arc_max": 42.4005433708429,
+   "swing_arc_min": 18.421017588675,
+   "swing_vs_raw": {
+    "edge_dev_deg": 44.681512946336,
+    "frames": 4,
+    "head_dev_m": 1.37999701499939,
+    "raw_edge": {
+     "heading_global": 56.0674269126248,
+     "heading_strike": -61.6849087106179,
+     "on_travel_global": -0.999141812324524,
+     "on_travel_strike": -0.154567882418633,
+     "peak_t": 1.04166670092221,
+     "strike_global_t": 1.37500004521732,
+     "strike_t": 1.00000003288532,
+     "swing": [
+      1.00000003288532,
+      1.12500003699599
+     ],
+     "swing_mean": 0.0133248853442819
+    }
+   },
+   "t_first": 0.0,
+   "t_last": 2.375,
+   "turn_max": 0.0000124091234981223,
+   "turn_med": 0.0000124091234981223
+  },
+  "strafe_l": {
+   "arc_max": 41.1169088063762,
+   "arc_min": 35.8555469786283,
+   "clip": "strafe_L_armed",
+   "edge": -11.6920792850127,
+   "frames": 118,
+   "fwd": 0.142244309186935,
+   "head_out": 0.583639204502106,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.806676745414734,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 54.999989008501,
+   "turn_med": 9.91615486816278,
+   "turn_p90": 13.9494259692849
+  },
+  "strafe_r": {
+   "arc_max": 55.4710536732804,
+   "arc_min": 48.6614872098435,
+   "clip": "strafe_R_armed",
+   "edge": -34.6248866289478,
+   "frames": 118,
+   "fwd": 0.569156527519226,
+   "head_out": 0.264769226312637,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.365950912237167,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 42.2882693026769,
+   "turn_med": 0.00000541658660383768,
+   "turn_p90": 0.0000109752264486357
+  },
+  "walk": {
+   "arc_max": 30.6283602566342,
+   "arc_min": 19.7474563046475,
+   "clip": "walk",
+   "edge": -12.4414799652487,
+   "frames": 50,
+   "fwd": 0.295285701751709,
+   "head_out": 0.37037792801857,
+   "loop_s": 1.04166662693024,
+   "loops": 2,
+   "out": 0.511917948722839,
+   "pass_frac": 1.0,
+   "pen_depth_m": 0.0,
+   "pen_frames": 0,
+   "pen_max": 0,
+   "pen_parts": {
+
+   },
+   "tilt": 35.0056518171371,
+   "turn_med": 0.961747090920154,
+   "turn_p90": 2.92680158647781
+  }
+ },
+ "knight": "res://scripts/knight.gd",
+ "label": "after",
+ "model": "res://models/gear/nb-body.glb",
+ "source": "tree"
+}

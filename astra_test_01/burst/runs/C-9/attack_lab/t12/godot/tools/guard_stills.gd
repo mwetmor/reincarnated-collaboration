@@ -2,7 +2,7 @@ extends SceneTree
 # T12 (c) STILLS of chosen clip frames, BEFORE (installed) | AFTER (staged T12), raw clip seeks,
 # full figure: per frame a column of four tiles -- before / after along the play camera, before /
 # after level from his right. For looking at a penetration the acceptance table reports.
-# env: STILLS "clip:t,clip:t,..." ; STILLS_OUT (jpg) ; STILLS_SIZE (ortho metres, default 2.4)
+# env: STILLS "clip:t,clip:t,..." ; STILLS_OUT (jpg) ; STILLS_SIZE (ortho metres, default 2.4) ; STILLS_CENTER=hand
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -68,6 +68,8 @@ func _initialize() -> void:
 			var k = ks[i]
 			var s: Skeleton3D = k._skel
 			var tgt: Vector3 = k.global_position + Vector3(0, 0.95, 0)
+			if OS.get_environment("STILLS_CENTER") == "hand":
+				tgt = s.global_transform * s.get_bone_global_pose(s.find_bone("RightHand")).origin
 			var his_right: Vector3 = s.global_transform.basis * Vector3(-1, 0, 0)
 			his_right.y = 0.0; his_right = his_right.normalized()
 			(cams[i] as Camera3D).look_at_from_position(tgt - FWD * 60.0, tgt, UP)

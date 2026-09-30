@@ -61,8 +61,13 @@ func _initialize() -> void:
 			var h: Vector3 = (F * cos(deg_to_rad(az)) + R * sin(deg_to_rad(az))) * sin(deg_to_rad(tilt)) + U * cos(deg_to_rad(tilt))
 			if h.dot(F) >= 0.1 and h.dot(R) >= 0.1: region.append(h)
 	var out := {"weapon_r": {}, "weight": float((k.cfg["arm_layer_armed_R"] as Dictionary)["weight"])}
-	for spec in [["walk", "walk_armed", "a_walk_u"], ["run", "run_armed", "a_run_u"],
-				 ["strafe_l", "strafe_L_armed", "a_strafe"], ["strafe_r", "strafe_R_armed", "a_strafe"]]:
+	# RESID_LOCO=0 skips the locomotion channels; RESID_STRIKES names the strike clips (default the
+	# slash and the chop)
+	var loco_specs := [["walk", "walk_armed", "a_walk_u"], ["run", "run_armed", "a_run_u"],
+				 ["strafe_l", "strafe_L_armed", "a_strafe"], ["strafe_r", "strafe_R_armed", "a_strafe"]]
+	if OS.get_environment("RESID_LOCO") == "0":
+		loco_specs = []
+	for spec in loco_specs:
 		var r := await _loco(String(spec[0]), String(spec[1]), String(spec[2]))
 		out["weapon_r"][spec[1]] = r
 		print("[resid] %-15s %3d keys from %3d frames | turn into the guard median %.1f p90 %.1f deg, roll median %.1f; %d%% of frames needed none"
@@ -70,7 +75,8 @@ func _initialize() -> void:
 	tree.active = false
 	ap.active = true
 	ap.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
-	for clip in ["attack", "attack_chop"]:
+	var sclips: PackedStringArray = (OS.get_environment("RESID_STRIKES") if OS.has_environment("RESID_STRIKES") else "attack,attack_chop").split(",", false)
+	for clip in sclips:
 		var r2 := _strike(clip)
 		out["weapon_r"][clip] = r2
 		print("[resid] %-15s %3d keys | edge rolled onto the travel on %d frames, the mount on %d; roll max %.0f deg" % [clip, (r2["times"] as Array).size(), int(r2["full"]), int(r2["rest"]), float(r2["roll_max"])])

@@ -18,7 +18,7 @@
   "walk": "walk",
   "run": "run",
   "attack": "attack",
-  "chop": "attack_chop",
+  "chop": "chop_overhead_92",
   "block": "block",
   "bash": "shield_bash",
   "strafe_l": "strafe_L_armed",
@@ -205,5 +205,25 @@
  },
  "foot_lock": false,
  "_foot_lock_rollback_2026_09_29": "ROLLED BACK after Matt watched the installed Barrow build: \"after swinging his axe, he drops to the floor as if drunk.\" attack_lab/drop_ab replays shot_barrow_armed's sequence with the installed files one factor at a time. The pelvis trace is IDENTICAL with the lock on, off, on the f1017ee1 GLB and in the pre-install build -- the slash and chop lunge and crouch on their own. What the lock added is in the LEGS: it held feet up to 0.845 m from where the clip puts them (2.17 s of the sequence over 0.15 m) and folded a knee up to 61 deg past the clip's own angle, at the strikes' ends and the block's start. Off, both are 0, exactly as before the install. The damped GLB and the block machine are not involved (A/B: no change). Set true again only with a planner that will not hold a foot the clip has walked away from.",
- "_foot_lock_note": "scripts/foot_lock.gd: at the start of a strike, a block, or their fade-outs, every foot that is not mid-stride is held where it stands by leg IK (Godot's TwoBoneIK3D) for the transition's own fade, then released over 0.2 s -- as a STEP (lift first, travel, plant) when it has more than 4 cm to go. A foot left to finish a run stride locks where it lands. false turns it off."
+ "_foot_lock_note": "scripts/foot_lock.gd: at the start of a strike, a block, or their fade-outs, every foot that is not mid-stride is held where it stands by leg IK (Godot's TwoBoneIK3D) for the transition's own fade, then released over 0.2 s -- as a STEP (lift first, travel, plant) when it has more than 4 cm to go. A foot left to finish a run stride locks where it lands. false turns it off.",
+ "strike_release": {
+  "_note": "THE RECOVERY RELEASE (T12, coordinator 2026-09-30: every strike gives the axe arm back at its swing end). A strike owns every bone; after its ACTIVE SWING -- the frames contiguous with the axe head's peak speed at >= 50% of it, the weapon gate's definition -- its follow-through kept driving the seated axe through his own body (the slash's through his shield arm at 0.79-0.83 s). From at_s[clip] (that swing's last frame, measured on the clip by attack_lab/t12/godot/tools/guard_accept.gd) the arm blends to `pose` over over_s, eased, inside the one-shot; weapon_r blends to its rest (the mount). A clip with no at_s keeps its arm throughout. knight.gd: _apply_strike_release / _release_tick (attack_lab/tools/strike_release_patch.py). guard_throughout: clips that never take the axe arm -- the shield bash, whose swing is the shield's: the arm held at guard cut its axe penetration from 45 of 59 frames to 10 (the butt end still meets his right thigh at the bash's lunge, 0.63-1.0 s).",
+  "pose": "axe_guard_R",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand",
+   "weapon_r"
+  ],
+  "over_s": 0.08,
+  "at_s": {
+   "attack": 0.75,
+   "chop_overhead_92": 0.578
+  },
+  "guard_throughout": [
+   "shield_bash"
+  ]
+ },
+ "_chop_resourced_2026_09_30": "T12 (coordinator 2026-09-30: re-source the chop, time-to-impact <= 0.8 s). clips_armed.chop was attack_chop (Meshy 237 Charged Axe Chop: 7.67 s, impact at 4.46 s, a crouched wind-up in which the seated axe went through his left leg). It is now chop_overhead_92: Meshy 92 'Double Combo Attack', its FIRST overhead cut, grafted by nb_d2/scripts/55_clip_graft.py (world-space retarget, no Blender) from source [0.200, 1.067] s -- the lead-in trimmed (its first frames put the axe head through the shield hand as the one-shot faded in) and the second cut dropped. Impact (the strike frame) at 0.50 s; swing 0.413-0.578 s; edge along the travel +1.00 (weapon_r roll channel); released to guard at 0.578 s. attack_chop stays in the GLB, unused."
 }
