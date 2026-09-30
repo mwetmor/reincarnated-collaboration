@@ -22867,6 +22867,14 @@
       "topic": "fal.ai topped up by $10",
       "ruling": "Matt verbatim: \"10 more dollars of credit added to fal.io account\". Disposition: the fal envelope under R-C9-76 is the account balance, now about $13.02 (Matt $5.85 - the kit drax $2.8278 (mattes charged at a wall-clock upper bound) + $10). Every paid fal call keeps going through fal_ledger.py (running total checked before the call). Earmarked, not yet spent: T10-2 hero models from the full-area paint-over; Phase 2 monsters for the Barrow arena (R-C9-77: a draugr base body + armour builds, the Barrow King) at about $0.40 per Tripo build; optional outcrop B re-brief ($0.40). No build fires without a named purpose in the run record.",
       "ts": "2026-09-29T20:44:22"
+    },
+    {
+      "id": "R-C9-79",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "A short Nano Banana bake-off approved; Astra is image generation and editing only; the axe must be held at a battle stance",
+      "ruling": "Matt verbatim: \"Agreed on the nano banana short bake-off. Do we not use Astra for anything in the pipeline now beyond image gen and editing? Also I must mention that the shied looks good but the axe is still held tilted towards the character instead of at a battle stance.. How can we fix this?\" Dispositions: (1) BAKE-OFF (kit drax): Nano Banana and Nano Banana Pro (fal) vs the Astra lane on four jobs with the same inputs: the base design sheet (mirror IoU + one Tripo build), a gear-layer edit (body silhouette kept), a texture repaint over a projection, a blockout paint-over test chunk (plus one Astra burst on it); a $5.00 fal hard stop; seconds and cost per image recorded; a per-job recommendation. (2) ASTRA SCOPE, answered from the ledger: in Phase 2 all 43 bursts were image generation or edit and the lane agent ran only shell copies and checksums; run-wide 8 of 276 bursts were other kinds (2 tooling, 2 judge, 4 check, all Phase 1). If a candidate wins, Astra drops out cleanly; judging and measurement stay with the Claude agents. (3) AXE (scene drax): diagnose haft angle, head offset and blade facing in the armed idle/walk/run/block vs the strikes ready frames; fix by the shield recipe Matt approved: a right-arm axe guard layer from a strike own ready frame over idle/walk (run at lower weight), released through strikes and block, plus one fixed grip twist if the blade still faces in; acceptance: haft 30-60 deg from vertical leaning forward-out, head outboard, edge within 45 deg of facing, 0 penetration, strike margins and arm travel not worse, wrist reversals <= 1 per cycle.",
+      "ts": "2026-09-29T20:59:46"
     }
   ],
   "grok_calls": [
