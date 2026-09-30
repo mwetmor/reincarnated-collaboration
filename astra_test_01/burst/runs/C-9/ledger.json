@@ -26459,6 +26459,12 @@
       "topic": "The '~4.5 s page hitch' and the 'first-strike cold frame' were the TEST SCRIPT's own screenshot, not the page (integration drax, collab 8f809e97c)",
       "note": "tools/web_perf_fb.js took a Playwright page.screenshot() ~4.3-4.6 s after ready; the screenshot stalls the page's next frame 400-500 ms. Deciding A/B, same script: her 433 ms at 4.38 s with the screenshot, NO frame at ~4.5 s without (worst 384 ms at 1.29 s, the load tail under the veil); him 400 ms at 4.68 s with, worst 18.7 ms without. Five traced runs (no screenshot) never showed it (traces kept in barrow_full/work/hitch5/traces/). All four candidate causes fall away. Corrected: the 'first-strike cold frame' (450-520 ms) and the hitch attributed to the old a5c7533 page were the same screenshot; fire_ball_budget.json still carries the old attribution (correction in load_tail.json: the Fire Ball's first cast shows no hitch). Fix in the script only (screenshot only with SHOT=1). The veil stays: the frames it hides at 0.7-1.5 s after ready are real (inside Godot's draw). CONDUCTOR: the run's recurring lesson once more -- an instrument that perturbs what it measures; the matched-control discipline is what exposed it.",
       "ts": "2026-09-30T11:21:27"
+    },
+    {
+      "id": "N-C9-DISK-10",
+      "topic": "Matt ran cleanup manifest 8 himself (the agent rm was denied by the permission settings): df 21 -> 30 GiB",
+      "note": "The conductor's rm -rf over manifest 8 was DENIED by the permission system despite Matt's 'Yes please run the up to 9.7GB cleanup'; not worked around. Matt ran it with the ! prefix in this session, excluding barrow_full/app and barrow_full/web_painted (in-use build mirrors): df 30 GiB free after. Lane A's Meteor (d), held for disk, released.",
+      "ts": "2026-09-30T11:26:59"
     }
   ]
 }
