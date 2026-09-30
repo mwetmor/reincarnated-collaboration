@@ -1,0 +1,309 @@
+{
+ "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+ "canvas_px": [
+  2532,
+  1170
+ ],
+ "wall_s": 247.955,
+ "ready": "[log] [meteor_b] ready mode=perf renderer=gl_compatibility web=true warm_ms=7166.8 setup={\"compat_stencil_write\":true,\"pool\":2,\"shaders\":5,\"sun_ang_r_rad\":0.075,\"to_sun\":[-0.47,0.819,0.329],\"tris\":{\"burst\":2028,\"comet\":700,\"flare\":672,\"rock\":80,\"scrap_each\":70,\"shell\":320}}",
+ "perf": {
+  "dc_peak": {
+   "fx_off": 142,
+   "fx_on": 145
+  },
+  "dc_peak_on_minus_off": 3,
+  "fx_cost_ms_per_frame": 0.116,
+  "fx_gpu_ms_per_frame": 0,
+  "lane_b": {
+   "her_facing": "E",
+   "him_facing": "W",
+   "him_uv": [
+    3.2,
+    1.35
+   ],
+   "him_web_colour": {
+    "amplitudes": 0,
+    "shadow_colour": 8,
+    "sheen": 8,
+    "tints": 0
+   },
+   "meteor_setup": {
+    "compat_stencil_write": true,
+    "pool": 2,
+    "shaders": 5,
+    "sun_ang_r_rad": 0.075,
+    "to_sun": [
+     -0.47,
+     0.819,
+     0.329
+    ],
+    "tris": {
+     "burst": 2028,
+     "comet": 700,
+     "flare": 672,
+     "rock": 80,
+     "scrap_each": 70,
+     "shell": 320
+    }
+   },
+   "phase_1_casts": 1,
+   "phase_1_impacts": 1,
+   "phase_2_casts": 1,
+   "phase_2_impacts": 1,
+   "phase_3_casts": 0,
+   "phase_3_impacts": 0,
+   "target_uv": [
+    1.3,
+    0.6
+   ],
+   "warm_ms": 7166.8
+  },
+  "note": "ms = wall-clock frame time (vsync off on the desktop); gpu/cpu = the renderer's own measured times; dc = draw calls in the frame; fx_us = MeteorFx._process",
+  "phases": {
+   "casts_1_to_20_fx_off_control": {
+    "draw_calls": {
+     "max": 142,
+     "mean": 140.841,
+     "n": 10109,
+     "p50": 141,
+     "p95": 142,
+     "p99": 142
+    },
+    "frame_ms": {
+     "max": 25.9,
+     "mean": 11.401,
+     "n": 10109,
+     "p50": 12.8,
+     "p95": 19.3,
+     "p99": 22.1
+    },
+    "fx_script_ms": {
+     "max": 0.1,
+     "mean": 0.004,
+     "n": 10109,
+     "p50": 0,
+     "p95": 0,
+     "p99": 0.1
+    },
+    "gpu_ms": {
+     "max": 0,
+     "mean": 0,
+     "n": 10109,
+     "p50": 0,
+     "p95": 0,
+     "p99": 0
+    },
+    "over_20ms": 346,
+    "render_cpu_ms": {
+     "max": 23.9,
+     "mean": 10.039,
+     "n": 10109,
+     "p50": 11.6,
+     "p95": 17.6,
+     "p99": 20.3
+    }
+   },
+   "casts_2_to_20_fx_on": {
+    "draw_calls": {
+     "max": 145,
+     "mean": 142.167,
+     "n": 9519,
+     "p50": 143,
+     "p95": 144,
+     "p99": 145
+    },
+    "frame_ms": {
+     "max": 34.6,
+     "mean": 11.52,
+     "n": 9519,
+     "p50": 12.8,
+     "p95": 19.5,
+     "p99": 22.2
+    },
+    "fx_script_ms": {
+     "max": 0.5,
+     "mean": 0.034,
+     "n": 9519,
+     "p50": 0,
+     "p95": 0.1,
+     "p99": 0.2
+    },
+    "gpu_ms": {
+     "max": 0,
+     "mean": 0,
+     "n": 9519,
+     "p50": 0,
+     "p95": 0,
+     "p99": 0
+    },
+    "over_20ms": 386,
+    "render_cpu_ms": {
+     "max": 32.6,
+     "mean": 10.105,
+     "n": 9519,
+     "p50": 11.6,
+     "p95": 17.7,
+     "p99": 20.4
+    }
+   },
+   "cold_first_cast": {
+    "draw_calls": {
+     "max": 145,
+     "mean": 142.612,
+     "n": 502,
+     "p50": 144,
+     "p95": 144,
+     "p99": 145
+    },
+    "frame_ms": {
+     "max": 25.2,
+     "mean": 11.459,
+     "n": 502,
+     "p50": 13.1,
+     "p95": 19,
+     "p99": 21.8
+    },
+    "fx_script_ms": {
+     "max": 0.4,
+     "mean": 0.039,
+     "n": 502,
+     "p50": 0,
+     "p95": 0.1,
+     "p99": 0.2
+    },
+    "gpu_ms": {
+     "max": 0,
+     "mean": 0,
+     "n": 502,
+     "p50": 0,
+     "p95": 0,
+     "p99": 0
+    },
+    "over_20ms": 16,
+    "render_cpu_ms": {
+     "max": 22.9,
+     "mean": 9.96,
+     "n": 502,
+     "p50": 11.7,
+     "p95": 17.1,
+     "p99": 20
+    }
+   },
+   "idle": {
+    "draw_calls": {
+     "max": 145,
+     "mean": 141.69,
+     "n": 239,
+     "p50": 141,
+     "p95": 145,
+     "p99": 145
+    },
+    "frame_ms": {
+     "max": 24,
+     "mean": 11.317,
+     "n": 239,
+     "p50": 12.7,
+     "p95": 18.5,
+     "p99": 22.2
+    },
+    "fx_script_ms": {
+     "max": 0.1,
+     "mean": 0.006,
+     "n": 239,
+     "p50": 0,
+     "p95": 0.1,
+     "p99": 0.1
+    },
+    "gpu_ms": {
+     "max": 0,
+     "mean": 0,
+     "n": 239,
+     "p50": 0,
+     "p95": 0,
+     "p99": 0
+    },
+    "over_20ms": 6,
+    "render_cpu_ms": {
+     "max": 39.6,
+     "mean": 9.917,
+     "n": 239,
+     "p50": 11,
+     "p95": 17.2,
+     "p99": 20.5
+    }
+   }
+  },
+  "render_px": [
+   2080,
+   1170
+  ],
+  "renderer": "gl_compatibility",
+  "viewport": [
+   1920,
+   1080
+  ],
+  "vsync": 1,
+  "web": true,
+  "window": [
+   2532,
+   1170
+  ],
+  "windows": {
+   "casts_1_to_20_fx_off_control_cast": {
+    "max_dc": 142,
+    "max_frame_ms": 22.9,
+    "n_events": 20,
+    "worst_event_t": 112255.8
+   },
+   "casts_1_to_20_fx_off_control_impact": {
+    "max_dc": 142,
+    "max_frame_ms": 23,
+    "n_events": 20,
+    "worst_event_t": 10941.7
+   },
+   "casts_1_to_20_fx_off_control_release": {
+    "max_dc": 142,
+    "max_frame_ms": 24.9,
+    "n_events": 20,
+    "worst_event_t": 160017.4
+   },
+   "casts_2_to_20_fx_on_cast": {
+    "max_dc": 141,
+    "max_frame_ms": 28.2,
+    "n_events": 19,
+    "worst_event_t": 141088.4
+   },
+   "casts_2_to_20_fx_on_impact": {
+    "max_dc": 145,
+    "max_frame_ms": 25.9,
+    "n_events": 19,
+    "worst_event_t": 132003.7
+   },
+   "casts_2_to_20_fx_on_release": {
+    "max_dc": 144,
+    "max_frame_ms": 23.6,
+    "n_events": 19,
+    "worst_event_t": 38911.3
+   },
+   "cold_first_cast_cast": {
+    "max_dc": 139,
+    "max_frame_ms": 20.2,
+    "n_events": 1,
+    "worst_event_t": 2720.6
+   },
+   "cold_first_cast_impact": {
+    "max_dc": 145,
+    "max_frame_ms": 17.6,
+    "n_events": 1,
+    "worst_event_t": 5168.4
+   },
+   "cold_first_cast_release": {
+    "max_dc": 144,
+    "max_frame_ms": 18.7,
+    "n_events": 1,
+    "worst_event_t": 4358.1
+   }
+  }
+ },
+ "label": "web export (Compatibility / WebGL2) in Chrome with its GPU (ANGLE Metal, Apple M2), 844x390 CSS px @3x (canvas 2532x1170; the 16:9 frame renders 2080x1170), a FRESH browser profile (every shader cold), vsync on (the display runs 165 Hz), served brotli from localhost; 1 cold cast + 19 on / 20 off interleaved. NOT a real phone."
+}

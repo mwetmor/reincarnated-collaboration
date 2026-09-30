@@ -1,0 +1,32 @@
+== desktop 2560x1440 cold, first harness: renderer=forward_plus web=False render_px=[2560, 1440] vsync=0
+  idle                           frame ms  mean  23.47  p50  23.04  p95  26.95  p99  30.84  max  71.61  (n=239)
+                                 gpu ms    mean   0.00  p50   0.00  p95   0.00  p99   0.00  max   0.00  (n=239)
+                                 dc        mean  89.36  p50  89.00  p95  91.00  p99  91.00  max  91.00  (n=239)
+                                 fx script mean   0.00  p50   0.00  p95   0.01  p99   0.01  max   0.02  (n=239)
+                                 frames > 20 ms: 236   > 33 ms: 2
+  cold first cast                frame ms  mean  24.51  p50  24.21  p95  29.39  p99  47.18  max  48.92  (n=224)
+                                 gpu ms    mean   0.00  p50   0.00  p95   0.00  p99   0.00  max   0.00  (n=224)
+                                 dc        mean  92.76  p50  94.00  p95  94.00  p99  95.00  max  95.00  (n=224)
+                                 fx script mean   0.03  p50   0.02  p95   0.08  p99   0.21  max   0.54  (n=224)
+                                 frames > 20 ms: 221   > 33 ms: 5
+  casts 2-20 (fx on)             frame ms  mean  24.79  p50  24.47  p95  28.12  p99  30.90  max  45.60  (n=2434)
+                                 gpu ms    mean   0.00  p50   0.00  p95   0.00  p99   0.00  max   0.00  (n=2434)
+                                 dc        mean  95.18  p50  95.00  p95  99.00  p99 100.00  max 101.00  (n=2434)
+                                 fx script mean   0.05  p50   0.04  p95   0.11  p99   0.17  max   1.15  (n=2434)
+                                 frames > 20 ms: 2434   > 33 ms: 11
+  casts 1-20 (fx OFF, control)   frame ms  mean  22.10  p50  21.93  p95  24.76  p99  26.33  max  30.30  (n=2734)
+                                 gpu ms    mean   0.00  p50   0.00  p95   0.00  p99   0.00  max   0.00  (n=2734)
+                                 dc        mean  92.17  p50  93.00  p95  93.00  p99  93.00  max  93.00  (n=2734)
+                                 fx script mean   0.00  p50   0.00  p95   0.01  p99   0.01  max   0.76  (n=2734)
+                                 frames > 20 ms: 2684   > 33 ms: 0
+  window cast     cold first cast                events  1  worst frame  28.62 ms  max dc 89
+  window cast     casts 2-20 (fx on)             events 19  worst frame  37.80 ms  max dc 97
+  window cast     casts 1-20 (fx OFF, control)   events 20  worst frame  29.22 ms  max dc 93
+  window release  cold first cast                events  1  worst frame  24.93 ms  max dc 93
+  window release  casts 2-20 (fx on)             events 19  worst frame  29.67 ms  max dc 100
+  window release  casts 1-20 (fx OFF, control)   events 20  worst frame  27.41 ms  max dc 93
+  window impact   cold first cast                events  1  worst frame  30.47 ms  max dc 95
+  window impact   casts 2-20 (fx on)             events 19  worst frame  33.13 ms  max dc 97
+  window impact   casts 1-20 (fx OFF, control)   events 20  worst frame  30.30 ms  max dc 92
+  EFFECT COST over the 20-cast runs: frame +2.664 ms/frame (on 24.768 vs off 22.105); gpu +0.000 ms/frame; fx script mean 0.047 ms
+  DRAW CALLS peak: fx on 101, fx off 93: added at peak 8

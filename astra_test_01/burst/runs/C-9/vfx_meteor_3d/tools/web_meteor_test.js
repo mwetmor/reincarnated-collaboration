@@ -29,9 +29,10 @@ async function launch() {
   return { browser, page, logs };
 }
 
+const only = process.argv[4] || 'both';
 (async () => {
   // 1. PERF
-  {
+  if (only !== 'look') {
     const { browser, page, logs } = await launch();
     const t0 = Date.now();
     await page.goto(base + 'index.html?meteor=perf', { waitUntil: 'load', timeout: 300000 });
@@ -55,25 +56,37 @@ async function launch() {
       errors: logs.filter((l) => /\[error\]|pageerror|SCRIPT ERROR|SHADER ERROR/i.test(l)).slice(0, 20) }, null, 1));
     await browser.close();
   }
-  // 2. THE LOOK: one cast in film mode, screenshots through it
-  {
+  // 2. THE LOOK: one cast in film mode AT QUARTER SPEED (&slow=1), screenshots through it. The first
+  // version shot at play speed and died at a screenshot ("Target page, context or browser has been
+  // closed"); each shot is now caught, and the console is written whatever happens.
+  if (only !== 'perf') {
     const { browser, page, logs } = await launch();
-    await page.goto(base + 'index.html?meteor=film', { waitUntil: 'load', timeout: 300000 });
+    await page.goto(base + 'index.html?meteor=film&slow=1', { waitUntil: 'load', timeout: 300000 });
     let trim = null;
-    for (let i = 0; i < 600 && !trim; i++) {
-      trim = logs.find((l) => l.includes('[film] {"trim_frames"'));
-      if (!trim) await sleep(250);
+    for (let i = 0; i < 2400 && !trim; i++) {
+      // (by the key, not the line's start: the JSON's key order put "lit_at_target" first, the first look
+      // pass never matched, and every screenshot landed after the cast had ended)
+      trim = logs.find((l) => l.includes('[film] {') && l.includes('"trim_frames"'));
+      if (!trim) await sleep(50);
     }
-    // the cast starts ~8 frames after the trim line; her release is 1.625 s into the clip
-    const shots = [1500, 1850, 2150, 2350, 2500, 2650, 2900, 3600, 5000];
+    // quarter speed: her release ~6.5 s after the cast, the impact ~9.8 s, the burn to ~21.8 s
+    const shots = [6600, 7400, 8200, 9000, 9500, 9900, 10500, 11600, 15000, 20000];
     const tStart = Date.now();
-    for (const [i, ms] of shots.entries()) {
-      const wait = ms - (Date.now() - tStart);
-      if (wait > 0) await sleep(wait);
-      await page.screenshot({ path: path.join(outdir, `web_look_${String(i).padStart(2, '0')}_${ms}ms.png`) });
+    const got = [];
+    try {
+      for (const [i, ms] of shots.entries()) {
+        const wait = ms - (Date.now() - tStart);
+        if (wait > 0) await sleep(wait);
+        try {
+          await page.screenshot({ path: path.join(outdir, `web_look_${String(i).padStart(2, '0')}_${ms}ms.png`) });
+          got.push(ms);
+        } catch (e) { logs.push(`[shot-failed ${ms}] ${e.message}`); }
+      }
+      await sleep(2000);
+    } finally {
+      fs.writeFileSync(path.join(outdir, 'film_console.txt'), logs.join('\n'));
+      console.log(JSON.stringify({ look_shots: got, trim: trim || null }));
+      try { await browser.close(); } catch (e) {}
     }
-    await sleep(3000);
-    fs.writeFileSync(path.join(outdir, 'film_console.txt'), logs.join('\n'));
-    await browser.close();
   }
 })().catch((e) => { console.error('TEST_FAILED', e); process.exit(1); });

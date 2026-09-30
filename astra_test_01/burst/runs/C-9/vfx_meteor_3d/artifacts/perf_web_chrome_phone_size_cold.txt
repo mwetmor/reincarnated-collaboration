@@ -1,0 +1,16 @@
+web export (Compatibility / WebGL2) in Chrome with its GPU (ANGLE Metal, Apple M2), 844x390 CSS px @3x (canvas 2532x1170; the 16:9 frame renders 2080x1170), a FRESH browser profile (every shader cold), vsync on (the display runs 165 Hz), served brotli from localhost; 1 cold cast + 19 on / 20 off interleaved. NOT a real phone.
+
+casts_1_to_20_fx_off_control     frame ms {'max': 25.9, 'mean': 11.401, 'n': 10109, 'p50': 12.8, 'p95': 19.3, 'p99': 22.1}  over20 346  dc {'max': 142, 'mean': 140.841, 'n': 10109, 'p50': 141, 'p95': 142, 'p99': 142}  fx script {'max': 0.1, 'mean': 0.004, 'n': 10109, 'p50': 0, 'p95': 0, 'p99': 0.1}
+casts_2_to_20_fx_on              frame ms {'max': 34.6, 'mean': 11.52, 'n': 9519, 'p50': 12.8, 'p95': 19.5, 'p99': 22.2}  over20 386  dc {'max': 145, 'mean': 142.167, 'n': 9519, 'p50': 143, 'p95': 144, 'p99': 145}  fx script {'max': 0.5, 'mean': 0.034, 'n': 9519, 'p50': 0, 'p95': 0.1, 'p99': 0.2}
+cold_first_cast                  frame ms {'max': 25.2, 'mean': 11.459, 'n': 502, 'p50': 13.1, 'p95': 19, 'p99': 21.8}  over20 16  dc {'max': 145, 'mean': 142.612, 'n': 502, 'p50': 144, 'p95': 144, 'p99': 145}  fx script {'max': 0.4, 'mean': 0.039, 'n': 502, 'p50': 0, 'p95': 0.1, 'p99': 0.2}
+idle                             frame ms {'max': 24, 'mean': 11.317, 'n': 239, 'p50': 12.7, 'p95': 18.5, 'p99': 22.2}  over20 6  dc {'max': 145, 'mean': 141.69, 'n': 239, 'p50': 141, 'p95': 145, 'p99': 145}  fx script {'max': 0.1, 'mean': 0.006, 'n': 239, 'p50': 0, 'p95': 0.1, 'p99': 0.1}
+window casts_1_to_20_fx_off_control_cast        {'max_dc': 142, 'max_frame_ms': 22.9, 'n_events': 20, 'worst_event_t': 112255.8}
+window casts_1_to_20_fx_off_control_impact      {'max_dc': 142, 'max_frame_ms': 23, 'n_events': 20, 'worst_event_t': 10941.7}
+window casts_1_to_20_fx_off_control_release     {'max_dc': 142, 'max_frame_ms': 24.9, 'n_events': 20, 'worst_event_t': 160017.4}
+window casts_2_to_20_fx_on_cast                 {'max_dc': 141, 'max_frame_ms': 28.2, 'n_events': 19, 'worst_event_t': 141088.4}
+window casts_2_to_20_fx_on_impact               {'max_dc': 145, 'max_frame_ms': 25.9, 'n_events': 19, 'worst_event_t': 132003.7}
+window casts_2_to_20_fx_on_release              {'max_dc': 144, 'max_frame_ms': 23.6, 'n_events': 19, 'worst_event_t': 38911.3}
+window cold_first_cast_cast                     {'max_dc': 139, 'max_frame_ms': 20.2, 'n_events': 1, 'worst_event_t': 2720.6}
+window cold_first_cast_impact                   {'max_dc': 145, 'max_frame_ms': 17.6, 'n_events': 1, 'worst_event_t': 5168.4}
+window cold_first_cast_release                  {'max_dc': 144, 'max_frame_ms': 18.7, 'n_events': 1, 'worst_event_t': 4358.1}
+EFFECT COST 0.116 ms/frame; draw calls peak {'fx_off': 142, 'fx_on': 145} (+3)

@@ -327,6 +327,7 @@ func _cast_run(n: int, phase: int, fx_on: bool) -> void:
 		knight.try_strike("chop")
 		_event("cast", phase)
 		var rel_seen := false
+		var imp_seen := false
 		var t := 0.0
 		while t < MeteorFx.T_IMPACT + 1.625 + 0.15:
 			await get_tree().process_frame
@@ -334,8 +335,10 @@ func _cast_run(n: int, phase: int, fx_on: bool) -> void:
 			if not rel_seen and t >= meteor.release_s:
 				rel_seen = true
 				_event("release", phase)
-			if rel_seen and t >= meteor.release_s + MeteorFx.T_IMPACT and not _rec.get("_imp_%d_%d" % [phase, c], false):
-				_rec["_imp_%d_%d" % [phase, c]] = true
+			if rel_seen and not imp_seen and t >= meteor.release_s + MeteorFx.T_IMPACT:
+				# (the first harness keyed this by the loop index, which is 0 in every one-cast call: only
+				# the first impact of each phase was logged)
+				imp_seen = true
 				_event("impact", phase)
 	# the rest of the effect's life -- the same wait with the effect off, so both windows match
 	var t2 := 0.0

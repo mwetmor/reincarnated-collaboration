@@ -232,6 +232,11 @@ var warmed := false
 var _shaders := {}
 var _to_sun := Vector3.UP
 var _globals_on := false
+# THE FIRE LIGHT ON COMPATIBILITY: the unshadowed fire light is summed in the base pass and the
+# shadowed sun in its additive pass, each sRGB-encoded BEFORE the two are added (PaintStack's
+# ambient_in_light note: the same trap) -- so the same energy lit her far hotter on the web (the first
+# phone-size look: her robe washed orange-white at the call). Scaled here on Compatibility only.
+var light_gain := 1.0
 
 
 func setup(knight, sockets_json: Dictionary, sun_light: DirectionalLight3D, fbm: Texture2D, surface: Callable) -> void:
@@ -259,6 +264,7 @@ func setup(knight, sockets_json: Dictionary, sun_light: DirectionalLight3D, fbm:
 	var scrap_mesh := _scrap_mesh()
 	for i in POOL:
 		pool.append(_make_slot(i, burst_mesh, flare_mesh, comet_mesh, shell_mesh, rock_mesh, scrap_mesh))
+	light_gain = 0.4 if PaintStack.is_compatibility() else 1.0
 	light = OmniLight3D.new()
 	light.name = "MeteorLight"
 	light.light_color = Color(1.0, 0.62, 0.30)
@@ -718,7 +724,7 @@ func _step(s: Dictionary, dt: float) -> void:
 			light.visible = true
 			light.global_position = flare.global_position
 			light.omni_range = 4.0
-			light.light_energy = 3.2 * (1.0 - clampf(t / (T_FALL0 + 0.06), 0.0, 1.0)) + 0.4
+			light.light_energy = light_gain * (3.2 * (1.0 - clampf(t / (T_FALL0 + 0.06), 0.0, 1.0)) + 0.4)
 	elif flare.visible:
 		flare.visible = false
 	# --- FALL ------------------------------------------------------------------------------
@@ -759,7 +765,7 @@ func _step(s: Dictionary, dt: float) -> void:
 			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(pos.x, pos.y, pos.z, 0.55 + 0.45 * tau))
 			light.visible = true
 			light.global_position = pos
-			light.light_energy = 1.4 + 3.0 * tau
+			light.light_energy = light_gain * (1.4 + 3.0 * tau)
 			light.omni_range = 8.0
 	elif t >= T_IMPACT and rock.visible:
 		rock.visible = false
@@ -839,7 +845,7 @@ func _step(s: Dictionary, dt: float) -> void:
 			light.visible = true
 			light.global_position = target + Vector3(0, 0.9, 0)
 			light.omni_range = 6.5
-			light.light_energy = 14.0 * exp(-ti / 0.12) + 2.8 * (1.0 - smoothstep(0.5, BURN_S, ti)) * flick
+			light.light_energy = light_gain * (14.0 * exp(-ti / 0.12) + 2.8 * (1.0 - smoothstep(0.5, BURN_S, ti)) * flick)
 		if ti >= BURN_S:
 			_end(s)
 	_step_scraps(s, dt)
