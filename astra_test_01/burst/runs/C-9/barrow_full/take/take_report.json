@@ -1,0 +1,171 @@
+{
+ "_what": "C-9 T10-2 step 3: what was taken from the paint-over (world verdict \u00a7 8.3)",
+ "painting": {
+  "file": "paint/barrow_full_painted.png",
+  "sha256": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+  "px": [
+   5376,
+   3328
+  ]
+ },
+ "camera": {
+  "projection": "orthographic",
+  "pitch_deg": 52.95354112560294,
+  "yaw_deg": 47.0,
+  "px_per_m": 100.617553710938,
+  "px_per_ground_m_v": 80.3076,
+  "px_per_vertical_m": 60.6183,
+  "screen_right_world": [
+   0.681998,
+   0.0,
+   -0.731354
+  ],
+  "screen_up_world": [
+   -0.583728,
+   0.602462,
+   -0.544335
+  ],
+  "to_camera_world": [
+   0.440613,
+   0.798147,
+   0.410878
+  ],
+  "px_from_world": "x = (p.u_hat - u0) * px_per_m ; y = (v1 - p.v_hat) * px_per_m * sin(pitch) - p.y * px_per_m * cos(pitch)",
+  "u0": -28.715,
+  "v1": 17.7203,
+  "id_render_check": {
+   "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+   "placements_checked": 86,
+   "worst_px_camera_vs_formula": 0.004
+  }
+ },
+ "shares_of_frame": {
+  "hero": 0.1906,
+  "birch": 0.0125,
+  "ground": 0.7969
+ },
+ "plates": {
+  "count": 54,
+  "by_class": {
+   "cairn": 3,
+   "outcrop": 18,
+   "lintel": 1,
+   "post": 2,
+   "log": 2,
+   "shield": 2,
+   "mound": 1,
+   "raven": 1,
+   "stone_short": 4,
+   "stone_mid": 4,
+   "stone_tall": 6,
+   "shore_rock": 10
+  },
+  "anchor_outside_plate": [],
+  "_footprint_note": "collider footprints are padded past the geometry; informational only",
+  "footprint_on_piece_below_80pct": {
+   "fallen_tree_log_A": 0.632,
+   "fallen_tree_log_B": 0.684,
+   "grave_marker_E": 0.5,
+   "grave_marker_W": 0.5,
+   "margin_outcrop_3": 0.769,
+   "margin_outcrop_4": 0.615,
+   "margin_outcrop_5": 0.583,
+   "margin_outcrop_7": 0.727,
+   "outcrop_4": 0.75,
+   "outcrop_5": 0.714,
+   "ring_m95": 0.44,
+   "shore_rock_1": 0.5,
+   "shore_rock_2": 0.667,
+   "shore_rock_3": 0.556,
+   "shore_rock_4": 0.667,
+   "shore_rock_5": 0.556,
+   "shore_rock_6": 0.778,
+   "shore_rock_7": 0.667,
+   "shore_rock_8": 0.778,
+   "shore_rock_9": 0.778,
+   "shore_rock_bridge": 0.556
+  },
+  "footprint_on_piece_median": 0.867
+ },
+ "tufts": {
+  "count": 1486,
+  "heather": 1413,
+  "shrub": 38,
+  "mixed": 35,
+  "tuft_px_share_of_ground": 0.1005,
+  "heather_px": 1469808,
+  "shrub_px": 161533,
+  "density_raster_px": [
+   534,
+   414
+  ]
+ },
+ "trees": {
+  "blockout_birches": 33,
+  "painted_trees_outside_them": 0
+ },
+ "ground": {
+  "uv_px": [
+   1069,
+   829
+  ],
+  "px_per_m": 20.0,
+  "class_share_pct": {
+   "open snow": 50.48,
+   "trodden path": 4.16,
+   "heather ground": 41.56,
+   "ice": 3.8
+  },
+  "class_share_pct_of_ground_the_painting_shows": {
+   "open snow": 58.56,
+   "trodden path": 5.21,
+   "heather ground": 31.48,
+   "ice": 4.74
+  },
+  "cells_under_trees_pct": 1.25,
+  "cells_under_heroes_pct": 19.05,
+  "seen_from_paint_pct": 79.7,
+  "under_heroes_and_trees": "the blockout's design splat (barrow_full_splat.bin), where the painting shows no ground",
+  "iou_with_layout": {
+   "ice": 0.906,
+   "path": 0.772
+  },
+  "path_width_m_painted_vs_guide": [
+   4.61,
+   4.0
+  ],
+  "codes": {
+   "0": "open snow",
+   "1": "trodden path (tracked snow)",
+   "3": "heather ground",
+   "4": "ice"
+  },
+  "splat_world": {
+   "file": "ground/splat_world.png",
+   "frame": "as regions.splat: world xz, origin [-33.54, -31.16], 0.05 m/px, 1400 px",
+   "from_paint_pct_of_raster": 45.19,
+   "outside_the_painted_window": "kept from barrow_full_splat.bin (the blockout's own margin)"
+  }
+ },
+ "verify_image": {
+  "file": "verify_masks_on_paint.png",
+  "px": [
+   2688,
+   1664
+  ],
+  "key": {
+   "magenta": "heather tuft pixels (and a faint wash: heather ground)",
+   "green": "dark shrub tuft pixels",
+   "yellow wash": "trodden path",
+   "blue wash": "ice",
+   "white outline": "hero plates' silhouettes",
+   "cyan outline": "blockout birches (trees)"
+  }
+ },
+ "cell_formula_check": "each plate's cell, run through t5_06b_bake.py's own projection, lands on the camera's px to 0.0007 px (54 plates x 20 random points, 0-4 m high)",
+ "regenerate": [
+  "the painting (gitignored): conductor_scripts/guided_stitch.py conductor_scripts/cfg_t10bf.json paint/barrow_full_painted.png",
+  "the ID render: Godot --path godot --resolution 640x360 --script tools/capture_ids.gd -- --out take/ids",
+  "everything else: python3 tools/take_from_paint.py"
+ ]
+}

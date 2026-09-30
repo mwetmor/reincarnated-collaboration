@@ -1,0 +1,968 @@
+{
+ "_what": "C-9 T10-2 step 3: the guide view (5376 x 3328, capture_blockout's camera) as an ID render",
+ "code": "R = (i % 16) * 16 + 8, G = (i / 16) * 16 + 8, B = 200; ground and everything else 0",
+ "instrument_check": {
+  "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+  "placements_checked": 86,
+  "worst_px_camera_vs_formula": 0.004
+ },
+ "placements": {
+  "1": {
+   "class": "birch",
+   "id": "G1_birch_1",
+   "meshes": 1,
+   "piece": "G1 birch 1",
+   "rgb": [
+    24,
+    8,
+    200
+   ]
+  },
+  "10": {
+   "class": "birch",
+   "id": "G3_birch_1",
+   "meshes": 1,
+   "piece": "G3 birch 1",
+   "rgb": [
+    168,
+    8,
+    200
+   ]
+  },
+  "11": {
+   "class": "birch",
+   "id": "G3_birch_2",
+   "meshes": 1,
+   "piece": "G3 birch 2",
+   "rgb": [
+    184,
+    8,
+    200
+   ]
+  },
+  "12": {
+   "class": "birch",
+   "id": "G3_birch_3",
+   "meshes": 1,
+   "piece": "G3 birch 3",
+   "rgb": [
+    200,
+    8,
+    200
+   ]
+  },
+  "13": {
+   "class": "birch",
+   "id": "G3_birch_4",
+   "meshes": 1,
+   "piece": "G3 birch 4",
+   "rgb": [
+    216,
+    8,
+    200
+   ]
+  },
+  "14": {
+   "class": "birch",
+   "id": "G4_birch_1",
+   "meshes": 1,
+   "piece": "G4 birch 1",
+   "rgb": [
+    232,
+    8,
+    200
+   ]
+  },
+  "15": {
+   "class": "birch",
+   "id": "G4_birch_2",
+   "meshes": 1,
+   "piece": "G4 birch 2",
+   "rgb": [
+    248,
+    8,
+    200
+   ]
+  },
+  "16": {
+   "class": "birch",
+   "id": "G4_birch_3",
+   "meshes": 1,
+   "piece": "G4 birch 3",
+   "rgb": [
+    8,
+    24,
+    200
+   ]
+  },
+  "17": {
+   "class": "birch",
+   "id": "TL_behind_mound_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_behind_mound",
+   "rgb": [
+    24,
+    24,
+    200
+   ]
+  },
+  "18": {
+   "class": "birch",
+   "id": "TL_bottom_left_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_bottom_left",
+   "rgb": [
+    40,
+    24,
+    200
+   ]
+  },
+  "19": {
+   "class": "birch",
+   "id": "TL_bottom_left_2",
+   "meshes": 1,
+   "piece": "margin tree line TL_bottom_left",
+   "rgb": [
+    56,
+    24,
+    200
+   ]
+  },
+  "2": {
+   "class": "birch",
+   "id": "G1_birch_2",
+   "meshes": 1,
+   "piece": "G1 birch 2",
+   "rgb": [
+    40,
+    8,
+    200
+   ]
+  },
+  "20": {
+   "class": "birch",
+   "id": "TL_bottom_left_3",
+   "meshes": 1,
+   "piece": "margin tree line TL_bottom_left",
+   "rgb": [
+    72,
+    24,
+    200
+   ]
+  },
+  "21": {
+   "class": "birch",
+   "id": "TL_bottom_right_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_bottom_right",
+   "rgb": [
+    88,
+    24,
+    200
+   ]
+  },
+  "22": {
+   "class": "birch",
+   "id": "TL_bottom_right_2",
+   "meshes": 1,
+   "piece": "margin tree line TL_bottom_right",
+   "rgb": [
+    104,
+    24,
+    200
+   ]
+  },
+  "23": {
+   "class": "birch",
+   "id": "TL_left_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_left",
+   "rgb": [
+    120,
+    24,
+    200
+   ]
+  },
+  "24": {
+   "class": "birch",
+   "id": "TL_left_2",
+   "meshes": 1,
+   "piece": "margin tree line TL_left",
+   "rgb": [
+    136,
+    24,
+    200
+   ]
+  },
+  "25": {
+   "class": "birch",
+   "id": "TL_left_3",
+   "meshes": 1,
+   "piece": "margin tree line TL_left",
+   "rgb": [
+    152,
+    24,
+    200
+   ]
+  },
+  "26": {
+   "class": "birch",
+   "id": "TL_right_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_right",
+   "rgb": [
+    168,
+    24,
+    200
+   ]
+  },
+  "27": {
+   "class": "birch",
+   "id": "TL_right_2",
+   "meshes": 1,
+   "piece": "margin tree line TL_right",
+   "rgb": [
+    184,
+    24,
+    200
+   ]
+  },
+  "28": {
+   "class": "birch",
+   "id": "TL_right_3",
+   "meshes": 1,
+   "piece": "margin tree line TL_right",
+   "rgb": [
+    200,
+    24,
+    200
+   ]
+  },
+  "29": {
+   "class": "birch",
+   "id": "TL_right_4",
+   "meshes": 1,
+   "piece": "margin tree line TL_right",
+   "rgb": [
+    216,
+    24,
+    200
+   ]
+  },
+  "3": {
+   "class": "birch",
+   "id": "G1_birch_3",
+   "meshes": 1,
+   "piece": "G1 birch 3",
+   "rgb": [
+    56,
+    8,
+    200
+   ]
+  },
+  "30": {
+   "class": "birch",
+   "id": "TL_top_left_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_top_left",
+   "rgb": [
+    232,
+    24,
+    200
+   ]
+  },
+  "31": {
+   "class": "birch",
+   "id": "TL_top_left_2",
+   "meshes": 1,
+   "piece": "margin tree line TL_top_left",
+   "rgb": [
+    248,
+    24,
+    200
+   ]
+  },
+  "32": {
+   "class": "birch",
+   "id": "TL_top_left_3",
+   "meshes": 1,
+   "piece": "margin tree line TL_top_left",
+   "rgb": [
+    8,
+    40,
+    200
+   ]
+  },
+  "33": {
+   "class": "birch",
+   "id": "TL_top_right_1",
+   "meshes": 1,
+   "piece": "margin tree line TL_top_right",
+   "rgb": [
+    24,
+    40,
+    200
+   ]
+  },
+  "34": {
+   "class": "cairn",
+   "id": "cairn_1",
+   "meshes": 1,
+   "piece": "cairn 1",
+   "rgb": [
+    40,
+    40,
+    200
+   ]
+  },
+  "35": {
+   "class": "cairn",
+   "id": "cairn_2",
+   "meshes": 1,
+   "piece": "cairn 2",
+   "rgb": [
+    56,
+    40,
+    200
+   ]
+  },
+  "36": {
+   "class": "cairn",
+   "id": "cairn_3",
+   "meshes": 1,
+   "piece": "cairn 3",
+   "rgb": [
+    72,
+    40,
+    200
+   ]
+  },
+  "37": {
+   "class": "outcrop",
+   "id": "cover_outcrop",
+   "meshes": 1,
+   "piece": "cover outcrop (the tarn fight)",
+   "rgb": [
+    88,
+    40,
+    200
+   ]
+  },
+  "38": {
+   "class": "lintel",
+   "id": "door_lintel",
+   "meshes": 1,
+   "piece": "door lintel",
+   "rgb": [
+    104,
+    40,
+    200
+   ]
+  },
+  "39": {
+   "class": "post",
+   "id": "door_post_L",
+   "meshes": 1,
+   "piece": "door post L",
+   "rgb": [
+    120,
+    40,
+    200
+   ]
+  },
+  "4": {
+   "class": "birch",
+   "id": "G1_birch_4",
+   "meshes": 1,
+   "piece": "G1 birch 4",
+   "rgb": [
+    72,
+    8,
+    200
+   ]
+  },
+  "40": {
+   "class": "post",
+   "id": "door_post_R",
+   "meshes": 1,
+   "piece": "door post R",
+   "rgb": [
+    136,
+    40,
+    200
+   ]
+  },
+  "41": {
+   "class": "log",
+   "id": "fallen_tree_log_A",
+   "meshes": 1,
+   "piece": "fallen tree, log A",
+   "rgb": [
+    152,
+    40,
+    200
+   ]
+  },
+  "42": {
+   "class": "log",
+   "id": "fallen_tree_log_B",
+   "meshes": 1,
+   "piece": "fallen tree, log B",
+   "rgb": [
+    168,
+    40,
+    200
+   ]
+  },
+  "43": {
+   "class": "shield",
+   "id": "grave_marker_E",
+   "meshes": 1,
+   "piece": "grave marker (shield on spears)",
+   "rgb": [
+    184,
+    40,
+    200
+   ]
+  },
+  "44": {
+   "class": "shield",
+   "id": "grave_marker_W",
+   "meshes": 1,
+   "piece": "grave marker (shield on spears)",
+   "rgb": [
+    200,
+    40,
+    200
+   ]
+  },
+  "45": {
+   "class": "outcrop",
+   "id": "margin_outcrop_1",
+   "meshes": 1,
+   "piece": "margin outcrop M1",
+   "rgb": [
+    216,
+    40,
+    200
+   ]
+  },
+  "46": {
+   "class": "outcrop",
+   "id": "margin_outcrop_2",
+   "meshes": 1,
+   "piece": "margin outcrop M2",
+   "rgb": [
+    232,
+    40,
+    200
+   ]
+  },
+  "47": {
+   "class": "outcrop",
+   "id": "margin_outcrop_3",
+   "meshes": 1,
+   "piece": "margin outcrop M3",
+   "rgb": [
+    248,
+    40,
+    200
+   ]
+  },
+  "48": {
+   "class": "outcrop",
+   "id": "margin_outcrop_4",
+   "meshes": 1,
+   "piece": "margin outcrop M4",
+   "rgb": [
+    8,
+    56,
+    200
+   ]
+  },
+  "49": {
+   "class": "outcrop",
+   "id": "margin_outcrop_5",
+   "meshes": 1,
+   "piece": "margin outcrop M5",
+   "rgb": [
+    24,
+    56,
+    200
+   ]
+  },
+  "5": {
+   "class": "birch",
+   "id": "G1_birch_5",
+   "meshes": 1,
+   "piece": "G1 birch 5",
+   "rgb": [
+    88,
+    8,
+    200
+   ]
+  },
+  "50": {
+   "class": "outcrop",
+   "id": "margin_outcrop_6",
+   "meshes": 1,
+   "piece": "margin outcrop M6",
+   "rgb": [
+    40,
+    56,
+    200
+   ]
+  },
+  "51": {
+   "class": "outcrop",
+   "id": "margin_outcrop_7",
+   "meshes": 1,
+   "piece": "margin outcrop M7",
+   "rgb": [
+    56,
+    56,
+    200
+   ]
+  },
+  "52": {
+   "class": "outcrop",
+   "id": "margin_outcrop_8",
+   "meshes": 1,
+   "piece": "margin outcrop M8",
+   "rgb": [
+    72,
+    56,
+    200
+   ]
+  },
+  "53": {
+   "class": "outcrop",
+   "id": "margin_outcrop_9",
+   "meshes": 1,
+   "piece": "margin outcrop M9",
+   "rgb": [
+    88,
+    56,
+    200
+   ]
+  },
+  "54": {
+   "class": "mound",
+   "id": "mound",
+   "meshes": 3,
+   "piece": "barrow mound",
+   "rgb": [
+    104,
+    56,
+    200
+   ]
+  },
+  "55": {
+   "class": "outcrop",
+   "id": "outcrop_1",
+   "meshes": 1,
+   "piece": "outcrop 1",
+   "rgb": [
+    120,
+    56,
+    200
+   ]
+  },
+  "56": {
+   "class": "outcrop",
+   "id": "outcrop_2",
+   "meshes": 1,
+   "piece": "outcrop 2",
+   "rgb": [
+    136,
+    56,
+    200
+   ]
+  },
+  "57": {
+   "class": "outcrop",
+   "id": "outcrop_3",
+   "meshes": 1,
+   "piece": "outcrop 3",
+   "rgb": [
+    152,
+    56,
+    200
+   ]
+  },
+  "58": {
+   "class": "outcrop",
+   "id": "outcrop_4",
+   "meshes": 1,
+   "piece": "outcrop 4",
+   "rgb": [
+    168,
+    56,
+    200
+   ]
+  },
+  "59": {
+   "class": "outcrop",
+   "id": "outcrop_5",
+   "meshes": 1,
+   "piece": "outcrop 5",
+   "rgb": [
+    184,
+    56,
+    200
+   ]
+  },
+  "6": {
+   "class": "birch",
+   "id": "G2_birch_1",
+   "meshes": 1,
+   "piece": "G2 birch 1",
+   "rgb": [
+    104,
+    8,
+    200
+   ]
+  },
+  "60": {
+   "class": "outcrop",
+   "id": "outcrop_6",
+   "meshes": 1,
+   "piece": "outcrop 6",
+   "rgb": [
+    200,
+    56,
+    200
+   ]
+  },
+  "61": {
+   "class": "outcrop",
+   "id": "outcrop_7",
+   "meshes": 1,
+   "piece": "outcrop 7",
+   "rgb": [
+    216,
+    56,
+    200
+   ]
+  },
+  "62": {
+   "class": "outcrop",
+   "id": "outcrop_8",
+   "meshes": 1,
+   "piece": "outcrop 8",
+   "rgb": [
+    232,
+    56,
+    200
+   ]
+  },
+  "63": {
+   "class": "raven",
+   "id": "raven",
+   "meshes": 1,
+   "piece": "raven",
+   "rgb": [
+    248,
+    56,
+    200
+   ]
+  },
+  "64": {
+   "class": "stone_short",
+   "id": "ring_m115",
+   "meshes": 1,
+   "piece": "ring stone -115",
+   "rgb": [
+    8,
+    72,
+    200
+   ]
+  },
+  "65": {
+   "class": "stone_mid",
+   "id": "ring_m135",
+   "meshes": 1,
+   "piece": "ring stone -135",
+   "rgb": [
+    24,
+    72,
+    200
+   ]
+  },
+  "66": {
+   "class": "stone_tall",
+   "id": "ring_m155",
+   "meshes": 1,
+   "piece": "ring stone -155 (gate stone)",
+   "rgb": [
+    40,
+    72,
+    200
+   ]
+  },
+  "67": {
+   "class": "stone_short",
+   "id": "ring_m35",
+   "meshes": 1,
+   "piece": "ring stone -35 (at the mound's foot)",
+   "rgb": [
+    56,
+    72,
+    200
+   ]
+  },
+  "68": {
+   "class": "stone_tall",
+   "id": "ring_m55",
+   "meshes": 1,
+   "piece": "ring stone -55",
+   "rgb": [
+    72,
+    72,
+    200
+   ]
+  },
+  "69": {
+   "class": "stone_mid",
+   "id": "ring_m75",
+   "meshes": 1,
+   "piece": "ring stone -75",
+   "rgb": [
+    88,
+    72,
+    200
+   ]
+  },
+  "7": {
+   "class": "birch",
+   "id": "G2_birch_2",
+   "meshes": 1,
+   "piece": "G2 birch 2",
+   "rgb": [
+    120,
+    8,
+    200
+   ]
+  },
+  "70": {
+   "class": "stone_tall",
+   "id": "ring_m95",
+   "meshes": 1,
+   "piece": "ring stone -95 (FALLEN, lying outward)",
+   "rgb": [
+    104,
+    72,
+    200
+   ]
+  },
+  "71": {
+   "class": "stone_short",
+   "id": "ring_p115",
+   "meshes": 1,
+   "piece": "ring stone +115",
+   "rgb": [
+    120,
+    72,
+    200
+   ]
+  },
+  "72": {
+   "class": "stone_mid",
+   "id": "ring_p135",
+   "meshes": 1,
+   "piece": "ring stone +135",
+   "rgb": [
+    136,
+    72,
+    200
+   ]
+  },
+  "73": {
+   "class": "stone_tall",
+   "id": "ring_p155",
+   "meshes": 1,
+   "piece": "ring stone +155 (gate stone)",
+   "rgb": [
+    152,
+    72,
+    200
+   ]
+  },
+  "74": {
+   "class": "stone_short",
+   "id": "ring_p35",
+   "meshes": 1,
+   "piece": "ring stone +35 (at the mound's foot)",
+   "rgb": [
+    168,
+    72,
+    200
+   ]
+  },
+  "75": {
+   "class": "stone_tall",
+   "id": "ring_p55",
+   "meshes": 1,
+   "piece": "ring stone +55 (the raven's perch)",
+   "rgb": [
+    184,
+    72,
+    200
+   ]
+  },
+  "76": {
+   "class": "stone_mid",
+   "id": "ring_p75",
+   "meshes": 1,
+   "piece": "ring stone +75",
+   "rgb": [
+    200,
+    72,
+    200
+   ]
+  },
+  "77": {
+   "class": "stone_tall",
+   "id": "ring_p95",
+   "meshes": 1,
+   "piece": "ring stone +95",
+   "rgb": [
+    216,
+    72,
+    200
+   ]
+  },
+  "78": {
+   "class": "shore_rock",
+   "id": "shore_rock_1",
+   "meshes": 1,
+   "piece": "shore rock 1",
+   "rgb": [
+    232,
+    72,
+    200
+   ]
+  },
+  "79": {
+   "class": "shore_rock",
+   "id": "shore_rock_2",
+   "meshes": 1,
+   "piece": "shore rock 2",
+   "rgb": [
+    248,
+    72,
+    200
+   ]
+  },
+  "8": {
+   "class": "birch",
+   "id": "G2_birch_3",
+   "meshes": 1,
+   "piece": "G2 birch 3",
+   "rgb": [
+    136,
+    8,
+    200
+   ]
+  },
+  "80": {
+   "class": "shore_rock",
+   "id": "shore_rock_3",
+   "meshes": 1,
+   "piece": "shore rock 3",
+   "rgb": [
+    8,
+    88,
+    200
+   ]
+  },
+  "81": {
+   "class": "shore_rock",
+   "id": "shore_rock_4",
+   "meshes": 1,
+   "piece": "shore rock 4",
+   "rgb": [
+    24,
+    88,
+    200
+   ]
+  },
+  "82": {
+   "class": "shore_rock",
+   "id": "shore_rock_5",
+   "meshes": 1,
+   "piece": "shore rock 5",
+   "rgb": [
+    40,
+    88,
+    200
+   ]
+  },
+  "83": {
+   "class": "shore_rock",
+   "id": "shore_rock_6",
+   "meshes": 1,
+   "piece": "shore rock 6",
+   "rgb": [
+    56,
+    88,
+    200
+   ]
+  },
+  "84": {
+   "class": "shore_rock",
+   "id": "shore_rock_7",
+   "meshes": 1,
+   "piece": "shore rock 7",
+   "rgb": [
+    72,
+    88,
+    200
+   ]
+  },
+  "85": {
+   "class": "shore_rock",
+   "id": "shore_rock_8",
+   "meshes": 1,
+   "piece": "shore rock 8",
+   "rgb": [
+    88,
+    88,
+    200
+   ]
+  },
+  "86": {
+   "class": "shore_rock",
+   "id": "shore_rock_9",
+   "meshes": 1,
+   "piece": "shore rock 9",
+   "rgb": [
+    104,
+    88,
+    200
+   ]
+  },
+  "87": {
+   "class": "shore_rock",
+   "id": "shore_rock_bridge",
+   "meshes": 1,
+   "piece": "shore rock (bridge to outcrop 5)",
+   "rgb": [
+    120,
+    88,
+    200
+   ]
+  },
+  "9": {
+   "class": "birch",
+   "id": "G2_birch_4",
+   "meshes": 1,
+   "piece": "G2 birch 4",
+   "rgb": [
+    152,
+    8,
+    200
+   ]
+  }
+ }
+}
