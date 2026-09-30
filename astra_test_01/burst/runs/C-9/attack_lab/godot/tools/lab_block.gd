@@ -30,7 +30,7 @@ func _initialize() -> void:
 	var hand := func() -> Vector3:
 		return k.global_transform.affine_inverse() * (skel.global_transform * skel.get_bone_global_pose(hb).origin)
 	for i in 96:
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT)
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel)
 	var guard: Vector3 = hand.call()
 	# the PEAK pose's hand, in the body frame: the raw block clip at its peak, blended fully
 	var peak_hand := Vector3.ZERO
@@ -38,7 +38,7 @@ func _initialize() -> void:
 	k.set_block(true)
 	var t := 0.0
 	for i in int(1.5 / DT):
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); t += DT
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel); t += DT
 		rows.append([t, (hand.call() as Vector3), k._block_w, float(tree.get("parameters/a_block/current_position")),
 					 String(k.get("_block_phase")) if patched else "-"])
 	peak_hand = rows[-1][1]
@@ -66,7 +66,7 @@ func _initialize() -> void:
 	var low_frames := 0
 	var prev: Vector3 = hand.call()
 	for i in int(1.5 / DT):
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); t2 += DT
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel); t2 += DT
 		if i % 4 == 3:
 			var h: Vector3 = hand.call()
 			if (h - prev).length() > 0.004: low_frames += 1
@@ -84,13 +84,20 @@ func _initialize() -> void:
 	# A STRIKE DURING A BLOCK: after the strike, is he back in guard, or holding the shield up?
 	k.set_block(true)
 	for i in 48:
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT)
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel)
 	var fired: bool = k.try_strike("slash")
 	var g := 0
 	while (k.attacking() or g < 12) and g < 2000:
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); g += 1
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel); g += 1
 	for i in 48:
-		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT)
+		k.drive_dir(Vector2.ZERO, false, DT); tree.advance(DT); _mods(k, skel)
 	print("[block] strike during a held block: fired=%s; 0.5 s after the strike -> block weight %.3f, phase '%s' (want 0.000, off)"
 		% [str(fired), k._block_w, String(k.get("_block_phase")) if patched else "-"])
 	quit(0)
+
+func _mods(k, skel: Skeleton3D) -> void:
+	if k._foot_lock != null:
+		if skel.modifier_callback_mode_process != Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL:
+			skel.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL
+		skel.advance(1.0 / 96.0)
+		skel.notification(Skeleton3D.NOTIFICATION_UPDATE_SKELETON)

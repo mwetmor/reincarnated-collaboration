@@ -100,10 +100,17 @@ func _place() -> void:
 func _step(dir: Vector2, run: bool) -> void:
 	k.drive_dir(dir, run, DT)
 	tree.advance(DT)
+	if k._foot_lock != null:    # modifiers on THIS step (advance alone only schedules them)
+		if skel.modifier_callback_mode_process != Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL:
+			skel.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL
+		skel.advance(DT)
+		skel.notification(Skeleton3D.NOTIFICATION_UPDATE_SKELETON)
 
 func _foot() -> Array:
 	var lf: Vector3 = skel.global_transform * skel.get_bone_global_pose(skel.find_bone("LeftToeBase")).origin
 	var rf: Vector3 = skel.global_transform * skel.get_bone_global_pose(skel.find_bone("RightToeBase")).origin
+	if k._foot_lock != null and k._foot_lock.st["L"]["shown_toe"] != Vector3.INF:
+		lf = k._foot_lock.st["L"]["shown_toe"]; rf = k._foot_lock.st["R"]["shown_toe"]
 	var low: int = 0 if lf.y <= rf.y else 1
 	var foot: Vector3 = lf if low == 0 else rf
 	return [low, foot, foot.y - k.global_position.y]

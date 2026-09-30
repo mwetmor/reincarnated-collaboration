@@ -144,6 +144,14 @@ func _frame(dir: Vector2, run: bool, phase: String, clip: String, film: bool, ap
 	else:
 		k.drive_dir(dir, run, DT)
 		tree.advance(DT)
+	# a foot-locked knight's modifiers must run on THIS step, at THIS dt -- left in IDLE mode
+	# they would run once per rendered frame on wall-clock time, and the film would not match
+	# the numbers
+	if k._foot_lock != null:
+		if skel.modifier_callback_mode_process != Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL:
+			skel.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL
+		skel.advance(DT)
+		skel.notification(Skeleton3D.NOTIFICATION_UPDATE_SKELETON)
 	var pos: float = _clip_pos(clip, ap)
 	# seek() on an AnimationPlayer with no current animation does NOTHING -- the first pass
 	# of this compared every frame against the REST pose and called it "the raw clip".
