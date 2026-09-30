@@ -11,7 +11,7 @@ ALLOW = {  # lane substrate: path -> sha256 (pinned when first used; conductor e
  str(ROOT/'astra_test_01/burst/runs/C-3/artifacts/K2c-gen-SE/k2c_SE.png'): '6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8',  # M1 JUDGE control (H1 Keeper)
  str(ROOT/'astra_test_01/burst/runs/C-3/artifacts/CS-guides/chunk_A_guide.png'): '77217a4a3bba573b1bb28617f830e29d9bc886fec3e9ff9f97f0693954ffbb55',
 }
-FORBID = re.compile(r'final\s*fantasy|yoshida|square\s*enix|ivalice|ramza|delita|agrias|vagrant\s*story|tactics\s*ogre|hollow\s*knight|\bchibi\b|\banime\b', re.I)
+FORBID = re.compile(r'final\s*fantasy|yoshida|square\s*enix|ivalice|ramza|delita|agrias|vagrant\s*story|tactics\s*ogre|hollow\s*knight|\bchibi\b|\banime\b|diablo|blizzard|grim\s*dawn|crate\s*entertainment', re.I)
 sha = lambda p: hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 rows = [json.loads(l) for l in (REFS/'ledger.jsonl').read_text().splitlines() if l.strip()]
 ok_sha = {r['sha256'] for r in rows if r.get('attach_to_generator') is True}
