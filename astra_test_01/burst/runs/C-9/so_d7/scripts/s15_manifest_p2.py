@@ -159,6 +159,17 @@ m["speckles"] = {
         "double_sided_garments": "no change to any dot: none is a culled face",
     },
 }
+fid = J("s16_clip_fidelity.json")
+m["clip_fidelity"] = {
+    "question": "does each shipped clip still move like the Meshy clip it came from? (asked after the T12 drax found "
+                "nb_d2's 33_assemble action merge re-framing every bone's motion)",
+    "method": "scripts/s16_clip_fidelity.py: pure glTF evaluation, every joint's position in the HIPS' own frame "
+              "(which removes the root processing), divided by the rest hips-to-head in the same units",
+    "result": fid,
+    "verdict": "FAITHFUL: every clip within %.4f hips-to-head of its source (her clips were fetched for HER rig, so "
+               "the body's rest and each clip's rest are the same, and a pose-space action move is exact)"
+               % max(v["err_max"] for v in fid.values()),
+}
 m["gear"]["pieces"] = asm["pieces"]
 m["gear"]["welded"] = asm["welded"]
 m["lint"] = {"verdict": lint["verdict"], "fails": lint["fails"], "warns": len(lint.get("warns", [])),

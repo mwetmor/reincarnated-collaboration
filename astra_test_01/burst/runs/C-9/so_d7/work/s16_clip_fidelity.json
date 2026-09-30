@@ -1,0 +1,58 @@
+{
+ "idle": {
+  "source": "idle11.glb",
+  "source_clip": "Armature|Idle_02|baselayer",
+  "times": 29,
+  "time_shift_s": 0.0,
+  "err_max": 0.0,
+  "err_median_of_frame_max": 0.0
+ },
+ "walk": {
+  "source": "walk.glb",
+  "source_clip": "Armature|Walking_Woman|baselayer",
+  "times": 25,
+  "time_shift_s": 0.0,
+  "err_max": 0.0001,
+  "err_median_of_frame_max": 0.0
+ },
+ "run": {
+  "source": "run.glb",
+  "source_clip": "Armature|Run_02|baselayer",
+  "times": 19,
+  "time_shift_s": 0.0,
+  "err_max": 0.0001,
+  "err_median_of_frame_max": 0.0
+ },
+ "hit": {
+  "source": "hit.glb",
+  "source_clip": "Armature|Hit_Reaction|baselayer",
+  "times": 41,
+  "time_shift_s": 0.0,
+  "err_max": 0.0001,
+  "err_median_of_frame_max": 0.0
+ },
+ "death": {
+  "source": "death.glb",
+  "source_clip": "Armature|dying_backwards|baselayer",
+  "times": 28,
+  "time_shift_s": 0.0,
+  "err_max": 0.0001,
+  "err_median_of_frame_max": 0.0
+ },
+ "cast_fireball": {
+  "source": "cast132.glb",
+  "source_clip": "Armature|mage_soell_cast_3|baselayer",
+  "times": 27,
+  "time_shift_s": 0.0,
+  "err_max": 0.0,
+  "err_median_of_frame_max": 0.0
+ },
+ "cast_meteor": {
+  "source": "cast127.glb",
+  "source_clip": "Armature|Charged_Ground_Slam|baselayer",
+  "times": 25,
+  "time_shift_s": 0.0,
+  "err_max": 0.0,
+  "err_median_of_frame_max": 0.0
+ }
+}
