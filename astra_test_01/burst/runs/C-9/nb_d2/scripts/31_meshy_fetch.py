@@ -96,7 +96,11 @@ if "--download-only" in sys.argv:
 
 rig = sys.argv[1]
 specs = [x.split(":", 1) for x in sys.argv[2:]]
-out, spent = {}, 0
+# THE RECORD IS MERGED, not overwritten: an earlier version wrote only this run's clips, so every
+# fetch erased the record of the ones before it (their tasks, credits and lints)
+_W = os.path.join(ROOT, "work", "meshy_fetch.json")
+_prev = json.load(open(_W)) if os.path.exists(_W) else {}
+out, spent = dict(_prev.get("clips", {})), 0
 for nm, aid in specs:
     dst = os.path.join(OUT, "%s.glb" % nm)
     if os.path.exists(dst):
@@ -129,7 +133,6 @@ for nm, aid in specs:
           % (nm, st, round(el), cr, rec.get("mb", "-"),
              rec.get("lint", {}).get("verdict", "-"),
              (rec.get("lint", {}).get("fails") or [""])[0][:90]), flush=True)
-    json.dump(out, open(os.path.join(ROOT, "work", "meshy_fetch.json"), "w"), indent=1)
-print("\nTOTAL CREDITS SPENT: %s" % spent, flush=True)
-json.dump(dict(rig=rig, spent=spent, clips=out),
-          open(os.path.join(ROOT, "work", "meshy_fetch.json"), "w"), indent=1)
+    json.dump(dict(rig=rig, spent=int(_prev.get("spent", 0)) + spent, clips=out), open(_W, "w"), indent=1)
+print("\nTOTAL CREDITS SPENT: %s (record total %s)" % (spent, int(_prev.get("spent", 0)) + spent), flush=True)
+json.dump(dict(rig=rig, spent=int(_prev.get("spent", 0)) + spent, clips=out), open(_W, "w"), indent=1)

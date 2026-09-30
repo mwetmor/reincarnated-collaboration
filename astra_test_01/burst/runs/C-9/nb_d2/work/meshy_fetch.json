@@ -1,6 +1,6 @@
 {
  "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
- "spent": 33,
+ "spent": 36,
  "clips": {
   "axe_stance": {
    "action_id": 85,
@@ -198,6 +198,25 @@
     ],
     "clips": [
      "Armature|Charged_Axe_Chop|baselayer"
+    ]
+   }
+  },
+  "combat_stance": {
+   "action_id": 89,
+   "task": "01a0f05f-a1d2-7423-91f8-a8e616610421",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/combat_stance.glb",
+   "mb": 9.32,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "combat_stance.glb: clip 'Armature|Combat_Stance|baselayer' stands 0.407 m from the rest position and never comes nearer than 0.397 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [],
+    "clips": [
+     "Armature|Combat_Stance|baselayer"
     ]
    }
   }
