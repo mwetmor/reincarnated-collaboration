@@ -10,6 +10,10 @@
 # its source's own cycle (s17_run_cycle.py; its seconds, foot-lock speed and staff acceptance re-measured) and a
 # staff layer on HIT (s17_hit_*.json, s17_hit_flinch.json). Then the WALK re-cut the same way (s17_run_cycle.py
 # --clip walk), and every clip's window on its source measured and noted (s17_clip_windows.py -> clip_windows).
+# THEN V2 (conductor, 2026-09-30, after v1's pack was declared): the idle, hit, death and both casts re-cut the same way
+# (s17_run_cycle.py --oneshot; the de-root re-derived on each new window; the Meteor's staff re-baked by s13), release_s
+# re-derived on the shipped keys (s18_release.py), the staff layers re-measured (s18_*), and the walk's and run's foot-lock
+# taken by the scene's stance rule (s18_footlock_contact.py) -- s6's bottom-25% ankle rule read her run 15% slow.
 # History goes in NUMERIC fields: 48_manifest_lint reads
 # every "<n> s" and "<n> m/s" in prose under a clip's path as a claim about the clip AS SHIPPED.
 import json, os, sys
@@ -366,6 +370,145 @@ m["clip_windows"] = {
                 "re-find them",
     "clips": {c: dict(cw[c], note=WNOTE[c]) for c in cw},
 }
+
+# ---- V2 (conductor, 2026-09-30): every remaining clip on its source's own keys; release_s, staff and foot-lock re-derived ----
+V2C = ("idle", "hit", "death", "cast_fireball", "cast_meteor")
+rc2 = {c: J("s18_recut_%s.json" % c) for c in V2C}
+rel = J("s18_release.json"); r2, r1, rsrc = rel["export/so-body.glb"], rel["export_v1pack/so-body.glb"], rel["sources"]
+m["character"] = m["character"] + " + v2 (2026-09-30: every clip on its Meshy source's own 30 fps keys; release_s re-derived; the foot-lock by the scene's stance rule)"
+m["v2"] = {
+    "what": "the sorceress's clips v2 -- supersedes the export v1's pack was rendered from (kept in export_v1pack/ with its manifest)",
+    "why": "v1's idle, hit, death and both casts were baked at 24 fps from 0 with shipped time = source time: each began with a "
+           "clamped hold on the source's first key (its first key interval at a fifth of speed), and Godot's runtime glTF path "
+           "re-samples every track at 30 fps, so a 24 fps clip renders as its bake (the Fire Ball's forearm 5.0 deg off its own "
+           "keyed pose at the release frame, the Meteor's 3.6; nb_join/scripts/j_runtime_resample.py). On the source's own keys "
+           "the bake is key-for-key",
+    "recut": {c: {"mode": rc2[c]["mode"], "keys": rc2[c]["new"]["keys"], "duration": rc2[c]["new"]["duration_s"], "hips_model": rc2[c]["hips"]["model"],
+                  "hips_old_window_rebuilt_worst_units": rc2[c]["hips"].get("old_window_rebuilt_worst_units"),
+                  "channels": rc2[c]["channels_classified"]["counts"], "weapon_tracks_dropped_for_rebake": rc2[c]["weapon_tracks_dropped_for_rebake"],
+                  "prior_accessors_byte_identical": rc2[c]["prior_accessors_byte_identical"], "record": "work/s18_recut_%s.json" % c}
+              for c in V2C},
+    "hips_rule": "hit and death were DE-ROOTED in the D7 hygiene (45_deroot_trim: the first-to-last line of the hips' horizontal path taken "
+                 "out, the residual's mean on the rest position). s17 now finds that the old offset is that line (the old window rebuilt "
+                 "from the source to within the recut records' hips_old_window_rebuilt_worst_units) and RE-DERIVES it on the new window, "
+                 "so the re-cut clip's net travel is zero again; transplanting the old offsets would have left the new window's travel in. "
+                 "The idle's offset is the same rule at a tenth of a millimetre; the casts' is constant (their start moved to rest)",
+    "meteor_staff": "the Meteor's baked staff track was keyed on the OLD clock: kept, it would play one source frame late against the "
+                    "re-cut body. Dropped and re-baked by s13_meteor_track.py on the new keys (same rule: lean 30, butt on the ground)",
+    "runtime_resampling": "work/s18_runtime_resample.json: every clip passes Godot 4.6.3's runtime bake key-for-key (none re-sampled)",
+}
+for c in ("cast_fireball", "cast_meteor"):
+    ck = m["casts"][c]
+    ck["release_s"] = r2[c]["release_s"]
+    ck["release_derivation"] = {
+        "method": "scripts/s18_release.py: s5_casts.py's estimator (%s) on the SHIPPED clip's own keys, pure glTF evaluation"
+                  % ("the leading hand's peak forward speed; release = the key ending the fastest interval" if c == "cast_fireball"
+                     else "the hand's highest point over the head, then the fastest downward interval; release = its ending key"),
+        "key": r2[c]["release_key"], "keys": r2[c]["keys"], "hand": r2[c]["hand"],
+        "on_the_source": {"file": rsrc[c]["file"], "release_source_time": rsrc[c]["release_s"], "first_key": rsrc[c]["first_key_s"],
+                          "on_the_recut_clock": rsrc[c]["release_on_recut_clock_s"]},
+        "v1": {"manifest_release": 0.9167 if c == "cast_fireball" else 1.625, "same_estimator_on_v1_keys": r1[c]["release_s"],
+               "why_they_differ": "s5 read the Meshy file in Blender at 24 fps integer frames and counted from frame 1 (the source's "
+                                  "first key sits at frame 0.8, rounded up), so v1's number was one 24 fps frame EARLY on v1's own clip"},
+    }
+# the foot-lock: the scene's stance rule (s18_footlock_contact.py), at the clip's own keys, both feet pooled
+flc, ref = J("s18_footlock_contact.json"), J("s18_scene_feet_ref.json")
+SC = "scene: stance by the lower toe (3 cm), that side's ANKLE speed"
+for c in ("walk", "run"):
+    e = flc[c]["estimators"]; lk = m["locomotion_in_place"][c]
+    was = lk["speed_m_s"]
+    lk["speed_m_s"] = e[SC]["keys"]["backward_median"]
+    lk["planted_intervals"] = e[SC]["keys"]["samples"]
+    lk["foot_lock_v2"] = {
+        "rule": "the stance side = the lower TOE, within 0.03 m of that toe's lowest; the speed = that side's FOOT joint's backward "
+                "speed in her in-place frame; the median over the clip's own key intervals, both feet pooled -- the instrument of "
+                "the integration drax's t12_10_feet (godot/tools/capture_painted.gd --feet), so the scene's ratio is 1.0 by construction",
+        "keys": e[SC]["keys"], "dense_60hz": e[SC]["dense"],
+        "s6_rule_was": {"speed": was, "keys": e["s6 (ankles, bottom 25%)"]["keys"], "dense_60hz": e["s6 (ankles, bottom 25%)"]["dense"]},
+        "scene_measured_v1_clip": {"asked": ref["sorceress"][c]["asked_m_s"], "foot_lock": ref["sorceress"][c]["foot_lock_m_s"],
+                                   "ratio": ref["sorceress"][c]["ratio_foot_lock_over_asked"], "record": ref["path"], "sha256": ref["sha256"]},
+        "offline_replication_of_the_scene": round(e[SC]["dense"]["backward_median"] / ref["sorceress"][c]["foot_lock_m_s"], 4),
+        "predicted_scene_ratio": round(ref["sorceress"][c]["foot_lock_m_s"] / e[SC]["keys"]["backward_median"], 3),
+        "record": "work/s18_footlock_contact.json",
+    }
+m["locomotion_in_place"]["run"]["caution"] = ("a run's stance is short: %d stance intervals at the clip's own keys (%d at 60 Hz, which agree "
+                                              "to %.1f%%)" % (flc["run"]["estimators"][SC]["keys"]["samples"], flc["run"]["estimators"][SC]["dense"]["samples"],
+                                                              100 * abs(flc["run"]["estimators"][SC]["dense"]["backward_median"] / flc["run"]["estimators"][SC]["keys"]["backward_median"] - 1)))
+m["locomotion_in_place"]["method"] = ("Meshy's walk and run are in place AT SOURCE, so travel over duration gives about 0. The STANCE foot slides "
+                                      "back at exactly her ground speed; the median of that is the speed (v2: the scene's stance rule, "
+                                      "locomotion_in_place.<clip>.foot_lock_v2)")
+m["locomotion_in_place"]["why_v2"] = {
+    "found": "the integration drax drove her on the phone page at v1's run speed and her stance foot moved at 1.148 times it (skating); "
+             "the walk read 1.019",
+    "cause": "THE MEASURE, not the clip or the in-place bake. s6_footlock counted a foot as planted in the bottom 25% of the ANKLE's "
+             "own height range; a run's ankle swings high, so that band takes in the landing and the lift-off, where the ankle is "
+             "not yet locked, and a dozen samples move the median with the sampling (s6_rule_was: its keys and a dense sampling "
+             "differ by several percent). Stance by the lower toe (the scene's rule) isolates the locked phase; walk and run then "
+             "agree dense and at the keys",
+    "not_the_clip": "the run is its Meshy source's own keys (clip_fidelity 0.0000), the hips' net travel over the loop is zero "
+                    "(work/s18_footlock_contact.json hips_net_travel_m)",
+    "not_the_bake": "the D7 de-root removed a line of 4 mm over the run (s6_deroot_p2.json); nothing of the run's travel is left in it",
+    "also_the_barbarian": "the same s6 rule is 57_footlock.py's (T12_10's gear manifest); on his JOIN body the scene's rule reads his run "
+                          "about a third faster than s6's -- flagged to the lane that owns it; the JOIN pack's own stride uses the scene rule",
+}
+# staff: the layers re-measured on the re-cut clips (same instrument, the combined file re-cut the same way)
+st = {"idle": J("s18_staff_idle.json")["idle"], "fb": J("s18_staff_fireball.json")["cast_fireball (STAFF ARM carry only)"],
+      "met": J("s18_meteor_verify.json")["cast_meteor (raw clip, no carry)"], "death": J("s18_staff_death_raw.json")["death (raw clip, no carry)"]}
+acc_ = m["staff_hold"]["acceptance"]
+acc_["idle"] = row_ = dict(tilt_max_deg=st["idle"]["tilt_max_deg"], tip_path_px_worst=st["idle"]["tip_path_px_worst"],
+                           staff_in_body=st["idle"]["staff_in_body_worst"], staff_in_body_by_part=st["idle"]["staff_in_body_by_part"])
+acc_["verdict"] = "PASS" if all(acc_[k]["tilt_max_deg"] <= 20 and acc_[k]["tip_path_px_worst"] <= 60 and acc_[k]["staff_in_body"] == 0
+                                for k in ("idle", "walk", "run")) else "FAIL"
+acc_["cast_fireball_arm_only"] = dict(tilt_max_deg=st["fb"]["tilt_max_deg"], tip_path_px_worst=st["fb"]["tip_path_px_worst"],
+                                      staff_in_body=st["fb"]["staff_in_body_worst"], staff_in_body_by_part=st["fb"]["staff_in_body_by_part"])
+acc_["cast_meteor"] = dict(tilt_max_deg=st["met"]["tilt_max_deg"], tip_path_px_worst=st["met"]["tip_path_px_worst"],
+                           staff_in_body=st["met"]["staff_in_body_worst"], staff_in_body_by_part=st["met"]["staff_in_body_by_part"])
+acc_["death_raw_info"] = dict(tilt_max_deg=st["death"]["tilt_max_deg"], staff_in_body=st["death"]["staff_in_body_worst"],
+                              staff_in_body_by_part=st["death"]["staff_in_body_by_part"],
+                              note="no layer by decision (she falls with the staff); measured for the record, not held to a rule")
+acc_["source"] = acc_["source"] + "; v2 (2026-09-30): idle, the Fire Ball, the Meteor and death re-measured on the re-cut clips -- work/s18_staff_*.json, work/s18_meteor_verify.json"
+h2 = {"raw": J("s18_hit_raw.json")["hit (raw clip, no carry)"], "arm": J("s18_hit_arm.json")["hit (STAFF ARM carry only)"],
+      "chest_arm": J("s18_hit_chest_arm.json")["hit (STAFF ARM carry only)"], "full": J("s18_hit_full.json")["hit"]}
+fl2 = J("s18_hit_flinch.json")["options"]
+opts2 = {k: hrow(h2[k], fl2[k]) for k in h2}
+ch["hit_layer_choice"]["options"] = opts2
+ch["hit_layer_choice"]["range"] = "the idle carry's lean: worst %.2f deg from vertical, mean %.2f (v2: work/s18_staff_idle.json)" % (st["idle"]["tilt_max_deg"], st["idle"]["tilt_mean_deg"])
+ch["hit_layer_choice"]["v2"] = ("re-measured on the re-cut hit (the same four layers, the same instrument): chest_arm holds the staff to "
+                                "%.2f deg and keeps %.0f%% of the head's turn; the choice stands" % (opts2["chest_arm"]["tilt_max_deg"], 100 * opts2["chest_arm"]["head_turn_kept"]))
+ch["hit_layer_choice"]["graze"] = ("chest_arm: one sampled staff vertex 3.9 mm into RightLeg in ONE frame (every frame checked, "
+                                   "work/s18_hit_chest_arm_everyframe.txt) -- sub-pixel at the pack's 151 px/m")
+ch["hit_layer_choice"]["before_after"] = ("worst angle from vertical in hit: %.2f deg raw (no layer), %.2f deg with chest_arm"
+                                          % (opts2["raw"]["tilt_max_deg"], opts2["chest_arm"]["tilt_max_deg"]))
+ch["per_clip"]["hit"] = ("chest_arm -- Spine02 + the staff arm: the staff stays inside the idle carry's lean (%.2f deg worst, idle %.2f) while "
+                         "her head still turns %.0f%% as far as the raw clip's (see hit_layer_choice)"
+                         % (opts2["chest_arm"]["tilt_max_deg"], st["idle"]["tilt_max_deg"], 100 * opts2["chest_arm"]["head_turn_kept"]))
+acc_["hit_chest_arm"] = {k: opts2["chest_arm"][k] for k in ("tilt_max_deg", "tilt_mean_deg", "staff_in_body", "staff_in_body_by_part", "tip_path_px_worst")}
+mt2 = J("s18_meteor_track.json")
+met_ = m["staff_hold"]["meteor"]
+met_["turn_deg_range"] = [min(k["turn_deg"] for k in mt2["keys"]), max(k["turn_deg"] for k in mt2["keys"])]
+met_["slide_m_max"] = max(k["slide_m"] for k in mt2["keys"])
+met_["measured_inside_worst"] = st["met"]["staff_in_body_worst"]
+met_["remaining_contact"] = "grazes only, every frame checked: two frames near the start, at most 1.3 cm (work/s18_meteor_verify_perframe.txt)"
+met_["v2"] = "re-baked by s13 on the re-cut keys (%d, the source's own), the same rule and the same range as v1's bake" % len(mt2["keys"])
+# windows: every clip now on its source's keys
+cw2 = J("s18_clip_windows.json")
+NOTE2 = ("Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py%s): no held first pose (first interval x%.2f), no "
+         "cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json).")
+for c in cw2:
+    f_ = " --oneshot" if c in ("hit", "death", "cast_fireball", "cast_meteor") else (" --clip %s" % c if c != "run" else "")
+    WNOTE[c] = NOTE2 % (f_, cw2[c]["first_interval_speed"])
+WNOTE["cast_fireball"] += " release_s re-derived on these keys (casts.cast_fireball.release_derivation)."
+WNOTE["cast_meteor"] += " release_s re-derived on these keys; the staff track re-baked on them (staff_hold.meteor.v2)."
+m["clip_windows"] = {
+    "method": m["clip_windows"]["method"] + "; v2: work/s18_clip_windows.json (before v2: work/s18_clip_windows_before.json)",
+    "decision": "v2 (conductor, 2026-09-30): every clip re-cut on its source's own keys -- the run and the walk first, then the idle, "
+                "hit, death and both casts",
+    "clips": {c: dict(cw2[c], note=WNOTE[c]) for c in cw2},
+}
+m["fps_note"] = ("v2: every clip is keyed on its Meshy source's own 30 fps keys (staff_carry_R is a 2-key pose): a 24 fps grid cannot "
+                 "hold a 30 fps source's keys, and Godot's runtime bake at 30 fps then reproduces each key exactly")
+m["film_pass2"]["recut_note"] = ("filmed before the re-cuts (the run and walk, then v2's idle, hit, death and casts) and at the old "
+                                  "speeds; see clip_windows and v2")
 json.dump(m, open(os.path.join(ROOT, "export", "manifest.json"), "w"), indent=1)
 print("wrote export/manifest.json: staff acceptance %s; speckles isolated pale px %s; lint %s"
       % (m["staff_hold"]["acceptance"]["verdict"], tot, lint["verdict"]))

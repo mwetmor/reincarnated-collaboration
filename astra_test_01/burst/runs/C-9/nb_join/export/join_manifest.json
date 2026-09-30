@@ -1344,26 +1344,20 @@
  "locomotion_in_place": {
   "walk": {
    "seconds": 1.0333,
-   "speed_m_s": 1.583,
-   "planted_intervals": 34,
-   "spread_iqr_m_s": 0.282,
-   "per_foot_m_s": {
-    "LeftFoot": 1.586,
-    "RightFoot": 1.577
-   }
+   "speed_m_s": 1.586,
+   "stance_intervals": 31,
+   "dense_60hz": 1.587,
+   "s6_rule_was": 1.583
   },
   "run": {
    "seconds": 0.6333,
-   "speed_m_s": 3.952,
-   "planted_intervals": 16,
-   "spread_iqr_m_s": 5.051,
-   "per_foot_m_s": {
-    "LeftFoot": 3.952,
-    "RightFoot": 4.017
-   }
+   "speed_m_s": 5.191,
+   "stance_intervals": 9,
+   "dense_60hz": 5.256,
+   "s6_rule_was": 3.952
   },
-  "method": "so_d7/scripts/s6_footlock.py on the hold's own body (nb_d2/export_staging/JOIN_hold/nb-body.glb): the FOOT-LOCK speed, the ground speed that pins the planted foot, sampled on each clip's own keys -- the sorceress pack's instrument. For the pack's stride_m_per_cycle (REPORTED per the contract); the hold's lane declares no speed for these two clips (T12_10's manifest has the armed gaits and the strafes)",
-  "spread_note": "the run's planted-foot speeds spread widely (spread_iqr_m_s): its feet do not pin cleanly at any single speed, so its stride is a median, not a lock; the walk's spread is small"
+  "method": "so_d7/scripts/s18_footlock_contact.py on the hold's own body (nb_d2/export_staging/JOIN_hold/nb-body.glb): the FOOT-LOCK speed by the SCENE's stance rule (the integration drax's t12_10_feet instrument) -- the stance side is the lower toe within 0.03 m of its lowest, the speed that side's foot joint's backward speed, the median over the clip's own key intervals, both feet pooled. For the pack's stride_m_per_cycle (REPORTED per the contract)",
+  "correction": "the first pack index used s6_footlock's rule (a foot planted in the bottom 25% of the ankle's own height range; s6_rule_was): it reads a run's landing and lift-off as stance and read his run about 24% slow, so the run's stride was understated by as much. The walk agrees under both rules"
  },
  "validation": {
   "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",

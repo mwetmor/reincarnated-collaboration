@@ -1,5 +1,5 @@
 {
- "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2) + JOIN-1 pack review fixes (2026-09-30: the run and the walk re-cut on their source cycles; a staff layer on hit) + v2 (2026-09-30: every clip on its Meshy source's own 30 fps keys; release_s re-derived; the foot-lock by the scene's stance rule)",
+ "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2) + JOIN-1 pack review fixes (2026-09-30: the run and the walk re-cut on their source cycles; a staff layer on hit)",
  "body": "so-body.glb",
  "height_m": 1.7,
  "height_note": "authored at 1.70 m, 0.92x the barbarian's 1.85 m. If the scene normalises each character to a fixed pixel height she will read as tall as him -- apply the BARBARIAN's world factor to her too so the difference survives.",
@@ -39,8 +39,8 @@
   "rule": "locomotion ships IN PLACE. Drive her at the FOOT-LOCK speed: the speed that holds the planted foot still.",
   "walk": {
    "seconds": 0.9667,
-   "speed_m_s": 1.508,
-   "planted_intervals": 22,
+   "speed_m_s": 1.471,
+   "planted_intervals": 32,
    "recut": {
     "why": "the run's merge window again, showing as a HITCH rather than a seam: the shipped walk held the source's first pose for one 30 fps source frame, so its first key interval played at a fifth of real speed once per cycle -- driven at the foot-lock speed, her planted foot skated there. Found with the run's fix; dispatched by the conductor",
     "cause": "the D7 merge sampled Blender frames 0..24 at 24 fps from a source keyed at 30 fps whose cycle runs from its first key to its 30th and closes there. It began one source frame early (a clamped hold on the first key) and ended exactly at the close, so the loop closed and the hold hid inside the first interval",
@@ -91,53 +91,13 @@
     "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
     "fidelity": "the re-cut walk IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all 30 (s16, aligned one source frame in)",
     "foot_lock_sampling": "at the clip's own keys (s6_footlock), 32 planted intervals. Dense 480 fps sampling gives 1.463 now and 1.410 before -- the held first interval pulled the old median down. Meshy's own file reads 1.720 because it still carries the 1.1765 Hips scale: 1.720 / 1.1765 = 1.462 (work/s17_walk_footlock_check.json)"
-   },
-   "foot_lock_v2": {
-    "rule": "the stance side = the lower TOE, within 0.03 m of that toe's lowest; the speed = that side's FOOT joint's backward speed in her in-place frame; the median over the clip's own key intervals, both feet pooled -- the instrument of the integration drax's t12_10_feet (godot/tools/capture_painted.gd --feet), so the scene's ratio is 1.0 by construction",
-    "keys": {
-     "backward_median": 1.508,
-     "magnitude_median": 1.508,
-     "samples": 22,
-     "backward_iqr": 0.164
-    },
-    "dense_60hz": {
-     "backward_median": 1.503,
-     "magnitude_median": 1.503,
-     "samples": 43,
-     "backward_iqr": 0.174
-    },
-    "s6_rule_was": {
-     "speed": 1.471,
-     "keys": {
-      "backward_median": 1.471,
-      "magnitude_median": 1.482,
-      "samples": 32,
-      "backward_iqr": 0.522
-     },
-     "dense_60hz": {
-      "backward_median": 1.466,
-      "magnitude_median": 1.481,
-      "samples": 65,
-      "backward_iqr": 0.536
-     }
-    },
-    "scene_measured_v1_clip": {
-     "asked": 1.471,
-     "foot_lock": 1.499,
-     "ratio": 1.019,
-     "record": "astra_test_01/burst/runs/C-9/barrow_full/take/build/t12_10_feet.json",
-     "sha256": "efb6ab24905146202cebb1d1c0ae6a8baa790523af3954caa16dcb4ffffa33d2"
-    },
-    "offline_replication_of_the_scene": 1.0027,
-    "predicted_scene_ratio": 0.994,
-    "record": "work/s18_footlock_contact.json"
    }
   },
   "run": {
    "seconds": 0.7333,
-   "speed_m_s": 4.604,
-   "planted_intervals": 9,
-   "caution": "a run's stance is short: 9 stance intervals at the clip's own keys (16 at 60 Hz, which agree to 0.2%)",
+   "speed_m_s": 3.986,
+   "planted_intervals": 12,
+   "caution": "only 12 planted intervals (a run's contacts are brief; interquartile spread 1.345): still the widest estimate here",
    "recut": {
     "why": "the JOIN-1 pack's run cells popped at the wrap (in-figure closure 35.7 against idle and walk at about 2), and the 3D game's run pops at the same wrap: the clip's last pose was not its first",
     "cause": "the D7 merge sampled Blender frames 0..18 at 24 fps from a source keyed at 30 fps whose cycle runs from its first key to its 23rd and closes EXACTLY there. The merge began one source frame early (a clamped hold on the first key) and stopped half a source frame before the cycle closed",
@@ -181,103 +141,22 @@
     "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
     "fidelity": "the re-cut run IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all 23 (s16, aligned one source frame in)",
     "foot_lock_sampling": "the estimator is unchanged (median backward velocity of a foot planted at both ends of an interval) and is taken at the CLIP'S OWN KEYS -- s6_footlock now samples the action's key times, which on every 24 fps clip are the integer frames it always sampled (walk and the pre-re-cut run reproduce exactly). On the re-cut clip a 24 fps grid reads between its keys and gave 4.458; a dense 480 fps sampling gives 3.641 now and 3.629 before: the motion's speed did not change, only which instants were sampled (work/s17_footlock_check.json)"
-   },
-   "foot_lock_v2": {
-    "rule": "the stance side = the lower TOE, within 0.03 m of that toe's lowest; the speed = that side's FOOT joint's backward speed in her in-place frame; the median over the clip's own key intervals, both feet pooled -- the instrument of the integration drax's t12_10_feet (godot/tools/capture_painted.gd --feet), so the scene's ratio is 1.0 by construction",
-    "keys": {
-     "backward_median": 4.604,
-     "magnitude_median": 4.604,
-     "samples": 9,
-     "backward_iqr": 1.036
-    },
-    "dense_60hz": {
-     "backward_median": 4.614,
-     "magnitude_median": 4.614,
-     "samples": 16,
-     "backward_iqr": 0.908
-    },
-    "s6_rule_was": {
-     "speed": 3.986,
-     "keys": {
-      "backward_median": 3.986,
-      "magnitude_median": 3.987,
-      "samples": 12,
-      "backward_iqr": 1.345
-     },
-     "dense_60hz": {
-      "backward_median": 3.686,
-      "magnitude_median": 3.701,
-      "samples": 27,
-      "backward_iqr": 2.522
-     }
-    },
-    "scene_measured_v1_clip": {
-     "asked": 3.985,
-     "foot_lock": 4.574,
-     "ratio": 1.148,
-     "record": "astra_test_01/burst/runs/C-9/barrow_full/take/build/t12_10_feet.json",
-     "sha256": "efb6ab24905146202cebb1d1c0ae6a8baa790523af3954caa16dcb4ffffa33d2"
-    },
-    "offline_replication_of_the_scene": 1.0087,
-    "predicted_scene_ratio": 0.993,
-    "record": "work/s18_footlock_contact.json"
    }
   },
-  "method": "Meshy's walk and run are in place AT SOURCE, so travel over duration gives about 0. The STANCE foot slides back at exactly her ground speed; the median of that is the speed (v2: the scene's stance rule, locomotion_in_place.<clip>.foot_lock_v2)",
-  "why_v2": {
-   "found": "the integration drax drove her on the phone page at v1's run speed and her stance foot moved at 1.148 times it (skating); the walk read 1.019",
-   "cause": "THE MEASURE, not the clip or the in-place bake. s6_footlock counted a foot as planted in the bottom 25% of the ANKLE's own height range; a run's ankle swings high, so that band takes in the landing and the lift-off, where the ankle is not yet locked, and a dozen samples move the median with the sampling (s6_rule_was: its keys and a dense sampling differ by several percent). Stance by the lower toe (the scene's rule) isolates the locked phase; walk and run then agree dense and at the keys",
-   "not_the_clip": "the run is its Meshy source's own keys (clip_fidelity 0.0000), the hips' net travel over the loop is zero (work/s18_footlock_contact.json hips_net_travel_m)",
-   "not_the_bake": "the D7 de-root removed a line of 4 mm over the run (s6_deroot_p2.json); nothing of the run's travel is left in it",
-   "also_the_barbarian": "the same s6 rule is 57_footlock.py's (T12_10's gear manifest); on his JOIN body the scene's rule reads his run about a third faster than s6's -- flagged to the lane that owns it; the JOIN pack's own stride uses the scene rule"
-  }
+  "method": "Meshy's walk and run are in place AT SOURCE (net root travel 0.000 / 0.004 m), so travel/duration gives ~0. The planted foot slides back at exactly her ground speed; the median of that, over intervals with the foot down at both ends, is the speed."
  },
  "casts": {
   "cast_fireball": {
-   "release_s": 0.9333,
+   "release_s": 0.9167,
    "source": "Meshy 132 Mage Spell Cast 3",
    "why": "fastest release of the three throws (5.35 m/s against 4.43 and 3.30), and the leading hand is her LEFT -- the free hand, since the staff is in her right. 126 and 136 throw with the right, which would swing the staff.",
-   "definition": "the instant of the leading hand's peak FORWARD speed -- a throw is defined by its release speed",
-   "release_derivation": {
-    "method": "scripts/s18_release.py: s5_casts.py's estimator (the leading hand's peak forward speed; release = the key ending the fastest interval) on the SHIPPED clip's own keys, pure glTF evaluation",
-    "key": 28,
-    "keys": 101,
-    "hand": "L",
-    "on_the_source": {
-     "file": "anims/cast132.glb",
-     "release_source_time": 0.9667,
-     "first_key": 0.0333,
-     "on_the_recut_clock": 0.9333
-    },
-    "v1": {
-     "manifest_release": 0.9167,
-     "same_estimator_on_v1_keys": 0.9583,
-     "why_they_differ": "s5 read the Meshy file in Blender at 24 fps integer frames and counted from frame 1 (the source's first key sits at frame 0.8, rounded up), so v1's number was one 24 fps frame EARLY on v1's own clip"
-    }
-   }
+   "definition": "the instant of the leading hand's peak FORWARD speed -- a throw is defined by its release speed"
   },
   "cast_meteor": {
-   "release_s": 1.6333,
+   "release_s": 1.625,
    "source": "Meshy 127 Charged Ground Slam",
    "why": "a raise to 0.355 m above the head then a DROP at 8.48 m/s, nearly three times either alternative (2.86, 3.28). The hand is her RIGHT -- the staff hand -- so she lifts the staff to the sky and drives it down: the call-down, literally.",
-   "definition": "the instant of peak DOWNWARD speed after the hand's highest point -- a raise alone is a salute, a drop alone a slap",
-   "release_derivation": {
-    "method": "scripts/s18_release.py: s5_casts.py's estimator (the hand's highest point over the head, then the fastest downward interval; release = its ending key) on the SHIPPED clip's own keys, pure glTF evaluation",
-    "key": 49,
-    "keys": 91,
-    "hand": "R",
-    "on_the_source": {
-     "file": "anims/cast127.glb",
-     "release_source_time": 1.6667,
-     "first_key": 0.0333,
-     "on_the_recut_clock": 1.6333
-    },
-    "v1": {
-     "manifest_release": 1.625,
-     "same_estimator_on_v1_keys": 1.6667,
-     "why_they_differ": "s5 read the Meshy file in Blender at 24 fps integer frames and counted from frame 1 (the source's first key sits at frame 0.8, rounded up), so v1's number was one 24 fps frame EARLY on v1's own clip"
-    }
-   }
+   "definition": "the instant of peak DOWNWARD speed after the hand's highest point -- a raise alone is a salute, a drop alone a slap"
   }
  },
  "root_motion": {
@@ -614,7 +493,7 @@
     "run": "full",
     "cast_fireball": "arm -- thrown from the free LEFT hand; the spine stays the clip's so the torso still drives the throw",
     "cast_meteor": "none -- its staff motion is BAKED into the clip's own weapon_r tracks (see meteor)",
-    "hit": "chest_arm -- Spine02 + the staff arm: the staff stays inside the idle carry's lean (8.27 deg worst, idle 10.81) while her head still turns 93% as far as the raw clip's (see hit_layer_choice)",
+    "hit": "chest_arm -- Spine02 + the staff arm: the staff stays inside the idle carry's lean (8.25 deg worst, idle 10.81) while her head still turns 94% as far as the raw clip's (see hit_layer_choice)",
     "death": "none -- by decision (conductor, 2026-09-30): she falls with the staff. NOT measured (the raw clip's staff may cross the ground)"
    },
    "authored": {
@@ -640,31 +519,31 @@
    ],
    "hit_layer_choice": {
     "asked": "a staff layer on hit so the staff stays inside the idle carry's range while her body reacts; the arm-only layer if the full carry kills the flinch (conductor, JOIN-1 pack review, 2026-09-30)",
-    "range": "the idle carry's lean: worst 10.81 deg from vertical, mean 10.38 (v2: work/s18_staff_idle.json)",
+    "range": "the idle carry's lean: worst 10.81 deg from vertical, mean 10.38 (work/s17_idle_ref.json)",
     "flinch": "the upper body's own reaction -- the head's turn and travel IN THE HIPS' FRAME (scripts/s17_hit_flinch.py, every frame); the stagger of the hips and legs is the clip's under every option",
     "options": {
      "raw": {
-      "tilt_max_deg": 87.06,
-      "tilt_mean_deg": 73.98,
+      "tilt_max_deg": 86.76,
+      "tilt_mean_deg": 74.14,
       "staff_in_body": 0,
       "staff_in_body_by_part": {},
-      "tip_path_px_worst": 389.8,
-      "head_turn_deg": 35.52,
+      "tip_path_px_worst": 384.1,
+      "head_turn_deg": 35.94,
       "head_turn_kept": null,
       "head_travel_hips_frame_m": 0.059,
-      "head_travel_world_m": 0.448,
+      "head_travel_world_m": 0.439,
       "bones": []
      },
      "arm": {
-      "tilt_max_deg": 21.66,
-      "tilt_mean_deg": 16.3,
+      "tilt_max_deg": 21.75,
+      "tilt_mean_deg": 16.29,
       "staff_in_body": 0,
       "staff_in_body_by_part": {},
-      "tip_path_px_worst": 153.9,
-      "head_turn_deg": 35.52,
+      "tip_path_px_worst": 156.4,
+      "head_turn_deg": 35.94,
       "head_turn_kept": 1.0,
       "head_travel_hips_frame_m": 0.059,
-      "head_travel_world_m": 0.448,
+      "head_travel_world_m": 0.439,
       "bones": [
        "RightShoulder",
        "RightArm",
@@ -673,17 +552,17 @@
       ]
      },
      "chest_arm": {
-      "tilt_max_deg": 8.27,
-      "tilt_mean_deg": 3.9,
+      "tilt_max_deg": 8.25,
+      "tilt_mean_deg": 3.85,
       "staff_in_body": 1,
       "staff_in_body_by_part": {
        "RightLeg": 1
       },
-      "tip_path_px_worst": 139.8,
-      "head_turn_deg": 33.15,
-      "head_turn_kept": 0.933,
+      "tip_path_px_worst": 142.2,
+      "head_turn_deg": 33.71,
+      "head_turn_kept": 0.938,
       "head_travel_hips_frame_m": 0.028,
-      "head_travel_world_m": 0.454,
+      "head_travel_world_m": 0.444,
       "bones": [
        "Spine02",
        "RightShoulder",
@@ -693,18 +572,19 @@
       ]
      },
      "full": {
-      "tilt_max_deg": 11.53,
-      "tilt_mean_deg": 5.32,
-      "staff_in_body": 28,
+      "tilt_max_deg": 11.61,
+      "tilt_mean_deg": 5.28,
+      "staff_in_body": 30,
       "staff_in_body_by_part": {
-       "RightLeg": 27,
-       "RightFoot": 1
+       "RightLeg": 17,
+       "RightFoot": 1,
+       "RightUpLeg": 12
       },
-      "tip_path_px_worst": 159.0,
+      "tip_path_px_worst": 161.3,
       "head_turn_deg": 0.0,
       "head_turn_kept": 0.0,
       "head_travel_hips_frame_m": 0.0,
-      "head_travel_world_m": 0.472,
+      "head_travel_world_m": 0.46,
       "bones": [
        "Spine02",
        "Spine01",
@@ -720,9 +600,8 @@
     },
     "chosen": "chest_arm",
     "why": "the full carry kills the flinch (the head's turn goes from 35.9 deg to 0) and still leans the staff 11.61 deg, past the idle's, with 30 staff vertices in her right leg; the arm-only layer keeps the whole flinch but leans the staff 21.75 deg, about twice the idle's worst; Spine02 + the arm holds it to 8.25 deg and keeps 94% of the head's turn. chest_arm is a THIRD option, not one of the two named -- chosen for the stated goal, for the conductor to rule on",
-    "graze": "chest_arm: one sampled staff vertex 3.9 mm into RightLeg in ONE frame (every frame checked, work/s18_hit_chest_arm_everyframe.txt) -- sub-pixel at the pack's 151 px/m",
-    "before_after": "worst angle from vertical in hit: 87.06 deg raw (no layer), 8.27 deg with chest_arm",
-    "v2": "re-measured on the re-cut hit (the same four layers, the same instrument): chest_arm holds the staff to 8.27 deg and keeps 93% of the head's turn; the choice stands"
+    "graze": "chest_arm: one sampled staff vertex 5 mm into RightLeg in ONE frame of 41 (frame 12; every frame checked, work/s17_hit_chest_arm_everyframe.txt) -- sub-pixel at the pack's 151 px/m; the nearest hit cell sample falls at frame 11.4, between a clear frame 11 and frame 12",
+    "before_after": "worst angle from vertical in hit: 86.76 deg raw (no layer), 8.25 deg with chest_arm"
    }
   },
   "grips": {
@@ -860,42 +739,30 @@
    },
    "verdict": "PASS",
    "cast_fireball_arm_only": {
-    "tilt_max_deg": 23.99,
-    "tip_path_px_worst": 285.8,
+    "tilt_max_deg": 23.85,
+    "tip_path_px_worst": 285.2,
     "staff_in_body": 0,
     "staff_in_body_by_part": {}
    },
    "cast_meteor": {
-    "tilt_max_deg": 114.24,
-    "tip_path_px_worst": 661.0,
+    "tilt_max_deg": 114.07,
+    "tip_path_px_worst": 685.3,
     "staff_in_body": 5,
     "staff_in_body_by_part": {
-     "RightLeg": 2,
-     "RightUpLeg": 3
+     "RightUpLeg": 5
     }
    },
-   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; the run and the walk re-measured on their re-cut clips (2026-09-30): work/s17_run_staff.json, work/s17_walk_staff.json; v2 (2026-09-30): idle, the Fire Ball, the Meteor and death re-measured on the re-cut clips -- work/s18_staff_*.json, work/s18_meteor_verify.json",
+   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; the run and the walk re-measured on their re-cut clips (2026-09-30): work/s17_run_staff.json, work/s17_walk_staff.json",
    "hit_chest_arm": {
-    "tilt_max_deg": 8.27,
-    "tilt_mean_deg": 3.9,
+    "tilt_max_deg": 8.25,
+    "tilt_mean_deg": 3.85,
     "staff_in_body": 1,
     "staff_in_body_by_part": {
      "RightLeg": 1
     },
-    "tip_path_px_worst": 139.8
+    "tip_path_px_worst": 142.2
    },
-   "hit_note": "hit is a one-shot and is not held to the loop rule; measured against the idle carry's lean (carry_layer.hit_layer_choice)",
-   "death_raw_info": {
-    "tilt_max_deg": 106.98,
-    "staff_in_body": 118,
-    "staff_in_body_by_part": {
-     "RightUpLeg": 26,
-     "LeftUpLeg": 51,
-     "LeftLeg": 20,
-     "RightLeg": 21
-    },
-    "note": "no layer by decision (she falls with the staff); measured for the record, not held to a rule"
-   }
+   "hit_note": "hit is a one-shot and is not held to the loop rule; measured against the idle carry's lean (carry_layer.hit_layer_choice)"
   },
   "meteor": {
    "intent": "unchanged: Meshy 127, she raises the staff and drives it down; release_s unchanged",
@@ -905,12 +772,11 @@
     0.0,
     76.73
    ],
-   "slide_m_max": 0.6779,
-   "remaining_contact": "grazes only, every frame checked: two frames near the start, at most 1.3 cm (work/s18_meteor_verify_perframe.txt)",
-   "measured_inside_worst": 5,
+   "slide_m_max": 0.6776,
+   "remaining_contact": "grazes only: t=0.12 s RightUpLeg 5 verts 1.13 cm; t=0.17 s RightUpLeg 2 verts 0.49 cm; t=1.71 s LeftToeBase 2 verts 0.84 cm (per-frame, every frame)",
+   "measured_inside_worst": 7,
    "compare": "pass 1's orientation had 638 staff verts inside her; seated throughout 103; upright throughout 32",
-   "other_clips": "every other clip carries one-key weapon_r rotation and translation tracks at REST, so the staff resets when the Meteor ends",
-   "v2": "re-baked by s13 on the re-cut keys (91, the source's own), the same rule and the same range as v1's bake"
+   "other_clips": "every other clip carries one-key weapon_r rotation and translation tracks at REST, so the staff resets when the Meteor ends"
   }
  },
  "speckles": {
@@ -1044,9 +910,9 @@
    "idle": {
     "source": "idle11.glb",
     "source_clip": "Armature|Idle_02|baselayer",
-    "times": 36,
-    "time_shift_s": 0.0333,
-    "err_max": 0.0002,
+    "times": 29,
+    "time_shift_s": 0.0,
+    "err_max": 0.0,
     "err_median_of_frame_max": 0.0
    },
    "walk": {
@@ -1068,37 +934,37 @@
    "hit": {
     "source": "hit.glb",
     "source_clip": "Armature|Hit_Reaction|baselayer",
-    "times": 25,
-    "time_shift_s": 0.0333,
-    "err_max": 0.0,
+    "times": 41,
+    "time_shift_s": 0.0,
+    "err_max": 0.0001,
     "err_median_of_frame_max": 0.0
    },
    "death": {
     "source": "death.glb",
     "source_clip": "Armature|dying_backwards|baselayer",
-    "times": 34,
-    "time_shift_s": 0.0333,
-    "err_max": 0.0,
+    "times": 28,
+    "time_shift_s": 0.0,
+    "err_max": 0.0001,
     "err_median_of_frame_max": 0.0
    },
    "cast_fireball": {
     "source": "cast132.glb",
     "source_clip": "Armature|mage_soell_cast_3|baselayer",
-    "times": 26,
-    "time_shift_s": 0.0333,
+    "times": 27,
+    "time_shift_s": 0.0,
     "err_max": 0.0,
     "err_median_of_frame_max": 0.0
    },
    "cast_meteor": {
     "source": "cast127.glb",
     "source_clip": "Armature|Charged_Ground_Slam|baselayer",
-    "times": 31,
-    "time_shift_s": 0.0333,
+    "times": 25,
+    "time_shift_s": 0.0,
     "err_max": 0.0,
     "err_median_of_frame_max": 0.0
    }
   },
-  "verdict": "FAITHFUL: every clip within 0.0002 hips-to-head of its source (her clips were fetched for HER rig, so the body's rest and each clip's rest are the same, and a pose-space action move is exact)"
+  "verdict": "FAITHFUL: every clip within 0.0001 hips-to-head of its source (her clips were fetched for HER rig, so the body's rest and each clip's rest are the same, and a pose-space action move is exact)"
  },
  "budget_pass2": {
   "meshy_credits": {
@@ -1172,20 +1038,20 @@
    "pass 1's '2x' was a lanczos enlargement of the 1x pixels, not a 2x render",
    "pass 1 was captured through a window this display cannot open at 1080 rows; its scale was not verified then and is not claimed now"
   ],
-  "recut_note": "filmed before the re-cuts (the run and walk, then v2's idle, hit, death and casts) and at the old speeds; see clip_windows and v2"
+  "recut_note": "filmed with the pre-re-cut run and walk clips and their speeds (plan); see locomotion_in_place.run.recut and locomotion_in_place.walk.recut"
  },
- "fps_note": "v2: every clip is keyed on its Meshy source's own 30 fps keys (staff_carry_R is a 2-key pose): a 24 fps grid cannot hold a 30 fps source's keys, and Godot's runtime bake at 30 fps then reproduces each key exactly",
+ "fps_note": "every clip is keyed at 24 fps EXCEPT the run and the walk, which since their 2026-09-30 re-cuts carry Meshy's own 30 fps keys (22 and 29 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 or 23.2 frames long, and the source's keys close it exactly",
  "clip_windows": {
-  "method": "scripts/s17_clip_windows.py: each shipped clip's key window against its Meshy source -- the time map MEASURED (joints in the hips' frame, export against source at both candidate alignments), the hold at the start, the share of the first key interval that moves, the cut at the end, and loop closure. After the walk's re-cut: work/s17_clip_windows.json; before it: work/s17_clip_windows_before.json; v2: work/s18_clip_windows.json (before v2: work/s18_clip_windows_before.json)",
-  "decision": "v2 (conductor, 2026-09-30): every clip re-cut on its source's own keys -- the run and the walk first, then the idle, hit, death and both casts",
+  "method": "scripts/s17_clip_windows.py: each shipped clip's key window against its Meshy source -- the time map MEASURED (joints in the hips' frame, export against source at both candidate alignments), the hold at the start, the share of the first key interval that moves, the cut at the end, and loop closure. After the walk's re-cut: work/s17_clip_windows.json; before it: work/s17_clip_windows_before.json",
+  "decision": "the run and the walk were re-cut (they loop, and it showed); the idle, hit, death and both casts keep the merge's window -- the idle's is sub-millimetre and a one-shot's held first interval is harmless (conductor, 2026-09-30). Recorded here and carried into the JOIN-1 index as state notes, so the next reader does not re-find them",
   "clips": {
    "idle": {
     "source": "idle11.glb",
     "export_keys": {
      "first": 0.0,
      "last": 2.3333,
-     "count": 71,
-     "fps": 30.0
+     "count": 57,
+     "fps": 24.0
     },
     "source_keys": {
      "first": 0.0333,
@@ -1194,16 +1060,16 @@
      "fps": 30.0
     },
     "alignment_error_by_shift": {
-     "0.0000": 0.0025,
-     "0.0333": 0.0
+     "0.0000": 0.0,
+     "0.0333": 0.0026
     },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "closure_worst_joint_m": 0.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --clip idle): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json)."
+    "alignment": "shipped time = source time (the D7 merge)",
+    "hold_at_start": 0.0333,
+    "cut_at_end": 0.0333,
+    "first_interval_s": 0.0417,
+    "first_interval_speed": 0.201,
+    "closure_worst_joint_m": 0.00057,
+    "note": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame before its motion starts, and the clip ends one source frame before its source's cycle closes. The idle moves so little that neither shows: the loop closes to 0.6 mm (in-figure closure about 2). Left as is by decision (conductor, 2026-09-30)."
    },
    "walk": {
     "source": "walk.glb",
@@ -1229,7 +1095,7 @@
     "first_interval_s": 0.0333,
     "first_interval_speed": 1.0,
     "closure_worst_joint_m": 0.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --clip walk): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json)."
+    "note": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py --clip walk): no hold, and the loop closes exactly. The old walk held its first pose for one source frame, playing its first key interval at a fifth of real speed once per cycle (a hitch; see locomotion_in_place.walk.recut)."
    },
    "run": {
     "source": "run.glb",
@@ -1255,15 +1121,15 @@
     "first_interval_s": 0.0333,
     "first_interval_speed": 1.0,
     "closure_worst_joint_m": 0.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json)."
+    "note": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py): no hold, and the loop closes exactly. The old run began one source frame early and stopped half a frame short of its close, so it popped at the wrap (see locomotion_in_place.run.recut)."
    },
    "hit": {
     "source": "hit.glb",
     "export_keys": {
      "first": 0.0,
-     "last": 1.6333,
-     "count": 50,
-     "fps": 30.0
+     "last": 1.6667,
+     "count": 41,
+     "fps": 24.0
     },
     "source_keys": {
      "first": 0.0333,
@@ -1272,23 +1138,23 @@
      "fps": 30.0
     },
     "alignment_error_by_shift": {
-     "0.0000": 0.1028,
-     "0.0333": 0.0
+     "0.0000": 0.0,
+     "0.0333": 0.1013
     },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
+    "alignment": "shipped time = source time (the D7 merge)",
+    "hold_at_start": 0.0333,
     "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --oneshot): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json)."
+    "first_interval_s": 0.0417,
+    "first_interval_speed": 0.201,
+    "note": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame, so the shipped clip's first key interval plays at a fifth of real speed before the reaction runs at full speed. Harmless in a one-shot; left as is by decision (conductor, 2026-09-30)."
    },
    "death": {
     "source": "death.glb",
     "export_keys": {
      "first": 0.0,
-     "last": 2.2333,
-     "count": 68,
-     "fps": 30.0
+     "last": 2.25,
+     "count": 55,
+     "fps": 24.0
     },
     "source_keys": {
      "first": 0.0333,
@@ -1297,23 +1163,23 @@
      "fps": 30.0
     },
     "alignment_error_by_shift": {
-     "0.0000": 0.03,
-     "0.0333": 0.0
+     "0.0000": 0.0,
+     "0.0333": 0.0333
     },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --oneshot): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json)."
+    "alignment": "shipped time = source time (the D7 merge)",
+    "hold_at_start": 0.0333,
+    "cut_at_end": 0.0167,
+    "first_interval_s": 0.0417,
+    "first_interval_speed": 0.201,
+    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed), and the clip ends half a source frame before its source's last key, where she already lies still. Harmless; left as is by decision (conductor, 2026-09-30)."
    },
    "cast_fireball": {
     "source": "cast132.glb",
     "export_keys": {
      "first": 0.0,
      "last": 3.3333,
-     "count": 101,
-     "fps": 30.0
+     "count": 81,
+     "fps": 24.0
     },
     "source_keys": {
      "first": 0.0333,
@@ -1322,23 +1188,23 @@
      "fps": 30.0
     },
     "alignment_error_by_shift": {
-     "0.0000": 0.039,
-     "0.0333": 0.0
+     "0.0000": 0.0,
+     "0.0333": 0.0382
     },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --oneshot): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json). release_s re-derived on these keys (casts.cast_fireball.release_derivation)."
+    "alignment": "shipped time = source time (the D7 merge)",
+    "hold_at_start": 0.0333,
+    "cut_at_end": 0.0333,
+    "first_interval_s": 0.0417,
+    "first_interval_speed": 0.201,
+    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s is measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the conductor's list; left as is."
    },
    "cast_meteor": {
     "source": "cast127.glb",
     "export_keys": {
      "first": 0.0,
      "last": 3.0,
-     "count": 91,
-     "fps": 30.0
+     "count": 73,
+     "fps": 24.0
     },
     "source_keys": {
      "first": 0.0333,
@@ -1347,98 +1213,16 @@
      "fps": 30.0
     },
     "alignment_error_by_shift": {
-     "0.0000": 0.0557,
-     "0.0333": 0.0
+     "0.0000": 0.0,
+     "0.0333": 0.0522
     },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "note": "Re-cut on its Meshy source's own keys (v2, 2026-09-30, s17_run_cycle.py --oneshot): no held first pose (first interval x1.00), no cut at the end, and Godot's runtime bake reproduces every key (work/s18_runtime_resample.json). release_s re-derived on these keys; the staff track re-baked on them (staff_hold.meteor.v2)."
+    "alignment": "shipped time = source time (the D7 merge)",
+    "hold_at_start": 0.0333,
+    "cut_at_end": 0.0333,
+    "first_interval_s": 0.0417,
+    "first_interval_speed": 0.201,
+    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s is measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the conductor's list; left as is."
    }
   }
- },
- "v2": {
-  "what": "the sorceress's clips v2 -- supersedes the export v1's pack was rendered from (kept in export_v1pack/ with its manifest)",
-  "why": "v1's idle, hit, death and both casts were baked at 24 fps from 0 with shipped time = source time: each began with a clamped hold on the source's first key (its first key interval at a fifth of speed), and Godot's runtime glTF path re-samples every track at 30 fps, so a 24 fps clip renders as its bake (the Fire Ball's forearm 5.0 deg off its own keyed pose at the release frame, the Meteor's 3.6; nb_join/scripts/j_runtime_resample.py). On the source's own keys the bake is key-for-key",
-  "recut": {
-   "idle": {
-    "mode": "loop",
-    "keys": 71,
-    "duration": 2.333333,
-    "hips_model": "de-root (45_deroot_trim, re-derived on the new window)",
-    "hips_old_window_rebuilt_worst_units": 6e-06,
-    "channels": {
-     "hips offset": 1,
-     "faithful": 71
-    },
-    "weapon_tracks_dropped_for_rebake": [],
-    "prior_accessors_byte_identical": true,
-    "record": "work/s18_recut_idle.json"
-   },
-   "hit": {
-    "mode": "one-shot (no loop snap)",
-    "keys": 50,
-    "duration": 1.633333,
-    "hips_model": "de-root (45_deroot_trim, re-derived on the new window)",
-    "hips_old_window_rebuilt_worst_units": 2.3e-05,
-    "channels": {
-     "hips offset": 1,
-     "faithful": 71
-    },
-    "weapon_tracks_dropped_for_rebake": [],
-    "prior_accessors_byte_identical": true,
-    "record": "work/s18_recut_hit.json"
-   },
-   "death": {
-    "mode": "one-shot (no loop snap)",
-    "keys": 68,
-    "duration": 2.233333,
-    "hips_model": "de-root (45_deroot_trim, re-derived on the new window)",
-    "hips_old_window_rebuilt_worst_units": 0.000102,
-    "channels": {
-     "hips offset": 1,
-     "faithful": 71
-    },
-    "weapon_tracks_dropped_for_rebake": [],
-    "prior_accessors_byte_identical": true,
-    "record": "work/s18_recut_death.json"
-   },
-   "cast_fireball": {
-    "mode": "one-shot (no loop snap)",
-    "keys": 101,
-    "duration": 3.333333,
-    "hips_model": "constant",
-    "hips_old_window_rebuilt_worst_units": null,
-    "channels": {
-     "hips offset": 1,
-     "faithful": 71
-    },
-    "weapon_tracks_dropped_for_rebake": [],
-    "prior_accessors_byte_identical": true,
-    "record": "work/s18_recut_cast_fireball.json"
-   },
-   "cast_meteor": {
-    "mode": "one-shot (no loop snap)",
-    "keys": 91,
-    "duration": 3.0,
-    "hips_model": "constant",
-    "hips_old_window_rebuilt_worst_units": null,
-    "channels": {
-     "hips offset": 1,
-     "faithful": 71
-    },
-    "weapon_tracks_dropped_for_rebake": [
-     "weapon_r.rotation",
-     "weapon_r.translation"
-    ],
-    "prior_accessors_byte_identical": true,
-    "record": "work/s18_recut_cast_meteor.json"
-   }
-  },
-  "hips_rule": "hit and death were DE-ROOTED in the D7 hygiene (45_deroot_trim: the first-to-last line of the hips' horizontal path taken out, the residual's mean on the rest position). s17 now finds that the old offset is that line (the old window rebuilt from the source to within the recut records' hips_old_window_rebuilt_worst_units) and RE-DERIVES it on the new window, so the re-cut clip's net travel is zero again; transplanting the old offsets would have left the new window's travel in. The idle's offset is the same rule at a tenth of a millimetre; the casts' is constant (their start moved to rest)",
-  "meteor_staff": "the Meteor's baked staff track was keyed on the OLD clock: kept, it would play one source frame late against the re-cut body. Dropped and re-baked by s13_meteor_track.py on the new keys (same rule: lean 30, butt on the ground)",
-  "runtime_resampling": "work/s18_runtime_resample.json: every clip passes Godot 4.6.3's runtime bake key-for-key (none re-sampled)"
  }
 }

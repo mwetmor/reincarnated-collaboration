@@ -1,0 +1,7 @@
+# blender -b -noaudio --python scripts/s12_measure.py -- <v2 combined> work/staff_carry.json work/s18_meteor_verify.json --clips none --raw cast_meteor --perframe
+    f  2 t=0.08s depth 0.0131 m fist z 0.88 head z 1.42 -> {'RightLeg': 2, 'RightUpLeg': 2}
+    f  3 t=0.12s depth 0.0068 m fist z 0.87 head z 1.42 -> {'RightUpLeg': 3}
+  cast_meteor (raw clip, no carry)   tilt max 114.24 deg (mean 54.52) | tip path  661.0 px, extent 191.0 px | inside body   5 {np.str_('RightLeg'): 2, np.str_('RightUpLeg'): 3} | in the grip 20
+  max penetration DEPTH over every inside vertex: 0.0756 m
+  off hand to shaft: min 0.648 m at 0.21s (along shaft +0.00 m from the grip); frames within 0.30 m: []
+  left-arm REACH 0.504 m; shaft band reachable (<= 92% of reach) at 0 of 73 frames: []

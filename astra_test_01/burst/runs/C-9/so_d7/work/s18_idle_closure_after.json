@@ -1,0 +1,32 @@
+{
+ "idle": {
+  "T_s": 2.333333,
+  "joints": 26,
+  "worst_joint": "LeftToeBase",
+  "worst_joint_m": 0.0,
+  "worst_rot_joint": "RightLeg",
+  "worst_rot_deg": 0.0,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ },
+ "walk": {
+  "T_s": 0.966667,
+  "joints": 26,
+  "worst_joint": "LeftToeBase",
+  "worst_joint_m": 0.0,
+  "worst_rot_joint": "weapon_r",
+  "worst_rot_deg": 0.0,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ },
+ "run": {
+  "T_s": 0.733333,
+  "joints": 26,
+  "worst_joint": "LeftToeBase",
+  "worst_joint_m": 0.0,
+  "worst_rot_joint": "LeftLeg",
+  "worst_rot_deg": 0.0,
+  "hips_m": 0.0,
+  "hips_rot_deg": 0.0
+ }
+}

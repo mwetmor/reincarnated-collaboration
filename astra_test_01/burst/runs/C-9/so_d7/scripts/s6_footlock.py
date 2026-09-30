@@ -1,5 +1,10 @@
 # Foot-lock speed for IN-PLACE locomotion: the ground speed that pins the planted foot.
 #
+# SUPERSEDED for the shipped walk and run speeds (v2, 2026-09-30): scripts/s18_footlock_contact.py, the scene's own stance
+# rule (the lower toe within 3 cm of its lowest picks the stance side; that side's foot joint gives the speed). This file's
+# bottom-25%-of-the-ankle's-range rule takes in a run's landing and lift-off: it read her run 13% slow (3.986 against 4.604) and
+# the barbarian's JOIN run 24% slow. Kept as it was, so the records it wrote still mean what they say.
+#
 #   blender -b -noaudio --python scripts/s6_footlock.py -- <x.glb> walk,run [--json f]
 #
 # Her walk and run are in place AT SOURCE (net root travel 0.000 and 0.004 m), so "speed

@@ -142,9 +142,22 @@ for st, sd in kit["states"].items():
                                    "0-255; render(T) is rendered for this and is not in the pack")
 
 tool = os.path.join(HERE, "render_cells.gd")
+sup = None
+if kit.get("supersedes"):
+    # a later version of a DECLARED pack: the pack it supersedes is named by its index's sha256, read from the file and
+    # checked against the kit's pin -- if the declared index ever changed, this refuses rather than pointing at the wrong one
+    sp = kit["supersedes"]
+    got = sha(sp["index"])
+    if sp.get("index_sha256") and got != sp["index_sha256"]:
+        sys.exit("REFUSED -- the superseded index %s is %s, the kit pins %s" % (sp["index"], got[:12], sp["index_sha256"][:12]))
+    sup = dict(sp, index_sha256=got)
+    if sp.get("body_glb"):
+        sup["body_sha256_checked"] = sha(sp["body_glb"]) == sp.get("body_sha256")
 idx = {
     "schema": "join1-sprite-cells/1",
     "kit": kit["kit"],
+    "pack_version": kit.get("pack_version", 1),
+    "supersedes": sup,
     "status": "DRAFT -- rendered and linted by C-9; NOT declared COMPLETE as a pack (the conductor declares after Matt's look and moves it to join1_pack/)",
     "producer": {"run": "C-9", "tool": tool, "tool_sha256": sha(tool), "indexer": os.path.abspath(__file__), "indexer_sha256": sha(os.path.abspath(__file__)),
                  "kit_config": os.path.abspath(KIT), "kit_config_sha256": sha(KIT), "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z")},

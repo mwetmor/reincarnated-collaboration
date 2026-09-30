@@ -1,0 +1,67 @@
+{
+ "clip": "cast_meteor",
+ "mode": "one-shot (no loop snap)",
+ "hips": {
+  "model": "constant",
+  "offset_std_units": [
+   0.0001,
+   0.0,
+   0.0
+  ]
+ },
+ "weapon_tracks_dropped_for_rebake": [
+  "weapon_r.rotation",
+  "weapon_r.translation"
+ ],
+ "cause": "the D7 merge baked 0.0000..3.0000 (73 keys at 24 fps) with shipped time = source time from a source keyed 0.0333..3.0333 (91 keys at 30 fps): the first 0.0333 s held the source's first pose (a clamped hold), and it ended 0.0333 before the source's last key",
+ "channels_classified": {
+  "counts": {
+   "hips offset": 1,
+   "faithful": 71
+  },
+  "faithful_worst": 0.000908,
+  "tolerance": 0.002,
+  "hips_offset_std_units": [
+   0.0001,
+   0.0,
+   0.0
+  ],
+  "not_faithful": {
+   "Hips.translation": "hips offset"
+  }
+ },
+ "source": {
+  "file": "cast127.glb",
+  "cycle_s": [
+   0.0333,
+   3.0333
+  ],
+  "period_s": 3.0,
+  "keys": 91
+ },
+ "new": {
+  "duration_s": 3.0,
+  "keys": 91,
+  "channels": 72
+ },
+ "hips_offset_units": [
+  3.392,
+  3.3604,
+  1.0883
+ ],
+ "source_cycle_gap_before_snap": 0.099948,
+ "other_clips_untouched": [
+  "cast_fireball",
+  "death",
+  "hit",
+  "idle",
+  "run",
+  "staff_carry_R",
+  "walk"
+ ],
+ "prior_accessors_byte_identical": true,
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

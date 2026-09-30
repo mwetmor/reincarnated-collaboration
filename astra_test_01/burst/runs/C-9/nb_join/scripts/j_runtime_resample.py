@@ -30,6 +30,11 @@ def slerp(q0, q1, u):
     th = np.arccos(d); return (np.sin((1 - u) * th) * q0 + np.sin(u * th) * q1) / np.sin(th)
 
 
+def qang(q1, q2):                               # the angle between two rotations, from UNIT quaternions: the file's are float32,
+    q1 = q1 / np.linalg.norm(q1); q2 = q2 / np.linalg.norm(q2)     # and a 1e-7 norm error reads as 0.03 deg through acos
+    return 2 * float(np.degrees(np.arccos(min(1.0, abs(float(np.dot(q1, q2)))))))
+
+
 def ev(t, v, x):
     k = int(np.searchsorted(t, x, side='right')) - 1; k = min(max(k, 0), len(t) - 2)
     u = min(max((x - t[k]) / (t[k + 1] - t[k]), 0), 1); return slerp(v[k], v[k + 1], u)
@@ -62,7 +67,7 @@ for an in js['animations']:
         if path == 'rotation':
             v = L.read_accessor(js, b, s['output']).reshape(-1, 4).astype(float)
             gv = np.array([ev(t, v, x) for x in gt]); fine = np.linspace(0, t[-1], 2000)
-            row["worst_deg"] = round(max(2 * np.degrees(np.arccos(min(1, abs(float(np.dot(ev(t, v, x), ev(gt, gv, x))))))) for x in fine), 3)
+            row["worst_deg"] = round(max(qang(ev(t, v, x), ev(gt, gv, x)) for x in fine), 3)
         rec["resampled"].append(row)
     rec["length_glb"] = round(Tg, 5)
     out["clips"][nm] = rec
@@ -91,7 +96,7 @@ if IDX or RAW:
             for x in rec_["t_s"]:
                 if path == 'rotation':
                     gv = ev(t, v, x); bq = ev(gt, np.array([ev(t, v, y) for y in gt]), x)
-                    d_ = 2 * np.degrees(np.arccos(min(1, abs(float(np.dot(gv, bq))))))
+                    d_ = qang(gv, bq)
                     if d_ > worst[0]: worst = (round(d_, 3), "%s.%s" % (bn, path), x)
                 elif path == 'translation':
                     lin = lambda tt, vv, xx: np.array([np.interp(xx, tt, vv[:, i]) for i in range(vv.shape[1])])
@@ -99,6 +104,24 @@ if IDX or RAW:
                     if d_ > worst_mm[0]: worst_mm = (round(d_, 5), "%s.%s" % (bn, path), x)
         at[st] = dict(clip=nm, frames=len(rec_["t_s"]), worst_deg=worst[0], worst_track=worst[1], worst_at_t=worst[2],
                       worst_translation_units=worst_mm[0], worst_translation_track=worst_mm[1])
+        ri = rec_.get("release_index")
+        if ri is not None:                           # the RELEASE frame: every rotation track, the forearms named
+            tr_ = float(rec_["t_s"][ri]); rel_ = {}
+            for c in an['channels']:
+                if c['target']['path'] != 'rotation': continue
+                s_ = an['samplers'][c['sampler']]; t = L.read_accessor(js, b, s_['input']).ravel().astype(float)
+                bn = nodes[c['target']['node']]['name']
+                key = next((k for k in gd if k.split('|')[0].endswith(':' + bn) and k.split('|')[1] == TT['rotation']), None)
+                if key is None or len(t) < 2: continue
+                v = L.read_accessor(js, b, s_['output']).astype(float).reshape(len(t), -1); gt = np.array(gd[key]["times"])
+                bq = ev(gt, np.array([ev(t, v, y) for y in gt]), tr_)
+                rel_[bn] = round(qang(ev(t, v, tr_), bq), 3)
+            at[st]["release_frame"] = dict(index=ri, t_s=tr_, forearms_deg={k: rel_.get(k) for k in ("LeftForeArm", "RightForeArm")},
+                                           worst_deg=max(rel_.values()) if rel_ else None,
+                                           worst_track=max(rel_, key=rel_.get) if rel_ else None)
+            print("  the release frame of %-13s (frame %d, t %.4f): forearms L %.3f / R %.3f deg; worst track %s %.3f deg"
+                  % (st, ri, tr_, rel_.get("LeftForeArm", 0), rel_.get("RightForeArm", 0), at[st]["release_frame"]["worst_track"],
+                     at[st]["release_frame"]["worst_deg"] or 0))
         print("  at the pack's frames: %-14s worst %.3f deg (%s at t %s); translation %s units (%s)" % (st, worst[0], worst[1], worst[2], worst_mm[0], worst_mm[1]))
     out["at_pack_frames"] = dict(index=os.path.abspath(IDX or RAW), states=at,
                                  what="per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked "

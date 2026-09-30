@@ -1,0 +1,97 @@
+{
+ "export/so-body.glb": {
+  "cast_fireball": {
+   "hand": "L",
+   "peak_fwd_speed": 5.298,
+   "interval_s": [
+    0.9,
+    0.9333
+   ],
+   "release_s": 0.9333,
+   "release_key": 28,
+   "keys": 101,
+   "fps": 30.0,
+   "duration_s": 3.3333
+  },
+  "cast_meteor": {
+   "hand": "R",
+   "peak_above_head_m": 0.3551,
+   "peak_s": 1.4667,
+   "peak_down_speed": 8.861,
+   "interval_s": [
+    1.6,
+    1.6333
+   ],
+   "release_s": 1.6333,
+   "release_key": 49,
+   "score": 3.1468,
+   "keys": 91,
+   "fps": 30.0,
+   "duration_s": 3.0
+  }
+ },
+ "export_v1pack/so-body.glb": {
+  "cast_fireball": {
+   "hand": "L",
+   "peak_fwd_speed": 5.351,
+   "interval_s": [
+    0.9167,
+    0.9583
+   ],
+   "release_s": 0.9583,
+   "release_key": 23,
+   "keys": 81,
+   "fps": 24.0,
+   "duration_s": 3.3333
+  },
+  "cast_meteor": {
+   "hand": "R",
+   "peak_above_head_m": 0.3551,
+   "peak_s": 1.5,
+   "peak_down_speed": 8.482,
+   "interval_s": [
+    1.625,
+    1.6667
+   ],
+   "release_s": 1.6667,
+   "release_key": 40,
+   "score": 3.0122,
+   "keys": 73,
+   "fps": 24.0,
+   "duration_s": 3.0
+  }
+ },
+ "sources": {
+  "cast_fireball": {
+   "hand": "L",
+   "peak_fwd_speed": 5.298,
+   "interval_s": [
+    0.9333,
+    0.9667
+   ],
+   "release_s": 0.9667,
+   "release_key": 28,
+   "keys": 101,
+   "first_key_s": 0.0333,
+   "release_on_recut_clock_s": 0.9333,
+   "file": "anims/cast132.glb"
+  },
+  "cast_meteor": {
+   "hand": "R",
+   "peak_above_head_m": 0.3551,
+   "peak_s": 1.5,
+   "peak_down_speed": 8.861,
+   "interval_s": [
+    1.6333,
+    1.6667
+   ],
+   "release_s": 1.6667,
+   "release_key": 49,
+   "score": 3.1468,
+   "keys": 91,
+   "first_key_s": 0.0333,
+   "release_on_recut_clock_s": 1.6333,
+   "file": "anims/cast127.glb"
+  }
+ }
+}

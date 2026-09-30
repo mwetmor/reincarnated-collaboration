@@ -1,0 +1,77 @@
+{
+ "clip": "death",
+ "mode": "one-shot (no loop snap)",
+ "hips": {
+  "model": "de-root (45_deroot_trim, re-derived on the new window)",
+  "offset_std_units": [
+   1.5089,
+   0.0001,
+   28.7206
+  ],
+  "old_window_rebuilt_worst_units": 0.000102,
+  "vertical_axis": 1,
+  "vertical_offset_units": 2.3123,
+  "rest_h_units": [
+   -0.7867,
+   1.3335
+  ],
+  "hips_node_rest_h_units": [
+   -0.7867,
+   1.3335
+  ],
+  "net_travel_units_after": 0.0,
+  "net_travel_units_source": 97.834
+ },
+ "weapon_tracks_dropped_for_rebake": [],
+ "cause": "the D7 merge baked 0.0000..2.2500 (55 keys at 24 fps) with shipped time = source time from a source keyed 0.0333..2.2667 (68 keys at 30 fps): the first 0.0333 s held the source's first pose (a clamped hold), and it ended 0.0167 before the source's last key",
+ "channels_classified": {
+  "counts": {
+   "hips offset": 1,
+   "faithful": 71
+  },
+  "faithful_worst": 0.000904,
+  "tolerance": 0.002,
+  "hips_offset_std_units": [
+   1.5089,
+   0.0001,
+   28.7206
+  ],
+  "not_faithful": {
+   "Hips.translation": "hips offset"
+  }
+ },
+ "source": {
+  "file": "death.glb",
+  "cycle_s": [
+   0.0333,
+   2.2667
+  ],
+  "period_s": 2.2333,
+  "keys": 68
+ },
+ "new": {
+  "duration_s": 2.233333,
+  "keys": 68,
+  "channels": 74
+ },
+ "hips_offset_units": [
+  17.2609,
+  2.3123,
+  55.8207
+ ],
+ "source_cycle_gap_before_snap": 84.592293,
+ "other_clips_untouched": [
+  "cast_fireball",
+  "cast_meteor",
+  "hit",
+  "idle",
+  "run",
+  "staff_carry_R",
+  "walk"
+ ],
+ "prior_accessors_byte_identical": true,
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

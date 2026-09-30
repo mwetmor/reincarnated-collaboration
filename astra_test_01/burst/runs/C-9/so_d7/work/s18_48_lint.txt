@@ -1,0 +1,25 @@
+== the shipped manifest
+  release_s checked on 2 cast(s): cast_fireball, cast_meteor
+  8 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: release_outside (a copy of the manifest with one planted error)
+  release_s checked on 2 cast(s): cast_fireball, cast_meteor
+  MANIFEST MISMATCH  casts.cast_fireball.release_s = 3.5000 is outside the clip (0, 3.3333)
+  MANIFEST MISMATCH  casts.cast_fireball.release_s = 3.5000 falls 0.1667 s from the nearest key (frame step 0.0333) -- a pose between keys
+  8 clip(s) checked, 2 mismatch(es)
+exit 1
+== negative control: run_seconds (a copy of the manifest with one planted error)
+  release_s checked on 2 cast(s): cast_fireball, cast_meteor
+  MANIFEST MISMATCH  locomotion_in_place.run.seconds = 0.75 but the GLB says 0.7333
+  8 clip(s) checked, 1 mismatch(es)
+exit 1
+== negative control: prose_duration (a copy of the manifest with one planted error)
+  release_s checked on 2 cast(s): cast_fireball, cast_meteor
+  MANIFEST MISMATCH  .locomotion_in_place.run.note_neg says 'run ... 0.75 s' but the GLB says 0.7333 s
+  8 clip(s) checked, 1 mismatch(es)
+exit 1
+== negative control: prose_speed (a copy of the manifest with one planted error)
+  release_s checked on 2 cast(s): cast_fireball, cast_meteor
+  MANIFEST MISMATCH  .locomotion_in_place.run.note_neg says 'run ... 3.986 m/s' but the declared speed for run is 4.604
+  8 clip(s) checked, 1 mismatch(es)
+exit 1

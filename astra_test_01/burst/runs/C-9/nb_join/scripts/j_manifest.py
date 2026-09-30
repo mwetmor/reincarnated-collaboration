@@ -165,16 +165,22 @@ m = dict(
                     "penetration = odd crossings along all six axes, every 4th weapon vertex, the grip in the fist excluded; the floor "
                     "is y 0 (floor_lowest_m: a weapon's lowest vertex, negative = below it)",
 )
-fl_ = J("work", "footlock_walk_run.json")["clips"]
-m["locomotion_in_place"] = {c: dict(seconds=fl_[c]["seconds"], speed_m_s=fl_[c]["foot_lock_speed_m_s"], planted_intervals=fl_[c]["planted_intervals"],
-                                    spread_iqr_m_s=fl_[c]["spread_m_s"], per_foot_m_s={k: v["median_back_speed"] for k, v in fl_[c]["per_foot"].items()})
+fc_ = J("work", "footlock_contact_walk_run.json"); fs6 = J("work", "footlock_walk_run.json")["clips"]
+SC_ = "scene: stance by the lower toe (3 cm), that side's ANKLE speed"
+m["locomotion_in_place"] = {c: dict(seconds=round(fc_[c]["seconds"], 4), speed_m_s=fc_[c]["estimators"][SC_]["keys"]["backward_median"],
+                                    stance_intervals=fc_[c]["estimators"][SC_]["keys"]["samples"],
+                                    dense_60hz=fc_[c]["estimators"][SC_]["dense"]["backward_median"],
+                                    s6_rule_was=fs6[c]["foot_lock_speed_m_s"])
                             for c in ("walk", "run")}
-m["locomotion_in_place"]["method"] = ("so_d7/scripts/s6_footlock.py on the hold's own body (nb_d2/export_staging/JOIN_hold/nb-body.glb): the "
-                                      "FOOT-LOCK speed, the ground speed that pins the planted foot, sampled on each clip's own keys -- the "
-                                      "sorceress pack's instrument. For the pack's stride_m_per_cycle (REPORTED per the contract); the hold's "
-                                      "lane declares no speed for these two clips (T12_10's manifest has the armed gaits and the strafes)")
-m["locomotion_in_place"]["spread_note"] = ("the run's planted-foot speeds spread widely (spread_iqr_m_s): its feet do not pin cleanly at any single "
-                                           "speed, so its stride is a median, not a lock; the walk's spread is small")
+m["locomotion_in_place"]["method"] = ("so_d7/scripts/s18_footlock_contact.py on the hold's own body (nb_d2/export_staging/JOIN_hold/nb-body.glb): "
+                                      "the FOOT-LOCK speed by the SCENE's stance rule (the integration drax's t12_10_feet instrument) -- the "
+                                      "stance side is the lower toe within 0.03 m of its lowest, the speed that side's foot joint's backward "
+                                      "speed, the median over the clip's own key intervals, both feet pooled. For the pack's stride_m_per_cycle "
+                                      "(REPORTED per the contract)")
+m["locomotion_in_place"]["correction"] = ("the first pack index used s6_footlock's rule (a foot planted in the bottom 25%% of the ankle's own "
+                                          "height range; s6_rule_was): it reads a run's landing and lift-off as stance and read his run about "
+                                          "%.0f%% slow, so the run's stride was understated by as much. The walk agrees under both rules"
+                                          % (100 * (1 - fs6["run"]["foot_lock_speed_m_s"] / fc_["run"]["estimators"][SC_]["keys"]["backward_median"])))
 rd = J("work", "whirl_readability.json")
 m["clips"]["whirlwind"]["reads_in_8_directions"] = dict(worst_flat_facing_cos=rd["worst_flat_facing_cos"], definition=rd["definition"],
                                                         verdict="no blade edge-on in any direction at any frame: level blades show their flats to a camera pitched 52.95 deg down")

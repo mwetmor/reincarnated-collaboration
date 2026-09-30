@@ -1,16 +1,18 @@
 {
  "schema": "join1-sprite-cells/1",
  "kit": "d2-ww-barb",
+ "pack_version": 1,
+ "supersedes": null,
  "status": "DRAFT -- rendered and linted by C-9; NOT declared COMPLETE as a pack (the conductor declares after Matt's look and moves it to join1_pack/)",
  "producer": {
   "run": "C-9",
   "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/render_cells.gd",
   "tool_sha256": "85bd8768e4b27e278b60e5e77168ea38a749b1f5873050c598a60d5265771084",
   "indexer": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/index_cells.py",
-  "indexer_sha256": "1f1c84bb5d2d24321263d745488c9f1f8b471c6fc4ce40191d9fba9e1b3c558c",
+  "indexer_sha256": "d3d96b625566c3f8552c171d62224fd04b4a73a83becec2507d6a3af470c6b19",
   "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/d2-ww-barb.json",
   "kit_config_sha256": "e7c9501479bc36201b0a125fc0211202a45856942d5e3425fe4dc5a49462ce6b",
-  "ts": "2026-09-30T06:38:18-0400"
+  "ts": "2026-09-30T07:07:29-0400"
  },
  "source": {
   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/nb-body_join.glb",
@@ -52,7 +54,7 @@
  },
  "clip_manifest": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/join_manifest.json",
-  "sha256": "68649453c0ad8ff2a14415117f26a34fc042af1be36247d610226940673c757d"
+  "sha256": "8ee7ce21d9dcc7f9285729b76dc7092fe08701eb7cce1bc36cfe216fce529f6a"
  },
  "camera": {
   "projection": "orthographic",
@@ -162,12 +164,12 @@
     0.947222
    ],
    "root_motion": "stripped",
-   "stride_m_per_cycle": 1.6358,
+   "stride_m_per_cycle": 1.6389,
    "release_index": null,
    "release_s": null,
    "hold_last": false,
    "closure_mad": 0.0014,
-   "stride_method": "the clip is in place at source; stride = the manifest's FOOT-LOCK speed (1.583 m/s, the speed that holds the planted foot still) x the clip length (1.0333 s)",
+   "stride_method": "the clip is in place at source; stride = the manifest's FOOT-LOCK speed (1.586 m/s, the speed that holds the planted foot still) x the clip length (1.0333 s)",
    "closure_mad_note": "max over the 8 directions of mean |RGBA(T) - RGBA(0)| over the FIGURE's pixels (either frame opaque), 0-255; render(T) is rendered for this and is not in the pack"
   },
   "run": {
@@ -194,12 +196,12 @@
     0.580556
    ],
    "root_motion": "stripped",
-   "stride_m_per_cycle": 2.5029,
+   "stride_m_per_cycle": 3.2876,
    "release_index": null,
    "release_s": null,
    "hold_last": false,
    "closure_mad": 0.0065,
-   "stride_method": "the clip is in place at source; stride = the manifest's FOOT-LOCK speed (3.952 m/s, the speed that holds the planted foot still) x the clip length (0.6333 s)",
+   "stride_method": "the clip is in place at source; stride = the manifest's FOOT-LOCK speed (5.191 m/s, the speed that holds the planted foot still) x the clip length (0.6333 s)",
    "closure_mad_note": "max over the 8 directions of mean |RGBA(T) - RGBA(0)| over the FIGURE's pixels (either frame opaque), 0-255; render(T) is rendered for this and is not in the pack"
   },
   "whirlwind": {
@@ -671,14 +673,14 @@
       "keys_glb": 37,
       "spacing_glb": 0.04167,
       "keys_godot": 46,
-      "worst_deg": 0.501
+      "worst_deg": 0.502
      },
      {
       "track": "Head.rotation",
       "keys_glb": 37,
       "spacing_glb": 0.04167,
       "keys_godot": 46,
-      "worst_deg": 2.015
+      "worst_deg": 2.016
      },
      {
       "track": "head_end.translation",

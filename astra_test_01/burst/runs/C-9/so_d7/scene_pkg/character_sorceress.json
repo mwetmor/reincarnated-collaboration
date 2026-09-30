@@ -112,20 +112,20 @@
  "casts": {
   "cast_fireball": {
    "slot": "attack",
-   "release_s": 0.9167,
+   "release_s": 0.9333,
    "socket": "cast_hand"
   },
   "cast_meteor": {
    "slot": "chop",
-   "release_s": 1.625,
+   "release_s": 1.6333,
    "socket": "cast_hand_meteor"
   },
   "_note": "RELEASE per cast (from her export manifest's casts.<clip>.release_s): the instant the spell leaves the hand, clip time. knight.gd has no release event today (strike_release.at_s is the recovery release, a different thing): the placeholder VFX needs one, firing when the strike's position crosses release_s."
  },
  "speed_measured_at_scale": 1.25177951388889,
- "walk_px_s": 148.0,
- "run_px_s": 401.1,
- "_speed_note": "FALLBACKS ONLY: knight.gd reads the live speeds from the gear manifest's locomotion_in_place by CLIP name (walk 1.471 m/s, run 3.986 m/s, her FOOT-LOCK speeds at the clips' own keys) x PPM 100.618 = canvas px/s at the reference scale, rescaled by figure_scale / speed_measured_at_scale -- the same convention as his, since the scene applies his world factor to her. walk 0.9667 s and run 0.7333 s are one cycle each (re-cut on their sources' own keys).",
+ "walk_px_s": 151.7,
+ "run_px_s": 463.2,
+ "_speed_note": "FALLBACKS ONLY: knight.gd reads the live speeds from the gear manifest's locomotion_in_place by CLIP name (walk 1.508 m/s, run 4.604 m/s, her FOOT-LOCK speeds by the scene's stance rule at the clips' own keys) x PPM 100.618 = canvas px/s at the reference scale, rescaled by figure_scale / speed_measured_at_scale -- the same convention as his, since the scene applies his world factor to her. walk 0.9667 s and run 0.7333 s are one cycle each (re-cut on their sources' own keys).",
  "scale_steps": [
   1.0,
   1.1,

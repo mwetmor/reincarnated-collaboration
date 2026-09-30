@@ -15,8 +15,10 @@ HERE = os.path.dirname(os.path.abspath(__file__)); D7 = os.path.dirname(HERE); C
 J = lambda *p: json.load(open(os.path.join(*p)))
 sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 man_p = os.path.join(D7, "export", "manifest.json"); man = J(man_p)
-kit = J(C9, "join1_render", "kits", "d2-fire-sorc.json")
-idx = J(C9, "join1_pack_draft", "d2-fire-sorc", "matrix_index.json")
+# v2 (2026-09-30): her clips on their sources' own keys -- the kit and the pack index are v2's (v1's pack, declared, sits in
+# join1_pack/d2-fire-sorc and is not read here: the height and sockets are the same, the clips are not)
+kit = J(C9, "join1_render", "kits", "d2-fire-sorc_v2.json")
+idx = J(C9, "join1_pack_draft", "d2-fire-sorc_v2", "matrix_index.json")
 scene_char = J(C9, "cliffside3d", "godot", "data", "character.json")          # READ ONLY: the shape and his scale constants
 scene_gear = J(C9, "cliffside3d", "godot", "data", "gear_manifest.json")      # READ ONLY
 PPM = 100.617553710938                                                        # knight.gd / gear.gd PPM (canvas px per metre)
@@ -110,7 +112,7 @@ char = dict(
     speed_measured_at_scale=scene_char["speed_measured_at_scale"],
     walk_px_s=round(loco["walk"]["speed_m_s"] * PPM, 1), run_px_s=round(loco["run"]["speed_m_s"] * PPM, 1),
     _speed_note="FALLBACKS ONLY: knight.gd reads the live speeds from the gear manifest's locomotion_in_place by CLIP name (walk "
-                "%.3f m/s, run %.3f m/s, her FOOT-LOCK speeds at the clips' own keys) x PPM %.3f = canvas px/s at the reference "
+                "%.3f m/s, run %.3f m/s, her FOOT-LOCK speeds by the scene's stance rule at the clips' own keys) x PPM %.3f = canvas px/s at the reference "
                 "scale, rescaled by figure_scale / speed_measured_at_scale -- the same convention as his, since the scene applies "
                 "his world factor to her. walk %.4f s and run %.4f s are one cycle each (re-cut on their sources' own keys)."
                 % (loco["walk"]["speed_m_s"], loco["run"]["speed_m_s"], PPM, loco["walk"]["seconds"], loco["run"]["seconds"]),

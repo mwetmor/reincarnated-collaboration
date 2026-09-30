@@ -1,0 +1,6 @@
+# blender -b -noaudio --python scripts/s12_measure.py -- <v2 combined> work/staff_carry.json work/s18_hit_chest_arm.json --clips none --arm-only hit --layer-bones Spine02,RightShoulder,RightArm,RightForeArm,RightHand --perframe
+    f 11 t=0.46s depth 0.0039 m fist z 1.07 head z 1.48 -> {'RightLeg': 1}
+  hit (STAFF ARM carry only)         tilt max   8.27 deg (mean  3.90) | tip path  139.8 px, extent  60.2 px | inside body   1 {np.str_('RightLeg'): 1} | in the grip 9
+  max penetration DEPTH over every inside vertex: 0.0039 m
+  off hand to shaft: min 0.668 m at 0.96s (along shaft -0.00 m from the grip); frames within 0.30 m: []
+  left-arm REACH 0.504 m; shaft band reachable (<= 92% of reach) at 0 of 40 frames: []

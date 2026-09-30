@@ -1,0 +1,77 @@
+{
+ "clip": "idle",
+ "mode": "loop",
+ "hips": {
+  "model": "de-root (45_deroot_trim, re-derived on the new window)",
+  "offset_std_units": [
+   0.001,
+   0.0,
+   0.0017
+  ],
+  "old_window_rebuilt_worst_units": 6e-06,
+  "vertical_axis": 1,
+  "vertical_offset_units": -1.3531,
+  "rest_h_units": [
+   -0.7867,
+   1.3335
+  ],
+  "hips_node_rest_h_units": [
+   -0.7867,
+   1.3335
+  ],
+  "net_travel_units_after": 0.0,
+  "net_travel_units_source": 0.0055
+ },
+ "weapon_tracks_dropped_for_rebake": [],
+ "cause": "the D7 merge cut 0.0000..2.3333 (57 keys at 24 fps) from a source whose cycle is 0.0333..2.3667 (71 keys at 30 fps) and closes there: it began 0.0333 before the source's first key (a clamped hold) and ended 0.0333 before its close",
+ "channels_classified": {
+  "counts": {
+   "hips offset": 1,
+   "faithful": 71
+  },
+  "faithful_worst": 0.000899,
+  "tolerance": 0.002,
+  "hips_offset_std_units": [
+   0.001,
+   0.0,
+   0.0017
+  ],
+  "not_faithful": {
+   "Hips.translation": "hips offset"
+  }
+ },
+ "source": {
+  "file": "idle11.glb",
+  "cycle_s": [
+   0.0333,
+   2.3667
+  ],
+  "period_s": 2.3333,
+  "keys": 71
+ },
+ "new": {
+  "duration_s": 2.333333,
+  "keys": 71,
+  "channels": 74
+ },
+ "hips_offset_units": [
+  -0.1749,
+  -1.3531,
+  -1.6561
+ ],
+ "source_cycle_gap_before_snap": 6.9e-05,
+ "other_clips_untouched": [
+  "cast_fireball",
+  "cast_meteor",
+  "death",
+  "hit",
+  "run",
+  "staff_carry_R",
+  "walk"
+ ],
+ "prior_accessors_byte_identical": true,
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}
