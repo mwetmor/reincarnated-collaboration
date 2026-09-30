@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
@@ -268,7 +268,10 @@ by_slot = {c["slot"]: dict(c, clip=k) for k, c in casts.items() if not k.startsw
 print("spells=" + ",".join("%s@%s" % (by_slot[s]["clip"], by_slot[s]["release_s"]) for s in ("attack", "chop")))
 SPELLS
 )
-echo "$SLINE" | grep -q "$WANT_SPELLS" && ck 0 "her spells armed at both releases ($WANT_SPELLS, from her package)" || ck 1 "her spells (wanted $WANT_SPELLS)"
+# lane B's Meteor (her default) takes the chop slot off spell_fx and reads its release itself; the
+# placeholder run below must still show both
+WANT_FB=${WANT_SPELLS%%,*}
+echo "$SLINE" | grep -q "$WANT_FB" && ck 0 "her Fire Ball armed at its release ($WANT_FB, from her package)" || ck 1 "her Fire Ball's release (wanted $WANT_FB)"
 FB=$(echo "$SLINE" | sed -n 's/.*fire_ball=\([^ ]*\).*/\1/p')
 echo "$FB" | grep -q "^baked(pages=2,px=4096x[0-9]*,frames=[0-9]*,impact_sets=2,sha_ok)$" \
   && ck 0 "her FIRE BALL baked and loaded from her pack: $FB" || ck 1 "her Fire Ball (got '$FB')"
@@ -278,6 +281,33 @@ else
   ck 0 "her launch free of script and shader errors"
 fi
 echo "   sizes:"; ls -l "$W" | awk 'NR>1 {printf "   %12d  %s\n", $5, $9}'
+# LANE B METEOR (?c=sorceress&meteor=b: her page with the Meteor built 3D first, scripts/meteor_fx.gd):
+# the painted plates read and sha-matched, every pipeline warmed at load, the placeholder Meteor off,
+# the Fire Ball kept -- and no script or shader error. Without ?meteor=b nothing above changes.
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress --meteor b > "$LOG/launch_meteor_b.log" 2>&1 || true
+MLINE=$(grep -a '^\[meteor_b\] armed' "$LOG/launch_meteor_b.log" | head -1 || true)
+MSL=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_b.log" | head -1 || true)
+echo "$MSL" | grep -q "fire_ball=baked(" && echo "$MSL" | grep -q "meteor=3d(lane_b)" \
+  && ck 0 "?meteor=b: her baked Fire Ball still loads beside it (fire_ball=baked, meteor=3d)" \
+  || ck 1 "?meteor=b: her Fire Ball or the meteor word"
+echo "   launch (meteor=b): $(echo "$MLINE" | cut -c1-200)"
+echo "$MLINE" | grep -q "plates_sha_ok=true" && echo "$MLINE" | grep -q "warmed=true" \
+  && echo "$MLINE" | grep -q "placeholder_meteor=off" && echo "$MLINE" | grep -q "fire_ball=kept" \
+  && ck 0 "?meteor=b: the Meteor armed (plates matched, pipelines warmed, placeholder off, Fire Ball kept)" \
+  || ck 1 "?meteor=b: the Meteor did not arm"
+if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_b.log"; then
+  ck 1 "?meteor=b launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_b.log" | head -12 >&2
+else
+  ck 0 "?meteor=b launch free of script and shader errors"
+fi
+# HER DEFAULT METEOR IS LANE B (no query); ?meteor=placeholder falls back to the placeholder
+echo "$SLINE" | grep -q "meteor=3d(lane_b)" && ck 0 "her default Meteor is lane B's (no query: meteor=3d(lane_b))" || ck 1 "her default Meteor"
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true
+PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)
+echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ball=baked(" && echo "$PLINE" | grep -q "$WANT_SPELLS" \
+  && ck 0 "?meteor=placeholder falls back (meteor=placeholder, both releases $WANT_SPELLS, the Fire Ball still baked)" || ck 1 "?meteor=placeholder fallback"
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
 
 if [ "$NO_STAGE" -eq 0 ]; then

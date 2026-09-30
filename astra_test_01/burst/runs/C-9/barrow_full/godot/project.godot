@@ -38,6 +38,51 @@ lit_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":76)
 size_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":91)]}
 size_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":93)]}
 
+; LANE B METEOR (scripts/meteor_fx.gd): its GLOBAL shader uniforms. Only the shaders built with its terms
+; (?meteor=b: PaintedWorld.with_fx, PaintStack.with_char_fire) read them; declared here so they exist.
+[shader_globals]
+
+fx_on={
+"type": "float",
+"value": 0.0
+}
+fx_web={
+"type": "float",
+"value": 0.0
+}
+fx_rock={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_sun={
+"type": "vec4",
+"value": Vector4(0, 1, 0, 0.075)
+}
+fx_fall_light={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_mark={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_burn={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_ring={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_char_light={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_char_light_col={
+"type": "vec4",
+"value": Vector4(1, 0.342, 0.073, 7)
+}
+
 [rendering]
 renderer/rendering_method="forward_plus"
 ; THE PHONE PAGE (/playtest/barrow-painted/): WebGL2 only has the Compatibility renderer

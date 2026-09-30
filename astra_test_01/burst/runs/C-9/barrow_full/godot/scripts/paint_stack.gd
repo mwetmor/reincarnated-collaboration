@@ -776,6 +776,45 @@ static func make_flake_texture(size := 24) -> ImageTexture:
 static var _shader_cache := {}
 
 
+# --- LANE B: THE METEOR'S FIRE ON HIM AND HER (vfx_meteor_3d; scripts/meteor_fx.gd) -------------------
+# NOTHING ABOVE CHANGES. With the Meteor wanted, MeteorFx derives a second shader for the characters' ramp
+# materials, with_char_fire(<their live code>), and swaps it in only while a Meteor is alive: the fire's light
+# is added INSIDE THE SUN'S PASS -- the way the phone build's ambient is (ambient_in_light),
+# and for the same reason: Compatibility sRGB-encodes each light's pass before it adds them, so a separate
+# fire light (the first build's OmniLight3D) summed hot on the web. Here the sum is one, in linear light, on
+# both renderers. Two hard warm bands by N.L times an omni light's own falloff (range window x 1/d); the
+# light itself is two global uniforms, so there is no light node, no light list and no shader variant to
+# meet at cast time.
+const CHAR_FIRE_UNIFORMS := """global uniform vec4 fx_char_light;       // LANE B: the Meteor's fire on him and her: centre, energy
+global uniform vec4 fx_char_light_col;   // its colour (linear) and its range (m)
+"""
+
+const CHAR_FIRE_LIGHT := """	// LANE B: the Meteor's fire, in this (the sun's) pass
+	if (LIGHT_IS_DIRECTIONAL && fx_char_light.w > 0.0) {
+		vec3 wn = normalize((INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
+		vec3 fd = fx_char_light.xyz - v_world;
+		float dist = max(length(fd), 1e-3);
+		float win = pow(max(1.0 - pow(dist / max(fx_char_light_col.w, 1e-3), 4.0), 0.0), 2.0);
+		float e = max(dot(wn, fd / dist), 0.0) * win / dist;
+		float s = smoothstep(0.05 - band_soft * 0.3, 0.05 + band_soft * 0.3, e) * 0.45
+			+ smoothstep(0.30 - band_soft * 0.3, 0.30 + band_soft * 0.3, e) * 0.55;
+		DIFFUSE_LIGHT += fx_char_light_col.rgb * fx_char_light.w * s;
+	}
+"""
+
+
+static func with_char_fire(code: String) -> String:
+	"""LANE B: a character ramp material's live code (CHAR_SHADER) with the Meteor's fire folded into the
+	sun's pass (see above)."""
+	var s := code
+	assert(s.count("uniform float char_mark = 0.5;\n") == 1, "with_char_fire: the char mark uniform moved")
+	s = s.replace("uniform float char_mark = 0.5;\n", "uniform float char_mark = 0.5;\n" + CHAR_FIRE_UNIFORMS)
+	var tail := "	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop\n}\n"
+	assert(s.count(tail) == 1, "with_char_fire: the ramp's light() tail moved")
+	return s.replace(tail, "	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop\n"
+		+ CHAR_FIRE_LIGHT + "}\n")
+
+
 static func _shader(code: String) -> Shader:
 	"""ONE Shader RESOURCE PER SOURCE, shared by every material that uses it.
 
