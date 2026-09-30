@@ -10,7 +10,7 @@ extends SceneTree
 #             deg per 1/24 s), and the chest's horizontal twist off the hips (median, range)
 #   hold      the axe: tilt from vertical, lean fwd/out, head outboard of the fist, edge
 #             heading -- skeleton frame, forward +Z, up +Y, his right -X
-# env: SPLIT_LABEL, SPLIT_OUT
+# env: SPLIT_LABEL, SPLIT_OUT, KNIGHT (res:// script; default res://scripts/knight.gd)
 const DT := 1.0 / 24.0
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
@@ -34,7 +34,7 @@ func _initialize() -> void:
 	ground.collision_layer = CliffWorld.TERRAIN_BIT
 	var cs := CollisionShape3D.new(); var box := BoxShape3D.new(); box.size = Vector3(4000, 1, 4000)
 	cs.shape = box; cs.position = Vector3(0, -0.5, 0); ground.add_child(cs); root.add_child(ground)
-	k = load("res://scripts/knight.gd").new()
+	k = load(OS.get_environment("KNIGHT") if OS.has_environment("KNIGHT") else "res://scripts/knight.gd").new()
 	k.setup(RIGHT, UP, FWD, 1.0)
 	root.add_child(k)
 	for i in 6: await process_frame

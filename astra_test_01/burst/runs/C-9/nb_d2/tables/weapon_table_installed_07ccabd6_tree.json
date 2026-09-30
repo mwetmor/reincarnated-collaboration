@@ -1,0 +1,1582 @@
+{
+ "axe_bone": "RightHand",
+ "bones": 24,
+ "clips": {
+  "attack": {
+   "edge_lead": {
+    "heading_global": -42.2141125738742,
+    "heading_strike": -42.2141125738742,
+    "on_travel_global": 0.999644815921783,
+    "on_travel_strike": 0.999644815921783,
+    "peak_t": 0.666666666666667,
+    "strike_global_t": 0.666666666666667,
+    "strike_t": 0.666666666666667,
+    "swing": [
+     0.583333333333333,
+     0.75
+    ],
+    "swing_mean": 0.838308216533181
+   },
+   "frames": 37,
+   "length_s": 1.5,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.632068982012129,
+   "pen_frames": 37,
+   "pen_max": 814,
+   "pen_parts": {
+    "_open": 155,
+    "butt:RightForeArm|RightHand": 294,
+    "butt:RightHand|RightForeArm": 149,
+    "butt:RightHand|RightHand": 14,
+    "haft:Head|Hips": 8,
+    "haft:Head|RightUpLeg": 10,
+    "haft:Head|Spine02": 3,
+    "haft:Hips|Hips": 1,
+    "haft:LeftShoulder|Hips": 8,
+    "haft:LeftShoulder|RightUpLeg": 20,
+    "haft:RightArm|RightArm": 600,
+    "haft:RightShoulder|Hips": 61,
+    "haft:RightShoulder|RightArm": 296,
+    "haft:RightShoulder|RightShoulder": 9,
+    "haft:RightShoulder|RightUpLeg": 57,
+    "haft:RightShoulder|Spine01": 162,
+    "haft:RightShoulder|Spine02": 150,
+    "haft:Spine02|Hips": 1,
+    "haft:neck|Hips": 12,
+    "haft:neck|RightLeg": 7,
+    "haft:neck|RightShoulder": 2,
+    "haft:neck|RightUpLeg": 13,
+    "haft:neck|Spine01": 28,
+    "haft:neck|Spine02": 6,
+    "head:Head|Head": 408,
+    "head:Head|Hips": 32,
+    "head:Head|LeftUpLeg": 13,
+    "head:Head|RightUpLeg": 85,
+    "head:Head|Spine": 262,
+    "head:Head|Spine01": 24,
+    "head:Head|Spine02": 46,
+    "head:Head|neck": 165,
+    "head:Hips|Hips": 30,
+    "head:Hips|RightLeg": 5,
+    "head:Hips|RightUpLeg": 10,
+    "head:LeftArm|Spine02": 12,
+    "head:LeftShoulder|Hips": 31,
+    "head:LeftShoulder|RightLeg": 8,
+    "head:LeftShoulder|RightUpLeg": 194,
+    "head:LeftShoulder|Spine02": 87,
+    "head:RightArm|RightArm": 2044,
+    "head:RightArm|RightForeArm": 12,
+    "head:RightForeArm|RightArm": 2,
+    "head:RightForeArm|RightForeArm": 1560,
+    "head:RightForeArm|RightHand": 232,
+    "head:RightHand|RightForeArm": 118,
+    "head:RightHand|RightHand": 2,
+    "head:RightShoulder|Hips": 281,
+    "head:RightShoulder|LeftUpLeg": 1,
+    "head:RightShoulder|RightArm": 849,
+    "head:RightShoulder|RightLeg": 8,
+    "head:RightShoulder|RightShoulder": 58,
+    "head:RightShoulder|RightUpLeg": 925,
+    "head:RightShoulder|Spine01": 708,
+    "head:RightShoulder|Spine02": 487,
+    "head:Spine01|Spine02": 1,
+    "head:Spine02|Hips": 2,
+    "head:Spine02|Spine02": 6,
+    "head:Spine|RightUpLeg": 169,
+    "head:Spine|Spine": 2,
+    "head:Spine|Spine01": 4,
+    "head:Spine|Spine02": 3,
+    "head:neck|Hips": 177,
+    "head:neck|LeftShoulder": 2,
+    "head:neck|LeftUpLeg": 140,
+    "head:neck|RightLeg": 85,
+    "head:neck|RightShoulder": 60,
+    "head:neck|RightUpLeg": 374,
+    "head:neck|Spine": 57,
+    "head:neck|Spine01": 399,
+    "head:neck|Spine02": 217,
+    "head:neck|neck": 39
+   },
+   "pen_t": [
+    [
+     0.0,
+     239,
+     0.1408
+    ],
+    [
+     0.042,
+     246,
+     0.141
+    ],
+    [
+     0.083,
+     258,
+     0.1196
+    ],
+    [
+     0.125,
+     265,
+     0.1422
+    ],
+    [
+     0.167,
+     282,
+     0.1466
+    ],
+    [
+     0.208,
+     158,
+     0.1544
+    ],
+    [
+     0.25,
+     78,
+     0.122
+    ],
+    [
+     0.292,
+     48,
+     0.0664
+    ],
+    [
+     0.333,
+     41,
+     0.035
+    ],
+    [
+     0.375,
+     48,
+     0.041
+    ],
+    [
+     0.417,
+     60,
+     0.0517
+    ],
+    [
+     0.458,
+     82,
+     0.0604
+    ],
+    [
+     0.5,
+     733,
+     0.5761
+    ],
+    [
+     0.542,
+     814,
+     0.6321
+    ],
+    [
+     0.583,
+     142,
+     0.0672
+    ],
+    [
+     0.625,
+     47,
+     0.0377
+    ],
+    [
+     0.667,
+     29,
+     0.0322
+    ],
+    [
+     0.708,
+     30,
+     0.0294
+    ],
+    [
+     0.75,
+     44,
+     0.0329
+    ],
+    [
+     0.792,
+     109,
+     0.2171
+    ],
+    [
+     0.833,
+     166,
+     0.0569
+    ],
+    [
+     0.875,
+     313,
+     0.0706
+    ],
+    [
+     0.917,
+     462,
+     0.0845
+    ],
+    [
+     0.958,
+     536,
+     0.0993
+    ],
+    [
+     1.0,
+     473,
+     0.1006
+    ],
+    [
+     1.042,
+     333,
+     0.0935
+    ],
+    [
+     1.083,
+     363,
+     0.2003
+    ],
+    [
+     1.125,
+     430,
+     0.2007
+    ],
+    [
+     1.167,
+     552,
+     0.2462
+    ],
+    [
+     1.208,
+     702,
+     0.2254
+    ],
+    [
+     1.25,
+     779,
+     0.186
+    ],
+    [
+     1.292,
+     803,
+     0.1757
+    ],
+    [
+     1.333,
+     750,
+     0.1676
+    ],
+    [
+     1.375,
+     633,
+     0.1183
+    ],
+    [
+     1.417,
+     522,
+     0.1496
+    ],
+    [
+     1.458,
+     463,
+     0.149
+    ],
+    [
+     1.5,
+     314,
+     0.1262
+    ]
+   ],
+   "step_max": 53.5548698425293,
+   "turn_max": 0.0,
+   "turn_med": 0.0
+  },
+  "attack_chop": {
+   "edge_lead": {
+    "heading_global": -54.1608809988708,
+    "heading_strike": -43.2049890691371,
+    "on_travel_global": -0.891459703445435,
+    "on_travel_strike": 0.963571667671204,
+    "peak_t": 4.45833324090294,
+    "strike_global_t": 1.54166663470476,
+    "strike_t": 4.49999990670577,
+    "swing": [
+     4.41666657510011,
+     4.49999990670577
+    ],
+    "swing_mean": 0.859882071278793
+   },
+   "frames": 185,
+   "length_s": 7.66666650772095,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.196161409161647,
+   "pen_frames": 185,
+   "pen_max": 147,
+   "pen_parts": {
+    "_open": 90,
+    "butt:RightArm|RightHand": 304,
+    "butt:RightForeArm|RightHand": 4185,
+    "butt:RightForeArm|RightUpLeg": 27,
+    "butt:RightHand|RightForeArm": 529,
+    "butt:RightHand|RightHand": 44,
+    "butt:RightHand|RightUpLeg": 62,
+    "butt:RightUpLeg|RightHand": 3,
+    "butt:RightUpLeg|RightLeg": 9,
+    "butt:RightUpLeg|RightUpLeg": 71,
+    "head:Head|Head": 423,
+    "head:Head|Hips": 17,
+    "head:Head|RightArm": 24,
+    "head:Head|RightShoulder": 3,
+    "head:Head|Spine02": 29,
+    "head:Head|neck": 163,
+    "head:RightArm|RightForeArm": 17,
+    "head:RightArm|RightHand": 273,
+    "head:RightForeArm|RightForeArm": 4038,
+    "head:RightForeArm|RightHand": 3093,
+    "head:RightHand|RightForeArm": 448,
+    "head:RightHand|RightHand": 2,
+    "head:neck|neck": 1
+   },
+   "pen_t": [
+    [
+     0.0,
+     97,
+     0.1234
+    ],
+    [
+     0.042,
+     97,
+     0.1235
+    ],
+    [
+     0.083,
+     97,
+     0.1236
+    ],
+    [
+     0.125,
+     97,
+     0.1239
+    ],
+    [
+     0.167,
+     97,
+     0.1244
+    ],
+    [
+     0.208,
+     98,
+     0.1252
+    ],
+    [
+     0.25,
+     99,
+     0.1258
+    ],
+    [
+     0.292,
+     98,
+     0.1261
+    ],
+    [
+     0.333,
+     98,
+     0.1226
+    ],
+    [
+     0.375,
+     96,
+     0.1228
+    ],
+    [
+     0.417,
+     93,
+     0.1268
+    ],
+    [
+     0.458,
+     93,
+     0.1357
+    ],
+    [
+     0.5,
+     95,
+     0.139
+    ],
+    [
+     0.542,
+     96,
+     0.1391
+    ],
+    [
+     0.583,
+     95,
+     0.1377
+    ],
+    [
+     0.625,
+     95,
+     0.1373
+    ],
+    [
+     0.667,
+     95,
+     0.1377
+    ],
+    [
+     0.708,
+     96,
+     0.1418
+    ],
+    [
+     0.75,
+     96,
+     0.1427
+    ],
+    [
+     0.792,
+     98,
+     0.1438
+    ],
+    [
+     0.833,
+     102,
+     0.1489
+    ],
+    [
+     0.875,
+     110,
+     0.1834
+    ],
+    [
+     0.917,
+     116,
+     0.1881
+    ],
+    [
+     0.958,
+     117,
+     0.1895
+    ],
+    [
+     1.0,
+     117,
+     0.1889
+    ],
+    [
+     1.042,
+     118,
+     0.1878
+    ],
+    [
+     1.083,
+     119,
+     0.1873
+    ],
+    [
+     1.125,
+     115,
+     0.1962
+    ],
+    [
+     1.167,
+     116,
+     0.1937
+    ],
+    [
+     1.208,
+     113,
+     0.1861
+    ],
+    [
+     1.25,
+     109,
+     0.1748
+    ],
+    [
+     1.292,
+     106,
+     0.1642
+    ],
+    [
+     1.333,
+     107,
+     0.1557
+    ],
+    [
+     1.375,
+     107,
+     0.1528
+    ],
+    [
+     1.417,
+     106,
+     0.1506
+    ],
+    [
+     1.458,
+     106,
+     0.1493
+    ],
+    [
+     1.5,
+     104,
+     0.1492
+    ],
+    [
+     1.542,
+     106,
+     0.1514
+    ],
+    [
+     1.583,
+     105,
+     0.1558
+    ],
+    [
+     1.625,
+     107,
+     0.1647
+    ],
+    [
+     1.667,
+     108,
+     0.1746
+    ],
+    [
+     1.708,
+     114,
+     0.1861
+    ],
+    [
+     1.75,
+     103,
+     0.1889
+    ],
+    [
+     1.792,
+     97,
+     0.1893
+    ],
+    [
+     1.833,
+     95,
+     0.1821
+    ],
+    [
+     1.875,
+     93,
+     0.1504
+    ],
+    [
+     1.917,
+     93,
+     0.137
+    ],
+    [
+     1.958,
+     91,
+     0.136
+    ],
+    [
+     2.0,
+     89,
+     0.1249
+    ],
+    [
+     2.042,
+     89,
+     0.117
+    ],
+    [
+     2.083,
+     89,
+     0.1135
+    ],
+    [
+     2.125,
+     88,
+     0.1124
+    ],
+    [
+     2.167,
+     87,
+     0.1079
+    ],
+    [
+     2.208,
+     89,
+     0.1065
+    ],
+    [
+     2.25,
+     89,
+     0.1015
+    ],
+    [
+     2.292,
+     92,
+     0.099
+    ],
+    [
+     2.333,
+     102,
+     0.1148
+    ],
+    [
+     2.375,
+     117,
+     0.1514
+    ],
+    [
+     2.417,
+     110,
+     0.1642
+    ],
+    [
+     2.458,
+     111,
+     0.1402
+    ],
+    [
+     2.5,
+     106,
+     0.1126
+    ],
+    [
+     2.542,
+     114,
+     0.0927
+    ],
+    [
+     2.583,
+     107,
+     0.0828
+    ],
+    [
+     2.625,
+     110,
+     0.0718
+    ],
+    [
+     2.667,
+     112,
+     0.07
+    ],
+    [
+     2.708,
+     107,
+     0.0698
+    ],
+    [
+     2.75,
+     81,
+     0.0716
+    ],
+    [
+     2.792,
+     82,
+     0.0737
+    ],
+    [
+     2.833,
+     85,
+     0.0799
+    ],
+    [
+     2.875,
+     101,
+     0.0936
+    ],
+    [
+     2.917,
+     106,
+     0.1082
+    ],
+    [
+     2.958,
+     110,
+     0.1328
+    ],
+    [
+     3.0,
+     112,
+     0.1545
+    ],
+    [
+     3.042,
+     118,
+     0.1591
+    ],
+    [
+     3.083,
+     111,
+     0.1386
+    ],
+    [
+     3.125,
+     95,
+     0.0997
+    ],
+    [
+     3.167,
+     89,
+     0.0804
+    ],
+    [
+     3.208,
+     79,
+     0.0725
+    ],
+    [
+     3.25,
+     72,
+     0.0669
+    ],
+    [
+     3.292,
+     66,
+     0.0592
+    ],
+    [
+     3.333,
+     59,
+     0.0506
+    ],
+    [
+     3.375,
+     50,
+     0.0416
+    ],
+    [
+     3.417,
+     47,
+     0.0418
+    ],
+    [
+     3.458,
+     42,
+     0.041
+    ],
+    [
+     3.5,
+     91,
+     0.0818
+    ],
+    [
+     3.542,
+     141,
+     0.0912
+    ],
+    [
+     3.583,
+     144,
+     0.1015
+    ],
+    [
+     3.625,
+     102,
+     0.1272
+    ],
+    [
+     3.667,
+     99,
+     0.1236
+    ],
+    [
+     3.708,
+     147,
+     0.1047
+    ],
+    [
+     3.75,
+     142,
+     0.0834
+    ],
+    [
+     3.792,
+     134,
+     0.0788
+    ],
+    [
+     3.833,
+     87,
+     0.0535
+    ],
+    [
+     3.875,
+     61,
+     0.0537
+    ],
+    [
+     3.917,
+     62,
+     0.055
+    ],
+    [
+     3.958,
+     64,
+     0.056
+    ],
+    [
+     4.0,
+     66,
+     0.0568
+    ],
+    [
+     4.042,
+     66,
+     0.061
+    ],
+    [
+     4.083,
+     68,
+     0.0691
+    ],
+    [
+     4.125,
+     69,
+     0.0755
+    ],
+    [
+     4.167,
+     73,
+     0.0799
+    ],
+    [
+     4.208,
+     75,
+     0.0888
+    ],
+    [
+     4.25,
+     87,
+     0.0943
+    ],
+    [
+     4.292,
+     94,
+     0.0912
+    ],
+    [
+     4.333,
+     89,
+     0.0882
+    ],
+    [
+     4.375,
+     77,
+     0.0733
+    ],
+    [
+     4.417,
+     66,
+     0.0539
+    ],
+    [
+     4.458,
+     43,
+     0.0433
+    ],
+    [
+     4.5,
+     48,
+     0.0528
+    ],
+    [
+     4.542,
+     53,
+     0.0532
+    ],
+    [
+     4.583,
+     51,
+     0.0529
+    ],
+    [
+     4.625,
+     47,
+     0.0524
+    ],
+    [
+     4.667,
+     47,
+     0.0521
+    ],
+    [
+     4.708,
+     44,
+     0.0487
+    ],
+    [
+     4.75,
+     45,
+     0.0451
+    ],
+    [
+     4.792,
+     43,
+     0.0446
+    ],
+    [
+     4.833,
+     41,
+     0.045
+    ],
+    [
+     4.875,
+     41,
+     0.0457
+    ],
+    [
+     4.917,
+     42,
+     0.0463
+    ],
+    [
+     4.958,
+     45,
+     0.0469
+    ],
+    [
+     5.0,
+     47,
+     0.0464
+    ],
+    [
+     5.042,
+     49,
+     0.0463
+    ],
+    [
+     5.083,
+     50,
+     0.0467
+    ],
+    [
+     5.125,
+     50,
+     0.047
+    ],
+    [
+     5.167,
+     50,
+     0.0472
+    ],
+    [
+     5.208,
+     50,
+     0.0473
+    ],
+    [
+     5.25,
+     50,
+     0.0474
+    ],
+    [
+     5.292,
+     50,
+     0.0474
+    ],
+    [
+     5.333,
+     49,
+     0.0474
+    ],
+    [
+     5.375,
+     48,
+     0.0474
+    ],
+    [
+     5.417,
+     47,
+     0.0472
+    ],
+    [
+     5.458,
+     46,
+     0.0469
+    ],
+    [
+     5.5,
+     44,
+     0.0461
+    ],
+    [
+     5.542,
+     44,
+     0.0453
+    ],
+    [
+     5.583,
+     43,
+     0.0452
+    ],
+    [
+     5.625,
+     43,
+     0.0452
+    ],
+    [
+     5.667,
+     43,
+     0.0452
+    ],
+    [
+     5.708,
+     43,
+     0.0453
+    ],
+    [
+     5.75,
+     43,
+     0.0453
+    ],
+    [
+     5.792,
+     42,
+     0.0454
+    ],
+    [
+     5.833,
+     42,
+     0.0454
+    ],
+    [
+     5.875,
+     42,
+     0.0454
+    ],
+    [
+     5.917,
+     42,
+     0.0455
+    ],
+    [
+     5.958,
+     42,
+     0.0455
+    ],
+    [
+     6.0,
+     42,
+     0.0455
+    ],
+    [
+     6.042,
+     42,
+     0.0455
+    ],
+    [
+     6.083,
+     42,
+     0.0455
+    ],
+    [
+     6.125,
+     42,
+     0.0454
+    ],
+    [
+     6.167,
+     42,
+     0.0454
+    ],
+    [
+     6.208,
+     42,
+     0.0453
+    ],
+    [
+     6.25,
+     42,
+     0.0453
+    ],
+    [
+     6.292,
+     43,
+     0.0454
+    ],
+    [
+     6.333,
+     43,
+     0.0454
+    ],
+    [
+     6.375,
+     44,
+     0.0454
+    ],
+    [
+     6.417,
+     44,
+     0.0454
+    ],
+    [
+     6.458,
+     44,
+     0.0454
+    ],
+    [
+     6.5,
+     44,
+     0.0454
+    ],
+    [
+     6.542,
+     44,
+     0.0454
+    ],
+    [
+     6.583,
+     43,
+     0.0454
+    ],
+    [
+     6.625,
+     43,
+     0.0454
+    ],
+    [
+     6.667,
+     43,
+     0.0454
+    ],
+    [
+     6.708,
+     43,
+     0.0454
+    ],
+    [
+     6.75,
+     42,
+     0.0454
+    ],
+    [
+     6.792,
+     42,
+     0.0455
+    ],
+    [
+     6.833,
+     42,
+     0.0455
+    ],
+    [
+     6.875,
+     42,
+     0.0455
+    ],
+    [
+     6.917,
+     42,
+     0.0457
+    ],
+    [
+     6.958,
+     42,
+     0.0458
+    ],
+    [
+     7.0,
+     41,
+     0.0459
+    ],
+    [
+     7.042,
+     41,
+     0.046
+    ],
+    [
+     7.083,
+     41,
+     0.0461
+    ],
+    [
+     7.125,
+     41,
+     0.0462
+    ],
+    [
+     7.167,
+     41,
+     0.0463
+    ],
+    [
+     7.208,
+     41,
+     0.0464
+    ],
+    [
+     7.25,
+     42,
+     0.0465
+    ],
+    [
+     7.292,
+     42,
+     0.0465
+    ],
+    [
+     7.333,
+     41,
+     0.0465
+    ],
+    [
+     7.375,
+     42,
+     0.0464
+    ],
+    [
+     7.417,
+     42,
+     0.0464
+    ],
+    [
+     7.458,
+     42,
+     0.0464
+    ],
+    [
+     7.5,
+     42,
+     0.0464
+    ],
+    [
+     7.542,
+     42,
+     0.0463
+    ],
+    [
+     7.583,
+     42,
+     0.0463
+    ],
+    [
+     7.625,
+     43,
+     0.0463
+    ],
+    [
+     7.667,
+     43,
+     0.0463
+    ]
+   ],
+   "step_max": 11.5191127449274,
+   "turn_max": 0.0,
+   "turn_med": 0.0
+  },
+  "block": {
+   "arc_max": 0.0,
+   "arc_min": 0.0,
+   "clip": "block",
+   "edge": 110.566079122956,
+   "frames": 48,
+   "fwd": 0.165202721953392,
+   "head_out": 0.0285338442772627,
+   "loop_s": 2.0,
+   "loops": 1,
+   "out": 0.0452561676502228,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.17262503562938,
+   "pen_frames": 48,
+   "pen_max": 155,
+   "pen_parts": {
+    "butt:LeftHand|RightHand": 1680,
+    "butt:RightHand|LeftHand": 144,
+    "butt:RightHand|RightArm": 480,
+    "butt:RightHand|RightForeArm": 1728,
+    "butt:RightHand|RightHand": 48,
+    "head:LeftHand|RightArm": 240,
+    "head:LeftHand|RightForeArm": 192,
+    "head:RightForeArm|RightForeArm": 96,
+    "head:RightHand|RightArm": 864,
+    "head:RightHand|RightForeArm": 1968
+   },
+   "tilt": 170.13719818708,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  },
+  "idle": {
+   "arc_max": 248.28812830454,
+   "arc_min": 197.43996623932,
+   "clip": "idle_armed",
+   "edge": -61.5346540932386,
+   "frames": 294,
+   "fwd": -0.104276716709137,
+   "head_out": 0.071393296122551,
+   "loop_s": 6.125,
+   "loops": 2,
+   "out": 0.113234028220177,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.211721421001613,
+   "pen_frames": 294,
+   "pen_max": 112,
+   "pen_parts": {
+    "_open": 2352,
+    "butt:LeftShoulder|RightHand": 80,
+    "butt:RightArm|RightHand": 1624,
+    "butt:RightForeArm|RightHand": 6324,
+    "butt:RightHand|RightForeArm": 692,
+    "butt:RightHand|RightHand": 92,
+    "butt:RightShoulder|RightHand": 628,
+    "butt:Spine|RightHand": 26,
+    "butt:neck|RightHand": 124,
+    "head:LeftShoulder|RightHand": 92,
+    "head:RightArm|RightForeArm": 202,
+    "head:RightArm|RightHand": 898,
+    "head:RightForeArm|RightForeArm": 5350,
+    "head:RightForeArm|RightHand": 6796,
+    "head:RightHand|RightForeArm": 288,
+    "head:RightShoulder|RightForeArm": 278,
+    "head:RightShoulder|RightHand": 628,
+    "head:Spine|RightForeArm": 10,
+    "head:Spine|RightHand": 38,
+    "head:neck|RightForeArm": 140,
+    "head:neck|RightHand": 402
+   },
+   "tilt": 42.2609178101455,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  },
+  "run": {
+   "arc_max": 34.0925957710948,
+   "arc_min": 15.6792691196781,
+   "clip": "run",
+   "edge": -164.473333793912,
+   "frames": 32,
+   "fwd": -0.0447895228862762,
+   "head_out": 0.623804807662964,
+   "loop_s": 0.666928552546418,
+   "loops": 2,
+   "out": 0.98939049243927,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.217332463625183,
+   "pen_frames": 32,
+   "pen_max": 305,
+   "pen_parts": {
+    "_open": 121,
+    "butt:LeftArm|LeftArm": 70,
+    "butt:LeftArm|LeftForeArm": 56,
+    "butt:LeftArm|RightHand": 38,
+    "butt:RightHand|LeftArm": 2,
+    "butt:RightHand|RightForeArm": 36,
+    "butt:RightHand|RightHand": 2,
+    "haft:Head|RightForeArm": 2,
+    "haft:Head|Spine": 6,
+    "haft:LeftArm|LeftArm": 14,
+    "haft:LeftArm|LeftForeArm": 12,
+    "haft:LeftShoulder|LeftForeArm": 6,
+    "haft:RightArm|RightArm": 1453,
+    "haft:RightArm|Spine": 2,
+    "haft:RightForeArm|RightForeArm": 358,
+    "haft:Spine|RightArm": 20,
+    "haft:Spine|Spine": 78,
+    "head:Head|Head": 10,
+    "head:Head|RightArm": 2,
+    "head:Head|RightForeArm": 26,
+    "head:Head|Spine": 14,
+    "head:LeftArm|LeftArm": 152,
+    "head:LeftArm|LeftForeArm": 76,
+    "head:LeftShoulder|LeftArm": 220,
+    "head:LeftShoulder|LeftForeArm": 58,
+    "head:LeftShoulder|LeftShoulder": 97,
+    "head:LeftShoulder|Spine02": 2,
+    "head:RightArm|RightArm": 872,
+    "head:RightArm|Spine01": 140,
+    "head:RightArm|Spine02": 4,
+    "head:RightForeArm|LeftArm": 2,
+    "head:RightForeArm|LeftShoulder": 4,
+    "head:RightForeArm|RightArm": 313,
+    "head:RightForeArm|RightForeArm": 3272,
+    "head:RightForeArm|RightHand": 22,
+    "head:RightHand|RightForeArm": 72,
+    "head:RightShoulder|RightArm": 168,
+    "head:RightShoulder|Spine01": 2,
+    "head:Spine01|RightArm": 2,
+    "head:Spine01|Spine01": 4,
+    "head:Spine02|Spine02": 4,
+    "head:Spine|Spine": 4,
+    "head:neck|RightArm": 44,
+    "head:neck|Spine02": 20
+   },
+   "tilt": 94.4359235024563,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  },
+  "strafe_l": {
+   "arc_max": 55.2772892079607,
+   "arc_min": 39.3814436526184,
+   "clip": "strafe_L_armed",
+   "edge": 141.715723262495,
+   "frames": 118,
+   "fwd": 0.618997693061829,
+   "head_out": 0.493082344532013,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.782057046890259,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.148950341286678,
+   "pen_frames": 118,
+   "pen_max": 242,
+   "pen_parts": {
+    "_open": 110,
+    "butt:LeftArm|LeftArm": 2608,
+    "butt:LeftArm|RightForeArm": 50,
+    "butt:LeftArm|RightHand": 3117,
+    "butt:LeftShoulder|LeftArm": 8,
+    "butt:RightForeArm|LeftArm": 70,
+    "butt:RightHand|LeftArm": 1512,
+    "haft:LeftArm|RightForeArm": 98,
+    "haft:RightForeArm|RightForeArm": 2140,
+    "head:LeftArm|LeftArm": 674,
+    "head:LeftArm|RightForeArm": 3393,
+    "head:LeftShoulder|LeftArm": 84,
+    "head:LeftShoulder|RightForeArm": 178,
+    "head:RightForeArm|LeftArm": 794,
+    "head:RightForeArm|LeftShoulder": 368,
+    "head:RightForeArm|RightForeArm": 6158
+   },
+   "tilt": 90.1539549683703,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  },
+  "strafe_r": {
+   "arc_max": 57.3200713106664,
+   "arc_min": 47.6463116140803,
+   "clip": "strafe_R_armed",
+   "edge": -98.5445327779306,
+   "frames": 118,
+   "fwd": 0.308617234230042,
+   "head_out": 0.177900865674019,
+   "loop_s": 2.45833325386047,
+   "loops": 2,
+   "out": 0.282161086797714,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.480862583473368,
+   "pen_frames": 118,
+   "pen_max": 1239,
+   "pen_parts": {
+    "_open": 2263,
+    "butt:Hips|Hips": 198,
+    "butt:Hips|LeftUpLeg": 154,
+    "butt:Hips|RightHand": 1026,
+    "butt:LeftShoulder|Hips": 64,
+    "butt:LeftShoulder|LeftUpLeg": 44,
+    "butt:LeftShoulder|RightHand": 608,
+    "butt:LeftUpLeg|LeftUpLeg": 4,
+    "butt:LeftUpLeg|RightHand": 34,
+    "butt:RightForeArm|Hips": 44,
+    "butt:RightForeArm|RightHand": 1216,
+    "butt:RightHand|Hips": 678,
+    "butt:RightHand|LeftUpLeg": 172,
+    "butt:RightHand|RightHand": 78,
+    "butt:Spine02|Hips": 8,
+    "butt:Spine02|LeftUpLeg": 8,
+    "butt:Spine02|RightHand": 2,
+    "butt:Spine|Hips": 8,
+    "butt:neck|Hips": 842,
+    "butt:neck|LeftUpLeg": 150,
+    "butt:neck|RightHand": 1311,
+    "haft:Hips|Hips": 14,
+    "haft:Hips|RightHand": 4,
+    "haft:LeftShoulder|Hips": 2,
+    "haft:LeftShoulder|RightHand": 34,
+    "haft:RightShoulder|Hips": 478,
+    "haft:RightShoulder|RightArm": 4624,
+    "haft:RightShoulder|RightForeArm": 512,
+    "haft:RightShoulder|RightShoulder": 2,
+    "haft:RightShoulder|RightUpLeg": 8830,
+    "haft:RightShoulder|Spine01": 658,
+    "haft:RightShoulder|Spine02": 312,
+    "haft:neck|Hips": 3256,
+    "haft:neck|LeftUpLeg": 4,
+    "haft:neck|RightArm": 10,
+    "haft:neck|RightForeArm": 1278,
+    "haft:neck|RightHand": 226,
+    "haft:neck|RightUpLeg": 2090,
+    "head:Head|Head": 1796,
+    "head:Head|Hips": 1848,
+    "head:Head|LeftShoulder": 32,
+    "head:Head|LeftUpLeg": 5055,
+    "head:Head|RightUpLeg": 1393,
+    "head:Head|Spine": 1962,
+    "head:Head|neck": 626,
+    "head:Hips|Hips": 474,
+    "head:Hips|RightForeArm": 300,
+    "head:Hips|RightHand": 410,
+    "head:LeftShoulder|Hips": 526,
+    "head:LeftShoulder|LeftUpLeg": 1510,
+    "head:LeftShoulder|RightHand": 488,
+    "head:RightArm|Hips": 50,
+    "head:RightArm|RightArm": 3512,
+    "head:RightArm|RightForeArm": 372,
+    "head:RightArm|RightUpLeg": 240,
+    "head:RightArm|Spine02": 226,
+    "head:RightForeArm|Hips": 274,
+    "head:RightForeArm|RightForeArm": 54,
+    "head:RightForeArm|RightHand": 1550,
+    "head:RightForeArm|RightUpLeg": 36,
+    "head:RightHand|Hips": 4,
+    "head:RightHand|RightHand": 2,
+    "head:RightShoulder|Hips": 1232,
+    "head:RightShoulder|RightArm": 27887,
+    "head:RightShoulder|RightForeArm": 4010,
+    "head:RightShoulder|RightUpLeg": 12124,
+    "head:RightShoulder|Spine01": 1122,
+    "head:RightShoulder|Spine02": 884,
+    "head:Spine01|RightForeArm": 2,
+    "head:Spine02|Hips": 2,
+    "head:Spine02|RightForeArm": 24,
+    "head:Spine02|RightHand": 26,
+    "head:Spine02|RightUpLeg": 292,
+    "head:Spine|Hips": 86,
+    "head:Spine|LeftUpLeg": 921,
+    "head:Spine|RightForeArm": 18,
+    "head:Spine|RightUpLeg": 292,
+    "head:Spine|Spine": 4,
+    "head:neck|Head": 2,
+    "head:neck|Hips": 11393,
+    "head:neck|LeftShoulder": 10,
+    "head:neck|LeftUpLeg": 2002,
+    "head:neck|RightArm": 12,
+    "head:neck|RightForeArm": 3358,
+    "head:neck|RightHand": 2030,
+    "head:neck|RightUpLeg": 3968,
+    "head:neck|Spine": 6
+   },
+   "tilt": 25.97283080018,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  },
+  "walk": {
+   "arc_max": 36.308255366236,
+   "arc_min": 20.1596744336188,
+   "clip": "walk",
+   "edge": -66.5068428005579,
+   "frames": 50,
+   "fwd": -0.423628091812134,
+   "head_out": 0.508059501647949,
+   "loop_s": 1.04166662693024,
+   "loops": 2,
+   "out": 0.805811703205109,
+   "pass_frac": 0.0,
+   "pen_depth_m": 0.0509861632709487,
+   "pen_frames": 50,
+   "pen_max": 61,
+   "pen_parts": {
+    "_open": 2,
+    "butt:RightForeArm|RightHand": 40,
+    "head:RightForeArm|RightForeArm": 2591,
+    "head:RightForeArm|RightHand": 70,
+    "head:RightHand|RightForeArm": 6
+   },
+   "tilt": 63.9983397682642,
+   "turn_med": 0.0,
+   "turn_p90": 0.0
+  }
+ },
+ "knight": "res://scripts/knight_installed.gd",
+ "label": "before",
+ "model": "res://models/gear_orig/nb-body.glb",
+ "source": "tree"
+}

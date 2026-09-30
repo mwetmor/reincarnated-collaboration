@@ -118,12 +118,15 @@ def _trs(nd):
     return M
 
 
-def _mount():
+def _mount(path=None):
+    """The recorded mount: a weapon_mount.json BESIDE the file (a staged set carries its own), else
+    the pipeline's work/weapon_mount.json, else none (the weapon bones must be coincident)."""
     import os
-    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")
-    if not os.path.exists(p):
-        return None
-    return np.array(json.load(open(p))["W"], float)
+    for p in ([os.path.join(os.path.dirname(os.path.abspath(path)), "weapon_mount.json")] if path else []) + \
+            [os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")]:
+        if os.path.exists(p):
+            return np.array(json.load(open(p))["W"], float)
+    return None
 
 
 def lint(path, skeleton=True):
@@ -167,7 +170,7 @@ def lint(path, skeleton=True):
                     "scripts/52_weapon_bones.py" % (path.split('/')[-1], len(jn),
                     (", missing %s" % miss) if miss else "", (", extra %s" % extra) if extra else "",
                     ", order differs" if not miss and not extra else "", len(BASE_RIG)))
-        mount = _mount()
+        mount = _mount(path)
         for wn, hn in WEAPON_PARENT:
             wi = [i for i, nd in enumerate(nodes) if nd.get('name') == wn]
             if wi and (parent.get(wi[0]) is None or name(parent[wi[0]]) != hn):

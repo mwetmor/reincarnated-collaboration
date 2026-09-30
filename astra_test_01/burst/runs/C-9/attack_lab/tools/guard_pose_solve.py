@@ -149,6 +149,12 @@ def main():
         f = sgn * (Rm @ np.eye(3)[ax]); yaws.append(math.degrees(math.atan2(float(f @ R), float(f @ F))))
     k0 = int(np.argmin([abs(y) for y in yaws]))
     Cm = chest_R[k0]
+    # ANOTHER STATE'S CHEST (the block turns his torso ~50 deg to present the shield): the same
+    # guard in HIS frame, the arm solved against that chest instead
+    if '--chest' in sys.argv:
+        cq = [float(x) for x in sys.argv[sys.argv.index('--chest') + 1].split(',')]
+        Cm = W.q2m(np.array(cq))
+        print("chest override (skeleton space) %s" % cq)
     print("idle stance frame: key %d (%.3f s) -- its chest faces %+.1f deg off his forward (the idle's range %+.1f..%+.1f)"
           % (k0, float(kt[k0]), yaws[k0], min(yaws), max(yaws)))
     h_c = Cm.T @ h_world                          # the guard haft, in the chest's own frame

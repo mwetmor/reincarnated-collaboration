@@ -345,13 +345,14 @@ def patch(path, out, mt=None):
 MOUNT_JSON = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")
 
 
-def recorded_mount():
+def recorded_mount(path=None):
     """The axe's mount (rank 2) once one is recorded -- weapon_r's rest W and the re-seat G, both in
-    RightHand's local frame -- so a re-export gets the same mount the staged files carry."""
-    if not os.path.exists(MOUNT_JSON):
-        return None
-    m = json.load(open(MOUNT_JSON))
-    return {"W": np.array(m["W"], float), "G": np.array(m["G"], float)}
+    RightHand's local frame -- beside the file first (a staged set), then the pipeline's work/."""
+    for p in ([os.path.join(os.path.dirname(os.path.abspath(path)), "weapon_mount.json")] if path else []) + [MOUNT_JSON]:
+        if os.path.exists(p):
+            m = json.load(open(p))
+            return {"W": np.array(m["W"], float), "G": np.array(m["G"], float)}
+    return None
 
 
 def snap(path, out=None, tol_m=1e-7):
@@ -365,7 +366,7 @@ def snap(path, out=None, tol_m=1e-7):
     sk = js['skins'][0]
     names = [nodes[j]['name'] for j in sk['joints']]
     ibm = mat_list(js, bytes(b), sk['inverseBindMatrices'])
-    mt = recorded_mount()
+    mt = recorded_mount(path)
     gl, parent = globals_(js)
     mpu = float(np.cbrt(abs(np.linalg.det(gl[sk['joints'][0]][:3, :3] @ np.linalg.inv(trs(nodes[sk['joints'][0]])[:3, :3]))))) or 1.0
     moved = {}
@@ -426,7 +427,7 @@ def ensure(path, out=None):
         print("  52_weapon_bones: %s -- joints put back in base-rig order" % os.path.basename(path))
         snap(out or path)
         return {"file": os.path.basename(path), "action": "reordered"}
-    rep = patch(path, out or path, recorded_mount())
+    rep = patch(path, out or path, recorded_mount(path))
     rep["action"] = "added"
     print("  52_weapon_bones: %s -- weapon bones added (rest displacement max %.3g m)"
           % (rep["file"], rep["rest_displacement_m"]["max"]))
