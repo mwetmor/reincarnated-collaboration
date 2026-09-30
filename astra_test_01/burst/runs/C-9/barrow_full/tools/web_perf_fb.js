@@ -1,7 +1,8 @@
 // C-9 (c) -- the Fire Ball's budget on the PAGE: /playtest/barrow-painted/?c=sorceress&perf=fb, in Chrome with its
 // GPU at phone size (844 x 390 CSS px at DPR 3). The scene runs its own A/B casts (godot/scripts/perf_fireball.gd)
 // and prints one "[perf_fb] {...}" line; this waits for it and writes it out, with the page's load clock and
-// any errors. A screenshot is taken during the first burst.
+// any errors. SHOT=1 takes a screenshot during the first burst -- OFF by default: Playwright's screenshot stalls the
+// page ~400-500 ms, and it was that stall, taken about 4.5 s after ready, that read as a page hitch (take/build/load_tail.json).
 //   PLAYWRIGHT_CORE=<playwright-core> node web_perf_fb.js <url> <outdir> [tag]
 const { chromium } = require(process.env.PLAYWRIGHT_CORE || 'playwright-core');
 const fs = require('fs'); const path = require('path');
@@ -25,7 +26,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   let shot = false;
   for (let i = 0; i < 400 && !perf && !(process.env.WAIT_S && i * 500 > +process.env.WAIT_S * 1000); i++) {
     await sleep(500);
-    if (built && !shot && Date.now() - t0 > built + 3000 + 1250) { await page.screenshot({ path: path.join(outdir, `${tag}_first_burst.png`) }); shot = true; }
+    if (process.env.SHOT && built && !shot && Date.now() - t0 > built + 3000 + 1250) { await page.screenshot({ path: path.join(outdir, `${tag}_first_burst.png`) }); shot = true; }
   }
   const raf = await page.evaluate(() => ({ raf: window.__raf, lift: window.__lift, ready: window.__ready }));
   const afterReady = []; for (let i = 1; i < raf.raf.length; i++) if (raf.ready && raf.raf[i - 1] >= raf.ready) afterReady.push([Math.round(raf.raf[i - 1] - raf.ready), Math.round((raf.raf[i] - raf.raf[i - 1]) * 10) / 10]);

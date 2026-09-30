@@ -136,5 +136,35 @@
   },
   "reading": "the hitch is ~4.4-4.6 s after ready on every build, the old one included, with or without any of her effect programs (11 fewer sources: 416 ms against 482). It predates today's work and does not follow the number of programs, so the audit's merges were NOT made (they could only remove fewer than that test did). It is outside Godot's frame (split ~1/0.1/10 ms); a Chrome trace of one run did not reproduce it.",
   "also_seen": "her default page's load tail (a 333 ms frame at 1.25 s after ready: the effects' warm draws, the Fire Ball's 78 MB atlas uploading) is under the veil; with no effects there is no load-tail frame at all"
+ },
+ "the_5s_hitch_CAUSE": {
+  "finding": "IT IS THE TEST HARNESS, NOT THE PAGE. tools/web_perf_fb.js took a Playwright page.screenshot() at ready + ~4.3-4.6 s ('during the first burst'); the screenshot's capture stalls the page's next frame by ~400-500 ms. Every run that showed the hitch took that screenshot; the five traced runs (tools/web_trace_4s.js, which takes none) never showed it.",
+  "proof_ms": {
+   "today's page, her, no screenshot": [
+    [
+     1289,
+     384.4
+    ],
+    "the load tail, under the veil (lifts ~1.6 s)"
+   ],
+   "today's page, him, no screenshot": "worst 18.7 ms",
+   "today's page, her, screenshot at ~4.4 s": [
+    4379,
+    433.3
+   ],
+   "today's page, him, screenshot at ~4.7 s": [
+    4684,
+    400.0
+   ]
+  },
+  "traces_that_did_not_catch_it": [
+   "work/hitch5/traces/trace_1.json",
+   "trace_2.json",
+   "trace_3.json (window 3.4-7.9 s after ready, all categories)",
+   "trace_4.json",
+   "trace_5.json (from navigation, V8 GC only)"
+  ],
+  "candidates_killed": "V8 major GC, the GPU program cache, wasm heap growth, deferred texture uploads: none needed -- there is no page hitch at ~4.5 s once the harness stops screenshotting",
+  "fix": "web_perf_fb.js screenshots only with SHOT=1. The earlier 'first-strike cold frame' (450-520 ms on the page, cold casts) was this same screenshot."
  }
 }
