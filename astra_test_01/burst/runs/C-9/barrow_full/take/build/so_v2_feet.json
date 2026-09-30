@@ -1,0 +1,140 @@
+{
+ "_what": "C-9: the sorceress's v2 scene package (so_d7/scene_pkg, commit b78f48c5e) on the painted Barrow -- her feet against the asked speed before (v1) and after (v2), and her spells' releases -- godot/tools/capture_painted.gd --feet [--feet-passes 4] --cast --c sorceress",
+ "_instrument": "driven straight across the arena by drive_dir at walk and at run (her own tick off); every physics frame the body and the four foot joints in world space; the stance foot = the lower toe, within 3 cm of its lowest; asked = the body's ground speed, foot_lock = the stance foot's speed relative to the body, ratio = foot_lock / asked (1.0 = the feet grip), skate = the stance foot's own ground speed",
+ "_passes": "single = T12_10's measure exactly (one pass east from u -5). pooled_4 = four passes alternating east and west across the same strip, frames pooled: v2's run is 16% faster than v1's, so a single pass crosses the arena in about 1.4 s of measured frames (34 stance frames) and its median moves with the sampling; the pooled figure has 139",
+ "installed": {
+  "so-body.glb_sha256": "90ff11295c9d859fd359f714c2273af67a4ed828eabe17093774981f5d415d29",
+  "character_sorceress.json_md5": "7765ff7cf95744a85289c98c7f717732",
+  "gear_manifest_sorceress.json_md5": "39ccfe47e9374020c088d770f3595f79",
+  "sockets_sorceress.json_md5": "015dc2fa8e08a283d31ff58a4f09f51b (unchanged)",
+  "gear_glbs": "unchanged (sha256 as in the manifest)",
+  "knight.gd_md5": "fb35d9d0"
+ },
+ "before_v1_single": {
+  "knight_md5": "fb35d9d0",
+  "run": {
+   "asked_m_s": 3.985,
+   "foot_lock_m_s": 4.574,
+   "ratio_foot_lock_over_asked": 1.148,
+   "skate_m_s_median": 0.629,
+   "skate_m_s_p90": 2.351,
+   "stance_frames": 43
+  },
+  "walk": {
+   "asked_m_s": 1.471,
+   "foot_lock_m_s": 1.499,
+   "ratio_foot_lock_over_asked": 1.019,
+   "skate_m_s_median": 0.106,
+   "skate_m_s_p90": 0.247,
+   "stance_frames": 231
+  },
+  "who": "sorceress"
+ },
+ "after_v2_single": {
+  "knight_md5": "fb35d9d0",
+  "run": {
+   "asked_m_s": 4.602,
+   "foot_lock_m_s": 4.466,
+   "ratio_foot_lock_over_asked": 0.971,
+   "skate_m_s_median": 0.735,
+   "skate_m_s_p90": 1.87,
+   "stance_frames": 34
+  },
+  "walk": {
+   "asked_m_s": 1.508,
+   "foot_lock_m_s": 1.499,
+   "ratio_foot_lock_over_asked": 0.994,
+   "skate_m_s_median": 0.089,
+   "skate_m_s_p90": 0.294,
+   "stance_frames": 249
+  },
+  "who": "sorceress"
+ },
+ "after_v2_pooled_4": {
+  "knight_md5": "fb35d9d0",
+  "passes": 4,
+  "run": {
+   "asked_m_s": 4.601,
+   "foot_lock_m_s": 4.583,
+   "ratio_foot_lock_over_asked": 0.996,
+   "skate_m_s_median": 0.666,
+   "skate_m_s_p90": 1.838,
+   "stance_frames": 139
+  },
+  "walk": {
+   "asked_m_s": 1.508,
+   "foot_lock_m_s": 1.499,
+   "ratio_foot_lock_over_asked": 0.994,
+   "skate_m_s_median": 0.089,
+   "skate_m_s_p90": 0.294,
+   "stance_frames": 894
+  },
+  "who": "sorceress"
+ },
+ "barbarian_pooled_4_reference": {
+  "knight_md5": "fb35d9d0",
+  "passes": 4,
+  "run": {
+   "asked_m_s": 5.135,
+   "foot_lock_m_s": 5.258,
+   "ratio_foot_lock_over_asked": 1.024,
+   "skate_m_s_median": 0.292,
+   "skate_m_s_p90": 0.92,
+   "stance_frames": 151
+  },
+  "walk": {
+   "asked_m_s": 1.601,
+   "foot_lock_m_s": 1.595,
+   "ratio_foot_lock_over_asked": 0.996,
+   "skate_m_s_median": 0.055,
+   "skate_m_s_p90": 0.241,
+   "stance_frames": 1182
+  },
+  "who": "barbarian"
+ },
+ "reading": {
+  "walk": "ratio 1.019 -> 0.994 (asked 1.471 -> 1.508 m/s; the foot-lock speed is the same 1.499): the package's predicted 0.994, exactly",
+  "run": "ratio 1.148 -> 0.971 single / 0.996 pooled (asked 3.985 -> 4.602 m/s): the 15% over-stride is gone; the package predicted 0.993",
+  "run_skate": "her planted foot still moves 0.67 m/s median in the run's stance frames (p90 1.84); his, by the same rule, 0.29. With her ratio at 1.0 this is not a speed mismatch: the median of the stance foot's speed relative to the body matches the asked speed, its spread does not -- most likely the clip's own contact (the foot not holding still against her hips through the stance, or the stance rule's 3 cm band taking in her landing and lift-off). Not investigated further here. Walk skate 0.089 median (v1 0.106)."
+ },
+ "releases": {
+  "casts": {
+   "attack": {
+    "clip": "cast_fireball",
+    "release_s": 0.9333,
+    "socket": "cast_hand"
+   },
+   "chop": {
+    "clip": "cast_meteor",
+    "release_s": 1.6333,
+    "socket": "cast_hand_meteor"
+   }
+  },
+  "fired": [
+   {
+    "at_s": 0.933,
+    "clip": "cast_fireball",
+    "from": [
+     2.73,
+     1.14,
+     0.33
+    ],
+    "socket": "cast_hand"
+   },
+   {
+    "at_s": 1.633,
+    "clip": "cast_meteor",
+    "from": [
+     2.39,
+     1.17,
+     0.6
+    ],
+    "socket": "cast_hand_meteor"
+   }
+  ],
+  "error_s": {
+   "cast_fireball": -0.0003,
+   "cast_meteor": -0.0003
+  }
+ }
+}

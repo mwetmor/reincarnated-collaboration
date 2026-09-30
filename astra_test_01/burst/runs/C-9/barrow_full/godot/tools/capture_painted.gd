@@ -29,6 +29,7 @@ var do_shadow_test := false
 var do_trail := false
 var do_cast := false                # --cast: her two spells, frames at each release and after
 var do_feet := false                # --feet: foot-lock against asked speed, walk and run
+var feet_passes := 1                # --feet-passes N: N straight passes per gait, alternating east / west, pooled
 var quiet := false                  # --quiet: no falling snow, the wind held -- frames that compare
 var no_pen := false                 # --no-pen: the post pass hidden (a diagnostic)
 var variants := ["inpainted", "as_painted"]
@@ -57,6 +58,8 @@ func _initialize() -> void:
 			do_cast = true
 		elif a == "--feet":
 			do_feet = true
+		elif a == "--feet-passes":
+			feet_passes = maxi(1, int(nxt))
 		elif a == "--quiet":
 			quiet = true
 		elif a == "--no-pen":
@@ -492,27 +495,33 @@ func _feet() -> void:
 	for nm in ["LeftFoot", "LeftToeBase", "RightFoot", "RightToeBase"]:
 		bones[nm] = sk.find_bone(nm)
 	var out := {"who": scene.who, "knight_md5": FileAccess.get_md5("res://scripts/knight.gd").substr(0, 8)}
+	out["passes"] = feet_passes
 	for gait in [["walk", false], ["run", true]]:
-		scene.place_knight(-5.0, -2.0, "E")
-		for i in 20:
-			k.drive_dir(Vector2.ZERO, false, DT)
-			await physics_frame
-		k.set_physics_process(false)
+		# pass 0 is T12_10's measure exactly (east from u -5); further passes alternate west and
+		# east across the same strip and pool their frames (a pass's first pair is never paired
+		# with the last pass's end: its clock restarts, and _feet_stats skips dt <= 0)
 		var rows := []
-		var t := 0.0
-		while t < 6.0 and scene.knight_uv().x < 5.0:
-			k.drive_dir(Vector2(1, 0), bool(gait[1]), DT)
-			await physics_frame
-			t += DT
-			if t < 0.8:
-				continue
-			var fr := {"t": t, "body": k.global_position}
-			for nm in bones:
-				fr[nm] = (sk.global_transform * sk.get_bone_global_pose(bones[nm])).origin
-			rows.append(fr)
-		k.set_physics_process(true)
-		for i in 20:
-			await physics_frame
+		for pass_i in feet_passes:
+			var east := pass_i % 2 == 0
+			scene.place_knight(-5.0 if east else 5.0, -2.0, "E" if east else "W")
+			for i in 20:
+				k.drive_dir(Vector2.ZERO, false, DT)
+				await physics_frame
+			k.set_physics_process(false)
+			var t := 0.0
+			while t < 6.0 and (scene.knight_uv().x < 5.0 if east else scene.knight_uv().x > -5.0):
+				k.drive_dir(Vector2(1 if east else -1, 0), bool(gait[1]), DT)
+				await physics_frame
+				t += DT
+				if t < 0.8:
+					continue
+				var fr := {"t": t, "body": k.global_position}
+				for nm in bones:
+					fr[nm] = (sk.global_transform * sk.get_bone_global_pose(bones[nm])).origin
+				rows.append(fr)
+			k.set_physics_process(true)
+			for i in 20:
+				await physics_frame
 		out[String(gait[0])] = _feet_stats(rows)
 	rep["feet"] = out
 	print("[painted] feet " + JSON.stringify(out))

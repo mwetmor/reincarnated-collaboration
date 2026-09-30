@@ -232,7 +232,17 @@ echo "   launch (sorceress): $(echo "$SLINE" | cut -c1-160)"
 echo "$SLINE" | grep -q "who=sorceress" && echo "$SLINE" | grep -q "files_sha_ok=28/28" \
   && ck 0 "?c=sorceress: she walks the same painted Barrow, every painted file read and matched" || ck 1 "?c=sorceress did not build"
 echo "$SLINE" | grep -q "sorceress_tree=valid" && ck 0 "her animation tree valid (clipless nodes filled: $(echo "$SLINE" | sed -n 's/.*clipless=\([^ ]*\).*/\1/p'))" || ck 1 "her animation tree"
-echo "$SLINE" | grep -q "spells=placeholder:cast_fireball@0.9167,cast_meteor@1.625" && ck 0 "her placeholder spells armed at both releases" || ck 1 "her placeholder spells"
+# the releases the fence expects are HER PACKAGE'S (casts.<clip>.release_s in the installed
+# character_sorceress.json), never a number written here: v2 moved them (0.9167 -> 0.9333, 1.625 -> 1.6333)
+WANT_SPELLS=$(python3 - "$SRC/data/character_sorceress.json" <<'SPELLS'
+import json, sys
+casts = json.load(open(sys.argv[1]))["casts"]
+# as spell_fx.gd reads them: every clip key not starting with "_", by its slot
+by_slot = {c["slot"]: dict(c, clip=k) for k, c in casts.items() if not k.startswith("_") and isinstance(c, dict)}
+print("spells=placeholder:" + ",".join("%s@%s" % (by_slot[s]["clip"], by_slot[s]["release_s"]) for s in ("attack", "chop")))
+SPELLS
+)
+echo "$SLINE" | grep -q "$WANT_SPELLS" && ck 0 "her placeholder spells armed at both releases ($WANT_SPELLS, from her package)" || ck 1 "her placeholder spells (wanted $WANT_SPELLS)"
 if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log"; then
   ck 1 "her launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log" | head -12 >&2
 else
