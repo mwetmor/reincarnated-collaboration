@@ -1,5 +1,5 @@
 {
- "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2) + JOIN-1 pack review fixes (2026-09-30: the run and the walk re-cut on their source cycles; a staff layer on hit)",
+ "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2) + JOIN-1 pack review fixes (2026-09-30: the run re-cut on its source cycle; a staff layer on hit)",
  "body": "so-body.glb",
  "height_m": 1.7,
  "height_note": "authored at 1.70 m, 0.92x the barbarian's 1.85 m. If the scene normalises each character to a fixed pixel height she will read as tall as him -- apply the BARBARIAN's world factor to her too so the difference survives.",
@@ -38,60 +38,9 @@
  "locomotion_in_place": {
   "rule": "locomotion ships IN PLACE. Drive her at the FOOT-LOCK speed: the speed that holds the planted foot still.",
   "walk": {
-   "seconds": 0.9667,
-   "speed_m_s": 1.471,
-   "planted_intervals": 32,
-   "recut": {
-    "why": "the run's merge window again, showing as a HITCH rather than a seam: the shipped walk held the source's first pose for one 30 fps source frame, so its first key interval played at a fifth of real speed once per cycle -- driven at the foot-lock speed, her planted foot skated there. Found with the run's fix; dispatched by the conductor",
-    "cause": "the D7 merge sampled Blender frames 0..24 at 24 fps from a source keyed at 30 fps whose cycle runs from its first key to its 30th and closes there. It began one source frame early (a clamped hold on the first key) and ended exactly at the close, so the loop closed and the hold hid inside the first interval",
-    "fix": "scripts/s17_run_cycle.py --clip walk: re-cut on the source's own cycle, as the run. Every channel is classified against the export first: 70 faithful to the source, the Hips translation's constant re-ground offset re-applied, and the Hips SCALE kept at the export's 1 -- Meshy's walk carries a constant 1.1765 there, which the D7 hygiene stripped (clip_hygiene), and copying the source would have undone it. Every other clip, mesh and joint byte-identical (checked). The export as it stood after the run's re-cut, old walk included, is kept in export_p4run/",
-    "was": {
-     "duration": 1.0,
-     "keys": 25,
-     "key_rate_fps": 24,
-     "foot_lock_speed": 1.449,
-     "planted_intervals": 26,
-     "first_interval_speed": 0.201
-    },
-    "now": {
-     "duration": 0.9667,
-     "keys": 30,
-     "key_rate_fps": 30,
-     "source_cycle": [
-      0.0333,
-      1.0
-     ],
-     "first_interval_speed": 1.0
-    },
-    "channels_classified": {
-     "hips offset": 1,
-     "faithful": 70,
-     "export constant": 1
-    },
-    "closure_before": {
-     "T_s": 1.0,
-     "joints": 26,
-     "worst_joint": "RightToeBase",
-     "worst_joint_m": 2.8e-05,
-     "worst_rot_joint": "RightFoot",
-     "worst_rot_deg": 0.0107,
-     "hips_m": 1e-06,
-     "hips_rot_deg": 0.0001
-    },
-    "closure_after": {
-     "T_s": 0.966667,
-     "joints": 26,
-     "worst_joint": "LeftToeBase",
-     "worst_joint_m": 0.0,
-     "worst_rot_joint": "weapon_r",
-     "worst_rot_deg": 0.0,
-     "hips_m": 0.0,
-     "hips_rot_deg": 0.0
-    },
-    "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
-    "fidelity": "the re-cut walk IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all 30 (s16, aligned one source frame in)",
-    "foot_lock_sampling": "at the clip's own keys (s6_footlock), 32 planted intervals. Dense 480 fps sampling gives 1.463 now and 1.410 before -- the held first interval pulled the old median down. Meshy's own file reads 1.720 because it still carries the 1.1765 Hips scale: 1.720 / 1.1765 = 1.462 (work/s17_walk_footlock_check.json)"
-   }
+   "seconds": 1.0,
+   "speed_m_s": 1.449,
+   "planted_intervals": 26
   },
   "run": {
    "seconds": 0.7333,
@@ -726,8 +675,8 @@
     "staff_in_body_by_part": {}
    },
    "walk": {
-    "tilt_max_deg": 5.95,
-    "tip_path_px_worst": 46.6,
+    "tilt_max_deg": 5.92,
+    "tip_path_px_worst": 47.4,
     "staff_in_body": 0,
     "staff_in_body_by_part": {}
    },
@@ -752,7 +701,7 @@
      "RightUpLeg": 5
     }
    },
-   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; the run and the walk re-measured on their re-cut clips (2026-09-30): work/s17_run_staff.json, work/s17_walk_staff.json",
+   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; the run re-measured on its re-cut clip (2026-09-30): work/s17_run_staff.json",
    "hit_chest_arm": {
     "tilt_max_deg": 8.25,
     "tilt_mean_deg": 3.85,
@@ -918,9 +867,9 @@
    "walk": {
     "source": "walk.glb",
     "source_clip": "Armature|Walking_Woman|baselayer",
-    "times": 30,
-    "time_shift_s": 0.0333,
-    "err_max": 0.0,
+    "times": 25,
+    "time_shift_s": 0.0,
+    "err_max": 0.0001,
     "err_median_of_frame_max": 0.0
    },
    "run": {
@@ -1038,191 +987,7 @@
    "pass 1's '2x' was a lanczos enlargement of the 1x pixels, not a 2x render",
    "pass 1 was captured through a window this display cannot open at 1080 rows; its scale was not verified then and is not claimed now"
   ],
-  "recut_note": "filmed with the pre-re-cut run and walk clips and their speeds (plan); see locomotion_in_place.run.recut and locomotion_in_place.walk.recut"
+  "run_note": "filmed with the pre-re-cut run clip and its speed (plan[2]); see locomotion_in_place.run.recut"
  },
- "fps_note": "every clip is keyed at 24 fps EXCEPT the run and the walk, which since their 2026-09-30 re-cuts carry Meshy's own 30 fps keys (22 and 29 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 or 23.2 frames long, and the source's keys close it exactly",
- "clip_windows": {
-  "method": "scripts/s17_clip_windows.py: each shipped clip's key window against its Meshy source -- the time map MEASURED (joints in the hips' frame, export against source at both candidate alignments), the hold at the start, the share of the first key interval that moves, the cut at the end, and loop closure. After the walk's re-cut: work/s17_clip_windows.json; before it: work/s17_clip_windows_before.json",
-  "decision": "the run and the walk were re-cut (they loop, and it showed); the idle, hit, death and both casts keep the merge's window -- the idle's is sub-millimetre and a one-shot's held first interval is harmless (conductor, 2026-09-30). Recorded here and carried into the JOIN-1 index as state notes, so the next reader does not re-find them",
-  "clips": {
-   "idle": {
-    "source": "idle11.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 2.3333,
-     "count": 57,
-     "fps": 24.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 2.3667,
-     "count": 71,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.0,
-     "0.0333": 0.0026
-    },
-    "alignment": "shipped time = source time (the D7 merge)",
-    "hold_at_start": 0.0333,
-    "cut_at_end": 0.0333,
-    "first_interval_s": 0.0417,
-    "first_interval_speed": 0.201,
-    "closure_worst_joint_m": 0.00057,
-    "note": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame before its motion starts, and the clip ends one source frame before its source's cycle closes. The idle moves so little that neither shows: the loop closes to 0.6 mm (in-figure closure about 2). Left as is by decision (conductor, 2026-09-30)."
-   },
-   "walk": {
-    "source": "walk.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 0.9667,
-     "count": 30,
-     "fps": 30.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 1.0,
-     "count": 30,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.1116,
-     "0.0333": 0.0
-    },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "closure_worst_joint_m": 0.0,
-    "note": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py --clip walk): no hold, and the loop closes exactly. The old walk held its first pose for one source frame, playing its first key interval at a fifth of real speed once per cycle (a hitch; see locomotion_in_place.walk.recut)."
-   },
-   "run": {
-    "source": "run.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 0.7333,
-     "count": 23,
-     "fps": 30.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 0.7667,
-     "count": 23,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.2675,
-     "0.0333": 0.0
-    },
-    "alignment": "re-cut: shipped 0 = the source's first key",
-    "hold_at_start": 0.0,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0333,
-    "first_interval_speed": 1.0,
-    "closure_worst_joint_m": 0.0,
-    "note": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py): no hold, and the loop closes exactly. The old run began one source frame early and stopped half a frame short of its close, so it popped at the wrap (see locomotion_in_place.run.recut)."
-   },
-   "hit": {
-    "source": "hit.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 1.6667,
-     "count": 41,
-     "fps": 24.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 1.6667,
-     "count": 50,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.0,
-     "0.0333": 0.1013
-    },
-    "alignment": "shipped time = source time (the D7 merge)",
-    "hold_at_start": 0.0333,
-    "cut_at_end": 0.0,
-    "first_interval_s": 0.0417,
-    "first_interval_speed": 0.201,
-    "note": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame, so the shipped clip's first key interval plays at a fifth of real speed before the reaction runs at full speed. Harmless in a one-shot; left as is by decision (conductor, 2026-09-30)."
-   },
-   "death": {
-    "source": "death.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 2.25,
-     "count": 55,
-     "fps": 24.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 2.2667,
-     "count": 68,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.0,
-     "0.0333": 0.0333
-    },
-    "alignment": "shipped time = source time (the D7 merge)",
-    "hold_at_start": 0.0333,
-    "cut_at_end": 0.0167,
-    "first_interval_s": 0.0417,
-    "first_interval_speed": 0.201,
-    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed), and the clip ends half a source frame before its source's last key, where she already lies still. Harmless; left as is by decision (conductor, 2026-09-30)."
-   },
-   "cast_fireball": {
-    "source": "cast132.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 3.3333,
-     "count": 81,
-     "fps": 24.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 3.3667,
-     "count": 101,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.0,
-     "0.0333": 0.0382
-    },
-    "alignment": "shipped time = source time (the D7 merge)",
-    "hold_at_start": 0.0333,
-    "cut_at_end": 0.0333,
-    "first_interval_s": 0.0417,
-    "first_interval_speed": 0.201,
-    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s is measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the conductor's list; left as is."
-   },
-   "cast_meteor": {
-    "source": "cast127.glb",
-    "export_keys": {
-     "first": 0.0,
-     "last": 3.0,
-     "count": 73,
-     "fps": 24.0
-    },
-    "source_keys": {
-     "first": 0.0333,
-     "last": 3.0333,
-     "count": 91,
-     "fps": 30.0
-    },
-    "alignment_error_by_shift": {
-     "0.0000": 0.0,
-     "0.0333": 0.0522
-    },
-    "alignment": "shipped time = source time (the D7 merge)",
-    "hold_at_start": 0.0333,
-    "cut_at_end": 0.0333,
-    "first_interval_s": 0.0417,
-    "first_interval_speed": 0.201,
-    "note": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s is measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the conductor's list; left as is."
-   }
-  }
- }
+ "fps_note": "every clip is keyed at 24 fps EXCEPT the run, which since the 2026-09-30 re-cut carries Meshy's own 30 fps keys (22 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 frames long, and the source's keys close it exactly"
 }

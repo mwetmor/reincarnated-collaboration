@@ -8,7 +8,9 @@
 #
 # 2026-09-30, the JOIN-1 pack review (conductor): two fixes at the source, folded in at the end -- the run RE-CUT on
 # its source's own cycle (s17_run_cycle.py; its seconds, foot-lock speed and staff acceptance re-measured) and a
-# staff layer on HIT (s17_hit_*.json, s17_hit_flinch.json). History goes in NUMERIC fields: 48_manifest_lint reads
+# staff layer on HIT (s17_hit_*.json, s17_hit_flinch.json). Then the WALK re-cut the same way (s17_run_cycle.py
+# --clip walk), and every clip's window on its source measured and noted (s17_clip_windows.py -> clip_windows).
+# History goes in NUMERIC fields: 48_manifest_lint reads
 # every "<n> s" and "<n> m/s" in prose under a clip's path as a claim about the clip AS SHIPPED.
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -45,6 +47,7 @@ m["idle_swap"] = {
 cs = {k: v for k, v in acc.items()}
 # the run was re-cut (s17_run_cycle.py): its row is re-measured on the re-cut clip, same instrument, same carry
 cs["run"] = J("s17_run_staff.json")["run"]
+cs["walk"] = J("s17_walk_staff.json")["walk"]                    # and the walk, re-cut after it (same instrument)
 def row(key):
     r = cs[key]
     return dict(tilt_max_deg=r["tilt_max_deg"], tip_path_px_worst=r["tip_path_px_worst"],
@@ -109,7 +112,8 @@ m["staff_hold"] = {
         "cast_fireball_arm_only": row("cast_fireball (STAFF ARM carry only)"),
         "cast_meteor": row("cast_meteor (raw clip, no carry)"),
         "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; "
-                  "the run re-measured on its re-cut clip (2026-09-30): work/s17_run_staff.json",
+                  "the run and the walk re-measured on their re-cut clips (2026-09-30): work/s17_run_staff.json, "
+                  "work/s17_walk_staff.json",
     },
     "meteor": {
         "intent": "unchanged: Meshy 127, she raises the staff and drives it down; release_s unchanged",
@@ -200,7 +204,7 @@ m["film_pass2"] = {
 }
 
 # ---- JOIN-1 pack review (conductor, 2026-09-30): the run's loop seam and hit's staff, fixed at the source ----
-m["character"] = m["character"] + " + JOIN-1 pack review fixes (2026-09-30: the run re-cut on its source cycle; a staff layer on hit)"
+m["character"] = m["character"] + " + JOIN-1 pack review fixes (2026-09-30: the run and the walk re-cut on their source cycles; a staff layer on hit)"
 rc, flr = J("s17_run_cycle.json"), J("s17_run_footlock.json")["clips"]["run"]
 cb, ca = J("s17_closure_before.json")["run"], J("s17_closure_after.json")["run"]
 fck = J("s17_footlock_check.json")
@@ -239,9 +243,11 @@ m["locomotion_in_place"]["run"] = {
                               % (now["at_24fps"]["speed_m_s"], now["dense_480"]["speed_m_s"], was["dense_480"]["speed_m_s"]),
     },
 }
-m["fps_note"] = ("every clip is keyed at 24 fps EXCEPT the run, which since the 2026-09-30 re-cut carries Meshy's own 30 fps "
-                 "keys (22 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 frames long, and the source's keys close it exactly")
-m["film_pass2"]["run_note"] = "filmed with the pre-re-cut run clip and its speed (plan[2]); see locomotion_in_place.run.recut"
+m["fps_note"] = ("every clip is keyed at 24 fps EXCEPT the run and the walk, which since their 2026-09-30 re-cuts carry Meshy's "
+                 "own 30 fps keys (22 and 29 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 or 23.2 frames long, "
+                 "and the source's keys close it exactly")
+m["film_pass2"]["recut_note"] = ("filmed with the pre-re-cut run and walk clips and their speeds (plan); see "
+                                  "locomotion_in_place.run.recut and locomotion_in_place.walk.recut")
 
 hl, hf, ha, hc = J("s17_hit_layers.json"), J("s17_hit_full.json"), J("s17_hit_armonly.json"), J("s17_hit_spine02arm.json")
 flin, iref = J("s17_hit_flinch.json")["options"], J("s17_idle_ref.json")["idle"]
@@ -281,6 +287,85 @@ ch["hit_layer_choice"] = {
 }
 m["staff_hold"]["acceptance"]["hit_chest_arm"] = {k: opts["chest_arm"][k] for k in ("tilt_max_deg", "tilt_mean_deg", "staff_in_body", "staff_in_body_by_part", "tip_path_px_worst")}
 m["staff_hold"]["acceptance"]["hit_note"] = "hit is a one-shot and is not held to the loop rule; measured against the idle carry's lean (carry_layer.hit_layer_choice)"
+
+# ---- the WALK (conductor, 2026-09-30, after the pack review): the same merge window, re-cut the same way ----
+wc, flw = J("s17_walk_cycle.json"), J("s17_walk_footlock.json")["clips"]["walk"]
+wcb, wca = J("s17_walk_closure_before.json")["walk"], J("s17_walk_closure_after.json")["walk"]
+wfk = J("s17_walk_footlock_check.json")
+wwas = next(v["walk"] for k, v in wfk.items() if k.startswith("export_p4run/"))
+wnow = next(v["walk"] for k, v in wfk.items() if k.startswith("export/"))
+wsrc = next(v["walk"] for k, v in wfk.items() if k.startswith("anims/"))
+cw, cwb = J("s17_clip_windows.json"), J("s17_clip_windows_before.json")
+m["locomotion_in_place"]["walk"] = {
+    "seconds": round(wc["new"]["duration_s"], 4),
+    "speed_m_s": flw["foot_lock_speed_m_s"],
+    "planted_intervals": flw["planted_intervals"],
+    "recut": {
+        "why": "the run's merge window again, showing as a HITCH rather than a seam: the shipped walk held the source's first pose "
+               "for one 30 fps source frame, so its first key interval played at a fifth of real speed once per cycle -- driven "
+               "at the foot-lock speed, her planted foot skated there. Found with the run's fix; dispatched by the conductor",
+        "cause": "the D7 merge sampled Blender frames 0..24 at 24 fps from a source keyed at 30 fps whose cycle runs from its "
+                 "first key to its 30th and closes there. It began one source frame early (a clamped hold on the first key) and "
+                 "ended exactly at the close, so the loop closed and the hold hid inside the first interval",
+        "fix": "scripts/s17_run_cycle.py --clip walk: re-cut on the source's own cycle, as the run. Every channel is classified "
+               "against the export first: %d faithful to the source, the Hips translation's constant re-ground offset re-applied, "
+               "and the Hips SCALE kept at the export's 1 -- Meshy's walk carries a constant 1.1765 there, which the D7 hygiene "
+               "stripped (clip_hygiene), and copying the source would have undone it. Every other clip, mesh and joint "
+               "byte-identical (checked). The export as it stood after the run's re-cut, old walk included, is kept in "
+               "export_p4run/" % wc["channels_classified"]["counts"].get("faithful", 0),
+        "was": {"duration": 1.0, "keys": 25, "key_rate_fps": 24, "foot_lock_speed": wwas["at_keys"]["speed_m_s"],
+                "planted_intervals": wwas["at_keys"]["intervals"], "first_interval_speed": cwb["walk"]["first_interval_speed"]},
+        "now": {"duration": round(wc["new"]["duration_s"], 4), "keys": wc["new"]["keys"], "key_rate_fps": 30,
+                "source_cycle": wc["source"]["cycle_s"], "first_interval_speed": cw["walk"]["first_interval_speed"]},
+        "channels_classified": wc["channels_classified"]["counts"],
+        "closure_before": wcb, "closure_after": wca,
+        "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
+        "fidelity": "the re-cut walk IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all %d (s16, aligned one "
+                    "source frame in)" % wc["new"]["keys"],
+        "foot_lock_sampling": "at the clip's own keys (s6_footlock), %d planted intervals. Dense 480 fps sampling gives %.3f now "
+                              "and %.3f before -- the held first interval pulled the old median down. Meshy's own file reads "
+                              "%.3f because it still carries the 1.1765 Hips scale: %.3f / 1.1765 = %.3f "
+                              "(work/s17_walk_footlock_check.json)"
+                              % (flw["planted_intervals"], wnow["dense_480"]["speed_m_s"], wwas["dense_480"]["speed_m_s"],
+                                 wsrc["at_keys"]["speed_m_s"], wsrc["at_keys"]["speed_m_s"], wsrc["at_keys"]["speed_m_s"] / 1.1765),
+    },
+}
+WNOTE = {
+    "idle": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame before its motion starts, "
+            "and the clip ends one source frame before its source's cycle closes. The idle moves so little that neither shows: "
+            "the loop closes to 0.6 mm (in-figure closure about 2). Left as is by decision (conductor, 2026-09-30).",
+    "walk": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py --clip walk): no hold, and the loop closes exactly. "
+            "The old walk held its first pose for one source frame, playing its first key interval at a fifth of real speed "
+            "once per cycle (a hitch; see locomotion_in_place.walk.recut).",
+    "run": "Re-cut on its source's own cycle (2026-09-30, s17_run_cycle.py): no hold, and the loop closes exactly. The old run "
+           "began one source frame early and stopped half a frame short of its close, so it popped at the wrap (see "
+           "locomotion_in_place.run.recut).",
+    "hit": "Keeps the D7 merge's window: the source's first pose is held for one 30 fps source frame, so the shipped clip's "
+           "first key interval plays at a fifth of real speed before the reaction runs at full speed. Harmless in a one-shot; "
+           "left as is by decision (conductor, 2026-09-30).",
+    "death": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval at a fifth "
+             "of real speed), and the clip ends half a source frame before its source's last key, where she already lies "
+             "still. Harmless; left as is by decision (conductor, 2026-09-30).",
+    "cast_fireball": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval "
+                     "at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s "
+                     "is measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the "
+                     "conductor's list; left as is.",
+    "cast_meteor": "Keeps the D7 merge's window: the first pose is held for one 30 fps source frame (the first key interval "
+                   "at a fifth of real speed) and the clip ends one source frame before its source's last key. release_s is "
+                   "measured on the shipped clip, so the release is unaffected. Found with the walk's re-cut, not in the "
+                   "conductor's list; left as is.",
+}
+m["clip_windows"] = {
+    "method": "scripts/s17_clip_windows.py: each shipped clip's key window against its Meshy source -- the time map MEASURED "
+              "(joints in the hips' frame, export against source at both candidate alignments), the hold at the start, the "
+              "share of the first key interval that moves, the cut at the end, and loop closure. After the walk's re-cut: "
+              "work/s17_clip_windows.json; before it: work/s17_clip_windows_before.json",
+    "decision": "the run and the walk were re-cut (they loop, and it showed); the idle, hit, death and both casts keep the "
+                "merge's window -- the idle's is sub-millimetre and a one-shot's held first interval is harmless (conductor, "
+                "2026-09-30). Recorded here and carried into the JOIN-1 index as state notes, so the next reader does not "
+                "re-find them",
+    "clips": {c: dict(cw[c], note=WNOTE[c]) for c in cw},
+}
 json.dump(m, open(os.path.join(ROOT, "export", "manifest.json"), "w"), indent=1)
 print("wrote export/manifest.json: staff acceptance %s; speckles isolated pale px %s; lint %s"
       % (m["staff_hold"]["acceptance"]["verdict"], tot, lint["verdict"]))

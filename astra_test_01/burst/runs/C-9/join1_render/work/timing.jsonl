@@ -8,3 +8,7 @@
 {"ev": "end", "step": "J1-rerender-d2-fire-sorc", "t": 1790753696.89753, "note": "5-cell spot render of unchanged cells (68 of 70 files byte-identical; idle_S_00 differs in 119 px by <=3/255 and idle_S_06 in 1 px by 1, alpha identical: first-cell GPU warm-up) + the 16 cells: 160 frames + 8 run closure frames"}
 {"ev": "start", "step": "J1-reindex-d2-fire-sorc", "t": 1790754043.5012438, "note": "re-index + re-lint the WHOLE pack from the files (merged raw: 40 p1 cells + 16 p2), contact sheet"}
 {"ev": "end", "step": "J1-reindex-d2-fire-sorc", "t": 1790754053.543215, "note": "matrix_index.json from the files"}
+{"ev": "start", "step": "J1-rerender-walk-d2-fire-sorc", "t": 1790754816.454978, "note": "walk only (8 cells) after its re-cut (so_d7 s17_run_cycle --clip walk); a spot render of 4 unchanged cells first (plus a sacrificial first cell for GPU warm-up), to scratch"}
+{"ev": "end", "step": "J1-rerender-walk-d2-fire-sorc", "t": 1790754834.943956, "note": "spot render: 4 unchanged cells + their 3 closure frames byte-identical (the sacrificial first cell, idle/S, differs in 1 of 12 frames: GPU warm-up again); then the 8 walk cells, 96 frames + 8 closure frames"}
+{"ev": "start", "step": "J1-reindex-walk-d2-fire-sorc", "t": 1790754858.802476, "note": "re-index + re-lint the WHOLE pack from the files (32 p1 + 16 p2 + 8 p3 cells), state notes from the manifest's clip_windows, contact sheet"}
+{"ev": "end", "step": "J1-reindex-walk-d2-fire-sorc", "t": 1790754869.472118, "note": "matrix_index.json from the files; 56/56"}

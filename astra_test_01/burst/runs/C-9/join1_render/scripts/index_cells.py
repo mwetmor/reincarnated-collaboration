@@ -47,6 +47,9 @@ for st, sd in kit["states"].items():
                hold_last=bool(sd.get("hold_last", False)), closure_mad=None)
     if sd.get("skill"):
         rec["skill"] = sd["skill"]
+    if sd.get("notes_from"):
+        # facts about the clip AS SHIPPED that a reader would otherwise re-find (the kit names manifest paths)
+        rec["notes"] = [mget(p_) for p_ in sd["notes_from"]]
     if sd.get("stride_from"):
         loco = mget(sd["stride_from"])
         rec["stride_m_per_cycle"] = round(float(loco["speed_m_s"]) * T, 4)

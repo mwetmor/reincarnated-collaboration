@@ -1,0 +1,173 @@
+{
+ "idle": {
+  "source": "idle11.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 2.3333,
+   "count": 57,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 2.3667,
+   "count": 71,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.0026
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0333,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201,
+  "closure_worst_joint_m": 0.00057
+ },
+ "walk": {
+  "source": "walk.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 1.0,
+   "count": 25,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 1.0,
+   "count": 30,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.1065
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201,
+  "closure_worst_joint_m": 3e-05
+ },
+ "run": {
+  "source": "run.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 0.7333,
+   "count": 23,
+   "fps": 30.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 0.7667,
+   "count": 23,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.2675,
+   "0.0333": 0.0
+  },
+  "alignment": "re-cut: shipped 0 = the source's first key",
+  "hold_at_start": 0.0,
+  "cut_at_end": 0.0,
+  "first_interval_s": 0.0333,
+  "first_interval_speed": 1.0,
+  "closure_worst_joint_m": 0.0
+ },
+ "hit": {
+  "source": "hit.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 1.6667,
+   "count": 41,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 1.6667,
+   "count": 50,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.1013
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201
+ },
+ "death": {
+  "source": "death.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 2.25,
+   "count": 55,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 2.2667,
+   "count": 68,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.0333
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0167,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201
+ },
+ "cast_fireball": {
+  "source": "cast132.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 3.3333,
+   "count": 81,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 3.3667,
+   "count": 101,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.0382
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0333,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201
+ },
+ "cast_meteor": {
+  "source": "cast127.glb",
+  "export_keys": {
+   "first": 0.0,
+   "last": 3.0,
+   "count": 73,
+   "fps": 24.0
+  },
+  "source_keys": {
+   "first": 0.0333,
+   "last": 3.0333,
+   "count": 91,
+   "fps": 30.0
+  },
+  "alignment_error_by_shift": {
+   "0.0000": 0.0,
+   "0.0333": 0.0522
+  },
+  "alignment": "shipped time = source time (the D7 merge)",
+  "hold_at_start": 0.0333,
+  "cut_at_end": 0.0333,
+  "first_interval_s": 0.0417,
+  "first_interval_speed": 0.201
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "base": {
+  "pass": "p1",
+  "ts": "2026-09-30T03:12:45-0400",
+  "tool_sha256": "b82ac6887679680a42fd4da948cfd252906c82d9d4342ec00d1be49f8445d8a5",
+  "kit_config_sha256": "d4c580b1f4fef39a12aa951ea09868f72672f32efc89563ee37399dabaaf33ab",
+  "body_glb_sha256": "c78fbd34ff919176b54b8c048357729bcc7bf60d2ae7538a6c6ec65bb190e8f9",
+  "clip_manifest_sha256": "d8e0e3fcf477c2bf9b5f993ab7b6c8b4141bce269dd1a2a1d5db8e2f981cf1d0",
+  "what": "the first render of the whole pack (c7b4369ec)"
+ },
+ "new": {
+  "pass": "p3",
+  "ts": "2026-09-30T03:53:54-0400",
+  "tool_sha256": "b82ac6887679680a42fd4da948cfd252906c82d9d4342ec00d1be49f8445d8a5",
+  "kit_config_sha256": "b3d9c5de86884894e9894fc5d074b5b0350cd4a3b9a0ef6223f8eec97ee9a897",
+  "body_glb_sha256": "88175f83247429aa9cbf48e03ccdbf22ac0f99b3820709f33ca259d4de60efd6",
+  "clip_manifest_sha256": "24ffccf4892b26aa8c6b21eef3ba6cc7bc8d916508b0bbb538e984b49554618c",
+  "what": "after the walk's re-cut (conductor, 2026-09-30): so_d7 s17_run_cycle.py --clip walk -- 0.9667 s on its source's own cycle, no held first interval, closes exactly. ONLY walk/* re-rendered; every other cell is p1's or p2's, and a spot render of 4 of them from the p3 sources reproduced all 48 frames and 3 closure frames byte-for-byte (a sacrificial first cell absorbed the GPU warm-up: 1 of its 12 frames differed). The kit's only change since p2 is notes_from (index notes), which the renderer does not read"
+ }
+}

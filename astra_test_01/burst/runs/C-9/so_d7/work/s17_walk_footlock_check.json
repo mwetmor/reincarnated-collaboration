@@ -1,0 +1,101 @@
+{
+ "export_p4run/so-body.glb": {
+  "walk": {
+   "T_s": 1.0,
+   "keys": 25,
+   "at_keys": {
+    "speed_m_s": 1.449,
+    "intervals": 26,
+    "iqr_m_s": 0.584,
+    "per_foot": {
+     "LeftFoot": 1.366,
+     "RightFoot": 1.511
+    }
+   },
+   "at_24fps": {
+    "speed_m_s": 1.449,
+    "intervals": 26,
+    "iqr_m_s": 0.584,
+    "per_foot": {
+     "LeftFoot": 1.366,
+     "RightFoot": 1.511
+    }
+   },
+   "dense_480": {
+    "speed_m_s": 1.41,
+    "intervals": 554,
+    "iqr_m_s": 0.62,
+    "per_foot": {
+     "LeftFoot": 1.329,
+     "RightFoot": 1.5
+    }
+   }
+  }
+ },
+ "export/so-body.glb": {
+  "walk": {
+   "T_s": 0.9667,
+   "keys": 30,
+   "at_keys": {
+    "speed_m_s": 1.471,
+    "intervals": 32,
+    "iqr_m_s": 0.522,
+    "per_foot": {
+     "LeftFoot": 1.396,
+     "RightFoot": 1.518
+    }
+   },
+   "at_24fps": {
+    "speed_m_s": 1.432,
+    "intervals": 25,
+    "iqr_m_s": 0.515,
+    "per_foot": {
+     "LeftFoot": 1.4,
+     "RightFoot": 1.506
+    }
+   },
+   "dense_480": {
+    "speed_m_s": 1.463,
+    "intervals": 541,
+    "iqr_m_s": 0.544,
+    "per_foot": {
+     "LeftFoot": 1.374,
+     "RightFoot": 1.513
+    }
+   }
+  }
+ },
+ "anims/walk.glb": {
+  "walk": {
+   "T_s": 1.0,
+   "keys": 30,
+   "at_keys": {
+    "speed_m_s": 1.72,
+    "intervals": 33,
+    "iqr_m_s": 0.585,
+    "per_foot": {
+     "LeftFoot": 1.648,
+     "RightFoot": 1.773
+    }
+   },
+   "at_24fps": {
+    "speed_m_s": 1.705,
+    "intervals": 25,
+    "iqr_m_s": 0.551,
+    "per_foot": {
+     "LeftFoot": 1.667,
+     "RightFoot": 1.773
+    }
+   },
+   "dense_480": {
+    "speed_m_s": 1.701,
+    "intervals": 544,
+    "iqr_m_s": 0.592,
+    "per_foot": {
+     "LeftFoot": 1.642,
+     "RightFoot": 1.766
+    }
+   }
+  }
+ }
+}

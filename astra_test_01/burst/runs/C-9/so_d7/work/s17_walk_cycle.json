@@ -1,0 +1,56 @@
+{
+ "clip": "walk",
+ "cause": "the D7 merge cut 0.0000..1.0000 (25 keys at 24 fps) from a source whose cycle is 0.0333..1.0000 (30 keys at 30 fps) and closes there: it began 0.0333 before the source's first key (a clamped hold) and ended exactly at its close",
+ "channels_classified": {
+  "counts": {
+   "hips offset": 1,
+   "faithful": 70,
+   "export constant": 1
+  },
+  "faithful_worst": 0.000902,
+  "tolerance": 0.002,
+  "hips_offset_std_units": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "not_faithful": {
+   "Hips.translation": "hips offset",
+   "Hips.scale": "export constant"
+  }
+ },
+ "source": {
+  "file": "walk.glb",
+  "cycle_s": [
+   0.0333,
+   1.0
+  ],
+  "period_s": 0.9667,
+  "keys": 30
+ },
+ "new": {
+  "duration_s": 0.966667,
+  "keys": 30,
+  "channels": 74
+ },
+ "hips_offset_units": [
+  -2.6343,
+  -14.7582,
+  -2.5697
+ ],
+ "source_cycle_gap_before_snap": 6.9e-05,
+ "other_clips_untouched": [
+  "cast_fireball",
+  "cast_meteor",
+  "death",
+  "hit",
+  "idle",
+  "run",
+  "staff_carry_R"
+ ],
+ "prior_accessors_byte_identical": true,
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

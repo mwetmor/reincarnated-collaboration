@@ -1,6 +1,17 @@
 # THE RUN'S LOOP SEAM, fixed at its source (JOIN-1 pack review, conductor 2026-09-30).
 #
-#   python3 scripts/s17_run_cycle.py <export so-body.glb> <source run.glb> <out so-body.glb> [--json f]
+#   python3 scripts/s17_run_cycle.py <export so-body.glb> <source clip.glb> <out so-body.glb> [--clip run] [--json f]
+#
+# --clip (2026-09-30, the walk dispatch): any in-place loop, not only the run -- the walk carries the same
+# merge window (a clamped hold on the first source key; its cycle is 0.0333 .. 1.0 s, 29 intervals at 30 fps).
+# Each channel is CLASSIFIED against the export before it is re-cut, so the export's hygiene survives:
+#   faithful         the export equals the source over the old window (<= 2e-3): re-cut from the source
+#   hips offset      Hips translation: the export's constant re-ground/recentre offset is re-applied
+#   export constant  constant in BOTH files but different (the walk's Hips SCALE: Meshy's 1.1765, stripped
+#                    to 1 by the D7 hygiene) -- the export's value is kept; copying the source would undo it
+#   anything else    refused: a processing step this script does not know how to carry
+# The run's classes (Hips offset + 71 faithful) take exactly the code path they took before --channel
+# order, values, accessors -- so re-running on export_p2k reproduces the run re-cut byte-for-byte (checked).
 #
 # The seam: rendered at the port's camera, run(T) differed from run(0) by 35.7 in-figure (73% of her
 # pixels) -- joints 4.3 cm and the hips 1.5 deg apart, so the loop popped at the wrap, in the pack
@@ -22,6 +33,7 @@ L = __import__('21_lint_export')
 a = sys.argv[1:]
 EXP, SRC, OUT = a[0], a[1], a[2]
 OUTJ = a[a.index('--json') + 1] if '--json' in a else None
+CLIP = a[a.index('--clip') + 1] if '--clip' in a else 'run'
 js, b0 = L.load_glb(EXP); bn = bytearray(b0)
 sj, sb = L.load_glb(SRC)
 enid = {n.get('name'): i for i, n in enumerate(js['nodes'])}
@@ -54,7 +66,7 @@ def sample(tt, vv, interp, t, path):
     return (1 - w) * v0 + w * v1
 
 
-ean = next(an for an in js['animations'] if an.get('name') == 'run')
+ean = next(an for an in js['animations'] if an.get('name') == CLIP)
 eidx = js['animations'].index(ean)
 # the export's Hips translation offset over the old run (its re-ground/recentre), for the new keys
 old = {}
@@ -66,6 +78,28 @@ ht, hv, _ = old[('Hips', 'translation')]
 st_, sv_, si_ = chan[('Hips', 'translation')]
 offs = np.array([hv[k] - sample(st_, sv_, si_, ht[k], 'translation') for k in range(len(ht))])
 OFF = offs.mean(0)
+TOL = 2e-3
+cls, worst_faithful, refused = {}, 0.0, []
+for (name, path), (tt, vv, interp) in chan.items():
+    if name not in enid:
+        continue
+    if (name, path) not in old:
+        cls[(name, path)] = 'dropped (not in the export)'; continue
+    et, ev, _ = old[(name, path)]
+    sv = np.array([sample(tt, vv, interp, t, path) for t in et])
+    if path == 'rotation':
+        sv = np.array([x if np.dot(x, y) >= 0 else -x for x, y in zip(sv, ev)])
+    d = float(np.abs(ev - sv).max())
+    if (name, path) == ('Hips', 'translation'):
+        cls[(name, path)] = 'hips offset'
+    elif d <= TOL:
+        cls[(name, path)] = 'faithful'; worst_faithful = max(worst_faithful, d)
+    elif float(np.ptp(ev, axis=0).max()) <= 1e-6 and float(np.ptp(vv, axis=0).max()) <= 1e-6:
+        cls[(name, path)] = 'export constant'
+    else:
+        refused.append("%s.%s differs from the source by %.4f and is not constant" % (name, path, d))
+if refused:
+    raise SystemExit("REFUSED -- the export processed these channels in a way this script cannot carry:\n  " + "\n  ".join(refused))
 
 
 def put(data):
@@ -96,9 +130,13 @@ samplers, channels, worst = [], [], 0.0
 for (name, path), (tt, vv, interp) in chan.items():
     if name not in enid:
         continue
+    if cls.get((name, path), '').startswith('dropped'):
+        continue
     vals = np.array([sample(tt, vv, interp, t, path) for t in tsrc])
     if path == 'translation' and name == 'Hips':
         vals = vals + OFF
+    elif cls[(name, path)] == 'export constant':                    # the export's hygiene value, at every new key
+        vals = np.repeat(old[(name, path)][1][:1], len(tsrc), axis=0)
     gap = float(np.max(np.abs(vals[-1] - vals[0]))); worst = max(worst, gap if path != 'rotation' else 0.0)
     vals[-1] = vals[0]                                              # the cycle closes to the bit
     if path == 'rotation':
@@ -113,13 +151,13 @@ for (name, path), (tt, vv, s) in old.items():                       # weapon_r's
             # a Blender re-export (s10_combine) writes them as 2-key CONSTANT tracks over the OLD 0..0.75 s --
             # kept as they are, they would stretch the clip back to 0.75 s. Constant -> one key; else refuse.
             if float(np.ptp(vv, axis=0).max()) > 1e-4:
-                raise SystemExit("%s.%s moves during the run -- not a rest track; refusing to re-time it" % (name, path))
+                raise SystemExit("%s.%s moves during the %s -- not a rest track; refusing to re-time it" % (name, path, CLIP))
             samplers.append(dict(input=add_acc(np.zeros((1, 1)), 'SCALAR', mm=True),
                                  output=add_acc(vv[:1], 'VEC4' if path == 'rotation' else 'VEC3'), interpolation='STEP'))
         else:
             samplers.append(dict(input=s['input'], output=s['output'], interpolation=s.get('interpolation', 'STEP')))
         channels.append(dict(sampler=len(samplers) - 1, target=dict(node=enid[name], path=path)))
-js['animations'][eidx] = dict(name='run', samplers=samplers, channels=channels)
+js['animations'][eidx] = dict(name=CLIP, samplers=samplers, channels=channels)
 while len(bn) % 4: bn.append(0)
 js['buffers'][0]['byteLength'] = len(bn)
 jb = json.dumps(js, separators=(',', ':')).encode(); jb += b' ' * (-len(jb) % 4)
@@ -130,9 +168,24 @@ with open(OUT, 'wb') as f:
 # every accessor that existed before is byte-identical after (the old run's are simply no longer used)
 nj, nb = L.load_glb(OUT)
 same = all(acc_bytes(nj, nb, i) == v for i, v in before.items())
-other = [an['name'] for an in js['animations'] if an['name'] != 'run']
+other = [an['name'] for an in js['animations'] if an['name'] != CLIP]
 Lr = L.lint(OUT)
-rep = dict(cause="the D7 merge cut 0..0.75 s (24 fps frames 0..18) from a source whose cycle is 0.0333..0.7667 s: 1/30 s of clamped hold at the start, 1/60 s short at the end",
+ot = old[('Hips', 'rotation')][0] if ('Hips', 'rotation') in old else next(iter(old.values()))[0]
+efps, sfps = 1.0 / float(np.median(np.diff(ot))), 1.0 / float(np.median(np.diff(tsrc)))
+cause = ("the D7 merge cut %.4f..%.4f (%d keys at %.0f fps) from a source whose cycle is %.4f..%.4f (%d keys at %.0f fps) and "
+         "closes there: it began %.4f before the source's first key (a clamped hold) and ended %s"
+         % (ot.min(), ot.max(), len(ot), efps, T0, T1, len(tsrc), sfps, T0 - ot.min(),
+            ("%.4f before its close" % (T1 - ot.max())) if ot.max() < T1 - 1e-4 else
+            (("%.4f after its close" % (ot.max() - T1)) if ot.max() > T1 + 1e-4 else "exactly at its close")))
+if CLIP == 'run':                                                   # the run's record keeps its first wording
+    cause = "the D7 merge cut 0..0.75 s (24 fps frames 0..18) from a source whose cycle is 0.0333..0.7667 s: 1/30 s of clamped hold at the start, 1/60 s short at the end"
+counts = {}
+for v in cls.values():
+    counts[v] = counts.get(v, 0) + 1
+rep = dict(clip=CLIP, cause=cause,
+           channels_classified=dict(counts=counts, faithful_worst=round(worst_faithful, 6), tolerance=TOL,
+                                    hips_offset_std_units=[round(float(v), 4) for v in offs.std(0)],
+                                    not_faithful={"%s.%s" % k: v for k, v in cls.items() if v != 'faithful'}),
            source=dict(file=os.path.basename(SRC), cycle_s=[round(T0, 4), round(T1, 4)], period_s=round(T1 - T0, 4), keys=len(tsrc)),
            new=dict(duration_s=round(float(tnew[-1]), 6), keys=len(tnew), channels=len(channels)),
            hips_offset_units=[round(float(v), 4) for v in OFF], source_cycle_gap_before_snap=round(worst, 6),

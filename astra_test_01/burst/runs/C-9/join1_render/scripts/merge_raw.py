@@ -22,6 +22,8 @@ prev = b.get("render_passes") or {meta["base"]["pass"]: meta["base"]}
 out["render_passes"] = dict(prev, **{meta["new"]["pass"]: dict(meta["new"], cells=sorted(p["cells"]))})
 for k in out["cells"]:
     out["frames"].extend(out["cells"][k]["t_s"])
+for pn, pm in out["render_passes"].items():                         # how many cells in the pack each render still provides
+    pm["cells_in_pack"] = sum(1 for c in out["cells"].values() if c["render_pass"] == pn)
 json.dump(out, open(OUT, "w"), indent=1)
 n = {}
 for c in out["cells"].values():

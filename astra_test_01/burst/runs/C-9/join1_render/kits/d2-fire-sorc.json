@@ -35,7 +35,10 @@
    "role": "locomotion_idle",
    "frames": 12,
    "sampling": "loop",
-   "manifest_entry": "clip_selection.idle"
+   "manifest_entry": "clip_selection.idle",
+   "notes_from": [
+    "clip_windows.clips.idle.note"
+   ]
   },
   "walk": {
    "clip": "walk",
@@ -44,7 +47,10 @@
    "frames": 12,
    "sampling": "loop",
    "manifest_entry": "locomotion_in_place.walk",
-   "stride_from": "locomotion_in_place.walk"
+   "stride_from": "locomotion_in_place.walk",
+   "notes_from": [
+    "clip_windows.clips.walk.note"
+   ]
   },
   "run": {
    "clip": "run",
@@ -53,7 +59,10 @@
    "frames": 12,
    "sampling": "loop",
    "manifest_entry": "locomotion_in_place.run",
-   "stride_from": "locomotion_in_place.run"
+   "stride_from": "locomotion_in_place.run",
+   "notes_from": [
+    "clip_windows.clips.run.note"
+   ]
   },
   "cast_fireball": {
    "clip": "cast_fireball",
@@ -64,7 +73,10 @@
    "skill": "Skills.txt Id 47 (Fire Ball)",
    "release_from": "casts.cast_fireball.release_s",
    "release_socket": "cast_hand",
-   "manifest_entry": "casts.cast_fireball"
+   "manifest_entry": "casts.cast_fireball",
+   "notes_from": [
+    "clip_windows.clips.cast_fireball.note"
+   ]
   },
   "cast_meteor": {
    "clip": "cast_meteor",
@@ -75,7 +87,10 @@
    "skill": "Skills.txt Id 56 (Meteor)",
    "release_from": "casts.cast_meteor.release_s",
    "release_socket": "cast_hand",
-   "manifest_entry": "casts.cast_meteor"
+   "manifest_entry": "casts.cast_meteor",
+   "notes_from": [
+    "clip_windows.clips.cast_meteor.note"
+   ]
   },
   "hit": {
    "clip": "hit",
@@ -83,7 +98,10 @@
    "role": "oneshot",
    "frames": 8,
    "sampling": "ends",
-   "manifest_entry": "clip_selection.hit"
+   "manifest_entry": "clip_selection.hit",
+   "notes_from": [
+    "clip_windows.clips.hit.note"
+   ]
   },
   "death": {
    "clip": "death",
@@ -92,7 +110,10 @@
    "frames": 16,
    "sampling": "ends",
    "hold_last": true,
-   "manifest_entry": "clip_selection.death"
+   "manifest_entry": "clip_selection.death",
+   "notes_from": [
+    "clip_windows.clips.death.note"
+   ]
   }
  },
  "layers": {
@@ -166,5 +187,6 @@
    "along_bone_m": 0.8765
   }
  },
- "watchdog_s": 2400
+ "watchdog_s": 2400,
+ "_notes_from": "states.<s>.notes_from: manifest paths whose text the indexer copies into matrix_index.json states.<s>.notes (2026-09-30: each clip's window on its Meshy source, so the next reader does not re-find it)"
 }
