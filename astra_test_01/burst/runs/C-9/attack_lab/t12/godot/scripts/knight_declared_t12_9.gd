@@ -23,7 +23,8 @@ const PPM := 100.617553710938
 const CHAR_LAYER := 4
 const WALK_PX_S := 247.0          # parallax.json movement, the Keeper's own
 const RUN_PX_S := 494.0
-const CHARACTER := "res://data/character.json"
+# LAB ONLY (drax, the declared-set filter A/B on the installed T12_9): knight.gd ea761ba8 + declared_filter_patch.py, the character file from KNIGHT_CHARACTER
+var CHARACTER: String = OS.get_environment("KNIGHT_CHARACTER") if OS.has_environment("KNIGHT_CHARACTER") else "res://data/character.json"
 # preloaded rather than referenced by class_name: a global class is only visible once the
 # editor's class cache has been rebuilt, and an exported app that loads before that has a
 # character with no gear and no error anybody sees.
@@ -1300,9 +1301,11 @@ func _read_manifest_speeds() -> Dictionary:
 	a duration that was 19% wrong, then speeds measured by a different method -- and a copy
 	is the thing that goes stale. The manifest travels with the GLB, so it cannot.
 
-	THE FOOT-LOCK SPEED (T12_10, coordinator ruling 2026-09-30): speed_m_s is the ground speed
-	that pins a planted foot, measured on the clip's own keys (nb_d2/scripts/57_footlock.py). The
-	NET / STEPPING pair it replaced is still read if an older manifest carries it (stepping first)."""
+	STEPPING, where the manifest offers it. Net displacement over a whole clip is the wrong
+	number for a blend space whenever the clip has stationary portions: strafe_R's net is
+	0.340 m/s against a stepping 0.536, because it stands still for part of the clip, and a
+	blend space drives the body only while he is travelling. Where there is no stepping
+	figure, `speed_m_s` over one gait cycle is the same quantity."""
 	var out := {}
 	var path := String(cfg.get("gear_manifest", ""))
 	if path == "" or not ResourceLoader.exists(path):
@@ -1320,11 +1323,7 @@ func _read_manifest_speeds() -> Dictionary:
 		var v = (e as Dictionary).get("stepping_speed_m_s", (e as Dictionary).get("speed_m_s", null))
 		if v == null:
 			continue
-		# STATED AT THE REFERENCE SCALE, like every other px/s here (walk_px_s, run_px_s, clip_px_s):
-		# clip_px_s() rescales by _figure_scale / speed_measured_at_scale. PPM alone is figure scale 1.0,
-		# which drove every manifest-priced clip at 0.799 of its speed (T12_10, tools/strafe_probe.gd).
-		var at_ref: float = float(cfg.get("speed_measured_at_scale", 1.0))
-		out[String(name)] = float(v) * PPM * (at_ref if at_ref > 0.0 else 1.0)
+		out[String(name)] = float(v) * PPM
 	if not out.is_empty():
 		print("manifest speeds (canvas px/s at the reference scale): %s" % str(out))
 	return out

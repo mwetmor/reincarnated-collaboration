@@ -93,7 +93,7 @@ func _initialize() -> void:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
 		var r := _hold(st)
 		out["clips"][st] = r
-		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"])])
+		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames | the wrist off its rest (neutral) %.1f / %.1f / %.1f deg (median / p90 / max)" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"]), float(r["wrist_med"]), float(r["wrist_p90"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s guard %3d%% | fist turn %4.1f/%4.1f deg | arc %3.0f-%3.0f px/loop | pen worst %d (%.3f m deep), frames %d of %d %s | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians) | %s %.3f s x%d"
 			% [label, st, int(round(100.0 * float(r["pass_frac"]))), float(r["turn_med"]), float(r["turn_p90"]), float(r["arc_min"]), float(r["arc_max"]),
 			   int(r["pen_max"]), float(r["pen_depth_m"]), int(r["pen_frames"]), int(r["frames"]), JSON.stringify(r["pen_parts"]), float(r["tilt"]), float(r["fwd"]), float(r["out"]),
@@ -418,8 +418,11 @@ func _frame() -> Dictionary:
 	if skel.get_bone_name(ab) == "weapon_r":
 		var loc: Basis = skel.get_bone_pose(ab).basis.orthonormalized()
 		turn = rad_to_deg((loc * Vector3.UP).normalized().angle_to((W_rest.basis.orthonormalized() * Vector3.UP).normalized()))
+	# THE WRIST: the holding hand's local rotation off its rest (the guard's neutral wrist is the rest)
+	var hb := skel.get_bone_parent(ab)
+	var wrist := rad_to_deg(skel.get_bone_pose_rotation(hb).angle_to(skel.get_bone_rest(hb).basis.get_rotation_quaternion()))
 	return {"tilt": rad_to_deg(h.angle_to(U)), "fwd": h.dot(F), "out": h.dot(R), "head_out": d.dot(R),
-			"edge": rad_to_deg(atan2(e.dot(R), e.dot(F))), "turn": turn, "head": head, "h": h, "e": e}
+			"edge": rad_to_deg(atan2(e.dot(R), e.dot(F))), "turn": turn, "head": head, "h": h, "e": e, "wrist": wrist}
 
 func _guard(m: Dictionary) -> bool:
 	return float(m["tilt"]) >= 30.0 and float(m["tilt"]) <= 60.0 and float(m["fwd"]) > 0.0 and float(m["out"]) > 0.0 \
@@ -478,11 +481,12 @@ func _hold(st: String) -> Dictionary:
 	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0
 	var hmax := 0; var hfr := 0; var hdep := 0.0
 	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": []}
+	var wrists := []
 	for i in n:
 		_step(dir, run)
 		var m := _frame()
 		if _guard(m): ok += 1
-		turns.append(float(m["turn"])); heads.append(m["head"])
+		turns.append(float(m["turn"])); heads.append(m["head"]); wrists.append(float(m["wrist"]))
 		for key in cols: (cols[key] as Array).append(float(m[key]))
 		var p := _pen(parts)
 		pmax = maxi(pmax, p); dmax = maxf(dmax, pen_depth)
@@ -490,11 +494,12 @@ func _hold(st: String) -> Dictionary:
 		hmax = maxi(hmax, hand_n); hdep = maxf(hdep, hand_depth)
 		if hand_n > 0: hfr += 1
 	k.set_block(false)
-	turns.sort()
+	turns.sort(); wrists.sort()
 	var out := {"clip": String(cl[0]), "loop_s": float(cl[1]), "loops": loops, "frames": n, "pass_frac": float(ok) / float(n),
 				"turn_med": float(turns[turns.size() / 2]), "turn_p90": float(turns[int(turns.size() * 0.9)]),
 				"pen_max": pmax, "pen_frames": pfr, "pen_parts": parts, "pen_depth_m": dmax,
-				"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep}
+				"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep,
+				"wrist_med": float(wrists[wrists.size() / 2]), "wrist_p90": float(wrists[int(wrists.size() * 0.9)]), "wrist_max": float(wrists[-1])}
 	for key in cols:
 		var v: Array = cols[key]; v.sort(); out[key] = float(v[v.size() / 2])
 	var arcs := []

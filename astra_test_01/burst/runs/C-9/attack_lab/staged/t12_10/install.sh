@@ -16,9 +16,10 @@
 #   D  T12_9 (attack_lab/staged/t12_9/install.sh): knight ea761ba8, character b676c2a3,
 #      nb-body 91e3c4f8 and the same six pieces
 # THE SET:
-#   knight.gd          39fc9f21  = attack_lab/tools/manifest_speed_patch.py over T12_9's ea761ba8: a manifest
-#                                  speed is stated at the reference scale like every other px/s (it drove
-#                                  every manifest-priced clip at 0.799 of its speed)
+#   knight.gd          fb35d9d0  = attack_lab/tools/manifest_speed_patch.py then declared_filter_patch.py over
+#                                  T12_9's ea761ba8: a manifest speed is stated at the reference scale like every
+#                                  other px/s (it drove every manifest-priced clip at 0.799 of its speed); the axe
+#                                  guard's filter is its DECLARED bone set (the coordinator's ruling)
 #   character.json     45d757b5  = T12_9's + clip_px_s for the strafes and run_armed (the foot-lock speeds)
 #   gear_manifest.json aa557a50  = nb_d2/export_staging/T12_10_strafes: the export manifest with
 #                                  locomotion_in_place re-derived (foot-lock, source clock) and clip_sources
@@ -84,7 +85,7 @@ elif [ $ND -eq ${#FILES[@]} ]; then echo "   found D: T12_9 (knight ea761ba8, nb
 else printf "$TABLE"; fail "the installed files match none of A ($NA), B ($NB), C ($NC) or D ($ND) of ${#FILES[@]} exactly"
 fi
 chk() { local f=$1 want=$2; local got; got=$(md5 -q "$f") || fail "missing $f"; [ "$got" = "$want" ] || fail "$f is $got, want $want"; }
-chk $ST/knight.gd 39fc9f21fe01c1ddf39ffbb691132598
+chk $ST/knight.gd fb35d9d0846ea0d5f4968fe6738eeb94
 chk $ST/character.json 45d757b57395717ecb91560d1f38b0be
 chk $GL/gear_manifest.json aa557a50014b8a758f05083db5925c5b
 chk $GL/nb-body.glb eb8a3837229ac59d39097a073da2f04e
@@ -95,7 +96,7 @@ inst() { local src=$1 dst=$2 want=$3
   cp "$src" "$dst.tmp_install" && mv "$dst.tmp_install" "$dst"
   local got; got=$(md5 -q "$dst"); [ "$got" = "$want" ] || fail "$dst is $got, want $want"
   echo "   $(basename $dst)  $got  ok"; }
-inst $ST/knight.gd $C/scripts/knight.gd 39fc9f21fe01c1ddf39ffbb691132598
+inst $ST/knight.gd $C/scripts/knight.gd fb35d9d0846ea0d5f4968fe6738eeb94
 inst $ST/character.json $C/data/character.json 45d757b57395717ecb91560d1f38b0be
 inst $GL/gear_manifest.json $C/data/gear_manifest.json aa557a50014b8a758f05083db5925c5b
 inst $GL/nb-body.glb $C/models/gear/nb-body.glb eb8a3837229ac59d39097a073da2f04e

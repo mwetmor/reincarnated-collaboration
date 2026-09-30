@@ -1,7 +1,7 @@
 {
  "_note": "T12_10 -- T12_9 with the text-to-motion loops (run_armed, strafe_L_armed, strafe_R_armed) on their SOURCE's clock and their seams blended on the source's own keys; foot-lock speeds; the knight's manifest speed unit fixed; the manifest's provenance corrected. Coordinator rulings 2026-09-30 (items 1, 4, 5, 6). Staged, not installed.",
  "set": {
-  "knight.gd": "39fc9f21fe01c1ddf39ffbb691132598",
+  "knight.gd": "fb35d9d0846ea0d5f4968fe6738eeb94",
   "character.json": "45d757b57395717ecb91560d1f38b0be",
   "gear_manifest.json": "aa557a50014b8a758f05083db5925c5b",
   "nb-body.glb": "eb8a3837229ac59d39097a073da2f04e",
@@ -12,7 +12,7 @@
   "mantle.glb": "54669c6f2298950c9dc0ffcd8d936f70",
   "shield.glb": "cdf1c9e12a521531e79ee24f8c1a1540",
   "glbs_from": "nb_d2/export_staging/T12_10_strafes/",
-  "knight_recipe": "attack_lab/tools/manifest_speed_patch.py over T12_9's ea761ba8",
+  "knight_recipe": "attack_lab/tools/manifest_speed_patch.py then attack_lab/tools/declared_filter_patch.py over T12_9's ea761ba8",
   "body_recipe": "nb_d2/scripts/58_loop_blend.py build over T12_9's 91e3c4f8 (--retime 0.8): strafe_L_armed=5:50:10:offset, strafe_R_armed=1:58:4:offset, run_armed=0:20:4:offset; every other clip byte-identical"
  },
  "pre_states": {
@@ -231,7 +231,7 @@
  },
  "ruling_5_the_record": "gear_manifest.json (staged, aa557a50): clip_sources rewritten from the registry -- the body rig, every played clip's current source/rig/path/window, the wrong-rig history stated, the shield poses' derivation, the legacy clips, credits by rig (63 = 48 on 01a0eb6a incl. 3 in error + 15 on 01a0eb7e); locomotion_in_place re-derived (foot-lock speed_m_s, the source clock, walk_armed 53 keys / 1.7333 s); retargeted_clips' source duration stated over intervals; a _state_T12_10 note says which blocks record a past process. 48_manifest_lint: 0 mismatches against the T12_10 body (the export manifest has 3)",
  "gate_T12_10": {
-  "table": "nb_d2/tables/weapon_table_T12_10_strafes_eb8a3837.json",
+  "table": "nb_d2/tables/weapon_table_T12_10_strafes_eb8a3837_knightfb35d9d0.json (knight fb35d9d0); the first gate, knight 39fc9f21: nb_d2/tables/weapon_table_T12_10_strafes_eb8a3837.json -- identical",
   "verdict": "PASS (0 fail, 3 trail flags)",
   "holds": "6 of 6 at 100% guard, 0 penetration, 0 hand contact; strafe_L 72 frames, strafe_R 91 (the new loop lengths)",
   "strikes": "slash +1.00/+0.97, chop +1.00/+1.00, pen 0"
@@ -245,5 +245,12 @@
   ],
   "dir": "~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/",
   "checked": "side-view frame-to-frame change in the steady strafe: BEFORE strafe_L pops 4.3x the median once per cycle, strafe_R 3.0x; AFTER no frame above 1.3x"
+ },
+ "declared_filter": {
+  "ruling": "the coordinator, 2026-09-30: a layer's filter is its DECLARED bone set; a missing track means rest (the importer dropping a rest track is an artifact). The gate decides the practice.",
+  "measured_on_the_installed_T12_9": "guard_accept.gd through the tree, T12_9's body and knight ea761ba8, the axe guard's filter from the action's own tracks (as installed) against the declared set (declared_filter_patch.py): IDENTICAL -- every numeric field of the two tables equal (nb_d2/tables/weapon_table_T12_9_filter_{action,declared}_91e3c4f8.json). The wrist off its rest, both: idle 0.0, walk 2.9/3.6/3.7, run 5.0/5.1/5.1, block 0.0, strafe L 10.5/10.8/10.9, strafe R 3.6/4.0/4.0 deg (median/p90/max) -- the 15% the 0.85 weight lets through",
+  "why_identical_here": "the EDITOR import (the scene's) kept axe_guard_R's rest-valued RightHand track -- the knight counted 8 tracks on the action -- while the RUNTIME import (GLTFDocument: the JOIN renderer, join_accept.gd) drops it. So the Barrow's wrist was filtered all along; the declared set makes the knight independent of which import it gets",
+  "decision": "into T12_10, per the ruling (as well, not better): knight fb35d9d0; T12_10 re-gated with it -- PASS, every number as before (nb_d2/tables/weapon_table_T12_10_strafes_eb8a3837_knightfb35d9d0.json)",
+  "not_changed": "shield_carry_L keys LeftShoulder and LeftHand at rest -- the same trap if a runtime import meets it; its layer filter is left as is (not in the T12 gate's scope); the strike release already filters from all clips"
  }
 }
