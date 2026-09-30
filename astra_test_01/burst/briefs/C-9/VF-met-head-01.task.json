@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST VF-met-head-01 — painted primitive for the METEOR fire treatment, P01 HEAD — the burning body of a meteor in flight (Run C-9 Phase 2, Matt R-C9-89: a new meteor effect made with the same process as the approved fire set). task_id \"VF-met-head-01\". One primitive per call. Paint the SHAPE REPRESENTING EMISSION only — light, glow, colour and motion are runtime layers.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512×512 crop of the painted Barrow at the game camera (orthographic, about 53° down), one figure about 160 px tall (= 1 BH, body height); everything is painted — confident dark contour with taper, clean painted planes, restrained texture. IMAGE 2 is the APPROVED fire impact peak (Matt-accepted): the fire VOCABULARY to match exactly — four flat greyscale value planes (near-black contour/rim, dark grey outer flame, light grey mid flame, white core), hooked tongues with hard plane edges, no gradients or glow. IMAGE 3 is the approved fire-bolt HEAD of the same set: the meteor head must read as its far HEAVIER sibling, not a copy.\n\nDeliver EXACTLY ONE image, 512×512, GENUINELY TRANSPARENT background (RGBA: alpha 0 outside the body, opaque inside, no soft fringe wider than 1 px) — if transparency is impossible, a flat uniform #00ff00 plate and SAY SO. VALUE-INDEX ENCODING exactly as IMAGE 2: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges (plane 0 near-black = the contour line + a thin rim; plane 1 dark grey = outer flame; plane 2 light grey = mid flame; plane 3 white = the hottest core), no gradients, glow, blur, texture or colour; one frame of hand-drawn 2D effects animation at the scene's line weight. No ground plane, shadow, sparks, smoke, motion blur, character or text. Content: the HEAD of a METEOR — a burning boulder falling from the sky — drawn travelling to the RIGHT (screen +x; the game rotates it to its fall): a heavy, rounded, slightly flattened mass about twice as massive as IMAGE 3's head; a dark craggy ROCK nucleus (plane 0, with two or three broken facets outlined, NOT smooth) showing at the LEADING right edge, wrapped in a thick white-hot core (plane 3) and light-grey mid flame (plane 2); FOUR or FIVE large hooked flame tongues trailing off the LEFT (upper-left, left, lower-left; unequal, curling), asymmetric; a hand-drawn dark contour with taper around everything. PAINTED EXTENT: about 290 px across (about 1.8 BH) and about 210 px tall; centred; nothing touches the canvas edge.\n\nOne image_gen call. ONE retry only if: the background is not clean, there are gradients/glow/soft edges or more than four value planes, the body touches the canvas edge, the extent is off by more than 25 %, the rock nucleus is missing or smooth, or the vocabulary departs from IMAGE 2 (soft rounded blobs, symmetric star, a different line weight) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/met_head_01.png with sha256 (do not convert, resample, trim or key it). No code. No other files. No web.\nRETURN: the receipt (task_id \"VF-met-head-01\"): files = [exactly one entry: out/met_head_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/met_ref_scale_board_barrow.png",
+   "role": "IMAGE 1 — SCALE + REGISTER board: a 1:1 native 512x512 crop of the painted Barrow at the game camera; one figure ~160 px tall = 1 BH (scale and register only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/met_ref_fire_vocab_E0p_peak.png",
+   "role": "IMAGE 2 — the APPROVED fire VOCABULARY (a Matt-accepted fire impact peak): four flat greyscale value planes, hooked tongues, hard plane edges"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/met_ref_fire_head_C5.png",
+   "role": "IMAGE 3 — the approved fire-bolt HEAD primitive of the same set (vocabulary for a travelling body)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/met_head_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C9-VFX-meteor"
+}
