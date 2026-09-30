@@ -110,15 +110,5 @@ for clip, src in pairs:
                      err_max=round(worst, 4), err_median_of_frame_max=round(med, 4))
     print("  %-14s vs %-12s (shift %+.4f s) joints in the hips frame / hips-to-head: max %.4f, median of per-frame max %.4f (%d times)"
           % (clip, os.path.basename(src), sh, worst, med, len(tt)))
-    continue
-    for t in tt:
-        A, B = rel(ms, clip, t), rel(mc, sclip, t)
-        # hips-frame positions divided by EACH rig's own rest hips-to-head (units differ)
-        e = {j: float(np.linalg.norm(A[j] / hs - B[j] / hc)) for j in JOINTS}
-        errs.append(max(e.values())); worst = max(worst, max(e.values()))
-    rep[clip] = dict(source=os.path.basename(src), source_clip=sclip, times=len(tt),
-                     err_max=round(worst, 4), err_median_of_frame_max=round(float(np.median(errs)), 4))
-    print("  %-14s vs %-12s joints in the hips frame / hips-to-head: max %.4f, median of per-frame max %.4f (%d times)"
-          % (clip, os.path.basename(src), worst, float(np.median(errs)), len(tt)))
 if OUTJ:
     json.dump(rep, open(OUTJ, "w"), indent=1)
