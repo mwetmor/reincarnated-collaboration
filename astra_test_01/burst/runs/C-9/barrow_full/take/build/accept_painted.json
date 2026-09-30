@@ -1,0 +1,141 @@
+{
+ "_what": "C-9 T10-2 step 4: the painted Barrow against blockout v2's acceptance (the conductor: 'the walkable area, the no-squeeze rule and the camera margin must still pass exactly as in blockout v2')",
+ "colliders_identical": {
+  "collider_footprints": {
+   "v2": 180,
+   "painted": 180,
+   "identical": true
+  },
+  "built_transforms_and_footprints_differing": [],
+  "walk_grid_identical": true,
+  "PASS": true
+ },
+ "scale_markers": "carried from v2 (INSTRUMENT FAILURE: marker u_1m reads 0.85 px against 100.62 expected): the same camera; the markers are under the 3D snow here",
+ "v2": {
+  "flood_fill": {
+   "reachable_m2": 711.9,
+   "targets": {
+    "arena_centre_(0,1)": true,
+    "at_the_door_(0,10.1)": true,
+    "cutting_mouth_(0,8.6)": true,
+    "ice_centre_(-13.5,-5)": true
+   },
+   "ice_reachable_share": 1.0,
+   "reachable_outside_bounds_cells": 0,
+   "PASS": true
+  },
+  "no_squeezes": {
+   "squeezes": [],
+   "obstacles": 180,
+   "PASS": true
+  },
+  "camera_margin": {
+   "reachable_cells": 71187,
+   "cells_whose_frame_leaves_the_window": 0,
+   "worst_px_outside_by_side": {
+    "left_px": -67.8,
+    "right_px": -37.6,
+    "bottom_px": -159.1,
+    "top_px": -17.0
+   },
+   "PASS": true
+  },
+  "mound_and_door_floor": {
+   "PASS": true
+  },
+  "arena": {
+   "clear_r_walkable_m": 7.6,
+   "PASS": true
+  },
+  "path": {
+   "min_clearance_m": 0.1217,
+   "PASS": true
+  },
+  "ring_entrance": {
+   "clear_gap_m": 6.9716,
+   "PASS": true
+  },
+  "walks": {
+   "arena_to_ice": true,
+   "entry_to_arena": true,
+   "ice_to_the_door": true,
+   "refused_into_the_passage": true,
+   "refused_off_the_ice_west": true,
+   "refused_out_bottom_right": true,
+   "refused_out_east": true,
+   "refused_out_north_east": true,
+   "refused_out_north_west": true,
+   "refused_out_the_entry": true,
+   "refused_up_the_mound": true
+  }
+ },
+ "painted": {
+  "flood_fill": {
+   "reachable_m2": 711.9,
+   "targets": {
+    "arena_centre_(0,1)": true,
+    "at_the_door_(0,10.1)": true,
+    "cutting_mouth_(0,8.6)": true,
+    "ice_centre_(-13.5,-5)": true
+   },
+   "ice_reachable_share": 1.0,
+   "reachable_outside_bounds_cells": 0,
+   "PASS": true
+  },
+  "no_squeezes": {
+   "squeezes": [],
+   "obstacles": 180,
+   "PASS": true
+  },
+  "camera_margin": {
+   "reachable_cells": 71187,
+   "cells_whose_frame_leaves_the_window": 0,
+   "worst_px_outside_by_side": {
+    "left_px": -67.8,
+    "right_px": -37.6,
+    "bottom_px": -159.1,
+    "top_px": -17.0
+   },
+   "PASS": true
+  },
+  "mound_and_door_floor": {
+   "PASS": true
+  },
+  "arena": {
+   "clear_r_walkable_m": 7.6,
+   "PASS": true
+  },
+  "path": {
+   "min_clearance_m": 0.1217,
+   "PASS": true
+  },
+  "ring_entrance": {
+   "clear_gap_m": 6.9716,
+   "PASS": true
+  },
+  "walks": {
+   "arena_to_ice": true,
+   "entry_to_arena": true,
+   "ice_to_the_door": true,
+   "refused_into_the_passage": true,
+   "refused_off_the_ice_west": true,
+   "refused_out_bottom_right": true,
+   "refused_out_east": true,
+   "refused_out_north_east": true,
+   "refused_out_north_west": true,
+   "refused_out_the_entry": true,
+   "refused_up_the_mound": true
+  }
+ },
+ "identical_to_v2": {
+  "flood_fill": true,
+  "no_squeezes": true,
+  "camera_margin": true,
+  "mound_and_door_floor": true,
+  "arena": true,
+  "path": true,
+  "ring_entrance": true,
+  "walks": true
+ },
+ "PASS": true
+}

@@ -15,14 +15,36 @@
  },
  "clips_armed": {
   "idle": "idle_armed",
-  "walk": "walk_armed",
-  "run": "run_armed",
+  "walk": "walk",
+  "run": "run",
   "attack": "attack",
   "chop": "attack_chop",
   "block": "block",
   "bash": "shield_bash",
   "strafe_l": "strafe_L_armed",
   "strafe_r": "strafe_R_armed"
+ },
+ "upper_armed": {
+  "walk": "walk_armed",
+  "run": "run_armed",
+  "bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head",
+   "head_end",
+   "headfront",
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand",
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "_note": "THE ARMED-SPEED SPLIT (Matt: \"even the run speed slows way down when I put on the axe/shield\"). clips_armed.walk/run are the UNARMED gait clips, so his legs, hips and root -- and his ground speed -- are the same armed or not; these armed gait clips ride over them for the spine and both arms, on the legs' own locked cycle and aligned at left-toe contact. The shield guard, the block and the strikes still sit above. Delete this block and set clips_armed.walk/run back to walk_armed/run_armed to undo."
  },
  "armed_when_pieces": [
   "axe",
@@ -37,7 +59,7 @@
  ],
  "walk_px_s": 201.7,
  "run_px_s": 647.5,
- "walk_px_s_armed": 118.6,
+ "_walk_px_s_armed_superseded": 118.6,
  "speed_measured_at_scale": 1.25177951388889,
  "_speed_scale_note": "walk_px_s/run_px_s were derived at figure scale 1.25178 and were being driven unchanged at the 1.10 default, so his legs were 13.8% slow for the ground. Measured: the walk clip's stance-foot floor is 6.8 mm/frame median at 1.25178 and 11.4 mm at 1.10 (24 of 39 pairs under 10 mm against 13 of 39). Roughly 40% of what was recorded as the walk clip's own floor was this. knight.gd now scales both speeds by _figure_scale / speed_measured_at_scale.",
  "_armed_speed_note": "MEASURED, tools/probe_stride_armed.gd (in-place clips) and tools/probe_root.gd (travelling ones). walk_armed is IN PLACE: 42 frames / 1.7500 s for a 2.0625 m world stride = 118.6 px/s by the all-frames stance median and 115.4 by the contact-filtered one (6 pairs) -- 2.8% apart, which is the agreement that makes either usable. The unarmed 201.7 would slide his feet 70%. run_armed and strafe_L_armed carry ROOT MOTION and state their own speeds once de-rooted (4.337 m/s and 0.931 m/s), so no number for them is stored here: knight.gd reads the speed off the track it removed, which cannot go stale.",
@@ -161,5 +183,13 @@
  "_clip_px_s_note": "FALLBACK ONLY. knight.gd now reads locomotion speeds from the shipped export manifest's locomotion_in_place block (stepping where offered), so a re-export updates them without an edit here -- a hand-copied speed went stale against a re-export twice running. These remain for any clip the manifest does not price: walk_armed is in-place at source with no travel to derive a speed from, and 115.1 is this scene's contact-filtered stance rate for it.\\nWHERE THE TWO METHODS DIFFER, at the same 1.25178 reference: run_armed manifest 3.795 m/s against my 4.247, strafe_L 0.844 against 0.691, strafe_R 0.536 against 0.466. The manifest wins and should: for run_armed it is cycle travel over the cycle period (3.1626 m / 0.8333 s), and over a whole gait cycle total foot travel equals total body travel no matter how contact is detected, where my median over 6 contact pairs of 18 over-weights the fastest stance frames.",
  "_strafe_dirs_note": "From the export manifest's own frame -- his_right is -X, so his left is +X -- rather than from the clips' measured net travel. The measured headings agree (+98.1 deg off +Z for L, -137.8 for R, both resolving to the right side) but a name and an axis convention are firmer than a net direction taken from 6 contact pairs.",
  "_armed_run_restored": "run_armed is BACK as the armed run: the export trimmed it to one gait cycle, which was the exact objection. It had held about four cycles in 2.5 s and the sync group's premise is one cycle per clip; the crossover worst frame was 316.2 mm against run_armed_locked's 30.4 mm. Re-measured after the trim -- see the commit.",
- "_loop_note": "strafe_l / strafe_r added 2026-09-29. They are locomotion cycles and were not looped, and the strf Blend2 has sync on, which ADVANCES an input even at zero weight -- so by the time he first side-stepped, the strafe clip had run to its last frame and stayed there, and the body slid at the strafe speed over still legs (attack_lab: a_strafe parked at 2.458 s of 2.458 after 4 s of standing)."
+ "_loop_note": "strafe_l / strafe_r added 2026-09-29. They are locomotion cycles and were not looped, and the strf Blend2 has sync on, which ADVANCES an input even at zero weight -- so by the time he first side-stepped, the strafe clip had run to its last frame and stayed there, and the body slid at the strafe speed over still legs (attack_lab: a_strafe parked at 2.458 s of 2.458 after 4 s of standing).",
+ "block_timing": {
+  "raise_s": 0.18,
+  "lower_s": 0.2,
+  "_note": "Block is RAISE -> HOLD -> LOWER. knight.gd._block_marks reads where Block1's raise starts and where it peaks off the clip itself (the shield hand's last low before its highest point: 0.750 -> 1.333 s as shipped), so these are only the durations: the raise played in raise_s (x3.24 of the clip), pinned at the peak while held, reversed over lower_s on release, then the 0.12 s blend back to guard. Measured, attack_lab: full guard 0.177 s after the press (was 1.458), the raise over 4 game frames and 0.587 m of hand travel, hold drift 0.0000 m (was 0.198), back to guard 0.333 s after release."
+ },
+ "foot_lock": false,
+ "_foot_lock_rollback_2026_09_29": "ROLLED BACK after Matt watched the installed Barrow build: \"after swinging his axe, he drops to the floor as if drunk.\" attack_lab/drop_ab replays shot_barrow_armed's sequence with the installed files one factor at a time. The pelvis trace is IDENTICAL with the lock on, off, on the f1017ee1 GLB and in the pre-install build -- the slash and chop lunge and crouch on their own. What the lock added is in the LEGS: it held feet up to 0.845 m from where the clip puts them (2.17 s of the sequence over 0.15 m) and folded a knee up to 61 deg past the clip's own angle, at the strikes' ends and the block's start. Off, both are 0, exactly as before the install. The damped GLB and the block machine are not involved (A/B: no change). Set true again only with a planner that will not hold a foot the clip has walked away from.",
+ "_foot_lock_note": "scripts/foot_lock.gd: at the start of a strike, a block, or their fade-outs, every foot that is not mid-stride is held where it stands by leg IK (Godot's TwoBoneIK3D) for the transition's own fade, then released over 0.2 s -- as a STEP (lift first, travel, plant) when it has more than 4 cm to go. A foot left to finish a run stride locks where it lands. false turns it off."
 }

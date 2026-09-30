@@ -18,8 +18,15 @@ extends Node3D
 ## pen on the solid models and on him. No grade, no paper, no fog, no falling snow: those are
 ## the look, and this is the layout.
 ##
-## knight.gd AND gear.gd ARE HEAD COPIES AND ARE NOT EDITED. Another drax is fixing an attack
-## glitch in the real ones; if a swing looks wrong here, that is why.
+## knight.gd, gear.gd, foot_lock.gd, character.json AND nb-body.glb ARE BYTE COPIES OF THE
+## INSTALLED ONES (cliffside3d at 4bef708a2: the armed-speed split, the foot-lock rollback) AND
+## ARE NOT EDITED. paint_stack.gd, snow_field.gd and barrow_heather.gd are the installed copies
+## too, with two marked additions for the painted Barrow (the pen's painted mark; the snow's
+## shader hook).
+##
+## PAINTED (T10-2 step 4, `painted = true`, scenes/barrow_painted.tscn): the SAME build -- every
+## collider, every transform, exactly as the blockout makes them -- then DRESSED in the painting
+## (_dress_painted): the conductor's ruling "the painting is the world's light and its ink".
 ##
 ## KEYS: arrows/WASD move · Shift run · Space/LMB slash · X chop · C bash · B/RMB block ·
 ##       G gear · [ ] size   (the standard controls, from the HEAD input map)
@@ -56,7 +63,7 @@ const FLOOR_EXTENT := 46.0
 const FLOOR_CELL := 2.0
 const MOUND_CELL := 0.1
 const LOW_M := 1.9                 # a footprint "at his height": what a 1.85 m man walks into
-const RAW_KEYS := {"V": KEY_V, "K": KEY_K, "O": KEY_O, "U": KEY_U, "R": KEY_R}
+const RAW_KEYS := {"V": KEY_V, "K": KEY_K, "O": KEY_O, "U": KEY_U, "R": KEY_R, "H": KEY_H, "N": KEY_N}
 
 var layout := {}
 var cam: Camera3D
@@ -96,6 +103,21 @@ var _size_step := 0
 var _tint := {}
 
 @export var skip_character := false
+## the painted Barrow: the blockout, dressed in the painting (see _dress_painted)
+@export var painted := false
+## the ground's painting: "as_painted" (the painting itself: its tufts stay, the 3D heather stands
+## on them) or "inpainted" (the tufts taken out). The overlay check chose: on the painted tufts'
+## pixels as_painted differs by 8.9, inpainted by 69.6 -- a juniper filled from the snow round it is
+## a grey smear, and the 3D sprays cover 34% of what the painter painted (take/build/overlay_check.json)
+@export var ground_variant := "as_painted"
+var paint := {}                    # what the painted dress loaded, measured, and built
+var paint_sun: DirectionalLight3D
+var snow: SnowField
+var snowfall: GPUParticles3D
+var heather_mat: ShaderMaterial
+var _heather_mmi: Array = []
+var _paint_tex := {}
+const WIND := Vector2(0.62, 0.78)   # the installed Barrow's (the wind the snow's streaks lie along)
 
 
 func _ready() -> void:
@@ -136,6 +158,9 @@ func _ready() -> void:
 	else:
 		await _build_knight()
 	_build_post()
+	if painted:
+		_dress_painted()
+		set_crucible_visible(false)
 	_build_hud()
 	_check_key_collisions()
 	_apply_stack()
@@ -150,6 +175,10 @@ func _ready() -> void:
 		int(report["build_ms"]["total"])])
 	# AND THE VIEW IT WILL BE SEEN THROUGH: the launch probe checks this line as well.
 	print("[barrow_full] view stretch=%s aspect=%s base=%dx%d" % _view_lock())
+	if painted:
+		# AND WHAT IT WORE: the launch probe greps this line. Every texture is read off its raw
+		# bytes from the pck and its sha256 checked against the manifest by the running scene.
+		print("[barrow_painted] " + _paint_launch_line())
 	get_viewport().size_changed.connect(_sync_post_scale)
 	if "--frame-cost" in OS.get_cmdline_user_args():
 		_frame_cost_mode()
@@ -1379,7 +1408,10 @@ func set_ink(on: bool) -> void:
 func _process(_dt: float) -> void:
 	if knight == null or not ready_done:
 		return
-	look_at_world(_camera_aim())
+	var aim := _camera_aim()
+	look_at_world(aim)
+	if snowfall != null:
+		snowfall.global_position = aim + up * 9.0 - fwd * 6.0
 
 
 func _build_hud() -> void:
@@ -1418,10 +1450,14 @@ func _update_hud() -> void:
 		if n < names.size():
 			nm = String(names[n])
 		fs = knight._figure_scale
-	_hud.text = ("BLOCKOUT  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
+	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
 		+ "   ‖   V stack (%s) · K ink (%s) · O overlay (%s) · R crucible marks (%s) · U camera clamp (%s)") \
 		% [n + 1, total, nm, fs, "on" if stack_on else "off", "on" if ink_on else "off",
 		   "on" if overlay_on else "off", "on" if crucible_on else "off", "on" if clamp_on else "off"]
+	if painted:
+		var hv: bool = _heather_mmi.is_empty() or (_heather_mmi[0] as Node3D).visible
+		_hud.text += "  · H heather (%s) · N snowfall (%s)" % ["on" if hv else "off",
+			"on" if (snowfall != null and snowfall.visible) else "off"]
 
 
 func set_hud_visible(on: bool) -> void:
@@ -1458,6 +1494,15 @@ func _unhandled_input(e: InputEvent) -> void:
 				clamp_on = not clamp_on
 				_update_hud()
 			KEY_R: set_crucible_visible(not crucible_on)
+			KEY_H:
+				for mmi in _heather_mmi:
+					(mmi as Node3D).visible = not (mmi as Node3D).visible
+				_update_hud()
+			KEY_N:
+				if snowfall != null:
+					snowfall.visible = not snowfall.visible
+					snowfall.emitting = snowfall.visible
+				_update_hud()
 
 
 func _check_key_collisions() -> void:
@@ -1480,7 +1525,8 @@ func _check_key_collisions() -> void:
 				else:
 					project[name] = String(action)
 					push_warning("barrow_full: key %s also drives project action '%s'" % [name, action])
-	report["key_collisions"] = {"raw_keys": {"V": "stack", "K": "ink", "O": "overlay", "U": "camera clamp", "R": "crucible marks"},
+	report["key_collisions"] = {"raw_keys": {"V": "stack", "K": "ink", "O": "overlay", "U": "camera clamp", "R": "crucible marks",
+								"H": "3D heather (painted)", "N": "falling snow (painted)"},
 		"clashes_with_project_actions": project, "bare_builtin_ui_informational": builtin,
 		"_clear": project.is_empty()}
 
@@ -1837,3 +1883,254 @@ func _view_check_mode() -> void:
 		res["cells"][String(c[0])] = rec
 	print("[barrow_full] view_check " + JSON.stringify(res))
 	get_tree().quit()
+
+
+# =============================================================================
+#  THE PAINTED BARROW (T10-2 step 4): the blockout above, dressed in the painting
+# =============================================================================
+const HEATHER_SNOW_FRAC := 0.2      # the installed Barrow's: a clump's snow capped at 20% of its height
+
+
+func _dress_painted() -> void:
+	"""NOTHING BUILT ABOVE MOVES. Every collider and every transform is the blockout's own, so
+	the walkable area, the no-squeeze rule and the camera margin are the blockout's by
+	construction (and re-measured: tools/accept_painted.py). What changes is what each surface
+	wears, which sun reaches it, and what stands on it:
+	  the painted pieces (ground, mound, 29 primitives, 33 birches: the painting, projected; the
+	    25 real models: their bakes) -- unlit, no pen, layer LAYER_PAINTED, lit by the paint sun;
+	  the sun lights him and everything dynamic, every caster in its shadow (b);
+	  the paint sun lights the painting, HIS shadow the only one in it (a, c);
+	  the 3D heather and the 3D snow wear the painting too, under the ramp, on LAYER_ON_PAINT."""
+	var t0 := Time.get_ticks_msec()
+	var man := PaintedWorld.read_manifest()
+	var loads := {}
+	paint = {"manifest": PaintedWorld.MANIFEST, "loads": loads, "ground_variant": ground_variant}
+	if man.is_empty():
+		push_error("barrow_painted: no manifest at %s" % PaintedWorld.MANIFEST)
+		paint["error"] = "no manifest"
+		return
+	var sm: Array = man["shadow_mul"]["linear"]
+	var shadow_mul := Vector3(float(sm[0]), float(sm[1]), float(sm[2]))
+	var painting := PaintedWorld.load_png_bin(String(man["painting"]["file"]), String(man["painting"]["sha256"]), true, loads)
+	var gk := "ground_" + ground_variant
+	# as_painted, the ground IS the painting's file: one decode, one texture, one sha check
+	var ground_tex: Texture2D = painting if String(man[gk]["file"]) == String(man["painting"]["file"]) \
+		else PaintedWorld.load_png_bin(String(man[gk]["file"]), String(man[gk]["sha256"]), true, loads)
+	paint["ground_file"] = String(man[gk]["file"])
+	var lit := PaintedWorld.load_png_bin(String(man["lit"]["file"]), String(man["lit"]["sha256"]), false, loads)
+	_paint_tex = {"painting": painting, "ground": ground_tex, "lit": lit}
+	var mat_paint := PaintedWorld.painted_material(painting, true, lit, shadow_mul, u_hat, v_hat)
+	var mat_ground := PaintedWorld.painted_material(ground_tex, true, lit, shadow_mul, u_hat, v_hat)
+	var n := {"ground": 0, "mound": 0, "primitives": 0, "birches": 0, "baked": 0, "baked_meshes": 0,
+			  "inks_hidden": 0, "bakes_missing": []}
+	_paint_mesh(level.get_node_or_null(^"Ground") as MeshInstance3D, mat_ground, false)
+	n["ground"] = 1
+	for mi in _meshes(nodes["mound"]):
+		_paint_mesh(mi, mat_paint, true)
+		n["mound"] += 1
+	var bakes: Dictionary = man["bakes"]
+	for e in layout["placements"]:
+		var id := String(e["id"])
+		if id == "mound" or not nodes.has(id):
+			continue
+		if String(e["kind"]) == "primitive" or String(e.get("class", "")) == "birch":
+			for mi in _meshes(nodes[id]):
+				_paint_mesh(mi, mat_paint, true)
+			n["birches" if String(e.get("class", "")) == "birch" else "primitives"] += 1
+			continue
+		if not bakes.has(id):
+			n["bakes_missing"].append(id)
+			continue
+		var b: Dictionary = bakes[id]
+		var tex := PaintedWorld.load_png_bin(String(b["file"]), String(b["sha256"]), true, loads)
+		var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
+		for mi in _meshes(nodes[id]):
+			_paint_mesh(mi, mat, true)
+			n["baked_meshes"] += 1
+		n["baked"] += 1
+	for ink in _prop_inks:
+		(ink as MeshInstance3D).visible = false
+		n["inks_hidden"] += 1
+	# THE TWO SUNS (PaintedWorld's header; tools/probe_paint_light.gd)
+	var paint_layers := PaintedWorld.LAYER_PAINTED | PaintedWorld.LAYER_ON_PAINT
+	var dyn := PaintedWorld.ALL_LAYERS & ~paint_layers
+	sun.light_cull_mask = dyn
+	sun.shadow_caster_mask = PaintedWorld.ALL_LAYERS
+	paint_sun = sun.duplicate() as DirectionalLight3D
+	paint_sun.name = "PaintSun"
+	paint_sun.light_cull_mask = paint_layers
+	paint_sun.shadow_caster_mask = dyn
+	sun.get_parent().add_child(paint_sun)
+	paint_sun.global_transform = sun.global_transform
+	# HIS SHADOW, SHARP ENOUGH TO BE HIS (tools/capture_painted.gd --shadow-test, measured on open
+	# sunlit snow, his shadow term on against off): at the sun's own setting -- one orthogonal map
+	# over 110 m, blur 1.7, now sharing the atlas with a second light -- his shadow came out a pale
+	# smear, core only 0.67/0.74/0.93 of the snow against the painter's 0.42/0.55/0.89, and a
+	# halftone dither over it. The painted world lies 53-65 m from the camera (standoff 60 m, the
+	# frame's ground +-7.4 m up-screen x cos(pitch), the tallest piece 3.4 m), so the paint sun's map
+	# stops at 68 m and blurs at 0.6: core 0.46/0.58/0.90 -- the painter's own shadow value -- in the
+	# shape of a man. (8192 px of atlas reached 0.42/0.55/0.89 and was not needed.) The sun keeps its
+	# installed 1.7: the stones' shadows on HIM are soft, as painted.
+	paint_sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
+	paint_sun.directional_shadow_max_distance = CAM_STANDOFF + 8.0
+	paint_sun.shadow_blur = 0.6
+	# THE PEN: off the painted pieces (their mark), on everything else as installed
+	post_mat.set_shader_parameter("painted_exclude", 1.0)
+	_build_painted_heather(man, lit, shadow_mul)
+	_build_painted_snow(man, ground_tex, lit, shadow_mul)
+	var flake := PaintStack.make_flake_texture()
+	snowfall = PaintStack.snowfall(flake, Vector3(46, 28, 46), 1700)
+	snowfall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(snowfall)
+	var ok := 0
+	var bad := []
+	for k in loads:
+		if bool(loads[k].get("sha256_ok", false)) and not loads[k].has("error"):
+			ok += 1
+		else:
+			bad.append(k)
+	paint["pieces"] = n
+	paint["files_ok"] = ok
+	paint["files_bad"] = bad
+	paint["shadow_mul_linear"] = sm
+	paint["suns"] = {"sun": {"cull": sun.light_cull_mask, "casters": sun.shadow_caster_mask},
+					 "paint_sun": {"cull": paint_sun.light_cull_mask, "casters": paint_sun.shadow_caster_mask}}
+	paint["ms"] = Time.get_ticks_msec() - t0
+	report["painted"] = paint
+
+
+func _paint_mesh(mi: MeshInstance3D, mat: ShaderMaterial, casts: bool) -> void:
+	if mi == null:
+		return
+	mi.material_override = mat
+	mi.layers = PaintedWorld.LAYER_PAINTED
+	# A PAINTED PIECE STILL CASTS -- for the SUN, onto him (b). The paint sun takes no caster on
+	# this layer (its shadow_caster_mask), so none of it reaches the painted world (c).
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if casts \
+		else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
+
+func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3) -> void:
+	"""The 954 heather sprays and 23 shrub clumps (take/build/heather_instances.json, placed FROM
+	the painting's tufts), as BarrowHeather's generated sprays in six MultiMeshes -- one per
+	variant, variant and +-15% height by index as the installed Barrow picks them. Each carries
+	the painting beneath it as its colour (INSTANCE_CUSTOM)."""
+	var hj = JSON.parse_string(FileAccess.get_file_as_string(PaintedWorld.DATA + String(man["heather"]["file"])))
+	var rows: Array = hj["rows"] if typeof(hj) == TYPE_DICTIONARY else []
+	var am: Array = man["heather"]["albedo_mul"]
+	heather_mat = PaintedWorld.heather_material(fbm, Vector3(float(am[0]), float(am[1]), float(am[2])),
+		lit, shadow_mul, u_hat, v_hat)
+	heather_mat.set_shader_parameter("wind_dir", WIND.normalized())
+	var by_var := []
+	for v in BarrowHeather.VARIANTS:
+		by_var.append([])
+	for i in rows.size():
+		by_var[int(fposmod(float(i) * 7.0 + 3.0, float(BarrowHeather.VARIANTS)))].append(i)
+	var thin := []
+	var tris := 0
+	for v in BarrowHeather.VARIANTS:
+		var mesh := BarrowHeather.spray_mesh(v)
+		var ab := mesh.get_aabb()
+		var mm := MultiMesh.new()
+		mm.transform_format = MultiMesh.TRANSFORM_3D
+		mm.use_custom_data = true
+		mm.mesh = mesh
+		mm.instance_count = (by_var[v] as Array).size()
+		for k in (by_var[v] as Array).size():
+			var i: int = by_var[v][k]
+			var r: Array = rows[i]
+			# [x, z, height_m, class (0 heather, 1 shrub), mul r, g, b]
+			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
+			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), -0.01, float(r[1]))))
+			mm.set_instance_custom_data(k, Color(float(r[4]), float(r[5]), float(r[6]), 1.0))
+			thin.append({"c": Vector2(float(r[0]), float(r[1])), "r": maxf(ab.size.x, ab.size.z) * hh * 0.5 * 0.8,
+						 "feather": 0.18, "max_d": hh * HEATHER_SNOW_FRAC})
+		var mmi := MultiMeshInstance3D.new()
+		mmi.name = "Heather_%d" % v
+		mmi.multimesh = mm
+		mmi.material_override = heather_mat
+		mmi.layers = PaintedWorld.LAYER_ON_PAINT
+		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(mmi)
+		_heather_mmi.append(mmi)
+		tris += mesh.surface_get_array_index_len(0) / 3 * mm.instance_count
+	paint["heather"] = {"instances": rows.size(), "multimeshes": _heather_mmi.size(), "tris": tris,
+						"albedo_mul": am}
+	paint["_thin_zones"] = thin
+
+
+func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
+	"""THE INSTALLED SNOW FIELD, flat: his ankle-deep layer where the painting's ground is snow,
+	thinner on the path and the heather, none on the ice (the depth grid, from the painted splat);
+	no windrows, piles or skirts -- a drift the painting does not show would hide his legs in snow
+	that looks flat. It wears the ground's painting (PaintedWorld.snow_shader_code): untouched, it
+	IS the painting; where he walks, his prints take the ramp."""
+	var sn: Dictionary = man["snow"]
+	var g: Dictionary = sn["grid"]
+	var buf := PaintedWorld.load_f32_bin(String(g["file"]), String(g["sha256"]), paint["loads"])
+	var nx := int(g["nx"])
+	var nz := int(g["nz"])
+	if buf.size() != 2 * nx * nz:
+		push_error("barrow_painted: the snow grid is %d floats, not %d" % [buf.size(), 2 * nx * nz])
+		paint["snow_error"] = "grid size"
+		return
+	var go: Array = g["origin_xz"]
+	snow = SnowField.new()
+	snow.name = "SnowField"
+	snow.fbm_tex = fbm
+	snow.field_px = int(sn["field_px"])
+	snow.trail_px = int(sn["trail_px"])
+	snow.windrow_count = 0
+	snow.pile_count = 0
+	snow.cast_shadows = false
+	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
+					   "nx": nx, "nz": nz, "mul": buf.slice(0, nx * nz), "trod": buf.slice(nx * nz, 2 * nx * nz)}
+	snow.thin_zones = paint.get("_thin_zones", [])
+	paint.erase("_thin_zones")
+	snow.shader_code_override = PaintedWorld.snow_shader_code()
+	var ar: Array = sn["area_xz"]
+	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, [], WIND)
+	add_child(snow)
+	if knight != null:
+		snow.track(knight)
+	var smat := snow.material()
+	smat.set_shader_parameter("paint_tex", ground_tex)
+	PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
+	snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if heather_mat != null:
+		BarrowHeather.bind_snow(heather_mat, snow, WIND)
+	var br := snow.bake_report()
+	paint["snow"] = {"area_xz": ar, "field_px": snow.field_px, "trail_px": snow.trail_px,
+					 "bare_frac_under_cut": br.get("bare_frac_under_cut"), "mean_depth_m": br.get("mean_depth_m"),
+					 "thin_zones": br.get("thin_zones"), "bake_ms": br.get("ms", br.get("bake_ms"))}
+
+
+func _physics_process(_dt: float) -> void:
+	# THE HEATHER'S WIND RUNS ON THE SNOW'S CLOCK (the installed Barrow's rule, and its reason:
+	# pushed here, not in _process, which park_camera() stops)
+	if snow != null and heather_mat != null:
+		heather_mat.set_shader_parameter("wind_time", snow.clock())
+
+
+func _paint_launch_line() -> String:
+	"""What the running scene READ, each file off its raw bytes in the pck with its sha256 checked
+	against the manifest: the painting (the ground, the mound and the 28 primitives wear it), the
+	light map, the 25 bakes (the real models' plates), the snow's grid."""
+	var n: Dictionary = paint.get("pieces", {})
+	var loads: Dictionary = paint.get("loads", {})
+	var ok := func(rel: String) -> bool:
+		var r: Dictionary = loads.get(rel, {})
+		return bool(r.get("sha256_ok", false)) and not r.has("error")
+	var bakes_ok := 0
+	for k in loads:
+		if String(k).begins_with("bakes/") and ok.call(String(k)):
+			bakes_ok += 1
+	var prim := int(n.get("primitives", 0)) + (1 if int(n.get("mound", 0)) > 0 else 0)
+	return ("loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
+		+ "| plates: bakes=%d/25 on the real models, painting on primitives=%d/29 (the mound + 28) "
+		+ "| birches=%d inks_hidden=%d heather=%d snow=%s ms=%d") % [
+		int(paint.get("files_ok", 0)), loads.size(), str(ok.call("painting.bin")),
+		String(paint.get("ground_file", "?")), ground_variant, str(ok.call(String(paint.get("ground_file", "?")))),
+		str(ok.call("lit.bin")), str(ok.call("snow_grid.bin")), bakes_ok, prim,
+		int(n.get("birches", 0)), int(n.get("inks_hidden", 0)),
+		int(paint.get("heather", {}).get("instances", 0)), str(snow != null), int(paint.get("ms", 0))]

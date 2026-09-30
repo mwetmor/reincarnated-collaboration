@@ -250,13 +250,27 @@ const PS := preload("res://scripts/paint_stack.gd")
 
 # --- barrow extensions -------------------------------------------------------------
 @export var snow_cut_m := 0.015
+## T10-1c: the lit-snow grade (see the barrow's SNOW_TINT for how it is derived) and the
+## depth band over which the bare-ground edge is feathered
+@export var snow_tint := Color(1, 1, 1)
+@export var feather_m := 0.035
 ## The open-ground drifts' soft ceiling, metres. Knee height on him.
 @export var drift_cap_m := 0.62
 @export var fbm_tex: Texture2D
 @export var snow_mark := 0.75
 var depth_grid := {}
+## the phone build: sample half-float textures (see _gpu_image)
+var half_float_textures := PaintStack.is_web()
 var clear_zones: Array = []
+## T10-1c: THIN SNOW AT THE HEATHER -- [{c: Vector2, r, feather, max_d}]. Inside r the depth
+## is capped at max_d, released over `feather` outside it, so each tussock stands in a shallow
+## scoop with its top showing. Applied last, after every drift, skirt and pile.
+var thin_zones: Array = []
 var extra_piles: Array = []
+## (barrow_full, T10-2 step 4) THE PAINTED BARROW'S SNOW: the scene hands in its own derivation
+## of SHADER (PaintedWorld.snow_shader_code -- the same field and trail, the painting as the
+## albedo, relit only where he has disturbed it). Empty = SHADER, as installed.
+var shader_code_override := ""
 
 var area := Rect2(-10, -10, 20, 20)
 var floor_y := 0.0
@@ -320,6 +334,24 @@ uniform float nrm_tap_mult = 1.6;
 uniform float taps_4 = 1.0;
 uniform float snow_cut_m = 0.015;
 uniform float snow_mark = 0.75;
+// T10-1c: the lit snow graded onto the PAINTING's lit snow (sampled, not chosen), and the
+// thin-snow edge feathered -- see fragment()
+uniform vec3 snow_tint = vec3(1.0);
+uniform float feather_m = 0.035;
+// 0.35, NOT 5.5. At 5.5 the 512-px fbm repeated every 0.18 m -- 18 px on screen -- and its
+// coarsest octave (8 lattice cells) was 2.3 cm, two pixels: the edge came out finely and
+// REGULARLY toothed, the fbm's own lattice repeating along it, rather than broken
+// (drax_dbg_dots A/B at the ice edge: 5.5 / 0.35 / no feather). The comment that shipped with
+// it said "~0.2 m features"; 0.2 m was the REPEAT, not the feature. Here the tile spans 2.9 m,
+// the coarsest cell is 0.36 m and the finest 4.5 cm, and a second fetch at x2.17 breaks the
+// repeat. (The halftone dot screen seen in the same frames is NOT this -- it is the soft
+// shadow filter; see barrow_world's report of it.)
+uniform float feather_noise_scale = 0.35;
+uniform float feather_contrast = 3.0;
+// THE COVERAGE INSTRUMENT'S OCCLUDER MODE: the snow drawn black, in exactly the pixels it
+// covers in the beauty -- same field, same discard, same feather -- so a heather sprig buried
+// in it is not counted as heather the eye can see (barrow_world.set_class_id_view).
+uniform bool id_black = false;
 varying vec3 v_world;
 varying vec2 v_uv;
 varying float v_press;
@@ -360,8 +392,28 @@ void fragment() {
 	// BARE GROUND: no snow drawn where the undisturbed depth is under the cut, so the tile
 	// beneath shows -- the tarn, and the gaps in the thin snow on heather and rock. `discard`,
 	// not ALPHA: the fragments that survive still write depth and the normal buffer.
-	if (D < snow_cut_m) {
-		discard;
+	// THE EDGE IS FEATHERED, NOT CUT (T10-1c). A single threshold on D drew the boundary of
+	// every bare heather patch as a clean contour -- white on one side, rust on the other --
+	// and a clean contour is what a cut-out looks like. Two things break it up, and both are
+	// about thin snow being thin:
+	//   the THRESHOLD WANDERS with a fine noise (~0.2 m features) over a 3.5 cm band of depth,
+	//     so where snow is 2-5 cm deep it is present or absent in grains, not in a line;
+	//   the snow DARKENS AND WARMS as it thins toward the cut, because a 2 cm skin shows what
+	//     is under it -- which, where this happens, is the heather.
+	// The extra fetch is only paid in the band, behind a branch: the band is a thin margin
+	// round each patch, a fraction of a per cent of the frame.
+	float edge_k = 1.0;
+	if (D < snow_cut_m + feather_m) {
+		vec2 fp = v_world.xz * feather_noise_scale + vec2(3.1, 7.7);
+		float fn = texture(mottle_noise, fp).g * 0.62
+				 + texture(mottle_noise, fp * 2.17 + vec2(0.37, 0.71)).g * 0.38;
+		// a sum of octaves sits near 0.5 (sd ~0.09): stretched, so the threshold actually
+		// wanders across the band instead of hovering at its middle
+		fn = clamp((fn - 0.5) * feather_contrast + 0.5, 0.0, 1.0);
+		if (D < snow_cut_m + fn * feather_m) {
+			discard;
+		}
+		edge_k = smoothstep(snow_cut_m, snow_cut_m + feather_m, D);
 	}
 	// THE NORMAL, ANALYTICALLY. grad H = gradD*(1-p) - (D - residual)*grad p
 	//                                   + berm_frac*(D*grad b + b*gradD)
@@ -422,13 +474,15 @@ void fragment() {
 	// drifts are the same weather blowing the same way.
 	vec2 wp = vec2(v_world.x * wind_c - v_world.z * wind_s,
 				   v_world.x * wind_s + v_world.z * wind_c);
-	vec3 base = texture(snow_tex, (wp + warp) / tile_m).rgb * snow_bright;
+	vec3 base = texture(snow_tex, (wp + warp) / tile_m).rgb * snow_bright * snow_tint;
 	base *= (1.0 - mottle_amp * 0.5 + m * mottle_amp);
 	// pressed snow reads cooler and slightly darker, which is what makes the track visible --
 	// and a TRODDEN path (f.g, baked from the splat's path class) reads the same way with nobody
 	// on it, which is what makes a path a path rather than a strip of thinner snow
 	base = mix(base, base * press_tint, max(clamp(p, 0.0, 1.0), f.g) * press_tint_amt);
-	ALBEDO = base;
+	// thin snow near the feathered edge takes a little of the ground's warmth
+	base = mix(base * vec3(0.86, 0.80, 0.74), base, edge_k);
+	ALBEDO = id_black ? vec3(0.0) : base;
 	// THE SNOW'S MARK for the screen-space pen (see the header's barrow extensions)
 	ROUGHNESS = snow_mark;
 	// NO ALPHA. See note 3 in the header.
@@ -440,6 +494,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 
@@ -551,24 +606,10 @@ func _bake_field() -> void:
 		var hs := clampf(skirt_h_frac * oh, skirt_h_min_m, skirt_h_max_m)
 		var ws: float = skirt_w_m + r * 0.6
 		var reach: float = r + ws * tail_stretch + 0.2
-		_scatter_max(hsk, n, mx, mz, Vector2(pos.x, pos.z), reach, func(o: Vector2) -> float:
-			var along := o.dot(w)
-			var across := o.dot(perp)
-			var stretch: float = tail_stretch if along > 0.0 else windward_squash
-			var a2 := along / stretch
-			var d := sqrt(a2 * a2 + across * across)
-			var t := (d - r) / ws
-			if t >= 1.0:
-				return 0.0
-			var v := hs * (1.0 - _smoother(t))
-			# the windward scour: a shallow hollow just upwind of the skirt, which is what
-			# tells the eye the pile was BUILT by wind rather than dropped there
-			if along < 0.0:
-				var sd := (d - r) / ws
-				if sd > 0.35 and sd < 1.9:
-					v -= hs * scour_frac * sin((sd - 0.35) / 1.55 * PI)
-			return v
-		)
+		# INLINE, NOT A LAMBDA PER PIXEL (T10-1c). The dressing went from 309 obstacles to
+		# over a thousand, and a Callable dispatched per pixel of every skirt's bounding box made
+		# the bake cold-start seconds. Same formula, same max-combine as _scatter_max.
+		_skirt(hsk, n, mx, mz, Vector2(pos.x, pos.z), r, hs, ws, reach, w, perp)
 		feats.append({"c": Vector2(pos.x, pos.z), "r": r + 0.4})
 
 	# --- windrows: long, low, lying ALONG the wind ---
@@ -695,6 +736,38 @@ func _bake_field() -> void:
 			if d > _max_drift:
 				_max_drift = d
 
+	# --- THIN SNOW AT THE HEATHER (T10-1c) -------------------------------------
+	# Measured before this existed (drax_dbg_bury): the snow at the 505 clumps was 0.11 m deep
+	# at the median and 0.30 at p90 -- a median clump buried to 21% of its height and one in
+	# ten to 81%, and the buried part is the DENSE part, where the sprigs converge. So the eye
+	# saw the thin tips and the ID pass counted the rest. Capped, not zeroed: a clump keeps the
+	# snow round its foot that the painting gives it.
+	var thinned := 0
+	for tz in thin_zones:
+		var tc: Vector2 = tz["c"]
+		var tr: float = float(tz["r"])
+		var tf: float = float(tz.get("feather", 0.15))
+		var cap: float = float(tz["max_d"])
+		var rr: float = tr + tf
+		var i0: int = clampi(int(floor((tc.x - rr - area.position.x) / mx)), 0, n - 1)
+		var i1: int = clampi(int(ceil((tc.x + rr - area.position.x) / mx)), 0, n - 1)
+		var j0: int = clampi(int(floor((tc.y - rr - area.position.y) / mz)), 0, n - 1)
+		var j1: int = clampi(int(ceil((tc.y + rr - area.position.y) / mz)), 0, n - 1)
+		for j in range(j0, j1 + 1):
+			var zz := area.position.y + (float(j) + 0.5) * mz
+			for i in range(i0, i1 + 1):
+				var xx := area.position.x + (float(i) + 0.5) * mx
+				var dd := Vector2(xx, zz).distance_to(tc)
+				if dd >= rr:
+					continue
+				var o := j * n + i
+				var dn: float = lerpf(minf(Dv[o], cap), Dv[o], smoothstep(tr, rr, dd))
+				if dn < Dv[o]:
+					Dv[o] = dn
+					thinned += 1
+	_bake["thin_zones"] = thin_zones.size()
+	_bake["thin_px"] = thinned
+
 	_field_buf = PackedFloat32Array()
 	_field_buf.resize(n * n * 4)
 	for j in n:
@@ -710,8 +783,7 @@ func _bake_field() -> void:
 			_field_buf[o + 1] = edge[j * n + i]
 			_field_buf[o + 2] = dDdx
 			_field_buf[o + 3] = dDdz
-	_field_tex = ImageTexture.create_from_image(Image.create_from_data(
-		n, n, false, Image.FORMAT_RGBAF, _field_buf.to_byte_array()))
+	_field_tex = ImageTexture.create_from_image(_gpu_image(n, _field_buf))
 
 	# --- what got built, in numbers, so "open ground" is a measurement not a hope ---
 	var above := 0
@@ -738,6 +810,19 @@ func _bake_field() -> void:
 	_bake["mean_depth_m"] = snappedf(hsum / float(tot), 0.0001)
 	_bake["max_drift_m"] = snappedf(_max_drift, 0.001)
 	_bake["bake_ms"] = snappedf((Time.get_ticks_usec() - t0) / 1000.0, 0.1)
+
+
+func _gpu_image(n: int, buf: PackedFloat32Array) -> Image:
+	"""The float buffer as the image the GPU samples. FULL FLOAT on desktop. HALF FLOAT ON THE
+	WEB (the phone build): WebGL2 filters a 32-bit float texture only with
+	OES_texture_float_linear, which phone GPUs do not all offer -- and a linear sampler on an
+	unfilterable texture reads as zero, which here is "no snow anywhere". Half floats are
+	filterable in WebGL2 itself. The trail's clock channel loses precision with them (0.25 s at
+	300 s, 1 s at 30 min), which moves a footprint's refill by under 2% of its minute."""
+	var img := Image.create_from_data(n, n, false, Image.FORMAT_RGBAF, buf.to_byte_array())
+	if half_float_textures:
+		img.convert(Image.FORMAT_RGBAH)
+	return img
 
 
 func _edge_at(x: float, z: float) -> float:
@@ -803,6 +888,41 @@ func _scatter_max(h: PackedFloat32Array, n: int, mx: float, mz: float,
 				h[j * n + i] = h[j * n + i] + v
 
 
+func _skirt(h: PackedFloat32Array, n: int, mx: float, mz: float, c: Vector2, r: float,
+		hs: float, ws: float, reach: float, w: Vector2, perp: Vector2) -> void:
+	"""One obstacle's skirt and leeward tail, max-combined -- _scatter_max's lambda, unrolled.
+	The windward scour (a shallow hollow upwind, which tells the eye the pile was BUILT by
+	wind) still subtracts."""
+	var i0: int = maxi(int(floor((c.x - reach - area.position.x) / mx)), 0)
+	var i1: int = mini(int(ceil((c.x + reach - area.position.x) / mx)), n - 1)
+	var j0: int = maxi(int(floor((c.y - reach - area.position.y) / mz)), 0)
+	var j1: int = mini(int(ceil((c.y + reach - area.position.y) / mz)), n - 1)
+	var inv_ws := 1.0 / maxf(ws, 1e-4)
+	var inv_tail := 1.0 / maxf(tail_stretch, 1e-4)
+	var inv_wind := 1.0 / maxf(windward_squash, 1e-4)
+	for j in range(j0, j1 + 1):
+		var oz: float = area.position.y + (float(j) + 0.5) * mz - c.y
+		var row := j * n
+		for i in range(i0, i1 + 1):
+			var ox: float = area.position.x + (float(i) + 0.5) * mx - c.x
+			var along: float = ox * w.x + oz * w.y
+			var across: float = ox * perp.x + oz * perp.y
+			var a2: float = along * (inv_tail if along > 0.0 else inv_wind)
+			var d: float = sqrt(a2 * a2 + across * across)
+			var t: float = (d - r) * inv_ws
+			if t >= 1.0:
+				continue
+			var tc: float = clampf(t, 0.0, 1.0)
+			var v: float = hs * (1.0 - tc * tc * tc * (tc * (tc * 6.0 - 15.0) + 10.0))
+			if along < 0.0 and t > 0.35 and t < 1.9:
+				v -= hs * scour_frac * sin((t - 0.35) / 1.55 * PI)
+			var k := row + i
+			if v > 0.0:
+				h[k] = maxf(h[k], v)
+			elif v < 0.0:
+				h[k] = h[k] + v
+
+
 func _blur(src: PackedFloat32Array, n: int, r: int) -> PackedFloat32Array:
 	if r <= 0:
 		return src
@@ -838,10 +958,14 @@ static func _smoother(t: float) -> float:
 func _make_trail() -> void:
 	_trail_buf = PackedFloat32Array()
 	_trail_buf.resize(trail_px * trail_px * 4)
+	# stamp time far in the past == dead. -6e4 and not -1e6 on the phone build: a half float
+	# tops out at 65504, so -1e6 would upload as -INF, and a bilinear tap straddling a footprint's
+	# edge then mixes -inf into the stamp time (0 x -inf is NaN on the filter). -6e4 is as dead
+	# for 16 hours of play (fade = 1 - 6e4 / refill_s, clamped to 0).
+	var dead := -6.0e4 if half_float_textures else -1.0e6
 	for k in trail_px * trail_px:
-		_trail_buf[k * 4 + 1] = -1.0e6      # stamp time far in the past == dead
-	_trail_tex = ImageTexture.create_from_image(Image.create_from_data(
-		trail_px, trail_px, false, Image.FORMAT_RGBAF, _trail_buf.to_byte_array()))
+		_trail_buf[k * 4 + 1] = dead
+	_trail_tex = ImageTexture.create_from_image(_gpu_image(trail_px, _trail_buf))
 	_last_stamp.clear()
 	_last_plough = Vector2.INF
 
@@ -1146,7 +1270,9 @@ func _build_mesh() -> void:
 
 func _make_material() -> ShaderMaterial:
 	var sh := Shader.new()
-	sh.code = SHADER
+	# the web pen's "near side is snow" mark, as a stencil class (PaintStack.STENCIL_SNOW)
+	var code := shader_code_override if shader_code_override != "" else SHADER
+	sh.code = PS.stencil_write(code, PS.STENCIL_SNOW) if PS.is_compatibility() else code
 	_mat = ShaderMaterial.new()
 	_mat.shader = sh
 	# the scene's own fbm when it hands one over: regenerating the identical 512² texture here
@@ -1185,6 +1311,8 @@ func _make_material() -> ShaderMaterial:
 	_mat.set_shader_parameter("taps_4", 1.0 if normal_taps >= 4 else 0.0)
 	_mat.set_shader_parameter("snow_cut_m", snow_cut_m)
 	_mat.set_shader_parameter("snow_mark", snow_mark)
+	_mat.set_shader_parameter("snow_tint", Vector3(snow_tint.r, snow_tint.g, snow_tint.b))
+	_mat.set_shader_parameter("feather_m", feather_m)
 	return _mat
 
 
@@ -1219,6 +1347,13 @@ func field_texture() -> Texture2D:
 
 func trail_texture() -> Texture2D:
 	return _trail_tex
+
+
+func set_id_black(on: bool) -> void:
+	"""The snow as an OCCLUDER for the class-ID frame: drawn, in black, exactly where it is
+	drawn in the beauty. See the shader's id_black."""
+	if _mat != null:
+		_mat.set_shader_parameter("id_black", on)
 
 
 func set_visible_snow(on: bool) -> void:
@@ -1278,6 +1413,7 @@ func _build_puffs() -> void:
 		sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		sm.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
 		sm.albedo_texture = _flake
+		sm.render_priority = PS.AFTER_POST_PRIORITY   # after the post pass, or it paints them out
 		sm.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
 		sm.vertex_color_use_as_albedo = true
 		sm.disable_receive_shadows = true
@@ -1317,8 +1453,7 @@ func _process(_dt: float) -> void:
 	if _trail_dirty and _trail_tex != null:
 		# coalesced to at most one upload per frame; stamps are gated by stamp_stride_m and
 		# plough_step_m so this fires a handful of times a second, not sixty
-		_trail_tex.update(Image.create_from_data(trail_px, trail_px, false,
-			Image.FORMAT_RGBAF, _trail_buf.to_byte_array()))
+		_trail_tex.update(_gpu_image(trail_px, _trail_buf))
 		_trail_dirty = false
 
 

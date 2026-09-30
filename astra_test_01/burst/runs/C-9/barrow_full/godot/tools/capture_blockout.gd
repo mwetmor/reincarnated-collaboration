@@ -2,7 +2,10 @@ extends SceneTree
 ## C-9 T10-2 step 1 (spec v2): capture and MEASURE the Barrow blockout.
 ##
 ##   Godot --path godot --resolution 640x360 --script tools/capture_blockout.gd -- --out DIR
-##         [--no-walks] [--no-cost] [--atlas 8192]
+##         [--no-walks] [--no-cost] [--atlas 8192] [--painted]
+##
+## --painted (T10-2 step 4): the same scene dressed in the painting (barrow_full.gd `painted`) --
+## every instrument unchanged, so tools/accept_painted.py can hold its numbers to the blockout's.
 ##
 ## Windowed, not headless: every still is read back from a SubViewport, which needs a Metal
 ## surface. The OS window is small on purpose -- nothing it draws is kept.
@@ -35,6 +38,7 @@ var out_dir := ""
 var do_walks := true
 var do_cost := true
 var atlas := 8192
+var painted := false                # T10-2 step 4: the SAME instruments on the painted Barrow
 var vp: SubViewport
 var scene
 var rep := {}
@@ -51,6 +55,8 @@ func _initialize() -> void:
 			do_cost = false
 		if args[i] == "--atlas" and i + 1 < args.size():
 			atlas = int(args[i + 1])
+		if args[i] == "--painted":
+			painted = true
 	if out_dir == "":
 		print("[capture] HALT: --out DIR is required")
 		quit(2)
@@ -63,6 +69,7 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow_full.tscn").instantiate()
+	scene.painted = painted
 	vp.add_child(scene)
 	var waited := 0
 	while not scene.ready_done and waited < 1500:

@@ -42,3 +42,8 @@ size_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":93)]}
 renderer/rendering_method="forward_plus"
 textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/msaa_3d=2
+
+[editor]
+
+; the film (tools/film_painted.sh): Movie Maker's one MJPEG file, at a quality that survives the MP4 re-encode
+movie_writer/mjpeg_quality=0.95

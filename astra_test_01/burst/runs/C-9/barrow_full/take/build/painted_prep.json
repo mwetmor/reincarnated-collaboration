@@ -1,0 +1,170 @@
+{
+ "_what": "C-9 T10-2 step 4: the painted Barrow's data, measured (tools/paint_world_prep.py)",
+ "painting_sha256": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+ "tufts_self_test": {
+  "heather_px": [
+   1469808,
+   1469808
+  ],
+  "shrub_px": [
+   161533,
+   161533
+  ],
+  "PASS": true,
+  "_": "[this run, step 3's take_report] -- the same classifier on the same painting"
+ },
+ "shadow": {
+  "painted_shadow_over_painted_light_linear": [
+   0.4188,
+   0.5479,
+   0.8918
+  ],
+  "as_srgb_on_lit_snow": {
+   "lit": [
+    249,
+    234,
+    222
+   ],
+   "shadow": [
+    169,
+    179,
+    211
+   ]
+  },
+  "pixels": {
+   "shadow": 98493,
+   "lit": 6954934
+  },
+  "per_chunk_linear": {
+   "0_0": [
+    0.436,
+    0.526,
+    0.834
+   ],
+   "1_0": [
+    0.392,
+    0.506,
+    0.818
+   ],
+   "2_0": [
+    0.439,
+    0.559,
+    0.881
+   ],
+   "1_1": [
+    0.41,
+    0.549,
+    0.885
+   ],
+   "2_1": [
+    0.399,
+    0.536,
+    0.921
+   ],
+   "3_1": [
+    0.406,
+    0.555,
+    0.95
+   ],
+   "1_2": [
+    0.38,
+    0.526,
+    0.933
+   ],
+   "2_2": [
+    0.376,
+    0.523,
+    0.95
+   ],
+   "3_2": [
+    0.473,
+    0.598,
+    0.931
+   ],
+   "3_3": [
+    0.517,
+    0.627,
+    0.96
+   ]
+  },
+  "painted_vs_rendered_shadow_on_open_snow": {
+   "recall_rendered_shadow_painted_as_shadow": 0.9469,
+   "precision": 0.3956,
+   "iou": 0.387,
+   "painted_shadow_within_10px_of_a_rendered_one": 0.5219,
+   "painted_px": 648816,
+   "rendered_px": 271063,
+   "_read": "recall: the share of the render's cast shadow the painter painted as shadow -- where the SUN's real shadow will darken him; the rest of the painted blue is the snow's own washes (hollows, dabs), which no object casts",
+   "_instrument": "painted: a pixel's position on the lit->shadow colour axis > 0.5 after a 21 px median; rendered: the blockout's own cast shadow (lit_guide G < 0.5); open snow only"
+  },
+  "_use": "his shadow on the painted world = this multiplier (PaintedWorld.shadow_mul), where the painting shows sun (lit.bin)"
+ },
+ "inpaint": {
+  "px": 2398676,
+  "share_of_ground": 0.1682,
+  "method": "push-pull pyramid fill (bilinear pull; donors: ground pixels only; known pixels untouched), linear light; the tuft mask dilated 2 px for its ink"
+ },
+ "bakes": 25,
+ "heather": {
+  "instances": 977,
+  "placement": {
+   "shrub": {
+    "placed": 23,
+    "wanted": 23,
+    "footprint_px": [
+     54.9,
+     64.8
+    ],
+    "tuft_cells_covered_share": 0.1596
+   },
+   "heather": {
+    "placed": 954,
+    "wanted": 954,
+    "footprint_px": [
+     47.1,
+     55.5
+    ],
+    "tuft_cells_covered_share": 0.4379
+   }
+  },
+  "painted_mean_linear": [
+   0.28741,
+   0.12523,
+   0.05602
+  ],
+  "painted_mean_srgb": [
+   146,
+   99,
+   67
+  ],
+  "rel_mul_p10_p50_p90": [
+   [
+    0.643,
+    0.984,
+    1.417
+   ],
+   [
+    0.631,
+    0.938,
+    1.496
+   ],
+   [
+    0.595,
+    0.896,
+    1.577
+   ]
+  ],
+  "tuft_px_per_spray_median": 1064
+ },
+ "snow": {
+  "area_xz": [
+   -22.275,
+   -19.63,
+   47.211,
+   47.211
+  ],
+  "grid_cells": 224676,
+  "mean_mul": 0.5631,
+  "bare_share_mul_under_0.125": 0.3533
+ }
+}

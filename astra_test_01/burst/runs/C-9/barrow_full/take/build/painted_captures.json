@@ -1,0 +1,238 @@
+{
+ "_what": "C-9 T10-2 step 4: the painted Barrow, captured -- him in it (godot/tools/capture_painted.gd --stills / --shadow-test), the film's own report, the exported app's frame cost",
+ "launch_line": "loaded_from_pck files_sha_ok=28/28 painting_ok=true ground=painting.bin(as_painted)_ok=true lit_ok=true snow_grid_ok=true | plates: bakes=25/25 on the real models, painting on primitives=29/29 (the mound + 28) | birches=33 inks_hidden=25 heather=977 snow=true ms=3068",
+ "stills": {
+  "door": {
+   "facing": "N",
+   "painted_light_at_his_feet": 1.0,
+   "shows": "the cutting, the door ahead",
+   "uv": [
+    0.0,
+    7.2
+   ]
+  },
+  "open_sun": {
+   "facing": "E",
+   "painted_light_at_his_feet": 1.0,
+   "shows": "open sunlit snow in the ring: his own shadow on the painting",
+   "uv": [
+    1.5,
+    -1.0
+   ]
+  },
+  "ring_shadow": {
+   "facing": "S",
+   "painted_light_at_his_feet": 0.0,
+   "shows": "inside ring_m55's painted shadow",
+   "uv": [
+    -6.39,
+    6.9
+   ]
+  },
+  "tarn_path": {
+   "facing": "W",
+   "painted_light_at_his_feet": 1.0,
+   "shows": "the path by the tarn",
+   "uv": [
+    -6.0,
+    -7.5
+   ]
+  }
+ },
+ "b_him_darkened_in_a_painted_shadow": {
+  "in_shadow": {
+   "lit_at_his_feet": 0.0,
+   "mean_linear": [
+    0.327,
+    0.288,
+    0.3432
+   ],
+   "px": 4860
+  },
+  "in_sun": {
+   "lit_at_his_feet": 1.0,
+   "mean_linear": [
+    0.4491,
+    0.4311,
+    0.5203
+   ],
+   "px": 4398
+  },
+  "shadow_centroid_uv": [
+   -6.39,
+   6.9
+  ],
+  "shadow_over_sun_linear": [
+   0.728,
+   0.668,
+   0.66
+  ],
+  "stone": "ring_m55"
+ },
+ "a_his_shadow_on_the_painting_by_paint_sun_setting": {
+  "him_uv": [
+   1.5,
+   -1.0
+  ],
+  "crop_px": [
+   810,
+   345,
+   1310,
+   745
+  ],
+  "_instrument": "two frames per setting, his shadow term on and off; the ratio is his shadow and nothing else; core = the darkest quarter of the pixels he darkens by more than 5%",
+  "painted_shadow_target_linear": [
+   0.4188,
+   0.5479,
+   0.8918
+  ],
+  "settings": {
+   "A_installed": {
+    "px_darkened_over_5pct": 11933,
+    "px_darker_than_0.7": 532,
+    "core_ratio_linear": [
+     0.673,
+     0.744,
+     0.934
+    ]
+   },
+   "E_pssm2_blur06": {
+    "px_darkened_over_5pct": 7331,
+    "px_darker_than_0.7": 2588,
+    "core_ratio_linear": [
+     0.461,
+     0.581,
+     0.9
+    ]
+   },
+   "F_pssm2_blur06_8k": {
+    "px_darkened_over_5pct": 5843,
+    "px_darker_than_0.7": 2992,
+    "core_ratio_linear": [
+     0.42,
+     0.549,
+     0.892
+    ]
+   },
+   "G_ortho68_blur06": {
+    "px_darkened_over_5pct": 7164,
+    "px_darker_than_0.7": 2696,
+    "core_ratio_linear": [
+     0.461,
+     0.58,
+     0.9
+    ]
+   },
+   "H_pssm2_blur1_8k": {
+    "px_darkened_over_5pct": 6701,
+    "px_darker_than_0.7": 2644,
+    "core_ratio_linear": [
+     0.444,
+     0.568,
+     0.897
+    ]
+   },
+   "I_pssm2_blur06_medium": {
+    "px_darkened_over_5pct": 7349,
+    "px_darker_than_0.7": 2544,
+    "core_ratio_linear": [
+     0.465,
+     0.584,
+     0.901
+    ]
+   }
+  },
+  "chosen": "G: one orthogonal map to 68 m, blur 0.6, the 4096 atlas -- the painter's shadow value in his shape; 8192 px (F) was not needed"
+ },
+ "film": {
+  "frames_after_settle": 675,
+  "legs": [
+   {
+    "end_uv": [
+     -0.26,
+     -7.21
+    ],
+    "from_frame": 13,
+    "leg": "the tarn path",
+    "to_frame": 126
+   },
+   {
+    "end_uv": [
+     -4.72,
+     5.51
+    ],
+    "from_frame": 126,
+    "leg": "across the arena",
+    "to_frame": 211
+   },
+   {
+    "end_uv": [
+     -6.68,
+     7.97
+    ],
+    "from_frame": 211,
+    "leg": "through the painted shadow",
+    "to_frame": 287
+   },
+   {
+    "end_uv": [
+     2.22,
+     8.13
+    ],
+    "from_frame": 287,
+    "leg": "past the door",
+    "to_frame": 517
+   },
+   {
+    "end_uv": [
+     5.99,
+     6.87
+    ],
+    "from_frame": 517,
+    "leg": "to the stone",
+    "to_frame": 612
+   }
+  ],
+  "seconds": 28.13,
+  "shadow": {
+   "shadow_cells_0.1m": 51,
+   "shadow_centroid_uv": [
+    -6.39,
+    6.9
+   ],
+   "stone": "ring_m55",
+   "stone_base_uv": [
+    -7.37,
+    7.16
+   ]
+  },
+  "slash": {
+   "at_uv": [
+    6.17,
+    6.81
+   ],
+   "fired": true,
+   "frame": 620,
+   "stone": "ring_p55",
+   "stone_uv": [
+    7.37,
+    7.16
+   ]
+  },
+  "start_uv": [
+   -1.9,
+   -12.6
+  ],
+  "through_the_shadow": {
+   "frames_with_lit_under_0.3": 30,
+   "least_lit_at_his_feet": 0.0,
+   "seconds": 1.25
+  },
+  "trim_frames": 72
+ },
+ "exported_app_frame_cost": {
+  "app_frame_cost_painted_1": "ms_per_frame=10.93 fps=91.5 viewport=1920x1080 frames=600 render=1726x971 window=1920x971",
+  "app_frame_cost_painted_2": "ms_per_frame=10.97 fps=91.2 viewport=1920x1080 frames=600 render=1728x972 window=1920x972",
+  "app_frame_cost_painted_fullscreen": "ms_per_frame=12.40 fps=80.6 viewport=1920x1080 frames=600 render=1920x1080 window=1920x1080"
+ }
+}
