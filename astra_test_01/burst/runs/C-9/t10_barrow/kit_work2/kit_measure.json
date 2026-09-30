@@ -1,0 +1,390 @@
+{
+ "rocks": {
+  "variant": "a",
+  "mirror_iou": 0.897,
+  "front_azimuth_deg": 90,
+  "front_iou": 0.877,
+  "front_iou_spread_over_azimuth": 0.234,
+  "sheet_iou_tripo": {
+   "front": 0.879,
+   "back": 0.866,
+   "left": 0.826,
+   "right": 0.828
+  },
+  "sheet_iou_reduced": {
+   "front": 0.877,
+   "back": 0.865,
+   "left": 0.826,
+   "right": 0.827
+  },
+  "sheet_iou_tripo_mean": 0.85,
+  "sheet_iou_reduced_mean": 0.849,
+  "side_pair_asis": 0.827,
+  "side_pair_swapped": 0.633,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": null,
+   "reduced": null,
+   "thin_px": 11,
+   "tripo_tol4px": null,
+   "reduced_tol4px": null
+  },
+  "thin_recall_reduced_vs_tripo": null,
+  "thin_width": {
+   "sheet": {
+    "median_w": 197,
+    "p90_w": 197,
+    "thin_px": 11,
+    "area_px": 19633,
+    "thin_frac": 0.0006
+   },
+   "raw": {
+    "median_w": 255,
+    "p90_w": 255,
+    "thin_px": 16,
+    "area_px": 18316,
+    "thin_frac": 0.0009
+   },
+   "red": {
+    "median_w": 155,
+    "p90_w": 255,
+    "thin_px": 26,
+    "area_px": 18257,
+    "thin_frac": 0.0014
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.993,
+   "min": 0.9733,
+   "worst_az": 75,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9876,
+   "min": 0.9766,
+   "worst_az": 45,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1454344,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 4,
+   "reduced": 4
+  },
+  "nonmanifold_edges": {
+   "tripo": 344,
+   "reduced": 344
+  },
+  "boundary_edges": {
+   "tripo": 172,
+   "reduced": 172
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.817801,
+   0.464719,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.819327,
+   0.464856,
+   1.001078
+  ]
+ },
+ "stump": {
+  "variant": "a",
+  "mirror_iou": 0.953,
+  "front_azimuth_deg": 90,
+  "front_iou": 0.734,
+  "front_iou_spread_over_azimuth": 0.116,
+  "sheet_iou_tripo": {
+   "front": 0.741,
+   "back": 0.751,
+   "left": 0.788,
+   "right": 0.77
+  },
+  "sheet_iou_reduced": {
+   "front": 0.734,
+   "back": 0.743,
+   "left": 0.783,
+   "right": 0.773
+  },
+  "sheet_iou_tripo_mean": 0.763,
+  "sheet_iou_reduced_mean": 0.758,
+  "side_pair_asis": 0.778,
+  "side_pair_swapped": 0.649,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.096,
+   "reduced": 0.12,
+   "thin_px": 166,
+   "tripo_tol4px": 0.777,
+   "reduced_tol4px": 0.717
+  },
+  "thin_recall_reduced_vs_tripo": 0.77,
+  "thin_width": {
+   "sheet": {
+    "median_w": 13,
+    "p90_w": 112,
+    "thin_px": 166,
+    "area_px": 18202,
+    "thin_frac": 0.0091
+   },
+   "raw": {
+    "median_w": 21,
+    "p90_w": 115,
+    "thin_px": 196,
+    "area_px": 15917,
+    "thin_frac": 0.0123
+   },
+   "red": {
+    "median_w": 18,
+    "p90_w": 114,
+    "thin_px": 168,
+    "area_px": 16091,
+    "thin_frac": 0.0104
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9782,
+   "min": 0.9507,
+   "worst_az": 315,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9812,
+   "min": 0.9636,
+   "worst_az": 210,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1485922,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 2,
+   "reduced": 2
+  },
+  "nonmanifold_edges": {
+   "tripo": 396,
+   "reduced": 396
+  },
+  "boundary_edges": {
+   "tripo": 198,
+   "reduced": 198
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.885143,
+   0.554264,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.886977,
+   0.555511,
+   0.999745
+  ]
+ },
+ "skull": {
+  "variant": "b",
+  "mirror_iou": 0.953,
+  "front_azimuth_deg": 90,
+  "front_iou": 0.741,
+  "front_iou_spread_over_azimuth": 0.275,
+  "sheet_iou_tripo": {
+   "front": 0.742,
+   "back": 0.78,
+   "left": 0.623,
+   "right": 0.625
+  },
+  "sheet_iou_reduced": {
+   "front": 0.741,
+   "back": 0.779,
+   "left": 0.624,
+   "right": 0.625
+  },
+  "sheet_iou_tripo_mean": 0.693,
+  "sheet_iou_reduced_mean": 0.692,
+  "side_pair_asis": 0.625,
+  "side_pair_swapped": 0.609,
+  "mirrored": false,
+  "thin_recall_vs_sheet": {
+   "tripo": 0.216,
+   "reduced": 0.212,
+   "thin_px": 542,
+   "tripo_tol4px": 0.79,
+   "reduced_tol4px": 0.779
+  },
+  "thin_recall_reduced_vs_tripo": 0.985,
+  "thin_width": {
+   "sheet": {
+    "median_w": 7,
+    "p90_w": 74,
+    "thin_px": 542,
+    "area_px": 12643,
+    "thin_frac": 0.0429
+   },
+   "raw": {
+    "median_w": 6,
+    "p90_w": 57,
+    "thin_px": 1011,
+    "area_px": 11565,
+    "thin_frac": 0.0874
+   },
+   "red": {
+    "median_w": 6,
+    "p90_w": 71,
+    "thin_px": 932,
+    "area_px": 11605,
+    "thin_frac": 0.0803
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9863,
+   "min": 0.9488,
+   "worst_az": 235,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9853,
+   "min": 0.955,
+   "worst_az": 315,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1419870,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 244,
+   "reduced": 244
+  },
+  "boundary_edges": {
+   "tripo": 122,
+   "reduced": 122
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.809468,
+   0.371259,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.808062,
+   0.372088,
+   1.000301
+  ]
+ },
+ "boulder": {
+  "variant": "b",
+  "mirror_iou": 0.971,
+  "front_azimuth_deg": 0,
+  "front_iou": 0.787,
+  "front_iou_spread_over_azimuth": 0.114,
+  "sheet_iou_tripo": {
+   "front": 0.786,
+   "back": 0.81,
+   "left": 0.758,
+   "right": 0.778
+  },
+  "sheet_iou_reduced": {
+   "front": 0.787,
+   "back": 0.81,
+   "left": 0.758,
+   "right": 0.778
+  },
+  "sheet_iou_tripo_mean": 0.783,
+  "sheet_iou_reduced_mean": 0.783,
+  "side_pair_asis": 0.768,
+  "side_pair_swapped": 0.792,
+  "mirrored": true,
+  "thin_recall_vs_sheet": {
+   "tripo": null,
+   "reduced": null,
+   "thin_px": 0,
+   "tripo_tol4px": null,
+   "reduced_tol4px": null
+  },
+  "thin_recall_reduced_vs_tripo": null,
+  "thin_width": {
+   "sheet": {
+    "median_w": 0,
+    "p90_w": 0,
+    "thin_px": 0,
+    "area_px": 21948,
+    "thin_frac": 0.0
+   },
+   "raw": {
+    "median_w": 254,
+    "p90_w": 255,
+    "thin_px": 26,
+    "area_px": 17304,
+    "thin_frac": 0.0015
+   },
+   "red": {
+    "median_w": 128,
+    "p90_w": 256,
+    "thin_px": 20,
+    "area_px": 17311,
+    "thin_frac": 0.0012
+   }
+  },
+  "reduce_loss_pitch0": {
+   "mean": 0.9965,
+   "min": 0.9825,
+   "worst_az": 30,
+   "n": 72
+  },
+  "reduce_loss_play_pitch": {
+   "mean": 0.9962,
+   "min": 0.9891,
+   "worst_az": 285,
+   "n": 24
+  },
+  "tris": {
+   "tripo": 1435306,
+   "reduced": 7998
+  },
+  "islands": {
+   "tripo": 1,
+   "reduced": 1
+  },
+  "nonmanifold_edges": {
+   "tripo": 284,
+   "reduced": 284
+  },
+  "boundary_edges": {
+   "tripo": 142,
+   "reduced": 142
+  },
+  "watertight": {
+   "tripo": false,
+   "reduced": false
+  },
+  "size_gltf_tripo": [
+   0.934635,
+   0.299408,
+   1.0
+  ],
+  "size_gltf_reduced": [
+   0.93469,
+   0.300478,
+   1.000586
+  ]
+ }
+}

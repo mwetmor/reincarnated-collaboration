@@ -22,7 +22,7 @@ import numpy as np
 from PIL import Image
 
 HERE = pathlib.Path(__file__).resolve().parent
-SETS = {"kit": "kit_work", "kit2": "kit_work2"}
+SETS = {"kit": "kit_work", "kit2": "kit_work2", "kit3": "kit_work3"}
 WORK = HERE / SETS[sys.argv[1] if len(sys.argv) > 1 else "kit"]
 CANVAS = 1024
 FILL = 0.86

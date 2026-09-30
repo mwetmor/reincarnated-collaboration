@@ -28,7 +28,8 @@ from PIL import Image
 HERE = pathlib.Path(__file__).resolve().parent
 VIEWS = ["front", "right", "back", "left"]
 SETS = {"kit": ("kit_work", ["rocks", "stump", "log", "cairn", "skull", "shield"]),
-        "kit2": ("kit_work2", ["rocks", "stump", "skull", "boulder"])}
+        "kit2": ("kit_work2", ["rocks", "stump", "skull", "boulder"]),
+        "kit3": ("kit_work3", ["outcrop_a", "outcrop_b", "heather_clump", "dead_tree"])}
 SET = sys.argv[1] if len(sys.argv) > 1 else "kit"
 WORK, OBJECTS = HERE / SETS[SET][0], SETS[SET][1]
 END_ON = {"log"}          # RIGHT/LEFT are end-on views; scale spread across views is real

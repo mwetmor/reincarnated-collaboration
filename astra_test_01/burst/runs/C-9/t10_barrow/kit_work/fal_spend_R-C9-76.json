@@ -1,0 +1,114 @@
+{
+ "_what": "fal.ai spend under gandalf's $3.20 budget (R-C9-76), hard stop.",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Matt's $5.85 balance reading (R-C9-76, 19:30:59 EDT); every earlier matte and build is already inside that number.",
+ "budget_usd": 3.2,
+ "entries": [
+  {
+   "ts": "2026-09-29T23:38:53+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit2 build rocks",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-29T23:42:15+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit2 build stump",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-29T23:45:12+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit2 build skull",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-29T23:49:03+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit2 build boulder",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-30T00:01:21+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-F_a_band0_0-478.png",
+   "usd": 0.00375,
+   "wall_s": 4.69
+  },
+  {
+   "ts": "2026-09-30T00:01:26+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-F_a_band1_478-1024.png",
+   "usd": 0.00292,
+   "wall_s": 3.66
+  },
+  {
+   "ts": "2026-09-30T00:01:41+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-F_b_band0_0-484.png",
+   "usd": 0.00805,
+   "wall_s": 10.06
+  },
+  {
+   "ts": "2026-09-30T00:01:45+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-F_b_band1_484-1024.png",
+   "usd": 0.00229,
+   "wall_s": 2.86
+  },
+  {
+   "ts": "2026-09-30T00:01:51+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-G_a_band0_0-330.png",
+   "usd": 0.00267,
+   "wall_s": 3.34
+  },
+  {
+   "ts": "2026-09-30T00:01:54+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-G_a_band1_330-1024.png",
+   "usd": 0.00188,
+   "wall_s": 2.35
+  },
+  {
+   "ts": "2026-09-30T00:02:00+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-G_b_band0_0-326.png",
+   "usd": 0.0022,
+   "wall_s": 2.75
+  },
+  {
+   "ts": "2026-09-30T00:02:06+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "matte T10P-G_b_band1_326-1024.png",
+   "usd": 0.00408,
+   "wall_s": 5.09
+  },
+  {
+   "ts": "2026-09-30T00:07:10+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit3 build heather_clump",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-30T00:10:56+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit3 build dead_tree",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-09-30T00:14:21+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "kit3 build outcrop_a",
+   "usd": 0.4,
+   "wall_s": null
+  }
+ ],
+ "running_usd": 2.8278
+}

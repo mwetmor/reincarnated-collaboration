@@ -4,146 +4,8 @@
  "_origin": "base at y = 0, XZ origin at the centre of the footprint AABB.",
  "_yaw_convention": "azimuth A places the camera at (sin A, 0, cos A) from the object, up +Y. The painted FRONT view of each prop was turned to azimuth 47, the play camera's, so yaw 0 shows the face the sheet drew. pitch 52.95354.",
  "_snow_bed_ok": "base_coverage >= 0.60, where base_coverage is the top-down silhouette area of the bottom 0.10 m of the model over the silhouette area of the whole -- how much of its own footprint the prop fills at ground level. The slab is 0.10 m, an absolute depth rather than a share of the height, because a drift's toe is a physical thing: a share would judge a 0.43 m log against a 0.064 m slab and a 1.6 m spear against a 0.24 m one, and call the log the worse bed.",
- "_pitch_correct": "FALSE for every prop in this kit. These sheets were painted from words, not cut from the 52.95-degree concept, so the barrow's 1.660 Y stretch does not apply and is not applied.",
+ "_pitch_correct": "Per asset. FALSE for the word-painted props (sheets T10K-*): they were not cut from the 52.95-degree concept, so the barrow's 1.660 Y stretch does not apply. For the painting-matched props (sheets T10P-F/G, painted from identity plates) the stretch is the default and is withheld only where the drawn ratio clearly matches the stated one -- see each asset's pitch_evidence.",
  "models": {
-  "rocks": {
-   "status": "superseded",
-   "retired_because": "the sheet stacked the three rocks into a pile instead of setting them apart, so the cluster is 0.53 m across against a brief of 1.10. Re-issued in T10K-A2 at about 2:1.",
-   "glb": "res://models/barrow/kit/rocks.glb",
-   "what": "largest of three snow-capped rocks",
-   "brief": "largest ~0.5 m high, cluster ~1.1 m across",
-   "height_m": 0.5,
-   "axis": "height",
-   "yaw_deg": 0.0,
-   "pitch_correct": false,
-   "width_m": null,
-   "size_m": [
-    0.5045,
-    0.5,
-    0.5265
-   ],
-   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
-   "world_aabb_after_yaw_m": [
-    0.51981,
-    0.5,
-    0.51596
-   ],
-   "footprint_radius_m": 0.284,
-   "snow_bed_ok": true,
-   "base_coverage": 0.997,
-   "base_slab_m": 0.1,
-   "anchor": "height",
-   "anchor_m": 0.5,
-   "brief_secondary": {
-    "what": "across",
-    "brief_m": 1.1,
-    "measured_m": 0.526,
-    "ratio": 0.479
-   },
-   "scale_note": null,
-   "variant": "b",
-   "mirror_iou": 0.934,
-   "sheet_iou": {
-    "front": 0.901,
-    "back": 0.715,
-    "left": 0.867,
-    "right": 0.883
-   },
-   "sheet_iou_mean": 0.842,
-   "front_azimuth_deg_before_bake": 115,
-   "yaw_baked_deg": 47.0,
-   "scale_baked": [
-    0.515171,
-    0.515171,
-    0.515171
-   ],
-   "transform_baked": true,
-   "raw_aabb_m": [
-    1.000782,
-    0.970552,
-    0.976252
-   ],
-   "tris": 7998,
-   "islands": 1,
-   "nonmanifold_edges": 648,
-   "watertight": false,
-   "thin_recall_vs_sheet": null,
-   "thin_recall_vs_sheet_tol4px": null,
-   "thin_width_px": {
-    "sheet": 249,
-    "model": 4
-   },
-   "reduce_silhouette_iou": 0.9962
-  },
-  "stump": {
-   "status": "superseded",
-   "retired_because": "the sheet drew a tall stump with a tight root ball, so the roots reach 0.53 m against a brief of 1.20, and 40%% of the root fingers were lost in the build. Re-issued in T10K-A2, low and broad.",
-   "glb": "res://models/barrow/kit/stump.glb",
-   "what": "frost-covered birch stump",
-   "brief": "~0.55 m high, roots ~1.2 m across",
-   "height_m": 0.55,
-   "axis": "height",
-   "yaw_deg": 0.0,
-   "pitch_correct": false,
-   "width_m": null,
-   "size_m": [
-    0.5191,
-    0.55,
-    0.5286
-   ],
-   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
-   "world_aabb_after_yaw_m": [
-    0.65603,
-    0.55,
-    0.60806
-   ],
-   "footprint_radius_m": 0.3283,
-   "snow_bed_ok": true,
-   "base_coverage": 0.965,
-   "base_slab_m": 0.1,
-   "anchor": "height",
-   "anchor_m": 0.55,
-   "brief_secondary": {
-    "what": "across",
-    "brief_m": 1.2,
-    "measured_m": 0.529,
-    "ratio": 0.441
-   },
-   "scale_note": null,
-   "variant": "b",
-   "mirror_iou": 0.882,
-   "sheet_iou": {
-    "front": 0.74,
-    "back": 0.749,
-    "left": 0.671,
-    "right": 0.647
-   },
-   "sheet_iou_mean": 0.702,
-   "front_azimuth_deg_before_bake": 110,
-   "yaw_baked_deg": 47.0,
-   "scale_baked": [
-    0.586972,
-    0.586972,
-    0.586972
-   ],
-   "transform_baked": true,
-   "raw_aabb_m": [
-    0.913059,
-    0.937012,
-    1.002162
-   ],
-   "tris": 7998,
-   "islands": 1,
-   "nonmanifold_edges": 536,
-   "watertight": false,
-   "thin_recall_vs_sheet": 0.32,
-   "thin_recall_vs_sheet_tol4px": 0.583,
-   "thin_width_px": {
-    "sheet": 9,
-    "model": 11
-   },
-   "reduce_silhouette_iou": 0.9731
-  },
   "log": {
    "status": "keep",
    "retired_because": null,
@@ -277,70 +139,6 @@
    },
    "reduce_silhouette_iou": 0.9957
   },
-  "skull": {
-   "status": "retired",
-   "retired_because": "pose, not scale: standing on its antler tips. Re-issued in T10K-D lying on its side. Moved to kit/retired/; do not ship.",
-   "glb": "res://models/barrow/kit/retired/skull.glb",
-   "what": "elk skull with wide antlers, three ribs",
-   "brief": "~1.3 m antler span",
-   "height_m": 1.1272,
-   "axis": "height",
-   "yaw_deg": 0.0,
-   "pitch_correct": false,
-   "width_m": null,
-   "size_m": [
-    1.3,
-    1.1272,
-    1.0431
-   ],
-   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
-   "world_aabb_after_yaw_m": [
-    1.18009,
-    1.12719,
-    1.12207
-   ],
-   "footprint_radius_m": 0.6726,
-   "snow_bed_ok": false,
-   "base_coverage": 0.189,
-   "base_slab_m": 0.1,
-   "anchor": "across",
-   "anchor_m": 1.3,
-   "brief_secondary": null,
-   "scale_note": null,
-   "variant": "b",
-   "mirror_iou": 0.754,
-   "sheet_iou": {
-    "front": 0.74,
-    "back": 0.617,
-    "left": 0.616,
-    "right": 0.678
-   },
-   "sheet_iou_mean": 0.663,
-   "front_azimuth_deg_before_bake": 95,
-   "yaw_baked_deg": 47.0,
-   "scale_baked": [
-    1.300719,
-    1.300719,
-    1.300719
-   ],
-   "transform_baked": true,
-   "raw_aabb_m": [
-    0.809608,
-    0.866586,
-    1.001333
-   ],
-   "tris": 7998,
-   "islands": 6,
-   "nonmanifold_edges": 396,
-   "watertight": false,
-   "thin_recall_vs_sheet": 0.467,
-   "thin_recall_vs_sheet_tol4px": 0.927,
-   "thin_width_px": {
-    "sheet": 7,
-    "model": 6
-   },
-   "reduce_silhouette_iou": 0.9733
-  },
   "shield": {
    "status": "keep",
    "retired_because": null,
@@ -409,6 +207,731 @@
     "model": 12
    },
    "reduce_silhouette_iou": 0.9861
+  },
+  "rocks_v1": {
+   "status": "superseded",
+   "retired_because": "first issue: the sheet stacked the three rocks into one pile, 0.53 m across against a brief of 1.10; replaced by the T10K-A2 rocks",
+   "glb": "res://models/barrow/kit/retired/rocks_v1.glb",
+   "what": "largest of three snow-capped rocks",
+   "brief": "largest ~0.5 m high, cluster ~1.1 m across",
+   "height_m": 0.5,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "size_m": [
+    0.5045,
+    0.5,
+    0.5265
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    0.51981,
+    0.5,
+    0.51596
+   ],
+   "footprint_radius_m": 0.284,
+   "snow_bed_ok": true,
+   "base_coverage": 0.997,
+   "base_slab_m": 0.1,
+   "anchor": "height",
+   "anchor_m": 0.5,
+   "brief_secondary": {
+    "what": "across",
+    "brief_m": 1.1,
+    "measured_m": 0.526,
+    "ratio": 0.479
+   },
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.934,
+   "sheet_iou": {
+    "front": 0.901,
+    "back": 0.715,
+    "left": 0.867,
+    "right": 0.883
+   },
+   "sheet_iou_mean": 0.842,
+   "front_azimuth_deg_before_bake": 115,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    0.515171,
+    0.515171,
+    0.515171
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    1.000782,
+    0.970552,
+    0.976252
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 648,
+   "watertight": false,
+   "thin_recall_vs_sheet": null,
+   "thin_recall_vs_sheet_tol4px": null,
+   "thin_width_px": {
+    "sheet": 249,
+    "model": 4
+   },
+   "reduce_silhouette_iou": 0.9962
+  },
+  "stump_v1": {
+   "status": "superseded",
+   "retired_because": "first issue: a tall stump with a tight root ball, roots 0.53 m across against 1.20, ~40% of the root fingers lost in the build; replaced by the T10K-A2 stump",
+   "glb": "res://models/barrow/kit/retired/stump_v1.glb",
+   "what": "frost-covered birch stump",
+   "brief": "~0.55 m high, roots ~1.2 m across",
+   "height_m": 0.55,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "size_m": [
+    0.5191,
+    0.55,
+    0.5286
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    0.65603,
+    0.55,
+    0.60806
+   ],
+   "footprint_radius_m": 0.3283,
+   "snow_bed_ok": true,
+   "base_coverage": 0.965,
+   "base_slab_m": 0.1,
+   "anchor": "height",
+   "anchor_m": 0.55,
+   "brief_secondary": {
+    "what": "across",
+    "brief_m": 1.2,
+    "measured_m": 0.529,
+    "ratio": 0.441
+   },
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.882,
+   "sheet_iou": {
+    "front": 0.74,
+    "back": 0.749,
+    "left": 0.671,
+    "right": 0.647
+   },
+   "sheet_iou_mean": 0.702,
+   "front_azimuth_deg_before_bake": 110,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    0.586972,
+    0.586972,
+    0.586972
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.913059,
+    0.937012,
+    1.002162
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 536,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.32,
+   "thin_recall_vs_sheet_tol4px": 0.583,
+   "thin_width_px": {
+    "sheet": 9,
+    "model": 11
+   },
+   "reduce_silhouette_iou": 0.9731
+  },
+  "skull_upright": {
+   "status": "retired",
+   "retired_because": "retired on POSE: an elk skull balanced on its antler tips reads as a generator tell; replaced by the T10K-D skull lying on its side",
+   "glb": "res://models/barrow/kit/retired/skull_upright.glb",
+   "what": "elk skull with wide antlers, three ribs",
+   "brief": "~1.3 m antler span",
+   "height_m": 1.1272,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "size_m": [
+    1.3,
+    1.1272,
+    1.0431
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    1.18009,
+    1.12719,
+    1.12207
+   ],
+   "footprint_radius_m": 0.6726,
+   "snow_bed_ok": false,
+   "base_coverage": 0.189,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 1.3,
+   "brief_secondary": null,
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.754,
+   "sheet_iou": {
+    "front": 0.74,
+    "back": 0.617,
+    "left": 0.616,
+    "right": 0.678
+   },
+   "sheet_iou_mean": 0.663,
+   "front_azimuth_deg_before_bake": 95,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    1.300719,
+    1.300719,
+    1.300719
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.809608,
+    0.866586,
+    1.001333
+   ],
+   "tris": 7998,
+   "islands": 6,
+   "nonmanifold_edges": 396,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.467,
+   "thin_recall_vs_sheet_tol4px": 0.927,
+   "thin_width_px": {
+    "sheet": 7,
+    "model": 6
+   },
+   "reduce_silhouette_iou": 0.9733
+  },
+  "rocks": {
+   "status": "keep",
+   "retired_because": "the sheet stacked the three rocks into a pile instead of setting them apart, so the cluster is 0.53 m across against a brief of 1.10. Re-issued in T10K-A2 at about 2:1.",
+   "glb": "res://models/barrow/kit/rocks.glb",
+   "what": "three snow-capped rocks set apart",
+   "brief": "1.1 m across, largest 0.5 m high",
+   "height_m": 0.5108,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": null,
+   "size_m": [
+    1.1,
+    0.5108,
+    0.9003
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    1.19275,
+    0.51079,
+    1.20711
+   ],
+   "footprint_radius_m": 0.6159,
+   "snow_bed_ok": true,
+   "base_coverage": 0.994,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 1.1,
+   "brief_secondary": {
+    "what": "height",
+    "brief_m": 0.5,
+    "measured_m": 0.511,
+    "ratio": 1.022
+   },
+   "scale_note": null,
+   "variant": "a",
+   "mirror_iou": 0.897,
+   "sheet_iou": {
+    "front": 0.877,
+    "back": 0.865,
+    "left": 0.826,
+    "right": 0.827
+   },
+   "sheet_iou_mean": 0.849,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    1.098815,
+    1.098815,
+    1.098815
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.819327,
+    0.464856,
+    1.001078
+   ],
+   "tris": 7998,
+   "islands": 4,
+   "nonmanifold_edges": 344,
+   "watertight": false,
+   "thin_recall_vs_sheet": null,
+   "thin_recall_vs_sheet_tol4px": null,
+   "thin_width_px": {
+    "sheet": 197,
+    "model": 155
+   },
+   "reduce_silhouette_iou": 0.9876
+  },
+  "stump": {
+   "status": "keep",
+   "retired_because": "the sheet drew a tall stump with a tight root ball, so the roots reach 0.53 m against a brief of 1.20, and 40%% of the root fingers were lost in the build. Re-issued in T10K-A2, low and broad.",
+   "glb": "res://models/barrow/kit/stump.glb",
+   "what": "low broad frost-covered birch stump",
+   "brief": "0.3 m high x 0.9 m across",
+   "height_m": 0.3,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": null,
+   "size_m": [
+    0.5399,
+    0.3,
+    0.479
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    0.59744,
+    0.3,
+    0.58956
+   ],
+   "footprint_radius_m": 0.2992,
+   "snow_bed_ok": true,
+   "base_coverage": 0.985,
+   "base_slab_m": 0.1,
+   "anchor": "height",
+   "anchor_m": 0.3,
+   "brief_secondary": {
+    "what": "across",
+    "brief_m": 0.9,
+    "measured_m": 0.54,
+    "ratio": 0.6
+   },
+   "scale_note": null,
+   "variant": "a",
+   "mirror_iou": 0.953,
+   "sheet_iou": {
+    "front": 0.734,
+    "back": 0.743,
+    "left": 0.783,
+    "right": 0.773
+   },
+   "sheet_iou_mean": 0.758,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    0.540043,
+    0.540043,
+    0.540043
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.886977,
+    0.555511,
+    0.999745
+   ],
+   "tris": 7998,
+   "islands": 2,
+   "nonmanifold_edges": 396,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.12,
+   "thin_recall_vs_sheet_tol4px": 0.717,
+   "thin_width_px": {
+    "sheet": 13,
+    "model": 18
+   },
+   "reduce_silhouette_iou": 0.9812
+  },
+  "skull": {
+   "status": "keep",
+   "retired_because": "pose, not scale: standing on its antler tips. Re-issued in T10K-D lying on its side. Moved to kit/retired/; do not ship.",
+   "glb": "res://models/barrow/kit/skull.glb",
+   "what": "elk skull lying on its side, antlers flat",
+   "brief": "1.3 m across x ~0.45 m high",
+   "height_m": 0.4836,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": null,
+   "size_m": [
+    1.3,
+    0.4836,
+    1.0502
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    1.17803,
+    0.48357,
+    1.20582
+   ],
+   "footprint_radius_m": 0.7507,
+   "snow_bed_ok": true,
+   "base_coverage": 0.819,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 1.3,
+   "brief_secondary": {
+    "what": "height",
+    "brief_m": 0.45,
+    "measured_m": 0.484,
+    "ratio": 1.075
+   },
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.953,
+   "sheet_iou": {
+    "front": 0.741,
+    "back": 0.779,
+    "left": 0.624,
+    "right": 0.625
+   },
+   "sheet_iou_mean": 0.692,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    1.299609,
+    1.299609,
+    1.299609
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.808062,
+    0.372088,
+    1.000301
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 244,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.212,
+   "thin_recall_vs_sheet_tol4px": 0.779,
+   "thin_width_px": {
+    "sheet": 7,
+    "model": 6
+   },
+   "reduce_silhouette_iou": 0.9853
+  },
+  "boulder": {
+   "status": "keep",
+   "retired_because": null,
+   "glb": "res://models/barrow/kit/boulder.glb",
+   "what": "low flat-topped boulder",
+   "brief": "1.0 m long x 0.5 m high",
+   "height_m": 0.3003,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": null,
+   "size_m": [
+    1.0,
+    0.3003,
+    0.9341
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    1.08442,
+    0.3003,
+    1.06143
+   ],
+   "footprint_radius_m": 0.552,
+   "snow_bed_ok": true,
+   "base_coverage": 0.99,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 1.0,
+   "brief_secondary": {
+    "what": "height",
+    "brief_m": 0.5,
+    "measured_m": 0.3,
+    "ratio": 0.601
+   },
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.971,
+   "sheet_iou": {
+    "front": 0.787,
+    "back": 0.81,
+    "left": 0.758,
+    "right": 0.778
+   },
+   "sheet_iou_mean": 0.783,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 0,
+   "front_override": "silhouette cannot resolve the front of a near-round slab (cardinal IoUs 0.787/0.773/0.780/0.764, span 0.023); front taken from the build convention, 9 of 9 resolvable Tripo builds at 85-115 deg",
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    0.999414,
+    0.999414,
+    0.999414
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.93469,
+    0.300478,
+    1.000586
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 284,
+   "watertight": false,
+   "thin_recall_vs_sheet": null,
+   "thin_recall_vs_sheet_tol4px": null,
+   "thin_width_px": {
+    "sheet": 0,
+    "model": 128
+   },
+   "reduce_silhouette_iou": 0.9962
+  },
+  "heather_clump": {
+   "status": "keep",
+   "retired_because": null,
+   "glb": "res://models/barrow/kit/heather_clump.glb",
+   "what": "dense mounded clump of orange-brown heather",
+   "brief": "~0.6-0.9 m across, mounded (painting: 0.74 m)",
+   "height_m": 0.3812,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": {
+    "drawn_wh": 1.948,
+    "stated_wh": 2.0,
+    "squat_wh_if_plate_copied": 3.32,
+    "log_dist_obeyed": 0.026,
+    "log_dist_squat": 0.533,
+    "stretch_applied": false,
+    "rule": "stretch unless 'obeyed' is closer by >= 0.15 in log space"
+   },
+   "size_m": [
+    0.75,
+    0.3812,
+    0.6995
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    0.82497,
+    0.38118,
+    0.64856
+   ],
+   "footprint_radius_m": 0.4478,
+   "snow_bed_ok": true,
+   "base_coverage": 0.966,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 0.75,
+   "brief_secondary": {
+    "what": "height",
+    "brief_m": 0.375,
+    "measured_m": 0.381,
+    "ratio": 1.016
+   },
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.952,
+   "sheet_iou": {
+    "front": 0.85,
+    "back": 0.86,
+    "left": 0.853,
+    "right": 0.845
+   },
+   "sheet_iou_mean": 0.852,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    0.753731,
+    0.753731,
+    0.753731
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.928086,
+    0.505722,
+    0.99505
+   ],
+   "tris": 9996,
+   "islands": 1,
+   "nonmanifold_edges": 596,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.23,
+   "thin_recall_vs_sheet_tol4px": 0.715,
+   "thin_width_px": {
+    "sheet": 6,
+    "model": 6
+   },
+   "reduce_silhouette_iou": 0.9697
+  },
+  "dead_tree": {
+   "status": "keep",
+   "retired_because": null,
+   "glb": "res://models/barrow/kit/dead_tree.glb",
+   "what": "bare crooked dead tree, thick limbs, no crown",
+   "brief": "~2.5-3.5 m tall (painting's snag measures ~1.9 m)",
+   "height_m": 2.5,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": {
+    "drawn_wh": 0.624,
+    "stated_wh": 0.625,
+    "squat_wh_if_plate_copied": 1.037,
+    "log_dist_obeyed": 0.001,
+    "log_dist_squat": 0.508,
+    "stretch_applied": false,
+    "rule": "stretch unless 'obeyed' is closer by >= 0.15 in log space"
+   },
+   "size_m": [
+    1.5637,
+    2.5,
+    1.1022
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    1.07244,
+    2.5,
+    1.64097
+   ],
+   "footprint_radius_m": 0.855,
+   "snow_bed_ok": true,
+   "base_coverage": 0.693,
+   "base_slab_m": 0.1,
+   "anchor": "height",
+   "anchor_m": 2.5,
+   "brief_secondary": null,
+   "scale_note": null,
+   "variant": "b",
+   "mirror_iou": 0.96,
+   "sheet_iou": {
+    "front": 0.919,
+    "back": 0.915,
+    "left": 0.894,
+    "right": 0.908
+   },
+   "sheet_iou_mean": 0.909,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    2.500945,
+    2.500945,
+    2.500945
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.440729,
+    0.999622,
+    0.625251
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 200,
+   "watertight": false,
+   "thin_recall_vs_sheet": 0.412,
+   "thin_recall_vs_sheet_tol4px": 1.0,
+   "thin_width_px": {
+    "sheet": 35,
+    "model": 57
+   },
+   "reduce_silhouette_iou": 0.9815
+  },
+  "outcrop_a": {
+   "status": "keep",
+   "retired_because": null,
+   "glb": "res://models/barrow/kit/outcrop_a.glb",
+   "what": "low horizontally bedded outcrop, snow on its ledges",
+   "brief": "~4-6 m across, ~1.5-2.5 m high; low and wide, not upright",
+   "height_m": 2.2888,
+   "axis": "height",
+   "yaw_deg": 0.0,
+   "pitch_correct": false,
+   "width_m": null,
+   "pitch_evidence": {
+    "drawn_wh": 2.184,
+    "stated_wh": 2.5,
+    "squat_wh_if_plate_copied": 4.15,
+    "log_dist_obeyed": 0.135,
+    "log_dist_squat": 0.642,
+    "stretch_applied": false,
+    "rule": "stretch unless 'obeyed' is closer by >= 0.15 in log space"
+   },
+   "size_m": [
+    5.0,
+    2.2888,
+    3.5663
+   ],
+   "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is world-axis-aligned, so the turned box below is 2.6 m in neither axis for a 2.6 m log.",
+   "world_aabb_after_yaw_m": [
+    4.51852,
+    2.28882,
+    4.83529
+   ],
+   "footprint_radius_m": 2.729,
+   "snow_bed_ok": true,
+   "base_coverage": 0.73,
+   "base_slab_m": 0.1,
+   "anchor": "across",
+   "anchor_m": 5.0,
+   "brief_secondary": {
+    "what": "height",
+    "brief_m": 2.0,
+    "measured_m": 2.289,
+    "ratio": 1.144
+   },
+   "scale_note": null,
+   "variant": "a",
+   "mirror_iou": 0.695,
+   "sheet_iou": {
+    "front": 0.914,
+    "back": 0.856,
+    "left": 0.868,
+    "right": 0.773
+   },
+   "sheet_iou_mean": 0.853,
+   "front_azimuth_deg_before_bake": 90,
+   "front_measured_deg": 90,
+   "front_override": null,
+   "yaw_baked_deg": 47.0,
+   "scale_baked": [
+    4.998341,
+    4.998341,
+    4.998341
+   ],
+   "transform_baked": true,
+   "raw_aabb_m": [
+    0.713498,
+    0.457916,
+    1.000332
+   ],
+   "tris": 7998,
+   "islands": 1,
+   "nonmanifold_edges": 308,
+   "watertight": false,
+   "thin_recall_vs_sheet": null,
+   "thin_recall_vs_sheet_tol4px": null,
+   "thin_width_px": {
+    "sheet": 253,
+    "model": 241
+   },
+   "reduce_silhouette_iou": 0.9937
   }
  }
 }

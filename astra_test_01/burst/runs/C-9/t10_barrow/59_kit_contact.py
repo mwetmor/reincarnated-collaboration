@@ -41,11 +41,13 @@ argv = sys.argv[sys.argv.index("--") + 1:]
 KIT, BODY, OUT, META = argv[0], argv[1], argv[2], argv[3]
 # The cast comes from kit_assets.json, so the sheet cannot show a prop the manifest says
 # not to ship. Ordered small to large; anything not marked keep is left out.
-PREFERRED = ["rocks", "stump", "boulder", "cairn", "log", "skull", "shield"]
+PREFERRED = ["rocks", "stump", "heather_clump", "boulder", "cairn", "skull", "log",
+             "shield", "dead_tree", "outcrop_a", "outcrop_b"]
 YAW, PITCH = 47.0, 52.95354112560294
 GAP = 0.55
 BODY_H = 1.85
-W, H = 2800, 900
+W, H = 2800, 900            # W is re-set below from the cast's own span
+PX_PER_M = 230.0            # enough that a 0.5 m prop is ~115 px beside a 5 m outcrop
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 
@@ -150,6 +152,12 @@ sun.rotation_euler = (math.radians(52.0), 0.0, math.radians(47.0 + 130.0))
 
 hi_z = max(it["h"] for it in items)
 ortho = total + GAP * 1.4
+# A fixed 2800 px frame shrinks every prop as the kit grows; ten props and a 5 m outcrop
+# would put the heather at ~120 px. So the frame is sized to the cast instead, at a fixed
+# pixel density, and capped so the file stays a review image rather than a poster.
+W = int(min(5200, max(2800, ortho * PX_PER_M)))
+H = int(max(900, (hi_z * math.cos(P) + 2.2 * math.sin(P)) * W / ortho + 240))
+sc.render.resolution_x, sc.render.resolution_y = W, H   # AFTER the recompute, not before
 cd = bpy.data.cameras.new("cam")
 cd.type = "ORTHO"
 cd.ortho_scale = ortho

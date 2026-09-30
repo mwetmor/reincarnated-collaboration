@@ -1,0 +1,75 @@
+{
+ "_what": "C-9 T10-1e identity plates for outcrop_a, outcrop_b, heather_clump and dead_tree, cut from T10C-barrow_a with local masks (no fal cost).",
+ "px_per_metre": 140.86,
+ "assets": {
+  "outcrop_a": {
+   "plate": "plates/T10_outcrop_a.png",
+   "guide": "runs/C-9/artifacts/CS9-guides/t10_outcrop_a_plate.png",
+   "sha256": "f63327fd3cc21e0fe2d01080e84e958b4e16c7d26530b1c922a0fe3e9c4e3746",
+   "screen_bbox": [
+    0,
+    694,
+    240,
+    1023
+   ],
+   "visible_width_m": 1.71,
+   "visible_height_if_upright_m": 3.89,
+   "cut_by_frame": [
+    "left",
+    "bottom"
+   ],
+   "mask_px": 57886,
+   "method": "hand-traced outline (16 vertices, 20 px grid); vegetation and ice removed by hue inside it; CUT BY THE FRAME EDGE"
+  },
+  "outcrop_b": {
+   "plate": "plates/T10_outcrop_b.png",
+   "guide": "runs/C-9/artifacts/CS9-guides/t10_outcrop_b_plate.png",
+   "sha256": "7aae5f94ff42e5aff0d028f7926066b0187aecfaa21b50d0d2e4d9a3d1ac6b4b",
+   "screen_bbox": [
+    1315,
+    368,
+    1535,
+    659
+   ],
+   "visible_width_m": 1.57,
+   "visible_height_if_upright_m": 3.44,
+   "cut_by_frame": [
+    "right"
+   ],
+   "mask_px": 35215,
+   "method": "hand-traced outline (18 vertices, 20 px grid); vegetation and ice removed by hue inside it; CUT BY THE FRAME EDGE"
+  },
+  "heather_clump": {
+   "plate": "plates/T10_heather_clump.png",
+   "guide": "runs/C-9/artifacts/CS9-guides/t10_heather_clump_plate.png",
+   "sha256": "b180f6a56af7b88d8825dc231e6198ea17795d336c81ab5cc5adb90cbdd01e3c",
+   "screen_bbox": [
+    1355,
+    565,
+    1458,
+    651
+   ],
+   "visible_width_m": 0.74,
+   "visible_height_if_upright_m": 1.03,
+   "cut_by_frame": [],
+   "mask_px": 4686,
+   "method": "warm-hue clump (h 12-50, s > 0.38), densest of the 0.55-0.95 m candidates; checked by eye (the classifier also finds fur)"
+  },
+  "dead_tree": {
+   "plate": "plates/T10_dead_tree.png",
+   "guide": "runs/C-9/artifacts/CS9-guides/t10_dead_tree_plate.png",
+   "sha256": "26204a0cd409edfe2be0dbb38a5729bd5169c6a5f326d47c3945ce66d696a5a9",
+   "screen_bbox": [
+    1212,
+    813,
+    1380,
+    975
+   ],
+   "visible_width_m": 1.2,
+   "visible_height_if_upright_m": 1.92,
+   "cut_by_frame": [],
+   "mask_px": 8915,
+   "method": "evf-sam birch2_dead rank 1 (the snag), grown geodesically <= 16 px into desaturated grey wood to recover the thin limbs (+562 px)"
+  }
+ }
+}

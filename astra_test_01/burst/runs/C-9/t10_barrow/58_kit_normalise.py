@@ -114,7 +114,80 @@ SPEC_KIT2 = {
                 "brief": "1.0 m long x 0.5 m high", "secondary": ("height", 0.50)},
 }
 
-SETS = {"kit": ("kit_work", SPEC_KIT), "kit2": ("kit_work2", SPEC_KIT2)}
+# PAINTING-MATCHED (T10P-F, T10P-G). Sheets painted FROM identity plates cut out of the
+# 52.95-degree concept, the way the original nine were -- and the nine came out squat by
+# exactly cos(pitch), verified on the lintel (3.17 -> 1.91 against the painting's 1.93).
+# gandalf's instruction: apply the 1.660 Y stretch before normalising.
+#
+# BUT these briefs ALSO carry T10K-A2's proportion clause, which the nine's did not, and a
+# painter who obeys it paints the TRUE ratio -- in which case the stretch makes the model
+# 66% too tall. The two instructions double-count if both succeed. So the stretch is the
+# DEFAULT and is withheld only on evidence: the drawn width:height of the chosen FRONT
+# view is compared with the stated ratio (painter obeyed) and with 1.660x it (painter
+# copied the squat plate), in log space, and the stretch is dropped only when the
+# obeyed hypothesis wins by a clear margin. Both numbers go in the manifest either way.
+PITCH_K = 1.660
+
+# FRONT OVERRIDES, each with its evidence. The sweep finds the azimuth whose silhouette
+# best matches the painted FRONT; on an object that looks the same from every side it
+# returns the argmax of a flat curve, which is noise with a decimal point. The boulder was
+# painted the same width in all four views (width CV 0.0076) and its four cardinal IoUs
+# span 0.023 -- 0.787 at 0, 0.773 at 90 -- so the sweep cannot resolve it, and its
+# "MIRRORED?" flag is the same noise. Every Tripo build in this run that the sweep COULD
+# resolve landed at 85-115 (nine of nine), so that convention is used instead.
+FRONT_OVERRIDE = {
+    ("kit2", "boulder"): (90, "silhouette cannot resolve the front of a near-round slab "
+                              "(cardinal IoUs 0.787/0.773/0.780/0.764, span 0.023); front "
+                              "taken from the build convention, 9 of 9 resolvable Tripo "
+                              "builds at 85-115 deg"),
+}
+SPEC_KIT3 = {
+    "outcrop_a":     {"anchor": "across", "m": 5.00, "stated_wh": 2.5, "pitch": "measure",
+                      "what": "low horizontally bedded outcrop, snow on its ledges",
+                      "brief": "~4-6 m across, ~1.5-2.5 m high; low and wide, not upright",
+                      "secondary": ("height", 2.0)},
+    "outcrop_b":     {"anchor": "across", "m": 4.50, "stated_wh": 2.0, "pitch": "measure",
+                      "what": "bedded outcrop stepping up to one end",
+                      "brief": "~4-6 m across, ~1.5-2.5 m high; low and wide, not upright",
+                      "secondary": ("height", 2.0)},
+    "heather_clump": {"anchor": "across", "m": 0.75, "stated_wh": 2.0, "pitch": "measure",
+                      "what": "dense mounded clump of orange-brown heather",
+                      "brief": "~0.6-0.9 m across, mounded (painting: 0.74 m)",
+                      "secondary": ("height", 0.375)},
+    # REFERENCE RATIO FROM THE PAINTING, not from the brief. The question the pitch test
+    # asks is "did the sheet inherit the plate's squatness?", and the right reference for
+    # that is the object's TRUE proportion measured on the concept the way T10 measured
+    # every plate: width / K against height / (K cos pitch) -- 1.20 m by 1.92 m for this
+    # snag, 0.625. The brief's "twice as tall as wide" (0.5) was my instruction to the
+    # painter, not a measurement, and against it the drawn 0.62 is ambiguous (log distance
+    # 0.215 against the squat hypothesis's 0.292). Against the painting it is not: 0.62 vs
+    # 0.625, while a copied-squat sheet would draw 1.04. Only this asset has a usable
+    # painting ratio -- the outcrops are cut by the frame and the heather is seen from above.
+    "dead_tree":     {"anchor": "height", "m": 2.50, "stated_wh": 0.625, "pitch": "measure",
+                      "what": "bare crooked dead tree, thick limbs, no crown",
+                      "brief": "~2.5-3.5 m tall (painting's snag measures ~1.9 m)",
+                      "secondary": None},
+}
+
+SETS = {"kit": ("kit_work", SPEC_KIT), "kit2": ("kit_work2", SPEC_KIT2),
+        "kit3": ("kit_work3", SPEC_KIT3)}
+
+
+def pitch_decision(sp, front):
+    """Return (apply_stretch, evidence dict)."""
+    if sp.get("pitch") is None:
+        return False, None
+    drawn = front.shape[1] / front.shape[0]          # width : height of the FRONT view
+    obey, squat = sp["stated_wh"], sp["stated_wh"] * PITCH_K
+    d_obey, d_squat = abs(np.log(drawn / obey)), abs(np.log(drawn / squat))
+    # withhold only on a clear win for "obeyed": at least 0.15 in log space (~16%)
+    apply_ = not (d_obey + 0.15 < d_squat)
+    return apply_, {"drawn_wh": round(drawn, 3), "stated_wh": obey,
+                    "squat_wh_if_plate_copied": round(squat, 3),
+                    "log_dist_obeyed": round(float(d_obey), 3),
+                    "log_dist_squat": round(float(d_squat), 3),
+                    "stretch_applied": apply_,
+                    "rule": "stretch unless 'obeyed' is closer by >= 0.15 in log space"}
 
 
 def sil(p: pathlib.Path) -> np.ndarray:
@@ -165,19 +238,36 @@ def main() -> int:
         out = json.loads(man.read_text()).get("models", {})
     for obj in want:
         sp = SPEC[obj]
+        if setname == "kit" and STATUS.get(obj, "keep") != "keep":
+            # Frozen by 67_kit_migrate.py in kit/retired/ under a versioned name. The plain
+            # name now belongs to the re-issue; re-baking the first issue here would write
+            # it back over the new build, which is the one mistake that step exists to stop.
+            print("%-13s first issue, frozen in kit/retired/ -- skipped" % obj)
+            continue
         m = meas[obj]
         a0 = m["front_azimuth_deg"]
+        a0_note = None
+        if (setname, obj) in FRONT_OVERRIDE:
+            a0, a0_note = FRONT_OVERRIDE[(setname, obj)]
+            print("%-13s front overridden %d -> %d: %s" % (obj, m["front_azimuth_deg"], a0, a0_note))
         red = WORK / "red8k" / ("%s.glb" % obj)
+        if not red.exists():
+            print("%-13s no reduced model at %s -- skipped" % (obj, red))
+            continue
         Lx, Ly, Lz = canon_size(red, a0)
         front = sil(WORK / "probe2" / ("%s_red_p0" % obj) / ("%s_az%03d.png" % (obj, a0)))
 
         note = None
+        pk_apply, pk_ev = pitch_decision(sp, front)
+        k = PITCH_K if pk_apply else 1.0
         if sp["anchor"] == "height":
-            s = sp["m"] / Ly
-            sx = sy = sz = s
+            s = sp["m"] / (Ly * k)
+            sx = sz = s
+            sy = s * k
         elif sp["anchor"] == "across":
             s = sp["m"] / Lx
-            sx = sy = sz = s
+            sx = sz = s
+            sy = s * k
         elif sp["anchor"] == "disc":
             d_units = disc_frac(front) * Lx
             s = sp["m"] / d_units
@@ -199,7 +289,13 @@ def main() -> int:
         pj.write_text(json.dumps({"a0": a0, "yaw": PLAY_YAW, "sx": sx, "sy": sy, "sz": sz}))
         # A retired asset is still BUILT -- its numbers are the evidence for retiring it --
         # but it is written to kit/retired/ so that "everything in kit/ ships" stays true.
-        dest = KIT / "retired" if STATUS.get(obj) == "retired" else KIT
+        # ONE status, computed once, for both the file's location and the manifest's path.
+        # The first version read the first-issue STATUS table here and the per-set status
+        # below, so the re-issued skull -- "keep" -- was written into kit/retired/ while its
+        # manifest entry pointed at kit/: a shipped asset filed as retired, and a path to a
+        # file that was not there.
+        st_ = "keep" if setname != "kit" else STATUS.get(obj, "keep")
+        dest = KIT / "retired" if st_ == "retired" else KIT
         dest.mkdir(parents=True, exist_ok=True)
         glb = dest / ("%s.glb" % obj)
         r = subprocess.run(["blender", "--background", "--python", str(HERE / "57_kit_bake.py"),
@@ -226,7 +322,7 @@ def main() -> int:
             sec = {"what": kind, "brief_m": want_m, "measured_m": round(got, 3),
                    "ratio": round(got / want_m, 3)}
 
-        st = "keep" if setname == "kit2" else STATUS.get(obj, "keep")
+        st = st_
         out[obj] = {
             "status": st,
             "retired_because": RETIRED_BECAUSE.get(obj),
@@ -234,7 +330,8 @@ def main() -> int:
                     else "res://models/barrow/kit/%s.glb") % obj,
             "what": sp["what"], "brief": sp["brief"],
             "height_m": round(sy_m, 4), "axis": "height",
-            "yaw_deg": 0.0, "pitch_correct": False, "width_m": None,
+            "yaw_deg": 0.0, "pitch_correct": bool(pk_apply), "width_m": None,
+            "pitch_evidence": pk_ev,
             "size_m": [round(v, 4) for v in bake["size_m_gltf"]],
             "_size_m_note": "the object's OWN size, measured before the yaw. An AABB is "
                             "world-axis-aligned, so the turned box below is 2.6 m in "
@@ -250,6 +347,8 @@ def main() -> int:
             "sheet_iou": m["sheet_iou_reduced"],
             "sheet_iou_mean": m["sheet_iou_reduced_mean"],
             "front_azimuth_deg_before_bake": a0,
+            "front_measured_deg": m["front_azimuth_deg"],
+            "front_override": a0_note,
             "yaw_baked_deg": PLAY_YAW,
             "scale_baked": [round(sx, 6), round(sy, 6), round(sz, 6)],
             "transform_baked": True,
@@ -290,9 +389,12 @@ def main() -> int:
                         "a physical thing: a share would judge a 0.43 m log against a "
                         "0.064 m slab and a 1.6 m spear against a 0.24 m one, and call the "
                         "log the worse bed." % SNOW_BED_MIN,
-        "_pitch_correct": "FALSE for every prop in this kit. These sheets were painted from "
-                          "words, not cut from the 52.95-degree concept, so the barrow's "
-                          "1.660 Y stretch does not apply and is not applied.",
+        "_pitch_correct": "Per asset. FALSE for the word-painted props (sheets T10K-*): "
+                          "they were not cut from the 52.95-degree concept, so the barrow's "
+                          "1.660 Y stretch does not apply. For the painting-matched props "
+                          "(sheets T10P-F/G, painted from identity plates) the stretch is "
+                          "the default and is withheld only where the drawn ratio clearly "
+                          "matches the stated one -- see each asset's pitch_evidence.",
         "models": out}, indent=1) + "\n")
     print("-> %s" % man)
     return 0

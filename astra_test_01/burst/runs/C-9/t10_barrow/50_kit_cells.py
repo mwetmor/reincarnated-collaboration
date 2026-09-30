@@ -37,6 +37,7 @@ MARGIN = 60
 SETS = {
     "kit": ("kit_work", {"T10K-C"}),
     "kit2": ("kit_work2", set()),
+    "kit3": ("kit_work3", set()),
 }
 SET = sys.argv[1] if len(sys.argv) > 1 else "kit"
 WORK = HERE / SETS[SET][0]
@@ -55,6 +56,13 @@ ALL_SHEETS = {
     "kit2": {
         "T10K-A2": [("rocks", 4), ("stump", 4)],
         "T10K-D": [("skull", 4), ("boulder", 4)],
+    },
+    # Painting-matched: sheets painted FROM identity plates cut out of the concept, the way
+    # the original nine were -- so, unlike kit and kit2, they are expected to inherit the
+    # plate's squatness, and the pitch correction is decided by measurement in 58.
+    "kit3": {
+        "T10P-F": [("outcrop_a", 4), ("outcrop_b", 4)],
+        "T10P-G": [("heather_clump", 4), ("dead_tree", 4)],
     },
 }
 
@@ -177,13 +185,19 @@ def detail(rgb: np.ndarray) -> np.ndarray:
 def matte(src_img: Image.Image, dst: pathlib.Path) -> Image.Image:
     if not dst.exists():
         import fal_client
+        sys.path.insert(0, str(HERE))
+        import fal_ledger
+        fal_ledger.check("fal-ai/birefnet/v2")          # refuse BEFORE the call
         tmp = dst.with_suffix(".src.png")
         src_img.save(tmp)
-        url = fal_client.upload_file(str(tmp))
-        r = fal_client.subscribe("fal-ai/birefnet/v2", arguments={
-            "image_url": url, "model": "General Use (Heavy)",
-            "operating_resolution": "2048x2048", "output_format": "png",
-            "refine_foreground": True})
+        with fal_ledger.timed() as tm:
+            url = fal_client.upload_file(str(tmp))
+            r = fal_client.subscribe("fal-ai/birefnet/v2", arguments={
+                "image_url": url, "model": "General Use (Heavy)",
+                "operating_resolution": "2048x2048", "output_format": "png",
+                "refine_foreground": True})
+        tot = fal_ledger.record("fal-ai/birefnet/v2", "matte %s" % dst.name, tm.s)
+        print("      matte %s  %.1f s wall  fal running $%.4f" % (dst.name, tm.s, tot))
         subprocess.run(["curl", "-s", "-L", "-o", str(dst), r["image"]["url"]], check=True)
         tmp.unlink(missing_ok=True)
     return Image.open(dst).convert("RGBA")
@@ -195,7 +209,11 @@ def main() -> None:
     out = {}
     for sid, bands in ALL_SHEETS[SET].items():
         for v in ("a", "b"):
-            src = ART / sid / ("%s_%s.png" % (sid, v))
+            # kit3's sheets were HARVESTED, not ingested: both bursts hit the 15-minute
+            # cap (exit 3, no receipt) with all four images delivered, verified by sha256
+            # against the lane's provenance and copied into kit_work3/sheets/. They are
+            # read from there so nothing is written into artifacts/, which is the lane's.
+            src = (WORK / "sheets" if SET == "kit3" else ART / sid) / ("%s_%s.png" % (sid, v))
             if not src.exists():
                 print("%s_%s MISSING" % (sid, v))
                 continue

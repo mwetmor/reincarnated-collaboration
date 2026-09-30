@@ -18,21 +18,32 @@ import sys
 import time
 
 HERE = pathlib.Path(__file__).resolve().parent
-WORK = HERE / "kit_work"
-OBJECTS = ["rocks", "stump", "log", "cairn", "skull", "shield"]
+sys.path.insert(0, str(HERE))
+import fal_ledger  # noqa: E402
+
+SETS = {"kit": ("kit_work", ["rocks", "stump", "log", "cairn", "skull", "shield"]),
+        "kit2": ("kit_work2", ["rocks", "stump", "skull", "boulder"]),
+        "kit3": ("kit_work3", ["outcrop_a", "outcrop_b", "heather_clump", "dead_tree"])}
 TRIPO_ORDER = ["front", "left", "back", "right"]      # NOT the sheet order
+EP = "tripo3d/h3.1/multiview-to-3d"
 
 
 def main() -> int:
     import fal_client
+    args = sys.argv[1:]
+    setname = args[0] if args and args[0] in SETS else "kit"
+    WORK, OBJECTS = HERE / SETS[setname][0], SETS[setname][1]
     (WORK / "builds").mkdir(exist_ok=True)
-    want = sys.argv[1:] or OBJECTS
+    want = [a for a in args if a not in SETS] or OBJECTS
     picks = json.loads((WORK / "choose_kit.json").read_text())["picks"]
     for obj in want:
         glb = WORK / "builds" / ("%s.glb" % obj)
         if glb.exists():
             print("%-7s already built (%.1f MB)" % (obj, glb.stat().st_size / 1e6))
             continue
+        # THE GUARD RUNS BEFORE THE UPLOAD, not after the build: a refusal here costs
+        # nothing, and a refusal after the call is a report, not a stop.
+        before = fal_ledger.check(EP)
         urls = [fal_client.upload_file(str(WORK / "placed" / ("%s_%s.jpg" % (obj, n))))
                 for n in TRIPO_ORDER]
         t0 = time.time()
@@ -46,11 +57,13 @@ def main() -> int:
         if not url:
             print("%-7s NO MESH in result: %s" % (obj, list(r)))
             continue
+        run_total = fal_ledger.record(EP, "%s build %s" % (setname, obj))
         subprocess.run(["curl", "-s", "-L", "-o", str(glb), url], check=True)
         (WORK / "builds" / ("%s.json" % obj)).write_text(json.dumps({
             "endpoint": "tripo3d/h3.1/multiview-to-3d", "variant": picks[obj]["variant"],
             "view_order_sent": TRIPO_ORDER, "elapsed_s": el, "result": r}, indent=1) + "\n")
-        print("%-7s built in %ss -> %s (%.1f MB)" % (obj, el, glb.name, glb.stat().st_size / 1e6))
+        print("%-13s built in %ss -> %s (%.1f MB)   fal running $%.4f -> $%.4f"
+              % (obj, el, glb.name, glb.stat().st_size / 1e6, before, run_total))
     return 0
 
 

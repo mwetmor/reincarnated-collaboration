@@ -42,8 +42,11 @@ from PIL import Image
 from scipy import ndimage
 
 HERE = pathlib.Path(__file__).resolve().parent
+SETS = {"kit": ("kit_work", ["rocks", "stump", "log", "cairn", "skull", "shield"]),
+        "kit2": ("kit_work2", ["rocks", "stump", "skull", "boulder"]),
+        "kit3": ("kit_work3", ["outcrop_a", "outcrop_b", "heather_clump", "dead_tree"])}
 WORK = HERE / "kit_work"
-OBJECTS = ["rocks", "stump", "log", "cairn", "skull", "shield"]
+OBJECTS = SETS["kit"][1]
 VIEWS = ["front", "right", "back", "left"]
 PLAY_PITCH = 52.95354112560294
 R_THIN = 3          # opening radius in px: removes anything under ~6 px wide at 512
@@ -148,7 +151,11 @@ def azims(d: pathlib.Path, name: str) -> dict:
 
 
 def main() -> int:
-    want = sys.argv[1:] or OBJECTS
+    global WORK, OBJECTS
+    args = sys.argv[1:]
+    setname = args[0] if args and args[0] in SETS else "kit"
+    WORK, OBJECTS = HERE / SETS[setname][0], SETS[setname][1]
+    want = [a for a in args if a not in SETS] or OBJECTS
     picks = json.loads((WORK / "choose_kit.json").read_text())["picks"]
     rep = {}
     for obj in want:

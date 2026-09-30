@@ -63,13 +63,13 @@ def main() -> None:
     d.text((PAD, 12), "C-9 T10-1b  scatter kit — %d prop%s at true scale, play camera "
                       "(orthographic, pitch 52.954°, yaw 47°)"
            % (len(shown), "" if len(shown) == 1 else "s"), font=f_t, fill=(238, 240, 246))
-    sub = ("sheets T10K-A/B/C → BiRefNet matte → Tripo H3.1 multiview → ~8k tris. No pitch "
-           "correction: these sheets were painted from words, not cut from the concept. "
-           "Each prop's painted FRONT faces the camera; base at y = 0, centred on the "
-           "footprint.")
+    sub = ("Tripo H3.1 multiview from painted sheets: T10K-* painted from words; T10P-F/G "
+           "painted from plates cut out of the concept (no pitch stretch -- the sheets "
+           "measured un-squat). Welded reduction 8-10k tris. Painted FRONT faces the camera; "
+           "base at y = 0.")
     if pend:
         sub += ("   NOT SHOWN: %s — %s." % (", ".join(sorted(pend)),
-                "retired or superseded; re-issued sheets T10K-A2 / T10K-D awaiting build"))
+                "retired or superseded, not shipped"))
     d.text((PAD, 50), sub, font=f_s, fill=(162, 168, 182))
     y0 = im.height + HEAD
 

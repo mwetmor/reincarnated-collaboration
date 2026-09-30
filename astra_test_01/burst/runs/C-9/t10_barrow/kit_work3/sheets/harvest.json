@@ -1,0 +1,25 @@
+{
+ "_what": "T10P-F / T10P-G sheets harvested from the lane out dir after both bursts hit the 15-minute cap (exit 3, no receipt). Each sha256 verified against the lane's own exec provenance record, per the M-C9-T2-WAVEB precedent. NOT ingested into runs/C-9/artifacts/ -- that is the lane and the conductor's.",
+ "sheets": {
+  "T10P-F_a": {
+   "sha256": "599a3526f3e8b81774284cf978fdf1d919a934a43df385f9abab2d7787972571",
+   "lane_out": "/Users/admin/astra-burst/runs/C-9/T10P-F/out/T10P-F_a.png",
+   "provenance_exec": "exec-9973229b-c27e-4e3f-a8b3-e45a33797807.png"
+  },
+  "T10P-F_b": {
+   "sha256": "ee80ab8f5804edf2f42e260489448ab5a0c9d6ef53eededfd641b1b557d73f5e",
+   "lane_out": "/Users/admin/astra-burst/runs/C-9/T10P-F/out/T10P-F_b.png",
+   "provenance_exec": "exec-5d85c466-1355-4954-9a76-ac96ac4ef60f.png"
+  },
+  "T10P-G_a": {
+   "sha256": "351abf1aaa6a6d84f2602360689ad5eab430c256479f577a22da388176004a8c",
+   "lane_out": "/Users/admin/astra-burst/runs/C-9/T10P-G/out/T10P-G_a.png",
+   "provenance_exec": "exec-694239f9-ef8b-4b53-8528-7058bcf588c3.png"
+  },
+  "T10P-G_b": {
+   "sha256": "6f1503c7194a9b4318052a5b7d6e1b6461f14e1c3bd067390ce40a18d1dd29f0",
+   "lane_out": "/Users/admin/astra-burst/runs/C-9/T10P-G/out/T10P-G_b.png",
+   "provenance_exec": "exec-f33f7b75-8a97-4b28-b9ce-1d6d54e30f83.png"
+  }
+ }
+}
