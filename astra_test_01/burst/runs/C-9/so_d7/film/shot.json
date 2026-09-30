@@ -1,0 +1,43 @@
+{
+ "glb": "res://so_full.glb",
+ "view_rows": 1080,
+ "plan": [
+  {
+   "clip": "idle",
+   "seconds": 2.5,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "walk",
+   "seconds": 4.0,
+   "speed": 1.449,
+   "heading_deg": 100
+  },
+  {
+   "clip": "idle",
+   "seconds": 1.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "cast_fireball",
+   "seconds": 3.3333,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "cast_meteor",
+   "seconds": 3.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "idle",
+   "seconds": 1.5,
+   "speed": 0.0,
+   "heading_deg": 25
+  }
+ ],
+ "note": "walk at the manifest's FOOT-LOCK speed (1.449 m/s); casts face the camera three-quarter so the gesture reads"
+}

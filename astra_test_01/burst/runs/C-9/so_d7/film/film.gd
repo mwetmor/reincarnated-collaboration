@@ -112,8 +112,9 @@ func _process(dt: float) -> void:
 	var s: Dictionary = plan[i_shot]
 	var v := float(s.get("speed", 0.0))
 	if v > 0.0:
-		# forward is -Z in her own frame after the heading rotation
-		who.global_position += who.global_transform.basis.z * -v * dt
+		# HER forward is +Z here: Blender -Y (she faces it) exports as glTF +Z. The first draft
+		# moved her along -Z, which would have walked her backwards across the snow.
+		who.global_position += who.global_transform.basis.z * v * dt
 	_aim()
 	t_shot += dt
 	if t_shot >= float(s["seconds"]):

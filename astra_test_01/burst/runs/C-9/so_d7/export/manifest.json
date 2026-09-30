@@ -258,5 +258,72 @@
   "verdict": "WARN",
   "fails": [],
   "warns": 3
+ },
+ "timing_D5": {
+  "definition": "WALL = end - start, vendor queues included. VENDOR = the generator's own measured poll time (Tripo, Meshy, Astra), recorded by the call that waited. AGENT = wall - vendor.",
+  "end_to_end_min": 71.4,
+  "excluding_disk_block_min": 67.6,
+  "vendor_waits_min": 20.2,
+  "phases_s": {
+   "sequential front (orient..rig)": 592,
+   "parallel block (clips + chain + texture + gear)": 3047,
+   "assembly": 293,
+   "film": 188
+  },
+  "disk_block": "228 s of pure idle is the only interval booked to it; the pause itself ran ~17 min (22:24-22:41) and heavy steps WAITED throughout, so its true elapsed cost is larger",
+  "step_table": "work/timing.jsonl -- note S5/S7/S8 overlap; do not sum the per-step walls",
+  "not_in_d7": [
+   "staff grip calibration (weapon_r --roll) and off-hand IK -- deferred by the dispatch",
+   "grip morphs (grip_R) to close her hand on the staff -- in the charter's tooling list, NOT done"
+  ]
+ },
+ "film": {
+  "files": [
+   "artifacts/D7-film-playscale.mp4",
+   "artifacts/D7-film-2x.mp4"
+  ],
+  "camera": "the Barrow's PlayCamera: orthographic, 52.9535 deg pitch, 47 deg yaw, 100.617553710938 px/m",
+  "light": "paint_stack.gd::winter_sun VERBATIM: 55 deg, screen-azimuth 305, (1.0,0.955,0.885), energy 0.90, blur 1.7",
+  "framing": "rendered 1920x1080 at the play scale; cropped 960x540 around her (px/m unchanged); the 2x file is a lanczos display upscale",
+  "shot": [
+   {
+    "clip": "idle",
+    "seconds": 2.5,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "walk",
+    "seconds": 4.0,
+    "speed": 1.449,
+    "heading_deg": 100
+   },
+   {
+    "clip": "idle",
+    "seconds": 1.0,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "cast_fireball",
+    "seconds": 3.3333,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "cast_meteor",
+    "seconds": 3.0,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "idle",
+    "seconds": 1.5,
+    "speed": 0.0,
+    "heading_deg": 25
+   }
+  ],
+  "walk_speed": "the manifest's foot-lock speed",
+  "sandbox": "so_d7/film -- its own Godot project, not cliffside3d or barrow_full"
  }
 }

@@ -1,0 +1,23 @@
+# D7 working folder. Commit scripts, small JSON, the manifest, briefs and the film PROJECT --
+# never generated binaries. Written after a commit swept 88 MB of them in: `git status`
+# reports an untracked DIRECTORY as one line, so an extension filter let artifacts/ and
+# work/previews/ through whole, and .npy was not on the list at all.
+*.glb
+*.gltf
+*.fbx
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.avi
+*.npz
+*.npy
+*.lock
+*.import
+*.uid
+.godot/
+__pycache__/
+work/_*_t0
+work/_*_t1
+work/previews/
