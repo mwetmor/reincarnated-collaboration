@@ -1,0 +1,37 @@
+{
+ "body": "res://nb-body_sword.glb",
+ "pieces": [
+  "res://byrnie.glb",
+  "res://helmet.glb",
+  "res://mantle.glb",
+  "res://bracers.glb",
+  "res://sword.glb"
+ ],
+ "grip_L": 0.0,
+ "w": 1920,
+ "h": 1080,
+ "scale": 2.0,
+ "out_mp4": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/artifacts/W2-sword-film-2x.mp4",
+ "plan": [
+  {
+   "clip": "idle_guard",
+   "seconds": 3.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "walk_armed",
+   "seconds": 3.5,
+   "speed": 1.179,
+   "heading_deg": 100
+  },
+  {
+   "clip": "idle_guard",
+   "seconds": 2.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  }
+ ],
+ "note": "walk at the scene's armed walk speed (character.json walk_px_s_armed 118.6 px/s = 1.179 m/s); walk_armed + axe_guard_R arm layer, NOT knight.gd's tree",
+ "watchdog_s": 600
+}

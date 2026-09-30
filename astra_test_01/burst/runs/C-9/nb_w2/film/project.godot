@@ -1,0 +1,14 @@
+; nb_w2 film sandbox -- the JOIN sword on the barbarian, in the Barrow's light. NOT cliffside3d, NOT
+; attack_lab: a separate project, so nothing here can disturb a scene another session is building.
+config_version=5
+
+[application]
+config/name="nb_w2_film_sandbox"
+run/main_scene="res://w2film.tscn"
+
+[display]
+window/size/viewport_width=640
+window/size/viewport_height=360
+
+[rendering]
+renderer/rendering_method="forward_plus"

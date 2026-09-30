@@ -1,0 +1,23 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $1.00 (fal_spend_R-C9-81).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Matt's $5.85 balance reading (R-C9-76, 19:30:59 EDT); every earlier matte and build is already inside that number.",
+ "budget_usd": 1.0,
+ "entries": [
+  {
+   "ts": "2026-09-30T06:19:35+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "W2 matte NB-W2L.png",
+   "usd": 0.00218,
+   "wall_s": 2.72
+  },
+  {
+   "ts": "2026-09-30T06:20:17+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build sword (01a0f0f8-920e-7fe3-94a3-6a1d9cabfa94)",
+   "usd": 0.4,
+   "wall_s": 1.68
+  }
+ ],
+ "running_usd": 0.4022
+}

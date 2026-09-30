@@ -1,0 +1,292 @@
+{
+ "piece": "the JOIN SWORD, main hand (Matt R-C9-81: sword right, bearded axe left)",
+ "file": "sword.glb",
+ "sha256": "f208152b1ce4fe156d10750d13c4009f520d583f09bc35965735dcf3b9fb46f9",
+ "bytes": 3485172,
+ "mesh": {
+  "verts": 6547,
+  "tris": 9000,
+  "islands": 1,
+  "welded_before_decimation": {
+   "verts_before": 372634,
+   "verts_after": 361487
+  },
+  "budget": "9,000 triangles, the axe's"
+ },
+ "skeleton": {
+  "joints": 26,
+  "weapon_r_index": 25,
+  "note": "the T12_5_guard skeleton, joint list identical in name and order (gear.gd compares them); 100% on weapon_r"
+ },
+ "lint": {
+  "verdict": "PASS",
+  "fails": []
+ },
+ "frame": "weapon_r local: origin the grip's middle on its axis, +Y to the tip, +Z an edge, X the flat normal -- the axe's convention (52_weapon_bones), so the mount code is shared",
+ "dims_m": {
+  "overall_m": 0.9,
+  "blade_m": 0.684,
+  "guard_thick_m": 0.027,
+  "guard_span_m": 0.1593,
+  "grip_m": 0.1316,
+  "grip_width_m": 0.0447,
+  "pommel_m": 0.0574,
+  "pommel_width_m": 0.0959,
+  "blade_width_at_guard_m": 0.0676,
+  "blade_thick_raw_m": 0.0234,
+  "blade_over_grip": 5.198,
+  "blade_thick_m": 0.0117
+ },
+ "dims_note": "overall set to 0.90 m; the rest follows the painted proportions (blade/grip 4.82 on the sheet, 5.20 on the model, whose grip band ends at the collars). The dispatch's 5x and its 72 cm / 11-12 cm targets disagree (72/11.5 = 6.3x); 0.90 m overall gives a 68 cm blade and a 13 cm grip including both bronze collars. Blade thickness: Tripo made the edge-on line 2.3 cm; thinned x0.5 to 1.2 cm over the blade only (above the guard, blended over 1 cm).",
+ "sockets": {
+  "main_grip": [
+   0,
+   0,
+   0
+  ],
+  "main_tip": [
+   0.0,
+   0.7768,
+   0.0
+  ],
+  "sword_edge": [
+   0,
+   0.4348,
+   0.0338
+  ],
+  "contract": "reincarnated-godot docs/join1-sprite-cell-contract-2026-09-29.md 3.2/5: main_tip, main_grip (the main hand carries the sword). Child nodes of weapon_r; gear.gd's marker path brings them onto the body.",
+  "read_back": "Godot, bound gear.gd's way, at idle_guard: main_tip 0.7768 m from main_grip; tip height 1.4869 m against Blender's 1.4860 from the skinned geometry"
+ },
+ "mount": {
+  "method": "T12: the SQUARE SEAT (the blade turned onto the fist's channel, gearlib.hand_frame) plus a ROLL about the blade",
+  "seat": "the T12_5_guard mount (weapon_mount.json, 52_weapon_bones --roll 0): the channel is the hand's, not the weapon's",
+  "roll_deg": -39.0,
+  "weapon_r_rest_quat_T12_5": [
+   -0.635062715626767,
+   -0.36532412741910325,
+   -0.09678731269288789,
+   0.6736956621857647
+  ],
+  "weapon_r_rest_quat_sword": [
+   -0.6309447340591534,
+   -0.5692539132759381,
+   0.1207525537642117,
+   0.5131057839690331
+  ],
+  "roll_fit": "minimise the worst |edge| over the 32 measured hold frames (idle_guard + walk): -39 deg gives 23.9 deg; roll 0 left the idle's edge at -48.4 deg, 3.4 deg outside the 45 deg gate",
+  "seat_measured": {
+   "channel_vs_blade_deg": 0.05,
+   "channel_centre_to_main_grip_m": 0.0116,
+   "tip_from_grip_m": 0.7769
+  },
+  "fist_centroid_to_main_grip_m": 0.008,
+  "body": "export/nb-body_sword.glb: the T12_5_guard body COPY with weapon_r's rest, its 6 channel tracks (406 keys) and its IBM post-multiplied by the roll -- a binary patch, nothing else changed",
+  "record_T12_5": {
+   "roll_deg": 0.0,
+   "W": [
+    [
+     0.71434099605432,
+     0.5944178503171411,
+     -0.3693025325941742,
+     0.12473181089848694
+    ],
+    [
+     0.333597079453878,
+     0.17465512664488977,
+     0.9263954745768679,
+     9.476131618658755
+    ],
+    [
+     0.6151665871420235,
+     -0.7849605123577913,
+     -0.07353274170754609,
+     -0.5100628962427582
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "G": [
+    [
+     0.6780666195825913,
+     -0.7243580129702084,
+     0.12462394815479483,
+     6.967833255400997
+    ],
+    [
+     0.35879749769825897,
+     0.17823092678641284,
+     -0.9162412850239419,
+     7.2750977527849265
+    ],
+    [
+     0.6414748748418019,
+     0.6659873916094117,
+     0.380750284522529,
+     -6.706852805416856
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "frame": "RightHand local (the frame the skin's inverse bind maps into), glTF units",
+   "written_by": "52_weapon_bones.py --roll 0.0 --record"
+  }
+ },
+ "guard_gate": {
+  "predicate": "sword HOLD (the T12 gate adapted): blade tilt 30-60 deg from vertical, blade forward AND outboard, tip outboard of the fist, |edge heading| <= 45 deg; the frame from the sword's own skinned geometry (grip = weapon_r's joint, blade = to the farthest vertex, edge = the blade's widest spread)",
+  "idle": {
+   "clip": "idle_guard",
+   "at_guard": "16/16",
+   "median": {
+    "tilt": 54.364,
+    "fwd": 0.287,
+    "out": 0.76,
+    "tip_out": 0.591,
+    "edge": -22.434,
+    "fist_to_grip_m": 0.008
+   },
+   "pen": 0
+  },
+  "walk": {
+   "clip": "walk_armed + axe_guard_R right-arm layer",
+   "at_guard": "9/16",
+   "median": {
+    "tilt": 58.862,
+    "fwd": 0.203,
+    "out": 0.832,
+    "tip_out": 0.646,
+    "edge": 17.904,
+    "fist_to_grip_m": 0.008
+   },
+   "pen": 0,
+   "caveat": "NOT knight.gd's tree (no armed-speed split): tilt exceeds 60 deg on 7 of 16 frames here; the T12 gate measured the axe's walk at tilt 35 through the scene's tree. The walk's verdict belongs to guard_accept.gd in the scene."
+  },
+  "pen_instrument": "six-ray parity against the posed body with grip_R = 1; the grip's own length and anything within 2 cm of a RightHand-weighted vertex excluded (the fist)"
+ },
+ "pairing_first_look": {
+  "file": "axe_l.glb",
+  "what": "the axe's right-hand placement mirrored across his sagittal plane onto weapon_l -- a first look only, NOT an off-hand hold",
+  "rest_asymmetry_m": {
+   "Shoulder": 0.0072,
+   "Arm": 0.0078,
+   "ForeArm": 0.0021,
+   "Hand": 0.0043
+  },
+  "axe_verts_in_body_idle_guard": 0,
+  "sword_to_axe_min_m": 0.1677
+ },
+ "provenance": {
+  "source_sheet": {
+   "path": "runs/C-9/artifacts/NB-W2/NB-W2_a.png",
+   "sha256": "472639634e1e93fe337c024576913d1f1345859d9d0d01e3fbe911152bb39015",
+   "blade_over_grip": 2.564
+  },
+  "edit": {
+   "burst": "NB-W2L",
+   "path": "runs/C-9/artifacts/NB-W2L/NB-W2L.png",
+   "sha256": "2ca562e0c559b99dac20981b6b860efd94371a339d66b8cdef6a6a52f3c437d0",
+   "image_calls": 1,
+   "retries": 0,
+   "concerns": [
+    "Generated background is a dark gradient instead of pure #00ff00; delivered without retry as instructed.",
+    "Fullers extend approximately 89% of blade length rather than the requested 80%."
+   ],
+   "blade_over_grip": 4.822,
+   "views_total_spread_pct": 0.0,
+   "hilt": {
+    "total_px": 1448,
+    "width_max_px": 234,
+    "blade_px": 1109,
+    "guard_px": 23,
+    "grip_px": 230,
+    "pommel_px": 86,
+    "grip_width_px": 59.2,
+    "blade_over_grip": 4.822
+   }
+  },
+  "matte": "BiRefNet v2 (fal) through fal_ledger, W2's own ledger",
+  "tripo": {
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "request_id": "01a0f0f8-920e-7fe3-94a3-6a1d9cabfa94",
+   "views": [
+    "views/sword/sword_front.jpg",
+    "views/sword/sword_side.jpg",
+    "views/sword/sword_back.jpg",
+    "views/sword/sword_side_mirror.jpg"
+   ],
+   "elapsed_s": 168.4,
+   "glb_mb": 23.7,
+   "builds": 1
+  }
+ },
+ "budget": {
+  "astra_image_calls": "1 of 2",
+  "fal": {
+   "ledger": "work/fal_spend_R-C9-81.json",
+   "spent_usd": 0.4022,
+   "cap_usd": 1.0,
+   "entries": [
+    [
+     "fal-ai/birefnet/v2",
+     0.00218
+    ],
+    [
+     "tripo3d/h3.1/multiview-to-3d",
+     0.4
+    ]
+   ]
+  },
+  "meshy_credits": 0
+ },
+ "timing": {
+  "steps": {
+   "W2-S1-edit": {
+    "wall_s": 510,
+    "vendor_wait_s": 101,
+    "agent_s": 409
+   },
+   "W2-S2-build": {
+    "wall_s": 401,
+    "vendor_wait_s": 168,
+    "agent_s": 233
+   },
+   "W2-S3-clean": {
+    "wall_s": 38,
+    "vendor_wait_s": 0,
+    "agent_s": 38
+   },
+   "W2-S4-skin": {
+    "wall_s": 91,
+    "vendor_wait_s": 0,
+    "agent_s": 91
+   },
+   "W2-S5-mount": {
+    "wall_s": 307,
+    "vendor_wait_s": 0,
+    "agent_s": 307
+   },
+   "W2-S6-film": {
+    "wall_s": 296,
+    "vendor_wait_s": 0,
+    "agent_s": 296
+   }
+  },
+  "total": {
+   "wall_s": 1643,
+   "vendor_wait_s": 269,
+   "agent_s": 1374
+  },
+  "note": "WALL = end - start; VENDOR = the generator's own measured wait; AGENT = wall - vendor. W2-S2-build was closed retroactively at W2-S3's start (the end call was missed)."
+ },
+ "deliverables": {
+  "stills": "8 headings x idle_guard at 100.6 and 201.2 px/m (offscreen 1920x1080) + the pairing at 2 headings",
+  "film": "artifacts/W2-sword-film-2x.mp4 (1920x1080, 201.2 px/m, 255 frames: idle_guard, walk_armed + guard arm at 1.179 m/s, idle_guard)"
+ }
+}

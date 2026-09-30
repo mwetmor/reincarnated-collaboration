@@ -1,0 +1,50 @@
+{
+ "features": {
+  "overall_m": 0.9,
+  "blade_m": 0.684,
+  "guard_thick_m": 0.027,
+  "guard_span_m": 0.1593,
+  "grip_m": 0.1316,
+  "grip_width_m": 0.0447,
+  "pommel_m": 0.0574,
+  "pommel_width_m": 0.0959,
+  "blade_width_at_guard_m": 0.0676,
+  "blade_thick_raw_m": 0.0234,
+  "blade_over_grip": 5.198,
+  "blade_thick_m": 0.0117
+ },
+ "roll_deg": -39.0,
+ "frame": "weapon_r local: origin the grip's middle on its axis, +Y to the tip, +Z an edge, X the flat normal",
+ "metres_per_weapon_r_unit": 0.010882345882991147,
+ "verts": 6547,
+ "tris": 9000,
+ "tip_local_m": [
+  0.0,
+  0.7768,
+  0.0
+ ],
+ "sockets": {
+  "main_grip": [
+   0,
+   0,
+   0
+  ],
+  "main_tip": [
+   0.0,
+   0.7768,
+   0.0
+  ],
+  "sword_edge": [
+   0,
+   0.4348,
+   0.0338
+  ]
+ },
+ "weapon_r_joint_index": 25,
+ "joints": 26,
+ "lint": {
+  "verdict": "PASS",
+  "fails": []
+ },
+ "bytes": 3485172
+}

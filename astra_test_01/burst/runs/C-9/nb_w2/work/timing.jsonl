@@ -1,0 +1,16 @@
+{"ev": "start", "step": "W2-S1-edit", "t": 1790748705.001324, "note": "measure NB-W2_a, write + guard + fire ONE Astra edit (blade to ~6 grip lengths, portrait 1024x1536), measure the result"}
+{"ev": "wait", "step": "W2-S1-edit", "s": 0.0, "what": "fired NB-W2L (Astra edit); vendor wait measured at completion"}
+{"ev": "wait", "step": "W2-S1-edit", "s": 98.0, "what": "NB-W2L burst wall (06:12:38-06:14:16), 1 image call of 2"}
+{"ev": "wait", "step": "W2-S1-edit", "s": 3.0, "what": "BiRefNet matte (2.7 s)"}
+{"ev": "end", "step": "W2-S1-edit", "t": 1790749214.9938529, "note": "NB-W2L: blade/grip 2.564 -> 4.822 (front and back agree exactly; all three views 1448 px); hilt proportions kept (grip:pommel:guard 230:86:23 vs 243:92:25, 94% size); fuller ends at ~89% not 80%; background came back dark gradient (brief: deliver, no retry) -> BiRefNet matte; 1 of 2 image calls; no retry"}
+{"ev": "start", "step": "W2-S2-build", "t": 1790749215.018105, "note": "Tripo H3.1 multiview: front, edge, back, edge mirrored (as the axe and staff were built)"}
+{"ev": "wait", "step": "W2-S2-build", "s": 168.0, "what": "Tripo H3.1 build 'sword' (fal queue + generation)"}
+{"ev": "start", "step": "W2-S3-clean", "t": 1790749616.3670568, "note": "one island, weld then decimate to the axe's 9k triangles"}
+{"ev": "end", "step": "W2-S3-clean", "t": 1790749654.274508, "note": "weld 372,634 -> 361,487 verts; ONE island (723,020 faces); decimated to 9,000 tris (the axe's budget)"}
+{"ev": "start", "step": "W2-S4-skin", "t": 1790749744.721819, "note": "features from the dense build, the axe's convention, skinned into the T12_5_guard skeleton, sockets main_grip / main_tip"}
+{"ev": "end", "step": "W2-S4-skin", "t": 1790749835.347559, "note": "sword.glb: 6,547 verts / 9,000 tris / 3.48 MB, lint PASS, 26 joints (weapon_r index 25); overall 0.90 m, blade 0.684, grip 0.132, pommel 0.057, guard 0.159 span; blade thinned 2.3 -> 1.2 cm; sockets main_grip / main_tip (+ sword_edge)"}
+{"ev": "start", "step": "W2-S5-mount", "t": 1790749906.6150742, "note": "the sword on weapon_r at the T12_5 mount (roll 0), gate numbers adapted to a sword, penetration, fist on the grip"}
+{"ev": "end", "step": "W2-S5-mount", "t": 1790750213.281003, "note": "seat = T12_5 fist channel (blade 0.05 deg off it, main_grip 1.2 cm from the channel centre); roll fitted -39 deg (max |edge| 23.9 deg over 32 hold frames; roll 0 failed the idle at -48.4); idle_guard 16/16 at guard, pen 0; walk (walk_armed + axe_guard_R arm, NOT knight.gd's tree) 9/16 (tilt over 60 on 7); axe_l on weapon_l at idle_guard pen 0"}
+{"ev": "start", "step": "W2-S6-film", "t": 1790750213.300114, "note": "Godot sandbox: gear.gd-style bind, true-scale stills, 2x film piped to ffmpeg, the pairing still"}
+{"ev": "end", "step": "W2-S6-film", "t": 1790750509.699324, "note": "8-heading stills at 100.6 and 201.2 px/m (offscreen 1920x1080); sockets read back in Godot agree with Blender's tip (1.4869 vs 1.4860 m); pairing still 2 headings; W2-sword-film-2x.mp4 255 frames at 201.2 px/m"}
+{"ev": "end", "step": "W2-S2-build", "t": 1790749616.3670568, "note": "CLOSED RETROACTIVELY at the instant W2-S3-clean started (the end call was missed); the build itself was 168 s of Tripo wall, recorded as the wait"}

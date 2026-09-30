@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST NB-W2L -- Run C-9 Phase 2 (Matt R-C9-81: his JOIN loadout, a SWORD in the right hand and his bearded axe in the left): LENGTHEN THE BLADE of the barbarian's sword model sheet, and change nothing else. task_id \"NB-W2L\".\n\nIMAGE 1 is the sword's approved model sheet for 3D: ONE one-handed sword of the North in THREE orthographic views side by side on flat #00ff00 -- LEFT the flat of the blade, MIDDLE edge-on, RIGHT the other flat -- point at the top, pommel at the bottom. As drawn its blade is too SHORT for its hilt: from the crossguard to the point it is only about 2.6 times the length of the grip (the grip = from the crossguard down to the pommel). In a warrior's fist it reads as a long knife.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1024x1536 PORTRAIT sheet (taller than IMAGE 1, so the long sword fits), flat pure #00ff00, the SAME three views in the SAME order side by side, at ONE common scale, the pommels on one ground line near the bottom edge, the points near the top edge, nothing overlapping:\n- ONLY THE BLADE CHANGES: from the crossguard to the point it becomes about SIX times the length of the grip, in all three views alike. The same width at the crossguard, the same gentle straight taper to the same rounded point, double-edged and straight. The wide shallow FULLER runs from the crossguard down the centre of the blade and ENDS at about 80 percent of the blade's length, the last fifth before the point plain. The faint pattern-welded ripple runs the whole blade. In the edge-on view the blade stays a thin line.\n- EVERYTHING ELSE IS IDENTICAL TO IMAGE 1, only redrawn a little smaller so the longer sword fits: the short straight iron crossguard, the dark leather grip bound with twisted bronze wire, the bronze collars at each end of the grip, and the heavy five-lobed iron pommel inlaid with bronze -- the same shapes, the same proportions to each other, the same colours, the same ink hand, washes and hatching.\nSizes in pixels on the 1536-pixel-tall sheet, approximately: grip 195, blade 1170, crossguard 20 thick, pommel 74; the whole sword about 1460 tall.\nSoft even light, no glow, no cast shadows, no ground, no text, no labels. No hand, no person, no scabbard, no belt.\nBACKGROUND: keep flat pure #00ff00. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image.\n\nONE image_gen EDIT call. ONE retry only if: the blade is clearly LESS than five grip-lengths in any view, the hilt (crossguard, grip, wire, collars or pommel) changes its design, a view is missing, the three views disagree in length, the sword is curved or single-edged, or a hand, person, scabbard or text appears -- name the reason. Never retry for the background colour. Copy the output to out/NB-W2L.png with its sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-W2L\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-W2/NB-W2_a.png",
+   "role": "IMAGE 1 -- the sword's approved three-view model sheet to EDIT (NB-W2 variant a, R-C9-81): lengthen the blade only"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 12,
+ "outputs": [
+  "out/NB-W2L.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "JOIN-sword"
+}
