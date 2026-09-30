@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST NB-W2 — Run C-9 Phase 2 (Matt R-C9-81: his loadout is a SWORD in the right hand and his bearded AXE in the left): the Norse barbarian's SWORD as a MODEL SHEET for 3D. task_id \"NB-W2\".\n\nIMAGE 1 is his approved character sheet (the man who carries this; for scale and hand). IMAGE 2 is a STYLE reference ONLY (the hand; never its character).\nDeliver ONE 1536x1024 sheet on flat pure #00ff00 showing ONE object alone (no hands, no person, no scabbard, no belt), in THREE orthographic views side by side across the sheet, at ONE common scale, the pommel of each view on one ground line, nothing overlapping:\nTHE SWORD, a one-handed sword of the North, standing upright with its POINT at the TOP and its POMMEL at the bottom: a straight, double-edged iron blade about 80 cm long, broad at the hilt and tapering gently to a rounded point, with a wide shallow FULLER running down its centre and a faint pattern-welded ripple in the steel; a short straight iron CROSSGUARD; a GRIP about a hand and a half long, wrapped in dark leather and bound with twisted bronze wire; a heavy five-lobed iron POMMEL inlaid with bronze.\nLEFT, the FLAT of the blade (the broad face toward the viewer, the crossguard seen full width); MIDDLE, EDGE-ON (turned 90 degrees: the blade a thin line, the crossguard foreshortened to a short bar, the pommel thin); RIGHT, the OTHER FLAT side (turned 180 degrees from the first).\nThe sword is the same in every view (a 3D model will be built from them). Paint in IMAGE 2's hand (dark ink line, transparent washes, hatching), matched to IMAGE 1 and to the iron and bronze of his axe. Soft even light, no glow, no cast shadows, no ground, no text, no labels.\nBACKGROUND: keep flat pure #00ff00. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if a view is missing, the sword differs between its views, it is curved or single-edged, a scabbard, hand or person appears, or text appears — name the reason. Never retry for the background colour. Copy outputs to out/NB-W2_a.png and out/NB-W2_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-W2\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 1 — his approved character sheet (NB-1 variant b): scale and hand"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 — STYLE reference ONLY (Matt-supplied, R-C9-69)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 25,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/NB-W2_a.png",
+  "out/NB-W2_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T12-weapons"
+}
