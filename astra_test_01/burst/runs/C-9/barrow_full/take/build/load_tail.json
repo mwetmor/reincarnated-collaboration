@@ -1,0 +1,112 @@
+{
+ "_what": "C-9: THE LOAD TAIL AND THE WARMING VEIL (the conductor's ruling (a)) -- the phone page in Chrome on the M2 GPU at 844x390 CSS px, DPR 3, served brotli from localhost (no network throttle), frames timed from the level's ready line",
+ "before_veil": {
+  "her_lane_b_default": [
+   [
+    0.99,
+    985.6,
+    "draw"
+   ],
+   [
+    1.51,
+    342.6,
+    "draw"
+   ],
+   [
+    1.15,
+    168.0,
+    "draw"
+   ],
+   [
+    4.84,
+    493.5,
+    "outside Godot's frame"
+   ]
+  ],
+  "her_meteor_placeholder": [
+   [
+    0.67,
+    668.2,
+    "draw"
+   ],
+   [
+    0.84,
+    169.7,
+    "draw"
+   ],
+   [
+    5.25,
+    483.7,
+    "outside Godot's frame"
+   ]
+  ],
+  "reading": "first-draw shader compiles inside Godot's draw for about 1.5 s after the level appears; one browser/GPU-side hitch about 5 s after ready, whatever the first cast's time (3 s or 9 s), puffs on or off, Meteor B or placeholder"
+ },
+ "veil": {
+  "rule": "scripts/warm_veil.gd: the loading look (black, 'Loading...') stays up until the level is ready, her Fire Ball's and her Meteor's warm draws are done, then 8 frames in a row under 25 ms; cap 3 s after ready. The world draws under it the whole time.",
+  "her": {
+   "navigation_to_ready_ms": 5365,
+   "navigation_to_play_ms": 7089,
+   "veil": {
+    "frames_under_veil": 12,
+    "lifted_s_after_ready": 1.64,
+    "reason": "settled",
+    "warmups_done": true,
+    "worst_frame_under_veil_ms": 995.3
+   },
+   "worst_frames_after_veil_s_since_ready": [
+    [
+     5.26,
+     501.2,
+     "draw",
+     1.5
+    ],
+    [
+     4.72,
+     25.7,
+     "draw",
+     4.3
+    ],
+    [
+     24.69,
+     19.5,
+     "draw",
+     2
+    ],
+    [
+     67.94,
+     18.8,
+     "draw",
+     1.7
+    ]
+   ]
+  },
+  "him": {
+   "navigation_to_ready_ms": 5412,
+   "navigation_to_play_ms": 6802,
+   "worst_raf_after_veil_ms_since_lift": [
+    [
+     3585,
+     393.9
+    ],
+    [
+     15627,
+     80.9
+    ],
+    [
+     1046,
+     48.5
+    ],
+    [
+     3367,
+     36.4
+    ],
+    [
+     3452,
+     36.4
+    ]
+   ]
+  }
+ },
+ "still_in_play": "the browser-side hitch about 5 s after ready (her 501 ms, his 394 ms) lands about 3.5 s after the veil lifts; not covered, per the ruling. Everything else after the veil: her worst 25.7 ms; his 80.9 ms once at 15.6 s, else under 50 ms."
+}

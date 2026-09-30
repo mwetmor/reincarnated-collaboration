@@ -114,6 +114,7 @@ var impact_tick := 18
 var births: Array = []
 var casts: Array = []            # live casts, one per slot group
 var _warm := 0
+var warmed := false              # the load-time draw is done (the page's warming veil waits for it)
 var _collapsed := Transform3D(Basis(Vector3.ZERO, Vector3.ZERO, Vector3.ZERO), Vector3.ZERO)
 
 
@@ -277,6 +278,7 @@ func _step(dt: float) -> void:
 		_put(0, "halo", 0, at, 0.0, 0.0)
 		if _warm == 0:
 			_collapse(0)
+			warmed = true
 		return
 	for g in casts.size():
 		var c: Dictionary = casts[g]

@@ -118,6 +118,7 @@ var who := "barbarian"
 var spell_fx: Node3D
 var meteor_fx: Node3D               # LANE B: her Meteor, 3D first (?meteor=b; scripts/meteor_fx.gd)
 var touch                             # barrow_touch.gd, on the web or a touchscreen
+var veil                              # warm_veil.gd, on the phone page
 var _her_spell_buttons: Array = []    # FIRE BALL and METEOR, shown only while she holds the staff
 var snow: SnowField
 var snowfall: GPUParticles3D
@@ -129,6 +130,12 @@ const WIND := Vector2(0.62, 0.78)   # the installed Barrow's (the wind the snow'
 
 func _ready() -> void:
 	var t0 := Time.get_ticks_msec()
+	if PaintStack.is_web():
+		# THE WARMING VEIL (the phone page): the loading look stays up until the first draws have compiled
+		veil = load("res://scripts/warm_veil.gd").new()
+		veil.name = "WarmVeil"
+		add_child(veil)
+		veil.setup(self)
 	layout = _read_json(LAYOUT_JSON)
 	if layout.is_empty():
 		push_error("barrow_full: no layout at %s" % LAYOUT_JSON)

@@ -140,6 +140,13 @@ func _report() -> void:
 	var allr := rows.duplicate()
 	allr.sort_custom(func(a, b): return float(a[1]) > float(b[1]))
 	out["worst_frames_s_since_ready"] = allr.slice(0, 6).map(func(r): return [snappedf(float(r[0]) / 1e6, 0.01), snappedf(float(r[1]), 0.1), "phys/proc/draw", r[5], r[6], r[7], "dc", r[2]])
+	if scene.veil != null:
+		var v: Dictionary = scene.veil.report
+		out["veil"] = v
+		var lift_us := int(float(v.get("lifted_s_after_ready", 0.0)) * 1e6)
+		var after := rows.filter(func(r): return int(r[0]) > lift_us)
+		after.sort_custom(func(a, b): return float(a[1]) > float(b[1]))
+		out["worst_frames_after_veil"] = after.slice(0, 4).map(func(r): return [snappedf(float(r[0]) / 1e6, 0.01), snappedf(float(r[1]), 0.1), "draw", r[7]])
 	out["first_cast_s_since_ready"] = snappedf(float(cast_log[0]["t_us"]) / 1e6, 0.01) if not cast_log.is_empty() else -1
 	print("[perf_fb] " + JSON.stringify(out))
 	if not PaintStack.is_web():
