@@ -11,6 +11,11 @@
 # removes whatever the root processing -- de-root, recentre, re-ground -- did to Hips itself),
 # divided by the rest hips-to-head length, shipped against source. Pure glTF evaluation, no
 # Blender, so no importer can be in the loop that it is judging.
+# VALID ONLY WHEN BOTH RIGS SHARE THE HIPS REST FRAME -- true for D7, whose clips were fetched on
+# her own rig. Across rigs whose rests differ, hips-LOCAL coordinates of two differently oriented
+# hips frames disagree even for a faithful graft (the T12 drax measured 2.4-2.9 on one); the
+# rotation-corrected form, x_j = R_hips_rest_world . (G_hips(t)^-1 . p_j), is
+# nb_d2/scripts/56_clip_fidelity.py.
 import json, sys, os
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)

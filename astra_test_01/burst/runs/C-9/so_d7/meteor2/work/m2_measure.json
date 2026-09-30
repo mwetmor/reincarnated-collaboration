@@ -1,0 +1,101 @@
+{
+ "m004_attack.glb": {
+  "clip": "Armature|Attack|baselayer",
+  "seconds": 2.8,
+  "frames": 85,
+  "off_hand_within_0_10m": "15 of 85 frames",
+  "off_hand_to_shaft_m": {
+   "min": 0.076,
+   "median": 0.127,
+   "at_top": 0.092,
+   "at_release": 0.227,
+   "at_slam": 0.139
+  },
+  "hands_apart_m": {
+   "median": 0.136,
+   "at_slam": 0.147
+  },
+  "turn_to_pass_both_hands_deg": {
+   "at_top": 47.4,
+   "at_slam": 71.7
+  },
+  "top_t": 0.867,
+  "release_t": 1.067,
+  "slam_t": 1.633,
+  "release_speed_m_s": 15.44,
+  "release_second_peak_share": 0.034,
+  "slam": {
+   "tilt_deg": 64.7,
+   "crown_up": false,
+   "screen_deg_from_vertical_h25": 65.0,
+   "low_end_height_m": -0.024,
+   "fist_height_m": 0.351
+  }
+ },
+ "m128_hammer.glb": {
+  "clip": "Armature|Heavy_Hammer_Swing|baselayer",
+  "seconds": 1.833,
+  "frames": 56,
+  "off_hand_within_0_10m": "0 of 56 frames",
+  "off_hand_to_shaft_m": {
+   "min": 0.343,
+   "median": 0.487,
+   "at_top": 0.47,
+   "at_release": 0.343,
+   "at_slam": 0.379
+  },
+  "hands_apart_m": {
+   "median": 0.536,
+   "at_slam": 0.438
+  },
+  "turn_to_pass_both_hands_deg": {
+   "at_top": 65.7,
+   "at_slam": 59.9
+  },
+  "top_t": 1.133,
+  "release_t": 1.5,
+  "slam_t": 1.733,
+  "release_speed_m_s": 5.08,
+  "release_second_peak_share": 0.664,
+  "slam": {
+   "tilt_deg": 78.6,
+   "crown_up": true,
+   "screen_deg_from_vertical_h25": 32.3,
+   "low_end_height_m": 0.091,
+   "fist_height_m": 0.264
+  }
+ },
+ "cast127.glb": {
+  "clip": "Armature|Charged_Ground_Slam|baselayer",
+  "seconds": 3.0,
+  "frames": 91,
+  "off_hand_within_0_10m": "0 of 91 frames",
+  "off_hand_to_shaft_m": {
+   "min": 0.298,
+   "median": 1.052,
+   "at_top": 1.128,
+   "at_release": 0.712,
+   "at_slam": 1.243
+  },
+  "hands_apart_m": {
+   "median": 1.258,
+   "at_slam": 1.304
+  },
+  "turn_to_pass_both_hands_deg": {
+   "at_top": 70.3,
+   "at_slam": 72.5
+  },
+  "top_t": 1.5,
+  "release_t": 1.633,
+  "slam_t": 1.867,
+  "release_speed_m_s": 4.25,
+  "release_second_peak_share": 0.152,
+  "slam": {
+   "tilt_deg": 38.6,
+   "crown_up": true,
+   "screen_deg_from_vertical_h25": 54.0,
+   "low_end_height_m": -0.545,
+   "fist_height_m": 0.137
+  }
+ }
+}

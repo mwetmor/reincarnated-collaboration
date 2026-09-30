@@ -1,0 +1,114 @@
+{
+ "question": "R-C9-80: a library clip for a TWO-HANDED Meteor -- both hands on the shaft, a stamp that reads as a PLANT at the three-quarter-front camera, a clean release",
+ "screen": "678 library motions searched by name/category; 12 previews viewed free (the CDN preview GIFs, 8-14 frames each): 4, 86, 102, 125, 126, 128, 149, 237, 240, 241, 242, 382. Only 4 'Attack' and 128 'Heavy Hammer Swing' put both hands together on a raised handle; both fetched on HER rig (6 of 9 credits).",
+ "candidates": {
+  "004 Attack (2.80 s)": {
+   "hands": "TOGETHER: 0.136 m apart median -- a two-handed grip",
+   "seated_staff": {
+    "off_hand_within_0_10m": "15 of 85 frames",
+    "off_hand_m": {
+     "min": 0.076,
+     "median": 0.127,
+     "at_top": 0.092,
+     "at_release": 0.227,
+     "at_slam": 0.139
+    },
+    "slam": {
+     "tilt_deg": 64.7,
+     "crown_up": false,
+     "screen_deg_from_vertical_h25": 65.0,
+     "low_end_height_m": -0.024,
+     "fist_height_m": 0.351
+    },
+    "staff_in_body": 383
+   },
+   "upright_blend": {
+    "staff_in_body": 200,
+    "by_part": {
+     "Head": 109,
+     "RightUpLeg": 3,
+     "RightForeArm": 20,
+     "LeftHand": 2,
+     "LeftArm": 46,
+     "LeftShoulder": 3,
+     "RightShoulder": 8,
+     "LeftForeArm": 2,
+     "neck": 7
+    },
+    "off_hand_min_m": 0.109,
+    "shaft_band_reachable_frames": 0,
+    "frames": 69,
+    "why": "she hunches with her head straight over her low hands: a vertical staff through the fist runs up through her head"
+   },
+   "leans": {
+    "30forward": {
+     "staff_in_body": 28,
+     "by_part": {
+      "RightUpLeg": 18,
+      "LeftHand": 2,
+      "RightForeArm": 8
+     }
+    },
+    "45forward": {
+     "staff_in_body": 41,
+     "by_part": {
+      "RightUpLeg": 31,
+      "LeftHand": 5,
+      "RightForeArm": 4,
+      "LeftUpLeg": 1
+     }
+    },
+    "30lateral": {
+     "staff_in_body": 227,
+     "by_part": {
+      "LeftHand": 2,
+      "Head": 127,
+      "RightArm": 9,
+      "RightForeArm": 18,
+      "neck": 17,
+      "RightShoulder": 52,
+      "RightUpLeg": 2
+     }
+    }
+   },
+   "release": {
+    "t": 1.067,
+    "speed_m_s": 15.44,
+    "second_peak_share": 0.034,
+    "note": "clean (one peak) but a one-frame snap: the hands drop 0.68 m between two 30 fps keys"
+   }
+  },
+  "128 Heavy Hammer Swing (1.83 s)": {
+   "hands": "APART: 0.536 m median -- a long-handle grip; the swing is a diagonal to his lower left, not a stamp",
+   "seated_staff": {
+    "off_hand_within_0_10m": "0 of 56 frames",
+    "slam": {
+     "tilt_deg": 78.6,
+     "crown_up": true,
+     "screen_deg_from_vertical_h25": 32.3,
+     "low_end_height_m": 0.091,
+     "fist_height_m": 0.264
+    }
+   },
+   "upright_blend": {
+    "staff_in_body": 737,
+    "off_hand_min_m": 0.41,
+    "shaft_band_reachable_frames": 0,
+    "frames": 45
+   },
+   "release": {
+    "t": 1.5,
+    "speed_m_s": 5.08,
+    "second_peak_share": 0.664
+   }
+  }
+ },
+ "verdict": "NOTHING USABLE IN THE LIBRARY. 004 is two-handed but its slam cannot be a plant: upright, the staff runs through her head (109 of 200 verts inside); leaned 30 deg forward it clears the head but grazes the thigh (28) and reads as a diagonal at the three-quarter camera -- the pass-2 Meteor's own problem; seated, the crown points DOWN at the slam and 383 verts are in her legs. 128 is not two-handed on one short grip at all (hands 0.54 m apart, off hand never within 0.30 m of the shaft) and penetrates on every treatment (737). The remaining 3 credits were NOT spent: no other previewed clip brings both hands together over a vertical shaft.",
+ "credits": {
+  "this_search": 6,
+  "d7_ledger_before": 42,
+  "dispatch_count_before": 47,
+  "cap": 80
+ },
+ "staged": "so_d7/meteor2/stage/so_full_m2.glb (measurement only; so_d7/export untouched)"
+}

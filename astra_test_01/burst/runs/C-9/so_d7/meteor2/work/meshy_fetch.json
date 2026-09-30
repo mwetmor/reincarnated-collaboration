@@ -1,0 +1,47 @@
+{
+ "rig": "01a0f016-d40f-7134-8f4c-090c09228931",
+ "spent": 6,
+ "clips": {
+  "m004_attack": {
+   "action_id": 4,
+   "task": "01a0f0f3-1d33-770e-b3e8-e14587af6629",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/meteor2/anims/m004_attack.glb",
+   "mb": 17.44,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "m004_attack.glb: clip 'Armature|Attack|baselayer' starts root 'Hips' at 77.050 against rest 99.597 (22.6% > 5%)"
+    ],
+    "clips": [
+     "Armature|Attack|baselayer"
+    ]
+   }
+  },
+  "m128_hammer": {
+   "action_id": 128,
+   "task": "01a0f0f4-192e-772f-bbaf-4bf9d32541ff",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/meteor2/anims/m128_hammer.glb",
+   "mb": 17.43,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "m128_hammer.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' stands 0.583 m from the rest position and never comes nearer than 0.515 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [
+     "m128_hammer.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' drifts 0.125 m horizontally over its own length (12.5 units) and is not locomotion -- a clip that walks away from where it started",
+     "m128_hammer.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' starts root 'Hips' at 105.592 against rest 99.597 (6.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|Heavy_Hammer_Swing|baselayer"
+    ]
+   }
+  }
+ }
+}
