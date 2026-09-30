@@ -28,7 +28,9 @@
 | Astra images | ~8–10 | ~3 | *est.* ~2,800: the ChatGPT weekly allowance is the binding limit (≈ 2–3 weeks) |
 | Tripo | $0.40 | $0.40 | *est.* ~$280 (gear shared across bodies cuts this sharply) |
 | Meshy | 21 credits (rig) + 63 (armed motion set) | 0 | *est.* ~2,100 credits for rigs. Motion is ~6,300 more if bought per character, or close to zero if one set carries to the next body by the retargeter (**untested: the next measurement**) |
-| Agent time | ~4 h (first time; tooling written and five defects found) | ~45 min | *est.* ~45–60 min per base once hardened: **the number to drive down next** |
+| Agent time | ~4 h (first time; tooling written and five defects found) | ~45 min | **Measured on the second character (the sorceress, D7): 71 min end to end, including a base body, texture, 7 clips and 6 gear pieces; 20 min of that was vendor waiting.** At that rate, 100 characters are ~120 h of wall-clock, and it parallelises |
+
+**Measured, second character (D7, the fire sorceress, 2026-09-29):** fal **$2.41** (Tripo base plus gear, and cut-outs), Meshy **38 credits**, Astra **18 images**, **71 min**. That's for one character with a base body, a painted texture, 7 clips (locomotion, hit, death and two casts) and 6 gear pieces. At 100 characters: about $241 fal, 3,800 Meshy credits and 1,800 images. The images are the binding limit: they come from the ChatGPT plan's weekly allowance.
 
 ## 3 · What was rejected, and why (measured)
 
