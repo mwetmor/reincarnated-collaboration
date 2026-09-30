@@ -1,0 +1,436 @@
+{
+ "_guide": {
+  "shapes": 6,
+  "figure_component": 5,
+  "shape_ink_px": {
+   "1": 1235,
+   "2": 2249,
+   "4": 2042,
+   "6": 606,
+   "8": 2112,
+   "11": 274
+  },
+  "shape_centres": {
+   "1": [
+    1071,
+    54
+   ],
+   "2": [
+    1205,
+    247
+   ],
+   "4": [
+    1230,
+    496
+   ],
+   "6": [
+    1149,
+    767
+   ],
+   "8": [
+    971,
+    937
+   ],
+   "11": [
+    705,
+    1004
+   ]
+  }
+ },
+ "astra_a": {
+  "size": [
+   1536,
+   1024
+  ],
+  "shapes_kept": 6,
+  "shapes_total": 6,
+  "mean_recall": 0.977,
+  "mean_chance": 0.288,
+  "mean_chamfer_px": 0.97,
+  "figure_edge_density": 0.001,
+  "open_snow_edge_density": 0.027,
+  "figure_out": true,
+  "arena_clutter": 0.005,
+  "open_ground_not_snow": 0.006,
+  "arena_open_ground_not_snow": 0.0,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "recall_at_best_shift": 0.977,
+  "per_shape": {
+   "1": {
+    "recall": 0.985,
+    "chance": 0.397,
+    "lift": 0.589,
+    "chamfer_px": 0.88,
+    "kept": true
+   },
+   "2": {
+    "recall": 0.97,
+    "chance": 0.329,
+    "lift": 0.642,
+    "chamfer_px": 0.97,
+    "kept": true
+   },
+   "4": {
+    "recall": 0.978,
+    "chance": 0.103,
+    "lift": 0.875,
+    "chamfer_px": 0.98,
+    "kept": true
+   },
+   "6": {
+    "recall": 0.975,
+    "chance": 0.5,
+    "lift": 0.475,
+    "chamfer_px": 1.0,
+    "kept": true
+   },
+   "8": {
+    "recall": 0.957,
+    "chance": 0.266,
+    "lift": 0.691,
+    "chamfer_px": 1.03,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.996,
+    "chance": 0.131,
+    "lift": 0.865,
+    "chamfer_px": 0.97,
+    "kept": true
+   }
+  }
+ },
+ "astra_b": {
+  "size": [
+   1536,
+   1024
+  ],
+  "shapes_kept": 6,
+  "shapes_total": 6,
+  "mean_recall": 0.955,
+  "mean_chance": 0.357,
+  "mean_chamfer_px": 0.99,
+  "figure_edge_density": 0.003,
+  "open_snow_edge_density": 0.024,
+  "figure_out": true,
+  "arena_clutter": 0.006,
+  "open_ground_not_snow": 0.006,
+  "arena_open_ground_not_snow": 0.0,
+  "best_shift_px": [
+   3,
+   0
+  ],
+  "recall_at_best_shift": 0.955,
+  "per_shape": {
+   "1": {
+    "recall": 0.979,
+    "chance": 0.607,
+    "lift": 0.372,
+    "chamfer_px": 0.89,
+    "kept": true
+   },
+   "2": {
+    "recall": 0.967,
+    "chance": 0.394,
+    "lift": 0.572,
+    "chamfer_px": 0.97,
+    "kept": true
+   },
+   "4": {
+    "recall": 0.956,
+    "chance": 0.165,
+    "lift": 0.791,
+    "chamfer_px": 0.97,
+    "kept": true
+   },
+   "6": {
+    "recall": 0.88,
+    "chance": 0.45,
+    "lift": 0.429,
+    "chamfer_px": 1.2,
+    "kept": true
+   },
+   "8": {
+    "recall": 0.978,
+    "chance": 0.338,
+    "lift": 0.64,
+    "chamfer_px": 0.92,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.971,
+    "chance": 0.186,
+    "lift": 0.785,
+    "chamfer_px": 0.97,
+    "kept": true
+   }
+  }
+ },
+ "nb_a": {
+  "size": [
+   1248,
+   832
+  ],
+  "shapes_kept": 2,
+  "shapes_total": 6,
+  "mean_recall": 0.348,
+  "mean_chance": 0.23,
+  "mean_chamfer_px": 6.96,
+  "figure_edge_density": 0.086,
+  "open_snow_edge_density": 0.034,
+  "figure_out": false,
+  "arena_clutter": 0.028,
+  "open_ground_not_snow": 0.363,
+  "arena_open_ground_not_snow": 0.349,
+  "best_shift_px": [
+   0,
+   -3
+  ],
+  "recall_at_best_shift": 0.373,
+  "per_shape": {
+   "1": {
+    "recall": 0.343,
+    "chance": 0.109,
+    "lift": 0.233,
+    "chamfer_px": 7.06,
+    "kept": false
+   },
+   "2": {
+    "recall": 0.43,
+    "chance": 0.29,
+    "lift": 0.141,
+    "chamfer_px": 5.31,
+    "kept": false
+   },
+   "4": {
+    "recall": 0.245,
+    "chance": 0.11,
+    "lift": 0.135,
+    "chamfer_px": 8.58,
+    "kept": false
+   },
+   "6": {
+    "recall": 0.403,
+    "chance": 0.188,
+    "lift": 0.215,
+    "chamfer_px": 5.41,
+    "kept": true
+   },
+   "8": {
+    "recall": 0.435,
+    "chance": 0.166,
+    "lift": 0.269,
+    "chamfer_px": 5.57,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.234,
+    "chance": 0.518,
+    "lift": -0.285,
+    "chamfer_px": 9.8,
+    "kept": false
+   }
+  }
+ },
+ "nb_b": {
+  "size": [
+   1248,
+   832
+  ],
+  "shapes_kept": 2,
+  "shapes_total": 6,
+  "mean_recall": 0.292,
+  "mean_chance": 0.124,
+  "mean_chamfer_px": 8.41,
+  "figure_edge_density": 0.046,
+  "open_snow_edge_density": 0.028,
+  "figure_out": true,
+  "arena_clutter": 0.029,
+  "open_ground_not_snow": 0.376,
+  "arena_open_ground_not_snow": 0.409,
+  "best_shift_px": [
+   6,
+   0
+  ],
+  "recall_at_best_shift": 0.301,
+  "per_shape": {
+   "1": {
+    "recall": 0.14,
+    "chance": 0.097,
+    "lift": 0.043,
+    "chamfer_px": 11.09,
+    "kept": false
+   },
+   "2": {
+    "recall": 0.081,
+    "chance": 0.063,
+    "lift": 0.018,
+    "chamfer_px": 15.34,
+    "kept": false
+   },
+   "4": {
+    "recall": 0.368,
+    "chance": 0.092,
+    "lift": 0.277,
+    "chamfer_px": 5.53,
+    "kept": false
+   },
+   "6": {
+    "recall": 0.262,
+    "chance": 0.158,
+    "lift": 0.104,
+    "chamfer_px": 8.65,
+    "kept": false
+   },
+   "8": {
+    "recall": 0.433,
+    "chance": 0.204,
+    "lift": 0.23,
+    "chamfer_px": 5.96,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.467,
+    "chance": 0.128,
+    "lift": 0.339,
+    "chamfer_px": 3.89,
+    "kept": true
+   }
+  }
+ },
+ "nbp_a": {
+  "size": [
+   2528,
+   1696
+  ],
+  "shapes_kept": 6,
+  "shapes_total": 6,
+  "mean_recall": 0.557,
+  "mean_chance": 0.105,
+  "mean_chamfer_px": 3.45,
+  "figure_edge_density": 0.026,
+  "open_snow_edge_density": 0.019,
+  "figure_out": true,
+  "arena_clutter": 0.033,
+  "open_ground_not_snow": 0.198,
+  "arena_open_ground_not_snow": 0.23,
+  "best_shift_px": [
+   0,
+   -3
+  ],
+  "recall_at_best_shift": 0.616,
+  "per_shape": {
+   "1": {
+    "recall": 0.483,
+    "chance": 0.08,
+    "lift": 0.402,
+    "chamfer_px": 3.56,
+    "kept": true
+   },
+   "2": {
+    "recall": 0.405,
+    "chance": 0.125,
+    "lift": 0.279,
+    "chamfer_px": 5.24,
+    "kept": true
+   },
+   "4": {
+    "recall": 0.464,
+    "chance": 0.126,
+    "lift": 0.338,
+    "chamfer_px": 3.65,
+    "kept": true
+   },
+   "6": {
+    "recall": 0.756,
+    "chance": 0.139,
+    "lift": 0.617,
+    "chamfer_px": 1.57,
+    "kept": true
+   },
+   "8": {
+    "recall": 0.403,
+    "chance": 0.158,
+    "lift": 0.245,
+    "chamfer_px": 5.21,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.832,
+    "chance": 0.0,
+    "lift": 0.832,
+    "chamfer_px": 1.49,
+    "kept": true
+   }
+  }
+ },
+ "nbp_b": {
+  "size": [
+   2528,
+   1696
+  ],
+  "shapes_kept": 5,
+  "shapes_total": 6,
+  "mean_recall": 0.499,
+  "mean_chance": 0.139,
+  "mean_chamfer_px": 3.25,
+  "figure_edge_density": 0.017,
+  "open_snow_edge_density": 0.029,
+  "figure_out": true,
+  "arena_clutter": 0.025,
+  "open_ground_not_snow": 0.202,
+  "arena_open_ground_not_snow": 0.178,
+  "best_shift_px": [
+   0,
+   -3
+  ],
+  "recall_at_best_shift": 0.561,
+  "per_shape": {
+   "1": {
+    "recall": 0.47,
+    "chance": 0.072,
+    "lift": 0.398,
+    "chamfer_px": 3.1,
+    "kept": true
+   },
+   "2": {
+    "recall": 0.426,
+    "chance": 0.142,
+    "lift": 0.285,
+    "chamfer_px": 3.66,
+    "kept": true
+   },
+   "4": {
+    "recall": 0.5,
+    "chance": 0.023,
+    "lift": 0.477,
+    "chamfer_px": 3.17,
+    "kept": true
+   },
+   "6": {
+    "recall": 0.734,
+    "chance": 0.135,
+    "lift": 0.599,
+    "chamfer_px": 1.57,
+    "kept": true
+   },
+   "8": {
+    "recall": 0.463,
+    "chance": 0.236,
+    "lift": 0.226,
+    "chamfer_px": 4.02,
+    "kept": true
+   },
+   "11": {
+    "recall": 0.401,
+    "chance": 0.226,
+    "lift": 0.175,
+    "chamfer_px": 4.0,
+    "kept": false
+   }
+  }
+ }
+}

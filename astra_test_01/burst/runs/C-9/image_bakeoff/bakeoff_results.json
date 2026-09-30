@@ -1,0 +1,148 @@
+{
+ "_what": "C-9 image-model bake-off (R-C9-79): verdicts, scores, seconds and cost per image.",
+ "verdicts": {
+  "J1": {
+   "astra_a": {
+    "pass": true,
+    "evidence": "profiles face correctly; tattoo on his right arm in every view"
+   },
+   "astra_b": {
+    "pass": true,
+    "evidence": "profiles face correctly; tattoo right arm; the approved sheet (R-C9-70)"
+   },
+   "nb_a": {
+    "pass": false,
+    "evidence": "LEFT view faces the wrong way; front view tattoo on the wrong arm"
+   },
+   "nb_b": {
+    "pass": false,
+    "evidence": "LEFT view faces the wrong way"
+   },
+   "nbp_a": {
+    "pass": null,
+    "evidence": "profiles correct, best build; BUT text labels + cell borders, front tattoo on wrong arm"
+   },
+   "nbp_b": {
+    "pass": false,
+    "evidence": "RIGHT view faces the wrong way; front tattoo on the wrong arm"
+   }
+  },
+  "J2": {
+   "astra_a": {
+    "pass": false,
+    "evidence": "body moved: legs shifted up to 11 px"
+   },
+   "astra_b": {
+    "pass": true,
+    "evidence": "spangenhelm + nasal, no mask; body held within 1 px"
+   },
+   "nb_a": {
+    "pass": false,
+    "evidence": "helmet right, but body moved (legs up to 8.5 px, IoU 0.72)"
+   },
+   "nb_b": {
+    "pass": false,
+    "evidence": "FACE MASK (spectacle guards) -- brief says NO face mask"
+   },
+   "nbp_a": {
+    "pass": false,
+    "evidence": "FACE MASK (spectacle guards); pose held 0.974"
+   },
+   "nbp_b": {
+    "pass": false,
+    "evidence": "FACE MASK; whole body restyled (paler, different hand)"
+   }
+  },
+  "J3": {
+   "astra_a": {
+    "pass": true,
+    "evidence": "real repaint (detail x1.42) at low disagreement; the variant used (D1 15.38)"
+   },
+   "astra_b": {
+    "pass": true,
+    "evidence": "real repaint (detail x1.40) at low disagreement"
+   },
+   "nb_a": {
+    "pass": false,
+    "evidence": "no repaint (detail x0.96); head close-ups redrawn from a new camera"
+   },
+   "nb_b": {
+    "pass": false,
+    "evidence": "canvas handed back almost unchanged (detail x1.00)"
+   },
+   "nbp_a": {
+    "pass": false,
+    "evidence": "heavy restyle: disagreement 31.9, the blind-painting level (T5: 34.2)"
+   },
+   "nbp_b": {
+    "pass": false,
+    "evidence": "views re-laid out as an eye-level turnaround"
+   }
+  },
+  "J4": {
+   "astra_a": {
+    "pass": true,
+    "evidence": "6/6 stones at 1.0 px; figure painted out; nothing invented"
+   },
+   "astra_b": {
+    "pass": true,
+    "evidence": "6/6 stones at 1.0 px; figure painted out; nothing invented"
+   },
+   "nb_a": {
+    "pass": false,
+    "evidence": "invented a barrow scene (mound, tarn, path, trees); figure left in"
+   },
+   "nb_b": {
+    "pass": false,
+    "evidence": "invented a scene (mound, tarn, mountains, fire); 2/6 stones"
+   },
+   "nbp_a": {
+    "pass": false,
+    "evidence": "stones kept, but tarn, path, mound, cairns invented on open snow"
+   },
+   "nbp_b": {
+    "pass": false,
+    "evidence": "stones kept (5/6), but mound, tarn, path, cairns invented"
+   }
+  }
+ },
+ "seconds_per_image": {
+  "J1": {
+   "astra": 177,
+   "nb": 13.2,
+   "nbp": 25.8
+  },
+  "J2": {
+   "astra": 118,
+   "nb": 12.9,
+   "nbp": 27.0
+  },
+  "J3": {
+   "astra": 129,
+   "nb": 13.3,
+   "nbp": 32.8
+  },
+  "J4": {
+   "astra": 219,
+   "nb": 12.1,
+   "nbp": 36.5
+  }
+ },
+ "astra_seconds_per_delivered_image": {
+  "J1": 355,
+  "J2": 178,
+  "J3": 129,
+  "J4": 328
+ },
+ "usd_per_image": {
+  "astra": 0.0,
+  "nb": 0.0398,
+  "nbp": 0.15
+ },
+ "recommendations": {
+  "J1": "KEEP ASTRA. Nano Banana fails (profiles face the wrong way in both). Pro is the one worth a second look -- its best sheet built MORE consistently than NB-1_b (0.918 vs 0.845) -- but 1 of 2 had a wrong-facing view and both put the tattoo on the wrong arm; usable only behind an automated facing/sidedness/label gate we do not have.",
+  "J2": "KEEP ASTRA. Pro held pose and outline as well as Astra's approved variant (0.974 vs 0.976) but put a FACE MASK on the helmet in both variants against an explicit 'NO face mask'. Nano Banana: one masked, one drifted.",
+  "J3": "KEEP ASTRA. Both candidates fail: Nano Banana did not repaint (detail x0.96-1.00) or redrew the close-ups; Pro restyled at the blind-painting disagreement level (31.9 vs T5's 34.2) or re-laid the sheet out.",
+  "J4": "KEEP ASTRA. Both candidates fail: they painted the prompt's colour legend as a scene (tarn, path, mound, cairns) onto open snow -- 20-38% of it. Astra: 6/6 stones at 1.0 px, figure out, nothing invented."
+ }
+}

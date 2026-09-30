@@ -1,0 +1,128 @@
+{
+ "astra_a": {
+  "size": [
+   1536,
+   1024
+  ],
+  "screen_disagreement": {
+   "mean": 13.9,
+   "median": 10.13,
+   "p90": 28.18,
+   "pct_over_8": 61.7,
+   "pct_over_24": 13.8
+  },
+  "detail_gain": 1.421,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "mean_at_best_shift": 13.9,
+  "spill_outside_outline": 1.0,
+  "d1_texture_space": {
+   "mean": 15.376,
+   "median": 10.046,
+   "p90": 32.852,
+   "pct_over_24": 17.013
+  }
+ },
+ "astra_b": {
+  "size": [
+   1536,
+   1024
+  ],
+  "screen_disagreement": {
+   "mean": 14.3,
+   "median": 10.38,
+   "p90": 29.14,
+   "pct_over_8": 62.8,
+   "pct_over_24": 14.9
+  },
+  "detail_gain": 1.4,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "mean_at_best_shift": 14.3,
+  "spill_outside_outline": 1.0
+ },
+ "nb_a": {
+  "size": [
+   1248,
+   832
+  ],
+  "screen_disagreement": {
+   "mean": 19.3,
+   "median": 6.95,
+   "p90": 48.27,
+   "pct_over_8": 43.7,
+   "pct_over_24": 15.3
+  },
+  "detail_gain": 0.965,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "mean_at_best_shift": 19.3,
+  "spill_outside_outline": 0.014
+ },
+ "nb_b": {
+  "size": [
+   1248,
+   832
+  ],
+  "screen_disagreement": {
+   "mean": 7.48,
+   "median": 5.92,
+   "p90": 14.43,
+   "pct_over_8": 33.5,
+   "pct_over_24": 2.1
+  },
+  "detail_gain": 0.998,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "mean_at_best_shift": 7.48,
+  "spill_outside_outline": 0.022
+ },
+ "nbp_a": {
+  "size": [
+   2528,
+   1696
+  ],
+  "screen_disagreement": {
+   "mean": 31.86,
+   "median": 26.46,
+   "p90": 59.94,
+   "pct_over_8": 92.4,
+   "pct_over_24": 55.0
+  },
+  "detail_gain": 1.718,
+  "best_shift_px": [
+   0,
+   0
+  ],
+  "mean_at_best_shift": 31.86,
+  "spill_outside_outline": 0.088
+ },
+ "nbp_b": {
+  "size": [
+   2528,
+   1696
+  ],
+  "screen_disagreement": {
+   "mean": 103.51,
+   "median": 121.27,
+   "p90": 160.21,
+   "pct_over_8": 99.0,
+   "pct_over_24": 90.3
+  },
+  "detail_gain": 0.926,
+  "best_shift_px": [
+   -10,
+   10
+  ],
+  "mean_at_best_shift": 102.27,
+  "spill_outside_outline": 0.375
+ }
+}

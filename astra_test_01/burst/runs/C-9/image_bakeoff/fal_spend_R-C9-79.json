@@ -1,0 +1,198 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $5.00 (fal_spend_R-C9-79).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "gandalf's $5.00 hard stop for the image bake-off (R-C9-79), including its one Tripo build; starts at $0 for this study.",
+ "budget_usd": 5.0,
+ "entries": [
+  {
+   "ts": "2026-09-30T01:19:58+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J1 nb b",
+   "usd": 0.0398,
+   "wall_s": 12.94
+  },
+  {
+   "ts": "2026-09-30T01:19:59+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J1 nb a",
+   "usd": 0.0398,
+   "wall_s": 13.5
+  },
+  {
+   "ts": "2026-09-30T01:20:10+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J1 nbp a",
+   "usd": 0.15,
+   "wall_s": 24.9
+  },
+  {
+   "ts": "2026-09-30T01:20:12+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J1 nbp b",
+   "usd": 0.15,
+   "wall_s": 26.6
+  },
+  {
+   "ts": "2026-09-30T01:21:12+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J2 nb b",
+   "usd": 0.0398,
+   "wall_s": 11.05
+  },
+  {
+   "ts": "2026-09-30T01:21:16+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J2 nb a",
+   "usd": 0.0398,
+   "wall_s": 14.89
+  },
+  {
+   "ts": "2026-09-30T01:21:27+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J2 nbp b",
+   "usd": 0.15,
+   "wall_s": 26.33
+  },
+  {
+   "ts": "2026-09-30T01:21:29+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J2 nbp a",
+   "usd": 0.15,
+   "wall_s": 27.72
+  },
+  {
+   "ts": "2026-09-30T01:21:45+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J3 nb b",
+   "usd": 0.0398,
+   "wall_s": 13.18
+  },
+  {
+   "ts": "2026-09-30T01:21:46+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J3 nb a",
+   "usd": 0.0398,
+   "wall_s": 13.5
+  },
+  {
+   "ts": "2026-09-30T01:21:59+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J3 nbp b",
+   "usd": 0.15,
+   "wall_s": 26.35
+  },
+  {
+   "ts": "2026-09-30T01:22:12+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J3 nbp a",
+   "usd": 0.15,
+   "wall_s": 39.26
+  },
+  {
+   "ts": "2026-09-30T01:22:29+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J4 nb b",
+   "usd": 0.0398,
+   "wall_s": 12.03
+  },
+  {
+   "ts": "2026-09-30T01:22:29+00:00",
+   "endpoint": "fal-ai/nano-banana/edit",
+   "what": "J4 nb a",
+   "usd": 0.0398,
+   "wall_s": 12.18
+  },
+  {
+   "ts": "2026-09-30T01:22:53+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J4 nbp a",
+   "usd": 0.15,
+   "wall_s": 35.95
+  },
+  {
+   "ts": "2026-09-30T01:22:54+00:00",
+   "endpoint": "fal-ai/nano-banana-pro/edit",
+   "what": "J4 nbp b",
+   "usd": 0.15,
+   "wall_s": 36.95
+  },
+  {
+   "ts": "2026-09-30T01:32:43+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J1 matte J1_nb_a.png",
+   "usd": 0.00332,
+   "wall_s": 4.15
+  },
+  {
+   "ts": "2026-09-30T01:32:57+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J1 matte J1_nb_b.png",
+   "usd": 0.00845,
+   "wall_s": 10.56
+  },
+  {
+   "ts": "2026-09-30T01:33:06+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J1 matte J1_nbp_a.png",
+   "usd": 0.00571,
+   "wall_s": 7.14
+  },
+  {
+   "ts": "2026-09-30T01:33:12+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J1 matte J1_nbp_b.png",
+   "usd": 0.00324,
+   "wall_s": 4.04
+  },
+  {
+   "ts": "2026-09-30T01:36:02+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte NB-G1_a.png",
+   "usd": 0.00308,
+   "wall_s": 3.85
+  },
+  {
+   "ts": "2026-09-30T01:36:07+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte NB-G1_b.png",
+   "usd": 0.0027,
+   "wall_s": 3.37
+  },
+  {
+   "ts": "2026-09-30T01:36:11+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte J2_nb_a.png",
+   "usd": 0.00271,
+   "wall_s": 3.38
+  },
+  {
+   "ts": "2026-09-30T01:36:16+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte J2_nb_b.png",
+   "usd": 0.00233,
+   "wall_s": 2.92
+  },
+  {
+   "ts": "2026-09-30T01:36:21+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte J2_nbp_a.png",
+   "usd": 0.00266,
+   "wall_s": 3.32
+  },
+  {
+   "ts": "2026-09-30T01:37:28+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "J2 matte J2_nbp_b.png",
+   "usd": 0.05247,
+   "wall_s": 65.59
+  },
+  {
+   "ts": "2026-09-30T01:37:51+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "J1 build from nbp_a",
+   "usd": 0.4,
+   "wall_s": 166.8
+  }
+ ],
+ "running_usd": 2.0051
+}

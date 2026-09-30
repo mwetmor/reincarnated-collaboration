@@ -1,0 +1,67 @@
+{
+ "J1": {
+  "source_brief": "/Users/admin/astra-burst/runs/C-9/NB-1/brief.txt",
+  "source_brief_sha256": "8e200acace3fbf8d62b61531a52d3760d32dbe1dfc903504664387259f3ca951",
+  "prompt_sha256": "58f2e36687eec5bee6db167c386aa9bd7990dd6e29678983d3d3ad7ab0d3d2ef",
+  "chars": 7496,
+  "aspect_ratio": "2:3",
+  "images_in_order": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png"
+  ],
+  "removed_lane_operations": [
+   "GENERATE BURST NB-1 — Run C-9 test T8 (Matt R-C9-69): a NEW character made for the 3D test, a NORSE BARBARIAN: his BASE BODY as a CHARACTER SHEET for a 3D model. task_id \"NB-1\".",
+   "Two image_gen calls: variants a and b. ONE retry per variant only if a view is missing or has the wrong facing, the man differs between views, an arm touches the torso in the front or back view, any armour, fur, cloak, weapon or other gear appears, the tattoo is on the wrong arm, or the background is not flat green — name the reason. Copy outputs to out/NB-1_a.png and out/NB-1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL."
+  ]
+ },
+ "J2": {
+  "source_brief": "/Users/admin/astra-burst/runs/C-9/NB-G1/brief.txt",
+  "source_brief_sha256": "dfef49d7890e76ac2206a5e58366dd58952ed95a2a840f2e10806940734926c8",
+  "prompt_sha256": "925ef9f011e555efba0d564e3f9ed8f72eb348fa089c7ed126922f0600a057b7",
+  "chars": 5691,
+  "aspect_ratio": "2:3",
+  "images_in_order": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png"
+  ],
+  "removed_lane_operations": [
+   "GENERATE BURST NB-G1 — Run C-9 Phase 2, deliverable D2 (Matt R-C9-69/70): MODULAR GEAR for the Norse barbarian: layer 1, RIGID pieces: helmet and bracers. task_id \"NB-G1\".",
+   "Two image_gen EDIT calls: variants a and b. ONE retry per variant only if a view is missing or changed facing, his pose, proportions or outline changed where the gear does not cover him, the gear differs between views, the helmet has horns or wings, or the tattoo is covered — name the reason. Never retry for the background colour. Copy outputs to out/NB-G1_a.png and out/NB-G1_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"NB-G1\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+   "Use image_gen in EDIT mode on IMAGE 1 and deliver  ->  EDIT IMAGE 1 and deliver",
+   "If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it; deliver the image."
+  ]
+ },
+ "J3": {
+  "source_brief": "/Users/admin/astra-burst/runs/C-9/T8P-B/brief.txt",
+  "source_brief_sha256": "11af1a3aef5db29fb5c6473e449a30449df2912733c159945d21ff61dd31be35",
+  "prompt_sha256": "ea59ee25ace4d12f53af18137dfca8fd4daef9c4c1c802e37d480c9f6b7b039d",
+  "chars": 6992,
+  "aspect_ratio": "3:2",
+  "images_in_order": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/t8_sheet_b_canvas.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T8P-A/T8P-A_b.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png"
+  ],
+  "removed_lane_operations": [
+   "GENERATE BURST T8P-B — Run C-9 Phase 2, test T8 (Matt R-C9-68/69/70): the PAINTED TEXTURE of the 3D Norse barbarian, sheet 2 of 2, at the GAME CAMERA (looking down at 53 degrees). task_id \"T8P-B\".",
+   "Two image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, a feature (braid, tattoo, belt, beard ring) moved, was redrawn elsewhere or disappeared, the tattoo is on the wrong arm, or a close-up shows a different face — name the reason. Never retry for the background colour. Copy outputs to out/T8P-B_a.png and out/T8P-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"T8P-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+   "Use image_gen in EDIT mode on IMAGE 1 and deliver  ->  EDIT IMAGE 1 and deliver",
+   "If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines, so the background colour does not decide success. Spend retries ONLY on the faults named below."
+  ]
+ },
+ "J4": {
+  "source_brief": "/Users/admin/astra-burst/runs/C-9/IBO-J4/brief.txt",
+  "source_brief_sha256": "207022e559aed061180861a6ca969a5d4f410e130b82a127bac105ea1cb8cfff",
+  "prompt_sha256": "056c7840490f4245e1d1441b038cef5f7c52b09c445664f915e1c55f33f2986b",
+  "chars": 5047,
+  "aspect_ratio": "3:2",
+  "images_in_order": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/IBO-J4-2_1_canvas.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png"
+  ],
+  "removed_lane_operations": [
+   "GENERATE BURST IBO-J4 — Run C-9 Phase 2, image-model bake-off (Matt R-C9-79), job 4: blockout paint-over of a TEST canvas (the ring-centre chunk 2_1 of the barrow_full guide; NOT the T10-2 painting, which waits for Matt). task_id \"IBO-J4\".",
+   "Two image_gen EDIT calls: variants a and b. ONE retry per variant only if a shape was moved, resized or dropped, the figure was not painted out, or text appears — name the reason. Copy outputs to out/IBO-J4_a.png and out/IBO-J4_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"IBO-J4\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL."
+  ]
+ }
+}

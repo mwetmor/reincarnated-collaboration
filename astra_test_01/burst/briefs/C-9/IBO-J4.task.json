@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST IBO-J4 — Run C-9 Phase 2, image-model bake-off (Matt R-C9-79), job 4: blockout paint-over of a TEST canvas (the ring-centre chunk 2_1 of the barrow_full guide; NOT the T10-2 painting, which waits for Matt). task_id \"IBO-J4\".\n\nIMAGE 1 is a greybox layout render of a snowbound Norse burial site, seen from a fixed three-quarter top-down camera. Grey shapes are standing stones, rock outcrops, a burial mound with a doorway, birches and cairns. Pale blue is a frozen tarn; olive patches are heather and juniper scrub; the brown band is a trodden path. Paint over it as a finished painting in IMAGE 2's hand. Keep EVERY shape exactly where it is and the same size, so the painting lines up with IMAGE 1 when overlaid. Turn each grey shape into what it stands for. Snow as surface colour, soft light, short soft shadows. Add small things (heather, juniper, pebbles, drifts, tracks) freely in the scrub and open snow, but keep the open ground inside the ring and on the path clear. Paint out the small figure in the centre. No text, no labels.\n\nDeliver ONE 1536x1024 landscape image per variant.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a shape was moved, resized or dropped, the figure was not painted out, or text appears — name the reason. Copy outputs to out/IBO-J4_a.png and out/IBO-J4_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"IBO-J4\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/IBO-J4-2_1_canvas.png",
+   "role": "IMAGE 1 — the greybox layout render to paint over (barrow_full guide, chunk 2_1, contains the ring centre); TEST canvas"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 — STYLE reference ONLY (Matt-supplied, R-C9-69): the hand"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/IBO-J4_a.png",
+  "out/IBO-J4_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "image-bakeoff-R-C9-79"
+}
