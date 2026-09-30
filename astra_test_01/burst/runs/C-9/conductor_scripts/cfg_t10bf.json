@@ -1,0 +1,331 @@
+{
+ "prefix": "T10BF",
+ "name": "THE FROST KING'S BARROW, full area: paint-over of the gameplay blockout (T10-2 step 2, spec v2)",
+ "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/paint/barrow_full_guide.png",
+ "cols": 4,
+ "rows": 4,
+ "experiment": "T10-2-barrow-full-paintover",
+ "_status": "ADOPTED by the conductor 2026-09-29 after Matt walked the blockout (R-C9-86); fired by conductor_scripts/t10bf_drive.sh",
+ "_guide_sha256": "e866051cebf25896413d55280b321c8de12742fd5f00a8ed5dc42ccdaf13f70d",
+ "_guide_frame": "5376 x 3328 px = u -28.71..24.71 m, v -23.72..17.72 m at the play camera (orthographic, pitch 52.95354112560294, yaw 47): 100.6176 px per metre across, 80.3076 px per ground metre up-screen",
+ "_note_for_the_conductor": "guided_paint.py's retry clause names a #00ff00 sky; this guide has none (the conductor: 'mine to fix when I write the paint briefs'). The crucible marks are NOT in the guide. The barbarian stands in the arena for scale only; the rules ask for him to be painted out (ratified).",
+ "geo": "IMAGE 1 is not a flat-colour layout: it is a GREYBOX RENDER of a real 3D game level, seen from the game's fixed high three-quarter ORTHOGRAPHIC camera (53 degrees down), at true scale -- the small painted barbarian in the ring is 1.85 m tall. Every grey form is a real object that will be modelled at exactly this position and size. LIGHT WARM GREY ground = deep, smooth snow; the DARKER BROWN-GREY BAND = a trodden path through the snow; PALE BLUE-GREY = the frozen tarn, flat lapis-blue ice with pale cracks; MUTED GREEN-BROWN PATCHES = low dark juniper scrub and rust-brown winter heather poking through the snow; FLAT GREY upright slabs = fourteen carved standing stones in a ring (spiral and knotwork carvings on the faces turned toward the viewer), one FALLEN and lying outward; the LARGE PALE DOME at the top = the barrow mound, earth and dead grass under thin snow, KERBED (steep sides, rounded top), running off the top of the picture; cut into its front, a stone-lined CUTTING leads to the door -- two grey posts and a massive carved lintel set into a stone facade, the mound rising over them, a DARK passage stepping down behind; the DARKER GREY STEPPED MASSES = weathered layered rock outcrops (and a low rocky shore on the tarn's far side); thin grey trees = dead wind-bent birches, in groves and in tree lines at the edges; small grey stacks = stone cairns; the two grey crosses of spears with a round shield = grave markers; the long grey cylinders = a fallen birch trunk; a tiny grey bird on a stone = a raven.",
+ "rules": "Paint OVER the render: every object keeps EXACTLY its silhouette, position and size (the 3D models are placed from this same layout, so anything moved will not match); shadows stay where the render puts them (one winter sun from the upper LEFT, 55 degrees up, short soft blue-violet shadows touching their objects). Paint the barbarian OUT -- he is there only for scale; leave open snow where he stands. Keep the ring's centre, the path, the cutting and the tarn OPEN: no new rocks, trees or drifts on them. Small scatter is welcome only inside the scrub patches and at the foot of rocks and stones. One thin warm dark-brown ink line on every contour, the SAME weight everywhere. Palette and hand of IMAGE 2 (the approved Frost King's Barrow concept): cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice; watercolour washes with pen detail. No sky, no horizon, no text, UI, border or characters.",
+ "refs": [
+  [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "the APPROVED Frost King's Barrow concept (Matt's pick): palette, light, snow, stone carving and painted hand ONLY -- NOT its layout"
+  ]
+ ],
+ "chunks": [
+  {
+   "key": "0_0",
+   "px": [
+    0,
+    0,
+    1536,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -28.715,
+     -13.4493
+    ],
+    "v": [
+     4.9694,
+     17.7203
+    ]
+   }
+  },
+  {
+   "key": "1_0",
+   "px": [
+    1280,
+    0,
+    2816,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -15.9936,
+     -0.7279
+    ],
+    "v": [
+     4.9694,
+     17.7203
+    ]
+   }
+  },
+  {
+   "key": "2_0",
+   "px": [
+    2560,
+    0,
+    4096,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -3.2721,
+     11.9936
+    ],
+    "v": [
+     4.9694,
+     17.7203
+    ]
+   }
+  },
+  {
+   "key": "3_0",
+   "px": [
+    3840,
+    0,
+    5376,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     9.4493,
+     24.715
+    ],
+    "v": [
+     4.9694,
+     17.7203
+    ]
+   }
+  },
+  {
+   "key": "0_1",
+   "px": [
+    0,
+    768,
+    1536,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -28.715,
+     -13.4493
+    ],
+    "v": [
+     -4.5939,
+     8.1571
+    ]
+   }
+  },
+  {
+   "key": "1_1",
+   "px": [
+    1280,
+    768,
+    2816,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -15.9936,
+     -0.7279
+    ],
+    "v": [
+     -4.5939,
+     8.1571
+    ]
+   }
+  },
+  {
+   "key": "2_1",
+   "px": [
+    2560,
+    768,
+    4096,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -3.2721,
+     11.9936
+    ],
+    "v": [
+     -4.5939,
+     8.1571
+    ]
+   }
+  },
+  {
+   "key": "3_1",
+   "px": [
+    3840,
+    768,
+    5376,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     9.4493,
+     24.715
+    ],
+    "v": [
+     -4.5939,
+     8.1571
+    ]
+   }
+  },
+  {
+   "key": "0_2",
+   "px": [
+    0,
+    1536,
+    1536,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -28.715,
+     -13.4493
+    ],
+    "v": [
+     -14.1571,
+     -1.4061
+    ]
+   }
+  },
+  {
+   "key": "1_2",
+   "px": [
+    1280,
+    1536,
+    2816,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -15.9936,
+     -0.7279
+    ],
+    "v": [
+     -14.1571,
+     -1.4061
+    ]
+   }
+  },
+  {
+   "key": "2_2",
+   "px": [
+    2560,
+    1536,
+    4096,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -3.2721,
+     11.9936
+    ],
+    "v": [
+     -14.1571,
+     -1.4061
+    ]
+   }
+  },
+  {
+   "key": "3_2",
+   "px": [
+    3840,
+    1536,
+    5376,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     9.4493,
+     24.715
+    ],
+    "v": [
+     -14.1571,
+     -1.4061
+    ]
+   }
+  },
+  {
+   "key": "0_3",
+   "px": [
+    0,
+    2304,
+    1536,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -28.715,
+     -13.4493
+    ],
+    "v": [
+     -23.7203,
+     -10.9694
+    ]
+   }
+  },
+  {
+   "key": "1_3",
+   "px": [
+    1280,
+    2304,
+    2816,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -15.9936,
+     -0.7279
+    ],
+    "v": [
+     -23.7203,
+     -10.9694
+    ]
+   }
+  },
+  {
+   "key": "2_3",
+   "px": [
+    2560,
+    2304,
+    4096,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -3.2721,
+     11.9936
+    ],
+    "v": [
+     -23.7203,
+     -10.9694
+    ]
+   }
+  },
+  {
+   "key": "3_3",
+   "px": [
+    3840,
+    2304,
+    5376,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     9.4493,
+     24.715
+    ],
+    "v": [
+     -23.7203,
+     -10.9694
+    ]
+   }
+  }
+ ],
+ "run_tag": "Run C-9 Phase 2, T10-2 (the full Barrow area)",
+ "ruling": "Matt R-C9-75 and R-C9-86",
+ "fill_phrase": "paint over the greybox render, turning every grey form into what it stands for, in place",
+ "retry_extra": "the small barbarian is still there, an object has moved off its greybox silhouette, ",
+ "unpainted_phrase": "greybox areas remain unpainted"
+}

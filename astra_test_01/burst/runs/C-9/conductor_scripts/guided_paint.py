@@ -36,13 +36,16 @@ for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1)]:
 cp = S/f'{P}-{k}{SUF}_canvas.png'
 if cmd == 'stage': canvas.save(cp); manifest_add(cp); print(k, 'staged', kept); sys.exit()
 bid = f'{P}-{k}{SUF}'; geo = cfg['geo']; rules = cfg['rules']
-head = f"GENERATE BURST {bid} — Run C-9 P5, {cfg['name']} panel {k} over a conductor LAYOUT GUIDE (Matt R-C9-29). task_id \"{bid}\".\n\n"
+RUN_TAG = cfg.get('run_tag', 'Run C-9 P5'); RULING = cfg.get('ruling', 'Matt R-C9-29')
+FILL = cfg.get('fill_phrase', 'replace every flat guide colour with painting')
+RETRY_EXTRA = cfg.get('retry_extra', 'the sky area is not flat pure #00ff00, '); UNPAINTED = cfg.get('unpainted_phrase', 'guide colours remain unpainted')
+head = f"GENERATE BURST {bid} — {RUN_TAG}, {cfg['name']} panel {k} over a conductor LAYOUT GUIDE ({RULING}). task_id \"{bid}\".\n\n"
 if kept:
-    text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + '; '.join(kept) + " are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, " + geo + "\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and replace every flat guide colour with painting that CONTINUES them seamlessly (no visible join). " + rules
+    text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + '; '.join(kept) + " are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, " + geo + "\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and " + FILL + " that CONTINUES them seamlessly (no visible join). " + rules
 else:
-    text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + geo + "\nUse image_gen in EDIT mode on IMAGE 1 and replace every flat guide colour with painting. " + rules
+    text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + geo + "\nUse image_gen in EDIT mode on IMAGE 1 and " + FILL + ". " + rules
 refs = [{"path": str(cp), "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + layout guide)"}] + [{"path": p, "role": f"IMAGE {i+2} — {role}"} for i, (p, role) in enumerate(cfg['refs'])]
-text += (f"\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, anything appears that the guide does not put there (an extra landmark, fire, river or any town), the sky area is not flat pure #00ff00, or guide colours remain unpainted — name the reason. "
+text += (f"\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, anything appears that the guide does not put there (an extra landmark, fire, river or any town), {RETRY_EXTRA}or {UNPAINTED} — name the reason. "
          f"Copy the output to out/{P}-{k}.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"{bid}\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.")
 json.dump({"text": text, "references": refs, "image_cap": 2, "minutes_cap": 15, "tool_call_cap": 20, "outputs": [f"out/{P}-{k}.png"], "effort": "high", "add_dirs": [], "experiment": cfg['experiment']},
           open(B/'briefs'/'C-9'/f'{bid}.task.json', 'w'), indent=1, ensure_ascii=False)
