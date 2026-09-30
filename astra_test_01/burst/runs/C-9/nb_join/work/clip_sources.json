@@ -15,49 +15,20 @@
  },
  "clips": {
   "shout": {
-   "source": "../nb_join/anims/shout_sword_shout.glb",
-   "path": "55_clip_graft",
-   "action": "Meshy 101",
-   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
-   "fetched_task": "01a0f17a-f834-7134-9a8a-02e24e7b0ac9",
-   "flags": [
-    "deroot"
+   "source": null,
+   "path": "j_warcry.py (composed) + j_weapon_clamp.py (the weapons clear of him)",
+   "loop": false,
+   "sources": [
+    "../nb_join/anims/wc_flex_show_muscles.glb (Meshy 388, fetched on his rig)",
+    "../nb_join/anims/wc_motivational_cheer.glb (Meshy 49, the window from 4.2 to 6.6 of its own clock)"
    ],
    "edits": [
-    "deroot",
-    "recentre",
-    "reground",
-    "trim"
+    "compose",
+    "weapons_up_and_out",
+    "head_back",
+    "weapon_clamp"
    ],
-   "window": [
-    0.0333,
-    2.8333
-   ],
-   "graft": {
-    "source": "../nb_join/anims/shout_sword_shout.glb",
-    "source_anim": "Armature|Sword_Shout|baselayer",
-    "window": [
-     0.0333,
-     2.8333
-    ],
-    "keys": 84,
-    "length_s": 2.766666617244482,
-    "joints": 24,
-    "rest_match": 5e-05,
-    "hip_ratio": 1.08825,
-    "flags": [
-     "deroot"
-    ],
-    "source_travel_m": [
-     -0.0361,
-     0.5957
-    ],
-    "grounded_by_m": -0.05891,
-    "feet_span_m": [
-     0.0,
-     0.0502
-    ]
-   }
+   "note": "composed v2 (Matt 2026-09-30): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's double-biceps flex, pumped twice by its own time; the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
   },
   "hit": {
    "source": "../nb_join/anims/hit_reaction.glb",
@@ -143,19 +114,14 @@
   },
   "whirlwind": {
    "source": null,
-   "path": "j_whirl_pose.py + j_whirl_clip.py (authored)",
+   "path": "j_whirl3.py (authored: an IK paddle turn) + j_whirl_pose.py --baseball 0 (the solved arms)",
    "loop": true,
    "grid_source": "../nb_t8/nbt_idle.glb",
    "grid_window": [
     0.0333,
-    0.5667
+    1.0333
    ],
-   "note": "authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg"
-  },
-  "shout_raise": {
-   "source": null,
-   "path": "j_raise_pose.py + j_pose_clip.py (authored)",
-   "note": "the raised war-cry pose, both arms (8 bones), solved against the shout's body at its release; a 2-key STEP pose clip for the shout_raised variant's layer"
+   "note": "authored v2 (Matt 2026-09-30): a paddle turn -- the left foot pivots on its ball on the spin axis, the right foot steps round 3 times a revolution, planted between -- the torso leading, the arms in a double baseball swing (both blades level, side by side, edges along the CCW tangent) trailing and whipping, the head spotting his forward; one counter-clockwise revolution in 1.0 s, 31 keys on the idle source's 30 fps grid"
   }
  },
  "body_base": "nb_d2/export_staging/JOIN_hold/nb-body.glb md5 b5371921"

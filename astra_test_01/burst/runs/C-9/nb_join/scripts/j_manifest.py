@@ -16,13 +16,15 @@ exp = os.path.join(ROOT, "export", "nb-body_join.glb")
 moves_only = os.path.join(ROOT, "export", "nb-body_join_b5371921_moves_only.glb")
 HOLD_DIR = os.path.join(RUNS, "nb_d2", "export_staging", "JOIN_hold")
 base = os.path.join(HOLD_DIR, "nb-body.glb"); hold_p = os.path.join(HOLD_DIR, "join_hold.json"); hold = json.load(open(hold_p))
-graft = J("work", "graft_join.json")["clips"]; wc = J("work", "whirl_clip_join.json"); wp = J("work", "whirl_pose_join.json")
-reg = J("work", "clip_sources.json"); rel = J("work", "shout_release.json"); fetch = J("work", "meshy_fetch.json")
+graft = J("work", "graft_join.json")["clips"]
+w2, w2c, w2p, w2l = J("work", "whirl_v2.json"), J("work", "whirl_v2_check.json"), J("work", "whirl_v2_pose.json"), J("work", "whirl_v2_library_try_check.json")
+w1c = J("work", "whirl_v1_check.json"); wcr, wcl = J("work", "warcry_v2.json"), J("work", "warcry_v2_clamp.json")
+reg = J("work", "clip_sources.json"); fetch = J("work", "meshy_fetch.json")
 lint = J("work", "j21_lint.json")[0]
-layers = J("work", "layers_moves.json"); clamp = J("work", "death_clamp.json"); rp = J("work", "raise_pose.json")
+layers = J("work", "layers_moves.json"); clamp = J("work", "death_clamp.json")
 fps = J("work", "runtime_resample.json")
 E = sha(exp)
-MEAS = {"whirlwind": "jm_whirl_ship.json", "shout": "jm_rulings.json", "shout_raised": "jm_shout_raised84.json", "hit": "jm_rulings.json",
+MEAS = {"whirlwind": "jm_whirl_ship.json", "shout": "jm_rulings.json", "hit": "jm_rulings.json",
         "death": "jm_rulings_death68.json"}
 meas = {}
 for st, f in MEAS.items():
@@ -65,43 +67,65 @@ def near(st, ts):
 
 m = dict(
     character="the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the "
-              "scene drax's left seat, his axe_l.glb) -- the four JOIN moves and the shout's raised variant added to his JOIN body",
+              "scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body; the war cry and the whirlwind are v2 "
+              "(Matt, 2026-09-30)",
     body=dict(file="export/nb-body_join.glb", sha256=E,
               base="nb_d2/export_staging/JOIN_hold/nb-body.glb (the scene drax's JOIN body: T12_10 + weapon_l seated for the axe + the six per-state guards)",
               base_sha256=sha(base), base_md5=md5(base), hold_spec="nb_d2/export_staging/JOIN_hold/join_hold.json", hold_spec_sha256=sha(hold_p),
-              added=["whirlwind", "shout", "hit", "death", "shout_raise"],
+              added=["whirlwind", "shout", "hit", "death"],
               built=["scripts/j_assemble.py: the three grafts (nb_d2's 55_clip_graft + deroot) and the whirlwind on the base -> "
                      "export/nb-body_join_b5371921_moves_only.glb",
                      "scripts/j_weapon_clamp.py: the death's weapon_r / weapon_l rotation tracks (work/death_clamp.json)",
-                     "scripts/j_pose_clip.py: the raised shout pose appended as the clip shout_raise (work/raise_pose.json)"],
+                     "v2: scripts/j_whirl3.py wrote the whirlwind (authored, work/whirl_v2.json); scripts/j_warcry.py wrote the shout "
+                     "(composed from Meshy 388 + 49, work/warcry_v2.json) and dropped the v1 clip shout_raise; scripts/j_weapon_clamp.py "
+                     "keyed the shout's weapon_r / weapon_l rotation tracks (work/warcry_v2_clamp.json)"],
               moves_only_sha256=sha(moves_only),
               kept="every base clip byte-identical: the grafts append; the clamp touches only the death's weapon channels"),
     weapons=dict(main=dict(piece="nb_w2/export/sword.glb (roll 0)", bone="weapon_r", grip="weapon_r joint", tip_along_y_m=0.7768),
                  off=dict(piece="nb_d2/export_staging/JOIN_hold/axe_l.glb", bone="weapon_l", grip="weapon_l joint", tip_along_y_m=0.8089),
-                 rule="the whirlwind, the shout (both versions) and the hit key no weapon bone: both ride their mounts. The death keys "
-                      "weapon_r and weapon_l ROTATION only (the floor clamp: each weapon turned in its grip), the mount's translation kept"),
+                 rule="the whirlwind and the hit key no weapon bone: both ride their mounts. The death and the shout key weapon_r and "
+                      "weapon_l ROTATION only (each weapon turned in its grip: the death's to the floor, the shout's clear of him), the "
+                      "mount's translation kept"),
     states=dict(
         idle=dict(clip="idle_guard", layers="the hold (join_hold.json): guard_R_idle, guard_L_idle"),
         walk=dict(clip="walk", layers="the hold: upper_walk, guard_R_walk, guard_L_walk"),
         run=dict(clip="run", layers="the hold: upper_run, guard_R_run, guard_L_run"),
         whirlwind=dict(clip="whirlwind", layers=[]),
-        shout=dict(clip="shout", layers=["guard_R", "guard_L"]),
-        shout_raised=dict(clip="shout", layers=["guard_R", "guard_L", "raise"], variant_of="shout",
-                          note="a VARIANT for Matt's look, beside the shout: he picks one, and the other leaves the pack"),
+        shout=dict(clip="shout", layers=["guard_R_shout", "guard_L_shout"]),
         hit=dict(clip="hit", layers=["guard_R", "guard_L"]),
         death=dict(clip="death", layers=["guard_R_death", "guard_L_death"])),
     clips=dict(
-        whirlwind=dict(kind="loop, channel", seconds=round(wc["T"], 4), keys=wc["keys"], deg_per_key=wc["deg_per_key"],
-                       revolution=dict(cycles=1, sense="ccw", revolution_deg=-360.0, measured_from="main_tip, the port's bearing (atan2 y, x)",
+        whirlwind=dict(kind="loop, channel", version=2, seconds=round(w2["cycle"]["T"], 4), keys=w2["cycle"]["keys"],
+                       revolution=dict(cycles=1, sense="ccw", revolution_deg=w2c["revolution_deg"], measured_from="main_tip, the port's bearing (atan2 y, x)",
                                        ruling="Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"),
-                       method="the weapon research's: ONE constant local pose under a uniform single-revolution yaw about the vertical "
-                              "through his hips -- closure exact by construction; keyed on the idle SOURCE's own 30 fps grid",
-                       pose=dict(stance=wp["stance"], chest_counter_yaw_deg=wp["chest_counter_yaw_deg"], limits=wp["limits"], terms=wp["terms"],
-                                 reused="work/whirl_pose_join.json: the base's idle and both weapon mounts are the same as the pose was solved on"),
-                       authored_by="scripts/j_whirl_pose.py (the solve), scripts/j_whirl_clip.py (the clip)"),
-        shout=dict(kind="one-shot + RELEASE", skill="Battle Orders (Skills 149)", source=reg["clips"]["shout"]["source"],
-                   action=reg["clips"]["shout"]["action"], window_source_time=reg["clips"]["shout"]["window"], seconds=round(graft["shout"]["length_s"], 4),
-                   layers="guard_R + guard_L (the idle guards): the weapons at guard; the raised version is states.shout_raised"),
+                       direction="Matt 2026-09-30: a double baseball swing, a battle stance, footwork that shows a real spin (it's all in "
+                                 "the feet), the head following the direction of travel",
+                       method=w2["method"], params=w2["params"], authored_by="scripts/j_whirl3.py (the body), scripts/j_whirl_pose.py "
+                                                                        "--baseball 0 (the arms: work/whirl_v2_pose.json)",
+                       arms=dict(terms=w2p["terms"], lead_deg=w2p.get("baseball_lead_deg"), sep_min_m=w2p.get("sep_min_m")),
+                       checked=dict(instrument="scripts/j_whirl_check.py (work/whirl_v2_check.json)", closure_m=w2c["closure_m"],
+                                    planted_slide=w2c["planted_slide"], scene_rule_stance_slide=w2c["stance_slide"], hips_orbit_m=w2c["hips_orbit_m"],
+                                    head_vs_travel_deg=w2c["head_vs_travel_deg"], edges=w2c["edges"], flats_to_camera=w2c["flats_to_camera"]),
+                       v1_for_comparison=dict(record="work/whirl_v1_check.json", scene_rule_stance_slide=w1c["stance_slide"],
+                                              head_vs_travel_deg=w1c["head_vs_travel_deg"],
+                                              why="v1 turned one constant pose on a turntable: its feet circled with it"),
+                       library_tried=dict(clips=["Meshy 238 Axe Spin Attack", "Meshy 91 Double Blade Spin"], script="scripts/j_whirl2.py",
+                                          record="work/whirl_v2_library_try.json", check="work/whirl_v2_library_try_check.json",
+                                          stance_slide=w2l["stance_slide"], edges=w2l["edges"], hips_orbit_m=w2l["hips_orbit_m"],
+                                          why_not="238 is a single pivot-and-kick attack: the body orbits the pivot foot and the trail leg "
+                                                  "swings 0.5 m high; looped and foot-locked its feet still slid and the orbit sent the "
+                                                  "blades along their own length. 91 kneels, leaps and travels 2 m. So the footwork is "
+                                                  "authored with IK, as the dispatch's fallback allows")),
+        shout=dict(kind="one-shot + RELEASE", version=2, skill="Battle Orders (Skills 149)", seconds=round(wcr["T"], 4), keys=wcr["keys"],
+                   direction="Matt 2026-09-30: raised, arms wider, an obviously muscle-flexing motion -- arms outstretched to the sky, "
+                             "then pumping muscles with a slight elbow lower during the pump",
+                   sources=reg["clips"]["shout"]["sources"], composed_by="scripts/j_warcry.py (work/warcry_v2.json)",
+                   time_maps=dict(flex=wcr["flex_map"], sky=wcr["sky_map"], sky_weight=wcr["sky_weight"]),
+                   head_back_deg=wcr["head_back_deg"], weapons_up_and_out=wcr["weapons_up_and_out"],
+                   layers="guard_R_shout + guard_L_shout: his idle guards at the start and the end only (weight curve), so he rises out of "
+                          "his guard and settles back into it",
+                   weapon_clamp=dict(record="work/warcry_v2_clamp.json", clamped_keys=wcl["clamped_keys"], restored=wcl["smoothing"]["restored"],
+                                     inside_after_max=wcl["inside_after_max"])),
         hit=dict(kind="one-shot", source=reg["clips"]["hit"]["source"], action=reg["clips"]["hit"]["action"], seconds=round(graft["hit"]["length_s"], 4),
                  layers="guard_R + guard_L", why="Hit Reaction recoils the whole body; Hit Reaction 1 was fetched too and is mostly a head snap"),
         death=dict(kind="one-shot, hold last", source=reg["clips"]["death"]["source"], action=reg["clips"]["death"]["action"],
@@ -117,17 +141,9 @@ m = dict(
                                           "(y 0) and no tested vertex inside his posed body; keyed as weapon_r / weapon_l rotation tracks on the "
                                           "death's own keys, the mount's translation kept -- so the last frame is a dead man with his weapons "
                                           "fallen beside his hands")),
-        shout_raise=dict(kind="pose (2-key STEP), read at its frame 0 by the layer 'raise'", authored_by="scripts/j_raise_pose.py + scripts/j_pose_clip.py",
-                         record="work/raise_pose.json", solved_on=dict(clip=rp["clip"], t_s=rp["t"], under=rp["under"]), cost=rp["cost"], terms=rp["terms"],
-                         constraints="grips >= 0.08 m over the top of his head and 0.20 m out from his centre line; blades within 25 deg of "
-                                     "vertical leaning OUT (a V); every blade point >= 0.22 m from his head and >= 0.25 m from the other "
-                                     "weapon; wrist <= 50 deg, elbow 10-70, clavicle <= 35 from the pose under it")),
-    variants=dict(shout_raised=dict(of="shout", clip="shout", layers=["guard_R", "guard_L", "raise"],
-                                    raise_curve=LAY["raise"]["weight_curve"]["keys"], at_release=near("shout_raised", rel["release_s"]),
-                                    ruling="the conductor, 2026-09-30: both weapons lifted high over the release, at the cry's peak, 0 penetration; "
-                                           "the current shout kept beside it; Matt picks at his look")),
-    casts=dict(shout=dict(release_s=rel["release_s"], definition=rel["definition"], head_pitch_up_deg=rel["head_pitch_up_deg"], key=rel["key"],
-                          applies_to=["shout", "shout_raised"])),
+    ),
+    casts=dict(shout=dict(release_s=wcr["release"]["t_s"], definition=wcr["release"]["definition"], key=wcr["release"]["key"],
+                          fists_over_head_m=wcr["release"]["fists_over_head_m"])),
     layers=dict(list=layers, format="join-hold-layers/1 (the scene drax's), bottom to top, matched on the pack STATE name",
                 hold=dict(spec="nb_d2/export_staging/JOIN_hold/join_hold.json", layers=[ly["name"] for ly in hold["layers"]], states=hold["states"]),
                 weight_curve="ADDITIVE to the agreed format: {keys: [[t, w], ...]} on the base clip's time, smoothstep between keys, held beyond "
@@ -148,8 +164,16 @@ m = dict(
                        "slack with the library motion); a weapon floor clamp turns weapon_r and weapon_l so blades and hafts lie ON the "
                        "ground, not through it -- done: layers guard_R_death / guard_L_death + clips.death.weapon_clamp",
                  shout="build a variant with both weapons lifted high over the release, 0 penetration; keep the current version beside "
-                       "it -- done: states.shout_raised (the layer 'raise'); states.shout unchanged"),
-    fetch=dict(ledger="work/meshy_fetch.json", rig=fetch["rig"], credits_spent=fetch["spent"], cap=15,
+                       "it -- done then; SUPERSEDED by Matt's v2 direction (below)",
+                 v2=dict(by="Matt, 2026-09-30, relayed by the conductor (R-C9-92)",
+                         war_cry="raised, arms wider, an obviously muscle-flexing motion: arms outstretched to the sky, then pumping muscles "
+                                 "with a slight elbow lower during the pump -- done: clips.shout (v2), replacing shout and shout_raised",
+                         whirlwind="a double baseball swing, a battle stance, good footwork that shows a real spin, the head following "
+                                   "the direction of travel -- done: clips.whirlwind (v2)")),
+    fetch=dict(ledger="work/meshy_fetch.json", rig=fetch["rig"], credits_spent=fetch["spent"], cap_per_task=15,
+               v2_task=dict(credits=sum((fetch["clips"][k].get("credits") or 0) for k in ("wc_flex_show_muscles", "wc_motivational_cheer",
+                                                                                         "ww_axe_spin_attack", "ww_double_blade_spin")),
+                            cap=15, clips=["wc_flex_show_muscles (388)", "wc_motivational_cheer (49)", "ww_axe_spin_attack (238)", "ww_double_blade_spin (91)"]),
                clips={k: dict(action=v.get("action_id"), task=v.get("task"), credits=v.get("credits")) for k, v in fetch["clips"].items() if isinstance(v, dict) and v.get("task")},
                refusal_test="the rig guard tested with an INVALID key first: 0 credits", rulings_spend=0),
     lint=dict(verdict=lint["verdict"], fails=lint["fails"], warns=len(lint["warns"]),
@@ -181,31 +205,26 @@ m["locomotion_in_place"]["correction"] = ("the first pack index used s6_footlock
                                           "height range; s6_rule_was): it reads a run's landing and lift-off as stance and read his run about "
                                           "%.0f%% slow, so the run's stride was understated by as much. The walk agrees under both rules"
                                           % (100 * (1 - fs6["run"]["foot_lock_speed_m_s"] / fc_["run"]["estimators"][SC_]["keys"]["backward_median"])))
-rd = J("work", "whirl_readability.json")
-m["clips"]["whirlwind"]["reads_in_8_directions"] = dict(worst_flat_facing_cos=rd["worst_flat_facing_cos"], definition=rd["definition"],
-                                                        verdict="no blade edge-on in any direction at any frame: level blades show their flats to a camera pitched 52.95 deg down")
+m["clips"]["whirlwind"]["reads_in_8_directions"] = dict(worst_flat_facing_cos=w2c["flats_to_camera"],
+                                                        definition="|flat normal . view| over the 8 contract directions and 120 samples a "
+                                                                   "cycle (scripts/j_whirl_check.py)")
 vp = os.path.join(ROOT, "work", "j_validate_pack.json")
 if os.path.exists(vp):
     v = json.load(open(vp))
     m["validation"] = {k: v[k] for k in ("what", "pack_raw", "states", "worst_m", "samples") if k in v}
 m["lint_48"] = dict(instrument="so_d7/scripts/48_manifest_lint.py (it has the release_s rows; nb_d2's copy does not)",
                     result_file="work/j48_lint.txt")
-m["deliverables"] = dict(stills="stills/join2_<state>_t<time>_2x.png: 8 headings each -- the death at the guards' release, mid-fold, the "
-                                "landing and the held last frame; shout_raised rising, at the release and lowering; the shout (guard) at the "
-                                "release beside it",
-                         film="artifacts/JOIN-moves-film-2x-rulings.mp4 (1920x1080 at 2x, 582 frames: the whirlwind looping at half rate; the "
-                              "shout, then the shout_raised variant, heading 25; the hit at headings 25 and 205; the death at headings 115 and "
-                              "295 with its hold)",
-                         pack="join1_pack_draft/d2-ww-barb/matrix_index.json (kit join1_render/kits/d2-ww-barb.json; 8 states x 8 directions, "
-                              "64 cells) and join1_pack_draft/d2-ww-barb_contact_sheet_1x.png")
+m["deliverables"] = dict(stills="stills/join3_<clip>_t<time>_2x.png and _1x.png: 8 headings each -- the war cry at its sky and its "
+                                "flex, the whirlwind through its revolution",
+                         films=["artifacts/JOIN-v2-moves-film-2x.mp4 (play speed: the war cry, the whirlwind looping, 2 headings)",
+                                "artifacts/JOIN-v2-moves-film-2x-quarter.mp4 (the same at a quarter speed)"],
+                         pack="join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired")
 m["look_calls_for_matt"] = [
-    "SHOUT: two versions side by side -- 'shout' (weapons held at guard; the cry reads through the body, head thrown back) and "
-    "'shout_raised' (both weapons lifted high over his head through the cry, a V, and lowered after). Pick one; the other leaves "
-    "the pack.",
-    "DEATH (ruled): the guards let go through the fall, the arms go slack with the library motion, and both weapons come to rest "
-    "ON the floor beside his hands (measured.death: nothing into him or the floor at any key; the held last frame's lowest points "
-    "on the floor)."]
+    "WAR CRY v2: the arms thrown wide to the sky with the head back (the release), then a double-biceps flex pumped twice, "
+    "elbows dropping in each pump, then back to guard.",
+    "WHIRLWIND v2: a paddle turn -- the left foot pivots on its ball, the right foot steps round him three times a revolution -- "
+    "both weapons level in a double baseball swing that trails and whips, the head holding his travel direction and snapping round."]
 fl = m["measured"]["death"]["sword"]
 json.dump(m, open(os.path.join(ROOT, "export", "join_manifest.json"), "w"), indent=1)
 print("wrote export/join_manifest.json; export sha %s; release %.4f; lint %s; death sword pen %d at %d keys, floor %.4f m"
-      % (E[:12], rel["release_s"], lint["verdict"], fl["pen_max"], fl["pen_keys"], fl["floor_lowest_m"]))
+      % (E[:12], wcr["release"]["t_s"], lint["verdict"], fl["pen_max"], fl["pen_keys"], fl["floor_lowest_m"]))

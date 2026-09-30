@@ -1,8 +1,8 @@
 {
- "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves and the shout's raised variant added to his JOIN body",
+ "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body; the war cry and the whirlwind are v2 (Matt, 2026-09-30)",
  "body": {
   "file": "export/nb-body_join.glb",
-  "sha256": "4ea0439dfedfb8b3fe73c1a91ec60f7284f49c3e3666c84466619a84f100f1f3",
+  "sha256": "1ec111348ee02f7b70d5614d19ac60baf12cf41da67bdef47cf9ac87488820bf",
   "base": "nb_d2/export_staging/JOIN_hold/nb-body.glb (the scene drax's JOIN body: T12_10 + weapon_l seated for the axe + the six per-state guards)",
   "base_sha256": "898430384c687a17e2ec04f9fb27e3e3940adeda4a2309d5e809c1898414b12d",
   "base_md5": "b5371921082804f201a4e2015f5d781e",
@@ -12,13 +12,12 @@
    "whirlwind",
    "shout",
    "hit",
-   "death",
-   "shout_raise"
+   "death"
   ],
   "built": [
    "scripts/j_assemble.py: the three grafts (nb_d2's 55_clip_graft + deroot) and the whirlwind on the base -> export/nb-body_join_b5371921_moves_only.glb",
    "scripts/j_weapon_clamp.py: the death's weapon_r / weapon_l rotation tracks (work/death_clamp.json)",
-   "scripts/j_pose_clip.py: the raised shout pose appended as the clip shout_raise (work/raise_pose.json)"
+   "v2: scripts/j_whirl3.py wrote the whirlwind (authored, work/whirl_v2.json); scripts/j_warcry.py wrote the shout (composed from Meshy 388 + 49, work/warcry_v2.json) and dropped the v1 clip shout_raise; scripts/j_weapon_clamp.py keyed the shout's weapon_r / weapon_l rotation tracks (work/warcry_v2_clamp.json)"
   ],
   "moves_only_sha256": "cbbbf9b8c171b30544b2b3190668e37d0cc810f4c6da43757dccdc1768a31572",
   "kept": "every base clip byte-identical: the grafts append; the clamp touches only the death's weapon channels"
@@ -36,7 +35,7 @@
    "grip": "weapon_l joint",
    "tip_along_y_m": 0.8089
   },
-  "rule": "the whirlwind, the shout (both versions) and the hit key no weapon bone: both ride their mounts. The death keys weapon_r and weapon_l ROTATION only (the floor clamp: each weapon turned in its grip), the mount's translation kept"
+  "rule": "the whirlwind and the hit key no weapon bone: both ride their mounts. The death and the shout key weapon_r and weapon_l ROTATION only (each weapon turned in its grip: the death's to the floor, the shout's clear of him), the mount's translation kept"
  },
  "states": {
   "idle": {
@@ -58,19 +57,9 @@
   "shout": {
    "clip": "shout",
    "layers": [
-    "guard_R",
-    "guard_L"
+    "guard_R_shout",
+    "guard_L_shout"
    ]
-  },
-  "shout_raised": {
-   "clip": "shout",
-   "layers": [
-    "guard_R",
-    "guard_L",
-    "raise"
-   ],
-   "variant_of": "shout",
-   "note": "a VARIANT for Matt's look, beside the shout: he picks one, and the other leaves the pack"
   },
   "hit": {
    "clip": "hit",
@@ -90,9 +79,9 @@
  "clips": {
   "whirlwind": {
    "kind": "loop, channel",
-   "seconds": 0.5333,
-   "keys": 17,
-   "deg_per_key": 22.5,
+   "version": 2,
+   "seconds": 1.0,
+   "keys": 31,
    "revolution": {
     "cycles": 1,
     "sense": "ccw",
@@ -100,68 +89,452 @@
     "measured_from": "main_tip, the port's bearing (atan2 y, x)",
     "ruling": "Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"
    },
-   "method": "the weapon research's: ONE constant local pose under a uniform single-revolution yaw about the vertical through his hips -- closure exact by construction; keyed on the idle SOURCE's own 30 fps grid",
-   "pose": {
-    "stance": {
-     "clip": "idle",
-     "t": 0.5
-    },
-    "chest_counter_yaw_deg": -20.01,
-    "limits": {
-     "wrist_max": 50.0,
-     "reach_min": 0.6,
-     "elbow_max": 45.0,
-     "arm_drop_max": 30.0
-    },
+   "direction": "Matt 2026-09-30: a double baseball swing, a battle stance, footwork that shows a real spin (it's all in the feet), the head following the direction of travel",
+   "method": "authored paddle turn (IK feet) + the baseball swing (solved arms) + head spotting; see the header",
+   "params": {
+    "steps": 3,
+    "plant": 0.55,
+    "r_paddle_m": 0.52,
+    "rel_land_deg": -65.0,
+    "step_h_m": 0.1,
+    "drop_m": 0.1,
+    "bob_m": 0.02,
+    "lead_deg": 14.999999999999998,
+    "lead_amp_deg": 5.0,
+    "whip_trail_deg": 20.0,
+    "whip_ahead_deg": 8.0,
+    "neck_deg": 80.0,
+    "snap_keys": 3,
+    "head_share": 0.6
+   },
+   "authored_by": "scripts/j_whirl3.py (the body), scripts/j_whirl_pose.py --baseball 0 (the arms: work/whirl_v2_pose.json)",
+   "arms": {
     "terms": {
      "r": {
-      "level": 0.0028,
-      "radial": 0.9876,
-      "edge": 0.9876,
-      "grip_y": 1.3318,
-      "reach": 0.5765,
-      "elbow": 45.7292,
-      "wrist": 51.2461,
-      "arm_drop": -0.444,
-      "clear_axis": 0.7221,
-      "clear_head": 0.617
+      "level": -0.0002,
+      "radial": 0.9998,
+      "edge": 0.9998,
+      "grip_y": 1.3422,
+      "reach": 0.405,
+      "elbow": 48.2743,
+      "wrist": 50.2619,
+      "arm_drop": 1.6648,
+      "clear_axis": 0.573,
+      "clear_head": 0.5335,
+      "sep": 0.5424
      },
      "l": {
-      "level": 0.0006,
+      "level": 0.0,
       "radial": 1.0,
       "edge": 1.0,
-      "grip_y": 1.3414,
-      "reach": 0.6169,
-      "elbow": 45.032,
-      "wrist": 50.0792,
-      "arm_drop": -0.2999,
-      "clear_axis": 0.7669,
-      "clear_head": 0.9017
+      "grip_y": 1.3423,
+      "reach": 0.4498,
+      "elbow": 29.6129,
+      "wrist": 47.2955,
+      "arm_drop": 11.968,
+      "clear_axis": 0.9089,
+      "clear_head": 0.9299,
+      "sep": 0.5424
      }
     },
-    "reused": "work/whirl_pose_join.json: the base's idle and both weapon mounts are the same as the pose was solved on"
+    "lead_deg": "0",
+    "sep_min_m": 0.2
    },
-   "authored_by": "scripts/j_whirl_pose.py (the solve), scripts/j_whirl_clip.py (the clip)",
+   "checked": {
+    "instrument": "scripts/j_whirl_check.py (work/whirl_v2_check.json)",
+    "closure_m": 0.0,
+    "planted_slide": {
+     "Left": {
+      "share": 1.0,
+      "slide_median_m_s": 0.001,
+      "slide_max_m_s": 0.003,
+      "wander_mm": 0.0
+     },
+     "Right": {
+      "share": 0.5,
+      "slide_median_m_s": 0.152,
+      "slide_max_m_s": 0.418,
+      "wander_mm": 3.3
+     }
+    },
+    "scene_rule_stance_slide": {
+     "Left": {
+      "stance_share": 0.95,
+      "slide_median_m_s": 0.001,
+      "slide_p90_m_s": 0.003,
+      "lift_max_m": 0.0
+     },
+     "Right": {
+      "stance_share": 0.05,
+      "slide_median_m_s": 0.908,
+      "slide_p90_m_s": 1.071,
+      "lift_max_m": 0.119
+     }
+    },
+    "hips_orbit_m": {
+     "max": 0.0,
+     "mean": 0.0,
+     "height": [
+      0.818,
+      0.858
+     ]
+    },
+    "head_vs_travel_deg": {
+     "within_10": 0.488,
+     "within_30": 0.595,
+     "worst": 178.8,
+     "median_abs": 12.7
+    },
+    "edges": {
+     "weapon_r": {
+      "cos_min": 0.982,
+      "cos_median": 0.986,
+      "share_ge_0_8": 1.0
+     },
+     "weapon_l": {
+      "cos_min": 0.855,
+      "cos_median": 0.869,
+      "share_ge_0_8": 1.0
+     }
+    },
+    "flats_to_camera": {
+     "weapon_r": {
+      "worst": 0.798,
+      "share_ge_0_5": 1.0
+     },
+     "weapon_l": {
+      "worst": 0.797,
+      "share_ge_0_5": 1.0
+     }
+    }
+   },
+   "v1_for_comparison": {
+    "record": "work/whirl_v1_check.json",
+    "scene_rule_stance_slide": {
+     "Left": {
+      "stance_share": 1.0,
+      "slide_median_m_s": 5.612,
+      "slide_p90_m_s": 5.626,
+      "lift_max_m": 0.0
+     },
+     "Right": {
+      "stance_share": 0.0,
+      "slide_median_m_s": null,
+      "slide_p90_m_s": null,
+      "lift_max_m": 0.0
+     }
+    },
+    "head_vs_travel_deg": {
+     "within_10": 0.062,
+     "within_30": 0.185,
+     "worst": 178.8,
+     "median_abs": 88.8
+    },
+    "why": "v1 turned one constant pose on a turntable: its feet circled with it"
+   },
+   "library_tried": {
+    "clips": [
+     "Meshy 238 Axe Spin Attack",
+     "Meshy 91 Double Blade Spin"
+    ],
+    "script": "scripts/j_whirl2.py",
+    "record": "work/whirl_v2_library_try.json",
+    "check": "work/whirl_v2_library_try_check.json",
+    "stance_slide": {
+     "Left": {
+      "stance_share": 0.0,
+      "slide_median_m_s": null,
+      "slide_p90_m_s": null,
+      "lift_max_m": 0.247
+     },
+     "Right": {
+      "stance_share": 0.969,
+      "slide_median_m_s": 0.35,
+      "slide_p90_m_s": 3.438,
+      "lift_max_m": 0.032
+     }
+    },
+    "edges": {
+     "weapon_r": {
+      "cos_min": -0.961,
+      "cos_median": 0.976,
+      "share_ge_0_8": 0.917
+     },
+     "weapon_l": {
+      "cos_min": 0.398,
+      "cos_median": 0.849,
+      "share_ge_0_8": 0.875
+     }
+    },
+    "hips_orbit_m": {
+     "max": 0.242,
+     "mean": 0.095,
+     "height": [
+      0.85,
+      0.979
+     ]
+    },
+    "why_not": "238 is a single pivot-and-kick attack: the body orbits the pivot foot and the trail leg swings 0.5 m high; looped and foot-locked its feet still slid and the orbit sent the blades along their own length. 91 kneels, leaps and travels 2 m. So the footwork is authored with IK, as the dispatch's fallback allows"
+   },
    "reads_in_8_directions": {
     "worst_flat_facing_cos": {
-     "r": 0.7950546706294319,
-     "l": 0.7966109804882373
+     "weapon_r": {
+      "worst": 0.798,
+      "share_ge_0_5": 1.0
+     },
+     "weapon_l": {
+      "worst": 0.797,
+      "share_ge_0_5": 1.0
+     }
     },
-    "definition": "|X . view| over the 8 contract directions (the character turned by 90 - bearing, camera pitch 52.95 deg, yaw 0) and all 17 keys; X = the weapon frame's flat normal",
-    "verdict": "no blade edge-on in any direction at any frame: level blades show their flats to a camera pitched 52.95 deg down"
+    "definition": "|flat normal . view| over the 8 contract directions and 120 samples a cycle (scripts/j_whirl_check.py)"
    }
   },
   "shout": {
    "kind": "one-shot + RELEASE",
+   "version": 2,
    "skill": "Battle Orders (Skills 149)",
-   "source": "../nb_join/anims/shout_sword_shout.glb",
-   "action": "Meshy 101",
-   "window_source_time": [
-    0.0333,
-    2.8333
+   "seconds": 3.0,
+   "keys": 91,
+   "direction": "Matt 2026-09-30: raised, arms wider, an obviously muscle-flexing motion -- arms outstretched to the sky, then pumping muscles with a slight elbow lower during the pump",
+   "sources": [
+    "../nb_join/anims/wc_flex_show_muscles.glb (Meshy 388, fetched on his rig)",
+    "../nb_join/anims/wc_motivational_cheer.glb (Meshy 49, the window from 4.2 to 6.6 of its own clock)"
    ],
-   "seconds": 2.7667,
-   "layers": "guard_R + guard_L (the idle guards): the weapons at guard; the raised version is states.shout_raised"
+   "composed_by": "scripts/j_warcry.py (work/warcry_v2.json)",
+   "time_maps": {
+    "flex": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.4,
+      0.4
+     ],
+     [
+      1.25,
+      0.58
+     ],
+     [
+      1.45,
+      0.62
+     ],
+     [
+      1.72,
+      0.84
+     ],
+     [
+      1.9,
+      0.66
+     ],
+     [
+      2.17,
+      0.88
+     ],
+     [
+      2.4,
+      1.1
+     ],
+     [
+      3.0,
+      1.9
+     ]
+    ],
+    "sky": [
+     [
+      0.3,
+      0.25
+     ],
+     [
+      1.45,
+      1.4
+     ]
+    ],
+    "sky_weight": [
+     [
+      0.3,
+      0.0
+     ],
+     [
+      0.55,
+      1.0
+     ],
+     [
+      1.25,
+      1.0
+     ],
+     [
+      1.5,
+      0.0
+     ]
+    ]
+   },
+   "head_back_deg": 22.0,
+   "weapons_up_and_out": {
+    "window": [
+     [
+      1.2,
+      0.0
+     ],
+     [
+      1.45,
+      1.0
+     ],
+     [
+      2.35,
+      1.0
+     ],
+     [
+      2.75,
+      0.0
+     ]
+    ],
+    "wrist_max_deg": 80.0,
+    "out": 0.7,
+    "turned_deg_by_key": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     3.9,
+     14.0,
+     28.2,
+     44.0,
+     59.3,
+     71.7,
+     79.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     80.0,
+     79.6,
+     76.6,
+     71.0,
+     63.6,
+     54.7,
+     45.0,
+     35.0,
+     25.3,
+     16.4,
+     9.0,
+     3.4,
+     0.4,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "layers": "guard_R_shout + guard_L_shout: his idle guards at the start and the end only (weight curve), so he rises out of his guard and settles back into it",
+   "weapon_clamp": {
+    "record": "work/warcry_v2_clamp.json",
+    "clamped_keys": {
+     "r": 5,
+     "l": 1
+    },
+    "restored": {
+     "r": [
+      [
+       0.0,
+       7.2
+      ],
+      [
+       0.0333,
+       13.5
+      ],
+      [
+       0.0667,
+       15.4
+      ],
+      [
+       0.1667,
+       1.3
+      ],
+      [
+       0.2,
+       12.7
+      ],
+      [
+       0.2667,
+       7.5
+      ],
+      [
+       0.3,
+       21.4
+      ],
+      [
+       0.3333,
+       20.5
+      ]
+     ],
+     "l": []
+    },
+    "inside_after_max": {
+     "r": 0,
+     "l": 0
+    }
+   }
   },
   "hit": {
    "kind": "one-shot",
@@ -242,100 +615,14 @@
     "smoothing": "rate-limited envelope: a turn never below what its key requires, never changing faster than rate_deg_per_key per key; a key the envelope leaves violating is re-searched nearest the envelope blade (restored: [t, deg off] taken, or a graze kept when the nearest clear blade is more than max_flick_deg off)",
     "what": "each weapon PIVOTS IN ITS GRIP, per key, by the smallest turn that puts its lowest point on the floor (y 0) and no tested vertex inside his posed body; keyed as weapon_r / weapon_l rotation tracks on the death's own keys, the mount's translation kept -- so the last frame is a dead man with his weapons fallen beside his hands"
    }
-  },
-  "shout_raise": {
-   "kind": "pose (2-key STEP), read at its frame 0 by the layer 'raise'",
-   "authored_by": "scripts/j_raise_pose.py + scripts/j_pose_clip.py",
-   "record": "work/raise_pose.json",
-   "solved_on": {
-    "clip": "shout",
-    "t_s": 1.2,
-    "under": [
-     "guard_R",
-     "guard_L"
-    ]
-   },
-   "cost": 0.03195,
-   "terms": {
-    "r": {
-     "grip_over_head": 0.079,
-     "side_out": 0.1995,
-     "tilt": 25.0058,
-     "lean_out": 0.0497,
-     "elbow": 70.0032,
-     "wrist": 30.2621,
-     "clavicle": 35.0027,
-     "clear_head": 0.699,
-     "clear_other": 0.4421
-    },
-    "l": {
-     "grip_over_head": 0.0788,
-     "side_out": 0.1998,
-     "tilt": 25.0085,
-     "lean_out": 0.2383,
-     "elbow": 62.5626,
-     "wrist": 41.0561,
-     "clavicle": 35.0045,
-     "clear_head": 0.5877,
-     "clear_other": 0.4421
-    }
-   },
-   "constraints": "grips >= 0.08 m over the top of his head and 0.20 m out from his centre line; blades within 25 deg of vertical leaning OUT (a V); every blade point >= 0.22 m from his head and >= 0.25 m from the other weapon; wrist <= 50 deg, elbow 10-70, clavicle <= 35 from the pose under it"
-  }
- },
- "variants": {
-  "shout_raised": {
-   "of": "shout",
-   "clip": "shout",
-   "layers": [
-    "guard_R",
-    "guard_L",
-    "raise"
-   ],
-   "raise_curve": [
-    [
-     0.5,
-     0.0
-    ],
-    [
-     1.1,
-     1.0
-    ],
-    [
-     1.7,
-     1.0
-    ],
-    [
-     2.4,
-     0.0
-    ]
-   ],
-   "at_release": {
-    "t_s": 1.2,
-    "sword": {
-     "tip_y_m": 2.639,
-     "grip_y_m": 1.935,
-     "tilt_deg": 25.01
-    },
-    "axe": {
-     "tip_y_m": 2.756,
-     "grip_y_m": 1.935,
-     "tilt_deg": 25.01
-    }
-   },
-   "ruling": "the conductor, 2026-09-30: both weapons lifted high over the release, at the cry's peak, 0 penetration; the current shout kept beside it; Matt picks at his look"
   }
  },
  "casts": {
   "shout": {
-   "release_s": 1.2,
-   "definition": "the cry's peak: the key of the head's greatest upward pitch (the roar, chin up), measured on the grafted clip's own keys",
-   "head_pitch_up_deg": 41.85,
-   "key": 36,
-   "applies_to": [
-    "shout",
-    "shout_raised"
-   ]
+   "release_s": 0.5333,
+   "definition": "the cry's peak: the key where both fists stand highest over the head (the arms thrown to the sky)",
+   "key": 16,
+   "fists_over_head_m": 0.266
   }
  },
  "layers": {
@@ -351,12 +638,46 @@
     ],
     "weight": 1.0,
     "states": [
-     "shout",
-     "shout_raised",
      "hit"
     ],
     "time": "pose",
     "filter_from": "all_clips"
+   },
+   {
+    "name": "guard_R_shout",
+    "action": "join_guard_R_idle",
+    "bones": [
+     "RightShoulder",
+     "RightArm",
+     "RightForeArm",
+     "RightHand"
+    ],
+    "weight": 1.0,
+    "states": [
+     "shout"
+    ],
+    "time": "pose",
+    "filter_from": "all_clips",
+    "weight_curve": {
+     "keys": [
+      [
+       0.0,
+       1.0
+      ],
+      [
+       0.3,
+       0.0
+      ],
+      [
+       2.45,
+       0.0
+      ],
+      [
+       2.9,
+       1.0
+      ]
+     ]
+    }
    },
    {
     "name": "guard_L",
@@ -369,12 +690,46 @@
     ],
     "weight": 1.0,
     "states": [
-     "shout",
-     "shout_raised",
      "hit"
     ],
     "time": "pose",
     "filter_from": "all_clips"
+   },
+   {
+    "name": "guard_L_shout",
+    "action": "join_guard_L_idle",
+    "bones": [
+     "LeftShoulder",
+     "LeftArm",
+     "LeftForeArm",
+     "LeftHand"
+    ],
+    "weight": 1.0,
+    "states": [
+     "shout"
+    ],
+    "time": "pose",
+    "filter_from": "all_clips",
+    "weight_curve": {
+     "keys": [
+      [
+       0.0,
+       1.0
+      ],
+      [
+       0.3,
+       0.0
+      ],
+      [
+       2.45,
+       0.0
+      ],
+      [
+       2.9,
+       1.0
+      ]
+     ]
+    }
    },
    {
     "name": "guard_R_death",
@@ -431,46 +786,6 @@
       ]
      ]
     }
-   },
-   {
-    "name": "raise",
-    "action": "shout_raise",
-    "bones": [
-     "RightShoulder",
-     "RightArm",
-     "RightForeArm",
-     "RightHand",
-     "LeftShoulder",
-     "LeftArm",
-     "LeftForeArm",
-     "LeftHand"
-    ],
-    "weight": 1.0,
-    "states": [
-     "shout_raised"
-    ],
-    "time": "pose",
-    "filter_from": "all_clips",
-    "weight_curve": {
-     "keys": [
-      [
-       0.5,
-       0.0
-      ],
-      [
-       1.1,
-       1.0
-      ],
-      [
-       1.7,
-       1.0
-      ],
-      [
-       2.4,
-       0.0
-      ]
-     ]
-    }
    }
   ],
   "format": "join-hold-layers/1 (the scene drax's), bottom to top, matched on the pack STATE name",
@@ -506,13 +821,28 @@
  "rulings": {
   "by": "the conductor (gandalf), 2026-09-30, on the two look calls of bd118a67d",
   "death": "a corpse holding both weapons up at guard reads as a bug: blend BOTH guard layers out across the fall (the arms go slack with the library motion); a weapon floor clamp turns weapon_r and weapon_l so blades and hafts lie ON the ground, not through it -- done: layers guard_R_death / guard_L_death + clips.death.weapon_clamp",
-  "shout": "build a variant with both weapons lifted high over the release, 0 penetration; keep the current version beside it -- done: states.shout_raised (the layer 'raise'); states.shout unchanged"
+  "shout": "build a variant with both weapons lifted high over the release, 0 penetration; keep the current version beside it -- done then; SUPERSEDED by Matt's v2 direction (below)",
+  "v2": {
+   "by": "Matt, 2026-09-30, relayed by the conductor (R-C9-92)",
+   "war_cry": "raised, arms wider, an obviously muscle-flexing motion: arms outstretched to the sky, then pumping muscles with a slight elbow lower during the pump -- done: clips.shout (v2), replacing shout and shout_raised",
+   "whirlwind": "a double baseball swing, a battle stance, good footwork that shows a real spin, the head following the direction of travel -- done: clips.whirlwind (v2)"
+  }
  },
  "fetch": {
   "ledger": "work/meshy_fetch.json",
   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
-  "credits_spent": 15,
-  "cap": 15,
+  "credits_spent": 27,
+  "cap_per_task": 15,
+  "v2_task": {
+   "credits": 12,
+   "cap": 15,
+   "clips": [
+    "wc_flex_show_muscles (388)",
+    "wc_motivational_cheer (49)",
+    "ww_axe_spin_attack (238)",
+    "ww_double_blade_spin (91)"
+   ]
+  },
   "clips": {
    "shout_sword_shout": {
     "action": 101,
@@ -538,6 +868,26 @@
     "action": 189,
     "task": "01a0f17e-fa20-73ca-a012-20e0b7a1850b",
     "credits": 3
+   },
+   "wc_flex_show_muscles": {
+    "action": 388,
+    "task": "01a0f2f9-fdda-72ae-93b1-ce667d8ad639",
+    "credits": 3
+   },
+   "wc_motivational_cheer": {
+    "action": 49,
+    "task": "01a0f2fa-bda3-7363-a256-f631db31886d",
+    "credits": 3
+   },
+   "ww_axe_spin_attack": {
+    "action": 238,
+    "task": "01a0f2fc-6eff-766f-a067-602451c35dbd",
+    "credits": 3
+   },
+   "ww_double_blade_spin": {
+    "action": 91,
+    "task": "01a0f2fd-2e88-7620-b452-34b90a1f5e74",
+    "credits": 3
    }
   },
   "refusal_test": "the rig guard tested with an INVALID key first: 0 credits",
@@ -557,10 +907,6 @@
     "err_max": 0.0001
    },
    "shout": {
-    "fidelity": "PASS",
-    "err_max": 0.0001
-   },
-   "shout_raise": {
     "fidelity": "AUTHORED",
     "err_max": null
    },
@@ -578,7 +924,7 @@
    }
   },
   "new_warns": [
-   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 86.188 against rest 93.790 (8.1% > 5%)"
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 78.836 against rest 93.790 (15.9% > 5%)"
   ],
   "instrument": "scripts/j21_lint.py: nb_d2's 21_lint_export unchanged, pointed at work/clip_sources.json"
  },
@@ -588,233 +934,6 @@
   "gltf_state_bake_fps": 30.0,
   "glb": "nb-body_join.glb",
   "clips": {
-   "attack": {
-    "length_glb": 1.5,
-    "length_godot": 1.5,
-    "tracks": 73,
-    "exact": 0,
-    "two_key": 20,
-    "resampled": [
-     {
-      "track": "Hips.translation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46
-     },
-     {
-      "track": "Hips.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.01
-     },
-     {
-      "track": "LeftUpLeg.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 1.282
-     },
-     {
-      "track": "LeftLeg.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.677
-     },
-     {
-      "track": "LeftFoot.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 1.316
-     },
-     {
-      "track": "LeftToeBase.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.158
-     },
-     {
-      "track": "RightUpLeg.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.627
-     },
-     {
-      "track": "RightLeg.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 1.588
-     },
-     {
-      "track": "RightFoot.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.263
-     },
-     {
-      "track": "RightToeBase.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.481
-     },
-     {
-      "track": "Spine02.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.547
-     },
-     {
-      "track": "Spine01.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.493
-     },
-     {
-      "track": "Spine.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.167
-     },
-     {
-      "track": "LeftShoulder.translation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46
-     },
-     {
-      "track": "LeftShoulder.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.692
-     },
-     {
-      "track": "LeftArm.translation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46
-     },
-     {
-      "track": "LeftArm.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.824
-     },
-     {
-      "track": "LeftForeArm.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.238
-     },
-     {
-      "track": "LeftHand.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 1.915
-     },
-     {
-      "track": "neck.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 0.501
-     },
-     {
-      "track": "Head.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 2.015
-     },
-     {
-      "track": "head_end.translation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46
-     },
-     {
-      "track": "headfront.translation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46
-     },
-     {
-      "track": "RightShoulder.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 1.059
-     },
-     {
-      "track": "RightArm.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 5.152
-     },
-     {
-      "track": "RightForeArm.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 3.219
-     },
-     {
-      "track": "RightHand.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 8.914
-     },
-     {
-      "track": "weapon_r.rotation",
-      "keys_glb": 37,
-      "spacing_glb": 0.04167,
-      "keys_godot": 46,
-      "worst_deg": 8.323
-     }
-    ],
-    "dropped": [
-     "Hips.scale",
-     "LeftUpLeg.scale",
-     "LeftLeg.scale",
-     "LeftFoot.scale",
-     "LeftToeBase.scale",
-     "RightUpLeg.scale",
-     "RightLeg.scale",
-     "RightFoot.scale",
-     "RightToeBase.scale",
-     "Spine02.translation",
-     "Spine02.scale",
-     "Spine01.scale",
-     "Spine.scale",
-     "LeftShoulder.scale",
-     "LeftArm.scale",
-     "LeftForeArm.scale",
-     "LeftHand.scale",
-     "neck.scale",
-     "Head.scale",
-     "head_end.scale",
-     "headfront.scale",
-     "RightShoulder.scale",
-     "RightArm.scale",
-     "RightForeArm.scale",
-     "RightHand.scale"
-    ]
-   },
    "walk_armed": {
     "length_glb": 1.73333,
     "length_godot": 1.73333,
@@ -936,15 +1055,6 @@
      "LeftHand.rotation"
     ]
    },
-   "shout": {
-    "length_glb": 2.76667,
-    "length_godot": 2.76667,
-    "tracks": 25,
-    "exact": 25,
-    "two_key": 0,
-    "resampled": [],
-    "dropped": []
-   },
    "hit": {
     "length_glb": 1.63333,
     "length_godot": 1.63333,
@@ -968,28 +1078,26 @@
     ]
    },
    "whirlwind": {
-    "length_glb": 0.53333,
-    "length_godot": 0.53333,
+    "length_glb": 1.0,
+    "length_godot": 1.0,
     "tracks": 25,
-    "exact": 1,
-    "two_key": 23,
+    "exact": 25,
+    "two_key": 0,
     "resampled": [],
-    "dropped": [
-     "headfront.rotation"
-    ]
+    "dropped": []
    },
-   "shout_raise": {
-    "length_glb": 0.04167,
-    "length_godot": 0.04167,
-    "tracks": 8,
-    "exact": 0,
-    "two_key": 8,
+   "shout": {
+    "length_glb": 3.0,
+    "length_godot": 3.0,
+    "tracks": 27,
+    "exact": 27,
+    "two_key": 0,
     "resampled": [],
     "dropped": []
    }
   },
   "at_pack_frames": {
-   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb.json",
+   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v2.json",
    "states": {
     "idle": {
      "clip": "idle_guard",
@@ -1036,15 +1144,6 @@
      "worst_translation_units": 0.0,
      "worst_translation_track": null
     },
-    "shout_raised": {
-     "clip": "shout",
-     "frames": 12,
-     "worst_deg": 0.0,
-     "worst_track": null,
-     "worst_at_t": null,
-     "worst_translation_units": 0.0,
-     "worst_translation_track": null
-    },
     "hit": {
      "clip": "hit",
      "frames": 8,
@@ -1070,189 +1169,137 @@
  },
  "measured": {
   "whirlwind": {
-   "samples": 17,
+   "samples": 31,
    "clip": "whirlwind",
    "sword": {
     "pen_max": 0,
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 1.2972,
-    "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 15.7,
-    "blade_turn_max_deg_per_sec": 675.1,
+    "floor_lowest_m": 1.1878,
+    "floor_lowest_at_t_s": 0.1667,
+    "tip_speed_max_m_per_sec": 10.6,
+    "blade_turn_max_deg_per_sec": 516.0,
     "blade_turn_max_between_t_s": [
-     0.2667,
-     0.3
-    ],
-    "tilt_deg": [
-     89.8,
-     89.8
-    ],
-    "tip_lowest_m": 1.334,
-    "tip_highest_m": 1.334,
-    "last": {
-     "t_s": 0.5333,
-     "lowest_m": 1.2972,
-     "tilt_deg": 89.8
-    }
-   },
-   "axe": {
-    "pen_max": 0,
-    "pen_keys": 0,
-    "pen_tested_max": 1730,
-    "pen_at_t_s": [],
-    "floor_lowest_m": 1.2875,
-    "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 16.88,
-    "blade_turn_max_deg_per_sec": 675.1,
-    "blade_turn_max_between_t_s": [
-     0.5,
-     0.5333
+     0.9667,
+     1.0
     ],
     "tilt_deg": [
      90.0,
      90.0
     ],
-    "tip_lowest_m": 1.339,
-    "tip_highest_m": 1.339,
+    "tip_lowest_m": 1.223,
+    "tip_highest_m": 1.263,
     "last": {
-     "t_s": 0.5333,
-     "lowest_m": 1.2875,
+     "t_s": 1.0,
+     "lowest_m": 1.2278,
+     "tilt_deg": 90.0
+    }
+   },
+   "axe": {
+    "pen_max": 0,
+    "pen_keys": 0,
+    "pen_tested_max": 1730,
+    "pen_at_t_s": [],
+    "floor_lowest_m": 1.1681,
+    "floor_lowest_at_t_s": 0.1667,
+    "tip_speed_max_m_per_sec": 13.68,
+    "blade_turn_max_deg_per_sec": 515.9,
+    "blade_turn_max_between_t_s": [
+     0.9667,
+     1.0
+    ],
+    "tilt_deg": [
+     90.0,
+     90.0
+    ],
+    "tip_lowest_m": 1.22,
+    "tip_highest_m": 1.26,
+    "last": {
+     "t_s": 1.0,
+     "lowest_m": 1.2081,
      "tilt_deg": 90.0
     }
    }
   },
   "shout": {
-   "samples": 34,
+   "samples": 91,
    "clip": "shout",
    "sword": {
-    "pen_max": 0,
-    "pen_keys": 0,
+    "pen_max": 1,
+    "pen_keys": 1,
     "pen_tested_max": 1254,
-    "pen_at_t_s": [],
-    "floor_lowest_m": 1.0715,
-    "floor_lowest_at_t_s": 0.3353,
-    "tip_speed_max_m_per_sec": 4.47,
-    "blade_turn_max_deg_per_sec": 225.4,
-    "blade_turn_max_between_t_s": [
-     0.9222,
-     1.0061
+    "pen_at_t_s": [
+     0.1667
     ],
-    "tilt_deg": [
-     23.7,
-     55.8
-    ],
-    "tip_lowest_m": 1.662,
-    "tip_highest_m": 2.128,
-    "last": {
-     "t_s": 2.7667,
-     "lowest_m": 1.1377,
-     "tilt_deg": 55.8
-    }
-   },
-   "axe": {
-    "pen_max": 0,
-    "pen_keys": 0,
-    "pen_tested_max": 1730,
-    "pen_at_t_s": [],
-    "floor_lowest_m": 1.0714,
-    "floor_lowest_at_t_s": 0.3353,
-    "tip_speed_max_m_per_sec": 5.6,
-    "blade_turn_max_deg_per_sec": 246.0,
-    "blade_turn_max_between_t_s": [
-     1.0061,
-     1.0899
-    ],
-    "tilt_deg": [
-     45.1,
-     77.8
-    ],
-    "tip_lowest_m": 1.615,
-    "tip_highest_m": 1.913,
-    "last": {
-     "t_s": 2.7667,
-     "lowest_m": 1.1635,
-     "tilt_deg": 45.1
-    }
-   }
-  },
-  "shout_raised": {
-   "samples": 84,
-   "clip": "shout",
-   "sword": {
-    "pen_max": 0,
-    "pen_keys": 0,
-    "pen_tested_max": 1254,
-    "pen_at_t_s": [],
-    "floor_lowest_m": 1.0712,
-    "floor_lowest_at_t_s": 0.3333,
-    "tip_speed_max_m_per_sec": 5.04,
-    "blade_turn_max_deg_per_sec": 109.3,
-    "blade_turn_max_between_t_s": [
-     0.4,
-     0.4333
-    ],
-    "tilt_deg": [
-     17.1,
-     55.8
-    ],
-    "tip_lowest_m": 1.662,
-    "tip_highest_m": 2.639,
-    "last": {
-     "t_s": 2.7667,
-     "lowest_m": 1.1377,
-     "tilt_deg": 55.8
-    }
-   },
-   "axe": {
-    "pen_max": 0,
-    "pen_keys": 0,
-    "pen_tested_max": 1730,
-    "pen_at_t_s": [],
-    "floor_lowest_m": 1.0704,
+    "floor_lowest_m": 0.6287,
     "floor_lowest_at_t_s": 0.3,
-    "tip_speed_max_m_per_sec": 3.6,
-    "blade_turn_max_deg_per_sec": 152.3,
+    "tip_speed_max_m_per_sec": 23.22,
+    "blade_turn_max_deg_per_sec": 1864.7,
     "blade_turn_max_between_t_s": [
-     0.8,
-     0.8333
+     0.3,
+     0.3333
     ],
     "tilt_deg": [
-     10.9,
-     61.5
+     3.6,
+     107.1
     ],
-    "tip_lowest_m": 1.623,
-    "tip_highest_m": 2.764,
+    "tip_lowest_m": 0.777,
+    "tip_highest_m": 2.535,
     "last": {
-     "t_s": 2.7667,
-     "lowest_m": 1.1635,
-     "tilt_deg": 45.1
+     "t_s": 3.0,
+     "lowest_m": 1.0449,
+     "tilt_deg": 51.8
+    }
+   },
+   "axe": {
+    "pen_max": 0,
+    "pen_keys": 0,
+    "pen_tested_max": 1730,
+    "pen_at_t_s": [],
+    "floor_lowest_m": 0.5492,
+    "floor_lowest_at_t_s": 0.3,
+    "tip_speed_max_m_per_sec": 23.9,
+    "blade_turn_max_deg_per_sec": 1235.0,
+    "blade_turn_max_between_t_s": [
+     0.3667,
+     0.4
+    ],
+    "tilt_deg": [
+     6.3,
+     99.6
+    ],
+    "tip_lowest_m": 0.579,
+    "tip_highest_m": 2.685,
+    "last": {
+     "t_s": 3.0,
+     "lowest_m": 1.0367,
+     "tilt_deg": 52.5
     }
    }
   },
   "hit": {
-   "samples": 34,
+   "samples": 91,
    "clip": "hit",
    "sword": {
     "pen_max": 0,
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9531,
-    "floor_lowest_at_t_s": 0.7424,
-    "tip_speed_max_m_per_sec": 2.87,
-    "blade_turn_max_deg_per_sec": 103.1,
+    "floor_lowest_m": 0.9532,
+    "floor_lowest_at_t_s": 0.7441,
+    "tip_speed_max_m_per_sec": 3.0,
+    "blade_turn_max_deg_per_sec": 109.3,
     "blade_turn_max_between_t_s": [
-     0.5939,
-     0.6434
+     0.3085,
+     0.3267
     ],
     "tilt_deg": [
-     39.8,
-     58.3
+     39.5,
+     58.4
     ],
-    "tip_lowest_m": 1.455,
-    "tip_highest_m": 1.743,
+    "tip_lowest_m": 1.451,
+    "tip_highest_m": 1.744,
     "last": {
      "t_s": 1.6333,
      "lowest_m": 1.0592,
@@ -1264,20 +1311,20 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9432,
-    "floor_lowest_at_t_s": 0.7424,
-    "tip_speed_max_m_per_sec": 3.46,
-    "blade_turn_max_deg_per_sec": 151.3,
+    "floor_lowest_m": 0.9433,
+    "floor_lowest_at_t_s": 0.7441,
+    "tip_speed_max_m_per_sec": 3.82,
+    "blade_turn_max_deg_per_sec": 154.6,
     "blade_turn_max_between_t_s": [
-     0.5939,
-     0.6434
+     0.617,
+     0.6352
     ],
     "tilt_deg": [
      47.5,
      64.4
     ],
     "tip_lowest_m": 1.402,
-    "tip_highest_m": 1.654,
+    "tip_highest_m": 1.656,
     "last": {
      "t_s": 1.6333,
      "lowest_m": 1.0442,
@@ -1361,18 +1408,14 @@
  },
  "validation": {
   "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",
-  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb.json",
+  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v2.json",
   "states": {
    "whirlwind": {
     "worst_m": 1e-05,
     "samples": 640
    },
    "shout": {
-    "worst_m": 2e-05,
-    "samples": 480
-   },
-   "shout_raised": {
-    "worst_m": 2e-05,
+    "worst_m": 1e-05,
     "samples": 480
    },
    "hit": {
@@ -1384,20 +1427,23 @@
     "samples": 640
    }
   },
-  "worst_m": 2e-05,
-  "samples": 2560
+  "worst_m": 1e-05,
+  "samples": 2080
  },
  "lint_48": {
   "instrument": "so_d7/scripts/48_manifest_lint.py (it has the release_s rows; nb_d2's copy does not)",
   "result_file": "work/j48_lint.txt"
  },
  "deliverables": {
-  "stills": "stills/join2_<state>_t<time>_2x.png: 8 headings each -- the death at the guards' release, mid-fold, the landing and the held last frame; shout_raised rising, at the release and lowering; the shout (guard) at the release beside it",
-  "film": "artifacts/JOIN-moves-film-2x-rulings.mp4 (1920x1080 at 2x, 582 frames: the whirlwind looping at half rate; the shout, then the shout_raised variant, heading 25; the hit at headings 25 and 205; the death at headings 115 and 295 with its hold)",
-  "pack": "join1_pack_draft/d2-ww-barb/matrix_index.json (kit join1_render/kits/d2-ww-barb.json; 8 states x 8 directions, 64 cells) and join1_pack_draft/d2-ww-barb_contact_sheet_1x.png"
+  "stills": "stills/join3_<clip>_t<time>_2x.png and _1x.png: 8 headings each -- the war cry at its sky and its flex, the whirlwind through its revolution",
+  "films": [
+   "artifacts/JOIN-v2-moves-film-2x.mp4 (play speed: the war cry, the whirlwind looping, 2 headings)",
+   "artifacts/JOIN-v2-moves-film-2x-quarter.mp4 (the same at a quarter speed)"
+  ],
+  "pack": "join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired"
  },
  "look_calls_for_matt": [
-  "SHOUT: two versions side by side -- 'shout' (weapons held at guard; the cry reads through the body, head thrown back) and 'shout_raised' (both weapons lifted high over his head through the cry, a V, and lowered after). Pick one; the other leaves the pack.",
-  "DEATH (ruled): the guards let go through the fall, the arms go slack with the library motion, and both weapons come to rest ON the floor beside his hands (measured.death: nothing into him or the floor at any key; the held last frame's lowest points on the floor)."
+  "WAR CRY v2: the arms thrown wide to the sky with the head back (the release), then a double-biceps flex pumped twice, elbows dropping in each pump, then back to guard.",
+  "WHIRLWIND v2: a paddle turn -- the left foot pivots on its ball, the right foot steps round him three times a revolution -- both weapons level in a double baseball swing that trails and whips, the head holding his travel direction and snapping round."
  ]
 }

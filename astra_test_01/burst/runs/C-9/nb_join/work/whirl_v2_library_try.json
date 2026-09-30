@@ -1,0 +1,294 @@
+{
+ "source": {
+  "file": "g238.glb",
+  "clip": "ww238",
+  "turn_deg_after_mirror": 355.78,
+  "window_s": [
+   0.0,
+   1.8
+  ]
+ },
+ "cycle": {
+  "T": 0.8,
+  "keys": 25,
+  "fps": 30,
+  "revolution": "one, counter-clockwise (his left)"
+ },
+ "closure": {
+  "hips_m_spread": 0.0763,
+  "joints_deg_spread": {
+   "LeftToeBase": 2.23,
+   "LeftFoot": 5.16,
+   "RightToeBase": 58.15,
+   "RightFoot": 64.36,
+   "LeftHand": 52.85,
+   "LeftForeArm": 38.34,
+   "LeftArm": 36.59,
+   "LeftShoulder": 28.87,
+   "head_end": 16.41,
+   "headfront": 16.41,
+   "Head": 16.41,
+   "neck": 19.94,
+   "RightHand": 41.61,
+   "RightForeArm": 37.37,
+   "RightArm": 36.66,
+   "RightShoulder": 14.1,
+   "Spine": 12.54,
+   "Spine01": 11.34,
+   "Spine02": 4.86,
+   "Hips": 4.58
+  }
+ },
+ "centred_by_m": [
+  0.0001,
+  0.0,
+  0.2468
+ ],
+ "hips": {
+  "keep": 0.5,
+  "drop_m": 0.05
+ },
+ "feet": {
+  "Left": {
+   "stance_keys": 4,
+   "pins": [
+    {
+     "keys": [
+      18,
+      19,
+      20
+     ],
+     "pin": [
+      -0.1657,
+      -0.0027,
+      0.3078
+     ]
+    },
+    {
+     "keys": [
+      23
+     ],
+     "pin": [
+      0.1918,
+      0.0177,
+      -0.2667
+     ]
+    }
+   ]
+  },
+  "Right": {
+   "stance_keys": 11,
+   "pins": [
+    {
+     "keys": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     "pin": [
+      0.0939,
+      -0.0017,
+      -0.0576
+     ]
+    },
+    {
+     "keys": [
+      20,
+      21,
+      22,
+      23
+     ],
+     "pin": [
+      -0.1794,
+      -0.0252,
+      -0.1021
+     ]
+    }
+   ]
+  }
+ },
+ "stance_rule_cm": 3.5000000000000004,
+ "feather_keys": 2,
+ "arms": {
+  "pose": "swing_pose_0.json",
+  "whip_deg": 12.0,
+  "edge_alignment": [
+   {
+    "iteration": 0,
+    "side": "r",
+    "worst_misalign_deg": 24.9
+   },
+   {
+    "iteration": 0,
+    "side": "l",
+    "worst_misalign_deg": 43.0
+   },
+   {
+    "iteration": 1,
+    "side": "r",
+    "worst_misalign_deg": 21.4
+   },
+   {
+    "iteration": 1,
+    "side": "l",
+    "worst_misalign_deg": 35.3
+   },
+   {
+    "iteration": 2,
+    "side": "r",
+    "worst_misalign_deg": 34.0
+   },
+   {
+    "iteration": 2,
+    "side": "l",
+    "worst_misalign_deg": 40.6
+   }
+  ],
+  "yaw_correction_deg": {
+   "r": [
+    30.8,
+    51.2,
+    57.9,
+    58.0,
+    54.9,
+    47.5,
+    39.7,
+    33.2,
+    27.8,
+    23.0,
+    19.2,
+    16.8,
+    12.6,
+    -3.9,
+    -22.0,
+    -21.0,
+    -7.3,
+    9.0,
+    20.6,
+    27.2,
+    31.4,
+    28.9,
+    19.7,
+    15.4
+   ],
+   "l": [
+    86.8,
+    100.3,
+    100.6,
+    99.5,
+    98.1,
+    95.1,
+    92.2,
+    89.5,
+    88.3,
+    87.4,
+    85.6,
+    85.6,
+    87.6,
+    89.0,
+    88.7,
+    89.0,
+    93.0,
+    90.7,
+    78.8,
+    74.1,
+    75.1,
+    70.9,
+    65.1,
+    69.0
+   ]
+  }
+ },
+ "swing_keep": 0.4,
+ "foot_modes": {
+  "Left": [
+   "feather",
+   "feather",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "feather",
+   "feather",
+   "stance",
+   "stance",
+   "stance",
+   "feather",
+   "feather",
+   "stance",
+   "feather"
+  ],
+  "Right": [
+   "feather",
+   "feather",
+   "feather",
+   "feather",
+   "stance",
+   "stance",
+   "stance",
+   "stance",
+   "stance",
+   "stance",
+   "stance",
+   "feather",
+   "feather",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "swing",
+   "feather",
+   "feather",
+   "stance",
+   "stance",
+   "stance",
+   "stance",
+   "feather"
+  ]
+ },
+ "head": {
+  "neck_limit_deg": 80.0,
+  "snap_keys": 3,
+  "share_head": 0.6,
+  "yaw_err_deg_by_key": [
+   0.0,
+   0.0,
+   13.2,
+   28.1,
+   41.5,
+   54.8,
+   67.9,
+   81.1,
+   134.7,
+   -171.0,
+   -116.3,
+   -61.5,
+   -46.6,
+   -31.8,
+   -16.9,
+   -1.7,
+   -0.0,
+   0.0,
+   0.0,
+   -0.0,
+   0.0,
+   0.0,
+   -0.0,
+   0.0
+  ]
+ }
+}

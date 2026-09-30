@@ -1,6 +1,6 @@
 {
  "kit": "d2-ww-barb",
- "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). states.shout_raised is a variant for Matt's look (variant_of shout): he picks one and the other leaves the pack.",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). v2 (Matt 2026-09-30): the war cry and the whirlwind rebuilt; shout_raised retired.",
  "contract": {
   "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
   "commit": "d95e1df",
@@ -83,19 +83,6 @@
    "release_socket": "head_top",
    "manifest_entry": "casts.shout"
   },
-  "shout_raised": {
-   "clip": "shout",
-   "kind": "oneshot",
-   "role": "oneshot_release",
-   "frames": 12,
-   "sampling": "release",
-   "skill": "Skills.txt Id 149 (Battle Orders)",
-   "release_from": "casts.shout.release_s",
-   "release_socket": "head_top",
-   "manifest_entry": "variants.shout_raised",
-   "variant_of": "shout",
-   "variant_note": "the conductor's ruling 2026-09-30: both weapons lifted high over the release (the layer 'raise'); Matt picks shout or shout_raised"
-  },
   "hit": {
    "clip": "hit",
    "kind": "oneshot",
@@ -129,12 +116,46 @@
    ],
    "weight": 1.0,
    "states": [
-    "shout",
-    "shout_raised",
     "hit"
    ],
    "time": "pose",
    "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_R_shout",
+   "action": "join_guard_R_idle",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.3,
+      0.0
+     ],
+     [
+      2.45,
+      0.0
+     ],
+     [
+      2.9,
+      1.0
+     ]
+    ]
+   }
   },
   {
    "name": "guard_L",
@@ -147,12 +168,46 @@
    ],
    "weight": 1.0,
    "states": [
-    "shout",
-    "shout_raised",
     "hit"
    ],
    "time": "pose",
    "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L_shout",
+   "action": "join_guard_L_idle",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.3,
+      0.0
+     ],
+     [
+      2.45,
+      0.0
+     ],
+     [
+      2.9,
+      1.0
+     ]
+    ]
+   }
   },
   {
    "name": "guard_R_death",
@@ -205,46 +260,6 @@
      ],
      [
       1.5,
-      0.0
-     ]
-    ]
-   }
-  },
-  {
-   "name": "raise",
-   "action": "shout_raise",
-   "bones": [
-    "RightShoulder",
-    "RightArm",
-    "RightForeArm",
-    "RightHand",
-    "LeftShoulder",
-    "LeftArm",
-    "LeftForeArm",
-    "LeftHand"
-   ],
-   "weight": 1.0,
-   "states": [
-    "shout_raised"
-   ],
-   "time": "pose",
-   "filter_from": "all_clips",
-   "weight_curve": {
-    "keys": [
-     [
-      0.5,
-      0.0
-     ],
-     [
-      1.1,
-      1.0
-     ],
-     [
-      1.7,
-      1.0
-     ],
-     [
-      2.4,
       0.0
      ]
     ]

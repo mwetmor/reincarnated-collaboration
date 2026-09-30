@@ -1,19 +1,15 @@
 {
  "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",
- "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb.json",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v2.json",
  "measure": "work/jm_packtimes.json",
- "body_sha256": "4ea0439dfedfb8b3fe73c1a91ec60f7284f49c3e3666c84466619a84f100f1f3",
+ "body_sha256": "1ec111348ee02f7b70d5614d19ac60baf12cf41da67bdef47cf9ac87488820bf",
  "states": {
   "whirlwind": {
    "worst_m": 1e-05,
    "samples": 640
   },
   "shout": {
-   "worst_m": 2e-05,
-   "samples": 480
-  },
-  "shout_raised": {
-   "worst_m": 2e-05,
+   "worst_m": 1e-05,
    "samples": 480
   },
   "hit": {
@@ -25,6 +21,6 @@
    "samples": 640
   }
  },
- "samples": 2560,
- "worst_m": 2e-05
+ "samples": 2080,
+ "worst_m": 1e-05
 }

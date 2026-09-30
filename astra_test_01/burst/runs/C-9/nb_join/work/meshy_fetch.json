@@ -1,6 +1,6 @@
 {
  "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
- "spent": 15,
+ "spent": 27,
  "clips": {
   "flow_probe": {
    "action_id": 1,
@@ -100,6 +100,87 @@
     ],
     "clips": [
      "Armature|dying_backwards|baselayer"
+    ]
+   }
+  },
+  "wc_flex_show_muscles": {
+   "action_id": 388,
+   "task": "01a0f2f9-fdda-72ae-93b1-ce667d8ad639",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 46,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/wc_flex_show_muscles.glb",
+   "mb": 17.88,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "wc_flex_show_muscles.glb: clip 'Armature|Show_Both_Arm_Muscles|baselayer' starts root 'Hips' at 99.942 against rest 93.790 (6.6% > 5%)"
+    ],
+    "clips": [
+     "Armature|Show_Both_Arm_Muscles|baselayer"
+    ]
+   }
+  },
+  "wc_motivational_cheer": {
+   "action_id": 49,
+   "task": "01a0f2fa-bda3-7363-a256-f631db31886d",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 108,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/wc_motivational_cheer.glb",
+   "mb": 17.97,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "wc_motivational_cheer.glb: clip 'Armature|Motivational_Cheer|baselayer' starts root 'Hips' at 101.410 against rest 93.790 (8.1% > 5%)"
+    ],
+    "clips": [
+     "Armature|Motivational_Cheer|baselayer"
+    ]
+   }
+  },
+  "ww_axe_spin_attack": {
+   "action_id": 238,
+   "task": "01a0f2fc-6eff-766f-a067-602451c35dbd",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/ww_axe_spin_attack.glb",
+   "mb": 17.89,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "ww_axe_spin_attack.glb: clip 'Armature|Axe_Spin_Attack|baselayer' starts root 'Hips' at 88.159 against rest 93.790 (6.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|Axe_Spin_Attack|baselayer"
+    ]
+   }
+  },
+  "ww_double_blade_spin": {
+   "action_id": 91,
+   "task": "01a0f2fd-2e88-7620-b452-34b90a1f5e74",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 77,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/ww_double_blade_spin.glb",
+   "mb": 17.95,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "ww_double_blade_spin.glb: clip 'Armature|Double_Blade_Spin|baselayer' drifts 2.228 m horizontally over its own length (222.8 units) and is not locomotion -- a clip that walks away from where it started",
+     "ww_double_blade_spin.glb: clip 'Armature|Double_Blade_Spin|baselayer' starts root 'Hips' at 99.284 against rest 93.790 (5.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Double_Blade_Spin|baselayer"
     ]
    }
   }

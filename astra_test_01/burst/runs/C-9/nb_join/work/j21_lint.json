@@ -413,23 +413,6 @@
     "root_height": null,
     "root": null
    },
-   "shout": {
-    "scale_tracks": {},
-    "root_height": {
-     "first": 93.7944,
-     "min": 90.7737,
-     "max": 99.5174,
-     "rest": 93.79
-    },
-    "root": "Hips",
-    "root_travel_units": 0.0,
-    "locomotion": false,
-    "root_offset_m": {
-     "closest": 0.0,
-     "mean": 0.0892,
-     "first": 0.0
-    }
-   },
    "hit": {
     "scale_tracks": {},
     "root_height": {
@@ -467,9 +450,9 @@
    "whirlwind": {
     "scale_tracks": {},
     "root_height": {
-     "first": 86.1875,
-     "min": 86.1875,
-     "max": 86.1875,
+     "first": 78.8362,
+     "min": 75.1605,
+     "max": 78.8362,
      "rest": 93.79
     },
     "root": "Hips",
@@ -481,10 +464,22 @@
      "first": 0.0085
     }
    },
-   "shout_raise": {
+   "shout": {
     "scale_tracks": {},
-    "root_height": null,
-    "root": null
+    "root_height": {
+     "first": 93.071,
+     "min": 83.6862,
+     "max": 93.6967,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.233,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.0268,
+     "first": 0.0
+    }
    }
   },
   "morphs": [
@@ -509,7 +504,7 @@
    "nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)",
    "nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)",
    "nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
-   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 86.188 against rest 93.790 (8.1% > 5%)"
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 78.836 against rest 93.790 (15.9% > 5%)"
   ],
   "verdict": "WARN",
   "rows": {
@@ -559,35 +554,13 @@
     },
     {
      "clip": "shout",
-     "source": "../nb_join/anims/shout_sword_shout.glb",
-     "source_clip": "Armature|Sword_Shout|baselayer",
-     "time_shift_s": 0.0333,
-     "times": 84,
-     "err_max": 0.0001,
-     "worst_t": 2.7667,
-     "worst_joint": "RightHand",
-     "err_median": 0.0001,
-     "hips_deg_max": 0.0,
-     "excluded": [],
-     "within": true,
-     "rest_match": 5e-05,
-     "edits": [
-      "deroot",
-      "recentre",
-      "reground",
-      "trim"
-     ],
-     "status": "PASS"
-    },
-    {
-     "clip": "shout_raise",
      "status": "AUTHORED",
-     "note": "the raised war-cry pose, both arms (8 bones), solved against the shout's body at its release; a 2-key STEP pose clip for the shout_raised variant's layer"
+     "note": "composed v2 (Matt 2026-09-30): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's double-biceps flex, pumped twice by its own time; the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
     },
     {
      "clip": "whirlwind",
      "status": "AUTHORED",
-     "note": "authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg"
+     "note": "authored v2 (Matt 2026-09-30): a paddle turn -- the left foot pivots on its ball on the spin axis, the right foot steps round 3 times a revolution, planted between -- the torso leading, the arms in a double baseball swing (both blades level, side by side, edges along the CCW tangent) trailing and whipping, the head spotting his forward; one counter-clockwise revolution in 1.0 s, 31 keys on the idle source's 30 fps grid"
     }
    ],
    "seams": [
@@ -595,12 +568,12 @@
      "closure_m": 0.0,
      "closure_deg": 0.0,
      "closure_joint": "LeftToeBase",
-     "first_frac": 1.0,
-     "keys": 17,
-     "T_s": 0.5333,
+     "first_frac": 1.042,
+     "keys": 31,
+     "T_s": 1.0,
      "clip": "whirlwind",
      "grid_status": "PASS",
-     "grid_note": "17 keys at 0.0333 s against the source's 17 at 0.0333 s (nbt_idle.glb)",
+     "grid_note": "31 keys at 0.0333 s against the source's 31 at 0.0333 s (nbt_idle.glb)",
      "seam_status": "PASS"
     }
    ]

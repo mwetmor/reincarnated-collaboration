@@ -1,0 +1,254 @@
+{
+ "method": "authored paddle turn (IK feet) + the baseball swing (solved arms) + head spotting; see the header",
+ "cycle": {
+  "T": 1.0,
+  "keys": 31,
+  "fps": 30,
+  "revolution": "one, counter-clockwise (his left)"
+ },
+ "params": {
+  "steps": 3,
+  "plant": 0.55,
+  "r_paddle_m": 0.52,
+  "rel_land_deg": -65.0,
+  "step_h_m": 0.1,
+  "drop_m": 0.1,
+  "bob_m": 0.02,
+  "lead_deg": 14.999999999999998,
+  "lead_amp_deg": 5.0,
+  "whip_trail_deg": 20.0,
+  "whip_ahead_deg": 8.0,
+  "neck_deg": 80.0,
+  "snap_keys": 3,
+  "head_share": 0.6
+ },
+ "pose": "swing_pose_0.json",
+ "keys": [
+  {
+   "k": 0,
+   "p": 0.0,
+   "mode": "planted",
+   "pivot_reach": 0.824,
+   "paddle_reach": 0.904
+  },
+  {
+   "k": 1,
+   "p": 0.0333,
+   "mode": "planted",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.882
+  },
+  {
+   "k": 2,
+   "p": 0.0667,
+   "mode": "planted",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.854
+  },
+  {
+   "k": 3,
+   "p": 0.1,
+   "mode": "planted",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.826
+  },
+  {
+   "k": 4,
+   "p": 0.1333,
+   "mode": "planted",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.804
+  },
+  {
+   "k": 5,
+   "p": 0.1667,
+   "mode": "planted",
+   "pivot_reach": 0.778,
+   "paddle_reach": 0.792
+  },
+  {
+   "k": 6,
+   "p": 0.2,
+   "mode": "swing",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.782
+  },
+  {
+   "k": 7,
+   "p": 0.2333,
+   "mode": "swing",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.732
+  },
+  {
+   "k": 8,
+   "p": 0.2667,
+   "mode": "swing",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.75
+  },
+  {
+   "k": 9,
+   "p": 0.3,
+   "mode": "swing",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.855
+  },
+  {
+   "k": 10,
+   "p": 0.3333,
+   "mode": "planted",
+   "pivot_reach": 0.824,
+   "paddle_reach": 0.904
+  },
+  {
+   "k": 11,
+   "p": 0.3667,
+   "mode": "planted",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.882
+  },
+  {
+   "k": 12,
+   "p": 0.4,
+   "mode": "planted",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.854
+  },
+  {
+   "k": 13,
+   "p": 0.4333,
+   "mode": "planted",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.826
+  },
+  {
+   "k": 14,
+   "p": 0.4667,
+   "mode": "planted",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.804
+  },
+  {
+   "k": 15,
+   "p": 0.5,
+   "mode": "planted",
+   "pivot_reach": 0.778,
+   "paddle_reach": 0.792
+  },
+  {
+   "k": 16,
+   "p": 0.5333,
+   "mode": "swing",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.782
+  },
+  {
+   "k": 17,
+   "p": 0.5667,
+   "mode": "swing",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.732
+  },
+  {
+   "k": 18,
+   "p": 0.6,
+   "mode": "swing",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.75
+  },
+  {
+   "k": 19,
+   "p": 0.6333,
+   "mode": "swing",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.855
+  },
+  {
+   "k": 20,
+   "p": 0.6667,
+   "mode": "planted",
+   "pivot_reach": 0.824,
+   "paddle_reach": 0.904
+  },
+  {
+   "k": 21,
+   "p": 0.7,
+   "mode": "planted",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.882
+  },
+  {
+   "k": 22,
+   "p": 0.7333,
+   "mode": "planted",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.854
+  },
+  {
+   "k": 23,
+   "p": 0.7667,
+   "mode": "planted",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.826
+  },
+  {
+   "k": 24,
+   "p": 0.8,
+   "mode": "planted",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.804
+  },
+  {
+   "k": 25,
+   "p": 0.8333,
+   "mode": "planted",
+   "pivot_reach": 0.778,
+   "paddle_reach": 0.792
+  },
+  {
+   "k": 26,
+   "p": 0.8667,
+   "mode": "swing",
+   "pivot_reach": 0.782,
+   "paddle_reach": 0.782
+  },
+  {
+   "k": 27,
+   "p": 0.9,
+   "mode": "swing",
+   "pivot_reach": 0.794,
+   "paddle_reach": 0.732
+  },
+  {
+   "k": 28,
+   "p": 0.9333,
+   "mode": "swing",
+   "pivot_reach": 0.808,
+   "paddle_reach": 0.75
+  },
+  {
+   "k": 29,
+   "p": 0.9667,
+   "mode": "swing",
+   "pivot_reach": 0.82,
+   "paddle_reach": 0.855
+  },
+  {
+   "k": 30,
+   "p": 0.0,
+   "mode": "planted",
+   "pivot_reach": 0.824,
+   "paddle_reach": 0.904
+  }
+ ],
+ "head": {
+  "within_10_share": 0.467,
+  "within_30_share": 0.6,
+  "worst_deg": 178.8
+ },
+ "leg_reach_max": {
+  "pivot": 0.824,
+  "paddle": 0.904
+ }
+}
