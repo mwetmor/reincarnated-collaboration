@@ -131,7 +131,8 @@ MOUND_EXP = 0.35
 # THE KERB'S TOE. (1 - rho^2)^0.35 alone rises ~1.9 m inside the outer 5% -- one or two 0.1 m
 # mesh cells -- and the faceted near-vertical face drew the pen's crease at every cell and took
 # shadow acne (the first v2 capture; tools/probe_kerb.gd A/B'd shadows, pen and ramp bands).
-# A smoothstep over the outer 8% of rho spreads the rise over 4-5 cells: still a steep kerb.
+# A smoothstep over the outer 8% of rho spreads the rise over 0.36 m (front) to 0.48 m (sides),
+# 4-5 cells: still a kerb -- 2.2 m up, 77-84 deg at its steepest.
 MOUND_TOE = 0.08
 # THE DOOR, SET INTO THE MOUND: posts at v 10.6 under the lintel's ends (the manifest yaws),
 # the lintel's front face at v 10.30, a stone-lined FACADE at v 10.5 behind the posts' fronts
@@ -591,7 +592,7 @@ def build():
     P.append({"id": "mound", "piece": "barrow mound", "class": "mound", "kind": "structure",
               "spec_uv": list(c), "uv": list(c), "semi_axes": [MOUND["axes"][0] / 2, MOUND["axes"][1] / 2],
               "rise_m": MOUND_RISE, "rise_spec_m": MOUND["rise_about"], "exponent": MOUND_EXP, "toe_rho": MOUND_TOE,
-              "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- a ~70-75 deg kerb, flat on top; the foot's vertices on the ellipse",
+              "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- 2.2 m up within the outer 8% of the radius (0.36 m at the front, 0.48 m at the sides), 77-84 deg at its steepest, flat on top; the foot's vertices on the ellipse",
               "tint": "mound", "walkable": False,
               "collider": "48 vertical boxes on the rim at rho 0.97, the cutting's mouth left open; the cutting walls; the facade",
               "door_v": DOOR_V, "cutting": CUTTING, "passage": PASSAGE,

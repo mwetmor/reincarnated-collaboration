@@ -478,7 +478,7 @@
    "rise_spec_m": 4.0,
    "exponent": 0.35,
    "toe_rho": 0.08,
-   "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- a ~70-75 deg kerb, flat on top; the foot's vertices on the ellipse",
+   "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- 2.2 m up within the outer 8% of the radius (0.36 m at the front, 0.48 m at the sides), 77-84 deg at its steepest, flat on top; the foot's vertices on the ellipse",
    "tint": "mound",
    "walkable": false,
    "collider": "48 vertical boxes on the rim at rho 0.97, the cutting's mouth left open; the cutting walls; the facade",
@@ -20238,8 +20238,8 @@
      {
       "mode": "windowed 1920 x 1080 (the app's default window)",
       "log": "captures/logs/app_frame_cost.log",
-      "ms_per_frame": 10.41,
-      "fps": 96.1,
+      "ms_per_frame": 9.94,
+      "fps": 100.6,
       "viewport": [
        1920,
        1080
@@ -20249,8 +20249,8 @@
      {
       "mode": "windowed 1920 x 1080, repeat run",
       "log": "captures/logs/app_frame_cost_repeat.log",
-      "ms_per_frame": 9.92,
-      "fps": 100.8,
+      "ms_per_frame": 11.07,
+      "fps": 90.3,
       "viewport": [
        1920,
        1080
@@ -20260,8 +20260,8 @@
      {
       "mode": "--fullscreen on the 3440 x 1440 display",
       "log": "captures/logs/app_frame_cost_fullscreen_3440x1440.log",
-      "ms_per_frame": 20.53,
-      "fps": 48.7,
+      "ms_per_frame": 21.31,
+      "fps": 46.9,
       "viewport": [
        3440,
        1440
@@ -20270,8 +20270,8 @@
      }
     ],
     "at_1080p_ms_per_frame": [
-     10.41,
-     9.92
+     9.94,
+     11.07
     ],
     "_at": "the staged app, vsync off, MSAA 2x (project setting), him walking a loop in the ring, 600 frames, wall clock / frames; display 3440 x 1440"
    }

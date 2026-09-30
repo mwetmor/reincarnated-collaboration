@@ -478,7 +478,7 @@
    "rise_spec_m": 4.0,
    "exponent": 0.35,
    "toe_rho": 0.08,
-   "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- a ~70-75 deg kerb, flat on top; the foot's vertices on the ellipse",
+   "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- 2.2 m up within the outer 8% of the radius (0.36 m at the front, 0.48 m at the sides), 77-84 deg at its steepest, flat on top; the foot's vertices on the ellipse",
    "tint": "mound",
    "walkable": false,
    "collider": "48 vertical boxes on the rim at rho 0.97, the cutting's mouth left open; the cutting walls; the facade",
