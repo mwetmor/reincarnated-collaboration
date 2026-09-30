@@ -26453,6 +26453,12 @@
       "topic": "Lane A's four Meteor primitives delivered and accepted by the conductor (8 image calls)",
       "note": "VF-met-head-01, VF-met-trail-01, VF-met-impact-01, VF-met-ring-01: all exit 0, 2 image calls each (each used its one allowed retry to flatten tonal variation), ~3-4 lane-minutes each. Conductor look: all four in the approved C-5 vocabulary -- the head a craggy dark rock nucleus with outlined facets leading right in a white core, hooked tongues trailing left; the trail a thick column tapering left with torn scraps; the impact a crown of tongues from a flattened 5:2 white base; the ring 14 small inward-leaning tongues around an empty centre. Delivered at 1254x1254 with antialiased edges (not native 512): the kit step downscales and quantises them as C-5's primitives became *_512 and measures extents against the briefs. Paths sent to lane A (integration drax) and lane B (the 3D-first drax, which may wear them as painted surfaces). images_used 708.",
       "ts": "2026-09-30T06:49:38"
+    },
+    {
+      "id": "N-C9-HITCH-5S-INSTRUMENT",
+      "topic": "The '~4.5 s page hitch' and the 'first-strike cold frame' were the TEST SCRIPT's own screenshot, not the page (integration drax, collab 8f809e97c)",
+      "note": "tools/web_perf_fb.js took a Playwright page.screenshot() ~4.3-4.6 s after ready; the screenshot stalls the page's next frame 400-500 ms. Deciding A/B, same script: her 433 ms at 4.38 s with the screenshot, NO frame at ~4.5 s without (worst 384 ms at 1.29 s, the load tail under the veil); him 400 ms at 4.68 s with, worst 18.7 ms without. Five traced runs (no screenshot) never showed it (traces kept in barrow_full/work/hitch5/traces/). All four candidate causes fall away. Corrected: the 'first-strike cold frame' (450-520 ms) and the hitch attributed to the old a5c7533 page were the same screenshot; fire_ball_budget.json still carries the old attribution (correction in load_tail.json: the Fire Ball's first cast shows no hitch). Fix in the script only (screenshot only with SHOT=1). The veil stays: the frames it hides at 0.7-1.5 s after ready are real (inside Godot's draw). CONDUCTOR: the run's recurring lesson once more -- an instrument that perturbs what it measures; the matched-control discipline is what exposed it.",
+      "ts": "2026-09-30T11:21:27"
     }
   ]
 }
