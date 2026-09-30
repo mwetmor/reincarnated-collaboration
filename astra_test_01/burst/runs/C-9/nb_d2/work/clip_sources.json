@@ -67,9 +67,21 @@
   },
   "attack": {
    "source": "../nb_t8/nbt_attack.glb",
-   "path": "t8-native",
+   "path": "55_clip_graft -> 54_weapon_channel",
    "action": "219 Right-hand Sword Slash (T8)",
-   "edits": []
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "window": [
+    0.0333,
+    1.5333
+   ],
+   "flags": [],
+   "edits": [
+    "trim",
+    "recentre",
+    "reground"
+   ],
+   "weapon_r": "T12_11: the edge-leading channel re-solved on the re-cut (attack_lab/t12/godot/tools/weapon_channel_solve.gd, STRIKES mode) and reshaped by 61_strike_ramp.py (rigid in the fist to 0.167 s, one eased 93.6 deg turn to the swing's edge-leading roll by 0.533 s, the solve from there). weapon_r is not a skin joint; this measure does not see it",
+   "was": "t8-native: the D2 Blender merge's 24 fps resample of the source's 30 fps keys -- up to 8.914 deg from its own file once Godot's 30 fps import bake re-samples it (RightHand; 62_bake_fidelity.py, both import paths) and up to 15.4 deg from the source's own curve between its keys (RightHand, hips-relative, at 0.700 s). T12_11 re-cut on the source's own keys (coordinator, 2026-09-30)"
   },
   "walk_armed": {
    "source": "anims/b_walk_fight.glb",
@@ -177,7 +189,8 @@
     "footlock_m_s": 3.2749,
     "blend_support_slide_max_mm": 47.57,
     "loop_support_slide_p95_mm": 49.09,
-    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)",
+    "footlock_rule_T12_11": "the blend was chosen with s6's foot-lock (footlock_m_s above). Re-searched with the scene's rule (57_footlock.py, 58_loop_blend.py LOOP_BLEND_RULE unset): this window and blend rank 4th of 4 (blend 4 intervals; 10 scores 62.34 against 65.60) -- the scene plays only its upper body, the score is foot slide -- kept"
    }
   },
   "strafe_L_armed": {
@@ -209,7 +222,8 @@
     "footlock_m_s": 0.7237,
     "blend_support_slide_max_mm": 13.89,
     "loop_support_slide_p95_mm": 15.63,
-    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)",
+    "footlock_rule_T12_11": "the blend was chosen with s6's foot-lock (footlock_m_s above). Re-searched with the scene's rule (57_footlock.py, 58_loop_blend.py LOOP_BLEND_RULE unset): this window and blend rank 3rd of 4244, 0.18 mm behind the best score (21.91 against 21.73) -- kept"
    }
   },
   "strafe_R_armed": {
@@ -241,7 +255,8 @@
     "footlock_m_s": 0.31,
     "blend_support_slide_max_mm": 4.49,
     "loop_support_slide_p95_mm": 14.37,
-    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)",
+    "footlock_rule_T12_11": "the blend was chosen with s6's foot-lock (footlock_m_s above). Re-searched with the scene's rule (57_footlock.py, 58_loop_blend.py LOOP_BLEND_RULE unset): this window and blend rank 2nd of 9990, 0.01 mm behind (11.77 against 11.76) -- kept"
    }
   },
   "run_armed_locked": {

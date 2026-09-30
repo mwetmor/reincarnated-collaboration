@@ -1,0 +1,144 @@
+{
+ "_what": "T12_11: the blend windows of the three text-to-motion loops (T12_10, 58_loop_blend.py, chosen under s6's foot-lock) re-searched with the SCENE's foot-lock rule (57_footlock.py, LOOP_BLEND_RULE unset) on the same body (T12_9_loops 91e3c4f8, --retime 0.8) and the same ranges as T12_10 (strafe_L 36-59 intervals, strafe_R 24-59, run_armed its one cycle). Score = the worst support slide inside the blend + 0.5 x the loop's p95 (mm per key).",
+ "clips": {
+  "strafe_L": {
+   "s6": {
+    "candidates": 4244,
+    "top": {
+     "a": 5,
+     "b": 50,
+     "w": 10,
+     "mode": "offset",
+     "score": 21.71,
+     "footlock_m_s": 0.7237
+    },
+    "t12_10_pick": {
+     "a": 5,
+     "b": 50,
+     "w": 10,
+     "mode": "offset",
+     "rank": 1,
+     "score": 21.71,
+     "blend_support_max_mm": 13.89,
+     "loop_slide_p95_mm": 15.63,
+     "footlock_m_s": 0.7237
+    }
+   },
+   "scene": {
+    "candidates": 4244,
+    "top": {
+     "a": 4,
+     "b": 51,
+     "w": 10,
+     "mode": "offset",
+     "score": 21.73,
+     "footlock_m_s": 0.5934
+    },
+    "t12_10_pick": {
+     "a": 5,
+     "b": 50,
+     "w": 10,
+     "mode": "offset",
+     "rank": 3,
+     "score": 21.91,
+     "blend_support_max_mm": 13.92,
+     "loop_slide_p95_mm": 15.97,
+     "footlock_m_s": 0.6925
+    }
+   }
+  },
+  "strafe_R": {
+   "s6": {
+    "candidates": 9990,
+    "top": {
+     "a": 1,
+     "b": 58,
+     "w": 4,
+     "mode": "offset",
+     "score": 11.68,
+     "footlock_m_s": 0.31
+    },
+    "t12_10_pick": {
+     "a": 1,
+     "b": 58,
+     "w": 4,
+     "mode": "offset",
+     "rank": 1,
+     "score": 11.68,
+     "blend_support_max_mm": 4.49,
+     "loop_slide_p95_mm": 14.37,
+     "footlock_m_s": 0.31
+    }
+   },
+   "scene": {
+    "candidates": 9990,
+    "top": {
+     "a": 0,
+     "b": 58,
+     "w": 4,
+     "mode": "offset",
+     "score": 11.76,
+     "footlock_m_s": 0.2949
+    },
+    "t12_10_pick": {
+     "a": 1,
+     "b": 58,
+     "w": 4,
+     "mode": "offset",
+     "rank": 2,
+     "score": 11.77,
+     "blend_support_max_mm": 4.61,
+     "loop_slide_p95_mm": 14.32,
+     "footlock_m_s": 0.296
+    }
+   }
+  },
+  "run_armed": {
+   "s6": {
+    "candidates": 4,
+    "top": {
+     "a": 0,
+     "b": 20,
+     "w": 4,
+     "mode": "offset",
+     "score": 72.12,
+     "footlock_m_s": 3.2749
+    },
+    "t12_10_pick": {
+     "a": 0,
+     "b": 20,
+     "w": 4,
+     "mode": "offset",
+     "rank": 1,
+     "score": 72.12,
+     "blend_support_max_mm": 47.57,
+     "loop_slide_p95_mm": 49.09,
+     "footlock_m_s": 3.2749
+    }
+   },
+   "scene": {
+    "candidates": 4,
+    "top": {
+     "a": 0,
+     "b": 20,
+     "w": 10,
+     "mode": "offset",
+     "score": 62.34,
+     "footlock_m_s": 3.5061
+    },
+    "t12_10_pick": {
+     "a": 0,
+     "b": 20,
+     "w": 4,
+     "mode": "offset",
+     "rank": 4,
+     "score": 65.6,
+     "blend_support_max_mm": 43.16,
+     "loop_slide_p95_mm": 44.88,
+     "footlock_m_s": 3.4738
+    }
+   }
+  }
+ },
+ "decision": "kept: T12_10's windows rank 3rd of 4244 (strafe_L, 0.18 mm behind), 2nd of 9990 (strafe_R, 0.01 mm) and 4th of 4 (run_armed, 3.26 mm behind a 10-interval blend; the scene plays only its upper body, and this score is foot slide)"
+}

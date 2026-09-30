@@ -27,8 +27,10 @@
 # to pull the body back across the ground.
 #
 # THE OBJECTIVE is foot slide, measured the way the scene sees it: the body driven at the loop's
-# FOOT-LOCK speed (57_footlock.py's definition, s6's: the foot joints' bottom 25% is contact, the
-# median backward velocity over intervals planted at both ends) along --dir; a TOE is planted when it
+# FOOT-LOCK speed (57_footlock.py's rule since T12_11, the scene's: the stance side is the lower toe
+# within 3 cm of its lowest, that side's foot joint's backward velocity, the median over stance
+# intervals, sides pooled -- at the loop's keys; T12_10 used s6's bottom-25% rule, kept as
+# LOOP_BLEND_RULE=s6 to reproduce its numbers) along --dir; a TOE is planted when it
 # is within 3 cm of its lowest and its height changes <= 1 cm (tools/speed_split.gd's rule); its slide
 # is its horizontal travel over the interval. Minimised: the worst planted slide INSIDE the blend,
 # then the loop's p95. A loop shorter than --lmin or longer than --lmax intervals is not considered.
@@ -181,12 +183,20 @@ def metrics(P, t, dirv, blend_iv, gait='walk'):
     in mm per key interval (1/30 s at source timing)."""
     dt = np.diff(t)
     vs = []
-    for j in (0, 1):
-        y = P[:, j, 1]; lo, hi = float(y.min()), float(y.max())
-        c = y <= lo + 0.25 * (hi - lo)
+    if os.environ.get("LOOP_BLEND_RULE") == "s6":
+        for j in (0, 1):
+            y = P[:, j, 1]; lo, hi = float(y.min()), float(y.max())
+            c = y <= lo + 0.25 * (hi - lo)
+            for i in range(len(t) - 1):
+                if c[i] and c[i + 1]:
+                    vs.append(float(-(P[i + 1, j] - P[i, j]) @ dirv / dt[i]))
+    else:
+        # the scene's rule (57_footlock.py, T12_11): stance side = the lower toe within 3 cm of its lowest
+        tlo = (float(P[:, 2, 1].min()), float(P[:, 3, 1].min()))
         for i in range(len(t) - 1):
-            if c[i] and c[i + 1]:
-                vs.append(float(-(P[i + 1, j] - P[i, j]) @ dirv / dt[i]))
+            k = 0 if P[i, 2, 1] <= P[i, 3, 1] else 1
+            if P[i, 2 + k, 1] <= tlo[k] + 0.03:
+                vs.append(float(-(P[i + 1, k] - P[i, k]) @ dirv / dt[i]))
     v = float(np.median(vs)) if vs else 0.0
     Wd = P + v * dirv[None, None, :] * t[:, None, None]
     fy = float(min(P[:, 2, 1].min(), P[:, 3, 1].min()))

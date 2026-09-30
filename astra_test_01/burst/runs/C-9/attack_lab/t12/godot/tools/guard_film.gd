@@ -12,10 +12,18 @@ extends SceneTree
 # frames to <FILM_OUT>/<action>/f_%05d.jpg. Run with --fixed-fps 96.
 # env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop; also strafe_l, strafe_r),
 #      FILM_BEFORE_KNIGHT (res:// script), FILM_BEFORE_TITLE, FILM_AFTER_TITLE
+# T12_11: FILM_FPS (the encode rate, default 24) and FILM_SPEED (default 0.25): one frame = FILM_SPEED / FILM_FPS of game
+#      time -- 60 and 1.0 is PLAY SPEED at the game's own tick. A knight with a STRIKE TRAIL has it stepped by hand at the
+#      GAME's rate whatever the film's (FILM_TRAIL_HZ, default 60): at quarter speed the trail changes every fourth frame,
+#      as the game draws it, while the body moves every frame.
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
-const DT := 1.0 / 96.0
+var FPS := float(OS.get_environment("FILM_FPS")) if OS.has_environment("FILM_FPS") else 24.0
+var SPEED := float(OS.get_environment("FILM_SPEED")) if OS.has_environment("FILM_SPEED") else 0.25
+var DT := SPEED / FPS
+var TRAIL_DT := 1.0 / (float(OS.get_environment("FILM_TRAIL_HZ")) if OS.has_environment("FILM_TRAIL_HZ") else 60.0)
+var trail_acc := 0.0
 const FACE := "SE"
 var ks := []
 var titles := [(OS.get_environment("FILM_BEFORE_TITLE") if OS.has_environment("FILM_BEFORE_TITLE") else "BEFORE -- installed (knight bf23c13e)"), (OS.get_environment("FILM_AFTER_TITLE") if OS.has_environment("FILM_AFTER_TITLE") else "AFTER -- T12 guard layer (staged)")]
@@ -61,6 +69,8 @@ func _initialize() -> void:
 	for i in 6: await process_frame
 	for k in ks:
 		k.set_physics_process(false)
+		if k.has_method("trail_step"):
+			k.trail_auto = false
 		k.set_gear_stack(k.gear_stack_count() - 1)
 		(k._tree as AnimationTree).callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	for i in 4: await process_frame
@@ -90,10 +100,11 @@ func _reset() -> void:
 	for k in ks:
 		k.set_block(false)
 		k.facing = FACE
-	for j in 144:
+	for j in int(round(1.5 / DT)):
 		for k in ks:
 			k.drive_dir(Vector2.ZERO, false, DT)
 			(k._tree as AnimationTree).advance(DT)
+		_trail_tick()
 	for i in 2:
 		var k = ks[i]
 		k.global_position = face_w * (60.0 * float(i) - 30.0) + Vector3(0, 0.03, 0)
@@ -106,7 +117,7 @@ func _film(act: String) -> void:
 	mf = 0
 	if OS.has_environment("FILM_MP4_DIR"):
 		var mp4 := "%s/%s%s_before_after.mp4" % [OS.get_environment("FILM_MP4_DIR"), OS.get_environment("FILM_PREFIX") if OS.has_environment("FILM_PREFIX") else "", act]
-		var r := OS.execute_with_pipe(FFMPEG, PackedStringArray(["-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1920x1080", "-r", "24",
+		var r := OS.execute_with_pipe(FFMPEG, PackedStringArray(["-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1920x1080", "-r", str(int(FPS)),
 			"-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "21", "-preset", "medium", "-movflags", "+faststart", mp4]), true)
 		pipe = r.get("stdio"); pipe_pid = int(r.get("pid", -1))
 		print("[film] %s -> ffmpeg pid %d -> %s" % [act, pipe_pid, mp4])
@@ -128,10 +139,10 @@ func _film(act: String) -> void:
 			await _hold(Vector2.ZERO, false, 0.5, "standing")
 			for k in ks: k.try_strike(act)
 			var g := 0
-			while g < 24 or ks[0].attacking() or ks[1].attacking():
+			while g < int(round(0.25 / DT)) or ks[0].attacking() or ks[1].attacking():
 				await _step(Vector2.ZERO, false, act)
 				g += 1
-				if g > 96 * 12: break
+				if g > int(round(12.0 / DT)): break
 			await _hold(Vector2.ZERO, false, 0.75, "after the " + act)
 		"block":
 			await _hold(Vector2.ZERO, false, 0.5, "standing")
@@ -154,10 +165,10 @@ func _film(act: String) -> void:
 			await _hold(Vector2.ZERO, false, 0.5, "standing")
 			for k in ks: k.try_strike("bash")
 			var gb := 0
-			while gb < 24 or ks[0].attacking() or ks[1].attacking():
+			while gb < int(round(0.25 / DT)) or ks[0].attacking() or ks[1].attacking():
 				await _step(Vector2.ZERO, false, "shield bash")
 				gb += 1
-				if gb > 96 * 12: break
+				if gb > int(round(12.0 / DT)): break
 			await _hold(Vector2.ZERO, false, 0.75, "after the bash")
 	if pipe != null:
 		pipe.close()
@@ -176,10 +187,21 @@ func _step(dir: Vector2, run: bool, ph: String) -> void:
 	for k in ks:
 		k.drive_dir(dir, run, DT)
 		(k._tree as AnimationTree).advance(DT)
+	_trail_tick()
 	_place()
 	await process_frame
 	await RenderingServer.frame_post_draw
 	_grab()
+
+func _trail_tick() -> void:
+	# the strike trail at the GAME's tick: stepped once per TRAIL_DT of game time, with that dt
+	trail_acc += DT
+	if trail_acc + 1e-6 < TRAIL_DT:
+		return
+	for k in ks:
+		if k.has_method("trail_step"):
+			k.trail_step(trail_acc)
+	trail_acc = 0.0
 
 func _place() -> void:
 	for i in 2:
@@ -190,7 +212,7 @@ func _place() -> void:
 		var his_right: Vector3 = (k._skel as Skeleton3D).global_transform.basis * Vector3(-1, 0, 0)
 		his_right.y = 0.0; his_right = his_right.normalized()
 		(cams[2 + i] as Camera3D).look_at_from_position(tgt + his_right * 60.0, tgt, Vector3.UP)
-		(labs[i] as Label).text = "%s\n%s -- %s   QUARTER SPEED   play camera" % [titles[i], action.to_upper(), phase]
+		(labs[i] as Label).text = "%s\n%s -- %s   %s   play camera" % [titles[i], action.to_upper(), phase, ("PLAY SPEED" if SPEED >= 0.999 else ("QUARTER SPEED" if absf(SPEED - 0.25) < 1e-3 else "x%.2f" % SPEED))]
 		(labs[2 + i] as Label).text = "%s\nside camera, his right" % titles[i]
 
 func _grab() -> void:

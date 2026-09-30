@@ -23,6 +23,9 @@ extends SceneTree
 #              slash is a lateral sweep). The old whole-clip strike frame is reported beside it.
 # env: KNIGHT (res:// script), ACCEPT_LABEL, ACCEPT_OUT (json), ACCEPT_EDGE (the edge marker; default axe_edge)
 const DT := 1.0 / 24.0
+# the STRIKE step (T12_11): ACCEPT_STRIKE_FPS=<n> fires the strikes at 1/n s -- a lab sweep of PEN at the
+# game's own tick (60 Hz) or finer; unset, the gate's 1/24 s, as every table before it
+var SDT := DT
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -54,6 +57,9 @@ var wd_ms := 0
 func _initialize() -> void:
 	wd_ms = Time.get_ticks_msec() + 3000000
 	label = OS.get_environment("ACCEPT_LABEL") if OS.has_environment("ACCEPT_LABEL") else "?"
+	if OS.has_environment("ACCEPT_STRIKE_FPS"):
+		SDT = 1.0 / float(OS.get_environment("ACCEPT_STRIKE_FPS"))
+		print("[accept] LAB: strikes stepped at 1/%s s" % OS.get_environment("ACCEPT_STRIKE_FPS"))
 	var kp: String = OS.get_environment("KNIGHT") if OS.has_environment("KNIGHT") else "res://scripts/knight.gd"
 	var ground := StaticBody3D.new()
 	ground.collision_layer = CliffWorld.TERRAIN_BIT
@@ -536,8 +542,9 @@ func _strike_tree(key: String, clip: String) -> Array:
 		print("[accept] %s: try_strike refused" % key)
 		return rows
 	var has_rel := (tree.tree_root as AnimationNodeBlendTree).has_node("rel_" + key)
-	for i in 24 * 14:
-		_step(Vector2.ZERO, false)
+	for i in int(round(14.0 / SDT)):
+		k.drive_dir(Vector2.ZERO, false, SDT)
+		tree.advance(SDT)
 		if not bool(tree.get("parameters/os_%s/active" % key)):
 			break
 		var m := _row(float(tree.get("parameters/a_%s/current_position" % key)))

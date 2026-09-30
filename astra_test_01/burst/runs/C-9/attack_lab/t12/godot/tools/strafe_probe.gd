@@ -12,7 +12,8 @@ extends SceneTree
 #   wrap       the clip's loop point as played: the largest joint step across the frame where the
 #              clip's position wraps, against the median step (1.0 = a normal frame; >> 1 = a pop)
 # env: KNIGHT (res:// script), KNIGHT_CHARACTER (knight_sword.gd reads it), PROBE_LABEL, PROBE_OUT
-const DT := 1.0 / 24.0
+# the step: PROBE_HZ (T12_11; default 24, the tables before it) -- 60 is the game's physics tick
+var DT := 1.0 / 24.0
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -24,6 +25,8 @@ const JOINTS := ["Hips", "Spine", "Head", "LeftHand", "RightHand", "LeftFoot", "
 
 func _initialize() -> void:
 	var label: String = OS.get_environment("PROBE_LABEL") if OS.has_environment("PROBE_LABEL") else "?"
+	if OS.has_environment("PROBE_HZ"):
+		DT = 1.0 / float(OS.get_environment("PROBE_HZ"))
 	var ground := StaticBody3D.new()
 	ground.collision_layer = CliffWorld.TERRAIN_BIT
 	var cs := CollisionShape3D.new(); var box := BoxShape3D.new(); box.size = Vector3(4000, 1, 4000)
@@ -42,20 +45,20 @@ func _initialize() -> void:
 	for side in ["l", "r"]:
 		k.global_position = Vector3(0, 0.03, 0); k.velocity = Vector3.ZERO
 		k.set_block(false)
-		for i in 24: _step(Vector2.ZERO)
+		for i in int(round(1.0 / DT)): _step(Vector2.ZERO)
 		k.set_block(true)
-		for i in 24: _step(Vector2.ZERO)
+		for i in int(round(1.0 / DT)): _step(Vector2.ZERO)
 		var dir := _strafe_input(side)
 		var clip := String(k._roles.get("strafe_" + side, ""))
 		var rows := []
-		for i in 168:
+		for i in int(round(7.0 / DT)):
 			_step(dir)
-			if i >= 36: rows.append(_sample())
+			if i >= int(round(1.5 / DT)): rows.append(_sample())
 		out[side] = _summarise(rows, side, clip)
 		var r: Dictionary = out[side]
-		print("[strafe] %-8s strafe_%s %-15s %.4f s | body %.3f m/s, asked %.1f px/s = %.3f m/s | in-scene foot-lock %.3f m/s (feet pinned at %.0f%% of the body speed) | support slide med %.1f p95 %.1f max %.1f mm (%d) | probe %d pairs med %.1f | wrap step %.2fx the median (%d wraps)"
-			% [label, side, clip, float(r["clip_len"]), float(r["body_m_s"]), float(r["asked_px_s"]), float(r["asked_m_s"]), float(r["footlock_m_s"]),
-			   100.0 * float(r["footlock_m_s"]) / maxf(float(r["body_m_s"]), 1e-6), float(r["support_med_mm"]), float(r["support_p95_mm"]),
+		print("[strafe] %-8s strafe_%s %-15s %.4f s | body %.3f m/s, asked %.1f px/s = %.3f m/s | in-scene foot-lock s6 %.3f / SCENE RULE %.3f m/s (feet pinned at %.0f%% of the body speed by the scene's rule) | support slide med %.1f p95 %.1f max %.1f mm (%d) | probe %d pairs med %.1f | wrap step %.2fx the median (%d wraps)"
+			% [label, side, clip, float(r["clip_len"]), float(r["body_m_s"]), float(r["asked_px_s"]), float(r["asked_m_s"]), float(r["footlock_m_s"]), float(r["footlock_scene_rule_m_s"]),
+			   100.0 * float(r["footlock_scene_rule_m_s"]) / maxf(float(r["body_m_s"]), 1e-6), float(r["support_med_mm"]), float(r["support_p95_mm"]),
 			   float(r["support_max_mm"]), int(r["support_n"]), int(r["probe_n"]), float(r["probe_med_mm"]), float(r["wrap_frac"]), int(r["wraps"])])
 		k.set_block(false)
 		for i in 24: _step(Vector2.ZERO)
@@ -110,6 +113,24 @@ func _summarise(rows: Array, side: String, clip: String) -> Dictionary:
 				vs.append(-rel.dot(dirw) / DT)
 	vs.sort()
 	var fl: float = float(vs[vs.size() / 2]) if vs.size() > 0 else 0.0
+	# THE SCENE'S RULE (T12_11; 57_footlock.py, so_d7 s18_footlock_contact.py): the stance side = the lower TOE, within
+	# 3 cm of that toe's lowest (relative to the body); the speed = that side's FOOT joint relative to the body, backward
+	var vs2 := []
+	var tlo := [1e9, 1e9]
+	for r in rows:
+		for sd in 2:
+			tlo[sd] = minf(float(tlo[sd]), (r[["LeftToeBase", "RightToeBase"][sd]] as Vector3).y - (r["body"] as Vector3).y)
+	for i in range(1, n):
+		var a2: Dictionary = rows[i - 1]; var b2: Dictionary = rows[i]
+		var hl: float = (a2["LeftToeBase"] as Vector3).y - (a2["body"] as Vector3).y
+		var hr: float = (a2["RightToeBase"] as Vector3).y - (a2["body"] as Vector3).y
+		var sd2: int = 0 if hl <= hr else 1
+		if minf(hl, hr) <= float(tlo[sd2]) + 0.03:
+			var fb2: String = ["LeftFoot", "RightFoot"][sd2]
+			var rel2: Vector3 = ((b2[fb2] as Vector3) - (b2["body"] as Vector3)) - ((a2[fb2] as Vector3) - (a2["body"] as Vector3))
+			vs2.append(-rel2.dot(dirw) / DT)
+	vs2.sort()
+	var fl2: float = float(vs2[vs2.size() / 2]) if vs2.size() > 0 else 0.0
 	# slides
 	var fy := 1e9
 	for r in rows: fy = minf(fy, minf((r["LeftToeBase"] as Vector3).y, (r["RightToeBase"] as Vector3).y) - (r["body"] as Vector3).y)
@@ -144,7 +165,7 @@ func _summarise(rows: Array, side: String, clip: String) -> Dictionary:
 	var asked: float = float(rows[n / 2]["asked"])
 	return {"clip": clip, "clip_len": float(k._clip_len.get(clip, 0.0)), "frames": n, "body_m_s": body_v,
 			"asked_px_s": asked, "asked_m_s": asked / (float(k.PPM) * float(k.get("_figure_scale"))),
-			"footlock_m_s": fl, "footlock_n": vs.size(),
+			"footlock_m_s": fl, "footlock_n": vs.size(), "footlock_scene_rule_m_s": fl2, "footlock_scene_rule_n": vs2.size(), "dt": DT,
 			"support_med_mm": float(sup[sup.size() / 2]) if sup.size() > 0 else -1.0,
 			"support_p95_mm": float(sup[int(sup.size() * 0.95)]) if sup.size() > 0 else -1.0,
 			"support_max_mm": float(sup[-1]) if sup.size() > 0 else -1.0, "support_n": sup.size(),

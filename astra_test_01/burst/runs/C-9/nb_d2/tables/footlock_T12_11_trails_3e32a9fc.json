@@ -1,0 +1,158 @@
+[
+ {
+  "clip": "run_armed",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "keys": 21,
+  "T_s": 0.6667,
+  "speed_m_s": 3.5451,
+  "hz": 60.0,
+  "samples": 20,
+  "keys_m_s": 3.4738,
+  "keys_samples": 10,
+  "keys_by_side": {
+   "left": 5,
+   "right": 5
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 3.2749,
+   "toes_m_s": 3.7103,
+   "dense_foot_joints_m_s": 3.2592,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ },
+ {
+  "clip": "strafe_L_armed",
+  "dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "keys": 46,
+  "T_s": 1.5,
+  "speed_m_s": 0.6976,
+  "hz": 60.0,
+  "samples": 54,
+  "keys_m_s": 0.6925,
+  "keys_samples": 28,
+  "keys_by_side": {
+   "left": 9,
+   "right": 19
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 0.7237,
+   "toes_m_s": 0.692,
+   "dense_foot_joints_m_s": 0.7255,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ },
+ {
+  "clip": "strafe_R_armed",
+  "dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "keys": 58,
+  "T_s": 1.9,
+  "speed_m_s": 0.2896,
+  "hz": 60.0,
+  "samples": 91,
+  "keys_m_s": 0.296,
+  "keys_samples": 46,
+  "keys_by_side": {
+   "left": 14,
+   "right": 32
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 0.31,
+   "toes_m_s": 0.3142,
+   "dense_foot_joints_m_s": 0.3097,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ },
+ {
+  "clip": "walk",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "keys": 32,
+  "T_s": 1.0333,
+  "speed_m_s": 1.5868,
+  "hz": 60.0,
+  "samples": 62,
+  "keys_m_s": 1.5856,
+  "keys_samples": 31,
+  "keys_by_side": {
+   "left": 15,
+   "right": 16
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 1.5831,
+   "toes_m_s": 1.6018,
+   "dense_foot_joints_m_s": 1.5818,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ },
+ {
+  "clip": "run",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "keys": 20,
+  "T_s": 0.6333,
+  "speed_m_s": 5.2558,
+  "hz": 60.0,
+  "samples": 16,
+  "keys_m_s": 5.1908,
+  "keys_samples": 9,
+  "keys_by_side": {
+   "left": 4,
+   "right": 5
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 3.9517,
+   "toes_m_s": 5.2595,
+   "dense_foot_joints_m_s": 3.9027,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ },
+ {
+  "clip": "walk_armed",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "keys": 53,
+  "T_s": 1.7333,
+  "speed_m_s": 0.7588,
+  "hz": 60.0,
+  "samples": 104,
+  "keys_m_s": 0.7582,
+  "keys_samples": 52,
+  "keys_by_side": {
+   "left": 26,
+   "right": 26
+  },
+  "rule": "scene: stance side = the lower toe within 3 cm of its lowest; that side's foot joint, backward along the travel; median, sides pooled",
+  "s6_superseded": {
+   "foot_joints_m_s": 0.7458,
+   "toes_m_s": 0.8292,
+   "dense_foot_joints_m_s": 0.7429,
+   "rule": "s6: bottom 25% of each joint's own height range, intervals planted at both ends, pooled"
+  }
+ }
+]

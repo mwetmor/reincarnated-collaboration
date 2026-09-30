@@ -1,0 +1,129 @@
+{
+ "set": {
+  "knight.gd": "a485b936631c67b1de7d42505e7ac3f0 = arm_layer_declared_patch.py, strike_trail_patch.py, strike_hold_release_patch.py (attack_lab/tools) over T12_10 fb35d9d0",
+  "character.json": "d4cb18ab36ad33b5ae39e852d9da6b84",
+  "gear_manifest.json": "0a81b2afbda88a518b882a90dbecf771 (nb_d2/export_staging/T12_11_trails)",
+  "nb-body.glb": "3e32a9fc7c9bcb5f12449c2b5bc927d6 (nb_d2/export_staging/T12_11_trails; nb-body_graft.glb beside it is the re-cut before its weapon channel)",
+  "six pieces": "the T12_2 mount set, copied unchanged from T12_10_strafes (md5s in install.sh)",
+  "pre_state": "E = T12_10 exactly (knight fb35d9d0, character 45d757b5, nb-body eb8a3837, gear_manifest aa557a50, the six pieces); A-D kept. install.sh --dry-run against cliffside3d: 'found E', staged sources ok"
+ },
+ "gate": {
+  "table": "nb_d2/tables/weapon_table_T12_11_trails_3e32a9fc_knighta485b936.json",
+  "gate": "nb_d2/tables/weapon_gate_T12_11_trails_3e32a9fc_knighta485b936.json",
+  "verdict": "PASS (0 fail, 3 trail flags: attack 90.6, chop_overhead_92 61.8, shield_bash 38.3 px peak step per 1/24 s frame -- the flags the trails answer)",
+  "holds": "idle, walk, run, block, strafe_l, strafe_r: every number equal to T12_10's table (guard 100%, ARC, PEN 0, fist turn)",
+  "strikes_at_1_96_s": "PEN 0 on all three (nb_d2/tables/weapon_table_T12_11_trails_3e32a9fc_knighta485b936_strikes96.json). T12_10 at the same step: the slash 8 points 2.0 cm into the left arm at 0.771 s and 1 at 0.76 s, between the 1/24 s frames the gate samples (weapon_table_T12_10_strafes_eb8a3837_knightfb35d9d0_strikes96.json)",
+  "source_fidelity": "56_clip_fidelity.py: every played clip PASS, attack 0.0001 (nb_d2/tables/clip_fidelity_T12_11_trails_3e32a9fc.json); 21_lint_export WARN, 0 fails",
+  "manifest_lint": "48_manifest_lint.py: 25 clips, 0 mismatches"
+ },
+ "strike_trails": {
+  "design": "knight.gd StrikeTrail: an ImmediateMesh strip behind the weapon's EDGE LINE (two points in a bone's frame, inner then outer), sampled every physics tick through the strike's ACTIVE SWING -- its two ends interpolated to the swing's first and last frame exactly -- Catmull-Rom subdivided x6, thinning toward its tail, faded out over 0.15 s after the swing's last frame (the clip's own time while the strike runs). The look: a wash in pale warm white (0.96, 0.92, 0.84) with dry-brush streaks along the stroke and a soft falloff toward its inner edge and its tail; THE RAMP under the scene's sun (two levels, one soft noise-broken edge, the painting's pale blue-violet (0.78, 0.78, 0.88) on the shade side); THE PEN along its outer rim in the gear's ink (0.055, 0.043, 0.063), about 1.4 px, breaking toward the tail. Unshaded, blended, no depth write, no shadow, no fog.",
+  "edges_and_windows": {
+   "slash (attack)": "weapon_r: the axe's cutting edge, beard to top horn; window 0.5417-0.7083 s (the gate's active swing on the raw clip)",
+   "chop (chop_overhead_92)": "weapon_r: the same edge; window 0.4127-0.5778 s (the gate's)",
+   "bash (shield_bash)": "LeftHand: the shield's rim diameter most ACROSS its travel (130 deg from its first axis; speed-weighted |cos| with the travel 0.20), the end with the longer path outer; window 1.0313-1.1979 s, the shield centre's own active swing (>= 50% of its peak, through the tree at 1/192 s). The gate's bash flag (38.3 px) is the CARRIED axe head; the shield that strikes steps 62 px per 1/24 s frame on its rim"
+  },
+  "coverage": {
+   "what": "the swept path = the edge line at every 1/192 s step of the window, 11 points along it; the trail = the strip as drawn once its stroke is complete (the first tick past the window), its triangles as rendered; both in the 8 play cells (yaw 47 + 45k, pitch 52.95, 77.8 px/m); covered = inside a triangle or within 1 px (3 px beside it). tools/trail_probe.gd at the 60 Hz tick, knight a485b936",
+   "slash": "area 85%-89% (median 86%) at 1 px, 94%-97% (median 96%) at 3 px; the rim (the edge's outer end) 82%-97% at 1 px, 97%-100% at 3 px",
+   "chop": "area 85%-93% (median 88%) at 1 px, 93%-99% (median 96%) at 3 px; the rim (the edge's outer end) 100%-100% at 1 px, 100%-100% at 3 px",
+   "bash": "area 80%-90% (median 83%) at 1 px, 85%-96% (median 90%) at 3 px; the rim (the edge's outer end) 97%-100% at 1 px, 100%-100% at 3 px",
+   "the uncovered part": "the stroke's inner edge draws in toward the rim along its tail (the brush thinning: at the tail it spans the outer 45% of the edge line), and the spline between the 60 Hz samples",
+   "the gap it fills": "the edge's outer point steps per 60 Hz tick: slash 53.3 px, chop 28.0, bash 33.2 (per 1/24 s frame, the gate: 90.6 / 61.8 / 38.3 on the axe head)"
+  },
+  "alpha": {
+   "after the swing": "alpha at +0.05 / +0.10 / +0.15 s after the swing's last frame: slash 0.81 / 0.34 / 0.009 (the tick at +0.142 s; 0 from +0.158 s), chop 0.69 / 0.21 / 0, bash 0.72 / 0.24 / 0; the strip is cleared at +0.15 s",
+   "after the strike frame": "the slash's strike frame (0.583 s) is mid-swing: 0.15 s after it the trail is at 0.93 (the swing runs to 0.708 s) and it is gone 0.28 s after it; the chop's (0.500 s): 0.53 at +0.15 s. The fade starts at the swing's END so the arc is whole before it goes"
+  },
+  "in_the_painted_barrow": {
+   "render order": "the Barrow's post pass paints its pre-transparent screen copy over the whole frame at render priority 120 (paint_stack.gd); a transparent stroke drawn before it is painted out, so the trail draws at 126, as the snowfall does (strike_trail.style.render_priority)",
+   "material swap": "paint_stack.gd adopt_character re-materials every mesh under the knight with the character ramp, from outside knight.gd; the trail re-asserts its own material every tick, or it would draw as an opaque ramp-lit ribbon",
+   "contrast": "measured in the Barrow (the same take with and without the trail, a 500 x 400 px box on him, the fullest frame): over HIM, his kit, rocks and scrub the wash brightens by +0.23 / +0.20 / +0.26 (median luminance; slash / chop / bash). Over the SNOW (luminance 0.89) the pale warm white wash is the snow's own value -- +0.02 on its lit side and -0.07 on its shade side by its colours, under the capture's noise floor (0.11) -- and the stroke reads there only by its ink rim (median -0.15 / -0.20 / -0.14)"
+  },
+  "films": {
+   "dir": "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix",
+   "in the painted Barrow": [
+    "t12_11_barrow_play_{slash,chop,bash}_before_after.mp4 (the real barrow.tscn in a scratch copy of cliffside3d, play camera, 60 fps)",
+    "t12_11_barrow_quarter_{slash,chop,bash}_before_after.mp4 (each 60 Hz game tick held 4 frames)"
+   ],
+   "lab, play camera over his right-side camera": [
+    "t12_11_play_{slash,chop,bash}_before_after.mp4 (60 fps, the game tick)",
+    "t12_11_quarter_{slash,chop,bash}_before_after.mp4 (1/240 s steps; the trail stepped at the game's 60 Hz)"
+   ]
+  }
+ },
+ "slash_recut": {
+  "recut": "attack re-cut on nbt_attack.glb's own 30 fps keys (55_clip_graft: 46 keys, 1.5 s, the source's 0.0333-1.5333); the other 24 clips byte-identical",
+  "file_fidelity": {
+   "instrument": "nb_d2/scripts/62_bake_fidelity.py on Godot's own baked keys (attack_lab/t12/godot/tools/bake_probe.gd, both import paths): the worst angle between the file's curve and the curve Godot plays, per rotation track",
+   "before (T12_10, 24 fps keys)": "runtime 8.914 deg, editor import 8.914 deg (RightHand; the 30 fps bake re-samples the 24 fps keys) -- the JOIN lane's 8.9",
+   "after (T12_11, 30 fps keys)": "runtime 0.000 deg (key for key); EDITOR import 4.17 deg (RightForeArm at 0.667 s, the swing's peak) -- not re-sampling: the editor importer's animation optimizer (on by default; the body's .import has _subresources {}) drops that key. The same settings in cliffside3d",
+   "against the source curve": "before up to 15.4 deg between its keys (RightHand, hips-relative, 0.700 s); after 0.00 deg. 56_clip_fidelity (joint positions at the keys): 0.0002 before, 0.0001 after"
+  },
+  "weapon_channel": "the T12_10 attack carried T12_7's edge-leading weapon_r track, fitted to the D2 slash; the re-cut came without one (EDGE +0.62 / +0.48, FAIL). Re-solved on the re-cut (weapon_channel_solve.gd STRIKES): EDGE +1.00 / +0.97 -- but its speed-weighted guard/lead blend flipped key to key on the source's uneven wind-up (22, 19, 16, 22, 32, 33, 25, 11, 38% of peak speed over 0.20-0.50 s): the axe spun in the fist by up to 88 deg between two keys and its butt entered the heel of his hand (2.5-2.9 cm at 0.33 and 0.48 s). Reshaped (61_strike_ramp.py): rigid in the fist to 0.167 s, one eased 93.6 deg turn to the swing's edge-leading roll by 0.533 s (largest key step 12.7 deg), the solve from there",
+  "release": {
+   "at_s": "0.708333 = the re-cut's swing end (17/24; the gate's raw swing 0.5417-0.7083) -- was 0.75, the D2 slash's",
+   "strike_frame": "0.5833 s (was 0.625): time to impact 0.58 s",
+   "follow-through": "the source's follow-through drives the axe into his head and left shoulder 11 ms after the swing's last frame (1/96 s step, no release: 0.719 s 28 points; 0.740 s 226 points at 0.146 m; 0.802 s 933 points at 0.170 m)",
+   "the running-clip release fails": "at 0.708 over 0.08 s: 228 points 0.076 m inside his head at 0.75 s (1/24 s); at 1/96 s, every step 0.719-0.75 s. A release BEFORE the swing ends (0.667) clears it but changes the swing",
+   "held": "from_swing_end: the arm held at its swing-end pose, eased to the guard over 0.08 s inside the release clip: PEN 0 at 1/24 and 1/96 s (eases 0.08, 0.12, 0.16, 0.24 s all 0); the swing through the tree against the raw clip 0.0000 m / 0.00 deg"
+  },
+  "gate_before_after": {
+   "EDGE": "+1.00 at the strike / +0.97 over the swing -> +1.00 / +0.99",
+   "PEN": "0 -> 0 at 1/24 s; at 1/96 s 8 points 2.0 cm -> 0",
+   "TTI": "0.63 -> 0.58 s",
+   "READ (swing arc)": "174-252 -> 175-264 px",
+   "peak step (1/24 s)": "80.3 -> 90.6 px: the source's own peak speed, which the 24 fps resample had cut"
+  }
+ },
+ "recovery_release_finding": "outside the scope, measured: each strike's recovery release (0.08 s) moves the axe FASTER than its swing, and no trail covers it. Per 60 Hz tick at the edge's outer point: the slash's swing peaks at 53.3 px (41.3 m/s), its release at 63.1 px (48.7 m/s); the chop 28.0 px (22.0 m/s) and 40.2 px (31.1 m/s). A longer ease would slow it (the slash's held release is PEN 0 at 0.12, 0.16 and 0.24 s); the chop's running-clip release would need its own penetration sweep",
+ "shield_carry_L_declared": {
+  "change": "knight.gd's shield arm layer filter (both sites: the tree build and _apply_clip_set) = the paths, from every clip, of the spec's four bones; was the layer action's own tracks",
+  "import": "the RUNTIME import drops shield_carry_L's LeftShoulder and LeftHand tracks (rest-valued: 4 rotation tracks, LeftArm and LeftForeArm only on the arm); the EDITOR import keeps all 25 and all four arm bones (bake_probe.gd)",
+  "nothing visible changes under the editor import": "attack_lab/t12/godot/tools/arm_filter_probe.gd, T12_10's knight against the patched one, the same character and body: the filter is the same four paths in both, with shield_guard_L running AND with shield_carry_L forced; the left arm through idle, walk, run and block (480 frames at 1/60 s) differs by at most 0.055 deg -- exactly what two instances of the unchanged T12_10 knight differ by. The running scene uses shield_guard_L (arm_layer_armed); shield_carry_L is retired"
+ },
+ "footlock_rule": {
+  "rule": "57_footlock.py moved to the scene's rule (so_d7/scripts/s18_footlock_contact.py): the stance side = the lower toe within 3 cm of its lowest; that side's foot joint; backward along the travel; median, sides pooled; at the scene's 60 Hz tick (speed_m_s), the clip's keys beside it. Reproduces s18 on her body: walk 1.5033 / 1.5079, run 4.6139 / 4.6040 (60 Hz / keys)",
+  "why_60_hz": "measured IN THE SCENE with the same rule at 60 Hz (tools/strafe_probe.gd): his strafes' stance feet move at 0.700 / 0.285 m/s; the 60 Hz estimate reads 0.6976 / 0.2896 (0.3% / 1.6% off), the keys 0.6925 / 0.2960 (1.1% / 3.9%). The D2 lane states hers at the keys (under 0.7% apart for her clips)",
+  "manifest_speeds_m_s": {
+   "run_armed": "s6 3.2749 -> the scene rule 3.5451 (keys 3.4738): +8.3%",
+   "strafe_L_armed": "s6 0.7237 -> 0.6976 (keys 0.6925): -3.6%",
+   "strafe_R_armed": "s6 0.3100 -> 0.2896 (keys 0.2960): -6.6%"
+  },
+  "character_clip_px_s_fallback": "run_armed 412.5 -> 446.5, strafe_L_armed 91.2 -> 87.9, strafe_R_armed 39.0 -> 36.5 (m/s x PPM x the reference scale 1.25178)",
+  "in_scene_60_hz": {
+   "strafe_L": "driven 0.724 -> 0.698 m/s; the stance feet 0.700 by the scene rule: pinned 96.7% -> 100.3%; support slide median 5.6 -> 5.5 mm per tick",
+   "strafe_R": "asked 0.310 -> 0.290 m/s (across the screen; the probe's body runs 1.25x that by the canvas design, as T12_10 noted); the stance feet 0.285: pinned 91.9% -> 98.3%",
+   "note": "T12_10's in-scene 101% used the same s6 rule in the scene, so it confirmed only that the scene plays the clip as the file does, not the rule"
+  },
+  "run_armed_is_not_only_a_record": "knight.gd's armed walk/run blend weight solves against run_armed's speed (the top of the armed gait span) through the walk->run crossover: 3.2749 -> 3.5451 moves the armed crossover's median planted slide 25.0 -> 25.7 mm (p95 45.9 and max 102.7 unchanged); steady armed walk 4.6/38.7 and run 22.6/32.9 mm unchanged; speed ratio armed/unarmed 1.000/1.000 (speed_split.gd; isolated: the T12_11 knight on T12_10's manifest reads 25.0)",
+  "not_changed": {
+   "walk, run (unarmed)": "the scene constants 1.601 / 5.141 m/s (walk_px_s, run_px_s: not 57's) against the scene rule 1.5868 / 5.2558 at 60 Hz: +0.9% / -2.2% (T12_9 checked them against s6's toe variant: 0.6% / 1.1%). The integration drax measured his run at 5.229 in the scene",
+   "walk_armed": "not driven (manifest speed null); its stance foot moves at 0.7588 m/s by the scene rule = 95.6 px/s at the reference scale, against the 115.1 fallback that bounds the armed gait span",
+   "the seam blends": "58_loop_blend.py's objective moved to the same rule (LOOP_BLEND_RULE=s6 reproduces T12_10 exactly); re-searched on T12_10's ranges, T12_10's windows rank 3rd of 4244 (strafe_L, 0.18 mm behind), 2nd of 9990 (strafe_R, 0.01 mm) and 4th of 4 (run_armed, 3.26 mm behind a 10-interval blend; the scene does not play its legs): kept (nb_d2/tables/loop_blend_recheck_T12_11_scene_rule.json)"
+  }
+ },
+ "tools": {
+  "attack_lab/tools": [
+   "arm_layer_declared_patch.py (new)",
+   "strike_trail_patch.py (new)",
+   "strike_hold_release_patch.py (new)"
+  ],
+  "attack_lab/t12/godot/tools": [
+   "trail_probe.gd (new)",
+   "arm_filter_probe.gd (new)",
+   "bake_probe.gd (new)",
+   "film_trails_scene.gd (new; runs inside a cliffside3d project)",
+   "guard_accept.gd (ACCEPT_STRIKE_FPS)",
+   "guard_film.gd (FILM_FPS, FILM_SPEED; the trail at the game tick)",
+   "strafe_probe.gd (PROBE_HZ; the scene rule beside s6)"
+  ],
+  "nb_d2/scripts": [
+   "57_footlock.py (the scene rule)",
+   "58_loop_blend.py (its objective on the scene rule)",
+   "61_strike_ramp.py (new)",
+   "62_bake_fidelity.py (new)"
+  ],
+  "nb_d2/work/clip_sources.json": "attack: 55_clip_graft on its source, its edits, weapon_r, was; the three blends: the scene-rule recheck"
+ }
+}
