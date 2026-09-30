@@ -35,7 +35,7 @@ const only = process.argv[4] || 'both';
   if (only !== 'look') {
     const { browser, page, logs } = await launch();
     const t0 = Date.now();
-    await page.goto(base + 'index.html?meteor=perf', { waitUntil: 'load', timeout: 300000 });
+    await page.goto(base + 'index.html?meteor=b&harness=perf', { waitUntil: 'load', timeout: 300000 });
     let line = null;
     for (let i = 0; i < 900 && !line; i++) {
       line = logs.find((l) => l.includes('[meteor_perf] '));
@@ -61,7 +61,7 @@ const only = process.argv[4] || 'both';
   // closed"); each shot is now caught, and the console is written whatever happens.
   if (only !== 'perf') {
     const { browser, page, logs } = await launch();
-    await page.goto(base + 'index.html?meteor=film&slow=1', { waitUntil: 'load', timeout: 300000 });
+    await page.goto(base + 'index.html?meteor=b&harness=film&slow=1', { waitUntil: 'load', timeout: 300000 });
     let trim = null;
     for (let i = 0; i < 2400 && !trim; i++) {
       // (by the key, not the line's start: the JSON's key order put "lit_at_target" first, the first look

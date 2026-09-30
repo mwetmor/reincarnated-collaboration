@@ -116,6 +116,7 @@ var paint_sun: DirectionalLight3D
 ## phone page; -- --c sorceress on the desktop). The blockout keeps him.
 var who := "barbarian"
 var spell_fx: Node3D
+var meteor_fx: Node3D               # LANE B: her Meteor, 3D first (?meteor=b; scripts/meteor_fx.gd)
 var snow: SnowField
 var snowfall: GPUParticles3D
 var heather_mat: ShaderMaterial
@@ -181,6 +182,10 @@ func _ready() -> void:
 	clamp_on = bool(layout.get("camera_clamp_default", false))
 	report["build_ms"] = {"total": Time.get_ticks_msec() - t0, "generated_textures": t_tex,
 						  "world": t_b}
+	if MeteorFx.wanted(self):
+		# LANE B METEOR (her page, ?meteor=b): built once here, warmed over the next frames, then it prints
+		# "[meteor_b] armed". Without ?meteor=b nothing of it exists and nothing above has changed.
+		meteor_fx = MeteorFx.attach(self)
 	ready_done = true
 	# ONE LINE ON STDOUT: the exported app's launch probe greps for it. The pck fence proves the
 	# FILES shipped; only the running scene can say it built from them.

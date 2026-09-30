@@ -1,0 +1,50 @@
+{
+ "_what": "LANE B METEOR: lane A's painted primitives as GROUND PLATES, worn by the painted surfaces' ground terms (PaintedWorld.with_fx). ONE RGBA PNG (named .bin: never imported, shipped as is): R = the ring's value index, G = its alpha; B = the burning ground's value index, A = its alpha. Each is its painting's content, square-cropped round its anchor (the ring: its box's centre; the burning ground: its dark puddle's centre, so its flames rise above the target) and resized to 512 px. The value planes map to the kit palette in the shader: < 0.25 rim, < 0.55 outer, < 0.87 mid, else core.",
+ "plates": {
+  "file": "plates.bin",
+  "sha256": "db94900a5acb1300b61738c045b891ddd9c2df69673863873dbc62b2147d5bc3",
+  "px": [
+   512,
+   512
+  ],
+  "bytes": 95171
+ },
+ "ring": {
+  "source": "C-9/artifacts/VF-met-ring-01/met_ring_01.png",
+  "source_px": [
+   1254,
+   1254
+  ],
+  "crop_box_px": [
+   130,
+   119,
+   1134,
+   1123
+  ],
+  "anchor": "bbox",
+  "content_half_w_uv": 0.4811,
+  "content_top_uv": 0.249,
+  "content_bottom_uv": 0.751,
+  "source_sha256": "dfc68fcbd48aa07c6a25fe8f8609e16af7cd0ddfc8f431e5597423430870b7e8",
+  "channels": "RG"
+ },
+ "pool": {
+  "source": "C-5/artifacts/VF-prim-fire-pool-01/fire_pool_01.png",
+  "source_px": [
+   1254,
+   1254
+  ],
+  "crop_box_px": [
+   99,
+   156,
+   1175,
+   1232
+  ],
+  "anchor": "puddle",
+  "content_half_w_uv": 0.4805,
+  "content_top_uv": 0.2612,
+  "content_bottom_uv": 0.6849,
+  "source_sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe",
+  "channels": "BA"
+ }
+}

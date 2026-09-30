@@ -14,5 +14,6 @@ godot/data/painted_web/bakes/
 web/
 work/
 # the films stay on disk (runs/C-9/vfx_meteor_3d/artifacts/), out of git, as the painted Barrow's did
-artifacts/*.mp4
-artifacts/*.avi
+artifacts/**/*.mp4
+artifacts/**/*.avi
+pagecheck/

@@ -5,7 +5,7 @@ extends Node3D
 ## knight.gd has no release event (so_d7/scene_pkg/README.md, "what knight.gd lacks", item 3), so
 ## this watches the strike from outside: the frame a strike starts (attacking() rising, and which
 ## one from _strike_anim), the clip's own release time from her slot (casts.<clip>.release_s:
-## Fire Ball 0.9167 s, Meteor 1.625 s), and the socket from sockets_sorceress.json (the bone's
+## Fire Ball 0.9333 s, Meteor 1.6333 s since her v2 package), and the socket from sockets_sorceress.json (the bone's
 ## world origin + its +Y x along_bone_m x the live figure scale). The animation runs on the physics
 ## tick (knight.gd), so the clock here does too.
 ##   FIRE BALL (SLASH): an ember orb leaves her LEFT palm along her facing, 9 m/s for 0.9 s, with

@@ -22,7 +22,7 @@ GATE=${DISK_GATE_GIB:-20}
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 [ "$FREE" -ge "$GATE" ] || { echo "HALT: under $GATE GiB free" >&2; exit 9; }
 mkdir -p "$DEST" "$OUTW" "$LOG"
-rsync -a --delete --exclude '.godot/' --exclude 'data/painted/' "$SRC"/ "$DEST"/
+rsync -a --delete --exclude '.godot/' --exclude 'build/' --exclude 'data/painted/' "$SRC"/ "$DEST"/
 python3 - "$DEST" <<'PY'
 import pathlib, re, sys
 from PIL import Image
@@ -67,7 +67,7 @@ dedicated_server=false
 custom_features=""
 export_filter="resources"
 export_files=PackedStringArray($FILES)
-include_filter="data/barrow_full_layout.json,data/character.json,data/gear_manifest.json,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
+include_filter="data/barrow_full_layout.json,data/character.json,data/gear_manifest.json,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin,data/meteor/*.bin,data/meteor/*.json"
 exclude_filter=""
 export_path="$OUTW/index.html"
 patches=PackedStringArray()
@@ -110,7 +110,7 @@ grep -q "GODOT_THREADS_ENABLED = false" "$OUTW/index.html" && echo "   ok   thre
 ls -l "$OUTW" | awk 'NR>1 {printf "   %12d  %s\n", $5, $9}'
 # THE LAUNCH FENCE: the exported pck under the web's renderer, the web branches on
 python3 "$HEAVY_LOCK" C-9 -- python3 "$HERE/tmo.py" 240 -- "$GODOT" --main-pack "$OUTW/index.pck" --rendering-method gl_compatibility \
-  --rendering-driver opengl3_angle --resolution 640x360 --quit-after 900 -- --as-web > "$LOG/launch.log" 2>&1 || true
+  --rendering-driver opengl3_angle --resolution 640x360 --quit-after 900 -- --as-web --meteor b > "$LOG/launch.log" 2>&1 || true
 grep -a -E "^\[barrow_painted\] web:|^\[meteor_b\]" "$LOG/launch.log" | cut -c1-400
 if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch.log"; then
   echo "   FAIL launch log has script/shader errors" >&2; grep -a -E -A3 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch.log" | head -30 >&2

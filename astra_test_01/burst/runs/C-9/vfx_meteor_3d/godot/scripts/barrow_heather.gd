@@ -279,7 +279,9 @@ uniform float gust_scale = 0.06;
 uniform sampler2D gust_noise : hint_default_white, filter_linear_mipmap, repeat_enable;
 // push-aside: the SnowField's trail map
 uniform float push_on = 1.0;
-uniform sampler2D trail_tex : filter_linear, repeat_disable;
+uniform sampler2DArray trail_tex : filter_linear, repeat_disable;   // SnowField's trail map, in tiles
+uniform float trail_tiles_n = 1.0;
+uniform float trail_tile_px = 1024.0;
 uniform vec2 trail_min = vec2(0.0);
 uniform vec2 trail_size = vec2(1.0);
 uniform float trail_refill_s = 60.0;
@@ -298,7 +300,11 @@ varying float v_rnd;
 
 const _SHADER_FUNCS := """
 float _press(vec2 uv) {
-	vec4 t = textureLod(trail_tex, uv, 0.0);
+	// the tile under uv, sampled inside its apron (SnowField.SHADER's trail_at, at lod 0)
+	vec2 g = clamp(uv, vec2(0.0), vec2(1.0)) * trail_tiles_n;
+	vec2 tile = min(floor(g), vec2(trail_tiles_n - 1.0));
+	vec2 tuv = (1.0 + (g - tile) * trail_tile_px) / (trail_tile_px + 2.0);
+	vec4 t = textureLod(trail_tex, vec3(tuv, tile.y * trail_tiles_n + tile.x), 0.0);
 	float fade = clamp(1.0 - (wind_time - t.g) / max(trail_refill_s, 1e-3), 0.0, 1.0);
 	return clamp(t.r * fade, 0.0, 1.0);
 }
@@ -446,6 +452,9 @@ static func bind_snow(m: ShaderMaterial, snow: SnowField, wind: Vector2) -> void
 		m.set_shader_parameter("push_on", 0.0)
 		return
 	m.set_shader_parameter("trail_tex", snow.trail_texture())
+	var tiles: Vector2 = snow.trail_tiles()
+	m.set_shader_parameter("trail_tiles_n", tiles.x)
+	m.set_shader_parameter("trail_tile_px", tiles.y)
 	m.set_shader_parameter("trail_min", snow.area.position)
 	m.set_shader_parameter("trail_size", snow.area.size)
 	m.set_shader_parameter("trail_refill_s", snow.trail_refill_s)

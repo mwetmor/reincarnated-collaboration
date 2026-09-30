@@ -1,0 +1,91 @@
+{
+ "_what": "IDLE A/B, the Meteor NEVER cast: the PAGE scene (barrow_painted.tscn, her) with barrow_full's own --frame-cost instrument (she walks a loop, vsync off, 600 frames), windowed 1920x1080, alternated a b a b a b. a = no ?meteor=b (HEAD's page); b = ?meteor=b (MeteorFx attached, warmed, idle: HEAD's shaders by the swap design).",
+ "runs": {
+  "compat": {
+   "a": [
+    {
+     "run": 1,
+     "ms_per_frame": 13.28,
+     "meteor_armed": false
+    },
+    {
+     "run": 2,
+     "ms_per_frame": 13.17,
+     "meteor_armed": false
+    },
+    {
+     "run": 3,
+     "ms_per_frame": 13.25,
+     "meteor_armed": false
+    }
+   ],
+   "b": [
+    {
+     "run": 1,
+     "ms_per_frame": 13.23,
+     "meteor_armed": true
+    },
+    {
+     "run": 2,
+     "ms_per_frame": 13.29,
+     "meteor_armed": true
+    },
+    {
+     "run": 3,
+     "ms_per_frame": 13.09,
+     "meteor_armed": true
+    }
+   ]
+  },
+  "fplus": {
+   "a": [
+    {
+     "run": 1,
+     "ms_per_frame": 14.31,
+     "meteor_armed": false
+    },
+    {
+     "run": 2,
+     "ms_per_frame": 13.53,
+     "meteor_armed": false
+    },
+    {
+     "run": 3,
+     "ms_per_frame": 13.26,
+     "meteor_armed": false
+    }
+   ],
+   "b": [
+    {
+     "run": 1,
+     "ms_per_frame": 14.1,
+     "meteor_armed": true
+    },
+    {
+     "run": 2,
+     "ms_per_frame": 13.35,
+     "meteor_armed": true
+    },
+    {
+     "run": 3,
+     "ms_per_frame": 13.29,
+     "meteor_armed": true
+    }
+   ]
+  }
+ },
+ "compat_mean_ms": {
+  "a_no_meteor": 13.233,
+  "b_meteor_idle": 13.203,
+  "b_minus_a": -0.03
+ },
+ "fplus_mean_ms": {
+  "a_no_meteor": 13.7,
+  "b_meteor_idle": 13.58,
+  "b_minus_a": -0.12
+ },
+ "superseded_design": {
+  "_": "the first integration build compiled the ground terms into every painted shader (branch off when idle): Forward+ a 13.85/13.48/13.40 vs b 15.35/15.11/14.93 ms, +1.55 ms -- hence the swap",
+  "fplus_b_minus_a": 1.553
+ }
+}

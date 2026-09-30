@@ -1,0 +1,50 @@
+{
+ "_what": "the PAGE (HEAD + the patch) in Chrome at 844x390 @3x (ANGLE Metal, M2; 60 Hz this session), barrow_full's own web_painted_test.js (fps sampled every 2 s by the page, ?fps=1), a = ?c=sorceress, b = ?c=sorceress&meteor=b; alternated a b a b. Standing and walking never cast; the striking phase taps CHOP (in b: the Meteor). NOT a real phone.",
+ "runs": {
+  "a1": {
+   "fps_mean_by_phase": {
+    "standing": 57.8,
+    "walking": 55,
+    "striking": 53.1,
+    "after": 60
+   },
+   "built_ms": 15260,
+   "errors": 0,
+   "webgl": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+  },
+  "a2": {
+   "fps_mean_by_phase": {
+    "standing": 58,
+    "walking": 55,
+    "striking": 53,
+    "after": 60
+   },
+   "built_ms": 14879,
+   "errors": 0,
+   "webgl": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+  },
+  "b1": {
+   "fps_mean_by_phase": {
+    "standing": 55.8,
+    "walking": 55,
+    "striking": 56.7,
+    "after": 36
+   },
+   "built_ms": 14893,
+   "errors": 0,
+   "webgl": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+  },
+  "b2": {
+   "fps_mean_by_phase": {
+    "standing": 55.3,
+    "walking": 54.8,
+    "striking": 56.3,
+    "after": 60
+   },
+   "built_ms": 14960,
+   "errors": 0,
+   "webgl": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+  }
+ },
+ "note": "walking (never cast) identical a 55.0/55.0 vs b 55.0/54.8; standing (the first 12 s after build, where b's warm-up compiles land) a 57.8/58.0 vs b 55.8/55.3; build time equal"
+}

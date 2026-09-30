@@ -1,37 +1,35 @@
 extends Node3D
 class_name MeteorFx
-## C-9 VFX BAKE-OFF, LANE B -- HER METEOR, BUILT 3D FIRST. drax.
+## C-9 -- HER METEOR, BUILT 3D FIRST (the VFX bake-off's lane B, vfx_meteor_3d; accepted). drax.
 ##
-## The same spec as lane A (painted primitives -> kit -> baked flipbooks), delivered the other way:
-## real geometry in the real scene, under the painted Barrow's rules (N-C9-PAINTED-LIGHT-RULING):
-## the effect is a DYNAMIC thing -- drawn with the pen, its light on him and her, its shadow on the
-## painting in the painter's shadow colour.
+## ON HER PAINTED PAGE BEHIND ?meteor=b (desktop: -- --c sorceress --meteor b). barrow_full asks wanted()
+## before it builds anything -- so the painted surfaces carry the ground terms (PaintedWorld.with_fx) and
+## the characters' ramp the fire (PaintStack.with_char_fire) -- and calls attach() once the scene is built.
+## Without ?meteor=b none of this exists and the page is exactly as before.
 ##
-##   CALL   at her release (clip 1.625 s): a flare of flame tongues at her staff crown (its light on
-##          her), and the target ring on the ground AHEAD m in front of her.
-##   FALL   FALL_S: a burning rock in a fire corona with a torn trail comes down OUT OF THE SUN --
-##          along the Barrow's own sun ray onto the target -- so its shadow stays pinned on the
-##          ring and GROWS AND SHARPENS as it lands (an area-light shadow: PaintedWorld.fx_occlusion),
-##          while the rock closes on it. At this orthographic camera a fall and a slide toward the
-##          camera are the same screen motion; the shadow meeting the rock is what says "height".
+##   CALL   at her release (casts.cast_meteor.release_s in her package): a flare of flame tongues at her
+##          staff crown, its light on her, and lane A's PAINTED target ring on the ground AHEAD m ahead.
+##   FALL   FALL_S: a burning rock in a corona with a torn trail comes down OUT OF THE SUN -- along the
+##          Barrow's own sun ray onto the target -- so its shadow stays pinned on the ring and GROWS AND
+##          SHARPENS as it lands (an area-light shadow: PaintedWorld's fx_occlusion) while the rock closes
+##          on it. At this orthographic camera a fall and a slide toward the camera are the same screen
+##          motion; the shadow meeting the rock, and the warm pool tightening under it, say "height".
 ##   IMPACT a flash, a crown of hooked flame tongues squashing into the ground and rising, torn flame
-##          scraps flung out, the fire's light spiking on him and her and on the painted snow, and a
-##          small camera shake (MeteorFx.shake_px, applied by the scene).
-##   BURN   BURN_S: the crown settles into a small fire and dies; the scorch's cracks cool and fade.
+##          scraps flung out, the fire's light spiking on him and her and on the painted snow, a 7 px shake.
+##   BURN   BURN_S: lane A's PAINTED burning ground carries it, burning down plane by plane from its outer
+##          planes in; the 3D crown dies within the first second.
 ##
-## THE LOOK: the value-index fire vocabulary -- four flat planes, hard edges -- as a STEPPED shader on
-## 3D flame geometry: the plane index is the surface's facing to the camera (the core faces you, the
-## rim is the silhouette) broken by a noise that flows along each tongue, cut into the kit palette
-## [0.25,0.08,0.04] [0.7,0.16,0.08] [1,0.55,0.12] [1,0.94,0.75]. The erosion is a hard cut, never a
-## fade. No sparks, no smoke: torn scraps. The pen draws the silhouettes (opaque geometry, world mark).
+## THE LOOK: rock, trail and burst are the value-index vocabulary as a STEPPED four-plane shader on 3D
+## geometry (the plane index is the surface's facing, broken by a noise flowing along each tongue, cut into
+## the kit palette); the two ground marks are lane A's paintings, worn through the fixed camera as the Barrow
+## wears its own. The pen draws the 3D silhouettes. No sparks, no smoke: torn scraps.
 ##
-## PERFORMANCE (R-C9-89's budget): everything is built ONCE at setup -- meshes generated, shaders
-## compiled, materials made -- and pooled (POOL instances, reused round-robin); warm_up() draws every
-## material once at load, invisible (warm = 1 discards every fragment), with the fire light on the
-## characters, so no pipeline or light variant is first met at cast time. Nothing is instantiated,
-## freed or load()ed at cast. The ground terms ride the painted surfaces' own draw calls (global
-## uniforms); the fire light has no shadow; nothing here casts a shadow. At the impact's peak the
-## effect adds 4 meshes (burst, flash, scraps; the comet's last frame).
+## PERFORMANCE (R-C9-89): everything is built ONCE at attach and pooled (POOL instances, round-robin);
+## every material is drawn once at load, invisible (warm = 1 discards every fragment). Nothing is
+## instantiated, freed or loaded at cast. The ground terms and the fire's light on the characters are
+## GLOBAL UNIFORMS read by shaders that already draw: no light node, no light list, no variant to meet at
+## cast time, no shadow. At the impact's peak the effect adds 3-4 meshes (burst, flash, scraps, the comet's
+## last frame).
 
 const PAL := [Color(0.25, 0.08, 0.04), Color(0.70, 0.16, 0.08), Color(1.0, 0.55, 0.12), Color(1.0, 0.94, 0.75)]
 const FX_LAYER := 1 << 12            # the effect's own layer: no light, no shadow map touches it
@@ -50,6 +48,11 @@ const RING_R := 1.05
 const BURN_R := 1.25
 const SCRAPS := 28
 const CROWN_SOCKET := "main_tip"     # the conductor: the call is at her staff crown
+const PLATES_DIR := "res://data/meteor/"
+const RING_HALF_W_M := 1.1           # lane A's painted ring, laid on the ground this wide either side
+const POOL_HALF_W_M := 1.3           # its painted burning ground
+const FIRE_COL := Color(1.0, 0.62, 0.30)   # the fire's light (sRGB); its range per phase below
+const PPM := 100.617553710938
 
 const FIRE_COMMON := """
 uniform vec3 pal0 : source_color = vec3(0.25, 0.08, 0.04);
@@ -212,39 +215,201 @@ void fragment() {
 }
 """
 
+var scene                              # barrow_full
 var her                                # her knight.gd node
+var cam: Camera3D
 var sockets := {}
 var sun: DirectionalLight3D
 var noise: Texture2D
-var ground_y := Callable()             # (Vector3) -> the walked surface's height there
-var light: OmniLight3D
-var light_mask := 4                    # the characters' layer (knight.gd CHAR_LAYER)
+var style := "plates"                  # "plates" (lane A's painted ring and burning ground) or "procedural"
+var plates: ImageTexture
+var plates_rep := {}
+var _ring_half_uv := 0.48              # the plates' content half-widths (data/meteor/manifest.json)
+var _pool_half_uv := 0.48
 var pool: Array = []
 var _next := 0
 var _owner := -1                       # the pool slot the ground terms follow
 var _clock := 0.0
-var shake_px := Vector2.ZERO           # the scene adds this to the camera (screen px)
+var shake_px := Vector2.ZERO           # applied to the camera's offsets (h_offset / v_offset), never its transform
 var _shake_t := -1.0
-var enabled := true                    # false: casts are ignored (the perf harness's control run)
+var enabled := true                    # false: casts are ignored (a measurement's control run)
 var report := {"casts": [], "impacts": []}
 var last_update_us := 0                # this node's own CPU time in its last _process
 var warmed := false
 var _shaders := {}
 var _to_sun := Vector3.UP
 var _globals_on := false
-# THE FIRE LIGHT ON COMPATIBILITY: the unshadowed fire light is summed in the base pass and the
-# shadowed sun in its additive pass, each sRGB-encoded BEFORE the two are added (PaintStack's
-# ambient_in_light note: the same trap) -- so the same energy lit her far hotter on the web (the first
-# phone-size look: her robe washed orange-white at the call). Scaled here on Compatibility only.
-var light_gain := 1.0
+var _fx_on_value := 2.0
+# THE SWAP: every painted surface's and every character's material, with its own shader and the Meteor's
+# variant of it (PaintedWorld.with_fx / PaintStack.with_char_fire), made at load; the variant is IN only
+# while a Meteor is alive. Idle, the page draws exactly the shaders it draws without ?meteor=b -- a shader
+# carrying the terms cost ~1.5 ms a frame on the desktop with its branch never taken (lane B's first A/B).
+var _swaps: Array = []                 # [{mat, plain, fx, kind}]
+var _fx_cache := {}                    # plain Shader -> its variant
+var _fx_live := false
+var swap_report := {}
 
 
-func setup(knight, sockets_json: Dictionary, sun_light: DirectionalLight3D, fbm: Texture2D, surface: Callable) -> void:
-	her = knight
-	sockets = sockets_json
-	sun = sun_light
-	noise = fbm
-	ground_y = surface
+static func wanted(sc) -> bool:
+	"""HER PAINTED PAGE WITH ?meteor=b (desktop: -- --meteor b). barrow_full asks before it builds anything."""
+	if not bool(sc.painted) or String(sc._character_choice()) != "sorceress":
+		return false
+	var q := PaintStack.web_query("meteor")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--meteor")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	return q.to_lower() == "b"
+
+
+static func attach(sc) -> Node3D:
+	"""Build the Meteor into the scene (once, at load), then warm and arm it over the next frames."""
+	var fx = load("res://scripts/meteor_fx.gd").new()
+	fx.name = "MeteorFx"
+	sc.add_child(fx)
+	fx._attach(sc)
+	return fx
+
+
+func _attach(sc) -> void:
+	scene = sc
+	her = sc.knight
+	cam = sc.cam
+	sun = sc.sun
+	noise = sc.fbm
+	process_priority = 10              # after the scene has aimed its camera: the shake is on top
+	var st := PaintStack.web_query("meteor_style")
+	var args := OS.get_cmdline_user_args()
+	var ai := args.find("--meteor-style")
+	if st == "" and ai >= 0 and ai + 1 < args.size():
+		st = String(args[ai + 1])
+	style = "procedural" if st == "procedural" else "plates"
+	_fx_on_value = 2.0 if style == "plates" else 1.0
+	sockets = sc._read_json("res://data/sockets_sorceress.json")
+	# HER RELEASE, from her package (spell_fx's source): the chop slot's cast
+	var casts: Dictionary = her.cfg.get("casts", {})
+	for clip in casts:
+		if not String(clip).begins_with("_") and typeof(casts[clip]) == TYPE_DICTIONARY and String(casts[clip].get("slot", "")) == "chop":
+			release_s = float(casts[clip]["release_s"])
+			report["release"] = {"clip": String(clip), "release_s": release_s}
+	# THE PLACEHOLDER METEOR OFF (spell_fx keeps the Fire Ball)
+	var placeholder := "absent"
+	var fire_ball := "absent"
+	if sc.spell_fx != null and "casts_by_slot" in sc.spell_fx:
+		if sc.spell_fx.casts_by_slot.has("chop"):
+			sc.spell_fx.casts_by_slot.erase("chop")
+			placeholder = "off"
+		fire_ball = "kept" if sc.spell_fx.casts_by_slot.has("attack") else "absent"
+	report["placeholder_meteor"] = placeholder
+	report["fire_ball"] = fire_ball
+	# NO SCENE LIGHT REACHES THE EFFECT'S LAYER (unshaded; on Compatibility a lit layer would also pay for
+	# the shadowed suns' additive passes)
+	sun.light_cull_mask &= ~FX_LAYER
+	if sc.paint_sun != null:
+		sc.paint_sun.light_cull_mask &= ~FX_LAYER
+	_setup()
+	_load_plates()
+	collect_materials()
+	var lab = sc.get_node_or_null(^"FxLabel")
+	if lab != null:
+		for c in lab.get_children():
+			if c is Label:
+				(c as Label).text = "METEOR: 3D (LANE B)  ·  FIRE BALL: PLACEHOLDER"
+	_arm()
+
+
+func _load_plates() -> void:
+	"""Lane A's two painted plates, off their raw bytes (a PNG named .bin: never imported), sha-checked
+	against data/meteor/manifest.json, onto every material built with the ground terms."""
+	var mpath := PLATES_DIR + "manifest.json"
+	var man = JSON.parse_string(FileAccess.get_file_as_string(mpath)) if FileAccess.file_exists(mpath) else null
+	if typeof(man) != TYPE_DICTIONARY:
+		plates_rep = {"error": "no manifest"}
+		return
+	_ring_half_uv = float(man["ring"]["content_half_w_uv"])
+	_pool_half_uv = float(man["pool"]["content_half_w_uv"])
+	var path := PLATES_DIR + String(man["plates"]["file"])
+	var r := {"path": path}
+	if FileAccess.file_exists(path):
+		var bytes := FileAccess.get_file_as_bytes(path)
+		var ctx := HashingContext.new()
+		ctx.start(HashingContext.HASH_SHA256)
+		ctx.update(bytes)
+		r["sha256_ok"] = ctx.finish().hex_encode() == String(man["plates"]["sha256"])
+		var img := Image.new()
+		if img.load_png_from_buffer(bytes) == OK:
+			img.generate_mipmaps()
+			plates = ImageTexture.create_from_image(img)
+			r["px"] = [img.get_width(), img.get_height()]
+		else:
+			r["error"] = "decode"
+	else:
+		r["error"] = "missing"
+	plates_rep = r
+
+
+func collect_materials() -> void:
+	"""Every painted surface's and every character's ramp material under the scene, each with its Meteor
+	variant (one per distinct shader, derived from the LIVE code). Call again after adding a character."""
+	var n := {"painted": 0, "snow": 0, "heather": 0, "char": 0, "shaders": 0}
+	var seen := {}
+	for e in _swaps:
+		seen[e["mat"]] = true
+	for pair in PaintStack._materials_under(scene):
+		var sm := pair[1] as ShaderMaterial
+		if sm == null or sm.shader == null or seen.has(sm):
+			continue
+		var code: String = sm.shader.code
+		var kind := ""
+		if code.contains("uniform float his_shadow_on"):
+			if code.contains("uniform float trail_relief_only"):
+				kind = "snow"
+			elif code.contains("uniform float painted_mark"):
+				kind = "painted"
+			elif code.contains("uniform bool id_white"):
+				kind = "heather"
+		elif code.contains("uniform float char_mark = 0.5;") and code.contains("void light()"):
+			kind = "char"
+		if kind == "":
+			continue
+		if not _fx_cache.has(sm.shader):
+			var fx := Shader.new()
+			fx.code = PaintStack.with_char_fire(code) if kind == "char" else PaintedWorld.with_fx(code, kind, style)
+			_fx_cache[sm.shader] = fx
+			n["shaders"] += 1
+		if kind != "char" and plates != null:
+			sm.set_shader_parameter("fx_plates", plates)
+		_swaps.append({"mat": sm, "plain": sm.shader, "fx": _fx_cache[sm.shader], "kind": kind})
+		seen[sm] = true
+		n[kind] += 1
+	for k in n:
+		swap_report[k] = int(swap_report.get(k, 0)) + int(n[k])
+	if _fx_live:
+		_fx_shaders(true)
+
+
+func _fx_shaders(on: bool) -> void:
+	for e in _swaps:
+		var m: ShaderMaterial = e["mat"]
+		m.shader = e["fx"] if on else e["plain"]
+		if on and e["kind"] != "char" and plates != null:
+			m.set_shader_parameter("fx_plates", plates)
+	_fx_live = on
+
+
+func _arm() -> void:
+	await get_tree().process_frame
+	await warm_up(her.global_position)
+	var line := "style=%s plates_sha_ok=%s fx_materials=%d warmed=%s warm_ms=%s release_s=%s placeholder_meteor=%s fire_ball=%s pool=%d fx_layer_unlit=%s" % [
+		style, str(plates_rep.get("sha256_ok", false)), _swaps.size(), str(warmed),
+		str(report.get("warm_ms")), str(release_s), String(report.get("placeholder_meteor")),
+		String(report.get("fire_ball")), POOL, str((sun.light_cull_mask & FX_LAYER) == 0)]
+	line += " swaps=%s" % JSON.stringify(swap_report)
+	report["armed"] = line
+	print("[meteor_b] armed " + line)
+
+
+func _setup() -> void:
 	_to_sun = sun.global_transform.basis.z.normalized()
 	for key in ["tongue", "comet", "shell", "scrap", "rock"]:
 		var code: String = {"tongue": TONGUE_SHADER, "comet": COMET_SHADER, "shell": SHELL_SHADER,
@@ -264,20 +429,10 @@ func setup(knight, sockets_json: Dictionary, sun_light: DirectionalLight3D, fbm:
 	var scrap_mesh := _scrap_mesh()
 	for i in POOL:
 		pool.append(_make_slot(i, burst_mesh, flare_mesh, comet_mesh, shell_mesh, rock_mesh, scrap_mesh))
-	light_gain = 0.4 if PaintStack.is_compatibility() else 1.0
-	light = OmniLight3D.new()
-	light.name = "MeteorLight"
-	light.light_color = Color(1.0, 0.62, 0.30)
-	light.shadow_enabled = false
-	light.omni_range = 7.0
-	light.omni_attenuation = 1.0
-	light.light_cull_mask = light_mask
-	light.light_energy = 0.0
-	light.visible = false
-	add_child(light)
 	RenderingServer.global_shader_parameter_set("fx_web", 1.0 if PaintStack.is_compatibility() else 0.0)
 	RenderingServer.global_shader_parameter_set("fx_sun", Vector4(_to_sun.x, _to_sun.y, _to_sun.z, SUN_ANG_R))
 	RenderingServer.global_shader_parameter_set("fx_on", 0.0)
+	_char_light(Vector3.ZERO, 0.0, 7.0)
 	report["setup"] = {"pool": POOL, "shaders": _shaders.size(), "to_sun": [snappedf(_to_sun.x, 1e-3),
 		snappedf(_to_sun.y, 1e-3), snappedf(_to_sun.z, 1e-3)], "sun_ang_r_rad": SUN_ANG_R,
 		"compat_stencil_write": PaintStack.is_compatibility(),
@@ -580,8 +735,7 @@ static func _rock_mesh() -> ArrayMesh:
 # --- load: every pipeline drawn once, unseen ---------------------------------------------------
 func warm_up(at: Vector3) -> void:
 	"""Every material this effect draws with, drawn at `at` (in view) for three frames with every
-	fragment discarded; the fire light on the characters (energy 1e-3) for the same frames, so the
-	characters' lit variant exists before the first cast. Then all of it hidden again."""
+	fragment discarded, the ground terms on (their branch taken once); then all of it hidden again."""
 	var t0 := Time.get_ticks_usec()
 	for s in pool:
 		for key in ["flare", "burst", "comet", "flash", "rock"]:
@@ -593,10 +747,8 @@ func warm_up(at: Vector3) -> void:
 		mm.set_instance_transform(0, Transform3D(Basis(), at + Vector3(0, 0.8, 0)))
 		(s["scraps"] as MultiMeshInstance3D).visible = true
 		(s["m_scrap"] as ShaderMaterial).set_shader_parameter("warm", 1.0)
-	light.global_position = at + Vector3(0, 1.2, 0)
-	light.light_energy = 0.001
-	light.visible = true
-	RenderingServer.global_shader_parameter_set("fx_on", 1.0)
+	RenderingServer.global_shader_parameter_set("fx_on", _fx_on_value)
+	_fx_shaders(true)
 	for _f in 3:
 		await get_tree().process_frame
 	for s in pool:
@@ -607,9 +759,8 @@ func warm_up(at: Vector3) -> void:
 		(s["mm"] as MultiMesh).set_instance_transform(0, Transform3D(Basis().scaled(Vector3.ZERO), Vector3.ZERO))
 		(s["scraps"] as MultiMeshInstance3D).visible = false
 		(s["m_scrap"] as ShaderMaterial).set_shader_parameter("warm", 0.0)
-	light.visible = false
-	light.light_energy = 0.0
 	RenderingServer.global_shader_parameter_set("fx_on", 0.0)
+	_fx_shaders(false)
 	warmed = true
 	report["warm_ms"] = snappedf(float(Time.get_ticks_usec() - t0) / 1000.0, 0.1)
 
@@ -617,7 +768,7 @@ func warm_up(at: Vector3) -> void:
 # --- the cast ------------------------------------------------------------------------------------
 var _watch_t := -1.0
 var _watch_fired := false
-var release_s := 1.625
+var release_s := 1.6333                # replaced at attach by her package's own
 
 
 func _physics_process(dt: float) -> void:
@@ -661,8 +812,9 @@ func socket_point(nm: String) -> Vector3:
 func cast(target: Vector3) -> Dictionary:
 	var s: Dictionary = pool[_next]
 	_next = (_next + 1) % POOL
-	var gy: float = ground_y.call(target) if ground_y.is_valid() else target.y
-	target.y = gy
+	if not _fx_live:
+		_fx_shaders(true)
+	target.y = _ground_y(target)
 	s["active"] = true
 	s["t"] = 0.0
 	s["target"] = target
@@ -682,6 +834,20 @@ func cast(target: Vector3) -> Dictionary:
 	return rec
 
 
+func _ground_y(p: Vector3) -> float:
+	if scene != null and scene.snow != null:
+		return scene.snow.surface_y(Vector2(p.x, p.z))
+	var uv: Vector2 = scene.world_to_uv(p)
+	return scene.floor_y_at(uv.x, uv.y)
+
+
+func _char_light(at: Vector3, energy: float, reach: float) -> void:
+	"""THE FIRE ON HIM AND HER: two globals read inside the characters' sun pass (PaintStack.with_char_fire)."""
+	var c := FIRE_COL.srgb_to_linear()
+	RenderingServer.global_shader_parameter_set("fx_char_light", Vector4(at.x, at.y, at.z, maxf(energy, 0.0)))
+	RenderingServer.global_shader_parameter_set("fx_char_light_col", Vector4(c.r, c.g, c.b, reach))
+
+
 # --- the clock -----------------------------------------------------------------------------------
 static func _ease_out(x: float) -> float:
 	x = clampf(x, 0.0, 1.0)
@@ -698,10 +864,14 @@ func _process(dt: float) -> void:
 			any = any or bool(s["active"])
 	if any != _globals_on:
 		_globals_on = any
-		RenderingServer.global_shader_parameter_set("fx_on", 1.0 if any else 0.0)
+		RenderingServer.global_shader_parameter_set("fx_on", _fx_on_value if any else 0.0)
 		if not any:
-			light.visible = false
+			_char_light(Vector3.ZERO, 0.0, 7.0)
+			_fx_shaders(false)
 	_step_shake(dt)
+	if cam != null:
+		cam.h_offset = shake_px.x / PPM
+		cam.v_offset = shake_px.y / PPM
 	last_update_us = Time.get_ticks_usec() - t0
 
 
@@ -721,10 +891,7 @@ func _step(s: Dictionary, dt: float) -> void:
 		mf.set_shader_parameter("erode", clampf((t - 0.14) / 0.2, 0.0, 1.0))
 		if owner and t < T_FALL0 + 0.06:
 			# the call's light on her, from the crown
-			light.visible = true
-			light.global_position = flare.global_position
-			light.omni_range = 4.0
-			light.light_energy = light_gain * (3.2 * (1.0 - clampf(t / (T_FALL0 + 0.06), 0.0, 1.0)) + 0.4)
+			_char_light(flare.global_position, 3.2 * (1.0 - clampf(t / (T_FALL0 + 0.06), 0.0, 1.0)) + 0.4, 4.0)
 	elif flare.visible:
 		flare.visible = false
 	# --- FALL ------------------------------------------------------------------------------
@@ -763,10 +930,7 @@ func _step(s: Dictionary, dt: float) -> void:
 			RenderingServer.global_shader_parameter_set("fx_rock", Vector4(pos.x, pos.y, pos.z, SHADOW_R))
 			# the fire's light on the painting: dim while it is high, growing as it comes in
 			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(pos.x, pos.y, pos.z, 0.55 + 0.45 * tau))
-			light.visible = true
-			light.global_position = pos
-			light.light_energy = light_gain * (1.4 + 3.0 * tau)
-			light.omni_range = 8.0
+			_char_light(pos, 1.4 + 3.0 * tau, 8.0)
 	elif t >= T_IMPACT and rock.visible:
 		rock.visible = false
 	if t >= T_IMPACT + 0.03 and comet.visible:
@@ -782,8 +946,16 @@ func _step(s: Dictionary, dt: float) -> void:
 			ring = clampf(1.0 - (t - T_IMPACT) / 0.06, 0.0, 1.0)
 		var closing := clampf((t - T_FALL0) / FALL_S, 0.0, 1.0)
 		RenderingServer.global_shader_parameter_set("fx_mark", Vector4(target.x, target.y, target.z, ring))
-		RenderingServer.global_shader_parameter_set("fx_ring", Vector4(RING_R * lerpf(1.18, 0.92, closing),
-			float(s.get("burn_heat", 1.0)), _clock, BURN_R))
+		# x the ring's size, y its heat before the impact (the burn's after), z the clock, w the burn's size:
+		# plates in guide px (content half-width over the plate's own), the procedural marks in metres
+		var heat: float = closing if t < T_IMPACT else float(s.get("burn_heat", 1.0))
+		if style == "plates":
+			RenderingServer.global_shader_parameter_set("fx_ring", Vector4(
+				RING_HALF_W_M * PPM / _ring_half_uv * lerpf(1.1, 0.95, closing), heat, _clock,
+				POOL_HALF_W_M * PPM / _pool_half_uv))
+		else:
+			RenderingServer.global_shader_parameter_set("fx_ring", Vector4(RING_R * lerpf(1.18, 0.92, closing),
+				heat, _clock, BURN_R))
 	# --- IMPACT ----------------------------------------------------------------------------------
 	if t >= T_IMPACT and not s["impacted"]:
 		s["impacted"] = true
@@ -800,7 +972,6 @@ func _step(s: Dictionary, dt: float) -> void:
 		report["impacts"].append({"n": report["casts"].size(), "frame": Engine.get_process_frames()})
 		if owner:
 			RenderingServer.global_shader_parameter_set("fx_rock", Vector4(0, 0, 0, 0))
-			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(0, 0, 0, 0))
 	if s["impacted"]:
 		var ti := t - T_IMPACT
 		var burst: MeshInstance3D = s["burst"]
@@ -822,7 +993,13 @@ func _step(s: Dictionary, dt: float) -> void:
 		mb.set_shader_parameter("squash", squash)
 		mb.set_shader_parameter("spread", 1.0 + 0.25 * smoothstep(0.3, 1.0, ti))
 		mb.set_shader_parameter("heat", lerpf(0.34, -0.02, smoothstep(0.0, 0.9, ti)) - 0.08 * smoothstep(1.5, BURN_S, ti))
-		mb.set_shader_parameter("erode", 0.28 * smoothstep(0.35, 0.9, ti) + 0.9 * smoothstep(BURN_S - 0.8, BURN_S, ti))
+		if style == "plates":
+			# the painted burning ground carries the burn: the 3D crown is gone within its first second
+			mb.set_shader_parameter("erode", 0.28 * smoothstep(0.35, 0.8, ti) + 0.9 * smoothstep(0.75, 1.15, ti))
+			if ti > 1.2 and burst.visible:
+				burst.visible = false
+		else:
+			mb.set_shader_parameter("erode", 0.28 * smoothstep(0.35, 0.9, ti) + 0.9 * smoothstep(BURN_S - 0.8, BURN_S, ti))
 		# the flash: out and burnt away in 0.18 s
 		var flash: MeshInstance3D = s["flash"]
 		if ti < 0.2:
@@ -841,11 +1018,9 @@ func _step(s: Dictionary, dt: float) -> void:
 			RenderingServer.global_shader_parameter_set("fx_burn", Vector4(target.x, target.y, target.z, burn_w))
 			var li := 1.6 * exp(-ti / 0.12) + 0.75 * (1.0 - smoothstep(0.6, BURN_S, ti)) * flick
 			var lh := 0.5 + 1.6 * exp(-ti / 0.15)
-			RenderingServer.global_shader_parameter_set("fx_burn_light", Vector4(target.x, target.y + lh, target.z, li))
-			light.visible = true
-			light.global_position = target + Vector3(0, 0.9, 0)
-			light.omni_range = 6.5
-			light.light_energy = light_gain * (14.0 * exp(-ti / 0.12) + 2.8 * (1.0 - smoothstep(0.5, BURN_S, ti)) * flick)
+			# ONE ground light: the burn's takes over the fall's at the impact
+			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(target.x, target.y + lh, target.z, li))
+			_char_light(target + Vector3(0, 0.9, 0), 14.0 * exp(-ti / 0.12) + 2.8 * (1.0 - smoothstep(0.5, BURN_S, ti)) * flick, 6.5)
 		if ti >= BURN_S:
 			_end(s)
 	_step_scraps(s, dt)
@@ -904,13 +1079,13 @@ func _end(s: Dictionary) -> void:
 		(s["scraps"] as MultiMeshInstance3D).visible = false
 	if int(s["i"]) == _owner:
 		RenderingServer.global_shader_parameter_set("fx_burn", Vector4(0, 0, 0, 0))
-		RenderingServer.global_shader_parameter_set("fx_burn_light", Vector4(0, 0, 0, 0))
+		RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(0, 0, 0, 0))
 		RenderingServer.global_shader_parameter_set("fx_mark", Vector4(0, 0, 0, 0))
-		light.visible = false
+		_char_light(Vector3.ZERO, 0.0, 7.0)
 
 
 func _step_shake(dt: float) -> void:
-	"""THE IMPACT'S SHAKE: 7 px, gone in 0.32 s (the scene adds shake_px to its camera)."""
+	"""THE IMPACT'S SHAKE: 7 px, gone in 0.32 s, on the camera's offsets (_process)."""
 	if _shake_t < 0.0:
 		shake_px = Vector2.ZERO
 		return

@@ -26,7 +26,7 @@ for PASS in play quarter; do
   EXTRA=""
   [ "$PASS" = quarter ] && EXTRA="--slow"
   python3 "$HEAVY_LOCK" C-9 -- python3 "$HERE/tmo.py" 600 -- "$GODOT" --path "$SRC" --fullscreen --fixed-fps 60 \
-    --write-movie "$AVI" -- --meteor-film $EXTRA > "$LOG" 2>&1 || true
+    --write-movie "$AVI" -- --meteor b --meteor-film $EXTRA > "$LOG" 2>&1 || true
   grep -E "\[film\]|SCRIPT ERROR|Parse Error|^ERROR" "$LOG" | cut -c1-300 | head -8
   [ -f "$AVI" ] || { echo "HALT: no movie written ($PASS)" >&2; exit 5; }
   TRIM=$(grep -o '"trim_frames":[0-9]*' "$LOG" | head -1 | cut -d: -f2)
@@ -39,5 +39,5 @@ done
 # BOTH IN ONE FILE: play speed, then quarter speed
 printf "file '%s'\nfile '%s'\n" "$OUT/meteor_b_play.mp4" "$OUT/meteor_b_quarter.mp4" > "$TMP/concat.txt"
 ffmpeg -y -loglevel error -f concat -safe 0 -i "$TMP/concat.txt" -c copy -movflags +faststart \
-  "$OUT/C-9 meteor lane B (3D first) - play speed then quarter speed.mp4"
-ffprobe -v error -show_entries format=duration -of compact "$OUT/C-9 meteor lane B (3D first) - play speed then quarter speed.mp4"
+  "$OUT/C-9 meteor lane B hybrid (3D + painted ground plates) - play speed then quarter speed.mp4"
+ffprobe -v error -show_entries format=duration -of compact "$OUT/C-9 meteor lane B hybrid (3D + painted ground plates) - play speed then quarter speed.mp4"

@@ -57,3 +57,23 @@ func _fill_clipless_nodes() -> void:
 				(n as AnimationNodeAnimation).animation = fallback
 				if not clipless_filled.has(String(nm)):
 					clipless_filled.append(String(nm))
+
+
+# --- her physics step, timed (tools/perf_cast.gd reads it; two clock reads a tick) ------------------
+var _diag_phys_us := -1
+
+
+func _physics_process(dt: float) -> void:
+	var t0 := Time.get_ticks_usec()
+	super(dt)
+	_diag_phys_us = Time.get_ticks_usec() - t0
+
+
+func diag_take() -> Dictionary:
+	"""The last physics step's own time (knight.gd's _physics_process, which drives the tree's
+	parameters, the feet and the releases), once: -1 after it is read."""
+	if _diag_phys_us < 0:
+		return {}
+	var d := {"phys_us": _diag_phys_us}
+	_diag_phys_us = -1
+	return d

@@ -1,26 +1,22 @@
 extends "res://scripts/barrow_full.gd"
-## C-9 VFX BAKE-OFF, LANE B -- THE METEOR, 3D FIRST, IN THE PAINTED BARROW. drax.
+## C-9 VFX BAKE-OFF, LANE B -- THE MEASUREMENT HARNESS for her Meteor, in the painted Barrow. drax.
 ##
-## The painted Barrow exactly as barrow_full builds it (this extends a byte copy of barrow_full.gd;
-## the only edited copies are painted_world.gd and paint_stack.gd, each with one marked LANE B
-## addition), with:
-##   HER (the sorceress, always) -- her Fire Ball stays spell_fx.gd's placeholder; the placeholder
-##     Meteor is switched off and MeteorFx (meteor_fx.gd) is hers instead;
-##   HIM standing by near the impact (bystander_knight.gd: knight.gd, no input), so the fire lights
-##     "nearby dynamic things (her, him)";
-##   the impact's camera shake (MeteorFx.shake_px), added to the play camera after it follows her.
-##
-## MODES (desktop: -- --meteor-<mode>; the web page: ?meteor=<mode>):
-##   film    the shot for Matt: her cast from the call to the burn's end; `--slow` at quarter speed.
-##           Run under Movie Maker (tools/film.sh); prints the trim frame.
-##   perf    the budget (R-C9-89): idle, the COLD first cast, 20 casts with the effect and the same
-##           20 casts with it off (the control), frame by frame: wall-clock frame time, the renderer's
-##           own CPU and GPU times, draw calls, the effect's own script time. One JSON line.
-##   stills  a few frames of one cast, saved as PNG for looking at (work/stills).
+## NOT PART OF THE INTEGRATION PATCH. The scene under it is barrow_full at collab HEAD with the patch
+## applied (integration/lane_b_meteor.patch, written into this copy by tools/make_patch.py write): run with
+## ?meteor=b (desktop: -- --meteor b) the Meteor is built by barrow_full's own hook (MeteorFx.attach),
+## exactly as on her page. This file only adds, for the camera:
+##   HER (always) and HIM standing by near the impact (bystander_knight.gd: knight.gd, no input), so the
+##     fire lights "nearby dynamic things (her, him)";
+##   the modes (desktop: -- --meteor-<mode>; web: ?harness=<mode>):
+##   film       her cast from the call to the burn's end; `--slow` at quarter speed (tools/film.sh)
+##   perf       the budget as a DELTA: idle, the COLD first cast, then 19 casts with the effect and 20
+##              without (the control), interleaved, frame by frame. One JSON line.
+##   stills     frames of one cast, saved as PNG
+##   lightprobe her colour under the fire, fire on / off, at a frozen pose: the web-vs-desktop match
 
 const HER_UV := Vector2(-2.2, 0.6)
 const HIM_FROM_TARGET_UV := Vector2(1.9, 0.75)
-var meteor: MeteorFx
+var meteor                             # barrow_full's meteor_fx (MeteorFx)
 var him: CharacterBody3D
 var _him_saved := {}
 var lane_b := {}
@@ -35,15 +31,25 @@ func _character_choice() -> String:
 
 func _ready() -> void:
 	await super()
-	await _lane_b_setup()
+	meteor = meteor_fx
+	if meteor == null:
+		push_error("meteor harness: no MeteorFx -- run with ?meteor=b (desktop: -- --meteor b)")
+		print("[meteor_b] harness FAILED: the Meteor was not wanted")
+		return
+	await _build_him()
+	meteor.collect_materials()          # his ramp too: the fire lights him
+	while not meteor.warmed:
+		await get_tree().process_frame
+	lane_b["armed"] = meteor.report.get("armed", "")
+	lane_b["meteor_setup"] = meteor.report.get("setup", {})
 	var args := OS.get_cmdline_user_args()
-	var mode := PaintStack.web_query("meteor")
-	for m in ["film", "perf", "stills"]:
+	var mode := PaintStack.web_query("harness")
+	for m in ["film", "perf", "stills", "lightprobe"]:
 		if ("--meteor-" + m) in args:
 			mode = m
-	print("[meteor_b] ready mode=%s renderer=%s web=%s warm_ms=%s setup=%s" % [mode if mode != "" else "play",
-		RenderingServer.get_current_rendering_method(), str(PaintStack.is_web()), str(meteor.report.get("warm_ms")),
-		JSON.stringify(meteor.report.get("setup", {}))])
+	print("[meteor_b] ready mode=%s renderer=%s web=%s style=%s armed=%s" % [mode if mode != "" else "play",
+		RenderingServer.get_current_rendering_method(), str(PaintStack.is_web()), String(meteor.style),
+		String(meteor.report.get("armed", ""))])
 	match mode:
 		"film":
 			_film_mode()
@@ -51,33 +57,8 @@ func _ready() -> void:
 			_perf_mode()
 		"stills":
 			_stills_mode()
-
-
-func _lane_b_setup() -> void:
-	# HER PLACEHOLDER METEOR OFF (spell_fx keeps the Fire Ball); lane B's is MeteorFx
-	if spell_fx != null:
-		spell_fx.casts_by_slot.erase("chop")
-	await _build_him()
-	# NO SCENE LIGHT REACHES THE EFFECT'S LAYER (it is unshaded: on Compatibility a lit layer would
-	# also cost the shadowed suns' additive passes)
-	sun.light_cull_mask &= ~MeteorFx.FX_LAYER
-	if paint_sun != null:
-		paint_sun.light_cull_mask &= ~MeteorFx.FX_LAYER
-	meteor = MeteorFx.new()
-	meteor.name = "MeteorFx"
-	add_child(meteor)
-	meteor.setup(knight, _read_json("res://data/sockets_sorceress.json"), sun, fbm, Callable(self, "_ground_y_at"))
-	place_shot()
-	await meteor.warm_up(knight.global_position)
-	lane_b["meteor_setup"] = meteor.report.get("setup", {})
-	lane_b["warm_ms"] = meteor.report.get("warm_ms")
-
-
-func _ground_y_at(p: Vector3) -> float:
-	if snow != null:
-		return snow.surface_y(Vector2(p.x, p.z))
-	var uv := world_to_uv(p)
-	return floor_y_at(uv.x, uv.y)
+		"lightprobe":
+			_lightprobe_mode()
 
 
 func _build_him() -> void:
@@ -169,31 +150,8 @@ func place_shot() -> void:
 
 func _process(dt: float) -> void:
 	super(dt)
-	# THE IMPACT'S SHAKE, on top of the camera that follows her
-	if meteor != null and cam != null and meteor.shake_px != Vector2.ZERO:
-		cam.global_position += (right * meteor.shake_px.x + up * meteor.shake_px.y) / PPM
 	if _rec_on:
 		_record_frame()
-
-
-func _build_fx_label() -> void:
-	"""What is on screen, said: the Meteor is lane B's; the Fire Ball is still the placeholder."""
-	var layer := CanvasLayer.new()
-	layer.name = "FxLabel"
-	layer.layer = 21
-	add_child(layer)
-	var l := Label.new()
-	l.text = "METEOR: LANE B (3D FIRST)  ·  FIRE BALL: PLACEHOLDER"
-	l.add_theme_font_size_override("font_size", 20)
-	l.add_theme_color_override("font_color", Color(1.0, 0.86, 0.6, 0.9))
-	l.add_theme_color_override("font_outline_color", Color(0.1, 0.07, 0.05, 0.9))
-	l.add_theme_constant_override("outline_size", 6)
-	l.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	l.offset_left = -720.0
-	l.offset_right = -24.0
-	l.offset_top = 20.0
-	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	layer.add_child(l)
 
 
 func _lit_at_world(p: Vector3) -> float:
@@ -477,3 +435,56 @@ func _perf_summary() -> Dictionary:
 	out["dc_peak_on_minus_off"] = dmax_on - dmax_off
 	out["dc_peak"] = {"fx_on": dmax_on, "fx_off": dmax_off}
 	return out
+
+
+# --- the web fire light's match ---------------------------------------------------------------------
+func _lightprobe_mode() -> void:
+	"""HER COLOUR UNDER THE FIRE, on this renderer: her pose frozen, the snowfall off, the effect's clock
+	stopped; three frames -- the fire off (A), the fire on at the burn's level from the impact point (B),
+	her hidden (C: the mask) -- saved as PNG. tools/lightprobe.py turns them into the per-channel LINEAR
+	ratio B/A over her silhouette, for Forward+ and for Compatibility with the web branches (--as-web)."""
+	var args := OS.get_cmdline_user_args()
+	var oi := args.find("--out")
+	var out := String(args[oi + 1]) if oi >= 0 and oi + 1 < args.size() else "user://lightprobe"
+	DirAccess.make_dir_recursive_absolute(out)
+	set_hud_visible(false)
+	await nudge_right()
+	if snowfall != null:
+		snowfall.visible = false
+		snowfall.emitting = false
+	for i in 30:
+		await get_tree().process_frame
+	freeze_pose(true)
+	if him != null:
+		for n in him.find_children("*", "AnimationMixer", true, false):
+			(n as AnimationMixer).callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	meteor.set_process(false)
+	meteor.set_physics_process(false)
+	meteor._fx_shaders(true)            # the variants in, as while a Meteor is alive
+	var target: Vector3 = knight.global_position + meteor.facing_dir() * MeteorFx.AHEAD
+	var lp := target + Vector3(0, 0.9, 0)
+	var energies := {"A_off": 0.0, "B_on": 2.8, "D_on_hot": 6.0}
+	var shots := {}
+	for key in ["A_off", "B_on", "D_on_hot"]:
+		meteor._char_light(lp, float(energies[key]), 6.5)
+		for i in 4:
+			await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		var p := "%s/%s.png" % [out, key]
+		get_viewport().get_texture().get_image().save_png(p)
+		shots[key] = p
+	meteor._char_light(lp, 0.0, 6.5)
+	knight.visible = false
+	for i in 4:
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	var pc := "%s/C_hidden.png" % out
+	get_viewport().get_texture().get_image().save_png(pc)
+	shots["C_hidden"] = pc
+	knight.visible = true
+	var r := character_screen_rect()
+	print("[lightprobe] %s" % JSON.stringify({"renderer": RenderingServer.get_current_rendering_method(),
+		"web": PaintStack.is_web(), "shots": shots, "her_rect": [r.position.x, r.position.y, r.size.x, r.size.y],
+		"viewport": [get_viewport().get_visible_rect().size.x, get_viewport().get_visible_rect().size.y],
+		"light_at": [lp.x, lp.y, lp.z], "energies": energies}))
+	get_tree().quit()
