@@ -1,0 +1,167 @@
+{
+ "pieces": {
+  "robe": {
+   "mode": "skin",
+   "faces": [
+    945787,
+    29999
+   ],
+   "offset_m": 0.006,
+   "hem_overlap_m": 0.006,
+   "boundary_verts_extended": 4766,
+   "pushed": 1754,
+   "skinned_verts": 17274
+  },
+  "mantle": {
+   "mode": "skin",
+   "faces": [
+    213595,
+    21999
+   ],
+   "offset_m": 0.01,
+   "hem_overlap_m": 0.004,
+   "boundary_verts_extended": 1479,
+   "pushed": 214,
+   "skinned_verts": 11717
+  },
+  "belt": {
+   "mode": "skin",
+   "faces": [
+    139989,
+    14000
+   ],
+   "offset_m": 0.012,
+   "hem_overlap_m": 0.004,
+   "boundary_verts_extended": 1350,
+   "pushed": 782,
+   "skinned_verts": 7646
+  },
+  "bracers": {
+   "mode": "bone",
+   "bones": [
+    "RightForeArm",
+    "LeftForeArm"
+   ],
+   "objects": [
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.001"
+   ]
+  },
+  "circlet": {
+   "mode": "bone",
+   "bones": [
+    "Head"
+   ],
+   "method": "PROCEDURAL",
+   "band_height_m": 1.6235,
+   "band_radius_m": [
+    0.0388,
+    0.2036
+   ],
+   "fit": "the head's outline at brow height, 64 directions, +4 mm -- a single radius floated it as a halo",
+   "verts_in_slab": 1327,
+   "why": "Tripo isolation did not separate a ~1 cm band from the scalp: 24,726 verts with the whole face attached, or 1,455 verts in 3 fragments. At 100.6 px/m it is ~1 px in play."
+  },
+  "staff": {
+   "mode": "socket",
+   "bone": "RightHand",
+   "length_m": 1.75,
+   "grip": 0.55,
+   "socket": {
+    "scale": 1.74916,
+    "long_axis": "Z",
+    "span_scaled_m": [
+     0.2174,
+     0.3177,
+     1.75
+    ],
+    "bone_head": [
+     -0.3463,
+     0.0054,
+     0.9051
+    ],
+    "head_end": "max",
+    "bone": "RightHand",
+    "face_local": [
+     0.007,
+     -1.0,
+     0.0
+    ],
+    "axis_world": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "face_world": [
+     0.0,
+     -1.0,
+     0.0
+    ]
+   },
+   "shaft_centred_m": 0.03991770097213325
+  }
+ },
+ "welded": {
+  "robe": {
+   "verts_before": 490892,
+   "verts_after": 476158
+  },
+  "mantle": {
+   "verts_before": 111326,
+   "verts_after": 107751
+  },
+  "belt": {
+   "verts_before": 73836,
+   "verts_after": 70876
+  }
+ },
+ "grips": {
+  "grip_R": {
+   "bone": "RightHand",
+   "closes_to_m": 0.03,
+   "verts_moved": 2901,
+   "max_travel_m": 0.0682
+  },
+  "grip_L": {
+   "bone": "LeftHand",
+   "closes_to_m": 0.03,
+   "verts_moved": 2850,
+   "max_travel_m": 0.0658
+  }
+ },
+ "staff_carry_R": {
+  "filter_bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head",
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "authored": {
+   "tilt_deg": 0.0,
+   "hand": [
+    -0.24,
+    -0.22,
+    1.08
+   ],
+   "elbow_flexion_deg": 81.1,
+   "butt_z": 0.1896,
+   "crown_z": 1.9374,
+   "staff_inside_body": 9,
+   "sampled": 2608
+  }
+ },
+ "files": {
+  "so-body.glb": 20.23,
+  "robe.glb": 5.33,
+  "mantle.glb": 4.2,
+  "belt.glb": 4.03,
+  "bracers.glb": 3.46,
+  "circlet.glb": 0.1,
+  "staff.glb": 4.25
+ }
+}

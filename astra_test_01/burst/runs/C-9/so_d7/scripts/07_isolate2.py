@@ -188,6 +188,29 @@ while stack:
         if not keep[j] and grow[j]:
             keep[j] = True; stack.append(j)
 print("grown to %d verts" % int(keep.sum()))
+# CLOSING (D7 pass 2): the speckles were HOLES, not texture seams. Every gutter texel in every
+# file is non-white (measured: 0 of them), but the isolated robe had 958 boundary loops of 40
+# edges or fewer, the mantle 1,307 -- faces the predicate rejected (the cream border runes, the
+# fur tips), through which the pale linen shift shows as a white dot. A morphological CLOSING on
+# the mesh graph -- dilate K rings, then erode K rings -- re-includes the original faces of every
+# hole narrower than about 2K rings, with their own UVs and colour, and leaves the outer boundary
+# where the grow put it. Dilation is confined to the region like the grow itself.
+CLOSE = int(a[a.index("--close") + 1]) if "--close" in a else 0
+if CLOSE:
+    e0, e1 = edges[:, 0], edges[:, 1]
+    k0 = int(keep.sum())
+    for _ in range(CLOSE):
+        kd = keep.copy()
+        kd[e1[keep[e0]]] = True
+        kd[e0[keep[e1]]] = True
+        keep = kd & inreg
+    for _ in range(CLOSE):
+        bad = ~keep
+        ke = keep.copy()
+        ke[e1[bad[e0]]] = False
+        ke[e0[bad[e1]]] = False
+        keep = ke
+    print("closing %d rings: %d -> %d verts (+%d re-included)" % (CLOSE, k0, int(keep.sum()), int(keep.sum()) - k0))
 lab = -np.ones(len(P), int); nc = 0
 for i in np.where(keep)[0]:
     if lab[i] >= 0:

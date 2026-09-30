@@ -32,3 +32,16 @@
 {"ev": "start", "step": "S10-film", "t": 1790738057.348675, "note": "combine body+gear on one armature, Godot sandbox in the Barrow's light, Movie Maker AVI -> MP4"}
 {"ev": "end", "step": "S10-film", "t": 1790738245.291698, "note": "Godot sandbox, Barrow's winter_sun verbatim, play camera 52.95/47/100.6 px/m; 15.5 s; staff swings in walk+fireball (empty-hand clips)"}
 {"ev": "end", "step": "S8-gear", "t": 1790737623.159263, "note": "closed at S9 start: isolation (4 garments, 7 runs incl. 3 predicate revisions) finished as assembly began"}
+{"ev": "start", "step": "P2-orient", "t": 1790738652.515726, "note": "pass 2: locate fill/dilation, armed-speed split, T12 mount"}
+{"ev": "end", "step": "P2-orient", "t": 1790738912.4837902, "note": "speckles are HOLES (958 robe / 1307 mantle / 114 belt small loops), not seams: gutters 0% white"}
+{"ev": "start", "step": "P2-speckles", "t": 1790738912.506665, "note": "mesh-graph closing in the isolation, re-isolate, re-assemble, measure at play camera"}
+{"ev": "end", "step": "P2-speckles", "t": 1790740348.7801988, "note": "cause HOLES (not seams): closing K=6 + 6 mm hem overlap; isolated pale dots 1x 6->0, 2x 21->1 (apex residue)"}
+{"ev": "start", "step": "P2-hold", "t": 1790740526.885535, "note": "staff mount (--roll generalised), grips, carry pose by sweep, IK window, measure"}
+{"ev": "wait", "step": "P2-hold", "s": 286.0, "what": "3 calm idles from the library (9 cr)"}
+{"ev": "end", "step": "P2-hold", "t": 1790746713.95729, "note": "mount 87.6 deg seat (fist 4.5 mm off the haft); carry 9 bones; idle/walk/run tilt 10.8/5.9/13.3 deg, tip path 11.8/47.4/46.9 px, 0 in body; Fire Ball arm-only 23.9 deg, 0; Meteor baked weapon_r rotation + ground slide, 7 verts grazing <=1.13 cm; off-hand IK wired, OFF (Meteor shaft out of reach every frame)"}
+{"ev": "start", "step": "P2-truescale", "t": 1790746713.9770439, "note": "speckle stills found at 1920x971 (window clamp, 90.5 px/m); SubViewport 1080 rows; poke/gap depth passes; seam weld before decimation; under-garment morph tried and rejected"}
+{"ev": "end", "step": "P2-truescale", "t": 1790746713.994935, "note": "true 100.6 px/m: isolated pale dots 1x 1 px, 2x 7 px (Fire Ball front-split underdress 1/5, run 0/2); idle, walk, Meteor 0/0"}
+{"ev": "start", "step": "P2-film", "t": 1790746714.012167, "note": "staff layer (filtered Blend2 x2), grip_R, IK wired; offscreen SubViewport piped to ffmpeg"}
+{"ev": "end", "step": "P2-film", "t": 1790746714.0291998, "note": "D7p2-film-playscale.mp4 960x540 100.6 px/m, D7p2-film-2x.mp4 1920x1080 201.2 px/m, 520 frames each"}
+{"ev": "note", "step": "P2-truescale", "note": "CORRECTION: zero-length marker -- this work ran INSIDE P2-hold's wall (its timer was never started when the work began); P2-hold 6187 s = staff hold + true-scale speckle re-measure + film. Do not read 0 s as its cost."}
+{"ev": "note", "step": "P2-film", "note": "CORRECTION: zero-length marker -- this work ran INSIDE P2-hold's wall (its timer was never started when the work began); P2-hold 6187 s = staff hold + true-scale speckle re-measure + film. Do not read 0 s as its cost."}

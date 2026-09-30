@@ -1,5 +1,5 @@
 {
- "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S)",
+ "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2)",
  "body": "so-body.glb",
  "height_m": 1.7,
  "height_note": "authored at 1.70 m, 0.92x the barbarian's 1.85 m. If the scene normalises each character to a fixed pixel height she will read as tall as him -- apply the BARBARIAN's world factor to her too so the difference survives.",
@@ -19,6 +19,7 @@
   "hit",
   "idle",
   "run",
+  "staff_carry_R",
   "walk"
  ],
  "fps": 24,
@@ -32,7 +33,7 @@
    "fireball": "cast_fireball",
    "meteor": "cast_meteor"
   },
-  "staff": "the staff is on weapon_r; the grip calibration (--roll) and off-hand IK are a later step"
+  "staff": "see staff_hold: T12 mount on weapon_r, filtered carry layer, grips, off-hand IK"
  },
  "locomotion_in_place": {
   "rule": "locomotion ships IN PLACE. Drive her at the FOOT-LOCK speed: the speed that holds the planted foot still.",
@@ -104,32 +105,38 @@
    "robe": {
     "mode": "skin",
     "faces": [
-     833061,
-     30000
+     945787,
+     29999
     ],
     "offset_m": 0.006,
-    "pushed": 2053,
-    "skinned_verts": 28193
+    "hem_overlap_m": 0.006,
+    "boundary_verts_extended": 4766,
+    "pushed": 1754,
+    "skinned_verts": 17274
    },
    "mantle": {
     "mode": "skin",
     "faces": [
-     179748,
-     22000
+     213595,
+     21999
     ],
     "offset_m": 0.01,
-    "pushed": 7,
-    "skinned_verts": 18717
+    "hem_overlap_m": 0.004,
+    "boundary_verts_extended": 1479,
+    "pushed": 214,
+    "skinned_verts": 11717
    },
    "belt": {
     "mode": "skin",
     "faces": [
-     96672,
+     139989,
      14000
     ],
     "offset_m": 0.012,
-    "pushed": 234,
-    "skinned_verts": 11457
+    "hem_overlap_m": 0.004,
+    "boundary_verts_extended": 1350,
+    "pushed": 782,
+    "skinned_verts": 7646
    },
    "bracers": {
     "mode": "bone",
@@ -139,12 +146,7 @@
     ],
     "objects": [
      "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.001",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.002",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.003",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.004",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.007",
-     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.017"
+     "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.001"
     ]
    },
    "circlet": {
@@ -224,6 +226,20 @@
     "grow": "(val < 0.42) & (dist > 0.002)"
    },
    "circlet": "PROCEDURAL -- see gear.pieces.circlet"
+  },
+  "welded": {
+   "robe": {
+    "verts_before": 490892,
+    "verts_after": 476158
+   },
+   "mantle": {
+    "verts_before": 111326,
+    "verts_after": 107751
+   },
+   "belt": {
+    "verts_before": 73836,
+    "verts_after": 70876
+   }
   }
  },
  "texture": {
@@ -257,7 +273,11 @@
  "lint": {
   "verdict": "WARN",
   "fails": [],
-  "warns": 3
+  "warns": 2,
+  "warn_text": [
+   "so-body.glb: clip 'cast_fireball' starts root 'Hips' at 92.527 against rest 99.597 (7.1% > 5%)",
+   "so-body.glb: clip 'cast_meteor' starts root 'Hips' at 90.762 against rest 99.597 (8.9% > 5%)"
+  ]
  },
  "timing_D5": {
   "definition": "WALL = end - start, vendor queues included. VENDOR = the generator's own measured poll time (Tripo, Meshy, Astra), recorded by the call that waited. AGENT = wall - vendor.",
@@ -325,5 +345,437 @@
   ],
   "walk_speed": "the manifest's foot-lock speed",
   "sandbox": "so_d7/film -- its own Godot project, not cliffside3d or barrow_full"
+ },
+ "idle_swap": {
+  "now": "Meshy library 11 'Idle 1' (fetched as idle11)",
+  "was": "Meshy library 0 'Idle', which yaws the hips 96 deg over its loop -- a turn-in-place, not an idle",
+  "measured": "idle11: 5 mm root travel, 5.5 deg hips yaw; two other calm idles fetched and not used (243, 249)",
+  "merge": {
+   "source": "idle11",
+   "frames": [
+    1,
+    57
+   ],
+   "proof_it_animates_deg": 6.12
+  }
+ },
+ "staff_hold": {
+  "method": "the T12 method (legolas Part 6): the MOUNT on weapon_r (seat + roll), an UPPER-BODY carry layer over the clips' legs/hips/root, grips by morph, off-hand TwoBoneIK3D with a per-clip enable",
+  "mount": {
+   "script": "52_weapon_bones.py --roll 0 --body so-body --weapon staff.glb",
+   "seat_turn_deg": 87.6,
+   "haft_to_hand_axis_deg": [
+    162.1,
+    90.0
+   ],
+   "fist_centroid_off_haft_m": 0.0045,
+   "rest": "weapon_r rest = W: +Y along the shaft to the crown, the shaft seated in the fist CHANNEL (gearlib.hand_frame's across-palm axis, the axis grip_R closes round)",
+   "grip_along_shaft": "the MIDDLE: the staff runs -0.871 .. +0.877 m along weapon_r +Y"
+  },
+  "carry_layer": {
+   "clip": "staff_carry_R",
+   "how": "a FILTERED Blend2 at weight 1 -- the barbarian's armed-speed split (speedsplit_patch.py). Input 0 the clip, input 1 staff_carry_R; the filter takes each listed bone's tracks from the carry, everything else from the clip. Filter paths are taken from the clip's own tracks. A blend tree lets a node's output feed ONE input, so a second Blend2 needs its own staff_carry_R node (film/staff_layer.gd).",
+   "filter_bones_full": [
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "filter_bones_arm": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "per_clip": {
+    "idle": "full",
+    "walk": "full",
+    "run": "full",
+    "cast_fireball": "arm -- thrown from the free LEFT hand; the spine stays the clip's so the torso still drives the throw",
+    "cast_meteor": "none -- its staff motion is BAKED into the clip's own weapon_r tracks (see meteor)",
+    "hit": "none -- NOT measured",
+    "death": "none -- NOT measured (the raw clip's staff may cross the ground)"
+   },
+   "authored": {
+    "tilt_deg": 0.0,
+    "hand": [
+     -0.24,
+     -0.22,
+     1.08
+    ],
+    "elbow_flexion_deg": 81.1,
+    "butt_z": 0.1896,
+    "crown_z": 1.9374,
+    "staff_inside_body": 9,
+    "sampled": 2608
+   },
+   "reference_impl": "film/staff_layer.gd"
+  },
+  "grips": {
+   "grip_R": {
+    "bone": "RightHand",
+    "closes_to_m": 0.03,
+    "verts_moved": 2901,
+    "max_travel_m": 0.0682,
+    "rule": "1 while the staff is held (every clip)"
+   },
+   "grip_L": {
+    "bone": "LeftHand",
+    "closes_to_m": 0.03,
+    "verts_moved": 2850,
+    "max_travel_m": 0.0658,
+    "rule": "1 only while the off-hand IK is ON -- i.e. never in the shipped clips"
+   }
+  },
+  "off_hand_ik": {
+   "node": "TwoBoneIK3D (Godot 4.6.3 settings API: set_setting_count(1), set_root/middle/end_bone_name)",
+   "bones": {
+    "root": "LeftArm",
+    "middle": "LeftForeArm",
+    "end": "LeftHand"
+   },
+   "end": "extend_end_bone, end_bone_length 0.07 m (wrist to palm) -- the PALM meets the shaft",
+   "target": "0.25 m up the shaft from the right fist (weapon_r origin + 0.25 m along its +Y)",
+   "pole": "0.30 out, 0.30 down, 0.20 back from the left elbow, in her frame",
+   "enable_per_clip": {
+    "idle": false,
+    "walk": false,
+    "run": false,
+    "cast_fireball": false,
+    "cast_meteor": false,
+    "hit": false,
+    "death": false
+   },
+   "why_meteor_off": "the shaft is OUT OF REACH in every frame of Meshy 127: nearest shaft band 0.697 m from the left shoulder against a 0.504 m arm (median 163% of reach), reachable at 0 of 73 frames (Blender, world joints). Godot's own solver agrees: with the IK forced ON the palm stays 0.069-0.234 m short. A two-handed Meteor needs a source clip in which the hands meet; the library has none chosen, and text-to-motion is closed by T33.",
+   "proof_it_works": "enabled where the shaft IS in reach (idle/walk/run/Fire Ball instants), the palm lands on the target exactly (0.000 m short) -- work/s13_ik_probe.json",
+   "probe": [
+    {
+     "clip": "idle",
+     "palm_short_ik_off_m": 0.753,
+     "palm_short_ik_on_m": 0.0,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.556,
+     "t": 1.0,
+     "wrist_moved_m": 0.759
+    },
+    {
+     "clip": "walk",
+     "palm_short_ik_off_m": 0.703,
+     "palm_short_ik_on_m": 0.0,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.536,
+     "t": 0.5,
+     "wrist_moved_m": 0.707
+    },
+    {
+     "clip": "run",
+     "palm_short_ik_off_m": 0.457,
+     "palm_short_ik_on_m": 0.0,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.54,
+     "t": 0.4,
+     "wrist_moved_m": 0.467
+    },
+    {
+     "clip": "cast_fireball",
+     "palm_short_ik_off_m": 0.47,
+     "palm_short_ik_on_m": 0.0,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.503,
+     "t": 0.9167,
+     "wrist_moved_m": 0.478
+    },
+    {
+     "clip": "cast_meteor",
+     "palm_short_ik_off_m": 1.0,
+     "palm_short_ik_on_m": 0.102,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.676,
+     "t": 0.5,
+     "wrist_moved_m": 0.902
+    },
+    {
+     "clip": "cast_meteor",
+     "palm_short_ik_off_m": 1.001,
+     "palm_short_ik_on_m": 0.069,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.643,
+     "t": 1.0,
+     "wrist_moved_m": 0.934
+    },
+    {
+     "clip": "cast_meteor",
+     "palm_short_ik_off_m": 1.02,
+     "palm_short_ik_on_m": 0.234,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.808,
+     "t": 1.625,
+     "wrist_moved_m": 0.807
+    },
+    {
+     "clip": "cast_meteor",
+     "palm_short_ik_off_m": 1.143,
+     "palm_short_ik_on_m": 0.222,
+     "reach_m": 0.574,
+     "shoulder_to_target_m": 0.797,
+     "t": 2.2,
+     "wrist_moved_m": 0.937
+    }
+   ],
+   "note": "the solved pose exists only INSIDE Skeleton3D's update: read it in `skeleton_updated`, not after"
+  },
+  "acceptance": {
+   "rule": "tilt <= 20 deg in idle/walk/run; crown's screen path per loop <= 60 px at the play camera (worst of 4 headings); no staff-body penetration (the grip region, 0.10 m round the fist, reported apart)",
+   "idle": {
+    "tilt_max_deg": 10.81,
+    "tip_path_px_worst": 11.8,
+    "staff_in_body": 0,
+    "staff_in_body_by_part": {}
+   },
+   "walk": {
+    "tilt_max_deg": 5.92,
+    "tip_path_px_worst": 47.4,
+    "staff_in_body": 0,
+    "staff_in_body_by_part": {}
+   },
+   "run": {
+    "tilt_max_deg": 13.33,
+    "tip_path_px_worst": 46.9,
+    "staff_in_body": 0,
+    "staff_in_body_by_part": {}
+   },
+   "verdict": "PASS",
+   "cast_fireball_arm_only": {
+    "tilt_max_deg": 23.85,
+    "tip_path_px_worst": 285.2,
+    "staff_in_body": 0,
+    "staff_in_body_by_part": {}
+   },
+   "cast_meteor": {
+    "tilt_max_deg": 114.07,
+    "tip_path_px_worst": 685.3,
+    "staff_in_body": 5,
+    "staff_in_body_by_part": {
+     "RightUpLeg": 5
+    }
+   },
+   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json"
+  },
+  "meteor": {
+   "intent": "unchanged: Meshy 127, she raises the staff and drives it down; release_s unchanged",
+   "rotation": "weapon_r track baked into cast_meteor (s13_meteor_track.py): SEATED while the fist is high (a shaft across the raised fist clears the arm and head), turned toward UPRIGHT as the fist comes down (w = smoothstep of fist height, shoulder -> hips), leaning 30.0 deg to her RIGHT as she crouches (a forward lean ran the staff through her thighs)",
+   "ground": "a weapon_r TRANSLATION track slides the staff up through the hand in the slam so the butt meets the snow (at most 3 cm in) -- the fist reaches 0.22 m and the grip is mid-staff, which had put the butt 0.62 m underground. Only in the slam: in the opening stance it stays up to 8.5 cm in the snow, because sliding there put the butt's knob 6.8 cm into her shin (measured, then removed)",
+   "turn_deg_range": [
+    0.0,
+    76.73
+   ],
+   "slide_m_max": 0.6776,
+   "remaining_contact": "grazes only: t=0.12 s RightUpLeg 5 verts 1.13 cm; t=0.17 s RightUpLeg 2 verts 0.49 cm; t=1.71 s LeftToeBase 2 verts 0.84 cm (per-frame, every frame)",
+   "measured_inside_worst": 7,
+   "compare": "pass 1's orientation had 638 staff verts inside her; seated throughout 103; upright throughout 32",
+   "other_clips": "every other clip carries one-key weapon_r rotation and translation tracks at REST, so the staff resets when the Meteor ends"
+  }
+ },
+ "speckles": {
+  "instrument": "scripts/s11_count.py on film/stills.gd: beauty + unshaded ID pass (body red, garments blue), 5 clips x 4 headings (25/115/205/295) at t = 1.0 s, posed THROUGH the staff layer, 1x and 2x. A speckle = an ISOLATED pale (min channel > 170) body patch <= 6*sc^2 px with >= 75% garment round it; patches within 2*sc px of a large visible-body region (a designed opening's edge) are reported apart",
+  "scale": "a 1920x1080 OFFSCREEN SubViewport -- 100.6 px/m at 1x, 201.2 at 2x. The window cannot be 1080 rows on this 1080-line display (it clamps to 971), so every earlier pass-2 still ran at 0.90x the play scale (90.5 px/m); those numbers are superseded, not comparable",
+  "isolated_pale_px": {
+   "1x": 1,
+   "2x": 7
+  },
+  "by_clip": {
+   "cast_fireball": {
+    "1x": 1,
+    "2x": 5
+   },
+   "cast_meteor": {
+    "1x": 0,
+    "2x": 0
+   },
+   "idle": {
+    "1x": 0,
+    "2x": 0
+   },
+   "run": {
+    "1x": 0,
+    "2x": 2
+   },
+   "walk": {
+    "1x": 0,
+    "2x": 0
+   }
+  },
+  "what_they_are": [
+   {
+    "still": "cast_fireball h25 s1",
+    "px": [
+     941,
+     591
+    ],
+    "pale_px": 1,
+    "behind": [
+     "gap"
+    ],
+    "cloth_behind_by_m": [
+     0.2836
+    ],
+    "height_from_top": 0.66
+   },
+   {
+    "still": "cast_fireball h25 s2",
+    "px": [
+     924,
+     638
+    ],
+    "pale_px": 2,
+    "behind": [
+     "gap",
+     "gap"
+    ],
+    "cloth_behind_by_m": [
+     0.2797,
+     0.2811
+    ],
+    "height_from_top": 0.64
+   },
+   {
+    "still": "cast_fireball h25 s2",
+    "px": [
+     922,
+     642
+    ],
+    "pale_px": 3,
+    "behind": [
+     "gap",
+     "gap",
+     "gap"
+    ],
+    "cloth_behind_by_m": [
+     0.2818,
+     0.2834,
+     0.2844
+    ],
+    "height_from_top": 0.66
+   },
+   {
+    "still": "run h115 s2",
+    "px": [
+     928,
+     539
+    ],
+    "pale_px": 1,
+    "behind": [
+     "poke"
+    ],
+    "cloth_behind_by_m": [
+     0.0008
+    ],
+    "height_from_top": 0.43
+   },
+   {
+    "still": "run h115 s2",
+    "px": [
+     1011,
+     574
+    ],
+    "pale_px": 1,
+    "behind": [
+     "gap"
+    ],
+    "cloth_behind_by_m": [
+     0.2752
+    ],
+    "height_from_top": 0.57
+   }
+  ],
+  "classification": "s11_dots.py: depth passes (body alone / garments alone) say whether the garment behind a dot is within 3 cm (a POKE) or the far side of her (a GAP in the near cloth). 3D-located: the Fire Ball gaps sit on the robe's FRONT SPLIT, the costume's own opening onto the cream underdress, which the throw's lunge parts into a one-pixel line; the run's 2x pair are one 0.8 mm poke and one pixel 4.9 cm from the front split's edge. Idle, walk and the Meteor: 0 at both scales",
+  "fixes_this_pass": [
+   "mesh-graph closing (--close 6) in the isolation: robe small loops 958 -> 65, mantle 1307 -> 18, belt 114 -> 6",
+   "hem overlap: every garment boundary extended along the surface (robe 6 mm, mantle/belt 4 mm)",
+   "UV SEAMS WELDED before decimation (s9_assemble WELD=1): glTF cuts a piece at every seam and the decimator thinned each side independently, opening hairline cracks; robe verts 490892 -> 476158 before decimation, boundary loops 215 -> 83"
+  ],
+  "tried_and_rejected": {
+   "under_garment_morphs": "s14_poke.py + s9_assemble --under: per-garment body morphs pulling hidden body in by the measured poke depth (+4 mm). Measured pokes fell (idle 73 -> 28 verts), but the only effect on the stills was one NEW isolated dot (a 3.7 mm-thin sheet of body at a vertex the morph pulled 4.3 cm, in the Fire Ball's back view), and they cost 7.6 MB of dense morph normals. Not shipped.",
+   "hem_12mm": "robe hem overlap 12 mm: the Fire Ball's front-split line closed, but new dots opened in the idle (1x 2 px, 2x 12 px)",
+   "double_sided_garments": "no change to any dot: none is a culled face"
+  }
+ },
+ "budget_pass2": {
+  "meshy_credits": {
+   "spent": 9,
+   "cap": 20,
+   "what": "3 calm library idles x 3 (11, 243, 249)"
+  },
+  "fal_usd": {
+   "spent": 0.0,
+   "cap": 0.5
+  },
+  "astra": {
+   "spent": 0,
+   "cap": 4
+  }
+ },
+ "film_pass2": {
+  "files": [
+   "artifacts/D7p2-film-playscale.mp4",
+   "artifacts/D7p2-film-2x.mp4"
+  ],
+  "plan": [
+   {
+    "clip": "idle",
+    "seconds": 2.5,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "walk",
+    "seconds": 3.0,
+    "speed": 1.449,
+    "heading_deg": 100
+   },
+   {
+    "clip": "run",
+    "seconds": 3.0,
+    "speed": 3.928,
+    "heading_deg": 100
+   },
+   {
+    "clip": "idle",
+    "seconds": 1.0,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "cast_fireball",
+    "seconds": 3.3333,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "cast_meteor",
+    "seconds": 3.0,
+    "speed": 0.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "idle",
+    "seconds": 1.5,
+    "speed": 0.0,
+    "heading_deg": 25
+   }
+  ],
+  "scale": "RENDERED at scale: 960x540 at 100.6 px/m, and 1920x1080 at 201.2 px/m over the same world extent",
+  "capture": "film/film2.gd renders into an offscreen SubViewport and pipes raw frames to ffmpeg (x264, crf 16), stepping exactly 1/30 s per frame -- no Movie Maker, which records at the project window size and RESCALES the real viewport",
+  "layers": "film/staff_layer.gd: carry per clip, grip_R = 1, IK wired and OFF",
+  "pass1_defects_found": [
+   "the walk played ONE second and froze: the glTF import leaves every clip LOOP_NONE and pass 1 never set a loop mode (frames 3.5 s and 5.5 s differ by 28 px of 518,400)",
+   "pass 1's '2x' was a lanczos enlargement of the 1x pixels, not a 2x render",
+   "pass 1 was captured through a window this display cannot open at 1080 rows; its scale was not verified then and is not claimed now"
+  ]
  }
 }

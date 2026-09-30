@@ -1,0 +1,105 @@
+{
+ "cast_fireball (STAFF ARM carry only)": {
+  "frames": [
+   0,
+   80
+  ],
+  "tilt_max_deg": 23.85,
+  "tilt_mean_deg": 14.94,
+  "tip_screen": {
+   "25": {
+    "path_px": 274.8,
+    "extent_px": 116.3
+   },
+   "115": {
+    "path_px": 285.2,
+    "extent_px": 123.1
+   },
+   "205": {
+    "path_px": 193.4,
+    "extent_px": 79.0
+   },
+   "295": {
+    "path_px": 268.1,
+    "extent_px": 114.6
+   }
+  },
+  "tip_path_px_worst": 285.2,
+  "tip_extent_px_worst": 123.1,
+  "staff_in_body_by_part": {},
+  "staff_in_body_worst": 0,
+  "shaft_in_grip_hand": 9
+ },
+ "cast_fireball (raw clip, no carry)": {
+  "frames": [
+   0,
+   80
+  ],
+  "tilt_max_deg": 127.05,
+  "tilt_mean_deg": 64.47,
+  "tip_screen": {
+   "25": {
+    "path_px": 664.6,
+    "extent_px": 178.7
+   },
+   "115": {
+    "path_px": 691.0,
+    "extent_px": 190.2
+   },
+   "205": {
+    "path_px": 658.2,
+    "extent_px": 191.3
+   },
+   "295": {
+    "path_px": 651.4,
+    "extent_px": 193.3
+   }
+  },
+  "tip_path_px_worst": 691.0,
+  "tip_extent_px_worst": 193.3,
+  "staff_in_body_by_part": {
+   "LeftUpLeg": 53,
+   "RightUpLeg": 12,
+   "Hips": 24,
+   "LeftHand": 3
+  },
+  "staff_in_body_worst": 92,
+  "shaft_in_grip_hand": 9
+ },
+ "cast_meteor (raw clip, no carry)": {
+  "frames": [
+   0,
+   72
+  ],
+  "tilt_max_deg": 114.07,
+  "tilt_mean_deg": 66.56,
+  "tip_screen": {
+   "25": {
+    "path_px": 701.9,
+    "extent_px": 204.2
+   },
+   "115": {
+    "path_px": 682.3,
+    "extent_px": 212.8
+   },
+   "205": {
+    "path_px": 654.3,
+    "extent_px": 199.0
+   },
+   "295": {
+    "path_px": 665.0,
+    "extent_px": 186.1
+   }
+  },
+  "tip_path_px_worst": 701.9,
+  "tip_extent_px_worst": 212.8,
+  "staff_in_body_by_part": {
+   "LeftUpLeg": 63,
+   "RightUpLeg": 9,
+   "LeftToeBase": 13,
+   "RightLeg": 18
+  },
+  "staff_in_body_worst": 103,
+  "shaft_in_grip_hand": 16
+ }
+}

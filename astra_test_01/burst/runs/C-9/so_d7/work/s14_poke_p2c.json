@@ -1,0 +1,154 @@
+{
+ "covered_verts": 49896,
+ "reach_m": 0.04,
+ "back_m": 0.06,
+ "keys_on": false,
+ "clips": {
+  "idle": {
+   "n": 73,
+   "uncovered": 592,
+   "depth": 0.0346,
+   "depth_p95": 0.0325,
+   "frame": 10,
+   "t": 0.417,
+   "parts": {
+    "RightArm": 34,
+    "RightHand": 12,
+    "Spine01": 9,
+    "RightLeg": 7,
+    "RightForeArm": 6,
+    "RightUpLeg": 3
+   },
+   "garments": {
+    "robe": 55,
+    "bracers": 18
+   },
+   "depth_max_any_frame": 0.0346,
+   "depth_hist_all_frames_mm": {
+    "<2": 953,
+    "2-5": 501,
+    "5-10": 896,
+    "10-20": 361,
+    ">=20": 611
+   }
+  },
+  "walk": {
+   "n": 146,
+   "uncovered": 603,
+   "depth": 0.0346,
+   "depth_p95": 0.031,
+   "frame": 10,
+   "t": 0.417,
+   "parts": {
+    "RightLeg": 83,
+    "RightArm": 34,
+    "RightHand": 12,
+    "LeftShoulder": 6,
+    "RightForeArm": 6,
+    "RightUpLeg": 3
+   },
+   "garments": {
+    "robe": 126,
+    "bracers": 20
+   },
+   "depth_max_any_frame": 0.0433,
+   "depth_hist_all_frames_mm": {
+    "<2": 346,
+    "2-5": 220,
+    "5-10": 297,
+    "10-20": 152,
+    ">=20": 236
+   }
+  },
+  "run": {
+   "n": 127,
+   "uncovered": 1082,
+   "depth": 0.0346,
+   "depth_p95": 0.0315,
+   "frame": 6,
+   "t": 0.25,
+   "parts": {
+    "RightArm": 34,
+    "LeftArm": 23,
+    "Hips": 14,
+    "LeftForeArm": 14,
+    "RightHand": 12,
+    "LeftUpLeg": 10
+   },
+   "garments": {
+    "belt": 2,
+    "robe": 107,
+    "bracers": 18
+   },
+   "depth_max_any_frame": 0.064,
+   "depth_hist_all_frames_mm": {
+    "<2": 242,
+    "2-5": 252,
+    "5-10": 277,
+    "10-20": 143,
+    ">=20": 216
+   }
+  },
+  "cast_fireball": {
+   "n": 541,
+   "uncovered": 1601,
+   "depth": 0.0346,
+   "depth_p95": 0.0161,
+   "frame": 25,
+   "t": 1.042,
+   "parts": {
+    "LeftArm": 311,
+    "Spine01": 101,
+    "LeftShoulder": 85,
+    "RightHand": 12,
+    "Spine02": 7,
+    "LeftUpLeg": 7
+   },
+   "garments": {
+    "mantle": 19,
+    "robe": 503,
+    "bracers": 19
+   },
+   "depth_max_any_frame": 0.0346,
+   "depth_hist_all_frames_mm": {
+    "<2": 7475,
+    "2-5": 5544,
+    "5-10": 3781,
+    "10-20": 1059,
+    ">=20": 888
+   }
+  },
+  "cast_meteor": {
+   "n": 479,
+   "uncovered": 1422,
+   "depth": 0.0288,
+   "depth_p95": 0.0224,
+   "frame": 46,
+   "t": 1.917,
+   "parts": {
+    "LeftUpLeg": 172,
+    "Hips": 132,
+    "RightLeg": 57,
+    "Spine01": 29,
+    "LeftShoulder": 25,
+    "RightHand": 21
+   },
+   "garments": {
+    "belt": 25,
+    "mantle": 12,
+    "robe": 421,
+    "bracers": 21
+   },
+   "depth_max_any_frame": 0.0346,
+   "depth_hist_all_frames_mm": {
+    "<2": 2366,
+    "2-5": 1772,
+    "5-10": 1386,
+    "10-20": 2042,
+    ">=20": 851
+   }
+  }
+ },
+ "depth_max_m": 0.064,
+ "verts_poking_any_frame": 1547
+}

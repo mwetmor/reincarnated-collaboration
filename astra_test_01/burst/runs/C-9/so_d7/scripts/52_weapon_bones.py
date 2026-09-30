@@ -155,8 +155,28 @@ def hand_points(js, bin_, hand, wmin=0.30):
     return P[w > wmin], P
 
 
+def _mpu(js):
+    """Metres per glTF unit, READ from the root joint's ancestors. The first version hard-coded
+    the barbarian's 0.010882345 into the grip's cross-section slab; the sorceress is 0.0100, so
+    her slab would have been 8.8% too thin."""
+    nodes = js['nodes']; par = {}
+    for i, n in enumerate(nodes):
+        for c in n.get('children', []): par[c] = i
+    j = set(js['skins'][0]['joints'])
+    root = next(x for x in js['skins'][0]['joints'] if par.get(x) not in j)
+    m, k = 1.0, par.get(root)
+    while k is not None:
+        m *= float(nodes[k].get('scale', [1, 1, 1])[1]); k = par.get(k)
+    return m
+
+
 def mount(body, axe, roll_deg):
-    """The grip calibration and the weapon bone's rest, in RightHand's local frame."""
+    """The grip calibration and the weapon bone's rest, in RightHand's local frame.
+
+    D7 generalises it past the axe: a weapon WITHOUT an `axe_edge` marker (the staff) takes its
+    head end from BULK -- the crown is the bulkier end -- and its roll reference from the body's
+    FORWARD carried into the hand's frame, since a radially symmetric crown (measured 2%
+    asymmetry) has no edge to face."""
     (jb, bb), (ja, ba) = body, axe
     hand, _ = hand_points(jb, bb, "RightHand")
     C = hand.mean(0)
@@ -169,14 +189,32 @@ def mount(body, axe, roll_deg):
     c = A.mean(0)
     _, _, vt2 = np.linalg.svd(A - c, full_matrices=False)
     H = vt2[0]
-    mk = next(i for i, n in enumerate(ja['nodes']) if n.get('name') == 'axe_edge')
-    edge = trs(ja['nodes'][mk])[:3, 3]            # local to its parent, RightHand
-    if (edge - c) @ H < 0:
-        H = -H
+    mk = next((i for i, n in enumerate(ja['nodes']) if n.get('name') == 'axe_edge'), None)
+    MPU = _mpu(ja)
+    if mk is not None:
+        edge = trs(ja['nodes'][mk])[:3, 3]            # local to its parent, RightHand
+        if (edge - c) @ H < 0:
+            H = -H
+    else:
+        t = (A - c) @ H
+        lo, hi = t.min(), t.max()
+        def bulk(m):
+            q = A[m] - c; q = q - np.outer(q @ H, H)
+            return float(np.linalg.norm(q, axis=1).mean()) if m.sum() else 0.0
+        if bulk(t < lo + 0.15 * (hi - lo)) > bulk(t > hi - 0.15 * (hi - lo)):
+            H = -H                                    # point H at the crown
     s0 = (C - c) @ H
-    sec = A[np.abs((A - c) @ H - s0) * 0.010882345 < 0.03]
+    sec = A[np.abs((A - c) @ H - s0) * MPU < 0.03]
     P = sec.mean(0)
-    E = (edge - P) - ((edge - P) @ H) * H
+    if mk is not None:
+        E = (edge - P) - ((edge - P) @ H) * H
+    else:
+        # the body's forward (+Z in glTF, she faces it) carried into RightHand's LOCAL frame
+        sk = jb['skins'][0]
+        names = [jb['nodes'][j]['name'] for j in sk['joints']]
+        ibm = mat_list(jb, bb, sk['inverseBindMatrices'])[names.index("RightHand")]
+        fwd = ibm[:3, :3] @ np.array([0.0, 0.0, 1.0])
+        E = fwd - (fwd @ H) * H
     E /= np.linalg.norm(E)
     T = channel if channel @ H >= 0 else -channel
     Q1 = arc(H, T)
@@ -300,14 +338,19 @@ def main():
     outd = a[a.index('--out') + 1]
     roll = float(a[a.index('--roll') + 1]) if '--roll' in a else None
     outj = a[a.index('--json') + 1] if '--json' in a else None
-    skip = {outd, str(roll) if roll is not None else None, outj}
+    skip = {outd, str(roll) if roll is not None else None, outj,
+            a[a.index('--body') + 1] if '--body' in a else None,
+            a[a.index('--weapon') + 1] if '--weapon' in a else None}
     files = [x for x in a if x.endswith('.glb') and x not in skip]
     os.makedirs(outd, exist_ok=True)
     mt = None
     rep = {"roll_deg": roll, "files": {}}
     if roll is not None:
-        body = next(f for f in files if os.path.basename(f).startswith('nb-body'))
-        axe = next(f for f in files if os.path.basename(f) == 'axe.glb')
+        # --body / --weapon (D7); the barbarian's names stay the defaults, so his call is unchanged
+        bname = a[a.index('--body') + 1] if '--body' in a else 'nb-body'
+        wname = a[a.index('--weapon') + 1] if '--weapon' in a else 'axe.glb'
+        body = next(f for f in files if os.path.basename(f).startswith(bname))
+        axe = next(f for f in files if os.path.basename(f) == wname)
         mt = mount(L.load_glb(body), L.load_glb(axe), roll)
         rep["mount"] = {k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in mt.items()}
         print("mount: seat turn %.1f deg (haft to the hand axis %.1f -> %.1f), roll %+.1f; grip %s; fist centroid %.4f units off the haft"

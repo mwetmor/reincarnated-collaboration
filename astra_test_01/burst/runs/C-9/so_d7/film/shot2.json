@@ -1,0 +1,48 @@
+{
+ "glb": "res://so_full_p2k.glb",
+ "plan": [
+  {
+   "clip": "idle",
+   "seconds": 2.5,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "walk",
+   "seconds": 3.0,
+   "speed": 1.449,
+   "heading_deg": 100
+  },
+  {
+   "clip": "run",
+   "seconds": 3.0,
+   "speed": 3.928,
+   "heading_deg": 100
+  },
+  {
+   "clip": "idle",
+   "seconds": 1.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "cast_fireball",
+   "seconds": 3.3333,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "cast_meteor",
+   "seconds": 3.0,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "idle",
+   "seconds": 1.5,
+   "speed": 0.0,
+   "heading_deg": 25
+  }
+ ],
+ "note": "walk and run at the manifest's FOOT-LOCK speeds (1.449, 3.928 m/s); casts three-quarter to the camera. Rows and px/m come from the window: 960x540 at FILM_SCALE=1 is 100.6 px/m; 1920x1080 at FILM_SCALE=2 is 201.2 px/m over the same world extent."
+}
