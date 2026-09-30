@@ -18,6 +18,18 @@ a = sys.argv[1:]
 SRC, DST = a[0], a[1]
 ROLL = float(a[a.index('--roll') + 1])
 OUTJ = a[a.index('--json') + 1] if '--json' in a else None
+if ROLL == 0.0:
+    # ROLL 0 IS THE T12_5 MOUNT ITSELF (2026-09-30: the -39 fit was an instrument error, see w5_measure.py's
+    # header): the body is issued BYTE-IDENTICAL to its source -- no re-normalised keys, no recomputed IBM.
+    import hashlib, shutil
+    shutil.copyfile(SRC, DST)
+    rep = dict(roll_deg=0.0, identity=True, sha256=hashlib.sha256(open(DST, 'rb').read()).hexdigest(),
+               source=os.path.basename(os.path.dirname(os.path.abspath(SRC))) + "/" + os.path.basename(SRC),
+               note="roll 0 = the T12_5 mount: a byte copy of the source body")
+    print(json.dumps(rep))
+    if OUTJ:
+        json.dump(rep, open(OUTJ, 'w'), indent=1)
+    sys.exit(0)
 js, b0 = L.load_glb(SRC)
 bn = bytearray(b0)
 nodes = js['nodes']

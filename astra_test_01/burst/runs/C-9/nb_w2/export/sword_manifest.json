@@ -1,7 +1,7 @@
 {
  "piece": "the JOIN SWORD, main hand (Matt R-C9-81: sword right, bearded axe left)",
  "file": "sword.glb",
- "sha256": "f208152b1ce4fe156d10750d13c4009f520d583f09bc35965735dcf3b9fb46f9",
+ "sha256": "6cae34e20e4aa0ebcf1b62d82e2c4c071cd4daa068c85e751a2aae344b9888cb",
  "bytes": 3485172,
  "mesh": {
   "verts": 6547,
@@ -58,29 +58,25 @@
   "read_back": "Godot, bound gear.gd's way, at idle_guard: main_tip 0.7768 m from main_grip; tip height 1.4869 m against Blender's 1.4860 from the skinned geometry"
  },
  "mount": {
-  "method": "T12: the SQUARE SEAT (the blade turned onto the fist's channel, gearlib.hand_frame) plus a ROLL about the blade",
+  "method": "T12: the SQUARE SEAT (the blade turned onto the fist's channel, gearlib.hand_frame); NO roll",
   "seat": "the T12_5_guard mount (weapon_mount.json, 52_weapon_bones --roll 0): the channel is the hand's, not the weapon's",
-  "roll_deg": -39.0,
-  "weapon_r_rest_quat_T12_5": [
-   -0.635062715626767,
-   -0.36532412741910325,
-   -0.09678731269288789,
-   0.6736956621857647
-  ],
-  "weapon_r_rest_quat_sword": [
-   -0.6309447340591534,
-   -0.5692539132759381,
-   0.1207525537642117,
-   0.5131057839690331
-  ],
-  "roll_fit": "minimise the worst |edge| over the 32 measured hold frames (idle_guard + walk): -39 deg gives 23.9 deg; roll 0 left the idle's edge at -48.4 deg, 3.4 deg outside the 45 deg gate",
+  "roll_deg": 0.0,
+  "roll_withdrawn": {
+   "was_deg": -39.0,
+   "why": "the scene drax gated the sword through the scene's tree (53_weapon_gate): at roll 0 its edge sits exactly on the axe's, and -39 FAILS the edge row on both strikes (+0.71, +0.64). The -39 fit minimised |edge| over hold rows whose IDLE half was measured with the sword turned 65.74 deg about its blade -- Blender held weapon_r, which idle_guard does not key, at the file's first animation's pose (attack's first key), where glTF and Godot put it at rest. The roll corrected the instrument, not the sword. Found bone by bone: every joint's Blender pose matched the glTF-evaluated global to 0.00 deg except weapon_r, 65.74, in idle_guard only; walk_armed, which keys weapon_r, measured 0.6 deg off (the PCA's own 0.57).",
+   "void_records": {
+    "idle_edge_roll0": -48.37,
+    "idle_edge_roll_m39": -22.434
+   },
+   "fix": "w5_measure.py bind() resets every pose bone to rest before binding a clip"
+  },
   "seat_measured": {
    "channel_vs_blade_deg": 0.05,
    "channel_centre_to_main_grip_m": 0.0116,
    "tip_from_grip_m": 0.7769
   },
   "fist_centroid_to_main_grip_m": 0.008,
-  "body": "export/nb-body_sword.glb: the T12_5_guard body COPY with weapon_r's rest, its 6 channel tracks (406 keys) and its IBM post-multiplied by the roll -- a binary patch, nothing else changed",
+  "body": "export/nb-body_sword.glb: the T12_5_guard body, BYTE-IDENTICAL (roll 0 is the T12_5 mount; w6_roll.py --roll 0 copies it, sha c7171dc20fba)",
   "record_T12_5": {
    "roll_deg": 0.0,
    "W": [
@@ -141,28 +137,29 @@
  },
  "guard_gate": {
   "predicate": "sword HOLD (the T12 gate adapted): blade tilt 30-60 deg from vertical, blade forward AND outboard, tip outboard of the fist, |edge heading| <= 45 deg; the frame from the sword's own skinned geometry (grip = weapon_r's joint, blade = to the farthest vertex, edge = the blade's widest spread)",
+  "instrument": "w5_measure.py, FIXED 2026-09-30 (un-keyed channels at rest): its idle edge now agrees with the glTF-evaluated edge to 0.6 deg on every row. The walk's verdict still belongs to the scene's tree (the edge row on the strikes too)",
   "idle": {
    "clip": "idle_guard",
-   "at_guard": "16/16",
+   "at_guard": "8/8",
    "median": {
-    "tilt": 54.364,
+    "tilt": 54.39,
     "fwd": 0.287,
     "out": 0.76,
     "tip_out": 0.591,
-    "edge": -22.434,
+    "edge": -6.413,
     "fist_to_grip_m": 0.008
    },
    "pen": 0
   },
   "walk": {
    "clip": "walk_armed + axe_guard_R right-arm layer",
-   "at_guard": "9/16",
+   "at_guard": "4/8",
    "median": {
-    "tilt": 58.862,
-    "fwd": 0.203,
-    "out": 0.832,
-    "tip_out": 0.646,
-    "edge": 17.904,
+    "tilt": 59.842,
+    "fwd": 0.197,
+    "out": 0.839,
+    "tip_out": 0.651,
+    "edge": -8.518,
     "fist_to_grip_m": 0.008
    },
    "pen": 0,
@@ -180,7 +177,8 @@
    "Hand": 0.0043
   },
   "axe_verts_in_body_idle_guard": 0,
-  "sword_to_axe_min_m": 0.1677
+  "sword_to_axe_min_m": 0.1599,
+  "measured": "at roll 0 with the fixed instrument (work/w5_mount_roll0_fixed.json)"
  },
  "provenance": {
   "source_sheet": {
@@ -276,17 +274,23 @@
     "wall_s": 296,
     "vendor_wait_s": 0,
     "agent_s": 296
+   },
+   "W2-S7-roll0": {
+    "wall_s": 108,
+    "vendor_wait_s": 0,
+    "agent_s": 108
    }
   },
   "total": {
-   "wall_s": 1643,
+   "wall_s": 1751,
    "vendor_wait_s": 269,
-   "agent_s": 1374
+   "agent_s": 1482
   },
   "note": "WALL = end - start; VENDOR = the generator's own measured wait; AGENT = wall - vendor. W2-S2-build was closed retroactively at W2-S3's start (the end call was missed)."
  },
  "deliverables": {
   "stills": "8 headings x idle_guard at 100.6 and 201.2 px/m (offscreen 1920x1080) + the pairing at 2 headings",
-  "film": "artifacts/W2-sword-film-2x.mp4 (1920x1080, 201.2 px/m, 255 frames: idle_guard, walk_armed + guard arm at 1.179 m/s, idle_guard)"
+  "film": "artifacts/W2-sword-film-2x.mp4 (1920x1080, 201.2 px/m, 255 frames: idle_guard, walk_armed + guard arm at 1.179 m/s, idle_guard)",
+  "caution": "the stills and the film were rendered at the WITHDRAWN -39 roll and are not re-rendered here: the blade's tilt and position are unchanged (the roll turns it about its own axis), its face is not"
  }
 }

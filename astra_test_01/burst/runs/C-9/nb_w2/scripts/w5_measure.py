@@ -18,6 +18,21 @@
 # vertices on the grip (|y_local| <= half the grip) and any vertex within 2 cm of a RightHand-weighted
 # body vertex. FIST: the closed hand's centroid (RightHand-weighted verts, grip_R = 1) to main_grip,
 # and the angle between the hand's channel (gearlib.hand_frame) and the blade axis.
+#
+# ⚑ THE IDLE EDGE WAS WRONG BY 66 DEG, AND THE -39 DEG ROLL WAS FITTED TO THE ERROR (2026-09-30; found by the
+# scene drax, who gated the sword through the scene's tree: roll 0 puts its edge exactly on the axe's, -39 fails
+# the edge row on both strikes). THE CAUSE IS NOT THE GEOMETRY -- the sword's own +Z IS its edge (PCA 0.57 deg off
+# it) -- IT IS HOW BLENDER POSES A BONE THAT A CLIP DOES NOT KEY. idle_guard carries no weapon_r track. glTF (and
+# Godot's tree) evaluates an un-keyed channel at its REST; Blender keeps whatever pose the last action left, and
+# after import that is the file's FIRST animation, `attack`, whose first weapon_r key is 65.74 deg from rest about
+# the blade. So every idle row measured the sword turned 65.74 deg about its own axis (66.3 with the PCA's 0.57),
+# at both rolls (the roll turns rest and keys alike), while walk_armed, which keys weapon_r, measured 0.6 deg off:
+# right. Measured bone by bone: every joint's Blender pose matches the glTF-evaluated global to 0.00 deg except
+# weapon_r (65.74), in idle_guard, under every importer option tried (bind-pose guess off, TEMPERANCE, FORTUNE).
+# The roll fit minimised |edge| over rows whose idle half carried that twist: it corrected the instrument, not the
+# sword. FIX: bind() now resets every pose bone to rest before binding a clip, so an un-keyed channel is at rest as
+# glTF says. The re-measure at roll 0 is work/w5_mount_roll0_fixed.json; the old w5_mount*.json idle edges are void.
+# ANY Blender instrument that binds clips on this rig inherits the same trap (weapon_l too, for clips that key it).
 import bpy, json, math, os, sys
 import numpy as np
 from mathutils import Matrix, Vector
@@ -71,6 +86,9 @@ rh = np.array([bool(v.groups) and gi.get(max(v.groups, key=lambda x: x.weight).g
 
 
 def bind(act):
+    # an UN-KEYED channel must read at REST (glTF, Godot); Blender keeps the last action's pose instead (see header)
+    for pb in arm.pose.bones:
+        pb.matrix_basis = Matrix()
     arm.animation_data.action = act
     if len(getattr(act, "slots", [])):
         arm.animation_data.action_slot = act.slots[0]
