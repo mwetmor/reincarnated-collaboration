@@ -28,6 +28,7 @@ const CHARACTER := "res://data/character.json"
 # editor's class cache has been rebuilt, and an exported app that loads before that has a
 # character with no gear and no error anybody sees.
 const CharGear := preload("res://scripts/gear.gd")
+const FootLock := preload("res://scripts/foot_lock.gd")
 const LINE_PX := 1.1
 
 ## THE SLOT IS SWAPPABLE, and nothing below names the knight.
@@ -100,6 +101,18 @@ var _layer_on := false
 var _attack_t := 0.0
 var _strikes: Array[String] = []
 var _blocking := false
+## BLOCK: raise -> hold -> lower. "off" | "raise" | "hold" | "lower"
+var _block_phase := "off"
+var _block_t0 := 0.0          # where the raise starts in the clip -- measured at load
+var _block_peak := 0.0        # where it peaks -- measured at load
+var _block_rate := 1.0        # clip seconds per real second while raising / lowering
+var _block_lower_rate := 1.0
+## FOOT LOCK -- see scripts/foot_lock.gd
+var _foot_lock: Node = null
+var _strike_anim := ""        # the playing strike's AnimationNodeAnimation, e.g. "a_slash"
+var _strike_len := 0.0
+var _strike_out_sent := false
+var _was_moving := false
 var _block_w := 0.0
 var _strafe_w := 0.0
 var _block_req_frame := -1
@@ -164,6 +177,7 @@ func _ready() -> void:
 	_set_layer(_rig, CHAR_LAYER)
 	_build_gear()
 	_build_anim_tree()
+	_add_foot_lock()
 	play(_roles.get("idle", ""))
 	_drive()
 
@@ -257,9 +271,16 @@ func _build_anim_tree() -> void:
 	# one-shot runs for its clip's length and cannot be held for as long as a key is down.
 	# Full body, above the guard and below the strikes.
 	var blk := AnimationNodeBlend2.new()
-	blk.sync = true
+	# NOT SYNCED. With sync on, a Blend2 advances its input at zero weight, so Block1 ran to
+	# its last frame while nobody was blocking and every block showed that frame: the raise
+	# never played (attack_lab, 2026-09-29: a_block parked at 3.500 s of 3.500). The block is
+	# now DRIVEN -- seeked, played, pinned and reversed by this script -- so it must not also
+	# be advancing on its own.
+	blk.sync = false
 	var a_block := AnimationNodeAnimation.new()
 	a_block.animation = String(am.get("block", ""))
+	var ts_block := AnimationNodeTimeScale.new()
+	var seek_block := AnimationNodeTimeSeek.new()
 
 	bt.add_node("a_idle", a_idle, Vector2(0, -160))
 	bt.add_node("a_walk", a_walk, Vector2(0, -60))
@@ -272,6 +293,8 @@ func _build_anim_tree() -> void:
 	bt.add_node("carry", carry, Vector2(560, 220))
 	bt.add_node("blend", b2, Vector2(700, 60))
 	bt.add_node("a_block", a_block, Vector2(700, 260))
+	bt.add_node("ts_block", ts_block, Vector2(760, 260))
+	bt.add_node("seek_block", seek_block, Vector2(820, 260))
 	bt.add_node("blk", blk, Vector2(860, 100))
 	bt.connect_node("ts_walk", 0, "a_walk")
 	bt.connect_node("ts_run", 0, "a_run")
@@ -294,7 +317,9 @@ func _build_anim_tree() -> void:
 	bt.connect_node("blend", 0, "strf")
 	bt.connect_node("blend", 1, "carry")
 	bt.connect_node("blk", 0, "blend")
-	bt.connect_node("blk", 1, "a_block")
+	bt.connect_node("ts_block", 0, "a_block")
+	bt.connect_node("seek_block", 0, "ts_block")
+	bt.connect_node("blk", 1, "seek_block")
 	var prev := "blk"
 	var x := 1020.0
 	for key in ["slash", "chop", "bash"]:
@@ -886,8 +911,21 @@ func try_strike(which: String) -> bool:
 	if attacking():
 		return false
 	if _tree != null:
+		if _block_phase != "off":
+			# A STRIKE CANCELS A BLOCK OUTRIGHT. The strike owns every bone while it runs, so there
+			# is nothing to lower -- the block is reset to its raise start and switched off, and the
+			# one-shot fades back to GUARD. Clearing `_blocking` alone left the phase at "hold", and
+			# since the block blend follows the phase, the held shield came back after every strike.
+			_block_phase = "off"
+			_tree.set("parameters/ts_block/scale", 0.0)
+			_tree.set("parameters/seek_block/seek_request", _block_t0)
 		_blocking = false
 		_tree.set("parameters/%s/request" % node, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		# the feet stay where they stand while the body blends into the strike
+		_strike_anim = "a_" + which
+		_strike_len = float(_clip_len.get(String(_roles.get(role, "")), 0.0))
+		_strike_out_sent = false
+		_foot_transition("strike_in", float((_tree.tree_root as AnimationNodeBlendTree).get_node(node).get("fadein_time")))
 		return true
 	_attack_t = float(_clip_len.get(String(_roles.get("attack", "attack")), 1.5))
 	return true
@@ -908,6 +946,21 @@ func set_block(on: bool) -> void:
 	_blocking = on
 	if on:
 		_block_req_frame = Engine.get_physics_frames()
+		_foot_transition("block_in", _block_fade_s())
+	if _tree == null:
+		return
+	if on:
+		# RAISE. From the raise start -- or, if a lower is under way, from wherever it has got
+		# to, so tapping B mid-lower goes back up instead of snapping to the bottom first.
+		if _block_phase == "off":
+			_tree.set("parameters/seek_block/seek_request", _block_t0)
+		_block_phase = "raise"
+		_tree.set("parameters/ts_block/scale", _block_rate)
+	else:
+		# LOWER: the raise, reversed, back to where it started; then the blend fades to guard
+		if _block_phase != "off":
+			_block_phase = "lower"
+			_tree.set("parameters/ts_block/scale", -_block_lower_rate)
 
 
 func _physics_process(dt: float) -> void:
@@ -973,6 +1026,7 @@ func drive_dir(dir: Vector2, running: bool, dt: float, hold := "") -> void:
 		want = strafe_px_s()
 	elif attacking() or _blocking:
 		want = 0.0                       # a strike roots him, and so does a brace
+	_foot_lock_tick(want)
 	var tau: float = float(tr.get("accel_tau_s", 0.10)) if want > _speed \
 		else float(tr.get("decel_tau_s", 0.15))
 	_speed += (want - _speed) * (1.0 - exp(-dt / maxf(tau, 1e-4)))
@@ -1248,6 +1302,107 @@ func _facing_for(d: Vector2) -> String:
 	return names[i]
 
 
+func _add_foot_lock() -> void:
+	"""Leg IK that holds planted feet through strike and block transitions (foot_lock.gd).
+	Off with `"foot_lock": false` in character.json; needs TwoBoneIK3D (Godot 4.6+)."""
+	if _skel == null or not bool(cfg.get("foot_lock", true)) or not ClassDB.class_exists("TwoBoneIK3D"):
+		return
+	_foot_lock = FootLock.new()
+	_foot_lock.name = "FootLock"
+	_skel.add_child(_foot_lock)
+	_foot_lock.setup(self, _skel)
+
+
+func _foot_transition(kind: String, hold_s: float) -> void:
+	if _foot_lock != null:
+		_foot_lock.transition(kind, hold_s)
+
+
+func _block_fade_s() -> float:
+	return float((cfg.get("transitions", {}) as Dictionary).get("block_fade_s", float(cfg.get("block_fade_s", 0.12))))
+
+
+func _foot_lock_tick(want: float) -> void:
+	"""Two events drive_dir can see that set_block and try_strike cannot: a strike's FADE-OUT
+	starting (the body blends back to guard -- the feet hold again), and locomotion taking
+	over (the walk owns the feet -- any lock is handed back as a short step)."""
+	if _foot_lock == null or _tree == null:
+		return
+	if attacking() and _strike_anim != "" and not _strike_out_sent:
+		var fout := float((cfg.get("transitions", {}) as Dictionary).get("attack_fade_out_s", 0.25))
+		var pos: float = float(_tree.get("parameters/%s/current_position" % _strike_anim))
+		if _strike_len > 0.0 and pos >= _strike_len - fout:
+			_strike_out_sent = true
+			_foot_transition("strike_out", fout)
+	var moving: bool = want > 0.0 and not attacking()
+	if moving and not _was_moving:
+		_foot_lock.release_all()
+	_was_moving = moving
+
+
+func _block_tick() -> void:
+	if _block_phase == "off" or _tree == null:
+		return
+	var pos: float = float(_tree.get("parameters/a_block/current_position"))
+	if _block_phase == "raise" and pos >= _block_peak:
+		_tree.set("parameters/seek_block/seek_request", _block_peak)
+		_tree.set("parameters/ts_block/scale", 0.0)
+		_block_phase = "hold"
+	elif _block_phase == "lower" and pos <= _block_t0 + 1e-3:
+		_tree.set("parameters/ts_block/scale", 0.0)
+		_block_phase = "off"
+		_foot_transition("block_out", _block_fade_s())
+
+
+func _block_marks() -> void:
+	"""Where Block1's RAISE starts and where it PEAKS, read off the clip -- the shield hand's
+	height, as _contact_phase reads a foot. Peak = the hand at its highest; raise start = the
+	last low before it, where the rise to the peak begins. Measured, not typed in, so a
+	re-exported block cannot leave stale numbers here. Durations come from character.json.
+
+	Block1 as shipped (attack_lab): hand 1.591 m at frame 0, a wind-up wobble, the last low
+	1.56 m at 0.750 s, the peak 1.728 m at 1.333 s, then a recovery dip and back to 1.591 m."""
+	var clip := String((cfg.get("clips_armed", {}) as Dictionary).get("block", ""))
+	if _anim == null or _skel == null or not _clip_len.has(clip):
+		return
+	var a := _anim.get_animation(clip)
+	var hb := _skel.find_bone("LeftHand")
+	var n: int = maxi(int(round(a.length * 24.0)), 2)
+	var ys := []
+	var save := _anim.current_animation
+	var mode := _anim.callback_mode_process
+	_anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	var was_active := _anim.active
+	_anim.active = true
+	_anim.play(clip)
+	for i in n + 1:
+		_anim.seek(a.length * float(i) / float(n), true, true)
+		ys.append(_skel.get_bone_global_pose(hb).origin.y)
+	_anim.active = was_active
+	_anim.callback_mode_process = mode
+	if save != "":
+		_anim.play(save)
+	var ip := 0
+	for i in ys.size():
+		if float(ys[i]) > float(ys[ip]):
+			ip = i
+	var i0 := ip
+	while i0 > 0 and float(ys[i0 - 1]) <= float(ys[i0]):
+		i0 -= 1
+	_block_t0 = a.length * float(i0) / float(n)
+	_block_peak = a.length * float(ip) / float(n)
+	var bt: Dictionary = cfg.get("block_timing", {})
+	var raise_s := float(bt.get("raise_s", 0.18))
+	var lower_s := float(bt.get("lower_s", 0.20))
+	_block_rate = (_block_peak - _block_t0) / maxf(raise_s, 1e-3)
+	_block_lower_rate = (_block_peak - _block_t0) / maxf(lower_s, 1e-3)
+	if _tree != null:
+		_tree.set("parameters/ts_block/scale", 0.0)
+		_tree.set("parameters/seek_block/seek_request", _block_t0)
+	print("block: raise %.3f -> %.3f s of '%s', played in %.2f s (x%.2f), lowered in %.2f s"
+		% [_block_t0, _block_peak, clip, raise_s, _block_rate, lower_s])
+
+
 func _apply_clip_set() -> void:
 	"""Re-point the live tree at the other clip set. The nodes are mutated in place rather
 	than the tree rebuilt: an AnimationNodeAnimation DOES re-pose when its `animation`
@@ -1289,6 +1444,7 @@ func _apply_clip_set() -> void:
 	_run_contact = _contact_phase(String(_roles.get("run", "run")))
 	_cycle_len = 0.0
 	_point_strafe()
+	_block_marks()
 	align_phase()
 	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
 		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),
@@ -1333,8 +1489,11 @@ func _drive(dt := 0.0) -> void:
 	# above reads `facing`, which drive_dir keeps updating from the key, and only the SPEED
 	# is forced to zero.
 	if _tree != null:
+		_block_tick()
 		var sw: float = 1.0 if _strafing else 0.0
-		var bw: float = 0.0 if _strafing else (1.0 if _blocking else 0.0)
+		# the block pose is on for the WHOLE raise-hold-lower, not only while the key is down:
+		# releasing B starts the lower, and the lower is part of the block
+		var bw: float = 0.0 if _strafing else (1.0 if _block_phase != "off" else 0.0)
 		var bt: float = float((cfg.get("transitions", {}) as Dictionary).get("block_fade_s",
 			float(cfg.get("block_fade_s", 0.12))))
 		var step: float = 1.0 if bt <= 0.0 or dt <= 0.0 else dt / bt
