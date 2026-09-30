@@ -30,6 +30,20 @@ done
 [ -e $C/scripts/foot_lock.gd ] && fail "a foot_lock.gd already exists in cliffside3d"
 echo "   ok: knight.gd and character.json are f2140e680's, GLB f1017ee1, no foot_lock.gd yet"
 
+echo "== 1b ultrawide BEFORE: display keys, fullscreen frame cost of the CURRENT apps, visible world"
+python3 $ST/display_stretch.py $C/project.godot --check || fail "project.godot [display] changed since planned"
+APPS="/Users/admin/Desktop/Astra Burst Review - 2026-09-26"
+CL_EXE="$APPS/C-9 cliffside 3D/C-9 Cliffside 3D.app/Contents/MacOS/C-9 Cliffside 3D"
+BW_EXE="$APPS/C-9 barrow/C-9 Barrow.app/Contents/MacOS/C-9 Barrow"
+measure() {   # $1 = before|after
+  python3 $LOCK C-9 -- bash $ST/fps_probe.sh "$CL_EXE" "cliffside 3D $1" 30 | tee -a $S/ultrawide.txt
+  python3 $LOCK C-9 -- bash $ST/fps_probe.sh "$BW_EXE" "Barrow $1" 30 | tee -a $S/ultrawide.txt
+  cp $ST/measure_view.gd $C/tools/measure_view.gd
+  for sc in res://scenes/cliffside3d.tscn res://scenes/barrow.tscn; do
+    python3 $LOCK C-9 -- $GODOT --path $C --fullscreen --script tools/measure_view.gd -- --scene $sc 2>&1 | grep -a "^\[view\]" | sed "s/^/$1 /" | tee -a $S/ultrawide.txt
+  done; }
+measure before
+
 echo "== 2 install (atomic rename), md5 verified after each copy"
 inst() { local src=$1 dst=$2 want=$3
   cp "$src" "$dst.tmp_handover" && mv "$dst.tmp_handover" "$dst"
@@ -45,6 +59,9 @@ python3 $LOCK C-9 -- $GODOT --path $C --headless --import > $S/import.log 2>&1
 echo "   script errors: $(grep -ac 'SCRIPT ERROR' $S/import.log)"
 [ "$(grep -ac 'SCRIPT ERROR' $S/import.log)" = "0" ] || { grep -a -A3 'SCRIPT ERROR' $S/import.log | head -12; fail "import has script errors"; }
 
+echo "== 3b stretch: canvas_items / keep / 1920x1080, so both apps show the planned 16:9 view"
+python3 $ST/display_stretch.py $C/project.godot | tee -a $S/ultrawide.txt || fail "stretch edit refused"
+
 echo "== 4 build the cliffside 3D app"
 bash $B/cliffside3d/tools/build_app.sh > $S/build_cliffside.log 2>&1; RC=$?
 tail -14 $S/build_cliffside.log; [ $RC -eq 0 ] || fail "cliffside build exit $RC"
@@ -58,6 +75,9 @@ tail -14 $S/build_barrow.log; [ $RC -eq 0 ] || fail "barrow build exit $RC"
 LB=$B/cliffside3d/app_barrow/build/logs/launch.log
 echo "   launch.log: SCRIPT ERROR $(grep -ac 'SCRIPT ERROR' $LB), recentre warnings $(grep -ac 'from the origin and never nearer' $LB), WARNING lines $(grep -ac 'WARNING' $LB)"
 cp $LB $S/launch_barrow.log
+
+echo "== 5b ultrawide AFTER, on the rebuilt apps"
+measure after
 
 echo "== 6 the armed Barrow walk, play camera, --fixed-fps 24"
 FREE=$(df -g /System/Volumes/Data | tail -1 | awk '{print $4}'); [ "$FREE" -ge 42 ] || fail "disk below 42 GiB before the capture"
