@@ -341,8 +341,24 @@ def acceptance(L, built, rep, grid, marks):
             "top_px": float(np.max((vs + cam["up_screen"] - win["v"][1]) * PX_UP))}
     bad = int(np.sum((us - cam["across"] < win["u"][0]) | (us + cam["across"] > win["u"][1])
                      | (vs - cam["down_screen"] < win["v"][0]) | (vs + cam["up_screen"] > win["v"][1])))
+    # THE FOUR CLOSEST CALLS: per side, the reachable cell whose frame comes nearest that edge;
+    # among ties (a whole column shares one u) the one nearest a corner. The app's own
+    # --view-check re-measures the frame at exactly these cells, fullscreen.
+    def side_px(u_, v_):
+        return {"left_px": (win["u"][0] + cam["across"] - u_) * PPM, "right_px": (u_ + cam["across"] - win["u"][1]) * PPM,
+                "bottom_px": (win["v"][0] + cam["down_screen"] - v_) * PX_UP, "top_px": (v_ + cam["up_screen"] - win["v"][1]) * PX_UP}
+    close = {}
+    for side, mask, other in (("left", np.isclose(us, us.min()), ("bottom_px", "top_px")),
+                              ("right", np.isclose(us, us.max()), ("bottom_px", "top_px")),
+                              ("bottom", np.isclose(vs, vs.min()), ("left_px", "right_px")),
+                              ("top", np.isclose(vs, vs.max()), ("left_px", "right_px"))):
+        cu_, cv_ = us[mask], vs[mask]
+        k = int(np.argmax([max(side_px(a, b)[o] for o in other) for a, b in zip(cu_, cv_)]))
+        close[side] = {"uv": [r(cu_[k], 2), r(cv_[k], 2)],
+                       "predicted_px_outside": {kk: r(vv, 1) for kk, vv in side_px(float(cu_[k]), float(cv_[k])).items()}}
     A["camera_margin"] = {"reachable_cells": int(len(us)), "cells_whose_frame_leaves_the_window": bad,
                           "worst_px_outside_by_side": {k: r(v, 1) for k, v in over.items()},
+                          "closest_call_cells": close,
                           "_read": "negative = that many px of margin to spare on that side",
                           "frame_from_his_feet": cam, "PASS": bad == 0,
                           "_instrument": "every reachable cell of the physics flood grid (0.1 m), the 1920 x 1080 play frame centred on him with the 55 px lift, against the 5376 x 3328 window",
@@ -367,16 +383,21 @@ def acceptance(L, built, rep, grid, marks):
                            "PASS": bool(cov >= 0.3),
                            "_instrument": "the built mound's own height function over u +-(the lintel's built half-width), v from the facade to the passage's end, minus the lintel's built top"},
                  "visible_unoccluded_guide_view": dv["guide_view"],
-                 "visible_from_the_arena_centre_play_frame": {"share": dv["play_frame"]["share_in_frame_him_at_the_arena_centre"],
-                                                              "PASS": dv["play_frame"]["share_in_frame_him_at_the_arena_centre"] >= 0.99},
-                 # TWO READINGS OF "visible from the arena": from a place IN the arena, and from its
-                 # centre. Both are reported; neither is allowed to stand in for the other.
-                 "visible_from_inside_the_arena_play_frame": {
+                 # THE ACCEPTANCE OF RECORD, as ruled after v2: the spec's "visible from the arena at
+                 # the play camera" could not hold from the arena's CENTRE together with the 0.3 m
+                 # cover and the camera margin. The centre reading is kept below, informational.
+                 "face_whole_from_the_arena_north_half": {
+                     "acceptance_of_record": "the door's face is whole from the arena's northern half (v >= 5.5), and the King's entrance gets a camera cue in Phase 2",
+                     "ruled_by": "the coordinator, 2026-09-29 (after v2), replacing the spec line 'visible from the arena at the play camera': the door must sit under >= 0.3 m of mound and the camera must stay in the window, and from the arena's centre both cannot hold -- the spec line was impossible, not the build",
                      "first_v_whole_in_frame": dv["play_frame"]["first_v_door_whole_in_frame"],
                      "arena_north_edge_v": A["arena"]["centre_uv"][1] + A["arena"]["required_r"],
-                     "band_m": r(A["arena"]["centre_uv"][1] + A["arena"]["required_r"] - dv["play_frame"]["first_v_door_whole_in_frame"]),
-                     "PASS": bool(0 <= dv["play_frame"]["first_v_door_whole_in_frame"] <= A["arena"]["centre_uv"][1] + A["arena"]["required_r"]),
-                     "_read": "him on the centre line facing N, the camera following: the face is whole AND unoccluded (magenta share >= 0.99 of the door-centred frame, everything drawn) from this v to the arena's r-7 north edge"},
+                     "least_share_from_v_5_5_to_the_door": min(s for v_, s in dv["play_frame"]["scan_v_share"] if v_ >= 5.5 - 1e-9),
+                     "PASS": bool(0 <= dv["play_frame"]["first_v_door_whole_in_frame"] <= 5.5 + 1e-9
+                                  and min(s for v_, s in dv["play_frame"]["scan_v_share"] if v_ >= 5.5 - 1e-9) >= 0.99),
+                     "camera_cue": "Phase 2 (not built here)",
+                     "_read": "him on the centre line facing N, the camera following: the face is whole AND unoccluded (magenta share >= 0.99 of the door-centred frame, everything drawn) at every 0.25 m step from v 5.5 to the door"},
+                 "informational_from_the_arena_centre": {"share": dv["play_frame"]["share_in_frame_him_at_the_arena_centre"],
+                                                         "_read": "0: the frame's top is v 8.41 from (0, 1); the door stands at v 10.3-10.6"},
                  "first_v_door_half_in_frame": dv["play_frame"]["first_v_half_in_frame"],
                  "first_v_door_whole_in_frame": dv["play_frame"]["first_v_door_whole_in_frame"],
                  "why": dv["play_frame"]["_why_zero_at_the_centre"], "_instrument": dv["instrument"]}
@@ -385,22 +406,80 @@ def acceptance(L, built, rep, grid, marks):
     # the display. v1's figure was fullscreen on a 1920 x 1080 display; the display is now a
     # 3440 x 1440 ultrawide, where fullscreen is 2.4x the pixels of the play frame. So the 1080p
     # line is the app's default 1920 x 1080 window, and fullscreen is reported beside it.
+    # 'viewport' is the FRAME (1920 x 1080 under the 16:9 lock); 'render' the px drawn; 'window'
+    # the OS window, bars included. The unlocked run predates the lock and printed only the
+    # first, which then WAS what it drew.
     runs = []
-    for name, mode in (("app_frame_cost.log", "windowed 1920 x 1080 (the app's default window)"),
-                       ("app_frame_cost_repeat.log", "windowed 1920 x 1080, repeat run"),
-                       ("app_frame_cost_fullscreen_3440x1440.log", "--fullscreen on the 3440 x 1440 display")):
+    for name, mode in (("app_frame_cost.log", "windowed 1920 x 1080 (the app's default window), 16:9 locked"),
+                       ("app_frame_cost_repeat.log", "windowed 1920 x 1080, repeat run, 16:9 locked"),
+                       ("app_frame_cost_fullscreen_locked.log", "--fullscreen on the 3440 x 1440 display, 16:9 locked"),
+                       ("app_frame_cost_fullscreen_locked_repeat.log", "--fullscreen on the 3440 x 1440 display, 16:9 locked, repeat run"),
+                       ("app_frame_cost_fullscreen_unlocked.log", "BEFORE the lock (b65f1dfae's app): --fullscreen, 3440 x 1440 drawn, 34 x 18 m of ground")):
         lg = CAP / "logs" / name
         if not lg.exists():
             continue
-        mm = re.search(r"frame_cost ms_per_frame=([0-9.]+) fps=([0-9.]+) viewport=(\d+)x(\d+) frames=(\d+)", lg.read_text())
+        mm = re.search(r"frame_cost ms_per_frame=([0-9.]+) fps=([0-9.]+) viewport=(\d+)x(\d+) frames=(\d+)"
+                       r"(?: render=(\d+)x(\d+) window=(\d+)x(\d+))?", lg.read_text())
         if mm:
+            vp_ = [int(mm.group(3)), int(mm.group(4))]
             runs.append({"mode": mode, "log": "captures/logs/" + name, "ms_per_frame": float(mm.group(1)), "fps": float(mm.group(2)),
-                         "viewport": [int(mm.group(3)), int(mm.group(4))], "frames": int(mm.group(5))})
+                         "frame_px": vp_, "render_px": [int(mm.group(6)), int(mm.group(7))] if mm.group(6) else vp_,
+                         "window_px": [int(mm.group(8)), int(mm.group(9))] if mm.group(8) else vp_, "frames": int(mm.group(5))})
     if runs:
         A["frame_cost_ms"] = dict(A["frame_cost_ms"] or {})
-        at1080 = [x["ms_per_frame"] for x in runs if x["viewport"] == [1920, 1080]]
-        A["frame_cost_ms"]["exported_app"] = {"runs": runs, "at_1080p_ms_per_frame": at1080,
+        locked = [x for x in runs if "locked" in x["mode"] and "BEFORE" not in x["mode"]]
+        A["frame_cost_ms"]["exported_app"] = {"runs": runs,
+            "at_1080p_windowed_ms_per_frame": [x["ms_per_frame"] for x in locked if x["render_px"] == [1920, 1080]],
+            "fullscreen_ultrawide_locked_ms_per_frame": [x["ms_per_frame"] for x in locked if x["window_px"] != x["render_px"]],
             "_at": "the staged app, vsync off, MSAA 2x (project setting), him walking a loop in the ring, 600 frames, wall clock / frames; display 3440 x 1440"}
+    # 13. THE 16:9 LOCK, measured inside the running app (--view-check): the frame's corners cast
+    # onto the floor at the four closest-call cells of line 10, fullscreen on the ultrawide.
+    planned = {"across": r(1920 / PPM), "up_screen_ground": r(1080 / PX_UP)}
+    vl = {}
+    for name, key in (("app_view_check_fullscreen.log", "fullscreen"),
+                      ("app_view_check_fullscreen_clamp_on.log", "fullscreen_clamp_on"),
+                      ("app_view_check_windowed.log", "windowed_1920x1080")):
+        lg = CAP / "logs" / name
+        if lg.exists():
+            mm = re.search(r"\[barrow_full\] view_check (\{.*\})", lg.read_text())
+            if mm:
+                vl[key] = json.loads(mm.group(1))
+
+    def run_ok(x):
+        cells = [x["cells"][s] for s in ("left", "right", "bottom", "top") if s in x["cells"]]
+        rw, rh = x["render_px"]
+        return bool(x["stretch"] == {"mode": "canvas_items", "aspect": "keep", "base": [1920, 1080]}
+                    and abs(rw / rh - 16 / 9) < 1e-3 and len(cells) == 4
+                    and all(max(c["px_outside_by_side"].values()) <= 0.0 for c in cells)
+                    and all(abs(c["extent_m"]["across"] - planned["across"]) < 0.01
+                            and abs(c["extent_m"]["up_screen_ground"] - planned["up_screen_ground"]) < 0.01 for c in cells))
+    if vl:
+        for key, x in vl.items():
+            x["PASS"] = run_ok(x)
+            for side, c in x["cells"].items():
+                if side in close:
+                    c["line_10_predicted_px_outside"] = close[side]["predicted_px_outside"]
+                    c["measured_minus_predicted_px"] = {k: r(c["px_outside_by_side"][k] - close[side]["predicted_px_outside"][k], 1)
+                                                        for k in c["px_outside_by_side"]}
+        # THE U TOGGLE, KEPT AND EXERCISED: two cells OUTSIDE the bounds (unreachable in play --
+        # teleported), where a free frame must leave the window and a clamped one must stop at
+        # its edge. The closest-call cells, inside, must not move at all.
+        ct = {}
+        fr_, cl_ = vl.get("fullscreen", {}).get("cells", {}), vl.get("fullscreen_clamp_on", {}).get("cells", {})
+        for nm in ("clamp_test_east", "clamp_test_south"):
+            if nm in fr_ and nm in cl_:
+                ct[nm] = {"him_uv": cl_[nm]["him_uv"], "free_px_outside": fr_[nm]["px_outside_by_side"],
+                          "clamped_px_outside": cl_[nm]["px_outside_by_side"]}
+        same_inside = all(fr_[s]["px_outside_by_side"] == cl_[s]["px_outside_by_side"] for s in ("left", "right", "bottom", "top")
+                          if s in fr_ and s in cl_)
+        clamp_ok = bool(ct and same_inside
+                        and all(max(c["free_px_outside"].values()) > 0.0 and max(c["clamped_px_outside"].values()) <= 0.05 for c in ct.values()))
+        A["view_lock_16x9"] = {"setting": "project.godot [display] window/stretch/mode=canvas_items, window/stretch/aspect=keep, base 1920 x 1080",
+                               "planned_extent_m": planned, "runs": vl,
+                               "clamp_toggle_U": {"tests": ct, "closest_call_cells_unmoved_by_the_clamp": same_inside, "PASS": clamp_ok,
+                                                  "_fixed": "the clamp was v1's: symmetric about the origin, where v1's window was centred. v2's window is centred at (-2, -3); the symmetric clamp held the camera 4.0 m short of the left edge and 6.0 m short of the bottom. It now clamps to the window's own edges (clamped px outside = 0.0 at both tests)."},
+                               "PASS": bool("fullscreen" in vl and all(x["PASS"] for x in vl.values())),
+                               "_instrument": "the exported app, --view-check: him placed at each cell, the camera following as in play; a ray through each corner of the visible frame (Camera3D.project_ray_origin/normal) cast onto the floor y = 0; the ground points in (u, v) and in the guide window's px (x = (u - u0) * 100.6176, y = (v1 - v) * 80.3076); negative px = margin inside the window"}
     return A, gr
 
 
@@ -674,10 +753,13 @@ def draw_map(L, built, rep, grid, A, C, F):
            ("no squeezes (<0.70 or >=1.40)", A["no_squeezes"]["PASS"], "%d gaps in [0.70, 1.40)" % len(A["no_squeezes"]["squeezes"])),
            ("camera margin: 0 px outside", A["camera_margin"]["PASS"], "worst side %+.0f px" % max(A["camera_margin"]["worst_px_outside_by_side"].values())),
            ("door covered >= 0.3 m", A["door"]["cover"]["PASS"], "cover %.2f m" % A["door"]["cover"]["cover_m"]),
-           ("door face whole from inside the arena", A["door"]["visible_from_inside_the_arena_play_frame"]["PASS"],
-            "from v %.2f to the arena's edge v %.1f" % (A["door"]["first_v_door_whole_in_frame"], A["door"]["visible_from_inside_the_arena_play_frame"]["arena_north_edge_v"])),
-           ("door face in frame from the arena CENTRE", A["door"]["visible_from_the_arena_centre_play_frame"]["PASS"],
-            "%.0f%%: the frame's top is v 8.41, the door v 10.3" % (100 * A["door"]["visible_from_the_arena_centre_play_frame"]["share"]))]
+           ("door face whole from the arena's north half", A["door"]["face_whole_from_the_arena_north_half"]["PASS"],
+            "whole from v %.2f (ruled after v2; camera cue in Phase 2)" % A["door"]["first_v_door_whole_in_frame"])]
+    if "view_lock_16x9" in A:
+        fs = A["view_lock_16x9"]["runs"].get("fullscreen", {})
+        ext = next(iter(fs.get("cells", {}).values()), {}).get("extent_m", {})
+        acc.append(("app view locked 16:9, fullscreen", A["view_lock_16x9"]["PASS"],
+                    "%.2f x %.2f m; 4 closest cells, 0 px outside" % (ext.get("across", 0), ext.get("up_screen_ground", 0))))
     for nm, ok, val in acc:
         d.text((lx, ly), ("PASS  " if ok else "FAIL  ") + nm, font=f15, fill=(20, 110, 40) if ok else (190, 20, 20))
         d.text((lx + 24, ly + 20), val, font=f13, fill=(60, 60, 60))
@@ -786,8 +868,9 @@ def main():
                                          "scale", "no_squeezes", "camera_margin") if "PASS" in A[k]}
     summary["placements"] = A["placements"]["all_spec_points_within_tolerance"]
     summary["door_cover"] = A["door"]["cover"]["PASS"]
-    summary["door_whole_from_inside_the_arena"] = A["door"]["visible_from_inside_the_arena_play_frame"]["PASS"]
-    summary["door_visible_from_arena_centre"] = A["door"]["visible_from_the_arena_centre_play_frame"]["PASS"]
+    summary["door_face_whole_from_the_arena_north_half"] = A["door"]["face_whole_from_the_arena_north_half"]["PASS"]
+    if "view_lock_16x9" in A:
+        summary["view_lock_16x9"] = A["view_lock_16x9"]["PASS"]
     print(json.dumps({"pass": summary, "worst_placement_m": A["placements"]["worst_delta_m"],
                       "arena_clear": A["arena"]["clear_r_walkable_m"], "path_spare": A["path"]["min_clearance_m"],
                       "entrance": A["ring_entrance"]["clear_gap_m"], "marker_1m": A["scale"]["one_metre_across_px"],

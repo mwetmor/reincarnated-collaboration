@@ -14,6 +14,9 @@
 # which includes whether the splat's sha256 matched the layout: the pck fence proves a file
 # is there, only the running scene can say it read the right one.
 #
+# THE VIEW IS LOCKED TO 16:9 by the project itself (stretch canvas_items, aspect keep, base
+# 1920 x 1080), mirrored with the rest of godot/; the probe checks the app reports it.
+#
 # UNSIGNED and local. Signing is a Matt call, not a flag this script may flip.
 #
 #   usage: tools/build_app.sh
@@ -206,6 +209,11 @@ if [ -z "${SKIP_LAUNCH_CHECK:-}" ]; then
   grep -q "splat_ok=true" "$LOG/launch.log" \
     && ck 0 "the app read the splat and its sha256 matched the layout" \
     || ck 1 "the splat did not load or did not match -- see $LOG/launch.log"
+  # THE 16:9 LOCK, as the running app reports it -- project.godot is in the pck either way;
+  # only the app can say the window it opens will honour it.
+  grep -q "\[barrow_full\] view stretch=canvas_items aspect=keep base=1920x1080" "$LOG/launch.log" \
+    && ck 0 "the view is locked: $(grep -o '\[barrow_full\] view.*' "$LOG/launch.log" | head -1)" \
+    || ck 1 "the 16:9 view lock is not in force -- see $LOG/launch.log"
 fi
 
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }

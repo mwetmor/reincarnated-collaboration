@@ -26,7 +26,11 @@ extends Node3D
 ##       V  the look stack (ramp + ink) off and on
 ##       K  the ink pass only
 ##       O  the layout overlay: bounds, arena, path band, tarn, mound foot, ring
-##       U  the camera clamp to the painted window (ON by default -- see _clamp_aim)
+##       U  the camera clamp to the painted window (OFF by default in v2 -- see _clamp_aim)
+##
+##   THE VIEW IS LOCKED TO 16:9 (project.godot: stretch canvas_items, aspect keep, base
+##   1920 x 1080). Every window shows the same 19.1 x 13.4 m of ground; a wider or taller
+##   screen gets bars. --view-check measures it from inside the running app.
 
 const LAYOUT_JSON := "res://data/barrow_full_layout.json"
 const PPM := 100.617553710938
@@ -43,6 +47,7 @@ const PLAY_M_PER_PX := 1.0 / PPM
 const SUN_ELEV_DEG := 55.0
 const SUN_SCREEN_AZ_DEG := 305.0
 const HULL_PX := 1.1
+const LINE_PX := 1.25             # the screen-space pen, in FRAME px (1920 x 1080); see _sync_post_scale
 # knight.gd masks its body and its ground ray to CliffWorld.TERRAIN_BIT, which is 1 << 1.
 # PaintStack.TERRAIN_BIT is the same number; both are asserted in _ready.
 const TERRAIN_BIT := 1 << 1
@@ -143,8 +148,13 @@ func _ready() -> void:
 	print("[barrow_full] built placements=%d splat_ok=%s build_ms=%d" % [
 		nodes.size(), str(report.get("ground", {}).get("splat_sha256_matches_layout", false)),
 		int(report["build_ms"]["total"])])
+	# AND THE VIEW IT WILL BE SEEN THROUGH: the launch probe checks this line as well.
+	print("[barrow_full] view stretch=%s aspect=%s base=%dx%d" % _view_lock())
+	get_viewport().size_changed.connect(_sync_post_scale)
 	if "--frame-cost" in OS.get_cmdline_user_args():
 		_frame_cost_mode()
+	elif "--view-check" in OS.get_cmdline_user_args():
+		_view_check_mode()
 
 
 func _read_json(path: String) -> Dictionary:
@@ -157,7 +167,9 @@ func _read_json(path: String) -> Dictionary:
 # --- the frame ----------------------------------------------------------------------------
 func _build_camera() -> void:
 	"""barrow_world's camera law, unchanged: orthographic, pitch 52.95354112560294, yaw 47, size
-	in metres of screen height over the ACTUAL viewport rows. Then the (u, v) ground basis is
+	in metres of screen height over the FRAME's rows -- the viewport's visible rect, which the
+	16:9 lock holds at 1080 in every window (a 2560 x 1440 fullscreen render included), so the
+	frame is the same ground everywhere. Then the (u, v) ground basis is
 	TAKEN FROM THIS CAMERA -- the spec says so -- and checked against the analytic one."""
 	var p := deg_to_rad(PL_PITCH_DEG)
 	var y := deg_to_rad(PL_YAW_DEG)
@@ -233,8 +245,53 @@ func look_at_world(aim: Vector3) -> void:
 
 
 func _sync_post_scale() -> void:
+	"""The pen's metres per px from the FRAME (1080 rows, which cam.size is set from), and its
+	span in RENDER px scaled to match. Under the 16:9 lock, fullscreen on a 3440 x 1440 display
+	renders the same 1920 x 1080 frame at 2560 x 1440: the same ground, px 4/3 finer.
+	paint_stack's span is in render px, so without this the screen-space line would be 1.25
+	render px -- 0.94 of a frame px -- while the hull ink, which is in metres, stays 1.1 frame
+	px: two weights, set by the monitor. With it, the span covers the same metres at any
+	resolution, the thresholds (in metres) mean the same thing, and the line keeps its weight."""
 	if post_mat != null and cam != null:
 		post_mat.set_shader_parameter("m_per_px", cam.size / maxf(float(_view_height()), 1.0))
+		post_mat.set_shader_parameter("line_px", LINE_PX * _render_scale())
+
+
+func _render_scale() -> float:
+	"""Render px per frame px: 1.0 in a 1920 x 1080 window or a capture SubViewport, 4/3
+	fullscreen at 1440 -- the scale of the viewport's final transform.
+
+	NOT THE TEXTURE'S SIZE. Under canvas_items, fullscreen on the 3440 x 1440 display, the root
+	viewport's texture REPORTS 3414 x 1920 while the image it yields is 2560 x 1440
+	(tools/probe_view.gd, frame by frame): the reported size is the render size times the 2D
+	stretch. The first version of this function read it, returned 16/9 instead of 4/3, and drew
+	the pen 2.22 render px wide -- cleanly, with no error. The root Window's `size` is no better:
+	it is the OS window, bars included."""
+	var vp := get_viewport()
+	if vp == null:
+		return 1.0
+	var s := vp.get_final_transform().get_scale().y
+	return s if s > 0.0 else 1.0
+
+
+func _render_px() -> Vector2i:
+	"""The px actually drawn, from the frame and the final transform (see _render_scale)."""
+	var vr := get_viewport().get_visible_rect().size
+	return Vector2i(roundi(vr.x * _render_scale()), roundi(vr.y * _render_scale()))
+
+
+func _view_lock() -> Array:
+	var w := get_tree().root
+	var modes := {Window.CONTENT_SCALE_MODE_DISABLED: "disabled",
+				  Window.CONTENT_SCALE_MODE_CANVAS_ITEMS: "canvas_items",
+				  Window.CONTENT_SCALE_MODE_VIEWPORT: "viewport"}
+	var aspects := {Window.CONTENT_SCALE_ASPECT_IGNORE: "ignore", Window.CONTENT_SCALE_ASPECT_KEEP: "keep",
+					Window.CONTENT_SCALE_ASPECT_KEEP_WIDTH: "keep_width",
+					Window.CONTENT_SCALE_ASPECT_KEEP_HEIGHT: "keep_height",
+					Window.CONTENT_SCALE_ASPECT_EXPAND: "expand"}
+	return [String(modes.get(w.content_scale_mode, str(w.content_scale_mode))),
+			String(aspects.get(w.content_scale_aspect, str(w.content_scale_aspect))),
+			w.content_scale_size.x, w.content_scale_size.y]
 
 
 func _v3(v: Vector3) -> Array:
@@ -1251,22 +1308,26 @@ func aim_for(pos: Vector3) -> Vector3:
 
 
 func _clamp_aim(aim: Vector3) -> Vector3:
-	"""THE CAMERA STOPS AT THE PAINTED WINDOW. The painting will be 4096 x 2560 px of ground,
-	u +-20.35 and v +-15.94, and nothing outside it will ever be painted. The play frame is
-	19.1 x 13.4 m of ground; followed freely, he stands 2 m inside the bounds and the frame
-	shows 7 m of the world past the painting's edge. So the frame's centre is held inside the
-	window shrunk by half a frame, which is exactly the set of frames the painting can fill.
-	U turns it off, for comparison."""
+	"""THE CAMERA STOPS AT THE PAINTED WINDOW (U; off by default in v2). The frame's centre is
+	held inside the window shrunk by half a frame on each side -- exactly the set of frames the
+	painting can fill. In v2 the camera margin already holds from every reachable cell, so this
+	never engages in play; it is kept for comparison and for any screen the lock does not cover.
+
+	THE WINDOW'S OWN EDGES, NOT A SYMMETRIC BOX. v1's window was centred on the origin and this
+	clamped to +-(edge - half frame). v2's window is centred at (-2, -3), and the symmetric
+	clamp held the camera 4.0 m short of the left edge and 6.0 m short of the bottom one."""
 	var t := aim.y / maxf(-fwd.y, 1e-6)
 	var g := aim + fwd * t                               # the aim's ground point along the view
 	var uv := world_to_uv(g)
 	var gw: Dictionary = layout["frame"]["guide_window"]
-	var uh := float(gw["u"][1])
-	var vh := float(gw["v"][1])
 	var fu := float(_view_width()) * 0.5 / PPM
 	var fv := float(_view_height()) * 0.5 / (PPM * sin(deg_to_rad(PL_PITCH_DEG)))
-	var cu := clampf(uv.x, -maxf(uh - fu, 0.0), maxf(uh - fu, 0.0))
-	var cv := clampf(uv.y, -maxf(vh - fv, 0.0), maxf(vh - fv, 0.0))
+	var ulo := float(gw["u"][0]) + fu
+	var uhi := float(gw["u"][1]) - fu
+	var vlo := float(gw["v"][0]) + fv
+	var vhi := float(gw["v"][1]) - fv
+	var cu := clampf(uv.x, ulo, uhi) if ulo <= uhi else (ulo + uhi) * 0.5
+	var cv := clampf(uv.y, vlo, vhi) if vlo <= vhi else (vlo + vhi) * 0.5
 	return uv_to_world(cu, cv)
 
 
@@ -1278,7 +1339,7 @@ func _camera_aim() -> Vector3:
 # --- the one pen --------------------------------------------------------------------------
 func _build_post() -> void:
 	post_mat = PaintStack.post_material(paper, PaintStack.INK, {
-		"line_px": 1.25, "depth_edge_px": 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
+		"line_px": LINE_PX, "depth_edge_px": 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
 		"ink_gain": 1.15, "ref_m_per_px": PLAY_M_PER_PX,
 		"grade_on": 0.0,
 	})
@@ -1286,7 +1347,8 @@ func _build_post() -> void:
 	post_q = PaintStack.post_quad(cam, post_mat)
 	report["ink"] = {"one_pen_hex": "#%02X%02X%02X" % [int(round(PaintStack.INK.r * 255.0)),
 					 int(round(PaintStack.INK.g * 255.0)), int(round(PaintStack.INK.b * 255.0))],
-		"screen_space": {"line_px": 1.25, "depth_edge_px": 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
+		"screen_space": {"line_px": LINE_PX, "depth_edge_px": 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
+						 "line_px_is": "frame px (1920 x 1080); the span in render px is LINE_PX x render rows / 1080",
 						 "source": "paint_stack.gd at HEAD, unmodified"},
 		"hull": "1.1 px on him and on every solid model; none on the birches (the thin-mesh rule)",
 		"grade_and_paper": "off"}
@@ -1669,6 +1731,109 @@ func _frame_cost_mode() -> void:
 		knight.drive_dir(canvas_dir_uv(knight_uv(), loop[wi]), false, dt)
 		await get_tree().process_frame
 	var ms := float(Time.get_ticks_usec() - t0) / 1000.0 / float(n)
-	print("[barrow_full] frame_cost ms_per_frame=%.2f fps=%.1f viewport=%dx%d frames=%d" % [
-		ms, 1000.0 / maxf(ms, 1e-3), _view_width(), _view_height(), n])
+	# viewport = the FRAME (1920 x 1080 under the lock); render = the px actually drawn; window =
+	# the OS window, bars included. The first two differ fullscreen on a wider screen.
+	# render = the size of the IMAGE the viewport yields (one readback, after the timing) -- the
+	# texture's reported size is not the px drawn under canvas_items (see _render_scale).
+	var img_sz := get_viewport().get_texture().get_image().get_size()
+	var ws := DisplayServer.window_get_size()
+	print("[barrow_full] frame_cost ms_per_frame=%.2f fps=%.1f viewport=%dx%d frames=%d render=%dx%d window=%dx%d" % [
+		ms, 1000.0 / maxf(ms, 1e-3), _view_width(), _view_height(), n,
+		img_sz.x, img_sz.y, ws.x, ws.y])
+	get_tree().quit()
+
+
+# --- the app's own view check (--view-check) ----------------------------------------------
+func _view_check_mode() -> void:
+	"""Run from the EXPORTED app: `.../MacOS/<exe> [--fullscreen] -- --view-check --cells
+	"name:u,v;..." [--clamp on|off] [--out DIR] [--tag T]`. THE FRAME, MEASURED BY THE CAMERA
+	ITSELF: at each cell he is placed and the camera follows as in play; a ray through each
+	corner of the visible frame is intersected with the floor -- the ground the frame actually
+	shows. Reported in metres, and in the guide window's px (the guide and the play camera are
+	one projection at one scale, so a corner's ground point IS its guide px). Negative px =
+	that much margin inside the window."""
+	var args := OS.get_cmdline_user_args()
+	var cells := []
+	var out_dir := ""
+	var tag := "view"
+	for i in args.size():
+		var a := String(args[i])
+		if i + 1 >= args.size():
+			break
+		var nxt := String(args[i + 1])
+		if a == "--cells":
+			for tok in nxt.split(";", false):
+				var kv := tok.split(":")
+				var xy := kv[1].split(",")
+				cells.append([kv[0], float(xy[0]), float(xy[1])])
+		elif a == "--out":
+			out_dir = nxt
+		elif a == "--tag":
+			tag = nxt
+		elif a == "--clamp":
+			clamp_on = nxt == "on"
+	# THE WINDOW SETTLES FIRST: a --fullscreen window on macOS animates into its own Space over
+	# several hundred ms, and measuring during it measures a window that is not the one played.
+	var stable := 0
+	var last := Vector2i.ZERO
+	var waited := 0
+	while waited < 900 and stable < 45:
+		await get_tree().process_frame
+		waited += 1
+		var s := DisplayServer.window_get_size()
+		stable = stable + 1 if s == last else 0
+		last = s
+	var gw: Dictionary = layout["frame"]["guide_window"]
+	var u0 := float(gw["u"][0])
+	var v1 := float(gw["v"][1])
+	var W := float(gw["px"][0])
+	var H := float(gw["px"][1])
+	var px_up := PPM * sin(deg_to_rad(PL_PITCH_DEG))
+	var rt := get_viewport().get_texture()
+	var ws := DisplayServer.window_get_size()
+	var ss := DisplayServer.screen_get_size()
+	var vr := get_viewport().get_visible_rect().size
+	var lock := _view_lock()
+	var img_sz := rt.get_image().get_size()          # the px drawn, read off the image itself
+	var ft := get_viewport().get_final_transform()
+	var res := {"tag": tag, "window_px": [ws.x, ws.y], "screen_px": [ss.x, ss.y],
+		"window_mode": DisplayServer.window_get_mode(), "frames_waited_for_the_window": waited,
+		"render_px": [img_sz.x, img_sz.y], "render_px_from_the_final_transform": [_render_px().x, _render_px().y],
+		"texture_reported_size_NOT_the_render": [rt.get_width(), rt.get_height()],
+		"final_transform": {"scale": snappedf(ft.get_scale().y, 0.0001), "origin_px": [ft.origin.x, ft.origin.y]},
+		"frame_px": [int(vr.x), int(vr.y)],
+		"bars_px_each_side": [(ws.x - img_sz.x) / 2, (ws.y - img_sz.y) / 2],
+		"stretch": {"mode": lock[0], "aspect": lock[1], "base": [lock[2], lock[3]]},
+		"cam_size_m": snappedf(cam.size, 0.0001), "line_px_render": snappedf(LINE_PX * _render_scale(), 0.0001),
+		"clamp_on": clamp_on, "clamp_key": "U" if RAW_KEYS.has("U") else "", "cells": {}}
+	for c in cells:
+		place_knight(float(c[1]), float(c[2]), "N")
+		for k in 12:
+			await get_tree().process_frame
+		var at := world_to_uv(knight.global_position)
+		var g := {}
+		for corner in ["TL", "TR", "BL", "BR"]:
+			var sp := Vector2(0.0 if corner.ends_with("L") else vr.x, 0.0 if corner.begins_with("T") else vr.y)
+			var o := cam.project_ray_origin(sp)
+			var d := cam.project_ray_normal(sp)
+			g[corner] = world_to_uv(o + d * (-o.y / d.y))
+		var x := func(q: Vector2) -> float: return (q.x - u0) * PPM
+		var y := func(q: Vector2) -> float: return (v1 - q.y) * px_up
+		var rec := {"cell_uv": [c[1], c[2]], "him_uv": [snappedf(at.x, 0.001), snappedf(at.y, 0.001)],
+			"frame_ground_uv": {}, 
+			"extent_m": {"across": snappedf((g["TR"] - g["TL"]).length(), 0.0001),
+						 "up_screen_ground": snappedf((g["TL"] - g["BL"]).length(), 0.0001)},
+			"px_outside_by_side": {
+				"left_px": snappedf(-minf(x.call(g["TL"]), x.call(g["BL"])), 0.1),
+				"right_px": snappedf(maxf(x.call(g["TR"]), x.call(g["BR"])) - W, 0.1),
+				"bottom_px": snappedf(maxf(y.call(g["BL"]), y.call(g["BR"])) - H, 0.1),
+				"top_px": snappedf(-minf(y.call(g["TL"]), y.call(g["TR"])), 0.1)}}
+		for corner in g:
+			rec["frame_ground_uv"][corner] = [snappedf(g[corner].x, 0.001), snappedf(g[corner].y, 0.001)]
+		if out_dir != "":
+			var img := rt.get_image()
+			var path := out_dir.path_join("%s_%s.png" % [tag, String(c[0])])
+			rec["still"] = path if img.save_png(path) == OK else "save failed"
+		res["cells"][String(c[0])] = rec
+	print("[barrow_full] view_check " + JSON.stringify(res))
 	get_tree().quit()

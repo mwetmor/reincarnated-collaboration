@@ -20172,6 +20172,56 @@
     "bottom_px": -159.1,
     "top_px": -17.0
    },
+   "closest_call_cells": {
+    "left": {
+     "uv": [
+      -18.5,
+      -5.9
+     ],
+     "predicted_px_outside": {
+      "left_px": -67.8,
+      "right_px": -3388.2,
+      "bottom_px": -946.1,
+      "top_px": -1301.9
+     }
+    },
+    "right": {
+     "uv": [
+      14.8,
+      10.1
+     ],
+     "predicted_px_outside": {
+      "left_px": -3418.4,
+      "right_px": -37.6,
+      "bottom_px": -2231.0,
+      "top_px": -17.0
+     }
+    },
+    "bottom": {
+     "uv": [
+      -4.9,
+      -15.7
+     ],
+     "predicted_px_outside": {
+      "left_px": -1436.2,
+      "right_px": -2019.8,
+      "bottom_px": -159.1,
+      "top_px": -2088.9
+     }
+    },
+    "top": {
+     "uv": [
+      14.8,
+      10.1
+     ],
+     "predicted_px_outside": {
+      "left_px": -3418.4,
+      "right_px": -37.6,
+      "bottom_px": -2231.0,
+      "top_px": -17.0
+     }
+    }
+   },
    "_read": "negative = that many px of margin to spare on that side",
    "frame_from_his_feet": {
     "across": 9.5411,
@@ -20197,16 +20247,19 @@
     "door_face_px_everything_drawn": 22021,
     "unoccluded_share": 0.9416
    },
-   "visible_from_the_arena_centre_play_frame": {
-    "share": 0.0,
-    "PASS": false
-   },
-   "visible_from_inside_the_arena_play_frame": {
+   "face_whole_from_the_arena_north_half": {
+    "acceptance_of_record": "the door's face is whole from the arena's northern half (v >= 5.5), and the King's entrance gets a camera cue in Phase 2",
+    "ruled_by": "the coordinator, 2026-09-29 (after v2), replacing the spec line 'visible from the arena at the play camera': the door must sit under >= 0.3 m of mound and the camera must stay in the window, and from the arena's centre both cannot hold -- the spec line was impossible, not the build",
     "first_v_whole_in_frame": 5.5,
     "arena_north_edge_v": 8.0,
-    "band_m": 2.5,
+    "least_share_from_v_5_5_to_the_door": 0.9985,
     "PASS": true,
-    "_read": "him on the centre line facing N, the camera following: the face is whole AND unoccluded (magenta share >= 0.99 of the door-centred frame, everything drawn) from this v to the arena's r-7 north edge"
+    "camera_cue": "Phase 2 (not built here)",
+    "_read": "him on the centre line facing N, the camera following: the face is whole AND unoccluded (magenta share >= 0.99 of the door-centred frame, everything drawn) at every 0.25 m step from v 5.5 to the door"
+   },
+   "informational_from_the_arena_centre": {
+    "share": 0.0,
+    "_read": "0: the frame's top is v 8.41 from (0, 1); the door stands at v 10.3-10.6"
    },
    "first_v_door_half_in_frame": 4.75,
    "first_v_door_whole_in_frame": 5.5,
@@ -20236,45 +20289,1410 @@
    "exported_app": {
     "runs": [
      {
-      "mode": "windowed 1920 x 1080 (the app's default window)",
+      "mode": "windowed 1920 x 1080 (the app's default window), 16:9 locked",
       "log": "captures/logs/app_frame_cost.log",
-      "ms_per_frame": 9.94,
-      "fps": 100.6,
-      "viewport": [
+      "ms_per_frame": 8.92,
+      "fps": 112.1,
+      "frame_px": [
+       1920,
+       1080
+      ],
+      "render_px": [
+       1920,
+       1080
+      ],
+      "window_px": [
        1920,
        1080
       ],
       "frames": 600
      },
      {
-      "mode": "windowed 1920 x 1080, repeat run",
+      "mode": "windowed 1920 x 1080, repeat run, 16:9 locked",
       "log": "captures/logs/app_frame_cost_repeat.log",
-      "ms_per_frame": 11.07,
-      "fps": 90.3,
-      "viewport": [
+      "ms_per_frame": 8.91,
+      "fps": 112.3,
+      "frame_px": [
+       1920,
+       1080
+      ],
+      "render_px": [
+       1920,
+       1080
+      ],
+      "window_px": [
        1920,
        1080
       ],
       "frames": 600
      },
      {
-      "mode": "--fullscreen on the 3440 x 1440 display",
-      "log": "captures/logs/app_frame_cost_fullscreen_3440x1440.log",
+      "mode": "--fullscreen on the 3440 x 1440 display, 16:9 locked",
+      "log": "captures/logs/app_frame_cost_fullscreen_locked.log",
+      "ms_per_frame": 14.84,
+      "fps": 67.4,
+      "frame_px": [
+       1920,
+       1080
+      ],
+      "render_px": [
+       2560,
+       1440
+      ],
+      "window_px": [
+       3440,
+       1440
+      ],
+      "frames": 600
+     },
+     {
+      "mode": "--fullscreen on the 3440 x 1440 display, 16:9 locked, repeat run",
+      "log": "captures/logs/app_frame_cost_fullscreen_locked_repeat.log",
+      "ms_per_frame": 14.79,
+      "fps": 67.6,
+      "frame_px": [
+       1920,
+       1080
+      ],
+      "render_px": [
+       2560,
+       1440
+      ],
+      "window_px": [
+       3440,
+       1440
+      ],
+      "frames": 600
+     },
+     {
+      "mode": "BEFORE the lock (b65f1dfae's app): --fullscreen, 3440 x 1440 drawn, 34 x 18 m of ground",
+      "log": "captures/logs/app_frame_cost_fullscreen_unlocked.log",
       "ms_per_frame": 21.31,
       "fps": 46.9,
-      "viewport": [
+      "frame_px": [
+       3440,
+       1440
+      ],
+      "render_px": [
+       3440,
+       1440
+      ],
+      "window_px": [
        3440,
        1440
       ],
       "frames": 600
      }
     ],
-    "at_1080p_ms_per_frame": [
-     9.94,
-     11.07
+    "at_1080p_windowed_ms_per_frame": [
+     8.92,
+     8.91
+    ],
+    "fullscreen_ultrawide_locked_ms_per_frame": [
+     14.84,
+     14.79
     ],
     "_at": "the staged app, vsync off, MSAA 2x (project setting), him walking a loop in the ring, 600 frames, wall clock / frames; display 3440 x 1440"
    }
+  },
+  "view_lock_16x9": {
+   "setting": "project.godot [display] window/stretch/mode=canvas_items, window/stretch/aspect=keep, base 1920 x 1080",
+   "planned_extent_m": {
+    "across": 19.0822,
+    "up_screen_ground": 13.4483
+   },
+   "runs": {
+    "fullscreen": {
+     "bars_px_each_side": [
+      440,
+      0
+     ],
+     "cam_size_m": 10.7337,
+     "cells": {
+      "bottom": {
+       "cell_uv": [
+        -4.9,
+        -15.7
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -14.441,
+         -21.739
+        ],
+        "BR": [
+         4.641,
+         -21.739
+        ],
+        "TL": [
+         -14.441,
+         -8.291
+        ],
+        "TR": [
+         4.641,
+         -8.291
+        ]
+       },
+       "him_uv": [
+        -4.9,
+        -15.7
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -159.1,
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "top_px": -2088.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_bottom.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "bottom_px": -159.1,
+        "top_px": -2088.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "clamp_test_east": {
+       "cell_uv": [
+        21.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         11.247,
+         -4.296
+        ],
+        "BR": [
+         30.329,
+         -4.296
+        ],
+        "TL": [
+         11.247,
+         9.152
+        ],
+        "TR": [
+         30.329,
+         9.152
+        ]
+       },
+       "him_uv": [
+        20.788,
+        0.928
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1559.9,
+        "left_px": -4020.9,
+        "right_px": 564.9,
+        "top_px": -688.1
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_test_east.png"
+      },
+      "clamp_test_south": {
+       "cell_uv": [
+        -2.0,
+        -20.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -11.541,
+         -26.039
+        ],
+        "BR": [
+         7.541,
+         -26.039
+        ],
+        "TL": [
+         -11.541,
+         -12.591
+        ],
+        "TR": [
+         7.541,
+         -12.591
+        ]
+       },
+       "him_uv": [
+        -2.0,
+        -20.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": 186.2,
+        "left_px": -1728.0,
+        "right_px": -1728.0,
+        "top_px": -2434.2
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_test_south.png"
+      },
+      "door": {
+       "cell_uv": [
+        0.0,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         4.061
+        ],
+        "BR": [
+         9.541,
+         4.061
+        ],
+        "TL": [
+         -9.541,
+         17.509
+        ],
+        "TR": [
+         9.541,
+         17.509
+        ]
+       },
+       "him_uv": [
+        0.0,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_door.png"
+      },
+      "left": {
+       "cell_uv": [
+        -18.5,
+        -5.9
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -28.041,
+         -11.939
+        ],
+        "BR": [
+         -8.959,
+         -11.939
+        ],
+        "TL": [
+         -28.041,
+         1.509
+        ],
+        "TR": [
+         -8.959,
+         1.509
+        ]
+       },
+       "him_uv": [
+        -18.5,
+        -5.9
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -946.1,
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "top_px": -1301.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_left.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "bottom_px": -946.1,
+        "top_px": -1301.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "right": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_right.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      },
+      "station": {
+       "cell_uv": [
+        0.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         -5.041
+        ],
+        "BR": [
+         9.541,
+         -5.041
+        ],
+        "TL": [
+         -9.541,
+         8.407
+        ],
+        "TR": [
+         9.541,
+         8.407
+        ]
+       },
+       "him_uv": [
+        0.0,
+        1.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1500.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -747.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_station.png"
+      },
+      "top": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_top.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      }
+     },
+     "clamp_key": "U",
+     "clamp_on": false,
+     "final_transform": {
+      "origin_px": [
+       440.0,
+       0.0
+      ],
+      "scale": 1.3333
+     },
+     "frame_px": [
+      1920,
+      1080
+     ],
+     "frames_waited_for_the_window": 46,
+     "line_px_render": 1.6667,
+     "render_px": [
+      2560,
+      1440
+     ],
+     "render_px_from_the_final_transform": [
+      2560,
+      1440
+     ],
+     "screen_px": [
+      3440,
+      1440
+     ],
+     "stretch": {
+      "aspect": "keep",
+      "base": [
+       1920,
+       1080
+      ],
+      "mode": "canvas_items"
+     },
+     "tag": "fullscreen",
+     "texture_reported_size_NOT_the_render": [
+      3413,
+      1920
+     ],
+     "window_mode": 3,
+     "window_px": [
+      3440,
+      1440
+     ],
+     "PASS": true
+    },
+    "fullscreen_clamp_on": {
+     "bars_px_each_side": [
+      440,
+      0
+     ],
+     "cam_size_m": 10.7337,
+     "cells": {
+      "bottom": {
+       "cell_uv": [
+        -4.9,
+        -15.7
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -14.441,
+         -21.739
+        ],
+        "BR": [
+         4.641,
+         -21.739
+        ],
+        "TL": [
+         -14.441,
+         -8.291
+        ],
+        "TR": [
+         4.641,
+         -8.291
+        ]
+       },
+       "him_uv": [
+        -4.9,
+        -15.7
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -159.1,
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "top_px": -2088.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_bottom.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "bottom_px": -159.1,
+        "top_px": -2088.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "clamp_test_east": {
+       "cell_uv": [
+        21.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.633,
+         -4.296
+        ],
+        "BR": [
+         24.715,
+         -4.296
+        ],
+        "TL": [
+         5.633,
+         9.152
+        ],
+        "TR": [
+         24.715,
+         9.152
+        ]
+       },
+       "him_uv": [
+        20.788,
+        0.928
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1559.9,
+        "left_px": -3456.0,
+        "right_px": 0.0,
+        "top_px": -688.1
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_clamp_test_east.png"
+      },
+      "clamp_test_south": {
+       "cell_uv": [
+        -2.0,
+        -20.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -11.541,
+         -23.72
+        ],
+        "BR": [
+         7.541,
+         -23.72
+        ],
+        "TL": [
+         -11.541,
+         -10.272
+        ],
+        "TR": [
+         7.541,
+         -10.272
+        ]
+       },
+       "him_uv": [
+        -2.0,
+        -20.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": 0.0,
+        "left_px": -1728.0,
+        "right_px": -1728.0,
+        "top_px": -2248.0
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_clamp_test_south.png"
+      },
+      "door": {
+       "cell_uv": [
+        0.0,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         4.061
+        ],
+        "BR": [
+         9.541,
+         4.061
+        ],
+        "TL": [
+         -9.541,
+         17.509
+        ],
+        "TR": [
+         9.541,
+         17.509
+        ]
+       },
+       "him_uv": [
+        0.0,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_door.png"
+      },
+      "left": {
+       "cell_uv": [
+        -18.5,
+        -5.9
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -28.041,
+         -11.939
+        ],
+        "BR": [
+         -8.959,
+         -11.939
+        ],
+        "TL": [
+         -28.041,
+         1.509
+        ],
+        "TR": [
+         -8.959,
+         1.509
+        ]
+       },
+       "him_uv": [
+        -18.5,
+        -5.9
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -946.1,
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "top_px": -1301.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_left.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "bottom_px": -946.1,
+        "top_px": -1301.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "right": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_right.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      },
+      "station": {
+       "cell_uv": [
+        0.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         -5.041
+        ],
+        "BR": [
+         9.541,
+         -5.041
+        ],
+        "TL": [
+         -9.541,
+         8.407
+        ],
+        "TR": [
+         9.541,
+         8.407
+        ]
+       },
+       "him_uv": [
+        0.0,
+        1.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1500.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -747.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_station.png"
+      },
+      "top": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/fullscreen_clamp_on_top.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      }
+     },
+     "clamp_key": "U",
+     "clamp_on": true,
+     "final_transform": {
+      "origin_px": [
+       440.0,
+       0.0
+      ],
+      "scale": 1.3333
+     },
+     "frame_px": [
+      1920,
+      1080
+     ],
+     "frames_waited_for_the_window": 46,
+     "line_px_render": 1.6667,
+     "render_px": [
+      2560,
+      1440
+     ],
+     "render_px_from_the_final_transform": [
+      2560,
+      1440
+     ],
+     "screen_px": [
+      3440,
+      1440
+     ],
+     "stretch": {
+      "aspect": "keep",
+      "base": [
+       1920,
+       1080
+      ],
+      "mode": "canvas_items"
+     },
+     "tag": "fullscreen_clamp_on",
+     "texture_reported_size_NOT_the_render": [
+      3413,
+      1920
+     ],
+     "window_mode": 3,
+     "window_px": [
+      3440,
+      1440
+     ],
+     "PASS": true
+    },
+    "windowed_1920x1080": {
+     "bars_px_each_side": [
+      0,
+      0
+     ],
+     "cam_size_m": 10.7337,
+     "cells": {
+      "bottom": {
+       "cell_uv": [
+        -4.9,
+        -15.7
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -14.441,
+         -21.739
+        ],
+        "BR": [
+         4.641,
+         -21.739
+        ],
+        "TL": [
+         -14.441,
+         -8.291
+        ],
+        "TR": [
+         4.641,
+         -8.291
+        ]
+       },
+       "him_uv": [
+        -4.9,
+        -15.7
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -159.1,
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "top_px": -2088.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_bottom.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -1436.2,
+        "right_px": -2019.8,
+        "bottom_px": -159.1,
+        "top_px": -2088.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "clamp_test_east": {
+       "cell_uv": [
+        21.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         11.247,
+         -4.296
+        ],
+        "BR": [
+         30.329,
+         -4.296
+        ],
+        "TL": [
+         11.247,
+         9.152
+        ],
+        "TR": [
+         30.329,
+         9.152
+        ]
+       },
+       "him_uv": [
+        20.788,
+        0.928
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1559.9,
+        "left_px": -4020.9,
+        "right_px": 564.9,
+        "top_px": -688.1
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_clamp_test_east.png"
+      },
+      "clamp_test_south": {
+       "cell_uv": [
+        -2.0,
+        -20.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -11.541,
+         -26.039
+        ],
+        "BR": [
+         7.541,
+         -26.039
+        ],
+        "TL": [
+         -11.541,
+         -12.591
+        ],
+        "TR": [
+         7.541,
+         -12.591
+        ]
+       },
+       "him_uv": [
+        -2.0,
+        -20.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": 186.2,
+        "left_px": -1728.0,
+        "right_px": -1728.0,
+        "top_px": -2434.2
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_clamp_test_south.png"
+      },
+      "door": {
+       "cell_uv": [
+        0.0,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         4.061
+        ],
+        "BR": [
+         9.541,
+         4.061
+        ],
+        "TL": [
+         -9.541,
+         17.509
+        ],
+        "TR": [
+         9.541,
+         17.509
+        ]
+       },
+       "him_uv": [
+        0.0,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_door.png"
+      },
+      "left": {
+       "cell_uv": [
+        -18.5,
+        -5.9
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -28.041,
+         -11.939
+        ],
+        "BR": [
+         -8.959,
+         -11.939
+        ],
+        "TL": [
+         -28.041,
+         1.509
+        ],
+        "TR": [
+         -8.959,
+         1.509
+        ]
+       },
+       "him_uv": [
+        -18.5,
+        -5.9
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -946.1,
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "top_px": -1301.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_left.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -67.8,
+        "right_px": -3388.2,
+        "bottom_px": -946.1,
+        "top_px": -1301.9
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": 0.0,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.0
+       }
+      },
+      "right": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_right.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      },
+      "station": {
+       "cell_uv": [
+        0.0,
+        1.0
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         -9.541,
+         -5.041
+        ],
+        "BR": [
+         9.541,
+         -5.041
+        ],
+        "TL": [
+         -9.541,
+         8.407
+        ],
+        "TR": [
+         9.541,
+         8.407
+        ]
+       },
+       "him_uv": [
+        0.0,
+        1.0
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -1500.1,
+        "left_px": -1929.2,
+        "right_px": -1526.8,
+        "top_px": -747.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_station.png"
+      },
+      "top": {
+       "cell_uv": [
+        14.8,
+        10.1
+       ],
+       "extent_m": {
+        "across": 19.0822,
+        "up_screen_ground": 13.4483
+       },
+       "frame_ground_uv": {
+        "BL": [
+         5.259,
+         4.061
+        ],
+        "BR": [
+         24.341,
+         4.061
+        ],
+        "TL": [
+         5.259,
+         17.509
+        ],
+        "TR": [
+         24.341,
+         17.509
+        ]
+       },
+       "him_uv": [
+        14.8,
+        10.1
+       ],
+       "px_outside_by_side": {
+        "bottom_px": -2231.1,
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "top_px": -16.9
+       },
+       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/captures/app_view/windowed_top.png",
+       "line_10_predicted_px_outside": {
+        "left_px": -3418.4,
+        "right_px": -37.6,
+        "bottom_px": -2231.0,
+        "top_px": -17.0
+       },
+       "measured_minus_predicted_px": {
+        "bottom_px": -0.1,
+        "left_px": 0.0,
+        "right_px": 0.0,
+        "top_px": 0.1
+       }
+      }
+     },
+     "clamp_key": "U",
+     "clamp_on": false,
+     "final_transform": {
+      "origin_px": [
+       0.0,
+       0.0
+      ],
+      "scale": 1.0
+     },
+     "frame_px": [
+      1920,
+      1080
+     ],
+     "frames_waited_for_the_window": 46,
+     "line_px_render": 1.25,
+     "render_px": [
+      1920,
+      1080
+     ],
+     "render_px_from_the_final_transform": [
+      1920,
+      1080
+     ],
+     "screen_px": [
+      3440,
+      1440
+     ],
+     "stretch": {
+      "aspect": "keep",
+      "base": [
+       1920,
+       1080
+      ],
+      "mode": "canvas_items"
+     },
+     "tag": "windowed",
+     "texture_reported_size_NOT_the_render": [
+      1920,
+      1080
+     ],
+     "window_mode": 0,
+     "window_px": [
+      1920,
+      1080
+     ],
+     "PASS": true
+    }
+   },
+   "clamp_toggle_U": {
+    "tests": {
+     "clamp_test_east": {
+      "him_uv": [
+       20.788,
+       0.928
+      ],
+      "free_px_outside": {
+       "bottom_px": -1559.9,
+       "left_px": -4020.9,
+       "right_px": 564.9,
+       "top_px": -688.1
+      },
+      "clamped_px_outside": {
+       "bottom_px": -1559.9,
+       "left_px": -3456.0,
+       "right_px": 0.0,
+       "top_px": -688.1
+      }
+     },
+     "clamp_test_south": {
+      "him_uv": [
+       -2.0,
+       -20.0
+      ],
+      "free_px_outside": {
+       "bottom_px": 186.2,
+       "left_px": -1728.0,
+       "right_px": -1728.0,
+       "top_px": -2434.2
+      },
+      "clamped_px_outside": {
+       "bottom_px": 0.0,
+       "left_px": -1728.0,
+       "right_px": -1728.0,
+       "top_px": -2248.0
+      }
+     }
+    },
+    "closest_call_cells_unmoved_by_the_clamp": true,
+    "PASS": true,
+    "_fixed": "the clamp was v1's: symmetric about the origin, where v1's window was centred. v2's window is centred at (-2, -3); the symmetric clamp held the camera 4.0 m short of the left edge and 6.0 m short of the bottom. It now clamps to the window's own edges (clamped px outside = 0.0 at both tests)."
+   },
+   "PASS": true,
+   "_instrument": "the exported app, --view-check: him placed at each cell, the camera following as in play; a ray through each corner of the visible frame (Camera3D.project_ray_origin/normal) cast onto the floor y = 0; the ground points in (u, v) and in the guide window's px (x = (u - u0) * 100.6176, y = (v1 - v) * 80.3076); negative px = margin inside the window"
   }
  },
  "findings_measured": {
