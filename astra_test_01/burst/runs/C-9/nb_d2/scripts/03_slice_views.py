@@ -24,6 +24,19 @@ OUT = os.path.join(ROOT, "views", TAG)
 os.makedirs(OUT, exist_ok=True)
 
 
+def fal_ledger():
+    """The running fal spend total (runs/C-9/t10_barrow/fal_ledger.py) for the authorisation
+    THIS run spends under. This is shared tooling and cannot know which one that is, and the
+    module's own default is the R-C9-76 kit ledger -- charging there would spend one ruling's
+    money against another's cap. So the caller names both, or nothing is called."""
+    if not (os.environ.get("FAL_LEDGER") and os.environ.get("FAL_BUDGET")):
+        raise SystemExit("FAL LEDGER REQUIRED: set FAL_LEDGER=<this authorisation's ledger .json> and "
+                         "FAL_BUDGET=<its hard stop, USD>. Nothing called.")
+    sys.path.insert(0, os.path.join(os.path.dirname(ROOT), "t10_barrow"))
+    import fal_ledger as FL
+    return FL
+
+
 def alpha(path):
     if MATTE == "green":
         im = np.array(Image.open(path).convert("RGB"), np.int16)
@@ -31,12 +44,24 @@ def alpha(path):
         a = (~g).astype(np.uint8) * 255
         rgb = np.array(Image.open(path).convert("RGB"))
         return rgb, a
+    # THROUGH THE LEDGER (fixed for D7 pass 2). This called BiRefNet straight through
+    # fal_client: a paid call no spend total ever saw -- the leak N-C9-FAL-CAP was written to
+    # close ("a cap counted only at the end is not a cap"). check() refuses BEFORE the call;
+    # record() charges it at wall-clock seconds, an upper bound on billed compute, and runs
+    # even if the call raises, because a failed call may still have been billed.
+    FL = fal_ledger()
+    import time
     import fal_client
+    FL.check('fal-ai/birefnet/v2')
     url = fal_client.upload_file(path)
-    r = fal_client.subscribe('fal-ai/birefnet/v2', arguments={
-        'image_url': url, 'model': 'General Use (Heavy)',
-        'operating_resolution': '2048x2048', 'output_format': 'png',
-        'refine_foreground': True})
+    _t0 = time.time()
+    try:
+        r = fal_client.subscribe('fal-ai/birefnet/v2', arguments={
+            'image_url': url, 'model': 'General Use (Heavy)',
+            'operating_resolution': '2048x2048', 'output_format': 'png',
+            'refine_foreground': True})
+    finally:
+        FL.record('fal-ai/birefnet/v2', "matte %s (%s)" % (os.path.basename(path), TAG), time.time() - _t0)
     tmp = os.path.join(OUT, "_matte.png")
     subprocess.run(['curl', '-s', '-L', '-o', tmp, r['image']['url']], check=True)
     im = Image.open(tmp).convert("RGBA")

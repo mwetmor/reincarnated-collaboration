@@ -15,6 +15,26 @@ jobs = []
 for spec in sys.argv[1:]:
     tag, views = spec.split(":", 1)
     jobs.append((tag, views.split(",")))
+# THROUGH THE LEDGER, CHECKED AS A BATCH (fixed for D7 pass 2). This paid for every build
+# without a spend total seeing it. The ledger (runs/C-9/t10_barrow/fal_ledger.py) must be the
+# one for the authorisation THIS run spends under; the module's own default is the R-C9-76 kit
+# ledger, so the caller must name both or nothing is submitted. The builds run CONCURRENTLY, so
+# a per-build check() would race -- five threads can each read the same running total and each
+# conclude there is room -- so the whole batch is checked once, up front, against n x the build
+# price; each build is recorded as soon as fal ACCEPTS it (a submitted build is billed whether
+# or not the result is fetched).
+if not (os.environ.get("FAL_LEDGER") and os.environ.get("FAL_BUDGET")):
+    raise SystemExit("FAL LEDGER REQUIRED: set FAL_LEDGER=<this authorisation's ledger .json> and "
+                     "FAL_BUDGET=<its hard stop, USD>. Nothing submitted.")
+sys.path.insert(0, os.path.join(os.path.dirname(ROOT), "t10_barrow"))
+import fal_ledger as FL
+_need = len(jobs) * FL.PRICE[EP]
+if FL.total() + _need > FL.BUDGET + 1e-9:
+    raise SystemExit("FAL BUDGET STOP: running $%.4f + %d builds x $%.2f = $%.4f exceeds "
+                     "$%.2f. Nothing submitted." % (FL.total(), len(jobs), FL.PRICE[EP],
+                                                    FL.total() + _need, FL.BUDGET))
+print("ledger %s: $%.4f + %d builds x $%.2f = $%.4f of $%.2f"
+      % (FL.LEDGER.name, FL.total(), len(jobs), FL.PRICE[EP], FL.total() + _need, FL.BUDGET), flush=True)
 
 
 def run(j):
@@ -25,6 +45,7 @@ def run(j):
         h = fal_client.submit(EP, arguments={
             'image_urls': urls, 'texture': True, 'pbr': False,
             'texture_quality': 'detailed'})
+        FL.record(EP, "build %s (%s)" % (tag, h.request_id), time.time() - t0)
         res = h.get()
         el = time.time() - t0
         out = dict(tag=tag, endpoint=EP, views=paths, request_id=h.request_id,
@@ -47,4 +68,5 @@ def run(j):
 with cf.ThreadPoolExecutor(max_workers=5) as ex:
     res = list(ex.map(run, jobs))
 tot = sum(r.get('elapsed_s', 0) for r in res)
-print("%d builds, %.0f s wall-sum, est $%.2f at $0.40 each" % (len(res), tot, 0.40 * len(res)))
+print("%d builds, %.0f s wall-sum; ledger %s now $%.4f of $%.2f"
+      % (len(res), tot, FL.LEDGER.name, FL.total(), FL.BUDGET))

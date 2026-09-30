@@ -26,7 +26,8 @@
 # differ; each one is recorded in the manifest.
 #
 # Arrays in scope for the predicates: dist (m, to the base surface), sat, val,
-# r/g/b (sRGB 0-1), z (m), zf (fraction of body height), inreg (bone region).
+# r/g/b (sRGB 0-1 -- true sRGB since the double-gamma fix; see the note at VC), z (m),
+# zf (fraction of body height), inreg (bone region).
 import bpy, bmesh, json, math, os, sys
 import numpy as np
 from mathutils import Matrix, Vector
@@ -107,7 +108,32 @@ VC = np.zeros((len(P), 3), np.float32); cnt = np.zeros(len(P), np.float32)
 np.add.at(VC, loops, px[np.clip((UV[:, 1] * H).astype(int), 0, H - 1),
                         np.clip((UV[:, 0] * W).astype(int), 0, W - 1)])
 np.add.at(cnt, loops, 1)
-VC = np.clip(VC / np.maximum(cnt, 1)[:, None], 0, 1) ** (1 / 2.2)
+VC = np.clip(VC / np.maximum(cnt, 1)[:, None], 0, 1)
+# ONE GAMMA, NOT TWO (fixed for D7 pass 2; found on D7's robe). For an 8-bit sRGB image,
+# Blender's img.pixels are ALREADY sRGB-encoded, so the unconditional `** (1 / 2.2)` this line
+# used to apply encoded them a second time -- brightening and desaturating everything (D7's red
+# robe: 70.5% red-ish texels at g/r 0.560 as read, 6.5% at 0.719 after the extra gamma). Only a
+# FLOAT image stores linear values and wants the encode. r/g/b/sat/val are now true sRGB.
+#
+# D2's four predicates were fitted to the double-gamma values, so they were RE-DERIVED, exactly,
+# into this space (x = x2 ** 2.2 per channel, so each threshold maps monotonically):
+#   val < t   ->  val < t ** 2.2            sat < t  ->  sat < 1 - (1 - t) ** 2.2
+#   b <= r + c, (r - b) < c  compare ENCODED channels and have no single-threshold form, so they
+#   keep their meaning as  b**(1/2.2) <= r**(1/2.2) + c  and  (r**(1/2.2) - b**(1/2.2)) < c.
+# Re-run with these on D2's own inputs, every piece came out IDENTICAL to the shipped D2 piece
+# (same vertex and face counts, same vertex positions; proof in so_d7/work/nb_d2_gamma_proof.json):
+#   helmet  (head)       seed (sat<0.3537650006021934)&(zf>0.905)
+#                        grow ((sat<0.5145645458896095)|((val<0.4854354541103905)&(sat<0.7315904790866863)))&(zf>0.868)
+#   bracers (forearms)   seed (val<0.40086363305114275)&(sat>0.4210938998435668)&(zf>0.50)&(zf<0.66)
+#                        grow (val<0.6120655998656237)&(zf>0.47)&(zf<0.69)
+#   byrnie  (torso)      seed (sat<0.318580701090861)&(b**(1/2.2)<=r**(1/2.2)+0.02)&(zf>0.56)&(zf<0.90)
+#                        grow (sat<0.5437365416035296)&(b**(1/2.2)<=r**(1/2.2)+0.05)&(zf>0.42)&(zf<0.92)
+#   mantle  (shoulders)  seed (zf>0.79)&(zf<0.92)&(ax>0.14)&(val<0.6462349993978065)&((r**(1/2.2)-b**(1/2.2))<0.30)
+#                        grow (zf>0.72)&(zf<0.95)&((r**(1/2.2)-b**(1/2.2))<0.30)&~((val>0.7176234019070601)&(sat>0.4844037103512485)&(sat<0.8010560565560372))
+# The ORIGINAL strings in pieces/*.json describe the runs that made those pieces, under the old
+# double gamma; with this script, use the strings above.
+if img.is_float:
+    VC = VC ** (1 / 2.2)
 r, g, b = VC[:, 0], VC[:, 1], VC[:, 2]
 mx, mn = VC.max(1), VC.min(1)
 sat = np.where(mx > 1e-6, (mx - mn) / np.maximum(mx, 1e-6), 0)

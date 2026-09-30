@@ -98,9 +98,31 @@ rig = sys.argv[1]
 specs = [x.split(":", 1) for x in sys.argv[2:]]
 # THE RECORD IS MERGED, not overwritten: an earlier version wrote only this run's clips, so every
 # fetch erased the record of the ones before it (their tasks, credits and lints)
+# ...and two ways it could still forget a PAID task (fixed for D7 pass 2):
+#   * a ledger in the older FLAT shape ({name: record}, no "clips"/"spent" keys -- the shape
+#     --download-only already accepts) read as EMPTY here, and the first write replaced it whole;
+#   * a refetch under a name already on record replaced that record, and with it the earlier
+#     task id and its credits; a failed POST replaced a good record with an error.
+# Now the flat shape is read as clips, a replaced paid record is kept under "superseded", and an
+# error is appended to the record instead of replacing it. `spent` stays the running total of
+# money spent, which a superseded record is still part of.
 _W = os.path.join(ROOT, "work", "meshy_fetch.json")
 _prev = json.load(open(_W)) if os.path.exists(_W) else {}
+if _prev and "clips" not in _prev and "spent" not in _prev:
+    _prev = dict(clips=_prev, spent=sum((v.get("credits") or 0) for v in _prev.values() if isinstance(v, dict)))
 out, spent = dict(_prev.get("clips", {})), 0
+
+
+def keep_paid(nm, rec):
+    """out[nm] = rec, carrying any earlier PAID record for this name under 'superseded'."""
+    old = out.get(nm)
+    if isinstance(old, dict) and old.get("task"):
+        rec["superseded"] = old.pop("superseded", []) + [old]
+    elif isinstance(old, dict) and old.get("superseded"):
+        rec["superseded"] = old["superseded"]
+    out[nm] = rec
+
+
 for nm, aid in specs:
     dst = os.path.join(OUT, "%s.glb" % nm)
     if os.path.exists(dst):
@@ -110,7 +132,10 @@ for nm, aid in specs:
     tid = r.get("result")
     if not tid:
         print("%-14s NO TASK: %s" % (nm, r), flush=True)
-        out[nm] = dict(action_id=int(aid), error=str(r)[:200])
+        if isinstance(out.get(nm), dict) and out[nm].get("task"):
+            out[nm].setdefault("errors", []).append(dict(action_id=int(aid), error=str(r)[:200]))
+        else:
+            out[nm] = dict(action_id=int(aid), error=str(r)[:200])
         continue
     s, st, el = poll("/v1/animations", tid)
     cr = s.get("consumed_credits")
@@ -128,7 +153,7 @@ for nm, aid in specs:
                                warns=L["warns"], clips=list(L["clips"]))
         except Exception as e:
             rec["lint"] = dict(verdict="ERROR", fails=[str(e)])
-    out[nm] = rec
+    keep_paid(nm, rec)
     print("%-14s %-9s %3ss  %s credits  %s  LINT %s %s"
           % (nm, st, round(el), cr, rec.get("mb", "-"),
              rec.get("lint", {}).get("verdict", "-"),
