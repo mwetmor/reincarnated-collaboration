@@ -22493,9 +22493,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T10BF-1_0",
+      "type": "GENERATE",
+      "experiment": "T10-2-barrow-full-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7a8a60a8338928ae241199177555a8ed6a2b5a7aa3f9d8cc7423977d0ab0ab75",
+      "started": "2026-09-30T02:36:37.111678+00:00",
+      "ended": "2026-09-30T02:41:08.177701+00:00",
+      "minutes": 4.517701693750374,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f02b-cc56-7a92-83e0-38a6e7e55ec8/exec-0724583b-dbeb-44e7-bb20-6e04c3c8f22a.png",
+            "sha256": "6e2e6152cc9f40dcd810ccf40eece16cc4e6ff665dbcbe2a1d38e6d6d900e0ee"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f02b-cc56-7a92-83e0-38a6e7e55ec8/exec-f039b86d-856a-4709-a3fa-a5cc434becba.png",
+            "sha256": "23c77a8a7ca53cb9c4c59b90556ebd2a03a815b09d4baf1e19a2c016fb37cd89"
+          }
+        ]
+      },
+      "receipt_sha256": "1e515cd077d5db1336fd7e821f1545aee946d07e40ac523d928b99458416f10d",
+      "artifacts": [
+        {
+          "name": "T10BF-1_0.png",
+          "sha256": "6e2e6152cc9f40dcd810ccf40eece16cc4e6ff665dbcbe2a1d38e6d6d900e0ee"
+        },
+        {
+          "name": "exec-0724583b-dbeb-44e7-bb20-6e04c3c8f22a.provenance.json",
+          "sha256": "267df02477fa6d518eb2dcbdf53df5b6d885d7a980548595d72de41798746cd0"
+        },
+        {
+          "name": "exec-f039b86d-856a-4709-a3fa-a5cc434becba.provenance.json",
+          "sha256": "0ca73babfd16fb347d0e2e7389d9893134df578f16b109e036bd9e65c01d39d5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f02b-cc56-7a92-83e0-38a6e7e55ec8/exec-0724583b-dbeb-44e7-bb20-6e04c3c8f22a.png",
+          "sha256": "6e2e6152cc9f40dcd810ccf40eece16cc4e6ff665dbcbe2a1d38e6d6d900e0ee"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f02b-cc56-7a92-83e0-38a6e7e55ec8/exec-f039b86d-856a-4709-a3fa-a5cc434becba.png",
+          "sha256": "23c77a8a7ca53cb9c4c59b90556ebd2a03a815b09d4baf1e19a2c016fb37cd89"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 668,
+  "images_used": 670,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -24577,6 +24650,12 @@
       "topic": "Disk at 40 GiB; the deletion (Matt said ok on the deletions) DENIED again by the permission settings; handed to Matt as one command; armed-speed complaint queued",
       "note": "After Matt explicit \"ok on the deletions\", an explicit rm -rf of the 16 manifest paths was still DENIED: the permission settings block rm -rf for the agent regardless of chat approval. Not retried in any other form (no find -delete, no shutil, no move-to-trash). One command handed to Matt covering manifest_scratch_prune_5 (1.21 GiB) + the integration drax offered old captures (drax_t10/cap2-cap11 and look, look2-look17, look8b; ~2.3 GB; T10-1b/1c results recorded). The integration drax halted at 40 GiB with T10-1d part-built and consistent (shadow-after-bands built, kit dressing in, sprig-spray heather chosen by measurement: brightness spread 11.6 vs the painting 11.2, cards 7.5, T10-1c blobs 8.4; patches: heather pixels 114k vs 250k, share > 1 m from a rock 14.7% vs 21.3%; wind + push-aside in the MultiMesh vertex shader; no wading film yet). The KC2/JOIN-1 conductor told the drop is coming mostly from outside C-9. MATT: \"even the run speed slows way down when I put on the axe/shield\" -> cause: speeds come from each clip stride and the armed clips are slower gaits (walk_armed 115.1 vs 201.7 px/s, -43%; run_armed 3.795 vs ~6.4 m/s, -41%); fix queued to the scene drax after the drop-after-swing fix: legs, hips and root from the unarmed locomotion + an upper-body armed layer (spine up, both arms), armed speed within 5% of unarmed.",
       "ts": "2026-09-29T22:27:37"
+    },
+    {
+      "id": "N-C9-GATE-25-SHARED",
+      "topic": "Both runs share the 25 GiB gate",
+      "note": "The KC2/JOIN-1 conductor reports that Matt confirmed directly that KC2 also uses 25 GiB (its ledger KP-121). C-9 and KC2 now share one disk gate, 25 GiB by df -h, until Matt cleanup at the Mac (R-C9-87). The C-9 disk watch restarted at 25 (the first restart was killed externally, exit 144 with no output; restarted once).",
+      "ts": "2026-09-29T22:41:29"
     }
   ]
 }
