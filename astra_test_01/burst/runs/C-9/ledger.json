@@ -23257,6 +23257,14 @@
       "topic": "Sorceress costume A; the barbarian drops to the floor after swinging (a regression from the handover); what the full-area blockout is",
       "ruling": "Matt verbatim: \"Go with the sorceress with the red robes and the staff.. I think that is A as it is on the left. Unsure what the full area blockout is. Also, the barbarian in the narrow MP4 is horrible.. after swinging his axe, he drops to the floor as if drunk.\" Dispositions: (1) G1-S decided: costume A (the ember seeress: red robe, wolf-fur mantle, corset belt, bracers, circlet, the ember-stone staff in the right hand); the base body picked by mirror IoU (tie -> b); D7 dispatched to the D2 drax (a9010dd) in its own folder runs/C-9/so_d7/, weapon bones from the start, Meshy library clips only (no text-to-motion pending T33), every step timed, fal <= $3, Meshy <= 80, Astra <= 20. (2) REGRESSION: the conductor saw it in the handover film (frames 18-133): after the chop from idle he sinks into a low hunched crouch; T12 paused; the scene drax isolates by A/B (foot lock at strike_out, the damped idle GLB 07ccabd6, the block phase machine) against a pelvis-height instrument (drop = more than 5 cm below idle rest for more than 0.2 s) with the pre-install build as the baseline, then fixes or stages a rollback of the guilty component. (3) The full-area blockout explained to Matt in plain words (the grey, playable plan of the bigger Barrow level, before painting).",
       "ts": "2026-09-29T22:05:35"
+    },
+    {
+      "id": "R-C9-86",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "The full-area blockout passed Matt walk: the T10-2 painting may start",
+      "ruling": "Matt verbatim: \"I walked the C-9 barrow blockout. everything looks fine.\" The step-1 gate of R-C9-75 is passed (v2 with the Crucible marks, 16:9, commit e03f425ed): the 4 x 4 guided paint-over of the full area (T10-2 step 2) may start. Conductor: it starts when disk allows (see N-C9-DISK-6).",
+      "ts": "2026-09-29T22:24:20"
     }
   ],
   "grok_calls": [
@@ -23990,6 +23998,12 @@
       "topic": "The motion handover ran on Matt word (\"Run the handover\"); the sword sheet delivered; the research amendment",
       "note": "HANDOVER (run by the conductor at Matt explicit instruction; log scratchpad/handover_run.log): pre-state OK; the four files installed with md5 verified after copy (nb-body.glb 07ccabd6, knight.gd d993b8ff, foot_lock.gd a99b40f0, character.json 3b85f1b3); re-import 0 script errors; [display] stretch canvas_items / keep applied; both apps rebuilt (473 MB each) with 0 SCRIPT ERROR, 0 recentre warnings, 0 WARNING lines; the Barrow opens on flat ground; the armed Barrow walk (foot_lock=true; slash, chop, block from idle and from a run) = 708 frames -> attack fix/barrow_walk_armed.mp4, frames deleted. FAILED INSTRUMENT: fps_probe.sh got 0 samples in all four fullscreen runs (the app killed at 30 s with no --print-fps output; the view probe reported a 1920x1080 screen): the scene drax to diagnose and re-measure with an in-app timer. The scene drax owns the commit of the installed files; the integration drax resumed T10-1d. SWORD: NB-W2 exit 0 (2 image calls, 3.7 min): variant a chosen (pattern-welded blade with a fuller, short crossguard, bronze-wired leather grip, a five-lobed pommel; plate intact); b has a ball pommel. RESEARCH AMENDMENT (legolas, 7a2422ee2): Cascadeur supports props as a first-class concept (AutoPosing runs on a rigged, skinned prop, which rank 1 produces) but may not show rotation trajectories as editable curves: one hour of verification owed; Indie $8/month annual if ever needed; the capture route is closed (the video mocap vendors do not track held objects; no dataset holds a sword or axe); a LICENSING QUESTION parked for Matt as matt_to_do T33: SMPL-family model licences forbid commercial use, and our three text-to-motion clips come as SMPL-H from Meshy: ask Meshy in writing.",
       "ts": "2026-09-29T21:58:21"
+    },
+    {
+      "id": "N-C9-DISK-6",
+      "topic": "Disk at 41-42 GiB (the watch fired); a conductor prune DENIED by the permission system; all agents told to pause heavy writes; deletion asked of Matt",
+      "note": "df -h 42 then 41 GiB free (KC2 halts at 40). The integration drax halted itself (its scratch grew < 0.2 GB in 30 minutes; most of the drop came from other sessions). The conductor wrote manifest cleanup/manifest_scratch_prune_5.txt (1.21 GiB of dead scratch from finished agents: scratchpad/drax-barrow, scratchpad/drax_t9, eight old web-build test .pck files, /private/tmp/claude-501/snowlab_r1-r6; nothing open) and ran a delete loop over it: DENIED by the permission system. Not retried in any other form. The integration drax offered to delete its own old captures (drax_t10/cap2-cap11 + old look folders, ~2.4 GB, results already recorded): held. All agents (integration, scene, D2) told to pause heavy writes. Asked Matt for explicit approval of both deletions. Other large items noted for a later manifest: lane workspaces ~/astra-burst/runs/C-9 2.1 GB (delivered bursts), build dirs cliffside3d/app 1.0 GB and app_barrow 1.0 GB and barrow_full/app 0.56 GB (regenerable by the committed build scripts), ~/.codex/generated_images 2.4 GB (outside this run, not proposed).",
+      "ts": "2026-09-29T22:24:20"
     }
   ]
 }
