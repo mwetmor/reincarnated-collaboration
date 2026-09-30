@@ -746,22 +746,171 @@
   "stripped": {}
  },
  "clip_sources": {
-  "meshy_library_credits_spent": 33,
-  "authorised": 40,
-  "fetched": {
-   "idle_armed": "85 Axe Stance",
-   "(unused)": "335 Axe Breathe and Look Around",
-   "walk_armed": "21 Walk Fight Forward",
-   "run_armed_L": "9 ForwardLeft Run Fight",
-   "run_armed_R": "10 ForwardRight Run Fight",
-   "shield_guard_L source": "580 Sword and Shield Alert Turn Left",
-   "shield_bash": "220 Shield Push Left",
-   "block": "138 Block1",
-   "(rejected)": "141 Block4 and 145 Block9 -- sword parries, the right hand leads",
-   "attack_chop": "237 Charged Axe Chop"
+  "authority": "nb_d2/work/clip_sources.json -- the provenance registry 21_lint_export.py's SOURCE FIDELITY, SOURCE GRID and LOOP SEAM rows read. This block summarises it; where they disagree the registry wins and this block is the defect.",
+  "body_rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149 (the Tripo mesh chosen in T8, rigged by Meshy: nb_t8/work/res_rig_tripo.json)",
+  "played_clips": {
+   "idle": {
+    "source": "../nb_t8/nbt_idle.glb",
+    "path": "55_clip_graft",
+    "action": "Meshy Idle (T8)",
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "deroot",
+     "recentre",
+     "reground"
+    ]
+   },
+   "walk": {
+    "source": "../nb_t8/nbt_walk.glb",
+    "path": "55_clip_graft",
+    "action": "the rig task's walking",
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "deroot",
+     "recentre",
+     "reground"
+    ]
+   },
+   "run": {
+    "source": "../nb_t8/nbt_run.glb",
+    "path": "55_clip_graft",
+    "action": "the rig task's running",
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "deroot",
+     "recentre",
+     "reground"
+    ]
+   },
+   "attack": {
+    "source": "../nb_t8/nbt_attack.glb",
+    "path": "t8-native",
+    "action": "219 Right-hand Sword Slash (T8)"
+   },
+   "idle_guard": {
+    "source": null,
+    "path": "54_weapon_channel pose",
+    "built_on": "idle (its keys: the idle source's 30 fps grid)",
+    "note": "the unarmed idle's stance held at its key 53 (the T12_8 moment), damped, with the guard arm (54_weapon_channel pose; guard_pose.json beside the body)"
+   },
+   "walk_armed": {
+    "source": "anims/b_walk_fight.glb",
+    "path": "55_clip_graft",
+    "action": 21,
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "deroot",
+     "recentre",
+     "reground"
+    ]
+   },
+   "run_armed": {
+    "source": "anims/t2m_run_armed.fbx",
+    "path": "41_retarget_smplh -> 58_loop_blend",
+    "window": [
+     0.466667,
+     1.133333
+    ],
+    "edits": [
+     "trim",
+     "deroot",
+     "wrist_lock",
+     "retime",
+     "seam_blend"
+    ],
+    "seam_blend": "offset, window 0..20 of the re-timed clip, 4 intervals"
+   },
+   "strafe_L_armed": {
+    "source": "anims/t2m_strafe_left.fbx",
+    "path": "41_retarget_smplh -> 58_loop_blend",
+    "window": [
+     0.166667,
+     1.666667
+    ],
+    "edits": [
+     "deroot",
+     "retime",
+     "seam_blend"
+    ],
+    "seam_blend": "offset, window 5..50 of the re-timed clip, 10 intervals"
+   },
+   "strafe_R_armed": {
+    "source": "anims/t2m_strafe_right.fbx",
+    "path": "41_retarget_smplh -> 58_loop_blend",
+    "window": [
+     0.033333,
+     1.933333
+    ],
+    "edits": [
+     "deroot",
+     "retime",
+     "seam_blend"
+    ],
+    "seam_blend": "offset, window 1..58 of the re-timed clip, 4 intervals"
+   },
+   "block": {
+    "source": "anims/b_block1.glb",
+    "path": "55_clip_graft",
+    "action": 138,
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "recentre",
+     "reground"
+    ]
+   },
+   "shield_bash": {
+    "source": "anims/b_shield_push.glb",
+    "path": "55_clip_graft",
+    "action": 220,
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "edits": [
+     "recentre",
+     "reground"
+    ]
+   },
+   "chop_overhead_92": {
+    "source": "anims/b_double_combo.glb",
+    "path": "55_clip_graft",
+    "action": 92,
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "window": [
+     0.2,
+     1.0667
+    ],
+    "edits": [
+     "trim",
+     "recentre",
+     "reground"
+    ]
+   }
   },
-  "lint_on_every_fetch": "11 of 11 clean of joint scale tracks: 5 PASS, 6 WARN, 0 FAIL",
-  "lint_note": "the 1.176471 Hips scale was specific to Meshy's Idle action; none of these eleven repeat it. The check still ran on all eleven.",
+  "authored_poses": {
+   "axe_guard_R": "the right arm's guard, IK (guard_pose_solve.py)",
+   "axe_guard_R_block": "the guard at the block's chest",
+   "axe_guard_R_bash": "the guard at the bash's chest",
+   "axe_guard_R_chop": "the guard the chop's arm is released to after its swing, solved against the chop's post-swing torso (bash_guard_solve.py --from 0.578)"
+  },
+  "shield_poses": {
+   "shield_guard_L": "authored in 33_assemble from a frame of Meshy 580 (Sword and Shield Alert Turn Left) -- fetched on rig 01a0eb6a like every D2 fetch -- then fitted in the scene (shield_centre_grip); what ships is the fitted pose, measured in the scene, not a copy of the source",
+   "shield_carry_L": "authored in 33_assemble (the carry layer)"
+  },
+  "legacy_in_the_glb": {
+   "attack_chop": "replaced by chop_overhead_92; fetched on the other rig (01a0eb6a) and Blender-merged -- distorted; unused; remove at the next export",
+   "run_armed_L": "fetched on the other rig and Blender-merged -- distorted; unused (the diagonal blend was rejected)",
+   "run_armed_R": "as run_armed_L",
+   "run_armed_diagblend_REJECTED": "the rejected 50/50 blend of run_armed_L/R; unused",
+   "run_armed_locked": "the unarmed run with the wrist locked; unused",
+   "walk_armed_unarmedsrc": "the unarmed walk with the wrist locked; unused"
+  },
+  "the_wrong_rig": "D2's library fetches were made on rig 01a0eb6a -- nb_t8/work/res_rig.json, the MESHY-mesh candidate's rig, not this body's -- and 33_assemble's Blender merge copied their local rotations onto this skeleton, whose rest differs (hips-to-head 54.49 vs 56.55 units, upper arms 12-15 deg, the Hips rest ~110 deg): every armed clip shipped 0.15-0.26 hips-to-head off its source (N-C9-ASSEMBLE-DISTORTION). T12_8 re-fetched them on 01a0eb7e and grafted them in world space (55_clip_graft.py); 31_meshy_fetch.py now refuses any rig but the body's. The wrong-rig files are kept as records in nb_d2/anims/ (the b_ prefix marks the body-rig fetches).",
+  "loops": "T12_9 re-cut idle, walk and run on their Meshy sources' own 30 fps keys (the D2 merge had resampled them onto a 24 fps grid from t = 0: the walk popped 9.96 cm at every wrap, the run hitched); T12_10 restored the text-to-motion clips' own clock (30 fps; they had shipped 1.25x slow) and blended their seams (58_loop_blend.py)",
+  "credits": {
+   "ledger": "nb_d2/work/meshy_fetch.json (per-fetch rig on every record)",
+   "spent_total": 63,
+   "rig_01a0eb6a": "48 = D2's 33 + T12 round 2's chop search 12 (combat_stance, double_combo, triple_combo, weapon_combo_1) + 3 spent in error (nothing.glb, a refusal test that fetched)",
+   "rig_01a0eb7e": "15 = T12_8's five re-fetches (b_walk_fight, b_block1, b_shield_push, b_double_combo, b_axe_stance)"
+  },
+  "was": "this block listed D2's fetched actions without their rig, as if they were the clips' provenance: the list survives in git (nb_d2/export/manifest.json at 425817422)",
   "synty": "OUT per Matt 2026-09-29 -- nothing from those packs was used"
  },
  "lint": {
@@ -854,8 +1003,6 @@
  "retargeted_clips": {
   "run_armed": {
    "travel_m": 8.6617,
-   "seconds": 2.0,
-   "speed_m_s": 4.33,
    "foot_slide_mean_m": 0.0,
    "foot_slide_max_m": 0.0,
    "body_yaw_deg": 6.44,
@@ -869,12 +1016,13 @@
     -0.0,
     0.1044
    ],
-   "verdict": "SHIPPED. 9.21 deg heading offset is the number to argue with; the rejected diagonal blend was 32.4."
+   "verdict": "SHIPPED. 9.21 deg heading offset is the number to argue with; the rejected diagonal blend was 32.4.",
+   "what": "the whole t2m SOURCE as retargeted (60 keys at 30 fps, 59 intervals; it was stated over keys), before the trim and the seam blend. source_seconds and source_root_speed_m_s describe that source, not the shipped loop: its timing and speed are locomotion_in_place's",
+   "source_seconds": 1.9667,
+   "source_root_speed_m_s": 4.404
   },
   "strafe_L_armed": {
    "travel_m": 1.8591,
-   "seconds": 2.0,
-   "speed_m_s": 0.93,
    "foot_slide_mean_m": 0.0,
    "foot_slide_max_m": 0.0,
    "body_yaw_deg": 0.34,
@@ -888,7 +1036,10 @@
     0.0,
     0.1039
    ],
-   "verdict": "SHIPPED. 104.03 deg offset from facing is what a LEFT STRAFE should be (~90): he travels sideways while facing forward."
+   "verdict": "SHIPPED. 104.03 deg offset from facing is what a LEFT STRAFE should be (~90): he travels sideways while facing forward.",
+   "what": "the whole t2m SOURCE as retargeted (60 keys at 30 fps, 59 intervals; it was stated over keys), before the trim and the seam blend. source_seconds and source_root_speed_m_s describe that source, not the shipped loop: its timing and speed are locomotion_in_place's",
+   "source_seconds": 1.9667,
+   "source_root_speed_m_s": 0.945
   }
  },
  "grounding_fix": {
@@ -1127,41 +1278,47 @@
  },
  "locomotion_in_place": {
   "rule": "locomotion ships IN PLACE; speeds here. Measured from the SHIPPED GLB in seconds, not from frame counts.",
-  "measurement": "glTF sampler inputs are TIMES IN SECONDS, so duration is read from the file. The previous manifest said 0.667 s for a clip that is 0.8333 s: FPS was hard-coded 30 where Blender's scene is 24, and the duration was taken over KEYS where it spans INTERVALS. Two errors the same direction, 19% of speed.",
+  "measurement": "glTF sampler inputs are TIMES IN SECONDS, so duration is read from the file, over INTERVALS. The text-to-motion clips (run_armed, strafe_L_armed, strafe_R_armed) key at 30 fps at source; the chain had placed their frames 1:1 on Blender's 24 fps timeline, so they shipped 1.25x slow until T12_10 restored the source's clock (coordinator ruling 2026-09-30).",
   "run_armed": {
-   "seconds": 0.8333,
+   "seconds": 0.6667,
    "keys": 21,
    "intervals": 20,
-   "cycle_travel_m": 3.1626,
-   "speed_m_s": 3.795,
-   "note": "one gait cycle, closing key included so the declared duration IS the cycle period"
+   "speed_m_s": 3.2749,
+   "source_cycle_travel_m": 3.1626,
+   "source_root_speed_m_s": 4.744,
+   "note": "one gait cycle (source frames 14..34 of the t2m run), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed. The source's root covers its cycle at a higher speed than its planted feet allow -- the text-to-motion feet skate -- so the two are stated apart. The scene plays only its upper body (the speed split) and drives the unarmed run's speed"
   },
   "strafe_L_armed": {
-   "seconds": 2.4583,
-   "keys": 60,
-   "net_speed_m_s": 0.756,
-   "stepping_speed_m_s": 0.844
+   "seconds": 1.5,
+   "keys": 46,
+   "intervals": 45,
+   "speed_m_s": 0.7237,
+   "note": "source frames 5..50 of the t2m strafe (left), its seam blended (offset, 10 intervals); speed_m_s is the FOOT-LOCK speed on the clip's own keys"
   },
   "strafe_R_armed": {
-   "seconds": 2.4583,
-   "keys": 60,
-   "net_speed_m_s": 0.34,
-   "stepping_speed_m_s": 0.536
+   "seconds": 1.9,
+   "keys": 58,
+   "intervals": 57,
+   "speed_m_s": 0.31,
+   "note": "source frames 1..58 of the t2m strafe (right), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed on the clip's own keys"
   },
   "walk_armed": {
-   "seconds": 1.75,
-   "keys": 43,
+   "seconds": 1.7333,
+   "keys": 53,
+   "intervals": 52,
    "speed_m_s": null,
-   "note": "in-place at source; the scene sets the walk speed"
+   "note": "in place at source (Meshy 21 Walk Fight Forward on the body rig, T12_8); the scene plays its upper body over the unarmed walk and drives the walk's speed"
   },
-  "two_methods": "NET is displacement over the whole clip; STEPPING accumulates only over intervals with a foot down. They agree on strafe_L (0.756 / 0.844) and diverge on strafe_R (0.340 / 0.536) because strafe_R has stationary portions. USE STEPPING for a locomotion blend -- it is the speed while he is actually travelling. The scene measured 0.767 and 0.562 contact-filtered; the residual difference is the contact threshold.",
-  "asymmetry_warning": "the strafes are not mirrors and not the same speed"
+  "asymmetry_warning": "the strafes are not mirrors and not the same speed (strafe_R stands still for part of its loop)",
+  "speed_method": "FOOT-LOCK (nb_d2/scripts/57_footlock.py; so_d7 s6_footlock's definition): on the clip's own keys, the foot joints' bottom 25% of their height range is contact, and the median backward velocity of a planted foot is the ground speed that pins it. It replaces the NET and STEPPING pair (coordinator ruling 2026-09-30); knight.gd reads speed_m_s."
  },
  "run_armed_trim": {
-  "was": "~4 gait cycles in 2.0 s (60 frames), which broke the scene's walk/run sync group",
-  "now": "ONE gait cycle: 20 frames, 0.667 s, 3.1626 m of travel at 4.74 m/s",
-  "method": "contact onset to the next onset of the SAME foot. The contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed 0.05 m -- a fixed one found NO contacts at all, because this run's feet span 0.000 to 0.104 m and 0.05 sits mid-swing.",
-  "foot_slide": "0.00000 m. The scene measured 316 mm through a crossover on the 4-cycle version; a crossover is two cycles meeting, so one cycle has none.",
+  "numbers_live_in": "locomotion_in_place.run_armed -- duration, keys, cycle travel and speed. THIS BLOCK STATES NO NUMBERS ON PURPOSE.",
+  "why": "this block used to repeat the duration and speed and went stale: it still carried the pre-correction pair after the corrected one had been written into locomotion_in_place. The scene reads speeds from the manifest at load, so a second answer in the same file is a defect in the product, not a documentation slip. scripts/48_manifest_lint.py now fails on it. The stale values themselves are in the commit that removed them -- deliberately NOT quoted here, because a quoted number is indistinguishable from a live one to any check, and adding an exemption for \"historical\" numbers would be a hole wide enough to drive the original defect back through.",
+  "was": "several gait cycles, which broke the walk/run sync group that assumes one cycle per clip",
+  "now": "one gait cycle, contact onset to the next onset of the SAME foot, with the closing key included so the declared duration is the cycle period",
+  "method": "the contact threshold is relative to the clip's own foot range (bottom 35%), not a fixed height -- a fixed one found NO contacts at all, because this run's feet span a range in which the fixed value sat mid-swing and was crossed four times a stride in each direction.",
+  "foot_slide": "zero. The scene measured 316 mm through a crossover on the multi-cycle version; a crossover is two cycles meeting, so one cycle has none.",
   "supersedes": "run_armed_locked -- armed legs now, not unarmed legs with a wrist lock"
  },
  "root_motion": {
@@ -1231,5 +1388,80 @@
    "walk_armed": 0.0,
    "walk_armed_unarmedsrc": 0.0082
   }
- }
+ },
+ "manifest_lint": {
+  "script": "scripts/48_manifest_lint.py",
+  "runs": "python3 scripts/48_manifest_lint.py export/manifest.json export/nb-body.glb",
+  "checks": [
+   "every \"<n> s\" attributed to a clip, against the GLB sampler times",
+   "every \"<n> m/s\" attributed to a clip, against the single declared speed",
+   "the declared speed against the declared travel and duration"
+  ],
+  "attribution": "the clip a number belongs to is taken from the JSON path first, then the text; names shorter than 5 characters are not matched from text, because \"run\" and \"walk\" are words before they are clip names",
+  "limitation": "the speed check is INTERNAL. The clips ship in place, so there is no travel left in the GLB to verify a speed against -- it can only confirm the manifest states one speed rather than several."
+ },
+ "root_offset_fix": {
+  "defect": "three clips stood away from the rig origin, where every consumer stands the body: idle_armed by 1.10 m on average, run_armed by 1.83 m, attack_chop by 0.48 m at its first frame. A displaced clip is drawn away from its own capsule, and every blend into or out of it drags the whole figure across the ground by the difference -- out of idle_armed into the slash, a 1.32 m lurch. Found by the scene (attack_lab), Matt's glitch in the chop and attack.",
+  "cause": "45_deroot_trim.py removes drift with the first-to-last line and then ADDS BACK the clip's first-frame position (FIT[0]), so a clip is de-rooted about wherever it started. Meshy's Axe Stance starts 1.1 m off; run_armed was trimmed from the middle of a travelling take, 1.87 m along it; attack_chop is KEEP_ROOT and was never touched. The lint could not see it: its travel rule asks whether a clip MOVES, and a de-rooted clip does not move -- it stands elsewhere.",
+  "fix": "scripts/49_recentre.py: a constant horizontal shift on the Hips translation, as a BINARY ACCESSOR PATCH -- loops centred on their mean, one-shots on their first frame. A rigid shift changes no pose, so there is no Blender round-trip and nothing is resampled. 3 accessors, 2713 bytes changed, none outside them.",
+  "clips": {
+   "attack_chop": {
+    "closest_m": 0.3749,
+    "mean_m": 0.505,
+    "first_m": 0.4833,
+    "action": "recentred on its FIRST FRAME (one-shot)",
+    "shift_m": 0.4833,
+    "shift_units": [
+     4.7482,
+     0.0,
+     44.156
+    ],
+    "after": {
+     "closest_m": 0.0,
+     "mean_m": 0.4655,
+     "first_m": 0.0
+    },
+    "keys": 185
+   },
+   "idle_armed": {
+    "closest_m": 0.8255,
+    "mean_m": 1.0962,
+    "first_m": 1.1262,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.0942,
+    "shift_units": [
+     -84.4138,
+     0.0,
+     54.6328
+    ],
+    "after": {
+     "closest_m": 0.0207,
+     "mean_m": 0.1777,
+     "first_m": 0.04
+    },
+    "keys": 148
+   },
+   "run_armed": {
+    "closest_m": 1.7621,
+    "mean_m": 1.8298,
+    "first_m": 1.8723,
+    "action": "recentred on its MEAN (loop)",
+    "shift_m": 1.8298,
+    "shift_units": [
+     58.3264,
+     0.0,
+     157.7019
+    ],
+    "after": {
+     "closest_m": 0.008,
+     "mean_m": 0.0379,
+     "first_m": 0.045
+    },
+    "keys": 21
+   }
+  },
+  "lint": "21_lint_export.py now FAILs a clip whose root never comes within 0.25 m of its rest position. On the unpatched file it fails exactly these three; after the patch, none, and the WARN set is identical before and after (13 = 13).",
+  "upstream": "45_deroot_trim.py should anchor at the rest position rather than at FIT[0], or a re-run will put the offset back. Not changed here: 49 runs after it and the lint now guards it."
+ },
+ "_state_T12_10": "This manifest travels with nb_d2/export_staging/T12_10_strafes/nb-body.glb. Blocks that record a PROCESS (clip_hygiene, clip_hygiene_on_merge, grounding_fix, root_offset_fix, deroot, run_armed_trim, retargeter) describe the D2 export as it was made; since then T12_8 re-grafted walk_armed, idle_armed, block, shield_bash and chop_overhead_92 from body-rig sources, T12_9 re-cut idle, walk and run, and T12_10 re-timed and seam-blended run_armed and the strafes. Current provenance: clip_sources (and the registry it names); current timing and speeds: locomotion_in_place."
 }
