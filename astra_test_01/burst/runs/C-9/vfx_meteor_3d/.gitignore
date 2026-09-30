@@ -1,0 +1,18 @@
+# C-9 VFX bake-off lane B (vfx_meteor_3d): generated, heavy, or machine-local. GLB and PNG are already
+# ignored repo-wide under astra_test_01/; these are the rest (the same set as barrow_full/.gitignore).
+godot/.godot/
+godot/**/*.import
+godot/models/**/*.jpg
+godot/models/**/*.jpeg
+*.uid
+godot/data/*.bin
+godot/data/painted/*.bin
+godot/data/painted/bakes/
+godot/data/painted_web/*.bin
+godot/data/painted_web/bakes/
+# the web mirror and its export, the scratch logs/stills/raw frame records
+web/
+work/
+# the films stay on disk (runs/C-9/vfx_meteor_3d/artifacts/), out of git, as the painted Barrow's did
+artifacts/*.mp4
+artifacts/*.avi

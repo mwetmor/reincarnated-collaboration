@@ -1,0 +1,92 @@
+; C-9 VFX BAKE-OFF LANE B (vfx_meteor_3d, drax): a copy of barrow_full's project.godot; the name, the main
+; scene and the [shader_globals] (the Meteor's ground terms, read by the painted surfaces) differ.
+; C-9 T10-2 step 1: the Frost King's Barrow, full area, as a gameplay blockout (R-C9-74/75).
+; Sandbox copy of cliffside3d/godot/project.godot at HEAD: the [input] map is unchanged so the
+; controls are the standard ones; the name, the main scene and the 16:9 view lock differ.
+; THE VIEW LOCK (coordinator, 2026-09-29): stretch canvas_items, aspect keep, base 1920 x 1080.
+; The camera's ortho size is set from the LOGICAL rows, so every window -- a 1920 x 1080 one,
+; or fullscreen on a 3440 x 1440 ultrawide (2560 x 1440 rendered, 440 px bars each side) --
+; shows the planned 19.1 x 13.4 m of ground. Without it, fullscreen on the ultrawide showed
+; 34 x 18 m, and unpainted floor past the window.
+config_version=5
+
+[application]
+config/name="C-9 Meteor lane B (3D first)"
+run/main_scene="res://scenes/meteor_test.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[input]
+move_left={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194319),Object(InputEventKey,"physical_keycode":65)]}
+move_right={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194321),Object(InputEventKey,"physical_keycode":68)]}
+move_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194320),Object(InputEventKey,"physical_keycode":87)]}
+move_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194322),Object(InputEventKey,"physical_keycode":83)]}
+run_modifier={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194325)]}
+orbit_left={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":81)]}
+orbit_right={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":69)]}
+plate_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":80)]}
+gear_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":71)]}
+attack={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":32),Object(InputEventMouseButton,"button_index":1)]}
+fade_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":70)]}
+attack_chop={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":88)]}
+block={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":66),Object(InputEventMouseButton,"button_index":2)]}
+shield_bash={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":67)]}
+lit_toggle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":76)]}
+size_down={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":91)]}
+size_up={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":93)]}
+
+[shader_globals]
+
+fx_on={
+"type": "float",
+"value": 0.0
+}
+fx_web={
+"type": "float",
+"value": 0.0
+}
+fx_rock={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_sun={
+"type": "vec4",
+"value": Vector4(0, 1, 0, 0.07)
+}
+fx_fall_light={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_burn_light={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_mark={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_burn={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+fx_ring={
+"type": "vec4",
+"value": Vector4(1, 0, 0, 1.2)
+}
+
+[rendering]
+renderer/rendering_method="forward_plus"
+; THE PHONE PAGE (/playtest/barrow-painted/): WebGL2 only has the Compatibility renderer
+renderer/rendering_method.web="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2
+
+[editor]
+
+; the film (tools/film_painted.sh): Movie Maker's one MJPEG file, at a quality that survives the MP4 re-encode
+movie_writer/mjpeg_quality=0.95
