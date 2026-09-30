@@ -25636,6 +25636,14 @@
       "topic": "A Meteor VFX bake-off: the painted 2D kit (the cliffside process) against the '3D first, then painted' pipeline",
       "ruling": "Matt verbatim: \"Would it also make sense to try a bake off with meteor with our new painted then real 3D pipeline? Or would it be silly to think of doing VFX that way?\" Disposition (conductor, SCENEWRIGHT; one recommendation: YES, run it). Not silly: the Meteor is the one effect where 3D-first has the most to gain -- a fall through depth reads by its SHADOW growing on the ground and by lighting what it lands near, which a flat sprite can only fake at a fixed orthographic camera (no perspective growth) -- and it is the question the genre's own classic answered by pre-rendering its 3D effects into sprites. Fire is organic, where per-frame painting holds up best (D5: painted frames drift on hard surfaces, not on hair, fur or flame). LANE A (integration drax): the value-index painted primitives (VF-met-head/trail/impact/ring-01 via the Astra lane, the burning ground reusing C-5's fire pool) -> the kit (mk_kits_v9, the burst template) -> baked flipbooks. LANE B (a new drax, runs/C-9/vfx_meteor_3d/): the Meteor built 3D-first -- a rock and flame geometry under a STEPPED four-value fire shader in the kit's palette, the ink pen on its silhouette, a real growing shadow on the painted ground, fire light on the characters; an optional Astra paint-over of the impact peak projected onto the burst geometry (conductor-run). SAME SPEC, SAME PERFORMANCE BUDGET for both (R-C9-89: no frame > 20 ms incl. the cold first cast, <= 1 ms per frame over 20 casts, <= 10 added draw calls; pooled, preloaded, warmed). JUDGE: Matt, side by side at play speed on the phone page (a toggle), plus the numbers and a note on authoring cost per effect at 100 effects.",
       "ts": "2026-09-30T06:39:39"
+    },
+    {
+      "id": "R-C9-91",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Vercel skipped for the next 24 hours",
+      "ruling": "Matt verbatim: \"We can skip vercel for the next 24 hours\". Disposition: no loadout push and no deploy attempt until the rate-limit window has passed (refused at 2026-09-30T13:47Z; window from ~2026-10-01T13:47Z). Loadout commits keep accruing locally for one batch (9ade74c on origin, deploy refused; 3772e23, 980c336, 565a536 held; plus any later page builds). Page work continues; review goes through the desktop apps and films meanwhile.",
+      "ts": "2026-09-30T11:31:04"
     }
   ],
   "grok_calls": [
