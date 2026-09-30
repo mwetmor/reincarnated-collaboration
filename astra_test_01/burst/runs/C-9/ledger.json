@@ -23249,6 +23249,14 @@
       "topic": "The conductor pushes: Matt cannot push from where he is",
       "ruling": "Matt verbatim: \"I cannot push. You need to push all commits.\" Executed by the conductor with git push (no workaround; the permission check allowed it on this explicit instruction): reincarnated-collaboration 266c6edd6..27f741f47 (only 1 commit was unpushed: another session had been pushing collaboration main) and reincarnated-loadout 8de7bee..f6b7869 (the manticore web build on /playtest/cliffside/ and an AGENT_STATE commit; Vercel deploys on push). reincarnated-engine, reincarnated-godot and reincarnated-demo had nothing unpushed. Standing posture from here (with R-C9-71 push now and as you go): the conductor pushes run work as it lands, collaboration and the loadout playtest routes (the new /playtest/barrow/ under R-C9-83); reincarnated-godot stays with the JOIN-1/KC2 conductor. Charter section 6 (pushes executed by Matt) superseded by this ruling.",
       "ts": "2026-09-29T21:42:42"
+    },
+    {
+      "id": "R-C9-85",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Sorceress costume A; the barbarian drops to the floor after swinging (a regression from the handover); what the full-area blockout is",
+      "ruling": "Matt verbatim: \"Go with the sorceress with the red robes and the staff.. I think that is A as it is on the left. Unsure what the full area blockout is. Also, the barbarian in the narrow MP4 is horrible.. after swinging his axe, he drops to the floor as if drunk.\" Dispositions: (1) G1-S decided: costume A (the ember seeress: red robe, wolf-fur mantle, corset belt, bracers, circlet, the ember-stone staff in the right hand); the base body picked by mirror IoU (tie -> b); D7 dispatched to the D2 drax (a9010dd) in its own folder runs/C-9/so_d7/, weapon bones from the start, Meshy library clips only (no text-to-motion pending T33), every step timed, fal <= $3, Meshy <= 80, Astra <= 20. (2) REGRESSION: the conductor saw it in the handover film (frames 18-133): after the chop from idle he sinks into a low hunched crouch; T12 paused; the scene drax isolates by A/B (foot lock at strike_out, the damped idle GLB 07ccabd6, the block phase machine) against a pelvis-height instrument (drop = more than 5 cm below idle rest for more than 0.2 s) with the pre-install build as the baseline, then fixes or stages a rollback of the guilty component. (3) The full-area blockout explained to Matt in plain words (the grey, playable plan of the bigger Barrow level, before painting).",
+      "ts": "2026-09-29T22:05:35"
     }
   ],
   "grok_calls": [
