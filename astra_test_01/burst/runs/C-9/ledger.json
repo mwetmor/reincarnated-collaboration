@@ -23714,9 +23714,301 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "VF-met-impact-01",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-meteor",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "e18a740ec5af0ce5c1597320591a9e028c77a689b4a21671c6651b04910b3efc",
+      "started": "2026-09-30T10:38:33.078471+00:00",
+      "ended": "2026-09-30T10:41:30.282147+00:00",
+      "minutes": 2.9533837888836083,
+      "image_calls": 2,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0a68-7a51-9e28-08e97bbc9099/exec-2c79a155-758d-4663-9753-dbd37106ef4f.png",
+            "sha256": "95554b4479eb52a73f69d06e5ee164d2ece61194d7dbbf6e81258666fcd68d7e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0a68-7a51-9e28-08e97bbc9099/exec-459ac41d-a29a-449f-8b56-1e7e43f11cfd.png",
+            "sha256": "71fa8612d79d7ff34c84130daf1d900665fbbae76a5a00657494575f69e1f578"
+          }
+        ]
+      },
+      "receipt_sha256": "e155ba89147b381fffc63ac7c031e368cad5f283781ec829944aaf6c589ad3d4",
+      "artifacts": [
+        {
+          "name": "met_impact_01.png",
+          "sha256": "71fa8612d79d7ff34c84130daf1d900665fbbae76a5a00657494575f69e1f578"
+        },
+        {
+          "name": "exec-2c79a155-758d-4663-9753-dbd37106ef4f.provenance.json",
+          "sha256": "65d7361a137f160dd90b54bb9fa98bf08f810b9ddd23a7b42d9c44e973302a44"
+        },
+        {
+          "name": "exec-459ac41d-a29a-449f-8b56-1e7e43f11cfd.provenance.json",
+          "sha256": "baf590d11d762c1266c3a1c3cf7575bba0d1b3cb672abb189313a37d60634a98"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0a68-7a51-9e28-08e97bbc9099/exec-2c79a155-758d-4663-9753-dbd37106ef4f.png",
+          "sha256": "95554b4479eb52a73f69d06e5ee164d2ece61194d7dbbf6e81258666fcd68d7e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0a68-7a51-9e28-08e97bbc9099/exec-459ac41d-a29a-449f-8b56-1e7e43f11cfd.png",
+          "sha256": "71fa8612d79d7ff34c84130daf1d900665fbbae76a5a00657494575f69e1f578"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-met-head-01",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-meteor",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "2d250b9e28a42ff82e580b08d0a65cae6fd3c821bbcd05668d0177abb2f4b32e",
+      "started": "2026-09-30T10:38:33.078768+00:00",
+      "ended": "2026-09-30T10:41:48.900012+00:00",
+      "minutes": 3.263681209733477,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b57-75f1-a80e-7bf601507d0b/exec-9170f3f4-5717-4e07-8197-002634a9e990.png",
+            "sha256": "c468b28288d1d2b7a3220fb622080765bae5dedf4581c4e3985f3461466de1ed"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b57-75f1-a80e-7bf601507d0b/exec-eede197f-9d8c-47aa-8324-e71acad0d6c5.png",
+            "sha256": "398109822311d76158257057a5ad9d9e3e5c512c7380666279e82a8b46fb9e67"
+          }
+        ]
+      },
+      "receipt_sha256": "6eac716739250128fb4d9c4f6531a093bf7278377e465148d3fd53ee407f87d6",
+      "artifacts": [
+        {
+          "name": "met_head_01.png",
+          "sha256": "c468b28288d1d2b7a3220fb622080765bae5dedf4581c4e3985f3461466de1ed"
+        },
+        {
+          "name": "exec-9170f3f4-5717-4e07-8197-002634a9e990.provenance.json",
+          "sha256": "b2a0e41ed8725e0a021448718b93516e519d9655b976cdebd1c7c24ef79c004b"
+        },
+        {
+          "name": "exec-eede197f-9d8c-47aa-8324-e71acad0d6c5.provenance.json",
+          "sha256": "1869189344ddecda9f891cdcd0c7e558e6d1eac0d719e3b59ce2cd54ae08aebc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b57-75f1-a80e-7bf601507d0b/exec-9170f3f4-5717-4e07-8197-002634a9e990.png",
+          "sha256": "c468b28288d1d2b7a3220fb622080765bae5dedf4581c4e3985f3461466de1ed"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b57-75f1-a80e-7bf601507d0b/exec-eede197f-9d8c-47aa-8324-e71acad0d6c5.png",
+          "sha256": "398109822311d76158257057a5ad9d9e3e5c512c7380666279e82a8b46fb9e67"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-met-ring-01",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-meteor",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7a52a29e91bc01ecfa502c476a12d6895a5fad700fbb22a974afca4391aa95bb",
+      "started": "2026-09-30T10:38:33.078340+00:00",
+      "ended": "2026-09-30T10:41:55.425263+00:00",
+      "minutes": 3.3724484118167313,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0af0-7781-baf2-819d679b1ec6/exec-21ac5947-0c82-4c63-99fe-996195c30c7d.png",
+            "sha256": "79396de90e9ce1c5e8712b0610c0d1102f86b4b1561a1400d8528643ec98b67b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0af0-7781-baf2-819d679b1ec6/exec-a7088899-3010-4709-b550-ac644b0aac76.png",
+            "sha256": "dfc68fcbd48aa07c6a25fe8f8609e16af7cd0ddfc8f431e5597423430870b7e8"
+          }
+        ]
+      },
+      "receipt_sha256": "82ede584728686a5ec286cf8447b1aab455dae33f2e833ba8c30ba09a2e485a1",
+      "artifacts": [
+        {
+          "name": "met_ring_01.png",
+          "sha256": "dfc68fcbd48aa07c6a25fe8f8609e16af7cd0ddfc8f431e5597423430870b7e8"
+        },
+        {
+          "name": "exec-21ac5947-0c82-4c63-99fe-996195c30c7d.provenance.json",
+          "sha256": "f5adf444005852093c921c88bc9872aa4eca23e3e58758422737484104ad30bc"
+        },
+        {
+          "name": "exec-a7088899-3010-4709-b550-ac644b0aac76.provenance.json",
+          "sha256": "0290a1b5b6b5699fcb7c6515d63cd752727185c9e26b3150d8449239eb2d6a3d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0af0-7781-baf2-819d679b1ec6/exec-21ac5947-0c82-4c63-99fe-996195c30c7d.png",
+          "sha256": "79396de90e9ce1c5e8712b0610c0d1102f86b4b1561a1400d8528643ec98b67b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0af0-7781-baf2-819d679b1ec6/exec-a7088899-3010-4709-b550-ac644b0aac76.png",
+          "sha256": "dfc68fcbd48aa07c6a25fe8f8609e16af7cd0ddfc8f431e5597423430870b7e8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-met-trail-01",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-meteor",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "4b566f3890b744b8b354b5ae2771a086663854c962e48e9f858f3ca3186491b5",
+      "started": "2026-09-30T10:38:33.078386+00:00",
+      "ended": "2026-09-30T10:42:19.766759+00:00",
+      "minutes": 3.778138822916662,
+      "image_calls": 2,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b2d-73f2-b8a3-47f272963d75/exec-48edfacb-e02b-49a2-a7eb-c5875b133fdd.png",
+            "sha256": "daff2e1deb84879342db348f376b184d6e3929c67e1922163f9b6c42139381ba"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b2d-73f2-b8a3-47f272963d75/exec-e2b59fd8-f5d2-4189-9b17-04d43b4c53b1.png",
+            "sha256": "90251a9af72e7e404eb0476d91aa20147d95cb66319b7c740be7f87761c6b142"
+          }
+        ]
+      },
+      "receipt_sha256": "801f22a03a21793dff3de8c5329546b68934edd706d801ba84737ce8d0780683",
+      "artifacts": [
+        {
+          "name": "met_trail_01.png",
+          "sha256": "90251a9af72e7e404eb0476d91aa20147d95cb66319b7c740be7f87761c6b142"
+        },
+        {
+          "name": "exec-48edfacb-e02b-49a2-a7eb-c5875b133fdd.provenance.json",
+          "sha256": "fe4f1fab566a6da157b83ebc04acdd537758a52da261357c63b8df77bfc98a2d"
+        },
+        {
+          "name": "exec-e2b59fd8-f5d2-4189-9b17-04d43b4c53b1.provenance.json",
+          "sha256": "ff5774a58e988d7c78e33609c399d55cbe0faf0d826130842f2640326c46a0e3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b2d-73f2-b8a3-47f272963d75/exec-48edfacb-e02b-49a2-a7eb-c5875b133fdd.png",
+          "sha256": "daff2e1deb84879342db348f376b184d6e3929c67e1922163f9b6c42139381ba"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f1e5-0b2d-73f2-b8a3-47f272963d75/exec-e2b59fd8-f5d2-4189-9b17-04d43b4c53b1.png",
+          "sha256": "90251a9af72e7e404eb0476d91aa20147d95cb66319b7c740be7f87761c6b142"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 700,
+  "images_used": 708,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -24482,6 +24774,13 @@
       "result": "Moved from join1_pack_draft/ unchanged; re-verified in place: 56 cells, 704 frame files, 0 sha256 mismatches against matrix_index.json, every cell COMPLETE, expected/complete 56/56, no mirror_of; the index (schema join1-sprite-cells/1) carries the run and walk re-cuts, the hit staff layer, the per-state cut-window notes and per-cell provenance. Per the contract (godot d95e1df, § 3.1) the pack is now C-9's and IMMUTABLE: the port copies out of it read-only; any change is a new pack version, not an edit.",
       "conductor": "Declared by the conductor. The JOIN-1 conductor (Sim Session) is told the path and the index sha. The PNGs are gitignored (as the draft's were); matrix_index.json with its per-frame sha256 is the committed record. The barbarian's pack (d2-ww-barb) follows when his JOIN moves are rebased onto the JOIN hold body b5371921 and pass Matt's look.",
       "ts": "2026-09-30T06:34:51"
+    },
+    {
+      "id": "M-C9-JOIN1-BARB-DRAFT",
+      "topic": "The barbarian's JOIN-1 pack (d2-ww-barb) rendered as a DRAFT, 64/64 cells, on the JOIN hold body b5371921; the death and shout rulings built (D2 drax, collab d020f1fe8, on origin)",
+      "result": "DEATH: both guards blend out 1.1-1.5 s (arms go slack with the fall); a floor clamp turns each weapon in its grip key by key, keyed into the death clip; all 68 keys: penetration into him 0 for both weapons, into the floor 0, lowest points at 0.0000 m; last frame sword tilt 98.3, axe 92.3 deg, both lying beside his hands; fastest blade turn 727 / 912 deg/s (about the library fall's own arm speed). SHOUT: shout_raised = the shout clip + a raise layer over the guards: at the cry's peak (1.2 s) the grips 0.08 m above his head, blades 25 deg off vertical in a V; fade in from 0.5 s, hold 1.1-1.7, gone by 2.4; 0 penetration over 84 keys; tips 2.64 / 2.76 m; the guard shout kept beside it (variant_of: shout). A DEFECT IN THE LANE'S OWN MEASURE, found and fixed: it blended layers as a straight interpolation between clip and layer, while Godot builds each contribution relative to the bone's rest (they agree only at weights 0 and 1) -> mid-ramp 5.9 cm (death) / 9.1 cm (shout_raised) off the renderer's sockets, and the first death clamp was correcting a pose that never appears (its 2231 deg/s one-frame flick); j_blend.py now reproduces Godot's rule; j_validate_pack.py worst 0.02 mm over 2560 socket samples. PACK join1_pack_draft/d2-ww-barb/ (47 MB) + contact sheet: 8 states x 8 directions (idle/walk/run = the scene drax's hold; whirlwind, shout, hit, death, shout_raised); loop closures 0.001-0.065; render 31 s with a GPU warm-up before the first saved frame; spot re-render: idle/S exact, 3 frames off by 1 colour level on <= 10 px. Speeds (the renderer reads none through knight.gd), by the foot-lock tool on his body: walk 1.583 m/s, stride 1.636 m; run 3.952 m/s, stride 2.503 m (run feet do not pin cleanly, IQR 5.05: stride rough). LINTS: export 0 fails (fidelity PASS shout/hit/death; whirlwind grid and seam PASS); manifest (so_d7's) 0 mismatches, release checked, three planted errors all fire; the manifest script refuses a measurement taken on another export. Film nb_join/artifacts/JOIN-moves-film-2x-rulings.mp4 (6.3 MB), stills join2_*. Spend 0.",
+      "conductor": "ACCEPTED as a DRAFT. Conductor look at the film sheet: the whirlwind reads as a spin with both weapons out; the death reads as a dead man with his weapons fallen beside him. The film goes to Matt with ONE fork: the guard shout or the raised shout (conductor lean: RAISED -- a war cry reads through raised weapons at play scale). Declared after his look and pick.",
+      "ts": "2026-09-30T06:42:43"
     }
   ],
   "halts": [
@@ -26051,6 +26350,12 @@
       "topic": "Lane A's Meteor primitives briefed and fired (wave met_w1)",
       "note": "briefs/C-9/VF-met-head-01, VF-met-trail-01, VF-met-impact-01, VF-met-ring-01 (image_cap 2 each, minutes_cap 15, experiment C9-VFX-meteor), written in the C-5 fire-primitive format (value-index encoding: exactly four flat greyscale planes; 512x512 transparent or flat #00ff00; one retry on named failures). References registered in runs/C-9/artifacts/inputs/manifest.json with provenance: met_ref_scale_board_barrow.png (a 1:1 512 crop of the painted Barrow film frame at 12.0 s, the barbarian ~160 px = 1 BH), met_ref_fire_vocab_E0p_peak.png (C-5's Matt-accepted fire impact peak), met_ref_fire_head_C5.png, met_ref_fire_streak_C5.png (C-5 P01/P02). refs_guard OK (4 tasks). The burning ground reuses C-5's VF-prim-fire-pool-01.",
       "ts": "2026-09-30T06:39:39"
+    },
+    {
+      "id": "N-C9-RUNTIME-RESAMPLE",
+      "topic": "The runtime glTF path re-samples too: the sorceress's declared v1 pack renders her 24 fps clips from a 30 fps bake -- v1 stays, a v2 re-cut on source keys will supersede it",
+      "note": "D2 drax: Godot's runtime GLTFDocument load bakes every track at 30 fps and drops rest-valued tracks, like the editor import (render_cells.gd's header had claimed otherwise; corrected). The barbarian's channels are all on the 30 fps grid (0.000 deg change). The SORCERESS's clips (cast_fireball, cast_meteor, hit, death, idle -- all but the re-cut walk and run) are keyed on the old 24 fps grid, so her renders come from the 30 fps bake: at her release frames the forearm differs from her file's keyed pose by 5.0 deg (cast_fireball 0.9167 s) and 3.6 deg (cast_meteor 1.625 s); hit and death up to 1.8 deg (nb_join/work/runtime_resample_sorceress.json). The in-game import bakes the same way, so v1 matches what the game plays. DECISION (conductor): v1 (join1_pack/d2-fire-sorc, declared) stays IMMUTABLE -- the contract forbids editing a declared pack, and the finding lives here, not in v1's index. The fix goes to the source: re-cut her remaining clips on their source keys with s17 (release_s re-derived onto the source grid), re-check her layers, render v2 into join1_pack_draft/d2-fire-sorc_v2 recording that it supersedes v1 by v1's index sha, refresh so_d7/scene_pkg. v2 is declared after a check, and the JOIN-1 conductor is told it supersedes v1 (JOIN-1 has not launched, so nothing has consumed v1).",
+      "ts": "2026-09-30T06:42:43"
     }
   ]
 }
