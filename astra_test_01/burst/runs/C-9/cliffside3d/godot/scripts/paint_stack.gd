@@ -102,6 +102,16 @@ uniform float shadow_after_bands = 1.0;
 // itself; narrowing it sharpens the shadow's edge and multiplies the noise by 1 / (hi - lo)
 uniform float shadow_step_lo = 0.0;
 uniform float shadow_step_hi = 1.0;
+// THE AMBIENT, INSIDE THE SUN'S PASS -- the phone build only (R-C9-83); 0 on the desktop, where
+// the engine adds the sky ambient itself. The Compatibility renderer draws a SHADOWED light in
+// an ADDITIVE pass, and each pass is sRGB-encoded BEFORE the two are added: srgb(ambient) +
+// srgb(sun) instead of srgb(ambient + sun). Measured on the play frame (tools/probe_web_look.gd,
+// Compatibility on ANGLE/Metal against Forward+): mean RGB 225/225/222 against the desktop's
+// 188/179/174, |difference| 47 per channel -- every blue shadow and warm band summed toward
+// white. With the environment's ambient moved HERE (PaintStack.move_ambient_into_light zeroes
+// the environment's), the base pass adds nothing and the one sum is done in linear light
+// inside this pass: |difference| 17, the rest being the web's cards and pen.
+uniform vec3 ambient_in_light = vec3(0.0);
 """
 
 const RAMP_BODY := """
@@ -139,7 +149,8 @@ vec3 _ramp_light(vec3 n, vec3 l, float att, vec3 light_color, vec3 wpos, sampler
 	vec3 cool = sh_col * sh_e;                         // shadow is BLUE-VIOLET, never black
 	vec3 ramped = mix(cool, warm, clamp(b, 0.0, 1.0));
 	vec3 plain = (light_color / PI) * max(ndl, 0.0) * att;
-	return mix(plain, ramped, mix_amt);                // mix_amt 0 == the stack OFF, for A/B
+	// + the ambient on the phone build only (ambient_in_light, above); 0 on the desktop
+	return mix(plain, ramped, mix_amt) + ambient_in_light;   // mix_amt 0 == the stack OFF, for A/B
 }
 """
 
@@ -1049,7 +1060,7 @@ static func hull_ink_material(width_model: float, ink: Color) -> ShaderMaterial:
 
 static func post_material(paper: Texture2D, ink: Color, params := {}) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
-	m.shader = _shader(POST_SHADER)
+	m.shader = _shader(post_shader_code())
 	m.set_shader_parameter("paper_tex", paper)
 	m.set_shader_parameter("ink_color", ink)
 	# drawn LAST. It reads hint_screen_texture, which puts it in the transparent queue
@@ -1059,6 +1070,109 @@ static func post_material(paper: Texture2D, ink: Color, params := {}) -> ShaderM
 	for k in params:
 		m.set_shader_parameter(k, params[k])
 	return m
+
+
+static func is_compatibility() -> bool:
+	return RenderingServer.get_current_rendering_method() == "gl_compatibility"
+
+
+static func is_web() -> bool:
+	"""THE PHONE BUILD'S BRANCHES, in one predicate: true in the browser, and true on the desktop
+	when the command line carries `-- --as-web` -- so the desktop harness can put the web path
+	under the Compatibility renderer and capture it with stdout, instead of by browser only
+	(tools/probe_web_look.gd)."""
+	return OS.has_feature("web") or OS.get_cmdline_user_args().has("--as-web")
+
+
+static func web_query(key: String) -> String:
+	"""A value off the phone page's own URL (`?msaa=0&scale3d=0.7`), "" when absent or not on the
+	web. The tuning levers are read here so a phone can be tried at another setting without a
+	rebuild."""
+	if not OS.has_feature("web"):
+		return ""
+	var v = JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('%s') || ''" % key, true)
+	return String(v) if typeof(v) == TYPE_STRING else ""
+
+
+static func move_ambient_into_light(root: Node, env: Environment) -> Dictionary:
+	"""THE PHONE BUILD'S LIGHT SUM (see ambient_in_light in RAMP_UNIFORMS). Every material that
+	carries the ramp gets the environment's ambient -- linear, times its energy: what the engine
+	would have added in its base pass -- and the environment's own is zeroed, so the ambient is
+	added ONCE, in the sun's pass, in linear light. Counts what it set, and NAMES any lit
+	material without the ramp: that one would lose its ambient, and should be seen to."""
+	var amb := env.ambient_light_color.srgb_to_linear() * env.ambient_light_energy
+	var v := Vector3(amb.r, amb.g, amb.b)
+	var seen := {}
+	var set_n := 0
+	var unramped := []
+	for n in root.find_children("*", "GeometryInstance3D", true, false):
+		var gi := n as GeometryInstance3D
+		var mats: Array = []
+		if gi.material_override != null:
+			mats.append(gi.material_override)
+		var mesh: Mesh = null
+		if gi is MeshInstance3D:
+			mesh = (gi as MeshInstance3D).mesh
+			if mesh != null:
+				for s in mesh.get_surface_count():
+					var o := (gi as MeshInstance3D).get_surface_override_material(s)
+					if o != null:
+						mats.append(o)
+		elif gi is MultiMeshInstance3D and (gi as MultiMeshInstance3D).multimesh != null:
+			mesh = (gi as MultiMeshInstance3D).multimesh.mesh
+		elif gi is GPUParticles3D:
+			mesh = (gi as GPUParticles3D).draw_pass_1
+		if mesh != null and gi.material_override == null:
+			for s in mesh.get_surface_count():
+				var m := mesh.surface_get_material(s)
+				if m != null:
+					mats.append(m)
+		for m in mats:
+			if seen.has(m):
+				continue
+			seen[m] = true
+			var sm := m as ShaderMaterial
+			if sm != null and sm.shader != null and sm.shader.code.contains("ambient_in_light"):
+				sm.set_shader_parameter("ambient_in_light", v)
+				set_n += 1
+			elif m is BaseMaterial3D and (m as BaseMaterial3D).shading_mode != BaseMaterial3D.SHADING_MODE_UNSHADED:
+				unramped.append("%s (%s)" % [String(gi.name), m.get_class()])
+			elif sm != null and sm.shader != null and not sm.shader.code.contains("unshaded"):
+				unramped.append("%s (ShaderMaterial)" % String(gi.name))
+	env.ambient_light_energy = 0.0
+	return {"ramp_materials_set": set_n, "ambient_linear": [snappedf(v.x, 1e-4), snappedf(v.y, 1e-4),
+			snappedf(v.z, 1e-4)], "lit_without_ramp": unramped,
+			"_why": "Compatibility adds a shadowed light's pass to the base pass after both are sRGB-encoded"}
+
+
+static func post_shader_code() -> String:
+	"""THE PEN, AND ITS WEB FALLBACK (the phone build, R-C9-83). The Compatibility renderer the
+	web runs on has no normal-roughness buffer, and that buffer carries three things the pen
+	reads: the crease term, and the per-pixel marks that keep the pen off him (0.5), off thin
+	growth (0.25) and off the near side of snow (0.75). So on Compatibility the pen is DEPTH
+	ONLY: the same positive-side second difference, the same threshold, the same sky test --
+	and none of the marks, which the web build answers another way (the heather is drawn as
+	blended cards that write no depth, and his own hull is hidden so he keeps one pen)."""
+	if not is_compatibility():
+		return POST_SHADER
+	var s := POST_SHADER.replace(
+		"uniform sampler2D nrm_tex : hint_normal_roughness_texture, filter_nearest;\n", "")
+	s = s.replace("vec3 _nrm(vec2 uv) { return texture(nrm_tex, uv).xyz * 2.0 - 1.0; }",
+		"vec3 _nrm(vec2 uv) { return vec3(0.0, 0.0, 1.0); }")
+	s = s.replace("return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - char_mark_ref));",
+		"return 0.0;")
+	s = s.replace("return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - thin_mark_ref));",
+		"return 0.0;")
+	s = s.replace("float sn = 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - snow_mark_ref));",
+		"float sn = 0.0;")
+	# AND THE DEPTH IS OPENGL'S: NDC z runs -1..1 (2d - 1), where the desktop's Vulkan takes d as
+	# is. Read the desktop way, every depth break measures HALF its size on the orthographic
+	# camera, and the pen draws half as much of the world.
+	var lin := "vec4 v = inv_proj * vec4(vec3(uv * 2.0 - 1.0, d), 1.0);"
+	assert(s.contains(lin), "the pen's depth read moved; the web fallback must follow it")
+	s = s.replace(lin, "vec4 v = inv_proj * vec4(vec3(uv, d) * 2.0 - 1.0, 1.0);")
+	assert(not s.contains("nrm_tex"), "the web pen still reads the normal-roughness buffer")
+	return s
 
 
 static func post_quad(cam: Camera3D, mat: ShaderMaterial) -> MeshInstance3D:

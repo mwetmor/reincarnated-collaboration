@@ -191,6 +191,12 @@ var _gust_t := 0.0
 
 
 func _ready() -> void:
+	# THE PHONE BUILD (R-C9-83): ONE project, and the web differs HERE and in the renderer
+	# override in project.godot -- the heather as cards (measured cheap: ~0 ms against the
+	# stems' 1.7), and the rest below at the points they act.
+	if PaintStack.is_web():
+		heather_mode = "cards"
+		heather_ab = false
 	world = BarrowStandIn.new()
 	# THE GROUND IS CHOSEN BEFORE THE AIR, and the order is the fix for a real defect rather
 	# than tidiness. The fog's height is read FROM the terrain (see _build_light_and_air), and
@@ -234,6 +240,49 @@ func _ready() -> void:
 			fl += 1
 	print("[barrow] foot_lock nodes=%d" % fl)
 	report["foot_lock_nodes"] = fl
+	if PaintStack.is_compatibility():
+		# ONE PEN ON HIM (R-C9-74 note 5), on the web too: the depth-only web pen cannot see
+		# his mark, so it draws him -- and his own hull is hidden rather than doubled with it
+		for e in _char_saved.get("inks", []):
+			var mi = e.get("mi")
+			if mi is Node3D and is_instance_valid(mi):
+				(mi as Node3D).visible = false
+		# THE AMBIENT INTO THE SUN'S PASS (PaintStack.move_ambient_into_light): last, once every
+		# ramp material exists -- the ground, the snow, the props, the heather and him
+		report["compat_light"] = PaintStack.move_ambient_into_light(self, env_node.environment)
+	if PaintStack.is_web():
+		# THE PHONE'S TUNING LEVERS, off the page URL (PaintStack.web_query): ?msaa=0|2|4|8 and
+		# ?scale3d=0.5..1.0 (the 3D drawn smaller and scaled up; the thumb controls stay sharp)
+		var qm := PaintStack.web_query("msaa")
+		if qm != "":
+			var msaa_by := {"0": Viewport.MSAA_DISABLED, "2": Viewport.MSAA_2X, "4": Viewport.MSAA_4X,
+				"8": Viewport.MSAA_8X}
+			get_viewport().msaa_3d = msaa_by.get(qm, get_viewport().msaa_3d)
+		var qs := PaintStack.web_query("scale3d")
+		if qs != "" and qs.is_valid_float():
+			get_viewport().scaling_3d_scale = clampf(float(qs), 0.25, 1.0)
+		report["web_levers"] = {"msaa_3d": get_viewport().msaa_3d,
+			"scaling_3d_scale": get_viewport().scaling_3d_scale}
+	if PaintStack.is_web() and knight != null:
+		# THE PHONE STARTS IN THE FULL KIT. Chop, bash and block have no clip until the axe and
+		# the shield are on (the base stack maps them to ""), and a phone has no G key -- so
+		# three of the four strike buttons would do nothing. The GEAR button cycles as G does.
+		knight.set_gear_stack(knight.gear_stack_count() - 1)
+		_update_hud()
+	if PaintStack.is_web() or DisplayServer.is_touchscreen_available():
+		# the thumb stick and the four strikes, through the input actions knight.gd reads
+		add_child(load("res://scripts/barrow_touch.gd").new())
+	if PaintStack.is_web():
+		var gt: Dictionary = report.get("ground_textures", {})
+		print("[barrow] web: heather=%s pen=%s instances=%d mm_draws=%d splat=%s tiles=%d ambient_moved=%s msaa=%d scale3d=%.2f" % [
+			heather_mode, "depth-only" if PaintStack.is_compatibility() else "full",
+			int(report.get("instancing", {}).get("instances", 0)), _mmis.size(),
+			"MISSING" if _splat == null else "ok", (gt.get("tiles", []) as Array).size(),
+			str(report.get("compat_light", {}).get("ramp_materials_set", "-")),
+			int(get_viewport().msaa_3d), get_viewport().scaling_3d_scale])
+		var lw: Array = report.get("compat_light", {}).get("lit_without_ramp", [])
+		if not lw.is_empty():
+			push_warning("[barrow] lit without the ramp (no ambient on the web): %s" % str(lw))
 
 
 # --- the camera law -----------------------------------------------------------
@@ -329,6 +378,8 @@ func _build_light_and_air() -> void:
 	# one run: Low 16.65, Medium 16.91 (+0.26 ms), High 17.64 ms. set_shadow_after_bands(false)
 	# puts back BOTH halves -- T10-1c's ramp and Soft Low -- so its A/B is T10-1c's shadow.
 	RenderingServer.directional_soft_shadow_filter_set_quality(SHADOW_FILTER_T10_1D)
+	if PaintStack.is_compatibility():
+		sun.shadow_normal_bias = WEB_SHADOW_NORMAL_BIAS
 	env_node = WorldEnvironment.new()
 	env_node.name = "Env"
 	# HEIGHT FOG ONLY, AND ITS HEIGHT IS THE HOLLOW'S OWN. The mist has to sit in the hollow
@@ -573,7 +624,9 @@ func _load_ground_textures() -> void:
 	var missing := []
 	for c in SPLAT_CLASSES:
 		var p: String = TILE_DIR + c + ".png"
-		if not FileAccess.file_exists(p):
+		# the IMPORT counts as present: the phone build ships the tiles imported (lossy, small)
+		# and not as raw files, and FileAccess cannot see an import
+		if not (FileAccess.file_exists(p) or ResourceLoader.exists(p)):
 			missing.append(p)
 			continue
 		_tiles[c] = PaintStack.load_tile(p)
@@ -587,7 +640,14 @@ func _load_ground_textures() -> void:
 	if frame.has("scene_offset_xz"):
 		_splat_origin = Vector2(float(frame["scene_offset_xz"][0]), float(frame["scene_offset_xz"][1]))
 	var splat := {}
-	if FileAccess.file_exists(SPLAT_PNG):
+	# THE IMPORT COUNTS AS PRESENT, as for the tiles above. An export ships an imported PNG as its
+	# .import remap and .ctex, NOT as the file -- include_filter does not change that for a path
+	# with an .import beside it (both pcks' file tables, read 2026-09-30: `splat_ids_a_marigold
+	# .png.import` and no .png). So FileAccess alone missed the splat in EVERY export, the macOS
+	# app's included: no tarn, the mound bare, the heather patches gone -- the all-snow ground
+	# the note below describes, shipped. _image_from reads the import first; lossless, so the
+	# ids come back exact.
+	if FileAccess.file_exists(SPLAT_PNG) or ResourceLoader.exists(SPLAT_PNG):
 		# SNOW IS THE IMPLIED CLASS. See PaintStack.splat_weight_texture: four 8-bit channels
 		# put all their rounding error on the fifth, and snow is the one already near 1.
 		splat = PaintStack.splat_weight_texture(SPLAT_PNG, SPLAT_CLASSES.size(), SPLAT_BLUR_PX, 0)
@@ -1221,7 +1281,7 @@ func _build_density() -> Dictionary:
 				return false
 		var spec: Dictionary = kit[kc] if kit.has(kc) else man.get(cls, {})
 		var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
-		if not ResourceLoader.exists(glb):
+		if not (_generated(cls) or ResourceLoader.exists(glb)):
 			skips["missing"] += 1
 			return false
 		var pc: bool = bool(spec.get("pitch_correct", true)) and not kit.has(kc)
@@ -1358,6 +1418,10 @@ func _build_snow() -> void:
 	deliberate drift lies across the return route from the door, so the walk goes through it."""
 	var t0 := Time.get_ticks_msec()
 	snow = SnowField.new()
+	if PaintStack.is_web():
+		# the trail at half resolution on the phone build: 6.6 cm texels over the 34 m field,
+		# a quarter of the per-step upload (and of its half-float conversion)
+		snow.trail_px = 512
 	snow.name = "SnowField"
 	snow.fbm_tex = fbm
 	snow.snow_tint = SNOW_TINT
@@ -1837,6 +1901,18 @@ const HEATHER_CARDS_PNG := "res://textures/barrow/heather_cards.png"
 # 15.8 -> (1.408, 1.130, 0.638) 1.2
 const HEATHER_STEM_MUL := Vector3(1.622, 1.254, 0.534)
 const HEATHER_CARD_MUL := Vector3(1.408, 1.130, 0.638)
+# THE PHONE BUILD'S CARDS DRAW AFTER THE POST PASS (render_priority 120, PaintStack.
+# post_material): they write no depth -- the depth-only web pen would ink every tuft -- and a
+# depthless material is a transparent, drawn after the screen copy the post pass paints back
+# over the frame (see BarrowHeather's _HEAD_DEPTHLESS). 125: after it, inside the -128..127 range.
+const WEB_CARD_PRIORITY := 125
+# THE WEB'S SHADOW NORMAL BIAS. Compatibility's shadow lookup took the desktop's 0.15 as a
+# fine diagonal ACNE over all the open snow (stripes a few px apart, half the snow darkened by
+# its own shadow). Swept on the play frame, Compatibility on ANGLE/Metal: bias 0.03 / 0.10 /
+# 0.40 at normal 0.15 all striped; normal 0.5 (bias 0.2) and 1.0 (bias 0.03) clean, the stones'
+# shadows still at their feet. The desktop keeps its measured 0.15.
+const WEB_SHADOW_NORMAL_BIAS := 1.0
+const WEB_DEPTH_EDGE_PX := 6.0
 var _heather_mats := {}
 var _heather_cards: Array = []
 var _heather_card_tex: Texture2D
@@ -2513,7 +2589,7 @@ func _fill_by_splat_even() -> Dictionary:
 				continue
 			var spec: Dictionary = man.get(cls, {})
 			var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
-			if not ResourceLoader.exists(glb):
+			if not (_generated(cls) or ResourceLoader.exists(glb)):
 				continue
 			idx += 1
 			var e := _place_prop(cls, glb, {"pitch_correct": bool(spec.get("pitch_correct", true)),
@@ -3022,7 +3098,7 @@ func _build_scene_props(stone_mat: ShaderMaterial, rock_mat: ShaderMaterial,
 		seen[key] = true
 		var spec: Dictionary = man.get(cls, {})
 		var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
-		if not ResourceLoader.exists(glb):
+		if not (_generated(cls) or ResourceLoader.exists(glb)):
 			skipped.append({"asset": cls, "glb": glb, "why": "not in the project"})
 			continue
 		var target := float(row.get("height_m", spec.get("height_m", 1.0)))
@@ -3179,14 +3255,26 @@ func _heather_material(cards: bool) -> ShaderMaterial:
 	var key := "cards" if cards else "stems"
 	if _heather_mats.has(key):
 		return _heather_mats[key]
+	var depthless := cards and PaintStack.is_compatibility()
 	var m := BarrowHeather.material(fbm, cards, {
-		"albedo_mul": HEATHER_CARD_MUL if cards else HEATHER_STEM_MUL, "mesh_mark": 0.25})
+		"albedo_mul": HEATHER_CARD_MUL if cards else HEATHER_STEM_MUL, "mesh_mark": 0.25},
+		depthless)
+	if depthless:
+		m.render_priority = WEB_CARD_PRIORITY
 	if cards and _heather_card_tex != null:
 		m.set_shader_parameter("card_tex", _heather_card_tex)
 	m.set_shader_parameter("wind_dir", WIND.normalized())
 	_heather_mats[key] = m
 	_world_mats.append(m)
 	return m
+
+
+func _generated(cls: String) -> bool:
+	"""True where the asset is BUILT rather than loaded: the heather's sprays and cards
+	(BarrowHeather) -- only T10-1c's "blobs" load heather.glb. The placement loops used to gate
+	every class on its model existing, so a build that did not ship heather.glb (the phone
+	build: nothing draws it) placed no heather at all."""
+	return cls == "heather" and heather_mode != "blobs"
 
 
 func _place_heather(row: Dictionary, target: float, idx: int) -> Dictionary:
@@ -3227,6 +3315,9 @@ func _place_heather(row: Dictionary, target: float, idx: int) -> Dictionary:
 		mi.mesh = mesh
 		mi.scale = Vector3.ONE * s
 		mi.material_override = _heather_material(rep == "cards")
+		if rep == "cards" and PaintStack.is_compatibility():
+			# the web's cards cast no shadow: one shadow pass fewer over ~500 cards on a phone
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		mi.set_meta("part", rep)
 		root.add_child(mi)
 		tris += mesh.surface_get_array_index_len(0) / 3
@@ -3693,9 +3784,15 @@ func _aim_for(pos: Vector3) -> Vector3:
 
 # --- the screen-space pass ----------------------------------------------------
 func _build_post() -> void:
+	# THE WEB PEN'S THRESHOLD, 3 -> 6 px of depth break (0.03 -> 0.06 m at the play camera). The
+	# depth-only pen has no snow mark, so the 1.5-5 cm step where the snow is cut round every bare
+	# patch and the tarn drew as an outline -- rust patches ringed in ink. At 6 those are gone and
+	# the stones and rocks, whose breaks are decimetres to metres, keep their line (probe_web_look,
+	# 3 / 6 / 10 compared on the play frame).
+	var edge_px := WEB_DEPTH_EDGE_PX if PaintStack.is_compatibility() else 3.0
 	post_mat = PaintStack.post_material(paper, PaintStack.INK, {
 		"line_px": 1.25,
-		"depth_edge_px": 3.0,
+		"depth_edge_px": edge_px,
 		"normal_edge": 1.05,
 		"normal_weight": 0.30,
 		"ink_gain": 1.15,
@@ -3709,7 +3806,7 @@ func _build_post() -> void:
 											  int(round(PaintStack.INK.g * 255.0)),
 											  int(round(PaintStack.INK.b * 255.0))]},
 		"screen_space": {"operator": "second difference of linear depth (silhouette) + Roberts on the view-space normal buffer (crease)",
-						 "line_px": 1.25, "depth_edge_px": 3.0, "normal_edge": 1.05,
+						 "line_px": 1.25, "depth_edge_px": edge_px, "normal_edge": 1.05,
 						 "normal_weight": 0.30},
 		"hull": "kept on the character and RE-ISSUED in the same colour with fog_disabled, so the two lines are one pen",
 	}

@@ -375,6 +375,36 @@ void fragment() {
 }
 """
 
+# THE WEB CARD: cut out, and writing NO depth. On the phone build the pen is depth-only (no
+# normal-roughness buffer on Compatibility, so no "thin" mark to turn it down on growth), and a
+# card that writes depth is a depth break on every sprig's edge -- the pen would outline each
+# tuft in full ink. So the card writes colour and no depth.
+#
+# A DEPTHLESS MATERIAL IS DRAWN IN THE TRANSPARENT PASS, whatever its alpha (Godot routes
+# depth_draw_never there), which is AFTER the post pass has copied the screen -- and the post
+# pass, the last transparent at render_priority 120, then painted that copy straight over every
+# card: 0 heather on screen with 650 instances in the scene, in the first phone-size test, and
+# again with the card cut out instead of blended. So the scene draws the web cards AFTER the
+# post pass (BarrowWorld.WEB_CARD_PRIORITY, above 120): occluded by the world's depth as before,
+# and outside the grade and the paper grain, which they do not get.
+const _HEAD_DEPTHLESS := """
+shader_type spatial;
+render_mode specular_disabled, cull_back, depth_draw_never;
+"""
+
+const _FRAG_CARDS_DEPTHLESS := """
+void fragment() {
+	vec4 tx = texture(card_tex, UV);
+	vec3 base = tx.rgb * albedo_mul;
+	float tj = v_rnd - 0.5;
+	base *= 1.0 + tj * tone_jitter;
+	base = mix(base, base * vec3(0.90, 1.0, 0.78), clamp(0.5 - v_rnd, 0.0, 0.5) * hue_jitter * 2.0);
+	ALBEDO = base;
+	ALPHA = tx.a;
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
+}
+"""
+
 const _LIGHT := """
 void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
@@ -384,20 +414,22 @@ void light() {
 """
 
 
-static func shader(cards: bool) -> Shader:
-	var key := "cards" if cards else "stems"
+static func shader(cards: bool, depthless := false) -> Shader:
+	var key := ("cards_depthless" if depthless else "cards") if cards else "stems"
 	if _shaders.has(key):
 		return _shaders[key]
 	var sh := Shader.new()
-	sh.code = _SHADER_HEAD + PaintStack.RAMP_UNIFORMS + _SHADER_UNIFORMS + PaintStack.RAMP_BODY \
-		+ _SHADER_FUNCS + (_FRAG_CARDS if cards else _FRAG_STEMS) + _LIGHT
+	var head := _HEAD_DEPTHLESS if (cards and depthless) else _SHADER_HEAD
+	var frag := (_FRAG_CARDS_DEPTHLESS if depthless else _FRAG_CARDS) if cards else _FRAG_STEMS
+	sh.code = head + PaintStack.RAMP_UNIFORMS + _SHADER_UNIFORMS + PaintStack.RAMP_BODY \
+		+ _SHADER_FUNCS + frag + _LIGHT
 	_shaders[key] = sh
 	return sh
 
 
-static func material(fbm: Texture2D, cards: bool, params := {}) -> ShaderMaterial:
+static func material(fbm: Texture2D, cards: bool, params := {}, depthless := false) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
-	m.shader = shader(cards)
+	m.shader = shader(cards, depthless)
 	m.set_shader_parameter("wash_noise", fbm)
 	m.set_shader_parameter("mottle_noise", fbm)
 	m.set_shader_parameter("gust_noise", fbm)

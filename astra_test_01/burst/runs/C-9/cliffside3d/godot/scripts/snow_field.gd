@@ -259,6 +259,8 @@ const PS := preload("res://scripts/paint_stack.gd")
 @export var fbm_tex: Texture2D
 @export var snow_mark := 0.75
 var depth_grid := {}
+## the phone build: sample half-float textures (see _gpu_image)
+var half_float_textures := PaintStack.is_web()
 var clear_zones: Array = []
 ## T10-1c: THIN SNOW AT THE HEATHER -- [{c: Vector2, r, feather, max_d}]. Inside r the depth
 ## is capped at max_d, released over `feather` outside it, so each tussock stands in a shallow
@@ -776,8 +778,7 @@ func _bake_field() -> void:
 			_field_buf[o + 1] = edge[j * n + i]
 			_field_buf[o + 2] = dDdx
 			_field_buf[o + 3] = dDdz
-	_field_tex = ImageTexture.create_from_image(Image.create_from_data(
-		n, n, false, Image.FORMAT_RGBAF, _field_buf.to_byte_array()))
+	_field_tex = ImageTexture.create_from_image(_gpu_image(n, _field_buf))
 
 	# --- what got built, in numbers, so "open ground" is a measurement not a hope ---
 	var above := 0
@@ -804,6 +805,19 @@ func _bake_field() -> void:
 	_bake["mean_depth_m"] = snappedf(hsum / float(tot), 0.0001)
 	_bake["max_drift_m"] = snappedf(_max_drift, 0.001)
 	_bake["bake_ms"] = snappedf((Time.get_ticks_usec() - t0) / 1000.0, 0.1)
+
+
+func _gpu_image(n: int, buf: PackedFloat32Array) -> Image:
+	"""The float buffer as the image the GPU samples. FULL FLOAT on desktop. HALF FLOAT ON THE
+	WEB (the phone build): WebGL2 filters a 32-bit float texture only with
+	OES_texture_float_linear, which phone GPUs do not all offer -- and a linear sampler on an
+	unfilterable texture reads as zero, which here is "no snow anywhere". Half floats are
+	filterable in WebGL2 itself. The trail's clock channel loses precision with them (0.25 s at
+	300 s, 1 s at 30 min), which moves a footprint's refill by under 2% of its minute."""
+	var img := Image.create_from_data(n, n, false, Image.FORMAT_RGBAF, buf.to_byte_array())
+	if half_float_textures:
+		img.convert(Image.FORMAT_RGBAH)
+	return img
 
 
 func _edge_at(x: float, z: float) -> float:
@@ -939,10 +953,14 @@ static func _smoother(t: float) -> float:
 func _make_trail() -> void:
 	_trail_buf = PackedFloat32Array()
 	_trail_buf.resize(trail_px * trail_px * 4)
+	# stamp time far in the past == dead. -6e4 and not -1e6 on the phone build: a half float
+	# tops out at 65504, so -1e6 would upload as -INF, and a bilinear tap straddling a footprint's
+	# edge then mixes -inf into the stamp time (0 x -inf is NaN on the filter). -6e4 is as dead
+	# for 16 hours of play (fade = 1 - 6e4 / refill_s, clamped to 0).
+	var dead := -6.0e4 if half_float_textures else -1.0e6
 	for k in trail_px * trail_px:
-		_trail_buf[k * 4 + 1] = -1.0e6      # stamp time far in the past == dead
-	_trail_tex = ImageTexture.create_from_image(Image.create_from_data(
-		trail_px, trail_px, false, Image.FORMAT_RGBAF, _trail_buf.to_byte_array()))
+		_trail_buf[k * 4 + 1] = dead
+	_trail_tex = ImageTexture.create_from_image(_gpu_image(trail_px, _trail_buf))
 	_last_stamp.clear()
 	_last_plough = Vector2.INF
 
@@ -1427,8 +1445,7 @@ func _process(_dt: float) -> void:
 	if _trail_dirty and _trail_tex != null:
 		# coalesced to at most one upload per frame; stamps are gated by stamp_stride_m and
 		# plough_step_m so this fires a handful of times a second, not sixty
-		_trail_tex.update(Image.create_from_data(trail_px, trail_px, false,
-			Image.FORMAT_RGBAF, _trail_buf.to_byte_array()))
+		_trail_tex.update(_gpu_image(trail_px, _trail_buf))
 		_trail_dirty = false
 
 
