@@ -23136,6 +23136,14 @@
       "topic": "The barbarian JOIN loadout is sword + axe (dual wield); research how to get weapon holds and attacks right before building",
       "ruling": "Matt verbatim: \"sword plus axe.. but PLEASE research how to get the weapon holds and attacks right within our 3D pipeline. ultra think through how others are doing it that may work here. We must get this right!\" Dispositions: the default JOIN loadout = a sword in the main (right) hand + his axe in the off (left) hand; axe + shield kept as the alternate (the Barrow look). A legolas research commission (sourced: how shipped games and current indie/AI-assisted pipelines attach, orient and animate weapons: weapon/prop bones vs hand sockets, grip calibration, hand poses without finger bones, weapon-first attack authoring with IK, dual-wield and spin attacks, readability at a top-down camera, QA instruments), then a SPIKE on the sword + axe idle, one strike and the Whirlwind, measured and shown to Matt before the approach is rolled out to both characters (the sorceress staff included). Conductor preliminary synthesis sent to Matt: the root cause of every weapon complaint so far is that our weapons are fixed to the hand bone at one angle while the arm motion comes from clips authored for other weapons or none.",
       "ts": "2026-09-29T21:22:18"
+    },
+    {
+      "id": "R-C9-82",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Heather as detailed stems that blow in the wind",
+      "ruling": "Matt verbatim: \"For the heather, maybe we need to make more detailed, individual stems/leaves with physics to have it blow in the wind?\" Disposition (gandalf SCENEWRIGHT): yes to detailed stems (each clump built from many thin curved sprigs, giving the painting airy broken silhouette instead of the current golden blobs); no to individual leaves (sub-pixel at the play camera, where a clump is 50-80 px wide); yes to wind, done the way games do it: a vertex-shader sway weighted toward the tips with per-clump phase and gusts travelling along the scene wind direction, nearly free per clump inside the instancing, not a per-stem physics simulation; plus push-aside where he wades, reusing the SnowField trail map. Routed to the integration drax inside T10-1d; acceptance: the texture statistic toward the painting heather, a visible but gentle sway, a visible push-aside, frame cost measured (at the 16.7 ms line), a short MP4.",
+      "ts": "2026-09-29T21:36:32"
     }
   ],
   "grok_calls": [
