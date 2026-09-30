@@ -1,0 +1,248 @@
+{
+ "what": "her gear stacks checked at the play camera (film_rt/gear_stills.gd + scripts/s19_gear_stacks.py)",
+ "stacks": [
+  {
+   "index": 0,
+   "name": "base",
+   "pieces": [],
+   "armed": false,
+   "grip_R": 0.0,
+   "carry_layer": false,
+   "see_through": {
+    "1x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 0,
+     "opening_edge_pale_px": 0,
+     "slit_pale_px": 0
+    },
+    "2x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 0,
+     "opening_edge_pale_px": 0,
+     "slit_pale_px": 0
+    }
+   },
+   "pale_dots_at_2x": [],
+   "paint": {
+    "body_px": 77407,
+    "filled_px": 488,
+    "bare_px": 0,
+    "revealed_px": 57233,
+    "revealed_filled_px": 321,
+    "filled_pct": 0.63,
+    "revealed_filled_pct": 0.56
+   },
+   "sheet": "artifacts/gear_stacks/stack0_base_2x.png"
+  },
+  {
+   "index": 1,
+   "name": "+robe",
+   "pieces": [
+    "robe"
+   ],
+   "armed": false,
+   "grip_R": 0.0,
+   "carry_layer": false,
+   "see_through": {
+    "1x": {
+     "isolated_pale_dots_px": 2,
+     "isolated_holes_px": 26,
+     "opening_edge_pale_px": 1,
+     "slit_pale_px": 0
+    },
+    "2x": {
+     "isolated_pale_dots_px": 6,
+     "isolated_holes_px": 98,
+     "opening_edge_pale_px": 1,
+     "slit_pale_px": 0
+    }
+   },
+   "pale_dots_at_2x": [
+    {
+     "shot": "idle h205",
+     "x": 956,
+     "y": 533,
+     "px": 1
+    },
+    {
+     "shot": "walk h25",
+     "x": 920,
+     "y": 545,
+     "px": 2
+    },
+    {
+     "shot": "walk h205",
+     "x": 962,
+     "y": 523,
+     "px": 3
+    }
+   ],
+   "paint": {
+    "body_px": 25310,
+    "filled_px": 218,
+    "bare_px": 0,
+    "revealed_px": 6708,
+    "revealed_filled_px": 62,
+    "filled_pct": 0.86,
+    "revealed_filled_pct": 0.92
+   },
+   "sheet": "artifacts/gear_stacks/stack1_plus_robe_2x.png"
+  },
+  {
+   "index": 2,
+   "name": "+mantle+belt",
+   "pieces": [
+    "robe",
+    "mantle",
+    "belt"
+   ],
+   "armed": false,
+   "grip_R": 0.0,
+   "carry_layer": false,
+   "see_through": {
+    "1x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 8,
+     "opening_edge_pale_px": 0,
+     "slit_pale_px": 0
+    },
+    "2x": {
+     "isolated_pale_dots_px": 2,
+     "isolated_holes_px": 29,
+     "opening_edge_pale_px": 1,
+     "slit_pale_px": 0
+    }
+   },
+   "pale_dots_at_2x": [
+    {
+     "shot": "walk h25",
+     "x": 920,
+     "y": 545,
+     "px": 2
+    }
+   ],
+   "paint": {
+    "body_px": 24505,
+    "filled_px": 207,
+    "bare_px": 0,
+    "revealed_px": 6066,
+    "revealed_filled_px": 59,
+    "filled_pct": 0.84,
+    "revealed_filled_pct": 0.97
+   },
+   "sheet": "artifacts/gear_stacks/stack2_plus_mantleplus_belt_2x.png"
+  },
+  {
+   "index": 3,
+   "name": "+bracers+circlet",
+   "pieces": [
+    "robe",
+    "mantle",
+    "belt",
+    "bracers",
+    "circlet"
+   ],
+   "armed": false,
+   "grip_R": 0.0,
+   "carry_layer": false,
+   "see_through": {
+    "1x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 8,
+     "opening_edge_pale_px": 0,
+     "slit_pale_px": 0
+    },
+    "2x": {
+     "isolated_pale_dots_px": 2,
+     "isolated_holes_px": 15,
+     "opening_edge_pale_px": 1,
+     "slit_pale_px": 0
+    }
+   },
+   "pale_dots_at_2x": [
+    {
+     "shot": "walk h25",
+     "x": 920,
+     "y": 545,
+     "px": 2
+    }
+   ],
+   "paint": {
+    "body_px": 23022,
+    "filled_px": 201,
+    "bare_px": 0,
+    "revealed_px": 5153,
+    "revealed_filled_px": 56,
+    "filled_pct": 0.87,
+    "revealed_filled_pct": 1.09
+   },
+   "sheet": "artifacts/gear_stacks/stack3_plus_bracersplus_circlet_2x.png"
+  },
+  {
+   "index": 4,
+   "name": "full kit",
+   "pieces": [
+    "robe",
+    "mantle",
+    "belt",
+    "bracers",
+    "circlet",
+    "staff"
+   ],
+   "armed": true,
+   "grip_R": 1.0,
+   "carry_layer": true,
+   "see_through": {
+    "1x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 7,
+     "opening_edge_pale_px": 0,
+     "slit_pale_px": 0
+    },
+    "2x": {
+     "isolated_pale_dots_px": 0,
+     "isolated_holes_px": 20,
+     "opening_edge_pale_px": 1,
+     "slit_pale_px": 0
+    }
+   },
+   "pale_dots_at_2x": [],
+   "paint": {
+    "body_px": 23581,
+    "filled_px": 200,
+    "bare_px": 0,
+    "revealed_px": 0,
+    "revealed_filled_px": 0,
+    "filled_pct": 0.85,
+    "revealed_filled_pct": 0.0
+   },
+   "sheet": "artifacts/gear_stacks/stack4_full_kit_2x.png"
+  }
+ ],
+ "overview": "artifacts/gear_stacks/all_stacks_overview_1x.png",
+ "method": {
+  "camera": "the play camera: orthographic, pitch 52.9535 deg, yaw 47 deg, 100.617 px/m at 1x (201.2 at 2x)",
+  "shots": [
+   [
+    "idle",
+    25
+   ],
+   [
+    "idle",
+    205
+   ],
+   [
+    "walk",
+    25
+   ],
+   [
+    "walk",
+    205
+   ]
+  ],
+  "poses": "idle at 1.0 s, walk at 0.5 s; the carry layer only where the stack is armed",
+  "see_through": "scripts/s11_count.py per stack, unchanged",
+  "paint": "the class pass against 06b_bake's painted mask",
+  "reference": "pass 2's shipped costume (full kit, 5 clips x 4 headings at 1.0 s): isolated pale 1 px at 1x, 7 at 2x (manifest speckles)"
+ }
+}

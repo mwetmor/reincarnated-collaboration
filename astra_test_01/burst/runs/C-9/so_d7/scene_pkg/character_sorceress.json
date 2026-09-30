@@ -10,8 +10,7 @@
  "clips": {
   "idle": "idle",
   "walk": "walk",
-  "run": "run",
-  "attack": "cast_fireball"
+  "run": "run"
  },
  "clips_armed": {
   "idle": "idle",
@@ -39,15 +38,24 @@
   [],
   [
    "robe",
-   "mantle",
+   "belt"
+  ],
+  [
+   "robe",
    "belt",
+   "mantle"
+  ],
+  [
+   "robe",
+   "belt",
+   "mantle",
    "bracers",
    "circlet"
   ],
   [
    "robe",
-   "mantle",
    "belt",
+   "mantle",
    "bracers",
    "circlet",
    "staff"
@@ -55,11 +63,153 @@
  ],
  "gear_stack_names": [
   "base",
-  "costume",
+  "+robe+belt",
+  "+mantle",
+  "+bracers+circlet",
   "full kit"
  ],
  "morph_rules": {
   "grip_R": "staff"
+ },
+ "gear_stack_detail": [
+  {
+   "name": "base",
+   "pieces": [],
+   "grip_R": 0,
+   "armed": false,
+   "layers": "none: knight.gd switches its armed layers with armed(), so a staff-less stack plays the raw clips",
+   "spells": "none (strikes_need_armed)",
+   "checked": {
+    "stills": "artifacts/gear_stacks/stack0_2x.png",
+    "pale_dots_px": {
+     "1x": 0,
+     "2x": 0
+    },
+    "body_paint": {
+     "filled_pct": 0.63,
+     "bare_px": 0,
+     "revealed_px": 57233,
+     "revealed_filled_pct": 0.56
+    }
+   }
+  },
+  {
+   "name": "+robe+belt",
+   "pieces": [
+    "robe",
+    "belt"
+   ],
+   "grip_R": 0,
+   "armed": false,
+   "layers": "none: knight.gd switches its armed layers with armed(), so a staff-less stack plays the raw clips",
+   "spells": "none (strikes_need_armed)",
+   "checked": {
+    "stills": "artifacts/gear_stacks/stack1_2x.png",
+    "pale_dots_px": {
+     "1x": 0,
+     "2x": 2
+    },
+    "body_paint": {
+     "filled_pct": 0.87,
+     "bare_px": 0,
+     "revealed_px": 6247,
+     "revealed_filled_pct": 0.94
+    }
+   }
+  },
+  {
+   "name": "+mantle",
+   "pieces": [
+    "robe",
+    "belt",
+    "mantle"
+   ],
+   "grip_R": 0,
+   "armed": false,
+   "layers": "none: knight.gd switches its armed layers with armed(), so a staff-less stack plays the raw clips",
+   "spells": "none (strikes_need_armed)",
+   "checked": {
+    "stills": "artifacts/gear_stacks/stack2_2x.png",
+    "pale_dots_px": {
+     "1x": 0,
+     "2x": 2
+    },
+    "body_paint": {
+     "filled_pct": 0.84,
+     "bare_px": 0,
+     "revealed_px": 6066,
+     "revealed_filled_pct": 0.97
+    }
+   }
+  },
+  {
+   "name": "+bracers+circlet",
+   "pieces": [
+    "robe",
+    "belt",
+    "mantle",
+    "bracers",
+    "circlet"
+   ],
+   "grip_R": 0,
+   "armed": false,
+   "layers": "none: knight.gd switches its armed layers with armed(), so a staff-less stack plays the raw clips",
+   "spells": "none (strikes_need_armed)",
+   "checked": {
+    "stills": "artifacts/gear_stacks/stack3_2x.png",
+    "pale_dots_px": {
+     "1x": 0,
+     "2x": 2
+    },
+    "body_paint": {
+     "filled_pct": 0.87,
+     "bare_px": 0,
+     "revealed_px": 5153,
+     "revealed_filled_pct": 1.09
+    }
+   }
+  },
+  {
+   "name": "full kit",
+   "pieces": [
+    "robe",
+    "belt",
+    "mantle",
+    "bracers",
+    "circlet",
+    "staff"
+   ],
+   "grip_R": 1,
+   "armed": true,
+   "layers": "arm_layer_armed_R (the staff carry, nine bones, over idle/walk/run) + upper_armed (the carry's spine over walk and run) + strike_release (the Fire Ball's arm-only carry)",
+   "spells": "FIRE BALL and METEOR",
+   "checked": {
+    "stills": "artifacts/gear_stacks/stack4_2x.png",
+    "pale_dots_px": {
+     "1x": 0,
+     "2x": 0
+    },
+    "body_paint": {
+     "filled_pct": 0.85,
+     "bare_px": 0,
+     "revealed_px": 0,
+     "revealed_filled_pct": 0.0
+    }
+   }
+  }
+ ],
+ "_gear_stacks_note": "GEAR steps these five stacks, cumulative (knight.gd set_gear_stack: the stack's pieces shown, morph_rules applied -- grip_R closes her right fist only with the staff -- and armed() re-evaluated). Checked at the play camera, stack by stack (so_d7/scripts/s19_gear_stacks.py): the base body's paint is the projection cameras' own, with nothing bare, and no stack shows the body through a garment at play scale. The robe and belt go on together: the robe alone shows her waist through its back as a thin pale line, the seam the belt was fitted over.",
+ "strikes_need_armed": {
+  "roles": [
+   "attack",
+   "chop"
+  ],
+  "buttons": [
+   "FIRE BALL",
+   "METEOR"
+  ],
+  "rule": "HER SPELLS NEED THE STAFF (his rule, 'the strikes need the kit'): the two spell buttons show only while knight.armed() -- her armed_when_pieces is the staff, so only at the full kit -- and the keys do nothing without it",
+  "knight_gd_lacks": "an unarmed state with NO attack. The unarmed clip map has no attack now, but _bind_roles falls back to idle for a missing attack, so the slash key would still fire a strike (it plays idle, and spell_fx would still fire the Fire Ball at its release time). The gate belongs on the page: hide the buttons when not armed(), and in sorceress_knight.gd `func try_strike(which): return super(which) if armed() else false`. The Meteor (chop) is already armed-only in knight.gd"
  },
  "arm_layer_armed_R": {
   "action": "staff_carry_R",

@@ -23,8 +23,32 @@ This is her slot for the painted Barrow phone page, in the scene's own shapes. I
 | idle | `idle` |
 | walk | `walk` |
 | run | `run` |
-| attack (the slash key) | `cast_fireball` |
-| chop | `cast_meteor` |
+| attack (the slash key) | `cast_fireball`, armed only (with the staff) |
+| chop | `cast_meteor`, armed only |
+
+## GEAR: her stacks (Matt's R-C9-69 test)
+
+**For the owner (the integration drax):**
+- Un-hide GEAR for her. Her `gear_stacks` step from the base body to the full costume, five stacks.
+- Show FIRE BALL and METEOR only while `knight.armed()`, which is true only with the staff (the full kit). Check it again after every GEAR press.
+- Gate the keys the same way. A one-line override in `sorceress_knight.gd` does it: `func try_strike(which): return super(which) if armed() else false`.
+
+Why the gate is needed (see `strikes_need_armed`): knight.gd has no unarmed state without an attack. It binds a missing attack to idle, so the slash key would still fire a strike, and `spell_fx` would fire the Fire Ball at its release time.
+
+| # | Name | Pieces | grip_R | Layers | Spells | Pale see-through dots, 1x / 2x | Body paint the bake filled (the rest camera-painted) |
+|---|---|---|---|---|---|---|---|
+| 0 | base | (the base body) | 0 | none | hidden | 0 / 0 | 0.63%, 0 bare |
+| 1 | +robe+belt | robe, belt | 0 | none | hidden | 0 / 2 | 0.87%, 0 bare |
+| 2 | +mantle | robe, belt, mantle | 0 | none | hidden | 0 / 2 | 0.84%, 0 bare |
+| 3 | +bracers+circlet | robe, belt, mantle, bracers, circlet | 0 | none | hidden | 0 / 2 | 0.87%, 0 bare |
+| 4 | full kit | robe, belt, mantle, bracers, circlet, staff | 1 | carry | FIRE BALL, METEOR | 0 / 0 | 0.85%, 0 bare |
+
+**How the stacks were checked.** `so_d7/film_rt/gear_stills.gd` renders every stack at the play camera, the idle at 1.0 s and the walk at 0.5 s, from headings 25 and 205, at 1x and 2x. `scripts/s19_gear_stacks.py` then runs three checks:
+- **See-through:** her speckle instrument (`s11_count.py`) runs unchanged on each stack.
+- **Paint:** a class pass colours every visible body pixel as camera-painted, filled by the bake, or bare. The base body shows 0 bare pixels, and 0.56% of the body the garments normally cover is filled.
+- **Stills:** a 2x sheet per stack, in `so_d7/artifacts/gear_stacks/`.
+
+**Why the robe and belt go on together.** The robe alone shows her waist through its back as a thin pale line: 2 px at 1x and 6 at 2x, where the belt normally covers. That first grouping's record is kept in `artifacts/gear_stacks/first_grouping/`. Every stack as shipped has 0 pale dots at play scale. The one 2 px dot at 2x in stacks 1-3 sits on the robe's front edge in the walk. For reference, the full costume's own pass-2 count was 7 px at 2x.
 
 `hit` and `death` have no role in knight.gd. They are listed under `roles_knight_lacks`.
 
@@ -52,6 +76,7 @@ This is her slot for the painted Barrow phone page, in the scene's own shapes. I
 2. **death.** It has no role, and no one-shot that holds its last frame.
 3. **A release event.** Nothing fires when a strike's position crosses `casts.<clip>.release_s`: Fire Ball 0.9333 s, Meteor 1.6333 s (v2). `strike_release.at_s` is the recovery release, which is a different thing. The placeholder VFX needs this event, at `cast_hand` for the Fire Ball and `cast_hand_meteor` for the Meteor.
 4. **(Worked around) filter paths from the layered-over clips.** Taking them only from the action's own tracks is what forced the `upper_armed` route above.
+5. **An unarmed state with no attack.** `_bind_roles` binds a missing attack to idle. Without a staff she must not cast, so the page gates her spells on `armed()`. See the GEAR section above.
 
 ## Numbers to check at launch
 

@@ -15,10 +15,11 @@ HERE = os.path.dirname(os.path.abspath(__file__)); D7 = os.path.dirname(HERE); C
 J = lambda *p: json.load(open(os.path.join(*p)))
 sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 man_p = os.path.join(D7, "export", "manifest.json"); man = J(man_p)
-# v2 (2026-09-30): her clips on their sources' own keys -- the kit and the pack index are v2's (v1's pack, declared, sits in
-# join1_pack/d2-fire-sorc and is not read here: the height and sockets are the same, the clips are not)
+# v2 (2026-09-30): her clips on their sources' own keys -- the kit and the pack index are v2's, as DECLARED by the conductor
+# at join1_pack_v2/d2-fire-sorc (4538febfc); v1's pack in join1_pack/d2-fire-sorc is not read here: same height and sockets,
+# not the same clips
 kit = J(C9, "join1_render", "kits", "d2-fire-sorc_v2.json")
-idx = J(C9, "join1_pack_draft", "d2-fire-sorc_v2", "matrix_index.json")
+idx = J(C9, "join1_pack_v2", "d2-fire-sorc", "matrix_index.json")
 scene_char = J(C9, "cliffside3d", "godot", "data", "character.json")          # READ ONLY: the shape and his scale constants
 scene_gear = J(C9, "cliffside3d", "godot", "data", "gear_manifest.json")      # READ ONLY
 PPM = 100.617553710938                                                        # knight.gd / gear.gd PPM (canvas px per metre)
@@ -62,6 +63,34 @@ gear = dict(
                                      "its recut records carry the history"),
 )
 
+# ---------------------------------------------------------------- THE GEAR STACKS (Matt's R-C9-69 test, via the conductor
+# 2026-09-30: "a character we can make with less clothes/gear on and then test the modular armor/gear additions"). GEAR
+# steps from her base body to the full costume A, cumulative, as his five do. Every garment goes on AFTER the robe
+# (each piece was fitted over the ones under it, gear/s9_assemble). THE ROBE AND THE BELT GO ON TOGETHER: the robe alone
+# shows her body through its waist as a thin pale line across the back -- the seam the belt was fitted over (checked:
+# scripts/s19_gear_stacks.py, the first grouping's record kept in artifacts/gear_stacks/first_grouping/). With the belt
+# on, that line is covered; every other stack is as clean as the shipped costume.
+STACKS = [[], ["robe", "belt"], ["robe", "belt", "mantle"], ["robe", "belt", "mantle", "bracers", "circlet"],
+          ["robe", "belt", "mantle", "bracers", "circlet", "staff"]]
+STACK_NAMES = ["base", "+robe+belt", "+mantle", "+bracers+circlet", "full kit"]
+_gp = os.path.join(D7, "work", "s19_gear_stacks.json")
+GS = json.load(open(_gp)) if os.path.exists(_gp) else None
+if GS and [s_["pieces"] for s_ in GS["stacks"]] != STACKS:
+    raise SystemExit("work/s19_gear_stacks.json checked other stacks than these -- re-render (film_rt/gear_stills.gd) and re-run s19")
+def _stack_detail(i, on):
+    armed = "staff" in on
+    d = dict(name=STACK_NAMES[i], pieces=on, grip_R=1 if armed else 0, armed=armed,
+             layers=("arm_layer_armed_R (the staff carry, nine bones, over idle/walk/run) + upper_armed (the carry's spine over walk "
+                     "and run) + strike_release (the Fire Ball's arm-only carry)") if armed else
+                    "none: knight.gd switches its armed layers with armed(), so a staff-less stack plays the raw clips",
+             spells="FIRE BALL and METEOR" if armed else "none (strikes_need_armed)")
+    if GS:
+        c = GS["stacks"][i]
+        d["checked"] = dict(stills=c["sheet"], pale_dots_px={k: v["isolated_pale_dots_px"] for k, v in c["see_through"].items()},
+                            body_paint=dict(filled_pct=c["paint"]["filled_pct"], bare_px=c["paint"]["bare_px"],
+                                            revealed_px=c["paint"]["revealed_px"], revealed_filled_pct=c["paint"]["revealed_filled_pct"]))
+    return d
+
 # ---------------------------------------------------------------- character entry (character.json's shape)
 full, arm, chest_arm = cl["filter_bones_full"], cl["filter_bones_arm"], cl["filter_bones_chest_arm"]
 char = dict(
@@ -70,15 +99,32 @@ char = dict(
           "clip names: idle/walk/run the locomotion, the two STRIKE slots carry her two casts -- attack (the slash key) = Fire Ball, "
           "chop = Meteor. hit and death have NO role in knight.gd today: see `roles_knight_lacks` and scene_pkg/README.md.",
     model="res://models/sorceress/so-body.glb", model_height_m=H, forward_axis=[0.0, 0.0, 1.0],
-    clips=dict(idle="idle", walk="walk", run="run", attack="cast_fireball"),
+    clips=dict(idle="idle", walk="walk", run="run"),
     clips_armed=dict(idle="idle", walk="walk", run="run", attack="cast_fireball", chop="cast_meteor"),
     roles_knight_lacks=dict(hit="hit", death="death",
                             _note="her clips for the two states knight.gd has no role for; the scene needs a one-shot per state "
                                   "(death holding its last frame) fired by the MODEL's hit-recovery and death events"),
     armed_when_pieces=["staff"], loop=["idle", "walk", "run"],
     gear_manifest="res://data/gear_manifest_sorceress.json", gear_dir="res://models/sorceress",
-    gear_stacks=[[], ["robe", "mantle", "belt", "bracers", "circlet"], PIECES], gear_stack_names=["base", "costume", "full kit"],
+    gear_stacks=STACKS, gear_stack_names=STACK_NAMES,
     morph_rules=dict(grip_R="staff"),
+    gear_stack_detail=[_stack_detail(i, on) for i, on in enumerate(STACKS)],
+    _gear_stacks_note=("GEAR steps these five stacks, cumulative (knight.gd set_gear_stack: the stack's pieces shown, morph_rules "
+                       "applied -- grip_R closes her right fist only with the staff -- and armed() re-evaluated). Checked at the play "
+                       "camera, stack by stack (so_d7/scripts/s19_gear_stacks.py): the base body's paint is the projection "
+                       "cameras' own, with nothing bare, and no stack shows the body through a garment at play scale. The robe "
+                       "and belt go on together: the robe alone shows her waist through its back as a thin pale line, the seam "
+                       "the belt was fitted over."),
+    strikes_need_armed=dict(roles=["attack", "chop"], buttons=["FIRE BALL", "METEOR"],
+                            rule="HER SPELLS NEED THE STAFF (his rule, 'the strikes need the kit'): the two spell buttons show only "
+                                 "while knight.armed() -- her armed_when_pieces is the staff, so only at the full kit -- and the keys "
+                                 "do nothing without it",
+                            knight_gd_lacks=("an unarmed state with NO attack. The unarmed clip map has no attack now, but _bind_roles "
+                                             "falls back to idle for a missing attack, so the slash key would still fire a strike (it "
+                                             "plays idle, and spell_fx would still fire the Fire Ball at its release time). The gate "
+                                             "belongs on the page: hide the buttons when not armed(), and in sorceress_knight.gd "
+                                             "`func try_strike(which): return super(which) if armed() else false`. The Meteor "
+                                             "(chop) is already armed-only in knight.gd")),
     # THE STAFF LAYERS, in knight.gd's own terms
     arm_layer_armed_R=dict(action=cl["clip"], bones=full, weight=1.0,
                            _note="THE STAFF CARRY over idle, walk and run: knight.gd's right-arm guard slot (blend_r, a filtered "
