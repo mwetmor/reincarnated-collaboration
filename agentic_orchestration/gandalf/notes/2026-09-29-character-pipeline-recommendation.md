@@ -32,6 +32,8 @@
 
 **Measured, second character (D7, the fire sorceress, 2026-09-29):** fal **$2.41** (Tripo base plus gear, and cut-outs), Meshy **38 credits**, Astra **18 images**, **71 min**. That's for one character with a base body, a painted texture, 7 clips (locomotion, hit, death and two casts) and 6 gear pieces. At 100 characters: about $241 fal, 3,800 Meshy credits and 1,800 images. The images are the binding limit: they come from the ChatGPT plan's weekly allowance.
 
+**Her pass 2 (finish, 2026-09-30):** Meshy **9 credits**, fal **$0**, **0 images**, **~1.7 h** wall-clock. Most of that time was one-time work: fixing the measuring rig and the shared tooling (§ 5). The part that recurs per character is fitting the held prop (her staff). Its cost is not yet measured separately; the sword build (task 1 of the next dispatch) is timed to measure it.
+
 ## 3 · What was rejected, and why (measured)
 
 - **Per-frame painted sprites.** They look beautiful where the subject is hair or fur: the manticore's head drift is 4.56 against 6.2–6.7 for the propagation methods. But they drift on hard surfaces (the knight's helm morph, 1.49× its own floor). Each character costs 24–32 Astra sheets, and there's **no modular gear**. *Keep for hero creatures and bosses.*
@@ -63,5 +65,10 @@ Each defect below was found on the barbarian and is now caught or fixed automati
 | **The armed idle drifted 0.90 m; feet ended up below the ground** | Root motion in the source; grounding lost in export | De-root at source, keeping the hip sway; re-ground after every retarget; a lint warning on root travel |
 | **The run was 19% off; hand-copied speeds went stale twice** | fps hard-coded to 30 in a 24 fps scene; duration counted over keys, not intervals | Every number re-read from the shipped GLB; speeds read from the manifest at load; a manifest-vs-GLB check on every write |
 | **The idle snapped in with no transition** (Matt) | Separate states with nothing between them | One blend on ground speed; stops take 0.29 s from a walk and 0.42 s from a run |
+| *Found on the sorceress (D7)* | | |
+| **Every "clean" speckle count had been measured at the wrong scale** | A 1080-line display clamps a 1080-row window to 971 rows, so every still ran at 90.5 px/m, not 100.6 | Stills render into an offscreen viewport at the exact size, and the output's scale is checked |
+| **Her robe's seams showed pale dots** | The decimator split the UV seams | Seams welded before decimation (robe boundary loops 215 → 83) |
+| **The staff went through her body in the Meteor** (638 verts) | A one-hand cast clip with a two-hand prop | The barbarian's mount method plus a carry layer, and baked staff tracks for the Meteor (grazing only, ≤ 1.1 cm). The two-handed Meteor needs a source clip where the hands meet |
+| **Shared tooling double-applied gamma; two scripts spent outside the fal ledger** | `07_isolate2`; `03_slice_views` and `04_tripo` | Fixed. The barbarian's four gear pieces were re-derived byte-identical, and paid calls now refuse to run without a ledger |
 
 *— gandalf (ARCHITECT), 2026-09-29. DRAFT; final after Matt's looks at the armed motion and the Barrow.*
