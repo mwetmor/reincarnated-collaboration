@@ -95,7 +95,15 @@ if "--download-only" in sys.argv:
     raise SystemExit(0)
 
 rig = sys.argv[1]
-specs = [x.split(":", 1) for x in sys.argv[2:]]
+specs = [x.split(":", 1) for x in sys.argv[2:] if not x.startswith("--")]
+# THE BODY'S RIG, or a refusal. D2's clips were fetched on 01a0eb6a -- nb_t8's MESHY-mesh candidate,
+# not the Tripo body chosen in T8 (01a0eb7e) -- and every one came in on the wrong skeleton. The
+# provenance registry names the body's rig; a fetch on any other needs --other-rig, said out loud.
+_REG = os.path.join(ROOT, "work", "clip_sources.json")
+_body_rig = (json.load(open(_REG)).get("body_rig") or {}).get("meshy_rig_task") if os.path.exists(_REG) else None
+if _body_rig and rig != _body_rig and "--other-rig" not in sys.argv:
+    sys.exit("REFUSED: rig %s is not this body's (%s, work/clip_sources.json body_rig); pass --other-rig to fetch for "
+             "another skeleton on purpose" % (rig, _body_rig))
 # THE RECORD IS MERGED, not overwritten: an earlier version wrote only this run's clips, so every
 # fetch erased the record of the ones before it (their tasks, credits and lints)
 # ...and two ways it could still forget a PAID task (fixed for D7 pass 2):
@@ -141,7 +149,10 @@ for nm, aid in specs:
     cr = s.get("consumed_credits")
     spent += cr or 0
     url = glb_url(s)
-    rec = dict(action_id=int(aid), task=tid, status=st,
+    # THE RIG, PER CLIP. The record kept only the last run's rig at top level, so a fetch on another
+    # rig silently re-labelled every earlier clip -- and D2's clips WERE fetched on another rig
+    # (01a0eb6a, nb_t8's Meshy-mesh candidate, not the Tripo body's 01a0eb7e; T12 2026-09-30).
+    rec = dict(action_id=int(aid), task=tid, status=st, rig=rig,
                credits=cr, seconds=round(el))
     if st == "SUCCEEDED" and url:
         subprocess.run(["curl", "-s", "-L", url, "-o", dst], check=False)

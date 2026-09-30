@@ -1,6 +1,6 @@
 {
  "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
- "spent": 45,
+ "spent": 63,
  "clips": {
   "axe_stance": {
    "action_id": 85,
@@ -19,7 +19,8 @@
     "clips": [
      "Armature|Axe_Stance|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "axe_breathe": {
    "action_id": 335,
@@ -38,7 +39,8 @@
     "clips": [
      "Armature|Axe_Breathe_and_Look_Around|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "walk_fight": {
    "action_id": 21,
@@ -57,7 +59,8 @@
     "clips": [
      "Armature|Walk_Fight_Forward|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "run_fight_L": {
    "action_id": 9,
@@ -74,7 +77,8 @@
     "clips": [
      "Armature|ForwardLeft_Run_Fight|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "run_fight_R": {
    "action_id": 10,
@@ -91,7 +95,8 @@
     "clips": [
      "Armature|ForwardRight_Run_Fight|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "ss_alert_L": {
    "action_id": 580,
@@ -110,7 +115,8 @@
     "clips": [
      "Armature|Sword_and_Shield_Alert_Turn_Left|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "shield_push": {
    "action_id": 220,
@@ -129,7 +135,8 @@
     "clips": [
      "Armature|Shield_Push_Left|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "block1": {
    "action_id": 138,
@@ -146,7 +153,8 @@
     "clips": [
      "Armature|Block1|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "block4": {
    "action_id": 141,
@@ -163,7 +171,8 @@
     "clips": [
      "Armature|Block4|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "block9": {
    "action_id": 145,
@@ -180,7 +189,8 @@
     "clips": [
      "Armature|Block9|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "axe_chop": {
    "action_id": 237,
@@ -199,7 +209,8 @@
     "clips": [
      "Armature|Charged_Axe_Chop|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "combat_stance": {
    "action_id": 89,
@@ -218,7 +229,8 @@
     "clips": [
      "Armature|Combat_Stance|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "double_combo": {
    "action_id": 92,
@@ -237,7 +249,8 @@
     "clips": [
      "Armature|Double_Combo_Attack|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "triple_combo": {
    "action_id": 105,
@@ -256,7 +269,8 @@
     "clips": [
      "Armature|Triple_Combo_Attack|baselayer"
     ]
-   }
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
   },
   "weapon_combo_1": {
    "action_id": 202,
@@ -275,7 +289,132 @@
     "clips": [
      "Armature|Weapon_Combo_1|baselayer"
     ]
+   },
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f"
+  },
+  "b_walk_fight": {
+   "action_id": 21,
+   "task": "01a0f10c-b7bc-75b7-b8d6-4b681667d47e",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/b_walk_fight.glb",
+   "mb": 17.88,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "b_walk_fight.glb: clip 'Armature|Walk_Fight_Forward|baselayer' starts root 'Hips' at 88.554 against rest 93.790 (5.6% > 5%)"
+    ],
+    "clips": [
+     "Armature|Walk_Fight_Forward|baselayer"
+    ]
    }
+  },
+  "b_block1": {
+   "action_id": 138,
+   "task": "01a0f10d-d1e0-76e9-af43-b250184e6658",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/b_block1.glb",
+   "mb": 17.9,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Block1|baselayer"
+    ]
+   }
+  },
+  "b_shield_push": {
+   "action_id": 220,
+   "task": "01a0f10e-cbe2-7656-b17b-0797559da1ca",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/b_shield_push.glb",
+   "mb": 17.89,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "b_shield_push.glb: clip 'Armature|Shield_Push_Left|baselayer' starts root 'Hips' at 83.778 against rest 93.790 (10.7% > 5%)"
+    ],
+    "clips": [
+     "Armature|Shield_Push_Left|baselayer"
+    ]
+   }
+  },
+  "b_double_combo": {
+   "action_id": 92,
+   "task": "01a0f10f-89e7-70e0-8d6c-94611a8ea85b",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/b_double_combo.glb",
+   "mb": 17.89,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "b_double_combo.glb: clip 'Armature|Double_Combo_Attack|baselayer' drifts 1.429 m horizontally over its own length (142.9 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Double_Combo_Attack|baselayer"
+    ]
+   }
+  },
+  "b_axe_stance": {
+   "action_id": 85,
+   "task": "01a0f110-8630-74f0-bc0b-5a0f7b708607",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 77,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/b_axe_stance.glb",
+   "mb": 17.93,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "b_axe_stance.glb: clip 'Armature|Axe_Stance|baselayer' stands 0.699 m from the rest position and never comes nearer than 0.374 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [
+     "b_axe_stance.glb: clip 'Armature|Axe_Stance|baselayer' drifts 0.646 m horizontally over its own length (64.6 units) and is not locomotion -- a clip that walks away from where it started",
+     "b_axe_stance.glb: clip 'Armature|Axe_Stance|baselayer' starts root 'Hips' at 51.389 against rest 93.790 (45.2% > 5%)"
+    ],
+    "clips": [
+     "Armature|Axe_Stance|baselayer"
+    ]
+   }
+  },
+  "nothing": {
+   "action_id": 1,
+   "task": "01a0f117-48ca-70b5-90f0-97b19187ccd9",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
+   "credits": 3,
+   "seconds": 16,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/nothing.glb",
+   "mb": 9.31,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "nothing.glb: clip 'Armature|Walking_Woman|baselayer' scales joint 'Hips' by [1.1765, 1.1765, 1.1765] (deviation 0.1765 > 1e-03)"
+    ],
+    "warns": [
+     "nothing.glb: clip 'Armature|Walking_Woman|baselayer' starts root 'Hips' at 109.990 against rest 95.471 (15.2% > 5%)"
+    ],
+    "clips": [
+     "Armature|Walking_Woman|baselayer"
+    ]
+   },
+   "_note": "ACCIDENTAL, T12 drax 2026-09-30: a command meant to test 31's new wrong-rig refusal ran before the refusal was in the file (the patch had failed to apply), so it POSTed a real task: action 1 on the other rig, 3 credits wasted. anims/nothing.glb is a dead file (not deleted: listed for the coordinator)."
   }
  }
 }

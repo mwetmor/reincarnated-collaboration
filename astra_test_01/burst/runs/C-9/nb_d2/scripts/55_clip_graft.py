@@ -1,7 +1,8 @@
 # T12 (c) chop re-source: GRAFT a Meshy library clip onto the body GLB as a new animation -- a
 # binary glTF patch, no Blender round trip.
 #
-#   python3 scripts/55_clip_graft.py graft <body.glb> <out.glb> <name>=<anim.glb>[@<t0>:<t1>] ... [--json f]
+#   python3 scripts/55_clip_graft.py plan  <body.glb> <out.glb> [--registry work/clip_sources.json] [--only a,b] [--json f]
+#   python3 scripts/55_clip_graft.py graft <body.glb> <out.glb> <name>=<anim.glb>[@<t0>:<t1>][+loop][+deroot] ... [--json f]
 #   python3 scripts/55_clip_graft.py compare <body.glb> <clip in the body> <anim.glb>
 #
 # WHY NOT 33_assemble. The body now carries binary-patched clips and channels (the guard poses,
@@ -26,7 +27,8 @@
 # rule). Weapon bones get no track (rest: the mount). Optional trim [t0, t1], re-timed to start at 0.
 import json, math, os, sys
 import numpy as np
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 L = __import__('21_lint_export')
 R_ = __import__('49_recentre')
 W = __import__('52_weapon_bones')
@@ -173,19 +175,86 @@ def body_world(js, trk_local, t):
     return G
 
 
-def graft(body, out, specs, outj=None):
+FOOT_BONES = ("LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase", "LeftToe_End", "RightToe_End")
+
+
+class Feet:
+    """The body mesh's FOOT vertices (dominant joint a foot or toe), skinned per frame: the floor is
+    where the deepest of them is, as 43_reground_all takes it (gearlib.reground_from_feet, mode
+    'min') -- without Blender."""
+    def __init__(self, js, bin_):
+        self.js = js
+        sk = js['skins'][0]
+        self.joints = sk['joints']
+        ibm = L.read_accessor(js, bin_, sk['inverseBindMatrices'])
+        self.ibm = [np.array(r, float).reshape(4, 4).T for r in ibm]
+        names = [js['nodes'][j].get('name') for j in self.joints]
+        feet = [k for k, n in enumerate(names) if n in FOOT_BONES]
+        mesh_node = next(i for i, nd in enumerate(js['nodes']) if 'mesh' in nd and 'skin' in nd)
+        prims = js['meshes'][js['nodes'][mesh_node]['mesh']]['primitives']
+        P, J, Wt = [], [], []
+        for pr in prims:
+            at = pr['attributes']
+            pos = L.read_accessor(js, bin_, at['POSITION'])
+            jj = L.read_accessor(js, bin_, at['JOINTS_0']).astype(int)
+            ww = L.read_accessor(js, bin_, at['WEIGHTS_0'])
+            dom = jj[np.arange(len(jj)), np.argmax(ww, axis=1)]
+            keep = np.isin(dom, feet)
+            P.append(pos[keep]); J.append(jj[keep]); Wt.append(ww[keep])
+        self.P = np.concatenate(P); self.J = np.concatenate(J); self.W = np.concatenate(Wt)
+        self.Ph = np.hstack([self.P, np.ones((len(self.P), 1))])
+
+    def low(self, G):
+        """The deepest foot vertex's height (world) for node globals G."""
+        acc = np.zeros((len(self.P), 3))
+        for c in range(self.J.shape[1]):
+            M = np.stack([G[self.joints[j]] @ self.ibm[j] for j in range(len(self.joints))])  # (nj,4,4)
+            m = M[self.J[:, c]]                                                            # (nv,4,4)
+            acc += self.W[:, c:c + 1] * np.einsum('vij,vj->vi', m, self.Ph)[:, :3]
+        return float(acc[:, 1].min())
+
+
+def rest_match(body_js, src_js):
+    """How far the source's REST POSE is from the body's: joints in the hips' physical frame over
+    the rest hips-to-head, worst of 14. ~0 when the clip was fetched for this body's own rig."""
+    def pose(js):
+        G, _ = world_rest(js)
+        n = {nd.get('name'): i for i, nd in enumerate(js['nodes'])}
+        h = n['Hips']; Hi = np.linalg.inv(G[h]); R0 = rot(G[h])
+        span = float(np.linalg.norm((Hi @ G[n['Head']])[:3, 3]))
+        return {j: R0 @ (Hi @ G[n[j]])[:3, 3] / span for j in ("Spine02", "Head", "LeftArm", "LeftForeArm", "LeftHand", "RightArm", "RightForeArm", "RightHand", "LeftUpLeg", "LeftLeg", "LeftFoot", "RightUpLeg", "RightLeg", "RightFoot")}
+    a, b = pose(body_js), pose(src_js)
+    return max(float(np.linalg.norm(a[j] - b[j])) for j in a)
+
+
+def graft(body, out, specs, outj=None, allow_mismatch=False):
+    """specs: name=source.glb[@t0:t1][+loop][+deroot]. +loop: recentred on its MEAN hips (a loop
+    stands over the rest position on average), else on its FIRST frame (a one-shot starts where the
+    idle stands him); +deroot: the first-to-last horizontal line of the hips removed, the
+    oscillation kept (45_deroot_trim's rule). Every clip is grounded from the feet (the deepest foot
+    vertex over the clip on the floor) and carries no scale track."""
     js, bin_ = L.load_glb(body)
     bin_ = bytearray(bin_)
     bname = {nd.get('name'): i for i, nd in enumerate(js['nodes'])}
     Gb0, bpar = world_rest(js)
+    feet = Feet(js, bytes(bin_))
     rep = {}
     for spec in specs:
         name, rest = spec.split('=', 1)
+        flags = rest.split('+')
+        rest, flags = flags[0], set(flags[1:])
         src, t0, t1 = rest, None, None
         if '@' in rest:
             src, win = rest.split('@', 1)
             t0, t1 = [float(x) for x in win.split(':')]
         sjs, sbin = L.load_glb(src)
+        rm = rest_match(js, sjs)
+        if rm > 0.01:
+            msg = ("SOURCE ON ANOTHER RIG: %s's rest pose is %.3f hips-to-head from the body's -- it was fetched for a "
+                   "different skeleton (31_meshy_fetch.py: pass the BODY's rig id)" % (os.path.basename(src), rm))
+            if not allow_mismatch:
+                sys.exit("REFUSED: " + msg + "; --allow-rest-mismatch retargets it anyway (world-space deltas)")
+            print("WARNING: " + msg)
         anim = sjs['animations'][0]
         st = tracks(sjs, sbin, anim)
         allt = sorted(set(float(x) for tr in st.values() for (tt, _, _) in tr.values() for x in tt))
@@ -193,20 +262,26 @@ def graft(body, out, specs, outj=None):
         times = [x for x in allt if a - 1e-6 <= x <= b + 1e-6]
         common, rots, hipsT, k = retarget(js, sjs, sbin, anim, times)
         times = np.array(times) - times[0]
-        # GROUND on the first frame, RECENTRE the first frame's hips over the rest position
         hips = bname['Hips']
+        P = Gb0[bpar[hips]]
+        Pi = np.linalg.inv(P)
+        # the hips in WORLD, frame by frame
+        pw = np.array([(P @ np.append(h, 1.0))[:3] for h in hipsT])
+        travel = pw[-1] - pw[0]
+        if 'deroot' in flags:
+            u = (times / max(float(times[-1]), 1e-9))[:, None]
+            pw = pw - u * np.array([travel[0], 0.0, travel[2]])[None, :]
+        rest_h = Gb0[hips][:3, 3]
+        ref = pw.mean(axis=0) if 'loop' in flags else pw[0]
+        pw[:, 0] += rest_h[0] - ref[0]; pw[:, 2] += rest_h[2] - ref[2]
+        hipsT = np.array([(Pi @ np.append(q, 1.0))[:3] for q in pw])
+        # GROUND from the feet: one constant, the deepest foot vertex over the clip on the floor
         trk_body = {bname[n]: {'rotation': (times, np.array(rots[n]), 'LINEAR')} for n in common}
         trk_body[hips]['translation'] = (times, hipsT, 'LINEAR')
-        G = body_world(js, trk_body, 0.0)
-        low0 = min(G[bname[f]][1, 3] for f in FEET)
-        lowr = min(Gb0[bname[f]][1, 3] for f in FEET)
-        dy_w = lowr - low0
-        dxz_w = Gb0[hips][:3, 3] - G[hips][:3, 3]
-        shift_w = np.array([dxz_w[0], dy_w, dxz_w[2]])
-        P = rot(Gb0[bpar[hips]])
-        sc = np.cbrt(np.linalg.det(Gb0[bpar[hips]][:3, :3]))
-        shift_l = (P.T @ shift_w) / sc
-        hipsT = hipsT + shift_l
+        lows = [feet.low(body_world(js, trk_body, float(tt))) for tt in times]
+        dy = -min(lows)
+        pw[:, 1] += dy
+        hipsT = np.array([(Pi @ np.append(q, 1.0))[:3] for q in pw])
         # APPEND the animation
         ch, sm = [], []
         def acc(arr, typ):
@@ -230,11 +305,13 @@ def graft(body, out, specs, outj=None):
         ch.append({"sampler": len(sm) - 1, "target": {"node": hips, "path": "translation"}})
         js['animations'] = [an for an in js['animations'] if an.get('name') != name]
         js['animations'].append({"name": name, "channels": ch, "samplers": sm})
-        rep[name] = dict(source=os.path.basename(src), source_anim=anim.get('name'), window=[a, b], keys=len(times),
-                         length_s=float(times[-1]), joints=len(common), hip_ratio=float(k),
-                         grounded_by_m=float(dy_w), recentred_by_m=[float(dxz_w[0]), float(dxz_w[2])])
-        print("graft: %-16s <- %s %s [%.3f, %.3f] s: %d keys, %.3f s, %d joints; hips x%.4f; grounded %+.4f, recentred %+.4f/%+.4f (world units)"
-              % (name, os.path.basename(src), anim.get('name'), a, b, len(times), times[-1], len(common), k, dy_w, dxz_w[0], dxz_w[2]))
+        rep[name] = dict(source=os.path.relpath(src, os.path.dirname(HERE)), source_anim=anim.get('name'), window=[a, b], keys=len(times),
+                         length_s=float(times[-1]), joints=len(common), rest_match=round(rm, 5), hip_ratio=round(float(k), 5),
+                         flags=sorted(flags), source_travel_m=[round(float(travel[0]), 4), round(float(travel[2]), 4)],
+                         grounded_by_m=round(float(dy), 5), feet_span_m=[round(float(min(lows) + dy), 4), round(float(max(lows) + dy), 4)])
+        print("graft: %-18s <- %s %s [%.3f, %.3f] s: %d keys, %.3f s, %d joints; rest match %.5f; %s; source travel %+.3f/%+.3f m; grounded %+.4f m (feet %.3f..%.3f)"
+              % (name, os.path.basename(src), anim.get('name'), a, b, len(times), times[-1], len(common), rm, "+".join(sorted(flags)) or "one-shot",
+                 travel[0], travel[2], dy, min(lows) + dy, max(lows) + dy))
     js['buffers'][0]['byteLength'] = len(bin_)
     R_.write_glb(out, js, bin_)
     res = L.lint(out)
@@ -277,8 +354,29 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     outj = a[a.index('--json') + 1] if '--json' in a else None
     a = [x for i, x in enumerate(a) if x != '--json' and (i == 0 or a[i - 1] != '--json')]
-    if a[0] == 'graft':
-        graft(a[1], a[2], a[3:], outj)
+    allow = '--allow-rest-mismatch' in a
+    a = [x for x in a if x != '--allow-rest-mismatch']
+    if a[0] == 'plan':
+        # THE PIPELINE'S MOTION PATH: every registry clip whose path is 55_clip_graft, grafted from its
+        # source with its flags and window -- the registry is the single statement of where motion comes from
+        regp = a[a.index('--registry') + 1] if '--registry' in a else os.path.join(os.path.dirname(HERE), "work", "clip_sources.json")
+        only = set(a[a.index('--only') + 1].split(',')) if '--only' in a else None
+        reg = json.load(open(regp))
+        root = os.path.dirname(HERE)
+        specs = []
+        for clip, e in sorted(reg["clips"].items()):
+            if e.get("path") != "55_clip_graft" or (only and clip not in only):
+                continue
+            s = "%s=%s" % (clip, os.path.join(root, e["source"]))
+            if e.get("window"):
+                s += "@%s:%s" % tuple(e["window"])
+            for f in e.get("flags", []):
+                s += "+" + f
+            specs.append(s)
+        print("plan: %d clips from %s" % (len(specs), regp))
+        graft(a[1], a[2], specs, outj, allow)
+    elif a[0] == 'graft':
+        graft(a[1], a[2], a[3:], outj, allow)
     elif a[0] == 'compare':
         compare(a[1], a[2], a[3])
     else:

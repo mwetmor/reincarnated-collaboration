@@ -1,0 +1,218 @@
+{
+ "_note": "PROVENANCE OF EVERY CLIP IN THE BARBARIAN'S BODY GLB, and the standing source-fidelity lint's input (21_lint_export.py rule SOURCE FIDELITY, via 56_clip_fidelity.py). Paths are relative to nb_d2/. A clip with a GLB `source` must match it within 0.10 of the rest hips-to-head at every frame (joints in the hips' physical frame), after its named `edits`; its source must be on the BODY's rig (rest pose within 0.01), or the lint fails it as fetched for another skeleton. `authored` clips have no library source; `legacy` clips are unused at runtime and slated for removal; FBX sources (SMPL-H) are not read here -- 41_retarget_smplh.py verifies its own rest alignment at export. Written 2026-09-30 (T12, N-C9-ASSEMBLE-DISTORTION).",
+ "body_rig": {
+  "meshy_rig_task": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+  "record": "../nb_t8/work/res_rig_tripo.json",
+  "reference_glb": "../nb_t8/nbt_rigged.glb",
+  "not_this": "01a0eb6a-9e47-76ac-8979-941d3588695f (../nb_t8/work/res_rig.json) is the MESHY-mesh candidate's rig: D2's library fetches used it by mistake"
+ },
+ "edits": {
+  "deroot": "the hips' first-to-last horizontal line removed (45_deroot_trim's rule); hips translation only, not measured",
+  "recentre": "hips over the rest position -- loops on their mean, one-shots on their first frame (49_recentre's rule); hips translation only",
+  "reground": "one constant so the deepest foot vertex over the clip is on the floor (43_reground_all / gearlib.reground_from_feet mode 'min'); hips translation only",
+  "trim": "a window of the source, re-timed to start at 0; the measure aligns on it",
+  "wrist_lock": "36/38/44: the wrists slerped toward a carry angle; the hands are excluded from the measure"
+ },
+ "clips": {
+  "idle": {
+   "source": "../nb_t8/nbt_idle.glb",
+   "path": "t8-native",
+   "action": "Meshy Idle (T8)",
+   "edits": []
+  },
+  "walk": {
+   "source": "../nb_t8/nbt_walk.glb",
+   "path": "t8-native",
+   "action": "the rig task's walking",
+   "edits": []
+  },
+  "run": {
+   "source": "../nb_t8/nbt_run.glb",
+   "path": "t8-native",
+   "action": "the rig task's running",
+   "edits": []
+  },
+  "attack": {
+   "source": "../nb_t8/nbt_attack.glb",
+   "path": "t8-native",
+   "action": "219 Right-hand Sword Slash (T8)",
+   "edits": []
+  },
+  "walk_armed": {
+   "source": "anims/b_walk_fight.glb",
+   "path": "55_clip_graft",
+   "action": 21,
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "was": "anims/walk_fight.glb (rig 01a0eb6a) through 33_assemble's Blender merge, then 36's wrist lock"
+  },
+  "idle_armed": {
+   "source": "anims/b_axe_stance.glb",
+   "path": "55_clip_graft",
+   "action": 85,
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "was": "anims/axe_stance.glb (rig 01a0eb6a) through 33_assemble, 36's wrist lock, 45/49"
+  },
+  "block": {
+   "source": "anims/b_block1.glb",
+   "path": "55_clip_graft",
+   "action": 138,
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground"
+   ],
+   "was": "anims/block1.glb (rig 01a0eb6a) through 33_assemble"
+  },
+  "shield_bash": {
+   "source": "anims/b_shield_push.glb",
+   "path": "55_clip_graft",
+   "action": 220,
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground"
+   ],
+   "was": "anims/shield_push.glb (rig 01a0eb6a) through 33_assemble"
+  },
+  "chop_overhead_92": {
+   "source": "anims/b_double_combo.glb",
+   "path": "55_clip_graft",
+   "action": 92,
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "window": [
+    0.2,
+    1.0667
+   ],
+   "flags": [],
+   "edits": [
+    "trim",
+    "recentre",
+    "reground"
+   ],
+   "was": "T12_7: anims/double_combo.glb (rig 01a0eb6a), world-space graft"
+  },
+  "run_armed": {
+   "source": "anims/t2m_run_armed.fbx",
+   "path": "41_retarget_smplh",
+   "edits": [
+    "trim",
+    "deroot",
+    "wrist_lock"
+   ],
+   "note": "text-to-motion SMPL-H through 41's world-space rest-frame retarget; FBX not read here"
+  },
+  "strafe_L_armed": {
+   "source": "anims/t2m_strafe_left.fbx",
+   "path": "41_retarget_smplh",
+   "edits": [
+    "deroot"
+   ],
+   "note": "SMPL-H via 41"
+  },
+  "strafe_R_armed": {
+   "source": "anims/t2m_strafe_right.fbx",
+   "path": "41_retarget_smplh",
+   "edits": [
+    "deroot"
+   ],
+   "note": "SMPL-H via 41"
+  },
+  "run_armed_locked": {
+   "source": "../nb_t8/nbt_run.glb",
+   "path": "44_promote_run",
+   "edits": [
+    "wrist_lock"
+   ],
+   "status": "legacy",
+   "note": "the unarmed run with the wrist locked; unused"
+  },
+  "walk_armed_unarmedsrc": {
+   "source": "../nb_t8/nbt_walk.glb",
+   "path": "36_finalise",
+   "edits": [
+    "wrist_lock"
+   ],
+   "status": "legacy",
+   "note": "the unarmed walk with the wrist locked; unused"
+  },
+  "shield_guard_L": {
+   "source": null,
+   "path": "33_assemble",
+   "note": "authored left-arm guard pose (a layer), not a library clip"
+  },
+  "shield_carry_L": {
+   "source": null,
+   "path": "33_assemble",
+   "note": "authored left-arm carry pose (a layer)"
+  },
+  "axe_guard_R": {
+   "source": null,
+   "path": "54_weapon_channel pose",
+   "note": "the right arm's guard, IK (guard_pose_solve.py)"
+  },
+  "axe_guard_R_block": {
+   "source": null,
+   "path": "54_weapon_channel pose",
+   "note": "the guard at the block's chest"
+  },
+  "axe_guard_R_bash": {
+   "source": null,
+   "path": "54_weapon_channel pose",
+   "note": "the guard at the bash's chest"
+  },
+  "idle_guard": {
+   "source": null,
+   "path": "54_weapon_channel pose",
+   "note": "the unarmed idle's stance, damped, with the guard arm"
+  },
+  "attack_chop": {
+   "source": "anims/axe_chop.glb",
+   "path": "33_assemble",
+   "status": "legacy",
+   "note": "replaced by chop_overhead_92; fetched on the other rig (01a0eb6a) and Blender-merged -- distorted; unused; remove at the next export"
+  },
+  "run_armed_L": {
+   "source": "anims/run_fight_L.glb",
+   "path": "33_assemble",
+   "status": "legacy",
+   "note": "fetched on the other rig and Blender-merged -- distorted; unused (the diagonal blend was rejected)"
+  },
+  "run_armed_R": {
+   "source": "anims/run_fight_R.glb",
+   "path": "33_assemble",
+   "status": "legacy",
+   "note": "as run_armed_L"
+  },
+  "run_armed_diagblend_REJECTED": {
+   "source": null,
+   "path": "38_retune_run",
+   "status": "legacy",
+   "note": "the rejected 50/50 blend of run_armed_L/R; unused"
+  },
+  "axe_guard_R_chop": {
+   "source": null,
+   "path": "54_weapon_channel pose",
+   "note": "the guard the chop's arm is released to after its swing, solved against the chop's post-swing torso (bash_guard_solve.py --from 0.578)"
+  }
+ }
+}

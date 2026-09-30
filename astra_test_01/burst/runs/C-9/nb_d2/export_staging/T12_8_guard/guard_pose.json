@@ -1,0 +1,105 @@
+{
+ "stance": {
+  "key": 43,
+  "t": 1.7916666269302368,
+  "chest_yaw": -1.5327705562803442
+ },
+ "readability": {
+  "tilt": 55.0,
+  "azimuth": 70.0,
+  "worst": 0.4026104813881107,
+  "mean": 0.7830573560777009,
+  "per_cell": [
+   {
+    "cell_yaw": 47,
+    "screen_px": 53.7,
+    "screen_angle": 18.7
+   },
+   {
+    "cell_yaw": 92,
+    "screen_px": 53.7,
+    "screen_angle": -17.9
+   },
+   {
+    "cell_yaw": 137,
+    "screen_px": 51.8,
+    "screen_angle": -51.4
+   },
+   {
+    "cell_yaw": 182,
+    "screen_px": 41.1,
+    "screen_angle": -82.5
+   },
+   {
+    "cell_yaw": 227,
+    "screen_px": 22.0,
+    "screen_angle": -128.7
+   },
+   {
+    "cell_yaw": 272,
+    "screen_px": 21.6,
+    "screen_angle": 130.3
+   },
+   {
+    "cell_yaw": 317,
+    "screen_px": 40.8,
+    "screen_angle": 83.2
+   },
+   {
+    "cell_yaw": 362,
+    "screen_px": 51.6,
+    "screen_angle": 52.1
+   }
+  ],
+  "centre_45_45": {
+   "worst": 0.1402149867513324,
+   "mean": 0.7139620327619691
+  }
+ },
+ "guard_world_his_frame": [
+  -0.7697511313200571,
+  0.573576436351046,
+  0.2801664995932356
+ ],
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   0.7152474063272874,
+   -0.3084078212047192,
+   -0.4265202557929808,
+   0.4597675879834685
+  ],
+  "RightForeArm": [
+   -0.49551874943906704,
+   0.40141831224291824,
+   -0.5829546942129635,
+   0.5034762477470613
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "checks": {
+  "haft_off_guard_deg": 0.7277043474013041,
+  "grip_m": [
+   -0.11880730324931317,
+   -0.32149593296417955,
+   0.27776432758046304
+  ],
+  "edge_heading": -2.879067063297154,
+  "forearm_to_haft_deg": 87.45143322749198,
+  "elbow_bend_deg": 99.83239690943195,
+  "predicate_idle_pct": 53
+ },
+ "damp_spine": 0.1,
+ "damp_head": 0.3,
+ "_note": "T12_8: re-solved on the corrected clips (the walk_armed prior and clavicle from the body-rig Walk Fight Forward); damp values carried from T12 (the unarmed idle, unchanged)"
+}

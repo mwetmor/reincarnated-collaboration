@@ -50,6 +50,15 @@
 #         (work/weapon_mount.json, written by 52_weapon_bones.py --record) within 1 um -- or be
 #         coincident with the hand when no mount is recorded. A piece bound to the weapon bone in
 #         one file and drawn on the body's weapon bone from another only lines up if they agree.
+#   FAIL  SOURCE FIDELITY (T12, N-C9-ASSEMBLE-DISTORTION, 2026-09-30): every clip the provenance
+#         registry (work/clip_sources.json) gives a GLB source must still move like it -- within
+#         0.10 of the rest hips-to-head at EVERY frame, joints in the hips' physical frame
+#         (56_clip_fidelity.py), after its named edits -- and that source must be on THIS body's
+#         rig (rest pose within 0.01). Found: every armed clip D2 shipped was fetched for the
+#         other T8 candidate's skeleton and pose-copied onto this one by 33_assemble's Blender
+#         merge; they were 0.15-0.26 off, their hips turning up to 104 deg away from the source's.
+#         WARN for a `legacy` clip (unused, slated for removal). Only when the file carries clips
+#         the registry names, so a raw library fetch or another character's file is not judged by it.
 import json, struct, sys
 import numpy as np
 
@@ -262,6 +271,27 @@ def lint(path, skeleton=True):
                 "rest of the set" % (path.split('/')[-1], c, lo, hi,
                 ", ".join("%s %.1f-%.1f" % (o, b[0], b[1])
                           for o, b in sorted(bands.items()) if o != c)))
+    # SOURCE FIDELITY -- the provenance registry's clips, against their library sources
+    if skeleton:
+        try:
+            import importlib, os as _os
+            sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+            F = importlib.import_module("56_clip_fidelity")
+            reg = F.registry()
+            if any(c in clips for c in reg.get("clips", {})):
+                for r in F.check(path, reg):
+                    st = r.get("status")
+                    if st == "FAIL":
+                        fails.append("%s: SOURCE FIDELITY -- clip '%s' is %.3f hips-to-head from %s at %.2f s (%s); limit %.2f%s"
+                                     % (path.split('/')[-1], r['clip'], r['err_max'], r['source'], r['worst_t'], r['worst_joint'],
+                                        F.LIMIT, "; its hips turn %.0f deg off the source's" % r['hips_deg_max'] if r['hips_deg_max'] > 1 else ""))
+                    elif st == "RIG":
+                        fails.append("%s: SOURCE FIDELITY -- clip '%s''s source %s was fetched for ANOTHER RIG (rest pose %.3f hips-to-head "
+                                     "from this body's): re-fetch it on this body's rig" % (path.split('/')[-1], r['clip'], r['source'], r['rest_match']))
+                    elif st == "LEGACY":
+                        warns.append("%s: SOURCE FIDELITY -- clip '%s' is legacy (%s)" % (path.split('/')[-1], r['clip'], r.get('note', '')))
+        except Exception as e:  # the lint must not die on its own instrument
+            warns.append("%s: SOURCE FIDELITY not measured: %s" % (path.split('/')[-1], e))
     return dict(file=path, roots=[name(r) for r in roots],
                 joints=len(joints), clips=clips,
                 morphs=sorted({k for m in g.get('meshes', [])

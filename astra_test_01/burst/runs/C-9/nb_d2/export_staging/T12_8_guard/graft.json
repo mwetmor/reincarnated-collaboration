@@ -1,0 +1,130 @@
+{
+ "clips": {
+  "walk_armed": {
+   "source": "anims/b_walk_fight.glb",
+   "source_anim": "Armature|Walk_Fight_Forward|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.7666666507720947
+   ],
+   "keys": 53,
+   "length_s": 1.7333333157002926,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.00702,
+   "feet_span_m": [
+    0.0,
+    0.0337
+   ]
+  },
+  "idle_armed": {
+   "source": "anims/b_axe_stance.glb",
+   "source_anim": "Armature|Axe_Stance|baselayer",
+   "window": [
+    0.03333333507180214,
+    6.133333206176758
+   ],
+   "keys": 184,
+   "length_s": 6.099999871104956,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0375,
+    0.7016
+   ],
+   "grounded_by_m": -0.02892,
+   "feet_span_m": [
+    0.0,
+    0.0744
+   ]
+  },
+  "block": {
+   "source": "anims/b_block1.glb",
+   "source_anim": "Armature|Block1|baselayer",
+   "window": [
+    0.03333333507180214,
+    3.5
+   ],
+   "keys": 105,
+   "length_s": 3.466666664928198,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    -0.0
+   ],
+   "grounded_by_m": -0.08671,
+   "feet_span_m": [
+    0.0,
+    0.0224
+   ]
+  },
+  "shield_bash": {
+   "source": "anims/b_shield_push.glb",
+   "source_anim": "Armature|Shield_Push_Left|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [],
+   "source_travel_m": [
+    -0.0008,
+    -0.0004
+   ],
+   "grounded_by_m": -0.05911,
+   "feet_span_m": [
+    0.0,
+    0.0232
+   ]
+  },
+  "chop_overhead_92": {
+   "source": "anims/b_double_combo.glb",
+   "source_anim": "Armature|Double_Combo_Attack|baselayer",
+   "window": [
+    0.2,
+    1.0667
+   ],
+   "keys": 27,
+   "length_s": 0.8666667193174362,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [],
+   "source_travel_m": [
+    -0.0504,
+    0.4303
+   ],
+   "grounded_by_m": -0.06713,
+   "feet_span_m": [
+    0.0,
+    0.0218
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 16
+ }
+}

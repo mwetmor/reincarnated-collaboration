@@ -1,0 +1,1015 @@
+{
+ "_note": "T12_8 -- THE CORRECTED CLIPS, the guard re-solved on them, the bash and chop guards -- staged, not installed (N-C9-ASSEMBLE-DISTORTION). Measured in attack_lab/t12/godot with tools/guard_accept.gd (instrument v2), nb_d2/scripts/53_weapon_gate.py, tools/speed_split.gd, nb_d2/scripts/56_clip_fidelity.py (the lint's SOURCE FIDELITY row).",
+ "set": {
+  "knight.gd": "ea761ba8c1359209f39234e2953b1d3c",
+  "character.json": "b676c2a3239d514badcef2543f8fe883",
+  "glbs_from": "nb_d2/export_staging/T12_8_guard/",
+  "nb-body.glb": "8a59acf95c749b7c8344d547ba11ac12",
+  "axe.glb": "d7762e1b40dc37a238d9da761cf4ec95",
+  "bracers.glb": "5254292e1d894902a60f4749c3cc7abb",
+  "byrnie.glb": "d1fe5c22eb60be92dc26cc1fff21a802",
+  "helmet.glb": "185ca9f74af564da3f2443195c0c030f",
+  "mantle.glb": "54669c6f2298950c9dc0ffcd8d936f70",
+  "shield.glb": "cdf1c9e12a521531e79ee24f8c1a1540",
+  "knight_recipe": "attack_lab/tools/strike_release_patch.py (pose_for) over attack_lab/tools/axeguard_patch.py over staged/speed_split/knight.gd (bf23c13e)"
+ },
+ "pre_states": {
+  "A_installed": "knight bf23c13e, character b3b62c63, nb-body 07ccabd6 + the D2 pieces",
+  "B_T12_7": "knight ef8ebfb4, character bfaf4997, nb-body 8c5b43d7 + the T12_2 mount pieces",
+  "install_sh": "passes only on exactly A or exactly B and prints which (dry-run on scratch trees: A found, B found, a mix halts)"
+ },
+ "root_cause": {
+  "finding": "D2's library clips (31_meshy_fetch.py) were fetched on rig 01a0eb6a -- nb_t8 work/res_rig.json, the MESHY-mesh candidate -- not the chosen Tripo body's rig 01a0eb7e (work/res_rig_tripo.json). Their skeleton's rest differs from the body's (hips-to-head 54.49 vs 56.55 units; upper arms 12-15 deg; hips rest rotation ~110 deg), and 33_assemble's Blender merge then copied actions in bone pose space across the mismatched rests: every merged clip equals Q_body = R_body_rest . R_src_rest^-1 . Q_src to 0.00 deg.",
+  "instrument": "so_d7/scripts/s16_clip_fidelity.py (joints in the hips' LOCAL frame) is only valid when both rigs share the hips rest frame; across these rigs it reads 2.4-2.9 even on a faithful graft. nb_d2/scripts/56_clip_fidelity.py: the hips' PHYSICAL frame (x_j = R_hips_rest_world . G_hips^-1 . p_j). Across two rigs with different rest SHAPES any position measure has a floor (~0.24 here, measured on a faithful world-space graft) -- so the fix was to fetch on the body's own rig, where the measure reads 0.0001.",
+  "credits": "18 of the 21: 15 for five re-fetches on the body rig (walk_fight 21, block1 138, shield_push 220, double_combo 92, axe_stance 85) + 3 WASTED by an accidental fetch (action 1 on the old rig, anims/nothing.glb): a command meant to test 31's new wrong-rig refusal ran before the refusal was in the file"
+ },
+ "inventory_installed": {
+  "attack": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.7083,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_attack.glb"
+  },
+  "attack_chop": {
+   "status": "LEGACY",
+   "err_max": 0.2613,
+   "worst_t": 2.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 104.47,
+   "source": "anims/axe_chop.glb",
+   "note": "replaced by chop_overhead_92; fetched on the other rig (01a0eb6a) and Blender-merged -- distorted; unused; remove at the next export"
+  },
+  "block": {
+   "status": "FAIL",
+   "err_max": 0.1944,
+   "worst_t": 2.0,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 76.03,
+   "source": "anims/b_block1.glb"
+  },
+  "idle": {
+   "status": "PASS",
+   "err_max": 0.0,
+   "worst_t": 1.2083,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_idle.glb"
+  },
+  "idle_armed": {
+   "status": "FAIL",
+   "err_max": 0.2138,
+   "worst_t": 4.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 86.62,
+   "source": "anims/b_axe_stance.glb"
+  },
+  "run": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb"
+  },
+  "run_armed": {
+   "status": "UNMEASURED",
+   "note": "text-to-motion SMPL-H through 41's world-space rest-frame retarget; FBX not read here"
+  },
+  "run_armed_L": {
+   "status": "LEGACY",
+   "err_max": 0.2112,
+   "worst_t": 0.0833,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 107.39,
+   "source": "anims/run_fight_L.glb",
+   "note": "fetched on the other rig and Blender-merged -- distorted; unused (the diagonal blend was rejected)"
+  },
+  "run_armed_R": {
+   "status": "LEGACY",
+   "err_max": 0.2324,
+   "worst_t": 0.2083,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 33.35,
+   "source": "anims/run_fight_R.glb",
+   "note": "as run_armed_L"
+  },
+  "run_armed_diagblend_REJECTED": {
+   "status": "LEGACY",
+   "note": "the rejected 50/50 blend of run_armed_L/R; unused"
+  },
+  "run_armed_locked": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb",
+   "note": "the unarmed run with the wrist locked; unused"
+  },
+  "shield_bash": {
+   "status": "FAIL",
+   "err_max": 0.2408,
+   "worst_t": 1.375,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 102.8,
+   "source": "anims/b_shield_push.glb"
+  },
+  "shield_carry_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm carry pose (a layer)"
+  },
+  "shield_guard_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm guard pose (a layer), not a library clip"
+  },
+  "strafe_L_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "strafe_R_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "walk": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb"
+  },
+  "walk_armed": {
+   "status": "FAIL",
+   "err_max": 0.1475,
+   "worst_t": 0.7083,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 34.95,
+   "source": "anims/b_walk_fight.glb"
+  },
+  "walk_armed_unarmedsrc": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb",
+   "note": "the unarmed walk with the wrist locked; unused"
+  }
+ },
+ "inventory_T12_7": {
+  "attack": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.7083,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_attack.glb"
+  },
+  "attack_chop": {
+   "status": "LEGACY",
+   "err_max": 0.2613,
+   "worst_t": 2.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 104.47,
+   "source": "anims/axe_chop.glb",
+   "note": "replaced by chop_overhead_92; fetched on the other rig (01a0eb6a) and Blender-merged -- distorted; unused; remove at the next export"
+  },
+  "axe_guard_R": {
+   "status": "AUTHORED",
+   "note": "the right arm's guard, IK (guard_pose_solve.py)"
+  },
+  "axe_guard_R_block": {
+   "status": "AUTHORED",
+   "note": "the guard at the block's chest"
+  },
+  "block": {
+   "status": "FAIL",
+   "err_max": 0.1944,
+   "worst_t": 2.0,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 76.03,
+   "source": "anims/b_block1.glb"
+  },
+  "chop_overhead_92": {
+   "status": "FAIL",
+   "err_max": 0.1425,
+   "worst_t": 0.0667,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 1.84,
+   "source": "anims/b_double_combo.glb"
+  },
+  "idle": {
+   "status": "PASS",
+   "err_max": 0.0,
+   "worst_t": 1.2083,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_idle.glb"
+  },
+  "idle_armed": {
+   "status": "FAIL",
+   "err_max": 0.2138,
+   "worst_t": 4.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 86.62,
+   "source": "anims/b_axe_stance.glb"
+  },
+  "idle_guard": {
+   "status": "AUTHORED",
+   "note": "the unarmed idle's stance, damped, with the guard arm"
+  },
+  "run": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb"
+  },
+  "run_armed": {
+   "status": "UNMEASURED",
+   "note": "text-to-motion SMPL-H through 41's world-space rest-frame retarget; FBX not read here"
+  },
+  "run_armed_L": {
+   "status": "LEGACY",
+   "err_max": 0.2112,
+   "worst_t": 0.0833,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 107.39,
+   "source": "anims/run_fight_L.glb",
+   "note": "fetched on the other rig and Blender-merged -- distorted; unused (the diagonal blend was rejected)"
+  },
+  "run_armed_R": {
+   "status": "LEGACY",
+   "err_max": 0.2324,
+   "worst_t": 0.2083,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 33.35,
+   "source": "anims/run_fight_R.glb",
+   "note": "as run_armed_L"
+  },
+  "run_armed_diagblend_REJECTED": {
+   "status": "LEGACY",
+   "note": "the rejected 50/50 blend of run_armed_L/R; unused"
+  },
+  "run_armed_locked": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb",
+   "note": "the unarmed run with the wrist locked; unused"
+  },
+  "shield_bash": {
+   "status": "FAIL",
+   "err_max": 0.2408,
+   "worst_t": 1.375,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 102.8,
+   "source": "anims/b_shield_push.glb"
+  },
+  "shield_carry_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm carry pose (a layer)"
+  },
+  "shield_guard_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm guard pose (a layer), not a library clip"
+  },
+  "strafe_L_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "strafe_R_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "walk": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb"
+  },
+  "walk_armed": {
+   "status": "FAIL",
+   "err_max": 0.1475,
+   "worst_t": 0.7083,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 34.95,
+   "source": "anims/b_walk_fight.glb"
+  },
+  "walk_armed_unarmedsrc": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb",
+   "note": "the unarmed walk with the wrist locked; unused"
+  }
+ },
+ "fidelity_T12_8": {
+  "attack": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.7083,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_attack.glb"
+  },
+  "attack_chop": {
+   "status": "LEGACY",
+   "err_max": 0.2613,
+   "worst_t": 2.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 104.47,
+   "source": "anims/axe_chop.glb",
+   "note": "replaced by chop_overhead_92; fetched on the other rig (01a0eb6a) and Blender-merged -- distorted; unused; remove at the next export"
+  },
+  "axe_guard_R": {
+   "status": "AUTHORED",
+   "note": "the right arm's guard, IK (guard_pose_solve.py)"
+  },
+  "axe_guard_R_bash": {
+   "status": "AUTHORED",
+   "note": "the guard at the bash's chest"
+  },
+  "axe_guard_R_block": {
+   "status": "AUTHORED",
+   "note": "the guard at the block's chest"
+  },
+  "axe_guard_R_chop": {
+   "status": "AUTHORED",
+   "note": "the guard the chop's arm is released to after its swing, solved against the chop's post-swing torso (bash_guard_solve.py --from 0.578)"
+  },
+  "block": {
+   "status": "PASS",
+   "err_max": 0.0001,
+   "worst_t": 1.4667,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "anims/b_block1.glb"
+  },
+  "chop_overhead_92": {
+   "status": "PASS",
+   "err_max": 0.0001,
+   "worst_t": 0.8667,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.01,
+   "source": "anims/b_double_combo.glb"
+  },
+  "idle": {
+   "status": "PASS",
+   "err_max": 0.0,
+   "worst_t": 1.2083,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_idle.glb"
+  },
+  "idle_armed": {
+   "status": "PASS",
+   "err_max": 0.0001,
+   "worst_t": 4.2667,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "anims/b_axe_stance.glb"
+  },
+  "idle_guard": {
+   "status": "AUTHORED",
+   "note": "the unarmed idle's stance, damped, with the guard arm"
+  },
+  "run": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb"
+  },
+  "run_armed": {
+   "status": "UNMEASURED",
+   "note": "text-to-motion SMPL-H through 41's world-space rest-frame retarget; FBX not read here"
+  },
+  "run_armed_L": {
+   "status": "LEGACY",
+   "err_max": 0.2112,
+   "worst_t": 0.0833,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 107.39,
+   "source": "anims/run_fight_L.glb",
+   "note": "fetched on the other rig and Blender-merged -- distorted; unused (the diagonal blend was rejected)"
+  },
+  "run_armed_R": {
+   "status": "LEGACY",
+   "err_max": 0.2324,
+   "worst_t": 0.2083,
+   "worst_joint": "LeftHand",
+   "hips_deg_max": 33.35,
+   "source": "anims/run_fight_R.glb",
+   "note": "as run_armed_L"
+  },
+  "run_armed_diagblend_REJECTED": {
+   "status": "LEGACY",
+   "note": "the rejected 50/50 blend of run_armed_L/R; unused"
+  },
+  "run_armed_locked": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 0.2917,
+   "worst_joint": "RightFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_run.glb",
+   "note": "the unarmed run with the wrist locked; unused"
+  },
+  "shield_bash": {
+   "status": "PASS",
+   "err_max": 0.0001,
+   "worst_t": 0.5,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "anims/b_shield_push.glb"
+  },
+  "shield_carry_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm carry pose (a layer)"
+  },
+  "shield_guard_L": {
+   "status": "AUTHORED",
+   "note": "authored left-arm guard pose (a layer), not a library clip"
+  },
+  "strafe_L_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "strafe_R_armed": {
+   "status": "UNMEASURED",
+   "note": "SMPL-H via 41"
+  },
+  "walk": {
+   "status": "PASS",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb"
+  },
+  "walk_armed": {
+   "status": "PASS",
+   "err_max": 0.0001,
+   "worst_t": 0.1667,
+   "worst_joint": "RightHand",
+   "hips_deg_max": 0.0,
+   "source": "anims/b_walk_fight.glb"
+  },
+  "walk_armed_unarmedsrc": {
+   "status": "LEGACY",
+   "err_max": 0.0002,
+   "worst_t": 1.0417,
+   "worst_joint": "LeftFoot",
+   "hips_deg_max": 0.0,
+   "source": "../nb_t8/nbt_walk.glb",
+   "note": "the unarmed walk with the wrist locked; unused"
+  }
+ },
+ "not_measured": {
+  "run_armed, strafe_L_armed, strafe_R_armed": "not through 33: text-to-motion SMPL-H via 41_retarget_smplh.py (world-space rest-frame retarget, its own rest check at export); the FBX sources are not read by 56",
+  "legacy (unused at runtime; slated for removal at the next export)": [
+   "attack_chop",
+   "run_armed_L",
+   "run_armed_R",
+   "run_armed_diagblend_REJECTED",
+   "run_armed_locked",
+   "walk_armed_unarmedsrc"
+  ]
+ },
+ "guards": {
+  "standing (axe_guard_R)": "re-solved: its prior and clavicle are the walk_armed mean arm, which changed; RightArm moved 5.2 deg, RightForeArm 7.4 deg; haft 0.73 deg off the guard; readability unchanged (tilt 55, azimuth 70)",
+  "block (axe_guard_R_block)": "re-solved at the corrected block's held chest (the shield hand's peak, 1.200 s: chest -0.107,-0.038,0.107,0.988 -- the old, distorted block's chest had turned ~46 deg)",
+  "bash (axe_guard_R_bash)": "solved against the WHOLE bash (attack_lab/tools/bash_guard_solve.py: body capsules with radii measured from the mesh); a guard solved at any one lunge chest traded frames (13-55 of 59 frames penetrating); this one 0 of 58 on the real mesh",
+  "chop release (axe_guard_R_chop)": "the corrected chop's post-swing crouch put the standing guard's butt end into his left thigh (2 of 21 frames); a release pose solved against the frames after its swing (0.578-0.9 s): 0 of 21"
+ },
+ "timings_rederived": {
+  "strike_release.at_s": {
+   "attack": 0.75,
+   "chop_overhead_92": 0.578
+  },
+  "block marks (knight.gd _block_marks, at load)": "raise 0.794 -> 1.169 s of the new block (was 0.750 -> 1.333), played in 0.18 s (x2.09)",
+  "manifest speeds": "unchanged: the knight reads locomotion_in_place for run_armed and the strafes, which are not re-grafted; the new walk_armed has no root travel (0.000 m) and the armed walk's legs are the unarmed walk's (the split)"
+ },
+ "gate_T12_8": {
+  "verdict": "PASS",
+  "fails": [],
+  "flags": [
+   "attack",
+   "chop_overhead_92",
+   "shield_bash"
+  ],
+  "table": "nb_d2/tables/weapon_table_T12_8_guard_8a59acf9.json"
+ },
+ "gate_installed": {
+  "verdict": "FAIL",
+  "fails": 18,
+  "table": "nb_d2/tables/weapon_table_installed_07ccabd6_tree_v3.json"
+ },
+ "holds": {
+  "idle": {
+   "pass_frac": 1.0,
+   "turn_med": 1.24091234981223e-05,
+   "turn_p90": 1.24091234981223e-05,
+   "arc_min": 8.59910847082719,
+   "arc_max": 11.0138786142226,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 192
+  },
+  "walk": {
+   "pass_frac": 1.0,
+   "turn_med": 4.82471585610278,
+   "turn_p90": 8.01229427853509,
+   "arc_min": 19.4278690373059,
+   "arc_max": 27.6151094707893,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 50
+  },
+  "run": {
+   "pass_frac": 1.0,
+   "turn_med": 1.95111089276612e-05,
+   "turn_p90": 3.41392790331877,
+   "arc_min": 32.2814674750669,
+   "arc_max": 51.3548570424318,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 32
+  },
+  "block": {
+   "pass_frac": 1.0,
+   "turn_med": 1.24091234981223e-05,
+   "turn_p90": 1.24091234981223e-05,
+   "arc_min": 0.0,
+   "arc_max": 0.0,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 48
+  },
+  "strafe_l": {
+   "pass_frac": 1.0,
+   "turn_med": 9.90872191479852,
+   "turn_p90": 14.3411689078101,
+   "arc_min": 36.1766737534956,
+   "arc_max": 41.5725421520881,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 118
+  },
+  "strafe_r": {
+   "pass_frac": 1.0,
+   "turn_med": 7.05332752291125e-06,
+   "turn_p90": 1.24091234981223e-05,
+   "arc_min": 48.8454826944973,
+   "arc_max": 55.7349306942895,
+   "pen_max": 0,
+   "pen_frames": 0,
+   "frames": 118
+  }
+ },
+ "strikes": {
+  "attack": {
+   "strike_key": "slash",
+   "tti_s": 0.625,
+   "edge_strike": 0.996990859508514,
+   "edge_swing": 0.968676694868921,
+   "swing_arc_px": [
+    173.765882945061,
+    251.606519091129
+   ],
+   "pen_frames": 0,
+   "frames": 36
+  },
+  "chop_overhead_92": {
+   "strike_key": "chop",
+   "tti_s": 0.5,
+   "edge_strike": 0.999484241008759,
+   "edge_swing": 0.999175358602832,
+   "swing_arc_px": [
+    94.1005526065826,
+    156.499184286594
+   ],
+   "pen_frames": 0,
+   "frames": 21
+  },
+  "shield_bash": {
+   "strike_key": "bash",
+   "tti_s": 1.20833333333333,
+   "edge_strike": 0.871844053268433,
+   "edge_swing": 0.460988936745013,
+   "swing_arc_px": [
+    85.1620712015778,
+    105.117400232702
+   ],
+   "pen_frames": 0,
+   "frames": 58
+  }
+ },
+ "speed_slide": {
+  "armed": {
+   "cross": {
+    "acc_max": 7.11607399479963,
+    "acc_p95": 2.19149991925762,
+    "seam_max": 6.84091512833061,
+    "seam_p95": 4.01795397502156,
+    "slide_max_mm": 138.168513774872,
+    "slide_med_mm": 24.3185963481665,
+    "slide_p95_mm": 55.6851364672184,
+    "slide_pairs": 62
+   },
+   "run": {
+    "acc": [
+     0.541019924486945,
+     0.543859735716936,
+     0.544037640800474,
+     0.54404014876056,
+     0.772068895687491,
+     0.772076099402632,
+     0.772145575233095,
+     0.773408146373343,
+     1.08376372468738,
+     1.09105356424419,
+     1.09145195637187,
+     1.09147927712855,
+     1.31344836560121,
+     1.31353918577283,
+     1.3150669069911,
+     1.31516092881389,
+     1.32211416811067,
+     1.32249473771348,
+     1.32252365929575,
+     1.34259438361524,
+     1.39649727604963,
+     1.39657198124368,
+     1.39782372013079,
+     1.49380089801758,
+     1.49655709279109,
+     1.49671760223658,
+     1.49671770895829,
+     1.58131739251342,
+     1.58250904708017,
+     1.58256347515012,
+     1.86773614599432,
+     1.86775685000524,
+     1.86776303986418,
+     1.87720983181654,
+     1.87731740729597,
+     1.87950669636837,
+     1.89613329779888,
+     1.89614717162063,
+     1.89621461973869,
+     1.89679091694991,
+     1.94789716708429,
+     1.9527483089423,
+     1.95301020400828,
+     2.06332608339704,
+     2.06334721429478,
+     2.06366097610978,
+     2.06929566873163,
+     2.17147423149796,
+     2.1733245724328,
+     2.17342318328894,
+     2.2997377135914,
+     2.30985023554443,
+     2.3104534266255,
+     2.31048715068453,
+     2.56175529609731,
+     2.584295774132,
+     2.58553524002295,
+     2.5856174157364
+    ],
+    "acc_max": 2.5856174157364,
+    "acc_p95": 2.584295774132,
+    "frames": 60,
+    "hold": {
+     "edge": -12.7762973755982,
+     "fwd": 0.356137663125992,
+     "head_out": 0.512566864490509,
+     "n": 60,
+     "out": 0.70844429731369,
+     "pass": 60,
+     "tilt": 53.1848764818538
+    },
+    "seam_max": 4.14188946505873,
+    "seam_p95": 4.1413221324708,
+    "slide_max_mm": 21.3075485080481,
+    "slide_med_mm": 14.1630563884974,
+    "slide_pairs": 7,
+    "slides": [
+     9.54703707247972,
+     9.90863330662251,
+     13.8466944918036,
+     14.1630563884974,
+     14.6828033030033,
+     16.4063256233931,
+     21.3075485080481
+    ],
+    "speed_m_s": 5.14050719697597,
+    "speed_px_s": 517.26361119814,
+    "steps": [
+     1.0141356023495,
+     1.86424634621527,
+     1.47617997045429,
+     2.84372386116883,
+     4.11094571991081,
+     4.13280147148121,
+     2.27279475174981,
+     0.894380935136318,
+     1.8307728697535,
+     2.5684170784156,
+     2.31849319960884,
+     2.70530111301524,
+     3.88211645346881,
+     3.19549183691601,
+     1.97991453259237,
+     0.95940380242631,
+     1.00638792667489,
+     1.86088418559633,
+     1.47935814285247,
+     2.84096894705579,
+     4.10961169858854,
+     4.1413221324708,
+     2.28721626929547,
+     0.896129570285547,
+     1.82777740491563,
+     2.57024543467905,
+     2.32051835069775,
+     2.70356389708853,
+     3.88352859507971,
+     3.19843116613664,
+     1.98228546200802,
+     0.961034083203828,
+     1.00560981871804,
+     1.86088418559633,
+     1.48041596840017,
+     2.84096894705579,
+     4.10961169858854,
+     4.14170035419609,
+     2.28687411950674,
+     0.894380935136318,
+     1.82692064306162,
+     2.56963605373904,
+     2.31984344263039,
+     2.70356389708853,
+     3.88373008566023,
+     3.19892080532276,
+     1.98189059169662,
+     0.961034083203828,
+     1.00560981871804,
+     1.86046348863214,
+     1.47935814285247,
+     2.84041783616714,
+     4.10961169858854,
+     4.14188946505873,
+     2.28687411950674,
+     0.894380935136318,
+     1.82692064306162,
+     2.56994063748734,
+     2.32018089666407
+    ],
+    "twist_hi": -2.39617218655804,
+    "twist_lo": -35.7595447044765,
+    "twist_med": -20.640512446993
+   },
+   "walk": {
+    "acc": [
+     0.129105462991198,
+     0.129169989602556,
+     0.129176352884263,
+     0.132714617657954,
+     0.132730505851902,
+     0.136036370771041,
+     0.136053512945033,
+     0.136951055830868,
+     0.136971786522216,
+     0.141628334689938,
+     0.141693741755369,
+     0.141696783323984,
+     0.156512530850799,
+     0.156559528421983,
+     0.156563050238274,
+     0.161536521851527,
+     0.161580771338787,
+     0.167868600800018,
+     0.167889504914138,
+     0.168836686733375,
+     0.168851040802802,
+     0.178794795718349,
+     0.178806348343,
+     0.182649423648617,
+     0.18264985053544,
+     0.182744339265696,
+     0.185484539123554,
+     0.185484805927818,
+     0.18558623156895,
+     0.221423473751853,
+     0.221434239303924,
+     0.22693140766766,
+     0.226940105486682,
+     0.23798678921084,
+     0.238000102743636,
+     0.240239684419887,
+     0.240322740587411,
+     0.240329624137434,
+     0.242904552093676,
+     0.242958499915948,
+     0.262372165373372,
+     0.262374619972605,
+     0.262380863192394,
+     0.269625772911073,
+     0.269642821703572,
+     0.369388289660646,
+     0.369391171146702,
+     0.371632033483422,
+     0.371654311639504,
+     0.407032236940937,
+     0.407038693604137,
+     0.407364141445917,
+     0.407385912673897,
+     0.594598916544287,
+     0.594613804222243,
+     0.598453117587731,
+     0.598584385285842,
+     0.598586252915693
+    ],
+    "acc_max": 0.598586252915693,
+    "acc_p95": 0.598453117587731,
+    "frames": 60,
+    "hold": {
+     "edge": -8.48077623618661,
+     "fwd": 0.260722815990448,
+     "head_out": 0.369101345539093,
+     "n": 60,
+     "out": 0.510153353214264,
+     "pass": 60,
+     "tilt": 34.9961339485286
+    },
+    "seam_max": 1.33530155585067,
+    "seam_p95": 1.21305280237337,
+    "slide_max_mm": 39.352934807539,
+    "slide_med_mm": 4.44612558931112,
+    "slide_pairs": 52,
+    "slides": [
+     0.82617939915508,
+     1.21267756912857,
+     2.42029479704797,
+     2.44942423887551,
+     2.46708141639829,
+     2.53432872705162,
+     2.58909282274544,
+     2.68997112289071,
+     2.72628269158304,
+     2.83206650055945,
+     2.83476058393717,
+     2.84432806074619,
+     3.00916377454996,
+     3.02687683142722,
+     3.03614977747202,
+     3.07258660905063,
+     3.10232467018068,
+     3.22740362025797,
+     3.27962473966181,
+     3.41249397024512,
+     3.58585035428405,
+     3.58653836883605,
+     4.16695512831211,
+     4.2122034355998,
+     4.38983412459493,
+     4.42845420911908,
+     4.44612558931112,
+     4.45445394143462,
+     5.02982875332236,
+     5.12307696044445,
+     5.48620289191604,
+     5.69416396319866,
+     5.73340570554137,
+     6.7854905501008,
+     6.86422130092978,
+     6.91544637084007,
+     7.45856249704957,
+     8.34376458078623,
+     8.39276146143675,
+     10.0212758406997,
+     21.4098617434502,
+     27.3685436695814,
+     27.8369709849358,
+     28.924971818924,
+     30.538072809577,
+     33.4869623184204,
+     34.3886315822601,
+     34.6849150955677,
+     35.5746261775494,
+     36.4517718553543,
+     39.2869599163532,
+     39.352934807539
+    ],
+    "speed_m_s": 1.60129844536216,
+    "speed_px_s": 161.13061062342,
+    "steps": [
+     0.395647592254995,
+     0.60393146291061,
+     0.716551517288041,
+     0.876703338347267,
+     0.940452268635346,
+     1.0653270164051,
+     1.16969038593219,
+     1.21305280237337,
+     0.640413637701764,
+     0.385629545692011,
+     0.391671141497578,
+     0.311532985533068,
+     0.167858782403086,
+     0.505129681636908,
+     0.671438758150342,
+     0.804055952231131,
+     0.921111093896574,
+     1.03627651431775,
+     1.20723145348811,
+     1.33412868430413,
+     0.978788092734218,
+     0.427958469134401,
+     0.338041269867005,
+     0.435212556919778,
+     0.298707144251827,
+     0.39958450262042,
+     0.606517916811076,
+     0.719821043466362,
+     0.878487084937698,
+     0.941284164331913,
+     1.06606147518429,
+     1.17035942430574,
+     1.21176157645512,
+     0.637964641358344,
+     0.3876538696877,
+     0.397620929955747,
+     0.316517849688414,
+     0.167858782403086,
+     0.505129681636908,
+     0.671438758150342,
+     0.806000475071321,
+     0.921111093896574,
+     1.03552092464081,
+     1.20658290568208,
+     1.33530155585067,
+     0.981184208472423,
+     0.429783463664117,
+     0.340348753228559,
+     0.437007242485052,
+     0.298707144251827,
+     0.397620929955747,
+     0.601333856591889,
+     0.717643013533921,
+     0.878487084937698,
+     0.940452268635346,
+     1.0653270164051,
+     1.16969038593219,
+     1.21176157645512,
+     0.639190286788391
+    ],
+    "twist_hi": 0.842981582834292,
+    "twist_lo": -8.26275221170949,
+    "twist_med": -3.93379684135175
+   }
+  },
+  "ratio_armed_unarmed": {
+   "walk": 1.0,
+   "run": 1.0
+  },
+  "note": "identical to T12_7: walk 1.601, run 5.141 m/s; slide walk 4.4/39.4, run 14.2/21.3, crossover 24.3/55.7/138.2 mm; the waist seam step in the walk 1.2/1.3 deg (was 1.0/1.0)"
+ },
+ "posture_changes": {
+  "walk (upper body from walk_armed)": "the chest now turns +12..+26 deg (mean +20) toward his right, leaning 12-17 deg from vertical (was -9..-1 deg, 7-13 deg): the fight walk as Meshy authored it -- shield shoulder forward",
+  "block": "held square and upright: at the held peak the chest faces +6 deg, 16 deg of lean (was twisted -46 deg and hunched 29 deg)",
+  "shield bash": "a different motion: the torso swings from -36 to +142 deg through the push and leans at most 53 deg (the old one bent to 96 deg -- horizontal)",
+  "idle": "unchanged stance (idle_guard is built from the unarmed idle, which was never distorted); the guard arm moved 5-7 deg",
+  "chop": "the same torso (chest within a degree); the arms now follow the source's own directions (the T12_7 graft came from the other rig, 12-15 deg off at the arms)"
+ },
+ "review": {
+  "dir": "~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/",
+  "films": [
+   "t12_8_idle_before_after.mp4",
+   "t12_8_walk_before_after.mp4",
+   "t12_8_run_before_after.mp4",
+   "t12_8_block_before_after.mp4",
+   "t12_8_bash_before_after.mp4",
+   "t12_8_slash_before_after.mp4",
+   "t12_8_chop_before_after.mp4"
+  ],
+  "how": "quarter speed, play and side cameras; frames piped straight into ffmpeg (OS.execute_with_pipe), no frame files"
+ },
+ "dead_files_for_the_coordinator": [
+  "nb_d2/anims/nothing.glb (the accidental fetch)",
+  "scratchpad drax_t12c/assemble/prestate_test/ (symlink trees for the install.sh dry run)"
+ ]
+}

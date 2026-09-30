@@ -1,0 +1,189 @@
+{
+ "rows": [
+  [
+   "HOLD",
+   "idle",
+   "FAIL",
+   "0% of frames at guard (tilt 42, fwd -0.10, out +0.11, head out +0.07, edge -62, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "walk",
+   "FAIL",
+   "0% of frames at guard (tilt 64, fwd -0.42, out +0.81, head out +0.51, edge -67, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "run",
+   "FAIL",
+   "0% of frames at guard (tilt 94, fwd -0.04, out +0.99, head out +0.62, edge -164, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "block",
+   "FAIL",
+   "0% of frames at guard (tilt 170, fwd +0.17, out +0.05, head out +0.03, edge +111, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_l",
+   "FAIL",
+   "0% of frames at guard (tilt 90, fwd +0.62, out +0.78, head out +0.49, edge +142, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_r",
+   "FAIL",
+   "0% of frames at guard (tilt 26, fwd +0.31, out +0.28, head out +0.18, edge -99, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "EDGE",
+   "attack",
+   "PASS",
+   "edge along the travel +1.00 at the strike (0.67 s; >= 0.707) and +0.84 over the swing (0.58-0.75 s; >= 0.8) | heading at the strike -42 deg (info)"
+  ],
+  [
+   "TTI",
+   "attack",
+   "PASS",
+   "strike frame 0.67 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "attack",
+   "PASS",
+   "the swing draws the head 128-175 px across the 8 cells (>= 42)"
+  ],
+  [
+   "EDGE",
+   "attack_chop",
+   "PASS",
+   "edge along the travel +0.96 at the strike (4.50 s; >= 0.707) and +0.86 over the swing (4.42-4.50 s; >= 0.8) | heading at the strike -43 deg (info)"
+  ],
+  [
+   "TTI",
+   "attack_chop",
+   "FAIL",
+   "strike frame 4.50 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "attack_chop",
+   "FAIL",
+   "the swing draws the head 12-21 px across the 8 cells (>= 42)"
+  ],
+  [
+   "ARC",
+   "idle",
+   "FAIL",
+   "axe-head screen path 197-248 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "walk",
+   "PASS",
+   "axe-head screen path 20-36 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "run",
+   "PASS",
+   "axe-head screen path 16-34 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_l",
+   "PASS",
+   "axe-head screen path 39-55 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_r",
+   "PASS",
+   "axe-head screen path 48-57 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "attack",
+   "FLAG",
+   "peak step 53.6 px > 35 px: needs a trail"
+  ],
+  [
+   "PEN",
+   "idle",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 46 (0.044 m deep), 294 of 294 frames -- head:LeftShoulder 62, head:RightArm 814, head:RightForeArm 7998, head:RightHand 4, head:RightShoulder 678, head:Spine 38, head:neck 434"
+  ],
+  [
+   "PEN",
+   "walk",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 39 (0.045 m deep), 50 of 50 frames -- head:RightForeArm 1788"
+  ],
+  [
+   "PEN",
+   "run",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 245 (0.063 m deep), 32 of 32 frames -- haft:Head 8, haft:LeftArm 12, haft:LeftShoulder 4, haft:RightArm 1452, haft:RightForeArm 357, haft:Spine 98, head:Head 52, head:LeftArm 128, head:LeftShoulder 357, head:RightArm 1013, head:RightForeArm 3088, head:RightShoulder 170, head:Spine 4, head:Spine01 6, head:Spine02 4, head:neck 64"
+  ],
+  [
+   "PEN",
+   "block",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 52 (0.038 m deep), 48 of 48 frames -- head:LeftHand 192, head:RightForeArm 96, head:RightHand 2208"
+  ],
+  [
+   "PEN",
+   "strafe_l",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 139 (0.057 m deep), 118 of 118 frames -- butt:LeftArm 8, haft:LeftArm 6, haft:RightForeArm 2138, head:LeftArm 2557, head:LeftShoulder 74, head:RightForeArm 6994"
+  ],
+  [
+   "PEN",
+   "strafe_r",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 1145 (0.171 m deep), 118 of 118 frames -- butt:Hips 138, butt:LeftShoulder 28, butt:LeftUpLeg 4, butt:RightHand 14, butt:Spine02 2, haft:Hips 6, haft:LeftShoulder 20, haft:RightShoulder 15404, haft:neck 6724, head:Head 12272, head:Hips 868, head:LeftShoulder 2204, head:RightArm 4390, head:RightForeArm 1148, head:RightShoulder 47196, head:Spine 1315, head:Spine01 2, head:Spine02 324, head:neck 21376"
+  ],
+  [
+   "PEN",
+   "attack",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 790 (0.123 m deep), 36 of 36 frames -- haft:Head 21, haft:Hips 1, haft:LeftShoulder 28, haft:RightArm 617, haft:RightShoulder 495, haft:Spine02 1, haft:neck 37, head:Head 420, head:Hips 45, head:LeftArm 12, head:LeftShoulder 320, head:RightArm 1986, head:RightForeArm 1385, head:RightHand 1, head:RightShoulder 2008, head:Spine 177, head:Spine01 1, head:Spine02 8, head:neck 1139"
+  ],
+  [
+   "PEN",
+   "attack_chop",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 120 (0.084 m deep), 184 of 184 frames -- butt:RightHand 2, butt:RightUpLeg 15, head:Head 582, head:RightArm 147, head:RightForeArm 4394, head:RightHand 96, head:neck 26"
+  ],
+  [
+   "PEN",
+   "shield_bash",
+   "FAIL",
+   "axe vertices inside the body (the hand excluded): worst frame 1001 (0.130 m deep), 58 of 58 frames -- butt:Hips 1, butt:LeftArm 4, butt:LeftForeArm 2, butt:LeftShoulder 3, butt:RightHand 5, butt:RightUpLeg 70, butt:Spine02 1, haft:Head 7, haft:LeftShoulder 34, haft:RightArm 333, haft:RightShoulder 1365, haft:Spine 14, haft:Spine01 13, haft:Spine02 18, haft:neck 1782, head:Head 545, head:LeftArm 2, head:LeftShoulder 327, head:RightArm 1775, head:RightForeArm 2368, head:RightShoulder 5661, head:Spine 222, head:Spine01 48, head:Spine02 35, head:neck 7270"
+  ]
+ ],
+ "fails": [
+  "HOLD idle",
+  "HOLD walk",
+  "HOLD run",
+  "HOLD block",
+  "HOLD strafe_l",
+  "HOLD strafe_r",
+  "TTI attack_chop",
+  "READ attack_chop",
+  "ARC idle",
+  "PEN idle",
+  "PEN walk",
+  "PEN run",
+  "PEN block",
+  "PEN strafe_l",
+  "PEN strafe_r",
+  "PEN attack",
+  "PEN attack_chop",
+  "PEN shield_bash"
+ ],
+ "flags": [
+  "attack"
+ ]
+}

@@ -1,7 +1,7 @@
 # T12 rank 3: THE AXE ARM'S GUARD, and the weapon channel -- binary glTF patches, no Blender.
 #
-#   python3 scripts/54_weapon_channel.py pose    <in.glb> <out.glb> <guard_pose.json> [--block <block_pose.json>] [--json f]
-#   python3 scripts/54_weapon_channel.py channel <in.glb> <out.glb> <weapon_r.json>   [--json f]
+#   python3 scripts/54_weapon_channel.py pose    <in.glb> <out.glb> <guard_pose.json> [--block <block_pose.json>] [--bash <bash_pose.json>] [--replace] [--json f]
+#   python3 scripts/54_weapon_channel.py channel <in.glb> <out.glb> <weapon_r.json>   [--replace] [--json f]
 #
 # POSE adds two clips (three with --block):
 #   axe_guard_R   the right arm's GUARD: RightShoulder, RightArm, RightForeArm, RightHand at the
@@ -83,13 +83,17 @@ def channel(js, bin_, anim, node, path):
     return None, None, None
 
 
-def pose(src, dst, pose_json, outj, block_json=None):
+def pose(src, dst, pose_json, outj, block_json=None, bash_json=None, replace=False):
     js, b0 = L.load_glb(src)
     bin_ = bytearray(b0)
     nodes = js['nodes']
     idx = {n.get('name'): i for i, n in enumerate(nodes)}
+    POSE_CLIPS = ("axe_guard_R", "axe_guard_R_block", "axe_guard_R_bash", "idle_guard")
+    if replace:
+        # --replace: the guard poses re-solved (T12_8: on the corrected clips) -- the old ones go
+        js['animations'] = [a for a in js['animations'] if a['name'] not in POSE_CLIPS]
     anims = {a['name']: a for a in js['animations']}
-    assert "axe_guard_R" not in anims and "idle_guard" not in anims, "already patched"
+    assert "axe_guard_R" not in anims and "idle_guard" not in anims, "already patched (use --replace)"
     P = json.load(open(pose_json))
     gp = P["pose"]
     k0 = int(P["stance"]["key"])
@@ -115,6 +119,32 @@ def pose(src, dst, pose_json, outj, block_json=None):
             an2["channels"].append({"sampler": len(an2["samplers"]) - 1, "target": {"node": idx[nm], "path": "rotation"}})
         js['animations'].append(an2)
         rep["block_pose"] = True
+    # ---- axe_guard_R_bash: the guard at the SHIELD BASH's chest (the bash is a strike whose swing is
+    # the shield's; the axe arm holds this pose through it -- knight.gd strike_release.guard_throughout)
+    if bash_json:
+        gs = json.load(open(bash_json))["pose"]
+        an3 = {"name": "axe_guard_R_bash", "channels": [], "samplers": []}
+        for nm in RARM:
+            q = np.array(gs[nm], float)
+            out = add_accessor(js, bin_, np.array([q, q]), "VEC4")
+            an3["samplers"].append({"input": t_in, "output": out, "interpolation": "STEP"})
+            an3["channels"].append({"sampler": len(an3["samplers"]) - 1, "target": {"node": idx[nm], "path": "rotation"}})
+        js['animations'].append(an3)
+        rep["bash_pose"] = True
+    # ---- --extra name=pose.json (repeatable): any further pose clip of the same form (lab candidates)
+    for k_, v_ in enumerate(sys.argv):
+        if v_ == '--extra':
+            nm_x, pj = sys.argv[k_ + 1].split('=', 1)
+            gx = json.load(open(pj))["pose"]
+            js['animations'] = [a_ for a_ in js['animations'] if a_['name'] != nm_x]
+            anx = {"name": nm_x, "channels": [], "samplers": []}
+            for nm in RARM:
+                q = np.array(gx[nm], float)
+                out = add_accessor(js, bin_, np.array([q, q]), "VEC4")
+                anx["samplers"].append({"input": t_in, "output": out, "interpolation": "STEP"})
+                anx["channels"].append({"sampler": len(anx["samplers"]) - 1, "target": {"node": idx[nm], "path": "rotation"}})
+            js['animations'].append(anx)
+            rep.setdefault("extra", []).append(nm_x)
     # ---- idle_guard ---------------------------------------------------------------------------
     idle = anims['idle']
     times, _, _ = channel(js, bin_, idle, idx["Hips"], 'rotation')
@@ -166,7 +196,8 @@ def pose(src, dst, pose_json, outj, block_json=None):
     js['buffers'][0]['byteLength'] = len(bin_) + (-len(bin_) % 4)
     R_.write_glb(dst, js, bin_)
     res = L.lint(dst)
-    rep.update(clips_added=["axe_guard_R", "idle_guard"] + (["axe_guard_R_block"] if block_json else []), idle_keys=n, damp_spine=KSPINE, damp_head=KHEAD,
+    rep.update(clips_added=["axe_guard_R", "idle_guard"] + (["axe_guard_R_block"] if block_json else []) + (["axe_guard_R_bash"] if bash_json else []),
+               replaced=bool(replace), idle_keys=n, damp_spine=KSPINE, damp_head=KHEAD,
                lint=dict(verdict=res["verdict"], fails=res["fails"], warns=len(res["warns"])))
     print("pose: axe_guard_R (%d bones, 2 keys, STEP) and idle_guard (%d keys; stance key %d; spine x%.2f, head x%.2f) -> %s; lint %s, %d fails"
           % (len(RARM), n, k0, KSPINE, KHEAD, os.path.basename(dst), res["verdict"], len(res["fails"])))
@@ -177,7 +208,7 @@ def pose(src, dst, pose_json, outj, block_json=None):
     assert not res["fails"]
 
 
-def chan(src, dst, wr_json, outj):
+def chan(src, dst, wr_json, outj, replace=False):
     js, b0 = L.load_glb(src)
     bin_ = bytearray(b0)
     nodes = js['nodes']
@@ -188,7 +219,11 @@ def chan(src, dst, wr_json, outj):
     rep = {}
     for clip, d in wr.items():
         an = anims[clip]
-        assert not any(ch['target'].get('node') == wn for ch in an['channels']), "%s already has a weapon_r track" % clip
+        if replace:
+            # --replace (T12_8: the residuals re-solved on the corrected clips): the old track goes;
+            # its sampler stays behind unreferenced, which glTF allows
+            an['channels'] = [ch for ch in an['channels'] if ch['target'].get('node') != wn]
+        assert not any(ch['target'].get('node') == wn for ch in an['channels']), "%s already has a weapon_r track (use --replace)" % clip
         t = add_accessor(js, bin_, np.array(d["times"], float), "SCALAR")
         q = np.array(d["quats"], float)
         q /= np.linalg.norm(q, axis=1, keepdims=True)
@@ -215,8 +250,9 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     outj = a[a.index('--json') + 1] if '--json' in a else None
     if a[0] == "pose":
-        pose(a[1], a[2], a[3], outj, a[a.index('--block') + 1] if '--block' in a else None)
+        pose(a[1], a[2], a[3], outj, a[a.index('--block') + 1] if '--block' in a else None,
+             a[a.index('--bash') + 1] if '--bash' in a else None, '--replace' in a)
     elif a[0] == "channel":
-        chan(a[1], a[2], a[3], outj)
+        chan(a[1], a[2], a[3], outj, '--replace' in a)
     else:
         sys.exit("usage: pose|channel ...")

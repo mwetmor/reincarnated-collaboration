@@ -125,8 +125,12 @@ func _initialize() -> void:
 		if smode == "tree":
 			srows[clip] = _strike_tree(key, clip)
 	tree.active = false
+	# the tree lets go of the skeleton on its own frame: switching the player on under it at once
+	# crashed Godot (signal 11 in AnimationPlayer.play, after two tree strikes, 2026-09-30)
+	for i in 3: await process_frame
 	ap.active = true
 	ap.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	for i in 2: await process_frame
 	for clip in skey:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
 		var raw := _strike_raw(clip, smode == "raw")

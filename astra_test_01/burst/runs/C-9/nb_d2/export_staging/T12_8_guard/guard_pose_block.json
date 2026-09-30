@@ -1,0 +1,103 @@
+{
+ "stance": {
+  "key": 43,
+  "t": 1.7916666269302368,
+  "chest_yaw": -1.5327705562803442
+ },
+ "readability": {
+  "tilt": 55.0,
+  "azimuth": 70.0,
+  "worst": 0.4026104813881107,
+  "mean": 0.7830573560777009,
+  "per_cell": [
+   {
+    "cell_yaw": 47,
+    "screen_px": 53.7,
+    "screen_angle": 18.7
+   },
+   {
+    "cell_yaw": 92,
+    "screen_px": 53.7,
+    "screen_angle": -17.9
+   },
+   {
+    "cell_yaw": 137,
+    "screen_px": 51.8,
+    "screen_angle": -51.4
+   },
+   {
+    "cell_yaw": 182,
+    "screen_px": 41.1,
+    "screen_angle": -82.5
+   },
+   {
+    "cell_yaw": 227,
+    "screen_px": 22.0,
+    "screen_angle": -128.7
+   },
+   {
+    "cell_yaw": 272,
+    "screen_px": 21.6,
+    "screen_angle": 130.3
+   },
+   {
+    "cell_yaw": 317,
+    "screen_px": 40.8,
+    "screen_angle": 83.2
+   },
+   {
+    "cell_yaw": 362,
+    "screen_px": 51.6,
+    "screen_angle": 52.1
+   }
+  ],
+  "centre_45_45": {
+   "worst": 0.1402149867513324,
+   "mean": 0.7139620327619691
+  }
+ },
+ "guard_world_his_frame": [
+  -0.7697511313200571,
+  0.573576436351046,
+  0.2801664995932356
+ ],
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   0.7346273746508918,
+   -0.42475545031880063,
+   -0.25131763069507046,
+   0.465558671211081
+  ],
+  "RightForeArm": [
+   -0.39663814853614293,
+   0.4364751680928376,
+   -0.5463777598503696,
+   0.5946755000040288
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "checks": {
+  "haft_off_guard_deg": 1.226236314987194,
+  "grip_m": [
+   -0.11741167033364328,
+   -0.3514549792051611,
+   0.3321789624713696
+  ],
+  "edge_heading": -5.2062841762229715,
+  "forearm_to_haft_deg": 87.45143322749199,
+  "elbow_bend_deg": 84.93504764110263,
+  "predicate_idle_pct": 0
+ },
+ "_note": "T12_8: the guard at the corrected block's chest (Meshy 138 on the body rig, the shield hand's peak 1.200 s: chest q -0.107153,-0.038283,0.107026,0.987724)"
+}

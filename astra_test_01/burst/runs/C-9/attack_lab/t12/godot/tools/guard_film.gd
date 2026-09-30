@@ -6,8 +6,11 @@ extends SceneTree
 # own knight); bottom row a level side camera on his RIGHT (the axe side), square to his facing.
 # One film per action -- idle, walk, run, slash, chop, block -- facing SE. The two knights stand
 # 60 m apart along his facing, so neither camera sees the other one.
-# Frames to <FILM_OUT>/<action>/f_%05d.jpg. Run with --fixed-fps 96.
-# env: FILM_OUT, FILM_ACTIONS (comma list; default all six)
+# FRAMES STRAIGHT TO FFMPEG when FILM_MP4_DIR is set: each action's frames are piped as raw RGB into
+# an ffmpeg this script starts (OS.execute_with_pipe), encoded at 24 fps -- quarter speed -- to
+# <FILM_MP4_DIR>/<FILM_PREFIX><action>_before_after.mp4; nothing touches the disk but the film. Else
+# frames to <FILM_OUT>/<action>/f_%05d.jpg. Run with --fixed-fps 96.
+# env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop)
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -25,11 +28,14 @@ var action := ""
 var phase := ""
 var wd_ms := 0
 var face_w := Vector3.ZERO
+var pipe: FileAccess = null
+var pipe_pid := -1
+const FFMPEG := "/opt/homebrew/bin/ffmpeg"
 
 func _initialize() -> void:
 	wd_ms = Time.get_ticks_msec() + 3600000
 	out_dir = OS.get_environment("FILM_OUT") if OS.has_environment("FILM_OUT") else "/tmp/guard_film"
-	var acts: PackedStringArray = (OS.get_environment("FILM_ACTIONS") if OS.has_environment("FILM_ACTIONS") else "idle,walk,run,slash,chop,block").split(",")
+	var acts: PackedStringArray = (OS.get_environment("FILM_ACTIONS") if OS.has_environment("FILM_ACTIONS") else "idle,walk,run,block,bash,slash,chop").split(",")
 	Engine.physics_ticks_per_second = 96
 	var ground := StaticBody3D.new()
 	ground.collision_layer = CliffWorld.TERRAIN_BIT
@@ -94,8 +100,15 @@ func _film(act: String) -> void:
 	_reset()
 	action = act
 	film_dir = "%s/%s" % [out_dir, act]
-	DirAccess.make_dir_recursive_absolute(film_dir)
 	mf = 0
+	if OS.has_environment("FILM_MP4_DIR"):
+		var mp4 := "%s/%s%s_before_after.mp4" % [OS.get_environment("FILM_MP4_DIR"), OS.get_environment("FILM_PREFIX") if OS.has_environment("FILM_PREFIX") else "", act]
+		var r := OS.execute_with_pipe(FFMPEG, PackedStringArray(["-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1920x1080", "-r", "24",
+			"-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "21", "-preset", "medium", "-movflags", "+faststart", mp4]), true)
+		pipe = r.get("stdio"); pipe_pid = int(r.get("pid", -1))
+		print("[film] %s -> ffmpeg pid %d -> %s" % [act, pipe_pid, mp4])
+	else:
+		DirAccess.make_dir_recursive_absolute(film_dir)
 	var d := ks[0]._canvas_dir_for(FACE) as Vector2
 	match act:
 		"idle":
@@ -123,7 +136,22 @@ func _film(act: String) -> void:
 			await _hold(Vector2.ZERO, false, 2.5, "block held")
 			for k in ks: k.set_block(false)
 			await _hold(Vector2.ZERO, false, 1.25, "block released")
-	print("[film] %s: %d frames -> %s" % [act, mf, film_dir])
+		"bash":
+			await _hold(Vector2.ZERO, false, 0.5, "standing")
+			for k in ks: k.try_strike("bash")
+			var gb := 0
+			while gb < 24 or ks[0].attacking() or ks[1].attacking():
+				await _step(Vector2.ZERO, false, "shield bash")
+				gb += 1
+				if gb > 96 * 12: break
+			await _hold(Vector2.ZERO, false, 0.75, "after the bash")
+	if pipe != null:
+		pipe.close()
+		var w0 := Time.get_ticks_msec()
+		while OS.is_process_running(pipe_pid) and Time.get_ticks_msec() - w0 < 120000:
+			OS.delay_msec(100)
+		pipe = null
+	print("[film] %s: %d frames -> %s" % [act, mf, "ffmpeg" if OS.has_environment("FILM_MP4_DIR") else film_dir])
 
 func _hold(dir: Vector2, run: bool, secs: float, ph: String) -> void:
 	for j in int(round(secs / DT)):
@@ -157,5 +185,8 @@ func _grab() -> void:
 		var im: Image = (svs[i] as SubViewport).get_texture().get_image()
 		im.convert(Image.FORMAT_RGB8)
 		img.blit_rect(im, Rect2i(0, 0, 960, 540), Vector2i(960 * (i % 2), 540 * (i / 2)))
-	img.save_jpg("%s/f_%05d.jpg" % [film_dir, mf], 0.88)
+	if pipe != null:
+		pipe.store_buffer(img.get_data())
+	else:
+		img.save_jpg("%s/f_%05d.jpg" % [film_dir, mf], 0.88)
 	mf += 1

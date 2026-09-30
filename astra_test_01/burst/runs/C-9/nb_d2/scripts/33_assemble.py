@@ -41,8 +41,23 @@ BD = body[0]
 have = {x.name for x in bpy.data.actions}
 print("body arrives with: %s" % sorted(have))
 
-# ---- merge the fetched clips ----------------------------------------------
-MERGE = json.load(open(os.path.join(ROOT, "work", "merge_plan.json")))
+# ---- merge the fetched clips: NO LONGER HERE -------------------------------
+# MOTION DOES NOT GO THROUGH BLENDER ANY MORE (T12, N-C9-ASSEMBLE-DISTORTION, 2026-09-30). This step
+# imported each fetched clip into a second armature and handed its action to the body's: a copy in
+# BONE POSE SPACE, which is only faithful when the two armatures' rests agree. They did not -- D2's
+# clips were fetched for the other T8 candidate's rig (01a0eb6a) -- and every clip merged here came
+# out moving in the wrong frames (Q_body = R_body_rest . R_src_rest^-1 . Q_src, exactly; hips up to
+# 104 deg off the source). Motion is now grafted AFTER export by
+#     python3 scripts/55_clip_graft.py plan <body.glb> <out.glb>        (reads work/clip_sources.json)
+# a world-space binary graft that refuses a source whose rest pose is not the body's, and the lint's
+# SOURCE FIDELITY row holds every clip to its source. This script keeps the MESH work (the shield's
+# centre grip and the guard layer). merge_plan.json is kept as the record of what was merged here;
+# an empty dict below is the switch that keeps it from being used.
+MERGE = {}
+_legacy_plan = json.load(open(os.path.join(ROOT, "work", "merge_plan.json")))
+if _legacy_plan:
+    print("33_assemble: %d clips in work/merge_plan.json are NOT merged here -- graft them with 55_clip_graft.py plan"
+          % len(_legacy_plan))
 for nm, src in MERGE.items():
     p = os.path.join(ANIMS, "%s.glb" % src)
     if not os.path.exists(p):

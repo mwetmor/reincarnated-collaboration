@@ -179,6 +179,11 @@ def main():
         return M1, M2, M3, M4
 
     BOX = dict(fwd=(0.25, 0.45), out=(0.12, 0.32), up=(-0.35, -0.08))
+    if '--box' in sys.argv:
+        # another state's grip box (the shield bash lunges: the fist rides higher to clear his thigh)
+        bx = [float(x) for x in sys.argv[sys.argv.index('--box') + 1].split(',')]
+        BOX = dict(fwd=(bx[0], bx[1]), out=(bx[2], bx[3]), up=(bx[4], bx[5]))
+        print("grip box override %s" % BOX)
 
     def terms(x):
         qa = ref["RightArm"] @ rotvec_to_m(x[:3])

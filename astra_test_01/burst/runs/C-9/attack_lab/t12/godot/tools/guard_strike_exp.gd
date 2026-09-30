@@ -7,8 +7,9 @@ extends SceneTree
 # clip frame by frame (slerp of local rotations, as a filtered Blend2 does):
 #   g = 1 before T0, smoothstep to 0 at T1 (the strike takes the arm), 0 through the swing, and
 #   back up to 1 over [T2, T3] after it (the arm returns to guard).
-# Per frame: the axe's penetration (the acceptance's instrument: every 4th vertex, two agreeing
-# vertical rays, the fist excluded) and the guard predicate. The swing's edge is untouched (g = 0).
+# Per frame: the axe's penetration (the acceptance's instrument v2: every 4th vertex, odd crossings
+# along all six axis directions, the fist from the hand mesh and anything the hand encloses excluded)
+# and the guard predicate. The swing's edge is untouched (g = 0).
 # env: EXP "clip:T0:T1:T2:T3;..." (times in s; T2 = T3 = -1 for no return)
 const F := Vector3(0, 0, 1)
 const U := Vector3(0, 1, 0)
@@ -51,6 +52,7 @@ func _initialize() -> void:
 	wb = skel.find_bone("weapon_r")
 	_axe()
 	_body()
+	_fist()
 	for i in 4: await process_frame
 	var gp: String = OS.get_environment("EXP_POSE") if OS.has_environment("EXP_POSE") else "axe_guard_R"
 	ap.play(gp); ap.seek(0.0, true, true)
@@ -104,6 +106,7 @@ func _axe() -> void:
 	c /= float(all.size())
 	for i in range(0, all.size(), 4): pts.append(all[i])
 	H = Vector3.UP; E = Vector3.BACK
+	grip_l = c + H * (-c).dot(H)
 
 func _body() -> void:
 	var arr := body.mesh.surface_get_arrays(0)
@@ -133,14 +136,49 @@ func _body() -> void:
 	skel.add_child(proxy); proxy.transform = body.transform
 
 func _cross(tm: TriangleMesh, p: Vector3, d: Vector3) -> Array:
-	var o := p; var n := 0; var first := -1
+	var o := p; var n := 0; var first := -1; var dist := -1.0
 	for i in 32:
 		var r = tm.intersect_ray(o, d)
 		if typeof(r) != TYPE_DICTIONARY or (r as Dictionary).is_empty(): break
 		n += 1
-		if first < 0: first = int(r["face_index"])
+		if first < 0:
+			first = int(r["face_index"]); dist = ((r["position"] as Vector3) - p).length()
 		o = (r["position"] as Vector3) + d * 0.002
-	return [n, first]
+	return [n, first, dist]
+
+const DIRS := [Vector3.UP, Vector3.DOWN, Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK]
+var fist_s := [0.0, 0.0]
+var fist_r := 0.0
+
+func _fist() -> void:
+	# guard_accept.gd's _fist: the stretch of haft the closed hand wraps (hand-mesh extent along the
+	# haft within 6 cm of its axis, +1 cm), and the haft radius at the grip (+1 cm)
+	var arr := proxy.mesh.surface_get_arrays(0)
+	var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+	var bones = arr[Mesh.ARRAY_BONES]; var weights = arr[Mesh.ARRAY_WEIGHTS]
+	var nb: int = int(bones.size() / verts.size())
+	var rh := -1
+	for i in body.skin.get_bind_count():
+		if String(body.skin.get_bind_name(i)) == "RightHand": rh = i
+	var to_axe: Transform3D = skel.get_bone_rest(wb).affine_inverse() * body.skin.get_bind_pose(rh)
+	var lo := 1e9; var hi := -1e9
+	for vi in verts.size():
+		var w := 0.0
+		for j in nb:
+			if int(bones[vi * nb + j]) == rh: w += float(weights[vi * nb + j])
+		if w <= 0.5: continue
+		var q: Vector3 = to_axe * verts[vi]
+		var sa: float = (q - grip_l).dot(H)
+		if ((q - grip_l) - sa * H).length() * s_ > 0.06: continue
+		lo = minf(lo, sa); hi = maxf(hi, sa)
+	var rs := []
+	for pl in pts:
+		var sa2: float = (pl - grip_l).dot(H)
+		if absf(sa2) * s_ < 0.03: rs.append(((pl - grip_l) - sa2 * H).length())
+	rs.sort()
+	var r_haft: float = float(rs[int(rs.size() * 0.9)]) if rs.size() > 4 else 0.02 / s_
+	fist_s = [lo - 0.01 / s_, hi + 0.01 / s_]
+	fist_r = r_haft + 0.01 / s_
 
 func _pen() -> int:
 	skel.notification(Skeleton3D.NOTIFICATION_UPDATE_SKELETON)
@@ -150,11 +188,17 @@ func _pen() -> int:
 	var g: Transform3D = skel.get_bone_global_pose(wb)
 	var inside := 0
 	for pl in pts:
+		var sa: float = (pl - grip_l).dot(H)
+		var ra: float = ((pl - grip_l) - sa * H).length()
+		if sa >= float(fist_s[0]) and sa <= float(fist_s[1]) and ra <= fist_r: continue
 		var p: Vector3 = g * pl
-		if p.x < bx.position.x or p.x > bx.end.x or p.z < bx.position.z or p.z > bx.end.z or p.y > bx.end.y: continue
-		var up: Array = _cross(tm, p, Vector3.UP)
-		var dn: Array = _cross(tm, p, Vector3.DOWN)
-		if int(up[0]) % 2 == 0 or int(dn[0]) % 2 == 0: continue
-		if int(up[1]) >= 0 and int(dn[1]) >= 0 and tri_hand[int(up[1])] == 1 and tri_hand[int(dn[1])] == 1: continue
+		if not bx.has_point(p): continue
+		var odd := true; var in_hand := true
+		for d in DIRS:
+			var c: Array = _cross(tm, p, d)
+			if int(c[0]) % 2 == 0:
+				odd = false; break
+			if int(c[1]) < 0 or tri_hand[int(c[1])] == 0: in_hand = false
+		if not odd or in_hand: continue
 		inside += 1
 	return inside

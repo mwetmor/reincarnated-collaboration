@@ -12,7 +12,8 @@ whose arm is already at guard.
 right arm and weapon_r; a filtered bone the pose does not key blends to its rest, which for
 weapon_r is the mount) and, per CLIP, the swing end `at_s` -- measured on the clip by
 tools/guard_accept.gd, the gate's own instrument. A clip in `guard_throughout` never takes the
-axe arm at all (the shield bash: its swing is the shield's). A strike whose clip is in neither
+axe arm at all (the shield bash: its swing is the shield's). `pose_for` names a clip's own guard pose
+where the default would not hold (the bash: axe_guard_R_bash, solved for its lunging torso). A strike whose clip is in neither
 keeps its arm throughout; no `strike_release` block -> nothing changes.
 
 THE POSE IS PLAYED AS A CLIP OF THE STRIKE'S OWN LENGTH, synced. A Blend2 reports the time left
@@ -107,7 +108,7 @@ EDITS = [
      '\t\tif not bt.has_node("rel_" + key):\n'
      '\t\t\tcontinue\n'
      '\t\tvar clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)\n'
-     '\t\tvar held := _release_pose_for(clip, pose)\n'
+     '\t\tvar held := _release_pose_for(clip, String((spec.get("pose_for", {}) as Dictionary).get(clip, pose)))\n'
      '\t\t(bt.get_node("g_" + key) as AnimationNodeAnimation).animation = held if held != "" else clip\n'
      '\t\tvar b2 := bt.get_node("rel_" + key) as AnimationNodeBlend2\n'
      '\t\tfor p in paths.values():\n'
