@@ -1,0 +1,578 @@
+[
+ {
+  "file": "export/nb-body_join.glb",
+  "roots": [
+   "Hips"
+  ],
+  "joints": 26,
+  "clips": {
+   "attack": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 77.7153,
+     "min": 73.8643,
+     "max": 89.0052,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.252,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0182,
+     "mean": 0.0914,
+     "first": 0.0242
+    }
+   },
+   "attack_chop": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 117.4738,
+     "min": 92.5701,
+     "max": 127.2017,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 69.091,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.4655,
+     "first": 0.0
+    }
+   },
+   "run_armed_diagblend_REJECTED": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 96.7166,
+     "min": 94.9973,
+     "max": 98.2889,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 1.958,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0347,
+     "mean": 0.0643,
+     "first": 0.0432
+    }
+   },
+   "run_armed_L": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 100.5151,
+     "min": 98.771,
+     "max": 103.3396,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.297,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0311,
+     "mean": 0.0689,
+     "first": 0.0411
+    }
+   },
+   "run_armed_locked": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 87.1231,
+     "min": 85.3758,
+     "max": 91.777,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0072,
+     "mean": 0.0183,
+     "first": 0.0088
+    }
+   },
+   "run_armed_R": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 87.2119,
+     "min": 83.8638,
+     "max": 88.317,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.557,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0147,
+     "mean": 0.0616,
+     "first": 0.0407
+    }
+   },
+   "shield_carry_L": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 93.79,
+     "min": 93.79,
+     "max": 93.79,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.0,
+     "first": 0.0
+    }
+   },
+   "shield_guard_L": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 93.79,
+     "min": 93.79,
+     "max": 93.79,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.0,
+     "first": 0.0
+    }
+   },
+   "walk_armed_unarmedsrc": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 94.3712,
+     "min": 87.7556,
+     "max": 94.9814,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.753,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0114,
+     "mean": 0.0382,
+     "first": 0.0174
+    }
+   },
+   "walk_armed": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 89.1996,
+     "min": 88.2831,
+     "max": 93.7757,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0051,
+     "mean": 0.0204,
+     "first": 0.0233
+    }
+   },
+   "idle_armed": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 48.7315,
+     "min": 48.7315,
+     "max": 103.0277,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0097,
+     "mean": 0.1247,
+     "first": 0.0193
+    }
+   },
+   "block": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 90.1106,
+     "min": 81.4425,
+     "max": 93.2443,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.003,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.039,
+     "first": 0.0
+    }
+   },
+   "shield_bash": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 78.3464,
+     "min": 58.097,
+     "max": 87.706,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.082,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.0692,
+     "first": 0.0
+    }
+   },
+   "chop_overhead_92": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 88.1445,
+     "min": 70.2836,
+     "max": 89.2146,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 39.815,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.19,
+     "first": 0.0
+    }
+   },
+   "idle": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 86.2569,
+     "min": 84.0547,
+     "max": 87.423,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0041,
+     "mean": 0.0174,
+     "first": 0.0135
+    }
+   },
+   "walk": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 96.3426,
+     "min": 89.611,
+     "max": 96.9755,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0018,
+     "mean": 0.025,
+     "first": 0.0224
+    }
+   },
+   "run": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 90.1342,
+     "min": 88.106,
+     "max": 95.0568,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0033,
+     "mean": 0.0164,
+     "first": 0.0033
+    }
+   },
+   "axe_guard_R": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "axe_guard_R_block": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "axe_guard_R_bash": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "axe_guard_R_chop": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "idle_guard": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 85.4235,
+     "min": 85.4235,
+     "max": 85.4235,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0051,
+     "mean": 0.0051,
+     "first": 0.0051
+    }
+   },
+   "strafe_L_armed": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 87.0759,
+     "min": 83.9926,
+     "max": 87.9018,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0447,
+     "mean": 0.1121,
+     "first": 0.0447
+    }
+   },
+   "strafe_R_armed": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 83.2492,
+     "min": 77.4976,
+     "max": 83.2492,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.0028,
+     "mean": 0.0595,
+     "first": 0.0192
+    }
+   },
+   "run_armed": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 88.6597,
+     "min": 80.2194,
+     "max": 88.6597,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": true,
+    "root_offset_m": {
+     "closest": 0.008,
+     "mean": 0.0379,
+     "first": 0.045
+    }
+   },
+   "join_guard_R": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_L": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "shout": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 93.7944,
+     "min": 90.7737,
+     "max": 99.5174,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.0892,
+     "first": 0.0
+    }
+   },
+   "hit": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 93.8658,
+     "min": 87.6547,
+     "max": 93.8658,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.2413,
+     "first": 0.0
+    }
+   },
+   "death": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 96.0974,
+     "min": 16.7545,
+     "max": 96.1384,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.1467,
+     "first": 0.0
+    }
+   },
+   "whirlwind": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 86.1875,
+     "min": 86.1875,
+     "max": 86.1875,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0085,
+     "mean": 0.0085,
+     "first": 0.0085
+    }
+   }
+  },
+  "morphs": [
+   "grip_L",
+   "grip_R",
+   "helmet_on"
+  ],
+  "fails": [],
+  "warns": [
+   "nb-body_join.glb: clip 'attack' starts root 'Hips' at 77.715 against rest 93.790 (17.1% > 5%)",
+   "nb-body_join.glb: clip 'attack_chop' drifts 0.752 m horizontally over its own length (69.1 units) and is not locomotion -- a clip that walks away from where it started",
+   "nb-body_join.glb: clip 'attack_chop' starts root 'Hips' at 117.474 against rest 93.790 (25.3% > 5%)",
+   "nb-body_join.glb: clip 'run_armed_L' starts root 'Hips' at 100.515 against rest 93.790 (7.2% > 5%)",
+   "nb-body_join.glb: clip 'run_armed_locked' starts root 'Hips' at 87.123 against rest 93.790 (7.1% > 5%)",
+   "nb-body_join.glb: clip 'run_armed_R' starts root 'Hips' at 87.212 against rest 93.790 (7.0% > 5%)",
+   "nb-body_join.glb: clip 'idle_armed' starts root 'Hips' at 48.732 against rest 93.790 (48.0% > 5%)",
+   "nb-body_join.glb: clip 'shield_bash' starts root 'Hips' at 78.346 against rest 93.790 (16.5% > 5%)",
+   "nb-body_join.glb: clip 'chop_overhead_92' drifts 0.433 m horizontally over its own length (39.8 units) and is not locomotion -- a clip that walks away from where it started",
+   "nb-body_join.glb: clip 'chop_overhead_92' starts root 'Hips' at 88.145 against rest 93.790 (6.0% > 5%)",
+   "nb-body_join.glb: clip 'idle' starts root 'Hips' at 86.257 against rest 93.790 (8.0% > 5%)",
+   "nb-body_join.glb: clip 'idle_guard' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)",
+   "nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)",
+   "nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)",
+   "nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 86.188 against rest 93.790 (8.1% > 5%)"
+  ],
+  "verdict": "WARN",
+  "rows": {
+   "fidelity": [
+    {
+     "clip": "death",
+     "source": "../nb_join/anims/death_dying_back.glb",
+     "source_clip": "Armature|dying_backwards|baselayer",
+     "time_shift_s": 0.0333,
+     "times": 68,
+     "err_max": 0.0001,
+     "worst_t": 1.3667,
+     "worst_joint": "RightForeArm",
+     "err_median": 0.0001,
+     "hips_deg_max": 0.0,
+     "excluded": [],
+     "within": true,
+     "rest_match": 5e-05,
+     "edits": [
+      "deroot",
+      "recentre",
+      "reground"
+     ],
+     "status": "PASS"
+    },
+    {
+     "clip": "hit",
+     "source": "../nb_join/anims/hit_reaction.glb",
+     "source_clip": "Armature|Hit_Reaction|baselayer",
+     "time_shift_s": 0.0333,
+     "times": 50,
+     "err_max": 0.0001,
+     "worst_t": 0.5333,
+     "worst_joint": "RightHand",
+     "err_median": 0.0001,
+     "hips_deg_max": 0.0,
+     "excluded": [],
+     "within": true,
+     "rest_match": 5e-05,
+     "edits": [
+      "deroot",
+      "recentre",
+      "reground"
+     ],
+     "status": "PASS"
+    },
+    {
+     "clip": "shout",
+     "source": "../nb_join/anims/shout_sword_shout.glb",
+     "source_clip": "Armature|Sword_Shout|baselayer",
+     "time_shift_s": 0.0333,
+     "times": 84,
+     "err_max": 0.0001,
+     "worst_t": 2.7667,
+     "worst_joint": "RightHand",
+     "err_median": 0.0001,
+     "hips_deg_max": 0.0,
+     "excluded": [],
+     "within": true,
+     "rest_match": 5e-05,
+     "edits": [
+      "deroot",
+      "recentre",
+      "reground",
+      "trim"
+     ],
+     "status": "PASS"
+    },
+    {
+     "clip": "whirlwind",
+     "status": "AUTHORED",
+     "note": "authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg"
+    }
+   ],
+   "seams": [
+    {
+     "closure_m": 0.0,
+     "closure_deg": 0.0,
+     "closure_joint": "LeftToeBase",
+     "first_frac": 1.0,
+     "keys": 17,
+     "T_s": 0.5333,
+     "clip": "whirlwind",
+     "grid_status": "PASS",
+     "grid_note": "17 keys at 0.0333 s against the source's 17 at 0.0333 s (nbt_idle.glb)",
+     "seam_status": "PASS"
+    }
+   ]
+  }
+ }
+]

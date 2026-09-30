@@ -16,8 +16,8 @@ F = importlib.import_module("56_clip_fidelity")
 F.REGISTRY = REG
 F.registry.__defaults__ = (REG,)
 L = importlib.import_module("21_lint_export")
-a = [x for x in sys.argv[1:] if not x.startswith('--')]
 out = sys.argv[sys.argv.index('--json') + 1] if '--json' in sys.argv else None
+a = [x for x in sys.argv[1:] if not x.startswith('--') and x != out]
 res = []
 for p in a:
     r = L.lint(p)

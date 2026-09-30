@@ -1,0 +1,178 @@
+{
+ "kit": "d2-ww-barb",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). DRAFT: the idle/walk/run hold is the scene drax's (layer_specs, read from HIS path); the pack is not rendered until his join_hold.json lands.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/nb-body_join.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/byrnie.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/helmet.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/mantle.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/bracers.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold/axe_l.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/join_manifest.json",
+  "loadout": {
+   "main_hand": "sword",
+   "main_side": "R",
+   "off_hand": "axe",
+   "weapsel": 2
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "his JOIN hold (join_hold.json)"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "his JOIN hold (join_hold.json)"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "his JOIN hold (join_hold.json)"
+  },
+  "whirlwind": {
+   "clip": "whirlwind",
+   "kind": "loop",
+   "role": "channel_loop",
+   "frames": 16,
+   "sampling": "loop",
+   "skill": "Skills.txt Id 151",
+   "manifest_entry": "clips.whirlwind",
+   "revolution": {
+    "cycles": 1,
+    "sense": "ccw",
+    "revolution_deg": -360.0,
+    "measured_from": "main_tip, the port's bearing (atan2 y, x)",
+    "ruling": "Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"
+   }
+  },
+  "shout": {
+   "clip": "shout",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "skill": "Skills.txt Id 149 (Battle Orders)",
+   "release_from": "casts.shout.release_s",
+   "release_socket": "head_top",
+   "manifest_entry": "casts.shout"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "layer_specs": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold/join_hold.json"
+ ],
+ "layer_list": [
+  {
+   "name": "guard_R",
+   "action": "join_guard_R",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout",
+    "hit",
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L",
+   "action": "join_guard_L",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout",
+    "hit",
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  }
+ ],
+ "morphs": {
+  "grip_R": 1,
+  "grip_L": 1,
+  "helmet_on": 1,
+  "_what": "both fists closed on their weapons; the helmet worn"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "weapon_r",
+   "_what": "the sword grip: the weapon_r joint"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.7768,
+   "_what": "the sword tip: weapon_r + 0.7768 m along +Y"
+  },
+  "off_grip": {
+   "bone": "weapon_l",
+   "_what": "the axe grip: the weapon_l joint (the scene drax's left seat)"
+  },
+  "off_tip": {
+   "bone": "weapon_l",
+   "along_bone_m": 0.8089,
+   "_what": "the axe head's far point: weapon_l + 0.8089 m along +Y (his mount.json off_tip_along_m)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head: the head_end joint"
+  },
+  "chest": {
+   "bone": "Spine02",
+   "_what": "the chest: the Spine02 joint"
+  }
+ },
+ "watchdog_s": 2400
+}

@@ -1,0 +1,365 @@
+{
+ "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body",
+ "body": {
+  "file": "export/nb-body_join.glb",
+  "sha256": "529d61187605f9a77c6d661e6ab33e10b1427032f776a6da6d88b9e343f8f6fd",
+  "base": "nb_d2/export_staging/JOIN_hold/nb-body.glb (the scene drax's JOIN body)",
+  "base_sha256": "9b7df0f36f6c9f966d3e328e67ca25b93c5a1730e8b06373b8a4225d4e577072",
+  "base_md5": "df39ea0f836c6fbab6016cbc6198452d",
+  "added": [
+   "whirlwind",
+   "shout",
+   "hit",
+   "death"
+  ],
+  "kept": "every other byte of the base (two binary patches; checked)"
+ },
+ "weapons": {
+  "main": {
+   "piece": "nb_w2/export/sword.glb (roll 0)",
+   "bone": "weapon_r",
+   "grip": "weapon_r joint",
+   "tip_along_y_m": 0.7768
+  },
+  "off": {
+   "piece": "nb_d2/export_staging/JOIN_hold/axe_l.glb",
+   "bone": "weapon_l",
+   "grip": "weapon_l joint",
+   "tip_along_y_m": 0.8089
+  },
+  "rule": "no JOIN move keys a weapon bone: both ride their mounts (the scene drax's rule, the glTF rule for an un-keyed channel)"
+ },
+ "clips": {
+  "whirlwind": {
+   "kind": "loop, channel",
+   "seconds": 0.5333,
+   "keys": 17,
+   "deg_per_key": 22.5,
+   "revolution": {
+    "cycles": 1,
+    "sense": "ccw",
+    "revolution_deg": -360.0,
+    "measured_from": "main_tip, the port's bearing (atan2 y, x)",
+    "ruling": "Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"
+   },
+   "method": "the weapon research's: ONE constant local pose under a uniform single-revolution yaw about the vertical through his hips -- closure exact by construction; keyed on the idle SOURCE's own 30 fps grid",
+   "pose": {
+    "stance": {
+     "clip": "idle",
+     "t": 0.5
+    },
+    "chest_counter_yaw_deg": -20.01,
+    "limits": {
+     "wrist_max": 50.0,
+     "reach_min": 0.6,
+     "elbow_max": 45.0,
+     "arm_drop_max": 30.0
+    },
+    "terms": {
+     "r": {
+      "level": 0.0028,
+      "radial": 0.9876,
+      "edge": 0.9876,
+      "grip_y": 1.3318,
+      "reach": 0.5765,
+      "elbow": 45.7292,
+      "wrist": 51.2461,
+      "arm_drop": -0.444,
+      "clear_axis": 0.7221,
+      "clear_head": 0.617
+     },
+     "l": {
+      "level": 0.0006,
+      "radial": 1.0,
+      "edge": 1.0,
+      "grip_y": 1.3414,
+      "reach": 0.6169,
+      "elbow": 45.032,
+      "wrist": 50.0792,
+      "arm_drop": -0.2999,
+      "clear_axis": 0.7669,
+      "clear_head": 0.9017
+     }
+    }
+   },
+   "authored_by": "scripts/j_whirl_pose.py (the solve), scripts/j_whirl_clip.py (the clip)",
+   "reads_in_8_directions": {
+    "worst_flat_facing_cos": {
+     "r": 0.7950546706294319,
+     "l": 0.7966109804882373
+    },
+    "definition": "|X . view| over the 8 contract directions (the character turned by 90 - bearing, camera pitch 52.95 deg, yaw 0) and all 17 keys; X = the weapon frame's flat normal",
+    "verdict": "no blade edge-on in any direction at any frame: level blades show their flats to a camera pitched 52.95 deg down"
+   }
+  },
+  "shout": {
+   "kind": "one-shot + RELEASE",
+   "skill": "Battle Orders (Skills 149)",
+   "source": "../nb_join/anims/shout_sword_shout.glb",
+   "action": "Meshy 101",
+   "window_source_time": [
+    0.0333,
+    2.8333
+   ],
+   "seconds": 2.7667,
+   "layers": "guard_R + guard_L (the JOIN guards): the weapons at guard or raised, never a swing"
+  },
+  "hit": {
+   "kind": "one-shot",
+   "source": "../nb_join/anims/hit_reaction.glb",
+   "action": "Meshy 178",
+   "seconds": 1.6333,
+   "layers": "guard_R + guard_L",
+   "why": "Hit Reaction recoils the whole body; Hit Reaction 1 was fetched too and is mostly a head snap"
+  },
+  "death": {
+   "kind": "one-shot, hold last",
+   "source": "../nb_join/anims/death_dying_back.glb",
+   "action": "Meshy 189",
+   "seconds": 2.2333,
+   "layers": "guard_R + guard_L"
+  }
+ },
+ "casts": {
+  "shout": {
+   "release_s": 1.2,
+   "definition": "the cry's peak: the key of the head's greatest upward pitch (the roar, chin up), measured on the grafted clip's own keys",
+   "head_pitch_up_deg": 41.85,
+   "key": 36
+  }
+ },
+ "layers": {
+  "list": [
+   {
+    "name": "guard_R",
+    "action": "join_guard_R",
+    "bones": [
+     "RightShoulder",
+     "RightArm",
+     "RightForeArm",
+     "RightHand"
+    ],
+    "weight": 1.0,
+    "states": [
+     "shout",
+     "hit",
+     "death"
+    ],
+    "time": "pose",
+    "filter_from": "all_clips"
+   },
+   {
+    "name": "guard_L",
+    "action": "join_guard_L",
+    "bones": [
+     "LeftShoulder",
+     "LeftArm",
+     "LeftForeArm",
+     "LeftHand"
+    ],
+    "weight": 1.0,
+    "states": [
+     "shout",
+     "hit",
+     "death"
+    ],
+    "time": "pose",
+    "filter_from": "all_clips"
+   }
+  ],
+  "why": "raw, the library motions swing both weapons and pass them through him (Sword Shout: sword 217 and axe 817 sampled vertices inside; Hit Reaction: axe 648; Dying Backwards: 228 / 634 and the sword through the floor). The JOIN guards on both arms hold the weapons at guard while the body reacts: the head's reaction is kept whole (the layers touch no spine bone).",
+  "filter_from": "all_clips: Godot's glTF import drops the guards' rest-valued HAND tracks (the neutral wrist), so a filter taken only from the action's own tracks lets the wrist follow the library clip -- measured, the blade then turns up to about 300 deg per second in the hit and the death's graze grows from 5 frames to 9. The scene drax is told; the agreed default stays 'action' for his hold until he answers."
+ },
+ "fetch": {
+  "ledger": "work/meshy_fetch.json",
+  "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+  "credits_spent": 15,
+  "cap": 15,
+  "clips": {
+   "shout_sword_shout": {
+    "action": 101,
+    "task": "01a0f17a-f834-7134-9a8a-02e24e7b0ac9",
+    "credits": 3
+   },
+   "shout_chest_pound": {
+    "action": 88,
+    "task": "01a0f17c-6a5b-74be-bd71-28a7f745151b",
+    "credits": 3
+   },
+   "hit_reaction_1": {
+    "action": 179,
+    "task": "01a0f17d-a15b-7412-8724-1cd82eedd6b9",
+    "credits": 3
+   },
+   "hit_reaction": {
+    "action": 178,
+    "task": "01a0f17e-2494-7243-a0b4-a0daa7006ca6",
+    "credits": 3
+   },
+   "death_dying_back": {
+    "action": 189,
+    "task": "01a0f17e-fa20-73ca-a012-20e0b7a1850b",
+    "credits": 3
+   }
+  },
+  "refusal_test": "the rig guard tested with an INVALID key first: 0 credits"
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 16,
+  "rows": {
+   "death": {
+    "fidelity": "PASS",
+    "err_max": 0.0001
+   },
+   "hit": {
+    "fidelity": "PASS",
+    "err_max": 0.0001
+   },
+   "shout": {
+    "fidelity": "PASS",
+    "err_max": 0.0001
+   },
+   "whirlwind": {
+    "fidelity": "AUTHORED",
+    "err_max": null
+   }
+  },
+  "seams": {
+   "whirlwind": {
+    "grid": "PASS",
+    "seam": "PASS",
+    "closure_m": 0.0,
+    "closure_deg": 0.0
+   }
+  },
+  "instrument": "scripts/j21_lint.py: nb_d2's 21_lint_export unchanged, pointed at work/clip_sources.json"
+ },
+ "measured": {
+  "whirlwind": {
+   "sword": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 15.7,
+    "blade_turn_max_deg_per_sec": 675.1,
+    "tilt_deg": [
+     89.8,
+     89.8
+    ],
+    "tip_lowest_m": 1.334,
+    "samples": 17
+   },
+   "axe": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 16.88,
+    "blade_turn_max_deg_per_sec": 675.1,
+    "tilt_deg": [
+     90.0,
+     90.0
+    ],
+    "tip_lowest_m": 1.339,
+    "samples": 17
+   }
+  },
+  "shout": {
+   "sword": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 4.47,
+    "blade_turn_max_deg_per_sec": 225.4,
+    "tilt_deg": [
+     23.7,
+     55.8
+    ],
+    "tip_lowest_m": 1.662,
+    "samples": 34
+   },
+   "axe": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 5.29,
+    "blade_turn_max_deg_per_sec": 214.9,
+    "tilt_deg": [
+     26.3,
+     46.1
+    ],
+    "tip_lowest_m": 1.607,
+    "samples": 34
+   }
+  },
+  "hit": {
+   "sword": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 2.87,
+    "blade_turn_max_deg_per_sec": 103.1,
+    "tilt_deg": [
+     39.8,
+     58.3
+    ],
+    "tip_lowest_m": 1.455,
+    "samples": 34
+   },
+   "axe": {
+    "pen_max": 0,
+    "pen_frames": 0,
+    "tip_speed_max_m_per_sec": 3.05,
+    "blade_turn_max_deg_per_sec": 149.3,
+    "tilt_deg": [
+     41.6,
+     53.6
+    ],
+    "tip_lowest_m": 1.43,
+    "samples": 34
+   }
+  },
+  "death": {
+   "sword": {
+    "pen_max": 118,
+    "pen_frames": 5,
+    "tip_speed_max_m_per_sec": 7.26,
+    "blade_turn_max_deg_per_sec": 290.7,
+    "tilt_deg": [
+     49.4,
+     86.7
+    ],
+    "tip_lowest_m": 0.64,
+    "samples": 34
+   },
+   "axe": {
+    "pen_max": 3,
+    "pen_frames": 4,
+    "tip_speed_max_m_per_sec": 7.84,
+    "blade_turn_max_deg_per_sec": 389.2,
+    "tilt_deg": [
+     18.2,
+     67.4
+    ],
+    "tip_lowest_m": 1.058,
+    "samples": 34
+   }
+  }
+ },
+ "measured_method": "scripts/j_measure.py: every sampled frame on the SHIPPED binding (pieces by their own IBMs; an un-keyed channel at rest), the layers as listed (all four arm bones each side); penetration = odd crossings along all six axes, the fist excluded",
+ "validation": {
+  "numpy_vs_godot_m": 3e-05,
+  "samples": 104,
+  "what": "the measure's glTF composite (guards on all four bones, a track the action lacks at rest) against the Godot renderer's own sockets (filter_from all_clips), main_tip and off_tip, one cell per move: 0.03 mm worst"
+ },
+ "lint_48": {
+  "instrument": "so_d7/scripts/48_manifest_lint.py (it has the release_s rows; nb_d2's copy does not)",
+  "result": "0 mismatches; release_s checked on shout",
+  "negative_control": "release_s = 3.0 -> 2 mismatches (outside the clip, off a key)"
+ },
+ "deliverables": {
+  "film": "artifacts/JOIN-moves-film-2x.mp4 (1920x1080 at 201.2 px/m, 393 frames: whirlwind looping at half rate, shout, hit twice (headings 25 and 205), death with its hold)",
+  "stills": "stills/join_<clip>_t<time>_2x.png: 8 headings each -- whirlwind; shout at 0, the release, the end; hit at 0, the peak, the end; death at 0, the fold, the held last frame",
+  "renderer_kit": "join1_render/kits/d2-ww-barb.json (DRAFT: the pack waits for the scene drax's join_hold.json)"
+ },
+ "look_calls_for_matt": [
+  "death's held last frame: he lies on his back with both weapons still held at guard, pointing up -- the guards hold them; the library's own arms instead put the sword through the floor",
+  "the shout reads through the body (head thrown back, a backward lean) with the weapons at guard, not raised overhead"
+ ]
+}

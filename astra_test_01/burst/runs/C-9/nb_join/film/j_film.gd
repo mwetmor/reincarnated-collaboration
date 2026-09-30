@@ -104,15 +104,22 @@ func _build_tree() -> void:
 		var b2 := AnimationNodeBlend2.new(); b2.filter_enabled = true
 		var act := ap.get_animation(String(ly["action"]))
 		var nf := 0
-		for i in act.get_track_count():
-			var pth: NodePath = act.track_get_path(i)
-			if String(pth.get_concatenated_subnames()) in ly["bones"]:
-				b2.set_filter_path(pth, true); nf += 1
+		var srcs: Array = [act]                           # filter_from: "action" (agreed default) | "all_clips" (see render_cells.gd)
+		if String(ly.get("filter_from", "action")) == "all_clips":
+			srcs = []
+			for n2 in ap.get_animation_list(): srcs.append(ap.get_animation(n2))
+		var seen := {}
+		for a2 in srcs:
+			for i in (a2 as Animation).get_track_count():
+				var pth: NodePath = (a2 as Animation).track_get_path(i)
+				if String(pth.get_concatenated_subnames()) in ly["bones"] and not seen.has(String(pth)):
+					seen[String(pth)] = true
+					b2.set_filter_path(pth, true); nf += 1
 		bt.add_node("a_" + nm, an); bt.add_node("s_" + nm, ls); bt.connect_node("s_" + nm, 0, "a_" + nm)
 		bt.add_node("L_" + nm, b2)
 		bt.connect_node("L_" + nm, 0, prev); bt.connect_node("L_" + nm, 1, "s_" + nm)
 		prev = "L_" + nm
-		print("[j] layer %s: %s, %d tracks filtered (%d bones), weight %s, states %s, time %s" % [nm, ly["action"], nf, ly["bones"].size(), ly.get("weight", 1.0), ly.get("states", []), ly.get("time", "pose")])
+		print("[j] layer %s: %s, %d tracks filtered (%d bones, from %s), weight %s, states %s, time %s" % [nm, ly["action"], nf, ly["bones"].size(), ly.get("filter_from", "action"), ly.get("weight", 1.0), ly.get("states", []), ly.get("time", "pose")])
 	bt.connect_node("output", 0, prev)
 	tree.tree_root = bt
 	tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL

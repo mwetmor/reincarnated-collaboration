@@ -1,0 +1,24 @@
+=== export/nb-body_join.glb (registry work/clip_sources.json)
+  WARN  nb-body_join.glb: clip 'attack' starts root 'Hips' at 77.715 against rest 93.790 (17.1% > 5%)
+  WARN  nb-body_join.glb: clip 'attack_chop' drifts 0.752 m horizontally over its own length (69.1 units) and is not locomotion -- a clip that walks away from where it started
+  WARN  nb-body_join.glb: clip 'attack_chop' starts root 'Hips' at 117.474 against rest 93.790 (25.3% > 5%)
+  WARN  nb-body_join.glb: clip 'run_armed_L' starts root 'Hips' at 100.515 against rest 93.790 (7.2% > 5%)
+  WARN  nb-body_join.glb: clip 'run_armed_locked' starts root 'Hips' at 87.123 against rest 93.790 (7.1% > 5%)
+  WARN  nb-body_join.glb: clip 'run_armed_R' starts root 'Hips' at 87.212 against rest 93.790 (7.0% > 5%)
+  WARN  nb-body_join.glb: clip 'idle_armed' starts root 'Hips' at 48.732 against rest 93.790 (48.0% > 5%)
+  WARN  nb-body_join.glb: clip 'shield_bash' starts root 'Hips' at 78.346 against rest 93.790 (16.5% > 5%)
+  WARN  nb-body_join.glb: clip 'chop_overhead_92' drifts 0.433 m horizontally over its own length (39.8 units) and is not locomotion -- a clip that walks away from where it started
+  WARN  nb-body_join.glb: clip 'chop_overhead_92' starts root 'Hips' at 88.145 against rest 93.790 (6.0% > 5%)
+  WARN  nb-body_join.glb: clip 'idle' starts root 'Hips' at 86.257 against rest 93.790 (8.0% > 5%)
+  WARN  nb-body_join.glb: clip 'idle_guard' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)
+  WARN  nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)
+  WARN  nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)
+  WARN  nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)
+  WARN  nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 86.188 against rest 93.790 (8.1% > 5%)
+  VERDICT: WARN
+  death      SOURCE FIDELITY PASS      max 0.0001 hips-to-head (limit 0.10), rest match 0.00005
+  hit        SOURCE FIDELITY PASS      max 0.0001 hips-to-head (limit 0.10), rest match 0.00005
+  shout      SOURCE FIDELITY PASS      max 0.0001 hips-to-head (limit 0.10), rest match 0.00005
+  whirlwind  SOURCE FIDELITY AUTHORED  authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg
+  whirlwind  SOURCE GRID     PASS      17 keys at 0.0333 s against the source's 17 at 0.0333 s (nbt_idle.glb)
+  whirlwind  LOOP SEAM       PASS      closure 0.00000 m (LeftToeBase) / 0.000 deg, first interval 1.00 of the median

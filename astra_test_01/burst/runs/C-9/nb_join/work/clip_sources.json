@@ -1,0 +1,154 @@
+{
+ "_note": "PROVENANCE OF THE JOIN MOVES in nb_join/export (the barbarian's JOIN body + whirlwind, shout, hit, death), the input of 21_lint_export's SOURCE FIDELITY / SOURCE GRID / LOOP SEAM rows as run by scripts/j21_lint.py. Same schema as nb_d2/work/clip_sources.json; paths relative to nb_d2/ (56_clip_fidelity resolves them there).",
+ "body_rig": {
+  "meshy_rig_task": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+  "record": "../nb_t8/work/res_rig_tripo.json",
+  "reference_glb": "../nb_t8/nbt_rigged.glb",
+  "not_this": "01a0eb6a-9e47-76ac-8979-941d3588695f (../nb_t8/work/res_rig.json) is the MESHY-mesh candidate's rig: D2's library fetches used it by mistake"
+ },
+ "edits": {
+  "deroot": "the hips' first-to-last horizontal line removed (45_deroot_trim's rule); hips translation only, not measured",
+  "recentre": "hips over the rest position -- loops on their mean, one-shots on their first frame (49_recentre's rule); hips translation only",
+  "reground": "one constant so the deepest foot vertex over the clip is on the floor (43_reground_all / gearlib.reground_from_feet mode 'min'); hips translation only",
+  "trim": "a window of the source, re-timed to start at 0; the measure aligns on it",
+  "wrist_lock": "36/38/44: the wrists slerped toward a carry angle; the hands are excluded from the measure"
+ },
+ "clips": {
+  "shout": {
+   "source": "../nb_join/anims/shout_sword_shout.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy 101",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "fetched_task": "01a0f17a-f834-7134-9a8a-02e24e7b0ac9",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "trim"
+   ],
+   "window": [
+    0.0333,
+    2.8333
+   ],
+   "graft": {
+    "source": "../nb_join/anims/shout_sword_shout.glb",
+    "source_anim": "Armature|Sword_Shout|baselayer",
+    "window": [
+     0.0333,
+     2.8333
+    ],
+    "keys": 84,
+    "length_s": 2.766666617244482,
+    "joints": 24,
+    "rest_match": 5e-05,
+    "hip_ratio": 1.08825,
+    "flags": [
+     "deroot"
+    ],
+    "source_travel_m": [
+     -0.0361,
+     0.5957
+    ],
+    "grounded_by_m": -0.05891,
+    "feet_span_m": [
+     0.0,
+     0.0502
+    ]
+   }
+  },
+  "hit": {
+   "source": "../nb_join/anims/hit_reaction.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy 178",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "fetched_task": "01a0f17e-2494-7243-a0b4-a0daa7006ca6",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "graft": {
+    "source": "../nb_join/anims/hit_reaction.glb",
+    "source_anim": "Armature|Hit_Reaction|baselayer",
+    "window": [
+     0.03333333507180214,
+     1.6666666269302368
+    ],
+    "keys": 50,
+    "length_s": 1.6333332918584347,
+    "joints": 24,
+    "rest_match": 5e-05,
+    "hip_ratio": 1.08825,
+    "flags": [
+     "deroot"
+    ],
+    "source_travel_m": [
+     1.2201,
+     -0.0007
+    ],
+    "grounded_by_m": -0.0063,
+    "feet_span_m": [
+     0.0,
+     0.0733
+    ]
+   }
+  },
+  "death": {
+   "source": "../nb_join/anims/death_dying_back.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy 189",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "fetched_task": "01a0f17e-fa20-73ca-a012-20e0b7a1850b",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "graft": {
+    "source": "../nb_join/anims/death_dying_back.glb",
+    "source_anim": "Armature|dying_backwards|baselayer",
+    "window": [
+     0.03333333507180214,
+     2.2666666507720947
+    ],
+    "keys": 68,
+    "length_s": 2.2333333157002926,
+    "joints": 24,
+    "rest_match": 5e-05,
+    "hip_ratio": 1.08825,
+    "flags": [
+     "deroot"
+    ],
+    "source_travel_m": [
+     -0.0562,
+     -0.9668
+    ],
+    "grounded_by_m": 0.04403,
+    "feet_span_m": [
+     0.0,
+     0.2401
+    ]
+   }
+  },
+  "whirlwind": {
+   "source": null,
+   "path": "j_whirl_pose.py + j_whirl_clip.py (authored)",
+   "loop": true,
+   "grid_source": "../nb_t8/nbt_idle.glb",
+   "grid_window": [
+    0.0333,
+    0.5667
+   ],
+   "note": "authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg"
+  }
+ }
+}

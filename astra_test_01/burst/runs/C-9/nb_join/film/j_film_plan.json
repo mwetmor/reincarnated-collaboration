@@ -1,0 +1,92 @@
+{
+ "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/nb-body_join.glb",
+ "pieces": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/byrnie.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/helmet.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/mantle.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_9_loops/bracers.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold/axe_l.glb"
+ ],
+ "morphs": {
+  "grip_R": 1,
+  "grip_L": 1,
+  "helmet_on": 1
+ },
+ "layers": [
+  {
+   "name": "guard_R",
+   "action": "join_guard_R",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout",
+    "hit",
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L",
+   "action": "join_guard_L",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout",
+    "hit",
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  }
+ ],
+ "watchdog_s": 1200,
+ "tag": "join",
+ "mode": "film",
+ "film": {
+  "out_mp4": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/artifacts/JOIN-moves-film-2x.mp4",
+  "w": 1920,
+  "h": 1080,
+  "scale": 2,
+  "plan": [
+   {
+    "clip": "whirlwind",
+    "seconds": 3.2,
+    "heading_deg": 25,
+    "loop": true,
+    "rate": 0.5
+   },
+   {
+    "clip": "shout",
+    "seconds": 3.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "hit",
+    "seconds": 1.8,
+    "heading_deg": 25
+   },
+   {
+    "clip": "hit",
+    "seconds": 1.8,
+    "heading_deg": 205
+   },
+   {
+    "clip": "death",
+    "seconds": 3.3,
+    "heading_deg": 115
+   }
+  ]
+ }
+}
