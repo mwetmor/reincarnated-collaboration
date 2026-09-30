@@ -286,7 +286,21 @@ var _obstacles: Array = []
 var _field_buf: PackedFloat32Array    # 4/px: D metres, edge, dD/dx, dD/dz
 var _field_tex: ImageTexture
 var _trail_buf: PackedFloat32Array    # 4/px: press, stamp time s, berm, spare
-var _trail_tex: ImageTexture
+var _trail_tex: Texture2DArray
+# THE TRAIL MAP IS UPLOADED IN TILES (C-9, her cast-start hitch). A print touches a few hundred
+# texels, but ImageTexture.update() re-sends the WHOLE map: 1024^2 RGBAF is 16 MB -- copied twice
+# on the CPU (to_byte_array, create_from_data: 14-17 ms of _process) and then uploaded inside the
+# next draw (21-51 ms) -- on the frame of every print. Her strike steps, so her cast start spiked a
+# frame to 34-51 ms on desktop with no effect in the scene at all. The map is now a
+# Texture2DArray of TRAIL_TILE_PX^2 tiles, each with a one-texel APRON copied from its neighbours
+# (the texture's own edge texel, clamped, at the border), and only the tiles a print touched are
+# re-sent: 130^2 x 16 B = 270 KB. The shader's trail_at() picks the tile and samples inside the
+# apron, so its bilinear taps are the ones the single texture gave -- the same texels, the same
+# weights (tools/perf_cast.gd and capture_painted.gd --trail: before and after, in the record).
+const TRAIL_TILE_PX := 128
+var _trail_tile_px := TRAIL_TILE_PX
+var _trail_tiles_n := 1
+var _trail_dirty_tiles := {}
 var _mat: ShaderMaterial
 var _mesh_inst: MeshInstance3D
 var _t := 0.0
@@ -309,7 +323,9 @@ shader_type spatial;
 render_mode specular_disabled, cull_back;
 """ + PS.RAMP_UNIFORMS + """
 uniform sampler2D field_tex : filter_linear, repeat_disable;
-uniform sampler2D trail_tex : filter_linear, repeat_disable;
+uniform sampler2DArray trail_tex : filter_linear, repeat_disable;
+uniform float trail_tiles_n = 1.0;
+uniform float trail_tile_px = 1024.0;
 uniform sampler2D snow_tex : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform sampler2D mottle_noise : hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform vec2 area_min;
@@ -357,6 +373,15 @@ varying vec2 v_uv;
 varying float v_press;
 """ + PS.RAMP_BODY + """
 
+// THE TRAIL MAP IN TILES (SnowField._trail_tex): the tile under uv, sampled inside its one-texel
+// apron -- the same two texels and weights a single clamped texture's bilinear tap takes.
+vec4 trail_at(vec2 uv) {
+	vec2 g = clamp(uv, vec2(0.0), vec2(1.0)) * trail_tiles_n;
+	vec2 tile = min(floor(g), vec2(trail_tiles_n - 1.0));
+	vec2 tuv = (1.0 + (g - tile) * trail_tile_px) / (trail_tile_px + 2.0);
+	return texture(trail_tex, vec3(tuv, tile.y * trail_tiles_n + tile.x));
+}
+
 // ONE definition of the snow's height, shared with depth_at() on the CPU.
 // Returns metres above the floor; hands back press and berm so the caller need not refetch.
 float snow_h(vec2 uv, out float p, out float b, out vec4 f) {
@@ -364,7 +389,7 @@ float snow_h(vec2 uv, out float p, out float b, out vec4 f) {
 	// gradient in f.ba as well as the depth in f.r, and a second texture(field_tex, v_uv)
 	// there is a duplicate full-screen fetch for data this function already had.
 	f = texture(field_tex, uv);
-	vec4 t = texture(trail_tex, uv);
+	vec4 t = trail_at(uv);
 	float fade = clamp(1.0 - (now_s - t.g) / max(refill_s, 1e-3), 0.0, 1.0);
 	p = clamp(t.r * fade, 0.0, 1.0);
 	b = clamp(t.b * fade, 0.0, 1.0);
@@ -825,6 +850,29 @@ func _gpu_image(n: int, buf: PackedFloat32Array) -> Image:
 	return img
 
 
+func _trail_tile_image(tx: int, ty: int) -> Image:
+	"""Tile (tx, ty) of the trail map with its one-texel apron: (T+2)^2 texels, texel (c, r) is the
+	map's texel (tx*T + c - 1, ty*T + r - 1), clamped to the map's edge. Built from row slices of
+	the float buffer (bulk copies, no per-texel GDScript), then in the GPU's format."""
+	var T := _trail_tile_px
+	var W := T + 2
+	var out := PackedByteArray()
+	var i0 := tx * T - 1
+	var c0 := maxi(i0, 0)
+	var c1 := mini(i0 + W - 1, trail_px - 1)
+	for r in W:
+		var row := clampi(ty * T + r - 1, 0, trail_px - 1) * trail_px
+		if c0 > i0:
+			out.append_array(_trail_buf.slice((row + c0) * 4, (row + c0 + 1) * 4).to_byte_array())
+		out.append_array(_trail_buf.slice((row + c0) * 4, (row + c1 + 1) * 4).to_byte_array())
+		if i0 + W - 1 > c1:
+			out.append_array(_trail_buf.slice((row + c1) * 4, (row + c1 + 1) * 4).to_byte_array())
+	var img := Image.create_from_data(W, W, false, Image.FORMAT_RGBAF, out)
+	if half_float_textures:
+		img.convert(Image.FORMAT_RGBAH)
+	return img
+
+
 func _edge_at(x: float, z: float) -> float:
 	var dl := x - area.position.x
 	var dr := area.position.x + area.size.x - x
@@ -965,7 +1013,15 @@ func _make_trail() -> void:
 	var dead := -6.0e4 if half_float_textures else -1.0e6
 	for k in trail_px * trail_px:
 		_trail_buf[k * 4 + 1] = dead
-	_trail_tex = ImageTexture.create_from_image(_gpu_image(trail_px, _trail_buf))
+	_trail_tile_px = TRAIL_TILE_PX if trail_px % TRAIL_TILE_PX == 0 else trail_px
+	_trail_tiles_n = trail_px / _trail_tile_px
+	var tiles: Array[Image] = []
+	for ty in _trail_tiles_n:
+		for tx in _trail_tiles_n:
+			tiles.append(_trail_tile_image(tx, ty))
+	_trail_tex = Texture2DArray.new()
+	_trail_tex.create_from_images(tiles)
+	_trail_dirty_tiles.clear()
 	_last_stamp.clear()
 	_last_plough = Vector2.INF
 
@@ -1044,6 +1100,14 @@ func _stamp(centre: Vector2, fwd: Vector2, half_len: float, half_wid: float,
 			_trail_buf[o] = maxf(_trail_buf[o] * fade, clampf(press, 0.0, 1.0))
 			_trail_buf[o + 2] = maxf(_trail_buf[o + 2] * fade, clampf(berm, 0.0, 1.0))
 			_trail_buf[o + 1] = _t
+	# the tiles this print can have changed, and the neighbours whose apron holds its edge texels
+	var tx0 := maxi((i0 - 1) / _trail_tile_px, 0)
+	var tx1 := mini((i1 + 1) / _trail_tile_px, _trail_tiles_n - 1)
+	var ty0 := maxi((j0 - 1) / _trail_tile_px, 0)
+	var ty1 := mini((j1 + 1) / _trail_tile_px, _trail_tiles_n - 1)
+	for ty in range(ty0, ty1 + 1):
+		for tx in range(tx0, tx1 + 1):
+			_trail_dirty_tiles[ty * _trail_tiles_n + tx] = true
 	_trail_dirty = true
 
 
@@ -1286,6 +1350,8 @@ func _make_material() -> ShaderMaterial:
 		tile = load("res://textures/barrow/snow.png")
 	_mat.set_shader_parameter("field_tex", _field_tex)
 	_mat.set_shader_parameter("trail_tex", _trail_tex)
+	_mat.set_shader_parameter("trail_tiles_n", float(_trail_tiles_n))
+	_mat.set_shader_parameter("trail_tile_px", float(_trail_tile_px))
 	_mat.set_shader_parameter("snow_tex", tile)
 	_mat.set_shader_parameter("mottle_noise", fbm)
 	_mat.set_shader_parameter("wash_noise", fbm)
@@ -1345,8 +1411,14 @@ func field_texture() -> Texture2D:
 	return _field_tex
 
 
-func trail_texture() -> Texture2D:
+func trail_texture() -> Texture2DArray:
+	"""The trail map as TILES (see _trail_tex): a sampler2DArray, sampled through trail_tiles()."""
 	return _trail_tex
+
+
+func trail_tiles() -> Vector2:
+	"""(tiles per side, texels per tile side without the apron) for a shader's trail_at()."""
+	return Vector2(float(_trail_tiles_n), float(_trail_tile_px))
 
 
 func set_id_black(on: bool) -> void:
@@ -1373,7 +1445,10 @@ func _build_puffs() -> void:
 	for i in puff_pool:
 		var g := GPUParticles3D.new()
 		g.name = "Puff%d" % i
-		g.amount = spray_amount
+		# SIZED ONCE, at the most any print can ask for (the spray, or puff_amount x the 4.0 depth
+		# cap); a print asks for fewer through amount_ratio. Setting `amount` per print re-allocated
+		# the particle buffers on the frame of the print (C-9, her cast-start hitch).
+		g.amount = maxi(spray_amount, int(round(float(puff_amount) * 4.0)))
 		g.one_shot = true
 		g.emitting = false
 		g.explosiveness = 0.92
@@ -1433,9 +1508,12 @@ func _puff(at: Vector3, fwd: Vector2, D: float, deep: bool) -> void:
 	g.global_position = at
 	var pm: ParticleProcessMaterial = g.process_material
 	var scale_f := clampf(D / maxf(base_depth_m, 1e-3), 0.6, 4.0)
-	g.amount = maxi(int(round(float(puff_amount) * scale_f)), 4)
+	var want := maxi(int(round(float(puff_amount) * scale_f)), 4)
 	if deep:
-		g.amount = maxi(g.amount, spray_amount)
+		want = maxi(want, spray_amount)
+	# the buffers stay at their built size (see _build_puffs): the print's count is a ratio of it
+	g.amount_ratio = clampf(float(want) / float(g.amount), 0.0, 1.0)
+	if deep:
 		pm.direction = Vector3(fwd.x, 0.95, fwd.y).normalized()
 		pm.spread = 42.0
 		pm.initial_velocity_max = 2.5
@@ -1452,12 +1530,21 @@ func _puff(at: Vector3, fwd: Vector2, D: float, deep: bool) -> void:
 func _process(_dt: float) -> void:
 	if _trail_dirty and _trail_tex != null:
 		# coalesced to at most one upload per frame; stamps are gated by stamp_stride_m and
-		# plough_step_m so this fires a handful of times a second, not sixty
-		_trail_tex.update(_gpu_image(trail_px, _trail_buf))
+		# plough_step_m so this fires a handful of times a second, not sixty -- and only the tiles
+		# the prints touched are re-sent (see _trail_tex)
+		for k in _trail_dirty_tiles:
+			_trail_tex.update_layer(_trail_tile_image(int(k) % _trail_tiles_n, int(k) / _trail_tiles_n), int(k))
+		trail_uploads += _trail_dirty_tiles.size()
+		_trail_dirty_tiles.clear()
 		_trail_dirty = false
 
 
+var trail_uploads := 0                 # tiles re-sent since setup (tools read it)
+
+
 func upload_stats() -> Dictionary:
-	return {"trail_mb": snappedf(float(trail_px * trail_px * 16) / 1048576.0, 0.01),
+	return {"trail_tile_mb": snappedf(float((_trail_tile_px + 2) * (_trail_tile_px + 2) * (8 if half_float_textures else 16)) / 1048576.0, 0.001),
+			"trail_tiles": _trail_tiles_n * _trail_tiles_n, "trail_tiles_sent": trail_uploads,
+			"trail_mb": snappedf(float(trail_px * trail_px * 16) / 1048576.0, 0.01),
 			"field_mb": snappedf(float(field_px * field_px * 16) / 1048576.0, 0.01),
 			"trail_m_per_px": snappedf(area.size.x / float(trail_px), 0.0001)}

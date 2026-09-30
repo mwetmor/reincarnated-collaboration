@@ -1,0 +1,394 @@
+{
+ "_what": "C-9: HER CAST-START HITCH (the coordinator, from lane B's control runs: a frame of 33.8 ms on desktop, 22.9 on the web, about 140 ms after the cast input, with no effect in the scene) -- found, fixed, measured. godot/tools/perf_cast.gd --c sorceress --no-fx: the painted Barrow in the root viewport, desktop Forward+ 1920x1080 on the M2, vsync off; 12 control casts (slash, chop alternately, 3 s apart, by try_strike); every frame split by the engine's own signals into physics / process / draw",
+ "cause": {
+  "1_trail_upload": "her strike STEPS, and a step into the snow stamps a print: SnowField._stamp marks the trail map dirty and _process re-sent the WHOLE map -- 1024^2 RGBAF, 16 MB -- through ImageTexture.update(_gpu_image(...)): 14-17 ms of process (PackedFloat32Array.to_byte_array + Image.create_from_data, two 16 MB copies) and then the upload inside the next draw (21-51 ms). The frame lands where her feet land: about +130 ms into the Fire Ball, +310-340 ms into the Meteor. Not every cast: only when a foot has travelled stamp_stride_m (0.19 m) since its last print.",
+  "2_puff_realloc": "the same print kicks a snow puff, and SnowField._puff SET GPUParticles3D.amount per print (13 x depth factor, or the spray's 46): a new amount re-allocates the particle buffers on that frame. With the trail upload switched off (--no-trail-upload, a diagnosis switch) this alone still spiked the draw to 19.7-25.6 ms at the same moments.",
+  "not": "not her clip starting, not the tree's clip switch (her physics step, the AnimationTree included, stayed 0.2-0.7 ms on every spike frame; the tree cleared no caches), not spell_fx (off in these runs), no pipeline compiles (RenderingServer's counters did not move after the first frame)",
+  "who_else": "him too: his steps stamp the same map, so every print he left -- walking included -- paid the same 16 MB upload"
+ },
+ "fix": {
+  "trail": "snow_field.gd: the trail map is a Texture2DArray of 128^2 tiles, each with a one-texel APRON (its neighbours' edge texels; the map's own edge texel, clamped, at the border); a print marks only the tiles it touched (and the neighbours whose apron holds its edge texels), and _process re-sends only those: 130^2 x 16 B = 270 KB a tile (desktop RGBAF; 135 KB RGBAH on the web). SnowField.SHADER's trail_at() and the heather's _press() pick the tile and sample inside the apron. PROBE (godot/tools/probe_trail_tiles.gd): random trail values, the old single texture and the new tiles sampled at 640,000 sub-texel positions across every tile border and both map edges: max |old - new| = 0.000000 on Forward+ (1024, RGBAF); 0.000244 on Compatibility (512, RGBAH: one half-float rounding step, mean 1e-8).",
+  "puffs": "snow_field.gd: the puff pool is sized once at the most any print can ask for (max(spray 46, 13 x 4.0) = 52) and a print sets GPUParticles3D.amount_ratio (want / 52) instead of amount: no re-allocation."
+ },
+ "before": [
+  {
+   "n": 1,
+   "spell": "slash",
+   "worst_frame_ms": 17.6,
+   "at_ms_after_input": 120,
+   "physics_ms": 0.5,
+   "process_ms": 5.7,
+   "draw_ms": 11.4
+  },
+  {
+   "n": 2,
+   "spell": "chop",
+   "worst_frame_ms": 51.2,
+   "at_ms_after_input": 339,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 50.8
+  },
+  {
+   "n": 3,
+   "spell": "slash",
+   "worst_frame_ms": 38.2,
+   "at_ms_after_input": 131,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 37.9
+  },
+  {
+   "n": 4,
+   "spell": "chop",
+   "worst_frame_ms": 34.0,
+   "at_ms_after_input": 313,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 33.7
+  },
+  {
+   "n": 5,
+   "spell": "slash",
+   "worst_frame_ms": 21.8,
+   "at_ms_after_input": 133,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 21.3
+  },
+  {
+   "n": 6,
+   "spell": "chop",
+   "worst_frame_ms": 15.9,
+   "at_ms_after_input": 847,
+   "physics_ms": 0.0,
+   "process_ms": 0.1,
+   "draw_ms": 15.8
+  },
+  {
+   "n": 7,
+   "spell": "slash",
+   "worst_frame_ms": 16.0,
+   "at_ms_after_input": 643,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 15.7
+  },
+  {
+   "n": 8,
+   "spell": "chop",
+   "worst_frame_ms": 23.1,
+   "at_ms_after_input": 322,
+   "physics_ms": 0.0,
+   "process_ms": 0.0,
+   "draw_ms": 23.1
+  },
+  {
+   "n": 9,
+   "spell": "slash",
+   "worst_frame_ms": 16.5,
+   "at_ms_after_input": 386,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 16.2
+  },
+  {
+   "n": 10,
+   "spell": "chop",
+   "worst_frame_ms": 16.4,
+   "at_ms_after_input": 845,
+   "physics_ms": 0.6,
+   "process_ms": 0.0,
+   "draw_ms": 15.6
+  },
+  {
+   "n": 11,
+   "spell": "slash",
+   "worst_frame_ms": 15.9,
+   "at_ms_after_input": 468,
+   "physics_ms": 0.7,
+   "process_ms": 0.1,
+   "draw_ms": 15.0
+  },
+  {
+   "n": 12,
+   "spell": "chop",
+   "worst_frame_ms": 15.7,
+   "at_ms_after_input": 487,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 15.2
+  }
+ ],
+ "trail_upload_off_diagnosis": [
+  {
+   "n": 1,
+   "spell": "slash",
+   "worst_frame_ms": 16.1,
+   "at_ms_after_input": 584,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 15.8
+  },
+  {
+   "n": 2,
+   "spell": "chop",
+   "worst_frame_ms": 15.8,
+   "at_ms_after_input": 602,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 15.3
+  },
+  {
+   "n": 3,
+   "spell": "slash",
+   "worst_frame_ms": 25.6,
+   "at_ms_after_input": 126,
+   "physics_ms": 0.0,
+   "process_ms": 0.1,
+   "draw_ms": 25.5
+  },
+  {
+   "n": 4,
+   "spell": "chop",
+   "worst_frame_ms": 15.1,
+   "at_ms_after_input": 601,
+   "physics_ms": 0.1,
+   "process_ms": 0.0,
+   "draw_ms": 14.9
+  },
+  {
+   "n": 5,
+   "spell": "slash",
+   "worst_frame_ms": 15.9,
+   "at_ms_after_input": 808,
+   "physics_ms": 0.0,
+   "process_ms": 0.0,
+   "draw_ms": 15.8
+  },
+  {
+   "n": 6,
+   "spell": "chop",
+   "worst_frame_ms": 14.7,
+   "at_ms_after_input": 217,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 14.5
+  },
+  {
+   "n": 7,
+   "spell": "slash",
+   "worst_frame_ms": 16.2,
+   "at_ms_after_input": 754,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 15.9
+  },
+  {
+   "n": 8,
+   "spell": "chop",
+   "worst_frame_ms": 19.7,
+   "at_ms_after_input": 330,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 19.4
+  },
+  {
+   "n": 9,
+   "spell": "slash",
+   "worst_frame_ms": 15.3,
+   "at_ms_after_input": 144,
+   "physics_ms": 0.0,
+   "process_ms": 0.0,
+   "draw_ms": 15.2
+  },
+  {
+   "n": 10,
+   "spell": "chop",
+   "worst_frame_ms": 15.8,
+   "at_ms_after_input": 630,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 15.6
+  },
+  {
+   "n": 11,
+   "spell": "slash",
+   "worst_frame_ms": 15.4,
+   "at_ms_after_input": 180,
+   "physics_ms": 0.5,
+   "process_ms": 0.0,
+   "draw_ms": 14.8
+  },
+  {
+   "n": 12,
+   "spell": "chop",
+   "worst_frame_ms": 14.8,
+   "at_ms_after_input": 635,
+   "physics_ms": 0.6,
+   "process_ms": 0.0,
+   "draw_ms": 14.1
+  }
+ ],
+ "after": [
+  {
+   "n": 1,
+   "spell": "slash",
+   "worst_frame_ms": 16.8,
+   "at_ms_after_input": 380,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 16.3
+  },
+  {
+   "n": 2,
+   "spell": "chop",
+   "worst_frame_ms": 17.2,
+   "at_ms_after_input": 365,
+   "physics_ms": 0.0,
+   "process_ms": 0.0,
+   "draw_ms": 17.1
+  },
+  {
+   "n": 3,
+   "spell": "slash",
+   "worst_frame_ms": 17.6,
+   "at_ms_after_input": 204,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 17.1
+  },
+  {
+   "n": 4,
+   "spell": "chop",
+   "worst_frame_ms": 16.5,
+   "at_ms_after_input": 440,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 16.1
+  },
+  {
+   "n": 5,
+   "spell": "slash",
+   "worst_frame_ms": 16.2,
+   "at_ms_after_input": 411,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 15.8
+  },
+  {
+   "n": 6,
+   "spell": "chop",
+   "worst_frame_ms": 16.9,
+   "at_ms_after_input": 444,
+   "physics_ms": 0.5,
+   "process_ms": 0.0,
+   "draw_ms": 16.3
+  },
+  {
+   "n": 7,
+   "spell": "slash",
+   "worst_frame_ms": 16.3,
+   "at_ms_after_input": 441,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 16.0
+  },
+  {
+   "n": 8,
+   "spell": "chop",
+   "worst_frame_ms": 16.0,
+   "at_ms_after_input": 438,
+   "physics_ms": 0.3,
+   "process_ms": 0.0,
+   "draw_ms": 15.7
+  },
+  {
+   "n": 9,
+   "spell": "slash",
+   "worst_frame_ms": 17.9,
+   "at_ms_after_input": 437,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 17.5
+  },
+  {
+   "n": 10,
+   "spell": "chop",
+   "worst_frame_ms": 16.7,
+   "at_ms_after_input": 437,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 16.2
+  },
+  {
+   "n": 11,
+   "spell": "slash",
+   "worst_frame_ms": 15.7,
+   "at_ms_after_input": 453,
+   "physics_ms": 0.2,
+   "process_ms": 0.0,
+   "draw_ms": 15.4
+  },
+  {
+   "n": 12,
+   "spell": "chop",
+   "worst_frame_ms": 15.8,
+   "at_ms_after_input": 466,
+   "physics_ms": 0.4,
+   "process_ms": 0.0,
+   "draw_ms": 15.4
+  }
+ ],
+ "before_summary": {
+  "worst_frame_ms_per_cast": [
+   17.6,
+   51.2,
+   38.2,
+   34.0,
+   21.8,
+   15.9,
+   16.0,
+   23.1,
+   16.5,
+   16.4,
+   15.9,
+   15.7
+  ],
+  "max": 51.2
+ },
+ "trail_upload_off_diagnosis_summary": {
+  "worst_frame_ms_per_cast": [
+   16.1,
+   15.8,
+   25.6,
+   15.1,
+   15.9,
+   14.7,
+   16.2,
+   19.7,
+   15.3,
+   15.8,
+   15.4,
+   14.8
+  ],
+  "max": 25.6
+ },
+ "after_summary": {
+  "worst_frame_ms_per_cast": [
+   16.8,
+   17.2,
+   17.6,
+   16.5,
+   16.2,
+   16.9,
+   16.3,
+   16.0,
+   17.9,
+   16.7,
+   15.7,
+   15.8
+  ],
+  "max": 17.9
+ }
+}
