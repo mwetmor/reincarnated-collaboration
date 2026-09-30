@@ -1300,11 +1300,9 @@ func _read_manifest_speeds() -> Dictionary:
 	a duration that was 19% wrong, then speeds measured by a different method -- and a copy
 	is the thing that goes stale. The manifest travels with the GLB, so it cannot.
 
-	STEPPING, where the manifest offers it. Net displacement over a whole clip is the wrong
-	number for a blend space whenever the clip has stationary portions: strafe_R's net is
-	0.340 m/s against a stepping 0.536, because it stands still for part of the clip, and a
-	blend space drives the body only while he is travelling. Where there is no stepping
-	figure, `speed_m_s` over one gait cycle is the same quantity."""
+	THE FOOT-LOCK SPEED (T12_10, coordinator ruling 2026-09-30): speed_m_s is the ground speed
+	that pins a planted foot, measured on the clip's own keys (nb_d2/scripts/57_footlock.py). The
+	NET / STEPPING pair it replaced is still read if an older manifest carries it (stepping first)."""
 	var out := {}
 	var path := String(cfg.get("gear_manifest", ""))
 	if path == "" or not ResourceLoader.exists(path):
@@ -1322,7 +1320,11 @@ func _read_manifest_speeds() -> Dictionary:
 		var v = (e as Dictionary).get("stepping_speed_m_s", (e as Dictionary).get("speed_m_s", null))
 		if v == null:
 			continue
-		out[String(name)] = float(v) * PPM
+		# STATED AT THE REFERENCE SCALE, like every other px/s here (walk_px_s, run_px_s, clip_px_s):
+		# clip_px_s() rescales by _figure_scale / speed_measured_at_scale. PPM alone is figure scale 1.0,
+		# which drove every manifest-priced clip at 0.799 of its speed (T12_10, tools/strafe_probe.gd).
+		var at_ref: float = float(cfg.get("speed_measured_at_scale", 1.0))
+		out[String(name)] = float(v) * PPM * (at_ref if at_ref > 0.0 else 1.0)
 	if not out.is_empty():
 		print("manifest speeds (canvas px/s at the reference scale): %s" % str(out))
 	return out
@@ -1494,8 +1496,11 @@ func _axe_guard_weight() -> float:
 
 
 func _apply_axe_guard() -> void:
-	"""Point the layer at its clip and filter it to the spec's bones, the paths taken from the
-	clip's OWN tracks (a bone the clip does not key cannot be filtered by accident)."""
+	"""Point the layer at its clip and filter it to the spec's DECLARED bones, the paths taken from
+	any clip that keys them (T12_10, the coordinator's ruling: a layer's filter is its declared set).
+	The importer drops a track equal to the rest pose -- the guard's neutral wrist -- so a filter taken
+	from the pose clip's own tracks left RightHand to the base clip; filtered, a bone the pose does not
+	key blends to its rest, which is the pose's intent."""
 	if _tree == null or _anim == null:
 		return
 	var bt := _tree.tree_root as AnimationNodeBlendTree
@@ -1512,13 +1517,14 @@ func _apply_axe_guard() -> void:
 		(bt.get_node("guard_r") as AnimationNodeAnimation).animation = action
 		(bt.get_node("guard_rb") as AnimationNodeAnimation).animation = ab
 		var want: Array = spec.get("bones", [])
-		for c in [action, ab]:
+		var seen := {}
+		for c in _anim.get_animation_list():
 			var ca := _anim.get_animation(c)
 			for i in ca.get_track_count():
 				var pth: NodePath = ca.track_get_path(i)
-				var on: bool = want.has(String(pth.get_concatenated_subnames()))
-				b2.set_filter_path(pth, on)
-				if on and c == action:
+				if want.has(String(pth.get_concatenated_subnames())) and not seen.has(String(pth)):
+					seen[String(pth)] = true
+					b2.set_filter_path(pth, true)
 					filtered += 1
 	_tree.set("parameters/blend_r/blend_amount", _axe_guard_weight())
 	print("axe guard layer: '%s' at weight %.2f, %d tracks" % [action, _axe_guard_weight(), filtered])

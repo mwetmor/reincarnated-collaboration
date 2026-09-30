@@ -28,6 +28,7 @@ var do_stills := false
 var do_shadow_test := false
 var do_trail := false
 var do_cast := false                # --cast: her two spells, frames at each release and after
+var do_feet := false                # --feet: foot-lock against asked speed, walk and run
 var quiet := false                  # --quiet: no falling snow, the wind held -- frames that compare
 var no_pen := false                 # --no-pen: the post pass hidden (a diagnostic)
 var variants := ["inpainted", "as_painted"]
@@ -54,6 +55,8 @@ func _initialize() -> void:
 			do_trail = true
 		elif a == "--cast":
 			do_cast = true
+		elif a == "--feet":
+			do_feet = true
 		elif a == "--quiet":
 			quiet = true
 		elif a == "--no-pen":
@@ -63,7 +66,7 @@ func _initialize() -> void:
 		elif a == "--heather-mul":
 			var p := nxt.split(",")
 			heather_mul = Vector3(float(p[0]), float(p[1]), float(p[2]))
-	if out_dir == "" or not (do_guide or do_stills or do_shadow_test or do_trail or do_cast):
+	if out_dir == "" or not (do_guide or do_stills or do_shadow_test or do_trail or do_cast or do_feet):
 		print("[painted] HALT: --out DIR and one of --guide / --stills are required")
 		quit(2)
 		return
@@ -75,7 +78,7 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow_painted.tscn").instantiate()
-	scene.skip_character = not (do_stills or do_shadow_test or do_trail or do_cast)
+	scene.skip_character = not (do_stills or do_shadow_test or do_trail or do_cast or do_feet)
 	vp.add_child(scene)
 	var waited := 0
 	while not scene.ready_done and waited < 3000:
@@ -116,6 +119,8 @@ func _initialize() -> void:
 		await _trail()
 	if do_cast:
 		await _cast()
+	if do_feet:
+		await _feet()
 	var f := FileAccess.open(out_dir.path_join("capture_painted.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(rep, " "))
 	f.close()
@@ -468,3 +473,86 @@ func _cast() -> void:
 				break
 		shots[String(spec[1]) + "_fired"] = ok
 	rep["cast"] = {"shots": shots, "spell_fx": scene.spell_fx.report}
+
+
+func _feet() -> void:
+	"""HIS OR HER FEET AGAINST THE SPEED ASKED (the coordinator, T12_10: "measure her feet -- foot-lock /
+	asked -- before and after"). She is driven in a straight line across the arena, at walk and at
+	run, by the same drive_dir the keys use (her own tick off, so nothing else drives her), and every
+	physics frame records the body and the four foot joints in world space. The STANCE foot is the
+	lower of the two (its toe within 3 cm of its lowest over the run). Per gait:
+	  asked      the body's own ground speed, m/s (what knight.gd drives her at)
+	  foot_lock  the stance foot's speed RELATIVE TO THE BODY, m/s -- the stride the clip plays
+	  ratio      foot_lock / asked: 1.0 = the feet grip the ground; 1.25 = the clip strides a quarter
+	             faster than she moves, and the planted foot skates
+	  skate      the stance foot's own ground speed, m/s (0 = planted)"""
+	var k = scene.knight
+	var sk: Skeleton3D = k._skel
+	var bones := {}
+	for nm in ["LeftFoot", "LeftToeBase", "RightFoot", "RightToeBase"]:
+		bones[nm] = sk.find_bone(nm)
+	var out := {"who": scene.who, "knight_md5": FileAccess.get_md5("res://scripts/knight.gd").substr(0, 8)}
+	for gait in [["walk", false], ["run", true]]:
+		scene.place_knight(-5.0, -2.0, "E")
+		for i in 20:
+			k.drive_dir(Vector2.ZERO, false, DT)
+			await physics_frame
+		k.set_physics_process(false)
+		var rows := []
+		var t := 0.0
+		while t < 6.0 and scene.knight_uv().x < 5.0:
+			k.drive_dir(Vector2(1, 0), bool(gait[1]), DT)
+			await physics_frame
+			t += DT
+			if t < 0.8:
+				continue
+			var fr := {"t": t, "body": k.global_position}
+			for nm in bones:
+				fr[nm] = (sk.global_transform * sk.get_bone_global_pose(bones[nm])).origin
+			rows.append(fr)
+		k.set_physics_process(true)
+		for i in 20:
+			await physics_frame
+		out[String(gait[0])] = _feet_stats(rows)
+	rep["feet"] = out
+	print("[painted] feet " + JSON.stringify(out))
+
+
+func _feet_stats(rows: Array) -> Dictionary:
+	if rows.size() < 10:
+		return {"error": "too few frames (%d)" % rows.size()}
+	var lo := {"L": INF, "R": INF}
+	for fr in rows:
+		lo["L"] = minf(lo["L"], (fr["LeftToeBase"] as Vector3).y)
+		lo["R"] = minf(lo["R"], (fr["RightToeBase"] as Vector3).y)
+	var asked := []
+	var lock := []
+	var skate := []
+	for i in range(1, rows.size()):
+		var a: Dictionary = rows[i - 1]
+		var b: Dictionary = rows[i]
+		var dt: float = float(b["t"]) - float(a["t"])
+		if dt <= 0.0:
+			continue
+		var vb: Vector3 = (b["body"] - a["body"]) / dt
+		vb.y = 0.0
+		var side := "L" if (b["LeftToeBase"] as Vector3).y <= (b["RightToeBase"] as Vector3).y else "R"
+		var toe := "LeftToeBase" if side == "L" else "RightToeBase"
+		if (b[toe] as Vector3).y > float(lo[side]) + 0.03:
+			continue
+		var foot := "LeftFoot" if side == "L" else "RightFoot"
+		var vf: Vector3 = ((b[foot] - a[foot]) + (b[toe] - a[toe])) * 0.5 / dt
+		vf.y = 0.0
+		asked.append(vb.length())
+		lock.append((vb - vf).length())
+		skate.append(vf.length())
+	if asked.is_empty():
+		return {"error": "no stance frames"}
+	asked.sort()
+	lock.sort()
+	skate.sort()
+	var med := func(v: Array) -> float: return float(v[v.size() / 2])
+	return {"stance_frames": asked.size(), "asked_m_s": snappedf(med.call(asked), 0.001),
+		"foot_lock_m_s": snappedf(med.call(lock), 0.001),
+		"ratio_foot_lock_over_asked": snappedf(med.call(lock) / maxf(med.call(asked), 1e-4), 0.001),
+		"skate_m_s_median": snappedf(med.call(skate), 0.001), "skate_m_s_p90": snappedf(float(skate[int(skate.size() * 0.9)]), 0.001)}

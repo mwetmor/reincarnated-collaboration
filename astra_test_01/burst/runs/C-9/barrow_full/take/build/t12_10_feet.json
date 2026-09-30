@@ -1,0 +1,88 @@
+{
+ "_what": "C-9 T12_10 on the painted Barrow: the feet against the asked speed, before (knight ea761ba8, T12_9) and after (fb35d9d0, T12_10) -- godot/tools/capture_painted.gd --feet",
+ "_instrument": "driven straight across the arena by drive_dir at walk and at run (her own tick off); every physics frame the body and the four foot joints in world space; the stance foot = the lower toe, within 3 cm of its lowest; asked = the body's ground speed, foot_lock = the stance foot's speed relative to the body, ratio = foot_lock / asked (1.0 = the feet grip), skate = the stance foot's own ground speed",
+ "before": {
+  "sorceress": {
+   "knight_md5": "ea761ba8",
+   "run": {
+    "asked_m_s": 3.184,
+    "foot_lock_m_s": 4.571,
+    "ratio_foot_lock_over_asked": 1.436,
+    "skate_m_s_median": 1.388,
+    "skate_m_s_p90": 3.152,
+    "stance_frames": 60
+   },
+   "walk": {
+    "asked_m_s": 1.175,
+    "foot_lock_m_s": 1.499,
+    "ratio_foot_lock_over_asked": 1.276,
+    "skate_m_s_median": 0.338,
+    "skate_m_s_p90": 0.413,
+    "stance_frames": 231
+   },
+   "who": "sorceress"
+  },
+  "barbarian": {
+   "knight_md5": "ea761ba8",
+   "run": {
+    "asked_m_s": 5.135,
+    "foot_lock_m_s": 5.229,
+    "ratio_foot_lock_over_asked": 1.018,
+    "skate_m_s_median": 0.308,
+    "skate_m_s_p90": 0.98,
+    "stance_frames": 40
+   },
+   "walk": {
+    "asked_m_s": 1.601,
+    "foot_lock_m_s": 1.595,
+    "ratio_foot_lock_over_asked": 0.996,
+    "skate_m_s_median": 0.053,
+    "skate_m_s_p90": 0.241,
+    "stance_frames": 292
+   },
+   "who": "barbarian"
+  }
+ },
+ "after": {
+  "sorceress": {
+   "knight_md5": "fb35d9d0",
+   "run": {
+    "asked_m_s": 3.985,
+    "foot_lock_m_s": 4.574,
+    "ratio_foot_lock_over_asked": 1.148,
+    "skate_m_s_median": 0.629,
+    "skate_m_s_p90": 2.351,
+    "stance_frames": 43
+   },
+   "walk": {
+    "asked_m_s": 1.471,
+    "foot_lock_m_s": 1.499,
+    "ratio_foot_lock_over_asked": 1.019,
+    "skate_m_s_median": 0.106,
+    "skate_m_s_p90": 0.247,
+    "stance_frames": 231
+   },
+   "who": "sorceress"
+  },
+  "barbarian": {
+   "knight_md5": "fb35d9d0",
+   "run": {
+    "asked_m_s": 5.135,
+    "foot_lock_m_s": 5.229,
+    "ratio_foot_lock_over_asked": 1.018,
+    "skate_m_s_median": 0.308,
+    "skate_m_s_p90": 0.98,
+    "stance_frames": 40
+   },
+   "walk": {
+    "asked_m_s": 1.601,
+    "foot_lock_m_s": 1.595,
+    "ratio_foot_lock_over_asked": 0.996,
+    "skate_m_s_median": 0.053,
+    "skate_m_s_p90": 0.241,
+    "stance_frames": 292
+   },
+   "who": "barbarian"
+  }
+ }
+}
