@@ -1,0 +1,709 @@
+{
+ "_what": "T12_11b: the strike trail's contrast against the local ground in the painted Barrow (attack_lab/t12/godot/tools/trail_contrast_scene.gd in a scratch copy of cliffside3d; knight 86141f65). Two takes per variant frame-identical (fixed clock, particle systems hidden), trail on vs off; dL = luma(on) - luma(off) per pixel; the stroke's BODY = where a black mask take of the same geometry lays >= 25% of its paint. Ground classed on a plate with him hidden. Placements (7.9, 5.1) and (10.4, 5.1), facing SE, 4 ticks per strike. Chosen: v9_deep_wide_edge.",
+ "variants": {
+  "v0_pale": {
+   "wash_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "shade_color": [
+    0.78,
+    0.78,
+    0.88
+   ],
+   "alpha_max": 0.7,
+   "bristle_floor": 0.35,
+   "edge_w": 0.0
+  },
+  "v1_shadow": {
+   "wash_color": [
+    0.68,
+    0.767,
+    0.95
+   ],
+   "shade_color": [
+    0.539,
+    0.61,
+    0.757
+   ],
+   "alpha_max": 0.85,
+   "bristle_floor": 0.55,
+   "edge_w": 0.0
+  },
+  "v2_twotone": {
+   "wash_color": [
+    0.68,
+    0.767,
+    0.95
+   ],
+   "shade_color": [
+    0.539,
+    0.61,
+    0.757
+   ],
+   "alpha_max": 0.85,
+   "bristle_floor": 0.55,
+   "edge_w": 0.22,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ]
+  },
+  "v3_deep": {
+   "wash_color": [
+    0.518,
+    0.586,
+    0.728
+   ],
+   "shade_color": [
+    0.42,
+    0.476,
+    0.594
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.0
+  },
+  "v4_deep_twotone": {
+   "wash_color": [
+    0.518,
+    0.586,
+    0.728
+   ],
+   "shade_color": [
+    0.42,
+    0.476,
+    0.594
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.22,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ]
+  },
+  "v5_mid_twotone": {
+   "wash_color": [
+    0.578,
+    0.654,
+    0.811
+   ],
+   "shade_color": [
+    0.472,
+    0.535,
+    0.666
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.22,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ]
+  },
+  "v6_mid_solid_twotone": {
+   "wash_color": [
+    0.578,
+    0.654,
+    0.811
+   ],
+   "shade_color": [
+    0.472,
+    0.535,
+    0.666
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.22,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  },
+  "v7_deep_solid_twotone": {
+   "wash_color": [
+    0.518,
+    0.586,
+    0.728
+   ],
+   "shade_color": [
+    0.42,
+    0.476,
+    0.594
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.22,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  },
+  "v8_deep_solid": {
+   "wash_color": [
+    0.518,
+    0.586,
+    0.728
+   ],
+   "shade_color": [
+    0.42,
+    0.476,
+    0.594
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.0,
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  },
+  "v9_deep_wide_edge": {
+   "wash_color": [
+    0.518,
+    0.586,
+    0.728
+   ],
+   "shade_color": [
+    0.42,
+    0.476,
+    0.594
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.35,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  },
+  "v10_deeper_wide_edge": {
+   "wash_color": [
+    0.472,
+    0.535,
+    0.666
+   ],
+   "shade_color": [
+    0.39,
+    0.443,
+    0.554
+   ],
+   "alpha_max": 0.95,
+   "bristle_floor": 0.6,
+   "edge_w": 0.35,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  },
+  "m_default": {
+   "wash_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shade_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "pen_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha_max": 1.0,
+   "bristle_floor": 1.0,
+   "edge_w": 0.0
+  },
+  "m_solid": {
+   "wash_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shade_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "pen_color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha_max": 1.0,
+   "bristle_floor": 1.0,
+   "edge_w": 0.0,
+   "body_u1": 0.3,
+   "tail_pow": 0.4
+  }
+ },
+ "placement_1": {
+  "p1_v0": {
+   "snow_lit": {
+    "px": 4375,
+    "median_abs_dL": 0.031,
+    "median_dL": 0.027,
+    "frac_ge_010": 0.05
+   },
+   "snow_shade": {
+    "px": 100,
+    "median_abs_dL": 0.088,
+    "median_dL": 0.086,
+    "frac_ge_010": 0.42
+   },
+   "scrub": {
+    "px": 6,
+    "median_abs_dL": 0.107,
+    "median_dL": 0.107,
+    "frac_ge_010": 0.5
+   },
+   "rock": {
+    "px": 1214,
+    "median_abs_dL": 0.223,
+    "median_dL": 0.223,
+    "frac_ge_010": 0.91
+   },
+   "him": {
+    "px": 5276,
+    "median_abs_dL": 0.263,
+    "median_dL": 0.263,
+    "frac_ge_010": 0.95
+   }
+  },
+  "p1_v2_twotone": {
+   "snow_lit": {
+    "px": 4375,
+    "median_abs_dL": 0.028,
+    "median_dL": -0.026,
+    "frac_ge_010": 0.06
+   },
+   "snow_shade": {
+    "px": 100,
+    "median_abs_dL": 0.036,
+    "median_dL": 0.035,
+    "frac_ge_010": 0.13
+   },
+   "scrub": {
+    "px": 6,
+    "median_abs_dL": 0.081,
+    "median_dL": 0.081,
+    "frac_ge_010": 0.33
+   },
+   "rock": {
+    "px": 1214,
+    "median_abs_dL": 0.2,
+    "median_dL": 0.199,
+    "frac_ge_010": 0.88
+   },
+   "him": {
+    "px": 5276,
+    "median_abs_dL": 0.262,
+    "median_dL": 0.262,
+    "frac_ge_010": 0.93
+   }
+  },
+  "p1_v6_mid_solid_twotone": {
+   "snow_lit": {
+    "px": 6987,
+    "median_abs_dL": 0.093,
+    "median_dL": -0.093,
+    "frac_ge_010": 0.42
+   },
+   "snow_shade": {
+    "px": 176,
+    "median_abs_dL": 0.028,
+    "median_dL": -0.021,
+    "frac_ge_010": 0.07
+   },
+   "scrub": {
+    "px": 15,
+    "median_abs_dL": 0.072,
+    "median_dL": 0.072,
+    "frac_ge_010": 0.13
+   },
+   "rock": {
+    "px": 2249,
+    "median_abs_dL": 0.153,
+    "median_dL": 0.152,
+    "frac_ge_010": 0.71
+   },
+   "him": {
+    "px": 7956,
+    "median_abs_dL": 0.233,
+    "median_dL": 0.233,
+    "frac_ge_010": 0.84
+   }
+  },
+  "p1_v7_deep_solid_twotone": {
+   "snow_lit": {
+    "px": 6987,
+    "median_abs_dL": 0.122,
+    "median_dL": -0.122,
+    "frac_ge_010": 0.7
+   },
+   "snow_shade": {
+    "px": 176,
+    "median_abs_dL": 0.061,
+    "median_dL": -0.058,
+    "frac_ge_010": 0.08
+   },
+   "scrub": {
+    "px": 15,
+    "median_abs_dL": 0.058,
+    "median_dL": 0.058,
+    "frac_ge_010": 0.13
+   },
+   "rock": {
+    "px": 2249,
+    "median_abs_dL": 0.114,
+    "median_dL": 0.113,
+    "frac_ge_010": 0.56
+   },
+   "him": {
+    "px": 7956,
+    "median_abs_dL": 0.191,
+    "median_dL": 0.191,
+    "frac_ge_010": 0.79
+   }
+  },
+  "p1_v8_deep_solid": {
+   "snow_lit": {
+    "px": 6987,
+    "median_abs_dL": 0.133,
+    "median_dL": -0.133,
+    "frac_ge_010": 0.84
+   },
+   "snow_shade": {
+    "px": 176,
+    "median_abs_dL": 0.059,
+    "median_dL": -0.059,
+    "frac_ge_010": 0.04
+   },
+   "scrub": {
+    "px": 15,
+    "median_abs_dL": 0.047,
+    "median_dL": 0.046,
+    "frac_ge_010": 0.13
+   },
+   "rock": {
+    "px": 2249,
+    "median_abs_dL": 0.1,
+    "median_dL": 0.097,
+    "frac_ge_010": 0.5
+   },
+   "him": {
+    "px": 7956,
+    "median_abs_dL": 0.167,
+    "median_dL": 0.166,
+    "frac_ge_010": 0.73
+   }
+  },
+  "p1_v9_deep_wide_edge": {
+   "snow_lit": {
+    "px": 6987,
+    "median_abs_dL": 0.111,
+    "median_dL": -0.11,
+    "frac_ge_010": 0.59
+   },
+   "snow_shade": {
+    "px": 176,
+    "median_abs_dL": 0.06,
+    "median_dL": -0.056,
+    "frac_ge_010": 0.11
+   },
+   "scrub": {
+    "px": 15,
+    "median_abs_dL": 0.063,
+    "median_dL": 0.063,
+    "frac_ge_010": 0.13
+   },
+   "rock": {
+    "px": 2249,
+    "median_abs_dL": 0.126,
+    "median_dL": 0.126,
+    "frac_ge_010": 0.62
+   },
+   "him": {
+    "px": 7956,
+    "median_abs_dL": 0.208,
+    "median_dL": 0.208,
+    "frac_ge_010": 0.82
+   }
+  },
+  "p1_v10_deeper_wide_edge": {
+   "snow_lit": {
+    "px": 6987,
+    "median_abs_dL": 0.129,
+    "median_dL": -0.129,
+    "frac_ge_010": 0.7
+   },
+   "snow_shade": {
+    "px": 176,
+    "median_abs_dL": 0.084,
+    "median_dL": -0.078,
+    "frac_ge_010": 0.26
+   },
+   "scrub": {
+    "px": 15,
+    "median_abs_dL": 0.046,
+    "median_dL": 0.045,
+    "frac_ge_010": 0.0
+   },
+   "rock": {
+    "px": 2249,
+    "median_abs_dL": 0.099,
+    "median_dL": 0.096,
+    "frac_ge_010": 0.49
+   },
+   "him": {
+    "px": 7956,
+    "median_abs_dL": 0.177,
+    "median_dL": 0.177,
+    "frac_ge_010": 0.8
+   }
+  }
+ },
+ "placement_2": {
+  "p2_v0": {
+   "snow_lit": {
+    "px": 2238,
+    "median_abs_dL": 0.031,
+    "median_dL": 0.029,
+    "frac_ge_010": 0.04
+   },
+   "snow_shade": {
+    "px": 97,
+    "median_abs_dL": 0.087,
+    "median_dL": 0.087,
+    "frac_ge_010": 0.26
+   },
+   "scrub": {
+    "px": 1648,
+    "median_abs_dL": 0.196,
+    "median_dL": 0.196,
+    "frac_ge_010": 0.89
+   },
+   "rock": {
+    "px": 1636,
+    "median_abs_dL": 0.172,
+    "median_dL": 0.171,
+    "frac_ge_010": 0.77
+   },
+   "him": {
+    "px": 5434,
+    "median_abs_dL": 0.258,
+    "median_dL": 0.258,
+    "frac_ge_010": 0.92
+   }
+  },
+  "p2_v2_twotone": {
+   "snow_lit": {
+    "px": 2238,
+    "median_abs_dL": 0.029,
+    "median_dL": -0.023,
+    "frac_ge_010": 0.04
+   },
+   "snow_shade": {
+    "px": 97,
+    "median_abs_dL": 0.038,
+    "median_dL": 0.038,
+    "frac_ge_010": 0.13
+   },
+   "scrub": {
+    "px": 1648,
+    "median_abs_dL": 0.169,
+    "median_dL": 0.168,
+    "frac_ge_010": 0.82
+   },
+   "rock": {
+    "px": 1636,
+    "median_abs_dL": 0.148,
+    "median_dL": 0.146,
+    "frac_ge_010": 0.67
+   },
+   "him": {
+    "px": 5434,
+    "median_abs_dL": 0.256,
+    "median_dL": 0.256,
+    "frac_ge_010": 0.9
+   }
+  },
+  "p2_v6_mid_solid_twotone": {
+   "snow_lit": {
+    "px": 3748,
+    "median_abs_dL": 0.089,
+    "median_dL": -0.087,
+    "frac_ge_010": 0.38
+   },
+   "snow_shade": {
+    "px": 219,
+    "median_abs_dL": 0.023,
+    "median_dL": -0.003,
+    "frac_ge_010": 0.07
+   },
+   "scrub": {
+    "px": 2515,
+    "median_abs_dL": 0.132,
+    "median_dL": 0.131,
+    "frac_ge_010": 0.69
+   },
+   "rock": {
+    "px": 3127,
+    "median_abs_dL": 0.136,
+    "median_dL": 0.135,
+    "frac_ge_010": 0.61
+   },
+   "him": {
+    "px": 8152,
+    "median_abs_dL": 0.23,
+    "median_dL": 0.23,
+    "frac_ge_010": 0.82
+   }
+  },
+  "p2_v7_deep_solid_twotone": {
+   "snow_lit": {
+    "px": 3748,
+    "median_abs_dL": 0.116,
+    "median_dL": -0.115,
+    "frac_ge_010": 0.66
+   },
+   "snow_shade": {
+    "px": 219,
+    "median_abs_dL": 0.048,
+    "median_dL": -0.035,
+    "frac_ge_010": 0.05
+   },
+   "scrub": {
+    "px": 2515,
+    "median_abs_dL": 0.094,
+    "median_dL": 0.091,
+    "frac_ge_010": 0.46
+   },
+   "rock": {
+    "px": 3127,
+    "median_abs_dL": 0.104,
+    "median_dL": 0.102,
+    "frac_ge_010": 0.51
+   },
+   "him": {
+    "px": 8152,
+    "median_abs_dL": 0.188,
+    "median_dL": 0.188,
+    "frac_ge_010": 0.78
+   }
+  },
+  "p2_v8_deep_solid": {
+   "snow_lit": {
+    "px": 3748,
+    "median_abs_dL": 0.124,
+    "median_dL": -0.124,
+    "frac_ge_010": 0.76
+   },
+   "snow_shade": {
+    "px": 219,
+    "median_abs_dL": 0.048,
+    "median_dL": -0.048,
+    "frac_ge_010": 0.01
+   },
+   "scrub": {
+    "px": 2515,
+    "median_abs_dL": 0.082,
+    "median_dL": 0.078,
+    "frac_ge_010": 0.38
+   },
+   "rock": {
+    "px": 3127,
+    "median_abs_dL": 0.077,
+    "median_dL": 0.067,
+    "frac_ge_010": 0.42
+   },
+   "him": {
+    "px": 8152,
+    "median_abs_dL": 0.165,
+    "median_dL": 0.164,
+    "frac_ge_010": 0.73
+   }
+  },
+  "p2_v9_deep_wide_edge": {
+   "snow_lit": {
+    "px": 3748,
+    "median_abs_dL": 0.108,
+    "median_dL": -0.106,
+    "frac_ge_010": 0.58
+   },
+   "snow_shade": {
+    "px": 219,
+    "median_abs_dL": 0.048,
+    "median_dL": -0.035,
+    "frac_ge_010": 0.09
+   },
+   "scrub": {
+    "px": 2515,
+    "median_abs_dL": 0.111,
+    "median_dL": 0.109,
+    "frac_ge_010": 0.55
+   },
+   "rock": {
+    "px": 3127,
+    "median_abs_dL": 0.129,
+    "median_dL": 0.128,
+    "frac_ge_010": 0.58
+   },
+   "him": {
+    "px": 8152,
+    "median_abs_dL": 0.203,
+    "median_dL": 0.202,
+    "frac_ge_010": 0.8
+   }
+  },
+  "p2_v10_deeper_wide_edge": {
+   "snow_lit": {
+    "px": 3748,
+    "median_abs_dL": 0.125,
+    "median_dL": -0.124,
+    "frac_ge_010": 0.7
+   },
+   "snow_shade": {
+    "px": 219,
+    "median_abs_dL": 0.07,
+    "median_dL": -0.058,
+    "frac_ge_010": 0.15
+   },
+   "scrub": {
+    "px": 2515,
+    "median_abs_dL": 0.085,
+    "median_dL": 0.08,
+    "frac_ge_010": 0.43
+   },
+   "rock": {
+    "px": 3127,
+    "median_abs_dL": 0.111,
+    "median_dL": 0.107,
+    "frac_ge_010": 0.54
+   },
+   "him": {
+    "px": 8152,
+    "median_abs_dL": 0.172,
+    "median_dL": 0.172,
+    "frac_ge_010": 0.78
+   }
+  }
+ }
+}

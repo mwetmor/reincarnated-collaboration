@@ -1,11 +1,12 @@
 {
  "set": {
-  "knight.gd": "a485b936631c67b1de7d42505e7ac3f0 = arm_layer_declared_patch.py, strike_trail_patch.py, strike_hold_release_patch.py (attack_lab/tools) over T12_10 fb35d9d0",
-  "character.json": "d4cb18ab36ad33b5ae39e852d9da6b84",
+  "knight.gd": "86141f65fec86dfb4b9f9ca296e93218 = arm_layer_declared_patch.py, strike_trail_patch.py, strike_hold_release_patch.py (attack_lab/tools) over T12_10 fb35d9d0 (T12_11b: the trail shader's shade body, pale edge and wash falloff are parameters)",
+  "character.json": "ca2ce1ca12c1c99fd546d5c35768b099 (T12_11b: the two-tone trail style; every release eased over 0.16 s)",
   "gear_manifest.json": "0a81b2afbda88a518b882a90dbecf771 (nb_d2/export_staging/T12_11_trails)",
   "nb-body.glb": "3e32a9fc7c9bcb5f12449c2b5bc927d6 (nb_d2/export_staging/T12_11_trails; nb-body_graft.glb beside it is the re-cut before its weapon channel)",
   "six pieces": "the T12_2 mount set, copied unchanged from T12_10_strafes (md5s in install.sh)",
-  "pre_state": "E = T12_10 exactly (knight fb35d9d0, character 45d757b5, nb-body eb8a3837, gear_manifest aa557a50, the six pieces); A-D kept. install.sh --dry-run against cliffside3d: 'found E', staged sources ok"
+  "pre_state": "E = T12_10 exactly; A-D kept; the .import checked separately (fb0e47c5 or already 9002fe85). install.sh --dry-run against cliffside3d: 'found E', staged sources ok, the import's optimizer on and to be turned off",
+  "nb-body.glb.import": "edited in place by install.sh: the editor importer's animation optimizer OFF (fb0e47c5 -> 9002fe85)"
  },
  "gate": {
   "table": "nb_d2/tables/weapon_table_T12_11_trails_3e32a9fc_knighta485b936.json",
@@ -116,7 +117,8 @@
    "film_trails_scene.gd (new; runs inside a cliffside3d project)",
    "guard_accept.gd (ACCEPT_STRIKE_FPS)",
    "guard_film.gd (FILM_FPS, FILM_SPEED; the trail at the game tick)",
-   "strafe_probe.gd (PROBE_HZ; the scene rule beside s6)"
+   "strafe_probe.gd (PROBE_HZ; the scene rule beside s6)",
+   "trail_contrast_scene.gd (new, T12_11b; runs inside a cliffside3d project)"
   ],
   "nb_d2/scripts": [
    "57_footlock.py (the scene rule)",
@@ -125,5 +127,32 @@
    "62_bake_fidelity.py (new)"
   ],
   "nb_d2/work/clip_sources.json": "attack: 55_clip_graft on its source, its edits, weapon_r, was; the three blends: the scene-rule recheck"
+ },
+ "t12_11b_rulings": {
+  "1_trail_on_snow": {
+   "look": "a TWO-TONE stroke: a shade body in the painter's shadow hue (0.42/0.55/0.89 linear) taken deeper -- x0.55 on its lit side, x0.35 on its shade side under the scene's sun -- laid heavy (alpha 0.95, streaks' thinnest paint 0.6, full from 30% of the width in, thinning toward the tail as (1-v)^0.4); a PALE EDGE (the old warm white) over the outer 35% of its width; the gear's ink along the rim",
+   "instrument": "attack_lab/t12/godot/tools/trail_contrast_scene.gd in a scratch copy of cliffside3d's Barrow: takes with and without the trail, frame-identical (fixed clock; the random particle systems hidden in both), dL = luma(on) - luma(off) on each pixel = against its local ground; the stroke's BODY = where a black mask take of the same geometry lays >= 25% of its paint; ground classed on a plate with him hidden; 2 placements, 4 ticks per strike. nb_d2/tables/strike_trail_look_T12_11b.json",
+   "chosen, median |dL| over the body (placement 1 / 2)": "lit snow 0.111 / 0.108 (59% / 58% of its pixels >= 0.10); rock 0.126 / 0.129; scrub 0.111 (placement 2, 2515 px; placement 1 has 15 px of scrub); over him 0.208 / 0.203",
+   "before (the pale wash)": "lit snow 0.031 / 0.031; rock 0.223 / 0.172; scrub 0.196 (placement 2)",
+   "why two-tone": "one value cannot contrast both: the painter's shadow colour itself (luma 0.76 against snow 0.89) moved the snow 0.036 at partial paint; a deep single tone reached the snow (0.133 / 0.124) but sank into rock and scrub (0.100 / 0.077, scrub 0.082) -- its value is theirs; the pale edge carries the read over dark ground while the shade body carries it on snow. Variants v0-v10 in the table",
+   "limit": "shaded snow (the blue side of drifts and rocks, a small share of the ground) stays low, 0.05-0.06: its value is the stroke's own",
+   "geometry": "unchanged: coverage of the swept path slash 85-89%, chop 85-93%, bash 80-90% at 1 px; alpha after the swing +0.15 s 0.009 / 0 / 0 (trail_probe.gd, knight 86141f65)"
+  },
+  "2_held_release": "accepted as staged (the slash, from its swing end)",
+  "3_recovery_ease_016": {
+   "change": "over_s 0.08 -> 0.16 and from_swing_end.attack 0.08 -> 0.16; the bash holds the axe arm at guard throughout and has no release",
+   "penetration": "0 on all three strikes at a 1/96 s step (nb_d2/tables/weapon_table_T12_11b_trails_3e32a9fc_knightd82a92fd_strikes96.json)",
+   "speed": "per 60 Hz tick at the edge's outer point: the slash's release 29.0 m/s against its swing's 42.1 (it was 48.7 at 0.08 s); the chop's release 24.4 m/s against its swing's 22.1 (was 31.1) -- the chop's recovery is still 10% faster than its own heavy swing; 0.20-0.24 s would bring it under"
+  },
+  "4_import_optimizer_off": {
+   "setting": "models/gear/nb-body.glb.import: _subresources {\"nodes\": {\"PATH:AnimationPlayer\": {\"optimizer/enabled\": false}}} (install.sh edits it in place)",
+   "measured": "the re-cut slash through the editor import: 4.17 deg -> 0.000 (62_bake_fidelity.py on Godot's own baked keys; nb_d2/tables/bake_fidelity_T12_11_trails_3e32a9fc_optimizer_off.json). Every clip now plays its file's keys",
+   "side effects in the gate": "the holds move by what the optimizer had smoothed: idle's axe-head path 8.7-11.1 -> 9.8-12.7 px per loop, run 35.3-54.0 -> 35.3-54.3, the rest within 0.03 px; all inside the 60 px budget. The strikes' peak step per 1/24 s frame: slash 90.6 -> 92.7, chop 61.8 -> 67.1 (the file's own curve)"
+  },
+  "gate": "PASS, 0 fail, 3 trail flags (nb_d2/tables/weapon_gate_T12_11b_trails_3e32a9fc_knight86141f65.json): EDGE slash +1.00/+0.99, chop +1.00/+1.00; TTI 0.58 / 0.50 s; READ 179-266 / 96-158 px; PEN 0 everywhere; HOLD 100% on all six states",
+  "films": [
+   "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_11_barrow_{play,quarter}_{slash,chop,bash}_before_after.mp4 (re-filmed: before = T12_10 installed, after = this set, the real Barrow, snowfall on)",
+   "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_11_trail_look_stills.jpg (the pale trail against the two-tone, slash / chop / bash)"
+  ]
  }
 }

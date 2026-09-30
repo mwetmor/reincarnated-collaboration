@@ -18,17 +18,19 @@
 #   E  T12_10 (attack_lab/staged/t12_10/install.sh): knight fb35d9d0, character 45d757b5,
 #      nb-body eb8a3837, the same six pieces, gear_manifest aa557a50
 # THE SET:
-#   knight.gd          a485b936  = over T12_10's fb35d9d0, three patches in order (attack_lab/tools/):
+#   knight.gd          86141f65  = over T12_10's fb35d9d0, three patches in order (attack_lab/tools/):
 #                                  arm_layer_declared_patch.py -- the shield arm layer's filter is its DECLARED bone set
 #                                    (shield_carry_L's rest-valued shoulder and wrist tracks, which a runtime import drops,
 #                                    can no longer fall out of it; identical filter and pose under the editor import);
-#                                  strike_trail_patch.py -- THE STRIKE TRAIL (a brushed ink-and-wash stroke behind the
-#                                    weapon's edge through each strike's active swing, faded over 0.15 s after it);
+#                                  strike_trail_patch.py -- THE STRIKE TRAIL (a brushed stroke behind the weapon's edge
+#                                    through each strike's active swing, faded over 0.15 s after it; T12_11b: a two-tone --
+#                                    a shade body in the painter's shadow hue under a pale edge -- so it reads on the snow);
 #                                  strike_hold_release_patch.py -- a strike listed in strike_release.from_swing_end is
 #                                    released from its swing-end pose HELD (the re-cut slash's follow-through would put
 #                                    the axe through his head 11 ms after its swing)
-#   character.json     d4cb18ab  = T12_10's 45d757b5 + strike_trail, strike_release at_s.attack 0.708333 (re-derived on the
-#                                  re-cut; was 0.75) and from_swing_end {attack: 0.08}, clip_px_s fallbacks at the new speeds
+#   character.json     ca2ce1ca  = T12_10's 45d757b5 + strike_trail (the two-tone style), strike_release at_s.attack 0.708333
+#                                  (re-derived on the re-cut; was 0.75), over_s 0.16 (was 0.08) and from_swing_end {attack: 0.16},
+#                                  clip_px_s fallbacks at the new speeds
 #   gear_manifest.json 0a81b2af  = nb_d2/export_staging/T12_11_trails: T12_10's with locomotion_in_place speeds by the
 #                                  SCENE's foot-lock rule (run_armed 3.5451, strafe_L 0.6976, strafe_R 0.2896 m/s; were
 #                                  3.2749, 0.7237, 0.3100) and the attack's provenance; 48_manifest_lint 0 mismatches
@@ -36,6 +38,10 @@
 #                                  on nbt_attack.glb's own 30 fps keys (55_clip_graft) with its weapon_r channel re-solved
 #                                  (weapon_channel_solve.gd STRIKES, reshaped by 61_strike_ramp.py); 24 clips byte-identical
 #   six pieces                   = the T12_2 mount set (unchanged since T12_7)
+# AND ONE SETTING, NOT A FILE COPY: models/gear/nb-body.glb.import gets the editor importer's animation optimizer OFF
+#   (_subresources {} -> nodes/PATH:AnimationPlayer/optimizer/enabled false), so the clips the scene plays are the file's own
+#   keys (the re-cut slash: 4.17 deg -> 0.000). Edited in place -- its uid and everything else kept -- and md5-checked
+#   before (fb0e47c5) and after (9002fe85). Rollback: put `_subresources={}` back and re-import.
 # ROLLBACK to E: staged/t12_10/{knight.gd,character.json} + nb_d2/export_staging/T12_10_strafes/ (nb-body.glb,
 #          gear_manifest.json and the six pieces); to A-D as staged/t12_10/install.sh lists them, and
 #          data/gear_manifest.json back to d498cb6a (cliffside3d/godot/data/gear_manifest.json at ff29a8819).
@@ -97,8 +103,8 @@ elif [ $ND -eq ${#FILES[@]} ]; then echo "   found D: T12_9 (knight ea761ba8, nb
 else printf "$TABLE"; fail "the installed files match none of A ($NA), B ($NB), C ($NC), D ($ND) or E ($NE) of ${#FILES[@]} exactly"
 fi
 chk() { local f=$1 want=$2; local got; got=$(md5 -q "$f") || fail "missing $f"; [ "$got" = "$want" ] || fail "$f is $got, want $want"; }
-chk $ST/knight.gd a485b936631c67b1de7d42505e7ac3f0
-chk $ST/character.json d4cb18ab36ad33b5ae39e852d9da6b84
+chk $ST/knight.gd 86141f65fec86dfb4b9f9ca296e93218
+chk $ST/character.json ca2ce1ca12c1c99fd546d5c35768b099
 chk $GL/gear_manifest.json 0a81b2afbda88a518b882a90dbecf771
 chk $GL/nb-body.glb 3e32a9fc7c9bcb5f12449c2b5bc927d6
 chk $GL/axe.glb d7762e1b40dc37a238d9da761cf4ec95
@@ -108,6 +114,13 @@ chk $GL/helmet.glb 185ca9f74af564da3f2443195c0c030f
 chk $GL/mantle.glb 54669c6f2298950c9dc0ffcd8d936f70
 chk $GL/shield.glb cdf1c9e12a521531e79ee24f8c1a1540
 echo "   staged sources ok"
+IMP=$C/models/gear/nb-body.glb.import
+IMP_PRE=fb0e47c5d432c4fdd26ca08fd1486911; IMP_POST=9002fe85b0f6722699f6270bbbfb1d30
+got=$(md5 -q $IMP) || fail "missing $IMP"
+if [ "$got" = "$IMP_POST" ]; then echo "   nb-body.glb.import: optimizer already off ($got)"
+elif [ "$got" = "$IMP_PRE" ]; then echo "   nb-body.glb.import: $got, the optimizer on (default) -- will be turned off"
+else fail "$IMP is $got: neither the known default ($IMP_PRE) nor the optimizer-off form ($IMP_POST)"
+fi
 [ $DRY -eq 1 ] && { echo "== DRY RUN: pre-state and sources verified; nothing copied"; exit 0; }
 
 echo "== 2 install (atomic rename), md5 verified after each copy"
@@ -115,8 +128,8 @@ inst() { local src=$1 dst=$2 want=$3
   cp "$src" "$dst.tmp_install" && mv "$dst.tmp_install" "$dst"
   local got; got=$(md5 -q "$dst"); [ "$got" = "$want" ] || fail "$dst is $got, want $want"
   echo "   $(basename $dst)  $got  ok"; }
-inst $ST/knight.gd $C/scripts/knight.gd a485b936631c67b1de7d42505e7ac3f0
-inst $ST/character.json $C/data/character.json d4cb18ab36ad33b5ae39e852d9da6b84
+inst $ST/knight.gd $C/scripts/knight.gd 86141f65fec86dfb4b9f9ca296e93218
+inst $ST/character.json $C/data/character.json ca2ce1ca12c1c99fd546d5c35768b099
 inst $GL/gear_manifest.json $C/data/gear_manifest.json 0a81b2afbda88a518b882a90dbecf771
 inst $GL/nb-body.glb $C/models/gear/nb-body.glb 3e32a9fc7c9bcb5f12449c2b5bc927d6
 inst $GL/axe.glb $C/models/gear/axe.glb d7762e1b40dc37a238d9da761cf4ec95
@@ -125,6 +138,19 @@ inst $GL/byrnie.glb $C/models/gear/byrnie.glb d1fe5c22eb60be92dc26cc1fff21a802
 inst $GL/helmet.glb $C/models/gear/helmet.glb 185ca9f74af564da3f2443195c0c030f
 inst $GL/mantle.glb $C/models/gear/mantle.glb 54669c6f2298950c9dc0ffcd8d936f70
 inst $GL/shield.glb $C/models/gear/shield.glb cdf1c9e12a521531e79ee24f8c1a1540
+if [ "$(md5 -q $IMP)" = "$IMP_PRE" ]; then
+  python3 - "$IMP" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+assert s.count('_subresources={}\n') == 1, "the import's _subresources line is not the default"
+s = s.replace('_subresources={}\n', '_subresources={\n"nodes": {\n"PATH:AnimationPlayer": {\n"optimizer/enabled": false\n}\n}\n}\n')
+open(p + '.tmp_install', 'w').write(s)
+PYEOF
+  mv $IMP.tmp_install $IMP
+fi
+got=$(md5 -q $IMP); [ "$got" = "$IMP_POST" ] || fail "$IMP is $got after the edit, want $IMP_POST"
+echo "   nb-body.glb.import  $got  ok (animation optimizer off)"
 
 echo "== 3 re-import"
 python3 $LOCK C-9 -- $GODOT --path $C --headless --import > $S/import.log 2>&1

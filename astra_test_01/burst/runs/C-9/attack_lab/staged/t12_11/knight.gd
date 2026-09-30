@@ -1990,6 +1990,11 @@ uniform vec3 pen_color : source_color = vec3(0.055, 0.043, 0.063);
 uniform vec3 sun_dir = vec3(-0.47, 0.82, 0.33);
 uniform float alpha_max = 0.70;
 uniform float pen_px = 1.4;
+uniform float bristle_floor = 0.35;
+uniform float body_u1 = 0.6;          // the wash's soft falloff from the rim toward the inner edge (u 0.02 .. body_u1)
+uniform float tail_pow = 0.75;        // the wash thinning toward the stroke's tail, (1 - v)^tail_pow   // the streaks' thinnest paint (1 = no streaks)
+uniform vec3 edge_color : source_color = vec3(0.96, 0.92, 0.84);
+uniform float edge_w = 0.0;           // a PALE EDGE along the outer rim, inside the pen, this share of the stroke's width (0 = none)
 float h21(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
 float vnoise(vec2 p) {
 	vec2 i = floor(p); vec2 f = fract(p); f = f * f * (3.0 - 2.0 * f);
@@ -1999,17 +2004,22 @@ void fragment() {
 	float u = UV.x;                 // 0 the inner edge, 1 the outer rim
 	float v = UV.y;                 // 0 at the weapon (newest), 1 the tail
 	// THE WASH: full toward the rim, soft toward the inner edge; along the stroke it thins toward the tail
-	float body = smoothstep(0.02, 0.6, u) * pow(max(1.0 - v, 0.0), 0.75);
+	float body = smoothstep(0.02, body_u1, u) * pow(max(1.0 - v, 0.0), tail_pow);
 	// dry-brush bristles: streaks that run ALONG the stroke (varying across it, stretched along it)
 	float bristle = vnoise(vec2(u * 24.0, v * 2.5 + 3.1));
 	float grain = vnoise(vec2(u * 70.0, v * 11.0 + 9.7));
-	float a = body * mix(0.35, 1.0, bristle) * mix(0.8, 1.0, grain);
+	float a = body * mix(bristle_floor, 1.0, bristle) * mix(0.8, 1.0, grain);
 	// THE RAMP under the scene's sun: two levels through one soft edge, the painting's blue-violet on the shade side
 	vec3 n = normalize(NORMAL);
 	if (!FRONT_FACING) { n = -n; }
 	vec3 l = normalize((VIEW_MATRIX * vec4(sun_dir, 0.0)).xyz);
 	float t = dot(n, l) * 0.5 + 0.5 + (grain - 0.5) * 0.12;
 	vec3 col = mix(shade_color, wash_color, smoothstep(0.40, 0.60, t));
+	// the two-tone stroke (T12_11b): a pale edge along the rim over the shade body, thinning with the stroke toward its tail
+	if (edge_w > 0.0) {
+		float e = smoothstep(1.0 - edge_w, 1.0 - edge_w * 0.35, u) * (1.0 - smoothstep(0.55, 1.0, v));
+		col = mix(col, edge_color, e);
+	}
 	// THE PEN along the outer rim: the gear's ink, ~pen_px on screen, thinning and breaking toward the tail
 	float fw = max(fwidth(u), 1e-5);
 	float pen = 1.0 - smoothstep(0.0, pen_px * fw, 1.0 - u);
@@ -2050,10 +2060,10 @@ void fragment() {
 		mat.shader = sh
 		material_override = mat
 		var st: Dictionary = s.get("style", {})
-		for p in ["wash_color", "shade_color", "pen_color"]:
+		for p in ["wash_color", "shade_color", "pen_color", "edge_color"]:
 			if st.has(p):
 				mat.set_shader_parameter(p, Color(float(st[p][0]), float(st[p][1]), float(st[p][2])))
-		for p in ["alpha_max", "pen_px"]:
+		for p in ["alpha_max", "pen_px", "bristle_floor", "edge_w", "body_u1", "tail_pow"]:
 			if st.has(p):
 				mat.set_shader_parameter(p, float(st[p]))
 		# THE TRANSPARENT ORDER: the painted world's post pass paints its pre-transparent screen copy over the whole

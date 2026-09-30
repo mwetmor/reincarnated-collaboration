@@ -216,7 +216,7 @@
    "RightHand",
    "weapon_r"
   ],
-  "over_s": 0.08,
+  "over_s": 0.16,
   "at_s": {
    "attack": 0.708333,
    "chop_overhead_92": 0.578
@@ -225,40 +225,50 @@
    "shield_bash"
   ],
   "from_swing_end": {
-   "attack": 0.08
+   "attack": 0.16
   },
   "pose_for": {
    "shield_bash": "axe_guard_R_bash",
    "chop_overhead_92": "axe_guard_R_chop"
   },
-  "_note_t12_11": "T12_11 (the slash re-cut on nbt_attack.glb's own 30 fps keys): at_s.attack RE-DERIVED on the re-cut -- its active swing is 0.5417-0.7083 s (the gate's rule on the raw clip; the strike frame 0.5833), so the swing ends at 0.708333 (17/24), not 0.75. FROM_SWING_END: a clip listed there (clip: its own ease, s) is released from its swing-end pose HELD, eased to the guard inside the release clip, the weight a step at at_s (knight.gd _release_hold_for; attack_lab/tools/strike_hold_release_patch.py). The re-cut's follow-through drives the axe into his head and left shoulder 11 ms after its swing ends (0.719 s at a 1/96 s step; 0.05-0.17 m deep over 0.72-0.82 s with no release), faster than the eased release can take the arm out of it: released from the running clip at 0.708 over 0.08 s, 228 axe points were inside his head at 0.75 s. Held, 0 at 1/24 and at 1/96 s, for eases of 0.08, 0.12, 0.16 and 0.24 s; 0.08 is kept, the same as every other strike. The chop and the bash release as before."
+  "_note_t12_11": "T12_11 (the slash re-cut on nbt_attack.glb's own 30 fps keys): at_s.attack RE-DERIVED on the re-cut -- its active swing is 0.5417-0.7083 s (the gate's rule on the raw clip; the strike frame 0.5833), so the swing ends at 0.708333 (17/24), not 0.75. FROM_SWING_END: a clip listed there (clip: its own ease, s) is released from its swing-end pose HELD, eased to the guard inside the release clip, the weight a step at at_s (knight.gd _release_hold_for; attack_lab/tools/strike_hold_release_patch.py). The re-cut's follow-through drives the axe into his head and left shoulder 11 ms after its swing ends (0.719 s at a 1/96 s step; 0.05-0.17 m deep over 0.72-0.82 s with no release), faster than the eased release can take the arm out of it: released from the running clip at 0.708 over 0.08 s, 228 axe points were inside his head at 0.75 s. Held, 0 at 1/24 and at 1/96 s, for eases of 0.08, 0.12, 0.16 and 0.24 s; 0.08 was kept then; T12_11b makes every release 0.16 (below). The chop and the bash release as before.",
+  "_note_t12_11b": "T12_11b (the coordinator's ruling: a release faster than the swing reads as a flick): over_s 0.08 -> 0.16 for every strike that releases (the slash, held from its swing end, and the chop); the bash holds the axe arm at guard throughout and has no release. Penetration 0 on all three at a 1/96 s step."
  },
  "_chop_resourced_2026_09_30": "T12 (coordinator 2026-09-30: re-source the chop, time-to-impact <= 0.8 s). clips_armed.chop was attack_chop (Meshy 237 Charged Axe Chop: 7.67 s, impact at 4.46 s, a crouched wind-up in which the seated axe went through his left leg). It is now chop_overhead_92: Meshy 92 'Double Combo Attack', its FIRST overhead cut, grafted by nb_d2/scripts/55_clip_graft.py (world-space retarget, no Blender) from source [0.200, 1.067] s -- the lead-in trimmed (its first frames put the axe head through the shield hand as the one-shot faded in) and the second cut dropped. Impact (the strike frame) at 0.50 s; swing 0.413-0.578 s; edge along the travel +1.00 (weapon_r roll channel); released to guard at 0.578 s. attack_chop stays in the GLB, unused.",
  "_t12_8_regraft_2026_09_30": "T12_8 (N-C9-ASSEMBLE-DISTORTION): walk_armed, idle_armed, block, shield_bash and chop_overhead_92 are re-grafted (nb_d2/scripts/55_clip_graft.py) from Meshy library clips fetched on THIS body's rig 01a0eb7e -- D2 had fetched them on the other T8 candidate's rig (01a0eb6a) and 33_assemble's Blender merge pose-copied them across the mismatched rests. Each is within 0.0001 of its source (nb_d2/scripts/56_clip_fidelity.py; the lint row SOURCE FIDELITY). The guard poses were re-solved on the corrected clips (the walk's clavicle and mean arm are the solver's prior; the block's chest); the bash and the chop's release got guards of their own.",
  "_t12_10_strafes_2026_09_30": "T12_10 (coordinator ruling 2026-09-30): run_armed and the strafes play on their SOURCE's clock (the text-to-motion keys are 30 fps; they had shipped 1.25x slow on a 24 fps timeline) and loop cleanly -- each seam blended on the source's own keys (nb_d2/scripts/58_loop_blend.py). Their speeds are re-derived by foot-lock on those keys (57_footlock.py): strafe_L 0.724 m/s, strafe_R 0.310, run_armed 3.275 (clip_px_s was {\"strafe_L_armed\": 77.2, \"strafe_R_armed\": 56.5, \"run_armed\": 392.0}).",
  "strike_trail": {
-  "_note": "THE STRIKE TRAIL (T12_11, knight.gd StrikeTrail; attack_lab/tools/strike_trail_patch.py): a brushed ink-and-wash stroke behind the weapon's EDGE LINE through each strike's active swing, faded out over fade_s after the swing's last frame. edge: two points in `bone`'s frame (glTF units), inner then outer (the outer carries the pen): the axe's cutting edge, beard to top horn, in weapon_r's; for the shield bash, the shield's rim diameter most ACROSS its travel (130 deg from its first axis toward its second: speed-weighted |cos| with the travel 0.20), in LeftHand's, the end that sweeps the longer path outer. window: clip seconds, the ACTIVE SWING by the weapon gate's own rule (the frames contiguous with the peak speed at >= 50% of it): the slash and the chop as the gate finds them on the raw clip (53_weapon_gate.py EDGE: attack 0.5417-0.7083, chop_overhead_92 0.4127-0.5778); the bash on the SHIELD's centre, through the tree at 1/192 s (1.0313-1.1979; the gate's bash row follows the carried axe head, not the shield that strikes). style: the wash (pale warm white), the shade (the painting's blue-violet, pale) under the scene's sun, and the pen (the gear's ink).",
+  "_note": "THE STRIKE TRAIL (T12_11, knight.gd StrikeTrail; attack_lab/tools/strike_trail_patch.py): a brushed ink-and-wash stroke behind the weapon's EDGE LINE through each strike's active swing, faded out over fade_s after the swing's last frame. edge: two points in `bone`'s frame (glTF units), inner then outer (the outer carries the pen): the axe's cutting edge, beard to top horn, in weapon_r's; for the shield bash, the shield's rim diameter most ACROSS its travel (130 deg from its first axis toward its second: speed-weighted |cos| with the travel 0.20), in LeftHand's, the end that sweeps the longer path outer. window: clip seconds, the ACTIVE SWING by the weapon gate's own rule (the frames contiguous with the peak speed at >= 50% of it): the slash and the chop as the gate finds them on the raw clip (53_weapon_gate.py EDGE: attack 0.5417-0.7083, chop_overhead_92 0.4127-0.5778); the bash on the SHIELD's centre, through the tree at 1/192 s (1.0313-1.1979; the gate's bash row follows the carried axe head, not the shield that strikes). style (T12_11b, the coordinator's ruling: it must read on the snow): a TWO-TONE stroke -- a SHADE BODY in the painter's own shadow hue (0.42/0.55/0.89 linear) taken deeper, x0.55 on its lit side and x0.35 on its shade side under the scene's sun (wash_color / shade_color, sRGB), laid heavy (alpha_max 0.95, the streaks' thinnest paint 0.6, the wash full from 30% of the width in, thinning toward the tail as (1-v)^0.4), a PALE EDGE (the old warm white) over the outer 35% of its width, and the gear's ink along the rim.",
   "fade_s": 0.15,
   "subdiv": 6,
   "style": {
    "wash_color": [
-    0.96,
-    0.92,
-    0.84
+    0.518,
+    0.586,
+    0.728
    ],
    "shade_color": [
-    0.78,
-    0.78,
-    0.88
+    0.42,
+    0.476,
+    0.594
    ],
    "pen_color": [
     0.055,
     0.043,
     0.063
    ],
-   "alpha_max": 0.7,
+   "alpha_max": 0.95,
    "pen_px": 1.4,
-   "render_priority": 126
+   "render_priority": 126,
+   "bristle_floor": 0.6,
+   "edge_color": [
+    0.96,
+    0.92,
+    0.84
+   ],
+   "edge_w": 0.35,
+   "body_u1": 0.3,
+   "tail_pow": 0.4
   },
   "clips": {
    "attack": {
@@ -357,7 +367,8 @@
     ]
    ]
   },
-  "_render_priority_note": "style.render_priority 126 = paint_stack.gd AFTER_POST_PRIORITY: the painted Barrow's post pass paints its pre-transparent screen copy over the whole frame at 120, so a transparent stroke drawn before it is painted out (the snowfall's rule). Harmless where there is no post pass (the lab)."
+  "_render_priority_note": "style.render_priority 126 = paint_stack.gd AFTER_POST_PRIORITY: the painted Barrow's post pass paints its pre-transparent screen copy over the whole frame at 120, so a transparent stroke drawn before it is painted out (the snowfall's rule). Harmless where there is no post pass (the lab).",
+  "_look_t12_11b": "Why two-tone, measured in the painted Barrow (attack_lab/t12/godot/tools/trail_contrast_scene.gd: the same takes with and without the trail, frame-identical, the stroke's body = where a black mask take shows at least a quarter of its paint; 2 placements, 4 ticks per strike): the old pale wash moved the snow by 0.031 median luminance (it is the snow's own value); the painter's shadow colour itself, 0.036 (0.76 against snow 0.89 at partial paint cannot reach 0.10); a deep single tone reached the snow (0.133) but sank into the rocks and scrub (0.077-0.100: its value is theirs); the two-tone keeps both -- the shade body reads on snow, the pale edge over dark ground. Chosen: snow 0.111 / 0.108, rock 0.126 / 0.129, scrub 0.111 (the placement with scrub), over him 0.208 / 0.203 (median |dL|, the two placements). Shaded snow stays low (0.05-0.06): its value is the stroke's."
  },
  "_t12_11_footlock_2026_09_30": "T12_11 (coordinator 2026-09-30, the D2 lane's finding): the locomotion speeds are re-derived by the SCENE'S foot-lock rule (nb_d2/scripts/57_footlock.py after so_d7/scripts/s18_footlock_contact.py: the stance side is the lower toe within 3 cm of its lowest, that side's foot joint, at the scene's 60 Hz tick) -- s6's bottom-quarter rule took in the landing and the lift-off. The manifest (knight.gd's source) carries run_armed 3.5451, strafe_L 0.6976, strafe_R 0.2896 m/s (were 3.2749, 0.7237, 0.3100); this fallback table follows: clip_px_s was {\"run_armed\": 412.5, \"strafe_L_armed\": 91.2, \"strafe_R_armed\": 39.0}.",
  "_t12_11_slash_recut_2026_09_30": "T12_11 (coordinator 2026-09-30): the slash (attack) re-cut on nbt_attack.glb's own 30 fps keys (55_clip_graft), 46 keys over 1.5 s -- it was the D2 merge's 24 fps resample. File fidelity through Godot's 30 fps import bake (nb_d2/scripts/62_bake_fidelity.py, Godot's own baked keys): before 8.914 deg (RightHand; runtime and editor import alike); after 0.000 deg on the runtime path (key for key) and 4.17 deg on the EDITOR path, which is not resampling -- the editor importer's animation optimizer (on by default, _subresources {}) drops RightForeArm's key at 0.667 s, the swing's peak. Against the source's own curve between keys: before up to 15.4 deg (RightHand, hips-relative, 0.700 s), after 0.00. Its weapon_r channel re-solved on the re-cut (weapon_channel_solve.gd STRIKES) and reshaped to one turn in the fist (61_strike_ramp.py). Swing 0.5417-0.7083 s, strike frame 0.5833 (was 0.583-0.75, 0.625): time to impact 0.58 s (was 0.63)."
