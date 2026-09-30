@@ -1,6 +1,6 @@
 {
  "_note": "THE CHARACTER SLOT. scripts/knight.gd reads this and nothing else about who the occupant is. `clips` maps the ROLES the scene drives to whatever the GLB calls them; `clips_armed` is the SECOND set, used whenever every piece in `armed_when_pieces` is equipped. `forward_axis` is the direction the MODEL faces in its own space -- MEASURED from the walk clip's stance foot. Speeds come from each clip's OWN stride so the feet do not slide, and they are quoted at `speed_measured_at_scale`: knight.gd rescales them to whatever figure scale is live, because a smaller man takes smaller steps.",
- "model": "res://models/t12_8/nb-body.glb",
+ "model": "res://models/gear_sword/nb-body_r0.glb",
  "model_height_m": 1.85,
  "forward_axis": [
   0.0,
@@ -231,5 +231,5 @@
  },
  "_chop_resourced_2026_09_30": "T12 (coordinator 2026-09-30: re-source the chop, time-to-impact <= 0.8 s). clips_armed.chop was attack_chop (Meshy 237 Charged Axe Chop: 7.67 s, impact at 4.46 s, a crouched wind-up in which the seated axe went through his left leg). It is now chop_overhead_92: Meshy 92 'Double Combo Attack', its FIRST overhead cut, grafted by nb_d2/scripts/55_clip_graft.py (world-space retarget, no Blender) from source [0.200, 1.067] s -- the lead-in trimmed (its first frames put the axe head through the shield hand as the one-shot faded in) and the second cut dropped. Impact (the strike frame) at 0.50 s; swing 0.413-0.578 s; edge along the travel +1.00 (weapon_r roll channel); released to guard at 0.578 s. attack_chop stays in the GLB, unused.",
  "_t12_8_regraft_2026_09_30": "T12_8 (N-C9-ASSEMBLE-DISTORTION): walk_armed, idle_armed, block, shield_bash and chop_overhead_92 are re-grafted (nb_d2/scripts/55_clip_graft.py) from Meshy library clips fetched on THIS body's rig 01a0eb7e -- D2 had fetched them on the other T8 candidate's rig (01a0eb6a) and 33_assemble's Blender merge pose-copied them across the mismatched rests. Each is within 0.0001 of its source (nb_d2/scripts/56_clip_fidelity.py; the lint row SOURCE FIDELITY). The guard poses were re-solved on the corrected clips (the walk's clavicle and mean arm are the solver's prior; the block's chest); the bash and the chop's release got guards of their own.",
- "_lab_variant": "LAB ONLY (drax T12_9/T12_10 before-after): T12_8 as it would install -- character b676c2a3, body 8a59acf9, the installed manifest d498cb6a"
+ "_lab_variant": "LAB ONLY (drax T12_10 before/after): T12_9 as it would install -- character b676c2a3, body 91e3c4f8, the installed manifest d498cb6a"
 }

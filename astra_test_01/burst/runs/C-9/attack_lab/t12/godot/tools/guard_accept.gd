@@ -93,6 +93,7 @@ func _initialize() -> void:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
 		var r := _hold(st)
 		out["clips"][st] = r
+		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"])])
 		print("[accept] %-8s %-9s guard %3d%% | fist turn %4.1f/%4.1f deg | arc %3.0f-%3.0f px/loop | pen worst %d (%.3f m deep), frames %d of %d %s | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians) | %s %.3f s x%d"
 			% [label, st, int(round(100.0 * float(r["pass_frac"]))), float(r["turn_med"]), float(r["turn_p90"]), float(r["arc_min"]), float(r["arc_max"]),
 			   int(r["pen_max"]), float(r["pen_depth_m"]), int(r["pen_frames"]), int(r["frames"]), JSON.stringify(r["pen_parts"]), float(r["tilt"]), float(r["fwd"]), float(r["out"]),
@@ -315,6 +316,12 @@ func _cross(tm: TriangleMesh, p: Vector3, d: Vector3) -> Array:
 	return [n, first, dist]
 
 var pen_depth := 0.0   # the last _pen call's deepest inside point (m): the nearest surface over the rays
+# HAND CONTACT (coordinator ruling 2026-09-30, the pommel ruling): a butt/pommel point inside the HOLDING hand -- the
+# nearest surface over the six rays a hand-dominant triangle -- no deeper than HAND_CONTACT_M is grip contact, not
+# penetration. Counted apart (hand_n / hand_depth per _pen call); into the body (hips, thigh) it is still penetration.
+const HAND_CONTACT_M := 0.02
+var hand_n := 0
+var hand_depth := 0.0
 var fist_s := [0.0, 0.0]   # the closed fist's extent ALONG THE HAFT (axe-bone units), from the hand mesh
 var fist_r := 0.0          # the haft's radius at the grip, plus a margin (axe-bone units)
 const DIRS := [Vector3.UP, Vector3.DOWN, Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK]
@@ -370,17 +377,19 @@ func _pen(parts: Dictionary) -> int:
 	var g: Transform3D = skel.get_bone_global_pose(ab)
 	var inside := 0
 	pen_depth = 0.0
+	hand_n = 0; hand_depth = 0.0
 	for pl in pts:
 		var sa: float = (pl - grip_l).dot(H)
 		var ra: float = ((pl - grip_l) - sa * H).length()
 		if sa >= float(fist_s[0]) and sa <= float(fist_s[1]) and ra <= fist_r: continue
 		var p: Vector3 = g * pl
 		if not bx.has_point(p): continue
-		var odd := true; var near := 1e9; var fu := -1; var in_hand := true
+		var odd := true; var near := 1e9; var fu := -1; var in_hand := true; var fn := -1
 		for d in DIRS:
 			var c: Array = _cross(tm, p, d)
 			if int(c[0]) % 2 == 0:
 				odd = false; break
+			if float(c[2]) < near: fn = int(c[1])
 			near = minf(near, float(c[2]))
 			if d == Vector3.UP: fu = int(c[1])
 			if int(c[1]) < 0 or tri_hand[int(c[1])] == 0: in_hand = false
@@ -388,9 +397,13 @@ func _pen(parts: Dictionary) -> int:
 		# ...and a point the RIGHT HAND encloses on all six sides is in the hand whatever the fist
 		# stretch says (the butt's knob against the heel of the palm)
 		if in_hand: continue
+		var zone: String = "butt" if sa < 0.0 else ("head" if ra * s_ > 0.03 else "haft")
+		# the pommel against the heel of ITS OWN hand, within 2 cm: grip contact (the named class), not penetration
+		if zone == "butt" and fn >= 0 and tri_hand[fn] == 1 and near * s_ <= HAND_CONTACT_M:
+			hand_n += 1; hand_depth = maxf(hand_depth, near * s_)
+			continue
 		inside += 1
 		pen_depth = maxf(pen_depth, near * s_)
-		var zone: String = "butt" if sa < 0.0 else ("head" if ra * s_ > 0.03 else "haft")
 		var part: String = "%s:%s" % [zone, String(body.skin.get_bind_name(tri_bone[fu])) if fu >= 0 else "?"]
 		parts[part] = int(parts.get(part, 0)) + 1
 	return inside
@@ -463,6 +476,7 @@ func _hold(st: String) -> Dictionary:
 			cl = _clip_len(st, 2.4583)
 	var n: int = int(round(float(cl[1]) * float(loops) / DT))
 	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0
+	var hmax := 0; var hfr := 0; var hdep := 0.0
 	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": []}
 	for i in n:
 		_step(dir, run)
@@ -473,11 +487,14 @@ func _hold(st: String) -> Dictionary:
 		var p := _pen(parts)
 		pmax = maxi(pmax, p); dmax = maxf(dmax, pen_depth)
 		if p > 0: pfr += 1
+		hmax = maxi(hmax, hand_n); hdep = maxf(hdep, hand_depth)
+		if hand_n > 0: hfr += 1
 	k.set_block(false)
 	turns.sort()
 	var out := {"clip": String(cl[0]), "loop_s": float(cl[1]), "loops": loops, "frames": n, "pass_frac": float(ok) / float(n),
 				"turn_med": float(turns[turns.size() / 2]), "turn_p90": float(turns[int(turns.size() * 0.9)]),
-				"pen_max": pmax, "pen_frames": pfr, "pen_parts": parts, "pen_depth_m": dmax}
+				"pen_max": pmax, "pen_frames": pfr, "pen_parts": parts, "pen_depth_m": dmax,
+				"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep}
 	for key in cols:
 		var v: Array = cols[key]; v.sort(); out[key] = float(v[v.size() / 2])
 	var arcs := []
@@ -500,6 +517,7 @@ func _row(t: float) -> Dictionary:
 	m["pen"] = _pen(parts)
 	m["pen_depth"] = pen_depth
 	m["pen_parts"] = parts
+	m["hand_n"] = hand_n; m["hand_depth"] = hand_depth
 	return m
 
 func _strike_tree(key: String, clip: String) -> Array:
@@ -536,7 +554,7 @@ func _strike_raw(clip: String, with_pen: bool) -> Array:
 		else:
 			var m := _frame()
 			m["reach"] = ((m["head"] as Vector3) - skel.get_bone_global_pose(skel.find_bone("Hips")).origin * s_).dot(F)
-			m["t"] = t; m["pen"] = 0; m["pen_depth"] = 0.0; m["pen_parts"] = {}
+			m["t"] = t; m["pen"] = 0; m["pen_depth"] = 0.0; m["pen_parts"] = {}; m["hand_n"] = 0; m["hand_depth"] = 0.0
 			rows.append(m)
 	return rows
 
@@ -596,8 +614,11 @@ func _strike_metrics(rows: Array, win := []) -> Dictionary:
 		steps.append(pk2); sarcs.append(sa)
 	steps.sort(); sarcs.sort()
 	var ok := 0; var pmax := 0; var pfr := 0; var dmax := 0.0; var parts := {}; var pen_t := []
+	var hmax := 0; var hfr := 0; var hdep := 0.0
 	for r in rows:
 		if _guard(r): ok += 1
+		hmax = maxi(hmax, int(r.get("hand_n", 0))); hdep = maxf(hdep, float(r.get("hand_depth", 0.0)))
+		if int(r.get("hand_n", 0)) > 0: hfr += 1
 		var p: int = int(r["pen"])
 		pmax = maxi(pmax, p); dmax = maxf(dmax, float(r["pen_depth"]))
 		if p > 0:
@@ -606,6 +627,7 @@ func _strike_metrics(rows: Array, win := []) -> Dictionary:
 		for kk in (r["pen_parts"] as Dictionary):
 			parts[kk] = int(parts.get(kk, 0)) + int(r["pen_parts"][kk])
 	return {"frames": rows.size(), "pass_frac": float(ok) / float(maxi(rows.size(), 1)), "pen_max": pmax, "pen_frames": pfr, "pen_parts": parts,
+			"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep,
 			"pen_depth_m": dmax, "pen_t": pen_t, "step_max": float(steps[-1]), "swing_arc_min": float(sarcs[0]), "swing_arc_max": float(sarcs[-1]),
 			"turn_med": float(tsw[tsw.size() / 2]), "turn_max": float(tsw[-1]), "t_first": float(rows[0]["t"]), "t_last": float(rows[-1]["t"]),
 			"edge_lead": {"strike_t": float(rows[sf]["t"]), "on_travel_strike": float(cs[sf]), "heading_strike": float(rows[sf]["edge"]),

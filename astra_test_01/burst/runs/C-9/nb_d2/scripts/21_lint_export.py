@@ -63,8 +63,9 @@
 #         keys on its source's OWN key times (no resampling) and closes -- pose(0) against pose(T)
 #         within 5 mm and 1 deg (56_clip_fidelity.seams; s17_loop_closure.py's definition). Found:
 #         the T8 walk popped 9.96 cm / 11.3 deg at every wrap and the run hitched (its first interval
-#         29% of normal) -- the D2 merge had cut Meshy's 30 fps keys on a 24 fps grid from t = 0. A
-#         loop whose SOURCE does not close is a named `seam_exception` (WARN with its numbers).
+#         29% of normal) -- the D2 merge had cut Meshy's 30 fps keys on a 24 fps grid from t = 0. No
+#         exceptions (coordinator 2026-09-30): a loop whose source grid cannot be read FAILS, and a source
+#         that is not periodic (text-to-motion) is BLENDED on its own keys (58_loop_blend.py), not excused.
 import json, struct, sys
 import numpy as np
 
@@ -140,7 +141,10 @@ def _mount(path=None):
     for p in ([os.path.join(os.path.dirname(os.path.abspath(path)), "weapon_mount.json")] if path else []) + \
             [os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")]:
         if os.path.exists(p):
-            return np.array(json.load(open(p))["W"], float)
+            rec = json.load(open(p))
+            # W: weapon_r's rest (the T12 seat); WL (JOIN-1, 59_offhand_mount.py): weapon_l's, when an off-hand
+            # weapon is mounted -- otherwise weapon_l stays coincident with its hand
+            return {"weapon_r": np.array(rec["W"], float), "weapon_l": np.array(rec["WL"], float) if "WL" in rec else None}
     return None
 
 
@@ -192,8 +196,8 @@ def lint(path, skeleton=True):
                 fails.append("%s: SKELETON IDENTITY -- %s is not a child of %s"
                              % (path.split('/')[-1], wn, hn))
             if wi:
-                mounted = mount is not None and wn == "weapon_r"
-                want = mount if mounted else np.eye(4)
+                mounted = mount is not None and mount.get(wn) is not None
+                want = mount[wn] if mounted else np.eye(4)
                 got = _trs(nodes[wi[0]])
                 # compare where the rest frame puts points 10 cm out along each axis (metres)
                 probe = np.array([[0, 0, 0, 1], [10, 0, 0, 1], [0, 10, 0, 1], [0, 0, 10, 1]], float).T
@@ -310,13 +314,13 @@ def lint(path, skeleton=True):
                     if r['grid_status'] == "FAIL":
                         fails.append("%s: SOURCE GRID -- loop '%s' is RESAMPLED: %s (re-cut it on the source's own keys: 55_clip_graft.py)"
                                      % (fn, r['clip'], r.get('grid_note', '')))
+                    elif r['grid_status'] != "PASS":
+                        fails.append("%s: SOURCE GRID -- loop '%s': its source grid cannot be checked (%s) -- every loop names a readable "
+                                     "source or grid_source, no exceptions" % (fn, r['clip'], r['grid_status']))
                     if r['seam_status'] == "FAIL":
                         fails.append("%s: LOOP SEAM -- loop '%s' does not close: pose(0) vs pose(T) %.4f m (%s) / %.2f deg, limit %.3f m / %.1f deg; "
-                                     "first interval %.2f of the median" % (fn, r['clip'], r['closure_m'], r['closure_joint'], r['closure_deg'],
-                                                                          F.SEAM_M, F.SEAM_DEG, r['first_frac']))
-                    elif r['seam_status'] == "EXCEPTION":
-                        warns.append("%s: LOOP SEAM -- loop '%s' does not close (%.4f m %s / %.2f deg) -- named exception: %s"
-                                     % (fn, r['clip'], r['closure_m'], r['closure_joint'], r['closure_deg'], r['exception']))
+                                     "first interval %.2f of the median (a source that is not periodic is blended: 58_loop_blend.py)"
+                                     % (fn, r['clip'], r['closure_m'], r['closure_joint'], r['closure_deg'], F.SEAM_M, F.SEAM_DEG, r['first_frac']))
         except Exception as e:
             warns.append("%s: LOOP SEAM not measured: %s" % (path.split('/')[-1], e))
     return dict(file=path, roots=[name(r) for r in roots],

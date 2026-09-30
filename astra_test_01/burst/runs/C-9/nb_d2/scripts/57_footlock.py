@@ -1,6 +1,9 @@
 # FOOT-LOCK SPEED of an in-place loop: the ground speed that pins the planted foot.
 #
-#   python3 scripts/57_footlock.py <body.glb> walk,run [--json f]
+#   python3 scripts/57_footlock.py <body.glb> walk,run,strafe_L_armed@1:0:0 [--json f]
+#
+# clip@dx:dy:dz: the travel direction in the model frame (default +Z, his forward; the strafes travel
+# along knight.gd's strafe_dirs -- strafe_L_armed +X, strafe_R_armed -X).
 #
 # so_d7/scripts/s6_footlock.py's definition (the D2 drax, 2026-09-30), evaluated from the glTF with
 # no importer in the loop (s17_loop_closure.py's evaluator): SAMPLED AT THE CLIP'S OWN KEYS; contact
@@ -29,7 +32,8 @@ def own_keys(m, clip):
     return max(by.items(), key=lambda kv: (len(kv[1]), kv[0]))[1][0]
 
 
-def footlock(m, clip):
+def footlock(m, clip, fwd=None):
+    fwd = F if fwd is None else np.asarray(fwd, float) / np.linalg.norm(fwd)
     ks = own_keys(m, clip)
     out = {}
     for foot in FEET:
@@ -37,12 +41,13 @@ def footlock(m, clip):
         P = np.array([S17.globals_at(m, clip, float(t))[j][:3, 3] for t in ks])
         y = P[:, 1]; lo, hi = float(y.min()), float(y.max())
         c = y <= lo + 0.25 * (hi - lo)
-        v = [float(-(P[i + 1] - P[i]) @ F / (ks[i + 1] - ks[i])) for i in range(len(ks) - 1) if c[i] and c[i + 1]]
-        out[foot] = dict(m_s=round(float(np.median(v)), 4) if v else None, intervals=len(v))
-    fj = [out[f]['m_s'] for f in FEET[:2] if out[f]['m_s'] is not None]
-    tj = [out[f]['m_s'] for f in FEET[2:] if out[f]['m_s'] is not None]
-    return dict(clip=clip, keys=int(len(ks)), T_s=round(float(ks[-1]), 4), per_foot=out,
-                foot_joints_m_s=round(float(np.mean(fj)), 4) if fj else None, toes_m_s=round(float(np.mean(tj)), 4) if tj else None)
+        v = [float(-(P[i + 1] - P[i]) @ fwd / (ks[i + 1] - ks[i])) for i in range(len(ks) - 1) if c[i] and c[i + 1]]
+        out[foot] = dict(m_s=round(float(np.median(v)), 4) if v else None, intervals=len(v), _v=v)
+    # s6's number: the median over BOTH feet's planted intervals POOLED (not a mean of the two medians)
+    fj = out['LeftFoot'].pop('_v') + out['RightFoot'].pop('_v')
+    tj = out['LeftToeBase'].pop('_v') + out['RightToeBase'].pop('_v')
+    return dict(clip=clip, dir=[float(x) for x in fwd], keys=int(len(ks)), T_s=round(float(ks[-1]), 4), per_foot=out,
+                foot_joints_m_s=round(float(np.median(fj)), 4) if fj else None, toes_m_s=round(float(np.median(tj)), 4) if tj else None)
 
 
 if __name__ == '__main__':
@@ -50,8 +55,9 @@ if __name__ == '__main__':
     outj = a[a.index('--json') + 1] if '--json' in a else None
     m = S17.model(a[0])
     res = []
-    for clip in a[1].split(','):
-        r = footlock(m, clip); res.append(r)
+    for spec in a[1].split(','):
+        clip, _, d = spec.partition('@')
+        r = footlock(m, clip, [float(x) for x in d.split(':')] if d else None); res.append(r)
         p = r['per_foot']
         print("  %-8s %2d keys, T %.4f s | foot-lock: foot joints L %.3f R %.3f -> %.3f m/s | toes L %.3f R %.3f -> %.3f m/s"
               % (clip, r['keys'], r['T_s'], p['LeftFoot']['m_s'], p['RightFoot']['m_s'], r['foot_joints_m_s'],

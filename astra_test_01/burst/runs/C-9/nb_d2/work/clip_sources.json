@@ -148,35 +148,101 @@
   },
   "run_armed": {
    "source": "anims/t2m_run_armed.fbx",
-   "path": "41_retarget_smplh",
+   "path": "41_retarget_smplh -> 58_loop_blend",
    "edits": [
     "trim",
     "deroot",
-    "wrist_lock"
+    "wrist_lock",
+    "retime",
+    "seam_blend"
    ],
-   "note": "text-to-motion SMPL-H through 41's world-space rest-frame retarget; FBX not read here",
+   "note": "text-to-motion (SMPL-H) through 41; not periodic at source, so its seam is BLENDED on the source's own keys (T12_10). The FBX is read for its key grid (56 SOURCE GRID); its motion is not (fidelity UNMEASURED)",
    "loop": true,
-   "seam_exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: the export's one-cycle cut is already the best closing window on the source's own frames (4.50 cm LeftToeBase / 5.96 deg full body; the scene plays only its upper body over the run's legs, where it is 0.52 cm / 1.48 deg on the spine and head, 0.64 cm / 2.44 deg with the arms, which the guard layers own). Measured 2026-09-30; a re-cut cannot close it"
+   "window": [
+    0.466667,
+    1.133333
+   ],
+   "window_frames": [
+    14,
+    34
+   ],
+   "retime": "x0.8: the t2m source keys at 30 fps; the chain had placed its frames 1:1 on a 24 fps timeline (1.25x slow). T12_10 restores the source's clock",
+   "seam_blend": {
+    "mode": "offset",
+    "window_in_clip": [
+     0,
+     20
+    ],
+    "blend_intervals": 4,
+    "footlock_m_s": 3.2749,
+    "blend_support_slide_max_mm": 47.57,
+    "loop_support_slide_p95_mm": 49.09,
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+   }
   },
   "strafe_L_armed": {
    "source": "anims/t2m_strafe_left.fbx",
-   "path": "41_retarget_smplh",
+   "path": "41_retarget_smplh -> 58_loop_blend",
    "edits": [
-    "deroot"
+    "deroot",
+    "retime",
+    "seam_blend"
    ],
-   "note": "SMPL-H via 41",
+   "note": "text-to-motion (SMPL-H) through 41; not periodic at source, so its seam is BLENDED on the source's own keys (T12_10). The FBX is read for its key grid (56 SOURCE GRID); its motion is not (fidelity UNMEASURED)",
    "loop": true,
-   "seam_exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: no window on its own frames closes better than 9.99 cm / 25.8 deg (keys 2..46); the whole clip wraps at 19.9 cm LeftFoot / 24.4 deg. A re-cut cannot close it: needs a decision (seam blend, re-source, or the mirrored strafe_R). Measured 2026-09-30"
+   "window": [
+    0.166667,
+    1.666667
+   ],
+   "window_frames": [
+    5,
+    50
+   ],
+   "retime": "x0.8: the t2m source keys at 30 fps; the chain had placed its frames 1:1 on a 24 fps timeline (1.25x slow). T12_10 restores the source's clock",
+   "seam_blend": {
+    "mode": "offset",
+    "window_in_clip": [
+     5,
+     50
+    ],
+    "blend_intervals": 10,
+    "footlock_m_s": 0.7237,
+    "blend_support_slide_max_mm": 13.89,
+    "loop_support_slide_p95_mm": 15.63,
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+   }
   },
   "strafe_R_armed": {
    "source": "anims/t2m_strafe_right.fbx",
-   "path": "41_retarget_smplh",
+   "path": "41_retarget_smplh -> 58_loop_blend",
    "edits": [
-    "deroot"
+    "deroot",
+    "retime",
+    "seam_blend"
    ],
-   "note": "SMPL-H via 41",
+   "note": "text-to-motion (SMPL-H) through 41; not periodic at source, so its seam is BLENDED on the source's own keys (T12_10). The FBX is read for its key grid (56 SOURCE GRID); its motion is not (fidelity UNMEASURED)",
    "loop": true,
-   "seam_exception": "text-to-motion (SMPL-H, 60 frames at 30 fps) is not periodic: the best window on its own frames is 4.01 cm / 5.9 deg (keys 0..57); the whole clip wraps at 4.55 cm LeftFoot / 6.45 deg. A re-cut cannot close it. Measured 2026-09-30"
+   "window": [
+    0.033333,
+    1.933333
+   ],
+   "window_frames": [
+    1,
+    58
+   ],
+   "retime": "x0.8: the t2m source keys at 30 fps; the chain had placed its frames 1:1 on a 24 fps timeline (1.25x slow). T12_10 restores the source's clock",
+   "seam_blend": {
+    "mode": "offset",
+    "window_in_clip": [
+     1,
+     58
+    ],
+    "blend_intervals": 4,
+    "footlock_m_s": 0.31,
+    "blend_support_slide_max_mm": 4.49,
+    "loop_support_slide_p95_mm": 14.37,
+    "tool": "58_loop_blend.py (search: the window and blend that minimise the support toe's slide inside the blend, then the loop's p95)"
+   }
   },
   "run_armed_locked": {
    "source": "../nb_t8/nbt_run.glb",
@@ -224,8 +290,10 @@
   "idle_guard": {
    "source": null,
    "path": "54_weapon_channel pose",
-   "note": "the unarmed idle's stance (held at the re-cut idle's key 53 = source 1.80 s, the T12_8 moment), damped, with the guard arm",
-   "loop": true
+   "note": "the unarmed idle's stance (held at the re-cut idle's key 53, the T12_8 moment), damped, with the guard arm",
+   "loop": true,
+   "grid_source": "../nb_t8/nbt_idle.glb",
+   "grid_note": "authored on the idle's own keys (54 pose): its grid is the idle's source's"
   },
   "attack_chop": {
    "source": "anims/axe_chop.glb",
@@ -257,5 +325,5 @@
    "note": "the guard the chop's arm is released to after its swing, solved against the chop's post-swing torso (bash_guard_solve.py --from 0.578)"
   }
  },
- "_loop_rule": "\"loop\": true marks the scene's looping clips: 21_lint_export.py's SOURCE GRID (keys on the source's own key times) and LOOP SEAM (pose(0) vs pose(T) within 5 mm / 1 deg) rows judge them; `seam_exception` names a loop whose SOURCE does not close"
+ "_loop_rule": "\"loop\": true marks the scene's looping clips: 21_lint_export.py's SOURCE GRID (keys on the source's own key times -- GLB or FBX, no exceptions) and LOOP SEAM (pose(0) vs pose(T) within 5 mm / 1 deg -- a source that is not periodic is blended, 58_loop_blend.py) judge them"
 }

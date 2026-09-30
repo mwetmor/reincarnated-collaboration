@@ -1,0 +1,98 @@
+{
+ "clips": {
+  "strafe_L_armed": {
+   "footlock_m_s": 0.7237,
+   "support_pairs": 43,
+   "probe_pairs": 6,
+   "blend_support_max_mm": 13.89,
+   "blend_support_med_mm": 11.6,
+   "blend_support_pairs": 10,
+   "loop_slide_med_mm": 10.98,
+   "loop_slide_p95_mm": 15.63,
+   "loop_slide_max_mm": 16.9,
+   "blend_intervals": 10,
+   "a": 5,
+   "b": 50,
+   "w": 10,
+   "mode": "offset",
+   "L": 45,
+   "seconds": 1.5,
+   "gait": "walk",
+   "source_keys": [
+    0.166667,
+    1.666667
+   ],
+   "keys": 46,
+   "retime": 0.8,
+   "dir": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "strafe_R_armed": {
+   "footlock_m_s": 0.31,
+   "support_pairs": 55,
+   "probe_pairs": 37,
+   "blend_support_max_mm": 4.49,
+   "blend_support_med_mm": 3.66,
+   "blend_support_pairs": 4,
+   "loop_slide_med_mm": 10.34,
+   "loop_slide_p95_mm": 14.37,
+   "loop_slide_max_mm": 15.92,
+   "blend_intervals": 4,
+   "a": 1,
+   "b": 58,
+   "w": 4,
+   "mode": "offset",
+   "L": 57,
+   "seconds": 1.9,
+   "gait": "walk",
+   "source_keys": [
+    0.033333,
+    1.933333
+   ],
+   "keys": 58,
+   "retime": 0.8,
+   "dir": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "run_armed": {
+   "footlock_m_s": 3.2749,
+   "support_pairs": 7,
+   "probe_pairs": 7,
+   "blend_support_max_mm": 47.57,
+   "blend_support_med_mm": 47.57,
+   "blend_support_pairs": 1,
+   "loop_slide_med_mm": 41.47,
+   "loop_slide_p95_mm": 49.09,
+   "loop_slide_max_mm": 49.74,
+   "blend_intervals": 4,
+   "a": 0,
+   "b": 20,
+   "w": 4,
+   "mode": "offset",
+   "L": 20,
+   "seconds": 0.6667,
+   "gait": "run",
+   "source_keys": [
+    0.0,
+    0.666667
+   ],
+   "keys": 21,
+   "retime": 0.8,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

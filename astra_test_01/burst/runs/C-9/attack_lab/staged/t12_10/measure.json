@@ -1,0 +1,249 @@
+{
+ "_note": "T12_10 -- T12_9 with the text-to-motion loops (run_armed, strafe_L_armed, strafe_R_armed) on their SOURCE's clock and their seams blended on the source's own keys; foot-lock speeds; the knight's manifest speed unit fixed; the manifest's provenance corrected. Coordinator rulings 2026-09-30 (items 1, 4, 5, 6). Staged, not installed.",
+ "set": {
+  "knight.gd": "39fc9f21fe01c1ddf39ffbb691132598",
+  "character.json": "45d757b57395717ecb91560d1f38b0be",
+  "gear_manifest.json": "aa557a50014b8a758f05083db5925c5b",
+  "nb-body.glb": "eb8a3837229ac59d39097a073da2f04e",
+  "axe.glb": "d7762e1b40dc37a238d9da761cf4ec95",
+  "bracers.glb": "5254292e1d894902a60f4749c3cc7abb",
+  "byrnie.glb": "d1fe5c22eb60be92dc26cc1fff21a802",
+  "helmet.glb": "185ca9f74af564da3f2443195c0c030f",
+  "mantle.glb": "54669c6f2298950c9dc0ffcd8d936f70",
+  "shield.glb": "cdf1c9e12a521531e79ee24f8c1a1540",
+  "glbs_from": "nb_d2/export_staging/T12_10_strafes/",
+  "knight_recipe": "attack_lab/tools/manifest_speed_patch.py over T12_9's ea761ba8",
+  "body_recipe": "nb_d2/scripts/58_loop_blend.py build over T12_9's 91e3c4f8 (--retime 0.8): strafe_L_armed=5:50:10:offset, strafe_R_armed=1:58:4:offset, run_armed=0:20:4:offset; every other clip byte-identical"
+ },
+ "pre_states": {
+  "A": "installed: knight bf23c13e, character b3b62c63, nb-body 07ccabd6, the D2 pieces",
+  "B": "T12_7",
+  "C": "T12_8",
+  "D": "T12_9",
+  "tenth_file": "data/gear_manifest.json d498cb6a in all four (no earlier set installs it)",
+  "dry_run": "scratch symlink trees: A found, B found, C found, D found; T12_9 with the new manifest halts (9 of 10 D); T12_8's scripts over T12_7's GLBs halts"
+ },
+ "ruling_1_text_to_motion": {
+  "source_timing": "the t2m FBX keys at 30 fps (60 keys, 0..1.9667 s -- read from the FBX's own KeyTime arrays); the chain had placed its frames 1:1 on a 24 fps timeline. Every key time x 0.8: the loops now key on the source's own grid (SOURCE GRID PASS, the FBX read by 56 -- no exception)",
+  "seam_blend": {
+   "strafe_L_armed": {
+    "window_source_frames": [
+     5,
+     50
+    ],
+    "mode": "offset",
+    "blend_intervals": 10,
+    "loop_s": 1.5,
+    "keys": 46,
+    "slide_inside_blend_mm_per_key": {
+     "max": 13.89,
+     "median": 11.6,
+     "intervals": 10
+    },
+    "slide_whole_loop_mm_per_key": {
+     "median": 10.98,
+     "p95": 15.63,
+     "max": 16.9
+    }
+   },
+   "strafe_R_armed": {
+    "window_source_frames": [
+     1,
+     58
+    ],
+    "mode": "offset",
+    "blend_intervals": 4,
+    "loop_s": 1.9,
+    "keys": 58,
+    "slide_inside_blend_mm_per_key": {
+     "max": 4.49,
+     "median": 3.66,
+     "intervals": 4
+    },
+    "slide_whole_loop_mm_per_key": {
+     "median": 10.34,
+     "p95": 14.37,
+     "max": 15.92
+    }
+   },
+   "run_armed": {
+    "window_source_frames": [
+     14,
+     34
+    ],
+    "mode": "offset",
+    "blend_intervals": 4,
+    "loop_s": 0.6667,
+    "keys": 21,
+    "slide_inside_blend_mm_per_key": {
+     "max": 47.57,
+     "median": 47.57,
+     "intervals": 1
+    },
+    "slide_whole_loop_mm_per_key": {
+     "median": 41.47,
+     "p95": 49.09,
+     "max": 49.74
+    }
+   }
+  },
+  "seam_blend_how": "58_loop_blend.py search: every window on the clip's own keys (strafes 36-59 / 24-59 intervals, the run its one trimmed cycle), blend 3-20 intervals, modes pre / post (cross-fade into the source's own lead-in or run-on) / offset (a growing correction onto the start pose); scored by the SUPPORT toe's world slide inside the blend (the lower toe, same foot, body driven at the loop's foot-lock speed), then the loop's p95. The run's legs have flight, so its score uses the scene probe's planted-pair rule. The blended loops close to the bit (s17 closure 0.0000 m / 0.000 deg); the largest step in each loop is no larger than the unblended source's own (strafe_L 2.68x the median vs the source's 2.76x; strafe_R 4.81x vs 4.88x)",
+  "slide_inside_the_blend_reading": "the text-to-motion feet skate at source: the loop's own support slide is ~10-11 mm per key outside any blend (strafes), and the blend adds nothing above it (strafe_L blend median 11.6 vs loop 11.0; strafe_R 3.7 vs 10.3). The run_armed legs (unused by the scene: it plays their upper body) skate ~42 mm per key everywhere",
+  "loop_closure_s17": {
+   "T12_9": {
+    "run_armed": "4.50 cm / 5.96 deg",
+    "strafe_L_armed": "19.90 cm / 24.42 deg",
+    "strafe_R_armed": "4.55 cm / 6.45 deg"
+   },
+   "T12_10": {
+    "run_armed": "0.0000 m / 0.000 deg",
+    "strafe_L_armed": "0.0000 m / 0.000 deg",
+    "strafe_R_armed": "0.0000 m / 0.000 deg"
+   }
+  },
+  "footlock_m_s_pooled_s6": {
+   "strafe_L_armed": {
+    "T12_9 (24 fps placement)": 0.6123,
+    "T12_10 (source clock, blended loop)": 0.7237
+   },
+   "strafe_R_armed": {
+    "T12_9 (24 fps placement)": 0.2286,
+    "T12_10 (source clock, blended loop)": 0.31
+   },
+   "run_armed": {
+    "T12_9 (24 fps placement)": 2.4953,
+    "T12_10 (source clock, blended loop)": 3.2749
+   }
+  },
+  "strafe_speeds_before_after": {
+   "strafe_L_armed": {
+    "manifest_before": "stepping 0.844 m/s (47_speed on the rooted clip)",
+    "driven_before_across_screen": 0.674,
+    "clip_footlock_before": 0.6123,
+    "after_manifest_and_driven": 0.7237,
+    "change": "+7% driven, the cadence x1.25"
+   },
+   "strafe_R_armed": {
+    "manifest_before": "stepping 0.536 m/s",
+    "driven_before_across_screen": 0.428,
+    "clip_footlock_before": 0.2286,
+    "after_manifest_and_driven": 0.31,
+    "change": "-28% driven, the cadence x1.25: its old drive was nearly twice what pins its feet -- a stop-and-go strafe, whose STEPPING speed counted only the travelling frames"
+   },
+   "why_not_uniformly_faster": "the coordinator expected every strafe faster by the cadence; the cadence is x1.25, but the old drive speed was neither the clip's pin speed nor applied at its stated value (the knight drove manifest speeds at 0.799 -- the fix below). Against the feet: strafe_L was pinned at 91% before and 101% after; strafe_R at 53% before and 101% after"
+  },
+  "knight_manifest_speed_unit": "tools/manifest_speed_patch.py: _read_manifest_speeds converted m/s with PPM alone (figure scale 1.0) and handed it to clip_px_s, which rescales from the REFERENCE scale (1.25178) like walk_px_s and the fallback table -- every manifest-priced clip drove at 0.799 of its speed. Found by tools/strafe_probe.gd: T12_10's strafe_L moved at 0.578 m/s while its planted feet moved 0.731 relative to the body. Fixed: manifest speeds are stated at the reference scale. knight.gd moves at a fixed CANVAS speed by design (the 2D route's feel), so a ground speed in m/s is exact across the screen and up to 1.25x up the screen, as for the walk and the run",
+  "strafe_probe_in_scene": {
+   "T12_9": {
+    "strafe_l": {
+     "clip_len_s": 2.4583,
+     "body_m_s": 0.674,
+     "asked_m_s_across_screen": 0.674,
+     "in_scene_footlock_m_s": 0.615,
+     "pinned_pct_of_asked": 91,
+     "support_slide_mm_per_frame": [
+      10.1,
+      13.9,
+      14.8
+     ],
+     "wrap_step_x_median": 6.05
+    },
+    "strafe_r": {
+     "clip_len_s": 2.4583,
+     "body_m_s": 0.536,
+     "asked_m_s_across_screen": 0.428,
+     "in_scene_footlock_m_s": 0.227,
+     "pinned_pct_of_asked": 53,
+     "support_slide_mm_per_frame": [
+      17.2,
+      20.1,
+      23.1
+     ],
+     "wrap_step_x_median": 2.93
+    }
+   },
+   "T12_10_knight_before_the_unit_fix": {
+    "strafe_l": {
+     "clip_len_s": 1.5,
+     "body_m_s": 0.578,
+     "asked_m_s_across_screen": 0.578,
+     "in_scene_footlock_m_s": 0.731,
+     "pinned_pct_of_asked": 126,
+     "support_slide_mm_per_frame": [
+      14.2,
+      23.3,
+      24.1
+     ],
+     "wrap_step_x_median": 0.79
+    },
+    "strafe_r": {
+     "clip_len_s": 1.9,
+     "body_m_s": 0.31,
+     "asked_m_s_across_screen": 0.248,
+     "in_scene_footlock_m_s": 0.314,
+     "pinned_pct_of_asked": 127,
+     "support_slide_mm_per_frame": [
+      12.9,
+      17.8,
+      19.0
+     ],
+     "wrap_step_x_median": 0.95
+    }
+   },
+   "T12_10": {
+    "strafe_l": {
+     "clip_len_s": 1.5,
+     "body_m_s": 0.724,
+     "asked_m_s_across_screen": 0.724,
+     "in_scene_footlock_m_s": 0.731,
+     "pinned_pct_of_asked": 101,
+     "support_slide_mm_per_frame": [
+      13.8,
+      20.7,
+      21.2
+     ],
+     "wrap_step_x_median": 0.79
+    },
+    "strafe_r": {
+     "clip_len_s": 1.9,
+     "body_m_s": 0.388,
+     "asked_m_s_across_screen": 0.31,
+     "in_scene_footlock_m_s": 0.314,
+     "pinned_pct_of_asked": 101,
+     "support_slide_mm_per_frame": [
+      13.6,
+      18.6,
+      19.5
+     ],
+     "wrap_step_x_median": 0.95
+    }
+   },
+   "note": "support slide is mm per 1/24 s game frame; the in-scene strafe_R ran up the screen in this probe (its body speed is 1.25x the asked m/s, by the canvas design); pinned = in-scene foot-lock / asked, across-screen"
+  },
+  "not_done_per_the_ruling": "no mirror of strafe_R into strafe_L (the hands swap); no re-source (text-to-motion is held by T33; these three clips' licence rides on T33)"
+ },
+ "ruling_4_the_run_slide": {
+  "finding": "NOT a regression in the clip. Two things in the scene, both measured (tools/run_trace.gd):",
+  "one_phase_lock": "T12_8's run was 16 intervals at 24 fps (0.6667 s); the probe steps at exactly 1/24 s, so every cycle it sampled the SAME 16 phases (the clip position repeated to 0.0001 s: 0.2969, 0.5886 ...). Only two of those phases passed the probe's pair rule -- 7 pairs in 60 frames -- and the median was the median of those two. T12_9's run is 19 intervals at 30 fps (0.6333 s, 15.2 frames per cycle): the phases drift, the pairs sample the whole stance (14-16 pairs), including toe-off frames, and the median rises (22.6 / 24.1 mm)",
+  "two_the_import_bake": "Godot's glTF importer BAKES every animation at the import fps (animation/fps=30 in every .import here): T12_8's 24 fps run was resampled a second time in the engine -- its toes ran up to 3.05 cm (median 0.72 cm) off the file, exact only where the two grids meet (every 1/6 s). T12_9's 30 fps run plays as filed (0.21 cm max). Every 24 fps track still in the GLB is re-baked on import (attack, the weapon_r channel tracks, the pose clips' 1/24 s second key)",
+  "the_clips_themselves": "the same pair rule over all phases at the drive speed (5.141 m/s, 1/24 s, 8 start phases): T12_8 ~19 pairs at 20.9 mm, T12_9 ~16 at 18.6-20.3 mm -- the re-cut run slides slightly LESS. Its foot-lock (s6's pooled median, toes) is 5.260 m/s against the drive 5.141 (2.3%)",
+  "correction_to_T12_9_record": "T12_9's measure.json reported foot-lock as the MEAN of the two feet's medians (walk 1.581/1.610, run 3.984/5.196); s6 pools both feet: walk 1.583/1.602, run 3.952/5.260 (57_footlock.py now pools)"
+ },
+ "ruling_5_the_record": "gear_manifest.json (staged, aa557a50): clip_sources rewritten from the registry -- the body rig, every played clip's current source/rig/path/window, the wrong-rig history stated, the shield poses' derivation, the legacy clips, credits by rig (63 = 48 on 01a0eb6a incl. 3 in error + 15 on 01a0eb7e); locomotion_in_place re-derived (foot-lock speed_m_s, the source clock, walk_armed 53 keys / 1.7333 s); retargeted_clips' source duration stated over intervals; a _state_T12_10 note says which blocks record a past process. 48_manifest_lint: 0 mismatches against the T12_10 body (the export manifest has 3)",
+ "gate_T12_10": {
+  "table": "nb_d2/tables/weapon_table_T12_10_strafes_eb8a3837.json",
+  "verdict": "PASS (0 fail, 3 trail flags)",
+  "holds": "6 of 6 at 100% guard, 0 penetration, 0 hand contact; strafe_L 72 frames, strafe_R 91 (the new loop lengths)",
+  "strikes": "slash +1.00/+0.97, chop +1.00/+1.00, pen 0"
+ },
+ "speed_split_T12_10": "armed walk 4.6/38.7, run 22.6/32.9, cross 25.0/45.9/102.7 mm (105 pairs); ratio 1.000/1.000 (walk and run unchanged from T12_9)",
+ "lint": "21: T12_10 WARN, 0 fails -- every loop SOURCE GRID PASS (the t2m FBX read) and LOOP SEAM PASS; T12_9 now FAILs both rows on the three t2m loops",
+ "films": {
+  "files": [
+   "t12_10_strafe_l_before_after.mp4",
+   "t12_10_strafe_r_before_after.mp4"
+  ],
+  "dir": "~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/",
+  "checked": "side-view frame-to-frame change in the steady strafe: BEFORE strafe_L pops 4.3x the median once per cycle, strafe_R 3.0x; AFTER no frame above 1.3x"
+ }
+}

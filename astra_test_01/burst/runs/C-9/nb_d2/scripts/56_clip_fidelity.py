@@ -198,13 +198,40 @@ def check(ship_glb, reg=None):
 # at 30 fps from 0.0333 s -- a clamped hold on the first key, and a cut short of (walk) or past (run) the
 # source's own cycle. The walk popped 9.96 cm / 11.3 deg at every wrap; the run's first interval moved
 # 29% of a normal one (a hitch every cycle). Same defect D2 found in D7's run (collab b3fa2d725).
-#   SOURCE GRID  a clip with a GLB source keys on the SOURCE'S OWN key times (its window, re-timed to
-#                start at 0) within 1e-4 s -- anything else was resampled.
+#   SOURCE GRID  every loop keys on its SOURCE'S OWN key times (its window, re-timed to start at 0) within
+#                1e-4 s -- anything else was resampled. The source is the registry's `grid_source` or
+#                `source`: a GLB (its sampler inputs) or an FBX (its KeyTime arrays, read here: the t2m
+#                clips). NO convenience exceptions (coordinator ruling 2026-09-30): a loop whose source
+#                cannot be read, or that names none, FAILS.
 #   LOOP SEAM    pose(0) against pose(T) (s17_loop_closure.py's definition: every skin joint, world
 #                metres; in place when the scene de-roots it -- net hips travel >= 0.25 m): within
-#                SEAM_M and SEAM_DEG. A clip whose SOURCE does not close (text-to-motion) is a named
-#                `seam_exception`: reported with its numbers, not passed silently.
+#                SEAM_M and SEAM_DEG. No exceptions either: a source that is not periodic is BLENDED
+#                (58_loop_blend.py), not excused.
 SEAM_M, SEAM_DEG = 0.005, 1.0
+KTIME = 46186158000                  # FBX time units per second
+
+
+def fbx_key_times(path):
+    """The FBX's animation key times (s): the KeyTime array most curves share. Binary FBX only -- each
+    KeyTime property is an int64 array ('l'), raw or zlib-deflated."""
+    import struct, zlib, re as _re
+    b = open(path, 'rb').read()
+    if not b.startswith(b'Kaydara FBX Binary'):
+        raise ValueError("%s: not a binary FBX" % path)
+    by = {}
+    for m_ in _re.finditer(b'KeyTime', b):
+        q = m_.end()
+        if b[q:q + 1] != b'l':
+            continue
+        n, enc, clen = struct.unpack('<III', b[q + 1:q + 13])
+        raw = b[q + 13:q + 13 + clen]
+        data = zlib.decompress(raw) if enc == 1 else raw
+        t = tuple(np.frombuffer(data, '<i8')[:n].tolist())
+        by[t] = by.get(t, 0) + 1
+    if not by:
+        raise ValueError("%s: no KeyTime arrays" % path)
+    best = max(by.items(), key=lambda kv: (kv[1], len(kv[0])))[0]
+    return np.array(best, float) / KTIME
 
 
 def _grid(m, clip):
@@ -255,28 +282,35 @@ def seams(ship_glb, reg=None):
             continue
         r = seam(S, clip)
         r['clip'] = clip
-        # SOURCE GRID
-        src = os.path.join(root, e["source"]) if e.get("source") else None
+        # SOURCE GRID -- the grid source (an authored loop names the clip it is built on), else the source
+        gs = e.get("grid_source") or e.get("source")
+        src = os.path.join(root, gs) if gs else None
         r['grid_status'] = "NO SOURCE"
-        if src and src.endswith(".glb") and os.path.exists(src):
-            C = Rig(src)
-            sclip = next(iter(C.m['anims']))
-            sk = np.array(sorted(set(round(float(x), 6) for (tt, vv) in C.m['anims'][sclip].values() for x in tt)))
-            if e.get("window"):
-                sk = sk[(sk >= float(e["window"][0]) - 1e-6) & (sk <= float(e["window"][1]) + 1e-6)]
+        sk = None
+        if src and os.path.exists(src):
+            if src.endswith(".glb"):
+                C = Rig(src)
+                sclip = next(iter(C.m['anims']))
+                sk = np.array(sorted(set(round(float(x), 6) for (tt, vv) in C.m['anims'][sclip].values() for x in tt)))
+            elif src.lower().endswith(".fbx"):
+                sk = np.round(fbx_key_times(src), 6)
+            else:
+                r['grid_status'] = "UNREADABLE"
+        elif src:
+            r['grid_status'] = "MISSING"
+        if sk is not None:
+            win = e.get("grid_window") or e.get("window")
+            if win:
+                sk = sk[(sk >= float(win[0]) - 1e-4) & (sk <= float(win[1]) + 1e-4)]
             want = sk - sk[0]
             g = np.asarray(r['grid'], float)
             ok = len(g) == len(want) and float(np.abs(g - want).max()) <= 1e-4
             r['grid_status'] = "PASS" if ok else "FAIL"
-            r['grid_note'] = "%d keys at %.4f s against the source's %d at %.4f s" % (
-                len(g), float(np.median(np.diff(g))), len(want), float(np.median(np.diff(want))))
-        elif src:
-            r['grid_status'] = "UNMEASURED"
+            r['grid_note'] = "%d keys at %.4f s against the source's %d at %.4f s (%s)" % (
+                len(g), float(np.median(np.diff(g))), len(want), float(np.median(np.diff(want))), os.path.basename(src))
         r.pop('grid')
         within = r['closure_m'] <= SEAM_M and r['closure_deg'] <= SEAM_DEG
-        r['seam_status'] = "PASS" if within else ("EXCEPTION" if e.get("seam_exception") else "FAIL")
-        if e.get("seam_exception"):
-            r['exception'] = e["seam_exception"]
+        r['seam_status'] = "PASS" if within else "FAIL"
         out.append(r)
     return out
 

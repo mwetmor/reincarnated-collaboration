@@ -1,0 +1,102 @@
+{
+ "_note": "LOOP SEAM / SOURCE GRID (56_clip_fidelity.seams; 21 rows)",
+ "file": "export_staging/T12_10_strafes/nb-body.glb",
+ "loops": [
+  {
+   "closure_m": 0.00011,
+   "closure_deg": 0.012,
+   "closure_joint": "head_end",
+   "first_frac": 0.037,
+   "keys": 121,
+   "T_s": 4.0,
+   "clip": "idle",
+   "grid_status": "PASS",
+   "grid_note": "121 keys at 0.0333 s against the source's 121 at 0.0333 s (nbt_idle.glb)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 1e-05,
+   "closure_deg": 0.001,
+   "closure_joint": "head_end",
+   "first_frac": 0.183,
+   "keys": 121,
+   "T_s": 4.0,
+   "clip": "idle_guard",
+   "grid_status": "PASS",
+   "grid_note": "121 keys at 0.0333 s against the source's 121 at 0.0333 s (nbt_idle.glb)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "RightLeg",
+   "first_frac": 1.539,
+   "keys": 20,
+   "T_s": 0.6333,
+   "clip": "run",
+   "grid_status": "PASS",
+   "grid_note": "20 keys at 0.0333 s against the source's 20 at 0.0333 s (nbt_run.glb)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "LeftToeBase",
+   "first_frac": 0.718,
+   "keys": 21,
+   "T_s": 0.6667,
+   "clip": "run_armed",
+   "grid_status": "PASS",
+   "grid_note": "21 keys at 0.0333 s against the source's 21 at 0.0333 s (t2m_run_armed.fbx)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "RightToeBase",
+   "first_frac": 0.769,
+   "keys": 46,
+   "T_s": 1.5,
+   "clip": "strafe_L_armed",
+   "grid_status": "PASS",
+   "grid_note": "46 keys at 0.0333 s against the source's 46 at 0.0333 s (t2m_strafe_left.fbx)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "RightToeBase",
+   "first_frac": 0.93,
+   "keys": 58,
+   "T_s": 1.9,
+   "clip": "strafe_R_armed",
+   "grid_status": "PASS",
+   "grid_note": "58 keys at 0.0333 s against the source's 58 at 0.0333 s (t2m_strafe_right.fbx)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 0.0,
+   "closure_deg": 0.0,
+   "closure_joint": "RightLeg",
+   "first_frac": 1.881,
+   "keys": 32,
+   "T_s": 1.0333,
+   "clip": "walk",
+   "grid_status": "PASS",
+   "grid_note": "32 keys at 0.0333 s against the source's 32 at 0.0333 s (nbt_walk.glb)",
+   "seam_status": "PASS"
+  },
+  {
+   "closure_m": 1e-05,
+   "closure_deg": 0.004,
+   "closure_joint": "LeftForeArm",
+   "first_frac": 0.986,
+   "keys": 53,
+   "T_s": 1.7333,
+   "clip": "walk_armed",
+   "grid_status": "PASS",
+   "grid_note": "53 keys at 0.0333 s against the source's 53 at 0.0333 s (b_walk_fight.glb)",
+   "seam_status": "PASS"
+  }
+ ]
+}

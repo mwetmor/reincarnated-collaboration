@@ -10,7 +10,7 @@ extends SceneTree
 # an ffmpeg this script starts (OS.execute_with_pipe), encoded at 24 fps -- quarter speed -- to
 # <FILM_MP4_DIR>/<FILM_PREFIX><action>_before_after.mp4; nothing touches the disk but the film. Else
 # frames to <FILM_OUT>/<action>/f_%05d.jpg. Run with --fixed-fps 96.
-# env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop),
+# env: FILM_MP4_DIR, FILM_PREFIX, FILM_OUT, FILM_ACTIONS (comma list; default idle,walk,run,block,bash,slash,chop; also strafe_l, strafe_r),
 #      FILM_BEFORE_KNIGHT (res:// script), FILM_BEFORE_TITLE, FILM_AFTER_TITLE
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
@@ -139,6 +139,17 @@ func _film(act: String) -> void:
 			await _hold(Vector2.ZERO, false, 2.5, "block held")
 			for k in ks: k.set_block(false)
 			await _hold(Vector2.ZERO, false, 1.25, "block released")
+		"strafe_l", "strafe_r":
+			# THE STRAFE: guard up, then the canvas direction along HIS strafe direction (guard_accept.gd's rule),
+			# 3 s, stop, guard down -- both knights share the facing, so one input serves both
+			await _hold(Vector2.ZERO, false, 0.5, "standing")
+			for k in ks: k.set_block(true)
+			await _hold(Vector2.ZERO, false, 0.5, "guard up")
+			var sdir := _strafe_input(ks[1], "l" if act == "strafe_l" else "r")
+			await _hold(sdir, false, 3.0, "strafe " + ("left" if act == "strafe_l" else "right"))
+			await _hold(Vector2.ZERO, false, 0.75, "stop")
+			for k in ks: k.set_block(false)
+			await _hold(Vector2.ZERO, false, 0.5, "guard down")
 		"bash":
 			await _hold(Vector2.ZERO, false, 0.5, "standing")
 			for k in ks: k.try_strike("bash")
@@ -193,3 +204,15 @@ func _grab() -> void:
 	else:
 		img.save_jpg("%s/f_%05d.jpg" % [film_dir, mf], 0.88)
 	mf += 1
+
+func _strafe_input(kn, side: String) -> Vector2:
+	var sd: Vector3 = kn._strafe_dir(side)
+	var want: Vector3 = (Basis(Vector3.UP, float(kn.get("_yaw_cur"))) * sd).normalized()
+	var best := -2.0; var pick := Vector2.ZERO
+	for a in 720:
+		var dd := Vector2(cos(deg_to_rad(0.5 * a)), sin(deg_to_rad(0.5 * a)))
+		var w3: Vector3 = kn.canvas_velocity_to_world(dd); w3.y = 0.0
+		if w3.length() < 1e-6: continue
+		var c: float = w3.normalized().dot(want)
+		if c > best: best = c; pick = dd
+	return pick

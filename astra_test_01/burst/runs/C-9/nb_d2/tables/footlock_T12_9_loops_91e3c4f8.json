@@ -1,6 +1,11 @@
 [
  {
   "clip": "walk",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
   "keys": 32,
   "T_s": 1.0333,
   "per_foot": {
@@ -21,11 +26,16 @@
     "intervals": 17
    }
   },
-  "foot_joints_m_s": 1.5813,
-  "toes_m_s": 1.6104
+  "foot_joints_m_s": 1.5831,
+  "toes_m_s": 1.6018
  },
  {
   "clip": "run",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
   "keys": 20,
   "T_s": 0.6333,
   "per_foot": {
@@ -46,7 +56,97 @@
     "intervals": 8
    }
   },
-  "foot_joints_m_s": 3.9843,
-  "toes_m_s": 5.1955
+  "foot_joints_m_s": 3.9517,
+  "toes_m_s": 5.2595
+ },
+ {
+  "clip": "strafe_L_armed",
+  "dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "keys": 60,
+  "T_s": 2.4583,
+  "per_foot": {
+   "LeftFoot": {
+    "m_s": 0.5885,
+    "intervals": 20
+   },
+   "RightFoot": {
+    "m_s": 0.6279,
+    "intervals": 30
+   },
+   "LeftToeBase": {
+    "m_s": 0.6309,
+    "intervals": 16
+   },
+   "RightToeBase": {
+    "m_s": 0.647,
+    "intervals": 25
+   }
+  },
+  "foot_joints_m_s": 0.6123,
+  "toes_m_s": 0.6329
+ },
+ {
+  "clip": "strafe_R_armed",
+  "dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "keys": 60,
+  "T_s": 2.4583,
+  "per_foot": {
+   "LeftFoot": {
+    "m_s": 0.2424,
+    "intervals": 44
+   },
+   "RightFoot": {
+    "m_s": 0.1526,
+    "intervals": 14
+   },
+   "LeftToeBase": {
+    "m_s": 0.2565,
+    "intervals": 42
+   },
+   "RightToeBase": {
+    "m_s": 0.181,
+    "intervals": 16
+   }
+  },
+  "foot_joints_m_s": 0.2286,
+  "toes_m_s": 0.228
+ },
+ {
+  "clip": "run_armed",
+  "dir": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "keys": 21,
+  "T_s": 0.8333,
+  "per_foot": {
+   "LeftFoot": {
+    "m_s": 2.8245,
+    "intervals": 7
+   },
+   "RightFoot": {
+    "m_s": 2.197,
+    "intervals": 8
+   },
+   "LeftToeBase": {
+    "m_s": 3.0293,
+    "intervals": 7
+   },
+   "RightToeBase": {
+    "m_s": 2.7918,
+    "intervals": 9
+   }
+  },
+  "foot_joints_m_s": 2.4953,
+  "toes_m_s": 2.9014
  }
 ]

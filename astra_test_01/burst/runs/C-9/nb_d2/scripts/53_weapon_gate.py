@@ -1,6 +1,6 @@
 # T12 rank 6, checks 2-7: the WEAPON GATE, read off a measured table.
 #
-#   python3 scripts/53_weapon_gate.py <weapon_table.json> [--json out]
+#   python3 scripts/53_weapon_gate.py <weapon_table.json> [--states a,b] [--strikes a,b|none] [--json out]
 #
 # The table is measured in Godot and archived beside the export it describes (nb_d2/tables/):
 #   attack_lab/t12/godot/tools/guard_accept.gd   "source": "tree" -- the HOLD STATES as the scene
@@ -67,6 +67,14 @@
 #               clip's first pose, and it is not a swing). TTI and READ added: the coordinator's
 #               criteria for the re-sourced chop (time-to-impact <= 0.8 s; a readable arc at the play
 #               camera), applied to every axe strike.
+#   2026-09-30  HAND CONTACT, a named class (coordinator's POMMEL RULING, the JOIN sword): the pommel/butt
+#               against the heel of ITS OWN holding hand is grip contact up to 2 cm, not penetration.
+#               guard_accept.gd classes each inside point: zone butt (below the grip), the nearest surface
+#               over the six rays a hand-dominant triangle of the holding hand, and no deeper than 2 cm.
+#               Those are reported in the HAND row and taken out of PEN; anything deeper, or into the body
+#               (hips, thigh), stays PEN. A table without the class (older) is judged as before.
+#   2026-09-30  --states a,b,c / --strikes a,b (or none): gate a SUBSET -- the JOIN kit's hold states are idle,
+#               walk and run (Whirlwind + Battle Orders: no block, no strafe, no strike).
 #
 # A standing gate: run on every staged set and reported; NOT wired to stop the export chain.
 import json, sys
@@ -84,12 +92,16 @@ ARC_MAX_PX, STEP_FLAG_PX = 60.0, 35.0
 TTI_MAX_S, READ_MIN_PX = 0.8, 42.0
 
 
-def gate(table):
+def gate(table, states=None, strike_set=None):
     c = table["clips"]
     tree = table.get("source") == "tree"
     holds = HOLD_STATES if tree else HOLD_CLIPS_LEGACY
     arcs = ARC_STATES if tree else ARC_CLIPS_LEGACY
+    if states is not None:
+        holds = [h for h in holds if h in states]; arcs = [a for a in arcs if a in states]
     strikes = [k for k, v in c.items() if "strike_key" in v] or [s for s in STRIKES_LEGACY if s in c]
+    if strike_set is not None:
+        strikes = [k for k in strikes if c[k].get("strike_key", k) in strike_set or k in strike_set]
     axe = [s for s in strikes if c[s].get("strike_key", "slash" if s == "attack" else "chop") in AXE_KEYS]
     rows, fails, flags = [], [], []
     for cn in holds:
@@ -154,12 +166,22 @@ def gate(table):
                         (" -- " + ", ".join("%s %d" % kv for kv in sorted(r["pen_parts"].items()))) if r.get("pen_parts") else "")))
         if not ok:
             fails.append("PEN %s" % cn)
+    for cn in holds + strikes:
+        if cn not in c or not c[cn].get("hand_classed"):
+            continue
+        r = c[cn]
+        rows.append(("HAND", cn, "PASS", "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): %d points on the worst frame, "
+                     "%.3f m deep, %d of %d frames%s" % (r["hand_contact_max"], r["hand_contact_depth_m"], r["hand_contact_frames"], r["frames"],
+                                                        "" if r["hand_contact_max"] else " -- none")))
     return rows, fails, flags
 
 
 if __name__ == "__main__":
     t = json.load(open(sys.argv[1]))
-    rows, fails, flags = gate(t)
+    a = sys.argv
+    states = a[a.index("--states") + 1].split(",") if "--states" in a else None
+    strike_set = ([] if a[a.index("--strikes") + 1] == "none" else a[a.index("--strikes") + 1].split(",")) if "--strikes" in a else None
+    rows, fails, flags = gate(t, states, strike_set)
     print("weapon gate on '%s' (axe on %s, %d bones, %s)" % (t.get("label"), t.get("axe_bone"), t.get("bones", 0),
                                                            "measured through the tree" if t.get("source") == "tree" else "legacy: raw clips"))
     for r in rows:
