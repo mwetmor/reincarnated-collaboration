@@ -21869,9 +21869,86 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "NB-W2",
+      "type": "GENERATE",
+      "experiment": "T12-weapons",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a1545bc4314c423ad453c6fe504fccfce1d991835dc7d27af598247257867d13",
+      "started": "2026-09-30T01:53:06.369587+00:00",
+      "ended": "2026-09-30T01:56:46.875584+00:00",
+      "minutes": 3.6750582993001446,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f003-f9de-7162-823c-f4c7e9648345/exec-50c21864-fc33-46d8-a98c-a3d75ea4712c.png",
+            "sha256": "ffa2b42945c9c8d19794a1f567d8bc905c4ab156a596927e059ad975241766fd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f003-f9de-7162-823c-f4c7e9648345/exec-b9c0a8eb-34ed-4dec-b948-ed6759c221bb.png",
+            "sha256": "472639634e1e93fe337c024576913d1f1345859d9d0d01e3fbe911152bb39015"
+          }
+        ]
+      },
+      "receipt_sha256": "18f364481ffa97fe9ec90dcd3a05fe6345ee9452a9f1d3f998cecd05db6f9314",
+      "artifacts": [
+        {
+          "name": "NB-W2_a.png",
+          "sha256": "472639634e1e93fe337c024576913d1f1345859d9d0d01e3fbe911152bb39015"
+        },
+        {
+          "name": "NB-W2_b.png",
+          "sha256": "ffa2b42945c9c8d19794a1f567d8bc905c4ab156a596927e059ad975241766fd"
+        },
+        {
+          "name": "exec-50c21864-fc33-46d8-a98c-a3d75ea4712c.provenance.json",
+          "sha256": "2f6a4b537f57aba310236e1083b4602525278f65d57bae24f93db34c4f3dbac9"
+        },
+        {
+          "name": "exec-b9c0a8eb-34ed-4dec-b948-ed6759c221bb.provenance.json",
+          "sha256": "6d741179e5cd16eb4ebe3095e4e80e668662529de84af4efe2fe9e4c8f222b78"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f003-f9de-7162-823c-f4c7e9648345/exec-50c21864-fc33-46d8-a98c-a3d75ea4712c.png",
+          "sha256": "ffa2b42945c9c8d19794a1f567d8bc905c4ab156a596927e059ad975241766fd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f003-f9de-7162-823c-f4c7e9648345/exec-b9c0a8eb-34ed-4dec-b948-ed6759c221bb.png",
+          "sha256": "472639634e1e93fe337c024576913d1f1345859d9d0d01e3fbe911152bb39015"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 651,
+  "images_used": 653,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -23899,6 +23976,12 @@
       "topic": "The foot-lock handover was BLOCKED by the permission system; surfaced to Matt; the axe tilt diagnosed",
       "note": "The scene drax started handover.sh (install the four-file foot-lock set into cliffside3d, re-import, the 16:9 stretch edit, rebuild both Desktop apps, the armed walk); the Claude Code auto-mode permission check refused it (\"Modify Shared Resources\"). The drax did not work around it (no step-by-step re-run) and released the project untouched (knight.gd 6076b987 and character.json 9b3383cc = f2140e680; GLB f1017ee1; no foot_lock.gd; [display] unchanged). The conductor will NOT run it or have another agent run it (that would launder the denial); surfaced to Matt with the command he can run himself: bash runs/C-9/attack_lab/staged/footlock/handover.sh (it takes the heavy lock per step, stops at the first failure, logs to the drax scratch). AXE DIAGNOSIS (Matt: the axe is held tilted toward the character): the main cause is the SEAT: the haft sits 143.0 deg from the hand axis (53 deg off square) because 15_export_scene.py socketed the axe with axis_world=(0,0,1), vertical at the A-pose rest, so when the arm rises the head angles back along the forearm; the wrist carry lock moves tilt only 3-14 deg. Per clip as shipped: idle tilt 42 deg, head 0.38 m from the skull, edge -62 deg (inboard); walk 80 deg, near flat, leaning back; run 89 deg, edge facing backward; block 161 deg, head down. With the haft square: walk 46.4 deg leaning forward-out. No strike ready frame meets the full acceptance as is. CONDUCTOR DECISION: the axe_guard_R patch stopped; a GRIP CALIBRATION (re-seat square + one roll solved so the edge leads at impact, scored across all clips, written as data) staged, not installed, to become the rest offset of a weapon bone if the research recommends weapon bones.",
       "ts": "2026-09-29T21:33:31"
+    },
+    {
+      "id": "N-C9-HANDOVER-DONE",
+      "topic": "The motion handover ran on Matt word (\"Run the handover\"); the sword sheet delivered; the research amendment",
+      "note": "HANDOVER (run by the conductor at Matt explicit instruction; log scratchpad/handover_run.log): pre-state OK; the four files installed with md5 verified after copy (nb-body.glb 07ccabd6, knight.gd d993b8ff, foot_lock.gd a99b40f0, character.json 3b85f1b3); re-import 0 script errors; [display] stretch canvas_items / keep applied; both apps rebuilt (473 MB each) with 0 SCRIPT ERROR, 0 recentre warnings, 0 WARNING lines; the Barrow opens on flat ground; the armed Barrow walk (foot_lock=true; slash, chop, block from idle and from a run) = 708 frames -> attack fix/barrow_walk_armed.mp4, frames deleted. FAILED INSTRUMENT: fps_probe.sh got 0 samples in all four fullscreen runs (the app killed at 30 s with no --print-fps output; the view probe reported a 1920x1080 screen): the scene drax to diagnose and re-measure with an in-app timer. The scene drax owns the commit of the installed files; the integration drax resumed T10-1d. SWORD: NB-W2 exit 0 (2 image calls, 3.7 min): variant a chosen (pattern-welded blade with a fuller, short crossguard, bronze-wired leather grip, a five-lobed pommel; plate intact); b has a ball pommel. RESEARCH AMENDMENT (legolas, 7a2422ee2): Cascadeur supports props as a first-class concept (AutoPosing runs on a rigged, skinned prop, which rank 1 produces) but may not show rotation trajectories as editable curves: one hour of verification owed; Indie $8/month annual if ever needed; the capture route is closed (the video mocap vendors do not track held objects; no dataset holds a sword or axe); a LICENSING QUESTION parked for Matt as matt_to_do T33: SMPL-family model licences forbid commercial use, and our three text-to-motion clips come as SMPL-H from Meshy: ask Meshy in writing.",
+      "ts": "2026-09-29T21:58:21"
     }
   ]
 }
