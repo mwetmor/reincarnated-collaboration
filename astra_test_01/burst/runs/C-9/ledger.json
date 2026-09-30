@@ -21488,9 +21488,151 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T10P-F",
+      "type": "GENERATE",
+      "experiment": "T10-assets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1567963915ae2fc5ceb567a24c33548f0a91f02a4d11650d1207843fe42b8ed2",
+      "started": "2026-09-29T23:43:38.605433+00:00",
+      "ended": "2026-09-29T23:58:38.643875+00:00",
+      "minutes": 15.000384736100871,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/T10P-F/out/receipt.json'"
+        ],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-33891bf9-2ca1-4e3c-9fe4-2fd0c3afd9cc.png",
+            "sha256": "5cf9b9dc9c72709bbdfeac0529a22a8ec9d92fb332585fcb0fbccf27ad177a3f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-5d85c466-1355-4954-9a76-ac96ac4ef60f.png",
+            "sha256": "ee80ab8f5804edf2f42e260489448ab5a0c9d6ef53eededfd641b1b557d73f5e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-9973229b-c27e-4e3f-a8b3-e45a33797807.png",
+            "sha256": "599a3526f3e8b81774284cf978fdf1d919a934a43df385f9abab2d7787972571"
+          }
+        ],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-33891bf9-2ca1-4e3c-9fe4-2fd0c3afd9cc.png",
+          "sha256": "5cf9b9dc9c72709bbdfeac0529a22a8ec9d92fb332585fcb0fbccf27ad177a3f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-5d85c466-1355-4954-9a76-ac96ac4ef60f.png",
+          "sha256": "ee80ab8f5804edf2f42e260489448ab5a0c9d6ef53eededfd641b1b557d73f5e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-7806-7072-8812-c52eb8370e17/exec-9973229b-c27e-4e3f-a8b3-e45a33797807.png",
+          "sha256": "599a3526f3e8b81774284cf978fdf1d919a934a43df385f9abab2d7787972571"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "T10P-G",
+      "type": "GENERATE",
+      "experiment": "T10-assets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "616568594c7e6fc2b10e686ef7d80628acbe5dffd64e9e7f1cb2c296e2403179",
+      "started": "2026-09-29T23:43:38.605433+00:00",
+      "ended": "2026-09-29T23:58:38.643879+00:00",
+      "minutes": 15.00038368056703,
+      "image_calls": 3,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/T10P-G/out/receipt.json'"
+        ],
+        "image_calls": 3,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-694239f9-ef8b-4b53-8528-7058bcf588c3.png",
+            "sha256": "351abf1aaa6a6d84f2602360689ad5eab430c256479f577a22da388176004a8c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-9879f474-a6c1-4008-94cb-a327c7d71658.png",
+            "sha256": "5140c9683822137e753878ff348c97fc074ed73e04f34104d52040e3d1eefa22"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-f33f7b75-8a97-4b28-b9ce-1d6d54e30f83.png",
+            "sha256": "6f1503c7194a9b4318052a5b7d6e1b6461f14e1c3bd067390ce40a18d1dd29f0"
+          }
+        ],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-694239f9-ef8b-4b53-8528-7058bcf588c3.png",
+          "sha256": "351abf1aaa6a6d84f2602360689ad5eab430c256479f577a22da388176004a8c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-9879f474-a6c1-4008-94cb-a327c7d71658.png",
+          "sha256": "5140c9683822137e753878ff348c97fc074ed73e04f34104d52040e3d1eefa22"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ef8d-751f-7e90-aa9d-6df0a61654e0/exec-f33f7b75-8a97-4b28-b9ce-1d6d54e30f83.png",
+          "sha256": "6f1503c7194a9b4318052a5b7d6e1b6461f14e1c3bd067390ce40a18d1dd29f0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
-  "images_used": 635,
+  "images_used": 641,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -22039,6 +22181,12 @@
       "topic": "Motion pass 2: block raise/hold/lower and a damped armed idle staged; the stance lead-in measured and NOT staged; 45 fixed at the root (scene drax, collab 425817422 / 408b5fbca / 95302258d / e33c7199b / 103561bf5)",
       "result": "PROMOTED the recentred export to nb_d2/export (lints clean). ROOT CAUSE CLOSED: 45_deroot_trim anchors at rest - mean(residual) (sway kept; KEEP_ROOT gets a constant shift); on the real source the fixed 45 then 49 patches 0 accessors, byte-identical. BLOCK: sync on had advanced Block1 at zero weight and parked it; now a TimeScale + TimeSeek phase machine with the raise window read off the clip at load: time to full guard 1.458 -> 0.177 s, hold drift 0.198 -> 0.000 m, back to guard 0.333 s; a strike during a held block no longer brings the shield back. IDLE: hips 0.300 -> 0.100 m from rest by a Hips accessor patch (md5 07ccabd6...); slash-from-idle lurch 36.1 -> 8.0 mm/frame, chop 44.3 -> 15.9; the feet still wander 1.37 m (Axe Stance is a footwork clip: thigh swing 129.8 deg at source). STANCE LEAD-IN FAILED its target (in-fade foot swing 0.79-1.05 m median vs <= 0.15; the three strikes start in stances up to 0.8 m / 67 deg / 0.4 m apart; a lead-in moves the change into the clip) and was not staged. No regressions (stops unchanged; run-stop worst 151.6 -> 98.1 mm). CONDUCTOR CALL: foot locking through transitions with leg IK (planted feet locked at the transition start, released over ~0.2 s; a long move must read as a step), after the handover swap and both app rebuilds. Backlog: a planted armed idle (axe_breathe 335) needs a frame-aware retarget. INCIDENT (self-reported): 22:43-22:53 UTC a stuck probe held the shared heavy lock ~10 minutes with the integration build queued behind it; killed; every lab script now has a main-loop watchdog.",
       "ts": "2026-09-29T19:41:45"
+    },
+    {
+      "id": "M-C9-FOOTLOCK",
+      "topic": "Foot locking through transitions: built, measured, APPROVED under a corrected acceptance (scene drax, collab eb2c398cf + lab 43bdb29a5; staged, installs at the handover)",
+      "result": "TwoBoneIK3D per leg (Godot 4.6.3; it does nothing without a pole node, measured) with a pole off the animated knee. At the start of a strike, a block, or either one fade-out, each foot is locked where it is SHOWN, then released over 0.2 s; any move over 4 cm becomes a STEP (lift 0.35 m per metre of travel, capped at 0.25 m, travel in the middle 70% of the window); legs only, the body blends at its normal speed. Deliberate change: lock every foot unless it moves faster than 2.5 m/s (the Axe Stance idle has its feet down in only 10 of 147 frames, so a planted-only lock never engaged; run strides at 5-7.6 m/s finish their swing and lock where they land). RESULTS lock off -> on: ground slide in the transition window 0.000 from idle in every case; from a run worst frames 0.672 -> 0.014 (slash), 0.229 -> 0 (bash), 0.131 -> 0 (block), chop 0.020; slash fade-out slide 0.577 -> 0. Literal in-fade swing (the conductor original proxy, <= 0.15 m) met at the median from idle for slash 0.044, bash 0.073, block 0.000; not for the chop from idle (0.323), worst idle phases or run cases: the residue is AIRBORNE travel (steps). No new slide inside strikes; time-to-impact unchanged; no regressions; cost ~0.001 ms/frame median. CONDUCTOR (DRIFT-CRITIC on its own spec): the proxy counted airborne steps; acceptance of record corrected to ground slide <= 0.02 m + long moves read as steps. Films footlock_{before,after}_* in attack fix/. Install set at the handover: GLB 07ccabd6, knight.gd d993b8ff, foot_lock.gd a99b40f0, character.json 3b85f1b3.",
+      "ts": "2026-09-29T20:14:24"
     }
   ],
   "halts": [
