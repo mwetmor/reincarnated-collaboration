@@ -230,6 +230,7 @@ func released(g: int, socket: Vector3, dir: Vector3, feet: Vector3) -> void:
 	var c: Dictionary = casts[g]
 	c["state"] = "flight"
 	c["tick"] = 0
+	c["clock"] = 0.0
 	c["socket"] = socket
 	var d := Vector3(dir.x, 0.0, dir.z).normalized()
 	c["dir"] = d
@@ -261,13 +262,13 @@ func _free_group() -> int:
 var last_us := 0                 # this node's own time in its last physics step (the budget harness reads it)
 
 
-func _physics_process(_dt: float) -> void:
+func _physics_process(dt: float) -> void:
 	var t0 := Time.get_ticks_usec()
-	_step()
+	_step(dt)
 	last_us = Time.get_ticks_usec() - t0
 
 
-func _step() -> void:
+func _step(dt: float) -> void:
 	if not ok:
 		return
 	if _warm > 0:
@@ -281,6 +282,9 @@ func _step() -> void:
 		var c: Dictionary = casts[g]
 		if c.is_empty():
 			continue
+		# THE CLOCK IS TIME, the kit's 60 ticks a second: a baked frame per 1/60 s of game time, whatever
+		# the physics rate or the time scale (the quarter-speed film runs Engine.time_scale 0.25)
+		c["clock"] = float(c.get("clock", 0.0)) + dt
 		if c["state"] == "windup":
 			_tick_windup(g, c)
 		else:
@@ -289,16 +293,15 @@ func _step() -> void:
 
 func _tick_windup(g: int, c: Dictionary) -> void:
 	# keeper.gd's halo: t = ticks since the cast start / (the release's ticks - 1), live until the release
-	var t := clampf(float(c["age"]) / float(int(c["release_ticks"]) - 1), 0.0, 1.0)
+	var t := clampf((float(c["clock"]) * 60.0 - 1.0) / float(int(c["release_ticks"]) - 1), 0.0, 1.0)
 	var n: int = (fidx["halo"] as Array).size()
 	var i := clampi(int(round(t * float(n - 1))), 0, n - 1)
 	var at: Vector3 = (c["socket_fn"] as Callable).call()
 	_put(g * SLOTS + S_HALO, "halo", i, at + _toward(HALO_TOWARD_M), 0.0, 1.0)
-	c["age"] = int(c["age"]) + 1
 
 
 func _tick_flight(g: int, c: Dictionary) -> void:
-	var b: int = int(c["tick"])      # the baked tick
+	var b: int = int(floor(float(c["clock"]) * 60.0 + 1e-4)) - 1   # the baked tick: 0 on the release's own step
 	var base := g * SLOTS
 	_collapse(base + S_HALO)
 	var th: float = c["theta"]
@@ -367,7 +370,7 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 		var col: Array = bb["color"]
 		_put_mote(slot, node0, off, float(bb["half_px"]), Color(float(col[0]), float(col[1]), float(col[2])), 1.0 - age / life)
 		alive = true
-	c["tick"] = b + 1
+	c["tick"] = b
 	if not alive and b > impact_tick:
 		casts[g] = {}
 		_collapse_group(g)
