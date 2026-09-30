@@ -28,7 +28,8 @@ FRAMES="$OUT/frames"
 mkdir -p "$OUT"
 FREE=$(df -g /Users/admin | awk 'NR==2{print $4}')
 echo "== free disk: ${FREE} GiB"
-if [ "$FREE" -lt 42 ]; then echo "HALT: under 42 GiB free" >&2; exit 9; fi
+# the storage gate is 25 GiB since R-C9-87 (Matt, 2026-09-29); it was 42
+if [ "$FREE" -lt 25 ]; then echo "HALT: under 25 GiB free (R-C9-87)" >&2; exit 9; fi
 
 # --- 1. wait for the shared scripts to parse -------------------------------
 cat > "$SRC/tools/drax_parse.gd" <<'EOF'
@@ -38,6 +39,7 @@ func _initialize() -> void:
 	for p in ["res://scripts/knight.gd", "res://scripts/gear.gd", "res://scripts/paint_stack.gd",
 			  "res://scripts/barrow_stand_in.gd", "res://scripts/barrow_flat.gd",
 			  "res://scripts/snow_field.gd", "res://scripts/barrow_instancer.gd",
+			  "res://scripts/barrow_heather.gd",
 			  "res://scripts/barrow_heightfield.gd", "res://scripts/barrow_world.gd",
 			  "res://tools/shot_barrow.gd"]:
 		if load(p) == null:

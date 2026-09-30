@@ -224,6 +224,16 @@ func _ready() -> void:
 	_check_key_collisions()
 	report["stand_in"] = world.report
 	_apply_stack()
+	# THE FOOT LOCK, COUNTED (T10-1d): knight.gd builds a FootLock node under his skeleton only
+	# when character.json says "foot_lock": true, and prints nothing either way -- so the app's
+	# launch log carries the count, and tools/build_app_barrow.sh fails a build that is not 0
+	# (the lock was rolled back after "he drops to the floor as if drunk", R-C9-86)
+	var fl := 0
+	if knight != null:
+		for n in knight.find_children("FootLock*", "", true, false):
+			fl += 1
+	print("[barrow] foot_lock nodes=%d" % fl)
+	report["foot_lock_nodes"] = fl
 
 
 # --- the camera law -----------------------------------------------------------
@@ -308,16 +318,17 @@ func _build_light_and_air() -> void:
 	add_child(lights)
 	sun = PaintStack.winter_sun(SUN_ELEV_DEG, SUN_SCREEN_AZ_DEG)
 	lights.add_child(sun)
-	# KNOWN, MEASURED, NOT CHANGED HERE (T10-1c): the regular 2-px dot screen along shadow
-	# edges -- widest on the mound's flank -- is the project's soft shadow filter ("Soft Low")
-	# under the ramp. The filter's per-pixel rotated kernel makes the penumbra noisy, and the
-	# ramp feeds attenuation into its band edges, so the noise is thresholded into a halftone.
-	# Isolated in one run (drax_dbg_dots; 2x2 checker energy in the band): as shipped 5.72;
-	# sun shadows off -> gone; the floor / mound / snow / heather / snowfall not casting ->
-	# unchanged (not acne; moving casters does nothing); Soft Medium 2.87, High 2.73, Ultra 2.19
-	# (Ultra smudges the stones' shadows); Hard 1.56 and crisp -- but Hard stair-steps on the
-	# mound's grazing flank. The fixes are a filter choice or a change to the one lighting model
-	# (cast shadow applied after the bands), so they are the coordinator's, not this pass's.
+	# THE DOT SCREEN, FIXED (T10-1d). T10-1c found a regular 2-px dot grid along every shadow
+	# edge, widest on the mound's flank: the soft filter's per-pixel rotated kernel makes a noisy
+	# penumbra, and the ramp's band edges (slope 10) thresholded that noise into a halftone.
+	# The coordinator's call: apply the cast shadow AFTER the bands (PaintStack's RAMP_BODY,
+	# shadow_after_bands), and it is the bigger half -- 2x2 checker energy on the flank 5.88 ->
+	# 3.85 at the same filter. The rest is the filter's own noise, now unamplified, as a faint
+	# stipple in wide penumbrae; Soft MEDIUM takes it to 1.95 against 1.6 with no shadow at all
+	# (Soft High 1.62), and keeps the stones' shadow shapes (Ultra smudged them). Measured in
+	# one run: Low 16.65, Medium 16.91 (+0.26 ms), High 17.64 ms. set_shadow_after_bands(false)
+	# puts back BOTH halves -- T10-1c's ramp and Soft Low -- so its A/B is T10-1c's shadow.
+	RenderingServer.directional_soft_shadow_filter_set_quality(SHADOW_FILTER_T10_1D)
 	env_node = WorldEnvironment.new()
 	env_node.name = "Env"
 	# HEIGHT FOG ONLY, AND ITS HEIGHT IS THE HOLLOW'S OWN. The mist has to sit in the hollow
@@ -1156,15 +1167,25 @@ func _build_density() -> Dictionary:
 	taken.append({"c": MOUND_XZ, "r": MOUND_R})
 	var pr := _play_rect()
 	var ctr := [3000]                      # an Array: a lambda captures an int BY VALUE
-	var counts := {"painted": 0, "boundary": 0}
+	var counts := {"painted": 0, "boundary": 0, "priority": 0}
+	var placed_priority := []
+	var outcrop_drops := []
 	var by_asset := {}
 	var skips := {"overlap": 0, "ice": 0, "clearing": 0, "outside": 0, "missing": 0}
 	var drifts := []
 
 	var place := func(cls: String, p: Vector2, h: float, yaw: float, tier: String, wm: float) -> bool:
-		var r := _est_radius(cls, h, man, kit)
+		# the dress calls the kit's heather_clump "heather_base": it is the heather's BODY here
+		var kc := "heather_clump" if cls == "heather_base" else cls
+		var r := _est_radius(kc, h, man, kit)
 		var taken_skip_mound := false
-		if tier == "painted":
+		if tier == "priority":
+			# the edge outcrops and the snag: placed FIRST and not rejected for crowding -- they
+			# are what the crowded rocks were standing in for
+			if _splat_w_fast(p.x, p.y)[4] > 0.6:
+				skips["ice"] += 1
+				return false
+		elif tier == "painted":
 			if not pr.has_point(p):
 				skips["outside"] += 1
 				return false
@@ -1178,7 +1199,7 @@ func _build_density() -> Dictionary:
 			# THE MOUND CARRIES HEATHER: in the painting it is a heather-covered hill with snow
 			# on it, and the mound disc in `taken` had kept every tussock off it -- a bare white
 			# dome, which is most of why it read as a tent
-			if cls == "heather" and p.distance_to(MOUND_XZ) < MOUND_R:
+			if (cls == "heather" or cls == "heather_base") and p.distance_to(MOUND_XZ) < MOUND_R:
 				taken_skip_mound = true
 			# PAINTED PIECES PACK. An outcrop is rocks touching and overlapping rocks, and heather
 			# grows in the gaps between them; the painting's rows come at 0.6-0.75 m spacing and
@@ -1187,7 +1208,7 @@ func _build_density() -> Dictionary:
 			# Rejected now only when two centres nearly coincide: under 45% of their radii summed.
 			# SHRUBS GROW AMONG THE ROCKS: in the painting every outcrop is laced with juniper and
 			# heather, so a shrub is rejected only when it nearly coincides with something
-			var k_pack := 0.25 if (cls == "juniper" or cls == "heather") else 0.45
+			var k_pack := 0.25 if (cls in ["juniper", "heather", "heather_base"]) else 0.45
 			var against: Array = taken if not taken_skip_mound else taken.filter(
 				func(q): return (q["c"] as Vector2) != MOUND_XZ)
 			if not _free_at_scaled(p, r, against, k_pack):
@@ -1198,12 +1219,12 @@ func _build_density() -> Dictionary:
 				return false
 			if not _free_at(p, r, taken, 0.12):
 				return false
-		var spec: Dictionary = kit[cls] if kit.has(cls) else man.get(cls, {})
+		var spec: Dictionary = kit[kc] if kit.has(kc) else man.get(cls, {})
 		var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
 		if not ResourceLoader.exists(glb):
 			skips["missing"] += 1
 			return false
-		var pc: bool = bool(spec.get("pitch_correct", true)) and not kit.has(cls)
+		var pc: bool = bool(spec.get("pitch_correct", true)) and not kit.has(kc)
 		ctr[0] += 1
 		var e := _place_prop(cls, glb, {"pitch_correct": pc, "yaw_deg": yaw,
 				"width_m": spec.get("width_m", null), "height_m": spec.get("height_m", h)},
@@ -1214,7 +1235,38 @@ func _build_density() -> Dictionary:
 		taken.append({"c": p, "r": maxf(float(e["size_m"][0]), float(e["size_m"][2])) * 0.5})
 		counts[tier] += 1
 		by_asset[cls] = int(by_asset.get(cls, 0)) + 1
+		if tier == "priority":
+			placed_priority.append({"asset": cls, "c": p,
+				"r": maxf(float(e["size_m"][0]), float(e["size_m"][2])) * 0.5, "node": e["node"]})
 		return true
+
+	# ---- T10-1d: THE EDGE OUTCROPS AND THE SNAG FIRST ------------------------------------
+	for row in _dress:
+		var pc2 := String(row.get("asset", ""))
+		if not (pc2 in PRIORITY_DRESS):
+			continue
+		var xz2: Array = row.get("scene_xz", [0.0, 0.0])
+		place.call(pc2, Vector2(float(xz2[0]), float(xz2[1])), float(row.get("height_m", 1.0)),
+			float(row.get("yaw_deg", 0.0)), "priority", 1.0)
+	# THE OUTCROPS REPLACE WHAT WAS PACKED WHERE THEY STAND: a rock the scene list or an earlier
+	# pass put inside an outcrop's footprint is dropped -- by name, in the report
+	for oc in placed_priority:
+		if String(oc["asset"]) != "outcrop_a":
+			continue
+		for rt in [saved_root, _density_root]:
+			for nm2 in prop_names_of(rt):
+				var n3 := rt.get_node_or_null(NodePath(String(nm2))) as Node3D
+				if n3 == null or n3 == oc["node"]:
+					continue
+				var a3 := String(_place_report.get(String(nm2), {}).get("asset", ""))
+				if not (a3 in ["rock_large", "rock_small"]):
+					continue
+				var c3 := Vector2(n3.global_position.x, n3.global_position.z)
+				if c3.distance_to(oc["c"]) < float(oc["r"]) * 0.85:
+					outcrop_drops.append({"prop": String(nm2), "asset": a3,
+						"outcrop_xz": [snappedf((oc["c"] as Vector2).x, 0.01), snappedf((oc["c"] as Vector2).y, 0.01)]})
+					taken = taken.filter(func(q): return (q["c"] as Vector2).distance_to(c3) > 0.01)
+					_drop_prop({"node": n3})
 
 	# ---- THE PAINTING --------------------------------------------------------
 	var wanted := {}
@@ -1222,6 +1274,8 @@ func _build_density() -> Dictionary:
 		if bool(row.get("priority", false)):
 			continue                          # the stones, already placed first
 		var cls := String(row.get("asset", ""))
+		if cls in PRIORITY_DRESS:
+			continue                          # placed above
 		wanted[cls] = int(wanted.get(cls, 0)) + 1
 		var xz: Array = row.get("scene_xz", [0.0, 0.0])
 		var yaw = row.get("yaw_deg", null)
@@ -1232,8 +1286,10 @@ func _build_density() -> Dictionary:
 	# ---- the BOUNDARY: dense, straddling the line, with a drift at each cluster ----
 	var per := 2.0 * (pr.size.x + pr.size.y)
 	var steps := int(per / 1.5)
-	var pool := ["rock_large", "rock_small", "rock_small", "birch", "juniper", "rock_small",
-				 "birch", "log", "cairn", "rock_large", "juniper"]
+	# T10-1d: the kit's outcrop where the boundary had rock_large clusters (they read as shards),
+	# and its boulder, three-rock cluster, stump and dead tree among the rest
+	var pool := ["outcrop_a", "rock_small", "boulder", "birch", "juniper", "rocks",
+				 "dead_tree", "log", "cairn", "outcrop_a", "juniper", "stump"]
 	for s2 in steps:
 		var along := float(s2) / float(steps) * per
 		var edge_p: Vector2
@@ -1261,6 +1317,9 @@ func _build_density() -> Dictionary:
 			var off := Vector2(rng.randf_range(-0.8, 0.8), rng.randf_range(-0.8, 0.8))
 			var hh3: float
 			match cls3:
+				# the outcrop at a third to a half of its 2.29 m: 1.7-2.5 m across the boundary
+				"outcrop_a": hh3 = 2.2888 * rng.randf_range(0.30, 0.50)
+				"dead_tree": hh3 = 2.5 * rng.randf_range(0.85, 1.15)
 				"rock_large": hh3 = rng.randf_range(0.9, 1.6) * rng.randf_range(0.85, 1.15)
 				"rock_small": hh3 = rng.randf_range(0.35, 0.75) * rng.randf_range(0.85, 1.15)
 				"birch": hh3 = rng.randf_range(2.2, 3.4)
@@ -1276,7 +1335,10 @@ func _build_density() -> Dictionary:
 		"painted_rows_wanted": wanted, "painted_rows_skipped": skips,
 		"clearing_rejects": _clearing_rejects,
 		"boundary_drifts": drifts.size(), "kit_used": kit.keys(),
-		"_kit_not_used": "rocks and stump are 'superseded', skull 'retired' in kit_assets.json"}
+		"priority_placed": placed_priority.map(func(q): return {"asset": q["asset"],
+			"xz": [snappedf((q["c"] as Vector2).x, 0.01), snappedf((q["c"] as Vector2).y, 0.01)],
+			"footprint_r_m": snappedf(float(q["r"]), 0.01)}),
+		"rocks_dropped_under_outcrops": outcrop_drops}
 	report["density"] = _density_report
 	return {"drifts": drifts}
 
@@ -1316,7 +1378,7 @@ func _build_snow() -> void:
 		for n in root.get_children():
 			var node := n as Node3D
 			var rec: Dictionary = _place_report.get(String(node.name), {})
-			if String(rec.get("asset", "")) in ["raven", "heather"] or rec.is_empty():
+			if String(rec.get("asset", "")) in ["raven", "heather", "heather_base"] or rec.is_empty():
 				# HEATHER IS NOT AN OBSTACLE (T10-1c). A skirt round every tussock laid 0.12 m of
 				# snow over the base of each and turned heather ground into lumpy white; the
 				# painting's heather stands in thin snow with its warm tops showing, which is what
@@ -1337,7 +1399,7 @@ func _build_snow() -> void:
 		for n in root.get_children():
 			var node := n as Node3D
 			var rec: Dictionary = _place_report.get(String(node.name), {})
-			if String(rec.get("asset", "")) != "heather":
+			if not (String(rec.get("asset", "")) in ["heather", "heather_base"]):
 				continue
 			var sz: Array = rec.get("local_size_m", [0.4, 0.35, 0.4])
 			thin.append({"c": Vector2(node.global_position.x, node.global_position.z),
@@ -1351,6 +1413,8 @@ func _build_snow() -> void:
 	add_child(snow)
 	if knight != null:
 		snow.track(knight)
+	for k in _heather_mats:
+		BarrowHeather.bind_snow(_heather_mats[k], snow, WIND)
 	_ground_mat.set_shader_parameter("snow_amount", 0.0)
 	var br := snow.bake_report()
 	br["obstacles"] = obstacles.size()
@@ -1420,7 +1484,10 @@ const ID_COLOURS := {"stone": Color(1, 0, 0), "rock": Color(0, 1, 0), "shrub": C
 const ID_CLASS := {"stone_tall": "stone", "stone_mid": "stone", "stone_short": "stone",
 				   "lintel": "stone", "post": "stone", "rock_large": "rock", "rock_small": "rock",
 				   "cairn": "rock", "juniper": "shrub", "heather": "heather", "birch": "tree",
-				   "log": "tree"}
+				   "log": "tree",
+				   # T10-1d kit: the skull is in no painted class -- an occluder, not a class
+				   "outcrop_a": "rock", "boulder": "rock", "rocks": "rock", "heather_base": "heather",
+				   "dead_tree": "tree", "stump": "tree"}
 var _id_saved := []
 
 
@@ -1444,28 +1511,29 @@ func set_class_id_view(on: bool, occluders := false) -> void:
 					if _instancing_on and (_hidden_meshes.has(m) or _instanced_inks.has(m)):
 						m.visible = false
 						continue
-					if cls == "" or String(m.name).ends_with("_ink"):
+					if String(m.name).ends_with("_ink"):
 						m.visible = false
 						continue
-					var sm := StandardMaterial3D.new()
-					sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-					sm.albedo_color = ID_COLOURS[cls]
-					if cls == "heather" and heather_two_sided:
-						sm.cull_mode = BaseMaterial3D.CULL_DISABLED      # as the beauty draws it
-					m.material_override = sm
+					if cls == "":
+						# IN NO PAINTED CLASS (the skull): in the occluded frame it still hides what
+						# is behind it, so it is drawn black; in the T10-1b frame it is left out
+						if occluders:
+							m.material_override = _id_black()
+						else:
+							m.visible = false
+						continue
+					m.material_override = _id_material(cls, String(m.name) == "HeatherCard")
 		for mmi in _mmis:
 			var mm := mmi as MultiMeshInstance3D
 			var cls2 := String(ID_CLASS.get(String(mm.get_meta("asset", "")), ""))
 			_id_saved.append({"kind": "mesh", "n": mm, "mat": mm.material_override, "vis": mm.visible})
 			if cls2 == "":
-				mm.visible = false
+				if occluders:
+					mm.material_override = _id_black()
+				else:
+					mm.visible = false
 				continue
-			var sm2 := StandardMaterial3D.new()
-			sm2.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-			sm2.albedo_color = ID_COLOURS[cls2]
-			if cls2 == "heather" and heather_two_sided:
-				sm2.cull_mode = BaseMaterial3D.CULL_DISABLED
-			mm.material_override = sm2
+			mm.material_override = _id_material(cls2, String(mm.get_meta("part", "")) == "cards")
 		for l in _mm_inks:
 			_id_saved.append({"kind": "node", "n": l, "vis": (l as Node3D).visible})
 			(l as Node3D).visible = false
@@ -1478,9 +1546,7 @@ func set_class_id_view(on: bool, occluders := false) -> void:
 			hide.append_array([knight, _mound, snow])
 			hide.append_array(find_children("BarrowGround", "MeshInstance3D", true, false))
 		else:
-			var black := StandardMaterial3D.new()
-			black.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-			black.albedo_color = Color(0, 0, 0)
+			var black := _id_black()
 			var occ := []
 			if _mound != null:
 				occ.append(_mound)
@@ -1524,6 +1590,58 @@ func set_class_id_view(on: bool, occluders := false) -> void:
 					env.background_color = s["col"]
 					env.fog_enabled = s["fog"]
 		_id_saved.clear()
+
+
+# A CARD'S ID IS ITS CLASS COLOUR IN ITS OWN ALPHA: a plain StandardMaterial3D would either
+# fill the whole quad (no scissor) or multiply the class colour by the painting's pixels
+const ID_CARD_SHADER := """
+shader_type spatial;
+render_mode unshaded, cull_disabled, shadows_disabled;
+uniform sampler2D card_tex : filter_linear_mipmap;
+uniform vec3 id_col = vec3(1.0, 0.0, 1.0);
+void fragment() {
+	ALBEDO = id_col;
+	ALPHA = texture(card_tex, UV).a;
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
+}
+"""
+var _id_mats := {}
+var _id_card_shader: Shader
+
+
+func _id_material(cls: String, card: bool) -> Material:
+	var key := cls + ("|card" if card else "")
+	if _id_mats.has(key):
+		return _id_mats[key]
+	var c: Color = ID_COLOURS[cls]
+	var m: Material
+	if card:
+		if _id_card_shader == null:
+			_id_card_shader = Shader.new()
+			_id_card_shader.code = ID_CARD_SHADER
+		var sm := ShaderMaterial.new()
+		sm.shader = _id_card_shader
+		sm.set_shader_parameter("card_tex", _heather_card_tex)
+		sm.set_shader_parameter("id_col", Vector3(c.r, c.g, c.b))
+		m = sm
+	else:
+		var st := StandardMaterial3D.new()
+		st.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		st.albedo_color = c
+		if cls == "heather" and heather_two_sided and heather_mode == "blobs":
+			st.cull_mode = BaseMaterial3D.CULL_DISABLED      # as the beauty draws it
+		m = st
+	_id_mats[key] = m
+	return m
+
+
+func _id_black() -> StandardMaterial3D:
+	if not _id_mats.has("_black"):
+		var b := StandardMaterial3D.new()
+		b.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		b.albedo_color = Color(0, 0, 0)
+		_id_mats["_black"] = b
+	return _id_mats["_black"]
 
 
 func walk_waypoints() -> Dictionary:
@@ -1638,12 +1756,19 @@ func _detour(a: Vector2, b: Vector2) -> Vector2:
 # =============================================================================
 #  T10-1c — INSTANCING, LOW ROCKS, WARMTH, THE SHORE
 # =============================================================================
-const INSTANCED := ["heather", "juniper", "rock_small", "rock_large", "birch", "log", "cairn", "shield"]
+const INSTANCED := ["heather", "juniper", "rock_small", "rock_large", "birch", "log", "cairn", "shield",
+					"heather_base", "outcrop_a", "dead_tree", "boulder", "rocks", "stump", "skull"]
 # triangle targets for the instanced copies (BarrowInstancer.decimate); heather is not reduced
 # -- it is 544 triangles and the point this pass is to make it DENSER, not sparser
 const LOD_TARGETS := {"rock_small": 700, "rock_large": 1400, "juniper": 2400, "birch": 4000,
-					  "heather": 100000, "log": 1500, "cairn": 1500, "shield": 1500}
+					  "heather": 100000, "log": 1500, "cairn": 1500, "shield": 1500,
+					  "heather_base": 1500, "outcrop_a": 3000, "dead_tree": 2500, "boulder": 1200,
+					  "rocks": 1500, "stump": 1200, "skull": 1500}
 const CHUNK_M := 7.0
+# THE HEATHER'S CHUNK IS THE WHOLE PLAY AREA (T10-1d): 493 tufts in 10 variants over 7 m chunks
+# were 87 MultiMeshes -- 87 draws in each of four passes, for ~5 copies apiece -- and the
+# heather cost 2.3 ms whatever its triangle count (cutting stems by a third moved nothing).
+const CHUNK_BY_ASSET := {"heather": 24.0}
 # NO UPRIGHT ROCK CROWDS. The acceptance is 0 non-ring rocks taller than 1.2 m within 10 m of
 # the ring; the rocks are laid to 1.1 m at most so the jitter cannot reach it.
 const ROCK_MAX_H := 1.2
@@ -1695,6 +1820,27 @@ const HEATHER_CLUMP := 2
 # diag_heather_one_sided, three runs) once the bodies carry it. The fringe halves; the warm
 # read does not move (visible-pixel dE measured both ways). Left as a switch, not deleted.
 @export var heather_two_sided := false
+# T10-1d: THE HEATHER'S REPRESENTATION. "stems": generated sprig sprays (BarrowHeather);
+# "cards": the painting's own tufts cut out as alpha cards (tools/barrow_heather_cards.py);
+# "blobs": T10-1c's tussocks over a body, kept for the before/after. Chosen by measurement.
+@export var heather_mode := "stems"
+# build BOTH stems and cards on every clump with one set hidden: the in-run A/B for the choice
+@export var heather_ab := false
+# the fill outside the painting: "patches" (T10-1d) or "even" (T10-1c's grid), for the A/B
+@export var heather_fill := "patches"
+const HEATHER_CARDS_JSON := "res://data/heather_cards.json"
+const HEATHER_CARDS_PNG := "res://textures/barrow/heather_cards.png"
+# the grade on each representation's albedo: the per-channel LINEAR ratio of the painting's
+# heather (Lab 45.41, 11.13, 24.01, rust pixels) to the render's visible heather pixels,
+# multiplied in and re-measured: stems (1,1,1) dE 13.2 -> (1.371, 1.109, 0.702) 3.8 ->
+# darker stem bases, (1.489, 1.182, 0.616) 4.7 -> leaner sprays 4.9 -> below; cards (1,1,1)
+# 15.8 -> (1.408, 1.130, 0.638) 1.2
+const HEATHER_STEM_MUL := Vector3(1.622, 1.254, 0.534)
+const HEATHER_CARD_MUL := Vector3(1.408, 1.130, 0.638)
+var _heather_mats := {}
+var _heather_cards: Array = []
+var _heather_card_tex: Texture2D
+var _heather_rep := ""
 const CORE_W := 0.56
 const CORE_H := 0.58
 # THE HANDOFF'S HEATHER ROWS ARE PATCHES, NOT PLANTS. barrow_scene_a.json lists 19 "heather"
@@ -1703,6 +1849,10 @@ const CORE_H := 0.58
 # 53 of them became 1-2.7 m brown mounds (measured, drax_dbg_core). A row over this height is
 # drawn as a patch of painting-scale clumps over its measured extent instead.
 const HEATHER_PATCH_ABOVE_M := 0.6
+# the directional shadow filter this scene runs with (see _build_light_and_air)
+const SHADOW_FILTER_T10_1D := RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM
+# dress rows placed first and never rejected for crowding (T10-1d)
+const PRIORITY_DRESS := ["outcrop_a", "dead_tree"]
 # the snow at a heather clump, at most this share of the clump's height (see _build_snow)
 const HEATHER_SNOW_FRAC := 0.2
 const PATCH_CLUMP_M := 0.28
@@ -1851,14 +2001,17 @@ func _collider_list(moved: Dictionary = {}) -> Array:
 		for c in root.get_children():
 			var node := c as Node3D
 			var rec: Dictionary = _place_report.get(String(node.name), {})
-			if String(rec.get("asset", "")) in ["heather", "raven", ""]:
+			if String(rec.get("asset", "")) in ["heather", "heather_base", "raven", ""]:
 				continue
 			var sz: Array = rec.get("local_size_m", [0.4, 0.4, 0.4])
 			var p := Vector2(node.global_position.x, node.global_position.z)
 			if moved.has(node):
 				p = moved[node]
 			out.append({"p": p, "r": maxf(float(sz[0]), float(sz[2])) * 0.42})
-	out.append({"p": MOUND_XZ, "r": MOUND_R})
+	# THE MOUND'S WALL, NOT ITS RIM: the ring of boxes stands at R - 0.18 and each box's outer
+	# corners reach ~R + 0.12 -- the heather film's walk stopped against one that the old R disc
+	# said he cleared (T10-1d). + 0.15 is the corner radius, so a path this list clears, he clears.
+	out.append({"p": MOUND_XZ, "r": MOUND_R + 0.15})
 	return out
 
 
@@ -2012,7 +2165,7 @@ func _shore_candidate(deg: int, dir: Vector2, shore: Vector2, inland: float) -> 
 			# walled by junipers, at every inland length, and only ONE crossing could be made.
 			# Trees, the kit's keep pieces and the ring never move; each juniper move is
 			# reported by name like the rocks'.
-			if asset in MEGALITH or not (asset in ["rock_small", "rock_large", "juniper"]):
+			if asset in MEGALITH or not (asset in ["rock_small", "rock_large", "juniper", "boulder", "rocks", "stump"]):
 				touches_ring = true
 				break
 			# along the shore (perpendicular to the corridor), away from its centre line
@@ -2085,7 +2238,220 @@ func _choose_shore_gaps(cands: Array) -> Dictionary:
 
 
 func _fill_by_splat() -> Dictionary:
-	"""THE SCATTER THE PAINTING DOES NOT REACH. The painting shows about 11 x 9 m of ground;
+	if heather_fill == "even":
+		return _fill_by_splat_even()
+	return _fill_by_splat_patches()
+
+
+func _fill_by_splat_patches() -> Dictionary:
+	"""THE SCATTER THE PAINTING DOES NOT REACH -- IN PATCHES (T10-1d).
+
+	The painting shows about 11 x 9 m of ground; the play area is 19 x 19. Outside the painting's
+	own footprint the ground's classes are still the painting's -- the splat map extends its
+	plan -- but T10-1c filled the splat's heather class on an even 0.42 m grid, and an even
+	scatter of clumps over open snow is the "evenly spread golden popcorn" the coordinator
+	flagged. The painting's heather GATHERS: at stone bases, along outcrops, over the mound, in
+	patches with open snow between them (tools/barrow_heather_stats.py: the painting's heather
+	sits a median 0.07 screen-m from a stone, rock or tree; T10-1c's twice that). So:
+
+	  HEATHER  patch centres on a 1.6 m jittered grid where the splat says heather, kept at 0.85
+	           near an anchor (a stone, rock, outcrop, tree, or the mound's rim -- within 1.4 m)
+	           and at 0.28 in the open; each patch 0.45-1.4 m across its radius, clumps at 0.30 m
+	           with the chance of one falling off as (r / R)^2 toward the edge, taller at the
+	           heart; a painted base (the kit's heather_clump) at the heart of half the big ones
+	  RUBBLE   where it says rock: rock_small as before, and the kit's minor scatter -- the
+	           boulder, the three-rock cluster, the stump -- in among it
+	  SKULL    one, lying in open snow on the far side of the tarn from the clearing
+	One seed; deterministic."""
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 55173
+	var man := {}
+	if FileAccess.file_exists(ASSETS_JSON):
+		var mj = JSON.parse_string(FileAccess.get_file_as_string(ASSETS_JSON))
+		if typeof(mj) == TYPE_DICTIONARY:
+			man = mj.get("models", {})
+	var kit := {}
+	if FileAccess.file_exists("res://data/kit_assets.json"):
+		var kj = JSON.parse_string(FileAccess.get_file_as_string("res://data/kit_assets.json"))
+		if typeof(kj) == TYPE_DICTIONARY:
+			for k in kj.get("models", {}):
+				var ke: Dictionary = kj["models"][k]
+				if String(ke.get("status", "")) == "keep" and ResourceLoader.exists(String(ke.get("glb", ""))):
+					kit[k] = ke
+	var pitch := 1.0 / cos(deg_to_rad(PL_PITCH_DEG))
+	var fp: Array = _paint_frame.get("footprint_xz", [])
+	var poly := PackedVector2Array()
+	for v in fp:
+		poly.append(Vector2(float(v[0]), float(v[1])))
+	var taken := []
+	var anchors := []
+	for root in [_props_root, _density_root]:
+		for c in root.get_children():
+			var node := c as Node3D
+			var rec: Dictionary = _place_report.get(String(node.name), {})
+			var sz: Array = rec.get("local_size_m", [0.4, 0.4, 0.4])
+			var q := {"c": Vector2(node.global_position.x, node.global_position.z),
+					  "r": maxf(float(sz[0]), float(sz[2])) * 0.5}
+			taken.append(q)
+			if not (String(rec.get("asset", "")) in ["heather", "heather_base", "raven", ""]):
+				anchors.append(q)
+	taken.append({"c": MOUND_XZ, "r": MOUND_R})
+	var saved := _props_root
+	_props_root = _density_root
+	var pr := _play_rect()
+	var counts := {}
+	var idc := [5000]                      # an Array: a lambda captures an int BY VALUE
+	var place_kit := func(cls: String, p: Vector2, h: float, yaw: float) -> Dictionary:
+		var kc := "heather_clump" if cls == "heather_base" else cls
+		var spec: Dictionary = kit[kc] if kit.has(kc) else man.get(cls, {})
+		var glb := String(spec.get("glb", "res://models/barrow/%s.glb" % cls))
+		if not ResourceLoader.exists(glb):
+			return {}
+		idc[0] += 1
+		var pc: bool = bool(spec.get("pitch_correct", true)) and not kit.has(kc)
+		var e := _place_prop(cls, glb, {"pitch_correct": pc, "yaw_deg": yaw,
+				"width_m": spec.get("width_m", null), "height_m": spec.get("height_m", h)}, {},
+			{"scene_xz": [p.x, p.y], "height_m": h, "yaw_deg": yaw}, h, false, pitch, int(idc[0]))
+		if not e.is_empty():
+			taken.append({"c": p, "r": maxf(float(e["size_m"][0]), float(e["size_m"][2])) * 0.5})
+			counts[cls] = int(counts.get(cls, 0)) + 1
+		return e
+
+	# ---- 1. HEATHER, IN PATCHES ------------------------------------------------------
+	var patches := []
+	var pstep := 1.6
+	var y := pr.position.y + pstep * 0.5
+	var row_i := 0
+	while y < pr.end.y:
+		var x := pr.position.x + pstep * 0.5 + (pstep * 0.5 if row_i % 2 == 1 else 0.0)
+		while x < pr.end.x:
+			var p := Vector2(x + rng.randf_range(-0.5, 0.5), y + rng.randf_range(-0.5, 0.5))
+			x += pstep
+			if poly.size() >= 3 and Geometry2D.is_point_in_polygon(p, poly):
+				continue                          # the painting's own dressing is already there
+			if _in_clear(p, 0.3):
+				continue
+			var w := _splat_w_fast(p.x, p.y)
+			if w[4] > 0.2 or w[3] < 0.45:
+				continue
+			var near := _near_anchor(p, anchors, 1.4)
+			if rng.randf() > (0.85 if near else 0.28):
+				continue
+			patches.append({"c": p, "r": rng.randf_range(0.45, 1.25) * (1.15 if near else 0.85), "near": near})
+		y += pstep * 0.87
+		row_i += 1
+	var clumps := 0
+	for pa in patches:
+		var c: Vector2 = pa["c"]
+		var R := float(pa["r"])
+		if R > 0.8 and rng.randf() < 0.5 and not _in_clear(c, 0.2):
+			var across := rng.randf_range(0.5, 0.9)
+			place_kit.call("heather_base", c, 0.3812 * across / 0.75, rng.randf_range(-35.0, 35.0))
+		var s := 0.30
+		var gy := -R
+		var gi := 0
+		while gy <= R:
+			var gx := -R + (s * 0.5 if gi % 2 == 1 else 0.0)
+			while gx <= R:
+				var q := c + Vector2(gx + rng.randf_range(-0.1, 0.1), gy + rng.randf_range(-0.1, 0.1))
+				gx += s
+				var d := q.distance_to(c) / R
+				if d > 1.0 or rng.randf() > 0.95 * (1.0 - d * d):
+					continue
+				if _in_clear(q, 0.1) or _splat_w_fast(q.x, q.y)[4] > 0.2:
+					continue
+				if not _free_at(q, 0.08, anchors, 0.02):
+					continue                      # not inside a rock
+				idc[0] += 1
+				if rng.randf() < 0.05:
+					place_kit.call("juniper", q, rng.randf_range(0.8, 1.2), rng.randf() * 360.0)
+					continue
+				var h := lerpf(0.30, 0.13, d) * rng.randf_range(0.85, 1.15)
+				# the glb matters only to heather_mode "blobs" (T10-1c's tussocks, the before/after)
+				var e := _place_prop("heather", String(man.get("heather", {}).get("glb", "res://models/barrow/heather.glb")),
+									 {}, {}, {"scene_xz": [q.x, q.y], "height_m": h}, h, false, pitch, int(idc[0]))
+				if not e.is_empty():
+					clumps += 1
+					counts["heather"] = int(counts.get("heather", 0)) + 1
+			gy += s * 0.87
+			gi += 1
+
+	# ---- 2. RUBBLE, and the kit's minor scatter in among it -------------------------
+	var rstep := 0.9
+	y = pr.position.y + rstep * 0.5
+	row_i = 0
+	while y < pr.end.y:
+		var x := pr.position.x + rstep * 0.5 + (rstep * 0.5 if row_i % 2 == 1 else 0.0)
+		while x < pr.end.x:
+			var p := Vector2(x + rng.randf_range(-0.25, 0.25), y + rng.randf_range(-0.25, 0.25))
+			x += rstep
+			if poly.size() >= 3 and Geometry2D.is_point_in_polygon(p, poly):
+				continue
+			if _in_clear(p, 0.3):
+				continue
+			var w := _splat_w_fast(p.x, p.y)
+			if w[4] > 0.2 or w[2] < 0.5:
+				continue
+			if rng.randf() > 0.34:
+				continue
+			var u := rng.randf()
+			var cls := "rock_small"
+			var h := rng.randf_range(0.25, 0.55)
+			if u < 0.12:
+				cls = "boulder"
+				h = 0.3003 * rng.randf_range(0.8, 1.3)
+			elif u < 0.24:
+				cls = "rocks"
+				h = 0.5108 * rng.randf_range(0.85, 1.15)
+			elif u < 0.30:
+				cls = "stump"
+				h = 0.30 * rng.randf_range(0.9, 1.25)
+			var kc2 := cls if kit.has(cls) or cls == "rock_small" else "rock_small"
+			var r := _est_radius(kc2, h, man, kit)
+			if not _free_at_scaled(p, r, taken, 0.55):
+				continue
+			place_kit.call(kc2, p, h, rng.randf() * 360.0)
+		y += rstep * 0.87
+		row_i += 1
+
+	# ---- 3. THE SKULL: one, in open snow on the far side of the tarn --------------------
+	var skull_at := []
+	if kit.has("skull"):
+		var tarn := Vector2(-1.33, 4.75)
+		var far := (tarn - COMBAT_C).normalized()
+		var target := tarn + far * 4.0
+		var best := Vector2.INF
+		var bd := INF
+		var sy := pr.position.y + 0.25
+		while sy < pr.end.y:
+			var sx := pr.position.x + 0.25
+			while sx < pr.end.x:
+				var p := Vector2(sx, sy)
+				sx += 0.5
+				var w := _splat_w_fast(p.x, p.y)
+				if w[4] > 0.05 or w[0] < 0.6 or _in_clear(p, 0.5):
+					continue
+				if not _free_at(p, 0.75, taken, 0.4):
+					continue
+				var dd := p.distance_to(target)
+				if dd < bd:
+					bd = dd
+					best = p
+			sy += 0.5
+		if best != Vector2.INF:
+			var e2: Dictionary = place_kit.call("skull", best, 0.4836, 205.0)
+			if not e2.is_empty():
+				skull_at = [snappedf(best.x, 0.01), snappedf(best.y, 0.01)]
+	_props_root = saved
+	return {"placed": counts, "heather_patches": patches.size(),
+			"heather_patches_near_an_anchor": patches.filter(func(q): return bool(q["near"])).size(),
+			"heather_clumps": clumps, "skull_xz": skull_at,
+			"_outside": "the painting's own footprint (dressed from the painting)"}
+
+
+func _fill_by_splat_even() -> Dictionary:
+	"""T10-1c's FILL, kept for the before/after of T10-1d's patches (heather_fill = "even"): an
+	even grid over the splat's heather class. THE SCATTER THE PAINTING DOES NOT REACH. The painting shows about 11 x 9 m of ground;
 	the play area is 19 x 19. Outside the painting's own footprint the ground's classes are
 	still the painting's -- the splat map extends its plan -- so the fill follows the splat:
 	heather where it says heather, low rubble where it says rock, a juniper now and then in
@@ -2163,6 +2529,14 @@ func _fill_by_splat() -> Dictionary:
 	return {"placed": counts, "grid_m": step, "_outside": "the painting's own footprint (dressed from the painting)"}
 
 
+func _near_anchor(p: Vector2, anchors: Array, d: float) -> bool:
+	"""Within d of a stone, rock, outcrop, tree or kit piece -- or of the mound's rim."""
+	for a in anchors:
+		if p.distance_to(a["c"]) - float(a["r"]) < d:
+			return true
+	return absf(p.distance_to(MOUND_XZ) - MOUND_R) < d
+
+
 func _instance_props() -> Dictionary:
 	"""Hide every repeated prop's own meshes and draw them as MultiMeshes instead. The per-prop
 	nodes STAY -- their transforms, colliders, snow obstacles, reports and verification all
@@ -2192,7 +2566,7 @@ func _instance_props() -> Dictionary:
 					mat_by_key[key] = m.material_override
 				var s3 := m.global_transform.basis.get_scale()
 				entries.append({"key": key, "asset": cls, "mesh": m.mesh, "mat": mat_by_key[key],
-					"part": "core" if String(m.name) == "HeatherCore" else "",
+					"part": "core" if String(m.name) == "HeatherCore" else String(m.get_meta("part", "")),
 					"xf": m.global_transform, "xf_up": ups[k] if k < ups.size() else m.global_transform,
 					"hull_world_m": _hull_for(cls) / PPM, "scale": (absf(s3.x) + absf(s3.y) + absf(s3.z)) / 3.0,
 					"shadow": m.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF})
@@ -2201,7 +2575,8 @@ func _instance_props() -> Dictionary:
 	_instanced_root = Node3D.new()
 	_instanced_root.name = "Instanced"
 	add_child(_instanced_root)
-	var res := BarrowInstancer.build(_instanced_root, entries, CHUNK_M, PaintStack.INK, LOD_TARGETS)
+	var res := BarrowInstancer.build(_instanced_root, entries, CHUNK_M, PaintStack.INK, LOD_TARGETS,
+		CHUNK_BY_ASSET)
 	_mmis = res["mmis"]
 	_mm_inks = res["inks"]
 	# the per-chunk member lists, in instance order, for the rock A/B
@@ -2263,7 +2638,8 @@ func _apply_draw_mode() -> void:
 	for m in _hidden_meshes:
 		if is_instance_valid(m):
 			(m as MeshInstance3D).visible = nodes_on and not _asset_hidden.has(_asset_of(m)) \
-				and not (_cores_hidden and String((m as Node).name) == "HeatherCore")
+				and not (_cores_hidden and String((m as Node).name) == "HeatherCore") \
+				and _rep_shown(String((m as Node).get_meta("part", "")))
 	for m in _instanced_inks:
 		if is_instance_valid(m):
 			(m as MeshInstance3D).visible = nodes_on and not _asset_hidden.has(_asset_of(m))
@@ -2271,7 +2647,14 @@ func _apply_draw_mode() -> void:
 		_instanced_root.visible = _density_visible and _instancing_on
 	for m in _mmis + _mm_inks:
 		(m as MultiMeshInstance3D).visible = not _asset_hidden.has(String(m.get_meta("asset", ""))) \
-			and not (_cores_hidden and String(m.get_meta("part", "")) == "core")
+			and not (_cores_hidden and String(m.get_meta("part", "")) == "core") \
+			and _rep_shown(String(m.get_meta("part", "")))
+
+
+func _rep_shown(part: String) -> bool:
+	if not heather_ab or not (part == "stems" or part == "cards"):
+		return true
+	return part == (_heather_rep if _heather_rep != "" else heather_mode)
 
 
 func _asset_of(n: Node) -> String:
@@ -2458,6 +2841,31 @@ func _prop_params(cls: String) -> Dictionary:
 			return {"snow_threshold": 0.92, "snow_jitter": 0.20, "snow_soft": 0.08,
 					"snow_noise_scale": 3.2, "mottle_scale": 5.0, "mottle_amp": 0.24,
 					"hatch_scale": 22.0, "hatch_amp": 0.10, "mesh_mark": 0.25}
+		"heather_base":
+			# the painted clump: no snow of its own (its texture carries crumbs), and a tone per
+			# instance so a patch of them is not one colour repeated
+			return {"snow_threshold": 1.5, "snow_jitter": 0.0, "snow_soft": 0.05,
+					"snow_noise_scale": 3.0, "mottle_scale": 4.0, "mottle_amp": 0.14,
+					"hatch_scale": 18.0, "hatch_amp": 0.06, "mesh_mark": 0.25, "tone_jitter": 0.28}
+		"outcrop_a":
+			# THE OUTCROP'S TEXTURE IS ITS SNOW: painted ledges, mean sRGB 0.72. At 0.80 the layer
+			# whited it into a boulder (d_look1); it adds none
+			return {"snow_threshold": 1.5, "snow_jitter": 0.0, "snow_soft": 0.05,
+					"snow_noise_scale": 2.0, "mottle_scale": 1.6, "mottle_amp": 0.16,
+					"hatch_scale": 9.0, "hatch_amp": 0.07}
+		"boulder", "rocks":
+			# painted snow caps too; the layer adds a little on the flattest tops
+			return {"snow_threshold": 0.95, "snow_jitter": 0.20, "snow_soft": 0.10,
+					"snow_noise_scale": 2.0, "mottle_scale": 1.6, "mottle_amp": 0.16,
+					"hatch_scale": 9.0, "hatch_amp": 0.07}
+		"dead_tree":
+			return {"snow_threshold": 0.92, "snow_jitter": 0.20, "snow_soft": 0.08,
+					"snow_noise_scale": 3.2, "mottle_scale": 5.0, "mottle_amp": 0.24,
+					"hatch_scale": 22.0, "hatch_amp": 0.10, "mesh_mark": 0.25}
+		"stump", "skull":
+			return {"snow_threshold": 0.78, "snow_jitter": 0.22, "snow_soft": 0.09,
+					"snow_noise_scale": 3.0, "mottle_scale": 4.0, "mottle_amp": 0.20,
+					"hatch_scale": 18.0, "hatch_amp": 0.08}
 		"rock_large", "rock_small":
 			# 0.58 -> 0.72 (T10-1c): laid on their sides, the rocks' broad faces point up and at
 			# 0.58 they came out as white slabs; the painting's outcrops are grey-brown lichen
@@ -2489,7 +2897,7 @@ func _hull_for(cls: String) -> float:
 	R-C9-74 note 5's "one pen, one weight" is unaffected: it is the same colour and the same
 	nominal width, drawn by the pass that can draw it."""
 	match cls:
-		"heather", "birch", "juniper":
+		"heather", "birch", "juniper", "dead_tree", "heather_base":
 			return 0.0
 		_:
 			return HULL_PX
@@ -2742,7 +3150,7 @@ func _place_heather_patch(glb: String, spec: Dictionary, sizes: Dictionary, row:
 		if _in_clear(p, 0.0) or _splat_w_fast(p.x, p.y)[4] > 0.6:
 			skipped_here += 1
 			continue
-		var h := 0.35 + 0.2 * fposmod(float(j) * 0.618 + float(idx) * 0.37, 1.0)
+		var h := 0.14 + 0.16 * fposmod(float(j) * 0.618 + float(idx) * 0.37, 1.0)
 		var r2 := row.duplicate()
 		r2["scene_xz"] = [p.x, p.y]
 		r2["height_m"] = h
@@ -2753,6 +3161,120 @@ func _place_heather_patch(glb: String, spec: Dictionary, sizes: Dictionary, row:
 					 "extent_m": snappedf(extent, 0.01), "clumps": out.size(),
 					 "skipped_ice_or_clearing": skipped_here})
 	return out
+
+
+func _load_heather_cards() -> void:
+	if not FileAccess.file_exists(HEATHER_CARDS_JSON) or not ResourceLoader.exists(HEATHER_CARDS_PNG):
+		return
+	var j = JSON.parse_string(FileAccess.get_file_as_string(HEATHER_CARDS_JSON))
+	if typeof(j) != TYPE_DICTIONARY:
+		return
+	_heather_cards = j.get("tiles", [])
+	_heather_card_tex = load(HEATHER_CARDS_PNG)
+
+
+func _heather_material(cards: bool) -> ShaderMaterial:
+	"""ONE material per representation, shared by every clump -- so the MultiMesh draws each
+	representation's chunks with one bind, and the wind clock is one uniform to push."""
+	var key := "cards" if cards else "stems"
+	if _heather_mats.has(key):
+		return _heather_mats[key]
+	var m := BarrowHeather.material(fbm, cards, {
+		"albedo_mul": HEATHER_CARD_MUL if cards else HEATHER_STEM_MUL, "mesh_mark": 0.25})
+	if cards and _heather_card_tex != null:
+		m.set_shader_parameter("card_tex", _heather_card_tex)
+	m.set_shader_parameter("wind_dir", WIND.normalized())
+	_heather_mats[key] = m
+	_world_mats.append(m)
+	return m
+
+
+func _place_heather(row: Dictionary, target: float, idx: int) -> Dictionary:
+	"""T10-1d: ONE HEATHER CLUMP AS A SPRAY -- generated stems, or one of the painting's own
+	tufts as a card, or both (heather_ab). No yaw: sprays and cards are built facing the fixed
+	camera. Height is the clump's scale (+-15% by index); the variant and the card tile come
+	from the index, so a capture is repeatable. Walked through: no collider, no snow skirt."""
+	var xz: Array = row.get("scene_xz", [0.0, 0.0])
+	var x := float(xz[0])
+	var z := float(xz[1])
+	var hh := target * (0.85 + 0.30 * fposmod(float(idx) * 0.6180339, 1.0))
+	var root := Node3D.new()
+	root.name = "heather_%02d" % idx
+	_props_root.add_child(root)
+	var reps := ["stems", "cards"] if heather_ab else [heather_mode]
+	var tris := 0
+	var mat = null
+	var across := 0.0
+	for rep in reps:
+		var mesh: ArrayMesh = null
+		var s := hh
+		if rep == "cards":
+			if _heather_cards.is_empty():
+				_load_heather_cards()
+			if _heather_cards.is_empty():
+				continue
+			var tile: Dictionary = _heather_cards[int(fposmod(float(idx) * 5.0 + 1.0, float(_heather_cards.size())))]
+			mesh = BarrowHeather.card_mesh(tile)
+			# A CARD IS SIZED ON SCREEN, where it was cut: to the painted tuft's own screen height
+			# where the row carries it (the dress), else ~1.8x the tuft's height -- a low tuft's
+			# screen extent is mostly its DEPTH (0.6 h + 0.8 d, with d ~ 1.5 h)
+			var scr := float(row.get("screen_h_m", 1.8 * hh))
+			s = scr * (hh / maxf(target, 1e-3)) / maxf(float(tile["h_m"]), 1e-3)
+		else:
+			mesh = BarrowHeather.spray_mesh(int(fposmod(float(idx) * 7.0 + 3.0, float(BarrowHeather.VARIANTS))))
+		var mi := MeshInstance3D.new()
+		mi.name = "HeatherCard" if rep == "cards" else "HeatherStems"
+		mi.mesh = mesh
+		mi.scale = Vector3.ONE * s
+		mi.material_override = _heather_material(rep == "cards")
+		mi.set_meta("part", rep)
+		root.add_child(mi)
+		tris += mesh.surface_get_array_index_len(0) / 3
+		if mat == null:
+			mat = mi.material_override
+		var ab := mesh.get_aabb()
+		across = maxf(across, maxf(ab.size.x, ab.size.z) * s)
+	var g := _ground_under(x, z, maxf(across * 0.5, 0.05))
+	root.global_position = Vector3(x, float(g["lo"]) - 0.01, z)
+	var rec := {"node": root, "mat": mat, "tris": tris, "asset": "heather",
+			"size_m": [snappedf(across, 0.001), snappedf(hh, 0.001), snappedf(across, 0.001)],
+			"target_m": snappedf(target, 0.001), "across": false,
+			"scene_xz": [x, z], "yaw_deg": 0.0, "ground": g, "top_y": root.global_position.y + hh}
+	_place_report[String(root.name)] = {
+		"asset": "heather", "concept_height_m": snappedf(target, 0.001), "target_m": snappedf(hh, 0.001),
+		"sized_by": "height", "local_size_m": rec["size_m"], "yaw_deg": 0.0,
+		"ground_spread_m": snappedf(float(g["spread"]), 0.001), "rep": heather_mode if not heather_ab else "ab"}
+	return rec
+
+
+func set_heather_wind(on: bool) -> void:
+	for k in _heather_mats:
+		(_heather_mats[k] as ShaderMaterial).set_shader_parameter("wind_on", 1.0 if on else 0.0)
+
+
+func set_heather_push(on: bool) -> void:
+	for k in _heather_mats:
+		(_heather_mats[k] as ShaderMaterial).set_shader_parameter("push_on", 1.0 if on else 0.0)
+
+
+func set_heather_representation(rep: String) -> void:
+	"""heather_ab only: which of the two built representations draws."""
+	_heather_rep = rep
+	_apply_draw_mode()
+
+
+func set_shadow_after_bands(on: bool) -> void:
+	"""The A/B for T10-1d item 1: the T10-1d shadow (on) -- the cast shadow applied after the
+	bands, through Soft Medium -- or T10-1c's (off): before the bands, through Soft Low. On
+	every lit surface: the world, the snow, him."""
+	RenderingServer.directional_soft_shadow_filter_set_quality(SHADOW_FILTER_T10_1D if on
+		else RenderingServer.SHADOW_QUALITY_SOFT_LOW)
+	var v := 1.0 if on else 0.0
+	for m in _world_mats:
+		m.set_shader_parameter("shadow_after_bands", v)
+	if snow != null and snow.material() != null:
+		snow.material().set_shader_parameter("shadow_after_bands", v)
+	PaintStack.set_character_param(_char_saved, "shadow_after_bands", v)
 
 
 static func _heather_core_mesh() -> ArrayMesh:
@@ -2811,6 +3333,8 @@ static func _heather_core_mesh() -> ArrayMesh:
 
 func _place_prop(cls: String, glb: String, spec: Dictionary, sizes: Dictionary,
 		row: Dictionary, target: float, across: bool, pitch: float, idx: int) -> Dictionary:
+	if cls == "heather" and heather_mode != "blobs":
+		return _place_heather(row, target, idx)
 	var ps := load(glb) as PackedScene
 	if ps == null:
 		return {}
@@ -2912,7 +3436,7 @@ func _place_prop(cls: String, glb: String, spec: Dictionary, sizes: Dictionary,
 	# being solid: one vertical-sided cylinder per prop, at 0.42 of the footprint so he brushes
 	# past rather than bumping into thin air. Heather is walked through -- it is 80 cm of
 	# twigs -- and the raven is on top of a stone.
-	if cls != "heather" and cls != "raven":
+	if not (cls in ["heather", "heather_base", "raven"]):
 		var body := StaticBody3D.new()
 		body.name = "obstacle"
 		body.collision_layer = BarrowFlat.TERRAIN_BIT
@@ -3291,6 +3815,17 @@ func _resync_ink_width() -> void:
 
 
 # --- play ---------------------------------------------------------------------
+func _physics_process(_dt: float) -> void:
+	# THE HEATHER'S WIND RUNS ON THE SNOW'S CLOCK: one time for the trail it reads and the gusts
+	# it bends to, and a captured film is as deterministic as the snow is. Pushed HERE and not in
+	# _process: park_camera() stops _process to hold a frame, the heather film parks the camera,
+	# and the wind froze with it -- the first film measured 0.14 px of sway at p90.
+	if snow != null and not _heather_mats.is_empty():
+		var tw := snow.clock()
+		for k in _heather_mats:
+			(_heather_mats[k] as ShaderMaterial).set_shader_parameter("wind_time", tw)
+
+
 func _process(dt: float) -> void:
 	if knight == null:
 		return
@@ -3500,6 +4035,11 @@ func place_knight(x: float, z: float, facing := "NE") -> void:
 
 
 func snow_report() -> Dictionary:
+	# the groups were gathered when the scene list was placed; props dropped since (T10-1d: the
+	# rocks under the edge outcrops) are freed, and a freed mesh in the list stopped the
+	# measurement with "Trying to cast a freed object" -- so the living ones only
+	for g in _groups:
+		g["meshes"] = (g["meshes"] as Array).filter(func(m): return is_instance_valid(m))
 	return PaintStack.measure_snow(_groups, fbm.get_image(), 0.5)
 
 

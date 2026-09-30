@@ -51,6 +51,13 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow.tscn").instantiate()
+	# T10-1d: both heather representations built, one drawn -- stems vs cards in one run
+	if "--heather-ab" in args:
+		scene.heather_ab = true
+	# ...and which heather: "stems" (T10-1d), "blobs" (T10-1c's), for the before/after
+	var hi := args.find("--heather")
+	if hi >= 0 and hi + 1 < args.size():
+		scene.heather_mode = args[hi + 1]
 	vp.add_child(scene)
 	for i in 80:
 		await process_frame
@@ -89,8 +96,10 @@ func _initialize() -> void:
 	if scene.has_method("set_heather_cores_visible"):
 		states.append(["diag_no_heather_cores", true, true, true, "no_cores"])
 		# the blades drawn the OTHER way from how the scene ships them (two-sided if it ships
-		# one-sided, and back): the cost of the switch, whichever way it is set
-		states.append(["diag_heather_sides_flipped", true, true, true, "heather_sides_flipped"])
+		# one-sided, and back): the cost of the switch, whichever way it is set -- T10-1c's
+		# tussocks only; it swaps in the world shader, which the T10-1d sprays do not use
+		if String(scene.get("heather_mode")) == "blobs":
+			states.append(["diag_heather_sides_flipped", true, true, true, "heather_sides_flipped"])
 	if scene.has_method("set_rock_pose"):
 		states.append(["diag_rocks_upright", true, true, true, "rocks_upright"])
 	if has_snow:
@@ -98,12 +107,27 @@ func _initialize() -> void:
 	if scene.has_method("set_heather_cores_visible"):
 		states.append(["diag_heather_blades_noshadow", true, true, true, "heather_blades_noshadow"])
 	states.append(["diag_lod4", true, true, true, "lod:4"])
+	# T10-1d: the shadow before the bands (T10-1c's ramp); the heather's wind and push off;
+	# the new kit per asset; and, when built with --heather-ab, the cards drawn instead
+	if scene.has_method("set_shadow_after_bands"):
+		states.append(["diag_shadow_before_bands", true, true, true, "shadow_before"])
+	if scene.has_method("set_heather_wind"):
+		states.append(["diag_heather_wind_off", true, true, true, "wind_off"])
+		states.append(["diag_heather_push_off", true, true, true, "push_off"])
+	for a2 in ["outcrop_a", "heather_base", "dead_tree", "boulder", "rocks", "stump", "skull"]:
+		states.append(["asset_inst_no_" + a2, true, true, true, "asset:" + a2])
+	if bool(scene.get("heather_ab")):
+		states.append(["heather_as_cards", true, true, true, "rep:cards"])
+	# where the heather's cost is: its shading (an unshaded flat material in its place) vs its
+	# geometry and passes
+	states.append(["diag_heather_flat_shaded", true, true, true, "heather_flat"])
 	if not only.is_empty():
 		states = states.filter(func(s): return String(s[0]) in only)
 	# (per-asset "hide:<asset>" and "lod:<px>" diagnostics are kept in _diag for the next
 	# budget question; the reported run measures the delivered configuration)
 	var res := {}
 	var res_gpu := {}
+	var res_retry := {}
 	for rep in reps:
 		for s in states:
 			var diag := String(s[4]) if s.size() > 4 else ""
@@ -113,8 +137,10 @@ func _initialize() -> void:
 			if not res.has(s[0]):
 				res[s[0]] = []
 				res_gpu[s[0]] = []
+				res_retry[s[0]] = []
 			res[s[0]].append(r["ms_per_frame"])
 			res_gpu[s[0]].append(r["gpu_ms"])
+			res_retry[s[0]].append(int(r["attempts"]) - 1 + (1000 if int(r["undrawable_frames"]) > 0 else 0))
 	scene.set_stack(true)
 	if has_snow:
 		scene.set_snowfield_visible(true)
@@ -137,8 +163,11 @@ func _initialize() -> void:
 		out["states"][nm] = {"ms": a, "mean_ms": snappedf(tot / float(a.size()), 0.01),
 							 "median_ms": snappedf(med, 0.01),
 							 "spread_ms": snappedf(float(srt[-1]) - float(srt[0]), 0.01),
-							 "gpu_ms": res_gpu[nm], "gpu_median_ms": g[g.size() / 2]}
+							 "gpu_ms": res_gpu[nm], "gpu_median_ms": g[g.size() / 2],
+							 "retakes": res_retry[nm]}
 	out["instrument_check_2.25x_pixels_ms"] = chk["ms_per_frame"]
+	out["instrument_check_retakes"] = int(chk["attempts"]) - 1
+	out["_undrawable"] = "retakes: a sample re-taken because the window could not draw (occluded); 1000+ = still undrawable after 3"
 	var props: Dictionary = scene.report.get("props", {})
 	out["prop_triangles"] = props.get("triangles", -1)
 	out["instancing"] = scene.report.get("instancing", {})
@@ -176,7 +205,29 @@ func _diag(which: String, on: bool) -> void:
 				if String((c as Node).name).begins_with(asset + "_"):
 					(c as Node3D).visible = not on
 		return
+	if which.begins_with("rep:"):
+		scene.set_heather_representation(which.substr(4) if on else "stems")
+		return
 	match which:
+		"heather_flat":
+			for m in scene._mmis:
+				if String(m.get_meta("asset", "")) != "heather":
+					continue
+				var gi := m as GeometryInstance3D
+				if on:
+					gi.set_meta("_mat", gi.material_override)
+					var sm := StandardMaterial3D.new()
+					sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+					sm.albedo_color = Color(0.5, 0.3, 0.1)
+					gi.material_override = sm
+				elif gi.has_meta("_mat"):
+					gi.material_override = gi.get_meta("_mat")
+		"shadow_before":
+			scene.set_shadow_after_bands(not on)
+		"wind_off":
+			scene.set_heather_wind(not on)
+		"push_off":
+			scene.set_heather_push(not on)
 		"no_cores":
 			scene.set_heather_cores_visible(not on)
 		"heather_sides_flipped":
@@ -207,6 +258,22 @@ func _diag(which: String, on: bool) -> void:
 
 
 func _time(stack: bool, snow_on: bool, density_on: bool, n: int, res: Vector2i) -> Dictionary:
+	# A FRAME THE WINDOW CANNOT DRAW IS NOT RENDERED, and times as 7-11 ms (T10-1d: a full run's
+	# 2.25x check read 10.9 against 17.1 at 1080p; single passes read 7.0 among 16.5s). On macOS
+	# an OCCLUDED window cannot draw -- someone working at the Mac covers it -- and every
+	# viewport in it is skipped. So a sample with any such frame is thrown away and re-taken,
+	# up to three times, and the count is reported.
+	for attempt in 3:
+		var r := await _time_once(stack, snow_on, density_on, n, res)
+		if int(r["undrawable_frames"]) == 0:
+			r["attempts"] = attempt + 1
+			return r
+	var r2 := await _time_once(stack, snow_on, density_on, n, res)
+	r2["attempts"] = 4
+	return r2
+
+
+func _time_once(stack: bool, snow_on: bool, density_on: bool, n: int, res: Vector2i) -> Dictionary:
 	scene.set_stack(stack)
 	if scene.has_method("set_snowfield_visible"):
 		scene.set_snowfield_visible(snow_on)
@@ -237,9 +304,12 @@ func _time(stack: bool, snow_on: bool, density_on: bool, n: int, res: Vector2i) 
 	var gpu := 0.0
 	var gpu_n := 0
 	var t0 := Time.get_ticks_usec()
+	var undrawable := 0
 	for i in n:
 		scene.knight.drive_dir(Vector2(0.28, -0.96), false, DT)
 		await process_frame
+		if not DisplayServer.window_can_draw():
+			undrawable += 1
 		var g := RenderingServer.viewport_get_measured_render_time_gpu(rid)
 		if g > 0.0:
 			gpu += g
@@ -247,5 +317,5 @@ func _time(stack: bool, snow_on: bool, density_on: bool, n: int, res: Vector2i) 
 	var ms: float = float(Time.get_ticks_usec() - t0) / 1000.0 / float(n)
 	Engine.physics_ticks_per_second = prev_ticks
 	vp.size = prev
-	return {"ms_per_frame": snappedf(ms, 0.01),
+	return {"ms_per_frame": snappedf(ms, 0.01), "undrawable_frames": undrawable,
 			"gpu_ms": snappedf(gpu / float(maxi(gpu_n, 1)), 0.01) if gpu_n > 0 else -1.0}

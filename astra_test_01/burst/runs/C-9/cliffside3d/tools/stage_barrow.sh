@@ -42,9 +42,15 @@ cp_if "$CAP/barrow_stack_off.png"                 "$STAGE/8 - play camera, the l
 # T10-1c: the two single-variable A/Bs, each against still 1 (same run, same frame)
 cp_if "$CAP/barrow_instancing_off.png"            "$STAGE/9 - A-B for 1, the same props drawn one node each.png"
 cp_if "$CAP/barrow_rocks_upright.png"             "$STAGE/10 - A-B for 2, the rocks upright as in T10-1b.png"
-# and the warmth (3), where the painting has heather: painting | T10-1b | this capture
+# and the warmth, where the painting has heather: painting | the --before capture | this one
 [ -f "$CAP/warmth_before_after.png" ] && cp -f "$CAP/warmth_before_after.png" \
-  "$STAGE/11 - warmth - the painting, T10-1b, T10-1c.png"
+  "$STAGE/11 - heather - the painting, before, after.png"
+rm -f "$STAGE/11 - warmth - the painting, T10-1b, T10-1c.png"
+# T10-1d: the shadow before the bands (T10-1c's ramp) against still 1, and the heather film
+cp_if "$CAP/barrow_shadow_before_bands.png"       "$STAGE/12 - A-B for the shadow, before the bands as in T10-1c.png"
+[ -f "$CAP/C-9 barrow heather in the wind.mp4" ] && cp -f "$CAP/C-9 barrow heather in the wind.mp4" \
+  "$STAGE/C-9 barrow heather in the wind.mp4"
+[ -f "$CAP/heather_stats.json" ] && cp -f "$CAP/heather_stats.json" "$STAGE/measurements - heather texture and clustering.json"
 [ -f "$CAP/C-9 barrow walk.mp4" ] && cp -f "$CAP/C-9 barrow walk.mp4" "$STAGE/C-9 barrow walk.mp4"
 cp_if "$CAP/barrow.json"                          "$STAGE/measurements - scene.json"
 cp_if "$CAP/barrow_metrics.json"                  "$STAGE/measurements - frames.json"

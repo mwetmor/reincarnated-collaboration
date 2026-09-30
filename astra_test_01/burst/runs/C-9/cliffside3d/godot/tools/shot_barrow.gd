@@ -120,6 +120,11 @@ func _initialize() -> void:
 	# ---- the snow layer, area-weighted over the real faces ------------------
 	report["snow"] = scene.snow_report()
 
+	# T10-1d: THE HEATHER STANDS STILL FOR THE STILLS. Its wind is filmed (the walk here, and
+	# tools/film_heather.sh); an A/B pair must differ in its one variable, not in a gust.
+	if scene.has_method("set_heather_wind"):
+		scene.set_heather_wind(false)
+
 	# ---- THE VEIL, BEFORE AND AFTER, in one run ----------------------------
 	# Before: the ground's own FBM snow blend on, the 3D snow field hidden, the fog as shipped.
 	# After: the delivered look. Nothing else differs -- pose, camera, grade, pens, props.
@@ -141,12 +146,28 @@ func _initialize() -> void:
 	await _shot("barrow_instancing_off")
 	scene.set_instancing(true)
 	await _settle()
+	# ---- T10-1d item 1: the cast shadow BEFORE the bands (T10-1c's ramp), against after ----
+	if scene.has_method("set_shadow_after_bands"):
+		scene.set_shadow_after_bands(false)
+		await _settle()
+		await _shot("barrow_shadow_before_bands")
+		scene.set_shadow_after_bands(true)
+		await _settle()
 
 	# ---- the stills ---------------------------------------------------------
 	# the delivered look, and the same frame with the stack off
 	scene.set_stack(true)
 	await _settle()
 	await _shot("barrow_stack_on")
+	# the play framing's class-ID frame, occluded: where the heather is, for its clustering in
+	# the fill (tools/barrow_heather_stats.py --play)
+	vp.msaa_3d = Viewport.MSAA_DISABLED
+	scene.set_class_id_view(true, true)
+	await _settle()
+	await _shot("barrow_play_ids_occl")
+	scene.set_class_id_view(false)
+	vp.msaa_3d = Viewport.MSAA_4X
+	await _settle()
 	scene.set_stack(false)
 	await _settle()
 	await _shot("barrow_stack_off")
@@ -280,6 +301,14 @@ func _initialize() -> void:
 		scene.park_camera(Vector3(float(aim_a[0]), float(aim_a[1]), float(aim_a[2])), zoom_p)
 		await _settle()
 		await _shot("barrow_painting_frame")
+		# the same frame with the shadow BEFORE the bands: the dot screen's before/after at the
+		# painting's framing, where it was found (the mound's flank)
+		if scene.has_method("set_shadow_after_bands"):
+			scene.set_shadow_after_bands(false)
+			await _settle()
+			await _shot("barrow_painting_frame_shadow_before")
+			scene.set_shadow_after_bands(true)
+			await _settle()
 		# the ID pass: MSAA OFF, because a class colour blended with its neighbour at an edge
 		# is a pixel of neither class
 		vp.msaa_3d = Viewport.MSAA_DISABLED
@@ -405,6 +434,8 @@ func _initialize() -> void:
 	# measurement of the screenshot rather than of the game.
 	scene.unpark_camera()
 	scene.freeze_pose(false)              # he has to move again for the cost run and the walk
+	if scene.has_method("set_heather_wind"):
+		scene.set_heather_wind(true)          # the walk is a film: the heather moves
 	scene.place_knight(WALK_FROM.x, WALK_FROM.y, "NE")
 	await _settle()
 	report["frame_cost_ms"] = {

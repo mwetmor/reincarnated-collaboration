@@ -93,14 +93,17 @@ static func ink_material(ink: Color) -> ShaderMaterial:
 
 
 static func build(parent: Node3D, entries: Array, chunk_m: float, ink: Color,
-		targets: Dictionary) -> Dictionary:
+		targets: Dictionary, chunk_by_asset := {}) -> Dictionary:
 	"""entries: [{key, asset, mesh, mat, xf (world Transform3D), hull_world_m, scale,
 	shadow (bool)}]. Groups by key (asset + source mesh), decimates each mesh once, and builds
 	one MultiMeshInstance3D per key per chunk, plus its ink twin where hull_world_m > 0."""
 	var groups := {}
 	for e in entries:
 		var c: Vector3 = (e["xf"] as Transform3D).origin
-		var ck := "%s|%d|%d" % [e["key"], int(floor(c.x / chunk_m)), int(floor(c.z / chunk_m))]
+		# a per-asset chunk: an asset of many small cheap copies (the heather) is bound by its
+		# DRAW count, not by culling, and wants few big chunks
+		var cm: float = float(chunk_by_asset.get(e["asset"], chunk_m))
+		var ck := "%s|%d|%d" % [e["key"], int(floor(c.x / cm)), int(floor(c.z / cm))]
 		if not groups.has(ck):
 			groups[ck] = []
 		groups[ck].append(e)

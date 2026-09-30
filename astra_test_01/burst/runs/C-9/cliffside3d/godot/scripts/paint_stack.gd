@@ -90,6 +90,18 @@ uniform float wash_scale = 0.62;
 uniform float shadow_bite = 1.0;
 uniform float ramp_mix = 1.0;
 uniform sampler2D wash_noise : hint_default_white, filter_linear_mipmap, repeat_enable;
+// T10-1d: THE CAST SHADOW IS APPLIED AFTER THE BANDS (the coordinator's call). Through T10-1c
+// it multiplied N.L BEFORE the band edges, and the soft shadow filter's per-pixel rotated
+// kernel made the penumbra noisy -- the band edges (soft 0.075: slope 10) thresholded that
+// noise into a regular 2-px halftone along every shadow edge. Now only the FORM term goes
+// through the bands; the shadow then pulls the banded value toward the away-facing value m0,
+// as its own step -- LINEAR by default, which amplifies the filter's noise by exactly 1.
+// 1 = the T10-1d ramp, 0 = the T10-1c ramp: a uniform, so the A/B and its cost are one run.
+uniform float shadow_after_bands = 1.0;
+// the shadow's own step, a linear remap of the filter's coverage: (0, 1) is the coverage
+// itself; narrowing it sharpens the shadow's edge and multiplies the noise by 1 / (hi - lo)
+uniform float shadow_step_lo = 0.0;
+uniform float shadow_step_hi = 1.0;
 """
 
 const RAMP_BODY := """
@@ -111,10 +123,18 @@ vec3 _ramp_light(vec3 n, vec3 l, float att, vec3 light_color, vec3 wpos, sampler
 	// The shadow multiplies BEFORE the bands, so a cast shadow lands on the same band a
 	// surface facing away lands on. A painter has one shadow value, not one for form and
 	// another for cast.
-	float t = raw * mix(1.0, att, bite) + (w - 0.5) * amp;
+	float sh = mix(1.0, att, bite);                    // the cast shadow: 1 lit, 0 shadowed
+	// THE FORM goes through the bands. With shadow_after_bands 0 the shadow multiplies in
+	// BEFORE them, as it did through T10-1c (and the halftone comes back)
+	float t = raw * mix(sh, 1.0, shadow_after_bands) + (w - 0.5) * amp;
 	float b = m0;
 	b += smoothstep(e0 - soft, e0 + soft, t) * (m1 - m0);
 	b += smoothstep(e1 - soft, e1 + soft, t) * (m2 - m1);
+	// ...THEN THE SHADOW: toward the away-facing value, so a cast shadow and a surface turned
+	// from the light still land on ONE value -- reached through the filter's own gradient
+	// instead of through a band edge
+	float s2 = clamp((sh - shadow_step_lo) / max(shadow_step_hi - shadow_step_lo, 1e-3), 0.0, 1.0);
+	b = mix(b, mix(m0, b, s2), shadow_after_bands);
 	vec3 warm = light_color / PI;                      // see note 2: LIGHT_COLOR carries a PI
 	vec3 cool = sh_col * sh_e;                         // shadow is BLUE-VIOLET, never black
 	vec3 ramped = mix(cool, warm, clamp(b, 0.0, 1.0));
@@ -156,12 +176,17 @@ uniform float snow_mottle = 0.09;
 // than the thing it outlines. Both shaders are `specular_disabled`, so this changes no pixel
 // of the render and costs nothing. See POST_SHADER.
 uniform float mesh_mark = 1.0;
+// T10-1d: a per-INSTANCE tone, hashed from the instance's own origin so it is the same whether
+// the prop is drawn as a node or inside a MultiMesh. 0 = none; the heather's base uses it.
+uniform float tone_jitter = 0.0;
 varying vec3 v_world;
 varying vec3 v_wnormal;
+varying float v_rnd;
 """ + RAMP_BODY + """
 void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	v_wnormal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	v_rnd = fract(sin(dot(MODEL_MATRIX[3].xz, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 float snow_coverage(vec3 wpos, vec3 wn, sampler2D mn, float thr, float jit, float soft,
@@ -174,6 +199,7 @@ float snow_coverage(vec3 wpos, vec3 wn, sampler2D mn, float thr, float jit, floa
 
 void fragment() {
 	vec3 base = use_tex ? texture(albedo_tex, UV * tex_scale).rgb * tex_tint : base_color;
+	base *= 1.0 + (v_rnd - 0.5) * tone_jitter;
 	// a flat colour reads as a wash, not as plastic: low-frequency value break plus a
 	// faint cross-hatch at the scale a pen would hatch
 	float m = _fbm2(mottle_noise, v_world.xz * mottle_scale + v_world.y * 0.17);

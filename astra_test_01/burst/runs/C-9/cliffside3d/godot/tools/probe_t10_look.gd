@@ -33,6 +33,13 @@ func _initialize() -> void:
 		# the heather as it was before the T10-1c warmth change, for a before/after in one code
 		scene.heather_core = false
 		scene.heather_two_sided = false
+	# T10-1d: which heather -- "stems", "cards", or "blobs" (T10-1c's)
+	var hi := args.find("--heather")
+	if hi >= 0 and hi + 1 < args.size():
+		scene.heather_mode = args[hi + 1]
+	var fi := args.find("--fill")
+	if fi >= 0 and fi + 1 < args.size():
+		scene.heather_fill = args[fi + 1]
 	vp.add_child(scene)
 	for i in 70:
 		await process_frame
@@ -47,11 +54,23 @@ func _initialize() -> void:
 	scene.freeze_pose(true)
 	k.state = "idle"
 	scene.set_hud_visible(false)
+	# stills with the heather still: the sway is filmed, not photographed, and an A/B pair must
+	# differ in one thing only
+	if scene.has_method("set_heather_wind"):
+		scene.set_heather_wind(false)
 	scene.place_knight(3.48, 0.28, "N")
 	# CENTRED ON HIM: the aim is his chest, not the 2D route's 55 px lift above his feet
 	scene.park_camera(k.global_position + Vector3(0, 0.9, 0), 1.0)
 	await _settle()
 	await _shot("look_play")
+	# the play framing's ID frame too, occluded: the heather's clustering where the fill is
+	vp.msaa_3d = Viewport.MSAA_DISABLED
+	scene.set_class_id_view(true, true)
+	await _settle()
+	await _shot("look_play_ids_occl")
+	scene.set_class_id_view(false)
+	vp.msaa_3d = Viewport.MSAA_4X
+	await _settle()
 	scene.set_stack(false)
 	await _settle()
 	await _shot("look_play_off")

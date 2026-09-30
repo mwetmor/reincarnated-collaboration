@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""C-9 T10-1b -- DRESS THE BARROW AS PAINTED.
+"""C-9 T10-1b / T10-1d -- DRESS THE BARROW AS PAINTED.
 
     python3 barrow_paint_dress.py --out DIR
 
@@ -91,6 +91,28 @@ STONE_BOXES = [
 # THE FALLEN DEAD TREE at the bottom right, root end to crown end, in painting pixels. The
 # kit log stands in for it: 2.6 m of trunk laid along the painted line.
 FALLEN_TREE = {"root": [1480, 700], "tip": [1250, 1000], "box": [1200, 680, 1536, 1010]}
+# T10-1d: THE TWO EDGE OUTCROPS, by hand, in painting pixels [x0, y0, x1, y1] -- the painting's
+# layered ledges at its bottom-left and right edges, both cut by the frame. Each becomes ONE kit
+# outcrop_a (the coordinator: one model at both painted positions, varied by rotation and scale)
+# in place of the rock_large rows the segmentation packed along their bases, which read as
+# angular shards. `anchor` says which painted end the model's end is aligned to, because the
+# frame cuts the other; `scale` is fitted to the painted height (281 px of the right outcrop is
+# 2.0 screen-m; the model at scale 1 projects 4.23 screen-m: 2.29 m high x cos(pitch) plus
+# 3.57 m deep x sin(pitch)).
+EDGE_OUTCROPS = [
+    {"box": [0, 700, 335, 1024], "anchor": "right", "scale": 0.60, "yaw": 22.0,
+     "note": "bottom-left ledges above the tarn's south shore, cut by the left and bottom edges"},
+    {"box": [1310, 355, 1536, 650], "anchor": "left", "scale": 0.47, "yaw": -14.0,
+     "note": "right-edge outcrop beside the white birch, cut by the right edge"},
+]
+# T10-1d: THE DEAD TREE -- the grey weathered snag standing at the fallen tree's root end, two
+# broken trunks. The segmentation folded it into the fallen tree's box, so it is annotated by
+# hand: base pixel and the painting's own measure (the kit manifest: "the painting's snag
+# measures ~1.9 m"; the second, shorter trunk ~1.3 m).
+DEAD_TREES = [
+    {"base": [1462, 800], "height_m": 1.9, "yaw": 35.0, "note": "the tall broken trunk"},
+    {"base": [1418, 790], "height_m": 1.3, "yaw": 165.0, "note": "the short trunk beside it"},
+]
 # NOT GROWTH, though dark: the barrow's own passage between the door posts, and the figure
 # (the prompted figure mask misses the rim of his shield). Both read as juniper by colour.
 EXCLUDE_BOXES = [[800, 195, 945, 345], [690, 470, 840, 640]]
@@ -285,6 +307,37 @@ def main() -> int:
         stones_new += 1
 
     # ROCK OUTCROPS: rock_large packed along each component's base, a back row where it is deep
+    # -- except inside the two EDGE_OUTCROPS, which are one kit outcrop each (T10-1d)
+    def in_edge_outcrop(px, py):
+        for eo in EDGE_OUTCROPS:
+            x0, y0, x1, y1 = eo["box"]
+            if x0 - 6 <= px <= x1 + 6 and y0 - 6 <= py <= y1 + 6:
+                return True
+        return False
+    outcrops_new = 0
+    rows_replaced = 0
+    fwd_h = np.array([FWD[0], FWD[2]]) / math.hypot(FWD[0], FWD[2])
+    for eo in EDGE_OUTCROPS:
+        x0, y0, x1, y1 = eo["box"]
+        sub = rock[y0:y1, x0:x1]
+        ys, xs = np.nonzero(sub)
+        if ys.size == 0:
+            continue
+        s = float(eo["scale"])
+        width_px = 5.0 * s * K                       # the model's 5 m runs across the screen at yaw 0
+        by = float(ys.max()) + y0                    # the painted base row (or the frame's cut)
+        if eo["anchor"] == "right":
+            cx = float(xs.max()) + x0 - width_px * 0.5
+        else:
+            cx = float(xs.min()) + x0 + width_px * 0.5
+        fx, fz = pix_to_scene(cx, by, K, W, H)
+        # the model's origin is its footprint centre: half its depth (3.57 m) back from the front
+        ox = fx + fwd_h[0] * 3.566 * s * 0.5
+        oz = fz + fwd_h[1] * 3.566 * s * 0.5
+        inst.append({"asset": "outcrop_a", "scene_xz": [round(ox, 3), round(oz, 3)],
+                     "height_m": round(2.2888 * s, 3), "yaw_deg": float(eo["yaw"]), "scale": s,
+                     "source": "painting_annotation", "class": "rock", "note": eo["note"]})
+        outcrops_new += 1
     lab_r, nr = ndimage.label(rock)
     rocks_new = 0
     for i, sl in enumerate(ndimage.find_objects(lab_r), start=1):
@@ -302,6 +355,9 @@ def main() -> int:
                 continue
             by = float(np.max(rows[band])) + sl[0].start
             bx = float(band.mean()) + sl[1].start
+            if in_edge_outcrop(bx, by):
+                rows_replaced += 1
+                continue
             run = float(np.max(rows[band] - tops[band] + 1))
             h = float(np.clip(run / (K * COS_P) * rng.uniform(0.85, 1.05), 0.35, 1.7))
             sx, sz = pix_to_scene(bx, by, K, W, H)
@@ -332,15 +388,19 @@ def main() -> int:
     # because a ground metre up-screen is foreshortened), and a plant stands wherever a grid
     # point lands in the region, based at that point. Heather is procedural and costs ~1 us a
     # tussock, so it is dense; juniper is a 20k-triangle model at ~28 us each, so it is not.
-    shrubs = {"juniper": 0, "heather": 0}
+    shrubs = {"juniper": 0, "heather": 0, "heather_base": 0}
     # CLUMP FLOORS IN PIXELS OF PAINTING, from what a plant is: 700 px is a clump about 0.35 m
     # across the screen (0.35 * 140.86 = 49 px wide by ~14 rows), the smallest dark mass that is
     # a juniper rather than a rock crevice or a cast shadow; 150 px of warm growth is a tuft.
     # At 90 / 40 px the fill found 190 "junipers", most of them 7 cm specks of dark paint.
     # T10-1c: DENSER, now that instancing takes the per-copy cost off -- heather 0.36 -> 0.26 m,
     # juniper 0.62 -> 0.46 m between plants in a clump
+    # T10-1d: HEATHER IS SPRAYS AT THE PAINTING'S TUFT SIZE. The painted tufts cut out as cards
+    # (tools/barrow_heather_cards.py) measure 0.18-0.43 m tall; the old 0.35-0.95 m range sized
+    # a single tussock, not a tuft. And spacing 0.30: sprays are airy, so neighbours overlap
+    # into one mass where the painting's heather is a mass, instead of standing as blobs.
     for asset, m, spacing, hlo, hhi, min_px in (("juniper", juniper & shrub, 0.46, 0.55, 1.4, 700),
-                                                 ("heather", heather & shrub, 0.26, 0.35, 0.95, 150)):
+                                                 ("heather", heather & shrub, 0.30, 0.12, 0.32, 150)):
         dx = max(int(spacing * K), 4)
         dy = max(int(spacing * SIN_P * K), 4)
         lab_s, ns = ndimage.label(ndimage.binary_closing(m, iterations=2))
@@ -361,11 +421,17 @@ def main() -> int:
                 yb = gy
                 while yb + 1 < m.shape[0] and yb + 1 <= gy + dy // 2 and keep[yb + 1, gx]:
                     yb += 1
-                h = float(np.clip(run[yb, gx] / (K * COS_P) * rng.uniform(0.8, 1.1), hlo, hhi))
+                # A LOW TUFT'S SCREEN RUN IS MOSTLY ITS DEPTH (0.6 h + 0.8 d, d ~ 1.5 h), so for
+                # heather the upright height is ~0.45 of the run read as height (T10-1d)
+                hk = 0.45 if asset == "heather" else 1.0
+                h = float(np.clip(run[yb, gx] / (K * COS_P) * hk * rng.uniform(0.8, 1.1), hlo, hhi))
                 sx, sz = pix_to_scene(float(gx) + float(rng.uniform(-0.3, 0.3)) * dx, float(yb), K, W, H)
-                inst.append({"asset": asset, "scene_xz": [round(sx, 3), round(sz, 3)],
-                             "height_m": round(h, 2), "yaw_deg": round(float(rng.uniform(0, 360)), 1),
-                             "source": "painting_seg", "class": "shrub"})
+                row = {"asset": asset, "scene_xz": [round(sx, 3), round(sz, 3)],
+                       "height_m": round(h, 2), "yaw_deg": round(float(rng.uniform(0, 360)), 1),
+                       "source": "painting_seg", "class": "shrub"}
+                if asset == "heather":
+                    row["screen_h_m"] = round(float(min(run[yb, gx], 0.6 * K)) / K, 3)
+                inst.append(row)
                 shrubs[asset] += 1
                 hit.add(int(lab_s[gy, gx]))
         # EVERY CLUMP GETS AT LEAST ONE. A grid cell is 87 x 70 px for juniper; a painted clump
@@ -387,6 +453,43 @@ def main() -> int:
                          "height_m": round(h, 2), "yaw_deg": round(float(rng.uniform(0, 360)), 1),
                          "source": "painting_seg", "class": "shrub"})
             shrubs[asset] += 1
+
+    # T10-1d: THE HEATHER'S DENSE BASE -- the kit's heather_clump (a painted mounded clump) as a
+    # low body where the painting's heather is DENSE: at least 40% of a 0.5 m window is heather
+    # (the region is lace -- sprigs and snow crumbs -- so its densest 10% sits at 0.47; 0.40 picks
+    # the mound's crown, the slopes beside the door posts, and the thick patches at the edges).
+    # Sampled at 0.55 m; each base 0.4-1.0 m across, by how far the dense area reaches round it.
+    hreg = ndimage.binary_closing(heather & shrub, iterations=2)
+    win = int(0.5 * K)
+    dens = ndimage.uniform_filter(hreg.astype(np.float32), size=win)
+    dense = (dens >= 0.40) & hreg
+    reach = ndimage.distance_transform_edt(dens >= 0.40) / K        # metres of screen
+    bases = 0
+    dxb = max(int(0.55 * K), 4)
+    dyb = max(int(0.55 * SIN_P * K), 4)
+    offb = 0
+    for gy in range(dyb // 2, heather.shape[0], dyb):
+        offb = (offb + dxb // 2) % dxb
+        for gx in range(offb, heather.shape[1], dxb):
+            if not dense[gy, gx]:
+                continue
+            across = float(np.clip(0.4 + reach[gy, gx] * 2.0 * float(rng.uniform(0.8, 1.1)), 0.4, 1.0))
+            sx, sz = pix_to_scene(float(gx), float(gy), K, W, H)
+            inst.append({"asset": "heather_base", "scene_xz": [round(sx, 3), round(sz, 3)],
+                         "height_m": round(0.3812 * across / 0.75, 3), "across_m": round(across, 3),
+                         "yaw_deg": round(float(rng.uniform(-35, 35)), 1),
+                         "source": "painting_seg", "class": "shrub"})
+            bases += 1
+    shrubs["heather_base"] = bases
+
+    # T10-1d: THE DEAD TREES, from their annotation
+    deads = 0
+    for dt in DEAD_TREES:
+        sx, sz = pix_to_scene(float(dt["base"][0]), float(dt["base"][1]), K, W, H)
+        inst.append({"asset": "dead_tree", "scene_xz": [round(sx, 3), round(sz, 3)],
+                     "height_m": float(dt["height_m"]), "yaw_deg": float(dt["yaw"]),
+                     "source": "painting_annotation", "class": "tree", "note": dt["note"]})
+        deads += 1
 
     # TREES: a birch per upright tree component; the wide low one at the bottom right is the
     # painting's FALLEN dead tree, and the kit log stands in for it
@@ -460,7 +563,9 @@ def main() -> int:
     doc = {"_what": "C-9 T10-1b: dressing read off the concept painting by segmentation; see tools/barrow_paint_dress.py",
            "frame": frame,
            "counts": {"stones": stones_new, "rocks": rocks_new, "juniper": shrubs["juniper"],
-                      "heather": shrubs["heather"], "birches": trees_new, "logs": logs},
+                      "heather": shrubs["heather"], "heather_base": shrubs["heather_base"],
+                      "birches": trees_new, "logs": logs, "outcrops": outcrops_new,
+                      "rock_rows_replaced_by_outcrops": rows_replaced, "dead_trees": deads},
            "class_px": {k: int((cls == v).sum()) for k, v in CLASS_ID.items()},
            "instances": inst}
     (GODOT / "data" / "barrow_dress_a.json").write_text(json.dumps(doc, indent=1))

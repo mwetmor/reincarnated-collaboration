@@ -186,7 +186,11 @@ if [ -n "$PCK" ]; then
            data/character.json data/gear_manifest.json \
            data/barrow_scene_a.json data/barrow_assets.json \
            scripts/barrow_flat.gd scripts/barrow_heightfield.gd scripts/snow_field.gd \
-           scripts/barrow_instancer.gd \
+           scripts/barrow_instancer.gd scripts/barrow_heather.gd \
+           data/heather_cards.json textures/barrow/heather_cards.png \
+           models/barrow/kit/outcrop_a.glb models/barrow/kit/heather_clump.glb \
+           models/barrow/kit/dead_tree.glb models/barrow/kit/boulder.glb \
+           models/barrow/kit/rocks.glb models/barrow/kit/stump.glb models/barrow/kit/skull.glb \
            data/barrow_dress_a.json data/kit_assets.json models/barrow/kit/log.glb \
            models/barrow/juniper.glb models/barrow/birch.glb \
            data/height_a_authored.png data/splat_ids_a_marigold.png \
@@ -221,6 +225,11 @@ if [ -z "${SKIP_LAUNCH_CHECK:-}" ]; then
   grep -q "\[barrow\] ground=flat" "$LOG/launch.log" \
     && ck 0 "the app opens on the flat barrow ground (printed by the scene itself)" \
     || ck 1 "the app opens on the flat barrow ground -- see $LOG/launch.log"
+  # THE FOOT LOCK IS ROLLED BACK (R-C9-86: "drops to the floor as if drunk"): the scene counts
+  # FootLock nodes under him at _ready and prints the count; anything but 0 fails the build
+  grep -q "\[barrow\] foot_lock nodes=0" "$LOG/launch.log" \
+    && ck 0 "no foot-lock node under him (printed by the scene itself)" \
+    || ck 1 "no foot-lock node under him -- see $LOG/launch.log"
 fi
 
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
