@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST SO-C — Run C-9 (Matt R-C9-80): a COSTUME CONCEPT for the fire sorceress, for the art director to choose a direction. task_id \"SO-C\".\n\nIMAGE 1 is a STYLE reference ONLY. Copy its HAND: the warm dark-brown ink line that varies in weight, the transparent watercolor washes that pool, granulate and bloom, the fine hatching in the shadows, the cream paper highlights, the warm moderate colour. Copy NOTHING else from it: not its character, face, hair, hood, robe, staff, bag, pose or clothing colours. She is a DIFFERENT person from the figure in IMAGE 1 and must not resemble it.\n\nTHE WOMAN (the same in both figures): a tall, lean, strong woman of about thirty, a fighter's build; pale lightly freckled skin; straight BLACK hair shaved short at the LEFT temple, the rest in ONE thick braid down her back; angular ember-orange runic tattoos around her LEFT forearm; a calm, fierce face. She casts fire: fireballs thrown from the hand, and meteors called down from the sky.\n\nSHEET: ONE 1536x1024 LANDSCAPE image on a plain warm paper-coloured ground: the SAME woman shown TWICE, full length, standing side by side and not touching, both seen from the front in a relaxed, confident standing pose, each holding her focus. LEFT figure = COSTUME A. RIGHT figure = COSTUME B. The same scale, the same height, feet on one ground line.\n\nCOSTUME A, THE EMBER SEERESS (a seeress of the North): a long wool ROBE in deep ember-red, split at the front from the hip for striding; a short MANTLE of grey wolf fur over the shoulders; a dark leather corset-BELT with bronze fittings and two small pouches; leather BRACERS stamped with runes; a slim bronze CIRCLET; a tall STAFF of twisted black wood crowned with a glowing ember-stone held in iron claws, in her RIGHT hand.\n\nCOSTUME B, THE BATTLE SORCERESS (lighter and quicker): a fitted sleeveless BODICE of dark leather and bronze plates; a short split SKIRT of layered ember-red cloth panels over dark leather leggings; a HALF-CAPE of charcoal wool over the LEFT shoulder only; cloth WRAPS on the forearms; a bronze CIRCLET with one red stone; soft boots; in her LEFT hand a small ember ORB held above the open palm, her RIGHT hand open and ready to cast.\n\nSTYLE: the REGISTER CARD above governs line, washes, light and plate; its manuscript-subject clause does not apply to these figures, whose subject and costume are set by this brief (Matt R-C9-80). Soft even light; only the ember-stone and the orb glow, gently. No cast shadows, no scenery, no text, no labels, no other figures.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if either figure is missing or cropped, the two women differ in face, hair, build or tattoo, the costumes are swapped or mixed, or text appears — name the reason. Copy outputs to out/SO-C_a.png and out/SO-C_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"SO-C\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 1 — STYLE reference ONLY (Matt-supplied, R-C9-69): the hand to copy; never the character, costume, hood, robe, staff or pose"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/SO-C_a.png",
+  "out/SO-C_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T11-sorceress"
+}

@@ -69,3 +69,16 @@
   - Staged in steps: T9-0 (lit mode of the existing 3D cliffside, true scale, an L toggle) → T9-1 (an Astra albedo repaint of the terrain) → T9-2 (the bridge slice's props as real 3D).
 - **D1/D2 fixes:** the grip (rigid binding at 100% to the hand bones; `grip_R`/`grip_L` hand morphs), and a per-facing size measurement before any size fix.
 - **Pushes:** Matt authorised *"push now and as you go"* for this run (reincarnated-collaboration; the manticore to the live `/playtest/cliffside/` route in reincarnated-loadout). This session's permission system blocks `git push`, so **pushes are executed by Matt** (a one-line command per repo), or by the conductor once Matt adds a permission rule. No agent works around the block.
+
+## 7 · Amendment 2026-09-29 (Matt, R-C9-80): a second character, the D2 Fire Sorceress, and the barbarian's kit moves
+
+- **Matt:** *"We just picked up a separate requirement to generate a D2 sorceress to match the D2 barbarian. In our simulation/arena-crucible lane we decided to begin to build out both of these full characters to join into our GD combat model."*
+- **D7 (new): the sorceress**, built end to end by the barbarian's pipeline:
+  - the steps: design sheet → cut-outs → Tripo → Meshy rig and clips → painted texture → modular gear;
+  - on the hardened tooling: the export lint, the recentre, foot locking, grips;
+  - **each step timed.** This is the second-character repeatability measurement that D5 § 4.4 asks for;
+  - moves: casting for Fire Ball and Meteor, plus locomotion, hit and death.
+- **The barbarian's kit moves** for JOIN-1's Whirlwind Barbarian (a travelling Whirlwind loop and a war-cry), once JOIN-1 confirms the action list and format.
+- **Gate G1-S:** Matt's look at the base-body sheet (SO-1) and the two costume directions (SO-C) before any 3D spend. The costume is chosen there.
+- **Consumer:** JOIN-1 (`2026-09-29-join-1-run-charter.md`; kits `d2-ww-barb` and `d2-fire-sorc`). C-9 delivers the characters and clips; the kit mechanics and their integration stay with JOIN-1.
+- **Unchanged:** no franchise names in prompts (refs_guard); the design is original, and the game images stay look-only.
