@@ -21630,9 +21630,159 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "SO-C",
+      "type": "GENERATE",
+      "experiment": "T11-sorceress",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a6679211c1bf61750e2ef343e0434ff67c3e03faa4e104da3f7c09871dd4ae39",
+      "started": "2026-09-30T01:03:41.475158+00:00",
+      "ended": "2026-09-30T01:18:41.495437+00:00",
+      "minutes": 15.000260124300258,
+      "image_calls": 3,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/SO-C/out/receipt.json'"
+        ],
+        "image_calls": 3,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-33237ed7-16f4-499b-a3e1-94fca9230e45.png",
+            "sha256": "673396d1f60828b3036d48e6b253a898a039720910a9aefc157aac155f101e3c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-38830d77-f32e-4e99-8488-00e615e07c30.png",
+            "sha256": "36a075338f8abda2f05fde85913c1d990ec74516091300a45be91f43650b6823"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-48196ce3-4ad6-472e-8e1b-b861038b03e4.png",
+            "sha256": "8833cdd262eed9bff064997acfe3ed5a2435c34067cc9d5da51d62ad5fc203e0"
+          }
+        ],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-33237ed7-16f4-499b-a3e1-94fca9230e45.png",
+          "sha256": "673396d1f60828b3036d48e6b253a898a039720910a9aefc157aac155f101e3c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-38830d77-f32e-4e99-8488-00e615e07c30.png",
+          "sha256": "36a075338f8abda2f05fde85913c1d990ec74516091300a45be91f43650b6823"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cbdb-7951-85c2-ffa25f65d9c8/exec-48196ce3-4ad6-472e-8e1b-b861038b03e4.png",
+          "sha256": "8833cdd262eed9bff064997acfe3ed5a2435c34067cc9d5da51d62ad5fc203e0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "SO-1",
+      "type": "GENERATE",
+      "experiment": "T11-sorceress",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7323dafaecfc0a2b4d04ea69d3e2727c877b21bc5db4714bcb634dabb9dcac84",
+      "started": "2026-09-30T01:03:41.475318+00:00",
+      "ended": "2026-09-30T01:18:41.499421+00:00",
+      "minutes": 15.000323412499467,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/SO-1/out/receipt.json'"
+        ],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-0b0089b9-b00c-48e4-b9a6-9cc77793841c.png",
+            "sha256": "9623d1a6b9a986afec0e76bc76943b6cd8284d53f94ff68a08433f1365daa3f3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-233e083c-e7f4-4b96-8062-5374d04d86cb.png",
+            "sha256": "0505ce0236812155ac5007b749c7a7d55b4c71540c6194619051ece0e5e2a39e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-2eba637c-20c1-4e5e-901a-958e63957247.png",
+            "sha256": "ccdfe73ecb3a397a2844b485c68473ccc4221e971cc3bfe6c85c10c8dd527e05"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-92f0d403-01c8-4bb4-95df-e1b820de8b2c.png",
+            "sha256": "6220130c57f08f84b52569ed86ed9346569e817763ebe0a8f983fedec74629b3"
+          }
+        ],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-0b0089b9-b00c-48e4-b9a6-9cc77793841c.png",
+          "sha256": "9623d1a6b9a986afec0e76bc76943b6cd8284d53f94ff68a08433f1365daa3f3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-233e083c-e7f4-4b96-8062-5374d04d86cb.png",
+          "sha256": "0505ce0236812155ac5007b749c7a7d55b4c71540c6194619051ece0e5e2a39e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-2eba637c-20c1-4e5e-901a-958e63957247.png",
+          "sha256": "ccdfe73ecb3a397a2844b485c68473ccc4221e971cc3bfe6c85c10c8dd527e05"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efd6-cc39-70f3-bb2a-7d366fbf6f7c/exec-92f0d403-01c8-4bb4-95df-e1b820de8b2c.png",
+          "sha256": "6220130c57f08f84b52569ed86ed9346569e817763ebe0a8f983fedec74629b3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
-  "images_used": 641,
+  "images_used": 648,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -22883,6 +23033,14 @@
       "topic": "A second character: the D2 Fire Sorceress, to match the D2 barbarian, both built out as full characters to join the GD combat model (JOIN-1)",
       "ruling": "Matt verbatim: \"We just picked up a separate requirement to generate a D2 sorceress to match the D2 barbarian. In our simulation/arena-crucible lane we decided to begin to build out both of these full characters to join into our GD combat model.\" Context read: JOIN-1 charter v0.4.1 (another gandalf conductor, 2026-09-29): kits d2-ww-barb (Skills rows 151 + 149) and d2-fire-sorc (Fire Ball Id 47 + Meteor Id 56) join the GD combat model, the Barbarian first. Dispositions: charter section 7 (D7): the sorceress built end to end by the barbarian pipeline with every step timed (the D5 second-character repeatability measurement); gate G1-S = Matt look at SO-1 (base body, four views, A-pose, a grey-cream linen shift, black hair shaved at the left temple in one braid, ember runes on the LEFT forearm as the asymmetry marker) and SO-C (two costume directions: A the ember seeress in a Norse register, B a lighter battle sorceress) before any 3D spend; both briefs derived from NB-1, refs_guard OK, no franchise names; fired as wave so1 (up to 8 images). JOIN-1 coordination: a message sent to the Sim Session asking for each kit action list, the format its port takes (3D GLB clips or 8-direction renders) and the wave that first needs each character; the barbarian kit moves (a travelling Whirlwind loop, a war-cry) wait on that answer.",
       "ts": "2026-09-29T21:04:07"
+    },
+    {
+      "id": "R-C9-81",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "The barbarian JOIN loadout is sword + axe (dual wield); research how to get weapon holds and attacks right before building",
+      "ruling": "Matt verbatim: \"sword plus axe.. but PLEASE research how to get the weapon holds and attacks right within our 3D pipeline. ultra think through how others are doing it that may work here. We must get this right!\" Dispositions: the default JOIN loadout = a sword in the main (right) hand + his axe in the off (left) hand; axe + shield kept as the alternate (the Barrow look). A legolas research commission (sourced: how shipped games and current indie/AI-assisted pipelines attach, orient and animate weapons: weapon/prop bones vs hand sockets, grip calibration, hand poses without finger bones, weapon-first attack authoring with IK, dual-wield and spin attacks, readability at a top-down camera, QA instruments), then a SPIKE on the sword + axe idle, one strike and the Whirlwind, measured and shown to Matt before the approach is rolled out to both characters (the sorceress staff included). Conductor preliminary synthesis sent to Matt: the root cause of every weapon complaint so far is that our weapons are fixed to the hand bone at one angle while the arm motion comes from clips authored for other weapons or none.",
+      "ts": "2026-09-29T21:22:18"
     }
   ],
   "grok_calls": [
@@ -23586,6 +23744,18 @@
       "topic": "JOIN-1 character contract (from the KC2-PLAY / JOIN-1 conductor, Sim Session, cross-session message, answering C-9)",
       "note": "JOIN-1 not yet launched (it launches at the REFERENT-v1 seal). ACTIONS from the kits own data: WW Barb (Skills 151 Whirlwind + 149 Battle Orders): whirlwind spin, idle, walk, run, a Battle Orders shout (one-shot), hit-react, death. Fire Sorc (castable Fire Ball 47 + Meteor 56; Teleport 54 EXCLUDED): a fire ball throw, a meteor call-down, idle, walk, run, hit-react, death. TIMING: author ONE clean cycle per state; the port applies the rate at playback from sourced D2 data (R-C8-2); durations are NOT chosen by the art. Whirlwind = an in-place loop, root stripped, one revolution per cycle. Casts carry a named RELEASE marker on the frame the projectile or call-down leaves the hand. Meteor gesture separate from the impact VFX (the delay is data). FORMAT: 8-direction 2D sprite cells rendered from the 3D models at the arena camera (orthographic, yaw 47 deg, pitch 52.95 deg; the build header: h_fig 1.9 m, ppm 75.668 px/m at ZOOM-GD, body radius 0.62 m); 8 UNIQUE directions preferred (mirroring swaps hands, R-C8-7); the cell contract (state names, frame counts, pack layout, as the C-8 Warlord cells + matrix_index.json, KP-50) to come from the JOIN-1 drax; the GLBs remain the source of truth. WHEN: the Barbarian at J4a, the Sorceress at J4b, several waves out; the art never gates JOIN-1 (kits run on placeholder tokens; sprites swap in). FIDELITY FLAG routed to Matt by the JOIN-1 conductor: the kit record names a sword as the mandatory weapon and Whirlwind carries weapsel=2 (dual-wield alternation, lever L-02); axe + shield is a different kit on the numbers; request: a sword main-hand + an off-hand weapon slot as the kit-faithful loadout, axe/shield kept as alternates; Matt picks the default look. C-9 plan: the release time goes in each clip manifest entry (read at load, linted against the GLB like the speeds); an original sword design (no franchise or item names in prompts); the barbarian JOIN moves (whirlwind loop, war-cry, hit-react, death, dual-wield grips) queue behind the axe fix and the handover install.",
       "ts": "2026-09-29T21:05:35"
+    },
+    {
+      "id": "N-C9-SO-HARVEST",
+      "topic": "The sorceress sheets SO-1 and SO-C: both bursts exit 3 (the 15-minute cap, no receipt) with all four images delivered; harvested",
+      "note": "SO-1 (4 image calls) and SO-C (3) exited 3 with no receipt; each delivered image matched a lane exec-provenance sha256 (SO-1_a 6220130c, SO-1_b ccdfe73e, SO-C_a 36a07533, SO-C_b 8833cdd2); copied to artifacts/SO-1 and artifacts/SO-C with their provenance, and registered for later EDIT use as CS9-guides/{SO-1,SO-C}_{a,b}_harvest.png in the guides manifest (refs_guard accepts only files inside CS9-guides by name; a first attempt with prefixed keys was corrected). Third and fourth cap hits today (T10P-F/G, SO-1/SO-C): the lane is slower now (~3.5-4 min per image); future briefs set minutes_cap 25. Conductor look: SO-C both variants show one consistent woman in two costumes (A the ember seeress: ember-red robe, wolf-fur mantle, corset belt, circlet, a black staff crowned by an ember-stone; B the battle sorceress: leather-and-bronze bodice, split red skirt over leggings, a half-cape on the left shoulder, an ember orb above the left palm); SO-1 four consistent views in A-pose with the runes on the LEFT forearm in every view (a slimmer, b more athletic). Sent to Matt for G1-S.",
+      "ts": "2026-09-29T21:22:18"
+    },
+    {
+      "id": "N-C9-BLOCKOUT-169",
+      "topic": "Blockout app locked to 16:9 (drax, collab e03f425ed); staged for Matt walk",
+      "note": "stretch canvas_items / keep / base 1920x1080: fullscreen on the 3440x1440 ultrawide draws 2560x1440 with 440 px bars and shows 19.0822 x 13.4483 m (planned; was 34 x 18 m); camera margin 0 px outside at the closest-call cells; fullscreen 14.8 ms (67 fps; was 21.3 ms). Found and fixed on the way: the screen-space pen width is set in drawn pixels and would have thinned at 4/3 resolution (now scaled by the viewport final transform; the first attempt read a misreported 3414x1920 texture size and drew a 2.22 px pen with no error); the U clamp was v1 symmetric clamp and wrong for the v2 off-centre window (now clamps to the window edges; off by default). Door line 11 PASS under the corrected acceptance (the face is whole from v 5.5; minimum on-screen share 0.9985). Noted by the drax: e0462ab03 and b65f1dfae were already on origin/main, pushed by another session.",
+      "ts": "2026-09-29T21:22:18"
     }
   ]
 }
