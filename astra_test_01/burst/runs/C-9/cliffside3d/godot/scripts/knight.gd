@@ -89,6 +89,13 @@ var sync_group := true
 var CYCLE_TAU_S := 0.20
 var _cycle_len := 0.0
 var _prev_w := 0.0
+## THE ARMED UPPER LAYER (armed-speed split) -- see _upper_spec
+var _upper_on := false
+var _walk_len_u := 1.0
+var _run_len_u := 1.0
+var _walk_contact_u := 0.0
+var _run_contact_u := 0.0
+var _prev_a := 0.0
 var _w_cur := 0.0
 var _w_init := false
 var _walk_contact := 0.0
@@ -303,6 +310,48 @@ func _build_anim_tree() -> void:
 	bt.connect_node("bl_iw", 1, "ts_walk")
 	bt.connect_node("bl_wr", 0, "bl_iw")
 	bt.connect_node("bl_wr", 1, "seek_run")
+	# THE ARMED UPPER BODY: the same idle/walk/run blend, on the armed gait clips, locked to
+	# the legs' cycle by its own time scales and seeks. `up` takes the spine and arms from it.
+	var a_idle_u := AnimationNodeAnimation.new()
+	a_idle_u.animation = a_idle.animation
+	var a_walk_u := AnimationNodeAnimation.new()
+	a_walk_u.animation = a_walk.animation
+	var a_run_u := AnimationNodeAnimation.new()
+	a_run_u.animation = a_run.animation
+	var ts_walk_u := AnimationNodeTimeScale.new()
+	var ts_run_u := AnimationNodeTimeScale.new()
+	var seek_walk_u := AnimationNodeTimeSeek.new()
+	var seek_run_u := AnimationNodeTimeSeek.new()
+	var bl_iw_u := AnimationNodeBlend2.new()
+	var bl_wr_u := AnimationNodeBlend2.new()
+	bl_iw_u.sync = true
+	bl_wr_u.sync = true
+	var up := AnimationNodeBlend2.new()
+	up.filter_enabled = true
+	# SYNCED: the upper chain advances even at zero weight, so its idle keeps the legs' idle's
+	# time. idle_armed is NOT a seamless loop (its wrap snaps Spine02 34.6 deg, LeftArm 78) and
+	# two copies wrapping at different moments would pop twice per loop instead of once.
+	up.sync = true
+	bt.add_node("a_idle_u", a_idle_u, Vector2(0, -420))
+	bt.add_node("a_walk_u", a_walk_u, Vector2(0, -340))
+	bt.add_node("a_run_u", a_run_u, Vector2(0, -260))
+	bt.add_node("ts_walk_u", ts_walk_u, Vector2(180, -340))
+	bt.add_node("ts_run_u", ts_run_u, Vector2(180, -260))
+	bt.add_node("seek_walk_u", seek_walk_u, Vector2(300, -340))
+	bt.add_node("seek_run_u", seek_run_u, Vector2(300, -260))
+	bt.add_node("bl_iw_u", bl_iw_u, Vector2(430, -380))
+	bt.add_node("bl_wr_u", bl_wr_u, Vector2(560, -320))
+	bt.add_node("up", up, Vector2(620, -120))
+	bt.connect_node("ts_walk_u", 0, "a_walk_u")
+	bt.connect_node("seek_walk_u", 0, "ts_walk_u")
+	bt.connect_node("ts_run_u", 0, "a_run_u")
+	bt.connect_node("seek_run_u", 0, "ts_run_u")
+	bt.connect_node("bl_iw_u", 0, "a_idle_u")
+	bt.connect_node("bl_iw_u", 1, "seek_walk_u")
+	bt.connect_node("bl_wr_u", 0, "bl_iw_u")
+	bt.connect_node("bl_wr_u", 1, "seek_run_u")
+	bt.connect_node("up", 0, "bl_wr")
+	bt.connect_node("up", 1, "bl_wr_u")
 	# the guard rides over LOCOMOTION ONLY -- everything below this point overrides it
 	# THE STRAFE REPLACES LOCOMOTION, it does not ride over it -- a side-step is a different
 	# gait, not a modifier on a walk -- so it sits between the blend space and the guard.
@@ -312,7 +361,7 @@ func _build_anim_tree() -> void:
 	a_strafe.animation = String(am.get("strafe_l", ""))
 	bt.add_node("a_strafe", a_strafe, Vector2(560, 380))
 	bt.add_node("strf", strf, Vector2(660, -40))
-	bt.connect_node("strf", 0, "bl_wr")
+	bt.connect_node("strf", 0, "up")
 	bt.connect_node("strf", 1, "a_strafe")
 	bt.connect_node("blend", 0, "strf")
 	bt.connect_node("blend", 1, "carry")
@@ -1121,6 +1170,14 @@ func _set_loco(v: float, dt: float) -> void:
 	_w_init = true
 	_tree.set("parameters/bl_iw/blend_amount", a)
 	_tree.set("parameters/bl_wr/blend_amount", w)
+	_tree.set("parameters/bl_iw_u/blend_amount", a)
+	_tree.set("parameters/bl_wr_u/blend_amount", w)
+	_tree.set("parameters/up/blend_amount", 1.0 if _upper_on else 0.0)
+	# the upper walk is aligned to the legs' walk only while it is weightless (standing), the
+	# upper run only while the run is (as the legs' run is): a seek under weight is a teleport
+	if _upper_on and sync_group and a <= 0.0 and _prev_a <= 0.0:
+		_align_upper("walk")
+	_prev_a = a
 	# ALIGN ONLY WHILE THE RUN IS WEIGHTLESS. Seeking a branch that is contributing to the
 	# pose teleports it: firing the alignment at the moment the run first took weight put a
 	# 1.09 m foot step into a single frame, twice per walk-run-walk, which is a seek and not
@@ -1134,10 +1191,14 @@ func _set_loco(v: float, dt: float) -> void:
 	# crossover -- eleven times the next largest pair, which is a teleport and not a slide.
 	if w <= 0.0 and _prev_w <= 0.0 and sync_group:
 		align_phase()
+		if _upper_on:
+			_align_upper("run")
 	_prev_w = w
 	if not sync_group:
 		_tree.set("parameters/ts_walk/scale", 1.0)
 		_tree.set("parameters/ts_run/scale", 1.0)
+		_tree.set("parameters/ts_walk_u/scale", 1.0)
+		_tree.set("parameters/ts_run_u/scale", 1.0)
 		return
 	# SLEW THE LOCKED CYCLE LENGTH, don't jump it. The pose blend w must track speed
 	# exactly or the feet slide for as long as the ramp lasts -- but the CLIP TIMING need
@@ -1152,6 +1213,10 @@ func _set_loco(v: float, dt: float) -> void:
 	var blended: float = _cycle_len
 	_tree.set("parameters/ts_walk/scale", _walk_len / maxf(blended, 1e-6))
 	_tree.set("parameters/ts_run/scale", _run_len / maxf(blended, 1e-6))
+	# THE UPPER CLIPS ON THE LEGS' CYCLE: each completes one cycle in the same `blended`
+	# seconds, so their phase against the legs is constant once aligned
+	_tree.set("parameters/ts_walk_u/scale", _walk_len_u / maxf(blended, 1e-6))
+	_tree.set("parameters/ts_run_u/scale", _run_len_u / maxf(blended, 1e-6))
 
 
 func walk_px_s() -> float:
@@ -1287,6 +1352,76 @@ func align_phase() -> void:
 	var target: float = fposmod(wp - _walk_contact + _run_contact, 1.0) * _run_len
 	_tree.set("parameters/seek_run/seek_request", target)
 	_phase_aligned = true
+
+
+func _upper_spec() -> Dictionary:
+	"""`upper_armed` in character.json: the ARMED gait clips whose spine and arms ride over the
+	unarmed legs, and the bones they own. Absent, or unarmed -> the layer runs at zero."""
+	if not _armed:
+		return {}
+	var s = cfg.get("upper_armed", {})
+	return s if s is Dictionary else {}
+
+
+func _apply_upper() -> void:
+	"""Point the upper chain at the armed gait clips, filter `up` to the spec's bones (paths
+	taken from the clips' OWN tracks), and derive the lengths and contact phases the per-frame
+	code locks and aligns against. Unarmed, the chain mirrors the legs' clips at weight zero."""
+	if _tree == null or _anim == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null or not bt.has_node("up"):
+		return
+	var spec := _upper_spec()
+	var uw := String(spec.get("walk", ""))
+	var ur := String(spec.get("run", ""))
+	_upper_on = _clip_len.has(uw) and _clip_len.has(ur)
+	var idle_c := String(_roles.get("idle", "idle"))
+	var walk_c := uw if _upper_on else String(_roles.get("walk", "walk"))
+	var run_c := ur if _upper_on else String(_roles.get("run", "run"))
+	(bt.get_node("a_idle_u") as AnimationNodeAnimation).animation = idle_c
+	(bt.get_node("a_walk_u") as AnimationNodeAnimation).animation = walk_c
+	(bt.get_node("a_run_u") as AnimationNodeAnimation).animation = run_c
+	for c in [walk_c, run_c]:
+		if _clip_len.has(c):
+			_anim.get_animation(c).loop_mode = Animation.LOOP_LINEAR
+	var want: Array = spec.get("bones", [])
+	var up := bt.get_node("up") as AnimationNodeBlend2
+	var filtered := 0
+	for c in [idle_c, walk_c, run_c]:
+		if not _clip_len.has(c):
+			continue
+		var an := _anim.get_animation(c)
+		for i in an.get_track_count():
+			var pth: NodePath = an.track_get_path(i)
+			var on: bool = _upper_on and want.has(String(pth.get_concatenated_subnames()))
+			up.set_filter_path(pth, on)
+			if on and c == walk_c:
+				filtered += 1
+	_walk_len_u = float(_clip_len.get(walk_c, 1.0))
+	_run_len_u = float(_clip_len.get(run_c, 1.0))
+	_walk_contact_u = _contact_phase(walk_c)
+	_run_contact_u = _contact_phase(run_c)
+	_tree.set("parameters/up/blend_amount", 1.0 if _upper_on else 0.0)
+	if _upper_on:
+		_align_upper("walk")
+		_align_upper("run")
+	print("upper layer: %s | walk '%s' (%.4f s, contact %.3f) run '%s' (%.4f s, contact %.3f) | %d tracks on %d bones"
+		% ["ON" if _upper_on else "off", walk_c, _walk_len_u, _walk_contact_u, run_c, _run_len_u,
+		   _run_contact_u, filtered, want.size()])
+
+
+func _align_upper(which: String) -> void:
+	"""Seek an upper clip so its left-toe contact lands on the LEGS' walk contact -- the same
+	rule align_phase uses for the legs' run, so all four clips share one contact instant."""
+	if _tree == null:
+		return
+	var wl: float = maxf(_walk_len, 1e-6)
+	var wp: float = fmod(maxf(float(_tree.get("parameters/a_walk/current_position")), 0.0), wl) / wl
+	if which == "walk":
+		_tree.set("parameters/seek_walk_u/seek_request", fposmod(wp - _walk_contact + _walk_contact_u, 1.0) * _walk_len_u)
+	else:
+		_tree.set("parameters/seek_run_u/seek_request", fposmod(wp - _walk_contact + _run_contact_u, 1.0) * _run_len_u)
 
 
 func speed_px_s() -> float:
@@ -1446,6 +1581,7 @@ func _apply_clip_set() -> void:
 	_point_strafe()
 	_block_marks()
 	align_phase()
+	_apply_upper()
 	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
 		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),
 		   String(_roles.get("walk", "")), _walk_len, walk_px_s(),
