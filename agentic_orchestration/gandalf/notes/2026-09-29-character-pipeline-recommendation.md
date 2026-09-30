@@ -34,6 +34,8 @@
 
 **Her pass 2 (finish, 2026-09-30):** Meshy **9 credits**, fal **$0**, **0 images**, **~1.7 h** wall-clock. Most of that time was one-time work: fixing the measuring rig and the shared tooling (§ 5). The part that recurs per character is fitting the held prop (her staff). Its cost is not yet measured separately; the sword build (task 1 of the next dispatch) is timed to measure it.
 
+**Measured, one weapon (the barbarian's JOIN sword, 2026-09-30):** **27 min** wall-clock (4.5 min of it vendor waiting), **1 image** (an edit to fix the blade-to-grip ratio before 3D), **$0.40** fal for one Tripo build. That's under the per-piece estimate of ~45 min and ~3 images. It covers the image fix, the build, cleanup, skinning, the mount on the weapon bone with its guard check, and a film. **A lesson:** check a weapon's proportions on the design sheet, not in 3D. At any single scale, a blade-to-grip ratio of 2.6 to 1 gives either a dagger or a two-handed grip.
+
 ## 3 · What was rejected, and why (measured)
 
 - **Per-frame painted sprites.** They look beautiful where the subject is hair or fur: the manticore's head drift is 4.56 against 6.2–6.7 for the propagation methods. But they drift on hard surfaces (the knight's helm morph, 1.49× its own floor). Each character costs 24–32 Astra sheets, and there's **no modular gear**. *Keep for hero creatures and bosses.*
