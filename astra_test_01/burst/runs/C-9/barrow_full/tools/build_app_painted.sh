@@ -96,7 +96,7 @@ advanced_options=false
 dedicated_server=false
 custom_features=""
 export_filter="all_resources"
-include_filter="*.json,data/*.bin,data/painted/*.bin,data/painted/bakes/*.bin"
+include_filter="*.json,data/*.bin,data/painted/*.bin,data/painted/bakes/*.bin,data/vfx/*/*.bin"
 exclude_filter="tools/*,data/painted/ground_inpainted.bin"
 export_path="build/$NAME.app"
 patches=PackedStringArray()
@@ -184,6 +184,9 @@ echo "$GOT_ARCH" | grep -q arm64 && ck 0 "binary runs on Apple Silicon" || ck 1 
 
 PCK=$(find "$APP/Contents/Resources" -name '*.pck' | head -1 || true)
 [ -n "$PCK" ] && ck 0 "pck present ($(basename "$PCK"), $(du -h "$PCK" | cut -f1))" || ck 1 "pck present"
+# her Fire Ball's atlas and table, by the pck's own file table (C-9 (c))
+FBN=$(python3 "$ROOT/tools/pck_list.py" "$PCK" | grep -c "^data/vfx/fire_ball/" || true)
+[ "$FBN" -ge 3 ] && ck 0 "her Fire Ball in the pck: $FBN files (fire_ball.json, 2 atlas pages)" || ck 1 "her Fire Ball in the pck ($FBN files)"
 
 if [ -n "$PCK" ]; then
   MISSING=0
