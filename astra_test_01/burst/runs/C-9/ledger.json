@@ -25475,6 +25475,12 @@
       "topic": "Both runs share the 25 GiB gate",
       "note": "The KC2/JOIN-1 conductor reports that Matt confirmed directly that KC2 also uses 25 GiB (its ledger KP-121). C-9 and KC2 now share one disk gate, 25 GiB by df -h, until Matt cleanup at the Mac (R-C9-87). The C-9 disk watch restarted at 25 (the first restart was killed externally, exit 144 with no output; restarted once).",
       "ts": "2026-09-29T22:41:29"
+    },
+    {
+      "id": "N-C9-GUARD-DESIGN-2",
+      "topic": "The weapon_r-only guard would turn the haft 60-130 deg inside the fist; decision: a right-arm guard layer (the shield recipe) weight-swept, weapon_r finishes the residual; the edge gate redefined (scene drax, lab commit f63f16696)",
+      "note": "guard_search.gd solved a per-frame weapon_r key holding a chest-frame guard (keys land at 0.00 deg). With the square seat the clips hands point the grip channel back, down or across the body, so the guard needs a median haft turn OUT of the fist channel of walk 69 deg, run 127, strafes 88-89, block 63, run_L/R 14/24: the haft visibly runs through the fingers. No frame of any armed clip (442 poses) holds the mounted axe at guard with the fist in front (best static poses still need 18-28 deg). A forward-leaning guard mostly points into the high play camera when he faces south (the camera law). CONDUCTOR DECISION: option (c): an IK-authored right-arm guard pose (fist in front at belly-to-chest height, forearm square to the haft, neutral wrist) as the new armed idle arms and as a right-arm layer over walk/run/strafes/block like shield_guard_L, at the LOWEST weight keeping the median fist turn <= 15 deg and the guard predicate >= 90% (weight 1.0 = option b); weapon_r only finishes the residual and carries the strike curves; the guard orientation chosen for screen readability across the 8 direction cells. GATE CHANGE approved: edge leads = edge-along-travel (cos >= 0.707 at the strike frame and a speed-weighted mean >= 0.8 over the active swing), heading vs forward reported only (the slash is a lateral sweep: at its strike the head travels at -88 deg).",
+      "ts": "2026-09-29T23:58:09"
     }
   ]
 }
