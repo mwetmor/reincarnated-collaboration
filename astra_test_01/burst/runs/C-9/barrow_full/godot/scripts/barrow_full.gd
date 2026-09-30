@@ -112,6 +112,10 @@ var _tint := {}
 @export var ground_variant := "as_painted"
 var paint := {}                    # what the painted dress loaded, measured, and built
 var paint_sun: DirectionalLight3D
+## WHO WALKS THE PAINTED BARROW: "barbarian" (the default) or "sorceress" (?c=sorceress on the
+## phone page; -- --c sorceress on the desktop). The blockout keeps him.
+var who := "barbarian"
+var spell_fx: Node3D
 var snow: SnowField
 var snowfall: GPUParticles3D
 var heather_mat: ShaderMaterial
@@ -166,7 +170,12 @@ func _ready() -> void:
 		# THE THUMB STICK AND THE FOUR STRIKES (the installed Barrow's barrow_touch.gd), through the
 		# input actions knight.gd reads. AFTER the HUD: the controls hide the keyboard's hint bar
 		# when they show, and the first phone page drew it under them -- added before it existed
-		add_child(load("res://scripts/barrow_touch.gd").new())
+		var tc = load("res://scripts/barrow_touch.gd").new()
+		add_child(tc)
+		if who == "sorceress":
+			_touch_for_her(tc)
+	if who == "sorceress":
+		_build_fx_label()
 	_check_key_collisions()
 	_apply_stack()
 	clamp_on = bool(layout.get("camera_clamp_default", false))
@@ -194,7 +203,7 @@ func _ready() -> void:
 				"depth-only+stencil" if PaintStack.is_compatibility() else "full",
 				str(cl.get("ramp_materials_set", "-")), str(cl.get("painted_no_ambient_by_design", "-")),
 				JSON.stringify(paint.get("compat_color", {})), int(get_viewport().msaa_3d),
-				get_viewport().scaling_3d_scale])
+				get_viewport().scaling_3d_scale] + _her_line())
 	get_viewport().size_changed.connect(_sync_post_scale)
 	if "--frame-cost" in OS.get_cmdline_user_args():
 		_frame_cost_mode()
@@ -1312,16 +1321,36 @@ func set_markers(on: bool) -> Dictionary:
 
 
 # --- him ----------------------------------------------------------------------------------
+func _character_choice() -> String:
+	"""?c=sorceress on the web page's URL, `-- --c sorceress` on the desktop; the barbarian otherwise.
+	Only the painted Barrow chooses."""
+	if not painted:
+		return "barbarian"
+	var c := PaintStack.web_query("c")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--c")
+	if c == "" and i >= 0 and i + 1 < args.size():
+		c = String(args[i + 1])
+	return "sorceress" if c.to_lower() == "sorceress" else "barbarian"
+
+
 func _build_knight() -> void:
-	var k: CharacterBody3D = preload("res://scripts/knight.gd").new()
+	who = _character_choice()
+	# HER, THROUGH knight.gd UNCHANGED: sorceress_knight.gd overrides only the method that opens the
+	# character file (so_d7/scene_pkg's slot, in character.json's own shape)
+	var ks: Script = load("res://scripts/sorceress_knight.gd") if who == "sorceress" else preload("res://scripts/knight.gd")
+	var k: CharacterBody3D = ks.new()
 	k.name = "Knight"
 	k.setup(right, up, fwd, 1.0)
 	add_child(k)
 	knight = k
 	await get_tree().physics_frame
 	k.set_figure_scale(1.0)
-	# ARMED: the full kit, axe and shield (the brief: "him, armed")
-	k.set_gear_stack(int(layout["knight"].get("gear_stack", 4)))
+	# ARMED: the full kit, axe and shield (the brief: "him, armed") -- and hers, the staff included
+	if who == "sorceress":
+		k.set_gear_stack(k.gear_stack_count() - 1)
+	else:
+		k.set_gear_stack(int(layout["knight"].get("gear_stack", 4)))
 	var steps: Array = k.cfg.get("scale_steps", [])
 	for i in steps.size():
 		if absf(float(steps[i]) - 1.0) < 1e-6:
@@ -1332,7 +1361,13 @@ func _build_knight() -> void:
 	_char_saved = PaintStack.adopt_character(k, fbm, PaintStack.INK, {
 		"wash_scale": 2.6, "wash_amp": 0.13, "band_soft": 0.075,
 	})
-	report["character"] = {"model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
+	if who == "sorceress":
+		# HER TWO SPELLS, AS A PLACEHOLDER (spell_fx.gd): fired at each cast's release time, from its socket
+		spell_fx = load("res://scripts/spell_fx.gd").new()
+		spell_fx.name = "SpellFx"
+		add_child(spell_fx)
+		spell_fx.setup(k, k.cfg, _read_json("res://data/sockets_sorceress.json"))
+	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
 		"spawn_uv": sp}
@@ -1468,7 +1503,7 @@ func _update_hud() -> void:
 		if n < names.size():
 			nm = String(names[n])
 		fs = knight._figure_scale
-	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
+	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + ("  ·  SORCERESS: Space Fire Ball · X Meteor" if who == "sorceress" else "") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
 		+ "   ‖   V stack (%s) · K ink (%s) · O overlay (%s) · R crucible marks (%s) · U camera clamp (%s)") \
 		% [n + 1, total, nm, fs, "on" if stack_on else "off", "on" if ink_on else "off",
 		   "on" if overlay_on else "off", "on" if crucible_on else "off", "on" if clamp_on else "off"]
@@ -1476,6 +1511,44 @@ func _update_hud() -> void:
 		var hv: bool = _heather_mmi.is_empty() or (_heather_mmi[0] as Node3D).visible
 		_hud.text += "  · H heather (%s) · N snowfall (%s)" % ["on" if hv else "off",
 			"on" if (snowfall != null and snowfall.visible) else "off"]
+
+
+func _touch_for_her(tc) -> void:
+	"""HER BUTTONS (the coordinator): SLASH is the Fire Ball, CHOP the Meteor; BASH, BLOCK and GEAR are
+	hidden -- she has no shield, and her one kit is the full one. The same actions underneath."""
+	var keep := []
+	for b in tc._buttons:
+		var lb := String(b.get("label", ""))
+		if lb in ["BASH", "BLOCK", "GEAR"]:
+			continue
+		if lb == "SLASH":
+			b["label"] = "FIRE BALL"
+		elif lb == "CHOP":
+			b["label"] = "METEOR"
+		keep.append(b)
+	tc._buttons = keep
+	if tc._overlay != null:
+		tc._overlay.queue_redraw()
+
+
+func _build_fx_label() -> void:
+	"""The placeholder, SAID on screen: her spells are stand-ins until her VFX are made."""
+	var layer := CanvasLayer.new()
+	layer.name = "FxLabel"
+	layer.layer = 21
+	add_child(layer)
+	var l := Label.new()
+	l.text = "SPELL EFFECTS: PLACEHOLDER"
+	l.add_theme_font_size_override("font_size", 22)
+	l.add_theme_color_override("font_color", Color(1.0, 0.86, 0.6, 0.9))
+	l.add_theme_color_override("font_outline_color", Color(0.1, 0.07, 0.05, 0.9))
+	l.add_theme_constant_override("outline_size", 6)
+	l.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	l.offset_left = -420.0
+	l.offset_right = -24.0
+	l.offset_top = 20.0
+	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	layer.add_child(l)
 
 
 func set_hud_visible(on: bool) -> void:
@@ -2176,6 +2249,29 @@ func _physics_process(_dt: float) -> void:
 		heather_mat.set_shader_parameter("wind_time", snow.clock())
 
 
+func _her_line() -> String:
+	"""HER PART OF THE LAUNCH LINE: whether her animation tree is VALID (every AnimationNodeAnimation
+	names a clip she has -- an invalid tree applies no pose at all, see sorceress_knight.gd), which
+	clipless nodes were filled, and the placeholder spells' casts and release times."""
+	if who != "sorceress" or knight == null:
+		return ""
+	var bad := 0
+	var bt := knight._tree.tree_root as AnimationNodeBlendTree if knight._tree != null else null
+	if bt != null:
+		for nm in bt.get_node_list():
+			var n = bt.get_node(nm)
+			if n is AnimationNodeAnimation and not knight._anim.has_animation((n as AnimationNodeAnimation).animation):
+				bad += 1
+	var sp := []
+	if spell_fx != null:
+		for slot in ["attack", "chop"]:
+			var c: Dictionary = spell_fx.casts_by_slot.get(slot, {})
+			if not c.is_empty():
+				sp.append("%s@%s" % [c["clip"], str(c["release_s"])])
+	return " | sorceress_tree=%s clipless=%s spells=placeholder:%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
+		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp))]
+
+
 func _paint_launch_line() -> String:
 	"""What the running scene READ, each file off its raw bytes in the pck with its sha256 checked
 	against the manifest: the painting (the ground, the mound and the 28 primitives wear it), the
@@ -2190,7 +2286,7 @@ func _paint_launch_line() -> String:
 		if String(k).begins_with("bakes/") and ok.call(String(k)):
 			bakes_ok += 1
 	var prim := int(n.get("primitives", 0)) + (1 if int(n.get("mound", 0)) > 0 else 0)
-	return ("loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
+	return ("who=" + who + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
 		+ "| plates: bakes=%d/25 on the real models, painting on primitives=%d/29 (the mound + 28) "
 		+ "| birches=%d inks_hidden=%d heather=%d snow=%s ms=%d") % [
 		int(paint.get("files_ok", 0)), loads.size(), str(ok.call("painting.bin")),

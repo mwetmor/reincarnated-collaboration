@@ -1,0 +1,140 @@
+{
+ "_what": "C-9: the sorceress on the painted Barrow (?c=sorceress) -- her placeholder spells measured, and the page with her",
+ "package": "so_d7/scene_pkg (c46d6e3d7): character_sorceress.json, gear_manifest_sorceress.json, sockets_sorceress.json copied byte for byte; her seven GLBs from so_d7/export, sha256 matching the manifest",
+ "the_fix_her_slot_needed": "knight.gd's tree names a_block and a_strafe with no clip for her (no block, no strafe roles); in Godot 4.6 one AnimationNodeAnimation naming no clip makes the whole AnimationTree invalid and it applies no pose at all -- she stood frozen while the clips advanced. sorceress_knight.gd points them at her idle after every clip-set change (weight 0 for her: inert). Measured: legs 0 -> 0.63 rad over 30 walking frames, the Fire Ball's forearm 0 -> 1.74 rad",
+ "release_event": "from outside knight.gd (spell_fx.gd watches attacking() and _strike_anim on the physics tick): fired at the first physics frame past each release",
+ "casts_desktop": {
+  "casts": {
+   "attack": {
+    "clip": "cast_fireball",
+    "release_s": 0.9167,
+    "socket": "cast_hand"
+   },
+   "chop": {
+    "clip": "cast_meteor",
+    "release_s": 1.625,
+    "socket": "cast_hand_meteor"
+   }
+  },
+  "fired": [
+   {
+    "at_s": 0.933,
+    "clip": "cast_fireball",
+    "from": [
+     2.65,
+     1.19,
+     0.16
+    ],
+    "socket": "cast_hand"
+   },
+   {
+    "at_s": 1.633,
+    "clip": "cast_meteor",
+    "from": [
+     2.28,
+     1.43,
+     0.55
+    ],
+    "socket": "cast_hand_meteor"
+   }
+  ]
+ },
+ "release_error_s": {
+  "cast_fireball": 0.0163,
+  "cast_meteor": 0.008,
+  "_": "within one 60 Hz physics frame"
+ },
+ "page_run_40_mbit": {
+  "in_page_ms_from_navigation": {
+   "index.wasm_arrived": 3523,
+   "index.pck_arrived": 10460,
+   "engine_first_line": 10530,
+   "barrow_built": 14987,
+   "overlay_gone": 15827
+  },
+  "fps_samples": [
+   [
+    "standing",
+    60
+   ],
+   [
+    "standing",
+    60
+   ],
+   [
+    "standing",
+    56
+   ],
+   [
+    "standing",
+    60
+   ],
+   [
+    "standing",
+    60
+   ],
+   [
+    "standing",
+    60
+   ],
+   [
+    "walking",
+    59
+   ],
+   [
+    "walking",
+    59
+   ],
+   [
+    "walking",
+    51
+   ],
+   [
+    "walking",
+    59
+   ],
+   [
+    "walking",
+    59
+   ],
+   [
+    "striking",
+    54
+   ],
+   [
+    "striking",
+    43
+   ],
+   [
+    "striking",
+    60
+   ],
+   [
+    "striking",
+    60
+   ],
+   [
+    "striking",
+    38
+   ],
+   [
+    "striking",
+    60
+   ],
+   [
+    "striking",
+    60
+   ],
+   [
+    "after",
+    41
+   ]
+  ],
+  "errors": 0
+ },
+ "not_done": {
+  "hit": "no role in knight.gd; nothing hits her on this page (the coordinator: leave chest_arm raw)",
+  "death": "no role",
+  "idle_carry": "5.8 deg off the reference: knight.gd's upper chain plays the idle clip itself in idle (the package's note; accepted for now)"
+ }
+}

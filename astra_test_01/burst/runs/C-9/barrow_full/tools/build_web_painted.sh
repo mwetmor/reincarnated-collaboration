@@ -83,9 +83,10 @@ for imp in sorted(list((root / "models" / "barrow").glob("*.glb.import")) + list
     t = setk(t, "gltf/embedded_image_handling", "0")
     imp.write_text(t)
     nd += 1
-# HIS GEAR: VRAM-compressed with mipmaps (the importer's detect-3D step never runs headless), cut
-# to 512 -- he stands ~190 px tall on the phone's 3D frame (the installed phone build's sizing)
-for imp in sorted((root / "models" / "gear").glob("*.import")):
+# HIS GEAR AND HERS: VRAM-compressed with mipmaps (the importer's detect-3D step never runs
+# headless), cut to 512 -- he stands ~190 px tall on the phone's 3D frame, she ~170 (the installed
+# phone build's sizing)
+for imp in sorted(list((root / "models" / "gear").glob("*.import")) + list((root / "models" / "sorceress").glob("*.import"))):
     src = imp.with_suffix("")
     if src.suffix.lower() not in (".png", ".jpg", ".jpeg"):
         continue
@@ -97,7 +98,7 @@ for imp in sorted((root / "models" / "gear").glob("*.import")):
         ncut += 1
     imp.write_text(t)
     ng += 1
-print(f"world models' textures discarded: {nd}; gear textures VRAM+mips: {ng} (cut to 512: {ncut})")
+print(f"world models' textures discarded: {nd}; his and her gear textures VRAM+mips: {ng} (cut to 512: {ncut})")
 PY
 
 echo "== import"
@@ -111,6 +112,7 @@ FILES=$(cd "$DEST" && {
   for m in birch lintel post raven stone_mid stone_short stone_tall; do echo "models/barrow/$m.glb"; done
   for k in cairn log shield; do echo "models/barrow/kit/$k.glb"; done
   ls models/gear/*.glb
+  ls models/sorceress/*.glb
 } | sed 's|^|"res://|; s|$|"|' | paste -sd, -)
 cat > "$DEST/export_presets.cfg" <<EOF
 [preset.0]
@@ -123,7 +125,7 @@ dedicated_server=false
 custom_features=""
 export_filter="resources"
 export_files=PackedStringArray($FILES)
-include_filter="data/barrow_full_layout.json,data/character.json,data/gear_manifest.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
+include_filter="data/barrow_full_layout.json,data/character.json,data/gear_manifest.json,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 exclude_filter="tools/*"
 export_path="build/web/index.html"
 patches=PackedStringArray()
@@ -184,10 +186,14 @@ for p in scenes/barrow_painted.tscn scripts/barrow_full.gd scripts/painted_world
          scripts/snow_field.gd scripts/barrow_heather.gd scripts/barrow_touch.gd scripts/knight.gd \
          scripts/foot_lock.gd data/barrow_full_layout.json data/barrow_full_splat.bin \
          data/painted_web/manifest.json data/painted_web/heather.json data/painted_web/painting.bin \
-         data/painted_web/lit.bin data/painted_web/snow_grid.bin $BAKES models/gear/nb-body.glb; do
+         data/painted_web/lit.bin data/painted_web/snow_grid.bin $BAKES models/gear/nb-body.glb \
+         scripts/sorceress_knight.gd scripts/spell_fx.gd data/character_sorceress.json \
+         data/gear_manifest_sorceress.json data/sockets_sorceress.json models/sorceress/so-body.glb \
+         models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
+         models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb; do
   grep -a -q "$p" "$W/index.pck" || { echo "   missing from pck: $p" >&2; MISSING=1; }
 done
-[ "$MISSING" -eq 0 ] && ck 0 "the painted Barrow, its phone data (the painting, 25 bakes, the light map, the snow grid) and him in the pck" \
+[ "$MISSING" -eq 0 ] && ck 0 "the painted Barrow, its phone data (the painting, 25 bakes, the light map, the snow grid), him and her in the pck" \
                      || ck 1 "the painted Barrow's files in the pck"
 if grep -a -q "data/painted/painting.bin" "$W/index.pck"; then ck 1 "the desktop's 33 MB painting is in the pck"; else ck 0 "the desktop's painting is NOT in the pck"; fi
 if grep -a -o -i -E "vfx_(frost|fire|lightning|arcane|holy|poison)_(bolt|impact)[^A-Za-z0-9_]|creativekind|gigapack|untied ?games" "$W/index.pck" | head -1 | grep -q .; then
@@ -215,6 +221,22 @@ if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch.log"; then
   ck 1 "launch log free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch.log" | head -12 >&2
 else
   ck 0 "launch log free of script and shader errors"
+fi
+# HER (?c=sorceress on the page; the same scene with -- --c sorceress here): her slot read, her
+# gear bound, her tree VALID (sorceress_knight.gd fills the two clipless nodes that otherwise freeze
+# her), the placeholder spells armed at both casts' release times
+"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress > "$LOG/launch_sorceress.log" 2>&1 || true
+SLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_sorceress.log" | head -1 || true)
+echo "   launch (sorceress): $(echo "$SLINE" | cut -c1-160)"
+echo "$SLINE" | grep -q "who=sorceress" && echo "$SLINE" | grep -q "files_sha_ok=28/28" \
+  && ck 0 "?c=sorceress: she walks the same painted Barrow, every painted file read and matched" || ck 1 "?c=sorceress did not build"
+echo "$SLINE" | grep -q "sorceress_tree=valid" && ck 0 "her animation tree valid (clipless nodes filled: $(echo "$SLINE" | sed -n 's/.*clipless=\([^ ]*\).*/\1/p'))" || ck 1 "her animation tree"
+echo "$SLINE" | grep -q "spells=placeholder:cast_fireball@0.9167,cast_meteor@1.625" && ck 0 "her placeholder spells armed at both releases" || ck 1 "her placeholder spells"
+if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log"; then
+  ck 1 "her launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log" | head -12 >&2
+else
+  ck 0 "her launch free of script and shader errors"
 fi
 echo "   sizes:"; ls -l "$W" | awk 'NR>1 {printf "   %12d  %s\n", $5, $9}'
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }

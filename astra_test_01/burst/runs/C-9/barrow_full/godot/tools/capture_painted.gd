@@ -27,6 +27,7 @@ var do_guide := false
 var do_stills := false
 var do_shadow_test := false
 var do_trail := false
+var do_cast := false                # --cast: her two spells, frames at each release and after
 var quiet := false                  # --quiet: no falling snow, the wind held -- frames that compare
 var no_pen := false                 # --no-pen: the post pass hidden (a diagnostic)
 var variants := ["inpainted", "as_painted"]
@@ -51,6 +52,8 @@ func _initialize() -> void:
 			do_shadow_test = true
 		elif a == "--trail":
 			do_trail = true
+		elif a == "--cast":
+			do_cast = true
 		elif a == "--quiet":
 			quiet = true
 		elif a == "--no-pen":
@@ -60,7 +63,7 @@ func _initialize() -> void:
 		elif a == "--heather-mul":
 			var p := nxt.split(",")
 			heather_mul = Vector3(float(p[0]), float(p[1]), float(p[2]))
-	if out_dir == "" or not (do_guide or do_stills or do_shadow_test or do_trail):
+	if out_dir == "" or not (do_guide or do_stills or do_shadow_test or do_trail or do_cast):
 		print("[painted] HALT: --out DIR and one of --guide / --stills are required")
 		quit(2)
 		return
@@ -72,7 +75,7 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow_painted.tscn").instantiate()
-	scene.skip_character = not (do_stills or do_shadow_test or do_trail)
+	scene.skip_character = not (do_stills or do_shadow_test or do_trail or do_cast)
 	vp.add_child(scene)
 	var waited := 0
 	while not scene.ready_done and waited < 3000:
@@ -111,6 +114,8 @@ func _initialize() -> void:
 		await _shadow_test()
 	if do_trail:
 		await _trail()
+	if do_cast:
+		await _cast()
 	var f := FileAccess.open(out_dir.path_join("capture_painted.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(rep, " "))
 	f.close()
@@ -426,3 +431,40 @@ func _trail() -> void:
 	k.visible = true
 	rep["trail"] = {"walk_uv": [[start.x, start.y], [3.4, -3.0], [4.8, -1.2]], "camera_aim_uv": [1.6, -2.2],
 		"frames": ["trail_untouched", "trail_mode0 (the first version)", "trail_mode1 (the polish)", "trail_id (press R, berm G)"]}
+
+
+func _cast() -> void:
+	"""HER TWO SPELLS (run with -- --c sorceress): the Fire Ball, then the Meteor, each fired as the
+	SLASH / CHOP keys fire them (try_strike), with frames at the release and after it. The frames and
+	spell_fx's own record of when and where each fired."""
+	var k = scene.knight
+	if scene.who != "sorceress" or scene.spell_fx == null:
+		rep["cast"] = {"error": "not the sorceress (run with -- --c sorceress)"}
+		return
+	scene.place_knight(1.5, -1.5, "E")
+	for i in 30:
+		k.drive_dir(Vector2.ZERO, false, DT)
+		await physics_frame
+	var shots := {}
+	for spec in [["slash", "fireball", [0.3, 0.6, 0.92, 1.25]], ["chop", "meteor", [0.8, 1.64, 1.9, 2.2]]]:
+		# his own physics tick runs (the strike as the keys fire it); nothing drives him meanwhile
+		var ok: bool = k.try_strike(String(spec[0]))
+		var t0 := Time.get_ticks_usec()
+		var t := 0.0
+		var marks: Array = spec[2]
+		var mi := 0
+		var frames := 0
+		while frames < 400 and mi < marks.size():
+			await physics_frame
+			frames += 1
+			t = float(frames) / float(Engine.physics_ticks_per_second)
+			if t >= float(marks[mi]):
+				await _shot("cast_%s_%.2fs" % [spec[1], float(marks[mi])])
+				shots["%s_%.2f" % [spec[1], float(marks[mi])]] = {"attacking": k.attacking(), "strike_anim": String(k._strike_anim)}
+				mi += 1
+		for i in 240:
+			await physics_frame
+			if not k.attacking():
+				break
+		shots[String(spec[1]) + "_fired"] = ok
+	rep["cast"] = {"shots": shots, "spell_fx": scene.spell_fx.report}
