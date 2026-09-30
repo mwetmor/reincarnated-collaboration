@@ -5,7 +5,8 @@ extends SceneTree
 func _initialize() -> void:
 	var bad := 0
 	for p in ["res://scripts/paint_stack.gd", "res://scripts/world.gd", "res://scripts/gear.gd",
-			  "res://scripts/knight.gd", "res://scripts/barrow_full.gd", "res://tools/capture_blockout.gd"]:
+			  "res://scripts/knight.gd", "res://scripts/snow_field.gd", "res://scripts/barrow_full.gd",
+			  "res://tools/capture_blockout.gd"]:
 		var s = load(p)
 		if s == null or not (s as Script).can_instantiate():
 			print("PARSE_FAIL %s" % p)

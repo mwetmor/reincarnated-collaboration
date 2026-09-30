@@ -105,6 +105,7 @@ var _strafe_w := 0.0
 var _block_req_frame := -1
 var _armed := false
 var _root_speeds := {}
+var _recentred := {}
 var _manifest_px_s := {}
 var _root_dirs := {}
 var _strafing := false
@@ -147,6 +148,7 @@ func _ready() -> void:
 		for n in _anim.get_animation_list():
 			_clip_len[n] = _anim.get_animation(n).length
 	_manifest_px_s = _read_manifest_speeds()
+	_recentred = _recentre_all()     # BEFORE the de-root: it tests the clips as shipped
 	_root_speeds = _deroot_all()
 	var fa = cfg.get("forward_axis", null)
 	if fa != null:
@@ -364,7 +366,14 @@ func _contact_phase(clip: String) -> float:
 
 
 func _layer_weight(clip: String) -> float:
-	"""1 whenever the shield is carried, over every clip INCLUDING the attack.
+	"""1 whenever the shield is carried -- but ONLY OVER LOCOMOTION, by construction.
+
+	CORRECTED 2026-09-29: this docstring used to open "over every clip INCLUDING the attack",
+	which described the D2 rule reversal and was read, reasonably, as the guard still
+	fighting the strikes' own left arm. It does not, and has not since the armed wiring: the
+	guard Blend2 sits BELOW the block and all three strike one-shots in the graph, so at
+	full strike weight the strike owns every bone (attack_lab measures 0.000 m deviation from
+	the raw clip there). The history below is kept because it is why the layer exists.
 
 	THE EXPORT'S MANIFEST SAYS THE OPPOSITE and it is worth reading here rather than
 	silently disagreeing with it: `do NOT apply it over attack -- the slash uses the right
@@ -445,6 +454,83 @@ func _read_cfg() -> Dictionary:
 		return {}
 	var j = JSON.parse_string(FileAccess.get_file_as_string(CHARACTER))
 	return j if typeof(j) == TYPE_DICTIONARY else {}
+
+
+func _recentre_all() -> Dictionary:
+	"""Put any clip that STANDS AWAY FROM THE ORIGIN back over it, horizontally.
+
+	THIS IS THE GLITCH MATT SAW IN THE CHOP AND THE ATTACK. Three armed clips were exported
+	standing away from the rig origin -- the point this scene stands the body on: idle_armed
+	1.10 m on average, run_armed 1.83 m, attack_chop 0.48 m at its first frame. Every other
+	clip keeps its hips within 0.15 m. A displaced clip is drawn away from its own capsule,
+	and every blend into or out of it drags the WHOLE FIGURE across the ground by the
+	difference: out of idle_armed into the slash that is 1.32 m inside the 0.10 s fade-in,
+	535 mm of lurch per game frame (attack_lab, runs/C-9/attack_lab/) against 6.4 mm for the
+	unarmed barbarian. Every strike and the block, from idle and from a run: 485-1296 mm.
+
+	NO RUNTIME PIECE CAUSED IT, and the elimination ladder is how that is known: raw clip,
+	+grip morphs, +arm layers, +this de-root, +the one-shot fades -- 2.0 mm/frame of hip
+	motion at full strike weight on every rung, and a 1.32 m jump at the first rung that
+	contains a transition to idle_armed. The fades only turn a one-frame teleport into a lurch.
+
+	HOW IT GOT INTO THE FILE: nb_d2/scripts/45_deroot_trim.py removes drift with the
+	first-to-last line and then adds back the clip's own FIRST-FRAME position, so each clip
+	was de-rooted about wherever it started -- Meshy's Axe Stance starts 1.1 m off, run_armed
+	was trimmed from the middle of a travelling take. The export's lint checked whether a
+	clip MOVES; a de-rooted clip does not move, it stands elsewhere.
+
+	The export is fixed at source (49_recentre.py, staged) and its lint now FAILs any clip
+	whose root never comes within 0.25 m of rest. This is the SAME TEST, so a displaced clip
+	cannot reach the screen again whatever the file says -- and once the fixed export is in,
+	it finds nothing, exactly as _deroot_all now finds only the chop.
+
+	LOOPS ARE CENTRED ON THEIR MEAN, ONE-SHOTS ON THEIR FIRST FRAME: a strike starts where
+	the idle stands him, and a lunge then carries him from there. A constant horizontal
+	shift of the hips moves the whole body rigidly, so no pose changes -- only where it is."""
+	var out := {}
+	if _anim == null or _skel == null:
+		return out
+	var m_per_unit: float = _skel.global_transform.basis.get_scale().x / maxf(_figure_scale, 1e-9)
+	var hb := _skel.find_bone("Hips")
+	if hb < 0:
+		return out
+	var rest: Vector3 = _skel.get_bone_rest(hb).origin
+	var loops := {}
+	for key in ["clips", "clips_armed"]:
+		var m: Dictionary = cfg.get(key, {})
+		for role in ["idle", "walk", "run", "strafe_l", "strafe_r"]:
+			if m.has(role):
+				loops[String(m[role])] = true
+	for name in _anim.get_animation_list():
+		var a := _anim.get_animation(name)
+		var tr := -1
+		for i in a.get_track_count():
+			if a.track_get_type(i) == Animation.TYPE_POSITION_3D \
+					and String(a.track_get_path(i).get_concatenated_subnames()) == "Hips":
+				tr = i
+				break
+		if tr < 0 or a.track_get_key_count(tr) < 1:
+			continue
+		var n := a.track_get_key_count(tr)
+		var closest := 1e9
+		var mean := Vector3.ZERO
+		for i in n:
+			var v: Vector3 = a.track_get_key_value(tr, i)
+			closest = minf(closest, Vector2(v.x - rest.x, v.z - rest.z).length() * m_per_unit)
+			mean += v
+		mean /= float(n)
+		if closest <= 0.25:
+			continue
+		var loop: bool = loops.has(String(name))
+		var ref: Vector3 = mean if loop else a.track_get_key_value(tr, 0)
+		var off := Vector3(ref.x - rest.x, 0.0, ref.z - rest.z)
+		for i in n:
+			var v2: Vector3 = a.track_get_key_value(tr, i)
+			a.track_set_key_value(tr, i, Vector3(v2.x - off.x, v2.y, v2.z - off.z))
+		out[name] = snappedf(off.length() * m_per_unit, 0.001)
+		push_warning("character: '%s' stood %.3f m from the origin and never nearer than %.3f m -- recentred on its %s. The export should not ship this; its lint now fails it."
+			% [name, off.length() * m_per_unit, closest, "mean (loop)" if loop else "first frame (one-shot)"])
+	return out
 
 
 func _deroot_all() -> Dictionary:
@@ -1218,7 +1304,12 @@ func _drive(dt := 0.0) -> void:
 	travelling when he is travelling, and from the facing name when he is not, so a tool
 	that sets `facing` directly still turns him."""
 	var wf: Vector3
-	if _move_dir.length() > 0.01 and _speed > 0.0:
+	# NOT WHILE SIDE-STEPPING. The yaw target was the direction of travel whenever he was
+	# moving -- and a strafe moves him -- so he turned toward the strafe direction, fell out
+	# of the strafe cone within three frames and stopped: every strafe cancelled itself
+	# (attack_lab, 2026-09-29: dot to his left 0.90 -> 0.71 -> 0.53, then no strafe). Holding
+	# `facing` was never enough, because this line never read it while he was moving.
+	if _move_dir.length() > 0.01 and _speed > 0.0 and not _strafing:
 		wf = canvas_velocity_to_world(_move_dir)
 	else:
 		wf = canvas_velocity_to_world(_canvas_dir_for(facing))

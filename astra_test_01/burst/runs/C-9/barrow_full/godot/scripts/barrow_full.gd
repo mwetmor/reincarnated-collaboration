@@ -51,7 +51,7 @@ const FLOOR_EXTENT := 46.0
 const FLOOR_CELL := 2.0
 const MOUND_CELL := 0.1
 const LOW_M := 1.9                 # a footprint "at his height": what a 1.85 m man walks into
-const RAW_KEYS := {"V": KEY_V, "K": KEY_K, "O": KEY_O, "U": KEY_U}
+const RAW_KEYS := {"V": KEY_V, "K": KEY_K, "O": KEY_O, "U": KEY_U, "R": KEY_R}
 
 var layout := {}
 var cam: Camera3D
@@ -78,7 +78,10 @@ var built := {}                    # placement id -> what the build step knows a
 var report := {}
 var stack_on := true
 var ink_on := true
-var clamp_on := true
+var clamp_on := false               # spec v2: the 4 x 4 window's margin makes the clamp unnecessary
+var crucible_on := true              # the wave-arena marks: ON in the app, R hides them
+var _crucible: Node3D
+var _door_saved := {}
 var overlay_on := false
 var ready_done := false
 var _overlay: Node3D
@@ -121,6 +124,7 @@ func _ready() -> void:
 	_build_placements()
 	_build_bounds()
 	_build_overlay()
+	_build_crucible()
 	t_b = Time.get_ticks_msec() - t_b
 	if skip_character:
 		look_at_world(Vector3.ZERO)
@@ -130,6 +134,7 @@ func _ready() -> void:
 	_build_hud()
 	_check_key_collisions()
 	_apply_stack()
+	clamp_on = bool(layout.get("camera_clamp_default", false))
 	report["build_ms"] = {"total": Time.get_ticks_msec() - t0, "generated_textures": t_tex,
 						  "world": t_b}
 	ready_done = true
@@ -394,7 +399,7 @@ func _build_ground() -> void:
 	var pa: Dictionary = _mound_spec()["passage"]
 	var hw := float(pa["half_w"])
 	var pv0 := float(pa["v0"])
-	var pv1 := float(pa["v_mouth"])
+	var pv1 := float(pa["v_end"])
 	var us := _breaks(-FLOOR_EXTENT, FLOOR_EXTENT, FLOOR_CELL, [-hw, hw])
 	var vs := _breaks(-FLOOR_EXTENT, FLOOR_EXTENT, FLOOR_CELL, [pv0, pv1])
 	var V := PackedVector3Array()
@@ -413,16 +418,15 @@ func _build_ground() -> void:
 			_tri(V, N, a, c, d, Vector3.UP)
 	var mi := _mesh(V, N, ground_mat, "Ground", level)
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	# the floor's collider: a box everywhere EXCEPT the passage, as four boxes round the hole
+	# ONE collider box, top face at y = 0. v1 cut the passage out of it so he could walk down
+	# the steps; in v2 the passage is scenery behind the facade's collider, so nothing reaches
+	# the hole and the floor can stay whole.
 	var body := _body(level, "FloorBody")
 	var E := FLOOR_EXTENT
-	_box(body, -E, -hw, -E, E, -2.0, 0.0)
-	_box(body, hw, E, -E, E, -2.0, 0.0)
-	_box(body, -hw, hw, -E, pv0, -2.0, 0.0)
-	_box(body, -hw, hw, pv1, E, -2.0, 0.0)
+	_box(body, -E, E, -E, E, -2.0, 0.0)
 	report["ground"]["floor"] = {"y": 0.0, "extent_m": E * 2.0, "triangles": V.size() / 3,
-		"collider": "4 boxes, top face at y = 0, the passage cut out",
-		"passage_hole_uv": {"u": [-hw, hw], "v": [pv0, pv1]}}
+		"collider": "1 box, top face at y = 0",
+		"passage_hole_uv_visual_only": {"u": [-hw, hw], "v": [pv0, pv1]}}
 
 
 func _load_splat(sp: Dictionary) -> ImageTexture:
@@ -476,10 +480,10 @@ func dome_h(u: float, v: float) -> float:
 	if r2 >= 1.0:
 		return 0.0
 	var w := 1.0 - r2
-	# SMOOTH. barrow_world's 4 cm two-octave wobble is off here: through the light ramp on a
-	# flat-grey guide it drew diagonal streaks across the whole dome that read as brushwork --
-	# which is the painter's job, not the blockout's.
-	return maxf(float(m["rise_m"]) * pow(w, float(m["exponent"])), 0.0)
+	# SMOOTH (no wobble: through the ramp it read as brushwork), and with a TOE: the kerb's rise
+	# spread over the outer toe_rho of the radius so it is not a one-cell cliff (see the layout).
+	var t := clampf((1.0 - sqrt(r2)) / float(m.get("toe_rho", 0.0001)), 0.0, 1.0)
+	return maxf(float(m["rise_m"]) * pow(w, float(m["exponent"])) * t * t * (3.0 - 2.0 * t), 0.0)
 
 
 func passage_floor(v: float) -> float:
@@ -492,29 +496,43 @@ func passage_floor(v: float) -> float:
 	return y
 
 
-func floor_y_at(u: float, v: float) -> float:
-	"""Where his feet go at (u, v): the flat floor, or the passage's step there."""
-	var pa: Dictionary = _mound_spec()["passage"]
-	if absf(u) < float(pa["half_w"]) and v > float(pa["v0"]) and v < float(pa["v_mouth"]):
-		return passage_floor(v)
+func floor_y_at(_u: float, _v: float) -> float:
+	"""Where his feet go: y = 0 everywhere he can reach (R-C9-74). The passage's steps are
+	scenery behind the facade (spec v2)."""
 	return 0.0
 
 
+func mound_foot_v(u: float) -> float:
+	var m := _mound_spec()
+	var a := float(m["semi_axes"][0])
+	var b := float(m["semi_axes"][1])
+	return float(m["uv"][1]) - b * sqrt(maxf(0.0, 1.0 - pow((u - float(m["uv"][0])) / a, 2.0)))
+
+
 func _build_mound() -> void:
+	"""THE BARROW, v2: a kerbed dome 12 x 9 m about (0, 13), and the door SET INTO IT -- a
+	stone-lined cutting from the foot to a facade, the lintel and posts standing a hand proud of
+	the facade, the mound's surface over the lintel, a dark passage beyond it stepping down as
+	scenery. Nothing here is walkable but the cutting's floor, at y = 0."""
 	var m := _mound_spec()
 	var c := Vector2(float(m["uv"][0]), float(m["uv"][1]))
 	var a := float(m["semi_axes"][0])
 	var b := float(m["semi_axes"][1])
 	var rise := float(m["rise_m"])
+	var cu: Dictionary = m["cutting"]
 	var pa: Dictionary = m["passage"]
-	var hw := float(pa["half_w"])
-	var pv0 := float(pa["v0"])
-	var pv1 := float(pa["v_mouth"])
+	var chw := float(cu["half_w"])
+	var cwt := float(cu["wall_t"])
+	var vf := float(cu["v_facade"])
+	var ft := float(cu["facade_t"])
+	var phw := float(pa["half_w"])
+	var pv1 := float(pa["v_end"])
+	var ceil_y := float(pa["ceiling_y"])
 	var root := Node3D.new()
 	root.name = "mound"
 	level.add_child(root)
 	nodes["mound"] = root
-	# the dome: a 0.1 m grid aligned so the passage's edges are grid lines
+	# the dome: a 0.1 m grid aligned so the cutting's edges (u +-1.3, v 10.5) are grid lines
 	var u0 := snappedf(c.x - a - 0.2, MOUND_CELL)
 	var v0 := snappedf(c.y - b - 0.2, MOUND_CELL)
 	var nu := int(round((2.0 * a + 0.4) / MOUND_CELL))
@@ -538,11 +556,8 @@ func _build_mound() -> void:
 			var r: float = rho.call(u, v)
 			var nu_ := u
 			var nv_ := v
-			# THE FOOT FOLLOWS THE ELLIPSE, NOT THE GRID. A kerbed profile rises steeply inside
-			# one cell of the rim, so on a plain grid the foot was a 0.1 m staircase -- visible
-			# all along the front at the play camera. A vertex just outside the foot (one with a
-			# neighbour inside it) is slid radially onto the ellipse; its normal is taken just
-			# inside, on the kerb it belongs to.
+			# THE FOOT FOLLOWS THE ELLIPSE, NOT THE GRID (a kerbed profile rises inside one cell,
+			# so a grid foot is a staircase): a vertex just outside the foot slides onto it.
 			if r >= 1.0:
 				var near := false
 				for dj in [-1, 0, 1]:
@@ -566,8 +581,8 @@ func _build_mound() -> void:
 		for i in nu:
 			var uc := u0 + (float(i) + 0.5) * e
 			var vc := v0 + (float(j) + 0.5) * e
-			if absf(uc) < hw and vc > pv0 and vc < pv1:
-				continue                                  # the passage is cut out of the mound
+			if absf(uc) < chw and vc < vf:
+				continue                                  # the cutting is open to the sky
 			var k00 := j * (nu + 1) + i
 			var k10 := k00 + 1
 			var k01 := k00 + nu + 1
@@ -580,40 +595,49 @@ func _build_mound() -> void:
 			var p11 := _L(GU[k11], H[k11], GV[k11])
 			_tri_n(V, N, p00, p10, p11, NR[k00], NR[k10], NR[k11])
 			_tri_n(V, N, p00, p11, p01, NR[k00], NR[k11], NR[k01])
-	# ITS OWN TINT, NOT THE GROUND'S. barrow_world dressed the mound in the ground material so
-	# it was "one ground"; in a paint-over guide that made it vanish -- snow-coloured, on snow,
-	# lit almost flat -- and the painter has to see the barrow before anything else.
+	# ITS OWN TINT (ratified on v1): on snow, in the ground's material, it vanished
 	var mound_mat := PaintStack.world_material(fbm, _tint.get(String(m.get("tint", "mound")), _tint["snow"]), _flat_params())
 	world_mats.append(mound_mat)
 	_mesh(V, N, mound_mat, "MoundMesh", root)
 	var tris := V.size() / 3
 
-	# the passage: stone-lined, dark, three steps down to the mouth
+	# THE CUTTING'S LINING AND THE FACADE: stone, primitive grey. Each wall face rises from the
+	# floor to the dome's own height at that point, so the lining meets the mound's surface
+	# with no gap; the facade is the mound's cut face around the door, open where the door is.
+	var stone := PaintStack.world_material(fbm, _tint["primitive_grey"], _flat_params())
+	world_mats.append(stone)
+	var SV := PackedVector3Array()
+	var SN := PackedVector3Array()
+	var vstart := snappedf(mound_foot_v(chw) - 0.05, e)
+	for s in [-1.0, 1.0]:
+		var v := vstart
+		while v < vf - 1e-6:
+			var va := v
+			var vb := minf(v + e, vf)
+			var ta := dome_h(s * chw, va)
+			var tb := dome_h(s * chw, vb)
+			if ta > 0.0 or tb > 0.0:
+				_tri(SV, SN, _L(s * chw, 0.0, va), _L(s * chw, 0.0, vb), _L(s * chw, tb, vb), Vector3(-s, 0, 0))
+				_tri(SV, SN, _L(s * chw, 0.0, va), _L(s * chw, tb, vb), _L(s * chw, ta, va), Vector3(-s, 0, 0))
+			v += e
+	var nuq := int(round(2.0 * chw / e))
+	for q in nuq:
+		var ua := -chw + float(q) * e
+		var ub := ua + e
+		var um := (ua + ub) * 0.5
+		var ybot := ceil_y if absf(um) < phw else 0.0     # the door's opening is left open
+		var ha := dome_h(ua, vf)
+		var hb := dome_h(ub, vf)
+		_tri(SV, SN, _L(ua, ybot, vf), _L(ub, ybot, vf), _L(ub, hb, vf), Vector3(0, 0, 1))
+		_tri(SV, SN, _L(ua, ybot, vf), _L(ub, hb, vf), _L(ua, ha, vf), Vector3(0, 0, 1))
+	_mesh(SV, SN, stone, "CuttingAndFacade", root)
+
+	# THE PASSAGE BEYOND THE DOOR: scenery for a later interior -- dark, three 0.2 m steps down
 	var dark := PaintStack.world_material(fbm, _tint["passage_dark"], _flat_params())
 	world_mats.append(dark)
 	var PV := PackedVector3Array()
 	var PN := PackedVector3Array()
-	var step := 0.1
-	var nsteps := int(round((pv1 - pv0) / step))
-	for s in [-1.0, 1.0]:
-		for q in nsteps:
-			var va := pv0 + float(q) * step
-			var vb := va + step
-			var ya := passage_floor(va + 0.5 * step)
-			var ta := maxf(dome_h(s * hw, va), ya + 0.05)
-			var tb := maxf(dome_h(s * hw, vb), ya + 0.05)
-			_tri(PV, PN, _L(s * hw, ya, va), _L(s * hw, ya, vb), _L(s * hw, tb, vb), Vector3(-s, 0, 0))
-			_tri(PV, PN, _L(s * hw, ya, va), _L(s * hw, tb, vb), _L(s * hw, ta, va), Vector3(-s, 0, 0))
-	var yb := passage_floor(pv1 - 0.01)
-	var nuq := int(round(2.0 * hw / step))
-	for q in nuq:
-		var ua := -hw + float(q) * step
-		var ub := ua + step
-		var ha := maxf(dome_h(ua, pv1), yb + 0.05)
-		var hb := maxf(dome_h(ub, pv1), yb + 0.05)
-		_tri(PV, PN, _L(ua, yb, pv1), _L(ub, yb, pv1), _L(ub, hb, pv1), Vector3(0, 0, 1))
-		_tri(PV, PN, _L(ua, yb, pv1), _L(ub, hb, pv1), _L(ua, ha, pv1), Vector3(0, 0, 1))
-	var edges: Array = [pv0]
+	var edges: Array = [vf]
 	for r in pa["risers_v"]:
 		edges.append(float(r))
 	edges.append(pv1)
@@ -621,16 +645,22 @@ func _build_mound() -> void:
 		var va := float(edges[q])
 		var vb := float(edges[q + 1])
 		var y := passage_floor(va + 0.01)
-		_tri(PV, PN, _L(-hw, y, va), _L(hw, y, va), _L(hw, y, vb), Vector3.UP)
-		_tri(PV, PN, _L(-hw, y, va), _L(hw, y, vb), _L(-hw, y, vb), Vector3.UP)
+		_tri(PV, PN, _L(-phw, y, va), _L(phw, y, va), _L(phw, y, vb), Vector3.UP)
+		_tri(PV, PN, _L(-phw, y, va), _L(phw, y, vb), _L(-phw, y, vb), Vector3.UP)
 		if q > 0:
 			var yup := passage_floor(va - 0.01)
-			_tri(PV, PN, _L(-hw, y, va), _L(hw, y, va), _L(hw, yup, va), Vector3(0, 0, 1))
-			_tri(PV, PN, _L(-hw, y, va), _L(hw, yup, va), _L(-hw, yup, va), Vector3(0, 0, 1))
+			_tri(PV, PN, _L(-phw, y, va), _L(phw, y, va), _L(phw, yup, va), Vector3(0, 0, 1))
+			_tri(PV, PN, _L(-phw, y, va), _L(phw, yup, va), _L(-phw, yup, va), Vector3(0, 0, 1))
+		for s in [-1.0, 1.0]:
+			_tri(PV, PN, _L(s * phw, y, va), _L(s * phw, y, vb), _L(s * phw, ceil_y, vb), Vector3(-s, 0, 0))
+			_tri(PV, PN, _L(s * phw, y, va), _L(s * phw, ceil_y, vb), _L(s * phw, ceil_y, va), Vector3(-s, 0, 0))
+	var yend := passage_floor(pv1 - 0.01)
+	_tri(PV, PN, _L(-phw, yend, pv1), _L(phw, yend, pv1), _L(phw, ceil_y, pv1), Vector3(0, 0, 1))
+	_tri(PV, PN, _L(-phw, yend, pv1), _L(phw, ceil_y, pv1), _L(-phw, ceil_y, pv1), Vector3(0, 0, 1))
 	_mesh(PV, PN, dark, "Passage", root)
 
-	# NON-WALKABLE BY THE COLLIDER, NOT BY THE SLOPE (barrow_world's rule): a vertical box ring
-	# on the rim at rho 0.97, with the passage mouth left open, and the passage lined with walls
+	# COLLIDERS: the rim ring (the cutting's mouth left open), the cutting's walls, the facade.
+	# Non-walkable by collider, not by slope (barrow_world's rule, ratified).
 	var body := _body(root, "MoundWall")
 	var nseg := 48
 	var kept := 0
@@ -640,37 +670,29 @@ func _build_mound() -> void:
 		var p0 := Vector2(c.x + a * 0.97 * cos(t0), c.y + b * 0.97 * sin(t0))
 		var p1 := Vector2(c.x + a * 0.97 * cos(t1), c.y + b * 0.97 * sin(t1))
 		var mid := (p0 + p1) * 0.5
-		if absf(mid.x) < hw + 0.45 and mid.y < c.y:
+		if absf(mid.x) < chw + cwt and mid.y < c.y:
 			continue
 		_box_rot(body, mid, p0.distance_to(p1) + 0.3, 0.3, 0.0, rise, atan2(p1.y - p0.y, p1.x - p0.x))
 		kept += 1
-	_box(body, hw, hw + 0.6, pv0 - 0.2, pv1 + 0.3, -1.5, 2.8)
-	_box(body, -hw - 0.6, -hw, pv0 - 0.2, pv1 + 0.3, -1.5, 2.8)
-	_box(body, -hw - 0.1, hw + 0.1, pv1, pv1 + 0.3, -1.5, 2.8)
-	# the walking surface in the passage: the threshold, a 31-degree ramp under the three visual
-	# steps (move_and_slide steps DOWN a riser by falling and cannot step UP one), the floor
-	var fl := _body(root, "PassageFloor")
-	var r0 := float(pa["risers_v"][0])
-	var rl := float(pa["risers_v"][pa["risers_v"].size() - 1])
-	var ybot := passage_floor(pv1 - 0.01)
-	_box(fl, -hw, hw, pv0, r0 - 0.2, -2.0, 0.0)
-	var ramp := ConvexPolygonShape3D.new()
-	var rp := PackedVector3Array()
-	for su in [-hw, hw]:
-		rp.append(_L(su, 0.0, r0 - 0.2))
-		rp.append(_L(su, ybot, rl))
-		rp.append(_L(su, -2.0, r0 - 0.2))
-		rp.append(_L(su, -2.0, rl))
-	ramp.points = rp
-	var rcs := CollisionShape3D.new()
-	rcs.shape = ramp
-	fl.add_child(rcs)
-	_box(fl, -hw, hw, rl, pv1, -2.0, ybot)
+	var vw := mound_foot_v(chw + cwt) - 0.3
+	_box(body, chw, chw + cwt, vw, vf + ft, 0.0, rise)
+	_box(body, -chw - cwt, -chw, vw, vf + ft, 0.0, rise)
+	_box(body, -chw - cwt, chw + cwt, vf, vf + ft, 0.0, rise)
+	var cover := INF
+	var uu := -1.14
+	while uu <= 1.14 + 1e-6:
+		var vv := vf
+		while vv <= pv1 + 1e-6:
+			cover = minf(cover, dome_h(uu, vv))
+			vv += 0.1
+		uu += 0.1
 	report["mound"] = {"centre_uv": [c.x, c.y], "semi_axes_m": [a, b], "rise_m": rise,
 		"exponent": float(m["exponent"]), "triangles": tris,
-		"rim_wall_boxes": kept, "rim_wall_boxes_left_open_for_the_passage": nseg - kept,
-		"passage": {"half_w": hw, "v": [pv0, pv1], "threshold_y": passage_floor(pv0 + 0.01),
-					"bottom_y": ybot, "ramp_slope_deg": snappedf(rad_to_deg(atan(absf(ybot) / (rl - (r0 - 0.2)))), 0.1)},
+		"rim_wall_boxes": kept, "rim_wall_boxes_left_open_for_the_cutting": nseg - kept,
+		"cutting": {"half_w": chw, "v": [snappedf(mound_foot_v(chw), 0.001), vf], "floor_y": 0.0,
+					"facade_v": vf},
+		"passage": {"half_w": phw, "v": [vf, pv1], "bottom_y": passage_floor(pv1 - 0.01), "walkable": false},
+		"dome_min_over_passage_roof_m": snappedf(cover, 0.001),
 		"back_foot_v": c.y + b, "peak_y": dome_h(c.x, c.y)}
 
 
@@ -942,13 +964,22 @@ func _place_primitive(e: Dictionary) -> void:
 		body.add_child(cs)
 	_mesh(V, N, mat, "mass", root)
 	nodes[id] = root
-	# the BUILT base centroid, read back through the Level's transform into world and then
-	# (u, v): the placement check measures this, not the number it was built from
+	# the BUILT base centroid -- the polygon's AREA centroid, as the layout centres it (a vertex
+	# average of an irregular polygon sits up to 0.05 m off it) -- read back through the Level's
+	# transform into world: the placement check measures this, not the number it was built from
 	var base: Array = e["layers"][0]["poly_uv"]
-	var bc := Vector3.ZERO
-	for p in base:
-		bc += level.global_transform * _L(float(p[0]), 0.0, float(p[1]))
-	bc /= float(base.size())
+	var ar := 0.0
+	var cx := 0.0
+	var cz := 0.0
+	for i in base.size():
+		var p0 := Vector2(float(base[i][0]), float(base[i][1]))
+		var p1 := Vector2(float(base[(i + 1) % base.size()][0]), float(base[(i + 1) % base.size()][1]))
+		var cr := p0.x * p1.y - p1.x * p0.y
+		ar += cr
+		cx += (p0.x + p1.x) * cr
+		cz += (p0.y + p1.y) * cr
+	ar *= 0.5
+	var bc := level.global_transform * _L(cx / (6.0 * ar), 0.0, cz / (6.0 * ar))
 	built[id] = {"layers": (e["layers"] as Array).size(), "tris": V.size() / 3,
 				 "height_m": float(e.get("height_m", 0.0)), "base_centroid_world": _v3(bc)}
 
@@ -1043,6 +1074,97 @@ func set_overlay(on: bool) -> void:
 	overlay_on = on
 	if _overlay != null:
 		_overlay.visible = on
+	_update_hud()
+
+
+# --- THE CRUCIBLE (Matt): spawn circles, the boss gate, the player station -----------------
+func _decal(pts: Array, closed: bool, col: Color, w: float, parent: Node3D, y := 0.012) -> void:
+	"""A flat, opaque, unshaded ribbon on the floor. OPAQUE on purpose: the one-pen pass reads
+	the screen as it stood after the opaque pass, so anything drawn transparent would be painted
+	over by it."""
+	var V := PackedVector3Array()
+	var N := PackedVector3Array()
+	var n := pts.size()
+	for i in (n if closed else n - 1):
+		var p: Vector2 = pts[i]
+		var q: Vector2 = pts[(i + 1) % n]
+		var d := (q - p).normalized()
+		var o := Vector2(-d.y, d.x) * (w * 0.5)
+		_tri(V, N, _L(p.x - o.x, y, p.y - o.y), _L(q.x - o.x, y, q.y - o.y), _L(q.x + o.x, y, q.y + o.y), Vector3.UP)
+		_tri(V, N, _L(p.x - o.x, y, p.y - o.y), _L(q.x + o.x, y, q.y + o.y), _L(p.x + o.x, y, p.y + o.y), Vector3.UP)
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.albedo_color = col
+	_mesh(V, N, m, "decal", parent, false)
+
+
+func _flat_label(txt: String, at: Vector2, col: Color, px_size: float, parent: Node3D) -> Label3D:
+	"""Text painted flat on the ground, reading upright at the play camera: its x along +u, its
+	up along +v, its face up. ALPHA-CUT, so it draws in the opaque pass (see _decal)."""
+	var l := Label3D.new()
+	l.text = txt
+	l.font_size = 96
+	l.pixel_size = px_size
+	l.outline_size = 22
+	l.modulate = col
+	l.outline_modulate = Color(PaintStack.INK.r, PaintStack.INK.g, PaintStack.INK.b, 1.0)
+	l.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	l.shaded = false
+	l.double_sided = false
+	l.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	l.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	l.transform = Transform3D(Basis(Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 1, 0)), _L(at.x, 0.02, at.y))
+	parent.add_child(l)
+	return l
+
+
+func _build_crucible() -> void:
+	var cr: Dictionary = layout.get("crucible", {})
+	_crucible = Node3D.new()
+	_crucible.name = "Crucible"
+	level.add_child(_crucible)
+	if cr.is_empty():
+		return
+	var rune: Color = _tint["rune"]
+	var st: Array = cr["station"]["uv"]
+	var station := Vector2(float(st[0]), float(st[1]))
+	for s in cr["spawns"]:
+		var c := Vector2(float(s["uv"][0]), float(s["uv"][1]))
+		var r := float(s["r_m"])
+		# the rune ring: a 0.12 m band at r 1.5, twelve rune marks inside it
+		_decal(_ellipse_pts(c, r - 0.06, r - 0.06, 72), true, rune, 0.12, _crucible)
+		for k in 12:
+			var a := TAU * float(k) / 12.0
+			var d := Vector2(cos(a), sin(a))
+			var tdir := Vector2(-d.y, d.x)
+			var p0 := c + d * (r - 0.30)
+			if k % 3 == 0:
+				_decal([p0 - tdir * 0.10, p0 + d * 0.16, p0 + tdir * 0.10, p0 - d * 0.02], true, rune, 0.05, _crucible)
+			else:
+				_decal([p0 - d * 0.06, p0 + d * 0.12], false, rune, 0.05, _crucible)
+		var to_station := (station - c).normalized()
+		_flat_label(String(s["id"]), c + to_station * (r + 0.55), rune, 0.0075, _crucible)
+	var bg: Dictionary = cr["boss_gate"]
+	var gv := float(bg["uv"][1])
+	var ghw := float(bg["width_m"]) * 0.5
+	var boss: Color = _tint["boss"]
+	_decal([Vector2(-ghw, gv), Vector2(ghw, gv)], false, boss, 0.22, _crucible)
+	for k in 2:
+		var off := 0.55 + 0.45 * float(k)
+		_decal([Vector2(-0.75, gv - off + 0.30), Vector2(0.0, gv - off - 0.10), Vector2(0.75, gv - off + 0.30)], false, boss, 0.14, _crucible)
+	_flat_label("BOSS GATE", Vector2(0.0, gv - 1.75), boss, 0.0060, _crucible)
+	var stc: Color = _tint["station"]
+	_decal(_ellipse_pts(station, 0.75, 0.75, 48), true, stc, 0.08, _crucible)
+	_decal([station + Vector2(-0.55, 0.0), station + Vector2(0.55, 0.0)], false, stc, 0.06, _crucible)
+	_decal([station + Vector2(0.0, -0.55), station + Vector2(0.0, 0.55)], false, stc, 0.06, _crucible)
+	_flat_label("STATION", station + Vector2(0.0, -1.35), stc, 0.0055, _crucible)
+	_crucible.visible = crucible_on
+
+
+func set_crucible_visible(on: bool) -> void:
+	crucible_on = on
+	if _crucible != null:
+		_crucible.visible = on
 	_update_hud()
 
 
@@ -1235,9 +1357,9 @@ func _update_hud() -> void:
 			nm = String(names[n])
 		fs = knight._figure_scale
 	_hud.text = ("BLOCKOUT  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
-		+ "   ‖   V stack (%s) · K ink (%s) · O layout overlay (%s) · U camera clamp (%s)") \
+		+ "   ‖   V stack (%s) · K ink (%s) · O overlay (%s) · R crucible marks (%s) · U camera clamp (%s)") \
 		% [n + 1, total, nm, fs, "on" if stack_on else "off", "on" if ink_on else "off",
-		   "on" if overlay_on else "off", "on" if clamp_on else "off"]
+		   "on" if overlay_on else "off", "on" if crucible_on else "off", "on" if clamp_on else "off"]
 
 
 func set_hud_visible(on: bool) -> void:
@@ -1273,6 +1395,7 @@ func _unhandled_input(e: InputEvent) -> void:
 			KEY_U:
 				clamp_on = not clamp_on
 				_update_hud()
+			KEY_R: set_crucible_visible(not crucible_on)
 
 
 func _check_key_collisions() -> void:
@@ -1295,7 +1418,7 @@ func _check_key_collisions() -> void:
 				else:
 					project[name] = String(action)
 					push_warning("barrow_full: key %s also drives project action '%s'" % [name, action])
-	report["key_collisions"] = {"raw_keys": {"V": "stack", "K": "ink", "O": "overlay", "U": "camera clamp"},
+	report["key_collisions"] = {"raw_keys": {"V": "stack", "K": "ink", "O": "overlay", "U": "camera clamp", "R": "crucible marks"},
 		"clashes_with_project_actions": project, "bare_builtin_ui_informational": builtin,
 		"_clear": project.is_empty()}
 
@@ -1391,6 +1514,125 @@ func build_records() -> Dictionary:
 		rec["origin_uv"] = [snappedf(o.x, 0.0001), snappedf(o.y, 0.0001)]
 		out[id] = rec
 	return out
+
+
+func _group_of(n: Node) -> String:
+	"""Which placement a collider belongs to: the node directly under Props or Level."""
+	var cur := n
+	while cur != null and cur.get_parent() != null:
+		var par := cur.get_parent()
+		if par == props_root or par == level:
+			var nm := String(cur.name)
+			return "bounds" if nm == "Bounds" else nm
+		cur = par
+	return "?"
+
+
+func collider_footprints() -> Array:
+	"""EVERY OBSTACLE HE CAN WALK INTO, as ground polygons: each collision shape on the terrain
+	layer (the floor excepted), cut to the slab his capsule occupies (y 0.05 to 1.9) and projected
+	to (u, v). What the no-squeeze instrument measures between -- the colliders themselves, not
+	the meshes' idea of them."""
+	var out := []
+	for n in find_children("*", "StaticBody3D", true, false):
+		var sb := n as StaticBody3D
+		if (sb.collision_layer & TERRAIN_BIT) == 0 or String(sb.name) == "FloorBody":
+			continue
+		var grp := _group_of(sb)
+		for ch in sb.get_children():
+			var cs := ch as CollisionShape3D
+			if cs == null or cs.shape == null:
+				continue
+			var t: Transform3D = cs.global_transform
+			var pts := PackedVector3Array()
+			var lo := INF
+			var hi := -INF
+			if cs.shape is BoxShape3D:
+				var h: Vector3 = (cs.shape as BoxShape3D).size * 0.5
+				for sx in [-1.0, 1.0]:
+					for sy in [-1.0, 1.0]:
+						for sz in [-1.0, 1.0]:
+							var w := t * Vector3(h.x * sx, h.y * sy, h.z * sz)
+							pts.append(w)
+							lo = minf(lo, w.y)
+							hi = maxf(hi, w.y)
+			elif cs.shape is CylinderShape3D:
+				var cy := cs.shape as CylinderShape3D
+				for k in 16:
+					var a := TAU * float(k) / 16.0
+					for sy in [-1.0, 1.0]:
+						var w := t * Vector3(cy.radius * cos(a), cy.height * 0.5 * sy, cy.radius * sin(a))
+						pts.append(w)
+						lo = minf(lo, w.y)
+						hi = maxf(hi, w.y)
+			elif cs.shape is ConvexPolygonShape3D:
+				for p in (cs.shape as ConvexPolygonShape3D).points:
+					var w := t * p
+					lo = minf(lo, w.y)
+					hi = maxf(hi, w.y)
+					if w.y <= LOW_M:
+						pts.append(w)
+			if hi < 0.05 or lo > LOW_M or pts.size() < 3:
+				continue
+			var p2 := PackedVector2Array()
+			for w in pts:
+				p2.append(world_to_uv(w))
+			out.append({"group": grp, "poly": _hull_arr(p2)})
+	return out
+
+
+func set_door_mask(mode: String) -> void:
+	"""THE DOOR-VISIBILITY INSTRUMENT. "mask": the door frame's (lintel's and posts') surfaces
+	that face the camera side (-v) render pure magenta, unlit; everything else as it is.
+	"alone": the same, with every other visible thing hidden. "off": put it all back."""
+	var door_ids := ["door_lintel", "door_post_L", "door_post_R"]
+	if mode == "off":
+		for mi in _door_saved.get("mats", {}):
+			(mi as MeshInstance3D).material_override = _door_saved["mats"][mi]
+		for nd in _door_saved.get("hidden", []):
+			(nd as Node3D).visible = true
+		for mi in _prop_inks:
+			(mi as MeshInstance3D).visible = true
+		if post_q != null:
+			post_q.visible = stack_on and ink_on
+		_door_saved = {}
+		return
+	if _door_saved.is_empty():
+		var sh := Shader.new()
+		sh.code = """
+shader_type spatial;
+render_mode unshaded, cull_back, shadows_disabled, fog_disabled;
+uniform vec3 face_dir = vec3(0.0, 0.0, 1.0);
+varying vec3 wn;
+void vertex() { wn = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz); }
+void fragment() { ALBEDO = dot(normalize(wn), face_dir) > 0.3 ? vec3(1.0, 0.0, 1.0) : vec3(0.06, 0.06, 0.06); }
+"""
+		var mat := ShaderMaterial.new()
+		mat.shader = sh
+		mat.set_shader_parameter("face_dir", -v_hat)
+		var mats := {}
+		for id in door_ids:
+			for mi in _meshes(nodes[id]):
+				mats[mi] = (mi as MeshInstance3D).material_override
+				(mi as MeshInstance3D).material_override = mat
+		_door_saved = {"mats": mats, "hidden": []}
+		for mi in _prop_inks:
+			(mi as MeshInstance3D).visible = false
+		if post_q != null:
+			post_q.visible = false
+	if mode == "alone":
+		var hide := []
+		for ch in level.get_children():
+			if (ch as Node3D).visible:
+				hide.append(ch)
+		for ch in props_root.get_children():
+			if not (String(ch.name) in door_ids) and (ch as Node3D).visible:
+				hide.append(ch)
+		if knight != null and knight.visible:
+			hide.append(knight)
+		for nd in hide:
+			(nd as Node3D).visible = false
+		_door_saved["hidden"] = hide
 
 
 func _hull_arr(pts: PackedVector2Array) -> Array:

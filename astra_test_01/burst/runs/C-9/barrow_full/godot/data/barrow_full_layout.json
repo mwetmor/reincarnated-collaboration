@@ -1,6 +1,7 @@
 {
- "_what": "C-9 T10-2 step 1: the Frost King's Barrow, full area, blockout layout. Design numbers from the spec table; finalize.py merges in the BUILT numbers (world transforms, measured sizes and footprints) from the Godot scene.",
- "_spec": "agentic_orchestration/gandalf/notes/2026-09-29-barrow-full-area-blockout-spec.md",
+ "_what": "C-9 T10-2 step 1 (spec v2): the Frost King's Barrow, full area, blockout layout. Design numbers from the spec table; finalize.py merges in the BUILT numbers (world transforms, measured sizes, footprints, colliders) from the Godot scene.",
+ "_spec": "agentic_orchestration/gandalf/notes/2026-09-29-barrow-full-area-blockout-spec.md (v2)",
+ "version": 2,
  "_rulings": {
   "R-C9-73": "fully generated: no Synty, nothing bought",
   "R-C9-74": "one flat play floor; elevation only by architected steps",
@@ -31,30 +32,51 @@
    "yaw_deg": 47.0,
    "px_per_m_across": 100.617553710938,
    "px_per_ground_m_up_screen": 80.3076,
-   "px_per_vertical_m": 60.6183
+   "px_per_vertical_m": 60.6183,
+   "lift_px": 55.0,
+   "frame_px": [
+    1920,
+    1080
+   ],
+   "frame_reach_from_his_feet_m": {
+    "across": 9.5411,
+    "up_screen": 7.409,
+    "down_screen": 6.0393
+   }
   },
   "guide_window": {
    "u": [
-    -20.3543,
-    20.3543
+    -28.715,
+    24.715
    ],
    "v": [
-    -15.9387,
-    15.9387
+    -23.7203,
+    17.7203
    ],
    "px": [
-    4096,
-    2560
+    5376,
+    3328
    ],
    "centre_uv": [
-    0.0,
-    0.0
+    -2.0,
+    -3.0
    ],
-   "_px_from_uv": "x = 2048 + u*100.6176 ; y = 1280 - v*80.3076 - h*60.6175"
+   "_px_from_uv": "x = (u - u0) * 100.6176 ; y = (v1 - v) * 80.3076 - h * 60.6175"
+  },
+  "reach_box": {
+   "u": [
+    -19.1739,
+    15.1739
+   ],
+   "v": [
+    -17.681,
+    10.3113
+   ],
+   "_": "where his centre may stand if the camera, centred on him with its 55 px lift, is to show nothing outside the window"
   },
   "chunks": {
-   "cols": 3,
-   "rows": 3,
+   "cols": 4,
+   "rows": 4,
    "canvas_px": [
     1536,
     1024
@@ -74,12 +96,12 @@
      ],
      "ground_uv": {
       "u": [
-       -20.3543,
-       -5.0886
+       -28.715,
+       -13.4493
       ],
       "v": [
-       3.1877,
-       15.9387
+       4.9694,
+       17.7203
       ]
      }
     },
@@ -93,12 +115,12 @@
      ],
      "ground_uv": {
       "u": [
-       -7.6329,
-       7.6329
+       -15.9936,
+       -0.7279
       ],
       "v": [
-       3.1877,
-       15.9387
+       4.9694,
+       17.7203
       ]
      }
     },
@@ -112,12 +134,31 @@
      ],
      "ground_uv": {
       "u": [
-       5.0886,
-       20.3543
+       -3.2721,
+       11.9936
       ],
       "v": [
-       3.1877,
-       15.9387
+       4.9694,
+       17.7203
+      ]
+     }
+    },
+    {
+     "key": "3_0",
+     "px": [
+      3840,
+      0,
+      5376,
+      1024
+     ],
+     "ground_uv": {
+      "u": [
+       9.4493,
+       24.715
+      ],
+      "v": [
+       4.9694,
+       17.7203
       ]
      }
     },
@@ -131,12 +172,12 @@
      ],
      "ground_uv": {
       "u": [
-       -20.3543,
-       -5.0886
+       -28.715,
+       -13.4493
       ],
       "v": [
-       -6.3755,
-       6.3755
+       -4.5939,
+       8.1571
       ]
      }
     },
@@ -150,12 +191,12 @@
      ],
      "ground_uv": {
       "u": [
-       -7.6329,
-       7.6329
+       -15.9936,
+       -0.7279
       ],
       "v": [
-       -6.3755,
-       6.3755
+       -4.5939,
+       8.1571
       ]
      }
     },
@@ -169,12 +210,31 @@
      ],
      "ground_uv": {
       "u": [
-       5.0886,
-       20.3543
+       -3.2721,
+       11.9936
       ],
       "v": [
-       -6.3755,
-       6.3755
+       -4.5939,
+       8.1571
+      ]
+     }
+    },
+    {
+     "key": "3_1",
+     "px": [
+      3840,
+      768,
+      5376,
+      1792
+     ],
+     "ground_uv": {
+      "u": [
+       9.4493,
+       24.715
+      ],
+      "v": [
+       -4.5939,
+       8.1571
       ]
      }
     },
@@ -188,12 +248,12 @@
      ],
      "ground_uv": {
       "u": [
-       -20.3543,
-       -5.0886
+       -28.715,
+       -13.4493
       ],
       "v": [
-       -15.9387,
-       -3.1877
+       -14.1571,
+       -1.4061
       ]
      }
     },
@@ -207,12 +267,12 @@
      ],
      "ground_uv": {
       "u": [
-       -7.6329,
-       7.6329
+       -15.9936,
+       -0.7279
       ],
       "v": [
-       -15.9387,
-       -3.1877
+       -14.1571,
+       -1.4061
       ]
      }
     },
@@ -226,12 +286,107 @@
      ],
      "ground_uv": {
       "u": [
-       5.0886,
-       20.3543
+       -3.2721,
+       11.9936
       ],
       "v": [
-       -15.9387,
-       -3.1877
+       -14.1571,
+       -1.4061
+      ]
+     }
+    },
+    {
+     "key": "3_2",
+     "px": [
+      3840,
+      1536,
+      5376,
+      2560
+     ],
+     "ground_uv": {
+      "u": [
+       9.4493,
+       24.715
+      ],
+      "v": [
+       -14.1571,
+       -1.4061
+      ]
+     }
+    },
+    {
+     "key": "0_3",
+     "px": [
+      0,
+      2304,
+      1536,
+      3328
+     ],
+     "ground_uv": {
+      "u": [
+       -28.715,
+       -13.4493
+      ],
+      "v": [
+       -23.7203,
+       -10.9694
+      ]
+     }
+    },
+    {
+     "key": "1_3",
+     "px": [
+      1280,
+      2304,
+      2816,
+      3328
+     ],
+     "ground_uv": {
+      "u": [
+       -15.9936,
+       -0.7279
+      ],
+      "v": [
+       -23.7203,
+       -10.9694
+      ]
+     }
+    },
+    {
+     "key": "2_3",
+     "px": [
+      2560,
+      2304,
+      4096,
+      3328
+     ],
+     "ground_uv": {
+      "u": [
+       -3.2721,
+       11.9936
+      ],
+      "v": [
+       -23.7203,
+       -10.9694
+      ]
+     }
+    },
+    {
+     "key": "3_3",
+     "px": [
+      3840,
+      2304,
+      5376,
+      3328
+     ],
+     "ground_uv": {
+      "u": [
+       9.4493,
+       24.715
+      ],
+      "v": [
+       -23.7203,
+       -10.9694
       ]
      }
     }
@@ -284,6 +439,21 @@
    0.12,
    0.11,
    0.105
+  ],
+  "rune": [
+   0.45,
+   0.78,
+   1.0
+  ],
+  "boss": [
+   0.95,
+   0.52,
+   0.2
+  ],
+  "station": [
+   0.98,
+   0.96,
+   0.9
   ]
  },
  "placements": [
@@ -294,36 +464,48 @@
    "kind": "structure",
    "spec_uv": [
     0.0,
-    11.0
+    13.0
    ],
    "uv": [
     0.0,
-    11.0
+    13.0
    ],
    "semi_axes": [
     6.0,
-    3.5
+    4.5
    ],
-   "rise_m": 2.6,
-   "profile": "h = rise * (1 - rho^2)^0.65, smooth: a KERBED barrow -- steep at the foot, rounded on top; the foot's vertices lie on the ellipse",
-   "_profile_why": "the spec fixes the footprint (12 x 7 m) and the rise (2.6 m), not the profile. barrow_world's 1.15 meets the floor tangentially and reads as a tent-flat hump at the play camera; 0.65 keeps both numbers and puts the flanks up, which is what a barrow is",
-   "exponent": 0.65,
+   "rise_m": 4.2,
+   "rise_spec_m": 4.0,
+   "exponent": 0.35,
+   "toe_rho": 0.08,
+   "profile": "h = rise * (1 - rho^2)^0.35 * smoothstep over the outer 8% of rho: KERBED -- a ~70-75 deg kerb, flat on top; the foot's vertices on the ellipse",
    "tint": "mound",
    "walkable": false,
-   "collider": "vertical box ring at rho 0.97, the passage mouth left open",
+   "collider": "48 vertical boxes on the rim at rho 0.97, the cutting's mouth left open; the cutting walls; the facade",
+   "door_v": 10.6,
+   "cutting": {
+    "half_w": 1.3,
+    "wall_t": 0.4,
+    "v_facade": 10.5,
+    "facade_t": 0.3,
+    "floor_y": 0.0,
+    "_walk": "walkable to the facade; the facade's collider spans the opening, so he stops IN the doorway (centre <= v 10.15)",
+    "_facade_at_10_5": "on the mound's 0.1 m grid, 0.115 m behind the posts' fronts and 0.2 m behind the lintel's, so the door frame stands proud of it"
+   },
    "passage": {
     "half_w": 0.7,
-    "v0": 7.5,
-    "v_mouth": 9.0,
-    "threshold_to": 7.9,
+    "v0": 10.5,
+    "v_end": 12.5,
     "risers_v": [
-     7.9,
-     8.3,
-     8.7
+     10.9,
+     11.3,
+     11.7
     ],
     "riser_m": 0.2,
-    "_walk": "a 31-degree ramp collider under the visual steps; move_and_slide does not step UP a riser"
-   }
+    "ceiling_y": 1.99,
+    "walkable": false
+   },
+   "_why_4_2": "the lintel's top is 3.185 m (v1, measured); the cover rule needs >= 3.485 m of mound directly behind the door and the camera-margin rule needs the threshold at v <= 10.66 -- a 4.0 m kerbed dome admits no door position, 4.2 m admits ~0.25 m of it"
   },
   {
    "id": "door_lintel",
@@ -331,14 +513,12 @@
    "class": "lintel",
    "kind": "model",
    "glb": "res://models/barrow/lintel.glb",
-   "spec_uv": [
-    0.0,
-    7.5
-   ],
+   "spec_uv": null,
    "uv": [
     0.0,
-    7.5
+    10.6
    ],
+   "derived_from": "spec v2: the door on the centre line, set into the mound's face; v 10.6 from the cover and camera-margin rules (see the mound's _why_4_2)",
    "yaw_world_deg": 135.0,
    "axis": "across",
    "target_m": 2.28,
@@ -350,7 +530,7 @@
     "door_post_L",
     "door_post_R"
    ],
-   "_faces": "yaw 135 is the manifest's camera-facing yaw; its long axis then lies -2.0 deg off +u"
+   "door_piece": true
   },
   {
    "id": "door_post_L",
@@ -361,16 +541,17 @@
    "spec_uv": null,
    "uv": [
     -0.8995,
-    7.5314
+    10.6314
    ],
-   "derived_from": "door_lintel: under its ends, 0.90 m along its long axis",
+   "derived_from": "door_lintel: under its ends, 0.90 m along its long axis (ratified on v1)",
    "yaw_world_deg": 30.0,
    "axis": "height",
    "target_m": 2.04,
    "pitch_correct": true,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull"
+   "collider": "hull",
+   "door_piece": true
   },
   {
    "id": "door_post_R",
@@ -381,16 +562,17 @@
    "spec_uv": null,
    "uv": [
     0.8995,
-    7.4686
+    10.5686
    ],
-   "derived_from": "door_lintel: under its ends, 0.90 m along its long axis",
+   "derived_from": "door_lintel: under its ends, 0.90 m along its long axis (ratified on v1)",
    "yaw_world_deg": 30.0,
    "axis": "height",
    "target_m": 2.04,
    "pitch_correct": true,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull"
+   "collider": "hull",
+   "door_piece": true
   },
   {
    "id": "ring_p155",
@@ -441,20 +623,20 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned +20 toward the ring axis"
   },
   {
-   "id": "ring_p125",
-   "piece": "ring stone +125",
+   "id": "ring_p135",
+   "piece": "ring stone +135",
    "class": "stone_mid",
    "kind": "model",
    "glb": "res://models/barrow/stone_mid.glb",
    "spec_uv": [
-    7.3724,
-    -3.1622
+    6.364,
+    -4.364
    ],
    "uv": [
-    7.3724,
-    -3.1622
+    6.364,
+    -4.364
    ],
-   "theta_deg": 125,
+   "theta_deg": 135,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -465,20 +647,20 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned -20 toward the ring axis"
   },
   {
-   "id": "ring_m125",
-   "piece": "ring stone -125",
+   "id": "ring_m135",
+   "piece": "ring stone -135",
    "class": "stone_mid",
    "kind": "model",
    "glb": "res://models/barrow/stone_mid.glb",
    "spec_uv": [
-    -7.3724,
-    -3.1622
+    -6.364,
+    -4.364
    ],
    "uv": [
-    -7.3724,
-    -3.1622
+    -6.364,
+    -4.364
    ],
-   "theta_deg": -125,
+   "theta_deg": -135,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -489,11 +671,59 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned +20 toward the ring axis"
   },
   {
-   "id": "ring_p95",
-   "piece": "ring stone +95",
+   "id": "ring_p115",
+   "piece": "ring stone +115",
    "class": "stone_short",
    "kind": "model",
    "glb": "res://models/barrow/stone_short.glb",
+   "spec_uv": [
+    8.1568,
+    -1.8036
+   ],
+   "uv": [
+    8.1568,
+    -1.8036
+   ],
+   "theta_deg": 115,
+   "axis": "height",
+   "target_m": 1.24,
+   "pitch_correct": true,
+   "width_m": null,
+   "hull_px": 1.1,
+   "collider": "hull",
+   "yaw_world_deg": 325.0,
+   "_facing": "manifest yaw 345 (carved face at -v) turned -20 toward the ring axis"
+  },
+  {
+   "id": "ring_m115",
+   "piece": "ring stone -115",
+   "class": "stone_short",
+   "kind": "model",
+   "glb": "res://models/barrow/stone_short.glb",
+   "spec_uv": [
+    -8.1568,
+    -1.8036
+   ],
+   "uv": [
+    -8.1568,
+    -1.8036
+   ],
+   "theta_deg": -115,
+   "axis": "height",
+   "target_m": 1.24,
+   "pitch_correct": true,
+   "width_m": null,
+   "hull_px": 1.1,
+   "collider": "hull",
+   "yaw_world_deg": 5.0,
+   "_facing": "manifest yaw 345 (carved face at -v) turned +20 toward the ring axis"
+  },
+  {
+   "id": "ring_p95",
+   "piece": "ring stone +95",
+   "class": "stone_tall",
+   "kind": "model",
+   "glb": "res://models/barrow/stone_tall.glb",
    "spec_uv": [
     8.9658,
     1.2156
@@ -504,13 +734,13 @@
    ],
    "theta_deg": 95,
    "axis": "height",
-   "target_m": 1.24,
+   "target_m": 2.71,
    "pitch_correct": true,
    "width_m": null,
    "hull_px": 1.1,
    "collider": "hull",
-   "yaw_world_deg": 325.0,
-   "_facing": "manifest yaw 345 (carved face at -v) turned -20 toward the ring axis"
+   "yaw_world_deg": 40.0,
+   "_facing": "manifest yaw 60 (carved face at -v) turned -20 toward the ring axis"
   },
   {
    "id": "ring_m95",
@@ -545,20 +775,20 @@
    }
   },
   {
-   "id": "ring_p65",
-   "piece": "ring stone +65 (the raven's perch)",
-   "class": "stone_tall",
+   "id": "ring_p75",
+   "piece": "ring stone +75",
+   "class": "stone_mid",
    "kind": "model",
-   "glb": "res://models/barrow/stone_tall.glb",
+   "glb": "res://models/barrow/stone_mid.glb",
    "spec_uv": [
-    8.1568,
-    5.8036
+    8.6933,
+    4.3294
    ],
    "uv": [
-    8.1568,
-    5.8036
+    8.6933,
+    4.3294
    ],
-   "theta_deg": 65,
+   "theta_deg": 75,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -569,20 +799,20 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned -20 toward the ring axis"
   },
   {
-   "id": "ring_m65",
-   "piece": "ring stone -65",
-   "class": "stone_tall",
+   "id": "ring_m75",
+   "piece": "ring stone -75",
+   "class": "stone_mid",
    "kind": "model",
-   "glb": "res://models/barrow/stone_tall.glb",
+   "glb": "res://models/barrow/stone_mid.glb",
    "spec_uv": [
-    -8.1568,
-    5.8036
+    -8.6933,
+    4.3294
    ],
    "uv": [
-    -8.1568,
-    5.8036
+    -8.6933,
+    4.3294
    ],
-   "theta_deg": -65,
+   "theta_deg": -75,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -593,20 +823,20 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned +20 toward the ring axis"
   },
   {
-   "id": "ring_p40",
-   "piece": "ring stone +40",
-   "class": "stone_mid",
+   "id": "ring_p55",
+   "piece": "ring stone +55 (the raven's perch)",
+   "class": "stone_tall",
    "kind": "model",
-   "glb": "res://models/barrow/stone_mid.glb",
+   "glb": "res://models/barrow/stone_tall.glb",
    "spec_uv": [
-    5.7851,
-    8.8944
+    7.3724,
+    7.1622
    ],
    "uv": [
-    5.7851,
-    8.8944
+    7.3724,
+    7.1622
    ],
-   "theta_deg": 40,
+   "theta_deg": 55,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -617,20 +847,20 @@
    "_facing": "manifest yaw 60 (carved face at -v) turned -20 toward the ring axis"
   },
   {
-   "id": "ring_m40",
-   "piece": "ring stone -40",
-   "class": "stone_mid",
+   "id": "ring_m55",
+   "piece": "ring stone -55",
+   "class": "stone_tall",
    "kind": "model",
-   "glb": "res://models/barrow/stone_mid.glb",
+   "glb": "res://models/barrow/stone_tall.glb",
    "spec_uv": [
-    -5.7851,
-    8.8944
+    -7.3724,
+    7.1622
    ],
    "uv": [
-    -5.7851,
-    8.8944
+    -7.3724,
+    7.1622
    ],
-   "theta_deg": -40,
+   "theta_deg": -55,
    "axis": "height",
    "target_m": 2.71,
    "pitch_correct": true,
@@ -639,6 +869,54 @@
    "collider": "hull",
    "yaw_world_deg": 80.0,
    "_facing": "manifest yaw 60 (carved face at -v) turned +20 toward the ring axis"
+  },
+  {
+   "id": "ring_p35",
+   "piece": "ring stone +35 (at the mound's foot)",
+   "class": "stone_short",
+   "kind": "model",
+   "glb": "res://models/barrow/stone_short.glb",
+   "spec_uv": [
+    5.1622,
+    9.3724
+   ],
+   "uv": [
+    5.1622,
+    9.3724
+   ],
+   "theta_deg": 35,
+   "axis": "height",
+   "target_m": 1.24,
+   "pitch_correct": true,
+   "width_m": null,
+   "hull_px": 1.1,
+   "collider": "hull",
+   "yaw_world_deg": 325.0,
+   "_facing": "manifest yaw 345 (carved face at -v) turned -20 toward the ring axis"
+  },
+  {
+   "id": "ring_m35",
+   "piece": "ring stone -35 (at the mound's foot)",
+   "class": "stone_short",
+   "kind": "model",
+   "glb": "res://models/barrow/stone_short.glb",
+   "spec_uv": [
+    -5.1622,
+    9.3724
+   ],
+   "uv": [
+    -5.1622,
+    9.3724
+   ],
+   "theta_deg": -35,
+   "axis": "height",
+   "target_m": 1.24,
+   "pitch_correct": true,
+   "width_m": null,
+   "hull_px": 1.1,
+   "collider": "hull",
+   "yaw_world_deg": 5.0,
+   "_facing": "manifest yaw 345 (carved face at -v) turned +20 toward the ring axis"
   },
   {
    "id": "raven",
@@ -648,7 +926,7 @@
    "glb": "res://models/barrow/raven.glb",
    "spec_uv": null,
    "uv": null,
-   "perch_on": "ring_p65",
+   "perch_on": "ring_p55",
    "yaw_world_deg": 200.0,
    "axis": "height",
    "target_m": 0.28,
@@ -656,7 +934,7 @@
    "width_m": null,
    "hull_px": 1.1,
    "collider": "none",
-   "derived_from": "the table: 'on the +65 stone'; size 0.28 m and yaw 200 from T10_HANDOFF / barrow_world"
+   "derived_from": "the table: 'on the +55 stone'"
   },
   {
    "id": "outcrop_1",
@@ -677,47 +955,47 @@
    ],
    "height_m": 2.2,
    "outward_uv": [
-    0.8031,
-    -0.5958
+    1.0,
+    0.0
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       14.8897,
-       -11.8657
+       14.5623,
+       -11.3252
       ],
       [
-       14.9905,
-       -13.565
+       14.8421,
+       -12.7362
       ],
       [
-       16.2905,
-       -14.181
+       15.5392,
+       -13.6614
       ],
       [
-       17.4489,
-       -14.1724
+       17.5598,
+       -13.7838
       ],
       [
-       18.7511,
-       -12.6225
+       18.8697,
+       -13.3295
       ],
       [
-       19.1667,
-       -11.2998
+       19.5784,
+       -11.9749
       ],
       [
-       18.501,
-       -9.9236
+       18.8883,
+       -10.824
       ],
       [
-       17.1655,
-       -9.792
+       17.4412,
+       -10.1924
       ],
       [
-       15.7961,
-       -10.578
+       15.867,
+       -10.2317
       ]
      ],
      "y0": 0.0,
@@ -727,40 +1005,40 @@
     {
      "poly_uv": [
       [
-       16.1351,
-       -12.6421
+       15.9843,
+       -11.8687
       ],
       [
-       16.4358,
-       -13.7951
+       16.3686,
+       -12.7994
       ],
       [
-       17.4122,
-       -14.041
+       16.9733,
+       -13.3397
       ],
       [
-       18.2065,
-       -13.8773
+       18.3774,
+       -13.1485
       ],
       [
-       18.8895,
-       -12.6358
+       19.2149,
+       -12.6582
       ],
       [
-       18.9946,
-       -11.671
+       19.517,
+       -11.6315
       ],
       [
-       18.3501,
-       -10.8167
+       18.8864,
+       -10.9353
       ],
       [
-       17.4153,
-       -10.9083
+       17.8067,
+       -10.6988
       ],
       [
-       16.582,
-       -11.6345
+       16.7312,
+       -10.9402
       ]
      ],
      "y0": 0.99,
@@ -770,40 +1048,40 @@
     {
      "poly_uv": [
       [
-       17.1859,
-       -12.5457
+       17.3515,
+       -11.5216
       ],
       [
-       17.0877,
-       -13.2539
+       17.3507,
+       -12.1257
       ],
       [
-       17.5725,
-       -13.6145
+       17.5617,
+       -12.5642
       ],
       [
-       18.0503,
-       -13.7062
+       18.3839,
+       -12.7807
       ],
       [
-       18.7141,
-       -13.175
+       18.9607,
+       -12.7013
       ],
       [
-       18.994,
-       -12.6644
+       19.364,
+       -12.2017
       ],
       [
-       18.833,
-       -12.0428
+       19.1745,
+       -11.6709
       ],
       [
-       18.2938,
-       -11.8788
+       18.6303,
+       -11.2918
       ],
       [
-       17.6651,
-       -12.0899
+       17.9788,
+       -11.1785
       ]
      ],
      "y0": 1.76,
@@ -812,7 +1090,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_2",
@@ -828,7 +1106,7 @@
     -3.0
    ],
    "footprint_m": [
-    5.6,
+    5.8,
     4.2
    ],
    "height_m": 3.0,
@@ -840,40 +1118,40 @@
     {
      "poly_uv": [
       [
-       16.0572,
-       -2.322
+       14.9921,
+       -3.5491
       ],
       [
-       16.3083,
-       -4.4459
+       16.7411,
+       -4.7878
       ],
       [
-       17.1521,
-       -5.4821
+       18.461,
+       -4.9563
       ],
       [
-       18.571,
-       -5.9425
+       20.2667,
+       -4.4551
       ],
       [
-       19.8098,
-       -4.2538
+       20.6864,
+       -2.9182
       ],
       [
-       19.9782,
-       -2.5932
+       20.4569,
+       -1.684
       ],
       [
-       19.4771,
-       -0.8498
+       18.7419,
+       -1.0352
       ],
       [
-       17.9401,
-       -0.4446
+       16.5422,
+       -1.2864
       ],
       [
-       16.706,
-       -0.6662
+       15.4689,
+       -2.1302
       ]
      ],
      "y0": 0.0,
@@ -883,40 +1161,40 @@
     {
      "poly_uv": [
       [
-       17.435,
-       -2.6825
+       16.8215,
+       -3.6203
       ],
       [
-       17.7781,
-       -4.1397
+       18.1361,
+       -4.3432
       ],
       [
-       18.4471,
-       -4.7935
+       19.3457,
+       -4.324
       ],
       [
-       19.4704,
-       -5.0012
+       20.5618,
+       -3.8324
       ],
       [
-       20.1981,
-       -3.7286
+       20.7319,
+       -2.7301
       ],
       [
-       20.1836,
-       -2.5602
+       20.4744,
+       -1.89
       ],
       [
-       19.6969,
-       -1.3874
+       19.2302,
+       -1.5747
       ],
       [
-       18.5958,
-       -1.2274
+       17.7202,
+       -1.9237
       ],
       [
-       17.755,
-       -1.4794
+       17.0407,
+       -2.5957
       ]
      ],
      "y0": 1.35,
@@ -926,40 +1204,40 @@
     {
      "poly_uv": [
       [
-       18.6769,
-       -2.626
+       18.2268,
+       -3.0882
       ],
       [
-       18.6822,
-       -3.5242
+       18.8987,
+       -3.6872
       ],
       [
-       18.9858,
-       -3.9962
+       19.6087,
+       -3.8381
       ],
       [
-       19.5564,
-       -4.2549
+       20.3858,
+       -3.7136
       ],
       [
-       20.1526,
-       -3.6082
+       20.6331,
+       -3.0918
       ],
       [
-       20.3007,
-       -2.9229
+       20.5951,
+       -2.5659
       ],
       [
-       20.1733,
-       -2.1718
+       19.9097,
+       -2.2147
       ],
       [
-       19.5508,
-       -1.9306
+       18.9799,
+       -2.2164
       ],
       [
-       19.0253,
-       -1.9653
+       18.4924,
+       -2.5183
       ]
      ],
      "y0": 2.4,
@@ -968,7 +1246,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_3",
@@ -989,47 +1267,47 @@
    ],
    "height_m": 2.5,
    "outward_uv": [
-    0.9508,
-    0.3097
+    1.0,
+    0.0
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       14.9939,
-       5.9284
+       14.6134,
+       6.5301
       ],
       [
-       15.7151,
-       4.5221
+       14.7906,
+       5.2227
       ],
       [
-       17.2042,
-       3.5853
+       15.5823,
+       4.3102
       ],
       [
-       18.3923,
-       4.1588
+       17.2771,
+       4.2727
       ],
       [
-       19.0148,
-       5.1941
+       18.7778,
+       4.5875
       ],
       [
-       18.5255,
-       6.8172
+       19.4407,
+       5.9817
       ],
       [
-       17.7614,
-       8.1467
+       18.7799,
+       7.3203
       ],
       [
-       16.2305,
-       8.3451
+       17.5258,
+       7.906
       ],
       [
-       15.1623,
-       7.3022
+       15.9653,
+       7.6558
       ]
      ],
      "y0": 0.0,
@@ -1039,40 +1317,40 @@
     {
      "poly_uv": [
       [
-       16.326,
-       6.0077
+       16.0462,
+       6.1601
       ],
       [
-       16.9495,
-       5.0938
+       16.2832,
+       5.2676
       ],
       [
-       18.0654,
-       4.573
+       16.9126,
+       4.7028
       ],
       [
-       18.8406,
-       5.0748
+       18.093,
+       4.8244
       ],
       [
-       19.1827,
-       5.8482
+       19.1079,
+       5.1739
       ],
       [
-       18.7015,
-       6.9329
+       19.4468,
+       6.2
       ],
       [
-       18.0548,
-       7.7896
+       18.8711,
+       7.0721
       ],
       [
-       16.9742,
-       7.794
+       17.949,
+       7.3696
       ],
       [
-       16.3233,
-       6.9766
+       16.887,
+       7.0599
       ]
      ],
      "y0": 1.125,
@@ -1082,40 +1360,40 @@
     {
      "poly_uv": [
       [
-       17.3951,
-       6.462
+       17.3268,
+       6.3276
       ],
       [
-       17.6337,
-       5.8426
+       17.3427,
+       5.7737
       ],
       [
-       18.2139,
-       5.3851
+       17.6327,
+       5.3574
       ],
       [
-       18.7356,
-       5.5717
+       18.3389,
+       5.2663
       ],
       [
-       19.0417,
-       5.9764
+       18.9796,
+       5.331
       ],
       [
-       18.9096,
-       6.6761
+       19.3185,
+       5.8837
       ],
       [
-       18.6496,
-       7.2653
+       19.1021,
+       6.4722
       ],
       [
-       18.019,
-       7.4163
+       18.6044,
+       6.7726
       ],
       [
-       17.5265,
-       7.0283
+       17.9415,
+       6.7376
       ]
      ],
      "y0": 2.0,
@@ -1124,7 +1402,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_4",
@@ -1145,47 +1423,47 @@
    ],
    "height_m": 1.8,
    "outward_uv": [
-    0.2452,
-    -0.9695
+    0.3049,
+    -0.9524
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       7.6832,
-       -15.1336
+       7.6963,
+       -15.3135
       ],
       [
-       8.102,
-       -15.9638
+       8.1657,
+       -16.1162
       ],
       [
-       9.3636,
-       -16.8914
+       9.4825,
+       -16.9637
       ],
       [
-       10.7443,
-       -16.5435
+       10.8389,
+       -16.5308
       ],
       [
-       12.0291,
-       -15.667
+       12.0669,
+       -15.5763
       ],
       [
-       12.1998,
-       -14.5722
+       12.1693,
+       -14.473
       ],
       [
-       11.4788,
-       -13.4018
+       11.3771,
+       -13.3496
       ],
       [
-       9.8294,
-       -13.1353
+       9.7144,
+       -13.1859
       ],
       [
-       8.5699,
-       -13.6914
+       8.4918,
+       -13.8191
       ]
      ],
      "y0": 0.0,
@@ -1195,40 +1473,40 @@
     {
      "poly_uv": [
       [
-       8.6072,
-       -16.115
+       8.6849,
+       -16.2241
       ],
       [
-       9.0204,
-       -16.618
+       9.1285,
+       -16.7005
       ],
       [
-       10.0242,
-       -17.0583
+       10.1577,
+       -17.0777
       ],
       [
-       10.914,
-       -16.6092
+       11.0179,
+       -16.5742
       ],
       [
-       11.6573,
-       -15.8137
+       11.7104,
+       -15.7342
       ],
       [
-       11.6062,
-       -15.0398
+       11.6114,
+       -14.9649
       ],
       [
-       10.9345,
-       -14.3508
+       10.8983,
+       -14.3189
       ],
       [
-       9.7671,
-       -14.4214
+       9.7375,
+       -14.4618
       ],
       [
-       8.992,
-       -14.9941
+       8.9994,
+       -15.0815
       ]
      ],
      "y0": 0.81,
@@ -1238,40 +1516,40 @@
     {
      "poly_uv": [
       [
-       9.3195,
-       -16.1175
+       9.3888,
+       -16.1728
       ],
       [
-       9.4595,
-       -16.4821
+       9.5511,
+       -16.5281
       ],
       [
-       9.9476,
-       -16.923
+       10.0656,
+       -16.9378
       ],
       [
-       10.5392,
-       -16.8359
+       10.6507,
+       -16.8141
       ],
       [
-       11.1131,
-       -16.5238
+       11.2041,
+       -16.4671
       ],
       [
-       11.2306,
-       -16.0735
+       11.2934,
+       -16.0103
       ],
       [
-       10.9787,
-       -15.554
+       11.0098,
+       -15.5075
       ],
       [
-       10.3007,
-       -15.3731
+       10.3219,
+       -15.3689
       ],
       [
-       9.7509,
-       -15.5523
+       9.7843,
+       -15.5819
       ]
      ],
      "y0": 1.44,
@@ -1280,7 +1558,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_5",
@@ -1301,47 +1579,47 @@
    ],
    "height_m": 2.0,
    "outward_uv": [
-    -0.7777,
-    -0.6287
+    -0.8188,
+    -0.5741
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       -21.1173,
-       -12.807
+       -21.0883,
+       -12.6743
       ],
       [
-       -20.3374,
-       -14.5305
+       -20.4279,
+       -14.447
       ],
       [
-       -18.5869,
-       -15.3521
+       -18.7376,
+       -15.3862
       ],
       [
-       -17.6862,
-       -14.9615
+       -17.8124,
+       -15.058
       ],
       [
-       -16.899,
-       -13.8871
+       -16.9536,
+       -14.0399
       ],
       [
-       -17.2288,
-       -12.0535
+       -17.1574,
+       -12.1881
       ],
       [
-       -18.3124,
-       -11.0788
+       -18.172,
+       -11.1417
       ],
       [
-       -19.9037,
-       -10.6362
+       -19.7293,
+       -10.5914
       ],
       [
-       -20.9282,
-       -11.6933
+       -20.8236,
+       -11.5761
       ]
      ],
      "y0": 0.0,
@@ -1351,40 +1629,40 @@
     {
      "poly_uv": [
       [
-       -21.0541,
-       -13.6983
+       -21.0877,
+       -13.5624
       ],
       [
-       -20.233,
-       -14.7372
+       -20.3394,
+       -14.6549
       ],
       [
-       -18.905,
-       -14.9994
+       -19.0325,
+       -15.0072
       ],
       [
-       -18.3593,
-       -14.5818
+       -18.4595,
+       -14.6278
       ],
       [
-       -18.0061,
-       -13.7189
+       -18.0482,
+       -13.791
       ],
       [
-       -18.5401,
-       -12.5292
+       -18.4997,
+       -12.5676
       ],
       [
-       -19.4409,
-       -12.0503
+       -19.3657,
+       -12.0283
       ],
       [
-       -20.5967,
-       -12.0186
+       -20.5166,
+       -11.9178
       ],
       [
-       -21.114,
-       -12.9098
+       -21.0935,
+       -12.7716
       ]
      ],
      "y0": 0.9,
@@ -1394,40 +1672,40 @@
     {
      "poly_uv": [
       [
-       -20.871,
-       -13.5771
+       -20.9024,
+       -13.4536
       ],
       [
-       -20.6794,
-       -14.3482
+       -20.7639,
+       -14.2359
       ],
       [
-       -20.0185,
-       -14.8203
+       -20.1368,
+       -14.752
       ],
       [
-       -19.6169,
-       -14.7271
+       -19.7297,
+       -14.6865
       ],
       [
-       -19.2102,
-       -14.3429
+       -19.2978,
+       -14.331
       ],
       [
-       -19.2075,
-       -13.5605
+       -19.2417,
+       -13.5506
       ],
       [
-       -19.5814,
-       -13.0757
+       -19.5815,
+       -13.0414
       ],
       [
-       -20.2052,
-       -12.7723
+       -20.1832,
+       -12.6961
       ],
       [
-       -20.7085,
-       -13.1314
+       -20.7099,
+       -13.0199
       ]
      ],
      "y0": 1.6,
@@ -1436,7 +1714,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_6",
@@ -1457,47 +1735,47 @@
    ],
    "height_m": 2.6,
    "outward_uv": [
-    -0.9571,
-    0.2898
+    -0.9182,
+    0.3962
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       -21.0893,
-       4.2185
+       -21.0923,
+       4.4783
       ],
       [
-       -20.6336,
-       2.406
+       -20.8447,
+       2.6259
       ],
       [
-       -19.9746,
-       1.3883
+       -20.305,
+       1.5402
       ],
       [
-       -18.406,
-       1.595
+       -18.7231,
+       1.5681
       ],
       [
-       -16.9916,
-       3.1782
+       -17.1387,
+       2.9811
       ],
       [
-       -16.8821,
-       4.6356
+       -16.865,
+       4.4167
       ],
       [
-       -17.6669,
-       6.3028
+       -17.4561,
+       6.162
       ],
       [
-       -19.0795,
-       6.5096
+       -18.8362,
+       6.5274
       ],
       [
-       -20.2766,
-       5.7661
+       -20.1097,
+       5.9241
       ]
      ],
      "y0": 0.0,
@@ -1507,40 +1785,40 @@
     {
      "poly_uv": [
       [
-       -21.2367,
-       4.072
+       -21.2461,
+       4.3355
       ],
       [
-       -20.6542,
-       2.9005
+       -20.7999,
+       3.1057
       ],
       [
-       -20.0515,
-       2.3031
+       -20.2687,
+       2.4438
       ],
       [
-       -19.0097,
-       2.6788
+       -19.191,
+       2.6992
       ],
       [
-       -18.279,
-       3.9728
+       -18.3186,
+       3.9022
       ],
       [
-       -18.4218,
-       4.9858
+       -18.3459,
+       4.9249
       ],
       [
-       -19.2076,
-       6.0087
+       -19.0109,
+       6.0301
       ],
       [
-       -20.2046,
-       5.9391
+       -20.0093,
+       6.0738
       ],
       [
-       -20.9121,
-       5.2518
+       -20.7901,
+       5.471
       ]
      ],
      "y0": 1.17,
@@ -1550,40 +1828,40 @@
     {
      "poly_uv": [
       [
-       -21.1884,
-       4.6618
+       -21.1145,
+       4.9186
       ],
       [
-       -21.1434,
-       3.8781
+       -21.1584,
+       4.1349
       ],
       [
-       -20.9518,
-       3.4063
+       -21.0214,
+       3.6445
       ],
       [
-       -20.2884,
-       3.3679
+       -20.3667,
+       3.5312
       ],
       [
-       -19.58,
-       3.9094
+       -19.6016,
+       3.9892
       ],
       [
-       -19.4199,
-       4.502
+       -19.3755,
+       4.5598
       ],
       [
-       -19.6122,
-       5.2517
+       -19.4817,
+       5.3264
       ],
       [
-       -20.1786,
-       5.4484
+       -20.0222,
+       5.586
       ],
       [
-       -20.7311,
-       5.2361
+       -20.5951,
+       5.4376
       ]
      ],
      "y0": 2.08,
@@ -1592,7 +1870,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": false
   },
   {
    "id": "outcrop_7",
@@ -1613,47 +1891,47 @@
    ],
    "height_m": 2.8,
    "outward_uv": [
-    -0.0603,
-    0.9982
+    0.0,
+    1.0
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       -15.544,
-       12.8855
+       -15.3758,
+       13.5897
       ],
       [
-       -14.8582,
-       11.7423
+       -15.3487,
+       12.1829
       ],
       [
-       -13.1491,
-       11.1049
+       -14.4494,
+       11.4814
       ],
       [
-       -11.7378,
-       11.4038
+       -12.4301,
+       11.2969
       ],
       [
-       -10.6011,
-       12.5339
+       -11.0192,
+       11.6918
       ],
       [
-       -10.713,
-       13.9364
+       -10.4631,
+       12.9408
       ],
       [
-       -11.653,
-       14.5825
+       -11.0788,
+       14.1232
       ],
       [
-       -13.6797,
-       14.6449
+       -12.7464,
+       14.8625
       ],
       [
-       -15.0642,
-       14.1657
+       -14.1731,
+       14.6492
       ]
      ],
      "y0": 0.0,
@@ -1663,40 +1941,40 @@
     {
      "poly_uv": [
       [
-       -14.7822,
-       13.3481
+       -14.7103,
+       13.8555
       ],
       [
-       -14.1655,
-       12.6478
+       -14.5137,
+       12.8905
       ],
       [
-       -12.9082,
-       12.425
+       -13.8059,
+       12.5212
       ],
       [
-       -11.9744,
-       12.8093
+       -12.3923,
+       12.6495
       ],
       [
-       -11.3347,
-       13.7311
+       -11.4709,
+       13.0998
       ],
       [
-       -11.5891,
-       14.6826
+       -11.2459,
+       14.03
       ],
       [
-       -12.3179,
-       15.0085
+       -11.8193,
+       14.7663
       ],
       [
-       -13.7211,
-       14.7952
+       -13.0609,
+       15.0644
       ],
       [
-       -14.6138,
-       14.2902
+       -14.0162,
+       14.7371
       ]
      ],
      "y0": 1.26,
@@ -1706,40 +1984,40 @@
     {
      "poly_uv": [
       [
-       -14.1341,
-       14.469
+       -13.9261,
+       14.7464
       ],
       [
-       -13.9503,
-       13.9401
+       -14.0358,
+       14.1658
       ],
       [
-       -13.3024,
-       13.5313
+       -13.7263,
+       13.8001
       ],
       [
-       -12.6965,
-       13.533
+       -12.9119,
+       13.5509
       ],
       [
-       -12.1321,
-       13.9
+       -12.298,
+       13.5921
       ],
       [
-       -12.0577,
-       14.4863
+       -11.9621,
+       14.0578
       ],
       [
-       -12.3887,
-       14.8326
+       -12.1137,
+       14.5968
       ],
       [
-       -13.2165,
-       15.0323
+       -12.7358,
+       15.044
       ],
       [
-       -13.8269,
-       14.9542
+       -13.3407,
+       15.0788
       ]
      ],
      "y0": 2.24,
@@ -1748,7 +2026,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": true
   },
   {
    "id": "outcrop_8",
@@ -1769,47 +2047,47 @@
    ],
    "height_m": 2.4,
    "outward_uv": [
-    0.3569,
-    0.9341
+    0.0,
+    1.0
    ],
    "layers": [
     {
      "poly_uv": [
       [
-       10.9859,
-       13.9416
+       10.9588,
+       12.2856
       ],
       [
-       11.1772,
-       12.428
+       11.995,
+       11.3915
       ],
       [
-       12.0506,
-       11.3184
+       13.6127,
+       11.22
       ],
       [
-       13.4793,
-       11.1734
+       14.614,
+       11.9472
       ],
       [
-       14.611,
-       11.6756
+       15.244,
+       12.8332
       ],
       [
-       15.1843,
-       12.9236
+       14.5251,
+       14.1788
       ],
       [
-       14.5355,
-       14.1287
+       13.3132,
+       14.9036
       ],
       [
-       13.0855,
-       14.8663
+       11.9268,
+       14.5291
       ],
       [
-       11.8906,
-       14.5443
+       11.0489,
+       13.6561
       ]
      ],
      "y0": 0.0,
@@ -1819,40 +2097,40 @@
     {
      "poly_uv": [
       [
-       11.7154,
-       13.95
+       11.7158,
+       12.8584
       ],
       [
-       12.0786,
-       12.9458
+       12.5609,
+       12.4071
       ],
       [
-       12.8457,
-       12.3222
+       13.692,
+       12.5386
       ],
       [
-       13.8436,
-       12.4428
+       14.2641,
+       13.1891
       ],
       [
-       14.5393,
-       12.9597
+       14.5581,
+       13.891
       ],
       [
-       14.739,
-       13.9001
+       13.8604,
+       14.6994
       ],
       [
-       14.1107,
-       14.6234
+       12.9213,
+       15.0082
       ],
       [
-       13.0071,
-       14.9042
+       12.0321,
+       14.5393
       ],
       [
-       12.2406,
-       14.5007
+       11.5667,
+       13.8082
       ]
      ],
      "y0": 1.08,
@@ -1862,40 +2140,40 @@
     {
      "poly_uv": [
       [
-       12.62,
-       14.5691
+       12.1113,
+       13.9562
       ],
       [
-       12.6183,
-       13.9284
+       12.4949,
+       13.528
       ],
       [
-       12.9225,
-       13.4192
+       13.1595,
+       13.3696
       ],
       [
-       13.5098,
-       13.282
+       13.6157,
+       13.6187
       ],
       [
-       14.0082,
-       13.4304
+       13.9258,
+       13.9539
       ],
       [
-       14.3141,
-       13.9194
+       13.6987,
+       14.553
       ],
       [
-       14.1086,
-       14.4563
+       13.2328,
+       14.9201
       ],
       [
-       13.5442,
-       14.8415
+       12.6352,
+       14.8386
       ],
       [
-       13.0292,
-       14.7716
+       12.2225,
+       14.5222
       ]
      ],
      "y0": 1.92,
@@ -1904,7 +2182,7 @@
     }
    ],
    "collider": "convex hull per layer",
-   "_shape": "three stacked slabs stepping OUT of the play area, so the inner face reads as a stepped rock face"
+   "in_margin": true
   },
   {
    "id": "cover_outcrop",
@@ -1912,96 +2190,1454 @@
    "class": "outcrop",
    "kind": "primitive",
    "spec_uv": [
-    -12.0,
-    3.0
+    -12.5,
+    4.7
    ],
    "uv": [
-    -12.0,
-    3.0
+    -12.5,
+    4.7
    ],
    "footprint_m": [
     3.0,
     2.0
    ],
    "height_m": 1.4,
+   "collider": "convex hull per layer",
    "layers": [
     {
      "poly_uv": [
       [
-       -13.398,
-       3.0181
+       -13.9517,
+       4.4555
       ],
       [
-       -13.1249,
-       2.3864
+       -13.3477,
+       3.8467
       ],
       [
-       -12.0582,
-       2.0039
+       -12.4101,
+       3.7287
       ],
       [
-       -11.0493,
-       2.2503
+       -11.4417,
+       4.0825
       ],
       [
-       -10.4405,
-       3.0445
+       -10.9586,
+       4.7271
       ],
       [
-       -10.789,
-       3.6491
+       -11.2392,
+       5.261
       ],
       [
-       -12.0155,
-       4.0025
+       -12.2898,
+       5.667
       ],
       [
-       -13.1246,
-       3.6452
+       -13.369,
+       5.504
+      ],
+      [
+       -13.8183,
+       5.0222
       ]
      ],
      "y0": 0.0,
-     "y1": 0.8,
+     "y1": 0.63,
      "top_scale": 0.9
     },
     {
      "poly_uv": [
       [
-       -12.9431,
-       2.8799
+       -13.4881,
+       4.8573
       ],
       [
-       -12.6994,
-       2.4803
+       -13.0169,
+       4.4854
       ],
       [
-       -11.9449,
-       2.3237
+       -12.3554,
+       4.4827
       ],
       [
-       -11.2889,
-       2.5851
+       -11.7124,
+       4.8104
       ],
       [
-       -10.9541,
-       3.1776
+       -11.4312,
+       5.2992
       ],
       [
-       -11.246,
-       3.5517
+       -11.6713,
+       5.6465
       ],
       [
-       -12.1053,
-       3.6736
+       -12.4357,
+       5.8397
       ],
       [
-       -12.8183,
-       3.328
+       -13.1718,
+       5.6352
+      ],
+      [
+       -13.4433,
+       5.2624
       ]
      ],
-     "y0": 0.8,
-     "y1": 1.4,
-     "top_scale": 0.85
+     "y0": 0.63,
+     "y1": 1.12,
+     "top_scale": 0.88
+    }
+   ]
+  },
+  {
+   "id": "margin_outcrop_1",
+   "piece": "margin outcrop M1",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    20.8,
+    14.4
+   ],
+   "footprint_m": [
+    5.0,
+    3.8
+   ],
+   "height_m": 2.6,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       18.3217,
+       14.0888
+      ],
+      [
+       18.6219,
+       13.1938
+      ],
+      [
+       19.9914,
+       12.3766
+      ],
+      [
+       21.6331,
+       12.751
+      ],
+      [
+       22.8362,
+       13.7321
+      ],
+      [
+       23.2299,
+       15.308
+      ],
+      [
+       22.3047,
+       16.2309
+      ],
+      [
+       20.6779,
+       16.3058
+      ],
+      [
+       18.9569,
+       15.3193
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 1.17,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       19.4053,
+       14.5891
+      ],
+      [
+       19.718,
+       14.007
+      ],
+      [
+       20.7595,
+       13.6048
+      ],
+      [
+       21.848,
+       14.0569
+      ],
+      [
+       22.5623,
+       14.8759
+      ],
+      [
+       22.6479,
+       16.0096
+      ],
+      [
+       21.9007,
+       16.5373
+      ],
+      [
+       20.7694,
+       16.3969
+      ],
+      [
+       19.6984,
+       15.5131
+      ]
+     ],
+     "y0": 1.17,
+     "y1": 2.08,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       20.2369,
+       15.6889
+      ],
+      [
+       20.2846,
+       15.2953
+      ],
+      [
+       20.7788,
+       14.8431
+      ],
+      [
+       21.4859,
+       14.8581
+      ],
+      [
+       22.0639,
+       15.1598
+      ],
+      [
+       22.3593,
+       15.7748
+      ],
+      [
+       22.0569,
+       16.2328
+      ],
+      [
+       21.394,
+       16.4014
+      ],
+      [
+       20.6025,
+       16.1413
+      ]
+     ],
+     "y0": 2.08,
+     "y1": 2.6,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_2",
+   "piece": "margin outcrop M2",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    21.6,
+    1.2
+   ],
+   "footprint_m": [
+    5.2,
+    4.0
+   ],
+   "height_m": 2.4,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       19.6474,
+       1.9334
+      ],
+      [
+       19.8764,
+       0.1268
+      ],
+      [
+       21.0268,
+       -1.3098
+      ],
+      [
+       22.4231,
+       -1.0482
+      ],
+      [
+       23.2523,
+       -0.0037
+      ],
+      [
+       23.5798,
+       1.8503
+      ],
+      [
+       22.8467,
+       2.9808
+      ],
+      [
+       21.7944,
+       3.7786
+      ],
+      [
+       20.4405,
+       3.1028
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 1.08,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       20.938,
+       1.429
+      ],
+      [
+       21.3486,
+       0.2221
+      ],
+      [
+       22.3392,
+       -0.6017
+      ],
+      [
+       23.26,
+       -0.2263
+      ],
+      [
+       23.682,
+       0.6064
+      ],
+      [
+       23.6465,
+       1.9238
+      ],
+      [
+       22.9851,
+       2.5962
+      ],
+      [
+       22.1514,
+       2.9956
+      ],
+      [
+       21.3178,
+       2.3422
+      ]
+     ],
+     "y0": 1.08,
+     "y1": 1.92,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       22.2067,
+       1.6604
+      ],
+      [
+       22.1547,
+       0.8973
+      ],
+      [
+       22.5125,
+       0.2121
+      ],
+      [
+       23.1091,
+       0.2068
+      ],
+      [
+       23.5354,
+       0.5701
+      ],
+      [
+       23.8206,
+       1.3076
+      ],
+      [
+       23.6101,
+       1.8329
+      ],
+      [
+       23.241,
+       2.2469
+      ],
+      [
+       22.6283,
+       2.0781
+      ]
+     ],
+     "y0": 1.92,
+     "y1": 2.4,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_3",
+   "piece": "margin outcrop M3",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    21.3,
+    -17.8
+   ],
+   "footprint_m": [
+    5.0,
+    3.8
+   ],
+   "height_m": 2.0,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       18.8257,
+       -18.5011
+      ],
+      [
+       19.6385,
+       -19.5173
+      ],
+      [
+       21.2457,
+       -19.7264
+      ],
+      [
+       22.5886,
+       -19.284
+      ],
+      [
+       23.5577,
+       -17.8545
+      ],
+      [
+       23.5455,
+       -16.4514
+      ],
+      [
+       22.5169,
+       -15.8935
+      ],
+      [
+       21.0289,
+       -15.9296
+      ],
+      [
+       19.2477,
+       -17.1076
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 0.9,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       20.2768,
+       -18.8671
+      ],
+      [
+       20.9216,
+       -19.5104
+      ],
+      [
+       22.056,
+       -19.5302
+      ],
+      [
+       22.9555,
+       -19.1174
+      ],
+      [
+       23.5179,
+       -18.0473
+      ],
+      [
+       23.3997,
+       -17.0722
+      ],
+      [
+       22.6405,
+       -16.7645
+      ],
+      [
+       21.6083,
+       -16.906
+      ],
+      [
+       20.4613,
+       -17.8647
+      ]
+     ],
+     "y0": 0.9,
+     "y1": 1.6,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       21.3528,
+       -18.666
+      ],
+      [
+       21.6532,
+       -19.1225
+      ],
+      [
+       22.3172,
+       -19.2724
+      ],
+      [
+       22.896,
+       -19.1395
+      ],
+      [
+       23.3568,
+       -18.5793
+      ],
+      [
+       23.4062,
+       -17.9921
+      ],
+      [
+       22.9977,
+       -17.7188
+      ],
+      [
+       22.374,
+       -17.6761
+      ],
+      [
+       21.5833,
+       -18.0996
+      ]
+     ],
+     "y0": 1.6,
+     "y1": 2.0,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_4",
+   "piece": "margin outcrop M4",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    6.2,
+    -20.6
+   ],
+   "footprint_m": [
+    4.8,
+    3.6
+   ],
+   "height_m": 1.6,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       3.9669,
+       -21.2987
+      ],
+      [
+       5.1572,
+       -22.1116
+      ],
+      [
+       6.8472,
+       -22.3259
+      ],
+      [
+       7.7951,
+       -21.8673
+      ],
+      [
+       8.4944,
+       -20.7833
+      ],
+      [
+       8.1777,
+       -19.5798
+      ],
+      [
+       6.5897,
+       -18.8478
+      ],
+      [
+       4.8048,
+       -19.17
+      ],
+      [
+       3.9709,
+       -20.1872
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 0.72,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       4.7805,
+       -22.1372
+      ],
+      [
+       5.7175,
+       -22.5115
+      ],
+      [
+       6.9048,
+       -22.4008
+      ],
+      [
+       7.4827,
+       -21.9432
+      ],
+      [
+       7.7956,
+       -21.0962
+      ],
+      [
+       7.396,
+       -20.322
+      ],
+      [
+       6.1996,
+       -20.0635
+      ],
+      [
+       5.0291,
+       -20.5552
+      ],
+      [
+       4.6141,
+       -21.3771
+      ]
+     ],
+     "y0": 0.72,
+     "y1": 1.28,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       5.2312,
+       -22.0131
+      ],
+      [
+       5.6809,
+       -22.4184
+      ],
+      [
+       6.3722,
+       -22.6028
+      ],
+      [
+       6.7926,
+       -22.4653
+      ],
+      [
+       7.1446,
+       -22.0535
+      ],
+      [
+       7.0806,
+       -21.5347
+      ],
+      [
+       6.4608,
+       -21.1407
+      ],
+      [
+       5.6998,
+       -21.1743
+      ],
+      [
+       5.2955,
+       -21.5507
+      ]
+     ],
+     "y0": 1.28,
+     "y1": 1.6,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_5",
+   "piece": "margin outcrop M5",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    -12.8,
+    -20.2
+   ],
+   "footprint_m": [
+    5.2,
+    3.8
+   ],
+   "height_m": 1.7,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -15.3738,
+       -20.469
+      ],
+      [
+       -14.1291,
+       -21.7749
+      ],
+      [
+       -12.8245,
+       -22.0509
+      ],
+      [
+       -10.8496,
+       -21.7655
+      ],
+      [
+       -10.072,
+       -20.4408
+      ],
+      [
+       -10.7441,
+       -19.2677
+      ],
+      [
+       -11.8091,
+       -18.4953
+      ],
+      [
+       -14.1177,
+       -18.3763
+      ],
+      [
+       -15.2722,
+       -19.2321
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 0.765,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       -14.5308,
+       -21.5145
+      ],
+      [
+       -13.4986,
+       -22.2421
+      ],
+      [
+       -12.5653,
+       -22.2543
+      ],
+      [
+       -11.2479,
+       -21.79
+      ],
+      [
+       -10.894,
+       -20.7747
+      ],
+      [
+       -11.515,
+       -20.0604
+      ],
+      [
+       -12.3512,
+       -19.6748
+      ],
+      [
+       -13.9527,
+       -19.9067
+      ],
+      [
+       -14.6291,
+       -20.6513
+      ]
+     ],
+     "y0": 0.765,
+     "y1": 1.36,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       -13.8867,
+       -21.5343
+      ],
+      [
+       -13.4337,
+       -22.1416
+      ],
+      [
+       -12.9036,
+       -22.3225
+      ],
+      [
+       -12.0658,
+       -22.3032
+      ],
+      [
+       -11.6747,
+       -21.7901
+      ],
+      [
+       -11.8957,
+       -21.267
+      ],
+      [
+       -12.3008,
+       -20.8912
+      ],
+      [
+       -13.2574,
+       -20.7251
+      ],
+      [
+       -13.7819,
+       -21.0236
+      ]
+     ],
+     "y0": 1.36,
+     "y1": 1.7,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_6",
+   "piece": "margin outcrop M6",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    -24.8,
+    -17.4
+   ],
+   "footprint_m": [
+    5.0,
+    3.8
+   ],
+   "height_m": 2.2,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -26.9153,
+       -17.4726
+      ],
+      [
+       -26.3393,
+       -19.17
+      ],
+      [
+       -25.5089,
+       -19.8072
+      ],
+      [
+       -24.1598,
+       -19.3426
+      ],
+      [
+       -22.7856,
+       -17.8615
+      ],
+      [
+       -22.9176,
+       -16.1658
+      ],
+      [
+       -23.7634,
+       -15.2251
+      ],
+      [
+       -24.9834,
+       -15.0932
+      ],
+      [
+       -26.2847,
+       -16.2797
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 0.99,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       -26.8586,
+       -18.1102
+      ],
+      [
+       -26.2909,
+       -19.2293
+      ],
+      [
+       -25.6523,
+       -19.5884
+      ],
+      [
+       -24.7636,
+       -19.1326
+      ],
+      [
+       -23.9583,
+       -17.9699
+      ],
+      [
+       -24.2181,
+       -16.808
+      ],
+      [
+       -24.8975,
+       -16.2401
+      ],
+      [
+       -25.756,
+       -16.2698
+      ],
+      [
+       -26.54,
+       -17.2211
+      ]
+     ],
+     "y0": 0.99,
+     "y1": 1.76,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       -26.7162,
+       -18.0296
+      ],
+      [
+       -26.6239,
+       -18.7768
+      ],
+      [
+       -26.3366,
+       -19.1096
+      ],
+      [
+       -25.7422,
+       -19.0335
+      ],
+      [
+       -25.0509,
+       -18.5414
+      ],
+      [
+       -24.9607,
+       -17.8328
+      ],
+      [
+       -25.2284,
+       -17.3739
+      ],
+      [
+       -25.7189,
+       -17.2157
+      ],
+      [
+       -26.3552,
+       -17.5928
+      ]
+     ],
+     "y0": 1.76,
+     "y1": 2.2,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_7",
+   "piece": "margin outcrop M7",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    -25.4,
+    -5.2
+   ],
+   "footprint_m": [
+    5.4,
+    4.0
+   ],
+   "height_m": 2.6,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -27.4277,
+       -5.0506
+      ],
+      [
+       -27.1488,
+       -6.387
+      ],
+      [
+       -26.028,
+       -7.7519
+      ],
+      [
+       -24.8612,
+       -7.9511
+      ],
+      [
+       -23.7776,
+       -6.6822
+      ],
+      [
+       -23.4597,
+       -4.7043
+      ],
+      [
+       -24.2788,
+       -2.8505
+      ],
+      [
+       -25.4626,
+       -2.4633
+      ],
+      [
+       -26.6993,
+       -3.2025
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 1.17,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       -27.632,
+       -5.2588
+      ],
+      [
+       -27.3308,
+       -6.1658
+      ],
+      [
+       -26.4419,
+       -7.025
+      ],
+      [
+       -25.6146,
+       -7.0698
+      ],
+      [
+       -24.9628,
+       -6.1005
+      ],
+      [
+       -24.9006,
+       -4.6996
+      ],
+      [
+       -25.6189,
+       -3.4762
+      ],
+      [
+       -26.4732,
+       -3.3019
+      ],
+      [
+       -27.2738,
+       -3.9152
+      ]
+     ],
+     "y0": 1.17,
+     "y1": 2.08,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       -27.6313,
+       -4.9885
+      ],
+      [
+       -27.6147,
+       -5.5616
+      ],
+      [
+       -27.2521,
+       -6.2087
+      ],
+      [
+       -26.7844,
+       -6.3773
+      ],
+      [
+       -26.2426,
+       -5.9326
+      ],
+      [
+       -25.9652,
+       -5.1383
+      ],
+      [
+       -26.1669,
+       -4.3114
+      ],
+      [
+       -26.6278,
+       -4.0639
+      ],
+      [
+       -27.1937,
+       -4.2782
+      ]
+     ],
+     "y0": 2.08,
+     "y1": 2.6,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_8",
+   "piece": "margin outcrop M8",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    -24.2,
+    9.8
+   ],
+   "footprint_m": [
+    5.2,
+    3.8
+   ],
+   "height_m": 2.8,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -26.2228,
+       9.0491
+      ],
+      [
+       -25.5214,
+       7.6938
+      ],
+      [
+       -24.6167,
+       7.3658
+      ],
+      [
+       -23.0341,
+       8.0714
+      ],
+      [
+       -22.3957,
+       9.6592
+      ],
+      [
+       -22.3343,
+       11.2628
+      ],
+      [
+       -23.3004,
+       12.2669
+      ],
+      [
+       -24.8799,
+       11.7784
+      ],
+      [
+       -25.7173,
+       10.9146
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 1.26,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       -26.1763,
+       9.3449
+      ],
+      [
+       -25.5018,
+       8.5166
+      ],
+      [
+       -24.835,
+       8.4213
+      ],
+      [
+       -23.8514,
+       9.1311
+      ],
+      [
+       -23.6411,
+       10.3104
+      ],
+      [
+       -23.8285,
+       11.418
+      ],
+      [
+       -24.6341,
+       11.9679
+      ],
+      [
+       -25.6466,
+       11.4072
+      ],
+      [
+       -26.0968,
+       10.6956
+      ]
+     ],
+     "y0": 1.26,
+     "y1": 2.24,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       -26.2888,
+       10.1862
+      ],
+      [
+       -26.0596,
+       9.5876
+      ],
+      [
+       -25.6974,
+       9.4082
+      ],
+      [
+       -25.0038,
+       9.6284
+      ],
+      [
+       -24.6628,
+       10.2612
+      ],
+      [
+       -24.5619,
+       10.9276
+      ],
+      [
+       -24.918,
+       11.392
+      ],
+      [
+       -25.6002,
+       11.2623
+      ],
+      [
+       -25.9902,
+       10.9411
+      ]
+     ],
+     "y0": 2.24,
+     "y1": 2.8,
+     "top_scale": 0.8
+    }
+   ],
+   "collider": "convex hull per layer"
+  },
+  {
+   "id": "margin_outcrop_9",
+   "piece": "margin outcrop M9",
+   "class": "outcrop",
+   "kind": "primitive",
+   "spec_uv": null,
+   "uv": [
+    -19.4,
+    15.2
+   ],
+   "footprint_m": [
+    4.6,
+    3.6
+   ],
+   "height_m": 2.4,
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: the margin beyond the bounds is scenery (outcrops, tree lines, scrub)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -21.7422,
+       15.3418
+      ],
+      [
+       -21.3896,
+       14.2042
+      ],
+      [
+       -20.1033,
+       13.4766
+      ],
+      [
+       -18.4868,
+       13.6473
+      ],
+      [
+       -17.4499,
+       14.2202
+      ],
+      [
+       -17.0813,
+       15.5174
+      ],
+      [
+       -17.8983,
+       16.6962
+      ],
+      [
+       -19.4401,
+       16.8925
+      ],
+      [
+       -21.0537,
+       16.4665
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 1.08,
+     "top_scale": 0.9
+    },
+    {
+     "poly_uv": [
+      [
+       -21.0232,
+       15.639
+      ],
+      [
+       -20.613,
+       14.9132
+      ],
+      [
+       -19.625,
+       14.6066
+      ],
+      [
+       -18.5446,
+       14.9636
+      ],
+      [
+       -17.9205,
+       15.5095
+      ],
+      [
+       -17.8611,
+       16.4516
+      ],
+      [
+       -18.595,
+       17.1366
+      ],
+      [
+       -19.6789,
+       17.0418
+      ],
+      [
+       -20.7194,
+       16.5106
+      ]
+     ],
+     "y0": 1.08,
+     "y1": 1.92,
+     "top_scale": 0.88
+    },
+    {
+     "poly_uv": [
+      [
+       -20.3728,
+       16.5539
+      ],
+      [
+       -20.2734,
+       16.0637
+      ],
+      [
+       -19.7665,
+       15.7054
+      ],
+      [
+       -19.0838,
+       15.7087
+      ],
+      [
+       -18.6263,
+       15.9044
+      ],
+      [
+       -18.4177,
+       16.431
+      ],
+      [
+       -18.7094,
+       16.958
+      ],
+      [
+       -19.3455,
+       17.105
+      ],
+      [
+       -20.0377,
+       16.9949
+      ]
+     ],
+     "y0": 1.92,
+     "y1": 2.4,
+     "top_scale": 0.8
     }
    ],
    "collider": "convex hull per layer"
@@ -2013,7 +3649,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -18.7106,
+    -19.2106,
     -2.354
    ],
    "height_m": 0.6069,
@@ -2022,35 +3658,35 @@
     {
      "poly_uv": [
       [
-       -19.5164,
+       -20.0164,
        -2.7033
       ],
       [
-       -19.3071,
+       -19.8071,
        -3.0593
       ],
       [
-       -18.8495,
+       -19.3495,
        -3.1842
       ],
       [
-       -18.1601,
+       -18.6601,
        -2.6607
       ],
       [
-       -17.9865,
+       -18.4865,
        -2.0963
       ],
       [
-       -18.2041,
+       -18.7041,
        -1.6242
       ],
       [
-       -18.5582,
+       -19.0582,
        -1.5828
       ],
       [
-       -19.2077,
+       -19.7077,
        -2.0968
       ]
      ],
@@ -2061,36 +3697,36 @@
     {
      "poly_uv": [
       [
-       -19.3165,
-       -2.5299
+       -19.8171,
+       -2.5373
       ],
       [
-       -19.1557,
-       -2.7185
+       -19.6563,
+       -2.7258
       ],
       [
-       -18.8723,
-       -2.7447
+       -19.3729,
+       -2.752
       ],
       [
-       -18.5195,
-       -2.3635
+       -19.0201,
+       -2.3708
       ],
       [
-       -18.4757,
-       -2.0119
+       -18.9764,
+       -2.0192
       ],
       [
-       -18.6535,
-       -1.7556
+       -19.1541,
+       -1.7629
       ],
       [
-       -18.8671,
-       -1.768
+       -19.3677,
+       -1.7753
       ],
       [
-       -19.1973,
-       -2.1395
+       -19.6979,
+       -2.1468
       ]
      ],
      "y0": 0.4248,
@@ -2107,7 +3743,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -19.3711,
+    -19.8711,
     -3.3214
    ],
    "height_m": 0.7635,
@@ -2116,35 +3752,35 @@
     {
      "poly_uv": [
       [
-       -20.0849,
+       -20.5849,
        -3.1533
       ],
       [
-       -20.08,
+       -20.58,
        -3.81
       ],
       [
-       -19.7396,
+       -20.2396,
        -4.255
       ],
       [
-       -19.2054,
+       -19.7054,
        -4.1836
       ],
       [
-       -18.7848,
+       -19.2848,
        -3.6249
       ],
       [
-       -18.6353,
+       -19.1353,
        -2.8428
       ],
       [
-       -18.8359,
+       -19.3359,
        -2.3009
       ],
       [
-       -19.5713,
+       -20.0713,
        -2.4457
       ]
      ],
@@ -2162,7 +3798,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -19.6402,
+    -20.1402,
     -4.4353
    ],
    "height_m": 0.6897,
@@ -2171,35 +3807,35 @@
     {
      "poly_uv": [
       [
-       -20.223,
+       -20.723,
        -4.3019
       ],
       [
-       -20.1253,
+       -20.6253,
        -4.9944
       ],
       [
-       -19.7684,
+       -20.2684,
        -5.2643
       ],
       [
-       -19.2235,
+       -19.7235,
        -5.0839
       ],
       [
-       -19.0181,
+       -19.5181,
        -4.473
       ],
       [
-       -19.1661,
+       -19.6661,
        -3.8296
       ],
       [
-       -19.4657,
+       -19.9657,
        -3.5939
       ],
       [
-       -20.0293,
+       -20.5293,
        -3.8546
       ]
      ],
@@ -2210,36 +3846,36 @@
     {
      "poly_uv": [
       [
-       -20.1902,
-       -4.3863
+       -20.6899,
+       -4.3942
       ],
       [
-       -20.0603,
-       -4.7853
+       -20.56,
+       -4.7932
       ],
       [
-       -19.8213,
-       -4.9076
+       -20.321,
+       -4.9155
       ],
       [
-       -19.5181,
-       -4.7443
+       -20.0178,
+       -4.7521
       ],
       [
-       -19.4604,
-       -4.3619
+       -19.9601,
+       -4.3697
       ],
       [
-       -19.6149,
-       -3.9971
+       -20.1146,
+       -4.005
       ],
       [
-       -19.8165,
-       -3.8891
+       -20.3162,
+       -3.8969
       ],
       [
-       -20.1223,
-       -4.1019
+       -20.622,
+       -4.1097
       ]
      ],
      "y0": 0.4828,
@@ -2256,7 +3892,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -19.693,
+    -20.193,
     -5.5721
    ],
    "height_m": 0.6717,
@@ -2265,35 +3901,35 @@
     {
      "poly_uv": [
       [
-       -20.3501,
+       -20.8501,
        -5.5659
       ],
       [
-       -20.0143,
+       -20.5143,
        -6.2985
       ],
       [
-       -19.5505,
+       -20.0505,
        -6.3771
       ],
       [
-       -19.1018,
+       -19.6018,
        -6.0822
       ],
       [
-       -19.0285,
+       -19.5285,
        -5.4686
       ],
       [
-       -19.3886,
+       -19.8886,
        -4.8845
       ],
       [
-       -19.8395,
+       -20.3395,
        -4.6779
       ],
       [
-       -20.2549,
+       -20.7549,
        -5.0912
       ]
      ],
@@ -2311,7 +3947,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -19.3933,
+    -19.8933,
     -6.6882
    ],
    "height_m": 0.6259,
@@ -2320,35 +3956,35 @@
     {
      "poly_uv": [
       [
-       -20.1972,
+       -20.6972,
        -6.1907
       ],
       [
-       -20.0706,
+       -20.5706,
        -6.9926
       ],
       [
-       -19.5437,
+       -20.0437,
        -7.5259
       ],
       [
-       -18.9731,
+       -19.4731,
        -7.6191
       ],
       [
-       -18.6115,
+       -19.1115,
        -7.2844
       ],
       [
-       -18.7477,
+       -19.2477,
        -6.4935
       ],
       [
-       -19.2943,
+       -19.7943,
        -5.7095
       ],
       [
-       -19.7371,
+       -20.2371,
        -5.7037
       ]
      ],
@@ -2359,36 +3995,36 @@
     {
      "poly_uv": [
       [
-       -20.1053,
-       -6.5578
+       -20.6079,
+       -6.5499
       ],
       [
-       -19.9469,
-       -7.0184
+       -20.4495,
+       -7.0105
       ],
       [
-       -19.5801,
-       -7.2787
+       -20.0827,
+       -7.2708
       ],
       [
-       -19.2332,
-       -7.2743
+       -19.7358,
+       -7.2664
       ],
       [
-       -19.0544,
-       -7.0389
+       -19.557,
+       -7.0309
       ],
       [
-       -19.2173,
-       -6.5857
+       -19.7199,
+       -6.5778
       ],
       [
-       -19.6219,
-       -6.1794
+       -20.1245,
+       -6.1715
       ],
       [
-       -19.8842,
-       -6.2221
+       -20.3868,
+       -6.2142
       ]
      ],
      "y0": 0.4381,
@@ -2405,7 +4041,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -18.7857,
+    -19.2857,
     -7.7039
    ],
    "height_m": 0.5956,
@@ -2414,35 +4050,35 @@
     {
      "poly_uv": [
       [
-       -19.5679,
+       -20.0679,
        -7.4611
       ],
       [
-       -19.2924,
+       -19.7924,
        -8.0926
       ],
       [
-       -18.7182,
+       -19.2182,
        -8.4881
       ],
       [
-       -18.1961,
+       -18.6961,
        -8.4082
       ],
       [
-       -17.9816,
+       -18.4816,
        -7.8364
       ],
       [
-       -18.1891,
+       -18.6891,
        -7.2651
       ],
       [
-       -18.8304,
+       -19.3304,
        -6.9614
       ],
       [
-       -19.4062,
+       -19.9062,
        -7.0365
       ]
      ],
@@ -2460,7 +4096,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -17.8715,
+    -18.3715,
     -8.5064
    ],
    "height_m": 0.7088,
@@ -2469,35 +4105,35 @@
     {
      "poly_uv": [
       [
-       -18.623,
+       -19.123,
        -8.4517
       ],
       [
-       -18.3388,
+       -18.8388,
        -8.9048
       ],
       [
-       -17.72,
+       -18.22,
        -9.1604
       ],
       [
-       -17.2679,
+       -17.7679,
        -9.0364
       ],
       [
-       -17.1241,
+       -17.6241,
        -8.5861
       ],
       [
-       -17.5589,
+       -18.0589,
        -8.051
       ],
       [
-       -18.1525,
+       -18.6525,
        -7.7921
       ],
       [
-       -18.5218,
+       -19.0218,
        -7.9329
       ]
      ],
@@ -2508,36 +4144,36 @@
     {
      "poly_uv": [
       [
-       -18.4646,
-       -8.6948
+       -18.9599,
+       -8.6978
       ],
       [
-       -18.2495,
-       -8.9329
+       -18.7447,
+       -8.9359
       ],
       [
-       -17.8572,
-       -9.0194
+       -18.3525,
+       -9.0225
       ],
       [
-       -17.603,
-       -8.899
+       -18.0982,
+       -8.9021
       ],
       [
-       -17.5649,
-       -8.618
+       -18.0602,
+       -8.6211
       ],
       [
-       -17.8776,
-       -8.3471
+       -18.3729,
+       -8.3502
       ],
       [
-       -18.2553,
-       -8.256
+       -18.7506,
+       -8.2591
       ],
       [
-       -18.4589,
-       -8.3777
+       -18.9542,
+       -8.3807
       ]
      ],
      "y0": 0.4962,
@@ -2554,7 +4190,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -16.8819,
+    -17.3819,
     -9.2924
    ],
    "height_m": 0.8199,
@@ -2563,35 +4199,35 @@
     {
      "poly_uv": [
       [
-       -17.6645,
+       -18.1645,
        -8.8474
       ],
       [
-       -17.6612,
+       -18.1612,
        -9.3718
       ],
       [
-       -17.1244,
+       -17.6244,
        -9.8973
       ],
       [
-       -16.5,
+       -17.0,
        -10.0195
       ],
       [
-       -16.0432,
+       -16.5432,
        -9.7203
       ],
       [
-       -16.0749,
+       -16.5749,
        -9.1501
       ],
       [
-       -16.437,
+       -16.937,
        -8.6903
       ],
       [
-       -17.2446,
+       -17.7446,
        -8.5628
       ]
      ],
@@ -2609,7 +4245,7 @@
    "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    -15.6757,
+    -16.1757,
     -9.8156
    ],
    "height_m": 0.5725,
@@ -2618,35 +4254,35 @@
     {
      "poly_uv": [
       [
-       -16.6558,
+       -17.1558,
        -9.4349
       ],
       [
-       -16.554,
+       -17.054,
        -10.003
       ],
       [
-       -15.9021,
+       -16.4021,
        -10.484
       ],
       [
-       -15.0813,
+       -15.5813,
        -10.4728
       ],
       [
-       -14.7307,
+       -15.2307,
        -10.088
       ],
       [
-       -14.8421,
+       -15.3421,
        -9.5456
       ],
       [
-       -15.4144,
+       -15.9144,
        -9.1322
       ],
       [
-       -16.1151,
+       -16.6151,
        -9.1437
       ]
      ],
@@ -2657,36 +4293,36 @@
     {
      "poly_uv": [
       [
-       -16.3493,
-       -9.8726
+       -16.858,
+       -9.8781
       ],
       [
-       -16.23,
-       -10.1977
+       -16.7386,
+       -10.2032
       ],
       [
-       -15.7947,
-       -10.414
+       -16.3033,
+       -10.4195
       ],
       [
-       -15.3108,
-       -10.3219
+       -15.8195,
+       -10.3273
       ],
       [
-       -15.1438,
-       -10.058
+       -15.6524,
+       -10.0634
       ],
       [
-       -15.2661,
-       -9.7491
+       -15.7748,
+       -9.7546
       ],
       [
-       -15.6473,
-       -9.5645
+       -16.156,
+       -9.5699
       ],
       [
-       -16.0602,
-       -9.6442
+       -16.5688,
+       -9.6497
       ]
      ],
      "y0": 0.4007,
@@ -2697,436 +4333,59 @@
    "collider": "convex hull per layer"
   },
   {
-   "id": "G1_birch_1",
-   "piece": "G1 birch 1",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
+   "id": "shore_rock_bridge",
+   "piece": "shore rock (bridge to outcrop 5)",
+   "class": "shore_rock",
+   "kind": "primitive",
    "spec_uv": null,
    "uv": [
-    5.65,
-    -10.45
+    -17.8982,
+    -10.5195
    ],
-   "grove": "G1",
-   "grove_spec_uv": [
-    7.0,
-    -11.0
+   "height_m": 0.7,
+   "derived_from": "closes the 1.36 m pocket between shore_rock_8 and outcrop 5 (the no-squeeze rule)",
+   "layers": [
+    {
+     "poly_uv": [
+      [
+       -18.6184,
+       -11.0611
+      ],
+      [
+       -18.3506,
+       -11.6058
+      ],
+      [
+       -17.7984,
+       -11.3349
+      ],
+      [
+       -17.3937,
+       -10.8462
+      ],
+      [
+       -17.1715,
+       -9.9947
+      ],
+      [
+       -17.4285,
+       -9.4642
+      ],
+      [
+       -18.0182,
+       -9.7254
+      ],
+      [
+       -18.4911,
+       -10.3886
+      ]
+     ],
+     "y0": 0.0,
+     "y1": 0.7,
+     "top_scale": 0.85
+    }
    ],
-   "derived_from": "grove G1 at (7, -11) x5; members sum to the grove point",
-   "yaw_world_deg": 315.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G1_birch_2",
-   "piece": "G1 birch 2",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    7.25,
-    -9.55
-   ],
-   "grove": "G1",
-   "grove_spec_uv": [
-    7.0,
-    -11.0
-   ],
-   "derived_from": "grove G1 at (7, -11) x5; members sum to the grove point",
-   "yaw_world_deg": 0.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G1_birch_3",
-   "piece": "G1 birch 3",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    8.55,
-    -10.65
-   ],
-   "grove": "G1",
-   "grove_spec_uv": [
-    7.0,
-    -11.0
-   ],
-   "derived_from": "grove G1 at (7, -11) x5; members sum to the grove point",
-   "yaw_world_deg": 270.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G1_birch_4",
-   "piece": "G1 birch 4",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    7.35,
-    -11.95
-   ],
-   "grove": "G1",
-   "grove_spec_uv": [
-    7.0,
-    -11.0
-   ],
-   "derived_from": "grove G1 at (7, -11) x5; members sum to the grove point",
-   "yaw_world_deg": 45.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G1_birch_5",
-   "piece": "G1 birch 5",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    6.2,
-    -12.4
-   ],
-   "grove": "G1",
-   "grove_spec_uv": [
-    7.0,
-    -11.0
-   ],
-   "derived_from": "grove G1 at (7, -11) x5; members sum to the grove point",
-   "yaw_world_deg": 225.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G2_birch_1",
-   "piece": "G2 birch 1",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    -11.0,
-    10.45
-   ],
-   "grove": "G2",
-   "grove_spec_uv": [
-    -10.0,
-    9.5
-   ],
-   "derived_from": "grove G2 at (-10, 9.5) x4; members sum to the grove point",
-   "yaw_world_deg": 90.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G2_birch_2",
-   "piece": "G2 birch 2",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    -9.15,
-    10.55
-   ],
-   "grove": "G2",
-   "grove_spec_uv": [
-    -10.0,
-    9.5
-   ],
-   "derived_from": "grove G2 at (-10, 9.5) x4; members sum to the grove point",
-   "yaw_world_deg": 180.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G2_birch_3",
-   "piece": "G2 birch 3",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    -10.45,
-    8.55
-   ],
-   "grove": "G2",
-   "grove_spec_uv": [
-    -10.0,
-    9.5
-   ],
-   "derived_from": "grove G2 at (-10, 9.5) x4; members sum to the grove point",
-   "yaw_world_deg": 135.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G2_birch_4",
-   "piece": "G2 birch 4",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    -9.4,
-    8.45
-   ],
-   "grove": "G2",
-   "grove_spec_uv": [
-    -10.0,
-    9.5
-   ],
-   "derived_from": "grove G2 at (-10, 9.5) x4; members sum to the grove point",
-   "yaw_world_deg": 315.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G3_birch_1",
-   "piece": "G3 birch 1",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    11.95,
-    -5.15
-   ],
-   "grove": "G3",
-   "grove_spec_uv": [
-    13.0,
-    -6.0
-   ],
-   "derived_from": "grove G3 at (13, -6) x4; members sum to the grove point",
-   "yaw_world_deg": 0.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G3_birch_2",
-   "piece": "G3 birch 2",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    13.95,
-    -4.75
-   ],
-   "grove": "G3",
-   "grove_spec_uv": [
-    13.0,
-    -6.0
-   ],
-   "derived_from": "grove G3 at (13, -6) x4; members sum to the grove point",
-   "yaw_world_deg": 270.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G3_birch_3",
-   "piece": "G3 birch 3",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    14.1,
-    -6.85
-   ],
-   "grove": "G3",
-   "grove_spec_uv": [
-    13.0,
-    -6.0
-   ],
-   "derived_from": "grove G3 at (13, -6) x4; members sum to the grove point",
-   "yaw_world_deg": 45.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G3_birch_4",
-   "piece": "G3 birch 4",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    12.0,
-    -7.25
-   ],
-   "grove": "G3",
-   "grove_spec_uv": [
-    13.0,
-    -6.0
-   ],
-   "derived_from": "grove G3 at (13, -6) x4; members sum to the grove point",
-   "yaw_world_deg": 225.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G4_birch_1",
-   "piece": "G4 birch 1",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    8.75,
-    11.65
-   ],
-   "grove": "G4",
-   "grove_spec_uv": [
-    10.0,
-    12.0
-   ],
-   "derived_from": "grove G4 at (10, 12) x3; members sum to the grove point",
-   "yaw_world_deg": 90.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G4_birch_2",
-   "piece": "G4 birch 2",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    10.25,
-    12.85
-   ],
-   "grove": "G4",
-   "grove_spec_uv": [
-    10.0,
-    12.0
-   ],
-   "derived_from": "grove G4 at (10, 12) x3; members sum to the grove point",
-   "yaw_world_deg": 180.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
-  },
-  {
-   "id": "G4_birch_3",
-   "piece": "G4 birch 3",
-   "class": "birch",
-   "kind": "model",
-   "glb": "res://models/barrow/birch.glb",
-   "spec_uv": null,
-   "uv": [
-    11.0,
-    11.5
-   ],
-   "grove": "G4",
-   "grove_spec_uv": [
-    10.0,
-    12.0
-   ],
-   "derived_from": "grove G4 at (10, 12) x3; members sum to the grove point",
-   "yaw_world_deg": 135.0,
-   "axis": "height",
-   "target_m": 3.36,
-   "pitch_correct": true,
-   "width_m": 1.38,
-   "hull_px": 0.0,
-   "mesh_mark": 0.25,
-   "collider": "trunk",
-   "trunk_r": 0.22
+   "collider": "convex hull per layer"
   },
   {
    "id": "fallen_tree_log_A",
@@ -3154,8 +4413,7 @@
    "pitch_correct": false,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull",
-   "_yaw": "kit yaw 0 lies along +u (baked to the play camera); +29 turns it toward +v, along the tarn's near shore"
+   "collider": "hull"
   },
   {
    "id": "fallen_tree_log_B",
@@ -3183,8 +4441,7 @@
    "pitch_correct": false,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull",
-   "_yaw": "kit yaw 0 lies along +u (baked to the play camera); +35 turns it toward +v, along the tarn's near shore; +180 turns it end for end"
+   "collider": "hull"
   },
   {
    "id": "grave_marker_W",
@@ -3206,8 +4463,7 @@
    "pitch_correct": false,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull",
-   "_yaw": "kit yaw 0 shows the painted front to the play camera"
+   "collider": "hull"
   },
   {
    "id": "grave_marker_E",
@@ -3229,8 +4485,7 @@
    "pitch_correct": false,
    "width_m": null,
    "hull_px": 1.1,
-   "collider": "hull",
-   "_yaw": "kit yaw 0 shows the painted front to the play camera"
+   "collider": "hull"
   },
   {
    "id": "cairn_1",
@@ -3268,14 +4523,14 @@
     -5.0,
     -14.0
    ],
-   "yaw_world_deg": 71.5651,
+   "yaw_world_deg": 50.0,
    "axis": "height",
    "target_m": 1.0,
    "pitch_correct": false,
    "width_m": null,
    "hull_px": 1.1,
    "collider": "hull",
-   "_yaw": "turned 71.6 deg so its long side runs along the path's last segment; the point is the table's"
+   "_yaw": "turned 50 deg (searched): path clearance 0.122 m, gap to the entry corner 1.524 m (squeeze line 1.40) -- the v1 turn of 71.6 deg pointed its long tip at the corner"
   },
   {
    "id": "cairn_3",
@@ -3298,6 +4553,829 @@
    "width_m": null,
    "hull_px": 1.1,
    "collider": "hull"
+  },
+  {
+   "id": "G1_birch_1",
+   "piece": "G1 birch 1",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    6.8355,
+    -9.3347
+   ],
+   "grove": "G1",
+   "grove_spec_uv": [
+    7.0,
+    -11.0
+   ],
+   "derived_from": "grove G1 at (7, -11) x5; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 315.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G1_birch_2",
+   "piece": "G1 birch 2",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    6.1751,
+    -10.0322
+   ],
+   "grove": "G1",
+   "grove_spec_uv": [
+    7.0,
+    -11.0
+   ],
+   "derived_from": "grove G1 at (7, -11) x5; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 0.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G1_birch_3",
+   "piece": "G1 birch 3",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    5.7823,
+    -12.8466
+   ],
+   "grove": "G1",
+   "grove_spec_uv": [
+    7.0,
+    -11.0
+   ],
+   "derived_from": "grove G1 at (7, -11) x5; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 270.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G1_birch_4",
+   "piece": "G1 birch 4",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    8.1821,
+    -10.9609
+   ],
+   "grove": "G1",
+   "grove_spec_uv": [
+    7.0,
+    -11.0
+   ],
+   "derived_from": "grove G1 at (7, -11) x5; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 45.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G1_birch_5",
+   "piece": "G1 birch 5",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    8.0249,
+    -11.8257
+   ],
+   "grove": "G1",
+   "grove_spec_uv": [
+    7.0,
+    -11.0
+   ],
+   "derived_from": "grove G1 at (7, -11) x5; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 225.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G2_birch_1",
+   "piece": "G2 birch 1",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -8.0524,
+    11.0021
+   ],
+   "grove": "G2",
+   "grove_spec_uv": [
+    -10.0,
+    9.5
+   ],
+   "derived_from": "grove G2 at (-10, 9.5) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 90.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G2_birch_2",
+   "piece": "G2 birch 2",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -11.1365,
+    10.8128
+   ],
+   "grove": "G2",
+   "grove_spec_uv": [
+    -10.0,
+    9.5
+   ],
+   "derived_from": "grove G2 at (-10, 9.5) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 180.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G2_birch_3",
+   "piece": "G2 birch 3",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -9.9726,
+    8.228
+   ],
+   "grove": "G2",
+   "grove_spec_uv": [
+    -10.0,
+    9.5
+   ],
+   "derived_from": "grove G2 at (-10, 9.5) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 135.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G2_birch_4",
+   "piece": "G2 birch 4",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -10.8384,
+    7.9571
+   ],
+   "grove": "G2",
+   "grove_spec_uv": [
+    -10.0,
+    9.5
+   ],
+   "derived_from": "grove G2 at (-10, 9.5) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 315.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G3_birch_1",
+   "piece": "G3 birch 1",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    13.3179,
+    -4.668
+   ],
+   "grove": "G3",
+   "grove_spec_uv": [
+    13.0,
+    -6.0
+   ],
+   "derived_from": "grove G3 at (13, -6) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 0.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G3_birch_2",
+   "piece": "G3 birch 2",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    15.1118,
+    -6.2004
+   ],
+   "grove": "G3",
+   "grove_spec_uv": [
+    13.0,
+    -6.0
+   ],
+   "derived_from": "grove G3 at (13, -6) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 270.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G3_birch_3",
+   "piece": "G3 birch 3",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    12.2966,
+    -6.4733
+   ],
+   "grove": "G3",
+   "grove_spec_uv": [
+    13.0,
+    -6.0
+   ],
+   "derived_from": "grove G3 at (13, -6) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 45.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G3_birch_4",
+   "piece": "G3 birch 4",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    11.2738,
+    -6.6583
+   ],
+   "grove": "G3",
+   "grove_spec_uv": [
+    13.0,
+    -6.0
+   ],
+   "derived_from": "grove G3 at (13, -6) x4; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 225.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G4_birch_1",
+   "piece": "G4 birch 1",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    11.3127,
+    10.9763
+   ],
+   "grove": "G4",
+   "grove_spec_uv": [
+    10.0,
+    12.0
+   ],
+   "derived_from": "grove G4 at (10, 12) x3; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 90.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G4_birch_2",
+   "piece": "G4 birch 2",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    9.716,
+    12.2779
+   ],
+   "grove": "G4",
+   "grove_spec_uv": [
+    10.0,
+    12.0
+   ],
+   "derived_from": "grove G4 at (10, 12) x3; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 180.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "G4_birch_3",
+   "piece": "G4 birch 3",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    8.9713,
+    12.7457
+   ],
+   "grove": "G4",
+   "grove_spec_uv": [
+    10.0,
+    12.0
+   ],
+   "derived_from": "grove G4 at (10, 12) x3; members found by a seeded search (no squeezes), centroid = the grove point",
+   "yaw_world_deg": 135.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_top_right_1",
+   "piece": "margin tree line TL_top_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    17.5087,
+    13.9028
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 315.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_right_1",
+   "piece": "margin tree line TL_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    23.4164,
+    -7.9647
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 0.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_right_2",
+   "piece": "margin tree line TL_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    23.8491,
+    -5.3295
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 270.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_right_3",
+   "piece": "margin tree line TL_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    23.9206,
+    -0.1758
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 45.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_right_4",
+   "piece": "margin tree line TL_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    23.0319,
+    6.3231
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 225.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_bottom_right_1",
+   "piece": "margin tree line TL_bottom_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    11.9901,
+    -21.371
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 90.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_bottom_right_2",
+   "piece": "margin tree line TL_bottom_right",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    14.6795,
+    -22.4117
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 180.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_bottom_left_1",
+   "piece": "margin tree line TL_bottom_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -18.4094,
+    -22.0746
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 135.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_bottom_left_2",
+   "piece": "margin tree line TL_bottom_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -16.1172,
+    -22.6579
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 315.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_bottom_left_3",
+   "piece": "margin tree line TL_bottom_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -10.226,
+    -22.3163
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 0.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_left_1",
+   "piece": "margin tree line TL_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -27.8825,
+    -9.4013
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 270.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_left_2",
+   "piece": "margin tree line TL_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -28.0491,
+    -5.8656
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 45.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_left_3",
+   "piece": "margin tree line TL_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -27.7141,
+    2.4515
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 225.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_top_left_1",
+   "piece": "margin tree line TL_top_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -25.4359,
+    14.4506
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 90.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_top_left_2",
+   "piece": "margin tree line TL_top_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -22.4269,
+    15.8642
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 180.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_top_left_3",
+   "piece": "margin tree line TL_top_left",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -15.5174,
+    16.2243
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 135.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
+  },
+  {
+   "id": "TL_behind_mound_1",
+   "piece": "margin tree line TL_behind_mound",
+   "class": "birch",
+   "kind": "model",
+   "glb": "res://models/barrow/birch.glb",
+   "spec_uv": null,
+   "uv": [
+    -8.7624,
+    16.5438
+   ],
+   "margin": true,
+   "derived_from": "spec v2 \u00a7 1: tree lines in the margin",
+   "yaw_world_deg": 315.0,
+   "axis": "height",
+   "target_m": 3.36,
+   "pitch_correct": true,
+   "width_m": 1.38,
+   "hull_px": 0.0,
+   "mesh_mark": 0.25,
+   "collider": "trunk",
+   "trunk_r": 0.22
   }
  ],
  "regions": {
@@ -3365,18 +5443,18 @@
      -16.0
     ],
     [
-     -3.7906,
-     -18.3717
+     -5.9068,
+     -24.7203
     ]
    ],
    "width_m": 4.0,
-   "caps": "butt at the ring entrance; runs off the bottom edge",
+   "caps": "butt at the ring entrance; runs off the window's bottom edge",
    "rule": "path ground; nothing placed on it"
   },
   "ice": {
    "type": "ellipse",
    "centre_uv": [
-    -13.0,
+    -13.5,
     -5.0
    ],
    "axes_m": [
@@ -3386,21 +5464,32 @@
    "walkable": true,
    "rule": "flat and walkable; no snow; W and SW rim is shore rock, E open"
   },
+  "cutting": {
+   "type": "corridor",
+   "half_w_m": 1.3,
+   "v": [
+    8.6069,
+    10.5
+   ],
+   "floor_y": 0.0,
+   "walkable": true
+  },
   "shrub_zones": {
    "components": [
     "outcrop_skirts (2.5 m)",
-    "under_groves (1.7 m per trunk)",
+    "under_groves_and_tree_lines (1.7 m per trunk)",
     "mound_base_outside_ring (2.2 m)",
     "tarn_far_shore (2.8 m, W half)",
-    "thicket_band_ADDED (1.5 m either side of every bounds edge but the entry)"
+    "thicket_band_ADDED (1.5 m either side of every bounds edge but the entry and the mound's)",
+    "margin_scrub_ADDED (patches over the margin beyond the bounds)"
    ],
    "edge_warp_m": 0.45,
-   "patch_cover": "~90% inside a zone, clearings on a 2.4 m lattice",
    "never_in": [
     "arena",
     "path (+0.35 m)",
     "ice",
-    "ring_entrance"
+    "ring_entrance",
+    "cutting"
    ],
    "raster": "godot/data/barrow_full_splat.bin (PNG bytes), channel B"
   },
@@ -3408,27 +5497,27 @@
    "file": "res://data/barrow_full_splat.bin",
    "encoding": "PNG bytes (RGBA8)",
    "origin_xz": [
-    -27.0,
-    -27.0
+    -33.54,
+    -31.16
    ],
    "size_m": [
-    54.0,
-    54.0
+    70.0,
+    70.0
    ],
    "m_per_px": 0.05,
    "px": [
-    1080,
-    1080
+    1400,
+    1400
    ],
    "channels": "R path, G rock (unused), B shrub (juniper and heather), A ice; snow = 1 - sum",
    "blur_sigma_m": 0.08,
    "class_share_pct_of_raster": {
-    "snow": 69.29,
-    "path": 1.97,
-    "shrub": 25.84,
-    "ice": 2.91
+    "snow": 55.7,
+    "path": 1.72,
+    "shrub": 40.85,
+    "ice": 1.73
    },
-   "sha256": "841fba238e9262d9d1136faf311c52438ea2b850b518d981bcb4a03d453b2770",
+   "sha256": "700e381f7fa626553700e8623afc1c8f6034f58e487285f436ec77f7ebacfc74",
    "_frame": "WORLD xz, not (u, v): the HEAD ground shader samples the splat axis-aligned in world"
   }
  },
@@ -3436,47 +5525,63 @@
   "polygon_uv": [
    [
     -1.0,
-    -16.0
+    -16.2
    ],
    [
     10.0,
     -15.0
    ],
    [
-    17.0,
+    15.35,
     -12.0
    ],
    [
-    18.0,
+    15.35,
     -3.0
    ],
    [
-    17.0,
+    15.35,
     6.0
    ],
    [
-    13.0,
-    13.0
+    15.35,
+    10.6
    ],
    [
-    10.0,
-    12.0
+    7.6,
+    10.6
    ],
    [
-    0.0,
-    12.5
+    5.1622,
+    9.3724
    ],
    [
-    -6.0,
-    12.5
+    1.65,
+    8.5044
    ],
    [
-    -10.0,
-    9.5
+    1.8,
+    10.8
    ],
    [
-    -13.0,
-    13.0
+    -1.8,
+    10.8
+   ],
+   [
+    -1.65,
+    8.5044
+   ],
+   [
+    -5.1622,
+    9.3724
+   ],
+   [
+    -7.6,
+    10.6
+   ],
+   [
+    -12.0,
+    10.6
    ],
    [
     -19.0,
@@ -3487,8 +5592,12 @@
     -13.0
    ],
    [
+    -11.0,
+    -15.9
+   ],
+   [
     -5.0,
-    -16.0
+    -16.2
    ]
   ],
   "entry_gap_uv": [
@@ -3501,9 +5610,31 @@
     -16.0
    ]
   ],
-  "entry_edge_index": 13,
+  "wedge_walls_at_the_35_stones": {
+   "right": {
+    "wall_uv": [
+     [
+      1.65,
+      8.5044
+     ]
+    ],
+    "stone_to_foot_narrowest_m": 0.601
+   },
+   "left": {
+    "wall_uv": [
+     [
+      -1.65,
+      8.5044
+     ]
+    ],
+    "stone_to_foot_narrowest_m": 0.51
+   }
+  },
+  "entry_edge_index": 18,
+  "wall_half_thickness_m": 0.15,
   "walls": "invisible vertical boxes 0.3 m thick, 3 m tall, on every edge; the entry edge is the EXIT line (the eventual level transition)",
-  "_reads_as": "rock where an outcrop straddles it, trees at G2/G4, the mound, and the ADDED thicket band everywhere else"
+  "_routed_by": "the camera-margin reach box (right wall u 15.35, top wall v 10.6) and the no-squeeze rule",
+  "_reads_as": "rock where an outcrop straddles it, G2's trunks, the mound, and the thicket band everywhere else"
  },
  "knight": {
   "spawn_uv": [
@@ -3519,35 +5650,202 @@
   "gear_stack": 4,
   "_gear": "full kit: helmet, bracers, byrnie, mantle, axe, shield"
  },
+ "camera_clamp_default": false,
+ "crucible": {
+  "_what": "Crucible wave-arena marks (Matt, via the coordinator): flat decals, no colliders -- the arena and flow checks are unchanged by them",
+  "spawns": [
+   {
+    "id": "S1",
+    "spec_uv": [
+     5.75,
+     6.82
+    ],
+    "uv": [
+     5.5852,
+     6.6819
+    ],
+    "r_m": 1.5,
+    "note": "north-east, between the +55 and +35 stones",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": -0.215,
+    "nudge": "-0.215 m along its own ray (toward the ring centre): its r 1.5 circle overlapped ring_p55",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_p55",
+     "centre_to_footprint_m": 1.3255
+    }
+   },
+   {
+    "id": "S2",
+    "spec_uv": [
+     -5.75,
+     6.82
+    ],
+    "uv": [
+     -5.5776,
+     6.6755
+    ],
+    "r_m": 1.5,
+    "note": "north-west, between the -55 and -35 stones",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": -0.225,
+    "nudge": "-0.225 m along its own ray (toward the ring centre): its r 1.5 circle overlapped ring_m55",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_m55",
+     "centre_to_footprint_m": 1.3161
+    }
+   },
+   {
+    "id": "S3",
+    "spec_uv": [
+     7.05,
+     -0.57
+    ],
+    "uv": [
+     6.8668,
+     -0.5032
+    ],
+    "r_m": 1.5,
+    "note": "east",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": -0.195,
+    "nudge": "-0.195 m along its own ray (toward the ring centre): its r 1.5 circle overlapped ring_p115",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_p115",
+     "centre_to_footprint_m": 1.3324
+    }
+   },
+   {
+    "id": "S4",
+    "spec_uv": [
+     -7.05,
+     -0.57
+    ],
+    "uv": [
+     -6.7728,
+     -0.469
+    ],
+    "r_m": 1.5,
+    "note": "west",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": -0.295,
+    "nudge": "-0.295 m along its own ray (toward the ring centre): its r 1.5 circle overlapped ring_m115",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_m115",
+     "centre_to_footprint_m": 1.2415
+    }
+   },
+   {
+    "id": "S5",
+    "spec_uv": [
+     0.0,
+     -5.5
+    ],
+    "uv": [
+     0.0,
+     -5.5
+    ],
+    "r_m": 1.5,
+    "note": "just inside the entrance: pressure from behind",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": 0.0,
+    "nudge": "none -- clear of every stone and the cutting walls",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_p155",
+     "centre_to_footprint_m": 3.5448
+    }
+   },
+   {
+    "id": "S6",
+    "spec_uv": [
+     -11.5,
+     -3.0
+    ],
+    "uv": [
+     -11.5,
+     -3.0
+    ],
+    "r_m": 1.5,
+    "note": "out on the tarn ice: waves that rise from the frozen water",
+    "ray_from_uv": [
+     0.0,
+     2.0
+    ],
+    "nudge_m": 0.0,
+    "nudge": "none -- clear of every stone and the cutting walls",
+    "nearest_obstacle_at_spec_point": {
+     "id": "ring_m115",
+     "centre_to_footprint_m": 3.1631
+    }
+   }
+  ],
+  "boss_gate": {
+   "uv": [
+    0.0,
+    8.6069
+   ],
+   "width_m": 2.6,
+   "note": "the barrow door's cutting, marked at its mouth: the King walks out of his tomb"
+  },
+  "station": {
+   "uv": [
+    0.0,
+    1.0
+   ],
+   "note": "the arena centre"
+  },
+  "eye_height_m": 1.7,
+  "shown": {
+   "app": "ON at launch; R hides them",
+   "guide": "OFF -- a paint-over guide must not teach the painter to paint 'S1'",
+   "stills": "the marker still only",
+   "map": "drawn"
+  },
+  "measured_by_finalize": "distance to the station, line of sight at eye height (physics raycast), walkable path length (the physics flood grid)"
+ },
  "deviations": [],
+ "groves_search_draws": {
+  "G1": 100,
+  "G2": 46,
+  "G3": 4,
+  "G4": 1
+ },
  "design_checks_prebuild": {
-  "arena_centre_dist": {
-   "door_lintel": 6.5,
-   "door_post_L": 6.593,
-   "door_post_R": 6.5308,
-   "ring_p155": 8.1048,
-   "ring_m155": 8.1048,
-   "ring_p125": 8.4662,
-   "ring_m125": 8.4662,
-   "ring_p95": 8.9684,
-   "ring_m95": 8.9684,
-   "ring_p65": 9.4661,
-   "ring_m65": 9.4661,
-   "ring_p40": 9.7872,
-   "ring_m40": 9.7872,
-   "fallen_tree_log_A": 15.9056,
-   "fallen_tree_log_B": 13.6522,
-   "grave_marker_W": 12.2066,
-   "grave_marker_E": 12.2066,
-   "cairn_1": 10.3078,
-   "cairn_2": 15.8114,
-   "cairn_3": 16.0
+  "squeezes_approx": [],
+  "camera_margin_approx": {
+   "walkable_samples": 11397,
+   "samples_outside_reach_box": 0,
+   "worst_overshoot_m": {
+    "left_m": 0.0,
+    "right_m": 0.0,
+    "top_m": 0.0,
+    "bottom_m": 0.0
+   },
+   "reach_box_u": [
+    -19.1739,
+    15.1739
+   ],
+   "reach_box_v": [
+    -17.681,
+    10.3113
+   ]
   },
-  "near_or_on_ice_rho": {
-   "ring_m125": 1.023
-  },
-  "path_centreline_dist_lt_3m": {
-   "cairn_2": 2.5298
-  }
+  "door_cover_min_m": 0.4374,
+  "mound_silhouette_top_v_eq": 18.8497,
+  "guide_top_v": 17.7203
  }
 }
