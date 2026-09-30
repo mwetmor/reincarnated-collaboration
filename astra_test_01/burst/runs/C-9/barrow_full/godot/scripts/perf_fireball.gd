@@ -12,6 +12,7 @@ extends Node
 
 const GAP_S := 3.6
 const WAIT_S := 3.0
+var wait_s := WAIT_S                 # ?perfwait=N: the first cast N s after the level is ready
 
 var scene
 var casts := 20
@@ -25,10 +26,28 @@ var _n := 0
 var _done := false
 
 
+var _ph := 0
+var _pre := 0
+var _split := [0.0, 0.0, 0.0]          # the last frame: physics, process, draw (ms)
+var _last_proc := 0
+
+
 func start(p_scene, n_casts: int, p_first_on := true) -> void:
 	scene = p_scene
 	casts = n_casts
 	first_on = p_first_on
+	# the frame split, by the engine's own signals (as tools/perf_cast.gd): physics = the first
+	# physics_frame to process_frame; process = process_frame to frame_pre_draw; draw = to frame_post_draw
+	get_tree().physics_frame.connect(func(): if _ph == 0: _ph = Time.get_ticks_usec())
+	get_tree().process_frame.connect(func():
+		_last_proc = Time.get_ticks_usec()
+		_split[0] = float(_last_proc - _ph) / 1000.0 if _ph != 0 else 0.0)
+	RenderingServer.frame_pre_draw.connect(func():
+		_pre = Time.get_ticks_usec()
+		_split[1] = float(_pre - _last_proc) / 1000.0)
+	RenderingServer.frame_post_draw.connect(func():
+		_split[2] = float(Time.get_ticks_usec() - _pre) / 1000.0
+		_ph = 0)
 
 
 func _process(_dt: float) -> void:
@@ -38,13 +57,17 @@ func _process(_dt: float) -> void:
 	if _t0 == 0:
 		_t0 = now
 		_last = now
-		_next = WAIT_S
+		var pw := PaintStack.web_query("perfwait")
+		wait_s = float(pw) if pw != "" else WAIT_S
+		_next = wait_s
 		scene.place_knight(1.5, -1.5, "E")
 		return
 	var fb = scene.spell_fx.fire_ball if scene.spell_fx != null else null
+	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
-		int(fb.last_us) if fb != null else 0, _n])
+		int(fb.last_us) if fb != null else 0, _n, snappedf(_split[0], 0.1), snappedf(_split[1], 0.1), snappedf(_split[2], 0.1), trail,
+		String(scene.knight._clip) if "_clip" in scene.knight else "", scene.knight.attacking()])
 	_last = now
 	var t := float(now - _t0) / 1e6
 	if _n < casts and t >= _next and not scene.knight.attacking():
@@ -99,7 +122,8 @@ func _report() -> void:
 		st["on"] = c["on"]
 		var top := w.duplicate()
 		top.sort_custom(func(a, b): return float(a[1]) > float(b[1]))
-		st["top_frames_ms_after_input"] = top.slice(0, 4).map(func(r): return [int((int(r[0]) - int(c["t_us"])) / 1000), snappedf(float(r[1]), 0.1)])
+		st["top_frames_ms_after_input"] = top.slice(0, 4).map(func(r): return [int((int(r[0]) - int(c["t_us"])) / 1000), snappedf(float(r[1]), 0.1),
+			"phys/proc/draw of the frame before", r[5], r[6], r[7], "trail tiles sent", r[8], "clip", r[9], "attacking", r[10]])
 		per.append(st)
 		if int(c["n"]) > 1:
 			(on_frames if bool(c["on"]) else off_frames).append_array(w)
@@ -113,6 +137,10 @@ func _report() -> void:
 		"delta_mean_ms": snappedf(float(on.get("mean_ms", 0.0)) - float(off.get("mean_ms", 0.0)), 0.001),
 		"delta_dc_peak": int(on.get("dc_max", 0)) - int(off.get("dc_max", 0)), "per_cast": per,
 		"fire_ball": scene.spell_fx.fire_ball.report if scene.spell_fx != null and scene.spell_fx.fire_ball != null else {}}
+	var allr := rows.duplicate()
+	allr.sort_custom(func(a, b): return float(a[1]) > float(b[1]))
+	out["worst_frames_s_since_ready"] = allr.slice(0, 6).map(func(r): return [snappedf(float(r[0]) / 1e6, 0.01), snappedf(float(r[1]), 0.1), "phys/proc/draw", r[5], r[6], r[7], "dc", r[2]])
+	out["first_cast_s_since_ready"] = snappedf(float(cast_log[0]["t_us"]) / 1e6, 0.01) if not cast_log.is_empty() else -1
 	print("[perf_fb] " + JSON.stringify(out))
 	if not PaintStack.is_web():
 		var f := FileAccess.open("user://perf_fb.json", FileAccess.WRITE)
