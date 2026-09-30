@@ -1,0 +1,232 @@
+{
+ "name": "meteor_e1_burst",
+ "element": "fire",
+ "element_class": "strike",
+ "ground_squash": 0.6,
+ "phase_scale": {
+  "impact": 0.8866
+ },
+ "material": {
+  "blend_mode": "MIX",
+  "light_participation": false,
+  "erode": 0.0,
+  "dissolve": 0.0,
+  "palette": [
+   [
+    0.25,
+    0.08,
+    0.04,
+    1
+   ],
+   [
+    0.7,
+    0.16,
+    0.08,
+    1
+   ],
+   [
+    1,
+    0.55,
+    0.12,
+    1
+   ],
+   [
+    1,
+    0.94,
+    0.75,
+    1
+   ]
+  ],
+  "erode_outside_in": true
+ },
+ "phases": {
+  "cast": {
+   "sheet": "flare/flare_00.png",
+   "frames": [
+    {
+     "file": "flare/flare_00.png",
+     "hold_frames": 2
+    }
+   ]
+  },
+  "travel": {
+   "sheet": "travel/travel_00.png",
+   "frames": [
+    {
+     "file": "travel/travel_00.png",
+     "hold_frames": 1
+    }
+   ],
+   "speed_px_s": 640,
+   "streak": false
+  },
+  "impact": {
+   "sheet": "impact/impact_00.png",
+   "frames": [
+    {
+     "file": "impact/impact_00.png",
+     "hold_frames": 2
+    }
+   ]
+  }
+ },
+ "layers": {
+  "dark_duplicate": true,
+  "glow": {
+   "alpha": 0.2,
+   "scale": 1.02,
+   "peak": {
+    "alpha": 0.35,
+    "scale": 1.06
+   }
+  },
+  "floor_light": {
+   "radius_px": 160,
+   "duration_s": 0.35,
+   "curve": "ease_out",
+   "tint": "palette_2",
+   "alpha": 0.6
+  },
+  "flash": {
+   "duration_s": 0.03333333333333333,
+   "alpha": 0.8,
+   "scale_from": 1.04,
+   "scale_to": 1
+  },
+  "core": {
+   "band": 3,
+   "alpha": 0.55,
+   "blur_px": 6
+  },
+  "contact_light": {
+   "lerp": 0.45,
+   "frames": 6
+  },
+  "shimmer": {
+   "amplitude_px": 3,
+   "seconds": 0.8
+  }
+ },
+ "pieces": {
+  "hold_frames": 2,
+  "base_speed_px_s": 2000,
+  "residue_s": 0,
+  "residue_fraction": 0.12,
+  "seed": 2026,
+  "source": "pieces/pieces.json",
+  "template": "burst_v2",
+  "erode_noise": 0.4,
+  "dissolve_order": [
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "key_states": [],
+  "boil": {
+   "uv_per_s": 0.35,
+   "erode_amp": 0.06,
+   "hz": 6
+  },
+  "timing": {
+   "expanded_age": 12,
+   "erosion_age": 14,
+   "paint_end_age": 30
+  },
+  "ember_ending": {
+   "amount": 36,
+   "rect_bh": [
+    1,
+    0.5
+   ],
+   "life_s": [
+    0.9,
+    1.4
+   ],
+   "speed_px_s": [
+    25,
+    70
+   ],
+   "scale": [
+    0.08,
+    0.18
+   ],
+   "glow_radius_bh": 0.9,
+   "glow_alpha": 0.85,
+   "glow_s": 1.2,
+   "core_radius_bh": 0.5,
+   "core_s": 0.6,
+   "spread_deg": 18
+  },
+  "interleave": {
+   "count": [
+    5,
+    7
+   ],
+   "library": "pieces/interleave",
+   "angle_slots": "gaps"
+  },
+  "stretch": {
+   "along": [
+    1.2,
+    1.4
+   ],
+   "across": 0.9
+  },
+  "core_residue": {
+   "scale_bh": 0.6,
+   "seconds": 0.5
+  },
+  "smoke": {
+   "sheet": "noise",
+   "radius_bh": 0.8,
+   "alpha": 0.28,
+   "rise_px_s": 22,
+   "seconds": 0.9,
+   "tint": [
+    0.35,
+    0.3,
+    0.28
+   ]
+  },
+  "flame_dance": {
+   "layers": 3,
+   "back_scale": 0.94,
+   "front_scale": 1.04,
+   "front_alpha": 0.85,
+   "front_source": "interleave",
+   "tongue_root_radius_factor": 1.15,
+   "tongue_count": [
+    6,
+    8
+   ],
+   "tongue_scale": [
+    1.1,
+    1.4
+   ],
+   "tongue_core_alpha": 0.5,
+   "jitter_px": 5,
+   "jitter_deg": 2.5,
+   "jitter_scale": 0.03,
+   "step_frames": [
+    2,
+    3
+   ],
+   "flicker_hz": [
+    3.3,
+    3.6
+   ],
+   "seed_offset": 7
+  }
+ },
+ "pierce": 0,
+ "screen_px": true
+}

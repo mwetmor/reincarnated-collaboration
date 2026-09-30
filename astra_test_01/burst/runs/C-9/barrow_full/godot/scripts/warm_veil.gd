@@ -46,6 +46,8 @@ func _warmups_done() -> bool:
 	var sfx = scene.spell_fx
 	if sfx != null and sfx.fire_ball != null and not bool(sfx.fire_ball.warmed):
 		return false
+	if sfx != null and sfx.meteor_a != null and not bool(sfx.meteor_a.warmed):
+		return false
 	var mfx = scene.get("meteor_fx")
 	if mfx != null and not bool(mfx.warmed):
 		return false

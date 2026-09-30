@@ -456,7 +456,7 @@ func _cast() -> void:
 	var shots := {}
 	# the Fire Ball's marks (C-9 (c)): the halo, the release (puff), the flight, the burst's onset, peak,
 	# erosion and ending; the Meteor's are the placeholder's
-	for spec in [["slash", "fireball", [0.5, 0.95, 1.05, 1.15, 1.24, 1.32, 1.45, 1.75, 2.4]], ["chop", "meteor", [0.8, 1.64, 1.9, 2.2]]]:
+	for spec in [["slash", "fireball", [0.5, 0.95, 1.05, 1.15, 1.24, 1.32, 1.45, 1.75, 2.4]], ["chop", "meteor", [1.2, 1.7, 2.0, 2.3, 2.38, 2.5, 2.7, 3.2, 4.5]]]:
 		# his own physics tick runs (the strike as the keys fire it); nothing drives him meanwhile
 		var ok: bool = k.try_strike(String(spec[0]))
 		var t0 := Time.get_ticks_usec()

@@ -100,6 +100,10 @@ void fragment() {
 """
 
 var scene                        # barrow_full.gd
+# THE DATA AND THE SLOT LAYOUT, overridable (meteor_a_fx.gd, lane A's Meteor, plays its flipbook with this player)
+var data_dir := DATA
+var meta_file := "fire_ball.json"
+var slots := SLOTS
 var cam: Camera3D
 var meta: Dictionary = {}
 var ok := false
@@ -121,14 +125,14 @@ var _collapsed := Transform3D(Basis(Vector3.ZERO, Vector3.ZERO, Vector3.ZERO), V
 func setup(p_scene, p_cam: Camera3D) -> bool:
 	scene = p_scene
 	cam = p_cam
-	var jp := DATA + "fire_ball.json"
+	var jp := data_dir + meta_file
 	if not FileAccess.file_exists(jp):
 		report["error"] = "no " + jp
 		return false
 	meta = JSON.parse_string(FileAccess.get_file_as_string(jp))
 	var imgs: Array[Image] = []
 	for f in meta["atlas"]["files"]:
-		var bytes := FileAccess.get_file_as_bytes(DATA + String(f["file"]))
+		var bytes := FileAccess.get_file_as_bytes(data_dir + String(f["file"]))
 		var ctx := HashingContext.new()
 		ctx.start(HashingContext.HASH_SHA256)
 		ctx.update(bytes)
@@ -182,7 +186,7 @@ func setup(p_scene, p_cam: Camera3D) -> bool:
 	mm.use_colors = true
 	mm.use_custom_data = true
 	mm.mesh = quad
-	mm.instance_count = SLOTS * CASTS
+	mm.instance_count = slots * CASTS
 	for i in mm.instance_count:
 		mm.set_instance_transform(i, _collapsed)
 		mm.set_instance_color(i, Color.WHITE)
@@ -299,12 +303,12 @@ func _tick_windup(g: int, c: Dictionary) -> void:
 	var n: int = (fidx["halo"] as Array).size()
 	var i := clampi(int(round(t * float(n - 1))), 0, n - 1)
 	var at: Vector3 = (c["socket_fn"] as Callable).call()
-	_put(g * SLOTS + S_HALO, "halo", i, at + _toward(HALO_TOWARD_M), 0.0, 1.0)
+	_put(g * slots + S_HALO, "halo", i, at + _toward(HALO_TOWARD_M), 0.0, 1.0)
 
 
 func _tick_flight(g: int, c: Dictionary) -> void:
 	var b: int = int(floor(float(c["clock"]) * 60.0 + 1e-4)) - 1   # the baked tick: 0 on the release's own step
-	var base := g * SLOTS
+	var base := g * slots
 	_collapse(base + S_HALO)
 	var th: float = c["theta"]
 	var sock: Vector3 = c["socket"]
@@ -426,8 +430,8 @@ func _collapse(i: int) -> void:
 
 
 func _collapse_group(g: int) -> void:
-	for k in SLOTS:
-		_collapse(g * SLOTS + k)
+	for k in slots:
+		_collapse(g * slots + k)
 
 
 # ---- the baked record ----------------------------------------------------------------------------

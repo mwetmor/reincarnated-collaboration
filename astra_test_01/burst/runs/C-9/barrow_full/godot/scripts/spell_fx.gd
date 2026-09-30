@@ -37,6 +37,9 @@ var report := {"fired": []}
 # below stays the placeholder until Matt picks one of the two being built.
 var fire_ball = null
 var _fb_group := -1
+# LANE A'S METEOR (?meteor=a; desktop: -- --meteor a): meteor_a_fx.gd, the painted kit baked. Lane B stays the default.
+var meteor_a = null
+var _ma_group := -1
 var fx_off := false              # the budget's CONTROL cast: the strike with no effect at all
 
 
@@ -61,6 +64,23 @@ func setup(knight, cfg: Dictionary, sockets_json: Dictionary) -> void:
 		fire_ball = fb
 		fb.warm_up()
 	report["fire_ball"] = fb.report
+	if wants_meteor_a():
+		var ma = load("res://scripts/meteor_a_fx.gd").new()
+		ma.name = "MeteorA"
+		add_child(ma)
+		if ma.setup(sc, sc.cam):
+			meteor_a = ma
+			ma.warm_up()
+		report["meteor_a"] = ma.report
+
+
+static func wants_meteor_a() -> bool:
+	var q := PaintStack.web_query("meteor")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--meteor")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	return q.to_lower() == "a"
 
 
 func _mat(c: Color) -> StandardMaterial3D:
@@ -109,10 +129,16 @@ func _physics_process(dt: float) -> void:
 			# the halo runs from here to the release, at the socket the ball leaves from
 			_fb_group = fire_ball.cast_started(socket_point.bind(String(c0["socket"])),
 				int(round(float(c0["release_s"]) * float(Engine.physics_ticks_per_second))))
+		if _slot == "chop" and meteor_a != null and not c0.is_empty() and not fx_off:
+			_ma_group = meteor_a.cast_started(socket_point.bind("main_tip"),     # the staff's crown
+				int(round(float(c0["release_s"]) * float(Engine.physics_ticks_per_second))))
 	elif not att:
 		if _t >= 0.0 and not _fired and _fb_group >= 0 and fire_ball != null:
 			fire_ball.abandon(_fb_group)
+		if _t >= 0.0 and not _fired and _ma_group >= 0 and meteor_a != null:
+			meteor_a.abandon(_ma_group)
 		_fb_group = -1
+		_ma_group = -1
 		_t = -1.0
 	if _t >= 0.0:
 		_t += dt
@@ -127,6 +153,9 @@ func _physics_process(dt: float) -> void:
 				_fb_group = -1
 			elif _slot == "attack":
 				_spawn_orb(at, facing_dir())
+			elif _slot == "chop" and meteor_a != null:
+				meteor_a.released(_ma_group, socket_point("main_tip"), facing_dir(), k.global_position)
+				_ma_group = -1
 			else:
 				_spawn_meteor(k.global_position + facing_dir() * METEOR_AHEAD)
 			report["fired"].append({"clip": c["clip"], "at_s": snappedf(_t, 0.001),

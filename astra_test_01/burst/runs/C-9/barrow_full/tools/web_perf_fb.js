@@ -24,7 +24,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   page.on('pageerror', (e) => logs.push(`[pageerror] ${e.message}`));
   await page.goto(url, { waitUntil: 'load', timeout: 300000 });
   let shot = false;
-  for (let i = 0; i < 400 && !perf && !(process.env.WAIT_S && i * 500 > +process.env.WAIT_S * 1000); i++) {
+  for (let i = 0; i < 800 && !perf && !(process.env.WAIT_S && i * 500 > +process.env.WAIT_S * 1000); i++) {
     await sleep(500);
     if (process.env.SHOT && built && !shot && Date.now() - t0 > built + 3000 + 1250) { await page.screenshot({ path: path.join(outdir, `${tag}_first_burst.png`) }); shot = true; }
   }

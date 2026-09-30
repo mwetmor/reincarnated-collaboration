@@ -1388,11 +1388,11 @@ func _build_knight() -> void:
 		var pa := OS.get_cmdline_user_args()
 		if perf == "" and pa.find("--perf") >= 0 and pa.find("--perf") + 1 < pa.size():
 			perf = String(pa[pa.find("--perf") + 1])
-		if perf == "fb" or perf == "fbc":
+		if perf in ["fb", "fbc", "ma", "mac"]:
 			var pn = load("res://scripts/perf_fireball.gd").new()
 			pn.name = "PerfFireBall"
 			add_child(pn)
-			pn.start(self, 20, perf == "fb")
+			pn.start(self, 20, perf == "fb" or perf == "ma", "chop" if perf.begins_with("ma") else "slash")
 	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
@@ -1586,7 +1586,7 @@ func _build_fx_label() -> void:
 	layer.layer = 21
 	add_child(layer)
 	var l := Label.new()
-	l.text = "METEOR EFFECT: PLACEHOLDER"
+	l.text = "METEOR EFFECT: PAINTED KIT (LANE A)" if spell_fx != null and spell_fx.meteor_a != null else "METEOR EFFECT: PLACEHOLDER"
 	l.add_theme_font_size_override("font_size", 22)
 	l.add_theme_color_override("font_color", Color(1.0, 0.86, 0.6, 0.9))
 	l.add_theme_color_override("font_outline_color", Color(0.1, 0.07, 0.05, 0.9))
@@ -2298,6 +2298,12 @@ func _physics_process(_dt: float) -> void:
 		heather_mat.set_shader_parameter("wind_time", snow.clock())
 
 
+func _meteor_a_word() -> String:
+	"""LANE A: the painted kit, baked -- its atlas, as the Fire Ball's word says its own."""
+	var at: Dictionary = spell_fx.meteor_a.report.get("atlas", {})
+	return "painted(lane_a,pages=%d,frames=%d,impact_sets=%d,sha_ok)" % [int(at.get("pages", 0)), int(at.get("frames", 0)), int(at.get("impact_sets", 0))]
+
+
 func _her_line() -> String:
 	"""HER PART OF THE LAUNCH LINE: whether her animation tree is VALID (every AnimationNodeAnimation
 	names a clip she has -- an invalid tree applies no pose at all, see sorceress_knight.gd), which
@@ -2327,7 +2333,7 @@ func _her_line() -> String:
 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
 	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
 		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
-		"3d(lane_b)" if meteor_fx != null else "placeholder"]      # LANE B
+		"3d(lane_b)" if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
 
 
 func _paint_launch_line() -> String:

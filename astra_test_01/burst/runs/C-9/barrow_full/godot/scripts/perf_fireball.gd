@@ -11,6 +11,8 @@ extends Node
 ## node's own physics time. Per cast: the window from the input to GAP_S later.
 
 const GAP_S := 3.6
+var gap_s := GAP_S
+var strike := "slash"             # "chop" for lane A's Meteor (?perf=ma / mac): gap 6 s (the fall and the 3 s burn)
 const WAIT_S := 3.0
 var wait_s := WAIT_S                 # ?perfwait=N: the first cast N s after the level is ready
 
@@ -32,7 +34,10 @@ var _split := [0.0, 0.0, 0.0]          # the last frame: physics, process, draw 
 var _last_proc := 0
 
 
-func start(p_scene, n_casts: int, p_first_on := true) -> void:
+func start(p_scene, n_casts: int, p_first_on := true, p_strike := "slash") -> void:
+	strike = p_strike
+	if strike == "chop":
+		gap_s = 6.0
 	scene = p_scene
 	casts = n_casts
 	first_on = p_first_on
@@ -62,7 +67,7 @@ func _process(_dt: float) -> void:
 		_next = wait_s
 		scene.place_knight(1.5, -1.5, "E")
 		return
-	var fb = scene.spell_fx.fire_ball if scene.spell_fx != null else null
+	var fb = (scene.spell_fx.fire_ball if strike == "slash" else scene.spell_fx.meteor_a) if scene.spell_fx != null else null
 	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
@@ -73,10 +78,10 @@ func _process(_dt: float) -> void:
 	if _n < casts and t >= _next and not scene.knight.attacking():
 		var on := (_n % 2 == 0) == first_on
 		scene.spell_fx.fx_off = not on
-		var ok: bool = scene.knight.try_strike("slash")
+		var ok: bool = scene.knight.try_strike(strike)
 		cast_log.append({"n": _n + 1, "on": on, "ok": ok, "t_us": now - _t0})
 		_n += 1
-		_next = t + GAP_S
+		_next = t + gap_s
 	elif _n >= casts and t >= _next:
 		_done = true
 		_report()
@@ -85,7 +90,7 @@ func _process(_dt: float) -> void:
 func _window(c: Dictionary) -> Array:
 	var out := []
 	var a := int(c["t_us"])
-	var b := a + int(GAP_S * 1e6)
+	var b := a + int(gap_s * 1e6)
 	for r in rows:
 		if int(r[0]) > a and int(r[0]) <= b:
 			out.append(r)
@@ -132,7 +137,7 @@ func _report() -> void:
 	var idle := _stats(rows.filter(func(r): return int(r[0]) < int(cast_log[0]["t_us"]) - 200000 and int(r[0]) > 1000000) if not cast_log.is_empty() else [])
 	var out := {"who": scene.who, "renderer": RenderingServer.get_current_rendering_method(), "web": PaintStack.is_web(),
 		"adapter": RenderingServer.get_video_adapter_name(), "window_px": [get_viewport().get_visible_rect().size.x, get_viewport().get_visible_rect().size.y],
-		"gap_s": GAP_S, "idle": idle, "cold_first_cast": per[0] if not per.is_empty() else {},
+		"gap_s": gap_s, "strike": strike, "idle": idle, "cold_first_cast": per[0] if not per.is_empty() else {},
 		"warm_on": on, "warm_off_control": off,
 		"delta_mean_ms": snappedf(float(on.get("mean_ms", 0.0)) - float(off.get("mean_ms", 0.0)), 0.001),
 		"delta_dc_peak": int(on.get("dc_max", 0)) - int(off.get("dc_max", 0)), "per_cast": per,

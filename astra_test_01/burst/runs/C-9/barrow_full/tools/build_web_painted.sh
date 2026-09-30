@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/meteor/*.bin,data/meteor/*.json"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
@@ -212,7 +212,8 @@ for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ba
          data/gear_manifest_sorceress.json data/sockets_sorceress.json models/sorceress/so-body.glb \
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
          models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
-         data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin; do
+         data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin \
+         scripts/meteor_a_fx.gd data/vfx/meteor_a/meteor_a.json data/vfx/meteor_a/atlas_0.bin data/vfx/meteor_a/atlas_1.bin; do
   grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
 # the crossings by each pack's FILE TABLE (tools/pck_list.py): a path a script or the uid cache names is
@@ -308,6 +309,17 @@ echo "$SLINE" | grep -q "meteor=3d(lane_b)" && ck 0 "her default Meteor is lane 
 PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)
 echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ball=baked(" && echo "$PLINE" | grep -q "$WANT_SPELLS" \
   && ck 0 "?meteor=placeholder falls back (meteor=placeholder, both releases $WANT_SPELLS, the Fire Ball still baked)" || ck 1 "?meteor=placeholder fallback"
+# LANE A's METEOR (?meteor=a): the painted kit, baked -- loaded from her pack, sha-matched, the Fire Ball beside it
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor a > "$LOG/launch_meteor_a.log" 2>&1 || true
+ALINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_a.log" | head -1 || true)
+echo "$ALINE" | grep -q "meteor=painted(lane_a,pages=2,frames=[0-9]*,impact_sets=2,sha_ok)" && echo "$ALINE" | grep -q "fire_ball=baked(" \
+  && ck 0 "?meteor=a: lane A's Meteor baked and loaded from her pack, the Fire Ball beside it" || ck 1 "?meteor=a (got: $(echo "$ALINE" | grep -o 'meteor=[^ ]*'))"
+if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_a.log"; then
+  ck 1 "?meteor=a launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_a.log" | head -12 >&2
+else
+  ck 0 "?meteor=a launch free of script and shader errors"
+fi
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
 
 if [ "$NO_STAGE" -eq 0 ]; then

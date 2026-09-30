@@ -171,7 +171,7 @@
    "page_on": 18.8,
    "page_off": 18.9
   },
-  "cold_first_cast": "desktop: 12.4 ms worst. The page: one frame of 450-520 ms about 1.8-2.3 s after the FIRST strike of a session -- with the Fire Ball ON (470) and with it OFF (518: the control-first run): the scene's own cold event, not the effect's. Still to hunt (the cast-start family; not the snow puffs: warming them at load did not move it, so that change was taken back out).",
+  "cold_first_cast": "CORRECTED 2026-09-30 (N-C9-HITCH-5S-INSTRUMENT): desktop 12.4 ms worst. The 450-520 ms frame first recorded here as the page's cold event was the TEST HARNESS's own Playwright screenshot (web_perf_fb.js took one ~4.5 s after ready); with no screenshot the Fire Ball's first cast on the page shows no hitch (take/build/load_tail.json, 'the_5s_hitch_CAUSE').",
   "before_for_comparison": "the live cliffside page's fire_bolt_e1_B: two 250-317 ms frames on EVERY cast in Chrome (take/build/fire_bolt_diag.json)"
  }
 }

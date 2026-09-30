@@ -1,0 +1,317 @@
+{
+ "_what": "C-9 (d): LANE A'S METEOR BUDGET -- delta against a matched control (the same chop cast, the effect off), 20 casts 6 s apart alternating, in the scene itself (perf_fireball.gd ?perf=ma / mac, desktop -- --perf ma). No screenshots in the timed window.",
+ "desktop_forward_plus": {
+  "renderer": "forward_plus",
+  "web": false,
+  "strike": "chop",
+  "cold_first_cast": {
+   "dc_max": 85,
+   "frames": 458,
+   "fx_script_mean_ms": 0.0364,
+   "max_ms": 17.94,
+   "mean_ms": 13.083,
+   "n": 1,
+   "on": true,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 14.86,
+   "top_frames_ms_after_input": [
+    [
+     4594,
+     17.9,
+     "phys/proc/draw of the frame before",
+     0.7,
+     0.0,
+     17.1,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     4641,
+     16.9,
+     "phys/proc/draw of the frame before",
+     0.4,
+     0.1,
+     16.3,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     2580,
+     16.8,
+     "phys/proc/draw of the frame before",
+     0.3,
+     0.1,
+     16.4,
+     "trail tiles sent",
+     5,
+     "clip",
+     "idle",
+     "attacking",
+     true
+    ],
+    [
+     4657,
+     16.4,
+     "phys/proc/draw of the frame before",
+     0.7,
+     0.0,
+     15.5,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ]
+   ]
+  },
+  "warm_on": {
+   "dc_max": 85,
+   "frames": 4133,
+   "fx_script_mean_ms": 0.0357,
+   "max_ms": 52.06,
+   "mean_ms": 13.057,
+   "over_20ms": 1,
+   "over_33ms": 1,
+   "p95_ms": 14.81
+  },
+  "warm_off_control": {
+   "dc_max": 83,
+   "frames": 4583,
+   "fx_script_mean_ms": 0.002,
+   "max_ms": 19.07,
+   "mean_ms": 13.074,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 14.83
+  },
+  "delta_mean_ms": -0.017,
+  "delta_dc_peak": 2
+ },
+ "page_phone_size_fx_first": {
+  "renderer": "gl_compatibility",
+  "web": true,
+  "strike": "chop",
+  "cold_first_cast": {
+   "dc_max": 147,
+   "frames": 593,
+   "fx_script_mean_ms": 0.0519,
+   "max_ms": 21.9,
+   "mean_ms": 10.101,
+   "n": 1,
+   "on": true,
+   "over_20ms": 5,
+   "over_33ms": 0,
+   "p95_ms": 17.8,
+   "top_frames_ms_after_input": [
+    [
+     4881,
+     21.9,
+     "phys/proc/draw of the frame before",
+     0.6,
+     0,
+     21.1,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     4590,
+     21.5,
+     "phys/proc/draw of the frame before",
+     0.5,
+     0,
+     20.8,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     4173,
+     21.2,
+     "phys/proc/draw of the frame before",
+     0.5,
+     0,
+     20.4,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     5536,
+     20.4,
+     "phys/proc/draw of the frame before",
+     0,
+     0.1,
+     20.1,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ]
+   ]
+  },
+  "warm_on": {
+   "dc_max": 143,
+   "frames": 5293,
+   "fx_script_mean_ms": 0.058,
+   "max_ms": 26.2,
+   "mean_ms": 10.193,
+   "over_20ms": 78,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "warm_off_control": {
+   "dc_max": 140,
+   "frames": 5895,
+   "fx_script_mean_ms": 0.0028,
+   "max_ms": 26.7,
+   "mean_ms": 10.169,
+   "over_20ms": 72,
+   "over_33ms": 0,
+   "p95_ms": 18.4
+  },
+  "delta_mean_ms": 0.024,
+  "delta_dc_peak": 3
+ },
+ "page_phone_size_control_first": {
+  "renderer": "gl_compatibility",
+  "web": true,
+  "strike": "chop",
+  "cold_first_cast": {
+   "dc_max": 147,
+   "frames": 541,
+   "fx_script_mean_ms": 0.0068,
+   "max_ms": 26.9,
+   "mean_ms": 11.086,
+   "n": 1,
+   "on": false,
+   "over_20ms": 11,
+   "over_33ms": 0,
+   "p95_ms": 17.6,
+   "top_frames_ms_after_input": [
+    [
+     2121,
+     26.9,
+     "phys/proc/draw of the frame before",
+     0.8,
+     0.1,
+     25.5,
+     "trail tiles sent",
+     5,
+     "clip",
+     "idle",
+     "attacking",
+     true
+    ],
+    [
+     4808,
+     25.4,
+     "phys/proc/draw of the frame before",
+     0.9,
+     0.1,
+     24.2,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     3809,
+     25.3,
+     "phys/proc/draw of the frame before",
+     0.6,
+     0.1,
+     24.3,
+     "trail tiles sent",
+     7,
+     "clip",
+     "idle",
+     "attacking",
+     false
+    ],
+    [
+     1820,
+     24.9,
+     "phys/proc/draw of the frame before",
+     1,
+     0,
+     23.6,
+     "trail tiles sent",
+     5,
+     "clip",
+     "idle",
+     "attacking",
+     true
+    ]
+   ]
+  },
+  "warm_on": {
+   "dc_max": 143,
+   "frames": 5554,
+   "fx_script_mean_ms": 0.0803,
+   "max_ms": 26.3,
+   "mean_ms": 10.787,
+   "over_20ms": 138,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "warm_off_control": {
+   "dc_max": 140,
+   "frames": 4998,
+   "fx_script_mean_ms": 0.0042,
+   "max_ms": 30,
+   "mean_ms": 10.791,
+   "over_20ms": 107,
+   "over_33ms": 0,
+   "p95_ms": 18
+  },
+  "delta_mean_ms": -0.004,
+  "delta_dc_peak": 3
+ },
+ "reading": {
+  "fx_cost_per_frame_ms": {
+   "desktop": -0.017,
+   "page_fx_first": 0.024,
+   "page_control_first": -0.004
+  },
+  "draw_calls_added_at_peak": {
+   "desktop": 2,
+   "page": 3
+  },
+  "worst_warm_frame_ms": {
+   "desktop_on": 52.06,
+   "desktop_off": 19.07,
+   "page_on": 26.2,
+   "page_off": 26.7
+  },
+  "desktop_outlier": "one 52 ms frame 376 ms after a cast input, during her windup (before the release: only the halo drawn), with Godot's own split 0.7/0.1/12.4 ms: outside the frame's work",
+  "cold_first_cast": {
+   "desktop_ms": 17.94,
+   "page_ms": 21.9
+  },
+  "atlas": "2 pages 4096x3056 RGBA8 (95.5 MB VRAM, loaded only with ?meteor=a), 556 frames of which 406 unique (the ring's hold and the burn's boil share rects), 7.07 MB lossless WebP in her pack (sorceress.pck 40.7 MB)"
+ }
+}

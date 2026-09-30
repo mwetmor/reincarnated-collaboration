@@ -1,0 +1,78 @@
+{
+ "_what": "C-9 (d): LANE A'S METEOR, FIDELITY PROOF -- the meteor_e1 kit's own runtime (a cliffside project exported by the frozen exporter with meteor_e1 + meteor_e1_burst; Compatibility on ANGLE Metal) plus its ring and burn (godot/tools/meteor_extras.gd, the same code in bake and proof), against the baked flipbook over a 1:1 crop of the Barrow painting, same frames and camera (godot/tools/proof_meteor.gd)",
+ "criterion": "mean |d| <= 3/255 per frame over the footprint",
+ "burst_seed_1": {
+  "ticks": 225,
+  "worst_mean_fp_255": 0.867,
+  "worst_tick": 50,
+  "median_mean_fp_255": 0.113,
+  "interleave_seed": 683408295,
+  "baked_interleave_seed": 683408295,
+  "halo_worst_mean_fp_255": 0.098
+ },
+ "burst_seed_2": {
+  "ticks": 225,
+  "worst_mean_fp_255": 0.915,
+  "worst_tick": 47,
+  "median_mean_fp_255": 0.113,
+  "interleave_seed": 871373636,
+  "baked_interleave_seed": 871373636
+ },
+ "kit": {
+  "primitives_512": "VF-met head/trail/impact/ring 1254 px -> 512 by LANCZOS (as C-5's fire_pool_01_512, matched exactly), quantised to the four value planes by the kit builder",
+  "extents_at_512_vs_brief": {
+   "head": [
+    [
+     414,
+     268
+    ],
+    [
+     290,
+     210
+    ]
+   ],
+   "trail": [
+    [
+     494,
+     203
+    ],
+    [
+     440,
+     130
+    ]
+   ],
+   "impact": [
+    [
+     485,
+     404
+    ],
+    [
+     430,
+     300
+    ]
+   ],
+   "ring": [
+    [
+     422,
+     270
+    ],
+    [
+     340,
+     200
+    ]
+   ]
+  },
+  "scales_to_brief": {
+   "head": 0.7005,
+   "trail": 0.8907,
+   "impact_phase_scale": 0.8866,
+   "ring": 0.8057,
+   "burn": 0.8
+  },
+  "rear_socket": "head [272, 247.5] (55% back from the rock's leading tip), pivot [458, 247.5]; trail pivot [493, 249]",
+  "burst": "oracle/peak_pieces.py on the impact 512: 50 pieces; the burst template = fire_burst_e0p_v3's burst_v2 configuration (timing, stretch, boil, flame dance with its interleaved tongue library, ember ending, core residue, smoke), fire palette",
+  "fall": "480 px screen path, 500 px/s (the capsule starts 130 px along): impact at tick 42 = 0.70 s",
+  "scratch_patch": "the exporter keys the per-hit interleave seed on the name fire_burst_e0p_v3 only; in the scratch project vfx_g1_fl6.gd also keys it on meteor_e1_burst, else the burst's seed would fall back to an instance id and no bake could be reproduced"
+ },
+ "where_it_differs": "ticks 46-50 (the burst's peak): isolated texels where the kit interleaves z-orders two quads cannot; release frames matched once the puff was drawn above the travel, as the kit's pool node is"
+}
