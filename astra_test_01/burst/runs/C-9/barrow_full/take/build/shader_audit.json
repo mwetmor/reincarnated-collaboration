@@ -1,0 +1,273 @@
+{
+ "_what": "C-9: THE SHADER AUDIT (the conductor's ruling (b), audit only -- no changes): every distinct shader SOURCE the painted phone page draws at load (godot/tools/audit_shaders.gd, Compatibility with the web branches on; only instances that draw; a StandardMaterial3D/ParticleProcessMaterial keyed on its features, which is what its generated shader is keyed on). In Compatibility each lit source compiles more than one GL program (the base pass, the shadowed sun's additive pass, skinned or instanced variants), so programs > sources.",
+ "him": {
+  "sources": 11,
+  "list": [
+   {
+    "materials": 27,
+    "kind": "ShaderMaterial",
+    "lines": 46,
+    "render_mode": "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled;",
+    "users": [
+     "MeshInstance3D:Ground",
+     "MeshInstance3D:MoundMesh",
+     "MeshInstance3D:CuttingAndFacade"
+    ]
+   },
+   {
+    "materials": 10,
+    "kind": "ParticleProcessMaterial",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Puff0 (process)",
+     "GPUParticles3D:Puff1 (process)",
+     "GPUParticles3D:Puff2 (process)"
+    ]
+   },
+   {
+    "materials": 10,
+    "kind": "StandardMaterial3D",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Puff0 (draw)",
+     "GPUParticles3D:Puff1 (draw)",
+     "GPUParticles3D:Puff2 (draw)"
+    ]
+   },
+   {
+    "materials": 8,
+    "kind": "ShaderMaterial",
+    "lines": 129,
+    "render_mode": "render_mode specular_disabled, cull_back;",
+    "users": [
+     "MeshInstance3D:char1",
+     "MeshInstance3D:helmet",
+     "MeshInstance3D:bracers_00"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack (next_pass)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack (next_pass) (next_pass)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 245,
+    "render_mode": "render_mode specular_disabled, cull_back;",
+    "users": [
+     "MultiMeshInstance3D:Heather_0",
+     "MultiMeshInstance3D:Heather_1",
+     "MultiMeshInstance3D:Heather_2"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 365,
+    "render_mode": "render_mode specular_disabled, cull_back, ambient_light_disabled, fog_disabled;",
+    "users": [
+     "MeshInstance3D:SnowSurface"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ParticleProcessMaterial",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Snowfall (process)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "StandardMaterial3D",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Snowfall (draw)"
+    ]
+   }
+  ]
+ },
+ "her": {
+  "sources": 12,
+  "extra_over_him": [
+   "the Fire Ball (1 source, 51 lines: one MultiMesh)"
+  ],
+  "list": [
+   {
+    "materials": 27,
+    "kind": "ShaderMaterial",
+    "lines": 46,
+    "render_mode": "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled;",
+    "users": [
+     "MeshInstance3D:Ground",
+     "MeshInstance3D:MoundMesh",
+     "MeshInstance3D:CuttingAndFacade"
+    ]
+   },
+   {
+    "materials": 10,
+    "kind": "ParticleProcessMaterial",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Puff0 (process)",
+     "GPUParticles3D:Puff1 (process)",
+     "GPUParticles3D:Puff2 (process)"
+    ]
+   },
+   {
+    "materials": 10,
+    "kind": "StandardMaterial3D",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Puff0 (draw)",
+     "GPUParticles3D:Puff1 (draw)",
+     "GPUParticles3D:Puff2 (draw)"
+    ]
+   },
+   {
+    "materials": 8,
+    "kind": "ShaderMaterial",
+    "lines": 129,
+    "render_mode": "render_mode specular_disabled, cull_back;",
+    "users": [
+     "MeshInstance3D:char1",
+     "MeshInstance3D:robe",
+     "MeshInstance3D:mantle"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack (next_pass)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 219,
+    "render_mode": "render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;",
+    "users": [
+     "MeshInstance3D:PostStack (next_pass) (next_pass)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 51,
+    "render_mode": "render_mode unshaded, blend_premul_alpha, depth_draw_never, cull_disabled, shadows_disabled, ambient_light_dis",
+    "users": [
+     "MultiMeshInstance3D:FireBallFX"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 245,
+    "render_mode": "render_mode specular_disabled, cull_back;",
+    "users": [
+     "MultiMeshInstance3D:Heather_0",
+     "MultiMeshInstance3D:Heather_1",
+     "MultiMeshInstance3D:Heather_2"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ShaderMaterial",
+    "lines": 365,
+    "render_mode": "render_mode specular_disabled, cull_back, ambient_light_disabled, fog_disabled;",
+    "users": [
+     "MeshInstance3D:SnowSurface"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "ParticleProcessMaterial",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Snowfall (process)"
+    ]
+   },
+   {
+    "materials": 1,
+    "kind": "StandardMaterial3D",
+    "lines": 0,
+    "render_mode": "",
+    "users": [
+     "GPUParticles3D:Snowfall (draw)"
+    ]
+   }
+  ]
+ },
+ "lane_b_at_load": {
+  "derived_variants_warmed": [
+   {
+    "kind": "painted",
+    "lines": 143
+   },
+   {
+    "kind": "char",
+    "lines": 142
+   },
+   {
+    "kind": "heather",
+    "lines": 311
+   },
+   {
+    "kind": "snow",
+    "lines": 462
+   }
+  ],
+  "own_fx_sources": "6 (Flare, Burst, Scraps, Rock, Flash, Comet -- all 'unshaded, cull_disabled, depth_draw_opaque' quads/meshes), drawn once at load by its warm-up",
+  "total": 10
+ },
+ "her_total_sources_at_load": 22,
+ "obvious_merges": [
+  "lane B's 6 FX sources are all unshaded quads/meshes of one render mode: one uber shader (as the Fire Ball's) would compile 1 where 6 compile now",
+  "lane B's 4 derived variants (painted ground, character ramp, heather, snow) exist only so the Meteor's ground and fire terms can be swapped in; they are compiled at load by design (a cast-time compile would be worse). The alternative is a separate additive ground pass for the Meteor's marks, which would drop 3 of the 4 (not the character's fire light)",
+  "the post stack is 3 sources that differ only in their stencil class (Compatibility's stencil is compile-time render state): mergeable only by a different pen architecture -- not obvious",
+  "the snow puffs' and the snowfall's particle materials: 2 process + 2 draw sources; the two draw materials could share one StandardMaterial3D feature set (1 fewer)",
+  "no source is compiled twice under two Shader resources (same-code duplicates: 0 for him, 0 for her)"
+ ]
+}
