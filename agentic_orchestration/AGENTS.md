@@ -35,6 +35,8 @@ This team is structured to attack all four. It is **not** primarily about parall
 
 > **Re-pin to Opus 5.5 — 2026-09-29 (Matt directive: "opus 5.5 is now cheaper and more capable than other models").** Nine agents moved `claude-opus-5` → `claude-opus-5-5`. `legolas` held on Opus 5 pending Matt's reading of "except Legolas"; `legolas-crawler` stays on Haiku 4.5, the deliberate cheap lane. Running agents keep the model they started with; only new spawns change.
 
+> **Legolas re-pin — 2026-09-30 (Matt: "move the researcher to opus 5.5 and the crawler to sonnet 5.5").** `legolas` `claude-opus-5` → `claude-opus-5-5`; `legolas-crawler` `claude-haiku-4-5` → `claude-sonnet-5`. No Sonnet 5.5 model ID exists on this host's model list (Opus 5.5 · Sonnet 5 · Haiku 4.5 · Fable 5.1), so the crawler is pinned to the current Sonnet, Sonnet 5; re-pin if a Sonnet 5.5 ships. The crawler stays the cheaper lane; its HALT-don't-infer law is unchanged. All 11 agents are now on the Claude 5 family.
+
 ### The team (12 entities)
 
 | Entity | Role | Model | Writes production code? |
@@ -47,8 +49,8 @@ This team is structured to attack all four. It is **not** primarily about parall
 | `gamora` | Developer (simulation + spirit guide) | **Opus 5.5** | Yes |
 | `star-lord` | Developer (output / telemetry / LLM) | **Opus 5.5** | Yes |
 | `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5.5** | Yes |
-| `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5** | **No** — read-only research output |
-| `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Haiku 4.5** | **No** — read-only extraction output |
+| `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5.5** | **No** — read-only research output |
+| `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Sonnet 5** | **No** — read-only extraction output |
 | `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5.5** | **No** — schemas, curation, abstraction analysis |
 | `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5.5** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
 
@@ -205,13 +207,13 @@ Each developer owns a **mutually exclusive** set of paths. No file is owned by t
 
 > **Split 2026-07-24 (Matt ruling).** One scout became two agents on two models. The old **Mode A → `legolas`** (Opus 5); the old **Mode B → `legolas-crawler`** (Haiku 4.5). Historical references to "legolas" and "Mode A" resolve to `legolas`; "Mode B" references route to the crawler.
 
-**`legolas` (UNKNOWN-RESEARCHER, Opus 5) owns:**
+**`legolas` (UNKNOWN-RESEARCHER, Opus 5.5) owns:**
 - `research/knowledge/` — analytical findings, primary-source probes, feasibility investigations
 - `research/commissions/` — shared inbox (commissions to either agent land here)
 - **Lane establishment** — determining whether a NEW source is crawlable *at all* and by what method. Probing structure, defeating formats, judging agent-fetchability. Files written here are marked `lane-establishment`.
 - **Escalation intake** — receives every crawler HALT; rules the lane re-mappable / degraded / dead
 
-**`legolas-crawler` (KNOWN-CRAWLER, Haiku 4.5) owns:**
+**`legolas-crawler` (KNOWN-CRAWLER, Sonnet 5) owns:**
 - `research/catalogue/<source>/` — raw extraction, findings-summaries, sidecars
 - `research/commissions/*-crawler-halt-*.md` — its HALT notes
 - Carries the crawl contract: viability-gate protocol, score-don't-filter principle, standard metadata fields, crawl discipline, parallelism conventions
