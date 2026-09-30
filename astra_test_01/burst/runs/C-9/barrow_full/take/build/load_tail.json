@@ -108,5 +108,33 @@
    ]
   }
  },
- "still_in_play": "the browser-side hitch about 5 s after ready (her 501 ms, his 394 ms) lands about 3.5 s after the veil lifts; not covered, per the ruling. Everything else after the veil: her worst 25.7 ms; his 80.9 ms once at 15.6 s, else under 50 ms."
+ "still_in_play": "the browser-side hitch about 5 s after ready (her 501 ms, his 394 ms) lands about 3.5 s after the veil lifts; not covered, per the ruling. Everything else after the veil: her worst 25.7 ms; his 80.9 ms once at 15.6 s, else under 50 ms.",
+ "the_5s_hitch_hunt": {
+  "question": "the conductor: merge the audit's shaders if fewer programs shrink the ~5 s browser-side frame; else revert and say so",
+  "measure": "requestAnimationFrame intervals in Chrome at phone size, timed from the level's ready line (tools/web_perf_fb.js), localhost",
+  "results_ms": {
+   "old page, before today (loadout a5c7533: no Fire Ball, no Meteor B, one pck, no veil), her": [
+    4518,
+    433.4
+   ],
+   "old page, him": [
+    4514,
+    416.7
+   ],
+   "today's page, her, NO VFX at all (Fire Ball off by a diagnosis switch, ?meteor=placeholder)": [
+    4630,
+    416.3
+   ],
+   "today's page, her, default (Fire Ball + Meteor B)": [
+    4371,
+    481.9
+   ],
+   "today's page, him": [
+    4515,
+    500.0
+   ]
+  },
+  "reading": "the hitch is ~4.4-4.6 s after ready on every build, the old one included, with or without any of her effect programs (11 fewer sources: 416 ms against 482). It predates today's work and does not follow the number of programs, so the audit's merges were NOT made (they could only remove fewer than that test did). It is outside Godot's frame (split ~1/0.1/10 ms); a Chrome trace of one run did not reproduce it.",
+  "also_seen": "her default page's load tail (a 333 ms frame at 1.25 s after ready: the effects' warm draws, the Fire Ball's 78 MB atlas uploading) is under the veil; with no effects there is no load-tail frame at all"
+ }
 }
