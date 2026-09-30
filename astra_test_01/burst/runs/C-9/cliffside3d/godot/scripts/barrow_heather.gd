@@ -410,6 +410,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 

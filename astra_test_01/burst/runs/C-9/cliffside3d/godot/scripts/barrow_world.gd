@@ -250,6 +250,8 @@ func _ready() -> void:
 		# THE AMBIENT INTO THE SUN'S PASS (PaintStack.move_ambient_into_light): last, once every
 		# ramp material exists -- the ground, the snow, the props, the heather and him
 		report["compat_light"] = PaintStack.move_ambient_into_light(self, env_node.environment)
+		# AND ITS COLOUR SPACE: the albedo maths runs on sRGB here (PaintStack.WEB_GAMMA)
+		report["compat_color"] = PaintStack.web_color_space(self)
 	if PaintStack.is_web():
 		# THE PHONE'S TUNING LEVERS, off the page URL (PaintStack.web_query): ?msaa=0|2|4|8 and
 		# ?scale3d=0.5..1.0 (the 3D drawn smaller and scaled up; the thumb controls stay sharp)
@@ -272,13 +274,21 @@ func _ready() -> void:
 	if PaintStack.is_web() or DisplayServer.is_touchscreen_available():
 		# the thumb stick and the four strikes, through the input actions knight.gd reads
 		add_child(load("res://scripts/barrow_touch.gd").new())
+	# WHAT THE BUILD ACTUALLY LOADED, on every platform: the splat and the tiles are read
+	# through the importer in an export (see _load_ground_textures), and a missing splat
+	# builds a scene that still looks finished -- all snow, 318 of 650 instances. Both build
+	# scripts' launch fences read this line.
+	var gt0: Dictionary = report.get("ground_textures", {})
+	print("[barrow] loaded: splat=%s tiles=%d instances=%d" % ["MISSING" if _splat == null else "ok",
+		(gt0.get("tiles", []) as Array).size(), int(report.get("instancing", {}).get("instances", 0))])
 	if PaintStack.is_web():
 		var gt: Dictionary = report.get("ground_textures", {})
 		print("[barrow] web: heather=%s pen=%s instances=%d mm_draws=%d splat=%s tiles=%d ambient_moved=%s msaa=%d scale3d=%.2f" % [
 			heather_mode, "depth-only" if PaintStack.is_compatibility() else "full",
 			int(report.get("instancing", {}).get("instances", 0)), _mmis.size(),
 			"MISSING" if _splat == null else "ok", (gt.get("tiles", []) as Array).size(),
-			str(report.get("compat_light", {}).get("ramp_materials_set", "-")),
+			"%s/%s" % [str(report.get("compat_light", {}).get("ramp_materials_set", "-")),
+				JSON.stringify(report.get("compat_color", {}))],
 			int(get_viewport().msaa_3d), get_viewport().scaling_3d_scale])
 		var lw: Array = report.get("compat_light", {}).get("lit_without_ramp", [])
 		if not lw.is_empty():
@@ -357,7 +367,7 @@ func _sync_post_scale() -> void:
 	rather than read once at build -- a stale value is exactly how the threshold ends up
 	right at one zoom and wrong at every other."""
 	if post_mat != null and cam != null:
-		post_mat.set_shader_parameter("m_per_px", cam.size / maxf(float(_view_height()), 1.0))
+		PaintStack.post_set(post_mat, "m_per_px", cam.size / maxf(float(_view_height()), 1.0))
 
 
 # --- rule 3: one real light, and the air around it ---------------------------
@@ -1905,7 +1915,7 @@ const HEATHER_CARD_MUL := Vector3(1.408, 1.130, 0.638)
 # post_material): they write no depth -- the depth-only web pen would ink every tuft -- and a
 # depthless material is a transparent, drawn after the screen copy the post pass paints back
 # over the frame (see BarrowHeather's _HEAD_DEPTHLESS). 125: after it, inside the -128..127 range.
-const WEB_CARD_PRIORITY := 125
+const WEB_CARD_PRIORITY := PaintStack.POST_PRIORITY + 5
 # THE WEB'S SHADOW NORMAL BIAS. Compatibility's shadow lookup took the desktop's 0.15 as a
 # fine diagonal ACNE over all the open snow (stripes a few px apart, half the snow darkened by
 # its own shadow). Swept on the play frame, Compatibility on ANGLE/Metal: bias 0.03 / 0.10 /
@@ -3821,8 +3831,8 @@ func _apply_stack() -> void:
 	for m in _world_mats:
 		m.set_shader_parameter("ramp_mix", 1.0 if stack_on else 0.0)
 	PaintStack.set_character_ramp(_char_saved, stack_on)
-	post_mat.set_shader_parameter("ink_on", 1.0 if (stack_on and ink_on) else 0.0)
-	post_mat.set_shader_parameter("grade_on", 1.0 if stack_on else 0.0)
+	PaintStack.post_set(post_mat, "ink_on", 1.0 if (stack_on and ink_on) else 0.0)
+	PaintStack.post_set(post_mat, "grade_on", 1.0 if stack_on else 0.0)
 	# HIDDEN, not merely neutralised. With the stack off the pass would still copy the screen
 	# and blit it back -- invisible, and about a millisecond of it. Leaving it running would
 	# put that millisecond into the "stack off" side of the frame-cost comparison, so the
@@ -3868,12 +3878,12 @@ func set_particles(on: bool) -> void:
 
 func set_ink(on: bool) -> void:
 	ink_on = on
-	post_mat.set_shader_parameter("ink_on", 1.0 if (stack_on and on) else 0.0)
+	PaintStack.post_set(post_mat, "ink_on", 1.0 if (stack_on and on) else 0.0)
 	_update_hud()
 
 
 func set_post_param(key: String, value) -> void:
-	post_mat.set_shader_parameter(key, value)
+	PaintStack.post_set(post_mat, key, value)
 
 
 func set_world_param(key: String, value) -> void:
@@ -4090,7 +4100,7 @@ func set_pens(on: bool) -> void:
 
 
 func set_grade(on: bool) -> void:
-	post_mat.set_shader_parameter("grade_on", 1.0 if on else 0.0)
+	PaintStack.post_set(post_mat, "grade_on", 1.0 if on else 0.0)
 
 
 func set_char_exclude(on: bool) -> void:
@@ -4098,7 +4108,7 @@ func set_char_exclude(on: bool) -> void:
 	behaviour -- both pens on him at once -- and it exists only so the before and the after
 	are two frames of ONE run rather than two runs: the pair is subtracted to isolate the
 	pixels the second pen was adding to his outline, which is the whole quantity in question."""
-	post_mat.set_shader_parameter("char_exclude", 1.0 if on else 0.0)
+	PaintStack.post_set(post_mat, "char_exclude", 1.0 if on else 0.0)
 
 
 func set_ramp_on_character(on: bool) -> void:

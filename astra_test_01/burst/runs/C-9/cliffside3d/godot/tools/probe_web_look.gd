@@ -72,6 +72,9 @@ func _initialize() -> void:
 	if pi >= 0 and pi + 2 < args.size():
 		scene.set_post_param(args[pi + 1], float(args[pi + 2]))
 		print("[web_look] lever: post %s = %s" % [args[pi + 1], args[pi + 2]])
+	if args.has("--no-instancing"):
+		scene.set_instancing(false)
+		print("[web_look] lever: instancing OFF (every prop its own node)")
 	if args.has("--no-reflect"):
 		env.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
 		print("[web_look] lever: reflected light OFF")

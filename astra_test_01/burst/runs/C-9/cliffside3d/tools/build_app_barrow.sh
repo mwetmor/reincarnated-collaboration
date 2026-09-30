@@ -230,6 +230,18 @@ if [ -z "${SKIP_LAUNCH_CHECK:-}" ]; then
   grep -q "\[barrow\] foot_lock nodes=0" "$LOG/launch.log" \
     && ck 0 "no foot-lock node under him (printed by the scene itself)" \
     || ck 1 "no foot-lock node under him -- see $LOG/launch.log"
+  # THE SPLAT AND THE DRESSING, as the running app loaded them (R-C9-83). Every app built
+  # before 2026-09-30 shipped WITHOUT the splat -- the pck carries it only as its .import
+  # remap, which the fence above cannot tell from the file -- and so with no tarn, a bare
+  # mound and 318 of 650 instances, and nothing failed. MIN_INSTANCES: 650 at this commit.
+  MIN_INSTANCES=${MIN_INSTANCES:-600}
+  LOADED=$(grep -a "^\[barrow\] loaded:" "$LOG/launch.log" | head -1 || true)
+  echo "   launch: ${LOADED:-<no [barrow] loaded: line>}"
+  echo "$LOADED" | grep -q "splat=ok" && ck 0 "the running app read the splat" \
+    || ck 1 "the running app read the splat -- see $LOG/launch.log"
+  INST=$(echo "$LOADED" | sed -n 's/.*instances=\([0-9]*\).*/\1/p')
+  [ -n "$INST" ] && [ "$INST" -ge "$MIN_INSTANCES" ] && ck 0 "dressing instanced: $INST (>= $MIN_INSTANCES)" \
+    || ck 1 "dressing instanced: ${INST:-?} (< $MIN_INSTANCES)"
 fi
 
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }

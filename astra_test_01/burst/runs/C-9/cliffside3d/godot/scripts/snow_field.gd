@@ -490,6 +490,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 
@@ -1265,7 +1266,8 @@ func _build_mesh() -> void:
 
 func _make_material() -> ShaderMaterial:
 	var sh := Shader.new()
-	sh.code = SHADER
+	# the web pen's "near side is snow" mark, as a stencil class (PaintStack.STENCIL_SNOW)
+	sh.code = PS.stencil_write(SHADER, PS.STENCIL_SNOW) if PS.is_compatibility() else SHADER
 	_mat = ShaderMaterial.new()
 	_mat.shader = sh
 	# the scene's own fbm when it hands one over: regenerating the identical 512² texture here
@@ -1406,6 +1408,7 @@ func _build_puffs() -> void:
 		sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		sm.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
 		sm.albedo_texture = _flake
+		sm.render_priority = PS.AFTER_POST_PRIORITY   # after the post pass, or it paints them out
 		sm.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
 		sm.vertex_color_use_as_albedo = true
 		sm.disable_receive_shadows = true

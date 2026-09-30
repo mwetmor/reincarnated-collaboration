@@ -112,6 +112,15 @@ uniform float shadow_step_hi = 1.0;
 // the environment's), the base pass adds nothing and the one sum is done in linear light
 // inside this pass: |difference| 17, the rest being the web's cards and pen.
 uniform vec3 ambient_in_light = vec3(0.0);
+// THE SKY'S REFLECTION, emulated -- the phone build only; 0 on the desktop, which gets the real
+// one. Forward+ adds the sky's radiance as specular even under specular_disabled (that mode
+// stops only the light's own highlight), and the roughness MARKS make it uneven: thin props
+// carry 0.25 for the pen and so reflect like wet leaves. Measured on the desktop's ambient-only
+// frame, with and without the sky reflection, in linear light: thin 0.032 / 0.037 / 0.047,
+// snow 0.005 / 0.008 / 0.014, the rest 0.005 / 0.006 / 0.010. Compatibility scales its
+// reflection by the ambient energy that move_ambient_into_light zeroes, so it had none; this
+// puts the measured amount back per class (PaintStack.web_color_space), in the sun's pass.
+uniform vec3 web_sheen = vec3(0.0);
 """
 
 const RAMP_BODY := """
@@ -229,6 +238,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 
@@ -361,6 +371,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 
@@ -392,6 +403,7 @@ void light() {
 	DIFFUSE_LIGHT += _ramp_light(NORMAL, LIGHT, ATTENUATION, LIGHT_COLOR, v_world, wash_noise,
 		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
 		shadow_bite, shadow_color, shadow_energy, ramp_mix);
+	SPECULAR_LIGHT += web_sheen;      // the phone build's sky reflection; 0 on the desktop
 }
 """
 
@@ -777,8 +789,12 @@ static func world_material(fbm: Texture2D, base: Color, params := {}) -> ShaderM
 	# of a blade as its own side. (The barrow ships its heather ONE-sided now, measured: see
 	# barrow_world.heather_two_sided. The selector stays for the next asset that needs it.)
 	var two := bool(params.get("_two_sided", false))
+	var code := WORLD_SHADER.replace("cull_back", "cull_disabled") if two else WORLD_SHADER
+	if is_compatibility() and float(params.get("mesh_mark", 1.0)) < 0.5:
+		# THE WEB'S "THIN" MARK: the stencil, since Compatibility has no roughness buffer
+		code = stencil_write(code, STENCIL_THIN)
 	var m := ShaderMaterial.new()
-	m.shader = _shader(WORLD_SHADER.replace("cull_back", "cull_disabled") if two else WORLD_SHADER)
+	m.shader = _shader(code)
 	m.set_shader_parameter("wash_noise", fbm)
 	m.set_shader_parameter("mottle_noise", fbm)
 	m.set_shader_parameter("base_color", base)
@@ -1058,15 +1074,77 @@ static func hull_ink_material(width_model: float, ink: Color) -> ShaderMaterial:
 	return m
 
 
+# THE TRANSPARENT ORDER, in one place. The post pass paints its pre-transparent screen copy
+# over the whole frame at POST_PRIORITY; what must still be SEEN and is transparent draws after
+# it: the phone build's depthless heather cards (BarrowWorld.WEB_CARD_PRIORITY, 125) and every
+# particle system -- the snowfall, the ridge gust, the kicked-up puffs (126).
+const POST_PRIORITY := 120
+const AFTER_POST_PRIORITY := 126
+
+
+# THE WEB PEN'S MARKS, IN THE STENCIL (R-C9-83). The desktop pen reads three per-pixel marks from
+# the normal-roughness buffer -- him, thin growth, the near side of snow -- and Compatibility has
+# no such buffer: on the phone build the depth-only pen inked the junipers and birches solid and
+# drew every edge of his trail. The stencil carries two of them instead. Thin props and the snow
+# field WRITE a class (stencil_write, on Compatibility only); the post pass is drawn as THREE
+# passes of the same quad, chained by next_pass, each reading one class (compare_equal), so each
+# pixel is inked by exactly one of: full pen (0), the thin pen (1, thin_pen_scale), no pen (2).
+# A stencil cannot be SAMPLED, so this is the centre-pixel test only -- which is the one the
+# desktop's snow mark uses, and the side a positive second difference draws its line on.
+const STENCIL_THIN := 1
+const STENCIL_SNOW := 2
+
+
+static func stencil_write(code: String, ref: int) -> String:
+	"""`code` with a stencil write of `ref` on every fragment it draws, after its render_mode."""
+	return _after_render_mode(code, "stencil_mode write, compare_always, %d;" % ref)
+
+
+static func _after_render_mode(code: String, line: String) -> String:
+	var lines := code.split("\n")
+	for i in lines.size():
+		if lines[i].strip_edges().begins_with("render_mode"):
+			lines.insert(i + 1, line)
+			return "\n".join(lines)
+	assert(false, "no render_mode line to put '%s' after" % line)
+	return code
+
+
+static func post_set(mat: Material, key: String, value) -> void:
+	"""A post-pass parameter onto the pass AND its chained stencil passes (the phone build's)."""
+	var m := mat
+	while m != null:
+		if m is ShaderMaterial:
+			(m as ShaderMaterial).set_shader_parameter(key, value)
+		m = m.next_pass
+
+
 static func post_material(paper: Texture2D, ink: Color, params := {}) -> ShaderMaterial:
+	var m := _post_pass(paper, ink, params, post_shader_code(0))
+	if is_compatibility():
+		# the web's two further passes, one per stencil class (see STENCIL_THIN)
+		var thin := _post_pass(paper, ink, params, post_shader_code(STENCIL_THIN))
+		thin.set_shader_parameter("stencil_thin", 1.0)
+		var snow := _post_pass(paper, ink, params, post_shader_code(STENCIL_SNOW))
+		snow.set_shader_parameter("stencil_snow", 1.0)
+		m.next_pass = thin
+		thin.next_pass = snow
+	return m
+
+
+static func _post_pass(paper: Texture2D, ink: Color, params: Dictionary, code: String) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
-	m.shader = _shader(post_shader_code())
+	m.shader = _shader(code)
 	m.set_shader_parameter("paper_tex", paper)
 	m.set_shader_parameter("ink_color", ink)
-	# drawn LAST. It reads hint_screen_texture, which puts it in the transparent queue
-	# alongside the snowfall; priority, not distance, decides which of those two is on top,
-	# and a post pass under the particles it is supposed to grade is a silent wrong answer.
-	m.render_priority = 120
+	# drawn LAST among the world. It reads hint_screen_texture, which puts it in the
+	# transparent queue -- and the screen is copied ONCE, BEFORE the transparent pass, on
+	# both renderers. So everything transparent drawn before this pass is painted over by
+	# the copy it did not make it into: the falling snow drew 28 px of the play frame on the
+	# desktop and 0 on the web (the air on/off pair, tools/probe_web_look.gd --air-ab), until
+	# the particles moved AFTER it (AFTER_POST_PRIORITY). The original intent -- grade the
+	# particles -- is not reachable with one copy; ungraded white flakes are the cheaper truth.
+	m.render_priority = POST_PRIORITY
 	for k in params:
 		m.set_shader_parameter(k, params[k])
 	return m
@@ -1094,17 +1172,12 @@ static func web_query(key: String) -> String:
 	return String(v) if typeof(v) == TYPE_STRING else ""
 
 
-static func move_ambient_into_light(root: Node, env: Environment) -> Dictionary:
-	"""THE PHONE BUILD'S LIGHT SUM (see ambient_in_light in RAMP_UNIFORMS). Every material that
-	carries the ramp gets the environment's ambient -- linear, times its energy: what the engine
-	would have added in its base pass -- and the environment's own is zeroed, so the ambient is
-	added ONCE, in the sun's pass, in linear light. Counts what it set, and NAMES any lit
-	material without the ramp: that one would lose its ambient, and should be seen to."""
-	var amb := env.ambient_light_color.srgb_to_linear() * env.ambient_light_energy
-	var v := Vector3(amb.r, amb.g, amb.b)
+static func _materials_under(root: Node) -> Array:
+	"""Every material a GeometryInstance3D under `root` draws with, once each, as [node, material]:
+	its override, its surface overrides, and -- where it has no override -- its mesh's own (a
+	MultiMesh's, a particle system's draw pass)."""
+	var out := []
 	var seen := {}
-	var set_n := 0
-	var unramped := []
 	for n in root.find_children("*", "GeometryInstance3D", true, false):
 		var gi := n as GeometryInstance3D
 		var mats: Array = []
@@ -1128,24 +1201,125 @@ static func move_ambient_into_light(root: Node, env: Environment) -> Dictionary:
 				if m != null:
 					mats.append(m)
 		for m in mats:
-			if seen.has(m):
-				continue
-			seen[m] = true
-			var sm := m as ShaderMaterial
-			if sm != null and sm.shader != null and sm.shader.code.contains("ambient_in_light"):
-				sm.set_shader_parameter("ambient_in_light", v)
-				set_n += 1
-			elif m is BaseMaterial3D and (m as BaseMaterial3D).shading_mode != BaseMaterial3D.SHADING_MODE_UNSHADED:
-				unramped.append("%s (%s)" % [String(gi.name), m.get_class()])
-			elif sm != null and sm.shader != null and not sm.shader.code.contains("unshaded"):
-				unramped.append("%s (ShaderMaterial)" % String(gi.name))
+			# and each material's next_pass chain (the web's three post passes are one)
+			while m != null and not seen.has(m):
+				seen[m] = true
+				out.append([gi, m])
+				m = m.next_pass
+	return out
+
+
+static func move_ambient_into_light(root: Node, env: Environment) -> Dictionary:
+	"""THE PHONE BUILD'S LIGHT SUM (see ambient_in_light in RAMP_UNIFORMS). Every material that
+	carries the ramp gets the environment's ambient -- linear, times its energy: what the engine
+	would have added in its base pass -- and the environment's own is zeroed, so the ambient is
+	added ONCE, in the sun's pass, in linear light. Counts what it set, and NAMES any lit
+	material without the ramp: that one would lose its ambient, and should be seen to."""
+	var amb := env.ambient_light_color.srgb_to_linear() * env.ambient_light_energy
+	var v := Vector3(amb.r, amb.g, amb.b)
+	var set_n := 0
+	var unramped := []
+	for pair in _materials_under(root):
+		var gi: GeometryInstance3D = pair[0]
+		var m: Material = pair[1]
+		var sm := m as ShaderMaterial
+		if sm != null and sm.shader != null and sm.shader.code.contains("ambient_in_light"):
+			sm.set_shader_parameter("ambient_in_light", v)
+			set_n += 1
+		elif m is BaseMaterial3D and (m as BaseMaterial3D).shading_mode != BaseMaterial3D.SHADING_MODE_UNSHADED:
+			unramped.append("%s (%s)" % [String(gi.name), m.get_class()])
+		elif sm != null and sm.shader != null and not sm.shader.code.contains("unshaded"):
+			unramped.append("%s (ShaderMaterial)" % String(gi.name))
 	env.ambient_light_energy = 0.0
 	return {"ramp_materials_set": set_n, "ambient_linear": [snappedf(v.x, 1e-4), snappedf(v.y, 1e-4),
 			snappedf(v.z, 1e-4)], "lit_without_ramp": unramped,
 			"_why": "Compatibility adds a shadowed light's pass to the base pass after both are sRGB-encoded"}
 
 
-static func post_shader_code() -> String:
+# THE WEB'S ALBEDO IS sRGB-ENCODED (R-C9-83), and every number that assumed otherwise moves.
+# Compatibility runs `albedo = srgb_to_linear(albedo)` AFTER the fragment shader, so the whole
+# fragment's colour maths happens on sRGB-encoded values: a source_color texture or uniform
+# arrives raw, and whatever the shader writes to ALBEDO is read back as sRGB. Measured with a
+# micro-test, an unshaded quad writing a plain vec3 of 0.5: 188 on Forward+ (0.5 is linear),
+# 128 on Compatibility (0.5 is sRGB); a source_color 0.5: 127 and 128. The consequences here:
+#   LINEAR MULTIPLIERS ON THE ALBEDO (tex_tint, snow_tint, albedo_mul): k on sRGB is ~k^2.2 on
+#     light. The juniper's (0.354, 0.163, 0.020) turned near-black -- 60% of the thin props'
+#     pixels under 40 -- the snow's (1.03, 1.10, 1.17) blue, the heather cards' saturated.
+#     Each is raised to 1/2.2: the same multiply, in the space it runs in.
+#   MULTIPLICATIVE NOISE (mottle_amp, hatch_amp, snow_mottle, tone_jitter, and the post pass's
+#     paper grain, paper_amount): a +-a swing on sRGB is +-2.2a on light, so each is / 2.2.
+#   A COLOUR USED AS LIGHT (the ramp's shadow_color, source_color): the desktop linearises it
+#     and light() reads linear; here it arrived raw, and the shadowed snow came out (183, 191,
+#     209) for the desktop's (163, 169, 191). Linearised here, once.
+# The power law is the sRGB curve's approximation; the curve's toe (under 0.04) is where the two
+# still differ. The shaders' own literal multipliers (the heather's hue slide, the snow's warm
+# edge) are left as they are.
+const WEB_GAMMA := 2.2
+const WEB_SHEEN_THIN := Vector3(0.032, 0.037, 0.047)
+const WEB_SHEEN_SNOW := Vector3(0.005, 0.008, 0.014)
+const WEB_SHEEN_OTHER := Vector3(0.005, 0.006, 0.010)
+const _WEB_TINTS := ["tex_tint", "snow_tint", "albedo_mul"]
+const _WEB_AMPLITUDES := ["mottle_amp", "hatch_amp", "snow_mottle", "tone_jitter", "paper_amount"]
+
+
+static func web_color_space(root: Node) -> Dictionary:
+	"""The Compatibility renderer's colour-space corrections, onto every material under `root`
+	(see WEB_GAMMA above). Once, after everything is built; counts what it moved."""
+	var n := {"tints": 0, "amplitudes": 0, "shadow_colour": 0}
+	for pair in _materials_under(root):
+		var sm := pair[1] as ShaderMaterial
+		if sm == null or sm.shader == null:
+			continue
+		var code: String = sm.shader.code
+		for key in _WEB_TINTS:
+			if code.contains("uniform vec3 %s " % key):
+				var tv := _as_vec3(_param_or_default(sm, key))
+				sm.set_shader_parameter(key, Vector3(pow(maxf(tv.x, 0.0), 1.0 / WEB_GAMMA),
+					pow(maxf(tv.y, 0.0), 1.0 / WEB_GAMMA), pow(maxf(tv.z, 0.0), 1.0 / WEB_GAMMA)))
+				n["tints"] += 1
+		for key in _WEB_AMPLITUDES:
+			if code.contains("uniform float %s " % key):
+				sm.set_shader_parameter(key, float(_param_or_default(sm, key)) / WEB_GAMMA)
+				n["amplitudes"] += 1
+		if code.contains("uniform vec3 shadow_color : source_color"):
+			var c := _as_color(_param_or_default(sm, "shadow_color")).srgb_to_linear()
+			sm.set_shader_parameter("shadow_color", Vector3(c.r, c.g, c.b))
+			n["shadow_colour"] += 1
+		if code.contains("uniform vec3 web_sheen"):
+			var sheen := WEB_SHEEN_OTHER
+			if code.contains("uniform sampler2D field_tex"):
+				sheen = WEB_SHEEN_SNOW
+			elif code.contains("uniform float mesh_mark") and float(_param_or_default(sm, "mesh_mark")) < 0.5:
+				sheen = WEB_SHEEN_THIN
+			sm.set_shader_parameter("web_sheen", sheen)
+			n["sheen"] = int(n.get("sheen", 0)) + 1
+	return n
+
+
+static func _param_or_default(sm: ShaderMaterial, key: String):
+	var v = sm.get_shader_parameter(key)
+	if v == null:
+		v = RenderingServer.shader_get_parameter_default(sm.shader.get_rid(), key)
+	return v
+
+
+static func _as_vec3(v) -> Vector3:
+	if v is Vector3:
+		return v
+	if v is Color:
+		return Vector3((v as Color).r, (v as Color).g, (v as Color).b)
+	return Vector3.ONE
+
+
+static func _as_color(v) -> Color:
+	if v is Color:
+		return v
+	if v is Vector3:
+		return Color((v as Vector3).x, (v as Vector3).y, (v as Vector3).z)
+	return Color(1, 1, 1)
+
+
+static func post_shader_code(stencil_ref := 0) -> String:
 	"""THE PEN, AND ITS WEB FALLBACK (the phone build, R-C9-83). The Compatibility renderer the
 	web runs on has no normal-roughness buffer, and that buffer carries three things the pen
 	reads: the crease term, and the per-pixel marks that keep the pen off him (0.5), off thin
@@ -1161,10 +1335,14 @@ static func post_shader_code() -> String:
 		"vec3 _nrm(vec2 uv) { return vec3(0.0, 0.0, 1.0); }")
 	s = s.replace("return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - char_mark_ref));",
 		"return 0.0;")
+	# thin and snow come from the STENCIL instead: each of the three passes reads one class
 	s = s.replace("return 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - thin_mark_ref));",
-		"return 0.0;")
+		"return stencil_thin;")
 	s = s.replace("float sn = 1.0 - step(char_mark_tol, abs(texture(nrm_tex, uv).a - snow_mark_ref));",
-		"float sn = 0.0;")
+		"float sn = stencil_snow;")
+	s = s.replace("uniform float snow_mark_ref = 0.75;",
+		"uniform float snow_mark_ref = 0.75;\nuniform float stencil_thin = 0.0;\nuniform float stencil_snow = 0.0;")
+	s = _after_render_mode(s, "stencil_mode read, compare_equal, %d;" % stencil_ref)
 	# AND THE DEPTH IS OPENGL'S: NDC z runs -1..1 (2d - 1), where the desktop's Vulkan takes d as
 	# is. Read the desktop way, every depth break measures HALF its size on the orthographic
 	# camera, and the pen draws half as much of the world.
@@ -1172,6 +1350,8 @@ static func post_shader_code() -> String:
 	assert(s.contains(lin), "the pen's depth read moved; the web fallback must follow it")
 	s = s.replace(lin, "vec4 v = inv_proj * vec4(vec3(uv, d) * 2.0 - 1.0, 1.0);")
 	assert(not s.contains("nrm_tex"), "the web pen still reads the normal-roughness buffer")
+	assert(s.contains("stencil_thin;") and s.contains("float sn = stencil_snow;"),
+		"the web pen's stencil classes did not replace the marks")
 	return s
 
 
@@ -1429,6 +1609,7 @@ static func snowfall(flake: Texture2D, box := Vector3(44, 26, 44), amount := 170
 	mm.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
 	mm.albedo_texture = flake
 	mm.albedo_color = Color(0.985, 0.992, 1.0, 0.86)
+	mm.render_priority = AFTER_POST_PRIORITY      # after the post pass, or it paints them out
 	mm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	mm.billboard_keep_scale = true
 	mm.disable_receive_shadows = true
@@ -1476,6 +1657,7 @@ static func ridge_gust(flake: Texture2D, amount := 420) -> GPUParticles3D:
 	mm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mm.albedo_texture = flake
 	mm.albedo_color = Color(1.0, 1.0, 1.0, 0.62)
+	mm.render_priority = AFTER_POST_PRIORITY      # after the post pass, or it paints them out
 	mm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	mm.billboard_keep_scale = true
 	mm.cull_mode = BaseMaterial3D.CULL_DISABLED
