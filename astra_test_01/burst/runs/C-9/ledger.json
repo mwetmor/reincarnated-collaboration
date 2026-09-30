@@ -21780,9 +21780,98 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "IBO-J4",
+      "type": "GENERATE",
+      "experiment": "image-bakeoff-R-C9-79",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "207022e559aed061180861a6ca969a5d4f410e130b82a127bac105ea1cb8cfff",
+      "started": "2026-09-30T01:11:27.131461+00:00",
+      "ended": "2026-09-30T01:22:23.982524+00:00",
+      "minutes": 10.949033552783657,
+      "image_calls": 3,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-1639cddb-3638-4698-8c9e-1b5a8bdb9d8b.png",
+            "sha256": "46b3bbeb57ce2fb728a4941eae8e01bdb16e1c714a30dff646653313c46a4a46"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-6d51fa9c-d3e3-4be4-9031-ea276cc2db0e.png",
+            "sha256": "eba9ba62601b5cb1a5fa26820d420ae493b2eeb19b24f47ecf2e0d18d220d739"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-b4dd8358-3afe-4c00-ab42-62671246b50c.png",
+            "sha256": "bf7e13731ad9dd29c7c1cf7569f30caa706775e93830510668bc7747f1a6668c"
+          }
+        ]
+      },
+      "receipt_sha256": "8d350ec81bceb2a4b855f4e23cbc551273498b74f09000b494e64f0ebfb0ce2f",
+      "artifacts": [
+        {
+          "name": "IBO-J4_a.png",
+          "sha256": "bf7e13731ad9dd29c7c1cf7569f30caa706775e93830510668bc7747f1a6668c"
+        },
+        {
+          "name": "IBO-J4_b.png",
+          "sha256": "46b3bbeb57ce2fb728a4941eae8e01bdb16e1c714a30dff646653313c46a4a46"
+        },
+        {
+          "name": "exec-1639cddb-3638-4698-8c9e-1b5a8bdb9d8b.provenance.json",
+          "sha256": "4b6826d1cdfc03142fc236753d7832a7b05de8751347b116587dc197a7d33832"
+        },
+        {
+          "name": "exec-6d51fa9c-d3e3-4be4-9031-ea276cc2db0e.provenance.json",
+          "sha256": "cdab1c44baa4f20c7b73ccba7d2122e25e0fa6488ae4f24b88215f0058269a81"
+        },
+        {
+          "name": "exec-b4dd8358-3afe-4c00-ab42-62671246b50c.provenance.json",
+          "sha256": "95863609d6bf9c1149bda2c7c2e8b43f7a45ec990861ad53c4070e1cb3d66f6f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-1639cddb-3638-4698-8c9e-1b5a8bdb9d8b.png",
+          "sha256": "46b3bbeb57ce2fb728a4941eae8e01bdb16e1c714a30dff646653313c46a4a46"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-6d51fa9c-d3e3-4be4-9031-ea276cc2db0e.png",
+          "sha256": "eba9ba62601b5cb1a5fa26820d420ae493b2eeb19b24f47ecf2e0d18d220d739"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0efdd-d394-7213-92ab-541b0dc4bc0a/exec-b4dd8358-3afe-4c00-ab42-62671246b50c.png",
+          "sha256": "bf7e13731ad9dd29c7c1cf7569f30caa706775e93830510668bc7747f1a6668c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 648,
+  "images_used": 651,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -22349,6 +22438,12 @@
       "topic": "T10-2 step 1 v2 + the Crucible marks (drax, collab e0462ab03 + b65f1dfae): all acceptance lines pass under one corrected line; ready for Matt walk",
       "result": "Placements worst 0.0087 m; flood fill (0.1 m cylinder queries r 0.35) reaches the arena, 100% of the ice, the cutting mouth and the door: 711.9 m2 walkable, 0 cells outside; mound non-walkable (scripted walks refused); door floor y = 0 from v 8.7 to 10.4; arena clear to 7.60 m; path 4 m (0.12 m spare at cairn 2); ring entrance 6.97 m; 1 m marker 100.75 px (2 m control x1.998/x2.003); NO SQUEEZES: 0 gaps in [0.70, 1.40) among 180 collider footprints; CAMERA MARGIN: 0 of 71,187 reachable cells put any of a 1920x1080 frame outside the 4x4 window; door cover 0.437 m (mound rise 4.2 m with a steep kerb; a kerb toe added after the pen drew a line on every mesh cell of the near-vertical kerb); 11 of 11 scripted walks pass. Crucible marks: six spawns (S1-S4 nudged 0.2-0.3 m inward off the stones), clear sightlines at 1.70 m, 6.5-8.0 m from the station (S6 on the ice 12.2 m); the boss gate at the cutting; R hides the marks. CORRECTED ACCEPTANCE (conductor, DRIFT-CRITIC on its own spec): the door cannot be both covered by the mound and in frame from the arena centre (the frame reaches v 8.41, the door stands at 10.3-10.6); acceptance of record: the door face is whole from the arena northern half (v >= 5.5), and the King entrance gets a camera cue in Phase 2. FOUND: Matt display is now a 3440x1440 ultrawide; fullscreen showed 34 x 18 m and unpainted floor at 47 fps -> every app locked to a 16:9 view (stretch canvas_items, aspect keep, base 1920x1080): the blockout drax for its app now, the scene drax at the cliffside3d handover. Minor, for step 4: the +/-35 stone gaps to the mound wall look open (0.52 m, closed by collider), cairn 2 margin 0.12 m, kerb shadow banding. Conductor look at the Crucible still: fourteen stones read as a ring; the arena reads.",
       "ts": "2026-09-29T20:55:48"
+    },
+    {
+      "id": "M-C9-T10-1C",
+      "topic": "T10-1c: instanced scatter, rocks laid low, warmth matched to the painting, a broken snow edge, two ways onto the ice (integration drax, collab 8cc7943a0; app rebuilt)",
+      "result": "INSTANCING: one MultiMesh per asset per 7 m chunk (meshoptimizer; the hull pen rides in INSTANCE_CUSTOM.x): 19.76 -> 16.91 ms with 1,931 instances, same run (-2.85 ms); per instance e.g. rock_small 18.3 -> 6.8 us, birch 48.1 -> 30.0; next lever juniper. ROCKS LOW: rock_large lies at 0.3-0.85 m; tallest non-ring rock within 10 m 0.98 m, 0 of 179 over 1.2 m. WARMTH: the T10-1b colour instrument was wrong (it sampled snow over buried sprigs); a second ID frame counts only visible pixels; heather had been dE 27.2 with 0.2% warm; fixes (a sheaf body under the tussocks; the 10 region-size heather rows as patches of painting-scale clumps; snow capped at 20% of clump height, buried share p90 0.81 -> 0.26; linear-light tints) -> lit snow dE 0.53, heather dE 0.62 with 76% warm by the painting own rule, juniper dE 0.97; visible shrub coverage 0.066 -> 0.257; heather 1.74 ms for 1,695 instances. FEATHER: edge noise was 5.5/m (a regular 18 px tooth); now 0.35/m + an octave, 4.5-36 cm broken edge. SHORE: two crossings opened (at -46 and -98 deg; rocks and junipers moved 0.11-1.00 m), each checked to connect to the clearing; the walk ends on the ice and wades a 0.58 m drift. FRAME 16.91 ms median (16.26-17.31) on a shared machine: at the 16.7 line, not clearly under. OPEN, conductor calls: a 2-px dot pattern at shadow edges (the soft shadow filter quantised by the ramp bands) -> apply the cast shadow AFTER the bands (band N.L only), Hard filter as the fallback; heather reads as rounded golden clumps rather than sprays (later). T10-1d queued after the scene drax handover: shadow fix + dressing with the new kit (outcrop_a, heather_clump, dead_tree, minor scatter) + the coverage table. PROJECT RELEASED to the scene drax for its handover (foot lock set, 16:9 lock, both app rebuilds).",
+      "ts": "2026-09-29T21:30:27"
     }
   ],
   "halts": [
@@ -23756,6 +23851,12 @@
       "topic": "Blockout app locked to 16:9 (drax, collab e03f425ed); staged for Matt walk",
       "note": "stretch canvas_items / keep / base 1920x1080: fullscreen on the 3440x1440 ultrawide draws 2560x1440 with 440 px bars and shows 19.0822 x 13.4483 m (planned; was 34 x 18 m); camera margin 0 px outside at the closest-call cells; fullscreen 14.8 ms (67 fps; was 21.3 ms). Found and fixed on the way: the screen-space pen width is set in drawn pixels and would have thinned at 4/3 resolution (now scaled by the viewport final transform; the first attempt read a misreported 3414x1920 texture size and drew a 2.22 px pen with no error); the U clamp was v1 symmetric clamp and wrong for the v2 off-centre window (now clamps to the window edges; off by default). Door line 11 PASS under the corrected acceptance (the face is whole from v 5.5; minimum on-screen share 0.9985). Noted by the drax: e0462ab03 and b65f1dfae were already on origin/main, pushed by another session.",
       "ts": "2026-09-29T21:22:18"
+    },
+    {
+      "id": "N-C9-JOIN1-CELLS",
+      "topic": "The JOIN-1 sprite-cell contract (reincarnated-godot docs/join1-sprite-cell-contract-2026-09-29.md, godot d95e1df, file sha256 4af19213...; it governs)",
+      "note": "STATES: barbarian idle walk run whirlwind shout hit death; sorceress idle walk run cast_fireball cast_meteor hit death; each cast ONE clip carrying a release_index. FRAMES: 12 for loops, 16 for whirlwind (a multiple of 8), 12/16 for casts, 8 hit, 16 death. IMAGE: canvas 768 x 768, anchor (384, 448) at the ground origin, RGBA straight alpha, no plate, nothing baked in, lights on the camera. PACK: cells/<state>/<DIR>/<state>_<DIR>_NN.png + matrix_index.json (schema join1-sprite-cells/1) with per-frame sha256, clip time and 3D sockets; release_s + release_index; mirror_of FORBIDDEN; directions are ground bearings relative to the camera (linted). SCALE: render the TRUE 1.85 m model at ppm_render = 2 x the GD ppm (151.337); the port scales by the ppm ratio. SOCKETS: export both weapons tips and grips (sword main-hand + axe off-hand) for the whirlwind ribbon phase. Durations, release timing, reach, the striking hand and all triggers come from data and the model, never the art. Traps named by the JOIN-1 drax: the port builds its own index from the image files (hence per-frame sha256); the C-8 matrix_index.json is stale (attack listed at 12 frames, the port loads 16). Implication for C-9: weapon grip and tip SOCKETS are part of the deliverable, consistent with the weapon-bone approach under research (R-C9-81).",
+      "ts": "2026-09-29T21:30:27"
     }
   ]
 }
