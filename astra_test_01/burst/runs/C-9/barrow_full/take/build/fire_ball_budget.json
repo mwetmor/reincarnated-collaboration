@@ -1,0 +1,177 @@
+{
+ "_what": "C-9 (c): THE FIRE BALL'S BUDGET -- judged by its DELTA against a matched control (the same cast, the effect off), in the scene itself (godot/scripts/perf_fireball.gd: ?perf=fb on the page, -- --perf fb on desktop). 20 casts, 3.6 s apart, alternating ON / OFF; the first ON is the cold first cast. Page: Chrome on the M2 GPU at 844x390 CSS px, DPR 3, vsync on; desktop: Forward+ 1920x1080 on the M2, vsync off",
+ "criteria": {
+  "frames_over_20ms_at_cast_or_impact": "a flag, judged against the control",
+  "fx_cost_per_frame": "<= 1 ms over the 20-cast run",
+  "draw_calls_added_at_peak": "<= 10"
+ },
+ "desktop_forward_plus": {
+  "renderer": "forward_plus",
+  "web": false,
+  "cold_first_cast": {
+   "dc_max": 81,
+   "frames": 331,
+   "fx_script_mean_ms": 0.0166,
+   "max_ms": 12.38,
+   "mean_ms": 10.873,
+   "n": 1,
+   "on": true,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 11.6
+  },
+  "warm_on": {
+   "dc_max": 81,
+   "frames": 2977,
+   "fx_script_mean_ms": 0.0167,
+   "max_ms": 13.55,
+   "mean_ms": 10.865,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 11.55
+  },
+  "warm_off_control": {
+   "dc_max": 81,
+   "frames": 3309,
+   "fx_script_mean_ms": 0.0012,
+   "max_ms": 13.39,
+   "mean_ms": 10.861,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 11.56
+  },
+  "delta_mean_ms": 0.004,
+  "delta_dc_peak": 0
+ },
+ "page_phone_size_fx_first": {
+  "renderer": "gl_compatibility",
+  "web": true,
+  "cold_first_cast": {
+   "dc_max": 140,
+   "frames": 189,
+   "fx_script_mean_ms": 0.0333,
+   "max_ms": 470.1,
+   "mean_ms": 19.043,
+   "n": 1,
+   "on": true,
+   "over_20ms": 1,
+   "over_33ms": 1,
+   "p95_ms": 18.4,
+   "top_frames_ms_after_input": [
+    [
+     1768,
+     470.1
+    ],
+    [
+     1185,
+     19.1
+    ],
+    [
+     1883,
+     18.7
+    ],
+    [
+     233,
+     18.6
+    ]
+   ]
+  },
+  "warm_on": {
+   "dc_max": 132,
+   "frames": 1938,
+   "fx_script_mean_ms": 0.033,
+   "max_ms": 18.8,
+   "mean_ms": 16.668,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "warm_off_control": {
+   "dc_max": 132,
+   "frames": 2157,
+   "fx_script_mean_ms": 0.0026,
+   "max_ms": 18.9,
+   "mean_ms": 16.666,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "delta_mean_ms": 0.002,
+  "delta_dc_peak": 0
+ },
+ "page_phone_size_control_first": {
+  "renderer": "gl_compatibility",
+  "web": true,
+  "cold_first_cast": {
+   "dc_max": 140,
+   "frames": 185,
+   "fx_script_mean_ms": 0.0022,
+   "max_ms": 518,
+   "mean_ms": 19.37,
+   "n": 1,
+   "on": false,
+   "over_20ms": 1,
+   "over_33ms": 1,
+   "p95_ms": 18.4,
+   "top_frames_ms_after_input": [
+    [
+     2251,
+     518
+    ],
+    [
+     1584,
+     19.3
+    ],
+    [
+     1283,
+     19
+    ],
+    [
+     2933,
+     18.7
+    ]
+   ]
+  },
+  "warm_on": {
+   "dc_max": 132,
+   "frames": 2159,
+   "fx_script_mean_ms": 0.0298,
+   "max_ms": 18.8,
+   "mean_ms": 16.664,
+   "over_20ms": 0,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "warm_off_control": {
+   "dc_max": 132,
+   "frames": 1942,
+   "fx_script_mean_ms": 0.0016,
+   "max_ms": 23,
+   "mean_ms": 16.665,
+   "over_20ms": 1,
+   "over_33ms": 0,
+   "p95_ms": 18.3
+  },
+  "delta_mean_ms": -0.001,
+  "delta_dc_peak": 0
+ },
+ "reading": {
+  "fx_cost_per_frame_ms": {
+   "desktop": 0.004,
+   "page": 0.002
+  },
+  "fx_script_ms_per_frame": {
+   "desktop": 0.0167,
+   "page": 0.033
+  },
+  "draw_calls": "the Fire Ball is ONE MultiMesh draw, present from the level's start (it is warmed there), so a cast adds 0 at the peak; against no Fire Ball node at all it is +1",
+  "worst_warm_frame_ms": {
+   "desktop_on": 13.55,
+   "desktop_off": 13.39,
+   "page_on": 18.8,
+   "page_off": 18.9
+  },
+  "cold_first_cast": "desktop: 12.4 ms worst. The page: one frame of 450-520 ms about 1.8-2.3 s after the FIRST strike of a session -- with the Fire Ball ON (470) and with it OFF (518: the control-first run): the scene's own cold event, not the effect's. Still to hunt (the cast-start family; not the snow puffs: warming them at load did not move it, so that change was taken back out).",
+  "before_for_comparison": "the live cliffside page's fire_bolt_e1_B: two 250-317 ms frames on EVERY cast in Chrome (take/build/fire_bolt_diag.json)"
+ }
+}

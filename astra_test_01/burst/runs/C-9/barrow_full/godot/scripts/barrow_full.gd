@@ -1362,11 +1362,22 @@ func _build_knight() -> void:
 		"wash_scale": 2.6, "wash_amp": 0.13, "band_soft": 0.075,
 	})
 	if who == "sorceress":
-		# HER TWO SPELLS, AS A PLACEHOLDER (spell_fx.gd): fired at each cast's release time, from its socket
+		# HER TWO SPELLS (spell_fx.gd), fired at each cast's release time, from its socket: the FIRE BALL is
+		# cliffside's kit, baked (fire_ball_fx.gd); the METEOR is still the placeholder
 		spell_fx = load("res://scripts/spell_fx.gd").new()
 		spell_fx.name = "SpellFx"
 		add_child(spell_fx)
 		spell_fx.setup(k, k.cfg, _read_json("res://data/sockets_sorceress.json"))
+		# THE FIRE BALL'S BUDGET RUN (?perf=fb on the page, -- --perf fb on desktop): perf_fireball.gd
+		var perf := PaintStack.web_query("perf")
+		var pa := OS.get_cmdline_user_args()
+		if perf == "" and pa.find("--perf") >= 0 and pa.find("--perf") + 1 < pa.size():
+			perf = String(pa[pa.find("--perf") + 1])
+		if perf == "fb" or perf == "fbc":
+			var pn = load("res://scripts/perf_fireball.gd").new()
+			pn.name = "PerfFireBall"
+			add_child(pn)
+			pn.start(self, 20, perf == "fb")
 	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
@@ -1538,7 +1549,7 @@ func _build_fx_label() -> void:
 	layer.layer = 21
 	add_child(layer)
 	var l := Label.new()
-	l.text = "SPELL EFFECTS: PLACEHOLDER"
+	l.text = "METEOR EFFECT: PLACEHOLDER"
 	l.add_theme_font_size_override("font_size", 22)
 	l.add_theme_color_override("font_color", Color(1.0, 0.86, 0.6, 0.9))
 	l.add_theme_color_override("font_outline_color", Color(0.1, 0.07, 0.05, 0.9))
@@ -2263,13 +2274,21 @@ func _her_line() -> String:
 			if n is AnimationNodeAnimation and not knight._anim.has_animation((n as AnimationNodeAnimation).animation):
 				bad += 1
 	var sp := []
+	var fb := "none"
 	if spell_fx != null:
 		for slot in ["attack", "chop"]:
 			var c: Dictionary = spell_fx.casts_by_slot.get(slot, {})
 			if not c.is_empty():
 				sp.append("%s@%s" % [c["clip"], str(c["release_s"])])
-	return " | sorceress_tree=%s clipless=%s spells=placeholder:%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
-		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp))]
+		var fbr: Dictionary = spell_fx.report.get("fire_ball", {})
+		if spell_fx.fire_ball != null:
+			var at: Dictionary = fbr.get("atlas", {})
+			fb = "baked(pages=%d,px=%dx%d,frames=%d,impact_sets=%d,sha_ok)" % [int(at.get("pages", 0)), int((at.get("px", [0, 0]) as Array)[0]),
+				int((at.get("px", [0, 0]) as Array)[1]), int(at.get("frames", 0)), int(at.get("impact_sets", 0))]
+		else:
+			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
+	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=placeholder" % ["valid" if (bt != null and bad == 0) else "INVALID",
+		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb]
 
 
 func _paint_launch_line() -> String:

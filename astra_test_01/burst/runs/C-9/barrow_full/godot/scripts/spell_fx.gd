@@ -33,6 +33,11 @@ var _fx: Array = []                     # live effects: {kind, node, vel, age, l
 var _mat_core: StandardMaterial3D
 var _mat_ember: StandardMaterial3D
 var report := {"fired": []}
+# THE FIRE BALL IS REAL (C-9 (c)): cliffside's fire_bolt_e1_B, baked -- fire_ball_fx.gd. The Meteor
+# below stays the placeholder until Matt picks one of the two being built.
+var fire_ball = null
+var _fb_group := -1
+var fx_off := false              # the budget's CONTROL cast: the strike with no effect at all
 
 
 func setup(knight, cfg: Dictionary, sockets_json: Dictionary) -> void:
@@ -48,6 +53,14 @@ func setup(knight, cfg: Dictionary, sockets_json: Dictionary) -> void:
 	_mat_core = _mat(CORE)
 	_mat_ember = _mat(EMBER)
 	report["casts"] = casts_by_slot
+	var fb = load("res://scripts/fire_ball_fx.gd").new()
+	fb.name = "FireBall"
+	add_child(fb)
+	var sc = get_parent()
+	if fb.setup(sc, sc.cam):
+		fire_ball = fb
+		fb.warm_up()
+	report["fire_ball"] = fb.report
 
 
 func _mat(c: Color) -> StandardMaterial3D:
@@ -91,15 +104,28 @@ func _physics_process(dt: float) -> void:
 		_t = 0.0
 		_slot = {"a_slash": "attack", "a_chop": "chop"}.get(String(k._strike_anim), "")
 		_fired = false
+		var c0: Dictionary = casts_by_slot.get(_slot, {})
+		if _slot == "attack" and fire_ball != null and not c0.is_empty() and not fx_off:
+			# the halo runs from here to the release, at the socket the ball leaves from
+			_fb_group = fire_ball.cast_started(socket_point.bind(String(c0["socket"])),
+				int(round(float(c0["release_s"]) * float(Engine.physics_ticks_per_second))))
 	elif not att:
+		if _t >= 0.0 and not _fired and _fb_group >= 0 and fire_ball != null:
+			fire_ball.abandon(_fb_group)
+		_fb_group = -1
 		_t = -1.0
 	if _t >= 0.0:
 		_t += dt
 		var c: Dictionary = casts_by_slot.get(_slot, {})
+		if not c.is_empty() and not _fired and _t >= float(c["release_s"]) and fx_off:
+			_fired = true
 		if not c.is_empty() and not _fired and _t >= float(c["release_s"]):
 			_fired = true
 			var at := socket_point(String(c["socket"]))
-			if _slot == "attack":
+			if _slot == "attack" and fire_ball != null:
+				fire_ball.released(_fb_group, at, facing_dir(), k.global_position)
+				_fb_group = -1
+			elif _slot == "attack":
 				_spawn_orb(at, facing_dir())
 			else:
 				_spawn_meteor(k.global_position + facing_dir() * METEOR_AHEAD)

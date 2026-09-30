@@ -1,0 +1,331 @@
+{
+ "_what": "C-9 (b): WHERE THE CLIFFSIDE FIRE BOLT (fire_bolt_e1_B) SPENDS ITS TIME -- measured before the port (godot/tools/diag_fire_bolt.gd in a scratch copy of C-7 cliffside_v45; tools/web_cliffside_fire_diag.js on the live /playtest/cliffside/?c=keeper and on a web export of the scratch copy)",
+ "live_page_chrome_m2": {
+  "desktop_1600x900": {
+   "canvas_px": [
+    1600,
+    900
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 751.2,
+     "over_33": 6,
+     "excess_over_idle_ms": 2197
+    },
+    {
+     "cast": 2,
+     "max_ms": 317,
+     "over_33": 5,
+     "excess_over_idle_ms": 511
+    },
+    {
+     "cast": 3,
+     "max_ms": 298.5,
+     "over_33": 3,
+     "excess_over_idle_ms": 564
+    },
+    {
+     "cast": 4,
+     "max_ms": 283.8,
+     "over_33": 4,
+     "excess_over_idle_ms": 604
+    },
+    {
+     "cast": 5,
+     "max_ms": 316.4,
+     "over_33": 2,
+     "excess_over_idle_ms": 603
+    },
+    {
+     "cast": 6,
+     "max_ms": 300,
+     "over_33": 3,
+     "excess_over_idle_ms": 584
+    }
+   ]
+  },
+  "phone_2532x1170": {
+   "canvas_px": [
+    2532,
+    1170
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 300.1,
+     "over_33": 4,
+     "excess_over_idle_ms": 712
+    },
+    {
+     "cast": 2,
+     "max_ms": 282.7,
+     "over_33": 3,
+     "excess_over_idle_ms": 537
+    },
+    {
+     "cast": 3,
+     "max_ms": 298.2,
+     "over_33": 3,
+     "excess_over_idle_ms": 554
+    },
+    {
+     "cast": 4,
+     "max_ms": 300,
+     "over_33": 2,
+     "excess_over_idle_ms": 559
+    },
+    {
+     "cast": 5,
+     "max_ms": 300,
+     "over_33": 2,
+     "excess_over_idle_ms": 559
+    },
+    {
+     "cast": 6,
+     "max_ms": 299.9,
+     "over_33": 3,
+     "excess_over_idle_ms": 833
+    }
+   ]
+  },
+  "phone_cpu4x": {
+   "canvas_px": [
+    2532,
+    1170
+   ],
+   "idle_frame_median_ms": 49.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 1531.5,
+     "over_33": 15,
+     "excess_over_idle_ms": 2321
+    },
+    {
+     "cast": 2,
+     "max_ms": 1384.7,
+     "over_33": 14,
+     "excess_over_idle_ms": 2289
+    },
+    {
+     "cast": 3,
+     "max_ms": 1364.8,
+     "over_33": 13,
+     "excess_over_idle_ms": 2255
+    },
+    {
+     "cast": 4,
+     "max_ms": 984.8,
+     "over_33": 15,
+     "excess_over_idle_ms": 2204
+    },
+    {
+     "cast": 5,
+     "max_ms": 965,
+     "over_33": 16,
+     "excess_over_idle_ms": 2104
+    },
+    {
+     "cast": 6,
+     "max_ms": 1335.2,
+     "over_33": 19,
+     "excess_over_idle_ms": 2007
+    }
+   ]
+  }
+ },
+ "scratch_export_ab": {
+  "baseline_desktop": {
+   "canvas_px": [
+    1600,
+    900
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 317.7,
+     "over_33": 6,
+     "excess_over_idle_ms": 718
+    },
+    {
+     "cast": 2,
+     "max_ms": 299.2,
+     "over_33": 3,
+     "excess_over_idle_ms": 507
+    },
+    {
+     "cast": 3,
+     "max_ms": 300,
+     "over_33": 3,
+     "excess_over_idle_ms": 498
+    },
+    {
+     "cast": 4,
+     "max_ms": 301.5,
+     "over_33": 3,
+     "excess_over_idle_ms": 571
+    },
+    {
+     "cast": 5,
+     "max_ms": 300.1,
+     "over_33": 3,
+     "excess_over_idle_ms": 484
+    },
+    {
+     "cast": 6,
+     "max_ms": 300.2,
+     "over_33": 3,
+     "excess_over_idle_ms": 507
+    }
+   ]
+  },
+  "shaders_reused_desktop": {
+   "canvas_px": [
+    1600,
+    900
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 200,
+     "over_33": 4,
+     "excess_over_idle_ms": 390
+    },
+    {
+     "cast": 2,
+     "max_ms": 118.7,
+     "over_33": 1,
+     "excess_over_idle_ms": 169
+    },
+    {
+     "cast": 3,
+     "max_ms": 116.7,
+     "over_33": 2,
+     "excess_over_idle_ms": 176
+    },
+    {
+     "cast": 4,
+     "max_ms": 116.7,
+     "over_33": 2,
+     "excess_over_idle_ms": 201
+    },
+    {
+     "cast": 5,
+     "max_ms": 116.7,
+     "over_33": 1,
+     "excess_over_idle_ms": 168
+    },
+    {
+     "cast": 6,
+     "max_ms": 116.6,
+     "over_33": 2,
+     "excess_over_idle_ms": 176
+    }
+   ]
+  },
+  "baseline_phone": {
+   "canvas_px": [
+    2532,
+    1170
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 300.1,
+     "over_33": 4,
+     "excess_over_idle_ms": 650
+    },
+    {
+     "cast": 2,
+     "max_ms": 300,
+     "over_33": 2,
+     "excess_over_idle_ms": 468
+    },
+    {
+     "cast": 3,
+     "max_ms": 300,
+     "over_33": 3,
+     "excess_over_idle_ms": 482
+    },
+    {
+     "cast": 4,
+     "max_ms": 300,
+     "over_33": 2,
+     "excess_over_idle_ms": 448
+    },
+    {
+     "cast": 5,
+     "max_ms": 301.5,
+     "over_33": 2,
+     "excess_over_idle_ms": 453
+    },
+    {
+     "cast": 6,
+     "max_ms": 301.8,
+     "over_33": 3,
+     "excess_over_idle_ms": 741
+    }
+   ]
+  },
+  "shaders_reused_phone": {
+   "canvas_px": [
+    2532,
+    1170
+   ],
+   "idle_frame_median_ms": 16.7,
+   "per_cast": [
+    {
+     "cast": 1,
+     "max_ms": 183.3,
+     "over_33": 3,
+     "excess_over_idle_ms": 346
+    },
+    {
+     "cast": 2,
+     "max_ms": 116.7,
+     "over_33": 1,
+     "excess_over_idle_ms": 153
+    },
+    {
+     "cast": 3,
+     "max_ms": 115,
+     "over_33": 2,
+     "excess_over_idle_ms": 164
+    },
+    {
+     "cast": 4,
+     "max_ms": 116.7,
+     "over_33": 2,
+     "excess_over_idle_ms": 178
+    },
+    {
+     "cast": 5,
+     "max_ms": 100.8,
+     "over_33": 1,
+     "excess_over_idle_ms": 163
+    },
+    {
+     "cast": 6,
+     "max_ms": 299.3,
+     "over_33": 4,
+     "excess_over_idle_ms": 448
+    }
+   ]
+  }
+ },
+ "ranked_causes": [
+  "1 runtime shaders: ~107 Shader.new/duplicate per cast (49 anti-decal core copies, ~55 flame-dance copies, 2 travel sheet-dance, 1 muzzle puff), never cached: a ~300 ms first-draw frame per cast on the web (GL compile+link), ~50 ms of _ready; reusing shaders by code removed the 300 ms frame (per-cast excess 484-571 -> 168-201 ms)",
+  "2 the impact instanced and freed every cast: 55 ms (web) / 68-95 ms (desktop) to instantiate 147 nodes with 78 resource_local_to_scene materials; _ready another 45-55 ms duplicating ~250 ShaderMaterials and creating ~270 nodes; 411-421 nodes per impact; a 55 KB JSON parsed per impact",
+  "3 draw calls and materials at the impact peak: canvas draw calls 28 idle -> 141-145; 111 unique materials, 57 shaders, 50 textures, 180 visible CanvasItems",
+  "4 overdraw: summed quad area 18.6x a 1920x1080 screen at the peak (6.0x additive)",
+  "5 per-tick scripts during the impact: 2-2.6 ms/tick mean, 4.2 max (flame dance 1.2-1.7 ms; debug traces 0.4-0.5 ms; static trace arrays never cleared)",
+  "6 travel start: 7-10 ms CPU warm (33 ms cold) + the first draw of its 3 new shaders",
+  "7 cold first cast only: resource loads, 46-61 ms of image padding, first compiles: 284-751 ms frames on the web"
+ ]
+}

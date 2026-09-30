@@ -1,0 +1,31 @@
+{
+ "_what": "C-9 (c): THE FIRE BALL'S FIDELITY PROOF -- the kit's own runtime (cliffside's renderer, Compatibility on ANGLE Metal) against the baked flipbook played over the same painted Barrow ground (a 1600x900 crop of the painting at 1:1), same frames, same camera, texel by texel (godot/tools/proof_fire_bolt.gd). mean |d| over the effect's footprint: texels where either world differs from the bare ground",
+ "criterion": "mean |d| <= 3/255 per frame",
+ "burst_seed_1": {
+  "ticks": 131,
+  "worst_mean_fp_255": 1.521,
+  "worst_tick": 128,
+  "median_mean_fp_255": 0.354,
+  "max_abs_255_over_all_ticks": 191,
+  "worst_share_of_footprint_over_3": 0.5,
+  "ticks_with_any_texel_over_3": 49,
+  "halo_worst_mean_fp_255": 0.098,
+  "interleave_seed": 683407434
+ },
+ "burst_seed_2": {
+  "ticks": 131,
+  "worst_mean_fp_255": 2.267,
+  "worst_tick": 129,
+  "median_mean_fp_255": 0.36,
+  "max_abs_255_over_all_ticks": 191,
+  "worst_share_of_footprint_over_3": 1.0,
+  "ticks_with_any_texel_over_3": 49,
+  "interleave_seed": 871373000
+ },
+ "where_texels_differ": [
+  "ticks 0-3: the muzzle puff sits between the travel's dark copy (z -2) and its head (z 0) in the kit's canvas; two quads cannot interleave, so the puff lies under the whole travel",
+  "ticks 18-26: the drain streak (turned with the aim) and the burst (never turned) overlap, and their z-orders interleave in the kit",
+  "the last ticks: a footprint of 11-17 texels (embers going out), so one texel moves the mean"
+ ],
+ "kit_quirk_matched": "the kit's trail pool shows a newborn mote for one frame at the canvas origin (off the play frame); the port starts each mote a tick later, as seen"
+}
