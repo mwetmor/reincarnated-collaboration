@@ -7,7 +7,8 @@ extends Node3D
 ## LAYERS are the format agreed with the scene drax (2026-09-30): a list, bottom to top, each
 ##   {name, action, bones, weight, states, time}  -- a filtered Blend2 over the state's clip, its own animation
 ## node behind its own TimeSeek: time "pose" = the action at 0, "clip" = the base clip's time. Filter paths are
-## taken from the action's own tracks. An un-keyed channel is at REST (Godot's tree, the glTF rule).
+## taken from the action's own tracks, or with filter_from "all_clips" from any clip (render_cells.gd's rule); an optional
+## weight_curve scales the weight over the clip's time. An un-keyed channel is at REST (Godot's tree, the glTF rule).
 ## CAMERA: the play camera -- orthographic, pitch 52.9535 deg, yaw 47 deg, 100.617 px/m x scale, looking at the
 ## ground origin + 0.85 m. Rendered into an OFFSCREEN SubViewport of exactly the size asked; films piped raw to
 ## ffmpeg at exactly 1/30 s per frame (no Movie Maker, no frames on disk).
@@ -125,13 +126,15 @@ func _build_tree() -> void:
 	tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	tree.active = true
 
-func _pose(clip: String, t: float) -> void:
+func _pose(clip: String, t: float, state: String = "") -> void:
+	## `state` names the pack state when it is not the clip's own name (a variant: shout_raised plays the clip shout)
 	((tree.tree_root as AnimationNodeBlendTree).get_node("clip") as AnimationNodeAnimation).animation = clip
 	tree.set("parameters/seek/seek_request", t)
+	var st := state if state != "" else clip
 	for ly in layers:
 		var nm := String(ly["name"])
-		var on: bool = clip in ly.get("states", [])
-		tree.set("parameters/L_%s/blend_amount" % nm, float(ly.get("weight", 1.0)) if on else 0.0)
+		var on: bool = st in ly.get("states", [])
+		tree.set("parameters/L_%s/blend_amount" % nm, float(ly.get("weight", 1.0)) * _curve(ly, t) if on else 0.0)
 		tree.set("parameters/s_%s/seek_request" % nm, t if String(ly.get("time", "pose")) == "clip" else 0.0)
 	tree.advance(0.0)
 	if body:
@@ -139,6 +142,19 @@ func _pose(clip: String, t: float) -> void:
 			var i := body.find_blend_shape_by_name(k)
 			if i >= 0:
 				body.set_blend_shape_value(i, float(cfg["morphs"][k]))
+
+func _curve(ly: Dictionary, t: float) -> float:
+	## weight_curve {keys: [[t, w]...]}: the base clip's time, smoothstep between keys (render_cells.gd's rule)
+	if not ly.has("weight_curve"):
+		return 1.0
+	var ks: Array = ly["weight_curve"]["keys"]
+	if t <= float(ks[0][0]):
+		return float(ks[0][1])
+	for i in range(1, ks.size()):
+		if t <= float(ks[i][0]):
+			var t0 := float(ks[i - 1][0]); var t1 := float(ks[i][0])
+			return lerpf(float(ks[i - 1][1]), float(ks[i][1]), smoothstep(0.0, 1.0, (t - t0) / maxf(t1 - t0, 1e-9)))
+	return float(ks[ks.size() - 1][1])
 
 func _aim(scale: float, rows: float) -> void:
 	cam.size = rows / (PPM * scale)
@@ -161,11 +177,11 @@ func _stills() -> void:
 			var sheet := Image.create(w * headings.size(), h, false, Image.FORMAT_RGB8)
 			for k in headings.size():
 				who.rotation = Vector3(0, deg_to_rad(float(headings[k])), 0)
-				_pose(clip, float(t))
+				_pose(clip, float(t), String(shot.get("state", "")))
 				for i in 2: await RenderingServer.frame_post_draw
 				var img := sv.get_texture().get_image(); img.convert(Image.FORMAT_RGB8)
 				sheet.blit_rect(img, Rect2i(0, 0, w, h), Vector2i(k * w, 0))
-			var out := "%s/%s_%s_t%.3f_%dx.png" % [String(st["out_dir"]), String(cfg.get("tag", "j")), clip, float(t), int(scale)]
+			var out := "%s/%s_%s_t%.3f_%dx.png" % [String(st["out_dir"]), String(cfg.get("tag", "j")), String(shot.get("state", clip)), float(t), int(scale)]
 			sheet.save_png(out)
 			print("[j] still %s" % out)
 
@@ -189,7 +205,7 @@ func _film() -> void:
 		for i in n:
 			var tt := i / 30.0 * rate
 			var t := fposmod(tt, T) if bool(shot.get("loop", false)) else minf(tt, T)
-			_pose(clip, t)
+			_pose(clip, t, String(shot.get("state", "")))
 			await RenderingServer.frame_post_draw
 			var img := sv.get_texture().get_image(); img.convert(Image.FORMAT_RGB8)
 			io.store_buffer(img.get_data()); frames += 1

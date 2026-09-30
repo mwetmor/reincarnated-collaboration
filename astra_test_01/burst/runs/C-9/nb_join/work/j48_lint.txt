@@ -1,0 +1,18 @@
+  release_s checked on 1 cast(s): shout
+  36 clip(s) checked, 0 mismatch(es)
+== negative control: neg_release (a copy of the manifest with one planted error)
+  release_s checked on 1 cast(s): shout
+  MANIFEST MISMATCH  casts.shout.release_s = 3.0000 is outside the clip (0, 2.7667)
+  MANIFEST MISMATCH  casts.shout.release_s = 3.0000 falls 0.2333 s from the nearest key (frame step 0.0333) -- a pose between keys
+  36 clip(s) checked, 2 mismatch(es)
+exit 1
+== negative control: neg_walk_seconds (a copy of the manifest with one planted error)
+  release_s checked on 1 cast(s): shout
+  MANIFEST MISMATCH  locomotion_in_place.walk.seconds = 2.0 but the GLB says 1.0333
+  36 clip(s) checked, 1 mismatch(es)
+exit 1
+== negative control: neg_prose (a copy of the manifest with one planted error)
+  release_s checked on 1 cast(s): shout
+  MANIFEST MISMATCH  .clips.death.note_neg says 'death ... 1.5 s' but the GLB says 2.2333 s
+  36 clip(s) checked, 1 mismatch(es)
+exit 1

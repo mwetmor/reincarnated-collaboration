@@ -383,12 +383,32 @@
      "first": 0.045
     }
    },
-   "join_guard_R": {
+   "join_guard_R_idle": {
     "scale_tracks": {},
     "root_height": null,
     "root": null
    },
-   "join_guard_L": {
+   "join_guard_L_idle": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_R_run": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_L_run": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_R_walk": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_L_walk": {
     "scale_tracks": {},
     "root_height": null,
     "root": null
@@ -460,6 +480,11 @@
      "mean": 0.0085,
      "first": 0.0085
     }
+   },
+   "shout_raise": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
    }
   },
   "morphs": [
@@ -506,7 +531,8 @@
      "edits": [
       "deroot",
       "recentre",
-      "reground"
+      "reground",
+      "weapon_clamp"
      ],
      "status": "PASS"
     },
@@ -552,6 +578,11 @@
       "trim"
      ],
      "status": "PASS"
+    },
+    {
+     "clip": "shout_raise",
+     "status": "AUTHORED",
+     "note": "the raised war-cry pose, both arms (8 bones), solved against the shout's body at its release; a 2-key STEP pose clip for the shout_raised variant's layer"
     },
     {
      "clip": "whirlwind",

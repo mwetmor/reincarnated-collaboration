@@ -8,9 +8,11 @@ extends Node3D
 ##       J1_CLOSURE = scratch dir for the loop-closure frames (render(T), never part of the pack),
 ##       J1_ONLY = optional "state/DIR,..." subset (a probe run)
 ##
-## SOURCE: the GLBs are loaded at RUNTIME (GLTFDocument), from their own paths -- no editor import, so
-## no import option (the editor's 30 fps resample, immutable-track removal) sits between the file whose
-## sha256 goes in the index and the pixels. Pieces bind gear.gd's way: each skinned MeshInstance3D
+## SOURCE: the GLBs are loaded at RUNTIME (GLTFDocument), from their own paths -- no editor import. BUT the
+## runtime path RE-SAMPLES TOO (measured 2026-09-30, Godot 4.6.3, nb_join/scripts/j_runtime_resample.py): its
+## generate_scene(state) bakes every transform track at GLTFState.bake_fps = 30 (keys at 1/30 steps plus one at the
+## clip's end) and drops rest-valued tracks -- the editor importer's defaults. A clip keyed on the 30 fps grid comes
+## through key-for-key; a 24 fps clip renders as its 30 fps bake. Each kit's `runtime_resample` record says which. Pieces bind gear.gd's way: each skinned MeshInstance3D
 ## reparented under the body's Skeleton3D, its skin kept, `skeleton` pointed at it.
 ## CAMERA (2.3): orthographic, size 768/ppm_render, KEEP_HEIGHT, 768^2 SubViewport, pitch alpha
 ## down from horizontal, yaw 0 (it looks along -Z). THE PORT'S MODEL FRAME is then x = +X (screen-right),
@@ -18,7 +20,7 @@ extends Node3D
 ## up the screen so the ground origin lands on the anchor (384, 448); that is MEASURED per cell
 ## (unproject_position), not assumed.
 ## DIRECTIONS (2.3, the yaw paragraph): direction d's character heading is its ground bearing b in the
-## port frame (S 90 ... SE 45). Her model faces +Z, and a turn of theta about +Y sends +Z to
+## port frame (S 90 ... SE 45). The model faces +Z, and a turn of theta about +Y sends +Z to
 ## (sin theta, 0, cos theta), so theta = 90 - b EXACTLY. Frame 0's root forward is measured from the
 ## transform actually rendered and linted to +-0.5 deg by the indexer.
 ## LIGHT (2.2): the Barrow's winter sun (paint_stack.gd numbers) PARENTED TO THE CAMERA, so every
@@ -32,7 +34,9 @@ extends Node3D
 ## states, time}: a filtered Blend2 over the state's clip, the action behind ITS OWN TimeSeek -- time "pose" = the
 ## action at 0, "clip" = the base clip's time, or {c_base, c_layer} = PHASE-MAPPED: p = t/T_base, t_layer =
 ## fposmod(p - c_base + c_layer, 1) * T_layer (his spec, for a gait-synced upper layer). Filter paths come from the
-## action's own tracks. A state not in a layer's `states` gets it at 0.
+## action's own tracks, or with filter_from "all_clips" from any clip. A state not in a layer's `states` gets it at 0.
+## weight_curve {keys: [[t, w]...]} scales the weight over the base clip's time (smoothstep between keys): the death's
+## guards blending OUT across the fall, the shout variant's raise blending IN over the cry.
 
 const CANVAS := 768
 const ANCHOR := Vector2(384, 448)
@@ -203,7 +207,7 @@ func _pose(state: String, t: float) -> void:
 	for ly in llist:
 		var nm := String(ly["name"])
 		var on2: bool = state in ly.get("states", [])
-		tree.set("parameters/LL_%s/blend_amount" % nm, float(ly.get("weight", 1.0)) if on2 else 0.0)
+		tree.set("parameters/LL_%s/blend_amount" % nm, float(ly.get("weight", 1.0)) * _curve(ly, t) if on2 else 0.0)
 		var tm = ly.get("time", "pose")
 		var tl := 0.0
 		if typeof(tm) == TYPE_DICTIONARY:
@@ -222,6 +226,21 @@ func _pose(state: String, t: float) -> void:
 			var i := body.find_blend_shape_by_name(k)
 			if i >= 0:
 				body.set_blend_shape_value(i, float(kit["morphs"][k]))
+
+## weight_curve (additive to the agreed layer format): {"keys": [[t, w], ...]} in the BASE clip's time, smoothstep-eased
+## between keys, held beyond the ends; the layer's blend amount is weight x curve(t). Absent: 1.
+func _curve(ly: Dictionary, t: float) -> float:
+	if not ly.has("weight_curve"):
+		return 1.0
+	var ks: Array = ly["weight_curve"]["keys"]
+	if t <= float(ks[0][0]):
+		return float(ks[0][1])
+	for i in range(1, ks.size()):
+		if t <= float(ks[i][0]):
+			var t0 := float(ks[i - 1][0]); var t1 := float(ks[i][0])
+			var u := smoothstep(0.0, 1.0, (t - t0) / maxf(t1 - t0, 1e-9))
+			return lerpf(float(ks[i - 1][1]), float(ks[i][1]), u)
+	return float(ks[ks.size() - 1][1])
 
 func _mf(path: String):
 	var v = manifest
@@ -275,6 +294,12 @@ func _render_all() -> void:
 	var out := OS.get_environment("J1_OUT")
 	var clo := OS.get_environment("J1_CLOSURE")
 	var only := OS.get_environment("J1_ONLY").split(",", false) if OS.has_environment("J1_ONLY") else PackedStringArray()
+	# GPU WARM-UP (2026-09-30): a fresh renderer's first drawn frames can differ -- a spot render's first cell differed
+	# in 1 of its 12 frames from the same cell rendered later in a run. Draw throwaway frames of the first state's first
+	# pose before anything is saved; nothing here is written.
+	who.rotation = Vector3(0, deg_to_rad(90.0 - float(BEARING[DIRS[0]])), 0)
+	_pose(String(kit["states"].keys()[0]), 0.0)
+	for w in 8: await RenderingServer.frame_post_draw
 	for state in kit["states"]:
 		var st: Dictionary = kit["states"][state]
 		var ts := times(state)

@@ -12,3 +12,9 @@
 {"ev": "end", "step": "J1-rerender-walk-d2-fire-sorc", "t": 1790754834.943956, "note": "spot render: 4 unchanged cells + their 3 closure frames byte-identical (the sacrificial first cell, idle/S, differs in 1 of 12 frames: GPU warm-up again); then the 8 walk cells, 96 frames + 8 closure frames"}
 {"ev": "start", "step": "J1-reindex-walk-d2-fire-sorc", "t": 1790754858.802476, "note": "re-index + re-lint the WHOLE pack from the files (32 p1 + 16 p2 + 8 p3 cells), state notes from the manifest's clip_windows, contact sheet"}
 {"ev": "end", "step": "J1-reindex-walk-d2-fire-sorc", "t": 1790754869.472118, "note": "matrix_index.json from the files; 56/56"}
+{"ev": "start", "step": "J1-render-d2-ww-barb", "t": 1790763963.452825, "note": "the barbarian's pack: 8 states (idle/walk/run = the scene drax's hold on b5371921, whirlwind/shout/hit/death + the shout_raised variant = the JOIN moves on export e2e6f525), 64 cells, 800 frames + 32 closure frames; GPU warm-up frames first"}
+{"ev": "end", "step": "J1-render-d2-ww-barb", "t": 1790763994.6528509, "note": "64 cells, 800 frames + 32 closure frames"}
+{"ev": "start", "step": "J1-render-d2-ww-barb-2", "t": 1790764464.813479, "note": "full re-render: the death's clamp rebuilt under Godot's mixer rule (export 4ea0439d); the first render (e2e6f525) is superseded whole"}
+{"ev": "end", "step": "J1-render-d2-ww-barb-2", "t": 1790764495.975747, "note": "64 cells, 800 frames + 32 closure frames"}
+{"ev": "start", "step": "J1-index-d2-ww-barb", "t": 1790764531.9457972, "note": "index + lint from the files, contact sheet"}
+{"ev": "end", "step": "J1-index-d2-ww-barb", "t": 1790764546.854769, "note": "matrix_index.json from the files"}

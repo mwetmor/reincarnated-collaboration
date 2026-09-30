@@ -1,0 +1,1324 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "so-body.glb",
+ "clips": {
+  "cast_fireball": {
+   "length_glb": 3.33333,
+   "length_godot": 3.33333,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 14,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.72
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.599
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.639
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.745
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.521
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.542
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.498
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.625
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.753
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.094
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.183
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.054
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 1.609
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 4.084
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 4.89
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 2.443
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 0.191
+    },
+    {
+     "track": "Head.translation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 1.187
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 3.103
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 3.396
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 4.21
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 81,
+     "spacing_glb": 0.04167,
+     "keys_godot": 101,
+     "worst_deg": 3.073
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.translation",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.translation",
+    "neck.scale",
+    "Head.scale",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.rotation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "cast_meteor": {
+   "length_glb": 3.0,
+   "length_godot": 3.0,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 15,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.736
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.402
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.606
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.762
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.18
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.864
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.311
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 1.045
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.963
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.444
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.142
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.082
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.958
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 1.44
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 4.125
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 1.419
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.137
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.482
+    },
+    {
+     "track": "head_end.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.001
+    },
+    {
+     "track": "headfront.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 0.001
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 1.048
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 1.645
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 2.392
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 2.15
+    },
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91,
+     "worst_deg": 7.422
+    },
+    {
+     "track": "weapon_r.translation",
+     "keys_glb": 73,
+     "spacing_glb": 0.04167,
+     "keys_godot": 91
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.translation",
+    "neck.scale",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale"
+   ]
+  },
+  "death": {
+   "length_glb": 2.25,
+   "length_godot": 2.25,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 8,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.921
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.212
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.069
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.316
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.388
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.358
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.533
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.571
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.442
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.381
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.605
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.065
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.022
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 1.745
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 4.159
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 2.707
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.586
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 2.073
+    },
+    {
+     "track": "head_end.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.001
+    },
+    {
+     "track": "headfront.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.001
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 0.935
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 2.784
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 2.53
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 55,
+     "spacing_glb": 0.04167,
+     "keys_godot": 69,
+     "worst_deg": 4.169
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.scale",
+    "LeftLeg.translation",
+    "LeftLeg.scale",
+    "LeftFoot.translation",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.scale",
+    "RightLeg.translation",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.translation",
+    "neck.scale",
+    "Head.translation",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.translation",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "hit": {
+   "length_glb": 1.66667,
+   "length_godot": 1.66667,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 8,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.026
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 3.331
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.685
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 2.273
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.797
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.419
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 2.189
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.665
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.156
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.178
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.235
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.043
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.163
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.371
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.982
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.808
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.22
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.32
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.233
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.922
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 0.41
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 41,
+     "spacing_glb": 0.04167,
+     "keys_godot": 51,
+     "worst_deg": 1.705
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.scale",
+    "LeftLeg.translation",
+    "LeftLeg.scale",
+    "LeftFoot.translation",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.scale",
+    "RightLeg.translation",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.scale",
+    "RightToeBase.translation",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.translation",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.rotation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.translation",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "idle": {
+   "length_glb": 2.33333,
+   "length_godot": 2.33333,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 8,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.015
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.01
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.012
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.012
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.006
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.024
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.032
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.019
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.004
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.019
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.034
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.009
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.015
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.038
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.049
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.05
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.014
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.029
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.012
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.019
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.018
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 57,
+     "spacing_glb": 0.04167,
+     "keys_godot": 71,
+     "worst_deg": 0.037
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.scale",
+    "LeftLeg.translation",
+    "LeftLeg.scale",
+    "LeftFoot.translation",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.scale",
+    "RightLeg.translation",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.scale",
+    "RightToeBase.translation",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.translation",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.translation",
+    "neck.scale",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.rotation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "run": {
+   "length_glb": 0.73333,
+   "length_godot": 0.73333,
+   "tracks": 74,
+   "exact": 46,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.rotation",
+    "headfront.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "staff_carry_R": {
+   "length_glb": 0.04167,
+   "length_godot": 0.04167,
+   "tracks": 74,
+   "exact": 0,
+   "two_key": 10,
+   "resampled": [],
+   "dropped": [
+    "Hips.translation",
+    "Hips.rotation",
+    "Hips.scale",
+    "LeftUpLeg.translation",
+    "LeftUpLeg.rotation",
+    "LeftUpLeg.scale",
+    "LeftLeg.translation",
+    "LeftLeg.rotation",
+    "LeftLeg.scale",
+    "LeftFoot.translation",
+    "LeftFoot.rotation",
+    "LeftFoot.scale",
+    "LeftToeBase.translation",
+    "LeftToeBase.rotation",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.rotation",
+    "RightUpLeg.scale",
+    "RightLeg.translation",
+    "RightLeg.rotation",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.rotation",
+    "RightFoot.scale",
+    "RightToeBase.translation",
+    "RightToeBase.rotation",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.rotation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.rotation",
+    "Spine.scale",
+    "LeftShoulder.rotation",
+    "LeftShoulder.scale",
+    "LeftArm.translation",
+    "LeftArm.rotation",
+    "LeftArm.scale",
+    "LeftForeArm.translation",
+    "LeftForeArm.rotation",
+    "LeftForeArm.scale",
+    "LeftHand.rotation",
+    "LeftHand.scale",
+    "neck.translation",
+    "neck.rotation",
+    "neck.scale",
+    "Head.translation",
+    "Head.rotation",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.rotation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.translation",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "walk": {
+   "length_glb": 0.96667,
+   "length_godot": 0.96667,
+   "tracks": 74,
+   "exact": 47,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.scale",
+    "headfront.rotation",
+    "headfront.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack_draft/d2-fire-sorc/matrix_index.json",
+  "states": {
+   "idle": {
+    "clip": "idle",
+    "frames": 12,
+    "worst_deg": 0.023,
+    "worst_track": "LeftHand.rotation",
+    "worst_at_t": 0.583333,
+    "worst_translation_units": 0.00163,
+    "worst_translation_track": "Hips.translation"
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "run": {
+    "clip": "run",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "cast_fireball": {
+    "clip": "cast_fireball",
+    "frames": 12,
+    "worst_deg": 5.018,
+    "worst_track": "LeftForeArm.rotation",
+    "worst_at_t": 0.9167,
+    "worst_translation_units": 0.20083,
+    "worst_translation_track": "Hips.translation"
+   },
+   "cast_meteor": {
+    "clip": "cast_meteor",
+    "frames": 16,
+    "worst_deg": 3.584,
+    "worst_track": "LeftForeArm.rotation",
+    "worst_at_t": 1.625,
+    "worst_translation_units": 0.63621,
+    "worst_translation_track": "weapon_r.translation"
+   },
+   "hit": {
+    "clip": "hit",
+    "frames": 8,
+    "worst_deg": 1.756,
+    "worst_track": "LeftFoot.rotation",
+    "worst_at_t": 0.714286,
+    "worst_translation_units": 0.07556,
+    "worst_translation_track": "Hips.translation"
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.785,
+    "worst_track": "RightArm.rotation",
+    "worst_at_t": 0.45,
+    "worst_translation_units": 0.17977,
+    "worst_translation_track": "Hips.translation"
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}

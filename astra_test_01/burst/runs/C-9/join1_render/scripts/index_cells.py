@@ -47,6 +47,9 @@ for st, sd in kit["states"].items():
                hold_last=bool(sd.get("hold_last", False)), closure_mad=None)
     if sd.get("skill"):
         rec["skill"] = sd["skill"]
+    if sd.get("variant_of"):
+        # a VARIANT for a look (not a contract state): it plays another state's clip under its own layers
+        rec["variant_of"] = sd["variant_of"]; rec["variant_note"] = sd.get("variant_note")
     if sd.get("notes_from"):
         # facts about the clip AS SHIPPED that a reader would otherwise re-find (the kit names manifest paths)
         rec["notes"] = [mget(p_) for p_ in sd["notes_from"]]
@@ -153,7 +156,7 @@ idx = {
     "camera": {"projection": "orthographic", "pitch_deg": ALPHA, "ppm_render": PPM, "ppm_multiple_of_gd": 2,
                "canvas_px": [768, 768], "anchor_px": ANCHOR, "ortho_size_m": round(768 / PPM, 5),
                "frame": "port model: x screen-right, y toward camera, z up; origin = character ground origin",
-               "yaw_deg": 0.0, "character_heading": "theta = 90 - bearing about +Y (her model faces +Z); frame-0 root forward measured per cell"},
+               "yaw_deg": 0.0, "character_heading": "theta = 90 - bearing about +Y (the model faces +Z); frame-0 root forward measured per cell"},
     "image": {"format": "png", "mode": "RGBA", "alpha": "straight", "colorspace": "sRGB", "plate": None, "baked_shadow": False,
               "baked_vfx": False, "lights": "camera-parented",
               "lights_detail": "the Barrow's winter sun (paint_stack.gd: 55 deg, screen azimuth 305, (1.0, 0.955, 0.885), energy 0.90, shadow blur 1.7) as a child of the camera, ambient 0.30 white; self-shadowing only (no ground)",
@@ -162,7 +165,12 @@ idx = {
     "states": states,
     "sockets_def": {k: v.get("_what") for k, v in kit["sockets"].items() if not k.startswith("_")},
     "alpha_union_bbox_convention": "[x0, y0, x1, y1), x1/y1 exclusive -- PIL getchannel('A').getbbox(), as stage_art.py crops",
-    "layers": kit.get("layers"), "morphs": kit.get("morphs"),
+    "layers": kit.get("layers") if kit.get("layers") is not None else {
+        "layer_specs": [{"path": p_, "sha256": sha(p_)} for p_ in kit.get("layer_specs", [])],
+        "layer_list": kit.get("layer_list"), "layer_list_from": kit.get("layer_list_from")},
+    "morphs": kit.get("morphs"),
+    # the runtime glTF path re-samples (GLTFState.bake_fps): what that does to THIS pack's clips, measured
+    "runtime_resampling": json.load(open(kit["runtime_resample"])) if kit.get("runtime_resample") else None,
     # a pack re-rendered in part (merge_raw.py) says which render made each cell, and from what
     "render_passes": raw.get("render_passes"),
     "cells": cells,

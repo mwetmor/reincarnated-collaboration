@@ -1,6 +1,6 @@
 # Append a POSE CLIP (2-key STEP, every named bone's local rotation) to a body GLB -- a binary patch, every other byte kept.
 #
-#   python3 scripts/j_pose_clip.py <body.glb> <out.glb> <name> --from <clip>[@t] [--bones a,b,..] [--mirror] [--json f]
+#   python3 scripts/j_pose_clip.py <body.glb> <out.glb> <name> (--from <clip>[@t] [--bones a,b,..] [--mirror] | --locals-json f)
 #
 # --mirror carries the RIGHT arm's locals onto the LEFT arm across his sagittal plane: q -> (x, -y, -z, w), the rig's
 # own left/right convention (the arm chain's rests match that mirror within 2.5 deg: measured). Used for the
@@ -12,16 +12,22 @@ sys.path.insert(0, os.path.join(RUNS, "nb_d2", "scripts")); sys.path.insert(0, o
 L = __import__('21_lint_export'); C = __import__('s17_loop_closure')
 a = sys.argv[1:]; BODY, OUT, NAME = a[0], a[1], a[2]
 opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
-src = opt('--from'); sc, st = (src.split('@') + ['0'])[:2]; st = float(st)
 MIR = '--mirror' in a
 m = C.model(BODY)
-bones = opt('--bones').split(',') if opt('--bones') else [m['nodes'][n]['name'] for (n, p) in m['anims'][sc] if p == 'rotation']
-G = None
 loc = {}
-for (n, p), (tt, vv) in m['anims'][sc].items():
-    if p != 'rotation': continue
-    k = int(np.searchsorted(tt, st - 1e-6)); k = min(max(k, 0), len(tt) - 1)
-    loc[m['nodes'][n]['name']] = np.array(vv[k], float)
+if opt('--locals-json'):
+    # --locals-json f: a solver's output {"locals": {bone: {"r": [x, y, z, w]}}} -- the pose written as it was solved
+    src = opt('--locals-json')
+    for bnm, v in json.load(open(src))['locals'].items():
+        loc[bnm] = np.array(v['r'], float)
+    bones = list(loc)
+else:
+    src = opt('--from'); sc, st = (src.split('@') + ['0'])[:2]; st = float(st)
+    bones = opt('--bones').split(',') if opt('--bones') else [m['nodes'][n]['name'] for (n, p) in m['anims'][sc] if p == 'rotation']
+    for (n, p), (tt, vv) in m['anims'][sc].items():
+        if p != 'rotation': continue
+        k = int(np.searchsorted(tt, st - 1e-6)); k = min(max(k, 0), len(tt) - 1)
+        loc[m['nodes'][n]['name']] = np.array(vv[k], float)
 js, b0 = L.load_glb(BODY); bn = bytearray(b0); nid = {nd.get('name'): i for i, nd in enumerate(js['nodes'])}
 def put(data):
     while len(bn) % 4: bn.append(0)

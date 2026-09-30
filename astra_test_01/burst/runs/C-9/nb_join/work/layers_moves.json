@@ -1,0 +1,134 @@
+[
+ {
+  "name": "guard_R",
+  "action": "join_guard_R_idle",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "shout",
+   "shout_raised",
+   "hit"
+  ],
+  "time": "pose",
+  "filter_from": "all_clips"
+ },
+ {
+  "name": "guard_L",
+  "action": "join_guard_L_idle",
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "shout",
+   "shout_raised",
+   "hit"
+  ],
+  "time": "pose",
+  "filter_from": "all_clips"
+ },
+ {
+  "name": "guard_R_death",
+  "action": "join_guard_R_idle",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "death"
+  ],
+  "time": "pose",
+  "filter_from": "all_clips",
+  "weight_curve": {
+   "keys": [
+    [
+     1.1,
+     1.0
+    ],
+    [
+     1.5,
+     0.0
+    ]
+   ]
+  }
+ },
+ {
+  "name": "guard_L_death",
+  "action": "join_guard_L_idle",
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "death"
+  ],
+  "time": "pose",
+  "filter_from": "all_clips",
+  "weight_curve": {
+   "keys": [
+    [
+     1.1,
+     1.0
+    ],
+    [
+     1.5,
+     0.0
+    ]
+   ]
+  }
+ },
+ {
+  "name": "raise",
+  "action": "shout_raise",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand",
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "shout_raised"
+  ],
+  "time": "pose",
+  "filter_from": "all_clips",
+  "weight_curve": {
+   "keys": [
+    [
+     0.5,
+     0.0
+    ],
+    [
+     1.1,
+     1.0
+    ],
+    [
+     1.7,
+     1.0
+    ],
+    [
+     2.4,
+     0.0
+    ]
+   ]
+  }
+ }
+]

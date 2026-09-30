@@ -7,6 +7,7 @@
 #   blender -b -noaudio --python scripts/j_measure.py -- <body.glb> <out.json> --clips a,b,c [--n 24]
 #        [--sword sword.glb] [--axe axe_l.glb] [--morphs grip_R=1,grip_L=1,helmet_on=0]
 #        [--layer <clip>=<bone,bone,...>@<pose clip>[:<t>, -1 = the clip's own time]] (repeatable) [--pen-every 4] [--no-pen]
+#        [--layers-json layers.json] [--times-json {state: [t, ...]}: sample those times instead of N uniform]
 #
 # Per clip, per sample time (uniform over [0, T], both ends): for each weapon, the GRIP (the weapon joint's
 # origin), its axes X (the flat's normal), Y (blade / haft to the tip) and Z (an edge) in world, the TIP
@@ -27,6 +28,7 @@ sys.path.insert(0, os.path.join(RUNS, "nb_d2", "scripts"))
 sys.path.insert(0, os.path.join(RUNS, "so_d7", "scripts"))
 L = __import__('21_lint_export')
 W = __import__('52_weapon_bones')
+sys.path.insert(0, HERE); B = __import__('j_blend')
 
 a = sys.argv[sys.argv.index('--') + 1:]
 BODY, OUT = a[0], a[1]
@@ -37,6 +39,13 @@ SWORD, AXE = opt('--sword'), opt('--axe')
 MORPHS = dict((kv.split('=')[0], float(kv.split('=')[1])) for kv in opt('--morphs', 'grip_R=1,grip_L=1,helmet_on=0').split(','))
 EVERY = int(opt('--pen-every', '4'))
 NOPEN = '--no-pen' in a
+TIMES = json.load(open(opt('--times-json'))) if opt('--times-json') else None
+# --layers-json f: a LIST of layers in the agreed format ({name, action, bones, weight, states, time, weight_curve}),
+# matched on the STATE name; --clips takes state[:clip] (a variant plays another state's clip: shout_raised:shout).
+# Blending is GODOT'S (scripts/j_blend.py): filtered Blend2 nodes bottom to top, then the AnimationMixer's accumulation
+# relative to each bone's rest -- NOT slerp(clip, layer, w), which it equals only at w 0 and 1. filter_from all_clips:
+# every listed bone takes part; where the action does not key it, it contributes its rest. Weight = weight x weight_curve(t).
+LAYER_LIST = json.load(open(opt('--layers-json'))) if opt('--layers-json') else []
 LAYERS = {}                                  # clip -> [layers], applied in order (bottom to top), weight 1
 for i, x in enumerate(a):
     if x == '--layer':
@@ -74,11 +83,8 @@ def samp(tt, vv, interp, t, path):
     if interp == 'STEP':
         return vv[k]
     u = (t - tt[k]) / max(tt[k + 1] - tt[k], 1e-12); v0, v1 = vv[k], vv[k + 1]
-    if path == 'rotation':
-        if np.dot(v0, v1) < 0:
-            v1 = -v1
-        v = (1 - u) * v0 + u * v1
-        return v / np.linalg.norm(v)
+    if path == 'rotation':                   # glTF LINEAR on a rotation is a SLERP (and Godot's key-to-key is one)
+        return B.slerp(v0, v1, u)
     return (1 - u) * v0 + u * v1
 
 
@@ -105,12 +111,50 @@ def globals_of(m, loc):
     return G
 
 
-def pose(m, clip, t):
+def curve(ly, t):
+    if 'weight_curve' not in ly:
+        return 1.0
+    ks = ly['weight_curve']['keys']
+    if t <= ks[0][0]:
+        return float(ks[0][1])
+    for i in range(1, len(ks)):
+        if t <= ks[i][0]:
+            u = (t - ks[i - 1][0]) / max(ks[i][0] - ks[i - 1][0], 1e-9); u = u * u * (3 - 2 * u)
+            return float(ks[i - 1][1] + (ks[i][1] - ks[i - 1][1]) * u)
+    return float(ks[-1][1])
+
+
+def slerp(a, b, u):
+    a = np.asarray(a, float) / np.linalg.norm(a); b = np.asarray(b, float) / np.linalg.norm(b)
+    d = float(np.dot(a, b))
+    if d < 0: b = -b; d = -d
+    if d > 0.9995: v = a + u * (b - a); return v / np.linalg.norm(v)
+    th = math.acos(d); return (math.sin((1 - u) * th) * a + math.sin(u * th) * b) / math.sin(th)
+
+
+def pose(m, clip, t, state=None):
     loc = locals_at(m, clip, t)
     for ly in LAYERS.get(clip, []):
         pl = locals_at(m, ly['clip'], t if ly['t'] < 0 else ly['t'])      # t < 0: the layer plays at the clip's time
         for bn in ly['bones']:
             loc[m['nid'][bn]] = pl[m['nid'][bn]]
+    st = state or clip
+    act = []
+    for ly in LAYER_LIST:
+        if st not in ly.get('states', []):
+            continue
+        w = float(ly.get('weight', 1.0)) * curve(ly, t)
+        if w <= 0:
+            continue
+        tm = ly.get('time', 'pose')
+        if isinstance(tm, dict):
+            Tb = clip_len(m, clip); Tl = clip_len(m, ly['action'])
+            tl = ((t / Tb - tm['c_base'] + tm['c_layer']) % 1.0) * Tl
+        else:
+            tl = t if tm == 'clip' else 0.0
+        act.append(({m['nid'][bn] for bn in ly['bones']}, w, locals_at(m, ly['action'], tl)))
+    if act:                                  # Godot's mixer, not slerp(clip, layer, w): scripts/j_blend.py
+        loc = B.blend(lambda i: m['rest'][i], loc, act)
     return globals_of(m, loc)
 
 
@@ -205,15 +249,20 @@ def inside(tree, p):
 
 
 # ---------------------------------------------------------------- measure
-res = dict(body=os.path.abspath(BODY), weapons={k: dict(path=v['path'], bone=v['bone'], weight_on_bone=v['weight_on_bone']) for k, v in WEAP.items()},
+import hashlib
+res = dict(body=os.path.abspath(BODY), body_sha256=hashlib.sha256(open(BODY, 'rb').read()).hexdigest(), layers_json=opt('--layers-json'), weapons={k: dict(path=v['path'], bone=v['bone'], weight_on_bone=v['weight_on_bone']) for k, v in WEAP.items()},
            morphs=MORPHS, layers=LAYERS, convention="glTF world metres: +Y up, he faces +Z, his right is -X", clips={})
 nid = body['nid']
-for clip in CLIPS:
+for spec_ in CLIPS:
+    state, clip = (spec_.split(':') + [None])[:2]
+    clip = clip or state
     T = clip_len(body, clip)
     times = [T * i / (N - 1) for i in range(N)]
+    if TIMES and state in TIMES:                                         # --times-json: {state: [t, ...]} -- e.g. a pack's own t_s
+        times = [float(x) for x in TIMES[state]]
     rows = []
     for t in times:
-        G = pose(body, clip, t)
+        G = pose(body, clip, t, state)
         row = dict(t=round(t, 5), joints={b: [round(float(x), 5) for x in G[nid[b]][:3, 3]] for b in ('Hips', 'Spine02', 'Head', 'RightHand', 'LeftHand')},
                    rot={b: [[round(float(x), 5) for x in rr] for rr in (G[nid[b]][:3, :3] / np.linalg.norm(G[nid[b]][:3, :3], axis=0))] for b in ('Hips', 'Head')},
                    weapons={})
@@ -230,7 +279,8 @@ for clip in CLIPS:
             grip = Gw[:3, 3]; tip = WV[wp['tip']]
             wr = dict(grip=[round(float(x), 5) for x in grip], tip=[round(float(x), 5) for x in tip],
                       X=[round(float(x), 5) for x in X], Y=[round(float(x), 5) for x in Y], Z=[round(float(x), 5) for x in Z],
-                      tilt_deg=round(math.degrees(math.acos(max(-1, min(1, float(Y[1]))))), 2))
+                      tilt_deg=round(math.degrees(math.acos(max(-1, min(1, float(Y[1]))))), 2),
+                      lowest_y=round(float(WV[:, 1].min()), 5))                 # the weapon's lowest point: the floor is y = 0
             if tree is not None:
                 ly = wp['local'][:, 1] * sc; lr = np.hypot(wp['local'][:, 0], wp['local'][:, 2]) * sc
                 half = 0.07                                                     # half a grip, metres (the sword's is 0.066)
@@ -248,7 +298,7 @@ for clip in CLIPS:
             row['weapons'][k] = wr
         rows.append(row)
     pmax = {k: max((r['weapons'][k].get('pen', 0) for r in rows), default=0) for k in WEAP}
-    res['clips'][clip] = dict(T=round(T, 5), n=N, rows=rows, pen_max=pmax)
-    print("[j_measure] %-18s T %.3f s, %d samples; pen max %s" % (clip, T, N, pmax), flush=True)
+    res['clips'][state] = dict(clip=clip, T=round(T, 5), n=len(times), rows=rows, pen_max=pmax)
+    print("[j_measure] %-18s T %.3f s, %d samples; pen max %s" % (state, T, N, pmax), flush=True)
 json.dump(res, open(OUT, 'w'), indent=1)
 print("[j_measure] wrote %s" % OUT)

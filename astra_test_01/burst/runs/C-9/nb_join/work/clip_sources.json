@@ -111,7 +111,8 @@
    "edits": [
     "deroot",
     "recentre",
-    "reground"
+    "reground",
+    "weapon_clamp"
    ],
    "graft": {
     "source": "../nb_join/anims/death_dying_back.glb",
@@ -137,7 +138,8 @@
      0.0,
      0.2401
     ]
-   }
+   },
+   "weapon_clamp": "weapon_r / weapon_l ROTATION tracks (j_weapon_clamp.py): each weapon pivots in its grip by the smallest turn that clears the floor and his body; weapon bones are outside the fidelity measure's 14 joints"
   },
   "whirlwind": {
    "source": null,
@@ -149,6 +151,12 @@
     0.5667
    ],
    "note": "authored: the idle's stance (its source key at 0.5333 s), the chest squared, both arms solved (blades level and radial, edges along the CCW tangent), turned by a uniform single revolution keyed on the idle SOURCE's own 30 fps grid -- 17 keys, one per 22.5 deg"
+  },
+  "shout_raise": {
+   "source": null,
+   "path": "j_raise_pose.py + j_pose_clip.py (authored)",
+   "note": "the raised war-cry pose, both arms (8 bones), solved against the shout's body at its release; a 2-key STEP pose clip for the shout_raised variant's layer"
   }
- }
+ },
+ "body_base": "nb_d2/export_staging/JOIN_hold/nb-body.glb md5 b5371921"
 }

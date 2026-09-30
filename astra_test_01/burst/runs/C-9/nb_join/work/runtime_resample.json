@@ -1,0 +1,486 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "nb-body_join.glb",
+ "clips": {
+  "attack": {
+   "length_glb": 1.5,
+   "length_godot": 1.5,
+   "tracks": 73,
+   "exact": 0,
+   "two_key": 20,
+   "resampled": [
+    {
+     "track": "Hips.translation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46
+    },
+    {
+     "track": "Hips.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.01
+    },
+    {
+     "track": "LeftUpLeg.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 1.282
+    },
+    {
+     "track": "LeftLeg.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.677
+    },
+    {
+     "track": "LeftFoot.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 1.316
+    },
+    {
+     "track": "LeftToeBase.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.158
+    },
+    {
+     "track": "RightUpLeg.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.627
+    },
+    {
+     "track": "RightLeg.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 1.588
+    },
+    {
+     "track": "RightFoot.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.263
+    },
+    {
+     "track": "RightToeBase.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.481
+    },
+    {
+     "track": "Spine02.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.547
+    },
+    {
+     "track": "Spine01.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.493
+    },
+    {
+     "track": "Spine.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.167
+    },
+    {
+     "track": "LeftShoulder.translation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46
+    },
+    {
+     "track": "LeftShoulder.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.692
+    },
+    {
+     "track": "LeftArm.translation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46
+    },
+    {
+     "track": "LeftArm.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.824
+    },
+    {
+     "track": "LeftForeArm.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.238
+    },
+    {
+     "track": "LeftHand.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 1.915
+    },
+    {
+     "track": "neck.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 0.501
+    },
+    {
+     "track": "Head.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 2.015
+    },
+    {
+     "track": "head_end.translation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46
+    },
+    {
+     "track": "headfront.translation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46
+    },
+    {
+     "track": "RightShoulder.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 1.059
+    },
+    {
+     "track": "RightArm.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 5.152
+    },
+    {
+     "track": "RightForeArm.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 3.219
+    },
+    {
+     "track": "RightHand.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 8.914
+    },
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 37,
+     "spacing_glb": 0.04167,
+     "keys_godot": 46,
+     "worst_deg": 8.323
+    }
+   ],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.scale",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale"
+   ]
+  },
+  "walk_armed": {
+   "length_glb": 1.73333,
+   "length_godot": 1.73333,
+   "tracks": 26,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 43,
+     "spacing_glb": 0.04127,
+     "keys_godot": 53,
+     "worst_deg": 0.232
+    }
+   ],
+   "dropped": [
+    "head_end.rotation",
+    "headfront.rotation"
+   ]
+  },
+  "walk": {
+   "length_glb": 1.03333,
+   "length_godot": 1.03333,
+   "tracks": 25,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "headfront.rotation"
+   ]
+  },
+  "run": {
+   "length_glb": 0.63333,
+   "length_godot": 0.63333,
+   "tracks": 25,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "headfront.rotation"
+   ]
+  },
+  "idle_guard": {
+   "length_glb": 4.0,
+   "length_godot": 4.0,
+   "tracks": 25,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "RightHand.rotation"
+   ]
+  },
+  "run_armed": {
+   "length_glb": 0.66667,
+   "length_godot": 0.66667,
+   "tracks": 73,
+   "exact": 24,
+   "two_key": 13,
+   "resampled": [],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.translation",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.translation",
+    "RightFoot.scale",
+    "RightToeBase.translation",
+    "RightToeBase.scale",
+    "Spine02.translation",
+    "Spine02.scale",
+    "Spine01.translation",
+    "Spine01.scale",
+    "Spine.translation",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "neck.scale",
+    "Head.translation",
+    "Head.scale",
+    "head_end.translation",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.translation",
+    "headfront.rotation",
+    "headfront.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.translation",
+    "RightHand.scale"
+   ]
+  },
+  "join_guard_R_idle": {
+   "length_glb": 0.04167,
+   "length_godot": 0.04167,
+   "tracks": 4,
+   "exact": 0,
+   "two_key": 3,
+   "resampled": [],
+   "dropped": [
+    "RightHand.rotation"
+   ]
+  },
+  "join_guard_L_idle": {
+   "length_glb": 0.04167,
+   "length_godot": 0.04167,
+   "tracks": 4,
+   "exact": 0,
+   "two_key": 3,
+   "resampled": [],
+   "dropped": [
+    "LeftHand.rotation"
+   ]
+  },
+  "shout": {
+   "length_glb": 2.76667,
+   "length_godot": 2.76667,
+   "tracks": 25,
+   "exact": 25,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "hit": {
+   "length_glb": 1.63333,
+   "length_godot": 1.63333,
+   "tracks": 25,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "head_end.rotation"
+   ]
+  },
+  "death": {
+   "length_glb": 2.23333,
+   "length_godot": 2.23333,
+   "tracks": 27,
+   "exact": 26,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "head_end.rotation"
+   ]
+  },
+  "whirlwind": {
+   "length_glb": 0.53333,
+   "length_godot": 0.53333,
+   "tracks": 25,
+   "exact": 1,
+   "two_key": 23,
+   "resampled": [],
+   "dropped": [
+    "headfront.rotation"
+   ]
+  },
+  "shout_raise": {
+   "length_glb": 0.04167,
+   "length_godot": 0.04167,
+   "tracks": 8,
+   "exact": 0,
+   "two_key": 8,
+   "resampled": [],
+   "dropped": []
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb.json",
+  "states": {
+   "idle": {
+    "clip": "idle_guard",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "run": {
+    "clip": "run",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "whirlwind": {
+    "clip": "whirlwind",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "shout": {
+    "clip": "shout",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "shout_raised": {
+    "clip": "shout",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "hit": {
+    "clip": "hit",
+    "frames": 8,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}
