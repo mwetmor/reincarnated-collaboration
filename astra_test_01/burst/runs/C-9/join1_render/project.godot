@@ -1,0 +1,15 @@
+; JOIN-1 sprite-cell renderer (C-9): renders a kit's pack from its GLBs to the contract
+; reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md (d95e1df). Its own project: nothing
+; here touches cliffside3d, attack_lab or the port.
+config_version=5
+
+[application]
+config/name="join1_render"
+run/main_scene="res://render_cells.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+
+[rendering]
+renderer/rendering_method="forward_plus"
