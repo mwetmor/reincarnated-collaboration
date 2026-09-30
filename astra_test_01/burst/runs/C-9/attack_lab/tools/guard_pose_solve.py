@@ -1,6 +1,11 @@
 """T12: THE AXE-ARM GUARD POSE, authored by IK -- and the guard's orientation chosen for READABILITY.
 
-    python3 guard_pose_solve.py <body.glb (26 joints, the mount)> <out.json>
+    python3 guard_pose_solve.py <body.glb (26 joints, the mount)> <out.json> [--side L] [--stance-key k] [--box ...] [--chest q]
+
+--side L (JOIN-1, the off-hand axe): the LEFT arm and weapon_l (its mount: 59_offhand_mount.py), outboard is his
+LEFT (+X), the grip box and the readability search mirrored; the prior is the fight walk's mean LEFT arm.
+--stance-key k: the idle key whose chest the pose is solved at (default: the key whose chest faces most nearly
+his forward) -- JOIN solves both arms at idle_guard's stance (key 53 on the re-cut idle).
 
 1. READABILITY. Within the guard predicate (haft 30-60 deg from vertical, leaning forward and
    outboard), the haft direction whose SCREEN projection at the play camera (orthographic, pitch
@@ -26,7 +31,11 @@ W = __import__('52_weapon_bones')
 F = np.array([0, 0, 1.0]); U = np.array([0, 1.0, 0]); R = np.array([-1.0, 0, 0])
 PITCH = math.radians(52.9535411256029)
 PX_PER_M = 77.8
-CHAIN = ["RightShoulder", "RightArm", "RightForeArm", "RightHand", "weapon_r"]
+SIDE = sys.argv[sys.argv.index('--side') + 1] if '--side' in sys.argv else 'R'
+SH, ARM_, FORE, HAND, WB = (("LeftShoulder", "LeftArm", "LeftForeArm", "LeftHand", "weapon_l") if SIDE == 'L' else
+                            ("RightShoulder", "RightArm", "RightForeArm", "RightHand", "weapon_r"))
+CHAIN = [SH, ARM_, FORE, HAND, WB]
+RS = -R if SIDE == 'L' else R                 # OUTBOARD: his right for the right arm, his left for the left
 
 
 def quat_of(m):
@@ -57,7 +66,10 @@ def cam_axes(yaw_deg):
     return r, s
 
 
-CELLS = [cam_axes(47 + 45 * k) for k in range(8)]
+# the camera cells: the Barrow's play camera sits at yaw 47 (cells 47 + 45k off his forward); the JOIN renderer turns
+# the character under a yaw-0 camera, exact octants (--cells-offset 0)
+CELL0 = float(sys.argv[sys.argv.index('--cells-offset') + 1]) if '--cells-offset' in sys.argv else 47.0
+CELLS = [cam_axes(CELL0 + 45 * k) for k in range(8)]
 
 
 def screen(h):
@@ -102,26 +114,31 @@ def main():
     # 60 -> 54% of the idle's frames)
     for tilt in np.arange(35.0, 55.01, 2.5):
         for az in np.arange(15.0, 75.01, 5.0):
-            h = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * R) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
+            h = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * RS) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
             sc = screen(h)
             lens = [l for l, _ in sc]
             row = (min(lens), float(np.mean(lens)), tilt, az, sc)
             table.append(row)
             if best is None or (row[0], row[1]) > (best[0], best[1]):
                 best = row
+    if '--azimuth' in sys.argv:
+        # a chosen azimuth (JOIN: the dual-wield guard outboard on both sides; the octant cells make az and az+45 read alike)
+        az_f = float(sys.argv[sys.argv.index('--azimuth') + 1])
+        tl_f = float(sys.argv[sys.argv.index('--tilt') + 1]) if '--tilt' in sys.argv else best[2]
+        best = min(table, key=lambda r: abs(r[3] - az_f) + abs(r[2] - tl_f))
     wmin, wmean, tilt, az, sc = best
-    h_world = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * R) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
+    h_world = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * RS) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
     fwd45 = [r for r in table if abs(r[2] - 45) < 1e-6 and abs(r[3] - 45) < 1e-6][0]
     print("readability: best guard haft tilt %.1f deg, azimuth %.0f deg (forward -> outboard): worst cell %.2f, mean %.2f of true length"
           % (tilt, az, wmin, wmean))
     print("   for scale, the centre of the predicate (tilt 45, azimuth 45): worst cell %.2f, mean %.2f" % (fwd45[0], fwd45[1]))
     HAFT_M = 0.69
     print("   per cell (camera yaw off his forward): " + "  ".join(
-        "%d: %.0f px @ %+.0f deg" % (47 + 45 * k, sc[k][0] * HAFT_M * PX_PER_M, sc[k][1]) for k in range(8)))
+        "%d: %.0f px @ %+.0f deg" % (CELL0 + 45 * k, sc[k][0] * HAFT_M * PX_PER_M, sc[k][1]) for k in range(8)))
 
     # ---- 2. the chest: the unarmed idle's, per frame and mean -----------------------------------
     idle = anims['idle']
-    kt, _ = channel(idle, idx['RightHand'], 'rotation')
+    kt, _ = channel(idle, idx['Hips'], 'rotation')
     nk = len(kt)
     chest_R = []
     chest_p = []
@@ -148,6 +165,8 @@ def main():
     for Rm in chest_R:
         f = sgn * (Rm @ np.eye(3)[ax]); yaws.append(math.degrees(math.atan2(float(f @ R), float(f @ F))))
     k0 = int(np.argmin([abs(y) for y in yaws]))
+    if '--stance-key' in sys.argv:
+        k0 = int(sys.argv[sys.argv.index('--stance-key') + 1])
     Cm = chest_R[k0]
     # ANOTHER STATE'S CHEST (the block turns his torso ~50 deg to present the shield): the same
     # guard in HIS frame, the arm solved against that chest instead
@@ -161,17 +180,17 @@ def main():
     # the fight walk's mean arm, as the natural prior (and its clavicle, kept)
     wk = anims['walk_armed']
     ref = {}
-    for nm in ["RightShoulder", "RightArm", "RightForeArm"]:
+    for nm in [SH, ARM_, FORE]:
         t3, v3 = channel(wk, idx[nm], 'rotation')
         ref[nm] = W.q2m(slerp_mean(list(v3)))
     rest = {nm: W.trs(nodes[idx[nm]]) for nm in CHAIN}
 
     def chain(q_arm, q_fore):
-        Xs = rest["RightShoulder"].copy(); Xs[:3, :3] = ref["RightShoulder"]
-        Xa = rest["RightArm"].copy(); Xa[:3, :3] = q_arm
-        Xf = rest["RightForeArm"].copy(); Xf[:3, :3] = q_fore
-        Xh = rest["RightHand"]                   # NEUTRAL WRIST: the rest rotation
-        Xw = rest["weapon_r"]                    # the mount
+        Xs = rest[SH].copy(); Xs[:3, :3] = ref[SH]
+        Xa = rest[ARM_].copy(); Xa[:3, :3] = q_arm
+        Xf = rest[FORE].copy(); Xf[:3, :3] = q_fore
+        Xh = rest[HAND]                          # NEUTRAL WRIST: the rest rotation
+        Xw = rest[WB]                            # the mount
         M1 = Xs @ Xa
         M2 = M1 @ Xf
         M3 = M2 @ Xh
@@ -186,19 +205,19 @@ def main():
         print("grip box override %s" % BOX)
 
     def terms(x):
-        qa = ref["RightArm"] @ rotvec_to_m(x[:3])
-        qf = ref["RightForeArm"] @ rotvec_to_m(x[3:])
+        qa = ref[ARM_] @ rotvec_to_m(x[:3])
+        qf = ref[FORE] @ rotvec_to_m(x[3:])
         M1, M2, M3, M4 = chain(qa, qf)
         haft = M4[:3, :3] @ np.array([0, 1.0, 0]); haft /= np.linalg.norm(haft)
         edge = M4[:3, :3] @ np.array([0, 0, 1.0]); edge /= np.linalg.norm(edge)
         grip_w = Cm @ M4[:3, 3] * mpu            # metres, in his frame, relative to the chest joint
         ang = math.degrees(math.acos(max(-1, min(1, float(haft @ h_c)))))
         pen = 0.0
-        for key, axis in (("fwd", F), ("out", R), ("up", U)):
+        for key, axis in (("fwd", F), ("out", RS), ("up", U)):
             lo, hi = BOX[key]; v = float(grip_w @ axis)
             pen += max(0.0, lo - v) ** 2 + max(0.0, v - hi) ** 2
         e_w = Cm @ edge
-        hd = math.degrees(math.atan2(float(e_w @ R), float(e_w @ F)))
+        hd = math.degrees(math.atan2(float(e_w @ RS), float(e_w @ F)))
         epen = max(0.0, abs(hd) - 30.0) ** 2
         prior = float(np.linalg.norm(x[:3])) ** 2 + float(np.linalg.norm(x[3:])) ** 2
         elbow = M1[:3, 3]; wrist = M2[:3, 3]
@@ -225,15 +244,15 @@ def main():
     M1, M2, M3, M4 = t["M"]
     # elbow flexion: the angle between the upper arm (shoulder joint -> elbow) and the forearm
     sh = chain(t["qa"], t["qf"])[0]
-    shoulder = rest["RightShoulder"].copy(); shoulder[:3, :3] = ref["RightShoulder"]
-    p_sh = (shoulder @ rest["RightArm"])[:3, 3]
+    shoulder = rest[SH].copy(); shoulder[:3, :3] = ref[SH]
+    p_sh = (shoulder @ rest[ARM_])[:3, 3]
     p_el = M2[:3, 3]; p_wr = M3[:3, 3]
     ua = p_el - p_sh; fa = p_wr - p_el
     flex = math.degrees(math.acos(max(-1, min(1, float(ua @ fa) / (np.linalg.norm(ua) * np.linalg.norm(fa))))))
     fa_n = fa / np.linalg.norm(fa)
     fore_vs_haft = math.degrees(math.acos(max(-1, min(1, float(fa_n @ t["haft"])))))
     print("pose: haft %.2f deg off the guard; grip fwd %+.3f out %+.3f up %+.3f m of the chest (box fwd %s out %s up %s); edge heading %+.1f deg"
-          % (t["ang"], t["grip"] @ F, t["grip"] @ R, t["grip"] @ U, BOX["fwd"], BOX["out"], BOX["up"], t["hd"]))
+          % (t["ang"], t["grip"] @ F, t["grip"] @ RS, t["grip"] @ U, BOX["fwd"], BOX["out"], BOX["up"], t["hd"]))
     print("      forearm to haft %.1f deg (square = 90); elbow bend %.1f deg; arm moved from the walk's mean arm by %.1f deg (upper) %.1f deg (fore)"
           % (fore_vs_haft, flex, math.degrees(np.linalg.norm(bestx[:3])), math.degrees(np.linalg.norm(bestx[3:]))))
     # the predicate over the idle's own chest motion (the pose rides the chest)
@@ -241,28 +260,29 @@ def main():
     for k in range(nk):
         hw = chest_R[k] @ t["haft"]; ew = chest_R[k] @ t["edge"]
         tl = math.degrees(math.acos(max(-1, min(1, float(hw @ U)))))
-        hd = math.degrees(math.atan2(float(ew @ R), float(ew @ F)))
-        if 30 <= tl <= 60 and hw @ F > 0 and hw @ R > 0 and abs(hd) <= 45:
+        hd = math.degrees(math.atan2(float(ew @ RS), float(ew @ F)))
+        if 30 <= tl <= 60 and hw @ F > 0 and hw @ RS > 0 and abs(hd) <= 45:
             ok += 1
     print("      the guard predicate over the unarmed idle's %d frames, riding its chest: %d%%" % (nk, round(100 * ok / nk)))
     tl_ = []; fw_ = []; ou_ = []; hd_ = []; cang = []
     for k in range(nk):
         hw = chest_R[k] @ t["haft"]; ew = chest_R[k] @ t["edge"]
-        tl_.append(math.degrees(math.acos(max(-1, min(1, float(hw @ U)))))); fw_.append(float(hw @ F)); ou_.append(float(hw @ R))
-        hd_.append(math.degrees(math.atan2(float(ew @ R), float(ew @ F))))
+        tl_.append(math.degrees(math.acos(max(-1, min(1, float(hw @ U)))))); fw_.append(float(hw @ F)); ou_.append(float(hw @ RS))
+        hd_.append(math.degrees(math.atan2(float(ew @ RS), float(ew @ F))))
         dq = W.m2q(chest_R[k] @ Cm.T); cang.append(math.degrees(2 * math.acos(min(1.0, abs(float(dq[3]))))))
     print("      over the idle: tilt %.1f..%.1f, fwd %+.2f..%+.2f, out %+.2f..%+.2f, edge %+.0f..%+.0f; the chest wanders %.1f deg (max) from its mean"
           % (min(tl_), max(tl_), min(fw_), max(fw_), min(ou_), max(ou_), min(hd_), max(hd_), max(cang)))
     out_stance = dict(key=k0, t=float(kt[k0]), chest_yaw=yaws[k0])
     out = dict(stance=out_stance, readability=dict(tilt=tilt, azimuth=az, worst=wmin, mean=wmean,
-                                per_cell=[dict(cell_yaw=47 + 45 * k, screen_px=round(sc[k][0] * HAFT_M * PX_PER_M, 1),
+                                per_cell=[dict(cell_yaw=CELL0 + 45 * k, screen_px=round(sc[k][0] * HAFT_M * PX_PER_M, 1),
                                                screen_angle=round(sc[k][1], 1)) for k in range(8)],
                                 centre_45_45=dict(worst=fwd45[0], mean=fwd45[1])),
                guard_world_his_frame=list(map(float, h_world)),
-               pose={"RightShoulder": list(map(float, quat_of(ref["RightShoulder"]))),
-                     "RightArm": list(map(float, quat_of(t["qa"]))),
-                     "RightForeArm": list(map(float, quat_of(t["qf"]))),
-                     "RightHand": list(map(float, quat_of(rest["RightHand"][:3, :3] / np.cbrt(np.linalg.det(rest["RightHand"][:3, :3])))))},
+               side=SIDE,
+               pose={SH: list(map(float, quat_of(ref[SH]))),
+                     ARM_: list(map(float, quat_of(t["qa"]))),
+                     FORE: list(map(float, quat_of(t["qf"]))),
+                     HAND: list(map(float, quat_of(rest[HAND][:3, :3] / np.cbrt(np.linalg.det(rest[HAND][:3, :3])))))},
                checks=dict(haft_off_guard_deg=t["ang"], grip_m=list(map(float, t["grip"])), edge_heading=t["hd"],
                            forearm_to_haft_deg=fore_vs_haft, elbow_bend_deg=flex,
                            predicate_idle_pct=round(100 * ok / nk)))
