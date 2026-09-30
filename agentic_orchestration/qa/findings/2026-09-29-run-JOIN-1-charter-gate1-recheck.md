@@ -229,3 +229,54 @@ python -m reincarnated.simulation.kc2.run --config "$CFG" --arm "$ARM" --salt "$
 - Verified by hand: `git tag -l 'kc2/*'` empty both repos (expected under v0.3) · `simulation/scripts/` · `kc2_play/tools/` · `kc2_runtime/tools/` · `reincarnated-engine/research/` **absent**
 
 *Filed 2026-09-29 by jack-ryan, DESIGN-MODE Gate-1 re-check 2, pre-launch. Target hash derived before reading. No production code. No push.*
+
+---
+
+# RE-CHECK 3 (v0.4 scope) — 2026-09-29 — charter **v0.4** (`c04825e06`), J-L2 ruled BOTH
+
+**Reviewer:** jack-ryan (DESIGN-MODE, Gate-1 re-check 3, scope change only)
+**Verdict:** ⚑ **GO.** No BLOCK. **3 WARN · 4 INFO.** `RC3-W1` amends a § 1 row, and § 1 freezes at launch, so **it folds before launch** (v0.4.1). `RC3-W2` folds before the J0 Gate-2, `RC3-W3` before J4b. All three are charter text and mine under ADR-002: **approved when they land, no re-gate, no new Matt surface.**
+**Target hashed before reading:** charter v0.4, 160 lines. Derived `1e5af0d221ef261dab92c175c5d5426f730b0139b6e854db38e20bc9c28e9116`. **Matches `1e5af0d2…`. PASSED.** Ruling verified at source: KC2-PLAY charter KP-110 (J-L2 BOTH, the others as recommended).
+**Disciplines:** #1, #73, #80, #86 · BLOCK-E · WARN-7 · census B8 · ADR-002.
+
+## Q1. Does the second kit keep § 4 decidable? Is freezing her denominator at the J0 Gate-2 enough, or does she need a pre-launch census?
+
+**No pre-launch census is needed. The timing closes BLOCK-E; the content of the freeze does not yet.** BLOCK-E's hazard was **a denominator set with knowledge of which rows are hard to join.** At J0 no D2 adapter exists: J4a builds it, after J3 and after the owner-eye checkpoint. Her census seat (elrond) is not a J4b builder seat. So a count frozen at J0 is set **blind to difficulty**, which is what BLOCK-E needed. Three gaps remain, and these are the content half:
+
+**`RC3-W1` — her SCOPE is chosen in-run, the gate v0.4 names is not seated, and the freeze covers the count but not the classes.**
+- **(a) Scope is not pinned by row id.** J-S3 pins the Barbarian to `Skills.txt` rows **151 + 149**. J-S3b pins "its `Skills.txt` rows" and cites the 294 `kit_numeric` rows, which is a bank and not a kit. I checked by hand. `d2-fire-sorc.json` names **Fire Ball (Id 47) and Meteor (Id 56)**. Meteor's `EDmgSymPerCalc` reads **Fire Bolt's** blvl as a synergy operand. The JSON's resource economy is "mana-hungry" (**Warmth, 37**). **Fire Mastery (61)** is the passive. **Teleport (54)** is in the JSON's own `motion_frame`. Whether each of these is in the kit, as a row or as an operand, is exactly the in-run scope choice BLOCK-E exists to prevent. **Edit:** J-S3b names her rows by id at launch, **with each excluded neighbour listed and a reason for it** (Fire Bolt, Warmth, Fire Mastery, Teleport).
+- **(b) "Frozen at the J0 Gate-2" points at a gate that is not seated on her row.** § 5's elrond J0 row is gated "findings + MIGRATION". The J0 jack-ryan Gate-2 is seated on the ablation map. **Edit:** the elrond row's gate reads *"jack-ryan Gate-2 on the Sorceress census (count + per-row class); J3 does not open until it passes."*
+- **(c) Fraction (b)'s denominator is her BOUNDARY/WIDEN subset, so the per-row CLASS must freeze as well as the count.** § 4.5 still reads "rows mapped / **14**" (hard-coded) and anchors reclassification to **"after launch"**. Her census runs after launch, so that anchor is void for her. **Edit:** each kit's fractions carry that kit's own denominator, and her reclassification anchor is **the J0 Gate-2 freeze**.
+
+## Q2. Is the J-L2 WARN-7 clause correctly superseded?
+
+**Yes, in both direction and mechanism.** `UNEXERCISED-IN-JOIN-1` becomes EXERCISED, and the `KeyError` is still preserved and never defaulted. `NC-4` survives the extension: it **deletes an existing key in a scratch copy** (J-P2 :190), so adding D2 families cannot make it go green. Two residuals:
+
+**`RC3-W2` — "EXERCISED" is registry-wide, but the kit exercises only ONE family, and that family GD already has.** Both skills are `EType fire` (verified in `Skills.txt`). D2 fire → GD Fire is the **happy path**. The loaded refusal that census **B8** named, **D2 `mag`** (plus cold, lightning and poison), is still unexercised in JOIN-1. A registry printed "EXERCISED" launders that. **Edit:** rulebook v0 prints the registry's state **per family** (EXERCISED: fire, including Meteor's burning-ground limb, which lives in the `meteorcenter` missile/`Param` columns and not in the JSON, whose "no ailment tokens" note is not the census's source; UNEXERCISED: `mag`, cold, lightning, poison). It also states that the D2→GD mapping lives in the **D2 adapter's conversion key** (J4b) and not as new keys in the sealed `threat.RESIST_PCT`. Finally, it says whether a `KeyError` in her cells is a **§ 4.5 "runs" FAIL + finding** (it is; "runs" = no exception) or a finding alone.
+- **L-12 `control_family_registry`** was declared unexercised by the same J-L2 clause v0.4 superseded, and v0.4 is now silent on it. Re-state it as `REGISTERED-UNEXERCISED`: her kit carries no CC.
+
+## Q3. What else does v0.4 break?
+
+**`RC3-W3` — the § 6 HALT line still reads "any lever moved off its GD setting … outside kit #2's own profile."** Every lever her `JOIN` profile sets would HALT to Matt. That fails loudly, but it is spurious, and a HALT that fires falsely gets waived, which is how the next real one is missed. The same closed-list problem sits in **§ 4.4**: its 8 implemented ids and the "14 + 2" count come from P0, which is the Barbarian's census. If her census finds a WIDEN row with no P0 lever (e.g. D2 spells skip the to-hit roll, or the resist-cap difference), it has **no registration route**, and her fraction (b) is capped by a list she did not seed. **Edit:** the HALT reads "outside the joined kits' own profiles". § 4.4 registers any new levers from her census under the same row schema at the J0 Gate-2, and each implemented one carries a negative control per § 4.4's rule.
+
+**INFO**
+- **`RC3-I1` — stale rows v0.4 did not sweep:** § 3 F1 "one kit" · § 4.6 handoff "how-to-run for the Barbarian" only · § 8 `J-L1…J-L5` still "OPEN — Matt" · § 8 has no **C-12b** row · J-L3 asked about "kit #2". Recording-only for kit #3 is the conservative reading and needs no Matt surface, but the charter should say it.
+- **`RC3-I2` — prereg v1.7 is not on disk yet** (only v1.6 exists). § 8 J-P1 and § 4.3(ii) still cite v1.6. The EXECUTES set (`TA-X-07/20/29/30`) excludes `TA-X-06`, so J-P2's classification carries **if and only if v1.7 is a one-row delta**. Anything more re-opens J-P2's 29-row table. Cite v1.7 once gamora lands it.
+- **`RC3-I3` — J-S3b is outside its table.** A blank line (charter :27) separates it from the § 1 table, so it renders as a headerless orphan row. A substrate pin should render as one.
+- **`RC3-I4` — `RC-I4` is still open.** J-S2 attaches "(the § 4.5 coverage denominator)" to **9** and not to **14**. It matters more with two denominators in play.
+
+## Action
+- [ ] **gandalf, before launch (v0.4.1):** `RC3-W1` (a) row ids + excluded neighbours on J-S3b · (b) jack-ryan Gate-2 seated on the elrond census row, with J3 waiting on it · (c) per-kit denominators + her reclassification anchored to the freeze.
+- [ ] **gandalf, before the J0 Gate-2 / J4b:** `RC3-W2` (per-family registry state · where the mapping lives · `KeyError` = "runs" FAIL · L-12 re-stated) · `RC3-W3` (HALT line · § 4.4 registration route) · the INFOs.
+- [ ] **Matt: nothing.** J-L2 is his ruling and nothing here re-opens it.
+
+**RE-CHECK 3 VERDICT: GO.** The second kit does not break § 4's decidability, and J0 is the right time to set her denominator, because it is before anyone knows which of her rows are hard. **What v0.4 froze is the COUNT, and BLOCK-E was never about the count.** It was about who picks the rows, and when. Pin her rows by id at launch, seat the gate that freezes their classes, and her row evaluates exactly as the Barbarian's does.
+
+### References — RE-CHECK 3
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-29-join-1-run-charter.md`: v0.4, `c04825e06`, FILE `1e5af0d2…` (J-S3b · § 4.4 · § 4.5 · § 5 J0/J4b · § 6 HALT · § 9.2)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-run-charter.md`: KP-110 (:220)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/notes/2026-09-28-join1-p0-internal-boundary-census.md`: B8 (:176-178)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-join1-golden-master-instrument-2026-09-29.md`: `NC-4` (:190)
+- Verified by hand: `research/curated/kits-export/d2-fire-sorc.json` (tracked; skills Fire Ball + Meteor; mana-hungry; "no ailment tokens") · `research/datamine-acquisition/d2/raw/Skills.txt` (Warmth 37, Fire Ball 47, Teleport 54, Meteor 56, Fire Mastery 61; both kit skills `EType fire`; Meteor synergy on Fire Bolt + Fire Ball) · no prereg v1.7 in `gandalf/notes/`
+
+*Filed 2026-09-29 by jack-ryan, DESIGN-MODE Gate-1 re-check 3. Target hash derived before reading. No production code. No push.*
