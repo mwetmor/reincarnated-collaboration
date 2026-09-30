@@ -1,0 +1,107 @@
+{
+ "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+ "spent": 15,
+ "clips": {
+  "flow_probe": {
+   "action_id": 1,
+   "error": "{'message': 'Invalid API key'}"
+  },
+  "shout_sword_shout": {
+   "action_id": 101,
+   "task": "01a0f17a-f834-7134-9a8a-02e24e7b0ac9",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 93,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/shout_sword_shout.glb",
+   "mb": 17.94,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "shout_sword_shout.glb: clip 'Armature|Sword_Shout|baselayer' drifts 0.652 m horizontally over its own length (65.2 units) and is not locomotion -- a clip that walks away from where it started",
+     "shout_sword_shout.glb: clip 'Armature|Sword_Shout|baselayer' starts root 'Hips' at 99.208 against rest 93.790 (5.8% > 5%)"
+    ],
+    "clips": [
+     "Armature|Sword_Shout|baselayer"
+    ]
+   }
+  },
+  "shout_chest_pound": {
+   "action_id": 88,
+   "task": "01a0f17c-6a5b-74be-bd71-28a7f745151b",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 77,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/shout_chest_pound.glb",
+   "mb": 17.92,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Chest_Pound_Taunt|baselayer"
+    ]
+   }
+  },
+  "hit_reaction_1": {
+   "action_id": 179,
+   "task": "01a0f17d-a15b-7412-8724-1cd82eedd6b9",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/hit_reaction_1.glb",
+   "mb": 17.87,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Hit_Reaction_1|baselayer"
+    ]
+   }
+  },
+  "hit_reaction": {
+   "action_id": 178,
+   "task": "01a0f17e-2494-7243-a0b4-a0daa7006ca6",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 52,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/hit_reaction.glb",
+   "mb": 17.88,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "hit_reaction.glb: clip 'Armature|Hit_Reaction|baselayer' drifts 1.121 m horizontally over its own length (112.1 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Hit_Reaction|baselayer"
+    ]
+   }
+  },
+  "death_dying_back": {
+   "action_id": 189,
+   "task": "01a0f17e-fa20-73ca-a012-20e0b7a1850b",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/death_dying_back.glb",
+   "mb": 17.89,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "death_dying_back.glb: clip 'Armature|dying_backwards|baselayer' drifts 0.890 m horizontally over its own length (89.0 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|dying_backwards|baselayer"
+    ]
+   }
+  }
+ }
+}

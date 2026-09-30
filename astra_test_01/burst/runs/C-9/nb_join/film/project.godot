@@ -1,0 +1,15 @@
+; nb_join film sandbox -- the barbarian's JOIN moves at the play camera. NOT cliffside3d, NOT attack_lab, NOT
+; join1_render: a separate project, runtime glTF only, so nothing here is imported and nothing can disturb
+; a scene another session is building.
+config_version=5
+
+[application]
+config/name="nb_join_film_sandbox"
+run/main_scene="res://j_film.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+
+[rendering]
+renderer/rendering_method="forward_plus"

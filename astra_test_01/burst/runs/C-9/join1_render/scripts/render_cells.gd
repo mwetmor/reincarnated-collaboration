@@ -25,6 +25,14 @@ extends Node3D
 ## direction is lit from the same screen direction. No ground, no plate: a transparent SubViewport.
 ## FRAMES (2.1): loop t_i = i T / N; casts sample the RELEASE exactly, r = clamp(round((N-1) release_s/T),
 ## 1, N-2), two uniform segments; hit/death include both ends. No per-direction roll.
+## LAYERS, two formats. (a) the sorceress's: kit.layers = {carry_clip, filters{name: bones}, per_state{state: name}}.
+## (b) THE LAYER LIST agreed with the scene drax (2026-09-30), for the barbarian: kit.layer_specs = [json paths, each
+## with "layers": [...]] (his join_hold.json, read from HIS path, not copied) plus kit.layer_list = [...] (this kit's
+## own, e.g. the moves' guards), all applied bottom to top in that order. Each layer {name, action, bones, weight,
+## states, time}: a filtered Blend2 over the state's clip, the action behind ITS OWN TimeSeek -- time "pose" = the
+## action at 0, "clip" = the base clip's time, or {c_base, c_layer} = PHASE-MAPPED: p = t/T_base, t_layer =
+## fposmod(p - c_base + c_layer, 1) * T_layer (his spec, for a gait-synced upper layer). Filter paths come from the
+## action's own tracks. A state not in a layer's `states` gets it at 0.
 
 const CANVAS := 768
 const ANCHOR := Vector2(384, 448)
@@ -44,6 +52,7 @@ var body: MeshInstance3D
 var sv: SubViewport
 var cam: Camera3D
 var raw := {"frames": [], "cells": {}}
+var llist: Array = []
 
 func _ready() -> void:
 	kit = JSON.parse_string(FileAccess.get_file_as_string(OS.get_environment("J1_KIT")))
@@ -142,6 +151,32 @@ func _build_tree() -> void:
 		bt.add_node("carry_" + fname, carry); bt.add_node("L_" + fname, b2)
 		bt.connect_node("L_" + fname, 0, prev); bt.connect_node("L_" + fname, 1, "carry_" + fname)
 		prev = "L_" + fname
+	# (b) the LAYER LIST: his specs first (read from their paths), then this kit's own
+	llist = []
+	for sp in kit.get("layer_specs", []):
+		var spec = JSON.parse_string(FileAccess.get_file_as_string(String(sp)))
+		assert(spec != null, "layer spec unreadable: " + String(sp))
+		for ly in spec.get("layers", []):
+			llist.append(ly)
+	for ly in kit.get("layer_list", []):
+		llist.append(ly)
+	for ly in llist:
+		var nm := String(ly["name"])
+		var act := ap.get_animation(String(ly["action"]))
+		assert(act != null, "layer action not in the GLB: " + String(ly["action"]))
+		var an := AnimationNodeAnimation.new(); an.animation = String(ly["action"])
+		var ls := AnimationNodeTimeSeek.new()
+		var b2 := AnimationNodeBlend2.new(); b2.filter_enabled = true
+		var nf := 0
+		for i in act.get_track_count():
+			var pth: NodePath = act.track_get_path(i)
+			if String(pth.get_concatenated_subnames()) in ly["bones"]:
+				b2.set_filter_path(pth, true); nf += 1
+		bt.add_node("la_" + nm, an); bt.add_node("ls_" + nm, ls); bt.connect_node("ls_" + nm, 0, "la_" + nm)
+		bt.add_node("LL_" + nm, b2)
+		bt.connect_node("LL_" + nm, 0, prev); bt.connect_node("LL_" + nm, 1, "ls_" + nm)
+		prev = "LL_" + nm
+		print("[j1] layer %s: %s, %d tracks filtered, weight %s, states %s, time %s" % [nm, ly["action"], nf, ly.get("weight", 1.0), ly.get("states", []), ly.get("time", "pose")])
 	bt.connect_node("output", 0, prev)
 	tree.tree_root = bt
 	tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
@@ -154,6 +189,19 @@ func _pose(state: String, t: float) -> void:
 	var on = lay.get("per_state", {}).get(state, null)
 	for fname in lay.get("filters", {}):
 		tree.set("parameters/L_%s/blend_amount" % fname, 1.0 if on == fname else 0.0)
+	for ly in llist:
+		var nm := String(ly["name"])
+		var on2: bool = state in ly.get("states", [])
+		tree.set("parameters/LL_%s/blend_amount" % nm, float(ly.get("weight", 1.0)) if on2 else 0.0)
+		var tm = ly.get("time", "pose")
+		var tl := 0.0
+		if typeof(tm) == TYPE_DICTIONARY:
+			var Tb := ap.get_animation(String(st["clip"])).length
+			var Tl := ap.get_animation(String(ly["action"])).length
+			tl = fposmod(t / Tb - float(tm["c_base"]) + float(tm["c_layer"]), 1.0) * Tl
+		elif String(tm) == "clip":
+			tl = t
+		tree.set("parameters/ls_%s/seek_request" % nm, tl)
 	tree.set("parameters/seek/seek_request", t)
 	tree.advance(0.0)
 	if body:

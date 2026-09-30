@@ -1,0 +1,136 @@
+{
+ "clips": {
+  "shout_sword_shout": {
+   "source": "../nb_join/anims/shout_sword_shout.glb",
+   "source_anim": "Armature|Sword_Shout|baselayer",
+   "window": [
+    0.03333333507180214,
+    6.199999809265137
+   ],
+   "keys": 186,
+   "length_s": 6.166666474193335,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.1808,
+    0.6857
+   ],
+   "grounded_by_m": -0.05891,
+   "feet_span_m": [
+    0.0,
+    0.0502
+   ]
+  },
+  "shout_chest_pound": {
+   "source": "../nb_join/anims/shout_chest_pound.glb",
+   "source_anim": "Armature|Chest_Pound_Taunt|baselayer",
+   "window": [
+    0.03333333507180214,
+    4.866666793823242
+   ],
+   "keys": 146,
+   "length_s": 4.83333345875144,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0002,
+    0.0018
+   ],
+   "grounded_by_m": -0.07403,
+   "feet_span_m": [
+    0.0,
+    0.0238
+   ]
+  },
+  "hit_reaction_1": {
+   "source": "../nb_join/anims/hit_reaction_1.glb",
+   "source_anim": "Armature|Hit_Reaction_1|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.2666666507720947
+   ],
+   "keys": 38,
+   "length_s": 1.2333333157002926,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0004,
+    0.0002
+   ],
+   "grounded_by_m": -0.02104,
+   "feet_span_m": [
+    0.0,
+    0.008
+   ]
+  },
+  "hit_reaction": {
+   "source": "../nb_join/anims/hit_reaction.glb",
+   "source_anim": "Armature|Hit_Reaction|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.6666666269302368
+   ],
+   "keys": 50,
+   "length_s": 1.6333332918584347,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    1.2201,
+    -0.0007
+   ],
+   "grounded_by_m": -0.0063,
+   "feet_span_m": [
+    0.0,
+    0.0733
+   ]
+  },
+  "death_dying_back": {
+   "source": "../nb_join/anims/death_dying_back.glb",
+   "source_anim": "Armature|dying_backwards|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.2666666507720947
+   ],
+   "keys": 68,
+   "length_s": 2.2333333157002926,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0562,
+    -0.9668
+   ],
+   "grounded_by_m": 0.04403,
+   "feet_span_m": [
+    0.0,
+    0.2401
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "cand.glb: WEAPON REST -- weapon_r's rest is 0.204 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 25
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "clips": {
+  "shout": {
+   "source": "../nb_join/anims/shout_sword_shout.glb",
+   "source_anim": "Armature|Sword_Shout|baselayer",
+   "window": [
+    0.0333,
+    2.8333
+   ],
+   "keys": 84,
+   "length_s": 2.766666617244482,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0361,
+    0.5957
+   ],
+   "grounded_by_m": -0.05891,
+   "feet_span_m": [
+    0.0,
+    0.0502
+   ]
+  },
+  "hit_a": {
+   "source": "../nb_join/anims/hit_reaction.glb",
+   "source_anim": "Armature|Hit_Reaction|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.6666666269302368
+   ],
+   "keys": 50,
+   "length_s": 1.6333332918584347,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    1.2201,
+    -0.0007
+   ],
+   "grounded_by_m": -0.0063,
+   "feet_span_m": [
+    0.0,
+    0.0733
+   ]
+  },
+  "hit_b": {
+   "source": "../nb_join/anims/hit_reaction_1.glb",
+   "source_anim": "Armature|Hit_Reaction_1|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.2666666507720947
+   ],
+   "keys": 38,
+   "length_s": 1.2333333157002926,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0004,
+    0.0002
+   ],
+   "grounded_by_m": -0.02104,
+   "feet_span_m": [
+    0.0,
+    0.008
+   ]
+  },
+  "death": {
+   "source": "../nb_join/anims/death_dying_back.glb",
+   "source_anim": "Armature|dying_backwards|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.2666666507720947
+   ],
+   "keys": 68,
+   "length_s": 2.2333333157002926,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0562,
+    -0.9668
+   ],
+   "grounded_by_m": 0.04403,
+   "feet_span_m": [
+    0.0,
+    0.2401
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "dev_join.glb: WEAPON REST -- weapon_r's rest is 0.204 m from the hand (coincident) (tolerance 1 um)",
+   "dev_join.glb: WEAPON REST -- weapon_l's rest is 0.203 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 21
+ }
+}
