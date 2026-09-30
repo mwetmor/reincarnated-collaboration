@@ -86,7 +86,7 @@ if "--download-only" in sys.argv:
         subprocess.run(["curl", "-s", "-L", u, "-o", dst], check=False)
         rec["file"] = dst
         rec["mb"] = round(os.path.getsize(dst) / 1e6, 2)
-        L = lint.lint(dst)
+        L = lint.lint(dst, skeleton=False)
         rec["lint"] = dict(verdict=L["verdict"], fails=L["fails"],
                            warns=L["warns"], clips=list(L["clips"]))
         print("%-14s %5.2f MB  LINT %-5s %s"
@@ -119,7 +119,7 @@ for nm, aid in specs:
         rec["file"] = dst
         rec["mb"] = round(os.path.getsize(dst) / 1e6, 2)
         try:
-            L = lint.lint(dst)
+            L = lint.lint(dst, skeleton=False)
             rec["lint"] = dict(verdict=L["verdict"], fails=L["fails"],
                                warns=L["warns"], clips=list(L["clips"]))
         except Exception as e:

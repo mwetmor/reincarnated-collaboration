@@ -39,8 +39,28 @@
 #         one clip of the broken file (idle, 99.7-103.1, overlapping nothing)
 #         and on none of the fixed file. A crouch or a lunge still SHARES
 #         ground with the other clips; a retargeted one does not.
+#   FAIL  SKELETON IDENTITY (T12 rank 1, 2026-09-29): every skinned file carries the BASE RIG
+#         -- Meshy's 24 joints then weapon_r and weapon_l, in exactly BASE_RIG's order -- with
+#         weapon_r a child of RightHand and weapon_l of LeftHand. gear.gd binds a piece only
+#         when its bone list equals the body's, order included, and a re-export that drops or
+#         reorders the weapon bones would otherwise pass silently and lose the weapon channel.
+#         Fix: scripts/52_weapon_bones.py (the export chain runs it after every export).
+#         Off only for RAW library fetches (31_meshy_fetch lints Meshy's own 24-joint rig).
+#   FAIL  WEAPON REST: weapon_r / weapon_l's rest (local to the hand) must equal the recorded mount
+#         (work/weapon_mount.json, written by 52_weapon_bones.py --record) within 1 um -- or be
+#         coincident with the hand when no mount is recorded. A piece bound to the weapon bone in
+#         one file and drawn on the body's weapon bone from another only lines up if they agree.
 import json, struct, sys
 import numpy as np
+
+BASE_RIG = ("Hips", "LeftUpLeg", "LeftLeg", "LeftFoot", "LeftToeBase", "RightUpLeg", "RightLeg",
+            "RightFoot", "RightToeBase", "Spine02", "Spine01", "Spine", "LeftShoulder", "LeftArm",
+            "LeftForeArm", "LeftHand", "weapon_l", "neck", "Head", "head_end", "headfront",
+            "RightShoulder", "RightArm", "RightForeArm", "RightHand", "weapon_r")
+# weapon_l right after LeftHand and weapon_r after RightHand: Blender's exporter writes joints
+# depth-first, so this is the only order that survives a Blender round trip
+WEAPON_REST_TOL_M = 1e-6
+WEAPON_PARENT = (("weapon_r", "RightHand"), ("weapon_l", "LeftHand"))
 
 SCALE_TOL, ROOT_TOL = 1e-3, 0.05
 ROOT_TRAVEL_TOL = 0.05          # metres of horizontal drift allowed off-locomotion
@@ -82,7 +102,31 @@ def read_accessor(g, bin_, idx):
     return out
 
 
-def lint(path):
+def _q2m(q):
+    x, y, z, w = q
+    return np.array([[1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
+                     [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
+                     [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)]])
+
+
+def _trs(nd):
+    if 'matrix' in nd:
+        return np.array(nd['matrix'], float).reshape(4, 4).T
+    M = np.eye(4)
+    M[:3, :3] = _q2m(nd.get('rotation', [0, 0, 0, 1])) @ np.diag(nd.get('scale', [1, 1, 1]))
+    M[:3, 3] = nd.get('translation', [0, 0, 0])
+    return M
+
+
+def _mount():
+    import os
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")
+    if not os.path.exists(p):
+        return None
+    return np.array(json.load(open(p))["W"], float)
+
+
+def lint(path, skeleton=True):
     g, bin_ = load_glb(path)
     nodes = g.get('nodes', [])
     name = lambda i: nodes[i].get('name', 'node%d' % i)
@@ -111,6 +155,34 @@ def lint(path):
             MPU *= float(nodes[_k].get('scale', [1, 1, 1])[1])
             _k = parent.get(_k)
     fails, warns, clips = [], [], {}
+    if skeleton:
+        for sk in g.get('skins', []):
+            jn = tuple(name(j) for j in sk.get('joints', []))
+            if jn != BASE_RIG:
+                miss = [n for n in BASE_RIG if n not in jn]
+                extra = [n for n in jn if n not in BASE_RIG]
+                fails.append(
+                    "%s: SKELETON IDENTITY -- %d joints%s%s%s; the base rig is %d in a fixed order. "
+                    "gear.gd will not bind a piece whose bone list differs from the body's: run "
+                    "scripts/52_weapon_bones.py" % (path.split('/')[-1], len(jn),
+                    (", missing %s" % miss) if miss else "", (", extra %s" % extra) if extra else "",
+                    ", order differs" if not miss and not extra else "", len(BASE_RIG)))
+        mount = _mount()
+        for wn, hn in WEAPON_PARENT:
+            wi = [i for i, nd in enumerate(nodes) if nd.get('name') == wn]
+            if wi and (parent.get(wi[0]) is None or name(parent[wi[0]]) != hn):
+                fails.append("%s: SKELETON IDENTITY -- %s is not a child of %s"
+                             % (path.split('/')[-1], wn, hn))
+            if wi:
+                mounted = mount is not None and wn == "weapon_r"
+                want = mount if mounted else np.eye(4)
+                got = _trs(nodes[wi[0]])
+                # compare where the rest frame puts points 10 cm out along each axis (metres)
+                probe = np.array([[0, 0, 0, 1], [10, 0, 0, 1], [0, 10, 0, 1], [0, 0, 10, 1]], float).T
+                dev = float(np.abs((got - want) @ probe).max()) * MPU
+                if dev > WEAPON_REST_TOL_M:
+                    fails.append("%s: WEAPON REST -- %s's rest is %.3g m from the %s (tolerance 1 um)"
+                                 % (path.split('/')[-1], wn, dev, "recorded mount" if mounted else "hand (coincident)"))
     for an in g.get('animations', []):
         cn = an.get('name', '?')
         rec = dict(scale_tracks={}, root_height=None, root=None)

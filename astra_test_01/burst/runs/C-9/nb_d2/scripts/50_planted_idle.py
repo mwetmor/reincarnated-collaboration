@@ -148,6 +148,7 @@ bpy.context.view_layer.objects.active = arm
 bpy.ops.export_scene.gltf(filepath=OUT, export_format='GLB', use_selection=True,
                           export_animations=True, export_morph=True, export_image_format='AUTO')
 import importlib
+importlib.import_module("52_weapon_bones").ensure(OUT)  # T12: the base rig's weapon bones, after every export
 L = importlib.import_module("21_lint_export").lint(OUT)
 rep["lint"] = dict(verdict=L["verdict"], fails=L["fails"], warns=len(L["warns"]))
 print("wrote %s (%.2f MB) LINT %s fails %d" % (OUT, os.path.getsize(OUT) / 1e6, L["verdict"], len(L["fails"])))

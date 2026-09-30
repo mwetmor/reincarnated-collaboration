@@ -30,6 +30,11 @@ L = __import__('21_lint_export')
 R = __import__('49_recentre')
 
 WEAPON_BONES = (("weapon_r", "RightHand"), ("weapon_l", "LeftHand"))
+# THE BASE RIG'S JOINT ORDER is the order Blender's glTF exporter writes -- depth-first, so each
+# weapon bone right after its hand. Measured: a 26-joint body with the weapon bones appended at the
+# end came back from one Blender round trip with weapon_l moved up behind LeftHand. Every script
+# after 15 re-exports through Blender, so only this order survives the chain.
+BASE_RIG = L.BASE_RIG
 
 
 def q2m(q):
@@ -195,6 +200,45 @@ def mount(body, axe, roll_deg):
                 fist_centroid_off_haft=float(np.linalg.norm((C - P) - ((C - P) @ H) * H)))
 
 
+def reorder(js, bin_, ibm_list):
+    """Put the skin's joints in BASE_RIG order: the joint list, the inverse bind matrices (a new
+    accessor) and every JOINTS_0 index of every mesh using the skin. Returns the permutation."""
+    sk = js['skins'][0]
+    names = [js['nodes'][j]['name'] for j in sk['joints']]
+    assert sorted(names) == sorted(BASE_RIG), "not the base rig's joint set: %s" % names
+    perm = [names.index(n) for n in BASE_RIG]           # new position -> old index
+    inv = {old: new for new, old in enumerate(perm)}
+    sk['joints'] = [sk['joints'][o] for o in perm]
+    ibm2 = [ibm_list[o] for o in perm]
+    data = b''.join(struct.pack('<16f', *M.T.reshape(-1)) for M in ibm2)
+    off = append(bin_, data)
+    js['bufferViews'].append({"buffer": 0, "byteOffset": off, "byteLength": len(data)})
+    js['accessors'].append({"bufferView": len(js['bufferViews']) - 1, "componentType": 5126,
+                            "count": len(ibm2), "type": "MAT4"})
+    sk['inverseBindMatrices'] = len(js['accessors']) - 1
+    if perm == list(range(len(perm))):
+        return perm
+    done = set()
+    for nd in js['nodes']:
+        if nd.get('skin') is None or 'mesh' not in nd:
+            continue
+        for pr in js['meshes'][nd['mesh']]['primitives']:
+            ai = pr['attributes'].get('JOINTS_0')
+            if ai is None or ai in done:
+                continue
+            done.add(ai)
+            acc = js['accessors'][ai]
+            bv = js['bufferViews'][acc['bufferView']]
+            base = bv.get('byteOffset', 0) + acc.get('byteOffset', 0)
+            assert acc['componentType'] == 5121, "JOINTS_0 must be unsigned byte"
+            stride = bv.get('byteStride') or 4
+            for i in range(acc['count']):
+                for c in range(4):
+                    o = base + i * stride + c
+                    bin_[o] = inv[bin_[o]]
+    return perm
+
+
 def patch(path, out, mt=None):
     js, bin0 = L.load_glb(path)
     bin_ = bytearray(bin0)
@@ -239,7 +283,7 @@ def patch(path, out, mt=None):
     js['accessors'].append({"bufferView": len(js['bufferViews']) - 1, "componentType": 5126,
                             "count": len(new_ibm), "type": "MAT4"})
     sk['inverseBindMatrices'] = len(js['accessors']) - 1
-    rep = {"file": os.path.basename(path), "joints": [nodes[j]['name'] for j in sk['joints']]}
+    rep = {"file": os.path.basename(path)}
     if weapon_of:
         wn, hn = weapon_of
         jh, jw = names.index(hn), added[wn][1]
@@ -284,14 +328,108 @@ def patch(path, out, mt=None):
                 nodes[sk['joints'][jh]]['children'].remove(i)
                 nodes[added[wn][0]].setdefault('children', []).append(i)
                 rep.setdefault("markers_moved", []).append(nd.get('name'))
+    rep["order_before"] = [nodes[j]['name'] for j in sk['joints']]
+    reorder(js, bin_, new_ibm)
     js['buffers'][0]['byteLength'] = len(bin_) + (-len(bin_) % 4)
     gl1, _ = globals_(js)
     after = skin_rest(js, bytes(bin_), mesh_node, gl1)
     d = np.linalg.norm(after - before, axis=1) if len(before) else np.zeros(1)
     rep["rest_displacement_m"] = {"max": float(d.max()), "median": float(np.median(d))}
+    rep["joints"] = [nodes[j]['name'] for j in sk['joints']]
     R.write_glb(out, js, bin_)
     res = L.lint(out)
     rep["lint"] = {"verdict": res["verdict"], "fails": res["fails"], "warns": len(res["warns"])}
+    return rep
+
+
+MOUNT_JSON = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "work", "weapon_mount.json")
+
+
+def recorded_mount():
+    """The axe's mount (rank 2) once one is recorded -- weapon_r's rest W and the re-seat G, both in
+    RightHand's local frame -- so a re-export gets the same mount the staged files carry."""
+    if not os.path.exists(MOUNT_JSON):
+        return None
+    m = json.load(open(MOUNT_JSON))
+    return {"W": np.array(m["W"], float), "G": np.array(m["G"], float)}
+
+
+def snap(path, out=None, tol_m=1e-7):
+    """Set each weapon bone's rest EXACTLY to the base rig's (coincident with its hand, or the
+    recorded mount for weapon_r) and its inverse bind matrix to match. A Blender round trip leaves
+    them ~8 um off (measured: weapon_l 7.96e-06 m after one), which the lint's 1 um rule would
+    fail on every re-export; the weapon moves by that much and no more."""
+    js, b = L.load_glb(path)
+    b = bytearray(b)
+    nodes = js['nodes']
+    sk = js['skins'][0]
+    names = [nodes[j]['name'] for j in sk['joints']]
+    ibm = mat_list(js, bytes(b), sk['inverseBindMatrices'])
+    mt = recorded_mount()
+    gl, parent = globals_(js)
+    mpu = float(np.cbrt(abs(np.linalg.det(gl[sk['joints'][0]][:3, :3] @ np.linalg.inv(trs(nodes[sk['joints'][0]])[:3, :3]))))) or 1.0
+    moved = {}
+    for wn, hn in WEAPON_BONES:
+        iw, ih = names.index(wn), names.index(hn)
+        want = mt['W'] if (mt is not None and wn == "weapon_r") else np.eye(4)
+        got = trs(nodes[sk['joints'][iw]])
+        probe = np.array([[0, 0, 0, 1], [10, 0, 0, 1], [0, 10, 0, 1], [0, 0, 10, 1]], float).T
+        dev = float(np.abs((got - want) @ probe).max()) * mpu
+        if dev > tol_m:
+            nd = nodes[sk['joints'][iw]]
+            if np.allclose(want, np.eye(4)):
+                for key in ('matrix', 'translation', 'rotation', 'scale'):
+                    nd.pop(key, None)
+            else:
+                set_trs(nd, want)
+                nd['scale'] = [1.0, 1.0, 1.0]
+            ibm[iw] = np.linalg.inv(want) @ ibm[ih]
+            moved[wn] = dev
+    if not moved:
+        return {"file": os.path.basename(path), "action": "present"}
+    data = b''.join(struct.pack('<16f', *M.T.reshape(-1)) for M in ibm)
+    off = append(b, data)
+    js['bufferViews'].append({"buffer": 0, "byteOffset": off, "byteLength": len(data)})
+    js['accessors'].append({"bufferView": len(js['bufferViews']) - 1, "componentType": 5126,
+                            "count": len(ibm), "type": "MAT4"})
+    sk['inverseBindMatrices'] = len(js['accessors']) - 1
+    js['buffers'][0]['byteLength'] = len(b) + (-len(b) % 4)
+    R.write_glb(out or path, js, b)
+    print("  52_weapon_bones: %s -- weapon rest snapped to the base rig (%s)"
+          % (os.path.basename(path), ", ".join("%s %.2g m" % kv for kv in moved.items())))
+    return {"file": os.path.basename(path), "action": "snapped", "moved_m": moved}
+
+
+def ensure(path, out=None):
+    """IDEMPOTENT, and the EXPORT CHAIN'S HOOK: 15_export_scene and every script that re-exports a
+    GLB through Blender call this on what they wrote, before their lint. A file that already
+    carries the weapon bones is left alone; one that lost them (a fresh export) gets them back,
+    with the recorded mount if there is one. The lint's skeleton-identity rule then fails anything
+    this could not make right -- a re-export that REORDERED the bones, say -- so nothing is lost
+    silently."""
+    js, _ = L.load_glb(path)
+    skins = js.get('skins', [])
+    if not skins:
+        return {"file": os.path.basename(path), "action": "no skin"}
+    have = all(any(js['nodes'][j].get('name') == wn for j in sk['joints']) for sk in skins for wn, _ in WEAPON_BONES)
+    if have:
+        names = tuple(js['nodes'][j]['name'] for j in skins[0]['joints'])
+        if names == BASE_RIG:
+            return snap(path, out)
+        # a Blender round trip (or anything) reordered them: put them back, nothing else changes
+        js2, b2 = L.load_glb(path)
+        b2 = bytearray(b2)
+        ibm = mat_list(js2, bytes(b2), js2['skins'][0]['inverseBindMatrices'])
+        reorder(js2, b2, ibm)
+        js2['buffers'][0]['byteLength'] = len(b2) + (-len(b2) % 4)
+        R.write_glb(out or path, js2, b2)
+        print("  52_weapon_bones: %s -- joints put back in base-rig order" % os.path.basename(path))
+        snap(out or path)
+        return {"file": os.path.basename(path), "action": "reordered"}
+    rep = patch(path, out or path, recorded_mount())
+    rep["action"] = "added"
+    print("  52_weapon_bones: %s -- weapon bones added (rest displacement max %.3g m)"
+          % (rep["file"], rep["rest_displacement_m"]["max"]))
     return rep
 
 
@@ -310,6 +448,11 @@ def main():
         axe = next(f for f in files if os.path.basename(f) == 'axe.glb')
         mt = mount(L.load_glb(body), L.load_glb(axe), roll)
         rep["mount"] = {k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in mt.items()}
+        if '--record' in a:
+            json.dump({"roll_deg": roll, "W": mt['W'].tolist(), "G": mt['G'].tolist(),
+                       "frame": "RightHand local (the frame the skin's inverse bind maps into), glTF units",
+                       "written_by": "52_weapon_bones.py --roll %s --record" % roll}, open(MOUNT_JSON, 'w'), indent=1)
+            print("recorded the mount in %s (ensure() and the lint read it)" % MOUNT_JSON)
         print("mount: seat turn %.1f deg (haft to the hand axis %.1f -> %.1f), roll %+.1f; grip %s; fist centroid %.4f units off the haft"
               % (mt['seat_turn_deg'], mt['haft_to_hand_axis_deg_before'], mt['haft_to_hand_axis_deg_after'], roll,
                  np.round(mt['P'], 3).tolist(), mt['fist_centroid_off_haft']))

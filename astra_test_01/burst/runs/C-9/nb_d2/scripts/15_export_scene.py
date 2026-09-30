@@ -311,6 +311,7 @@ sys.path.insert(0, HERE)
 import importlib
 _lint = importlib.import_module("21_lint_export") if os.path.exists(
     os.path.join(HERE, "21_lint_export.py")) else None
+importlib.import_module("52_weapon_bones").ensure(os.path.join(OUT, "nb-body.glb"))  # T12: the base rig's weapon bones
 if _lint:
     _r = _lint.lint(os.path.join(OUT, "nb-body.glb"))
     for _f in _r["fails"]:
@@ -325,6 +326,10 @@ for nm, mode, made in made_all:
     sz = export([o for o, _ in made], p,
                 extra=[edge_empty] if (nm == "axe" and edge_empty) else ())
     print("wrote %-12s %.2f MB" % (os.path.basename(p), sz))
+    importlib.import_module("52_weapon_bones").ensure(p)  # T12: every piece carries the same 26 joints
+    if _lint:
+        _rp = _lint.lint(p)
+        assert not _rp["fails"], "piece lint failed: %s" % _rp["fails"]
 json.dump(dict(body="nb-body.glb", clip_hygiene=CLIPFIX, height_m=HGT, scale_applied=round(float(s), 6),
                facing="-Y", his_right="-X", up="+Z",
                body_shape_keys=["helmet_on"],

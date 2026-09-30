@@ -69,6 +69,7 @@ bpy.ops.export_scene.gltf(filepath=DST, export_format='GLB', use_selection=True,
                           export_animations=True, export_morph=True,
                           export_image_format='AUTO')
 import importlib
+importlib.import_module("52_weapon_bones").ensure(DST)  # T12: the base rig's weapon bones, after every export
 L = importlib.import_module("21_lint_export").lint(DST)
 print("\nwrote %s (%.2f MB)" % (DST, os.path.getsize(DST) / 1e6))
 print("  LINT %s" % L["verdict"])
