@@ -1,0 +1,10 @@
+; SCRATCH test of the sorceress scene package -- a lean copy of so_d7/film (project + staff_layer.gd + this test), runtime
+; glTF only (nothing imported). Copy so_d7/film/staff_layer.gd beside pkg_test.gd before running (see ../README.md).
+config_version=5
+
+[application]
+config/name="sorceress_pkg_test"
+run/main_scene="res://pkg_test.tscn"
+
+[rendering]
+renderer/rendering_method="forward_plus"

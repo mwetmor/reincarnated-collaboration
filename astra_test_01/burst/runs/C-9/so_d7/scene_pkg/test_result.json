@@ -1,0 +1,97 @@
+{
+ "layers": {
+
+ },
+ "pieces": [
+  "robe",
+  "mantle",
+  "belt",
+  "bracers",
+  "circlet",
+  "staff"
+ ],
+ "states": {
+  "death": {
+   "A_staff_tilt_max_deg": 106.1,
+   "A_vs_staff_layer_deg": 0.0,
+   "A_vs_staff_layer_m": 0.0,
+   "T": 2.25,
+   "clip": "death",
+   "samples": 69
+  },
+  "fireball": {
+   "A_staff_tilt_max_deg": 23.84,
+   "A_vs_staff_layer_deg": 0.0,
+   "A_vs_staff_layer_m": 0.0,
+   "T": 3.33333325386047,
+   "clip": "cast_fireball",
+   "release_s": 0.9167,
+   "samples": 101,
+   "socket_at_release": {
+    "cast_hand": [
+     0.1927,
+     1.1915,
+     0.5505
+    ],
+    "main_tip": [
+     -0.3225,
+     1.7982,
+     0.609
+    ]
+   }
+  },
+  "hit": {
+   "A_staff_tilt_max_deg": 86.65,
+   "A_vs_staff_layer_deg": 97.909,
+   "A_vs_staff_layer_m": 0.64821,
+   "T": 1.66666662693024,
+   "clip": "hit",
+   "samples": 51
+  },
+  "idle": {
+   "A_staff_tilt_max_deg": 11.99,
+   "A_vs_staff_layer_deg": 5.815,
+   "A_vs_staff_layer_m": 0.04543,
+   "T": 2.33333325386047,
+   "clip": "idle",
+   "samples": 71
+  },
+  "meteor": {
+   "A_staff_tilt_max_deg": 114.1,
+   "A_vs_staff_layer_deg": 0.0,
+   "A_vs_staff_layer_m": 0.0,
+   "T": 3.0,
+   "clip": "cast_meteor",
+   "release_s": 1.625,
+   "samples": 91,
+   "socket_at_release": {
+    "cast_hand_meteor": [
+     -0.3386,
+     1.3712,
+     0.5734
+    ],
+    "main_tip": [
+     -0.8653,
+     1.7471,
+     -0.0012
+    ]
+   }
+  },
+  "run": {
+   "A_staff_tilt_max_deg": 13.39,
+   "A_vs_staff_layer_deg": 0.0,
+   "A_vs_staff_layer_m": 0.0,
+   "T": 0.73333328962326,
+   "clip": "run",
+   "samples": 23
+  },
+  "walk": {
+   "A_staff_tilt_max_deg": 6.04,
+   "A_vs_staff_layer_deg": 0.0,
+   "A_vs_staff_layer_m": 0.0,
+   "T": 0.966666638851166,
+   "clip": "walk",
+   "samples": 30
+  }
+ }
+}
