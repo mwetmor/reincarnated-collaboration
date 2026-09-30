@@ -1,0 +1,63 @@
+{
+ "tolerance_m": 0.25,
+ "metres_per_unit": 0.009999999776482582,
+ "rest_units": [
+  -0.7867066264152527,
+  99.5965576171875,
+  1.3334523439407349
+ ],
+ "clips": {
+  "cast_fireball": {
+   "closest_m": 0.0,
+   "mean_m": 0.1743,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "cast_meteor": {
+   "closest_m": 0.0,
+   "mean_m": 0.0721,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "death": {
+   "closest_m": 0.015,
+   "mean_m": 0.1508,
+   "first_m": 0.0822,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "hit": {
+   "closest_m": 0.0097,
+   "mean_m": 0.1523,
+   "first_m": 0.208,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle": {
+   "closest_m": 0.0028,
+   "mean_m": 0.0176,
+   "first_m": 0.0097,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run": {
+   "closest_m": 0.002,
+   "mean_m": 0.011,
+   "first_m": 0.002,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk": {
+   "closest_m": 0.0042,
+   "mean_m": 0.0206,
+   "first_m": 0.0273,
+   "action": "none -- passes within 0.25 m of the rest position"
+  }
+ },
+ "accessors_patched": 0,
+ "bin_bytes_changed": 0,
+ "bin_bytes_changed_outside_patches": 0,
+ "lint_verdict": "WARN",
+ "lint_fails": [],
+ "lint_warns": [
+  "so_chain.glb: clip 'cast_fireball' starts root 'Hips' at 92.527 against rest 99.597 (7.1% > 5%)",
+  "so_chain.glb: clip 'cast_meteor' starts root 'Hips' at 90.762 against rest 99.597 (8.9% > 5%)",
+  "so_chain.glb: clip 'idle' starts root 'Hips' at 92.514 against rest 99.597 (7.1% > 5%)"
+ ]
+}

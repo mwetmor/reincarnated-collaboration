@@ -1,0 +1,31 @@
+{"ev": "start", "step": "S-orient", "t": 1790733962, "note": "charter 7, legolas Part 6, asset survey"}
+{"ev": "end", "step": "S-orient", "t": 1790734008.4742012, "note": ""}
+{"ev": "start", "step": "S0-setup", "t": 1790734008.4742012, "note": "folder, scripts copied from nb_d2 (read-only there), timing harness"}
+{"ev": "end", "step": "S0-setup", "t": 1790734019.076824, "note": ""}
+{"ev": "start", "step": "S1-base-pick", "t": 1790734019.095402, "note": "SO-1 a vs b by mirror IoU; tie -> b"}
+{"ev": "end", "step": "S1-base-pick", "t": 1790734065.013129, "note": "b: mirror IoU 0.9052 vs a 0.8700, outright (not the tiebreak)"}
+{"ev": "start", "step": "S2-cutouts", "t": 1790734065.0547462, "note": "matte + place the four views for Tripo multiview"}
+{"ev": "end", "step": "S2-cutouts", "t": 1790734109.104104, "note": "chroma key + despill, no fal spend; residual green <=0.084; tattoo check consistent"}
+{"ev": "start", "step": "S3-tripo-base", "t": 1790734132.0804942, "note": "Tripo H3.1 multiview, same args as T8, order front/left/back/right"}
+{"ev": "wait", "step": "S3-tripo-base", "s": 141.5, "what": "tripo queue+build"}
+{"ev": "end", "step": "S3-tripo-base", "t": 1790734295.7544599, "note": "141 s vendor, 45.5 MB, $0.40"}
+{"ev": "start", "step": "S4-prep-rig", "t": 1790734295.779543, "note": "prep (weld/shards/yaw/scale/decimate), Meshy rig, weapon bones"}
+{"ev": "wait", "step": "S4-prep-rig", "s": 94.0, "what": "meshy rigging (upload+queue+rig)"}
+{"ev": "end", "step": "S4-prep-rig", "t": 1790734576.4035819, "note": "yaw measured (face+tattoo agree), 1.70 m, 1 island, 290k, 5 cr, 26 bones, body moved 0"}
+{"ev": "start", "step": "S5-clips", "t": 1790734576.424166, "note": "Meshy library only: base set + 2 casts chosen by measurement"}
+{"ev": "start", "step": "S7-texture", "t": 1790734805.1431959, "note": "PARALLEL with S5 vendor wait: sheet A canvas from the model"}
+{"ev": "wait", "step": "S5-clips", "s": 0.0, "what": "PAUSED by disk (41 GiB) after 7 of 11 clips; 4 casts pending"}
+{"ev": "wait", "step": "S7-texture", "s": 0.0, "what": "SOP-A fired (lane burst, allowed during disk pause)"}
+{"ev": "start", "step": "S8-gear", "t": 1790735325.462307, "note": "PARALLEL: 5 gear briefs fired as one wave during the disk pause (lane bursts allowed)"}
+{"ev": "start", "step": "X-disk-block", "t": 1790735829.327469, "note": "ENVIRONMENTAL, not pipeline: heavy writes paused at 41-42 GiB (coordinator); light work done during it"}
+{"ev": "end", "step": "X-disk-block", "t": 1790736057.320647, "note": "resumed: storage gate reset to 25 GiB (R-C9-87)"}
+{"ev": "wait", "step": "S5-clips", "s": 164.0, "what": "3 casts + cast126 download"}
+{"ev": "end", "step": "S5-clips", "t": 1790736398.409854, "note": "11 library clips (33 cr + rig 5 = 38/80); casts by measurement: FB 132 (off-hand throw), Meteor 127 (staff-hand slam)"}
+{"ev": "start", "step": "S6-chain", "t": 1790736452.6877, "note": "merge 7 clips (slot bound explicitly, each proven to animate), hygiene, recentre, de-root anchored at rest, lint"}
+{"ev": "wait", "step": "S8-gear", "s": 388.0, "what": "5 Tripo gear builds, concurrent"}
+{"ev": "end", "step": "S6-chain", "t": 1790736669.6249778, "note": "idle+walk carried 1.176 Hips scale (FAIL) -> stripped+reground; hit/death de-rooted; foot-lock walk 1.449 run 3.928; lint WARN 0 FAIL"}
+{"ev": "wait", "step": "S8-gear", "s": 0.0, "what": "isolation begins (Blender, agent time)"}
+{"ev": "wait", "step": "S7-texture", "s": 424.0, "what": "SOP-B lane burst"}
+{"ev": "end", "step": "S7-texture", "t": 1790737567.386656, "note": "A(b)+B(a) by registration; 20 cameras self-test 100%; B face density 2x A; unseen 24.4% = hidden islands, filled from model colour"}
+{"ev": "start", "step": "S9-assemble", "t": 1790737623.159263, "note": "skin robe/mantle/belt, bind bracers, procedural circlet, socket staff, export; then weapon bones + lint"}
+{"ev": "end", "step": "S9-assemble", "t": 1790737916.319118, "note": "4 garments skinned/bound, circlet procedural (fitted outline), staff socketed; 26-joint identity PASS; manifest lint 0 mismatches"}

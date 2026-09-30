@@ -1,0 +1,11 @@
+{
+ "region": "waist",
+ "seed": "(val < 0.34) & (dist > 0.006) & (zf > 0.49) & (zf < 0.64) & (ax > 0.04)",
+ "grow": "(val < 0.42) & (dist > 0.003) & (zf < 0.68) & ((zf > 0.49) | ((zf > 0.38) & (ax > 0.08)))",
+ "components": 24,
+ "kept": 1,
+ "verts": 52379,
+ "faces": 96672,
+ "noise_floor_median_m": 0.00236,
+ "noise_floor_p90_m": 0.00531
+}

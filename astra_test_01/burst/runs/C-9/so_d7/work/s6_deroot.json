@@ -1,0 +1,97 @@
+{
+ "cast_fireball": {
+  "frames_in": [
+   0,
+   80
+  ],
+  "net_root_travel_m": 0.0031,
+  "action": "left rooted on purpose (the scene roots the lunge); start moved to rest",
+  "start_shift_m": 0.03,
+  "hips_location_keys_shifted": 243
+ },
+ "cast_meteor": {
+  "frames_in": [
+   0,
+   72
+  ],
+  "net_root_travel_m": 0.0003,
+  "action": "left rooted on purpose (the scene roots the lunge); start moved to rest",
+  "start_shift_m": 0.0356,
+  "hips_location_keys_shifted": 219
+ },
+ "death": {
+  "frames_in": [
+   0,
+   54
+  ],
+  "net_root_travel_m": 0.9783,
+  "frames_out": [
+   0,
+   54
+  ],
+  "derooted": true
+ },
+ "hit": {
+  "frames_in": [
+   0,
+   40
+  ],
+  "net_root_travel_m": 1.1953,
+  "frames_out": [
+   0,
+   40
+  ],
+  "derooted": true
+ },
+ "idle": {
+  "frames_in": [
+   0,
+   96
+  ],
+  "net_root_travel_m": 0.0004,
+  "frames_out": [
+   0,
+   96
+  ],
+  "derooted": true
+ },
+ "run": {
+  "frames_in": [
+   0,
+   18
+  ],
+  "net_root_travel_m": 0.0044,
+  "speed_m_s": 0.006,
+  "frames_out": [
+   0,
+   18
+  ],
+  "derooted": true
+ },
+ "walk": {
+  "frames_in": [
+   0,
+   24
+  ],
+  "net_root_travel_m": 0.0,
+  "speed_m_s": 0.0,
+  "frames_out": [
+   0,
+   24
+  ],
+  "derooted": true
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "clips": [
+   "cast_fireball",
+   "cast_meteor",
+   "death",
+   "hit",
+   "idle",
+   "run",
+   "walk"
+  ]
+ }
+}

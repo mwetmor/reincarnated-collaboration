@@ -1,0 +1,217 @@
+{
+ "rig": "01a0f016-d40f-7134-8f4c-090c09228931",
+ "spent": 33,
+ "clips": {
+  "idle": {
+   "action_id": 0,
+   "task": "01a0f019-dd3f-725c-98e7-61076380b65a",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/idle.glb",
+   "mb": 17.45,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "idle.glb: clip 'Armature|Idle|baselayer' scales joint 'Hips' by [1.1765, 1.1765, 1.1765] (deviation 0.1765 > 1e-03)"
+    ],
+    "warns": [
+     "idle.glb: clip 'Armature|Idle|baselayer' starts root 'Hips' at 108.944 against rest 99.597 (9.4% > 5%)"
+    ],
+    "clips": [
+     "Armature|Idle|baselayer"
+    ]
+   }
+  },
+  "walk": {
+   "action_id": 1,
+   "task": "01a0f01a-dc06-765f-8693-4c77a688436d",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/walk.glb",
+   "mb": 17.42,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "walk.glb: clip 'Armature|Walking_Woman|baselayer' scales joint 'Hips' by [1.1765, 1.1765, 1.1765] (deviation 0.1765 > 1e-03)"
+    ],
+    "warns": [
+     "walk.glb: clip 'Armature|Walking_Woman|baselayer' starts root 'Hips' at 117.035 against rest 99.597 (17.5% > 5%)"
+    ],
+    "clips": [
+     "Armature|Walking_Woman|baselayer"
+    ]
+   }
+  },
+  "run": {
+   "action_id": 14,
+   "task": "01a0f01b-6312-7274-b0d8-ef6d403eac1b",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 31,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/run.glb",
+   "mb": 17.41,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Run_02|baselayer"
+    ]
+   }
+  },
+  "hit": {
+   "action_id": 178,
+   "task": "01a0f01b-ec5a-7201-a0e8-426ebf6f67a1",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/hit.glb",
+   "mb": 17.43,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "hit.glb: clip 'Armature|Hit_Reaction|baselayer' drifts 1.195 m horizontally over its own length (119.5 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Hit_Reaction|baselayer"
+    ]
+   }
+  },
+  "death": {
+   "action_id": 189,
+   "task": "01a0f01c-b619-736e-a5c1-19004eb875b5",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 61,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/death.glb",
+   "mb": 17.43,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "death.glb: clip 'Armature|dying_backwards|baselayer' drifts 0.978 m horizontally over its own length (97.8 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|dying_backwards|baselayer"
+    ]
+   }
+  },
+  "cast132": {
+   "action_id": 132,
+   "task": "01a0f01e-430d-745a-9462-373797c24fad",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 75,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast132.glb",
+   "mb": 17.44,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast132.glb: clip 'Armature|mage_soell_cast_3|baselayer' starts root 'Hips' at 92.527 against rest 99.597 (7.1% > 5%)"
+    ],
+    "clips": [
+     "Armature|mage_soell_cast_3|baselayer"
+    ]
+   }
+  },
+  "cast136": {
+   "action_id": 136,
+   "task": "01a0f01f-87f9-7044-b967-9caaac389f49",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 52,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast136.glb",
+   "mb": 17.44,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast136.glb: clip 'Armature|mage_soell_cast_7|baselayer' starts root 'Hips' at 92.333 against rest 99.597 (7.3% > 5%)"
+    ],
+    "clips": [
+     "Armature|mage_soell_cast_7|baselayer"
+    ]
+   }
+  },
+  "cast126": {
+   "action_id": 126,
+   "task": "01a0f020-6526-7154-bd4f-1cd4e597e55d",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "note": "POSTED and completed before the fetch was stopped for disk (41 GiB), so it never reached this ledger. Recovered from the account task list. NOT DOWNLOADED: run 31_meshy_fetch.py --download-only once disk is back.",
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast126.glb",
+   "mb": 17.46,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast126.glb: clip 'Armature|Charged_Spell_Cast_1|baselayer' starts root 'Hips' at 89.688 against rest 99.597 (9.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Charged_Spell_Cast_1|baselayer"
+    ]
+   }
+  },
+  "cast129": {
+   "action_id": 129,
+   "task": "01a0f030-4a4d-7329-87c3-a2a1fd230390",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast129.glb",
+   "mb": 17.43,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast129.glb: clip 'Armature|mage_soell_cast|baselayer' starts root 'Hips' at 94.602 against rest 99.597 (5.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|mage_soell_cast|baselayer"
+    ]
+   }
+  },
+  "cast127": {
+   "action_id": 127,
+   "task": "01a0f031-0c47-71b1-9237-c2bf1a766482",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast127.glb",
+   "mb": 17.44,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast127.glb: clip 'Armature|Charged_Ground_Slam|baselayer' starts root 'Hips' at 87.402 against rest 99.597 (12.2% > 5%)"
+    ],
+    "clips": [
+     "Armature|Charged_Ground_Slam|baselayer"
+    ]
+   }
+  },
+  "cast125": {
+   "action_id": 125,
+   "task": "01a0f032-07e7-71cb-9033-23d7de244e7c",
+   "status": "SUCCEEDED",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/anims/cast125.glb",
+   "mb": 17.44,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "cast125.glb: clip 'Armature|Charged_Spell_Cast|baselayer' starts root 'Hips' at 92.824 against rest 99.597 (6.8% > 5%)"
+    ],
+    "clips": [
+     "Armature|Charged_Spell_Cast|baselayer"
+    ]
+   }
+  }
+ }
+}

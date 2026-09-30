@@ -1,0 +1,112 @@
+{
+ "pieces": {
+  "robe": {
+   "mode": "skin",
+   "faces": [
+    833061,
+    30000
+   ],
+   "offset_m": 0.006,
+   "pushed": 2053,
+   "skinned_verts": 28193
+  },
+  "mantle": {
+   "mode": "skin",
+   "faces": [
+    179748,
+    22000
+   ],
+   "offset_m": 0.01,
+   "pushed": 7,
+   "skinned_verts": 18717
+  },
+  "belt": {
+   "mode": "skin",
+   "faces": [
+    96672,
+    14000
+   ],
+   "offset_m": 0.012,
+   "pushed": 234,
+   "skinned_verts": 11457
+  },
+  "bracers": {
+   "mode": "bone",
+   "bones": [
+    "RightForeArm",
+    "LeftForeArm"
+   ],
+   "objects": [
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.001",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.002",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.003",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.004",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.007",
+    "tripo_node_eb709101-3ae7-4c73-9808-15f4450d71ff.017"
+   ]
+  },
+  "circlet": {
+   "mode": "bone",
+   "bones": [
+    "Head"
+   ],
+   "method": "PROCEDURAL",
+   "band_height_m": 1.6235,
+   "band_radius_m": [
+    0.0388,
+    0.2036
+   ],
+   "fit": "the head's outline at brow height, 64 directions, +4 mm -- a single radius floated it as a halo",
+   "verts_in_slab": 1327,
+   "why": "Tripo isolation did not separate a ~1 cm band from the scalp: 24,726 verts with the whole face attached, or 1,455 verts in 3 fragments. At 100.6 px/m it is ~1 px in play."
+  },
+  "staff": {
+   "mode": "socket",
+   "bone": "RightHand",
+   "length_m": 1.75,
+   "grip": 0.55,
+   "socket": {
+    "scale": 1.74916,
+    "long_axis": "Z",
+    "span_scaled_m": [
+     0.2174,
+     0.3177,
+     1.75
+    ],
+    "bone_head": [
+     -0.3463,
+     0.0054,
+     0.9051
+    ],
+    "head_end": "max",
+    "bone": "RightHand",
+    "face_local": [
+     0.007,
+     -1.0,
+     0.0
+    ],
+    "axis_world": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "face_world": [
+     0.0,
+     -1.0,
+     0.0
+    ]
+   },
+   "shaft_centred_m": 0.03991770097213325
+  }
+ },
+ "files": {
+  "so-body.glb": 16.37,
+  "robe.glb": 5.68,
+  "mantle.glb": 4.5,
+  "belt.glb": 4.16,
+  "bracers.glb": 3.58,
+  "circlet.glb": 0.1,
+  "staff.glb": 4.25
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "fps": 24.0,
+ "clips": {
+  "walk": {
+   "foot_lock_speed_m_s": 1.449,
+   "planted_intervals": 26,
+   "seconds": 1.0,
+   "per_foot": {
+    "LeftFoot": {
+     "planted_intervals": 14,
+     "median_back_speed": 1.366
+    },
+    "RightFoot": {
+     "planted_intervals": 12,
+     "median_back_speed": 1.511
+    }
+   },
+   "spread_m_s": 0.584
+  },
+  "run": {
+   "foot_lock_speed_m_s": 3.928,
+   "planted_intervals": 10,
+   "seconds": 0.75,
+   "per_foot": {
+    "LeftFoot": {
+     "planted_intervals": 5,
+     "median_back_speed": 3.577
+    },
+    "RightFoot": {
+     "planted_intervals": 5,
+     "median_back_speed": 4.054
+    }
+   },
+   "spread_m_s": 1.897
+  }
+ }
+}

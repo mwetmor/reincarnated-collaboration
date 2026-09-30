@@ -1,0 +1,94 @@
+{
+ "SOG-robe": {
+  "scored_on": [
+   [
+    0.02,
+    0.13
+   ],
+   [
+    0.88,
+    0.97
+   ]
+  ],
+  "variants": {
+   "a": {
+    "mean_abs_offset": 3.125,
+    "residual": 31.439,
+    "bands": 8
+   },
+   "b": {
+    "mean_abs_offset": 2.625,
+    "residual": 32.461,
+    "bands": 8
+   }
+  },
+  "pick": "b",
+  "decided_by": "registration: 2.62 vs 3.12 px on head+boots"
+ },
+ "SOG-mantle": {
+  "scored_on": [
+   [
+    0.62,
+    0.97
+   ]
+  ],
+  "variants": {
+   "a": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.743,
+    "bands": 4
+   },
+   "b": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.797,
+    "bands": 4
+   }
+  },
+  "pick": "a",
+  "decided_by": "TIE on registration (0.00 px both, residual 21.74 vs 21.80); a on the receipt: b varies hem depth between views"
+ },
+ "SOG-cb": {
+  "scored_on": [
+   [
+    0.62,
+    0.97
+   ]
+  ],
+  "variants": {
+   "a": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.771,
+    "bands": 4
+   },
+   "b": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.982,
+    "bands": 4
+   }
+  },
+  "pick": "a",
+  "decided_by": "TIE on registration (0.00 px both); a on the receipt: b ADDS a rear circlet ornament not in the costume"
+ },
+ "SOG-belt": {
+  "scored_on": [
+   [
+    0.62,
+    0.97
+   ]
+  ],
+  "variants": {
+   "a": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.748,
+    "bands": 4
+   },
+   "b": {
+    "mean_abs_offset": 0.0,
+    "residual": 21.695,
+    "bands": 4
+   }
+  },
+  "pick": "b",
+  "decided_by": "TIE on registration (0.00 px both, residual 21.75 vs 21.70); no discriminating concern -- a coin-flip, b by the residual"
+ }
+}

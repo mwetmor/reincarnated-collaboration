@@ -1,0 +1,61 @@
+{
+ "bones": [
+  "Hips",
+  "LeftUpLeg",
+  "LeftLeg",
+  "LeftFoot",
+  "LeftToeBase",
+  "RightUpLeg",
+  "RightLeg",
+  "RightFoot",
+  "RightToeBase",
+  "Spine02",
+  "Spine01",
+  "Spine",
+  "LeftShoulder",
+  "LeftArm",
+  "LeftForeArm",
+  "LeftHand",
+  "weapon_l",
+  "RightShoulder",
+  "RightArm",
+  "RightForeArm",
+  "RightHand",
+  "weapon_r",
+  "neck",
+  "Head",
+  "head_end",
+  "headfront"
+ ],
+ "added": {
+  "weapon_r": {
+   "parent": "RightHand",
+   "head": [
+    -34.62488,
+    0.5431,
+    90.50932
+   ],
+   "tail": [
+    -648.73273,
+    -369.40704,
+    -2230.42773
+   ],
+   "roll": 0.517334
+  },
+  "weapon_l": {
+   "parent": "LeftHand",
+   "head": [
+    34.49535,
+    -1.02349,
+    89.65576
+   ],
+   "tail": [
+    673.02582,
+    -387.01889,
+    -2215.53833
+   ],
+   "roll": -0.540442
+  }
+ },
+ "body_moved_m": 0.0
+}

@@ -1,0 +1,114 @@
+{
+ "throw": {
+  "132": {
+   "hand": "L",
+   "peak_fwd_speed": 5.351,
+   "release_frame": 23,
+   "release_s": 0.9167,
+   "max_reach_m": 0.5579,
+   "duration_s": 3.3333,
+   "fps": 24.0,
+   "frames": [
+    1,
+    81
+   ]
+  },
+  "136": {
+   "hand": "R",
+   "peak_fwd_speed": 3.301,
+   "release_frame": 20,
+   "release_s": 0.7917,
+   "max_reach_m": 0.6215,
+   "duration_s": 2.7083,
+   "fps": 24.0,
+   "frames": [
+    1,
+    66
+   ]
+  },
+  "126": {
+   "hand": "R",
+   "peak_fwd_speed": 4.428,
+   "release_frame": 20,
+   "release_s": 0.7917,
+   "max_reach_m": 0.62,
+   "duration_s": 4.2917,
+   "fps": 24.0,
+   "frames": [
+    1,
+    104
+   ]
+  }
+ },
+ "call": {
+  "129": {
+   "hand": "R",
+   "peak_above_head_m": 0.3691,
+   "peak_s": 0.7917,
+   "peak_down_speed": 2.863,
+   "release_frame": 31,
+   "release_s": 1.25,
+   "score": 1.0569,
+   "duration_s": 2.25,
+   "fps": 24.0,
+   "frames": [
+    1,
+    55
+   ]
+  },
+  "127": {
+   "hand": "R",
+   "peak_above_head_m": 0.3551,
+   "peak_s": 1.4583,
+   "peak_down_speed": 8.482,
+   "release_frame": 40,
+   "release_s": 1.625,
+   "score": 3.0122,
+   "duration_s": 3.0,
+   "fps": 24.0,
+   "frames": [
+    1,
+    73
+   ]
+  },
+  "125": {
+   "hand": "L",
+   "peak_above_head_m": 0.3652,
+   "peak_s": 1.8333,
+   "peak_down_speed": 3.279,
+   "release_frame": 57,
+   "release_s": 2.3333,
+   "score": 1.1975,
+   "duration_s": 2.6667,
+   "fps": 24.0,
+   "frames": [
+    1,
+    65
+   ]
+  }
+ },
+ "pick": {
+  "fireball": "132",
+  "meteor": "127"
+ },
+ "decision": {
+  "fireball": {
+   "clip_source": 132,
+   "name": "Mage Spell Cast 3",
+   "release_s": 0.9167,
+   "release_frame": 23,
+   "why": "fastest release of the three throws (5.35 m/s against 4.43 and 3.30), and the leading hand is her LEFT -- the free hand, since the staff is in her right. 126 and 136 throw with the right, which would swing the staff."
+  },
+  "meteor": {
+   "clip_source": 127,
+   "name": "Charged Ground Slam",
+   "release_s": 1.625,
+   "release_frame": 40,
+   "why": "a raise to 0.355 m above the head then a DROP at 8.48 m/s, nearly three times either alternative (2.86, 3.28). The hand is her RIGHT -- the staff hand -- so she lifts the staff to the sky and drives it down: the call-down, literally."
+  },
+  "release_s_definition": {
+   "fireball": "the instant of the leading hand's peak FORWARD speed -- a throw is defined by its release speed",
+   "meteor": "the instant of peak DOWNWARD speed after the hand's highest point -- a raise alone is a salute, a drop alone a slap"
+  }
+ }
+}

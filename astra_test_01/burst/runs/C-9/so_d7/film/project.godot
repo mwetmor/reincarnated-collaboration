@@ -1,0 +1,14 @@
+; D7 film sandbox -- the sorceress in the Barrow's light. NOT cliffside3d, NOT barrow_full:
+; a separate project, so nothing here can disturb a scene another session is building.
+config_version=5
+
+[application]
+config/name="d7_film_sandbox"
+run/main_scene="res://film.tscn"
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[rendering]
+renderer/rendering_method="forward_plus"
