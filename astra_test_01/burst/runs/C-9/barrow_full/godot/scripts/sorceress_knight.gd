@@ -77,3 +77,10 @@ func diag_take() -> Dictionary:
 	var d := {"phys_us": _diag_phys_us}
 	_diag_phys_us = -1
 	return d
+
+
+# --- her spells need the staff (so_d7/scene_pkg README, GEAR; the coordinator's gate, key half) ---------
+# knight.gd has no unarmed state without an attack: it binds a missing attack to idle, so an unarmed
+# slash would still strike -- and spell_fx would throw the Fire Ball at its release time.
+func try_strike(which: String) -> bool:
+	return super(which) if armed() else false

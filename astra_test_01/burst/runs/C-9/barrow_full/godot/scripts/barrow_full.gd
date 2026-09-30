@@ -116,6 +116,8 @@ var paint_sun: DirectionalLight3D
 ## phone page; -- --c sorceress on the desktop). The blockout keeps him.
 var who := "barbarian"
 var spell_fx: Node3D
+var touch                             # barrow_touch.gd, on the web or a touchscreen
+var _her_spell_buttons: Array = []    # FIRE BALL and METEOR, shown only while she holds the staff
 var snow: SnowField
 var snowfall: GPUParticles3D
 var heather_mat: ShaderMaterial
@@ -172,6 +174,7 @@ func _ready() -> void:
 		# when they show, and the first phone page drew it under them -- added before it existed
 		var tc = load("res://scripts/barrow_touch.gd").new()
 		add_child(tc)
+		touch = tc
 		if who == "sorceress":
 			_touch_for_her(tc)
 	if who == "sorceress":
@@ -1514,7 +1517,7 @@ func _update_hud() -> void:
 		if n < names.size():
 			nm = String(names[n])
 		fs = knight._figure_scale
-	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + ("  ·  SORCERESS: Space Fire Ball · X Meteor" if who == "sorceress" else "") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
+	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + (("  ·  SORCERESS: Space Fire Ball · X Meteor" if knight == null or knight.armed() else "  ·  SORCERESS: no staff, no spells (G for her gear)") if who == "sorceress" else "") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
 		+ "   ‖   V stack (%s) · K ink (%s) · O overlay (%s) · R crucible marks (%s) · U camera clamp (%s)") \
 		% [n + 1, total, nm, fs, "on" if stack_on else "off", "on" if ink_on else "off",
 		   "on" if overlay_on else "off", "on" if crucible_on else "off", "on" if clamp_on else "off"]
@@ -1525,18 +1528,40 @@ func _update_hud() -> void:
 
 
 func _touch_for_her(tc) -> void:
-	"""HER BUTTONS (the coordinator): SLASH is the Fire Ball, CHOP the Meteor; BASH, BLOCK and GEAR are
-	hidden -- she has no shield, and her one kit is the full one. The same actions underneath."""
+	"""HER BUTTONS (the coordinator): SLASH is the Fire Ball, CHOP the Meteor; BASH and BLOCK are hidden --
+	she has no shield. GEAR steps her five stacks, base body to full kit (so_d7/scene_pkg, GEAR), and her
+	two spell buttons show only while she is armed(): the staff is in the last stack only. The same
+	actions underneath."""
 	var keep := []
+	_her_spell_buttons.clear()
 	for b in tc._buttons:
 		var lb := String(b.get("label", ""))
-		if lb in ["BASH", "BLOCK", "GEAR"]:
+		if lb in ["BASH", "BLOCK"]:
 			continue
 		if lb == "SLASH":
 			b["label"] = "FIRE BALL"
+			_her_spell_buttons.append(b)
+			continue
 		elif lb == "CHOP":
 			b["label"] = "METEOR"
+			_her_spell_buttons.append(b)
+			continue
 		keep.append(b)
+	tc._buttons = keep
+	_touch_her_armed()
+
+
+func _touch_her_armed() -> void:
+	"""Her spell buttons follow the staff: shown while knight.armed(), re-checked after every GEAR press."""
+	if touch == null or who != "sorceress":
+		return
+	var tc = touch
+	var keep := []
+	for b in tc._buttons:
+		if not _her_spell_buttons.has(b):
+			keep.append(b)
+	if knight == null or knight.armed():      # she starts in the full kit, as he does
+		keep.append_array(_her_spell_buttons)
 	tc._buttons = keep
 	if tc._overlay != null:
 		tc._overlay.queue_redraw()
@@ -1582,6 +1607,7 @@ func step_size(d: int) -> void:
 func _unhandled_input(e: InputEvent) -> void:
 	if e.is_action_pressed("gear_cycle") and knight != null:
 		knight.cycle_gear()
+		_touch_her_armed()
 		_update_hud()
 	elif e.is_action_pressed("size_down"):
 		step_size(-1)
