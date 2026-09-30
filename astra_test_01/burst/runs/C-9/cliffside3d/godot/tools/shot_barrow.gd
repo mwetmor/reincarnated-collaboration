@@ -129,6 +129,19 @@ func _initialize() -> void:
 	scene.set_veil_before(false)
 	await _settle()
 
+	# ---- T10-1c: the two A/Bs, each a single-variable pair in this run -----
+	# item 2, the rocks: every rock_large as T10-1b stood it, against laid low
+	scene.set_rock_pose(true)
+	await _settle()
+	await _shot("barrow_rocks_upright")
+	scene.set_rock_pose(false)
+	# item 1, instancing: the same props, one node each, against the MultiMeshes
+	scene.set_instancing(false)
+	await _settle()
+	await _shot("barrow_instancing_off")
+	scene.set_instancing(true)
+	await _settle()
+
 	# ---- the stills ---------------------------------------------------------
 	# the delivered look, and the same frame with the stack off
 	scene.set_stack(true)
@@ -273,6 +286,12 @@ func _initialize() -> void:
 		scene.set_class_id_view(true)
 		await _settle()
 		await _shot("barrow_painting_ids")
+		scene.set_class_id_view(false)
+		# and again with the ground, mound, snow and him drawn black rather than hidden: the
+		# pixels of each class the EYE can see -- the warmth is sampled on these (T10-1c)
+		scene.set_class_id_view(true, true)
+		await _settle()
+		await _shot("barrow_painting_ids_occl")
 		scene.set_class_id_view(false)
 		vp.msaa_3d = Viewport.MSAA_4X
 		vp.size = prev_size

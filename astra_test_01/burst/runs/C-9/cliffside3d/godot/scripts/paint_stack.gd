@@ -132,6 +132,11 @@ uniform vec3 base_color : source_color = vec3(0.44, 0.42, 0.47);
 uniform sampler2D albedo_tex : source_color, hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform bool use_tex = false;
 uniform float tex_scale = 1.0;
+// T10-1c: a per-material grade on the painted albedo -- the heather is pulled onto the
+// painting's own heather hue by it, measured (see the barrow's HEATHER_TINT). A LINEAR
+// multiplier, deliberately without source_color: with the hint, Godot runs the value through
+// the sRGB curve and a 0.6 acts as 0.32.
+uniform vec3 tex_tint = vec3(1.0);
 uniform sampler2D mottle_noise : hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform float mottle_amp = 0.13;
 uniform float mottle_scale = 0.33;
@@ -168,7 +173,7 @@ float snow_coverage(vec3 wpos, vec3 wn, sampler2D mn, float thr, float jit, floa
 }
 
 void fragment() {
-	vec3 base = use_tex ? texture(albedo_tex, UV * tex_scale).rgb : base_color;
+	vec3 base = use_tex ? texture(albedo_tex, UV * tex_scale).rgb * tex_tint : base_color;
 	// a flat colour reads as a wash, not as plastic: low-frequency value break plus a
 	// faint cross-hatch at the scale a pen would hatch
 	float m = _fbm2(mottle_noise, v_world.xz * mottle_scale + v_world.y * 0.17);
@@ -727,12 +732,22 @@ static func _shader(code: String) -> Shader:
 
 
 static func world_material(fbm: Texture2D, base: Color, params := {}) -> ShaderMaterial:
+	# "_two_sided" is a SELECTOR, not a uniform (keys with a leading underscore never reach
+	# the shader). The ramp culls back faces, which is right for a closed solid and wrong for
+	# a heather tussock: its blades are single planes, authored `doubleSided` in the GLB, and
+	# with cull_back every blade turned away from the camera vanishes -- about half of them.
+	# Godot flips NORMAL for a back face when culling is off, so the ramp lights the far side
+	# of a blade as its own side. (The barrow ships its heather ONE-sided now, measured: see
+	# barrow_world.heather_two_sided. The selector stays for the next asset that needs it.)
+	var two := bool(params.get("_two_sided", false))
 	var m := ShaderMaterial.new()
-	m.shader = _shader(WORLD_SHADER)
+	m.shader = _shader(WORLD_SHADER.replace("cull_back", "cull_disabled") if two else WORLD_SHADER)
 	m.set_shader_parameter("wash_noise", fbm)
 	m.set_shader_parameter("mottle_noise", fbm)
 	m.set_shader_parameter("base_color", base)
 	for k in params:
+		if String(k).begins_with("_"):
+			continue
 		m.set_shader_parameter(k, params[k])
 	return m
 

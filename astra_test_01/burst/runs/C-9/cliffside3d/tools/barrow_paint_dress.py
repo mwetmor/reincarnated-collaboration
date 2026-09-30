@@ -337,8 +337,10 @@ def main() -> int:
     # across the screen (0.35 * 140.86 = 49 px wide by ~14 rows), the smallest dark mass that is
     # a juniper rather than a rock crevice or a cast shadow; 150 px of warm growth is a tuft.
     # At 90 / 40 px the fill found 190 "junipers", most of them 7 cm specks of dark paint.
-    for asset, m, spacing, hlo, hhi, min_px in (("juniper", juniper & shrub, 0.62, 0.55, 1.4, 700),
-                                                 ("heather", heather & shrub, 0.36, 0.35, 0.95, 150)):
+    # T10-1c: DENSER, now that instancing takes the per-copy cost off -- heather 0.36 -> 0.26 m,
+    # juniper 0.62 -> 0.46 m between plants in a clump
+    for asset, m, spacing, hlo, hhi, min_px in (("juniper", juniper & shrub, 0.46, 0.55, 1.4, 700),
+                                                 ("heather", heather & shrub, 0.26, 0.35, 0.95, 150)):
         dx = max(int(spacing * K), 4)
         dy = max(int(spacing * SIN_P * K), 4)
         lab_s, ns = ndimage.label(ndimage.binary_closing(m, iterations=2))
@@ -449,7 +451,9 @@ def main() -> int:
     fb = fy >= fy.max() - 3
     fsx, fsz = pix_to_scene(float(fx[fb].mean()), float(fy[fb].mean()), K, W, H)
     csx, csz = pix_to_scene(W / 2.0, H / 2.0, K, W, H)
+    corners = [pix_to_scene(x, y, K, W, H) for x, y in ((0, 0), (W, 0), (W, H), (0, H))]
     frame = {"image_px": [W, H], "K_px_per_m": K, "ortho_size_m": round(H / K, 4),
+             "footprint_xz": [[round(a, 3), round(b, 3)] for a, b in corners],
              "aim_scene_xyz": [round(csx, 3), 0.0, round(csz, 3)],
              "figure_scene_xz": [round(fsx, 3), round(fsz, 3)],
              "_aim": "the painting's centre pixel unprojected at h = 0: the flat floor"}

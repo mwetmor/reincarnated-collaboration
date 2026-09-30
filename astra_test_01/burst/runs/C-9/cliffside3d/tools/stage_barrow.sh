@@ -39,6 +39,12 @@ cp_if "$CAP/paint_vs_render_overlay50.png"        "$STAGE/5 - the render at 50 p
 cp_if "$CAP/paint_coverage_map.png"               "$STAGE/6 - coverage per class, bright = placed, dim = missed.png"
 cp_if "$CAP/barrow_scale_beside_stone.png"        "$STAGE/7 - him beside a tall stone, for scale.png"
 cp_if "$CAP/barrow_stack_off.png"                 "$STAGE/8 - play camera, the look stack OFF.png"
+# T10-1c: the two single-variable A/Bs, each against still 1 (same run, same frame)
+cp_if "$CAP/barrow_instancing_off.png"            "$STAGE/9 - A-B for 1, the same props drawn one node each.png"
+cp_if "$CAP/barrow_rocks_upright.png"             "$STAGE/10 - A-B for 2, the rocks upright as in T10-1b.png"
+# and the warmth (3), where the painting has heather: painting | T10-1b | this capture
+[ -f "$CAP/warmth_before_after.png" ] && cp -f "$CAP/warmth_before_after.png" \
+  "$STAGE/11 - warmth - the painting, T10-1b, T10-1c.png"
 [ -f "$CAP/C-9 barrow walk.mp4" ] && cp -f "$CAP/C-9 barrow walk.mp4" "$STAGE/C-9 barrow walk.mp4"
 cp_if "$CAP/barrow.json"                          "$STAGE/measurements - scene.json"
 cp_if "$CAP/barrow_metrics.json"                  "$STAGE/measurements - frames.json"

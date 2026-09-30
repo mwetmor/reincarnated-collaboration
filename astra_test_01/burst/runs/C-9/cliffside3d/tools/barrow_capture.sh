@@ -20,7 +20,7 @@ set -euo pipefail
 
 SRC=$(cd "$(dirname "$0")/.." && pwd)/godot
 OUT=${1:?usage: barrow_capture.sh OUT_DIR [WALK_FRAMES]}
-WALK=${2:-330}
+WALK=${2:-380}
 GODOT=${GODOT:-/Applications/Godot.app/Contents/MacOS/Godot}
 HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py}
 FRAMES="$OUT/frames"
@@ -37,7 +37,7 @@ func _initialize() -> void:
 	var bad := 0
 	for p in ["res://scripts/knight.gd", "res://scripts/gear.gd", "res://scripts/paint_stack.gd",
 			  "res://scripts/barrow_stand_in.gd", "res://scripts/barrow_flat.gd",
-			  "res://scripts/snow_field.gd",
+			  "res://scripts/snow_field.gd", "res://scripts/barrow_instancer.gd",
 			  "res://scripts/barrow_heightfield.gd", "res://scripts/barrow_world.gd",
 			  "res://tools/shot_barrow.gd"]:
 		if load(p) == null:

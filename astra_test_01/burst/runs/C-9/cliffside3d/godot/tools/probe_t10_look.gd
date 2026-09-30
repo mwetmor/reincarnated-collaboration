@@ -29,14 +29,22 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow.tscn").instantiate()
+	if "--baseline" in args:
+		# the heather as it was before the T10-1c warmth change, for a before/after in one code
+		scene.heather_core = false
+		scene.heather_two_sided = false
 	vp.add_child(scene)
 	for i in 70:
 		await process_frame
 		await physics_frame
 	var k = scene.knight
-	k.set_physics_process(false)
-	scene.freeze_pose(true)
 	k.set_gear_stack(k.gear_stack_count() - 1)
+	k.set_physics_process(false)
+	for i in 30:
+		k.drive_dir(Vector2.ZERO, false, 1.0 / 24.0)
+		await physics_frame
+		await process_frame
+	scene.freeze_pose(true)
 	k.state = "idle"
 	scene.set_hud_visible(false)
 	scene.place_knight(3.48, 0.28, "N")
@@ -64,6 +72,20 @@ func _initialize() -> void:
 	scene.park_camera(Vector3(2.619, 0.0, -0.472), (1024.0 / 100.617553710938) / 7.2696)
 	await _settle()
 	await _shot("look_painting_frame")
+	# the ID pass too, under the names barrow_paint_compare.py reads, so a look run can be
+	# measured for coverage and warmth without the full capture
+	vp.msaa_3d = Viewport.MSAA_DISABLED
+	scene.set_class_id_view(true)
+	await _settle()
+	await _shot("barrow_painting_ids")
+	scene.set_class_id_view(false)
+	scene.set_class_id_view(true, true)
+	await _settle()
+	await _shot("barrow_painting_ids_occl")
+	scene.set_class_id_view(false)
+	vp.msaa_3d = Viewport.MSAA_4X
+	await _settle()
+	await _shot("barrow_painting_frame")
 	print("[look] -> %s" % out_dir)
 	quit(0)
 

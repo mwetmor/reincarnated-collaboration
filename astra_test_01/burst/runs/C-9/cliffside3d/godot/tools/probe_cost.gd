@@ -21,6 +21,11 @@ const SHOT := Vector2i(1920, 1080)
 const DT := 1.0 / 24.0
 var out_dir := ""
 var tag := "run"
+var only: PackedStringArray = []     # --only a,b,c: measure just these states (a lever hunt)
+# --reps N: interleaved passes over the states (default 2, ABAB). On a machine other sessions
+# are also rendering on, 2 is not enough: one pass can land on another run's frame burst.
+# The MEDIAN is reported beside the mean for that reason.
+var reps := 2
 var vp: SubViewport
 var scene
 
@@ -32,6 +37,10 @@ func _initialize() -> void:
 			out_dir = args[i + 1]
 		if args[i] == "--tag" and i + 1 < args.size():
 			tag = args[i + 1]
+		if args[i] == "--only" and i + 1 < args.size():
+			only = String(args[i + 1]).split(",")
+		if args[i] == "--reps" and i + 1 < args.size():
+			reps = maxi(int(args[i + 1]), 2)
 	if out_dir == "":
 		out_dir = ProjectSettings.globalize_path("user://cost")
 	DirAccess.make_dir_recursive_absolute(out_dir)
@@ -66,10 +75,36 @@ func _initialize() -> void:
 	states.append(["diag_no_shadows", true, true, true, "no_shadows"])
 	if has_density:
 		states.append(["diag_no_density_inks", true, true, true, "no_density_inks"])
+	# T10-1c: the same props drawn one node each -- the "before" of instancing, same content --
+	# and the per-asset split in both modes, and the instanced pens alone
+	if scene.has_method("set_instancing"):
+		states.append(["stack_on_nodes", true, true, true, "nodes"])
+		states.append(["stack_on_nodes_no_density", true, true, false, "nodes"])
+		states.append(["diag_no_instanced_pens", true, true, true, "no_mm_pens"])
+		for a in ["rock_large", "rock_small", "juniper", "heather", "birch"]:
+			states.append(["asset_inst_no_" + a, true, true, true, "asset:" + a])
+			states.append(["asset_nodes_no_" + a, true, true, true, "nodes+asset:" + a])
+	# T10-1c, the rest of the pass, each as a subtraction in the same run: the heather clumps'
+	# bodies, the heather blades drawn two-sided, the rocks laid low (vs upright), the feather
+	if scene.has_method("set_heather_cores_visible"):
+		states.append(["diag_no_heather_cores", true, true, true, "no_cores"])
+		# the blades drawn the OTHER way from how the scene ships them (two-sided if it ships
+		# one-sided, and back): the cost of the switch, whichever way it is set
+		states.append(["diag_heather_sides_flipped", true, true, true, "heather_sides_flipped"])
+	if scene.has_method("set_rock_pose"):
+		states.append(["diag_rocks_upright", true, true, true, "rocks_upright"])
+	if has_snow:
+		states.append(["diag_no_feather", true, true, true, "no_feather"])
+	if scene.has_method("set_heather_cores_visible"):
+		states.append(["diag_heather_blades_noshadow", true, true, true, "heather_blades_noshadow"])
+	states.append(["diag_lod4", true, true, true, "lod:4"])
+	if not only.is_empty():
+		states = states.filter(func(s): return String(s[0]) in only)
 	# (per-asset "hide:<asset>" and "lod:<px>" diagnostics are kept in _diag for the next
 	# budget question; the reported run measures the delivered configuration)
 	var res := {}
-	for rep in 2:
+	var res_gpu := {}
+	for rep in reps:
 		for s in states:
 			var diag := String(s[4]) if s.size() > 4 else ""
 			_diag(diag, true)
@@ -77,7 +112,9 @@ func _initialize() -> void:
 			_diag(diag, false)
 			if not res.has(s[0]):
 				res[s[0]] = []
+				res_gpu[s[0]] = []
 			res[s[0]].append(r["ms_per_frame"])
+			res_gpu[s[0]].append(r["gpu_ms"])
 	scene.set_stack(true)
 	if has_snow:
 		scene.set_snowfield_visible(true)
@@ -88,11 +125,23 @@ func _initialize() -> void:
 				"has_snow": has_snow, "has_density": has_density, "states": {}}
 	for nm in res:
 		var a: Array = res[nm]
-		out["states"][nm] = {"ms": a, "mean_ms": snappedf((float(a[0]) + float(a[1])) * 0.5, 0.01),
-							 "spread_ms": snappedf(absf(float(a[0]) - float(a[1])), 0.01)}
+		var srt := a.duplicate()
+		srt.sort()
+		var tot := 0.0
+		for v in a:
+			tot += float(v)
+		var med: float = float(srt[srt.size() / 2]) if srt.size() % 2 == 1 \
+			else (float(srt[srt.size() / 2 - 1]) + float(srt[srt.size() / 2])) * 0.5
+		var g: Array = res_gpu[nm].duplicate()
+		g.sort()
+		out["states"][nm] = {"ms": a, "mean_ms": snappedf(tot / float(a.size()), 0.01),
+							 "median_ms": snappedf(med, 0.01),
+							 "spread_ms": snappedf(float(srt[-1]) - float(srt[0]), 0.01),
+							 "gpu_ms": res_gpu[nm], "gpu_median_ms": g[g.size() / 2]}
 	out["instrument_check_2.25x_pixels_ms"] = chk["ms_per_frame"]
 	var props: Dictionary = scene.report.get("props", {})
 	out["prop_triangles"] = props.get("triangles", -1)
+	out["instancing"] = scene.report.get("instancing", {})
 	out["density"] = scene.report.get("density", {})
 	var f := FileAccess.open(out_dir + "/cost_%s.json" % tag, FileAccess.WRITE)
 	f.store_string(JSON.stringify(out, " "))
@@ -103,6 +152,19 @@ func _initialize() -> void:
 
 
 func _diag(which: String, on: bool) -> void:
+	if which == "nodes":
+		scene.set_instancing(not on)
+		return
+	if which == "no_mm_pens":
+		scene.set_instanced_pens_visible(not on)
+		return
+	if which.begins_with("nodes+asset:"):
+		scene.set_instancing(not on)
+		scene.set_asset_visible(which.substr(12), not on)
+		return
+	if which.begins_with("asset:"):
+		scene.set_asset_visible(which.substr(6), not on)
+		return
 	if which.begins_with("lod:"):
 		vp.mesh_lod_threshold = float(which.substr(4)) if on else float(scene.LOD_THRESHOLD_PX)
 		return
@@ -115,6 +177,26 @@ func _diag(which: String, on: bool) -> void:
 					(c as Node3D).visible = not on
 		return
 	match which:
+		"no_cores":
+			scene.set_heather_cores_visible(not on)
+		"heather_sides_flipped":
+			# the blades' shared material on the other culling shader while `on`, then back to
+			# the one the scene was built with
+			var two_now: bool = bool(scene.heather_two_sided) != on
+			var code: String = PaintStack.WORLD_SHADER.replace("cull_back", "cull_disabled") if two_now \
+				else PaintStack.WORLD_SHADER
+			for m in scene._mmis:
+				if String(m.get_meta("asset", "")) == "heather" and String(m.get_meta("part", "")) != "core":
+					((m as GeometryInstance3D).material_override as ShaderMaterial).shader = PaintStack._shader(code)
+		"rocks_upright":
+			scene.set_rock_pose(on)
+		"heather_blades_noshadow":
+			for m in scene._mmis:
+				if String(m.get_meta("asset", "")) == "heather" and String(m.get_meta("part", "")) != "core":
+					(m as GeometryInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if on \
+						else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+		"no_feather":
+			scene.snow.material().set_shader_parameter("feather_m", 0.0 if on else scene.snow.feather_m)
 		"no_shadows":
 			scene.sun.shadow_enabled = not on
 		"no_density_inks":
@@ -146,11 +228,24 @@ func _time(stack: bool, snow_on: bool, density_on: bool, n: int, res: Vector2i) 
 	for i in 40:
 		scene.knight.drive_dir(Vector2(0.28, -0.96), false, DT)
 		await process_frame
+	# GPU TIME TOO (T10-1c): wall-clock per frame is what the player gets, and it is also what
+	# every other session on this machine can move -- a run next door put 1-4 ms of spread into
+	# single states. The viewport's measured GPU time is the renderer's own clock for THIS
+	# viewport's passes; reported beside the wall clock, not instead of it.
+	var rid := vp.get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(rid, true)
+	var gpu := 0.0
+	var gpu_n := 0
 	var t0 := Time.get_ticks_usec()
 	for i in n:
 		scene.knight.drive_dir(Vector2(0.28, -0.96), false, DT)
 		await process_frame
+		var g := RenderingServer.viewport_get_measured_render_time_gpu(rid)
+		if g > 0.0:
+			gpu += g
+			gpu_n += 1
 	var ms: float = float(Time.get_ticks_usec() - t0) / 1000.0 / float(n)
 	Engine.physics_ticks_per_second = prev_ticks
 	vp.size = prev
-	return {"ms_per_frame": snappedf(ms, 0.01)}
+	return {"ms_per_frame": snappedf(ms, 0.01),
+			"gpu_ms": snappedf(gpu / float(maxi(gpu_n, 1)), 0.01) if gpu_n > 0 else -1.0}
