@@ -11,6 +11,11 @@ extends Node
 ##   up_full   Blend2 filtered to the NINE carry bones           idle / walk / run
 ##   up_arm    Blend2 filtered to the FOUR staff-arm bones       cast_fireball -- thrown from the
 ##             free LEFT hand, so the spine stays the clip's and the torso still drives the throw
+##   up_chest_arm  Blend2 filtered to Spine02 + the staff arm    hit (2026-09-30, the JOIN-1 pack
+##             review): the staff stays inside the idle carry's lean (8.25 deg worst against the
+##             idle's 10.81) while her head still turns 94% as far as the raw clip's. The full carry
+##             froze the flinch; the arm alone leaned the staff 21.75 deg (so_d7 s17_hit_flinch.py)
+##   death     takes NEITHER, by decision: she falls with the staff
 ##   cast_meteor takes NEITHER: its staff motion is BAKED into the clip's own weapon_r track
 ##             (s13_meteor_track.py), because it depends on the pose frame by frame
 ## GRIP     grip_R = 1 while the staff is held. grip_L = 1 only while the off-hand IK is on.
@@ -21,8 +26,9 @@ extends Node
 const CARRY_BONES := ["Spine02", "Spine01", "Spine", "neck", "Head",
 		"RightShoulder", "RightArm", "RightForeArm", "RightHand"]
 const ARM_BONES := ["RightShoulder", "RightArm", "RightForeArm", "RightHand"]
+const CHEST_ARM_BONES := ["Spine02", "RightShoulder", "RightArm", "RightForeArm", "RightHand"]
 const LAYER := {"idle": "full", "walk": "full", "run": "full",
-		"cast_fireball": "arm", "cast_meteor": "none", "hit": "none", "death": "none"}
+		"cast_fireball": "arm", "cast_meteor": "none", "hit": "chest_arm", "death": "none"}
 const IK_ON := {"idle": false, "walk": false, "run": false,
 		"cast_fireball": false, "cast_meteor": false, "hit": false, "death": false}
 const LOOPS := ["idle", "walk", "run", "staff_carry_R"]
@@ -40,7 +46,7 @@ var ik_target: Marker3D
 var ik_pole: Marker3D
 var clip := ""
 var undress_keys := true      # false: leave every under_<g> morph at 0 (the A/B test of the morphs)
-var filtered := {"full": 0, "arm": 0}
+var filtered := {"full": 0, "arm": 0, "chest_arm": 0}
 
 func setup(r: Node3D, manual := false) -> void:
 	root = r
@@ -63,21 +69,27 @@ func setup(r: Node3D, manual := false) -> void:
 	# a second use -- "output == p_output_node"), and a tree with an unfed input poses nothing at all
 	var a_carry := AnimationNodeAnimation.new(); a_carry.animation = "staff_carry_R"
 	var a_carry2 := AnimationNodeAnimation.new(); a_carry2.animation = "staff_carry_R"
+	var a_carry3 := AnimationNodeAnimation.new(); a_carry3.animation = "staff_carry_R"
 	var seek := AnimationNodeTimeSeek.new()
 	var up_full := AnimationNodeBlend2.new(); up_full.filter_enabled = true
 	var up_arm := AnimationNodeBlend2.new(); up_arm.filter_enabled = true
+	var up_chest_arm := AnimationNodeBlend2.new(); up_chest_arm.filter_enabled = true
 	bt.add_node("clip", a_clip, Vector2(0, 0))
 	bt.add_node("seek", seek, Vector2(160, 0))
 	bt.add_node("carry", a_carry, Vector2(0, 160))
 	bt.add_node("carry2", a_carry2, Vector2(160, 160))
 	bt.add_node("up_full", up_full, Vector2(320, 0))
 	bt.add_node("up_arm", up_arm, Vector2(480, 0))
+	bt.add_node("carry3", a_carry3, Vector2(320, 160))
+	bt.add_node("up_chest_arm", up_chest_arm, Vector2(640, 0))
 	bt.connect_node("seek", 0, "clip")
 	bt.connect_node("up_full", 0, "seek")
 	bt.connect_node("up_full", 1, "carry")
 	bt.connect_node("up_arm", 0, "up_full")
 	bt.connect_node("up_arm", 1, "carry2")
-	bt.connect_node("output", 0, "up_arm")
+	bt.connect_node("up_chest_arm", 0, "up_arm")
+	bt.connect_node("up_chest_arm", 1, "carry3")
+	bt.connect_node("output", 0, "up_chest_arm")
 	# filter paths from a clip's OWN tracks (as _apply_upper does): the exact NodePaths the mixer uses
 	var an := ap.get_animation("idle")
 	for i in an.get_track_count():
@@ -87,6 +99,8 @@ func setup(r: Node3D, manual := false) -> void:
 			up_full.set_filter_path(pth, true); filtered["full"] += 1
 		if bone in ARM_BONES:
 			up_arm.set_filter_path(pth, true); filtered["arm"] += 1
+		if bone in CHEST_ARM_BONES:
+			up_chest_arm.set_filter_path(pth, true); filtered["chest_arm"] += 1
 	tree.tree_root = bt
 	if manual:
 		tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
@@ -95,8 +109,8 @@ func setup(r: Node3D, manual := false) -> void:
 		if (mi as MeshInstance3D).find_blend_shape_by_name("grip_R") >= 0:
 			body = mi
 	_wire_ik()
-	print("[staff] tree on '%s': up_full %d tracks (%d bones), up_arm %d tracks (%d bones); body '%s' grip_R %d grip_L %d"
-		% [ap.name, filtered["full"], CARRY_BONES.size(), filtered["arm"], ARM_BONES.size(),
+	print("[staff] tree on '%s': up_full %d tracks (%d bones), up_arm %d tracks (%d bones), up_chest_arm %d tracks (%d bones); body '%s' grip_R %d grip_L %d"
+		% [ap.name, filtered["full"], CARRY_BONES.size(), filtered["arm"], ARM_BONES.size(), filtered["chest_arm"], CHEST_ARM_BONES.size(),
 		   body.name if body else "?", body.find_blend_shape_by_name("grip_R") if body else -1,
 		   body.find_blend_shape_by_name("grip_L") if body else -1])
 
@@ -142,6 +156,7 @@ func play(c: String, t := 0.0) -> void:
 	var lay := String(LAYER.get(c, "none"))
 	tree.set("parameters/up_full/blend_amount", 1.0 if lay == "full" else 0.0)
 	tree.set("parameters/up_arm/blend_amount", 1.0 if lay == "arm" else 0.0)
+	tree.set("parameters/up_chest_arm/blend_amount", 1.0 if lay == "chest_arm" else 0.0)
 	tree.set("parameters/seek/seek_request", t)
 	var on := bool(IK_ON.get(c, false))
 	ik.active = on

@@ -29,6 +29,10 @@ CB = {b: Matrix([m[i * 4:(i + 1) * 4] for i in range(4)]) for b, m in car["bones
 # spine and the left arm to the clip -- for a cast thrown from the free left hand.
 ARM_ONLY = set((a[a.index('--arm-only') + 1] if '--arm-only' in a else "").split(",")) - {""}
 ARM_BONES = ("RightShoulder", "RightArm", "RightForeArm", "RightHand")
+# --layer-bones a,b,c: a different bone set for the --arm-only pass (the hit layer's search). The output key
+# still reads "(STAFF ARM carry only)" -- the bone set is the file's to say (s17_hit_spine02arm.json = Spine02 + arm)
+if '--layer-bones' in a:
+    ARM_BONES = tuple(a[a.index('--layer-bones') + 1].split(","))
 # --upright <clips>: after the clip's pose, turn weapon_r by the minimal rotation that puts the shaft
 # on world vertical, crown up -- the staff follows the fist but stays upright (raise, then stamp).
 UPRIGHT = set((a[a.index('--upright') + 1] if '--upright' in a else "").split(",")) - {""}

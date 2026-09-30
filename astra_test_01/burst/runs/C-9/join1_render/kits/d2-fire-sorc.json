@@ -96,7 +96,7 @@
   }
  },
  "layers": {
-  "_what": "the pass-2 staff hold (so_d7 export manifest, staff_hold.carry_layer): a filtered Blend2 at weight 1 takes the listed bones from the carry pose",
+  "_what": "the pass-2 staff hold (so_d7 export manifest, staff_hold.carry_layer): a filtered Blend2 at weight 1 takes the listed bones from the carry pose. chest_arm (2026-09-30, the pack review): hit's layer -- Spine02 + the staff arm, so the staff stays inside the idle carry's lean while her head and the rest of the spine still flinch (so_d7 work/s17_hit_flinch.json)",
   "carry_clip": "staff_carry_R",
   "filters": {
    "full": [
@@ -115,6 +115,13 @@
     "RightArm",
     "RightForeArm",
     "RightHand"
+   ],
+   "chest_arm": [
+    "Spine02",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
    ]
   },
   "per_state": {
@@ -123,7 +130,7 @@
    "run": "full",
    "cast_fireball": "arm",
    "cast_meteor": null,
-   "hit": null,
+   "hit": "chest_arm",
    "death": null
   }
  },

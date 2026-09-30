@@ -1,0 +1,19 @@
+{
+ "base": {
+  "pass": "p1",
+  "ts": "2026-09-30T03:12:45-0400",
+  "tool_sha256": "b82ac6887679680a42fd4da948cfd252906c82d9d4342ec00d1be49f8445d8a5",
+  "kit_config_sha256": "d4c580b1f4fef39a12aa951ea09868f72672f32efc89563ee37399dabaaf33ab",
+  "body_glb_sha256": "c78fbd34ff919176b54b8c048357729bcc7bf60d2ae7538a6c6ec65bb190e8f9",
+  "clip_manifest_sha256": "d8e0e3fcf477c2bf9b5f993ab7b6c8b4141bce269dd1a2a1d5db8e2f981cf1d0",
+  "what": "the first render of the whole pack (c7b4369ec)"
+ },
+ "new": {
+  "pass": "p2",
+  "ts": "2026-09-30T03:34:56-0400",
+  "tool_sha256": "b82ac6887679680a42fd4da948cfd252906c82d9d4342ec00d1be49f8445d8a5",
+  "kit_config_sha256": "5b1e8c90e9635e8ae91658e6bcaf6047c804acdacc1cf2a7dcc6258c6e08b883",
+  "body_glb_sha256": "c7b7c519d917674b3db00db9ced7badefe0ba48fff919ab54ffd696922cd07d0",
+  "what": "after the two source fixes (conductor, 2026-09-30): the run re-cut on its source's own cycle (so_d7 s17_run_cycle.py: 0.7333 s, closes exactly) and hit's chest_arm staff layer. ONLY run/* and hit/* re-rendered; every other cell is p1's, and a spot render of 5 of them from the p2 sources reproduced 68 of 70 files byte-for-byte (the two others: <= 3/255 shading on 119 px and 1 px of the FIRST cell after start-up, alpha identical)"
+ }
+}

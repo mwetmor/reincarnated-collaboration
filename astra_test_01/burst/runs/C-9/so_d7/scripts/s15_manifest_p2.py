@@ -5,6 +5,11 @@
 #   python3 scripts/s15_manifest_p2.py            -> export/manifest.json
 #
 # Re-runnable: it always starts from the frozen pass-1 file, never from its own output.
+#
+# 2026-09-30, the JOIN-1 pack review (conductor): two fixes at the source, folded in at the end -- the run RE-CUT on
+# its source's own cycle (s17_run_cycle.py; its seconds, foot-lock speed and staff acceptance re-measured) and a
+# staff layer on HIT (s17_hit_*.json, s17_hit_flinch.json). History goes in NUMERIC fields: 48_manifest_lint reads
+# every "<n> s" and "<n> m/s" in prose under a clip's path as a claim about the clip AS SHIPPED.
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -38,6 +43,8 @@ m["idle_swap"] = {
 }
 
 cs = {k: v for k, v in acc.items()}
+# the run was re-cut (s17_run_cycle.py): its row is re-measured on the re-cut clip, same instrument, same carry
+cs["run"] = J("s17_run_staff.json")["run"]
 def row(key):
     r = cs[key]
     return dict(tilt_max_deg=r["tilt_max_deg"], tip_path_px_worst=r["tip_path_px_worst"],
@@ -101,7 +108,8 @@ m["staff_hold"] = {
                                  for k in ("idle", "walk", "run")) else "FAIL",
         "cast_fireball_arm_only": row("cast_fireball (STAFF ARM carry only)"),
         "cast_meteor": row("cast_meteor (raw clip, no carry)"),
-        "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json",
+        "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; "
+                  "the run re-measured on its re-cut clip (2026-09-30): work/s17_run_staff.json",
     },
     "meteor": {
         "intent": "unchanged: Meshy 127, she raises the staff and drives it down; release_s unchanged",
@@ -190,6 +198,89 @@ m["film_pass2"] = {
                             "pass 1 was captured through a window this display cannot open at 1080 rows; its scale was "
                             "not verified then and is not claimed now"],
 }
+
+# ---- JOIN-1 pack review (conductor, 2026-09-30): the run's loop seam and hit's staff, fixed at the source ----
+m["character"] = m["character"] + " + JOIN-1 pack review fixes (2026-09-30: the run re-cut on its source cycle; a staff layer on hit)"
+rc, flr = J("s17_run_cycle.json"), J("s17_run_footlock.json")["clips"]["run"]
+cb, ca = J("s17_closure_before.json")["run"], J("s17_closure_after.json")["run"]
+fck = J("s17_footlock_check.json")
+was = next(v["run"] for k, v in fck.items() if k.startswith("export_p2k/"))
+now = next(v["run"] for k, v in fck.items() if k.startswith("export/"))
+m["locomotion_in_place"]["run"] = {
+    "seconds": round(rc["new"]["duration_s"], 4),
+    "speed_m_s": flr["foot_lock_speed_m_s"],
+    "planted_intervals": flr["planted_intervals"],
+    "caution": "only %d planted intervals (a run's contacts are brief; interquartile spread %.3f): still the widest estimate here"
+               % (flr["planted_intervals"], flr["spread_m_s"]),
+    "recut": {
+        "why": "the JOIN-1 pack's run cells popped at the wrap (in-figure closure 35.7 against idle and walk at about 2), and the "
+               "3D game's run pops at the same wrap: the clip's last pose was not its first",
+        "cause": "the D7 merge sampled Blender frames 0..18 at 24 fps from a source keyed at 30 fps whose cycle runs from its "
+                 "first key to its 23rd and closes EXACTLY there. The merge began one source frame early (a clamped hold on "
+                 "the first key) and stopped half a source frame before the cycle closed",
+        "fix": "scripts/s17_run_cycle.py: the run re-cut on the source's own cycle -- every channel at the source's own keys "
+               "(no resampling), shifted to start at 0, the last key set to the first; the Hips keep the export's constant "
+               "re-ground offset; weapon_r keeps its one-key rest tracks. A binary patch of so-body.glb: every other clip, "
+               "mesh and joint byte-identical (checked). The pre-re-cut export is kept in export_p2k/",
+        "was": {"duration": 0.75, "keys": 19, "key_rate_fps": 24, "foot_lock_speed": was["at_keys"]["speed_m_s"],
+                "planted_intervals": was["at_keys"]["intervals"]},
+        "now": {"duration": round(rc["new"]["duration_s"], 4), "keys": rc["new"]["keys"], "key_rate_fps": 30,
+                "source_cycle": rc["source"]["cycle_s"]},
+        "closure_before": cb, "closure_after": ca,
+        "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
+        "fidelity": "the re-cut run IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all %d (s16, aligned one "
+                    "source frame in)" % rc["new"]["keys"],
+        "foot_lock_sampling": "the estimator is unchanged (median backward velocity of a foot planted at both ends of an "
+                              "interval) and is taken at the CLIP'S OWN KEYS -- s6_footlock now samples the action's key "
+                              "times, which on every 24 fps clip are the integer frames it always sampled (walk and the "
+                              "pre-re-cut run reproduce exactly). On the re-cut clip a 24 fps grid reads between its keys "
+                              "and gave %.3f; a dense 480 fps sampling gives %.3f now and %.3f before: the motion's speed "
+                              "did not change, only which instants were sampled (work/s17_footlock_check.json)"
+                              % (now["at_24fps"]["speed_m_s"], now["dense_480"]["speed_m_s"], was["dense_480"]["speed_m_s"]),
+    },
+}
+m["fps_note"] = ("every clip is keyed at 24 fps EXCEPT the run, which since the 2026-09-30 re-cut carries Meshy's own 30 fps "
+                 "keys (22 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 frames long, and the source's keys close it exactly")
+m["film_pass2"]["run_note"] = "filmed with the pre-re-cut run clip and its speed (plan[2]); see locomotion_in_place.run.recut"
+
+hl, hf, ha, hc = J("s17_hit_layers.json"), J("s17_hit_full.json"), J("s17_hit_armonly.json"), J("s17_hit_spine02arm.json")
+flin, iref = J("s17_hit_flinch.json")["options"], J("s17_idle_ref.json")["idle"]
+def hrow(r, fl):
+    return dict(tilt_max_deg=r["tilt_max_deg"], tilt_mean_deg=r["tilt_mean_deg"], staff_in_body=r["staff_in_body_worst"],
+                staff_in_body_by_part=r["staff_in_body_by_part"], tip_path_px_worst=r["tip_path_px_worst"],
+                head_turn_deg=fl["head_snap_deg"], head_turn_kept=fl.get("head_snap_kept"),
+                head_travel_hips_frame_m=fl["head_reaction_m"], head_travel_world_m=fl["head_world_m"], bones=fl["bones"])
+opts = {"raw": hrow(hl["hit (raw clip, no carry)"], flin["raw"]), "arm": hrow(ha["hit (STAFF ARM carry only)"], flin["arm"]),
+        "chest_arm": hrow(hc["hit (STAFF ARM carry only)"], flin["chest_arm"]), "full": hrow(hf["hit"], flin["full"])}
+ch = m["staff_hold"]["carry_layer"]
+ch["filter_bones_chest_arm"] = flin["chest_arm"]["bones"]
+ch["per_clip"]["hit"] = ("chest_arm -- Spine02 + the staff arm: the staff stays inside the idle carry's lean (%.2f deg worst, "
+                         "idle %.2f) while her head still turns %.0f%% as far as the raw clip's (see hit_layer_choice)"
+                         % (opts["chest_arm"]["tilt_max_deg"], iref["tilt_max_deg"], 100 * opts["chest_arm"]["head_turn_kept"]))
+ch["per_clip"]["death"] = ("none -- by decision (conductor, 2026-09-30): she falls with the staff. NOT measured (the raw "
+                           "clip's staff may cross the ground)")
+ch["hit_layer_choice"] = {
+    "asked": "a staff layer on hit so the staff stays inside the idle carry's range while her body reacts; the arm-only "
+             "layer if the full carry kills the flinch (conductor, JOIN-1 pack review, 2026-09-30)",
+    "range": "the idle carry's lean: worst %.2f deg from vertical, mean %.2f (work/s17_idle_ref.json)" % (iref["tilt_max_deg"], iref["tilt_mean_deg"]),
+    "flinch": "the upper body's own reaction -- the head's turn and travel IN THE HIPS' FRAME (scripts/s17_hit_flinch.py, every "
+              "frame); the stagger of the hips and legs is the clip's under every option",
+    "options": opts,
+    "chosen": "chest_arm",
+    "why": "the full carry kills the flinch (the head's turn goes from %.1f deg to 0) and still leans the staff %.2f deg, past "
+           "the idle's, with %d staff vertices in her right leg; the arm-only layer keeps the whole flinch but leans the staff "
+           "%.2f deg, about twice the idle's worst; Spine02 + the arm holds it to %.2f deg and keeps %.0f%% of the head's turn. "
+           "chest_arm is a THIRD option, not one of the two named -- chosen for the stated goal, for the conductor to rule on"
+           % (opts["raw"]["head_turn_deg"], opts["full"]["tilt_max_deg"], opts["full"]["staff_in_body"],
+              opts["arm"]["tilt_max_deg"], opts["chest_arm"]["tilt_max_deg"], 100 * opts["chest_arm"]["head_turn_kept"]),
+    "graze": "chest_arm: one sampled staff vertex 5 mm into RightLeg in ONE frame of 41 (frame 12; every frame checked, "
+             "work/s17_hit_chest_arm_everyframe.txt) -- sub-pixel at the pack's 151 px/m; the nearest hit cell sample falls "
+             "at frame 11.4, between a clear frame 11 and frame 12",
+    "before_after": "worst angle from vertical in hit: %.2f deg raw (no layer), %.2f deg with chest_arm"
+                    % (opts["raw"]["tilt_max_deg"], opts["chest_arm"]["tilt_max_deg"]),
+}
+m["staff_hold"]["acceptance"]["hit_chest_arm"] = {k: opts["chest_arm"][k] for k in ("tilt_max_deg", "tilt_mean_deg", "staff_in_body", "staff_in_body_by_part", "tip_path_px_worst")}
+m["staff_hold"]["acceptance"]["hit_note"] = "hit is a one-shot and is not held to the loop rule; measured against the idle carry's lean (carry_layer.hit_layer_choice)"
 json.dump(m, open(os.path.join(ROOT, "export", "manifest.json"), "w"), indent=1)
 print("wrote export/manifest.json: staff acceptance %s; speckles isolated pale px %s; lint %s"
       % (m["staff_hold"]["acceptance"]["verdict"], tot, lint["verdict"]))

@@ -11,6 +11,15 @@
 #
 # Contact is RELATIVE to each foot's own height range (bottom 25%), not a fixed height --
 # a fixed 0.05 m found no contacts at all in the barbarian's run.
+#
+# SAMPLED AT THE CLIP'S OWN KEYS (2026-09-30, s17's run re-cut). This sampled the scene's INTEGER
+# frames over round(frame_range). Every D7 clip was 24 fps from 0, so the integers WERE the keys and
+# nothing was wrong -- until the run was re-cut on Meshy's own 30 fps cycle (0.7333 s = 17.6
+# frames): round() made that 18 frames, the last sample fell 1/60 s past the clip's end (a held
+# pose read as a slow foot), and the 24 fps grid read the source between its keys. It reported
+# 4.146 on a clip whose keys give 3.986. Now it samples every keyframe time the action holds
+# (fractional frames via subframe) and divides by the true step. On a 24 fps clip from 0 that is
+# the same set of frames as before: walk 1.449 and the pre-re-cut run 3.928 reproduce exactly.
 import bpy, json, math, sys
 import numpy as np
 from mathutils import Vector
@@ -29,22 +38,27 @@ for cn in CLIPS:
     arm.animation_data.action = act
     if len(getattr(act, "slots", [])):
         arm.animation_data.action_slot = act.slots[0]
-    f0, f1 = (int(round(v)) for v in act.frame_range)
+    try:
+        fcs = list(act.fcurves)                                    # legacy (Blender < 5)
+    except AttributeError:
+        fcs = [fc for ly in act.layers for st in ly.strips for cb in st.channelbags for fc in cb.fcurves]
+    frames = sorted({round(k.co.x, 4) for fc in fcs for k in fc.keyframe_points})
+    f0, f1 = frames[0], frames[-1]
     tr = {b: [] for b in ("LeftFoot", "RightFoot")}
-    for f in range(f0, f1 + 1):
-        sc.frame_set(f); bpy.context.view_layer.update()
+    for f in frames:
+        sc.frame_set(int(math.floor(f)), subframe=f - math.floor(f)); bpy.context.view_layer.update()
         for b in tr:
             tr[b].append((arm.matrix_world @ arm.pose.bones[b].matrix).translation.copy())
     v = []
     per_foot = {}
     for b, P in tr.items():
         z = np.array([p.z for p in P]); thr = z.min() + 0.25 * (z.max() - z.min())
-        vb = [float(-(P[i + 1] - P[i]).dot(FWD)) * FPS for i in range(len(P) - 1)
+        vb = [float(-(P[i + 1] - P[i]).dot(FWD)) * FPS / (frames[i + 1] - frames[i]) for i in range(len(P) - 1)
               if z[i] < thr and z[i + 1] < thr]
         per_foot[b] = dict(planted_intervals=len(vb), median_back_speed=round(float(np.median(vb)), 3) if vb else None)
         v += vb
     spd = float(np.median(v)) if v else 0.0
-    out[cn] = dict(foot_lock_speed_m_s=round(spd, 3), planted_intervals=len(v),
+    out[cn] = dict(foot_lock_speed_m_s=round(spd, 3), planted_intervals=len(v), keys=len(frames),
                    seconds=round((f1 - f0) / FPS, 4), per_foot=per_foot,
                    spread_m_s=round(float(np.percentile(v, 75) - np.percentile(v, 25)), 3) if v else None)
     print("  %-6s foot-lock speed %.3f m/s  (%d planted intervals, IQR %.3f)  L %s  R %s"

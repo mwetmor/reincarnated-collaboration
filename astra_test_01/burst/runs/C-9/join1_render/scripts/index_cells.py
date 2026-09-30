@@ -11,6 +11,8 @@
 # facing lint (+-0.5 deg against the direction table), sockets present in every frame, the anchor
 # (measured per frame by the renderer, within 0.01 px of (384, 448)). A cell that fails any of these
 # is FAILED_LINT with the reason in `flags`. `mirror_of` is never written.
+# A pack re-rendered IN PART (J1_ONLY, then scripts/merge_raw.py) carries each cell's `render_pass` and the
+# passes' provenance (`render_passes`: body / kit-config / tool sha per render) -- the files are still what is hashed.
 import hashlib, json, math, os, sys, time
 import numpy as np
 from PIL import Image, ImageDraw
@@ -113,7 +115,7 @@ for st, sd in kit["states"].items():
         status = "COMPLETE" if not [f for f in flags if not f.startswith("note")] else "FAILED_LINT"
         complete += status == "COMPLETE"
         sock = {k: [s[k] for s in rc["sockets"]] for k in req}
-        cells[key] = dict(status=status, flags=flags, frames=len(files), files=files,
+        cells[key] = dict(status=status, flags=flags, frames=len(files), files=files, render_pass=rc.get("render_pass"),
                           cell_sha256=hashlib.sha256("\n".join(digests).encode()).hexdigest(),
                           alpha_union_bbox=box or [0, 0, 0, 0], edge_touch=edge,
                           facing_measured_deg=round(fm, 4), facing_hips_frame0_deg=round(float(rc["facing"]["hips_deg"]), 3),
@@ -158,6 +160,8 @@ idx = {
     "sockets_def": {k: v.get("_what") for k, v in kit["sockets"].items() if not k.startswith("_")},
     "alpha_union_bbox_convention": "[x0, y0, x1, y1), x1/y1 exclusive -- PIL getchannel('A').getbbox(), as stage_art.py crops",
     "layers": kit.get("layers"), "morphs": kit.get("morphs"),
+    # a pack re-rendered in part (merge_raw.py) says which render made each cell, and from what
+    "render_passes": raw.get("render_passes"),
     "cells": cells,
     "expected": len(kit["states"]) * 8, "complete": complete,
 }

@@ -4,3 +4,7 @@
 {"ev": "end", "step": "J1-render-d2-fire-sorc", "t": 1790752234.8756921, "note": "704 frames + 24 closure frames rendered"}
 {"ev": "start", "step": "J1-index-d2-fire-sorc", "t": 1790752234.89628, "note": "index, lint, contact sheet"}
 {"ev": "end", "step": "J1-index-d2-fire-sorc", "t": 1790752245.087158, "note": "matrix_index.json written from the files"}
+{"ev": "start", "step": "J1-rerender-d2-fire-sorc", "t": 1790753615.2187881, "note": "run + hit only (16 cells) after the two source fixes: the run re-cut on its source cycle (so_d7 s17_run_cycle), hit's chest_arm staff layer; a 5-cell spot render of UNCHANGED cells first, to scratch, to prove they reproduce byte-for-byte"}
+{"ev": "end", "step": "J1-rerender-d2-fire-sorc", "t": 1790753696.89753, "note": "5-cell spot render of unchanged cells (68 of 70 files byte-identical; idle_S_00 differs in 119 px by <=3/255 and idle_S_06 in 1 px by 1, alpha identical: first-cell GPU warm-up) + the 16 cells: 160 frames + 8 run closure frames"}
+{"ev": "start", "step": "J1-reindex-d2-fire-sorc", "t": 1790754043.5012438, "note": "re-index + re-lint the WHOLE pack from the files (merged raw: 40 p1 cells + 16 p2), contact sheet"}
+{"ev": "end", "step": "J1-reindex-d2-fire-sorc", "t": 1790754053.543215, "note": "matrix_index.json from the files"}

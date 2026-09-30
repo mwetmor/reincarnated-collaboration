@@ -1,5 +1,5 @@
 {
- "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2) + JOIN-1 pack review fixes (2026-09-30: the run re-cut on its source cycle; a staff layer on hit)",
+ "character": "the ember seeress (D7, Matt R-C9-80; Costume A, base SO-1 b, Matt G1-S) -- PASS 2 (gandalf, D7 pass 2)",
  "body": "so-body.glb",
  "height_m": 1.7,
  "height_note": "authored at 1.70 m, 0.92x the barbarian's 1.85 m. If the scene normalises each character to a fixed pixel height she will read as tall as him -- apply the BARBARIAN's world factor to her too so the difference survives.",
@@ -43,54 +43,10 @@
    "planted_intervals": 26
   },
   "run": {
-   "seconds": 0.7333,
-   "speed_m_s": 3.986,
-   "planted_intervals": 12,
-   "caution": "only 12 planted intervals (a run's contacts are brief; interquartile spread 1.345): still the widest estimate here",
-   "recut": {
-    "why": "the JOIN-1 pack's run cells popped at the wrap (in-figure closure 35.7 against idle and walk at about 2), and the 3D game's run pops at the same wrap: the clip's last pose was not its first",
-    "cause": "the D7 merge sampled Blender frames 0..18 at 24 fps from a source keyed at 30 fps whose cycle runs from its first key to its 23rd and closes EXACTLY there. The merge began one source frame early (a clamped hold on the first key) and stopped half a source frame before the cycle closed",
-    "fix": "scripts/s17_run_cycle.py: the run re-cut on the source's own cycle -- every channel at the source's own keys (no resampling), shifted to start at 0, the last key set to the first; the Hips keep the export's constant re-ground offset; weapon_r keeps its one-key rest tracks. A binary patch of so-body.glb: every other clip, mesh and joint byte-identical (checked). The pre-re-cut export is kept in export_p2k/",
-    "was": {
-     "duration": 0.75,
-     "keys": 19,
-     "key_rate_fps": 24,
-     "foot_lock_speed": 3.928,
-     "planted_intervals": 10
-    },
-    "now": {
-     "duration": 0.7333,
-     "keys": 23,
-     "key_rate_fps": 30,
-     "source_cycle": [
-      0.0333,
-      0.7667
-     ]
-    },
-    "closure_before": {
-     "T_s": 0.75,
-     "joints": 26,
-     "worst_joint": "LeftToeBase",
-     "worst_joint_m": 0.049519,
-     "worst_rot_joint": "RightForeArm",
-     "worst_rot_deg": 6.3892,
-     "hips_m": 0.009573,
-     "hips_rot_deg": 1.537
-    },
-    "closure_after": {
-     "T_s": 0.733333,
-     "joints": 26,
-     "worst_joint": "LeftToeBase",
-     "worst_joint_m": 0.0,
-     "worst_rot_joint": "LeftLeg",
-     "worst_rot_deg": 0.0,
-     "hips_m": 0.0,
-     "hips_rot_deg": 0.0
-    },
-    "closure_method": "scripts/s17_loop_closure.py: pose(0) against pose(T), every skin joint, glTF world metres",
-    "fidelity": "the re-cut run IS the source's keys: 0.0000 hips-to-head from Meshy's clip at all 23 (s16, aligned one source frame in)",
-    "foot_lock_sampling": "the estimator is unchanged (median backward velocity of a foot planted at both ends of an interval) and is taken at the CLIP'S OWN KEYS -- s6_footlock now samples the action's key times, which on every 24 fps clip are the integer frames it always sampled (walk and the pre-re-cut run reproduce exactly). On the re-cut clip a 24 fps grid reads between its keys and gave 4.458; a dense 480 fps sampling gives 3.641 now and 3.629 before: the motion's speed did not change, only which instants were sampled (work/s17_footlock_check.json)"
-   }
+   "seconds": 0.75,
+   "speed_m_s": 3.928,
+   "planted_intervals": 10,
+   "caution": "only 10 planted intervals (a run's contacts are brief): the widest estimate here"
   },
   "method": "Meshy's walk and run are in place AT SOURCE (net root travel 0.000 / 0.004 m), so travel/duration gives ~0. The planted foot slides back at exactly her ground speed; the median of that, over intervals with the foot down at both ends, is the speed."
  },
@@ -442,8 +398,8 @@
     "run": "full",
     "cast_fireball": "arm -- thrown from the free LEFT hand; the spine stays the clip's so the torso still drives the throw",
     "cast_meteor": "none -- its staff motion is BAKED into the clip's own weapon_r tracks (see meteor)",
-    "hit": "chest_arm -- Spine02 + the staff arm: the staff stays inside the idle carry's lean (8.25 deg worst, idle 10.81) while her head still turns 94% as far as the raw clip's (see hit_layer_choice)",
-    "death": "none -- by decision (conductor, 2026-09-30): she falls with the staff. NOT measured (the raw clip's staff may cross the ground)"
+    "hit": "none -- NOT measured",
+    "death": "none -- NOT measured (the raw clip's staff may cross the ground)"
    },
    "authored": {
     "tilt_deg": 0.0,
@@ -458,100 +414,7 @@
     "staff_inside_body": 9,
     "sampled": 2608
    },
-   "reference_impl": "film/staff_layer.gd",
-   "filter_bones_chest_arm": [
-    "Spine02",
-    "RightShoulder",
-    "RightArm",
-    "RightForeArm",
-    "RightHand"
-   ],
-   "hit_layer_choice": {
-    "asked": "a staff layer on hit so the staff stays inside the idle carry's range while her body reacts; the arm-only layer if the full carry kills the flinch (conductor, JOIN-1 pack review, 2026-09-30)",
-    "range": "the idle carry's lean: worst 10.81 deg from vertical, mean 10.38 (work/s17_idle_ref.json)",
-    "flinch": "the upper body's own reaction -- the head's turn and travel IN THE HIPS' FRAME (scripts/s17_hit_flinch.py, every frame); the stagger of the hips and legs is the clip's under every option",
-    "options": {
-     "raw": {
-      "tilt_max_deg": 86.76,
-      "tilt_mean_deg": 74.14,
-      "staff_in_body": 0,
-      "staff_in_body_by_part": {},
-      "tip_path_px_worst": 384.1,
-      "head_turn_deg": 35.94,
-      "head_turn_kept": null,
-      "head_travel_hips_frame_m": 0.059,
-      "head_travel_world_m": 0.439,
-      "bones": []
-     },
-     "arm": {
-      "tilt_max_deg": 21.75,
-      "tilt_mean_deg": 16.29,
-      "staff_in_body": 0,
-      "staff_in_body_by_part": {},
-      "tip_path_px_worst": 156.4,
-      "head_turn_deg": 35.94,
-      "head_turn_kept": 1.0,
-      "head_travel_hips_frame_m": 0.059,
-      "head_travel_world_m": 0.439,
-      "bones": [
-       "RightShoulder",
-       "RightArm",
-       "RightForeArm",
-       "RightHand"
-      ]
-     },
-     "chest_arm": {
-      "tilt_max_deg": 8.25,
-      "tilt_mean_deg": 3.85,
-      "staff_in_body": 1,
-      "staff_in_body_by_part": {
-       "RightLeg": 1
-      },
-      "tip_path_px_worst": 142.2,
-      "head_turn_deg": 33.71,
-      "head_turn_kept": 0.938,
-      "head_travel_hips_frame_m": 0.028,
-      "head_travel_world_m": 0.444,
-      "bones": [
-       "Spine02",
-       "RightShoulder",
-       "RightArm",
-       "RightForeArm",
-       "RightHand"
-      ]
-     },
-     "full": {
-      "tilt_max_deg": 11.61,
-      "tilt_mean_deg": 5.28,
-      "staff_in_body": 30,
-      "staff_in_body_by_part": {
-       "RightLeg": 17,
-       "RightFoot": 1,
-       "RightUpLeg": 12
-      },
-      "tip_path_px_worst": 161.3,
-      "head_turn_deg": 0.0,
-      "head_turn_kept": 0.0,
-      "head_travel_hips_frame_m": 0.0,
-      "head_travel_world_m": 0.46,
-      "bones": [
-       "Spine02",
-       "Spine01",
-       "Spine",
-       "neck",
-       "Head",
-       "RightShoulder",
-       "RightArm",
-       "RightForeArm",
-       "RightHand"
-      ]
-     }
-    },
-    "chosen": "chest_arm",
-    "why": "the full carry kills the flinch (the head's turn goes from 35.9 deg to 0) and still leans the staff 11.61 deg, past the idle's, with 30 staff vertices in her right leg; the arm-only layer keeps the whole flinch but leans the staff 21.75 deg, about twice the idle's worst; Spine02 + the arm holds it to 8.25 deg and keeps 94% of the head's turn. chest_arm is a THIRD option, not one of the two named -- chosen for the stated goal, for the conductor to rule on",
-    "graze": "chest_arm: one sampled staff vertex 5 mm into RightLeg in ONE frame of 41 (frame 12; every frame checked, work/s17_hit_chest_arm_everyframe.txt) -- sub-pixel at the pack's 151 px/m; the nearest hit cell sample falls at frame 11.4, between a clear frame 11 and frame 12",
-    "before_after": "worst angle from vertical in hit: 86.76 deg raw (no layer), 8.25 deg with chest_arm"
-   }
+   "reference_impl": "film/staff_layer.gd"
   },
   "grips": {
    "grip_R": {
@@ -681,8 +544,8 @@
     "staff_in_body_by_part": {}
    },
    "run": {
-    "tilt_max_deg": 13.39,
-    "tip_path_px_worst": 47.6,
+    "tilt_max_deg": 13.33,
+    "tip_path_px_worst": 46.9,
     "staff_in_body": 0,
     "staff_in_body_by_part": {}
    },
@@ -701,17 +564,7 @@
      "RightUpLeg": 5
     }
    },
-   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json; the run re-measured on its re-cut clip (2026-09-30): work/s17_run_staff.json",
-   "hit_chest_arm": {
-    "tilt_max_deg": 8.25,
-    "tilt_mean_deg": 3.85,
-    "staff_in_body": 1,
-    "staff_in_body_by_part": {
-     "RightLeg": 1
-    },
-    "tip_path_px_worst": 142.2
-   },
-   "hit_note": "hit is a one-shot and is not held to the loop rule; measured against the idle carry's lean (carry_layer.hit_layer_choice)"
+   "source": "work/s12_measure_final.json (every 3rd frame); Meteor per-frame in work/s13_verify_perframe.json"
   },
   "meteor": {
    "intent": "unchanged: Meshy 127, she raises the staff and drives it down; release_s unchanged",
@@ -875,9 +728,9 @@
    "run": {
     "source": "run.glb",
     "source_clip": "Armature|Run_02|baselayer",
-    "times": 23,
-    "time_shift_s": 0.0333,
-    "err_max": 0.0,
+    "times": 19,
+    "time_shift_s": 0.0,
+    "err_max": 0.0001,
     "err_median_of_frame_max": 0.0
    },
    "hit": {
@@ -986,8 +839,6 @@
    "the walk played ONE second and froze: the glTF import leaves every clip LOOP_NONE and pass 1 never set a loop mode (frames 3.5 s and 5.5 s differ by 28 px of 518,400)",
    "pass 1's '2x' was a lanczos enlargement of the 1x pixels, not a 2x render",
    "pass 1 was captured through a window this display cannot open at 1080 rows; its scale was not verified then and is not claimed now"
-  ],
-  "run_note": "filmed with the pre-re-cut run clip and its speed (plan[2]); see locomotion_in_place.run.recut"
- },
- "fps_note": "every clip is keyed at 24 fps EXCEPT the run, which since the 2026-09-30 re-cut carries Meshy's own 30 fps keys (22 intervals per cycle): a 24 fps grid cannot close a cycle 17.6 frames long, and the source's keys close it exactly"
+  ]
+ }
 }
