@@ -60,6 +60,7 @@ Y_HAT = np.array([0.0, 1.0, 0.0])
 SCREEN_RIGHT = U_HAT
 SCREEN_UP = math.sin(PITCH) * V_HAT + math.cos(PITCH) * Y_HAT       # unit
 TO_CAMERA = -math.cos(PITCH) * V_HAT + math.sin(PITCH) * Y_HAT     # unit, from the surface
+TUFT_HALF_H_M = 0.15
 HERO_CLASSES = {"mound", "lintel", "post", "shield", "stone_tall", "stone_mid", "stone_short",
                 "outcrop", "shore_rock", "log", "cairn", "raven"}
 
@@ -277,11 +278,12 @@ def main():
     dens_h = np.zeros((GV, GU), np.float32)
     dens_s = np.zeros((GV, GU), np.float32)
     ys, xs = np.nonzero(tuft_px)
-    # each component's lowest row is its slice's last row
-    base_y = np.array([(s[0].stop - 1) if s is not None else 0 for s in sl], np.int64)
-    li = lab[ys, xs]
-    by = np.where(li > 0, base_y[np.maximum(li - 1, 0)], ys)
-    tu, tv = uv_of_px(xs, by)
+    # EACH PIXEL ON THE GROUND UNDER IT, at a tuft's typical half-height (0.15 m). The first
+    # version set every pixel down on its component's lowest row -- right for a lone tuft, and
+    # wrong for a patch the 5 x 5 closing had merged: a whole shrub field was dropped onto its
+    # bottom edge, and the instances sampled from it missed the clumps they came from. A pixel
+    # of a 0.3 m tuft is at most 0.15 m from this height: 0.11 m of v, under one sample cell.
+    tu, tv = uv_of_px(xs, ys, h=TUFT_HALF_H_M)
     ci = np.clip(((tu - U0) * RES).astype(int), 0, GU - 1)
     cj = np.clip(((V1 - tv) * RES).astype(int), 0, GV - 1)
     isH = heather[ys, xs]
@@ -322,7 +324,7 @@ def main():
     json.dump({"_what": "C-9 T10-2 step 3 (b): per-class density masks, taken from the paint-over",
                "frame": {"u": [U0, U1], "v": [V0, V1], "px_per_m": RES,
                          "density_uv_png": "masks/density_uv.png: R = heather cover, G = shrub cover, fraction of each 0.1 m cell's ground (255 = full); row 0 = v1 (north), column 0 = u0",
-                         "_base_line": "each tuft's pixels are set down on its own lowest row, the row where it meets the ground"},
+                         "_base_line": "the density: each tuft pixel on the ground under it at 0.15 m (a tuft's typical half-height); the tuft LIST: each tuft at its own lowest row, which is right for a lone tuft and for a merged patch marks only its front edge (width_m says which)"},
                "tufts": tufts,
                "trees": {"blockout_birches": birch_list,
                          "painted_trees_outside_the_birches": extra,

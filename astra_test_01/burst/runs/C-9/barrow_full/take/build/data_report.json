@@ -1,0 +1,25 @@
+{
+ "heather": {
+  "heather": {
+   "count": 954,
+   "diameter_m": 0.3,
+   "height_m": 0.3,
+   "painted_cover_screen_m2": 166.16,
+   "instances_screen_m2": 150.67
+  },
+  "shrub": {
+   "count": 23,
+   "diameter_m": 0.45,
+   "height_m": 0.35,
+   "painted_cover_screen_m2": 10.04,
+   "instances_screen_m2": 7.39
+  }
+ },
+ "ground_splat": {
+  "file": "take/build/barrow_full_splat_painted.bin",
+  "sha256": "706cc6447a91514d616b54ada6690022a4f89b579253ac467973b2301fa6f725",
+  "bytes": 408944,
+  "replaces": "godot/data/barrow_full_splat.bin (sha256 700e381f7fa626553700e8623afc1c8f6034f58e487285f436ec77f7ebacfc74) -- NOT replaced",
+  "to_wire": "copy over godot/data/barrow_full_splat.bin and set barrow_full_layout.json regions.splat.sha256 to the new sha256 (the scene checks it at load)"
+ }
+}

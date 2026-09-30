@@ -11,7 +11,7 @@
   ],
   "px_per_m": 10.0,
   "density_uv_png": "masks/density_uv.png: R = heather cover, G = shrub cover, fraction of each 0.1 m cell's ground (255 = full); row 0 = v1 (north), column 0 = u0",
-  "_base_line": "each tuft's pixels are set down on its own lowest row, the row where it meets the ground"
+  "_base_line": "the density: each tuft pixel on the ground under it at 0.15 m (a tuft's typical half-height); the tuft LIST: each tuft at its own lowest row, which is right for a lone tuft and for a merged patch marks only its front edge (width_m says which)"
  },
  "tufts": [
   {
