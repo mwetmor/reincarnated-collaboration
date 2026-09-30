@@ -314,7 +314,7 @@ func _attach(sc) -> void:
 	if lab != null:
 		for c in lab.get_children():
 			if c is Label:
-				(c as Label).text = "METEOR: 3D (LANE B)  ·  FIRE BALL: PLACEHOLDER"
+				(c as Label).text = "METEOR EFFECT: 3D (LANE B)"
 	_arm()
 
 

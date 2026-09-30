@@ -322,21 +322,31 @@ def barrow_full(s: str) -> str:
              "		# \"[meteor_b] armed\". Without ?meteor=b nothing of it exists and nothing above has changed.\n"
              "		meteor_fx = MeteorFx.attach(self)\n"
              "	ready_done = true\n", "meteor attach")
+    s = swap(s, ' fire_ball=%s meteor=placeholder" % [', ' fire_ball=%s meteor=%s" % [', "her line fmt")
+    s = swap(s, '",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb]',
+             '",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,\n'
+             '\t\t"3d(lane_b)" if meteor_fx != null else "placeholder"]      # LANE B', "her line args")
     return s
 
 
 # ------------------------------------------------------------------------------------------------
 # tools/build_web_painted.sh: ship the plates, and fence ?meteor=b
 def build_web(s: str) -> str:
-    s = swap(s, 'data/painted_web/bakes/*.bin"\n', 'data/painted_web/bakes/*.bin,data/meteor/*.bin,data/meteor/*.json"\n',
-             "include_filter")
+    # HER pack only (the page picks its pack by ?c=): the plates ride with her Fire Ball's atlas
+    s = swap(s, 'data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin"\n',
+             'data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/meteor/*.bin,data/meteor/*.json"\n',
+             "include_filter her")
     anchor = '[ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }\n'
     fence = r'''# LANE B METEOR (?c=sorceress&meteor=b: her page with the Meteor built 3D first, scripts/meteor_fx.gd):
 # the painted plates read and sha-matched, every pipeline warmed at load, the placeholder Meteor off,
 # the Fire Ball kept -- and no script or shader error. Without ?meteor=b nothing above changes.
-"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress --meteor b > "$LOG/launch_meteor_b.log" 2>&1 || true
 MLINE=$(grep -a '^\[meteor_b\] armed' "$LOG/launch_meteor_b.log" | head -1 || true)
+MSL=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_b.log" | head -1 || true)
+echo "$MSL" | grep -q "fire_ball=baked(" && echo "$MSL" | grep -q "meteor=3d(lane_b)" \
+  && ck 0 "?meteor=b: her baked Fire Ball still loads beside it (fire_ball=baked, meteor=3d)" \
+  || ck 1 "?meteor=b: her Fire Ball or the meteor word"
 echo "   launch (meteor=b): $(echo "$MLINE" | cut -c1-200)"
 echo "$MLINE" | grep -q "plates_sha_ok=true" && echo "$MLINE" | grep -q "warmed=true" \
   && echo "$MLINE" | grep -q "placeholder_meteor=off" && echo "$MLINE" | grep -q "fire_ball=kept" \

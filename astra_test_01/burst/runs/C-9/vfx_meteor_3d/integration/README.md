@@ -7,7 +7,7 @@
 - No shader changes: the painted surfaces and her ramp draw HEAD's shaders, byte for byte.
 - `MeteorFx.wanted()` is one check, run once at load.
 
-**Base:** barrow_full at collab HEAD `1d9686510`. Its barrow_full files are identical to `1a850e54b` (the cast-start hitch fix). `git apply --cached --check` passes against HEAD.
+**Base:** collab HEAD `ed4fd5009`, which includes your Fire Ball bake (`339be5e3b`) and the cast-start hitch fix. `git apply --cached --check` passes against it.
 
 ## Apply (about 2 minutes)
 
@@ -33,10 +33,10 @@ Then rebuild the page as usual (`tools/build_web_painted.sh`).
 | `godot/project.godot` | A `[shader_globals]` section: the 10 `fx_*` globals. Required: the derived shaders read them. |
 | `godot/scripts/painted_world.gd` | One block after `static var _shaders`: the FX uniforms and functions, and `with_fx(code, surface)`, a pure function that derives a painted surface's Meteor variant from its **live** code with asserted swaps. **No existing function changes.** |
 | `godot/scripts/paint_stack.gd` | One block after `static var _shader_cache`: `with_char_fire(code)`, the fire's light folded **into the sun's pass** (see "Web fire light" below). **No existing function changes.** |
-| `godot/scripts/barrow_full.gd` | Two hooks: `var meteor_fx`, and before `ready_done = true`: `if MeteorFx.wanted(self): meteor_fx = MeteorFx.attach(self)`. |
+| `godot/scripts/barrow_full.gd` | Three small edits: `var meteor_fx`; before `ready_done = true`, `if MeteorFx.wanted(self): meteor_fx = MeteorFx.attach(self)`; her launch line says `meteor=3d(lane_b)` when attached (otherwise still `meteor=placeholder`). |
 | `godot/scripts/meteor_fx.gd` | New. The effect, pooled (2), with everything built and warmed at attach. |
 | `godot/data/meteor/plates.bin` + `manifest.json` | New, 95 KB. Lane A's ring (`VF-met-ring-01`) and burning ground (`C-5 VF-prim-fire-pool-01`) as one RGBA PNG (value index + alpha each). The manifest carries each source's sha256. Tracked (not under an ignored pattern). |
-| `tools/build_web_painted.sh` | Ships `data/meteor/*`. Adds the `?meteor=b` launch fence. |
+| `tools/build_web_painted.sh` | Ships `data/meteor/*` in **her pack only** (`INC_HER`). Adds the `?meteor=b` launch fence on `sorceress.pck`: armed, plates matched, placeholder off, and her baked Fire Ball still loading beside it. |
 
 ## How it runs
 
@@ -44,7 +44,7 @@ Then rebuild the page as usual (`tools/build_web_painted.sh`).
 - switches the placeholder Meteor off (`spell_fx.casts_by_slot` loses `chop`); the Fire Ball stays;
 - reads the release time from her package (`casts.*.release_s` for the chop slot: 1.6333 s on v2);
 - keeps both suns off the effect's layer (1 << 12);
-- relabels `FxLabel`;
+- relabels `FxLabel` ("METEOR EFFECT: 3D (LANE B)");
 - derives the Meteor variant of every painted surface's material (27 painted, the snow, the heather) and every character-ramp material, one shader per distinct shader;
 - draws everything once, unseen (`warm = 1`);
 - prints `[meteor_b] armed`.
@@ -115,12 +115,24 @@ Cold caches; 1 cold cast, then 19 casts with the effect interleaved with 20 with
 
 Build time is equal. Errors: 0.
 
-### Fences
+### Fences, on the Fire Ball base
 
-The patched `tools/build_web_painted.sh`, run verbatim with `--no-stage` on HEAD + patch: **19 ok, 0 FAIL**. That covers:
-- every existing fence: 28/28 painted files, 54 plates, the instance counts, the pen, the blockout;
-- `?c=sorceress` with her v2 releases `spells=placeholder:cast_fireball@0.9333,cast_meteor@1.6333`: the Fire Ball armed;
-- the new `?meteor=b` fence.
+`page_fences_on_fireball_base.txt`. The patched `tools/build_web_painted.sh`, run verbatim with `--no-stage` on HEAD (with your Fire Ball) + the patch: **23 ok, 0 FAIL**.
+- **Every existing fence:** both packs; 28/28 painted files; 54 plates; the instances; the pen; the blockout.
+- **`?c=sorceress`:** her v2 releases (`spells=cast_fireball@0.9333,cast_meteor@1.6333`) and her baked Fire Ball (`baked(pages=2,px=4096x2488,frames=300,impact_sets=2,sha_ok)`).
+- **The three new `?meteor=b` fences:**
+  - armed;
+  - no errors;
+  - the Fire Ball still `baked` beside `meteor=3d(lane_b)`.
+
+(Before your bake, on the one-pack script, the same run gave 19 ok, 0 FAIL.)
+
+### The Fire Ball, with the Meteor attached
+
+`fireball_budget_with_meteor_attached.jsonl`: your `--perf fb` / `fbc`, desktop, `?meteor=b`.
+- cold first cast: worst frame 17.1 ms, 0 over 20 ms;
+- delta −0.003 ms/frame;
+- +0 draw calls.
 
 ### Web fire light
 

@@ -1925,7 +1925,7 @@ index 4cb1ec853..54d7d4503 100644
  renderer/rendering_method="forward_plus"
  ; THE PHONE PAGE (/playtest/barrow-painted/): WebGL2 only has the Compatibility renderer
 diff --git a/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/barrow_full.gd b/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/barrow_full.gd
-index affd462fa..c522512c3 100644
+index cf76d7fb3..7edf67308 100644
 --- a/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/barrow_full.gd
 +++ b/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/barrow_full.gd
 @@ -116,6 +116,7 @@ var paint_sun: DirectionalLight3D
@@ -1933,10 +1933,10 @@ index affd462fa..c522512c3 100644
  var who := "barbarian"
  var spell_fx: Node3D
 +var meteor_fx: Node3D               # LANE B: her Meteor, 3D first (?meteor=b; scripts/meteor_fx.gd)
+ var touch                             # barrow_touch.gd, on the web or a touchscreen
+ var _her_spell_buttons: Array = []    # FIRE BALL and METEOR, shown only while she holds the staff
  var snow: SnowField
- var snowfall: GPUParticles3D
- var heather_mat: ShaderMaterial
-@@ -181,6 +182,10 @@ func _ready() -> void:
+@@ -184,6 +185,10 @@ func _ready() -> void:
  	clamp_on = bool(layout.get("camera_clamp_default", false))
  	report["build_ms"] = {"total": Time.get_ticks_msec() - t0, "generated_textures": t_tex,
  						  "world": t_b}
@@ -1947,9 +1947,21 @@ index affd462fa..c522512c3 100644
  	ready_done = true
  	# ONE LINE ON STDOUT: the exported app's launch probe greps for it. The pck fence proves the
  	# FILES shipped; only the running scene can say it built from them.
+@@ -2313,8 +2318,9 @@ func _her_line() -> String:
+ 				int((at.get("px", [0, 0]) as Array)[1]), int(at.get("frames", 0)), int(at.get("impact_sets", 0))]
+ 		else:
+ 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
+-	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=placeholder" % ["valid" if (bt != null and bad == 0) else "INVALID",
+-		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb]
++	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
++		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
++		"3d(lane_b)" if meteor_fx != null else "placeholder"]      # LANE B
+ 
+ 
+ func _paint_launch_line() -> String:
 diff --git a/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/meteor_fx.gd b/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/meteor_fx.gd
 new file mode 100644
-index 000000000..a06c2ffea
+index 000000000..edc45b3fd
 --- /dev/null
 +++ b/astra_test_01/burst/runs/C-9/barrow_full/godot/scripts/meteor_fx.gd
 @@ -0,0 +1,1107 @@
@@ -2269,7 +2281,7 @@ index 000000000..a06c2ffea
 +	if lab != null:
 +		for c in lab.get_children():
 +			if c is Label:
-+				(c as Label).text = "METEOR: 3D (LANE B)  ·  FIRE BALL: PLACEHOLDER"
++				(c as Label).text = "METEOR EFFECT: 3D (LANE B)"
 +	_arm()
 +
 +
@@ -3328,28 +3340,32 @@ index 6200bb3a1..f373d5407 100644
  	if not _shaders.has(key):
  		var sh := Shader.new()
 diff --git a/astra_test_01/burst/runs/C-9/barrow_full/tools/build_web_painted.sh b/astra_test_01/burst/runs/C-9/barrow_full/tools/build_web_painted.sh
-index 765269e85..053e84bf2 100755
+index 765269e85..90e9790b8 100755
 --- a/astra_test_01/burst/runs/C-9/barrow_full/tools/build_web_painted.sh
 +++ b/astra_test_01/burst/runs/C-9/barrow_full/tools/build_web_painted.sh
-@@ -118,7 +118,7 @@ list_files() { (cd "$DEST" && {
- } | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
- FILES_HIM=$(list_files him)
+@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
  FILES_HER=$(list_files her)
--INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
-+INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin,data/meteor/*.bin,data/meteor/*.json"
+ INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
  INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
- INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin"
+-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin"
++INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/meteor/*.bin,data/meteor/*.json"
  cat > "$DEST/build/.preset_options" <<'OPTS'
-@@ -278,6 +278,22 @@ else
+ [preset.0.options]
+ 
+@@ -278,6 +278,26 @@ else
    ck 0 "her launch free of script and shader errors"
  fi
  echo "   sizes:"; ls -l "$W" | awk 'NR>1 {printf "   %12d  %s\n", $5, $9}'
 +# LANE B METEOR (?c=sorceress&meteor=b: her page with the Meteor built 3D first, scripts/meteor_fx.gd):
 +# the painted plates read and sha-matched, every pipeline warmed at load, the placeholder Meteor off,
 +# the Fire Ball kept -- and no script or shader error. Without ?meteor=b nothing above changes.
-+"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
++"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
 +  --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress --meteor b > "$LOG/launch_meteor_b.log" 2>&1 || true
 +MLINE=$(grep -a '^\[meteor_b\] armed' "$LOG/launch_meteor_b.log" | head -1 || true)
++MSL=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_b.log" | head -1 || true)
++echo "$MSL" | grep -q "fire_ball=baked(" && echo "$MSL" | grep -q "meteor=3d(lane_b)" \
++  && ck 0 "?meteor=b: her baked Fire Ball still loads beside it (fire_ball=baked, meteor=3d)" \
++  || ck 1 "?meteor=b: her Fire Ball or the meteor word"
 +echo "   launch (meteor=b): $(echo "$MLINE" | cut -c1-200)"
 +echo "$MLINE" | grep -q "plates_sha_ok=true" && echo "$MLINE" | grep -q "warmed=true" \
 +  && echo "$MLINE" | grep -q "placeholder_meteor=off" && echo "$MLINE" | grep -q "fire_ball=kept" \

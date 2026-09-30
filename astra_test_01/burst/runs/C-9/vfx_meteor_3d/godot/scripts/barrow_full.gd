@@ -117,6 +117,8 @@ var paint_sun: DirectionalLight3D
 var who := "barbarian"
 var spell_fx: Node3D
 var meteor_fx: Node3D               # LANE B: her Meteor, 3D first (?meteor=b; scripts/meteor_fx.gd)
+var touch                             # barrow_touch.gd, on the web or a touchscreen
+var _her_spell_buttons: Array = []    # FIRE BALL and METEOR, shown only while she holds the staff
 var snow: SnowField
 var snowfall: GPUParticles3D
 var heather_mat: ShaderMaterial
@@ -173,6 +175,7 @@ func _ready() -> void:
 		# when they show, and the first phone page drew it under them -- added before it existed
 		var tc = load("res://scripts/barrow_touch.gd").new()
 		add_child(tc)
+		touch = tc
 		if who == "sorceress":
 			_touch_for_her(tc)
 	if who == "sorceress":
@@ -1367,11 +1370,22 @@ func _build_knight() -> void:
 		"wash_scale": 2.6, "wash_amp": 0.13, "band_soft": 0.075,
 	})
 	if who == "sorceress":
-		# HER TWO SPELLS, AS A PLACEHOLDER (spell_fx.gd): fired at each cast's release time, from its socket
+		# HER TWO SPELLS (spell_fx.gd), fired at each cast's release time, from its socket: the FIRE BALL is
+		# cliffside's kit, baked (fire_ball_fx.gd); the METEOR is still the placeholder
 		spell_fx = load("res://scripts/spell_fx.gd").new()
 		spell_fx.name = "SpellFx"
 		add_child(spell_fx)
 		spell_fx.setup(k, k.cfg, _read_json("res://data/sockets_sorceress.json"))
+		# THE FIRE BALL'S BUDGET RUN (?perf=fb on the page, -- --perf fb on desktop): perf_fireball.gd
+		var perf := PaintStack.web_query("perf")
+		var pa := OS.get_cmdline_user_args()
+		if perf == "" and pa.find("--perf") >= 0 and pa.find("--perf") + 1 < pa.size():
+			perf = String(pa[pa.find("--perf") + 1])
+		if perf == "fb" or perf == "fbc":
+			var pn = load("res://scripts/perf_fireball.gd").new()
+			pn.name = "PerfFireBall"
+			add_child(pn)
+			pn.start(self, 20, perf == "fb")
 	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
@@ -1508,7 +1522,7 @@ func _update_hud() -> void:
 		if n < names.size():
 			nm = String(names[n])
 		fs = knight._figure_scale
-	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + ("  ·  SORCERESS: Space Fire Ball · X Meteor" if who == "sorceress" else "") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
+	_hud.text = ("PAINTED" if painted else "BLOCKOUT") + (("  ·  SORCERESS: Space Fire Ball · X Meteor" if knight == null or knight.armed() else "  ·  SORCERESS: no staff, no spells (G for her gear)") if who == "sorceress" else "") + ("  ·  WASD move · Shift run · Space slash · X chop · C bash · B block · G gear (%d/%d: %s) · [ ] size (%.2f)"
 		+ "   ‖   V stack (%s) · K ink (%s) · O overlay (%s) · R crucible marks (%s) · U camera clamp (%s)") \
 		% [n + 1, total, nm, fs, "on" if stack_on else "off", "on" if ink_on else "off",
 		   "on" if overlay_on else "off", "on" if crucible_on else "off", "on" if clamp_on else "off"]
@@ -1519,18 +1533,40 @@ func _update_hud() -> void:
 
 
 func _touch_for_her(tc) -> void:
-	"""HER BUTTONS (the coordinator): SLASH is the Fire Ball, CHOP the Meteor; BASH, BLOCK and GEAR are
-	hidden -- she has no shield, and her one kit is the full one. The same actions underneath."""
+	"""HER BUTTONS (the coordinator): SLASH is the Fire Ball, CHOP the Meteor; BASH and BLOCK are hidden --
+	she has no shield. GEAR steps her five stacks, base body to full kit (so_d7/scene_pkg, GEAR), and her
+	two spell buttons show only while she is armed(): the staff is in the last stack only. The same
+	actions underneath."""
 	var keep := []
+	_her_spell_buttons.clear()
 	for b in tc._buttons:
 		var lb := String(b.get("label", ""))
-		if lb in ["BASH", "BLOCK", "GEAR"]:
+		if lb in ["BASH", "BLOCK"]:
 			continue
 		if lb == "SLASH":
 			b["label"] = "FIRE BALL"
+			_her_spell_buttons.append(b)
+			continue
 		elif lb == "CHOP":
 			b["label"] = "METEOR"
+			_her_spell_buttons.append(b)
+			continue
 		keep.append(b)
+	tc._buttons = keep
+	_touch_her_armed()
+
+
+func _touch_her_armed() -> void:
+	"""Her spell buttons follow the staff: shown while knight.armed(), re-checked after every GEAR press."""
+	if touch == null or who != "sorceress":
+		return
+	var tc = touch
+	var keep := []
+	for b in tc._buttons:
+		if not _her_spell_buttons.has(b):
+			keep.append(b)
+	if knight == null or knight.armed():      # she starts in the full kit, as he does
+		keep.append_array(_her_spell_buttons)
 	tc._buttons = keep
 	if tc._overlay != null:
 		tc._overlay.queue_redraw()
@@ -1543,7 +1579,7 @@ func _build_fx_label() -> void:
 	layer.layer = 21
 	add_child(layer)
 	var l := Label.new()
-	l.text = "SPELL EFFECTS: PLACEHOLDER"
+	l.text = "METEOR EFFECT: PLACEHOLDER"
 	l.add_theme_font_size_override("font_size", 22)
 	l.add_theme_color_override("font_color", Color(1.0, 0.86, 0.6, 0.9))
 	l.add_theme_color_override("font_outline_color", Color(0.1, 0.07, 0.05, 0.9))
@@ -1576,6 +1612,7 @@ func step_size(d: int) -> void:
 func _unhandled_input(e: InputEvent) -> void:
 	if e.is_action_pressed("gear_cycle") and knight != null:
 		knight.cycle_gear()
+		_touch_her_armed()
 		_update_hud()
 	elif e.is_action_pressed("size_down"):
 		step_size(-1)
@@ -2268,13 +2305,22 @@ func _her_line() -> String:
 			if n is AnimationNodeAnimation and not knight._anim.has_animation((n as AnimationNodeAnimation).animation):
 				bad += 1
 	var sp := []
+	var fb := "none"
 	if spell_fx != null:
 		for slot in ["attack", "chop"]:
 			var c: Dictionary = spell_fx.casts_by_slot.get(slot, {})
 			if not c.is_empty():
 				sp.append("%s@%s" % [c["clip"], str(c["release_s"])])
-	return " | sorceress_tree=%s clipless=%s spells=placeholder:%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
-		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp))]
+		var fbr: Dictionary = spell_fx.report.get("fire_ball", {})
+		if spell_fx.fire_ball != null:
+			var at: Dictionary = fbr.get("atlas", {})
+			fb = "baked(pages=%d,px=%dx%d,frames=%d,impact_sets=%d,sha_ok)" % [int(at.get("pages", 0)), int((at.get("px", [0, 0]) as Array)[0]),
+				int((at.get("px", [0, 0]) as Array)[1]), int(at.get("frames", 0)), int(at.get("impact_sets", 0))]
+		else:
+			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
+	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
+		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
+		"3d(lane_b)" if meteor_fx != null else "placeholder"]      # LANE B
 
 
 func _paint_launch_line() -> String:

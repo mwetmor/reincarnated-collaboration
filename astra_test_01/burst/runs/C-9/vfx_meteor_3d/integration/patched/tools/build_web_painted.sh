@@ -105,37 +105,23 @@ echo "== import"
 "$GODOT" --headless --path "$DEST" --import > "$LOG/import.log" 2>&1 || {
   echo "import failed" >&2; tail -20 "$LOG/import.log" >&2; exit 4; }
 
-echo "== preset: Web / nothreads / the painted Barrow's dependencies only"
-FILES=$(cd "$DEST" && {
+echo "== presets: TWO PACKS -- the barbarian's (index.pck) and hers (sorceress.pck), one wasm"
+# HER PACK (C-9 (c)): her Fire Ball's atlas brought the one pck over the 50 MB fence, so the page picks
+# its main pack by ?c=, as /playtest/cliffside/ does: each pack the painted Barrow, the scripts, and ONE
+# character -- his gear, or her body, gear and spell effects. Nothing he loads is in hers, nor hers in his.
+list_files() { (cd "$DEST" && {
   echo "scenes/barrow_painted.tscn"
   ls scripts/*.gd
   for m in birch lintel post raven stone_mid stone_short stone_tall; do echo "models/barrow/$m.glb"; done
   for k in cairn log shield; do echo "models/barrow/kit/$k.glb"; done
-  ls models/gear/*.glb
-  ls models/sorceress/*.glb
-} | sed 's|^|"res://|; s|$|"|' | paste -sd, -)
-cat > "$DEST/export_presets.cfg" <<EOF
-[preset.0]
-
-name="Web"
-platform="Web"
-runnable=true
-advanced_options=false
-dedicated_server=false
-custom_features=""
-export_filter="resources"
-export_files=PackedStringArray($FILES)
-include_filter="data/barrow_full_layout.json,data/character.json,data/gear_manifest.json,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin,data/meteor/*.bin,data/meteor/*.json"
-exclude_filter="tools/*"
-export_path="build/web/index.html"
-patches=PackedStringArray()
-encryption_include_filters=""
-encryption_exclude_filters=""
-seed=0
-encrypt_pck=false
-encrypt_directory=false
-script_export_mode=2
-
+  if [ "$1" = him ]; then ls models/gear/*.glb; else ls models/sorceress/*.glb; fi
+} | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
+FILES_HIM=$(list_files him)
+FILES_HER=$(list_files her)
+INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
+INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/meteor/*.bin,data/meteor/*.json"
+cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
 custom_template/debug=""
@@ -161,12 +147,44 @@ progressive_web_app/icon_512x512=""
 progressive_web_app/background_color=Color(0, 0, 0, 1)
 threads/emscripten_pool_size=8
 threads/godot_pool_size=4
-EOF
+OPTS
+preset() {  # index name files include
+  printf '[preset.%s]\n\nname="%s"\nplatform="Web"\nrunnable=%s\nadvanced_options=false\ndedicated_server=false\ncustom_features=""\n' \
+    "$1" "$2" "$( [ "$1" = 0 ] && echo true || echo false )"
+  printf 'export_filter="resources"\nexport_files=PackedStringArray(%s)\ninclude_filter="%s"\nexclude_filter="tools/*"\n' "$3" "$4"
+  printf 'export_path="build/web/index.html"\npatches=PackedStringArray()\nencryption_include_filters=""\nencryption_exclude_filters=""\n'
+  printf 'seed=0\nencrypt_pck=false\nencrypt_directory=false\nscript_export_mode=2\n\n'
+  sed "s/^\[preset.0.options\]/[preset.$1.options]/" "$DEST/build/.preset_options"
+  echo
+}
+{ preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; } > "$DEST/export_presets.cfg"
 
 echo "== export Web"
 mkdir -p "$DEST/build/web"
 "$GODOT" --headless --path "$DEST" --export-release "Web" build/web/index.html > "$LOG/export.log" 2>&1 || {
   echo "export failed" >&2; tail -30 "$LOG/export.log" >&2; exit 5; }
+"$GODOT" --headless --path "$DEST" --export-pack "WebHer" build/web/sorceress.pck > "$LOG/export_her.log" 2>&1 || {
+  echo "export (her pack) failed" >&2; tail -30 "$LOG/export_her.log" >&2; exit 5; }
+echo "== the page picks its pack by ?c="
+python3 - "$DEST/build/web" <<'CHOOSER'
+import os, re, sys
+w = sys.argv[1]
+p = os.path.join(w, "index.html")
+t = open(p).read()
+packs = {"barbarian": ("index.pck", os.path.getsize(os.path.join(w, "index.pck"))),
+         "sorceress": ("sorceress.pck", os.path.getsize(os.path.join(w, "sorceress.pck")))}
+m = re.search(r"const GODOT_CONFIG = (\{.*?\});", t)
+assert m, "no GODOT_CONFIG in index.html"
+js = ("\nconst GODOT_PACKS = {" + ", ".join('"%s": {"pack": "%s", "size": %d}' % (k, v[0], v[1]) for k, v in packs.items()) + "};\n"
+      "(function () {\n"
+      "\tconst pick = (new URLSearchParams(window.location.search).get('c') || '').toLowerCase() === 'sorceress' ? 'sorceress' : 'barbarian';\n"
+      "\tGODOT_CONFIG['mainPack'] = GODOT_PACKS[pick].pack;\n"
+      "\tGODOT_CONFIG['fileSizes'] = {[GODOT_PACKS[pick].pack]: GODOT_PACKS[pick].size, 'index.wasm': GODOT_CONFIG['fileSizes']['index.wasm']};\n"
+      "}());\n")
+t = t[:m.end()] + js + t[m.end():]
+open(p, "w").write(t)
+print("packs:", {k: v[1] for k, v in packs.items()})
+CHOOSER
 
 echo "== verify"
 FAIL=0
@@ -182,19 +200,27 @@ done
 [ "$BIG" -eq 0 ] && ck 0 "every file under $MAX_FILE_MB MB"
 MISSING=0
 BAKES=$(python3 -c "import json;print(' '.join('data/painted_web/'+b['file'] for b in json.load(open('$DEST/data/painted_web/manifest.json'))['bakes'].values()))")
-for p in scenes/barrow_painted.tscn scripts/barrow_full.gd scripts/painted_world.gd scripts/paint_stack.gd \
-         scripts/snow_field.gd scripts/barrow_heather.gd scripts/barrow_touch.gd scripts/knight.gd \
-         scripts/foot_lock.gd data/barrow_full_layout.json data/barrow_full_splat.bin \
-         data/painted_web/manifest.json data/painted_web/heather.json data/painted_web/painting.bin \
-         data/painted_web/lit.bin data/painted_web/snow_grid.bin $BAKES models/gear/nb-body.glb \
-         scripts/sorceress_knight.gd scripts/spell_fx.gd data/character_sorceress.json \
+COMMON="scenes/barrow_painted.tscn scripts/barrow_full.gd scripts/painted_world.gd scripts/paint_stack.gd
+         scripts/snow_field.gd scripts/barrow_heather.gd scripts/barrow_touch.gd scripts/knight.gd
+         scripts/foot_lock.gd data/barrow_full_layout.json data/barrow_full_splat.bin
+         data/painted_web/manifest.json data/painted_web/heather.json data/painted_web/painting.bin
+         data/painted_web/lit.bin data/painted_web/snow_grid.bin $BAKES"
+for p in $COMMON models/gear/nb-body.glb data/character.json data/gear_manifest.json; do
+  grep -a -q "$p" "$W/index.pck" || { echo "   missing from index.pck: $p" >&2; MISSING=1; }
+done
+for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ball_fx.gd data/character_sorceress.json \
          data/gear_manifest_sorceress.json data/sockets_sorceress.json models/sorceress/so-body.glb \
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
-         models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb; do
-  grep -a -q "$p" "$W/index.pck" || { echo "   missing from pck: $p" >&2; MISSING=1; }
+         models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
+         data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin; do
+  grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
-[ "$MISSING" -eq 0 ] && ck 0 "the painted Barrow, its phone data (the painting, 25 bakes, the light map, the snow grid), him and her in the pck" \
-                     || ck 1 "the painted Barrow's files in the pck"
+# the crossings by each pack's FILE TABLE (tools/pck_list.py): a path a script or the uid cache names is
+# not a packed file, and grepping the bytes finds both
+python3 "$SRC/../tools/pck_list.py" "$W/index.pck" | grep -q "^models/sorceress/" && { echo "   her models are in HIS pack" >&2; MISSING=1; }
+python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^models/gear/" && { echo "   his models are in HER pack" >&2; MISSING=1; }
+[ "$MISSING" -eq 0 ] && ck 0 "the painted Barrow and its phone data in both packs; him in index.pck, her and her Fire Ball in sorceress.pck, neither in the other's" \
+                     || ck 1 "the packs' contents"
 if grep -a -q "data/painted/painting.bin" "$W/index.pck"; then ck 1 "the desktop's 33 MB painting is in the pck"; else ck 0 "the desktop's painting is NOT in the pck"; fi
 if grep -a -o -i -E "vfx_(frost|fire|lightning|arcane|holy|poison)_(bolt|impact)[^A-Za-z0-9_]|creativekind|gigapack|untied ?games" "$W/index.pck" | head -1 | grep -q .; then
   ck 1 "license fence: a library kit name inside the pck"
@@ -225,7 +251,7 @@ fi
 # HER (?c=sorceress on the page; the same scene with -- --c sorceress here): her slot read, her
 # gear bound, her tree VALID (sorceress_knight.gd fills the two clipless nodes that otherwise freeze
 # her), the placeholder spells armed at both casts' release times
-"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress > "$LOG/launch_sorceress.log" 2>&1 || true
 SLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_sorceress.log" | head -1 || true)
 echo "   launch (sorceress): $(echo "$SLINE" | cut -c1-160)"
@@ -239,10 +265,13 @@ import json, sys
 casts = json.load(open(sys.argv[1]))["casts"]
 # as spell_fx.gd reads them: every clip key not starting with "_", by its slot
 by_slot = {c["slot"]: dict(c, clip=k) for k, c in casts.items() if not k.startswith("_") and isinstance(c, dict)}
-print("spells=placeholder:" + ",".join("%s@%s" % (by_slot[s]["clip"], by_slot[s]["release_s"]) for s in ("attack", "chop")))
+print("spells=" + ",".join("%s@%s" % (by_slot[s]["clip"], by_slot[s]["release_s"]) for s in ("attack", "chop")))
 SPELLS
 )
-echo "$SLINE" | grep -q "$WANT_SPELLS" && ck 0 "her placeholder spells armed at both releases ($WANT_SPELLS, from her package)" || ck 1 "her placeholder spells (wanted $WANT_SPELLS)"
+echo "$SLINE" | grep -q "$WANT_SPELLS" && ck 0 "her spells armed at both releases ($WANT_SPELLS, from her package)" || ck 1 "her spells (wanted $WANT_SPELLS)"
+FB=$(echo "$SLINE" | sed -n 's/.*fire_ball=\([^ ]*\).*/\1/p')
+echo "$FB" | grep -q "^baked(pages=2,px=4096x[0-9]*,frames=[0-9]*,impact_sets=2,sha_ok)$" \
+  && ck 0 "her FIRE BALL baked and loaded from her pack: $FB" || ck 1 "her Fire Ball (got '$FB')"
 if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log"; then
   ck 1 "her launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log" | head -12 >&2
 else
@@ -252,9 +281,13 @@ echo "   sizes:"; ls -l "$W" | awk 'NR>1 {printf "   %12d  %s\n", $5, $9}'
 # LANE B METEOR (?c=sorceress&meteor=b: her page with the Meteor built 3D first, scripts/meteor_fx.gd):
 # the painted plates read and sha-matched, every pipeline warmed at load, the placeholder Meteor off,
 # the Fire Ball kept -- and no script or shader error. Without ?meteor=b nothing above changes.
-"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 1500 -- --as-web --c sorceress --meteor b > "$LOG/launch_meteor_b.log" 2>&1 || true
 MLINE=$(grep -a '^\[meteor_b\] armed' "$LOG/launch_meteor_b.log" | head -1 || true)
+MSL=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_b.log" | head -1 || true)
+echo "$MSL" | grep -q "fire_ball=baked(" && echo "$MSL" | grep -q "meteor=3d(lane_b)" \
+  && ck 0 "?meteor=b: her baked Fire Ball still loads beside it (fire_ball=baked, meteor=3d)" \
+  || ck 1 "?meteor=b: her Fire Ball or the meteor word"
 echo "   launch (meteor=b): $(echo "$MLINE" | cut -c1-200)"
 echo "$MLINE" | grep -q "plates_sha_ok=true" && echo "$MLINE" | grep -q "warmed=true" \
   && echo "$MLINE" | grep -q "placeholder_meteor=off" && echo "$MLINE" | grep -q "fire_ball=kept" \

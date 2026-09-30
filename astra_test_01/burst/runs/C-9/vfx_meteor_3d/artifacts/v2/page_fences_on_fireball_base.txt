@@ -1,0 +1,35 @@
+   ok   threads OFF (no COOP/COEP needed)
+   ok   base href /playtest/barrow-painted/
+   ok   every file under 50 MB
+   ok   the painted Barrow and its phone data in both packs; him in index.pck, her and her Fire Ball in sorceress.pck, neither in the other's
+   ok   the desktop's painting is NOT in the pck
+   ok   license fence clean
+   launch: [barrow_painted] web: who=barbarian loaded_from_pck files_sha_ok=28/28 painting_ok=true ground=painting.bin(as_painted)_ok=true lit_ok=true snow_grid_ok=true | plates: bakes=25/25 on the real models, painting on primitives=29/29 (the mound + 28) | birches=33 inks_hidden=25 heather=977 snow=true ms=1403 | painting_px=[4096, 2536] pen=depth-only+stencil ambient_moved=10 painted_no_ambient
+   ok   every painted file read from the pck, sha256 matched: 28/28 (the painting, the light map, the snow grid, 25 bakes)
+   ok   the painting loaded at its phone size, 4096 x 2536
+   ok   all 54 plates in place: 25/25 bakes, 29/29 primitives wearing the painting
+   ok   instances: 33 birches, 977 heather sprays, the snow field
+   ok   the web pen, with the painting's no-pen stencil class
+   ok   the blockout under it built: 87 placements, the splat read
+   ok   launch log free of script and shader errors
+   launch (sorceress): [barrow_painted] web: who=sorceress loaded_from_pck files_sha_ok=28/28 painting_ok=true ground=painting.bin(as_painted)_ok=true lit_ok=true snow_grid_ok=true | 
+   ok   ?c=sorceress: she walks the same painted Barrow, every painted file read and matched
+   ok   her animation tree valid (clipless nodes filled: a_block,a_strafe)
+   ok   her spells armed at both releases (spells=cast_fireball@0.9333,cast_meteor@1.6333, from her package)
+   ok   her FIRE BALL baked and loaded from her pack: baked(pages=2,px=4096x2488,frames=300,impact_sets=2,sha_ok)
+   ok   her launch free of script and shader errors
+   sizes:
+          11952  index.apple-touch-icon.png
+           2973  index.audio.position.worklet.js
+           7298  index.audio.worklet.js
+           7028  index.html
+           5702  index.icon.png
+         315759  index.js
+       31797724  index.pck
+          21443  index.png
+       37700666  index.wasm
+       33551284  sorceress.pck
+   ok   ?meteor=b: her baked Fire Ball still loads beside it (fire_ball=baked, meteor=3d)
+   launch (meteor=b): [meteor_b] armed style=plates plates_sha_ok=true fx_materials=37 warmed=true warm_ms=229.3 release_s=1.6333 placeholder_meteor=off fire_ball=kept pool=2 fx_layer_unlit=true swaps={"char":8,"heather":1
+   ok   ?meteor=b: the Meteor armed (plates matched, pipelines warmed, placeholder off, Fire Ball kept)
+   ok   ?meteor=b launch free of script and shader errors
