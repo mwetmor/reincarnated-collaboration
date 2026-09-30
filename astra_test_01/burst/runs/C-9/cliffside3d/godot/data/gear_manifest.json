@@ -784,8 +784,19 @@
    },
    "attack": {
     "source": "../nb_t8/nbt_attack.glb",
-    "path": "t8-native",
-    "action": "219 Right-hand Sword Slash (T8)"
+    "path": "55_clip_graft -> 54_weapon_channel",
+    "action": "219 Right-hand Sword Slash (T8)",
+    "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+    "window": [
+     0.0333,
+     1.5333
+    ],
+    "edits": [
+     "trim",
+     "recentre",
+     "reground"
+    ],
+    "note": "T12_11: re-cut on the source's own 30 fps keys (it was the D2 merge's 24 fps resample, 8.914 deg from its own file through Godot's import bake); weapon_r's edge-leading channel re-solved on it (61_strike_ramp.py)"
    },
    "idle_guard": {
     "source": null,
@@ -1283,34 +1294,40 @@
    "seconds": 0.6667,
    "keys": 21,
    "intervals": 20,
-   "speed_m_s": 3.2749,
+   "speed_m_s": 3.5451,
    "source_cycle_travel_m": 3.1626,
    "source_root_speed_m_s": 4.744,
-   "note": "one gait cycle (source frames 14..34 of the t2m run), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed. The source's root covers its cycle at a higher speed than its planted feet allow -- the text-to-motion feet skate -- so the two are stated apart. The scene plays only its upper body (the speed split) and drives the unarmed run's speed"
+   "note": "one gait cycle (source frames 14..34 of the t2m run), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed (the scene's rule, T12_11). The source's root covers its cycle at a higher speed than its planted feet allow -- the text-to-motion feet skate -- so the two are stated apart. The scene plays only its upper body (the speed split) and drives the unarmed run's speed",
+   "speed_m_s_at_keys": 3.4738,
+   "speed_m_s_s6_superseded": 3.2749
   },
   "strafe_L_armed": {
    "seconds": 1.5,
    "keys": 46,
    "intervals": 45,
-   "speed_m_s": 0.7237,
-   "note": "source frames 5..50 of the t2m strafe (left), its seam blended (offset, 10 intervals); speed_m_s is the FOOT-LOCK speed on the clip's own keys"
+   "speed_m_s": 0.6976,
+   "note": "source frames 5..50 of the t2m strafe (left), its seam blended (offset, 10 intervals); speed_m_s is the FOOT-LOCK speed (the scene's rule at the scene's 60 Hz tick, T12_11)",
+   "speed_m_s_at_keys": 0.6925,
+   "speed_m_s_s6_superseded": 0.7237
   },
   "strafe_R_armed": {
    "seconds": 1.9,
    "keys": 58,
    "intervals": 57,
-   "speed_m_s": 0.31,
-   "note": "source frames 1..58 of the t2m strafe (right), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed on the clip's own keys"
+   "speed_m_s": 0.2896,
+   "note": "source frames 1..58 of the t2m strafe (right), its seam blended (offset, 4 intervals); speed_m_s is the FOOT-LOCK speed (the scene's rule at the scene's 60 Hz tick, T12_11)",
+   "speed_m_s_at_keys": 0.296,
+   "speed_m_s_s6_superseded": 0.31
   },
   "walk_armed": {
    "seconds": 1.7333,
    "keys": 53,
    "intervals": 52,
    "speed_m_s": null,
-   "note": "in place at source (Meshy 21 Walk Fight Forward on the body rig, T12_8); the scene plays its upper body over the unarmed walk and drives the walk's speed"
+   "note": "in place at source (Meshy 21 Walk Fight Forward on the body rig, T12_8); the scene plays its upper body over the unarmed walk and drives the walk's speed (its stance foot moves at 0.7588 m/s by the scene's rule -- not driven, recorded)"
   },
   "asymmetry_warning": "the strafes are not mirrors and not the same speed (strafe_R stands still for part of its loop)",
-  "speed_method": "FOOT-LOCK (nb_d2/scripts/57_footlock.py; so_d7 s6_footlock's definition): on the clip's own keys, the foot joints' bottom 25% of their height range is contact, and the median backward velocity of a planted foot is the ground speed that pins it. It replaces the NET and STEPPING pair (coordinator ruling 2026-09-30); knight.gd reads speed_m_s."
+  "speed_method": "FOOT-LOCK, THE SCENE'S RULE (T12_11; nb_d2/scripts/57_footlock.py after so_d7/scripts/s18_footlock_contact.py): the stance side is the lower TOE, within 3 cm of that toe's lowest; the speed is that side's FOOT joint's backward velocity along the travel; the median over the stance samples, both sides pooled, sampled at the scene's physics tick (60 Hz) -- the rate the scene's own instrument samples, and the one that agrees with it (his strafes measured in the scene, same rule, 60 Hz: 0.700 / 0.285 m/s; this file 0.6976 / 0.2896). speed_m_s_at_keys: the same rule at the clip's own keys. SUPERSEDED (T12_10): s6_footlock's rule -- a foot planted whenever its ANKLE is in the bottom 25% of its height range, which takes in a run's landing and lift-off and moves with the sampling (speed_m_s_s6_superseded). knight.gd reads speed_m_s."
  },
  "run_armed_trim": {
   "numbers_live_in": "locomotion_in_place.run_armed -- duration, keys, cycle travel and speed. THIS BLOCK STATES NO NUMBERS ON PURPOSE.",
@@ -1463,5 +1480,6 @@
   "lint": "21_lint_export.py now FAILs a clip whose root never comes within 0.25 m of its rest position. On the unpatched file it fails exactly these three; after the patch, none, and the WARN set is identical before and after (13 = 13).",
   "upstream": "45_deroot_trim.py should anchor at the rest position rather than at FIT[0], or a re-run will put the offset back. Not changed here: 49 runs after it and the lint now guards it."
  },
- "_state_T12_10": "This manifest travels with nb_d2/export_staging/T12_10_strafes/nb-body.glb. Blocks that record a PROCESS (clip_hygiene, clip_hygiene_on_merge, grounding_fix, root_offset_fix, deroot, run_armed_trim, retargeter) describe the D2 export as it was made; since then T12_8 re-grafted walk_armed, idle_armed, block, shield_bash and chop_overhead_92 from body-rig sources, T12_9 re-cut idle, walk and run, and T12_10 re-timed and seam-blended run_armed and the strafes. Current provenance: clip_sources (and the registry it names); current timing and speeds: locomotion_in_place."
+ "_state_T12_10": "This manifest travels with nb_d2/export_staging/T12_10_strafes/nb-body.glb. Blocks that record a PROCESS (clip_hygiene, clip_hygiene_on_merge, grounding_fix, root_offset_fix, deroot, run_armed_trim, retargeter) describe the D2 export as it was made; since then T12_8 re-grafted walk_armed, idle_armed, block, shield_bash and chop_overhead_92 from body-rig sources, T12_9 re-cut idle, walk and run, and T12_10 re-timed and seam-blended run_armed and the strafes. Current provenance: clip_sources (and the registry it names); current timing and speeds: locomotion_in_place.",
+ "_state_T12_11": "This manifest travels with nb_d2/export_staging/T12_11_trails/nb-body.glb: T12_10's body with ONE clip changed -- attack, re-cut on nbt_attack.glb's own 30 fps keys with its weapon_r channel re-solved (every other clip byte-identical) -- and the locomotion speeds re-derived by the scene's foot-lock rule (locomotion_in_place: run_armed, strafe_L_armed, strafe_R_armed; the seam blends re-checked under it and kept)."
 }

@@ -24872,6 +24872,13 @@
       "result": "Patch reviewed (additive blocks only; project.godot gains [shader_globals], [display] untouched), applied cleanly. No query -> lane B; ?meteor=b names it; ?meteor=placeholder falls back. Fences all pass incl. lane B's three + two new (no query reads meteor=3d(lane_b); placeholder gives both releases with the Fire Ball still baked); the default spells check wants only the Fire Ball's release (lane B reads its own). Packs sorceress 33.5 MB, index 31.8 MB. Chrome at phone size: builds 12.9 s, '[meteor_b] armed', no errors, label METEOR EFFECT: 3D (LANE B). COLD-FRAME HUNT: the 450-520 ms first-strike frame is not inside Godot's frame work (physics/process/draw ~1.3/0.1/1.7 ms); the time is lost between frames on the browser/GPU side; not the snow puffs (484 ms with them off); a Chrome trace of the same run did not show it (possibly intermittent); next a GPU-side first use near the strike's end (1.8-2.2 s after input), reported before any change.",
       "conductor": "Pushed (collab). The loadout batch (9ade74c on origin with its deploy refused at 13:47Z 'retry in 24 hours'; 3772e23 and 980c336 local) deploys in one push when Vercel's window reopens or Matt upgrades.",
       "ts": "2026-09-30T10:34:01"
+    },
+    {
+      "id": "M-C9-T12-11-INSTALLED",
+      "topic": "T12_11 INSTALLED into cliffside3d on Matt's word ('agreed on installing the strike trails'), run by the conductor",
+      "result": "install.sh: disk 29 GiB; pre-state FOUND E (T12_10), 10 of 10; staged sources ok; ten files installed and md5-verified (knight 86141f65, character ca2ce1ca, gear_manifest 0a81b2af, nb-body 3e32a9fc, six pieces unchanged); nb-body.glb.import edited fb0e47c5 -> 9002fe85 (the animation optimizer off); re-import 0 script errors; the cliffside 3D app rebuilt clean (485 MB); the Barrow app rebuilt clean (splat=ok tiles=5 instances=657, foot_lock nodes=0); the strikes filmed in the installed painted Barrow at play speed (attack fix/barrow_strikes_installed_t12_11_{slash,chop,bash}.mp4).",
+      "conductor": "The strike trails (two-tone, reading on snow), the slash re-cut with the held release, 0.16 s recovery eases, the optimizer off and foot-lock by the scene's rule are in both desktop apps. The phone pages pick them up in the batch after R-C9-91's Vercel pause.",
+      "ts": "2026-09-30T11:33:45"
     }
   ],
   "halts": [
