@@ -162,6 +162,11 @@ func _ready() -> void:
 		_dress_painted()
 		set_crucible_visible(false)
 	_build_hud()
+	if painted and (PaintStack.is_web() or DisplayServer.is_touchscreen_available()):
+		# THE THUMB STICK AND THE FOUR STRIKES (the installed Barrow's barrow_touch.gd), through the
+		# input actions knight.gd reads. AFTER the HUD: the controls hide the keyboard's hint bar
+		# when they show, and the first phone page drew it under them -- added before it existed
+		add_child(load("res://scripts/barrow_touch.gd").new())
 	_check_key_collisions()
 	_apply_stack()
 	clamp_on = bool(layout.get("camera_clamp_default", false))
@@ -179,6 +184,17 @@ func _ready() -> void:
 		# AND WHAT IT WORE: the launch probe greps this line. Every texture is read off its raw
 		# bytes from the pck and its sha256 checked against the manifest by the running scene.
 		print("[barrow_painted] " + _paint_launch_line())
+		if PaintStack.is_web():
+			# THE PHONE PAGE'S OWN LINE: tools/build_web_painted.sh's launch fence and the browser
+			# test read it -- what it loaded, what it built, and what the web path did
+			var cl: Dictionary = paint.get("compat_light", {})
+			var pt: Dictionary = paint.get("loads", {}).get("painting.webp.bin", paint.get("loads", {}).get("painting.bin", {}))
+			print("[barrow_painted] web: %s | painting_px=%s pen=%s ambient_moved=%s painted_no_ambient=%s colour=%s msaa=%d scale3d=%.2f" % [
+				_paint_launch_line(), str(pt.get("px", "?")),
+				"depth-only+stencil" if PaintStack.is_compatibility() else "full",
+				str(cl.get("ramp_materials_set", "-")), str(cl.get("painted_no_ambient_by_design", "-")),
+				JSON.stringify(paint.get("compat_color", {})), int(get_viewport().msaa_3d),
+				get_viewport().scaling_3d_scale])
 	get_viewport().size_changed.connect(_sync_post_scale)
 	if "--frame-cost" in OS.get_cmdline_user_args():
 		_frame_cost_mode()
@@ -282,8 +298,8 @@ func _sync_post_scale() -> void:
 	px: two weights, set by the monitor. With it, the span covers the same metres at any
 	resolution, the thresholds (in metres) mean the same thing, and the line keeps its weight."""
 	if post_mat != null and cam != null:
-		post_mat.set_shader_parameter("m_per_px", cam.size / maxf(float(_view_height()), 1.0))
-		post_mat.set_shader_parameter("line_px", LINE_PX * _render_scale())
+		PaintStack.post_set(post_mat, "m_per_px", cam.size / maxf(float(_view_height()), 1.0))
+		PaintStack.post_set(post_mat, "line_px", LINE_PX * _render_scale())
 
 
 func _render_scale() -> float:
@@ -1367,8 +1383,10 @@ func _camera_aim() -> Vector3:
 
 # --- the one pen --------------------------------------------------------------------------
 func _build_post() -> void:
+	# THE WEB PEN'S THRESHOLD, 3 -> 6 px of depth break (the installed Barrow's, measured there: the
+	# depth-only pen has no snow mark, and the snow's cut edges drew as outlines at 3)
 	post_mat = PaintStack.post_material(paper, PaintStack.INK, {
-		"line_px": LINE_PX, "depth_edge_px": 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
+		"line_px": LINE_PX, "depth_edge_px": 6.0 if PaintStack.is_compatibility() else 3.0, "normal_edge": 1.05, "normal_weight": 0.30,
 		"ink_gain": 1.15, "ref_m_per_px": PLAY_M_PER_PX,
 		"grade_on": 0.0,
 	})
@@ -1387,8 +1405,8 @@ func _apply_stack() -> void:
 	for m in world_mats:
 		m.set_shader_parameter("ramp_mix", 1.0 if stack_on else 0.0)
 	PaintStack.set_character_ramp(_char_saved, stack_on)
-	post_mat.set_shader_parameter("ink_on", 1.0 if (stack_on and ink_on) else 0.0)
-	post_mat.set_shader_parameter("grade_on", 0.0)
+	PaintStack.post_set(post_mat, "ink_on", 1.0 if (stack_on and ink_on) else 0.0)
+	PaintStack.post_set(post_mat, "grade_on", 0.0)
 	if post_q != null:
 		post_q.visible = stack_on and ink_on
 	_update_hud()
@@ -1889,6 +1907,7 @@ func _view_check_mode() -> void:
 #  THE PAINTED BARROW (T10-2 step 4): the blockout above, dressed in the painting
 # =============================================================================
 const HEATHER_SNOW_FRAC := 0.2      # the installed Barrow's: a clump's snow capped at 20% of its height
+const WEB_SHADOW_NORMAL_BIAS := 1.0  # the installed Barrow's (barrow_world, swept on Compatibility)
 
 
 func _dress_painted() -> void:
@@ -1951,7 +1970,11 @@ func _dress_painted() -> void:
 	for ink in _prop_inks:
 		(ink as MeshInstance3D).visible = false
 		n["inks_hidden"] += 1
-	# THE TWO SUNS (PaintedWorld's header; tools/probe_paint_light.gd)
+	# THE TWO SUNS (PaintedWorld's header; tools/probe_paint_light.gd -- and on the phone's renderer
+	# too: work/probe/probe_paint_light_compat.json, Compatibility on ANGLE/Metal, the same answer)
+	if PaintStack.is_compatibility():
+		# the installed Barrow's measured web bias: Compatibility's shadow lookup acnes at 0.15
+		sun.shadow_normal_bias = WEB_SHADOW_NORMAL_BIAS
 	var paint_layers := PaintedWorld.LAYER_PAINTED | PaintedWorld.LAYER_ON_PAINT
 	var dyn := PaintedWorld.ALL_LAYERS & ~paint_layers
 	sun.light_cull_mask = dyn
@@ -1975,7 +1998,7 @@ func _dress_painted() -> void:
 	paint_sun.directional_shadow_max_distance = CAM_STANDOFF + 8.0
 	paint_sun.shadow_blur = 0.6
 	# THE PEN: off the painted pieces (their mark), on everything else as installed
-	post_mat.set_shader_parameter("painted_exclude", 1.0)
+	PaintStack.post_set(post_mat, "painted_exclude", 1.0)
 	_build_painted_heather(man, lit, shadow_mul)
 	_build_painted_snow(man, ground_tex, lit, shadow_mul)
 	var flake := PaintStack.make_flake_texture()
@@ -1995,6 +2018,41 @@ func _dress_painted() -> void:
 	paint["shadow_mul_linear"] = sm
 	paint["suns"] = {"sun": {"cull": sun.light_cull_mask, "casters": sun.shadow_caster_mask},
 					 "paint_sun": {"cull": paint_sun.light_cull_mask, "casters": paint_sun.shadow_caster_mask}}
+	if PaintStack.is_compatibility():
+		# THE INSTALLED BARROW'S WEB PATH, unchanged in kind (barrow_world, R-C9-83): one pen on him
+		# -- the depth-only web pen draws him, so his hull is hidden rather than doubled -- the ambient
+		# moved into the sun's pass (Compatibility sums a shadowed light's pass after sRGB-encoding
+		# each; the painted surfaces take no ambient at all), and the albedo maths' colour space
+		for e in _char_saved.get("inks", []):
+			var hm = e.get("mi")
+			if hm is Node3D and is_instance_valid(hm):
+				(hm as Node3D).visible = false
+		var cl := PaintStack.move_ambient_into_light(self, env_node.environment)
+		# the painted surfaces are "lit without the ramp" BY DESIGN: ambient_light_disabled, the
+		# painting is their light -- counted apart, so a real omission would still show
+		var painted_n := 0
+		var other := []
+		for w in cl.get("lit_without_ramp", []):
+			if String(w).contains("ShaderMaterial"):
+				painted_n += 1
+			else:
+				other.append(w)
+		cl["lit_without_ramp"] = other
+		cl["painted_no_ambient_by_design"] = painted_n
+		paint["compat_light"] = cl
+		paint["compat_color"] = PaintStack.web_color_space(self)
+	if PaintStack.is_web():
+		# THE PHONE'S TUNING LEVERS, off the page URL, as the installed Barrow's: ?msaa=0|2|4|8 and
+		# ?scale3d=0.25..1.0 (the 3D drawn smaller and scaled up; the thumb controls stay sharp)
+		var qm := PaintStack.web_query("msaa")
+		if qm != "":
+			var msaa_by := {"0": Viewport.MSAA_DISABLED, "2": Viewport.MSAA_2X, "4": Viewport.MSAA_4X,
+				"8": Viewport.MSAA_8X}
+			get_viewport().msaa_3d = msaa_by.get(qm, get_viewport().msaa_3d)
+		var qs := PaintStack.web_query("scale3d")
+		if qs != "" and qs.is_valid_float():
+			get_viewport().scaling_3d_scale = clampf(float(qs), 0.25, 1.0)
+		paint["web_levers"] = {"msaa_3d": get_viewport().msaa_3d, "scaling_3d_scale": get_viewport().scaling_3d_scale}
 	paint["ms"] = Time.get_ticks_msec() - t0
 	report["painted"] = paint
 
@@ -2015,7 +2073,7 @@ func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3
 	the painting's tufts), as BarrowHeather's generated sprays in six MultiMeshes -- one per
 	variant, variant and +-15% height by index as the installed Barrow picks them. Each carries
 	the painting beneath it as its colour (INSTANCE_CUSTOM)."""
-	var hj = JSON.parse_string(FileAccess.get_file_as_string(PaintedWorld.DATA + String(man["heather"]["file"])))
+	var hj = JSON.parse_string(FileAccess.get_file_as_string(PaintedWorld.data_dir() + String(man["heather"]["file"])))
 	var rows: Array = hj["rows"] if typeof(hj) == TYPE_DICTIONARY else []
 	var am: Array = man["heather"]["albedo_mul"]
 	heather_mat = PaintedWorld.heather_material(fbm, Vector3(float(am[0]), float(am[1]), float(am[2])),
@@ -2034,6 +2092,11 @@ func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D
 		mm.use_custom_data = true
+		# INSTANCE COLOURS ON, EVERY ONE WHITE. The phone's renderer reads a MultiMesh's vertex COLOR as
+		# BLACK when it has no instance colours (tools/probe_mm_custom.gd: Compatibility 0/0/0 where
+		# Forward+ reads the vertex's own; with white instance colours both read the vertex's) -- and
+		# a spray's whole colour, stem to sprig, is in its vertices: every spray drew black on the web
+		mm.use_colors = true
 		mm.mesh = mesh
 		mm.instance_count = (by_var[v] as Array).size()
 		for k in (by_var[v] as Array).size():
@@ -2043,6 +2106,7 @@ func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3
 			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
 			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), -0.01, float(r[1]))))
 			mm.set_instance_custom_data(k, Color(float(r[4]), float(r[5]), float(r[6]), 1.0))
+			mm.set_instance_color(k, Color(1, 1, 1, 1))
 			thin.append({"c": Vector2(float(r[0]), float(r[1])), "r": maxf(ab.size.x, ab.size.z) * hh * 0.5 * 0.8,
 						 "feather": 0.18, "max_d": hh * HEATHER_SNOW_FRAC})
 		var mmi := MultiMeshInstance3D.new()

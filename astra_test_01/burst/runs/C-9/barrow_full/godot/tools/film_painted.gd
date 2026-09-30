@@ -46,8 +46,10 @@ func _initialize() -> void:
 func _lit_at(uv: Vector2) -> float:
 	var lit: Texture2D = scene._paint_tex.get("lit")
 	var img := lit.get_image()
-	var x := (uv.x - PaintedWorld.U0) * PaintedWorld.PPM * 0.5
-	var y := (PaintedWorld.V1 - uv.y) * PaintedWorld.PPM * sin(deg_to_rad(PaintedWorld.PITCH_DEG)) * 0.5
+	# THE MAP'S OWN SCALE: half the guide on the desktop, a quarter on the phone page's data
+	var k := float(img.get_width()) / PaintedWorld.GUIDE_PX.x
+	var x := (uv.x - PaintedWorld.U0) * PaintedWorld.PPM * k
+	var y := (PaintedWorld.V1 - uv.y) * PaintedWorld.PPM * sin(deg_to_rad(PaintedWorld.PITCH_DEG)) * k
 	if x < 0 or y < 0 or x >= img.get_width() or y >= img.get_height():
 		return -1.0
 	return img.get_pixel(int(x), int(y)).r

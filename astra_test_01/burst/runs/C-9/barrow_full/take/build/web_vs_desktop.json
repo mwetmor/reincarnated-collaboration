@@ -1,0 +1,1047 @@
+{
+ "_what": "C-9 T10-2: the painted Barrow's phone page (/playtest/barrow-painted/), measured against the desktop",
+ "probes": {
+  "probe_paint_light_compat.json": {
+   "adapter": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Version 15.6.1 (Build 24G90))",
+   "godot": "4.6.3-stable (official)",
+   "light3d_has_shadow_caster_mask": true,
+   "light_layers": {
+    "A_red": "lights layer 1 (him), casters 1|2",
+    "B_green": "lights layer 2 (painted), casters 1 only",
+    "probes": {
+     "dynamic_open": {
+      "px": [
+       480,
+       47
+      ],
+      "rgb_linear": [
+       0.733,
+       0.0,
+       0.0
+      ]
+     },
+     "dynamic_under_HIM_shadow": {
+      "px": [
+       560,
+       159
+      ],
+      "rgb_linear": [
+       0.427,
+       0.0,
+       0.0
+      ]
+     },
+     "dynamic_under_STATIC_shadow": {
+      "px": [
+       400,
+       159
+      ],
+      "rgb_linear": [
+       0.427,
+       0.0,
+       0.0
+      ]
+     },
+     "him_block_top": {
+      "px": [
+       480,
+       239
+      ],
+      "rgb_linear": [
+       0.702,
+       0.0,
+       0.0
+      ]
+     },
+     "painted_open": {
+      "px": [
+       160,
+       249
+      ],
+      "rgb_linear": [
+       0.0,
+       0.733,
+       0.0
+      ]
+     },
+     "painted_under_HIM_shadow": {
+      "px": [
+       240,
+       159
+      ],
+      "rgb_linear": [
+       0.0,
+       0.427,
+       0.0
+      ]
+     },
+     "painted_under_STATIC_shadow": {
+      "px": [
+       80,
+       159
+      ],
+      "rgb_linear": [
+       0.0,
+       0.733,
+       0.0
+      ]
+     }
+    },
+    "receiver_writes": "per light (LIGHT_COLOR/PI) * ATTENUATION * 0.5: an unshadowed light = 0.5 in its channel"
+   },
+   "rendering_method": "gl_compatibility"
+  },
+  "probe_mm_compat.json": {
+   "lit_custom_rgb_at_quads": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "rendering_method": "gl_compatibility",
+   "unshaded_custom_rgb_at_quads": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "unshaded_vertex_color_1_0.5_0.25_at_quads": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "with_white_instance_colours_vertex_color_at_quads": [
+    [
+     1.0,
+     0.5,
+     0.25
+    ],
+    [
+     1.0,
+     0.5,
+     0.25
+    ],
+    [
+     1.0,
+     0.5,
+     0.25
+    ]
+   ]
+  },
+  "probe_mm_fwd.json": {
+   "lit_custom_rgb_at_quads": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "rendering_method": "forward_plus",
+   "unshaded_custom_rgb_at_quads": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "unshaded_vertex_color_1_0.5_0.25_at_quads": [
+    [
+     1.0,
+     0.73,
+     0.53
+    ],
+    [
+     1.0,
+     0.73,
+     0.53
+    ],
+    [
+     1.0,
+     0.73,
+     0.53
+    ]
+   ],
+   "with_white_instance_colours_vertex_color_at_quads": [
+    [
+     1.0,
+     0.73,
+     0.53
+    ],
+    [
+     1.0,
+     0.73,
+     0.53
+    ],
+    [
+     1.0,
+     0.73,
+     0.53
+    ]
+   ]
+  }
+ },
+ "same_frames_web_minus_desktop": {
+  "him_in_shadow": {
+   "mean_abs_0_255": 3.53,
+   "mean_signed_rgb": [
+    -0.68,
+    -0.84,
+    -1.29
+   ]
+  },
+  "him_in_sun": {
+   "mean_abs_0_255": 3.17,
+   "mean_signed_rgb": [
+    -0.6,
+    -0.72,
+    -1.13
+   ]
+  },
+  "still_door": {
+   "mean_abs_0_255": 2.85,
+   "mean_signed_rgb": [
+    -0.36,
+    -0.46,
+    -0.7
+   ]
+  },
+  "still_open_sun": {
+   "mean_abs_0_255": 1.72,
+   "mean_signed_rgb": [
+    0.0,
+    -0.06,
+    -0.07
+   ]
+  },
+  "still_ring_shadow": {
+   "mean_abs_0_255": 3.77,
+   "mean_signed_rgb": [
+    -0.58,
+    -0.69,
+    -1.13
+   ]
+  },
+  "still_tarn_path": {
+   "mean_abs_0_255": 2.19,
+   "mean_signed_rgb": [
+    -0.33,
+    -0.16,
+    -0.16
+   ]
+  }
+ },
+ "meeting_rules": {
+  "b_him_in_a_painted_shadow_over_in_sun_linear": {
+   "desktop": [
+    0.766,
+    0.72,
+    0.724
+   ],
+   "web": [
+    0.767,
+    0.726,
+    0.733
+   ]
+  },
+  "a_his_shadow_core_on_the_painting_linear": {
+   "painters_own": [
+    0.4188,
+    0.5479,
+    0.8918
+   ],
+   "desktop_G": {
+    "px_darkened_over_5pct": 7164,
+    "core_ratio_linear": [
+     0.461,
+     0.58,
+     0.9
+    ]
+   },
+   "web_G": {
+    "px_darkened_over_5pct": 7468,
+    "core_ratio_linear": [
+     0.475,
+     0.592,
+     0.902
+    ]
+   }
+  },
+  "c_no_static_shadow_on_the_painting": {
+   "compatibility_probe_painted_receiver": {
+    "dynamic_open": {
+     "px": [
+      480,
+      47
+     ],
+     "rgb_linear": [
+      0.733,
+      0.0,
+      0.0
+     ]
+    },
+    "dynamic_under_HIM_shadow": {
+     "px": [
+      560,
+      159
+     ],
+     "rgb_linear": [
+      0.427,
+      0.0,
+      0.0
+     ]
+    },
+    "dynamic_under_STATIC_shadow": {
+     "px": [
+      400,
+      159
+     ],
+     "rgb_linear": [
+      0.427,
+      0.0,
+      0.0
+     ]
+    },
+    "him_block_top": {
+     "px": [
+      480,
+      239
+     ],
+     "rgb_linear": [
+      0.702,
+      0.0,
+      0.0
+     ]
+    },
+    "painted_open": {
+     "px": [
+      160,
+      249
+     ],
+     "rgb_linear": [
+      0.0,
+      0.733,
+      0.0
+     ]
+    },
+    "painted_under_HIM_shadow": {
+     "px": [
+      240,
+      159
+     ],
+     "rgb_linear": [
+      0.0,
+      0.427,
+      0.0
+     ]
+    },
+    "painted_under_STATIC_shadow": {
+     "px": [
+      80,
+      159
+     ],
+     "rgb_linear": [
+      0.0,
+      0.733,
+      0.0
+     ]
+    }
+   },
+   "_read": "painted_under_STATIC_shadow reads as painted_open (the static caster leaves it untouched); painted_under_HIM_shadow darkens"
+  },
+  "trail_polish": {
+   "desktop": {
+    "trail_px": 51305,
+    "first_version": {
+     "mean_signed_rgb": [
+      -14.66,
+      -10.91,
+      -7.31
+     ],
+     "mean_abs": 16.72
+    },
+    "polish": {
+     "mean_signed_rgb": [
+      -5.58,
+      -3.5,
+      1.09
+     ],
+     "mean_abs": 8.28
+    }
+   },
+   "web": {
+    "trail_px": 48785,
+    "first_version": {
+     "mean_signed_rgb": [
+      -11.19,
+      -8.36,
+      -4.99
+     ],
+     "mean_abs": 10.98
+    },
+    "polish": {
+     "mean_signed_rgb": [
+      -2.75,
+      -1.59,
+      1.06
+     ],
+     "mean_abs": 5.56
+    }
+   }
+  }
+ },
+ "page": {
+  "first_download_bytes_brotli": 36079045,
+  "files": {
+   "index.html": 2566,
+   "index.png": 21443,
+   "index.js": 80619,
+   "index.wasm": 8502665,
+   "index.pck": 27462612,
+   "index.icon.png": 5702,
+   "index.audio.position.worklet.js": 1171,
+   "index.audio.worklet.js": 2267
+  },
+  "_instrument": "tools/web_br_server.js (brotli q4 on .wasm/.pck/.js/.html, as Vercel measured) serving the staged page; tools/web_painted_test.js: Chrome, its GPU (ANGLE on Metal, Apple M2 -- NOT a phone), 844 x 390 CSS px at devicePixelRatio 3, touch, the network throttled through CDP to 40 Mbit/s and 20 ms, the cache off; fps from the scene's own [fps] line every 2 s. The test takes a full-canvas screenshot in each phase, and the single low samples fall on those moments",
+  "runs_at_40_mbit": {
+   "w40": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3777,
+     "index.pck_arrived": 7631,
+     "engine_first_line": 7700,
+     "barrow_built": 11955,
+     "overlay_gone": 16084
+    },
+    "fps_samples": [
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      57
+     ],
+     [
+      "standing",
+      55
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      52
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      56
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      52
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      37
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      43
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   },
+   "w40a": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3769,
+     "index.pck_arrived": 7626,
+     "engine_first_line": 7693,
+     "barrow_built": 11985,
+     "overlay_gone": 12736
+    },
+    "fps_samples": [
+     [
+      "standing",
+      52
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      35
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      60
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   },
+   "w40b": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3522,
+     "index.pck_arrived": 7303,
+     "engine_first_line": 7359,
+     "barrow_built": 11605,
+     "overlay_gone": 12329
+    },
+    "fps_samples": [
+     [
+      "standing",
+      58
+     ],
+     [
+      "standing",
+      59
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      31
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      60
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   },
+   "w40c": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3777,
+     "index.pck_arrived": 7626,
+     "engine_first_line": 7691,
+     "barrow_built": 11945,
+     "overlay_gone": 13253
+    },
+    "fps_samples": [
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      57
+     ],
+     [
+      "standing",
+      45
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      39
+     ],
+     [
+      "striking",
+      49
+     ],
+     [
+      "striking",
+      51
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      36
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   },
+   "w40d": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3536,
+     "index.pck_arrived": 7309,
+     "engine_first_line": 7374,
+     "barrow_built": 11687,
+     "overlay_gone": 12480
+    },
+    "fps_samples": [
+     [
+      "standing",
+      49
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      57
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      35
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      42
+     ],
+     [
+      "striking",
+      45
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      36
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   },
+   "w40e": {
+    "in_page_ms_from_navigation": {
+     "index.wasm_arrived": 3809,
+     "index.pck_arrived": 7678,
+     "engine_first_line": 7744,
+     "barrow_built": 12145,
+     "overlay_gone": 12969
+    },
+    "fps_samples": [
+     [
+      "standing",
+      40
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "standing",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      44
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "walking",
+      60
+     ],
+     [
+      "striking",
+      47
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      36
+     ],
+     [
+      "striking",
+      35
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "striking",
+      60
+     ],
+     [
+      "after",
+      51
+     ]
+    ],
+    "errors": 0,
+    "gear_tap_changed_clip_set": true,
+    "webgl_renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "canvas_px": [
+     2532,
+     1170
+    ]
+   }
+  }
+ },
+ "phone_data": {
+  "_what": "C-9 T10-2: the painted Barrow's phone data (tools/paint_world_prep.py --web), and what the downsizing cost",
+  "from": "godot/data/painted/manifest.json",
+  "painting": {
+   "px": [
+    4096,
+    2536
+   ],
+   "scale": 0.7619,
+   "bytes": 3754858,
+   "desktop_png_bytes": 33323121,
+   "webp_q": 90,
+   "webp_vs_lossless_same_size_mean_abs": 2.868
+  },
+  "bakes": {
+   "count": 25,
+   "px": 512,
+   "bytes": 1121792
+  },
+  "total_bytes": 6898356
+ }
+}

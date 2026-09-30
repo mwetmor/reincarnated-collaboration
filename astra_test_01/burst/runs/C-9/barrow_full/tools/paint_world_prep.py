@@ -396,5 +396,71 @@ def main():
     print(json.dumps({k: rep[k] for k in ("tufts_self_test", "shadow", "inpaint", "heather", "snow")}, indent=1)[:4000])
 
 
+WEB = os.path.join(BF, "godot", "data", "painted_web")
+WEB_MAX_PX = 4096          # WebGL2's safe texture size: every phone GPU the page may meet takes it
+WEB_BAKE_PX = 512          # a baked piece stands 40-110 px tall on a phone's 3D frame
+WEB_LIT_SCALE = 4          # the light map is smooth: a quarter of the guide (1344 x 832)
+WEB_WEBP_Q = 90
+
+
+def web():
+    """THE PHONE PAGE'S DATA, from the desktop's (run main() first): the painting within 4096 px and
+    the bakes at 512, both lossy WebP at q90; the light map at a quarter; the snow grid and the
+    heather as they are. Each file's sha256 in painted_web/manifest.json, and what the downsizing
+    cost, measured, in take/build/painted_web_prep.json."""
+    os.makedirs(os.path.join(WEB, "bakes"), exist_ok=True)
+    man = json.load(open(os.path.join(OUT, "manifest.json")))
+    rep = {"_what": "C-9 T10-2: the painted Barrow's phone data (tools/paint_world_prep.py --web), and what the downsizing cost",
+           "from": "godot/data/painted/manifest.json"}
+    P = Image.open(os.path.join(OUT, man["painting"]["file"])).convert("RGB")
+    k = WEB_MAX_PX / float(max(P.size))
+    wsz = (int(round(P.size[0] * k)), int(round(P.size[1] * k)))
+    Pw = P.resize(wsz, Image.LANCZOS)
+    pp = os.path.join(WEB, "painting.bin")
+    Pw.save(pp, format="WEBP", quality=WEB_WEBP_Q, method=6)
+    # THE COST, measured: the phone painting decoded and set against the desktop painting brought
+    # to the same size (the downsizing alone is the resampling; the WebP is the rest)
+    dec = np.asarray(Image.open(pp).convert("RGB")).astype(np.float64)
+    ref = np.asarray(Pw).astype(np.float64)
+    rep["painting"] = {"px": list(wsz), "scale": round(k, 4), "bytes": os.path.getsize(pp),
+                       "desktop_png_bytes": os.path.getsize(os.path.join(OUT, man["painting"]["file"])),
+                       "webp_q": WEB_WEBP_Q, "webp_vs_lossless_same_size_mean_abs": round(float(np.abs(dec - ref).mean()), 3)}
+    wm = {"_what": man["_what"] + " -- THE PHONE PAGE'S (tools/paint_world_prep.py --web)", "bakes": {}}
+    wm["painting"] = {"file": "painting.bin", "sha256": sha_file(pp), "px": list(wsz),
+                      "_": "the accepted paint-over within %d px, lossy WebP q%d" % (WEB_MAX_PX, WEB_WEBP_Q)}
+    wm["ground_as_painted"] = dict(wm["painting"])
+    L_ = Image.open(os.path.join(OUT, man["lit"]["file"]))
+    lw = (W // WEB_LIT_SCALE, H // WEB_LIT_SCALE)
+    lp = os.path.join(WEB, "lit.bin")
+    L_.resize(lw, Image.BILINEAR).save(lp, format="PNG")
+    wm["lit"] = {"file": "lit.bin", "sha256": sha_file(lp), "px": list(lw), "_": man["lit"]["_"] + " -- a quarter, for the phone"}
+    bsum = 0
+    for pid, b in man["bakes"].items():
+        src = Image.open(os.path.join(OUT, b["file"])).convert("RGB").resize((WEB_BAKE_PX, WEB_BAKE_PX), Image.LANCZOS)
+        dst = os.path.join(WEB, "bakes", "%s.bin" % pid)
+        src.save(dst, format="WEBP", quality=WEB_WEBP_Q, method=6)
+        wm["bakes"][pid] = {"file": "bakes/%s.bin" % pid, "sha256": sha_file(dst)}
+        bsum += os.path.getsize(dst)
+    rep["bakes"] = {"count": len(wm["bakes"]), "px": WEB_BAKE_PX, "bytes": bsum}
+    for f in ("snow_grid.bin", "heather.json"):
+        shutil.copyfile(os.path.join(OUT, f), os.path.join(WEB, f))
+    wm["shadow_mul"] = man["shadow_mul"]
+    wm["heather"] = man["heather"]
+    wm["snow"] = json.loads(json.dumps(man["snow"]))
+    # the phone's field and trail: 512 px each, as the installed Barrow's phone build (its trail at
+    # 512 over 34 m; here 9.2 cm texels over 47 m) -- the bake is GDScript on one wasm thread
+    wm["snow"]["field_px"] = 512
+    wm["snow"]["trail_px"] = 512
+    json.dump(wm, open(os.path.join(WEB, "manifest.json"), "w"), indent=1)
+    tot = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(WEB) for f in fs)
+    rep["total_bytes"] = tot
+    json.dump(rep, open(os.path.join(TAKE, "build", "painted_web_prep.json"), "w"), indent=1)
+    print(json.dumps(rep, indent=1))
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--web" in sys.argv:
+        web()
+    else:
+        main()

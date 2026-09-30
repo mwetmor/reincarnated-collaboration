@@ -17,11 +17,18 @@ extends SceneTree
 const GUIDE := Vector2i(5376, 3328)
 const PLAY := Vector2i(1920, 1080)
 const DT := 1.0 / 60.0
+# ring_m55's cast shadow's centroid, found in the desktop's light map (_shadow_centroid, half the
+# guide): FIXED here, so the desktop and the phone's renderer stand him on the same spot -- the
+# phone's quarter-size map finds it 3 cm away, and 3 px of shifted frame is not a renderer difference
+const RING_M55_SHADOW := Vector2(-6.39, 6.9)
 
 var out_dir := ""
 var do_guide := false
 var do_stills := false
 var do_shadow_test := false
+var do_trail := false
+var quiet := false                  # --quiet: no falling snow, the wind held -- frames that compare
+var no_pen := false                 # --no-pen: the post pass hidden (a diagnostic)
 var variants := ["inpainted", "as_painted"]
 var heather_mul = null
 var vp: SubViewport
@@ -42,12 +49,18 @@ func _initialize() -> void:
 			do_stills = true
 		elif a == "--shadow-test":
 			do_shadow_test = true
+		elif a == "--trail":
+			do_trail = true
+		elif a == "--quiet":
+			quiet = true
+		elif a == "--no-pen":
+			no_pen = true
 		elif a == "--variants":
 			variants = Array(nxt.split(","))
 		elif a == "--heather-mul":
 			var p := nxt.split(",")
 			heather_mul = Vector3(float(p[0]), float(p[1]), float(p[2]))
-	if out_dir == "" or not (do_guide or do_stills or do_shadow_test):
+	if out_dir == "" or not (do_guide or do_stills or do_shadow_test or do_trail):
 		print("[painted] HALT: --out DIR and one of --guide / --stills are required")
 		quit(2)
 		return
@@ -59,7 +72,7 @@ func _initialize() -> void:
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
 	scene = load("res://scenes/barrow_painted.tscn").instantiate()
-	scene.skip_character = not (do_stills or do_shadow_test)
+	scene.skip_character = not (do_stills or do_shadow_test or do_trail)
 	vp.add_child(scene)
 	var waited := 0
 	while not scene.ready_done and waited < 3000:
@@ -78,12 +91,26 @@ func _initialize() -> void:
 	scene.set_hud_visible(false)
 	scene.set_overlay(false)
 	scene.set_crucible_visible(false)
+	for c in scene.get_children():
+		if c is CanvasLayer:
+			(c as CanvasLayer).visible = false      # the thumb controls, when the web branches run
+	if no_pen:
+		scene.post_q.visible = false
+	if quiet:
+		scene.heather_mat.set_shader_parameter("wind_on", 0.0)
+		if scene.snowfall != null:
+			scene.snowfall.visible = false
+			scene.snowfall.emitting = false
+	rep["renderer"] = {"method": RenderingServer.get_current_rendering_method(), "web_branches": PaintStack.is_web(),
+		"adapter": RenderingServer.get_video_adapter_name()}
 	if do_guide:
 		await _guide()
 	if do_stills:
 		await _stills()
 	if do_shadow_test:
 		await _shadow_test()
+	if do_trail:
+		await _trail()
 	var f := FileAccess.open(out_dir.path_join("capture_painted.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(rep, " "))
 	f.close()
@@ -169,7 +196,7 @@ func _stills() -> void:
 	var spots := [
 		# name, where he stands (u, v), facing, what it shows
 		["tarn_path", Vector2(-6.0, -7.5), "W", "the path by the tarn"],
-		["ring_shadow", _shadow_centroid("ring_m55"), "S", "inside ring_m55's painted shadow"],
+		["ring_shadow", RING_M55_SHADOW, "S", "inside ring_m55's painted shadow"],
 		["door", Vector2(0.0, 7.2), "N", "the cutting, the door ahead"],
 		["open_sun", Vector2(1.5, -1.0), "E", "open sunlit snow in the ring: his own shadow on the painting"],
 	]
@@ -223,7 +250,7 @@ func _him_in_shadow() -> Dictionary:
 	"""(b), MEASURED: the same pose, facing the same way, in ring_m55's painted shadow and 1.6 m
 	south of it in the sun -- his own pixels' mean colour, and the ratio."""
 	var k = scene.knight
-	var c := _shadow_centroid("ring_m55")
+	var c := RING_M55_SHADOW
 	var out := {"stone": "ring_m55", "shadow_centroid_uv": [snappedf(c.x, 0.01), snappedf(c.y, 0.01)]}
 	for spot in [["in_shadow", c], ["in_sun", c + Vector2(0.0, -1.6)]]:
 		scene.place_knight(float(spot[1].x), float(spot[1].y), "S")
@@ -274,8 +301,10 @@ func _lit_at(uv: Vector2) -> float:
 	if lit == null:
 		return -1.0
 	var img := lit.get_image()
-	var x := (uv.x - PaintedWorld.U0) * PaintedWorld.PPM * 0.5
-	var y := (PaintedWorld.V1 - uv.y) * PaintedWorld.PPM * sin(deg_to_rad(PaintedWorld.PITCH_DEG)) * 0.5
+	# THE MAP'S OWN SCALE: half the guide on the desktop, a quarter on the phone page's data
+	var k := float(img.get_width()) / PaintedWorld.GUIDE_PX.x
+	var x := (uv.x - PaintedWorld.U0) * PaintedWorld.PPM * k
+	var y := (PaintedWorld.V1 - uv.y) * PaintedWorld.PPM * sin(deg_to_rad(PaintedWorld.PITCH_DEG)) * k
 	if x < 0 or y < 0 or x >= img.get_width() or y >= img.get_height():
 		return -1.0
 	return snappedf(img.get_pixel(int(x), int(y)).r, 0.01)
@@ -329,3 +358,71 @@ func _shadow_test() -> void:
 	_set_his_shadow(true)
 	var hs: Vector2 = scene.cam.unproject_position(k.global_position)
 	rep["shadow_test"] = {"configs": out, "him_screen_px": [hs.x, hs.y], "him_uv": [1.5, -1.0]}
+
+
+func _trail() -> void:
+	"""THE SNOW-TRAIL POLISH, MEASURED. He walks a line over open arena snow; the camera is parked
+	over it; then the SAME trail is shot in both shadings -- the first version (trail_relief_only
+	0) and the polish (1) -- against the same ground shot before he walked, and an id frame marks
+	where the trail is (press red, berm green). Wind still, no falling snow, him hidden for the
+	shots. tools/trail_polish.py measures the frames."""
+	var k = scene.knight
+	var smat: ShaderMaterial = scene.snow.material()
+	scene.heather_mat.set_shader_parameter("wind_on", 0.0)
+	if scene.snowfall != null:
+		scene.snowfall.visible = false
+	var start := Vector2(-1.8, -3.0)
+	var aim: Vector3 = scene.uv_to_world(1.6, -2.2)
+	scene.place_knight(start.x, start.y, "E")
+	for i in 20:
+		k.drive_dir(Vector2.ZERO, false, DT)
+		await physics_frame
+	scene.park_camera(aim, 1.0)
+	k.visible = false
+	await _settle(4)
+	await _shot("trail_untouched")
+	k.visible = true
+	# a walk east, a turn north-east: ~7 m of prints and berms. HIS OWN physics tick is off while
+	# the script drives him (it drives him too -- with no keys held, a zero stick every frame,
+	# which held the first walk to 1.6 m of 7)
+	k.set_physics_process(false)
+	for leg in [[Vector2(3.4, -3.0), 420], [Vector2(4.8, -1.2), 200]]:
+		for i in int(leg[1]):
+			if scene.knight_uv().distance_to(leg[0]) < 0.25:
+				break
+			k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), leg[0]), false, DT)
+			await physics_frame
+	for i in 10:
+		k.drive_dir(Vector2.ZERO, false, DT)
+		await physics_frame
+	k.set_physics_process(true)
+	rep["trail_walk_end_uv"] = [snappedf(scene.knight_uv().x, 0.01), snappedf(scene.knight_uv().y, 0.01)]
+	k.visible = false
+	scene.park_camera(aim, 1.0)
+	for mode in [0.0, 1.0]:
+		smat.set_shader_parameter("trail_relief_only", mode)
+		await _settle(3)
+		await _shot("trail_mode%d" % int(mode))
+	# the id frame: everything black, the trail's press red and berm green
+	var saved := []
+	for mi in scene.find_children("*", "GeometryInstance3D", true, false):
+		var m := (mi as GeometryInstance3D).material_override as ShaderMaterial
+		if m != null and m.shader != null and m.shader.code.contains("uniform bool id_black"):
+			m.set_shader_parameter("id_black", true)
+			saved.append(m)
+	for mmi in scene._heather_mmi:
+		(mmi as Node3D).visible = false
+	smat.set_shader_parameter("trail_id", true)
+	scene.post_q.visible = false
+	await _settle(3)
+	await _shot("trail_id")
+	smat.set_shader_parameter("trail_id", false)
+	smat.set_shader_parameter("trail_relief_only", 1.0)
+	for m in saved:
+		(m as ShaderMaterial).set_shader_parameter("id_black", false)
+	for mmi in scene._heather_mmi:
+		(mmi as Node3D).visible = true
+	scene.post_q.visible = true
+	k.visible = true
+	rep["trail"] = {"walk_uv": [[start.x, start.y], [3.4, -3.0], [4.8, -1.2]], "camera_aim_uv": [1.6, -2.2],
+		"frames": ["trail_untouched", "trail_mode0 (the first version)", "trail_mode1 (the polish)", "trail_id (press R, berm G)"]}

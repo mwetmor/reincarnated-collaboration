@@ -35,6 +35,18 @@ const ALL_LAYERS := (1 << 20) - 1
 const PAINTED_MARK := 0.0            # the pen's mark channel (paint_stack POST_SHADER)
 const DATA := "res://data/painted/"
 const MANIFEST := "res://data/painted/manifest.json"
+# THE PHONE PAGE'S DATA (tools/paint_world_prep.py --web): the same files, sized for a phone -- the
+# painting within 4096 px (WebGL2's safe texture size), the bakes at 512, the light map at a
+# quarter -- read on the web, or on the desktop with -- --as-web (PaintStack.is_web)
+const DATA_WEB := "res://data/painted_web/"
+# THE WEB PEN'S "NO PEN" CLASS FOR THE PAINTING (PaintStack's stencil classes: 0 full pen, 1 thin,
+# 2 snow). Compatibility has no roughness buffer to carry PAINTED_MARK, so a painted piece writes
+# stencil 3 and none of the post pass's three passes reads 3: no ink on it, its colour untouched
+const STENCIL_PAINTED := 3
+
+
+static func data_dir() -> String:
+	return DATA_WEB if PaintStack.is_web() else DATA
 
 const GUIDE_PX := Vector2(5376.0, 3328.0)
 const U0 := -28.715
@@ -125,7 +137,10 @@ static func bind_projection(m: ShaderMaterial, lit: Texture2D, shadow_mul: Vecto
 static func painted_material(tex: Texture2D, project: bool, lit: Texture2D, shadow_mul: Vector3,
 		u_hat: Vector3, v_hat: Vector3) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
-	m.shader = _shader("painted", PAINTED_SHADER)
+	if PaintStack.is_compatibility():
+		m.shader = _shader("painted_compat", PaintStack.stencil_write(PAINTED_SHADER, STENCIL_PAINTED))
+	else:
+		m.shader = _shader("painted", PAINTED_SHADER)
 	m.set_shader_parameter("paint_tex", tex)
 	m.set_shader_parameter("project_uv", project)
 	m.set_shader_parameter("painted_mark", PAINTED_MARK)
@@ -145,36 +160,72 @@ static func snow_shader_code() -> String:
 	"""SnowField.SHADER, four edits, each asserted:
 	  1. no ambient, no fog: the painting is the light (as PAINTED_SHADER);
 	  2. the projection uniforms and the painting;
-	  3. the albedo is the painting at the surface's own guide pixel, with the snow's own PRESS
-	     tint on his trail only (the trodden path is the painting's already);
-	  4. RELIT, NOT LIT: the ramp at the surface's normal NOW over the ramp at its UNDISTURBED
-	     normal -- exactly 1 on untouched snow, so the painting shows as painted; his prints and
-	     berms take the ramp's light and dark where he has moved the surface -- times his shadow."""
+	  3. THE BASE IS THE PAINTING BENEATH: the painting at the UNDISTURBED surface over this point
+	     -- his trail moves the snow, not the paint, so the painter's dabs stay where he put them
+	     and the base stays the painting's warm white (the ruling's clause 4, as for the heather);
+	  4. THE RAMP ADDS ONLY THE RELIEF: the ramp at the surface's normal NOW over the ramp at its
+	     UNDISTURBED normal, as one luminance ratio r (exactly 1 on untouched snow). Where the
+	     dent turns from the sun (r < 1) the snow goes toward the PAINTER'S shadow colour, as far
+	     as the ramp's own full shadow would take it; where the berm turns to the sun (r > 1) it
+	     lifts, but never past the channel that clips first -- a warm off-white lifted by a
+	     multiplier goes white in red first, and reads cool. Times his shadow.
+
+	THE FIRST VERSION (trail_relief_only 0, kept for the A/B): the base sampled at the DISPLACED
+	surface, the snow's cool press tint on the prints, and the ramp's full per-channel ratio,
+	clamped at 2. On the film (the coordinator, 12 s) the trail read as a bright, cool, raised
+	white rope over the warm painted snow -- measured in take/build/trail_polish.json."""
 	var s: String = SnowField.SHADER
 	s = _swap(s, "render_mode specular_disabled, cull_back;",
 		"render_mode specular_disabled, cull_back, ambient_light_disabled, fog_disabled;", "render_mode")
 	s = _swap(s, "varying float v_press;\n", "varying float v_press;\n" + PROJ_UNIFORMS
-		+ "uniform sampler2D paint_tex : source_color, filter_linear_mipmap, repeat_disable;\n", "varyings")
+		+ "uniform sampler2D paint_tex : source_color, filter_linear_mipmap, repeat_disable;\n"
+		+ "uniform float trail_relief_only = 1.0;\nuniform bool trail_id = false;\n", "varyings")
 	s = _swap(s, "// ONE definition of the snow's height", PROJ_FUNCS + "\n// ONE definition of the snow's height",
 		"snow_h head")
 	s = _swap(s, "	ALBEDO = id_black ? vec3(0.0) : base;\n",
-		"""	vec3 pb = texture(paint_tex, guide_uv(v_world)).rgb;
-	pb = mix(pb, pb * press_tint, clamp(p, 0.0, 1.0) * press_tint_amt);
-	ALBEDO = id_black ? vec3(0.0) : pb;
+		"""	vec3 pb;
+	if (trail_relief_only > 0.5) {
+		pb = texture(paint_tex, guide_uv(vec3(v_world.x, floor_y + D, v_world.z))).rgb;
+	} else {
+		pb = texture(paint_tex, guide_uv(v_world)).rgb;
+		pb = mix(pb, pb * press_tint, clamp(p, 0.0, 1.0) * press_tint_amt);
+	}
+	ALBEDO = (id_black || trail_id) ? vec3(0.0) : pb;
+	// the polish's instrument: where his trail is, press in red and berm in green, nothing else
+	EMISSION = trail_id ? vec3(clamp(p, 0.0, 1.0), clamp(b, 0.0, 1.0), 0.0) : vec3(0.0);
 """, "albedo")
 	var i := s.find("void light() {")
 	assert(i > 0, "snow_shader_code: no light() in SnowField.SHADER")
 	s = s.substr(0, i) + """void light() {
 	vec4 f0 = textureLod(field_tex, v_uv, 0.0);
 	vec3 n0 = normalize((VIEW_MATRIX * vec4(normalize(vec3(-f0.b, 1.0, -f0.a)), 0.0)).xyz);
-	vec3 now = _ramp_light(NORMAL, LIGHT, 1.0, LIGHT_COLOR, v_world, wash_noise,
-		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
-		shadow_bite, shadow_color, shadow_energy, ramp_mix);
-	vec3 ref = _ramp_light(n0, LIGHT, 1.0, LIGHT_COLOR, v_world, wash_noise,
-		band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
-		shadow_bite, shadow_color, shadow_energy, ramp_mix);
-	vec3 relit = clamp(now / max(ref, vec3(1e-3)), vec3(0.0), vec3(2.0));
-	DIFFUSE_LIGHT += relit * his_shadow(ATTENUATION, v_world);
+	vec3 relief = vec3(1.0);
+	// UNTOUCHED SNOW IS THE PAINTING, EXACTLY: where his trail has not turned the surface the
+	// relief is 1 and none of the ramp is evaluated -- nearly every snow pixel, every frame (the
+	// polish's third ramp evaluation cost 1.06 ms on the full frame until this). (A branch, not a
+	// return: Godot refuses 'return' in light().)
+	if (trail_relief_only < 0.5 || dot(normalize(NORMAL), n0) < 0.99999) {
+		vec3 now = _ramp_light(NORMAL, LIGHT, 1.0, LIGHT_COLOR, v_world, wash_noise,
+			band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
+			shadow_bite, shadow_color, shadow_energy, ramp_mix);
+		vec3 ref = _ramp_light(n0, LIGHT, 1.0, LIGHT_COLOR, v_world, wash_noise,
+			band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
+			shadow_bite, shadow_color, shadow_energy, ramp_mix);
+		if (trail_relief_only > 0.5) {
+			vec3 lw = vec3(0.2126, 0.7152, 0.0722);
+			vec3 dark = _ramp_light(n0, LIGHT, 0.0, LIGHT_COLOR, v_world, wash_noise,
+				band_e0, band_e1, band_m0, band_m1, band_m2, band_soft, wash_amp, wash_scale,
+				shadow_bite, shadow_color, shadow_energy, ramp_mix);
+			float r = dot(now, lw) / max(dot(ref, lw), 1e-4);
+			float r0 = dot(dark, lw) / max(dot(ref, lw), 1e-4);
+			float s = clamp((1.0 - r) / max(1.0 - r0, 1e-3), 0.0, 1.0);
+			float top = 1.0 / max(max(ALBEDO.r, ALBEDO.g), max(ALBEDO.b, 1e-3));
+			relief = r < 1.0 ? mix(vec3(1.0), shadow_mul, s) : vec3(min(r, top));
+		} else {
+			relief = clamp(now / max(ref, vec3(1e-3)), vec3(0.0), vec3(2.0));
+		}
+	}
+	DIFFUSE_LIGHT += relief * his_shadow(ATTENUATION, v_world);
 }
 """
 	return s
@@ -192,10 +243,14 @@ static func heather_shader_code() -> String:
 	assert(vfun.count("v_col = COLOR.rgb;") == 1, "heather: the vertex colour line moved")
 	vfun = vfun.replace("v_col = COLOR.rgb;", "v_col = COLOR.rgb;\n\tv_mul = INSTANCE_CUSTOM.rgb;")
 	return BarrowHeather._SHADER_HEAD + PaintStack.RAMP_UNIFORMS + BarrowHeather._SHADER_UNIFORMS \
-		+ PROJ_UNIFORMS + "varying vec3 v_mul;\nuniform bool id_white = false;\n" + PaintStack.RAMP_BODY \
-		+ PROJ_FUNCS + vfun + """
+		+ PROJ_UNIFORMS + "varying vec3 v_mul;\nuniform bool id_white = false;\n" \
+		+ "uniform float albedo_srgb_out = 0.0;\n" + PaintStack.RAMP_BODY + PROJ_FUNCS + vfun + """
 void fragment() {
-	vec3 base = v_col * albedo_mul * v_mul;
+	// THE WEB'S ALBEDO IS READ AS sRGB (PaintStack.WEB_GAMMA): the spray's own colours and the
+	// painting's per-spray multiplier are linear, so on Compatibility their product goes out raised
+	// to 1/2.2 -- albedo_mul is raised by PaintStack.web_color_space, once, like every tint
+	vec3 lin = v_col * v_mul;
+	vec3 base = (albedo_srgb_out > 0.5 ? pow(max(lin, vec3(0.0)), vec3(1.0 / 2.2)) : lin) * albedo_mul;
 	float m = texture(mottle_noise, v_world.xz * mottle_scale).r;
 	base *= (1.0 - mottle_amp * 0.5 + m * mottle_amp);
 	ALBEDO = id_white ? vec3(0.0) : base;
@@ -214,7 +269,12 @@ void light() {
 static func heather_material(fbm: Texture2D, albedo_mul: Vector3, lit: Texture2D, shadow_mul: Vector3,
 		u_hat: Vector3, v_hat: Vector3) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
-	m.shader = _shader("heather", heather_shader_code())
+	if PaintStack.is_compatibility():
+		# the web pen's THIN class, as the installed Barrow's thin props write it
+		m.shader = _shader("heather_compat", PaintStack.stencil_write(heather_shader_code(), PaintStack.STENCIL_THIN))
+		m.set_shader_parameter("albedo_srgb_out", 1.0)
+	else:
+		m.shader = _shader("heather", heather_shader_code())
 	m.set_shader_parameter("wash_noise", fbm)
 	m.set_shader_parameter("mottle_noise", fbm)
 	m.set_shader_parameter("gust_noise", fbm)
@@ -226,9 +286,10 @@ static func heather_material(fbm: Texture2D, albedo_mul: Vector3, lit: Texture2D
 
 # --- loading, from the pck, with proof --------------------------------------------------------
 static func read_manifest() -> Dictionary:
-	if not FileAccess.file_exists(MANIFEST):
+	var path := data_dir() + "manifest.json"
+	if not FileAccess.file_exists(path):
 		return {}
-	var j = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
+	var j = JSON.parse_string(FileAccess.get_file_as_string(path))
 	return j if typeof(j) == TYPE_DICTIONARY else {}
 
 
@@ -236,7 +297,7 @@ static func load_png_bin(rel: String, want_sha: String, mipmaps: bool, rep: Dict
 	"""An image off its RAW bytes (a PNG named .bin: the importer never sees it, so nothing is
 	re-compressed, and an include_filter ships the file itself), its sha256 checked against the
 	manifest. `rep[rel]` says what happened -- the app's launch line is built from these."""
-	var path := DATA + rel
+	var path := data_dir() + rel
 	var r := {"path": path}
 	rep[rel] = r
 	if not FileAccess.file_exists(path):
@@ -250,7 +311,11 @@ static func load_png_bin(rel: String, want_sha: String, mipmaps: bool, rep: Dict
 	r["sha256_ok"] = sha == want_sha
 	r["bytes"] = bytes.size()
 	var img := Image.new()
-	var err := img.load_png_from_buffer(bytes)
+	# PNG or WebP (the phone page's painting and bakes), by the file's own signature
+	var webp := bytes.size() > 12 and bytes.slice(0, 4).get_string_from_ascii() == "RIFF" \
+		and bytes.slice(8, 12).get_string_from_ascii() == "WEBP"
+	r["format"] = "webp" if webp else "png"
+	var err := img.load_webp_from_buffer(bytes) if webp else img.load_png_from_buffer(bytes)
 	if err != OK:
 		r["error"] = "decode %d" % err
 		return null
@@ -261,7 +326,7 @@ static func load_png_bin(rel: String, want_sha: String, mipmaps: bool, rep: Dict
 
 
 static func load_f32_bin(rel: String, want_sha: String, rep: Dictionary) -> PackedFloat32Array:
-	var path := DATA + rel
+	var path := data_dir() + rel
 	var r := {"path": path}
 	rep[rel] = r
 	if not FileAccess.file_exists(path):

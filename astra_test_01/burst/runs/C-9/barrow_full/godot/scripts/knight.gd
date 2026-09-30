@@ -119,6 +119,7 @@ var _foot_lock: Node = null
 var _strike_anim := ""        # the playing strike's AnimationNodeAnimation, e.g. "a_slash"
 var _strike_len := 0.0
 var _strike_out_sent := false
+var _rel_fire := {}             # strike key -> fired this frame (the clip position is stale until the tree runs)
 var _was_moving := false
 var _block_w := 0.0
 var _strafe_w := 0.0
@@ -369,7 +370,25 @@ func _build_anim_tree() -> void:
 	bt.connect_node("ts_block", 0, "a_block")
 	bt.connect_node("seek_block", 0, "ts_block")
 	bt.connect_node("blk", 1, "seek_block")
-	var prev := "blk"
+	# THE AXE ARM'S GUARD: above the block, below the strikes (see _apply_axe_guard)
+	var guard_r := AnimationNodeAnimation.new()
+	guard_r.animation = action
+	# the BLOCK has its own guard: it turns his torso ~50 deg to present the shield, and a pose
+	# held relative to the chest would turn the axe out of guard with it. gsel follows the block.
+	var guard_rb := AnimationNodeAnimation.new()
+	guard_rb.animation = action
+	var gsel := AnimationNodeBlend2.new()
+	var blend_r := AnimationNodeBlend2.new()
+	blend_r.filter_enabled = true
+	bt.add_node("guard_r", guard_r, Vector2(900, 300))
+	bt.add_node("guard_rb", guard_rb, Vector2(900, 380))
+	bt.add_node("gsel", gsel, Vector2(940, 260))
+	bt.add_node("blend_r", blend_r, Vector2(960, 100))
+	bt.connect_node("gsel", 0, "guard_r")
+	bt.connect_node("gsel", 1, "guard_rb")
+	bt.connect_node("blend_r", 0, "blk")
+	bt.connect_node("blend_r", 1, "gsel")
+	var prev := "blend_r"
 	var x := 1020.0
 	for key in ["slash", "chop", "bash"]:
 		var clip := String(strikes[key])
@@ -377,13 +396,27 @@ func _build_anim_tree() -> void:
 			continue
 		var an := AnimationNodeAnimation.new()
 		an.animation = clip
+		# THE RECOVERY RELEASE (see _release_tick): rel_<key> hands the axe arm back to the guard
+		# after the strike's active swing. It sits INSIDE the one-shot, so the fade-out that
+		# follows starts from a strike whose arm is already at guard.
+		var g_n := AnimationNodeAnimation.new()
+		var rp := String(_release_spec().get("pose", ""))
+		g_n.animation = rp if _clip_len.has(rp) else clip
+		var rel := AnimationNodeBlend2.new()
+		rel.filter_enabled = true
+		# SYNCED: the held pose advances with the strike, so its time left is the strike's
+		rel.sync = true
 		var os_n := AnimationNodeOneShot.new()
 		os_n.fadein_time = fin
 		os_n.fadeout_time = fout
 		bt.add_node("a_" + key, an, Vector2(x, 280))
+		bt.add_node("g_" + key, g_n, Vector2(x, 400))
+		bt.add_node("rel_" + key, rel, Vector2(x, 190))
 		bt.add_node("os_" + key, os_n, Vector2(x, 100))
+		bt.connect_node("rel_" + key, 0, "a_" + key)
+		bt.connect_node("rel_" + key, 1, "g_" + key)
 		bt.connect_node("os_" + key, 0, prev)
-		bt.connect_node("os_" + key, 1, "a_" + key)
+		bt.connect_node("os_" + key, 1, "rel_" + key)
 		_strikes.append("os_" + key)
 		prev = "os_" + key
 		x += 170.0
@@ -505,6 +538,7 @@ func set_gear_stack(i: int) -> void:
 		_apply_clip_set()
 	if _tree != null:
 		_tree.set("parameters/blend/blend_amount", _layer_weight(_clip))
+		_tree.set("parameters/blend_r/blend_amount", _axe_guard_weight())
 
 
 func cycle_gear() -> void:
@@ -970,6 +1004,7 @@ func try_strike(which: String) -> bool:
 			_tree.set("parameters/seek_block/seek_request", _block_t0)
 		_blocking = false
 		_tree.set("parameters/%s/request" % node, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		_rel_fire[which] = true
 		# the feet stay where they stand while the body blends into the strike
 		_strike_anim = "a_" + which
 		_strike_len = float(_clip_len.get(String(_roles.get(role, "")), 0.0))
@@ -1354,6 +1389,141 @@ func align_phase() -> void:
 	_phase_aligned = true
 
 
+func _release_spec() -> Dictionary:
+	var s = cfg.get("strike_release", {})
+	return s if s is Dictionary else {}
+
+
+func _apply_strike_release() -> void:
+	"""Point each strike's release at the guard pose and filter it to the spec's bones, the paths
+	taken from whichever clips key them (weapon_r is keyed by the channel, not by the pose)."""
+	if _tree == null or _anim == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null:
+		return
+	var spec := _release_spec()
+	var pose := String(spec.get("pose", ""))
+	var want: Array = spec.get("bones", [])
+	var paths := {}
+	for an_name in _anim.get_animation_list():
+		var a := _anim.get_animation(an_name)
+		for i in a.get_track_count():
+			var pth: NodePath = a.track_get_path(i)
+			if want.has(String(pth.get_concatenated_subnames())):
+				paths[String(pth)] = pth
+	var n_on := 0
+	for key in ["slash", "chop", "bash"]:
+		if not bt.has_node("rel_" + key):
+			continue
+		var clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)
+		var held := _release_pose_for(clip, String((spec.get("pose_for", {}) as Dictionary).get(clip, pose)))
+		(bt.get_node("g_" + key) as AnimationNodeAnimation).animation = held if held != "" else clip
+		var b2 := bt.get_node("rel_" + key) as AnimationNodeBlend2
+		for p in paths.values():
+			b2.set_filter_path(p, _clip_len.has(pose))
+		_tree.set("parameters/rel_%s/blend_amount" % key, 0.0)
+		n_on += 1
+	print("strike release: pose '%s', %d bone paths, %d strikes, swing ends %s, over %.2f s, guard throughout %s"
+		% [pose, paths.size(), n_on, JSON.stringify(spec.get("at_s", {})), float(spec.get("over_s", 0.08)),
+		   JSON.stringify(spec.get("guard_throughout", []))])
+
+
+func _release_pose_for(clip: String, pose: String) -> String:
+	"""The guard pose as a clip of the STRIKE's length (keys unchanged, so it holds the pose for
+	the whole strike): the release Blend2 then reports the strike's own time left."""
+	if not _clip_len.has(pose) or not _clip_len.has(clip):
+		return ""
+	var nm := "%s__%s" % [pose, clip]
+	if not _clip_len.has(nm):
+		var a := (_anim.get_animation(pose) as Animation).duplicate(true) as Animation
+		a.length = float(_clip_len[clip])
+		a.loop_mode = Animation.LOOP_NONE
+		_anim.get_animation_library("").add_animation(nm, a)
+		_clip_len[nm] = a.length
+	return nm
+
+
+func _release_tick(dt: float) -> void:
+	"""THE RECOVERY RELEASE, per frame: each strike hands the axe arm back to the guard from the end
+	of its active swing (`strike_release.at_s[clip]`) over `over_s`, eased. The weight is taken at
+	the position the clip WILL show after this step (current + dt): a release one frame late is an
+	arm one frame late, and the slash's first penetrating frame is the first after its swing."""
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null:
+		return
+	var spec := _release_spec()
+	var at_map: Dictionary = spec.get("at_s", {})
+	var over: float = maxf(float(spec.get("over_s", 0.08)), 1e-3)
+	for key in ["slash", "chop", "bash"]:
+		if not bt.has_node("rel_" + key):
+			continue
+		var r := 0.0
+		var clip := String((bt.get_node("a_" + key) as AnimationNodeAnimation).animation)
+		var held: bool = (spec.get("guard_throughout", []) as Array).has(clip)
+		if held and (bool(_rel_fire.get(key, false)) or bool(_tree.get("parameters/os_%s/active" % key))):
+			_rel_fire[key] = false
+			r = 1.0
+		elif at_map.has(clip):
+			var pos := -1.0
+			if bool(_rel_fire.get(key, false)):
+				pos = 0.0
+				_rel_fire[key] = false
+			elif bool(_tree.get("parameters/os_%s/active" % key)):
+				pos = float(_tree.get("parameters/a_%s/current_position" % key))
+			if pos >= 0.0:
+				var a0 := float(at_map[clip])
+				r = smoothstep(a0, a0 + over, pos + dt)
+		_tree.set("parameters/rel_%s/blend_amount" % key, r)
+
+
+func _axe_guard_spec() -> Dictionary:
+	var s = cfg.get("arm_layer_armed_R", {})
+	return s if s is Dictionary else {}
+
+
+func _axe_guard_weight() -> float:
+	"""The layer's weight while the axe is carried, blended toward `weight_block` by the block
+	weight -- data, swept in the lab -- else 0."""
+	var spec := _axe_guard_spec()
+	if not _armed or not _clip_len.has(String(spec.get("action", ""))):
+		return 0.0
+	var w: float = clampf(float(spec.get("weight", 1.0)), 0.0, 1.0)
+	var wb: float = clampf(float(spec.get("weight_block", w)), 0.0, 1.0)
+	return lerpf(w, wb, clampf(_block_w, 0.0, 1.0))
+
+
+func _apply_axe_guard() -> void:
+	"""Point the layer at its clip and filter it to the spec's bones, the paths taken from the
+	clip's OWN tracks (a bone the clip does not key cannot be filtered by accident)."""
+	if _tree == null or _anim == null:
+		return
+	var bt := _tree.tree_root as AnimationNodeBlendTree
+	if bt == null or not bt.has_node("blend_r"):
+		return
+	var spec := _axe_guard_spec()
+	var action := String(spec.get("action", ""))
+	var b2 := bt.get_node("blend_r") as AnimationNodeBlend2
+	var filtered := 0
+	if _clip_len.has(action):
+		var ab := String(spec.get("action_block", ""))
+		if not _clip_len.has(ab):
+			ab = action
+		(bt.get_node("guard_r") as AnimationNodeAnimation).animation = action
+		(bt.get_node("guard_rb") as AnimationNodeAnimation).animation = ab
+		var want: Array = spec.get("bones", [])
+		for c in [action, ab]:
+			var ca := _anim.get_animation(c)
+			for i in ca.get_track_count():
+				var pth: NodePath = ca.track_get_path(i)
+				var on: bool = want.has(String(pth.get_concatenated_subnames()))
+				b2.set_filter_path(pth, on)
+				if on and c == action:
+					filtered += 1
+	_tree.set("parameters/blend_r/blend_amount", _axe_guard_weight())
+	print("axe guard layer: '%s' at weight %.2f, %d tracks" % [action, _axe_guard_weight(), filtered])
+
+
 func _upper_spec() -> Dictionary:
 	"""`upper_armed` in character.json: the ARMED gait clips whose spine and arms ride over the
 	unarmed legs, and the bones they own. Absent, or unarmed -> the layer runs at zero."""
@@ -1582,6 +1752,8 @@ func _apply_clip_set() -> void:
 	_block_marks()
 	align_phase()
 	_apply_upper()
+	_apply_axe_guard()
+	_apply_strike_release()
 	print("clip set -> %s: idle '%s' walk '%s' (%.4f s, %.1f px/s) run '%s' (%.4f s, %.1f px/s) layer '%s'"
 		% ["ARMED" if _armed else "unarmed", String(_roles.get("idle", "")),
 		   String(_roles.get("walk", "")), _walk_len, walk_px_s(),
@@ -1636,7 +1808,10 @@ func _drive(dt := 0.0) -> void:
 		_block_w = move_toward(_block_w, bw, step)
 		_strafe_w = move_toward(_strafe_w, sw, step)
 		_tree.set("parameters/blk/blend_amount", _block_w)
+		_tree.set("parameters/gsel/blend_amount", clampf(_block_w, 0.0, 1.0))
+		_tree.set("parameters/blend_r/blend_amount", _axe_guard_weight())
 		_tree.set("parameters/strf/blend_amount", _strafe_w)
+		_release_tick(dt)
 
 
 func _canvas_dir_for(f: String) -> Vector2:

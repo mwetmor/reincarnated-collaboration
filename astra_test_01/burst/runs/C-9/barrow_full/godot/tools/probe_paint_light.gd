@@ -3,6 +3,8 @@ extends SceneTree
 ## built on them. drax.
 ##
 ##   Godot --path godot --resolution 640x360 --script tools/probe_paint_light.gd -- --out FILE.json
+##   (the phone's renderer: add --rendering-method gl_compatibility --rendering-driver opengl3_angle
+##    before --script; the mark-channel half is skipped there -- Compatibility has no such buffer)
 ##
 ## 1. LIGHT LAYERS. Can one sun light the painted world with ONLY HIS shadow in it, while a second,
 ##    identical sun lights him with EVERY caster's shadow in it? Two directional lights, one
@@ -100,7 +102,9 @@ func _initialize() -> void:
 	world.add_child(cam)
 	cam.look_at_from_position(Vector3(0, 30, 0), Vector3.ZERO, Vector3(0, 0, -1))
 	cam.current = true
-	var result := {"godot": Engine.get_version_info()["string"]}
+	var result := {"godot": Engine.get_version_info()["string"],
+		"rendering_method": RenderingServer.get_current_rendering_method(),
+		"adapter": RenderingServer.get_video_adapter_name()}
 	result["light3d_has_shadow_caster_mask"] = "shadow_caster_mask" in DirectionalLight3D.new()
 
 	# ---- 1. light layers ----
@@ -160,7 +164,14 @@ func _initialize() -> void:
 		"probes": lay}
 	img.save_png(out_file.get_basename() + "_layers.png")
 
-	# ---- 2. the mark channel ----
+	# ---- 2. the mark channel (Forward+ only: Compatibility has no normal-roughness buffer) ----
+	if RenderingServer.get_current_rendering_method() == "gl_compatibility":
+		var fc := FileAccess.open(out_file, FileAccess.WRITE)
+		fc.store_string(JSON.stringify(result, "  "))
+		fc.close()
+		print("[probe] " + JSON.stringify(result))
+		quit(0)
+		return
 	for ch in world.get_children():
 		if ch is MeshInstance3D or ch is DirectionalLight3D:
 			ch.queue_free()
