@@ -28478,6 +28478,15 @@
         "The D2 and GD laws are at full end game, not game start/zero speed. I don't have time for a full review but just noting that much."
       ],
       "ts": "2026-10-01T07:10:09"
+    },
+    {
+      "id": "R-C9-117",
+      "by": "Matt",
+      "ruling": "A Vercel publish with a 3-character select screen (barbarian, sorceress, dark knight) before the Godot game boots, with the overnight variants reachable for phone testing. Matt's request is the publish authorization for this build (loadout). Plan: deploy 1 = the 9 held loadout commits at ~13:50Z (R-C9-91 window); deploy 2 = the select build from the integration lane, one push. Barrow axe T12_12c variants appear WEB-ONLY; cliffside3d install still needs Matt's word.",
+      "verbatim": [
+        "Would it be possible to make a vercel publish that contains the 3 character selection prior to the Godot game running where Incould test everything made in the overnight sesssion?"
+      ],
+      "ts": "2026-10-01T09:14:10"
     }
   ],
   "grok_calls": [
@@ -29361,6 +29370,12 @@
       "topic": "End-game timing inputs of record (R-C9-116), from the Sim Session",
       "note": "WW Barbarian (Matt Q93: double Grief): Phase Blade WSM -30, Berserker Axe WSM 0, weapon IAS 35% each (median default; 30-40% roll), no skill/off-weapon IAS, FCR of record 0 -> shout/BO 13 ticks, release tick 9 (0.52 s). The off hand sets Whirlwind cadence (4-tick interval at 35%). Meteor Sorceress: Q95 open; recommended loadout FCR 105-115 -> 8 ticks (0.32 s), action tick 5 (provisional; 63 breakpoint/9 ticks if Magefist or Arachnid is dropped). The conductor's first end-game films used table caps (FCR 200, dEIAS 75); re-rendering with gear of record. Sources: J4a/J4b packets (d865df7d5, 4eda5de34), timing packet b0f9d77fa.",
       "ts": "2026-10-01T07:13:06"
+    },
+    {
+      "id": "N-C9-TELEMETRY-ATTEMPT-1",
+      "topic": "Telemetry move attempt 1 failed at 99% (SMB write I/O error); attempt 2 compresses first",
+      "note": "Raw rsync of data/telemetry.db (35.6 GB) to the Pi share ran ~11 h at 0.07-8 MB/s and died at 99% with \"write: Invalid argument / Input/output error\"; the script stopped before deleting; the partial was cleaned by rsync. Samples compress 14.3x (first GiB) and 21.6x (last GiB). Attempt 2 (archive_telemetry_zst.sh): sha256 original -> zstd -6 locally -> round-trip sha check -> resumable rsync with retries -> Pi-copy sha check -> SHA256SUMS + README; deletes nothing. The Mac original is removed in a separate visible step after ARCHIVE VERIFIED (Matt pre-authorised). Also seen: ~/Games/reincarnated-loadout/data/ holds untracked telemetry.db.*.bak files (Q69 reconciliation scope, not touched).",
+      "ts": "2026-10-01T09:14:10"
     }
   ]
 }
