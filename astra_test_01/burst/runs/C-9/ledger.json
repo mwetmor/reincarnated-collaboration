@@ -27485,6 +27485,11 @@
       "id": "M-C9-T12-12C",
       "note": "T12_12c staged (e9d290a2a), not installed; install.sh F25L|F40L|az50 requires pre-state T12_11. Barrow axe tip-forward idle: T12_11 74 -> az50 59 -> F25L 40 -> F40L 18 deg (joint route, wrist 0 off neutral, gate PASS, joint lint 12/12). Block keeps az 70 unpitched (any turn/pitch puts the butt in his hips). F40 needs an elbow penalty (INFO forearm twist 166); F34 is the most forward natural solve, not built. Gate instrument fixed (elbow hinge learned from frame 1 misread 87 as -87). On the AXE the haft re-seat turns the edge down (R15 edge -53 vs limit 45) and is archived -- the Barrow body uses the joint route, the JOIN body the re-seat (its holds carry no edge row). NAMING: the scene lane's nb_d2/export_staging/JOIN_hold_v4{,b} (axe az50/az45) are an alternative path NOT adopted; the canonical JOIN hold is nb_join/export_hold_v4b (F25 + R20, e09c37da5).",
       "ts": "2026-10-01T05:16:09"
+    },
+    {
+      "id": "M-C9-E1-STAGE-H",
+      "note": "E1 stage H (5dfd8e369), 15 min wall: upright bodies (Idle 1; the rig task's own free walk/run) with the G1 carry's arms held in WORLD space per key (e32_world_hold.py; the 55_clip_graft rule, no solver). Torso pitch idle 17.2 -> -6.7, walk 6.6 -> 0.7, run 24.2 -> 8.4 deg; head height 0.895 -> 0.978 (idle). Idle chin still -19 deg; cape poke walk 13.1% / run 17.8% / attack 28.1%. Meshy lane 59 vs account fall 65 (6-credit gap from stage G, shared account; 3 credits lost to a fetch that charged before the process wrote its record). Lane closed for the night; open items go to Matt's look. Whole lane wall: ~5 h 3 m (A-F 3 h 27 m; G 80 m; H 15 m).",
+      "ts": "2026-10-01T05:27:54"
     }
   ],
   "halts": [
