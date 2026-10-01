@@ -99,6 +99,7 @@ func _initialize() -> void:
 		if Time.get_ticks_msec() > wd_ms: print("[accept] WATCHDOG"); quit(4); return
 		var r := _hold(st)
 		out["clips"][st] = r
+		print("[accept] %-8s %-9s FIST off his centreline / shoulder half-width: right %.2f (%.2f..%.2f), left %.2f (%.2f..%.2f)" % [label, st, float(r["fist_r"]), float(r["fist_r_min"]), float(r["fist_r_max"]), float(r["fist_l"]), float(r["fist_l_min"]), float(r["fist_l_max"])])
 		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames | the wrist off its rest (neutral) %.1f / %.1f / %.1f deg (median / p90 / max)" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"]), float(r["wrist_med"]), float(r["wrist_p90"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s guard %3d%% | fist turn %4.1f/%4.1f deg | arc %3.0f-%3.0f px/loop | pen worst %d (%.3f m deep), frames %d of %d %s | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians) | %s %.3f s x%d"
 			% [label, st, int(round(100.0 * float(r["pass_frac"]))), float(r["turn_med"]), float(r["turn_p90"]), float(r["arc_min"]), float(r["arc_max"]),
@@ -427,8 +428,26 @@ func _frame() -> Dictionary:
 	# THE WRIST: the holding hand's local rotation off its rest (the guard's neutral wrist is the rest)
 	var hb := skel.get_bone_parent(ab)
 	var wrist := rad_to_deg(skel.get_bone_pose_rotation(hb).angle_to(skel.get_bone_rest(hb).basis.get_rotation_quaternion()))
+	var fl := _fist_frac()
 	return {"tilt": rad_to_deg(h.angle_to(U)), "fwd": h.dot(F), "out": h.dot(R), "head_out": d.dot(R),
-			"edge": rad_to_deg(atan2(e.dot(R), e.dot(F))), "turn": turn, "head": head, "h": h, "e": e, "wrist": wrist}
+			"edge": rad_to_deg(atan2(e.dot(R), e.dot(F))), "turn": turn, "head": head, "h": h, "e": e, "wrist": wrist,
+			"fist_r": fl[0], "fist_l": fl[1]}
+
+func _fist_frac() -> Array:
+	# T12_12 (Matt: the axe arm too close to the centre of his body): each fist's LATERAL OFFSET from his centreline as a
+	# fraction of the shoulder half-width, in the CHEST's frame (Spine): (fist - Spine) . his side / (shoulder - Spine) . his
+	# side, the shoulder = the arm's ball joint (Right/LeftArm). The fist = the weapon's grip (weapon_r / weapon_l, the mount's
+	# origin) where the hand holds one, else the hand joint (the shield arm)
+	var sp: Transform3D = skel.get_bone_global_pose(skel.find_bone("Spine"))
+	var rc: Vector3 = (sp.basis.orthonormalized() * R).normalized()
+	var res := []
+	for side in [["weapon_r", "RightHand", "RightArm", 1.0], ["weapon_l", "LeftHand", "LeftArm", -1.0]]:
+		var fb := skel.find_bone(String(side[0]))
+		if fb < 0: fb = skel.find_bone(String(side[1]))
+		var ax: Vector3 = rc * float(side[3])
+		var hw: float = (skel.get_bone_global_pose(skel.find_bone(String(side[2]))).origin - sp.origin).dot(ax)
+		res.append((skel.get_bone_global_pose(fb).origin - sp.origin).dot(ax) / maxf(hw, 1e-6))
+	return res
 
 func _guard(m: Dictionary) -> bool:
 	return float(m["tilt"]) >= 30.0 and float(m["tilt"]) <= 60.0 and float(m["fwd"]) > 0.0 and float(m["out"]) > 0.0 \
@@ -486,7 +505,7 @@ func _hold(st: String) -> Dictionary:
 	var n: int = int(round(float(cl[1]) * float(loops) / DT))
 	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0
 	var hmax := 0; var hfr := 0; var hdep := 0.0
-	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": []}
+	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": [], "fist_r": [], "fist_l": []}
 	var wrists := []
 	for i in n:
 		_step(dir, run)
@@ -508,6 +527,8 @@ func _hold(st: String) -> Dictionary:
 				"wrist_med": float(wrists[wrists.size() / 2]), "wrist_p90": float(wrists[int(wrists.size() * 0.9)]), "wrist_max": float(wrists[-1])}
 	for key in cols:
 		var v: Array = cols[key]; v.sort(); out[key] = float(v[v.size() / 2])
+		if key.begins_with("fist"):
+			out[key + "_min"] = float(v[0]); out[key + "_max"] = float(v[-1])
 	var arcs := []
 	for kk in 8:
 		var ax: Array = _cam_axes(kk)

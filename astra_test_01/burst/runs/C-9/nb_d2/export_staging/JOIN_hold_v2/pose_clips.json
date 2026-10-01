@@ -1,0 +1,64 @@
+{
+ "clips": {
+  "join_guard_R_idle": {
+   "pose": "join_guard_R_idle.json",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ]
+  },
+  "join_guard_L_idle": {
+   "pose": "join_guard_L_idle.json",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  },
+  "join_guard_R_walk": {
+   "pose": "join_guard_R_walk.json",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ]
+  },
+  "join_guard_L_walk": {
+   "pose": "join_guard_L_walk.json",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  },
+  "join_guard_R_run": {
+   "pose": "join_guard_R_run.json",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ]
+  },
+  "join_guard_L_run": {
+   "pose": "join_guard_L_run.json",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "nb-body.glb: SOURCE FIDELITY -- clip 'attack' is 0.558 hips-to-head from ../nb_t8/nbt_attack.glb at 0.54 s (RightHand); limit 0.10; its hips turn 24 deg off the source's"
+  ]
+ }
+}

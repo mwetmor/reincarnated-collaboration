@@ -1,0 +1,116 @@
+{
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   0.684742483489571,
+   -0.25848157358264723,
+   -0.3267387665234741,
+   0.5979605220024914
+  ],
+  "RightForeArm": [
+   0.5505514954352215,
+   -0.45054556746985625,
+   0.563578164637635,
+   -0.4198587796521366
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "clip": "shield_bash",
+ "frames": 25,
+ "capsules": [
+  [
+   "LeftUpLeg",
+   "LeftLeg",
+   0.175
+  ],
+  [
+   "LeftLeg",
+   "LeftFoot",
+   0.11
+  ],
+  [
+   "RightUpLeg",
+   "RightLeg",
+   0.175
+  ],
+  [
+   "RightLeg",
+   "RightFoot",
+   0.11
+  ],
+  [
+   "Hips",
+   "Spine02",
+   0.2
+  ],
+  [
+   "Spine02",
+   "Spine",
+   0.19
+  ],
+  [
+   "Spine",
+   "neck",
+   0.15
+  ],
+  [
+   "neck",
+   "Head",
+   0.15
+  ],
+  [
+   "Head",
+   "head_end",
+   0.12
+  ],
+  [
+   "LeftShoulder",
+   "LeftArm",
+   0.11
+  ],
+  [
+   "LeftArm",
+   "LeftForeArm",
+   0.11
+  ],
+  [
+   "LeftForeArm",
+   "LeftHand",
+   0.075
+  ],
+  [
+   "RightShoulder",
+   "RightArm",
+   0.11
+  ],
+  [
+   "RightArm",
+   "RightForeArm",
+   0.11
+  ]
+ ],
+ "margin_m": 0.02,
+ "standing": {
+  "cost": 4760.981145807539,
+  "deepest_m": 0.17944779135212477,
+  "frames_in": 13
+ },
+ "solved": {
+  "cost": 0.007209228847887766,
+  "deepest_m": 2.914856280761269e-06,
+  "frames_in": 0,
+  "upper_deg": 18.06510034335463,
+  "fore_deg": 12.123391274576397
+ },
+ "_note": "T12_12: bash_guard_solve.py against the NEW standing guard (--clip shield_bash)"
+}

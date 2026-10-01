@@ -1,0 +1,103 @@
+{
+ "stance": {
+  "key": 43,
+  "t": 1.7916666269302368,
+  "chest_yaw": -1.5327705562803442
+ },
+ "readability": {
+  "tilt": 55.0,
+  "azimuth": 70.0,
+  "worst": 0.4026104813881107,
+  "mean": 0.7830573560777009,
+  "per_cell": [
+   {
+    "cell_yaw": 47,
+    "screen_px": 53.7,
+    "screen_angle": 18.7
+   },
+   {
+    "cell_yaw": 92,
+    "screen_px": 53.7,
+    "screen_angle": -17.9
+   },
+   {
+    "cell_yaw": 137,
+    "screen_px": 51.8,
+    "screen_angle": -51.4
+   },
+   {
+    "cell_yaw": 182,
+    "screen_px": 41.1,
+    "screen_angle": -82.5
+   },
+   {
+    "cell_yaw": 227,
+    "screen_px": 22.0,
+    "screen_angle": -128.7
+   },
+   {
+    "cell_yaw": 272,
+    "screen_px": 21.6,
+    "screen_angle": 130.3
+   },
+   {
+    "cell_yaw": 317,
+    "screen_px": 40.8,
+    "screen_angle": 83.2
+   },
+   {
+    "cell_yaw": 362,
+    "screen_px": 51.6,
+    "screen_angle": 52.1
+   }
+  ],
+  "centre_45_45": {
+   "worst": 0.1402149867513324,
+   "mean": 0.7139620327619691
+  }
+ },
+ "guard_world_his_frame": [
+  -0.7697511313200571,
+  0.573576436351046,
+  0.2801664995932356
+ ],
+ "pose": {
+  "RightShoulder": [
+   0.5446392297744751,
+   -0.44767239689826965,
+   0.4069298505783081,
+   0.5808318257331848
+  ],
+  "RightArm": [
+   0.734627366065979,
+   -0.4247554540634155,
+   -0.2513176202774048,
+   0.4655586779117584
+  ],
+  "RightForeArm": [
+   -0.3966381549835205,
+   0.43647515773773193,
+   -0.5463777780532837,
+   0.5946754813194275
+  ],
+  "RightHand": [
+   0.08229272067546844,
+   -0.1285581737756729,
+   -0.1698998063802719,
+   0.9735680818557739
+  ]
+ },
+ "checks": {
+  "haft_off_guard_deg": 1.226236314987194,
+  "grip_m": [
+   -0.11741167033364328,
+   -0.3514549792051611,
+   0.3321789624713696
+  ],
+  "edge_heading": -5.2062841762229715,
+  "forearm_to_haft_deg": 87.45143322749199,
+  "elbow_bend_deg": 84.93504764110263,
+  "predicate_idle_pct": 0
+ },
+ "_note": "T12_12: the INSTALLED block guard, kept (read back from T12_11's body, axe_guard_R_block): its fist already sits at 0.84 of the shoulder half-width in the scene; the outboard box put it at 1.03 -- at the shoulder line -- so it is not changed"
+}

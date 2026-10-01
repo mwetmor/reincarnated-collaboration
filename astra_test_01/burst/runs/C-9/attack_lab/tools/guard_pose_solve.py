@@ -198,6 +198,7 @@ def main():
         return M1, M2, M3, M4
 
     BOX = dict(fwd=(0.25, 0.45), out=(0.12, 0.32), up=(-0.35, -0.08))
+    BOX_CHEST = '--box-frame' in sys.argv and sys.argv[sys.argv.index('--box-frame') + 1] == 'chest'
     if '--box' in sys.argv:
         # another state's grip box (the shield bash lunges: the fist rides higher to clear his thigh)
         bx = [float(x) for x in sys.argv[sys.argv.index('--box') + 1].split(',')]
@@ -210,7 +211,12 @@ def main():
         M1, M2, M3, M4 = chain(qa, qf)
         haft = M4[:3, :3] @ np.array([0, 1.0, 0]); haft /= np.linalg.norm(haft)
         edge = M4[:3, :3] @ np.array([0, 0, 1.0]); edge /= np.linalg.norm(edge)
-        grip_w = Cm @ M4[:3, 3] * mpu            # metres, in his frame, relative to the chest joint
+        # metres, relative to the chest joint, in HIS frame at this chest; with --box-frame chest the OUTBOARD component is taken in the
+        # CHEST's own frame instead (T12_12 / JOIN v2: the fist's offset from his centreline is the torso's -- at a twisted walk or run
+        # chest the two differ), forward and up still in his
+        grip_w = Cm @ M4[:3, 3] * mpu
+        if BOX_CHEST:
+            grip_w = grip_w + (float((M4[:3, 3] * mpu) @ RS) - float(grip_w @ RS)) * RS
         ang = math.degrees(math.acos(max(-1, min(1, float(haft @ h_c)))))
         pen = 0.0
         for key, axis in (("fwd", F), ("out", RS), ("up", U)):

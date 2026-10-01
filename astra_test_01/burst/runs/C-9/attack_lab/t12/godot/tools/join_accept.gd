@@ -17,6 +17,9 @@ extends SceneTree
 #   READ       per JOIN direction (S SW W NW N NE E SE: the character turned 90 - bearing under the fixed camera,
 #              pitch 52.95, 151.34 px/m -- the renderer's own), each weapon's grip-to-far-end length on screen, px
 # env: JOIN_SPEC (join_hold.json), JOIN_OUT, JOIN_LABEL, JOIN_N, JOIN_STATES (state=clip,...; default the spec's)
+#      JOIN_STILLS=<png> (T12_12 / JOIN v2): a contact sheet first -- each state (rows) at a quarter of its cycle, in the 8 JOIN
+#      directions (columns), under the renderer's own camera (orthographic, pitch 52.95, 151.34 px/m, the character turned
+#      90 - bearing), one sun; JOIN_STILLS_ONLY=1 stops there
 const DIRS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 const BEARING := {"S": 90.0, "SW": 135.0, "W": 180.0, "NW": 225.0, "N": 270.0, "NE": 315.0, "E": 0.0, "SE": 45.0}
 const F := Vector3(0, 0, 1)
@@ -72,6 +75,10 @@ func _initialize() -> void:
 			var pr := kv.split("=")
 			states[pr[0]] = pr[1]
 	var out := {"label": label, "spec": OS.get_environment("JOIN_SPEC"), "n": n, "states": {}}
+	if OS.has_environment("JOIN_STILLS"):
+		await _stills(states, OS.get_environment("JOIN_STILLS"), label)
+		if OS.get_environment("JOIN_STILLS_ONLY") == "1":
+			quit(0); return
 	for st in states:
 		var clip := String(states[st])
 		var T := ap.get_animation(clip).length
@@ -313,6 +320,13 @@ func _measure(t: float) -> Dictionary:
 		var head: Vector3 = (g * (w["head_l"] as Vector3)) * s_
 		var m := {"tilt": rad_to_deg(h.angle_to(U)), "fwd": h.dot(F), "out": h.dot(RS), "head_out": (head - grip).dot(RS),
 				  "edge": rad_to_deg(atan2(e.dot(RS), e.dot(F)))}
+		# THE FIST OFF HIS CENTRELINE (T12_12 / JOIN v2, Matt R-C9-93): the grip's offset from the chest joint (Spine) along this
+		# weapon's outboard side, turned with the chest, over the same side's shoulder ball joint's (Right/LeftArm)
+		var spg: Transform3D = skel.get_bone_global_pose(skel.find_bone("Spine"))
+		var side_ax: Vector3 = (spg.basis.orthonormalized() * RS).normalized()
+		var shb := skel.find_bone("RightArm" if RS.x < 0.0 else "LeftArm")
+		var hw: float = ((skel.get_bone_global_pose(shb).origin - spg.origin) * s_).dot(side_ax)
+		m["fist_frac"] = (grip - spg.origin * s_).dot(side_ax) / maxf(hw, 1e-6)
 		m["guard"] = float(m["tilt"]) >= 30.0 and float(m["tilt"]) <= 60.0 and float(m["fwd"]) > 0.0 and float(m["out"]) > 0.0 \
 			and float(m["head_out"]) > 0.0 and absf(float(m["edge"])) <= 45.0
 		# READ: the grip-to-far-end vector on screen, per JOIN direction
@@ -373,7 +387,7 @@ func _summarise(st: String, clip: String, T: float, rows: Array) -> Dictionary:
 	for w in weapons:
 		var nm := String(w["name"])
 		var ok := 0; var ok12 := 0; var n12 := 0; var pmax := 0; var pfr := 0; var dmax := 0.0; var hmax := 0; var hfr := 0; var hdep := 0.0
-		var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": []}
+		var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": [], "fist_frac": []}
 		var readmin := {}
 		var parts := {}
 		for i in rows.size():
@@ -402,9 +416,46 @@ func _summarise(st: String, clip: String, T: float, rows: Array) -> Dictionary:
 		for k in cols:
 			var v: Array = cols[k]; v.sort(); o[k] = float(v[v.size() / 2]); o[k + "_range"] = [float(v[0]), float(v[-1])]
 		out["weapons"][nm] = o
+		print("[join] %-6s %-5s FIST off his centreline / shoulder half-width %.2f (%.2f..%.2f)" % [st, nm, float(o["fist_frac"]), float(o["fist_frac_range"][0]), float(o["fist_frac_range"][1])])
 		print("[join] %-6s %-5s %-10s guard %3d%% (renderer's 12: %3d%%) | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians; tilt %.0f..%.0f, edge %+.0f..%+.0f) | pen worst %d (%.3f m), %d of %d frames %s | hand contact %d (%.3f m) | read worst %.0f px (%s) of %.0f"
 			% [st, nm, clip, int(round(100.0 * o["pass_frac"])), int(round(100.0 * o["pass_frac_renderer_12"])), o["tilt"], o["fwd"], o["out"], o["head_out"], o["edge"],
 			   (o["tilt_range"] as Array)[0], (o["tilt_range"] as Array)[1], (o["edge_range"] as Array)[0], (o["edge_range"] as Array)[1],
 			   pmax, dmax, pfr, rows.size(), JSON.stringify(parts), hmax, hdep, worst, wd, float(w["len"]) * s_ * PPM_RENDER])
 	print("[join] %-6s clear: the weapons' nearest approach %.3f m (t %.3f s)" % [st, clear, clear_t])
 	return out
+
+func _stills(states: Dictionary, path: String, label: String) -> void:
+	var CW := 360; var CH := 440
+	var sv := SubViewport.new(); sv.size = Vector2i(CW, CH); sv.world_3d = root.world_3d
+	sv.render_target_update_mode = SubViewport.UPDATE_ALWAYS; sv.transparent_bg = false
+	root.add_child(sv)
+	var cam := Camera3D.new(); cam.projection = Camera3D.PROJECTION_ORTHOGONAL; cam.size = float(CH) / PPM_RENDER
+	cam.near = 0.1; cam.far = 100.0; sv.add_child(cam)
+	var a := deg_to_rad(PITCH_DEG)
+	var tgt := Vector3(0, 0.95, 0)
+	cam.look_at_from_position(tgt + Vector3(0, sin(a), cos(a)) * 30.0, tgt, Vector3.UP); cam.current = true
+	var sun := DirectionalLight3D.new(); root.add_child(sun)
+	sun.look_at_from_position(Vector3.ZERO, Vector3(-sin(deg_to_rad(305.0)) * cos(deg_to_rad(55.0)), -sin(deg_to_rad(55.0)), -cos(deg_to_rad(305.0)) * cos(deg_to_rad(55.0))), Vector3.UP)
+	var we := WorldEnvironment.new(); var env := Environment.new()
+	env.background_mode = Environment.BG_COLOR; env.background_color = Color(0.86, 0.84, 0.80)
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR; env.ambient_light_color = Color(0.75, 0.75, 0.78)
+	we.environment = env; root.add_child(we)
+	var lb := Label.new(); lb.position = Vector2(6, 4); lb.add_theme_font_size_override("font_size", 15)
+	lb.add_theme_color_override("font_color", Color(0.1, 0.1, 0.12)); sv.add_child(lb)
+	var keys := states.keys()
+	var sheet := Image.create(CW * 8, CH * keys.size(), false, Image.FORMAT_RGB8)
+	for r in keys.size():
+		var st := String(keys[r]); var clip := String(states[st])
+		var T := ap.get_animation(clip).length
+		_pose(st, clip, 0.25 * T)
+		for c in DIRS.size():
+			var dn := String(DIRS[c])
+			who.rotation = Vector3(0, deg_to_rad(90.0 - float(BEARING[dn])), 0)
+			lb.text = "%s  %s  %s" % [label, st, dn]
+			for i in 3: await process_frame
+			await RenderingServer.frame_post_draw
+			var im: Image = sv.get_texture().get_image(); im.convert(Image.FORMAT_RGB8)
+			sheet.blit_rect(im, Rect2i(0, 0, CW, CH), Vector2i(c * CW, r * CH))
+	who.rotation = Vector3.ZERO
+	sheet.save_png(path)
+	print("[join] stills: %d states x 8 directions -> %s" % [keys.size(), path])

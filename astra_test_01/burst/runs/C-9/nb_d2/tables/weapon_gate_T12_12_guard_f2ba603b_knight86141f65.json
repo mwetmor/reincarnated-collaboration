@@ -1,0 +1,238 @@
+{
+ "rows": [
+  [
+   "HOLD",
+   "idle",
+   "PASS",
+   "100% of frames at guard (tilt 54, fwd +0.28, out +0.76, head out +0.55, edge +1, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "walk",
+   "PASS",
+   "100% of frames at guard (tilt 43, fwd +0.24, out +0.64, head out +0.47, edge +4, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "run",
+   "PASS",
+   "100% of frames at guard (tilt 52, fwd +0.30, out +0.74, head out +0.53, edge +20, fist turn 0.0/2.1 deg)"
+  ],
+  [
+   "HOLD",
+   "block",
+   "PASS",
+   "100% of frames at guard (tilt 56, fwd +0.34, out +0.76, head out +0.55, edge -7, fist turn 0.0/0.0 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_l",
+   "PASS",
+   "100% of frames at guard (tilt 55, fwd +0.14, out +0.81, head out +0.58, edge +10, fist turn 15.8/21.5 deg)"
+  ],
+  [
+   "HOLD",
+   "strafe_r",
+   "PASS",
+   "100% of frames at guard (tilt 46, fwd +0.37, out +0.62, head out +0.45, edge -12, fist turn 5.9/6.8 deg)"
+  ],
+  [
+   "EDGE",
+   "attack",
+   "PASS",
+   "edge along the travel +1.00 at the strike (0.58 s; >= 0.707) and +0.99 over the swing (0.54-0.71 s; >= 0.8) | heading at the strike -78 deg (info)"
+  ],
+  [
+   "TTI",
+   "attack",
+   "PASS",
+   "strike frame 0.58 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "attack",
+   "PASS",
+   "the swing draws the head 179-266 px across the 8 cells (>= 42)"
+  ],
+  [
+   "EDGE",
+   "chop_overhead_92",
+   "PASS",
+   "edge along the travel +1.00 at the strike (0.50 s; >= 0.707) and +1.00 over the swing (0.42-0.54 s; >= 0.8) | heading at the strike -110 deg (info)"
+  ],
+  [
+   "TTI",
+   "chop_overhead_92",
+   "PASS",
+   "strike frame 0.50 s after the fire (<= 0.8)"
+  ],
+  [
+   "READ",
+   "chop_overhead_92",
+   "PASS",
+   "the swing draws the head 96-158 px across the 8 cells (>= 42)"
+  ],
+  [
+   "ARC",
+   "idle",
+   "PASS",
+   "axe-head screen path 10-13 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "walk",
+   "PASS",
+   "axe-head screen path 23-34 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "run",
+   "PASS",
+   "axe-head screen path 34-56 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_l",
+   "PASS",
+   "axe-head screen path 26-31 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "strafe_r",
+   "PASS",
+   "axe-head screen path 36-40 px per loop over the 8 cells (budget 60)"
+  ],
+  [
+   "ARC",
+   "attack",
+   "FLAG",
+   "peak step 92.7 px > 35 px: needs a trail"
+  ],
+  [
+   "ARC",
+   "chop_overhead_92",
+   "FLAG",
+   "peak step 68.3 px > 35 px: needs a trail"
+  ],
+  [
+   "ARC",
+   "shield_bash",
+   "FLAG",
+   "peak step 39.2 px > 35 px: needs a trail"
+  ],
+  [
+   "PEN",
+   "idle",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 192 frames"
+  ],
+  [
+   "PEN",
+   "walk",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 50 frames"
+  ],
+  [
+   "PEN",
+   "run",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 30 frames"
+  ],
+  [
+   "PEN",
+   "block",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 48 frames"
+  ],
+  [
+   "PEN",
+   "strafe_l",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 72 frames"
+  ],
+  [
+   "PEN",
+   "strafe_r",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 91 frames"
+  ],
+  [
+   "PEN",
+   "attack",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 36 frames"
+  ],
+  [
+   "PEN",
+   "chop_overhead_92",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 21 frames"
+  ],
+  [
+   "PEN",
+   "shield_bash",
+   "PASS",
+   "axe vertices inside the body (the hand excluded): worst frame 0 (0.000 m deep), 0 of 58 frames"
+  ],
+  [
+   "HAND",
+   "idle",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 192 frames -- none"
+  ],
+  [
+   "HAND",
+   "walk",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 50 frames -- none"
+  ],
+  [
+   "HAND",
+   "run",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 30 frames -- none"
+  ],
+  [
+   "HAND",
+   "block",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 48 frames -- none"
+  ],
+  [
+   "HAND",
+   "strafe_l",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 72 frames -- none"
+  ],
+  [
+   "HAND",
+   "strafe_r",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 91 frames -- none"
+  ],
+  [
+   "HAND",
+   "attack",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 2 points on the worst frame, 0.001 m deep, 1 of 36 frames"
+  ],
+  [
+   "HAND",
+   "chop_overhead_92",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 1 points on the worst frame, 0.003 m deep, 1 of 21 frames"
+  ],
+  [
+   "HAND",
+   "shield_bash",
+   "PASS",
+   "grip contact (the pommel in its own holding hand, <= 2 cm, the pommel ruling): 0 points on the worst frame, 0.000 m deep, 0 of 58 frames -- none"
+  ]
+ ],
+ "fails": [],
+ "flags": [
+  "attack",
+  "chop_overhead_92",
+  "shield_bash"
+ ]
+}

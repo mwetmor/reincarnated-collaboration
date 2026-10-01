@@ -1,0 +1,122 @@
+{
+ "stance": {
+  "key": 53,
+  "t": 1.7666666507720947,
+  "source_t": 1.8,
+  "was": {
+   "key": 43,
+   "t": 1.7916666269302368,
+   "chest_yaw": -1.5327705562803442,
+   "grid": "24 fps (the D2 Blender resample)"
+  },
+  "match_to_was": {
+   "worst_joint_m": 0.0184,
+   "worst_rotation_deg": 1.58
+  },
+  "rule_repick_rejected": {
+   "key": 25,
+   "t": 0.8333333134651184,
+   "chest_yaw": -0.626,
+   "why": "guard_pose_solve.py's argmin-|chest yaw| rule, run on the re-cut idle's 30 fps keys, picks a DIFFERENT moment of the idle (0.833 s) -- a different held stance. The loop fix must not change how he stands, so the stance is held at the T12_8 moment: the re-cut idle's key nearest it."
+  }
+ },
+ "readability": {
+  "tilt": 55.0,
+  "azimuth": 70.0,
+  "worst": 0.4026104813881107,
+  "mean": 0.7830573560777009,
+  "per_cell": [
+   {
+    "cell_yaw": 47.0,
+    "screen_px": 53.7,
+    "screen_angle": 18.7
+   },
+   {
+    "cell_yaw": 92.0,
+    "screen_px": 53.7,
+    "screen_angle": -17.9
+   },
+   {
+    "cell_yaw": 137.0,
+    "screen_px": 51.8,
+    "screen_angle": -51.4
+   },
+   {
+    "cell_yaw": 182.0,
+    "screen_px": 41.1,
+    "screen_angle": -82.5
+   },
+   {
+    "cell_yaw": 227.0,
+    "screen_px": 22.0,
+    "screen_angle": -128.7
+   },
+   {
+    "cell_yaw": 272.0,
+    "screen_px": 21.6,
+    "screen_angle": 130.3
+   },
+   {
+    "cell_yaw": 317.0,
+    "screen_px": 40.8,
+    "screen_angle": 83.2
+   },
+   {
+    "cell_yaw": 362.0,
+    "screen_px": 51.6,
+    "screen_angle": 52.1
+   }
+  ],
+  "centre_45_45": {
+   "worst": 0.1402149867513324,
+   "mean": 0.7139620327619691
+  }
+ },
+ "guard_world_his_frame": [
+  -0.7697511313200571,
+  0.573576436351046,
+  0.2801664995932356
+ ],
+ "side": "R",
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   0.7215672234970048,
+   -0.31970707313036983,
+   -0.3912649145097594,
+   0.4733285286552108
+  ],
+  "RightForeArm": [
+   0.4822590648905227,
+   -0.4314116951835463,
+   0.5782657360720724,
+   -0.496909329832719
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "checks": {
+  "haft_off_guard_deg": 0.8202617455964581,
+  "grip_m": [
+   -0.1583618451976287,
+   -0.35027179367800715,
+   0.25723189471031366
+  ],
+  "edge_heading": 1.6370620686665471,
+  "forearm_to_haft_deg": 87.45143322749198,
+  "elbow_bend_deg": 97.6977937291875,
+  "predicate_idle_pct": 58
+ },
+ "damp_spine": 0.1,
+ "damp_head": 0.3,
+ "_note": "T12_12 (Matt, R-C9-93: the axe arm too close into the centre of his body): guard_pose_solve.py --stance-key 53 --box 0.25,0.45,0.16,0.22,-0.35,-0.08 on T12_11's body -- the grip box's OUTBOARD range raised from 0.12-0.32 to 0.16-0.22 m of the chest joint (the solve had sat on its inner edge, 0.119). Same guard haft (tilt 55, azimuth 70), wrist neutral, stance and damping as T12_9's. grip fwd +0.257 out +0.158 up -0.350 m (was +0.275 / +0.119 / -0.323)"
+}

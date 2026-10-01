@@ -65,7 +65,10 @@ func _initialize() -> void:
 	print("[scene] knight %s, trail %s, facing %s, hold %d" % [String(k.get_script().resource_path), str(k.get("_trail") != null), facing, hold])
 	for i in 30: await _tick(Vector2.ZERO)
 	for s in strikes:
-		await _film(String(s))
+		if String(s) == "holds":
+			await _film_holds()
+		else:
+			await _film(String(s))
 	print("[scene] done")
 	quit(0)
 
@@ -90,8 +93,48 @@ func _film(s: String) -> void:
 	pipe = null
 	print("[scene] %s: %d frames -> %s" % [s, mf, mp4])
 
-func _tick(dir: Vector2) -> void:
-	k.drive_dir(dir, false, TICK)
+func _film_holds() -> void:
+	# T12_12: THE HOLDS (the axe arm's guard): standing, a walk out and back, a run out and back, the guard up and a strafe each way,
+	# the block -- the play camera following him
+	var mp4 := "%s/%s_holds.mp4" % [out_dir, tag]
+	var r := OS.execute_with_pipe(FFMPEG, PackedStringArray(["-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "%dx%d" % [SHOT.x, SHOT.y],
+		"-r", "60", "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "medium", "-movflags", "+faststart", mp4]), true)
+	pipe = r.get("stdio"); pid = int(r.get("pid", -1))
+	mf = 0
+	var sp := "PLAY SPEED" if hold == 1 else "QUARTER SPEED (each 60 Hz game tick held %d frames)" % hold
+	var d := Vector2(0, -1)
+	var plan := [["standing", Vector2.ZERO, false, false, 1.5], ["walk", d, false, false, 2.5], ["walk back", -d, false, false, 2.5],
+				 ["run", d, true, false, 1.5], ["run back", -d, true, false, 1.5], ["stop", Vector2.ZERO, false, false, 1.0],
+				 ["guard up", Vector2.ZERO, false, true, 0.6], ["strafe left", "l", false, true, 2.0], ["strafe right", "r", false, true, 2.0],
+				 ["block held", Vector2.ZERO, false, true, 1.2], ["guard down", Vector2.ZERO, false, false, 1.0]]
+	for ph in plan:
+		lab.text = "%s\nHOLDS -- %s   %s" % [label, String(ph[0]), sp]
+		k.set_block(bool(ph[3]))
+		var dir: Vector2 = _strafe_input(String(ph[1])) if typeof(ph[1]) == TYPE_STRING else ph[1]
+		for i in int(round(float(ph[4]) / TICK)):
+			await _tick(dir, bool(ph[2]))
+	pipe.close()
+	var w0 := Time.get_ticks_msec()
+	while OS.is_process_running(pid) and Time.get_ticks_msec() - w0 < 120000:
+		OS.delay_msec(100)
+	pipe = null
+	print("[scene] holds: %d frames -> %s" % [mf, mp4])
+
+func _strafe_input(side: String) -> Vector2:
+	# guard_film.gd's: the canvas direction along HIS strafe direction now
+	var sd: Vector3 = k._strafe_dir(side)
+	var want: Vector3 = (Basis(Vector3.UP, float(k.get("_yaw_cur"))) * sd).normalized()
+	var best := -2.0; var pick := Vector2.ZERO
+	for a in 720:
+		var dd := Vector2(cos(deg_to_rad(0.5 * a)), sin(deg_to_rad(0.5 * a)))
+		var w3: Vector3 = k.canvas_velocity_to_world(dd); w3.y = 0.0
+		if w3.length() < 1e-6: continue
+		var c: float = w3.normalized().dot(want)
+		if c > best: best = c; pick = dd
+	return pick
+
+func _tick(dir: Vector2, run := false) -> void:
+	k.drive_dir(dir, run, TICK)
 	await physics_frame
 	for j in hold:
 		await process_frame

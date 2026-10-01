@@ -1,0 +1,168 @@
+{
+ "set": {
+  "knight.gd": "86141f65 (T12_11, unchanged)",
+  "character.json": "3579c79289dde2bb609a9d5bd62c66b1 = T12_11 ca2ce1ca + arm_layer_armed_R.weight 1.0 + _t12_12",
+  "nb-body.glb": "f2ba603bf0b60bb092173d339a1a3052 (nb_d2/export_staging/T12_12_guard; nb-body_pose.glb beside it = before the hold residuals)",
+  "gear_manifest.json + six pieces": "T12_11's, unchanged",
+  "pre_state": "F = T12_11 exactly, ten files + the body .import (9002fe85); --dry-run against cliffside3d: found F"
+ },
+ "measure": "the fist's offset from his centreline as a fraction of the shoulder half-width, in the CHEST's frame (attack_lab/t12/godot/tools/guard_accept.gd, FIST): (grip - Spine joint) . his side / (shoulder ball joint - Spine joint) . his side, the grip = weapon_r's origin (the mount), through the tree, per hold state; median (all frames within 0.01 at weight 1)",
+ "axe_fist_before_after": {
+  "T12_11 installed (weight 0.85)": {
+   "idle": 0.61,
+   "walk": 0.47,
+   "run": -0.35,
+   "block": 0.84,
+   "strafe_l": -0.29,
+   "strafe_r": 0.07
+  },
+  "T12_12 (weight 1.0)": {
+   "idle": 0.78,
+   "walk": 0.78,
+   "run": 0.78,
+   "block": 0.84,
+   "strafe_l": 0.78,
+   "strafe_r": 0.78
+  },
+  "chosen": "0.78 in every hold state; the block keeps its own guard, 0.84"
+ },
+ "shield_fist": "unchanged: 1.43 in every hold state, 0.55 in the block (the shield guard layer and its clip untouched)",
+ "why_weight_1": {
+  "finding": "at the old layer weight 0.85 the remaining 15% of each gait's own arm swings the fist back toward and across his centreline -- T12_11: run -0.35, strafe L -0.29 -- so a pose further out alone cannot hold it out",
+  "sweep with the new pose": {
+   "0.85": {
+    "idle": 0.78,
+    "walk": 0.61,
+    "run": -0.25,
+    "block": 1.03,
+    "strafe_l": -0.17,
+    "strafe_r": 0.21
+   },
+   "0.9": {
+    "idle": 0.78,
+    "walk": 0.67,
+    "run": 0.06,
+    "block": 0.84,
+    "strafe_l": 0.13,
+    "strafe_r": 0.4
+   },
+   "0.95": {
+    "idle": 0.78,
+    "walk": 0.73,
+    "run": 0.41,
+    "block": 0.84,
+    "strafe_l": 0.45,
+    "strafe_r": 0.59
+   }
+  },
+  "choice": "1.0: the axe arm held at its guard outright, as the shield arm (Matt: 'perfect') is; it no longer swings with the gait"
+ },
+ "pose": {
+  "solve": "guard_pose_solve.py --stance-key 53 --box 0.25,0.45,0.16,0.22,-0.35,-0.08 on T12_11's body (the old box's outboard range 0.12-0.32: the solve sat on its inner edge, 0.119)",
+  "result": "grip fwd +0.257 out +0.158 up -0.350 m of the chest (was +0.275 / +0.119 / -0.323); same guard haft (tilt 55, azimuth 70), wrist neutral, forearm square to the haft (87.5 deg)",
+  "also re-solved": "idle_guard (the guard arm baked into the armed idle), axe_guard_R_bash and axe_guard_R_chop (bash_guard_solve.py against the new standing guard: 0 capsule contact); axe_guard_R_block KEPT -- re-solved it read 1.03 (at the shoulder line), as installed it reads 0.84",
+  "weapon_r residuals": "walk_armed, run_armed, strafe_L_armed re-solved at weight 1.0 (guard_residual.gd; resampled onto each clip's own keys); strafe_R_armed held steady at its loop-mean orientation (hold_steady.gd): rigid on the chest, its sway carried the axe head 63 px per loop against the 60 budget -- 36-40 px now (T12_11: 47-53)"
+ },
+ "gate": {
+  "verdict": "PASS, 0 fail, 3 trail flags (nb_d2/tables/weapon_gate_T12_12_guard_f2ba603b_knight86141f65.json)",
+  "holds": {
+   "idle": {
+    "guard": 1.0,
+    "tilt": 54.2,
+    "edge": 1,
+    "fist_turn_med_p90": [
+     0.0,
+     0.0
+    ],
+    "arc_px": [
+     10,
+     13
+    ],
+    "pen": 0
+   },
+   "walk": {
+    "guard": 1.0,
+    "tilt": 42.9,
+    "edge": 4,
+    "fist_turn_med_p90": [
+     0.0,
+     0.0
+    ],
+    "arc_px": [
+     23,
+     34
+    ],
+    "pen": 0
+   },
+   "run": {
+    "guard": 1.0,
+    "tilt": 52.0,
+    "edge": 20,
+    "fist_turn_med_p90": [
+     0.0,
+     2.1
+    ],
+    "arc_px": [
+     34,
+     56
+    ],
+    "pen": 0
+   },
+   "block": {
+    "guard": 1.0,
+    "tilt": 55.9,
+    "edge": -7,
+    "fist_turn_med_p90": [
+     0.0,
+     0.0
+    ],
+    "arc_px": [
+     0,
+     0
+    ],
+    "pen": 0
+   },
+   "strafe_l": {
+    "guard": 1.0,
+    "tilt": 55.0,
+    "edge": 10,
+    "fist_turn_med_p90": [
+     15.8,
+     21.5
+    ],
+    "arc_px": [
+     26,
+     31
+    ],
+    "pen": 0
+   },
+   "strafe_r": {
+    "guard": 1.0,
+    "tilt": 45.8,
+    "edge": -12,
+    "fist_turn_med_p90": [
+     5.9,
+     6.8
+    ],
+    "arc_px": [
+     36,
+     40
+    ],
+    "pen": 0
+   }
+  },
+  "strikes": "EDGE slash +1.00/+0.99, chop +1.00/+1.00; TTI 0.58 / 0.50 s; READ 179-266 / 96-158 px; PEN 0 at 1/24 s and at 1/96 s on all three (..._strikes96.json); the trails unchanged (knight and its spec unchanged)",
+  "note": "strafe L turns the axe in the fist 15.8 deg median (21.5 p90) to keep it at guard -- the T12 weight study's 15 deg mark; every other state 0-2 deg"
+ },
+ "films": [
+  "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_12_barrow_{play,quarter}_holds_before_after.mp4 (the real Barrow, a scratch copy of cliffside3d; standing, walk, run, guard up, strafe each way, block; zoomed on him)",
+  "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_12_barrow_{play,quarter}_strikes_after.mp4 (slash, chop, bash with the new guard and the trails)"
+ ],
+ "tools": [
+  "attack_lab/tools/guard_pose_solve.py: --box-frame chest (JOIN v2)",
+  "attack_lab/t12/godot/tools/guard_accept.gd: FIST",
+  "attack_lab/t12/godot/tools/hold_steady.gd (new)",
+  "attack_lab/t12/godot/tools/film_trails_scene.gd: --strikes holds",
+  "attack_lab/t12/godot/tools/join_accept.gd: FIST and JOIN_STILLS"
+ ]
+}
