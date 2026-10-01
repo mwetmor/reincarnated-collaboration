@@ -1,0 +1,79 @@
+{
+ "robe": "export/robe_v7.glb",
+ "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_d7/export/so-body.glb",
+ "hem_ring_segments": 148,
+ "clips": {
+  "walk": {
+   "frames": 30,
+   "stretched_edges_worst_frame": 234,
+   "skirt_stretched_edges_worst_frame": 8,
+   "jerk_max_at": {
+    "frame": 14,
+    "seg_mid": [
+     -0.016,
+     0.139,
+     0.015
+    ],
+    "seg_len_m": 0.025
+   },
+   "frames_with_stretch": 30,
+   "hem_jerk_deg_per_frame2_p95": 2.645,
+   "hem_jerk_max": 162.407,
+   "hem_angular_speed_p95": 7.654
+  },
+  "run": {
+   "frames": 23,
+   "stretched_edges_worst_frame": 345,
+   "skirt_stretched_edges_worst_frame": 59,
+   "jerk_max_at": {
+    "frame": 14,
+    "seg_mid": [
+     -0.016,
+     0.139,
+     0.015
+    ],
+    "seg_len_m": 0.025
+   },
+   "frames_with_stretch": 23,
+   "hem_jerk_deg_per_frame2_p95": 12.355,
+   "hem_jerk_max": 54.11,
+   "hem_angular_speed_p95": 19.259
+  },
+  "cast_fireball": {
+   "frames": 101,
+   "stretched_edges_worst_frame": 503,
+   "skirt_stretched_edges_worst_frame": 54,
+   "jerk_max_at": {
+    "frame": 84,
+    "seg_mid": [
+     -0.134,
+     0.132,
+     -0.014
+    ],
+    "seg_len_m": 0.007
+   },
+   "frames_with_stretch": 101,
+   "hem_jerk_deg_per_frame2_p95": 1.631,
+   "hem_jerk_max": 15.685,
+   "hem_angular_speed_p95": 6.252
+  },
+  "cast_meteor": {
+   "frames": 91,
+   "stretched_edges_worst_frame": 519,
+   "skirt_stretched_edges_worst_frame": 145,
+   "jerk_max_at": {
+    "frame": 5,
+    "seg_mid": [
+     -0.134,
+     0.132,
+     -0.014
+    ],
+    "seg_len_m": 0.007
+   },
+   "frames_with_stretch": 91,
+   "hem_jerk_deg_per_frame2_p95": 2.418,
+   "hem_jerk_max": 27.817,
+   "hem_angular_speed_p95": 6.731
+  }
+ }
+}

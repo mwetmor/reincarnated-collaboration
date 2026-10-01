@@ -1,0 +1,79 @@
+{
+ "robe": "export/gown_bmd_v1.glb",
+ "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/gear_sets/sorceress_battlemage/body119/so-body_bm119.glb",
+ "hem_ring_segments": 62,
+ "clips": {
+  "walk": {
+   "frames": 30,
+   "stretched_edges_worst_frame": 0,
+   "skirt_stretched_edges_worst_frame": 0,
+   "jerk_max_at": {
+    "frame": 9,
+    "seg_mid": [
+     -0.136,
+     0.582,
+     0.12
+    ],
+    "seg_len_m": 0.011
+   },
+   "frames_with_stretch": 0,
+   "hem_jerk_deg_per_frame2_p95": 1.786,
+   "hem_jerk_max": 4.287,
+   "hem_angular_speed_p95": 90.0
+  },
+  "run": {
+   "frames": 23,
+   "stretched_edges_worst_frame": 0,
+   "skirt_stretched_edges_worst_frame": 0,
+   "jerk_max_at": {
+    "frame": 15,
+    "seg_mid": [
+     -0.133,
+     0.58,
+     0.119
+    ],
+    "seg_len_m": 0.006
+   },
+   "frames_with_stretch": 0,
+   "hem_jerk_deg_per_frame2_p95": 6.946,
+   "hem_jerk_max": 16.404,
+   "hem_angular_speed_p95": 90.0
+  },
+  "cast_fireball_m": {
+   "frames": 101,
+   "stretched_edges_worst_frame": 82,
+   "skirt_stretched_edges_worst_frame": 19,
+   "jerk_max_at": {
+    "frame": 30,
+    "seg_mid": [
+     -0.135,
+     0.567,
+     0.128
+    ],
+    "seg_len_m": 0.006
+   },
+   "frames_with_stretch": 85,
+   "hem_jerk_deg_per_frame2_p95": 1.258,
+   "hem_jerk_max": 4.751,
+   "hem_angular_speed_p95": 90.0
+  },
+  "cast_meteor": {
+   "frames": 91,
+   "stretched_edges_worst_frame": 49,
+   "skirt_stretched_edges_worst_frame": 18,
+   "jerk_max_at": {
+    "frame": 4,
+    "seg_mid": [
+     -0.143,
+     0.584,
+     0.121
+    ],
+    "seg_len_m": 0.008
+   },
+   "frames_with_stretch": 80,
+   "hem_jerk_deg_per_frame2_p95": 1.947,
+   "hem_jerk_max": 4.681,
+   "hem_angular_speed_p95": 90.0
+  }
+ }
+}
