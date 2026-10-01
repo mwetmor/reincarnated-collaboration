@@ -185,6 +185,8 @@ func _ready() -> void:
 		touch = tc
 		if who == "sorceress":
 			_touch_for_her(tc)
+		elif who == "warlord" or slot.begins_with("barb_glad"):
+			_touch_for_strikes(tc)
 	if who == "sorceress":
 		_build_fx_label()
 	_check_key_collisions()
@@ -1349,15 +1351,31 @@ func _character_choice() -> String:
 	var i := args.find("--c")
 	if c == "" and i >= 0 and i + 1 < args.size():
 		c = String(args[i + 1])
-	return "sorceress" if c.to_lower() == "sorceress" else "barbarian"
+	c = c.to_lower()
+	return c if c in ["sorceress", "warlord"] else "barbarian"      # R-C9-117: the dark knight (?c=warlord) too
+
+
+var slot := ""                     # R-C9-117: the select page's variant (scripts/slots.gd); "" = the page's own character
+var slot_report := {}
 
 
 func _build_knight() -> void:
 	who = _character_choice()
+	# R-C9-117: A VARIANT SLOT (the select page's armor / hold, or the dark knight): its own character file, read by
+	# its own knight script through the one method that opens it; its models fetched as their own pack on the page
+	slot = Slots.choose(who)
+	if slot != "":
+		slot_report = await Slots.fetch_pack(self, slot)
+		if not FileAccess.file_exists(String(Slots.SLOTS[slot]["path"])):
+			push_error("slot %s: its character file is missing (%s)" % [slot, str(slot_report)])
+			slot_report["error"] = "missing"
+			slot = "" if who != "warlord" else slot
 	# HER, THROUGH knight.gd UNCHANGED: sorceress_knight.gd overrides only the method that opens the
 	# character file (so_d7/scene_pkg's slot, in character.json's own shape)
-	var ks: Script = load("res://scripts/sorceress_knight.gd") if who == "sorceress" else preload("res://scripts/knight.gd")
+	var ks: Script = load(String(Slots.SLOTS[slot]["script"])) if slot != "" else (load("res://scripts/sorceress_knight.gd") if who == "sorceress" else preload("res://scripts/knight.gd"))
 	var k: CharacterBody3D = ks.new()
+	if slot != "":
+		k.slot_path = String(Slots.SLOTS[slot]["path"])
 	k.name = "Knight"
 	k.setup(right, up, fwd, 1.0)
 	add_child(k)
@@ -1365,7 +1383,7 @@ func _build_knight() -> void:
 	await get_tree().physics_frame
 	k.set_figure_scale(1.0)
 	# ARMED: the full kit, axe and shield (the brief: "him, armed") -- and hers, the staff included
-	if who == "sorceress":
+	if who in ["sorceress", "warlord"] or slot.begins_with("barb_glad"):
 		k.set_gear_stack(k.gear_stack_count() - 1)
 	else:
 		k.set_gear_stack(int(layout["knight"].get("gear_stack", 4)))
@@ -1385,7 +1403,7 @@ func _build_knight() -> void:
 		spell_fx = load("res://scripts/spell_fx.gd").new()
 		spell_fx.name = "SpellFx"
 		add_child(spell_fx)
-		spell_fx.setup(k, k.cfg, _read_json("res://data/sockets_sorceress.json"))
+		spell_fx.setup(k, k.cfg, _read_json(String(Slots.SLOTS[slot].get("sockets", "res://data/sockets_sorceress.json")) if slot != "" else "res://data/sockets_sorceress.json"))
 		# THE FIRE BALL'S BUDGET RUN (?perf=fb on the page, -- --perf fb on desktop): perf_fireball.gd
 		var perf := PaintStack.web_query("perf")
 		var pa := OS.get_cmdline_user_args()
@@ -1564,6 +1582,21 @@ func _touch_for_her(tc) -> void:
 		keep.append(b)
 	tc._buttons = keep
 	_touch_her_armed()
+
+
+func _touch_for_strikes(tc) -> void:
+	"""R-C9-117: THE DARK KNIGHT'S BUTTONS (and the unarmed champion's): SLASH is his attack (the champion's whirlwind),
+	CHOP his war cry; BASH and BLOCK hidden -- neither has a shield. GEAR as his."""
+	var keep := []
+	var names := {"SLASH": "ATTACK", "CHOP": "WAR CRY"} if who == "warlord" else {"SLASH": "WHIRLWIND", "CHOP": "WAR CRY"}
+	for b in tc._buttons:
+		var lb := String(b.get("label", ""))
+		if lb in ["BASH", "BLOCK"]:
+			continue
+		if names.has(lb):
+			b["label"] = names[lb]
+		keep.append(b)
+	tc._buttons = keep
 
 
 func _touch_her_armed() -> void:
@@ -2355,7 +2388,7 @@ func _paint_launch_line() -> String:
 		if String(k).begins_with("bakes/") and ok.call(String(k)):
 			bakes_ok += 1
 	var prim := int(n.get("primitives", 0)) + (1 if int(n.get("mound", 0)) > 0 else 0)
-	return ("who=" + who + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
+	return ("who=" + who + " slot=" + (slot if slot != "" else "own") + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
 		+ "| plates: bakes=%d/25 on the real models, painting on primitives=%d/29 (the mound + 28) "
 		+ "| birches=%d inks_hidden=%d heather=%d snow=%s ms=%d") % [
 		int(paint.get("files_ok", 0)), loads.size(), str(ok.call("painting.bin")),

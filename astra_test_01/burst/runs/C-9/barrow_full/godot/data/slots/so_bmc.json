@@ -1,0 +1,203 @@
+{
+ "_note": "R-C9-117: the battle mage BMC (export_v11) -- gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_battlemage_full.json with its paths moved into the page's variant pack",
+ "model": "res://models/variants/so_bmc/so-body_battlemage_v8.glb",
+ "model_height_m": 1.6995,
+ "forward_axis": [
+  0.0,
+  0.0,
+  1.0
+ ],
+ "clips": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run"
+ },
+ "clips_armed": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run",
+  "attack": "cast_fireball",
+  "chop": "cast_meteor"
+ },
+ "roles_knight_lacks": {
+  "hit": "hit",
+  "death": "death",
+  "_note": "her clips for the two states knight.gd has no role for; the scene needs a one-shot per state (death holding its last frame) fired by the MODEL's hit-recovery and death events"
+ },
+ "armed_when_pieces": [
+  "wand"
+ ],
+ "loop": [
+  "idle",
+  "walk",
+  "run"
+ ],
+ "gear_manifest": "res://data/slots/gear_so_bmc.json",
+ "gear_dir": "res://models/variants/so_bmc",
+ "gear_stacks": [
+  [],
+  [
+   "gown",
+   "legs",
+   "under_legs"
+  ],
+  [
+   "gown",
+   "legs",
+   "under_legs",
+   "breastplate"
+  ],
+  [
+   "gown",
+   "legs",
+   "under_legs",
+   "breastplate",
+   "hood",
+   "gauntlets"
+  ],
+  [
+   "gown",
+   "legs",
+   "breastplate",
+   "hood",
+   "gauntlets",
+   "wand",
+   "grimoire",
+   "under_legs"
+  ]
+ ],
+ "gear_stack_names": [
+  "base",
+  "gown + legs",
+  "+ breastplate",
+  "+ hood + gauntlets",
+  "full kit (+wand +grimoire)"
+ ],
+ "morph_rules": {
+  "grip_R": "wand",
+  "under_battlemage": "gown"
+ },
+ "strikes_need_armed": {
+  "roles": [
+   "attack",
+   "chop"
+  ],
+  "buttons": [
+   "FIRE BALL",
+   "METEOR"
+  ],
+  "rule": "HER SPELLS NEED THE STAFF (his rule, 'the strikes need the kit'): the two spell buttons show only while knight.armed() -- her armed_when_pieces is the staff, so only at the full kit -- and the keys do nothing without it",
+  "knight_gd_lacks": "an unarmed state with NO attack. The unarmed clip map has no attack now, but _bind_roles falls back to idle for a missing attack, so the slash key would still fire a strike (it plays idle, and spell_fx would still fire the Fire Ball at its release time). The gate belongs on the page: hide the buttons when not armed(), and in sorceress_knight.gd `func try_strike(which): return super(which) if armed() else false`. The Meteor (chop) is already armed-only in knight.gd"
+ },
+ "arm_layer_armed_R": {
+  "action": "staff_carry_R",
+  "bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head",
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "weight": 1.0,
+  "_note": "THE STAFF CARRY over idle, walk and run: knight.gd's right-arm guard slot (blend_r, a filtered Blend2 over LOCOMOTION ONLY, below the strikes) filtered to the carry's NINE bones -- Spine02, Spine01, Spine, neck, Head and the staff arm -- at weight 1 (a FILTERED Blend2 at weight 1 -- the barbarian's armed-speed). No action_block: she has no block."
+ },
+ "upper_armed": {
+  "walk": "staff_carry_R",
+  "run": "staff_carry_R",
+  "bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head"
+  ],
+  "_note": "THE CARRY'S SPINE, held through knight.gd's ARMED UPPER slot -- NOT because this is an armed gait but because it is the one slot whose filter paths come from the LOCOMOTION clips' tracks (_apply_upper). The carry keeps Spine01, Spine, neck and Head at REST, and Godot's glTF import drops rest-valued tracks: staff_carry_R arrives with 8 tracks for its 9 bones (Spine02, the shoulder and the arm), so arm_layer_armed_R -- whose filter comes from the ACTION's own tracks -- cannot hold the upper spine, and the run's spine carried the staff to 32 deg (designed 13.4). With this slot the walk and run match the reference staff_layer.gd EXACTLY (0.000 deg); the idle keeps the idle clip's own spine sway (knight.gd's upper chain plays the idle ROLE clip in idle): 5.8 deg off the reference, tilt 12.0 against 10.8. scene_pkg/test/, measured."
+ },
+ "arm_layer_armed": {
+  "action": "staff_carry_R",
+  "bones": [],
+  "_note": "knight.gd's _build_anim_tree RETURNS EARLY -- no tree at all -- unless this left-arm layer's action exists. Her left arm carries nothing, so the action is the carry clip with an EMPTY filter: the `blend` node then passes locomotion through untouched."
+ },
+ "strike_release": {
+  "pose": "staff_carry_R",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "guard_throughout": [
+   "cast_fireball"
+  ],
+  "at_s": {},
+  "over_s": 0.08,
+  "_note": "THE FIRE BALL'S ARM-ONLY CARRY: knight.gd's recovery release (rel_<key>, a filtered Blend2 INSIDE each strike's one-shot) held at 1 for the whole strike (`guard_throughout`), filtered to the four staff-arm bones, on the carry pose -- the staff stays carried while her LEFT hand throws. The Meteor is in neither list, so it owns every bone: its staff motion is baked into its own weapon_r tracks."
+ },
+ "casts": {
+  "cast_fireball": {
+   "slot": "attack",
+   "release_s": 0.9333,
+   "socket": "cast_hand"
+  },
+  "cast_meteor": {
+   "slot": "chop",
+   "release_s": 1.6333,
+   "socket": "cast_hand_meteor"
+  },
+  "_note": "RELEASE per cast (from her export manifest's casts.<clip>.release_s): the instant the spell leaves the hand, clip time. knight.gd has no release event today (strike_release.at_s is the recovery release, a different thing): the placeholder VFX needs one, firing when the strike's position crosses release_s."
+ },
+ "speed_measured_at_scale": 1.25177951388889,
+ "walk_px_s": 151.7,
+ "run_px_s": 463.2,
+ "_speed_note": "FALLBACKS ONLY: knight.gd reads the live speeds from the gear manifest's locomotion_in_place by CLIP name (walk 1.508 m/s, run 4.604 m/s, her FOOT-LOCK speeds by the scene's stance rule at the clips' own keys) x PPM 100.618 = canvas px/s at the reference scale, rescaled by figure_scale / speed_measured_at_scale -- the same convention as his, since the scene applies his world factor to her. walk 0.9667 s and run 0.7333 s are one cycle each (re-cut on their sources' own keys).",
+ "scale_steps": [
+  1.0,
+  1.1,
+  1.25177951388889
+ ],
+ "scale_default_lit": 1.0,
+ "scale_default_painted": 1.1,
+ "transitions": {
+  "accel_tau_s": 0.22,
+  "decel_tau_s": 0.09,
+  "stop_snap_px_s": 5.0,
+  "attack_fade_in_s": 0.1,
+  "attack_fade_out_s": 0.25,
+  "turn_tau_s": 0.12,
+  "loco_w_tau_s": 0.0,
+  "_loco_w_tau_note": "0 = OFF. Slewing the run weight at 0.10 s was tried and REJECTED on its own numbers: it improved the run stop (813.9 -> 301.2 mm worst) and made the crossover worse (294.6 -> 415.1 mm worst, median 41.1 -> 52.2), which is the documented cost of lagging w appearing exactly where the comment says it would. The mechanism is kept because it is the only dial that separates pose response from body response, and one number turns it on.",
+  "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
+ },
+ "_copied_from_his": "scale_steps, scale_default_*, speed_measured_at_scale and transitions are HIS (the scene's own constants), copied so the slot is complete; nothing else of his applies to her",
+ "foot_lock": false,
+ "layers_knight_lacks": {
+  "hit": {
+   "want": "chest_arm: Spine02, RightShoulder, RightArm, RightForeArm, RightHand at the carry pose, weight 1, throughout the hit",
+   "lacks": "(1) a hit ROLE and one-shot; (2) PER-STRIKE release bones -- strike_release.bones is ONE list for every strike, and the Fire Ball needs the 4 arm bones while hit needs Spine02 + those 4"
+  },
+  "death": {
+   "want": "none: she falls with the staff (conductor, 2026-09-30)",
+   "lacks": "a death ROLE and a one-shot that HOLDS its last frame"
+  },
+  "cast_meteor": {
+   "want": "none",
+   "lacks": "nothing: a strike owns every bone"
+  },
+  "cast_fireball": {
+   "want": "arm-only carry",
+   "lacks": "nothing: strike_release with guard_throughout"
+  },
+  "idle_walk_run": {
+   "want": "the 9-bone carry (spine at rest + the staff arm)",
+   "lacks": "filter paths from the LAYERED-OVER clips: arm_layer_armed_R filters on the action's own tracks, and the import drops the carry's rest-valued spine tracks -- worked around in DATA with upper_armed (walk/run exact; idle keeps its own spine sway, 5.8 deg off the reference)"
+  }
+ },
+ "_model_note": "her body with ONE added morph, under_battlemage (s28: binary patch of so_d7/export/so-body.glb, clips byte-identical), set while the gown is worn; cast_meteor's weapon_r channels dropped in THIS copy (s37) so the wand stays in her fist. v10: under_legs (s42), a dark copy of her own leg skin 1.5 mm out on her own weights, worn with the legs piece.",
+ "_morph_note": "grip_R closes her right fist with the WAND. The GAUNTLETS carry their own grip_R and grip_L (the body's keys transferred vertex by vertex), so the scene must set the key on every worn mesh that has it, not on the body only -- otherwise the bare fist closes inside an open steel glove and pokes through it.",
+ "_carry_note": "arm_layer_armed_R / upper_armed / strike_release are the STAFF's carry, inherited unchanged: the wand is mounted on weapon_r at the staff's own mount (its axis along the staff's, its grip where the staff's axis passes the fist), so the same carry holds it. Tuning a lighter wand carry is a later step.",
+ "sockets": "res://data/slots/sockets_so_bm.json"
+}

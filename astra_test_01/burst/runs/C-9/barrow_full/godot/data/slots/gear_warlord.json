@@ -1,0 +1,77 @@
+{
+ "_note": "R-C9-117: the dark knight (wl_e1/export/final_h, 1.96 m), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)",
+ "body": "wl_body.glb",
+ "body_sha256": "",
+ "height_m": 1.96,
+ "scale_applied": 1.0,
+ "facing": "-Y (Blender) = +Z in Godot/glTF",
+ "his_right": "-X",
+ "up": "+Z (Blender) = +Y in Godot/glTF",
+ "body_shape_keys": [],
+ "layer_order": [
+  "body",
+  "wl_chest",
+  "wl_pauldrons",
+  "wl_helm",
+  "wl_cape",
+  "wl_mace"
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.1274,
+  "_note": "HIS world factor applied to her, as the scene does: she renders at her own 1.6995 m times the same factor, i.e. 2.127 m against his 2.316 m"
+ },
+ "pieces": [
+  {
+   "piece": "wl_mace",
+   "mode": "skin",
+   "glb": "wl_mace.glb",
+   "bones": [
+    "skinned"
+   ]
+  },
+  {
+   "piece": "wl_chest",
+   "mode": "skin",
+   "glb": "wl_chest.glb",
+   "bones": [
+    "skinned"
+   ]
+  },
+  {
+   "piece": "wl_pauldrons",
+   "mode": "skin",
+   "glb": "wl_pauldrons.glb",
+   "bones": [
+    "skinned"
+   ]
+  },
+  {
+   "piece": "wl_helm",
+   "mode": "skin",
+   "glb": "wl_helm.glb",
+   "bones": [
+    "skinned"
+   ]
+  },
+  {
+   "piece": "wl_cape",
+   "mode": "skin",
+   "glb": "wl_cape.glb",
+   "bones": [
+    "skinned"
+   ]
+  }
+ ],
+ "shape_key_rules": {},
+ "locomotion_in_place": {
+  "rule": "locomotion ships IN PLACE; drive at the foot-lock speed",
+  "walk": {
+   "speed_m_s": 1.519
+  },
+  "run": {
+   "speed_m_s": 4.924
+  },
+  "_source": "wl_e1/work/film_cfg_h.json (footlock_G2)"
+ }
+}

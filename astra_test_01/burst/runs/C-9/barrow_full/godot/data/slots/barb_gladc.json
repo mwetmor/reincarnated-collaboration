@@ -1,0 +1,226 @@
+{
+ "_note": "R-C9-117: the freed champion gladiator C -- his character.json with the champion's body and set (gear_sets/barbarian_gladiator/scene_pkg/character_champion_full.json). NO WEAPON (Matt, R-C9-105): never armed, so he plays his unarmed roles -- and the champion body carries his JOIN moves, so SLASH = the whirlwind, CHOP = the war cry.",
+ "model": "res://models/variants/barb_gladc/nb-body_champion_graded.glb",
+ "model_height_m": 1.85,
+ "forward_axis": [
+  0.0,
+  0.0,
+  1.0
+ ],
+ "clips": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run",
+  "attack": "whirlwind",
+  "chop": "shout"
+ },
+ "clips_armed": {
+  "idle": "idle_guard",
+  "walk": "walk",
+  "run": "run",
+  "attack": "attack",
+  "chop": "chop_overhead_92",
+  "block": "block",
+  "bash": "shield_bash",
+  "strafe_l": "strafe_L_armed",
+  "strafe_r": "strafe_R_armed"
+ },
+ "upper_armed": {
+  "walk": "walk_armed",
+  "run": "run_armed",
+  "bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head",
+   "head_end",
+   "headfront",
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand",
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand",
+   "weapon_r"
+  ],
+  "_note": "THE ARMED-SPEED SPLIT (Matt: \"even the run speed slows way down when I put on the axe/shield\"). clips_armed.walk/run are the UNARMED gait clips, so his legs, hips and root -- and his ground speed -- are the same armed or not; these armed gait clips ride over them for the spine and both arms, on the legs' own locked cycle and aligned at left-toe contact. The shield guard, the block and the strikes still sit above. Delete this block and set clips_armed.walk/run back to walk_armed/run_armed to undo."
+ },
+ "arm_layer_armed_R": {
+  "action": "axe_guard_R",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "action_block": "axe_guard_R_block",
+  "weight": 0.85,
+  "weight_block": 1.0,
+  "_note": "THE AXE ARM'S GUARD (T12, the shield's recipe for the right arm): axe_guard_R is the right arm's guard pose, authored by IK (nb_d2/scripts/54_weapon_channel.py pose, from attack_lab/tools/guard_pose_solve.py): the grip in front at belly-to-chest height, the wrist neutral so the haft stays in the fist's channel, the haft at the guard chosen for the play camera (tilt 55, azimuth 70). Laid over the idle, the locomotion, the strafes and the block, below the strikes, at the layer's weight: 0.85, the lowest at which the guard holds (predicate >= 90% of frames, the fist turning <= 15 deg median) AND the axe stays out of the body in every hold state -- 0.7 held the guard but put the haft's butt end into his left arm in the run and the left strafe and his fist into his hip in the right strafe, and 0.8 still grazed the butt into his hip (1 mm, 4 frames of the right strafe); weapon_r keys finish the angle. Delete this block to remove it."
+ },
+ "armed_when_pieces": [
+  "__never__"
+ ],
+ "loop": [
+  "idle",
+  "walk",
+  "run",
+  "strafe_l",
+  "strafe_r"
+ ],
+ "walk_px_s": 201.7,
+ "run_px_s": 647.5,
+ "_walk_px_s_armed_superseded": 118.6,
+ "speed_measured_at_scale": 1.25177951388889,
+ "_speed_scale_note": "walk_px_s/run_px_s were derived at figure scale 1.25178 and were being driven unchanged at the 1.10 default, so his legs were 13.8% slow for the ground. Measured: the walk clip's stance-foot floor is 6.8 mm/frame median at 1.25178 and 11.4 mm at 1.10 (24 of 39 pairs under 10 mm against 13 of 39). Roughly 40% of what was recorded as the walk clip's own floor was this. knight.gd now scales both speeds by _figure_scale / speed_measured_at_scale.",
+ "_armed_speed_note": "MEASURED, tools/probe_stride_armed.gd (in-place clips) and tools/probe_root.gd (travelling ones). walk_armed is IN PLACE: 42 frames / 1.7500 s for a 2.0625 m world stride = 118.6 px/s by the all-frames stance median and 115.4 by the contact-filtered one (6 pairs) -- 2.8% apart, which is the agreement that makes either usable. The unarmed 201.7 would slide his feet 70%. run_armed and strafe_L_armed carry ROOT MOTION and state their own speeds once de-rooted (4.337 m/s and 0.931 m/s), so no number for them is stored here: knight.gd reads the speed off the track it removed, which cannot go stale.",
+ "_walk_armed_angle_finding": "walk_armed's travel is +9.6 deg off the model's +Z, contact-filtered (walk's is +0.0). An EARLIER figure of 24.3 deg in this file was my own instrument: the all-frames median takes the lower foot on every frame, and on a clip that is airborne or swinging for most of them that is a SWINGING foot. Not compensated in the scene -- 9.6 deg is small and a weight-dependent yaw offset would put a rotation into the walk-run transitions.",
+ "outline_px": 1.1,
+ "_measured": {
+  "source": "runs/C-9/nb_t8/artifacts/T8-barbarian.glb, sidecar T8-barbarian.json",
+  "height_from_bones_m": 1.857,
+  "world_height_m": 2.3158,
+  "reads_px": 154.4,
+  "walk": "stride 1.6680 m per 1.0417 s cycle -> 2.004 m/s at figure scale -> 201.7 canvas px/s (0.82x the Keeper's 247)",
+  "run": "stride 3.4272 m per 0.6667 s cycle -> 6.435 m/s at figure scale -> 647.5 canvas px/s (1.31x the Keeper's 494)",
+  "instrument": "tools/probe_stride.gd -- median per-frame travel of the lower (stance) foot, read in metres through the Skeleton3D's own transform"
+ },
+ "gear_manifest": "res://data/slots/gear_barb_gladc.json",
+ "gear_dir": "res://models/variants/barb_gladc",
+ "gear_stacks": [
+  [],
+  [
+   "girdle",
+   "kilt",
+   "wraps"
+  ],
+  [
+   "girdle",
+   "kilt",
+   "wraps",
+   "greaves",
+   "wrists"
+  ],
+  [
+   "girdle",
+   "kilt",
+   "wraps",
+   "greaves",
+   "wrists",
+   "chest"
+  ],
+  [
+   "girdle",
+   "kilt",
+   "wraps",
+   "greaves",
+   "chest",
+   "wrists",
+   "helm",
+   "pauldron"
+  ]
+ ],
+ "arm_layer_armed": {
+  "action": "shield_guard_L",
+  "bones": [
+   "LeftShoulder",
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "_from": "the export manifest's clip_selection.armed.left_arm_layer",
+  "_over": "idle, walk and run only -- it sits BELOW the block and the three one-shots in the tree, so a slash, chop, bash or block owns the left arm outright while it is running.",
+  "_source": "Meshy 138 Block1, left-arm chain at 0.70 weight, already baked into the clip; the scene applies it at weight 1.0 and does not re-scale it."
+ },
+ "gear_stack_names": [
+  "base",
+  "girdle + kilt + wraps",
+  "+ greaves + wrists",
+  "+ chest",
+  "full champion set"
+ ],
+ "morph_rules": {
+  "helmet_on": "helm"
+ },
+ "block_fade_s": 0.12,
+ "_block_note": "Block is a HOLD, so it is a Blend2 this script drives rather than an AnimationNodeOneShot, which cannot be held for as long as a key is down. Full body, and it roots him. WHILE BLOCKING: an input toward his strafe side side-steps at strafe_L_armed's own 93.7 px/s with his facing HELD; any other input TURNS him on the spot; he never runs. There is one strafe clip and it goes one way -- Godot has no skeleton mirroring for an AnimationTree and a mirrored body would put the shield on the wrong arm -- so right-hand input turns instead of side-stepping.",
+ "scale_steps": [
+  1.0,
+  1.1,
+  1.25177951388889
+ ],
+ "scale_default_lit": 1.0,
+ "scale_default_painted": 1.1,
+ "transitions": {
+  "accel_tau_s": 0.22,
+  "decel_tau_s": 0.09,
+  "stop_snap_px_s": 5.0,
+  "attack_fade_in_s": 0.1,
+  "attack_fade_out_s": 0.25,
+  "turn_tau_s": 0.12,
+  "loco_w_tau_s": 0.0,
+  "_loco_w_tau_note": "0 = OFF. Slewing the run weight at 0.10 s was tried and REJECTED on its own numbers: it improved the run stop (813.9 -> 301.2 mm worst) and made the crossover worse (294.6 -> 415.1 mm worst, median 41.1 -> 52.2), which is the documented cost of lagging w appearing exactly where the comment says it would. The mechanism is kept because it is the only dial that separates pose response from body response, and one number turns it on.",
+  "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
+ },
+ "_root_motion_finding": "FOUR CLIPS TRAVEL and the rest are in place -- Hips net horizontal displacement, tools/probe_root.gd: run_armed 8.6617 m (4.337 m/s), strafe_L_armed 1.8591 m (0.931 m/s), idle_armed 0.8994 m (0.184 m/s) and attack_chop 0.7519 m (0.123 m/s); walk, run, walk_armed, run_armed_locked, block and shield_bash are all under 9 mm. The first two are known; THE OTHER TWO ARE NOT FLAGGED ANYWHERE -- an idle that walks 0.90 m over its loop would have slid him sideways while standing still, and the chop lunges 0.75 m. knight.gd._deroot_all converts all four to in-place plus a speed at load, detected by measurement rather than by a list, so a re-export that fixes one cannot leave a stale entry behind.",
+ "_armed_walk_stop_unmeasurable": "The armed walk stop reports 0 planted frames of 11, so there is NO number for it -- not 0 mm. walk_armed never produces a frame PAIR where the same foot is within 3 cm of its lowest on both frames with its height unchanged, at 24 fps. Reported as unmeasurable rather than as zero.",
+ "clip_px_s": {
+  "walk_armed": 115.1,
+  "run_armed": 412.5,
+  "strafe_L_armed": 91.2,
+  "strafe_R_armed": 39.0
+ },
+ "strafe_dirs": {
+  "strafe_L_armed": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "strafe_R_armed": [
+   -1.0,
+   0.0,
+   0.0
+  ]
+ },
+ "_clip_px_s_note": "FALLBACK ONLY. knight.gd reads locomotion speeds from the shipped export manifest's locomotion_in_place block (speed_m_s, the FOOT-LOCK speed on the clip's own keys since T12_10). This table is canvas px/s AT THE REFERENCE SCALE (speed_measured_at_scale), like walk_px_s and run_px_s: the strafes and run_armed here are the manifest's m/s x PPM x the reference, so both paths drive the same speed (tools/manifest_speed_patch.py fixed the manifest path, which had used PPM alone and driven every manifest speed at 0.799). walk_armed is in place at source and has no speed of its own: 115.1 is this scene's contact-filtered stance rate, kept.",
+ "_strafe_dirs_note": "From the export manifest's own frame -- his_right is -X, so his left is +X -- rather than from the clips' measured net travel. The measured headings agree (+98.1 deg off +Z for L, -137.8 for R, both resolving to the right side) but a name and an axis convention are firmer than a net direction taken from 6 contact pairs.",
+ "_armed_run_restored": "run_armed is BACK as the armed run: the export trimmed it to one gait cycle, which was the exact objection. It had held about four cycles in 2.5 s and the sync group's premise is one cycle per clip; the crossover worst frame was 316.2 mm against run_armed_locked's 30.4 mm. Re-measured after the trim -- see the commit.",
+ "_loop_note": "strafe_l / strafe_r added 2026-09-29. They are locomotion cycles and were not looped, and the strf Blend2 has sync on, which ADVANCES an input even at zero weight -- so by the time he first side-stepped, the strafe clip had run to its last frame and stayed there, and the body slid at the strafe speed over still legs (attack_lab: a_strafe parked at 2.458 s of 2.458 after 4 s of standing).",
+ "block_timing": {
+  "raise_s": 0.18,
+  "lower_s": 0.2,
+  "_note": "Block is RAISE -> HOLD -> LOWER. knight.gd._block_marks reads where Block1's raise starts and where it peaks off the clip itself (the shield hand's last low before its highest point: 0.750 -> 1.333 s as shipped), so these are only the durations: the raise played in raise_s (x3.24 of the clip), pinned at the peak while held, reversed over lower_s on release, then the 0.12 s blend back to guard. Measured, attack_lab: full guard 0.177 s after the press (was 1.458), the raise over 4 game frames and 0.587 m of hand travel, hold drift 0.0000 m (was 0.198), back to guard 0.333 s after release."
+ },
+ "foot_lock": false,
+ "_foot_lock_rollback_2026_09_29": "ROLLED BACK after Matt watched the installed Barrow build: \"after swinging his axe, he drops to the floor as if drunk.\" attack_lab/drop_ab replays shot_barrow_armed's sequence with the installed files one factor at a time. The pelvis trace is IDENTICAL with the lock on, off, on the f1017ee1 GLB and in the pre-install build -- the slash and chop lunge and crouch on their own. What the lock added is in the LEGS: it held feet up to 0.845 m from where the clip puts them (2.17 s of the sequence over 0.15 m) and folded a knee up to 61 deg past the clip's own angle, at the strikes' ends and the block's start. Off, both are 0, exactly as before the install. The damped GLB and the block machine are not involved (A/B: no change). Set true again only with a planner that will not hold a foot the clip has walked away from.",
+ "_foot_lock_note": "scripts/foot_lock.gd: at the start of a strike, a block, or their fade-outs, every foot that is not mid-stride is held where it stands by leg IK (Godot's TwoBoneIK3D) for the transition's own fade, then released over 0.2 s -- as a STEP (lift first, travel, plant) when it has more than 4 cm to go. A foot left to finish a run stride locks where it lands. false turns it off.",
+ "strike_release": {
+  "_note": "THE RECOVERY RELEASE (T12, coordinator 2026-09-30: every strike gives the axe arm back at its swing end). A strike owns every bone; after its ACTIVE SWING -- the frames contiguous with the axe head's peak speed at >= 50% of it, the weapon gate's definition -- its follow-through drove the seated axe through his own body. From at_s[clip] (that swing's last frame, measured on the clip by attack_lab/t12/godot/tools/guard_accept.gd) the arm blends to its guard over over_s, eased, inside the one-shot; weapon_r blends to its rest (the mount). pose_for gives a clip its own guard where `pose` would not hold: the chop's post-swing crouch (axe_guard_R_chop) and the shield bash's lunge (axe_guard_R_bash), each solved against that clip's own torso (attack_lab/tools/bash_guard_solve.py) and verified 0 penetration on the mesh. guard_throughout: clips that never take the axe arm -- the shield bash, whose swing is the shield's. A clip with no at_s keeps its arm throughout. knight.gd: _apply_strike_release / _release_tick (attack_lab/tools/strike_release_patch.py).",
+  "pose": "axe_guard_R",
+  "bones": [
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand",
+   "weapon_r"
+  ],
+  "over_s": 0.08,
+  "at_s": {
+   "attack": 0.75,
+   "chop_overhead_92": 0.578
+  },
+  "guard_throughout": [
+   "shield_bash"
+  ],
+  "pose_for": {
+   "shield_bash": "axe_guard_R_bash",
+   "chop_overhead_92": "axe_guard_R_chop"
+  }
+ },
+ "_chop_resourced_2026_09_30": "T12 (coordinator 2026-09-30: re-source the chop, time-to-impact <= 0.8 s). clips_armed.chop was attack_chop (Meshy 237 Charged Axe Chop: 7.67 s, impact at 4.46 s, a crouched wind-up in which the seated axe went through his left leg). It is now chop_overhead_92: Meshy 92 'Double Combo Attack', its FIRST overhead cut, grafted by nb_d2/scripts/55_clip_graft.py (world-space retarget, no Blender) from source [0.200, 1.067] s -- the lead-in trimmed (its first frames put the axe head through the shield hand as the one-shot faded in) and the second cut dropped. Impact (the strike frame) at 0.50 s; swing 0.413-0.578 s; edge along the travel +1.00 (weapon_r roll channel); released to guard at 0.578 s. attack_chop stays in the GLB, unused.",
+ "_t12_8_regraft_2026_09_30": "T12_8 (N-C9-ASSEMBLE-DISTORTION): walk_armed, idle_armed, block, shield_bash and chop_overhead_92 are re-grafted (nb_d2/scripts/55_clip_graft.py) from Meshy library clips fetched on THIS body's rig 01a0eb7e -- D2 had fetched them on the other T8 candidate's rig (01a0eb6a) and 33_assemble's Blender merge pose-copied them across the mismatched rests. Each is within 0.0001 of its source (nb_d2/scripts/56_clip_fidelity.py; the lint row SOURCE FIDELITY). The guard poses were re-solved on the corrected clips (the walk's clavicle and mean arm are the solver's prior; the block's chest); the bash and the chop's release got guards of their own.",
+ "_t12_10_strafes_2026_09_30": "T12_10 (coordinator ruling 2026-09-30): run_armed and the strafes play on their SOURCE's clock (the text-to-motion keys are 30 fps; they had shipped 1.25x slow on a 24 fps timeline) and loop cleanly -- each seam blended on the source's own keys (nb_d2/scripts/58_loop_blend.py). Their speeds are re-derived by foot-lock on those keys (57_footlock.py): strafe_L 0.724 m/s, strafe_R 0.310, run_armed 3.275 (clip_px_s was {\"strafe_L_armed\": 77.2, \"strafe_R_armed\": 56.5, \"run_armed\": 392.0})."
+}

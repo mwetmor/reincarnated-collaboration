@@ -1,0 +1,23 @@
+{
+ "_note": "Her sockets for the placeholder VFX, as BONE + OFFSET: point = bone world origin + the bone's +Y axis (normalized) x along_bone_m x the live figure scale. None is a marker node in the GLBs (gear.gd carries markers across; these are data). Same definitions as the JOIN-1 sprite pack's sockets_m (join1_render/kits/d2-fire-sorc.json).",
+ "cast_hand": {
+  "bone": "LeftHand",
+  "along_bone_m": 0.07,
+  "what": "the LEFT palm (wrist + 0.07 m along the hand): the Fire Ball's spawn point, and every state's but the Meteor's"
+ },
+ "cast_hand_meteor": {
+  "bone": "RightHand",
+  "along_bone_m": 0.07,
+  "what": "the RIGHT palm: the Meteor's call hand"
+ },
+ "main_tip": {
+  "bone": "weapon_r",
+  "along_bone_m": 0.35,
+  "what": "the WAND's tip (R-C9-117: the battle mage): weapon_r + the wand's length along its +Y"
+ },
+ "main_grip": {
+  "bone": "weapon_r",
+  "along_bone_m": 0.0,
+  "what": "the staff grip: the weapon_r joint"
+ }
+}

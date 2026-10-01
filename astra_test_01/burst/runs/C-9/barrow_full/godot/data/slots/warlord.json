@@ -1,0 +1,104 @@
+{
+ "model": "res://models/warlord/wl_body.glb",
+ "model_height_m": 1.96,
+ "forward_axis": [
+  0.0,
+  0.0,
+  1.0
+ ],
+ "clips": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run"
+ },
+ "clips_armed": {
+  "idle": "idle",
+  "walk": "walk",
+  "run": "run",
+  "attack": "attack",
+  "chop": "warcry"
+ },
+ "armed_when_pieces": [
+  "wl_mace"
+ ],
+ "loop": [
+  "idle",
+  "walk",
+  "run"
+ ],
+ "gear_manifest": "res://data/slots/gear_warlord.json",
+ "gear_dir": "res://models/warlord",
+ "gear_stacks": [
+  [],
+  [
+   "wl_mace"
+  ],
+  [
+   "wl_mace",
+   "wl_chest",
+   "wl_pauldrons"
+  ],
+  [
+   "wl_mace",
+   "wl_chest",
+   "wl_pauldrons",
+   "wl_helm",
+   "wl_cape"
+  ]
+ ],
+ "gear_stack_names": [
+  "base",
+  "armed",
+  "armed + plates",
+  "full kit"
+ ],
+ "morph_rules": {},
+ "arm_layer_armed_R": {
+  "action": "idle",
+  "bones": [],
+  "weight": 0.0
+ },
+ "upper_armed": {
+  "walk": "walk",
+  "run": "run",
+  "bones": []
+ },
+ "arm_layer_armed": {
+  "action": "idle",
+  "bones": []
+ },
+ "strike_release": {
+  "pose": "idle",
+  "bones": [],
+  "guard_throughout": [],
+  "at_s": {},
+  "over_s": 0.12
+ },
+ "speed_measured_at_scale": 1.25177951388889,
+ "walk_px_s": 152.8,
+ "run_px_s": 495.4,
+ "scale_steps": [
+  1.0,
+  1.1,
+  1.25177951388889
+ ],
+ "scale_default_lit": 1.0,
+ "scale_default_painted": 1.1,
+ "transitions": {
+  "accel_tau_s": 0.22,
+  "decel_tau_s": 0.09,
+  "stop_snap_px_s": 5.0,
+  "attack_fade_in_s": 0.1,
+  "attack_fade_out_s": 0.25,
+  "turn_tau_s": 0.12,
+  "loco_w_tau_s": 0.0,
+  "_loco_w_tau_note": "0 = OFF. Slewing the run weight at 0.10 s was tried and REJECTED on its own numbers: it improved the run stop (813.9 -> 301.2 mm worst) and made the crossover worse (294.6 -> 415.1 mm worst, median 41.1 -> 52.2), which is the documented cost of lagging w appearing exactly where the comment says it would. The mechanism is kept because it is the only dial that separates pose response from body response, and one number turns it on.",
+  "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
+ },
+ "foot_lock": false,
+ "_note": "R-C9-117: THE DARK KNIGHT (wl_e1/export/final_h): his clips idle walk run attack hit death warcry; SLASH = the mace attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).",
+ "roles_knight_lacks": {
+  "hit": "hit",
+  "death": "death"
+ }
+}

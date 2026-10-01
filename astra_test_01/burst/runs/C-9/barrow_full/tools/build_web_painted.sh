@@ -86,7 +86,8 @@ for imp in sorted(list((root / "models" / "barrow").glob("*.glb.import")) + list
 # HIS GEAR AND HERS: VRAM-compressed with mipmaps (the importer's detect-3D step never runs
 # headless), cut to 512 -- he stands ~190 px tall on the phone's 3D frame, she ~170 (the installed
 # phone build's sizing)
-for imp in sorted(list((root / "models" / "gear").glob("*.import")) + list((root / "models" / "sorceress").glob("*.import"))):
+for imp in sorted(list((root / "models" / "gear").glob("*.import")) + list((root / "models" / "sorceress").glob("*.import"))
+                  + list((root / "models" / "warlord").glob("*.import")) + list((root / "models" / "variants").glob("*/*.import"))):
     src = imp.with_suffix("")
     if src.suffix.lower() not in (".png", ".jpg", ".jpeg"):
         continue
@@ -111,15 +112,24 @@ echo "== presets: TWO PACKS -- the barbarian's (index.pck) and hers (sorceress.p
 # character -- his gear, or her body, gear and spell effects. Nothing he loads is in hers, nor hers in his.
 list_files() { (cd "$DEST" && {
   echo "scenes/barrow_painted.tscn"
-  ls scripts/*.gd
+  ls scripts/*.gd scripts/variants/*.gd
   for m in birch lintel post raven stone_mid stone_short stone_tall; do echo "models/barrow/$m.glb"; done
   for k in cairn log shield; do echo "models/barrow/kit/$k.glb"; done
-  if [ "$1" = him ]; then ls models/gear/*.glb; else ls models/sorceress/*.glb; fi
+  case "$1" in him) ls models/gear/*.glb;; her) ls models/sorceress/*.glb;; wl) ls models/warlord/*.glb;; esac
 } | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
 FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
+FILES_WL=$(list_files wl)
+# R-C9-117: A VARIANT PACK PER SLOT (the select page's armor / hold), fetched by the page only for that slot
+vfiles() { (cd "$DEST" && ls models/variants/$1/*.glb | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
+VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l"
+vinc() { case "$1" in
+  so_*) echo "data/slots/$1.json,data/slots/gear_$1.json,data/slots/sockets_so_bm.json";;
+  barb_glad*) echo "data/slots/$1.json,data/slots/gear_$1.json";;
+  *) echo "data/slots/$1.json,data/slots/gear_t12.json";; esac; }
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
+INC_WL="$INC_COMMON,data/slots/warlord.json,data/slots/gear_warlord.json"
 INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/vfx/crater_v4/*,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
@@ -132,7 +142,7 @@ vram_texture_compression/for_desktop=false
 vram_texture_compression/for_mobile=true
 html/export_icon=true
 html/custom_html_shell=""
-html/head_include="<base href=\"/playtest/barrow-painted/\"><style>#rotate-hint{display:none;position:fixed;inset:0;z-index:10;background:#0b0f16;color:#e8eef7;font:600 20px/1.4 system-ui,sans-serif;align-items:center;justify-content:center;text-align:center;padding:24px}@media (orientation:portrait) and (pointer:coarse){#rotate-hint{display:flex}}#back-chip{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:calc(env(safe-area-inset-left,0px) + 8px);z-index:20;font:600 13px/1 system-ui,-apple-system,sans-serif}#back-chip a{display:block;padding:9px 13px;border-radius:999px;background:rgba(11,15,22,.78);color:#e8eef7;border:1px solid rgba(143,200,255,.45);text-decoration:none}</style><script>addEventListener('DOMContentLoaded',function(){var d=document.createElement('div');d.id='rotate-hint';d.textContent='Rotate your phone to landscape to play';document.body.appendChild(d);var n=document.createElement('div');n.id='back-chip';n.innerHTML='<a href=\"/playtest/\">← Playtests</a>';document.body.appendChild(n);n.addEventListener('pointerdown',function(e){e.stopPropagation();},true);});</script>"
+html/head_include="<base href=\"/playtest/barrow-painted/\"><style>#rotate-hint{display:none;position:fixed;inset:0;z-index:10;background:#0b0f16;color:#e8eef7;font:600 20px/1.4 system-ui,sans-serif;align-items:center;justify-content:center;text-align:center;padding:24px}@media (orientation:portrait) and (pointer:coarse){#rotate-hint{display:flex}}#back-chip{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:calc(env(safe-area-inset-left,0px) + 8px);z-index:20;font:600 13px/1 system-ui,-apple-system,sans-serif}#back-chip a{display:block;padding:9px 13px;border-radius:999px;background:rgba(11,15,22,.78);color:#e8eef7;border:1px solid rgba(143,200,255,.45);text-decoration:none}</style><script>addEventListener('DOMContentLoaded',function(){var d=document.createElement('div');d.id='rotate-hint';d.textContent='Rotate your phone to landscape to play';document.body.appendChild(d);var n=document.createElement('div');n.id='back-chip';n.innerHTML='<a href=\"/playtest/barrow-painted/?select=1\">← Characters</a>';document.body.appendChild(n);n.addEventListener('pointerdown',function(e){e.stopPropagation();},true);});</script>"
 html/canvas_resize_policy=2
 html/focus_canvas_on_start=true
 html/experimental_virtual_keyboard=false
@@ -161,7 +171,9 @@ preset() {  # index name files include
 # MIX v2 is her default and ships A's BURST (meteor_mix2); the first mix's FALL frames (?meteor=mix1) are
 # their own small pack, meteor_mix1.pck, fetched only for ?meteor=mix1
 { preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; preset 2 "WebMeteorA" "" "data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin"
-  preset 3 "WebMeteorMix1" "" "data/vfx/meteor_mix/*.json,data/vfx/meteor_mix/*.bin"; } > "$DEST/export_presets.cfg"
+  preset 3 "WebMeteorMix1" "" "data/vfx/meteor_mix/*.json,data/vfx/meteor_mix/*.bin"
+  preset 4 "WebWarlord" "$FILES_WL" "$INC_WL"
+  n=5; for v in $VARIANTS; do preset $n "WebVar_$v" "$(vfiles $v)" "$(vinc $v)"; n=$((n+1)); done; } > "$DEST/export_presets.cfg"
 
 echo "== export Web"
 mkdir -p "$DEST/build/web"
@@ -173,6 +185,12 @@ mkdir -p "$DEST/build/web"
   echo "export (lane A's pack) failed" >&2; tail -30 "$LOG/export_meteor_a.log" >&2; exit 5; }
 "$GODOT" --headless --path "$DEST" --export-pack "WebMeteorMix1" build/web/meteor_mix1.pck > "$LOG/export_meteor_mix1.log" 2>&1 || {
   echo "export (the first mix's fall pack) failed" >&2; tail -30 "$LOG/export_meteor_mix1.log" >&2; exit 5; }
+"$GODOT" --headless --path "$DEST" --export-pack "WebWarlord" build/web/warlord.pck > "$LOG/export_warlord.log" 2>&1 || {
+  echo "export (the dark knight's pack) failed" >&2; tail -30 "$LOG/export_warlord.log" >&2; exit 5; }
+for v in $VARIANTS; do
+  "$GODOT" --headless --path "$DEST" --export-pack "WebVar_$v" build/web/variant_$v.pck > "$LOG/export_variant_$v.log" 2>&1 || {
+    echo "export (variant $v) failed" >&2; tail -30 "$LOG/export_variant_$v.log" >&2; exit 5; }
+done
 echo "== the page picks its pack by ?c="
 python3 - "$DEST/build/web" <<'CHOOSER'
 import os, re, sys
@@ -180,12 +198,14 @@ w = sys.argv[1]
 p = os.path.join(w, "index.html")
 t = open(p).read()
 packs = {"barbarian": ("index.pck", os.path.getsize(os.path.join(w, "index.pck"))),
-         "sorceress": ("sorceress.pck", os.path.getsize(os.path.join(w, "sorceress.pck")))}
+         "sorceress": ("sorceress.pck", os.path.getsize(os.path.join(w, "sorceress.pck"))),
+         "warlord": ("warlord.pck", os.path.getsize(os.path.join(w, "warlord.pck")))}
 m = re.search(r"const GODOT_CONFIG = (\{.*?\});", t)
 assert m, "no GODOT_CONFIG in index.html"
 js = ("\nconst GODOT_PACKS = {" + ", ".join('"%s": {"pack": "%s", "size": %d}' % (k, v[0], v[1]) for k, v in packs.items()) + "};\n"
       "(function () {\n"
-      "\tconst pick = (new URLSearchParams(window.location.search).get('c') || '').toLowerCase() === 'sorceress' ? 'sorceress' : 'barbarian';\n"
+      "\tconst c = (new URLSearchParams(window.location.search).get('c') || '').toLowerCase();\n"
+      "\tconst pick = (c === 'sorceress' || c === 'warlord') ? c : 'barbarian';\n"
       "\tGODOT_CONFIG['mainPack'] = GODOT_PACKS[pick].pack;\n"
       "\tGODOT_CONFIG['fileSizes'] = {[GODOT_PACKS[pick].pack]: GODOT_PACKS[pick].size, 'index.wasm': GODOT_CONFIG['fileSizes']['index.wasm']};\n"
       "}());\n")
@@ -361,7 +381,39 @@ echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ba
 # LANE A (?meteor=a) comes from meteor_a.pck and the first mix (?meteor=mix1) from meteor_mix1.pck, both
 # fetched by the page: fenced above by their file tables, and in Chrome (tools/web_perf_fb.js), not by a
 # desktop launch (it cannot fetch)
+# R-C9-117: THE DARK KNIGHT'S PACK AND THE VARIANT SLOTS, each launched as the page would (the variant's pack handed
+# to the desktop, which cannot fetch), and the pack crossings: no character's models in another's pack
+"$GODOT" --main-pack "$W/warlord.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c warlord > "$LOG/launch_warlord.log" 2>&1 || true
+WLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_warlord.log" | head -1 || true)
+echo "$WLINE" | grep -q "who=warlord slot=warlord" && echo "$WLINE" | grep -q "files_sha_ok=28/28" \
+  && ck 0 "?c=warlord: the dark knight walks the painted Barrow from warlord.pck" || ck 1 "?c=warlord (got: $(echo "$WLINE" | cut -c1-120))"
+grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord.log" && ck 1 "?c=warlord launch errors" || ck 0 "?c=warlord launch free of script and shader errors"
+for v in $VARIANTS; do
+  case "$v" in so_*) MP=sorceress.pck; C=sorceress; Q="--armor ${v#so_}";; barb_glad*) MP=index.pck; C=barbarian; Q="--armor ${v#barb_}";; *) MP=index.pck; C=barbarian; Q="--hold ${v#barb_}";; esac
+  "$GODOT" --main-pack "$W/$MP" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+    --resolution 640x360 --quit-after 900 -- --as-web --c $C $Q --variant-pack "$W/variant_$v.pck" > "$LOG/launch_variant_$v.log" 2>&1 || true
+  VLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_variant_$v.log" | head -1 || true)
+  if echo "$VLINE" | grep -q "who=$C slot=$v " && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_variant_$v.log"; then
+    ck 0 "variant $v: launches from $MP + variant_$v.pck ($(( $(stat -f %z "$W/variant_$v.pck") / 1000000 )) MB), no script or shader error"
+  else ck 1 "variant $v (got: $(echo "$VLINE" | cut -c1-120); errors: $(grep -a -c -E 'SCRIPT ERROR|SHADER ERROR' "$LOG/launch_variant_$v.log"))"; fi
+done
+CROSS=0
+for pk in index.pck sorceress.pck; do python3 "$SRC/../tools/pck_list.py" "$W/$pk" | grep -q -E "^models/(warlord|variants)/" && { echo "   $pk carries the dark knight or a variant" >&2; CROSS=1; }; done
+python3 "$SRC/../tools/pck_list.py" "$W/warlord.pck" | grep -q -E "^models/(gear|sorceress|variants)/" && { echo "   warlord.pck carries another character" >&2; CROSS=1; }
+[ "$CROSS" -eq 0 ] && ck 0 "lazy per character: his, her and the dark knight's packs carry only their own models; every variant is its own pack" || ck 1 "pack crossings"
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
+
+# R-C9-117: THE SELECT SCREEN IS THE PAGE'S INDEX; the game moves to play.html (same directory, same base href, the same
+# packs). Old links with a query go straight to the game (the select page's first script).
+mv "$W/index.html" "$W/play.html"
+mkdir -p "$W/select"
+cp "$SRC/../tools/select/index.html" "$W/index.html"
+cp "$SRC/../tools/select/"*.jpg "$W/select/"
+grep -q "location.replace('play.html' + location.search)" "$W/index.html" && grep -q "const GODOT_PACKS" "$W/play.html" \
+  && grep -q '"warlord": {"pack": "warlord.pck"' "$W/play.html" && [ -s "$W/select/barbarian.jpg" ] && [ -s "$W/select/sorceress.jpg" ] && [ -s "$W/select/warlord.jpg" ] \
+  && echo "   ok   the select page is the index (3 portraits), the game is play.html with the dark knight's pack" \
+  || { echo "   FAIL the select page / play.html" >&2; exit 6; }
 
 if [ "$NO_STAGE" -eq 0 ]; then
   echo "== stage -> $STAGE"

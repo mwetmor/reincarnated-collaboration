@@ -1,0 +1,398 @@
+{
+ "_what": "C-9 R-C9-117: the select page -- three cards before Godot boots, every overnight variant reachable. drax.",
+ "layout": "/playtest/barrow-painted/ is the select page (index.html, plain HTML, phone-first); the game is play.html in the same directory. A link with a query (old ?c= links) goes straight to play.html with it; the game's back chip returns to the select page.",
+ "params": {
+  "c": "barbarian | sorceress | warlord",
+  "armor": "sorceress cur|bmc|bmd; barbarian viking|gladc|gladb",
+  "hold": "barbarian (viking): t1211|f25l|f40l (absent: the page's own T12_10)",
+  "fb": "c75",
+  "meteor": "mix3|mix4",
+  "fall": "2.4"
+ },
+ "slots": "tools/make_slots.py writes godot/data/slots/*.json in the installed files' own shape; scripts/slots.gd picks one; slot_knight.gd (her knight), slot_knight_him.gd (his knight.gd) and scripts/variants/slot_knight_t12.gd (attack_lab/staged/t12_11/knight.gd byte copy 86141f65) read it. knight.gd, character.json, gear.gd, foot_lock.gd and nb-body.glb untouched; nothing in cliffside3d.",
+ "variants": {
+  "so_bmc/so_bmd": "the battle mage on her v8 body, export_v11 (C painted) / export_v12 (D + steel pass); GEAR steps 5 stacks; the Meteor's crown on the wand tip (0.35 m)",
+  "barb_gladc/gladb": "the freed champion (body_graded+export_graded / body_painted+export_painted); no weapon (R-C9-105): never armed, SLASH = whirlwind, CHOP = war cry (the champion body carries the JOIN moves); BASH/BLOCK hidden",
+  "barb_t1211/f25l/f40l": "T12_11 (cliffside3d's installed body 3e32a9fc + character ca2ce1ca) and T12_12c F25L 23e5fde7 / F40L 614de31d (character 09900b76), through the T12_11 knight; web only",
+  "warlord": "wl_e1/export/final_h at 1.96 m: idle walk run attack hit death warcry; SLASH = attack, CHOP = war cry, GEAR 4 stacks; no Eye of Reckoning VFX"
+ },
+ "join_moves_toggle": "not added for the Viking barbarian: nb_join's JOIN body is a different kit (sword main hand + axe off hand, his axe_l) needing its own gear and slot. The champion slot plays the JOIN body's whirlwind and war cry on its buttons.",
+ "packs_bytes": {
+  "index.pck": 31908308,
+  "meteor_a.pck": 7195756,
+  "meteor_mix1.pck": 1066168,
+  "sorceress.pck": 43425656,
+  "variant_barb_f25l.pck": 17123072,
+  "variant_barb_f40l.pck": 17123088,
+  "variant_barb_gladb.pck": 12457388,
+  "variant_barb_gladc.pck": 12457076,
+  "variant_barb_t1211.pck": 17120868,
+  "variant_so_bmc.pck": 24199864,
+  "variant_so_bmd.pck": 24199848,
+  "warlord.pck": 23873168
+ },
+ "lazy_load": "each character's own main pack (index.pck him, sorceress.pck her, warlord.pck the dark knight) picked by ?c=; a variant's models are variant_<slot>.pck, fetched only for that slot (fenced: no pack carries another character's models)",
+ "chrome_desktop": {
+  "cold_barb": {
+   "navigate_to_play_ms": 24684,
+   "built_ms": 16829,
+   "worst_after_lift_ms": [
+    [
+     381,
+     18.5
+    ],
+    [
+     714,
+     18.5
+    ]
+   ],
+   "page_errors": []
+  },
+  "cold_sorc": {
+   "navigate_to_play_ms": 25294,
+   "built_ms": 7104,
+   "worst_after_lift_ms": [
+    [
+     123198,
+     65
+    ],
+    [
+     123263,
+     35
+    ]
+   ],
+   "page_errors": [],
+   "first_cast_max_ms": 18.8,
+   "warm_on_max_ms": 18.9,
+   "delta_mean_ms": -0.001
+  },
+  "cold_wl": {
+   "navigate_to_play_ms": 15545,
+   "built_ms": 6821,
+   "worst_after_lift_ms": [
+    [
+     215,
+     18.7
+    ],
+    [
+     8132,
+     18.7
+    ]
+   ],
+   "page_errors": []
+  },
+  "warm_barb": {
+   "navigate_to_play_ms": 10496,
+   "built_ms": 9685,
+   "worst_after_lift_ms": [
+    [
+     12282,
+     18.7
+    ],
+    [
+     17165,
+     18.7
+    ]
+   ],
+   "page_errors": []
+  },
+  "warm_bmd": {
+   "navigate_to_play_ms": 23034,
+   "built_ms": 12270,
+   "worst_after_lift_ms": [
+    [
+     123116,
+     83.4
+    ],
+    [
+     22948,
+     17.8
+    ]
+   ],
+   "page_errors": [],
+   "first_cast_max_ms": 17.8,
+   "warm_on_max_ms": 18.8,
+   "delta_mean_ms": 0
+  },
+  "warm_gladc": {
+   "navigate_to_play_ms": 13649,
+   "built_ms": 12783,
+   "worst_after_lift_ms": [
+    [
+     1847,
+     18.7
+    ],
+    [
+     12381,
+     18.7
+    ]
+   ],
+   "page_errors": []
+  },
+  "warm_sorc": {
+   "navigate_to_play_ms": 7207,
+   "built_ms": 5177,
+   "worst_after_lift_ms": [
+    [
+     123083,
+     83.3
+    ],
+    [
+     18564,
+     18.8
+    ]
+   ],
+   "page_errors": [],
+   "first_cast_max_ms": 18.8,
+   "warm_on_max_ms": 19.2,
+   "delta_mean_ms": -0.001
+  },
+  "warm_wl": {
+   "navigate_to_play_ms": 5770,
+   "built_ms": 4696,
+   "worst_after_lift_ms": [
+    [
+     747,
+     18.7
+    ],
+    [
+     8081,
+     18.7
+    ]
+   ],
+   "page_errors": []
+  }
+ },
+ "chrome_note": "cold = Chrome's Metal shader cache moved aside + a fresh profile. Barbarian and dark knight runs measure 30 s idle after the lift (their strikes were exercised in the desktop probes); her runs are the Meteor perf harness. warm_bmd = battle mage D + c75 + mix4 + fall 2.4 together.",
+ "desktop_probes": {
+  "warlord": {
+   "slot": "warlord",
+   "model": "res://models/warlord/wl_body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_f40l": {
+   "slot": "barb_f40l",
+   "model": "res://models/variants/barb_f40l/nb-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_f25l": {
+   "slot": "barb_f25l",
+   "model": "res://models/variants/barb_f25l/nb-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "barb_f25l": {
+   "slot": "barb_f25l",
+   "model": "res://models/variants/barb_f25l/nb-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_gladb": {
+   "slot": "barb_gladb",
+   "model": "res://models/variants/barb_gladb/nb-body_champion_painted.glb",
+   "armed": false,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_gladc": {
+   "slot": "barb_gladc",
+   "model": "res://models/variants/barb_gladc/nb-body_champion_graded.glb",
+   "armed": false,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "wl": {
+   "slot": "warlord",
+   "model": "res://models/warlord/wl_body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_own": {
+   "slot": "",
+   "model": "res://models/gear/nb-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "s_own": {
+   "slot": "",
+   "model": "res://models/sorceress/so-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "s_bmd": {
+   "slot": "so_bmd",
+   "model": "res://models/variants/so_bmd/so-body_battlemage_v8.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "s_bmc": {
+   "slot": "so_bmc",
+   "model": "res://models/variants/so_bmc/so-body_battlemage_v8.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "so_bmc": {
+   "slot": "so_bmc",
+   "model": "res://models/variants/so_bmc/so-body_battlemage_v8.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    false
+   ],
+   "tree_bad_nodes": []
+  },
+  "barb_gladc": {
+   "slot": "barb_gladc",
+   "model": "res://models/variants/barb_gladc/nb-body_champion_graded.glb",
+   "armed": false,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  },
+  "b_t1211": {
+   "slot": "barb_t1211",
+   "model": "res://models/variants/barb_t1211/nb-body.glb",
+   "armed": true,
+   "strikes": [
+    true,
+    true
+   ],
+   "tree_bad_nodes": []
+  }
+ },
+ "combo_word": "slot=so_bmd fire_ball=...+c75 meteor=mix4(...,fall_s=2.40)",
+ "select_check": {
+  "rows": [
+   {
+    "card": "barbarian",
+    "picks": {},
+    "want": "c=barbarian&hold=t1211",
+    "got": "c=barbarian&hold=t1211",
+    "ok": true
+   },
+   {
+    "card": "barbarian",
+    "picks": {
+     "b_hold": "f25l"
+    },
+    "want": "c=barbarian&hold=f25l",
+    "got": "c=barbarian&hold=f25l",
+    "ok": true
+   },
+   {
+    "card": "barbarian",
+    "picks": {
+     "b_hold": "f40l"
+    },
+    "want": "c=barbarian&hold=f40l",
+    "got": "c=barbarian&hold=f40l",
+    "ok": true
+   },
+   {
+    "card": "barbarian",
+    "picks": {
+     "b_armor": "gladc"
+    },
+    "want": "c=barbarian&armor=gladc",
+    "got": "c=barbarian&armor=gladc",
+    "ok": true
+   },
+   {
+    "card": "barbarian",
+    "picks": {
+     "b_armor": "gladb"
+    },
+    "want": "c=barbarian&armor=gladb",
+    "got": "c=barbarian&armor=gladb",
+    "ok": true
+   },
+   {
+    "card": "sorceress",
+    "picks": {},
+    "want": "c=sorceress&meteor=mix3",
+    "got": "c=sorceress&meteor=mix3",
+    "ok": true
+   },
+   {
+    "card": "sorceress",
+    "picks": {
+     "s_armor": "bmc"
+    },
+    "want": "c=sorceress&armor=bmc&meteor=mix3",
+    "got": "c=sorceress&armor=bmc&meteor=mix3",
+    "ok": true
+   },
+   {
+    "card": "sorceress",
+    "picks": {
+     "s_armor": "bmd",
+     "s_fb": "c75",
+     "s_meteor": "mix4",
+     "s_fall": "2.4"
+    },
+    "want": "c=sorceress&armor=bmd&fb=c75&meteor=mix4&fall=2.4",
+    "got": "c=sorceress&armor=bmd&fb=c75&meteor=mix4&fall=2.4",
+    "ok": true
+   },
+   {
+    "card": "warlord",
+    "picks": {},
+    "want": "c=warlord",
+    "got": "c=warlord",
+    "ok": true
+   },
+   {
+    "old_link": "?c=sorceress&fb=c75",
+    "got": "http://127.0.0.1:8805/playtest/barrow-painted/play.html?c=sorceress&fb=c75",
+    "ok": true
+   }
+  ],
+  "errors": []
+ }
+}

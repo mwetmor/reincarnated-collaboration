@@ -1,0 +1,89 @@
+{
+ "_note": "R-C9-117: the battle-mage set BMD (export_v12) on her v8 body, in her manifest's shape (tools/make_slots.py)",
+ "body": "so-body_battlemage_v8.glb",
+ "body_sha256": "",
+ "height_m": 1.6995,
+ "scale_applied": 1.0,
+ "facing": "-Y (Blender) = +Z in Godot/glTF",
+ "his_right": "-X",
+ "up": "+Z (Blender) = +Y in Godot/glTF",
+ "body_shape_keys": [
+  "grip_R",
+  "grip_L"
+ ],
+ "layer_order": [
+  "body",
+  "gown",
+  "legs",
+  "breastplate",
+  "hood",
+  "gauntlets",
+  "wand",
+  "grimoire"
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.1274,
+  "_note": "HIS world factor applied to her, as the scene does: she renders at her own 1.6995 m times the same factor, i.e. 2.127 m against his 2.316 m"
+ },
+ "pieces": [
+  {
+   "piece": "gown",
+   "mode": "skin",
+   "glb": "gown.glb"
+  },
+  {
+   "piece": "legs",
+   "mode": "skin",
+   "glb": "legs.glb"
+  },
+  {
+   "piece": "breastplate",
+   "mode": "skin",
+   "glb": "breastplate.glb"
+  },
+  {
+   "piece": "hood",
+   "mode": "skin",
+   "glb": "hood.glb"
+  },
+  {
+   "piece": "gauntlets",
+   "mode": "skin",
+   "glb": "gauntlets.glb"
+  },
+  {
+   "piece": "wand",
+   "mode": "bone",
+   "glb": "wand.glb"
+  },
+  {
+   "piece": "grimoire",
+   "mode": "bone",
+   "glb": "grimoire.glb"
+  },
+  {
+   "piece": "under_legs",
+   "mode": "skin",
+   "glb": "under_legs.glb"
+  }
+ ],
+ "shape_key_rules": {
+  "grip_R": "1 while the staff is equipped -- closes the right fist round the shaft (staff_carry_R)",
+  "grip_L": "0 always: the off hand is free (the Fire Ball hand)"
+ },
+ "locomotion_in_place": {
+  "rule": "locomotion ships IN PLACE. Drive her at the FOOT-LOCK speed: the speed that holds the planted foot still.",
+  "walk": {
+   "seconds": 0.9667,
+   "speed_m_s": 1.508,
+   "planted_intervals": 22
+  },
+  "run": {
+   "seconds": 0.7333,
+   "speed_m_s": 4.604,
+   "planted_intervals": 9
+  },
+  "_source": "so_d7/export/manifest.json locomotion_in_place (seconds, speed_m_s, planted_intervals); its recut records carry the history"
+ }
+}
