@@ -41,5 +41,139 @@
   "stills/battlemage_stacks_2x.jpg",
   "stills/v8_full4/*.png",
   "stills/v8_stacks/*.png"
- ]
+ ],
+ "followups": {
+  "see_through": {
+   "fix": "under_legs (s42): a dark copy of her own leg skin, zf 0.04-0.56 minus boot leather, 1.5 mm out, on her body's own weights vertex for vertex; worn with the legs piece",
+   "measured": {
+    "v8_full4": {
+     "total_peach_px_knee_to_boot": 19704,
+     "worst": [
+      [
+       "stack0_cast_meteor_h115_s2",
+       1948
+      ],
+      [
+       "stack0_run_h295_s2",
+       1757
+      ],
+      [
+       "stack0_cast_fireball_h115_s2",
+       1680
+      ],
+      [
+       "stack0_cast_fireball_h295_s2",
+       1141
+      ]
+     ],
+     "conductor_frames": {
+      "stack0_cast_fireball_h115_s2": 1680,
+      "stack0_idle_h205_s2": 1020,
+      "stack0_idle_h295_s2": 950
+     },
+     "skin_only_knee_band_total": 10349,
+     "skin_only_conductor_frames": {
+      "stack0_cast_fireball_h115_s2": 965,
+      "stack0_idle_h205_s2": 411,
+      "stack0_idle_h295_s2": 546
+     }
+    },
+    "v10_full4": {
+     "total_peach_px_knee_to_boot": 9595,
+     "worst": [
+      [
+       "stack0_cast_meteor_h115_s2",
+       1138
+      ],
+      [
+       "stack0_run_h295_s2",
+       875
+      ],
+      [
+       "stack0_cast_fireball_h115_s2",
+       723
+      ],
+      [
+       "stack0_idle_h115_s2",
+       695
+      ]
+     ],
+     "conductor_frames": {
+      "stack0_cast_fireball_h115_s2": 723,
+      "stack0_idle_h205_s2": 466,
+      "stack0_idle_h295_s2": 275
+     },
+     "skin_only_knee_band_total": 3948,
+     "skin_only_conductor_frames": {
+      "stack0_cast_fireball_h115_s2": 246,
+      "stack0_idle_h205_s2": 89,
+      "stack0_idle_h295_s2": 189
+     }
+    },
+    "v11_full4": {
+     "total_peach_px_knee_to_boot": 9595,
+     "worst": [
+      [
+       "stack0_cast_meteor_h115_s2",
+       1138
+      ],
+      [
+       "stack0_run_h295_s2",
+       875
+      ],
+      [
+       "stack0_cast_fireball_h115_s2",
+       723
+      ],
+      [
+       "stack0_idle_h115_s2",
+       695
+      ]
+     ],
+     "conductor_frames": {
+      "stack0_cast_fireball_h115_s2": 723,
+      "stack0_idle_h205_s2": 466,
+      "stack0_idle_h295_s2": 275
+     }
+    }
+   },
+   "verdict": "knee-to-boot-top skin pixels 10,349 -> 3,948 (-62%) over 40 stills at 2x; the conductor's frames Fire Ball h115 965->246, idle h205 411->89, idle h295 546->189; s11 pale dots 1x 41->31 (full kit, 4 headings), stacks 16/20 -> 9/11. Reduced, not zero: the remaining skin is where the knee bends the skin out PAST the under-layer's own edge (the cuisse/greave gap at full knee flex)"
+  },
+  "paint": {
+   "sheets": {
+    "A": "GS-SPA_a (4 calls incl. 2 Astra retries; ratio 0.987)",
+    "B": "GS-SPB_a (2 calls; 0.916)"
+   },
+   "unseen_pct": 27.7,
+   "measured": {
+    "v8_full4": {
+     "steel_value_contrast_std_L": 18.18,
+     "armour_4cluster_min": 23.79,
+     "armour_4cluster_mean": 33.96,
+     "steel_share": 0.269
+    },
+    "v11_full4": {
+     "steel_value_contrast_std_L": 15.07,
+     "armour_4cluster_min": 23.77,
+     "armour_4cluster_mean": 36.5,
+     "steel_share": 0.215
+    },
+    "v12_full4": {
+     "steel_value_contrast_std_L": 26.35,
+     "armour_4cluster_min": 30.41,
+     "armour_4cluster_mean": 41.51,
+     "steel_share": 0.388
+    }
+   },
+   "verdict": "the bake (C) brightened the scarlet and gold but left the steel PALE (steel value std 18.2 -> 15.1); the steel grade (D, s44: S-curve x1.45 about 0.60, hue 215) gives steel value std 26.4 and armour cluster separation min 30.4 / mean 41.5 (from 23.8 / 34.0). D reads as cool polished steel; it may read too blue-white for Matt -- C and D are both shippable"
+  },
+  "files": {
+   "C": "export_v11/*.glb",
+   "D": "export_v12/*.glb",
+   "body": "body/so-body_battlemage_v8.glb",
+   "sheet": "stills/battlemage_4way_4headings_2x.jpg (A | B | C | D, idle, 4 headings)",
+   "film": "film/battlemage_3way_2x.mp4 (A | C | D, 2700x1080)",
+   "stacks": "stills/v11_stacks/"
+  }
+ }
 }

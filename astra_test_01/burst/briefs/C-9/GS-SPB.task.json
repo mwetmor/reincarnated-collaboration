@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST GS-SPB -- Run C-9 Phase 2 (Matt R-C9-105 / R-C9-98): the PAINTED TEXTURE of the fire sorceress's battle-mage armour, sheet 2 of 2. task_id \"GS-SPB\".\n\nIMAGE 1 is a sheet of TEN renders of ONE 3D model of a woman standing in an A-pose, seen from HIGH above (52.95 degrees, the game camera's own angle), on flat pure #00ff00. Top row, left to right: facing the lower right (south-east); facing the lower left (south-west); facing the viewer's RIGHT in profile (east); facing the viewer's LEFT in profile (west); facing away to the upper left (north-west); facing away to the upper right (north-east). Bottom row, left to right: FACING THE VIEWER (south); seen from BEHIND (north); a CLOSE-UP of her head from the lower right, three-quarter; a CLOSE-UP of her HEAD from the front. They are renders of the model: every OUTLINE, POSE, POSITION and SIZE is correct and must not change; the surface colour is the 3D model's own flat, muddy texture. They ALREADY CARRY the first painting of him (from a lower camera), projected onto the model: keep every feature where it already is and REFINE it -- the tops of the helmet, shoulders, plates and fur that a low camera only grazed get the most new detail. Do not move or re-invent a feature the canvas already shows.\nIMAGE 2 is her APPROVED battle-mage sheet: a lean, athletic woman with light, weathered skin and dark hair in one thick rear braid, in a SCARLET wool hood with a narrow gold-rune border falling to a short shoulder cape; under it a fine steel mail coif and a slim steel diadem with an orange ember gem; a POLISHED STEEL breastplate with EMBER-RED etched runes down its centre, with steel spaulders; mail sleeves and a mail skirt over a quilted CHARCOAL arming gown; steel gauntlets and vambraces; a SCARLET tabard with a gold-rune border and a scarlet sash; dark leggings with steel cuisses, knee cops and greaves; brown boots. IMAGE 3 is a STYLE reference ONLY: copy its HAND (the warm dark-brown ink line that varies in weight, transparent watercolour washes that pool and granulate, fine hatching in the shadows, cream paper highlights); copy nothing else from it.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY figure is repainted as the woman of IMAGE 2 seen from that direction, in IMAGE 3's hand, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE: it is projected back onto the 3D model from these ten cameras and blended. So:\n1. ONE woman in ten views, not ten women: the same colours and the same details in every view. Any disagreement becomes a seam.\n2. Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light. Tone comes from her own colours and the pen hatching.\n3. Stay inside the outlines: do not paint beyond a silhouette or change any outline, pose, hand or foot.\nTHE COLOURS MUST STAY APART at a small size -- the reason for this painting: STEEL is cool silver-grey with blue-grey shadows and crisp ink edges, NOT flat pale grey; MAIL is a darker steel texture of fine rings; the hood, cape, tabard and sash are SCARLET with GOLD borders; the gown is CHARCOAL; her face is light warm skin; her hair dark.\nTHE SASH knot sits on her LEFT hip. ADD NOTHING IMAGE 2 does not show: no weapon, no staff, no book.\nTHE TWO HEAD CLOSE-UPS are her identity: the same face as IMAGE 2, larger. More detail is welcome; a different face is not.\n\nBACKGROUND: keep it flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image: the figures are cut out by their exact 3D outlines.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, the woman differs between views, the colours merged into one tan, a piece is on the wrong arm, or a head close-up is a different face -- name the reason. Never retry for the background colour. Copy outputs to out/GS-SPB_a.png and out/GS-SPB_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"GS-SPB\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/bm_canvas_smB.png",
+   "role": "IMAGE 1 -- the sheet to EDIT (seen from HIGH above (52.95 degrees, the game camera's own angle); 8 body views + 2 head close-ups of the 3D model at rest)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/GS-SHOOD/GS-SHOOD.png",
+   "role": "IMAGE 2 -- her approved battle-mage sheet (GS-SHOOD, Matt's pick): the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the hand"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/GS-SPB_a.png",
+  "out/GS-SPB_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-105-paint"
+}

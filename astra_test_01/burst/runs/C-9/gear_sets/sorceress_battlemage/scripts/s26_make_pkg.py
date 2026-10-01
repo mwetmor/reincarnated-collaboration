@@ -10,6 +10,8 @@ ch = copy.deepcopy(src)
 # hood's shoulder cape: a breastplate without the hood showed bare shift on top of her shoulders (stills v1, stack 2).
 STACKS = [[], ["gown", "legs"], ["gown", "legs", "breastplate", "hood"], ["gown", "legs", "breastplate", "hood", "gauntlets"],
           ["gown", "legs", "breastplate", "hood", "gauntlets", "wand", "grimoire"]]
+# v10: the dark under-layer (s42) rides with the LEGS piece wherever it is worn
+STACKS = [st + (["under_legs"] if "legs" in st else []) for st in STACKS]
 NAMES = ["base", "+gown+legs (body armour, pants)", "+breastplate+hood (chest piece, helm)", "+gauntlets", "full kit (+wand +grimoire)"]
 ch.update({
     "_note": ("THE BATTLE-MAGE SET for the sorceress (Matt R-C9-98: steel plate battle mage, the scarlet hood, wand and "
@@ -21,7 +23,7 @@ ch.update({
     "gear_stack_names": NAMES,
     "armed_when_pieces": ["wand"],
     "morph_rules": {"grip_R": "wand", "under_battlemage": "gown"},
-    "model": "res://models/sorceress_battlemage/so-body_battlemage.glb",
+    "model": "res://models/sorceress_battlemage/so-body_battlemage_v8.glb",
     "_model_note": ("her body with ONE added morph, under_battlemage (scripts/s28_body_morph.py, a binary glTF patch of so_d7/export/so-body.glb: clips byte-identical), which draws the linen shift in under the armour while the gown is worn"),
     "_morph_note": ("grip_R closes her right fist with the WAND. The GAUNTLETS carry their own grip_R and grip_L (the body's "
                     "keys transferred vertex by vertex), so the scene must set the key on every worn mesh that has it, not on "
@@ -33,7 +35,12 @@ ch.update({
 for k in ("gear_stack_detail", "_gear_stacks_note"):
     ch.pop(k, None)
 os.makedirs(S + '/scene_pkg', exist_ok=True)
+ch["_model_note"] = ("her body with ONE added morph, under_battlemage (s28: binary patch of so_d7/export/so-body.glb, clips "
+    "byte-identical), set while the gown is worn; cast_meteor's weapon_r channels dropped in THIS copy (s37) so the wand stays in her "
+    "fist. v10: under_legs (s42), a dark copy of her own leg skin 1.5 mm out on her own weights, worn with the legs piece.")
 json.dump(ch, open(S + '/scene_pkg/character_sorceress_battlemage.json', 'w'), indent=1)
+full = dict(ch, gear_stacks=[STACKS[-1]], gear_stack_names=[NAMES[-1]])
+json.dump(full, open(S + '/scene_pkg/character_sorceress_battlemage_full.json', 'w'), indent=1)
 man = json.load(open(S + '/export_v7/assemble.json'))
 gm = {"_note": "the battle mage's gear pieces: each a skinned GLB on her 26 joints (gear.gd binds each under the body's Skeleton3D)",
       "pieces": {k: dict(file=k + ".glb", **{kk: vv for kk, vv in v.items() if kk in ("mode", "bone", "offset_m", "hem_overlap_m", "keys", "length_m", "height_m", "carry")})

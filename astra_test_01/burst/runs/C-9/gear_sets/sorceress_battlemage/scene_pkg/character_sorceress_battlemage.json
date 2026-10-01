@@ -38,20 +38,23 @@
   [],
   [
    "gown",
-   "legs"
-  ],
-  [
-   "gown",
    "legs",
-   "breastplate",
-   "hood"
+   "under_legs"
   ],
   [
    "gown",
    "legs",
    "breastplate",
    "hood",
-   "gauntlets"
+   "under_legs"
+  ],
+  [
+   "gown",
+   "legs",
+   "breastplate",
+   "hood",
+   "gauntlets",
+   "under_legs"
   ],
   [
    "gown",
@@ -60,7 +63,8 @@
    "hood",
    "gauntlets",
    "wand",
-   "grimoire"
+   "grimoire",
+   "under_legs"
   ]
  ],
  "gear_stack_names": [
@@ -193,7 +197,7 @@
    "lacks": "filter paths from the LAYERED-OVER clips: arm_layer_armed_R filters on the action's own tracks, and the import drops the carry's rest-valued spine tracks -- worked around in DATA with upper_armed (walk/run exact; idle keeps its own spine sway, 5.8 deg off the reference)"
   }
  },
- "_model_note": "her body with ONE added morph, under_battlemage (s28: binary patch of so_d7/export/so-body.glb, clips byte-identical), set while the gown is worn; and cast_meteor's weapon_r channels dropped in THIS copy (s37) so the wand stays in her fist (the staff's baked plant carried it 0.55 m out). v9 (the morph over the whole leg, zf 0.03-0.80) was tried and REJECTED: identical by eye, 2x counts slightly higher.",
+ "_model_note": "her body with ONE added morph, under_battlemage (s28: binary patch of so_d7/export/so-body.glb, clips byte-identical), set while the gown is worn; cast_meteor's weapon_r channels dropped in THIS copy (s37) so the wand stays in her fist. v10: under_legs (s42), a dark copy of her own leg skin 1.5 mm out on her own weights, worn with the legs piece.",
  "_morph_note": "grip_R closes her right fist with the WAND. The GAUNTLETS carry their own grip_R and grip_L (the body's keys transferred vertex by vertex), so the scene must set the key on every worn mesh that has it, not on the body only -- otherwise the bare fist closes inside an open steel glove and pokes through it.",
  "_carry_note": "arm_layer_armed_R / upper_armed / strike_release are the STAFF's carry, inherited unchanged: the wand is mounted on weapon_r at the staff's own mount (its axis along the staff's, its grip where the staff's axis passes the fist), so the same carry holds it. Tuning a lighter wand carry is a later step."
 }
