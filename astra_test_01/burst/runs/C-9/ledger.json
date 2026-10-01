@@ -26886,6 +26886,16 @@
         "when I played the sorceress, the fireball move (not meteor, but the other casted skill) was a bit too wide/large of a blast zone. It needs to be condensed a bit."
       ],
       "ts": "2026-09-30T23:38:36"
+    },
+    {
+      "id": "R-C9-111",
+      "by": "Matt",
+      "ruling": "(1) The Sim Session packets are approved inputs for C-9 animation/VFX/gear work: D2 Barb/Sorc timing (collab b0f9d77fa) and the GD EoR Warlord packet (collab 7028af06). Packet 1 routed: D2 drax (barbarian normal attack gap, release ticks, cadence law), integration drax (cast release tick 7, Meteor impact +2.4 s, fire field 12.6 s at lvl 20). (2) Q69 step 1 agreed: engine data/telemetry.db archived to the Pi share, verified by SHA-256, then the Mac copy removed with a symlink left at the path; Matt runs it with !.",
+      "verbatim": [
+        "I asked the Sim Session to deliver two packets of data to you which I approve in advance: 1) D2 Barb/D2 Sorc specs for animation/vfx and gear development. 2) GD EOR Warlord specs for the same.",
+        "Regarding the the telemetry DB move to Pi and then deletion, I do agree."
+      ],
+      "ts": "2026-10-01T00:09:22"
     }
   ],
   "grok_calls": [
