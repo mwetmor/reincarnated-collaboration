@@ -18,7 +18,7 @@ HOLD_DIR = os.path.join(RUNS, "nb_d2", "export_staging", "JOIN_hold_v2")
 base = os.path.join(HOLD_DIR, "nb-body.glb"); hold_p = os.path.join(HOLD_DIR, "join_hold.json"); hold = json.load(open(hold_p))
 graft = J("work", "graft_join.json")["clips"]
 w2, w2c, w2p, w2l = J("work", "whirl_v2.json"), J("work", "whirl_v2_check.json"), J("work", "whirl_v2_pose.json"), J("work", "whirl_v2_library_try_check.json")
-w1c = J("work", "whirl_v1_check.json"); wcr, wcl = J("work", "warcry_v4.json"), J("work", "warcry_v4_clamp.json")
+w1c = J("work", "whirl_v1_check.json"); wcr, wcl = J("work", "warcry_v5.json"), J("work", "warcry_v5_clamp.json"); wc4 = J("work", "warcry_v4.json"); xc = J("work", "cross_check_shout.json")
 w3, w3c, w3p = J("work", "whirl_v3.json"), J("work", "whirl_v3_check.json"), J("work", "whirl_v3_pose.json")
 w4, w4c, w4p = J("work", "whirl_v4.json"), J("work", "whirl_v4_check.json"), J("work", "whirl_v4_pose.json")
 wc3 = J("work", "warcry_v3.json"); jl = J("work", "joint_lint.json")
@@ -153,18 +153,28 @@ m = dict(
                                                   "swings 0.5 m high; looped and foot-locked its feet still slid and the orbit sent the "
                                                   "blades along their own length. 91 kneels, leaps and travels 2 m. So the footwork is "
                                                   "authored with IK, as the dispatch's fallback allows")),
-        shout=dict(kind="one-shot + RELEASE", version=4, skill="Battle Orders (Skills 149)", seconds=round(wcr["T"], 4), keys=wcr["keys"],
-                   direction="Matt 2026-09-30 (v4): stop earlier -- lower the elbows and then end it, no fist pumps; about 1.5x speed",
+        shout=dict(kind="one-shot + RELEASE", version=5, skill="Battle Orders (Skills 149)", seconds=round(wcr["T"], 4), keys=wcr["keys"],
+                   direction="Matt 2026-09-30 (v5): his arms are crossed now, and the legs are a bit too wide of a stance; speed it up even a "
+                             "bit more. (v4: stop earlier -- lower the elbows and then end it, no fist pumps; about 1.5x speed)",
+                   legs=dict(source=wcr.get("legs_from"), why="his battle stance (idle_guard), held: the library flex clip's straddle was "
+                                                              "0.56 m side to side; the stance's feet are 0.30 m apart across his facing, "
+                                                              "staggered; planted, no slide"),
+                   no_crossed_arms=dict(instrument=xc["instrument"], verdict=xc["verdict"], least_side_m=xc["least_side_m"],
+                                        definition=xc["definition"], record="work/cross_check_shout.json",
+                                        fix="the blades turned up and OUT from the first key (v4: only through the flex), each turn capped "
+                                            "inside the joint lint's wrist limits; his guard held at full weight over the fling's first four "
+                                            "keys (layers.list guard_*_shout), where the v4-timed fling leaned the sword tip 0.12 m across him"),
+                   v4_for_comparison=dict(record="work/warcry_v4.json", seconds=wc4["T"], release_s=wc4["release"]["t_s"], speed=wc4.get("speed")),
                    speed=wcr.get("speed"), authored_time_maps=wcr.get("authored"),
                    v3_for_comparison=dict(record="work/warcry_v3.json", seconds=wc3["T"], release_s=wc3["release"]["t_s"], flex_map=wc3["flex_map"]),
                    v2_for_comparison=dict(record="work/warcry_v2.json", seconds=wc2["T"], flex_map=wc2["flex_map"]),
-                   sources=reg["clips"]["shout"]["sources"], composed_by="scripts/j_warcry.py --speed 1.5 (work/warcry_v4.json)",
+                   sources=reg["clips"]["shout"]["sources"], composed_by="scripts/j_warcry.py --speed 1.8 --legs-from idle_guard@0.5 --ww-from-start (work/warcry_v5.json)",
                    time_maps=dict(flex=wcr["flex_map"], sky=wcr["sky_map"], sky_weight=wcr["sky_weight"]),
                    head_back_deg=wcr["head_back_deg"], weapons_up_and_out=wcr["weapons_up_and_out"],
                    layers="guard_R_shout + guard_L_shout: his idle guards at the start and the end only (weight curve), so he rises out of "
                           "his guard and settles back into it",
                    joint_limits=jl["moves"]["shout"],
-                   weapon_clamp=dict(record="work/warcry_v4_clamp.json", clamped_keys=wcl["clamped_keys"], restored=wcl["smoothing"]["restored"],
+                   weapon_clamp=dict(record="work/warcry_v5_clamp.json", clamped_keys=wcl["clamped_keys"], restored=wcl["smoothing"]["restored"],
                                      inside_after_max=wcl["inside_after_max"])),
         hit=dict(kind="one-shot", source=reg["clips"]["hit"]["source"], action=reg["clips"]["hit"]["action"], seconds=round(graft["hit"]["length_s"], 4),
                  layers="guard_R + guard_L", why="Hit Reaction recoils the whole body; Hit Reaction 1 was fetched too and is mostly a head snap"),
@@ -217,6 +227,9 @@ m = dict(
                                    "feet-on-ground pivot; the head toward the blades, tilted toward the spin -- done: clips.whirlwind (v3), "
                                    "the pivot (text-to-motion not run: refused by the session's permission system)",
                          hands="the weapon hands out toward shoulder width, not crossed in (the guards and the hold are the scene drax's)"),
+                 v5=dict(by="Matt, 2026-09-30, relayed by the conductor",
+                         war_cry="no crossed arms, a narrower stance, a bit faster -- done: clips.shout (v5) at 1.8x, his battle-stance "
+                                 "legs, the wrists and blade tips on their own sides at every key (clips.shout.no_crossed_arms)"),
                  v4=dict(by="Matt, 2026-09-30, relayed by the conductor",
                          war_cry="stop earlier: the elbows lowered, then end -- no pumps; about 1.5x speed -- done: clips.shout (v4), "
                                  "played at 1.5x (clips.shout.seconds; the authored timing in clips.shout.authored_time_maps); release_s re-derived on the new keys",
@@ -274,10 +287,11 @@ m["deliverables"] = dict(stills="stills/join5_<clip>_t<time>_2x.png and _1x.png:
                                 "elbow drop, the whirlwind through its revolution",
                          films=["artifacts/JOIN-v4-moves-film-2x.mp4 (play speed: the war cry, the whirlwind looping, 2 headings)",
                                 "artifacts/JOIN-v4-moves-film-2x-quarter.mp4 (the same at a quarter speed)"],
+                         war_cry_v5=dict(film="artifacts/JOIN-v5-warcry-film-2x.mp4 (play speed, 2 headings)", stills="stills/join6_shout_t<sky 0.3, drop 0.9667, settle 1.1667>_1x/_2x.png, 8 headings"),
                          pack="join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired")
 m["look_calls_for_matt"] = [
-    "WAR CRY v4: the arms thrown wide to the sky with the head back (the release), the elbows lowered, then straight back to "
-    "guard -- nothing after the drop; played 1.5x faster (1.40 s).",
+    "WAR CRY v5: his battle stance throughout (feet planted), the arms thrown wide to the sky with the head back (the release), "
+    "the elbows lowered, then straight back to guard; the blades up and out on their own sides at every frame; 1.8x (1.17 s).",
     "WHIRLWIND v4: his normal battle stance, feet flat and planted, turning as one, 3 revolutions a second; both weapons in "
     "front at the hold's fist width, elbows bent naturally, blades pitched up 20 deg; the head toward the blades, tilted "
     "toward the spin."]

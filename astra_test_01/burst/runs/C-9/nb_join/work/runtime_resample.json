@@ -157,17 +157,20 @@
    "dropped": []
   },
   "shout": {
-   "length_glb": 1.4,
-   "length_godot": 1.4,
+   "length_glb": 1.16667,
+   "length_godot": 1.16667,
    "tracks": 27,
-   "exact": 27,
+   "exact": 25,
    "two_key": 0,
    "resampled": [],
-   "dropped": []
+   "dropped": [
+    "weapon_r.rotation",
+    "weapon_l.rotation"
+   ]
   }
  },
  "at_pack_frames": {
-  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v4.json",
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v5.json",
   "states": {
    "idle": {
     "clip": "idle_guard",

@@ -27,6 +27,9 @@ opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 CF, CS = opt('--clip-flex', 'wc388'), opt('--clip-sky', 'wc49'); HB = math.radians(float(opt('--head-back', '22')))
 m = C.model(SRC); nid = m['nid']; P = m['parent']; names = [nd.get('name') for nd in m['nodes']]
 # the TIME MAPS (knots: output time -> source time, piecewise linear) and the sky weight, in the grafted clips' own time
+# v5 (Matt, 2026-09-30, on v4: "his arms are crossed now, and the legs are a bit too wide of a stance. Let's speed it up
+# even a bit more"): --speed 1.8, --legs-from idle_guard@0.5, and the weapons turned further OUT through the drop (--out,
+# --wrist-max) so neither blade leans across his centreline (scripts/j_cross_check.py measures it).
 # v4 (Matt, 2026-09-30, on v3: "stop the animation earlier so we lower the elbows and then end it.. no fist pumps. And it
 # needs to be about 1.5X speed"): the clip ENDS after the elbow drop -- the arms settle straight into his guard (the
 # layer, 1.72 -> 2.10 authored) while the flex clock creeps on only 0.11 s of its own time (no hold, no second motion);
@@ -82,6 +85,11 @@ AJ = sorted({n for (n, p) in m['anims'][CF] if p == 'rotation'})
 LOWER = {nid[b] for b in ("Hips", "LeftUpLeg", "LeftLeg", "LeftFoot", "LeftToeBase", "RightUpLeg", "RightLeg", "RightFoot", "RightToeBase")}
 HIPS, NECK, HEAD = nid['Hips'], nid['neck'], nid['Head']
 N = int(round(TEND * 30)); keys = np.arange(N + 1) / 30.0
+# --legs-from CLIP@T (v5, Matt on v4: "the legs are a bit too wide of a stance"): the hips and legs are that clip's pose,
+# held (his battle stance, idle_guard -- feet planted, no slide); the library flex clip's wide straddle is not used
+LEGS = opt('--legs-from')
+if LEGS:
+    _lc, _lt = LEGS.split('@'); GLEG = C.globals_at(m, _lc, float(_lt))
 WR, HP = [], []
 for t in keys:
     Gf = C.globals_at(m, CF, pl(FLEX, t)); w = smooth_w(t)
@@ -94,6 +102,10 @@ for t in keys:
             qf, qs = np.array(W.m2q(df), float), np.array(W.m2q(ds), float)
             df = W.q2m(B.slerp(qf, qs, w))
         Rw[j] = df @ nrm(GR[j][:3, :3])
+    if LEGS:                                                            # v5: his battle stance's legs, held
+        for j in AJ:
+            if j in LOWER: Rw[j] = nrm(GLEG[j][:3, :3])
+        WR.append(Rw); HP.append(GLEG[HIPS][:3, 3].copy()); continue
     WR.append(Rw); HP.append(Gf[HIPS][:3, 3].copy())
 
 
@@ -113,12 +125,15 @@ def fk(Rw, hp):
 # up and out to its own side, eased in as the arms come down from the sky and out again in the release
 WMAX = math.radians(float(opt('--wrist-max', '80'))); WOUT = float(opt('--out', '0.7'))
 WW = [(1.20, 0.0), (1.45, 1.0), (1.75, 1.0), (2.05, 0.0)]          # v4: eased out as the guard returns (v3: to 2.55, v2: to 2.75)
+if opt('--ww-from-start'):                                          # v5: the blades up and OUT from the first key, not only
+    WW = [(0.0, 1.0), (1.75, 1.0), (2.05, 0.0)]                       # through the flex (v4's fling leaned the axe across him)
 WW = sc(WW)
 
 
 def ww(t):
     xs = [k[0] for k in WW]; ys = [k[1] for k in WW]
-    if t <= xs[0] or t >= xs[-1]: return 0.0
+    if t >= xs[-1] or (t <= xs[0] and ys[0] == 0): return 0.0
+    if t <= xs[0]: return ys[0]
     i = int(np.searchsorted(xs, t)); u = (t - xs[i - 1]) / (xs[i] - xs[i - 1]); u = u * u * (3 - 2 * u)
     return ys[i - 1] + (ys[i] - ys[i - 1]) * u
 
@@ -127,6 +142,26 @@ def rmin(u, v):
     u = u / np.linalg.norm(u); v = v / np.linalg.norm(v); ax = np.cross(u, v); sn = np.linalg.norm(ax)
     if sn < 1e-9: return np.zeros(3)
     return ax / sn * math.atan2(sn, float(u @ v))
+
+
+JAX = json.load(open(opt('--joint-axes')))['learned']['axes']['wrist'] if opt('--joint-axes') else None
+WDEV, WFLEX = float(opt('--wrist-dev-max', '38')), float(opt('--wrist-flex-max', '75'))
+FORE = {'RightHand': nid['RightForeArm'], 'LeftHand': nid['LeftForeArm']}
+
+
+def wrist_dv(hand, Rh, Rw):
+    """the hand's rotation off its rest, relative to the forearm (scripts/j_joint_lint.py's measure): swing . axes"""
+    Rl = nrm(Rw[FORE[hand]]).T @ Rh; R0 = W.q2m(np.array(m['rest'][nid[hand]][1], float))
+    D = R0.T @ Rl; Y_ = np.array([0.0, 1, 0]); y2 = D @ Y_; ax = np.cross(Y_, y2); sn = float(np.linalg.norm(ax))
+    sw = np.zeros(3) if sn < 1e-9 else ax / sn * math.atan2(sn, float(Y_ @ y2))
+    k_ = 'wrist_R' if hand == 'RightHand' else 'wrist_L'
+    return abs(math.degrees(float(sw @ np.array(JAX[k_]['dev'])))), abs(math.degrees(float(sw @ np.array(JAX[k_]['flex']))))
+
+
+def wrist_ok(hand, Rh, Rw, base):
+    """inside the limits -- or, where the source wrist is already past one, no further past it than the source"""
+    dv, fx = wrist_dv(hand, Rh, Rw)
+    return dv <= max(WDEV, base[0] + 1e-6) and fx <= max(WFLEX, base[1] + 1e-6)
 
 
 turned = []
@@ -139,8 +174,18 @@ for k in range(N + 1):
         d = np.array([WOUT * out, 1.0, 0.0])
         v = rmin(Y, d); ang = float(np.linalg.norm(v))
         if ang > WMAX: v = v / ang * WMAX
-        WR[k][nid[hand]] = W.axis_angle(v / max(ang, 1e-9), min(ang, WMAX) * w) @ WR[k][nid[hand]] if ang > 1e-9 else WR[k][nid[hand]]
-        tk = max(tk, math.degrees(min(ang, WMAX) * w))
+        if ang <= 1e-9: continue
+        sc_ = 1.0
+        if JAX:                                                         # v5: shrink the turn until the wrist is inside the
+            base_ = wrist_dv(hand, WR[k][nid[hand]], WR[k])
+            for _ in range(24):                                         # joint lint's own limits (deviation, flexion)
+                Rh = W.axis_angle(v / ang, min(ang, WMAX) * w * sc_) @ WR[k][nid[hand]]
+                if wrist_ok(hand, Rh, WR[k], base_): break
+                sc_ *= 0.85
+            else:
+                sc_ = 0.0
+        WR[k][nid[hand]] = W.axis_angle(v / ang, min(ang, WMAX) * w * sc_) @ WR[k][nid[hand]]
+        tk = max(tk, math.degrees(min(ang, WMAX) * w * sc_))
     turned.append(round(tk, 1))
 
 # the CRY'S PEAK: the key where both fists stand highest over the head
@@ -190,7 +235,7 @@ with open(OUT, 'wb') as f:
     f.write(struct.pack('<4sII', b'glTF', 2, 12 + 8 + len(jb) + 8 + len(bn))); f.write(struct.pack('<I4s', len(jb), b'JSON')); f.write(jb)
     f.write(struct.pack('<I4s', len(bn), b'BIN\x00')); f.write(bytes(bn))
 rep = dict(method="composed from two library clips (see the header)", T=round(float(keys[-1]), 4), keys=N + 1,
-           flex_map=FLEX, sky_map=SKY, sky_weight=WSKY, head_back_deg=math.degrees(HB), speed=SPEED,
+           flex_map=FLEX, sky_map=SKY, sky_weight=WSKY, head_back_deg=math.degrees(HB), speed=SPEED, legs_from=LEGS, weapons_out=dict(out=WOUT, wrist_max_deg=math.degrees(WMAX)),
            authored=dict(flex_map=FLEX_A, sky_map=SKY_A, sky_weight=WSKY_A, note="output-time knots before the --speed division"),
            release=dict(key=kpk, t_s=round(tpk, 4), fists_over_head_m=round(float(hi[kpk]), 3),
                         definition="the cry's peak: the key where both fists stand highest over the head (the arms thrown to the sky)"),
