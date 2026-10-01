@@ -27333,6 +27333,12 @@
       "topic": "Matt ran cleanup manifest 8 himself (the agent rm was denied by the permission settings): df 21 -> 30 GiB",
       "note": "The conductor's rm -rf over manifest 8 was DENIED by the permission system despite Matt's 'Yes please run the up to 9.7GB cleanup'; not worked around. Matt ran it with the ! prefix in this session, excluding barrow_full/app and barrow_full/web_painted (in-use build mirrors): df 30 GiB free after. Lane A's Meteor (d), held for disk, released.",
       "ts": "2026-09-30T11:26:59"
+    },
+    {
+      "id": "N-C9-DISK-11",
+      "topic": "Manifest 9 run by Matt (26 -> 30 GiB); it deleted two folders a live lane was still using",
+      "note": "Matt ran manifest 9 (4.36 GiB listed, ~3.7 net; three .avi paths double-counted inside their folders): df 30 GiB free. The integration drax had listed work/mix2/ and work/meteor_a/ as dead in its MIX v2 hand-back but was still running cold-load measurements in them when the list ran; scratch only was lost (everything committed is safe; the record take/build/meteor_mix2.json). RULE from here: the conductor confirms with every ACTIVE lane before writing a cleanup list that touches its folders, and a lane lists its working folder only at its final hand-back (the drax now works in work/mix3/). Also: a cold first load (Metal shader cache cleared) blocks the first frame 8 s (his page) to 11.6 s (hers) while every level shader compiles; the veil fix makes it a browser-drawn DOM overlay, the cap counts responsive frames only (a 45 s backstop), and a staged warm-up is being tried.",
+      "ts": "2026-09-30T21:53:14"
     }
   ]
 }
