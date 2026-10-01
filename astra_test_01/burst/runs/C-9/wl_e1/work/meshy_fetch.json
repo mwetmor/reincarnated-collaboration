@@ -1,6 +1,6 @@
 {
  "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
- "spent": 27,
+ "spent": 42,
  "clips": {
   "idle89": {
    "action_id": 89,
@@ -185,6 +185,107 @@
     ],
     "clips": [
      "Armature|Axe_Stance|baselayer"
+    ]
+   }
+  },
+  "parry149": {
+   "action_id": 149,
+   "task": "01a0f675-9eaf-7010-ab54-0e04350ea07c",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 69,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/parry149.glb",
+   "mb": 18.32,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "parry149.glb: clip 'Armature|Two_Handed_Parry|baselayer' starts root 'Hips' at 92.149 against rest 98.621 (6.6% > 5%)"
+    ],
+    "clips": [
+     "Armature|Two_Handed_Parry|baselayer"
+    ]
+   }
+  },
+  "attack4": {
+   "action_id": 4,
+   "task": "01a0f676-b9d3-704e-a884-a15acc30b3b2",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/attack4.glb",
+   "mb": 18.33,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "attack4.glb: clip 'Armature|Attack|baselayer' starts root 'Hips' at 75.898 against rest 98.621 (23.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|Attack|baselayer"
+    ]
+   }
+  },
+  "combo92": {
+   "action_id": 92,
+   "task": "01a0f677-bba3-72bf-9bf4-5597698d6b10",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 46,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/combo92.glb",
+   "mb": 18.34,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "combo92.glb: clip 'Armature|Double_Combo_Attack|baselayer' drifts 1.507 m horizontally over its own length (150.7 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Double_Combo_Attack|baselayer"
+    ]
+   }
+  },
+  "combo105": {
+   "action_id": 105,
+   "task": "01a0f678-7d30-74f4-af62-ac39326663bc",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/combo105.glb",
+   "mb": 18.36,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "combo105.glb: clip 'Armature|Triple_Combo_Attack|baselayer' drifts 1.864 m horizontally over its own length (186.4 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Triple_Combo_Attack|baselayer"
+    ]
+   }
+  },
+  "reap99": {
+   "action_id": 99,
+   "task": "01a0f679-7a86-77c4-9646-10facf363bfa",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 77,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/reap99.glb",
+   "mb": 18.37,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "reap99.glb: clip 'Armature|Reaping_Swing|baselayer' drifts 0.535 m horizontally over its own length (53.5 units) and is not locomotion -- a clip that walks away from where it started",
+     "reap99.glb: clip 'Armature|Reaping_Swing|baselayer' starts root 'Hips' at 62.866 against rest 98.621 (36.3% > 5%)"
+    ],
+    "clips": [
+     "Armature|Reaping_Swing|baselayer"
     ]
    }
   }

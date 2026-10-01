@@ -1,0 +1,149 @@
+{
+ "clips": {
+  "a128": {
+   "source": "anims/atk128.glb",
+   "source_anim": "Armature|Heavy_Hammer_Swing|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.1108,
+    0.0556
+   ],
+   "grounded_by_m": -0.06297,
+   "feet_span_m": [
+    0.0,
+    0.0623
+   ]
+  },
+  "a4": {
+   "source": "anims/attack4.glb",
+   "source_anim": "Armature|Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.8333332538604736
+   ],
+   "keys": 85,
+   "length_s": 2.7999999187886715,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    0.0007
+   ],
+   "grounded_by_m": 0.01688,
+   "feet_span_m": [
+    0.0,
+    0.0579
+   ]
+  },
+  "c92": {
+   "source": "anims/combo92.glb",
+   "source_anim": "Armature|Double_Combo_Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.866666555404663
+   ],
+   "keys": 86,
+   "length_s": 2.833333220332861,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0001,
+    1.5065
+   ],
+   "grounded_by_m": -0.05898,
+   "feet_span_m": [
+    0.0,
+    0.0574
+   ]
+  },
+  "c105": {
+   "source": "anims/combo105.glb",
+   "source_anim": "Armature|Triple_Combo_Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    4.366666793823242
+   ],
+   "keys": 131,
+   "length_s": 4.33333345875144,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.2417,
+    1.8479
+   ],
+   "grounded_by_m": -0.04957,
+   "feet_span_m": [
+    0.0,
+    0.0603
+   ]
+  },
+  "r99": {
+   "source": "anims/reap99.glb",
+   "source_anim": "Armature|Reaping_Swing|baselayer",
+   "window": [
+    0.03333333507180214,
+    5.9666666984558105
+   ],
+   "keys": 179,
+   "length_s": 5.933333363384008,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.4751,
+    0.2468
+   ],
+   "grounded_by_m": -0.0414,
+   "feet_span_m": [
+    0.0,
+    0.0705
+   ]
+  },
+  "p149": {
+   "source": "anims/parry149.glb",
+   "source_anim": "Armature|Two_Handed_Parry|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0001,
+    0.0
+   ],
+   "grounded_by_m": -0.06241,
+   "feet_span_m": [
+    0.0,
+    0.0123
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "_atk_test.glb: WEAPON REST -- weapon_r's rest is 0.198 m from the recorded mount (tolerance 1 um)"
+  ],
+  "warns": 9
+ }
+}

@@ -77,9 +77,13 @@ for nm in WANT:
         _back = np.abs(xs) <= SLIT
         _u = np.clip((HIP - zf) / max(HIP - zf.min(), 1e-6), 0, 1)
         _d = np.where(_back, FLARE * _u, 0.5 * FLARE * _u)
-        Mi = np.linalg.inv(np.array(pc.matrix_world)); co = Pw + np.c_[np.zeros_like(_d), _d, np.zeros_like(_d)]
+        # stage G: the SIDE panels also stand OUT sideways (each away from the midline), growing to SIDE m at the hem -- the
+        # stride test found legs poking their OWN side panel most (the panels hung against the thighs: 4.8% poke at rest)
+        SIDE = float(opt('--side', '0.0'))
+        _x = np.where(_back, 0.0, np.sign(xs) * SIDE * _u)
+        Mi = np.linalg.inv(np.array(pc.matrix_world)); co = Pw + np.c_[_x, _d, np.zeros_like(_d)]
         pc.data.vertices.foreach_set('co', (co @ Mi[:3, :3].T + Mi[:3, 3]).ravel()); pc.data.update(); Pw = world(pc)
-        r_flare = dict(flare_m=FLARE, split_edges=r_split)
+        r_flare = dict(flare_m=FLARE, side_m=SIDE, split_edges=r_split)
         # PANEL PER VERTEX FROM ITS FACES, not its position: a split leaves two copies of a boundary vertex at ONE position, and a
         # position rule gave both copies the same panel (e18: back-panel faces still pulled by a thigh, 5-7x). Each copy takes
         # the panel of the faces that use it.
@@ -110,7 +114,8 @@ for nm in WANT:
         _v = np.clip((zf - HIP) / 0.20, 0, 1)
         top[:] = 0; top[:, ni['Spine02']] = _v; top[:, ni['Hips']] = 1 - _v
         low = np.zeros_like(top)
-        u = np.clip((HIP - zf) / 0.30, 0, 1) * 0.5                       # thigh share, up to 0.5 by the knee
+        THIGH = float(opt('--thigh', '0.5')); RAMP = opt('--ramp', 'knee')   # stage G (b): 'hem' = a linear ramp hip -> hem reaching THIGH at the hem
+        u = (np.clip((HIP - zf) / max(HIP - zf.min(), 1e-6), 0, 1) if RAMP == 'hem' else np.clip((HIP - zf) / 0.30, 0, 1)) * THIGH
         low[:, ni['Hips']] = 1.0
         for side, leg in ((1, 'LeftUpLeg'), (-1, 'RightUpLeg')):
             k = panel == side
@@ -124,7 +129,7 @@ for nm in WANT:
         both = int(((Wc[:, ni['LeftUpLeg']] > 0) & (Wc[:, ni['RightUpLeg']] > 0)).sum())
         r.update(mode='panel-split skin', slit_x_m=round(float(SLIT), 4), hips_zf=round(HIP, 3), slit_faces_cut=len(kill),
                  panel_verts=dict(back=int((panel == 0).sum()), left=int((panel == 1).sum()), right=int((panel == -1).sum())),
-                 verts_on_both_thighs=both, **r_flare)
+                 verts_on_both_thighs=both, thigh=THIGH, ramp=RAMP, **r_flare)
     G.align_space(pc, body[0]); pc.name = nm
     r['file'] = export(pc, nm)
     rep['pieces'][nm] = r; print('GEAR', nm, json.dumps(r))

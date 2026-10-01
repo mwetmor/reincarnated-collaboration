@@ -11,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 L = __import__('21_lint_export'); W = __import__('52_weapon_bones'); C = __import__('s17_loop_closure'); R_ = __import__('49_recentre')
 CH = __import__('54_weapon_channel')
 a = sys.argv[1:]; BODY, PIECE, OB, OP = a[:4]; OUTJ = a[a.index('--json') + 1] if '--json' in a else None
-LEN, RGRIP = 1.45, 0.68; HEAD_C = LEN - RGRIP - 0.20      # head centre ~0.20 m below the top spike's tip
+LEN, RGRIP = 1.45, float(os.environ.get("E1_RGRIP", "0.68")); HEAD_C = LEN - RGRIP - 0.20      # head centre ~0.20 m below the top spike's tip
 SEP_FULL, SEP_FADE = 0.85, 0.20
 ROOT = os.path.dirname(HERE)
 jb, bb = L.load_glb(BODY); bb = bytearray(bb); jp, bp = L.load_glb(PIECE); bp = bytearray(bp)
@@ -98,8 +98,11 @@ for clip, rows in meas.items():
                       left_along_m=[min(r['left_along'] for r in two), max(r['left_along'] for r in two)] if two else None,
                       left_on_haft=all(0.0 <= r['left_along'] <= RGRIP for r in two))
 # strike: the attack's contact = the key where the head is lowest after it was highest
-ar = meas['attack']; hy = np.array([r['head'][1] for r in ar]); top = int(np.argmax(hy)); k = top + int(np.argmin(hy[top:]))
-G = C.globals_at(m, 'attack', ar[k]['t']); hips = G[nid['Hips']][:3, 3]; head = np.array(ar[k]['head'])
+STRIKE_CLIP = os.environ.get('E1_STRIKE', 'attack')
+if STRIKE_CLIP not in meas:
+    json.dump(dict(rows=meas), open(OUTJ, 'w')) if OUTJ else None; sys.exit(0)
+ar = meas[STRIKE_CLIP]; hy = np.array([r['head'][1] for r in ar]); top = int(np.argmax(hy)); k = top + int(np.argmin(hy[top:]))
+G = C.globals_at(m, STRIKE_CLIP, ar[k]['t']); hips = G[nid['Hips']][:3, 3]; head = np.array(ar[k]['head'])
 fwd = np.array([0, 0, 1.0])                                  # the rest forward (Blender -Y = glTF +Z)
 hz = head - hips; hz[1] = 0
 strike = dict(t=ar[k]['t'], head_height_m=round(float(head[1]), 3), head_from_hips_m=round(float(np.linalg.norm(hz)), 3),

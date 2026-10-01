@@ -1,0 +1,5 @@
+{"_note": "E1 stage G stacks for wl_e1/film_rt. GS_EXP = export/final_g. wl_cape = the stage-E cape (before); wl_cape_g = flare 0.20 / side 0.10 (G-b); wl_under = back-of-leg under-layer (G-a).",
+ "model": "wl_body.glb", "forward_axis": "+Z",
+ "gear_stacks": [[], ["wl_mace", "wl_chest", "wl_pauldrons", "wl_helm", "wl_cape"], ["wl_mace", "wl_chest", "wl_pauldrons", "wl_helm", "wl_cape_g"], ["wl_mace", "wl_chest", "wl_pauldrons", "wl_helm", "wl_cape_g", "wl_under"]],
+ "gear_stack_names": ["base", "full kit, stage-E cape", "full kit, flared cape (G-b)", "full kit, flared cape + under-layer (G-a)"],
+ "armed_when_pieces": ["wl_mace"], "morph_rules": {}}

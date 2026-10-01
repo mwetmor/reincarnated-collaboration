@@ -21,7 +21,7 @@
     "arm_hold"
    ],
    "loop": true,
-   "hold": "e09_hold.py: arm chain = walk key (work/hold.json)"
+   "hold": "e09_hold: arm chain = Meshy 99 Reaping Swing @2.7333 grafted (stage G carry, e23 v2)"
   },
   "walk": {
    "source": "anims/walk21.glb",
@@ -35,9 +35,12 @@
    "edits": [
     "deroot",
     "recentre",
-    "reground"
+    "reground",
+    "arm_hold",
+    "joint_fix"
    ],
-   "loop": true
+   "loop": true,
+   "hold": "e09_hold: arm chain = Meshy 4 Attack @0.3333 grafted (stage G carry, e23 v2)"
   },
   "run": {
    "source": "anims/run14.glb",
@@ -55,21 +58,26 @@
     "arm_hold"
    ],
    "loop": true,
-   "hold": "e09_hold.py: arm chain = walk key (work/hold.json)"
+   "hold": "e09_hold: arm chain = Meshy 4 Attack @0.4 grafted (stage G carry, e23 v2)"
   },
   "attack": {
-   "source": "anims/atk128.glb",
+   "source": "anims/attack4.glb",
    "path": "55_clip_graft",
-   "action": "Meshy library 128 \"Heavy Hammer Swing\"",
+   "action": "Meshy library 4 \"Attack\"",
    "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
    "flags": [],
    "edits": [
+    "trim",
     "recentre",
     "reground",
     "joint_fix"
    ],
    "loop": false,
-   "joint_fix": "63_joint_fix --dev-max 38 (work/joint_fix_attack.json)"
+   "window": [
+    0.333,
+    2.333
+   ],
+   "why": "stage G: contact ~40% (Heavy Hammer Swing 128 landed at 96%)"
   },
   "hit": {
    "source": "anims/hit178.glb",

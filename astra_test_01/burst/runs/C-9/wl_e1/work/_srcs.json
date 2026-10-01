@@ -1,0 +1,333 @@
+{
+ "clips": {
+  "src_atk128": {
+   "source": "anims/atk128.glb",
+   "source_anim": "Armature|Heavy_Hammer_Swing|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.1108,
+    0.0556
+   ],
+   "grounded_by_m": -0.06297,
+   "feet_span_m": [
+    0.0,
+    0.0623
+   ]
+  },
+  "src_attack4": {
+   "source": "anims/attack4.glb",
+   "source_anim": "Armature|Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.8333332538604736
+   ],
+   "keys": 85,
+   "length_s": 2.7999999187886715,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    0.0007
+   ],
+   "grounded_by_m": 0.01688,
+   "feet_span_m": [
+    0.0,
+    0.0579
+   ]
+  },
+  "src_combo105": {
+   "source": "anims/combo105.glb",
+   "source_anim": "Armature|Triple_Combo_Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    4.366666793823242
+   ],
+   "keys": 131,
+   "length_s": 4.33333345875144,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.2417,
+    1.8479
+   ],
+   "grounded_by_m": -0.04957,
+   "feet_span_m": [
+    0.0,
+    0.0603
+   ]
+  },
+  "src_combo92": {
+   "source": "anims/combo92.glb",
+   "source_anim": "Armature|Double_Combo_Attack|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.866666555404663
+   ],
+   "keys": 86,
+   "length_s": 2.833333220332861,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0001,
+    1.5065
+   ],
+   "grounded_by_m": -0.05898,
+   "feet_span_m": [
+    0.0,
+    0.0574
+   ]
+  },
+  "src_death189": {
+   "source": "anims/death189.glb",
+   "source_anim": "Armature|dying_backwards|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.2666666507720947
+   ],
+   "keys": 68,
+   "length_s": 2.2333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0579,
+    -0.944
+   ],
+   "grounded_by_m": 0.04644,
+   "feet_span_m": [
+    0.0,
+    0.243
+   ]
+  },
+  "src_hit178": {
+   "source": "anims/hit178.glb",
+   "source_anim": "Armature|Hit_Reaction|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.6666666269302368
+   ],
+   "keys": 50,
+   "length_s": 1.6333332918584347,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    1.1816,
+    -0.0003
+   ],
+   "grounded_by_m": -0.00599,
+   "feet_span_m": [
+    0.0,
+    0.062
+   ]
+  },
+  "src_idle85": {
+   "source": "anims/idle85.glb",
+   "source_anim": "Armature|Axe_Stance|baselayer",
+   "window": [
+    0.03333333507180214,
+    6.133333206176758
+   ],
+   "keys": 184,
+   "length_s": 6.099999871104956,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0339,
+    0.6775
+   ],
+   "grounded_by_m": -0.0247,
+   "feet_span_m": [
+    0.0,
+    0.0769
+   ]
+  },
+  "src_idle89": {
+   "source": "anims/idle89.glb",
+   "source_anim": "Armature|Combat_Stance|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.7000000476837158
+   ],
+   "keys": 51,
+   "length_s": 1.6666667126119137,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": -0.06383,
+   "feet_span_m": [
+    0.0,
+    0.0038
+   ]
+  },
+  "src_parry149": {
+   "source": "anims/parry149.glb",
+   "source_anim": "Armature|Two_Handed_Parry|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0001,
+    0.0
+   ],
+   "grounded_by_m": -0.06241,
+   "feet_span_m": [
+    0.0,
+    0.0123
+   ]
+  },
+  "src_reap99": {
+   "source": "anims/reap99.glb",
+   "source_anim": "Armature|Reaping_Swing|baselayer",
+   "window": [
+    0.03333333507180214,
+    5.9666666984558105
+   ],
+   "keys": 179,
+   "length_s": 5.933333363384008,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.4751,
+    0.2468
+   ],
+   "grounded_by_m": -0.0414,
+   "feet_span_m": [
+    0.0,
+    0.0705
+   ]
+  },
+  "src_run14": {
+   "source": "anims/run14.glb",
+   "source_anim": "Armature|Run_02|baselayer",
+   "window": [
+    0.03333333507180214,
+    0.7666666507720947
+   ],
+   "keys": 23,
+   "length_s": 0.7333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.01263,
+   "feet_span_m": [
+    0.0,
+    0.1624
+   ]
+  },
+  "src_run510": {
+   "source": "anims/run510.glb",
+   "source_anim": "Armature|Standard_Forward_Charge|baselayer",
+   "window": [
+    0.03333333507180214,
+    0.6666666865348816
+   ],
+   "keys": 20,
+   "length_s": 0.6333333514630795,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    3.9422
+   ],
+   "grounded_by_m": -0.0039,
+   "feet_span_m": [
+    0.0,
+    0.1081
+   ]
+  },
+  "src_shout101": {
+   "source": "anims/shout101.glb",
+   "source_anim": "Armature|Sword_Shout|baselayer",
+   "window": [
+    0.03333333507180214,
+    6.199999809265137
+   ],
+   "keys": 186,
+   "length_s": 6.166666474193335,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.1617,
+    0.669
+   ],
+   "grounded_by_m": -0.06762,
+   "feet_span_m": [
+    0.0,
+    0.0425
+   ]
+  },
+  "src_walk21": {
+   "source": "anims/walk21.glb",
+   "source_anim": "Armature|Walk_Fight_Forward|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.7666666507720947
+   ],
+   "keys": 53,
+   "length_s": 1.7333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.04379,
+   "feet_span_m": [
+    0.0,
+    0.064
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "_srcs.glb: WEAPON REST -- weapon_r's rest is 0.198 m from the recorded mount (tolerance 1 um)"
+  ],
+  "warns": 16
+ }
+}

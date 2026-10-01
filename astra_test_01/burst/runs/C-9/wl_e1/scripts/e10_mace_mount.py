@@ -11,7 +11,7 @@ a = sys.argv[sys.argv.index('--') + 1:]
 BODY, MACE, OUT = a[:3]
 opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 CLIP, T, LEN = opt('--clip', 'walk'), float(opt('--t', '0.8667')), float(opt('--length', '1.45'))
-RIGHT_FROM_BUTT = 0.68   # the right fist on the mid-haft grip (sheet: mid grip 0.42-0.52 of the length from the butt)
+RIGHT_FROM_BUTT = float(opt("--rgrip", "0.68"))   # the right fist along the haft from the butt (stage G: 0.50 -- the butt cleared his thigh in walk/run at 0.68)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=BODY)
 sc = bpy.context.scene; FPS = sc.render.fps / sc.render.fps_base
@@ -41,6 +41,25 @@ bpy.context.view_layer.objects.active = mo[0]
 if len(mo) > 1: bpy.ops.object.join()
 m = bpy.context.view_layer.objects.active; m.parent = None
 bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+# STAGE G (task 5): DECIMATE to a file under 5 MB, keeping the silhouette (the head's spikes) -- measured: every ORIGINAL vertex's
+# distance to the decimated surface (max, p99), so the error is a number, not an impression.
+FACES = int(opt('--faces', '0')); TEXS = int(opt('--tex', '0')); dec_rep = {}
+if FACES:
+    import bmesh
+    from mathutils.bvhtree import BVHTree
+    bm0 = bmesh.new(); bm0.from_mesh(m.data); bmesh.ops.remove_doubles(bm0, verts=bm0.verts, dist=1e-6); bm0.to_mesh(m.data); bm0.free(); m.data.update()
+    co0 = np.empty(len(m.data.vertices) * 3); m.data.vertices.foreach_get('co', co0); co0 = co0.reshape(-1, 3); f0 = len(m.data.polygons)
+    md_ = m.modifiers.new('dec', 'DECIMATE'); md_.ratio = min(1.0, FACES / max(f0, 1)); bpy.context.view_layer.objects.active = m
+    bpy.ops.object.modifier_apply(modifier='dec')
+    m.data.calc_loop_triangles()
+    tree = BVHTree.FromPolygons([v.co.copy() for v in m.data.vertices], [list(t.vertices) for t in m.data.loop_triangles])
+    dd = np.array([(Vector(p) - tree.find_nearest(Vector(p))[0]).length for p in co0[::max(1, len(co0) // 60000)]])
+    span = float(np.ptp(co0, axis=0).max())
+    dec_rep = dict(faces=[f0, len(m.data.polygons)], err_max=float(dd.max()), err_p99=float(np.percentile(dd, 99)), err_mean=float(dd.mean()), span_units=span)
+    print('DECIMATE', dec_rep)
+if TEXS:
+    for img in bpy.data.images:
+        if img.size[0] > TEXS: img.scale(TEXS, TEXS)
 co = np.empty(len(m.data.vertices) * 3); m.data.vertices.foreach_get('co', co); V = co.reshape(-1, 3)
 c = V.mean(0); _, _, vt = np.linalg.svd((V - c)[::max(1, len(V) // 5000)], full_matrices=False); ax = vt[0]
 s = (V - c) @ ax; lo_, hi_ = s.min(), s.max(); L0 = hi_ - lo_
@@ -71,6 +90,6 @@ bpy.data.objects.remove(body, do_unlink=True)
 for x in list(bpy.data.actions): bpy.data.actions.remove(x)
 bpy.ops.export_scene.gltf(filepath=OUT, export_format='GLB', export_animations=False, export_image_format='JPEG', export_jpeg_quality=92)
 head_len = None
-rep = dict(clip=CLIP, t=T, fist_R=R.tolist(), fist_L=Lh.tolist(), fist_sep_m=round(sep, 4),            haft_dir_world=d.round(4).tolist(), length_m=LEN, right_fist_from_butt_m=RIGHT_FROM_BUTT, left_fist_from_butt_m=round(RIGHT_FROM_BUTT - sep, 4), G_righthand_local=np.round(G, 6).tolist(), source_length_units=round(float(L0), 5))
+rep = dict(decimate=dict(dec_rep, err_max_m=dec_rep.get('err_max', 0) * k if dec_rep else None, err_p99_m=dec_rep.get('err_p99', 0) * k if dec_rep else None), clip=CLIP, t=T, fist_R=R.tolist(), fist_L=Lh.tolist(), fist_sep_m=round(sep, 4),            haft_dir_world=d.round(4).tolist(), length_m=LEN, right_fist_from_butt_m=RIGHT_FROM_BUTT, left_fist_from_butt_m=round(RIGHT_FROM_BUTT - sep, 4), G_righthand_local=np.round(G, 6).tolist(), source_length_units=round(float(L0), 5))
 print(json.dumps(rep))
 if opt('--json'): json.dump(rep, open(opt('--json'), 'w'), indent=1)
