@@ -1,0 +1,4522 @@
+{
+ "arm_relations": {
+  "0": {
+   "TA-X-03 M-POL-2-NULL == M0 (trace minus arm label)": true,
+   "TA-X-04 W1-NULL == M-POL-2 (trace minus arm label)": true,
+   "TA-X-05 M-POL-2 != M0 (trace)": true,
+   "terminal M-POL-2 vs M0": [
+    156,
+    155
+   ]
+  },
+  "1": {
+   "TA-X-03 M-POL-2-NULL == M0 (trace minus arm label)": true,
+   "TA-X-04 W1-NULL == M-POL-2 (trace minus arm label)": true,
+   "TA-X-05 M-POL-2 != M0 (trace)": true,
+   "terminal M-POL-2 vs M0": [
+    152,
+    151
+   ]
+  },
+  "2": {
+   "TA-X-03 M-POL-2-NULL == M0 (trace minus arm label)": true,
+   "TA-X-04 W1-NULL == M-POL-2 (trace minus arm label)": true,
+   "TA-X-05 M-POL-2 != M0 (trace)": true,
+   "terminal M-POL-2 vs M0": [
+    155,
+    156
+   ]
+  },
+  "3": {
+   "TA-X-03 M-POL-2-NULL == M0 (trace minus arm label)": true,
+   "TA-X-04 W1-NULL == M-POL-2 (trace minus arm label)": true,
+   "TA-X-05 M-POL-2 != M0 (trace)": true,
+   "terminal M-POL-2 vs M0": [
+    152,
+    155
+   ]
+  },
+  "4": {
+   "TA-X-03 M-POL-2-NULL == M0 (trace minus arm label)": true,
+   "TA-X-04 W1-NULL == M-POL-2 (trace minus arm label)": true,
+   "TA-X-05 M-POL-2 != M0 (trace)": true,
+   "terminal M-POL-2 vs M0": [
+    152,
+    155
+   ]
+  }
+ },
+ "cells": {
+  "M-POL-2-NULL_s0": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 110,
+    "CHANNELLING_AND_MOVING": 818,
+    "IDLE": 3,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 936,
+    "fold_n_ticks_released_counter_at_terminal": 0,
+    "n_control_suppressed_channelling_on_D": 3,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 3
+   },
+   "identity_1": {
+    "D": 931,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 936
+   },
+   "identity_2_restated": {
+    "D": 931,
+    "holds": true,
+    "n_channelling": 928,
+    "n_control_suppressed_channelling (D population)": 3,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 931,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -3,
+    "lhs_minus_D": -3,
+    "n_channelling": 928,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M-POL-2-NULL_s1": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 5,
+    "holds": true,
+    "n_p06_keys_filtered": 0,
+    "n_p06_keys_filtered_expected": 0,
+    "n_pool_picks": 5,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 5
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.356567840990519
+   },
+   "census": {
+    "CHANNELLING": 17,
+    "CHANNELLING_AND_MOVING": 143,
+    "PRE_FIGHT": 1
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 161,
+    "fold_n_ticks_released_counter_at_terminal": 0,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 160,
+    "PRE_FIGHT": 1,
+    "holds": true,
+    "observed": 161
+   },
+   "identity_2_restated": {
+    "D": 160,
+    "holds": true,
+    "n_channelling": 160,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 160,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 160,
+    "n_released": 0
+   },
+   "terminal_wave": 151,
+   "waves_played": 1
+  },
+  "M-POL-2-NULL_s2": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 28,
+    "holds": true,
+    "n_p06_keys_filtered": 4,
+    "n_p06_keys_filtered_expected": 4,
+    "n_pool_picks": 28,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 156
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 28
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 149,
+    "CHANNELLING_AND_MOVING": 1008,
+    "IDLE": 5,
+    "PRE_FIGHT": 6
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 1168,
+    "fold_n_ticks_released_counter_at_terminal": 0,
+    "n_control_suppressed_channelling_on_D": 5,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 5
+   },
+   "identity_1": {
+    "D": 1162,
+    "PRE_FIGHT": 6,
+    "holds": true,
+    "observed": 1168
+   },
+   "identity_2_restated": {
+    "D": 1162,
+    "holds": true,
+    "n_channelling": 1157,
+    "n_control_suppressed_channelling (D population)": 5,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 1162,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -5,
+    "lhs_minus_D": -5,
+    "n_channelling": 1157,
+    "n_released": 0
+   },
+   "terminal_wave": 156,
+   "waves_played": 6
+  },
+  "M-POL-2-NULL_s3": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 120,
+    "CHANNELLING_AND_MOVING": 786,
+    "IDLE": 1,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 912,
+    "fold_n_ticks_released_counter_at_terminal": 0,
+    "n_control_suppressed_channelling_on_D": 1,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 1
+   },
+   "identity_1": {
+    "D": 907,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 912
+   },
+   "identity_2_restated": {
+    "D": 907,
+    "holds": true,
+    "n_channelling": 906,
+    "n_control_suppressed_channelling (D population)": 1,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 907,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -1,
+    "lhs_minus_D": -1,
+    "n_channelling": 906,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M-POL-2-NULL_s4": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 105,
+    "CHANNELLING_AND_MOVING": 806,
+    "IDLE": 5,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 921,
+    "fold_n_ticks_released_counter_at_terminal": 0,
+    "n_control_suppressed_channelling_on_D": 5,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 5
+   },
+   "identity_1": {
+    "D": 916,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 921
+   },
+   "identity_2_restated": {
+    "D": 916,
+    "holds": true,
+    "n_channelling": 911,
+    "n_control_suppressed_channelling (D population)": 5,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 916,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -5,
+    "lhs_minus_D": -5,
+    "n_channelling": 911,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M-POL-2_s0": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 28,
+    "holds": true,
+    "n_p06_keys_filtered": 4,
+    "n_p06_keys_filtered_expected": 4,
+    "n_pool_picks": 28,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 156
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 28
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 117,
+    "CHANNELLING_AND_MOVING": 837,
+    "IDLE": 46,
+    "MOVING": 62,
+    "PRE_FIGHT": 6
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 1068,
+    "fold_n_ticks_released_counter_at_terminal": 104,
+    "n_control_suppressed_channelling_on_D": 4,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 104,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 104,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 4
+   },
+   "identity_1": {
+    "D": 1062,
+    "PRE_FIGHT": 6,
+    "holds": true,
+    "observed": 1068
+   },
+   "identity_2_restated": {
+    "D": 1062,
+    "holds": true,
+    "n_channelling": 954,
+    "n_control_suppressed_channelling (D population)": 4,
+    "n_released (D population)": 104,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 1062,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -4,
+    "lhs_minus_D": -4,
+    "n_channelling": 954,
+    "n_released": 104
+   },
+   "terminal_wave": 156,
+   "waves_played": 6
+  },
+  "M-POL-2_s1": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 211,
+    "IDLE": 11,
+    "MOVING": 23,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 275,
+    "fold_n_ticks_released_counter_at_terminal": 32,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 32,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 32,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 273,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 275
+   },
+   "identity_2_restated": {
+    "D": 273,
+    "holds": true,
+    "n_channelling": 239,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 32,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 273,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 239,
+    "n_released": 32
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "M-POL-2_s2": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 117,
+    "CHANNELLING_AND_MOVING": 745,
+    "IDLE": 36,
+    "MOVING": 53,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 956,
+    "fold_n_ticks_released_counter_at_terminal": 87,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 87,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 87,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 951,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 956
+   },
+   "identity_2_restated": {
+    "D": 951,
+    "holds": true,
+    "n_channelling": 862,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 87,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 951,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 862,
+    "n_released": 87
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M-POL-2_s3": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 233,
+    "IDLE": 14,
+    "MOVING": 32,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 309,
+    "fold_n_ticks_released_counter_at_terminal": 46,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 46,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 46,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 307,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 309
+   },
+   "identity_2_restated": {
+    "D": 307,
+    "holds": true,
+    "n_channelling": 261,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 46,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 307,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 261,
+    "n_released": 46
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "M-POL-2_s4": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 36,
+    "CHANNELLING_AND_MOVING": 262,
+    "IDLE": 18,
+    "MOVING": 15,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 333,
+    "fold_n_ticks_released_counter_at_terminal": 32,
+    "n_control_suppressed_channelling_on_D": 1,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 32,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 32,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 1
+   },
+   "identity_1": {
+    "D": 331,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 333
+   },
+   "identity_2_restated": {
+    "D": 331,
+    "holds": true,
+    "n_channelling": 298,
+    "n_control_suppressed_channelling (D population)": 1,
+    "n_released (D population)": 32,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 331,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -1,
+    "lhs_minus_D": -1,
+    "n_channelling": 298,
+    "n_released": 32
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "M0_s0": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 110,
+    "CHANNELLING_AND_MOVING": 818,
+    "IDLE": 3,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "fold_n_observe_at_terminal": null,
+    "fold_n_ticks_released_counter_at_terminal": null,
+    "n_control_suppressed_channelling_on_D": 3,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 3
+   },
+   "identity_1": {
+    "D": 931,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 936
+   },
+   "identity_2_restated": {
+    "D": 931,
+    "holds": true,
+    "n_channelling": 928,
+    "n_control_suppressed_channelling (D population)": 3,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 931,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -3,
+    "lhs_minus_D": -3,
+    "n_channelling": 928,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M0_s1": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 5,
+    "holds": true,
+    "n_p06_keys_filtered": 0,
+    "n_p06_keys_filtered_expected": 0,
+    "n_pool_picks": 5,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 5
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.356567840990519
+   },
+   "census": {
+    "CHANNELLING": 17,
+    "CHANNELLING_AND_MOVING": 143,
+    "PRE_FIGHT": 1
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "fold_n_observe_at_terminal": null,
+    "fold_n_ticks_released_counter_at_terminal": null,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 160,
+    "PRE_FIGHT": 1,
+    "holds": true,
+    "observed": 161
+   },
+   "identity_2_restated": {
+    "D": 160,
+    "holds": true,
+    "n_channelling": 160,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 160,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 160,
+    "n_released": 0
+   },
+   "terminal_wave": 151,
+   "waves_played": 1
+  },
+  "M0_s2": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 28,
+    "holds": true,
+    "n_p06_keys_filtered": 4,
+    "n_p06_keys_filtered_expected": 4,
+    "n_pool_picks": 28,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 156
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 28
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 149,
+    "CHANNELLING_AND_MOVING": 1008,
+    "IDLE": 5,
+    "PRE_FIGHT": 6
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "fold_n_observe_at_terminal": null,
+    "fold_n_ticks_released_counter_at_terminal": null,
+    "n_control_suppressed_channelling_on_D": 5,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 5
+   },
+   "identity_1": {
+    "D": 1162,
+    "PRE_FIGHT": 6,
+    "holds": true,
+    "observed": 1168
+   },
+   "identity_2_restated": {
+    "D": 1162,
+    "holds": true,
+    "n_channelling": 1157,
+    "n_control_suppressed_channelling (D population)": 5,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 1162,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -5,
+    "lhs_minus_D": -5,
+    "n_channelling": 1157,
+    "n_released": 0
+   },
+   "terminal_wave": 156,
+   "waves_played": 6
+  },
+  "M0_s3": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 120,
+    "CHANNELLING_AND_MOVING": 786,
+    "IDLE": 1,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "fold_n_observe_at_terminal": null,
+    "fold_n_ticks_released_counter_at_terminal": null,
+    "n_control_suppressed_channelling_on_D": 1,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 1
+   },
+   "identity_1": {
+    "D": 907,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 912
+   },
+   "identity_2_restated": {
+    "D": 907,
+    "holds": true,
+    "n_channelling": 906,
+    "n_control_suppressed_channelling (D population)": 1,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 907,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -1,
+    "lhs_minus_D": -1,
+    "n_channelling": 906,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "M0_s4": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 105,
+    "CHANNELLING_AND_MOVING": 806,
+    "IDLE": 5,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "fold_n_observe_at_terminal": null,
+    "fold_n_ticks_released_counter_at_terminal": null,
+    "n_control_suppressed_channelling_on_D": 5,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_released_on_D": 0,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 0,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 5
+   },
+   "identity_1": {
+    "D": 916,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 921
+   },
+   "identity_2_restated": {
+    "D": 916,
+    "holds": true,
+    "n_channelling": 911,
+    "n_control_suppressed_channelling (D population)": 5,
+    "n_released (D population)": 0,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 916,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -5,
+    "lhs_minus_D": -5,
+    "n_channelling": 911,
+    "n_released": 0
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "W1-NULL_s0": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 28,
+    "holds": true,
+    "n_p06_keys_filtered": 4,
+    "n_p06_keys_filtered_expected": 4,
+    "n_pool_picks": 28,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 156
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 28
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 117,
+    "CHANNELLING_AND_MOVING": 837,
+    "IDLE": 46,
+    "MOVING": 62,
+    "PRE_FIGHT": 6
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 1068,
+    "fold_n_ticks_released_counter_at_terminal": 104,
+    "n_control_suppressed_channelling_on_D": 4,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 104,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 104,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 4
+   },
+   "identity_1": {
+    "D": 1062,
+    "PRE_FIGHT": 6,
+    "holds": true,
+    "observed": 1068
+   },
+   "identity_2_restated": {
+    "D": 1062,
+    "holds": true,
+    "n_channelling": 954,
+    "n_control_suppressed_channelling (D population)": 4,
+    "n_released (D population)": 104,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 1062,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -4,
+    "lhs_minus_D": -4,
+    "n_channelling": 954,
+    "n_released": 104
+   },
+   "terminal_wave": 156,
+   "waves_played": 6
+  },
+  "W1-NULL_s1": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 211,
+    "IDLE": 11,
+    "MOVING": 23,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 275,
+    "fold_n_ticks_released_counter_at_terminal": 32,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 32,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 32,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 273,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 275
+   },
+   "identity_2_restated": {
+    "D": 273,
+    "holds": true,
+    "n_channelling": 239,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 32,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 273,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 239,
+    "n_released": 32
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "W1-NULL_s2": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 117,
+    "CHANNELLING_AND_MOVING": 745,
+    "IDLE": 36,
+    "MOVING": 53,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 956,
+    "fold_n_ticks_released_counter_at_terminal": 87,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 87,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 87,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 951,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 956
+   },
+   "identity_2_restated": {
+    "D": 951,
+    "holds": true,
+    "n_channelling": 862,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 87,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 951,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 862,
+    "n_released": 87
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "W1-NULL_s3": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 233,
+    "IDLE": 14,
+    "MOVING": 32,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 309,
+    "fold_n_ticks_released_counter_at_terminal": 46,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 46,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 46,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 307,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 309
+   },
+   "identity_2_restated": {
+    "D": 307,
+    "holds": true,
+    "n_channelling": 261,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 46,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 307,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 261,
+    "n_released": 46
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "W1-NULL_s4": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 36,
+    "CHANNELLING_AND_MOVING": 262,
+    "IDLE": 18,
+    "MOVING": 15,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 333,
+    "fold_n_ticks_released_counter_at_terminal": 32,
+    "n_control_suppressed_channelling_on_D": 1,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 32,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 32,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 1
+   },
+   "identity_1": {
+    "D": 331,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 333
+   },
+   "identity_2_restated": {
+    "D": 331,
+    "holds": true,
+    "n_channelling": 298,
+    "n_control_suppressed_channelling (D population)": 1,
+    "n_released (D population)": 32,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 331,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -1,
+    "lhs_minus_D": -1,
+    "n_channelling": 298,
+    "n_released": 32
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "W1_s0": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-10": {
+    "holds": true,
+    "max_body_radius_m": 43.404802385345796,
+    "max_spawn_radius_m": 43.58816345747254
+   },
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 28,
+    "holds": true,
+    "n_p06_keys_filtered": 4,
+    "n_p06_keys_filtered_expected": 4,
+    "n_pool_picks": 28,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 156
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 28
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 116,
+    "CHANNELLING_AND_MOVING": 890,
+    "IDLE": 48,
+    "MOVING": 59,
+    "PRE_FIGHT": 6
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 1119,
+    "fold_n_ticks_released_counter_at_terminal": 107,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 107,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 107,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 1113,
+    "PRE_FIGHT": 6,
+    "holds": true,
+    "observed": 1119
+   },
+   "identity_2_restated": {
+    "D": 1113,
+    "holds": true,
+    "n_channelling": 1006,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 107,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 1113,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 1006,
+    "n_released": 107
+   },
+   "terminal_wave": 156,
+   "waves_played": 6
+  },
+  "W1_s1": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-10": {
+    "holds": true,
+    "max_body_radius_m": 41.97652009526441,
+    "max_spawn_radius_m": 42.13371843620479
+   },
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 211,
+    "IDLE": 11,
+    "MOVING": 23,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 275,
+    "fold_n_ticks_released_counter_at_terminal": 32,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 32,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 32,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 273,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 275
+   },
+   "identity_2_restated": {
+    "D": 273,
+    "holds": true,
+    "n_channelling": 239,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 32,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 273,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 239,
+    "n_released": 32
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "W1_s2": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-10": {
+    "holds": true,
+    "max_body_radius_m": 43.40481520803243,
+    "max_spawn_radius_m": 43.58816345747254
+   },
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 117,
+    "CHANNELLING_AND_MOVING": 745,
+    "IDLE": 36,
+    "MOVING": 53,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 956,
+    "fold_n_ticks_released_counter_at_terminal": 87,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 87,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 87,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 951,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 956
+   },
+   "identity_2_restated": {
+    "D": 951,
+    "holds": true,
+    "n_channelling": 862,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 87,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 951,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 862,
+    "n_released": 87
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  },
+  "W1_s3": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-10": {
+    "holds": true,
+    "max_body_radius_m": 41.97652009526441,
+    "max_spawn_radius_m": 42.13371843620479
+   },
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 10,
+    "holds": true,
+    "n_p06_keys_filtered": 1,
+    "n_p06_keys_filtered_expected": 1,
+    "n_pool_picks": 10,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 10
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.475523293223569
+   },
+   "census": {
+    "CHANNELLING": 28,
+    "CHANNELLING_AND_MOVING": 233,
+    "IDLE": 14,
+    "MOVING": 32,
+    "PRE_FIGHT": 2
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 309,
+    "fold_n_ticks_released_counter_at_terminal": 46,
+    "n_control_suppressed_channelling_on_D": 0,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 46,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 46,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 0
+   },
+   "identity_1": {
+    "D": 307,
+    "PRE_FIGHT": 2,
+    "holds": true,
+    "observed": 309
+   },
+   "identity_2_restated": {
+    "D": 307,
+    "holds": true,
+    "n_channelling": 261,
+    "n_control_suppressed_channelling (D population)": 0,
+    "n_released (D population)": 46,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 307,
+    "holds": true,
+    "jack_ryan_KP180_cross_reference": 0,
+    "lhs_minus_D": 0,
+    "n_channelling": 261,
+    "n_released": 46
+   },
+   "terminal_wave": 152,
+   "waves_played": 2
+  },
+  "W1_s4": {
+   "TA-X-01_rerun_byte_identical": true,
+   "TA-X-10": {
+    "holds": true,
+    "max_body_radius_m": 43.40478928727287,
+    "max_spawn_radius_m": 43.58816345747254
+   },
+   "TA-X-12": {
+    "holds": true,
+    "pool_tags": {}
+   },
+   "TA-X-15a": {
+    "holds": true,
+    "p05_tick": 48.99999999999999
+   },
+   "TA-X-16_restated": {
+    "expected_sum": 23,
+    "holds": true,
+    "n_p06_keys_filtered": 3,
+    "n_p06_keys_filtered_expected": 3,
+    "n_pool_picks": 23,
+    "n_spawn_point_6_keys_rolled": 0,
+    "per_wave": [
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 151
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 152
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04",
+       "p05"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 5,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 5,
+      "wave": 153
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 0,
+      "filtered_keys": 0,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 154
+     },
+     {
+      "actor_grain_equals_picks": true,
+      "actor_points": [
+       "p01",
+       "p02",
+       "p03",
+       "p04"
+      ],
+      "bonus_spawns_enabled_passed": [
+       false
+      ],
+      "expected": 4,
+      "filtered_are_p06_only": true,
+      "filtered_expected": 1,
+      "filtered_keys": 1,
+      "holds": true,
+      "p06_key_rolled": 0,
+      "picks": 4,
+      "wave": 155
+     }
+    ]
+   },
+   "TA-X-16_v1.12_text": {
+    "holds": false,
+    "n_pool_picks": 23
+   },
+   "TA-X-17": {
+    "holds": true,
+    "max_offset_m": 7.956549274334971
+   },
+   "census": {
+    "CHANNELLING": 98,
+    "CHANNELLING_AND_MOVING": 732,
+    "IDLE": 53,
+    "MOVING": 43,
+    "PRE_FIGHT": 5
+   },
+   "census_chan_equals_trace_chan_on_D": true,
+   "census_convention": {
+    "D equals G3 D_oracle": true,
+    "PF equals G3 PRE_FIGHT_oracle": true,
+    "lethal tick censused alive (hp<=0, inside the census, not DEAD)": true,
+    "no DEAD state": true,
+    "one PRE_FIGHT per wave played": true
+   },
+   "fold": {
+    "aligned_every_wave": true,
+    "counter_equals_released_on_observed": true,
+    "fold_n_observe_at_terminal": 931,
+    "fold_n_ticks_released_counter_at_terminal": 94,
+    "n_control_suppressed_channelling_on_D": 2,
+    "n_control_suppressed_on_PRE_FIGHT": 0,
+    "n_control_suppressed_released_on_D": 0,
+    "n_observe_equals_observed": true,
+    "n_released_on_D": 94,
+    "n_released_on_PRE_FIGHT": 0,
+    "n_released_on_observed": 94,
+    "no_desync": true,
+    "observe_verdict_consistent_with_trace": true,
+    "trace_control_channel_entries_leg_A": 2
+   },
+   "identity_1": {
+    "D": 926,
+    "PRE_FIGHT": 5,
+    "holds": true,
+    "observed": 931
+   },
+   "identity_2_restated": {
+    "D": 926,
+    "holds": true,
+    "n_channelling": 830,
+    "n_control_suppressed_channelling (D population)": 2,
+    "n_released (D population)": 94,
+    "rival population (n_released on ALL observed ticks) would hold": true
+   },
+   "identity_2_v1.12": {
+    "D": 926,
+    "holds": false,
+    "jack_ryan_KP180_cross_reference": -2,
+    "lhs_minus_D": -2,
+    "n_channelling": 830,
+    "n_released": 94
+   },
+   "terminal_wave": 155,
+   "waves_played": 5
+  }
+ },
+ "law_a_measured": {
+  "TA-X-01": {
+   "basis": "MEASURED",
+   "detail": "oracle re-run byte-identical to the filed trace 25/25",
+   "passes": true
+  },
+  "TA-X-03": {
+   "basis": "MEASURED",
+   "detail": "5/5 full-trace equality",
+   "passes": true
+  },
+  "TA-X-04": {
+   "basis": "MEASURED",
+   "detail": "5/5 full-trace equality",
+   "passes": true
+  },
+  "TA-X-05": {
+   "basis": "MEASURED",
+   "detail": "differ on 5/5 salts (>= 1 required)",
+   "passes": true
+  },
+  "TA-X-08 (restated, both identities)": {
+   "basis": "MEASURED",
+   "detail": "25/25",
+   "passes": true
+  },
+  "TA-X-10": {
+   "basis": "MEASURED",
+   "detail": "W1 max body radius 43.404815 m, max spawn radius 43.588163 m <= 43.758085029822276",
+   "passes": true
+  },
+  "TA-X-12": {
+   "basis": "MEASURED",
+   "detail": "no damage tag containing 'pool' on any leg-A event, 25/25",
+   "passes": true
+  },
+  "TA-X-15(a)": {
+   "basis": "MEASURED",
+   "detail": "p01-p04 at 0.0 s, p05 at 4.0 s (tick 49), every wave played, 25/25",
+   "passes": true
+  },
+  "TA-X-16 (restated)": {
+   "basis": "MEASURED",
+   "detail": "25/25",
+   "passes": true
+  },
+  "TA-X-17": {
+   "basis": "MEASURED",
+   "detail": "max ‖spawn − anchor‖ = 7.956549 m <= 8.0",
+   "passes": true
+  }
+ },
+ "summary": {
+  "TA-X-08 identity 1 (oracle passes)": "25/25",
+  "TA-X-08 identity 2 AS WRITTEN (oracle passes)": "6/25",
+  "TA-X-08 identity 2 RESTATED (oracle passes)": "25/25",
+  "TA-X-16 restated (oracle passes)": "25/25",
+  "TA-X-16 v1.12 text (oracle passes)": "0/25",
+  "V11-P06-1 checks": {
+   "checksum 47/54": true,
+   "data keys == oracle keys (on)": true,
+   "equals the oracle's pools_for(w, False) key counts": true,
+   "equals the pack's V11-P06-1 row": true,
+   "oracle pools_for(w, True) key counts = vector_on": true,
+   "oracle's filter drops exactly key 6": true,
+   "p06 keys = 54 - 47 = 7": true
+  },
+  "V11-P06-1 derived": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "W1 salts whose trace differs from M-POL-2's": [
+   0,
+   4
+  ],
+  "cells with identity-2 shortfall": [
+   "M0_s0",
+   "M0_s2",
+   "M0_s3",
+   "M0_s4",
+   "M-POL-2_s0",
+   "M-POL-2_s1",
+   "M-POL-2_s2",
+   "M-POL-2_s4",
+   "M-POL-2-NULL_s0",
+   "M-POL-2-NULL_s2",
+   "M-POL-2-NULL_s3",
+   "M-POL-2-NULL_s4",
+   "W1_s1",
+   "W1_s2",
+   "W1_s4",
+   "W1-NULL_s0",
+   "W1-NULL_s1",
+   "W1-NULL_s2",
+   "W1-NULL_s4"
+  ],
+  "census chan == trace chan on D": "25/25",
+  "census convention holds": "25/25",
+  "control-suppressed PRE_FIGHT ticks (all cells)": 0,
+  "control-suppressed RELEASED ticks on D (all cells)": 0,
+  "distinct oracle realisations among the 25 (trace minus arm label)": 12,
+  "fold aligned + consistent + no desync": "25/25",
+  "fold counter n_ticks_released == released on observed ticks (fold arms)": "25/25",
+  "identity 2 restated, rival population (all observed ticks)": "25/25",
+  "independent: trace control `channel` entries (leg A) == n_control_suppressed_channelling": "25/25",
+  "released PRE_FIGHT ticks (all cells)": 0,
+  "shortfall == -(control-suppressed channelling)": "25/25",
+  "shortfall == jack-ryan KP-180 table": "25/25"
+ },
+ "vector": {
+  "checks": {
+   "checksum 47/54": true,
+   "data keys == oracle keys (on)": true,
+   "equals the oracle's pools_for(w, False) key counts": true,
+   "equals the pack's V11-P06-1 row": true,
+   "oracle pools_for(w, True) key counts = vector_on": true,
+   "oracle's filter drops exactly key 6": true,
+   "p06 keys = 54 - 47 = 7": true
+  },
+  "law": "V11-P06-1[w] = |{spawn_point of model/waves.json pools.wave_spawn rows with global_wave == w} \\ {6}|, w = 151..160",
+  "oracle_pools_for_off_keys": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4
+   ]
+  ],
+  "oracle_pools_for_on_keys": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
+  ],
+  "p06_key_per_wave": [
+   0,
+   1,
+   1,
+   0,
+   1,
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "p06_rows_per_wave": [
+   0,
+   6,
+   2,
+   0,
+   5,
+   1,
+   1,
+   2,
+   0,
+   1
+  ],
+  "pack_row_V11-P06-1": {
+   "active_points_per_wave_151_160": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "code_default": true,
+   "of_record": false
+  },
+  "sum_off": 47,
+  "sum_on": 54,
+  "vector_p06_off": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "vector_p06_on": [
+   5,
+   6,
+   6,
+   4,
+   5,
+   6,
+   6,
+   6,
+   5,
+   5
+  ]
+ }
+}

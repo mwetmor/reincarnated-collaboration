@@ -1,0 +1,918 @@
+{
+ "TA-X-09_n": 9,
+ "TA-X-18": {
+  "bits": [
+   "c00fffffffffffde",
+   "be9777a5cf72cec6"
+  ],
+  "equals_v1.12": true,
+  "value": [
+   "-3.999999999999985",
+   "-3.49691120014899e-07"
+  ]
+ },
+ "carried": {
+  "933b438 G3 oracle tool (READ, lineage)": {
+   "label": "FILE",
+   "path": "godot 933b438:kc2_runtime/tools/kc2rt_g3_oracle_trace.py",
+   "reproduces": true,
+   "sha256": "49a044edf2ef2ccefd5987d00707835e5bf21c7ee6436792de60d65b10b1b7d9",
+   "v1.12": "49a044edf2ef2ccefd5987d00707835e5bf21c7ee6436792de60d65b10b1b7d9"
+  },
+  "933b438 G3 port tool (READ, lineage)": {
+   "label": "FILE",
+   "path": "godot 933b438:kc2_runtime/tools/kc2rt_g3_loop_trace.gd",
+   "reproduces": true,
+   "sha256": "574facb33a381939cf1254eacb0a82b202829e1d1cb772a3145b624094401d74",
+   "v1.12": "574facb33a381939cf1254eacb0a82b202829e1d1cb772a3145b624094401d74"
+  },
+  "933b438 kc2rt_fight.gd (READ, lineage)": {
+   "label": "FILE",
+   "path": "godot 933b438:kc2_runtime/sim/kc2rt_fight.gd",
+   "reproduces": true,
+   "sha256": "2277cc8940d2c50cde5d819545e4ffe5cfbc2207c8f38cfbfe85e37703190303",
+   "v1.12": "2277cc8940d2c50cde5d819545e4ffe5cfbc2207c8f38cfbfe85e37703190303"
+  },
+  "933b438 kc2rt_laws.gd (READ, lineage)": {
+   "label": "FILE",
+   "path": "godot 933b438:kc2_runtime/sim/kc2rt_laws.gd",
+   "reproduces": true,
+   "sha256": "c234376e9cbadc2d6f69549966112ec4fc1da7df46069831c7f1b80e3f581a9c",
+   "v1.12": "c234376e9cbadc2d6f69549966112ec4fc1da7df46069831c7f1b80e3f581a9c"
+  },
+  "FALLBACK-158": {
+   "label": "ROWSET",
+   "path": "derive_oracle_speeds partition, FALLBACK class",
+   "reproduces": true,
+   "sha256": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb",
+   "v1.12": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb"
+  },
+  "H-10 run v3.7": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7-h10-summary-20261001_001232.json",
+   "reproduces": true,
+   "sha256": "ff81fc9146e86be6c9fc5ad233ef8841ca22feb1bb50f7e9d5667d9beee85e30",
+   "v1.12": "ff81fc9146e86be6c9fc5ad233ef8841ca22feb1bb50f7e9d5667d9beee85e30"
+  },
+  "H-9 M-POL-2": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_M-POL-2.json",
+   "reproduces": true,
+   "sha256": "2aedf43f2091d0c575af1d7d07deb0278be87f0b4c917efa5c33d01e77707f61",
+   "v1.12": "2aedf43f2091d0c575af1d7d07deb0278be87f0b4c917efa5c33d01e77707f61"
+  },
+  "H-9 NOTE": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/NOTE.md",
+   "reproduces": true,
+   "sha256": "90717b83926f06b5939a48c01c0cc4973d5f20d7d7eb60007b976d01ebde53e5",
+   "v1.12": "90717b83926f06b5939a48c01c0cc4973d5f20d7d7eb60007b976d01ebde53e5"
+  },
+  "H-9 W1": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_W1.json",
+   "reproduces": true,
+   "sha256": "c68fcd3c133c8b8a55d75e85425876fe73d6d1752dfdd1cd21fa9041e87a24ff",
+   "v1.12": "c68fcd3c133c8b8a55d75e85425876fe73d6d1752dfdd1cd21fa9041e87a24ff"
+  },
+  "H-9 W1-NULL": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_W1-NULL.json",
+   "reproduces": true,
+   "sha256": "90b9ea619e8adfd3f8532cc55e16990c15348dd537071c5758000c2edafdf801",
+   "v1.12": "90b9ea619e8adfd3f8532cc55e16990c15348dd537071c5758000c2edafdf801"
+  },
+  "H-9 script": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_w1_containment.py",
+   "reproduces": true,
+   "sha256": "eede32e85f362b5d57b136b81344cae1bfd4b804515db2d6f2d66279d1920f55",
+   "v1.12": "eede32e85f362b5d57b136b81344cae1bfd4b804515db2d6f2d66279d1920f55"
+  },
+  "NONSWING-10": {
+   "label": "ROWSET",
+   "path": "POOL-466 minus SWING-456",
+   "reproduces": true,
+   "sha256": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10",
+   "v1.12": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10"
+  },
+  "P-a": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-09-20-kc2-play-ta-band-widths.md",
+   "reproduces": true,
+   "sha256": "1c80f08075a1ed0e30e30b348752d2505b39994f7e2c55c348413f6e591248f9",
+   "v1.12": "1c80f08075a1ed0e30e30b348752d2505b39994f7e2c55c348413f6e591248f9"
+  },
+  "P-b": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/2026-09-20-kc2-play-w1-tb-expected-values-and-u-rider.md",
+   "reproduces": true,
+   "sha256": "d48512aa6e3c9ea70de6675750880a6c8914f0984c3cfe65c6ccb9a24403438f",
+   "v1.12": "d48512aa6e3c9ea70de6675750880a6c8914f0984c3cfe65c6ccb9a24403438f"
+  },
+  "P-c": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/2026-09-20-kc2-play-w1-tb-expected-values.json",
+   "reproduces": true,
+   "sha256": "a8b85331764ba3fe90f45cf7cd6f1a25f6dc0dae4a7e7fa555c487f0b153ea0b",
+   "v1.12": "a8b85331764ba3fe90f45cf7cd6f1a25f6dc0dae4a7e7fa555c487f0b153ea0b"
+  },
+  "P-d": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/2026-09-20-kc2-play-w1-tb-release-labels.json",
+   "reproduces": true,
+   "sha256": "15dace604c8d5bb4888223a8b25a07a038bae44431ebd194d682545c0f29c58a",
+   "v1.12": "15dace604c8d5bb4888223a8b25a07a038bae44431ebd194d682545c0f29c58a"
+  },
+  "P-e": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-v3p4-roster-basis-rebase-2026-09-21.md",
+   "reproduces": true,
+   "sha256": "4b7b78c834c7fbabd61700dda3e730a95ab89990bfa01470e8fb293f41ac7a73",
+   "v1.12": "4b7b78c834c7fbabd61700dda3e730a95ab89990bfa01470e8fb293f41ac7a73"
+  },
+  "P-e'": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-v3p3-monster-offense-prereg-2026-09-20.md",
+   "reproduces": true,
+   "sha256": "27fc59378aee8c9d412f486a63864a3b2ceb5c5473520b60ad80128d47d99cdc",
+   "v1.12": "27fc59378aee8c9d412f486a63864a3b2ceb5c5473520b60ad80128d47d99cdc"
+  },
+  "P-h model PACK": {
+   "label": "PACK",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p7p1-20261001_021247",
+   "reproduces": true,
+   "sha256": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "v1.12": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+  },
+  "P-h2 reference PACK": {
+   "label": "PACK",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-reference-pack-v3-E-s09-cp150-mech-v3p7p1-20261001_021247",
+   "reproduces": true,
+   "sha256": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "v1.12": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1"
+  },
+  "P-i": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/data/kc2/pm4p_leech_resistance.csv",
+   "reproduces": true,
+   "sha256": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+   "v1.12": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e"
+  },
+  "P-j": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/data/kc2/pm4l_mitigation_by_body.csv",
+   "reproduces": true,
+   "sha256": "a8c1ffd97dc703419f8447f3d7bbba3903e0f14d2c2e6746a938ceefae9ecec6",
+   "v1.12": "a8c1ffd97dc703419f8447f3d7bbba3903e0f14d2c2e6746a938ceefae9ecec6"
+  },
+  "P-k": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/data/kc2/pm2_tg2_monster_timing.csv",
+   "reproduces": true,
+   "sha256": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca",
+   "v1.12": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+  },
+  "P-l.c11a": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-c11a-oracle-corrections-fold-2026-09-30.md",
+   "reproduces": true,
+   "sha256": "4af38999ff0544cc9607b34da4fde29fe2c55324e9829894c516cd9837689445",
+   "v1.12": "4af38999ff0544cc9607b34da4fde29fe2c55324e9829894c516cd9837689445"
+  },
+  "P-l.c11aA": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-c11a-oracle-corrections-fold-ADDENDUM-2026-09-30.md",
+   "reproduces": true,
+   "sha256": "17a068fe980869e6e344fdf3a652dc275f5cc3a3d65818f2976fe94084d48666",
+   "v1.12": "17a068fe980869e6e344fdf3a652dc275f5cc3a3d65818f2976fe94084d48666"
+  },
+  "P-l.c2": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-c2-per-cast-energy-cost-fold-2026-09-28.md",
+   "reproduces": true,
+   "sha256": "b42684e55325bd4caf705b1e7d43462acb5c5818cd5abe3d79eb0d3b9ba6f8c7",
+   "v1.12": "b42684e55325bd4caf705b1e7d43462acb5c5818cd5abe3d79eb0d3b9ba6f8c7"
+  },
+  "P-l.c7": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-c7-insufficient-energy-refuse-fold-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "072f9ab787ec840a9bc62ae76a0576fa5db7be0da0b63457851557ea164a7e1f",
+   "v1.12": "072f9ab787ec840a9bc62ae76a0576fa5db7be0da0b63457851557ea164a7e1f"
+  },
+  "P-l.nine": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-nine-winner-surface-reconstruction-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "2c7c3679af67569fff88bb56837ea1ba37499fe9fcbeca85ab63a473b0d7a6dd",
+   "v1.12": "2c7c3679af67569fff88bb56837ea1ba37499fe9fcbeca85ab63a473b0d7a6dd"
+  },
+  "P-l.q91": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-q91-338-pool-damage-lift-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "d68561d59723c3295da3f0456f2fbeaefe8f5f0a30b41d29b5ff0e366966a385",
+   "v1.12": "d68561d59723c3295da3f0456f2fbeaefe8f5f0a30b41d29b5ff0e366966a385"
+  },
+  "P-l.q91a": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-q91-338-pool-damage-lift-ADDENDUM-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "b9ada804e17c01b376e64e82b7e45f66a344d1fc2fc75a0fdd1fd76c56e2cddc",
+   "v1.12": "b9ada804e17c01b376e64e82b7e45f66a344d1fc2fc75a0fdd1fd76c56e2cddc"
+  },
+  "P-l.upn4": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-upn4-occupancy-by-pilot-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "787d1a99d9adfedbb34bda69a3c530a653a8df3fc117969e3920c5625791a3cf",
+   "v1.12": "787d1a99d9adfedbb34bda69a3c530a653a8df3fc117969e3920c5625791a3cf"
+  },
+  "P-l.upn5": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-upn5-global-magnitude-fold-lift-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "bfa44b4722ec8b7326987042101f32310c986e3fae489a4372fcc4e0dd5553c7",
+   "v1.12": "bfa44b4722ec8b7326987042101f32310c986e3fae489a4372fcc4e0dd5553c7"
+  },
+  "P-l.upn5A": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-play-upn5-global-magnitude-fold-lift-ADDENDUM-2026-09-29.md",
+   "reproduces": true,
+   "sha256": "5323c1fa9f156e80ced5b1324e4297150cfc759c4e54426f440c33a6c9745fc6",
+   "v1.12": "5323c1fa9f156e80ced5b1324e4297150cfc759c4e54426f440c33a6c9745fc6"
+  },
+  "P-n.1": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-play-q91-pool-lift-pricing-20260930_023137.json",
+   "reproduces": true,
+   "sha256": "f33ce0c0cbeb00bbed7b47a6f7660f20d4aa2be1694f9f4e2486e37d27b553e2",
+   "v1.12": "f33ce0c0cbeb00bbed7b47a6f7660f20d4aa2be1694f9f4e2486e37d27b553e2"
+  },
+  "P-n.2": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-lifted-rows-KC2PLAY-SEALLAP-W1-c2-energy-fold-20260928_232836.json",
+   "reproduces": true,
+   "sha256": "cc361a3fea3e24e55fdf0c8c8eaf52bcc0c729c7de0563d3c84dd0dc21202960",
+   "v1.12": "cc361a3fea3e24e55fdf0c8c8eaf52bcc0c729c7de0563d3c84dd0dc21202960"
+  },
+  "P-n.3": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-play-c11a-fold-pricing-NOT-A-GRADED-RUN-20260930_043045-SUMMARY.json",
+   "reproduces": true,
+   "sha256": "b6c9e7953f5b5632ec2dc51c2c8602461aef15d4721f69432444e6f777e1141e",
+   "v1.12": "b6c9e7953f5b5632ec2dc51c2c8602461aef15d4721f69432444e6f777e1141e"
+  },
+  "P-n.4": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-play-c11a-landed-by-source-NOT-A-GRADED-RUN-20260930_033242.json",
+   "reproduces": true,
+   "sha256": "ad018b78a7f85491020a237166af797845bb5de2e562816673fbf925bb41ff1e",
+   "v1.12": "ad018b78a7f85491020a237166af797845bb5de2e562816673fbf925bb41ff1e"
+  },
+  "P-o": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/data/kc2/c11a_aura_buff_grants.csv",
+   "reproduces": true,
+   "sha256": "749d58f45eb312e7a284734a1844f2aabcfd69b7219dd1dafc55e4bb6d64792f",
+   "v1.12": "749d58f45eb312e7a284734a1844f2aabcfd69b7219dd1dafc55e4bb6d64792f"
+  },
+  "POOL-466": {
+   "label": "ROWSET",
+   "path": "pool466(waves.json)",
+   "reproduces": true,
+   "sha256": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "v1.12": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b"
+  },
+  "POST M-POL-2": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-POST-bare-M-POL-2-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "691ea754633b5ad582c01beb69b0935ef390c803136a76d7b7d6129277423689",
+   "v1.12": "691ea754633b5ad582c01beb69b0935ef390c803136a76d7b7d6129277423689"
+  },
+  "POST M-POL-2-NULL": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-POST-bare-M-POL-2-NULL-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "c856f83259ca7ea62a0189031e7bd5a47a9bcba66e441da7fb8e55783a0f1f7f",
+   "v1.12": "c856f83259ca7ea62a0189031e7bd5a47a9bcba66e441da7fb8e55783a0f1f7f"
+  },
+  "POST M0": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-POST-bare-M0-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "9cdbd93ca8ca7d35cf39a95ea66eaf9509a89cd430a9f8d415fac4bc7fb7c2fb",
+   "v1.12": "9cdbd93ca8ca7d35cf39a95ea66eaf9509a89cd430a9f8d415fac4bc7fb7c2fb"
+  },
+  "POST W1": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-POST-bare-W1-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "a6df79289abe349b7e62e6465b749fea26e35107552348bdd9cfe634258d6b32",
+   "v1.12": "a6df79289abe349b7e62e6465b749fea26e35107552348bdd9cfe634258d6b32"
+  },
+  "POST W1-NULL": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-POST-bare-W1-NULL-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "c08fd789a5787bc5660197d90413e7ff6da7868a30a552ec4203a867b5494b59",
+   "v1.12": "c08fd789a5787bc5660197d90413e7ff6da7868a30a552ec4203a867b5494b59"
+  },
+  "SWING-456": {
+   "label": "ROWSET",
+   "path": "load_profiles can_swing over POOL-466",
+   "reproduces": true,
+   "sha256": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0",
+   "v1.12": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0"
+  },
+  "TA-X-09 nine vectors": {
+   "label": "ROWSET",
+   "path": "math_rules five rules, 9 vectors",
+   "reproduces": true,
+   "sha256": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+   "v1.12": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78"
+  },
+  "a8 M-POL-2": {
+   "label": "ROWSET",
+   "path": "a8 job M-POL-2 (76 rows)",
+   "reproduces": true,
+   "sha256": "e698d5f555a37fcc12e703343286d4e25c12662d8cd35c9571f9a0ac8ae45dbf",
+   "v1.12": "e698d5f555a37fcc12e703343286d4e25c12662d8cd35c9571f9a0ac8ae45dbf"
+  },
+  "a8 M-POL-2-NULL": {
+   "label": "ROWSET",
+   "path": "a8 job M-POL-2-NULL (76 rows)",
+   "reproduces": true,
+   "sha256": "4393a14b56a97960ef42e73909a1cdefc49f3dc1a4cc41e7f20267b661a1a7b6",
+   "v1.12": "4393a14b56a97960ef42e73909a1cdefc49f3dc1a4cc41e7f20267b661a1a7b6"
+  },
+  "a8 M0": {
+   "label": "ROWSET",
+   "path": "a8 job M0 (70 rows)",
+   "reproduces": true,
+   "sha256": "68549af0608cb9979771fcc4955ae8010f4f3516ad55a97b83922c994f571d12",
+   "v1.12": "68549af0608cb9979771fcc4955ae8010f4f3516ad55a97b83922c994f571d12"
+  },
+  "a8 W1": {
+   "label": "ROWSET",
+   "path": "a8 job W1 (78 rows)",
+   "reproduces": true,
+   "sha256": "5188284d198c139422276e8ac92f9a0bee03cea7dbb1cea32c6c7bf1d19a55e8",
+   "v1.12": "5188284d198c139422276e8ac92f9a0bee03cea7dbb1cea32c6c7bf1d19a55e8"
+  },
+  "a8 W1-NULL": {
+   "label": "ROWSET",
+   "path": "a8 job W1-NULL (78 rows)",
+   "reproduces": true,
+   "sha256": "b2abff6978105bfc1566d678d5f1dea756ea9ef0eab02f8457821f81125a7fdd",
+   "v1.12": "b2abff6978105bfc1566d678d5f1dea756ea9ef0eab02f8457821f81125a7fdd"
+  },
+  "a8 WALK": {
+   "label": "ROWSET",
+   "path": "a8 job WALK (54 rows)",
+   "reproduces": true,
+   "sha256": "63c530edd2e825c05f0f95ce2f629d56dbff98da206ddb45690fc129d7bba0f2",
+   "v1.12": "63c530edd2e825c05f0f95ce2f629d56dbff98da206ddb45690fc129d7bba0f2"
+  },
+  "a8 setup": {
+   "label": "ROWSET",
+   "path": "a8 job setup (27 rows)",
+   "reproduces": true,
+   "sha256": "c01d1ddaa4a5b7074203662522276a24a150312d9faeceb6634dc5438e0f71f1",
+   "v1.12": "c01d1ddaa4a5b7074203662522276a24a150312d9faeceb6634dc5438e0f71f1"
+  },
+  "closure instrument": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_v3p7_closure.py",
+   "reproduces": true,
+   "sha256": "e5793c281aa86e18e128983883ee8f26d5e5615e6803a1cf682dc49f13a57284",
+   "v1.12": "e5793c281aa86e18e128983883ee8f26d5e5615e6803a1cf682dc49f13a57284"
+  },
+  "discrimination audit": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-09-21-kc2-play-discrimination-audit.md",
+   "reproduces": true,
+   "sha256": "852d0bd7d637280cbc42e2ba8494ea7e163b4f6c91741f24eb0ef3da105e674a",
+   "v1.12": "852d0bd7d637280cbc42e2ba8494ea7e163b4f6c91741f24eb0ef3da105e674a"
+  },
+  "divergence register v0.3": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-divergence-register-v0.3.md",
+   "reproduces": true,
+   "sha256": "5028b555313df2f4690cd96881c700c7d66a4733612894c150c2448915510444",
+   "v1.12": "5028b555313df2f4690cd96881c700c7d66a4733612894c150c2448915510444"
+  },
+  "fae29ec kc2rt_fight.gd (lineage)": {
+   "label": "FILE",
+   "path": "godot fae29ec:kc2_runtime/sim/kc2rt_fight.gd",
+   "reproduces": true,
+   "sha256": "41310e5e5330b3e0e186090dcb4ffb91481da71bebc2b2a3a482e490d9d7c148",
+   "v1.12": "41310e5e5330b3e0e186090dcb4ffb91481da71bebc2b2a3a482e490d9d7c148"
+  },
+  "ffb454e kc2rt_fight.gd (lineage)": {
+   "label": "FILE",
+   "path": "godot ffb454e:kc2_runtime/sim/kc2rt_fight.gd",
+   "reproduces": true,
+   "sha256": "e6903095b6bba83f38359a654380cb5b13516c8e2a437b2a04ae1ff73c72a680",
+   "v1.12": "e6903095b6bba83f38359a654380cb5b13516c8e2a437b2a04ae1ff73c72a680"
+  },
+  "ffb454e kc2rt_laws.gd (lineage)": {
+   "label": "FILE",
+   "path": "godot ffb454e:kc2_runtime/sim/kc2rt_laws.gd",
+   "reproduces": true,
+   "sha256": "406ffeca427bf90bb6b998eba834138eb7f68b76917f95e70fabf72ba523e1b3",
+   "v1.12": "406ffeca427bf90bb6b998eba834138eb7f68b76917f95e70fabf72ba523e1b3"
+  },
+  "grade of record": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-09-21-kc2-play-ta-grade.md",
+   "reproduces": true,
+   "sha256": "600f68a7378329c298cd69863903804a6ab7d1ee8a27f666688717f741b9c1c3",
+   "v1.12": "600f68a7378329c298cd69863903804a6ab7d1ee8a27f666688717f741b9c1c3"
+  },
+  "model manifest.json": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p7p1-20261001_021247/manifest.json",
+   "reproduces": true,
+   "sha256": "be5d256609d3caa231abcbe6fa042fedfa381035c3bea5c219ab5f54ca7717b9",
+   "v1.12": "be5d256609d3caa231abcbe6fa042fedfa381035c3bea5c219ab5f54ca7717b9"
+  },
+  "model/ai_states.json": {
+   "label": "FILE",
+   "path": "model/ai_states.json",
+   "reproduces": true,
+   "sha256": "928ded88e74e636422cbc107bdb02ff4cf27521dc74636e5e7e0e1680bd6060e",
+   "v1.12": "928ded88e74e636422cbc107bdb02ff4cf27521dc74636e5e7e0e1680bd6060e"
+  },
+  "model/arena.json": {
+   "label": "FILE",
+   "path": "model/arena.json",
+   "reproduces": true,
+   "sha256": "15078b583364bd1953d8d9480f95a1194a2b01ba8915d87fa9f83dde6e6d75be",
+   "v1.12": "15078b583364bd1953d8d9480f95a1194a2b01ba8915d87fa9f83dde6e6d75be"
+  },
+  "model/config_of_record.json": {
+   "label": "FILE",
+   "path": "model/config_of_record.json",
+   "reproduces": true,
+   "sha256": "136f3a2072c0f99c8a03a61b1e2ac804d43af3396f588401f9284a5b47412d11",
+   "v1.12": "136f3a2072c0f99c8a03a61b1e2ac804d43af3396f588401f9284a5b47412d11"
+  },
+  "model/controllers.json": {
+   "label": "FILE",
+   "path": "model/controllers.json",
+   "reproduces": true,
+   "sha256": "b4217daac06f2f55acb3ec68571dd7766d31ac156ee01ee903b721f26042e478",
+   "v1.12": "b4217daac06f2f55acb3ec68571dd7766d31ac156ee01ee903b721f26042e478"
+  },
+  "model/input_closure.json": {
+   "label": "FILE",
+   "path": "model/input_closure.json",
+   "reproduces": true,
+   "sha256": "13be3550f65ef9b57f14ddee26c43b94296862fe94d221847bdc02c8e22e1b4f",
+   "v1.12": "13be3550f65ef9b57f14ddee26c43b94296862fe94d221847bdc02c8e22e1b4f"
+  },
+  "model/input_closure_v3p7p1.json": {
+   "label": "FILE",
+   "path": "model/input_closure_v3p7p1.json",
+   "reproduces": true,
+   "sha256": "d1b759800a5709d09170a956c5dea759d80bf69e51a30781db7d16a78e49aadb",
+   "v1.12": "d1b759800a5709d09170a956c5dea759d80bf69e51a30781db7d16a78e49aadb"
+  },
+  "model/math_rules.json": {
+   "label": "FILE",
+   "path": "model/math_rules.json",
+   "reproduces": true,
+   "sha256": "3b1e2d014411cb314d5cbf42ea40773dbcfa3de242f13d3a1d31eb830643b62d",
+   "v1.12": "3b1e2d014411cb314d5cbf42ea40773dbcfa3de242f13d3a1d31eb830643b62d"
+  },
+  "model/meta.json": {
+   "label": "FILE",
+   "path": "model/meta.json",
+   "reproduces": true,
+   "sha256": "8fe51d80bd07328ef8ae98c8389f0808062f2059ea5b3139ad725a3c721c2e1b",
+   "v1.12": "8fe51d80bd07328ef8ae98c8389f0808062f2059ea5b3139ad725a3c721c2e1b"
+  },
+  "model/monster_defense.json": {
+   "label": "FILE",
+   "path": "model/monster_defense.json",
+   "reproduces": true,
+   "sha256": "00ffab1576577164cc132b498817d5480822df3234f3f3bcf286c0a407193aac",
+   "v1.12": "00ffab1576577164cc132b498817d5480822df3234f3f3bcf286c0a407193aac"
+  },
+  "model/monster_kinematics.json": {
+   "label": "FILE",
+   "path": "model/monster_kinematics.json",
+   "reproduces": true,
+   "sha256": "b8b1c7b4e491aeb13981b26478c12190ec7efd892eddeeb6eef572f1766bc549",
+   "v1.12": "b8b1c7b4e491aeb13981b26478c12190ec7efd892eddeeb6eef572f1766bc549"
+  },
+  "model/monster_offense.json": {
+   "label": "FILE",
+   "path": "model/monster_offense.json",
+   "reproduces": true,
+   "sha256": "fad592f5cb1d10030ca4ddd5788f65d3e01c0fc5781a75b73e50693d5f9ea76b",
+   "v1.12": "fad592f5cb1d10030ca4ddd5788f65d3e01c0fc5781a75b73e50693d5f9ea76b"
+  },
+  "model/monsters.json": {
+   "label": "FILE",
+   "path": "model/monsters.json",
+   "reproduces": true,
+   "sha256": "3839322955b7d4af0a6c8c8b169656136a0271a7ab9bb68893a272df703701a0",
+   "v1.12": "3839322955b7d4af0a6c8c8b169656136a0271a7ab9bb68893a272df703701a0"
+  },
+  "model/player_kit.json": {
+   "label": "FILE",
+   "path": "model/player_kit.json",
+   "reproduces": true,
+   "sha256": "2b68af939b6c795c1b4c9f0411aa037fb4d0332f983fa942aa307c85329eeac6",
+   "v1.12": "2b68af939b6c795c1b4c9f0411aa037fb4d0332f983fa942aa307c85329eeac6"
+  },
+  "model/projectiles.json": {
+   "label": "FILE",
+   "path": "model/projectiles.json",
+   "reproduces": true,
+   "sha256": "ed32ff8a648d2b3c24918cd20150f27856b371e2a45a0e699cc1c8b6c949a0e5",
+   "v1.12": "ed32ff8a648d2b3c24918cd20150f27856b371e2a45a0e699cc1c8b6c949a0e5"
+  },
+  "model/provenance.json": {
+   "label": "FILE",
+   "path": "model/provenance.json",
+   "reproduces": true,
+   "sha256": "1d06e08a1744c8df7e188725f2c2bc5cdbbdf4d1007e75dba01a33fc9f8a0710",
+   "v1.12": "1d06e08a1744c8df7e188725f2c2bc5cdbbdf4d1007e75dba01a33fc9f8a0710"
+  },
+  "model/rng_contract.json": {
+   "label": "FILE",
+   "path": "model/rng_contract.json",
+   "reproduces": true,
+   "sha256": "232ad93c6fc982bd5b564ab8f27f684696cd20326a4e3b9f12cc31db39d65fca",
+   "v1.12": "232ad93c6fc982bd5b564ab8f27f684696cd20326a4e3b9f12cc31db39d65fca"
+  },
+  "model/summons.json": {
+   "label": "FILE",
+   "path": "model/summons.json",
+   "reproduces": true,
+   "sha256": "6a7cc5af2bd7291b46c1beafedf2e13b70990a3f9a1a194f2092c1a64e586a93",
+   "v1.12": "6a7cc5af2bd7291b46c1beafedf2e13b70990a3f9a1a194f2092c1a64e586a93"
+  },
+  "model/target_selection.json": {
+   "label": "FILE",
+   "path": "model/target_selection.json",
+   "reproduces": true,
+   "sha256": "e1df3cf69d2f3f91cce5ab5f9a71de4b7be4fb2372d18de2cc99517d399d68ce",
+   "v1.12": "e1df3cf69d2f3f91cce5ab5f9a71de4b7be4fb2372d18de2cc99517d399d68ce"
+  },
+  "model/waves.json": {
+   "label": "FILE",
+   "path": "model/waves.json",
+   "reproduces": true,
+   "sha256": "38c43a9c3b35560a3dce88ac16c189cb03b120b1ba2085ae2458040113621072",
+   "v1.12": "38c43a9c3b35560a3dce88ac16c189cb03b120b1ba2085ae2458040113621072"
+  },
+  "prereg v1.10": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.10.md",
+   "reproduces": true,
+   "sha256": "b1dd68efe2ce6009c2981d1c25bb182aba8c444945ec81f53a5c3c0c8b79061c",
+   "v1.12": "b1dd68efe2ce6009c2981d1c25bb182aba8c444945ec81f53a5c3c0c8b79061c"
+  },
+  "prereg v1.11": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.11.md",
+   "reproduces": true,
+   "sha256": "312d71aaf3b5a15ca44a8179cbb46c35a50343e5bca23ab5201c73ec9c8278cc",
+   "v1.12": "312d71aaf3b5a15ca44a8179cbb46c35a50343e5bca23ab5201c73ec9c8278cc"
+  },
+  "prereg v1.5": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.5.md",
+   "reproduces": true,
+   "sha256": "efac4bd51f2d2c1f1130a58c85f37d1c7738e51ac15afd3c70930f7ac3eef143",
+   "v1.12": "efac4bd51f2d2c1f1130a58c85f37d1c7738e51ac15afd3c70930f7ac3eef143"
+  },
+  "prereg v1.6": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.6.md",
+   "reproduces": true,
+   "sha256": "db2c0ca3c6cdba022b83d0229439a3ad9e0709cd25732304ffc979a200be7b0e",
+   "v1.12": "db2c0ca3c6cdba022b83d0229439a3ad9e0709cd25732304ffc979a200be7b0e"
+  },
+  "prereg v1.7": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.7.md",
+   "reproduces": true,
+   "sha256": "552d9faecd83d955c77f2be35991ec51e3908d9f586ab70b5a78b6c156b92896",
+   "v1.12": "552d9faecd83d955c77f2be35991ec51e3908d9f586ab70b5a78b6c156b92896"
+  },
+  "prereg v1.8": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.8.md",
+   "reproduces": true,
+   "sha256": "69e1de1890a24fb9d9a4dc37cda6edfc39e6c34e45b877a2999b565b4710c49c",
+   "v1.12": "69e1de1890a24fb9d9a4dc37cda6edfc39e6c34e45b877a2999b565b4710c49c"
+  },
+  "prereg v1.9": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.9.md",
+   "reproduces": true,
+   "sha256": "b787308c8c331e98fee6221c97174bf8f696a5b55d699611c5ab697625de95dd",
+   "v1.12": "b787308c8c331e98fee6221c97174bf8f696a5b55d699611c5ab697625de95dd"
+  },
+  "reference manifest.json": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-reference-pack-v3-E-s09-cp150-mech-v3p7p1-20261001_021247/manifest.json",
+   "reproduces": true,
+   "sha256": "212b8652523048e1f8ac4697f13132388be22b8c6c4510180712832c5e560346",
+   "v1.12": "212b8652523048e1f8ac4697f13132388be22b8c6c4510180712832c5e560346"
+  },
+  "reference/acceptance.json": {
+   "label": "FILE",
+   "path": "reference/acceptance.json",
+   "reproduces": true,
+   "sha256": "f5ce2c174cccf9a253603ac8bfc3f20b872b2e2a92c8d24e461601e64f1f9853",
+   "v1.12": "f5ce2c174cccf9a253603ac8bfc3f20b872b2e2a92c8d24e461601e64f1f9853"
+  },
+  "reference/actors.json": {
+   "label": "FILE",
+   "path": "reference/actors.json",
+   "reproduces": true,
+   "sha256": "ef03536f97fe7122e14b34ae69a26bc7616fe58fcbe5989ab3aa09e7420ea04b",
+   "v1.12": "ef03536f97fe7122e14b34ae69a26bc7616fe58fcbe5989ab3aa09e7420ea04b"
+  },
+  "reference/meta.json": {
+   "label": "FILE",
+   "path": "reference/meta.json",
+   "reproduces": true,
+   "sha256": "25c2be7ef76fef64f8610401196bc3db724c84d62a726ecc8bb596816d0b7d72",
+   "v1.12": "25c2be7ef76fef64f8610401196bc3db724c84d62a726ecc8bb596816d0b7d72"
+  },
+  "reference/rng_tape.json": {
+   "label": "FILE",
+   "path": "reference/rng_tape.json",
+   "reproduces": true,
+   "sha256": "607bf3bffd6a5a330d2ede97eebcd7139f3c218292954aa56fbf38c34e833ea0",
+   "v1.12": "607bf3bffd6a5a330d2ede97eebcd7139f3c218292954aa56fbf38c34e833ea0"
+  },
+  "reference/skill_interrupt_reference.json": {
+   "label": "FILE",
+   "path": "reference/skill_interrupt_reference.json",
+   "reproduces": true,
+   "sha256": "45522df26b1703ac2489d08e7e7fa6986255ca80e64f057279ca6b492fdf3707",
+   "v1.12": "45522df26b1703ac2489d08e7e7fa6986255ca80e64f057279ca6b492fdf3707"
+  },
+  "reference/tracks.json": {
+   "label": "FILE",
+   "path": "reference/tracks.json",
+   "reproduces": true,
+   "sha256": "bb3495218fcdeaab11d4d5e9a5d25a2e14f2fd21384bcebc7dd1f93b0b7d9bfd",
+   "v1.12": "bb3495218fcdeaab11d4d5e9a5d25a2e14f2fd21384bcebc7dd1f93b0b7d9bfd"
+  },
+  "reference/u7_heading_conditioning.json": {
+   "label": "FILE",
+   "path": "reference/u7_heading_conditioning.json",
+   "reproduces": true,
+   "sha256": "5ad6ab0f089d3409506f29293433849f6abcbd1bee2a2242344fe12367287c05",
+   "v1.12": "5ad6ab0f089d3409506f29293433849f6abcbd1bee2a2242344fe12367287c05"
+  },
+  "sealed [M-POL2]": {
+   "label": "FILE (hashed only, K-7)",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-mpol2-20260825_114420.json",
+   "reproduces": true,
+   "sha256": "ad61ad2a8c799d6ef11a68436756c253f0a34fbb1052e575cdf9f9cd3a44dc5c",
+   "v1.12": "ad61ad2a8c799d6ef11a68436756c253f0a34fbb1052e575cdf9f9cd3a44dc5c"
+  },
+  "sealed [MECH]": {
+   "label": "FILE (hashed only, K-7)",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-mech-20260816_124031.json",
+   "reproduces": true,
+   "sha256": "20b05cb4ef3bd888b998cbc46c68b41a8051111c12fbcf2066d101b0a4b15f4b",
+   "v1.12": "20b05cb4ef3bd888b998cbc46c68b41a8051111c12fbcf2066d101b0a4b15f4b"
+  },
+  "sealed [W1W]": {
+   "label": "FILE (hashed only, K-7)",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-w1walls-20260825_220058.json",
+   "reproduces": true,
+   "sha256": "7a992c81ca6e56e54a53534b438a9ddf87ed42f1bf1a3d0ecc2d2f3c3db7881b",
+   "v1.12": "7a992c81ca6e56e54a53534b438a9ddf87ed42f1bf1a3d0ecc2d2f3c3db7881b"
+  },
+  "setup C": {
+   "label": "ROWSET",
+   "path": "setup part C",
+   "reproduces": true,
+   "sha256": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+   "v1.12": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c"
+  },
+  "setup T": {
+   "label": "ROWSET",
+   "path": "setup part T",
+   "reproduces": true,
+   "sha256": "ab3197727b59cc355f479862a297b33bef89e74e6d40dbff14762c701f2c7be0",
+   "v1.12": "ab3197727b59cc355f479862a297b33bef89e74e6d40dbff14762c701f2c7be0"
+  },
+  "v1.11 pre-read": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-01-kc2-play-prereg-v1.11-pre-read.md",
+   "reproduces": true,
+   "sha256": "b9fd065496d2def98814db9334038aa7f2b466969696d3517a98a0de6f5c89da",
+   "v1.12": "b9fd065496d2def98814db9334038aa7f2b466969696d3517a98a0de6f5c89da"
+  },
+  "v1.6 pre-read": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-29-run-KC2-PLAY-w2-prereg-v1.6-preread.md",
+   "reproduces": true,
+   "sha256": "5a5f45d76098746ce1dbd31d0091b9a7d62f16978fb52a21ff27990181e0b6c0",
+   "v1.12": "5a5f45d76098746ce1dbd31d0091b9a7d62f16978fb52a21ff27990181e0b6c0"
+  },
+  "v1.7 att1 Gate-2": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-29-run-KC2-PLAY-ta-grade-v1p7-attempt1-gate2.md",
+   "reproduces": true,
+   "sha256": "d2aa93db92122e033927f63ff61c9e6a2c13e1c7cba09a4fff20cb2382de6c37",
+   "v1.12": "d2aa93db92122e033927f63ff61c9e6a2c13e1c7cba09a4fff20cb2382de6c37"
+  },
+  "v1.7 att1 grade": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-09-29-kc2-play-ta-grade-v1p7-attempt1.md",
+   "reproduces": true,
+   "sha256": "9778b4de4aa05acb2396439d2ff9de264ec590475ebf56aec93f3912ba12505e",
+   "v1.12": "9778b4de4aa05acb2396439d2ff9de264ec590475ebf56aec93f3912ba12505e"
+  },
+  "v1.7 att1 verdict": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-09-29-kc2-play-ta-verdict-v1p7-attempt1.json",
+   "reproduces": true,
+   "sha256": "9be2d56bfdc49c51c611402ec953b5f59dbfc0c866cdaf5201e0e57d74df08b2",
+   "v1.12": "9be2d56bfdc49c51c611402ec953b5f59dbfc0c866cdaf5201e0e57d74df08b2"
+  },
+  "v1.7 pre-read": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-29-run-KC2-PLAY-prereg-v1.7-preread.md",
+   "reproduces": true,
+   "sha256": "ff1df4a18e9e60c1a5543edb391eded667b11711b340cd4763f3cdd204cab1ff",
+   "v1.12": "ff1df4a18e9e60c1a5543edb391eded667b11711b340cd4763f3cdd204cab1ff"
+  },
+  "v1.8 pre-read": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-30-run-KC2-PLAY-prereg-v1.8-preread.md",
+   "reproduces": true,
+   "sha256": "5358cb8cc99dcf1dd998e875e911d6ae53e9046dab0d24abe28a5c83193d5dff",
+   "v1.12": "5358cb8cc99dcf1dd998e875e911d6ae53e9046dab0d24abe28a5c83193d5dff"
+  },
+  "v3.7 closure AFTER": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7-closure-table-AFTER-20260930_231652.json",
+   "reproduces": true,
+   "sha256": "e9a5c05e164172b5514e2fa1c323da243bee6fa7e7dc878ade4f4651eebc3805",
+   "v1.12": "e9a5c05e164172b5514e2fa1c323da243bee6fa7e7dc878ade4f4651eebc3805"
+  },
+  "v3.7 closure BEFORE": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7-closure-table-BEFORE-20260930_231652.json",
+   "reproduces": true,
+   "sha256": "e6eeadb42e6928b9d45d2242b0b6cc81ee720709b95148efe8c17184757253b4",
+   "v1.12": "e6eeadb42e6928b9d45d2242b0b6cc81ee720709b95148efe8c17184757253b4"
+  },
+  "v3.7 cut prereg": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/math/2026-09-30-kc2-pack-v3-7-input-closure-prereg.md",
+   "reproduces": true,
+   "sha256": "ccf17ae6ffd06cb17d72ee88e34657fef8a1a16a70839b8ad091e4fdb1f7db05",
+   "v1.12": "ccf17ae6ffd06cb17d72ee88e34657fef8a1a16a70839b8ad091e4fdb1f7db05"
+  },
+  "v3.7 cut receipt": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-baton-v3-cut-receipt-v3p7-20260930_231652.json",
+   "reproduces": true,
+   "sha256": "5de7beb2b4c3ad5ab4325fc372783977c86fd1fcd2750d78ccf94c6514baaf98",
+   "v1.12": "5de7beb2b4c3ad5ab4325fc372783977c86fd1fcd2750d78ccf94c6514baaf98"
+  },
+  "v3.7.1 PRE gate": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-v3p7p1-PRE-gate-and-dry-run-20261001_PRE2.json",
+   "reproduces": true,
+   "sha256": "fce6a344860e4f539763b08c6320160260e77c28f007ced00d25af7fa8456cbe",
+   "v1.12": "fce6a344860e4f539763b08c6320160260e77c28f007ced00d25af7fa8456cbe"
+  },
+  "v3.7.1 cut prereg": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/math/2026-10-01-kc2-pack-v3-7-1-closure-law-prereg.md",
+   "reproduces": true,
+   "sha256": "f96bfade2bb9968a943c42b0639cd5fe7f0aec29ad2cf177983c7896a4d4bf0f",
+   "v1.12": "f96bfade2bb9968a943c42b0639cd5fe7f0aec29ad2cf177983c7896a4d4bf0f"
+  },
+  "v3.7.1 cut receipt": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-baton-v3-cut-receipt-v3p7p1-20261001_021247.json",
+   "reproduces": true,
+   "sha256": "a0ad8246ac49628f8bd729c8cc2fba564b6456c4c06df0ae300e0439bfc447c9",
+   "v1.12": "a0ad8246ac49628f8bd729c8cc2fba564b6456c4c06df0ae300e0439bfc447c9"
+  },
+  "v3.7.1 law": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_v3p7p1_law.py",
+   "reproduces": true,
+   "sha256": "2c24ea92dacd259cd4e989fa09cdc08c9f6c91f5b18f49ac17ad6b9b800b008e",
+   "v1.12": "2c24ea92dacd259cd4e989fa09cdc08c9f6c91f5b18f49ac17ad6b9b800b008e"
+  }
+ },
+ "engine_head": "22cd2288",
+ "engine_kc2_tracked_mods": [],
+ "failures": [],
+ "new": {
+  "G3 KP-177 MANIFEST (godot b4c1ff3)": {
+   "label": "FILE",
+   "path": "godot b4c1ff3:evidence/kc2-play/2026-10-01-g3-25cell-kp177/MANIFEST.json",
+   "sha256": "78bbcc8dbf39eb30fc8e89b35a7a80b8375394a4ddbe64d39a65b4984d351fcb"
+  },
+  "G3 oracle tool (godot b4c1ff3)": {
+   "label": "FILE",
+   "path": "godot b4c1ff3:kc2_runtime/tools/kc2rt_g3_oracle_trace.py",
+   "sha256": "51f46965544683640b6c2949978788fa7b4185305fee2b3cf8a6fcec11d8c83a"
+  },
+  "attempt-1 (v1.12) grade note": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-10-01-kc2-play-ta-attempt1-v1.12-grade.md",
+   "sha256": "d5dec43bb28820615f64ddb03bcf75efa6a2bcb5d881c6a728529d99be91ae21"
+  },
+  "attempt-1 (v1.12) grade script": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-01-kc2-play-ta-attempt1-v1.12-grade/grade_attempt1_v1p12.py",
+   "sha256": "27eb4079038a5ee1abf895c7806556da2f4226d1e1108d233f38d759e11457f4"
+  },
+  "attempt-1 (v1.12) verdict file": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-01-kc2-play-ta-attempt1-v1.12-grade/ta_verdict_v1p12_attempt1.json",
+   "sha256": "af3754c701f8afb22a5501b0b955fb8b2dc36cf361d5033980daa23e4c86f2f0"
+  },
+  "jack-ryan grade Gate-2 (347ce2e1e)": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-01-kc2-play-attempt1-v1.12-grade-gate2.md",
+   "sha256": "aa1e31a68d10aaee4e46819825fbded9dd7658494d70d0c58e48f55b0c86957d"
+  },
+  "jack-ryan repairs Gate-2 (ea0317306)": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-01-kc2-play-attempt1-repairs-gate2.md",
+   "sha256": "c1323ed7a894ef8b0eef9a64af456899f72b03167819b8dbdc320fb621ba00ae"
+  },
+  "prereg v1.12 (v1.13's only predecessor)": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.12.md",
+   "sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854"
+  },
+  "runtime tree at b4c1ff3 (KP-179 repairs; NOT the attempt-2 runtime)": {
+   "label": "FILE-SET (make_manifest law, recomputed from git blobs)",
+   "manifest_says": "e584477b3d3c8bd6aa69bc43be32a137ab7b875a6c745aae40ccb20bb0e0591a",
+   "member_failures": [],
+   "n_members": 84,
+   "path": "godot b4c1ff3:kc2_runtime/",
+   "sha256": "e584477b3d3c8bd6aa69bc43be32a137ab7b875a6c745aae40ccb20bb0e0591a"
+  },
+  "this draft's oracle hook": {
+   "label": "FILE",
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-01-kc2-play-prereg-v1.13-DRAFT/oracle_channel_hook.py",
+   "sha256": "dce0625d30cd09289c7b073923ac4d1c732763614c5f9f30b08cedc96eab6cd9"
+  }
+ },
+ "pack_checks": {
+  "model": {
+   "disk_equals_manifest": true,
+   "manifest_digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "member_failures": [],
+   "n": 19
+  },
+  "reference": {
+   "cross_pin": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "disk_equals_manifest": true,
+   "manifest_digest": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "member_failures": [],
+   "n": 7
+  }
+ },
+ "set_cardinalities": {
+  "NONSWING": 10,
+  "POOL": 466,
+  "SWING": 456,
+  "march_base": 3.209466,
+  "partition": {
+   "BANDA-DB-CITED": 180,
+   "FALLBACK": 158,
+   "LAPR-MEASURED": 128
+  },
+  "routes_agree": true
+ },
+ "setup_partition": {
+  "C_by_rule_equals_v1.12_list": true,
+  "covers_27": true,
+  "n_C": 8,
+  "n_T": 19
+ },
+ "summary": {
+  "failures": [],
+  "n_carried": 115,
+  "n_new": 10,
+  "n_reproduce": 115
+ }
+}

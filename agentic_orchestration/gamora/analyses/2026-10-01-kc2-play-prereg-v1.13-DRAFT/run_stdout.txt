@@ -1,0 +1,69 @@
+== V11-P06-1 derived from waves.json: [5, 5, 5, 4, 4, 5, 5, 5, 5, 4] sum 47 | on [5, 6, 6, 4, 5, 6, 6, 6, 5, 5] sum 54
+    OK  checksum 47/54
+    OK  p06 keys = 54 - 47 = 7
+    OK  equals the pack's V11-P06-1 row
+    OK  equals the oracle's pools_for(w, False) key counts
+    OK  oracle pools_for(w, True) key counts = vector_on
+    OK  oracle's filter drops exactly key 6
+    OK  data keys == oracle keys (on)
+   p06 key grain per wave [0, 1, 1, 0, 1, 1, 1, 1, 0, 1] | row grain [0, 6, 2, 0, 5, 1, 1, 2, 0, 1] sum 18
+== per cell: terminal | D PF | chan rel cs_chan | id2-as-written | id2-restated | TA-X-16 picks/expected restated
+   M0_s0            w155 |   931 5 |   928    0  3 | -3 (JR -3) | GREEN | 23/23 GREEN
+   M0_s1            w151 |   160 1 |   160    0  0 | +0 (JR +0) | GREEN | 5/5 GREEN
+   M0_s2            w156 |  1162 6 |  1157    0  5 | -5 (JR -5) | GREEN | 28/28 GREEN
+   M0_s3            w155 |   907 5 |   906    0  1 | -1 (JR -1) | GREEN | 23/23 GREEN
+   M0_s4            w155 |   916 5 |   911    0  5 | -5 (JR -5) | GREEN | 23/23 GREEN
+   M-POL-2_s0       w156 |  1062 6 |   954  104  4 | -4 (JR -4) | GREEN | 28/28 GREEN
+   M-POL-2_s1       w152 |   273 2 |   239   32  2 | -2 (JR -2) | GREEN | 10/10 GREEN
+   M-POL-2_s2       w155 |   951 5 |   862   87  2 | -2 (JR -2) | GREEN | 23/23 GREEN
+   M-POL-2_s3       w152 |   307 2 |   261   46  0 | +0 (JR +0) | GREEN | 10/10 GREEN
+   M-POL-2_s4       w152 |   331 2 |   298   32  1 | -1 (JR -1) | GREEN | 10/10 GREEN
+   M-POL-2-NULL_s0  w155 |   931 5 |   928    0  3 | -3 (JR -3) | GREEN | 23/23 GREEN
+   M-POL-2-NULL_s1  w151 |   160 1 |   160    0  0 | +0 (JR +0) | GREEN | 5/5 GREEN
+   M-POL-2-NULL_s2  w156 |  1162 6 |  1157    0  5 | -5 (JR -5) | GREEN | 28/28 GREEN
+   M-POL-2-NULL_s3  w155 |   907 5 |   906    0  1 | -1 (JR -1) | GREEN | 23/23 GREEN
+   M-POL-2-NULL_s4  w155 |   916 5 |   911    0  5 | -5 (JR -5) | GREEN | 23/23 GREEN
+   W1_s0            w156 |  1113 6 |  1006  107  0 | +0 (JR +0) | GREEN | 28/28 GREEN
+   W1_s1            w152 |   273 2 |   239   32  2 | -2 (JR -2) | GREEN | 10/10 GREEN
+   W1_s2            w155 |   951 5 |   862   87  2 | -2 (JR -2) | GREEN | 23/23 GREEN
+   W1_s3            w152 |   307 2 |   261   46  0 | +0 (JR +0) | GREEN | 10/10 GREEN
+   W1_s4            w155 |   926 5 |   830   94  2 | -2 (JR -2) | GREEN | 23/23 GREEN
+   W1-NULL_s0       w156 |  1062 6 |   954  104  4 | -4 (JR -4) | GREEN | 28/28 GREEN
+   W1-NULL_s1       w152 |   273 2 |   239   32  2 | -2 (JR -2) | GREEN | 10/10 GREEN
+   W1-NULL_s2       w155 |   951 5 |   862   87  2 | -2 (JR -2) | GREEN | 23/23 GREEN
+   W1-NULL_s3       w152 |   307 2 |   261   46  0 | +0 (JR +0) | GREEN | 10/10 GREEN
+   W1-NULL_s4       w152 |   331 2 |   298   32  1 | -1 (JR -1) | GREEN | 10/10 GREEN
+== summary
+    V11-P06-1 derived : [5, 5, 5, 4, 4, 5, 5, 5, 5, 4]
+    V11-P06-1 checks : {'checksum 47/54': True, 'p06 keys = 54 - 47 = 7': True, "equals the pack's V11-P06-1 row": True, "equals the oracle's pools_for(w, False) key counts": True, 'oracle pools_for(w, True) key counts = vector_on': True, "oracle's filter drops exactly key 6": True, 'data keys == oracle keys (on)': True}
+    TA-X-16 restated (oracle passes) : 25/25
+    TA-X-16 v1.12 text (oracle passes) : 0/25
+    TA-X-08 identity 1 (oracle passes) : 25/25
+    TA-X-08 identity 2 AS WRITTEN (oracle passes) : 6/25
+    TA-X-08 identity 2 RESTATED (oracle passes) : 25/25
+    identity 2 restated, rival population (all observed ticks) : 25/25
+    shortfall == jack-ryan KP-180 table : 25/25
+    shortfall == -(control-suppressed channelling) : 25/25
+    census convention holds : 25/25
+    independent: trace control `channel` entries (leg A) == n_control_suppressed_channelling : 25/25
+    fold counter n_ticks_released == released on observed ticks (fold arms) : 25/25
+    fold aligned + consistent + no desync : 25/25
+    census chan == trace chan on D : 25/25
+    released PRE_FIGHT ticks (all cells) : 0
+    control-suppressed PRE_FIGHT ticks (all cells) : 0
+    control-suppressed RELEASED ticks on D (all cells) : 0
+    cells with identity-2 shortfall : ['M0_s0', 'M0_s2', 'M0_s3', 'M0_s4', 'M-POL-2_s0', 'M-POL-2_s1', 'M-POL-2_s2', 'M-POL-2_s4', 'M-POL-2-NULL_s0', 'M-POL-2-NULL_s2', 'M-POL-2-NULL_s3', 'M-POL-2-NULL_s4', 'W1_s1', 'W1_s2', 'W1_s4', 'W1-NULL_s0', 'W1-NULL_s1', 'W1-NULL_s2', 'W1-NULL_s4']
+    distinct oracle realisations among the 25 (trace minus arm label) : 12
+    W1 salts whose trace differs from M-POL-2's : [0, 4]
+== law (a), measured rows
+    TA-X-01                                MEASURED  PASS  oracle re-run byte-identical to the filed trace 25/25
+    TA-X-03                                MEASURED  PASS  5/5 full-trace equality
+    TA-X-04                                MEASURED  PASS  5/5 full-trace equality
+    TA-X-05                                MEASURED  PASS  differ on 5/5 salts (>= 1 required)
+    TA-X-08 (restated, both identities)    MEASURED  PASS  25/25
+    TA-X-10                                MEASURED  PASS  W1 max body radius 43.404815 m, max spawn radius 43.588163 m <= 43.758085029822276
+    TA-X-12                                MEASURED  PASS  no damage tag containing 'pool' on any leg-A event, 25/25
+    TA-X-15(a)                             MEASURED  PASS  p01-p04 at 0.0 s, p05 at 4.0 s (tick 49), every wave played, 25/25
+    TA-X-16 (restated)                     MEASURED  PASS  25/25
+    TA-X-17                                MEASURED  PASS  max ‖spawn − anchor‖ = 7.956549 m <= 8.0
+== ALL DRAFT CHECKS HOLD
