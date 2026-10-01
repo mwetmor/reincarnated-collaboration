@@ -1,0 +1,183 @@
+{
+ "clips": {
+  "idle": {
+   "source": "anims/idle89.glb",
+   "source_anim": "Armature|Combat_Stance|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.7000000476837158
+   ],
+   "keys": 51,
+   "length_s": 1.6666667126119137,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": -0.06383,
+   "feet_span_m": [
+    0.0,
+    0.0038
+   ]
+  },
+  "walk": {
+   "source": "anims/walk21.glb",
+   "source_anim": "Armature|Walk_Fight_Forward|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.7666666507720947
+   ],
+   "keys": 53,
+   "length_s": 1.7333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.04379,
+   "feet_span_m": [
+    0.0,
+    0.064
+   ]
+  },
+  "run": {
+   "source": "anims/run14.glb",
+   "source_anim": "Armature|Run_02|baselayer",
+   "window": [
+    0.03333333507180214,
+    0.7666666507720947
+   ],
+   "keys": 23,
+   "length_s": 0.7333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.01263,
+   "feet_span_m": [
+    0.0,
+    0.1624
+   ]
+  },
+  "attack": {
+   "source": "anims/atk128.glb",
+   "source_anim": "Armature|Heavy_Hammer_Swing|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.1108,
+    0.0556
+   ],
+   "grounded_by_m": -0.06297,
+   "feet_span_m": [
+    0.0,
+    0.0623
+   ]
+  },
+  "hit": {
+   "source": "anims/hit178.glb",
+   "source_anim": "Armature|Hit_Reaction|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.6666666269302368
+   ],
+   "keys": 50,
+   "length_s": 1.6333332918584347,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    1.1816,
+    -0.0003
+   ],
+   "grounded_by_m": -0.00599,
+   "feet_span_m": [
+    0.0,
+    0.062
+   ]
+  },
+  "death": {
+   "source": "anims/death189.glb",
+   "source_anim": "Armature|dying_backwards|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.2666666507720947
+   ],
+   "keys": 68,
+   "length_s": 2.2333333157002926,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    -0.0579,
+    -0.944
+   ],
+   "grounded_by_m": 0.04644,
+   "feet_span_m": [
+    0.0,
+    0.243
+   ]
+  },
+  "warcry": {
+   "source": "anims/shout101.glb",
+   "source_anim": "Armature|Sword_Shout|baselayer",
+   "window": [
+    0.03333333507180214,
+    6.199999809265137
+   ],
+   "keys": 186,
+   "length_s": 6.166666474193335,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.1617,
+    0.669
+   ],
+   "grounded_by_m": -0.06762,
+   "feet_span_m": [
+    0.0,
+    0.0425
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 3
+ }
+}

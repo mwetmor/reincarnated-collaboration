@@ -8,3 +8,6 @@
 {"ev": "wait", "step": "B-build", "s": 190.0, "what": "tripo base+nocape parallel"}
 {"ev": "wait", "step": "B-build", "s": 9.0, "what": "tripo base+nocape (correction to 199 s)"}
 {"ev": "end", "step": "B-build", "t": 1790832276.063639, "note": "base (DK-BASE edit, registered: soles 0-2 px) + nocape + mace built; base 3D IoU vs sheet 0.881 (F .914 R .910 B .803 L .900); prep: 1 island, 1.96 m, 290k faces, yaw -90 (gold band on +Y = his left, faces +X raw)"}
+{"ev": "start", "step": "C-rig-clips", "t": 1790832296.693151, "note": "Meshy rig via model_url data URI on base_prepped (1.96 m), then library clips on HIS rig"}
+{"ev": "start", "step": "D-texture", "t": 1790833082.906732, "note": "PARALLEL with C vendor wait: sheet A canvas (8 views at 19.77 + 2 face close-ups) from the rigged rest mesh"}
+{"ev": "end", "step": "C-rig-clips", "t": 1790834583.309495, "note": "rig 5 cr + 9 library clips 27 cr (idle89 walk21 run14 run510 atk128 hit178 death189 shout101 idle85); graft on source keys; two-hand hold idle/run from walk; mace on weapon_r w/ per-clip two-fist channel; joint fix attack L wrist; all lint rows PASS"}

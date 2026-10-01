@@ -1,0 +1,126 @@
+{
+ "body_rig": {
+  "meshy_rig_task": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+  "glb": "builds/wl_rigged.glb",
+  "note": "E1 base body, Meshy rigging via model_url data URI (08_meshy rigfile)"
+ },
+ "clips": {
+  "idle": {
+   "source": "anims/idle89.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 89 \"Combat Stance\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "hold": "e09_hold.py: arm chain = walk key (work/hold.json)"
+  },
+  "walk": {
+   "source": "anims/walk21.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 21 \"Walk Fight Forward\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "run": {
+   "source": "anims/run14.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 14 \"Run 02\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "hold": "e09_hold.py: arm chain = walk key (work/hold.json)"
+  },
+  "attack": {
+   "source": "anims/atk128.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 128 \"Heavy Hammer Swing\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false,
+   "joint_fix": "63_joint_fix --dev-max 38 (work/joint_fix_attack.json)"
+  },
+  "hit": {
+   "source": "anims/hit178.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 178 \"Hit Reaction\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "death": {
+   "source": "anims/death189.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 189 \"Dying Backwards\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "warcry": {
+   "source": "anims/shout101.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 101 \"Sword Shout\"",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  }
+ },
+ "_note": "PROVENANCE OF EVERY CLIP IN THE E1 (dark knight) BODY GLB; the source-fidelity / source-grid / loop-seam lint's input (nb_d2's rules, copied unchanged). Paths relative to wl_e1/.",
+ "edits": {
+  "deroot": "the hips' first-to-last horizontal line removed (45_deroot_trim's rule); hips translation only, not measured",
+  "recentre": "hips over the rest position -- loops on their mean, one-shots on their first frame (49_recentre's rule); hips translation only",
+  "reground": "one constant so the deepest foot vertex over the clip is on the floor (43_reground_all / gearlib.reground_from_feet mode 'min'); hips translation only",
+  "trim": "a window of the source, re-timed to start at 0; the measure aligns on it",
+  "wrist_lock": "36/38/44: the wrists slerped toward a carry angle; the hands are excluded from the measure"
+ },
+ "_loop_rule": "\"loop\": true marks the scene's looping clips: 21_lint_export.py's SOURCE GRID (keys on the source's own key times -- GLB or FBX, no exceptions) and LOOP SEAM (pose(0) vs pose(T) within 5 mm / 1 deg -- a source that is not periodic is blended, 58_loop_blend.py) judge them"
+}

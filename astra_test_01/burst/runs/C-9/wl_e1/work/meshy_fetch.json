@@ -1,0 +1,192 @@
+{
+ "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+ "spent": 27,
+ "clips": {
+  "idle89": {
+   "action_id": 89,
+   "task": "01a0f5ed-d509-71c5-89f1-a2159a4dc32a",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 36,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/idle89.glb",
+   "mb": 18.32,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "idle89.glb: clip 'Armature|Combat_Stance|baselayer' stands 0.437 m from the rest position and never comes nearer than 0.428 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [],
+    "clips": [
+     "Armature|Combat_Stance|baselayer"
+    ]
+   }
+  },
+  "walk21": {
+   "action_id": 21,
+   "task": "01a0f5ee-7a95-7722-88b4-bedf3ed3a92c",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 51,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/walk21.glb",
+   "mb": 18.32,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "walk21.glb: clip 'Armature|Walk_Fight_Forward|baselayer' starts root 'Hips' at 92.146 against rest 98.621 (6.6% > 5%)"
+    ],
+    "clips": [
+     "Armature|Walk_Fight_Forward|baselayer"
+    ]
+   }
+  },
+  "run14": {
+   "action_id": 14,
+   "task": "01a0f5ef-d5ae-7677-944b-d4336adeb282",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 334,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/run14.glb",
+   "mb": 18.31,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Run_02|baselayer"
+    ]
+   }
+  },
+  "run510": {
+   "action_id": 510,
+   "task": "01a0f5f4-ffcc-7239-b9e8-b07cc588a531",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 32,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/run510.glb",
+   "mb": 18.31,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "run510.glb: clip 'Armature|Standard_Forward_Charge|baselayer' drifts 3.942 m horizontally over its own length (394.2 units) and is not locomotion -- a clip that walks away from where it started",
+     "run510.glb: clip 'Armature|Standard_Forward_Charge|baselayer' starts root 'Hips' at 93.678 against rest 98.621 (5.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|Standard_Forward_Charge|baselayer"
+    ]
+   }
+  },
+  "atk128": {
+   "action_id": 128,
+   "task": "01a0f5f5-8fb1-762e-badd-2a89f90ab42a",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 49,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/atk128.glb",
+   "mb": 18.32,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "atk128.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' stands 0.553 m from the rest position and never comes nearer than 0.484 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [
+     "atk128.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' drifts 0.124 m horizontally over its own length (12.4 units) and is not locomotion -- a clip that walks away from where it started",
+     "atk128.glb: clip 'Armature|Heavy_Hammer_Swing|baselayer' starts root 'Hips' at 104.354 against rest 98.621 (5.8% > 5%)"
+    ],
+    "clips": [
+     "Armature|Heavy_Hammer_Swing|baselayer"
+    ]
+   }
+  },
+  "hit178": {
+   "action_id": 178,
+   "task": "01a0f5f6-8711-7625-ae82-5d27a8ee0523",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 47,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/hit178.glb",
+   "mb": 18.32,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "hit178.glb: clip 'Armature|Hit_Reaction|baselayer' drifts 1.182 m horizontally over its own length (118.2 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|Hit_Reaction|baselayer"
+    ]
+   }
+  },
+  "death189": {
+   "action_id": 189,
+   "task": "01a0f5f7-4a81-7326-80e7-4c5f63f5adba",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 58,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/death189.glb",
+   "mb": 18.33,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "death189.glb: clip 'Armature|dying_backwards|baselayer' drifts 0.946 m horizontally over its own length (94.6 units) and is not locomotion -- a clip that walks away from where it started"
+    ],
+    "clips": [
+     "Armature|dying_backwards|baselayer"
+    ]
+   }
+  },
+  "shout101": {
+   "action_id": 101,
+   "task": "01a0f5f8-767d-72ee-8a7d-23b1aaf03894",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 81,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/shout101.glb",
+   "mb": 18.37,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "shout101.glb: clip 'Armature|Sword_Shout|baselayer' drifts 0.688 m horizontally over its own length (68.8 units) and is not locomotion -- a clip that walks away from where it started",
+     "shout101.glb: clip 'Armature|Sword_Shout|baselayer' starts root 'Hips' at 105.458 against rest 98.621 (6.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Sword_Shout|baselayer"
+    ]
+   }
+  },
+  "idle85": {
+   "action_id": 85,
+   "task": "01a0f5fd-9dc0-73db-838e-7f39ee4703ca",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 86,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/idle85.glb",
+   "mb": 18.38,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "idle85.glb: clip 'Armature|Axe_Stance|baselayer' stands 0.726 m from the rest position and never comes nearer than 0.387 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+    ],
+    "warns": [
+     "idle85.glb: clip 'Armature|Axe_Stance|baselayer' drifts 0.678 m horizontally over its own length (67.8 units) and is not locomotion -- a clip that walks away from where it started",
+     "idle85.glb: clip 'Armature|Axe_Stance|baselayer' starts root 'Hips' at 54.293 against rest 98.621 (44.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Axe_Stance|baselayer"
+    ]
+   }
+  }
+ }
+}
