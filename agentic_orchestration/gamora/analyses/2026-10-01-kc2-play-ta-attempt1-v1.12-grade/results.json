@@ -1,0 +1,1487 @@
+{
+ "evidence": {
+  "prereg_sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854",
+  "prereg_ok": true,
+  "emission_MANIFEST_sha256": "25e4e5bd20dbd07e39a265d82b907a61cdd106b15713ed3b329d38dcf59f04ae",
+  "emission": {
+   "members": 28,
+   "member_failures": [],
+   "tree_digest_recomputed": "ffaf9aab32dd9cf5bc395c4c46b0634ffe03cdb8fa985607d2141688a3cc3a4f",
+   "tree_digest_manifest": "ffaf9aab32dd9cf5bc395c4c46b0634ffe03cdb8fa985607d2141688a3cc3a4f",
+   "tracked_minus_members": [
+    "MANIFEST.json",
+    "README.md"
+   ],
+   "ta_manifest_sha256": "d352293d90da0f73fecd41767a8def0cb31055aff2ecd00a4bbd8ef47bfbb4f9",
+   "ok": true
+  },
+  "emission_manifest_claims": {
+   "runtime_tree_digest": "a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb",
+   "godot_head_at_run": "0802ab11b9d2e0e9db6d49b6acdadc8a63a49cfa (last commit touching kc2_runtime/: ee96d0841b6c2e84aa8a50f1a95fd62adbce985e)",
+   "harness_exit_and_why": "exit 1. The harness's own rule is `quit(0 if failures.is_empty() else 1)`; its `failures` list holds exactly one entry, verbatim: [\"P-2 RED: 17013bf679e0c57ebd683a90902f81cab8d67368e31ffc70c85c077e679b8f2b != a4ddd03421210909d091e35b468d731abdb48a02c5086a3f3dd2a0cc6ab3c2fc\"]. It did not refuse or crash: H-4 GREEN, G3 25/25 read as passing, all 25 cells written, ta_manifest.json written. Not interpreted here.",
+   "verdict_file_note": "The harness emits no standalone file with schema `kc2play.ta_verdict.v1`; the \u00a7 G.3 fields it does emit are carried in ta_manifest.json (schema kc2play.ta_manifest.v1): prereg_version, prereg_sha256, substrate_epoch, arm_config_a8, arm_of_record, g3, r11_bound, ta_x_18, gmag_conformance, preconditions (incl. P4_pack, P5_folds), nodata. NOT emitted by the harness and NOT filled in by this seat: runtime_digest (recorded in this MANIFEST instead), runtime_header, cross_pin_verified (cross_pin is emitted), oracle_containment_H9, closure_H10, set_digests, declared_ungradeable, hole_closure, port_holes_printed."
+  },
+  "runtime_tree": {
+   "recomputed": "a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb",
+   "manifest_says": "a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb",
+   "n_members": 82,
+   "member_failures": [],
+   "tracked_not_member": [
+    "MANIFEST.json"
+   ],
+   "member_not_tracked": [],
+   "unchanged_0802ab1_to_9b0ad0c": true,
+   "booking_census_file": "cf49eefec225b3d306d3773fe0e264b1c96739b1a2f1185a7706f71b527c2c24",
+   "ok": true
+  },
+  "g3_MANIFEST_sha256": "90195c7ca96e04263cfb289e667a1437fa6e16ad97be392c5fdb085b26f2c8a7",
+  "g3_MANIFEST_ok": true,
+  "model_pack": {
+   "digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "manifest_digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "n": 19,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": null
+  },
+  "reference_pack": {
+   "digest": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "manifest_digest": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "n": 7,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+  },
+  "packs_ok": true,
+  "h9_h10_docs": {
+   "H9_NOTE": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/NOTE.md",
+    "sha256": "90717b83926f06b5939a48c01c0cc4973d5f20d7d7eb60007b976d01ebde53e5",
+    "ok": true
+   },
+   "H9_W1": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_W1.json",
+    "sha256": "c68fcd3c133c8b8a55d75e85425876fe73d6d1752dfdd1cd21fa9041e87a24ff",
+    "ok": true
+   },
+   "H9_MPOL2": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_M-POL-2.json",
+    "sha256": "2aedf43f2091d0c575af1d7d07deb0278be87f0b4c917efa5c33d01e77707f61",
+    "ok": true
+   },
+   "H9_W1NULL": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_out_W1-NULL.json",
+    "sha256": "90b9ea619e8adfd3f8532cc55e16990c15348dd537071c5758000c2edafdf801",
+    "ok": true
+   },
+   "H9_SCRIPT": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-09-30-kc2-play-h9-w1-containment/h9_w1_containment.py",
+    "sha256": "eede32e85f362b5d57b136b81344cae1bfd4b804515db2d6f2d66279d1920f55",
+    "ok": true
+   },
+   "H10_receipt": {
+    "path": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-baton-v3-cut-receipt-v3p7p1-20261001_021247.json",
+    "sha256": "a0ad8246ac49628f8bd729c8cc2fba564b6456c4c06df0ae300e0439bfc447c9",
+    "ok": true
+   }
+  }
+ },
+ "set_digests": {
+  "POOL-466": {
+   "n": 466,
+   "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "routes_agree": true
+  },
+  "SWING-456": {
+   "n": 456,
+   "digest": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0"
+  },
+  "NONSWING-10": {
+   "n": 10,
+   "digest": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10"
+  },
+  "FALLBACK-158": {
+   "note": "not recomputed by this grade (no graded row reads it); v1.12 PINS value carried, not re-derived",
+   "v1.12_pin": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb"
+  }
+ },
+ "rows": {
+  "P-1": {
+   "verdict": "GREEN",
+   "observed": {
+    "closes": true,
+    "counts": {
+     "DIVERGENCE": 8,
+     "IMPLEMENTED": 65,
+     "OUT-OF-SCOPE": 3,
+     "RUNTIME-CHOICE": 13,
+     "UNMAPPED": 0
+    },
+    "mapped": 89,
+    "refusals": 3,
+    "total": 89,
+    "unmapped": 0
+   }
+  },
+  "P-2": {
+   "verdict": "RED",
+   "observed": {
+    "digest_plain": "17013bf679e0c57ebd683a90902f81cab8d67368e31ffc70c85c077e679b8f2b",
+    "digest_with_noop_fold": "a4ddd03421210909d091e35b468d731abdb48a02c5086a3f3dd2a0cc6ab3c2fc",
+    "identical": false,
+    "noop_fold_draws (a literal, drax b215b11)": 0
+   }
+  },
+  "P-3": {
+   "verdict": "GREEN",
+   "observed": {
+    "population": "POOL-466",
+    "cardinality": 466,
+    "law": {
+     "alternative": "WEIGHTED:pool_weight",
+     "name": "UNIFORM:randrange"
+    }
+   }
+  },
+  "P-4": {
+   "verdict": "GREEN",
+   "observed": {
+    "cells_and_manifest_P4_verified": true,
+    "harness_measured_pack_digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+   }
+  },
+  "P-5": {
+   "verdict": "GREEN",
+   "observed": {
+    "c11a": "C1 retaliation_gate + C2 aura (CLASS) + C4 duration_divisors; C3 NOT FOLDED",
+    "global_magnitude": "ARMED_UNCONDITIONAL",
+    "insufficient_energy_policy": "REFUSE",
+    "loader_call": "load_profiles(dot_corrections=True[d1 ON side], pet_special_gates=None, winner_surface=ARMED, pool_lift=ARMED, c11a=C11aLoader(CLASS))",
+    "measured_board_attached": true,
+    "monster_march_base_m_per_s": 3.209466,
+    "monster_run_speed_population": "LAPR-MEASURED 128 \u00b7 BANDA-DB-CITED 180 \u00b7 FALLBACK 158",
+    "non_health_route": "ON: [\"Disruption\", \"ManaBurnDrain\", \"PierceRatio\"]",
+    "pcl_limb": "MULTIPLICATIVE @ 26.0 %",
+    "per_cast_energy_column": "PARENT_PLUS_MODIFIER",
+    "pool_lift": "ARMED (u5 CONSTRUCTED 334) \u00b7 POOL-466 \u00b7 SWING-456 \u00b7 NONSWING-10",
+    "regen_ungated": true,
+    "winner_surface": "ARMED"
+   }
+  },
+  "C1": {
+   "verdict": "CONFORMING",
+   "observed": {
+    "M0": {
+     "rowset_eq_B1a": true,
+     "setup_C": true,
+     "probe_rows_applied": 0,
+     "configured_from_a8": true,
+     "g3_pass_5_salts": true
+    },
+    "M-POL-2": {
+     "rowset_eq_B1a": true,
+     "setup_C": true,
+     "probe_rows_applied": 0,
+     "configured_from_a8": true,
+     "g3_pass_5_salts": true
+    },
+    "M-POL-2-NULL": {
+     "rowset_eq_B1a": true,
+     "setup_C": true,
+     "probe_rows_applied": 0,
+     "configured_from_a8": true,
+     "g3_pass_5_salts": true
+    },
+    "W1": {
+     "rowset_eq_B1a": true,
+     "setup_C": true,
+     "probe_rows_applied": 0,
+     "configured_from_a8": true,
+     "g3_pass_5_salts": true
+    },
+    "W1-NULL": {
+     "rowset_eq_B1a": true,
+     "setup_C": true,
+     "probe_rows_applied": 0,
+     "configured_from_a8": true,
+     "g3_pass_5_salts": true
+    }
+   },
+   "h4_rowsets": {
+    "M-POL-2": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0077",
+      "last": "IC7-A-0152",
+      "n": 76,
+      "rowset": "e698d5f555a37fcc12e703343286d4e25c12662d8cd35c9571f9a0ac8ae45dbf"
+     },
+     "prereg": {
+      "first": "IC7-A-0077",
+      "last": "IC7-A-0152",
+      "n": 76,
+      "rowset": "e698d5f555a37fcc12e703343286d4e25c12662d8cd35c9571f9a0ac8ae45dbf"
+     }
+    },
+    "M-POL-2-NULL": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0001",
+      "last": "IC7-A-0076",
+      "n": 76,
+      "rowset": "4393a14b56a97960ef42e73909a1cdefc49f3dc1a4cc41e7f20267b661a1a7b6"
+     },
+     "prereg": {
+      "first": "IC7-A-0001",
+      "last": "IC7-A-0076",
+      "n": 76,
+      "rowset": "4393a14b56a97960ef42e73909a1cdefc49f3dc1a4cc41e7f20267b661a1a7b6"
+     }
+    },
+    "M0": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0153",
+      "last": "IC7-A-0222",
+      "n": 70,
+      "rowset": "68549af0608cb9979771fcc4955ae8010f4f3516ad55a97b83922c994f571d12"
+     },
+     "prereg": {
+      "first": "IC7-A-0153",
+      "last": "IC7-A-0222",
+      "n": 70,
+      "rowset": "68549af0608cb9979771fcc4955ae8010f4f3516ad55a97b83922c994f571d12"
+     }
+    },
+    "W1": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0301",
+      "last": "IC7-A-0378",
+      "n": 78,
+      "rowset": "5188284d198c139422276e8ac92f9a0bee03cea7dbb1cea32c6c7bf1d19a55e8"
+     },
+     "prereg": {
+      "first": "IC7-A-0301",
+      "last": "IC7-A-0378",
+      "n": 78,
+      "rowset": "5188284d198c139422276e8ac92f9a0bee03cea7dbb1cea32c6c7bf1d19a55e8"
+     }
+    },
+    "W1-NULL": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0223",
+      "last": "IC7-A-0300",
+      "n": 78,
+      "rowset": "b2abff6978105bfc1566d678d5f1dea756ea9ef0eab02f8457821f81125a7fdd"
+     },
+     "prereg": {
+      "first": "IC7-A-0223",
+      "last": "IC7-A-0300",
+      "n": 78,
+      "rowset": "b2abff6978105bfc1566d678d5f1dea756ea9ef0eab02f8457821f81125a7fdd"
+     }
+    },
+    "WALK": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0379",
+      "last": "IC7-A-0432",
+      "n": 54,
+      "rowset": "63c530edd2e825c05f0f95ce2f629d56dbff98da206ddb45690fc129d7bba0f2"
+     },
+     "prereg": {
+      "first": "IC7-A-0379",
+      "last": "IC7-A-0432",
+      "n": 54,
+      "rowset": "63c530edd2e825c05f0f95ce2f629d56dbff98da206ddb45690fc129d7bba0f2"
+     }
+    },
+    "setup": {
+     "equal": true,
+     "port": {
+      "first": "IC7-A-0433",
+      "last": "IC7-A-0459",
+      "n": 27,
+      "rowset": "c01d1ddaa4a5b7074203662522276a24a150312d9faeceb6634dc5438e0f71f1"
+     },
+     "prereg": {
+      "first": "IC7-A-0433",
+      "last": "IC7-A-0459",
+      "n": 27,
+      "rowset": "c01d1ddaa4a5b7074203662522276a24a150312d9faeceb6634dc5438e0f71f1"
+     }
+    }
+   }
+  },
+  "TA-X-01": {
+   "verdict": "GREEN",
+   "observed": "M0 salt 2, run twice, same process, no fold inserted: 3f94ab0ca3425026 == 3f94ab0ca3425026; arm+salt (M0, 2) != P-2's (M-POL-2, 0); equals the M0/2 cell digest ['3f94ab0ca3425026']"
+  },
+  "TA-X-02": {
+   "verdict": "GREEN",
+   "observed": "89/89, unmapped 0"
+  },
+  "TA-X-03": {
+   "verdict": "UNGRADEABLE",
+   "observed": "M-POL-2-NULL vs M0: identical 5/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 \u00a7 B.3, carried)"
+  },
+  "TA-X-04": {
+   "verdict": "UNGRADEABLE",
+   "observed": "W1-NULL vs M-POL-2: identical 5/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 \u00a7 B.3, carried)"
+  },
+  "TA-X-05": {
+   "verdict": "UNGRADEABLE",
+   "observed": "M-POL-2 vs M0: identical 0/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 \u00a7 B.3, carried)"
+  },
+  "TA-X-06": {
+   "verdict": "UNGRADEABLE-declared (Q83(b), KP-110)",
+   "observed": "W1 vs M-POL-2 identical on 2/5 salts ([0, 2] identical)"
+  },
+  "TA-X-07": {
+   "verdict": "GREEN",
+   "observed": {
+    "(a) max rho_hat": 2.21383411155059e-16,
+    "(a) cells at 0.0": 21,
+    "(b) max |residual| (reported)": 7.45058059692383e-09,
+    "(c) (L2) of record": "jack-ryan addendum c210b1979: 25/25 hold, worst beta 3.590829330577844e-14 (x27.85)",
+    "(c) gamora cross-check from the graded cells' own operands": {
+     "all_25_hold": true,
+     "worst_cell": "M0|0",
+     "worst_beta": 3.590829330577844e-14,
+     "worst_margin": 27.848719834286243
+    },
+    "census": {
+     "classes": {
+      "F": 14,
+      "S": 11,
+      "T": 22
+     },
+     "file": "cf49eefec225b3d306d3773fe0e264b1c96739b1a2f1185a7706f71b527c2c24",
+     "sites": 35
+    }
+   }
+  },
+  "TA-X-08": {
+   "verdict": "RED",
+   "observed": "identity 1 (n_player_ticks_observed == D + PRE_FIGHT) and identity 2 (n_channelling + n_released == D) FAIL on 25/25 cells, each by exactly 1 (the DEAD tick: DEAD = 1 on every cell)",
+   "per_cell": {
+    "M0|0": {
+     "observed": 2013,
+     "D": 2012,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 2013,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M0|1": {
+     "observed": 677,
+     "D": 676,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 677,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M0|2": {
+     "observed": 652,
+     "D": 651,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 652,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M0|3": {
+     "observed": 619,
+     "D": 618,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 619,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M0|4": {
+     "observed": 472,
+     "D": 471,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 472,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2|0": {
+     "observed": 467,
+     "D": 466,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 467,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2|1": {
+     "observed": 1962,
+     "D": 1961,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 1962,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2|2": {
+     "observed": 671,
+     "D": 670,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 671,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2|3": {
+     "observed": 621,
+     "D": 620,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 621,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2|4": {
+     "observed": 472,
+     "D": 471,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 472,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2-NULL|0": {
+     "observed": 2013,
+     "D": 2012,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 2013,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2-NULL|1": {
+     "observed": 677,
+     "D": 676,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 677,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2-NULL|2": {
+     "observed": 652,
+     "D": 651,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 652,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2-NULL|3": {
+     "observed": 619,
+     "D": 618,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 619,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "M-POL-2-NULL|4": {
+     "observed": 472,
+     "D": 471,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 472,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1|0": {
+     "observed": 467,
+     "D": 466,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 467,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1|1": {
+     "observed": 1986,
+     "D": 1985,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 1986,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1|2": {
+     "observed": 671,
+     "D": 670,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 671,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1|3": {
+     "observed": 621,
+     "D": 620,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 621,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1|4": {
+     "observed": 483,
+     "D": 482,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 483,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1-NULL|0": {
+     "observed": 467,
+     "D": 466,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 467,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1-NULL|1": {
+     "observed": 1962,
+     "D": 1961,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 1962,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1-NULL|2": {
+     "observed": 671,
+     "D": 670,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 671,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1-NULL|3": {
+     "observed": 621,
+     "D": 620,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 621,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    },
+    "W1-NULL|4": {
+     "observed": 472,
+     "D": 471,
+     "PRE_FIGHT": 0,
+     "DEAD": 1,
+     "chan+rel": 472,
+     "id1": false,
+     "id2": false,
+     "emitted_holds": [
+      false,
+      false
+     ]
+    }
+   }
+  },
+  "TA-X-09": {
+   "verdict": "UNGRADEABLE",
+   "observed": "no TA-X-09 value in the emission (the nine vectors' replay is not in ta_manifest.json or any cell); supplementary tmp/kc2/t0/t0_report.json (05:32:11) reads 9/9 but is outside the MANIFEST and predates the graded tree's last runtime-content commit"
+  },
+  "TA-X-10": {
+   "verdict": "GREEN",
+   "observed": "W1 max_body_radius_m [43.0603720647777, 43.0603720647777, 43.0603720647777, 43.0603720647777, 43.0603720647777]; max 43.0603720647777 <= 43.758085029822276"
+  },
+  "TA-X-11": {
+   "verdict": "GREEN",
+   "observed": "clamps (player, body) = (0, 0) on 10/10 (W1 wall armed r=43.7580850298223; vacuous on W1-NULL, \u00a7 0.2 NOTE). A port with no wall also scores zero (\u00a7 F.5 cl. 6)"
+  },
+  "TA-X-12": {
+   "verdict": "GREEN",
+   "observed": "pool damage 0.0 on 25/25; aprons ABSENT under ORACLE (armed false)"
+  },
+  "TA-X-13": {
+   "verdict": "GREEN",
+   "observed": "n_player_crits 0 on 25/25; CritLimb.LO (x1.0) DRIVER-OF-RECORD"
+  },
+  "TA-X-14": {
+   "verdict": "GREEN",
+   "observed": "cause==energy 0 on 25/25; release causes only type_a/type_b; n_release_events 0-19 per cell (event-scheduled)"
+  },
+  "TA-X-15": {
+   "verdict": "GREEN",
+   "observed": "(a) every (wave, point) row: p01-p04 release tick 0, p05 release tick 49 (4.000 s), 25/25; (b) 0 intra-point staggers, GREEN-BY-CONSTRUCTION (one release tick per point)"
+  },
+  "TA-X-16": {
+   "verdict": "RED",
+   "observed": {
+    "n_pool_picks per cell": {
+     "M0|0": 47,
+     "M0|1": 19,
+     "M0|2": 19,
+     "M0|3": 19,
+     "M0|4": 15,
+     "M-POL-2|0": 15,
+     "M-POL-2|1": 47,
+     "M-POL-2|2": 19,
+     "M-POL-2|3": 19,
+     "M-POL-2|4": 15,
+     "M-POL-2-NULL|0": 47,
+     "M-POL-2-NULL|1": 19,
+     "M-POL-2-NULL|2": 19,
+     "M-POL-2-NULL|3": 19,
+     "M-POL-2-NULL|4": 15,
+     "W1|0": 15,
+     "W1|1": 47,
+     "W1|2": 19,
+     "W1|3": 19,
+     "W1|4": 15,
+     "W1-NULL|0": 15,
+     "W1-NULL|1": 47,
+     "W1-NULL|2": 19,
+     "W1-NULL|3": 19,
+     "W1-NULL|4": 15
+    },
+    "cells == 47": 5,
+    "per-wave picks equal V11-P06-1 on every wave played": true,
+    "point-6 rows in any cell": 0,
+    "manifest active_points_per_wave": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "filtered-key counter (manifest grain) picks_suppressed": 18
+   }
+  },
+  "TA-X-17": {
+   "verdict": "GREEN-BY-CONSTRUCTION",
+   "observed": "ScatterLaw.POLAR_UNIFORM_RHO (DRIVER-OF-RECORD): rho = PLACEMENT_EXTENTS_M (8.0) * u2, u2 in [0,1) (kc2rt_board.gd:600/784, scatter_polar_uniform_rho_f64) -> > 8.0 m impossible; no per-body statistic emitted"
+  },
+  "TA-X-18": {
+   "verdict": "GREEN",
+   "observed": {
+    "emitted": [
+     "-3.999999999999985",
+     "-3.49691120014899e-07"
+    ],
+    "grader_parsed_bits": [
+     "c00fffffffffffde",
+     "be9777a5cf72cec6"
+    ],
+    "expected_bits": [
+     "c00fffffffffffde",
+     "be9777a5cf72cec6"
+    ],
+    "emitter": "cpython-repr",
+    "roundtrip_probe": true,
+    "repr(float(s)) == s": true
+   }
+  },
+  "TA-X-19": {
+   "verdict": "GREEN",
+   "observed": "read at the graded tree (kc2rt_fight.gd): the deferred-arrival limb IS NOW PORTED for projectiles (_defer_arrivals :4125); a packet carries {seq,b,rec,direct,pcl,fams,cast,n_rows} (:4105) -- no arrival position -- and landing (_land :5577, _cp_absorb :3964) reads no position. GREEN-VACUOUSLY has EXPIRED; graded by source at the pinned digest, no emitted counter"
+  },
+  "TA-X-20": {
+   "verdict": "UNGRADEABLE",
+   "observed": "no TA-X-20 value in the emission; supplementary t0_report (05:32:11, outside the MANIFEST, pre-final-tree) reads 2.99 hit / 3.01 miss / no angular gate / 12->12"
+  },
+  "TA-X-21": {
+   "verdict": "UNGRADEABLE",
+   "observed": "no TA-X-21 value in the emission; supplementary t0_report + kc2rt_purity_scan.json (05:28:37) read 12 rows / 0 violations, but predate 2ce053d (05:32:37), the commit that removed a py_round from the walk because of THIS row's purity assertion"
+  },
+  "TA-X-22": {
+   "verdict": "GREEN",
+   "observed": "interrupts_channel_flag cause 0 on 25/25"
+  },
+  "TA-X-24": {
+   "verdict": "GREEN",
+   "observed": "PhaseModel.ENGAGE DRIVER-OF-RECORD (emitted); negative by source search at the graded tree: no sha256 of any actor id (the sha256 sites are pack/register/leech-table digests, the V9-STREAM-07 seed and kc2rt_kmill.seed_for's wave material)"
+  },
+  "TA-X-25": {
+   "verdict": "GREEN",
+   "observed": "(a) refused 0, 25/25 (satisfied over an empty refusal set); (b) the three counters present and summing to n_bodies_spawned, 25/25; (c) against POOL-466 / SWING-456 / NONSWING-10 recomputed here from the oracle (digests reproduce): (1)-(4) hold 25/25; (d) printed",
+   "per_cell": {
+    "M0|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180,
+     "nonswing_bodies (d, not graded)": 12
+    },
+    "M0|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M0|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M0|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M0|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180,
+     "nonswing_bodies (d, not graded)": 12
+    },
+    "M-POL-2|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180,
+     "nonswing_bodies (d, not graded)": 12
+    },
+    "M-POL-2-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "M-POL-2-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180,
+     "nonswing_bodies (d, not graded)": 12
+    },
+    "W1|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180,
+     "nonswing_bodies (d, not graded)": 12
+    },
+    "W1-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79,
+     "nonswing_bodies (d, not graded)": 3
+    },
+    "W1-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68,
+     "nonswing_bodies (d, not graded)": 3
+    }
+   }
+  },
+  "TA-X-26": {
+   "verdict": "GREEN",
+   "observed": "(a) audit green, 0 unaccounted; (b) loaded, sha cb6a008bde1e1025 = P-i, call site ['sim/kc2rt_fight.gd:2871']; (c) {'multipliers': 5, 'records': 790, 'rows': 7900, 'tiers': 8, 'wave_invariant': 790}; (d) helper call sites 1, disagreements 0; (e) ARMED-464 mean 0.246896551724137 median 0.25 max 0.35 min 0.0 immune 17 (grain-labelled; the port's fight-armed 456 printed beside, not instead)"
+  },
+  "TA-X-27": {
+   "verdict": "UNGRADEABLE",
+   "observed": "(a) scan 76 files, short-circuits 0, unclassified 0 -> holds; (b) NOT EMITTED: the harness emits only a pointer to tmp/kc2/kc2rt_rules_smoke.json (outside the MANIFEST; 05:28:45; 58 checks / 0 failures) -> UNGRADEABLE; (c) {'p05_draw': 'ELIDED, as the oracle (wave_engine.py:683-695)', 'registered_live_sites': 29}; G3 draw rules at the graded digest: True -> holds; (d) 97/139 -> holds"
+  },
+  "TA-X-28": {
+   "verdict": "GREEN",
+   "observed": "(a) port target/tick caps 0/0 on 25/25 (no cap site exists: structural zero, \u00a7 F.5 cl. 6); oracle side derived from oracle code: player_sustain.py:19 'NO CAP IS INVENTED', run.py:805 'per-body leech with no target cap and no per-tick cap'; (b) ALL_BODIES_IN_DISC, 0.57; (c) same shape. A green says one leech law, not that it reproduces Matt's fight (cl. 10)"
+  },
+  "TA-X-29": {
+   "verdict": "UNGRADEABLE",
+   "observed": {
+    "(a)": "PRED-GMAG-WHOLE True: attr 193/154 (actors 344), own 527/104 -> holds",
+    "(b)": "NOT EMITTED at this digest (the v1.7 emission carried the Z5-LAW composition declaration and the 527-row clamp cross-check; this one does not)",
+    "(c)": "NOT EMITTED as a check: M_inst per wave is printed (1.82 x5, 1.83 x5) but no z3_wave_damage_modifier_check comparison is asserted",
+    "(d)": "inert_records 29; 'unexercised: 0 of 29' not printed",
+    "(e)": {
+     "w159": 3.207764,
+     "w160": 4.980316,
+     "per_record_w159": {
+      "n_expected": 16,
+      "n_emitted": 16,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     },
+     "per_record_w160": {
+      "n_expected": 23,
+      "n_emitted": 23,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     },
+     "holds": true
+    }
+   }
+  },
+  "TA-X-30": {
+   "verdict": "GREEN",
+   "observed": "(a) halt at arena.json d_engage_m 2.4, NaN tested explicitly (nan rejected, zero rejected); (b) n_bodies_halted_beyond_d_engage 0 on 25/25"
+  }
+ },
+ "diagnostics": {
+  "TA-B-01 terminal waves (port, M-POL-2)": [
+   153,
+   160,
+   154,
+   154,
+   153
+  ],
+  "oracle M-POL-2 (v1.12 \u00a7 B.1a)": [
+   156,
+   152,
+   155,
+   152,
+   152
+  ],
+  "printed beside TA-X-06: port W1": [
+   153,
+   160,
+   154,
+   154,
+   153
+  ],
+  "oracle W1": [
+   156,
+   152,
+   155,
+   152,
+   155
+  ],
+  "terminal vectors, all arms": {
+   "M-POL-2": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ],
+   "M-POL-2-NULL": [
+    160,
+    154,
+    154,
+    154,
+    153
+   ],
+   "M0": [
+    160,
+    154,
+    154,
+    154,
+    153
+   ],
+   "W1": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ],
+   "W1-NULL": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ]
+  },
+  "M-POL-2 per-tick (n = 5, mean of salts)": {
+   "TA-B-02_uptime": {
+    "per_salt": [
+     0.869098712446352,
+     0.886792452830189,
+     0.885074626865672,
+     0.898387096774194,
+     0.870488322717622
+    ],
+    "mean_of_salts": 0.8819682423268057
+   },
+   "TA-B-03_frac_moving": {
+    "per_salt": [
+     0.843347639484979,
+     0.850076491585926,
+     0.843283582089552,
+     0.843548387096774,
+     0.842887473460722
+    ],
+    "mean_of_salts": 0.8446287147435907
+   },
+   "TA-B-04_P_chan_given_moving": {
+    "per_salt": [
+     0.898218829516539,
+     0.923215356928614,
+     0.91858407079646,
+     0.921606118546845,
+     0.91183879093199
+    ],
+    "mean_of_salts": 0.9146926333440897
+   },
+   "TA-B-05_P_chan_given_stationary": {
+    "per_salt": [
+     0.698630136986301,
+     0.67687074829932,
+     0.695238095238095,
+     0.762886597938144,
+     0.635135135135135
+    ],
+    "mean_of_salts": 0.693752142719399
+   },
+   "TA-B-06_plant_ratio": {
+    "per_salt": [
+     0.142857142857143,
+     0.0625,
+     0.0909090909090909,
+     0.2,
+     0.428571428571429
+    ],
+    "mean_of_salts": 0.18496753246753256
+   },
+   "TA-B-07_release_duty": {
+    "per_salt": [
+     0.133047210300429,
+     0.113717491075982,
+     0.116417910447761,
+     0.103225806451613,
+     0.131634819532909
+    ],
+    "mean_of_salts": 0.11960864756173879
+   },
+   "TA-B-09_channel_split": {
+    "per_salt": [
+     0.126237623762376,
+     0.114499424626007,
+     0.123310810810811,
+     0.133093525179856,
+     0.114914425427873
+    ],
+    "mean_of_salts": 0.1224111619613846
+   }
+  },
+  "TA-B-08 ordering holds": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "TA-B-14 W1 vetoes / occupancy": [
+   [
+    0,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "TA-B-15 (nodata bodies, fraction) per arm": {
+   "M0": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "M-POL-2": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "M-POL-2-NULL": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "W1": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "W1-NULL": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ]
+  },
+  "R-6": {
+   "(i) killer_id set and cleared": 0,
+   "(ii) in-tick resurrections": 0,
+   "(iii) cells where a PCL row landed and PCL intake is not > 0": 0
+  },
+  "sustain (port, printed not asserted)": {
+   "M0": [
+    5.563,
+    2.379,
+    2.754,
+    2.889,
+    2.198
+   ],
+   "M-POL-2": [
+    2.034,
+    5.561,
+    2.616,
+    2.88,
+    2.077
+   ],
+   "M-POL-2-NULL": [
+    5.563,
+    2.379,
+    2.754,
+    2.889,
+    2.198
+   ],
+   "W1": [
+    2.034,
+    5.441,
+    2.616,
+    2.876,
+    2.59
+   ],
+   "W1-NULL": [
+    2.034,
+    5.561,
+    2.616,
+    2.88,
+    2.077
+   ]
+  }
+ },
+ "counts": {
+  "GREEN": 18,
+  "UNGRADEABLE": 8,
+  "RED": 2
+ },
+ "by_class": {
+  "GREEN": [
+   "TA-X-01",
+   "TA-X-02",
+   "TA-X-07",
+   "TA-X-10",
+   "TA-X-11",
+   "TA-X-12",
+   "TA-X-13",
+   "TA-X-14",
+   "TA-X-15",
+   "TA-X-17",
+   "TA-X-18",
+   "TA-X-19",
+   "TA-X-22",
+   "TA-X-24",
+   "TA-X-25",
+   "TA-X-26",
+   "TA-X-28",
+   "TA-X-30"
+  ],
+  "UNGRADEABLE": [
+   "TA-X-03",
+   "TA-X-04",
+   "TA-X-05",
+   "TA-X-09",
+   "TA-X-20",
+   "TA-X-21",
+   "TA-X-27",
+   "TA-X-29"
+  ],
+  "RED": [
+   "TA-X-08",
+   "TA-X-16"
+  ]
+ },
+ "preconditions_not_green": [
+  "P-2"
+ ],
+ "verdict": "STRUCTURAL"
+}

@@ -1,0 +1,49 @@
+== EVIDENCE ==
+  prereg a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854 ok=True
+  emission MANIFEST 25e4e5bd20dbd07e39a265d82b907a61cdd106b15713ed3b329d38dcf59f04ae members=28 tree=ffaf9aab32dd9cf5bc395c4c46b0634ffe03cdb8fa985607d2141688a3cc3a4f ok=True
+  ta_manifest d352293d90da0f73fecd41767a8def0cb31055aff2ecd00a4bbd8ef47bfbb4f9
+  runtime tree a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb (82 members) unchanged 0802ab1..9b0ad0c=True ok=True
+  model pack 48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96 (19); reference 1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1 (7); cross-pin 48a4c94c165715d3 ok=True
+  G3 MANIFEST 90195c7ca96e04263cfb289e667a1437fa6e16ad97be392c5fdb085b26f2c8a7 ok=True
+  H-9/H-10 docs ok=True
+  set digests: {'POOL-466': (466, '33c886a11f91db11'), 'SWING-456': (456, '706a61d55dc66218'), 'NONSWING-10': (10, '00b4cb0e24b43e59')} reproduce=True; FALLBACK-158: {'note': 'not recomputed by this grade (no graded row reads it); v1.12 PINS value carried, not re-derived', 'v1.12_pin': 'e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb'}
+== PRECONDITIONS ==
+  P-1: GREEN
+  P-2: RED
+  P-3: GREEN
+  P-4: GREEN
+  P-5: GREEN
+== EXACT ROWS ==
+  TA-X-01: GREEN :: M0 salt 2, run twice, same process, no fold inserted: 3f94ab0ca3425026 == 3f94ab0ca3425026; arm+salt (M0, 2) != P-2's (M-POL-2, 0); equals the M0/2 cell digest ['3f94ab0ca3425026']
+  TA-X-02: GREEN :: 89/89, unmapped 0
+  TA-X-03: UNGRADEABLE :: M-POL-2-NULL vs M0: identical 5/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 § B.3, carried)
+  TA-X-04: UNGRADEABLE :: W1-NULL vs M-POL-2: identical 5/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 § B.3, carried)
+  TA-X-05: UNGRADEABLE :: M-POL-2 vs M0: identical 0/5 (raw relation holds); P-2 RED -> UNGRADEABLE (v1.8 § B.3, carried)
+  TA-X-07: GREEN :: {"(a) max rho_hat": 2.21383411155059e-16, "(a) cells at 0.0": 21, "(b) max |residual| (reported)": 7.45058059692383e-09, "(c) (L2) of record": "jack-ryan addendum c210b1979: 25/25 hold, worst beta 3.590829330577844e-14 (x27.85)", "(c) gamora cross-check from the graded cells' own operands": {"all_25_hold": true, "worst_cell": "M0|0", "worst_beta": 3.590829330577844e-14, "worst_margin": 27.84871983
+  TA-X-08: RED :: identity 1 (n_player_ticks_observed == D + PRE_FIGHT) and identity 2 (n_channelling + n_released == D) FAIL on 25/25 cells, each by exactly 1 (the DEAD tick: DEAD = 1 on every cell)
+  TA-X-09: UNGRADEABLE :: no TA-X-09 value in the emission (the nine vectors' replay is not in ta_manifest.json or any cell); supplementary tmp/kc2/t0/t0_report.json (05:32:11) reads 9/9 but is outside the MANIFEST and predates the graded tree's last runtime-content commit
+  TA-X-10: GREEN :: W1 max_body_radius_m [43.0603720647777, 43.0603720647777, 43.0603720647777, 43.0603720647777, 43.0603720647777]; max 43.0603720647777 <= 43.758085029822276
+  TA-X-11: GREEN :: clamps (player, body) = (0, 0) on 10/10 (W1 wall armed r=43.7580850298223; vacuous on W1-NULL, § 0.2 NOTE). A port with no wall also scores zero (§ F.5 cl. 6)
+  TA-X-12: GREEN :: pool damage 0.0 on 25/25; aprons ABSENT under ORACLE (armed false)
+  TA-X-13: GREEN :: n_player_crits 0 on 25/25; CritLimb.LO (x1.0) DRIVER-OF-RECORD
+  TA-X-14: GREEN :: cause==energy 0 on 25/25; release causes only type_a/type_b; n_release_events 0-19 per cell (event-scheduled)
+  TA-X-15: GREEN :: (a) every (wave, point) row: p01-p04 release tick 0, p05 release tick 49 (4.000 s), 25/25; (b) 0 intra-point staggers, GREEN-BY-CONSTRUCTION (one release tick per point)
+  TA-X-16: RED :: {"n_pool_picks per cell": {"M0|0": 47, "M0|1": 19, "M0|2": 19, "M0|3": 19, "M0|4": 15, "M-POL-2|0": 15, "M-POL-2|1": 47, "M-POL-2|2": 19, "M-POL-2|3": 19, "M-POL-2|4": 15, "M-POL-2-NULL|0": 47, "M-POL-2-NULL|1": 19, "M-POL-2-NULL|2": 19, "M-POL-2-NULL|3": 19, "M-POL-2-NULL|4": 15, "W1|0": 15, "W1|1": 47, "W1|2": 19, "W1|3": 19, "W1|4": 15, "W1-NULL|0": 15, "W1-NULL|1": 47, "W1-NULL|2": 19, "W1-NUL
+  TA-X-17: GREEN-BY-CONSTRUCTION :: ScatterLaw.POLAR_UNIFORM_RHO (DRIVER-OF-RECORD): rho = PLACEMENT_EXTENTS_M (8.0) * u2, u2 in [0,1) (kc2rt_board.gd:600/784, scatter_polar_uniform_rho_f64) -> > 8.0 m impossible; no per-body statistic emitted
+  TA-X-18: GREEN :: {"emitted": ["-3.999999999999985", "-3.49691120014899e-07"], "grader_parsed_bits": ["c00fffffffffffde", "be9777a5cf72cec6"], "expected_bits": ["c00fffffffffffde", "be9777a5cf72cec6"], "emitter": "cpython-repr", "roundtrip_probe": true, "repr(float(s)) == s": true}
+  TA-X-19: GREEN :: read at the graded tree (kc2rt_fight.gd): the deferred-arrival limb IS NOW PORTED for projectiles (_defer_arrivals :4125); a packet carries {seq,b,rec,direct,pcl,fams,cast,n_rows} (:4105) -- no arrival position -- and landing (_land :5577, _cp_absorb :3964) reads no position. GREEN-VACUOUSLY has EXPIRED; graded by source at the pinned digest, no emitted counter
+  TA-X-20: UNGRADEABLE :: no TA-X-20 value in the emission; supplementary t0_report (05:32:11, outside the MANIFEST, pre-final-tree) reads 2.99 hit / 3.01 miss / no angular gate / 12->12
+  TA-X-21: UNGRADEABLE :: no TA-X-21 value in the emission; supplementary t0_report + kc2rt_purity_scan.json (05:28:37) read 12 rows / 0 violations, but predate 2ce053d (05:32:37), the commit that removed a py_round from the walk because of THIS row's purity assertion
+  TA-X-22: GREEN :: interrupts_channel_flag cause 0 on 25/25
+  TA-X-24: GREEN :: PhaseModel.ENGAGE DRIVER-OF-RECORD (emitted); negative by source search at the graded tree: no sha256 of any actor id (the sha256 sites are pack/register/leech-table digests, the V9-STREAM-07 seed and kc2rt_kmill.seed_for's wave material)
+  TA-X-25: GREEN :: (a) refused 0, 25/25 (satisfied over an empty refusal set); (b) the three counters present and summing to n_bodies_spawned, 25/25; (c) against POOL-466 / SWING-456 / NONSWING-10 recomputed here from the oracle (digests reproduce): (1)-(4) hold 25/25; (d) printed
+  TA-X-26: GREEN :: (a) audit green, 0 unaccounted; (b) loaded, sha cb6a008bde1e1025 = P-i, call site ['sim/kc2rt_fight.gd:2871']; (c) {'multipliers': 5, 'records': 790, 'rows': 7900, 'tiers': 8, 'wave_invariant': 790}; (d) helper call sites 1, disagreements 0; (e) ARMED-464 mean 0.246896551724137 median 0.25 max 0.35 min 0.0 immune 17 (grain-labelled; the port's fight-armed 456 printed beside, not instead)
+  TA-X-27: UNGRADEABLE :: (a) scan 76 files, short-circuits 0, unclassified 0 -> holds; (b) NOT EMITTED: the harness emits only a pointer to tmp/kc2/kc2rt_rules_smoke.json (outside the MANIFEST; 05:28:45; 58 checks / 0 failures) -> UNGRADEABLE; (c) {'p05_draw': 'ELIDED, as the oracle (wave_engine.py:683-695)', 'registered_live_sites': 29}; G3 draw rules at the graded digest: True -> holds; (d) 97/139 -> holds
+  TA-X-28: GREEN :: (a) port target/tick caps 0/0 on 25/25 (no cap site exists: structural zero, § F.5 cl. 6); oracle side derived from oracle code: player_sustain.py:19 'NO CAP IS INVENTED', run.py:805 'per-body leech with no target cap and no per-tick cap'; (b) ALL_BODIES_IN_DISC, 0.57; (c) same shape. A green says one leech law, not that it reproduces Matt's fight (cl. 10)
+  TA-X-29: UNGRADEABLE :: {"(a)": "PRED-GMAG-WHOLE True: attr 193/154 (actors 344), own 527/104 -> holds", "(b)": "NOT EMITTED at this digest (the v1.7 emission carried the Z5-LAW composition declaration and the 527-row clamp cross-check; this one does not)", "(c)": "NOT EMITTED as a check: M_inst per wave is printed (1.82 x5, 1.83 x5) but no z3_wave_damage_modifier_check comparison is asserted", "(d)": "inert_records 29; 
+  TA-X-30: GREEN :: (a) halt at arena.json d_engage_m 2.4, NaN tested explicitly (nan rejected, zero rejected); (b) n_bodies_halted_beyond_d_engage 0 on 25/25
+  TA-X-06: UNGRADEABLE-declared (Q83(b), KP-110) :: W1 vs M-POL-2 identical on 2/5 salts ([0, 2] identical)
+== COUNTS == {'GREEN': 18, 'UNGRADEABLE': 8, 'RED': 2} {'UNGRADEABLE': ['TA-X-03', 'TA-X-04', 'TA-X-05', 'TA-X-09', 'TA-X-20', 'TA-X-21', 'TA-X-27', 'TA-X-29'], 'RED': ['TA-X-08', 'TA-X-16']}
+== R-6 == {'(i) killer_id set and cleared': 0, '(ii) in-tick resurrections': 0, '(iii) cells where a PCL row landed and PCL intake is not > 0': 0}
+== VERDICT == STRUCTURAL
+evidence verified: True

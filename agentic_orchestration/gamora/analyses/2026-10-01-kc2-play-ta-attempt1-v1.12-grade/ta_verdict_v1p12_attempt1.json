@@ -1,0 +1,528 @@
+{
+ "schema": "kc2play.ta_verdict.v1",
+ "prereg_version": "v1.12",
+ "prereg_sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854",
+ "substrate_epoch": "v3.7.1 / model 48a4c94c\u2026 / reference 1887257f\u2026",
+ "graded_attempt": "v1.12 attempt 1 (overall attempt 2 under the v1.8+ naming, \u00a7 G.1)",
+ "grader": "gamora",
+ "emission": {
+  "godot_commit": "9b0ad0c",
+  "dir": "evidence/kc2-play/2026-10-01-ta-attempt1-v1.12-cells",
+  "MANIFEST_sha256": "25e4e5bd20dbd07e39a265d82b907a61cdd106b15713ed3b329d38dcf59f04ae",
+  "ta_manifest_sha256": "d352293d90da0f73fecd41767a8def0cb31055aff2ecd00a4bbd8ef47bfbb4f9"
+ },
+ "verdict": "STRUCTURAL",
+ "attempt_consumed": true,
+ "counts": {
+  "GREEN": 18,
+  "UNGRADEABLE": 8,
+  "RED": 2
+ },
+ "non_green_exact_rows": {
+  "UNGRADEABLE": [
+   "TA-X-03",
+   "TA-X-04",
+   "TA-X-05",
+   "TA-X-09",
+   "TA-X-20",
+   "TA-X-21",
+   "TA-X-27",
+   "TA-X-29"
+  ],
+  "RED": [
+   "TA-X-08",
+   "TA-X-16"
+  ]
+ },
+ "preconditions": {
+  "P-1": "GREEN",
+  "P-2": "RED",
+  "P-3": "GREEN",
+  "P-4": "GREEN",
+  "P-5": "GREEN"
+ },
+ "exact_rows": {
+  "TA-X-01": "GREEN",
+  "TA-X-02": "GREEN",
+  "TA-X-03": "UNGRADEABLE",
+  "TA-X-04": "UNGRADEABLE",
+  "TA-X-05": "UNGRADEABLE",
+  "TA-X-07": "GREEN",
+  "TA-X-08": "RED",
+  "TA-X-09": "UNGRADEABLE",
+  "TA-X-10": "GREEN",
+  "TA-X-11": "GREEN",
+  "TA-X-12": "GREEN",
+  "TA-X-13": "GREEN",
+  "TA-X-14": "GREEN",
+  "TA-X-15": "GREEN",
+  "TA-X-16": "RED",
+  "TA-X-17": "GREEN-BY-CONSTRUCTION",
+  "TA-X-18": "GREEN",
+  "TA-X-19": "GREEN",
+  "TA-X-20": "UNGRADEABLE",
+  "TA-X-21": "UNGRADEABLE",
+  "TA-X-22": "GREEN",
+  "TA-X-24": "GREEN",
+  "TA-X-25": "GREEN",
+  "TA-X-26": "GREEN",
+  "TA-X-27": "UNGRADEABLE",
+  "TA-X-28": "GREEN",
+  "TA-X-29": "UNGRADEABLE",
+  "TA-X-30": "GREEN"
+ },
+ "declared_ungradeable": [
+  {
+   "id": "TA-X-06",
+   "authority": "Q83(b) / KP-110",
+   "printed": "W1 vs M-POL-2 identical on 2/5 salts ([0, 2] identical)"
+  }
+ ],
+ "emitted_by_harness": {
+  "arm_config_a8": {
+   "M-POL-2": {
+    "a8_rows": "IC7-A-0077\u2026IC7-A-0152",
+    "avoidance": false,
+    "c1_evidence": "g3[M-POL-2]",
+    "channel_effective": true,
+    "configured_from_a8": true,
+    "rows": {
+     "channel": [
+      "IC7-A-0089",
+      "IC7-A-0090",
+      "IC7-A-0091",
+      "IC7-A-0092",
+      "IC7-A-0093"
+     ],
+     "channel_wrap": [
+      "IC7-A-0094"
+     ],
+     "replay": [
+      "IC7-A-0138",
+      "IC7-A-0139",
+      "IC7-A-0140",
+      "IC7-A-0141",
+      "IC7-A-0142"
+     ],
+     "run_cell": [
+      "IC7-A-0148",
+      "IC7-A-0149",
+      "IC7-A-0150",
+      "IC7-A-0151",
+      "IC7-A-0152"
+     ]
+    },
+    "rowset": "e698d5f555a37fcc12e703343286d4e25c12662d8cd35c9571f9a0ac8ae45dbf",
+    "setup_config_rowset": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+    "setup_probe_rows_applied": 0,
+    "walls": false
+   },
+   "M-POL-2-NULL": {
+    "a8_rows": "IC7-A-0001\u2026IC7-A-0076",
+    "avoidance": false,
+    "c1_evidence": "g3[M-POL-2-NULL]",
+    "channel_effective": false,
+    "configured_from_a8": true,
+    "rows": {
+     "channel": [
+      "IC7-A-0013",
+      "IC7-A-0014",
+      "IC7-A-0015",
+      "IC7-A-0016",
+      "IC7-A-0017"
+     ],
+     "channel_wrap": [
+      "IC7-A-0018"
+     ],
+     "replay": [
+      "IC7-A-0062",
+      "IC7-A-0063",
+      "IC7-A-0064",
+      "IC7-A-0065",
+      "IC7-A-0066"
+     ],
+     "run_cell": [
+      "IC7-A-0072",
+      "IC7-A-0073",
+      "IC7-A-0074",
+      "IC7-A-0075",
+      "IC7-A-0076"
+     ]
+    },
+    "rowset": "4393a14b56a97960ef42e73909a1cdefc49f3dc1a4cc41e7f20267b661a1a7b6",
+    "setup_config_rowset": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+    "setup_probe_rows_applied": 0,
+    "walls": false
+   },
+   "M0": {
+    "a8_rows": "IC7-A-0153\u2026IC7-A-0222",
+    "avoidance": false,
+    "c1_evidence": "g3[M0]",
+    "channel_effective": false,
+    "configured_from_a8": true,
+    "rows": {
+     "replay": [
+      "IC7-A-0208",
+      "IC7-A-0209",
+      "IC7-A-0210",
+      "IC7-A-0211",
+      "IC7-A-0212"
+     ],
+     "run_cell": [
+      "IC7-A-0218",
+      "IC7-A-0219",
+      "IC7-A-0220",
+      "IC7-A-0221",
+      "IC7-A-0222"
+     ]
+    },
+    "rowset": "68549af0608cb9979771fcc4955ae8010f4f3516ad55a97b83922c994f571d12",
+    "setup_config_rowset": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+    "setup_probe_rows_applied": 0,
+    "walls": false
+   },
+   "W1": {
+    "a8_rows": "IC7-A-0301\u2026IC7-A-0378",
+    "avoidance": true,
+    "c1_evidence": "g3[W1]",
+    "channel_effective": true,
+    "configured_from_a8": true,
+    "rows": {
+     "arena": [
+      "IC7-A-0307"
+     ],
+     "arena_wrap": [
+      "IC7-A-0308"
+     ],
+     "channel": [
+      "IC7-A-0315",
+      "IC7-A-0316",
+      "IC7-A-0317",
+      "IC7-A-0318",
+      "IC7-A-0319"
+     ],
+     "channel_wrap": [
+      "IC7-A-0320"
+     ],
+     "replay": [
+      "IC7-A-0364",
+      "IC7-A-0365",
+      "IC7-A-0366",
+      "IC7-A-0367",
+      "IC7-A-0368"
+     ],
+     "run_cell": [
+      "IC7-A-0374",
+      "IC7-A-0375",
+      "IC7-A-0376",
+      "IC7-A-0377",
+      "IC7-A-0378"
+     ]
+    },
+    "rowset": "5188284d198c139422276e8ac92f9a0bee03cea7dbb1cea32c6c7bf1d19a55e8",
+    "setup_config_rowset": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+    "setup_probe_rows_applied": 0,
+    "walls": true
+   },
+   "W1-NULL": {
+    "a8_rows": "IC7-A-0223\u2026IC7-A-0300",
+    "avoidance": true,
+    "c1_evidence": "g3[W1-NULL]",
+    "channel_effective": true,
+    "configured_from_a8": true,
+    "rows": {
+     "arena": [
+      "IC7-A-0229"
+     ],
+     "arena_wrap": [
+      "IC7-A-0230"
+     ],
+     "channel": [
+      "IC7-A-0237",
+      "IC7-A-0238",
+      "IC7-A-0239",
+      "IC7-A-0240",
+      "IC7-A-0241"
+     ],
+     "channel_wrap": [
+      "IC7-A-0242"
+     ],
+     "replay": [
+      "IC7-A-0286",
+      "IC7-A-0287",
+      "IC7-A-0288",
+      "IC7-A-0289",
+      "IC7-A-0290"
+     ],
+     "run_cell": [
+      "IC7-A-0296",
+      "IC7-A-0297",
+      "IC7-A-0298",
+      "IC7-A-0299",
+      "IC7-A-0300"
+     ]
+    },
+    "rowset": "b2abff6978105bfc1566d678d5f1dea756ea9ef0eab02f8457821f81125a7fdd",
+    "setup_config_rowset": "207ab21f853b18ca026327bf6c9ddc4afa705d29cd3ef0868c1e7818d1672b4c",
+    "setup_probe_rows_applied": 0,
+    "walls": false
+   }
+  },
+  "arm_of_record": {
+   "P-2": [
+    "M-POL-2"
+   ],
+   "R-11": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-B-01": [
+    "M-POL-2"
+   ],
+   "TA-B-15": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-01": [],
+   "TA-X-02": [],
+   "TA-X-03": [
+    "M-POL-2-NULL",
+    "M0"
+   ],
+   "TA-X-04": [
+    "W1-NULL",
+    "M-POL-2"
+   ],
+   "TA-X-05": [
+    "M-POL-2",
+    "M0"
+   ],
+   "TA-X-06": [
+    "W1",
+    "M-POL-2"
+   ],
+   "TA-X-07": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-08": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-09": [],
+   "TA-X-10": [
+    "W1"
+   ],
+   "TA-X-11": [
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-12": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-13": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-14": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-15(a)": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-15(b)": [],
+   "TA-X-16": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-17": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-18": [],
+   "TA-X-19": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-20": [],
+   "TA-X-21": [],
+   "TA-X-22": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-24": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-25": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-26": [],
+   "TA-X-27": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-28": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ],
+   "TA-X-29": [],
+   "TA-X-30(a)": [],
+   "TA-X-30(b)": [
+    "M0",
+    "M-POL-2",
+    "M-POL-2-NULL",
+    "W1",
+    "W1-NULL"
+   ]
+  },
+  "ta_x_18": {
+   "emitted": [
+    "-3.999999999999985",
+    "-3.49691120014899e-07"
+   ],
+   "emitter": "cpython-repr",
+   "equal": true,
+   "expected_bits": [
+    "c00fffffffffffde",
+    "be9777a5cf72cec6"
+   ],
+   "lossless": true,
+   "parsed_bits": [
+    "c00fffffffffffde",
+    "be9777a5cf72cec6"
+   ],
+   "roundtrip_probe": true
+  },
+  "g3_all_25_pass": true,
+  "r11_bound_all_25_hold": true,
+  "model_pack": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+  "P5_folds": {
+   "c11a": "C1 retaliation_gate + C2 aura (CLASS) + C4 duration_divisors; C3 NOT FOLDED",
+   "global_magnitude": "ARMED_UNCONDITIONAL",
+   "insufficient_energy_policy": "REFUSE",
+   "loader_call": "load_profiles(dot_corrections=True[d1 ON side], pet_special_gates=None, winner_surface=ARMED, pool_lift=ARMED, c11a=C11aLoader(CLASS))",
+   "measured_board_attached": true,
+   "monster_march_base_m_per_s": 3.209466,
+   "monster_run_speed_population": "LAPR-MEASURED 128 \u00b7 BANDA-DB-CITED 180 \u00b7 FALLBACK 158",
+   "non_health_route": "ON: [\"Disruption\", \"ManaBurnDrain\", \"PierceRatio\"]",
+   "pcl_limb": "MULTIPLICATIVE @ 26.0 %",
+   "per_cast_energy_column": "PARENT_PLUS_MODIFIER",
+   "pool_lift": "ARMED (u5 CONSTRUCTED 334) \u00b7 POOL-466 \u00b7 SWING-456 \u00b7 NONSWING-10",
+   "regen_ungated": true,
+   "winner_surface": "ARMED"
+  }
+ },
+ "filled_by_grader_not_emitted": {
+  "runtime_digest": {
+   "value": "a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb",
+   "source": "recomputed from kc2_runtime/MANIFEST.json over git blobs at 9b0ad0c (= drax's MANIFEST.runtime_tree_digest)"
+  },
+  "runtime_header": {
+   "value": null,
+   "note": "no header field emitted; the running harness measured pack 48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96 and verified both packs + cross-pin (P4_pack)"
+  },
+  "cross_pin_verified": {
+   "value": true,
+   "source": "grader recomputation; the harness emits it as P4_pack.cross_pin"
+  },
+  "oracle_containment_H9": {
+   "value": "PASS (KP-146)",
+   "docs": {
+    "H9_NOTE": "90717b83926f06b5939a48c01c0cc4973d5f20d7d7eb60007b976d01ebde53e5",
+    "H9_W1": "c68fcd3c133c8b8a55d75e85425876fe73d6d1752dfdd1cd21fa9041e87a24ff",
+    "H9_MPOL2": "2aedf43f2091d0c575af1d7d07deb0278be87f0b4c917efa5c33d01e77707f61",
+    "H9_W1NULL": "90b9ea619e8adfd3f8532cc55e16990c15348dd537071c5758000c2edafdf801",
+    "H9_SCRIPT": "eede32e85f362b5d57b136b81344cae1bfd4b804515db2d6f2d66279d1920f55"
+   }
+  },
+  "closure_H10": {
+   "value": "DISCHARGED (KP-153)",
+   "receipt": "a0ad8246ac49628f8bd729c8cc2fba564b6456c4c06df0ae300e0439bfc447c9"
+  },
+  "set_digests": {
+   "POOL-466": {
+    "n": 466,
+    "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+    "routes_agree": true
+   },
+   "SWING-456": {
+    "n": 456,
+    "digest": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0"
+   },
+   "NONSWING-10": {
+    "n": 10,
+    "digest": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10"
+   },
+   "FALLBACK-158": {
+    "note": "not recomputed by this grade (no graded row reads it); v1.12 PINS value carried, not re-derived",
+    "v1.12_pin": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb"
+   }
+  },
+  "hole_closure": {
+   "value": "PENDING (H-5, jack-ryan)",
+   "note": "seal-blocking, not verdict-blocking (\u00a7 G.2)"
+  },
+  "port_holes_printed": {
+   "value": true,
+   "where": "the grade of record, \u00a7 8 (the harness printed none)"
+  }
+ },
+ "r6_invariants": {
+  "(i) killer_id set and cleared": 0,
+  "(ii) in-tick resurrections": 0,
+  "(iii) cells where a PCL row landed and PCL intake is not > 0": 0
+ }
+}
