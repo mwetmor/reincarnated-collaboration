@@ -46,7 +46,7 @@ def alpha(path):
         return arr[..., :3], arr[..., 3]
     import time
     _D7 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    assert os.environ.get("FAL_LEDGER","").endswith("fal_spend_R-C9-98.json"), "R-C9-98: set FAL_LEDGER"
+    assert os.environ.get("FAL_LEDGER","").endswith(("fal_spend_R-C9-98.json", "fal_spend_R-C9-119.json")), "set FAL_LEDGER (R-C9-98 or R-C9-119)"
     os.environ.setdefault("FAL_BUDGET", "3.00")
     sys.path.insert(0, "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/t10_barrow")
     import fal_ledger as FL

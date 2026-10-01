@@ -1,0 +1,41 @@
+{
+ "clips": {
+  "book_carry_L": {
+   "source": "../gear_sets/sorceress_battlemage/work/book_carry_L.glb",
+   "source_anim": "book_carry_L",
+   "window": [
+    0.0,
+    0.0416666679084301
+   ],
+   "keys": 2,
+   "length_s": 0.0416666679084301,
+   "joints": 26,
+   "rest_match": 2e-05,
+   "hip_ratio": 1.0,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": -0.0,
+   "feet_span_m": [
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "so-body_v8mc.glb: SKELETON IDENTITY -- 26 joints, order differs; the base rig is 26 in a fixed order. gear.gd will not bind a piece whose bone list differs from the body's: run scripts/52_weapon_bones.py",
+   "so-body_v8mc.glb: WEAPON REST -- weapon_r's rest is 0.153 m from the hand (coincident) (tolerance 1 um)",
+   "so-body_v8mc.glb: SOURCE FIDELITY -- clip 'idle''s source ../nb_t8/nbt_idle.glb was fetched for ANOTHER RIG (rest pose 0.219 hips-to-head from this body's): re-fetch it on this body's rig",
+   "so-body_v8mc.glb: SOURCE FIDELITY -- clip 'run''s source ../nb_t8/nbt_run.glb was fetched for ANOTHER RIG (rest pose 0.219 hips-to-head from this body's): re-fetch it on this body's rig",
+   "so-body_v8mc.glb: SOURCE FIDELITY -- clip 'walk''s source ../nb_t8/nbt_walk.glb was fetched for ANOTHER RIG (rest pose 0.219 hips-to-head from this body's): re-fetch it on this body's rig",
+   "so-body_v8mc.glb: SOURCE GRID -- loop 'idle' is RESAMPLED: 71 keys at 0.0333 s against the source's 121 at 0.0333 s (nbt_idle.glb) (re-cut it on the source's own keys: 55_clip_graft.py)",
+   "so-body_v8mc.glb: SOURCE GRID -- loop 'run' is RESAMPLED: 23 keys at 0.0333 s against the source's 20 at 0.0333 s (nbt_run.glb) (re-cut it on the source's own keys: 55_clip_graft.py)",
+   "so-body_v8mc.glb: SOURCE GRID -- loop 'walk' is RESAMPLED: 30 keys at 0.0333 s against the source's 32 at 0.0333 s (nbt_walk.glb) (re-cut it on the source's own keys: 55_clip_graft.py)"
+  ],
+  "warns": 3
+ }
+}

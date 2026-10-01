@@ -1,0 +1,69 @@
+{
+ "wand": {
+  "length_m": 0.52,
+  "scale": 0.51913,
+  "grip_centre_from_butt_m": 0.1297,
+  "grip_radius_m": 0.023,
+  "leather_verts": 1217,
+  "axis_world": [
+   0.4146,
+   -0.9066,
+   -0.0791
+  ],
+  "fist_centre": [
+   -0.3652,
+   -0.0113,
+   0.8101
+  ],
+  "crystal_tip_from_fist_m": 0.3903,
+  "tip_in_weapon_r_local": [
+   -0.4643,
+   -38.6044,
+   0.0677
+  ],
+  "grip_morph": {
+   "name": "grip_R_wand",
+   "closes_to_m": 0.033,
+   "verts_moved": 2668,
+   "max_travel_m": 0.0652
+  },
+  "fist_centre_off_axis_m": 0.0,
+  "mount": "grip centre ON the fist centre, the axis along the right hand's channel"
+ },
+ "book": {
+  "spine_offset_toward_fingertips_m": 0.07,
+  "spine_lift_m": 0.011,
+  "spine_centre": [
+   0.4369,
+   -0.0607,
+   0.7614
+  ],
+  "palm_centre": [
+   0.3649,
+   -0.0277,
+   0.8079
+  ],
+  "palm_surface_m": 0.0266,
+  "palm_centre_to_spine_axis_m": 0.0596,
+  "spine_radius_m": 0.022,
+  "axes": {
+   "spine": [
+    0.3139,
+    -0.1033,
+    -0.9438
+   ],
+   "pages_normal": [
+    0.84,
+    -0.4332,
+    0.3268
+   ]
+  },
+  "grip_morph": {
+   "name": "grip_L_book",
+   "closes_to_m": 0.032,
+   "verts_moved": 4468,
+   "max_travel_m": 0.0394
+  },
+  "mount": "palm under the spine: spine along the left hand (pages' top toward the fingertips), pages opening up off the palm"
+ }
+}

@@ -138,7 +138,24 @@ func _build_tree() -> void:
 				seen[String(pth)] = true; b2.set_filter_path(pth, true); nf += 1
 	bt.add_node("carry", an); bt.add_node("L", b2)
 	bt.connect_node("L", 0, "seek"); bt.connect_node("L", 1, "carry")
-	bt.connect_node("output", 0, "L")
+	# R-C9-119: a SECOND filtered Blend2 for the LEFT arm's book hold (arm_layer_armed with a when_piece), over EVERY clip
+	var lb: Dictionary = ch.get("arm_layer_armed", {})
+	if lb.has("when_piece") and ap.has_animation(String(lb["action"])):
+		var an2 := AnimationNodeAnimation.new(); an2.animation = String(lb["action"])
+		var b3 := AnimationNodeBlend2.new(); b3.filter_enabled = true
+		var seen2 := {}
+		for n3 in ap.get_animation_list():
+			var a3: Animation = ap.get_animation(n3)
+			for i3 in a3.get_track_count():
+				var pth3: NodePath = a3.track_get_path(i3)
+				if String(pth3.get_concatenated_subnames()) in lb["bones"] and not seen2.has(String(pth3)):
+					seen2[String(pth3)] = true; b3.set_filter_path(pth3, true)
+		bt.add_node("book", an2); bt.add_node("LB", b3)
+		bt.connect_node("LB", 0, "L"); bt.connect_node("LB", 1, "book")
+		bt.connect_node("output", 0, "LB")
+		print("[gs] book layer: %s over %d tracks, every clip, when %s is worn" % [lb["action"], seen2.size(), lb["when_piece"]])
+	else:
+		bt.connect_node("output", 0, "L")
 	tree.tree_root = bt
 	tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	tree.active = true
@@ -196,6 +213,12 @@ func _pose(clip: String, t: float, armed: bool) -> void:
 	tree.set("parameters/seek/seek_request", t)
 	var layered: bool = armed and clip in ["idle", "walk", "run"]
 	tree.set("parameters/L/blend_amount", float(ch["arm_layer_armed_R"].get("weight", 1.0)) if layered else 0.0)
+	var lb: Dictionary = ch.get("arm_layer_armed", {})
+	if lb.has("when_piece"):
+		var worn := false
+		for mi in piece_of:
+			if String(piece_of[mi]) == String(lb["when_piece"]) and (mi as MeshInstance3D).visible: worn = true
+		tree.set("parameters/LB/blend_amount", float(lb.get("weight", 1.0)) if worn else 0.0)
 	tree.advance(0.0)
 
 func _shoot() -> void:
