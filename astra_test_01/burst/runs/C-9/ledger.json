@@ -29387,6 +29387,12 @@
       "topic": "Disk under the 20 GiB gate (19 GiB) after the select build; manifest 10 written",
       "note": "The disk watch fired at 20 GiB after the select build (loadout dist 1.0 GB, the 1.8 GB telemetry archive, the new packs). All C-9 lanes had handed back; nothing heavy running. Manifest 10 (4.66 GiB) lists only folders the lanes themselves named releasable at hand-back, plus loadout dist (gitignored build output) and the moved-aside Chrome Metal cache; none tracked. The big lever is telemetry option 1 (delete the 35.6 GB original, keep the verified 1.9 GB zstd archive) -- awaiting Matt.",
       "ts": "2026-10-01T10:36:23"
+    },
+    {
+      "id": "N-C9-TELEMETRY-ARCHIVE",
+      "topic": "The verified telemetry archive: fingerprints and restore",
+      "note": "~/Games/_telemetry_archive/telemetry.db.zst, 1,893,729,515 B, one zstd frame with an XXH64 content check (a3410a48), ratio 18.78. sha256(original telemetry.db) = 10c29db7a545c97d8370d4d5e9efd93dbad1951b3b3b63fa62ea25b46231f3d4 (35,557,154,816 B); the full decompressed stream was re-hashed and matched. sha256(.zst) = 4a3ee0bb286a385020388c4cbae3902f063d20befbb4738f9715b5232f42f220. SHA256SUMS sits beside it. Restore: zstd -d telemetry.db.zst -o ~/Games/reincarnated-engine/data/telemetry.db (needs ~34 GB free), then shasum -a 256 -c SHA256SUMS. NEVER list _telemetry_archive in a cleanup manifest.",
+      "ts": "2026-10-01T10:52:35"
     }
   ]
 }
