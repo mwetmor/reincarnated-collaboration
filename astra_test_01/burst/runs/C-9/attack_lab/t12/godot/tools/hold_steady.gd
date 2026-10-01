@@ -14,6 +14,7 @@ extends SceneTree
 # frames. The haft never leaves the fist's channel in a strike: only its roll changes.
 # env: RESID_OUT (json)
 const DT := 1.0 / 24.0
+var tilt_max := 55.0
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -58,7 +59,8 @@ func _initialize() -> void:
 	var hi := -1e9
 	for v in (mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX] as PackedVector3Array): hi = maxf(hi, (bind * v).y)
 	head_l = Vector3(0, hi * 0.85, 0)
-	for tilt in range(35, 56):
+	if OS.has_environment("RESID_TILT_MAX"): tilt_max = float(OS.get_environment("RESID_TILT_MAX"))   # as guard_residual.gd
+	for tilt in range(35, int(tilt_max) + 1):
 		for az in range(10, 81):
 			var h: Vector3 = (F * cos(deg_to_rad(az)) + R * sin(deg_to_rad(az))) * sin(deg_to_rad(tilt)) + U * cos(deg_to_rad(tilt))
 			if h.dot(F) >= 0.1 and h.dot(R) >= 0.1: region.append(h)
@@ -110,7 +112,7 @@ func _residual(hg: Basis) -> Array:
 	var wg: Basis = hg * W_rest.basis.orthonormalized()
 	var h: Vector3 = (wg * Vector3.UP).normalized(); var e: Vector3 = (wg * Vector3.BACK).normalized()
 	var tl: float = rad_to_deg(h.angle_to(U))
-	var inside: bool = tl >= 35.0 and tl <= 55.0 and h.dot(F) >= 0.1 and h.dot(R) >= 0.1
+	var inside: bool = tl >= 35.0 and tl <= tilt_max and h.dot(F) >= 0.1 and h.dot(R) >= 0.1
 	var q := Quaternion.IDENTITY
 	var turn := 0.0
 	if not inside:

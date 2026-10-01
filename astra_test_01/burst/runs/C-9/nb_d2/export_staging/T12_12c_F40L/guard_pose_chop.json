@@ -1,0 +1,116 @@
+{
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   -0.49904907162684226,
+   -0.22302396688039222,
+   -0.17011265658512142,
+   0.8199219587100184
+  ],
+  "RightForeArm": [
+   0.7790514190818167,
+   0.5663628406308225,
+   -0.14385276115107185,
+   0.22719683599998894
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "clip": "chop_overhead_92",
+ "frames": 15,
+ "capsules": [
+  [
+   "LeftUpLeg",
+   "LeftLeg",
+   0.175
+  ],
+  [
+   "LeftLeg",
+   "LeftFoot",
+   0.11
+  ],
+  [
+   "RightUpLeg",
+   "RightLeg",
+   0.175
+  ],
+  [
+   "RightLeg",
+   "RightFoot",
+   0.11
+  ],
+  [
+   "Hips",
+   "Spine02",
+   0.2
+  ],
+  [
+   "Spine02",
+   "Spine",
+   0.19
+  ],
+  [
+   "Spine",
+   "neck",
+   0.15
+  ],
+  [
+   "neck",
+   "Head",
+   0.15
+  ],
+  [
+   "Head",
+   "head_end",
+   0.12
+  ],
+  [
+   "LeftShoulder",
+   "LeftArm",
+   0.11
+  ],
+  [
+   "LeftArm",
+   "LeftForeArm",
+   0.11
+  ],
+  [
+   "LeftForeArm",
+   "LeftHand",
+   0.075
+  ],
+  [
+   "RightShoulder",
+   "RightArm",
+   0.11
+  ],
+  [
+   "RightArm",
+   "RightForeArm",
+   0.11
+  ]
+ ],
+ "margin_m": 0.02,
+ "standing": {
+  "cost": 0.0,
+  "deepest_m": 0.0,
+  "frames_in": 0
+ },
+ "solved": {
+  "cost": 0.0,
+  "deepest_m": 0.0,
+  "frames_in": 0,
+  "upper_deg": 0.0,
+  "fore_deg": 0.0
+ },
+ "_note": "the axe arm's pose through the shield bash (bash_guard_solve.py); verdict in Godot on the real mesh"
+}

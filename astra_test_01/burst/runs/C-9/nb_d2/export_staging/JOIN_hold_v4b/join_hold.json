@@ -1,0 +1,590 @@
+{
+ "schema": "join-hold-layers/1",
+ "what": "THE JOIN-1 LOADOUT HOLD for the barbarian (d2-ww-barb): sword main hand (weapon_r), axe off hand (weapon_l), for idle, walk and run -- the layer list agreed with the JOIN renderer's drax (runs/C-9/join1_render/scripts/render_cells.gd reads `layers` from this path). Each layer: a filtered Blend2 over the state's clip, bottom to top, at `weight`, in `states`, its action's time by `time`: \"pose\" = frame 0 held; {\"sync\", \"c_base\", \"c_layer\"} = t_layer = fposmod(t / T_base - c_base + c_layer, 1) * T_layer (the left-toe contact phases, knight.gd _contact_phase's rule). filter_from \"all_clips\": every bone in `bones` is filtered, taken from any clip that keys it -- the importer DROPS a rest-valued track, and the guards key the wrist AT REST (the neutral wrist that keeps the haft in the fist's channel); a filtered bone the action lacks blends to rest, which is the intent.",
+ "author": "drax (T12 lane), 2026-09-30",
+ "body": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v4b/nb-body.glb",
+  "sha256": "f2c93bcd3efc4c3ea4e537acc4ccd9116173f9181e2fe79c1236f797063be516",
+  "md5": "35fc9e9bb91c582d48379772d9bf621f"
+ },
+ "body_recipe": "T12_10's body (eb8a3837: T12_9 + the text-to-motion loops fixed; every JOIN clip identical to T12_9's) -> nb_d2/scripts/59_offhand_mount.py (weapon_l's rest = the axe's seat in the left fist) -> nb_d2/scripts/60_pose_clips.py (the six join_guard_* clips). Nothing else differs from T12_10. v2: the six join_guard_* clips re-solved outboard (JOIN_hold_v2/join_guard_*.json).",
+ "pieces": {
+  "main_hand_sword": {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
+   "sha256": "6cae34e20e4aa0ebcf1b62d82e2c4c071cd4daa068c85e751a2aae344b9888cb",
+   "md5": "24e9729920cfe70c56f032fa56f3a59d"
+  },
+  "off_hand_axe": {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v4b/axe_l.glb",
+   "sha256": "976648f0984702362fce108ca2c05d4a643df06d11be428797be4620299faec1",
+   "md5": "e6352d06c958798c8da95ef686686303"
+  },
+  "costume_measured_with": [
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/helmet.glb",
+    "sha256": "82e64331ba443a5dce56ef9338b452c06bea858d33244acf478b441786dab82a",
+    "md5": "185ca9f74af564da3f2443195c0c030f"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/bracers.glb",
+    "sha256": "0e81c2e6c8ac0e2478ca9ef4e3e06576cafd306a07a893aba95ad55fbb953547",
+    "md5": "5254292e1d894902a60f4749c3cc7abb"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/byrnie.glb",
+    "sha256": "492b7b234cb61ca28cb03f9a5f7319df78c59a9c7683372e7fee7d523775e295",
+    "md5": "d1fe5c22eb60be92dc26cc1fff21a802"
+   },
+   {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/mantle.glb",
+    "sha256": "4a84246cdbd78d272380f4f1638fe12f36ebd2477f13423e562652b56baab425",
+    "md5": "54669c6f2298950c9dc0ffcd8d936f70"
+   }
+  ]
+ },
+ "loadout": {
+  "main_hand": "sword",
+  "main_side": "R",
+  "off_hand": "axe",
+  "weapsel": 2
+ },
+ "mount": {
+  "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v4b/weapon_mount.json",
+  "weapon_r": "the T12 seat at roll 0 (unchanged; the -39 roll was an instrument error, ruled out)",
+  "weapon_l": "the axe's seat in the LEFT fist: the right seat mirrored across his sagittal plane, its haft turned 1.32 deg onto the left hand's own channel; the left fist centroid 0.0136 m off the haft (the right side's: 0.0109 m). The axe is the same axe, turned into the hand -- not mirrored"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "weapon_r"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.7768
+  },
+  "off_grip": {
+   "bone": "weapon_l"
+  },
+  "off_tip": {
+   "bone": "weapon_l",
+   "along_bone_m": 0.8089
+  },
+  "edges": "+Z of weapon_r is the sword's edge (sword_edge marker); +Z of weapon_l is the axe's cutting edge (axe_edge marker)",
+  "off_butt_below_grip_m": 0.1046
+ },
+ "morphs": {
+  "grip_R": 1.0,
+  "grip_L": 1.0
+ },
+ "morphs_note": "grip_L closes the left fist on the axe haft (the shield's grip morph). helmet_on was 1 in the measurement (the helmet worn); the kit decides",
+ "states": {
+  "idle": {
+   "clip": "idle_guard"
+  },
+  "walk": {
+   "clip": "walk"
+  },
+  "run": {
+   "clip": "run"
+  }
+ },
+ "contact_phases": {
+  "walk": {
+   "T_s": 1.0333,
+   "contact_phase": 0.32,
+   "samples": 25
+  },
+  "run": {
+   "T_s": 0.6333,
+   "contact_phase": 0.3333,
+   "samples": 15
+  },
+  "walk_armed": {
+   "T_s": 1.7333,
+   "contact_phase": 0.6905,
+   "samples": 42
+  },
+  "run_armed": {
+   "T_s": 0.6667,
+   "contact_phase": 0.3125,
+   "samples": 16
+  }
+ },
+ "layers": [
+  {
+   "name": "upper_walk",
+   "action": "walk_armed",
+   "bones": [
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head"
+   ],
+   "weight": 1.0,
+   "states": [
+    "walk"
+   ],
+   "time": {
+    "sync": "walk",
+    "c_base": 0.32,
+    "c_layer": 0.6905
+   },
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "upper_run",
+   "action": "run_armed",
+   "bones": [
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head"
+   ],
+   "weight": 1.0,
+   "states": [
+    "run"
+   ],
+   "time": {
+    "sync": "run",
+    "c_base": 0.3333,
+    "c_layer": 0.3125
+   },
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_R_idle",
+   "action": "join_guard_R_idle",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "idle"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L_idle",
+   "action": "join_guard_L_idle",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "idle"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_R_walk",
+   "action": "join_guard_R_walk",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "walk"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L_walk",
+   "action": "join_guard_L_walk",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "walk"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_R_run",
+   "action": "join_guard_R_run",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "run"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L_run",
+   "action": "join_guard_L_run",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "run"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  }
+ ],
+ "design": "The upper body is the Barrow's armed gait (walk_armed / run_armed on Spine02..Head, phase-mapped onto the unarmed legs) -- the same torso the game's armed walk and run show. Both arms hold a GUARD solved per state (attack_lab/tools/guard_pose_solve.py --side R/L --cells-offset 0 --azimuth 70): the haft 55 deg from vertical at idle (52.5 at walk and run, whose chests wander 6 and 10 deg), 70 deg outboard -- a symmetric X -- the grip in front at belly-to-chest height, the wrist neutral; idle solved at idle_guard's stance chest, walk and run at their mean chest with the upper layer on. The azimuth is readability's: with the renderer's octant cameras a haft at az and az + 45 reads alike, and 70 keeps the weapons apart.",
+ "measured": {
+  "tool": "attack_lab/t12/godot/tools/join_accept.gd (this spec, the renderer's tree, the body loaded at runtime like the renderer)",
+  "table": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/tables/join_hold_accept_v3.json",
+  "samples": "48 per cycle (the renderer's 12 are every 4th)",
+  "by_state": {
+   "idle": {
+    "clip": "idle_guard",
+    "frames": 48,
+    "clear_min_m": 0.1154,
+    "axe": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      53.9,
+      54.2
+     ],
+     "edge_range_deg": [
+      -8.4,
+      -3.4
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 44.0,
+     "read_worst_dir": "W",
+     "read_min_px": {
+      "E": 122.4,
+      "N": 116.0,
+      "NE": 122.3,
+      "NW": 88.3,
+      "S": 92.2,
+      "SE": 117.4,
+      "SW": 48.0,
+      "W": 44.0
+     }
+    },
+    "sword": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      54.1,
+      54.5
+     ],
+     "edge_range_deg": [
+      -4.9,
+      0.1
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 42.4,
+     "read_worst_dir": "E",
+     "read_min_px": {
+      "E": 42.4,
+      "N": 111.4,
+      "NE": 84.8,
+      "NW": 117.5,
+      "S": 89.1,
+      "SE": 46.7,
+      "SW": 112.9,
+      "W": 117.6
+     }
+    }
+   },
+   "run": {
+    "clip": "run",
+    "frames": 48,
+    "clear_min_m": 0.1238,
+    "axe": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      45.2,
+      56.4
+     ],
+     "edge_range_deg": [
+      -18.3,
+      -1.1
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 29.7,
+     "read_worst_dir": "SW",
+     "read_min_px": {
+      "E": 120.5,
+      "N": 110.0,
+      "NE": 120.8,
+      "NW": 76.3,
+      "S": 78.7,
+      "SE": 110.4,
+      "SW": 29.7,
+      "W": 30.1
+     }
+    },
+    "sword": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      45.8,
+      58.5
+     ],
+     "edge_range_deg": [
+      -9.6,
+      7.7
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 32.5,
+     "read_worst_dir": "SE",
+     "read_min_px": {
+      "E": 33.3,
+      "N": 107.7,
+      "NE": 77.0,
+      "NW": 116.2,
+      "S": 79.7,
+      "SE": 32.5,
+      "SW": 107.5,
+      "W": 116.0
+     }
+    }
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 48,
+    "clear_min_m": 0.1259,
+    "axe": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      46.7,
+      57.5
+     ],
+     "edge_range_deg": [
+      -9.0,
+      -4.0
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 35.7,
+     "read_worst_dir": "W",
+     "read_min_px": {
+      "E": 121.2,
+      "N": 112.8,
+      "NE": 121.1,
+      "NW": 84.1,
+      "S": 86.6,
+      "SE": 113.7,
+      "SW": 38.6,
+      "W": 35.7
+     }
+    },
+    "sword": {
+     "at_guard": 1.0,
+     "at_guard_renderer_12": 1.0,
+     "tilt_range_deg": [
+      47.8,
+      57.3
+     ],
+     "edge_range_deg": [
+      -8.4,
+      -3.2
+     ],
+     "pen_max": 0,
+     "hand_contact_max": 0,
+     "read_worst_px": 35.1,
+     "read_worst_dir": "E",
+     "read_min_px": {
+      "E": 35.1,
+      "N": 108.8,
+      "NE": 80.9,
+      "NW": 116.7,
+      "S": 82.2,
+      "SE": 36.3,
+      "SW": 109.1,
+      "W": 116.6
+     }
+    }
+   }
+  },
+  "reading": "both weapons at guard on 100% of frames in idle, walk and run (and on the renderer's 12); 0 penetration and 0 hand contact; the weapons never nearer than 0.115 m; each weapon's worst direction keeps 30-44 px of its ~120 px (the haft seen end-on in its own weak diagonal: the sword SE/E, the axe SW/W), and in that direction the other weapon reads at 107-122 px"
+ },
+ "pieces_list": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/helmet.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/bracers.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/byrnie.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/mantle.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v4b/axe_l.glb"
+ ],
+ "weapons": [
+  {
+   "name": "sword",
+   "bone": "weapon_r",
+   "hand": "RightHand",
+   "side": "R",
+   "edge_marker": "sword_edge"
+  },
+  {
+   "name": "axe",
+   "bone": "weapon_l",
+   "hand": "LeftHand",
+   "side": "L",
+   "edge_marker": "axe_edge"
+  }
+ ],
+ "states_measured": {
+  "idle": "idle_guard",
+  "walk": "walk",
+  "run": "run"
+ },
+ "measure_keys_note": "pieces_list, weapons, states_measured: what attack_lab/t12/godot/tools/join_accept.gd reads to re-measure this spec as it stands",
+ "version": "JOIN_hold_v4b",
+ "v2": "JOIN hold v2 (Matt, R-C9-93: 'move the axe arm further out towards his shoulder... The same goes for the other hand when holding a weapon'): the six join_guard_* poses re-solved with BOTH fists outboard -- guard_pose_solve.py with v1's arguments (--stance-key 53 --cells-offset 0 --azimuth 70; tilt 55 idle, 52.5 walk and run at their mean chests; --side L for the axe) and the grip box's outboard range raised (v1 0.12-0.32 m: the solves sat on its inner edge, 0.116-0.119): the sword 0.16-0.22, the axe 0.143-0.20 (the two hands then read alike); at the walk's and the run's twisted chests the outboard component is taken in the CHEST's frame (--box-frame chest), so the fist is off the TORSO's centreline. Same guard hafts, wrists neutral, layers, weights, filters and timing; only the six clips' keys differ. Body = v1's (b5371921) with the six clips replaced (60_pose_clips.py).",
+ "v2_fist": {
+  "what": "each fist's offset from his centreline over the same side's shoulder half-width, in the chest's frame (join_accept.gd FIST): the grip (the weapon bone's mount) from the chest joint, along the weapon's outboard side, over the shoulder ball joint's",
+  "v1": {
+   "idle": {
+    "sword": 0.59,
+    "axe": 0.63
+   },
+   "walk": {
+    "sword": 0.39,
+    "axe": 0.9
+   },
+   "run": {
+    "sword": 0.16,
+    "axe": 1.28
+   }
+  },
+  "v2": {
+   "idle": {
+    "sword": 0.78,
+    "axe": 0.76
+   },
+   "walk": {
+    "sword": 0.77,
+    "axe": 0.79
+   },
+   "run": {
+    "sword": 0.76,
+    "axe": 0.79
+   }
+  },
+  "weapons_nearest_m": {
+   "v1": {
+    "idle": 0.115,
+    "run": 0.124,
+    "walk": 0.126
+   },
+   "v2": {
+    "idle": 0.168,
+    "run": 0.171,
+    "walk": 0.185
+   }
+  }
+ },
+ "v4": "JOIN hold JOIN_hold_v4b (Matt R-C9-107: 'could we tilt the axe's blade just a bit more inwards so it lines up a bit more with his aim'): v3 (both fists at the shoulder line) with the AXE hand's haft turned further in, azimuth 60 -> 45 (grip box 0.183-0.22 m as v3); the sword's three guards are v3's, unchanged",
+ "v4_measured": {
+  "by": "attack_lab/t12/godot/tools/join_accept.gd (48 frames per state) + nb_join/scripts/j_joint_lint.py read-only (idle_guard, walk, run: PASS)",
+  "states": {
+   "idle": {
+    "weapons_closest_m": 0.195,
+    "axe": {
+     "tip_forward_deg": 55.7,
+     "fist": 1.0,
+     "tilt": 53.8,
+     "edge": -20,
+     "worst_screen_px": 35,
+     "worst_dir": "SW",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    },
+    "sword": {
+     "tip_forward_deg": 66.1,
+     "fist": 0.98,
+     "tilt": 53.8,
+     "edge": -8,
+     "worst_screen_px": 38,
+     "worst_dir": "SE",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    }
+   },
+   "run": {
+    "weapons_closest_m": 0.199,
+    "axe": {
+     "tip_forward_deg": 56.0,
+     "fist": 1.01,
+     "tilt": 51.8,
+     "edge": -28,
+     "worst_screen_px": 22,
+     "worst_dir": "SW",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    },
+    "sword": {
+     "tip_forward_deg": 66.5,
+     "fist": 0.97,
+     "tilt": 50.9,
+     "edge": -2,
+     "worst_screen_px": 21,
+     "worst_dir": "SE",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    }
+   },
+   "walk": {
+    "weapons_closest_m": 0.212,
+    "axe": {
+     "tip_forward_deg": 56.8,
+     "fist": 1.02,
+     "tilt": 50.6,
+     "edge": -26,
+     "worst_screen_px": 24,
+     "worst_dir": "SW",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    },
+    "sword": {
+     "tip_forward_deg": 67.4,
+     "fist": 0.97,
+     "tilt": 51.2,
+     "edge": 2,
+     "worst_screen_px": 27,
+     "worst_dir": "SE",
+     "pen": 0,
+     "hand_contact": 0,
+     "guard_pass": 1.0
+    }
+   }
+  },
+  "table": "nb_d2/tables/join_table_JOIN_hold_v4b_35fc9e9b.json",
+  "sheet_8_headings": "Desktop review: join_hold_v4b_axe_az45_8_headings.jpg"
+ }
+}

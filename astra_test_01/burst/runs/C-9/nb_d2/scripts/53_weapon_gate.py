@@ -112,6 +112,8 @@ def gate(table, states=None, strike_set=None):
             continue
         r = c[cn]
         ok = r["pass_frac"] >= HOLD_MIN
+        if table.get("tilt_max", 60.0) != 60.0:
+            rows.append(("NOTE", cn, "INFO", "guard predicate measured with tilt <= %.0f deg (ACCEPT_TILT_MAX, a lab view; the standing bound is 60)" % table["tilt_max"]))
         turn = (", fist turn %.1f/%.1f deg" % (r["turn_med"], r["turn_p90"])) if "turn_med" in r else ""
         rows.append(("HOLD", cn, "PASS" if ok else "FAIL",
                      "%d%% of frames at guard (tilt %.0f, fwd %+.2f, out %+.2f, head out %+.2f, edge %+.0f%s)"
@@ -169,6 +171,10 @@ def gate(table, states=None, strike_set=None):
                         (" -- " + ", ".join("%s %d" % kv for kv in sorted(r["pen_parts"].items()))) if r.get("pen_parts") else "")))
         if not ok:
             fails.append("PEN %s" % cn)
+    for cn in holds:
+        if cn in c and "tip_fwd" in c[cn]:
+            rows.append(("TIP", cn, "INFO", "tip-forward: the axe's grip->tip axis %.1f deg off his forward (R-C9-115); butt to hip %.3f m"
+                         % (c[cn]["tip_fwd"], c[cn].get("butt_clear_min_m", -1))))
     for cn in holds:
         if cn not in c or "elbow_min" not in c[cn]:
             continue

@@ -3,7 +3,7 @@ extends SceneTree
 # guard layer at its configured weight) and keyed on each SOURCE clip's own time:
 #   walk -> walk_armed, run -> run_armed (the split's upper clips), strafe_l/_r -> strafe_L/R_armed.
 # Per frame: the smallest turn of the haft into the guard predicate with a 5 deg margin (tilt
-# 35-55, forward and outboard >= 0.1) -- 0 when it is already inside -- and the roll about the
+# 35-55 -- the upper bound RESID_TILT_MAX --, forward and outboard >= 0.1) -- 0 when it is already inside -- and the roll about the
 # haft that brings the edge within 40 deg of his forward. Resampled onto a uniform key grid of the
 # clip, wrapped (the clips loop).
 #   STRIKES (attack, attack_chop), raw: weapon_r at its rest (the mount) when the head is slow;
@@ -12,6 +12,7 @@ extends SceneTree
 # frames. The haft never leaves the fist's channel in a strike: only its roll changes.
 # env: RESID_OUT (json)
 const DT := 1.0 / 24.0
+var tilt_max := 55.0
 const RIGHT := Vector3(0.681998491287231, 0.0, -0.731353580951691)
 const UP := Vector3(-0.583728015422821, 0.60246217250824, -0.54433536529541)
 const FWD := Vector3(-0.440612882375717, -0.798147439956665, -0.410878270864487)
@@ -56,7 +57,10 @@ func _initialize() -> void:
 	var hi := -1e9
 	for v in (mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX] as PackedVector3Array): hi = maxf(hi, (bind * v).y)
 	head_l = Vector3(0, hi * 0.85, 0)
-	for tilt in range(35, 56):
+	# RESID_TILT_MAX (T12_12c, R-C9-115): the region's upper tilt -- a guard pitched forward past 55 keeps its pitch in the
+	# locomotion clips instead of being turned back up to 55 (default 55, the T12 rule)
+	if OS.has_environment("RESID_TILT_MAX"): tilt_max = float(OS.get_environment("RESID_TILT_MAX"))
+	for tilt in range(35, int(tilt_max) + 1):
 		for az in range(10, 81):
 			var h: Vector3 = (F * cos(deg_to_rad(az)) + R * sin(deg_to_rad(az))) * sin(deg_to_rad(tilt)) + U * cos(deg_to_rad(tilt))
 			if h.dot(F) >= 0.1 and h.dot(R) >= 0.1: region.append(h)
@@ -105,7 +109,7 @@ func _residual(hg: Basis) -> Array:
 	var wg: Basis = hg * W_rest.basis.orthonormalized()
 	var h: Vector3 = (wg * Vector3.UP).normalized(); var e: Vector3 = (wg * Vector3.BACK).normalized()
 	var tl: float = rad_to_deg(h.angle_to(U))
-	var inside: bool = tl >= 35.0 and tl <= 55.0 and h.dot(F) >= 0.1 and h.dot(R) >= 0.1
+	var inside: bool = tl >= 35.0 and tl <= tilt_max and h.dot(F) >= 0.1 and h.dot(R) >= 0.1
 	var q := Quaternion.IDENTITY
 	var turn := 0.0
 	if not inside:

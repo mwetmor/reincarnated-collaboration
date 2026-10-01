@@ -128,6 +128,18 @@ def main():
         best = min(table, key=lambda r: abs(r[3] - az_f) + abs(r[2] - tl_f))
     wmin, wmean, tilt, az, sc = best
     h_world = (math.cos(math.radians(az)) * F + math.sin(math.radians(az)) * RS) * math.sin(math.radians(tilt)) + U * math.cos(math.radians(tilt))
+    if '--pitch-fwd' in sys.argv:
+        # T12_12c (Matt R-C9-115: 'the blade/tip pointed more forward'): the haft turned TOWARD his forward by this many degrees,
+        # in the plane of the haft and his forward -- its tip-forward angle (grip->tip against his aim) falls by exactly that
+        pf = math.radians(float(sys.argv[sys.argv.index('--pitch-fwd') + 1]))
+        a0 = math.acos(max(-1.0, min(1.0, float(h_world @ F))))
+        perp = h_world - float(h_world @ F) * F; perp /= np.linalg.norm(perp)
+        a1 = max(a0 - pf, 0.0)
+        h_world = math.cos(a1) * F + math.sin(a1) * perp
+        tilt = math.degrees(math.acos(float(h_world @ U))); az = math.degrees(math.atan2(float(h_world @ RS), float(h_world @ F)))
+        sc = screen(h_world); wmin = min(l for l, _ in sc); wmean = float(np.mean([l for l, _ in sc]))
+        print("pitch forward %.0f deg: tip-forward %.1f -> %.1f deg; the haft now tilt %.1f, azimuth %.1f; worst cell %.2f, mean %.2f"
+              % (math.degrees(pf), math.degrees(a0), math.degrees(a1), tilt, az, wmin, wmean))
     fwd45 = [r for r in table if abs(r[2] - 45) < 1e-6 and abs(r[3] - 45) < 1e-6][0]
     print("readability: best guard haft tilt %.1f deg, azimuth %.0f deg (forward -> outboard): worst cell %.2f, mean %.2f of true length"
           % (tilt, az, wmin, wmean))
@@ -234,9 +246,34 @@ def main():
                     elbow_flex=math.degrees(math.acos(max(-1, min(1, float(up_dir @ ((elbow - M1[:3, 3]) if False else up_dir)))))),
                     qa=qa, qf=qf, M=(M1, M2, M3, M4))
 
+    # --elbow-lint MIN: the nb_join joint lint's elbow measure (j_joint_lint.py, read and mirrored, not imported): the forearm's
+    # direction in the UPPER ARM's own frame against the hinge direction the lint learned from the library (jlint learned.axes);
+    # flexion = bend x cos(phi off that direction). The plain bend angle cannot see a humerus rolled past 90 deg, which reads as
+    # the elbow bending backwards (T12_12c: pitched 37+ deg, the solver's cheapest branch put the forearm twist at ~155 and the
+    # lint's flexion at -6..-67 while the bend was 95). Penalise flexion under MIN.
+    ELB_MIN = float(sys.argv[sys.argv.index('--elbow-lint') + 1]) if '--elbow-lint' in sys.argv else None
+    NAT_DIR = np.array([0.4699668394712067, 1.2347127842597921e-05, -0.8826840712536924]) if SIDE != 'L' else \
+        np.array([-0.5068919263327467, 2.3524204857310536e-06, -0.8620096142231497])
+
+    def lint_flex(t):
+        M1, M2, M3, M4 = t["M"]
+        Ru = M1[:3, :3] / np.linalg.norm(M1[:3, :3], axis=0)
+        ax = Ru.T @ (M2[:3, 3] - M1[:3, 3]); ax = ax / np.linalg.norm(ax)
+        d = Ru.T @ (M3[:3, 3] - M2[:3, 3]); d = d / np.linalg.norm(d)
+        th = math.degrees(math.acos(max(-1, min(1, float(d @ ax)))))
+        dev = d - (d @ ax) * ax; nd = np.linalg.norm(dev)
+        nn = NAT_DIR - (NAT_DIR @ ax) * ax; nn = nn / np.linalg.norm(nn)
+        if nd < 1e-9:
+            return th
+        dv = dev / nd; phi = math.atan2(float(np.cross(nn, dv) @ ax), float(nn @ dv))
+        return th * math.cos(phi)
+
     def obj(x):
         t = terms(x)
-        return t["ang"] ** 2 + 4e4 * t["pen"] + t["epen"] + 40.0 * t["prior"]
+        f = t["ang"] ** 2 + 4e4 * t["pen"] + t["epen"] + 40.0 * t["prior"]
+        if ELB_MIN is not None:
+            f += 100.0 * max(0.0, ELB_MIN - lint_flex(t)) ** 2
+        return f
 
     bestx, bestf = None, 1e18
     rng = np.random.default_rng(7)
@@ -259,6 +296,7 @@ def main():
     fore_vs_haft = math.degrees(math.acos(max(-1, min(1, float(fa_n @ t["haft"])))))
     print("pose: haft %.2f deg off the guard; grip fwd %+.3f out %+.3f up %+.3f m of the chest (box fwd %s out %s up %s); edge heading %+.1f deg"
           % (t["ang"], t["grip"] @ F, t["grip"] @ RS, t["grip"] @ U, BOX["fwd"], BOX["out"], BOX["up"], t["hd"]))
+    print("      elbow flexion as the joint lint reads it: %.1f deg%s" % (lint_flex(t), (" (--elbow-lint %.0f)" % ELB_MIN) if ELB_MIN is not None else ""))
     print("      forearm to haft %.1f deg (square = 90); elbow bend %.1f deg; arm moved from the walk's mean arm by %.1f deg (upper) %.1f deg (fore)"
           % (fore_vs_haft, flex, math.degrees(np.linalg.norm(bestx[:3])), math.degrees(np.linalg.norm(bestx[3:]))))
     # the predicate over the idle's own chest motion (the pose rides the chest)

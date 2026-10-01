@@ -1,0 +1,122 @@
+{
+ "stance": {
+  "key": 53,
+  "t": 1.7666666507720947,
+  "source_t": 1.8,
+  "was": {
+   "key": 43,
+   "t": 1.7916666269302368,
+   "chest_yaw": -1.5327705562803442,
+   "grid": "24 fps (the D2 Blender resample)"
+  },
+  "match_to_was": {
+   "worst_joint_m": 0.0184,
+   "worst_rotation_deg": 1.58
+  },
+  "rule_repick_rejected": {
+   "key": 25,
+   "t": 0.8333333134651184,
+   "chest_yaw": -0.626,
+   "why": "guard_pose_solve.py's argmin-|chest yaw| rule, run on the re-cut idle's 30 fps keys, picks a DIFFERENT moment of the idle (0.833 s) -- a different held stance. The loop fix must not change how he stands, so the stance is held at the T12_8 moment: the re-cut idle's key nearest it."
+  }
+ },
+ "readability": {
+  "tilt": 55.0,
+  "azimuth": 50.0,
+  "worst": 0.31032526773017194,
+  "mean": 0.7819990392514033,
+  "per_cell": [
+   {
+    "cell_yaw": 47.0,
+    "screen_px": 53.6,
+    "screen_angle": 2.5
+   },
+   {
+    "cell_yaw": 92.0,
+    "screen_px": 53.5,
+    "screen_angle": -33.4
+   },
+   {
+    "cell_yaw": 137.0,
+    "screen_px": 48.4,
+    "screen_angle": -65.1
+   },
+   {
+    "cell_yaw": 182.0,
+    "screen_px": 33.0,
+    "screen_angle": -98.6
+   },
+   {
+    "cell_yaw": 227.0,
+    "screen_px": 16.7,
+    "screen_angle": -172.1
+   },
+   {
+    "cell_yaw": 272.0,
+    "screen_px": 30.4,
+    "screen_angle": 104.4
+   },
+   {
+    "cell_yaw": 317.0,
+    "screen_px": 47.0,
+    "screen_angle": 69.2
+   },
+   {
+    "cell_yaw": 362.0,
+    "screen_px": 53.2,
+    "screen_angle": 37.9
+   }
+  ],
+  "centre_45_45": {
+   "worst": 0.1402149867513324,
+   "mean": 0.7139620327619691
+  }
+ },
+ "guard_world_his_frame": [
+  -0.6275068715971331,
+  0.573576436351046,
+  0.5265407845183633
+ ],
+ "side": "R",
+ "pose": {
+  "RightShoulder": [
+   0.5446392521628334,
+   -0.44767240951686654,
+   0.4069298598893008,
+   0.5808318068867667
+  ],
+  "RightArm": [
+   0.5724219821518571,
+   -0.5042591162338848,
+   -0.30359196766507884,
+   0.5708657768807012
+  ],
+  "RightForeArm": [
+   0.34394581770366667,
+   -0.4833142058549154,
+   0.674441879479008,
+   -0.43958708364533616
+  ],
+  "RightHand": [
+   0.08229272300954656,
+   -0.1285581690996174,
+   -0.16989980701117333,
+   0.9735680559782965
+  ]
+ },
+ "checks": {
+  "haft_off_guard_deg": 1.5961625938894002,
+  "grip_m": [
+   -0.19948465521947115,
+   -0.3525161386198382,
+   0.24757583239580525
+  ],
+  "edge_heading": -16.090682156627803,
+  "forearm_to_haft_deg": 87.45143322749199,
+  "elbow_bend_deg": 98.4159782482024,
+  "predicate_idle_pct": 62
+ },
+ "damp_spine": 0.1,
+ "damp_head": 0.3,
+ "_note": "T12_12b az50: guard_pose_solve.py --stance-key 53 --azimuth 50 --tilt 55 --box 0.25,0.45,0.203,0.24,-0.35,-0.08"
+}
