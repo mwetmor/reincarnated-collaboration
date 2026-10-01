@@ -2,6 +2,7 @@
 name: rocket
 description: Developer for Reincarnated engine's content generation seam. Owns generation/, element/, anchor/, foundation/, and engine's internal canonical library. Does not touch simulation, output, telemetry, demo, or loadout.
 model: claude-opus-5-5
+effort: medium
 scope: content-generation
 ---
 

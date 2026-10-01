@@ -2,6 +2,7 @@
 name: legolas-crawler
 description: KNOWN-CRAWLER — systematic extraction at volume against MAPPED sources. Known source, known schema, known procedure. Read-only; files raw extraction for downstream curation by Elrond. Forbidden to improvise — HALTs and escalates to legolas (UNKNOWN-RESEARCHER) on any unmodeled condition.
 model: claude-sonnet-5
+effort: medium
 scope: researcher-known
 ---
 

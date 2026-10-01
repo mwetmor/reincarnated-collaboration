@@ -37,22 +37,24 @@ This team is structured to attack all four. It is **not** primarily about parall
 
 > **Legolas re-pin — 2026-09-30 (Matt: "move the researcher to opus 5.5 and the crawler to sonnet 5.5").** `legolas` `claude-opus-5` → `claude-opus-5-5`; `legolas-crawler` `claude-haiku-4-5` → `claude-sonnet-5`. No Sonnet 5.5 model ID exists on this host's model list (Opus 5.5 · Sonnet 5 · Haiku 4.5 · Fable 5.1), so the crawler is pinned to the current Sonnet, Sonnet 5; re-pin if a Sonnet 5.5 ships. The crawler stays the cheaper lane; its HALT-don't-infer law is unchanged. All 11 agents are now on the Claude 5 family.
 
+> **Effort tiers — 2026-10-01 (Matt: agreed, "keep jack ryan at high", crawler "keep him at medium").** Each agent file now carries `effort:`, which overrides the starting session's effort (before this, every sub-agent inherited the session's level, `high` for Opus 5.5). **Decision points** (gandalf, jack-ryan) and **investigation** (legolas, elrond, galadriel) stay `high`; **spec-driven building** (drax, gamora, star-lord, rocket) and **coordination** (knight-rider) are `medium`; `legolas-crawler` is `medium` (already on a cheaper model). The Effort column below mirrors the frontmatter, which wins on disagreement. No per-call effort exists; if a builder's decision-like work (e.g. gamora's prereg authoring) proves thin at medium, the remedy is a high-effort variant agent, added on evidence.
+
 ### The team (12 entities)
 
-| Entity | Role | Model | Writes production code? |
-|---|---|---|---|
-| **Matt** (Senior Architect) | Final approval; design direction | (human) | No (reviews) |
-| `knight-rider` | Orchestrator / Communicator | **Opus 5.5** | **No** — coordinates only |
-| `jack-ryan` | Analyst / QA — technical critique side | **Opus 5.5** | **No** — reviews + maintains design docs |
-| `gandalf` | Story and Design Steward — generative critique side | **Opus 5.5** | **No** — design docs and pushback only |
-| `rocket` | Developer (content generation) | **Opus 5.5** | Yes |
-| `gamora` | Developer (simulation + spirit guide) | **Opus 5.5** | Yes |
-| `star-lord` | Developer (output / telemetry / LLM) | **Opus 5.5** | Yes |
-| `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5.5** | Yes |
-| `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5.5** | **No** — read-only research output |
-| `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Sonnet 5** | **No** — read-only extraction output |
-| `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5.5** | **No** — schemas, curation, abstraction analysis |
-| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5.5** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
+| Entity | Role | Model | Effort | Writes production code? |
+|---|---|---|---|---|
+| **Matt** (Senior Architect) | Final approval; design direction | (human) | — | No (reviews) |
+| `knight-rider` | Orchestrator / Communicator | **Opus 5.5** | medium | **No** — coordinates only |
+| `jack-ryan` | Analyst / QA — technical critique side | **Opus 5.5** | high | **No** — reviews + maintains design docs |
+| `gandalf` | Story and Design Steward — generative critique side | **Opus 5.5** | high | **No** — design docs and pushback only |
+| `rocket` | Developer (content generation) | **Opus 5.5** | medium | Yes |
+| `gamora` | Developer (simulation + spirit guide) | **Opus 5.5** | medium | Yes |
+| `star-lord` | Developer (output / telemetry / LLM) | **Opus 5.5** | medium | Yes |
+| `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5.5** | medium | Yes |
+| `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5.5** | high | **No** — read-only research output |
+| `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Sonnet 5** | medium | **No** — read-only extraction output |
+| `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5.5** | high | **No** — schemas, curation, abstraction analysis |
+| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5.5** | high | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
 
 **The known/unknown research split (Matt ruling, 2026-07-24).** The research seam divides on whether the territory is mapped. `legolas` establishes method where none exists; `legolas-crawler` executes method at volume where it does. *He finds out how; the crawler does it at volume.* The cheap lane is safe only under two conditions written into its charter: (1) the **non-improvisation law** — it HALTs and escalates rather than guessing, and a HALT is a success, not a failure; (2) the **TSR-4 tier-2 dependency** — it may only feed lanes carrying in-pipe mechanical asserts on every row. An unguarded lane does not get the cheap crawler.
 

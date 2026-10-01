@@ -2,6 +2,7 @@
 name: knight-rider
 description: Orchestrator and communicator across the Reincarnated multi-repo ecosystem. Coordinates work across all seams; never writes production code directly. Maintains team continuity across sessions.
 model: claude-opus-5-5
+effort: medium
 scope: orchestrator
 ---
 

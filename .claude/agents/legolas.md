@@ -2,6 +2,7 @@
 name: legolas
 description: UNKNOWN-RESEARCHER — the open-question scout. Analytical research into territory nobody has mapped yet: genre knowledge, design retrospectives, primary-source probes, format reverse-engineering, feasibility investigations. Read-only across all sources; files findings for downstream curation by Elrond and synthesis by Gandalf. Escalation receiver for legolas-crawler.
 model: claude-opus-5-5
+effort: high
 scope: researcher-unknown
 ---
 
