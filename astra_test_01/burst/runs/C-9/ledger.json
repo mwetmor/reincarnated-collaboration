@@ -27470,6 +27470,11 @@
       "id": "M-C9-JOIN-DRAFT-V4B",
       "note": "JOIN draft v4b (e09c37da5): R-C9-115 tips forward solved by a HAFT RE-SEAT (weapon rest turned 20 deg in the fist on top of the F25 wrist), tip-forward idle 65/64 -> 21/22 deg, no joint change, pen 0; R30 bites the forearm. Lessons: wrist alone caps at F30; raising forearm/upper arm pitches an up-outboard guard BACKWARD (conductor spec error, v5); opening the elbow puts the sword into the leg. Whirlwind v9 (v7 recipe from the v4b stance) PASS. attack_candidate_sameside: hand-authored overhead chop on his own side, contact 47.4% (tick 7/15), joint/pen PASS, a 4/20-key screen overlap in the wind-up (INFO). Library Route 2 (6 Meshy credits: 4 Attack, 97 Left Slash) and the diagonal chop all failed the cross check; the diagonal also clips the hip on return (235). Pack 56/56 re-rendered; set film artifacts/JOIN-draft-v4b-set-...-2x.mp4. Death 14 sword verts at 2 keys (INFO). For Matt: the v4b set, same-side vs cross-body attack, the war cry and Meteor timing conflicts with the D2 packet.",
       "ts": "2026-10-01T04:47:27"
+    },
+    {
+      "id": "M-C9-CRATER-V4",
+      "note": "Crater v4 behind ?meteor=mix4 (5befea1f4; loadout 9ebc111 held): Blender crater (bowl, broken rim, 7-9 fault grooves, feathered skirt; 3 variants, never rotated) + one guided Astra paint-over per variant projected back into UVs + painted emission masks cooling over the 12.6 s fire field + painted particles (kit ember, one new smoke sheet, settling debris). Astra 11, fal $0. Budget desktop +0.92 ms (first/fourth cast 18.9/18.6 ms), page +0.21-0.24 ms (cold first 28.3 ms). Fall 0.82 s default, ?fall=2.4 exposed. Conductor look: a clear step up from v3 -- reads as a painted, real crater with snow-chunk rim. Note: crater meshes and paintings under godot/data/vfx/crater_v4/ are gitignored (disk + built packs only); sources are the Astra outputs in artifacts/. The VFX pipeline extension (3D -> paint-over -> particles) is proven on its first case.",
+      "ts": "2026-10-01T04:52:33"
     }
   ],
   "halts": [
