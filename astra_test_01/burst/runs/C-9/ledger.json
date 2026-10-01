@@ -29234,6 +29234,15 @@
         "Lastly, to be honest, both the barbarian and the dark knight have wide legged stances generally, and I think it would be better to take the legs in a bit so they don't walk flat-footed."
       ],
       "ts": "2026-10-01T17:47:29"
+    },
+    {
+      "id": "R-C9-123",
+      "by": "Matt",
+      "ruling": "Dark knight two-handed set from the MIXAMO GREAT SWORD PACK (Matt downloads it with his own Adobe account; the lane retargets onto his rig); and YES, narrow his base so the feet stand about hip width (rest-pose adduction on the mesh and pieces, re-rig, re-fetch the kept clips). Stage-J search finding: no Meshy library family covers 2H idle+walk+run+attack; his rest pose stands 1.63x hip, which every clip inherits.",
+      "verbatim": [
+        "(AskUserQuestion) 2H set: \"Mixamo Great Sword pack\"; Narrow base: \"Yes, narrow the base (Recommended)\""
+      ],
+      "ts": "2026-10-01T18:05:32"
     }
   ],
   "grok_calls": [
@@ -30141,6 +30150,12 @@
       "topic": "The dark knight's carry was assembled from arm poses grafted out of attack clips; a stock family would have avoided it",
       "note": "Stages G-I chose the carry by scoring single keys of 14 library clips (idle arms from \"Reaping Swing\", walk/run from \"Attack\") and grafting them in world space onto upright bodies. Each metric passed (tip bearing, elevation, clearance) but the composite reads wrong to Matt: shoulders pinched, right arm high, and no unarmed set at all. Lesson for D5: for a held weapon class, find one consistent stock family (idle/walk/run/attack) first and judge it by eye at the game camera before grafting; metrics passing on a composite pose is not a look passing. The conductor's stage-G brief (\"ready diagonal, head forward at shoulder height\") steered toward the raised arm.",
       "ts": "2026-10-01T17:46:54"
+    },
+    {
+      "id": "N-C9-ROBE-RUN-EXPOSURE",
+      "topic": "Robe re-skin: the numbers passed, the render found bare legs in run; the conductor's own \"never shins\" rule caused it",
+      "note": "Robe v5/v6 (hem on Hips + thigh, zero shin) removed the blocky motion (walk stretch 563 -> 0) but in RUN the rear leg kicks near-horizontal and the bare thigh/shin exits the back of the robe (id-pass body pixels 7,597 -> 9,069; v7 8,590). \"Never shins or feet\" was the conductor's brief, not Matt's words; his objection was the blockiness (hard single-bone weights). Disposition: A (dark leggings, texture-only) main on v7, C (back-hem shin share ~0.25, smooth) measured as the comparison.",
+      "ts": "2026-10-01T18:05:32"
     }
   ]
 }
