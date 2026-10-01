@@ -24821,9 +24821,131 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-BCH3",
+      "type": "GENERATE",
+      "experiment": "R-C9-103-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "2641ea7e5ce0a8b7dd2a65e684e446dac61ad689d08dd3903ff340f2df954f20",
+      "started": "2026-10-01T02:24:22.624851+00:00",
+      "ended": "2026-10-01T02:26:32.303446+00:00",
+      "minutes": 2.1612737520830705,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f546-fb62-7130-9d7a-75eba6bf90a8/exec-3f8ca4bc-53fb-4cc6-a9a2-927e25923604.png",
+            "sha256": "55619a139376b3649f9c7546de824564a204b4dc6c5eac8161278023f853f792"
+          }
+        ]
+      },
+      "receipt_sha256": "3d34d350c41d103a54446abfd848201af96232aeed4b34d92c3e9af9f8480f00",
+      "artifacts": [
+        {
+          "name": "GS-BCH3.png",
+          "sha256": "55619a139376b3649f9c7546de824564a204b4dc6c5eac8161278023f853f792"
+        },
+        {
+          "name": "exec-3f8ca4bc-53fb-4cc6-a9a2-927e25923604.provenance.json",
+          "sha256": "eaecd17131708a86ad9b8ee9e61172a9497dacc155026b61a07d5e985e5f3b16"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f546-fb62-7130-9d7a-75eba6bf90a8/exec-3f8ca4bc-53fb-4cc6-a9a2-927e25923604.png",
+          "sha256": "55619a139376b3649f9c7546de824564a204b4dc6c5eac8161278023f853f792"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-BCH4",
+      "type": "GENERATE",
+      "experiment": "R-C9-103-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "3269d8a14066abfe4b9aaab2f7b7bb1f5dcbed484c239170a4a158adb2840b7f",
+      "started": "2026-10-01T02:24:22.624925+00:00",
+      "ended": "2026-10-01T02:26:46.865199+00:00",
+      "minutes": 2.4039610187503664,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f546-f787-7863-85a4-aa7c1b34bb9f/exec-5b382186-70bf-4468-a6cf-c62926ac5e35.png",
+            "sha256": "fce9301e4360de9cee8da070fa9814e7481c46ed4b9d63f532e0be524d0d1f55"
+          }
+        ]
+      },
+      "receipt_sha256": "623879ec33c42487b4a2a888db5b4089114be89f1fec6fd81e6a695ab9af287c",
+      "artifacts": [
+        {
+          "name": "GS-BCH4.png",
+          "sha256": "fce9301e4360de9cee8da070fa9814e7481c46ed4b9d63f532e0be524d0d1f55"
+        },
+        {
+          "name": "exec-5b382186-70bf-4468-a6cf-c62926ac5e35.provenance.json",
+          "sha256": "ff1f23650bd8a4f14ea33b930b22dd6368345802238aab152076c423af2f38a0"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f546-f787-7863-85a4-aa7c1b34bb9f/exec-5b382186-70bf-4468-a6cf-c62926ac5e35.png",
+          "sha256": "fce9301e4360de9cee8da070fa9814e7481c46ed4b9d63f532e0be524d0d1f55"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 728,
+  "images_used": 730,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -25734,6 +25856,11 @@
       "id": "M-C9-JOIN-WARCRY-V5",
       "note": "War cry v5 (bdb5c2ba9): 1.8x (1.17 s played), legs held in his battle stance (feet 0.30 m across, planted), no crossed arms by j_cross_check.py (wrists and blade tips stay on their own side; negative control FAILs), joint limits PASS, draft pack d2-ww-barb 56/56 with shout re-rendered. Film sent to Matt; awaiting his look.",
       "ts": "2026-09-30T22:07:13"
+    },
+    {
+      "id": "M-C9-GLAD-1DE",
+      "note": "Stage 1d (GS-BCH3, apron + pelts) and 1e (GS-BCH4, lion plaque + pelt kilt), one edit each, no retry, both register like 1c; commit df5f9d867. Contact sheet sent to Matt.",
+      "ts": "2026-09-30T22:29:08"
     }
   ],
   "halts": [
@@ -26594,6 +26721,25 @@
       "topic": "Armor picks: the sorceress's scarlet hood (not the flame wings); the gladiator's chest piece, helm and shoulder kept, less nude, no weapons on the character",
       "ruling": "Matt verbatim: \"Regarding the sorceress helm, I don't like the flame wings, but the hood is great. Let's just use that. Per the barbarian, I like the chest piece, helm and shoulder now. Two issues: Without the pants he looks too nude.. maybe we change the kilt or add something underneath.. secondarily, he has a sword at his hips which is not good for a character generation.. he needs no weapons.\" Disposition: SORCERESS stage 2 GO on GS-SHOOD with wand a and grimoire a (the conductor's recommendations, unobjected; the book at ~26 cm), fal from the R-C9-98 $3.00 budget. BARBARIAN stage 1c: an EDIT of GS-BCH_b with the strap skirt lengthened to mid-thigh over a fitted under-layer (a padded linen tunic hem or close dark leather short breeches), the rudis removed (no weapons on the character); his stage 2 after Matt passes 1c; maul v2 b as the prop. (The conductor's 'grander helmet' retry is dropped: Matt likes the helm.)",
       "ts": "2026-09-30T21:53:40"
+    },
+    {
+      "id": "R-C9-103",
+      "by": "Matt",
+      "ruling": "Barbarian lower body: paint option 3 (champion girdle, studded front apron, split lion-pelt sides and back) WITHOUT breeches, then also option 1 (girdle with lion-face plaque, pelt kilt split at the sides), no breeches, a dark loincloth only in gaps, no weapon.",
+      "verbatim": [
+        "We can try number 3 without pants",
+        "Number 1 would also be good to paint"
+      ],
+      "ts": "2026-09-30T22:29:08"
+    },
+    {
+      "id": "R-C9-104",
+      "by": "Matt",
+      "ruling": "His war-cry notes (crossed arms, narrower stance, faster) were meant for the WHIRLWIND. War cry v6 = v4 arms at 1.5x with his battle-stance legs; whirlwind v5 = no crossing, idle_guard feet, ~1.2x spin.",
+      "verbatim": [
+        "Oops that's a bit too fast on the warcry.. and the hands weren't crossed, and the feet should just be whatever battle stance/idle is.. I meant to provide all of those recommendations for whirlwind. That was my fault."
+      ],
+      "ts": "2026-09-30T22:29:08"
     }
   ],
   "grok_calls": [
