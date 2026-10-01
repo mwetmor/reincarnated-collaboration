@@ -1,0 +1,3148 @@
+{
+ "title": "EoR Warlord (EoRWarlGuts, b28gD0KN) \u2014 animation, timing, VFX and gear of record",
+ "date": "2026-10-01",
+ "commissioner": "gandalf (for the C-9 animation session)",
+ "agent": "legolas (UNKNOWN-RESEARCHER)",
+ "grade_vocabulary": {
+  "DATAMINED": "read from GD .arz/.arc by this pass or a cited prior legolas decode",
+  "PACK": "kc2 model pack v3-E-s09-cp150-mech-v3p7p1-20261001_021247, row id given",
+  "SAVE": "decoded from the referent player.gdc",
+  "COMMUNITY-VERIFIED": "third-party (grimtools) confirmed on camera",
+  "INFERRED": "derived; reasoning stated",
+  "UNKNOWN": "not established; settle-by given"
+ },
+ "sources": {
+  "arz": "~/Games/vendor/grim-dawn-edition-IV-20260929 (build 24825149) database.arz + GDX1-3; my reader scratch arz.py (TQIT/LZ4 per gd_arz_adapter_2026_07_24 FORMAT TRUTH)",
+  "anm_census": "agentic_orchestration/legolas/scratch/2026-08-08-kc2-threat-grammar/anm_events.json (3,452 clips from Edition III Creatures.arc x5, base sha256 bdafb010...; fps 30 on all). The Edition IV pin carries NO .arc files and no Creatures.arc exists on the Mac today, so timings are Edition III. anm_malepc mace2h slots are byte-identical Edition II vs IV; asset parity III vs IV UNVERIFIED.",
+  "anm_format": "legolas/research/2026-07-30-wr3-stage2-referent-extraction.md \u00a70",
+  "census_caveat": "the census keeps the FIRST archive holding a name (base before gdx1/2/3). If an expansion overrides a same-named base clip, the census shows the base one. UNVERIFIED for the clips below.",
+  "text": "~/depots/*/24346246 Text_EN.arc (Edition II) for names"
+ },
+ "gear_of_record": {
+  "weapon_style": {
+   "value": "TWO-HANDED MACE (GD style prefix mace2h). No shield, no off-hand.",
+   "grade": "DATAMINED + SAVE + PACK-CONSISTENT",
+   "evidence": [
+    "Gutsmasher records/items/gearweapons/melee2h/d107_blunt2h.dbr Class=WeaponMelee_Mace2h, mesh items/gearweapons/melee2h/hammer2h_013a_02.msh (DATAMINED, Edition IV GDX2.arz)",
+    "save weapon-sets[0] = Gutsmasher + empty slot 1 (attached=0); weapon-sets[1] empty (SAVE, player.gdc sha256 b8e6f510...)",
+    "Chance to Block 0% on the measured sheet (ceremony 2026-08-05 #519); pack cites mace2h_d107_eyeofreckoning (IC7 annotations, player_kit secondary streams)",
+    "eyeofreckoning1.dbr Mace2h=1 (EoR legal); the 2H stance uses the sword2h clip set (anm_malepc mace2h* fields)"
+   ]
+  },
+  "slots": [
+   {
+    "slot": "head",
+    "record": "records/items/upgraded/gearhead/d028_head.dbr",
+    "archive": "gdx2",
+    "name": "Warborn Visor",
+    "fields": {
+     "Class": "ArmorProtective_Head",
+     "armorClassification": "Heavy",
+     "armorFemaleMesh": "items/gearhead/headf_004a_05.msh",
+     "armorMaleMesh": "items/gearhead/head_004a_05.msh",
+     "augmentMasteryLevel1": 1,
+     "augmentMasteryLevel2": 1,
+     "augmentMasteryName1": "records/skills/playerclass01/_classtraining_class01.dbr",
+     "augmentMasteryName2": "records/skills/playerclass08/_classtraining_class08.dbr",
+     "augmentSkillLevel1": 2,
+     "augmentSkillName1": "records/skills/playerclass09/eyeofreckoning1.dbr",
+     "bitmap": "items/gearhead/bitmaps/d028_head.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "defensiveProtection": 1666.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagHeadD028",
+     "itemSetName": "records/items/lootsets/itemset_d025b.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 94,
+     "mesh": "items/gearhead/head_004a_05.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compb_arcanediamond.dbr",
+     "archive": "base",
+     "name": "^kPrismatic Diamond",
+     "Class": "ItemRelic",
+     "skill": "records/skills/itemskills/componentskills/compb_diamond_prismaticrage.dbr",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "itemLevel": 60,
+      "itemSkillName": "records/skills/itemskills/componentskills/compb_diamond_prismaticrage.dbr",
+      "itemText": "tagCompB004Desc",
+      "levelRequirement": 55,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c203a_enchant.dbr",
+     "archive": "gdx2",
+     "name": "Bysmiel's Veiltouch",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantag_green.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 90,
+      "itemText": "tagGDX2EnchantC203Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "craft_modifier": {
+     "record": "records/items/lootaffixes/crafting/ad201_slowresist.dbr",
+     "archive": "gdx2",
+     "name": "",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 1
+     }
+    }
+   },
+   {
+    "slot": "amulet",
+    "record": "records/items/gearaccessories/necklaces/b201e_necklace.dbr",
+    "archive": "gdx2",
+    "name": "Kaisan's Burning Eye",
+    "fields": {
+     "Class": "ArmorJewelry_Amulet",
+     "augmentAllLevel": 1,
+     "baseTexture": "items/gearaccessories/rings/ringgold16.tex",
+     "bitmap": "items/gearaccessories/necklaces/b201_eldritchnemesis.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "itemClassification": "Rare",
+     "itemLevel": 94,
+     "itemNameTag": "tagGDX2NecklaceB201",
+     "itemText": "tagGDX2NecklaceB201_Desc",
+     "levelRequirement": 94,
+     "mesh": "items/gearaccessories/rings/ring.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compb_sealannihilation.dbr",
+     "archive": "gdx1",
+     "name": "^kSeal of Annihilation",
+     "Class": "ItemRelic",
+     "skill": "records/skills/itemskillsgdx1/componentskills/compb_annihilation.dbr",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterAttackSpeedModifier": 5.0,
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "characterSpellCastSpeedModifier": 5.0,
+      "itemClassification": "Rare",
+      "itemLevel": 75,
+      "itemSkillName": "records/skills/itemskillsgdx1/componentskills/compb_annihilation.dbr",
+      "itemText": "tagGDX1CompB105Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/b130a_enchant.dbr",
+     "archive": "gdx1",
+     "name": "Arcanum Dust",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchanty_black.tex",
+      "itemClassification": "Rare",
+      "itemLevel": 90,
+      "itemText": "tagGDX1EnchantB130Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "prefix": {
+     "record": "records/items/lootaffixes/prefix/b_ar024_ar_f.dbr",
+     "archive": "gdx1",
+     "name": "Imposing",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "levelRequirement": 92,
+      "lootRandomizerName": "tagPrefixB024_Ar_A"
+     }
+    },
+    "suffix": {
+     "record": "records/items/lootaffixes/suffix/a014b_ch_speedattack_03_je.dbr",
+     "archive": "base",
+     "name": "of Alacrity",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterAttackSpeedModifier": 8.0,
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 35,
+      "lootRandomizerName": "tagSuffixA014"
+     }
+    }
+   },
+   {
+    "slot": "chest",
+    "record": "records/items/upgraded/geartorso/d026_torso.dbr",
+    "archive": "gdx2",
+    "name": "Warborn Chestguard",
+    "fields": {
+     "Class": "ArmorProtective_Chest",
+     "armorClassification": "Heavy",
+     "armorFemaleMesh": "items/geartorso/torso_heavy_002-01b_f.msh",
+     "armorMaleMesh": "items/geartorso/torso_heavy_002-01b_m.msh",
+     "augmentSkillLevel1": 3,
+     "augmentSkillLevel2": 3,
+     "augmentSkillLevel3": 2,
+     "augmentSkillLevel4": 2,
+     "augmentSkillName1": "records/skills/playerclass01/cadence3.dbr",
+     "augmentSkillName2": "records/skills/playerclass01/warcry2.dbr",
+     "augmentSkillName3": "records/skills/playerclass08/weaponpool01.dbr",
+     "augmentSkillName4": "records/skills/playerclass09/eyeofreckoning1.dbr",
+     "baseTexture": "items/geartorso/torso_heavy_002-02_m_08d_dif.tex",
+     "bitmap": "items/geartorso/bitmaps/d026_torso.tex",
+     "bumpTexture": "items/geartorso/torso_heavy_002-02_m_08d_nml.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "defensiveProtection": 1908.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagTorsoD026",
+     "itemSetName": "records/items/lootsets/itemset_d025b.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 94,
+     "mesh": "items/geartorso/torso_heavy_002-01b_m.msh",
+     "offensivePhysicalMax": 13.0,
+     "offensivePhysicalMin": 7.0
+    },
+    "component": {
+     "record": "records/items/materia/compb_chainsofoleron.dbr",
+     "archive": "base",
+     "name": "^kChains of Oleron",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "characterRunSpeedModifier": 6.0,
+      "itemClassification": "Rare",
+      "itemLevel": 35,
+      "itemText": "tagCompB002Desc",
+      "levelRequirement": 27,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c104a_enchant.dbr",
+     "archive": "gdx1",
+     "name": "Malmouth Soulguard Powder",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantz_teal.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 90,
+      "itemText": "tagGDX1EnchantC104Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    }
+   },
+   {
+    "slot": "legs",
+    "record": "records/items/gearlegs/b002e_legs.dbr",
+    "archive": "gdx1",
+    "name": "Solael-Sect Legguards",
+    "fields": {
+     "Class": "ArmorProtective_Legs",
+     "armorClassification": "Light",
+     "armorFemaleMesh": "items/gearlegs/legsf_001b_03.msh",
+     "armorMaleMesh": "items/gearlegs/legs_001b_03.msh",
+     "baseTexture": "items/gearlegs/legs_005i_dif.tex",
+     "bitmap": "items/gearlegs/bitmaps/b002_legs.tex",
+     "bumpTexture": "items/gearlegs/legs_005i_nml.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "defensiveProtection": 1501.0,
+     "itemClassification": "Rare",
+     "itemLevel": 94,
+     "itemNameTag": "tagLegsB002",
+     "levelRequirement": 94,
+     "mesh": "items/gearlegs/legs_001b_03.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compb_ancientarmorplate.dbr",
+     "archive": "base",
+     "name": "^kAncient Armor Plate",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "itemLevel": 16,
+      "itemText": "tagCompB007Desc",
+      "levelRequirement": 15,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c06a_enchant.dbr",
+     "archive": "base",
+     "name": "Mogdrogen's Touch",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantr_yellow.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 70,
+      "itemText": "tagEnchantC006Desc",
+      "levelRequirement": 70,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "prefix": {
+     "record": "records/items/lootaffixes/prefix/b_ar007_ar_f.dbr",
+     "archive": "gdx1",
+     "name": "Devastating",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "levelRequirement": 92,
+      "lootRandomizerName": "tagPrefixB007_Ar_A"
+     }
+    },
+    "suffix": {
+     "record": "records/items/lootaffixes/suffix/a007b_ch_att_all_10.dbr",
+     "archive": "gdx1",
+     "name": "of the Eagle",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 90,
+      "lootRandomizerName": "tagSuffixA007"
+     }
+    }
+   },
+   {
+    "slot": "feet",
+    "record": "records/items/upgraded/gearfeet/d007_feet.dbr",
+    "archive": "gdx3",
+    "name": "Windshear Greaves",
+    "fields": {
+     "Class": "ArmorProtective_Feet",
+     "armorClassification": "Light",
+     "armorFemaleMesh": "items/gearfeet/feetf_009a_04.msh",
+     "armorMaleMesh": "items/gearfeet/feet_009a_04.msh",
+     "augmentSkillLevel1": 2,
+     "augmentSkillLevel2": 2,
+     "augmentSkillLevel3": 2,
+     "augmentSkillLevel4": 2,
+     "augmentSkillLevel5": 2,
+     "augmentSkillName1": "records/skills/playerclass04/wpattack2.dbr",
+     "augmentSkillName2": "records/skills/playerclass04/wpattack3.dbr",
+     "augmentSkillName3": "records/skills/playerclass01/blitz2.dbr",
+     "augmentSkillName4": "records/skills/playerclass01/cadence2.dbr",
+     "augmentSkillName5": "records/skills/playerclass10/wpattack01.dbr",
+     "bitmap": "items/gearfeet/bitmaps/d007_feet.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "characterRunSpeedModifier": 10.0,
+     "defensiveProtection": 1105.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagFeetD007",
+     "itemSkillName": "records/skills/itemskills/legendary/item_windshear.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 94,
+     "mesh": "items/gearfeet/feet_009a_04.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compa_spellscorchedplating.dbr",
+     "archive": "gdx1",
+     "name": "Spellscorched Plating",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Common",
+      "itemLevel": 75,
+      "itemText": "tagGDX1CompA116Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c14a_enchant.dbr",
+     "archive": "base",
+     "name": "Spellward Powder",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantq_deepblue.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 70,
+      "itemText": "tagEnchantC014Desc",
+      "levelRequirement": 70,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "craft_modifier": {
+     "record": "records/items/lootaffixes/crafting/ad201_slowresist.dbr",
+     "archive": "gdx2",
+     "name": "",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 1
+     }
+    }
+   },
+   {
+    "slot": "hands",
+    "record": "records/items/gearhands/d206_hands.dbr",
+    "archive": "gdx3",
+    "name": "Sandreaver Bracers",
+    "fields": {
+     "Class": "ArmorProtective_Hands",
+     "armorClassification": "Light",
+     "armorFemaleMesh": "items/gearhands/handsf_020a_01.msh",
+     "armorMaleMesh": "items/gearhands/hands_020a_01.msh",
+     "augmentSkillLevel1": 3,
+     "augmentSkillLevel2": 2,
+     "augmentSkillLevel3": 3,
+     "augmentSkillLevel4": 2,
+     "augmentSkillLevel5": 2,
+     "augmentSkillName1": "records/skills/playerclass09/presenceofvirtue1.dbr",
+     "augmentSkillName2": "records/skills/playerclass01/shieldhammer3.dbr",
+     "augmentSkillName3": "records/skills/playerclass08/soulsiphon2.dbr",
+     "augmentSkillName4": "records/skills/playerclass09/eyeofreckoning1.dbr",
+     "augmentSkillName5": "records/skills/playerclass10/leap1.dbr",
+     "baseTexture": "items/gearhands/hands_020b_01_dif.tex",
+     "bitmap": "items/gearhands/bitmaps/d203_hands.tex",
+     "characterAttackSpeedModifier": 17.0,
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "characterSpellCastSpeedModifier": 17.0,
+     "defensiveProtection": 1104.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagGDX2HandsD203",
+     "itemSkillName": "records/skills/itemskillsgdx2/legendary/bloodpool.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "itemText": "tagGDX2HandsD203_Desc",
+     "levelRequirement": 94,
+     "mesh": "items/gearhands/hands_020a_01.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compa_restlessremains.dbr",
+     "archive": "base",
+     "name": "Restless Remains",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "characterSpellCastSpeedModifier": 10.0,
+      "itemClassification": "Common",
+      "itemLevel": 30,
+      "itemText": "tagCompA036Desc",
+      "levelRequirement": 24,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c14a_enchant.dbr",
+     "archive": "base",
+     "name": "Spellward Powder",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantq_deepblue.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 70,
+      "itemText": "tagEnchantC014Desc",
+      "levelRequirement": 70,
+      "mesh": "items/misc/bag01.msh"
+     }
+    }
+   },
+   {
+    "slot": "ring1",
+    "record": "records/items/gearaccessories/rings/d110_ring.dbr",
+    "archive": "gdx1",
+    "name": "Combustion Band",
+    "fields": {
+     "Class": "ArmorJewelry_Ring",
+     "augmentSkillLevel1": 2,
+     "augmentSkillLevel2": 2,
+     "augmentSkillLevel3": 2,
+     "augmentSkillLevel4": 2,
+     "augmentSkillName1": "records/skills/playerclass07/purifyingflame1.dbr",
+     "augmentSkillName2": "records/skills/playerclass07/purifyingflame3.dbr",
+     "augmentSkillName3": "records/skills/playerclass03/sigilofdestruction2.dbr",
+     "augmentSkillName4": "records/skills/playerclass02/flamestrike1.dbr",
+     "baseTexture": "items/gearaccessories/rings/ringgold16.tex",
+     "bitmap": "items/gearaccessories/rings/d104_ring_combustionband.tex",
+     "characterAttackSpeedModifier": 8.0,
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "characterSpellCastSpeedModifier": 8.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 84,
+     "itemNameTag": "tagGDX1RingD104",
+     "itemSkillName": "records/skills/itemskillsgdx1/legendary/combustion.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 84,
+     "mesh": "items/gearaccessories/rings/ring.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compa_runeboundtopaz.dbr",
+     "archive": "gdx1",
+     "name": "Runebound Topaz",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "itemLevel": 75,
+      "itemText": "tagGDX1CompA113Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/b126a_enchant.dbr",
+     "archive": "gdx1",
+     "name": "Steelbloom Powder",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchanty_white.tex",
+      "itemClassification": "Rare",
+      "itemLevel": 90,
+      "itemText": "tagGDX1EnchantB126Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh",
+      "offensivePhysicalMin": 12.0
+     }
+    }
+   },
+   {
+    "slot": "ring2",
+    "record": "records/items/gearaccessories/rings/b103e_ring.dbr",
+    "archive": "gdx2",
+    "name": "Gargabol's Ring",
+    "fields": {
+     "Class": "ArmorJewelry_Ring",
+     "augmentSkillLevel1": 3,
+     "augmentSkillLevel2": 3,
+     "augmentSkillLevel3": 3,
+     "augmentSkillName1": "records/skills/playerclass02/grenado1.dbr",
+     "augmentSkillName2": "records/skills/playerclass03/doombolt1.dbr",
+     "augmentSkillName3": "records/skills/playerclass09/righteousfervor1.dbr",
+     "baseTexture": "items/gearaccessories/rings/ringgold16.tex",
+     "bitmap": "items/gearaccessories/rings/b103_ring_heartofthewild.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "itemClassification": "Rare",
+     "itemLevel": 94,
+     "itemNameTag": "tagGDX1RingB103",
+     "itemText": "tagGDX1RingB103_Desc",
+     "levelRequirement": 94,
+     "mesh": "items/gearaccessories/rings/ring.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compa_bloodiedcrystal.dbr",
+     "archive": "gdx1",
+     "name": "Bloodied Crystal",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "defensiveProtection": 75.0,
+      "itemClassification": "Magical",
+      "itemLevel": 75,
+      "itemText": "tagGDX1CompA114Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/b130a_enchant.dbr",
+     "archive": "gdx1",
+     "name": "Arcanum Dust",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchanty_black.tex",
+      "itemClassification": "Rare",
+      "itemLevel": 90,
+      "itemText": "tagGDX1EnchantB130Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "prefix": {
+     "record": "records/items/lootaffixes/prefix/aa009b_oamod_01.dbr",
+     "archive": "base",
+     "name": "Aggressive",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "lootRandomizerName": "tagPrefixAA009"
+     }
+    },
+    "suffix": {
+     "record": "records/items/lootaffixes/suffix/b_ar051_je_f.dbr",
+     "archive": "gdx1",
+     "name": "of Oleron's Wrath",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "augmentSkillLevel1": 2,
+      "augmentSkillName1": "records/skills/playerclass01/cadence1.dbr",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "levelRequirement": 92,
+      "lootRandomizerName": "tagSuffixB051_Ar_A"
+     }
+    }
+   },
+   {
+    "slot": "belt",
+    "record": "records/items/gearaccessories/waist/d108_waist.dbr",
+    "archive": "gdx2",
+    "name": "Gladiator's Distinction",
+    "fields": {
+     "Class": "ArmorProtective_Waist",
+     "augmentSkillLevel1": 3,
+     "augmentSkillLevel2": 3,
+     "augmentSkillLevel3": 3,
+     "augmentSkillLevel4": 2,
+     "augmentSkillName1": "records/skills/playerclass08/weaponpool01.dbr",
+     "augmentSkillName2": "records/skills/playerclass01/weaponpool1.dbr",
+     "augmentSkillName3": "records/skills/playerclass06/weaponpool01.dbr",
+     "augmentSkillName4": "records/skills/playerclass09/presenceofvirtue1.dbr",
+     "bitmap": "items/gearaccessories/waist/d102_waist_gladiatorsdistinction.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "defensiveProtection": 96.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagGDX1WaistD102",
+     "itemSkillName": "records/skills/itemskillsgdx1/legendary/gladiatorpersistence.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 94,
+     "mesh": "items/gearaccessories/waist/belt.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compa_spellscorchedplating.dbr",
+     "archive": "gdx1",
+     "name": "Spellscorched Plating",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Common",
+      "itemLevel": 75,
+      "itemText": "tagGDX1CompA116Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c203a_enchant.dbr",
+     "archive": "gdx2",
+     "name": "Bysmiel's Veiltouch",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantag_green.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 90,
+      "itemText": "tagGDX2EnchantC203Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    }
+   },
+   {
+    "slot": "shoulders",
+    "record": "records/items/upgraded/gearshoulders/d026_shoulder.dbr",
+    "archive": "gdx2",
+    "name": "Warborn Pauldrons",
+    "fields": {
+     "Class": "ArmorProtective_Shoulders",
+     "armorClassification": "Heavy",
+     "armorFemaleMesh": "items/gearshoulders/shouldersf_022c_01.msh",
+     "armorMaleMesh": "items/gearshoulders/shoulders_022c_01.msh",
+     "augmentSkillLevel1": 2,
+     "augmentSkillLevel2": 2,
+     "augmentSkillLevel3": 2,
+     "augmentSkillLevel4": 2,
+     "augmentSkillName1": "records/skills/playerclass01/cadence1.dbr",
+     "augmentSkillName2": "records/skills/playerclass01/cadence2.dbr",
+     "augmentSkillName3": "records/skills/playerclass08/spectralarmor2.dbr",
+     "augmentSkillName4": "records/skills/playerclass09/eyeofreckoning2.dbr",
+     "baseTexture": "items/gearshoulders/shoulders_022d_01_dif.tex",
+     "bitmap": "items/gearshoulders/bitmaps/d026_shoulder.tex",
+     "bumpTexture": "items/gearshoulders/shoulders_022d_01_nml.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "defensiveProtection": 1666.0,
+     "itemClassification": "Legendary",
+     "itemLevel": 94,
+     "itemNameTag": "tagShoulderD026",
+     "itemSetName": "records/items/lootsets/itemset_d025b.dbr",
+     "itemStyleTag": "tagStyleUniqueTier3",
+     "levelRequirement": 94,
+     "mesh": "items/gearshoulders/shoulders_022c_01.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compb_livingarmor.dbr",
+     "archive": "gdx1",
+     "name": "^kLiving Armor",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "itemLevel": 75,
+      "itemText": "tagGDX1CompB102Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/c203a_enchant.dbr",
+     "archive": "gdx2",
+     "name": "Bysmiel's Veiltouch",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantag_green.tex",
+      "itemClassification": "Epic",
+      "itemLevel": 90,
+      "itemText": "tagGDX2EnchantC203Desc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "craft_modifier": {
+     "record": "records/items/lootaffixes/crafting/ao14_oa.dbr",
+     "archive": "base",
+     "name": "",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 1
+     }
+    }
+   },
+   {
+    "slot": "medal",
+    "record": "records/items/gearaccessories/medals/b016e_medal.dbr",
+    "archive": "gdx2",
+    "name": "Mark of Harvoul",
+    "fields": {
+     "Class": "ArmorJewelry_Medal",
+     "augmentSkillLevel1": 3,
+     "augmentSkillLevel2": 3,
+     "augmentSkillName1": "records/skills/playerclass01/warcry2.dbr",
+     "augmentSkillName2": "records/skills/playerclass09/viremight3.dbr",
+     "bitmap": "items/gearaccessories/medals/b16_medal_harvoul.tex",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "itemClassification": "Rare",
+     "itemLevel": 94,
+     "itemNameTag": "tagMedalB016",
+     "levelRequirement": 94,
+     "mesh": "items/gearaccessories/medals/medal_mark_03b.msh"
+    },
+    "component": {
+     "record": "records/items/materia/compb_arcanespark.dbr",
+     "archive": "base",
+     "name": "^kArcane Spark",
+     "Class": "ItemRelic",
+     "skill": "",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "itemLevel": 45,
+      "itemText": "tagCompB019Desc",
+      "levelRequirement": 35,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/runes/d203_rune.dbr",
+     "archive": "gdx2",
+     "name": "Rune of Violent Delights",
+     "Class": "ItemEnchantment",
+     "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/runes/rune_chargethrough_03_golden.tex",
+      "itemClassification": "Legendary",
+      "itemLevel": 90,
+      "itemSkillName": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+      "itemText": "tagGDX2RuneDDesc",
+      "levelRequirement": 90,
+      "mesh": "items/misc/bag01.msh"
+     }
+    },
+    "prefix": {
+     "record": "records/items/lootaffixes/prefix/b_ar024_ar_f.dbr",
+     "archive": "gdx1",
+     "name": "Imposing",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Rare",
+      "levelRequirement": 92,
+      "lootRandomizerName": "tagPrefixB024_Ar_A"
+     }
+    },
+    "suffix": {
+     "record": "records/items/lootaffixes/suffix/a028b_off_dmg%phys_09_je.dbr",
+     "archive": "gdx1",
+     "name": "of Ruin",
+     "Class": "LootRandomizer",
+     "skill": "",
+     "fields": {
+      "Class": "LootRandomizer",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "levelRequirement": 90,
+      "lootRandomizerName": "tagSuffixA028"
+     }
+    }
+   },
+   {
+    "slot": "relic",
+    "record": "records/items/gearrelic/d114_relic.dbr",
+    "archive": "gdx1",
+    "name": "Deathstalker",
+    "fields": {
+     "Class": "ItemArtifact",
+     "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+     "description": "tagGDX1RelicD114",
+     "itemClassification": "Legendary",
+     "itemLevel": 90,
+     "itemSkillName": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+     "itemText": "tagGDX1RelicD114Desc",
+     "levelRequirement": 90,
+     "mesh": "items/gearrelics/relic01.msh"
+    }
+   },
+   {
+    "slot": "weapon_set_1_main",
+    "record": "records/items/gearweapons/melee2h/d107_blunt2h.dbr",
+    "archive": "gdx2",
+    "name": "Gutsmasher",
+    "fields": {
+     "Class": "WeaponMelee_Mace2h",
+     "augmentMasteryLevel1": 2,
+     "augmentMasteryLevel2": 2,
+     "augmentMasteryName1": "records/skills/playerclass01/_classtraining_class01.dbr",
+     "augmentMasteryName2": "records/skills/playerclass03/_classtraining_class03.dbr",
+     "augmentSkillLevel1": 4,
+     "augmentSkillLevel2": 4,
+     "augmentSkillName1": "records/skills/playerclass06/savagery1.dbr",
+     "augmentSkillName2": "records/skills/playerclass09/eyeofreckoning1.dbr",
+     "bitmap": "items/gearweapons/melee2h/bitmaps/d107_hammer2h.tex",
+     "characterAttackSpeedModifier": 24.0,
+     "characterBaseAttackSpeed": -0.18000000715255737,
+     "characterBaseAttackSpeedTag": "tagAttackSpeedVerySlow",
+     "itemClassification": "Legendary",
+     "itemLevel": 84,
+     "itemNameTag": "tagGDX1WeaponMelee2hD107",
+     "itemSkillName": "records/skills/itemskillsgdx1/legendary/gutsplosion.dbr",
+     "itemText": "tagGDX1WeaponMelee2hD107_Desc",
+     "levelRequirement": 84,
+     "mesh": "items/gearweapons/melee2h/hammer2h_013a_02.msh",
+     "offensivePhysicalMax": 740.0,
+     "offensivePhysicalMin": 144.0,
+     "weaponTrail": "records/fx/fxtrails/defaultsword_fxtrail.dbr"
+    },
+    "component": {
+     "record": "records/items/materia/compa_sealmight.dbr",
+     "archive": "gdx1",
+     "name": "Seal of Might",
+     "Class": "ItemRelic",
+     "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+     "fields": {
+      "Class": "ItemRelic",
+      "characterBaseAttackSpeedTag": "CharacterAttackSpeedAverage",
+      "itemClassification": "Magical",
+      "itemLevel": 75,
+      "itemSkillName": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+      "itemText": "tagGDX1CompA101Desc",
+      "levelRequirement": 75,
+      "mesh": "items/misc/bag01.msh",
+      "offensivePhysicalMin": 13.0
+     }
+    },
+    "augment": {
+     "record": "records/items/enchants/b06a_enchant.dbr",
+     "archive": "base",
+     "name": "Potent Oleron's Fervor",
+     "Class": "ItemEnchantment",
+     "skill": "",
+     "fields": {
+      "Class": "ItemEnchantment",
+      "bitmap": "items/enchants/enchantg_orange.tex",
+      "itemClassification": "Rare",
+      "itemLevel": 50,
+      "itemText": "tagEnchantB006Desc",
+      "levelRequirement": 50,
+      "mesh": "items/misc/bag01.msh"
+     }
+    }
+   }
+  ],
+  "sources": {
+   "oracle": "The pack does NOT carry an item-by-item gear list: provenance.json ABS-NOT-RECOVERED-GEAR (\"NOT RECOVERED (L-90) ... the item-by-item basis of those totals is not\"), searched MD-B4app-2d save decode. It runs on the aggregate sheet (PRV-PLAYER-SHEET) and cites individual item records where a constant needed one: mace2h_d107_eyeofreckoning (Gutsmasher EoR modifier), hands_d206_eyeofreckoning (Sandreaver), compb_sealannihilation (amulet component), compb_chainsofoleron (chest component), d007_feet (Windshear), d114_relic (Deathstalker), d203_rune (medal augment), all in input_closure.json / player_kit.json.",
+   "save": "player.gdc sha256 b8e6f510650dad0b12d60115d119b266283eda674c9c1a7186220ec93454bfa5, identical at /Volumes/reincarnated/matt-notes-from-pc/gd-save/_EoRWarlGuts/, /Volumes/reincarnated/GD-matt-test/eor-test-2/save/_EoRWarlGuts/ and legolas/scratch/2026-08-05-eorwarlguts-parse/; decoded 2026-08-05 (legolas/notes/2026-08-05-eorwarlguts-save-parse.md \u00a73); re-read here from p_gdc.json",
+   "grimtools": "b28gD0KN not fetched (grimtools robots.txt disallows ClaudeBot). Compared on camera by gandalf 2026-08-05 (gandalf/notes/2026-08-05-eor-ceremony-cross-verification.md \u00a7A): 13/13 slots name-identical. COMMUNITY-VERIFIED via that screenshot comparison.",
+   "agreement": "All three agree on every item name. No conflict to adjudicate; the oracle is silent per-slot rather than divergent."
+  }
+ },
+ "speed_inputs": {
+  "attack_speed_pct": {
+   "value": 196,
+   "grade": "PACK",
+   "row": "player_kit.channel.attack_speed_pct (PRV-PLAYER-SHEET)"
+  },
+  "cast_speed_pct": {
+   "value": 184,
+   "grade": "PACK-SOURCE",
+   "row": "data/kc2/pm2_measured_player_sheet.csv cast_speed (the PRV-PLAYER-SHEET source, sha256 6852794382b9...); not lifted as a pack row"
+  },
+  "attacks_per_second": {
+   "value": 2.66,
+   "grade": "PACK-SOURCE",
+   "row": "pm2_measured_player_sheet.csv attacks_per_second; ceremony #511"
+  },
+  "weapon_attacks_per_second": {
+   "value": 1.46,
+   "grade": "PACK-SOURCE",
+   "row": "pm2_measured_player_sheet.csv weapon_attacks_per_second (Gutsmasher tooltip)"
+  },
+  "run_speed_pct": {
+   "value": 135,
+   "grade": "PACK-SOURCE",
+   "row": "pm2_measured_player_sheet.csv run_speed; equals gameengine.playerRunSpeedCapMax 135 (DATAMINED)"
+  },
+  "player_attack_speed_cap_pct": {
+   "value": 200,
+   "grade": "DATAMINED",
+   "row": "records/game/gameengine.dbr playerAttackSpeedCapMax"
+  },
+  "pc_base": {
+   "characterAttackSpeed": 1.25,
+   "characterSpellCastSpeed": 1.25,
+   "grade": "DATAMINED",
+   "row": "records/creatures/pc/malepc01.dbr"
+  },
+  "weapon_base": {
+   "characterBaseAttackSpeed": -0.18,
+   "attackSpeedTag": "tagAttackSpeedVerySlow",
+   "grade": "DATAMINED",
+   "row": "d107_blunt2h.dbr"
+  }
+ },
+ "channel_eye_of_reckoning": {
+  "record": "records/skills/playerclass09/eyeofreckoning1.dbr (GDX2) Class Skill_AttackRadiusSpin",
+  "tick_period_s": {
+   "value": 0.0816326530612245,
+   "grade": "PACK",
+   "row": "rng_contract.tick.tick_period_s (PRV-MPOL2-SEAL, \"= 1/12.25\"); math_rules RULE-RELEASE-TYPE-A/B test vectors; KP-68 cites the first post-tick sample t=0.0816 s"
+  },
+  "ticks_per_s": {
+   "value": 12.25,
+   "grade": "PACK",
+   "row": "input_closure_v3p7p1 ticks_per_s; V15-1 decomposition 16.0 x 12.25 x 0.90 = 176.4"
+  },
+  "tick_law": {
+   "value": "tick_period = 0.16 s x 100/attack_speed_pct = 0.16 x 100/196",
+   "grade": "INFERRED (strong) per legolas/notes/2026-08-07-pe1-eor-spin-parameters.md \u00a71.4; reproduces the pack value exactly"
+  },
+  "tick_db": {
+   "timeBetweenAttacks": 200,
+   "in_game_text": "At 100% Attack Speed, Eye of Reckoning deals damage and drains Energy every 0.16s.",
+   "grade": "DATAMINED (arz + Text_EN tagGDX2Class09SkillDescription07A)",
+   "conversion": "x0.8 (200 -> 0.16 s) holds on 9 channel skills (PE-1 \u00a71.3); reason UNKNOWN",
+   "conflict": "legolas/notes/2026-08-12-whirlwind-rev-rate-probe.md read 200 ms as the 100% period and flagged 0.16 s as wrong; PE-1 and the pack use 0.16 s. The oracle uses 0.16-based 12.25 Hz."
+  },
+  "channel_tail_s": {
+   "value": 0.25,
+   "grade": "PACK + DATAMINED",
+   "row": "player_kit.channel.channel_tail_s (PRV-BATON-V1); eyeofreckoning1.duration=0.25, useResetsDuration=1"
+  },
+  "radius_m": {
+   "value": 3.0,
+   "grade": "PACK + DATAMINED",
+   "row": "player_kit.channel.radius_m; V17-HITTEST-1 (true disc, no target cap)"
+  },
+  "rotation_speed_multiplier": {
+   "value": 0.35,
+   "grade": "PACK + DATAMINED",
+   "row": "player_kit.channel.rotation_speed_multiplier"
+  },
+  "can_move_while_channelling": {
+   "value": true,
+   "grade": "DATAMINED",
+   "row": "canUseWhileMoving=1, delayMovement=1; spin loop MoveStart callback f0"
+  },
+  "drain": {
+   "value": "176.4 energy/s applied per tick (14.4 per tick)",
+   "grade": "PACK",
+   "row": "V15-1, player_kit.channel.drain_rate_per_s"
+  },
+  "rank": {
+   "allocated": 15,
+   "total": 26,
+   "grade": "SAVE + PACK",
+   "row": "player_kit.channel.rank=15 (PRV-LAP-2D-SAVE); fixture.eor_rank_total=26"
+  },
+  "soulfire": {
+   "record": "records/skills/playerclass09/eyeofreckoning2.dbr SkillSecondary_AttackProjectileOrbiting",
+   "period_s": 0.2,
+   "direction": "CCW",
+   "start": "Front",
+   "explosion_radius_m": 0.2,
+   "pierce_pct": 100,
+   "grade": "DATAMINED + PACK",
+   "row": "player_kit.channel.soulfire; V15-8; S13 secondary streams",
+   "projectile": "records/fx/skillclass09/eyeofreckoning_projectileorbitalfx01.dbr ProjectileOrbiting, projectileDuration 2.6 s (DATAMINED), flight pfx_eyeofreckoning_flight.pfx, impact pfx_eyeofreckoning_impact.pfx"
+  },
+  "beam_vfx": {
+   "skillCastAuraName_base": "records/fx/skillclass09/eyeofreckoning_spinfx01.dbr -> fx/particlesystems/skillsclass09/pfx_eyeofreckoning_spinfx_01.pfx",
+   "of_record": "records/fx/skillclass09/eyeofreckoning_spinredfx01.dbr -> fx/particlesystems/skillsclass09/pfx_eyeofreckoning_spinredfx_01.pfx",
+   "why": "Gutsmasher grants skill modifier records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace2h_d107_eyeofreckoning.dbr whose fxChanges = eyeofreckoning_spinredfx01.dbr. The other equipped EoR modifiers (hands_d206, head_d028, set_d025) carry no fxChanges. DATAMINED; that the modifier fxChanges replaces skillCastAuraName in-game is INFERRED.",
+   "timing": "Aura FX: attached for the life of the channel; its internal particle timing lives in the .pfx (FX.arc), not on the Mac. UNKNOWN."
+  },
+  "hit_sound": "records/sounds/skillsounds/class09/spak_eyeofreckoning_hit.dbr; loop spak_eyeofreckoning_loop.dbr"
+ },
+ "animations": [
+  {
+   "id": "idle_combat",
+   "label": "Combat idle (weapon ready)",
+   "kit_use": "default stance in combat",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttackIdleAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_idlecombat_a01.anm",
+   "timing": {
+    "n_keys": 61,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 2.0,
+    "duration_native_s_alt_nkeys_over_fps": 2.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 2.0,
+    "events": [
+     {
+      "name": "ShowRightHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     }
+    ],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "COVERED-WRONG-STYLE: render idle shows 1H mace + kite shield",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "idle_long",
+   "label": "Long idle (relaxed)",
+   "kit_use": "out of combat",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hLongIdleAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_idle_a01.anm",
+   "timing": {
+    "n_keys": 101,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 3.3333,
+    "duration_native_s_alt_nkeys_over_fps": 3.3667,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 3.3333,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "COVERED-WRONG-STYLE (render has one idle)",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "idle_fidget",
+   "label": "Idle fidget",
+   "kit_use": "out of combat flavour",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hFidgetAnim1",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_idle_fidget_a01.anm",
+   "timing": {
+    "n_keys": 181,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 6.0,
+    "duration_native_s_alt_nkeys_over_fps": 6.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 6.0,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "idle_combat_to_idle",
+   "label": "Combat idle -> idle transition",
+   "kit_use": "transition",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hIdleTransAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_idlecombat_trans2idle_a01.anm",
+   "timing": {
+    "n_keys": 48,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 1.5667,
+    "duration_native_s_alt_nkeys_over_fps": 1.6,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 1.5667,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "walk",
+   "label": "Walk",
+   "kit_use": "walk (shared clip for every weapon style)",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hWalkAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_walk_a01.anm",
+   "timing": {
+    "n_keys": 31,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 1.0,
+    "duration_native_s_alt_nkeys_over_fps": 1.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 1.0,
+    "events": [
+     {
+      "name": "L Footstep",
+      "frame": 25,
+      "t_native_s": 0.8333
+     },
+     {
+      "name": "R Footstep",
+      "frame": 10,
+      "t_native_s": 0.3333
+     }
+    ],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "COVERED-WRONG-STYLE (clip is style-neutral in GD; render carries the shield)",
+   "vfx": [],
+   "note": "GD player locomotion in combat is the run; when the walk plays is UNKNOWN from data."
+  },
+  {
+   "id": "run",
+   "label": "Run (2H stance)",
+   "kit_use": "primary locomotion",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hRunAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_run_a01.anm",
+   "timing": {
+    "n_keys": 25,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.8,
+    "duration_native_s_alt_nkeys_over_fps": 0.8333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.8,
+    "events": [
+     {
+      "name": "L Footstep",
+      "frame": 2,
+      "t_native_s": 0.0667
+     },
+     {
+      "name": "R Footstep",
+      "frame": 14,
+      "t_native_s": 0.4667
+     },
+     {
+      "name": "ShowRightHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     }
+    ],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "INFERRED: run cycle playback x run_speed (1.35; sheet run_speed 135% = playerRunSpeedCapMax 135, DATAMINED gameengine.dbr)",
+     "cycle_s": 0.5926
+    }
+   },
+   "speed_law": "run_speed",
+   "existing_render": "COVERED-WRONG-STYLE",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "attack_a",
+   "label": "Basic weapon attack A (weight 45%)",
+   "kit_use": "default weapon attack (bar: LMB alt-set slot 11; also the mace2h attack chain)",
+   "skill_record": "records/skills/default/defaultweaponattack.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttackAnim1",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_attack_a01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "PS1Start",
+      "frame": 3,
+      "t_native_s": 0.1
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 7,
+      "t_native_s": 0.2333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 11,
+      "t_native_s": 0.3667
+     },
+     {
+      "name": "PS1End",
+      "frame": 10,
+      "t_native_s": 0.3333
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     }
+    ],
+    "action_frame": 7,
+    "action_t_at_table_speed_s": 0.2333,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.4333,
+    "oracle_projection": {
+     "law": "INFERRED law A: weapon-attack clip stretched to the attack period 1/APS (APS 2.66, PRV-PLAYER-SHEET source row attacks_per_second)",
+     "duration_s": 0.3759,
+     "action_t_s": 0.1316,
+     "alt_law_B": {
+      "law": "INFERRED law B: playback x attack_speed_pct/100 = x1.96 (PACK player_kit.channel.attack_speed_pct)",
+      "duration_s": 0.3401,
+      "action_t_s": 0.119
+     },
+     "note": "Law A and law B disagree by ~10%; neither is datamined. Settle by frame-counting a referent swing."
+    }
+   },
+   "speed_law": "weapon_attack",
+   "existing_render": "MISSING (render \"attack\" is a whirlwind, not a swing)",
+   "vfx": [],
+   "note": "Random pick by weight (mace2hAttackAnimWeight = 45). Clips are the sword2h set: GD gives Mace2h the 2H-sword animations."
+  },
+  {
+   "id": "attack_b",
+   "label": "Basic weapon attack B (weight 30%)",
+   "kit_use": "default weapon attack (bar: LMB alt-set slot 11; also the mace2h attack chain)",
+   "skill_record": "records/skills/default/defaultweaponattack.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttackAnim2",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_attack_b01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 8,
+      "t_native_s": 0.2667
+     },
+     {
+      "name": "PS1Start",
+      "frame": 6,
+      "t_native_s": 0.2
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 10,
+      "t_native_s": 0.3333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 14,
+      "t_native_s": 0.4667
+     },
+     {
+      "name": "PS1End",
+      "frame": 14,
+      "t_native_s": 0.4667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 16,
+      "t_native_s": 0.5333
+     }
+    ],
+    "action_frame": 10,
+    "action_t_at_table_speed_s": 0.3333,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 16,
+    "allow_interrupt_t_at_table_speed_s": 0.5333,
+    "oracle_projection": {
+     "law": "INFERRED law A: weapon-attack clip stretched to the attack period 1/APS (APS 2.66, PRV-PLAYER-SHEET source row attacks_per_second)",
+     "duration_s": 0.3759,
+     "action_t_s": 0.188,
+     "alt_law_B": {
+      "law": "INFERRED law B: playback x attack_speed_pct/100 = x1.96 (PACK player_kit.channel.attack_speed_pct)",
+      "duration_s": 0.3401,
+      "action_t_s": 0.1701
+     },
+     "note": "Law A and law B disagree by ~10%; neither is datamined. Settle by frame-counting a referent swing."
+    }
+   },
+   "speed_law": "weapon_attack",
+   "existing_render": "MISSING (render \"attack\" is a whirlwind, not a swing)",
+   "vfx": [],
+   "note": "Random pick by weight (mace2hAttackAnimWeight = 30). Clips are the sword2h set: GD gives Mace2h the 2H-sword animations."
+  },
+  {
+   "id": "attack_c",
+   "label": "Basic weapon attack C (weight 25%)",
+   "kit_use": "default weapon attack (bar: LMB alt-set slot 11; also the mace2h attack chain)",
+   "skill_record": "records/skills/default/defaultweaponattack.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttackAnim3",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_attack_c01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "PS1Start",
+      "frame": 3,
+      "t_native_s": 0.1
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 7,
+      "t_native_s": 0.2333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 11,
+      "t_native_s": 0.3667
+     },
+     {
+      "name": "PS1End",
+      "frame": 10,
+      "t_native_s": 0.3333
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 16,
+      "t_native_s": 0.5333
+     }
+    ],
+    "action_frame": 7,
+    "action_t_at_table_speed_s": 0.2333,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 16,
+    "allow_interrupt_t_at_table_speed_s": 0.5333,
+    "oracle_projection": {
+     "law": "INFERRED law A: weapon-attack clip stretched to the attack period 1/APS (APS 2.66, PRV-PLAYER-SHEET source row attacks_per_second)",
+     "duration_s": 0.3759,
+     "action_t_s": 0.1316,
+     "alt_law_B": {
+      "law": "INFERRED law B: playback x attack_speed_pct/100 = x1.96 (PACK player_kit.channel.attack_speed_pct)",
+      "duration_s": 0.3401,
+      "action_t_s": 0.119
+     },
+     "note": "Law A and law B disagree by ~10%; neither is datamined. Settle by frame-counting a referent swing."
+    }
+   },
+   "speed_law": "weapon_attack",
+   "existing_render": "MISSING (render \"attack\" is a whirlwind, not a swing)",
+   "vfx": [],
+   "note": "Random pick by weight (mace2hAttackAnimWeight = 25). Clips are the sword2h set: GD gives Mace2h the 2H-sword animations."
+  },
+  {
+   "id": "attack_turn_left90",
+   "label": "Attack turning left 90",
+   "kit_use": "attack issued at a target behind/side",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttTurnLeft90Anim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_attackleft90_a01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 7,
+      "t_native_s": 0.2333
+     },
+     {
+      "name": "PS1Start",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 9,
+      "t_native_s": 0.3
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "PS1End",
+      "frame": 9,
+      "t_native_s": 0.3
+     },
+     {
+      "name": "TurnStart",
+      "frame": 1,
+      "t_native_s": 0.0333
+     },
+     {
+      "name": "TurnEnd",
+      "frame": 8,
+      "t_native_s": 0.2667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 11,
+      "t_native_s": 0.3667
+     }
+    ],
+    "action_frame": 9,
+    "action_t_at_table_speed_s": 0.3,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 11,
+    "allow_interrupt_t_at_table_speed_s": 0.3667,
+    "oracle_projection": {
+     "law": "INFERRED law A: weapon-attack clip stretched to the attack period 1/APS (APS 2.66, PRV-PLAYER-SHEET source row attacks_per_second)",
+     "duration_s": 0.3759,
+     "action_t_s": 0.1692,
+     "alt_law_B": {
+      "law": "INFERRED law B: playback x attack_speed_pct/100 = x1.96 (PACK player_kit.channel.attack_speed_pct)",
+      "duration_s": 0.3401,
+      "action_t_s": 0.1531
+     },
+     "note": "Law A and law B disagree by ~10%; neither is datamined. Settle by frame-counting a referent swing."
+    }
+   },
+   "speed_law": "weapon_attack",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "attack_turn_right90",
+   "label": "Attack turning right 90",
+   "kit_use": "attack issued at a target behind/side",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hAttTurnRight90Anim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_attackright90_a01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 6,
+      "t_native_s": 0.2
+     },
+     {
+      "name": "PS1Start",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 9,
+      "t_native_s": 0.3
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "PS1End",
+      "frame": 11,
+      "t_native_s": 0.3667
+     },
+     {
+      "name": "TurnStart",
+      "frame": 1,
+      "t_native_s": 0.0333
+     },
+     {
+      "name": "TurnEnd",
+      "frame": 8,
+      "t_native_s": 0.2667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     }
+    ],
+    "action_frame": 9,
+    "action_t_at_table_speed_s": 0.3,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.4333,
+    "oracle_projection": {
+     "law": "INFERRED law A: weapon-attack clip stretched to the attack period 1/APS (APS 2.66, PRV-PLAYER-SHEET source row attacks_per_second)",
+     "duration_s": 0.3759,
+     "action_t_s": 0.1692,
+     "alt_law_B": {
+      "law": "INFERRED law B: playback x attack_speed_pct/100 = x1.96 (PACK player_kit.channel.attack_speed_pct)",
+      "duration_s": 0.3401,
+      "action_t_s": 0.1531
+     },
+     "note": "Law A and law B disagree by ~10%; neither is datamined. Settle by frame-counting a referent swing."
+    }
+   },
+   "speed_law": "weapon_attack",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "get_hit",
+   "label": "Get hit",
+   "kit_use": "hit reaction",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hTakeHitAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_gethit_a01.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6667,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "stun",
+   "label": "Stunned",
+   "kit_use": "CC reaction (also CriticalHitAnim uses the same clip)",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hStunAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_stunned.anm",
+   "timing": {
+    "n_keys": 91,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 3.0,
+    "duration_native_s_alt_nkeys_over_fps": 3.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 3.0,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "death",
+   "label": "Death",
+   "kit_use": "death",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hDieAnim1",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_death_a.anm",
+   "timing": {
+    "n_keys": 91,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 3.0,
+    "duration_native_s_alt_nkeys_over_fps": 3.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 3.0,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "respawn",
+   "label": "Respawn / get up",
+   "kit_use": "respawn (and GetUpFaceUp)",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hRespawnAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_getup_faceup.anm",
+   "timing": {
+    "n_keys": 91,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 3.0,
+    "duration_native_s_alt_nkeys_over_fps": 3.0333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 3.0,
+    "events": [],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING (optional)",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "eor_spin_start",
+   "label": "Eye of Reckoning: spin start",
+   "kit_use": "channel entry (RMB held)",
+   "skill_record": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpinStartAnim",
+   "slot_grade": "INFERRED (strong): Skill_AttackRadiusSpin has no skillSpecialAnimationName; class exposes StopSpinning (Game.dll export); the Spin clips are GDX2-tagged, the expansion that ships EoR, the only player Spin skill besides the Hungering Reach relic; skill text: \"a whirlwind of fire and light\"",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_whirlwind_a01start.anm",
+   "timing": {
+    "n_keys": 7,
+    "fps": 30,
+    "archive_tag": "gdx2",
+    "duration_native_s": 0.2,
+    "duration_native_s_alt_nkeys_over_fps": 0.2333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.2,
+    "events": [
+     {
+      "name": "ShowRightHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "ShowLeftHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 6,
+      "t_native_s": 0.2
+     }
+    ],
+    "action_frame": 6,
+    "action_t_at_table_speed_s": 0.2,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "UNKNOWN whether the spin clip scales with attack speed",
+     "cycle_s_if_unscaled": 0.2,
+     "cycle_s_if_x1.96": 0.102,
+     "damage_ticks_per_loop_if_unscaled": 2.45,
+     "damage_ticks_per_loop_if_x1.96": 1.25,
+     "note": "The damage/drain tick is NOT this clip's RightHandHit; it is timeBetweenAttacks (see channel block). INFERRED from class Skill_AttackRadiusSpin: hits are periodic, not anim-callback driven."
+    }
+   },
+   "speed_law": "unknown_spin",
+   "existing_render": "PARTIAL: render \"attack\" is a whirlwind loop, no start clip",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/eyeofreckoning_spinredfx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_eyeofreckoning_spinredfx_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "eor_spin_loop",
+   "label": "Eye of Reckoning: spin loop",
+   "kit_use": "channel body, loops while RMB held",
+   "skill_record": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpinAnim",
+   "slot_grade": "INFERRED (strong), as eor_spin_start",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_whirlwind_a01loop.anm",
+   "timing": {
+    "n_keys": 10,
+    "fps": 30,
+    "archive_tag": "gdx2",
+    "duration_native_s": 0.3,
+    "duration_native_s_alt_nkeys_over_fps": 0.3333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.3,
+    "events": [
+     {
+      "name": "MoveStart",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "ShowRightHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "ShowLeftHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 8,
+      "t_native_s": 0.2667
+     }
+    ],
+    "action_frame": 8,
+    "action_t_at_table_speed_s": 0.2667,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "UNKNOWN whether the spin clip scales with attack speed",
+     "cycle_s_if_unscaled": 0.3,
+     "cycle_s_if_x1.96": 0.1531,
+     "damage_ticks_per_loop_if_unscaled": 3.675,
+     "damage_ticks_per_loop_if_x1.96": 1.875,
+     "note": "The damage/drain tick is NOT this clip's RightHandHit; it is timeBetweenAttacks (see channel block). INFERRED from class Skill_AttackRadiusSpin: hits are periodic, not anim-callback driven."
+    }
+   },
+   "speed_law": "unknown_spin",
+   "existing_render": "COVERED-APPROX (render attack: 16 f, 0.40 s/loop, wrong weapon, figure locked in place)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/eyeofreckoning_spinredfx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_eyeofreckoning_spinredfx_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": "No dedicated spin-end clip exists in the table (no mace2hSpinEndAnim field); release is followed by the <=0.25 s channel tail (duration=0.25, useResetsDuration). EoR canUseWhileMoving=1 / delayMovement=1 and the loop carries a MoveStart callback at f0: the referent can move while channelling."
+  },
+  {
+   "id": "channel_alt_begin",
+   "label": "Channel begin (NOT EoR; listed so it is not mistaken for EoR)",
+   "kit_use": "beam channels only (Aether Ray-class); not in this kit",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hChannelStartAnim",
+   "slot_grade": "DATAMINED slot; INFERRED not used by EoR",
+   "anm": "creatures/pc/anm/hero01_sword1h_spellattackchanneled_a01begin.anm",
+   "timing": {
+    "n_keys": 21,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6667,
+    "duration_native_s_alt_nkeys_over_fps": 0.7,
+    "table_anim_speed": 1.100000023841858,
+    "duration_at_table_speed_s": 0.6061,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 7,
+      "t_native_s": 0.2333
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 12,
+      "t_native_s": 0.4
+     },
+     {
+      "name": "HideLeftHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     }
+    ],
+    "action_frame": 12,
+    "action_t_at_table_speed_s": 0.3636,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.3939,
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "N/A",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "channel_alt_loop",
+   "label": "Channel loop (NOT EoR)",
+   "kit_use": "not in this kit",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hChannelAnim",
+   "slot_grade": "DATAMINED slot; INFERRED not used by EoR",
+   "anm": "creatures/pc/anm/hero01_sword1h_spellattackchanneled_a01loop.anm",
+   "timing": {
+    "n_keys": 57,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 1.8667,
+    "duration_native_s_alt_nkeys_over_fps": 1.9,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 1.8667,
+    "events": [
+     {
+      "name": "skillSound1",
+      "frame": 1,
+      "t_native_s": 0.0333
+     },
+     {
+      "name": "HideLeftHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     }
+    ],
+    "action_frame": null,
+    "action_t_at_table_speed_s": null,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "N/A",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "war_cry",
+   "label": "War Cry",
+   "kit_use": "hotbar slot 3 (cooldown 7.5 s; 35% of measured casts)",
+   "skill_record": "records/skills/playerclass01/warcry1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpecialAnim21",
+   "slot_grade": "DATAMINED (skillSpecialAnimationName=Warcry -> mace2hSpecialAnimRef21)",
+   "anm": "creatures/pc/anm/hero01_sword2h_spell_warcry_a01.anm",
+   "timing": {
+    "n_keys": 19,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6,
+    "duration_native_s_alt_nkeys_over_fps": 0.6333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 11,
+      "t_native_s": 0.3667
+     },
+     {
+      "name": "PS1Start",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 14,
+      "t_native_s": 0.4667
+     },
+     {
+      "name": "specialAttackSound1",
+      "frame": 11,
+      "t_native_s": 0.3667
+     }
+    ],
+    "action_frame": 11,
+    "action_t_at_table_speed_s": 0.3667,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 14,
+    "allow_interrupt_t_at_table_speed_s": 0.4667,
+    "oracle_projection": {
+     "law": "INFERRED: playback x cast_speed (1.84) on top of table speed",
+     "duration_s": 0.3261,
+     "action_t_s": 0.1993,
+     "speed_source": "PRV-PLAYER-SHEET source csv row cast_speed=184 (data/kc2/pm2_measured_player_sheet.csv sha256 6852794382b9...; NOT lifted as a pack row)"
+    }
+   },
+   "speed_law": "cast_speed",
+   "existing_render": "MISSING (render \"cast\" is a generic staff-tip release)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass01/warcry4_radius_fxpak01.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "cameraShakeDuration": 0.10000000149011612,
+      "disturbanceRadius": 14.0
+     }
+    },
+    {
+     "record": "records/fx/skillclass01/warcry4_radius_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/pfx_warcry04.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": "Radius FX is rank-indexed: radiusEffectName[total_rank-1]. Total rank 16 (12 allocated, save; +2 Gutsmasher Soldier mastery, +1 Warborn Visor Soldier mastery, +1 Kaisan augmentAllLevel; INFERRED that mastery augments apply) -> warcry4_radius_fxpak01 (pfx_warcry04.pfx), skillTargetRadius[15]=16.8 m. The pack carries skill_target_radius_m 16.0 (V13-WARCRY-1) = index 11 (rank 12) while its reduction_pct 29.0 = index 15 (rank 16): see open questions."
+  },
+  {
+   "id": "blitz",
+   "label": "Blitz",
+   "kit_use": "LMB (cooldown 3.5 s; 22% of measured casts); gap-closer",
+   "skill_record": "records/skills/playerclass01/blitz1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpecialAnim6",
+   "slot_grade": "DATAMINED (skillSpecialAnimationName=Blitz -> mace2hSpecialAnimRef6)",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_blitz_a01.anm",
+   "timing": {
+    "n_keys": 19,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6,
+    "duration_native_s_alt_nkeys_over_fps": 0.6333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 2,
+      "t_native_s": 0.0667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "CreateEntity:Blitz1_Impact_FX.dbr",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "voxSound",
+      "frame": 2,
+      "t_native_s": 0.0667
+     }
+    ],
+    "action_frame": 4,
+    "action_t_at_table_speed_s": 0.1333,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.4333,
+    "oracle_projection": {
+     "law": "INFERRED: playback x attack_speed (1.96) on top of table speed",
+     "duration_s": 0.3061,
+     "action_t_s": 0.068,
+     "speed_source": "PACK player_kit.channel.attack_speed_pct=196 (PRV-PLAYER-SHEET)"
+    }
+   },
+   "speed_law": "attack_speed",
+   "existing_render": "MISSING",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass01/blitz1_warmuploop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/blitz1_warmuploop.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass01/blitz1_impact_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "cameraShakeDuration": 0.20000000298023224,
+      "disturbanceRadius": 2.0
+     }
+    },
+    {
+     "record": "records/fx/skillclass01/blitz1_impact_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/blitz1_impact.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass01/weaponpool01_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "cameraShakeDuration": 0.5
+     }
+    },
+    {
+     "record": "records/fx/skillclass01/weaponpool01_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/pfx_brutalimpact01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": "Skill_AttackWeaponCharge: a dash (travel uses the charge/run motion; the clip is the strike on arrival). The clip itself spawns Blitz1_Impact_FX.dbr at f4 (CreateEntity in the .anm trailer). warmUpEffectName loops on Upper Body during the dash."
+  },
+  {
+   "id": "vires_might",
+   "label": "Vire's Might",
+   "kit_use": "hotbar slot 2 (cooldown 3.6 s; 41% of measured casts)",
+   "skill_record": "records/skills/playerclass09/viremight1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpecialAnim39",
+   "slot_grade": "DATAMINED (skillSpecialAnimationName=Rush -> mace2hSpecialAnimRef39)",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_rush_a01.anm",
+   "timing": {
+    "n_keys": 19,
+    "fps": 30,
+    "archive_tag": "gdx2",
+    "duration_native_s": 0.6,
+    "duration_native_s_alt_nkeys_over_fps": 0.6333,
+    "table_anim_speed": 1.2999999523162842,
+    "duration_at_table_speed_s": 0.4615,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 2,
+      "t_native_s": 0.0667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "voxSound",
+      "frame": 2,
+      "t_native_s": 0.0667
+     }
+    ],
+    "action_frame": 4,
+    "action_t_at_table_speed_s": 0.1026,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.3333,
+    "oracle_projection": {
+     "law": "INFERRED: playback x attack_speed (1.96) on top of table speed",
+     "duration_s": 0.2355,
+     "action_t_s": 0.0523,
+     "speed_source": "PACK player_kit.channel.attack_speed_pct=196 (PRV-PLAYER-SHEET)"
+    }
+   },
+   "speed_law": "attack_speed",
+   "existing_render": "MISSING",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/viremight_warmuploop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_viremight_warmup_01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_impact_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "cameraShakeDuration": 0.20000000298023224,
+      "disturbanceRadius": 1.0
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_impact_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_viremight_impact_01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_hit02_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_hit02_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_viremight_hit_02.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_fire_aoe_projectile01.dbr",
+     "class": "ProjectileAreaEffect",
+     "files": [
+      "fx/meshfx/sphere.msh"
+     ],
+     "params": {
+      "actorRadius": 0.5,
+      "notificationRadius": 3.0,
+      "projectileFlightAnimationSpeed": 1.0,
+      "projectileLaunchAnimationSpeed": 1.0,
+      "scale": 1.0
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/viremight_firetrail01_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_viremight_firetrail_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": "Skill_AttackPathCharge (path dash, endRadiusMultiplier 1.5, radius 2.2 m). Volcanic Stride (viremight2, allocated) drops fire AoE projectiles along the path (skillActiveDuration 4.0 s)."
+  },
+  {
+   "id": "rune_violent_delights",
+   "label": "Rune of Violent Delights (Rush rune)",
+   "kit_use": "hotbar slot 7 (cooldown 2.5 s); footage-blind per pack",
+   "skill_record": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpecialAnim39",
+   "slot_grade": "DATAMINED (skillSpecialAnimationName=Rush -> same clip as Vire's Might)",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_rush_a01.anm",
+   "timing": {
+    "n_keys": 19,
+    "fps": 30,
+    "archive_tag": "gdx2",
+    "duration_native_s": 0.6,
+    "duration_native_s_alt_nkeys_over_fps": 0.6333,
+    "table_anim_speed": 1.2999999523162842,
+    "duration_at_table_speed_s": 0.4615,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 2,
+      "t_native_s": 0.0667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 4,
+      "t_native_s": 0.1333
+     },
+     {
+      "name": "SwipeRightOff",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "voxSound",
+      "frame": 2,
+      "t_native_s": 0.0667
+     }
+    ],
+    "action_frame": 4,
+    "action_t_at_table_speed_s": 0.1026,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.3333,
+    "oracle_projection": {
+     "law": "INFERRED: playback x attack_speed (1.96) on top of table speed",
+     "duration_s": 0.2355,
+     "action_t_s": 0.0523,
+     "speed_source": "PACK player_kit.channel.attack_speed_pct=196 (PRV-PLAYER-SHEET)"
+    }
+   },
+   "speed_law": "attack_speed",
+   "existing_render": "MISSING",
+   "vfx": [
+    {
+     "record": "records/fx/skillsothergdx2/itemrunes/rushbleed_warmuploop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsothergdx2/itemrunes/pfx_rush_warmup_vitality_01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsothergdx2/itemrunes/rushbleed_impact_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "cameraShakeDuration": 0.20000000298023224,
+      "disturbanceRadius": 1.0
+     }
+    },
+    {
+     "record": "records/fx/skillsothergdx2/itemrunes/rushbleed_impact_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsothergdx2/itemrunes/pfx_rush_impact_vitality_01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsothergdx2/itemrunes/rushbleed_hit01_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsothergdx2/itemrunes/rushbleed_hit01_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsothergdx2/itemrunes/pfx_rush_hit_vitality_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": "Same animation as Vire's Might; only the FX differ (vitality/bleed variants)."
+  },
+  {
+   "id": "ascension",
+   "label": "Ascension",
+   "kit_use": "hotbar slot 4 (cooldown 24 s, duration 10 s)",
+   "skill_record": "records/skills/playerclass09/ascension1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hBuffSelfAnim1",
+   "slot_grade": "INFERRED (Skill_BuffSelfDuration, no skillSpecialAnimationName -> BuffSelf slot by class name)",
+   "anm": "creatures/pc/anm/hero01_sword2h_spellbuffself_a01.anm",
+   "timing": {
+    "n_keys": 19,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.6,
+    "duration_native_s_alt_nkeys_over_fps": 0.6333,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.6,
+    "events": [
+     {
+      "name": "SwipeRight",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 11,
+      "t_native_s": 0.3667
+     },
+     {
+      "name": "PS1Start",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 14,
+      "t_native_s": 0.4667
+     }
+    ],
+    "action_frame": 11,
+    "action_t_at_table_speed_s": 0.3667,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 14,
+    "allow_interrupt_t_at_table_speed_s": 0.4667,
+    "oracle_projection": {
+     "law": "INFERRED: playback x attack_speed (1.96) on top of table speed",
+     "duration_s": 0.3061,
+     "action_t_s": 0.1871,
+     "speed_source": "PACK player_kit.channel.attack_speed_pct=196 (PRV-PLAYER-SHEET)"
+    }
+   },
+   "speed_law": "attack_speed",
+   "existing_render": "MISSING",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/ascension_loop_chfxpak01.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "FXUnParentedCenter"
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/ascension_loop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_ascension_selfloop_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "summon_guardian",
+   "label": "Summon Guardian of Empyrion",
+   "kit_use": "bar idx 18 (not on a numbered key); also autocast host for Shifting Sands",
+   "skill_record": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hSpecialAnim31",
+   "slot_grade": "DATAMINED (skillSpecialAnimationName=RaiseDead -> mace2hSpecialAnimRef31)",
+   "anm": "creatures/pc/anm/hero01_sword2h_skill_summon_a01.anm",
+   "timing": {
+    "n_keys": 23,
+    "fps": 30,
+    "archive_tag": "gdx1",
+    "duration_native_s": 0.7333,
+    "duration_native_s_alt_nkeys_over_fps": 0.7667,
+    "table_anim_speed": 1.0,
+    "duration_at_table_speed_s": 0.7333,
+    "events": [
+     {
+      "name": "HideRightHand",
+      "frame": 0,
+      "t_native_s": 0.0
+     },
+     {
+      "name": "SwipeRight",
+      "frame": 5,
+      "t_native_s": 0.1667
+     },
+     {
+      "name": "voxSound",
+      "frame": 7,
+      "t_native_s": 0.2333
+     },
+     {
+      "name": "RightHandHit",
+      "frame": 15,
+      "t_native_s": 0.5
+     },
+     {
+      "name": "voxSound",
+      "frame": 15,
+      "t_native_s": 0.5
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 20,
+      "t_native_s": 0.6667
+     }
+    ],
+    "action_frame": 15,
+    "action_t_at_table_speed_s": 0.5,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 20,
+    "allow_interrupt_t_at_table_speed_s": 0.6667,
+    "oracle_projection": {
+     "law": "INFERRED: playback x cast_speed (1.84) on top of table speed",
+     "duration_s": 0.3986,
+     "action_t_s": 0.2717,
+     "speed_source": "PRV-PLAYER-SHEET source csv row cast_speed=184 (data/kc2/pm2_measured_player_sheet.csv sha256 6852794382b9...; NOT lifted as a pack row)"
+    }
+   },
+   "speed_law": "cast_speed",
+   "existing_render": "MISSING",
+   "vfx": [],
+   "note": "Cooldown 20 s, 2 pets. Whether the referent casts it during the measured window is not established here."
+  },
+  {
+   "id": "summon_deathstalker",
+   "label": "Summon Deathstalker (relic skill)",
+   "kit_use": "bar idx 19; relic skill",
+   "skill_record": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "UNKNOWN",
+   "slot_grade": "UNKNOWN: Skill_SpawnPet carries no skillSpecialAnimationName; the engine default slot is not in data. Settle: footage of the cast, or the Game.dll class-to-slot mapping.",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "MISSING",
+   "vfx": [
+    {
+     "record": "records/fx/skillsother/summons/summon_generic01_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsother/summons/summon_generic01_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsother/summons/pfx_summon_generic_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "evade",
+   "label": "Evade (dodge roll)",
+   "kit_use": "default evade (cooldown 3 s); not bound on the bar per the save",
+   "skill_record": null,
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "mace2hEvadeAnim",
+   "slot_grade": "DATAMINED",
+   "anm": "creatures/pc/anm/hero01_sword2h_dodge01.anm",
+   "timing": {
+    "n_keys": 29,
+    "fps": 30,
+    "archive_tag": "base",
+    "duration_native_s": 0.9333,
+    "duration_native_s_alt_nkeys_over_fps": 0.9667,
+    "table_anim_speed": 1.2999999523162842,
+    "duration_at_table_speed_s": 0.7179,
+    "events": [
+     {
+      "name": "StartJump",
+      "frame": 2,
+      "t_native_s": 0.0667
+     },
+     {
+      "name": "StopJump",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "Hit",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "AllowInterrupt",
+      "frame": 13,
+      "t_native_s": 0.4333
+     },
+     {
+      "name": "voxSound",
+      "frame": 2,
+      "t_native_s": 0.0667
+     }
+    ],
+    "action_frame": 13,
+    "action_t_at_table_speed_s": 0.3333,
+    "grades": {
+     "n_keys/fps/events": "DATAMINED (Creatures.arc census, Edition III 2026-08-08, build 24619876 per intake note)",
+     "table_anim_speed": "DATAMINED (anm_malepc.dbr, Edition IV build 24825149; identical in Edition II depot 24346246)",
+     "duration_rule": "DATAMINED-RULE ((nKeys-1)/fps, loop-closing duplicate key measured, wr3-stage2 2026-07-30 \u00a70)"
+    },
+    "allow_interrupt_frame": 13,
+    "allow_interrupt_t_at_table_speed_s": 0.3333,
+    "oracle_projection": {
+     "law": "none (state not speed-scaled; INFERRED)"
+    }
+   },
+   "speed_law": "none",
+   "existing_render": "MISSING (optional: not in the oracle kit)",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "potion",
+   "label": "Health potion (Tonic of Mending)",
+   "kit_use": "counterplay; oracle auto-fires at 22.97% HP, cooldown 12 s (V13-POTION-1/2)",
+   "skill_record": "records/skills/default/defaulthealthpotion.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "DATAMINED-ABSENCE: the charanimationtable has no potion/drink slot for any style; Skill_ChargePotion has no anim field. INFERRED: no body animation.",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A",
+   "vfx": [],
+   "note": null
+  },
+  {
+   "id": "menhirs_will",
+   "label": "Menhir's Will (proc)",
+   "kit_use": "counterplay circuit-breaker at 33% HP (V12-K3)",
+   "skill_record": "records/skills/playerclass01/willtolive1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass01/willtolive1_loop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/pfx_willtolive1_loop.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "turtle_shell",
+   "label": "Turtle Shell (devotion proc on Field Command)",
+   "kit_use": "absorb pool, 50% HP (V12-K1)",
+   "skill_record": "records/skills/devotion/tier1_29e_skill.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/turtle_shield_loop_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/turtle_shield_loop02.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "arcane_barrier",
+   "label": "Arcane Barrier / Crab (devotion proc on Divine Mandate)",
+   "kit_use": "absorb pool, 30% on hit (V12-K2)",
+   "skill_record": "records/skills/devotion/tier2_17c_skill.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/crab_shield_loop_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/crab_shield_loop03.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "resilience",
+   "label": "Resilience (passive02, proc)",
+   "kit_use": "low-life proc (R8)",
+   "skill_record": "records/skills/playerclass09/passive02.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/resilience_charfxpak.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "FXCentered"
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/resilience_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_resilience_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "fighting_spirit",
+   "label": "Fighting Spirit (on-hit proc)",
+   "kit_use": "on-hit self buff",
+   "skill_record": "records/skills/playerclass01/fightingspirit1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass01/fightingspirit2_charfxpak.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "FXCentered"
+     }
+    },
+    {
+     "record": "records/fx/skillclass01/fightingspirit2_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/pfx_fightingspirit02.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "divine_mandate",
+   "label": "Divine Mandate (toggled self buff)",
+   "kit_use": "persistent aura FX",
+   "skill_record": "records/skills/playerclass09/divinemandate1.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/divinemandate_loopchfxpak01.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "FXUnParentedCenter"
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/divinemandate_loopfx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_divinemandate_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "presence_of_virtue",
+   "label": "Presence of Virtue (toggled aura)",
+   "kit_use": "persistent aura FX",
+   "skill_record": "records/skills/playerclass09/presenceofvirtue1_buff.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass09/presenceofvirtue_self_chfxpak01.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "FX_Head_Z_Up"
+     }
+    },
+    {
+     "record": "records/fx/skillclass09/presenceofvirtue_self_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_presenceofvirtue_selfloop_01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillclass09/presenceofvirtue_other_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass09/pfx_presenceofvirtue_otherloop_01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "field_command",
+   "label": "Field Command (toggled aura)",
+   "kit_use": "persistent aura FX",
+   "skill_record": "records/skills/playerclass01/fieldcommand1buff.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillclass01/fieldcommand1_loop_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsclass01/pfx_fieldcommand1_loop.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "assassins_mark",
+   "label": "Assassin's Mark (devotion proc on EoR, on crit)",
+   "kit_use": "debuff FX on target",
+   "skill_record": "records/skills/devotion/tier1_08e_skill_buff.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/assassinblade_mark_chfxpak01.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "HeadFXUP"
+     }
+    },
+    {
+     "record": "records/fx/skillsdevotion/assassinblade_mark_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/assassinmark_loop01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "maul",
+   "label": "Maul (devotion proc on Vire's Might)",
+   "kit_use": "radius FX + target debuff",
+   "skill_record": "records/skills/devotion/tier2_05f_skill_buff.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/direbear_maul_radius_fxpak01.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {
+      "disturbanceRadius": 7.0
+     }
+    },
+    {
+     "record": "records/fx/skillsdevotion/direbear_maul_radius_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/direbear_maul01.pfx"
+     ],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsdevotion/direbear_maul_charfxpak01.dbr",
+     "class": null,
+     "files": [],
+     "params": {
+      "particleEffectAttachPoints": "HeadFXUP"
+     }
+    },
+    {
+     "record": "records/fx/skillsdevotion/direbear_maul_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/direbear_maul_loop01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "tip_the_scales",
+   "label": "Tip the Scales (devotion proc on Presence of Virtue)",
+   "kit_use": "target FX",
+   "skill_record": "records/skills/devotion/tier2_02f_skill.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/scalesofulcama01_fxpak.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsdevotion/scalesofulcama01_fx.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/scalesofulcama_cast01.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "shifting_sands",
+   "label": "Shifting Sands (devotion proc on Guardian)",
+   "kit_use": "projectile FX",
+   "skill_record": "records/skills/devotion/tier3_20e_skill.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [
+    {
+     "record": "records/fx/skillsdevotion/azrakaasands_projectilefx01.dbr",
+     "class": "ProjectileBoomerang",
+     "files": [
+      "fx/meshfx/sphere.msh"
+     ],
+     "params": {
+      "actorRadius": 0.5,
+      "inflightGroundFxDropTime": 0.10000000149011612,
+      "notificationRadius": 1.0,
+      "projectileFlightAnimationSpeed": 1.0,
+      "projectileHoverDuration": 1.0,
+      "projectileLaunchAnimationSpeed": 1.0,
+      "scale": 1.0
+     }
+    },
+    {
+     "record": "records/fx/skillsdevotion/azrakaasands_fxpak01.dbr",
+     "class": "FxPak",
+     "files": [],
+     "params": {}
+    },
+    {
+     "record": "records/fx/skillsdevotion/azrakaasands_fx01.dbr",
+     "class": "EffectEntity",
+     "files": [
+      "fx/particlesystems/skillsdevotion/pfx_azrakaasands01_projectile.pfx"
+     ],
+     "params": {}
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "ulzaads_decree",
+   "label": "Ulzaad's Decree (devotion proc on War Cry)",
+   "kit_use": "charBuffFxType None;Fire;Poison (no FX record)",
+   "skill_record": "records/skills/devotion/tier2_37d_skill.dbr",
+   "anim_table": "records/creatures/pc/anm_malepc.dbr (male; save header male=1, malepc01.charAnimationTableName)",
+   "slot_field": "NONE",
+   "slot_grade": "INFERRED: auto-triggered/toggled skill, no skillSpecialAnimationName; procs and toggled auras play FX, not a body animation",
+   "anm": null,
+   "timing": null,
+   "speed_law": "none",
+   "existing_render": "N/A (FX only)",
+   "vfx": [],
+   "note": null
+  }
+ ]
+}
