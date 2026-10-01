@@ -27475,6 +27475,11 @@
       "id": "M-C9-CRATER-V4",
       "note": "Crater v4 behind ?meteor=mix4 (5befea1f4; loadout 9ebc111 held): Blender crater (bowl, broken rim, 7-9 fault grooves, feathered skirt; 3 variants, never rotated) + one guided Astra paint-over per variant projected back into UVs + painted emission masks cooling over the 12.6 s fire field + painted particles (kit ember, one new smoke sheet, settling debris). Astra 11, fal $0. Budget desktop +0.92 ms (first/fourth cast 18.9/18.6 ms), page +0.21-0.24 ms (cold first 28.3 ms). Fall 0.82 s default, ?fall=2.4 exposed. Conductor look: a clear step up from v3 -- reads as a painted, real crater with snow-chunk rim. Note: crater meshes and paintings under godot/data/vfx/crater_v4/ are gitignored (disk + built packs only); sources are the Astra outputs in artifacts/. The VFX pipeline extension (3D -> paint-over -> particles) is proven on its first case.",
       "ts": "2026-10-01T04:52:33"
+    },
+    {
+      "id": "M-C9-E1-STAGE-G",
+      "note": "E1 stage G (e0cf8592f): Godot render shows the plate at L* 24.8 vs sheet 26.7 (not too light; the Blender unlit look renders misled) -> no grade. Mace carry re-sourced by scoring 14 library clips: ready diagonal forward (idle +6 deg, elevation 18-44 deg, helm clearance 0.24-0.50 m; idle/run head ~0.1 m under shoulder). Attack re-sourced (library 4) to contact 40%. Mace 47 MB -> 2.5 MB (max 0.4 mm error). Cape flare: walk poke 19.4 -> 9.8%, death 14.1 -> 0.7%, run 22.6 -> 16.1%, attack 29.9 -> 28.1%; the dark under-layer was measured WORSE as seen and rejected. One rm -rf denial (look_g/poke), not worked around. Meshy: lane ledger 47, account fell 53 (shared account; 6 likely another lane). Conductor look: body posture reads hunched/crouched against R-C9-113's \"towering, elegant\" -- stage H dispatched (posture measured, upright body graft, no solver).",
+      "ts": "2026-10-01T05:11:08"
     }
   ],
   "halts": [
@@ -29325,6 +29330,12 @@
       "topic": "Fire Ball straight edges: the conductor misdiagnosed a bake crop; they are the cliffside kit's own burst PIECES",
       "note": "The straight-cut flame edges are fire_burst_e0p_v3's designed burst pieces (impact_binding phase \"pieces\"; peak_pieces cuts the painted impact into polygon fragments), present in the kit runtime itself (bake proof <= 2.27/255). Not a cell crop, alpha threshold or the c75 remap. The conductor's lint (\"alpha within 2 px of the border\") was invalid by design (the packer trims to painted pixels + 1 px), and the lane correctly refused to add it; the right check (outer 1-px ring empty) passes 300/300. A real fix changes the Matt-approved kit look (torn/feathered cut edges, re-bake, re-prove; no painting) -> Matt's ruling. Disposition: the lane was right; the conductor's premise was wrong.",
       "ts": "2026-10-01T04:54:56"
+    },
+    {
+      "id": "N-C9-CLEANUP-PENDING-10",
+      "topic": "Releasable scratch for the next cleanup list (named by lanes at hand-back)",
+      "note": "D2/JOIN lane: scratchpad/w8 (and w6, wc5, rb4, v4, ww3, wc3 per its earlier hand-back; keep w7, w9-w12). Integration lane: barrow_full/work/mix3/ scratch (cold*, page runs, fall*, crater*, .avi, serve_root symlink, sheet*.py, cold_runs.sh), work/v4/ scratch, work/fb75/, work/fbedge/, empty work/mix2/, scratchpad/metal_cache_aside_c9cold/. E1 lane: wl_e1/look_g/poke (49 stale files; its rm was denied). Armor lane: superseded exports listed in its hand-back (kept for the record; list only on Matt's word). Matt runs any deletion with !. Confirm with active lanes before listing.",
+      "ts": "2026-10-01T05:11:08"
     }
   ]
 }
