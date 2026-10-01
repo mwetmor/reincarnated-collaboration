@@ -1,0 +1,35 @@
+{
+ "bone": "Head",
+ "ahead_m": 0.012,
+ "sprite_size_m": 0.07,
+ "eyes": {
+  "eye_L": {
+   "model_m": [
+    0.0312,
+    1.7865,
+    0.0957
+   ],
+   "head_local": [
+    2.66639,
+    9.15133,
+    9.93445
+   ],
+   "verts": 32
+  },
+  "eye_R": {
+   "model_m": [
+    -0.0345,
+    1.7868,
+    0.0948
+   ],
+   "head_local": [
+    -3.02446,
+    9.11438,
+    9.85245
+   ],
+   "verts": 31
+  }
+ },
+ "separation_m": 0.0657,
+ "note": "camera-facing (billboard), unshaded, ADDITIVE, depth-tested (the helm hides them from behind); hot near-white core; slow subtle flicker"
+}

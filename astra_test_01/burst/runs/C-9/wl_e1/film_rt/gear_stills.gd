@@ -108,6 +108,8 @@ func _ready() -> void:
 	if OS.has_environment("GS_CLASS_TEX"):
 		class_tex = ImageTexture.create_from_image(Image.load_from_file(OS.get_environment("GS_CLASS_TEX")))
 	_build_tree()
+	if OS.has_environment("GS_EYES"):
+		await _eyes(OS.get_environment("GS_EYES"))
 	cam = Camera3D.new(); cam.projection = Camera3D.PROJECTION_ORTHOGONAL
 	cam.keep_aspect = Camera3D.KEEP_HEIGHT; cam.near = 0.05; cam.far = STANDOFF + 300.0
 	sv = SubViewport.new(); sv.size = Vector2i(1920, 1080); sv.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -117,6 +119,42 @@ func _ready() -> void:
 	else:
 		await _shoot()
 	get_tree().quit()
+
+## E1 EYE SPRITES (stage J): two camera-facing glow quads on the 'Head' bone (GS_EYES = e44's json): billboard, UNSHADED, ADDITIVE,
+## depth-tested (the helm hides them from behind); a radial texture with a hot near-white core; a slow subtle flicker in film mode
+## (GS_EYES_FLICKER = "hz,amp"). The world size is set against the ancestors' scale, so 'size_m' is metres on screen at 100.6 px/m.
+var eye_mats: Array = []
+func _eyes(path: String) -> void:
+	var E: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var col := Color(OS.get_environment("GS_EYES_COLOR")) if OS.has_environment("GS_EYES_COLOR") else Color(0.62, 0.30, 1.0)
+	var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
+	for y in 64:
+		for x in 64:
+			var r := Vector2(x - 31.5, y - 31.5).length() / 31.5
+			var a := clampf(1.0 - r, 0.0, 1.0); a = sqrt(a)   # v2: a flatter falloff (v1 a^2 left 1-3 px visible at 1x)
+			var core := clampf(1.0 - r / 0.5, 0.0, 1.0)
+			var c := col.lerp(Color(1, 0.97, 1), core)
+			img.set_pixel(x, y, Color(c.r * a, c.g * a, c.b * a, a))
+	var tex := ImageTexture.create_from_image(img)
+	var att := BoneAttachment3D.new(); att.bone_name = String(E.get("bone", "Head")); skel.add_child(att)
+	for k in (E["eyes"] as Dictionary):
+		var p: Array = E["eyes"][k]["head_local"]
+		var n := Node3D.new(); n.position = Vector3(float(p[0]), float(p[1]), float(p[2])); att.add_child(n)
+		var q := MeshInstance3D.new(); var qm := QuadMesh.new(); n.add_child(q)
+		var m := StandardMaterial3D.new(); m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD; m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED; m.billboard_keep_scale = true; m.albedo_texture = tex
+		q.material_override = m; q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF; eye_mats.append(m)
+		await get_tree().process_frame
+		var sc := n.global_transform.basis.get_scale().x
+		qm.size = Vector2.ONE * float(E.get("sprite_size_m", 0.05)) / maxf(sc, 1e-6); q.mesh = qm
+	print("[gs] eye sprites: %d on %s, %.3f m, colour %s" % [eye_mats.size(), String(E.get("bone", "Head")), float(E.get("sprite_size_m", 0.05)), col.to_html()])
+
+func _eye_flicker(t: float) -> void:
+	if eye_mats.is_empty() or not OS.has_environment("GS_EYES_FLICKER"): return
+	var f := OS.get_environment("GS_EYES_FLICKER").split(",")
+	var v := 1.0 - float(f[1]) * (0.5 + 0.5 * sin(TAU * float(f[0]) * t)) - 0.04 * sin(TAU * 3.7 * t + 1.3)
+	for m in eye_mats: (m as StandardMaterial3D).albedo_color = Color(v, v, v, 1.0)
 
 func _build_tree() -> void:
 	# the clip, then ONE filtered Blend2 for the carry (the package's arm_layer_armed_R), its weight set per stack
@@ -265,6 +303,7 @@ func _film() -> void:
 			var tc: float = fmod(t, alen) if (clip in ["idle", "walk", "run"] or bool(step.get("loop", false))) else minf(t, alen)
 			who.position = pos + fwd * spd * t
 			_pose(clip, tc, armed)
+			_eye_flicker(float(nframes) / 30.0)
 			_aim(sc / sc)
 			cam.size = (float(H) / PPM) / sc
 			for i in 2: await RenderingServer.frame_post_draw
