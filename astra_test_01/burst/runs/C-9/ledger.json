@@ -29319,6 +29319,12 @@
       "topic": "The fal balance was ~$1.79 before the champion builds, not the ~$5.8 the conductor estimated",
       "note": "The armor lane read the balance at $1.7923 before his three Tripo builds ($1.20), so ~$0.59 remained before Matt's $25 top-up: ~$25.6 now. The conductor's $5.8 estimate was wrong by ~$4 (an older $8.20 figure minus one lane's spend; other lanes' spend since was not netted). Lesson: estimate the balance from the latest lane read, not from a remembered figure. The top-up arrived in time; no HALT fired.",
       "ts": "2026-10-01T00:30:27"
+    },
+    {
+      "id": "N-C9-FB-CARD-EDGE",
+      "topic": "Fire Ball straight edges: the conductor misdiagnosed a bake crop; they are the cliffside kit's own burst PIECES",
+      "note": "The straight-cut flame edges are fire_burst_e0p_v3's designed burst pieces (impact_binding phase \"pieces\"; peak_pieces cuts the painted impact into polygon fragments), present in the kit runtime itself (bake proof <= 2.27/255). Not a cell crop, alpha threshold or the c75 remap. The conductor's lint (\"alpha within 2 px of the border\") was invalid by design (the packer trims to painted pixels + 1 px), and the lane correctly refused to add it; the right check (outer 1-px ring empty) passes 300/300. A real fix changes the Matt-approved kit look (torn/feathered cut edges, re-bake, re-prove; no painting) -> Matt's ruling. Disposition: the lane was right; the conductor's premise was wrong.",
+      "ts": "2026-10-01T04:54:56"
     }
   ]
 }
