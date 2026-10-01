@@ -1,5 +1,6 @@
 # JOIN-1 P0 — the INTERNAL / BOUNDARY census (paper, zero code)
 
+> ⚑ **NAMED FINDING, 2026-10-01 (§ 11, forward):** the D2 WW Barbarian's frozen record goes from **14 rows to 16** (BOUNDARY 9 → 11), per jack-ryan's Sorceress-census Gate-2 A-4/W3 (collab `b48500a4d`, KP-165). The text above § 11 is left as committed (`78797db4b`); § 11 governs where it differs.
 > **STATUS:** CURRENT — W1 deliverable of the KC2-PLAY **SEAL LAP** (`gandalf/notes/2026-09-28-kc2-play-seal-lap-plan.md` § 2, seat elrond; launch-sheet **L3**, paper-only).
 > **Date:** 2026-09-28 · **Author:** elrond (data steward) · **Conductor:** gandalf (`RUN-CONDUCTOR`).
 > **Governing text:** `gandalf/notes/2026-09-28-join-key-architect-pass.md` **§ 8 (governs over §§ 1, 3, 5)** — Matt's Q86 ruling: every roster game's **kit-internal** mechanisms enter **natively, as a union**; only the **kit↔world boundary** is shared, as **ONE rulebook**, Grim Dawn's validated rules as default, widened by **lever** only where a foreign kit's interaction cannot be expressed. E-1: joined kits are tuned to **our** balance thresholds; each kit's **home-game margin is measured and recorded**.
@@ -299,3 +300,32 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 - The GV grade-vocabulary fix on 675 `exact_skill` rows (§ 8.1) — gated on GV opening at B2, jack-ryan's seam.
 
 **Signed:** elrond (data steward and archivist), 2026-09-28. Seat W1, KC2-PLAY SEAL LAP. Zero code; read-only on every store touched.
+
+---
+
+## 11 · Named finding (forward, 2026-10-01): the D2 WW Barbarian gains two rows, 14 → 16
+
+**Source:** jack-ryan, Sorceress-census Gate-2, A-4 + W3 (`qa/findings/2026-10-01-join1-j0-sorceress-census-gate2.md`, collab `b48500a4d`; charter v0.5.1; KP-165). It was raised by this seat as ambiguity A-4 in `2026-10-01-join1-j0-sorceress-census.md`. **This is an addition after the launch anchor, so it is a named finding (charter § 4.5), printed against J-S2 with its reason. It is not a silent re-map.** It makes his coverage harder, not easier, and it lands before J4a is graded.
+
+**Both rows were omitted by this census (§ 2). Neither changes any existing row's class.**
+
+| # | Mechanism | Evidence (grade) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **B-15** | **His hits put monsters into hit recovery** (stagger). WW's melee hits trigger D2 monster hit recovery by engine law. WW carries no `Skills.txt` field for it (unlike the Sorceress's `GetHit=1` missiles) | MV (D2 engine law; legolas) | **BOUNDARY** (CC/status on monsters) | `control_application` is the player-as-victim lane only (§ 7.1): no monster control body. GD's engine has `TakeHitAction` (enum type 11), but the oracle has nothing to apply it to | **GD-EMPTY → L-21 `monster_hit_recovery`** (build item, registered at the Sorceress Gate-2; BUILD-IN-J4b under KP-162) |
+| **B-16** | **His own hit recovery: the Battle Orders cast is interruptible.** Battle Orders (149, pinned in J-S3) carries **`interrupt=1`**; Whirlwind's `interrupt` is empty, so the spin itself is uninterruptible but the buff cast is not. legolas's timing packet (`b0f9d77fa`) tables his FHR (`BA GH 5/256`) | **DM** (`Skills.txt` `interrupt=1` on 149, re-verified 2026-10-01) / MV (D2 FHR law) | **BOUNDARY** (CC/status on the player; B7) | The player-control lane is triggered by control families, not by damage. `REF_P_CAST_INTERRUPTS = 0.15` is the player cutting his own channel. GD's referent is `NONE` (trigger undecoded; the decoded permission grid has TakeHit REPLACE Attack) | **WIDEN → L-18 `player_hit_recovery`** (settable; GD `NONE`, DECLARED-INVENTED JOIN default `off`) |
+
+**Why the census missed them.** B-16: the § 2 row list read Battle Orders for its buff (row 7) and never read its `interrupt` flag. B-15: the census enumerated the kit's own records, and monster hit recovery from melee is an engine law with no field on WW. The Sorceress census found both shapes from her own `GetHit=1` and `interrupt=1` fields. Paper-only note (Gate-2): the same universal hit consequence (PoE stun on hit) is probably missing from the Cyclone and Bonestorm rows too. No JOIN-1 action follows; it is recorded for whichever run joins them.
+
+**D2 WW Barb, corrected frozen record: 16 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| INTERNAL | 3 | 5, 6, 7 |
+| **BOUNDARY** | **11** | **AS-IS 3**: 1, 4, 12 · **WIDEN 7**: 2, 3, 8, 9, 10, 11, B-16 · **GD-EMPTY 1**: B-15 |
+| OUT-OF-ARENA | 2 | 13, and the ally-scope row |
+
+**Fraction-(b) population: 11** (all BOUNDARY rows, per Gate-2 W2). **Fraction-(a) denominator: 16.**
+
+**Slate totals, derived (for the record; J-S2 is the conductor's to amend):** 48 classed rows (it was 46) + 3 cross-cutting misfits = 51. INTERNAL 15 · BOUNDARY 27 (AS-IS 8 · WIDEN 15 · GD-EMPTY 4) · OUT-OF-ARENA 5 · HELD 1.
+
+*Named finding signed:* elrond, 2026-10-01.
