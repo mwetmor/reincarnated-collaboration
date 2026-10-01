@@ -119,29 +119,29 @@
    "worst": {
     "elbow_L": {
      "flex_min": {
-      "deg": 97.2,
+      "deg": 98.5,
       "t": 0.0
      },
      "lateral_worst": {
-      "deg": -27.0,
-      "t": 0.1333
+      "deg": -25.5,
+      "t": 0.0667
      },
      "flex_max": {
-      "deg": 97.2,
-      "t": 0.1
+      "deg": 98.5,
+      "t": 0.2
      }
     },
     "elbow_R": {
      "flex_min": {
-      "deg": 52.2,
-      "t": 0.0667
+      "deg": 85.9,
+      "t": 0.1333
      },
      "lateral_worst": {
-      "deg": 78.7,
-      "t": 0.0
+      "deg": 12.5,
+      "t": 0.0333
      },
      "flex_max": {
-      "deg": 52.2,
+      "deg": 85.9,
       "t": 0.0
      }
     },
@@ -175,30 +175,30 @@
     },
     "wrist_L": {
      "dev_worst": {
-      "deg": 32.0,
-      "t": 0.0333
+      "deg": 32.3,
+      "t": 0.0
      },
      "flex_worst": {
-      "deg": 48.6,
+      "deg": 60.7,
       "t": 0.0333
      },
      "twist_worst": {
-      "deg": 61.6,
+      "deg": 63.9,
       "t": 0.0
      }
     },
     "wrist_R": {
      "dev_worst": {
-      "deg": -32.1,
+      "deg": -22.2,
       "t": 0.0
      },
      "flex_worst": {
-      "deg": -26.5,
-      "t": 0.0
+      "deg": 70.1,
+      "t": 0.0333
      },
      "twist_worst": {
-      "deg": -80.0,
-      "t": 0.0333
+      "deg": -26.8,
+      "t": 0.0
      }
     }
    },
@@ -1906,7 +1906,7 @@
  },
  "negative_control": {
   "what": "clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge",
-  "elbow_R_flex": -29.6,
+  "elbow_R_flex": -29.5,
   "verdict": "FAIL"
  }
 }

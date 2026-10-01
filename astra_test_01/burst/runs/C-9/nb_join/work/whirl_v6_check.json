@@ -1,0 +1,60 @@
+{
+ "clip": "whirlwind",
+ "T": 0.2667,
+ "samples": 33,
+ "revolution_deg": -360.0,
+ "closure_m": 0.0,
+ "stance_slide": {
+  "Left": {
+   "stance_share": 1.0,
+   "slide_median_m_s": 11.257,
+   "slide_p90_m_s": 11.366,
+   "lift_max_m": 0.0
+  },
+  "Right": {
+   "stance_share": 0.0,
+   "slide_median_m_s": null,
+   "slide_p90_m_s": null,
+   "lift_max_m": 0.0
+  }
+ },
+ "hips_orbit_m": {
+  "max": 0.0,
+  "mean": 0.0,
+  "height": [
+   0.93,
+   0.93
+  ]
+ },
+ "head_vs_travel_deg": {
+  "within_10": 0.061,
+  "within_30": 0.212,
+  "worst": 175.6,
+  "median_abs": 85.6
+ },
+ "edges": {
+  "weapon_r": {
+   "cos_min": 0.976,
+   "cos_median": 0.976,
+   "share_ge_0_8": 1.0
+  },
+  "weapon_l": {
+   "cos_min": 0.952,
+   "cos_median": 0.952,
+   "share_ge_0_8": 1.0
+  }
+ },
+ "flats_to_camera": {
+  "weapon_r": {
+   "worst": 0.51,
+   "share_ge_0_5": 1.0
+  },
+  "weapon_l": {
+   "worst": 0.506,
+   "share_ge_0_5": 1.0
+  }
+ },
+ "double_edged": [
+  "weapon_r"
+ ]
+}

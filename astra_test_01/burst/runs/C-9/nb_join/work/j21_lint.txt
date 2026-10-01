@@ -14,14 +14,14 @@
   WARN  nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)
   WARN  nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)
   WARN  nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)
-  WARN  nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)
   WARN  nb-body_join.glb: clip 'shout' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)
+  WARN  nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)
   WARN  nb-body_join.glb: SOURCE FIDELITY -- clip 'attack' is legacy (NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added)
   VERDICT: WARN
   attack     SOURCE FIDELITY LEGACY    max 0.5577 hips-to-head (limit 0.10), rest match 0.00005
   death      SOURCE FIDELITY PASS      max 0.0001 hips-to-head (limit 0.10), rest match 0.00005
   hit        SOURCE FIDELITY PASS      max 0.0001 hips-to-head (limit 0.10), rest match 0.00005
   shout      SOURCE FIDELITY AUTHORED  composed v6 (Matt 2026-09-30): v4's arms and blades at v4's 1.5x (authored 2.10 s -> 1.40 s) on his battle stance's legs (idle_guard at 0.5 s, held, planted); the upper body is Meshy 388's flex crossfaded into Meshy 49's arms thrown wide to the sky, the elbows lowered once, then his guard returns and the clip ENDS; the release is the sky; weapon_r/weapon_l rotation tracks from the clamp
-  whirlwind  SOURCE FIDELITY AUTHORED  authored v5 (Matt 2026-09-30): his idle battle stance (idle_guard at 0.5 s, its legs exactly), feet planted, the whole body turning as one, one CCW revolution in 8/30 s (3.75 rev/s; v4 3.0), 9 keys on the 30 fps grid; both weapons in front, each grip 0.16-0.22 m off his shoulder midpoint on its own side, elbows bent the stance's way, blades pitched 20 deg up, no turn into the spin; the head toward the blades, tilted 8 deg toward the spin
+  whirlwind  SOURCE FIDELITY AUTHORED  authored v6 (Matt 2026-09-30: 'whirlwind speed is good but the arms are crossed'): his idle battle stance (idle_guard at 0.5 s, its legs exactly), feet planted, the whole body turning as one, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid; each wrist at his shoulder half-width (0.21 m) off his centreline along the shoulder line, the elbows 0.15 m out (the forearms opening outward, never converging), the blades out front pitched 20 deg up and splayed 8 deg out to their own sides; the head toward the blades, tilted 8 deg toward the spin
   whirlwind  SOURCE GRID     PASS      9 keys at 0.0333 s against the source's 9 at 0.0333 s (nbt_idle.glb)
   whirlwind  LOOP SEAM       PASS      closure 0.00000 m (LeftToeBase) / 0.000 deg, first interval 1.00 of the median

@@ -447,23 +447,6 @@
      "first": 0.0
     }
    },
-   "whirlwind": {
-    "scale_tracks": {},
-    "root_height": {
-     "first": 85.4235,
-     "min": 85.4235,
-     "max": 85.4235,
-     "rest": 93.79
-    },
-    "root": "Hips",
-    "root_travel_units": 0.0,
-    "locomotion": false,
-    "root_offset_m": {
-     "closest": 0.0085,
-     "mean": 0.0085,
-     "first": 0.0085
-    }
-   },
    "shout": {
     "scale_tracks": {},
     "root_height": {
@@ -479,6 +462,23 @@
      "closest": 0.0051,
      "mean": 0.0051,
      "first": 0.0051
+    }
+   },
+   "whirlwind": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 85.4235,
+     "min": 85.4235,
+     "max": 85.4235,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0085,
+     "mean": 0.0085,
+     "first": 0.0085
     }
    }
   },
@@ -504,8 +504,8 @@
    "nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)",
    "nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)",
    "nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
-   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)",
    "nb-body_join.glb: clip 'shout' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)",
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)",
    "nb-body_join.glb: SOURCE FIDELITY -- clip 'attack' is legacy (NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added)"
   ],
   "verdict": "WARN",
@@ -584,7 +584,7 @@
     {
      "clip": "whirlwind",
      "status": "AUTHORED",
-     "note": "authored v5 (Matt 2026-09-30): his idle battle stance (idle_guard at 0.5 s, its legs exactly), feet planted, the whole body turning as one, one CCW revolution in 8/30 s (3.75 rev/s; v4 3.0), 9 keys on the 30 fps grid; both weapons in front, each grip 0.16-0.22 m off his shoulder midpoint on its own side, elbows bent the stance's way, blades pitched 20 deg up, no turn into the spin; the head toward the blades, tilted 8 deg toward the spin"
+     "note": "authored v6 (Matt 2026-09-30: 'whirlwind speed is good but the arms are crossed'): his idle battle stance (idle_guard at 0.5 s, its legs exactly), feet planted, the whole body turning as one, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid; each wrist at his shoulder half-width (0.21 m) off his centreline along the shoulder line, the elbows 0.15 m out (the forearms opening outward, never converging), the blades out front pitched 20 deg up and splayed 8 deg out to their own sides; the head toward the blades, tilted 8 deg toward the spin"
     }
    ],
    "seams": [

@@ -1,0 +1,114 @@
+{
+ "instrument": "scripts/j_cross_check.py",
+ "body": "v5_export_a75b9fa5.glb",
+ "clip": "whirlwind",
+ "keys": 9,
+ "verdict": "FAIL",
+ "negative_control": false,
+ "wrists_crossed_at_t": [],
+ "elbows_crossed_at_t": [
+  0.0,
+  0.0333,
+  0.0667,
+  0.1,
+  0.1333,
+  0.1667,
+  0.2,
+  0.2333,
+  0.2667
+ ],
+ "tips_crossed_at_t": [],
+ "screen_crossings": [
+  [
+   0.0,
+   [
+    "fore_L x fore_R @0",
+    "fore_L x fore_R @45"
+   ]
+  ],
+  [
+   0.0333,
+   [
+    "fore_L x fore_R @90",
+    "fore_L x fore_R @45"
+   ]
+  ],
+  [
+   0.0667,
+   [
+    "fore_L x fore_R @90",
+    "fore_L x fore_R @135"
+   ]
+  ],
+  [
+   0.1,
+   [
+    "fore_L x fore_R @135",
+    "fore_L x fore_R @180"
+   ]
+  ],
+  [
+   0.1333,
+   [
+    "fore_L x fore_R @180",
+    "fore_L x fore_R @225"
+   ]
+  ],
+  [
+   0.1667,
+   [
+    "fore_L x fore_R @225",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.2,
+   [
+    "fore_L x fore_R @270",
+    "fore_L x fore_R @315"
+   ]
+  ],
+  [
+   0.2333,
+   [
+    "fore_L x fore_R @315",
+    "fore_L x fore_R @0"
+   ]
+  ],
+  [
+   0.2667,
+   [
+    "fore_L x fore_R @0",
+    "fore_L x fore_R @45"
+   ]
+  ]
+ ],
+ "screen_frames_failing": 9,
+ "least_side_m": {
+  "wrist_L": {
+   "m": 0.137,
+   "t": 0.1333
+  },
+  "wrist_R": {
+   "m": 0.132,
+   "t": 0.2333
+  },
+  "elbow_L": {
+   "m": 0.04,
+   "t": 0.1333
+  },
+  "elbow_R": {
+   "m": -0.01,
+   "t": 0.1333
+  },
+  "tip_axe_L": {
+   "m": 0.219,
+   "t": 0.1
+  },
+  "tip_sword_R": {
+   "m": 0.218,
+   "t": 0.1333
+  }
+ },
+ "definition": "side of his sagittal plane (shoulder midpoint, normal = the levelled shoulder line), metres, > 0 = own side"
+}

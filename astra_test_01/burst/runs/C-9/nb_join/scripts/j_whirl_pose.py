@@ -167,6 +167,7 @@ def terms(x):
         r = mid.copy(); r[1] = 0; r = unit(r)
         if BASEBALL is not None:
             la = math.radians(float(BASEBALL)) * (1 if SENSE == 'ccw' else -1)
+            la = la + math.radians(SPLAY) * (1 if s == 'l' else -1)    # v6: each blade splayed OUT to its own side (a shallow V)
             r = np.array([math.sin(la), 0.0, math.cos(la)])
         t = np.cross(U, r) if SENSE == 'ccw' else -np.cross(U, r)
         Yh = Y.copy(); Yh[1] = 0; nyh = float(np.linalg.norm(Yh))
@@ -192,6 +193,14 @@ def terms(x):
         spg = G[nid['Spine']]; sax = (spg[:3, :3] / np.linalg.norm(spg[:3, :3], axis=0)) @ np.array([-1.0 if s == 'r' else 1.0, 0, 0])
         hw_ = float((G[nid[SIDES[s]['chain'][0]]][:3, 3] - spg[:3, 3]) @ sax)
         out[s]['fist_frac'] = float((g - spg[:3, 3]) @ sax) / max(hw_, 1e-6)
+        # v6 (the conductor: "each hand at about his shoulder half-width out from his centre, measured along the shoulder
+        # line ... forearms roughly parallel, never converging"): the wrist and the elbow off the shoulder midpoint along
+        # the LEVELLED shoulder line (scripts/j_cross_check.py's frame), each on its own side
+        La_, Ra_ = G[nid['LeftArm']][:3, 3], G[nid['RightArm']][:3, 3]; md_ = (La_ + Ra_) / 2; lt_ = La_ - Ra_; lt_[1] = 0; lt_ /= np.linalg.norm(lt_)
+        sg_ = 1.0 if s == 'l' else -1.0
+        out[s]['wrist_side'] = float((G[nid[SIDES[s]['chain'][2]]][:3, 3] - md_) @ lt_) * sg_
+        out[s]['elbow_side'] = float((G[nid[SIDES[s]['chain'][1]]][:3, 3] - md_) @ lt_) * sg_
+        out[s]['half_w'] = float(np.linalg.norm((La_ - Ra_)[[0, 2]])) / 2
         if JAX:
             hb_ = nid[SIDES[s]['chain'][2]]; qh = pose_from(x)[hb_][1]
             Rl = m_of(np.array(m['rest'][hb_][1], float)).T @ m_of(qh)
@@ -214,6 +223,8 @@ _LASTB = {}
 # --fist-frac F (v4, the JOIN hold v2's FIST row, attack_lab/t12/godot/tools/join_accept.gd): the grip's offset from the
 # chest joint (Spine, the HIGHEST spine bone) along the Spine basis's own +-X, over the same side's shoulder ball joint's
 FIST = float(opt('--fist-frac')) if opt('--fist-frac') else None
+WSIDE = float(opt('--wrist-side')) if opt('--wrist-side') else None   # v6: the wrist at this fraction of the shoulder half-width
+SPLAY = float(opt('--splay', '0'))                                   # v6: deg each blade turns OUT to its own side
 # --joint-axes f (v4): scripts/j_joint_lint.py's learned wrist axes; the wrist kept inside the lint's own limits
 JAX = json.load(open(opt('--joint-axes')))['learned']['axes'] if opt('--joint-axes') else None
 WFLEX, WDEV = float(opt('--wrist-flex-max', '70')), float(opt('--wrist-dev-max', '32'))
@@ -252,6 +263,9 @@ def cost(x):
         if GSIDE is not None:
             c += GSW * max(0.0, GSIDE - v['side']) ** 2 + GSW * max(0.0, v['side'] - GSMAX) ** 2
         c += BUTTW * max(0.0, BUTT - v['butt_clear']) ** 2
+        if WSIDE is not None:
+            c += 600 * (v['wrist_side'] - WSIDE * v['half_w']) ** 2 + 600 * max(0.0, v['wrist_side'] - v['elbow_side'] - 0.04) ** 2 \
+                 + 600 * max(0.0, v['elbow_side'] - v['wrist_side'] - 0.08) ** 2
         if FIST is not None:
             c += GSW * (v['fist_frac'] - FIST) ** 2 * 0.04
         if JAX:
@@ -281,9 +295,9 @@ rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BAS
                    for i in range(len(m['nodes'])) if m['nodes'][i].get('name') in set(nd.get('name') for nd in m['nodes'])})
 rep['v4'] = dict(blade_pitch_deg=math.degrees(PITCH), reach_max_m=REACH_MAX if REACH_MAX < 9 else None, grip_y_m=float(GRIP_Y) if GRIP_Y else None,
                 hinge_cos_min=HINGE_COS if HINGE_COS > -2 else None, fist_frac=FIST, joint_axes=opt('--joint-axes'),
-                wrist_flex_max_deg=WFLEX if JAX else None, wrist_dev_max_deg=WDEV if JAX else None, forearm_twist_max_deg=TWMAX if JAX else None, edge_min=EDGE_MIN, double_edged_r=DBL_R, argv=a[2:])
+                wrist_flex_max_deg=WFLEX if JAX else None, wrist_dev_max_deg=WDEV if JAX else None, forearm_twist_max_deg=TWMAX if JAX else None, edge_min=EDGE_MIN, double_edged_r=DBL_R, wrist_side_frac=WSIDE, splay_deg=SPLAY, argv=a[2:])
 json.dump(rep, open(OUT, 'w'), indent=1)
 for s, d in T.items():
-    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f  hinge %.2f  fist %.2f  wflex %.0f wdev %.0f twist %.0f"
-          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear'], d['hinge_cos'], d['fist_frac'], d.get('wrist_flex', 0), d.get('wrist_dev', 0), d.get('forearm_twist', 0)))
+    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f  hinge %.2f  fist %.2f  wflex %.0f wdev %.0f twist %.0f  wrist side %.3f elbow side %.3f (half %.3f)"
+          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear'], d['hinge_cos'], d['fist_frac'], d.get('wrist_flex', 0), d.get('wrist_dev', 0), d.get('forearm_twist', 0), d['wrist_side'], d['elbow_side'], d['half_w']))
 print("  chest squared by %.1f deg; cost %.4f -> %s" % (yaw_chest, best.fun, OUT))
