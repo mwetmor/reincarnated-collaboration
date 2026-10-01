@@ -53,7 +53,7 @@ for nm in WANT:
         Pw = world(pc); zf = (Pw[:, 2] - blo[2]) / BH
         cx = float(np.median(BV[:, 0]))
         band = (zf > 0.2) & (zf < 0.4); wdt = np.percentile(Pw[band, 0], 98) - np.percentile(Pw[band, 0], 2)
-        SLIT = 0.215 * wdt; HIP = float((bonew('Hips')[2] - blo[2]) / BH); GAP = 0.010
+        SLIT = 0.215 * wdt; HIP = float((bonew('Hips')[2] - blo[2]) / BH); GAP = float(opt('--gap', '0.010'))   # stage I: half-width of the slit band cut between panels
         # cut: delete faces whose centre lies in a slit band below the hips
         bm = bmesh.new(); bm.from_mesh(pc.data); bm.faces.ensure_lookup_table()
         Mw = np.array(pc.matrix_world)
@@ -117,9 +117,14 @@ for nm in WANT:
         THIGH = float(opt('--thigh', '0.5')); RAMP = opt('--ramp', 'knee')   # stage G (b): 'hem' = a linear ramp hip -> hem reaching THIGH at the hem
         u = (np.clip((HIP - zf) / max(HIP - zf.min(), 1e-6), 0, 1) if RAMP == 'hem' else np.clip((HIP - zf) / 0.30, 0, 1)) * THIGH
         low[:, ni['Hips']] = 1.0
-        for side, leg in ((1, 'LeftUpLeg'), (-1, 'RightUpLeg')):
+        # stage I: SHIN share -- below the knee, a side panel's hem follows the shin too (up to SHIN of its leg share at the hem),
+        # so it travels with the stride instead of being left behind by the thigh's swing
+        SHIN = float(opt('--shin', '0.0'))
+        for side, leg, shin in ((1, 'LeftUpLeg', 'LeftLeg'), (-1, 'RightUpLeg', 'RightLeg')):
             k = panel == side
-            low[k, ni[leg]] = u[k]; low[k, ni['Hips']] = 1.0 - u[k]
+            KZ = float((bonew(shin)[2] - blo[2]) / BH)
+            sh = np.clip((KZ - zf) / max(KZ - zf.min(), 1e-6), 0, 1) * SHIN
+            low[k, ni[leg]] = u[k] * (1 - sh[k]); low[k, ni[shin]] = u[k] * sh[k]; low[k, ni['Hips']] = 1.0 - u[k]
         b = np.clip((zf - HIP) / 0.15, 0, 1)[:, None]                      # 1 = top rule, 0 = panel rule
         Wc = b * top + (1 - b) * low
         for gi, n in enumerate(names):
@@ -129,7 +134,7 @@ for nm in WANT:
         both = int(((Wc[:, ni['LeftUpLeg']] > 0) & (Wc[:, ni['RightUpLeg']] > 0)).sum())
         r.update(mode='panel-split skin', slit_x_m=round(float(SLIT), 4), hips_zf=round(HIP, 3), slit_faces_cut=len(kill),
                  panel_verts=dict(back=int((panel == 0).sum()), left=int((panel == 1).sum()), right=int((panel == -1).sum())),
-                 verts_on_both_thighs=both, thigh=THIGH, ramp=RAMP, **r_flare)
+                 verts_on_both_thighs=both, shin=SHIN, gap=GAP, thigh=THIGH, ramp=RAMP, **r_flare)
     G.align_space(pc, body[0]); pc.name = nm
     r['file'] = export(pc, nm)
     rep['pieces'][nm] = r; print('GEAR', nm, json.dumps(r))

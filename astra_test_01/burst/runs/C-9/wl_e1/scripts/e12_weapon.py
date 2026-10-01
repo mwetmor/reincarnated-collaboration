@@ -13,6 +13,7 @@ CH = __import__('54_weapon_channel')
 a = sys.argv[1:]; BODY, PIECE, OB, OP = a[:4]; OUTJ = a[a.index('--json') + 1] if '--json' in a else None
 LEN, RGRIP = 1.45, float(os.environ.get("E1_RGRIP", "0.68")); HEAD_C = LEN - RGRIP - 0.20      # head centre ~0.20 m below the top spike's tip
 SEP_FULL, SEP_FADE = 0.85, 0.20
+RESEAT = {k: float(v) for k, v in (x.split(':') for x in os.environ.get('E1_RESEAT', '').split(',') if x)}
 ROOT = os.path.dirname(HERE)
 jb, bb = L.load_glb(BODY); bb = bytearray(bb); jp, bp = L.load_glb(PIECE); bp = bytearray(bp)
 nb = {n.get('name'): i for i, n in enumerate(jb['nodes'])}; npc = {n.get('name'): i for i, n in enumerate(jp['nodes'])}
@@ -79,6 +80,13 @@ for clip in m['anims']:
         A = W.arc(h, d); ang = math.acos(np.clip((np.trace(A) - 1) / 2, -1, 1))
         Aw = W.axis_angle(np.array([A[2, 1] - A[1, 2], A[0, 2] - A[2, 0], A[1, 0] - A[0, 1]]) if ang > 1e-9 else np.array([0, 1.0, 0]), w * ang) if ang > 1e-9 else np.eye(3)
         Wr = Aw @ Hr @ Wm[:3, :3]
+        # STAGE I RE-SEAT (the barbarian lane's route: the haft turned in the fists, no arm edit): a per-clip pitch of the haft
+        # about the right fist, up by RESEAT[clip] deg about the axis across the haft and world-up. The left fist then sits off
+        # the haft axis by sep x sin(angle) -- measured below as left_off_axis.
+        rs = RESEAT.get(clip, 0.0)
+        if rs:
+            hd0 = Wr[:, 1]; lat = np.cross(hd0, [0, 1.0, 0])
+            if np.linalg.norm(lat) > 1e-6: Wr = W.axis_angle(lat / np.linalg.norm(lat), math.radians(rs)) @ Wr
         qs.append(W.m2q(Hr.T @ Wr))
         hd = Wr[:, 1]; Pv = (H @ np.r_[piv, 1])[:3]
         sL = float((Lf - Pv) @ hd)                                     # left fist along the haft (negative = toward the butt)

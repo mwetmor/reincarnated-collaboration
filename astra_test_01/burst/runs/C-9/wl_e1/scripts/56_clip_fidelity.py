@@ -33,6 +33,7 @@ JOINTS = ["Spine02", "Head", "LeftArm", "LeftForeArm", "LeftHand", "RightArm", "
           "LeftUpLeg", "LeftLeg", "LeftFoot", "RightUpLeg", "RightLeg", "RightFoot"]
 EXCLUDES = {"wrist_lock": ("LeftHand", "RightHand"),
             # E1 (drax, 2026-10-01): the two-handed HOLD -- idle/run arms set to the armed walk's held pose (e09_hold.py)
+            "head_lift": ("neck", "Head", "head_end", "headfront"),   # E1 stage I: e33 neck/head lift over the idle
             "joint_fix": ("LeftHand", "RightHand", "LeftForeArm", "RightForeArm"),   # E1: 63_joint_fix on keys (wrist deviation cut to 38 deg, elbow to -3)
             "arm_hold": ("LeftShoulder", "LeftArm", "LeftForeArm", "LeftHand", "RightShoulder", "RightArm", "RightForeArm", "RightHand")}
 REGISTRY = os.path.join(os.path.dirname(HERE), "work", "clip_sources.json")

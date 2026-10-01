@@ -18,10 +18,12 @@
     "deroot",
     "recentre",
     "reground",
-    "arm_hold"
+    "arm_hold",
+    "head_lift"
    ],
    "loop": true,
-   "hold": "e32_world_hold: arms in world space from the G1 carry (idle@0.8)"
+   "hold": "e32_world_hold: arms in world space from the G1 carry (idle@0.8)",
+   "head_lift": "e33: neck +9, head +13 deg (work/i_head_lift.json)"
   },
   "walk": {
    "source": "anims/free_walking.glb",
