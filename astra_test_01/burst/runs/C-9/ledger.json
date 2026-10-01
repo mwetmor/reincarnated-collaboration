@@ -25806,9 +25806,163 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-SPB",
+      "type": "GENERATE",
+      "experiment": "R-C9-105-paint",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1555c12e2b5fa3a401c457c16bda9953220fe3987496681f6a1ca456a855f2bf",
+      "started": "2026-10-01T05:35:42.855696+00:00",
+      "ended": "2026-10-01T05:40:39.657477+00:00",
+      "minutes": 4.946766284033462,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f5f6-1fd6-7bc3-8215-133a2bc8e6aa/exec-15a0514c-819d-4820-bac3-65d01f8bf4c6.png",
+            "sha256": "bfac112449dd5c54d90712ef43e3aaca51b579799e6724a5ad1934dc21c235dd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f5f6-1fd6-7bc3-8215-133a2bc8e6aa/exec-d014345d-c729-4674-aca7-357faf722b43.png",
+            "sha256": "117e34fe8360397d97654b2e562c706db09ece3c576da56d7234ee85c8086551"
+          }
+        ]
+      },
+      "receipt_sha256": "70be4305f9bb44d1ddd56d349c6d32a941b2d0161f28efbd521494f0c2123630",
+      "artifacts": [
+        {
+          "name": "GS-SPB_a.png",
+          "sha256": "117e34fe8360397d97654b2e562c706db09ece3c576da56d7234ee85c8086551"
+        },
+        {
+          "name": "GS-SPB_b.png",
+          "sha256": "bfac112449dd5c54d90712ef43e3aaca51b579799e6724a5ad1934dc21c235dd"
+        },
+        {
+          "name": "exec-15a0514c-819d-4820-bac3-65d01f8bf4c6.provenance.json",
+          "sha256": "9d360ccf5862bcd1b3f4f66ee2a816e7392e4458feb0a331acceb8cba188bf8b"
+        },
+        {
+          "name": "exec-d014345d-c729-4674-aca7-357faf722b43.provenance.json",
+          "sha256": "4b2c9862091fcc12fae9e0cb566c9ba16f738e82dc2d9b0c38e57cfe4d39cd90"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f5f6-1fd6-7bc3-8215-133a2bc8e6aa/exec-15a0514c-819d-4820-bac3-65d01f8bf4c6.png",
+          "sha256": "bfac112449dd5c54d90712ef43e3aaca51b579799e6724a5ad1934dc21c235dd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f5f6-1fd6-7bc3-8215-133a2bc8e6aa/exec-d014345d-c729-4674-aca7-357faf722b43.png",
+          "sha256": "117e34fe8360397d97654b2e562c706db09ece3c576da56d7234ee85c8086551"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "DK-PA",
+      "type": "GENERATE",
+      "experiment": "R-C9-112-third-character",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "99a4d1ab2d2df8d07e7c695ca07af3e02059fd670f549f6c33d121736f46df29",
+      "started": "2026-10-01T05:42:51.809022+00:00",
+      "ended": "2026-10-01T05:47:15.220548+00:00",
+      "minutes": 4.389583598616688,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f5fc-ab99-7951-ab8b-d75b0cbb9c5d/exec-51901d73-e832-4f31-a934-b6eee7c7e549.png",
+            "sha256": "78fe1779550399a34ed1077d0c47ed740a2e005348fa0f2b017667c23fca430f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f5fc-ab99-7951-ab8b-d75b0cbb9c5d/exec-93f5c80b-5925-47d9-8a5e-f5dc2c298efd.png",
+            "sha256": "2c916155a6d292039e4e2878c392c97eec67131be6dad15f5b021d7542debeb2"
+          }
+        ]
+      },
+      "receipt_sha256": "54ce4e3f0e713ca3f132be25259e21cce63419c9c5aa4d6768946ebaee9976fd",
+      "artifacts": [
+        {
+          "name": "DK-PA_a.png",
+          "sha256": "78fe1779550399a34ed1077d0c47ed740a2e005348fa0f2b017667c23fca430f"
+        },
+        {
+          "name": "DK-PA_b.png",
+          "sha256": "2c916155a6d292039e4e2878c392c97eec67131be6dad15f5b021d7542debeb2"
+        },
+        {
+          "name": "exec-51901d73-e832-4f31-a934-b6eee7c7e549.provenance.json",
+          "sha256": "7bf84d56437a5ec42b15c5ea374969b969ad92b2f58d064ca7b83762e0cf1350"
+        },
+        {
+          "name": "exec-93f5c80b-5925-47d9-8a5e-f5dc2c298efd.provenance.json",
+          "sha256": "b4e2ff71afbe6b3404872f5af79684451ace31acd3868e89df9818cade67acb5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f5fc-ab99-7951-ab8b-d75b0cbb9c5d/exec-51901d73-e832-4f31-a934-b6eee7c7e549.png",
+          "sha256": "78fe1779550399a34ed1077d0c47ed740a2e005348fa0f2b017667c23fca430f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f5fc-ab99-7951-ab8b-d75b0cbb9c5d/exec-93f5c80b-5925-47d9-8a5e-f5dc2c298efd.png",
+          "sha256": "2c916155a6d292039e4e2878c392c97eec67131be6dad15f5b021d7542debeb2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 754,
+  "images_used": 758,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -26749,6 +26903,11 @@
       "id": "M-C9-PAINT-CHAMP-BM",
       "note": "Battle mage stage 2 (96e3bad38): GS-SHOOD dressed build cut into gown/legs/breastplate/hood/gauntlets on her 26 joints; wand on weapon_r 0.0017 m from the fist in every clip; grimoire carried at the back of the RIGHT hip (her left hand throws the Fire Ball, so an off-hand carry is impossible with these clips). Champion paint pass (38798b643): D7 bake on two subjects (bare body; dressed set), 10 Astra calls; gain real but modest at play scale (skin chroma 38.9->34.1; armour clusters 17.6->19.1; skin-to-armour distance fell 11.7->7.7). Conductor: a value grade on the armour atlas queued as variant C. Her paint pass and a dark under-layer for the knee/boot see-through in progress.",
       "ts": "2026-10-01T01:35:15"
+    },
+    {
+      "id": "M-C9-ARMOR-LANE-CLOSED",
+      "note": "Armor lane (R-C9-98/103/105) closed at 42fe36404: battle mage see-through cut 62% by a dark under-layer skinned to her own leg weights (residual at deepest knee flex); paint pass C (scarlet/gold richer, steel paler) and steel grade D (std L 15.1 -> 26.4; by eye cool, possibly too blue-white). Open for Matt: sorceress C or D; champion B or C (lane and conductor lean C); whether the residual knee see-through is acceptable. Lane totals: fal $2.42, Astra 50 calls (758 ledger), Meshy 0. Conductor renamed a stray scratchpad struct.py (a C-5 scan script that shadowed the stdlib) to c5_t3_scan.py.",
+      "ts": "2026-10-01T02:06:32"
     }
   ],
   "halts": [
