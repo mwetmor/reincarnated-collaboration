@@ -1,0 +1,61 @@
+{
+ "what": "R-C9-115 part 2 + Route 2 -- measured, NOT installed (Matt picks first)",
+ "date": "2026-10-01",
+ "hold_v5": {
+  "recipe": "from hold v4 F25: elbow flexion +E about its hinge, shoulder flexion +S about the levelled shoulder line, mirrored, in the six guard poses; the wrist stays F25 (25 deg)",
+  "tool": "scripts/j_hold_tip.py --deg 0 --elbow E --shoulder S",
+  "result": "BOTH asked edits move the tips AWAY from forward: raising the forearm pitches the guard's up-and-outboard weapons further back",
+  "tip_forward_idle_deg": {
+   "v3": [
+    65,
+    64
+   ],
+   "v4_F25": [
+    40,
+    39
+   ],
+   "v5_main_E20_S10": [
+    62,
+    58
+   ],
+   "v5_alt_E35_S15": [
+    78,
+    73
+   ],
+   "isolated": {
+    "S10_only": [
+     47,
+     46
+    ],
+    "E20_only": [
+     54,
+     51
+    ],
+    "E_minus20": [
+     31,
+     32
+    ],
+    "E_minus20_S10": [
+     35,
+     37
+    ],
+    "E_minus35 (INFO)": [
+     30,
+     31
+    ]
+   }
+  },
+  "records": "work/hold_v5/"
+ },
+ "attack_route2": {
+  "credits": 6,
+  "ledger": "work/meshy_fetch.json (33 total)",
+  "refusal_test": "MESHY_API_KEY=invalid -> 'Invalid API key', 0 credits (ledger record atk_left_slash_TEST)",
+  "fetched": {
+   "atk_left_slash": "Meshy 97 Left Slash (lint PASS)",
+   "atk_attack": "Meshy 4 Attack (lint WARN)"
+  },
+  "chosen_from_free_previews": "cdn preview GIFs read before spending: 4 is a two-handed straight overhead; 97 looked same-side; on his rig 97 slashes ACROSS",
+  "records": "work/attack_route2/"
+ }
+}

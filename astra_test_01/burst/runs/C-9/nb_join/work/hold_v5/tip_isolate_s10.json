@@ -1,0 +1,224 @@
+{
+ "instrument": "scripts/j_hold_tip.py",
+ "ruling": "R-C9-115",
+ "deg": 0.0,
+ "shoulder_deg": 10.0,
+ "elbow_deg": 0.0,
+ "max_wrist_deg": 30.0,
+ "hold_body": "nb-body.glb",
+ "forward": "+Z (his in-game facing)",
+ "reference_t": {
+  "idle": 0.5,
+  "walk": 0.5333333333333333,
+  "run": 0.3
+ },
+ "v3": {
+  "idle": {
+   "frames": 121,
+   "tip_forward_deg": {
+    "R": [
+     40.14,
+     43.77
+    ],
+    "L": [
+     39.13,
+     43.32
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.69,
+     0.7
+    ],
+    "L": [
+     1.01,
+     1.02
+    ]
+   },
+   "weapons_closest_m": 0.34,
+   "screen_len_worst_px_1x": {
+    "R": 37.22,
+    "L": 38.45
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  },
+  "walk": {
+   "frames": 32,
+   "tip_forward_deg": {
+    "R": [
+     38.0,
+     44.76
+    ],
+    "L": [
+     40.36,
+     43.55
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.84,
+     1.29
+    ],
+    "L": [
+     0.56,
+     0.95
+    ]
+   },
+   "weapons_closest_m": 0.37,
+   "screen_len_worst_px_1x": {
+    "R": 32.23,
+    "L": 35.07
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  },
+  "run": {
+   "frames": 20,
+   "tip_forward_deg": {
+    "R": [
+     39.31,
+     49.3
+    ],
+    "L": [
+     34.78,
+     50.68
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.71,
+     1.13
+    ],
+    "L": [
+     0.69,
+     1.02
+    ]
+   },
+   "weapons_closest_m": 0.35,
+   "screen_len_worst_px_1x": {
+    "R": 29.74,
+    "L": 33.72
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  }
+ },
+ "out": {
+  "idle": {
+   "frames": 121,
+   "tip_forward_deg": {
+    "R": [
+     47.33,
+     50.39
+    ],
+    "L": [
+     46.16,
+     50.01
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.69,
+     0.7
+    ],
+    "L": [
+     1.01,
+     1.02
+    ]
+   },
+   "weapons_closest_m": 0.34,
+   "screen_len_worst_px_1x": {
+    "R": 25.89,
+    "L": 28.41
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  },
+  "walk": {
+   "frames": 32,
+   "tip_forward_deg": {
+    "R": [
+     45.14,
+     51.83
+    ],
+    "L": [
+     47.26,
+     50.84
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.86,
+     1.27
+    ],
+    "L": [
+     0.59,
+     0.93
+    ]
+   },
+   "weapons_closest_m": 0.37,
+   "screen_len_worst_px_1x": {
+    "R": 20.63,
+    "L": 24.39
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  },
+  "run": {
+   "frames": 20,
+   "tip_forward_deg": {
+    "R": [
+     47.15,
+     54.96
+    ],
+    "L": [
+     41.94,
+     57.55
+    ]
+   },
+   "wrist_off_neutral_max_deg": {
+    "R": 25.0,
+    "L": 25.0
+   },
+   "fist_side_frac": {
+    "R": [
+     0.72,
+     1.08
+    ],
+    "L": [
+     0.75,
+     1.02
+    ]
+   },
+   "weapons_closest_m": 0.34,
+   "screen_len_worst_px_1x": {
+    "R": 19.32,
+    "L": 25.49
+   },
+   "wrist_verdict": "PASS",
+   "gap_verdict": "PASS"
+  }
+ },
+ "layers_tmp": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/w10/hold_v5_s10.glb.layers.json"
+}

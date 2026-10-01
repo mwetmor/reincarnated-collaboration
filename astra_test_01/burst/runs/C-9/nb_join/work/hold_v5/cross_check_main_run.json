@@ -1,0 +1,40 @@
+{
+ "instrument": "scripts/j_cross_check.py",
+ "body": "hold_v5_main.glb",
+ "clip": "run",
+ "keys": 20,
+ "verdict": "PASS",
+ "negative_control": false,
+ "wrists_crossed_at_t": [],
+ "elbows_crossed_at_t": [],
+ "tips_crossed_at_t": [],
+ "screen_crossings": [],
+ "screen_frames_failing": 0,
+ "least_side_m": {
+  "wrist_L": {
+   "m": 0.178,
+   "t": 0.6
+  },
+  "wrist_R": {
+   "m": 0.179,
+   "t": 0.2667
+  },
+  "elbow_L": {
+   "m": 0.163,
+   "t": 0.6
+  },
+  "elbow_R": {
+   "m": 0.29,
+   "t": 0.2667
+  },
+  "tip_axe_L": {
+   "m": 0.697,
+   "t": 0.2667
+  },
+  "tip_sword_R": {
+   "m": 0.26,
+   "t": 0.6
+  }
+ },
+ "definition": "side of his sagittal plane (shoulder midpoint, normal = the levelled shoulder line), metres, > 0 = own side"
+}

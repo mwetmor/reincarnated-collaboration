@@ -1,6 +1,6 @@
 {
  "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
- "spent": 27,
+ "spent": 33,
  "clips": {
   "flow_probe": {
    "action_id": 1,
@@ -181,6 +181,48 @@
     ],
     "clips": [
      "Armature|Double_Blade_Spin|baselayer"
+    ]
+   }
+  },
+  "atk_left_slash_TEST": {
+   "action_id": 97,
+   "error": "{'message': 'Invalid API key'}"
+  },
+  "atk_left_slash": {
+   "action_id": 97,
+   "task": "01a0f608-2a02-718f-af55-bb6e86b4ecc3",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/atk_left_slash.glb",
+   "mb": 17.9,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Left_Slash|baselayer"
+    ]
+   }
+  },
+  "atk_attack": {
+   "action_id": 4,
+   "task": "01a0f609-2940-7539-acd9-b0c238f36399",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 124,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/anims/atk_attack.glb",
+   "mb": 17.89,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "atk_attack.glb: clip 'Armature|Attack|baselayer' starts root 'Hips' at 71.982 against rest 93.790 (23.3% > 5%)"
+    ],
+    "clips": [
+     "Armature|Attack|baselayer"
     ]
    }
   }

@@ -22,6 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE);
 args = sys.argv[1:]; HB, SPEC, OUTB = args[0], args[1], args[2]
 gopt = lambda k, d=None: args[args.index(k) + 1] if k in args else d
 DEG = float(gopt('--deg', '25')); MAXW = float(gopt('--max-wrist', '30')); OUTJ = gopt('--json')
+SH, EL = float(gopt('--shoulder', '0')), float(gopt('--elbow', '0'))   # v5: deg (0 = no edit)
 spec = json.load(open(SPEC)); lays = json.loads(json.dumps(spec['layers']))
 STATE_CLIP = {k: v['clip'] for k, v in spec['states'].items()}
 for ly in lays:                                                        # the lint's pose code matches layers on the CLIP name
@@ -53,12 +54,28 @@ def nrm(X):
 g = load(HB)
 W = g['W']; nid = g['nid']; rest = g['rest']; P = g['parent']
 new_q = {}
+ARM = {'R': ('RightArm', 'RightForeArm'), 'L': ('LeftArm', 'LeftForeArm')}
 for (st, sd), gc in GUARD.items():
     loc = g['pose_locals'](STATE_CLIP[st], ref_t(g, st)); G = g['globals_of'](loc)
-    h = nid[HAND[sd]]; Rh = nrm(G[h][:3, :3]); Y = nrm(G[nid[WEAP[sd]]][:3, :3])[:, 1]
-    ax = np.cross(Y, FWD); ax = ax / np.linalg.norm(ax)
-    Rw = W.axis_angle(ax, math.radians(DEG)) @ Rh                       # the tip swung DEG toward forward
-    Rp = nrm(G[P[h]][:3, :3]); new_q[gc, sd] = np.array(W.m2q(Rp.T @ Rw), float)
+    if DEG:
+        h = nid[HAND[sd]]; Rh = nrm(G[h][:3, :3]); Y = nrm(G[nid[WEAP[sd]]][:3, :3])[:, 1]
+        ax = np.cross(Y, FWD); ax = ax / np.linalg.norm(ax)
+        Rw = W.axis_angle(ax, math.radians(DEG)) @ Rh                   # the tip swung DEG toward forward
+        Rp = nrm(G[P[h]][:3, :3]); new_q[gc, HAND[sd]] = np.array(W.m2q(Rp.T @ Rw), float)
+        loc[h] = [loc[h][0], new_q[gc, HAND[sd]], loc[h][2]]; G = g['globals_of'](loc)
+    # v5 (the conductor, part 2 of R-C9-115): two named ARM edits, mirrored, measured not solved (v7's discipline):
+    if SH:                                                             # the SHOULDER: the upper arm raised forward about his
+        La, Ra = G[nid['LeftArm']][:3, 3], G[nid['RightArm']][:3, 3]; lt = La - Ra; lt[1] = 0; lt /= np.linalg.norm(lt)
+        i = nid[ARM[sd][0]]; Rp = nrm(G[P[i]][:3, :3])                 # side-to-side axis (the levelled shoulder line)
+        new_q[gc, ARM[sd][0]] = np.array(W.m2q(Rp.T @ W.axis_angle(lt, -math.radians(SH)) @ nrm(G[i][:3, :3])), float)
+        loc[i] = [loc[i][0], new_q[gc, ARM[sd][0]], loc[i][2]]; G = g['globals_of'](loc)
+    if EL:                                                             # the ELBOW: flexed further about its own hinge (the
+        sh_, el_, wr_ = (G[nid[b]][:3, 3] for b in (ARM[sd][0], ARM[sd][1], HAND[sd]))   # forearm raised toward horizontal)
+        up_, fo_ = (el_ - sh_) / np.linalg.norm(el_ - sh_), (wr_ - el_) / np.linalg.norm(wr_ - el_)
+        hinge = np.cross(up_, fo_); hinge /= np.linalg.norm(hinge)
+        i = nid[ARM[sd][1]]; Rp = nrm(G[P[i]][:3, :3])
+        new_q[gc, ARM[sd][1]] = np.array(W.m2q(Rp.T @ W.axis_angle(hinge, math.radians(EL)) @ nrm(G[i][:3, :3])), float)
+        loc[i] = [loc[i][0], new_q[gc, ARM[sd][1]], loc[i][2]]
 
 # write the body: v3's bytes, the six guard clips re-keyed at the Hand (a single-key rotation track, replaced or added)
 L = __import__('21_lint_export') if False else None
@@ -73,8 +90,8 @@ def acc(arr, typ, mm=False):
     a_ = dict(bufferView=len(js['bufferViews']) - 1, componentType=5126, count=int(arr.shape[0]), type=typ)
     if mm: a_['min'] = [float(v) for v in np.atleast_1d(arr.min(0))]; a_['max'] = [float(v) for v in np.atleast_1d(arr.max(0))]
     js['accessors'].append(a_); return len(js['accessors']) - 1
-for (gc, sd), q in new_q.items():
-    an = next(x for x in js['animations'] if x.get('name') == gc); hn = nid[HAND[sd]]
+for (gc, bone), q in new_q.items():
+    an = next(x for x in js['animations'] if x.get('name') == gc); hn = nid[bone]
     ti = acc(np.zeros((1, 1)), 'SCALAR', True); so = acc(q.reshape(1, 4), 'VEC4')
     an['samplers'].append(dict(input=ti, output=so, interpolation='LINEAR'))
     an['channels'] = [c for c in an['channels'] if not (c['target']['node'] == hn and c['target']['path'] == 'rotation')] + \
@@ -127,7 +144,7 @@ def measure(body):
     return out
 
 
-rep = dict(instrument="scripts/j_hold_tip.py", ruling="R-C9-115", deg=DEG, max_wrist_deg=MAXW, hold_body=os.path.basename(HB),
+rep = dict(instrument="scripts/j_hold_tip.py", ruling="R-C9-115", deg=DEG, shoulder_deg=SH, elbow_deg=EL, max_wrist_deg=MAXW, hold_body=os.path.basename(HB),
            forward="+Z (his in-game facing)", reference_t={st: ref_t(g, st) for st in ('idle', 'walk', 'run')},
            v3=measure(HB), out=measure(OUTB), layers_tmp=TMP)
 if OUTJ: json.dump(rep, open(OUTJ, 'w'), indent=1)

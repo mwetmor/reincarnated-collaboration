@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(RUNS, "nb_d2", "scripts")); sys.path.insert(0, o
 L = __import__('21_lint_export'); C = __import__('s17_loop_closure')
 a = sys.argv[1:]; BODY, OUT = a[0], a[1]
 opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
-SRC = opt('--src', 'chop_overhead_92'); CUT = float(opt('--cut', '0.6333')); TEND = float(opt('--end', '0.9')); NAME = opt('--name', 'attack_a1')
+SRC = opt('--src', 'chop_overhead_92'); START = float(opt('--start', '0')); CUT = float(opt('--cut', '0.6333')); TEND = float(opt('--end', '0.9')); NAME = opt('--name', 'attack_a1')
 js, b0 = L.load_glb(BODY); bn = bytearray(b0)
 an = next(x for x in js['animations'] if x.get('name') == SRC)
 grid = np.round(np.arange(0, TEND + 1e-6, 1 / 30.0), 6)
@@ -35,8 +35,9 @@ samplers, channels, src_keys = [], [], None
 for c in an['channels']:
     s = an['samplers'][c['sampler']]
     t = L.read_accessor(js, b0, s['input'])[:, 0].astype(float); v = L.read_accessor(js, b0, s['output']).astype(float); v = v.reshape(len(v), -1)
-    keep = t <= CUT + 1e-4
-    tt, vv = t[keep], v[keep]
+    keep = (t >= START - 1e-4) & (t <= CUT + 1e-4)                    # --start (Route 2): the source's window from START, shifted to 0
+    tt, vv = t[keep] - START, v[keep]
+    if len(tt) == 0: tt, vv = np.array([0.0]), v[:1]
     if len(tt) > 1: src_keys = len(tt)
     hold = grid[grid > tt[-1] + 1e-4]
     tt = np.concatenate([tt, hold]); vv = np.concatenate([vv, np.repeat(vv[-1:], len(hold), 0)])
@@ -50,12 +51,12 @@ with open(OUT, 'wb') as f:
     f.write(struct.pack('<4sII', b'glTF', 2, 12 + 8 + len(jb) + 8 + len(bn))); f.write(struct.pack('<I4s', len(jb), b'JSON')); f.write(jb)
     f.write(struct.pack('<I4s', len(bn), b'BIN\x00')); f.write(bytes(bn))
 # the contact: the sword tip's lowest point in the downswing (after its highest)
-m = C.model(OUT); nid = m['nid']; ks = np.round(np.arange(0, CUT + 1e-6, 1 / 30.0), 6)
+m = C.model(OUT); nid = m['nid']; ks = np.round(np.arange(0, CUT - START + 1e-6, 1 / 30.0), 6)
 def tip(G):
     R = G[nid['weapon_r']][:3, :3]; R = R / np.linalg.norm(R, axis=0); return G[nid['weapon_r']][:3, 3] + 0.7768 * R[:, 1]
 P = np.array([tip(C.globals_at(m, NAME, float(t))) for t in ks]); ktop = int(np.argmax(P[:, 1])); kc = ktop + int(np.argmin(P[ktop:, 1]))
 sp = np.linalg.norm(np.diff(P, axis=0), axis=1) * 30
-rep = dict(clip=NAME, source=SRC, cut_s=CUT, end_s=TEND, keys=len(grid), source_keys_kept=src_keys,
+rep = dict(clip=NAME, source=SRC, start_s=START, cut_s=CUT, end_s=TEND, keys=len(grid), source_keys_kept=src_keys,
            contact=dict(key=kc, t_s=round(float(ks[kc]), 4), tip_y_m=round(float(P[kc, 1]), 3), top_t_s=round(float(ks[ktop]), 4), top_y_m=round(float(P[ktop, 1]), 3),
                         definition="the key where the sword tip is lowest after its highest: the blow landing"),
            tip_speed_m_s=[round(float(x), 1) for x in sp], tip_y_m=[round(float(x), 2) for x in P[:, 1]])
