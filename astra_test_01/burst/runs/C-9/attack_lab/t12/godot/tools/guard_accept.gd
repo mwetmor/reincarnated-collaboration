@@ -100,6 +100,7 @@ func _initialize() -> void:
 		var r := _hold(st)
 		out["clips"][st] = r
 		print("[accept] %-8s %-9s FIST off his centreline / shoulder half-width: right %.2f (%.2f..%.2f), left %.2f (%.2f..%.2f)" % [label, st, float(r["fist_r"]), float(r["fist_r_min"]), float(r["fist_r_max"]), float(r["fist_l"]), float(r["fist_l_min"]), float(r["fist_l_max"])])
+		print("[accept] %-8s %-9s JOINT LIMITS: the axe elbow %.1f deg flexion (%.1f..%.1f; < -5 = hyperextended), the wrist off neutral %.1f / %.1f deg (median / max)" % [label, st, float(r["elbow"]), float(r["elbow_min"]), float(r["elbow_max"]), float(r["wrist_med"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames | the wrist off its rest (neutral) %.1f / %.1f / %.1f deg (median / p90 / max)" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"]), float(r["wrist_med"]), float(r["wrist_p90"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s guard %3d%% | fist turn %4.1f/%4.1f deg | arc %3.0f-%3.0f px/loop | pen worst %d (%.3f m deep), frames %d of %d %s | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians) | %s %.3f s x%d"
 			% [label, st, int(round(100.0 * float(r["pass_frac"]))), float(r["turn_med"]), float(r["turn_p90"]), float(r["arc_min"]), float(r["arc_max"]),
@@ -429,9 +430,26 @@ func _frame() -> Dictionary:
 	var hb := skel.get_bone_parent(ab)
 	var wrist := rad_to_deg(skel.get_bone_pose_rotation(hb).angle_to(skel.get_bone_rest(hb).basis.get_rotation_quaternion()))
 	var fl := _fist_frac()
-	return {"tilt": rad_to_deg(h.angle_to(U)), "fwd": h.dot(F), "out": h.dot(R), "head_out": d.dot(R),
+	var el := _elbow()
+	return {"elbow": el,"tilt": rad_to_deg(h.angle_to(U)), "fwd": h.dot(F), "out": h.dot(R), "head_out": d.dot(R),
 			"edge": rad_to_deg(atan2(e.dot(R), e.dot(F))), "turn": turn, "head": head, "h": h, "e": e, "wrist": wrist,
 			"fist_r": fl[0], "fist_l": fl[1]}
+
+var _hinge_l := Vector3.ZERO
+func _elbow() -> float:
+	# T12_12b JOINT LIMITS: the axe arm's elbow, SIGNED degrees of flexion (0 = straight, negative = bent backward:
+	# hyperextension). The sign is taken against the elbow's own hinge axis, fixed in the forearm's frame from the first
+	# frame bent more than 30 deg (the guard's own bend, ~97 deg)
+	var a := skel.get_bone_global_pose(skel.find_bone("RightArm")); var f := skel.get_bone_global_pose(skel.find_bone("RightForeArm"))
+	var h := skel.get_bone_global_pose(skel.find_bone("RightHand"))
+	var u: Vector3 = (f.origin - a.origin).normalized(); var v: Vector3 = (h.origin - f.origin).normalized()
+	var bend: float = rad_to_deg(u.angle_to(v))
+	var ax: Vector3 = u.cross(v)
+	if _hinge_l == Vector3.ZERO and bend > 30.0:
+		_hinge_l = (f.basis.orthonormalized().inverse() * ax).normalized()
+	if _hinge_l != Vector3.ZERO and ax.dot(f.basis.orthonormalized() * _hinge_l) < 0.0:
+		bend = -bend
+	return bend
 
 func _fist_frac() -> Array:
 	# T12_12 (Matt: the axe arm too close to the centre of his body): each fist's LATERAL OFFSET from his centreline as a
@@ -505,7 +523,7 @@ func _hold(st: String) -> Dictionary:
 	var n: int = int(round(float(cl[1]) * float(loops) / DT))
 	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0
 	var hmax := 0; var hfr := 0; var hdep := 0.0
-	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": [], "fist_r": [], "fist_l": []}
+	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": [], "fist_r": [], "fist_l": [], "elbow": []}
 	var wrists := []
 	for i in n:
 		_step(dir, run)
@@ -527,7 +545,7 @@ func _hold(st: String) -> Dictionary:
 				"wrist_med": float(wrists[wrists.size() / 2]), "wrist_p90": float(wrists[int(wrists.size() * 0.9)]), "wrist_max": float(wrists[-1])}
 	for key in cols:
 		var v: Array = cols[key]; v.sort(); out[key] = float(v[v.size() / 2])
-		if key.begins_with("fist"):
+		if key.begins_with("fist") or key == "elbow":
 			out[key + "_min"] = float(v[0]); out[key + "_max"] = float(v[-1])
 	var arcs := []
 	for kk in 8:

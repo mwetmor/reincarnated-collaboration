@@ -1,0 +1,61 @@
+{
+ "variants": {
+  "w100": {
+   "body": "37f22a5cc3938b4dac465fd2834b9a4c (nb_d2/export_staging/T12_12b_w100)",
+   "fist": {
+    "idle": 0.98,
+    "walk": 0.98,
+    "run": 0.98,
+    "block": 0.99,
+    "strafe_l": 0.98,
+    "strafe_r": 0.98
+   },
+   "guard": "tilt 55, azimuth 60 (was 70): grip fwd +0.249 out +0.200 up -0.352 m of the chest (box out 0.203-0.24)",
+   "block": "azimuth 70 kept, box out 0.15-0.17: FIST 0.99 (turned in to 60 the butt went 0.5-5.5 cm into his hip in every try)"
+  },
+  "w115": {
+   "body": "71aa26d4797c4dd764454d741923ab5f (nb_d2/export_staging/T12_12b_w115)",
+   "fist": {
+    "idle": 1.13,
+    "walk": 1.13,
+    "run": 1.13,
+    "block": 1.08,
+    "strafe_l": 1.13,
+    "strafe_r": 1.13
+   },
+   "guard": "tilt 55, azimuth 55: grip fwd +0.248 out +0.229 up -0.352 m (box out 0.233-0.27)",
+   "block": "azimuth 70, box out 0.17-0.19: FIST 1.08"
+  }
+ },
+ "before": {
+  "T12_11 installed": {
+   "idle": 0.61,
+   "walk": 0.47,
+   "run": -0.35,
+   "block": 0.84,
+   "strafe_l": -0.29,
+   "strafe_r": 0.07
+  },
+  "T12_12": {
+   "idle": 0.78,
+   "walk": 0.78,
+   "run": 0.78,
+   "block": 0.84,
+   "strafe_l": 0.78,
+   "strafe_r": 0.78
+  }
+ },
+ "tilt_in": "the haft turned IN by about as much as the fist moved out, so the head stays over his line of attack: the head's outboard reach is the fist's plus 0.565 m x sin(azimuth) (the haft's horizontal run at tilt 55) -- 0.158 + 0.531 = 0.689 m at T12_12; 0.200 + 0.489 = 0.689 at w100 (60 deg); 0.229 + 0.463 = 0.692 at w115 (55 deg). Edge leading (heading -7.5 / -10.7 deg at the solve), wrist neutral, forearm square to the haft (87.5 deg), elbow flexion 98.5 / 98.2 deg",
+ "gate": "both PASS, 0 fail, 3 trail flags: HOLD 100% on all six states, JNT (new row: the axe elbow not hyperextended past 5, the wrist within 30 of neutral) PASS everywhere, PEN 0 at 1/24 s and 1/96 s, strikes EDGE +1.00/+0.99 and +1.00/+1.00, TTI 0.58 / 0.50, READ unchanged (nb_d2/tables/weapon_gate_T12_12b_*)",
+ "joint_limits": {
+  "instrument": "the D2 lane's nb_join/scripts/j_joint_lint.py, run read-only with the Barrow's layers (the axe guard at the set's weight, the block and bash guards, the shield guard over every hold clip): elbow/knee flexion -5..150/155, wrist flexion 80, deviation 40; hinge directions learned from the body's own library clips; its negative control FAILs as it should",
+  "installed T12_11": "every hold and guard PASS; the slash (the re-cut, the source's own motion) FAILs 7 of 61 frames: left elbow -9.3 / -10.7 / -6.3 deg at 0.567 / 0.600 / 0.633 s (hyperextended on the strike), right wrist deviation -40.9 / -43.6 at 0.500 / 0.533 s; the chop and the bash PASS",
+  "the fix (63_joint_fix.py, in both T12_12b bodies)": "the left forearm turned about its hinge 6.3 / 7.7 / 3.3 deg to -3.0 flexion on those three keys; the right hand's deviation cut to -38.0 on its two keys with the axe counter-rotated (its world orientation, and the gate's edge, unchanged); 5 keys of the slash, nothing else",
+  "T12_12b": "every clip PASS; worst per joint, slash: elbow L -3.0 @ 0.57 s, elbow R 22.7, wrist R deviation -38.1 @ 0.50, flexion -33.6; tables nb_d2/tables/joint_lint_T12_11_installed_3e32a9fc.json and joint_lint_T12_12b_w100.json / _w115.json"
+ },
+ "films": [
+  "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_12b_barrow_play_holds_before_1.0_1.15.mp4",
+  "/Users/admin/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside 3D/attack fix/t12_12b_barrow_play_strikes_1.0_1.15.mp4"
+ ],
+ "install": "bash install.sh w100|w115 -- exact pre-state F (T12_11); both dry-runs: found F, sources ok"
+}

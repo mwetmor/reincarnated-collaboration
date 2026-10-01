@@ -73,6 +73,8 @@
 #               over the six rays a hand-dominant triangle of the holding hand, and no deeper than 2 cm.
 #               Those are reported in the HAND row and taken out of PEN; anything deeper, or into the body
 #               (hips, thigh), stays PEN. A table without the class (older) is judged as before.
+#   2026-09-30  JNT (T12_12b, coordinator): each hold state's axe arm within anatomical limits -- the elbow not hyperextended
+#               past 5 deg (signed flexion, guard_accept.gd), the wrist within 30 deg of neutral. A table without the row is not judged.
 #   2026-09-30  --states a,b,c / --strikes a,b (or none): gate a SUBSET -- the JOIN kit's hold states are idle,
 #               walk and run (Whirlwind + Battle Orders: no block, no strafe, no strike).
 #
@@ -90,6 +92,7 @@ HOLD_MIN = 0.9
 EDGE_COS_STRIKE_MIN, EDGE_COS_SWING_MIN = 0.707, 0.8
 ARC_MAX_PX, STEP_FLAG_PX = 60.0, 35.0
 TTI_MAX_S, READ_MIN_PX = 0.8, 42.0
+ELBOW_HYPER_DEG, WRIST_MAX_DEG = 5.0, 30.0
 
 
 def gate(table, states=None, strike_set=None):
@@ -166,6 +169,15 @@ def gate(table, states=None, strike_set=None):
                         (" -- " + ", ".join("%s %d" % kv for kv in sorted(r["pen_parts"].items()))) if r.get("pen_parts") else "")))
         if not ok:
             fails.append("PEN %s" % cn)
+    for cn in holds:
+        if cn not in c or "elbow_min" not in c[cn]:
+            continue
+        r = c[cn]
+        ok = r["elbow_min"] >= -ELBOW_HYPER_DEG and r["wrist_max"] <= WRIST_MAX_DEG
+        rows.append(("JNT", cn, "PASS" if ok else "FAIL", "the axe arm within anatomical limits: elbow flexion %.1f..%.1f deg (hyperextension past %.0f fails), the wrist off neutral <= %.1f deg (%.0f)"
+                     % (r["elbow_min"], r["elbow_max"], ELBOW_HYPER_DEG, r["wrist_max"], WRIST_MAX_DEG)))
+        if not ok:
+            fails.append("JNT %s" % cn)
     for cn in holds + strikes:
         if cn not in c or not c[cn].get("hand_classed"):
             continue
