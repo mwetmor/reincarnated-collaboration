@@ -17,7 +17,7 @@ def classes(px):
                 plate_L_p75=round(float(np.percentile(Lb[plate, 0], 75)), 2), gold_share=round(float(gold.mean()), 4), cloth_share=round(float(cloth.mean()), 4),
                 plate_share=round(float(plate.mean()), 4), gold_L_median=round(float(np.median(Lb[gold, 0])), 2) if gold.any() else None)
 d, st = sys.argv[1], sys.argv[2]; px = []
-for f in sorted(glob.glob('%s/stack%s_idle_h*_s2_beauty.png' % (d, st))):
+for f in sorted((glob.glob('%s/stack%s_idle_h*_s2_beauty.png' % (d, st)) or glob.glob('%s/stack%s_idle@*_h*_s2_beauty.png' % (d, st)))):
     b = np.asarray(Image.open(f).convert('RGB')); idm = np.asarray(Image.open(f.replace('beauty', 'id')).convert('RGB')).astype(int)
     m = (idm[..., 0] > 128) | (idm[..., 2] > 128)          # body red + garments blue; the mace (green) excluded
     px.append(b[m])

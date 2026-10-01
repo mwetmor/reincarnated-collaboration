@@ -1,0 +1,45 @@
+{
+ "hip_width_m": 0.2363,
+ "heel_to_heel_before": 1.632,
+ "target": 1.1,
+ "legs": {
+  "L": {
+   "adduction_deg": 4.56
+  },
+  "R": {
+   "adduction_deg": -4.87
+  }
+ },
+ "heel_to_heel_after": 1.1,
+ "feet_floor_shift_m": -0.0044,
+ "pieces": {
+  "helm_iso.glb": {
+   "out": "pieces/helm_iso_narrow.glb",
+   "moved_median_max_m": [
+    0.0,
+    0.0
+   ]
+  },
+  "pauldrons_iso.glb": {
+   "out": "pieces/pauldrons_iso_narrow.glb",
+   "moved_median_max_m": [
+    0.0,
+    0.0
+   ]
+  },
+  "chest_iso.glb": {
+   "out": "pieces/chest_iso_narrow.glb",
+   "moved_median_max_m": [
+    0.0,
+    0.003
+   ]
+  },
+  "cape_iso.glb": {
+   "out": "pieces/cape_iso_narrow.glb",
+   "moved_median_max_m": [
+    0.0222,
+    0.0644
+   ]
+  }
+ }
+}
