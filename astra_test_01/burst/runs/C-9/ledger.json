@@ -25948,6 +25948,11 @@
       "id": "M-C9-T12-12B",
       "note": "T12_12b + JOIN hold v3 (75e4d79db, pushed): axe fist at 0.98 (w100) / 1.13 (w115) in all six hold states, haft azimuth 70 -> 60/55; slash joint-limit fix (63_joint_fix.py); JOIN hold v3 both fists ~1.0, weapons >= 0.22 m apart. Staged, not installed. Films sent (holds film re-encoded to 11 MB for the 30 MiB send limit).",
       "ts": "2026-09-30T22:50:05"
+    },
+    {
+      "id": "M-C9-JOIN-WW6",
+      "note": "Whirlwind v6 (e89fe2c6b instrument + v6a; 3b4760879 ships, glb bd66432e): j_cross_check v2 adds elbows and a screen-space crossing test at the play camera x 8 headings; it FAILs v5 at all 9 keys (elbows on the centreline, wrists 0.13 m out = the X Matt saw). v6 at --fist-side 1.0 (hold v3 width): fists 1.05/1.06, forearms roughly parallel, blades 20 deg up in an 8 deg V, 0 screen crossings, joint limits PASS, 3.75 rev/s, idle_guard feet; grips 1.01-1.03 m, worst flat 0.466. A 1.15 variant (grips 1.20 m, flats >= 0.515) is solved, one rebuild away. Film sent to Matt.",
+      "ts": "2026-09-30T22:56:22"
     }
   ],
   "halts": [
@@ -27695,6 +27700,12 @@
       "topic": "The war cry graft source the D2 drax found missing was removed by my own cleanup lists (manifests 8/9), not by an unknown actor",
       "note": "D2 drax war cry v5 hand-back (bdb5c2ba9, pushed) reported its earlier scratch holding the war cry graft source gone, cause unknown. Cause: manifests 8 and 9 (conductor-written, run by Matt) listed nb_join/work/ graft intermediates (_assemble_grafted_last.glb, cand*.glb, dev_join*.glb, whirl_body.glb) and nb_join/anims/shout_chest_pound.glb while the lane was still live. Same failure as N-C9-DISK-11 one list earlier; the rule written there (confirm with every active lane; lanes list working folders only at their final hand-back) covers it. No committed work lost; the drax rebuilt the source from the committed anims. Disposition recorded so the lane is not left with an unexplained removal.",
       "ts": "2026-09-30T22:07:13"
+    },
+    {
+      "id": "N-C9-WARCRY-SCREEN-TEST",
+      "topic": "War cry v6 fails the new screen-crossing test on the blades only; disposition: accepted by Matt's look, no v7",
+      "note": "j_cross_check v2 screen test fails war cry v6 at 6 of 71 keys (0.10-0.30 s, the fling from guard): blade crosses blade on screen; wrists and elbows stay on their own sides. This is the v4 blade lean Matt saw and passed by eye (\"the hands weren't crossed\", then R-C9-106 \"Warcry is good to go\"). Conductor disposition: accepted, recorded as INFO for the shout in the cross-check, no v7 unless Matt raises it. The test stays FAIL-on-blades for the whirlwind, where Matt asked for the weapons apart.",
+      "ts": "2026-09-30T22:56:22"
     }
   ]
 }
