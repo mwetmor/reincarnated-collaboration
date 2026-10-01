@@ -24744,9 +24744,86 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-BCH2",
+      "type": "GENERATE",
+      "experiment": "R-C9-98-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "b3432e033ddb17a3c9bfbd013e8e3c65f2f240c557ee3ba790cd1bd7bc64543e",
+      "started": "2026-10-01T01:54:11.726930+00:00",
+      "ended": "2026-10-01T01:58:04.690662+00:00",
+      "minutes": 3.8827686194330453,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f52b-5d6b-7730-b835-20b44a06afbb/exec-ce570480-4851-4e5e-ae86-7150adb311d6.png",
+            "sha256": "8f4d95b97a2b2516d17c18875a893d8ec97682a760073a3b7a2cf9e85376eb4d"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f52b-5d6b-7730-b835-20b44a06afbb/exec-f8ed3241-ccd9-48ba-8de8-27e0768142e4.png",
+            "sha256": "d50a92a3f24ebd695df0683310c9ea0b5efc9a78fa3852863a464c9dff8085f5"
+          }
+        ]
+      },
+      "receipt_sha256": "b66105ceefb84633bb8caef1fac52095fca6619da491e6342741e1e5574d7d3f",
+      "artifacts": [
+        {
+          "name": "GS-BCH2_a.png",
+          "sha256": "d50a92a3f24ebd695df0683310c9ea0b5efc9a78fa3852863a464c9dff8085f5"
+        },
+        {
+          "name": "GS-BCH2_b.png",
+          "sha256": "8f4d95b97a2b2516d17c18875a893d8ec97682a760073a3b7a2cf9e85376eb4d"
+        },
+        {
+          "name": "exec-ce570480-4851-4e5e-ae86-7150adb311d6.provenance.json",
+          "sha256": "4296ec49786e88da3581f420125418ffab224c3743ed0f0189370b7ed6c06280"
+        },
+        {
+          "name": "exec-f8ed3241-ccd9-48ba-8de8-27e0768142e4.provenance.json",
+          "sha256": "fb48d8bd3a7f2f867e732f3e55f459b8befdfc7ddab674cc7956c9e10bad9204"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f52b-5d6b-7730-b835-20b44a06afbb/exec-ce570480-4851-4e5e-ae86-7150adb311d6.png",
+          "sha256": "8f4d95b97a2b2516d17c18875a893d8ec97682a760073a3b7a2cf9e85376eb4d"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f52b-5d6b-7730-b835-20b44a06afbb/exec-f8ed3241-ccd9-48ba-8de8-27e0768142e4.png",
+          "sha256": "d50a92a3f24ebd695df0683310c9ea0b5efc9a78fa3852863a464c9dff8085f5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 726,
+  "images_used": 728,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -25652,6 +25729,11 @@
       "result": "FIST row (guard_accept.gd, join_accept.gd): the grip's offset from his centreline over the shoulder half-width in the chest's frame (0 centre, 1 shoulder); target ~0.78. T12_12 axe fist before -> after: idle 0.61 -> 0.78, walk 0.47 -> 0.78, run -0.35 -> 0.78, strafe L -0.29 -> 0.78, strafe R 0.07 -> 0.78, block 0.84 kept (re-solving put it at 1.03). Shield arm untouched (1.43 holds, 0.55 block). Grip zone moved outboard (0.119 -> 0.158 m); haft tilt 55 / azimuth 70, neutral wrist, forearm square to the haft; armed idle and bash/chop arm guards re-solved, 0 contact. THE GUARD LAYER WEIGHT 0.85 -> 1.0 (at 0.85 the gait's own arm still swung the fist across his centreline: run -0.25, strafe L -0.17; 0.90 -> 0.06/0.13; 0.95 -> 0.41/0.45): the axe arm held at guard outright like the shield arm, no longer swinging with the gait. Strafe R's axe held steady (hold_steady.gd; head path 36-40 px, was 47-53, budget 60). Gate PASS 0 fails, 3 trail flags; guard 100% all six holds; penetration 0 incl. strikes at 1/96 s; strikes unchanged (EDGE +1.00/+0.99, +1.00/+1.00; TTI 0.58/0.50); strafe L turns the axe 15.8 deg in the fist (median). install.sh pre-state F = T12_11 exact (incl. the import setting); only character 3579c792 and body f2ba603b change. JOIN HOLD v2: grip zones outboard (sword 0.16-0.22 m, axe 0.143-0.20) in the chest's own frame; fists sword 0.59/0.39/0.16 -> 0.78/0.77/0.76, axe 0.63/0.90/1.28 -> 0.76/0.79/0.79 (idle/walk/run); guard 100%, penetration 0, hand contact 0; weapons never nearer than 0.168 m (v1 0.115); body 9346f3de. Flag: the JOIN body's attack still carries the old slash (SOURCE FIDELITY), not played by JOIN. Films attack fix/t12_12_*; stills join_hold_v1/v2_8_headings.",
       "conductor": "ACCEPTED, including the guard weight 1.0 (the axe arm held like the shield arm Matt called perfect). Film and stills to Matt; INSTALL on his word. The JOIN hold v2 forwarded to the D2 drax (whirlwind v4 arms matched to it; idle/walk/run re-rendered). The scratch copy and lane A scratch added to manifest 8.",
       "ts": "2026-09-30T20:40:37"
+    },
+    {
+      "id": "M-C9-JOIN-WARCRY-V5",
+      "note": "War cry v5 (bdb5c2ba9): 1.8x (1.17 s played), legs held in his battle stance (feet 0.30 m across, planted), no crossed arms by j_cross_check.py (wrists and blade tips stay on their own side; negative control FAILs), joint limits PASS, draft pack d2-ww-barb 56/56 with shout re-rendered. Film sent to Matt; awaiting his look.",
+      "ts": "2026-09-30T22:07:13"
     }
   ],
   "halts": [
@@ -27347,6 +27429,12 @@
       "topic": "Manifest 9 run by Matt (26 -> 30 GiB); it deleted two folders a live lane was still using",
       "note": "Matt ran manifest 9 (4.36 GiB listed, ~3.7 net; three .avi paths double-counted inside their folders): df 30 GiB free. The integration drax had listed work/mix2/ and work/meteor_a/ as dead in its MIX v2 hand-back but was still running cold-load measurements in them when the list ran; scratch only was lost (everything committed is safe; the record take/build/meteor_mix2.json). RULE from here: the conductor confirms with every ACTIVE lane before writing a cleanup list that touches its folders, and a lane lists its working folder only at its final hand-back (the drax now works in work/mix3/). Also: a cold first load (Metal shader cache cleared) blocks the first frame 8 s (his page) to 11.6 s (hers) while every level shader compiles; the veil fix makes it a browser-drawn DOM overlay, the cap counts responsive frames only (a 45 s backstop), and a staged warm-up is being tried.",
       "ts": "2026-09-30T21:53:14"
+    },
+    {
+      "id": "N-C9-DISK-12",
+      "topic": "The war cry graft source the D2 drax found missing was removed by my own cleanup lists (manifests 8/9), not by an unknown actor",
+      "note": "D2 drax war cry v5 hand-back (bdb5c2ba9, pushed) reported its earlier scratch holding the war cry graft source gone, cause unknown. Cause: manifests 8 and 9 (conductor-written, run by Matt) listed nb_join/work/ graft intermediates (_assemble_grafted_last.glb, cand*.glb, dev_join*.glb, whirl_body.glb) and nb_join/anims/shout_chest_pound.glb while the lane was still live. Same failure as N-C9-DISK-11 one list earlier; the rule written there (confirm with every active lane; lanes list working folders only at their final hand-back) covers it. No committed work lost; the drax rebuilt the source from the committed anims. Disposition recorded so the lane is not left with an unexplained removal.",
+      "ts": "2026-09-30T22:07:13"
     }
   ]
 }
