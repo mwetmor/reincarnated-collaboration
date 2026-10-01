@@ -26,7 +26,7 @@ A generator rebuilt every table and asserted each one against its second source;
 
 ## Summary
 
-1. **15 formulas, 11 fully MODEL-VERIFIED and 4 partial.** No formula rests on a single source at its core. The partial sub-clauses are:
+1. **15 formulas: 10 fully MODEL-VERIFIED and 5 partial (F02, F08, F09, F11, F14).** No formula rests on a single source at its core. The partial sub-clauses are:
    - which dual-wield hand sets the Whirlwind cadence (F02);
    - whether Ignore Target's Defense works on champions (F11);
    - the "attacking weapon only" dual-wield rule for CB and DS (F08, F09);
