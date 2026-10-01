@@ -30171,6 +30171,12 @@
       "topic": "Mixamo Great Sword Pack received (Matt's Adobe account)",
       "note": "~/Downloads/Great Sword Pack: 51 FBX (30 fps, no keyframe reduction, T-Pose option) + X Bot.fbx reference. Raw Mixamo FBX are NOT committed (Mixamo terms bar standalone redistribution); only retargeted clips and the mapping are. Contents include idle x5, walk x2, run x2, strafe x4, turns, attack, slash x5, high spin attack, impact x5, death x2, power up, casting, blocking x3, draw x2, jump/kick/slide.",
       "ts": "2026-10-01T18:16:49"
+    },
+    {
+      "id": "N-C9-E1-UNPAINTED",
+      "topic": "The dark knight shipped (and was judged) with Tripo's flat texture; the painted bake was never embedded",
+      "note": "E1 render scripts applied work/tex_final.png by override; no step wrote it into the GLB. Every export final_e..final_i, and the live warlord.pck, embed Tripo's flat texture (mean diff 0.0 to it, 20.8 to the bake). Consequences: Matt's live play and every Godot still since stage G showed the unpainted body; the stage-G \"plate L* 24.8 vs sheet 26.7, no grade needed\" verdict was measured on the wrong texture and is void. Fix: e42_embed_tex.py (diff 0.63 to the bake). Instrument added: a texture-provenance row in the web fence (embedded image vs intended atlas, every GLB in every pack; current warlord.pck as the negative control). Same shape as the D5 lessons: a render override that the shipped file does not carry.",
+      "ts": "2026-10-01T18:18:24"
     }
   ]
 }
