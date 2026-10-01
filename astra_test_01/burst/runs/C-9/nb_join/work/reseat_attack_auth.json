@@ -1,0 +1,54 @@
+{
+ "what": "R-C9-115 re-seat + the hand-authored normal attack -- measured, NOT installed (Matt picks first)",
+ "date": "2026-10-01",
+ "reseat": {
+  "tool": "scripts/j_reseat.py (the weapon bone's rest = its seat in the fist, turned about the grip toward his forward; no joint, key or morph changes)",
+  "tip_forward_idle_RL_deg": {
+   "v3": [
+    65,
+    64
+   ],
+   "v4_F25": [
+    40,
+    39
+   ],
+   "R15": [
+    25,
+    24
+   ],
+   "R20": [
+    20,
+    19
+   ],
+   "R30": [
+    10,
+    9
+   ],
+   "E-20_on_F25": [
+    31,
+    32
+   ]
+  },
+  "verdicts": {
+   "R15": "PASS: cross check v2, gap 0.34, pen 0",
+   "R20": "PASS: cross check v2, gap 0.34, pen 0 -- in the 20-25 target (not asked; R15 25-29 / R30 9-14 straddle it)",
+   "R30": "pen 7 sampled sword vertices (the pommel, 0.07 m below the grip, into his forearm) in idle / walk / run; cross check PASS; the haft still reads in the fist at 5x",
+   "E-20": "pen 362 / 383 sampled sword vertices in idle / walk (the sword through his leg)"
+  },
+  "fists": "the re-seat leaves the fists where F25 put them (R 0.69 / L 1.01 in idle)",
+  "records": "work/reseat/"
+ },
+ "attack_auth": {
+  "tool": "scripts/j_attack_auth.py",
+  "keys": "guard 0 -> wind-up 0.20 (shoulder +150 up and back, elbow +35, chest -8) -> CONTACT 0.30 (shoulder +55, elbow -55, chest +12) -> follow 0.367 -> guard 0.633 s",
+  "contact_fraction": 0.474,
+  "tip_side": "the sword tip stays 0.40-0.71 m on his right the whole clip",
+  "joint_lint": "PASS",
+  "cross_check": "FAIL: no wrist / elbow / tip crosses; on screen the raised sword overlaps the axe or the forearms overlap in profile at 3 of 20 keys (0.13-0.27 s, the wind-up, headings 315 and 0)",
+  "penetration": "2 sampled sword vertices at one 60 Hz sample between keys (0.18 s, the pommel at the wrist); 0 at every key",
+  "records": "work/attack_auth/"
+ },
+ "diagonal_return": {
+  "not_fixed": "235 sampled sword vertices at 0.82-0.87 s (the pommel, -0.09 m, through his hip as the guard blends back); a smoother re-clamp (max flick 45, rate 8) and holding the weapon seat over the return both left it; the clamp's own 30 fps keys read 0"
+ }
+}

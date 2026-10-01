@@ -20,7 +20,7 @@ opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 SRC = opt('--src', 'chop_overhead_92'); START = float(opt('--start', '0')); CUT = float(opt('--cut', '0.6333')); TEND = float(opt('--end', '0.9')); NAME = opt('--name', 'attack_a1')
 js, b0 = L.load_glb(BODY); bn = bytearray(b0)
 an = next(x for x in js['animations'] if x.get('name') == SRC)
-grid = np.round(np.arange(0, TEND + 1e-6, 1 / 30.0), 6)
+grid = np.round(np.arange(int(round(TEND * 30)) + 1) / 30.0, 6)
 def put(data):
     while len(bn) % 4: bn.append(0)
     o = len(bn); bn.extend(data); return o
