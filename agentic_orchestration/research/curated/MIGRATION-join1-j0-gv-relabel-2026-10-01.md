@@ -100,7 +100,7 @@ python3 join1_j0_gv_relabel_2026_10_01.py --mode apply          # refuses below 
 
 ## 8 · Edition-II vendor tree RESTORED as a symlink farm (approved by gandalf, KP-162; applied 2026-10-01)
 
-`/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/` now exists again as **8 symlinks, 0 bytes**. Nothing was copied, deleted or downloaded.
+`/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/` now exists again as **8 symlinks, 0 bytes** after the first pass (**16 after § 8.1**). Nothing was copied, deleted or downloaded.
 - **Each target was sha256-checked against its recorded pin BEFORE any link was made.** The script would have aborted and made no links on any mismatch. Each link was re-hashed through the link afterwards: 8/8 OK.
 - The four `.arz` are pinned in `gd_devotion_bank_2026_07_25.py` `ARCHIVES`.
 - ⚑ **Beyond the proposal's four files:** the four `Text_EN.arc` are pinned in `gd_bridge_m1_display_tags_2026_07_26.py` `ARCS`. They are part of the same named tree (the M1 display-tag bridge reads them) and pass the same pin test, so they are linked too.
@@ -115,6 +115,27 @@ python3 join1_j0_gv_relabel_2026_10_01.py --mode apply          # refuses below 
 | `gdx1/resources/Text_EN.arc` | `/Users/admin/depots/642280/24346246/gdx1/resources/Text_EN.arc` | `85baef4b…7093a` ✓ |
 | `gdx2/resources/Text_EN.arc` | `/Users/admin/depots/897670/24346246/gdx2/resources/Text_EN.arc` | `8aec9207…814a1` ✓ |
 | `gdx3/resources/Text_EN.arc` | `/Users/admin/depots/2699230/24346246/gdx3/resources/Text_EN.arc` | `d6e7f781…d1f18` ✓ |
+
+### 8.1 · Completed to 16/16: INFO-6, ruled by gandalf (GV closed at jack-ryan `b2d7c57b0`, KP-163)
+
+The first pass linked 8 of the cut's 16 files. A reader that scans the folder (for example `rglob("Text_EN.arc")`) would silently see half the archive, and `survivalmode2` is the Crucible, KC2's arena. **The remaining 8 are now linked the same way:** each target sha-checked against its recorded pin before linking (no link made on any mismatch), then re-hashed through the link. Zero bytes; nothing copied, deleted or downloaded.
+
+Pin sources: Edition-I freeze fingerprint `gandalf/notes/2026-07-24-gd-edition-I-freeze-fingerprint.md` § 3 lines 49–54 (byte-identical across Editions I and II per the cut record's IDENTICAL table), and Edition-II cut record `gandalf/notes/2026-07-24-gd-edition-II-cut-record.md` lines 86–88.
+
+| Link (under the tree) | Target | Pin |
+|---|---|---|
+| `mods/survivalmode/database/SurvivalMode.arz` | `/Users/admin/depots/483840/24346246/mods/survivalmode/database/SurvivalMode.arz` | `e55b760f…405f2` ✓ |
+| `mods/survivalmode/resources/Text_EN.arc` | `/Users/admin/depots/483840/24346246/mods/survivalmode/resources/Text_EN.arc` | `fa068977…3d06e` ✓ |
+| `survivalmode1/database/SurvivalMode1.arz` | `/Users/admin/depots/642281/24346246/survivalmode1/database/SurvivalMode1.arz` | `6df94d3b…a6e5a` ✓ |
+| `survivalmode1/resources/Text_EN.arc` | `/Users/admin/depots/642281/24346246/survivalmode1/resources/Text_EN.arc` | `af9d87ce…0a694` ✓ |
+| `survivalmode2/database/SurvivalMode2.arz` | `/Users/admin/depots/897671/24346246/survivalmode2/database/SurvivalMode2.arz` | `940e4034…71e95` ✓ |
+| `survivalmode2/resources/text_en.arc` *(lowercase, as shipped)* | `/Users/admin/depots/897671/24346246/survivalmode2/resources/text_en.arc` | `8269f89c…c824f` ✓ |
+| `survivalmode3/database/SurvivalMode3.arz` | `/Users/admin/depots/2699231/24346246/survivalmode3/database/SurvivalMode3.arz` | `b4aa2d78…3af7e` ✓ |
+| `survivalmode3/resources/Text_EN.arc` | `/Users/admin/depots/2699231/24346246/survivalmode3/resources/Text_EN.arc` | `6336cde2…27524` ✓ |
+
+**State: 16/16 linked and verified.** A full re-hash of all 16 links, run after the second pass, matches every recorded pin. The tree holds 16 symlinks, 0 regular files and 0 bytes.
+
+⚑ **The folder scan still has one case trap, and it is the source's, not the farm's.** `survivalmode2`'s localization file ships as **`text_en.arc`** (lowercase). That is the file the Edition-I freeze missed (freeze § 5) and the cut record carries under that name. The link keeps the shipped name, so the farm mirrors the cut exactly. Measured: `rglob("Text_EN.arc")` (Python's posix glob is case-sensitive) returns **7 of 8** `.arc` files, while `rglob("*.arc")` returns 8 and `rglob("*.arz")` returns 8. Renaming the link to `Text_EN.arc` would hide the defect class instead of exposing it, so it was not done. **A reader that must see every localization archive should match case-insensitively or by suffix.**
 
 **Smoke test:** `gd_devotion_bank_2026_07_25.py --verify-only` now resolves `BASE`. Through the restored tree it re-derives exactly the banked population (header 674 · field 7,114 · power 65 · constellation 110), with G3 edition pins and G4 asserts GREEN and no writes.
 
