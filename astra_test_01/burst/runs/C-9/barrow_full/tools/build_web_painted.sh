@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/meteor/*.bin,data/meteor/*.json"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/vfx/crater_v4/*,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
@@ -221,7 +221,7 @@ for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ba
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
          models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
          data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin \
-         scripts/meteor_a_fx.gd scripts/meteor_fx.gd scripts/cinders_fx.gd scripts/crater_fx.gd data/vfx/meteor_mix2/meteor_mix2.json \
+         scripts/meteor_a_fx.gd scripts/meteor_fx.gd scripts/cinders_fx.gd scripts/crater_fx.gd scripts/crater_v4_fx.gd data/vfx/meteor_mix2/meteor_mix2.json \
          data/vfx/meteor_mix2/atlas_0.bin data/vfx/meteor_mix2/atlas_1.bin; do
   grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
@@ -338,6 +338,14 @@ grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix2.l
 NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
 echo "$NLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=off)" \
   && ck 0 "?meteor_shadow=0: MIX v3 without the shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
+# ?meteor=mix4 (R-C9-109): CRATER v4 -- the real 3D crater, painted, with its particles; not her default until Matt's look
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor mix4 > "$LOG/launch_meteor_mix4.log" 2>&1 || true
+M4LINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_mix4.log" | head -1 || true)
+echo "$M4LINE" | grep -q "meteor=mix4(fall=lane_b_core,impact=lane_a,burn=crater_v4,warp=post,ring=off,shadow=on,fall_s=0.82)" \
+  && ck 0 "?meteor=mix4: crater v4 armed (3 variants from her pack), the fall at 0.82 s" || ck 1 "?meteor=mix4 (got: $(echo "$M4LINE" | grep -o 'meteor=[^ ]*'))"
+grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix4.log" && ck 1 "?meteor=mix4 launch errors" || ck 0 "?meteor=mix4 launch free of script and shader errors"
+python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/" | grep -q -v "^0$" && ck 0 "crater v4's meshes and paintings in her pack" || ck 1 "crater v4's data missing from her pack"
 # ?fb=c75 (R-C9-110): her Fire Ball's burst tightened to 0.75; the default stays as it was until Matt's look
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --fb c75 > "$LOG/launch_fb_c75.log" 2>&1 || true

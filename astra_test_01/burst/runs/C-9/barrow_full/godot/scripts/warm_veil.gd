@@ -164,6 +164,8 @@ func _warmups_done() -> bool:
 		return false
 	if mfx0 != null and mfx0.get("crater") != null and not bool(mfx0.crater.warmed):
 		return false
+	if mfx0 != null and mfx0.get("crater4") != null and not bool(mfx0.crater4.warmed):
+		return false
 	var mfx = scene.get("meteor_fx")
 	if mfx != null and not bool(mfx.warmed):
 		return false

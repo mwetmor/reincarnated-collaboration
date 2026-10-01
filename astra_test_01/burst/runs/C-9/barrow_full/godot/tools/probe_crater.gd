@@ -4,13 +4,15 @@ extends SceneTree
 ## She casts the Meteor (the default, MIX v3) N times (default 1), a little apart; stills at fixed times from each
 ## impact (the warp's frames round it, the burst, the crater cooling, the cooled crater) and the impact's screen
 ## point, to DIR/crater_frames.json.
-const AT := [-0.10, -0.05, -0.0167, 0.0, 0.05, 0.12, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0]
+var AT := [-0.10, -0.05, -0.0167, 0.0, 0.05, 0.12, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0]
 var out_dir := ""
 
 
 func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	out_dir = String(args[args.find("--out") + 1])
+	if args.has("--at-list"):
+		AT = Array(String(args[args.find("--at-list") + 1]).split(",")).map(func(x): return float(x))
 	var casts := 1
 	if args.has("--casts"):
 		casts = int(args[args.find("--casts") + 1])
@@ -27,7 +29,8 @@ func _initialize() -> void:
 		if c is CanvasLayer:
 			(c as CanvasLayer).visible = false
 	var mfx = scene.meteor_fx
-	while not mfx.warmed or (mfx.crater != null and not mfx.crater.warmed):
+	var cr = mfx.crater if mfx.crater != null else mfx.get("crater4")     # MIX v3's crater or v4's
+	while not mfx.warmed or (cr != null and not cr.warmed):
 		await process_frame
 	var rows := []
 	var spots := [[-1.0, -0.5, "E"], [-1.6, 0.6, "E"], [0.2, 1.2, "N"], [-0.4, -1.6, "S"], [0.8, -0.2, "W"]]
@@ -64,18 +67,16 @@ func _initialize() -> void:
 				var sp2: Vector2 = scene.cam.unproject_position(tg)
 				rows.append({"cast": n, "file": name, "t": t, "at": AT[k], "target_px": [sp2.x, sp2.y],
 					"r_px": (scene.cam.unproject_position(tg + scene.cam.global_transform.basis.x.normalized() * mfx.MIX3_CRATER_R) - sp2).length(),
-					"craters_live": mfx.crater.live_count() if mfx.crater != null else 0,
-					"crater_start": mfx.crater.report.get("last_start", {}) if mfx.crater != null else {}})
+					"craters_live": cr.live_count() if cr != null else 0,
+					"crater_start": cr.report.get("last_start", {}) if cr != null else {}})
 				k += 1
 			await process_frame
 	var f2 := FileAccess.open(out_dir.path_join("crater_frames.json"), FileAccess.WRITE)
-	f2.store_string(JSON.stringify({"frames": rows, "mode": "mix3" if mfx.mix3 else "other"}, " "))
+	f2.store_string(JSON.stringify({"frames": rows, "mode": "mix4" if mfx.get("mix4") else ("mix3" if mfx.mix3 else "other"),
+		"crater_report": cr.report if cr != null else {}}, " "))
 	f2.close()
-	if mfx.crater != null:
-		for sl in mfx.crater.slots:
-			var mi: MeshInstance3D = sl["mi"]
-			var arr: Array = (sl["mesh"] as ArrayMesh).surface_get_arrays(0)
-			var vv: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
-			print("[crater] slot live=%s visible=%s at=%s y0=%.3f yc=%.3f age=%.2f" % [sl["live"], mi.visible, mi.global_position, vv[0].y, vv[vv.size() / 2].y, float(sl["age"])])
+	if cr != null:
+		for sl in cr.slots:
+			print("[crater] slot live=%s visible=%s at=%s age=%.2f" % [sl["live"], (sl["mi"] as MeshInstance3D).visible, (sl["mi"] as MeshInstance3D).global_position, float(sl["age"])])
 	print("[crater] %d stills -> %s" % [rows.size(), out_dir])
 	quit(0)

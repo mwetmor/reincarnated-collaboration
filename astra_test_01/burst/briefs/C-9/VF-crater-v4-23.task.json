@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST VF-crater-v4-23 — Run C-9, METEOR CRATER v4 (Matt R-C9-109: \"painted + real 3d + particle VFX ... the natural extension from our scene and character pipeline but for VFX\"): a guided EDIT paint-over of a 3D crater rendered on the painted Barrow at the game camera, exactly as the Barrow's own chunks were painted. task_id \"VF-crater-v4-23\".\n\nIMAGE 1 is the canvas to EDIT (1536x1024): the PAINTED Frost King's Barrow at the game camera (orthographic, about 53 degrees down; 100 px = 1 m across), with a GREYBOX CLAY 3D IMPACT CRATER in the middle — a meteor has just struck the snow: a shallow BOWL (about 2.2 m across), a RAISED, BROKEN RIM of thrown-up earth, dark FAULT-LINE CRACKS radiating from the centre (the dark lines drawn on the clay), one or two cracks running out past the rim, and a soft grey SKIRT where the blast scorched and melted the snow around it.\nUse image_gen in EDIT mode on IMAGE 1 and paint ONLY the crater (the clay and its soft grey skirt) as a freshly struck, already-cooling IMPACT CRATER in the painting's own hand: the bowl of scorched frozen earth and ash, darker toward the centre; the broken rim of dark wet earth, ash and clods of snow, lit on its upper-LEFT faces by the painting's one winter sun (upper LEFT, 55 degrees up) with short soft blue-violet shadows inside the bowl on the sun's side; the FAULT-LINE CRACKS exactly where the clay draws them, as deep dark fissures with the painting's thin warm dark-brown ink line; the very centre a darker, charred hollow; the skirt as soot and slush and melted snow fading back into the clean snow with a torn, painterly edge. Keep the crater's position, size and outline EXACTLY as the clay (it is projected back onto that 3D mesh: anything moved will not match). Everything OUTSIDE the clay and its skirt stays exactly as it is.\nNO fire, NO glow, NO orange or red light, NO smoke, NO embers — the cracks and centre are painted COLD and dark (the fire is a separate runtime layer). Palette and hand of IMAGE 2 (the approved Frost King's Barrow concept): watercolour washes with pen detail, one thin warm dark-brown ink line of the same weight everywhere. No text, UI, border or characters.\n\nOne image_gen EDIT call. ONE retry only if the crater moved or changed size, anything outside the skirt changed, fire or glow appears, or grey clay remains unpainted — name the reason. Copy the output to out/crater_v4_23.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"VF-crater-v4-23\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/crater_v4_guide_23.png",
+   "role": "IMAGE 1 — the canvas to EDIT (the painted Barrow with the greybox clay crater)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "role": "IMAGE 2 — the APPROVED Frost King's Barrow concept: palette, light and painted hand ONLY, not its layout"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/crater_v4_23.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C9-VFX-crater-v4"
+}

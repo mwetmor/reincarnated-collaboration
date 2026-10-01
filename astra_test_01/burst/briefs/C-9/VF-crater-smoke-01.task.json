@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST VF-crater-smoke-01 — painted particle sheet for the METEOR CRATER v4 (Run C-9, Matt R-C9-109: \"painted + real 3d + particle VFX ... the natural extension from our scene and character pipeline but for VFX\"). task_id \"VF-crater-smoke-01\". One sheet per call.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512x512 crop of the painted Barrow at the game camera (orthographic, about 53 degrees down), one figure about 160 px tall; everything is painted — confident dark contour with taper, clean painted planes, restrained texture. Match that hand.\n\nDeliver EXACTLY ONE image, 1024x1024, a FLIPBOOK SHEET of EIGHT frames in a 4 columns x 2 rows grid (each cell 256 px wide x 512 px tall, read left to right, top row first), GENUINELY TRANSPARENT background (RGBA, alpha 0 outside the smoke) — if transparency is impossible, a flat uniform #00ff00 plate and SAY SO. Content: ONE THIN WISP OF SMOKE rising from a crack in smouldering ground, painted in the scene's style: a narrow, soft-edged ribbon of pale warm grey smoke (lighter grey with a faintly warmer underside, a few painted planes, NOT airbrushed, NOT photographic), rising from the bottom centre of each cell, curling gently as it climbs, thinning and breaking up toward the top. The eight frames are ONE continuous animation: frame 1 the wisp just starting (short, low), frames 2-5 rising and curling (the ribbon about 60-90 px wide at most, up to about 420 px tall), frames 6-8 thinning, breaking into two or three drifting scraps and dissolving. Each cell's content is centred horizontally, its base at the cell's bottom centre, and NOTHING crosses into a neighbouring cell or touches the sheet's outer edge. No fire, embers, ground, shadow, character or text; no outline heavier than the scene's thinnest line (smoke is mostly soft painted planes with at most a faint broken contour).\n\nOne image_gen call. ONE retry only if: the background is not clean, the grid or cell layout is wrong, a frame crosses its cell, the smoke reads photographic/airbrushed rather than painted, or there is fire/colour other than warm greys — name the reason. Copy the output to out/crater_smoke_01.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"VF-crater-smoke-01\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/met_ref_scale_board_barrow.png",
+   "role": "IMAGE 1 — SCALE + REGISTER board: a 1:1 native 512x512 crop of the painted Barrow at the game camera (scale and register only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/crater_smoke_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C9-VFX-crater-v4"
+}

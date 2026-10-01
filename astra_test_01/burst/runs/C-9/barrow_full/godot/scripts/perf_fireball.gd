@@ -78,7 +78,8 @@ func _process(_dt: float) -> void:
 		# or A's burst (MIX v2), each its own node
 		fx_us = int(mfx.last_update_us) + (int(mfx.proj_a.last_us) if mfx.proj_a != null else 0) \
 			+ (int(mfx.burst_a.last_us) if mfx.get("burst_a") != null else 0) \
-			+ (int(mfx.crater.last_us) if mfx.get("crater") != null else 0)
+			+ (int(mfx.crater.last_us) if mfx.get("crater") != null else 0) \
+			+ (int(mfx.crater4.last_us) if mfx.get("crater4") != null else 0)
 	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),

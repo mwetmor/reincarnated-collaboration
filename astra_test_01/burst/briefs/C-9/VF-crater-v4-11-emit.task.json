@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST VF-crater-v4-11-emit — Run C-9, METEOR CRATER v4 (Matt R-C9-109): the EMISSION MASK for a painted impact crater. task_id \"VF-crater-v4-11-emit\".\n\nIMAGE 1 is the PAINTED crater on the Barrow (1536x1024, the game camera). IMAGE 2 (same size, same framing) marks in white where its fault-line cracks and its centre are.\nUse image_gen in EDIT mode on IMAGE 1 to make a TECHNICAL EMISSION MASK of exactly the same size and framing: PURE BLACK everywhere, except: (1) every painted FAULT-LINE CRACK of the crater in IMAGE 1 (follow the painted fissures exactly, guided by IMAGE 2), painted as a THIN LIGHT line, brightest (near white) in the crack's deepest middle and falling to mid grey toward its ends, a few px wide, uneven along its length like a crack that glows more in some places than others; (2) the crater's CENTRE as an irregular soft-edged light grey patch (smouldering embers), about a fifth of the bowl's width, brightest in the middle. Nothing else: the rim, the bowl, the skirt, the snow and the stones are all BLACK. Greyscale only, no colour, no text.\n\nEXACTLY ONE image_gen EDIT call, NO retry (the image budget is spent to the call): report any defect in concerns instead. Copy the output to out/crater_v4_11_emit.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"VF-crater-v4-11-emit\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/VF-crater-v4-11/crater_v4_11.png",
+   "role": "IMAGE 1 — the painted crater (the canvas to EDIT into its emission mask)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/crater_v4_cracks_screen_11.png",
+   "role": "IMAGE 2 — where the cracks and the centre are (white on black), same framing"
+  }
+ ],
+ "image_cap": 1,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/crater_v4_11_emit.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C9-VFX-crater-v4"
+}

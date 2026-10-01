@@ -1,0 +1,256 @@
+{
+ "_what": "C-9 CRATER v4 (R-C9-109) behind ?meteor=mix4: the fall (dark fire-ball core) and A's painted burst UNCHANGED; the crater rebuilt in three layers the Barrow's way. drax.",
+ "layers": {
+  "1_real_3d": "tools/crater_mesh.py in Blender 5.2 (no vendor call): a 101x101 grid (4.2 cm), 20k tris: shallow bowl 0.22 m deep, a raised broken rim (noise lumps and gaps, up to 0.11 m), 7-9 radial fault-line fractures (Voronoi-seeded angles, wander with momentum, one branch each) cut as V-grooves, 1-2 runners across the skirt, a feathered skirt 1.3 R -> 1.9 R easing to level with vertex alpha -> 0; R = 1.1 m (MIX v3's footprint). 3 variants (seeds 11, 23, 37). Placed unrotated; drawn with a 0.4 m depth bias toward the orthographic camera (no screen shift) so the bowl wins against the snow it sits in while anyone standing in it still hides it; the snow is also pressed under it (SnowField._stamp)",
+  "2_painted": "each mesh rendered on the painted Barrow at the game camera as a greybox clay lit by the painting's sun with its cracks drawn (godot/tools/crater_guide.gd), ONE guided Astra EDIT paint-over in the Barrow's style with the local ground as context (tools/crater_briefs.py; the concept as IMAGE 2), projected back into the mesh's planar UVs through the camera (tools/crater_project.py: every UV texel's screen pixel from the grid's own projection; alignment checked by projecting the crack mask: exact). Unlit (static after impact). A separately PAINTED emission mask per variant (Astra EDIT over the paint, guided by the crack geometry), projected the same way; the shader drives it hot orange -> dull red -> dark over the fire field's life with a slow uneven pulse along the cracks. A random variant per impact, never rotated",
+  "3_particles": "embers: one GPUParticles3D with the kit's own painted ember sprite (C-7 cliffside fire_ending ember_1), additive, rising off the crater; smoke: one GPUParticles3D playing ONE new painted sheet (VF-crater-smoke-01: 8 frames of a thin wisp); debris: one MultiMesh of 28 lumps per crater (the ember sprite darkened as it cools), thrown at impact, landing on the snow and staying until the crater fades"
+ },
+ "timing": {
+  "fire_field_life_s": "(30 + 15 (level - 1)) / 25 -> 12.6 s at level 20 (D2 packet), a parameter (crater_v4_fx.fire_life_s)",
+  "release_to_impact": "a runtime parameter: default 0.82 s (Matt's approved speed); ?fall=2.4 (desktop -- --fall 2.4) shows the D2 packet's 2.4 s; the release comes from her clip at run time",
+  "pool": "4 craters, the oldest fading over 1.5 s when the pool is full"
+ },
+ "astra": {
+  "images": 11,
+  "cap_reported_before_start": 11,
+  "breakdown": {
+   "VF-crater-smoke-01": 2,
+   "VF-crater-v4-11": 2,
+   "VF-crater-v4-23": 2,
+   "VF-crater-v4-37": 2,
+   "emission masks (3, image_cap 1, no retry)": 3
+  },
+  "fal_usd": 0,
+  "lane": "codex exec gpt-6-astra (lane/run_burst.py), refs under runs/C-9/artifacts/inputs/"
+ },
+ "performance": {
+  "rules": "one shader per layer (skins: 4 materials of ONE shader; debris one shader; the particles two StandardMaterial3D), MultiMesh for debris, one particle system per kind, all built at load and drawn once under the veil (warmed; nothing created at cast time), pool 4, meshes never rebuilt at cast time (the MIX v3 lesson)",
+  "nodes": "+8 (the parent, 4 skins, embers, smoke, debris)",
+  "draws": "+4 skins when 4 craters live, +3 for embers, smoke and debris",
+  "desktop_forward_plus": {
+   "warm_on": {
+    "dc_max": 93,
+    "frames": 3786,
+    "fx_script_mean_ms": 0.1217,
+    "max_ms": 20.58,
+    "mean_ms": 14.249,
+    "over_33ms": 0,
+    "p95_ms": 16.39
+   },
+   "warm_off_control": {
+    "dc_max": 89,
+    "frames": 4495,
+    "fx_script_mean_ms": 0.0853,
+    "max_ms": 20.74,
+    "mean_ms": 13.333,
+    "over_33ms": 0,
+    "p95_ms": 15.07
+   },
+   "delta_mean_ms": 0.916,
+   "delta_dc_peak": 4,
+   "first_cast": {
+    "dc_max": 95,
+    "frames": 426,
+    "fx_script_mean_ms": 0.0618,
+    "max_ms": 18.92,
+    "mean_ms": 14.077,
+    "over_33ms": 0,
+    "p95_ms": 16.22
+   },
+   "fourth_cast": {
+    "dc_max": 92,
+    "frames": 418,
+    "fx_script_mean_ms": 0.1251,
+    "max_ms": 18.62,
+    "mean_ms": 14.345,
+    "over_33ms": 0,
+    "p95_ms": 16.49
+   }
+  },
+  "page_cold_fx_first": {
+   "navigate_to_play_ms": 26339,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 30,
+    "hard_s": 45,
+    "lifted_s_after_ready": 18.765,
+    "note_shown": true,
+    "reason": "settled",
+    "responsive_wait_s": 0.208,
+    "staged": {
+     "nodes": 122,
+     "per_frame": 1,
+     "shaders": 9
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 18.687,
+    "worst_frame_under_veil_ms": 3781.3
+   },
+   "first_cast": {
+    "dc_max": 148,
+    "frames": 561,
+    "fx_script_mean_ms": 0.0804,
+    "max_ms": 28.3,
+    "mean_ms": 10.669,
+    "over_33ms": 0,
+    "p95_ms": 18
+   },
+   "fourth_cast": {
+    "dc_max": 151,
+    "frames": 550,
+    "fx_script_mean_ms": 0.15,
+    "max_ms": 22.9,
+    "mean_ms": 10.909,
+    "over_33ms": 0,
+    "p95_ms": 18.6
+   },
+   "warm_on": {
+    "dc_max": 151,
+    "frames": 4966,
+    "fx_script_mean_ms": 0.14,
+    "max_ms": 28.4,
+    "mean_ms": 10.861,
+    "over_33ms": 0,
+    "p95_ms": 18.7
+   },
+   "warm_off_control": {
+    "dc_max": 146,
+    "frames": 5645,
+    "fx_script_mean_ms": 0.0942,
+    "max_ms": 27.6,
+    "mean_ms": 10.617,
+    "over_33ms": 0,
+    "p95_ms": 18.6
+   },
+   "delta_mean_ms": 0.244,
+   "delta_dc_peak": 5
+  },
+  "page_warm_fx_first": {
+   "navigate_to_play_ms": 7592,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 30,
+    "hard_s": 45,
+    "lifted_s_after_ready": 2.022,
+    "note_shown": false,
+    "reason": "settled",
+    "responsive_wait_s": 1.36,
+    "staged": {
+     "nodes": 122,
+     "per_frame": 1,
+     "shaders": 9
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 1.951,
+    "worst_frame_under_veil_ms": 371.3
+   },
+   "first_cast": {
+    "dc_max": 147,
+    "frames": 547,
+    "fx_script_mean_ms": 0.1046,
+    "max_ms": 24.2,
+    "mean_ms": 10.945,
+    "over_33ms": 0,
+    "p95_ms": 18.5
+   },
+   "fourth_cast": {
+    "dc_max": 150,
+    "frames": 531,
+    "fx_script_mean_ms": 0.1591,
+    "max_ms": 26.1,
+    "mean_ms": 11.294,
+    "over_33ms": 0,
+    "p95_ms": 19.5
+   },
+   "warm_on": {
+    "dc_max": 151,
+    "frames": 4815,
+    "fx_script_mean_ms": 0.1598,
+    "max_ms": 26.9,
+    "mean_ms": 11.203,
+    "over_33ms": 0,
+    "p95_ms": 19.6
+   },
+   "warm_off_control": {
+    "dc_max": 146,
+    "frames": 5461,
+    "fx_script_mean_ms": 0.1055,
+    "max_ms": 33.9,
+    "mean_ms": 10.976,
+    "over_33ms": 1,
+    "p95_ms": 19.2
+   },
+   "delta_mean_ms": 0.227,
+   "delta_dc_peak": 5
+  },
+  "page_warm_control_first": {
+   "navigate_to_play_ms": 8088,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 30,
+    "hard_s": 45,
+    "lifted_s_after_ready": 2.034,
+    "note_shown": false,
+    "reason": "settled",
+    "responsive_wait_s": 1.358,
+    "staged": {
+     "nodes": 122,
+     "per_frame": 1,
+     "shaders": 9
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 1.957,
+    "worst_frame_under_veil_ms": 380.2
+   },
+   "first_cast": {
+    "dc_max": 147,
+    "frames": 551,
+    "fx_script_mean_ms": 0.0971,
+    "max_ms": 23.4,
+    "mean_ms": 10.887,
+    "over_33ms": 0,
+    "p95_ms": 19.2
+   },
+   "fourth_cast": {
+    "dc_max": 150,
+    "frames": 542,
+    "fx_script_mean_ms": 0.1601,
+    "max_ms": 22.8,
+    "mean_ms": 11.063,
+    "over_33ms": 0,
+    "p95_ms": 18.5
+   },
+   "warm_on": {
+    "dc_max": 151,
+    "frames": 5380,
+    "fx_script_mean_ms": 0.1557,
+    "max_ms": 31.2,
+    "mean_ms": 11.142,
+    "over_33ms": 0,
+    "p95_ms": 19.3
+   },
+   "warm_off_control": {
+    "dc_max": 146,
+    "frames": 4932,
+    "fx_script_mean_ms": 0.1006,
+    "max_ms": 26.8,
+    "mean_ms": 10.934,
+    "over_33ms": 0,
+    "p95_ms": 19.4
+   },
+   "delta_mean_ms": 0.208,
+   "delta_dc_peak": 5
+  },
+  "note": "the control's draw peak includes craters left by earlier casts (they live 12.6 s; casts are 6 s apart)"
+ },
+ "pack": {
+  "sorceress.pck_bytes": 43353392,
+  "crater_v4_data_mb": 5.9
+ },
+ "fences": "tools/build_web_painted.sh: ?meteor=mix4 arms (meteor=mix4(...,burn=crater_v4,...,fall_s=0.82)), no script/shader error, crater v4 data in her pack; all earlier fences pass",
+ "deliverables": "Desktop review folder: the play-speed film (fall 0.82 s), the 0.82 s vs 2.4 s side-by-side film (labelled), the crater at 2 s and at 10 s, and v3 vs v4 at 2 s",
+ "default": "MIX v3 stays her default; mix4 only on Matt's look"
+}

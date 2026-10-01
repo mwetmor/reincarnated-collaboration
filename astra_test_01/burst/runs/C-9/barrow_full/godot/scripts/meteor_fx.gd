@@ -36,8 +36,12 @@ const FX_LAYER := 1 << 12            # the effect's own layer: no light, no shad
 const POOL := 2
 const AHEAD := 3.5
 const T_FALL0 := 0.12                # the fall starts under the flare
-const FALL_S := 0.70
-const T_IMPACT := T_FALL0 + FALL_S
+# RELEASE-TO-IMPACT, a RUNTIME PARAMETER (the D2 timing packet, 2026-10-01): the default stays 0.82 s -- the speed
+# Matt passed by eye ("I like the faster speed"); ?fall=2.4 (desktop -- --fall 2.4) shows the packet's 2.4 s. The
+# release itself comes from her clip at run time (release_s), never baked here.
+const FALL_DEFAULT_S := 0.82
+var FALL_S := 0.70
+var T_IMPACT := T_FALL0 + FALL_S
 const BURN_S := 3.0
 const FALL_L := 12.0                 # metres along the sun ray (9.8 m up)
 const ROCK_R := 0.34
@@ -308,6 +312,11 @@ var mix2 := false
 # folded into the post pass's own screen copy (PaintStack POST_SHADER, global fx_warp). mix3 implies mix2.
 var mix3 := false
 var crater = null
+# CRATER v4 (R-C9-109, ?meteor=mix4): MIX v3's fall, burst and warp; the crater rebuilt in three layers --
+# real 3D (a Blender mesh), painted (an Astra paint-over projected back, with a painted emission mask), particles
+# (crater_v4_fx.gd). mix4 implies mix3.
+var mix4 := false
+var crater4 = null
 const MIX3_COMET_HEAT := 0.06
 const MIX3_TAIL_WISP := 1.0
 const MIX3_CRATER_R := 1.1
@@ -366,7 +375,7 @@ static func wanted(sc) -> bool:
 	var i := args.find("--meteor")
 	if q == "" and i >= 0 and i + 1 < args.size():
 		q = String(args[i + 1])
-	return q.to_lower() in ["", "b", "mix", "mix1", "mix2", "mix3"]
+	return q.to_lower() in ["", "b", "mix", "mix1", "mix2", "mix3", "mix4"]
 
 
 static func mode_of() -> String:
@@ -381,7 +390,18 @@ static func mode_of() -> String:
 	# MIX v3 is the default (Matt, 2026-09-30, second correction); MIX v2 stays as ?meteor=mix2, the first
 	# mix as ?meteor=mix1
 	q = q.to_lower()
-	return "b" if q == "b" else ("mix1" if q in ["mix", "mix1"] else ("mix2" if q == "mix2" else "mix3"))
+	return "b" if q == "b" else ("mix1" if q in ["mix", "mix1"] else ("mix2" if q == "mix2" else ("mix4" if q == "mix4" else "mix3")))
+
+
+static func fall_wanted() -> float:
+	"""?fall=<s> (desktop -- --fall <s>): release-to-impact in seconds; 0.82 (Matt's approved speed) by default."""
+	var q := PaintStack.web_query("fall")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--fall")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	var v := float(q) if q.is_valid_float() else FALL_DEFAULT_S
+	return clampf(v, 0.3, 6.0)
 
 
 static func shadow_wanted() -> bool:
@@ -441,8 +461,12 @@ func _attach(sc) -> void:
 		sc.paint_sun.light_cull_mask &= ~FX_LAYER
 	var mode := mode_of()
 	mix = mode == "mix1"
-	mix3 = mode == "mix3"
+	mix4 = mode == "mix4"
+	mix3 = mode == "mix3" or mix4
 	mix2 = mode == "mix2" or mix3
+	FALL_S = fall_wanted() - T_FALL0
+	T_IMPACT = T_FALL0 + FALL_S
+	report["fall_s"] = snappedf(T_IMPACT, 0.001)
 	shadow_on = shadow_wanted()
 	if mix2:
 		style = "cinders"
@@ -454,7 +478,15 @@ func _attach(sc) -> void:
 		if ba.setup(sc, cam):
 			burst_a = ba
 			ba.warm_up()
-		if mix3:
+		if mix4:
+			var c4 = load("res://scripts/crater_v4_fx.gd").new()
+			c4.name = "MeteorCraterV4"
+			sc.add_child(c4)
+			if c4.setup(sc, cam, noise):
+				crater4 = c4
+			report["mix"] = {"version": 4, "fall": "lane_b_core", "impact": "lane_a_painted" if burst_a != null else "FAILED(%s)" % String(ba.report.get("error", "?")),
+				"burn": "crater_v4" if crater4 != null else "FAILED(%s)" % String(c4.report.get("error", "?")), "warp": "post", "ring": "off", "rock_shadow": shadow_on}
+		elif mix3:
 			crater = load("res://scripts/crater_fx.gd").new()
 			crater.name = "MeteorCrater"
 			sc.add_child(crater)
@@ -494,7 +526,7 @@ func _attach(sc) -> void:
 	if lab != null:
 		for c in lab.get_children():
 			if c is Label:
-				(c as Label).text = ("METEOR: A BALL OF FIRE, A'S IMPACT, THE CRATER" + ("" if shadow_on else " (NO SHADOW)")) if mix3 else ("METEOR: B'S FALL (DARKENED), A'S IMPACT, CINDERS" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix2 else (("METEOR: A'S FALL, B'S IMPACT" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix else "METEOR EFFECT: 3D (LANE B)")
+				(c as Label).text = ("METEOR: A BALL OF FIRE, A'S IMPACT, CRATER v4 (3D + PAINTED + PARTICLES)" + ("" if shadow_on else " (NO SHADOW)") + ("" if absf(T_IMPACT - FALL_DEFAULT_S) < 0.01 else " FALL %.2f S" % T_IMPACT)) if mix4 else ("METEOR: A BALL OF FIRE, A'S IMPACT, THE CRATER" + ("" if shadow_on else " (NO SHADOW)")) if mix3 else ("METEOR: B'S FALL (DARKENED), A'S IMPACT, CINDERS" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix2 else (("METEOR: A'S FALL, B'S IMPACT" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix else "METEOR EFFECT: 3D (LANE B)")
 	_arm()
 
 
@@ -1201,6 +1233,8 @@ func _step(s: Dictionary, dt: float) -> void:
 				cinders.start(target, BURN_R, _ground_y)
 			if crater != null and owner:
 				s["crater"] = crater.start(target, _ground_y)
+			if crater4 != null and owner:
+				s["crater"] = crater4.start(target)
 		for k in (0 if mix2 else 18):
 			var a := TAU * float(k) / 18.0 + randf_range(-0.2, 0.2)
 			var out := Vector3(cos(a), 0.0, sin(a))

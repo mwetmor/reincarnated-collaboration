@@ -17,13 +17,14 @@ FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi
 METEOR=${METEOR:-}
 TAG=${TAG:-MIX v3 - ball of fire with dark core, A painted impact, crater, warp}
-SLUG=$(echo "${METEOR:-mix3}" | tr -c "a-z0-9" "_")
+FALL=${FALL:-}                   # FALL=2.4: release-to-impact in s (?fall=; the default 0.82 is Matt's approved speed)
+SLUG=$(echo "${METEOR:-mix3}${FALL:+_fall$FALL}" | tr -c "a-z0-9" "_")
 AVI="$OUT/meteor_${SLUG}film.avi"
 LOG="$OUT/film_${SLUG}.log"
 MP4="$OUT/C-9 sorceress Meteor $TAG - play speed then quarter speed.mp4"
 python3 "$HEAVY_LOCK" C-9 -- perl -e 'alarm shift; exec @ARGV' 900 "$GODOT" --path "$SRC" --resolution 1280x720 \
   --rendering-method gl_compatibility --rendering-driver opengl3_angle --fixed-fps 30 \
-  --write-movie "$AVI" --script tools/film_meteor.gd -- --as-web --c sorceress ${METEOR:+--meteor $METEOR} > "$LOG" 2>&1 || true
+  --write-movie "$AVI" --script tools/film_meteor.gd -- --as-web --c sorceress ${METEOR:+--meteor $METEOR} ${FALL:+--fall $FALL} > "$LOG" 2>&1 || true
 grep -E "\[film\]|SCRIPT ERROR|Parse Error" "$LOG" | head -10
 TRIM=$(grep -o '"trim_frames":[0-9]*' "$LOG" | head -1 | cut -d: -f2)
 [ -n "$TRIM" ] || { echo "HALT: no trim reported" >&2; exit 6; }
