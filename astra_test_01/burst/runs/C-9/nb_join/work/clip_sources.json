@@ -121,7 +121,7 @@
     0.0333,
     0.3
    ],
-   "note": "authored v7 (ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v3 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
+   "note": "authored v8 (R-C9-115: v7's recipe from the JOIN hold v4 F25 stance; ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v4 F25 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
   },
   "attack": {
    "source": "../nb_t8/nbt_attack.glb",
@@ -144,5 +144,5 @@
    "note": "NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added"
   }
  },
- "body_base": "nb_d2/export_staging/JOIN_hold_v2/nb-body.glb md5 9346f3de (v4 rebase; v1 b5371921)"
+ "body_base": "nb_join/export_hold_v4/nb-body.glb md5 cf7ceb43 (R-C9-115: the JOIN hold v3 with the guards' tips 25 deg forward)"
 }

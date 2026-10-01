@@ -35,9 +35,6 @@
   [
    0.1,
    [
-    "blade_L x blade_R @225",
-    "blade_L x blade_R @270",
-    "blade_L x blade_R @315",
     "fore_L x blade_R @45"
    ]
   ],
@@ -45,9 +42,11 @@
    0.1333,
    [
     "fore_L x blade_R @90",
+    "fore_L x blade_R @135",
     "blade_L x blade_R @180",
     "blade_L x blade_R @225",
     "blade_L x blade_R @270",
+    "fore_L x blade_R @0",
     "fore_L x blade_R @45"
    ]
   ],
@@ -55,9 +54,11 @@
    0.1333,
    [
     "fore_L x blade_R @90",
+    "fore_L x blade_R @135",
     "blade_L x blade_R @180",
     "blade_L x blade_R @225",
     "blade_L x blade_R @270",
+    "fore_L x blade_R @0",
     "fore_L x blade_R @45"
    ]
   ],
@@ -69,8 +70,7 @@
     "blade_L x blade_R @225",
     "blade_L x blade_R @270",
     "blade_L x blade_R @315",
-    "blade_L x blade_R @0",
-    "blade_L x blade_R @45"
+    "blade_L x blade_R @0"
    ]
   ],
   [
@@ -81,8 +81,7 @@
     "blade_L x blade_R @225",
     "blade_L x blade_R @270",
     "blade_L x blade_R @315",
-    "blade_L x blade_R @0",
-    "blade_L x blade_R @45"
+    "blade_L x blade_R @0"
    ]
   ],
   [
@@ -97,28 +96,28 @@
  "screen_frames_failing": 6,
  "least_side_m": {
   "wrist_L": {
-   "m": 0.137,
+   "m": 0.158,
    "t": 0.1
   },
   "wrist_R": {
-   "m": 0.119,
+   "m": 0.158,
    "t": 0.1
   },
   "elbow_L": {
-   "m": 0.18,
+   "m": 0.257,
    "t": 0.0
   },
   "elbow_R": {
-   "m": 0.145,
+   "m": 0.243,
    "t": 1.4
   },
   "tip_axe_L": {
-   "m": -0.71,
-   "t": 0.1333
+   "m": -0.244,
+   "t": 0.3
   },
   "tip_sword_R": {
-   "m": -0.522,
-   "t": 0.1667
+   "m": -0.534,
+   "t": 0.1333
   }
  },
  "definition": "side of his sagittal plane (shoulder midpoint, normal = the levelled shoulder line), metres, > 0 = own side"

@@ -1,0 +1,366 @@
+{
+ "instrument": "scripts/j_cross_check.py",
+ "body": "e3.glb",
+ "clip": "attack_a1",
+ "keys": 44,
+ "verdict": "FAIL",
+ "negative_control": false,
+ "wrists_crossed_at_t": [
+  0.5667,
+  0.5778,
+  0.6,
+  0.619,
+  0.6333,
+  0.6333,
+  0.6667,
+  0.7,
+  0.7333,
+  0.7667,
+  0.8,
+  0.8333,
+  0.8667,
+  0.9
+ ],
+ "elbows_crossed_at_t": [
+  0.6,
+  0.619,
+  0.6333,
+  0.6333,
+  0.6667,
+  0.7,
+  0.7333
+ ],
+ "tips_crossed_at_t": [
+  0.0667,
+  0.0825,
+  0.1,
+  0.1238,
+  0.1333,
+  0.1651,
+  0.1667,
+  0.2,
+  0.2063,
+  0.2333,
+  0.2476,
+  0.2667,
+  0.2889,
+  0.3,
+  0.3302,
+  0.3333,
+  0.3667,
+  0.3714,
+  0.4,
+  0.4127,
+  0.4333,
+  0.5667,
+  0.5778,
+  0.6,
+  0.619,
+  0.6333,
+  0.6333,
+  0.6667,
+  0.7,
+  0.7333,
+  0.7667,
+  0.8,
+  0.8333
+ ],
+ "screen_crossings": [
+  [
+   0.0413,
+   [
+    "blade_L x blade_R @315"
+   ]
+  ],
+  [
+   0.0667,
+   [
+    "blade_L x blade_R @270",
+    "fore_L x blade_R @315"
+   ]
+  ],
+  [
+   0.0825,
+   [
+    "blade_L x blade_R @225",
+    "blade_L x blade_R @270",
+    "fore_L x blade_R @315",
+    "fore_L x blade_R @0"
+   ]
+  ],
+  [
+   0.1,
+   [
+    "blade_L x blade_R @225",
+    "blade_L x blade_R @270",
+    "fore_L x blade_R @315",
+    "fore_L x blade_R @0"
+   ]
+  ],
+  [
+   0.1238,
+   [
+    "blade_L x blade_R @180",
+    "blade_L x blade_R @225",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.1333,
+   [
+    "blade_L x blade_R @180",
+    "blade_L x blade_R @225",
+    "fore_L x blade_R @45"
+   ]
+  ],
+  [
+   0.1651,
+   [
+    "blade_L x blade_R @180",
+    "fore_L x blade_R @45"
+   ]
+  ],
+  [
+   0.1667,
+   [
+    "blade_L x blade_R @180",
+    "fore_L x blade_R @45"
+   ]
+  ],
+  [
+   0.2,
+   [
+    "blade_L x blade_R @135",
+    "blade_L x blade_R @180"
+   ]
+  ],
+  [
+   0.2063,
+   [
+    "blade_L x blade_R @180",
+    "fore_L x fore_R @225"
+   ]
+  ],
+  [
+   0.2333,
+   [
+    "fore_L x blade_R @135",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.2476,
+   [
+    "fore_L x blade_R @135",
+    "fore_L x blade_R @180",
+    "fore_L x blade_R @225",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.2667,
+   [
+    "fore_L x blade_R @180",
+    "fore_L x blade_R @225",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.2889,
+   [
+    "fore_L x blade_R @180",
+    "fore_L x blade_R @225",
+    "fore_L x fore_R @270"
+   ]
+  ],
+  [
+   0.3,
+   [
+    "fore_L x blade_R @225"
+   ]
+  ],
+  [
+   0.3302,
+   [
+    "fore_L x blade_R @225",
+    "fore_L x blade_R @270"
+   ]
+  ],
+  [
+   0.3333,
+   [
+    "fore_L x blade_R @225",
+    "fore_L x blade_R @270"
+   ]
+  ],
+  [
+   0.3667,
+   [
+    "blade_L x blade_R @270"
+   ]
+  ],
+  [
+   0.3714,
+   [
+    "blade_L x blade_R @270"
+   ]
+  ],
+  [
+   0.4,
+   [
+    "blade_L x blade_R @315",
+    "fore_R x blade_L @0"
+   ]
+  ],
+  [
+   0.4127,
+   [
+    "blade_L x blade_R @0",
+    "fore_L x fore_R @45"
+   ]
+  ],
+  [
+   0.4333,
+   [
+    "blade_L x blade_R @45"
+   ]
+  ],
+  [
+   0.454,
+   [
+    "fore_L x blade_R @90"
+   ]
+  ],
+  [
+   0.4667,
+   [
+    "blade_L x blade_R @90"
+   ]
+  ],
+  [
+   0.6,
+   [
+    "blade_L x blade_R @270",
+    "blade_L x blade_R @315",
+    "blade_L x blade_R @0"
+   ]
+  ],
+  [
+   0.619,
+   [
+    "fore_R x blade_L @270",
+    "blade_L x blade_R @270",
+    "fore_R x blade_L @315",
+    "blade_L x blade_R @315",
+    "blade_L x blade_R @0"
+   ]
+  ],
+  [
+   0.6333,
+   [
+    "blade_L x blade_R @225",
+    "fore_R x blade_L @270",
+    "blade_L x blade_R @270",
+    "fore_R x blade_L @315",
+    "blade_L x blade_R @315",
+    "fore_L x fore_R @0",
+    "blade_L x blade_R @0",
+    "blade_L x blade_R @45"
+   ]
+  ],
+  [
+   0.6333,
+   [
+    "blade_L x blade_R @225",
+    "fore_R x blade_L @270",
+    "blade_L x blade_R @270",
+    "fore_R x blade_L @315",
+    "blade_L x blade_R @315",
+    "fore_L x fore_R @0",
+    "blade_L x blade_R @0",
+    "blade_L x blade_R @45"
+   ]
+  ],
+  [
+   0.6667,
+   [
+    "blade_L x blade_R @225",
+    "fore_R x blade_L @270",
+    "blade_L x blade_R @270",
+    "blade_L x blade_R @315",
+    "fore_L x fore_R @0",
+    "blade_L x blade_R @0",
+    "blade_L x blade_R @45"
+   ]
+  ],
+  [
+   0.7,
+   [
+    "blade_L x blade_R @225",
+    "fore_R x blade_L @270",
+    "blade_L x blade_R @270",
+    "fore_L x fore_R @315",
+    "blade_L x blade_R @315",
+    "blade_L x blade_R @0",
+    "blade_L x blade_R @45"
+   ]
+  ],
+  [
+   0.7333,
+   [
+    "blade_L x blade_R @225",
+    "blade_L x blade_R @270",
+    "fore_L x fore_R @315",
+    "blade_L x blade_R @315",
+    "blade_L x blade_R @0"
+   ]
+  ],
+  [
+   0.7667,
+   [
+    "fore_L x fore_R @315",
+    "fore_L x blade_R @0"
+   ]
+  ],
+  [
+   0.8,
+   [
+    "fore_L x blade_R @315"
+   ]
+  ],
+  [
+   0.8333,
+   [
+    "fore_L x blade_R @315"
+   ]
+  ]
+ ],
+ "screen_frames_failing": 34,
+ "least_side_m": {
+  "wrist_L": {
+   "m": 0.129,
+   "t": 0.3714
+  },
+  "wrist_R": {
+   "m": -0.303,
+   "t": 0.6333
+  },
+  "elbow_L": {
+   "m": 0.131,
+   "t": 0.3333
+  },
+  "elbow_R": {
+   "m": -0.071,
+   "t": 0.6333
+  },
+  "tip_axe_L": {
+   "m": 0.581,
+   "t": 0.4952
+  },
+  "tip_sword_R": {
+   "m": -0.616,
+   "t": 0.2667
+  }
+ },
+ "definition": "side of his sagittal plane (shoulder midpoint, normal = the levelled shoulder line), metres, > 0 = own side"
+}

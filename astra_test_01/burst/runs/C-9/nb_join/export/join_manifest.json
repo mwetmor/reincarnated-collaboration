@@ -2,12 +2,12 @@
  "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body; the war cry and the whirlwind are v4 (Matt, 2026-09-30)",
  "body": {
   "file": "export/nb-body_join.glb",
-  "sha256": "3ffe4948337a7b8e201e901857e7fa38940eb1dbfc55f7074bc25156ebd6a966",
+  "sha256": "502b694e58bc589296a8e16e42786c73039de53d56fa5cf1a74572691e01de97",
   "base": "nb_d2/export_staging/JOIN_hold_v2/nb-body.glb (the scene drax's JOIN body v2, b91df5a7a: the weapon fists out to about 0.78 of the shoulder half-width; only the six guard clips differ from v1)",
-  "base_sha256": "a8a1a49828fe6791f82309cee711e4631142a96d84923355c2e148e139c7e2a1",
-  "base_md5": "9346f3decc16f2b4f2c51df7b9a0c474",
+  "base_sha256": "c6fa5f4b750b2ac775cf528197af9e0fc6ab32af4020d7b454d678ee71b78807",
+  "base_md5": "cf7ceb433dd5a3ce806a7fad1b592ccf",
   "hold_spec": "nb_d2/export_staging/JOIN_hold_v2/join_hold.json",
-  "hold_spec_sha256": "98278292a6ca073839e9ff9b566c005d42c1d0d51cf4c15cfd836f2b9ca20e1d",
+  "hold_spec_sha256": "1fa66e193fe3d809053282e09a9950d58093b55cefcfe08353363dbb4bcee507",
   "added": [
    "whirlwind",
    "shout",
@@ -21,7 +21,7 @@
    "v3: scripts/j_whirl4.py wrote the whirlwind (a feet-on-ground pivot, work/whirl_v3.json; arms from scripts/j_whirl_pose.py, work/whirl_v3_pose.json); scripts/j_warcry.py wrote the shout trimmed to one elbow drop (work/warcry_v3.json); scripts/j_weapon_clamp.py re-keyed its weapon tracks (work/warcry_v3_clamp.json)",
    "v4 REBASE (the conductor, 2026-09-30): scripts/j_carry_clips.py carried hit and death (unclamped) from the v1 moves-only file onto the v2 hold body -> export/nb-body_join_9346f3de_moves_only.glb (the node layouts asserted identical); scripts/j_weapon_clamp.py re-clamped the death against the v2 guards (work/death_clamp.json); scripts/j_whirl5.py wrote the whirlwind v4 (work/whirl_v4.json; arms work/whirl_v4_pose.json); scripts/j_warcry.py --speed 1.5 wrote the shout v4 (work/warcry_v4.json); scripts/j_weapon_clamp.py its weapon tracks (work/warcry_v4_clamp.json)"
   ],
-  "moves_only_sha256": "3a84549e9823cb29141e28c218d642245998d922899d966238d1bdcfbfae41d8",
+  "moves_only_sha256": "501e326a1109ca44b85233856c08281d7fbaa0fe67883a8fbb6e0ac3ac0a1ba9",
   "kept": "every base clip byte-identical: the grafts append; the clamp touches only the death's weapon channels"
  },
  "weapons": {
@@ -81,7 +81,7 @@
  "clips": {
   "whirlwind": {
    "kind": "loop, channel",
-   "version": 7,
+   "version": 8,
    "seconds": 0.2667,
    "keys": 9,
    "revolution": {
@@ -91,6 +91,88 @@
     "measured_from": "main_tip, the port's bearing (atan2 y, x)",
     "rev_per_s": 3.75,
     "ruling": "Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"
+   },
+   "v8": {
+    "ruling": "R-C9-115 (+ R-C9-108's recipe)",
+    "what": "v7's recipe exactly (one stance frame, the same A 15/15 arm edits, a rigid spin at 3.75 rev/s, no solver) taken from the JOIN hold v4 F25 stance (the weapon tips 25 deg more forward)",
+    "pose": "work/whirl_v8_pose_A.json",
+    "before": {
+     "R": {
+      "upper_arm_forward_deg": -33.1,
+      "elbow_bend_deg": 98.5,
+      "fist_side": 0.694,
+      "grip_y_m": 0.97
+     },
+     "L": {
+      "upper_arm_forward_deg": -17.5,
+      "elbow_bend_deg": 87.3,
+      "fist_side": 1.014,
+      "grip_y_m": 0.97
+     }
+    },
+    "after": {
+     "R": {
+      "upper_arm_forward_deg": -18.1,
+      "elbow_bend_deg": 83.5,
+      "fist_side": 0.783,
+      "grip_y_m": 0.935
+     },
+     "L": {
+      "upper_arm_forward_deg": -2.5,
+      "elbow_bend_deg": 72.3,
+      "fist_side": 1.123,
+      "grip_y_m": 0.958
+     }
+    },
+    "edges_flats_now": {
+     "edges": {
+      "weapon_r": {
+       "cos_min": 0.577,
+       "cos_median": 0.578,
+       "share_ge_0_8": 0.0
+      },
+      "weapon_l": {
+       "cos_min": -0.728,
+       "cos_median": -0.728,
+       "share_ge_0_8": 0.0
+      }
+     },
+     "flats_to_camera": {
+      "weapon_r": {
+       "worst": 0.009,
+       "share_ge_0_5": 0.47
+      },
+      "weapon_l": {
+       "worst": 0.075,
+       "share_ge_0_5": 0.53
+      }
+     }
+    },
+    "edges_flats_v7": {
+     "edges": {
+      "weapon_r": {
+       "cos_min": 0.657,
+       "cos_median": 0.658,
+       "share_ge_0_8": 0.0
+      },
+      "weapon_l": {
+       "cos_min": -0.793,
+       "cos_median": -0.793,
+       "share_ge_0_8": 0.0
+      }
+     },
+     "flats_to_camera": {
+      "weapon_r": {
+       "worst": 0.026,
+       "share_ge_0_5": 0.5
+      },
+      "weapon_l": {
+       "worst": 0.128,
+       "share_ge_0_5": 0.53
+      }
+     }
+    },
+    "note": "measured only: the forward tips did NOT improve the edge / flat rows -- they worsened (the sword's lead 0.66 -> 0.58, the axe still trails; worst flat 0.03 -> 0.01): a forward-pitched guard spun about the vertical presents its flats edge-on to more headings"
    },
    "v7": {
     "ruling": "R-C9-108",
@@ -104,28 +186,28 @@
       "R": {
        "upper_arm_forward_deg": -33.1,
        "elbow_bend_deg": 98.5,
-       "fist_side": 0.843,
-       "grip_y_m": 0.996
+       "fist_side": 0.694,
+       "grip_y_m": 0.97
       },
       "L": {
        "upper_arm_forward_deg": -17.5,
        "elbow_bend_deg": 87.3,
-       "fist_side": 1.18,
-       "grip_y_m": 0.996
+       "fist_side": 1.014,
+       "grip_y_m": 0.97
       }
      },
      "after": {
       "R": {
        "upper_arm_forward_deg": -18.1,
        "elbow_bend_deg": 83.5,
-       "fist_side": 0.927,
-       "grip_y_m": 0.963
+       "fist_side": 0.783,
+       "grip_y_m": 0.935
       },
       "L": {
        "upper_arm_forward_deg": -2.5,
        "elbow_bend_deg": 72.3,
-       "fist_side": 1.289,
-       "grip_y_m": 0.985
+       "fist_side": 1.123,
+       "grip_y_m": 0.958
       }
      },
      "no_crossed_arms": {
@@ -149,12 +231,12 @@
         "t": 0.1
        },
        "tip_axe_L": {
-        "m": 0.854,
-        "t": 0.1
+        "m": 0.72,
+        "t": 0.0
        },
        "tip_sword_R": {
-        "m": 0.661,
-        "t": 0.1333
+        "m": 0.464,
+        "t": 0.1
        }
       }
      }
@@ -194,23 +276,23 @@
     "contract_rows_now_failing": {
      "edges": {
       "weapon_r": {
-       "cos_min": 0.657,
-       "cos_median": 0.658,
+       "cos_min": 0.577,
+       "cos_median": 0.578,
        "share_ge_0_8": 0.0
       },
       "weapon_l": {
-       "cos_min": -0.793,
-       "cos_median": -0.793,
+       "cos_min": -0.728,
+       "cos_median": -0.728,
        "share_ge_0_8": 0.0
       }
      },
      "flats_to_camera": {
       "weapon_r": {
-       "worst": 0.026,
-       "share_ge_0_5": 0.5
+       "worst": 0.009,
+       "share_ge_0_5": 0.47
       },
       "weapon_l": {
-       "worst": 0.128,
+       "worst": 0.075,
        "share_ge_0_5": 0.53
       }
      },
@@ -277,12 +359,12 @@
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.854,
-       "t": 0.1
+       "m": 0.72,
+       "t": 0.0
       },
       "tip_sword_R": {
-       "m": 0.661,
-       "t": 0.1333
+       "m": 0.464,
+       "t": 0.1
       }
      },
      "screen_frames_failing": 0,
@@ -318,12 +400,12 @@
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.854,
-       "t": 0.1
+       "m": 0.72,
+       "t": 0.0
       },
       "tip_sword_R": {
-       "m": 0.661,
-       "t": 0.1333
+       "m": 0.464,
+       "t": 0.1
       }
      },
      "record": "work/cross_check_whirlwind.json",
@@ -365,7 +447,7 @@
    "params": {
     "head_tilt_deg": 8.0
    },
-   "authored_by": "scripts/j_whirl7_pose.py (the pose, no solver: work/whirl_v7_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
+   "authored_by": "scripts/j_whirl7_pose.py on the JOIN hold v4 F25 body (the pose, no solver: work/whirl_v8_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
    "stance": {
     "clip": "idle_guard (his battle stance), its pose at the half-second mark",
     "feet": "both flat and planted where the stance puts them; the whole body turns as one (the conductor: accepted)",
@@ -378,13 +460,13 @@
    },
    "head": {
     "rule": "v7: the stance's own head, untouched (j_whirl5.py --no-head)",
-    "facing_off_blade_bearing_deg": -28.16,
+    "facing_off_blade_bearing_deg": -26.92,
     "facing_from": "headfront - Head",
     "tilt_deg": 0.0,
     "untouched": true
    },
    "checked": {
-    "instrument": "scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v7_check.json)",
+    "instrument": "scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v8_check.json)",
     "closure_m": 0.0,
     "hips_orbit_m": {
      "max": 0.0,
@@ -396,23 +478,23 @@
     },
     "edges": {
      "weapon_r": {
-      "cos_min": 0.657,
-      "cos_median": 0.658,
+      "cos_min": 0.577,
+      "cos_median": 0.578,
       "share_ge_0_8": 0.0
      },
      "weapon_l": {
-      "cos_min": -0.793,
-      "cos_median": -0.793,
+      "cos_min": -0.728,
+      "cos_median": -0.728,
       "share_ge_0_8": 0.0
      }
     },
     "flats_to_camera": {
      "weapon_r": {
-      "worst": 0.026,
-      "share_ge_0_5": 0.5
+      "worst": 0.009,
+      "share_ge_0_5": 0.47
      },
      "weapon_l": {
-      "worst": 0.128,
+      "worst": 0.075,
       "share_ge_0_5": 0.53
      }
     }
@@ -480,29 +562,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 0.0,
-       "t": 0.0333
+       "deg": 21.0,
+       "t": 0.0
       },
       "flex_worst": {
-       "deg": 0.0,
+       "deg": 12.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": -104.1,
+       "deg": -108.2,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": 0.0,
+       "deg": -7.2,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 0.0,
+       "deg": 23.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": 89.3,
+       "deg": 91.1,
        "t": 0.0
       }
      }
@@ -640,11 +722,11 @@
    "reads_in_8_directions": {
     "worst_flat_facing_cos": {
      "weapon_r": {
-      "worst": 0.026,
-      "share_ge_0_5": 0.5
+      "worst": 0.009,
+      "share_ge_0_5": 0.47
      },
      "weapon_l": {
-      "worst": 0.128,
+      "worst": 0.075,
       "share_ge_0_5": 0.53
      }
     },
@@ -678,28 +760,28 @@
     "verdict": "FAIL",
     "least_side_m": {
      "wrist_L": {
-      "m": 0.137,
+      "m": 0.158,
       "t": 0.1
      },
      "wrist_R": {
-      "m": 0.119,
+      "m": 0.158,
       "t": 0.1
      },
      "elbow_L": {
-      "m": 0.18,
+      "m": 0.257,
       "t": 0.0
      },
      "elbow_R": {
-      "m": 0.145,
+      "m": 0.243,
       "t": 1.4
      },
      "tip_axe_L": {
-      "m": -0.71,
-      "t": 0.1333
+      "m": -0.244,
+      "t": 0.3
      },
      "tip_sword_R": {
-      "m": -0.522,
-      "t": 0.1667
+      "m": -0.534,
+      "t": 0.1333
      }
     },
     "tips_crossed_at_t": [
@@ -1025,7 +1107,7 @@
        "t": 0.3667
       },
       "lateral_worst": {
-       "deg": -41.4,
+       "deg": -39.2,
        "t": 0.0
       },
       "flex_max": {
@@ -1039,7 +1121,7 @@
        "t": 0.3667
       },
       "lateral_worst": {
-       "deg": 31.6,
+       "deg": 27.8,
        "t": 0.0
       },
       "flex_max": {
@@ -1095,7 +1177,7 @@
        "t": 1.0
       },
       "flex_worst": {
-       "deg": -33.2,
+       "deg": -33.1,
        "t": 1.1667
       },
       "twist_worst": {
@@ -1104,29 +1186,50 @@
       }
      }
     },
-    "info_frames": 32,
+    "info_frames": 29,
     "fails": []
    },
    "weapon_clamp": {
     "record": "work/warcry_v6_clamp.json",
     "clamped_keys": {
-     "r": 3,
-     "l": 3
+     "r": 4,
+     "l": 4
     },
     "restored": {
-     "r": [],
+     "r": [
+      [
+       0.1333,
+       1.9
+      ],
+      [
+       0.1667,
+       3.6
+      ]
+     ],
      "l": [
       [
        0.1,
-       0.0
+       5.8
       ],
       [
        0.1333,
-       32.0
+       57.0
+      ],
+      [
+       0.1667,
+       61.4
+      ],
+      [
+       0.2,
+       0.0
+      ],
+      [
+       0.2333,
+       2.1
       ],
       [
        0.2667,
-       1.2
+       14.4
       ],
       [
        0.3333,
@@ -1136,7 +1239,7 @@
     },
     "inside_after_max": {
      "r": 0,
-     "l": 2
+     "l": 4
     }
    }
   },
@@ -1167,7 +1270,7 @@
    "weapon_clamp": {
     "record": "work/death_clamp.json",
     "instrument": "scripts/j_weapon_clamp.py",
-    "clamped_glb_sha256": "3a84549e9823cb29141e28c218d642245998d922899d966238d1bdcfbfae41d8",
+    "clamped_glb_sha256": "501e326a1109ca44b85233856c08281d7fbaa0fe67883a8fbb6e0ac3ac0a1ba9",
     "params": {
      "directions": 1200,
      "tries": 400,
@@ -1184,11 +1287,11 @@
     },
     "keys": 68,
     "clamped_keys": {
-     "r": 34,
-     "l": 26
+     "r": 41,
+     "l": 36
     },
     "inside_after_max": {
-     "r": 5,
+     "r": 12,
      "l": 0
     },
     "lowest_after_min_m": {
@@ -1198,39 +1301,28 @@
     "restored": {
      "r": [
       [
-       0.8667,
-       1.3
-      ],
-      [
-       1.0,
-       "raw"
-      ],
-      [
-       1.0333,
-       "raw"
-      ],
-      [
-       1.0667,
-       "raw"
-      ],
-      [
-       1.1,
-       61.0
-      ],
-      [
        1.1333,
-       11.3
+       "raw"
       ],
       [
        1.1667,
-       5.5
+       "raw"
       ],
       [
-       1.3,
-       55.4
+       1.2,
+       "raw"
+      ],
+      [
+       1.2667,
+       49.0
       ]
      ],
-     "l": []
+     "l": [
+      [
+       1.1,
+       1.6
+      ]
+     ]
     },
     "smoothing": "rate-limited envelope: a turn never below what its key requires, never changing faster than rate_deg_per_key per key; a key the envelope leaves violating is re-searched nearest the envelope blade (restored: [t, deg off] taken, or a graze kept when the nearest clear blade is more than max_flick_deg off)",
     "what": "each weapon PIVOTS IN ITS GRIP, per key, by the smallest turn that puts its lowest point on the floor (y 0) and no tested vertex inside his posed body; keyed as weapon_r / weapon_l rotation tracks on the death's own keys, the mount's translation kept -- so the last frame is a dead man with his weapons fallen beside his hands"
@@ -1452,6 +1544,11 @@
    "war_cry": "keep the raise, the shout and the first elbow drop; remove the pumps after it -- done then: clips.shout (v3); SUPERSEDED by v4",
    "whirlwind": "weapons held out in front, blades angled into the spin; the footwork by text to animation or a feet-on-ground pivot; the head toward the blades, tilted toward the spin -- done: clips.whirlwind (v3), the pivot (text-to-motion not run: refused by the session's permission system)",
    "hands": "the weapon hands out toward shoulder width, not crossed in (the guards and the hold are the scene drax's)"
+  },
+  "tips_forward": {
+   "ruling": "R-C9-115",
+   "said": "Get the axe and sword's blade/tip pointed more forward. That should be needed for all attacks and walking/running stance and carry forward to whirlwind as well",
+   "done": "the JOIN hold v4 F25 (this lane: export_hold_v4/, scripts/j_hold_tip.py) -- the body's six guard poses rebased onto it (idle / walk / run layers, and the guards of hit, death and the war cry); the whirlwind v8 from its stance"
   },
   "whirlwind_v7": {
    "by": "Matt, 2026-09-30; the conductor's ruling R-C9-108",
@@ -1690,28 +1787,6 @@
      "RightHand.scale"
     ]
    },
-   "join_guard_R_idle": {
-    "length_glb": 0.04167,
-    "length_godot": 0.04167,
-    "tracks": 4,
-    "exact": 0,
-    "two_key": 3,
-    "resampled": [],
-    "dropped": [
-     "RightHand.rotation"
-    ]
-   },
-   "join_guard_L_idle": {
-    "length_glb": 0.04167,
-    "length_godot": 0.04167,
-    "tracks": 4,
-    "exact": 0,
-    "two_key": 3,
-    "resampled": [],
-    "dropped": [
-     "LeftHand.rotation"
-    ]
-   },
    "hit": {
     "length_glb": 1.63333,
     "length_godot": 1.63333,
@@ -1722,6 +1797,24 @@
     "dropped": [
      "head_end.rotation"
     ]
+   },
+   "join_guard_R_idle": {
+    "length_glb": 0.04167,
+    "length_godot": 0.04167,
+    "tracks": 4,
+    "exact": 0,
+    "two_key": 4,
+    "resampled": [],
+    "dropped": []
+   },
+   "join_guard_L_idle": {
+    "length_glb": 0.04167,
+    "length_godot": 0.04167,
+    "tracks": 4,
+    "exact": 0,
+    "two_key": 4,
+    "resampled": [],
+    "dropped": []
    },
    "death": {
     "length_glb": 2.23333,
@@ -1754,7 +1847,7 @@
    }
   },
   "at_pack_frames": {
-   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v8.json",
+   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v10.json",
    "states": {
     "idle": {
      "clip": "idle_guard",
@@ -1833,24 +1926,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.8622,
+    "floor_lowest_m": 0.8476,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 23.29,
-    "blade_turn_max_deg_per_sec": 1045.1,
+    "tip_speed_max_m_per_sec": 25.38,
+    "blade_turn_max_deg_per_sec": 1201.0,
     "blade_turn_max_between_t_s": [
-     0.0417,
-     0.05
+     0.1,
+     0.1083
     ],
     "tilt_deg": [
-     50.7,
-     50.7
+     62.8,
+     62.8
     ],
-    "tip_lowest_m": 1.455,
-    "tip_highest_m": 1.455,
+    "tip_lowest_m": 1.29,
+    "tip_highest_m": 1.29,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 0.8622,
-     "tilt_deg": 50.7
+     "lowest_m": 0.8476,
+     "tilt_deg": 62.8
     }
    },
    "axe": {
@@ -1858,24 +1951,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.887,
+    "floor_lowest_m": 0.8688,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 28.75,
-    "blade_turn_max_deg_per_sec": 1069.1,
+    "tip_speed_max_m_per_sec": 30.78,
+    "blade_turn_max_deg_per_sec": 1207.7,
     "blade_turn_max_between_t_s": [
-     0.0167,
-     0.025
+     0.025,
+     0.0333
     ],
     "tilt_deg": [
-     52.4,
-     52.4
+     63.4,
+     63.4
     ],
-    "tip_lowest_m": 1.403,
-    "tip_highest_m": 1.403,
+    "tip_lowest_m": 1.195,
+    "tip_highest_m": 1.195,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 0.887,
-     "tilt_deg": 52.4
+     "lowest_m": 0.8688,
+     "tilt_deg": 63.4
     }
    }
   },
@@ -1887,7 +1980,7 @@
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.6114,
+    "floor_lowest_m": 0.6101,
     "floor_lowest_at_t_s": 0.1333,
     "tip_speed_max_m_per_sec": 24.19,
     "blade_turn_max_deg_per_sec": 1652.2,
@@ -1903,8 +1996,8 @@
     "tip_highest_m": 2.474,
     "last": {
      "t_s": 1.4,
-     "lowest_m": 1.0016,
-     "tilt_deg": 48.7
+     "lowest_m": 0.9632,
+     "tilt_deg": 49.9
     }
    },
    "axe": {
@@ -1912,24 +2005,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.4411,
-    "floor_lowest_at_t_s": 0.1667,
-    "tip_speed_max_m_per_sec": 35.62,
-    "blade_turn_max_deg_per_sec": 2037.0,
+    "floor_lowest_m": 0.2612,
+    "floor_lowest_at_t_s": 0.2,
+    "tip_speed_max_m_per_sec": 40.84,
+    "blade_turn_max_deg_per_sec": 2828.4,
     "blade_turn_max_between_t_s": [
      0.1,
      0.1333
     ],
     "tilt_deg": [
      16.6,
-     98.7
+     115.2
     ],
-    "tip_lowest_m": 0.462,
+    "tip_lowest_m": 0.262,
     "tip_highest_m": 2.633,
     "last": {
      "t_s": 1.4,
-     "lowest_m": 1.049,
-     "tilt_deg": 51.3
+     "lowest_m": 0.9999,
+     "tilt_deg": 51.5
     }
    }
   },
@@ -1941,24 +2034,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9208,
+    "floor_lowest_m": 0.8999,
     "floor_lowest_at_t_s": 0.7389,
-    "tip_speed_max_m_per_sec": 2.94,
-    "blade_turn_max_deg_per_sec": 106.4,
+    "tip_speed_max_m_per_sec": 3.37,
+    "blade_turn_max_deg_per_sec": 141.8,
     "blade_turn_max_between_t_s": [
-     0.5833,
-     0.6222
+     0.6222,
+     0.6611
     ],
     "tilt_deg": [
-     39.5,
-     58.3
+     49.8,
+     65.8
     ],
-    "tip_lowest_m": 1.426,
-    "tip_highest_m": 1.725,
+    "tip_lowest_m": 1.303,
+    "tip_highest_m": 1.59,
     "last": {
      "t_s": 1.6333,
-     "lowest_m": 1.0322,
-     "tilt_deg": 47.1
+     "lowest_m": 1.0084,
+     "tilt_deg": 55.7
     }
    },
    "axe": {
@@ -1966,24 +2059,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9418,
+    "floor_lowest_m": 0.9202,
     "floor_lowest_at_t_s": 0.7389,
-    "tip_speed_max_m_per_sec": 3.74,
-    "blade_turn_max_deg_per_sec": 154.4,
+    "tip_speed_max_m_per_sec": 3.73,
+    "blade_turn_max_deg_per_sec": 153.6,
     "blade_turn_max_between_t_s": [
      0.6222,
      0.6611
     ],
     "tilt_deg": [
-     47.4,
-     64.3
+     54.4,
+     68.0
     ],
-    "tip_lowest_m": 1.394,
-    "tip_highest_m": 1.654,
+    "tip_lowest_m": 1.265,
+    "tip_highest_m": 1.482,
     "last": {
      "t_s": 1.6333,
-     "lowest_m": 1.0392,
-     "tilt_deg": 56.5
+     "lowest_m": 1.0049,
+     "tilt_deg": 61.4
     }
    }
   },
@@ -1991,28 +2084,29 @@
    "samples": 68,
    "clip": "death",
    "sword": {
-    "pen_max": 5,
-    "pen_keys": 3,
+    "pen_max": 12,
+    "pen_keys": 4,
     "pen_tested_max": 1254,
     "pen_at_t_s": [
-     1.0,
-     1.0333,
-     1.0667
+     1.1333,
+     1.1667,
+     1.2,
+     1.2333
     ],
     "floor_lowest_m": 0.0,
     "floor_lowest_at_t_s": 1.8333,
-    "tip_speed_max_m_per_sec": 28.07,
-    "blade_turn_max_deg_per_sec": 2686.1,
+    "tip_speed_max_m_per_sec": 31.2,
+    "blade_turn_max_deg_per_sec": 2336.1,
     "blade_turn_max_between_t_s": [
-     1.2667,
-     1.3
+     1.1667,
+     1.2
     ],
     "tilt_deg": [
-     15.9,
+     9.4,
      102.2
     ],
     "tip_lowest_m": 0.0,
-    "tip_highest_m": 1.821,
+    "tip_highest_m": 1.881,
     "last": {
      "t_s": 2.2333,
      "lowest_m": 0.0,
@@ -2026,18 +2120,18 @@
     "pen_at_t_s": [],
     "floor_lowest_m": 0.0,
     "floor_lowest_at_t_s": 1.4667,
-    "tip_speed_max_m_per_sec": 16.93,
-    "blade_turn_max_deg_per_sec": 911.4,
+    "tip_speed_max_m_per_sec": 14.09,
+    "blade_turn_max_deg_per_sec": 731.1,
     "blade_turn_max_between_t_s": [
-     1.3333,
-     1.3667
+     1.4,
+     1.4333
     ],
     "tilt_deg": [
-     44.1,
+     15.1,
      96.2
     ],
     "tip_lowest_m": 0.021,
-    "tip_highest_m": 1.986,
+    "tip_highest_m": 1.95,
     "last": {
      "t_s": 2.2333,
      "lowest_m": 0.0,
@@ -2067,7 +2161,7 @@
  },
  "validation": {
   "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",
-  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v8.json",
+  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v10.json",
   "states": {
    "whirlwind": {
     "worst_m": 1e-05,
@@ -2082,11 +2176,11 @@
     "samples": 320
    },
    "death": {
-    "worst_m": 1e-05,
+    "worst_m": 2e-05,
     "samples": 640
    }
   },
-  "worst_m": 1e-05,
+  "worst_m": 2e-05,
   "samples": 2080
  },
  "lint_48": {
@@ -2119,12 +2213,514 @@
    "sheet": "artifacts/JOIN-whirlwind-v7-stance-A-B-8headings.png (frozen)",
    "film": "artifacts/JOIN-v7-whirlwind-A-then-B-film-2x.mp4"
   },
+  "hold_v4": {
+   "sheet": "artifacts/JOIN-hold-v4-tips-forward-v3-F25-F40-8headings.png"
+  },
+  "whirlwind_v8": {
+   "film": "artifacts/JOIN-v8-whirlwind-film-2x.mp4"
+  },
+  "timing": [
+   "artifacts/JOIN-timing-wc-authored-vs-D2-law.mp4",
+   "artifacts/JOIN-timing-at-authored-vs-D2-law.mp4"
+  ],
   "pack": "join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired"
  },
  "look_calls_for_matt": [
   "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-  "WHIRLWIND v7 (A): his battle stance exactly (the JOIN hold v3 idle), both arms extended a little -- the upper arm 15 deg forward, the elbow opened 15 deg -- and nothing else, spun as one at 3.75 rev/s. Variant B (25 / 25) is on the sheet."
+  "WHIRLWIND v8: v7's recipe from the hold v4 F25 stance (the tips 25 deg more forward) -- spun as one at 3.75 rev/s.",
+  "HOLD v4 F25 (R-C9-115): both weapon tips swung 25 deg toward his forward at the wrist, in idle, walk and run."
  ],
+ "hold_v4": {
+  "ruling": "R-C9-115",
+  "spec": "nb_join/export_hold_v4/join_hold.json",
+  "tool": "scripts/j_hold_tip.py",
+  "tip_forward_definition": "+Z (his in-game facing): the angle between each weapon's grip->tip axis and it",
+  "v3": {
+   "idle": {
+    "frames": 121,
+    "tip_forward_deg": {
+     "R": [
+      65.13,
+      68.74
+     ],
+     "L": [
+      64.11,
+      68.32
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 0.0,
+     "L": 0.01
+    },
+    "fist_side_frac": {
+     "R": [
+      0.84,
+      0.85
+     ],
+     "L": [
+      1.18,
+      1.19
+     ]
+    },
+    "weapons_closest_m": 0.4,
+    "screen_len_worst_px_1x": {
+     "R": 25.37,
+     "L": 26.47
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "walk": {
+    "frames": 32,
+    "tip_forward_deg": {
+     "R": [
+      63.0,
+      69.76
+     ],
+     "L": [
+      65.24,
+      68.55
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 0.0,
+     "L": 0.01
+    },
+    "fist_side_frac": {
+     "R": [
+      1.0,
+      1.42
+     ],
+     "L": [
+      0.73,
+      1.09
+     ]
+    },
+    "weapons_closest_m": 0.42,
+    "screen_len_worst_px_1x": {
+     "R": 18.11,
+     "L": 18.81
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "run": {
+    "frames": 20,
+    "tip_forward_deg": {
+     "R": [
+      63.57,
+      74.29
+     ],
+     "L": [
+      59.77,
+      75.49
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 0.0,
+     "L": 0.01
+    },
+    "fist_side_frac": {
+     "R": [
+      0.85,
+      1.24
+     ],
+     "L": [
+      0.85,
+      1.16
+     ]
+    },
+    "weapons_closest_m": 0.39,
+    "screen_len_worst_px_1x": {
+     "R": 14.46,
+     "L": 14.51
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   }
+  },
+  "F25": {
+   "idle": {
+    "frames": 121,
+    "tip_forward_deg": {
+     "R": [
+      40.14,
+      43.77
+     ],
+     "L": [
+      39.13,
+      43.32
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 25.0,
+     "L": 25.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.69,
+      0.7
+     ],
+     "L": [
+      1.01,
+      1.02
+     ]
+    },
+    "weapons_closest_m": 0.34,
+    "screen_len_worst_px_1x": {
+     "R": 37.22,
+     "L": 38.45
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "walk": {
+    "frames": 32,
+    "tip_forward_deg": {
+     "R": [
+      38.0,
+      44.76
+     ],
+     "L": [
+      40.36,
+      43.55
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 25.0,
+     "L": 25.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.84,
+      1.29
+     ],
+     "L": [
+      0.56,
+      0.95
+     ]
+    },
+    "weapons_closest_m": 0.37,
+    "screen_len_worst_px_1x": {
+     "R": 32.23,
+     "L": 35.07
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "run": {
+    "frames": 20,
+    "tip_forward_deg": {
+     "R": [
+      39.31,
+      49.3
+     ],
+     "L": [
+      34.78,
+      50.68
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 25.0,
+     "L": 25.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.71,
+      1.13
+     ],
+     "L": [
+      0.69,
+      1.02
+     ]
+    },
+    "weapons_closest_m": 0.35,
+    "screen_len_worst_px_1x": {
+     "R": 29.74,
+     "L": 33.72
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   }
+  },
+  "F40": {
+   "idle": {
+    "frames": 121,
+    "tip_forward_deg": {
+     "R": [
+      25.16,
+      28.81
+     ],
+     "L": [
+      24.17,
+      28.33
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 40.0,
+     "L": 40.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.62,
+      0.63
+     ],
+     "L": [
+      0.92,
+      0.93
+     ]
+    },
+    "weapons_closest_m": 0.32,
+    "screen_len_worst_px_1x": {
+     "R": 49.09,
+     "L": 51.08
+    },
+    "wrist_verdict": "FAIL",
+    "gap_verdict": "PASS"
+   },
+   "walk": {
+    "frames": 32,
+    "tip_forward_deg": {
+     "R": [
+      23.0,
+      29.76
+     ],
+     "L": [
+      25.51,
+      28.84
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 40.0,
+     "L": 40.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.77,
+      1.23
+     ],
+     "L": [
+      0.47,
+      0.87
+     ]
+    },
+    "weapons_closest_m": 0.34,
+    "screen_len_worst_px_1x": {
+     "R": 46.16,
+     "L": 49.29
+    },
+    "wrist_verdict": "FAIL",
+    "gap_verdict": "PASS"
+   },
+   "run": {
+    "frames": 20,
+    "tip_forward_deg": {
+     "R": [
+      25.28,
+      34.31
+     ],
+     "L": [
+      19.78,
+      35.88
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 40.0,
+     "L": 40.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.66,
+      1.09
+     ],
+     "L": [
+      0.59,
+      0.94
+     ]
+    },
+    "weapons_closest_m": 0.32,
+    "screen_len_worst_px_1x": {
+     "R": 36.35,
+     "L": 47.06
+    },
+    "wrist_verdict": "FAIL",
+    "gap_verdict": "PASS"
+   }
+  },
+  "F30": {
+   "idle": {
+    "frames": 121,
+    "tip_forward_deg": {
+     "R": [
+      35.15,
+      38.78
+     ],
+     "L": [
+      34.14,
+      38.32
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 30.0,
+     "L": 30.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.66,
+      0.67
+     ],
+     "L": [
+      0.98,
+      0.99
+     ]
+    },
+    "weapons_closest_m": 0.33,
+    "screen_len_worst_px_1x": {
+     "R": 41.44,
+     "L": 42.87
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "walk": {
+    "frames": 32,
+    "tip_forward_deg": {
+     "R": [
+      33.0,
+      39.76
+     ],
+     "L": [
+      35.4,
+      38.61
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 30.0,
+     "L": 30.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.82,
+      1.26
+     ],
+     "L": [
+      0.53,
+      0.92
+     ]
+    },
+    "weapons_closest_m": 0.36,
+    "screen_len_worst_px_1x": {
+     "R": 37.17,
+     "L": 40.4
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   },
+   "run": {
+    "frames": 20,
+    "tip_forward_deg": {
+     "R": [
+      34.55,
+      44.3
+     ],
+     "L": [
+      29.78,
+      45.74
+     ]
+    },
+    "wrist_off_neutral_max_deg": {
+     "R": 30.0,
+     "L": 30.0
+    },
+    "fist_side_frac": {
+     "R": [
+      0.69,
+      1.11
+     ],
+     "L": [
+      0.66,
+      1.0
+     ]
+    },
+    "weapons_closest_m": 0.34,
+    "screen_len_worst_px_1x": {
+     "R": 33.14,
+     "L": 37.83
+    },
+    "wrist_verdict": "PASS",
+    "gap_verdict": "PASS"
+   }
+  },
+  "verdicts": {
+   "F25": "PASS: wrist 25 deg off neutral (<= 30), weapons >= 0.34 m apart, j_cross_check v2 PASS in idle / walk / run, joint lint PASS",
+   "F40": "FAILS the 30-deg wrist rule (40 deg off neutral); its gap, cross check and joint lint pass",
+   "F30": "the most forward that passes the wrist rule at the wrist alone (30 deg)"
+  },
+  "fists": "moved inward by the wrist turn (the grip sits 0.09 m off the wrist): idle R 0.84 -> 0.69, L 1.18 -> 1.01 of the half-width",
+  "records": [
+   "work/hold_v4_tip_F25.json",
+   "work/hold_v4_tip_F40.json",
+   "work/hold_v4_tip_F30.json",
+   "work/cross_check_hold_v4_*.json",
+   "work/joint_lint_hold_v4_*.json"
+  ]
+ },
+ "normal_attack_candidate": {
+  "status": "NOT SHIPPED: it fails j_cross_check v2 (the conductor: stop and report)",
+  "route": "Route 1, 0 credits: chop_overhead_92 (Meshy 92) trimmed to its single chop + held, start and end in the hold v4 guard",
+  "tool": "scripts/j_attack.py",
+  "record": "work/attack_a1_candidate.json",
+  "contact": {
+   "key": 17,
+   "t_s": 0.5667,
+   "tip_y_m": 0.922,
+   "top_t_s": 0.4333,
+   "top_y_m": 2.229,
+   "definition": "the key where the sword tip is lowest after its highest: the blow landing"
+  },
+  "cross_check": {
+   "verdict": "FAIL",
+   "screen_frames_failing": 34,
+   "keys": 44,
+   "least_side_m": {
+    "wrist_L": {
+     "m": 0.129,
+     "t": 0.3714
+    },
+    "wrist_R": {
+     "m": -0.303,
+     "t": 0.6333
+    },
+    "elbow_L": {
+     "m": 0.131,
+     "t": 0.3333
+    },
+    "elbow_R": {
+     "m": -0.071,
+     "t": 0.6333
+    },
+    "tip_axe_L": {
+     "m": 0.581,
+     "t": 0.4952
+    },
+    "tip_sword_R": {
+     "m": -0.616,
+     "t": 0.2667
+    }
+   }
+  },
+  "why": "the chop is diagonal: it comes down from over his right shoulder across his body to his left hip -- the right wrist ends 0.30 m past his centreline, and the sword crosses the guarding axe on screen from the wind-up on",
+  "clamp": {
+   "clamped_keys": {
+    "r": 7,
+    "l": 2
+   },
+   "inside_after_max": {
+    "r": 0,
+    "l": 0
+   }
+  }
+ },
  "joint_limits": {
   "instrument": "scripts/j_joint_lint.py",
   "limits_deg": {
@@ -2252,29 +2848,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 0.0,
-       "t": 0.0333
+       "deg": 21.0,
+       "t": 0.0
       },
       "flex_worst": {
-       "deg": 0.0,
+       "deg": 12.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": -104.1,
+       "deg": -108.2,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": 0.0,
+       "deg": -7.2,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 0.0,
+       "deg": 23.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": 89.3,
+       "deg": 91.1,
        "t": 0.0
       }
      }
@@ -2291,7 +2887,7 @@
        "t": 0.3667
       },
       "lateral_worst": {
-       "deg": -41.4,
+       "deg": -39.2,
        "t": 0.0
       },
       "flex_max": {
@@ -2305,7 +2901,7 @@
        "t": 0.3667
       },
       "lateral_worst": {
-       "deg": 31.6,
+       "deg": 27.8,
        "t": 0.0
       },
       "flex_max": {
@@ -2361,7 +2957,7 @@
        "t": 1.0
       },
       "flex_worst": {
-       "deg": -33.2,
+       "deg": -33.1,
        "t": 1.1667
       },
       "twist_worst": {
@@ -2378,29 +2974,29 @@
     "worst": {
      "elbow_L": {
       "flex_min": {
-       "deg": 66.9,
+       "deg": 78.0,
        "t": 0.0
       },
       "lateral_worst": {
-       "deg": -41.4,
+       "deg": -39.2,
        "t": 0.7667
       },
       "flex_max": {
-       "deg": 66.9,
+       "deg": 78.0,
        "t": 0.8
       }
      },
      "elbow_R": {
       "flex_min": {
-       "deg": 92.4,
+       "deg": 94.5,
        "t": 0.0
       },
       "lateral_worst": {
-       "deg": 31.6,
+       "deg": 27.8,
        "t": 0.3667
       },
       "flex_max": {
-       "deg": 92.4,
+       "deg": 94.5,
        "t": 0.8
       }
      },
@@ -2434,29 +3030,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 0.0,
+       "deg": 21.0,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": -0.0,
+       "deg": 12.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": -94.1,
+       "deg": -106.5,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": 0.0,
+       "deg": -7.2,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 0.0,
+       "deg": 23.9,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": 75.5,
+       "deg": 90.3,
        "t": 0.0
       }
      }
@@ -2473,11 +3069,11 @@
        "t": 1.9
       },
       "lateral_worst": {
-       "deg": -41.4,
+       "deg": -39.2,
        "t": 0.9
       },
       "flex_max": {
-       "deg": 76.7,
+       "deg": 85.9,
        "t": 1.2333
       }
      },
@@ -2487,11 +3083,11 @@
        "t": 1.5
       },
       "lateral_worst": {
-       "deg": 31.6,
-       "t": 0.4667
+       "deg": 27.8,
+       "t": 0.5
       },
       "flex_max": {
-       "deg": 92.4,
+       "deg": 94.5,
        "t": 0.9
       }
      },
@@ -2525,30 +3121,30 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 21.6,
+       "deg": 30.3,
        "t": 1.3333
       },
       "flex_worst": {
-       "deg": -13.2,
-       "t": 1.3333
+       "deg": 12.9,
+       "t": 0.0
       },
       "twist_worst": {
-       "deg": -94.1,
+       "deg": -106.5,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": -23.1,
+       "deg": -29.7,
        "t": 1.3
       },
       "flex_worst": {
-       "deg": 23.2,
-       "t": 2.2333
+       "deg": 23.9,
+       "t": 1.1333
       },
       "twist_worst": {
-       "deg": -85.6,
-       "t": 1.9
+       "deg": 90.3,
+       "t": 0.0
       }
      }
     }

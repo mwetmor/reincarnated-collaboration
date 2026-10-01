@@ -1,0 +1,213 @@
+{
+ "body": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/w9/f5.glb",
+ "pieces": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/byrnie.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/helmet.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/mantle.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/bracers.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v3/axe_l.glb"
+ ],
+ "morphs": {
+  "grip_R": 1,
+  "grip_L": 1,
+  "helmet_on": 1
+ },
+ "layers": [
+  {
+   "name": "guard_R",
+   "action": "join_guard_R_idle",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "hit"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_R_shout",
+   "action": "join_guard_R_idle",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.2,
+      0.0
+     ],
+     [
+      1.1467,
+      0.0
+     ],
+     [
+      1.4,
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "name": "guard_L",
+   "action": "join_guard_L_idle",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "hit"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips"
+  },
+  {
+   "name": "guard_L_shout",
+   "action": "join_guard_L_idle",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "shout"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.2,
+      0.0
+     ],
+     [
+      1.1467,
+      0.0
+     ],
+     [
+      1.4,
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "name": "guard_R_death",
+   "action": "join_guard_R_idle",
+   "bones": [
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      1.1,
+      1.0
+     ],
+     [
+      1.5,
+      0.0
+     ]
+    ]
+   }
+  },
+  {
+   "name": "guard_L_death",
+   "action": "join_guard_L_idle",
+   "bones": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ],
+   "weight": 1.0,
+   "states": [
+    "death"
+   ],
+   "time": "pose",
+   "filter_from": "all_clips",
+   "weight_curve": {
+    "keys": [
+     [
+      1.1,
+      1.0
+     ],
+     [
+      1.5,
+      0.0
+     ]
+    ]
+   }
+  }
+ ],
+ "watchdog_s": 1200,
+ "tag": "j10",
+ "mode": "film",
+ "film": {
+  "out_mp4": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/7b4d3123-ce50-4e1f-af04-9f5d427f755a/scratchpad/w9/wc_auth.mp4",
+  "w": 960,
+  "h": 1080,
+  "scale": 2,
+  "plan": [
+   {
+    "clip": "shout",
+    "state": "shout",
+    "seconds": 2.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "shout",
+    "state": "shout",
+    "seconds": 2.0,
+    "heading_deg": 25
+   },
+   {
+    "clip": "shout",
+    "state": "shout",
+    "seconds": 2.0,
+    "heading_deg": 205
+   },
+   {
+    "clip": "shout",
+    "state": "shout",
+    "seconds": 2.0,
+    "heading_deg": 205
+   }
+  ]
+ }
+}

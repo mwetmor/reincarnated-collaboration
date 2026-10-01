@@ -383,6 +383,23 @@
      "first": 0.045
     }
    },
+   "hit": {
+    "scale_tracks": {},
+    "root_height": {
+     "first": 93.8658,
+     "min": 87.6547,
+     "max": 93.8658,
+     "rest": 93.79
+    },
+    "root": "Hips",
+    "root_travel_units": 0.0,
+    "locomotion": false,
+    "root_offset_m": {
+     "closest": 0.0,
+     "mean": 0.2413,
+     "first": 0.0
+    }
+   },
    "join_guard_R_idle": {
     "scale_tracks": {},
     "root_height": null,
@@ -412,23 +429,6 @@
     "scale_tracks": {},
     "root_height": null,
     "root": null
-   },
-   "hit": {
-    "scale_tracks": {},
-    "root_height": {
-     "first": 93.8658,
-     "min": 87.6547,
-     "max": 93.8658,
-     "rest": 93.79
-    },
-    "root": "Hips",
-    "root_travel_units": 0.0,
-    "locomotion": false,
-    "root_offset_m": {
-     "closest": 0.0,
-     "mean": 0.2413,
-     "first": 0.0
-    }
    },
    "death": {
     "scale_tracks": {},
@@ -584,7 +584,7 @@
     {
      "clip": "whirlwind",
      "status": "AUTHORED",
-     "note": "authored v7 (ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v3 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
+     "note": "authored v8 (R-C9-115: v7's recipe from the JOIN hold v4 F25 stance; ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v4 F25 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
     }
    ],
    "seams": [

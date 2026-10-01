@@ -92,7 +92,11 @@ def pose_locals(clip, t, layered=True):
         if clip not in ly.get('states', []): continue
         w = float(ly.get('weight', 1.0)) * curve(ly, t)
         if w <= 0: continue
-        tm = ly.get('time', 'pose'); tl = t if tm == 'clip' else 0.0
+        tm = ly.get('time', 'pose')
+        if isinstance(tm, dict):                                       # the hold's contact-phase sync (render_cells.gd / j_measure.py rule)
+            tl = ((t / clip_len(clip) - tm['c_base'] + tm['c_layer']) % 1.0) * clip_len(ly['action'])
+        else:
+            tl = t if tm == 'clip' else 0.0
         act.append(({nid[b] for b in ly['bones']}, w, locals_at(ly['action'], tl)))
     return B.blend(lambda i: rest[i], loc, act) if act else loc
 
