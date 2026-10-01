@@ -821,6 +821,95 @@
  "engine_head": "22cd2288",
  "engine_kc2_tracked_mods": [],
  "failures": [],
+ "kp180": {
+  "files": {
+   "kc2_runtime/sim/kc2rt_board.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "733b26d04b64d4c4fe9cb00f19a73899485d828537b4d0d4b9c2c1847942a72d"
+   },
+   "kc2_runtime/sim/kc2rt_fight.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "bf6915caccda3e20fa7af431c0bcc83b0b66e34ef953fb761c31667217ca0bbf"
+   },
+   "kc2_runtime/sim/kc2rt_rng.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "a1ce051f2aad6959118707f1a2eceb2bdee70375a42deaf30fcd42fdf9480e4d"
+   },
+   "kc2_runtime/sim/kc2rt_roster.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "c55d37c217be017624663e3a6555eaafcb454c67ae063cfe4352b88abe412337"
+   },
+   "kc2_runtime/tests/kc2rt_booking_census.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "73ebc5db15aa1df86ccacd802fc13ad5a034337bf4eede53591cbceae34ae794"
+   },
+   "kc2_runtime/tests/kc2rt_ta.gd": {
+    "equals_G3_MANIFEST": null,
+    "label": "FILE",
+    "sha256": "ae8fa11677bb95d62bf080af5227d7f19c3ecd8bd29b1162bbfaac62645e69a7"
+   },
+   "kc2_runtime/tests/kc2rt_ta_emit.gd": {
+    "equals_G3_MANIFEST": null,
+    "label": "FILE",
+    "sha256": "72b87558afea5c77f0a713a76e60466bf60d3eb01c7f7255a5f3797bda7b6d5a"
+   },
+   "kc2_runtime/tools/kc2rt_file_ta_evidence.py": {
+    "equals_G3_MANIFEST": null,
+    "label": "FILE",
+    "sha256": "42b1f64c3e917f2f20996b96bcad1e7eeaf9c4ef6781f2aedeff529fedb1690f"
+   },
+   "kc2_runtime/tools/kc2rt_g3_loop_trace.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "9baa645f0a47d63203878ea60aa4a38a8e471b4b1bc23f8defa49b794c4e14be"
+   },
+   "kc2_runtime/tools/kc2rt_g3_oracle_trace.py": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "666db73d0ef0a22924882fa5240fb0c88e736efbd597690dba9015e1dd0eb689"
+   },
+   "kc2_runtime/tools/kc2rt_side_by_side.gd": {
+    "equals_G3_MANIFEST": true,
+    "label": "FILE",
+    "sha256": "bfcf55d223fb70d1b99a9b02e86456cb7dc15f7d7dc37ed60fa23e330d7fbed6"
+   }
+  },
+  "g3_MANIFEST": {
+   "label": "FILE",
+   "path": "godot 05508a0:evidence/kc2-play/2026-10-01-g3-25cell-kp180/MANIFEST.json",
+   "sha256": "4347e87debb9982830203e6cd369edd889ba39096388f9bef2231453a48bcb7f"
+  },
+  "g3_check_block": {
+   "(L2) operand lines byte-identical to KP-177's (l2_operands_25cell.jsonl)": true,
+   "TA-X-16 per-wave counters equal to the oracle's own picks on 25/25": true,
+   "all 25 traces, minus the two new keys, byte-identical to the KP-177 filed traces": true,
+   "all_25_pass": true,
+   "census equal to the oracle's own count on 25/25": true,
+   "every TA-X-08 counter equal to the oracle's per-tick count on 25/25": true,
+   "every death (wave, k) equal to the KP-177 record": true,
+   "every summary's trace_sha256 == its trace's uncompressed_sha256": true,
+   "oracle hook == the oracle fold's own counters, and aligned, on 25/25": true,
+   "§ C.9.5a control term equal on 25/25 (port n_control_suppressed_channelling == the trace's control channel entries, leg A)": true
+  },
+  "godot": "05508a0",
+  "runtime_tree": {
+   "kc2_runtime_unchanged_from_G3_run_commit": true,
+   "label": "FILE-SET (make_manifest law over git blobs)",
+   "manifest_says": "c9a7299e160386f2be34fb33bfab64947b88ba1fc7e110b0efa83a63e3f09ed4",
+   "member_failures": [],
+   "member_not_tracked": [],
+   "n_members": 85,
+   "sha256": "c9a7299e160386f2be34fb33bfab64947b88ba1fc7e110b0efa83a63e3f09ed4",
+   "tracked_not_member": [
+    "MANIFEST.json"
+   ]
+  }
+ },
  "new": {
   "G3 KP-177 MANIFEST (godot b4c1ff3)": {
    "label": "FILE",
@@ -870,7 +959,7 @@
    "path": "godot b4c1ff3:kc2_runtime/",
    "sha256": "e584477b3d3c8bd6aa69bc43be32a137ab7b875a6c745aae40ccb20bb0e0591a"
   },
-  "this draft's oracle hook": {
+  "the oracle hook (v1.13's oracle-side instrument)": {
    "label": "FILE",
    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-01-kc2-play-prereg-v1.13-DRAFT/oracle_channel_hook.py",
    "sha256": "dce0625d30cd09289c7b073923ac4d1c732763614c5f9f30b08cedc96eab6cd9"

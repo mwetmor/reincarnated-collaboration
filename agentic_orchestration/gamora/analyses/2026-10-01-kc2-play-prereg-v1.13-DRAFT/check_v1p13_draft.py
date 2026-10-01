@@ -298,6 +298,59 @@ def eval_cell(c: dict, vec: dict, anchors: dict) -> dict:
     return r
 
 
+KP180_REV = "05508a0"
+KP180_DIR = "evidence/kc2-play/2026-10-01-g3-25cell-kp180"
+KP180_MANIFEST_PIN = "4347e87debb9982830203e6cd369edd889ba39096388f9bef2231453a48bcb7f"   # charter KP-182
+
+
+def kp180_crosscheck(cells: dict, res: dict) -> dict:
+    """drax's KP-180 G3 evidence (the runtime the counters landed in) against THIS draft's oracle measurement.
+    (i) each KP-180 oracle trace minus its two new per-wave keys equals the KP-177 trace this draft measured;
+    (ii) drax's ORACLE-side counters (his own hooks) equal this draft's per cell, summed over leg A;
+    (iii) the port's counters equal the oracle's in G3 (the § C.9.5a precondition), read off his MANIFEST.
+    Nothing here sets an expected value: (ii) compares two instruments on the oracle; (iii) is a precondition read."""
+    def g(rev, path):
+        return subprocess.run(["git", "-C", str(GODOT), "show", f"{rev}:{path}"], check=True,
+                              capture_output=True).stdout
+    mb = g(KP180_REV, f"{KP180_DIR}/MANIFEST.json")
+    assert sha(mb) == KP180_MANIFEST_PIN, "KP-180 MANIFEST pin"
+    man = json.loads(mb)
+    out = {}
+    for k, c in cells.items():
+        gzb = g(KP180_REV, f"{KP180_DIR}/oracle_traces/{k}.json.gz")
+        ent = man["files"][f"oracle_traces/{k}.json.gz"]
+        raw = gzip.decompress(gzb)
+        tr = json.loads(raw)
+        ok_files = sha(gzb) == ent["sha256"] and sha(raw) == ent["uncompressed_sha256"]
+        stripped = json.loads(raw)
+        for w in stripped["waves"]:
+            w.pop("control_suppression", None)
+            w.pop("ta_x_16", None)
+        same = stripped == c["trace"]
+        L = tr["leg_a"]["wave"]
+        played = [w for w in tr["waves"] if w["wave"] <= L]
+        dr = {f: sum(w["control_suppression"][f] for w in played)
+              for f in ("n_control_suppressed_channelling", "n_released", "n_released_pre_fight",
+                        "n_control_suppressed_released", "n_control_suppressed_pre_fight")}
+        mine = res[k]["fold"]
+        mine_v = {"n_control_suppressed_channelling": mine["n_control_suppressed_channelling_on_D"],
+                  "n_released": mine["n_released_on_D"], "n_released_pre_fight": mine["n_released_on_PRE_FIGHT"],
+                  "n_control_suppressed_released": mine["n_control_suppressed_released_on_D"],
+                  "n_control_suppressed_pre_fight": mine["n_control_suppressed_on_PRE_FIGHT"]}
+        picks_d = [w["ta_x_16"]["pool_picks"] for w in played]
+        filt_d = [w["ta_x_16"]["n_p06_keys_filtered"] for w in played]
+        picks_m = [x["picks"] for x in res[k]["TA-X-16_restated"]["per_wave"]]
+        filt_m = [x["filtered_keys"] for x in res[k]["TA-X-16_restated"]["per_wave"]]
+        cell = man["cells"][k]
+        out[k] = {"files_match_manifest": ok_files, "trace_minus_new_keys_equals_kp177": same,
+                  "drax_oracle_counters_equal_mine": dr == mine_v and picks_d == picks_m and filt_d == filt_m,
+                  "g3_passes": cell["passes"], "g3_census_equal": cell["census"]["equal"],
+                  "g3_control_term_equal": cell["control_term"]["equal"],
+                  "g3_ta_x_08_counters_equal": cell["ta_x_08_counters"]["equal"],
+                  "g3_ta_x_16_equal": cell["ta_x_16"]["equal"]}
+    return out
+
+
 def digestable(tr: dict) -> str:
     t = dict(tr)
     t.pop("arm")
@@ -370,7 +423,11 @@ def main() -> int:
         "TA-X-17": ("MEASURED", count(lambda r: r["TA-X-17"]["holds"]) == n,
                     f"max ‖spawn − anchor‖ = {max(r['TA-X-17']['max_offset_m'] for r in res.values()):.6f} m <= 8.0"),
     }
-    results = {"vector": vec, "summary": summary, "arm_relations": rel,
+    x180 = kp180_crosscheck(cells, res)
+    for name in ("files_match_manifest", "trace_minus_new_keys_equals_kp177", "drax_oracle_counters_equal_mine",
+                 "g3_passes", "g3_census_equal", "g3_control_term_equal", "g3_ta_x_08_counters_equal", "g3_ta_x_16_equal"):
+        summary[f"KP-180 (godot 05508a0): {name}"] = f"{sum(1 for v in x180.values() if v[name])}/{n}"
+    results = {"vector": vec, "summary": summary, "kp180_crosscheck": x180, "arm_relations": rel,
                "law_a_measured": {k: {"basis": b, "passes": bool(p), "detail": d} for k, (b, p, d) in law_a.items()},
                "cells": res}
     (HERE / "results.json").write_text(json.dumps(results, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
@@ -404,7 +461,8 @@ def main() -> int:
           and summary["fold aligned + consistent + no desync"] == f"{n}/{n}"
           and summary["independent: trace control `channel` entries (leg A) == n_control_suppressed_channelling"] == f"{n}/{n}"
           and summary["fold counter n_ticks_released == released on observed ticks (fold arms)"] == f"{n}/{n}"
-          and all(p for (_b, p, _d) in law_a.values()))
+          and all(p for (_b, p, _d) in law_a.values())
+          and all(all(v.values()) for v in x180.values()))
     print("== ALL DRAFT CHECKS HOLD" if ok else "== A CHECK FAILED")
     return 0 if ok else 1
 

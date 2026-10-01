@@ -10,10 +10,11 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-DRAFT = HERE / "v1.13-DRAFT.md"
+DRAFT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else HERE / "v1.13-DRAFT.md"   # target file
 P = json.loads((HERE / "pins_v1p13.json").read_text())
 R = json.loads((HERE / "results.json").read_text())
 CELLS = R["cells"]
@@ -46,8 +47,9 @@ def b_pins() -> str:
     out.append("")
     out.append(f"The runtime-tree row is recomputed from `kc2_runtime/MANIFEST.json` at godot `b4c1ff3` over git blobs "
                f"({rt['n_members']} members, member failures: {rt['member_failures'] or 'none'}; the MANIFEST's own "
-               f"`tree_digest` reads `{rt['manifest_says']}`). **It is NOT the attempt-2 runtime**: drax's counters "
-               f"(§ H) move the tree, so the graded runtime digest is ⚑ **PENDING**.")
+               f"`tree_digest` reads `{rt['manifest_says']}`). **It is lineage, not the attempt-2 runtime.** The runtime with "
+               f"v1.13's counters is re-pinned in § PINS.2 (godot `{P['kp180']['godot']}`); the attempt-2 runtime is the "
+               f"digest the pre-attempt read (§ G.1a) and the attempt run on, after H-4.")
     return "\n".join(out)
 
 
@@ -137,7 +139,32 @@ def b_files() -> str:
     return "\n".join(out)
 
 
-BLOCKS = {"pins": b_pins, "vector": b_vector, "t16": b_t16, "t08": b_t08, "census": b_census, "lawa": b_lawa,
+def b_kp180() -> str:
+    k = P["kp180"]
+    rt = k["runtime_tree"]
+    out = ["| artifact (godot `" + k["godot"] + "`) | label | sha256 (recomputed from git blobs) | equals drax's G3 MANIFEST |",
+           "|---|---|---|---|",
+           f"| ⚑ **the runtime tree `kc2_runtime/`** ({rt['n_members']} members; member failures: {rt['member_failures'] or 'none'}; "
+           f"unchanged from the G3 run commit: {rt['kc2_runtime_unchanged_from_G3_run_commit']}) | {rt['label']} | `{rt['sha256']}` | "
+           f"MANIFEST `tree_digest` equal: {rt['sha256'] == rt['manifest_says']} |",
+           f"| ⚑ G3 evidence `{k['g3_MANIFEST']['path'].split(':', 1)[1]}` | FILE | `{k['g3_MANIFEST']['sha256']}` | — |"]
+    for path, v in k["files"].items():
+        out.append(f"| `{path}` | FILE | `{v['sha256']}` | {v['equals_G3_MANIFEST'] if v['equals_G3_MANIFEST'] is not None else 'n/a (not listed there)'} |")
+    out += ["", "**drax's G3 at this digest, cross-checked by `check_v1p13_draft.py` against this file's own oracle measurement:**", ""]
+    for key, val in R["summary"].items():
+        if key.startswith("KP-180"):
+            nice = {"drax_oracle_counters_equal_mine": "drax's oracle-side counters equal this file's oracle measurement",
+                    "files_match_manifest": "trace files match drax's MANIFEST",
+                    "trace_minus_new_keys_equals_kp177": "each KP-180 oracle trace, minus its two new keys, equals the KP-177 trace measured here",
+                    "g3_passes": "G3 passes (port on the oracle's draws)", "g3_census_equal": "G3 census equal",
+                    "g3_control_term_equal": "§ C.9.5a control term equal (port vs oracle)",
+                    "g3_ta_x_08_counters_equal": "every TA-X-08 counter equal (port vs oracle)",
+                    "g3_ta_x_16_equal": "TA-X-16 per-wave counters equal (port vs oracle)"}
+            out.append(f"* {nice[key.split(': ', 1)[1]]}: **{val}**")
+    return "\n".join(out)
+
+
+BLOCKS = {"pins": b_pins, "vector": b_vector, "t16": b_t16, "t08": b_t08, "census": b_census, "lawa": b_lawa, "kp180": b_kp180,
           "files": b_files}
 
 
@@ -145,7 +172,9 @@ def main() -> None:
     text = DRAFT.read_text(encoding="utf-8")
     for name, fn in BLOCKS.items():
         pat = re.compile(rf"(<!-- FILL:{name} -->\n).*?(<!-- /FILL:{name} -->)", re.S)
-        assert pat.search(text), name
+        if not pat.search(text):
+            assert name == "kp180", name          # the DRAFT predates this block
+            continue
         text = pat.sub(lambda m: m.group(1) + fn() + "\n" + m.group(2), text)
     DRAFT.write_text(text, encoding="utf-8")
     print("filled", list(BLOCKS))

@@ -307,7 +307,7 @@ NEW = {
     "attempt-1 (v1.12) grade script": AO / "gamora/analyses/2026-10-01-kc2-play-ta-attempt1-v1.12-grade/grade_attempt1_v1p12.py",
     "jack-ryan grade Gate-2 (347ce2e1e)": AO / "qa/findings/2026-10-01-kc2-play-attempt1-v1.12-grade-gate2.md",
     "jack-ryan repairs Gate-2 (ea0317306)": AO / "qa/findings/2026-10-01-kc2-play-attempt1-repairs-gate2.md",
-    "this draft's oracle hook": HERE / "oracle_channel_hook.py",
+    "the oracle hook (v1.13's oracle-side instrument)": HERE / "oracle_channel_hook.py",
 }
 for k, p in NEW.items():
     R["new"][k] = {"label": "FILE", "path": str(p), "sha256": fsha(p)}
@@ -328,6 +328,51 @@ R["new"]["runtime tree at b4c1ff3 (KP-179 repairs; NOT the attempt-2 runtime)"] 
     "label": "FILE-SET (make_manifest law, recomputed from git blobs)", "path": f"godot {G3REV}:kc2_runtime/",
     "sha256": sha("\n".join(sorted(rl)).encode()), "manifest_says": rman["tree_digest"], "n_members": len(rman["members"]),
     "member_failures": rbad}
+# ---------------------------------------------------------------------------------------------- the KP-180 runtime (Q96 ruled)
+#   drax's v1.13 counters landed at godot 05508a0 (charter KP-182). Re-pinned here from git blobs, never from a ledger row.
+RT2 = "05508a0"
+RT2_RUN = "4fd523f"          # godot HEAD when the KP-180 G3 ran (its MANIFEST's produced_at.godot_commit)
+G3M2 = "evidence/kc2-play/2026-10-01-g3-25cell-kp180/MANIFEST.json"
+rman2 = json.loads(gshow(RT2, "kc2_runtime/MANIFEST.json"))
+rl2, rbad2 = [], []
+for m in rman2["members"]:
+    g = sha(gshow(RT2, "kc2_runtime/" + m["path"]))
+    if g != m["sha256"]:
+        rbad2.append(m["path"])
+    rl2.append(f"{m['path']}  {g}")
+rtracked2 = sorted(t[len("kc2_runtime/"):] for t in subprocess.run(
+    ["git", "-C", str(GODOT), "ls-tree", "-r", "--name-only", RT2, "kc2_runtime/"], check=True, capture_output=True,
+    text=True).stdout.split())
+rmem2 = sorted(m["path"] for m in rman2["members"])
+same_run = subprocess.run(["git", "-C", str(GODOT), "diff", "--quiet", RT2_RUN, RT2, "--", "kc2_runtime/"]).returncode == 0
+g3m2_b = gshow(RT2, G3M2)
+g3m2 = json.loads(g3m2_b)
+R["kp180"] = {"godot": RT2,
+              "runtime_tree": {"label": "FILE-SET (make_manifest law over git blobs)", "sha256": sha("\n".join(sorted(rl2)).encode()),
+                               "manifest_says": rman2["tree_digest"], "n_members": len(rman2["members"]),
+                               "member_failures": rbad2,
+                               "tracked_not_member": [t for t in rtracked2 if t not in rmem2],
+                               "member_not_tracked": [m for m in rmem2 if m not in rtracked2],
+                               "kc2_runtime_unchanged_from_G3_run_commit": same_run},
+              "g3_MANIFEST": {"label": "FILE", "path": f"godot {RT2}:{G3M2}", "sha256": sha(g3m2_b)},
+              "g3_check_block": g3m2["check"],
+              "files": {}}
+for name, want in list(g3m2["produced_at"]["graded_FILE"].items()):
+    path = [p for p in rmem2 if p.endswith("/" + name)]
+    assert len(path) == 1, name
+    got = sha(gshow(RT2, "kc2_runtime/" + path[0]))
+    R["kp180"]["files"][f"kc2_runtime/{path[0]}"] = {"label": "FILE", "sha256": got, "equals_G3_MANIFEST": got == want}
+for path, want in g3m2["produced_at"]["instruments_FILE"].items():
+    got = sha(gshow(RT2, path))
+    R["kp180"]["files"][path] = {"label": "FILE", "sha256": got, "equals_G3_MANIFEST": got == want}
+for path in ("kc2_runtime/tools/kc2rt_file_ta_evidence.py", "kc2_runtime/tests/kc2rt_ta_emit.gd", "kc2_runtime/tests/kc2rt_ta.gd"):
+    R["kp180"]["files"][path] = {"label": "FILE", "sha256": sha(gshow(RT2, path)), "equals_G3_MANIFEST": None}
+rt2 = R["kp180"]["runtime_tree"]
+if (rt2["sha256"] != rt2["manifest_says"] or rbad2 or rt2["tracked_not_member"] != ["MANIFEST.json"] or rt2["member_not_tracked"]
+        or not same_run or not all(v["equals_G3_MANIFEST"] in (True, None) for v in R["kp180"]["files"].values())
+        or not all(g3m2["check"].values())):
+    R["failures"].append("kp180 runtime / G3 re-pin")
+
 R["engine_head"] = subprocess.run(["git", "-C", str(ENGINE), "rev-parse", "--short=8", "HEAD"], check=True,
                                   capture_output=True, text=True).stdout.strip()
 R["engine_kc2_tracked_mods"] = subprocess.run(
@@ -341,6 +386,8 @@ R["summary"] = {"n_carried": len(R["carried"]), "n_reproduce": sum(v["reproduces
 (HERE / "pins_v1p13.json").write_text(json.dumps(R, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
 print(json.dumps(R["summary"], indent=1))
 print("engine HEAD", R["engine_head"], "tracked mods under kc2/export/scripts:", R["engine_kc2_tracked_mods"])
+print("KP-180 runtime tree", R["kp180"]["runtime_tree"]["sha256"], "members", R["kp180"]["runtime_tree"]["n_members"],
+      "G3 MANIFEST", R["kp180"]["g3_MANIFEST"]["sha256"], "files equal", all(v["equals_G3_MANIFEST"] in (True, None) for v in R["kp180"]["files"].values()))
 print("setup partition", R["setup_partition"], "TA-X-18", R["TA-X-18"]["equals_v1.12"], "sets", R["set_cardinalities"])
 for k, v in R["new"].items():
     print("NEW", k, v["sha256"])

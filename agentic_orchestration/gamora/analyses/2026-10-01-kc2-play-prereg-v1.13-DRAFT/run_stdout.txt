@@ -55,6 +55,14 @@
     cells with identity-2 shortfall : ['M0_s0', 'M0_s2', 'M0_s3', 'M0_s4', 'M-POL-2_s0', 'M-POL-2_s1', 'M-POL-2_s2', 'M-POL-2_s4', 'M-POL-2-NULL_s0', 'M-POL-2-NULL_s2', 'M-POL-2-NULL_s3', 'M-POL-2-NULL_s4', 'W1_s1', 'W1_s2', 'W1_s4', 'W1-NULL_s0', 'W1-NULL_s1', 'W1-NULL_s2', 'W1-NULL_s4']
     distinct oracle realisations among the 25 (trace minus arm label) : 12
     W1 salts whose trace differs from M-POL-2's : [0, 4]
+    KP-180 (godot 05508a0): files_match_manifest : 25/25
+    KP-180 (godot 05508a0): trace_minus_new_keys_equals_kp177 : 25/25
+    KP-180 (godot 05508a0): drax_oracle_counters_equal_mine : 25/25
+    KP-180 (godot 05508a0): g3_passes : 25/25
+    KP-180 (godot 05508a0): g3_census_equal : 25/25
+    KP-180 (godot 05508a0): g3_control_term_equal : 25/25
+    KP-180 (godot 05508a0): g3_ta_x_08_counters_equal : 25/25
+    KP-180 (godot 05508a0): g3_ta_x_16_equal : 25/25
 == law (a), measured rows
     TA-X-01                                MEASURED  PASS  oracle re-run byte-identical to the filed trace 25/25
     TA-X-03                                MEASURED  PASS  5/5 full-trace equality
