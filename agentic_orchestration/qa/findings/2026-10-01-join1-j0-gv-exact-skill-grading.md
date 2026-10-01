@@ -134,3 +134,42 @@ The pinned Edition-II bytes **are on disk**, though not where the banking script
 - `reincarnated-engine/src/reincarnated/simulation/kit_compiler/kit_reader.py` · `simulation/kc2/counterplay.py` · `export/kc2_baton*.py` · `output/kc2-model-pack-v3-E-s09-cp150-mech-v3p4p2-20260929_063506/`
 - `agentic_orchestration/research/curated/kits-export/{d2-ww-barb,d2-fire-sorc,gd-eor-warlord}.json`
 - `/Users/admin/depots/{219991,642280,897670,2699230}/24346246/…/*.arz` (Edition-II bytes) · `/Users/admin/Games/vendor/grim-dawn-edition-IV-20260929/`
+
+---
+
+## 7 · RE-CHECK, 2026-10-01: **GV CLOSED**
+
+**Trigger:** elrond applied the § 6 remedy. Records are in collab `a97445c28` (staged at `fcb4f0ebd`); the GV migration-meta row is `join1-j0-gv-relabel-2026-10-01`, dated 2026-10-01T05:04:47Z. I re-ran every check by query, read-only, and derived the digests from disk rather than relaying them.
+
+**The three files compared:**
+
+| File | FILE sha256 (derived) | State |
+|---|---|---|
+| `corpus.db.pre-gv-relabel-20261001T050447Z-backup` | `e1da2690…3d05` | before GV |
+| `corpus.db.pre-join1-j0-20261001T050456Z-backup` | `098f10c7…47d3` | **after GV, before the J0 migration**: this file isolates GV |
+| `corpus.db` (live) | `dffad643…d473` | after GV and J0 |
+
+| # | Check | Result |
+|---|---|---|
+| R1 | `MEASURED` = 0 on `exact_skill` / `devotion_power` / `devotion_constellation` | ✅ 0 / 0 / 0 (live and post-GV) |
+| R2 | DATAMINED = 675 / 65 / 110 | ✅ exactly, with no other grade value present |
+| R3 | FoI pin restored and equal to the derived pin | ✅ **string-equal** to `MIGRATION-gd-edition-pin-2026-07-24.md` line 30 (compared by shell `=`, not by eye); NULL/empty pins on the three tables = **0** (was 1) |
+| R4 | No row changed except the label | ✅ **before-GV → after-GV, cell by cell over every column:** `exact_skill` 675 rows, changed = `fidelity_grade` ×675 + `source_version` ×1 (FoI only) · `devotion_power` 65 rows, changed = `fidelity_grade` ×65 only · `devotion_constellation` 110 rows, changed = `fidelity_grade` ×110 only · no row added or removed. **Whole DB, before-GV → after-GV:** schema byte-identical; tables whose content hash moved = exactly those three + `corpus_schema_meta` (the new row) + `v_exact_skill_by_kit`. That view is a projection of `exact_skill` that includes `source_version`, so it moves with the FoI pin and nothing else. `exact_skill_field`'s original columns are identical before-GV → live (7,250 rows); in live it carries 5 added J0 columns, which are J-L4's change, not GV's. `integrity_check` = ok |
+| R5 | Both writers fixed | ✅ `gd_devotion_bank_2026_07_25.py`: `FIDELITY_GRADE = "DATAMINED"` (`:65`), the FoI back-fill literal is amended (`:661`), and **apply mode is retired** (`:866-873`, `sys.exit("RETIRED…")`), because its idempotency path would drop and re-create the corrected tables. `gd_arz_adapter_2026_07_24.py`: the NULL pin is replaced by `derived_edition_pin()` (`:404-414`; it reads line 30 and HALTs unless the bytes' sha matches), and **apply mode is retired** (`:576-580`). Verify and dry-run remain available. Retiring apply mode is stronger than the guard I asked for, and it is the right call: re-banking now needs a new dated script |
+
+**GV is CLOSED: 850 rows relabelled, 1 pin restored, 0 collateral changes.** The § 6 action boxes for elrond, steps 1 through 4, are discharged. INFO-3 (the hash abbreviation) is acknowledged in elrond's migration as a forward note, with the dated document left unedited, which is correct.
+
+### 7.1 · elrond's step beyond the brief: the four `Text_EN.arc` links. **RATIFIED, with one INFO**
+
+**Verified independently.** The tree `~/Games/vendor/grim-dawn-edition-II-20260724/` holds **8 symlinks and 0 regular files** (`du` 0 B). I re-hashed every link through the link:
+- The 4 `.arz` match the § 3.1 pins.
+- The 4 `Text_EN.arc` (`613457c8…`, `85baef4b…`, `8aec9207…`, `d6e7f781…`) match their recorded pins in `MIGRATION-gd-displayname-bridge-2026-07-26.md:38-41`, and match the Edition-II rows that the Edition-III intake re-verified (`legolas/notes/2026-08-08-kc2-edition-III-intake-and-diff.md:184-196`).
+
+The step is sound, and arguably owed. The M1 display-tag bridge pins and reads those four files, so restoring the named tree without them would have left a second banker unable to re-run. Linking adds no bytes and creates no fork from the pin, and every target was checked before linking. I see no problem with ratifying it.
+
+**INFO-6, non-blocking: the farm is partial, and one of its stated limits is not true for every consumer.** The Edition-II cut held **16** data files: 8 `.arz` and 8 `Text_EN.arc`. The farm links **8**. The other 8 (`mods/survivalmode`, `survivalmode1/2/3`, each `.arz` + `Text_EN.arc`) are **also on disk** under `~/depots/{483840,642281,897671,2699231}/24346246/`, and **all 8 hash to their recorded Edition-II pins** (cut record / Edition-III intake).
+- Elrond's limit says *"a script that reads a file not listed here fails loudly on the missing path."* That holds for a **named-path** reader like the bankers. It does **not** hold for a **glob** reader: four legolas scratch scripts (`legolas/scratch/2026-07-28-eor/probe15|16|17*.py`, `2026-08-08-kc2-ed3-diff/d2_tags.py`) `rglob("Text_EN.arc")` over a GD root, and several notes describe *"the eight-archive overlay stack"* at this path. Run against the farm, such a reader would silently get 4 of 8 archives. A record or tag that exists only in a survival-mode archive would then read as **ABSENT**, with no error.
+- That matters most for **Crucible** (`survivalmode2`, FG Crucible), which is KC2's own arena precedence. It is the #70 shape: a check that passes over a population it never saw.
+- **Recommended remedy (elrond or legolas, their choice; neither gates anything):** either (a) link the other 8 files, so the named tree is complete at 16/16, zero bytes, every target pin-verified (the evidence above shows they all pass); or (b) amend § 8's limit forward to say "named-path readers fail loudly; **glob/overlay readers silently see 8 of 16**." I prefer (a), because it removes the hazard instead of documenting it.
+
+**Re-check signed:** jack-ryan, 2026-10-01. **GV: CLOSED.** No BLOCK, no ESCALATE, nothing to Matt.
