@@ -25960,9 +25960,561 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "DK-PB",
+      "type": "GENERATE",
+      "experiment": "R-C9-112-third-character",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "75da50dfec0ff26b0fc7015c0cad54e031bd5df7a6586fb4d391afd11992a7a1",
+      "started": "2026-10-01T06:07:05.817025+00:00",
+      "ended": "2026-10-01T06:11:18.563463+00:00",
+      "minutes": 4.212404359717039,
+      "image_calls": 2,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f612-de82-7bc1-b167-e17f816c35d3/exec-2bca3456-0f3b-4850-8cfa-9d08307e72c7.png",
+            "sha256": "47b530e55d9a1b8c47a6fbb513fec01b2c6c34faf5a363cb1eadbd771aef21bc"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f612-de82-7bc1-b167-e17f816c35d3/exec-e87fb3d1-4e41-40df-b7eb-656094a57cf0.png",
+            "sha256": "69bcf6547a1a9edbf275d6d290c94e88786a49214841365435ffd7fb0a51758c"
+          }
+        ]
+      },
+      "receipt_sha256": "3842a9a8b2be8149f38bc7c695072c283a3874c8f54ab4e474176290c9e8a31a",
+      "artifacts": [
+        {
+          "name": "DK-PB_a.png",
+          "sha256": "69bcf6547a1a9edbf275d6d290c94e88786a49214841365435ffd7fb0a51758c"
+        },
+        {
+          "name": "DK-PB_b.png",
+          "sha256": "47b530e55d9a1b8c47a6fbb513fec01b2c6c34faf5a363cb1eadbd771aef21bc"
+        },
+        {
+          "name": "exec-2bca3456-0f3b-4850-8cfa-9d08307e72c7.provenance.json",
+          "sha256": "79b5bf61f8c9e851a26e7d939a128407c77cd4e3b94513782d44e40fdac9d457"
+        },
+        {
+          "name": "exec-e87fb3d1-4e41-40df-b7eb-656094a57cf0.provenance.json",
+          "sha256": "4788c8731efcc06cdee0119cbe7b27d72c705b397fb38439ea41bff21d76d9d2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f612-de82-7bc1-b167-e17f816c35d3/exec-2bca3456-0f3b-4850-8cfa-9d08307e72c7.png",
+          "sha256": "47b530e55d9a1b8c47a6fbb513fec01b2c6c34faf5a363cb1eadbd771aef21bc"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f612-de82-7bc1-b167-e17f816c35d3/exec-e87fb3d1-4e41-40df-b7eb-656094a57cf0.png",
+          "sha256": "69bcf6547a1a9edbf275d6d290c94e88786a49214841365435ffd7fb0a51758c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-smoke-01",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "5fc2a968cf3d61293de3eecc02f6fe3194130d913805fe2acb722cbb4937d718",
+      "started": "2026-10-01T06:27:23.319676+00:00",
+      "ended": "2026-10-01T06:30:42.258592+00:00",
+      "minutes": 3.315615385415731,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f625-733b-7973-8596-76882bdeaea3/exec-921de360-03b7-4cd9-af49-b7a6f42dfede.png",
+            "sha256": "e2b87d3cf3950961f6b820d2c266a10f9a68fa17357ce7dd8c11e12ac98937de"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f625-733b-7973-8596-76882bdeaea3/exec-c41f05d6-ff80-46f6-865f-3bbd5baad251.png",
+            "sha256": "b81cb6c07b2ade9c3448c40224f22a3f01a2ead1ccb59e2ec44e73f6932736ff"
+          }
+        ]
+      },
+      "receipt_sha256": "bb1f5a1a7176f4ca02331a44fb4d501e1a256dc1e11f82d4484f836a18e4a204",
+      "artifacts": [
+        {
+          "name": "crater_smoke_01.png",
+          "sha256": "b81cb6c07b2ade9c3448c40224f22a3f01a2ead1ccb59e2ec44e73f6932736ff"
+        },
+        {
+          "name": "exec-921de360-03b7-4cd9-af49-b7a6f42dfede.provenance.json",
+          "sha256": "773bc56fa8b9eac39606be30e53d2f64399e3475dc753763e56b2aae80bfc674"
+        },
+        {
+          "name": "exec-c41f05d6-ff80-46f6-865f-3bbd5baad251.provenance.json",
+          "sha256": "c431fd05c60e0ce92f9ac5d8d12c687662beab328f1ad4ed6aa185745d2ddf28"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f625-733b-7973-8596-76882bdeaea3/exec-921de360-03b7-4cd9-af49-b7a6f42dfede.png",
+          "sha256": "e2b87d3cf3950961f6b820d2c266a10f9a68fa17357ce7dd8c11e12ac98937de"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f625-733b-7973-8596-76882bdeaea3/exec-c41f05d6-ff80-46f6-865f-3bbd5baad251.png",
+          "sha256": "b81cb6c07b2ade9c3448c40224f22a3f01a2ead1ccb59e2ec44e73f6932736ff"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-11",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "694bb67de03255a61c9c7c03c74a942b0137718f7bf2d4eb34cb573604c1bf5c",
+      "started": "2026-10-01T07:21:30.008735+00:00",
+      "ended": "2026-10-01T07:24:20.058398+00:00",
+      "minutes": 2.8341469763836358,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f657-007c-7a40-83cb-86912339e149/exec-2a9cfba9-1bad-47b9-b2df-9cdb3928c92c.png",
+            "sha256": "22b2d98909bbdb009eaa4bc8590be9982053a892226b3b9a39eb19a424782468"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f657-007c-7a40-83cb-86912339e149/exec-68f9b0a6-70c2-4f0c-8a7a-3656034a3477.png",
+            "sha256": "115e94e05dbab7a41e1bf5dc7818dfc41ef80f4dad6ceeaeeaa4fc648de22193"
+          }
+        ]
+      },
+      "receipt_sha256": "6d516b5ee327286cbd63f245d4accdd0caf3d3879af67250a2a7051ac610a447",
+      "artifacts": [
+        {
+          "name": "crater_v4_11.png",
+          "sha256": "115e94e05dbab7a41e1bf5dc7818dfc41ef80f4dad6ceeaeeaa4fc648de22193"
+        },
+        {
+          "name": "exec-2a9cfba9-1bad-47b9-b2df-9cdb3928c92c.provenance.json",
+          "sha256": "220cfb29622de682147b83ac5a17628d673ed399f057244e6ed4e20cc5fce664"
+        },
+        {
+          "name": "exec-68f9b0a6-70c2-4f0c-8a7a-3656034a3477.provenance.json",
+          "sha256": "293b187e529bb4d48d180d2abb81115ef3f7846efcbde46e1d71d540474b8d13"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f657-007c-7a40-83cb-86912339e149/exec-2a9cfba9-1bad-47b9-b2df-9cdb3928c92c.png",
+          "sha256": "22b2d98909bbdb009eaa4bc8590be9982053a892226b3b9a39eb19a424782468"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f657-007c-7a40-83cb-86912339e149/exec-68f9b0a6-70c2-4f0c-8a7a-3656034a3477.png",
+          "sha256": "115e94e05dbab7a41e1bf5dc7818dfc41ef80f4dad6ceeaeeaa4fc648de22193"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-23",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "cc2f74407ea1dd92ae69df685eeca6eb3eaa25da10079d1fd1cdb31d07a4c85a",
+      "started": "2026-10-01T07:21:30.008677+00:00",
+      "ended": "2026-10-01T07:24:29.161858+00:00",
+      "minutes": 2.9858719034838335,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f656-ffcf-76a0-86e9-f2327e6ac719/exec-1f54ef76-3d29-453e-8978-f7a60274cbe8.png",
+            "sha256": "0c9a6d75cf1f40d2f12cc5f424696376b7d82490731039e83d6317f1388308a5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f656-ffcf-76a0-86e9-f2327e6ac719/exec-946595de-002c-476d-bfad-212114d58ebb.png",
+            "sha256": "5cde0578e4073947bfd6b4c85bd89d9e2dc2bffba4fbfc45e261823397f5ffba"
+          }
+        ]
+      },
+      "receipt_sha256": "97d72a47b9bcad2e25a2a93aec8de6a3e03c0dbe390cc17e48a925e3d512228e",
+      "artifacts": [
+        {
+          "name": "crater_v4_23.png",
+          "sha256": "5cde0578e4073947bfd6b4c85bd89d9e2dc2bffba4fbfc45e261823397f5ffba"
+        },
+        {
+          "name": "exec-1f54ef76-3d29-453e-8978-f7a60274cbe8.provenance.json",
+          "sha256": "e2a57add48faf4c11ecce3767c8cce54d8b70842aae3c8dfb28cf2cb2103042b"
+        },
+        {
+          "name": "exec-946595de-002c-476d-bfad-212114d58ebb.provenance.json",
+          "sha256": "e4375234b701aec00bb4f5d230a68f89287c001c1d1ae2c3ae63a332da5369db"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f656-ffcf-76a0-86e9-f2327e6ac719/exec-1f54ef76-3d29-453e-8978-f7a60274cbe8.png",
+          "sha256": "0c9a6d75cf1f40d2f12cc5f424696376b7d82490731039e83d6317f1388308a5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f656-ffcf-76a0-86e9-f2327e6ac719/exec-946595de-002c-476d-bfad-212114d58ebb.png",
+          "sha256": "5cde0578e4073947bfd6b4c85bd89d9e2dc2bffba4fbfc45e261823397f5ffba"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-37",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "dabf93cc5dc926a87d062f50756bcba00c2929a861166d3a94de159382be5c49",
+      "started": "2026-10-01T07:21:30.008809+00:00",
+      "ended": "2026-10-01T07:24:33.215486+00:00",
+      "minutes": 3.053424909733197,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f656-fd6d-7410-8489-da084f82e6c7/exec-7ffa5956-f6f0-4ea4-90f3-a71ea39c5872.png",
+            "sha256": "cff2a54a36245a0d1fd96fc719d8d93245f7571b99c0fe52363fb8d188662a29"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f656-fd6d-7410-8489-da084f82e6c7/exec-b976db42-a80e-4dd5-967e-d32a7d8aeab4.png",
+            "sha256": "fe17d8e87dd8d46102fb31304e21bad0f3424cd3e4871c80e1d1f673b2a16266"
+          }
+        ]
+      },
+      "receipt_sha256": "ca61f917bf9e1849d69f12f8bb082139c1d9c81e7279d7c2b423ee994d2e4745",
+      "artifacts": [
+        {
+          "name": "crater_v4_37.png",
+          "sha256": "cff2a54a36245a0d1fd96fc719d8d93245f7571b99c0fe52363fb8d188662a29"
+        },
+        {
+          "name": "exec-7ffa5956-f6f0-4ea4-90f3-a71ea39c5872.provenance.json",
+          "sha256": "26c44a1c0ab40743bf59f07a3b304d490a170dc2b11136829541b7897d05d976"
+        },
+        {
+          "name": "exec-b976db42-a80e-4dd5-967e-d32a7d8aeab4.provenance.json",
+          "sha256": "6ecd22f905cafb6b1f5473f0a0bdf443304d7e392fd05b191869cb703f7afdf1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f656-fd6d-7410-8489-da084f82e6c7/exec-7ffa5956-f6f0-4ea4-90f3-a71ea39c5872.png",
+          "sha256": "cff2a54a36245a0d1fd96fc719d8d93245f7571b99c0fe52363fb8d188662a29"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f656-fd6d-7410-8489-da084f82e6c7/exec-b976db42-a80e-4dd5-967e-d32a7d8aeab4.png",
+          "sha256": "fe17d8e87dd8d46102fb31304e21bad0f3424cd3e4871c80e1d1f673b2a16266"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-37-emit",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ead0aaed007b9f9cdb2a79fd2dea6aea882f0817b88f619094ab1dbc57b5eae7",
+      "started": "2026-10-01T07:25:14.315984+00:00",
+      "ended": "2026-10-01T07:26:33.040149+00:00",
+      "minutes": 1.3120587534668933,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-74c3-a1f6-277524e6d19c/exec-71790f3d-f8d4-4b76-ab9e-d1ed8d321394.png",
+            "sha256": "36486cad08ab0dd7e504de18f4cbb89054033f41d7243e422e99db3121e7fa5c"
+          }
+        ]
+      },
+      "receipt_sha256": "4ef40c6e4975df4fdb4a42e9ae99bfec96f70e4b0fceb41263d9babb2f444022",
+      "artifacts": [
+        {
+          "name": "crater_v4_37_emit.png",
+          "sha256": "36486cad08ab0dd7e504de18f4cbb89054033f41d7243e422e99db3121e7fa5c"
+        },
+        {
+          "name": "exec-71790f3d-f8d4-4b76-ab9e-d1ed8d321394.provenance.json",
+          "sha256": "2a89fa45a89f07634dc90b3a597c858444e20aaa9f67bcbc290d79d2bfeb7ec4"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-74c3-a1f6-277524e6d19c/exec-71790f3d-f8d4-4b76-ab9e-d1ed8d321394.png",
+          "sha256": "36486cad08ab0dd7e504de18f4cbb89054033f41d7243e422e99db3121e7fa5c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-23-emit",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "2edb967980de2ecd604a4d91606b2d29379dcb3c940972c5e70ed7c9f6d15521",
+      "started": "2026-10-01T07:25:14.316035+00:00",
+      "ended": "2026-10-01T07:26:43.179070+00:00",
+      "minutes": 1.4810402090331385,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-73e0-a914-2eaf40688b2a/exec-cf424fef-36df-479f-9cd8-f33125128827.png",
+            "sha256": "6b81a6a2a6c7b30c015b5c9a9f6fe8cf6d656adf1b891bf4502ffd1be8d8386e"
+          }
+        ]
+      },
+      "receipt_sha256": "56b0dc0bcb54e554868bff80d5814d76400ebacfa20d168e2eaa732dcefaa41c",
+      "artifacts": [
+        {
+          "name": "crater_v4_23_emit.png",
+          "sha256": "6b81a6a2a6c7b30c015b5c9a9f6fe8cf6d656adf1b891bf4502ffd1be8d8386e"
+        },
+        {
+          "name": "exec-cf424fef-36df-479f-9cd8-f33125128827.provenance.json",
+          "sha256": "3472fcd7fa1b538a39300ee3bc1c0b99741816901606222c14dde17b7e9944c2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-73e0-a914-2eaf40688b2a/exec-cf424fef-36df-479f-9cd8-f33125128827.png",
+          "sha256": "6b81a6a2a6c7b30c015b5c9a9f6fe8cf6d656adf1b891bf4502ffd1be8d8386e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-crater-v4-11-emit",
+      "type": "GENERATE",
+      "experiment": "C9-VFX-crater-v4",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "aa9002c0d1d5375f789f0e7b1a1443f79c9e1b37a707823861b18a2ad22c2053",
+      "started": "2026-10-01T07:25:14.316040+00:00",
+      "ended": "2026-10-01T07:26:51.020942+00:00",
+      "minutes": 1.6117380583338672,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-7093-9d20-e500a4750936/exec-7372cab0-2cc5-4f45-bce5-7d7fac3f069a.png",
+            "sha256": "1ab30030380757242939e0f43cf4a37efcfb1ca902bcba072320c0014a7c6ff8"
+          }
+        ]
+      },
+      "receipt_sha256": "37023849268ee739beb1250f4faf10b500955752713c81db6e167d8e11e6fb9f",
+      "artifacts": [
+        {
+          "name": "crater_v4_11_emit.png",
+          "sha256": "1ab30030380757242939e0f43cf4a37efcfb1ca902bcba072320c0014a7c6ff8"
+        },
+        {
+          "name": "exec-7372cab0-2cc5-4f45-bce5-7d7fac3f069a.provenance.json",
+          "sha256": "928a307ba04ab91bff257ae1b6fde93f80199855e2a6436b6b319098189b8fe6"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f65a-6599-7093-9d20-e500a4750936/exec-7372cab0-2cc5-4f45-bce5-7d7fac3f069a.png",
+          "sha256": "1ab30030380757242939e0f43cf4a37efcfb1ca902bcba072320c0014a7c6ff8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 758,
+  "images_used": 771,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -26908,6 +27460,11 @@
       "id": "M-C9-ARMOR-LANE-CLOSED",
       "note": "Armor lane (R-C9-98/103/105) closed at 42fe36404: battle mage see-through cut 62% by a dark under-layer skinned to her own leg weights (residual at deepest knee flex); paint pass C (scarlet/gold richer, steel paler) and steel grade D (std L 15.1 -> 26.4; by eye cool, possibly too blue-white). Open for Matt: sorceress C or D; champion B or C (lane and conductor lean C); whether the residual knee see-through is acceptable. Lane totals: fal $2.42, Astra 50 calls (758 ledger), Meshy 0. Conductor renamed a stray scratchpad struct.py (a C-5 scan script that shadowed the stdlib) to c5_t3_scan.py.",
       "ts": "2026-10-01T02:06:32"
+    },
+    {
+      "id": "M-C9-E1-STAGES-A-F",
+      "note": "Third character E1 (the dark knight, R-C9-112/113), lane wl_e1, stages A-F in 3 h 27 m wall (1f1ce468c, a15d81b0d, fad4572aa, e2efa1607, 10ddf5808). Sheet A1 (long cape in three panels) chosen on 3D evidence, A2 kept. fal $2.01 / 4.00; Meshy 32 / 150; Astra 12 / 60. 7 linted library clips on his own rig; mace on weapon_r with a per-clip two-fist channel, strike assert PASS; painted bake; 4 gear pieces. Conductor look: the SHEET is strong (near-black plate, violet cape, gold filigree, the painted register). The look stills are Blender unlit on dark ground and read gold-heavy and small; not representative. OPEN: cape leg poke-through at stride (15-27%); mace held upright beside the helm in idle/walk/run; the attack lands at 96% of 1.83 s (packet 35%); mace GLB 47 MB undecimated. Stage G queued: Godot render stack, the open defects.",
+      "ts": "2026-10-01T03:49:06"
     }
   ],
   "halts": [
