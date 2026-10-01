@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST GS-BCHB -- Run C-9 Phase 2 (Matt R-C9-105, the champion's armour build): his CHAMPION BODY with the armour TAKEN OFF, as the base model sheet the armour will be fitted onto. task_id \"GS-BCHB\".\n\nIMAGE 1 is his armoured four-view sheet (1024x1536 portrait, 2x2 grid: top-left FRONT, top-right his RIGHT side facing the viewer's right, bottom-left BACK, bottom-right his LEFT side facing the viewer's left). IMAGE 2 is his approved base body sheet: his bare torso, arms and the knotwork tattoo on his RIGHT upper arm. IMAGE 3 is a STYLE reference ONLY.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1024x1536 sheet: the SAME four views, the SAME grid, the SAME pose. REGISTRATION IS THE FIRST RULE: in every view his head, hands, shoes and soles stay on EXACTLY the same pixels as in IMAGE 1 -- the same height, ground lines, positions and scale.\nREMOVE EVERY ARMOUR PIECE, showing the man beneath exactly where it was: the helmet (his braided red hair and the top of his head as in IMAGE 2), the chest plates and their straps (his bare chest, belly and back as in IMAGE 2), the lion pauldron and segmented manica (his bare right arm with the knotwork band tattoo as in IMAGE 2), the leather wrist guards (bare wrists), the girdle with the lion plaque and the lion-pelt kilt, the linen leg wraps and the greaves (his BARE muscled thighs, knees and calves).\nKEEP: his face, beard and ring, hair and braid, skin, his brown SHOES, and a plain dark wrapped LOINCLOTH at the hips, with a simple narrow dark cloth band at the waist holding it -- nothing else on him. Not nude in any view.\nPaint in IMAGE 1's hand. Soft even light, no cast shadows, no ground, no text, no labels.\nBACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\nONE image_gen EDIT call. ONE RETRY ONLY if the result DRIFTS: he moved, rose, sank or changed scale in any view (compare the soles and the crown with IMAGE 1), or his pose or limbs changed -- name the reason and deliver BOTH images. NAME any other fault in concerns (an armour piece left on him, the tattoo missing, bare groin). Copy the output to out/GS-BCHB.png (a retry to out/GS-BCHB_r1.png) with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"GS-BCHB\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/GS-BCH4/GS-BCH4.png",
+   "role": "IMAGE 1 -- Matt's pick (GS-BCH4, R-C9-105): the armoured sheet to EDIT; take every armour piece off"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/NB-1/NB-1_b.png",
+   "role": "IMAGE 2 -- his approved base-body sheet (NB-1 variant b, R-C9-70): his bare torso, arms and tattoo"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the hand; never its character, costume, staff or pose"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 12,
+ "outputs": [
+  "out/GS-BCHB.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-105-gear-sets"
+}

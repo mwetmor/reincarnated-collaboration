@@ -1,0 +1,105 @@
+{
+ "_note": "the battle mage's gear pieces: each a skinned GLB on her 26 joints (gear.gd binds each under the body's Skeleton3D)",
+ "pieces": {
+  "gown": {
+   "file": "gown.glb",
+   "mode": "skin",
+   "offset_m": 0.006,
+   "hem_overlap_m": 0.006,
+   "keys": {
+    "weight_smooth": {
+     "factor": 0.5,
+     "repeat": 10,
+     "limit": 4,
+     "method": "numpy Laplacian over mesh edges"
+    }
+   }
+  },
+  "legs": {
+   "file": "legs.glb",
+   "mode": "skin",
+   "offset_m": 0.004,
+   "hem_overlap_m": 0.004,
+   "keys": {}
+  },
+  "breastplate": {
+   "file": "breastplate.glb",
+   "mode": "skin",
+   "offset_m": 0.012,
+   "hem_overlap_m": 0.004,
+   "keys": {
+    "rigid_torso_plate": {
+     "verts": 4886,
+     "within_m_of_midline": 0.14,
+     "weights": {
+      "Spine02": 0.7,
+      "Spine01": 0.3
+     }
+    },
+    "weight_smooth": {
+     "factor": 0.5,
+     "repeat": 10,
+     "limit": 4,
+     "method": "numpy Laplacian over mesh edges"
+    }
+   }
+  },
+  "hood": {
+   "file": "hood.glb",
+   "mode": "skin",
+   "offset_m": 0.008,
+   "hem_overlap_m": 0.004,
+   "keys": {
+    "arm_to_shoulder": {
+     "verts": 3578,
+     "fraction": 0.75
+    },
+    "weight_smooth": {
+     "factor": 0.5,
+     "repeat": 10,
+     "limit": 4,
+     "method": "numpy Laplacian over mesh edges"
+    }
+   }
+  },
+  "gauntlets": {
+   "file": "gauntlets.glb",
+   "mode": "skin",
+   "offset_m": 0.005,
+   "hem_overlap_m": 0.004,
+   "keys": {
+    "grip_R": {
+     "verts_moved": 1306,
+     "max_m": 0.0682
+    },
+    "grip_L": {
+     "verts_moved": 1105,
+     "max_m": 0.0658
+    }
+   }
+  },
+  "wand": {
+   "file": "wand.glb",
+   "mode": "bone",
+   "bone": "weapon_r",
+   "length_m": 0.35
+  },
+  "grimoire": {
+   "file": "grimoire.glb",
+   "mode": "bone",
+   "bone": "Hips",
+   "height_m": 0.26,
+   "carry": "hung at the back of her RIGHT hip under the belt, front cover out and back; rigid on Hips (s30 search)"
+  }
+ },
+ "layer_order": [
+  "body",
+  "gown",
+  "legs",
+  "breastplate",
+  "hood",
+  "gauntlets",
+  "wand",
+  "grimoire"
+ ]
+}

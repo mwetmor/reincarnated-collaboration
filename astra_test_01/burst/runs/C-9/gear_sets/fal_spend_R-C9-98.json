@@ -1,0 +1,93 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $3.00 (fal_spend_R-C9-98).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Matt's $5.85 balance reading (R-C9-76, 19:30:59 EDT); every earlier matte and build is already inside that number.",
+ "budget_usd": 3.0,
+ "entries": [
+  {
+   "ts": "2026-10-01T01:57:46+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-SHOOD.png",
+   "usd": 0.0024,
+   "wall_s": 3.01
+  },
+  {
+   "ts": "2026-10-01T01:57:51+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-SWAND_a.png",
+   "usd": 0.0025,
+   "wall_s": 3.13
+  },
+  {
+   "ts": "2026-10-01T01:57:57+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-SBOOK_a.png",
+   "usd": 0.00281,
+   "wall_s": 3.51
+  },
+  {
+   "ts": "2026-10-01T02:01:01+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build wand",
+   "usd": 0.4,
+   "wall_s": 144.24
+  },
+  {
+   "ts": "2026-10-01T02:01:33+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build shood",
+   "usd": 0.4,
+   "wall_s": 176.38
+  },
+  {
+   "ts": "2026-10-01T02:02:04+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build book",
+   "usd": 0.4,
+   "wall_s": 207.34
+  },
+  {
+   "ts": "2026-10-01T03:03:19+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-BCHB.png",
+   "usd": 0.00227,
+   "wall_s": 2.84
+  },
+  {
+   "ts": "2026-10-01T03:03:25+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-BCH4.png",
+   "usd": 0.00334,
+   "wall_s": 4.17
+  },
+  {
+   "ts": "2026-10-01T03:03:30+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "R-C9-98 matte GS-BMAUL2_b.png",
+   "usd": 0.00237,
+   "wall_s": 2.96
+  },
+  {
+   "ts": "2026-10-01T03:06:24+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build armoured",
+   "usd": 0.4,
+   "wall_s": 158.57
+  },
+  {
+   "ts": "2026-10-01T03:06:24+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build maul",
+   "usd": 0.4,
+   "wall_s": 159.31
+  },
+  {
+   "ts": "2026-10-01T03:06:54+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "R-C9-98 build champ",
+   "usd": 0.4,
+   "wall_s": 188.94
+  }
+ ],
+ "running_usd": 2.4157
+}

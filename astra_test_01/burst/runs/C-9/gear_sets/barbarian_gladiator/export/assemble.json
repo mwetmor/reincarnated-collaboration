@@ -1,0 +1,178 @@
+{
+ "pieces": {
+  "chest": {
+   "mode": "chest",
+   "faces": [
+    117319,
+    20000
+   ],
+   "welded": [
+    63899,
+    61526
+   ],
+   "offset_m": 0.01,
+   "hem_m": 0.004,
+   "pushed": 3870,
+   "rigid_torso_verts": 8318,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "pauldron": {
+   "mode": "skin",
+   "faces": [
+    162563,
+    21999
+   ],
+   "welded": [
+    85547,
+    83415
+   ],
+   "offset_m": 0.008,
+   "hem_m": 0.004,
+   "pushed": 3153,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "wraps": {
+   "mode": "skin",
+   "faces": [
+    114636,
+    13999
+   ],
+   "welded": [
+    61071,
+    59451
+   ],
+   "offset_m": 0.004,
+   "hem_m": 0.004,
+   "pushed": 1251,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "helm": {
+   "mode": "rigid:Head",
+   "faces": [
+    81219,
+    13999
+   ],
+   "welded": [
+    43389,
+    41628
+   ],
+   "offset_m": 0.006,
+   "hem_m": 0.0,
+   "pushed": 1311
+  },
+  "girdle": {
+   "mode": "rigid:Hips",
+   "faces": [
+    72767,
+    11999
+   ],
+   "welded": [
+    39320,
+    37860
+   ],
+   "offset_m": 0.012,
+   "hem_m": 0.004,
+   "pushed": 922
+  },
+  "greaves": {
+   "mode": "split:LeftLeg,RightLeg",
+   "faces": [
+    124361,
+    13999
+   ],
+   "welded": [
+    67999,
+    65954
+   ],
+   "offset_m": 0.006,
+   "hem_m": 0.0,
+   "pushed": 1524,
+   "parts": [
+    [
+     "greaves",
+     "RightLeg"
+    ],
+    [
+     "greaves.001",
+     "LeftLeg"
+    ],
+    [
+     "greaves.005",
+     "RightLeg"
+    ],
+    [
+     "greaves.008",
+     "RightLeg"
+    ]
+   ]
+  },
+  "wrists": {
+   "mode": "split:LeftForeArm,RightForeArm",
+   "faces": [
+    39514,
+    8000
+   ],
+   "welded": [
+    22398,
+    21816
+   ],
+   "offset_m": 0.004,
+   "hem_m": 0.0,
+   "pushed": 1674,
+   "parts": [
+    [
+     "wrists",
+     "RightForeArm"
+    ],
+    [
+     "wrists.001",
+     "LeftForeArm"
+    ]
+   ]
+  },
+  "kilt": {
+   "mode": "kilt",
+   "faces": [
+    385432,
+    30000
+   ],
+   "welded": [
+    201288,
+    194127
+   ],
+   "offset_m": 0.012,
+   "hem_m": 0.008,
+   "pushed": 1302,
+   "halves": {
+    "kilt_L": {
+     "verts": 8421,
+     "thigh": "LeftUpLeg",
+     "boundary_extended": 1458,
+     "ramp": "Hips 1 at the girdle (zf 0.585) -> UpLeg 0.9 at the hem (zf 0.33)"
+    },
+    "kilt_R": {
+     "verts": 7982,
+     "thigh": "RightUpLeg",
+     "boundary_extended": 1402,
+     "ramp": "Hips 1 at the girdle (zf 0.585) -> UpLeg 0.9 at the hem (zf 0.33)"
+    }
+   }
+  }
+ },
+ "helmet_on": {
+  "moved": 7035,
+  "candidates": 8604,
+  "clearance_m": 0.01
+ },
+ "files": {
+  "chest.glb": 5.09,
+  "pauldron.glb": 5.1,
+  "wraps.glb": 4.83,
+  "helm.glb": 4.79,
+  "girdle.glb": 4.74,
+  "greaves.glb": 4.86,
+  "wrists.glb": 4.6,
+  "kilt.glb": 5.41,
+  "champion_body_piece.glb": 9.69
+ }
+}

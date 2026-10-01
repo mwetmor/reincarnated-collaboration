@@ -1,0 +1,40 @@
+{
+ "tag": "book",
+ "endpoint": "tripo3d/h3.1/multiview-to-3d",
+ "views": [
+  "views/book/book_v0.jpg",
+  "views/book/book_v270.jpg",
+  "views/book/book_v180.jpg",
+  "views/book/book_v90.jpg"
+ ],
+ "request_id": "01a0f52f-6973-7150-a800-2963e0cb5fa4",
+ "elapsed_s": 207.3,
+ "result": {
+  "model_mesh": {
+   "url": "https://v3b.fal.media/files/b/0aac931b/gxPrXIGPd7M_CMPsf84re_model.glb",
+   "content_type": "model/gltf-binary",
+   "file_name": "model.glb",
+   "file_size": 46818600
+  },
+  "model_urls": {
+   "glb": {
+    "url": "https://v3b.fal.media/files/b/0aac931b/gxPrXIGPd7M_CMPsf84re_model.glb",
+    "content_type": "model/gltf-binary",
+    "file_name": "model.glb",
+    "file_size": 46818600
+   },
+   "fbx": null,
+   "base_model": null,
+   "pbr_model": null
+  },
+  "rendered_image": {
+   "url": "https://v3b.fal.media/files/b/0aac931c/D8nqtMQOGRAhxKCliN1uQ_preview.png",
+   "content_type": "image/png",
+   "file_name": "preview.png",
+   "file_size": 388314
+  },
+  "task_id": "997d2564-d1f8-4635-98dc-a48a59ff724e"
+ },
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/gear_sets/sorceress_battlemage/builds/book.glb",
+ "glb_mb": 46.8
+}

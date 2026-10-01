@@ -1,0 +1,14 @@
+; R-C9-98 copy of the so_d7 runtime stills sandbox -- her GEAR STACKS at the play camera. A separate lean project: runtime glTF only
+; (nothing imported, no .godot import cache of the 2.3 GB film folder), nothing in barrow_full/ or cliffside3d/.
+config_version=5
+
+[application]
+config/name="r_c9_98_battlemage_stills"
+run/main_scene="res://gear_stills.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+
+[rendering]
+renderer/rendering_method="forward_plus"
