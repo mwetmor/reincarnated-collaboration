@@ -27490,6 +27490,11 @@
       "id": "M-C9-E1-STAGE-H",
       "note": "E1 stage H (5dfd8e369), 15 min wall: upright bodies (Idle 1; the rig task's own free walk/run) with the G1 carry's arms held in WORLD space per key (e32_world_hold.py; the 55_clip_graft rule, no solver). Torso pitch idle 17.2 -> -6.7, walk 6.6 -> 0.7, run 24.2 -> 8.4 deg; head height 0.895 -> 0.978 (idle). Idle chin still -19 deg; cape poke walk 13.1% / run 17.8% / attack 28.1%. Meshy lane 59 vs account fall 65 (6-credit gap from stage G, shared account; 3 credits lost to a fetch that charged before the process wrote its record). Lane closed for the night; open items go to Matt's look. Whole lane wall: ~5 h 3 m (A-F 3 h 27 m; G 80 m; H 15 m).",
       "ts": "2026-10-01T05:27:54"
+    },
+    {
+      "id": "M-C9-SELECT-PUBLISH",
+      "note": "Deploy 1 (held batch 3772e23..9ebc111) pushed 13:51Z, live by 14:06Z. Deploy 2: the 3-character select build (loadout 153d5b9, collab 3f710da78) pushed ~14:07Z: plain-HTML select page at /playtest/barrow-painted/, game at play.html, old ?c= links go straight to the game; toggles barbarian armor (Viking/gladiator C/B) and axe hold (T12_11/F25L/F40L, web only), sorceress armor (current/bm C/bm D), fb (current/c75), meteor (mix3/mix4), fall (0.82/2.4); dark knight c=warlord (attack, war cry, GEAR 4 stacks, no VFX). Lazy per-character packs: barbarian 31.9 MB, sorceress 43.4, warlord 23.9, variants 12.5-24.2. Desktop Chrome cold/warm navigate->play: barbarian 24.7/10.5 s, sorceress 25.3/7.2 s, dark knight 15.5/5.8 s; worst frame after the veil ~18-19 ms. No separate JOIN-moves toggle (the JOIN body is a different weapon kit); the gladiator card plays the JOIN whirlwind and war cry.",
+      "ts": "2026-10-01T10:07:20"
     }
   ],
   "halts": [
