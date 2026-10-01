@@ -127,8 +127,16 @@ m = dict(
                                                record="work/cross_check_whirlwind_v5.json"),
                                no_crossed_arms=dict(verdict=xw["verdict"], least_side_m=xw["least_side_m"], screen_frames_failing=xw["screen_frames_failing"],
                                                     record="work/cross_check_whirlwind.json"),
-                               pose="j_whirl_pose.py --wrist-side 1.0 (the wrist at the shoulder half-width along the levelled shoulder "
-                                    "line) --splay 8 (each blade 8 deg out) --edge-min 0.995"),
+                               pose="j_whirl_pose.py --fist-side 1.0 (the FIST -- the weapon joint -- at his shoulder half-width along "
+                                    "the levelled shoulder line: the JOIN hold v3's width, 75e4d79db, measured in this frame its fists average "
+                                    "1.01) --elbow-side-min 0.65 --forearm-par 0.06 (forearms roughly parallel) --splay 8 (each blade 8 deg "
+                                    "out) --edge-min 0.995",
+                               fist_side_measured={s_: round(w4p["terms"][s_]["grip_side"] / w4p["terms"][s_]["half_w"], 3) for s_ in ("r", "l")},
+                               fist_1_15_variant=dict(pose="work/whirl_v6_pose_fist1.15_variant.json", note="solved with --grip-y-w 600: the "
+                                                      "fists measure 1.16, grips at 1.20 m (raised), flats >= 0.515; one rebuild with "
+                                                      "scripts/j_whirl5.py if Matt picks 1.15"),
+                               tradeoff="at 1.0 the solver cannot also raise the grips to 1.20 m: they sit at 1.01-1.03 m and the flats' worst "
+                                        "is 0.466 (v4-v6a: >= 0.5)"),
                        v5=dict(direction="Matt 2026-09-30 (his notes on 'the war cry' v4 were meant for the whirlwind): no crossed "
                                          "arms; the feet just his battle stance / idle; faster",
                                no_crossed_arms=dict(verdict=xw["verdict"], least_side_m=xw["least_side_m"], record="work/cross_check_whirlwind.json",
@@ -337,8 +345,8 @@ m["deliverables"] = dict(stills="stills/join5_<clip>_t<time>_2x.png and _1x.png:
                          pack="join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired")
 m["look_calls_for_matt"] = [
     "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-    "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both hands at his shoulder width (0.21 m out each side), "
-    "forearms opening outward (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the "
+    "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both fists at his shoulder width (the JOIN hold v3's), "
+    "forearms roughly parallel (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the "
     "blades, tilted toward the spin."]
 m["joint_limits"] = dict(instrument=jl["instrument"], limits_deg=jl["limits_deg"], learned=dict(jl["learned"], axes="(in work/joint_lint.json)"),
                          moves={c: dict(verdict=r["verdict"], failing_frames=r["failing_frames"], frames=r["frames"], worst=r["worst"])

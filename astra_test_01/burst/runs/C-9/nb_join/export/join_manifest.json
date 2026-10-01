@@ -2,7 +2,7 @@
  "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body; the war cry and the whirlwind are v4 (Matt, 2026-09-30)",
  "body": {
   "file": "export/nb-body_join.glb",
-  "sha256": "263dde6a7ab1e989e97f846fe7ae44bb8e411617ab0ffef2c8906e76935c3ef1",
+  "sha256": "bd66432ec52869b484b389660614c76866396e25d2651a30564e66f982cf430f",
   "base": "nb_d2/export_staging/JOIN_hold_v2/nb-body.glb (the scene drax's JOIN body v2, b91df5a7a: the weapon fists out to about 0.78 of the shoulder half-width; only the six guard clips differ from v1)",
   "base_sha256": "a8a1a49828fe6791f82309cee711e4631142a96d84923355c2e148e139c7e2a1",
   "base_md5": "9346f3decc16f2b4f2c51df7b9a0c474",
@@ -112,34 +112,43 @@
      "verdict": "PASS",
      "least_side_m": {
       "wrist_L": {
-       "m": 0.212,
+       "m": 0.139,
        "t": 0.1333
       },
       "wrist_R": {
-       "m": 0.21,
+       "m": 0.13,
        "t": 0.1
       },
       "elbow_L": {
-       "m": 0.151,
+       "m": 0.121,
        "t": 0.1333
       },
       "elbow_R": {
-       "m": 0.148,
+       "m": 0.116,
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.371,
-       "t": 0.2333
+       "m": 0.319,
+       "t": 0.2
       },
       "tip_sword_R": {
-       "m": 0.359,
-       "t": 0.1333
+       "m": 0.354,
+       "t": 0.2333
       }
      },
      "screen_frames_failing": 0,
      "record": "work/cross_check_whirlwind.json"
     },
-    "pose": "j_whirl_pose.py --wrist-side 1.0 (the wrist at the shoulder half-width along the levelled shoulder line) --splay 8 (each blade 8 deg out) --edge-min 0.995"
+    "pose": "j_whirl_pose.py --fist-side 1.0 (the FIST -- the weapon joint -- at his shoulder half-width along the levelled shoulder line: the JOIN hold v3's width, 75e4d79db, measured in this frame its fists average 1.01) --elbow-side-min 0.65 --forearm-par 0.06 (forearms roughly parallel) --splay 8 (each blade 8 deg out) --edge-min 0.995",
+    "fist_side_measured": {
+     "r": 1.05,
+     "l": 1.055
+    },
+    "fist_1_15_variant": {
+     "pose": "work/whirl_v6_pose_fist1.15_variant.json",
+     "note": "solved with --grip-y-w 600: the fists measure 1.16, grips at 1.20 m (raised), flats >= 0.515; one rebuild with scripts/j_whirl5.py if Matt picks 1.15"
+    },
+    "tradeoff": "at 1.0 the solver cannot also raise the grips to 1.20 m: they sit at 1.01-1.03 m and the flats' worst is 0.466 (v4-v6a: >= 0.5)"
    },
    "v5": {
     "direction": "Matt 2026-09-30 (his notes on 'the war cry' v4 were meant for the whirlwind): no crossed arms; the feet just his battle stance / idle; faster",
@@ -147,28 +156,28 @@
      "verdict": "PASS",
      "least_side_m": {
       "wrist_L": {
-       "m": 0.212,
+       "m": 0.139,
        "t": 0.1333
       },
       "wrist_R": {
-       "m": 0.21,
+       "m": 0.13,
        "t": 0.1
       },
       "elbow_L": {
-       "m": 0.151,
+       "m": 0.121,
        "t": 0.1333
       },
       "elbow_R": {
-       "m": 0.148,
+       "m": 0.116,
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.371,
-       "t": 0.2333
+       "m": 0.319,
+       "t": 0.2
       },
       "tip_sword_R": {
-       "m": 0.359,
-       "t": 0.1333
+       "m": 0.354,
+       "t": 0.2333
       }
      },
      "record": "work/cross_check_whirlwind.json",
@@ -219,50 +228,52 @@
    "arms": {
     "terms": {
      "r": {
-      "level": 0.0159,
-      "radial": 0.9981,
-      "edge": 0.9856,
-      "grip_y": 1.1115,
-      "reach": 0.4742,
-      "elbow": 84.0256,
-      "wrist": 77.8061,
-      "arm_drop": 69.0548,
-      "clear_axis": 0.6586,
-      "clear_head": 0.653,
-      "side": 0.3032,
-      "fist_frac": 1.149,
-      "wrist_side": 0.2104,
-      "elbow_side": 0.1484,
+      "level": 0.0304,
+      "radial": 0.999,
+      "edge": 0.9778,
+      "grip_y": 1.0341,
+      "reach": 0.3091,
+      "elbow": 100.2761,
+      "wrist": 76.4106,
+      "arm_drop": 3.3238,
+      "clear_axis": 0.4883,
+      "clear_head": 0.575,
+      "side": 0.2216,
+      "fist_frac": 0.8774,
+      "wrist_side": 0.1296,
+      "elbow_side": 0.1157,
       "half_w": 0.211,
-      "wrist_flex": 70.0751,
-      "wrist_dev": -22.1506,
-      "forearm_twist": -26.807,
-      "butt_clear": 0.1062,
-      "sep": 0.6506,
-      "hinge_cos": 0.9852
+      "grip_side": 0.2216,
+      "wrist_flex": -66.9934,
+      "wrist_dev": -24.4229,
+      "forearm_twist": -80.6723,
+      "butt_clear": 0.1072,
+      "sep": 0.5357,
+      "hinge_cos": 0.7891
      },
      "l": {
-      "level": -0.0059,
-      "radial": 0.9982,
-      "edge": 0.9826,
-      "grip_y": 1.2526,
-      "reach": 0.4608,
-      "elbow": 100.1393,
-      "wrist": 77.7522,
-      "arm_drop": 62.6514,
-      "clear_axis": 0.6453,
-      "clear_head": 0.5945,
-      "side": 0.3104,
-      "fist_frac": 1.7435,
-      "wrist_side": 0.212,
-      "elbow_side": 0.1514,
+      "level": 0.0136,
+      "radial": 0.9999,
+      "edge": 0.9704,
+      "grip_y": 1.0071,
+      "reach": 0.5676,
+      "elbow": 37.2236,
+      "wrist": 66.4091,
+      "arm_drop": 27.9102,
+      "clear_axis": 0.7207,
+      "clear_head": 0.7681,
+      "side": 0.2227,
+      "fist_frac": 1.4235,
+      "wrist_side": 0.1391,
+      "elbow_side": 0.121,
       "half_w": 0.211,
-      "wrist_flex": 60.7315,
-      "wrist_dev": 32.2795,
-      "forearm_twist": 63.9474,
-      "butt_clear": 0.1015,
-      "sep": 0.6506,
-      "hinge_cos": 0.8
+      "grip_side": 0.2227,
+      "wrist_flex": -70.6308,
+      "wrist_dev": 32.223,
+      "forearm_twist": 80.0989,
+      "butt_clear": 0.104,
+      "sep": 0.5357,
+      "hinge_cos": 0.7976
      }
     },
     "solve": {
@@ -277,8 +288,11 @@
      "forearm_twist_max_deg": 80.0,
      "edge_min": 0.995,
      "double_edged_r": true,
-     "wrist_side_frac": 1.0,
+     "wrist_side_frac": null,
      "splay_deg": 8.0,
+     "fist_side_frac": 1.0,
+     "forearm_par_m": 0.06,
+     "elbow_side_min_frac": 0.65,
      "argv": [
       "--stance",
       "idle_guard@0.5",
@@ -290,8 +304,12 @@
       "20",
       "--sep",
       "0.25",
-      "--wrist-side",
+      "--fist-side",
       "1.0",
+      "--elbow-side-min",
+      "0.65",
+      "--forearm-par",
+      "0.06",
       "--radial-w",
       "100",
       "--wrist-max",
@@ -325,8 +343,8 @@
     "fist_frac": {
      "target": null,
      "measured": {
-      "r": 1.149,
-      "l": 1.7435
+      "r": 0.8774,
+      "l": 1.4235
      },
      "definition": "the JOIN hold v2's FIST row (join_accept.gd): grip off the chest joint (Spine) along its basis's +-X over the same side's shoulder"
     },
@@ -353,24 +371,24 @@
     },
     "edges": {
      "weapon_r": {
-      "cos_min": 0.976,
-      "cos_median": 0.976,
+      "cos_min": 0.967,
+      "cos_median": 0.967,
       "share_ge_0_8": 1.0
      },
      "weapon_l": {
-      "cos_min": 0.952,
-      "cos_median": 0.952,
+      "cos_min": 0.933,
+      "cos_median": 0.933,
       "share_ge_0_8": 1.0
      }
     },
     "flats_to_camera": {
      "weapon_r": {
-      "worst": 0.51,
-      "share_ge_0_5": 1.0
+      "worst": 0.466,
+      "share_ge_0_5": 0.841
      },
      "weapon_l": {
-      "worst": 0.506,
-      "share_ge_0_5": 1.0
+      "worst": 0.473,
+      "share_ge_0_5": 0.875
      }
     }
    },
@@ -381,29 +399,29 @@
     "worst": {
      "elbow_L": {
       "flex_min": {
-       "deg": 98.5,
+       "deg": 19.0,
        "t": 0.0
       },
       "lateral_worst": {
-       "deg": -25.5,
-       "t": 0.0667
+       "deg": -15.0,
+       "t": 0.0333
       },
       "flex_max": {
-       "deg": 98.5,
-       "t": 0.2
+       "deg": 19.0,
+       "t": 0.1
       }
      },
      "elbow_R": {
       "flex_min": {
-       "deg": 85.9,
-       "t": 0.1333
+       "deg": 35.5,
+       "t": 0.1
       },
       "lateral_worst": {
-       "deg": 12.5,
-       "t": 0.0333
+       "deg": 94.6,
+       "t": 0.1
       },
       "flex_max": {
-       "deg": 85.9,
+       "deg": 35.5,
        "t": 0.0
       }
      },
@@ -437,29 +455,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 32.3,
+       "deg": 32.2,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 60.7,
-       "t": 0.0333
+       "deg": -70.6,
+       "t": 0.0
       },
       "twist_worst": {
-       "deg": 63.9,
+       "deg": 80.1,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": -22.2,
+       "deg": -24.4,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 70.1,
-       "t": 0.0333
+       "deg": -67.0,
+       "t": 0.0
       },
       "twist_worst": {
-       "deg": -26.8,
+       "deg": -80.7,
        "t": 0.0
       }
      }
@@ -597,12 +615,12 @@
    "reads_in_8_directions": {
     "worst_flat_facing_cos": {
      "weapon_r": {
-      "worst": 0.51,
-      "share_ge_0_5": 1.0
+      "worst": 0.466,
+      "share_ge_0_5": 0.841
      },
      "weapon_l": {
-      "worst": 0.506,
-      "share_ge_0_5": 1.0
+      "worst": 0.473,
+      "share_ge_0_5": 0.875
      }
     },
     "definition": "|flat normal . view| over the 8 contract directions and 120 samples a cycle (scripts/j_whirl_check.py)"
@@ -1686,15 +1704,6 @@
      "head_end.rotation"
     ]
    },
-   "whirlwind": {
-    "length_glb": 0.26667,
-    "length_godot": 0.26667,
-    "tracks": 25,
-    "exact": 25,
-    "two_key": 0,
-    "resampled": [],
-    "dropped": []
-   },
    "shout": {
     "length_glb": 1.4,
     "length_godot": 1.4,
@@ -1703,10 +1712,19 @@
     "two_key": 0,
     "resampled": [],
     "dropped": []
+   },
+   "whirlwind": {
+    "length_glb": 0.26667,
+    "length_godot": 0.26667,
+    "tracks": 25,
+    "exact": 25,
+    "two_key": 0,
+    "resampled": [],
+    "dropped": []
    }
   },
   "at_pack_frames": {
-   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v6.json",
+   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v7.json",
    "states": {
     "idle": {
      "clip": "idle_guard",
@@ -1785,24 +1803,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 1.045,
+    "floor_lowest_m": 0.9642,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 28.6,
-    "blade_turn_max_deg_per_sec": 1261.0,
+    "tip_speed_max_m_per_sec": 24.78,
+    "blade_turn_max_deg_per_sec": 1253.3,
     "blade_turn_max_between_t_s": [
-     0.0,
-     0.0083
+     0.075,
+     0.0833
     ],
     "tilt_deg": [
-     69.0,
-     69.0
+     68.1,
+     68.1
     ],
-    "tip_lowest_m": 1.389,
-    "tip_highest_m": 1.389,
+    "tip_lowest_m": 1.323,
+    "tip_highest_m": 1.323,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 1.045,
-     "tilt_deg": 69.0
+     "lowest_m": 0.9642,
+     "tilt_deg": 68.1
     }
    },
    "axe": {
@@ -1810,24 +1828,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 1.1772,
+    "floor_lowest_m": 0.9272,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 30.25,
-    "blade_turn_max_deg_per_sec": 1272.0,
+    "tip_speed_max_m_per_sec": 32.6,
+    "blade_turn_max_deg_per_sec": 1262.1,
     "blade_turn_max_between_t_s": [
-     0.025,
-     0.0333
+     0.05,
+     0.0583
     ],
     "tilt_deg": [
-     70.4,
-     70.4
+     69.2,
+     69.2
     ],
-    "tip_lowest_m": 1.561,
-    "tip_highest_m": 1.561,
+    "tip_lowest_m": 1.245,
+    "tip_highest_m": 1.245,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 1.1772,
-     "tilt_deg": 70.4
+     "lowest_m": 0.9272,
+     "tilt_deg": 69.2
     }
    }
   },
@@ -2019,7 +2037,7 @@
  },
  "validation": {
   "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",
-  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v6.json",
+  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v7.json",
   "states": {
    "whirlwind": {
     "worst_m": 1e-05,
@@ -2071,7 +2089,7 @@
  },
  "look_calls_for_matt": [
   "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-  "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both hands at his shoulder width (0.21 m out each side), forearms opening outward (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the blades, tilted toward the spin."
+  "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both fists at his shoulder width (the JOIN hold v3's), forearms roughly parallel (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the blades, tilted toward the spin."
  ],
  "joint_limits": {
   "instrument": "scripts/j_joint_lint.py",
@@ -2144,29 +2162,29 @@
     "worst": {
      "elbow_L": {
       "flex_min": {
-       "deg": 98.5,
+       "deg": 19.0,
        "t": 0.0
       },
       "lateral_worst": {
-       "deg": -25.5,
-       "t": 0.0667
+       "deg": -15.0,
+       "t": 0.0333
       },
       "flex_max": {
-       "deg": 98.5,
-       "t": 0.2
+       "deg": 19.0,
+       "t": 0.1
       }
      },
      "elbow_R": {
       "flex_min": {
-       "deg": 85.9,
-       "t": 0.1333
+       "deg": 35.5,
+       "t": 0.1
       },
       "lateral_worst": {
-       "deg": 12.5,
-       "t": 0.0333
+       "deg": 94.6,
+       "t": 0.1
       },
       "flex_max": {
-       "deg": 85.9,
+       "deg": 35.5,
        "t": 0.0
       }
      },
@@ -2200,29 +2218,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 32.3,
+       "deg": 32.2,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 60.7,
-       "t": 0.0333
+       "deg": -70.6,
+       "t": 0.0
       },
       "twist_worst": {
-       "deg": 63.9,
+       "deg": 80.1,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": -22.2,
+       "deg": -24.4,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": 70.1,
-       "t": 0.0333
+       "deg": -67.0,
+       "t": 0.0
       },
       "twist_worst": {
-       "deg": -26.8,
+       "deg": -80.7,
        "t": 0.0
       }
      }
@@ -2550,7 +2568,7 @@
   },
   "negative_control": {
    "what": "clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge",
-   "elbow_R_flex": -29.5,
+   "elbow_R_flex": -58.7,
    "verdict": "FAIL"
   },
   "record": "work/joint_lint.json"

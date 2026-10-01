@@ -201,6 +201,7 @@ def terms(x):
         out[s]['wrist_side'] = float((G[nid[SIDES[s]['chain'][2]]][:3, 3] - md_) @ lt_) * sg_
         out[s]['elbow_side'] = float((G[nid[SIDES[s]['chain'][1]]][:3, 3] - md_) @ lt_) * sg_
         out[s]['half_w'] = float(np.linalg.norm((La_ - Ra_)[[0, 2]])) / 2
+        out[s]['grip_side'] = float((g - md_) @ lt_) * sg_                # the FIST (the weapon joint, in the fist)
         if JAX:
             hb_ = nid[SIDES[s]['chain'][2]]; qh = pose_from(x)[hb_][1]
             Rl = m_of(np.array(m['rest'][hb_][1], float)).T @ m_of(qh)
@@ -224,7 +225,12 @@ _LASTB = {}
 # chest joint (Spine, the HIGHEST spine bone) along the Spine basis's own +-X, over the same side's shoulder ball joint's
 FIST = float(opt('--fist-frac')) if opt('--fist-frac') else None
 WSIDE = float(opt('--wrist-side')) if opt('--wrist-side') else None   # v6: the wrist at this fraction of the shoulder half-width
-SPLAY = float(opt('--splay', '0'))                                   # v6: deg each blade turns OUT to its own side
+SPLAY = float(opt('--splay', '0'))
+FSIDE = float(opt('--fist-side')) if opt('--fist-side') else None   # v6b: the fist (grip) at this fraction of the shoulder half-width
+PAR = float(opt('--forearm-par', '0.05'))
+GYW = float(opt('--grip-y-w', '20'))
+FSW = float(opt('--fist-side-w', '600'))                           # v6b: the weight on the fist width                               # v6b: the weight on the grip height
+ESMIN = float(opt('--elbow-side-min', '0'))                        # v6b: each elbow at least this fraction of the half-width out                          # m: |wrist side - elbow side| allowed (forearms roughly parallel)                                   # v6: deg each blade turns OUT to its own side
 # --joint-axes f (v4): scripts/j_joint_lint.py's learned wrist axes; the wrist kept inside the lint's own limits
 JAX = json.load(open(opt('--joint-axes')))['learned']['axes'] if opt('--joint-axes') else None
 WFLEX, WDEV = float(opt('--wrist-flex-max', '70')), float(opt('--wrist-dev-max', '32'))
@@ -252,7 +258,7 @@ def cost(x):
     T = terms(x); c = 0.0
     for s, v in T.items():
         c += 40 * v['level'] ** 2 + RADW * (1 - v['radial']) + (30 * (1 - v['edge']) if EDGE_MIN is None else 300 * max(0.0, EDGE_MIN - v['edge']) ** 2)
-        c += 20 * (v['grip_y'] - (float(GRIP_Y) if GRIP_Y else chest_y)) ** 2 + 30 * max(0.0, REACH_MIN - v['reach']) ** 2
+        c += GYW * (v['grip_y'] - (float(GRIP_Y) if GRIP_Y else chest_y)) ** 2 + 30 * max(0.0, REACH_MIN - v['reach']) ** 2
         c += 30 * max(0.0, v['reach'] - REACH_MAX) ** 2 + 200 * max(0.0, HINGE_COS - v['hinge_cos']) ** 2
         c += 0.02 * max(0.0, v['wrist'] - WRIST_MAX) ** 2
         c += 0.02 * max(0.0, 10.0 - v['elbow']) ** 2 + 0.02 * max(0.0, v['elbow'] - ELBOW_MAX) ** 2
@@ -266,6 +272,10 @@ def cost(x):
         if WSIDE is not None:
             c += 600 * (v['wrist_side'] - WSIDE * v['half_w']) ** 2 + 600 * max(0.0, v['wrist_side'] - v['elbow_side'] - 0.04) ** 2 \
                  + 600 * max(0.0, v['elbow_side'] - v['wrist_side'] - 0.08) ** 2
+        if FSIDE is not None:                                           # v6b: the FIST at FSIDE x his shoulder half-width (the
+            c += FSW * (v['grip_side'] - FSIDE * v['half_w']) ** 2       # JOIN hold v3's width), the forearm roughly parallel
+            c += 600 * max(0.0, abs(v['wrist_side'] - v['elbow_side']) - PAR) ** 2 + 600 * max(0.0, 0.6 * v['half_w'] - v['wrist_side']) ** 2
+            c += 600 * max(0.0, ESMIN * v['half_w'] - v['elbow_side']) ** 2       # the elbows out, not tucked in front of him
         if FIST is not None:
             c += GSW * (v['fist_frac'] - FIST) ** 2 * 0.04
         if JAX:
@@ -295,9 +305,9 @@ rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BAS
                    for i in range(len(m['nodes'])) if m['nodes'][i].get('name') in set(nd.get('name') for nd in m['nodes'])})
 rep['v4'] = dict(blade_pitch_deg=math.degrees(PITCH), reach_max_m=REACH_MAX if REACH_MAX < 9 else None, grip_y_m=float(GRIP_Y) if GRIP_Y else None,
                 hinge_cos_min=HINGE_COS if HINGE_COS > -2 else None, fist_frac=FIST, joint_axes=opt('--joint-axes'),
-                wrist_flex_max_deg=WFLEX if JAX else None, wrist_dev_max_deg=WDEV if JAX else None, forearm_twist_max_deg=TWMAX if JAX else None, edge_min=EDGE_MIN, double_edged_r=DBL_R, wrist_side_frac=WSIDE, splay_deg=SPLAY, argv=a[2:])
+                wrist_flex_max_deg=WFLEX if JAX else None, wrist_dev_max_deg=WDEV if JAX else None, forearm_twist_max_deg=TWMAX if JAX else None, edge_min=EDGE_MIN, double_edged_r=DBL_R, wrist_side_frac=WSIDE, splay_deg=SPLAY, fist_side_frac=FSIDE, forearm_par_m=PAR if FSIDE else None, elbow_side_min_frac=ESMIN, argv=a[2:])
 json.dump(rep, open(OUT, 'w'), indent=1)
 for s, d in T.items():
-    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f  hinge %.2f  fist %.2f  wflex %.0f wdev %.0f twist %.0f  wrist side %.3f elbow side %.3f (half %.3f)"
-          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear'], d['hinge_cos'], d['fist_frac'], d.get('wrist_flex', 0), d.get('wrist_dev', 0), d.get('forearm_twist', 0), d['wrist_side'], d['elbow_side'], d['half_w']))
+    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f  hinge %.2f  fist %.2f  wflex %.0f wdev %.0f twist %.0f  wrist side %.3f elbow side %.3f grip side %.3f (half %.3f)"
+          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear'], d['hinge_cos'], d['fist_frac'], d.get('wrist_flex', 0), d.get('wrist_dev', 0), d.get('forearm_twist', 0), d['wrist_side'], d['elbow_side'], d['grip_side'], d['half_w']))
 print("  chest squared by %.1f deg; cost %.4f -> %s" % (yaw_chest, best.fun, OUT))

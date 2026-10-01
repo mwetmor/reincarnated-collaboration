@@ -1,5 +1,5 @@
 learned hinges: {'elbow_R': (640, 0.998), 'elbow_L': (691, 0.999), 'knee_R': (702, 0.996), 'knee_L': (684, 0.997)}
-MOVE     whirlwind              PASS   0/  9 frames fail | elbow min R   85.9 L   98.5 | knee min R   36.7 L   39.0 | wrist flex R   70.1 L   60.7 dev R  -22.2 L   32.3 twist R  -26.8 L   63.9
+MOVE     whirlwind              PASS   0/  9 frames fail | elbow min R   35.5 L   19.0 | knee min R   36.7 L   39.0 | wrist flex R  -67.0 L  -70.6 dev R  -24.4 L   32.2 twist R  -80.7 L   80.1
 MOVE     shout                  PASS   0/ 71 frames fail | elbow min R    8.4 L   18.5 | knee min R   36.7 L   39.0 | wrist flex R  -33.2 L  -48.7 dev R  -28.7 L  -23.7 twist R  102.7 L -134.9
 MOVE     hit                    PASS   0/ 50 frames fail | elbow min R   92.4 L   66.9 | knee min R   24.9 L   20.8 | wrist flex R    0.0 L   -0.0 dev R    0.0 L    0.0 twist R   75.5 L  -94.1
 MOVE     death                  PASS   0/120 frames fail | elbow min R    1.0 L    1.0 | knee min R   15.5 L   14.9 | wrist flex R   23.2 L  -13.2 dev R  -23.1 L   21.6 twist R  -85.6 L  -94.1
@@ -16,4 +16,4 @@ control  chop_overhead_92       PASS   0/ 47 frames fail | elbow min R   16.8 L 
 control  run_armed              PASS   0/ 21 frames fail | elbow min R   -3.9 L   21.9 | knee min R   46.7 L   42.1 | wrist flex R  -20.9 L   -1.8 dev R  -16.2 L   20.1 twist R -144.2 L   98.5
 control  strafe_L_armed         FAIL  30/ 46 frames fail | elbow min R    2.1 L   26.5 | knee min R   53.2 L   40.5 | wrist flex R  -59.2 L  -18.3 dev R  -51.5 L   16.8 twist R -108.3 L   75.6
           first fails: [(0.0, [('wrist_R', 'deviation', -49.0)]), (0.0333, [('wrist_R', 'deviation', -50.0)]), (0.0667, [('wrist_R', 'deviation', -50.6)])]
-NEGATIVE CONTROL: {'what': 'clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge', 'elbow_R_flex': -29.5, 'verdict': 'FAIL'}
+NEGATIVE CONTROL: {'what': 'clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge', 'elbow_R_flex': -58.7, 'verdict': 'FAIL'}
