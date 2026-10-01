@@ -237,3 +237,86 @@ The emission probe asserts only *"EMITTED"* on a non-v3.4.2 pack, so it is green
 - gamora's H-6 note `agentic_orchestration/gandalf/notes/2026-10-01-kc2-play-h6-discharge-v1.12.md` (collab `267dfac03`).
 - My v1.12 pre-read `agentic_orchestration/qa/findings/2026-10-01-kc2-play-prereg-v1.12-pre-read.md` (collab `1e8bcd1e3`).
 - Charter KP-133…KP-172.
+
+---
+
+# ADDENDUM — DELTA GATE-2 on runtime `a9b756cd…` (condition 6), with condition 5 (L2) done here
+
+**Date:** 2026-10-01 · **Reviewer:** jack-ryan · **Severity:** **PASS (0 BLOCK · 0 WARN · 3 INFO).** BLOCK-1 and BLOCK-2 are discharged, and WARN-1 and WARN-2 are folded.
+**⇒ ATTEMPT 1 (1 of 2 under v1.12) MAY FIRE, on runtime tree FILE `a9b756cddc4a046ca7a755e51d798158bb4cf84928ec1c12bfdb82c5e12165bb`, with the G3 record `evidence/kc2-play/2026-10-01-g3-25cell-kp173/` (MANIFEST `90195c7c…`).** This addendum is the § G.1 / R-7 repair-Gate-2 PASS for that digest.
+**Target:** godot `027de54` … `5302c44` (ledger KP-174). I read it through git objects and a `git archive` of `5302c44` in scratch, and ran the suite, the emission probe, the oracle walk and (L2) myself. The engine was read-only at `22cd2288`, and its tracked tree is still unmodified after my runs.
+
+## What changed, and what that means for G3
+
+- **Tree `a9b756cd…`:** recomputed over 82/82 member blobs, 0 mismatches.
+- **Exactly seven members differ from `fda00e28`:** `sim/kc2rt_board.gd`, `sim/kc2rt_fight.gd`, and five files under `tests/` (`booking_census`, `emission_probe`, `ta_emit`, `ta`, `v3p7p1_probes`).
+- **Two of those are on G3's path, so G3 had to be re-run, and it was.**
+
+## Results
+
+| check | result |
+|---|---|
+| **H-3 · `TA-X-29(e)`** | **PASS.** See details below. |
+| **H-2 · `spawn_by_record`** | **PASS.** See details below. |
+| **WARN-1 census reclass** | **PASS.** See details below. |
+| **G3 25/25** | **PASS.** See details below. |
+| **(L2), condition 5** | **PASS.** See details below. |
+| **Fight unmoved** | **PASS.** See details below. |
+| **Suite** (my run, `5302c44` extraction, heavy lock) | **SUITE GREEN, exit 0.** Hole 13/13 · v3.6 9/9 · completion 18/18 · loop 12/12 · v3.7 16/16 · **v3.7.1 57 checks, 15/15 controls** · H-4 20/0, 5/5. |
+| **Oracle behaviour** | **No change.** |
+
+**H-3 · `TA-X-29(e)`**
+- **The walk.** The emitter is now the config-E walk, read from the `WALK` a8 rows. It refuses on a missing or ambiguous row. Its `load_profiles` row `IC7-A-0411` is checked equal, argument for argument, to the setup row `0453`.
+- **The values (my emission-probe run).** w159 **3.207764** / w160 **4.980316**. Priced sets are 16 / 23 and unpriced 5 / 5. **All 39 per-record ratios match**, with their printed on and off values exact.
+- **Against the oracle (my independent run).** I ran `kc2_v3p7_closure.run_walk(151…160)` at `22cd2288`. **643/643 priced records are bitwise equal** in ratio, on and off, and identical in `folds_attr` and `folds_own`. All ten wave ratios are bitwise equal. Identity counts are 8·94·73·4·53·5·69·95·0·0.
+- **The w160 root cause holds.** The v1.7-era candidate set came from `roster.alternatives`, which omits p06 on the fight arm of record. The `WALK` row passes `bonus_spawns_enabled=True`, which brings back `wendigocannibal_h01…h05`. That takes w160 from 18 priced to 23. The oracle's own sum over the 18 is 4.930528014449965, which equals the old port figure.
+- **The three ten-wave fixes touch the walk only, not the fight roster.** The fixes are: every row kind except dot and PCL priced; dying slots and toggled auras excluded; HONEST-FAIL `u2` weapon rows priced as supply. They sit in `tests/kc2rt_ta_emit.gd`. They build walk-local row arrays and only read `pack.roster`. The G3 byte-identity confirms the fight saw no change.
+- **The probe tolerance is correct.** The probe's `5e-4` equals the row's own grade (v1.9 § F.2h: `EXACT · |Δ| ≤ 5e-4` per wave ratio and per record ratio). A green probe therefore implies a green grade. The probe also asserts the 39 printed values exactly, which is stricter, and its control (one ratio moved by 1e-3) must go RED. A tighter probe tolerance would grade something the row does not.
+
+**H-2 · `spawn_by_record`**
+- **The emission.** It is emitted at `_make_body`, the same site as (b)'s counters, with `class` taken from `roster.body_state` (the label is the gate). It covers roster bodies only. The v1.7 prose is retired (INFO-7).
+- **The set digests.** The probe checks all four clauses and reproduces the prereg's set digests from the port's own classes: POOL-466 `33c886a1…`, SWING-456 `706a61d5…`, NONSWING-10 `00b4cb0e…`.
+- **On the cell (my run).** 15 records; sums 0 / 1 / 26 = (b)'s counters; 27 bodies.
+- **The controls.** Four negative controls go RED as required: a non-member key; a class against the swing set; a count off by one; a flipped swing set. The emission probe is GREEN at 30 checks, 9/9 controls.
+
+**WARN-1 census reclass**
+- **The match.** My independent `git grep` match at `5302c44` gives 35 sites = 35, row for row, with code verbatim. The broad grep finds 37 = the 35 sites plus the 2 function definitions.
+- **The classes.** 47 rows: **T 22 · S 11 · F 14**. The two `_cp_absorb` sites (3 callers each) are now F (R+4 / 2K+3) and flagged `split = true, n_round ≥ 1` (emission only).
+- **The CHAINS block** is restated on the terminal-mass basis.
+- **The domination check.** `chain_domination` asserts `2·f_max ≥ 2N + 2K + 4` per cell. That covers the shared DoT mass (2N + 2K + 3 roundings) plus the S split on `pool_truncated`. The probe's control (factor 1) goes RED.
+- **The VOID path.** Caster-death `VOID` is named **UNARMED** (`PERSIST`, `deferred_arrival.py:266`). There are 30 paths now.
+- **INFO-4** (the stale comment in probe K) is fixed.
+
+**G3 25/25**
+- **The KP-173 record.** MANIFEST FILE `90195c7ca96e…`; 51 files hash-verified; produced at engine `22cd2288` on tree `a9b756cd`.
+- **Byte-identity.** **All 25 summaries and all 25 gzip oracle traces are byte-identical to the `3956a4f` record**; I diffed the sha256 of all 50 files.
+- **The counts.** My earlier five re-run cells (one per arm) and § C.9.7 therefore hold at this digest: 0 decision divergences, 0 draw mismatches, the two declared oracle-only streams, death wave and tick equal.
+
+**(L2), condition 5**
+I re-evaluated in exact rationals (`fractions.Fraction`; law as written; `φ = γ_{2·f_max}`) from `l2_operands_25cell.jsonl`.
+- **All 25 hold.**
+- **Worst: M0·0 = M-POL-2-NULL·0, β = 3.590829330577844e-14, margin ×27.85.** That is drax's figure, and my addendum prediction.
+- **Every operand is identical to the `fda00e28` emission except `q_counterplay_absorbed`**, which went from 0 to 970–7,016 per cell. So the only change in β is `φ·A_cp`, which is at most 1.5e-16.
+- Antecedents: `n·u < 1`; final-sum and sink counts both 6; the census is filed and green.
+
+**Fight unmoved**
+- **G3** is byte-identical, so death wave and tick are unchanged on 25/25.
+- **`TA-X-07`** still closes on all 25 cells: max `ρ̂` 2.2138341115505915e-16, **21 cells at 0.0**. The `n_k`, `Â_k`, `Ô` and residuals are bit-identical to the `fda00e28` emission.
+- **The source diff.** The `kc2rt_fight.gd` diff is `_cp_absorb(raw, carried_in)` plus two flagged bookings. The `kc2rt_board.gd` diff is a counter. Neither changes a state or a draw.
+- **G2 705/705** is drax-reported (AGENT_STATE `0802ab1`). I did not re-run it, because it needs the oracle packet log, which is not in the repo. No damage-resolution line changed (INFO-A).
+
+## INFO
+
+- **INFO-A.** G2 705/705 is drax-reported at this digest. The two independent instruments above (G3 bytes and (L2) operand bits) show the fight did not move.
+- **INFO-B.** `walk_config` reads `to_hit` and `attack_speed` off the a8 rows (both true) but does not use them: `walk_config_e` takes `M_inst` from `pack.offense_fold.m_inst_by_wave`. The result is bitwise the oracle's `fold_at(w, True, True)` on all ten waves. It should still assert that those two flags are true, or select by them, so a future arm with false flags cannot silently price at the wrong `M_inst`. This does not block.
+- **INFO-C.** gamora's H-6 note (`267dfac03`) evaluated `fda00e28`. **For `a9b756cd`, this addendum is the (L2) evaluation of record**, at gandalf's request (condition 5). For the next prereg version, the WARN-2 premise amendment (§ F.2k.3, terminal-mass basis) stays owed, as stated above. It is not an attempt precondition.
+
+## Verdict and what remains
+
+**PASS. Attempt 1 may fire** on tree `a9b756cd…`, prereg v1.12, pack `48a4c94c…` / `1887257f…`. The H-4 `g3=` input must be `evidence/kc2-play/2026-10-01-g3-25cell-kp173/summaries/`.
+- **Still owed, none of it an attempt precondition:**
+  - **H-5:** my hole-closure finding at the graded digest. It gates the quotability of a PASS, not the firing.
+  - **H-8:** Matt's T-C on the graded digest. It is a seal condition.
+  - The next-version WARN-2 corrigendum.
+  - **INFO-B.**
+- **§ G.1 checklist at `a9b756cd`:** KP-167 repair ✓ · G3 five arms × five salts ✓ · this repair Gate-2 PASS ✓ · H-7 filed (`1e8bcd1e3`) ✓ · H-6 (L2) on all 25 ✓ (here) · H-9 / H-10 discharged ✓ · H-2 ✓ · H-3 ✓ · H-4 ✓.
