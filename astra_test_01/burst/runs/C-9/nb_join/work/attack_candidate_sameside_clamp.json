@@ -1,0 +1,384 @@
+{
+ "state": "attack_candidate_sameside",
+ "clip": "attack_candidate_sameside",
+ "body": "x4.glb",
+ "body_sha256": "ad3a3e4c183354d13f8c5ed34e7cbdc74c9b1484b1b458b5c319eccb6bf3cd2b",
+ "layers_json": "work/layers_moves.json",
+ "layers": [],
+ "keys": 20,
+ "params": {
+  "directions": 1200,
+  "tries": 400,
+  "continuity": 2.0,
+  "rate_deg_per_key": 10.0,
+  "max_flick_deg": 45.0,
+  "floor_y": 0.0,
+  "floor_tol_m": 0.0,
+  "sample_every": 2,
+  "samples": {
+   "r": 3274,
+   "l": 3753
+  }
+ },
+ "frames": [
+  {
+   "t": 0.0,
+   "r": {
+    "clamped": false,
+    "lowest": 0.9039,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.3,
+    "lowest_before": 0.8925,
+    "lowest": 0.89,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.4945
+   }
+  },
+  {
+   "t": 0.03333,
+   "r": {
+    "clamped": false,
+    "lowest": 0.9428,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.31,
+    "lowest_before": 0.8959,
+    "lowest": 0.8934,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.5627
+   }
+  },
+  {
+   "t": 0.06667,
+   "r": {
+    "clamped": false,
+    "lowest": 1.1173,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.38,
+    "lowest_before": 0.9045,
+    "lowest": 0.902,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.8599
+   }
+  },
+  {
+   "t": 0.1,
+   "r": {
+    "clamped": false,
+    "lowest": 1.3856,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.41,
+    "lowest_before": 0.9158,
+    "lowest": 0.9141,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.4025
+   }
+  },
+  {
+   "t": 0.13333,
+   "r": {
+    "clamped": false,
+    "lowest": 1.5707,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.69,
+    "lowest_before": 0.9274,
+    "lowest": 0.9259,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.5861
+   }
+  },
+  {
+   "t": 0.16667,
+   "r": {
+    "clamped": false,
+    "lowest": 1.4979,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.73,
+    "lowest_before": 0.9363,
+    "lowest": 0.9355,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.7285
+   }
+  },
+  {
+   "t": 0.2,
+   "r": {
+    "clamped": false,
+    "lowest": 1.2916,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.82,
+    "lowest_before": 0.94,
+    "lowest": 0.9394,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.8064
+   }
+  },
+  {
+   "t": 0.23333,
+   "r": {
+    "clamped": false,
+    "lowest": 1.4093,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.72,
+    "lowest_before": 0.9354,
+    "lowest": 0.9345,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.7121
+   }
+  },
+  {
+   "t": 0.26667,
+   "r": {
+    "clamped": false,
+    "lowest": 1.6152,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.38,
+    "lowest_before": 0.9045,
+    "lowest": 0.902,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.8598
+   }
+  },
+  {
+   "t": 0.3,
+   "r": {
+    "clamped": false,
+    "lowest": 0.7537,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.3,
+    "lowest_before": 0.7286,
+    "lowest": 0.7528,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.2133
+   }
+  },
+  {
+   "t": 0.33333,
+   "r": {
+    "clamped": false,
+    "lowest": 0.6571,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.36,
+    "lowest_before": 0.7025,
+    "lowest": 0.7251,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.6817
+   }
+  },
+  {
+   "t": 0.36667,
+   "r": {
+    "clamped": false,
+    "lowest": 0.5879,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.33,
+    "lowest_before": 0.6939,
+    "lowest": 0.7168,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.6023
+   }
+  },
+  {
+   "t": 0.4,
+   "r": {
+    "clamped": false,
+    "lowest": 0.6075,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.37,
+    "lowest_before": 0.7042,
+    "lowest": 0.7267,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.7004
+   }
+  },
+  {
+   "t": 0.43333,
+   "r": {
+    "clamped": false,
+    "lowest": 0.6611,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.36,
+    "lowest_before": 0.7318,
+    "lowest": 0.7574,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.346
+   }
+  },
+  {
+   "t": 0.46667,
+   "r": {
+    "clamped": false,
+    "lowest": 0.7126,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.47,
+    "lowest_before": 0.7711,
+    "lowest": 0.7966,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.514
+   }
+  },
+  {
+   "t": 0.5,
+   "r": {
+    "clamped": false,
+    "lowest": 0.7604,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 3.48,
+    "lowest_before": 0.8157,
+    "lowest": 0.8187,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.5545
+   }
+  },
+  {
+   "t": 0.53333,
+   "r": {
+    "clamped": false,
+    "lowest": 0.8135,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.54,
+    "lowest_before": 0.8599,
+    "lowest": 0.8655,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.5588
+   }
+  },
+  {
+   "t": 0.56667,
+   "r": {
+    "clamped": false,
+    "lowest": 0.8639,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.77,
+    "lowest_before": 0.8801,
+    "lowest": 0.8789,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.8558
+   }
+  },
+  {
+   "t": 0.6,
+   "r": {
+    "clamped": false,
+    "lowest": 0.8932,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.29,
+    "lowest_before": 0.889,
+    "lowest": 0.8865,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.4404
+   }
+  },
+  {
+   "t": 0.63333,
+   "r": {
+    "clamped": false,
+    "lowest": 0.9039,
+    "inside": 0
+   },
+   "l": {
+    "clamped": true,
+    "turn_deg": 2.3,
+    "lowest_before": 0.8925,
+    "lowest": 0.89,
+    "inside_before": 1,
+    "inside": 0,
+    "settled": 0.4945
+   }
+  }
+ ],
+ "smoothing": {
+  "method": "rate-limited envelope: a turn never below what its key requires, never changing faster than rate_deg_per_key per key; a key the envelope leaves violating is re-searched nearest the envelope blade (restored: [t, deg off] taken, or a graze kept when the nearest clear blade is more than max_flick_deg off)",
+  "restored": {
+   "r": [],
+   "l": []
+  }
+ },
+ "clamped_keys": {
+  "r": 0,
+  "l": 20
+ },
+ "inside_after_max": {
+  "r": 0,
+  "l": 0
+ },
+ "lowest_after_min": {
+  "r": 0.5879,
+  "l": 0.7168
+ }
+}

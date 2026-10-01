@@ -15,7 +15,14 @@ SRC, DST, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 CL = [(c.split('=') + [c])[:2] for c in sys.argv[4].split(',')]
 sj, sb = L.load_glb(SRC); dj, db = L.load_glb(DST)
 K = ('name', 'translation', 'rotation', 'scale', 'children')
-if [{k: n.get(k) for k in K} for n in sj['nodes']] != [{k: n.get(k) for k in K} for n in dj['nodes']]:
+# --weapon-seat-differs: the weapon bones' REST ROTATION (their seat in the fist; scripts/j_reseat.py) may differ -- every
+# other field must still match; a carried clip that keys a weapon bone keeps its own keys
+WSD = '--weapon-seat-differs' in sys.argv
+def _sig(n):
+    d = {k: n.get(k) for k in K}
+    if WSD and n.get('name') in ('weapon_r', 'weapon_l'): d.pop('rotation')
+    return d
+if [_sig(n) for n in sj['nodes']] != [_sig(n) for n in dj['nodes']]:
     sys.exit("REFUSED: the node layouts differ (names, rest TRS or children)")
 bn = bytearray(db)
 def put(data):

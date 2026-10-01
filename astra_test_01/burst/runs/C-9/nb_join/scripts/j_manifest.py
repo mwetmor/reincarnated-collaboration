@@ -13,15 +13,16 @@ J = lambda *p: json.load(open(os.path.join(ROOT, *p)))
 sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 md5 = lambda p: hashlib.md5(open(p, 'rb').read()).hexdigest()
 exp = os.path.join(ROOT, "export", "nb-body_join.glb")
-moves_only = os.path.join(ROOT, "export", "nb-body_join_cf7ceb43_moves_only.glb")       # R-C9-115: rebased on the JOIN hold v4 (this lane's)
-HOLD_DIR = os.path.join(ROOT, "export_hold_v4")
+moves_only = os.path.join(ROOT, "export", "nb-body_join_88db10d7_moves_only.glb")       # R-C9-115 DRAFT: the hold v4b (F25 + the R20 re-seat)
+HOLD_DIR = os.path.join(ROOT, "export_hold_v4b")
 base = os.path.join(HOLD_DIR, "nb-body.glb"); hold_p = os.path.join(HOLD_DIR, "join_hold.json"); hold = json.load(open(hold_p))
 graft = J("work", "graft_join.json")["clips"]
 w2, w2c, w2p, w2l = J("work", "whirl_v2.json"), J("work", "whirl_v2_check.json"), J("work", "whirl_v2_pose.json"), J("work", "whirl_v2_library_try_check.json")
 w1c = J("work", "whirl_v1_check.json"); wcr, wcl = J("work", "warcry_v6.json"), J("work", "warcry_v6_clamp.json"); wc4 = J("work", "warcry_v4.json"); xc = J("work", "cross_check_shout.json")
 wc5 = J("work", "warcry_v5.json"); xw = J("work", "cross_check_whirlwind.json"); w4v = J("work", "whirl_v4_check.json")
 w3, w3c, w3p = J("work", "whirl_v3.json"), J("work", "whirl_v3_check.json"), J("work", "whirl_v3_pose.json")
-w4, w4c, w4p = J("work", "whirl_v8.json"), J("work", "whirl_v8_check.json"), J("work", "whirl_v8_pose_A.json")    # v8 (the names kept)
+w4, w4c, w4p = J("work", "whirl_v9.json"), J("work", "whirl_v9_check.json"), J("work", "whirl_v9_pose_A.json")    # v9 (the names kept)
+w8c = J("work", "whirl_v8_check.json"); acs, acsx, acsc, acsm = J("work", "attack_candidate_sameside.json"), J("work", "cross_check_attack_candidate_sameside.json"), J("work", "attack_candidate_sameside_clamp.json"), J("work", "jm_attack_candidate_sameside_60hz.json")
 w7c = J("work", "whirl_v7_check.json"); tipF25, tipF40, tipF30 = J("work", "hold_v4_tip_F25.json"), J("work", "hold_v4_tip_F40.json"), J("work", "hold_v4_tip_F30.json")
 atk, atkx, atkc = J("work", "attack_a1_candidate.json"), J("work", "cross_check_attack_candidate.json"), J("work", "attack_a1_candidate_clamp.json")
 w7b, w7bx, w7bj = J("work", "whirl_v7_B_check.json"), J("work", "cross_check_whirlwind_v7B.json"), J("work", "joint_lint_whirlwind_v7B.json")
@@ -114,9 +115,14 @@ m = dict(
         hit=dict(clip="hit", layers=["guard_R", "guard_L"]),
         death=dict(clip="death", layers=["guard_R_death", "guard_L_death"])),
     clips=dict(
-        whirlwind=dict(kind="loop, channel", version=8, seconds=round(w4["cycle"]["T"], 4), keys=w4["cycle"]["keys"],
+        whirlwind=dict(kind="loop, channel", version=9, seconds=round(w4["cycle"]["T"], 4), keys=w4["cycle"]["keys"],
                        revolution=dict(cycles=1, sense="ccw", revolution_deg=w4c["revolution_deg"], measured_from="main_tip, the port's bearing (atan2 y, x)",
                                        rev_per_s=w4["cycle"]["rev_per_s"], ruling="Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"),
+                       v9=dict(ruling="R-C9-115 DRAFT (the conductor's rebase)", what="v7's recipe exactly from the hold v4b stance (F25 + the "
+                               "R20 re-seat: the weapon tips about 20 deg off his facing)", pose="work/whirl_v9_pose_A.json",
+                               edges_flats_now=dict(edges=w4c["edges"], flats_to_camera=w4c["flats_to_camera"]),
+                               edges_flats_v8=dict(edges=w8c["edges"], flats_to_camera=w8c["flats_to_camera"]),
+                               note="measured only (INFO): the edge / flat rows move as v8's did, a little further"),
                        v8=dict(ruling="R-C9-115 (+ R-C9-108's recipe)", what="v7's recipe exactly (one stance frame, the same A 15/15 arm "
                                "edits, a rigid spin at 3.75 rev/s, no solver) taken from the JOIN hold v4 F25 stance (the weapon tips 25 deg more forward)",
                                pose="work/whirl_v8_pose_A.json", before=w4p["before"], after=w4p["after"],
@@ -186,14 +192,14 @@ m = dict(
                                   "the spin about 3x faster; the blades pointed more upward, about halfway between v3's outstretched "
                                   "arms and a normal battle stance, not completely out"),
                        method=w4["method"], params=w4["params"],
-                       authored_by="scripts/j_whirl7_pose.py on the JOIN hold v4 F25 body (the pose, no solver: work/whirl_v8_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
+                       authored_by="scripts/j_whirl7_pose.py on the hold v4b stance (the pose, no solver: work/whirl_v9_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
                        stance=dict(clip="idle_guard (his battle stance), its pose at the half-second mark", feet="both flat and planted where the stance puts "
                                    "them; the whole body turns as one (the conductor: accepted)", chest="squared to his forward (Spine02)"),
                        arms=dict(rule="v7: the stance's own arms, each extended by two edits (see v7); no solver",
                                  earlier="v4-v6 solved the arms per target (work/whirl_v4_pose.json, whirl_v5_pose.json, whirl_v6_pose.json)",
                                  sword_double_edged="the sword is double-edged (nb_w2/scripts/w5_measure.py): the checker reads either edge"),
                        head=dict(rule="v7: the stance's own head, untouched (j_whirl5.py --no-head)", **w4["head"]),
-                       checked=dict(instrument="scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v8_check.json)", closure_m=w4c["closure_m"],
+                       checked=dict(instrument="scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v9_check.json)", closure_m=w4c["closure_m"],
                                     hips_orbit_m=w4c["hips_orbit_m"], edges=w4c["edges"], flats_to_camera=w4c["flats_to_camera"]),
                        joint_limits=jl["moves"]["whirlwind"],
                        v3_for_comparison=dict(record="work/whirl_v3_check.json", seconds=round(w3["cycle"]["T"], 4), ball_orbit=w3["ball_orbit"],
@@ -372,13 +378,14 @@ m["deliverables"] = dict(stills="stills/join5_<clip>_t<time>_2x.png and _1x.png:
                          v6=dict(films=["artifacts/JOIN-v6-warcry-film-2x.mp4", "artifacts/JOIN-v5-whirlwind-film-2x.mp4"], stills="stills/join7_* (8 headings)"),
                          whirlwind_v6=dict(film="artifacts/JOIN-v6-whirlwind-film-2x.mp4", stills="stills/join8_whirlwind_* (8 headings)", compare="artifacts/JOIN-whirlwind-v5-vs-v6-heading1-t0.png"),
                          whirlwind_v7=dict(sheet="artifacts/JOIN-whirlwind-v7-stance-A-B-8headings.png (frozen)", film="artifacts/JOIN-v7-whirlwind-A-then-B-film-2x.mp4"),
-                         hold_v4=dict(sheet="artifacts/JOIN-hold-v4-tips-forward-v3-F25-F40-8headings.png"), whirlwind_v8=dict(film="artifacts/JOIN-v8-whirlwind-film-2x.mp4"),
+                         hold_v4=dict(sheet="artifacts/JOIN-hold-v4-tips-forward-v3-F25-F40-8headings.png"), draft_v4b=dict(film="artifacts/JOIN-draft-v4b-set-idle-walk-run-attack-whirlwind-warcry-2x.mp4", sheet="artifacts/JOIN-hold-reseat-v3-F25-R15-R20-R30-Eneg20-8headings.png"), whirlwind_v8=dict(film="artifacts/JOIN-v8-whirlwind-film-2x.mp4"),
                          timing=["artifacts/JOIN-timing-wc-authored-vs-D2-law.mp4", "artifacts/JOIN-timing-at-authored-vs-D2-law.mp4"],
                          pack="join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired")
 m["look_calls_for_matt"] = [
     "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-    "WHIRLWIND v8: v7's recipe from the hold v4 F25 stance (the tips 25 deg more forward) -- spun as one at 3.75 rev/s.",
-    "HOLD v4 F25 (R-C9-115): both weapon tips swung 25 deg toward his forward at the wrist, in idle, walk and run."]
+    "WHIRLWIND v9: v7's recipe from the hold v4b stance (F25 + the R20 re-seat), spun as one at 3.75 rev/s.",
+    "HOLD v4b (DRAFT): the weapon tips about 20 deg off his facing -- the wrist turned 25 deg (F25) and each haft re-seated 20 deg in the fist (R20).",
+    "ATTACK CANDIDATE (same side, in the export as attack_candidate_sameside, not yet the attack): a hand-authored overhead chop from his guard."]
 m["hold_v4"] = dict(ruling="R-C9-115", spec="nb_join/export_hold_v4/join_hold.json", tool="scripts/j_hold_tip.py",
                     tip_forward_definition=tipF25["forward"] + ": the angle between each weapon's grip->tip axis and it",
                     v3=tipF25["v3"], F25=tipF25["out"], F40=tipF40["out"], F30=tipF30["out"],
@@ -387,6 +394,18 @@ m["hold_v4"] = dict(ruling="R-C9-115", spec="nb_join/export_hold_v4/join_hold.js
                                   F30="the most forward that passes the wrist rule at the wrist alone (30 deg)"),
                     fists="moved inward by the wrist turn (the grip sits 0.09 m off the wrist): idle R 0.84 -> 0.69, L 1.18 -> 1.01 of the half-width",
                     records=["work/hold_v4_tip_F25.json", "work/hold_v4_tip_F40.json", "work/hold_v4_tip_F30.json", "work/cross_check_hold_v4_*.json", "work/joint_lint_hold_v4_*.json"])
+m["attack_candidate_sameside"] = dict(status="IN THE EXPORT as clip attack_candidate_sameside -- NOT yet the attack (Matt rules)",
+    tool="scripts/j_attack_auth.py", record="work/attack_candidate_sameside.json", seconds=acs["T_s"], contact=acs["contact"],
+    edits="guard -> wind-up (the right shoulder +150 up and back, elbow +35, chest -8) -> CONTACT (shoulder +55, elbow -55, chest +12) "
+          "-> follow-through -> guard; the off hand holds its guard; one stance frame of the hold v4b guard, no solver",
+    cross_check=dict(verdict=acsx["verdict"], least_side_m=acsx["least_side_m"], screen_frames_failing=acsx["screen_frames_failing"], keys=acsx["keys"],
+                     screen_crossings=acsx["screen_crossings"],
+                     info="the conductor: INFO for Matt -- raising a weapon overhead passes over the other arm in profile (headings 315 / 0, "
+                          "the wind-up); no wrist, elbow or tip crosses his centreline: that is not a crossed stance"),
+    clamp=dict(clamped_keys=acsc["clamped_keys"], inside_after_max=acsc["inside_after_max"]),
+    penetration_60hz=dict(record="work/jm_attack_candidate_sameside_60hz.json", samples=len(acsm["clips"]["attack_candidate_sameside"]["rows"]),
+                          sword_max=max(r["weapons"]["r"].get("pen", 0) for r in acsm["clips"]["attack_candidate_sameside"]["rows"]),
+                          axe_max=max(r["weapons"]["l"].get("pen", 0) for r in acsm["clips"]["attack_candidate_sameside"]["rows"])))
 m["normal_attack_candidate"] = dict(status="NOT SHIPPED: it fails j_cross_check v2 (the conductor: stop and report)",
                                     route="Route 1, 0 credits: chop_overhead_92 (Meshy 92) trimmed to its single chop + held, start and end in the hold v4 guard",
                                     tool="scripts/j_attack.py", record="work/attack_a1_candidate.json", contact=atk["contact"],

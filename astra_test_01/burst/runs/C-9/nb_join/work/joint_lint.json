@@ -483,6 +483,99 @@
    },
    "info_frames": 65,
    "fails": []
+  },
+  "attack_candidate_sameside": {
+   "frames": 20,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 78.0,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -39.2,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 78.0,
+      "t": 0.4
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 36.9,
+      "t": 0.3667
+     },
+     "lateral_worst": {
+      "deg": 37.7,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 128.1,
+      "t": 0.2
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 39.0,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": 6.1,
+      "t": 0.0333
+     },
+     "flex_max": {
+      "deg": 39.0,
+      "t": 0.6
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 36.7,
+      "t": 0.0333
+     },
+     "lateral_worst": {
+      "deg": -0.4,
+      "t": 0.0333
+     },
+     "flex_max": {
+      "deg": 36.7,
+      "t": 0.0
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 21.0,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": 12.9,
+      "t": 0.0
+     },
+     "twist_worst": {
+      "deg": -106.5,
+      "t": 0.0
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -7.2,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": 23.9,
+      "t": 0.0
+     },
+     "twist_worst": {
+      "deg": 93.1,
+      "t": 0.3667
+     }
+    }
+   },
+   "info_frames": 20,
+   "fails": []
   }
  },
  "control_library": {

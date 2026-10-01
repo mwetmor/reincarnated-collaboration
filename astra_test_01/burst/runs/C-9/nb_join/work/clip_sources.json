@@ -121,7 +121,7 @@
     0.0333,
     0.3
    ],
-   "note": "authored v8 (R-C9-115: v7's recipe from the JOIN hold v4 F25 stance; ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v4 F25 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
+   "note": "authored v9 (R-C9-115 DRAFT: v7's recipe from the hold v4b stance, F25 + the R20 re-seat; ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the hold v4b idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
   },
   "attack": {
    "source": "../nb_t8/nbt_attack.glb",
@@ -142,7 +142,13 @@
    "was": "t8-native: the D2 Blender merge's 24 fps resample of the source's 30 fps keys -- up to 8.914 deg from its own file once Godot's 30 fps import bake re-samples it (RightHand; 62_bake_fidelity.py, both import paths) and up to 15.4 deg from the source's own curve between its keys (RightHand, hips-relative, at 0.700 s). T12_11 re-cut on the source's own keys (coordinator, 2026-09-30)",
    "status": "legacy",
    "note": "NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added"
+  },
+  "attack_candidate_sameside": {
+   "source": null,
+   "path": "j_attack_auth.py (hand-authored from his guard) + j_weapon_clamp.py",
+   "loop": false,
+   "note": "authored candidate (the conductor 2026-10-01; NOT yet the attack): one stance frame of his hold v4b guard, the right arm and chest keyed: wind-up over his right shoulder, an overhead chop landing in front of his right hip (contact at 47% of the clip), back to guard; the off hand holds its guard"
   }
  },
- "body_base": "nb_join/export_hold_v4/nb-body.glb md5 cf7ceb43 (R-C9-115: the JOIN hold v3 with the guards' tips 25 deg forward)"
+ "body_base": "nb_join/export_hold_v4b/nb-body.glb md5 88db10d7 (R-C9-115 DRAFT: the hold v4 F25 + the weapons re-seated 20 deg in the fist)"
 }
