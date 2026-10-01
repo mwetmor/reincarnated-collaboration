@@ -64,6 +64,8 @@ func _initialize() -> void:
 		var p := String(args[args.find("--at") + 1]).split(",")
 		at = Vector3(float(p[0]), 0.0, float(p[1]))
 	at.y = scene.snow.surface_y(Vector2(at.x, at.z)) if scene.snow != null else 0.0
+	if args.has("--at"):
+		scene.park_camera(at, 1.0)          # R-C9-118: an ice or earth spot, at the play camera, centred
 	var doc := GLTFDocument.new()
 	var st := GLTFState.new()
 	doc.append_from_file(glb, st)

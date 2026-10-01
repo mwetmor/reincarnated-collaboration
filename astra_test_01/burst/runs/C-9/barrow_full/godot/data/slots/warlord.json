@@ -96,7 +96,7 @@
   "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
  },
  "foot_lock": false,
- "_note": "R-C9-117: THE DARK KNIGHT (wl_e1/export/final_h): his clips idle walk run attack hit death warcry; SLASH = the mace attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).",
+ "_note": "R-C9-117: THE DARK KNIGHT (wl_e1/export/final_i): his clips idle walk run attack hit death warcry; SLASH = the mace attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).",
  "roles_knight_lacks": {
   "hit": "hit",
   "death": "death"

@@ -24,13 +24,14 @@ argv = sys.argv[sys.argv.index("--") + 1:]
 OUT = argv[0]
 SEED = int(argv[1])
 R = float(argv[2]) if len(argv) > 2 else 1.1
+PROFILE = argv[3] if len(argv) > 3 else "snow"      # R-C9-118 (b): snow (v4) | ice (shallow, more fractures) | earth
 os.makedirs(OUT, exist_ok=True)
 rng = np.random.default_rng(SEED)
 
 ROUT = 1.9 * R
 N = 101                                   # grid verts per side
-D_BOWL = 0.22
-H_RIM = 0.11
+D_BOWL = {"snow": 0.22, "ice": 0.07, "earth": 0.17}[PROFILE]
+H_RIM = {"snow": 0.11, "ice": 0.025, "earth": 0.09}[PROFILE]
 G_DEPTH = 0.045
 G_HALF = 0.028                            # a groove's half width (m)
 
@@ -68,7 +69,7 @@ sk = sk * sk * (3 - 2 * sk)
 h = h * (1.0 - sk)
 
 # --- the fault lines: wandering radial fractures (Voronoi-seeded angles), one branch each, as V-grooves -------
-n_cr = int(rng.integers(7, 10))
+n_cr = int(rng.integers(11, 15)) if PROFILE == "ice" else int(rng.integers(7, 10))
 base = np.sort((np.arange(n_cr) + rng.uniform(-0.3, 0.3, n_cr)) / n_cr * 2 * math.pi)
 paths = []                                            # polylines in metres
 for k, a0 in enumerate(base):
@@ -91,7 +92,7 @@ for k, a0 in enumerate(base):
             ba += rng.normal(0, 0.015)
             bp.append((br * math.cos(ba), br * math.sin(ba)))
         paths.append(bp)
-n_run = 1 + int(rng.random() < 0.5)
+n_run = (2 + int(rng.random() < 0.5)) if PROFILE == "ice" else (1 + int(rng.random() < 0.5))
 for k in range(n_run):                               # the runners: out across the skirt
     a = rng.uniform(0, 2 * math.pi)
     r = R * 0.9

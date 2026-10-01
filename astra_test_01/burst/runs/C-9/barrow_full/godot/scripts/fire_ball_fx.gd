@@ -476,7 +476,8 @@ static func tighten_wanted() -> bool:
 	var i := args.find("--fb")
 	if q == "" and i >= 0 and i + 1 < args.size():
 		q = String(args[i + 1])
-	return q.to_lower() == "c75"
+	# R-C9-118 (Matt: "I like the smaller fireball. It's perfect."): c75 is her DEFAULT; ?fb=full is the old burst
+	return q.to_lower() != "full"
 
 
 func _collapse(i: int) -> void:

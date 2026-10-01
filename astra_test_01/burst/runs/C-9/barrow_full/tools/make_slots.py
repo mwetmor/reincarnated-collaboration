@@ -194,12 +194,12 @@ assert OUT["barb_t1211"]["body_md5"] == "3e32a9fc" and OUT["barb_f25l"]["body_md
 
 # ---- THE DARK KNIGHT (c=warlord) --------------------------------------------------------------------------------
 WD = G / "models/warlord"
-FH = C9 / "wl_e1/export/final_h"
+FH = C9 / "wl_e1/export/final_i"      # R-C9-118 deploy: the stage-I export (c6ee8e884)
 for f in ("wl_body.glb", "wl_mace.glb", "wl_chest.glb", "wl_pauldrons.glb", "wl_helm.glb", "wl_cape.glb"):
     put(FH / f, WD / f)
 wl = jload(C9 / "wl_e1/work/character_wl.json")
 man = copy.deepcopy(herm)
-man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_h, 1.96 m), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
+man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_i, 1.96 m; R-C9-118: stage I -- the raised idle chin, the mace at shoulder height, cape v2), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
 man["body"] = "wl_body.glb"
 man["body_sha256"] = ""
 man["height_m"] = 1.96
@@ -215,7 +215,7 @@ ch = copy.deepcopy(her)
 for k in list(ch.keys()):
     if k.startswith("_") or k in ("casts", "strikes_need_armed", "gear_stack_detail", "layers_knight_lacks", "roles_knight_lacks"):
         ch.pop(k)
-ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_h): his clips idle walk run attack hit death warcry; SLASH = the mace "
+ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_i): his clips idle walk run attack hit death warcry; SLASH = the mace "
                "attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays "
                "her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).")
 ch["model"] = "res://models/warlord/wl_body.glb"

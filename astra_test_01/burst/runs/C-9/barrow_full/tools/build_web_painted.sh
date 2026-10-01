@@ -313,7 +313,7 @@ SPELLS
 WANT_FB=${WANT_SPELLS%%,*}
 echo "$SLINE" | grep -q "$WANT_FB" && ck 0 "her Fire Ball armed at its release ($WANT_FB, from her package)" || ck 1 "her Fire Ball's release (wanted $WANT_FB)"
 FB=$(echo "$SLINE" | sed -n 's/.*fire_ball=\([^ ]*\).*/\1/p')
-echo "$FB" | grep -q "^baked(pages=2,px=4096x[0-9]*,frames=[0-9]*,impact_sets=2,sha_ok)$" \
+echo "$FB" | grep -q "^baked(pages=2,px=4096x[0-9]*,frames=[0-9]*,impact_sets=2,sha_ok)\(+c75\)\?$" \
   && ck 0 "her FIRE BALL baked and loaded from her pack: $FB" || ck 1 "her Fire Ball (got '$FB')"
 if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log"; then
   ck 1 "her launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_sorceress.log" | head -12 >&2
@@ -345,8 +345,8 @@ fi
 # the crater, the warp in the post pass, no ring, the shadow on; ?meteor_shadow=0 turns the shadow off;
 # ?meteor=mix2 is MIX v2; ?meteor=mix1 (fetched, Chrome) the first mix; ?meteor=b lane B as shipped;
 # ?meteor=placeholder falls back
-echo "$SLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=on)" \
-  && ck 0 "her default Meteor is MIX v3 (the ball of fire, A's burst, the crater, the warp, no ring, shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
+echo "$SLINE" | grep -q "meteor=mix4(fall=lane_b_core,impact=lane_a,burn=crater_v4,warp=post,ring=off,shadow=on,fall_s=0.82)" \
+  && ck 0 "her default Meteor is MIX v4 (R-C9-118: crater v4)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor mix2 > "$LOG/launch_meteor_mix2.log" 2>&1 || true
 M2LINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_mix2.log" | head -1 || true)
@@ -356,8 +356,8 @@ grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix2.l
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor-shadow 0 > "$LOG/launch_meteor_noshadow.log" 2>&1 || true
 NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
-echo "$NLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=off)" \
-  && ck 0 "?meteor_shadow=0: MIX v3 without the shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
+echo "$NLINE" | grep -q "meteor=mix4(fall=lane_b_core,impact=lane_a,burn=crater_v4,warp=post,ring=off,shadow=off,fall_s=0.82)" \
+  && ck 0 "?meteor_shadow=0: MIX v4 without the shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
 # ?meteor=mix4 (R-C9-109): CRATER v4 -- the real 3D crater, painted, with its particles; not her default until Matt's look
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor mix4 > "$LOG/launch_meteor_mix4.log" 2>&1 || true
@@ -368,10 +368,10 @@ grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix4.l
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/" | grep -q -v "^0$" && ck 0 "crater v4's meshes and paintings in her pack" || ck 1 "crater v4's data missing from her pack"
 # ?fb=c75 (R-C9-110): her Fire Ball's burst tightened to 0.75; the default stays as it was until Matt's look
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
-  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --fb c75 > "$LOG/launch_fb_c75.log" 2>&1 || true
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --fb full > "$LOG/launch_fb_c75.log" 2>&1 || true
 FLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_fb_c75.log" | head -1 || true)
-echo "$FLINE" | grep -q "sha_ok)+c75" && echo "$SLINE" | grep -q "sha_ok)" && ! echo "$SLINE" | grep -q "+c75" \
-  && ck 0 "?fb=c75: the condensed burst (fire_ball=baked(...)+c75); the default unchanged" || ck 1 "?fb=c75 (got: $(echo "$FLINE" | grep -o 'fire_ball=[^ ]*'))"
+echo "$SLINE" | grep -q "sha_ok)+c75" && echo "$FLINE" | grep -q "sha_ok)" && ! echo "$FLINE" | grep -q "+c75" \
+  && ck 0 "R-C9-118: her default Fire Ball is c75 (fire_ball=baked(...)+c75); ?fb=full the old burst" || ck 1 "fb default / ?fb=full (got: $(echo "$SLINE" | grep -o 'fire_ball=[^ ]*') / $(echo "$FLINE" | grep -o 'fire_ball=[^ ]*'))"
 grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_fb_c75.log" && ck 1 "?fb=c75 launch errors" || ck 0 "?fb=c75 launch free of script and shader errors"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true

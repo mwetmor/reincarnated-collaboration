@@ -580,7 +580,30 @@ func _load_splat(sp: Dictionary) -> ImageTexture:
 	if err != OK:
 		push_error("barrow_full: splat decode failed (%d)" % err)
 		return null
+	splat_img = img
+	splat_frame = Rect2(Vector2(float(sp["origin_xz"][0]), float(sp["origin_xz"][1])), Vector2(float(sp["size_m"][0]), float(sp["size_m"][1])))
 	return ImageTexture.create_from_image(img)
+
+
+var splat_img: Image = null          # R-C9-118 (b): the ground classes, read at an impact
+var splat_frame := Rect2()
+
+
+func ground_class(p: Vector3) -> String:
+	"""R-C9-118 (b): the ground under p from the splat (R path, G rock (unused), B shrub, A ice; snow the rest):
+	"ice", "earth" (path or shrub ground) or "snow"."""
+	if splat_img == null:
+		return "snow"
+	var uv := (Vector2(p.x, p.z) - splat_frame.position) / splat_frame.size
+	var px := clampi(int(uv.x * splat_img.get_width()), 0, splat_img.get_width() - 1)
+	var py := clampi(int(uv.y * splat_img.get_height()), 0, splat_img.get_height() - 1)
+	var c := splat_img.get_pixel(px, py)
+	var snow := 1.0 - c.r - c.g - c.b - c.a
+	if c.a >= 0.5 and c.a >= snow:
+		return "ice"
+	if c.r + c.g + c.b >= 0.5 and c.r + c.g + c.b >= snow:
+		return "earth"
+	return "snow"
 
 
 # --- the mound and the door's passage -----------------------------------------------------
@@ -2106,13 +2129,17 @@ func _dress_painted() -> void:
 		_paint_mesh(mi, mat_paint, true)
 		n["mound"] += 1
 	var bakes: Dictionary = man["bakes"]
+	# R-C9-118 (c): the dressing (stones, birches, the baked models) chars in an impact; the ground and the mound do not
+	# -- the same shader, a second material with char_ok (no new pipeline)
+	var mat_dress: ShaderMaterial = mat_paint.duplicate()
+	mat_dress.set_shader_parameter("char_ok", true)
 	for e in layout["placements"]:
 		var id := String(e["id"])
 		if id == "mound" or not nodes.has(id):
 			continue
 		if String(e["kind"]) == "primitive" or String(e.get("class", "")) == "birch":
 			for mi in _meshes(nodes[id]):
-				_paint_mesh(mi, mat_paint, true)
+				_paint_mesh(mi, mat_dress, true)
 			n["birches" if String(e.get("class", "")) == "birch" else "primitives"] += 1
 			continue
 		if not bakes.has(id):
@@ -2121,6 +2148,7 @@ func _dress_painted() -> void:
 		var b: Dictionary = bakes[id]
 		var tex := PaintedWorld.load_png_bin(String(b["file"]), String(b["sha256"]), true, loads)
 		var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
+		mat.set_shader_parameter("char_ok", true)
 		for mi in _meshes(nodes[id]):
 			_paint_mesh(mi, mat, true)
 			n["baked_meshes"] += 1

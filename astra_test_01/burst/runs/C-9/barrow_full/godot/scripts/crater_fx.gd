@@ -31,6 +31,7 @@ uniform float age = 100.0;             // s since the impact
 uniform float seed = 0.0;
 uniform float fade = 1.0;              // the pool's eviction fade
 uniform float warm = 0.0;
+uniform float scorch_only = 0.0;      // R-C9-118 (a): the soot round an object's base only (no bowl, no cracks)
 uniform float fx_time = 0.0;
 uniform vec2 sun_xz = vec2(0.5, 0.5);  // toward the sun, on the ground (its length: how low it is)
 uniform float sun_y = 0.7;
@@ -94,6 +95,16 @@ void fragment() {
 	float rim_line = (1.0 - smoothstep(0.0, 0.035 + px, abs(rw - 1.0) * R)) * (0.4 + 0.6 * shade);
 	col = mix(col, ink, rim_line * 0.85);
 	a = max(a, rim_line * 0.9);
+	if (scorch_only > 0.5) {
+		// soot in two torn washes round the strike, cooling embers in it for the field's first seconds
+		float sw = (0.6 * (1.0 - smoothstep(0.55 - px, 0.55 + px, sr)) + 0.3 * (1.0 - smoothstep(1.0 - px, 1.0 + px, sr)));
+		float emb = (1.0 - smoothstep(0.0, 0.45, rw)) * clamp(1.0 - age / 4.0, 0.0, 1.0) * smoothstep(0.62, 0.8, n2);
+		vec3 sc = mix(char_c * 0.8, vec3(1.0, 0.4, 0.08), emb);
+		float sa = max(sw, emb) * fade;
+		if (sa < 0.01) { discard; }
+		ALBEDO = sc;
+		ALPHA = clamp(sa, 0.0, 1.0);
+	} else {
 	// --- THE FAULT LINES ---------------------------------------------------------------------------------
 	float heat0 = clamp(1.0 - age / 5.2, 0.0, 1.0);             // the fire's whole cooling, 0 by about 5 s
 	float crack_ink = 0.0;
@@ -155,6 +166,7 @@ void fragment() {
 	if (a < 0.01) { discard; }
 	ALBEDO = col;
 	ALPHA = clamp(a, 0.0, 1.0);
+	}
 }
 """
 

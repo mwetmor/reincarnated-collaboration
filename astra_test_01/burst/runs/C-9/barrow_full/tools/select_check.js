@@ -16,9 +16,9 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['barbarian', { b_hold: 'f40l' }, 'c=barbarian&hold=f40l'],
     ['barbarian', { b_armor: 'gladc' }, 'c=barbarian&armor=gladc'],
     ['barbarian', { b_armor: 'gladb' }, 'c=barbarian&armor=gladb'],
-    ['sorceress', {}, 'c=sorceress&meteor=mix3'],
-    ['sorceress', { s_armor: 'bmc' }, 'c=sorceress&armor=bmc&meteor=mix3'],
-    ['sorceress', { s_armor: 'bmd', s_fb: 'c75', s_meteor: 'mix4', s_fall: '2.4' }, 'c=sorceress&armor=bmd&fb=c75&meteor=mix4&fall=2.4'],
+    ['sorceress', {}, 'c=sorceress'],
+    ['sorceress', { s_armor: 'bmc', s_meteor: 'mix3' }, 'c=sorceress&armor=bmc&meteor=mix3'],
+    ['sorceress', { s_armor: 'bmd', s_fb: 'full', s_fall: '2.4' }, 'c=sorceress&armor=bmd&fb=full&fall=2.4'],
     ['warlord', {}, 'c=warlord'],
   ];
   const rows = [];

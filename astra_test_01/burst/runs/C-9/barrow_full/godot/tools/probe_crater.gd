@@ -34,6 +34,9 @@ func _initialize() -> void:
 		await process_frame
 	var rows := []
 	var spots := [[-1.0, -0.5, "E"], [-1.6, 0.6, "E"], [0.2, 1.2, "N"], [-0.4, -1.6, "S"], [0.8, -0.2, "W"]]
+	if args.has("--place"):
+		var pp := String(args[args.find("--place") + 1]).split(",")
+		spots = [[float(pp[0]), float(pp[1]), String(pp[2])]]
 	for n in casts:
 		var sp: Array = spots[n % spots.size()]
 		scene.place_knight(float(sp[0]), float(sp[1]), String(sp[2]))
