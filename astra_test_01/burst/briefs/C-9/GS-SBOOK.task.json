@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST GS-SBOOK -- Run C-9 Phase 2 (Matt R-C9-98): the battle mage's STEEL-BOUND GRIMOIRE as a MODEL SHEET for 3D. task_id \"GS-SBOOK\".\n\nIMAGE 1 is her approved character sheet (the woman who carries this book in one hand; for scale and hand). IMAGE 2 is a STYLE reference ONLY.\nDeliver ONE 1536x1024 sheet on flat pure #00ff00 showing ONE object alone (no hands, no person, no chain, no strap), in FOUR orthographic views side by side across the sheet, at ONE common scale, the bottom of each view on one ground line, nothing overlapping:\nTHE GRIMOIRE, CLOSED and standing upright: a thick book about 30 cm tall, 22 cm wide and 7 cm thick (a little taller than her hand is long); covers of dark oxblood leather BOUND IN STEEL: blackened steel CORNER PIECES on all eight corners, a steel band along the spine, and TWO steel CLASPS holding it shut across the fore-edge; on the front cover a steel boss set with a small EMBER CRYSTAL, orange-red, ringed with ember-red runes etched into the steel; the back cover plain leather with its steel corners and a small central steel boss.\nProportions: height to width about 4 to 3; height to thickness about 4 to 1.\nFIRST (left), the FRONT COVER face-on; SECOND, TURNED 90 DEGREES to show the SPINE face-on; THIRD, TURNED 180 DEGREES, the BACK COVER face-on; FOURTH (right), TURNED 270 DEGREES to show the FORE-EDGE face-on (the cream page edges between the covers, the two clasps across them).\nThe object is the same in every view (a 3D model will be built from them). Paint in the STYLE reference's hand (dark ink line, transparent washes, hatching), matched to IMAGE 1. Soft even light, no glow, no cast shadows, no ground, no text, no labels.\nBACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\nTwo image_gen calls: variants a and b. NO RETRIES (the image budget is fixed): if a variant has a fault, deliver it anyway and NAME it in concerns -- a view missing, the book differing between views, it is open, the proportions are far from 4:3:1, or the clasps are missing, a hand or person appearing, or text appearing. Copy outputs to out/GS-SBOOK_a.png and out/GS-SBOOK_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"GS-SBOOK\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/SO-1_b_harvest.png",
+   "role": "IMAGE 1 -- her approved base sheet (SO-1 variant b): the woman who carries this, for scale and hand"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the hand; never its character, costume, staff or pose"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 12,
+ "outputs": [
+  "out/GS-SBOOK_a.png",
+  "out/GS-SBOOK_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-98-gear-sets"
+}
