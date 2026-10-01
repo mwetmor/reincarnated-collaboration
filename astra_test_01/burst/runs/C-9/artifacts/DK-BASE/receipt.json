@@ -1,0 +1,38 @@
+{
+  "task_id": "DK-BASE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-BASE",
+      "path": "out/DK-BASE.png",
+      "sha256": "acf0ab195ac8243d0581a2dcf11eeedde57e7e28a3676c26342b67b84f607697",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the approved armoured knight sheet; IMAGE 2 is ONLY a reference for the hand-painted rendering, never its character, costume, staff or pose. Deliver one 1024x1536 portrait sheet. Preserve IMAGE 1's exact 2x2 layout: top-left FRONT, top-right RIGHT side facing screen-right, bottom-left BACK, bottom-right LEFT side facing screen-left. REGISTRATION FIRST: lock the original canvas, original poses and every existing hand, finger, foot, sole, leg and arm to its EXACT original pixel location. Do not recompose, recenter, move, enlarge or reduce any figure. Leave all retained armour pixels unchanged. Only edit the removed equipment regions.\nRemove these four equipment groups in ALL four views: (1) entire helmet, horns and visor, exposing the same man's head: pale, gaunt, stern, about forty, close-cropped black hair, clean-shaven, closed mouth, open eyes looking straight ahead in each view; head proportionally small for his existing tall body, with plain near-black padded throat collar; (2) BOTH pauldrons, exposing rounded shoulders in fitted near-black quilted arming doublet; (3) breastplate AND backplate, exposing this same close-fitting near-black quilted arming doublet on chest, belly and back with fine violet stitching, preserving belt exactly; (4) entire cape, every panel gone in front, sides and back, leaving pure green background where it hung. Nothing hangs behind him.\nKEEP UNCHANGED: existing arm plates, articulated gauntlets, broad GOLD filigree band on his anatomical LEFT forearm ONLY, plated fauld and tassets over hips, all leg plates and pointed sabatons, and belt. No redesign or simplification of retained pieces. Preserve their contours, ornament, colour and locations. The gold forearm band appears screen-right in front view, screen-left in back view, and in the lower-right left-side view.\nPaint in IMAGE 1's own hand and colours, supported only by IMAGE 2's watercolor-and-ink technique. Late-medieval/early-Renaissance illuminated manuscript palette and armour iconography, rendered as hand-painted 1990s tactics role-playing character illustration: crisp dark sepia-to-near-black variable pen contours, fine hand-drawn hatching, transparent uneven watercolor washes, pooling, granulation and soft blooms, pale cream paper highlights. A second darker wash and hatching model shade, never smooth digital gradients. Calm moderate mineral hues, existing gold ornament preserved. Near-black cloth should have visible pale wash variation and fine violet stitching rather than a flat solid fill. Soft even daylight from screen upper-left, no cast shadows, no ground, no text or labels. No glossy highlights, glow, rim light, lens effects or airbrushing. Flat pure #00ff00 background everywhere outside figures. Reiterate: same four poses, hands and soles on exactly IMAGE 1's pixels; remove only the named pieces and reveal the fitted underlayers.",
+      "references": [
+        {
+          "role": "IMAGE 1 — approved armoured four-view sheet; edit target and registration reference",
+          "path": "in/01_DK-A1_r1.png"
+        },
+        {
+          "role": "IMAGE 2 — style reference only",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 47.533
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output has a dark gradient background instead of pure #00ff00; delivered as explicitly instructed.",
+      "Visual inspection found no clear registration drift or remaining removal-target pieces; exact pixel registration is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-BASE.png",
+      "sha256": "acf0ab195ac8243d0581a2dcf11eeedde57e7e28a3676c26342b67b84f607697"
+    }
+  ]
+}

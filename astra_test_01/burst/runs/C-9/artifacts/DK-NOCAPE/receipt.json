@@ -1,0 +1,39 @@
+{
+  "task_id": "DK-NOCAPE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-NOCAPE",
+      "path": "out/DK-NOCAPE.png",
+      "sha256": "36d4c9d1a0c3670ea71672a0eafd3bf1a7ce403f6f7fbe417d6382e64168245b",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the supplied 1024x1536 portrait armoured four-view sheet. IMAGE 2 is STYLE ONLY: hand-painted watercolor and ink, never copy its character, costume, staff, pose or magenta background. Deliver ONE 1024x1536 sheet. REGISTRATION IS THE FIRST RULE: retain IMAGE 1's exact canvas, 2x2 layout, camera, proportions, poses and pixel positions. Top-left FRONT; top-right his RIGHT side facing screen-right; bottom-left BACK; bottom-right his LEFT side facing screen-left. Keep every existing hand, foot, sole, leg and arm on EXACTLY the same pixels, with identical ground lines. Do not move, resize or redraw any existing exposed armour. Change ONLY the cape: REMOVE the long purple cape completely in all four views, including its gold borders and attachments; nothing hangs behind him. Replace cape-only silhouette areas with flat pure #00ff00. Where the cape concealed his body, reveal anatomically coherent matching armour: near-black steel backplate with restrained violet colour and fine gold filigree matching his breastplate; backs of layered pauldrons; backs of fauld, thigh and leg plates. Preserve the FRONT tabard and existing hip armour: those are not cape. CHANGE NOTHING ELSE: helmet, horns, visor, pauldrons, breastplate, arms, gauntlets, gold band on his LEFT forearm, legs and sabatons retain exact original shapes, details, colours and positions. Paint new armour in IMAGE 1's own hand and colours. Rendering is hand-painted watercolor-and-ink character illustration: crisp dark sepia-to-near-black slightly wavering variable pen contour and hand hatching; uneven transparent washes with pooling, granulation and pale paper highlights, no smooth digital gradients. Soft even daylight from screen upper-left, no cast shadows, no glow, no rim light, no glossy highlights. Manuscript-derived medieval armour and fine ornament, subdued mineral colours, pale cream highlights and restrained rich accents, ink and hatching the darkest marks. No ground, no text, no labels, no props. Background remains flat pure #00ff00 throughout. This is a localized cape removal, preserve every original visible non-cape pixel as faithfully as possible.",
+      "references": [
+        {
+          "role": "EDIT TARGET — approved armoured four-view sheet",
+          "path": "in/01_DK-A1_r1.png"
+        },
+        {
+          "role": "STYLE ONLY — watercolor-and-ink hand",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 37.251
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Cape removed in all four views, revealing matching armour.",
+      "The model returned a dark gradient background instead of pure #00ff00; delivered as explicitly instructed.",
+      "Existing armour highlights and surface details changed. Hands and soles appear visually aligned, but exact pixel registration is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-NOCAPE.png",
+      "sha256": "36d4c9d1a0c3670ea71672a0eafd3bf1a7ce403f6f7fbe417d6382e64168245b"
+    }
+  ]
+}

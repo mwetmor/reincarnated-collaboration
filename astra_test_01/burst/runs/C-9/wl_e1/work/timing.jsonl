@@ -4,3 +4,7 @@
 {"ev": "end", "step": "A-sheets", "t": 1790828972.859054, "note": "6 Astra images (A1 2, A2 2, mace 2: each retried once by Astra on drift/proportion); visual check + mirror IoU r1: A1 0.722, A2 0.866 (first calls on dark plate, unscorable by key)"}
 {"ev": "start", "step": "B-build", "t": 1790828972.882685, "note": "cutouts (chroma key, free) of A1_r1 and A2_r1; both built in Tripo to pick by 3D evidence"}
 {"ev": "wait", "step": "B-build", "s": 174.0, "what": "tripo x2 parallel"}
+{"ev": "wait", "step": "B-build", "s": 198.0, "what": "tripo mace"}
+{"ev": "wait", "step": "B-build", "s": 190.0, "what": "tripo base+nocape parallel"}
+{"ev": "wait", "step": "B-build", "s": 9.0, "what": "tripo base+nocape (correction to 199 s)"}
+{"ev": "end", "step": "B-build", "t": 1790832276.063639, "note": "base (DK-BASE edit, registered: soles 0-2 px) + nocape + mace built; base 3D IoU vs sheet 0.881 (F .914 R .910 B .803 L .900); prep: 1 island, 1.96 m, 290k faces, yaw -90 (gold band on +Y = his left, faces +X raw)"}
