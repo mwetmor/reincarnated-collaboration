@@ -1,0 +1,34 @@
+{
+ "source": "/Users/admin/Games/reincarnated-engine/data/kc2/resid_d1_2_action_permission_matrix.json",
+ "sha256": "ad3058664b87945a5c9f8180e5dde36e5a287df0ec36071e3df72b1c5d7766b3",
+ "indexing": "permission[newType*26 + curType] (RESID-D1-2 findings.md:32); grid[new][cur]",
+ "semantics": {
+  "0": "REPLACE",
+  "1": "PENDING",
+  "2": "REJECT",
+  "3": "DEFER",
+  "4": "interrupt-then-replace"
+ },
+ "cells": {
+  "new 8 AttackAction while current 19 SpawnAction": [
+   1,
+   "PENDING"
+  ],
+  "new 4 MoveToAction while current 19 SpawnAction": [
+   1,
+   "PENDING"
+  ],
+  "new 5 WalkAction while current 19 SpawnAction": [
+   1,
+   "PENDING"
+  ],
+  "new 11 TakeHitAction while current 19 SpawnAction": [
+   2,
+   "REJECT"
+  ],
+  "new 15 DieAction while current 19 SpawnAction": [
+   0,
+   "REPLACE"
+  ]
+ }
+}

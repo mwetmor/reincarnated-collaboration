@@ -1,0 +1,38 @@
+?LoadFromDatabase@GameEngine@GAME@@ excerpt  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+meleeRange->+0xc48 shortRange->+0xc4c moderateRange->+0xc50 longRange->+0xc54 maximumRange->+0xc58 bossRange->+0xc5c
+  0x0024e2a6  mov      ecx, ebx
+  0x0024e2a8  fstp     dword ptr [edi + 0xc14]
+  0x0024e2ae  mov      eax, dword ptr [eax + 0x24]
+  0x0024e2b1  push     0x1054e748
+  0x0024e2b6  call     eax
+  0x0024e2b8  mov      eax, dword ptr [ebx]
+  0x0024e2ba  push     ecx
+  0x0024e2bb  mov      dword ptr [esp], 0
+  0x0024e2c2  mov      ecx, ebx
+  0x0024e2c4  fstp     dword ptr [edi + 0xc48]
+  0x0024e2ca  mov      eax, dword ptr [eax + 0x24]
+  0x0024e2cd  push     0x1054e754
+  0x0024e2d2  call     eax
+  0x0024e2d4  mov      eax, dword ptr [ebx]
+  0x0024e2d6  push     ecx
+  0x0024e2d7  mov      dword ptr [esp], 0
+  0x0024e2de  mov      ecx, ebx
+  0x0024e2e0  fstp     dword ptr [edi + 0xc4c]
+  0x0024e2e6  mov      eax, dword ptr [eax + 0x24]
+  0x0024e2e9  push     0x1054e7a0
+  0x0024e2ee  call     eax
+  0x0024e2f0  mov      eax, dword ptr [ebx]
+  0x0024e2f2  push     ecx
+  0x0024e2f3  mov      dword ptr [esp], 0
+  0x0024e2fa  mov      ecx, ebx
+  0x0024e2fc  fstp     dword ptr [edi + 0xc50]
+  0x0024e302  mov      eax, dword ptr [eax + 0x24]
+  0x0024e305  push     0x1054e7b0
+  0x0024e30a  call     eax
+  0x0024e30c  mov      eax, dword ptr [ebx]
+  0x0024e30e  push     ecx
+  0x0024e30f  mov      dword ptr [esp], 0
+  0x0024e316  mov      ecx, ebx
+  0x0024e318  fstp     dword ptr [edi + 0xc54]
+  0x0024e31e  mov      eax, dword ptr [eax + 0x24]
+  0x0024e321  push     0x1054e784

@@ -1,0 +1,142 @@
+?IsSkillInProperRange@ControllerMonster@GAME@@QBE_NIW4SkillUseRange@@@Z  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+enum 0 (AnyRange/unparsed) -> TRUE; 1/2/3 -> [min,max] at +0x550/+0x558/+0x560; d_edge = max(0.5, centre - (r_target + r_self)); admit iff min < d_edge < max
+  0x000f8660  push     ebp
+  0x000f8661  mov      ebp, esp
+  0x000f8663  sub      esp, 0x7c
+  0x000f8666  push     esi
+  0x000f8667  mov      esi, dword ptr [ebp + 0xc]
+  0x000f866a  push     edi
+  0x000f866b  mov      edi, ecx
+  0x000f866d  test     esi, esi
+  0x000f866f  jne      0x100f867b
+  0x000f8671  pop      edi
+  0x000f8672  mov      al, 1
+  0x000f8674  pop      esi
+  0x000f8675  mov      esp, ebp
+  0x000f8677  pop      ebp
+  0x000f8678  ret      8
+  0x000f867b  push     ebx
+  0x000f867c  push     dword ptr [ebp + 8]
+  0x000f867f  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f8685  mov      ecx, eax
+  0x000f8687  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000f868c  mov      ebx, eax
+  0x000f868e  test     ebx, ebx
+  0x000f8690  jne      0x100f869d
+  0x000f8692  pop      ebx
+  0x000f8693  pop      edi
+  0x000f8694  xor      al, al
+  0x000f8696  pop      esi
+  0x000f8697  mov      esp, ebp
+  0x000f8699  pop      ebp
+  0x000f869a  ret      8
+  0x000f869d  xorps    xmm0, xmm0
+  0x000f86a0  movss    dword ptr [ebp + 0xc], xmm0
+  0x000f86a5  movss    xmm0, dword ptr [0x105f6ab0]   ; f32=20 i32=1101004800 f64=5.36871e+08
+  0x000f86ad  movss    dword ptr [ebp + 8], xmm0
+  0x000f86b2  sub      esi, 1
+  0x000f86b5  je       0x100f86ef
+  0x000f86b7  sub      esi, 1
+  0x000f86ba  je       0x100f86d8
+  0x000f86bc  sub      esi, 1
+  0x000f86bf  jne      0x100f8709
+  0x000f86c1  movss    xmm0, dword ptr [edi + 0x560]
+  0x000f86c9  movss    dword ptr [ebp + 0xc], xmm0
+  0x000f86ce  movss    xmm0, dword ptr [edi + 0x564]
+  0x000f86d6  jmp      0x100f8704   ; -> ?IsSkillInProperRange@ControllerMonster@GAME@@QBE_NIW4SkillUseRange@@@Z+0xa4
+  0x000f86d8  movss    xmm0, dword ptr [edi + 0x558]
+  0x000f86e0  movss    dword ptr [ebp + 0xc], xmm0
+  0x000f86e5  movss    xmm0, dword ptr [edi + 0x55c]
+  0x000f86ed  jmp      0x100f8704   ; -> ?IsSkillInProperRange@ControllerMonster@GAME@@QBE_NIW4SkillUseRange@@@Z+0xa4
+  0x000f86ef  movss    xmm0, dword ptr [edi + 0x550]
+  0x000f86f7  movss    dword ptr [ebp + 0xc], xmm0
+  0x000f86fc  movss    xmm0, dword ptr [edi + 0x554]
+  0x000f8704  movss    dword ptr [ebp + 8], xmm0
+  0x000f8709  push     dword ptr [edi + 0x24]
+  0x000f870c  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f8712  mov      ecx, eax
+  0x000f8714  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8719  mov      esi, dword ptr [0x104e628c]   ; f32=1.16524e-38 i32=8315442 f64=2.7488e-306
+  0x000f871f  lea      ecx, [ebp - 0x48]
+  0x000f8722  push     ecx
+  0x000f8723  mov      ecx, eax
+  0x000f8725  call     esi
+  0x000f8727  push     eax
+  0x000f8728  lea      eax, [ebp - 0x14]
+  0x000f872b  mov      ecx, ebx
+  0x000f872d  push     eax
+  0x000f872e  lea      eax, [ebp - 0x7c]
+  0x000f8731  push     eax
+  0x000f8732  call     esi
+  0x000f8734  mov      ecx, eax
+  0x000f8736  call     dword ptr [0x104e6524]   ; f32=1.16645e-38 i32=8324048 f64=2.76048e-306
+  0x000f873c  movss    xmm1, dword ptr [eax + 4]
+  0x000f8741  movss    xmm2, dword ptr [eax]
+  0x000f8745  movss    xmm0, dword ptr [eax + 8]
+  0x000f874a  mulss    xmm2, xmm2
+  0x000f874e  mulss    xmm1, xmm1
+  0x000f8752  mulss    xmm0, xmm0
+  0x000f8756  addss    xmm2, xmm1
+  0x000f875a  addss    xmm2, xmm0
+  0x000f875e  ucomiss  xmm2, dword ptr [0x105f690c]   ; f32=0 i32=0 f64=0
+  0x000f8765  lahf     
+  0x000f8766  test     ah, 0x44
+  0x000f8769  jp       0x100f8774
+  0x000f876b  mov      dword ptr [ebp - 4], 0
+  0x000f8772  jmp      0x100f8780   ; -> ?IsSkillInProperRange@ControllerMonster@GAME@@QBE_NIW4SkillUseRange@@@Z+0x120
+  0x000f8774  xorps    xmm0, xmm0
+  0x000f8777  sqrtss   xmm0, xmm2
+  0x000f877b  movss    dword ptr [ebp - 4], xmm0
+  0x000f8780  push     dword ptr [edi + 0x24]
+  0x000f8783  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f8789  mov      ecx, eax
+  0x000f878b  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8790  mov      edx, dword ptr [ebx]
+  0x000f8792  mov      ecx, ebx
+  0x000f8794  mov      esi, eax
+  0x000f8796  mov      edx, dword ptr [edx + 0xe4]
+  0x000f879c  call     edx
+  0x000f879e  mov      eax, dword ptr [esi]
+  0x000f87a0  mov      ecx, esi
+  0x000f87a2  fstp     dword ptr [ebp - 8]
+  0x000f87a5  mov      eax, dword ptr [eax + 0xe4]
+  0x000f87ab  call     eax
+  0x000f87ad  fadd     dword ptr [ebp - 8]
+  0x000f87b0  movss    xmm0, dword ptr [0x105f69dc]   ; f32=0.5 i32=1056964608 f64=3.05225e-05
+  0x000f87b8  fsubr    dword ptr [ebp - 4]
+  0x000f87bb  fstp     dword ptr [ebp - 8]
+  0x000f87be  movss    xmm1, dword ptr [ebp - 8]
+  0x000f87c3  comiss   xmm1, xmm0
+  0x000f87c6  ja       0x100f87cb
+  0x000f87c8  movaps   xmm1, xmm0
+  0x000f87cb  comiss   xmm1, dword ptr [ebp + 0xc]
+  0x000f87cf  jbe      0x100f87e9
+  0x000f87d1  movss    xmm0, dword ptr [ebp + 8]
+  0x000f87d6  comiss   xmm0, xmm1
+  0x000f87d9  jbe      0x100f87e9
+  0x000f87db  pop      ebx
+  0x000f87dc  pop      edi
+  0x000f87dd  mov      eax, 1
+  0x000f87e2  pop      esi
+  0x000f87e3  mov      esp, ebp
+  0x000f87e5  pop      ebp
+  0x000f87e6  ret      8
+  0x000f87e9  pop      ebx
+  0x000f87ea  pop      edi
+  0x000f87eb  xor      eax, eax
+  0x000f87ed  pop      esi
+  0x000f87ee  mov      esp, ebp
+  0x000f87f0  pop      ebp
+  0x000f87f1  ret      8
+  0x000f87f4  int3     
+  0x000f87f5  int3     
+  0x000f87f6  int3     
+  0x000f87f7  int3     
+  0x000f87f8  int3     
+  0x000f87f9  int3     
+  0x000f87fa  int3     
+  0x000f87fb  int3     
+  0x000f87fc  int3     
+  0x000f87fd  int3     
+  0x000f87fe  int3     
+  0x000f87ff  int3     

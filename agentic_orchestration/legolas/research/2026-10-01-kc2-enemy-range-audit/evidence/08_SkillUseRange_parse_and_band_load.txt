@@ -1,0 +1,94 @@
+band enum parser (ShortRange=1 MediumRange=2 LongRange=3 else 0) + ?InitSkillsInController@Monster excerpt loading short/medium/longRange{Min,Max} into ControllerMonster+0x550..0x564 (binary defaults 0/4, 4/8, 8/16)  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+  0x000fdc50  push     esi
+  0x000fdc51  mov      esi, ecx
+  0x000fdc53  push     edi
+  0x000fdc54  cmp      dword ptr [esi + 0x14], 0x10
+  0x000fdc58  jb       0x100fdc5c
+  0x000fdc5a  mov      ecx, dword ptr [esi]
+  0x000fdc5c  mov      edi, dword ptr [esi + 0x10]
+  0x000fdc5f  mov      eax, 0xa
+  0x000fdc64  cmp      edi, eax
+  0x000fdc66  mov      edx, 0x1052d7d4
+  0x000fdc6b  cmovb    eax, edi
+  0x000fdc6e  push     eax
+  0x000fdc6f  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000fdc74  add      esp, 4
+  0x000fdc77  test     eax, eax
+  0x000fdc79  jne      0x100fdc8a
+  0x000fdc7b  cmp      edi, 0xa
+  0x000fdc7e  jb       0x100fdc8a
+  0x000fdc80  ja       0x100fdc8a
+  0x000fdc82  pop      edi
+  0x000fdc83  mov      eax, 1
+  0x000fdc88  pop      esi
+  0x000fdc89  ret      
+  0x000fdc8a  mov      edx, 0x1052d7ec
+  0x000fdc8f  mov      ecx, esi
+  0x000fdc91  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000fdc96  test     al, al
+  0x000fdc98  je       0x100fdca2
+  0x000fdc9a  pop      edi
+  0x000fdc9b  mov      eax, 2
+----
+  0x002dad45  mov      eax, dword ptr [esi]
+  0x002dad47  push     ecx
+  0x002dad48  mov      dword ptr [esp], 0
+  0x002dad4f  mov      ecx, esi
+  0x002dad51  push     0x10562a38
+  0x002dad56  mov      eax, dword ptr [eax + 0x24]
+  0x002dad59  call     eax
+  0x002dad5b  mov      eax, dword ptr [esi]
+  0x002dad5d  push     ecx
+  0x002dad5e  mov      dword ptr [esp], 0x40800000
+  0x002dad65  mov      ecx, esi
+  0x002dad67  fstp     dword ptr [esp + 0x18]
+  0x002dad6b  mov      eax, dword ptr [eax + 0x24]
+  0x002dad6e  push     0x10562a48
+  0x002dad73  call     eax
+  0x002dad75  mov      eax, dword ptr [esi]
+  0x002dad77  push     ecx
+  0x002dad78  mov      dword ptr [esp], 0x40800000
+  0x002dad7f  mov      ecx, esi
+  0x002dad81  fstp     dword ptr [esp + 0x14]
+  0x002dad85  mov      eax, dword ptr [eax + 0x24]
+  0x002dad88  push     0x10562a18
+  0x002dad8d  call     eax
+  0x002dad8f  mov      eax, dword ptr [esi]
+  0x002dad91  push     ecx
+  0x002dad92  mov      dword ptr [esp], 0x41000000
+  0x002dad99  mov      ecx, esi
+  0x002dad9b  fstp     dword ptr [esp + 0x10]
+  0x002dad9f  mov      eax, dword ptr [eax + 0x24]
+  0x002dada2  push     0x10562a28
+  0x002dada7  call     eax
+  0x002dada9  mov      eax, dword ptr [esi]
+  0x002dadab  push     ecx
+  0x002dadac  mov      dword ptr [esp], 0x41000000
+  0x002dadb3  mov      ecx, esi
+  0x002dadb5  fstp     dword ptr [esp + 0x1c]
+  0x002dadb9  mov      eax, dword ptr [eax + 0x24]
+  0x002dadbc  push     0x10562a6c
+  0x002dadc1  call     eax
+  0x002dadc3  mov      eax, dword ptr [esi]
+  0x002dadc5  push     ecx
+  0x002dadc6  mov      dword ptr [esp], 0x41800000
+  0x002dadcd  mov      ecx, esi
+  0x002dadcf  fstp     dword ptr [esp + 0x20]
+  0x002dadd3  mov      eax, dword ptr [eax + 0x24]
+  0x002dadd6  push     0x10562a7c
+  0x002daddb  call     eax
+  0x002daddd  movss    xmm0, dword ptr [esp + 0x14]
+  0x002dade3  mov      ecx, esi
+  0x002dade5  movss    dword ptr [edi + 0x550], xmm0
+  0x002daded  movss    xmm0, dword ptr [esp + 0x10]
+  0x002dadf3  movss    dword ptr [edi + 0x554], xmm0
+  0x002dadfb  movss    xmm0, dword ptr [esp + 0xc]
+  0x002dae01  movss    dword ptr [edi + 0x558], xmm0
+  0x002dae09  movss    xmm0, dword ptr [esp + 0x18]
+  0x002dae0f  movss    dword ptr [edi + 0x55c], xmm0
+  0x002dae17  movss    xmm0, dword ptr [esp + 0x1c]
+  0x002dae1d  movss    dword ptr [edi + 0x560], xmm0
+  0x002dae25  fstp     dword ptr [esp + 0x20]
+  0x002dae29  movss    xmm0, dword ptr [esp + 0x20]
+  0x002dae2f  movss    dword ptr [edi + 0x564], xmm0
+  0x002dae37  mov      eax, dword ptr [esi]

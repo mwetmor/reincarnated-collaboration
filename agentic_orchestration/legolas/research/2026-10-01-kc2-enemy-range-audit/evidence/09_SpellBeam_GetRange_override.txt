@@ -1,0 +1,13 @@
+?GetRange@Skill_AttackSpellBeam@GAME@@ (also Cone/Drain vtables): IsRunning ? 100.0 : Skill::GetRange  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+  0x003f0420  push     esi
+  0x003f0421  mov      esi, ecx
+  0x003f0423  mov      eax, dword ptr [esi]
+  0x003f0425  mov      eax, dword ptr [eax + 0x2d4]
+  0x003f042b  call     eax
+  0x003f042d  test     al, al
+  0x003f042f  je       0x103f0439
+  0x003f0431  fld      dword ptr [0x105f6ae8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x003f0437  pop      esi
+  0x003f0438  ret      
+  0x003f0439  mov      ecx, esi
+  0x003f043b  pop      esi

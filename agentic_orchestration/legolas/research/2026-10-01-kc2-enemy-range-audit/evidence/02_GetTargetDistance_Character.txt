@@ -1,0 +1,82 @@
+?GetTargetDistance@Character@GAME@@SAMIII@Z  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+= skill->vslot0x120 (Skill::GetRange) + owner->vslot0xe4 (GetRadius) [+ target->vslot0xe4 if target is a Character]
+  0x000491f0  push     ebp
+  0x000491f1  mov      ebp, esp
+  0x000491f3  push     ecx
+  0x000491f4  push     esi
+  0x000491f5  mov      esi, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000491fb  push     edi
+  0x000491fc  push     dword ptr [ebp + 8]
+  0x000491ff  call     esi
+  0x00049201  mov      ecx, eax
+  0x00049203  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x00049208  mov      edi, eax
+  0x0004920a  test     edi, edi
+  0x0004920c  jne      0x10049216
+  0x0004920e  fldz     
+  0x00049210  pop      edi
+  0x00049211  pop      esi
+  0x00049212  mov      esp, ebp
+  0x00049214  pop      ebp
+  0x00049215  ret      
+  0x00049216  push     ebx
+  0x00049217  push     dword ptr [ebp + 0x10]
+  0x0004921a  call     esi
+  0x0004921c  mov      ecx, eax
+  0x0004921e  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x00049223  mov      ebx, eax
+  0x00049225  test     ebx, ebx
+  0x00049227  jne      0x10049232
+  0x00049229  fldz     
+  0x0004922b  pop      ebx
+  0x0004922c  pop      edi
+  0x0004922d  pop      esi
+  0x0004922e  mov      esp, ebp
+  0x00049230  pop      ebp
+  0x00049231  ret      
+  0x00049232  push     dword ptr [ebp + 0xc]
+  0x00049235  call     esi
+  0x00049237  mov      ecx, eax
+  0x00049239  call     0x10062610   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x3e0
+  0x0004923e  mov      ecx, eax
+  0x00049240  test     ecx, ecx
+  0x00049242  jne      0x10049269
+  0x00049244  mov      eax, dword ptr [ebx]
+  0x00049246  mov      ecx, ebx
+  0x00049248  mov      eax, dword ptr [eax + 0x120]
+  0x0004924e  call     eax
+  0x00049250  mov      eax, dword ptr [edi]
+  0x00049252  mov      ecx, edi
+  0x00049254  fstp     dword ptr [ebp - 4]
+  0x00049257  mov      eax, dword ptr [eax + 0xe4]
+  0x0004925d  call     eax
+  0x0004925f  fadd     dword ptr [ebp - 4]
+  0x00049262  pop      ebx
+  0x00049263  pop      edi
+  0x00049264  pop      esi
+  0x00049265  mov      esp, ebp
+  0x00049267  pop      ebp
+  0x00049268  ret      
+  0x00049269  mov      eax, dword ptr [ecx]
+  0x0004926b  mov      eax, dword ptr [eax + 0xe4]
+  0x00049271  call     eax
+  0x00049273  mov      eax, dword ptr [edi]
+  0x00049275  mov      ecx, edi
+  0x00049277  fstp     dword ptr [ebp - 4]
+  0x0004927a  mov      eax, dword ptr [eax + 0xe4]
+  0x00049280  call     eax
+  0x00049282  fadd     dword ptr [ebp - 4]
+  0x00049285  mov      eax, dword ptr [ebx]
+  0x00049287  mov      ecx, ebx
+  0x00049289  mov      eax, dword ptr [eax + 0x120]
+  0x0004928f  fstp     dword ptr [ebp - 4]
+  0x00049292  call     eax
+  0x00049294  fadd     dword ptr [ebp - 4]
+  0x00049297  pop      ebx
+  0x00049298  pop      edi
+  0x00049299  pop      esi
+  0x0004929a  mov      esp, ebp
+  0x0004929c  pop      ebp
+  0x0004929d  ret      
+  0x0004929e  int3     
+  0x0004929f  int3     

@@ -1,0 +1,83 @@
+?CharacterHandlerUpdate@ControllerBaseCharacter@GAME@@ excerpt  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+first handler update: JustSpawnedWithAnimation() ([+0x1c64]!=0 && [+0x12c]<30) ? new SpawnAction (action type 19) : new IdleAction
+  0x000ea56b  cmp      byte ptr [esi + 0x80], 0
+  0x000ea572  je       0x100ea5fa
+  0x000ea578  lea      ecx, [edi + 0x600]
+  0x000ea57e  call     0x10448df0   ; -> ?IsRunningSkill@SkillManager@GAME@@QBE_NXZ
+  0x000ea583  test     al, al
+  0x000ea585  jne      0x100ea5fa
+  0x000ea587  mov      eax, dword ptr [edi]
+  0x000ea589  mov      ecx, edi
+  0x000ea58b  mov      eax, dword ptr [eax + 0x320]
+  0x000ea591  call     eax
+  0x000ea593  push     0x34
+  0x000ea595  test     al, al
+  0x000ea597  je       0x100ea5bf
+  0x000ea599  call     0x104bfba6   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c86
+  0x000ea59e  mov      esi, eax
+  0x000ea5a0  add      esp, 4
+  0x000ea5a3  mov      dword ptr [ebp - 0x14], esi
+  0x000ea5a6  mov      ecx, edi
+  0x000ea5a8  mov      dword ptr [ebp - 4], 0
+  0x000ea5af  call     dword ptr [0x104e6094]   ; f32=1.16425e-38 i32=8308360 f64=2.73916e-306
+  0x000ea5b5  push     eax
+  0x000ea5b6  mov      ecx, esi
+  0x000ea5b8  call     0x10070940   ; -> ??0SpawnAction@GAME@@QAE@I@Z
+  0x000ea5bd  jmp      0x100ea5e3   ; -> ?CharacterHandlerUpdate@ControllerBaseCharacter@GAME@@MAEXH@Z+0x163
+  0x000ea5bf  call     0x104bfba6   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c86
+  0x000ea5c4  mov      esi, eax
+  0x000ea5c6  add      esp, 4
+  0x000ea5c9  mov      dword ptr [ebp - 0x14], esi
+  0x000ea5cc  mov      ecx, edi
+  0x000ea5ce  mov      dword ptr [ebp - 4], 1
+---- JustSpawnedWithAnimation (Character vtable +0x320)
+  0x00053570  cmp      byte ptr [ecx + 0x1c64], 0
+  0x00053577  je       0x10053585
+  0x00053579  cmp      dword ptr [ecx + 0x12c], 0x1e
+  0x00053580  jae      0x10053585
+  0x00053582  mov      al, 1
+  0x00053584  ret      
+  0x00053585  xor      al, al
+  0x00053587  ret      
+  0x00053588  int3     
+---- SpawnAction::Execute
+  0x000709c0  push     ebx
+  0x000709c1  push     edi
+  0x000709c2  mov      edi, ecx
+  0x000709c4  push     dword ptr [edi + 4]
+  0x000709c7  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000709cd  mov      ecx, eax
+  0x000709cf  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000709d4  mov      ebx, eax
+  0x000709d6  test     ebx, ebx
+  0x000709d8  jne      0x100709e3
+  0x000709da  mov      eax, dword ptr [edi]
+  0x000709dc  mov      ecx, edi
+  0x000709de  pop      edi
+  0x000709df  pop      ebx
+  0x000709e0  jmp      dword ptr [eax + 0xc]
+  0x000709e3  xor      eax, eax
+  0x000709e5  lea      ecx, [ebx + 0x1c50]
+  0x000709eb  push     esi
+  0x000709ec  nop      dword ptr [eax]
+  0x000709f0  cmp      dword ptr [ecx], 0
+  0x000709f3  jne      0x10070a06
+  0x000709f5  inc      eax
+  0x000709f6  add      ecx, 4
+  0x000709f9  cmp      eax, 2
+  0x000709fc  jb       0x100709f0
+  0x000709fe  mov      esi, dword ptr [ebx + 0x1c0c]
+  0x00070a04  jmp      0x10070a0d   ; -> ?Execute@SpawnAction@GAME@@UAEXXZ+0x4d
+  0x00070a06  mov      esi, dword ptr [ebx + eax*4 + 0x1c50]
+  0x00070a0d  mov      edx, dword ptr [0x104e62b4]   ; f32=1.16534e-38 i32=8316142 f64=2.74972e-306
+  0x00070a13  mov      dword ptr [esi + 8], 0x13
+  0x00070a1a  mov      ecx, dword ptr [esi + 0x58]
+  0x00070a1d  push     0
+  0x00070a1f  push     0
+  0x00070a21  push     ecx
+  0x00070a22  mov      eax, dword ptr [ecx]
+  0x00070a24  mov      dword ptr [esp], 0x3f800000
+  0x00070a2b  push     edx
+  0x00070a2c  push     ebx
+  0x00070a2d  mov      eax, dword ptr [eax + 4]
+  0x00070a30  call     eax

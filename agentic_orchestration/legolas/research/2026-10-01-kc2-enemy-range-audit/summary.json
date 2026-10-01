@@ -1,0 +1,53 @@
+{
+ "n_rows_loaded": 2181,
+ "by_delivery": {
+  "AI-INITIATED (CloseEnoughToUseSkill)": 400,
+  "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)": 1416,
+  "AURA/INITIAL (radius around caster)": 225,
+  "DYING (not AI-gated; fires at death)": 140
+ },
+ "ai_rows": 1816,
+ "ai_exceed_HI": 873,
+ "ai_exceed_LO": 896,
+ "ai_exceed_by_source": {
+  "damage-row.projectile_distance via autoCastSkill": 74,
+  "slot-meta.projectile_distance": 547,
+  "damage-row.projectile_distance": 71,
+  "slot-meta.skill_radius": 107,
+  "damage-row.skill_target_radius via buffSkillName": 56,
+  "damage-row.skill_target_radius": 9,
+  "MELEE_REACH_M fallback (no carrier)": 3,
+  "damage-row.projectile_distance via buffSkillName": 1,
+  "damage-row.projectile_explosion_radius": 1,
+  "damage-row.skill_target_radius via autoCastSkill": 4
+ },
+ "ai_by_source": {
+  "MELEE_REACH_M fallback (no carrier)": 669,
+  "damage-row.projectile_distance via autoCastSkill": 102,
+  "slot-meta.projectile_distance": 626,
+  "slot-meta.skill_radius": 215,
+  "damage-row.projectile_distance": 85,
+  "damage-row.skill_target_radius via buffSkillName": 66,
+  "damage-row.skill_target_radius": 30,
+  "damage-row.projectile_explosion_radius": 10,
+  "damage-row.projectile_distance via buffSkillName": 1,
+  "damage-row.projectile_explosion_radius via buffSkillName": 8,
+  "damage-row.skill_target_radius via autoCastSkill": 4
+ },
+ "ai_exceed_in_pop": 801,
+ "ai_exceed_by_more_than_1m": 803,
+ "ai_exceed_by_more_than_5m": 376,
+ "ai_exceed_by_more_than_10m": 194,
+ "ai_pack_beyond_half_w": 713,
+ "ai_pack_beyond_half_h": 753,
+ "ai_gd_beyond_half_w": 563,
+ "ai_gd_beyond_half_h": 840,
+ "ai_pack_beyond_half_w_but_gd_within": 290,
+ "ai_under": 943,
+ "aura_exceed": 15,
+ "dying_exceed": 1,
+ "records": 533,
+ "records_pack_max_exceeds_gd_max": 402,
+ "records_pack_max_beyond_half_w": 376,
+ "records_gd_max_beyond_half_w": 329
+}

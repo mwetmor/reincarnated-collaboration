@@ -1,0 +1,26 @@
+?GetRange@Skill@GAME@@UBEMXZ (Skill vtable +0x120 on 126 of 129 Skill_* vtables)  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+switch(this->vslot0x11c = GetRangeProfile = [this+0x8c]) 0..5 -> gGameEngine+0xc48/c4c/c50/c54/c58/c5c ; default 1.0
+  0x003c01a0  mov      eax, dword ptr [ecx]
+  0x003c01a2  call     dword ptr [eax + 0x11c]
+  0x003c01a8  cmp      eax, 5
+  0x003c01ab  ja       0x103c01fc
+  0x003c01ad  jmp      dword ptr [eax*4 + 0x103c0200]
+  0x003c01b4  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01b9  fld      dword ptr [eax + 0xc48]
+  0x003c01bf  ret      
+  0x003c01c0  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01c5  fld      dword ptr [eax + 0xc4c]
+  0x003c01cb  ret      
+  0x003c01cc  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01d1  fld      dword ptr [eax + 0xc50]
+  0x003c01d7  ret      
+  0x003c01d8  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01dd  fld      dword ptr [eax + 0xc54]
+  0x003c01e3  ret      
+  0x003c01e4  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01e9  fld      dword ptr [eax + 0xc58]
+  0x003c01ef  ret      
+  0x003c01f0  mov      eax, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003c01f5  fld      dword ptr [eax + 0xc5c]
+  0x003c01fb  ret      
+  0x003c01fc  fld1     

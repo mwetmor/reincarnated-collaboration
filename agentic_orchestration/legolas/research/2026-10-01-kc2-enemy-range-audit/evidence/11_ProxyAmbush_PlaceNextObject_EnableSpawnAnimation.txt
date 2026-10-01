@@ -1,0 +1,16 @@
+?PlaceNextObject@ProxyAmbush@GAME@@IAEXXZ  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+unconditional call [vtable+0x318] = Character::EnableSpawnAnimation (Character vtable +0x318; Monster override 0x2dded0 sets [+0x1c64]=1) immediately before GameEngine::FastSpawnEntity
+  0x00356d84  add      esp, 4
+  0x00356d87  mov      eax, dword ptr [ebx + 0x4a0]
+  0x00356d8d  mov      ecx, esi
+  0x00356d8f  mov      dword ptr [esi + 0x37d8], eax
+  0x00356d95  mov      eax, dword ptr [esi]
+  0x00356d97  mov      dword ptr [ebp - 0x14], 0xf
+  0x00356d9e  mov      dword ptr [ebp - 0x18], 0
+  0x00356da5  mov      byte ptr [ebp - 0x28], 0
+  0x00356da9  call     dword ptr [eax + 0x318]
+  0x00356daf  mov      ecx, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00356db5  lea      eax, [ebp - 0x5c]
+  0x00356db8  push     eax
+  0x00356db9  push     esi
+  0x00356dba  call     0x10259d20   ; -> ?FastSpawnEntity@GameEngine@GAME@@QAEXPAVEntity@2@ABVWorldCoords@2@@Z

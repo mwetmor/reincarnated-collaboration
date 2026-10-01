@@ -1,0 +1,38 @@
+?GetRadius@Actor@GAME@@UBEMXZ  Engine.dll Edition IV 32-bit (sha256 f18e8658efc995e7...) = actorRadius([+0x2a4], loaded by Actor::Load @0x243df, default 1.0) x |vec(+0x370,+0x374,+0x378)|; ??_7Actor@GAME@@6BObject@1@@ +0xe4 -> this function
+  0x00025e30  push     ebp
+  0x00025e31  mov      ebp, esp
+  0x00025e33  push     ecx
+  0x00025e34  movss    xmm1, dword ptr [ecx + 0x374]
+  0x00025e3c  movss    xmm2, dword ptr [ecx + 0x370]
+  0x00025e44  movss    xmm0, dword ptr [ecx + 0x378]
+  0x00025e4c  mulss    xmm2, xmm2
+  0x00025e50  mulss    xmm1, xmm1
+  0x00025e54  mulss    xmm0, xmm0
+  0x00025e58  addss    xmm2, xmm1
+  0x00025e5c  addss    xmm2, xmm0
+  0x00025e60  xorps    xmm0, xmm0
+  0x00025e63  ucomiss  xmm2, xmm0
+  0x00025e66  lahf     
+  0x00025e67  test     ah, 0x44
+  0x00025e6a  jp       0x10025e80
+  0x00025e6c  fld      dword ptr [ecx + 0x2a4]
+  0x00025e72  mov      dword ptr [ebp - 4], 0
+  0x00025e79  fmul     dword ptr [ebp - 4]
+  0x00025e7c  mov      esp, ebp
+  0x00025e7e  pop      ebp
+  0x00025e7f  ret      
+  0x00025e80  xorps    xmm0, xmm0
+  0x00025e83  fld      dword ptr [ecx + 0x2a4]
+  0x00025e89  sqrtss   xmm0, xmm2
+  0x00025e8d  movss    dword ptr [ebp - 4], xmm0
+  0x00025e92  fmul     dword ptr [ebp - 4]
+  0x00025e95  mov      esp, ebp
+  0x00025e97  pop      ebp
+  0x00025e98  ret      
+  0x00025e99  int3     
+  0x00025e9a  int3     
+  0x00025e9b  int3     
+  0x00025e9c  int3     
+  0x00025e9d  int3     
+  0x00025e9e  int3     
+  0x00025e9f  int3     

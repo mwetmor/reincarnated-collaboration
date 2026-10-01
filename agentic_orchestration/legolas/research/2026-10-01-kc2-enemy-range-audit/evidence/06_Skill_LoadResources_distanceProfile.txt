@@ -1,0 +1,64 @@
+?LoadResources@Skill@GAME@@ excerpt  Game.dll Edition IV 32-bit (sha256 e75925d1403e4fab34390e9fe84a2a8b6c1cccdd5b32904fab7c149500068126); RVAs; capstone x86-32; READ-ONLY
+distanceProfile: Melee->0 Short->1 Moderate->2 Long->3 Maximum->4 Boss->5 into [skill+0x8c]; unrecognised/absent leaves the ctor value (??0Skill@GAME@@QAE@XZ @0x3b2fe7: mov [esi+0x8c],0 = Melee)
+  0x003be674  mov      ecx, ebx
+  0x003be676  mov      eax, dword ptr [ebx]
+  0x003be678  push     0x104f7505
+  0x003be67d  push     0x10575754
+  0x003be682  call     dword ptr [eax + 0x14]
+  0x003be685  mov      edx, eax
+  0x003be687  mov      dword ptr [ebp - 0x5c], 0xf
+  0x003be68e  mov      dword ptr [ebp - 0x60], 0
+  0x003be695  mov      byte ptr [ebp - 0x70], 0
+  0x003be699  cmp      byte ptr [edx], 0
+  0x003be69c  jne      0x103be6a2
+  0x003be69e  xor      ecx, ecx
+  0x003be6a0  jmp      0x103be6b0   ; -> ?LoadResources@Skill@GAME@@UAEXABVLoadTable@2@@Z+0x90
+  0x003be6a2  mov      ecx, edx
+  0x003be6a4  lea      esi, [ecx + 1]
+  0x003be6a7  mov      al, byte ptr [ecx]
+  0x003be6a9  inc      ecx
+  0x003be6aa  test     al, al
+  0x003be6ac  jne      0x103be6a7
+  0x003be6ae  sub      ecx, esi
+  0x003be6b0  push     ecx
+  0x003be6b1  push     edx
+  0x003be6b2  lea      ecx, [ebp - 0x70]
+  0x003be6b5  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x003be6ba  mov      dword ptr [ebp - 4], 0
+  0x003be6c1  lea      ecx, [ebp - 0x70]
+  0x003be6c4  cmp      dword ptr [ebp - 0x5c], 0x10
+  0x003be6c8  mov      eax, 5
+  0x003be6cd  mov      esi, dword ptr [ebp - 0x60]
+  0x003be6d0  mov      edx, 0x105757a4
+  0x003be6d5  cmovae   ecx, dword ptr [ebp - 0x70]
+  0x003be6d9  cmp      esi, eax
+  0x003be6db  cmovb    eax, esi
+  0x003be6de  push     eax
+  0x003be6df  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x003be6e4  add      esp, 4
+  0x003be6e7  test     eax, eax
+  0x003be6e9  jne      0x103be6fd
+  0x003be6eb  cmp      esi, 5
+  0x003be6ee  jb       0x103be6fd
+  0x003be6f0  ja       0x103be6fd
+  0x003be6f2  mov      dword ptr [edi + 0x8c], eax
+  0x003be6f8  jmp      0x103be78c   ; -> ?LoadResources@Skill@GAME@@UAEXABVLoadTable@2@@Z+0x16c
+  0x003be6fd  mov      edx, 0x1057579c
+  0x003be702  lea      ecx, [ebp - 0x70]
+  0x003be705  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x003be70a  test     al, al
+  0x003be70c  je       0x103be71a
+  0x003be70e  mov      dword ptr [edi + 0x8c], 1
+  0x003be718  jmp      0x103be78c   ; -> ?LoadResources@Skill@GAME@@UAEXABVLoadTable@2@@Z+0x16c
+  0x003be71a  mov      edx, 0x10575790
+  0x003be71f  lea      ecx, [ebp - 0x70]
+  0x003be722  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x003be727  test     al, al
+  0x003be729  je       0x103be737
+  0x003be72b  mov      dword ptr [edi + 0x8c], 2
+  0x003be735  jmp      0x103be78c   ; -> ?LoadResources@Skill@GAME@@UAEXABVLoadTable@2@@Z+0x16c
+  0x003be737  mov      edx, 0x10575788
+  0x003be73c  lea      ecx, [ebp - 0x70]
+  0x003be73f  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x003be744  test     al, al
+  0x003be746  je       0x103be754
