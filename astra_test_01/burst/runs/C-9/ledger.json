@@ -29381,6 +29381,12 @@
       "topic": "Telemetry move attempt 1 failed at 99% (SMB write I/O error); attempt 2 compresses first",
       "note": "Raw rsync of data/telemetry.db (35.6 GB) to the Pi share ran ~11 h at 0.07-8 MB/s and died at 99% with \"write: Invalid argument / Input/output error\"; the script stopped before deleting; the partial was cleaned by rsync. Samples compress 14.3x (first GiB) and 21.6x (last GiB). Attempt 2 (archive_telemetry_zst.sh): sha256 original -> zstd -6 locally -> round-trip sha check -> resumable rsync with retries -> Pi-copy sha check -> SHA256SUMS + README; deletes nothing. The Mac original is removed in a separate visible step after ARCHIVE VERIFIED (Matt pre-authorised). Also seen: ~/Games/reincarnated-loadout/data/ holds untracked telemetry.db.*.bak files (Q69 reconciliation scope, not touched).",
       "ts": "2026-10-01T09:14:10"
+    },
+    {
+      "id": "N-C9-DISK-12B",
+      "topic": "Disk under the 20 GiB gate (19 GiB) after the select build; manifest 10 written",
+      "note": "The disk watch fired at 20 GiB after the select build (loadout dist 1.0 GB, the 1.8 GB telemetry archive, the new packs). All C-9 lanes had handed back; nothing heavy running. Manifest 10 (4.66 GiB) lists only folders the lanes themselves named releasable at hand-back, plus loadout dist (gitignored build output) and the moved-aside Chrome Metal cache; none tracked. The big lever is telemetry option 1 (delete the 35.6 GB original, keep the verified 1.9 GB zstd archive) -- awaiting Matt.",
+      "ts": "2026-10-01T10:36:23"
     }
   ]
 }
