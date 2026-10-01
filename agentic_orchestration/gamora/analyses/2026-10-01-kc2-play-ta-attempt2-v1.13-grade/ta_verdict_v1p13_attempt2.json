@@ -1,0 +1,1563 @@
+{
+ "schema": "kc2play.ta_verdict.v1",
+ "written_by": "gamora (the grade of record), from grade_attempt2_v1p13.py; the harness's ta_verdict.json is pinned, not edited",
+ "prereg_version": "v1.13",
+ "prereg_sha256": "c35cca9ceb189b5f78a09b402f9df81b3bb126db132643a57049eb1cc8a46d68",
+ "prereg_carried_from": {
+  "version": "v1.12",
+  "sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854"
+ },
+ "substrate_epoch": "v3.7.1 / model 48a4c94c… / reference 1887257f…",
+ "attempt": "v1.13 attempt 2 of 2",
+ "attempt_overall": 3,
+ "emission": {
+  "godot_commit": "7a97716",
+  "dir": "evidence/kc2-play/2026-10-01-ta-attempt2-v1.13-cells",
+  "MANIFEST_sha256": "1e27c5fdd83e9927a570ae8bc81bf13babe3c726a7a7692abfd988a865027498",
+  "ta_manifest_sha256": "9e35fb2e3286b0333b3b060056f7caff68d022e009d5efa62a2e219bc557bb82",
+  "ta_verdict_sha256": "f7e19dc1a0ec0b1134bdf2841e005e10611edd6e130f66f2610842b61b80a090"
+ },
+ "runtime_digest": "d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd",
+ "verdict": "PASS",
+ "verdict_line": "PASS @ coverage 89/89, 28/28 EXACT rows green, TA-X-06 UNGRADEABLE-declared (Q83(b)), dilution 1.024×, substrate_epoch v3.7.1/48a4c94c…, prereg v1.13",
+ "attempt_consumed": true,
+ "cap_after_this_attempt": "0 of 2 remaining (the last attempt under the cap was spent)",
+ "counts": {
+  "GREEN": 28
+ },
+ "non_green_exact_rows": {},
+ "preconditions": {
+  "P-1": "GREEN",
+  "P-2": "GREEN",
+  "P-3": "GREEN",
+  "P-4": "GREEN",
+  "P-5": "GREEN"
+ },
+ "C1": "CONFORMING",
+ "exact_rows": {
+  "TA-X-01": "GREEN",
+  "TA-X-02": "GREEN",
+  "TA-X-03": "GREEN",
+  "TA-X-04": "GREEN",
+  "TA-X-05": "GREEN",
+  "TA-X-07": "GREEN",
+  "TA-X-08": "GREEN",
+  "TA-X-09": "GREEN",
+  "TA-X-10": "GREEN",
+  "TA-X-11": "GREEN",
+  "TA-X-12": "GREEN",
+  "TA-X-13": "GREEN",
+  "TA-X-14": "GREEN",
+  "TA-X-15": "GREEN",
+  "TA-X-16": "GREEN",
+  "TA-X-17": "GREEN-BY-CONSTRUCTION",
+  "TA-X-18": "GREEN",
+  "TA-X-19": "GREEN",
+  "TA-X-20": "GREEN",
+  "TA-X-21": "GREEN",
+  "TA-X-22": "GREEN",
+  "TA-X-24": "GREEN",
+  "TA-X-25": "GREEN",
+  "TA-X-26": "GREEN",
+  "TA-X-27": "GREEN",
+  "TA-X-28": "GREEN",
+  "TA-X-29": "GREEN",
+  "TA-X-30": "GREEN"
+ },
+ "declared_ungradeable": [
+  {
+   "id": "TA-X-06",
+   "authority": "Q83(b) / KP-110",
+   "printed": "W1 vs M-POL-2 identical on 2/5 salts [True, False, True, False, False]"
+  }
+ ],
+ "ta_x_16": {
+  "M0|0": {
+   "T": 160,
+   "n_waves": 10,
+   "picks": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 47,
+   "expected_sum": 47,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M0|1": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M0|2": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M0|3": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M0|4": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2|0": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2|1": {
+   "T": 160,
+   "n_waves": 10,
+   "picks": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 47,
+   "expected_sum": 47,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2|2": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2|3": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2|4": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2-NULL|0": {
+   "T": 160,
+   "n_waves": 10,
+   "picks": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 47,
+   "expected_sum": 47,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2-NULL|1": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2-NULL|2": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2-NULL|3": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "M-POL-2-NULL|4": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1|0": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1|1": {
+   "T": 160,
+   "n_waves": 10,
+   "picks": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 47,
+   "expected_sum": 47,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1|2": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1|3": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1|4": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1-NULL|0": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1-NULL|1": {
+   "T": 160,
+   "n_waves": 10,
+   "picks": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 47,
+   "expected_sum": 47,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1-NULL|2": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1-NULL|3": {
+   "T": 154,
+   "n_waves": 4,
+   "picks": [
+    5,
+    5,
+    5,
+    4
+   ],
+   "n_pool_picks": 19,
+   "expected_sum": 19,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "W1-NULL|4": {
+   "T": 153,
+   "n_waves": 3,
+   "picks": [
+    5,
+    5,
+    5
+   ],
+   "n_pool_picks": 15,
+   "expected_sum": 15,
+   "p06_rolled": 0,
+   "p06_filtered": [
+    0,
+    1,
+    1
+   ],
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": true,
+   "schedule points <= keys (printed)": true,
+   "harness_holds": true
+  },
+  "vector": {
+   "V11-P06-1": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "P06-KEY": [
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ]
+  }
+ },
+ "ta_x_08": {
+  "M0|0": {
+   "observed": 2013,
+   "PRE_FIGHT": 10,
+   "D": 2003,
+   "n_channelling": 2003,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M0|1": {
+   "observed": 677,
+   "PRE_FIGHT": 4,
+   "D": 673,
+   "n_channelling": 673,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M0|2": {
+   "observed": 652,
+   "PRE_FIGHT": 4,
+   "D": 648,
+   "n_channelling": 648,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M0|3": {
+   "observed": 619,
+   "PRE_FIGHT": 4,
+   "D": 615,
+   "n_channelling": 615,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M0|4": {
+   "observed": 472,
+   "PRE_FIGHT": 3,
+   "D": 469,
+   "n_channelling": 469,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2|0": {
+   "observed": 467,
+   "PRE_FIGHT": 3,
+   "D": 464,
+   "n_channelling": 402,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2|1": {
+   "observed": 1962,
+   "PRE_FIGHT": 10,
+   "D": 1952,
+   "n_channelling": 1729,
+   "n_released": 223,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 223,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2|2": {
+   "observed": 671,
+   "PRE_FIGHT": 4,
+   "D": 667,
+   "n_channelling": 589,
+   "n_released": 78,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 78,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2|3": {
+   "observed": 621,
+   "PRE_FIGHT": 4,
+   "D": 617,
+   "n_channelling": 553,
+   "n_released": 64,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 64,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2|4": {
+   "observed": 472,
+   "PRE_FIGHT": 3,
+   "D": 469,
+   "n_channelling": 407,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2-NULL|0": {
+   "observed": 2013,
+   "PRE_FIGHT": 10,
+   "D": 2003,
+   "n_channelling": 2003,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2-NULL|1": {
+   "observed": 677,
+   "PRE_FIGHT": 4,
+   "D": 673,
+   "n_channelling": 673,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2-NULL|2": {
+   "observed": 652,
+   "PRE_FIGHT": 4,
+   "D": 648,
+   "n_channelling": 648,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2-NULL|3": {
+   "observed": 619,
+   "PRE_FIGHT": 4,
+   "D": 615,
+   "n_channelling": 615,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "M-POL-2-NULL|4": {
+   "observed": 472,
+   "PRE_FIGHT": 3,
+   "D": 469,
+   "n_channelling": 469,
+   "n_released": 0,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 0,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1|0": {
+   "observed": 467,
+   "PRE_FIGHT": 3,
+   "D": 464,
+   "n_channelling": 402,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1|1": {
+   "observed": 1986,
+   "PRE_FIGHT": 10,
+   "D": 1976,
+   "n_channelling": 1753,
+   "n_released": 223,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 223,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1|2": {
+   "observed": 671,
+   "PRE_FIGHT": 4,
+   "D": 667,
+   "n_channelling": 589,
+   "n_released": 78,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 78,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1|3": {
+   "observed": 621,
+   "PRE_FIGHT": 4,
+   "D": 617,
+   "n_channelling": 553,
+   "n_released": 64,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 64,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1|4": {
+   "observed": 483,
+   "PRE_FIGHT": 3,
+   "D": 480,
+   "n_channelling": 418,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1-NULL|0": {
+   "observed": 467,
+   "PRE_FIGHT": 3,
+   "D": 464,
+   "n_channelling": 402,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1-NULL|1": {
+   "observed": 1962,
+   "PRE_FIGHT": 10,
+   "D": 1952,
+   "n_channelling": 1729,
+   "n_released": 223,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 223,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1-NULL|2": {
+   "observed": 671,
+   "PRE_FIGHT": 4,
+   "D": 667,
+   "n_channelling": 589,
+   "n_released": 78,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 78,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1-NULL|3": {
+   "observed": 621,
+   "PRE_FIGHT": 4,
+   "D": 617,
+   "n_channelling": 553,
+   "n_released": 64,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 64,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  },
+  "W1-NULL|4": {
+   "observed": 472,
+   "PRE_FIGHT": 3,
+   "D": 469,
+   "n_channelling": 407,
+   "n_released": 62,
+   "n_control_suppressed_channelling": 0,
+   "n_ticks_released": 62,
+   "n_released_pre_fight": 0,
+   "id1": true,
+   "id2": true,
+   "id2p": true
+  }
+ },
+ "g3": {
+  "M-POL-2-NULL|0": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 3,
+    "port": 3
+   }
+  },
+  "M-POL-2-NULL|1": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "M-POL-2-NULL|2": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 5,
+    "port": 5
+   }
+  },
+  "M-POL-2-NULL|3": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 1,
+    "port": 1
+   }
+  },
+  "M-POL-2-NULL|4": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 5,
+    "port": 5
+   }
+  },
+  "M-POL-2|0": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 4,
+    "port": 4
+   }
+  },
+  "M-POL-2|1": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "M-POL-2|2": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "M-POL-2|3": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "M-POL-2|4": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 1,
+    "port": 1
+   }
+  },
+  "M0|0": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 3,
+    "port": 3
+   }
+  },
+  "M0|1": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "M0|2": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 5,
+    "port": 5
+   }
+  },
+  "M0|3": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 1,
+    "port": 1
+   }
+  },
+  "M0|4": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 5,
+    "port": 5
+   }
+  },
+  "W1-NULL|0": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 4,
+    "port": 4
+   }
+  },
+  "W1-NULL|1": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "W1-NULL|2": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "W1-NULL|3": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "W1-NULL|4": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 1,
+    "port": 1
+   }
+  },
+  "W1|0": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "W1|1": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "W1|2": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  },
+  "W1|3": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 0,
+    "port": 0
+   }
+  },
+  "W1|4": {
+   "census_equal": true,
+   "control_term": {
+    "equal": true,
+    "oracle": 2,
+    "port": 2
+   }
+  }
+ },
+ "pre_attempt_read": {
+  "finding": "agentic_orchestration/qa/findings/2026-10-01-kc2-play-v1.13-pre-attempt-read.md",
+  "finding_sha256": "69235e139a2e3bc4340fd2ace4762b023f8c7290cda7fe709f75bec0e486d742",
+  "runtime_digest": "d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd",
+  "rows_green": 28,
+  "ungradeable": 0
+ },
+ "graded_vs_read": {
+  "cell.json bytes equal": 25,
+  "cell_digest equal": 25,
+  "rows: verdict equal": 35,
+  "rows: every value equal": 35,
+  "rows compared": 35,
+  "row differences": {},
+  "ta_manifest.json differing leaf paths": [
+   "/runtime_header/header_file",
+   "/runtime_header/header_file_sha256"
+  ],
+  "ta_verdict.json differing leaf paths": [
+   "/attempt",
+   "/attempt_overall",
+   "/attempt_previewed",
+   "/pre_attempt_read/finding",
+   "/pre_attempt_read/finding_sha256",
+   "/pre_attempt_read/rows_green",
+   "/pre_attempt_read/state",
+   "/pre_attempt_read/ungradeable",
+   "/pre_attempt_read/⚑ note",
+   "/run_kind",
+   "/runtime_header/header_file",
+   "/runtime_header/header_file_sha256",
+   "/ta_manifest_sha256"
+  ],
+  "ta_x_08 / ta_x_16 / r11_bound / g3 blocks equal": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "harness_stdout equal": false
+ },
+ "reconciliation_with_H7": {
+  "P-1": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-2": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-3": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-4": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-5": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "C1": {
+   "gamora": "CONFORMING",
+   "jack-ryan H-7": "CONFORMING",
+   "agree": true
+  },
+  "TA-X-01": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-02": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-03": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-04": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-05": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-07": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-08": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-09": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-10": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-11": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-12": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-13": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-14": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-15": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-16": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-17": {
+   "gamora": "GREEN-BY-CONSTRUCTION",
+   "jack-ryan H-7": "GREEN-BY-CONSTRUCTION",
+   "agree": true
+  },
+  "TA-X-18": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-19": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-20": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-21": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-22": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-24": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-25": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-26": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-27": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-28": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-29": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-30": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  }
+ },
+ "rule_13": {
+  "run_sum": 0,
+  "run_max": 0,
+  "run_n_control_suppressed_sum": 0,
+  "run_doubly_suppressed_sum": 0,
+  "run_pre_fight_suppressed_sum": 0,
+  "run_released_pre_fight_sum": 0,
+  "g3_sum_port": 52,
+  "g3_sum_oracle": 52,
+  "g3_equal_cells": 25,
+  "g3_doubly_suppressed_sum (port/oracle)": [
+   0,
+   0
+  ],
+  "g3_pre_fight_suppressed_sum (port/oracle)": [
+   0,
+   0
+  ],
+  "g3_summaries_ta_x_08_equal": 25
+ },
+ "r6_invariants": {
+  "(i)": 0,
+  "(ii)": 0,
+  "(iii)": 0
+ },
+ "set_digests": {
+  "POOL-466": {
+   "n": 466,
+   "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "routes_agree": true
+  },
+  "SWING-456": {
+   "n": 456,
+   "digest": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0"
+  },
+  "NONSWING-10": {
+   "n": 10,
+   "digest": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10"
+  },
+  "FALLBACK-158": {
+   "note": "not recomputed by this grade (no graded row reads it); v1.12 PINS value carried",
+   "pin": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb"
+  }
+ },
+ "hole_closure": "PENDING (H-5, jack-ryan) -- seal-blocking, not verdict-blocking",
+ "seal_conditions_owed": [
+  "H-5 (jack-ryan hole-closure finding at d03ca891)",
+  "H-8 (Matt's T-C replay on the graded digest)"
+ ],
+ "port_holes_printed": "the grade of record prints § F.5 cl. 11 with the v1.13 label"
+}

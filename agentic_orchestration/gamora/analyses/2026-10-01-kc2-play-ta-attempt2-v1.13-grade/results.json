@@ -1,0 +1,6770 @@
+{
+ "evidence": {
+  "prereg_sha256": "c35cca9ceb189b5f78a09b402f9df81b3bb126db132643a57049eb1cc8a46d68",
+  "prereg12_sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854",
+  "prereg_ok": true,
+  "attempt": {
+   "MANIFEST_sha256": "1e27c5fdd83e9927a570ae8bc81bf13babe3c726a7a7692abfd988a865027498",
+   "members": 28,
+   "member_failures": [],
+   "tree_recomputed": "d5e8ab9594a57c10eeaabf7565a51c727dc6110821ebe7719768c1751f66c640",
+   "tree_manifest": "d5e8ab9594a57c10eeaabf7565a51c727dc6110821ebe7719768c1751f66c640",
+   "tracked_minus_members": [
+    "MANIFEST.json"
+   ],
+   "members_minus_tracked": [],
+   "ta_manifest_sha256": "9e35fb2e3286b0333b3b060056f7caff68d022e009d5efa62a2e219bc557bb82",
+   "ta_verdict_sha256": "f7e19dc1a0ec0b1134bdf2841e005e10611edd6e130f66f2610842b61b80a090",
+   "pinned_harness_files": {
+    "ta_manifest.json": "9e35fb2e3286b0333b3b060056f7caff68d022e009d5efa62a2e219bc557bb82",
+    "ta_verdict.json": "f7e19dc1a0ec0b1134bdf2841e005e10611edd6e130f66f2610842b61b80a090"
+   },
+   "filing_checks_all": true,
+   "run_record": {
+    "command": "Godot --headless --path . --script kc2_runtime/tests/kc2rt_ta.gd -- run_kind=attempt expect_runtime=d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd pre_read_finding=/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-01-kc2-play-v1.13-pre-attempt-read.md g3=/Users/admin/Games/reincarnated-godot/evidence/kc2-play/2026-10-01-g3-25cell-kp184/summaries",
+    "cwd": "/Users/admin/Games/reincarnated-godot",
+    "lock": "heavy_lock.py C-7 (KC2-PLAY)",
+    "started_utc": "2026-10-01T20:20:11Z",
+    "ended_utc": "2026-10-01T20:26:27Z",
+    "exit_code": "0",
+    "godot_commit": "0f368268c15d1cf7516c30ee164d6103538734d1",
+    "engine_commit": "22cd22884ad6cd0d5448357748bb43ea8c8bd2f4",
+    "godot_binary": "Godot v4.6.3.stable.official.7d41c59c4",
+    "selftest": "SKIPPED at the .app build (KC2_SKIP_SELFTEST=1), declared",
+    "pre_run_checks": "tree recomputed from 85 members = d03ca891 (0 failures); git status --porcelain -- kc2_runtime/ empty; .app run headless under the lock: header model 48a4c94c / reference 1887257f = P-4, vendored tree_digest and manifest_tree_digest = d03ca891",
+    "tmp_hygiene": "the prior tmp/kc2/ta (the pre-read's output, already filed at 4833bcf) was moved aside before the run, so src_dir holds only this run's output"
+   },
+   "ok": true
+  },
+  "preread": {
+   "MANIFEST_sha256": "9ed1b999ff0186056beb4a1730629fa67131e5160519df235a776e572c78c43a",
+   "members": 28,
+   "member_failures": [],
+   "tree_recomputed": "6ea92a4e1f7382c8a1c1e359f5e90a15806033ff8cb43923b23de61bc25e3969",
+   "tree_manifest": "6ea92a4e1f7382c8a1c1e359f5e90a15806033ff8cb43923b23de61bc25e3969",
+   "tracked_minus_members": [
+    "MANIFEST.json"
+   ],
+   "members_minus_tracked": [],
+   "ta_manifest_sha256": "347f8badb7dabebea22d5df8b25389abf87ddd4ea15f507e80db8a183623616f",
+   "ta_verdict_sha256": "8dc0a193b5e202295ae732eaa0d96560e372202d40f8aed5ad07e8921653a690",
+   "pinned_harness_files": {
+    "ta_manifest.json": "347f8badb7dabebea22d5df8b25389abf87ddd4ea15f507e80db8a183623616f",
+    "ta_verdict.json": "8dc0a193b5e202295ae732eaa0d96560e372202d40f8aed5ad07e8921653a690"
+   },
+   "filing_checks_all": true,
+   "run_record": {
+    "command": "Godot --headless --path . --script kc2_runtime/tests/kc2rt_ta.gd -- run_kind=pre_read expect_runtime=d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd g3=/Users/admin/Games/reincarnated-godot/evidence/kc2-play/2026-10-01-g3-25cell-kp184/summaries",
+    "cwd": "/Users/admin/Games/reincarnated-godot",
+    "lock": "heavy_lock.py C-7 (KC2-PLAY)",
+    "started_utc": "2026-10-01T19:45:05Z",
+    "ended_utc": "2026-10-01T19:51:24Z",
+    "exit_code": "0",
+    "godot_commit": "2f5fdcafb2599ecb648bf0e5847e421b22f216eb",
+    "engine_commit": "22cd22884ad6cd0d5448357748bb43ea8c8bd2f4",
+    "godot_binary": "Godot v4.6.3.stable.official.7d41c59c4",
+    "selftest": "SKIPPED at the .app build (KC2_SKIP_SELFTEST=1), declared"
+   },
+   "ok": true
+  },
+  "preread_unchanged_4833bcf_to_7a97716": true,
+  "runtime_tree": {
+   "recomputed": "d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd",
+   "manifest_says": "d03ca8913901d61de73db40287e31e498e8b2714521f8221fde414682e328ccd",
+   "n_members": 85,
+   "member_failures": [],
+   "tracked_not_member": [
+    "MANIFEST.json"
+   ],
+   "member_not_tracked": [],
+   "unchanged_0f36826_to_7a97716": true,
+   "unchanged_4833bcf_to_7a97716": true,
+   "booking_census_file": "73ebc5db15aa1df86ccacd802fc13ad5a034337bf4eede53591cbceae34ae794",
+   "ok": true
+  },
+  "H7_read": {
+   "file_sha256": "69235e139a2e3bc4340fd2ace4762b023f8c7290cda7fe709f75bec0e486d742",
+   "blob_sha256_at_9e1b19872": "69235e139a2e3bc4340fd2ace4762b023f8c7290cda7fe709f75bec0e486d742",
+   "ok": true
+  },
+  "g3_MANIFEST_sha256": "f861b7a16111531b1e0f7d8fc6358ffe78cc698202ec5f5645d295c6a903abbd",
+  "l2_operands_jsonl_sha256": "b5bcdb7ba61b8ffd159108b44b53c6bc63927fb9821f6eda26bd9afd356c0e77",
+  "g3_ok": true,
+  "model_pack": {
+   "digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "manifest_digest": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96",
+   "n": 19,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": null
+  },
+  "reference_pack": {
+   "digest": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "manifest_digest": "1887257f5370443a1729fde2ff446579b1acc501dcd03679244297b541e3e5b1",
+   "n": 7,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+  },
+  "math_rules_sha256": "3b1e2d014411cb314d5cbf42ea40773dbcfa3de242f13d3a1d31eb830643b62d",
+  "packs_ok": true,
+  "h9_h10_docs": {
+   "H9_NOTE": {
+    "sha256": "90717b83926f06b5939a48c01c0cc4973d5f20d7d7eb60007b976d01ebde53e5",
+    "ok": true
+   },
+   "H9_W1": {
+    "sha256": "c68fcd3c133c8b8a55d75e85425876fe73d6d1752dfdd1cd21fa9041e87a24ff",
+    "ok": true
+   },
+   "H9_MPOL2": {
+    "sha256": "2aedf43f2091d0c575af1d7d07deb0278be87f0b4c917efa5c33d01e77707f61",
+    "ok": true
+   },
+   "H9_W1NULL": {
+    "sha256": "90b9ea619e8adfd3f8532cc55e16990c15348dd537071c5758000c2edafdf801",
+    "ok": true
+   },
+   "H9_SCRIPT": {
+    "sha256": "eede32e85f362b5d57b136b81344cae1bfd4b804515db2d6f2d66279d1920f55",
+    "ok": true
+   },
+   "H10_receipt": {
+    "sha256": "a0ad8246ac49628f8bd729c8cc2fba564b6456c4c06df0ae300e0439bfc447c9",
+    "ok": true
+   }
+  },
+  "engine": {
+   "HEAD": "22cd22884ad6cd0d5448357748bb43ea8c8bd2f4",
+   "oracle_tree_porcelain": ""
+  }
+ },
+ "pack_derivations": {
+  "V11-P06-1": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "P06-KEY": [
+   0,
+   1,
+   1,
+   0,
+   1,
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "sum_v11": 47,
+  "sum_on": 54,
+  "vector_equals_pin": true,
+  "n_pairs": 139,
+  "n_degenerate": 97,
+  "ta09_rowset": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+  "ta09_n": 9,
+  "z5_value_keys_missing_in_c5": [],
+  "z5_value_keys_differing_in_c5": [],
+  "c5_value_keys_added": [
+   "⚑ C-11a_annotations"
+  ],
+  "c5_points_to": {
+   "restated_by": "C5-Z5-LAW",
+   "⚑ correction_3": "HALTED and NOT folded (conductor ruling KP-131)",
+   "⚑ nature": "RESTATEMENT — composition content unchanged"
+  },
+  "z5_composition_order": [
+   "1. om := M_inst for row_kind in {direct, leech}; M_dot[family] for dot; 1.0 for percent_current_life.  (kc2/offense.py:616 — the crossover is prevented there and ONLY there.)",
+   "2. om := om + own_add,  own_add = own_total_damage_modifier_pct / 100, and ONLY for row_kind in {direct, leech}.  ⚑ ADDITIVE INTO THE POOL, NEVER A SECOND MULTIPLY.  (threat.py:1829)",
+   "3. if row_kind == 'leech': DROP THE ROW from the health path entirely (G3) and stop.  (threat.py:1831)",
+   "4. a_mult = (dex/245)+1 for damage_type in {Physical, Pierce, SlowPhysical, SlowPierce}, else (int/215)+1 — and 1.0 when the attribute term is ABSENT.",
+   "5. t_mult = 0.0 for damage_type in {Physical, SlowPhysical} when the body measures CLAMPED, else 1.0 — and 1.0 when the attribute term is ABSENT.  ⚑ THE CHAIN FOLDS WHOLE: t_mult travels with a_mult and with nothing else.",
+   "6. applied = mitigate( magnitude * a_mult * om * t_mult * crit_mult ) * n_volley * band_scale.  The three multiplicative factors commute; only step 2 has an order."
+  ],
+  "z3_M_inst": {
+   "151": 1.82,
+   "152": 1.82,
+   "153": 1.82,
+   "154": 1.82,
+   "155": 1.82,
+   "156": 1.83,
+   "157": 1.83,
+   "158": 1.83,
+   "159": 1.83,
+   "160": 1.83
+  },
+  "arena_placement_extents_m": 8.0,
+  "kit_channel_radius_m": 3.0
+ },
+ "set_digests": {
+  "POOL-466": {
+   "n": 466,
+   "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "routes_agree": true
+  },
+  "SWING-456": {
+   "n": 456,
+   "digest": "706a61d55dc6621814fc923d7428c5b263a95ebb00e9786d12f35dd385a7a4c0"
+  },
+  "NONSWING-10": {
+   "n": 10,
+   "digest": "00b4cb0e24b43e591a2e30200979725801aad1e7c1f9b7764ebef67461816e10"
+  },
+  "FALLBACK-158": {
+   "note": "not recomputed by this grade (no graded row reads it); v1.12 PINS value carried",
+   "pin": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb"
+  }
+ },
+ "source_reads": {
+  "TA-X-17": {
+   "law_line": [
+    [
+     280,
+     "var rho := extents_m * u2"
+    ]
+   ],
+   "f64_returns": [
+    [
+     281,
+     "return PackedFloat64Array([rho * cos(theta), rho * sin(theta)])"
+    ]
+   ],
+   "placement_sites": [
+    [
+     620,
+     "var off := Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+    ],
+    [
+     806,
+     "off64 = Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+    ]
+   ],
+   "extents_halt": [
+    [
+     492,
+     "if r.is_missing(pe) or float(pe) != placement_extents_m:"
+    ]
+   ],
+   "randf_at": [
+    [
+     360,
+     "return _rng.randf()"
+    ]
+   ]
+  },
+  "TA-X-19": {
+   "_defer_arrivals_line": [
+    [
+     4182,
+     "func _defer_arrivals() -> void:"
+    ]
+   ],
+   "packet_build_lines": [
+    "(_defer_queue[at] as Array).append({\"seq\": _defer_seq, \"b\": b, \"rec\": rec, \"direct\": _pkt_direct,"
+   ],
+   "packet_keys": [
+    "seq",
+    "b",
+    "rec",
+    "direct",
+    "pcl",
+    "fams",
+    "cast",
+    "n_rows"
+   ],
+   "position_keys_in_packet": [],
+   "position_reads_in_arrival_path": {
+    "_defer_arrivals": [],
+    "_cp_absorb": [],
+    "_land": []
+   },
+   "cast_time_distance (latency only)": [
+    "var lt := _defer_latency_ticks(_dist_to_player(b), v)"
+   ]
+  },
+  "TA-X-21_port_scan": {
+   "gd_files": 77,
+   "exempt": "sim/kc2rt_quant.gd",
+   "bare_round_sites": []
+  },
+  "TA-X-21_oracle": {
+   "threat_py_sha256": "4ce434f97736bc6c95e82117d81a6c33440966361bc8fe80677f98a1dab50c54",
+   "round_lines": [
+    [
+     1561,
+     "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+    ],
+    [
+     1681,
+     "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+    ],
+    [
+     1714,
+     "1, int(round(cd * self.ticks_per_s)))"
+    ],
+    [
+     2052,
+     "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+    ]
+   ]
+  },
+  "TA-X-24_sha256_sites": [
+   "loader/kc2rt_digest_gate.gd:65: var member_digests: Dictionary = {}          # relpath -> measured sha256",
+   "loader/kc2rt_digest_gate.gd:119: if not m.has(\"path\") or not m.has(\"sha256\"):",
+   "loader/kc2rt_digest_gate.gd:120: return _fail(\"manifest member row lacks path/sha256: %s\" % JSON.stringify(m))",
+   "loader/kc2rt_digest_gate.gd:121: lines.append(\"%s  %s\" % [String(m[\"path\"]), String(m[\"sha256\"]).to_lower()])",
+   "loader/kc2rt_digest_gate.gd:127: pack_digest_joined = _sha256_of(joined)",
+   "loader/kc2rt_digest_gate.gd:128: pack_digest_terminated = _sha256_of(joined + \"\\n\")",
+   "loader/kc2rt_digest_gate.gd:164: var want := String(m[\"sha256\"]).strip_edges().to_lower()",
+   "loader/kc2rt_digest_gate.gd:168: var got := FileAccess.get_sha256(abs_path).strip_edges().to_lower()",
+   "loader/kc2rt_digest_gate.gd:181: static func _sha256_of(s: String) -> String:",
+   "loader/kc2rt_leech_table.gd:76: sha_expected = String(join_row.get(\"sha256\", \"\"))",
+   "loader/kc2rt_leech_table.gd:80: last_error = \"V1-JOIN-1 carries no `file` or no `sha256` — refusing to load an unpinned table\"",
+   "loader/kc2rt_leech_table.gd:93: sha_measured = Kc2RtRegister.sha256_hex(bytes)",
+   "loader/kc2rt_leech_table.gd:223: \"sha256_pinned\": sha_expected,",
+   "loader/kc2rt_leech_table.gd:224: \"sha256_measured\": sha_measured,",
+   "loader/kc2rt_v3p7.gd:439: if String(v.get(\"sha256\", \"\")).length() != 64:",
+   "loader/kc2rt_v3p7.gd:440: bad.append(\"%s: no FILE sha256\" % rid)",
+   "loader/kc2rt_v3p7p1.gd:376: _a8_rowsets[jb] = {\"rowset\": doc.sha256_text(), \"n\": lst.size(),",
+   "loader/kc2rt_v3p7p1.gd:391: return (\"[\" + \",\".join(texts) + \"]\").sha256_text()",
+   "sim/kc2rt_alert.gd:106: var p_sha := String((r.p2_by_id.get(pid, {}) as Dictionary).get(\"sha256\", \"\"))",
+   "sim/kc2rt_alert.gd:107: var f_sha := String((r.f1(fid) as Dictionary).get(\"sha256\", \"\"))",
+   "sim/kc2rt_alert.gd:108: var src_sha := String((inc as Dictionary).get(\"source_csv_sha256\", \"\"))",
+   "sim/kc2rt_alert.gd:110: state = (\"HALTED (verify_substrate: incidence %s vs k3 D1_INCIDENCE_SHA256 %s; source_csv_sha256 %s vs \"",
+   "sim/kc2rt_config.gd:181: return register_of_record.register_sha256()",
+   "sim/kc2rt_config.gd:196: \"register_sha256\": register_hash(),",
+   "sim/kc2rt_fight.gd:2777: rng_p2_noop = rng.fork_stream(\"p2_noop\", rng.sha256_seed(\"KC2-P2-NOOP|salt%d\" % int(rng.seed_value)))",
+   "sim/kc2rt_fight.gd:2793: rng.sha256_seed(\"KC2-MC-MPOL2|salt%d\" % int(rng.seed_value)))",
+   "sim/kc2rt_kmill.gd:275: var h := material.sha256_buffer()",
+   "sim/kc2rt_oracle_config.gd:450: \"sha256\": String((v as Dictionary).get(\"sha256\", \"\")),",
+   "sim/kc2rt_register.gd:402: static func sha256_hex(bytes: PackedByteArray) -> String:",
+   "sim/kc2rt_register.gd:409: func register_sha256() -> String:",
+   "sim/kc2rt_register.gd:410: return sha256_hex(canonical_bytes(rows))",
+   "sim/kc2rt_register.gd:442: var got := sha256_hex(b)",
+   "sim/kc2rt_register.gd:447: \"expect_sha256\": FIXTURE_SHA, \"got_sha256\": got,",
+   "sim/kc2rt_register.gd:506: \"register_sha256\": register_sha256(),",
+   "sim/kc2rt_register.gd:516: rows.size(), register_sha256().substr(0, 12),",
+   "sim/kc2rt_rng.gd:344: static func sha256_seed(material: String) -> int:"
+  ]
+ },
+ "rows": {
+  "P-1": {
+   "verdict": "GREEN",
+   "values": {
+    "mapped": 89,
+    "total": 89,
+    "unmapped": 0,
+    "counts": {
+     "DIVERGENCE": 8,
+     "IMPLEMENTED": 65,
+     "OUT-OF-SCOPE": 3,
+     "RUNTIME-CHOICE": 13,
+     "UNMAPPED": 0
+    },
+    "refusals": 3
+   }
+  },
+  "P-2": {
+   "verdict": "GREEN",
+   "values": {
+    "(1) real inserted fold": true,
+    "(2) measured zero": true,
+    "(3) one digest, identical": true,
+    "digest": "3f3bf1f2f99b624f3d203537ddd7cb97eea0cb32469d81b06c3823b393651a7a",
+    "invocations": 467,
+    "ticks_observed": [
+     467,
+     467
+    ],
+    "(4) controls a/a0/b (emitted)": {
+     "(a) own + shared draw": {
+      "state": "NOT RUN",
+      "digest_identical": false,
+      "reasons": [
+       "NOT RUN: the fold's own stream drew 1 (a zero-draw fold was not inserted)",
+       "digest differs from plain"
+      ]
+     },
+     "(a0) shared draw only (own counter 0)": {
+      "state": "RED",
+      "digest_identical": false,
+      "reasons": [
+       "digest differs from plain"
+      ]
+     },
+     "(b) one extra draw at a live site (V9-SITE-13, root)": {
+      "state": "RED",
+      "digest_identical": false,
+      "reasons": [
+       "digest differs from plain"
+      ]
+     }
+    },
+    "(4) control (c)": "RED at d03ca891 (jack-ryan H-3 INFO-C, collab ff6ea9fe6; probe kc2rt_attempt2_probes.gd, a runtime member)",
+    "(5) fresh pack, no fold in plain leg or any graded cell": true,
+    "probe sites in graded cells": []
+   }
+  },
+  "P-3": {
+   "verdict": "GREEN",
+   "values": {
+    "population": "POOL-466",
+    "cardinality": 466,
+    "law": {
+     "alternative": "WEIGHTED:pool_weight",
+     "name": "UNIFORM:randrange"
+    }
+   }
+  },
+  "P-4": {
+   "verdict": "GREEN",
+   "values": {
+    "P4 blocks verified (25 cells + manifest)": true,
+    "n_blocks": 26,
+    "runtime_header ok": true,
+    "binary_sha256": "5a65c5e1fc81bb7816b03e1be1f902de58c1ff4b71b9a83973665f35d4f4e737",
+    "harness_measured_pack": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+   }
+  },
+  "P-5": {
+   "verdict": "GREEN",
+   "values": {
+    "c11a": "C1 retaliation_gate + C2 aura (CLASS) + C4 duration_divisors; C3 NOT FOLDED",
+    "global_magnitude": "ARMED_UNCONDITIONAL",
+    "insufficient_energy_policy": "REFUSE",
+    "loader_call": "load_profiles(dot_corrections=True[d1 ON side], pet_special_gates=None, winner_surface=ARMED, pool_lift=ARMED, c11a=C11aLoader(CLASS))",
+    "measured_board_attached": true,
+    "monster_march_base_m_per_s": 3.209466,
+    "monster_run_speed_population": "LAPR-MEASURED 128 · BANDA-DB-CITED 180 · FALLBACK 158",
+    "non_health_route": "ON: [\"Disruption\", \"ManaBurnDrain\", \"PierceRatio\"]",
+    "pcl_limb": "MULTIPLICATIVE @ 26.0 %",
+    "per_cast_energy_column": "PARENT_PLUS_MODIFIER",
+    "pool_lift": "ARMED (u5 CONSTRUCTED 334) · POOL-466 · SWING-456 · NONSWING-10",
+    "regen_ungated": true,
+    "winner_surface": "ARMED"
+   }
+  },
+  "C1": {
+   "verdict": "CONFORMING",
+   "values": {
+    "per_arm": {
+     "M0": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "M-POL-2": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "M-POL-2-NULL": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "W1": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "W1-NULL": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     }
+    },
+    "declared_ungradeable": [
+     "TA-X-06"
+    ],
+    "g3_control_term_sum_port": 52,
+    "g3_control_term_sum_oracle": 52
+   }
+  },
+  "TA-X-01": {
+   "verdict": "GREEN",
+   "values": {
+    "probe": "M0 salt 2, run twice, same process, no fold inserted",
+    "run_1": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "run_2": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "M0|2 cell digest": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "P-2 arm/salt": [
+     "M-POL-2",
+     0
+    ]
+   }
+  },
+  "TA-X-02": {
+   "verdict": "GREEN",
+   "values": "89/89, unmapped 0"
+  },
+  "TA-X-03": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2-NULL vs M0",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-04": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "W1-NULL vs M-POL-2",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-05": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2 vs M0",
+    "digest_identical_per_salt": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "subject_identical_per_salt (gamora)": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "TA-X-06": {
+   "verdict": "UNGRADEABLE-declared (Q83(b), KP-110)",
+   "values": "W1 vs M-POL-2 identical on 2/5 salts [True, False, True, False, False]"
+  },
+  "TA-X-07": {
+   "verdict": "GREEN",
+   "values": {
+    "(a) max rho_hat": 2.21383411155059e-16,
+    "(a) cells at 0.0": 21,
+    "(b) max |residual| (reported)": 7.45058059692383e-09,
+    "(c) gamora (L2), exact": {
+     "all_25_hold": true,
+     "worst": "M0|0",
+     "beta": 3.590829330577844e-14,
+     "margin": 27.848719834286243
+    },
+    "(c) operands == H-2's l2_operands_25cell.jsonl (b5bcdb7b)": "25/25",
+    "(c) harness r11_bound": [
+     true,
+     true
+    ],
+    "census": {
+     "classes": {
+      "F": 14,
+      "S": 11,
+      "T": 22
+     },
+     "file": "73ebc5db15aa1df86ccacd802fc13ad5a034337bf4eede53591cbceae34ae794",
+     "sites": 35
+    }
+   }
+  },
+  "TA-X-08": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "per_cell": {
+     "M0|0": {
+      "observed": 2013,
+      "PRE_FIGHT": 10,
+      "D": 2003,
+      "waves_played": 10,
+      "n_channelling": 2003,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|1": {
+      "observed": 677,
+      "PRE_FIGHT": 4,
+      "D": 673,
+      "waves_played": 4,
+      "n_channelling": 673,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|2": {
+      "observed": 652,
+      "PRE_FIGHT": 4,
+      "D": 648,
+      "waves_played": 4,
+      "n_channelling": 648,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|3": {
+      "observed": 619,
+      "PRE_FIGHT": 4,
+      "D": 615,
+      "waves_played": 4,
+      "n_channelling": 615,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 469,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|1": {
+      "observed": 1962,
+      "PRE_FIGHT": 10,
+      "D": 1952,
+      "waves_played": 10,
+      "n_channelling": 1729,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 407,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|0": {
+      "observed": 2013,
+      "PRE_FIGHT": 10,
+      "D": 2003,
+      "waves_played": 10,
+      "n_channelling": 2003,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|1": {
+      "observed": 677,
+      "PRE_FIGHT": 4,
+      "D": 673,
+      "waves_played": 4,
+      "n_channelling": 673,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|2": {
+      "observed": 652,
+      "PRE_FIGHT": 4,
+      "D": 648,
+      "waves_played": 4,
+      "n_channelling": 648,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|3": {
+      "observed": 619,
+      "PRE_FIGHT": 4,
+      "D": 615,
+      "waves_played": 4,
+      "n_channelling": 615,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 469,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|1": {
+      "observed": 1986,
+      "PRE_FIGHT": 10,
+      "D": 1976,
+      "waves_played": 10,
+      "n_channelling": 1753,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|4": {
+      "observed": 483,
+      "PRE_FIGHT": 3,
+      "D": 480,
+      "waves_played": 3,
+      "n_channelling": 418,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|1": {
+      "observed": 1962,
+      "PRE_FIGHT": 10,
+      "D": 1952,
+      "waves_played": 10,
+      "n_channelling": 1729,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 407,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     }
+    }
+   }
+  },
+  "TA-X-09": {
+   "verdict": "GREEN",
+   "values": {
+    "rowset (gamora, from the pack)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+    "rowset (emitted)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+    "per vector (rule, i, pack out, got)": [
+     [
+      "RULE-CHANNEL-MOVEMENT",
+      0,
+      true,
+      true
+     ],
+     [
+      "RULE-CHANNEL-MOVEMENT",
+      1,
+      true,
+      true
+     ],
+     [
+      "RULE-RELEASE-TYPE-A",
+      0,
+      20,
+      20
+     ],
+     [
+      "RULE-RELEASE-TYPE-A",
+      1,
+      16,
+      16
+     ],
+     [
+      "RULE-RELEASE-TYPE-B",
+      0,
+      7,
+      7
+     ],
+     [
+      "RULE-CAST-INTERRUPT-BINDING-EXCLUSIVITY",
+      0,
+      true,
+      true
+     ],
+     [
+      "RULE-CAST-INTERRUPT-BINDING-EXCLUSIVITY",
+      1,
+      false,
+      false
+     ],
+     [
+      "RULE-DMG-APPLIED",
+      0,
+      400.0,
+      400.0
+     ],
+     [
+      "RULE-DMG-APPLIED",
+      1,
+      250.0,
+      250.0
+     ]
+    ]
+   }
+  },
+  "TA-X-10": {
+   "verdict": "GREEN",
+   "values": {
+    "W1 max_body_radius_m": [
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777
+    ],
+    "bound": 43.758085029822276
+   }
+  },
+  "TA-X-11": {
+   "verdict": "GREEN",
+   "values": {
+    "W1|0": [
+     0,
+     0
+    ],
+    "W1|1": [
+     0,
+     0
+    ],
+    "W1|2": [
+     0,
+     0
+    ],
+    "W1|3": [
+     0,
+     0
+    ],
+    "W1|4": [
+     0,
+     0
+    ],
+    "W1-NULL|0": [
+     0,
+     0
+    ],
+    "W1-NULL|1": [
+     0,
+     0
+    ],
+    "W1-NULL|2": [
+     0,
+     0
+    ],
+    "W1-NULL|3": [
+     0,
+     0
+    ],
+    "W1-NULL|4": [
+     0,
+     0
+    ]
+   }
+  },
+  "TA-X-12": {
+   "verdict": "GREEN",
+   "values": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "TA-X-13": {
+   "verdict": "GREEN",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "TA-X-14": {
+   "verdict": "GREEN",
+   "values": {
+    "M0|0": [
+     0,
+     [],
+     0
+    ],
+    "M0|1": [
+     0,
+     [],
+     0
+    ],
+    "M0|2": [
+     0,
+     [],
+     0
+    ],
+    "M0|3": [
+     0,
+     [],
+     0
+    ],
+    "M0|4": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "M-POL-2|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "M-POL-2|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "M-POL-2|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "M-POL-2|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "M-POL-2-NULL|0": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|1": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|2": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|3": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|4": [
+     0,
+     [],
+     0
+    ],
+    "W1|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "W1|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "W1|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "W1|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1-NULL|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1-NULL|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "W1-NULL|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "W1-NULL|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "W1-NULL|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ]
+   }
+  },
+  "TA-X-15": {
+   "verdict": "GREEN",
+   "values": {
+    "(wave, point) rows": 583,
+    "(a) p01-p04 tick 0, p05 tick 49": true,
+    "(b)": "GREEN-BY-CONSTRUCTION"
+   }
+  },
+  "TA-X-16": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "vector (gamora, from waves.json)": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "P06-KEY": [
+     0,
+     1,
+     1,
+     0,
+     1,
+     1,
+     1,
+     1,
+     0,
+     1
+    ],
+    "vector equals the § F.2m.2 pin": true,
+    "harness vector": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "per_cell": {
+     "M0|0": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|1": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|0": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|1": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     }
+    }
+   }
+  },
+  "TA-X-17": {
+   "verdict": "GREEN-BY-CONSTRUCTION",
+   "values": {
+    "source": {
+     "law_line": [
+      [
+       280,
+       "var rho := extents_m * u2"
+      ]
+     ],
+     "f64_returns": [
+      [
+       281,
+       "return PackedFloat64Array([rho * cos(theta), rho * sin(theta)])"
+      ]
+     ],
+     "placement_sites": [
+      [
+       620,
+       "var off := Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+      ],
+      [
+       806,
+       "off64 = Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+      ]
+     ],
+     "extents_halt": [
+      [
+       492,
+       "if r.is_missing(pe) or float(pe) != placement_extents_m:"
+      ]
+     ],
+     "randf_at": [
+      [
+       360,
+       "return _rng.randf()"
+      ]
+     ]
+    },
+    "arena.json placement_extents_m": 8.0
+   }
+  },
+  "TA-X-18": {
+   "verdict": "GREEN",
+   "values": {
+    "emitted": [
+     "-3.999999999999985",
+     "-3.49691120014899e-07"
+    ],
+    "gamora_parsed_bits": [
+     "c00fffffffffffde",
+     "be9777a5cf72cec6"
+    ],
+    "emitter": "cpython-repr",
+    "repr(float(s)) == s": true
+   }
+  },
+  "TA-X-19": {
+   "verdict": "GREEN",
+   "values": {
+    "_defer_arrivals_line": [
+     [
+      4182,
+      "func _defer_arrivals() -> void:"
+     ]
+    ],
+    "packet_build_lines": [
+     "(_defer_queue[at] as Array).append({\"seq\": _defer_seq, \"b\": b, \"rec\": rec, \"direct\": _pkt_direct,"
+    ],
+    "packet_keys": [
+     "seq",
+     "b",
+     "rec",
+     "direct",
+     "pcl",
+     "fams",
+     "cast",
+     "n_rows"
+    ],
+    "position_keys_in_packet": [],
+    "position_reads_in_arrival_path": {
+     "_defer_arrivals": [],
+     "_cp_absorb": [],
+     "_land": []
+    },
+    "cast_time_distance (latency only)": [
+     "var lt := _defer_latency_ticks(_dist_to_player(b), v)"
+    ]
+   }
+  },
+  "TA-X-20": {
+   "verdict": "GREEN",
+   "values": {
+    "radius_m": 3.0,
+    "cases": {
+     "2.99 m ahead — HIT": [
+      true,
+      true,
+      true
+     ],
+     "3.01 m ahead — MISS": [
+      false,
+      false,
+      true
+     ],
+     "3.0 m BEHIND — HIT (no angular gate)": [
+      true,
+      true,
+      true
+     ],
+     "3.0 m to the side — HIT (no corridor)": [
+      true,
+      true,
+      true
+     ],
+     "12 bodies inside -> 12 hits (target cap MEASURED-ABSENT 4/4)": [
+      12,
+      12,
+      true
+     ]
+    }
+   }
+  },
+  "TA-X-21": {
+   "verdict": "GREEN",
+   "values": {
+    "quantisation rows": 12,
+    "rows ok (gamora: got == expect == python round)": true,
+    "oracle round( sites (gamora, threat.py at engine HEAD)": [
+     [
+      1561,
+      "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+     ],
+     [
+      1681,
+      "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+     ],
+     [
+      1714,
+      "1, int(round(cd * self.ticks_per_s)))"
+     ],
+     [
+      2052,
+      "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+     ]
+    ],
+    "sites == emitted": true,
+    "port bare round( (harness / gamora)": [
+     0.0,
+     []
+    ],
+    "gd files scanned (gamora)": 77
+   }
+  },
+  "TA-X-22": {
+   "verdict": "GREEN",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "TA-X-24": {
+   "verdict": "GREEN",
+   "values": {
+    "phase_model": {
+     "precedence": "DRIVER-OF-RECORD",
+     "value": "PhaseModel.ENGAGE"
+    },
+    "sha256 sites (read)": [
+     "loader/kc2rt_digest_gate.gd:65: var member_digests: Dictionary = {}          # relpath -> measured sha256",
+     "loader/kc2rt_digest_gate.gd:119: if not m.has(\"path\") or not m.has(\"sha256\"):",
+     "loader/kc2rt_digest_gate.gd:120: return _fail(\"manifest member row lacks path/sha256: %s\" % JSON.stringify(m))",
+     "loader/kc2rt_digest_gate.gd:121: lines.append(\"%s  %s\" % [String(m[\"path\"]), String(m[\"sha256\"]).to_lower()])",
+     "loader/kc2rt_digest_gate.gd:127: pack_digest_joined = _sha256_of(joined)",
+     "loader/kc2rt_digest_gate.gd:128: pack_digest_terminated = _sha256_of(joined + \"\\n\")",
+     "loader/kc2rt_digest_gate.gd:164: var want := String(m[\"sha256\"]).strip_edges().to_lower()",
+     "loader/kc2rt_digest_gate.gd:168: var got := FileAccess.get_sha256(abs_path).strip_edges().to_lower()",
+     "loader/kc2rt_digest_gate.gd:181: static func _sha256_of(s: String) -> String:",
+     "loader/kc2rt_leech_table.gd:76: sha_expected = String(join_row.get(\"sha256\", \"\"))",
+     "loader/kc2rt_leech_table.gd:80: last_error = \"V1-JOIN-1 carries no `file` or no `sha256` — refusing to load an unpinned table\"",
+     "loader/kc2rt_leech_table.gd:93: sha_measured = Kc2RtRegister.sha256_hex(bytes)",
+     "loader/kc2rt_leech_table.gd:223: \"sha256_pinned\": sha_expected,",
+     "loader/kc2rt_leech_table.gd:224: \"sha256_measured\": sha_measured,",
+     "loader/kc2rt_v3p7.gd:439: if String(v.get(\"sha256\", \"\")).length() != 64:",
+     "loader/kc2rt_v3p7.gd:440: bad.append(\"%s: no FILE sha256\" % rid)",
+     "loader/kc2rt_v3p7p1.gd:376: _a8_rowsets[jb] = {\"rowset\": doc.sha256_text(), \"n\": lst.size(),",
+     "loader/kc2rt_v3p7p1.gd:391: return (\"[\" + \",\".join(texts) + \"]\").sha256_text()",
+     "sim/kc2rt_alert.gd:106: var p_sha := String((r.p2_by_id.get(pid, {}) as Dictionary).get(\"sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:107: var f_sha := String((r.f1(fid) as Dictionary).get(\"sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:108: var src_sha := String((inc as Dictionary).get(\"source_csv_sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:110: state = (\"HALTED (verify_substrate: incidence %s vs k3 D1_INCIDENCE_SHA256 %s; source_csv_sha256 %s vs \"",
+     "sim/kc2rt_config.gd:181: return register_of_record.register_sha256()",
+     "sim/kc2rt_config.gd:196: \"register_sha256\": register_hash(),",
+     "sim/kc2rt_fight.gd:2777: rng_p2_noop = rng.fork_stream(\"p2_noop\", rng.sha256_seed(\"KC2-P2-NOOP|salt%d\" % int(rng.seed_value)))",
+     "sim/kc2rt_fight.gd:2793: rng.sha256_seed(\"KC2-MC-MPOL2|salt%d\" % int(rng.seed_value)))",
+     "sim/kc2rt_kmill.gd:275: var h := material.sha256_buffer()",
+     "sim/kc2rt_oracle_config.gd:450: \"sha256\": String((v as Dictionary).get(\"sha256\", \"\")),",
+     "sim/kc2rt_register.gd:402: static func sha256_hex(bytes: PackedByteArray) -> String:",
+     "sim/kc2rt_register.gd:409: func register_sha256() -> String:",
+     "sim/kc2rt_register.gd:410: return sha256_hex(canonical_bytes(rows))",
+     "sim/kc2rt_register.gd:442: var got := sha256_hex(b)",
+     "sim/kc2rt_register.gd:447: \"expect_sha256\": FIXTURE_SHA, \"got_sha256\": got,",
+     "sim/kc2rt_register.gd:506: \"register_sha256\": register_sha256(),",
+     "sim/kc2rt_register.gd:516: rows.size(), register_sha256().substr(0, 12),",
+     "sim/kc2rt_rng.gd:344: static func sha256_seed(material: String) -> int:"
+    ]
+   }
+  },
+  "TA-X-25": {
+   "verdict": "GREEN",
+   "values": {
+    "M0|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M0|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M-POL-2|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M-POL-2-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "W1|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "W1-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    }
+   }
+  },
+  "TA-X-26": {
+   "verdict": "GREEN",
+   "values": {
+    "(b) sha": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+    "(c)": {
+     "multipliers": 5,
+     "records": 790,
+     "rows": 7900,
+     "tiers": 8,
+     "wave_invariant": 790
+    },
+    "(d)": {
+     "formula_disagreements": 0,
+     "formula_helper_call_sites": 1,
+     "formula_helper_sites": [
+      "loader/kc2rt_leech_table.gd:173"
+     ]
+    },
+    "(e)": {
+     "max": 0.35,
+     "mean": 0.246896551724137,
+     "median": 0.25,
+     "min": 0.0,
+     "n": 464,
+     "n_zero": 17,
+     "population": "ARMED-464 := POOL-466 ∩ (v20 ∪ w40 ∪ w41 ∪ w44 ∪ w45)",
+     "records_without_a_P-i_row": 0
+    }
+   }
+  },
+  "TA-X-27": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": [
+     77,
+     0,
+     0
+    ],
+    "(b) gamora replay (python 3.12.0)": {
+     "0": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 290,
+      "port_words": 290
+     },
+     "1": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 289,
+      "port_words": 289
+     },
+     "2": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 304,
+      "port_words": 304
+     },
+     "3": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 294,
+      "port_words": 294
+     },
+     "4": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 246,
+      "port_words": 246
+     },
+     "5": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     },
+     "6": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 286,
+      "port_words": 286
+     },
+     "7": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 253,
+      "port_words": 253
+     },
+     "8": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 247,
+      "port_words": 247
+     },
+     "9": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 264,
+      "port_words": 264
+     },
+     "10": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 246,
+      "port_words": 246
+     },
+     "11": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 254,
+      "port_words": 254
+     },
+     "12": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     },
+     "13": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 272,
+      "port_words": 272
+     },
+     "14": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 253,
+      "port_words": 253
+     },
+     "15": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     }
+    },
+    "(b) harness python": "3.12.0",
+    "(c)": [
+     {
+      "p05_draw": "ELIDED, as the oracle (wave_engine.py:683-695)",
+      "registered_live_sites": 29
+     },
+     true
+    ],
+    "(d) gamora from waves.json": [
+     139,
+     97
+    ]
+   }
+  },
+  "TA-X-28": {
+   "verdict": "GREEN",
+   "values": "caps 0/0, ALL_BODIES_IN_DISC, 0.57 on 25/25"
+  },
+  "TA-X-29": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": true,
+    "(b)": true,
+    "(b) c5_equals_z5_in_content (emitted dict)": {
+     "added": [
+      "⚑ C-11a_annotations"
+     ],
+     "differ": [],
+     "unchanged": true
+    },
+    "(b) gamora from the pack": {
+     "missing": [],
+     "differ": [],
+     "added": [
+      "⚑ C-11a_annotations"
+     ]
+    },
+    "(c)": true,
+    "(c) per wave (port, z3 emitted, z3 pack)": {
+     "151": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "152": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "153": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "154": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "155": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "156": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "157": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "158": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "159": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "160": [
+      1.83,
+      1.83,
+      1.83
+     ]
+    },
+    "(d)": true,
+    "(e)": {
+     "w159": 3.207764,
+     "w160": 4.980316,
+     "rec159": {
+      "n": 16,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     },
+     "rec160": {
+      "n": 23,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     }
+    }
+   }
+  },
+  "TA-X-30": {
+   "verdict": "GREEN",
+   "values": {
+    "d_engage_m": 2.4,
+    "halted beyond": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "rows_preread_same_grader": {
+  "P-1": {
+   "verdict": "GREEN",
+   "values": {
+    "mapped": 89,
+    "total": 89,
+    "unmapped": 0,
+    "counts": {
+     "DIVERGENCE": 8,
+     "IMPLEMENTED": 65,
+     "OUT-OF-SCOPE": 3,
+     "RUNTIME-CHOICE": 13,
+     "UNMAPPED": 0
+    },
+    "refusals": 3
+   }
+  },
+  "P-2": {
+   "verdict": "GREEN",
+   "values": {
+    "(1) real inserted fold": true,
+    "(2) measured zero": true,
+    "(3) one digest, identical": true,
+    "digest": "3f3bf1f2f99b624f3d203537ddd7cb97eea0cb32469d81b06c3823b393651a7a",
+    "invocations": 467,
+    "ticks_observed": [
+     467,
+     467
+    ],
+    "(4) controls a/a0/b (emitted)": {
+     "(a) own + shared draw": {
+      "state": "NOT RUN",
+      "digest_identical": false,
+      "reasons": [
+       "NOT RUN: the fold's own stream drew 1 (a zero-draw fold was not inserted)",
+       "digest differs from plain"
+      ]
+     },
+     "(a0) shared draw only (own counter 0)": {
+      "state": "RED",
+      "digest_identical": false,
+      "reasons": [
+       "digest differs from plain"
+      ]
+     },
+     "(b) one extra draw at a live site (V9-SITE-13, root)": {
+      "state": "RED",
+      "digest_identical": false,
+      "reasons": [
+       "digest differs from plain"
+      ]
+     }
+    },
+    "(4) control (c)": "RED at d03ca891 (jack-ryan H-3 INFO-C, collab ff6ea9fe6; probe kc2rt_attempt2_probes.gd, a runtime member)",
+    "(5) fresh pack, no fold in plain leg or any graded cell": true,
+    "probe sites in graded cells": []
+   }
+  },
+  "P-3": {
+   "verdict": "GREEN",
+   "values": {
+    "population": "POOL-466",
+    "cardinality": 466,
+    "law": {
+     "alternative": "WEIGHTED:pool_weight",
+     "name": "UNIFORM:randrange"
+    }
+   }
+  },
+  "P-4": {
+   "verdict": "GREEN",
+   "values": {
+    "P4 blocks verified (25 cells + manifest)": true,
+    "n_blocks": 26,
+    "runtime_header ok": true,
+    "binary_sha256": "5a65c5e1fc81bb7816b03e1be1f902de58c1ff4b71b9a83973665f35d4f4e737",
+    "harness_measured_pack": "48a4c94c165715d3f4f5db89c1278aa8439fbe1507c39dd555f7ce91d4636c96"
+   }
+  },
+  "P-5": {
+   "verdict": "GREEN",
+   "values": {
+    "c11a": "C1 retaliation_gate + C2 aura (CLASS) + C4 duration_divisors; C3 NOT FOLDED",
+    "global_magnitude": "ARMED_UNCONDITIONAL",
+    "insufficient_energy_policy": "REFUSE",
+    "loader_call": "load_profiles(dot_corrections=True[d1 ON side], pet_special_gates=None, winner_surface=ARMED, pool_lift=ARMED, c11a=C11aLoader(CLASS))",
+    "measured_board_attached": true,
+    "monster_march_base_m_per_s": 3.209466,
+    "monster_run_speed_population": "LAPR-MEASURED 128 · BANDA-DB-CITED 180 · FALLBACK 158",
+    "non_health_route": "ON: [\"Disruption\", \"ManaBurnDrain\", \"PierceRatio\"]",
+    "pcl_limb": "MULTIPLICATIVE @ 26.0 %",
+    "per_cast_energy_column": "PARENT_PLUS_MODIFIER",
+    "pool_lift": "ARMED (u5 CONSTRUCTED 334) · POOL-466 · SWING-456 · NONSWING-10",
+    "regen_ungated": true,
+    "winner_surface": "ARMED"
+   }
+  },
+  "C1": {
+   "verdict": "CONFORMING",
+   "values": {
+    "per_arm": {
+     "M0": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "M-POL-2": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "M-POL-2-NULL": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "W1": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     },
+     "W1-NULL": {
+      "rowset_eq_B1a": true,
+      "setup_C": true,
+      "probe_rows_applied": 0,
+      "configured_from_a8": true,
+      "g3_5_salts": true
+     }
+    },
+    "declared_ungradeable": [
+     "TA-X-06"
+    ],
+    "g3_control_term_sum_port": 52,
+    "g3_control_term_sum_oracle": 52
+   }
+  },
+  "TA-X-01": {
+   "verdict": "GREEN",
+   "values": {
+    "probe": "M0 salt 2, run twice, same process, no fold inserted",
+    "run_1": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "run_2": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "M0|2 cell digest": "e6ee41c6d17ba31b5c81a18786598ae4e7649e8b090ca448308d8a413bd3447a",
+    "P-2 arm/salt": [
+     "M-POL-2",
+     0
+    ]
+   }
+  },
+  "TA-X-02": {
+   "verdict": "GREEN",
+   "values": "89/89, unmapped 0"
+  },
+  "TA-X-03": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2-NULL vs M0",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-04": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "W1-NULL vs M-POL-2",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-05": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2 vs M0",
+    "digest_identical_per_salt": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "subject_identical_per_salt (gamora)": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "TA-X-06": {
+   "verdict": "UNGRADEABLE-declared (Q83(b), KP-110)",
+   "values": "W1 vs M-POL-2 identical on 2/5 salts [True, False, True, False, False]"
+  },
+  "TA-X-07": {
+   "verdict": "GREEN",
+   "values": {
+    "(a) max rho_hat": 2.21383411155059e-16,
+    "(a) cells at 0.0": 21,
+    "(b) max |residual| (reported)": 7.45058059692383e-09,
+    "(c) gamora (L2), exact": {
+     "all_25_hold": true,
+     "worst": "M0|0",
+     "beta": 3.590829330577844e-14,
+     "margin": 27.848719834286243
+    },
+    "(c) operands == H-2's l2_operands_25cell.jsonl (b5bcdb7b)": "25/25",
+    "(c) harness r11_bound": [
+     true,
+     true
+    ],
+    "census": {
+     "classes": {
+      "F": 14,
+      "S": 11,
+      "T": 22
+     },
+     "file": "73ebc5db15aa1df86ccacd802fc13ad5a034337bf4eede53591cbceae34ae794",
+     "sites": 35
+    }
+   }
+  },
+  "TA-X-08": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "per_cell": {
+     "M0|0": {
+      "observed": 2013,
+      "PRE_FIGHT": 10,
+      "D": 2003,
+      "waves_played": 10,
+      "n_channelling": 2003,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|1": {
+      "observed": 677,
+      "PRE_FIGHT": 4,
+      "D": 673,
+      "waves_played": 4,
+      "n_channelling": 673,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|2": {
+      "observed": 652,
+      "PRE_FIGHT": 4,
+      "D": 648,
+      "waves_played": 4,
+      "n_channelling": 648,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|3": {
+      "observed": 619,
+      "PRE_FIGHT": 4,
+      "D": 615,
+      "waves_played": 4,
+      "n_channelling": 615,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M0|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 469,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|1": {
+      "observed": 1962,
+      "PRE_FIGHT": 10,
+      "D": 1952,
+      "waves_played": 10,
+      "n_channelling": 1729,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 407,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|0": {
+      "observed": 2013,
+      "PRE_FIGHT": 10,
+      "D": 2003,
+      "waves_played": 10,
+      "n_channelling": 2003,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|1": {
+      "observed": 677,
+      "PRE_FIGHT": 4,
+      "D": 673,
+      "waves_played": 4,
+      "n_channelling": 673,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|2": {
+      "observed": 652,
+      "PRE_FIGHT": 4,
+      "D": 648,
+      "waves_played": 4,
+      "n_channelling": 648,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|3": {
+      "observed": 619,
+      "PRE_FIGHT": 4,
+      "D": 615,
+      "waves_played": 4,
+      "n_channelling": 615,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "M-POL-2-NULL|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 469,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 0,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|1": {
+      "observed": 1986,
+      "PRE_FIGHT": 10,
+      "D": 1976,
+      "waves_played": 10,
+      "n_channelling": 1753,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1|4": {
+      "observed": 483,
+      "PRE_FIGHT": 3,
+      "D": 480,
+      "waves_played": 3,
+      "n_channelling": 418,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|0": {
+      "observed": 467,
+      "PRE_FIGHT": 3,
+      "D": 464,
+      "waves_played": 3,
+      "n_channelling": 402,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|1": {
+      "observed": 1962,
+      "PRE_FIGHT": 10,
+      "D": 1952,
+      "waves_played": 10,
+      "n_channelling": 1729,
+      "n_released": 223,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 223,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|2": {
+      "observed": 671,
+      "PRE_FIGHT": 4,
+      "D": 667,
+      "waves_played": 4,
+      "n_channelling": 589,
+      "n_released": 78,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 78,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|3": {
+      "observed": 621,
+      "PRE_FIGHT": 4,
+      "D": 617,
+      "waves_played": 4,
+      "n_channelling": 553,
+      "n_released": 64,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 64,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     },
+     "W1-NULL|4": {
+      "observed": 472,
+      "PRE_FIGHT": 3,
+      "D": 469,
+      "waves_played": 3,
+      "n_channelling": 407,
+      "n_released": 62,
+      "n_control_suppressed_channelling": 0,
+      "n_ticks_released": 62,
+      "n_released_pre_fight": 0,
+      "n_control_suppressed": 0,
+      "n_control_suppressed_released": 0,
+      "n_control_suppressed_pre_fight": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "M0_no_fold": true,
+      "census_convention": {
+       "one PRE_FIGHT per wave played": true,
+       "no DEAD": true,
+       "lethal tick censused alive": true,
+       "no state outside the tally + PRE_FIGHT": true,
+       "counters' D / PF = census": true,
+       "n_channelling = CHANNELLING + C&M": true
+      },
+      "harness_flags": [
+       true,
+       true,
+       true
+      ]
+     }
+    }
+   }
+  },
+  "TA-X-09": {
+   "verdict": "GREEN",
+   "values": {
+    "rowset (gamora, from the pack)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+    "rowset (emitted)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+    "per vector (rule, i, pack out, got)": [
+     [
+      "RULE-CHANNEL-MOVEMENT",
+      0,
+      true,
+      true
+     ],
+     [
+      "RULE-CHANNEL-MOVEMENT",
+      1,
+      true,
+      true
+     ],
+     [
+      "RULE-RELEASE-TYPE-A",
+      0,
+      20,
+      20
+     ],
+     [
+      "RULE-RELEASE-TYPE-A",
+      1,
+      16,
+      16
+     ],
+     [
+      "RULE-RELEASE-TYPE-B",
+      0,
+      7,
+      7
+     ],
+     [
+      "RULE-CAST-INTERRUPT-BINDING-EXCLUSIVITY",
+      0,
+      true,
+      true
+     ],
+     [
+      "RULE-CAST-INTERRUPT-BINDING-EXCLUSIVITY",
+      1,
+      false,
+      false
+     ],
+     [
+      "RULE-DMG-APPLIED",
+      0,
+      400.0,
+      400.0
+     ],
+     [
+      "RULE-DMG-APPLIED",
+      1,
+      250.0,
+      250.0
+     ]
+    ]
+   }
+  },
+  "TA-X-10": {
+   "verdict": "GREEN",
+   "values": {
+    "W1 max_body_radius_m": [
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777,
+     43.0603720647777
+    ],
+    "bound": 43.758085029822276
+   }
+  },
+  "TA-X-11": {
+   "verdict": "GREEN",
+   "values": {
+    "W1|0": [
+     0,
+     0
+    ],
+    "W1|1": [
+     0,
+     0
+    ],
+    "W1|2": [
+     0,
+     0
+    ],
+    "W1|3": [
+     0,
+     0
+    ],
+    "W1|4": [
+     0,
+     0
+    ],
+    "W1-NULL|0": [
+     0,
+     0
+    ],
+    "W1-NULL|1": [
+     0,
+     0
+    ],
+    "W1-NULL|2": [
+     0,
+     0
+    ],
+    "W1-NULL|3": [
+     0,
+     0
+    ],
+    "W1-NULL|4": [
+     0,
+     0
+    ]
+   }
+  },
+  "TA-X-12": {
+   "verdict": "GREEN",
+   "values": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "TA-X-13": {
+   "verdict": "GREEN",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "TA-X-14": {
+   "verdict": "GREEN",
+   "values": {
+    "M0|0": [
+     0,
+     [],
+     0
+    ],
+    "M0|1": [
+     0,
+     [],
+     0
+    ],
+    "M0|2": [
+     0,
+     [],
+     0
+    ],
+    "M0|3": [
+     0,
+     [],
+     0
+    ],
+    "M0|4": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "M-POL-2|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "M-POL-2|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "M-POL-2|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "M-POL-2|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "M-POL-2-NULL|0": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|1": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|2": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|3": [
+     0,
+     [],
+     0
+    ],
+    "M-POL-2-NULL|4": [
+     0,
+     [],
+     0
+    ],
+    "W1|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "W1|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "W1|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "W1|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1-NULL|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ],
+    "W1-NULL|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     19
+    ],
+    "W1-NULL|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     6
+    ],
+    "W1-NULL|3": [
+     0,
+     [
+      "type_a"
+     ],
+     4
+    ],
+    "W1-NULL|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ],
+     5
+    ]
+   }
+  },
+  "TA-X-15": {
+   "verdict": "GREEN",
+   "values": {
+    "(wave, point) rows": 583,
+    "(a) p01-p04 tick 0, p05 tick 49": true,
+    "(b)": "GREEN-BY-CONSTRUCTION"
+   }
+  },
+  "TA-X-16": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "vector (gamora, from waves.json)": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "P06-KEY": [
+     0,
+     1,
+     1,
+     0,
+     1,
+     1,
+     1,
+     1,
+     0,
+     1
+    ],
+    "vector equals the § F.2m.2 pin": true,
+    "harness vector": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "per_cell": {
+     "M0|0": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|1": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M0|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|0": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|1": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "M-POL-2-NULL|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|0": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|1": {
+      "T": 160,
+      "n_waves": 10,
+      "picks": [
+       5,
+       5,
+       5,
+       4,
+       4,
+       5,
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 47,
+      "expected_sum": 47,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0,
+       1,
+       1,
+       1,
+       1,
+       0,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|2": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|3": {
+      "T": 154,
+      "n_waves": 4,
+      "picks": [
+       5,
+       5,
+       5,
+       4
+      ],
+      "n_pool_picks": 19,
+      "expected_sum": 19,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1,
+       0
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     },
+     "W1-NULL|4": {
+      "T": 153,
+      "n_waves": 3,
+      "picks": [
+       5,
+       5,
+       5
+      ],
+      "n_pool_picks": 15,
+      "expected_sum": 15,
+      "p06_rolled": 0,
+      "p06_filtered": [
+       0,
+       1,
+       1
+      ],
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "schedule points <= keys (printed)": true,
+      "harness_holds": true
+     }
+    }
+   }
+  },
+  "TA-X-17": {
+   "verdict": "GREEN-BY-CONSTRUCTION",
+   "values": {
+    "source": {
+     "law_line": [
+      [
+       280,
+       "var rho := extents_m * u2"
+      ]
+     ],
+     "f64_returns": [
+      [
+       281,
+       "return PackedFloat64Array([rho * cos(theta), rho * sin(theta)])"
+      ]
+     ],
+     "placement_sites": [
+      [
+       620,
+       "var off := Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+      ],
+      [
+       806,
+       "off64 = Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+      ]
+     ],
+     "extents_halt": [
+      [
+       492,
+       "if r.is_missing(pe) or float(pe) != placement_extents_m:"
+      ]
+     ],
+     "randf_at": [
+      [
+       360,
+       "return _rng.randf()"
+      ]
+     ]
+    },
+    "arena.json placement_extents_m": 8.0
+   }
+  },
+  "TA-X-18": {
+   "verdict": "GREEN",
+   "values": {
+    "emitted": [
+     "-3.999999999999985",
+     "-3.49691120014899e-07"
+    ],
+    "gamora_parsed_bits": [
+     "c00fffffffffffde",
+     "be9777a5cf72cec6"
+    ],
+    "emitter": "cpython-repr",
+    "repr(float(s)) == s": true
+   }
+  },
+  "TA-X-19": {
+   "verdict": "GREEN",
+   "values": {
+    "_defer_arrivals_line": [
+     [
+      4182,
+      "func _defer_arrivals() -> void:"
+     ]
+    ],
+    "packet_build_lines": [
+     "(_defer_queue[at] as Array).append({\"seq\": _defer_seq, \"b\": b, \"rec\": rec, \"direct\": _pkt_direct,"
+    ],
+    "packet_keys": [
+     "seq",
+     "b",
+     "rec",
+     "direct",
+     "pcl",
+     "fams",
+     "cast",
+     "n_rows"
+    ],
+    "position_keys_in_packet": [],
+    "position_reads_in_arrival_path": {
+     "_defer_arrivals": [],
+     "_cp_absorb": [],
+     "_land": []
+    },
+    "cast_time_distance (latency only)": [
+     "var lt := _defer_latency_ticks(_dist_to_player(b), v)"
+    ]
+   }
+  },
+  "TA-X-20": {
+   "verdict": "GREEN",
+   "values": {
+    "radius_m": 3.0,
+    "cases": {
+     "2.99 m ahead — HIT": [
+      true,
+      true,
+      true
+     ],
+     "3.01 m ahead — MISS": [
+      false,
+      false,
+      true
+     ],
+     "3.0 m BEHIND — HIT (no angular gate)": [
+      true,
+      true,
+      true
+     ],
+     "3.0 m to the side — HIT (no corridor)": [
+      true,
+      true,
+      true
+     ],
+     "12 bodies inside -> 12 hits (target cap MEASURED-ABSENT 4/4)": [
+      12,
+      12,
+      true
+     ]
+    }
+   }
+  },
+  "TA-X-21": {
+   "verdict": "GREEN",
+   "values": {
+    "quantisation rows": 12,
+    "rows ok (gamora: got == expect == python round)": true,
+    "oracle round( sites (gamora, threat.py at engine HEAD)": [
+     [
+      1561,
+      "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+     ],
+     [
+      1681,
+      "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+     ],
+     [
+      1714,
+      "1, int(round(cd * self.ticks_per_s)))"
+     ],
+     [
+      2052,
+      "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+     ]
+    ],
+    "sites == emitted": true,
+    "port bare round( (harness / gamora)": [
+     0.0,
+     []
+    ],
+    "gd files scanned (gamora)": 77
+   }
+  },
+  "TA-X-22": {
+   "verdict": "GREEN",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "TA-X-24": {
+   "verdict": "GREEN",
+   "values": {
+    "phase_model": {
+     "precedence": "DRIVER-OF-RECORD",
+     "value": "PhaseModel.ENGAGE"
+    },
+    "sha256 sites (read)": [
+     "loader/kc2rt_digest_gate.gd:65: var member_digests: Dictionary = {}          # relpath -> measured sha256",
+     "loader/kc2rt_digest_gate.gd:119: if not m.has(\"path\") or not m.has(\"sha256\"):",
+     "loader/kc2rt_digest_gate.gd:120: return _fail(\"manifest member row lacks path/sha256: %s\" % JSON.stringify(m))",
+     "loader/kc2rt_digest_gate.gd:121: lines.append(\"%s  %s\" % [String(m[\"path\"]), String(m[\"sha256\"]).to_lower()])",
+     "loader/kc2rt_digest_gate.gd:127: pack_digest_joined = _sha256_of(joined)",
+     "loader/kc2rt_digest_gate.gd:128: pack_digest_terminated = _sha256_of(joined + \"\\n\")",
+     "loader/kc2rt_digest_gate.gd:164: var want := String(m[\"sha256\"]).strip_edges().to_lower()",
+     "loader/kc2rt_digest_gate.gd:168: var got := FileAccess.get_sha256(abs_path).strip_edges().to_lower()",
+     "loader/kc2rt_digest_gate.gd:181: static func _sha256_of(s: String) -> String:",
+     "loader/kc2rt_leech_table.gd:76: sha_expected = String(join_row.get(\"sha256\", \"\"))",
+     "loader/kc2rt_leech_table.gd:80: last_error = \"V1-JOIN-1 carries no `file` or no `sha256` — refusing to load an unpinned table\"",
+     "loader/kc2rt_leech_table.gd:93: sha_measured = Kc2RtRegister.sha256_hex(bytes)",
+     "loader/kc2rt_leech_table.gd:223: \"sha256_pinned\": sha_expected,",
+     "loader/kc2rt_leech_table.gd:224: \"sha256_measured\": sha_measured,",
+     "loader/kc2rt_v3p7.gd:439: if String(v.get(\"sha256\", \"\")).length() != 64:",
+     "loader/kc2rt_v3p7.gd:440: bad.append(\"%s: no FILE sha256\" % rid)",
+     "loader/kc2rt_v3p7p1.gd:376: _a8_rowsets[jb] = {\"rowset\": doc.sha256_text(), \"n\": lst.size(),",
+     "loader/kc2rt_v3p7p1.gd:391: return (\"[\" + \",\".join(texts) + \"]\").sha256_text()",
+     "sim/kc2rt_alert.gd:106: var p_sha := String((r.p2_by_id.get(pid, {}) as Dictionary).get(\"sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:107: var f_sha := String((r.f1(fid) as Dictionary).get(\"sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:108: var src_sha := String((inc as Dictionary).get(\"source_csv_sha256\", \"\"))",
+     "sim/kc2rt_alert.gd:110: state = (\"HALTED (verify_substrate: incidence %s vs k3 D1_INCIDENCE_SHA256 %s; source_csv_sha256 %s vs \"",
+     "sim/kc2rt_config.gd:181: return register_of_record.register_sha256()",
+     "sim/kc2rt_config.gd:196: \"register_sha256\": register_hash(),",
+     "sim/kc2rt_fight.gd:2777: rng_p2_noop = rng.fork_stream(\"p2_noop\", rng.sha256_seed(\"KC2-P2-NOOP|salt%d\" % int(rng.seed_value)))",
+     "sim/kc2rt_fight.gd:2793: rng.sha256_seed(\"KC2-MC-MPOL2|salt%d\" % int(rng.seed_value)))",
+     "sim/kc2rt_kmill.gd:275: var h := material.sha256_buffer()",
+     "sim/kc2rt_oracle_config.gd:450: \"sha256\": String((v as Dictionary).get(\"sha256\", \"\")),",
+     "sim/kc2rt_register.gd:402: static func sha256_hex(bytes: PackedByteArray) -> String:",
+     "sim/kc2rt_register.gd:409: func register_sha256() -> String:",
+     "sim/kc2rt_register.gd:410: return sha256_hex(canonical_bytes(rows))",
+     "sim/kc2rt_register.gd:442: var got := sha256_hex(b)",
+     "sim/kc2rt_register.gd:447: \"expect_sha256\": FIXTURE_SHA, \"got_sha256\": got,",
+     "sim/kc2rt_register.gd:506: \"register_sha256\": register_sha256(),",
+     "sim/kc2rt_register.gd:516: rows.size(), register_sha256().substr(0, 12),",
+     "sim/kc2rt_rng.gd:344: static func sha256_seed(material: String) -> int:"
+    ]
+   }
+  },
+  "TA-X-25": {
+   "verdict": "GREEN",
+   "values": {
+    "M0|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M0|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M0|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M-POL-2|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "M-POL-2-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "M-POL-2-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "M-POL-2-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "W1|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1-NULL|0": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    },
+    "W1-NULL|1": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 180
+    },
+    "W1-NULL|2": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1-NULL|3": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 79
+    },
+    "W1-NULL|4": {
+     "a": true,
+     "b": true,
+     "c1": true,
+     "c2": true,
+     "c3": true,
+     "c4": true,
+     "bodies": 68
+    }
+   }
+  },
+  "TA-X-26": {
+   "verdict": "GREEN",
+   "values": {
+    "(b) sha": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+    "(c)": {
+     "multipliers": 5,
+     "records": 790,
+     "rows": 7900,
+     "tiers": 8,
+     "wave_invariant": 790
+    },
+    "(d)": {
+     "formula_disagreements": 0,
+     "formula_helper_call_sites": 1,
+     "formula_helper_sites": [
+      "loader/kc2rt_leech_table.gd:173"
+     ]
+    },
+    "(e)": {
+     "max": 0.35,
+     "mean": 0.246896551724137,
+     "median": 0.25,
+     "min": 0.0,
+     "n": 464,
+     "n_zero": 17,
+     "population": "ARMED-464 := POOL-466 ∩ (v20 ∪ w40 ∪ w41 ∪ w44 ∪ w45)",
+     "records_without_a_P-i_row": 0
+    }
+   }
+  },
+  "TA-X-27": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": [
+     77,
+     0,
+     0
+    ],
+    "(b) gamora replay (python 3.12.0)": {
+     "0": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 290,
+      "port_words": 290
+     },
+     "1": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 289,
+      "port_words": 289
+     },
+     "2": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 304,
+      "port_words": 304
+     },
+     "3": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 294,
+      "port_words": 294
+     },
+     "4": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 246,
+      "port_words": 246
+     },
+     "5": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     },
+     "6": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 286,
+      "port_words": 286
+     },
+     "7": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 253,
+      "port_words": 253
+     },
+     "8": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 247,
+      "port_words": 247
+     },
+     "9": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 264,
+      "port_words": 264
+     },
+     "10": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 246,
+      "port_words": 246
+     },
+     "11": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 254,
+      "port_words": 254
+     },
+     "12": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     },
+     "13": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 272,
+      "port_words": 272
+     },
+     "14": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 253,
+      "port_words": 253
+     },
+     "15": {
+      "gamora_cons == port_consumed": true,
+      "gamora_results == port_results": true,
+      "gamora_words": 261,
+      "port_words": 261
+     }
+    },
+    "(b) harness python": "3.12.0",
+    "(c)": [
+     {
+      "p05_draw": "ELIDED, as the oracle (wave_engine.py:683-695)",
+      "registered_live_sites": 29
+     },
+     true
+    ],
+    "(d) gamora from waves.json": [
+     139,
+     97
+    ]
+   }
+  },
+  "TA-X-28": {
+   "verdict": "GREEN",
+   "values": "caps 0/0, ALL_BODIES_IN_DISC, 0.57 on 25/25"
+  },
+  "TA-X-29": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": true,
+    "(b)": true,
+    "(b) c5_equals_z5_in_content (emitted dict)": {
+     "added": [
+      "⚑ C-11a_annotations"
+     ],
+     "differ": [],
+     "unchanged": true
+    },
+    "(b) gamora from the pack": {
+     "missing": [],
+     "differ": [],
+     "added": [
+      "⚑ C-11a_annotations"
+     ]
+    },
+    "(c)": true,
+    "(c) per wave (port, z3 emitted, z3 pack)": {
+     "151": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "152": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "153": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "154": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "155": [
+      1.82,
+      1.82,
+      1.82
+     ],
+     "156": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "157": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "158": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "159": [
+      1.83,
+      1.83,
+      1.83
+     ],
+     "160": [
+      1.83,
+      1.83,
+      1.83
+     ]
+    },
+    "(d)": true,
+    "(e)": {
+     "w159": 3.207764,
+     "w160": 4.980316,
+     "rec159": {
+      "n": 16,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     },
+     "rec160": {
+      "n": 23,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     }
+    }
+   }
+  },
+  "TA-X-30": {
+   "verdict": "GREEN",
+   "values": {
+    "d_engage_m": 2.4,
+    "halted beyond": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "diagnostics": {
+  "TA-B-01 terminal waves (port, M-POL-2)": [
+   153,
+   160,
+   154,
+   154,
+   153
+  ],
+  "oracle M-POL-2 (v1.12 § B.1a)": [
+   156,
+   152,
+   155,
+   152,
+   152
+  ],
+  "printed beside TA-X-06: port W1": [
+   153,
+   160,
+   154,
+   154,
+   153
+  ],
+  "oracle W1": [
+   156,
+   152,
+   155,
+   152,
+   155
+  ],
+  "terminal vectors, all arms": {
+   "M-POL-2": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ],
+   "M-POL-2-NULL": [
+    160,
+    154,
+    154,
+    154,
+    153
+   ],
+   "M0": [
+    160,
+    154,
+    154,
+    154,
+    153
+   ],
+   "W1": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ],
+   "W1-NULL": [
+    153,
+    160,
+    154,
+    154,
+    153
+   ]
+  },
+  "M-POL-2 per-tick (n = 5)": {
+   "TA-B-02_uptime": {
+    "per_salt": [
+     0.866379310344828,
+     0.885758196721312,
+     0.883058470764618,
+     0.896272285251216,
+     0.867803837953092
+    ],
+    "mean": 0.8798544202070133
+   },
+   "TA-B-03_frac_moving": {
+    "per_salt": [
+     0.844827586206897,
+     0.850409836065574,
+     0.842578710644678,
+     0.841166936790924,
+     0.842217484008529
+    ],
+    "mean": 0.8442401107433204
+   },
+   "TA-B-04_P_chan_given_moving": {
+    "per_salt": [
+     0.897959183673469,
+     0.92289156626506,
+     0.918149466192171,
+     0.921001926782274,
+     0.911392405063291
+    ],
+    "mean": 0.914278909595253
+   },
+   "TA-B-05_P_chan_given_stationary": {
+    "per_salt": [
+     0.694444444444444,
+     0.674657534246575,
+     0.695238095238095,
+     0.76530612244898,
+     0.635135135135135
+    ],
+    "mean": 0.6929562663026457
+   },
+   "TA-B-06_plant_ratio": {
+    "per_salt": [
+     0.142857142857143,
+     0.0625,
+     0.0909090909090909,
+     0.2,
+     0.428571428571429
+    ],
+    "mean": 0.18496753246753256
+   },
+   "TA-B-07_release_duty": {
+    "per_salt": [
+     0.133620689655172,
+     0.114241803278689,
+     0.116941529235382,
+     0.103727714748784,
+     0.132196162046908
+    ],
+    "mean": 0.12014557979298698
+   },
+   "TA-B-09_channel_split": {
+    "per_salt": [
+     0.124378109452736,
+     0.113938692886061,
+     0.123938879456706,
+     0.135623869801085,
+     0.115479115479115
+    ],
+    "mean": 0.1226717334151406
+   }
+  },
+  "TA-B-08 ordering holds": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "TA-B-14 W1 vetoes / occupancy": [
+   [
+    0,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "TA-B-15 (nodata bodies, fraction)": {
+   "M0": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "M-POL-2": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "M-POL-2-NULL": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "W1": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ],
+   "W1-NULL": [
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ],
+    [
+     0,
+     0.0
+    ]
+   ]
+  },
+  "R-6": {
+   "(i)": 0,
+   "(ii)": 0,
+   "(iii)": 0,
+   "harness": {
+    "(i) killer_id set and terminal_reason cleared": 0,
+    "(ii) in-tick resurrections": 0,
+    "(iii) cells where a PCL row landed and PercentCurrentLife intake is not > 0": 0
+   }
+  },
+  "sustain leech/intake (port, printed not asserted)": {
+   "M0": [
+    5.563,
+    2.379,
+    2.754,
+    2.889,
+    2.198
+   ],
+   "M-POL-2": [
+    2.034,
+    5.561,
+    2.616,
+    2.88,
+    2.077
+   ],
+   "M-POL-2-NULL": [
+    5.563,
+    2.379,
+    2.754,
+    2.889,
+    2.198
+   ],
+   "W1": [
+    2.034,
+    5.441,
+    2.616,
+    2.876,
+    2.59
+   ],
+   "W1-NULL": [
+    2.034,
+    5.561,
+    2.616,
+    2.88,
+    2.077
+   ]
+  },
+  "rule 13": {
+   "run_sum": 0,
+   "run_max": 0,
+   "run_n_control_suppressed_sum": 0,
+   "run_doubly_suppressed_sum": 0,
+   "run_pre_fight_suppressed_sum": 0,
+   "run_released_pre_fight_sum": 0,
+   "g3_sum_port": 52,
+   "g3_sum_oracle": 52,
+   "g3_equal_cells": 25,
+   "g3_doubly_suppressed_sum (port/oracle)": [
+    0,
+    0
+   ],
+   "g3_pre_fight_suppressed_sum (port/oracle)": [
+    0,
+    0
+   ],
+   "g3_summaries_ta_x_08_equal": 25
+  },
+  "TA-B-19 ticks/wave (M-POL-2, D / waves played)": {
+   "per_salt": [
+    154.66666666666666,
+    195.2,
+    166.75,
+    154.25,
+    156.33333333333334
+   ],
+   "mean": 165.44,
+   "seal_mean": 161.6,
+   "dilution": 1.0237623762376238
+  },
+  "terminals": {
+   "M0|0": [
+    160,
+    "death"
+   ],
+   "M0|1": [
+    154,
+    "death"
+   ],
+   "M0|2": [
+    154,
+    "death"
+   ],
+   "M0|3": [
+    154,
+    "death"
+   ],
+   "M0|4": [
+    153,
+    "death"
+   ],
+   "M-POL-2|0": [
+    153,
+    "death"
+   ],
+   "M-POL-2|1": [
+    160,
+    "death"
+   ],
+   "M-POL-2|2": [
+    154,
+    "death"
+   ],
+   "M-POL-2|3": [
+    154,
+    "death"
+   ],
+   "M-POL-2|4": [
+    153,
+    "death"
+   ],
+   "M-POL-2-NULL|0": [
+    160,
+    "death"
+   ],
+   "M-POL-2-NULL|1": [
+    154,
+    "death"
+   ],
+   "M-POL-2-NULL|2": [
+    154,
+    "death"
+   ],
+   "M-POL-2-NULL|3": [
+    154,
+    "death"
+   ],
+   "M-POL-2-NULL|4": [
+    153,
+    "death"
+   ],
+   "W1|0": [
+    153,
+    "death"
+   ],
+   "W1|1": [
+    160,
+    "death"
+   ],
+   "W1|2": [
+    154,
+    "death"
+   ],
+   "W1|3": [
+    154,
+    "death"
+   ],
+   "W1|4": [
+    153,
+    "death"
+   ],
+   "W1-NULL|0": [
+    153,
+    "death"
+   ],
+   "W1-NULL|1": [
+    160,
+    "death"
+   ],
+   "W1-NULL|2": [
+    154,
+    "death"
+   ],
+   "W1-NULL|3": [
+    154,
+    "death"
+   ],
+   "W1-NULL|4": [
+    153,
+    "death"
+   ]
+  }
+ },
+ "counts": {
+  "GREEN": 28
+ },
+ "by_class": {
+  "GREEN": [
+   "TA-X-01",
+   "TA-X-02",
+   "TA-X-03",
+   "TA-X-04",
+   "TA-X-05",
+   "TA-X-07",
+   "TA-X-08",
+   "TA-X-09",
+   "TA-X-10",
+   "TA-X-11",
+   "TA-X-12",
+   "TA-X-13",
+   "TA-X-14",
+   "TA-X-15",
+   "TA-X-16",
+   "TA-X-17",
+   "TA-X-18",
+   "TA-X-19",
+   "TA-X-20",
+   "TA-X-21",
+   "TA-X-22",
+   "TA-X-24",
+   "TA-X-25",
+   "TA-X-26",
+   "TA-X-27",
+   "TA-X-28",
+   "TA-X-29",
+   "TA-X-30"
+  ]
+ },
+ "preconditions_not_green": [],
+ "item5_graded_vs_read": {
+  "cell.json bytes equal": 25,
+  "cell_digest equal": 25,
+  "rows: verdict equal": 35,
+  "rows: every value equal": 35,
+  "rows compared": 35,
+  "row differences": {},
+  "ta_manifest.json differing leaf paths": [
+   "/runtime_header/header_file",
+   "/runtime_header/header_file_sha256"
+  ],
+  "ta_verdict.json differing leaf paths": [
+   "/attempt",
+   "/attempt_overall",
+   "/attempt_previewed",
+   "/pre_attempt_read/finding",
+   "/pre_attempt_read/finding_sha256",
+   "/pre_attempt_read/rows_green",
+   "/pre_attempt_read/state",
+   "/pre_attempt_read/ungradeable",
+   "/pre_attempt_read/⚑ note",
+   "/run_kind",
+   "/runtime_header/header_file",
+   "/runtime_header/header_file_sha256",
+   "/ta_manifest_sha256"
+  ],
+  "ta_x_08 / ta_x_16 / r11_bound / g3 blocks equal": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "harness_stdout equal": false
+ },
+ "reconciliation_jack_ryan": {
+  "P-1": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-2": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-3": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-4": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "P-5": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "C1": {
+   "gamora": "CONFORMING",
+   "jack-ryan H-7": "CONFORMING",
+   "agree": true
+  },
+  "TA-X-01": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-02": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-03": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-04": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-05": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-07": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-08": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-09": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-10": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-11": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-12": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-13": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-14": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-15": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-16": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-17": {
+   "gamora": "GREEN-BY-CONSTRUCTION",
+   "jack-ryan H-7": "GREEN-BY-CONSTRUCTION",
+   "agree": true
+  },
+  "TA-X-18": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-19": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-20": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-21": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-22": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-24": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-25": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-26": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-27": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-28": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-29": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  },
+  "TA-X-30": {
+   "gamora": "GREEN",
+   "jack-ryan H-7": "GREEN",
+   "agree": true
+  }
+ },
+ "verdict": "PASS",
+ "evidence_ok": true,
+ "identity_ok": true
+}
