@@ -29243,6 +29243,15 @@
         "(AskUserQuestion) 2H set: \"Mixamo Great Sword pack\"; Narrow base: \"Yes, narrow the base (Recommended)\""
       ],
       "ts": "2026-10-01T18:05:32"
+    },
+    {
+      "id": "R-C9-124",
+      "by": "Matt",
+      "ruling": "Narrow the barbarian's stance the same way as the dark knight's (base narrowing preferred; per-clip edit as the fallback), Barrow body first as T12_12d, JOIN body later.",
+      "verbatim": [
+        "Also whe updating the stance width for dark knight, can you please also do it for barbarian?"
+      ],
+      "ts": "2026-10-01T18:16:49"
     }
   ],
   "grok_calls": [
@@ -30156,6 +30165,12 @@
       "topic": "Robe re-skin: the numbers passed, the render found bare legs in run; the conductor's own \"never shins\" rule caused it",
       "note": "Robe v5/v6 (hem on Hips + thigh, zero shin) removed the blocky motion (walk stretch 563 -> 0) but in RUN the rear leg kicks near-horizontal and the bare thigh/shin exits the back of the robe (id-pass body pixels 7,597 -> 9,069; v7 8,590). \"Never shins or feet\" was the conductor's brief, not Matt's words; his objection was the blockiness (hard single-bone weights). Disposition: A (dark leggings, texture-only) main on v7, C (back-hem shin share ~0.25, smooth) measured as the comparison.",
       "ts": "2026-10-01T18:05:32"
+    },
+    {
+      "id": "N-C9-MIXAMO-GS",
+      "topic": "Mixamo Great Sword Pack received (Matt's Adobe account)",
+      "note": "~/Downloads/Great Sword Pack: 51 FBX (30 fps, no keyframe reduction, T-Pose option) + X Bot.fbx reference. Raw Mixamo FBX are NOT committed (Mixamo terms bar standalone redistribution); only retargeted clips and the mapping are. Contents include idle x5, walk x2, run x2, strafe x4, turns, attack, slash x5, high spin attack, impact x5, death x2, power up, casting, blocking x3, draw x2, jump/kick/slide.",
+      "ts": "2026-10-01T18:16:49"
     }
   ]
 }
