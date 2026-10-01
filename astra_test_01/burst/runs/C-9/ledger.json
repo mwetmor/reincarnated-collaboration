@@ -24943,9 +24943,86 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-BCHB",
+      "type": "GENERATE",
+      "experiment": "R-C9-105-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "94c936b5c31044e3687b6636e0991e8dea9fcc5e7889dfbb4e55e367cadde47e",
+      "started": "2026-10-01T02:39:41.674448+00:00",
+      "ended": "2026-10-01T02:43:22.503710+00:00",
+      "minutes": 3.680314031950547,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f554-fc83-7e23-8c0b-dc0d7ba67b8b/exec-a2b1d0ff-28de-472f-a075-16d5e2b8df7a.png",
+            "sha256": "9ca5954398d2c9f232f8d6e758a8d5122a7194d86233fcdbe43accf722d33f87"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f554-fc83-7e23-8c0b-dc0d7ba67b8b/exec-fc01d23d-c459-4889-a5fd-586e47be0871.png",
+            "sha256": "f53690262340d2e77898bba4138856847e0802ee689b2e37bf6cfaf4978f27a2"
+          }
+        ]
+      },
+      "receipt_sha256": "4052ba1316b91d3caed885a50fa3178531bf243e0ba80398d7b9e393bd147719",
+      "artifacts": [
+        {
+          "name": "GS-BCHB.png",
+          "sha256": "f53690262340d2e77898bba4138856847e0802ee689b2e37bf6cfaf4978f27a2"
+        },
+        {
+          "name": "GS-BCHB_r1.png",
+          "sha256": "9ca5954398d2c9f232f8d6e758a8d5122a7194d86233fcdbe43accf722d33f87"
+        },
+        {
+          "name": "exec-a2b1d0ff-28de-472f-a075-16d5e2b8df7a.provenance.json",
+          "sha256": "3393a47d761f632a6a1efefffdeb89a524c3d495517124c2062e704535b114a5"
+        },
+        {
+          "name": "exec-fc01d23d-c459-4889-a5fd-586e47be0871.provenance.json",
+          "sha256": "152084ea8f587a64381e3a5f4eaa52160d7741fbca576409e0f1a43515b88c0a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f554-fc83-7e23-8c0b-dc0d7ba67b8b/exec-a2b1d0ff-28de-472f-a075-16d5e2b8df7a.png",
+          "sha256": "9ca5954398d2c9f232f8d6e758a8d5122a7194d86233fcdbe43accf722d33f87"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f554-fc83-7e23-8c0b-dc0d7ba67b8b/exec-fc01d23d-c459-4889-a5fd-586e47be0871.png",
+          "sha256": "f53690262340d2e77898bba4138856847e0802ee689b2e37bf6cfaf4978f27a2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 730,
+  "images_used": 732,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -25866,6 +25943,11 @@
       "id": "M-C9-JOIN-WC6-WW5",
       "note": "War cry v6 (v4 arms at 1.5x, 1.40 s, idle_guard legs; 2 axe verts inside at one key after the every-vertex clamp) and whirlwind v5 (grips 0.16-0.22 m from shoulder midpoint in the shoulder frame; wrists 0.137/0.132 m own side; idle_guard feet; 3.75 rev/s = 8-frame loop, 1.25x; 9-frame 3.33 rev/s available) committed c7253d974, pushed; draft pack 56/56. Films sent to Matt.",
       "ts": "2026-09-30T22:33:57"
+    },
+    {
+      "id": "M-C9-T12-12B",
+      "note": "T12_12b + JOIN hold v3 (75e4d79db, pushed): axe fist at 0.98 (w100) / 1.13 (w115) in all six hold states, haft azimuth 70 -> 60/55; slash joint-limit fix (63_joint_fix.py); JOIN hold v3 both fists ~1.0, weapons >= 0.22 m apart. Staged, not installed. Films sent (holds film re-encoded to 11 MB for the 30 MiB send limit).",
+      "ts": "2026-09-30T22:50:05"
     }
   ],
   "halts": [
@@ -26763,6 +26845,15 @@
         "Warcry is good to go"
       ],
       "ts": "2026-09-30T22:34:14"
+    },
+    {
+      "id": "R-C9-107",
+      "by": "Matt",
+      "ruling": "Width = w100 (fist on the shoulder line). Turn the axe further inward toward his aim: T12_12c at azimuth 50 (main) and 45 (comparison), with JOIN hold to match. Install on his word.",
+      "verbatim": [
+        "Shoulder line works, but could we tilt the axe's blade just a bit more inwards so it lines up a bit more with his aim of the axe"
+      ],
+      "ts": "2026-09-30T22:50:05"
     }
   ],
   "grok_calls": [
