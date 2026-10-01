@@ -1,0 +1,80 @@
+{
+ "method": "by eye at 2x against a 10 px row ruler (contrast-band search unreliable here: greaves/wraps changed inside the feet band; base plates differ green vs gradient). Face band by 07_register_any.py (FRONT/RIGHT reliable; BACK/LEFT bands now hold helmet/cheek guards).",
+ "barbarian_vs_NB-1_b": {
+  "GS-BCH_a": {
+   "soles_dy_px": {
+    "FRONT": 10,
+    "RIGHT": 12,
+    "BACK": 12,
+    "LEFT": 13
+   },
+   "face_dy_px": {
+    "FRONT": 1,
+    "RIGHT": 2
+   },
+   "shoe_width": "~+9%",
+   "verdict": "uniform ~12 px low, slightly larger: FAILS 'within a few px'"
+  },
+  "GS-BCH_b": {
+   "soles_dy_px": {
+    "FRONT": 0,
+    "RIGHT": -2,
+    "BACK": 1,
+    "LEFT": 4
+   },
+   "face_dy_px": {
+    "FRONT": 1,
+    "RIGHT": 0
+   },
+   "face_dx_px": {
+    "FRONT": -1,
+    "RIGHT": 7
+   },
+   "shoe_width": "~+3%",
+   "verdict": "PASS (within 4 px)"
+  },
+  "GS-BGL_a/b (stage 1, for comparison)": {
+   "shoe_centroid_dy_px": "+20..+36",
+   "face_dy_px": "+30..+34"
+  }
+ },
+ "sorceress_vs_SO-1_b": {
+  "GS-SCROWN_a": {
+   "soles": "within ~2 px all four views",
+   "face_dy_px": {
+    "FRONT": 0,
+    "RIGHT": 0,
+    "BACK": 0,
+    "LEFT": 5
+   }
+  },
+  "GS-SCROWN_b": {
+   "soles": "within ~2 px all four views",
+   "face_dy_px": {
+    "FRONT": -1,
+    "RIGHT": -1,
+    "BACK": 3,
+    "LEFT": 2
+   }
+  },
+  "GS-SHOOD": {
+   "soles": "within ~2 px all four views",
+   "face_dy_px": {
+    "FRONT": -1,
+    "RIGHT": 0,
+    "LEFT": 1
+   }
+  }
+ },
+ "sorceress_fixes": {
+  "sash_knot_one_hip": {
+   "GS-SCROWN_a": "FIXED (no knot in the right-side view)",
+   "GS-SCROWN_b": "NOT fixed (knot still shows in the right-side view, as GS-SBM_b)",
+   "GS-SHOOD": "FIXED"
+  },
+  "greave_over_boot_same_in_all_views": {
+   "GS-SCROWN_a/b": "yes: steel spat over the boot top in every view",
+   "GS-SHOOD": "yes, the other way: greave ends above the tall boot shaft in every view"
+  }
+ }
+}

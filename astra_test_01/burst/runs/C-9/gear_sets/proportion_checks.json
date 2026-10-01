@@ -131,5 +131,45 @@
    "verdict": "PASS (taller and narrower than 4:3)"
   },
   "note": "at 0.26 m the book is 1.5 hand-lengths and ~20 x 5.2 cm: a scale choice for the build, not a sheet defect"
+ },
+ "maul_v2": {
+  "brief": "GS-BMAUL2 (EDIT of GS-BMAULL: larger head, more ornate, same slim haft asked)",
+  "criteria_two_hander": "haft below head >= 2 head-lengths (two 22 cm hands + spacing at 1.30 m); two grip sections; haft fist-holdable: <= ~6.0 cm for HIS hand (0.224 m, 1.2x a 0.185 m hand -> 1.2 x 5 cm)",
+  "GS-BMAUL2_a": {
+   "total_px": 997,
+   "head_len_px": 404,
+   "head_h_px": 146,
+   "haft_px_by_eye": 53,
+   "total_to_head": 2.47,
+   "haft_below_head_in_head_lengths": 2.04,
+   "head_h_to_haft": 2.75,
+   "at_1.30m": {
+    "head_m": [
+     0.53,
+     0.19
+    ],
+    "haft_cm": 6.9
+   },
+   "verdict": "head LARGER as asked (404 vs ~300 px); two-hander by length PASS; haft 6.9 cm FAIL for a fist (grew back from 40 px to 53 asked 'same')"
+  },
+  "GS-BMAUL2_b": {
+   "total_px": 986,
+   "head_len_px": 390,
+   "head_h_px": 144,
+   "haft_px_by_eye": 48,
+   "total_to_head": 2.53,
+   "haft_below_head_in_head_lengths": 2.08,
+   "head_h_to_haft": 3.0,
+   "at_1.30m": {
+    "head_m": [
+     0.51,
+     0.19
+    ],
+    "haft_cm": 6.3
+   },
+   "verdict": "head LARGER as asked; two-hander by length PASS; haft 6.3 cm borderline for his 1.2x hand"
+  },
+  "stage2_fix_no_image": "thin the haft cross-section radially in 3D (verts below the head's langets, scale X/Z about the haft axis to 4.8-5.0 cm), a rigid prop so nothing else moves; $0, no image call",
+  "vs_GS-BMAULL": "total:head 3.2 -> 2.5 is the requested trade (Matt: 'a larger mallet')"
  }
 }
