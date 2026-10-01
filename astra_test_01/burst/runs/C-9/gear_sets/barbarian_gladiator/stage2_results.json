@@ -1,0 +1,209 @@
+{
+ "ruling": "R-C9-105",
+ "sheet": "GS-BCH4 (1e)",
+ "body_sheet": "GS-BCHB (1 call + 1 retry; first draw used: it registers, the retry did not)",
+ "champion_body": {
+  "method": "Tripo of GS-BCHB fitted to his JOIN body (scale 1.000, anchor median 3.4 mm), skinned to his EXISTING skeleton by nearest point (gear method), grip keys carried, helmet_on key for the galea; spliced into a copy of nb_join/export/nb-body_join.glb (bd66432e) as a binary patch",
+  "splice": {
+   "old": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/nb-body_join.glb",
+   "new_mesh": "export/champion_body_piece.glb",
+   "bind_correction_max": 1.2571621479652778e-07,
+   "joints_remapped": 0,
+   "target_names": [
+    "grip_R",
+    "grip_L",
+    "helmet_on"
+   ],
+   "animations": 35,
+   "animation_channels_identical": true,
+   "animation_sample_data_identical": true,
+   "verts": 62197,
+   "mb": 14.27
+  },
+  "fit": {
+   "height_scale": 1.8500024634718153,
+   "scale_factor_vs_height_fit": 1.0,
+   "dx": 0.0,
+   "dy": -0.010000000000000002,
+   "anchor_median_m_height_fit": 0.00578,
+   "anchor_median_m_final": 0.00337,
+   "anchors": 6000
+  },
+  "retarget": "none needed: the same skeleton file, 35 clips byte-identical (animation_sample_data_identical true)"
+ },
+ "pieces": {
+  "chest": {
+   "mode": "chest",
+   "faces": [
+    117319,
+    20000
+   ],
+   "offset_m": 0.01,
+   "hem_m": 0.004,
+   "pushed": 3870,
+   "rigid_torso_verts": 8318,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "pauldron": {
+   "mode": "skin",
+   "faces": [
+    162563,
+    21999
+   ],
+   "offset_m": 0.008,
+   "hem_m": 0.004,
+   "pushed": 3153,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "wraps": {
+   "mode": "skin",
+   "faces": [
+    114636,
+    13999
+   ],
+   "offset_m": 0.004,
+   "hem_m": 0.004,
+   "pushed": 1251,
+   "weight_smooth": "numpy Laplacian x10, limit 4"
+  },
+  "helm": {
+   "mode": "rigid:Head",
+   "faces": [
+    81219,
+    13999
+   ],
+   "offset_m": 0.006,
+   "hem_m": 0.0,
+   "pushed": 1311
+  },
+  "girdle": {
+   "mode": "rigid:Hips",
+   "faces": [
+    72767,
+    11999
+   ],
+   "offset_m": 0.012,
+   "hem_m": 0.004,
+   "pushed": 922
+  },
+  "greaves": {
+   "mode": "split:LeftLeg,RightLeg",
+   "faces": [
+    124361,
+    13999
+   ],
+   "offset_m": 0.006,
+   "hem_m": 0.0,
+   "pushed": 1524,
+   "parts": [
+    [
+     "greaves",
+     "RightLeg"
+    ],
+    [
+     "greaves.001",
+     "LeftLeg"
+    ],
+    [
+     "greaves.005",
+     "RightLeg"
+    ],
+    [
+     "greaves.008",
+     "RightLeg"
+    ]
+   ]
+  },
+  "wrists": {
+   "mode": "split:LeftForeArm,RightForeArm",
+   "faces": [
+    39514,
+    8000
+   ],
+   "offset_m": 0.004,
+   "hem_m": 0.0,
+   "pushed": 1674,
+   "parts": [
+    [
+     "wrists",
+     "RightForeArm"
+    ],
+    [
+     "wrists.001",
+     "LeftForeArm"
+    ]
+   ]
+  },
+  "kilt": {
+   "mode": "kilt",
+   "faces": [
+    385432,
+    30000
+   ],
+   "offset_m": 0.012,
+   "hem_m": 0.008,
+   "pushed": 1302,
+   "halves": {
+    "kilt_L": {
+     "verts": 8421,
+     "thigh": "LeftUpLeg",
+     "boundary_extended": 1458,
+     "ramp": "Hips 1 at the girdle (zf 0.585) -> UpLeg 0.9 at the hem (zf 0.33)"
+    },
+    "kilt_R": {
+     "verts": 7982,
+     "thigh": "RightUpLeg",
+     "boundary_extended": 1402,
+     "ramp": "Hips 1 at the girdle (zf 0.585) -> UpLeg 0.9 at the hem (zf 0.33)"
+    }
+   }
+  }
+ },
+ "helmet_on": {
+  "moved": 7035,
+  "candidates": 8604,
+  "clearance_m": 0.01
+ },
+ "kilt_stretch": "0 edges stretched >2x and >5 cm on both kilt halves (and chest, pauldron, wraps) at walk 8/20, run 6/14, whirlwind 5/15/30, idle 20 (s27 --where)",
+ "poke_proxy_pct_of_garment_px": {
+  "full8/stack0_*_s1_id.png": {
+   "n": 32,
+   "median_pct": 1.299,
+   "worst_pct": 1.903,
+   "worst": "stack0_idle_h315_s1_id.png"
+  },
+  "stacks/stack4_*_s1_id.png": {
+   "n": 6,
+   "median_pct": 1.204,
+   "worst_pct": 1.431,
+   "worst": "stack4_whirlwind_h25_s1_id.png"
+  },
+  "stacks/stack5_*_s1_id.png": {
+   "n": 6,
+   "median_pct": 1.792,
+   "worst_pct": 2.283,
+   "worst": "stack5_idle_h25_s1_id.png"
+  }
+ },
+ "poke_note": "body pixels enclosed by garment pixels (ID pass) as % of garment pixels; his CURRENT D2 set on the same champion body (stack 5) reads 1.79% median / 2.28% worst, the champion set 1.20-1.30% median / 1.43-1.90% worst; pale-speckle count 0 everywhere (his skin is not pale: the instrument's pale rule does not apply to him)",
+ "swap_test": "stack 5 = his D2 helmet/bracers/byrnie/mantle on the champion body: binds and renders (the body changed, the skeleton did not)",
+ "maul": {
+  "source": "builds/maul.glb",
+  "total_m": 1.3,
+  "haft_diameter_before_m": 0.0773,
+  "haft_diameter_after_m": 0.05,
+  "radial_factor": 0.6468,
+  "thinned_span_m": [
+   0.078,
+   1.06
+  ],
+  "head_from_m": 1.07,
+  "head_len_m": 0.507,
+  "verts": 6001,
+  "faces": 11998,
+  "mb": 5.55,
+  "his_height_m": 1.85,
+  "total_over_height": 0.703,
+  "prop": "static GLB, not skinned, not bound to him"
+ }
+}
