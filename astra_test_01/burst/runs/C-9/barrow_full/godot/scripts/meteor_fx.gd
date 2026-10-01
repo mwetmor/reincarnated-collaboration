@@ -248,6 +248,11 @@ var _swaps: Array = []                 # [{mat, plain, fx, kind}]
 var _fx_cache := {}                    # plain Shader -> its variant
 var _fx_live := false
 var swap_report := {}
+# MIX: lane A's baked projectile (meteor_a_fx.gd in projectile-only mode) carries the fall; B's call and impact;
+# no target ring; the falling rock's shadow follows A's projectile (unless ?meteor_shadow=0)
+var mix := false
+var proj_a = null
+var shadow_on := true
 
 
 static func wanted(sc) -> bool:
@@ -261,7 +266,29 @@ static func wanted(sc) -> bool:
 	var i := args.find("--meteor")
 	if q == "" and i >= 0 and i + 1 < args.size():
 		q = String(args[i + 1])
-	return q.to_lower() == "" or q.to_lower() == "b"
+	return q.to_lower() in ["", "b", "mix"]
+
+
+static func mode_of() -> String:
+	"""MATT'S MIX IS HER DEFAULT (2026-09-30, verbatim: "I like the projectile of A and the impact of B. I do not
+	like the pre-impact / trajectory circle on the ground"): "mix" with no query or ?meteor=mix; "b" (?meteor=b,
+	lane B as it shipped) kept for reference."""
+	var q := PaintStack.web_query("meteor")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--meteor")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	return "b" if q.to_lower() == "b" else "mix"
+
+
+static func shadow_wanted() -> bool:
+	"""?meteor_shadow=0 (desktop: -- --meteor-shadow 0): the mix without the falling rock's shadow, to compare."""
+	var q := PaintStack.web_query("meteor_shadow")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--meteor-shadow")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	return q != "0"
 
 
 static func attach(sc) -> Node3D:
@@ -309,6 +336,18 @@ func _attach(sc) -> void:
 	sun.light_cull_mask &= ~FX_LAYER
 	if sc.paint_sun != null:
 		sc.paint_sun.light_cull_mask &= ~FX_LAYER
+	mix = mode_of() == "mix"
+	shadow_on = shadow_wanted()
+	if mix:
+		var pa = load("res://scripts/meteor_a_fx.gd").new()
+		pa.name = "MeteorMixFall"
+		pa.projectile_only = true
+		sc.add_child(pa)
+		if pa.setup(sc, cam):
+			proj_a = pa
+			pa.warm_up()
+		report["mix"] = {"fall": "lane_a" if proj_a != null else "FAILED(%s)" % String(pa.report.get("error", "?")),
+			"ring": "off", "rock_shadow": shadow_on}
 	_setup()
 	_load_plates()
 	collect_materials()
@@ -316,7 +355,7 @@ func _attach(sc) -> void:
 	if lab != null:
 		for c in lab.get_children():
 			if c is Label:
-				(c as Label).text = "METEOR EFFECT: 3D (LANE B)"
+				(c as Label).text = ("METEOR: A'S FALL, B'S IMPACT" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix else "METEOR EFFECT: 3D (LANE B)"
 	_arm()
 
 
@@ -830,6 +869,9 @@ func cast(target: Vector3) -> Dictionary:
 	(s["burst"] as MeshInstance3D).global_position = target
 	(s["flash"] as MeshInstance3D).global_position = target + Vector3(0, 0.3, 0)
 	_owner = s["i"]
+	if mix and proj_a != null:
+		# A's fall lands where B's impact is, at B's impact time: it starts T_FALL0 after the release
+		s["pa"] = proj_a.fall(target, T_FALL0)
 	var rec := {"n": report["casts"].size() + 1, "slot": s["i"], "frame": Engine.get_process_frames(),
 		"target": [snappedf(target.x, 0.01), snappedf(target.y, 0.01), snappedf(target.z, 0.01)]}
 	report["casts"].append(rec)
@@ -901,7 +943,16 @@ func _step(s: Dictionary, dt: float) -> void:
 	var comet: MeshInstance3D = s["comet"]
 	var pos := Vector3.ZERO
 	var vel := -_to_sun
-	if t >= T_FALL0 and t < T_IMPACT:
+	if mix and t >= T_FALL0 and t < T_IMPACT:
+		# MIX: A's projectile falls; the ground and the characters take their light and the shadow from it
+		var tau_m := (t - T_FALL0) / FALL_S
+		var ra: Dictionary = proj_a.rock_at(int(s.get("pa", -1))) if proj_a != null else {}
+		if owner and not ra.is_empty():
+			var pm: Vector3 = ra["pos"]
+			RenderingServer.global_shader_parameter_set("fx_rock", Vector4(pm.x, pm.y, pm.z, SHADOW_R if shadow_on else 0.0))
+			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(pm.x, pm.y, pm.z, 0.55 + 0.45 * tau_m))
+			_char_light(pm, 1.4 + 3.0 * tau_m, 8.0)
+	elif t >= T_FALL0 and t < T_IMPACT:
 		var tau := (t - T_FALL0) / FALL_S
 		var u := pow(tau, 1.45)
 		var start: Vector3 = s["start"]
@@ -942,7 +993,9 @@ func _step(s: Dictionary, dt: float) -> void:
 	# --- the target ring --------------------------------------------------------------------------
 	if owner:
 		var ring := 0.0
-		if t < T_IMPACT:
+		if mix:
+			ring = 0.0                   # MIX: no target ring (the burn and the ground height still read fx_mark.xyz)
+		elif t < T_IMPACT:
 			ring = _ease_out(t / 0.14) * (0.85 + 0.15 * sin(_clock * 22.0))
 		else:
 			ring = clampf(1.0 - (t - T_IMPACT) / 0.06, 0.0, 1.0)

@@ -42,6 +42,8 @@ ap.add_argument("--out", required=True)
 ap.add_argument("--atlas-w", type=int, default=4096)
 ap.add_argument("--page-h", type=int, default=4096, help="pages (Texture2DArray layers) are at most this tall")
 ap.add_argument("--report", default="")
+ap.add_argument("--only", nargs="*", default=[], help="MIX: ship only these phases (e.g. travel): the rest are measured but not packed")
+ap.add_argument("--name", default="meteor_a.json")
 args = ap.parse_args()
 
 
@@ -153,6 +155,13 @@ for ph, key in (("cast_floor", "cast_floor"), ("impact_floor", "impact")):
     if worst <= 1.5:
         floor_alpha[ph] = als
         main[ph] = fr[:1]
+
+# MIX: only the named phases ship (the timing and the motes' births stay in the record)
+if args.only:
+    main = {k: v for k, v in main.items() if k in args.only}
+    if "impact" not in args.only:
+        impacts = []
+        seed_ids = []
 
 # ---- pack: shelves, tallest first, into PAGES of at most atlas_w x page_h (one Texture2DArray) ------
 entries = []
@@ -272,7 +281,7 @@ meta = {
               "rule": "vfx_fire_motes_fl4.gd trail mode: pos = origin + (lateral_px * (sin(phase + age*8) - sin(phase)) * 0.5, -rise_px_s * age); "
                       "alpha = 1 - age/life; a diamond of half-size half_px, additive, colour = palette band",
               "lateral_px": kitc["fire_layers"]["travel"]["trail"]["lateral_px"], "rise_px_s": kitc["fire_layers"]["travel"]["trail"]["rise_px_s"]},
-    "halo": {"frames": len(main["halo"]), "t_of_frame": [round(f["t"], 5) for f in main["halo"]],
+    "halo": {"frames": len(main.get("halo", [])), "t_of_frame": [round(f["t"], 5) for f in main.get("halo", [])],
              "rule": "keeper.gd _update_cast_halo: live from the cast start to the release; t = ticks since start / (release ticks - 1)"},
     "kit": {"name": log1["kit"], "speed_px_s": kitc["speed_px_s"], "range_px": kitc["range_px"], "palette": kitc["palette"],
             "palette_2": kitc["palette_2"], "head_length_px": kitc["head_length_px"]},
@@ -301,7 +310,8 @@ meta["timing"]["ring_dy"] = round(log1["ticks"][0]["ring"]["pos"][1] - sock[1], 
 meta["timing"]["ground_dy_below_burst"] = round(log1["ticks"][0]["ring"]["pos"][1] - first_impact["impact"]["pos"][1], 4)
 meta["frames_unique"] = len(unique)
 meta["frames_total"] = len(entries)
-json.dump(meta, open(os.path.join(args.out, "meteor_a.json"), "w"), indent=1)
+meta["only_phases"] = args.only
+json.dump(meta, open(os.path.join(args.out, args.name), "w"), indent=1)
 counts = {k: len(v) for k, v in table.items()}
 print("atlas %d page(s) of %dx%d (used rows %s), fill %.3f, %d frames %s, webp %.2f MB, roundtrip exact %s, VRAM %.1f MB" % (
     len(pages), W, H, used_h, used / float(W * H * len(pages)), sum(counts.values()), counts, sum(f["bytes"] for f in files) / 1e6, exact,

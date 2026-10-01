@@ -279,7 +279,7 @@ func _step(dt: float) -> void:
 	if _warm > 0:
 		_warm -= 1
 		var at := cam.global_position + (-cam.global_transform.basis.z) * 5.0
-		_put(0, "halo", 0, at, 0.0, 0.0)
+		_put(0, "halo" if fidx.has("halo") else String(fidx.keys()[0]), 0, at, 0.0, 0.0)
 		if _warm == 0:
 			_collapse(0)
 			warmed = true

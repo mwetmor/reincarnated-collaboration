@@ -16,6 +16,7 @@ extends "res://scripts/fire_ball_fx.gd"
 ## the burn are ground quads whose projection is the baked frame, as the floor lights are.
 
 const MDATA := "res://data/vfx/meteor_a/"
+const MIXDATA := "res://data/vfx/meteor_mix/"   # MIX: lane A's projectile frames only (the fall)
 const AHEAD_M := 3.5
 const FALL_DEG := 70.0
 # the slot layout, back to front: the ground first, so the burst draws over its own ring and burn
@@ -33,11 +34,15 @@ const SHAKE_S := 0.3
 const SHAKE_M := 0.05
 
 var _shake_t := -1.0
+# MIX (her default Meteor, Matt 2026-09-30): only the FALL is played here -- B's MeteorFx owns the call, the
+# impact, the burn and the shake, and asks rock_at() where the rock is for its shadow and its light
+var projectile_only := false
+const MIX_HIT_M := 0.2          # B's own hit point: ROCK_R x 0.6 above the ground
 
 
 func setup(p_scene, p_cam: Camera3D) -> bool:
-	data_dir = MDATA
-	meta_file = "meteor_a.json"
+	data_dir = MIXDATA if projectile_only else MDATA
+	meta_file = "meteor_mix.json" if projectile_only else "meteor_a.json"
 	slots = M_SLOTS
 	return super(p_scene, p_cam)
 
@@ -65,6 +70,31 @@ func released(g: int, socket: Vector3, dir: Vector3, feet: Vector3) -> void:
 	report["fired"].append({"socket": [snappedf(socket.x, 0.01), snappedf(socket.y, 0.01), snappedf(socket.z, 0.01)],
 		"target": [snappedf(ground.x, 0.01), snappedf(ground.y, 0.01), snappedf(ground.z, 0.01)],
 		"screen_deg": snappedf(rad_to_deg(float(c["theta"])), 0.1), "impact_set": c["set"]})
+
+
+func fall(target_ground: Vector3, delay_s: float) -> int:
+	"""MIX: the fall alone, landing on target_ground (B's impact point) delay_s after now."""
+	if not ok:
+		return -1
+	var g := _free_group()
+	# the rock lands ON B's impact point (its crown grows from the ground there), not on A's burst anchor
+	var anchor := target_ground + Vector3.UP * MIX_HIT_M
+	var L := float(meta["timing"]["impact_dx"])
+	var a := deg_to_rad(FALL_DEG)
+	var start: Vector3 = anchor - scene.u_hat * (L * cos(a) / PPM) + Vector3.UP * (L * sin(a) / PXH)
+	casts[g] = {"state": "flight", "tick": 0, "clock": -delay_s, "set": 0, "socket": Vector3.ZERO, "feet": target_ground,
+		"ground": target_ground, "anchor": anchor, "start": start,
+		"theta": _screen_angle((anchor - start).normalized())}
+	report["casts"] = int(report["casts"]) + 1
+	report["fired"].append({"target": [snappedf(target_ground.x, 0.01), snappedf(target_ground.y, 0.01), snappedf(target_ground.z, 0.01)], "mix": true})
+	return g
+
+
+func rock_at(g: int) -> Dictionary:
+	"""MIX: where the falling rock is now (the travel's node, before the impact), for B's shadow and light."""
+	if g < 0 or g >= casts.size() or (casts[g] as Dictionary).is_empty() or not casts[g].has("rock"):
+		return {}
+	return {"pos": casts[g]["rock"]}
 
 
 func _ground_at(p: Vector3) -> Vector3:
@@ -102,8 +132,20 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 		var p: Vector3 = start.lerp(anchor, clampf(float(tr["dx"]) / L, 0.0, 1.0))
 		_put(base + M_TRAVEL, "travel", _frame_of("travel", b), p + _toward(TRAVEL_BEHIND_M), th, 1.0)
 		alive = true
+		if b < impact_tick:
+			c["rock"] = p
+		else:
+			c.erase("rock")
 	else:
 		_collapse(base + M_TRAVEL)
+		c.erase("rock")
+	if projectile_only:
+		_tick_motes(base, b, c, start, anchor, L, th)
+		c["tick"] = b
+		if b > impact_tick + 40:
+			casts[g] = {}
+			_collapse_group(g)
+		return
 	# the flare at the staff crown, turned up
 	var pf := _frame_of("puff", b)
 	if pf >= 0:
@@ -141,6 +183,15 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 	else:
 		_collapse(base + M_IMPACT)
 		_collapse(base + M_IMPACT_FLOOR)
+	alive = _tick_motes(base, b, c, start, anchor, L, th) or alive
+	c["tick"] = b
+	if not alive and b > impact_tick:
+		casts[g] = {}
+		_collapse_group(g)
+
+
+func _tick_motes(base: int, b: int, c: Dictionary, start: Vector3, anchor: Vector3, L: float, th: float) -> bool:
+	var alive := false
 	# the trail motes, by the kit's rule, from their births, turned with the fall
 	var lat := float(meta["motes"]["lateral_px"])
 	var rise := float(meta["motes"]["rise_px_s"])
@@ -166,10 +217,7 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 		var col: Array = bb["color"]
 		_put_mote(slot, node0, off, float(bb["half_px"]), Color(float(col[0]), float(col[1]), float(col[2])), 1.0 - age / life)
 		alive = true
-	c["tick"] = b
-	if not alive and b > impact_tick:
-		casts[g] = {}
-		_collapse_group(g)
+	return alive
 
 
 func _step(dt: float) -> void:

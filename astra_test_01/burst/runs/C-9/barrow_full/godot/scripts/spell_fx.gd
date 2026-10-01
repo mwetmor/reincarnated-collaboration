@@ -65,13 +65,35 @@ func setup(knight, cfg: Dictionary, sockets_json: Dictionary) -> void:
 		fb.warm_up()
 	report["fire_ball"] = fb.report
 	if wants_meteor_a():
-		var ma = load("res://scripts/meteor_a_fx.gd").new()
-		ma.name = "MeteorA"
-		add_child(ma)
-		if ma.setup(sc, sc.cam):
-			meteor_a = ma
-			ma.warm_up()
-		report["meteor_a"] = ma.report
+		# LANE A FOR REFERENCE: its full atlas is NOT in her pack (Matt's mix ships only A's fall); on the
+		# page it comes as its own pack, meteor_a.pck, fetched only for ?meteor=a
+		meteor_a_pending = true
+		_load_meteor_a(sc)
+
+
+var meteor_a_pending := false
+
+
+func _load_meteor_a(sc) -> void:
+	if not FileAccess.file_exists("res://data/vfx/meteor_a/meteor_a.json") and OS.has_feature("web"):
+		var base := str(JavaScriptBridge.eval("document.baseURI", true))
+		var url := base.get_base_dir() + "/meteor_a.pck" if not base.ends_with("/") else base + "meteor_a.pck"
+		var http := HTTPRequest.new()
+		add_child(http)
+		http.download_file = "user://meteor_a.pck"
+		http.request(url)
+		var res: Array = await http.request_completed
+		http.queue_free()
+		report["meteor_a_pack"] = {"url": url, "result": int(res[0]), "http": int(res[1]),
+			"loaded": ProjectSettings.load_resource_pack("user://meteor_a.pck") if int(res[0]) == HTTPRequest.RESULT_SUCCESS and int(res[1]) == 200 else false}
+	var ma = load("res://scripts/meteor_a_fx.gd").new()
+	ma.name = "MeteorA"
+	add_child(ma)
+	if ma.setup(sc, sc.cam):
+		meteor_a = ma
+		ma.warm_up()
+	report["meteor_a"] = ma.report
+	meteor_a_pending = false
 
 
 static func wants_meteor_a() -> bool:

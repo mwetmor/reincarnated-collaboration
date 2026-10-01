@@ -68,16 +68,23 @@ func _process(_dt: float) -> void:
 		scene.place_knight(1.5, -1.5, "E")
 		return
 	var fb = (scene.spell_fx.fire_ball if strike == "slash" else scene.spell_fx.meteor_a) if scene.spell_fx != null else null
+	var mfx = scene.get("meteor_fx")
+	var fx_us := int(fb.last_us) if fb != null else 0
+	if strike == "chop" and mfx != null:
+		# the MIX (or lane B): B's own node, plus A's fall when it is the mix
+		fx_us = int(mfx.last_update_us) + (int(mfx.proj_a.last_us) if mfx.proj_a != null else 0)
 	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
-		int(fb.last_us) if fb != null else 0, _n, snappedf(_split[0], 0.1), snappedf(_split[1], 0.1), snappedf(_split[2], 0.1), trail,
+		fx_us, _n, snappedf(_split[0], 0.1), snappedf(_split[1], 0.1), snappedf(_split[2], 0.1), trail,
 		String(scene.knight._clip) if "_clip" in scene.knight else "", scene.knight.attacking()])
 	_last = now
 	var t := float(now - _t0) / 1e6
 	if _n < casts and t >= _next and not scene.knight.attacking():
 		var on := (_n % 2 == 0) == first_on
 		scene.spell_fx.fx_off = not on
+		if scene.get("meteor_fx") != null:
+			scene.meteor_fx.enabled = on      # the mix's (and lane B's) own control switch
 		var ok: bool = scene.knight.try_strike(strike)
 		cast_log.append({"n": _n + 1, "on": on, "ok": ok, "t_us": now - _t0})
 		_n += 1

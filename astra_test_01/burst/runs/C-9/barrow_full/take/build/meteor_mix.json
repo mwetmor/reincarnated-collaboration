@@ -1,0 +1,341 @@
+{
+ "_what": "C-9: HER DEFAULT METEOR IS MATT'S MIX (2026-09-30, verbatim: \"Per the meteor, I like the faster speed. Also, I like the projectile of A and the impact of B. I do not like the pre-impact / trajectory circle on the ground prior to the impact.\")",
+ "build": {
+  "fall": "lane A's baked projectile (meteor_a_fx.gd, projectile-only: the head and trail flipbook and the trail motes; the 0.70 s fall), starting 0.12 s after her release so it lands at lane B's impact time (0.82 s), ON lane B's hit point",
+  "call_and_impact": "lane B's MeteorFx from the impact on, as shipped: the flare at her staff crown, the 3D crown, flash, the fire light on the characters, the camera shake, the burn with its burning-ground plate",
+  "ring": "OFF: A's ring frames are not shipped; B's ring strength (fx_mark.w) is held at 0 (fx_mark.xyz still gives the burn its ground height)",
+  "rock_shadow": "B's ground term, fx_rock, driven by A's projectile position (meteor_a_fx.rock_at); the fire's fall light and its light on the characters too. ?meteor_shadow=0 (desktop -- --meteor-shadow 0) turns the shadow off",
+  "queries": {
+   "(none) or ?meteor=mix": "the mix",
+   "?meteor=b": "lane B as shipped",
+   "?meteor=a": "lane A as built (its atlas fetched as meteor_a.pck, 7.1 MB, only for this)",
+   "?meteor=placeholder": "the placeholder"
+  }
+ },
+ "proof": {
+  "fall_frames": "the mix ships ONLY A's travel frames (51; 1 page 4096x1336, 1.01 MB lossless, 20.9 MB VRAM): every one byte-identical, rect and offset, to the frames in lane A's proven atlas (take/build/meteor_a_proof.json: worst 0.92/255); the timing and the motes' births identical",
+  "impact": "lane B's own, unchanged (its acceptance: vfx_meteor_3d/artifacts/)"
+ },
+ "budget": {
+  "_": "delta against a matched control (the same chop cast, the Meteor off through MeteorFx.enabled and spell_fx.fx_off), 20 casts 6 s apart alternating, no screenshots in the timed window",
+  "desktop_forward_plus": {
+   "renderer": "forward_plus",
+   "web": false,
+   "strike": "chop",
+   "cold_first_cast": {
+    "dc_max": 88,
+    "frames": 430,
+    "fx_script_mean_ms": 0.0261,
+    "max_ms": 17.83,
+    "mean_ms": 13.944,
+    "n": 1,
+    "on": true,
+    "over_20ms": 0,
+    "over_33ms": 0,
+    "p95_ms": 16.01,
+    "top_frames_ms_after_input": [
+     [
+      3013,
+      17.8,
+      "phys/proc/draw of the frame before",
+      0.4,
+      0.1,
+      17.3,
+      "trail tiles sent",
+      6,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ],
+     [
+      3547,
+      17.6,
+      "phys/proc/draw of the frame before",
+      0.3,
+      0.1,
+      17.1,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ],
+     [
+      2013,
+      17.4,
+      "phys/proc/draw of the frame before",
+      0.2,
+      0.0,
+      17.1,
+      "trail tiles sent",
+      5,
+      "clip",
+      "idle",
+      "attacking",
+      true
+     ],
+     [
+      4073,
+      17.3,
+      "phys/proc/draw of the frame before",
+      0.4,
+      0.3,
+      16.7,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ]
+    ]
+   },
+   "warm_on": {
+    "dc_max": 88,
+    "frames": 3722,
+    "fx_script_mean_ms": 0.0295,
+    "max_ms": 24.57,
+    "mean_ms": 14.495,
+    "over_20ms": 3,
+    "over_33ms": 0,
+    "p95_ms": 16.94
+   },
+   "warm_off_control": {
+    "dc_max": 83,
+    "frames": 4445,
+    "fx_script_mean_ms": 0.006,
+    "max_ms": 32.26,
+    "mean_ms": 13.487,
+    "over_20ms": 3,
+    "over_33ms": 0,
+    "p95_ms": 15.97
+   },
+   "delta_mean_ms": 1.008,
+   "delta_dc_peak": 5
+  },
+  "page_phone_size_fx_first": {
+   "renderer": "gl_compatibility",
+   "web": true,
+   "strike": "chop",
+   "cold_first_cast": {
+    "dc_max": 147,
+    "frames": 582,
+    "fx_script_mean_ms": 0.0531,
+    "max_ms": 23.1,
+    "mean_ms": 10.304,
+    "n": 1,
+    "on": true,
+    "over_20ms": 10,
+    "over_33ms": 0,
+    "p95_ms": 17.4,
+    "top_frames_ms_after_input": [
+     [
+      1200,
+      23.1,
+      "phys/proc/draw of the frame before",
+      0.8,
+      0,
+      22,
+      "trail tiles sent",
+      5,
+      "clip",
+      "idle",
+      "attacking",
+      true
+     ],
+     [
+      2546,
+      22.9,
+      "phys/proc/draw of the frame before",
+      0.7,
+      0.2,
+      21.8,
+      "trail tiles sent",
+      5,
+      "clip",
+      "idle",
+      "attacking",
+      true
+     ],
+     [
+      5206,
+      22.8,
+      "phys/proc/draw of the frame before",
+      0.6,
+      0,
+      21.7,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ],
+     [
+      4969,
+      22.4,
+      "phys/proc/draw of the frame before",
+      0.5,
+      0,
+      21.5,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ]
+    ]
+   },
+   "warm_on": {
+    "dc_max": 146,
+    "frames": 5000,
+    "fx_script_mean_ms": 0.0546,
+    "max_ms": 32.9,
+    "mean_ms": 10.789,
+    "over_20ms": 157,
+    "over_33ms": 0,
+    "p95_ms": 19.2
+   },
+   "warm_off_control": {
+    "dc_max": 140,
+    "frames": 5601,
+    "fx_script_mean_ms": 0.0122,
+    "max_ms": 29.6,
+    "mean_ms": 10.702,
+    "over_20ms": 157,
+    "over_33ms": 0,
+    "p95_ms": 19
+   },
+   "delta_mean_ms": 0.087,
+   "delta_dc_peak": 6
+  },
+  "page_phone_size_control_first": {
+   "renderer": "gl_compatibility",
+   "web": true,
+   "strike": "chop",
+   "cold_first_cast": {
+    "dc_max": 147,
+    "frames": 559,
+    "fx_script_mean_ms": 0.0143,
+    "max_ms": 24.1,
+    "mean_ms": 10.712,
+    "n": 1,
+    "on": false,
+    "over_20ms": 12,
+    "over_33ms": 0,
+    "p95_ms": 17.8,
+    "top_frames_ms_after_input": [
+     [
+      2262,
+      24.1,
+      "phys/proc/draw of the frame before",
+      0.6,
+      0.1,
+      23,
+      "trail tiles sent",
+      5,
+      "clip",
+      "idle",
+      "attacking",
+      true
+     ],
+     [
+      4227,
+      23.6,
+      "phys/proc/draw of the frame before",
+      0.6,
+      0.1,
+      22.4,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ],
+     [
+      5137,
+      21.9,
+      "phys/proc/draw of the frame before",
+      0.7,
+      0.1,
+      20.3,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ],
+     [
+      5005,
+      21.6,
+      "phys/proc/draw of the frame before",
+      0.7,
+      0.2,
+      20.7,
+      "trail tiles sent",
+      7,
+      "clip",
+      "idle",
+      "attacking",
+      false
+     ]
+    ]
+   },
+   "warm_on": {
+    "dc_max": 146,
+    "frames": 5727,
+    "fx_script_mean_ms": 0.0484,
+    "max_ms": 26.3,
+    "mean_ms": 10.462,
+    "over_20ms": 126,
+    "over_33ms": 0,
+    "p95_ms": 18.4
+   },
+   "warm_off_control": {
+    "dc_max": 140,
+    "frames": 5193,
+    "fx_script_mean_ms": 0.0116,
+    "max_ms": 25.9,
+    "mean_ms": 10.392,
+    "over_20ms": 105,
+    "over_33ms": 0,
+    "p95_ms": 18.5
+   },
+   "delta_mean_ms": 0.07,
+   "delta_dc_peak": 6
+  },
+  "reading": {
+   "cost_per_frame_ms": {
+    "desktop": 1.008,
+    "page_fx_first": 0.087,
+    "page_control_first": 0.07
+   },
+   "draw_calls_added_at_peak": {
+    "desktop": 5,
+    "page": 6
+   },
+   "worst_warm_frame_ms": {
+    "page_on": 32.9,
+    "page_off": 29.6,
+    "page_on_control_first": 26.3,
+    "page_off_control_first": 25.9
+   },
+   "note": "desktop +1.01 ms/frame is lane B's ground terms swapped in while a Meteor is alive (lane B measured +0.85-0.90 for B alone); on the page +0.07-0.09"
+  }
+ },
+ "lane_a_reference_on_the_page": {
+  "meteor_a_pck_fetched": true,
+  "delta_mean_ms": 0.002,
+  "delta_dc_peak": 3
+ },
+ "packs": {
+  "sorceress.pck": 34595576,
+  "meteor_a.pck": 7188028,
+  "index.pck": 31796588
+ }
+}

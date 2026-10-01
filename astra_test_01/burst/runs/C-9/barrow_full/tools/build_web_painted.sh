@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin,data/meteor/*.bin,data/meteor/*.json"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix/*.json,data/vfx/meteor_mix/*.bin,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
@@ -157,7 +157,8 @@ preset() {  # index name files include
   sed "s/^\[preset.0.options\]/[preset.$1.options]/" "$DEST/build/.preset_options"
   echo
 }
-{ preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; } > "$DEST/export_presets.cfg"
+# LANE A FOR REFERENCE (?meteor=a): its full atlas is its own pack, fetched by the page only for ?meteor=a
+{ preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; preset 2 "WebMeteorA" "" "data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin"; } > "$DEST/export_presets.cfg"
 
 echo "== export Web"
 mkdir -p "$DEST/build/web"
@@ -165,6 +166,8 @@ mkdir -p "$DEST/build/web"
   echo "export failed" >&2; tail -30 "$LOG/export.log" >&2; exit 5; }
 "$GODOT" --headless --path "$DEST" --export-pack "WebHer" build/web/sorceress.pck > "$LOG/export_her.log" 2>&1 || {
   echo "export (her pack) failed" >&2; tail -30 "$LOG/export_her.log" >&2; exit 5; }
+"$GODOT" --headless --path "$DEST" --export-pack "WebMeteorA" build/web/meteor_a.pck > "$LOG/export_meteor_a.log" 2>&1 || {
+  echo "export (lane A's pack) failed" >&2; tail -30 "$LOG/export_meteor_a.log" >&2; exit 5; }
 echo "== the page picks its pack by ?c="
 python3 - "$DEST/build/web" <<'CHOOSER'
 import os, re, sys
@@ -213,13 +216,18 @@ for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ba
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
          models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
          data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin \
-         scripts/meteor_a_fx.gd data/vfx/meteor_a/meteor_a.json data/vfx/meteor_a/atlas_0.bin data/vfx/meteor_a/atlas_1.bin; do
+         scripts/meteor_a_fx.gd scripts/meteor_fx.gd data/vfx/meteor_mix/meteor_mix.json data/vfx/meteor_mix/atlas_0.bin; do
   grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
 # the crossings by each pack's FILE TABLE (tools/pck_list.py): a path a script or the uid cache names is
 # not a packed file, and grepping the bytes finds both
 python3 "$SRC/../tools/pck_list.py" "$W/index.pck" | grep -q "^models/sorceress/" && { echo "   her models are in HIS pack" >&2; MISSING=1; }
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^models/gear/" && { echo "   his models are in HER pack" >&2; MISSING=1; }
+# MIX: only A's fall ships in her pack; A's full atlas is meteor_a.pck's alone
+python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^data/vfx/meteor_a/" && { echo "   lane A's full atlas is in HER pack" >&2; MISSING=1; }
+for f in meteor_a.json atlas_0.bin atlas_1.bin; do
+  python3 "$SRC/../tools/pck_list.py" "$W/meteor_a.pck" | grep -q "^data/vfx/meteor_a/$f$" || { echo "   missing from meteor_a.pck: $f" >&2; MISSING=1; }
+done
 [ "$MISSING" -eq 0 ] && ck 0 "the painted Barrow and its phone data in both packs; him in index.pck, her and her Fire Ball in sorceress.pck, neither in the other's" \
                      || ck 1 "the packs' contents"
 if grep -a -q "data/painted/painting.bin" "$W/index.pck"; then ck 1 "the desktop's 33 MB painting is in the pck"; else ck 0 "the desktop's painting is NOT in the pck"; fi
@@ -302,24 +310,22 @@ if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_b.l
 else
   ck 0 "?meteor=b launch free of script and shader errors"
 fi
-# HER DEFAULT METEOR IS LANE B (no query); ?meteor=placeholder falls back to the placeholder
-echo "$SLINE" | grep -q "meteor=3d(lane_b)" && ck 0 "her default Meteor is lane B's (no query: meteor=3d(lane_b))" || ck 1 "her default Meteor"
+# HER DEFAULT METEOR IS MATT'S MIX (no query): A's fall, B's impact, no ring, the rock's shadow on;
+# ?meteor_shadow=0 turns the shadow off; ?meteor=b is lane B as shipped; ?meteor=placeholder falls back
+echo "$SLINE" | grep -q "meteor=mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=on)" \
+  && ck 0 "her default Meteor is the mix (A's fall, B's impact, no ring, rock shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor-shadow 0 > "$LOG/launch_meteor_noshadow.log" 2>&1 || true
+NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
+echo "$NLINE" | grep -q "meteor=mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=off)" \
+  && ck 0 "?meteor_shadow=0: the mix without the rock's shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true
 PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)
 echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ball=baked(" && echo "$PLINE" | grep -q "$WANT_SPELLS" \
   && ck 0 "?meteor=placeholder falls back (meteor=placeholder, both releases $WANT_SPELLS, the Fire Ball still baked)" || ck 1 "?meteor=placeholder fallback"
-# LANE A's METEOR (?meteor=a): the painted kit, baked -- loaded from her pack, sha-matched, the Fire Ball beside it
-"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
-  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor a > "$LOG/launch_meteor_a.log" 2>&1 || true
-ALINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_a.log" | head -1 || true)
-echo "$ALINE" | grep -q "meteor=painted(lane_a,pages=2,frames=[0-9]*,impact_sets=2,sha_ok)" && echo "$ALINE" | grep -q "fire_ball=baked(" \
-  && ck 0 "?meteor=a: lane A's Meteor baked and loaded from her pack, the Fire Ball beside it" || ck 1 "?meteor=a (got: $(echo "$ALINE" | grep -o 'meteor=[^ ]*'))"
-if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_a.log"; then
-  ck 1 "?meteor=a launch free of script and shader errors"; grep -a -E -A2 "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_a.log" | head -12 >&2
-else
-  ck 0 "?meteor=a launch free of script and shader errors"
-fi
+# LANE A (?meteor=a) comes from meteor_a.pck, fetched by the page: fenced above by its file table, and
+# in Chrome (tools/web_perf_fb.js ?meteor=a), not by a desktop launch (it cannot fetch)
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
 
 if [ "$NO_STAGE" -eq 0 ]; then
