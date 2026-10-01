@@ -1,0 +1,45 @@
+{
+ "ruling": "R-C9-98 stage 2 (Matt: the hood; wand a; grimoire a at 26 cm)",
+ "ship": {
+  "body": "body/so-body_battlemage_v8.glb",
+  "pieces": "export_v7/{gown,legs,breastplate,hood,gauntlets,wand,grimoire}.glb",
+  "package": "scene_pkg/character_sorceress_battlemage.json + gear_manifest_sorceress_battlemage.json"
+ },
+ "fit": "scale 1.005 (face-governed), dx 2 cm, anchor median 2.75 mm",
+ "isolation": "one dressed Tripo shell cut by bone region + colour: gown 283,908 / legs 107,290 / breastplate 51,170 / hood 96,225 / gauntlets 89,833 labelled verts; face, braid and boots kept as body",
+ "weights": {
+  "gown": "nearest-point, Laplacian smoothed x10 (skirt ramp tried and rejected: it uncovered the thigh in the run)",
+  "breastplate": "rigid on Spine02/Spine01 within 14 cm of the midline, spaulders keep shoulder weights, smoothed",
+  "hood": "75% of each Arm weight moved to its Shoulder, smoothed",
+  "gauntlets": "nearest-point + grip_R/grip_L carried from the body"
+ },
+ "stretch_edges_gt2x_gt5cm": {
+  "walk": 0,
+  "idle": 0,
+  "run": "0-3",
+  "cast_fireball": "gown 16-70, hood 8-11, breastplate 1-13",
+  "cast_meteor": "gown 24-66",
+  "d7_robe_same_instrument": "753-1364 (accepted)"
+ },
+ "wand": {
+  "mount": "the staff's own: axis along the staff, grip centre where the staff's axis passes the fist, crystal up (v6 fix)",
+  "length_m": 0.35,
+  "grip_distance_to_right_hand_m": "0.0017 every clip (v8; the Meteor's baked staff track dropped)"
+ },
+ "grimoire": {
+  "height_m": 0.26,
+  "carry": "hung at the back of her RIGHT hip under the belt (s30 search over every frame of every clip); the LEFT hip was rejected: her left hand hangs there and throws the Fire Ball",
+  "clearance": "0 body verts within 8 mm in idle/walk/Fire Ball/Meteor/hit; run grazes at 3 frames, death at 5 (s29)"
+ },
+ "see_through": "s11 PALE isolated dots, 1x: 15-20 per stack (2 headings x 5 clips), full kit at 4 headings 41 (v8); the marked pixels are thin seams at plate edges and boot tops, not the shift showing through (the under_battlemage morph removed that)",
+ "films": [
+  "film/v8/battlemage_film_1x.mp4 (960x540, 100.6 px/m)",
+  "film/v8/battlemage_film_2x.mp4 (1920x1080, rendered at 2x)"
+ ],
+ "stills": [
+  "stills/battlemage_4headings_2x.jpg",
+  "stills/battlemage_stacks_2x.jpg",
+  "stills/v8_full4/*.png",
+  "stills/v8_stacks/*.png"
+ ]
+}

@@ -22,9 +22,11 @@ R_ = __import__('49_recentre')
 
 a = sys.argv[1:]
 OUTJ = a[a.index('--json') + 1] if '--json' in a else None
-pos = [x for i, x in enumerate(a) if not x.startswith('--') and (i == 0 or a[i - 1] != '--json')]
+pos = [x for i, x in enumerate(a) if not x.startswith('--') and (i == 0 or a[i - 1] not in ('--json', '--band'))]
 BODY, OUT, PIECES = pos[0], pos[1], pos[2:]
 MARGIN, ZLO, ZHI, NAME = 0.008, 0.30, 0.80, "under_battlemage"
+if "--band" in a:   # v9: the whole leg under the leggings and greaves (the knees showed through in the run and casts)
+    ZLO, ZHI = (float(x) for x in a[a.index("--band") + 1].split(","))
 
 
 def node_world(js):
