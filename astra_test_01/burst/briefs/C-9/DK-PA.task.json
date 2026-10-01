@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST DK-PA -- Run C-9 Phase 2 (Matt R-C9-112/113): the PAINTED TEXTURE of the 3D dark knight's base body, sheet 1 of 2. task_id \"DK-PA\".\n\nIMAGE 1 is a sheet of TEN renders of ONE 3D model of a man standing in a relaxed A-pose, on flat pure #00ff00. Top row, left to right: facing the lower left (south-west); facing the lower right (south-east); facing the viewer's LEFT in profile (west); facing the viewer's RIGHT in profile (east); FACING THE VIEWER (south); facing away to the upper left (north-west). Bottom row, left to right: facing away to the upper right (north-east); seen from BEHIND (north); a CLOSE-UP of his FACE from the front; a CLOSE-UP of his face from the lower right, three-quarter. They are renders of the model: every OUTLINE, POSE, POSITION and SIZE is correct and must not change; the surface is flat and too smooth.\nIMAGE 2 is his approved base-body sheet: a tall, lean, pale, gaunt man of about forty with close-cropped black hair, clean-shaven; a near-black quilted arming doublet with fine violet stitching and a padded collar; near-black steel arm plates and articulated gauntlets with fine gold filigree edges; a plated fauld and tassets over the hips with a violet cloth panel at the front; a brown leather belt with a gilded buckle; near-black leg plates with gold filigree and pointed sabatons; and ONE broad GOLD filigree band around his LEFT forearm plate only. IMAGE 3 is a STYLE reference ONLY: copy its HAND (the ink line that varies in weight, transparent watercolour washes that pool and granulate, fine hatching, cream paper highlights); copy nothing else from it.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY figure is repainted as the man of IMAGE 2 seen from that direction, in IMAGE 3's hand, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE: it is projected back onto the 3D model from these ten cameras and blended into one texture. So: ONE man in ten views, not ten men -- the same skin, hair, doublet, plates, belt and sabatons in every view; any disagreement between views becomes a seam.\nPaint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. The steel is near-black with a deep violet-indigo sheen laid as layered transparent washes with pale paper highlights on its edges, never a flat black fill (R-C9-113 sets aside the register card's no-large-black clause for this figure). Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING he does not wear in the look sheet: no helm, no pauldrons, no breastplate, no cape, no weapon.\nTHE GOLD BAND is on his LEFT forearm ONLY, exactly where IMAGE 1 shows it; never add it to his right forearm, never drop it from his left.\nTHE TWO FACE CLOSE-UPS are his identity: the same face as IMAGE 2, larger -- stern, level gaze, mouth closed. More detail is welcome; a different face is not.\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines. Spend retries ONLY on the faults named below.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, the man differs between views, the gold band is on the wrong arm or missing, he wears something the look sheet does not show, or a face close-up is a different face -- name the reason. Never retry for the background colour. Copy outputs to out/DK-PA_a.png and out/DK-PA_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"DK-PA\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/wl_canvas_A.png",
+   "role": "IMAGE 1 -- the sheet to EDIT (8 body views at 19.77 deg + 2 face close-ups of the rigged 3D man at rest; outlines correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/DK-BASE/DK-BASE.png",
+   "role": "IMAGE 2 -- his approved base-body sheet (DK-BASE, the base under the armour pieces): the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, staff or pose"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/DK-PA_a.png",
+  "out/DK-PA_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-112-third-character"
+}

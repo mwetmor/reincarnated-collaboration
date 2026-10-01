@@ -1,0 +1,67 @@
+{
+  "task_id": "DK-PA",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-PA_a",
+      "path": "out/DK-PA_a.png",
+      "sha256": "78fe1779550399a34ed1077d0c47ed740a2e005348fa0f2b017667c23fca430f",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, preserving its exact 1536x1024 canvas and every existing silhouette, pose, position, size, facing, hand and foot. Deliver one landscape sheet. Image 1 is the edit target and absolute geometry authority. Image 2 is the approved man's identity and costume authority. Image 3 is ONLY the watercolor-and-ink HAND reference; copy none of its character, clothing, pose or objects.\nRepaint only the surfaces within Image 1's outlines as one consistent man in ten views. This sheet becomes a projected model texture: all views must agree in skin, hair, clothing, plate shapes and ornament to avoid seams. Keep the fixed elevated three-quarter orthographic cameras, relaxed A-pose, eight full bodies and two face close-ups exactly as Image 1. Top row left to right: south-west, south-east, west profile, east profile, south/front, north-west. Bottom row: north-east, north/back, front face close-up, lower-right three-quarter face close-up. No rearrangement, rescaling, cropping or missing views.\nMan: tall, lean, pale, gaunt, about forty, close-cropped black hair, clean-shaven, stern level gaze and closed mouth; same facial identity as Image 2 in both close-ups and every body view. Near-black quilted arming doublet with fine violet diamond stitching and padded collar; near-black steel arm plates, articulated gauntlets, plated fauld and tassets, near-black leg plates and pointed sabatons, all with fine gold filigree edges; violet front cloth panel; brown leather belt and gilded buckle. ONE broad gold filigree band on HIS ANATOMICAL LEFT forearm ONLY, exactly on the forearm already bearing it in Image 1. Never move, remove or duplicate that band. No helm, pauldrons, breastplate, cape, weapon or any other added equipment.\nRendering: one hand-painted watercolor-and-ink character illustration in the tradition of 1990s tactics role-playing illustrations. Crisp dark sepia-to-near-black contour with slightly wavering, varied line weight. Fine hand-drawn pen hatching models cloth, armor and skin. Transparent watercolor washes are visibly uneven: granulate, pool at shape edges, bloom softly, sometimes stop slightly short of inner ink lines. Darker second washes plus hatching form shade, never smooth digital gradients. Steel stays near-black with deep violet-indigo layered transparent washes and modest pale cream bare-paper edge highlights, never flat black or glossy specular marks. This dark costume is an explicit exception to the usual large-black restriction. Preserve medieval manuscript-inspired ornament and moderate mineral palette: rich violet, indigo and ochre-gold accents, pale cream highlights. Use Image 3's hand-made wash texture and confident dark lines, but retain Image 2's man and Image 1's geometry.\nPaint the SURFACE, not viewpoint-dependent lighting. Soft even daylight from screen upper-left, minimal directional modeling, no dark side, cast shadows, rim light, glow, bloom, lens effects or airbrushed gradients. No background objects, floor, text or labels. Background remains uniformly pure #00ff00 with nothing else. Stay inside every original outline; preserve all ten views exactly.",
+      "references": [
+        {
+          "role": "Edit target; geometry, poses, positions and outlines",
+          "path": "in/01_wl_canvas_A.png"
+        },
+        {
+          "role": "Approved identity and costume",
+          "path": "in/02_DK-BASE.png"
+        },
+        {
+          "role": "Watercolor-and-ink hand only",
+          "path": "in/03_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 108.852
+    },
+    {
+      "name": "DK-PA_b",
+      "path": "out/DK-PA_b.png",
+      "sha256": "2c916155a6d292039e4e2878c392c97eec67131be6dad15f5b021d7542debeb2",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, preserving its exact 1536x1024 canvas and every existing silhouette, pose, position, size, facing, hand and foot. Deliver one landscape sheet. Image 1 is the edit target and absolute geometry authority. Image 2 is the approved man's identity and costume authority. Image 3 is ONLY the watercolor-and-ink HAND reference; copy none of its character, clothing, pose or objects.\nRepaint only the surfaces within Image 1's outlines as one consistent man in ten views. This sheet becomes a projected model texture: all views must agree in skin, hair, clothing, plate shapes and ornament to avoid seams. Keep the fixed elevated three-quarter orthographic cameras, relaxed A-pose, eight full bodies and two face close-ups exactly as Image 1. Top row left to right: south-west, south-east, west profile, east profile, south/front, north-west. Bottom row: north-east, north/back, front face close-up, lower-right three-quarter face close-up. No rearrangement, rescaling, cropping or missing views.\nMan: tall, lean, pale, gaunt, about forty, close-cropped black hair, clean-shaven, stern level gaze and closed mouth; same facial identity as Image 2 in both close-ups and every body view. Near-black quilted arming doublet with fine violet diamond stitching and padded collar; near-black steel arm plates, articulated gauntlets, plated fauld and tassets, near-black leg plates and pointed sabatons, all with fine gold filigree edges; violet front cloth panel; brown leather belt and gilded buckle. ONE broad gold filigree band on HIS ANATOMICAL LEFT forearm ONLY, exactly on the forearm already bearing it in Image 1. Never move, remove or duplicate that band. No helm, pauldrons, breastplate, cape, weapon or any other added equipment.\nRendering: one hand-painted watercolor-and-ink character illustration in the tradition of 1990s tactics role-playing illustrations. Crisp dark sepia-to-near-black contour with slightly wavering, varied line weight. Fine hand-drawn pen hatching models cloth, armor and skin. Transparent watercolor washes are visibly uneven: granulate, pool at shape edges, bloom softly, sometimes stop slightly short of inner ink lines. Darker second washes plus hatching form shade, never smooth digital gradients. Steel stays near-black with deep violet-indigo layered transparent washes and modest pale cream bare-paper edge highlights, never flat black or glossy specular marks. This dark costume is an explicit exception to the usual large-black restriction. Preserve medieval manuscript-inspired ornament and moderate mineral palette: rich violet, indigo and ochre-gold accents, pale cream highlights. Use Image 3's hand-made wash texture and confident dark lines, but retain Image 2's man and Image 1's geometry.\nPaint the SURFACE, not viewpoint-dependent lighting. Soft even daylight from screen upper-left, minimal directional modeling, no dark side, cast shadows, rim light, glow, bloom, lens effects or airbrushed gradients. No background objects, floor, text or labels. Background remains uniformly pure #00ff00 with nothing else. Stay inside every original outline; preserve all ten views exactly.",
+      "references": [
+        {
+          "role": "Edit target; geometry, poses, positions and outlines",
+          "path": "in/01_wl_canvas_A.png"
+        },
+        {
+          "role": "Approved identity and costume",
+          "path": "in/02_DK-BASE.png"
+        },
+        {
+          "role": "Watercolor-and-ink hand only",
+          "path": "in/03_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 69.095
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both 1536x1024 outputs have dark gradient backgrounds instead of pure #00ff00; delivered without retry as instructed.",
+      "All ten views and left-forearm gold bands appear retained on visual inspection; pixel-exact outline correspondence and projection seams were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-PA_a.png",
+      "sha256": "78fe1779550399a34ed1077d0c47ed740a2e005348fa0f2b017667c23fca430f"
+    },
+    {
+      "path": "out/DK-PA_b.png",
+      "sha256": "2c916155a6d292039e4e2878c392c97eec67131be6dad15f5b021d7542debeb2"
+    }
+  ]
+}

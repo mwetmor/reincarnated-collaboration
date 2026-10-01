@@ -1,0 +1,73 @@
+{
+ "body_height_m": 1.7,
+ "pieces": {
+  "helm": {
+   "faces": [
+    149470,
+    24000
+   ],
+   "welded": [
+    78331,
+    75087
+   ],
+   "pushed": 3217,
+   "offset_m": 0.006,
+   "skinned": 12270,
+   "mode": "skin (nearest body point)",
+   "file": "export/gear/wl_helm.glb"
+  },
+  "pauldrons": {
+   "faces": [
+    147668,
+    23999
+   ],
+   "welded": [
+    76509,
+    74638
+   ],
+   "pushed": 0,
+   "offset_m": 0.01,
+   "skinned": 12707,
+   "mode": "skin (nearest body point)",
+   "file": "export/gear/wl_pauldrons.glb"
+  },
+  "chest": {
+   "faces": [
+    200090,
+    29999
+   ],
+   "welded": [
+    104384,
+    101181
+   ],
+   "pushed": 3066,
+   "offset_m": 0.008,
+   "skinned": 15930,
+   "mode": "skin (nearest body point)",
+   "file": "export/gear/wl_chest.glb"
+  },
+  "cape": {
+   "faces": [
+    437659,
+    29999
+   ],
+   "welded": [
+    230093,
+    219151
+   ],
+   "pushed": 0,
+   "offset_m": 0.012,
+   "mode": "panel-split skin",
+   "slit_x_m": 0.1889,
+   "hips_zf": 0.58,
+   "slit_faces_cut": 1251,
+   "panel_verts": {
+    "back": 5008,
+    "left": 5090,
+    "right": 4801
+   },
+   "verts_on_both_thighs": 21,
+   "file": "export/gear/wl_cape.glb"
+  }
+ }
+}

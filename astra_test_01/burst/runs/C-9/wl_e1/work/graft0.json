@@ -153,11 +153,11 @@
    "source": "anims/shout101.glb",
    "source_anim": "Armature|Sword_Shout|baselayer",
    "window": [
-    0.03333333507180214,
-    6.199999809265137
+    0.517,
+    1.767
    ],
-   "keys": 186,
-   "length_s": 6.166666474193335,
+   "keys": 38,
+   "length_s": 1.2333332896232605,
    "joints": 24,
    "rest_match": 0.0,
    "hip_ratio": 1.0,
@@ -165,19 +165,21 @@
     "deroot"
    ],
    "source_travel_m": [
-    0.1617,
-    0.669
+    -0.0722,
+    0.433
    ],
-   "grounded_by_m": -0.06762,
+   "grounded_by_m": -0.07677,
    "feet_span_m": [
     0.0,
-    0.0425
+    0.0333
    ]
   }
  },
  "lint": {
-  "verdict": "WARN",
-  "fails": [],
+  "verdict": "FAIL",
+  "fails": [
+   "wl_c0.glb: WEAPON REST -- weapon_r's rest is 0.198 m from the recorded mount (tolerance 1 um)"
+  ],
   "warns": 3
  }
 }

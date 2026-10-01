@@ -40,12 +40,23 @@ SEED = a[a.index("--seed") + 1]
 GROW = a[a.index("--grow") + 1]
 YAW = float(a[a.index("--yaw") + 1]) if "--yaw" in a else -90.0
 MINFRAC = float(a[a.index("--minfrac") + 1]) if "--minfrac" in a else 0.02
+# E1 (drax): the dressed builds wear a HORNED helm, so their bbox is taller than the base's; scaling the dressed build to the
+# base's height (the barbarian's rule) would shrink him. --hratio = dressed sheet height / base sheet height (registered sheets,
+# one px/m), and x/y are aligned on the LOWER LEGS (zf < 0.25) -- a long cape drags the whole-body median backwards.
+HRATIO = float(a[a.index("--hratio") + 1]) if "--hratio" in a else 1.0
+RADOVR = float(a[a.index("--radius") + 1]) if "--radius" in a else None
+ALIGNZ = float(a[a.index("--alignz") + 1]) if "--alignz" in a else 0.25   # the cape build: feet only (its hem is in the leg band)
 BONES = dict(head=["Head", "head_end", "headfront", "neck"],
              forearms=["LeftForeArm", "LeftHand", "RightForeArm", "RightHand"],
              torso=["Hips", "Spine", "Spine01", "Spine02", "LeftUpLeg", "RightUpLeg"],
              shoulders=["LeftShoulder", "RightShoulder", "Spine02", "neck",
-                        "LeftArm", "RightArm"])
-RADIUS = dict(head=0.24, forearms=0.14, torso=0.45, shoulders=0.38)
+                        "LeftArm", "RightArm"],
+             # E1: the helm with its horns; the long cape (shoulders to ankles, behind); the chest plates
+             helm=["Head", "head_end", "headfront", "neck"],
+             cape=["Spine02", "Spine01", "Spine", "Hips", "LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg",
+                   "LeftShoulder", "RightShoulder", "neck"],
+             chest=["Hips", "Spine", "Spine01", "Spine02", "neck"])
+RADIUS = dict(helm=0.40, cape=0.55, chest=0.32, head=0.24, forearms=0.14, torso=0.45, shoulders=0.38)
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=BASE)
@@ -86,10 +97,12 @@ d.matrix_world = Matrix.Rotation(math.radians(YAW), 4, 'Z') @ d.matrix_world
 bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 co = np.empty(len(d.data.vertices) * 3); d.data.vertices.foreach_get("co", co)
 P = co.reshape(-1, 3)
-s = BH / float(P[:, 2].max() - P[:, 2].min())
+s = BH * HRATIO / float(P[:, 2].max() - P[:, 2].min())
 P = P * s
-P += np.array([np.median(BV[:, 0]) - np.median(P[:, 0]),
-               np.median(BV[:, 1]) - np.median(P[:, 1]), blo[2] - P[:, 2].min()])
+P[:, 2] += blo[2] - P[:, 2].min()
+_bl = BV[:, 2] < blo[2] + ALIGNZ * BH; _pl = P[:, 2] < blo[2] + ALIGNZ * BH
+_mid = lambda Q: (np.percentile(Q, 2, axis=0) + np.percentile(Q, 98, axis=0)) / 2   # band CENTRE, not median: vertex density is lopsided
+P += np.r_[(_mid(BV[_bl, :2]) - _mid(P[_pl, :2])), 0.0]
 d.data.vertices.foreach_set("co", P.ravel()); d.data.update()
 print("dressed: welded %d -> %d, scaled x%.5f" % (n0, len(P), s))
 
@@ -152,7 +165,7 @@ for bn in BONES[REGION]:
         continue
     h, t = bone_pts[bn]; ab = t - h; L2 = float(ab @ ab) or 1e-9
     u = np.clip(((P - h) @ ab) / L2, 0, 1)[:, None]
-    inreg |= np.linalg.norm(P - (h + u * ab), axis=1) < RADIUS[REGION]
+    inreg |= np.linalg.norm(P - (h + u * ab), axis=1) < (RADOVR or RADIUS[REGION])
 
 # x and y as well: the fur mantle and the braid share a height band and are
 # told apart by how far out from the midline they sit, not by colour.

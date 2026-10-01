@@ -387,8 +387,8 @@
   },
   "attack": {
    "frames": 56,
-   "failing_frames": 0,
-   "verdict": "PASS",
+   "failing_frames": 9,
+   "verdict": "FAIL",
    "worst": {
     "elbow_L": {
      "flex_min": {
@@ -406,7 +406,7 @@
     },
     "elbow_R": {
      "flex_min": {
-      "deg": -3.0,
+      "deg": -3.1,
       "t": 1.6667
      },
      "lateral_worst": {
@@ -448,7 +448,7 @@
     },
     "wrist_L": {
      "dev_worst": {
-      "deg": 38.0,
+      "deg": 44.1,
       "t": 0.6667
      },
      "flex_worst": {
@@ -462,8 +462,8 @@
     },
     "wrist_R": {
      "dev_worst": {
-      "deg": -38.0,
-      "t": 0.8667
+      "deg": -47.1,
+      "t": 0.8
      },
      "flex_worst": {
       "deg": 23.4,
@@ -476,7 +476,143 @@
     }
    },
    "info_frames": 6,
-   "fails": []
+   "fails": [
+    {
+     "t": 0.6333,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": 43.8
+      }
+     ],
+     "info": []
+    },
+    {
+     "t": 0.6667,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": 44.1
+      }
+     ],
+     "info": []
+    },
+    {
+     "t": 0.7,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": 43.1
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 91.0
+      }
+     ]
+    },
+    {
+     "t": 0.7333,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": 42.0
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 95.9
+      }
+     ]
+    },
+    {
+     "t": 0.7667,
+     "fails": [
+      {
+       "joint": "wrist_R",
+       "what": "deviation",
+       "deg": -43.7
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 99.3
+      }
+     ]
+    },
+    {
+     "t": 0.8,
+     "fails": [
+      {
+       "joint": "wrist_R",
+       "what": "deviation",
+       "deg": -47.1
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 99.9
+      }
+     ]
+    },
+    {
+     "t": 0.8333,
+     "fails": [
+      {
+       "joint": "wrist_R",
+       "what": "deviation",
+       "deg": -46.6
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 96.9
+      }
+     ]
+    },
+    {
+     "t": 0.8667,
+     "fails": [
+      {
+       "joint": "wrist_R",
+       "what": "deviation",
+       "deg": -44.4
+      }
+     ],
+     "info": [
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 91.7
+      }
+     ]
+    },
+    {
+     "t": 0.9,
+     "fails": [
+      {
+       "joint": "wrist_R",
+       "what": "deviation",
+       "deg": -41.7
+      }
+     ],
+     "info": []
+    }
+   ]
   },
   "hit": {
    "frames": 50,
@@ -1038,10 +1174,5 @@
    "info_frames": 0,
    "fails": []
   }
- },
- "negative_control": {
-  "what": "clip idle t 0.0000 with the right elbow bent past straight about its hinge",
-  "elbow_R_flex": -129.7,
-  "verdict": "FAIL"
  }
 }

@@ -1,0 +1,76 @@
+{
+  "task_id": "DK-PB",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-PB_a",
+      "path": "out/DK-PB_a.png",
+      "sha256": "69bcf6547a1a9edbf275d6d290c94e88786a49214841365435ffd7fb0a51758c",
+      "prompt": "Use case: style-transfer, identity-preserve. EDIT IMAGE 1 directly. Deliver one 1536x1024 PNG sheet. Variant a.\nREFERENCE ROLES: Image 1 is the exact edit target and sole authority for geometry, outlines, camera, pose, positions, crops and facing. Image 2 is the painting used on this same man's surface, for detail continuity. Image 3 is the approved costume and identity. Image 4 is HAND/painting style ONLY: never borrow its person, costume, staff or pose.\nREPAINT THIS SURFACE; DO NOT PAINT A NEW VIEW. Retain all eight full-body views and both face close-ups exactly where they are in IMAGE 1. Fixed elevated orthographic game camera, looking steeply down at 52.95 degrees. Preserve every silhouette and internal feature's position, size and shape. Top row left to right: south-east, south-west, east profile, west profile, south. Bottom row left to right: north-east, north-west, north, frontal face close-up, lower-right three-quarter face close-up. The literal visual target overrides verbal direction labels: do not rotate or correct anything. Trace the existing anatomy and outlines; do not rearrange views.\nSame tall lean pale gaunt clean-shaven man about forty, close-cropped black hair. Near-black quilted arming doublet, fine violet stitching, padded collar; near-black steel arm plates and articulated gauntlets with fine gold filigree edges; plated fauld and tassets, violet front cloth panel, brown leather belt and gilded buckle; near-black leg plates with gold filigree and pointed sabatons. ONE broad GOLD filigree band on his anatomical LEFT forearm plate ONLY, exactly where Image 1 already paints it. Preserve it, never duplicate it onto his right. All gold edges, belt/buckle, cloth, hair and plates remain registered to the existing marks. Add no helm, shoulder armour, breastplate, cape, weapon or other equipment.\nPurpose: clean and hand-paint the surfaces the steep camera sees: shoulder tops, head crown, upper back, forearm and gauntlet tops, sabaton tops. Restore readable quilting, hair strokes, plate articulation and filigree within the existing boundaries. Everything else as found, only cleaner.\nRendering: one hand-painted watercolor-and-ink character illustration with the hand of 1990s tactical role-playing illustration. Crisp dark sepia-to-near-black pen contours, slightly wavering varied line weight; individually drawn fine hatching on cloth and armour. Transparent uneven watercolor washes, edge pooling, granulation, soft blooms, occasional slight wash underreach within figure boundaries. Second darker wash plus hatching for form. Pale cream paper highlights. Steel near-black with deep violet-indigo sheen expressed in layered transparent washes, never flat black masses. Muted mineral violet, warm steel grey, ochre gold filigree; rich accents limited to existing small costume details. Historical illuminated-manuscript ornament and palette, c.1400–1530; keep the actual elevated camera and proportions.\nPaint surface, not viewpoint lighting. Soft even daylight from screen upper-left, minimal form shading, no dark side, cast shadows, rim light, glow, glossy specular marks, lens effects, airbrushed or digital gradients. Background remains flat pure #00ff00 with nothing else. No text. Stay inside EVERY existing outline. Face close-ups must be the identical man and original steep downward cameras, with the exact original crops. Do not substitute a low-angle portrait.",
+      "references": [
+        {
+          "role": "IMAGE 1 — exact edit target; fixed geometry, outlines, poses, crops and camera",
+          "path": "in/01_wl_canvas_B.png"
+        },
+        {
+          "role": "IMAGE 2 — source painting; surface-detail continuity",
+          "path": "in/02_DK-PA_a.png"
+        },
+        {
+          "role": "IMAGE 3 — approved identity and base-body costume",
+          "path": "in/03_DK-BASE.png"
+        },
+        {
+          "role": "IMAGE 4 — painting hand and style only",
+          "path": "in/04_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 60.203
+    },
+    {
+      "name": "DK-PB_b",
+      "path": "out/DK-PB_b.png",
+      "sha256": "47b530e55d9a1b8c47a6fbb513fec01b2c6c34faf5a363cb1eadbd771aef21bc",
+      "prompt": "Use case: style-transfer, identity-preserve. EDIT IMAGE 1 directly. Deliver one 1536x1024 PNG sheet. Variant b.\nREFERENCE ROLES: Image 1 is the exact edit target and sole authority for geometry, outlines, camera, pose, positions, crops and facing. Image 2 is the painting used on this same man's surface, for detail continuity. Image 3 is the approved costume and identity. Image 4 is HAND/painting style ONLY: never borrow its person, costume, staff or pose.\nREPAINT THIS SURFACE; DO NOT PAINT A NEW VIEW. Retain all eight full-body views and both face close-ups exactly where they are in IMAGE 1. Fixed elevated orthographic game camera, looking steeply down at 52.95 degrees. Preserve every silhouette and internal feature's position, size and shape. Top row left to right: south-east, south-west, east profile, west profile, south. Bottom row left to right: north-east, north-west, north, frontal face close-up, lower-right three-quarter face close-up. The literal visual target overrides verbal direction labels: do not rotate or correct anything. Trace the existing anatomy and outlines; do not rearrange views.\nSame tall lean pale gaunt clean-shaven man about forty, close-cropped black hair. Near-black quilted arming doublet, fine violet stitching, padded collar; near-black steel arm plates and articulated gauntlets with fine gold filigree edges; plated fauld and tassets, violet front cloth panel, brown leather belt and gilded buckle; near-black leg plates with gold filigree and pointed sabatons. ONE broad GOLD filigree band on his anatomical LEFT forearm plate ONLY, exactly where Image 1 already paints it. Preserve it, never duplicate it onto his right. All gold edges, belt/buckle, cloth, hair and plates remain registered to the existing marks. Add no helm, shoulder armour, breastplate, cape, weapon or other equipment.\nPurpose: clean and hand-paint the surfaces the steep camera sees: shoulder tops, head crown, upper back, forearm and gauntlet tops, sabaton tops. Restore readable quilting, hair strokes, plate articulation and filigree within the existing boundaries. Everything else as found, only cleaner.\nRendering: one hand-painted watercolor-and-ink character illustration with the hand of 1990s tactical role-playing illustration. Crisp dark sepia-to-near-black pen contours, slightly wavering varied line weight; individually drawn fine hatching on cloth and armour. Transparent uneven watercolor washes, edge pooling, granulation, soft blooms, occasional slight wash underreach within figure boundaries. Second darker wash plus hatching for form. Pale cream paper highlights. Steel near-black with deep violet-indigo sheen expressed in layered transparent washes, never flat black masses. Muted mineral violet, warm steel grey, ochre gold filigree; rich accents limited to existing small costume details. Historical illuminated-manuscript ornament and palette, c.1400–1530; keep the actual elevated camera and proportions.\nPaint surface, not viewpoint lighting. Soft even daylight from screen upper-left, minimal form shading, no dark side, cast shadows, rim light, glow, glossy specular marks, lens effects, airbrushed or digital gradients. Background remains flat pure #00ff00 with nothing else. No text. Stay inside EVERY existing outline. Face close-ups must be the identical man and original steep downward cameras, with the exact original crops. Do not substitute a low-angle portrait.",
+      "references": [
+        {
+          "role": "IMAGE 1 — exact edit target; fixed geometry, outlines, poses, crops and camera",
+          "path": "in/01_wl_canvas_B.png"
+        },
+        {
+          "role": "IMAGE 2 — source painting; surface-detail continuity",
+          "path": "in/02_DK-PA_a.png"
+        },
+        {
+          "role": "IMAGE 3 — approved identity and base-body costume",
+          "path": "in/03_DK-BASE.png"
+        },
+        {
+          "role": "IMAGE 4 — painting hand and style only",
+          "path": "in/04_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 38.336
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Both 1536x1024 outputs have dark gradient backgrounds instead of pure #00ff00; delivered without background retries as instructed.",
+      "Exact pixel-level outline registration was not measured; inspection was visual.",
+      "An initial request with relative reference paths was rejected during argument deserialization before generation. Absolute paths corrected it; two image generations completed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-PB_a.png",
+      "sha256": "69bcf6547a1a9edbf275d6d290c94e88786a49214841365435ffd7fb0a51758c"
+    },
+    {
+      "path": "out/DK-PB_b.png",
+      "sha256": "47b530e55d9a1b8c47a6fbb513fec01b2c6c34faf5a363cb1eadbd771aef21bc"
+    }
+  ]
+}
