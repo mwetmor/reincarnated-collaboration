@@ -158,6 +158,29 @@ def rest_match(A, B):
 
 RIG_TOL = 0.01
 
+# E1 (R-C9-123): a MIXAMO source rests in a T-pose and this body in an A-pose, so joint POSITIONS cannot match (the 55 rule would call
+# it 'another rig'). e40b's transfer guarantees bone DIRECTIONS instead; so a registry entry with "retarget": "mixamo_aligned" is
+# measured as the worst angle, over the source's own keys (after its window/edits), between each body bone's direction (joint ->
+# child, in the WORLD frame relative to the hips' rest-to-now turn) and the source bone's. PASS within DIR_LIMIT_DEG.
+DIR_LIMIT_DEG = 6.0
+_PAIRS = (("Spine02", "Spine01"), ("Spine01", "Spine"), ("Spine", "neck"), ("neck", "Head"), ("LeftArm", "LeftForeArm"), ("LeftForeArm", "LeftHand"),
+          ("RightArm", "RightForeArm"), ("RightForeArm", "RightHand"), ("LeftUpLeg", "LeftLeg"), ("LeftLeg", "LeftFoot"), ("RightUpLeg", "RightLeg"),
+          ("RightLeg", "RightFoot"), ("LeftFoot", "LeftToeBase"), ("RightFoot", "RightToeBase"))
+def fidelity_dirs(ship, clip, src, window=None, exclude=()):
+    S = ship if isinstance(ship, Rig) else Rig(ship); Cc = src if isinstance(src, Rig) else Rig(src)
+    sclip = next(iter(Cc.m['anims'])); tsrc = sorted({float(x) for v in Cc.m['anims'][sclip].values() for x in v[0]})
+    t0 = window[0] if window else tsrc[0]; t1 = window[1] if window else tsrc[-1]; ts = [x for x in tsrc if t0 - 1e-6 <= x <= t1 + 1e-6]
+    worst = (0.0, None, None)
+    for t in ts[::2]:
+        Gs = globals_at(Cc.m, sclip, t); Gb = globals_at(S.m, clip, t - ts[0])
+        for a_, b_ in _PAIRS:
+            if a_ in exclude or b_ in exclude: continue
+            ds = Gs[Cc.m['nid'][b_]][:3, 3] - Gs[Cc.m['nid'][a_]][:3, 3]; db = Gb[S.m['nid'][b_]][:3, 3] - Gb[S.m['nid'][a_]][:3, 3]
+            ang = float(np.degrees(np.arccos(np.clip(np.dot(ds, db) / (np.linalg.norm(ds) * np.linalg.norm(db)), -1, 1))))
+            if ang > worst[0]: worst = (ang, round(t - ts[0], 4), a_)
+    return dict(clip=clip, times=len(ts), err_max=round(worst[0], 2), worst_t=worst[1], worst_joint=worst[2], err_median=None, hips_deg_max=0.0,
+                excluded=list(exclude), within=bool(worst[0] <= DIR_LIMIT_DEG), measure='bone-direction angle (deg), mixamo_aligned')
+
 
 def check(ship_glb, reg=None):
     """The lint row: every registry clip present in the GLB, within LIMIT at every frame, its source
@@ -182,6 +205,9 @@ def check(ship_glb, reg=None):
         ex = []
         for ed in e.get("edits", []):
             ex += list(EXCLUDES.get(ed, ()))
+        if e.get("retarget") == "mixamo_aligned":
+            r = fidelity_dirs(S, clip, C, e.get("window"), tuple(ex)); r["source"] = e["source"]; r["rest_match"] = None; r["edits"] = e.get("edits", [])
+            r["status"] = "PASS" if r["within"] else "FAIL"; out.append(r); continue
         r = fidelity(S, clip, C, e.get("window"), tuple(ex))
         r["source"] = e["source"]
         r["rest_match"] = round(rest_match(S, C), 5)
