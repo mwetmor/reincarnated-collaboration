@@ -1,6 +1,6 @@
 {
  "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
- "spent": 42,
+ "spent": 51,
  "clips": {
   "idle89": {
    "action_id": 89,
@@ -286,6 +286,66 @@
     ],
     "clips": [
      "Armature|Reaping_Swing|baselayer"
+    ]
+   }
+  },
+  "idle11": {
+   "action_id": 11,
+   "task": "01a0f6be-10f9-75d9-8bb1-634c2a2efbb1",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/idle11.glb",
+   "mb": 18.33,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|Idle_02|baselayer"
+    ]
+   }
+  },
+  "walk30": {
+   "action_id": 30,
+   "task": "01a0f6bf-2e36-74a5-99e5-73ea04cd2210",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/walk30.glb",
+   "mb": 18.35,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "walk30.glb: clip 'Armature|Casual_Walk|baselayer' starts root 'Hips' at 105.445 against rest 98.621 (6.9% > 5%)"
+    ],
+    "clips": [
+     "Armature|Casual_Walk|baselayer"
+    ]
+   }
+  },
+  "idle0": {
+   "action_id": 0,
+   "task": "01a0f6c0-84a7-70b3-a4bf-fa6b1e09e0d2",
+   "status": "SUCCEEDED",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "credits": 3,
+   "seconds": 62,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/anims/idle0.glb",
+   "mb": 18.35,
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "idle0.glb: clip 'Armature|Idle|baselayer' scales joint 'Hips' by [1.1765, 1.1765, 1.1765] (deviation 0.1765 > 1e-03)"
+    ],
+    "warns": [
+     "idle0.glb: clip 'Armature|Idle|baselayer' starts root 'Hips' at 107.757 against rest 98.621 (9.3% > 5%)"
+    ],
+    "clips": [
+     "Armature|Idle|baselayer"
     ]
    }
   }

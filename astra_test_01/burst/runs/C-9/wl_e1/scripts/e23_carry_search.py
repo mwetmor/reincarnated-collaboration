@@ -9,7 +9,7 @@ import sys, os, json, math, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 C = __import__('s17_loop_closure'); W = __import__('52_weapon_bones'); L = __import__('21_lint_export')
 ARMS = ("LeftShoulder", "LeftArm", "LeftForeArm", "LeftHand", "RightShoulder", "RightArm", "RightForeArm", "RightHand")
-BODY = 'export/final/wl_body.glb'; K = 1.96 / 1.70; HEADC = 1.45 - 0.68 - 0.20
+BODY = os.environ.get('E1_BODY', 'export/final/wl_body.glb'); K = 1.96 / 1.70; HEADC = 1.45 - 0.68 - 0.20
 m = C.model(BODY); nid = m['nid']
 jb, bb = L.load_glb(BODY)
 cR = W.hand_points(jb, bb, 'RightHand', 0.6)[0].mean(0); cL = W.hand_points(jb, bb, 'LeftHand', 0.6)[0].mean(0)

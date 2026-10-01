@@ -6,9 +6,9 @@
  },
  "clips": {
   "idle": {
-   "source": "anims/idle89.glb",
+   "source": "anims/idle11.glb",
    "path": "55_clip_graft",
-   "action": "Meshy library 89 \"Combat Stance\"",
+   "action": "Meshy library 11 \"Idle 1\"",
    "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
    "flags": [
     "loop",
@@ -21,31 +21,12 @@
     "arm_hold"
    ],
    "loop": true,
-   "hold": "e09_hold: arm chain = Meshy 99 Reaping Swing @2.7333 grafted (stage G carry, e23 v2)"
+   "hold": "e32_world_hold: arms in world space from the G1 carry (idle@0.8)"
   },
   "walk": {
-   "source": "anims/walk21.glb",
+   "source": "anims/free_walking.glb",
    "path": "55_clip_graft",
-   "action": "Meshy library 21 \"Walk Fight Forward\"",
-   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
-   "flags": [
-    "loop",
-    "deroot"
-   ],
-   "edits": [
-    "deroot",
-    "recentre",
-    "reground",
-    "arm_hold",
-    "joint_fix"
-   ],
-   "loop": true,
-   "hold": "e09_hold: arm chain = Meshy 4 Attack @0.3333 grafted (stage G carry, e23 v2)"
-  },
-  "run": {
-   "source": "anims/run14.glb",
-   "path": "55_clip_graft",
-   "action": "Meshy library 14 \"Run 02\"",
+   "action": "the rig task's own free walking",
    "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
    "flags": [
     "loop",
@@ -58,7 +39,25 @@
     "arm_hold"
    ],
    "loop": true,
-   "hold": "e09_hold: arm chain = Meshy 4 Attack @0.4 grafted (stage G carry, e23 v2)"
+   "hold": "e32_world_hold: arms from the G1 carry (walk@0.5)"
+  },
+  "run": {
+   "source": "anims/free_running.glb",
+   "path": "55_clip_graft",
+   "action": "the rig task's own free running",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "hold": "e32_world_hold: arms from the G1 carry (run@0.3)"
   },
   "attack": {
    "source": "anims/attack4.glb",

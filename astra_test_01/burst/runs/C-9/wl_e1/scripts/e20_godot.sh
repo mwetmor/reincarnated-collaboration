@@ -4,5 +4,5 @@ cd "$(dirname "$0")/.."; R=$PWD
 MODE=$1; EXP=$(cd "$2" && pwd)
 export GS_PKG=$R/work GS_CHAR=${E1_CHAR:-character_wl.json} GS_EXP=$EXP GS_BODY=$EXP/wl_body.glb
 if [ "$MODE" = stills ]; then mkdir -p "$3"; export GS_OUT=$(cd "$3" && pwd) GS_CFG=$R/work/${E1_STILLS:-stills_cfg.json}
-else export GS_CFG=$R/work/film_cfg.json GS_FILM=$R/$3 GS_FILM_SCALE=$4; fi
+else export GS_CFG=$R/work/${E1_FILMCFG:-film_cfg.json} GS_FILM=$R/$3 GS_FILM_SCALE=$4; fi
 perl -e 'alarm shift; exec @ARGV' 2700 /Applications/Godot.app/Contents/MacOS/Godot --path $R/film_rt 2>&1 | grep -E "\[gs\]|ERROR|SCRIPT" | head -20

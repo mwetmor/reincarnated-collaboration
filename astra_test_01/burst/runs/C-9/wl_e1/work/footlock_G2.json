@@ -1,0 +1,172 @@
+{
+ "walk": {
+  "seconds": 1.0333,
+  "keys": 32,
+  "dense_hz": 60.0,
+  "estimators": {
+   "s6 (ankles, bottom 25%)": {
+    "keys": {
+     "backward_median": 1.511,
+     "magnitude_median": 1.517,
+     "samples": 34,
+     "backward_iqr": 0.308
+    },
+    "dense": {
+     "backward_median": 1.507,
+     "magnitude_median": 1.516,
+     "samples": 71,
+     "backward_iqr": 0.42
+    }
+   },
+   "s6 rule on the toes": {
+    "keys": {
+     "backward_median": 1.541,
+     "magnitude_median": 1.543,
+     "samples": 33,
+     "backward_iqr": 0.047
+    },
+    "dense": {
+     "backward_median": 1.543,
+     "magnitude_median": 1.547,
+     "samples": 68,
+     "backward_iqr": 0.055
+    }
+   },
+   "lowest toe within 3 cm, the toe's speed": {
+    "keys": {
+     "backward_median": 1.543,
+     "magnitude_median": 1.543,
+     "samples": 31,
+     "backward_iqr": 0.049
+    },
+    "dense": {
+     "backward_median": 1.545,
+     "magnitude_median": 1.545,
+     "samples": 62,
+     "backward_iqr": 0.051
+    }
+   },
+   "lowest ankle within 3 cm, the ankle's speed": {
+    "keys": {
+     "backward_median": 1.521,
+     "magnitude_median": 1.522,
+     "samples": 30,
+     "backward_iqr": 0.067
+    },
+    "dense": {
+     "backward_median": 1.52,
+     "magnitude_median": 1.52,
+     "samples": 59,
+     "backward_iqr": 0.059
+    }
+   },
+   "scene: stance by the lower toe (3 cm), that side's ANKLE speed": {
+    "keys": {
+     "backward_median": 1.519,
+     "magnitude_median": 1.519,
+     "samples": 31,
+     "backward_iqr": 0.099
+    },
+    "dense": {
+     "backward_median": 1.519,
+     "magnitude_median": 1.519,
+     "samples": 62,
+     "backward_iqr": 0.114
+    }
+   }
+  },
+  "hips_net_travel_m": 0.0,
+  "hips_mean_speed_m_s": 0.0,
+  "toe_stance": {
+   "samples": 62,
+   "toe_backward_median": 1.545,
+   "ankle_backward_median_same_samples": 1.519,
+   "ankle_height_above_its_lowest_m_median": 0.016
+  }
+ },
+ "run": {
+  "seconds": 0.6333,
+  "keys": 20,
+  "dense_hz": 60.0,
+  "estimators": {
+   "s6 (ankles, bottom 25%)": {
+    "keys": {
+     "backward_median": 3.559,
+     "magnitude_median": 3.608,
+     "samples": 16,
+     "backward_iqr": 4.784
+    },
+    "dense": {
+     "backward_median": 3.575,
+     "magnitude_median": 3.623,
+     "samples": 31,
+     "backward_iqr": 5.456
+    }
+   },
+   "s6 rule on the toes": {
+    "keys": {
+     "backward_median": 4.955,
+     "magnitude_median": 5.249,
+     "samples": 16,
+     "backward_iqr": 5.287
+    },
+    "dense": {
+     "backward_median": 4.628,
+     "magnitude_median": 5.213,
+     "samples": 35,
+     "backward_iqr": 7.651
+    }
+   },
+   "lowest toe within 3 cm, the toe's speed": {
+    "keys": {
+     "backward_median": 5.512,
+     "magnitude_median": 5.512,
+     "samples": 9,
+     "backward_iqr": 0.31
+    },
+    "dense": {
+     "backward_median": 5.337,
+     "magnitude_median": 5.339,
+     "samples": 16,
+     "backward_iqr": 0.315
+    }
+   },
+   "lowest ankle within 3 cm, the ankle's speed": {
+    "keys": {
+     "backward_median": 5.073,
+     "magnitude_median": 5.076,
+     "samples": 7,
+     "backward_iqr": 0.702
+    },
+    "dense": {
+     "backward_median": 4.983,
+     "magnitude_median": 4.984,
+     "samples": 15,
+     "backward_iqr": 0.999
+    }
+   },
+   "scene: stance by the lower toe (3 cm), that side's ANKLE speed": {
+    "keys": {
+     "backward_median": 4.924,
+     "magnitude_median": 4.925,
+     "samples": 9,
+     "backward_iqr": 1.001
+    },
+    "dense": {
+     "backward_median": 4.979,
+     "magnitude_median": 4.982,
+     "samples": 16,
+     "backward_iqr": 0.975
+    }
+   }
+  },
+  "hips_net_travel_m": 0.0,
+  "hips_mean_speed_m_s": 0.0,
+  "toe_stance": {
+   "samples": 16,
+   "toe_backward_median": 5.337,
+   "ankle_backward_median_same_samples": 4.979,
+   "ankle_height_above_its_lowest_m_median": 0.01
+  }
+ }
+}
