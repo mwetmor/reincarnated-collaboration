@@ -26859,6 +26859,15 @@
         "Shoulder line works, but could we tilt the axe's blade just a bit more inwards so it lines up a bit more with his aim of the axe"
       ],
       "ts": "2026-09-30T22:50:05"
+    },
+    {
+      "id": "R-C9-108",
+      "by": "Matt",
+      "ruling": "Whirlwind v6 rejected (arms). v7 = no solver: one frame of the approved JOIN hold v3 battle stance, both arms extended by a mirrored shoulder flexion + elbow opening (A +15/+15 main, B +25/+25), the whole body spun rigid about the root at 3.75 rev/s (8-frame loop). Checks measure only; no tuning loop.",
+      "verbatim": [
+        "The arms are crazy in the whirlwind v6. Please ultra think through how we can simply use a slightly extended version of the current battle stance… this shouldn't be so complex and difficult."
+      ],
+      "ts": "2026-09-30T23:18:01"
     }
   ],
   "grok_calls": [
@@ -27706,6 +27715,12 @@
       "topic": "War cry v6 fails the new screen-crossing test on the blades only; disposition: accepted by Matt's look, no v7",
       "note": "j_cross_check v2 screen test fails war cry v6 at 6 of 71 keys (0.10-0.30 s, the fling from guard): blade crosses blade on screen; wrists and elbows stay on their own sides. This is the v4 blade lean Matt saw and passed by eye (\"the hands weren't crossed\", then R-C9-106 \"Warcry is good to go\"). Conductor disposition: accepted, recorded as INFO for the shout in the cross-check, no v7 unless Matt raises it. The test stays FAIL-on-blades for the whirlwind, where Matt asked for the weapons apart.",
       "ts": "2026-09-30T22:56:22"
+    },
+    {
+      "id": "N-C9-WW-SOLVER-SPIRAL",
+      "topic": "Whirlwind v3-v6: a per-key pose solver kept accreting constraints; each fix opened a new way to bend the arms",
+      "note": "Lesson for the D5 pipeline note: when the approved reference pose exists (a stance Matt passed), build a channelled move as that pose plus the fewest named joint edits plus a rigid root motion, not as targets an optimizer satisfies per key. Checks then measure, they do not steer. Conductor owns the miss: four rounds were dispatched as added constraints rather than as a reduction.",
+      "ts": "2026-09-30T23:18:01"
     }
   ]
 }
