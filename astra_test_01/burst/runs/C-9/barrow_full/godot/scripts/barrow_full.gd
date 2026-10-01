@@ -196,6 +196,9 @@ func _ready() -> void:
 		# LANE B METEOR (her page, ?meteor=b): built once here, warmed over the next frames, then it prints
 		# "[meteor_b] armed". Without ?meteor=b nothing of it exists and nothing above has changed.
 		meteor_fx = MeteorFx.attach(self)
+	if veil != null:
+		# the level's first draw, staged a few shaders per frame under the veil (warm_veil.gd)
+		veil.stage_level(self)
 	ready_done = true
 	# ONE LINE ON STDOUT: the exported app's launch probe greps for it. The pck fence proves the
 	# FILES shipped; only the running scene can say it built from them.
@@ -2333,7 +2336,7 @@ func _her_line() -> String:
 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
 	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
 		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
-		(("mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix2 and meteor_fx.burst_a != null else (("mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix and meteor_fx.proj_a != null else "3d(lane_b)")) if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
+		(("mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix3 and meteor_fx.burst_a != null and meteor_fx.crater != null else ("mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix2 and meteor_fx.burst_a != null else (("mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix and meteor_fx.proj_a != null else "3d(lane_b)")) if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
 
 
 func _paint_launch_line() -> String:

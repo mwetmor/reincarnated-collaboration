@@ -221,7 +221,7 @@ for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ba
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
          models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
          data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin \
-         scripts/meteor_a_fx.gd scripts/meteor_fx.gd scripts/cinders_fx.gd data/vfx/meteor_mix2/meteor_mix2.json \
+         scripts/meteor_a_fx.gd scripts/meteor_fx.gd scripts/cinders_fx.gd scripts/crater_fx.gd data/vfx/meteor_mix2/meteor_mix2.json \
          data/vfx/meteor_mix2/atlas_0.bin data/vfx/meteor_mix2/atlas_1.bin; do
   grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
@@ -321,16 +321,23 @@ if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_b.l
 else
   ck 0 "?meteor=b launch free of script and shader errors"
 fi
-# HER DEFAULT METEOR IS MATT'S MIX v2 (no query): B's darkened fall, A's painted burst, the cinders, no
-# ring, the rock's shadow on; ?meteor_shadow=0 turns the shadow off; ?meteor=mix1 (fetched, Chrome) is the
-# first mix; ?meteor=b is lane B as shipped; ?meteor=placeholder falls back
-echo "$SLINE" | grep -q "meteor=mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=on)" \
-  && ck 0 "her default Meteor is MIX v2 (B's darkened fall, A's burst, cinders, no ring, rock shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
+# HER DEFAULT METEOR IS MATT'S MIX v3 (no query): the ball of fire with its dark core, A's painted burst,
+# the crater, the warp in the post pass, no ring, the shadow on; ?meteor_shadow=0 turns the shadow off;
+# ?meteor=mix2 is MIX v2; ?meteor=mix1 (fetched, Chrome) the first mix; ?meteor=b lane B as shipped;
+# ?meteor=placeholder falls back
+echo "$SLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=on)" \
+  && ck 0 "her default Meteor is MIX v3 (the ball of fire, A's burst, the crater, the warp, no ring, shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor mix2 > "$LOG/launch_meteor_mix2.log" 2>&1 || true
+M2LINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_mix2.log" | head -1 || true)
+echo "$M2LINE" | grep -q "meteor=mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=on)" \
+  && ck 0 "?meteor=mix2: MIX v2 kept" || ck 1 "?meteor=mix2 (got: $(echo "$M2LINE" | grep -o 'meteor=[^ ]*'))"
+grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix2.log" && ck 1 "?meteor=mix2 launch errors" || ck 0 "?meteor=mix2 launch free of script and shader errors"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor-shadow 0 > "$LOG/launch_meteor_noshadow.log" 2>&1 || true
 NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
-echo "$NLINE" | grep -q "meteor=mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=off)" \
-  && ck 0 "?meteor_shadow=0: MIX v2 without the rock's shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
+echo "$NLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=off)" \
+  && ck 0 "?meteor_shadow=0: MIX v3 without the shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true
 PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)

@@ -58,6 +58,9 @@ func start(p_scene, n_casts: int, p_first_on := true, p_strike := "slash") -> vo
 func _process(_dt: float) -> void:
 	if scene == null or _done or not bool(scene.ready_done):
 		return
+	# a player cannot cast under the warming veil (it takes the input): on the page the clock starts at its lift
+	if _t0 == 0 and scene.get("veil") != null and bool(scene.veil.visible):
+		return
 	var now := Time.get_ticks_usec()
 	if _t0 == 0:
 		_t0 = now
@@ -74,7 +77,8 @@ func _process(_dt: float) -> void:
 		# the MIX (or lane B): B's own node (MIX v2's cinders step inside it), plus A's fall (the first mix)
 		# or A's burst (MIX v2), each its own node
 		fx_us = int(mfx.last_update_us) + (int(mfx.proj_a.last_us) if mfx.proj_a != null else 0) \
-			+ (int(mfx.burst_a.last_us) if mfx.get("burst_a") != null else 0)
+			+ (int(mfx.burst_a.last_us) if mfx.get("burst_a") != null else 0) \
+			+ (int(mfx.crater.last_us) if mfx.get("crater") != null else 0)
 	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
@@ -157,10 +161,11 @@ func _report() -> void:
 	if scene.veil != null:
 		var v: Dictionary = scene.veil.report
 		out["veil"] = v
-		var lift_us := int(float(v.get("lifted_s_after_ready", 0.0)) * 1e6)
+		var lift_us := 0      # the clock (rows, casts) starts at the veil's lift: every row is after it
 		var after := rows.filter(func(r): return int(r[0]) > lift_us)
 		after.sort_custom(func(a, b): return float(a[1]) > float(b[1]))
 		out["worst_frames_after_veil"] = after.slice(0, 4).map(func(r): return [snappedf(float(r[0]) / 1e6, 0.01), snappedf(float(r[1]), 0.1), "draw", r[7]])
+	out["clock_zero"] = "the veil's lift" if scene.veil != null else "the level ready"
 	out["first_cast_s_since_ready"] = snappedf(float(cast_log[0]["t_us"]) / 1e6, 0.01) if not cast_log.is_empty() else -1
 	print("[perf_fb] " + JSON.stringify(out))
 	if not PaintStack.is_web():

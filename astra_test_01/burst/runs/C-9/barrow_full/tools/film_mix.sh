@@ -1,7 +1,7 @@
 #!/bin/bash
-# C-9 -- her DEFAULT Meteor, film for Matt (godot/tools/film_meteor.gd): play speed then quarter speed. MIX v2 (the
-# default): B's darkened fall, A's painted burst, the cinders, no ring, the rock's shadow on. METEOR=mix1 films the first mix
-# (A's fall, B's impact); TAG names the file.
+# C-9 -- her DEFAULT Meteor, film for Matt (godot/tools/film_meteor.gd): play speed then quarter speed. MIX v3 (the
+# default): the ball of fire with its dark core, A's painted burst, the crater, the warp, no ring, the shadow on.
+# METEOR=mix2 / mix1 films the earlier mixes; TAG names the file.
 # 1280 x 720, the phone page's look. Movie Maker writes one MJPEG .avi at a fixed 30 fps (no frame
 # dump); it is encoded to MP4 here. The .avi is left for the cleanup manifest (no rm).
 #   usage: tools/film_fireball.sh OUT_DIR
@@ -16,8 +16,8 @@ mkdir -p "$OUT"
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi
 METEOR=${METEOR:-}
-TAG=${TAG:-MIX v2 - B fall darkened, A painted impact, cinders, no ring, rock shadow}
-SLUG=$(echo "${METEOR:-mix2}" | tr -c "a-z0-9" "_")
+TAG=${TAG:-MIX v3 - ball of fire with dark core, A painted impact, crater, warp}
+SLUG=$(echo "${METEOR:-mix3}" | tr -c "a-z0-9" "_")
 AVI="$OUT/meteor_${SLUG}film.avi"
 LOG="$OUT/film_${SLUG}.log"
 MP4="$OUT/C-9 sorceress Meteor $TAG - play speed then quarter speed.mp4"

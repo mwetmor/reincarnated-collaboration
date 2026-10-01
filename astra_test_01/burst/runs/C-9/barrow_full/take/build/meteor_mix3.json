@@ -1,0 +1,259 @@
+{
+ "_what": "C-9 MIX v3 -- her DEFAULT Meteor (Matt, 2026-09-30 second correction) and the COLD-FIRST-LOAD fix (the coordinator: the veil gated on completed warm-ups, an 8 s responsive cap, a 'preparing effects\u2026' line, staged first draw). drax.",
+ "build": {
+  "fall": "lane B's travel down the sun ray, its growing shadow and fall light, with NO separate rock: the comet's head is a ball of fire with a dark, deep core (COMET_SHADER core term: near-black -> deep crimson -> crimson planes at the ball's centre as seen, the hot fire planes kept as its rim), the tail lighter and wispier (tail_wisp: more tearing, lifted values)",
+  "impact": "lane A's painted burst UNCHANGED (MIX v2's meteor_mix2 frames, byte-identical to lane A's proven atlas), B's flash, fire light on the characters and the shake",
+  "crater": "godot/scripts/crater_fx.gd: the snow pressed with its berm (SnowField._stamp, the boot's own stamp: the dent and its raised rim are real snow geometry) and a CRATER SKIN draped on the dented ground (17x17 grid, one unshaded shader): the bowl lit by the sun with the painter's shadow colour on the turned wall, the raised lip, soot in two flat torn washes, 7 radial fault lines + a net of cell cracks inked, each with a LINE OF FIRE cooling over ~5 s, 1-2 runners past the rim seen mostly while burning, a smouldering centre glowing deep red and pulsing (cool by ~6.5 s); the cooled crater stays; a pool of 4, the oldest faded when the pool is full",
+  "warp": "a radial lens pull centred on the impact folded into the post pass's own screen copy (PaintStack POST_SHADER, global fx_warp; no extra pass): begins 0.10 s before impact, peaks at impact, gone by +0.15 s; profile peak about 2.9 px at 1080 rows",
+  "ring": "off",
+  "shadow": "on; ?meteor_shadow=0 off",
+  "queries": {
+   "(none) or ?meteor=mix3": "MIX v3",
+   "?meteor=mix2": "MIX v2",
+   "?meteor=mix1": "the first mix (fetched)",
+   "?meteor=a": "lane A (fetched)",
+   "?meteor=b": "lane B",
+   "?meteor=placeholder": "placeholder"
+  }
+ },
+ "head_vs_tail": {
+  "_": "tools/head_tail.py, 40 fall frames, play camera, phone look: head = the ball's disc, tail = 1.6-4.5 radii behind",
+  "mean": {
+   "head": {
+    "mean_L": 35.8849,
+    "dark": 0.2662,
+    "bright": 0.0139
+   },
+   "tail": {
+    "mean_L": 52.0403,
+    "dark": 0.1623,
+    "bright": 0.0626
+   }
+  },
+  "head_minus_tail": {
+   "mean_L": -16.1554,
+   "dark": 0.1039,
+   "bright": -0.0487
+  }
+ },
+ "proof": {
+  "impact_frames": "unchanged from MIX v2 (236 frames byte-identical to lane A's proven atlas, worst 0.92/255)",
+  "new_3d": "the ball's core, the crater and the warp are runtime 3D/shader work: stills and film, no flipbook proof applies"
+ },
+ "cold_first_load": {
+  "_": "Chrome with a fresh Playwright profile AND Chrome's Metal shader cache (DARWIN_USER_CACHE_DIR/com.google.Chrome.helper/com.apple.metal) moved aside before each cold run; 844x390 CSS px at DPR 3; ANGLE Metal on the M2",
+  "before": {
+   "her_page": {
+    "one_frame_after_ready_ms": 11632,
+    "veil": "lifted by the 3 s cap mid-compile",
+    "first_meteor_cast_stalls_ms": [
+     358,
+     225
+    ],
+    "later_cold_casts_max_ms": 2998
+   },
+   "his_page": {
+    "one_frame_after_ready_ms": 7928
+   }
+  },
+  "fix": [
+   "the veil lifts only when every warm-up has COMPLETED (its draw issued and drawn) and then 8 frames run under 25 ms",
+   "its cap counts RESPONSIVE waiting only (frames under 250 ms; a compile stall is the work it waits for), 8 s, with a 45 s wall-clock backstop",
+   "on the web the veil is also a DOM overlay over the canvas (the browser keeps compositing it while the engine is blocked); its 'preparing effects\u2026' line fades in after 3 s by a CSS animation the compositor runs",
+   "STAGED first draw: at ready the level's visible geometry is hidden and given back one SHADER per frame (every node sharing a shader with it), so the compiles spread over many frames",
+   "the Meteor's painted-surface fx variants warmed one KIND per frame (painted, snow, heather, char), after the staging (they compile only where the surfaces draw)",
+   "the perf harness's clock starts at the veil's lift (a player cannot cast under it)"
+  ],
+  "after_her_meteor": {
+   "navigate_to_play_ms": 25782,
+   "built_ms": 7515,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 29,
+    "hard_s": 45,
+    "lifted_s_after_ready": 18.19,
+    "note_shown": true,
+    "reason": "settled",
+    "responsive_wait_s": 0.223,
+    "staged": {
+     "nodes": 119,
+     "per_frame": 1,
+     "shaders": 8
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 18.113,
+    "worst_frame_under_veil_ms": 3929.1
+   },
+   "first_cast": {
+    "dc_max": 145,
+    "frames": 515,
+    "fx_script_mean_ms": 0.0687,
+    "max_ms": 25.3,
+    "mean_ms": 11.624,
+    "over_20ms": 35,
+    "over_33ms": 0,
+    "p95_ms": 20.8
+   },
+   "delta_mean_ms": 0.35
+  },
+  "after_her_fire_ball": {
+   "navigate_to_play_ms": 25515,
+   "built_ms": 7377,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 29,
+    "hard_s": 45,
+    "lifted_s_after_ready": 18.061,
+    "note_shown": true,
+    "reason": "settled",
+    "responsive_wait_s": 0.224,
+    "staged": {
+     "nodes": 119,
+     "per_frame": 1,
+     "shaders": 8
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 17.979,
+    "worst_frame_under_veil_ms": 3850.6
+   },
+   "first_cast": {
+    "dc_max": 139,
+    "frames": 345,
+    "fx_script_mean_ms": 0.0461,
+    "max_ms": 22.5,
+    "mean_ms": 10.426,
+    "over_20ms": 4,
+    "over_33ms": 0,
+    "p95_ms": 17.8
+   },
+   "delta_mean_ms": -0.048
+  },
+  "after_him": {
+   "navigate_to_play_ms": 16134,
+   "built_ms": 6770,
+   "veil": {},
+   "worst_after_lift_ms": [
+    [
+     12674,
+     30.7
+    ],
+    [
+     6960,
+     30
+    ],
+    [
+     12644,
+     29.8
+    ]
+   ]
+  },
+  "residual": "one frame of about 3.9 s (her page) / 2.7 s (his) remains under the veil: the painted ground's one large shader compiling, which no staging can split; the DOM line covers it. A phone GPU will be slower"
+ },
+ "budget": {
+  "_": "delta against a matched control, 20 chop casts 6 s apart alternating, no screenshots in timed windows; fx time = MeteorFx + A's burst + the crater",
+  "desktop_forward_plus": {
+   "cold_first_cast": {
+    "dc_max": 87,
+    "frames": 419,
+    "fx_script_mean_ms": 0.0431,
+    "max_ms": 18.34,
+    "mean_ms": 14.311,
+    "over_20ms": 0,
+    "over_33ms": 0,
+    "p95_ms": 16.37
+   },
+   "warm_on": {
+    "dc_max": 90,
+    "frames": 3665,
+    "fx_script_mean_ms": 0.0435,
+    "max_ms": 24.03,
+    "mean_ms": 14.714,
+    "over_20ms": 8,
+    "over_33ms": 0,
+    "p95_ms": 16.75
+   },
+   "warm_off_control": {
+    "dc_max": 86,
+    "frames": 4353,
+    "fx_script_mean_ms": 0.0121,
+    "max_ms": 21.93,
+    "mean_ms": 13.767,
+    "over_20ms": 5,
+    "over_33ms": 0,
+    "p95_ms": 15.4
+   },
+   "delta_mean_ms": 0.947,
+   "delta_dc_peak": 4
+  },
+  "page_fx_first": {
+   "navigate_to_play_ms": 16093,
+   "built_ms": 6062,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 29,
+    "hard_s": 45,
+    "lifted_s_after_ready": 9.943,
+    "note_shown": true,
+    "reason": "settled",
+    "responsive_wait_s": 1.125,
+    "staged": {
+     "nodes": 119,
+     "per_frame": 1,
+     "shaders": 8
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 9.868,
+    "worst_frame_under_veil_ms": 3896.5
+   },
+   "first_cast": {
+    "dc_max": 145,
+    "frames": 561,
+    "fx_script_mean_ms": 0.0512,
+    "max_ms": 21.8,
+    "mean_ms": 10.685,
+    "over_20ms": 5,
+    "over_33ms": 0,
+    "p95_ms": 17.9
+   },
+   "delta_mean_ms": 0.265
+  },
+  "page_control_first": {
+   "navigate_to_play_ms": 7105,
+   "built_ms": 5110,
+   "veil": {
+    "cap_s": 8,
+    "frames_under_veil": 29,
+    "hard_s": 45,
+    "lifted_s_after_ready": 1.917,
+    "note_shown": false,
+    "reason": "settled",
+    "responsive_wait_s": 1.548,
+    "staged": {
+     "nodes": 119,
+     "per_frame": 1,
+     "shaders": 8
+    },
+    "stall_ms": 250,
+    "warmups_done": true,
+    "warmups_done_s_after_ready": 1.842,
+    "worst_frame_under_veil_ms": 369.7
+   },
+   "first_cast": {
+    "dc_max": 140,
+    "frames": 563,
+    "fx_script_mean_ms": 0.0123,
+    "max_ms": 25.1,
+    "mean_ms": 10.648,
+    "over_20ms": 11,
+    "over_33ms": 0,
+    "p95_ms": 18
+   },
+   "delta_mean_ms": 0.232
+  },
+  "FINDING_pipeline_lesson": "rebuilding the crater skin's mesh at impact (clear_surfaces + add_surface_from_arrays) cost a 40-60 ms draw frame on EVERY desktop cast (a new GPU buffer and pipeline per surface); writing the heights into the skin's own dynamic vertex buffer (ARRAY_FLAG_USE_DYNAMIC_UPDATE + mesh_surface_update_vertex_region) took the warm max to 21.6-24 ms. Never rebuild a mesh at cast time; update a dynamic buffer"
+ },
+ "film": "Desktop review folder: 'C-9 sorceress Meteor MIX v3 - ball of fire with dark core, A painted impact, crater, warp - play speed then quarter speed.mp4' and two stills (the fall; the warp, burst and crater from -0.1 s to +8 s)"
+}

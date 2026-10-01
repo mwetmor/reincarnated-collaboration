@@ -438,6 +438,9 @@ const POST_SHADER := """
 shader_type spatial;
 render_mode unshaded, depth_draw_never, depth_test_disabled, cull_disabled, fog_disabled, shadows_disabled;
 uniform sampler2D screen_tex : hint_screen_texture, filter_linear;
+// MIX v3's GRAVITATIONAL WARP (meteor_fx.gd): centre uv, radius and peak pull in uv of the screen's height;
+// all zero, the copy is read straight. Folded into this pass's own copy: no second screen pass.
+global uniform vec4 fx_warp;
 uniform sampler2D depth_tex : hint_depth_texture, filter_nearest;
 uniform sampler2D nrm_tex : hint_normal_roughness_texture, filter_nearest;
 uniform sampler2D paper_tex : filter_linear_mipmap, repeat_enable;
@@ -555,7 +558,16 @@ void vertex() { POSITION = vec4(VERTEX.xy * 2.0, 1.0, 1.0); }
 
 void fragment() {
 	vec2 uv = SCREEN_UV;
-	vec3 col = texture(screen_tex, uv).rgb;
+	vec2 uv_c = uv;
+	if (fx_warp.w > 0.0) {
+		float asp = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		vec2 d = (uv - fx_warp.xy) * vec2(asp, 1.0);
+		float rr = length(d) / max(fx_warp.z, 1e-4);
+		// a lens: pulled toward the centre, most at half the radius, nothing at the centre or past the edge
+		float pull = fx_warp.w * rr * exp(-2.2 * rr * rr) * 1.65;
+		uv_c = uv + (d / max(length(d), 1e-5)) * pull / vec2(asp, 1.0);
+	}
+	vec3 col = texture(screen_tex, uv_c).rgb;
 	if (ink_on > 0.5) {
 		// Roberts cross: two diagonals, which is one texel fetch per corner instead of
 		// Sobel's eight and gives a thinner line -- and thin is the whole requirement.
