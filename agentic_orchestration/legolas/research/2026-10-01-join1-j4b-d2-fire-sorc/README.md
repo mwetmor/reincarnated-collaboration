@@ -23,7 +23,14 @@ The labels are as in J4a:
 - **(partial):** one sub-clause is single-source or conflicted.
 - **INFERRED** and **UNKNOWN:** as stated.
 
-**Verification.** A generator rebuilt every table and asserted each against its second source; it aborts on any mismatch. All checks passed, with one recorded Arreat typo (see `verification_log`). The generator was run from the session scratchpad and is **not** in this directory: the commission names four files. If the adapter wants it committed, that is a one-line ask.
+**Verification.** A generator rebuilt every table and asserted each against its second source; it aborts on any mismatch. All checks passed, with one recorded Arreat typo (see `verification_log`).
+
+**Reproduction scripts (`scripts/`, added at the conductor's request after KP-166):**
+- `fetch_sources.py`: read-only `curl` GETs of the five Basin pages and the Arreat Fire Spells page. Writes plain text to `scripts/sources/`, which is gitignored (or to `$J4B_SOURCES`).
+- `gen_j4b.py <out_dir>`: reads the 1.13 txt tables from `research/datamine-acquisition/d2/raw/`, writes `primary_rows.json` and runs every assertion.
+- `gen_formulas_j4b.py <out_dir>`: writes `formulas.json`, including the sensitivity rows.
+
+Run them in that order. Re-run on 2026-10-01 from fresh fetches into a temporary directory, both JSON files came out **byte-identical** to the committed ones. Basin is a live wiki: if a page is edited later, the generator aborts and names the changed cell. That abort is intended.
 
 ---
 
