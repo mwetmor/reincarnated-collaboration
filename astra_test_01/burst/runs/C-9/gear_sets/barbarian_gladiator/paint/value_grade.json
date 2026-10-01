@@ -1,0 +1,17 @@
+{
+ "armour": {
+  "texels": {
+   "gold": 582269,
+   "kilt": 655700,
+   "wraps": 185102,
+   "metal_region": 1093783
+  },
+  "gold_value_curve": "0.55 + 1.45*(v-0.55), sat x1.12",
+  "kilt": "value x0.70, hue -6 deg, sat x1.05",
+  "wraps": "value x1.05"
+ },
+ "body": {
+  "skin_texels": 3481570,
+  "skin": "sat x0.78, value 0.62 + 1.25*(v-0.62) + 0.03; hair, loincloth, shoes untouched"
+ }
+}
