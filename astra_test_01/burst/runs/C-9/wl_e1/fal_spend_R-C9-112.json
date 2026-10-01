@@ -1,0 +1,30 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $4.00 (fal_spend_R-C9-112): the third character (E1), overnight cap set by the conductor's dispatch.",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Balance NOT readable: GET api.fal.ai/v1/account/billing -> 'This API key is not permitted to perform this action'; rest.alpha.fal.ai/billing/user_balance -> needs billing:usage:read. Checked 2026-10-01T00:25:33. The cap is enforced on this ledger's running total only.",
+ "budget_usd": 4.0,
+ "entries": [
+  {
+   "ts": "2026-10-01T04:28:16+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "E1 matte DK-MACE_r1.png",
+   "usd": 0.0024,
+   "wall_s": 2.99
+  },
+  {
+   "ts": "2026-10-01T04:32:09+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "E1 build full_A2",
+   "usd": 0.4,
+   "wall_s": 143.47
+  },
+  {
+   "ts": "2026-10-01T04:32:39+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "E1 build full_A1",
+   "usd": 0.4,
+   "wall_s": 173.57
+  }
+ ],
+ "running_usd": 0.8024
+}

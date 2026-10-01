@@ -1,0 +1,66 @@
+{
+  "task_id": "DK-MACE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-MACE",
+      "path": "out/DK-MACE.png",
+      "sha256": "4382c5b6b1a90664673674f93c515b15dd018f3d5227e3d92546f4389dad9907",
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 hand-painted weapon model sheet for three-dimensional modeling. REFERENCES: Image 1 is STYLE ONLY: copy only its crisp dark ink contours, hand hatching and transparent watercolor handling; never its character, costume, staff or pose. Image 2 is LAYOUT ONLY: three upright orthographic views side by side, equal dimensions, aligned tips and butts; never copy its hammer design, lion, wood or laurel.\nSUBJECT: ONE ornate late-medieval dark knight's TWO-HANDED SPIKED MACE, shown LEFT front-on, MIDDLE rotated 90 degrees, RIGHT rotated 180 degrees. The same physically consistent object in all three views, no perspective foreshortening. Eight radial flanges must remain structurally consistent across the rotations. No hands, person, strap or other objects. Each complete mace spans approximately y=17 to y=1007. Butts share one implied ground line, with no line drawn. Tops near the top edge. Generous space between views, nothing overlaps or is cropped.\nPROPORTIONS ARE CRITICAL: whole mace about 990 pixels tall; elongated bulb head including spikes about 230 pixels high and 150 pixels wide; underside of head to butt about 740 pixels, at least three head-heights. Very slim straight ROUND dark iron haft about 28-30 pixels wide and NEVER wider than one fifth the head width. Head is about one quarter of total length, not a large club head. HEAD: heavy dark iron elongated bulb ringed by EIGHT flanges, each ending in a short sharp spike, plus ONE longer axial spike on top. Fine gold filigree traced along EVERY flange edge; gilded collar joining head to haft. HAFT: same dark iron, long enough for two separated hands, dark leather wrapped grip at butt about 170 pixels long and second dark leather grip at mid-haft about 150 pixels long, each bounded by thin gold rings. Small spiked iron pommel at butt. Match every component, ring position and grip length across all three rotations.\nMERGED VISUAL REGISTER: subject, ornament and restrained mineral palette from late-medieval and early-Renaissance illuminated manuscripts circa 1400-1530; rendering from hand-painted watercolor-and-ink character illustration of 1990s tactical role-playing illustration. One hand-painted illustration, crisp DARK sepia-to-near-black pen contour wavering slightly and varying in weight; fine hand-drawn pen hatching. Uneven transparent washes visibly pool at edges, granulate, bloom softly, occasionally stop short of or slightly overrun outlines. Second darker wash plus hatching models shade, never airbrushed gradients. Iron reads near-black through layered transparent warm grey and deep violet washes, with pale cream paper highlights along edges and substantial pale wash passages; no flat black fills or large solid black shadows. Muted leather, fine yellow-ochre gold ornament as small rich accents, never glossy. Darkest marks are ink contours and hatching. Soft even daylight from screen upper-left. No glossy specular effects, no glow, rim light, lens effects, digital gradients or cast shadows. No ground or scenery. BACKGROUND: completely flat pure #00ff00 edge to edge, green only on background, no background texture or gradient. No text, labels, border or watermark.",
+      "references": [
+        {
+          "role": "STYLE ONLY",
+          "path": "in/01_nb_style_ref_matt.png"
+        },
+        {
+          "role": "LAYOUT ONLY",
+          "path": "in/02_GS-BMAUL2_a.png"
+        }
+      ],
+      "elapsed_s": 33.187
+    },
+    {
+      "name": "DK-MACE_r1",
+      "path": "out/DK-MACE_r1.png",
+      "sha256": "a9b32bc28074e6a39056d084b29f4fefdc80da39a302d27a9f10a156e22d2aa4",
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 hand-painted weapon model sheet for three-dimensional modeling. REFERENCES: Image 1 is STYLE ONLY: copy only its crisp dark ink contours, hand hatching and transparent watercolor handling; never its character, costume, staff or pose. Image 2 is LAYOUT ONLY: three upright orthographic views side by side, equal dimensions, aligned tips and butts; never copy its hammer design, lion, wood or laurel.\nSUBJECT: ONE ornate late-medieval dark knight's TWO-HANDED SPIKED MACE, shown LEFT front-on, MIDDLE rotated 90 degrees, RIGHT rotated 180 degrees. The same physically consistent object in all three views, no perspective foreshortening. Eight radial flanges must remain structurally consistent across the rotations. No hands, person, strap or other objects. Each complete mace spans approximately y=17 to y=1007. Butts share one implied ground line, with no line drawn. Tops near the top edge. Generous space between views, nothing overlaps or is cropped.\nPROPORTIONS ARE CRITICAL: whole mace about 990 pixels tall; elongated bulb head including spikes about 230 pixels high and 150 pixels wide; underside of head to butt about 740 pixels, at least three head-heights. Very slim straight ROUND dark iron haft about 28-30 pixels wide and NEVER wider than one fifth the head width. Head is about one quarter of total length, not a large club head. HEAD: heavy dark iron elongated bulb ringed by EIGHT flanges, each ending in a short sharp spike, plus ONE longer axial spike on top. Fine gold filigree traced along EVERY flange edge; gilded collar joining head to haft. HAFT: same dark iron, long enough for two separated hands, dark leather wrapped grip at butt about 170 pixels long and second dark leather grip at mid-haft about 150 pixels long, each bounded by thin gold rings. Small spiked iron pommel at butt. Match every component, ring position and grip length across all three rotations.\nMERGED VISUAL REGISTER: subject, ornament and restrained mineral palette from late-medieval and early-Renaissance illuminated manuscripts circa 1400-1530; rendering from hand-painted watercolor-and-ink character illustration of 1990s tactical role-playing illustration. One hand-painted illustration, crisp DARK sepia-to-near-black pen contour wavering slightly and varying in weight; fine hand-drawn pen hatching. Uneven transparent washes visibly pool at edges, granulate, bloom softly, occasionally stop short of or slightly overrun outlines. Second darker wash plus hatching models shade, never airbrushed gradients. Iron reads near-black through layered transparent warm grey and deep violet washes, with pale cream paper highlights along edges and substantial pale wash passages; no flat black fills or large solid black shadows. Muted leather, fine yellow-ochre gold ornament as small rich accents, never glossy. Darkest marks are ink contours and hatching. Soft even daylight from screen upper-left. No glossy specular effects, no glow, rim light, lens effects, digital gradients or cast shadows. No ground or scenery. BACKGROUND: completely flat pure #00ff00 edge to edge, green only on background, no background texture or gradient. No text, labels, border or watermark.\nPROPORTION RETRY: The previous result made the leather-wrapped haft about 60 pixels wide against a roughly 235-pixel head, exceeding the one-fifth limit. Correct this: ALL haft sections INCLUDING leather grips and their rings must stay very slim, no more than 28-30 pixels overall, with the spiked pommel exempt. Head including top spike must fit a 230-pixel-tall by 150-pixel-wide envelope. Keep underside of head near y=250 and butt near y=1007 so the long slim haft below the head is clearly over three head-heights. Retain the two distinct separated grip sections and identical construction in every view. Render on the specified flat pure #00ff00 background.",
+      "references": [
+        {
+          "role": "STYLE ONLY",
+          "path": "in/01_nb_style_ref_matt.png"
+        },
+        {
+          "role": "LAYOUT ONLY",
+          "path": "in/02_GS-BMAUL2_a.png"
+        }
+      ],
+      "elapsed_s": 46.71
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Initial wrapped haft approximately 60 pixels wide against a roughly 235-pixel head exceeds the one-fifth limit.",
+      "change": "Emphasized narrow grips and rings, a 230-pixel head envelope, and a longer haft relative to the head."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both files are 1536x1024, but both have dark gradient backgrounds instead of pure green; delivered as instructed.",
+      "Retry narrows the haft but retains an oversized head and collar, leaving the haft below the collar approximately two head-heights.",
+      "The three projections appear nearly identical; distinct rotations and eight-flange construction cannot be verified visually.",
+      "The first tool result was inadvertently printed with base64 data."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-MACE.png",
+      "sha256": "4382c5b6b1a90664673674f93c515b15dd018f3d5227e3d92546f4389dad9907"
+    },
+    {
+      "path": "out/DK-MACE_r1.png",
+      "sha256": "a9b32bc28074e6a39056d084b29f4fefdc80da39a302d27a9f10a156e22d2aa4"
+    }
+  ]
+}

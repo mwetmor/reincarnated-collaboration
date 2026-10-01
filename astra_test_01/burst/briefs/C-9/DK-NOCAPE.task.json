@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST DK-NOCAPE -- Run C-9 Phase 2 (Matt R-C9-112/113): the dark knight with ONLY his CAPE taken off, so the backplate and pauldron backs it hides can be built. task_id \"DK-NOCAPE\".\n\nIMAGE 1 is his armoured four-view sheet (1024x1536 portrait, 2x2 grid: top-left FRONT, top-right his RIGHT side facing the viewer's right, bottom-left BACK, bottom-right his LEFT side facing the viewer's left). IMAGE 2 is a STYLE reference ONLY.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1024x1536 sheet: the SAME four views, the SAME grid, the SAME pose. REGISTRATION IS THE FIRST RULE: in every view his hands, feet, soles, legs and arms stay on EXACTLY the same pixels as in IMAGE 1 -- the same height, ground lines, positions and scale.\nREMOVE the CAPE completely -- front, sides and back; nothing hangs behind him -- and show beneath it the rest of his armour exactly as it continues: the BACKPLATE (near-black steel with violet sheen and fine gold filigree, matching the breastplate), the backs of the pauldrons, the backs of the fauld and leg plates. CHANGE NOTHING ELSE: helm, horns, visor, pauldrons, breastplate, arms, gauntlets, the gold band on his LEFT forearm, legs and sabatons stay exactly as in IMAGE 1.\nPaint in IMAGE 1's own hand and colours. Soft even light, no cast shadows, no ground, no text, no labels.\nBACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\nONE image_gen EDIT call. ONE RETRY ONLY if the result DRIFTS: he moved, rose, sank or changed scale in any view (compare the soles and hands with IMAGE 1), his pose or limbs changed, or a piece named above is left on -- name the reason and deliver BOTH images. Copy the output to out/DK-NOCAPE.png (a retry to out/DK-NOCAPE_r1.png) with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"DK-NOCAPE\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/DK-A1/DK-A1_r1.png",
+   "role": "IMAGE 1 -- the knight's approved armoured four-view sheet (DK-A1) to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 2 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, staff or pose"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 12,
+ "outputs": [
+  "out/DK-NOCAPE.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-112-third-character"
+}

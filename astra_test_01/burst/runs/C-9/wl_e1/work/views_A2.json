@@ -1,0 +1,55 @@
+{
+ "sheet": "../artifacts/DK-A2/DK-A2_r1.png",
+ "sha256": "5d23fece3ea5af770f476cb73bd95bf1be956d00c34832dbc2e928cead98a86f",
+ "matte": "chroma key + despill (no fal spend)",
+ "views": {
+  "front": {
+   "src_box": [
+    110,
+    11,
+    500,
+    752
+   ],
+   "height_px_src": 741,
+   "scale": 1.2159,
+   "blobs": 3,
+   "green_excess_after_despill": 0.138
+  },
+  "right": {
+   "src_box": [
+    135,
+    11,
+    311,
+    752
+   ],
+   "height_px_src": 741,
+   "scale": 1.2159,
+   "blobs": 2,
+   "green_excess_after_despill": 0.113
+  },
+  "back": {
+   "src_box": [
+    109,
+    0,
+    501,
+    724
+   ],
+   "height_px_src": 724,
+   "scale": 1.2445,
+   "blobs": 1,
+   "green_excess_after_despill": 0.111
+  },
+  "left": {
+   "src_box": [
+    132,
+    0,
+    309,
+    728
+   ],
+   "height_px_src": 728,
+   "scale": 1.2376,
+   "blobs": 1,
+   "green_excess_after_despill": 0.098
+  }
+ }
+}

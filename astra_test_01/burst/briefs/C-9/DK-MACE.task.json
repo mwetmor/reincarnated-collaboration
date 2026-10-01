@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST DK-MACE -- Run C-9 Phase 2 (Matt R-C9-112/113): the dark knight's TWO-HANDED SPIKED MACE as a MODEL SHEET for 3D. task_id \"DK-MACE\".\n\nIMAGE 1 is a STYLE reference ONLY (the hand: ink line, transparent washes, hatching); copy nothing else. IMAGE 2 is our own earlier weapon sheet: copy its LAYOUT only (three orthographic views side by side at one scale, butt on one ground line); never its weapon's design.\nDeliver ONE 1536x1024 sheet on flat pure #00ff00 showing ONE object alone (no hands, no person, no strap), in THREE orthographic views side by side, all at ONE common scale, the butt on one ground line near the bottom edge, the top near the top edge, nothing overlapping. LEFT the mace FRONT-ON; MIDDLE turned 90 degrees; RIGHT turned 180 degrees.\nTHE MACE, a towering knight's two-handed weapon, ornate:\n- the HEAD: a heavy DARK IRON flanged-and-spiked mace head, an elongated bulb about 230 pixels tall and 150 pixels wide (spikes included), ringed by eight flanges, each ending in a short sharp spike, one longer spike on top; FINE GOLD FILIGREE traced along every flange edge; a gilded collar where the head meets the haft;\n- the HAFT: a slim, straight, round two-handed haft of the same dark iron, about 34 pixels thick (NEVER thicker than a fifth of the head's width), long enough for TWO hands with room between them: from the underside of the head down to the butt about 3.2 head-heights (about 740 pixels); a DARK LEATHER-wrapped grip section at the butt (about 170 pixels long) and a second at mid-haft (about 150 pixels long), each bounded by thin gold rings; a small spiked iron pommel at the butt;\n- the whole mace about 990 pixels tall. Proportion check before you deliver: the head is about a QUARTER of the whole length; the haft below the head is about THREE head-heights.\nPaint in IMAGE 1's hand: near-black iron laid as layered transparent washes with a deep violet sheen and pale paper highlights on the edges, never a flat black fill; soft even light, no glow, no cast shadows, no ground, no text, no labels.\nBACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\nONE image_gen call. ONE RETRY ONLY if the PROPORTIONS are off (the head larger than a third of the whole length, the haft below the head shorter than 2.5 head-heights, or the haft thicker than a fifth of the head) or the three views disagree -- name the reason and deliver BOTH images. Copy the output to out/DK-MACE.png (a retry to out/DK-MACE_r1.png) with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"DK-MACE\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 1 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, staff or pose"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/GS-BMAUL2/GS-BMAUL2_a.png",
+   "role": "IMAGE 2 -- LAYOUT reference (our own earlier weapon sheet): three views, one scale, one ground line; never its weapon's design"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 12,
+ "outputs": [
+  "out/DK-MACE.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-112-third-character"
+}

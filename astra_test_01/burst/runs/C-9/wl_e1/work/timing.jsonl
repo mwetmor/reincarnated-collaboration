@@ -1,0 +1,6 @@
+{"ev": "start", "step": "S-orient", "t": 1790828457.085, "note": "rulings R-C9-112/113, D5 pipeline note, packet, D7 timing log; Astra cap raised 30->60 by conductor"}
+{"ev": "end", "step": "S-orient", "t": 1790828590.429791, "note": "read rulings, D5 note, packet README, D7 timing; scripts copied from so_d7"}
+{"ev": "start", "step": "A-sheets", "t": 1790828590.450968, "note": "DK-A1 (long panel cape), DK-A2 (shoulder cape), DK-MACE fired as one wave; refs_guard OK + lane guard"}
+{"ev": "end", "step": "A-sheets", "t": 1790828972.859054, "note": "6 Astra images (A1 2, A2 2, mace 2: each retried once by Astra on drift/proportion); visual check + mirror IoU r1: A1 0.722, A2 0.866 (first calls on dark plate, unscorable by key)"}
+{"ev": "start", "step": "B-build", "t": 1790828972.882685, "note": "cutouts (chroma key, free) of A1_r1 and A2_r1; both built in Tripo to pick by 3D evidence"}
+{"ev": "wait", "step": "B-build", "s": 174.0, "what": "tripo x2 parallel"}

@@ -1,0 +1,41 @@
+{
+ "src": "../artifacts/DK-MACE/DK-MACE_r1.png",
+ "views": [
+  {
+   "view": 0,
+   "length_px": 1000,
+   "head_px": 295,
+   "head_frac": 0.295,
+   "haft_below_head_in_heads": 2.39,
+   "haft_px": 32.0,
+   "head_w_px": 229,
+   "haft_over_headw": 0.14
+  },
+  {
+   "view": 1,
+   "length_px": 1000,
+   "head_px": 289,
+   "head_frac": 0.289,
+   "haft_below_head_in_heads": 2.46,
+   "haft_px": 32.0,
+   "head_w_px": 202,
+   "haft_over_headw": 0.158
+  },
+  {
+   "view": 2,
+   "length_px": 999,
+   "head_px": 299,
+   "head_frac": 0.299,
+   "haft_below_head_in_heads": 2.34,
+   "haft_px": 31.0,
+   "head_w_px": 229,
+   "haft_over_headw": 0.135
+  }
+ ],
+ "verdict": {
+  "head_le_third": true,
+  "haft_ge_2p5": false,
+  "haft_thin": true
+ },
+ "decision": "ACCEPT DK-MACE_r1, no second pass. Measured head (top-spike tip to collar) 0.29-0.30 of the length (limit 1/3: pass); haft 0.14-0.16 of head width (limit 0.2: pass); haft below the head 2.34-2.46 head-lengths, just under the brief's 2.5 retry line -- but the 'head' here includes the ~70 px top spike; bulb+collar alone is ~225 px, i.e. ~3.1 lengths. At a 1.45 m mace the haft below the collar is ~1.0 m with two 0.25 m leather grips 0.3 m apart: unambiguously a two-handed grip (the D5 failure was a ratio that read as a dagger OR a two-hander at one scale; this one reads as two-handed at any plausible scale). DK-MACE (first call) failed haft thickness (0.25-0.34 of head width) and Astra retried it itself."
+}

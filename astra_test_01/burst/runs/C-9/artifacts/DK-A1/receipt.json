@@ -1,0 +1,67 @@
+{
+  "task_id": "DK-A1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "DK-A1",
+      "path": "out/DK-A1.png",
+      "sha256": "17812e9ac2c6918d45bf5a7ae63a2e7cf5e5762f06039f2493e1f6f466844258",
+      "prompt": "Use case: stylized-concept. Generate ONE 1024x1536 portrait character MODEL SHEET for building and rigging a model, four precisely consistent views of ONE new male dark knight.\n\nREFERENCE ROLES: Image 1 is STYLE ONLY: copy its hand-painted varying dark ink contour, transparent watercolor pooling, granulation, soft blooms, fine hand-drawn hatching, cream paper highlights. Copy none of its subject, costume, staff or pose. Image 2 is LAYOUT ONLY: 2x2 grid, four views, relaxed A-pose, equal figure proportions and aligned soles per row. Copy none of its wearer or clothing. Image 3 is ARMOUR PAINTING TECHNIQUE ONLY: ink, hatching and washes on steel, none of its design, colors, helmet or wearer.\n\nCOMPOSITION: pure flat #00ff00 background, no scenery, text, labels, borders, ground or cast shadows. Top-left FRONT facing viewer; top-right anatomical RIGHT SIDE in true profile facing screen-right; bottom-left BACK; bottom-right anatomical LEFT SIDE in true profile facing screen-left. Center each entire figure including horns and feet in its quarter, matching dimensions and proportions with aligned soles per row, filling most of quarter height. Orthographic turnaround views as reference 2; no perspective foreshortening. All four show exactly the same physical character and costume.\n\nCHARACTER: towering, tall elongated elegant man, about eight and a half heads tall, long legs, narrow waist, lean commanding silhouette. Stands straight and still. Full plate armour head to toe, near-black steel with deep violet-indigo layered watercolor washes and FINE GOLD FILIGREE: very thin scrolling lines tracing plate edges, never large gold areas except the specified forearm marker. Closed helmet and full face-concealing visor, no skin, face or hair anywhere. A narrow horizontal eye slit contains a faint violet glow. TWO long dark horns sweep backwards and upwards from the helmet sides, identical geometry in all views. Tall flaring layered pauldrons: exactly THREE overlapping lames per shoulder, rising to a point above the shoulder line and flaring outward, both shoulders identical. Sculpted breastplate, narrow waist, plated fauld over hips, segmented arms, articulated gauntlets, plated legs and pointed sabatons.\n\nASYMMETRY IS CRITICAL: one broad GOLD FILIGREE BAND wraps the anatomical LEFT forearm plate ONLY. The RIGHT forearm is plain dark steel, with only fine edge filigree. In FRONT the broad band is on screen-right arm; in BACK it is on screen-left arm; in LEFT profile facing screen-left the visible near forearm has the broad band; in RIGHT profile facing screen-right the visible near forearm has NO broad band. Any visible far left forearm retains its band. Hands and belt carry NOTHING: no weapon, sword, mace, shield or scabbard.\n\nCAPE: long deep indigo-black cloth with a thin gold border, attached under pauldrons, hem just above ankles. Exactly THREE functional panels: ONE broad back panel hanging straight behind him, plus left and right side panels hanging BEHIND the arms. Two clear vertical slits separate panels from the hem all the way up to the hips. In both profiles, the cape hangs behind and FREE of the legs: a continuous clearly visible strip of green background separates rear of legs from cape all the way down. In front, only cape edges show behind him, OUTSIDE the legs; keep green visible between legs. In back show broad back panel and both full-height lower slits. Keep cape away from arms, preserve green separation. Same panel cut and length in all views.\n\nPOSE: relaxed A-pose, both arms STRAIGHT held away from the body about 30 degrees. Front and back must have obvious green gaps between each arm and torso AND each arm and cape. Open hands, fingers together and straight, palms facing thighs. Legs straight, feet slightly apart pointing forward, head level facing same direction as body. Clear readable nonintersecting parts.\n\nRENDERING REGISTER: merge late-medieval and early-Renaissance illuminated-manuscript armor iconography with hand-painted watercolor-and-ink character illustration of the kind made for 1990s tactics role-playing games. This must read as one hand-painted illustration. Crisp dark sepia-to-near-black pen line, slightly wavering with variable weight. Fine hand-drawn pen hatching models cloth and armor shadows. Uneven transparent watercolor washes pool at edges, granulate, bloom softly, occasionally stop short of the line or overrun slightly. A second darker wash and hatching create shadow, never airbrushed gradients. Preserve pale cream and bare-paper highlights especially armor edges, no glossy specular highlights. Armour near-black with violet-indigo sheen, fine gold filigree, faint violet inside eye slit are explicit exceptions to the usual pale mineral palette; keep them watercolor, not flat black fill. Soft even daylight from screen upper-left, no dramatic light, no rim light, no lens effects, no digital gradients, no large filled black shadows. Delicate dark ink with soft bleeding watercolor, faithful to the hand of reference 1. No additional objects or figures. Deliver sheet even if background imperfect.",
+      "references": [
+        {
+          "role": "STYLE ONLY",
+          "path": "in/01_nb_style_ref_matt.png"
+        },
+        {
+          "role": "LAYOUT ONLY",
+          "path": "in/02_SO-1_b_harvest.png"
+        },
+        {
+          "role": "ARMOUR PAINTING TECHNIQUE ONLY",
+          "path": "in/03_GS-SBM_a.png"
+        }
+      ],
+      "elapsed_s": 66.617
+    },
+    {
+      "name": "DK-A1_r1",
+      "path": "out/DK-A1_r1.png",
+      "sha256": "b05bdf21c39f04630c3ab07bec4314ec9040157e69acdffb90cad820a739e6a7",
+      "prompt": "Use case: precise-object-edit. Correct this four-view knight model sheet while preserving ONE identical knight, its armour design, proportions, four view order, relaxed A-pose, horn geometry, three-lame pauldrons, open hands, empty belt, and the anatomical LEFT-only gold forearm band. Output ONE 1024x1536 portrait sheet.\n\nThe attached sheet is the EDIT TARGET. Fix the diagnosed CAPE DRIFT: the front has a shortened center cape panel and the back has a waist-attached center panel. Replace the cape consistently in all four views with the SAME three-panel cape attached UNDER THE SHOULDER PAULDRONS, descending continuously from shoulders to just above ankles. ONE broad back panel plus TWO side panels, separated by TWO open vertical slits running from ankle-high hem to hips. All three panels have the same ankle-high hem. In BACK the broad back panel covers the back armour, clearly attached at shoulders, with two vertical slits from hem to hips. In FRONT the cape appears only outside legs: leave background visible between the legs, no cloth filling that gap. In BOTH side views keep a clear continuous background gap between rear of legs and cape down to ankles; the cape hangs free, behind the legs. Keep clear background gaps between arms and torso AND arms and cape in front and back. Keep both arms straight at about 30 degrees away from torso, hands open with straight fingers, palms toward thighs. Preserve the matching cape cut in every view.\n\nReplace ALL the dark vignette background with flat PURE #00ff00, including every negative space between arms, torso, cape and legs. No ground or cast shadow. No text or borders.\n\nVIEW AND ASYMMETRY LOCK: top-left front facing viewer (band on screen-right forearm); top-right anatomical RIGHT profile facing screen-right (near forearm plain); bottom-left back (band on screen-left forearm); bottom-right anatomical LEFT profile facing screen-left (near forearm has broad gold filigree band). Closed full-face visor with only a narrow horizontal violet eye slit, no vertical glowing stripe. No exposed skin, face or hair. Two long horns sweeping back and up. Tall, lean, elegant, eight-and-a-half-head proportions, narrow waist, long legs, full plate armour and pointed sabatons. All figures entire, equally sized, soles aligned per row.\n\nRetain the watercolor-and-ink hand: crisp dark sepia-to-near-black slightly wavering varied pen line, hand-drawn fine hatching, soft bleeding transparent layered watercolor with granulation, edge pooling and occasional blooms. Near-black steel with violet-indigo washes and pale paper edge highlights, fine gold scrolling lines along edges; no glossy highlights, airbrush gradients, rim lighting or lens effects. Cape deep indigo-black washes with thin gold border. Soft even daylight from screen upper-left. No new objects, weapons, shields, or extra figures.",
+      "references": [
+        {
+          "role": "EDIT TARGET",
+          "path": "out/DK-A1.png"
+        }
+      ],
+      "elapsed_s": 50.199
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Cape center-panel length and attachment drift between front and back views.",
+      "change": "Requested consistent shoulder-attached three-panel cape, matching ankle-high hems and clear gaps; also requested green background and horizontal-only eye slit."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Original has a dark gradient background and inconsistent cape construction.",
+      "Retry improves cape attachment and restores green background, but cape slits extend above the hips and panel geometry remains imperfect across views.",
+      "A vertical violet visor mark remains beyond the requested horizontal eye slit.",
+      "Complete arm-to-cape separation is not maintained near the upper arms.",
+      "Exact background RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/DK-A1.png",
+      "sha256": "17812e9ac2c6918d45bf5a7ae63a2e7cf5e5762f06039f2493e1f6f466844258"
+    },
+    {
+      "path": "out/DK-A1_r1.png",
+      "sha256": "b05bdf21c39f04630c3ab07bec4314ec9040157e69acdffb90cad820a739e6a7"
+    }
+  ]
+}

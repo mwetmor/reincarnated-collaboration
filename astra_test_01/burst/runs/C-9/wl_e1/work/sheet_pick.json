@@ -1,0 +1,7 @@
+{"pick": "DK-A1_r1",
+ "evidence": {"sheet_mirror_iou": {"A1_r1": 0.7221, "A2_r1": 0.8657},
+              "build_silhouette_iou_vs_sheet": {"A1": {"front": 0.8203, "right": 0.858, "back": 0.7922, "left": 0.8248, "mean": 0.8238},
+                                                 "A2": {"front": 0.8555, "right": 0.8483, "back": 0.8104, "left": 0.8427, "mean": 0.8392}},
+              "tripo_builds": "both built once ($0.40 each), both one clean figure; A1's long cape came out as its own shell standing clear of the legs in both side views (eyes on look/raw_A1_strip.png)"},
+ "why": "Both sheets build. A2 is the simpler build (mirror IoU 0.87 vs 0.72, 3D IoU 0.839 vs 0.824) -- but the gap is mostly the back view, where A1's cape covers the legs by design, not drift. A1 was picked because its cape BUILT the way the panel-split skin needs: a separate shell hanging free of the legs, with the side panels' slits partly carried into the geometry, so the R-C9-113 3D note (a long cape on the 24-bone rig) can be tested rather than avoided; and the long cape is part of Matt's look (R-C9-113). A2 is kept for Matt's look beside it.",
+ "a_first_calls": "DK-A1 and DK-A2 first calls came back on a dark plate and drifted (A1's back panel hung from the belt in back view but from the shoulders in front view; A2's front pauldron gained a lame); Astra retried each itself."}
