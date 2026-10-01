@@ -71,8 +71,10 @@ func _process(_dt: float) -> void:
 	var mfx = scene.get("meteor_fx")
 	var fx_us := int(fb.last_us) if fb != null else 0
 	if strike == "chop" and mfx != null:
-		# the MIX (or lane B): B's own node, plus A's fall when it is the mix
-		fx_us = int(mfx.last_update_us) + (int(mfx.proj_a.last_us) if mfx.proj_a != null else 0)
+		# the MIX (or lane B): B's own node (MIX v2's cinders step inside it), plus A's fall (the first mix)
+		# or A's burst (MIX v2), each its own node
+		fx_us = int(mfx.last_update_us) + (int(mfx.proj_a.last_us) if mfx.proj_a != null else 0) \
+			+ (int(mfx.burst_a.last_us) if mfx.get("burst_a") != null else 0)
 	var trail: int = int(scene.snow.trail_uploads) if scene.snow != null else 0
 	rows.append([now - _t0, float(now - _last) / 1000.0,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),

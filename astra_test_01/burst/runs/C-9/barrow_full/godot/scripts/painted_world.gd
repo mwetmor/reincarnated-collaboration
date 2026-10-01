@@ -281,6 +281,42 @@ const FX_GROUND_PROCEDURAL := """vec3 fx_ground(vec3 p, vec3 alb) {
 
 """
 
+# MIX v2 (Matt, 2026-09-30: "the flames left on the ground afterwards ... more like real smoldering cinders"):
+# the burn as a SCORCH -- a ragged charred patch, darkest at its heart, its edge soft and broken -- netted with
+# EMBER CRACKS that glow in continuous colour (not the kit's four planes), pulse, and cool from yellow-orange
+# through orange to a dull red with the burn's heat (fx_ring.y, 1 at the impact to 0), plus a few ember specks.
+# The small flames above it are cinders_fx.gd's. fx_burn.w fades the whole scorch out over the burn.
+const FX_GROUND_CINDERS := """vec3 fx_ground(vec3 p, vec3 alb) {
+	if (abs(p.y - fx_mark.y) > 0.3) return alb;      // the ground only: never up a stone's face
+	if (fx_burn.w <= 0.0) return alb;
+	vec2 d = p.xz - fx_burn.xz;
+	float r = length(d);
+	float R = fx_ring.w;
+	if (r > R * 1.35) return alb;
+	float n = fx_vnoise(d * 2.1 + 11.0) * 0.6 + fx_vnoise(d * 6.3 + 3.0) * 0.4;
+	float edge = R * (0.5 + 0.5 * n);
+	float charred = 1.0 - smoothstep(edge * 0.9, edge, r);
+	float strength = clamp(fx_burn.w * 1.5, 0.0, 1.0);
+	// the ash: charred black at the heart, a grey-brown scorch toward its broken rim, mottled
+	float ash = fx_vnoise(d * 13.0) * 0.5 + fx_vnoise(d * 31.0) * 0.5;
+	vec3 burnt = mix(fx_col(vec3(0.10, 0.085, 0.075)), fx_col(vec3(0.38, 0.33, 0.29)), smoothstep(0.25, 1.0, r / edge) * 0.8 + ash * 0.25);
+	alb = mix(alb, alb * burnt, charred * strength);
+	float heat = fx_ring.y;
+	float k = abs(fx_vnoise(d * 3.6 + 5.0) - 0.5) + abs(fx_vnoise(d * 8.7 + 1.7) - 0.5) * 0.45;
+	float width = 0.035 + 0.05 * heat;
+	float crack = (1.0 - smoothstep(width * 0.35, width, k)) * smoothstep(0.25, 0.8, charred);
+	float pulse = 0.72 + 0.28 * sin(fx_ring.z * 2.7 + fx_vnoise(d * 2.4) * 6.2832);
+	float t = clamp(heat * pulse * (0.55 + 0.45 * fx_vnoise(d * 5.0 + vec2(fx_ring.z * 0.21, 0.0))), 0.0, 1.0);
+	vec3 ember = mix(fx_col(vec3(0.30, 0.04, 0.02)), fx_col(vec3(0.95, 0.30, 0.05)), smoothstep(0.08, 0.55, t));
+	ember = mix(ember, fx_col(vec3(1.0, 0.72, 0.30)), smoothstep(0.6, 0.95, t));
+	alb = mix(alb, ember, crack * smoothstep(0.03, 0.2, t) * strength);
+	float speck = step(0.985, fx_hash(floor(d * 26.0))) * charred * heat * pulse;
+	alb = mix(alb, fx_col(vec3(1.0, 0.45, 0.1)), speck * strength);
+	return alb;
+}
+
+"""
+
 const FX_SHADOW := """vec3 his_shadow(float att, vec3 wpos) {
 	float lit = textureLod(lit_map, guide_uv(wpos), 0.0).r;
 	float occ = clamp((1.0 - att) * his_shadow_on, 0.0, 1.0);
@@ -305,7 +341,7 @@ static func with_fx(code: String, surface: String, style := "plates") -> String:
 		"fx uniforms")
 	# ONLY WHAT THIS SURFACE AND STYLE USE: the heather has no ground marks; a plates shader carries no
 	# procedural ring (every line of dead code here is paid for on every pixel of the frame)
-	var ground := "" if surface == "heather" else (FX_GROUND_PLATES if style == "plates" else FX_GROUND_PROCEDURAL)
+	var ground := "" if surface == "heather" else (FX_GROUND_PLATES if style == "plates" else (FX_GROUND_CINDERS if style == "cinders" else FX_GROUND_PROCEDURAL))
 	s = _swap(s, FX_HIS_SHADOW, FX_FUNCS + ground + FX_SHADOW, "fx his_shadow")
 	if surface == "painted":
 		s = _swap(s, "\tROUGHNESS = painted_mark;\n", "\tROUGHNESS = painted_mark;\n"

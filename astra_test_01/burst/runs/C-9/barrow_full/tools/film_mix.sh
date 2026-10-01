@@ -1,5 +1,7 @@
 #!/bin/bash
-# C-9 (d) -- her DEFAULT Meteor, the MIX (A's fall, B's impact, no ring, the rock's shadow ON), film for Matt (godot/tools/film_meteor.gd): play speed then quarter speed,
+# C-9 -- her DEFAULT Meteor, film for Matt (godot/tools/film_meteor.gd): play speed then quarter speed. MIX v2 (the
+# default): B's darkened fall, A's painted burst, the cinders, no ring, the rock's shadow on. METEOR=mix1 films the first mix
+# (A's fall, B's impact); TAG names the file.
 # 1280 x 720, the phone page's look. Movie Maker writes one MJPEG .avi at a fixed 30 fps (no frame
 # dump); it is encoded to MP4 here. The .avi is left for the cleanup manifest (no rm).
 #   usage: tools/film_fireball.sh OUT_DIR
@@ -13,12 +15,15 @@ GATE=${DISK_GATE_GIB:-20}
 mkdir -p "$OUT"
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi
-AVI="$OUT/meteor_mix_film.avi"
-LOG="$OUT/film_mix.log"
-MP4="$OUT/C-9 sorceress Meteor MIX - A fall, B impact, no ring, rock shadow - play speed then quarter speed.mp4"
+METEOR=${METEOR:-}
+TAG=${TAG:-MIX v2 - B fall darkened, A painted impact, cinders, no ring, rock shadow}
+SLUG=$(echo "${METEOR:-mix2}" | tr -c "a-z0-9" "_")
+AVI="$OUT/meteor_${SLUG}film.avi"
+LOG="$OUT/film_${SLUG}.log"
+MP4="$OUT/C-9 sorceress Meteor $TAG - play speed then quarter speed.mp4"
 python3 "$HEAVY_LOCK" C-9 -- perl -e 'alarm shift; exec @ARGV' 900 "$GODOT" --path "$SRC" --resolution 1280x720 \
   --rendering-method gl_compatibility --rendering-driver opengl3_angle --fixed-fps 30 \
-  --write-movie "$AVI" --script tools/film_meteor.gd -- --as-web --c sorceress > "$LOG" 2>&1 || true
+  --write-movie "$AVI" --script tools/film_meteor.gd -- --as-web --c sorceress ${METEOR:+--meteor $METEOR} > "$LOG" 2>&1 || true
 grep -E "\[film\]|SCRIPT ERROR|Parse Error" "$LOG" | head -10
 TRIM=$(grep -o '"trim_frames":[0-9]*' "$LOG" | head -1 | cut -d: -f2)
 [ -n "$TRIM" ] || { echo "HALT: no trim reported" >&2; exit 6; }

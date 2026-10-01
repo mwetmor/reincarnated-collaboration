@@ -2333,7 +2333,7 @@ func _her_line() -> String:
 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
 	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
 		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
-		(("mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix and meteor_fx.proj_a != null else "3d(lane_b)") if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
+		(("mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix2 and meteor_fx.burst_a != null else (("mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix and meteor_fx.proj_a != null else "3d(lane_b)")) if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
 
 
 func _paint_launch_line() -> String:

@@ -120,7 +120,7 @@ FILES_HIM=$(list_files him)
 FILES_HER=$(list_files her)
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix/*.json,data/vfx/meteor_mix/*.bin,data/meteor/*.bin,data/meteor/*.json"
+INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
 
@@ -157,8 +157,11 @@ preset() {  # index name files include
   sed "s/^\[preset.0.options\]/[preset.$1.options]/" "$DEST/build/.preset_options"
   echo
 }
-# LANE A FOR REFERENCE (?meteor=a): its full atlas is its own pack, fetched by the page only for ?meteor=a
-{ preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; preset 2 "WebMeteorA" "" "data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin"; } > "$DEST/export_presets.cfg"
+# LANE A FOR REFERENCE (?meteor=a): its full atlas is its own pack, fetched by the page only for ?meteor=a;
+# MIX v2 is her default and ships A's BURST (meteor_mix2); the first mix's FALL frames (?meteor=mix1) are
+# their own small pack, meteor_mix1.pck, fetched only for ?meteor=mix1
+{ preset 0 "Web" "$FILES_HIM" "$INC_HIM"; preset 1 "WebHer" "$FILES_HER" "$INC_HER"; preset 2 "WebMeteorA" "" "data/vfx/meteor_a/*.json,data/vfx/meteor_a/*.bin"
+  preset 3 "WebMeteorMix1" "" "data/vfx/meteor_mix/*.json,data/vfx/meteor_mix/*.bin"; } > "$DEST/export_presets.cfg"
 
 echo "== export Web"
 mkdir -p "$DEST/build/web"
@@ -168,6 +171,8 @@ mkdir -p "$DEST/build/web"
   echo "export (her pack) failed" >&2; tail -30 "$LOG/export_her.log" >&2; exit 5; }
 "$GODOT" --headless --path "$DEST" --export-pack "WebMeteorA" build/web/meteor_a.pck > "$LOG/export_meteor_a.log" 2>&1 || {
   echo "export (lane A's pack) failed" >&2; tail -30 "$LOG/export_meteor_a.log" >&2; exit 5; }
+"$GODOT" --headless --path "$DEST" --export-pack "WebMeteorMix1" build/web/meteor_mix1.pck > "$LOG/export_meteor_mix1.log" 2>&1 || {
+  echo "export (the first mix's fall pack) failed" >&2; tail -30 "$LOG/export_meteor_mix1.log" >&2; exit 5; }
 echo "== the page picks its pack by ?c="
 python3 - "$DEST/build/web" <<'CHOOSER'
 import os, re, sys
@@ -216,15 +221,21 @@ for p in $COMMON scripts/sorceress_knight.gd scripts/spell_fx.gd scripts/fire_ba
          models/sorceress/robe.glb models/sorceress/mantle.glb models/sorceress/belt.glb \
          models/sorceress/bracers.glb models/sorceress/circlet.glb models/sorceress/staff.glb \
          data/vfx/fire_ball/fire_ball.json data/vfx/fire_ball/atlas_0.bin data/vfx/fire_ball/atlas_1.bin \
-         scripts/meteor_a_fx.gd scripts/meteor_fx.gd data/vfx/meteor_mix/meteor_mix.json data/vfx/meteor_mix/atlas_0.bin; do
+         scripts/meteor_a_fx.gd scripts/meteor_fx.gd scripts/cinders_fx.gd data/vfx/meteor_mix2/meteor_mix2.json \
+         data/vfx/meteor_mix2/atlas_0.bin data/vfx/meteor_mix2/atlas_1.bin; do
   grep -a -q "$p" "$W/sorceress.pck" || { echo "   missing from sorceress.pck: $p" >&2; MISSING=1; }
 done
 # the crossings by each pack's FILE TABLE (tools/pck_list.py): a path a script or the uid cache names is
 # not a packed file, and grepping the bytes finds both
 python3 "$SRC/../tools/pck_list.py" "$W/index.pck" | grep -q "^models/sorceress/" && { echo "   her models are in HIS pack" >&2; MISSING=1; }
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^models/gear/" && { echo "   his models are in HER pack" >&2; MISSING=1; }
-# MIX: only A's fall ships in her pack; A's full atlas is meteor_a.pck's alone
+# MIX v2: only A's burst ships in her pack; A's full atlas is meteor_a.pck's alone, the first mix's fall
+# frames meteor_mix1.pck's alone
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^data/vfx/meteor_a/" && { echo "   lane A's full atlas is in HER pack" >&2; MISSING=1; }
+python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -q "^data/vfx/meteor_mix/" && { echo "   the first mix's fall frames are in HER pack" >&2; MISSING=1; }
+for f in meteor_mix.json atlas_0.bin; do
+  python3 "$SRC/../tools/pck_list.py" "$W/meteor_mix1.pck" | grep -q "^data/vfx/meteor_mix/$f$" || { echo "   missing from meteor_mix1.pck: $f" >&2; MISSING=1; }
+done
 for f in meteor_a.json atlas_0.bin atlas_1.bin; do
   python3 "$SRC/../tools/pck_list.py" "$W/meteor_a.pck" | grep -q "^data/vfx/meteor_a/$f$" || { echo "   missing from meteor_a.pck: $f" >&2; MISSING=1; }
 done
@@ -310,22 +321,24 @@ if grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_b.l
 else
   ck 0 "?meteor=b launch free of script and shader errors"
 fi
-# HER DEFAULT METEOR IS MATT'S MIX (no query): A's fall, B's impact, no ring, the rock's shadow on;
-# ?meteor_shadow=0 turns the shadow off; ?meteor=b is lane B as shipped; ?meteor=placeholder falls back
-echo "$SLINE" | grep -q "meteor=mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=on)" \
-  && ck 0 "her default Meteor is the mix (A's fall, B's impact, no ring, rock shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
+# HER DEFAULT METEOR IS MATT'S MIX v2 (no query): B's darkened fall, A's painted burst, the cinders, no
+# ring, the rock's shadow on; ?meteor_shadow=0 turns the shadow off; ?meteor=mix1 (fetched, Chrome) is the
+# first mix; ?meteor=b is lane B as shipped; ?meteor=placeholder falls back
+echo "$SLINE" | grep -q "meteor=mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=on)" \
+  && ck 0 "her default Meteor is MIX v2 (B's darkened fall, A's burst, cinders, no ring, rock shadow on)" || ck 1 "her default Meteor (got: $(echo "$SLINE" | grep -o 'meteor=[^ ]*'))"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor-shadow 0 > "$LOG/launch_meteor_noshadow.log" 2>&1 || true
 NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
-echo "$NLINE" | grep -q "meteor=mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=off)" \
-  && ck 0 "?meteor_shadow=0: the mix without the rock's shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
+echo "$NLINE" | grep -q "meteor=mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=off)" \
+  && ck 0 "?meteor_shadow=0: MIX v2 without the rock's shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true
 PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)
 echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ball=baked(" && echo "$PLINE" | grep -q "$WANT_SPELLS" \
   && ck 0 "?meteor=placeholder falls back (meteor=placeholder, both releases $WANT_SPELLS, the Fire Ball still baked)" || ck 1 "?meteor=placeholder fallback"
-# LANE A (?meteor=a) comes from meteor_a.pck, fetched by the page: fenced above by its file table, and
-# in Chrome (tools/web_perf_fb.js ?meteor=a), not by a desktop launch (it cannot fetch)
+# LANE A (?meteor=a) comes from meteor_a.pck and the first mix (?meteor=mix1) from meteor_mix1.pck, both
+# fetched by the page: fenced above by their file tables, and in Chrome (tools/web_perf_fb.js), not by a
+# desktop launch (it cannot fetch)
 [ "$FAIL" -eq 0 ] || { echo "== VERIFY FAILED" >&2; exit 6; }
 
 if [ "$NO_STAGE" -eq 0 ]; then

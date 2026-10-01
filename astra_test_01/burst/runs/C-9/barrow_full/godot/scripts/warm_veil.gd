@@ -51,7 +51,13 @@ func _warmups_done() -> bool:
 	if sfx != null and bool(sfx.meteor_a_pending):
 		return false
 	var mfx0 = scene.get("meteor_fx")
+	if mfx0 != null and bool(mfx0.get("mix1_pending")):
+		return false
 	if mfx0 != null and mfx0.get("proj_a") != null and not bool(mfx0.proj_a.warmed):
+		return false
+	if mfx0 != null and mfx0.get("burst_a") != null and not bool(mfx0.burst_a.warmed):
+		return false
+	if mfx0 != null and mfx0.get("cinders") != null and not bool(mfx0.cinders.warmed):
 		return false
 	var mfx = scene.get("meteor_fx")
 	if mfx != null and not bool(mfx.warmed):

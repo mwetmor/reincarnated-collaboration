@@ -200,16 +200,35 @@ uniform vec3 seam_core : source_color = vec3(1.00, 0.94, 0.75);
 uniform vec3 to_sun = vec3(0.0, 1.0, 0.0);
 uniform float warm = 0.0;
 uniform float mark = 1.0;
+uniform float seam_w = 0.07;          // MIX v2 narrows the seams to lane A's painted cracks
+uniform float core_w = 0.025;
+// MIX v2: the seams as lane A's painted cracks -- a FEW big facets (the Voronoi cells of ten directions on the
+// rock's own sphere), not the mesh's many triangles; 0 keeps lane B's triangle seams
+uniform float cells = 0.0;
 varying vec3 v_wn;
-void vertex() { v_wn = (MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz; }
+varying vec3 v_on;
+void vertex() { v_wn = (MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz; v_on = VERTEX; }   // the POSITION on the rock: a flat-shaded facet's normal is one value over the facet
 void fragment() {
 	if (warm > 0.5) { discard; }
 	vec3 b = vec3(UV2.x, UV2.y, 1.0 - UV2.x - UV2.y);
 	float edge = min(b.x, min(b.y, b.z));
+	if (cells > 0.5) {
+		vec3 dirs[10] = vec3[10](vec3(0.0, 1.0, 0.0), vec3(0.0, -1.0, 0.0), vec3(0.89, 0.45, 0.0), vec3(-0.72, 0.45, 0.52),
+			vec3(0.28, 0.45, -0.85), vec3(-0.28, -0.45, 0.85), vec3(0.72, -0.45, -0.52), vec3(-0.89, -0.45, 0.0),
+			vec3(0.3, 0.1, 0.95), vec3(-0.5, 0.2, -0.84));
+		vec3 n = normalize(v_on);
+		float d1 = 9.0;
+		float d2 = 9.0;
+		for (int i = 0; i < 10; i++) {
+			float d = 1.0 - dot(n, normalize(dirs[i]));
+			if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) { d2 = d; }
+		}
+		edge = (d2 - d1) * 1.6;
+	}
 	vec3 c = dot(normalize(v_wn), to_sun) > 0.2 ? stone_lit : stone_dark;
 	float w = max(fwidth(edge), 1e-4);
-	c = mix(seam_hot, c, smoothstep(0.07 - w, 0.07 + w, edge));
-	c = mix(seam_core, c, smoothstep(0.025 - w, 0.025 + w, edge));
+	c = mix(seam_hot, c, smoothstep(seam_w - w, seam_w + w, edge));
+	c = mix(seam_core, c, smoothstep(core_w - w, core_w + w, edge));
 	ALBEDO = c;
 	ROUGHNESS = mark;
 }
@@ -253,6 +272,51 @@ var swap_report := {}
 var mix := false
 var proj_a = null
 var shadow_on := true
+# MIX v2 (Matt, 2026-09-30, verbatim: "I wanted the painted 2D impact with the 3D projectile.. I really do like the
+# darker meteor of the painted projectile though, but I like the travel and shadow and fluidity of the burn of the
+# 3D. Also, I would like the flames left on the ground afterwards to be more like real smoldering cinders with a
+# bit of small realistic burning areas."): B's rock and trail, restyled darker to lane A's painted head; lane A's
+# painted burst (meteor_a_fx.gd, impact-only) at B's impact; B's flash, character light and shake; the burn as
+# smouldering cinders (the "cinders" ground style + cinders_fx.gd's small flames and wisps); no ring
+var mix2 := false
+var burst_a = null
+var cinders = null
+const MIX2_ROCK := {"stone_lit": Color(0.13, 0.055, 0.045), "stone_dark": Color(0.055, 0.028, 0.022),
+	"seam_hot": Color(1.0, 0.55, 0.12), "seam_core": Color(1.0, 0.78, 0.35), "seam_w": 0.075, "core_w": 0.022, "cells": 1.0}
+# measured against A's head (tools/rock_match.py): A's nucleus is twice B's rock's area and a fifth of A's head
+# is the cream-hot core behind it, so B's rock is scaled up and leads, and the corona keeps its hot core
+const MIX2_COMET_HEAT := 0.0          # the corona and the trail in the palette, the cream core behind the rock
+const MIX2_COMET_BACK := 0.6          # x ROCK_R: the corona set back up the path, the dark rock leading
+const MIX2_ROCK_SCALE := 1.3          # the rock's mesh (not ROCK_R: the hit point and the shadow keep theirs)
+
+
+var mix1_pending := false
+
+
+func _load_mix1_fall(sc) -> void:
+	var base := str(JavaScriptBridge.eval("document.baseURI", true))
+	var url := base.get_base_dir() + "/meteor_mix1.pck" if not base.ends_with("/") else base + "meteor_mix1.pck"
+	var http := HTTPRequest.new()
+	add_child(http)
+	http.download_file = "user://meteor_mix1.pck"
+	http.request(url)
+	var res: Array = await http.request_completed
+	http.queue_free()
+	report["mix1_pack"] = {"url": url, "result": int(res[0]), "http": int(res[1]),
+		"loaded": ProjectSettings.load_resource_pack("user://meteor_mix1.pck") if int(res[0]) == HTTPRequest.RESULT_SUCCESS and int(res[1]) == 200 else false}
+	_mix1_fall(sc)
+	mix1_pending = false
+
+
+func _mix1_fall(sc) -> void:
+	var pa = load("res://scripts/meteor_a_fx.gd").new()
+	pa.name = "MeteorMixFall"
+	pa.projectile_only = true
+	sc.add_child(pa)
+	if pa.setup(sc, cam):
+		proj_a = pa
+		pa.warm_up()
+	report["mix"]["fall"] = "lane_a" if proj_a != null else "FAILED(%s)" % String(pa.report.get("error", "?"))
 
 
 static func wanted(sc) -> bool:
@@ -266,7 +330,7 @@ static func wanted(sc) -> bool:
 	var i := args.find("--meteor")
 	if q == "" and i >= 0 and i + 1 < args.size():
 		q = String(args[i + 1])
-	return q.to_lower() in ["", "b", "mix"]
+	return q.to_lower() in ["", "b", "mix", "mix1", "mix2"]
 
 
 static func mode_of() -> String:
@@ -278,7 +342,9 @@ static func mode_of() -> String:
 	var i := args.find("--meteor")
 	if q == "" and i >= 0 and i + 1 < args.size():
 		q = String(args[i + 1])
-	return "b" if q.to_lower() == "b" else "mix"
+	# MIX v2 is the default (Matt, 2026-09-30); the first mix stays as ?meteor=mix1
+	q = q.to_lower()
+	return "b" if q == "b" else ("mix1" if q in ["mix", "mix1"] else "mix2")
 
 
 static func shadow_wanted() -> bool:
@@ -336,26 +402,49 @@ func _attach(sc) -> void:
 	sun.light_cull_mask &= ~FX_LAYER
 	if sc.paint_sun != null:
 		sc.paint_sun.light_cull_mask &= ~FX_LAYER
-	mix = mode_of() == "mix"
+	var mode := mode_of()
+	mix = mode == "mix1"
+	mix2 = mode == "mix2"
 	shadow_on = shadow_wanted()
+	if mix2:
+		style = "cinders"
+		_fx_on_value = 1.0
+		var ba = load("res://scripts/meteor_a_fx.gd").new()
+		ba.name = "MeteorMix2Burst"
+		ba.impact_only = true
+		sc.add_child(ba)
+		if ba.setup(sc, cam):
+			burst_a = ba
+			ba.warm_up()
+		cinders = load("res://scripts/cinders_fx.gd").new()
+		cinders.name = "MeteorCinders"
+		sc.add_child(cinders)
+		cinders.setup(cam, noise)
+		report["mix"] = {"version": 2, "fall": "lane_b_darkened", "impact": "lane_a_painted" if burst_a != null else "FAILED(%s)" % String(ba.report.get("error", "?")),
+			"burn": "cinders", "ring": "off", "rock_shadow": shadow_on}
 	if mix:
-		var pa = load("res://scripts/meteor_a_fx.gd").new()
-		pa.name = "MeteorMixFall"
-		pa.projectile_only = true
-		sc.add_child(pa)
-		if pa.setup(sc, cam):
-			proj_a = pa
-			pa.warm_up()
-		report["mix"] = {"fall": "lane_a" if proj_a != null else "FAILED(%s)" % String(pa.report.get("error", "?")),
-			"ring": "off", "rock_shadow": shadow_on}
+		report["mix"] = {"fall": "pending", "ring": "off", "rock_shadow": shadow_on}
+		if not FileAccess.file_exists("res://data/vfx/meteor_mix/meteor_mix.json") and OS.has_feature("web"):
+			# MIX v2 ships A's burst, not its fall (Matt, 2026-09-30): the first mix's fall frames are their
+			# own small pack, meteor_mix1.pck, fetched by the page only for ?meteor=mix1
+			mix1_pending = true
+			_load_mix1_fall.call_deferred(sc)
+		else:
+			_mix1_fall(sc)
 	_setup()
+	if mix2:
+		for sl in pool:
+			var mr: ShaderMaterial = sl["m_rock"]
+			for k in MIX2_ROCK:
+				mr.set_shader_parameter(k, MIX2_ROCK[k])
+			(sl["rock"] as MeshInstance3D).scale = Vector3.ONE * MIX2_ROCK_SCALE
 	_load_plates()
 	collect_materials()
 	var lab = sc.get_node_or_null(^"FxLabel")
 	if lab != null:
 		for c in lab.get_children():
 			if c is Label:
-				(c as Label).text = ("METEOR: A'S FALL, B'S IMPACT" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix else "METEOR EFFECT: 3D (LANE B)"
+				(c as Label).text = ("METEOR: B'S FALL (DARKENED), A'S IMPACT, CINDERS" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix2 else (("METEOR: A'S FALL, B'S IMPACT" + ("" if shadow_on else " (NO ROCK SHADOW)")) if mix else "METEOR EFFECT: 3D (LANE B)")
 	_arm()
 
 
@@ -912,6 +1001,15 @@ func _process(dt: float) -> void:
 		if not any:
 			_char_light(Vector3.ZERO, 0.0, 7.0)
 			_fx_shaders(false)
+	if cinders != null:
+		# MIX v2: the small flames and the wisps over the owner's scorch (and the load-time warm draw)
+		var ti_c := -1.0
+		for sl in pool:
+			if int(sl["i"]) == _owner and bool(sl.get("active", false)) and bool(sl.get("impacted", false)):
+				ti_c = float(sl["t"]) - T_IMPACT
+		if ti_c < 0.0 and not cinders.spots.is_empty():
+			cinders.clear()
+		cinders.step(ti_c, BURN_S)
 	_step_shake(dt)
 	if cam != null:
 		cam.h_offset = shake_px.x / PPM
@@ -943,7 +1041,7 @@ func _step(s: Dictionary, dt: float) -> void:
 	var comet: MeshInstance3D = s["comet"]
 	var pos := Vector3.ZERO
 	var vel := -_to_sun
-	if mix and t >= T_FALL0 and t < T_IMPACT:
+	if mix and not mix2 and t >= T_FALL0 and t < T_IMPACT:
 		# MIX: A's projectile falls; the ground and the characters take their light and the shadow from it
 		var tau_m := (t - T_FALL0) / FALL_S
 		var ra: Dictionary = proj_a.rock_at(int(s.get("pa", -1))) if proj_a != null else {}
@@ -964,12 +1062,12 @@ func _step(s: Dictionary, dt: float) -> void:
 		rock.global_position = pos
 		rock.rotate(s["spin_axis"], dt * 9.0)
 		# the comet's +Z along the travel: look_at points -Z at its target, so look back up the path
-		comet.global_position = pos
-		comet.look_at(pos - vel, Vector3.UP if absf(vel.y) < 0.99 else Vector3.RIGHT)
+		comet.global_position = pos + (_to_sun * ROCK_R * MIX2_COMET_BACK if mix2 else Vector3.ZERO)
+		comet.look_at(comet.global_position - vel, Vector3.UP if absf(vel.y) < 0.99 else Vector3.RIGHT)
 		var mc: ShaderMaterial = s["m_comet"]
 		mc.set_shader_parameter("fx_time", _clock)
 		mc.set_shader_parameter("tail_len", clampf(1.2 + speed * 0.16, 1.2, 4.2))
-		mc.set_shader_parameter("heat", 0.05 + 0.1 * tau)
+		mc.set_shader_parameter("heat", 0.05 + 0.1 * tau + (MIX2_COMET_HEAT if mix2 else 0.0))
 		mc.set_shader_parameter("erode", 0.0)
 		# TORN SCRAPS off the tail, about one every 30 ms
 		s["shed_acc"] = float(s["shed_acc"]) + dt
@@ -980,7 +1078,7 @@ func _step(s: Dictionary, dt: float) -> void:
 			_spawn_scrap(s, back + side, -vel * randf_range(1.0, 2.5) + Vector3.UP * randf_range(0.3, 1.2),
 				randf_range(0.22, 0.34), randf_range(0.7, 1.1), 0.08)
 		if owner:
-			RenderingServer.global_shader_parameter_set("fx_rock", Vector4(pos.x, pos.y, pos.z, SHADOW_R))
+			RenderingServer.global_shader_parameter_set("fx_rock", Vector4(pos.x, pos.y, pos.z, SHADOW_R if shadow_on else 0.0))
 			# the fire's light on the painting: dim while it is high, growing as it comes in
 			RenderingServer.global_shader_parameter_set("fx_fall_light", Vector4(pos.x, pos.y, pos.z, 0.55 + 0.45 * tau))
 			_char_light(pos, 1.4 + 3.0 * tau, 8.0)
@@ -993,7 +1091,7 @@ func _step(s: Dictionary, dt: float) -> void:
 	# --- the target ring --------------------------------------------------------------------------
 	if owner:
 		var ring := 0.0
-		if mix:
+		if mix or mix2:
 			ring = 0.0                   # MIX: no target ring (the burn and the ground height still read fx_mark.xyz)
 		elif t < T_IMPACT:
 			ring = _ease_out(t / 0.14) * (0.85 + 0.15 * sin(_clock * 22.0))
@@ -1014,10 +1112,15 @@ func _step(s: Dictionary, dt: float) -> void:
 	# --- IMPACT ----------------------------------------------------------------------------------
 	if t >= T_IMPACT and not s["impacted"]:
 		s["impacted"] = true
-		(s["burst"] as MeshInstance3D).visible = true
+		(s["burst"] as MeshInstance3D).visible = not mix2
 		(s["flash"] as MeshInstance3D).visible = true
-		(s["scraps"] as MultiMeshInstance3D).visible = true
-		for k in 18:
+		(s["scraps"] as MultiMeshInstance3D).visible = not mix2
+		if mix2:
+			if burst_a != null:
+				s["ba"] = burst_a.burst(target)
+			if cinders != null:
+				cinders.start(target, BURN_R, _ground_y)
+		for k in (0 if mix2 else 18):
 			var a := TAU * float(k) / 18.0 + randf_range(-0.2, 0.2)
 			var out := Vector3(cos(a), 0.0, sin(a))
 			_spawn_scrap(s, target + out * randf_range(0.2, 0.5) + Vector3(0, randf_range(0.1, 0.6), 0),

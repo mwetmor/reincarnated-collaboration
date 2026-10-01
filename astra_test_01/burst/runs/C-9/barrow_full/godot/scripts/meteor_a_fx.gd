@@ -37,12 +37,16 @@ var _shake_t := -1.0
 # MIX (her default Meteor, Matt 2026-09-30): only the FALL is played here -- B's MeteorFx owns the call, the
 # impact, the burn and the shake, and asks rock_at() where the rock is for its shadow and its light
 var projectile_only := false
+# MIX v2 (Matt, 2026-09-30: "the painted 2D impact with the 3D projectile"): only lane A's painted BURST is
+# played here (its 50-piece flipbook, both seeds, its floor light), at lane B's impact point and time
+var impact_only := false
+const MIX2DATA := "res://data/vfx/meteor_mix2/"
 const MIX_HIT_M := 0.2          # B's own hit point: ROCK_R x 0.6 above the ground
 
 
 func setup(p_scene, p_cam: Camera3D) -> bool:
-	data_dir = MIXDATA if projectile_only else MDATA
-	meta_file = "meteor_mix.json" if projectile_only else "meteor_a.json"
+	data_dir = MIX2DATA if impact_only else (MIXDATA if projectile_only else MDATA)
+	meta_file = "meteor_mix2.json" if impact_only else ("meteor_mix.json" if projectile_only else "meteor_a.json")
 	slots = M_SLOTS
 	return super(p_scene, p_cam)
 
@@ -90,6 +94,22 @@ func fall(target_ground: Vector3, delay_s: float) -> int:
 	return g
 
 
+func burst(target_ground: Vector3) -> int:
+	"""MIX v2: the painted burst alone, from its first frame now, its anchor where the kit's anchor stands over
+	the ground (ground_dy_below_burst px above target_ground)."""
+	if not ok:
+		return -1
+	var g := _free_group()
+	var gdy := float(meta["timing"]["ground_dy_below_burst"])
+	var anchor := target_ground + Vector3.UP * (gdy / PXH)
+	casts[g] = {"state": "flight", "tick": impact_tick, "clock": float(impact_tick) / 60.0, "socket": Vector3.ZERO,
+		"feet": target_ground, "ground": target_ground, "anchor": anchor, "start": anchor, "theta": 0.0,
+		"set": randi() % maxi(1, (meta["impact_seeds"] as Array).size())}
+	report["casts"] = int(report["casts"]) + 1
+	report["fired"].append({"burst_at": [snappedf(target_ground.x, 0.01), snappedf(target_ground.y, 0.01), snappedf(target_ground.z, 0.01)], "impact_set": casts[g]["set"]})
+	return g
+
+
 func rock_at(g: int) -> Dictionary:
 	"""MIX: where the falling rock is now (the travel's node, before the impact), for B's shadow and light."""
 	if g < 0 or g >= casts.size() or (casts[g] as Dictionary).is_empty() or not casts[g].has("rock"):
@@ -126,6 +146,25 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 	var anchor: Vector3 = c["anchor"]
 	var L := float(meta["timing"]["impact_dx"])
 	var alive := false
+	if impact_only:
+		var imp_key2 := "impact_%d" % int(c["set"])
+		var i2 := _frame_of(imp_key2, b)
+		if i2 >= 0:
+			_put(base + M_IMPACT, imp_key2, i2, anchor + _toward(BURST_TOWARD_M), 0.0, 1.0)
+			alive = true
+			var fl2 := _frame_of("impact_floor", b)
+			if fl2 >= 0:
+				_put_floor(base + M_IMPACT_FLOOR, "impact_floor", fl2, _ground_under(anchor), 1.0)
+			else:
+				_collapse(base + M_IMPACT_FLOOR)
+		else:
+			_collapse(base + M_IMPACT)
+			_collapse(base + M_IMPACT_FLOOR)
+		c["tick"] = b
+		if not alive and b > impact_tick:
+			casts[g] = {}
+			_collapse_group(g)
+		return
 	# the fall: the kit's own distance at this tick, along the path
 	var tr := _travel_at(b)
 	if not tr.is_empty():
