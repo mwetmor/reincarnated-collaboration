@@ -24452,9 +24452,301 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-BMAUL2",
+      "type": "GENERATE",
+      "experiment": "R-C9-98-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "bc7fdcc233549800aa9ddc15a3c93ea2ed228d90d0875ed589a13b7cba104728",
+      "started": "2026-10-01T01:33:14.785851+00:00",
+      "ended": "2026-10-01T01:35:57.777463+00:00",
+      "minutes": 2.7165463291671283,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f518-2695-7541-b42a-4237ace56008/exec-1790ef19-1669-4e45-b053-e50b498e48fe.png",
+            "sha256": "ca7483fefff9cc8b46b20fa6093a103af4e6e7113a7db2b7b0f6fb62855951bd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f518-2695-7541-b42a-4237ace56008/exec-8ef02171-a788-4727-81b1-66d39bd48291.png",
+            "sha256": "8520602af65d74d312725d76f3d36318d0ee505916c041d6c17f529b7d20ecf3"
+          }
+        ]
+      },
+      "receipt_sha256": "b1c1b1feb39962af1d2ac2cd89bc2eddec034b66d119ff0d5d5f0d86873ac077",
+      "artifacts": [
+        {
+          "name": "GS-BMAUL2_a.png",
+          "sha256": "ca7483fefff9cc8b46b20fa6093a103af4e6e7113a7db2b7b0f6fb62855951bd"
+        },
+        {
+          "name": "GS-BMAUL2_b.png",
+          "sha256": "8520602af65d74d312725d76f3d36318d0ee505916c041d6c17f529b7d20ecf3"
+        },
+        {
+          "name": "exec-1790ef19-1669-4e45-b053-e50b498e48fe.provenance.json",
+          "sha256": "e7732fb047668bea06393ac3438b20459abb9f667c061f838f2336640a511eae"
+        },
+        {
+          "name": "exec-8ef02171-a788-4727-81b1-66d39bd48291.provenance.json",
+          "sha256": "73d5333b119be5943f56c3880d4781b63f372ec7d72e87a5ebed764ca7920e41"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f518-2695-7541-b42a-4237ace56008/exec-1790ef19-1669-4e45-b053-e50b498e48fe.png",
+          "sha256": "ca7483fefff9cc8b46b20fa6093a103af4e6e7113a7db2b7b0f6fb62855951bd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f518-2695-7541-b42a-4237ace56008/exec-8ef02171-a788-4727-81b1-66d39bd48291.png",
+          "sha256": "8520602af65d74d312725d76f3d36318d0ee505916c041d6c17f529b7d20ecf3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-BCH",
+      "type": "GENERATE",
+      "experiment": "R-C9-98-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1f940590ba8ecf13337c8bf2170797799615028c14e18b1b385f92a4907cdfe8",
+      "started": "2026-10-01T01:33:14.785759+00:00",
+      "ended": "2026-10-01T01:37:00.445155+00:00",
+      "minutes": 3.7610332875008075,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f518-272e-7b62-9f24-96ea594da122/exec-f1c4cbc2-00ce-492f-bbea-a29665ae5766.png",
+            "sha256": "249a39e536404c93faddcedfb88b42872d3a72a408f440896e95d916137b3f27"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f518-272e-7b62-9f24-96ea594da122/exec-f58645b3-95f7-46b1-8162-fa8f638453b3.png",
+            "sha256": "c4cb542f094e431c07154fadde69ac364c772c4da26351b64ff6459473d7eaf4"
+          }
+        ]
+      },
+      "receipt_sha256": "aa877b14267b46128970337b55668081af5796b76b654ffc022f7cfd4df428ee",
+      "artifacts": [
+        {
+          "name": "GS-BCH_a.png",
+          "sha256": "c4cb542f094e431c07154fadde69ac364c772c4da26351b64ff6459473d7eaf4"
+        },
+        {
+          "name": "GS-BCH_b.png",
+          "sha256": "249a39e536404c93faddcedfb88b42872d3a72a408f440896e95d916137b3f27"
+        },
+        {
+          "name": "exec-f1c4cbc2-00ce-492f-bbea-a29665ae5766.provenance.json",
+          "sha256": "1cb14036138ab8f6583a2005f9268c281f20c13ab1e2248c3abef5985ad5cad9"
+        },
+        {
+          "name": "exec-f58645b3-95f7-46b1-8162-fa8f638453b3.provenance.json",
+          "sha256": "faf3e2f177b1318f2eaa4d7935d2f3118401bfcb418bd28ca962e670883cab04"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f518-272e-7b62-9f24-96ea594da122/exec-f1c4cbc2-00ce-492f-bbea-a29665ae5766.png",
+          "sha256": "249a39e536404c93faddcedfb88b42872d3a72a408f440896e95d916137b3f27"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f518-272e-7b62-9f24-96ea594da122/exec-f58645b3-95f7-46b1-8162-fa8f638453b3.png",
+          "sha256": "c4cb542f094e431c07154fadde69ac364c772c4da26351b64ff6459473d7eaf4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-SHOOD",
+      "type": "GENERATE",
+      "experiment": "R-C9-98-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "21f2a2e3cceb11af6689fdb35628c30ac1d0674773c1a4b769b8cdb4d4b4cc47",
+      "started": "2026-10-01T01:37:46.411180+00:00",
+      "ended": "2026-10-01T01:40:13.483840+00:00",
+      "minutes": 2.451237773600345,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f51c-49bb-7b31-85ee-623457e21cff/exec-0cc4d6ea-2da2-44d9-a2c2-b49679186406.png",
+            "sha256": "0b486790150ba34858b0fc6b30c6aad602a286435ec9880b52da8ec84f270835"
+          }
+        ]
+      },
+      "receipt_sha256": "b0b397d4a9452bd23437b50e37ce626d957b610c809793ec3e723e873811b68e",
+      "artifacts": [
+        {
+          "name": "GS-SHOOD.png",
+          "sha256": "0b486790150ba34858b0fc6b30c6aad602a286435ec9880b52da8ec84f270835"
+        },
+        {
+          "name": "exec-0cc4d6ea-2da2-44d9-a2c2-b49679186406.provenance.json",
+          "sha256": "1fcaa2da05183de66d2d2e5d540888944aaa031d2b5aa91e81661148be1fbc0b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f51c-49bb-7b31-85ee-623457e21cff/exec-0cc4d6ea-2da2-44d9-a2c2-b49679186406.png",
+          "sha256": "0b486790150ba34858b0fc6b30c6aad602a286435ec9880b52da8ec84f270835"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-SCROWN",
+      "type": "GENERATE",
+      "experiment": "R-C9-98-gear-sets",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "63f0ac4a9c7f32eb1aed499be910105f9bebb9674c5cb413e9f10ec95aabcbc3",
+      "started": "2026-10-01T01:37:46.446518+00:00",
+      "ended": "2026-10-01T01:41:37.127688+00:00",
+      "minutes": 3.8447180055499,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f51c-49b9-71e0-bfaf-e8cf56900d51/exec-27a7fa68-a0b9-47ef-bdb0-0013743946eb.png",
+            "sha256": "ba248da50b794ce8e9688b06cd93370494cdbb2ae90edc01fc99c85d1d501d52"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f51c-49b9-71e0-bfaf-e8cf56900d51/exec-ddb21e39-dfd8-4220-94f7-79d554880c25.png",
+            "sha256": "172d331e3541b87013d7915d37f347e32278b95edc378c6ee510ad7056e8017b"
+          }
+        ]
+      },
+      "receipt_sha256": "16181b15cb2d699c9ef4c890b4bffc140c8bfa964fac470f43497eb1b0356c94",
+      "artifacts": [
+        {
+          "name": "GS-SCROWN_a.png",
+          "sha256": "172d331e3541b87013d7915d37f347e32278b95edc378c6ee510ad7056e8017b"
+        },
+        {
+          "name": "GS-SCROWN_b.png",
+          "sha256": "ba248da50b794ce8e9688b06cd93370494cdbb2ae90edc01fc99c85d1d501d52"
+        },
+        {
+          "name": "exec-27a7fa68-a0b9-47ef-bdb0-0013743946eb.provenance.json",
+          "sha256": "45ea7b5c2840be901cb364bebda4232847f7c46b143eb19ff78084f158f611c5"
+        },
+        {
+          "name": "exec-ddb21e39-dfd8-4220-94f7-79d554880c25.provenance.json",
+          "sha256": "011a6efebd6fc89bc08a894b718e9e162b70c8c3d350f69ace66f2a92e3682dc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f51c-49b9-71e0-bfaf-e8cf56900d51/exec-27a7fa68-a0b9-47ef-bdb0-0013743946eb.png",
+          "sha256": "ba248da50b794ce8e9688b06cd93370494cdbb2ae90edc01fc99c85d1d501d52"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f51c-49b9-71e0-bfaf-e8cf56900d51/exec-ddb21e39-dfd8-4220-94f7-79d554880c25.png",
+          "sha256": "172d331e3541b87013d7915d37f347e32278b95edc378c6ee510ad7056e8017b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 719,
+  "images_used": 726,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -26204,6 +26496,14 @@
       "topic": "The battle mage's helmet redesigned (it fit badly and varied across views); the rest of the outfit kept",
       "ruling": "Matt verbatim: \"Regarding the sorceress, I don't like how the helmet fits her and it varies across images.. ultra think of a new design that matches the outfit but would be cooler and more interesting fitting the painted, storybook watercolor style from FF tactics.. it may not be bad to re-do the whole outfit but the other pieces aren't bad.\" Disposition (gandalf SCENEWRIGHT, one recommendation): a bowl helm reads as a grey dome from the high play camera, hides her braid and drifts across four views -> VARIANT a (recommended) the EMBER CROWN-HELM: an open steel brow band with small cheek guards and no skull bowl (hair and braid visible), two swept-back steel flame wings at the temples with ember-red enamel, an ember gem at the brow; VARIANT b a scarlet hood over a mail coif with a slim ember-gem diadem and a short shoulder cape. An EDIT of GS-SBM_b changing only the head (plus b's sash-knot and greave fixes); four-view consistency measured; <= 4 image calls. The named game is described in prompts as a painted storybook / illuminated-manuscript tactics register -- never named (refs_guard).",
       "ts": "2026-09-30T21:34:45"
+    },
+    {
+      "id": "R-C9-101",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Meteor mix v3: a dark heavy fire-ball core instead of a visible rock; a crater that changes the painted floor, with burning fault lines; a near-imperceptible gravitational distortion at impact",
+      "ruling": "Matt verbatim: \"1) the rock is outside of the flames during the fall. It needs to be inside the flames. It is the ball that is falling and that the fire surrounds.. so we may not want to use the rock at all, but instead add a darkness and “weight” to the meteor so that it feels like a darker and deeper fire than the rest of the fireball. It's more of a differentiation between the fiery tail and the ball of fire that surrounds the meteor itself. 2) the painted 2D impact is perfect, but instead of leaving smokdering flames, rather randomly, let's have it leave an impact crater with a smoldering center and have fault lines/cracks that actually truly change the painted 3D floor and alter it as a crater would with lines of fire across the cracks.. similar size to the smoldering flames now, but all of that detail in that radius, and maybe a random line or two extending beyond, mostly perceptible by the fact that it's burning. Lastly, at the impact moment it should feel like a nearly imperceptible gravitational distortion happens and you should see a very momentary distortion field during the strike, starting just prior to impact.\" Disposition (integration drax, after the cold-load veil fix): mix v3 as her default -- the head a dense fire ball with a deep crimson-to-black core (no rock), the tail lighter; A's painted burst unchanged; a real crater (depression, scorched rim, smouldering centre, radial cracks burning and cooling over 4-6 s, one or two cracks beyond the rim; the cooled crater persists, pooled to 4); a radial lens-warp from ~0.1 s before impact to ~+0.15 s, a few px at most, folded into the existing post pass.",
+      "ts": "2026-09-30T21:42:38"
     }
   ],
   "grok_calls": [
