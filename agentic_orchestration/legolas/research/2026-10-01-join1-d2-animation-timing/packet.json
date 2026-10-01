@@ -1,0 +1,1626 @@
+{
+  "schema": "legolas-d2-anim-timing/1",
+  "date": "2026-10-01",
+  "commissioner": "gandalf",
+  "consumer": "Run C-9 (Graphic Arts) + drax port (KC2Play) under JOIN-1 J4a/J4b",
+  "game_version": "Diablo II: Lord of Destruction, expansion game, 1.10-1.14d mechanics; 1.13 txt data (fabd/diablo2 @ 45112569). D2R differences flagged per law.",
+  "tick": {
+    "fps": 25,
+    "tick_s": 0.04
+  },
+  "labels": {
+    "DATAMINED": "read from game data files, an AnimData dump, or the D2MOO reverse-engineered code",
+    "COMMUNITY-VERIFIED": "a community table/formula confirmed by at least two independent sources (and reproduced here by computation)",
+    "INFERRED": "derived by this packet from labelled inputs; the derivation is stated"
+  },
+  "render_vs_d2_frames": "The contract's 12/16/8 frame counts are RENDER SAMPLING. D2 frames-per-direction are listed per entry as d2.frames_per_direction. Duration always comes from the fps_law, never from either count.",
+  "entries": [
+    {
+      "kit": "d2-ww-barb",
+      "mode": "NU",
+      "name": "neutral (field idle)",
+      "contract_state": "idle",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "BANU1SS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 96,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "loop; ticks_per_cycle = FPD*256/AnimSpeed; playback scaled only by the OTHER_ANIMRATE stat (normally 100%)",
+        "cycle_ticks_exact": 21.3333,
+        "cycle_s": 0.8533,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "note": "D2MOO Units.cpp: NU has no attack/velocity modulator, so it takes UNITS_UpdateOtherAnimRateAndVelocity (OTHER_ANIMRATE x AnimSpeed / 100)."
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "WL",
+      "name": "walk",
+      "contract_state": "walk",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "BAWL1SS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 168,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "loop; base ticks_per_cycle = FPD*256/AnimSpeed; anim speed scales with velocity% (100 + FRW_eff + other speed mods)",
+        "cycle_ticks_exact": 12.1905,
+        "cycle_s": 0.4876,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "contested": "D2MOO UNITS_GetBaseAnimSpeed returns hard-coded player bases 213 (walk) / 101 (run) instead of the AnimData speed field. Unresolved; see README open question Q3."
+      },
+      "movement": {
+        "base_speed": 6,
+        "unit": "CharStats WalkVelocity; Basin reads it as yards/s",
+        "label": "DATAMINED",
+        "source": [
+          "CHARSTATS_TXT",
+          "BASIN_WALKRUN"
+        ],
+        "law": "walk = max(6*(100+Speed)/100, 6/4); Speed includes FRW_eff = floor(150*FRW/(150+FRW))",
+        "law_label": "COMMUNITY-VERIFIED",
+        "law_source": [
+          "BASIN_WALKRUN",
+          "D2MOO (gaAnimModeStatBasePercentage MOVEVELOCITY base 150)"
+        ]
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "RN",
+      "name": "run",
+      "contract_state": "run",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "BARN1SS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 216,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "as walk",
+        "cycle_ticks_exact": 9.4815,
+        "cycle_s": 0.3793,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "contested": "see walk"
+      },
+      "movement": {
+        "base_speed": 9,
+        "unit": "CharStats RunVelocity; Basin reads it as yards/s",
+        "label": "DATAMINED",
+        "source": [
+          "CHARSTATS_TXT",
+          "BASIN_WALKRUN"
+        ],
+        "law": "run = max(9 + 6*Speed/100, 6/4)",
+        "law_label": "COMMUNITY-VERIFIED",
+        "law_source": [
+          "BASIN_WALKRUN"
+        ]
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "SQ:Whirlwind",
+      "name": "Whirlwind (Skills Id 151)",
+      "contract_state": "whirlwind",
+      "contract_status": "COVERED (but see notes)",
+      "contract_frames": 16,
+      "d2": {
+        "sequence": "gPlayerSequenceWhirlwind (seqnum 10): 8 sequence frames = A1 frames [0,1,2,3,3,4,5,6]; MELEE_ATTACK events on sequence frames 3 and 7 (0-indexed); nDir offset 0 on every frame",
+        "source_animation": "BAA11SS (A1, 1SS): 16 frames/direction, speed 256; only frames 0-6 are shown in the WW sequence",
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO",
+          "SKILLS_TXT",
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "events on the 4th and 8th frame agree with Arreat Summit, Basin and d2mods (hit checks at frames 4 and 8)"
+      },
+      "fps_law": {
+        "formula": "sequence plays at AnimSpeed 256 x OTHER_ANIMRATE (normally 100%) = 1 sequence frame per game tick; IAS does NOT change the sequence rate",
+        "cycle_ticks_exact": 8,
+        "cycle_s": 0.32,
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO",
+          "SKILLS_TXT"
+        ],
+        "derivation": "Units.cpp: PLRMODE_SEQUENCE uses attack rate only when the skill has SKILLSFLAG_USEATTACKRATE; Whirlwind's UseAttackRate column is empty in 1.13 Skills.txt, so the 'other' anim-rate path applies. Matches the community statement that only weapon speed affects WW (Arreat, Basin)."
+      },
+      "action_frame": {
+        "events_ticks": [
+          4,
+          8,
+          12,
+          16
+        ],
+        "note": "srvdofunc 76 runs on every MELEE_ATTACK event = every 4 game ticks; whether it ATTACKS on a given event is the cadence law below",
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO"
+        ]
+      },
+      "speed_law_ref": [
+        "LAW_WW_CADENCE"
+      ],
+      "facing_rotation": {
+        "value": "UNKNOWN",
+        "why": "client-side (cltstfunc 31 / cltdofunc 45, D2Client) not in any source reached; sequence carries no direction offsets",
+        "settle_by": "frame-step a D2 LoD capture of a WW in one direction, or decompile D2Client cltdofunc 45"
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "SC:Battle Orders",
+      "name": "Battle Orders cast (Skills Id 149)",
+      "contract_state": "shout",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "BASC1SS",
+        "frames_per_direction": 14,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": 9,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP",
+          "BASIN_BARB"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "cast_ticks = ceil(256*14 / floor(256*(100+EFCR)/100) - 1); EFCR = floor(120*FCR/(120+FCR)) capped at 75",
+        "base_ticks": 13,
+        "base_s": 0.52,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_BARB",
+          "D2MOO"
+        ],
+        "why_fcr": "Skills.txt seqtrans=SC (FCR family); D2MOO Units.cpp sends PLRMODE_CAST to the FCR path before any attack-rate check, so UseAttackRate=1 on this row does not make it IAS-driven"
+      },
+      "action_frame": {
+        "formula": "action_tick = ceil(9*256 / floor(256*(100+EFCR)/100))",
+        "base_tick": 9,
+        "base_s": 0.36,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_BARB",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "speed_law_ref": [
+        "LAW_BARB_FCR"
+      ],
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "GH",
+      "name": "get hit (hit recovery)",
+      "contract_state": "hit",
+      "contract_status": "COVERED",
+      "contract_frames": 8,
+      "d2": {
+        "animdata_record": "BAGH1SS",
+        "frames_per_direction": 5,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "hit_ticks = ceil(256*5 / floor(256*(50+EFHR)/100) - 1); EFHR = floor(120*FHR/(120+FHR)) (no cap)",
+        "base_ticks": 9,
+        "base_s": 0.36,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "D2MOO"
+        ]
+      },
+      "action_frame": null,
+      "speed_law_ref": [
+        "LAW_BARB_FHR"
+      ],
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files",
+      "note": "Whirlwind cannot be interrupted by hit recovery once its first attack has executed (Basin WW); Skills.txt interrupt is empty for row 151."
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "DT",
+      "name": "death",
+      "contract_state": "death",
+      "contract_status": "COVERED",
+      "contract_frames": 16,
+      "d2": {
+        "animdata_record": "BADTHTH",
+        "frames_per_direction": 27,
+        "animation_speed_256ths": 240,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "one-shot at AnimSpeed (DT modulator = AllowAnimSpeed); ticks = FPD*256/AnimSpeed",
+        "cycle_ticks_exact": 28.8,
+        "cycle_s": 1.152,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "note": "then DD (dead, 1 frame) holds the corpse; contract hold_last covers DD"
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "A1",
+      "name": "normal attack (dual wield 1SS)",
+      "contract_state": null,
+      "contract_status": "MISSING",
+      "contract_frames": null,
+      "d2": {
+        "animdata_record": "BAA11SS",
+        "frames_per_direction": 16,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": 7,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "BASIN_ATKSPEED"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "attack_ticks = ceil(256*16 / floor(256*(100+dEIAS)/100)) - 1; dEIAS = EIAS(IAS) - WSM_eff + skill IAS, clamp [-85, 75]",
+        "base_ticks": 15,
+        "base_s": 0.6,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "BASIN_ATKSPEED",
+          "D2MOO"
+        ]
+      },
+      "action_frame": {
+        "formula": "action_tick = ceil(7*256 / floor(256*(100+dEIAS)/100))",
+        "base_tick": 7,
+        "base_s": 0.28,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP (same ceil rule for cast action flags)"
+        ]
+      },
+      "speed_law_ref": [
+        "LAW_BARB_IAS"
+      ],
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files",
+      "why_needed": "Whirlwind aimed AT a target already in melee range performs one plain Attack instead of a spin (Basin WW; D2MOO SKILLS_SrvSt38_Whirlwind -> normal attack). Kit-reachable edge case; the contract has no state for it."
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "BL",
+      "name": "block",
+      "contract_state": null,
+      "contract_status": "NOT APPLICABLE",
+      "note": "Kit is sword + axe dual wield (no shield). D2 blocking needs a shield; no block animation is reachable.",
+      "label": "INFERRED",
+      "source": [
+        "CONTRACT",
+        "WEAPONS_TXT"
+      ],
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-ww-barb",
+      "mode": "TN/TW",
+      "name": "town neutral / town walk",
+      "contract_state": null,
+      "contract_status": "NOT NEEDED (no town in JOIN-1 play)",
+      "d2": {
+        "TN": {
+          "animdata_record": "BATN1SS",
+          "frames_per_direction": 16,
+          "animation_speed_256ths": 80,
+          "starting_frame": 0,
+          "action_flag_frame": null,
+          "label": "DATAMINED",
+          "source": [
+            "BASIN_ANIMDATA"
+          ],
+          "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+        },
+        "TW": {
+          "animdata_record": "BATW1SS",
+          "frames_per_direction": 8,
+          "animation_speed_256ths": 256,
+          "starting_frame": 0,
+          "action_flag_frame": null,
+          "label": "DATAMINED",
+          "source": [
+            "BASIN_ANIMDATA"
+          ],
+          "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+        }
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "NU",
+      "name": "neutral (field idle)",
+      "contract_state": "idle",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "SONU1HS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 128,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "as Barbarian NU",
+        "cycle_ticks_exact": 16.0,
+        "cycle_s": 0.64,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ]
+      },
+      "action_frame": null,
+      "weapon_class": {
+        "assumption": "1HS (orb) main hand + shield off hand",
+        "why": "the kit record names Eschuta's Temper (Eldritch Orb, Weapons.txt wclass 1hs) as best-in-slot weapon, Heart of the Oak (flail, 1hs) as the alternative, and Spirit Monarch (shield). No staff in the record.",
+        "timing_sensitivity": "NONE for the modes she uses: SO SC/NU/WL/RN/TN/TW/GH are identical across all weapon classes in the AnimData dump; DT/DD are HTH-only. A shield adds BL.",
+        "label": "INFERRED",
+        "source": [
+          "KIT_SORC",
+          "WEAPONS_TXT",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "WL",
+      "name": "walk",
+      "contract_state": "walk",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "SOWL1HS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "as Barbarian WL",
+        "cycle_ticks_exact": 8.0,
+        "cycle_s": 0.32,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "contested": "see Barbarian walk"
+      },
+      "movement": {
+        "base_speed": 6,
+        "unit": "CharStats WalkVelocity (yards/s per Basin)",
+        "label": "DATAMINED",
+        "source": [
+          "CHARSTATS_TXT",
+          "BASIN_WALKRUN"
+        ]
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "RN",
+      "name": "run",
+      "contract_state": "run",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "SORN1HS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "as Barbarian RN",
+        "cycle_ticks_exact": 8.0,
+        "cycle_s": 0.32,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ],
+        "contested": "see Barbarian walk"
+      },
+      "movement": {
+        "base_speed": 9,
+        "unit": "CharStats RunVelocity (yards/s per Basin)",
+        "label": "DATAMINED",
+        "source": [
+          "CHARSTATS_TXT",
+          "BASIN_WALKRUN"
+        ]
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "SC:Fire Ball",
+      "name": "Fire Ball cast (Skills Id 47)",
+      "contract_state": "cast_fireball",
+      "contract_status": "COVERED",
+      "contract_frames": 12,
+      "d2": {
+        "animdata_record": "SOSC1HS",
+        "frames_per_direction": 14,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": 7,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP",
+          "BASIN_SORC"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "cast_ticks = ceil(256*14 / floor(256*(100+EFCR)/100) - 1); EFCR = floor(120*FCR/(120+FCR)) capped at 75",
+        "base_ticks": 13,
+        "base_s": 0.52,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "D2MOO"
+        ]
+      },
+      "action_frame": {
+        "formula": "action_tick = ceil(7*256 / floor(256*(100+EFCR)/100))",
+        "base_tick": 7,
+        "base_s": 0.28,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "speed_law_ref": [
+        "LAW_SORC_FCR",
+        "LAW_FIREBALL"
+      ],
+      "weapon_class": {
+        "assumption": "1HS (orb) main hand + shield off hand",
+        "why": "the kit record names Eschuta's Temper (Eldritch Orb, Weapons.txt wclass 1hs) as best-in-slot weapon, Heart of the Oak (flail, 1hs) as the alternative, and Spirit Monarch (shield). No staff in the record.",
+        "timing_sensitivity": "NONE for the modes she uses: SO SC/NU/WL/RN/TN/TW/GH are identical across all weapon classes in the AnimData dump; DT/DD are HTH-only. A shield adds BL.",
+        "label": "INFERRED",
+        "source": [
+          "KIT_SORC",
+          "WEAPONS_TXT",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "note": "Fire Ball and Meteor use the SAME D2 animation (Skills anim=SC, seqtrans=SC). Separate clips are an art choice; their timing law is identical.",
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "SC:Meteor",
+      "name": "Meteor cast (gesture only) (Skills Id 56)",
+      "contract_state": "cast_meteor",
+      "contract_status": "COVERED",
+      "contract_frames": 16,
+      "d2": {
+        "animdata_record": "SOSC1HS",
+        "frames_per_direction": 14,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": 7,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP",
+          "BASIN_SORC"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "cast_ticks = ceil(256*14 / floor(256*(100+EFCR)/100) - 1); EFCR = floor(120*FCR/(120+FCR)) capped at 75",
+        "base_ticks": 13,
+        "base_s": 0.52,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "D2MOO"
+        ]
+      },
+      "action_frame": {
+        "formula": "action_tick = ceil(7*256 / floor(256*(100+EFCR)/100))",
+        "base_tick": 7,
+        "base_s": 0.28,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "speed_law_ref": [
+        "LAW_SORC_FCR",
+        "LAW_METEOR"
+      ],
+      "weapon_class": {
+        "assumption": "1HS (orb) main hand + shield off hand",
+        "why": "the kit record names Eschuta's Temper (Eldritch Orb, Weapons.txt wclass 1hs) as best-in-slot weapon, Heart of the Oak (flail, 1hs) as the alternative, and Spirit Monarch (shield). No staff in the record.",
+        "timing_sensitivity": "NONE for the modes she uses: SO SC/NU/WL/RN/TN/TW/GH are identical across all weapon classes in the AnimData dump; DT/DD are HTH-only. A shield adds BL.",
+        "label": "INFERRED",
+        "source": [
+          "KIT_SORC",
+          "WEAPONS_TXT",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "note": "Fire Ball and Meteor use the SAME D2 animation (Skills anim=SC, seqtrans=SC). Separate clips are an art choice; their timing law is identical.",
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "GH",
+      "name": "get hit (hit recovery)",
+      "contract_state": "hit",
+      "contract_status": "COVERED",
+      "contract_frames": 8,
+      "d2": {
+        "animdata_record": "SOGH1HS",
+        "frames_per_direction": 8,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP",
+          "BASIN_SORC"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "hit_ticks = ceil(256*8 / floor(256*(50+EFHR)/100) - 1)",
+        "base_ticks": 15,
+        "base_s": 0.6,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "D2MOO"
+        ]
+      },
+      "action_frame": null,
+      "speed_law_ref": [
+        "LAW_SORC_FHR"
+      ],
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files",
+      "note": "Skills.txt interrupt=1 on rows 47 and 56: hit recovery cancels the cast; if it lands before the action frame the spell does not fire (Basin cast-rate text)."
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "DT",
+      "name": "death",
+      "contract_state": "death",
+      "contract_status": "COVERED",
+      "contract_frames": 16,
+      "d2": {
+        "animdata_record": "SODTHTH",
+        "frames_per_direction": 24,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA"
+        ],
+        "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+      },
+      "fps_law": {
+        "formula": "as Barbarian DT",
+        "cycle_ticks_exact": 24.0,
+        "cycle_s": 0.96,
+        "label": "INFERRED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "D2MOO"
+        ]
+      },
+      "action_frame": null,
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "BL",
+      "name": "block (shield)",
+      "contract_state": null,
+      "contract_status": "MISSING",
+      "d2": {
+        "animdata_record": "SOBL1HS",
+        "frames_per_direction": 5,
+        "animation_speed_256ths": 256,
+        "starting_frame": 0,
+        "action_flag_frame": null,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "MAXROLL_BP",
+          "BASIN_SORC"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "fps_law": {
+        "formula": "block_ticks = ceil(256*5 / floor(256*(50+EFBR)/100) - 1); EFBR = floor(120*FBR/(120+FBR))",
+        "base_ticks": 9,
+        "base_s": 0.36,
+        "label": "COMMUNITY-VERIFIED",
+        "source": [
+          "MAXROLL_BP",
+          "BASIN_SORC",
+          "D2MOO"
+        ]
+      },
+      "action_frame": null,
+      "speed_law_ref": [
+        "LAW_SORC_FBR"
+      ],
+      "weapon_class": {
+        "assumption": "1HS (orb) main hand + shield off hand",
+        "why": "the kit record names Eschuta's Temper (Eldritch Orb, Weapons.txt wclass 1hs) as best-in-slot weapon, Heart of the Oak (flail, 1hs) as the alternative, and Spirit Monarch (shield). No staff in the record.",
+        "timing_sensitivity": "NONE for the modes she uses: SO SC/NU/WL/RN/TN/TW/GH are identical across all weapon classes in the AnimData dump; DT/DD are HTH-only. A shield adds BL.",
+        "label": "INFERRED",
+        "source": [
+          "KIT_SORC",
+          "WEAPONS_TXT",
+          "BASIN_ANIMDATA"
+        ]
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files",
+      "why_needed": "Kit-faithful loadout carries Spirit Monarch (shield) per the kit record, so D2 block is reachable. Only needed if the JOIN model resolves blocks; conductor call."
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "A1",
+      "name": "normal attack",
+      "contract_state": null,
+      "contract_status": "NOT NEEDED (kit never melee-attacks)",
+      "d2": {
+        "animdata_record": "SOA11HS",
+        "frames_per_direction": 20,
+        "animation_speed_256ths": 256,
+        "starting_frame": 2,
+        "action_flag_frame": 12,
+        "label": "DATAMINED",
+        "source": [
+          "BASIN_ANIMDATA",
+          "BASIN_ATKSPEED"
+        ],
+        "cross_check": "cross-checked"
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    },
+    {
+      "kit": "d2-fire-sorc",
+      "mode": "TN/TW",
+      "name": "town neutral / town walk",
+      "contract_state": null,
+      "contract_status": "NOT NEEDED",
+      "d2": {
+        "TN": {
+          "animdata_record": "SOTN1HS",
+          "frames_per_direction": 16,
+          "animation_speed_256ths": 80,
+          "starting_frame": 0,
+          "action_flag_frame": null,
+          "label": "DATAMINED",
+          "source": [
+            "BASIN_ANIMDATA"
+          ],
+          "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+        },
+        "TW": {
+          "animdata_record": "SOTW1HS",
+          "frames_per_direction": 8,
+          "animation_speed_256ths": 256,
+          "starting_frame": 0,
+          "action_flag_frame": null,
+          "label": "DATAMINED",
+          "source": [
+            "BASIN_ANIMDATA"
+          ],
+          "cross_check": "single dump (dump is validated on other rows: SC/GH/BL vs Maxroll, A1 vs Basin attack-speed page)"
+        }
+      },
+      "version": "LoD 1.10-1.14d (expansion game); 1.13 data files"
+    }
+  ],
+  "laws": {
+    "LAW_SORC_FCR": {
+      "title": "Sorceress cast rate (all skills except Lightning/Chain Lightning)",
+      "formula": "EFCR = min(floor(120*FCR/(120+FCR)), 75); ticks = ceil(256*14/floor(256*(100+EFCR)/100) - 1); action = ceil(7*256/floor(256*(100+EFCR)/100))",
+      "table_frames": [
+        {
+          "fcr_min": 0,
+          "cast_ticks": 13,
+          "seconds": 0.52
+        },
+        {
+          "fcr_min": 9,
+          "cast_ticks": 12,
+          "seconds": 0.48
+        },
+        {
+          "fcr_min": 20,
+          "cast_ticks": 11,
+          "seconds": 0.44
+        },
+        {
+          "fcr_min": 37,
+          "cast_ticks": 10,
+          "seconds": 0.4
+        },
+        {
+          "fcr_min": 63,
+          "cast_ticks": 9,
+          "seconds": 0.36
+        },
+        {
+          "fcr_min": 105,
+          "cast_ticks": 8,
+          "seconds": 0.32
+        },
+        {
+          "fcr_min": 200,
+          "cast_ticks": 7,
+          "seconds": 0.28
+        }
+      ],
+      "table_action": [
+        {
+          "fcr_min": 0,
+          "action_tick": 7,
+          "seconds": 0.28
+        },
+        {
+          "fcr_min": 20,
+          "action_tick": 6,
+          "seconds": 0.24
+        },
+        {
+          "fcr_min": 63,
+          "action_tick": 5,
+          "seconds": 0.2
+        },
+        {
+          "fcr_min": 200,
+          "action_tick": 4,
+          "seconds": 0.16
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "MAXROLL_BP",
+        "BASIN_SORC",
+        "BASIN_ANIMDATA",
+        "D2MOO"
+      ],
+      "verified": "formula + AnimData (14/256/7) reproduce Maxroll and Basin tables exactly",
+      "version": "LoD 1.10+ and D2R (identical)"
+    },
+    "LAW_BARB_FCR": {
+      "title": "Barbarian cast rate (warcries incl. Battle Orders)",
+      "formula": "ticks = ceil(256*14/floor(256*(100+EFCR)/100) - 1); action = ceil(9*256/floor(256*(100+EFCR)/100))",
+      "table_frames": [
+        {
+          "fcr_min": 0,
+          "cast_ticks": 13,
+          "seconds": 0.52
+        },
+        {
+          "fcr_min": 9,
+          "cast_ticks": 12,
+          "seconds": 0.48
+        },
+        {
+          "fcr_min": 20,
+          "cast_ticks": 11,
+          "seconds": 0.44
+        },
+        {
+          "fcr_min": 37,
+          "cast_ticks": 10,
+          "seconds": 0.4
+        },
+        {
+          "fcr_min": 63,
+          "cast_ticks": 9,
+          "seconds": 0.36
+        },
+        {
+          "fcr_min": 105,
+          "cast_ticks": 8,
+          "seconds": 0.32
+        },
+        {
+          "fcr_min": 200,
+          "cast_ticks": 7,
+          "seconds": 0.28
+        }
+      ],
+      "table_action": [
+        {
+          "fcr_min": 0,
+          "action_tick": 9,
+          "seconds": 0.36
+        },
+        {
+          "fcr_min": 15,
+          "action_tick": 8,
+          "seconds": 0.32
+        },
+        {
+          "fcr_min": 39,
+          "action_tick": 7,
+          "seconds": 0.28
+        },
+        {
+          "fcr_min": 86,
+          "action_tick": 6,
+          "seconds": 0.24
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "MAXROLL_BP",
+        "BASIN_BARB",
+        "BASIN_ANIMDATA",
+        "D2MOO"
+      ],
+      "version": "LoD 1.10+ and D2R"
+    },
+    "LAW_SORC_FHR": {
+      "title": "Sorceress hit recovery",
+      "formula": "ticks = ceil(256*8/floor(256*(50+EFHR)/100) - 1)",
+      "table": [
+        {
+          "fhr_min": 0,
+          "hit_ticks": 15,
+          "seconds": 0.6
+        },
+        {
+          "fhr_min": 5,
+          "hit_ticks": 14,
+          "seconds": 0.56
+        },
+        {
+          "fhr_min": 9,
+          "hit_ticks": 13,
+          "seconds": 0.52
+        },
+        {
+          "fhr_min": 14,
+          "hit_ticks": 12,
+          "seconds": 0.48
+        },
+        {
+          "fhr_min": 20,
+          "hit_ticks": 11,
+          "seconds": 0.44
+        },
+        {
+          "fhr_min": 30,
+          "hit_ticks": 10,
+          "seconds": 0.4
+        },
+        {
+          "fhr_min": 42,
+          "hit_ticks": 9,
+          "seconds": 0.36
+        },
+        {
+          "fhr_min": 60,
+          "hit_ticks": 8,
+          "seconds": 0.32
+        },
+        {
+          "fhr_min": 86,
+          "hit_ticks": 7,
+          "seconds": 0.28
+        },
+        {
+          "fhr_min": 142,
+          "hit_ticks": 6,
+          "seconds": 0.24
+        },
+        {
+          "fhr_min": 280,
+          "hit_ticks": 5,
+          "seconds": 0.2
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "MAXROLL_BP",
+        "BASIN_SORC",
+        "D2MOO"
+      ],
+      "version": "LoD 1.10+ and D2R"
+    },
+    "LAW_BARB_FHR": {
+      "title": "Barbarian hit recovery",
+      "formula": "ticks = ceil(256*5/floor(256*(50+EFHR)/100) - 1)",
+      "table": [
+        {
+          "fhr_min": 0,
+          "hit_ticks": 9,
+          "seconds": 0.36
+        },
+        {
+          "fhr_min": 7,
+          "hit_ticks": 8,
+          "seconds": 0.32
+        },
+        {
+          "fhr_min": 15,
+          "hit_ticks": 7,
+          "seconds": 0.28
+        },
+        {
+          "fhr_min": 27,
+          "hit_ticks": 6,
+          "seconds": 0.24
+        },
+        {
+          "fhr_min": 48,
+          "hit_ticks": 5,
+          "seconds": 0.2
+        },
+        {
+          "fhr_min": 86,
+          "hit_ticks": 4,
+          "seconds": 0.16
+        },
+        {
+          "fhr_min": 200,
+          "hit_ticks": 3,
+          "seconds": 0.12
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "MAXROLL_BP",
+        "BASIN_ANIMDATA",
+        "D2MOO"
+      ],
+      "version": "LoD 1.10+ and D2R",
+      "note": "Basin's Barbarian FHR table did not render on fetch; second source is the formula + AnimData GH 5/256 reproducing Maxroll exactly"
+    },
+    "LAW_SORC_FBR": {
+      "title": "Sorceress block rate (shield)",
+      "formula": "ticks = ceil(256*5/floor(256*(50+EFBR)/100) - 1)",
+      "table": [
+        {
+          "fbr_min": 0,
+          "block_ticks": 9,
+          "seconds": 0.36
+        },
+        {
+          "fbr_min": 7,
+          "block_ticks": 8,
+          "seconds": 0.32
+        },
+        {
+          "fbr_min": 15,
+          "block_ticks": 7,
+          "seconds": 0.28
+        },
+        {
+          "fbr_min": 27,
+          "block_ticks": 6,
+          "seconds": 0.24
+        },
+        {
+          "fbr_min": 48,
+          "block_ticks": 5,
+          "seconds": 0.2
+        },
+        {
+          "fbr_min": 86,
+          "block_ticks": 4,
+          "seconds": 0.16
+        },
+        {
+          "fbr_min": 200,
+          "block_ticks": 3,
+          "seconds": 0.12
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "BASIN_SORC",
+        "MAXROLL_BP",
+        "D2MOO"
+      ]
+    },
+    "LAW_BARB_IAS": {
+      "title": "Barbarian normal attack speed, 1SS/1HS (A1 16 frames, action 7)",
+      "formula": "EIAS = floor(120*IAS/(120+IAS)); dEIAS = EIAS + skill_IAS - WSM_eff, clamp [-85,75]; ticks = ceil(256*16/floor(256*(100+dEIAS)/100)) - 1",
+      "wsm_dual_wield": "main weapon in RIGHT slot: WSM_eff = (L+R)/2 - L + R (Basin wording); main in LEFT slot: (L+R)/2. D2MOO Units.cpp: rate += (R_attackrate + L_attackrate)/2 - R_attackrate",
+      "table_deias": [
+        {
+          "deias_min": -30,
+          "attack_ticks": 22,
+          "seconds": 0.88
+        },
+        {
+          "deias_min": -26,
+          "attack_ticks": 21,
+          "seconds": 0.84
+        },
+        {
+          "deias_min": -23,
+          "attack_ticks": 20,
+          "seconds": 0.8
+        },
+        {
+          "deias_min": -19,
+          "attack_ticks": 19,
+          "seconds": 0.76
+        },
+        {
+          "deias_min": -15,
+          "attack_ticks": 18,
+          "seconds": 0.72
+        },
+        {
+          "deias_min": -10,
+          "attack_ticks": 17,
+          "seconds": 0.68
+        },
+        {
+          "deias_min": -5,
+          "attack_ticks": 16,
+          "seconds": 0.64
+        },
+        {
+          "deias_min": 0,
+          "attack_ticks": 15,
+          "seconds": 0.6
+        },
+        {
+          "deias_min": 8,
+          "attack_ticks": 14,
+          "seconds": 0.56
+        },
+        {
+          "deias_min": 15,
+          "attack_ticks": 13,
+          "seconds": 0.52
+        },
+        {
+          "deias_min": 24,
+          "attack_ticks": 12,
+          "seconds": 0.48
+        },
+        {
+          "deias_min": 34,
+          "attack_ticks": 11,
+          "seconds": 0.44
+        },
+        {
+          "deias_min": 46,
+          "attack_ticks": 10,
+          "seconds": 0.4
+        },
+        {
+          "deias_min": 61,
+          "attack_ticks": 9,
+          "seconds": 0.36
+        }
+      ],
+      "table_action_deias": [
+        {
+          "deias_min": -29,
+          "action_tick": 10,
+          "seconds": 0.4
+        },
+        {
+          "deias_min": -21,
+          "action_tick": 9,
+          "seconds": 0.36
+        },
+        {
+          "deias_min": -12,
+          "action_tick": 8,
+          "seconds": 0.32
+        },
+        {
+          "deias_min": 0,
+          "action_tick": 7,
+          "seconds": 0.28
+        },
+        {
+          "deias_min": 17,
+          "action_tick": 6,
+          "seconds": 0.24
+        },
+        {
+          "deias_min": 41,
+          "action_tick": 5,
+          "seconds": 0.2
+        },
+        {
+          "deias_min": 75,
+          "action_tick": 4,
+          "seconds": 0.16
+        }
+      ],
+      "label": "COMMUNITY-VERIFIED",
+      "source": [
+        "BASIN_ATKSPEED",
+        "D2MOO"
+      ],
+      "version": "LoD 1.10+"
+    },
+    "LAW_WW_CADENCE": {
+      "title": "Whirlwind hit cadence (LoD expansion game, 1.10 through 1.14d)",
+      "events": "srvdofunc 76 fires on sequence MELEE_ATTACK events every 4 game ticks (sequence frames 3 and 7 of an 8-tick loop)",
+      "first_two": "attacks at ticks 4 and 8 unconditionally ('free' checks)",
+      "after": "schedule += D (from the scheduled tick, not the actual one); attack on the first 4-tick event at or after the schedule",
+      "D_formula": "ws = (16<<8) // ((256*(100 + E))//100), E = weapon IAS - weapon WSM (weapon's own stats only); D = 4 if ws<12, 6 if <15, 8 if <18, 10 if <20, 12 if <23, 14 if <26, else 16",
+      "table_1h_and_dual_1ss": [
+        {
+          "weapon_eias_min": -60,
+          "interval_frames_D": 16,
+          "interval_s": 0.64,
+          "hit_checks_per_s_mean": 1.5625
+        },
+        {
+          "weapon_eias_min": -38,
+          "interval_frames_D": 14,
+          "interval_s": 0.56,
+          "hit_checks_per_s_mean": 1.7857
+        },
+        {
+          "weapon_eias_min": -30,
+          "interval_frames_D": 12,
+          "interval_s": 0.48,
+          "hit_checks_per_s_mean": 2.0833
+        },
+        {
+          "weapon_eias_min": -19,
+          "interval_frames_D": 10,
+          "interval_s": 0.4,
+          "hit_checks_per_s_mean": 2.5
+        },
+        {
+          "weapon_eias_min": -10,
+          "interval_frames_D": 8,
+          "interval_s": 0.32,
+          "hit_checks_per_s_mean": 3.125
+        },
+        {
+          "weapon_eias_min": 8,
+          "interval_frames_D": 6,
+          "interval_s": 0.24,
+          "hit_checks_per_s_mean": 4.1667
+        },
+        {
+          "weapon_eias_min": 34,
+          "interval_frames_D": 4,
+          "interval_s": 0.16,
+          "hit_checks_per_s_mean": 6.25
+        }
+      ],
+      "example_hit_ticks": {
+        "4": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60,
+          64
+        ],
+        "6": [
+          4,
+          8,
+          16,
+          20,
+          28,
+          32,
+          40,
+          44,
+          52,
+          56,
+          64
+        ],
+        "8": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64
+        ],
+        "10": [
+          4,
+          8,
+          20,
+          28,
+          40,
+          48,
+          60
+        ],
+        "12": [
+          4,
+          8,
+          20,
+          32,
+          44,
+          56
+        ],
+        "14": [
+          4,
+          8,
+          24,
+          36,
+          52,
+          64
+        ],
+        "16": [
+          4,
+          8,
+          24,
+          40,
+          56
+        ]
+      },
+      "per_check": "each attack hits ONE target; dual wield (two melee weapons) = up to 2 attacks per check, the second taking the next target",
+      "per_target": "target pick is round-robin by unit GUID within radius 5 subtiles (= 3 1/3 yards): the next GUID above the last target, wrapping to the lowest. With N targets in reach each is hit once per N attacks; the target must also be in melee reach.",
+      "hand": "a flag toggles after every attack (alternating hands). Basin: while a target is in range one weapon is used for the next-check calculation; with none in range it alternates.",
+      "unaffected_by": "IAS from non-weapon gear, Fanaticism/Burst of Speed/Frenzy, and slows (1.10+ LoD)",
+      "label": "DATAMINED",
+      "source": [
+        "D2MOO",
+        "BASIN_WW",
+        "D2MODS_WW109",
+        "ARREAT_WW"
+      ],
+      "cross_check": "D2MOO thresholds give exactly Basin's EIAS breakpoints (34/8/-10/-19 -> 4/6/8/10) and the d2mods 1.09b worked example (attacks at 4, 8, 16, 20, 28...).",
+      "conflict": "Arreat Summit gives 1H breakpoints at weapon speed 15/10/-10/-34 (equivalently EIAS -15/-10/10/34). It disagrees with Basin and the code at two of four (10-frame and 6-frame). TRUST Basin+code: the integer formula reproduces Basin exactly; Arreat's values look rounded.",
+      "classic_game_branch": "D2MOO: in a NON-expansion (classic) game every event attacks (D = 4 regardless of weapon). JOIN-1 kit is LoD (runewords), so use the expansion law.",
+      "d2r_243": {
+        "rule": "D2R 2.4.3+: interval = the character's basic-attack action frame with ALL IAS (gear + skills) and slows; dual wield averages the two weapons' frames, rounding up",
+        "label": "COMMUNITY-VERIFIED (patch-note quotation, single forum source)",
+        "source": [
+          "BLIZZ_243"
+        ],
+        "status": "NOT the version of our data; recorded for completeness"
+      },
+      "kit_example": "Grief Phase Blade (WSM -30, Grief 30-40% IAS -> E = 60..70) gives ws = 10 -> D = 4 (6.25 checks/s; with dual wield up to 12.5 attacks/s across targets). The off-hand axe base is NOT pinned in the kit record (see open questions)."
+    },
+    "LAW_FIREBALL": {
+      "skills_row_47": {
+        "anim": "SC",
+        "seqtrans": "SC",
+        "seqnum": null,
+        "seqinput": null,
+        "delay": null,
+        "range": "none",
+        "srvmissile": "fireball",
+        "interrupt": 1,
+        "leftskill": 1
+      },
+      "missile_fireball": {
+        "Vel": 20,
+        "MaxVel": 20,
+        "Range_frames": 50,
+        "lifetime_s": 2.0,
+        "explosion_radius_subtiles": 4,
+        "explosion_radius_yards": "2 2/3"
+      },
+      "spawn": "missile created at the cast action tick",
+      "travel": "Vel is px/frame (d2mods KB); distance_yards = Vel*Range/32 = 31.25 (d2mods formula; yard conventions differ between d2mods and Basin, so treat as approximate)",
+      "label": "DATAMINED (fields) / COMMUNITY-VERIFIED (radius in yards: Basin 2 2/3)",
+      "source": [
+        "SKILLS_TXT",
+        "MISSILES_TXT",
+        "BASIN_FIREBALL",
+        "D2MODS_MISSDIST"
+      ],
+      "cross_check": "Basin: Fire Ball has the same velocity and range as Fire Bolt; Missiles.txt firebolt Vel 20 / Range 50, same"
+    },
+    "LAW_METEOR": {
+      "skills_row_56": {
+        "anim": "SC",
+        "seqtrans": "SC",
+        "delay_frames": 30,
+        "srvdofunc": 28,
+        "srvmissilea": "meteorcenter",
+        "aurarangecalc": "ln12 = Param1 + (lvl-1)*Param2 = 6 subtiles",
+        "Param3_fire_frames": 30,
+        "Param4_fire_frames_per_level": 15,
+        "interrupt": 1
+      },
+      "cooldown": {
+        "value_s": 1.2,
+        "frames": 30,
+        "starts": "at the action frame",
+        "scope": "LoD: global (no other delayed skill castable); D2R 2.4: local",
+        "interval_formula": "interval = action_tick + 30 (Basin; Maxroll)",
+        "label": "DATAMINED",
+        "source": [
+          "SKILLS_TXT",
+          "ARREAT_SORCFIRE",
+          "BASIN_CASTRATE",
+          "MAXROLL_BP"
+        ]
+      },
+      "cast_to_impact": {
+        "frames": 60,
+        "s": 2.4,
+        "from": "the action frame",
+        "label": "DATAMINED",
+        "source": [
+          "MISSILES_TXT (meteorcenter Range 60, AlwaysExplode 1; client fall CltParam1 59 frames)",
+          "BASIN_METEOR"
+        ],
+        "cross_check": "Basin: 'There is a 2.4 second (60 frame) delay between point of casting (action frame) and impact'"
+      },
+      "impact_radius": {
+        "subtiles": 6,
+        "yards": 4,
+        "label": "DATAMINED",
+        "source": [
+          "SKILLS_TXT",
+          "ARREAT_SORCFIRE",
+          "BASIN_METEOR"
+        ]
+      },
+      "fire_field": {
+        "formula_code": "missile range = Param3 + (slvl-1)*Param4 = 30 + 15*(slvl-1) frames",
+        "slvl1_s": 1.2,
+        "slvl20_s": 12.6,
+        "formula_basin": "14 + 15*slvl frames (1 frame shorter: slvl1 1.16 s, slvl20 12.56 s)",
+        "missiles": "18 static size-2 'meteorfire' missiles at fixed offsets; damage rate 41/1024 of bit rate per frame",
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO (MissMode.cpp SrvHit14)",
+          "SKILLS_TXT",
+          "MISSILES_TXT",
+          "BASIN_METEOR"
+        ],
+        "conflict": "1-frame discrepancy code vs Basin; trust code for the assigned range, Basin may be counting damage frames. UNKNOWN which is visible duration; settle by frame-stepping a capture."
+      },
+      "port_timeline_0fcr": {
+        "t0_cast_start_s": 0.0,
+        "action_s": 0.28,
+        "cast_end_s": 0.52,
+        "cooldown_end_s": 1.48,
+        "impact_s": 2.6799999999999997,
+        "fire_end_slvl20_s": 15.28
+      }
+    },
+    "LAW_BO": {
+      "skills_row_149": {
+        "anim": "SC",
+        "seqtrans": "SC",
+        "UseAttackRate": 1,
+        "delay": null,
+        "interrupt": 1,
+        "srvdofunc": 68,
+        "srvmissilea": "battleorders",
+        "auralencalc": "ln12 + (Shout.blvl + Battle Command.blvl)*par8 = 750 + 250*(slvl-1) + 125*synergy_levels frames"
+      },
+      "duration_s": "20 + 10*slvl, +5 per synergy level (Basin; matches the code frames /25)",
+      "missile_battleorders": {
+        "Vel": 30,
+        "Accel": -500,
+        "Range_frames": 15,
+        "NextDelay_frames": 4,
+        "note": "expanding shockwave visual; Basin AoE ~12 2/3 yards"
+      },
+      "label": "DATAMINED",
+      "source": [
+        "SKILLS_TXT",
+        "MISSILES_TXT",
+        "BASIN_BO"
+      ],
+      "useattackrate_note": "d2mods KB calls UseAttackRate 'unknown/no effect'; D2MOO shows it gates IAS for S1-S4/SQ modes. For an SC-mode skill the FCR path wins, so it is inert here. For Whirlwind (SQ) its ABSENCE is why IAS does not speed the spin."
+    },
+    "LAW_WW_ROW": {
+      "skills_row_151": {
+        "anim": "SQ",
+        "seqtrans": "A1",
+        "seqnum": 10,
+        "seqinput": null,
+        "delay": null,
+        "range": "none",
+        "weapsel": 2,
+        "itypea1": "mele",
+        "srvstfunc": 38,
+        "srvdofunc": 76,
+        "cltstfunc": 31,
+        "cltdofunc": 45,
+        "UseAttackRate": null,
+        "AttackNoMana": 1,
+        "calc1": "ln12 (Param1 -50, Param2 8: damage% per level)",
+        "Param3": "1 ('Attacks per tick' per the file's own comment)",
+        "mana_fields": "mana 25, lvlmana 1, manashift 7 (Basin: 12 + 0.5*slvl per use)"
+      },
+      "movement": {
+        "velocity": "CharStats WalkVelocity << 8 (the WALK speed, 6), then normal movement-speed modifiers apply",
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO (Skills.cpp sub_6FD15500, SkillBar.cpp SrvSt38)",
+          "BASIN_WW ('Movement speed modifiers still apply while in Whirlwind')"
+        ]
+      },
+      "search_radius": {
+        "subtiles": 5,
+        "yards": "3 1/3",
+        "label": "DATAMINED",
+        "source": [
+          "D2MOO",
+          "BASIN_WW"
+        ]
+      },
+      "label": "DATAMINED",
+      "source": [
+        "SKILLS_TXT"
+      ]
+    },
+    "LAW_OPERANDS": {
+      "rows": {
+        "36 Fire Bolt": "anim SC, missile firebolt Vel 20 Range 50; operand only (synergy for Fire Ball/Meteor)",
+        "61 Fire Mastery": "passive, no animation",
+        "37 Warmth": "passive, no animation"
+      },
+      "timing": "none of the operand rows carries timing used by the kit",
+      "label": "DATAMINED",
+      "source": [
+        "SKILLS_TXT",
+        "MISSILES_TXT"
+      ]
+    }
+  },
+  "sources": {
+    "SKILLS_TXT": "D2 1.13 Skills.txt, fabd/diablo2 @ 45112569deb9384738ccafe5c24ebbb71f41c7c9 (local: agentic_orchestration/research/datamine-acquisition/d2/raw/Skills.txt)",
+    "MISSILES_TXT": "D2 1.13 Missiles.txt, fabd/diablo2 @ 45112569 (local raw/Missiles.txt)",
+    "CHARSTATS_TXT": "D2 1.13 CharStats.txt, fabd/diablo2 @ 45112569 (local raw/CharStats.txt)",
+    "WEAPONS_TXT": "D2 1.13 Weapons.txt, fabd/diablo2 @ 45112569 (local raw/Weapons.txt)",
+    "BASIN_ANIMDATA": "Basin Wiki 'Animation' page: AnimData.d2 dump (Code/Mode/Wclass/FramesPerDirection/AnimationSpeed/StartingFrame/ActionFlagFrames), https://d2.lc/AB/wiki/index2a2a.html?title=Animation (mirror of theamazonbasin.com), accessed 2026-09-30",
+    "BASIN_ATKSPEED": "Basin Wiki 'Attack speed' + 'Barbarian attack speed', https://www.theamazonbasin.com/wiki/index.php?title=Attack_speed , accessed 2026-09-30",
+    "BASIN_WW": "Basin Wiki 'Whirlwind', https://www.theamazonbasin.com/wiki/index.php?title=Whirlwind , accessed 2026-09-30",
+    "BASIN_SORC": "Basin Wiki 'Sorceress' breakpoint tables, https://www.theamazonbasin.com/wiki/index.php?title=Sorceress , accessed 2026-09-30",
+    "BASIN_BARB": "Basin Wiki 'Barbarian (Diablo II)' breakpoint tables, https://www.theamazonbasin.com/wiki/index.php/Barbarian_(Diablo_II) , accessed 2026-09-30",
+    "BASIN_CASTRATE": "Basin Wiki 'Cast rate' (delays, LoD global vs D2R local), https://www.theamazonbasin.com/wiki/index.php?title=Cast_rate , accessed 2026-09-30",
+    "BASIN_METEOR": "Basin Wiki 'Meteor', https://www.theamazonbasin.com/wiki/index.php?title=Meteor , accessed 2026-09-30",
+    "BASIN_FIREBALL": "Basin Wiki 'Fire Ball', https://www.theamazonbasin.com/wiki/index.php?title=Fire_Ball , accessed 2026-09-30",
+    "BASIN_BO": "Basin Wiki 'Battle Orders', https://www.theamazonbasin.com/wiki/index.php?title=Battle_Orders , accessed 2026-09-30",
+    "BASIN_WALKRUN": "Basin Wiki 'Walk/run speed', https://d2.lc/AB/wiki/index6997.html?title=Walk/run_speed , accessed 2026-09-30",
+    "MAXROLL_BP": "Maxroll, Teo1904, 'Diablo 2 Resurrected Breakpoints & Animations' (updated to patch 2.4; reformatted 2026-02-09), https://maxroll.gg/d2/resources/breakpoints-animations , accessed 2026-09-30",
+    "ARREAT_WW": "The Arreat Summit, Barbarian Combat Skills (Whirlwind entry, LoD), https://classic.battle.net/diablo2exp/skills/barbarian-combatskills.shtml , accessed 2026-09-30",
+    "ARREAT_SORCFIRE": "The Arreat Summit, Sorceress Fire Spells (Meteor casting delay), https://classic.battle.net/diablo2exp/skills/sorceress-fire.shtml , accessed 2026-09-30",
+    "D2MODS_WW109": "Phrozen Keep thread 'WhirlWind Attack Speed' (1.09b analysis), https://d2mods.info/forum/viewtopic.php?t=12561 , accessed 2026-09-30",
+    "D2MODS_SKILLSKB": "Phrozen Keep KB 'Skills.txt' column guide, https://d2mods.info/forum/kb/viewarticle?a=440 , accessed 2026-09-30",
+    "D2MODS_MISSDIST": "Phrozen Keep KB 'Calculating Missile Distance', https://d2mods.info/forum/kb/viewarticle?a=463 , accessed 2026-09-30",
+    "D2MOO": "ThePhrozenKeep/D2MOO (reverse-engineered D2 1.10f DLLs; many symbols also mapped to 1.13c) @ 5596f5cb6c5251a0a07c6637d26458b06099d516: SequenceTbls.cpp (gPlayerSequenceWhirlwind), SkillBar.cpp (SKILLS_SrvSt38/SrvDo076_Whirlwind), Items.cpp (ITEMS_GetWeaponAttackSpeed), Units.cpp (anim-rate dispatch), Skills.cpp (target search, WW velocity), MissMode.cpp (SrvHit14 Meteor), https://github.com/ThePhrozenKeep/D2MOO , accessed 2026-09-30",
+    "BLIZZ_243": "Blizzard D2R patch 2.4.3 note on Whirlwind, quoted in https://us.forums.blizzard.com/en/d2r/t/how-is-whirlwind-speed-calculated-now/147656 , accessed 2026-09-30",
+    "KIT_BARB": "agentic_orchestration/research/curated/kits-export/d2-ww-barb.json",
+    "KIT_SORC": "agentic_orchestration/research/curated/kits-export/d2-fire-sorc.json",
+    "CONTRACT": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md (read-only)"
+  }
+}
