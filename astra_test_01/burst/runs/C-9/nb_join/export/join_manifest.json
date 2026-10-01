@@ -2,7 +2,7 @@
  "character": "the barbarian, JOIN kit d2-ww-barb: sword main hand (weapon_r at the T12 seat, roll 0) and axe off hand (weapon_l at the scene drax's left seat, his axe_l.glb) -- the four JOIN moves added to his JOIN body; the war cry and the whirlwind are v4 (Matt, 2026-09-30)",
  "body": {
   "file": "export/nb-body_join.glb",
-  "sha256": "bd66432ec52869b484b389660614c76866396e25d2651a30564e66f982cf430f",
+  "sha256": "3ffe4948337a7b8e201e901857e7fa38940eb1dbfc55f7074bc25156ebd6a966",
   "base": "nb_d2/export_staging/JOIN_hold_v2/nb-body.glb (the scene drax's JOIN body v2, b91df5a7a: the weapon fists out to about 0.78 of the shoulder half-width; only the six guard clips differ from v1)",
   "base_sha256": "a8a1a49828fe6791f82309cee711e4631142a96d84923355c2e148e139c7e2a1",
   "base_md5": "9346f3decc16f2b4f2c51df7b9a0c474",
@@ -81,7 +81,7 @@
  "clips": {
   "whirlwind": {
    "kind": "loop, channel",
-   "version": 6,
+   "version": 7,
    "seconds": 0.2667,
    "keys": 9,
    "revolution": {
@@ -91,6 +91,155 @@
     "measured_from": "main_tip, the port's bearing (atan2 y, x)",
     "rev_per_s": 3.75,
     "ruling": "Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"
+   },
+   "v7": {
+    "ruling": "R-C9-108",
+    "direction": "Matt: 'The arms are crazy in the whirlwind v6. Please ultra think through how we can simply use a slightly extended version of the current battle stance'",
+    "recipe": "NO SOLVER: one frame of his battle stance (the JOIN hold v3 idle: idle_guard at its half-second mark + the hold's guard layers at weight 1); both arms extended by two edits, mirrored -- the upper arm raised forward about his shoulder line, the elbow opened about its own hinge -- every other bone untouched, the hand and weapon riding with the forearm; the whole character spun rigidly (scripts/j_whirl7_pose.py, scripts/j_whirl5.py --no-head)",
+    "variant_A": {
+     "shoulder_deg": 15,
+     "elbow_deg": 15,
+     "shipped": true,
+     "before": {
+      "R": {
+       "upper_arm_forward_deg": -33.1,
+       "elbow_bend_deg": 98.5,
+       "fist_side": 0.843,
+       "grip_y_m": 0.996
+      },
+      "L": {
+       "upper_arm_forward_deg": -17.5,
+       "elbow_bend_deg": 87.3,
+       "fist_side": 1.18,
+       "grip_y_m": 0.996
+      }
+     },
+     "after": {
+      "R": {
+       "upper_arm_forward_deg": -18.1,
+       "elbow_bend_deg": 83.5,
+       "fist_side": 0.927,
+       "grip_y_m": 0.963
+      },
+      "L": {
+       "upper_arm_forward_deg": -2.5,
+       "elbow_bend_deg": 72.3,
+       "fist_side": 1.289,
+       "grip_y_m": 0.985
+      }
+     },
+     "no_crossed_arms": {
+      "verdict": "PASS",
+      "screen_frames_failing": 0,
+      "least_side_m": {
+       "wrist_L": {
+        "m": 0.259,
+        "t": 0.1333
+       },
+       "wrist_R": {
+        "m": 0.207,
+        "t": 0.1
+       },
+       "elbow_L": {
+        "m": 0.256,
+        "t": 0.1333
+       },
+       "elbow_R": {
+        "m": 0.247,
+        "t": 0.1
+       },
+       "tip_axe_L": {
+        "m": 0.854,
+        "t": 0.1
+       },
+       "tip_sword_R": {
+        "m": 0.661,
+        "t": 0.1333
+       }
+      }
+     }
+    },
+    "variant_B": {
+     "shoulder_deg": 25,
+     "elbow_deg": 25,
+     "shipped": false,
+     "pose": "work/whirl_v7_pose_B.json",
+     "joint_limits": "PASS",
+     "no_crossed_arms": "PASS",
+     "penetration": "0 (work/jm_whirl_v7B.json)",
+     "edges": {
+      "weapon_r": {
+       "cos_min": 0.618,
+       "cos_median": 0.618,
+       "share_ge_0_8": 0.0
+      },
+      "weapon_l": {
+       "cos_min": -0.77,
+       "cos_median": -0.77,
+       "share_ge_0_8": 0.0
+      }
+     },
+     "flats_to_camera": {
+      "weapon_r": {
+       "worst": 0.002,
+       "share_ge_0_5": 0.47
+      },
+      "weapon_l": {
+       "worst": 0.123,
+       "share_ge_0_5": 0.561
+      }
+     }
+    },
+    "stance_pose": "work/whirl_v7_pose_stance.json",
+    "contract_rows_now_failing": {
+     "edges": {
+      "weapon_r": {
+       "cos_min": 0.657,
+       "cos_median": 0.658,
+       "share_ge_0_8": 0.0
+      },
+      "weapon_l": {
+       "cos_min": -0.793,
+       "cos_median": -0.793,
+       "share_ge_0_8": 0.0
+      }
+     },
+     "flats_to_camera": {
+      "weapon_r": {
+       "worst": 0.026,
+       "share_ge_0_5": 0.5
+      },
+      "weapon_l": {
+       "worst": 0.128,
+       "share_ge_0_5": 0.53
+      }
+     },
+     "why": "measured, not tuned (the ruling): the battle stance holds the weapons for a guard, not for a spin -- an X, the hafts up and outboard -- so the sword's edge leads at cos 0.66 and the axe's edge TRAILS (cos -0.79), and from some headings a blade is seen edge-on (worst |flat . view| 0.03 sword, 0.13 axe); the stance frozen without the edits measures the same (0.71 / -0.83; 0.08 / 0.15)"
+    },
+    "v6_for_comparison": {
+     "edges": {
+      "weapon_r": {
+       "cos_min": 0.967,
+       "cos_median": 0.967,
+       "share_ge_0_8": 1.0
+      },
+      "weapon_l": {
+       "cos_min": 0.933,
+       "cos_median": 0.933,
+       "share_ge_0_8": 1.0
+      }
+     },
+     "flats_to_camera": {
+      "weapon_r": {
+       "worst": 0.466,
+       "share_ge_0_5": 0.841
+      },
+      "weapon_l": {
+       "worst": 0.473,
+       "share_ge_0_5": 0.875
+      }
+     }
+    }
    },
    "v6": {
     "direction": "Matt 2026-09-30: 'Whirlwind speed is good but the arms are crossed'; the conductor: each hand at about his shoulder half-width along the shoulder line, forearms roughly parallel, never converging; blades out front, a shallow V, never converging",
@@ -112,38 +261,35 @@
      "verdict": "PASS",
      "least_side_m": {
       "wrist_L": {
-       "m": 0.139,
+       "m": 0.259,
        "t": 0.1333
       },
       "wrist_R": {
-       "m": 0.13,
+       "m": 0.207,
        "t": 0.1
       },
       "elbow_L": {
-       "m": 0.121,
+       "m": 0.256,
        "t": 0.1333
       },
       "elbow_R": {
-       "m": 0.116,
+       "m": 0.247,
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.319,
-       "t": 0.2
+       "m": 0.854,
+       "t": 0.1
       },
       "tip_sword_R": {
-       "m": 0.354,
-       "t": 0.2333
+       "m": 0.661,
+       "t": 0.1333
       }
      },
      "screen_frames_failing": 0,
      "record": "work/cross_check_whirlwind.json"
     },
     "pose": "j_whirl_pose.py --fist-side 1.0 (the FIST -- the weapon joint -- at his shoulder half-width along the levelled shoulder line: the JOIN hold v3's width, 75e4d79db, measured in this frame its fists average 1.01) --elbow-side-min 0.65 --forearm-par 0.06 (forearms roughly parallel) --splay 8 (each blade 8 deg out) --edge-min 0.995",
-    "fist_side_measured": {
-     "r": 1.05,
-     "l": 1.055
-    },
+    "fist_side_measured": "(the v6 record: work/whirl_v6_pose.json, terms.*.grip_side / half_w)",
     "fist_1_15_variant": {
      "pose": "work/whirl_v6_pose_fist1.15_variant.json",
      "note": "solved with --grip-y-w 600: the fists measure 1.16, grips at 1.20 m (raised), flats >= 0.515; one rebuild with scripts/j_whirl5.py if Matt picks 1.15"
@@ -156,28 +302,28 @@
      "verdict": "PASS",
      "least_side_m": {
       "wrist_L": {
-       "m": 0.139,
+       "m": 0.259,
        "t": 0.1333
       },
       "wrist_R": {
-       "m": 0.13,
+       "m": 0.207,
        "t": 0.1
       },
       "elbow_L": {
-       "m": 0.121,
+       "m": 0.256,
        "t": 0.1333
       },
       "elbow_R": {
-       "m": 0.116,
+       "m": 0.247,
        "t": 0.1
       },
       "tip_axe_L": {
-       "m": 0.319,
-       "t": 0.2
+       "m": 0.854,
+       "t": 0.1
       },
       "tip_sword_R": {
-       "m": 0.354,
-       "t": 0.2333
+       "m": 0.661,
+       "t": 0.1333
       }
      },
      "record": "work/cross_check_whirlwind.json",
@@ -219,147 +365,26 @@
    "params": {
     "head_tilt_deg": 8.0
    },
-   "authored_by": "scripts/j_whirl5.py (the body), scripts/j_whirl_pose.py on idle_guard@0.5 (the arms: work/whirl_v6_pose.json)",
+   "authored_by": "scripts/j_whirl7_pose.py (the pose, no solver: work/whirl_v7_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
    "stance": {
     "clip": "idle_guard (his battle stance), its pose at the half-second mark",
     "feet": "both flat and planted where the stance puts them; the whole body turns as one (the conductor: accepted)",
     "chest": "squared to his forward (Spine02)"
    },
    "arms": {
-    "terms": {
-     "r": {
-      "level": 0.0304,
-      "radial": 0.999,
-      "edge": 0.9778,
-      "grip_y": 1.0341,
-      "reach": 0.3091,
-      "elbow": 100.2761,
-      "wrist": 76.4106,
-      "arm_drop": 3.3238,
-      "clear_axis": 0.4883,
-      "clear_head": 0.575,
-      "side": 0.2216,
-      "fist_frac": 0.8774,
-      "wrist_side": 0.1296,
-      "elbow_side": 0.1157,
-      "half_w": 0.211,
-      "grip_side": 0.2216,
-      "wrist_flex": -66.9934,
-      "wrist_dev": -24.4229,
-      "forearm_twist": -80.6723,
-      "butt_clear": 0.1072,
-      "sep": 0.5357,
-      "hinge_cos": 0.7891
-     },
-     "l": {
-      "level": 0.0136,
-      "radial": 0.9999,
-      "edge": 0.9704,
-      "grip_y": 1.0071,
-      "reach": 0.5676,
-      "elbow": 37.2236,
-      "wrist": 66.4091,
-      "arm_drop": 27.9102,
-      "clear_axis": 0.7207,
-      "clear_head": 0.7681,
-      "side": 0.2227,
-      "fist_frac": 1.4235,
-      "wrist_side": 0.1391,
-      "elbow_side": 0.121,
-      "half_w": 0.211,
-      "grip_side": 0.2227,
-      "wrist_flex": -70.6308,
-      "wrist_dev": 32.223,
-      "forearm_twist": 80.0989,
-      "butt_clear": 0.104,
-      "sep": 0.5357,
-      "hinge_cos": 0.7976
-     }
-    },
-    "solve": {
-     "blade_pitch_deg": 20.0,
-     "reach_max_m": 0.46,
-     "grip_y_m": 1.2,
-     "hinge_cos_min": 0.8,
-     "fist_frac": null,
-     "joint_axes": "work/joint_lint.json",
-     "wrist_flex_max_deg": 70.0,
-     "wrist_dev_max_deg": 32.0,
-     "forearm_twist_max_deg": 80.0,
-     "edge_min": 0.995,
-     "double_edged_r": true,
-     "wrist_side_frac": null,
-     "splay_deg": 8.0,
-     "fist_side_frac": 1.0,
-     "forearm_par_m": 0.06,
-     "elbow_side_min_frac": 0.65,
-     "argv": [
-      "--stance",
-      "idle_guard@0.5",
-      "--baseball",
-      "0",
-      "--splay",
-      "8",
-      "--blade-pitch",
-      "20",
-      "--sep",
-      "0.25",
-      "--fist-side",
-      "1.0",
-      "--elbow-side-min",
-      "0.65",
-      "--forearm-par",
-      "0.06",
-      "--radial-w",
-      "100",
-      "--wrist-max",
-      "75",
-      "--elbow-max",
-      "100",
-      "--reach-min",
-      "0.38",
-      "--reach-max",
-      "0.46",
-      "--grip-y",
-      "1.20",
-      "--butt-clear",
-      "0.11",
-      "--hinge-cos",
-      "0.8",
-      "--joint-axes",
-      "work/joint_lint.json",
-      "--edge-min",
-      "0.995",
-      "--forearm-twist-max",
-      "80",
-      "--double-edged-r"
-     ]
-    },
-    "blade_pitch_deg": {
-     "chosen": 20.0,
-     "why": "halfway between v3 (level, 0) and the hold's guard (the haft 55 deg from vertical = 35 above horizontal). Tried at 40: the play camera (pitched 52.95 deg down) then looks almost straight down the blade from in front -- worst flat 0.22, foreshortened to a point (scratch w5.glb); at 28: worst flat 0.42; at 20: 0.52"
-    },
-    "lead_into_spin_deg": 0,
-    "fist_frac": {
-     "target": null,
-     "measured": {
-      "r": 0.8774,
-      "l": 1.4235
-     },
-     "definition": "the JOIN hold v2's FIST row (join_accept.gd): grip off the chest joint (Spine) along its basis's +-X over the same side's shoulder"
-    },
-    "elbow": "bent the way the stance bends it (hinge cos >= 0.8 against the stance's own bend direction), about 100 deg",
-    "wrist": "inside the joint lint's limits (deviation <= 32, flexion <= 70, forearm twist <= 80 deg); no turn into the spin",
-    "sword_double_edged": "the sword is double-edged (nb_w2/scripts/w5_measure.py), so either edge may lead; the axe's single edge leads as before (checker --double-edged weapon_r)"
+    "rule": "v7: the stance's own arms, each extended by two edits (see v7); no solver",
+    "earlier": "v4-v6 solved the arms per target (work/whirl_v4_pose.json, whirl_v5_pose.json, whirl_v6_pose.json)",
+    "sword_double_edged": "the sword is double-edged (nb_w2/scripts/w5_measure.py): the checker reads either edge"
    },
    "head": {
-    "rule": "toward the blades' bearing, tilted toward the spin, constant",
-    "facing_off_blade_bearing_deg": -1.76,
+    "rule": "v7: the stance's own head, untouched (j_whirl5.py --no-head)",
+    "facing_off_blade_bearing_deg": -28.16,
     "facing_from": "headfront - Head",
-    "tilt_deg": 8.0
+    "tilt_deg": 0.0,
+    "untouched": true
    },
    "checked": {
-    "instrument": "scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v6_check.json)",
+    "instrument": "scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v7_check.json)",
     "closure_m": 0.0,
     "hips_orbit_m": {
      "max": 0.0,
@@ -371,24 +396,24 @@
     },
     "edges": {
      "weapon_r": {
-      "cos_min": 0.967,
-      "cos_median": 0.967,
-      "share_ge_0_8": 1.0
+      "cos_min": 0.657,
+      "cos_median": 0.658,
+      "share_ge_0_8": 0.0
      },
      "weapon_l": {
-      "cos_min": 0.933,
-      "cos_median": 0.933,
-      "share_ge_0_8": 1.0
+      "cos_min": -0.793,
+      "cos_median": -0.793,
+      "share_ge_0_8": 0.0
      }
     },
     "flats_to_camera": {
      "weapon_r": {
-      "worst": 0.466,
-      "share_ge_0_5": 0.841
+      "worst": 0.026,
+      "share_ge_0_5": 0.5
      },
      "weapon_l": {
-      "worst": 0.473,
-      "share_ge_0_5": 0.875
+      "worst": 0.128,
+      "share_ge_0_5": 0.53
      }
     }
    },
@@ -399,29 +424,29 @@
     "worst": {
      "elbow_L": {
       "flex_min": {
-       "deg": 19.0,
-       "t": 0.0
+       "deg": 64.6,
+       "t": 0.0333
       },
       "lateral_worst": {
-       "deg": -15.0,
+       "deg": -32.5,
        "t": 0.0333
       },
       "flex_max": {
-       "deg": 19.0,
-       "t": 0.1
+       "deg": 64.6,
+       "t": 0.0
       }
      },
      "elbow_R": {
       "flex_min": {
-       "deg": 35.5,
-       "t": 0.1
+       "deg": 80.1,
+       "t": 0.0333
       },
       "lateral_worst": {
-       "deg": 94.6,
-       "t": 0.1
+       "deg": 23.6,
+       "t": 0.0
       },
       "flex_max": {
-       "deg": 35.5,
+       "deg": 80.1,
        "t": 0.0
       }
      },
@@ -455,29 +480,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 32.2,
-       "t": 0.0
+       "deg": 0.0,
+       "t": 0.0333
       },
       "flex_worst": {
-       "deg": -70.6,
+       "deg": 0.0,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": 80.1,
+       "deg": -104.1,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": -24.4,
+       "deg": 0.0,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": -67.0,
+       "deg": 0.0,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": -80.7,
+       "deg": 89.3,
        "t": 0.0
       }
      }
@@ -615,12 +640,12 @@
    "reads_in_8_directions": {
     "worst_flat_facing_cos": {
      "weapon_r": {
-      "worst": 0.466,
-      "share_ge_0_5": 0.841
+      "worst": 0.026,
+      "share_ge_0_5": 0.5
      },
      "weapon_l": {
-      "worst": 0.473,
-      "share_ge_0_5": 0.875
+      "worst": 0.128,
+      "share_ge_0_5": 0.53
      }
     },
     "definition": "|flat normal . view| over the 8 contract directions and 120 samples a cycle (scripts/j_whirl_check.py)"
@@ -1428,6 +1453,11 @@
    "whirlwind": "weapons held out in front, blades angled into the spin; the footwork by text to animation or a feet-on-ground pivot; the head toward the blades, tilted toward the spin -- done: clips.whirlwind (v3), the pivot (text-to-motion not run: refused by the session's permission system)",
    "hands": "the weapon hands out toward shoulder width, not crossed in (the guards and the hold are the scene drax's)"
   },
+  "whirlwind_v7": {
+   "by": "Matt, 2026-09-30; the conductor's ruling R-C9-108",
+   "said": "The arms are crazy in the whirlwind v6 ... simply use a slightly extended version of the current battle stance",
+   "done": "clips.whirlwind (v7, variant A): one stance frame + two arm edits + a rigid spin; no solver"
+  },
   "whirlwind_v6": {
    "by": "Matt, 2026-09-30, relayed by the conductor",
    "said": "Whirlwind speed is good but the arms are crossed",
@@ -1724,7 +1754,7 @@
    }
   },
   "at_pack_frames": {
-   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v7.json",
+   "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v8.json",
    "states": {
     "idle": {
      "clip": "idle_guard",
@@ -1803,24 +1833,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1254,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9642,
+    "floor_lowest_m": 0.8622,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 24.78,
-    "blade_turn_max_deg_per_sec": 1253.3,
+    "tip_speed_max_m_per_sec": 23.29,
+    "blade_turn_max_deg_per_sec": 1045.1,
     "blade_turn_max_between_t_s": [
-     0.075,
-     0.0833
+     0.0417,
+     0.05
     ],
     "tilt_deg": [
-     68.1,
-     68.1
+     50.7,
+     50.7
     ],
-    "tip_lowest_m": 1.323,
-    "tip_highest_m": 1.323,
+    "tip_lowest_m": 1.455,
+    "tip_highest_m": 1.455,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 0.9642,
-     "tilt_deg": 68.1
+     "lowest_m": 0.8622,
+     "tilt_deg": 50.7
     }
    },
    "axe": {
@@ -1828,24 +1858,24 @@
     "pen_keys": 0,
     "pen_tested_max": 1730,
     "pen_at_t_s": [],
-    "floor_lowest_m": 0.9272,
+    "floor_lowest_m": 0.887,
     "floor_lowest_at_t_s": 0.0,
-    "tip_speed_max_m_per_sec": 32.6,
-    "blade_turn_max_deg_per_sec": 1262.1,
+    "tip_speed_max_m_per_sec": 28.75,
+    "blade_turn_max_deg_per_sec": 1069.1,
     "blade_turn_max_between_t_s": [
-     0.05,
-     0.0583
+     0.0167,
+     0.025
     ],
     "tilt_deg": [
-     69.2,
-     69.2
+     52.4,
+     52.4
     ],
-    "tip_lowest_m": 1.245,
-    "tip_highest_m": 1.245,
+    "tip_lowest_m": 1.403,
+    "tip_highest_m": 1.403,
     "last": {
      "t_s": 0.2667,
-     "lowest_m": 0.9272,
-     "tilt_deg": 69.2
+     "lowest_m": 0.887,
+     "tilt_deg": 52.4
     }
    }
   },
@@ -2037,7 +2067,7 @@
  },
  "validation": {
   "what": "the renderer's sockets (main_grip, main_tip, off_grip, off_tip, chest) against j_measure.py's composite at the pack's own t_s, every direction and frame of the move states, in the port frame; the tips as grip + L x the weapon's +Y",
-  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v7.json",
+  "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb_v8.json",
   "states": {
    "whirlwind": {
     "worst_m": 1e-05,
@@ -2085,11 +2115,15 @@
    "stills": "stills/join8_whirlwind_* (8 headings)",
    "compare": "artifacts/JOIN-whirlwind-v5-vs-v6-heading1-t0.png"
   },
+  "whirlwind_v7": {
+   "sheet": "artifacts/JOIN-whirlwind-v7-stance-A-B-8headings.png (frozen)",
+   "film": "artifacts/JOIN-v7-whirlwind-A-then-B-film-2x.mp4"
+  },
   "pack": "join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired"
  },
  "look_calls_for_matt": [
   "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-  "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both fists at his shoulder width (the JOIN hold v3's), forearms roughly parallel (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the blades, tilted toward the spin."
+  "WHIRLWIND v7 (A): his battle stance exactly (the JOIN hold v3 idle), both arms extended a little -- the upper arm 15 deg forward, the elbow opened 15 deg -- and nothing else, spun as one at 3.75 rev/s. Variant B (25 / 25) is on the sheet."
  ],
  "joint_limits": {
   "instrument": "scripts/j_joint_lint.py",
@@ -2162,29 +2196,29 @@
     "worst": {
      "elbow_L": {
       "flex_min": {
-       "deg": 19.0,
-       "t": 0.0
+       "deg": 64.6,
+       "t": 0.0333
       },
       "lateral_worst": {
-       "deg": -15.0,
+       "deg": -32.5,
        "t": 0.0333
       },
       "flex_max": {
-       "deg": 19.0,
-       "t": 0.1
+       "deg": 64.6,
+       "t": 0.0
       }
      },
      "elbow_R": {
       "flex_min": {
-       "deg": 35.5,
-       "t": 0.1
+       "deg": 80.1,
+       "t": 0.0333
       },
       "lateral_worst": {
-       "deg": 94.6,
-       "t": 0.1
+       "deg": 23.6,
+       "t": 0.0
       },
       "flex_max": {
-       "deg": 35.5,
+       "deg": 80.1,
        "t": 0.0
       }
      },
@@ -2218,29 +2252,29 @@
      },
      "wrist_L": {
       "dev_worst": {
-       "deg": 32.2,
-       "t": 0.0
+       "deg": 0.0,
+       "t": 0.0333
       },
       "flex_worst": {
-       "deg": -70.6,
+       "deg": 0.0,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": 80.1,
+       "deg": -104.1,
        "t": 0.0
       }
      },
      "wrist_R": {
       "dev_worst": {
-       "deg": -24.4,
+       "deg": 0.0,
        "t": 0.0
       },
       "flex_worst": {
-       "deg": -67.0,
+       "deg": 0.0,
        "t": 0.0
       },
       "twist_worst": {
-       "deg": -80.7,
+       "deg": 89.3,
        "t": 0.0
       }
      }
@@ -2568,7 +2602,7 @@
   },
   "negative_control": {
    "what": "clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge",
-   "elbow_R_flex": -58.7,
+   "elbow_R_flex": -44.2,
    "verdict": "FAIL"
   },
   "record": "work/joint_lint.json"

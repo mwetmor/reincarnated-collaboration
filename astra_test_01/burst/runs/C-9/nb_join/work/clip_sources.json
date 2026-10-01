@@ -114,14 +114,14 @@
   },
   "whirlwind": {
    "source": null,
-   "path": "j_whirl5.py (authored: his battle stance turned as one) + j_whirl_pose.py on idle_guard@0.5 (the solved arms, blades pitched up 20 deg)",
+   "path": "j_whirl7_pose.py (one frame of his battle stance + two joint edits, no solver) -> j_whirl5.py --no-head (a rigid spin)",
    "loop": true,
    "grid_source": "../nb_t8/nbt_idle.glb",
    "grid_window": [
     0.0333,
     0.3
    ],
-   "note": "authored v6 (Matt 2026-09-30: 'Whirlwind speed is good but the arms are crossed'): his idle battle stance (idle_guard at 0.5 s, its legs exactly), feet planted, the whole body turning as one, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid; each FIST at his shoulder half-width along the shoulder line (target 1.0, the JOIN hold v3's width; measured 1.05), the forearms roughly parallel (elbows 0.12 m out, wrists 0.13), the blades out front pitched 20 deg up and splayed 8 deg out to their own sides; the head toward the blades, tilted 8 deg toward the spin"
+   "note": "authored v7 (ruling R-C9-108; Matt: 'a slightly extended version of the current battle stance'): ONE frame of his battle stance (the JOIN hold v3 idle: idle_guard at 0.5 s with the hold's guard layers at weight 1), both arms extended by two edits only -- the upper arm raised 15 deg forward about his shoulder line, the elbow opened 15 deg about its hinge (variant A) -- every other bone as the stance has it; the whole character spun rigidly about the vertical through his hips, one CCW revolution in 8/30 s (3.75 rev/s), 9 keys on the 30 fps grid"
   },
   "attack": {
    "source": "../nb_t8/nbt_attack.glb",

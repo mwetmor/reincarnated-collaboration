@@ -21,7 +21,9 @@ w2, w2c, w2p, w2l = J("work", "whirl_v2.json"), J("work", "whirl_v2_check.json")
 w1c = J("work", "whirl_v1_check.json"); wcr, wcl = J("work", "warcry_v6.json"), J("work", "warcry_v6_clamp.json"); wc4 = J("work", "warcry_v4.json"); xc = J("work", "cross_check_shout.json")
 wc5 = J("work", "warcry_v5.json"); xw = J("work", "cross_check_whirlwind.json"); w4v = J("work", "whirl_v4_check.json")
 w3, w3c, w3p = J("work", "whirl_v3.json"), J("work", "whirl_v3_check.json"), J("work", "whirl_v3_pose.json")
-w4, w4c, w4p = J("work", "whirl_v6.json"), J("work", "whirl_v6_check.json"), J("work", "whirl_v6_pose.json")    # v6 (the names kept)
+w4, w4c, w4p = J("work", "whirl_v7.json"), J("work", "whirl_v7_check.json"), J("work", "whirl_v7_pose_A.json")    # v7 (the names kept)
+w7b, w7bx, w7bj = J("work", "whirl_v7_B_check.json"), J("work", "cross_check_whirlwind_v7B.json"), J("work", "joint_lint_whirlwind_v7B.json")
+w6c = J("work", "whirl_v6_check.json")
 xw5 = J("work", "cross_check_whirlwind_v5.json")
 wc3 = J("work", "warcry_v3.json"); jl = J("work", "joint_lint.json")
 wc2 = J("work", "warcry_v2.json")
@@ -110,9 +112,29 @@ m = dict(
         hit=dict(clip="hit", layers=["guard_R", "guard_L"]),
         death=dict(clip="death", layers=["guard_R_death", "guard_L_death"])),
     clips=dict(
-        whirlwind=dict(kind="loop, channel", version=6, seconds=round(w4["cycle"]["T"], 4), keys=w4["cycle"]["keys"],
+        whirlwind=dict(kind="loop, channel", version=7, seconds=round(w4["cycle"]["T"], 4), keys=w4["cycle"]["keys"],
                        revolution=dict(cycles=1, sense="ccw", revolution_deg=w4c["revolution_deg"], measured_from="main_tip, the port's bearing (atan2 y, x)",
                                        rev_per_s=w4["cycle"]["rev_per_s"], ruling="Matt 2026-09-21: a right-hander turns counter-clockwise, revolution_deg < 0"),
+                       v7=dict(ruling="R-C9-108", direction="Matt: 'The arms are crazy in the whirlwind v6. Please ultra think through how we "
+                                                             "can simply use a slightly extended version of the current battle stance'",
+                               recipe="NO SOLVER: one frame of his battle stance (the JOIN hold v3 idle: idle_guard at its half-second mark + the hold's "
+                                      "guard layers at weight 1); both arms extended by two edits, mirrored -- the upper arm raised forward "
+                                      "about his shoulder line, the elbow opened about its own hinge -- every other bone untouched, the hand "
+                                      "and weapon riding with the forearm; the whole character spun rigidly (scripts/j_whirl7_pose.py, "
+                                      "scripts/j_whirl5.py --no-head)",
+                               variant_A=dict(shoulder_deg=15, elbow_deg=15, shipped=True, before=w4p["before"], after=w4p["after"],
+                                              no_crossed_arms=dict(verdict=xw["verdict"], screen_frames_failing=xw["screen_frames_failing"], least_side_m=xw["least_side_m"])),
+                               variant_B=dict(shoulder_deg=25, elbow_deg=25, shipped=False, pose="work/whirl_v7_pose_B.json",
+                                              joint_limits=w7bj["moves"]["whirlwind"]["verdict"], no_crossed_arms=w7bx["verdict"],
+                                              penetration="0 (work/jm_whirl_v7B.json)", edges=w7b["edges"], flats_to_camera=w7b["flats_to_camera"]),
+                               stance_pose="work/whirl_v7_pose_stance.json",
+                               contract_rows_now_failing=dict(edges=w4c["edges"], flats_to_camera=w4c["flats_to_camera"],
+                                                              why="measured, not tuned (the ruling): the battle stance holds the weapons for "
+                                                                  "a guard, not for a spin -- an X, the hafts up and outboard -- so the sword's "
+                                                                  "edge leads at cos 0.66 and the axe's edge TRAILS (cos -0.79), and from some "
+                                                                  "headings a blade is seen edge-on (worst |flat . view| 0.03 sword, 0.13 axe); "
+                                                                  "the stance frozen without the edits measures the same (0.71 / -0.83; 0.08 / 0.15)"),
+                               v6_for_comparison=dict(edges=w6c["edges"], flats_to_camera=w6c["flats_to_camera"])),
                        v6=dict(direction="Matt 2026-09-30: 'Whirlwind speed is good but the arms are crossed'; the conductor: each hand "
                                          "at about his shoulder half-width along the shoulder line, forearms roughly parallel, never converging; "
                                          "blades out front, a shallow V, never converging",
@@ -131,7 +153,7 @@ m = dict(
                                     "the levelled shoulder line: the JOIN hold v3's width, 75e4d79db, measured in this frame its fists average "
                                     "1.01) --elbow-side-min 0.65 --forearm-par 0.06 (forearms roughly parallel) --splay 8 (each blade 8 deg "
                                     "out) --edge-min 0.995",
-                               fist_side_measured={s_: round(w4p["terms"][s_]["grip_side"] / w4p["terms"][s_]["half_w"], 3) for s_ in ("r", "l")},
+                               fist_side_measured="(the v6 record: work/whirl_v6_pose.json, terms.*.grip_side / half_w)",
                                fist_1_15_variant=dict(pose="work/whirl_v6_pose_fist1.15_variant.json", note="solved with --grip-y-w 600: the "
                                                       "fists measure 1.16, grips at 1.20 m (raised), flats >= 0.515; one rebuild with "
                                                       "scripts/j_whirl5.py if Matt picks 1.15"),
@@ -154,25 +176,14 @@ m = dict(
                                   "the spin about 3x faster; the blades pointed more upward, about halfway between v3's outstretched "
                                   "arms and a normal battle stance, not completely out"),
                        method=w4["method"], params=w4["params"],
-                       authored_by="scripts/j_whirl5.py (the body), scripts/j_whirl_pose.py on idle_guard@0.5 (the arms: work/whirl_v6_pose.json)",
+                       authored_by="scripts/j_whirl7_pose.py (the pose, no solver: work/whirl_v7_pose_A.json), scripts/j_whirl5.py --no-head (the spin)",
                        stance=dict(clip="idle_guard (his battle stance), its pose at the half-second mark", feet="both flat and planted where the stance puts "
                                    "them; the whole body turns as one (the conductor: accepted)", chest="squared to his forward (Spine02)"),
-                       arms=dict(terms=w4p["terms"], solve=w4p.get("v4"),
-                                 blade_pitch_deg=dict(chosen=w4p["v4"]["blade_pitch_deg"],
-                                                      why="halfway between v3 (level, 0) and the hold's guard (the haft 55 deg from vertical "
-                                                          "= 35 above horizontal). Tried at 40: the play camera (pitched 52.95 deg down) then "
-                                                          "looks almost straight down the blade from in front -- worst flat 0.22, foreshortened "
-                                                          "to a point (scratch w5.glb); at 28: worst flat 0.42; at 20: 0.52"),
-                                 lead_into_spin_deg=0, fist_frac=dict(target=w4p["v4"]["fist_frac"], measured={s_: w4p["terms"][s_]["fist_frac"] for s_ in ("r", "l")},
-                                                                      definition="the JOIN hold v2's FIST row (join_accept.gd): grip off the chest joint "
-                                                                                 "(Spine) along its basis's +-X over the same side's shoulder"),
-                                 elbow="bent the way the stance bends it (hinge cos >= 0.8 against the stance's own bend direction), "
-                                       "about 100 deg", wrist="inside the joint lint's limits (deviation <= 32, flexion <= 70, forearm "
-                                       "twist <= 80 deg); no turn into the spin",
-                                 sword_double_edged="the sword is double-edged (nb_w2/scripts/w5_measure.py), so either edge may lead; "
-                                                    "the axe's single edge leads as before (checker --double-edged weapon_r)"),
-                       head=dict(rule="toward the blades' bearing, tilted toward the spin, constant", **w4["head"]),
-                       checked=dict(instrument="scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v6_check.json)", closure_m=w4c["closure_m"],
+                       arms=dict(rule="v7: the stance's own arms, each extended by two edits (see v7); no solver",
+                                 earlier="v4-v6 solved the arms per target (work/whirl_v4_pose.json, whirl_v5_pose.json, whirl_v6_pose.json)",
+                                 sword_double_edged="the sword is double-edged (nb_w2/scripts/w5_measure.py): the checker reads either edge"),
+                       head=dict(rule="v7: the stance's own head, untouched (j_whirl5.py --no-head)", **w4["head"]),
+                       checked=dict(instrument="scripts/j_whirl_check.py --double-edged weapon_r (work/whirl_v7_check.json)", closure_m=w4c["closure_m"],
                                     hips_orbit_m=w4c["hips_orbit_m"], edges=w4c["edges"], flats_to_camera=w4c["flats_to_camera"]),
                        joint_limits=jl["moves"]["whirlwind"],
                        v3_for_comparison=dict(record="work/whirl_v3_check.json", seconds=round(w3["cycle"]["T"], 4), ball_orbit=w3["ball_orbit"],
@@ -274,6 +285,9 @@ m = dict(
                                    "feet-on-ground pivot; the head toward the blades, tilted toward the spin -- done: clips.whirlwind (v3), "
                                    "the pivot (text-to-motion not run: refused by the session's permission system)",
                          hands="the weapon hands out toward shoulder width, not crossed in (the guards and the hold are the scene drax's)"),
+                 whirlwind_v7=dict(by="Matt, 2026-09-30; the conductor's ruling R-C9-108", said="The arms are crazy in the whirlwind v6 ... "
+                                   "simply use a slightly extended version of the current battle stance",
+                                   done="clips.whirlwind (v7, variant A): one stance frame + two arm edits + a rigid spin; no solver"),
                  whirlwind_v6=dict(by="Matt, 2026-09-30, relayed by the conductor", said="Whirlwind speed is good but the arms are crossed",
                                    done="clips.whirlwind (v6): wrists at the shoulder half-width, forearms opening outward, blades a shallow V"),
                  v6=dict(by="Matt, 2026-09-30, relayed by the conductor: his v5 notes were for the whirlwind",
@@ -342,12 +356,12 @@ m["deliverables"] = dict(stills="stills/join5_<clip>_t<time>_2x.png and _1x.png:
                          war_cry_v5=dict(film="artifacts/JOIN-v5-warcry-film-2x.mp4 (play speed, 2 headings)", stills="stills/join6_shout_t<sky 0.3, drop 0.9667, settle 1.1667>_1x/_2x.png, 8 headings"),
                          v6=dict(films=["artifacts/JOIN-v6-warcry-film-2x.mp4", "artifacts/JOIN-v5-whirlwind-film-2x.mp4"], stills="stills/join7_* (8 headings)"),
                          whirlwind_v6=dict(film="artifacts/JOIN-v6-whirlwind-film-2x.mp4", stills="stills/join8_whirlwind_* (8 headings)", compare="artifacts/JOIN-whirlwind-v5-vs-v6-heading1-t0.png"),
+                         whirlwind_v7=dict(sheet="artifacts/JOIN-whirlwind-v7-stance-A-B-8headings.png (frozen)", film="artifacts/JOIN-v7-whirlwind-A-then-B-film-2x.mp4"),
                          pack="join1_pack_draft/d2-ww-barb/matrix_index.json -- DRAFT; whirlwind and shout re-rendered, shout_raised retired")
 m["look_calls_for_matt"] = [
     "WAR CRY v6: v4's arms and blades at v4's 1.5x (1.40 s), on his battle-stance legs held and planted.",
-    "WHIRLWIND v6: his idle battle stance turning as one at 3.75 rev/s; both fists at his shoulder width (the JOIN hold v3's), "
-    "forearms roughly parallel (v5's crossed in an X), the blades out front 20 deg up in a shallow 8-deg V; the head toward the "
-    "blades, tilted toward the spin."]
+    "WHIRLWIND v7 (A): his battle stance exactly (the JOIN hold v3 idle), both arms extended a little -- the upper arm 15 deg "
+    "forward, the elbow opened 15 deg -- and nothing else, spun as one at 3.75 rev/s. Variant B (25 / 25) is on the sheet."]
 m["joint_limits"] = dict(instrument=jl["instrument"], limits_deg=jl["limits_deg"], learned=dict(jl["learned"], axes="(in work/joint_lint.json)"),
                          moves={c: dict(verdict=r["verdict"], failing_frames=r["failing_frames"], frames=r["frames"], worst=r["worst"])
                                 for c, r in jl["moves"].items()},

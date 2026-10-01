@@ -107,9 +107,11 @@ def hb(v):
 blade = sum(nrm(GP[nid[w]][:3, :3])[:, 1] for w in ('weapon_r', 'weapon_l'))
 face = GP[nid['headfront']][:3, 3] - GP[HEAD][:3, 3]
 dl = (hb(blade) - hb(face) + math.pi) % (2 * math.pi) - math.pi
+NOHEAD = '--no-head' in a                                                # v7 (R-C9-108): the stance's own head, untouched
+if NOHEAD: dl = 0.0
 REFR[NECKB] = Ry(0.4 * dl) @ REFR[NECKB]; REFR[HEAD] = Ry(dl) @ REFR[HEAD]
 hf = np.array([math.sin(hb(blade)), 0.0, math.cos(hb(blade))])
-REFR[HEAD] = W.axis_angle(hf, -HTILT) @ REFR[HEAD]                      # the crown toward his left, the way he turns
+if not NOHEAD: REFR[HEAD] = W.axis_angle(hf, -HTILT) @ REFR[HEAD]                      # the crown toward his left, the way he turns
 keys = np.arange(N + 1) / N
 POSES = []
 for k in range(N + 1):
@@ -157,6 +159,6 @@ with open(OUT, 'wb') as f:
 rep = dict(method="his battle stance (the solved pose) turned rigidly about the vertical through his hips; see the header",
            cycle=dict(T=T, keys=N + 1, fps=30, revolution="one, counter-clockwise (his left)", rev_per_s=round(1 / T, 3)),
            params=dict(head_tilt_deg=math.degrees(HTILT)), pose=os.path.basename(POSE),
-           head=dict(facing_off_blade_bearing_deg=round(head_off, 2), facing_from="headfront - Head", tilt_deg=math.degrees(HTILT)))
+           head=dict(facing_off_blade_bearing_deg=round(head_off, 2), facing_from="headfront - Head", tilt_deg=0.0 if NOHEAD else math.degrees(HTILT), untouched=NOHEAD))
 if '--json' in a: json.dump(rep, open(a[a.index('--json') + 1], 'w'), indent=1)
 print(json.dumps({k: rep[k] for k in ('cycle', 'head')}))
