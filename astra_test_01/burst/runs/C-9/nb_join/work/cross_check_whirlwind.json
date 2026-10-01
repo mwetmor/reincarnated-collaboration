@@ -1,51 +1,28 @@
 {
  "instrument": "scripts/j_cross_check.py",
  "body": "nb-body_join.glb",
- "clip": "shout",
- "keys": 71,
+ "clip": "whirlwind",
+ "keys": 9,
  "verdict": "PASS",
  "negative_control": false,
  "wrists_crossed_at_t": [],
- "tips_crossed_at_t": [
-  0.1,
-  0.1333,
-  0.1333,
-  0.1667,
-  0.1667,
-  0.2,
-  0.3,
-  0.3333,
-  0.3333,
-  0.5667,
-  0.5667,
-  0.6,
-  0.6333,
-  0.6333,
-  0.6667,
-  0.6667,
-  0.7,
-  0.7333,
-  0.7333,
-  0.7667,
-  0.7667,
-  0.8
- ],
+ "tips_crossed_at_t": [],
  "least_side_m": {
   "wrist_L": {
    "m": 0.137,
-   "t": 0.1
-  },
-  "wrist_R": {
-   "m": 0.119,
-   "t": 0.1
-  },
-  "tip_axe_L": {
-   "m": -0.71,
    "t": 0.1333
   },
+  "wrist_R": {
+   "m": 0.132,
+   "t": 0.2333
+  },
+  "tip_axe_L": {
+   "m": 0.219,
+   "t": 0.1
+  },
   "tip_sword_R": {
-   "m": -0.522,
-   "t": 0.1667
+   "m": 0.218,
+   "t": 0.1333
   }
  },
  "definition": "side of his sagittal plane (shoulder midpoint, normal = the levelled shoulder line), metres, > 0 = own side"
