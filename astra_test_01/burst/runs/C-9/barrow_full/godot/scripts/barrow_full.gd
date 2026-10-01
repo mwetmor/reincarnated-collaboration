@@ -2332,6 +2332,8 @@ func _her_line() -> String:
 			var at: Dictionary = fbr.get("atlas", {})
 			fb = "baked(pages=%d,px=%dx%d,frames=%d,impact_sets=%d,sha_ok)" % [int(at.get("pages", 0)), int((at.get("px", [0, 0]) as Array)[0]),
 				int((at.get("px", [0, 0]) as Array)[1]), int(at.get("frames", 0)), int(at.get("impact_sets", 0))]
+			if bool(spell_fx.fire_ball.tighten):
+				fb += "+c75"                    # ?fb=c75 (R-C9-110): the burst tightened to 0.75
 		else:
 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
 	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",

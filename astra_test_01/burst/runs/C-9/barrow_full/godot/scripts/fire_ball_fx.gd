@@ -52,7 +52,16 @@ render_mode unshaded, blend_premul_alpha, depth_draw_never, cull_disabled, shado
 uniform sampler2DArray atlas : filter_linear, repeat_disable;
 uniform sampler2D frame_table : filter_nearest, repeat_disable;
 uniform vec2 atlas_px;
+// ?fb=c75 (R-C9-110, Matt: "a bit too wide/large of a blast zone. It needs to be condensed"): the burst and its
+// floor light TIGHTENED, not scaled -- drawn at tighten_k of their size about the burst's point, and read back
+// through a radial remap (display radius u -> source radius u^tighten_g of the burst's reach) so the core keeps
+// its size and density while the outer flames and the flash's spread come in. Same frames, same brightness.
+uniform float tighten_k = 0.75;
+uniform float tighten_g = 1.35;
+uniform float tighten_r = 250.0;          // the burst's visible reach in kit px (its widest frames' half-width, 485-520 px wide)
 varying vec3 v_uv;
+varying flat vec4 v_rect;                 // the frame's atlas rect (x, y, w, h), for the remap
+varying flat vec3 v_off;                  // its offset from the anchor (x, y) and its page
 varying vec2 v_px;
 varying vec3 v_tint;
 varying vec3 v_mode;             // alpha, mode (0 atlas / 1 mote diamond), the diamond's half size
@@ -61,12 +70,24 @@ void vertex() {
 	vec4 cst = INSTANCE_CUSTOM;
 	vec2 q = VERTEX.xy;          // the unit quad, 0..1, y DOWN (screen-like)
 	vec2 px;
-	if (cst.b < 0.5) {
+	if (cst.b < 0.5 || cst.b > 1.5) {
 		int fi = int(cst.r + 0.5);
 		vec4 r = texelFetch(frame_table, ivec2(fi, 0), 0);
 		vec4 o = texelFetch(frame_table, ivec2(fi, 1), 0);
 		px = o.xy + q * r.zw;
 		v_uv = vec3((r.xy + q * r.zw) / atlas_px, o.z);
+		v_rect = r;
+		v_off = o.xyz;
+		if (cst.b > 1.5) {
+			// MODE 2: the tightened burst. The remap bends the frame's straight edges, so the drawn quad is a
+			// square about the burst's point reaching the display radius of the frame's farthest corner; the
+			// fragment reads back only what falls inside the frame's own rect
+			vec2 c0 = o.xy;
+			vec2 c1 = o.xy + r.zw;
+			float dmax = max(max(length(c0), length(c1)), max(length(vec2(c0.x, c1.y)), length(vec2(c1.x, c0.y))));
+			float reach = tighten_r * tighten_k * pow(dmax / tighten_r, 1.0 / tighten_g);
+			px = (q * 2.0 - 1.0) * reach;
+		}
 	} else {
 		float h = cst.a + 1.0;
 		px = (q * 2.0 - 1.0) * h;
@@ -78,6 +99,18 @@ void vertex() {
 	v_mode = vec3(cst.g, cst.b, cst.a);
 }
 
+vec4 tightened() {
+	// the display radius, as a fraction of the drawn reach, read back from the source at its power
+	float R = tighten_r * tighten_k;
+	float u = length(v_px) / R;
+	vec2 dir = v_px / max(length(v_px), 1e-4);
+	float s = pow(clamp(u, 0.0, 4.0), tighten_g) * tighten_r;
+	vec2 src = dir * s;                                    // source px from the anchor
+	vec2 in_rect = src - v_off.xy;                         // px inside the frame's rect
+	if (any(lessThan(in_rect, vec2(0.0))) || any(greaterThan(in_rect, v_rect.zw))) { return vec4(0.0); }
+	return texture(atlas, vec3((v_rect.xy + in_rect) / atlas_px, v_off.z));
+}
+
 float lin(float c) {
 	return c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4);
 }
@@ -86,6 +119,8 @@ void fragment() {
 	vec4 t;
 	if (v_mode.y < 0.5) {
 		t = texture(atlas, v_uv);
+	} else if (v_mode.y > 1.5) {
+		t = tightened();
 	} else {
 		// the kit's Polygon2D diamond: hard-edged, a pixel is in when its centre is (|x| + |y| <= half)
 		t = vec4(v_tint * step(abs(v_px.x) + abs(v_px.y), v_mode.z), 0.0);
@@ -102,6 +137,8 @@ void fragment() {
 var scene                        # barrow_full.gd
 # THE DATA AND THE SLOT LAYOUT, overridable (meteor_a_fx.gd, lane A's Meteor, plays its flipbook with this player)
 var data_dir := DATA
+# ?fb=c75 (desktop -- --fb c75): the burst tightened to 0.75 of its reach (R-C9-110); the shader's MODE 2
+var tighten := false
 var meta_file := "fire_ball.json"
 var slots := SLOTS
 var cam: Camera3D
@@ -344,10 +381,14 @@ func _tick_flight(g: int, c: Dictionary) -> void:
 		var at: Vector3 = c.get("impact_at", c["node"])
 		c["impact_at"] = at
 		_put(base + S_IMPACT, imp_key, fi, at + _toward(BURST_TOWARD_M), 0.0, 1.0)
+		if tighten:
+			_mode2(base + S_IMPACT)
 		alive = true
 		var fl := _frame_of("impact_floor", b)
 		if fl >= 0:
 			_put_floor(base + S_IMPACT_FLOOR, "impact_floor", fl, _ground_under(at), 1.0)
+			if tighten:
+				_mode2(base + S_IMPACT_FLOOR)
 		else:
 			_collapse(base + S_IMPACT_FLOOR)
 	else:
@@ -422,6 +463,20 @@ func _put_floor(i: int, key: String, frame: int, ground: Vector3, alpha: float) 
 	mm.set_instance_transform(i, Transform3D(Basis(u / PPM, -v / PXV, Vector3.UP * 0.01), at))
 	mm.set_instance_color(i, Color.WHITE)
 	mm.set_instance_custom_data(i, Color(float((fidx[key] as Array)[frame]), alpha, 0.0, 0.0))
+
+
+func _mode2(i: int) -> void:
+	var c := mm.get_instance_custom_data(i)
+	mm.set_instance_custom_data(i, Color(c.r, c.g, 2.0, c.a))
+
+
+static func tighten_wanted() -> bool:
+	var q := PaintStack.web_query("fb")
+	var args := OS.get_cmdline_user_args()
+	var i := args.find("--fb")
+	if q == "" and i >= 0 and i + 1 < args.size():
+		q = String(args[i + 1])
+	return q.to_lower() == "c75"
 
 
 func _collapse(i: int) -> void:

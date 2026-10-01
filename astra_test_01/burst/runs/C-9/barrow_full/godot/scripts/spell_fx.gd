@@ -58,6 +58,7 @@ func setup(knight, cfg: Dictionary, sockets_json: Dictionary) -> void:
 	report["casts"] = casts_by_slot
 	var fb = load("res://scripts/fire_ball_fx.gd").new()
 	fb.name = "FireBall"
+	fb.tighten = fb.tighten_wanted()          # ?fb=c75 (R-C9-110): the burst tightened to 0.75
 	add_child(fb)
 	var sc = get_parent()
 	if fb.setup(sc, sc.cam):

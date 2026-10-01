@@ -338,6 +338,13 @@ grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix2.l
 NLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_noshadow.log" | head -1 || true)
 echo "$NLINE" | grep -q "meteor=mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=off)" \
   && ck 0 "?meteor_shadow=0: MIX v3 without the shadow" || ck 1 "?meteor_shadow=0 (got: $(echo "$NLINE" | grep -o 'meteor=[^ ]*'))"
+# ?fb=c75 (R-C9-110): her Fire Ball's burst tightened to 0.75; the default stays as it was until Matt's look
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --fb c75 > "$LOG/launch_fb_c75.log" 2>&1 || true
+FLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_fb_c75.log" | head -1 || true)
+echo "$FLINE" | grep -q "sha_ok)+c75" && echo "$SLINE" | grep -q "sha_ok)" && ! echo "$SLINE" | grep -q "+c75" \
+  && ck 0 "?fb=c75: the condensed burst (fire_ball=baked(...)+c75); the default unchanged" || ck 1 "?fb=c75 (got: $(echo "$FLINE" | grep -o 'fire_ball=[^ ]*'))"
+grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_fb_c75.log" && ck 1 "?fb=c75 launch errors" || ck 0 "?fb=c75 launch free of script and shader errors"
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --meteor placeholder > "$LOG/launch_meteor_placeholder.log" 2>&1 || true
 PLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_meteor_placeholder.log" | head -1 || true)

@@ -1,0 +1,69 @@
+{
+ "_what": "C-9 R-C9-110 -- her Fire Ball's impact blast condensed (Matt: 'a bit too wide/large of a blast zone. It needs to be condensed a bit'), behind ?fb=c75 (desktop -- --fb c75). drax.",
+ "how": "rescaled AT PLACEMENT, no re-bake: the burst and its floor light draw in the flipbook shader's MODE 2 -- the display radius u (of 0.75 x the burst's 250 px reach) reads the source at u^1.35, so the CORE keeps its size and density while the outer flames and the flash's spread come in to 0.75; same frames, same brightness, same duration; the projectile and its travel untouched. The drawn quad is a square about the burst's point (the remap bends the frame's edges); the fragment reads only inside the frame's own rect",
+ "gameplay_radius": "none: the Fire Ball has no hit area in the build (no damage or hit radius in knight.gd / sorceress_knight.gd / spell_fx.gd); the visual is the whole blast",
+ "visual_radius_m": {
+  "_": "area-equivalent radius of the burst's painted pixels at its widest frame (tick 12-16 after spawn), play camera, phone look (Compatibility), 1920x1080, 100.6 px/m",
+  "before": 1.87,
+  "after": 1.422,
+  "ratio": 0.76,
+  "pixels_before": 111161,
+  "pixels_after": 64323
+ },
+ "budget": {
+  "_": "desktop Forward+, --perf fb (20 slash casts, matched control); draws unchanged (one MultiMesh, the same instances)",
+  "default": {
+   "cold_first_cast": {
+    "dc_max": 82,
+    "max_ms": 16.96,
+    "mean_ms": 13.292,
+    "over_33ms": 0,
+    "fx_script_mean_ms": 0.0294
+   },
+   "warm_on": {
+    "dc_max": 82,
+    "max_ms": 18.25,
+    "mean_ms": 13.069,
+    "over_33ms": 0,
+    "fx_script_mean_ms": 0.0335
+   },
+   "warm_off_control": {
+    "dc_max": 82,
+    "max_ms": 17.91,
+    "mean_ms": 13.094,
+    "over_33ms": 0,
+    "fx_script_mean_ms": 0.002
+   },
+   "delta_mean_ms": -0.025,
+   "delta_dc_peak": 0
+  },
+  "c75": {
+   "cold_first_cast": {
+    "dc_max": 82,
+    "max_ms": 18.53,
+    "mean_ms": 13.258,
+    "over_33ms": 0,
+    "fx_script_mean_ms": 0.0309
+   },
+   "warm_on": {
+    "dc_max": 82,
+    "max_ms": 25.37,
+    "mean_ms": 13.304,
+    "over_33ms": 0,
+    "fx_script_mean_ms": 0.0365
+   },
+   "warm_off_control": {
+    "dc_max": 82,
+    "max_ms": 87.07,
+    "mean_ms": 13.358,
+    "over_33ms": 1,
+    "fx_script_mean_ms": 0.0029
+   },
+   "delta_mean_ms": -0.054,
+   "delta_dc_peak": 0
+  }
+ },
+ "fences": "tools/build_web_painted.sh: ?fb=c75 launches with fire_ball=baked(...)+c75 and no script/shader error; the default word unchanged",
+ "film": "Desktop review folder: 'C-9 sorceress Fire Ball c75 (burst condensed to 0.75) - ... play speed then quarter speed.mp4' and 'C-9 Fire Ball burst before vs fb=c75 - at its peak.png'",
+ "default": "unchanged until Matt's look"
+}

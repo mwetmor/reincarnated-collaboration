@@ -15,10 +15,11 @@ FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "$FREE" -lt "$GATE" ]; then echo "HALT: under ${GATE} GiB free" >&2; exit 9; fi
 AVI="$OUT/fireball_film.avi"
 LOG="$OUT/film_fireball.log"
-MP4="$OUT/C-9 sorceress Fire Ball - cliffside kit baked - play speed then quarter speed.mp4"
+FB=${FB:-}                       # FB=c75: the burst tightened to 0.75 (R-C9-110, ?fb=c75)
+MP4="$OUT/C-9 sorceress Fire Ball${FB:+ $FB (burst condensed to 0.75)} - cliffside kit baked - play speed then quarter speed.mp4"
 python3 "$HEAVY_LOCK" C-9 -- perl -e 'alarm shift; exec @ARGV' 900 "$GODOT" --path "$SRC" --resolution 1280x720 \
   --rendering-method gl_compatibility --rendering-driver opengl3_angle --fixed-fps 30 \
-  --write-movie "$AVI" --script tools/film_fireball.gd -- --as-web --c sorceress > "$LOG" 2>&1 || true
+  --write-movie "$AVI" --script tools/film_fireball.gd -- --as-web --c sorceress ${FB:+--fb $FB} > "$LOG" 2>&1 || true
 grep -E "\[film\]|SCRIPT ERROR|Parse Error" "$LOG" | head -10
 TRIM=$(grep -o '"trim_frames":[0-9]*' "$LOG" | head -1 | cut -d: -f2)
 [ -n "$TRIM" ] || { echo "HALT: no trim reported" >&2; exit 6; }
