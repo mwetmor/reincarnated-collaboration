@@ -1,0 +1,17 @@
+{
+ "n_tier16_roster_records": 466,
+ "controller_class_counts": {
+  "ControllerMonster": 465,
+  "ControllerStationaryMonster": 1
+ },
+ "n_ControllerMonsterHidden": 0,
+ "ring_only_records": 435,
+ "ring_records_with_a_SpawnAnim_clip": 363,
+ "startVisible_false": [
+  "records/creatures/enemies/devotion/spider_cave_h01.dbr",
+  "records/creatures/enemies/devotion/spider_cave_h02.dbr",
+  "records/creatures/enemies/devotion/spider_cave_h03.dbr"
+ ],
+ "hiddenFromCombat_true": [],
+ "note": "Ring (Proxy) bodies never get EnableSpawnAnimation from the proxy path (Proxy::PoolComplete/PlaceObjects make no vt+0x318 call), so their SpawnAnim clips are not played on proxy spawn; startVisible=false records get it from Character::Load instead."
+}
