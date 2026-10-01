@@ -1,0 +1,19 @@
+learned hinges: {'elbow_R': (640, 0.998), 'elbow_L': (691, 0.999), 'knee_R': (702, 0.996), 'knee_L': (684, 0.997)}
+MOVE     whirlwind              PASS   0/ 11 frames fail | elbow min R   98.6 L   87.7 | knee min R   36.7 L   39.0 | wrist flex R   64.2 L   46.0 dev R  -32.0 L   32.1 twist R  -67.4 L   70.0
+MOVE     shout                  PASS   0/ 71 frames fail | elbow min R    8.4 L   18.5 | knee min R   26.1 L   24.7 | wrist flex R  -33.2 L  -48.7 dev R  -28.7 L  -23.7 twist R  102.7 L -134.9
+MOVE     hit                    PASS   0/ 50 frames fail | elbow min R   92.4 L   66.9 | knee min R   24.9 L   20.8 | wrist flex R    0.0 L   -0.0 dev R    0.0 L    0.0 twist R   75.5 L  -94.1
+MOVE     death                  PASS   0/120 frames fail | elbow min R    1.0 L    1.0 | knee min R   15.5 L   14.9 | wrist flex R   23.2 L  -13.2 dev R  -23.1 L   21.6 twist R  -85.6 L  -94.1
+control  idle                   PASS   0/121 frames fail | elbow min R   43.1 L   52.4 | knee min R   30.8 L   33.4 | wrist flex R    7.5 L  -23.4 dev R  -21.8 L   20.3 twist R  -13.5 L   31.1
+control  walk                   PASS   0/ 32 frames fail | elbow min R   14.7 L   10.1 | knee min R   10.2 L    8.9 | wrist flex R   11.6 L   18.1 dev R   26.3 L   15.8 twist R  -14.8 L    9.1
+control  run                    PASS   0/ 20 frames fail | elbow min R   82.9 L   68.1 | knee min R    8.5 L   26.1 | wrist flex R  -36.4 L  -16.2 dev R  -26.8 L   16.3 twist R  -28.3 L   22.5
+control  attack                 FAIL   3/ 37 frames fail | elbow min R   23.7 L  -10.4 | knee min R   42.2 L   47.4 | wrist flex R  -32.2 L  -23.0 dev R  -41.5 L  -25.4 twist R   77.6 L  -35.9
+          first fails: [(0.5417, [('wrist_R', 'deviation', -41.5)]), (0.625, [('elbow_L', 'hyperextension', -10.4)]), (0.6667, [('elbow_L', 'hyperextension', -6.3)])]
+control  walk_armed             PASS   0/ 94 frames fail | elbow min R   98.0 L   64.9 | knee min R   25.8 L   29.8 | wrist flex R  -11.9 L    9.9 dev R    5.3 L  -11.1 twist R  -22.0 L  -30.2
+control  idle_armed             PASS   0/184 frames fail | elbow min R    9.1 L   34.5 | knee min R   22.7 L   15.4 | wrist flex R  -40.8 L  -51.9 dev R   24.6 L  -11.0 twist R   70.7 L   61.4
+control  block                  PASS   0/105 frames fail | elbow min R  106.5 L   97.3 | knee min R   22.8 L   29.3 | wrist flex R  -16.5 L  -16.0 dev R  -10.2 L   -7.9 twist R  -28.4 L  -14.3
+control  shield_bash            PASS   0/ 73 frames fail | elbow min R   57.7 L   27.6 | knee min R   46.0 L   52.3 | wrist flex R   30.3 L  -25.4 dev R  -19.8 L  -15.0 twist R  -55.1 L  -92.8
+control  chop_overhead_92       PASS   0/ 47 frames fail | elbow min R   16.8 L   78.6 | knee min R   44.6 L   53.2 | wrist flex R   32.8 L  -19.6 dev R   19.7 L  -16.4 twist R   67.6 L  -35.5
+control  run_armed              PASS   0/ 21 frames fail | elbow min R   -3.9 L   21.9 | knee min R   46.7 L   42.1 | wrist flex R  -20.9 L   -1.8 dev R  -16.2 L   20.1 twist R -144.2 L   98.5
+control  strafe_L_armed         FAIL  30/ 46 frames fail | elbow min R    2.1 L   26.5 | knee min R   53.2 L   40.5 | wrist flex R  -59.2 L  -18.3 dev R  -51.5 L   16.8 twist R -108.3 L   75.6
+          first fails: [(0.0, [('wrist_R', 'deviation', -49.0)]), (0.0333, [('wrist_R', 'deviation', -50.0)]), (0.0667, [('wrist_R', 'deviation', -50.6)])]
+NEGATIVE CONTROL: {'what': 'clip whirlwind t 0.0000 with the right elbow bent past straight about its hinge', 'elbow_R_flex': -65.8, 'verdict': 'FAIL'}

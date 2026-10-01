@@ -20,6 +20,9 @@ a = sys.argv[1:]; BODY = a[0]
 opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 CLIP = opt('--clip', 'whirlwind'); HZ = float(opt('--hz', '120'))
 TIP = {'weapon_r': 0.7768, 'weapon_l': 0.8089}
+# --double-edged weapon_r (v4): the sword is double-edged (nb_w2/scripts/w5_measure.py), so |Z . travel| for it; the axe's
+# one edge stays signed. Recorded in the report.
+DBL = set((opt('--double-edged') or '').split(',')) - {''}
 m = C.model(BODY); nid = m['nid']
 T = float(max(v[0].max() for v in m['anims'][CLIP].values()))
 ts = np.arange(0.0, T + 1e-9, 1.0 / HZ); ts[-1] = T
@@ -90,9 +93,10 @@ for w in TIP:
     Z = np.array([R(G, w)[:, 2] for G in Gs[:-1]]); X = np.array([R(G, w)[:, 0] for G in Gs])
     mv = np.linalg.norm(vel, axis=1) > 1e-4
     cs = np.sum(Z[mv] * (vel[mv] / np.linalg.norm(vel[mv], axis=1)[:, None]), axis=1)
+    if w in DBL: cs = np.abs(cs)                            # a double-edged blade: either edge may lead
     edge[w] = dict(cos_min=round(float(cs.min()), 3), cos_median=round(float(np.median(cs)), 3), share_ge_0_8=round(float(np.mean(cs >= 0.8)), 3))
     fl = np.abs(np.array([[x @ v for v in views] for x in X]))
     flat[w] = dict(worst=round(float(fl.min()), 3), share_ge_0_5=round(float(np.mean(fl >= 0.5)), 3))
-rep['edges'] = edge; rep['flats_to_camera'] = flat
+rep['edges'] = edge; rep['flats_to_camera'] = flat; rep['double_edged'] = sorted(DBL)
 print(json.dumps(rep, indent=1))
 if opt('--json'): json.dump(rep, open(opt('--json'), 'w'), indent=1)

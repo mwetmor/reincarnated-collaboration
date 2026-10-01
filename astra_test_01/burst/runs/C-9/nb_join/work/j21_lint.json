@@ -393,22 +393,22 @@
     "root_height": null,
     "root": null
    },
-   "join_guard_R_run": {
-    "scale_tracks": {},
-    "root_height": null,
-    "root": null
-   },
-   "join_guard_L_run": {
-    "scale_tracks": {},
-    "root_height": null,
-    "root": null
-   },
    "join_guard_R_walk": {
     "scale_tracks": {},
     "root_height": null,
     "root": null
    },
    "join_guard_L_walk": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_R_run": {
+    "scale_tracks": {},
+    "root_height": null,
+    "root": null
+   },
+   "join_guard_L_run": {
     "scale_tracks": {},
     "root_height": null,
     "root": null
@@ -450,9 +450,9 @@
    "whirlwind": {
     "scale_tracks": {},
     "root_height": {
-     "first": 75.1605,
-     "min": 75.1605,
-     "max": 75.1605,
+     "first": 85.4235,
+     "min": 85.4235,
+     "max": 85.4235,
      "rest": 93.79
     },
     "root": "Hips",
@@ -468,16 +468,16 @@
     "scale_tracks": {},
     "root_height": {
      "first": 93.071,
-     "min": 83.6534,
-     "max": 93.6967,
+     "min": 83.7495,
+     "max": 93.071,
      "rest": 93.79
     },
     "root": "Hips",
-    "root_travel_units": 0.233,
+    "root_travel_units": 0.861,
     "locomotion": false,
     "root_offset_m": {
      "closest": 0.0,
-     "mean": 0.0271,
+     "mean": 0.0304,
      "first": 0.0
     }
    }
@@ -504,11 +504,34 @@
    "nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)",
    "nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)",
    "nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
-   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 75.160 against rest 93.790 (19.9% > 5%)"
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 85.424 against rest 93.790 (8.9% > 5%)",
+   "nb-body_join.glb: SOURCE FIDELITY -- clip 'attack' is legacy (NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added)"
   ],
   "verdict": "WARN",
   "rows": {
    "fidelity": [
+    {
+     "clip": "attack",
+     "source": "../nb_t8/nbt_attack.glb",
+     "source_clip": "Armature|Right_Hand_Sword_Slash|baselayer",
+     "time_shift_s": 0.0333,
+     "times": 37,
+     "err_max": 0.5577,
+     "worst_t": 0.5417,
+     "worst_joint": "RightHand",
+     "err_median": 0.167,
+     "hips_deg_max": 23.7,
+     "excluded": [],
+     "within": false,
+     "rest_match": 5e-05,
+     "edits": [
+      "trim",
+      "recentre",
+      "reground"
+     ],
+     "status": "LEGACY",
+     "note": "NAMED LEGACY EXCEPTION (the conductor, 2026-09-30, on the JOIN hold v2 handover): the JOIN body (nb_d2/export_staging/JOIN_hold_v2, 9346f3de) still carries the OLD slash in `attack`, and its SOURCE FIDELITY row FAILS (0.558 hips-to-head at 0.54 s, RightHand; the scene drax's lint, pose_clips.json). JOIN does not play `attack` -- no state, layer or pack cell names it -- so it is measured here for information and marked LEGACY, not passed. Entry copied from nb_d2/work/clip_sources.json with status legacy added"
+    },
     {
      "clip": "death",
      "source": "../nb_join/anims/death_dying_back.glb",
@@ -555,12 +578,12 @@
     {
      "clip": "shout",
      "status": "AUTHORED",
-     "note": "composed v3 (Matt 2026-09-30, on v2: keep the raise, the shout and the first elbow drop; remove the pumps): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's double-biceps flex, its elbows dropping ONCE and held a beat, then released to his guard (2.80 s; v2 3.00 s pumped twice); the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
+     "note": "composed v4 (Matt 2026-09-30, on v3: stop after the elbows lower, no pumps, about 1.5x speed): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's flex, its elbows dropping once, then his guard returns (the layer) and the clip ENDS; authored 2.10 s played at 1.5x = 1.40 s; the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
     },
     {
      "clip": "whirlwind",
      "status": "AUTHORED",
-     "note": "authored v3 (Matt 2026-09-30, on v2's footwork 'horrible': 'a feet on ground pivot'): both feet stay on the ground, heels up, turning on their balls (each ball on a 0.092 m circle about the spin axis, never lifted), knees bent, the hips squared and the torso leading them 15 deg; both weapons held out in front of the chest at about shoulder width, level, the blades turned 17-19 deg off the chest's forward toward the spin; the head toward the blades, tilted 8 deg toward the spin, constant (no spotting). One counter-clockwise revolution in 1.0 s, 31 keys on the idle source's 30 fps grid. Text-to-motion (route a) was not run: the credit-spending call was refused by the session's permission system"
+     "note": "authored v4 (Matt 2026-09-30, on v3): his normal battle stance (idle_guard at 0.5 s), feet flat and planted, the whole body turning as one about the vertical through his hips, one counter-clockwise revolution in 1/3 s (3 rev/s, 11 keys on the 30 fps grid); both weapons in front at the JOIN hold v2's fist width (0.78 of the shoulder half-width), elbows bent the stance's way, the blades pitched 20 deg up, no turn into the spin; the head toward the blades, tilted 8 deg toward the spin"
     }
    ],
    "seams": [
@@ -569,11 +592,11 @@
      "closure_deg": 0.0,
      "closure_joint": "LeftToeBase",
      "first_frac": 1.0,
-     "keys": 31,
-     "T_s": 1.0,
+     "keys": 11,
+     "T_s": 0.3333,
      "clip": "whirlwind",
      "grid_status": "PASS",
-     "grid_note": "31 keys at 0.0333 s against the source's 31 at 0.0333 s (nbt_idle.glb)",
+     "grid_note": "11 keys at 0.0333 s against the source's 11 at 0.0333 s (nbt_idle.glb)",
      "seam_status": "PASS"
     }
    ]

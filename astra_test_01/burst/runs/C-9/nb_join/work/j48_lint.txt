@@ -2,19 +2,19 @@
   release_s checked on 1 cast(s): shout
   35 clip(s) checked, 0 mismatch(es)
 exit 0
-== negative control: v3neg_release (a copy with one planted error)
+== negative control: neg_release (a copy with one planted error)
   release_s checked on 1 cast(s): shout
-  MANIFEST MISMATCH  casts.shout.release_s = 3.5000 is outside the clip (0, 2.8000)
-  MANIFEST MISMATCH  casts.shout.release_s = 3.5000 falls 0.7000 s from the nearest key (frame step 0.0333) -- a pose between keys
+  MANIFEST MISMATCH  casts.shout.release_s = 2.0000 is outside the clip (0, 1.4000)
+  MANIFEST MISMATCH  casts.shout.release_s = 2.0000 falls 0.6000 s from the nearest key (frame step 0.0333) -- a pose between keys
   35 clip(s) checked, 2 mismatch(es)
 exit 1
-== negative control: v3neg_prose (a copy with one planted error)
+== negative control: neg_prose (a copy with one planted error)
   release_s checked on 1 cast(s): shout
-  MANIFEST MISMATCH  .clips.whirlwind.note_neg says 'whirlwind ... 0.5333 s' but the GLB says 1.0000 s
+  MANIFEST MISMATCH  .clips.whirlwind.note_neg says 'whirlwind ... 1.0000 s' but the GLB says 0.3333 s
   35 clip(s) checked, 1 mismatch(es)
 exit 1
-== negative control: v3neg_shoutprose (a copy with one planted error)
+== negative control: neg_shoutprose (a copy with one planted error)
   release_s checked on 1 cast(s): shout
-  MANIFEST MISMATCH  .clips.shout.note_neg says 'shout ... 3.00 s' but the GLB says 2.8000 s
+  MANIFEST MISMATCH  .clips.shout.note_neg says 'shout ... 2.80 s' but the GLB says 1.4000 s
   35 clip(s) checked, 1 mismatch(es)
 exit 1

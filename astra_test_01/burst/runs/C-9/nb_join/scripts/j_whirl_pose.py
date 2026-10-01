@@ -50,7 +50,15 @@ GSMAX = float(opt('--grip-side-max', '0.30'))
 GSW = float(opt('--side-w', '60'))
 RADW = float(opt('--radial-w', '10'))
 BUTT = float(opt('--butt-clear', '0'))           # m: the butt's least distance from the forearm (0 = off)
-BUTTW = 2000.0             # the weight on the blade's heading (1 - cos)                # the weight on the side band       # ... and no further out than this: in FRONT of him, not out to the side
+BUTTW = 2000.0
+# v4 (Matt 2026-09-30, on v3: "the blades of the weapons need to be pointed more upwards like a normal prepared battle
+# stance, maybe half way between how outstretched they are now and a normal battle stance"; "the tilt of the blades made
+# the elbow joints bend backwards"):
+PITCH = math.radians(float(opt('--blade-pitch', '0')))   # the blade's rise above horizontal (v1-v3: 0, level)
+REACH_MAX = float(opt('--reach-max', '9'))         # m: the grip no further forward than this (half-extended arms)
+GRIP_Y = opt('--grip-y')                           # m: the grip height target (default: chest height)
+HINGE_COS = float(opt('--hinge-cos', '-2'))        # each elbow bends the way the STANCE's elbow bends: the cosine between
+                                                   # the two bend directions (in the upper arm's own frame) >= this             # the weight on the blade's heading (1 - cos)                # the weight on the side band       # ... and no further out than this: in FRONT of him, not out to the side
 # with --grip-side the reach is measured straight FORWARD (his +Z): held out in front, as if attacking head-on
 WRIST_MAX = float(opt('--wrist-max', '35'))       # deg: the hand's turn off the stance's own hand
 REACH_MIN = float(opt('--reach-min', '0.50'))     # m: the grip's distance from the spin axis
@@ -170,7 +178,7 @@ def terms(x):
         clear_axis = min(float(np.hypot(p[0], p[2])) for p in pts)
         clear_head = min(float(np.linalg.norm(p - hd)) for p in pts)
         drop = math.degrees(math.asin(max(-1, min(1, float(-up_arm @ U)))))
-        out[s] = dict(level=float(Y @ U), radial=float((Yh / max(nyh, 1e-9)) @ r), edge=float(Z @ t), grip_y=float(g[1]),
+        out[s] = dict(level=float(Y @ U) - math.sin(PITCH), radial=float((Yh / max(nyh, 1e-9)) @ r), edge=abs(float(Z @ t)) if (DBL_R and s == 'r') else float(Z @ t), grip_y=float(g[1]),
                       reach=float(np.hypot(g[0], g[2])) if BASEBALL is None else (float(g[2]) if GSIDE is not None else float(g @ r)), elbow=elbow, wrist=wrist, arm_drop=drop,
                       clear_axis=clear_axis, clear_head=clear_head, side=float((g[0] - 0.5 * (G[nid['LeftArm']][0, 3] + G[nid['RightArm']][0, 3])) * (-1 if s == 'r' else 1)))
         # the BUTT (v3): the weapon's end below the fist, kept off his own forearm -- a wrist turned far enough to level a
@@ -178,19 +186,63 @@ def terms(x):
         hj = G[nid[SIDES[s]['chain'][2]]][:3, 3]
         def segd(pt, a_, b_):
             ab = b_ - a_; u_ = max(0.0, min(1.0, float((pt - a_) @ ab) / float(ab @ ab))); return float(np.linalg.norm(pt - (a_ + u_ * ab)))
+        Ru_ = G[nid[SIDES[s]['chain'][0]]][:3, :3]; Ru_ = Ru_ / np.linalg.norm(Ru_, axis=0)
+        bd = Ru_.T @ fore; ua = Ru_.T @ up_arm; bd = bd - (bd @ ua) * ua
+        out[s]['_bend'] = bd / max(float(np.linalg.norm(bd)), 1e-9)
+        spg = G[nid['Spine']]; sax = (spg[:3, :3] / np.linalg.norm(spg[:3, :3], axis=0)) @ np.array([-1.0 if s == 'r' else 1.0, 0, 0])
+        hw_ = float((G[nid[SIDES[s]['chain'][0]]][:3, 3] - spg[:3, 3]) @ sax)
+        out[s]['fist_frac'] = float((g - spg[:3, 3]) @ sax) / max(hw_, 1e-6)
+        if JAX:
+            hb_ = nid[SIDES[s]['chain'][2]]; qh = pose_from(x)[hb_][1]
+            Rl = m_of(np.array(m['rest'][hb_][1], float)).T @ m_of(qh)
+            sw_ = swing_of(Rl); k_ = 'wrist_R' if s == 'r' else 'wrist_L'
+            out[s]['wrist_flex'] = math.degrees(float(sw_ @ np.array(JAX['wrist'][k_]['flex'])))
+            out[s]['wrist_dev'] = math.degrees(float(sw_ @ np.array(JAX['wrist'][k_]['dev'])))
+            fb_ = nid[SIDES[s]['chain'][1]]; Rf = m_of(np.array(m['rest'][fb_][1], float)).T @ m_of(pose_from(x)[fb_][1])
+            out[s]['forearm_twist'] = twist_of(Rl) + twist_of(Rf)
         out[s]['butt_clear'] = min(segd(g - f * Y, ch, hj) for f in (0.06, 0.10, 0.14))
         out[s]['_pts'] = pts
     sep = min(float(np.linalg.norm(p - q)) for p in out['r']['_pts'] for q in out['l']['_pts'])
     for s in out:
         del out[s]['_pts']; out[s]['sep'] = sep
+        b_ = out[s].pop('_bend'); _LASTB[s] = b_; out[s]['hinge_cos'] = float(b_ @ BEND0[s]) if BEND0 else 1.0
     return out
+
+
+BEND0 = None
+_LASTB = {}
+# --fist-frac F (v4, the JOIN hold v2's FIST row, attack_lab/t12/godot/tools/join_accept.gd): the grip's offset from the
+# chest joint (Spine, the HIGHEST spine bone) along the Spine basis's own +-X, over the same side's shoulder ball joint's
+FIST = float(opt('--fist-frac')) if opt('--fist-frac') else None
+# --joint-axes f (v4): scripts/j_joint_lint.py's learned wrist axes; the wrist kept inside the lint's own limits
+JAX = json.load(open(opt('--joint-axes')))['learned']['axes'] if opt('--joint-axes') else None
+WFLEX, WDEV = float(opt('--wrist-flex-max', '70')), float(opt('--wrist-dev-max', '32'))
+
+
+def swing_of(Rl):
+    y2 = Rl @ U; ax = np.cross(U, y2); sn = float(np.linalg.norm(ax))
+    return np.zeros(3) if sn < 1e-9 else ax / sn * math.atan2(sn, float(U @ y2))
+
+
+def twist_of(Rl):
+    sw = swing_of(Rl); ang = float(np.linalg.norm(sw))
+    Sw = np.eye(3) if ang < 1e-9 else W.axis_angle(sw / ang, ang)
+    Tw = Sw.T @ Rl; return math.degrees(math.atan2(Tw[0, 2] - Tw[2, 0], Tw[0, 0] + Tw[2, 2]))
+
+
+EDGE_MIN = float(opt('--edge-min')) if opt('--edge-min') else None   # v4: the edge only kept above this (the contract's 0.8 + margin), not maximised
+TWMAX = float(opt('--forearm-twist-max', '80'))
+# the SWORD is double-edged (nb_w2/scripts/w5_measure.py: "double-edged, so its sign is taken nearest his forward"): with
+# --double-edged-r either edge (+-Z) may lead; the axe has one edge (+Z)
+DBL_R = '--double-edged-r' in a   # the forearm's twist (forearm + hand off rest): pronation / supination
 
 
 def cost(x):
     T = terms(x); c = 0.0
     for s, v in T.items():
-        c += 40 * v['level'] ** 2 + RADW * (1 - v['radial']) + 30 * (1 - v['edge'])
-        c += 20 * (v['grip_y'] - chest_y) ** 2 + 30 * max(0.0, REACH_MIN - v['reach']) ** 2
+        c += 40 * v['level'] ** 2 + RADW * (1 - v['radial']) + (30 * (1 - v['edge']) if EDGE_MIN is None else 300 * max(0.0, EDGE_MIN - v['edge']) ** 2)
+        c += 20 * (v['grip_y'] - (float(GRIP_Y) if GRIP_Y else chest_y)) ** 2 + 30 * max(0.0, REACH_MIN - v['reach']) ** 2
+        c += 30 * max(0.0, v['reach'] - REACH_MAX) ** 2 + 200 * max(0.0, HINGE_COS - v['hinge_cos']) ** 2
         c += 0.02 * max(0.0, v['wrist'] - WRIST_MAX) ** 2
         c += 0.02 * max(0.0, 10.0 - v['elbow']) ** 2 + 0.02 * max(0.0, v['elbow'] - ELBOW_MAX) ** 2
         c += 0.02 * max(0.0, v['arm_drop'] - ARM_DROP_MAX) ** 2
@@ -200,11 +252,18 @@ def cost(x):
         if GSIDE is not None:
             c += GSW * max(0.0, GSIDE - v['side']) ** 2 + GSW * max(0.0, v['side'] - GSMAX) ** 2
         c += BUTTW * max(0.0, BUTT - v['butt_clear']) ** 2
+        if FIST is not None:
+            c += GSW * (v['fist_frac'] - FIST) ** 2 * 0.04
+        if JAX:
+            c += 0.05 * max(0.0, abs(v['wrist_flex']) - WFLEX) ** 2 + 0.05 * max(0.0, abs(v['wrist_dev']) - WDEV) ** 2
+            c += 0.05 * max(0.0, abs(v['forearm_twist']) - TWMAX) ** 2
     c += 0.02 * float(np.sum(x ** 2))
     return c
 
 
 x0 = np.zeros(3 * len(VARS))
+terms(x0); BEND0 = dict(_LASTB)                      # the stance's own elbow bend directions
+
 best = None
 for seed in range(12):
     rng = np.random.default_rng(seed)
@@ -220,8 +279,11 @@ rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BAS
            terms={s: {k: round(v, 4) for k, v in d.items()} for s, d in T.items()},
            locals={m['nodes'][i].get('name'): dict(t=[float(v) for v in loc[i][0]], r=[float(v) for v in loc[i][1]], s=[float(v) for v in loc[i][2]])
                    for i in range(len(m['nodes'])) if m['nodes'][i].get('name') in set(nd.get('name') for nd in m['nodes'])})
+rep['v4'] = dict(blade_pitch_deg=math.degrees(PITCH), reach_max_m=REACH_MAX if REACH_MAX < 9 else None, grip_y_m=float(GRIP_Y) if GRIP_Y else None,
+                hinge_cos_min=HINGE_COS if HINGE_COS > -2 else None, fist_frac=FIST, joint_axes=opt('--joint-axes'),
+                wrist_flex_max_deg=WFLEX if JAX else None, wrist_dev_max_deg=WDEV if JAX else None, forearm_twist_max_deg=TWMAX if JAX else None, edge_min=EDGE_MIN, double_edged_r=DBL_R, argv=a[2:])
 json.dump(rep, open(OUT, 'w'), indent=1)
 for s, d in T.items():
-    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f"
-          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear']))
+    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f  hinge %.2f  fist %.2f  wflex %.0f wdev %.0f twist %.0f"
+          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear'], d['hinge_cos'], d['fist_frac'], d.get('wrist_flex', 0), d.get('wrist_dev', 0), d.get('forearm_twist', 0)))
 print("  chest squared by %.1f deg; cost %.4f -> %s" % (yaw_chest, best.fun, OUT))

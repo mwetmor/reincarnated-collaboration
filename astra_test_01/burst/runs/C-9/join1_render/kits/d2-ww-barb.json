@@ -1,6 +1,6 @@
 {
  "kit": "d2-ww-barb",
- "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). v2 (Matt 2026-09-30): the war cry and the whirlwind rebuilt; shout_raised retired. v3 (Matt 2026-09-30): the war cry trimmed to one elbow drop (2.80 s), the whirlwind a feet-on-ground pivot with the weapons held out in front.",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). v2 (Matt 2026-09-30): the war cry and the whirlwind rebuilt; shout_raised retired. v3 (Matt 2026-09-30): the war cry trimmed to one elbow drop (2.80 s), the whirlwind a feet-on-ground pivot with the weapons held out in front. v4 (Matt 2026-09-30): the war cry stopped after the elbow drop and played 1.5x (1.40 s); the whirlwind his battle stance turning as one at 3 rev/s, blades pitched up 20 deg; rebased on the JOIN hold v2 (9346f3de) -- the whole pack re-rendered.",
  "contract": {
   "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
   "commit": "d95e1df",
@@ -14,7 +14,7 @@
    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/mantle.glb",
    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/T12_10_strafes/bracers.glb",
    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_w2/export/sword.glb",
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold/axe_l.glb"
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v2/axe_l.glb"
   ],
   "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_join/export/join_manifest.json",
   "loadout": {
@@ -102,7 +102,7 @@
   }
  },
  "layer_specs": [
-  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold/join_hold.json"
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/export_staging/JOIN_hold_v2/join_hold.json"
  ],
  "layer_list": [
   {
@@ -143,15 +143,15 @@
       1.0
      ],
      [
-      0.3,
+      0.2,
       0.0
      ],
      [
-      2.25,
+      1.1467,
       0.0
      ],
      [
-      2.7,
+      1.4,
       1.0
      ]
     ]
@@ -195,15 +195,15 @@
       1.0
      ],
      [
-      0.3,
+      0.2,
       0.0
      ],
      [
-      2.25,
+      1.1467,
       0.0
      ],
      [
-      2.7,
+      1.4,
       1.0
      ]
     ]

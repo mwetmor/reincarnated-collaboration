@@ -27,15 +27,24 @@ opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 CF, CS = opt('--clip-flex', 'wc388'), opt('--clip-sky', 'wc49'); HB = math.radians(float(opt('--head-back', '22')))
 m = C.model(SRC); nid = m['nid']; P = m['parent']; names = [nd.get('name') for nd in m['nodes']]
 # the TIME MAPS (knots: output time -> source time, piecewise linear) and the sky weight, in the grafted clips' own time
+# v4 (Matt, 2026-09-30, on v3: "stop the animation earlier so we lower the elbows and then end it.. no fist pumps. And it
+# needs to be about 1.5X speed"): the clip ENDS after the elbow drop -- the arms settle straight into his guard (the
+# layer, 1.72 -> 2.10 authored) while the flex clock creeps on only 0.11 s of its own time (no hold, no second motion);
+# the whole clip is then played at --speed 1.5: every output-time knot below (FLEX, SKY, WSKY, WW, the head-back window
+# and the guard layer's curve, set by the caller) is divided by it. Authored 2.10 s -> 1.40 s.
 # v3 (Matt, 2026-09-30, on v2: "the first portion is perfect where he raises his hands and shouts and then drops his
 # elbows for a bit. Please get rid of the second portion where, after dropping his elbows, he then pumps his muscles"):
 # kept to and including the FIRST elbow drop (1.72 -> 0.84), held a beat (a slow creep, not a freeze), then released;
 # v2's pump back up (1.90 -> 0.66) and second drop (2.17 -> 0.88) are gone. v2 was 3.00 s; v3 is 2.80 s.
+SPEED = float(opt('--speed', '1.0'))
 FLEX = [(0.00, 0.00), (0.40, 0.40), (1.25, 0.58), (1.45, 0.62),          # rest -> arms flung wide -> (under the sky) -> arms high
-        (1.72, 0.84), (1.95, 0.87),                                      # the elbows DROP, and hold a beat
-        (2.20, 1.10), (2.80, 1.90)]                                      # release to rest (his guard returns by the layer)
+        (1.72, 0.84),                                                    # the elbows DROP
+        (2.10, 0.95)]                                                    # v4: END -- his guard returns by the layer (v3: held a beat, released to 2.80)
 SKY = [(0.30, 0.25), (1.45, 1.40)]                                       # the arms thrown up to the sky and held
 WSKY = [(0.30, 0.0), (0.55, 1.0), (1.25, 1.0), (1.50, 0.0)]              # the upper body's share of the sky clip
+sc = lambda ks: [(x / SPEED, y) for x, y in ks]
+FLEX_A, SKY_A, WSKY_A = FLEX, SKY, WSKY                                    # authored time (recorded)
+FLEX, SKY, WSKY = sc(FLEX), sc(SKY), sc(WSKY)                              # played time
 TEND = FLEX[-1][0]
 
 
@@ -103,7 +112,8 @@ def fk(Rw, hp):
 # rigid in the fists -- then cross in front of his head. Each hand turns (at most --wrist-max deg) so its blade points
 # up and out to its own side, eased in as the arms come down from the sky and out again in the release
 WMAX = math.radians(float(opt('--wrist-max', '80'))); WOUT = float(opt('--out', '0.7'))
-WW = [(1.20, 0.0), (1.45, 1.0), (2.15, 1.0), (2.55, 0.0)]          # v3: eased out through the release (v2: to 2.75 of 3.00)
+WW = [(1.20, 0.0), (1.45, 1.0), (1.75, 1.0), (2.05, 0.0)]          # v4: eased out as the guard returns (v3: to 2.55, v2: to 2.75)
+WW = sc(WW)
 
 
 def ww(t):
@@ -141,7 +151,7 @@ for k in range(N + 1):
 kpk = int(np.argmax(hi)); tpk = float(keys[kpk])
 # the head tipped back around the peak (about his own left-right axis, world X: he faces +Z)
 for k in range(N + 1):
-    u = max(0.0, 1.0 - abs(keys[k] - tpk) / 0.45); u = u * u * (3 - 2 * u)
+    u = max(0.0, 1.0 - abs(keys[k] - tpk) / (0.45 / SPEED)); u = u * u * (3 - 2 * u)
     if u <= 0: continue
     Rb = W.axis_angle(np.array([1.0, 0, 0]), -HB * u)
     WR[k][NECK] = W.axis_angle(np.array([1.0, 0, 0]), -0.4 * HB * u) @ WR[k][NECK]
@@ -180,7 +190,8 @@ with open(OUT, 'wb') as f:
     f.write(struct.pack('<4sII', b'glTF', 2, 12 + 8 + len(jb) + 8 + len(bn))); f.write(struct.pack('<I4s', len(jb), b'JSON')); f.write(jb)
     f.write(struct.pack('<I4s', len(bn), b'BIN\x00')); f.write(bytes(bn))
 rep = dict(method="composed from two library clips (see the header)", T=round(float(keys[-1]), 4), keys=N + 1,
-           flex_map=FLEX, sky_map=SKY, sky_weight=WSKY, head_back_deg=math.degrees(HB),
+           flex_map=FLEX, sky_map=SKY, sky_weight=WSKY, head_back_deg=math.degrees(HB), speed=SPEED,
+           authored=dict(flex_map=FLEX_A, sky_map=SKY_A, sky_weight=WSKY_A, note="output-time knots before the --speed division"),
            release=dict(key=kpk, t_s=round(tpk, 4), fists_over_head_m=round(float(hi[kpk]), 3),
                         definition="the cry's peak: the key where both fists stand highest over the head (the arms thrown to the sky)"),
            fists_over_head_by_key=[round(float(x), 3) for x in hi], dropped_clips=sorted(drop),
