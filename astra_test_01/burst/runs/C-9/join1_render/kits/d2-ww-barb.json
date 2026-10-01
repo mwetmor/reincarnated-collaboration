@@ -1,6 +1,6 @@
 {
  "kit": "d2-ww-barb",
- "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). v2 (Matt 2026-09-30): the war cry and the whirlwind rebuilt; shout_raised retired.",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN (sword main hand, axe off hand). idle / walk / run are the scene drax's JOIN hold (layer_specs: his join_hold.json, read from HIS path; body b5371921); whirlwind / shout / hit / death and the shout's raised VARIANT are this lane's (layer_list: nb_join/work/layers_moves.json, as shipped in the clip manifest). v2 (Matt 2026-09-30): the war cry and the whirlwind rebuilt; shout_raised retired. v3 (Matt 2026-09-30): the war cry trimmed to one elbow drop (2.80 s), the whirlwind a feet-on-ground pivot with the weapons held out in front.",
  "contract": {
   "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
   "commit": "d95e1df",
@@ -147,11 +147,11 @@
       0.0
      ],
      [
-      2.45,
+      2.25,
       0.0
      ],
      [
-      2.9,
+      2.7,
       1.0
      ]
     ]
@@ -199,11 +199,11 @@
       0.0
      ],
      [
-      2.45,
+      2.25,
       0.0
      ],
      [
-      2.9,
+      2.7,
       1.0
      ]
     ]

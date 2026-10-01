@@ -450,9 +450,9 @@
    "whirlwind": {
     "scale_tracks": {},
     "root_height": {
-     "first": 78.8362,
+     "first": 75.1605,
      "min": 75.1605,
-     "max": 78.8362,
+     "max": 75.1605,
      "rest": 93.79
     },
     "root": "Hips",
@@ -468,7 +468,7 @@
     "scale_tracks": {},
     "root_height": {
      "first": 93.071,
-     "min": 83.6862,
+     "min": 83.6534,
      "max": 93.6967,
      "rest": 93.79
     },
@@ -477,7 +477,7 @@
     "locomotion": false,
     "root_offset_m": {
      "closest": 0.0,
-     "mean": 0.0268,
+     "mean": 0.0271,
      "first": 0.0
     }
    }
@@ -504,7 +504,7 @@
    "nb-body_join.glb: clip 'strafe_L_armed' starts root 'Hips' at 87.076 against rest 93.790 (7.2% > 5%)",
    "nb-body_join.glb: clip 'strafe_R_armed' starts root 'Hips' at 83.249 against rest 93.790 (11.2% > 5%)",
    "nb-body_join.glb: clip 'run_armed' starts root 'Hips' at 88.660 against rest 93.790 (5.5% > 5%)",
-   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 78.836 against rest 93.790 (15.9% > 5%)"
+   "nb-body_join.glb: clip 'whirlwind' starts root 'Hips' at 75.160 against rest 93.790 (19.9% > 5%)"
   ],
   "verdict": "WARN",
   "rows": {
@@ -555,12 +555,12 @@
     {
      "clip": "shout",
      "status": "AUTHORED",
-     "note": "composed v2 (Matt 2026-09-30): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's double-biceps flex, pumped twice by its own time; the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
+     "note": "composed v3 (Matt 2026-09-30, on v2: keep the raise, the shout and the first elbow drop; remove the pumps): the legs and hips are Meshy 388's; the upper body crossfades into Meshy 49's arms thrown wide to the sky and back into 388's double-biceps flex, its elbows dropping ONCE and held a beat, then released to his guard (2.80 s; v2 3.00 s pumped twice); the release is the sky; weapon_r/weapon_l rotation tracks from the clamp"
     },
     {
      "clip": "whirlwind",
      "status": "AUTHORED",
-     "note": "authored v2 (Matt 2026-09-30): a paddle turn -- the left foot pivots on its ball on the spin axis, the right foot steps round 3 times a revolution, planted between -- the torso leading, the arms in a double baseball swing (both blades level, side by side, edges along the CCW tangent) trailing and whipping, the head spotting his forward; one counter-clockwise revolution in 1.0 s, 31 keys on the idle source's 30 fps grid"
+     "note": "authored v3 (Matt 2026-09-30, on v2's footwork 'horrible': 'a feet on ground pivot'): both feet stay on the ground, heels up, turning on their balls (each ball on a 0.092 m circle about the spin axis, never lifted), knees bent, the hips squared and the torso leading them 15 deg; both weapons held out in front of the chest at about shoulder width, level, the blades turned 17-19 deg off the chest's forward toward the spin; the head toward the blades, tilted 8 deg toward the spin, constant (no spotting). One counter-clockwise revolution in 1.0 s, 31 keys on the idle source's 30 fps grid. Text-to-motion (route a) was not run: the credit-spending call was refused by the session's permission system"
     }
    ],
    "seams": [
@@ -568,7 +568,7 @@
      "closure_m": 0.0,
      "closure_deg": 0.0,
      "closure_joint": "LeftToeBase",
-     "first_frac": 1.042,
+     "first_frac": 1.0,
      "keys": 31,
      "T_s": 1.0,
      "clip": "whirlwind",

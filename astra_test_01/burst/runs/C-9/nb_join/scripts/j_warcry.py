@@ -1,5 +1,6 @@
-# WAR CRY v2 (Matt, 2026-09-30, relayed by the conductor): "raised, but with arms wider and more of an obviously muscle-
-# flexing motion: arms outstretched to the sky, then pumping muscles with a slight elbow lower during the pump."
+# WAR CRY v3 (Matt, 2026-09-30, on v2): the sky, the shout and ONE elbow drop held a beat -- the pumps after it removed
+# (FLEX below). v2 (Matt, 2026-09-30, relayed by the conductor): "raised, but with arms wider and more of an obviously
+# muscle-flexing motion: arms outstretched to the sky, then pumping muscles with a slight elbow lower during the pump."
 #
 #   python3 scripts/j_warcry.py <src body.glb> <into body.glb> <out.glb> [--clip-flex wc388] [--clip-sky wc49]
 #        [--head-back 22] [--wrist-max 80] [--out 0.7] [--drop-clips a,b] [--json f]
@@ -11,9 +12,8 @@
 #         the head, 1.15 m apart), held, then brought down
 # COMPOSED per key in WORLD space (each joint's rotation away from rest, slerped): the HIPS AND LEGS are the flex clip's
 # throughout (one stance, no foot slide from a blend), the upper body (spine, neck, head, both arms) crossfades from the
-# flex clip's fling INTO the sky pose and back OUT of it into the flex clip's own flex, which is then PUMPED by its own
-# time: the flex clip's arms-high moment and its set flex, played there and back twice -- the forearms curl in and the
-# elbows drop, rise, drop.  The CRY'S PEAK (release_s) is the key where the fists stand highest in the sky, and the head
+# flex clip's fling INTO the sky pose and back OUT of it into the flex clip's own flex: the forearms curl in and the
+# elbows DROP once, held a beat, then released (v2 pumped it there and back twice -- removed in v3).  The CRY'S PEAK (release_s) is the key where the fists stand highest in the sky, and the head
 # is tipped back up to --head-back deg around it.
 # The weapons ride their mounts: nothing here keys a weapon bone.
 import json, math, os, struct, sys
@@ -27,9 +27,13 @@ opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 CF, CS = opt('--clip-flex', 'wc388'), opt('--clip-sky', 'wc49'); HB = math.radians(float(opt('--head-back', '22')))
 m = C.model(SRC); nid = m['nid']; P = m['parent']; names = [nd.get('name') for nd in m['nodes']]
 # the TIME MAPS (knots: output time -> source time, piecewise linear) and the sky weight, in the grafted clips' own time
+# v3 (Matt, 2026-09-30, on v2: "the first portion is perfect where he raises his hands and shouts and then drops his
+# elbows for a bit. Please get rid of the second portion where, after dropping his elbows, he then pumps his muscles"):
+# kept to and including the FIRST elbow drop (1.72 -> 0.84), held a beat (a slow creep, not a freeze), then released;
+# v2's pump back up (1.90 -> 0.66) and second drop (2.17 -> 0.88) are gone. v2 was 3.00 s; v3 is 2.80 s.
 FLEX = [(0.00, 0.00), (0.40, 0.40), (1.25, 0.58), (1.45, 0.62),          # rest -> arms flung wide -> (under the sky) -> arms high
-        (1.72, 0.84), (1.90, 0.66), (2.17, 0.88),                        # PUMP 1 down, back up, PUMP 2 down
-        (2.40, 1.10), (3.00, 1.90)]                                      # release to rest
+        (1.72, 0.84), (1.95, 0.87),                                      # the elbows DROP, and hold a beat
+        (2.20, 1.10), (2.80, 1.90)]                                      # release to rest (his guard returns by the layer)
 SKY = [(0.30, 0.25), (1.45, 1.40)]                                       # the arms thrown up to the sky and held
 WSKY = [(0.30, 0.0), (0.55, 1.0), (1.25, 1.0), (1.50, 0.0)]              # the upper body's share of the sky clip
 TEND = FLEX[-1][0]
@@ -99,7 +103,7 @@ def fk(Rw, hp):
 # rigid in the fists -- then cross in front of his head. Each hand turns (at most --wrist-max deg) so its blade points
 # up and out to its own side, eased in as the arms come down from the sky and out again in the release
 WMAX = math.radians(float(opt('--wrist-max', '80'))); WOUT = float(opt('--out', '0.7'))
-WW = [(1.20, 0.0), (1.45, 1.0), (2.35, 1.0), (2.75, 0.0)]
+WW = [(1.20, 0.0), (1.45, 1.0), (2.15, 1.0), (2.55, 0.0)]          # v3: eased out through the release (v2: to 2.75 of 3.00)
 
 
 def ww(t):

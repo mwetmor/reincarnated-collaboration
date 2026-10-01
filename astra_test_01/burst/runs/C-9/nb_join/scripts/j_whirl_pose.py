@@ -43,6 +43,15 @@ SENSE = opt('--sense', 'ccw')
 # Without it: v1's pose (each blade radial on its own side).
 BASEBALL = opt('--baseball')
 SEP = float(opt('--sep', '0.20'))
+# --grip-side M (v3, Matt 2026-09-30: the weapon hands out toward shoulder width, not crossed in): each grip at least M m
+# to its own side of his centreline (the midpoint of his shoulders)
+GSIDE = float(opt('--grip-side', '0')) if opt('--grip-side') else None
+GSMAX = float(opt('--grip-side-max', '0.30'))
+GSW = float(opt('--side-w', '60'))
+RADW = float(opt('--radial-w', '10'))
+BUTT = float(opt('--butt-clear', '0'))           # m: the butt's least distance from the forearm (0 = off)
+BUTTW = 2000.0             # the weight on the blade's heading (1 - cos)                # the weight on the side band       # ... and no further out than this: in FRONT of him, not out to the side
+# with --grip-side the reach is measured straight FORWARD (his +Z): held out in front, as if attacking head-on
 WRIST_MAX = float(opt('--wrist-max', '35'))       # deg: the hand's turn off the stance's own hand
 REACH_MIN = float(opt('--reach-min', '0.50'))     # m: the grip's distance from the spin axis
 ELBOW_MAX = float(opt('--elbow-max', '80'))       # deg of elbow bend
@@ -110,12 +119,14 @@ G0 = globals_of(loc0)
 sh = G0[nid['LeftArm']][:3, 3] - G0[nid['RightArm']][:3, 3]
 yaw_chest = math.degrees(math.atan2(-sh[2], sh[0]))                          # the shoulder line off his X axis (he faces +Z)
 s02 = nid['Spine02']; Gs = G0[s02]; Rs = Gs[:3, :3] / np.linalg.norm(Gs[:3, :3], axis=0)
-Rfix_world = rv(U * math.radians(yaw_chest))                                 # turn the chest back about world up
+# v3 fix: the turn back is -yaw (v1/v2 turned it by +yaw and DOUBLED the twist: 20 deg -> 40 deg, shoulders left-forward)
+Rfix_world = rv(U * math.radians(-yaw_chest))                                # turn the chest back about world up
 Rpar = G0[P[s02]][:3, :3] / np.linalg.norm(G0[P[s02]][:3, :3], axis=0)
 Rloc_new = Rpar.T @ Rfix_world @ Rs
 loc0[s02][1] = q_of(Rloc_new)
 G0 = globals_of(loc0)
 sh2 = G0[nid['LeftArm']][:3, 3] - G0[nid['RightArm']][:3, 3]
+assert abs(math.degrees(math.atan2(sh2[2], sh2[0]))) < 1.0, ('chest not squared', sh2)
 
 SIDES = {'r': dict(chain=["RightArm", "RightForeArm", "RightHand"], weapon="weapon_r", out=np.array([-1.0, 0, 0]), blade_mid=0.42),
          'l': dict(chain=["LeftArm", "LeftForeArm", "LeftHand"], weapon="weapon_l", out=np.array([1.0, 0, 0]), blade_mid=0.30)}
@@ -160,8 +171,14 @@ def terms(x):
         clear_head = min(float(np.linalg.norm(p - hd)) for p in pts)
         drop = math.degrees(math.asin(max(-1, min(1, float(-up_arm @ U)))))
         out[s] = dict(level=float(Y @ U), radial=float((Yh / max(nyh, 1e-9)) @ r), edge=float(Z @ t), grip_y=float(g[1]),
-                      reach=float(np.hypot(g[0], g[2])) if BASEBALL is None else float(g @ r), elbow=elbow, wrist=wrist, arm_drop=drop,
-                      clear_axis=clear_axis, clear_head=clear_head)
+                      reach=float(np.hypot(g[0], g[2])) if BASEBALL is None else (float(g[2]) if GSIDE is not None else float(g @ r)), elbow=elbow, wrist=wrist, arm_drop=drop,
+                      clear_axis=clear_axis, clear_head=clear_head, side=float((g[0] - 0.5 * (G[nid['LeftArm']][0, 3] + G[nid['RightArm']][0, 3])) * (-1 if s == 'r' else 1)))
+        # the BUTT (v3): the weapon's end below the fist, kept off his own forearm -- a wrist turned far enough to level a
+        # blade drives the haft's butt back into it (v3 trial: 25 axe vertices at local y -0.10 inside the left forearm)
+        hj = G[nid[SIDES[s]['chain'][2]]][:3, 3]
+        def segd(pt, a_, b_):
+            ab = b_ - a_; u_ = max(0.0, min(1.0, float((pt - a_) @ ab) / float(ab @ ab))); return float(np.linalg.norm(pt - (a_ + u_ * ab)))
+        out[s]['butt_clear'] = min(segd(g - f * Y, ch, hj) for f in (0.06, 0.10, 0.14))
         out[s]['_pts'] = pts
     sep = min(float(np.linalg.norm(p - q)) for p in out['r']['_pts'] for q in out['l']['_pts'])
     for s in out:
@@ -172,7 +189,7 @@ def terms(x):
 def cost(x):
     T = terms(x); c = 0.0
     for s, v in T.items():
-        c += 40 * v['level'] ** 2 + 10 * (1 - v['radial']) + 30 * (1 - v['edge'])
+        c += 40 * v['level'] ** 2 + RADW * (1 - v['radial']) + 30 * (1 - v['edge'])
         c += 20 * (v['grip_y'] - chest_y) ** 2 + 30 * max(0.0, REACH_MIN - v['reach']) ** 2
         c += 0.02 * max(0.0, v['wrist'] - WRIST_MAX) ** 2
         c += 0.02 * max(0.0, 10.0 - v['elbow']) ** 2 + 0.02 * max(0.0, v['elbow'] - ELBOW_MAX) ** 2
@@ -180,6 +197,9 @@ def cost(x):
         c += 60 * max(0.0, 0.30 - v['clear_axis']) ** 2 + 60 * max(0.0, 0.30 - v['clear_head']) ** 2
         if BASEBALL is not None:
             c += 60 * max(0.0, SEP - v['sep']) ** 2
+        if GSIDE is not None:
+            c += GSW * max(0.0, GSIDE - v['side']) ** 2 + GSW * max(0.0, v['side'] - GSMAX) ** 2
+        c += BUTTW * max(0.0, BUTT - v['butt_clear']) ** 2
     c += 0.02 * float(np.sum(x ** 2))
     return c
 
@@ -194,7 +214,7 @@ for seed in range(12):
         best = r_
 T = terms(best.x)
 loc = pose_from(best.x)
-rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BASEBALL, sep_min_m=SEP if BASEBALL else None, limits=dict(wrist_max=WRIST_MAX, reach_min=REACH_MIN, elbow_max=ELBOW_MAX, arm_drop_max=ARM_DROP_MAX), chest_counter_yaw_deg=round(yaw_chest, 2),
+rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BASEBALL, sep_min_m=SEP if BASEBALL else None, grip_side_min_m=GSIDE, limits=dict(wrist_max=WRIST_MAX, reach_min=REACH_MIN, elbow_max=ELBOW_MAX, arm_drop_max=ARM_DROP_MAX), chest_counter_yaw_deg=round(yaw_chest, 2),
            shoulder_line_after_deg=round(math.degrees(math.atan2(-sh2[2], sh2[0])), 3), chest_height_m=round(float(chest_y), 4),
            seat_l=SEAT_L or "the body's own weapon_l rest", cost=round(float(best.fun), 5),
            terms={s: {k: round(v, 4) for k, v in d.items()} for s, d in T.items()},
@@ -202,6 +222,6 @@ rep = dict(stance=dict(clip=ST_CLIP, t=ST_T), sense=SENSE, baseball_lead_deg=BAS
                    for i in range(len(m['nodes'])) if m['nodes'][i].get('name') in set(nd.get('name') for nd in m['nodes'])})
 json.dump(rep, open(OUT, 'w'), indent=1)
 for s, d in T.items():
-    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f"
-          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep']))
+    print("  %s: level %+.3f  radial %.3f  EDGE cos %.3f  grip y %.3f (chest %.3f)  reach %.2f  elbow %.0f  wrist %.0f  arm drop %.0f  clear axis %.2f head %.2f  sep %.2f  side %.2f  butt %.3f"
+          % (s, d['level'], d['radial'], d['edge'], d['grip_y'], chest_y, d['reach'], d['elbow'], d['wrist'], d['arm_drop'], d['clear_axis'], d['clear_head'], d['sep'], d['side'], d['butt_clear']))
 print("  chest squared by %.1f deg; cost %.4f -> %s" % (yaw_chest, best.fun, OUT))
