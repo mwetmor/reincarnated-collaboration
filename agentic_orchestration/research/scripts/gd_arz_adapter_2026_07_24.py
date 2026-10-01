@@ -401,6 +401,19 @@ CREATE INDEX IF NOT EXISTS idx_esf_rawfield ON exact_skill_field(raw_field);
 """
 
 
+def derived_edition_pin():
+    """The composite pin from MIGRATION-gd-edition-pin-2026-07-24.md:30, verified against ARZ's own sha256."""
+    doc = HERE.parent / "curated" / "MIGRATION-gd-edition-pin-2026-07-24.md"
+    pin = doc.read_text().splitlines()[29].strip()
+    if not pin.startswith("gd-edition-") or "arz_sha256=" not in pin:
+        sys.exit(f"HALT: {doc.name}:30 is not a composite edition pin: {pin!r}")
+    want = pin.rsplit("arz_sha256=", 1)[1]
+    got = hashlib.sha256(ARZ.read_bytes()).hexdigest()
+    if got != want:
+        sys.exit(f"HALT: {ARZ} sha256 {got} != pinned {want}. Never land rows under a pin the bytes do not match.")
+    return pin
+
+
 def backup_db():
     ts = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
     dst = DB.parent / f"corpus.db.pre-gd-slice-{ts}-backup"
@@ -519,8 +532,11 @@ def main(mode="apply"):
     backup_db()
     con = sqlite3.connect(DB)
     con.execute("PRAGMA foreign_keys=ON;")
-    # source_version: GDX1.arz has no in-record build tag we parse here; flag as undetermined.
-    source_version = None
+    # source_version: AMENDED 2026-10-01 (elrond, JOIN-1 J0 GV remedy). This line used to write None, and a
+    # re-land on 2026-07-25 erased the edition pin that MIGRATION-gd-edition-pin-2026-07-24 had set hours
+    # earlier. The pin is now DERIVED from that migration's line 30 (never retyped) and checked against the
+    # bytes actually read; a mismatch HALTs. A NULL pin can no longer be written.
+    source_version = derived_edition_pin()
     n = apply_rows(con, header, rows, rtype, source_version)
 
     # ---- post-apply verification (re-read from DB, re-run G3 against landed rows) ----
@@ -557,4 +573,8 @@ if __name__ == "__main__":
     elif "--dry-run" in sys.argv:
         main("dry")
     else:
-        main("apply")
+        # RETIRED 2026-10-01 (elrond, JOIN-1 J0 GV remedy). apply_rows() writes the pre-devotion shape
+        # (exact_skill_field.kit_id), which the gd-devotion-payloads-2026-07-25 re-key retired, and its
+        # DELETE + re-insert is what erased the FoI edition pin once already. Re-landing FoI needs a new dated
+        # script against the current schema. derived_edition_pin() above is the pin law any successor must keep.
+        sys.exit("RETIRED: apply mode disabled 2026-10-01 (see MIGRATION-join1-j0-gv-relabel-2026-10-01.md).")

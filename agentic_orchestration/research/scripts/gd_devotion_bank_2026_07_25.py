@@ -58,7 +58,11 @@ ARCHIVES = {
 EDITION = "gd-edition-II-20260724"
 
 # ---- fidelity grade, era-substrate LAW §4 (canonical/reap-die-rise-engine/era-substrate-architecture-2026-07-25.md)
-FIDELITY_GRADE = "MEASURED"
+# AMENDED 2026-10-01 (elrond, JOIN-1 J0 GV remedy; jack-ryan finding collab 795334bea): was "MEASURED", which
+# the LAW reserves for live-oracle verification. DATAMINED was minted for exactly this lane at 557394ec5, eight
+# minutes after this script banked its rows, and the rows were never back-filled until
+# join1-j0-gv-relabel-2026-10-01 (MIGRATION-join1-j0-gv-relabel-2026-10-01.md).
+FIDELITY_GRADE = "DATAMINED"
 FIDELITY_BASIS = "primary-source-datamine"   # vs 'live-oracle-fixture'; see MIGRATION doc §7
 
 # ---- G5 tier-1 anchors: Twin Fangs (`records/skills/devotion/tier1_01e_skill.dbr`).
@@ -654,7 +658,7 @@ def apply(headers, fields, powers, constellations, vocab):
                'skillMaxLevel=16 + skillUltimateLevel=26; no skillExperienceLevels '
                '(verified: 0 of 694 player-class skill records carry one)',
                source_file, source_version, record_path, ext_json, name_provenance,
-               'MEASURED', 'primary-source-datamine', 'gd-class-skill', adapter,
+               'DATAMINED', 'primary-source-datamine', 'gd-class-skill', adapter,   -- amended 2026-10-01 (GV)
                schema_version, created_date
         FROM exact_skill""")
     cur.execute("""
@@ -859,6 +863,14 @@ def main():
         mode = "verify"
     elif "--dry-run" in sys.argv:
         mode = "dry"
+    if mode == "apply":
+        # RETIRED 2026-10-01 (elrond, JOIN-1 J0 GV remedy). This run banked its rows on 2026-07-26. corpus.db
+        # has since moved past it (fidelity_grade back-filled to DATAMINED and the FoI pin restored by
+        # join1-j0-gv-relabel-2026-10-01; exact_skill_field gained the join1-j0-2026-10-01 columns). Its
+        # idempotency path drops and re-creates the devotion tables, so a re-apply would silently undo those
+        # corrections. And BASE (the Edition-II vendor tree) is no longer on disk under its pinned name.
+        # Verify and dry-run stay available. Re-banking needs a new dated script, not a re-run.
+        sys.exit("RETIRED: apply mode disabled 2026-10-01 (see MIGRATION-join1-j0-gv-relabel-2026-10-01.md).")
     print("=" * 78)
     print(f"GD DEVOTION PAYLOAD BANK — {SCHEMA_VERSION}   mode={mode}")
     print("=" * 78)
