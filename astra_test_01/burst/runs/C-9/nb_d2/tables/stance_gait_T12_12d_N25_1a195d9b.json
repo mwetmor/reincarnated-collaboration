@@ -1,0 +1,318 @@
+{
+ "body": "export_staging/T12_12d_N25/nb-body.glb",
+ "flat_clip": "idle",
+ "flat_pitch_deg": {
+  "L": -31.24,
+  "R": -32.43
+ },
+ "clips": {
+  "idle": {
+   "clip": "idle",
+   "T_s": 4.0,
+   "samples": 241,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.5977,
+   "stance_width_frac": 2.199,
+   "stance_width_range_frac": [
+    0.385,
+    2.543
+   ],
+   "stagger_m": -0.3441,
+   "pitch_off_flat_deg": {
+    "L": 0.0,
+    "R": -0.0
+   },
+   "toe_heights_m": {
+    "L": 0.0497,
+    "R": 0.0649
+   }
+  },
+  "idle_guard": {
+   "clip": "idle_guard",
+   "T_s": 4.0,
+   "samples": 241,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.4677,
+   "stance_width_frac": 1.72,
+   "stance_width_range_frac": [
+    1.72,
+    1.72
+   ],
+   "stagger_m": -0.5763,
+   "pitch_off_flat_deg": {
+    "L": 0.8,
+    "R": -2.3
+   },
+   "toe_heights_m": {
+    "L": 0.0505,
+    "R": 0.0628
+   }
+  },
+  "walk": {
+   "clip": "walk",
+   "T_s": 1.1167,
+   "samples": 68,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.1939,
+   "step_width_frac": 0.713,
+   "support_lines_m": {
+    "L": 0.0854,
+    "R": -0.1085
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.583,
+     "dur_s": 0.583,
+     "heel_strike_deg": 22.8,
+     "toe_off_deg": 14.8,
+     "rigid_pct": 31.4,
+     "ground_flat_pct": 17.1
+    },
+    {
+     "side": "R",
+     "t0": 1.017,
+     "dur_s": 0.833,
+     "heel_strike_deg": 20.5,
+     "toe_off_deg": 38.0,
+     "rigid_pct": 40.0,
+     "ground_flat_pct": 28.0
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -11.7,
+    "R": -7.8
+   },
+   "roll": {
+    "heel_strike_med": 21.6,
+    "toe_off_med": 26.4,
+    "rigid_pct_med": 35.7,
+    "ground_flat_pct_med": 22.6,
+    "rolls": true
+   }
+  },
+  "run": {
+   "clip": "run",
+   "T_s": 0.6167,
+   "samples": 38,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.3053,
+   "step_width_frac": 1.123,
+   "support_lines_m": {
+    "L": 0.1457,
+    "R": -0.1597
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.167,
+     "dur_s": 0.15,
+     "heel_strike_deg": 13.8,
+     "toe_off_deg": 17.8,
+     "rigid_pct": 55.6,
+     "ground_flat_pct": 22.2
+    },
+    {
+     "side": "R",
+     "t0": 0.5,
+     "dur_s": 0.167,
+     "heel_strike_deg": 9.8,
+     "toe_off_deg": 27.4,
+     "rigid_pct": 40.0,
+     "ground_flat_pct": 0.0
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -10.9,
+    "R": -20.2
+   },
+   "roll": {
+    "heel_strike_med": 11.8,
+    "toe_off_med": 22.6,
+    "rigid_pct_med": 47.8,
+    "ground_flat_pct_med": 11.1,
+    "rolls": true
+   }
+  },
+  "strafe_L_armed": {
+   "clip": "strafe_L_armed",
+   "T_s": 1.4833,
+   "samples": 90,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.3324,
+   "step_width_frac": 1.223,
+   "support_lines_m": {
+    "L": 0.1401,
+    "R": -0.1923
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.317,
+     "dur_s": 0.667,
+     "heel_strike_deg": 0.6,
+     "toe_off_deg": 32.4,
+     "rigid_pct": 75.0,
+     "ground_flat_pct": 70.0
+    },
+    {
+     "side": "R",
+     "t0": 0.817,
+     "dur_s": 0.867,
+     "heel_strike_deg": -6.0,
+     "toe_off_deg": 0.5,
+     "rigid_pct": 75.0,
+     "ground_flat_pct": 71.2
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -2.3,
+    "R": -1.6
+   },
+   "roll": {
+    "heel_strike_med": -2.7,
+    "toe_off_med": 16.4,
+    "rigid_pct_med": 75.0,
+    "ground_flat_pct_med": 70.6,
+    "rolls": false
+   }
+  },
+  "strafe_R_armed": {
+   "clip": "strafe_R_armed",
+   "T_s": 1.8833,
+   "samples": 114,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.6312,
+   "step_width_frac": 2.322,
+   "support_lines_m": {
+    "L": 0.2909,
+    "R": -0.3403
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.817,
+     "dur_s": 1.333,
+     "heel_strike_deg": -0.7,
+     "toe_off_deg": 0.9,
+     "rigid_pct": 91.2,
+     "ground_flat_pct": 58.8
+    },
+    {
+     "side": "R",
+     "t0": 1.433,
+     "dur_s": 1.417,
+     "heel_strike_deg": 2.5,
+     "toe_off_deg": 12.1,
+     "rigid_pct": 90.6,
+     "ground_flat_pct": 62.4
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -4.6,
+    "R": -3.9
+   },
+   "roll": {
+    "heel_strike_med": 0.9,
+    "toe_off_med": 6.5,
+    "rigid_pct_med": 90.9,
+    "ground_flat_pct_med": 60.6,
+    "rolls": false
+   }
+  },
+  "block": {
+   "clip": "block",
+   "T_s": 3.4667,
+   "samples": 209,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.5832,
+   "stance_width_frac": 2.145,
+   "stance_width_range_frac": [
+    1.814,
+    2.188
+   ],
+   "stagger_m": -0.2133,
+   "pitch_off_flat_deg": {
+    "L": -6.0,
+    "R": -4.8
+   },
+   "toe_heights_m": {
+    "L": 0.0683,
+    "R": 0.07
+   }
+  },
+  "attack": {
+   "clip": "attack",
+   "T_s": 1.5,
+   "samples": 91,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.8088,
+   "stance_width_frac": 2.976,
+   "stance_width_range_frac": [
+    0.013,
+    3.254
+   ],
+   "stagger_m": -0.2561,
+   "pitch_off_flat_deg": {
+    "L": -4.7,
+    "R": -4.5
+   },
+   "toe_heights_m": {
+    "L": 0.0654,
+    "R": 0.0769
+   }
+  },
+  "chop_overhead_92": {
+   "clip": "chop_overhead_92",
+   "T_s": 0.8667,
+   "samples": 53,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.2929,
+   "stance_width_frac": 1.078,
+   "stance_width_range_frac": [
+    0.0,
+    2.315
+   ],
+   "stagger_m": -0.4952,
+   "pitch_off_flat_deg": {
+    "L": -4.5,
+    "R": -32.8
+   },
+   "toe_heights_m": {
+    "L": 0.0638,
+    "R": 0.1051
+   }
+  },
+  "shield_bash": {
+   "clip": "shield_bash",
+   "T_s": 2.4,
+   "samples": 145,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.7963,
+   "stance_width_frac": 2.93,
+   "stance_width_range_frac": [
+    1.649,
+    3.119
+   ],
+   "stagger_m": -0.1933,
+   "pitch_off_flat_deg": {
+    "L": -4.6,
+    "R": -4.4
+   },
+   "toe_heights_m": {
+    "L": 0.0595,
+    "R": 0.0747
+   }
+  }
+ }
+}

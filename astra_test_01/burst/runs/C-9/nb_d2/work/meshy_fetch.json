@@ -1,6 +1,6 @@
 {
- "rig": "01a0eb6a-9e47-76ac-8979-941d3588695f",
- "spent": 63,
+ "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+ "spent": 72,
  "clips": {
   "axe_stance": {
    "action_id": 85,
@@ -415,6 +415,65 @@
     ]
    },
    "_note": "ACCIDENTAL, T12 drax 2026-09-30: a command meant to test 31's new wrong-rig refusal ran before the refusal was in the file (the patch had failed to apply), so it POSTed a real task: action 1 on the other rig, 3 credits wasted. anims/nothing.glb is a dead file (not deleted: listed for the coordinator)."
+  },
+  "g_walk30": {
+   "action_id": 30,
+   "task": "01a0f974-6f52-7673-8a1d-d4f18ecefe00",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 63,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/g_walk30.glb",
+   "mb": 17.91,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "g_walk30.glb: clip 'Armature|Casual_Walk|baselayer' starts root 'Hips' at 99.898 against rest 93.790 (6.5% > 5%)"
+    ],
+    "clips": [
+     "Armature|Casual_Walk|baselayer"
+    ]
+   }
+  },
+  "g_walk566": {
+   "action_id": 566,
+   "task": "01a0f975-78b1-722e-8f79-a9589fb7e99e",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 32,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/g_walk566.glb",
+   "mb": 17.87,
+   "lint": {
+    "verdict": "PASS",
+    "fails": [],
+    "warns": [],
+    "clips": [
+     "Armature|walking_2|baselayer"
+    ]
+   }
+  },
+  "g_run510": {
+   "action_id": 510,
+   "task": "01a0f976-04e4-7222-9e2f-4dd4e1feb7de",
+   "status": "SUCCEEDED",
+   "rig": "01a0eb7e-7ae7-77fb-90a6-a95d7b4a2149",
+   "credits": 3,
+   "seconds": 33,
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/nb_d2/anims/g_run510.glb",
+   "mb": 17.87,
+   "lint": {
+    "verdict": "WARN",
+    "fails": [],
+    "warns": [
+     "g_run510.glb: clip 'Armature|Standard_Forward_Charge|baselayer' drifts 3.740 m horizontally over its own length (374.0 units) and is not locomotion -- a clip that walks away from where it started",
+     "g_run510.glb: clip 'Armature|Standard_Forward_Charge|baselayer' starts root 'Hips' at 88.143 against rest 93.790 (6.0% > 5%)"
+    ],
+    "clips": [
+     "Armature|Standard_Forward_Charge|baselayer"
+    ]
+   }
   }
  }
 }

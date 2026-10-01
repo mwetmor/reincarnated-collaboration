@@ -1,0 +1,39 @@
+{
+ "clips": {
+  "walk": {
+   "source": "anims/g_walk566.glb",
+   "source_anim": "Armature|walking_2|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.2333333492279053
+   ],
+   "keys": 37,
+   "length_s": 1.2000000141561031,
+   "joints": 24,
+   "rest_match": 5e-05,
+   "hip_ratio": 1.08825,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0098,
+    1.59
+   ],
+   "grounded_by_m": 0.00183,
+   "feet_span_m": [
+    0.0,
+    0.0161
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "g1.glb: SOURCE FIDELITY -- clip 'walk' is 1.196 hips-to-head from ../nb_t8/nbt_walk.glb at 0.20 s (LeftFoot); limit 0.10; its hips turn 19 deg off the source's",
+   "g1.glb: SOURCE GRID -- loop 'walk' is RESAMPLED: 37 keys at 0.0333 s against the source's 32 at 0.0333 s (nbt_walk.glb) (re-cut it on the source's own keys: 55_clip_graft.py)",
+   "g1.glb: LOOP SEAM -- loop 'walk' does not close: pose(0) vs pose(T) 0.3564 m (LeftToeBase) / 41.17 deg, limit 0.005 m / 1.0 deg; first interval 0.69 of the median (a source that is not periodic is blended: 58_loop_blend.py)"
+  ],
+  "warns": 21
+ }
+}

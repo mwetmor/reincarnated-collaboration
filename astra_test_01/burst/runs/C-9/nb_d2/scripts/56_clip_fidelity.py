@@ -31,7 +31,10 @@ W = __import__('52_weapon_bones')
 LIMIT = 0.10
 JOINTS = ["Spine02", "Head", "LeftArm", "LeftForeArm", "LeftHand", "RightArm", "RightForeArm", "RightHand",
           "LeftUpLeg", "LeftLeg", "LeftFoot", "RightUpLeg", "RightLeg", "RightFoot"]
-EXCLUDES = {"wrist_lock": ("LeftHand", "RightHand")}
+EXCLUDES = {"wrist_lock": ("LeftHand", "RightHand"),
+            # R-C9-122 (66_stance_narrow.py): the feet moved toward his midline by a stated lateral distance, the knees and
+            # ankles re-posed to reach them -- the hips' joints (UpLeg) do not move, so they are still compared
+            "stance_narrow": ("LeftLeg", "LeftFoot", "RightLeg", "RightFoot")}
 REGISTRY = os.path.join(os.path.dirname(HERE), "work", "clip_sources.json")
 
 
@@ -140,6 +143,14 @@ def fidelity(ship, clip, src, window=None, exclude=()):
 
 def registry(path=REGISTRY):
     return json.load(open(path)) if os.path.exists(path) else {"clips": {}}
+
+
+def registry_for(glb):
+    """A STAGED SET CARRIES ITS OWN PROVENANCE (R-C9-122): a clip_sources.json BESIDE the GLB (as weapon_mount.json is read
+    beside it) is that file's registry; else the pipeline's work/clip_sources.json. A staged body that re-sources a clip must
+    not rewrite the record every other staged and installed body is linted against."""
+    beside = os.path.join(os.path.dirname(os.path.abspath(glb)), "clip_sources.json")
+    return registry(beside) if os.path.exists(beside) else registry()
 
 
 def rest_match(A, B):

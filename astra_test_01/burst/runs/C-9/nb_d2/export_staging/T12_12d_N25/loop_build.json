@@ -1,0 +1,41 @@
+{
+ "clips": {
+  "walk": {
+   "footlock_m_s": 1.3202,
+   "support_pairs": 32,
+   "probe_pairs": 31,
+   "blend_support_max_mm": 8.83,
+   "blend_support_med_mm": 6.01,
+   "blend_support_pairs": 15,
+   "loop_slide_med_mm": 3.8,
+   "loop_slide_p95_mm": 14.68,
+   "loop_slide_max_mm": 16.58,
+   "blend_intervals": 16,
+   "a": 0,
+   "b": 34,
+   "w": 16,
+   "mode": "offset",
+   "L": 34,
+   "seconds": 1.1333,
+   "gait": "walk",
+   "source_keys": [
+    0.0,
+    1.133333
+   ],
+   "keys": 35,
+   "retime": 1.0,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "g2.glb: SOURCE FIDELITY -- clip 'walk' is 1.196 hips-to-head from ../nb_t8/nbt_walk.glb at 0.20 s (LeftFoot); limit 0.10; its hips turn 19 deg off the source's",
+   "g2.glb: SOURCE GRID -- loop 'walk' is RESAMPLED: 35 keys at 0.0333 s against the source's 32 at 0.0333 s (nbt_walk.glb) (re-cut it on the source's own keys: 55_clip_graft.py)"
+  ]
+ }
+}

@@ -1,0 +1,230 @@
+{
+ "body": "export_staging/T12_11_trails/nb-body.glb",
+ "flat_clip": "idle",
+ "flat_pitch_deg": {
+  "L": -31.24,
+  "R": -32.43
+ },
+ "clips": {
+  "idle": {
+   "clip": "idle",
+   "T_s": 4.0,
+   "samples": 241,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.706,
+   "stance_width_frac": 2.597,
+   "stance_width_range_frac": [
+    0.646,
+    2.887
+   ],
+   "stagger_m": -0.3377,
+   "pitch_off_flat_deg": {
+    "L": 0.0,
+    "R": -0.0
+   },
+   "toe_heights_m": {
+    "L": 0.0497,
+    "R": 0.0649
+   }
+  },
+  "idle_guard": {
+   "clip": "idle_guard",
+   "T_s": 4.0,
+   "samples": 241,
+   "hip_width_m": 0.2718,
+   "kind": "stand",
+   "stance_width_m": 0.533,
+   "stance_width_frac": 1.961,
+   "stance_width_range_frac": [
+    1.961,
+    1.961
+   ],
+   "stagger_m": -0.5763,
+   "pitch_off_flat_deg": {
+    "L": 0.8,
+    "R": -2.3
+   },
+   "toe_heights_m": {
+    "L": 0.0505,
+    "R": 0.0628
+   }
+  },
+  "walk": {
+   "clip": "walk",
+   "T_s": 1.0333,
+   "samples": 63,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.4019,
+   "step_width_frac": 1.479,
+   "support_lines_m": {
+    "L": 0.1997,
+    "R": -0.2022
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.25,
+     "dur_s": 0.55,
+     "heel_strike_deg": 16.8,
+     "toe_off_deg": 19.7,
+     "rigid_pct": 78.8,
+     "ground_flat_pct": 3.0
+    },
+    {
+     "side": "R",
+     "t0": 0.717,
+     "dur_s": 0.633,
+     "heel_strike_deg": 25.5,
+     "toe_off_deg": 26.0,
+     "rigid_pct": 71.1,
+     "ground_flat_pct": 5.3
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -11.1,
+    "R": -9.7
+   },
+   "roll": {
+    "heel_strike_med": 21.1,
+    "toe_off_med": 22.9,
+    "rigid_pct_med": 74.9,
+    "ground_flat_pct_med": 4.2,
+    "rolls": false
+   }
+  },
+  "run": {
+   "clip": "run",
+   "T_s": 0.6167,
+   "samples": 38,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.3127,
+   "step_width_frac": 1.15,
+   "support_lines_m": {
+    "L": 0.1508,
+    "R": -0.1619
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.167,
+     "dur_s": 0.15,
+     "heel_strike_deg": 13.8,
+     "toe_off_deg": 17.8,
+     "rigid_pct": 55.6,
+     "ground_flat_pct": 22.2
+    },
+    {
+     "side": "R",
+     "t0": 0.5,
+     "dur_s": 0.15,
+     "heel_strike_deg": 8.2,
+     "toe_off_deg": 16.8,
+     "rigid_pct": 55.6,
+     "ground_flat_pct": 0.0
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -10.9,
+    "R": -18.6
+   },
+   "roll": {
+    "heel_strike_med": 11.0,
+    "toe_off_med": 17.3,
+    "rigid_pct_med": 55.6,
+    "ground_flat_pct_med": 11.1,
+    "rolls": false
+   }
+  },
+  "strafe_L_armed": {
+   "clip": "strafe_L_armed",
+   "T_s": 1.4833,
+   "samples": 90,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.3523,
+   "step_width_frac": 1.296,
+   "support_lines_m": {
+    "L": 0.1501,
+    "R": -0.2022
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.317,
+     "dur_s": 0.667,
+     "heel_strike_deg": 0.6,
+     "toe_off_deg": 32.4,
+     "rigid_pct": 75.0,
+     "ground_flat_pct": 70.0
+    },
+    {
+     "side": "R",
+     "t0": 0.817,
+     "dur_s": 0.867,
+     "heel_strike_deg": -6.0,
+     "toe_off_deg": 0.5,
+     "rigid_pct": 75.0,
+     "ground_flat_pct": 71.2
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -2.3,
+    "R": -1.6
+   },
+   "roll": {
+    "heel_strike_med": -2.7,
+    "toe_off_med": 16.4,
+    "rigid_pct_med": 75.0,
+    "ground_flat_pct_med": 70.6,
+    "rolls": false
+   }
+  },
+  "strafe_R_armed": {
+   "clip": "strafe_R_armed",
+   "T_s": 1.8833,
+   "samples": 114,
+   "hip_width_m": 0.2718,
+   "kind": "gait",
+   "step_width_m": 0.7503,
+   "step_width_frac": 2.76,
+   "support_lines_m": {
+    "L": 0.3505,
+    "R": -0.3998
+   },
+   "steps": [
+    {
+     "side": "L",
+     "t0": 0.817,
+     "dur_s": 1.333,
+     "heel_strike_deg": -0.7,
+     "toe_off_deg": 0.9,
+     "rigid_pct": 91.2,
+     "ground_flat_pct": 58.8
+    },
+    {
+     "side": "R",
+     "t0": 1.433,
+     "dur_s": 1.417,
+     "heel_strike_deg": 2.5,
+     "toe_off_deg": 12.1,
+     "rigid_pct": 90.6,
+     "ground_flat_pct": 62.4
+    }
+   ],
+   "planted_off_ground_flat_deg": {
+    "L": -4.6,
+    "R": -3.9
+   },
+   "roll": {
+    "heel_strike_med": 0.9,
+    "toe_off_med": 6.5,
+    "rigid_pct_med": 90.9,
+    "ground_flat_pct_med": 60.6,
+    "rolls": false
+   }
+  }
+ }
+}

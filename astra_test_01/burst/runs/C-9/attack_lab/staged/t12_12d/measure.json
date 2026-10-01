@@ -1,0 +1,780 @@
+{
+ "what": "T12_12d (R-C9-122): Matt -- 'both the barbarian and the dark knight have wide legged stances generally, and I think it would be better to take the legs in a bit so they don't walk flat-footed'; and -- 'when updating the stance width for dark knight, can you please also do it for barbarian?'",
+ "base": "T12_12c F25L (23e5fde7)",
+ "variants": {
+  "N25": {
+   "body": "1a195d9bc84ec3a90673b1e7630c0bb8 (nb_d2/export_staging/T12_12d_N25)"
+  },
+  "N40": {
+   "body": "5603f68b88c412689514a6dadb585020 (nb_d2/export_staging/T12_12d_N40)"
+  }
+ },
+ "manifest": "5fdfc1474e2b61f0cd07609d1b3b8eb8: T12_11's 0a81b2af + locomotion_in_place.walk speed_m_s 1.3199 (the new walk's foot-lock speed; the T8 walk's was 1.5868 = walk_px_s 201.7) -- his walk is 16.8% slower on the ground, the speed that pins its feet",
+ "width_x_hip_pelvis_frame": {
+  "idle": {
+   "current": 2.597,
+   "N25": 2.199,
+   "N40": 1.96
+  },
+  "idle_guard": {
+   "current": 1.961,
+   "N25": 1.72,
+   "N40": 1.576
+  },
+  "walk": {
+   "current": 1.479,
+   "N25": 0.713,
+   "N40": 0.713
+  },
+  "run": {
+   "current": 1.15,
+   "N25": 1.123,
+   "N40": 1.101
+  },
+  "strafe_L_armed": {
+   "current": 1.296,
+   "N25": 1.223,
+   "N40": 1.179
+  },
+  "strafe_R_armed": {
+   "current": 2.76,
+   "N25": 2.322,
+   "N40": 2.059
+  },
+  "block": {
+   "current": 2.527,
+   "N25": 2.145,
+   "N40": 1.916
+  },
+  "attack": {
+   "current": 2.976,
+   "N25": 2.976,
+   "N40": 2.976
+  },
+  "chop_overhead_92": {
+   "current": 1.078,
+   "N25": 1.078,
+   "N40": 1.078
+  },
+  "shield_bash": {
+   "current": 2.93,
+   "N25": 2.93,
+   "N40": 2.93
+  }
+ },
+ "hip_width_m": 0.272,
+ "rest_pose": {
+  "heels_x_hip": 1.69,
+  "note": "his rest (A-pose) stands 1.69 x hip, like the dark knight's 1.63, and his Meshy sources share it. NOT fixed at the base: see base_fix_not_taken"
+ },
+ "base_fix_not_taken": "A rest-pose adduction re-binds the body (with its morph targets) and all six gear pieces, the weapon/shield mounts and the recorded mount the lint pins -- a Blender round trip this body's pipeline left on purpose -- and then needs every clip rebuilt: 9 library clips re-grafted (55) AND their downstream binary edits re-run (deroot/recentre/reground, the T12_10 source-grid re-cuts, 58 seam blends, 61 strike ramps, the T12_11 slash recut, 63 joint fix), 3 SMPL-H clips re-retargeted (41) and re-blended (58), and 8 authored poses re-solved (54 guard poses at every chest, idle_guard, the weapon_r channel, the T12_12c guard). The per-clip edit (66_stance_narrow.py) gives the same visible result on every clip it names with the foot plant and the foot-lock speeds preserved exactly, and is body-agnostic for the JOIN body.",
+ "narrowed_clips": [
+  "idle",
+  "idle_guard",
+  "block",
+  "run",
+  "strafe_L_armed",
+  "strafe_R_armed"
+ ],
+ "not_narrowed": {
+  "walk": "the new library walk is already at 0.71 x hip",
+  "strikes": "attack, chop_overhead_92, shield_bash: their feet cross mid-lunge (min 0.00-0.01 x hip) -- a constant inward shift would cross them further"
+ },
+ "narrow_edit": {
+  "25": {
+   "idle": {
+    "width_before_m": 0.706,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.597,
+    "excess_m": 0.4342,
+    "per_foot_shift_m": 0.0543,
+    "keys": 121,
+    "mean_pelvis_lateral": [
+     0.7697,
+     0.0,
+     0.6385
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 3.58,
+      "max": 5.11
+     },
+     "R": {
+      "median": 3.01,
+      "max": 5.14
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 6.07,
+      "max_abs": 7.94
+     },
+     "R": {
+      "median": 4.3,
+      "max_abs": 7.16
+     }
+    },
+    "ankle_error_max_mm": 0.028,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.5977,
+    "width_after_x_hip": 2.199
+   },
+   "idle_guard": {
+    "width_before_m": 0.533,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.961,
+    "excess_m": 0.2612,
+    "per_foot_shift_m": 0.0327,
+    "keys": 121,
+    "mean_pelvis_lateral": [
+     0.9365,
+     0.0,
+     0.3507
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 2.81,
+      "max": 2.81
+     },
+     "R": {
+      "median": 2.14,
+      "max": 2.14
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 2.72,
+      "max_abs": 2.72
+     },
+     "R": {
+      "median": 1.35,
+      "max_abs": 1.35
+     }
+    },
+    "ankle_error_max_mm": 0.05,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.4677,
+    "width_after_x_hip": 1.721
+   },
+   "walk": {
+    "skipped": "width 0.194 m is inside 1.00 x hip 0.272 m"
+   },
+   "run": {
+    "width_before_m": 0.3127,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.15,
+    "excess_m": 0.0409,
+    "per_foot_shift_m": 0.0051,
+    "keys": 20,
+    "mean_pelvis_lateral": [
+     0.9993,
+     0.0,
+     -0.0375
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 0.4,
+      "max": 0.57
+     },
+     "R": {
+      "median": 0.4,
+      "max": 0.63
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 0.07,
+      "max_abs": 0.23
+     },
+     "R": {
+      "median": 0.04,
+      "max_abs": 0.33
+     }
+    },
+    "ankle_error_max_mm": 0.013,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.3053,
+    "width_after_x_hip": 1.123,
+    "roll_after": {
+     "heel_strike_med": 11.8,
+     "toe_off_med": 22.6,
+     "rigid_pct_med": 47.8,
+     "ground_flat_pct_med": 11.1,
+     "rolls": true
+    }
+   },
+   "block": {
+    "width_before_m": 0.6869,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.527,
+    "excess_m": 0.4151,
+    "per_foot_shift_m": 0.0519,
+    "keys": 105,
+    "mean_pelvis_lateral": [
+     0.7647,
+     0.0,
+     0.6444
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 2.97,
+      "max": 3.64
+     },
+     "R": {
+      "median": 2.25,
+      "max": 2.99
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 4.84,
+      "max_abs": 6.47
+     },
+     "R": {
+      "median": 5.61,
+      "max_abs": 8.23
+     }
+    },
+    "ankle_error_max_mm": 0.013,
+    "foot_orientation_error_max_deg": 0.0,
+    "width_after_m": 0.5832,
+    "width_after_x_hip": 2.146
+   },
+   "strafe_L_armed": {
+    "width_before_m": 0.3523,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.296,
+    "excess_m": 0.0805,
+    "per_foot_shift_m": 0.0101,
+    "keys": 46,
+    "mean_pelvis_lateral": [
+     0.9896,
+     0.0,
+     0.1438
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 0.69,
+      "max": 1.44
+     },
+     "R": {
+      "median": 0.8,
+      "max": 1.16
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 0.56,
+      "max_abs": 2.3
+     },
+     "R": {
+      "median": 0.17,
+      "max_abs": 1.69
+     }
+    },
+    "ankle_error_max_mm": 0.038,
+    "foot_orientation_error_max_deg": 0.0,
+    "width_after_m": 0.3324,
+    "width_after_x_hip": 1.223,
+    "roll_after": {
+     "heel_strike_med": -2.7,
+     "toe_off_med": 16.4,
+     "rigid_pct_med": 75.0,
+     "ground_flat_pct_med": 70.6,
+     "rolls": false
+    }
+   },
+   "strafe_R_armed": {
+    "width_before_m": 0.7503,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.76,
+    "excess_m": 0.4785,
+    "per_foot_shift_m": 0.0598,
+    "keys": 58,
+    "mean_pelvis_lateral": [
+     0.9984,
+     0.0,
+     0.0562
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 3.47,
+      "max": 4.74
+     },
+     "R": {
+      "median": 1.66,
+      "max": 5.99
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 4.61,
+      "max_abs": 14.12
+     },
+     "R": {
+      "median": 6.6,
+      "max_abs": 9.84
+     }
+    },
+    "ankle_error_max_mm": 0.014,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.6312,
+    "width_after_x_hip": 2.322,
+    "roll_after": {
+     "heel_strike_med": 0.9,
+     "toe_off_med": 6.5,
+     "rigid_pct_med": 90.9,
+     "ground_flat_pct_med": 60.6,
+     "rolls": false
+    }
+   }
+  },
+  "40": {
+   "idle": {
+    "width_before_m": 0.706,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.597,
+    "excess_m": 0.4342,
+    "per_foot_shift_m": 0.0868,
+    "keys": 121,
+    "mean_pelvis_lateral": [
+     0.7697,
+     0.0,
+     0.6385
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 5.96,
+      "max": 8.09
+     },
+     "R": {
+      "median": 5.01,
+      "max": 7.95
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 8.74,
+      "max_abs": 11.46
+     },
+     "R": {
+      "median": 6.05,
+      "max_abs": 10.24
+     }
+    },
+    "ankle_error_max_mm": 0.035,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.5327,
+    "width_after_x_hip": 1.96
+   },
+   "idle_guard": {
+    "width_before_m": 0.533,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.961,
+    "excess_m": 0.2612,
+    "per_foot_shift_m": 0.0522,
+    "keys": 121,
+    "mean_pelvis_lateral": [
+     0.9365,
+     0.0,
+     0.3507
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 4.55,
+      "max": 4.55
+     },
+     "R": {
+      "median": 3.47,
+      "max": 3.47
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 4.03,
+      "max_abs": 4.03
+     },
+     "R": {
+      "median": 1.85,
+      "max_abs": 1.85
+     }
+    },
+    "ankle_error_max_mm": 0.04,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.4285,
+    "width_after_x_hip": 1.577
+   },
+   "walk": {
+    "skipped": "width 0.194 m is inside 1.00 x hip 0.272 m"
+   },
+   "run": {
+    "width_before_m": 0.3127,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.15,
+    "excess_m": 0.0409,
+    "per_foot_shift_m": 0.0082,
+    "keys": 20,
+    "mean_pelvis_lateral": [
+     0.9993,
+     0.0,
+     -0.0375
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 0.65,
+      "max": 0.91
+     },
+     "R": {
+      "median": 0.64,
+      "max": 1.0
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 0.1,
+      "max_abs": 0.37
+     },
+     "R": {
+      "median": 0.06,
+      "max_abs": 0.49
+     }
+    },
+    "ankle_error_max_mm": 0.02,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.2992,
+    "width_after_x_hip": 1.101,
+    "roll_after": {
+     "heel_strike_med": 11.8,
+     "toe_off_med": 22.6,
+     "rigid_pct_med": 47.8,
+     "ground_flat_pct_med": 11.1,
+     "rolls": true
+    }
+   },
+   "block": {
+    "width_before_m": 0.6869,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.527,
+    "excess_m": 0.4151,
+    "per_foot_shift_m": 0.083,
+    "keys": 105,
+    "mean_pelvis_lateral": [
+     0.7647,
+     0.0,
+     0.6444
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 5.0,
+      "max": 6.05
+     },
+     "R": {
+      "median": 3.88,
+      "max": 4.97
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 6.89,
+      "max_abs": 9.19
+     },
+     "R": {
+      "median": 8.06,
+      "max_abs": 11.56
+     }
+    },
+    "ankle_error_max_mm": 0.02,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.5209,
+    "width_after_x_hip": 1.916
+   },
+   "strafe_L_armed": {
+    "width_before_m": 0.3523,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 1.296,
+    "excess_m": 0.0805,
+    "per_foot_shift_m": 0.0161,
+    "keys": 46,
+    "mean_pelvis_lateral": [
+     0.9896,
+     0.0,
+     0.1438
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 1.12,
+      "max": 2.31
+     },
+     "R": {
+      "median": 1.29,
+      "max": 1.86
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 0.88,
+      "max_abs": 3.61
+     },
+     "R": {
+      "median": 0.25,
+      "max_abs": 2.66
+     }
+    },
+    "ankle_error_max_mm": 0.001,
+    "foot_orientation_error_max_deg": 0.0,
+    "width_after_m": 0.3205,
+    "width_after_x_hip": 1.179,
+    "roll_after": {
+     "heel_strike_med": -2.7,
+     "toe_off_med": 16.4,
+     "rigid_pct_med": 75.0,
+     "ground_flat_pct_med": 70.6,
+     "rolls": false
+    }
+   },
+   "strafe_R_armed": {
+    "width_before_m": 0.7503,
+    "hip_width_m": 0.2718,
+    "width_before_x_hip": 2.76,
+    "excess_m": 0.4785,
+    "per_foot_shift_m": 0.0957,
+    "keys": 58,
+    "mean_pelvis_lateral": [
+     0.9984,
+     0.0,
+     0.0562
+    ],
+    "hip_adduction_deg": {
+     "L": {
+      "median": 5.93,
+      "max": 7.92
+     },
+     "R": {
+      "median": 3.2,
+      "max": 10.15
+     }
+    },
+    "knee_flexion_change_deg": {
+     "L": {
+      "median": 6.75,
+      "max_abs": 20.66
+     },
+     "R": {
+      "median": 9.82,
+      "max_abs": 14.72
+     }
+    },
+    "ankle_error_max_mm": 0.004,
+    "foot_orientation_error_max_deg": 0.0001,
+    "width_after_m": 0.5597,
+    "width_after_x_hip": 2.059,
+    "roll_after": {
+     "heel_strike_med": 0.9,
+     "toe_off_med": 6.5,
+     "rigid_pct_med": 90.9,
+     "ground_flat_pct_med": 60.6,
+     "rolls": false
+    }
+   }
+  }
+ },
+ "roll": {
+  "walk": {
+   "current": {
+    "heel_strike_med": 21.1,
+    "toe_off_med": 22.9,
+    "rigid_pct_med": 74.9,
+    "ground_flat_pct_med": 4.2,
+    "rolls": false
+   },
+   "N25": {
+    "heel_strike_med": 21.6,
+    "toe_off_med": 26.4,
+    "rigid_pct_med": 35.7,
+    "ground_flat_pct_med": 22.6,
+    "rolls": true
+   }
+  },
+  "run": {
+   "current": {
+    "heel_strike_med": 11.0,
+    "toe_off_med": 17.3,
+    "rigid_pct_med": 55.6,
+    "ground_flat_pct_med": 11.1,
+    "rolls": false
+   },
+   "N25": {
+    "heel_strike_med": 11.8,
+    "toe_off_med": 22.6,
+    "rigid_pct_med": 47.8,
+    "ground_flat_pct_med": 11.1,
+    "rolls": true
+   }
+  },
+  "strafe_L_armed": {
+   "current": {
+    "heel_strike_med": -2.7,
+    "toe_off_med": 16.4,
+    "rigid_pct_med": 75.0,
+    "ground_flat_pct_med": 70.6,
+    "rolls": false
+   },
+   "N25": {
+    "heel_strike_med": -2.7,
+    "toe_off_med": 16.4,
+    "rigid_pct_med": 75.0,
+    "ground_flat_pct_med": 70.6,
+    "rolls": false
+   }
+  },
+  "strafe_R_armed": {
+   "current": {
+    "heel_strike_med": 0.9,
+    "toe_off_med": 6.5,
+    "rigid_pct_med": 90.9,
+    "ground_flat_pct_med": 60.6,
+    "rolls": false
+   },
+   "N25": {
+    "heel_strike_med": 0.9,
+    "toe_off_med": 6.5,
+    "rigid_pct_med": 90.9,
+    "ground_flat_pct_med": 60.6,
+    "rolls": false
+   }
+  }
+ },
+ "leg_clearance_m_axe_shield": {
+  "current": {
+   "attack": [
+    0.016,
+    0.005
+   ],
+   "block": [
+    0.085,
+    0.688
+   ],
+   "chop_overhead_92": [
+    0.046,
+    0.176
+   ],
+   "idle": [
+    0.134,
+    0.219
+   ],
+   "run": [
+    0.084,
+    0.128
+   ],
+   "shield_bash": [
+    0.048,
+    0.006
+   ],
+   "strafe_l": [
+    0.084,
+    0.226
+   ],
+   "strafe_r": [
+    0.101,
+    0.144
+   ],
+   "walk": [
+    0.18,
+    0.218
+   ]
+  },
+  "N25": {
+   "attack": [
+    0.016,
+    0.005
+   ],
+   "block": [
+    0.079,
+    0.689
+   ],
+   "chop_overhead_92": [
+    0.045,
+    0.189
+   ],
+   "idle": [
+    0.134,
+    0.223
+   ],
+   "run": [
+    0.085,
+    0.128
+   ],
+   "shield_bash": [
+    0.048,
+    0.006
+   ],
+   "strafe_l": [
+    0.084,
+    0.227
+   ],
+   "strafe_r": [
+    0.1,
+    0.132
+   ],
+   "walk": [
+    0.183,
+    0.28
+   ]
+  },
+  "N40": {
+   "attack": [
+    0.016,
+    0.005
+   ],
+   "block": [
+    0.075,
+    0.689
+   ],
+   "chop_overhead_92": [
+    0.044,
+    0.195
+   ],
+   "idle": [
+    0.134,
+    0.227
+   ],
+   "run": [
+    0.086,
+    0.129
+   ],
+   "shield_bash": [
+    0.048,
+    0.006
+   ],
+   "strafe_l": [
+    0.083,
+    0.227
+   ],
+   "strafe_r": [
+    0.1,
+    0.125
+   ],
+   "walk": [
+    0.183,
+    0.28
+   ]
+  }
+ },
+ "walk": {
+  "source": "Meshy library 566 'Walking 2' on his rig 01a0eb7e (3 credits; R-C9-122 spend 9 of 9: 30 Casual Walk, 566 Walking 2, 510 Standard Forward Charge, nb_d2/work/meshy_spend_R-C9-122.json)",
+  "loop": "58_loop_blend offset a0 b34 w16, 1.1333 s, blend support slide max 8.8 mm",
+  "candidates": "tables/stance_gait_library_candidates_R-C9-122.json"
+ },
+ "run": "KEPT (T8 running): it rolls at source (heel strike 14.2, toe-off 21.2, rigid 36%); in the body its 9-frame stances read rigid 48-56% -- one frame either way flips the verdict; only narrowed",
+ "strafes": "text-to-motion side-steps: still rigid (75% / 91%) -- no library side-step was fetched (out of the 9-credit cap); only narrowed",
+ "gates": {
+  "gate_53": "PASS all three (ACCEPT_TILT_MAX 80 lab view as T12_12c)",
+  "strikes_96fps": "0 contact all three",
+  "joint_lint": "12/12 PASS N25 and N40",
+  "foot_lock": "run_armed 3.5451, strafe_L 0.6976/0.6977, strafe_R 0.2894/0.2892 (manifest 0.2896), run 5.2436 (5.2558 before, one sample)",
+  "body_lint": "WARN only (legacy clips), with the staged clip_sources.json beside the GLB",
+  "manifest_lint": "0 mismatches"
+ },
+ "sheets": "Desktop review: t12_12d_stance_{guard,idle}_8_headings_current_N25_N40.jpg",
+ "films": "Desktop review: t12_12d_barrow_play_holds_current_N25_N40.mp4"
+}

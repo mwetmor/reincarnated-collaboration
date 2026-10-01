@@ -107,6 +107,7 @@ func _initialize() -> void:
 		print("[accept] %-8s %-9s FIST off his centreline / shoulder half-width: right %.2f (%.2f..%.2f), left %.2f (%.2f..%.2f)" % [label, st, float(r["fist_r"]), float(r["fist_r_min"]), float(r["fist_r_max"]), float(r["fist_l"]), float(r["fist_l_min"]), float(r["fist_l_max"])])
 		print("[accept] %-8s %-9s TIP-FORWARD: the axe's grip->tip axis against his forward %.1f deg (median)" % [label, st, float(r["tip_fwd"])])
 		print("[accept] %-8s %-9s BUTT CLEARANCE: the axe butt's nearest hip / spine / thigh vertex %.3f m (min over the loop)" % [label, st, float(r["butt_clear_min_m"])])
+		print("[accept] %-8s %-9s LEG CLEARANCE: the axe %.3f m, the shield %.3f m from his legs (thigh..toe vertices; min over the loop)" % [label, st, float(r["leg_clear_axe_min_m"]), float(r["leg_clear_shield_min_m"])])
 		print("[accept] %-8s %-9s JOINT LIMITS: the axe elbow %.1f deg flexion (%.1f..%.1f; < -5 = hyperextended), the wrist off neutral %.1f / %.1f deg (median / max)" % [label, st, float(r["elbow"]), float(r["elbow_min"]), float(r["elbow_max"]), float(r["wrist_med"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s hand contact (pommel in its own hand, <= 2 cm) %d pts max %.3f m on %d frames | the wrist off its rest (neutral) %.1f / %.1f / %.1f deg (median / p90 / max)" % [label, st, int(r["hand_contact_max"]), float(r["hand_contact_depth_m"]), int(r["hand_contact_frames"]), float(r["wrist_med"]), float(r["wrist_p90"]), float(r["wrist_max"])])
 		print("[accept] %-8s %-9s guard %3d%% | fist turn %4.1f/%4.1f deg | arc %3.0f-%3.0f px/loop | pen worst %d (%.3f m deep), frames %d of %d %s | tilt %4.1f fwd %+.2f out %+.2f head out %+.2f edge %+4.0f (medians) | %s %.3f s x%d"
@@ -176,6 +177,7 @@ func _initialize() -> void:
 			   float(e["heading_strike"]), dev, edev, n_dev, float(e0["on_travel_strike"]), float(e0["swing_mean"]), float(e0["swing"][0]), float(e0["swing"][1]),
 			   float(r2["swing_arc_min"]), float(r2["swing_arc_max"]), float(r2["step_max"]), float(r2["turn_med"]), float(r2["turn_max"]),
 			   int(r2["pen_max"]), float(r2["pen_depth_m"]), int(r2["pen_frames"]), int(r2["frames"]), JSON.stringify(r2["pen_parts"])])
+		print("[accept] %-8s %-14s LEG CLEARANCE: the axe %.3f m, the shield %.3f m from his legs (min over the strike)" % [label, clip, float(r2["leg_clear_axe_min_m"]), float(r2["leg_clear_shield_min_m"])])
 		if (r2["pen_t"] as Array).size() > 0:
 			print("[accept] %-8s %-14s penetrating frames (t, points, depth m): %s" % [label, clip, JSON.stringify(r2["pen_t"])])
 	var f := FileAccess.open(OS.get_environment("ACCEPT_OUT") if OS.has_environment("ACCEPT_OUT") else "/tmp/accept.json", FileAccess.WRITE)
@@ -270,6 +272,19 @@ func _body() -> void:
 	hip_v = PackedInt32Array()
 	for vi in verts.size():
 		if hipset.has(dom[vi]): hip_v.append(vi)
+	# R-C9-122 LEG CLEARANCE: every 3rd vertex whose dominant bone is a thigh, shin, foot or toe -- the axe's and the shield's
+	# nearest approach to his LEGS, which the stance narrowing moves toward his midline
+	var legset := []
+	for i in body.skin.get_bind_count():
+		if String(body.skin.get_bind_name(i)) in ["LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase"]: legset.append(i)
+	leg_v = PackedInt32Array()
+	var nl := 0
+	for vi in verts.size():
+		if legset.has(dom[vi]):
+			if nl % 3 == 0: leg_v.append(vi)
+			nl += 1
+	if k.gear["_pieces"].has("shield"):
+		shield_mi = (k.gear["_pieces"]["shield"] as Array)[0]
 	var ix: PackedInt32Array = arr[Mesh.ARRAY_INDEX]
 	tri_hand.resize(ix.size() / 3); tri_bone.resize(ix.size() / 3)
 	for t in ix.size() / 3:
@@ -340,6 +355,10 @@ func _cross(tm: TriangleMesh, p: Vector3, d: Vector3) -> Array:
 var hip_v := PackedInt32Array()
 var butt_i := -1
 var butt_clear := -1.0
+var leg_v := PackedInt32Array()     # R-C9-122: leg-dominant body vertices (every 3rd)
+var shield_mi: MeshInstance3D = null
+var leg_clear_axe := -1.0           # the axe's nearest point (every 4th) to a leg vertex (m)
+var leg_clear_shield := -1.0        # the shield's nearest vertex (every 6th, skinned) to a leg vertex (m)
 var pen_depth := 0.0   # the last _pen call's deepest inside point (m): the nearest surface over the rays
 # HAND CONTACT (coordinator ruling 2026-09-30, the pommel ruling): a butt/pommel point inside the HOLDING hand -- the
 # nearest surface over the six rays a hand-dominant triangle -- no deeper than HAND_CONTACT_M is grip contact, not
@@ -414,6 +433,24 @@ func _pen(parts: Dictionary) -> int:
 		var dmin := 1e9
 		for vi in hip_v: dmin = minf(dmin, bv[vi].distance_squared_to(bp))
 		butt_clear = sqrt(dmin) * s_
+	if leg_v.size() > 0:
+		var lv: PackedVector3Array = baked.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+		var lp := PackedVector3Array()
+		for vi in leg_v: lp.append(lv[vi])
+		var da := 1e9
+		for i in range(0, pts.size(), 4):
+			var ap: Vector3 = g * pts[i]
+			for q in lp: da = minf(da, q.distance_squared_to(ap))
+		leg_clear_axe = sqrt(da) * s_
+		if shield_mi != null:
+			var sb2: ArrayMesh = shield_mi.bake_mesh_from_current_skeleton_pose()
+			var sv: PackedVector3Array = sb2.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+			var to_body: Transform3D = proxy.global_transform.affine_inverse() * shield_mi.global_transform
+			var ds := 1e9
+			for i in range(0, sv.size(), 6):
+				var spp: Vector3 = to_body * sv[i]
+				for q in lp: ds = minf(ds, q.distance_squared_to(spp))
+			leg_clear_shield = sqrt(ds) * s_
 	hand_n = 0; hand_depth = 0.0
 	for pl in pts:
 		var sa: float = (pl - grip_l).dot(H)
@@ -557,7 +594,7 @@ func _hold(st: String) -> Dictionary:
 			for i in 36: _step(dir, false)
 			cl = _clip_len(st, 2.4583)
 	var n: int = int(round(float(cl[1]) * float(loops) / DT))
-	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0; var bcl := 1e9
+	var ok := 0; var turns := []; var heads := []; var pmax := 0; var pfr := 0; var parts := {}; var dmax := 0.0; var bcl := 1e9; var lca := 1e9; var lcs := 1e9
 	var hmax := 0; var hfr := 0; var hdep := 0.0
 	var cols := {"tilt": [], "fwd": [], "out": [], "head_out": [], "edge": [], "fist_r": [], "fist_l": [], "elbow": [], "tip_fwd": []}
 	var wrists := []
@@ -568,7 +605,7 @@ func _hold(st: String) -> Dictionary:
 		turns.append(float(m["turn"])); heads.append(m["head"]); wrists.append(float(m["wrist"]))
 		for key in cols: (cols[key] as Array).append(float(m[key]))
 		var p := _pen(parts)
-		bcl = minf(bcl, butt_clear)
+		bcl = minf(bcl, butt_clear); lca = minf(lca, leg_clear_axe); lcs = minf(lcs, leg_clear_shield)
 		pmax = maxi(pmax, p); dmax = maxf(dmax, pen_depth)
 		if p > 0: pfr += 1
 		hmax = maxi(hmax, hand_n); hdep = maxf(hdep, hand_depth)
@@ -577,7 +614,7 @@ func _hold(st: String) -> Dictionary:
 	turns.sort(); wrists.sort()
 	var out := {"clip": String(cl[0]), "loop_s": float(cl[1]), "loops": loops, "frames": n, "pass_frac": float(ok) / float(n),
 				"turn_med": float(turns[turns.size() / 2]), "turn_p90": float(turns[int(turns.size() * 0.9)]),
-				"pen_max": pmax, "pen_frames": pfr, "pen_parts": parts, "pen_depth_m": dmax, "butt_clear_min_m": bcl,
+				"pen_max": pmax, "pen_frames": pfr, "pen_parts": parts, "pen_depth_m": dmax, "butt_clear_min_m": bcl, "leg_clear_axe_min_m": lca, "leg_clear_shield_min_m": lcs,
 				"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep,
 				"wrist_med": float(wrists[wrists.size() / 2]), "wrist_p90": float(wrists[int(wrists.size() * 0.9)]), "wrist_max": float(wrists[-1])}
 	for key in cols:
@@ -606,6 +643,7 @@ func _row(t: float) -> Dictionary:
 	m["pen_parts"] = parts
 	m["hand_n"] = hand_n; m["hand_depth"] = hand_depth
 	m["butt_clear"] = butt_clear
+	m["leg_clear_axe"] = leg_clear_axe; m["leg_clear_shield"] = leg_clear_shield
 	return m
 
 func _strike_tree(key: String, clip: String) -> Array:
@@ -716,8 +754,11 @@ func _strike_metrics(rows: Array, win := []) -> Dictionary:
 		for kk in (r["pen_parts"] as Dictionary):
 			parts[kk] = int(parts.get(kk, 0)) + int(r["pen_parts"][kk])
 	var bcs := 1e9
-	for r in rows: bcs = minf(bcs, float(r.get("butt_clear", 1e9)))
-	return {"butt_clear_min_m": bcs, "frames": rows.size(), "pass_frac": float(ok) / float(maxi(rows.size(), 1)), "pen_max": pmax, "pen_frames": pfr, "pen_parts": parts,
+	var lca2 := 1e9; var lcs2 := 1e9
+	for r in rows:
+		bcs = minf(bcs, float(r.get("butt_clear", 1e9)))
+		lca2 = minf(lca2, float(r.get("leg_clear_axe", 1e9))); lcs2 = minf(lcs2, float(r.get("leg_clear_shield", 1e9)))
+	return {"butt_clear_min_m": bcs, "leg_clear_axe_min_m": lca2, "leg_clear_shield_min_m": lcs2, "frames": rows.size(), "pass_frac": float(ok) / float(maxi(rows.size(), 1)), "pen_max": pmax, "pen_frames": pfr, "pen_parts": parts,
 			"hand_classed": true, "hand_contact_max": hmax, "hand_contact_frames": hfr, "hand_contact_depth_m": hdep,
 			"pen_depth_m": dmax, "pen_t": pen_t, "step_max": float(steps[-1]), "swing_arc_min": float(sarcs[0]), "swing_arc_max": float(sarcs[-1]),
 			"turn_med": float(tsw[tsw.size() / 2]), "turn_max": float(tsw[-1]), "t_first": float(rows[0]["t"]), "t_last": float(rows[-1]["t"]),

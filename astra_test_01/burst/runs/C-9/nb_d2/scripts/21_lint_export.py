@@ -287,7 +287,7 @@ def lint(path, skeleton=True):
             import importlib, os as _os
             sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
             F = importlib.import_module("56_clip_fidelity")
-            reg = F.registry()
+            reg = F.registry_for(path)
             if any(c in clips for c in reg.get("clips", {})):
                 for r in F.check(path, reg):
                     st = r.get("status")
@@ -307,7 +307,7 @@ def lint(path, skeleton=True):
             import importlib, os as _os
             sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
             F = importlib.import_module("56_clip_fidelity")
-            reg = F.registry()
+            reg = F.registry_for(path)
             if any(c in clips for c in reg.get("clips", {})):
                 for r in F.seams(path, reg):
                     fn = path.split('/')[-1]
