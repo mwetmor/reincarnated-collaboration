@@ -26512,9 +26512,163 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-SWAND2",
+      "type": "GENERATE",
+      "experiment": "R-C9-119-props",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "4606461c6f563edab9c7707d1583995a3c8dada1aef155b17b1bcd3a104d3f0f",
+      "started": "2026-10-01T20:57:58.756032+00:00",
+      "ended": "2026-10-01T21:02:03.404374+00:00",
+      "minutes": 4.077823899999688,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f942-83e1-7103-85b4-4619851f7d34/exec-135b4c90-6b28-4b41-98d3-40d49beae357.png",
+            "sha256": "a22b00968024fbc990f2ce19bfd23100bb56e05d1c0169c531615d956acf5a2f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f942-83e1-7103-85b4-4619851f7d34/exec-2c16380f-93ce-4045-b16c-160cb56f7c96.png",
+            "sha256": "3cab9da7a23c312bdcab947d1177be4e5f090a854a060bf49f47217a519b5165"
+          }
+        ]
+      },
+      "receipt_sha256": "137c8ead2db713fbe64497dfd580d829ff344f438222627c1293fd7d4d05dbbd",
+      "artifacts": [
+        {
+          "name": "GS-SWAND2_a.png",
+          "sha256": "a22b00968024fbc990f2ce19bfd23100bb56e05d1c0169c531615d956acf5a2f"
+        },
+        {
+          "name": "GS-SWAND2_b.png",
+          "sha256": "3cab9da7a23c312bdcab947d1177be4e5f090a854a060bf49f47217a519b5165"
+        },
+        {
+          "name": "exec-135b4c90-6b28-4b41-98d3-40d49beae357.provenance.json",
+          "sha256": "def7bb42eed4fd6341b45d7193e188642c436d1df43dec9e5b7244700738d9c5"
+        },
+        {
+          "name": "exec-2c16380f-93ce-4045-b16c-160cb56f7c96.provenance.json",
+          "sha256": "bc439f8f03618b566892adf9a68c77a10a6fa710fca0d1adaea51d14e5f8753f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f942-83e1-7103-85b4-4619851f7d34/exec-135b4c90-6b28-4b41-98d3-40d49beae357.png",
+          "sha256": "a22b00968024fbc990f2ce19bfd23100bb56e05d1c0169c531615d956acf5a2f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f942-83e1-7103-85b4-4619851f7d34/exec-2c16380f-93ce-4045-b16c-160cb56f7c96.png",
+          "sha256": "3cab9da7a23c312bdcab947d1177be4e5f090a854a060bf49f47217a519b5165"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-SBOOK2",
+      "type": "GENERATE",
+      "experiment": "R-C9-119-props",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "4fde4aed31ca15cc2abeb39f6d8b6947fc940dd720df2ab552ad90f820e4b857",
+      "started": "2026-10-01T20:57:58.756133+00:00",
+      "ended": "2026-10-01T21:02:37.062483+00:00",
+      "minutes": 4.638794545834147,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f942-8436-73c3-b872-2ef6ab052a13/exec-5bf1b9e8-1a5f-403d-8a73-008303f877d1.png",
+            "sha256": "2ee672a78d33453c9188faaca370d632671b013ee9f1181a769596496f6c3de4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0f942-8436-73c3-b872-2ef6ab052a13/exec-b0029d25-40b2-4cae-bf10-091dfb33e725.png",
+            "sha256": "fbee95924710225bdd853c7340b60e0f8d086b5751491a9658c103ad15fe4dd7"
+          }
+        ]
+      },
+      "receipt_sha256": "b6972dc9e95bb531cbd3a8b1b0c195ec98df0772cedba68278c2e35b541fd789",
+      "artifacts": [
+        {
+          "name": "GS-SBOOK2_a.png",
+          "sha256": "2ee672a78d33453c9188faaca370d632671b013ee9f1181a769596496f6c3de4"
+        },
+        {
+          "name": "GS-SBOOK2_b.png",
+          "sha256": "fbee95924710225bdd853c7340b60e0f8d086b5751491a9658c103ad15fe4dd7"
+        },
+        {
+          "name": "exec-5bf1b9e8-1a5f-403d-8a73-008303f877d1.provenance.json",
+          "sha256": "e17a4f8c299f99cb00b0c22559a683a6ef4060448a31aabc9f99022e9f2ad4e2"
+        },
+        {
+          "name": "exec-b0029d25-40b2-4cae-bf10-091dfb33e725.provenance.json",
+          "sha256": "ec7da4f9761c69dfe73f59f5ce67695db0e0ce10581c77e129fb584f6b7163f7"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f942-8436-73c3-b872-2ef6ab052a13/exec-5bf1b9e8-1a5f-403d-8a73-008303f877d1.png",
+          "sha256": "2ee672a78d33453c9188faaca370d632671b013ee9f1181a769596496f6c3de4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0f942-8436-73c3-b872-2ef6ab052a13/exec-b0029d25-40b2-4cae-bf10-091dfb33e725.png",
+          "sha256": "fbee95924710225bdd853c7340b60e0f8d086b5751491a9658c103ad15fe4dd7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 771,
+  "images_used": 775,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -27495,6 +27649,11 @@
       "id": "M-C9-SELECT-PUBLISH",
       "note": "Deploy 1 (held batch 3772e23..9ebc111) pushed 13:51Z, live by 14:06Z. Deploy 2: the 3-character select build (loadout 153d5b9, collab 3f710da78) pushed ~14:07Z: plain-HTML select page at /playtest/barrow-painted/, game at play.html, old ?c= links go straight to the game; toggles barbarian armor (Viking/gladiator C/B) and axe hold (T12_11/F25L/F40L, web only), sorceress armor (current/bm C/bm D), fb (current/c75), meteor (mix3/mix4), fall (0.82/2.4); dark knight c=warlord (attack, war cry, GEAR 4 stacks, no VFX). Lazy per-character packs: barbarian 31.9 MB, sorceress 43.4, warlord 23.9, variants 12.5-24.2. Desktop Chrome cold/warm navigate->play: barbarian 24.7/10.5 s, sorceress 25.3/7.2 s, dark knight 15.5/5.8 s; worst frame after the veil ~18-19 ms. No separate JOIN-moves toggle (the JOIN body is a different weapon kit); the gladiator card plays the JOIN whirlwind and war cry.",
       "ts": "2026-10-01T10:07:20"
+    },
+    {
+      "id": "M-C9-E1-STAGE-I",
+      "note": "E1 stage I (c6ee8e884, export/final_i): idle chin -18.8 -> +3.2 deg (named head_lift edit; neck not covered by the joint lint); mace head idle 1.653 m / run 1.629 m via a haft re-seat (left fist 1.3-3.7 cm off the haft axis); cape v2 (shin share 0.4 + 0.03 slit gap): geometric poke walk 10.3% / run 15.6% / attack 26.9%, as seen in Godot body-through-panels walk 0.45% / run 0.52% / attack 0.42% mean. A thigh-keyed corrective blendshape needs a runtime change (gear pieces can't carry clip-keyed morphs), deferred. warlord.pck rebuild handed to the integration lane for the next deploy.",
+      "ts": "2026-10-01T17:11:09"
     }
   ],
   "halts": [
@@ -28512,6 +28671,15 @@
         "The sorceress looks good in her new gear, but not the wand or the book.. is the book attached to her?? It’s supposed to be a weapon in her off hand (and it should be held open so they can read spells off of it as needed).. also the wand is so small it limits like a needle sitting atop her palm…"
       ],
       "ts": "2026-10-01T16:55:22"
+    },
+    {
+      "id": "R-C9-120",
+      "by": "Matt",
+      "ruling": "The original sorceress's long red robe/cape follows the feet in a blocky fashion -> re-skin the hem to Hips + thighs with smoothed weights (never shins/feet), split at the centre lines if it stretches; queued in the armor lane right after the R-C9-119 props, same body pass.",
+      "verbatim": [
+        "I should also note that the original sorceress long red cape looks really bad as it seems to follow the feet in a blocky fashion."
+      ],
+      "ts": "2026-10-01T17:11:09"
     }
   ],
   "grok_calls": [
