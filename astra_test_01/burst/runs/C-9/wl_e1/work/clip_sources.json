@@ -127,6 +127,56 @@
     1.767
    ],
    "trim_why": "the shout: 0.75 s before the raised-fist peak to 0.5 s after it (packet: the shout at 61% of the clip)"
+  },
+  "idle_unarmed": {
+   "source": "anims/idle11.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 11 \"Idle 1\" (whole, unarmed)",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "head_lift"
+   ],
+   "loop": true
+  },
+  "walk_unarmed": {
+   "source": "anims/free_walking.glb",
+   "path": "55_clip_graft",
+   "action": "the rig task's free walking (whole, unarmed)",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "run_unarmed": {
+   "source": "anims/free_running.glb",
+   "path": "55_clip_graft",
+   "action": "the rig task's free running (whole, unarmed)",
+   "rig": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": true
   }
  },
  "_note": "PROVENANCE OF EVERY CLIP IN THE E1 (dark knight) BODY GLB; the source-fidelity / source-grid / loop-seam lint's input (nb_d2's rules, copied unchanged). Paths relative to wl_e1/.",

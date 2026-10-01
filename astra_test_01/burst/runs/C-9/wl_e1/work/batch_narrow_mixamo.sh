@@ -1,0 +1,2 @@
+blender -b -noaudio --python scripts/e41_narrow_base.py -- export/wb/wl_rigged.glb builds/body_narrow.glb --target 1.10 --pieces pieces/helm_iso.glb,pieces/pauldrons_iso.glb,pieces/chest_iso.glb,pieces/cape_iso.glb --json work/narrow.json 2>&1 | grep -E "^NARROW|Trace|Error"
+for f in mixamo/fbx/*.fbx; do b=$(basename $f .fbx); blender -b -noaudio --python scripts/e40a_mixamo_fbx.py -- $f mixamo/glb/$b.glb --json mixamo/glb/$b.json 2>&1 | grep -E "^MIXAMO|Trace|Error" | cut -c1-160; done

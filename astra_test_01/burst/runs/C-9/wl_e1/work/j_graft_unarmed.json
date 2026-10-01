@@ -1,0 +1,89 @@
+{
+ "clips": {
+  "idle_unarmed": {
+   "source": "anims/idle11.glb",
+   "source_anim": "Armature|Idle_02|baselayer",
+   "window": [
+    0.03333333507180214,
+    2.366666555404663
+   ],
+   "keys": 71,
+   "length_s": 2.333333220332861,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": -0.00738,
+   "feet_span_m": [
+    0.0,
+    0.0014
+   ]
+  },
+  "walk_unarmed": {
+   "source": "anims/free_walking.glb",
+   "source_anim": "Armature|walking_man|baselayer",
+   "window": [
+    0.03333333507180214,
+    1.0666667222976685
+   ],
+   "keys": 32,
+   "length_s": 1.0333333872258663,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.02332,
+   "feet_span_m": [
+    0.0,
+    0.024
+   ]
+  },
+  "run_unarmed": {
+   "source": "anims/free_running.glb",
+   "source_anim": "Armature|running|baselayer",
+   "window": [
+    0.03333333507180214,
+    0.6666666865348816
+   ],
+   "keys": 20,
+   "length_s": 0.6333333514630795,
+   "joints": 24,
+   "rest_match": 0.0,
+   "hip_ratio": 1.0,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.05286,
+   "feet_span_m": [
+    0.0,
+    0.1295
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "i_c2b.glb: WEAPON REST -- weapon_r's rest is 0.198 m from the recorded mount (tolerance 1 um)"
+  ],
+  "warns": 3
+ }
+}

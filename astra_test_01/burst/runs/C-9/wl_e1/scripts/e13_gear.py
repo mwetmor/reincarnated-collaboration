@@ -13,6 +13,7 @@ import gearlib as G
 a = sys.argv[sys.argv.index('--') + 1:]; BODYGLB, OUT = a[0], a[1]
 opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
 WANT = opt('--pieces', 'helm,pauldrons,chest,cape').split(',')
+ISUF = opt('--iso-suffix', '')
 ROOT = os.path.dirname(HERE); PIECES = os.path.join(ROOT, 'pieces'); os.makedirs(OUT, exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=BODYGLB)
@@ -43,7 +44,7 @@ FACES = dict(helm=24000, pauldrons=24000, chest=30000, cape=30000)
 OFFS = dict(helm=0.006, pauldrons=0.010, chest=0.008, cape=0.012)
 for nm in WANT:
     before = set(sc.objects)
-    pc = G.import_piece(os.path.join(PIECES, '%s_iso.glb' % nm), before)
+    pc = G.import_piece(os.path.join(PIECES, '%s_iso%s.glb' % (nm, ISUF)), before)   # ISUF: R-C9-123 '_narrow' isolations
     w0 = weld(pc); f0 = len(pc.data.polygons); G.decimate(pc, FACES[nm])
     P, pushed = G.clear_body(pc, tree, OFFS[nm])
     r = dict(faces=[f0, len(pc.data.polygons)], welded=w0, pushed=int(pushed), offset_m=OFFS[nm])
@@ -54,6 +55,37 @@ for nm in WANT:
         cx = float(np.median(BV[:, 0]))
         band = (zf > 0.2) & (zf < 0.4); wdt = np.percentile(Pw[band, 0], 98) - np.percentile(Pw[band, 0], 2)
         SLIT = 0.215 * wdt; HIP = float((bonew('Hips')[2] - blo[2]) / BH); GAP = float(opt('--gap', '0.010'))   # stage I: half-width of the slit band cut between panels
+        # STAGE J (3a, Matt R-C9-121: "doesn't touch his back, hangs in mid air, too low on the back"): FIT TO THE BACK.
+        #   lift  the top edge is raised to the SHOULDER LINE (mean of the LeftArm/RightArm joint heights, minus --top-drop), the
+        #         part between the hip line and the top stretched linearly (the hem and everything below the hips untouched);
+        #   lie   above the hips each vertex is moved along +/-Y onto the BACK SURFACE -- the body AND the chest piece's backplate
+        #         (pieces/chest_iso.glb, same rest space), first hit of a ray from behind -- plus --clear m; blended out to the
+        #         hip line. The pauldrons are NOT in the target, so the cape's top runs UNDER their back edge.
+        FIT = '--fit-back' in a; fit_rep = {}
+        if FIT:
+            from mathutils.bvhtree import BVHTree
+            K17 = 1.96 / BH; CLR = float(opt('--clear', '0.010')) / K17; DROP = float(opt('--top-drop', '0.02')) / K17   # given in metres at 1.96 m
+            _before = set(sc.objects); ch_ = G.import_piece(os.path.join(PIECES, 'chest_iso%s.glb' % ISUF), _before)
+            chV = world(ch_); ch_.data.calc_loop_triangles(); chT = np.array([list(t.vertices) for t in ch_.data.loop_triangles])
+            allV = np.vstack([BV, chV]); allT = np.vstack([BT, chT + len(BV)])
+            btree = BVHTree.FromPolygons([Vector(p) for p in allV.tolist()], allT.tolist())
+            bpy.data.objects.remove(ch_, do_unlink=True)
+            sh_z = float((bonew('LeftArm')[2] + bonew('RightArm')[2]) / 2) - DROP
+            ztop0 = float(Pw[:, 2].max()); zh = blo[2] + HIP * BH
+            up = Pw[:, 2] > zh
+            Pw[up, 2] = zh + (Pw[up, 2] - zh) * (sh_z - zh) / max(ztop0 - zh, 1e-6)
+            w_ = np.clip((Pw[:, 2] - (zh - 0.08 / K17)) / (0.10 / K17), 0, 1)   # full fit down to just above the hip line (v2: the lumbar
+            # hollow stood 6-13 cm off when the blend ran a quarter of the way up); 0 by 8 cm below it, where the hem flare takes over
+            moved = []
+            for i in np.where(w_ > 0)[0]:
+                o = Vector((Pw[i, 0], float(allV[:, 1].max()) + 0.5, Pw[i, 2]))
+                hit = btree.ray_cast(o, Vector((0, -1, 0)), 2.0)
+                if hit[0] is None: continue
+                ty = hit[0].y + CLR; ny = (1 - w_[i]) * Pw[i, 1] + w_[i] * ty; moved.append(abs(ny - Pw[i, 1])); Pw[i, 1] = ny
+            Mi = np.linalg.inv(np.array(pc.matrix_world)); pc.data.vertices.foreach_set('co', (Pw @ Mi[:3, :3].T + Mi[:3, 3]).ravel()); pc.data.update()
+            Pw = world(pc); zf = (Pw[:, 2] - blo[2]) / BH
+            fit_rep = dict(fit_back=True, clear_m=round(CLR * K17, 4), top_from_m=round(ztop0 - blo[2], 4), top_to_m=round(sh_z - blo[2], 4),
+                           shoulder_line_m=round(sh_z + DROP - blo[2], 4), verts_moved=len(moved), moved_median_m=round(float(np.median(moved)), 4) if moved else 0)
         # cut: delete faces whose centre lies in a slit band below the hips
         bm = bmesh.new(); bm.from_mesh(pc.data); bm.faces.ensure_lookup_table()
         Mw = np.array(pc.matrix_world)
@@ -113,6 +145,19 @@ for nm in WANT:
         # blending linearly to the Hips at the hip line -- one smooth field, no per-vertex jumps.
         _v = np.clip((zf - HIP) / 0.20, 0, 1)
         top[:] = 0; top[:, ni['Spine02']] = _v; top[:, ni['Hips']] = 1 - _v
+        if FIT:
+            # STAGE J: the SPINE LADDER -- above the hips the weight is a linear blend between the two spine joints whose heights
+            # bracket the vertex (Hips -> Spine -> Spine01 -> Spine02 -> neck), so the cape bends WITH the back it lies on (one
+            # smooth field: no nearest-triangle jumps, which stretched it 6x in stage E). Below the hips: Hips, as before.
+            lad = [n for n in ('Hips', 'Spine', 'Spine01', 'Spine02', 'neck') if n in ni]
+            lz = np.array([(bonew(n)[2] - blo[2]) / BH for n in lad]); order = np.argsort(lz); lad = [lad[i] for i in order]; lz = lz[order]
+            top[:] = 0
+            for i_, z_ in enumerate(zf):
+                if z_ <= lz[0]: top[i_, ni[lad[0]]] = 1.0; continue
+                if z_ >= lz[-1]: top[i_, ni[lad[-1]]] = 1.0; continue
+                k_ = int(np.searchsorted(lz, z_)) - 1; f_ = (z_ - lz[k_]) / max(lz[k_ + 1] - lz[k_], 1e-6)
+                top[i_, ni[lad[k_]]] = 1 - f_; top[i_, ni[lad[k_ + 1]]] = f_
+            fit_rep['top_weights'] = 'spine ladder ' + '>'.join(lad)
         low = np.zeros_like(top)
         THIGH = float(opt('--thigh', '0.5')); RAMP = opt('--ramp', 'knee')   # stage G (b): 'hem' = a linear ramp hip -> hem reaching THIGH at the hem
         u = (np.clip((HIP - zf) / max(HIP - zf.min(), 1e-6), 0, 1) if RAMP == 'hem' else np.clip((HIP - zf) / 0.30, 0, 1)) * THIGH
@@ -134,7 +179,7 @@ for nm in WANT:
         both = int(((Wc[:, ni['LeftUpLeg']] > 0) & (Wc[:, ni['RightUpLeg']] > 0)).sum())
         r.update(mode='panel-split skin', slit_x_m=round(float(SLIT), 4), hips_zf=round(HIP, 3), slit_faces_cut=len(kill),
                  panel_verts=dict(back=int((panel == 0).sum()), left=int((panel == 1).sum()), right=int((panel == -1).sum())),
-                 verts_on_both_thighs=both, shin=SHIN, gap=GAP, thigh=THIGH, ramp=RAMP, **r_flare)
+                 verts_on_both_thighs=both, **fit_rep, shin=SHIN, gap=GAP, thigh=THIGH, ramp=RAMP, **r_flare)
     G.align_space(pc, body[0]); pc.name = nm
     r['file'] = export(pc, nm)
     rep['pieces'][nm] = r; print('GEAR', nm, json.dumps(r))
