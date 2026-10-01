@@ -1,0 +1,586 @@
+{
+ "schema": "join1-j4a-formulas/v1",
+ "date": "2026-10-01",
+ "author": "legolas (UNKNOWN-RESEARCHER)",
+ "commissioner": "gandalf, Run JOIN-1 wave J4a (charter J-S3: 'the D2 formula set (MODEL-VERIFIED)')",
+ "game_version": "Diablo II: Lord of Destruction, expansion game, 1.13 txt data (fabd/diablo2 @ 45112569). D2R differences flagged per formula.",
+ "tick": "25 frames per second; 1 frame = 0.04 s",
+ "labels": {
+  "DATAMINED": "A value or table read directly from the 1.13 txt files (fabd/diablo2 @ 45112569), or a structure read directly from D2MOO source. Exact.",
+  "MODEL-VERIFIED": "A formula whose structure is read from D2MOO (the reverse-engineered game model) AND confirmed by at least one independent community source (Arreat Summit and/or Basin Wiki); where a published table exists, this packet reproduced it numerically (see primary_rows.json verification_log).",
+  "MODEL-VERIFIED (partial)": "Core formula has two sources; a named sub-clause has only one, or the two sources conflict on it. The sub-clause is flagged inline.",
+  "SINGLE-SOURCE": "Only one source found. Do not treat as verified.",
+  "INFERRED": "Derived by this packet from labelled inputs; derivation stated.",
+  "UNKNOWN": "Not established. What would settle it is stated."
+ },
+ "sources": {
+  "TXT113": "D2 1.13 txt tables, fabd/diablo2 @ 45112569deb9384738ccafe5c24ebbb71f41c7c9 (code/d2_113_data/); sha256 per file in primary_rows.json",
+  "D2MOO": "ThePhrozenKeep/D2MOO @ 5596f5cb6c5251a0a07c6637d26458b06099d516 (reverse-engineered D2 1.10f game DLLs; many symbols mapped to 1.13c). https://github.com/ThePhrozenKeep/D2MOO",
+  "ARREAT_COMBAT": "The Arreat Summit, Barbarian Combat Skills (Blizzard, LoD 1.10+): https://classic.battle.net/diablo2exp/skills/barbarian-combatskills.shtml",
+  "ARREAT_WARCRIES": "The Arreat Summit, Barbarian Warcries: https://classic.battle.net/diablo2exp/skills/barbarian-warcries.shtml",
+  "ARREAT_CHARS": "The Arreat Summit, Basics: Characters (Chance to Hit formula): https://classic.battle.net/diablo2exp/basics/characters.shtml",
+  "ARREAT_RES": "The Arreat Summit, Basics: Resistances: https://classic.battle.net/diablo2exp/basics/resistances.shtml",
+  "ARREAT_DIFF": "The Arreat Summit, Basics: Difficulty Levels: https://classic.battle.net/diablo2exp/basics/difficulty.shtml",
+  "BASIN": "Basin Wiki (theamazonbasin.com), pages: Whirlwind, Battle_Orders, Crushing_Blow, Deadly_Strike, Open_Wounds, Attack, Damage, Damage_Reduced, Damage_Resist, Enhanced_Damage, Ignore_Target's_Defense, Life, Mana, Barbarian_(Diablo_II), Attack_Rating, Defense. https://www.theamazonbasin.com/wiki/index.php?title=<page>",
+  "SISTER": "agentic_orchestration/legolas/research/2026-10-01-join1-d2-animation-timing/ (packet.json laws LAW_WW_CADENCE, LAW_BARB_IAS, LAW_BARB_FCR, LAW_BARB_FHR)"
+ },
+ "formulas": [
+  {
+   "id": "F01",
+   "name": "Whirlwind damage per attack (physical)",
+   "version": "LoD 1.13, expansion game",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "1. Weapon damage W_min/W_max = the attacking weapon's min/max damage stats. On the item: base damage (Weapons.txt) x (1 + ethereal 50% if eth) x (1 + weapon Enhanced Damage%/100), then + flat +min/+max on that weapon.",
+    "2. + 'Damage +N' (stat item_normaldamage; Grief's +340-400) added to BOTH min and max.",
+    "3. %pool = WW skill damage% [row 151 calc1 = ln12 = -50 + 8*(slvl-1)] + off-weapon %Damage (stat damagepercent and off-weapon ED) + Strength bonus (Weapons.txt StrBonus/100 * Strength; Phase Blade and Berserker Axe StrBonus = 100, i.e. +1% per Strength point) + matching weapon-mastery damage% + %damage vs demons/undead/montype. %pool is floored at -90.",
+    "4. min' = min x (1 + %pool/100); max' = max x (1 + %pool/100); roll uniform in [min', max'].",
+    "5. x SrcDam/128. Row 151 SrcDam = 128, so 100% of weapon damage.",
+    "6. Critical doubling (x2 physical), mutually exclusive, checked in order: weapon-mastery crit -> passive Critical Strike -> Deadly Strike (F09).",
+    "7. Elemental 'adds' (Grief's 5-30 fire, etc.) rolled separately and added; not multiplied by %pool or crit.",
+    "Each WW attack is one target and one weapon (see F02)."
+   ],
+   "operands": {
+    "WW damage% by slvl": "primary_rows.json per_level_tables.whirlwind (slvl 1: -50, slvl 20: +102, slvl 30: +182)",
+    "bases": "Phase Blade 31-35, WSM -30, StrBonus 100; Berserker Axe 24-71, WSM 0, StrBonus 100 (Weapons.txt)"
+   },
+   "sources": [
+    "D2MOO D2Game/src/UNIT/SUnitDmg.cpp SUNITDMG_ApplyDamageBonuses + SUNITDMG_FillDamageValues; SkillBar.cpp SKILLS_SrvDo076_Whirlwind (damage.dwEnDmgPct = calc1)",
+    "BASIN Damage (order: base -> eth -> weapon ED -> +min/max -> Damage+ -> %Damage -> DS/CS -> elemental), Enhanced_Damage (weapon ED applies to base only; off-weapon ED joins %Damage)",
+    "ARREAT_COMBAT Whirlwind table (damage % per level) and TXT113 row 151"
+   ],
+   "cross_check": "Three-way agreement on the order of operations. WW damage% table reproduced exactly from row 151 vs Arreat (1-20) and Basin (1-60).",
+   "d2r_differs": "D2R 2.4+: WW damage% = 5*slvl + 25 (Basin 'Levels 1-60 (D2R)'). Not the version of the pinned data.",
+   "conflicts": [],
+   "open": [
+    "The 'Damage +N' (item_normaldamage) is added in D2MOO before the %pool multiply; Basin lists it at step 5, also before %Damage. Agreement; no open item."
+   ]
+  },
+  {
+   "id": "F02",
+   "name": "Whirlwind hit law: cadence, targeting, hand selection, procs",
+   "version": "LoD 1.13 (1.10-1.14d), expansion game",
+   "label": "MODEL-VERIFIED (partial)",
+   "formula": [
+    "CADENCE: re-used from the sister packet LAW_WW_CADENCE, not re-derived. Hit checks at ticks 4 and 8 always; then every D ticks on the 4-tick grid, D in {4,6,8,10,12,14,16} from the weapon's OWN IAS - WSM only.",
+    "TARGETING: each attack hits one target in a 5-subtile (3 1/3 yd) search radius that is also in melee reach; round-robin by unit GUID. Dual wield = up to two attacks per check, the second on the next target.",
+    "ATTACK RATING: each WW attack makes a normal hit check (F05) with skill tohit% = 5*(slvl-1) (row 151 LevToHit 5, ToHit empty).",
+    "TARGET-IN-MELEE-RANGE: if WW is started on a unit already in melee range, the game performs one normal Attack instead (no WW damage%/AR%).",
+    "PROCS: no chance-to-cast of any kind fires while whirling (On Attack, On Striking, When You Kill). So Grief's Venom, Death's Glacial Spike, Last Wish's Charged Bolt/Life Tap and BotD's Poison Nova never fire from WW.",
+    "INTERRUPTS: after the first attack nothing interrupts the whirl (hit recovery, block, knockback, stun). Death and weapon break are deferred to the whirl's end.",
+    "MANA: the mana cost (row 151; 12.5 at slvl 1, 22 at slvl 20, = 12 + 0.5*slvl) is paid ONCE when the whirl starts (SrvSt38 succeeds), not per hit. Row 151 has AttackNoMana=1: with too little mana the click falls back to a normal attack.",
+    "HAND SELECTION FOR D (resolves sister-packet Q4, INFERRED from code): row 151 weapsel=2. The 'current weapon' helper returns the RIGHT-hand item unless skill flag 0x2000 is set, then the LEFT-hand item. The flag is cleared at whirl start and toggled after every attack. Tick 4 makes one attack (right hand) -> flag set. From tick 8 on, D is computed BEFORE the attacks of that check, from the weapon the flag selects; two attacks per check toggle the flag twice, so it returns to the same state. Result: while both hands find targets every check, D is set by the LEFT-hand weapon for the rest of the whirl; when a check finds no second target the flag flips once and the other hand takes over."
+   ],
+   "operands": {
+    "WW_D_by_candidate_weapon": [
+     {
+      "weapon": "Grief Phase Blade",
+      "base_WSM": -30,
+      "weapon_IAS_range": [
+       30,
+       40
+      ],
+      "E_range": [
+       60,
+       70
+      ],
+      "WW_D_ticks": [
+       4
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 4
+     },
+     {
+      "weapon": "Grief Berserker Axe",
+      "base_WSM": 0,
+      "weapon_IAS_range": [
+       30,
+       40
+      ],
+      "E_range": [
+       30,
+       40
+      ],
+      "WW_D_ticks": [
+       4,
+       6
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 34
+     },
+     {
+      "weapon": "Beast Berserker Axe",
+      "base_WSM": 0,
+      "weapon_IAS_range": [
+       40,
+       40
+      ],
+      "E_range": [
+       40,
+       40
+      ],
+      "WW_D_ticks": [
+       4
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 34
+     },
+     {
+      "weapon": "Breath of the Dying Berserker Axe",
+      "base_WSM": 0,
+      "weapon_IAS_range": [
+       60,
+       60
+      ],
+      "E_range": [
+       60,
+       60
+      ],
+      "WW_D_ticks": [
+       4
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 34
+     },
+     {
+      "weapon": "Death Berserker Axe",
+      "base_WSM": 0,
+      "weapon_IAS_range": [
+       0,
+       0
+      ],
+      "E_range": [
+       0,
+       0
+      ],
+      "WW_D_ticks": [
+       8
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 34
+     },
+     {
+      "weapon": "Last Wish Berserker Axe",
+      "base_WSM": 0,
+      "weapon_IAS_range": [
+       0,
+       0
+      ],
+      "E_range": [
+       0,
+       0
+      ],
+      "WW_D_ticks": [
+       8
+      ],
+      "IAS_needed_on_this_weapon_for_D4": 34
+     }
+    ]
+   },
+   "sources": [
+    "SISTER LAW_WW_CADENCE (D2MOO + Basin + d2mods 1.09b)",
+    "D2MOO SkillBar.cpp SKILLS_SrvSt38_Whirlwind (melee-range target -> normal attack; flags reset to 1), SKILLS_SrvDo076_Whirlwind (D schedule, nCount=2 when both hands hold melee weapons, flag 0x2000 toggle per attack); Player.cpp sub_6FC7C7B0 (weapsel 2 hand pick); Skills.cpp D2GAME_SKILLMANA_Consume called after the start func unless UseManaOnDo",
+    "ARREAT_COMBAT Whirlwind ('does not work with On Attack, On Striking, or When You Kill item properties'; 'one of the weapons' speed is constantly used while a target is in range... alternates when no target')",
+    "BASIN Whirlwind ('No Chance to Cast of any kind is applied when in whirlwind'; 'Selecting a target within melee range will only result in single Attack'; 'one weapon is constantly used to calculate the next hit-check frame'; 'needs clarification' on which)"
+   ],
+   "cross_check": "Procs, melee-range fallback, interrupts and constant-hand behaviour: D2MOO + Arreat + Basin agree. WHICH hand (left) is this packet's code reading only; neither community source names the hand.",
+   "d2r_differs": "D2R 2.4.3+: cadence = the character's basic-attack action frame with ALL IAS; dual wield averages the two weapons (sister packet, single forum-quoted patch note).",
+   "conflicts": [
+    "Arreat's one-handed WW breakpoints (15/10/-10/-34 as weapon speed) disagree with Basin + D2MOO at two steps. Sister packet trusts Basin + D2MOO; this packet follows it."
+   ],
+   "open": [
+    "Left-hand = cadence-setter is INFERRED from D2MOO (1.10f reconstruction). Settle with a 1.13 capture: dual wield a fast and a slow weapon, swap hands, frame-count the hit checks.",
+    "Mana-paid-once-per-whirl is SINGLE-SOURCE (D2MOO). Settle with a capture."
+   ]
+  },
+  {
+   "id": "F03",
+   "name": "Battle Orders",
+   "version": "LoD 1.13 (Basin: D2R identical)",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "+% max Life, max Mana, max Stamina = 35 + 3*(slvl-1)  (row 149 aurastat1-3, aurastatcalc ln34; Param3 35, Param4 3).",
+    "Duration (frames) = 750 + 250*(slvl-1) + 125*(Shout.blvl + Battle Command.blvl); 25 frames = 1 s. So 30 s + 10 s/slvl beyond 1, +5 s per synergy level.",
+    "Stat path: the % is the stat item_maxhp_percent / item_maxmana_percent (op 11 on maxhp/maxmana) -- the SAME stat as '+x% Maximum Life' on items, so BO% and item life% ADD. Op 11 applies the % to base max life + flat +life from all stat lists, but NOT to life that item Vitality adds (op 9 is a separate term). See F12.",
+    "Applies to current AND maximum life/mana/stamina, of the caster and allies in the wave (missile battleorders: Vel 30, Accel -500, Range 15; Basin: ~12 2/3 yd radius). The last cast overwrites, even a lower level.",
+    "Cast: SC animation, FCR-driven (sister packet LAW_BARB_FCR: 13 ticks at 0% FCR, release tick 9). Mana 7 at every level (mana 7, manashift 8, lvlmana 0)."
+   ],
+   "operands": {
+    "per-level table": "primary_rows.json per_level_tables.battle_orders (slvl 20: +92%, 220 s with no synergy)"
+   },
+   "sources": [
+    "TXT113 Skills.txt row 149 + ItemStatCost (op 11) + Missiles.txt battleorders",
+    "D2MOO D2Common/src/D2StatList.cpp (op 9 and op 11 accumulation)",
+    "BASIN Battle_Orders ('32 + (3*slvl)'; '20 + (10*slvl)' s; '5 * (Shout.blvl+Battle Command.blvl)'; base life incl. +Life items)",
+    "ARREAT_WARCRIES (35..92%, duration with the mandatory Shout point)"
+   ],
+   "cross_check": "% and duration tables reproduced exactly (Basin 1-60, Arreat 1-20). 'Base life incl. +life items, not item vitality': Basin text + D2MOO op 11 reading agree.",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": []
+  },
+  {
+   "id": "F04",
+   "name": "Attack rating (player)",
+   "version": "LoD 1.13 (classic and LoD identical)",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "AR_base = 5*(Dexterity - 7) + tohit(flat, items) + CharStats ToHitFactor (Barbarian 20). L1 Barbarian: 5*(20-7)+20 = 85.",
+    "AR_eff = AR_base x (1 + tohit%/100), tohit% = skill tohit% (WW: 5*(slvl-1)) + weapon-mastery AR% + item 'Attack Rating +%' + attack-vs-montype%.",
+    "Flat AR vs demons / undead (Pul, Eld runes, etc.) adds to AR_base when the target is that type."
+   ],
+   "sources": [
+    "D2MOO D2Common/src/Units/Units.cpp UNITS_GetAttackRate; D2Game SUnitDmg.cpp SUNITDMG_IsHitSuccessful",
+    "BASIN Attack_Rating ('((Dexterity - 7) * 5) + Class constant'; Barbarian constant 20, L1 AR 85)",
+    "TXT113 CharStats Barbarian ToHitFactor = 20"
+   ],
+   "cross_check": "Exact agreement, three sources.",
+   "d2r_differs": "None found.",
+   "conflicts": [
+    "Basin: the character-screen chance-to-hit display applies the class constant twice. Display-only; the server formula above is the one that rolls."
+   ],
+   "open": []
+  },
+  {
+   "id": "F05",
+   "name": "Chance to hit (attack rating vs defense)",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "CtH% = clamp( 200 * AR/(AR + DEF) * alvl/(alvl + dlvl), 5, 95 ), integer math in D2MOO: factor = 100*AR/(AR+DEF), then 2*alvl*factor/(dlvl+alvl).",
+    "DEF = target defense (+ defense vs melee). Ignore Target's Defense sets DEF = 0 (see F11). '-x% Target Defense' reduces DEF by x% (halved vs bosses, superuniques, players, mercs; clamped 0-100). Negative DEF is added to AR instead.",
+    "A successful hit check also triggers Prevent Monster Heal (F13)."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_IsHitSuccessful",
+    "ARREAT_CHARS 'Chance to Hit: 100 * AR / (AR + DR) * 2 * alvl / (alvl + dlvl)'; 5%/95% bounds",
+    "BASIN Attack ('100 * 2 * (alvl/(alvl+dlvl)) * (AR/(AR+DR))'; 5% floor, 95% ceiling)"
+   ],
+   "cross_check": "Exact agreement, three sources.",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": [
+    "Monster defense at a given area level comes from MonStats AC(H) scaled by MonLvl.txt (J-S7 tables). The scaling rule was not re-read here; it belongs to the frontier-table work (J-S7)."
+   ]
+  },
+  {
+   "id": "F06",
+   "name": "Physical mitigation: flat Damage Reduced, then % Damage Resist",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "dmg_after = max(0, dmg - flatDR) x (100 - DR%)/100, flat first, then %.",
+    "Monster defender: DR% = MonStats ResDm(H) (+ curses); floor -100; NO ceiling; DR% >= 100 = Immune to Physical (damage x 0). Amplify Damage -100, Decrepify -50 (Arreat).",
+    "Player/merc defender: DR% clamped to [-100, 50].",
+    "Flat DR on a defender is reduced by the attacker's pierce% if any (D2MOO dwPiercePct /1024)."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_CalculateTotalDamage + SUNITDMG_ApplyResistancesAndAbsorb (STAT_DAMAGERESIST max 50 for non-monsters; -100 floor)",
+    "ARREAT_RES ('Physical Resistance... lower capped at -100% and upper capped at 50%')",
+    "BASIN Damage_Reduced (flat applies first), Damage_Resist ('DR -100% is the floor, while DR > 99% makes a unit Immune'; player/merc ceiling 50%)"
+   ],
+   "cross_check": "Exact agreement, three sources.",
+   "d2r_differs": "Basin: renamed 'Physical Damage Received Reduced/Increased' in D2R; law unchanged.",
+   "conflicts": [],
+   "open": []
+  },
+  {
+   "id": "F07",
+   "name": "Elemental resistance, caps, difficulty penalty, absorb",
+   "version": "LoD 1.13, expansion game",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "dmg_after = max(0, dmg - flat MDR) x (100 - res)/100, then % absorb (capped 40) heals and removes, then flat absorb.",
+    "PLAYER/merc defender: res = item/skill res + DifficultyLevels ResistPenalty (Normal 0, Nightmare -40, Hell -100; DATAMINED) ; clamp to [-100, min(75 + max-res%, 95)]. Classic (non-expansion) game uses -20/-50 instead.",
+    "MONSTER defender: res = MonStats Res**(H) (+ curses/auras); floor -100; no ceiling; res >= 100 = immune. Item '-x% to Enemy Resistance' (pierce; Grief -20-25% poison, Obedience -25% fire) is subtracted ONLY if the monster's res < 100: items cannot break immunity.",
+    "Magic resist and physical are excluded from the difficulty penalty."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_ApplyResistancesAndAbsorb",
+    "TXT113 DifficultyLevels.txt ResistPenalty 0/-40/-100 (fetched from the same commit)",
+    "ARREAT_RES (base 0/-40/-100; max 75%, items to 95%; min -100; absorb cap 40%)",
+    "ARREAT_DIFF ('Player and Hireling resistances are lowered by 40 in Nightmare... by 100 in Hell')"
+   ],
+   "cross_check": "Exact agreement, four sources.",
+   "d2r_differs": "None found for the law.",
+   "conflicts": [],
+   "open": []
+  },
+  {
+   "id": "F08",
+   "name": "Crushing Blow",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED (partial)",
+   "formula": [
+    "On a successful melee/ranged hit, with chance = sum of CB% (dual wield: attacking weapon's CB% plus non-weapon sources; Basin): target loses floor(currentHP / divisor), applied before the hit's damage.",
+    "divisor: normal / minion / champion / unique monster 4; boss or superunique 8; player or merc 10; x(1 + playercount HP bonus) for monsters = x(0.5 + 0.5*players); x2 for ranged attacks.",
+    "Then reduced by target DR% if DR% > 0 (DR >= 100 -> 0). Negative DR does not increase it; the player 50% DR ceiling does not apply to it. Not doubled by critical hits. Not reduced by flat DR.",
+    "CB on WW is melee (divisor not doubled)."
+   ],
+   "operands": {
+    "kit gear CB": "Beast 20% (Ber rune), Death 50%, Last Wish 40-50% (Runes.txt says 40-50; Basin lists 60-70 for D2R/1.11 - see conflicts), Obedience 40%"
+   },
+   "sources": [
+    "D2MOO D2Game/src/SKILLS/SkillItem.cpp SKILLITEM_EventFunc16_CrushingBlow; MONSTER/Monster.cpp MONSTER_GetHpBonus",
+    "BASIN Crushing_Blow (1/4, 1/8 superunique+boss, 1/10 player; halved ranged; divided by 0.5+0.5*players; DR caveats)"
+   ],
+   "cross_check": "Divisors and player scaling reproduced (asserted in generator).",
+   "d2r_differs": "None found for the law.",
+   "conflicts": [
+    "Last Wish CB: 1.13 Runes.txt T1 'crush 40-50'; Basin's CB page lists Last Wish (60-70)%. Basin's page mixes LoD/D2R values. For the pinned 1.13 data: 40-50. UNRESOLVED which value the corpus kit means; the kit record does not pick a Last Wish roll.",
+    "D2MOO also applies divisor 8 to SUPERUNIQUE via MONTYPEFLAG 0x02; Basin agrees. Champions and uniques stay at 4 in both."
+   ],
+   "open": [
+    "Dual-wield 'only the attacking weapon's CB counts' is Basin only; D2MOO swaps the weapon's stats in via sub_6FC7C900 (not read). SINGLE-SOURCE sub-clause."
+   ]
+  },
+  {
+   "id": "F09",
+   "name": "Deadly Strike, Critical Strike, mastery crit",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED (partial)",
+   "formula": [
+    "Each physical hit: roll mastery crit (weapon-mastery 'critical' passive) -> else roll Critical Strike -> else roll Deadly Strike. Any success doubles PHYSICAL damage. They do not stack; combined chance = 100 - (100-a)(100-b)(100-c)/10000.",
+    "DS% = item DS% + DS/level stats (ItemStatCost op 2, param 3: value*clvl/8; Death 'deadly/lvl 4' = 0.5*clvl %). Grief: 20% (Lo rune). Dual wield: attacking weapon's DS only (Basin).",
+    "Elemental damage is not doubled."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_FillDamageValues (mastery crit -> STAT_PASSIVE_CRITICAL_STRIKE -> STAT_ITEM_DEADLYSTRIKE chain)",
+    "BASIN Deadly_Strike (doubles physical; mutually exclusive with CS and mastery CS; combined-chance formula)",
+    "TXT113 ItemStatCost item_deadlystrike_perlevel op 2 / op param 3"
+   ],
+   "cross_check": "Exact agreement.",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": [
+    "Dual-wield attacking-weapon-only clause: Basin only (as F08)."
+   ]
+  },
+  {
+   "id": "F10",
+   "name": "Open Wounds",
+   "version": "LoD 1.11+ formula (1.13 data)",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "On a successful hit with chance = OW% (Beast 25% from Um rune): target gets an 8 s (200-frame) bleed, HP regen -= drain per frame in 1/256 HP:",
+    "drain(clvl) = 9*clvl+31 (1-15) | 18*clvl-104 (16-30) | 27*clvl-374 (31-45) | 36*clvl-779 (46-60) | 45*clvl-1319 (>60).",
+    "Champion/unique (and per Basin superunique/boss) x1/2; vs players x1/4 (ranged x1/8). Re-application resets duration. Not reduced by any damage reduction. HP/s = drain*25/256."
+   ],
+   "sources": [
+    "D2MOO SkillItem.cpp SKILLITEM_CalculateOpenWoundsHpRegen + SKILLITEM_EventFunc15_OpenWounds",
+    "BASIN Open_Wounds (piecewise table; multipliers)"
+   ],
+   "cross_check": "D2MOO formula == Basin piecewise for clvl 1-99 (asserted).",
+   "d2r_differs": "None found.",
+   "conflicts": [
+    "Which monsters get x1/2: D2MOO tests type flags 0x0C (champion|unique); Basin also lists superunique and boss. Superuniques normally carry the unique flag; act bosses may not. Minor; flagged."
+   ],
+   "open": []
+  },
+  {
+   "id": "F11",
+   "name": "Ignore Target's Defense and -% Target Defense",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED (partial)",
+   "formula": [
+    "ITD (Grief, Last Wish via Jah): target defense treated as 0 for the hit check, so CtH = 200*alvl/(alvl+dlvl) clamped 5-95 (95% when alvl >= dlvl). Not vs uniques, superuniques, bosses, mercs, players.",
+    "-x% target defense (Eth rune 25% on Grief and BotD; Obedience): defense x (1 - x/100), x halved vs bosses/superuniques/players/mercs. 'Damage target AC' (flat) lowers monster AC permanently per hit (FillDamageValues)."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_IsHitSuccessful (STAT_ITEM_IGNORETARGETAC, STAT_ITEM_FRACTIONALTARGETAC)",
+    "BASIN Ignore_Target's_Defense"
+   ],
+   "cross_check": "Agree except on champions.",
+   "d2r_differs": "None found.",
+   "conflicts": [
+    "CHAMPIONS: Basin says ITD does not apply to Champion monsters. D2MOO excludes only MONTYPEFLAG_UNIQUE|SUPERUNIQUE (0x08|0x02), bosses and hirelings, so champions ARE affected in the code as reconstructed. UNRESOLVED. Settle by a 1.13 test vs a high-defense champion pack, or by reading the 1.13 D2Game binary at the equivalent of D2Game.0x6FCC2... IsHitSuccessful."
+   ],
+   "open": []
+  },
+  {
+   "id": "F12",
+   "name": "Life and mana scaling (Barbarian)",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "Base life = 55 + 2*(clvl-1) + 4*(Vitality_allocated - 25)  [CharStats: hpadd 30 + starting vit 25; LifePerLevel 8/4; LifePerVitality 16/4].",
+    "Max life = (base life + flat +Life from items/skills) x (1 + sum(maxhp%)/100) + 4*(Vitality from items). maxhp% = BO% + item '+x% Maximum Life' (same stat, additive).",
+    "Base mana = 10 + 1*(clvl-1) + 1*(Energy_allocated - 10)  [ManaPerLevel 4/4; ManaPerMagic 4/4]. Max mana = (base + flat +mana) x (1 + maxmana%/100) + 1*(Energy from items).",
+    "Stamina: 92 base, +1/level, +1/Vitality (CharStats StaminaPerLevel 4/4, StaminaPerVitality 4/4); BO adds skill_staminapercent (op 1)."
+   ],
+   "sources": [
+    "TXT113 CharStats.txt Barbarian (hpadd 30, vit 25, LifePerLevel 8, LifePerVitality 16, ManaPerLevel 4, ManaPerMagic 4, int 10, stamina 92) + ItemStatCost ops (vitality op 9 -> maxhp; energy op 8 -> maxmana; item_maxhp_percent op 11)",
+    "D2MOO D2StatList.cpp (op 8, 9, 11)",
+    "BASIN Life (Barbarian 55, +2/level, +4/Vitality), Mana (Barbarian 10, +1/level, +1/Energy), Barbarian_(Diablo_II) attribute table"
+   ],
+   "cross_check": "Exact agreement.",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": [
+    "CharStats ManaRegen = 120 (Barbarian). Its exact meaning (seconds to regenerate full mana at 0 regen bonus) was not verified against code here. UNKNOWN; settle in D2MOO stat regen or Basin 'Mana' regeneration section."
+   ]
+  },
+  {
+   "id": "F13",
+   "name": "Life / mana leech",
+   "version": "LoD 1.13, expansion game",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "Applies to the PHYSICAL damage actually dealt, after mitigation, capped at the target's remaining HP.",
+    "life gained = phys x LL%/100 x Drain/100 / LifeStealDivisor;  mana gained = phys x ML%/100 x Drain/100 / ManaStealDivisor.",
+    "Drain = MonStats Drain / Drain(N) / Drain(H) for the target (a blank cell parses as 0, and D2MOO then skips leech entirely). Divisors (DifficultyLevels, DATAMINED): Normal 1, Nightmare 2, Hell 3.",
+    "Kit gear: BotD 12-15% LL, Vex 7% ML; Grief has no leech. The kit record says 'mana leech via ring/weapon' but names no ring."
+   ],
+   "operands": {
+    "Drain(H) examples (MonStats, DATAMINED)": {
+     "doomknight3": 33,
+     "venomlord": 50,
+     "baalcrab (Baal)": 20,
+     "uberdiablo": 15,
+     "uberbaal": 20,
+     "diablo": "blank",
+     "ubermephisto": "blank"
+    }
+   },
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_ExecuteEvents (nDrain from MonStats; /dwLifeStealDiv, /dwManaStealDiv for player attackers; % of dwPhysDamage)",
+    "TXT113 DifficultyLevels LifeStealDivisor/ManaStealDivisor 1/2/3; MonStats Drain columns",
+    "ARREAT_DIFF ('Life/Mana Stealing... cut in 1/2 in Nightmare'; 'cut 2/3 in Hell')"
+   ],
+   "cross_check": "Divisors agree (1/2 = /2; 2/3 cut = /3).",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": [
+    "Blank Drain(H) for Diablo and Uber Mephisto = no leech under D2MOO's code path. Not checked in game. Settle with a 1.13 test."
+   ]
+  },
+  {
+   "id": "F14",
+   "name": "Damage vs demons / undead, prevent heal, on-kill effects, weapon auras",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED (partial)",
+   "formula": [
+    "%damage vs demons (Grief 'dmg-dem/lvl 15' = 1.875*clvl %) and vs undead (BotD: +125% runeword property + 75% from its Eld rune = +200%; blunt weapons +50% innate) join the %pool of F01 when the target has that type.",
+    "Prevent Monster Heal (Mal rune on Grief/BotD/Beast): set on a successful hit check; stops the monster's natural regeneration.",
+    "+Life after each kill (Grief 10-15, Enigma 14), +Mana after each kill (Tir +2): event funcs HealAfterKill / ManaAfterKill. WHETHER WW kills fire them: UNKNOWN (Arreat's 'When You Kill' exclusion reads as chance-to-cast; Basin is silent).",
+    "Weapon auras (Beast: Fanaticism lvl 9; Last Wish: Might lvl 17) are persistent auras. Their rows (Fanaticism, Might) are NOT in this packet's scope; UNKNOWN numbers."
+   ],
+   "sources": [
+    "D2MOO SUnitDmg.cpp SUNITDMG_FillDamageValues (demon/undead %, blunt +50 vs undead), SUNITDMG_PreventMonsterHeal; Skills.cpp event table",
+    "BASIN Damage (to Demons/to Undead in %Damage), Attack",
+    "TXT113 Runes.txt + Properties.txt (dmg-dem/lvl -> item_damage_demon_perlevel)"
+   ],
+   "cross_check": "Demon/undead % placement: D2MOO + Basin agree. On-kill-with-WW: no second source.",
+   "d2r_differs": "None found.",
+   "conflicts": [],
+   "open": [
+    "On-kill effects during WW: settle with a 1.13 test.",
+    "If the JOIN profile includes Beast or Last Wish, Fanaticism (Skills row 122) or Might (row 98) must be pulled as operand rows."
+   ]
+  },
+  {
+   "id": "F15",
+   "name": "Normal attack (the melee-range fallback) and other timing laws",
+   "version": "LoD 1.13",
+   "label": "MODEL-VERIFIED",
+   "formula": [
+    "Re-used from the sister packet, not repeated: LAW_BARB_IAS (A1 1SS attack frames, dual-wield WSM), LAW_BARB_FCR (Battle Orders cast), LAW_BARB_FHR (hit recovery), WW travel at WALK velocity (6) + movement modifiers."
+   ],
+   "sources": [
+    "SISTER packet.json laws (each carries its own two sources)",
+    "D2MOO SkillBar.cpp SrvSt38 (melee-range target -> sub_6FD150A0 normal attack)"
+   ],
+   "cross_check": "See sister packet.",
+   "d2r_differs": "See sister packet.",
+   "conflicts": [],
+   "open": []
+  }
+ ],
+ "summary_table": [
+  {
+   "id": "F01",
+   "name": "Whirlwind damage per attack (physical)",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13, expansion game"
+  },
+  {
+   "id": "F02",
+   "name": "Whirlwind hit law: cadence, targeting, hand selection, procs",
+   "label": "MODEL-VERIFIED (partial)",
+   "version": "LoD 1.13 (1.10-1.14d), expansion game"
+  },
+  {
+   "id": "F03",
+   "name": "Battle Orders",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13 (Basin: D2R identical)"
+  },
+  {
+   "id": "F04",
+   "name": "Attack rating (player)",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13 (classic and LoD identical)"
+  },
+  {
+   "id": "F05",
+   "name": "Chance to hit (attack rating vs defense)",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F06",
+   "name": "Physical mitigation: flat Damage Reduced, then % Damage Resist",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F07",
+   "name": "Elemental resistance, caps, difficulty penalty, absorb",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13, expansion game"
+  },
+  {
+   "id": "F08",
+   "name": "Crushing Blow",
+   "label": "MODEL-VERIFIED (partial)",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F09",
+   "name": "Deadly Strike, Critical Strike, mastery crit",
+   "label": "MODEL-VERIFIED (partial)",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F10",
+   "name": "Open Wounds",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.11+ formula (1.13 data)"
+  },
+  {
+   "id": "F11",
+   "name": "Ignore Target's Defense and -% Target Defense",
+   "label": "MODEL-VERIFIED (partial)",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F12",
+   "name": "Life and mana scaling (Barbarian)",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F13",
+   "name": "Life / mana leech",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13, expansion game"
+  },
+  {
+   "id": "F14",
+   "name": "Damage vs demons / undead, prevent heal, on-kill effects, weapon auras",
+   "label": "MODEL-VERIFIED (partial)",
+   "version": "LoD 1.13"
+  },
+  {
+   "id": "F15",
+   "name": "Normal attack (the melee-range fallback) and other timing laws",
+   "label": "MODEL-VERIFIED",
+   "version": "LoD 1.13"
+  }
+ ]
+}

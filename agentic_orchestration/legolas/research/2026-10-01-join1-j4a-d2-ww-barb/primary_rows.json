@@ -1,0 +1,2506 @@
+{
+ "schema": "join1-j4a-primary-rows/v1",
+ "date": "2026-10-01",
+ "author": "legolas (UNKNOWN-RESEARCHER)",
+ "commissioner": "gandalf (Run JOIN-1, wave J4a)",
+ "version": "Diablo II: Lord of Destruction 1.13 txt data, expansion game. Not D2R. Where D2R differs it is flagged.",
+ "label": "Every value in 'rows' is DATAMINED: copied verbatim (as strings) from the named file. Only non-empty columns are kept.",
+ "source": {
+  "repo": "https://github.com/fabd/diablo2",
+  "commit": "45112569deb9384738ccafe5c24ebbb71f41c7c9",
+  "path": "code/d2_113_data/",
+  "local_copy": "reincarnated-collaboration/agentic_orchestration/research/datamine-acquisition/d2/raw/",
+  "file_sha256": {
+   "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07",
+   "SkillDesc.txt": "1d5994c58e1965f4900b839e88a9f10fec15b1497728005b85f98954e103df0f",
+   "SkillCalc.txt": "942137f2f4582c35953c568340996a618292cb56f309dba41176ffa73431a6d7",
+   "Missiles.txt": "9d6794a50e8b1931e476a4d666bfe4048d7d1dada454f19659d74a8825adef53",
+   "CharStats.txt": "210a6f1371a475442a6f9b27a2d03b2bebc2e3e93c1e586583c112596301a8b3",
+   "ItemStatCost.txt": "4d743b7f3e260a6647f259de25a931fd2554d52315d316eac467f110ee096c27",
+   "Properties.txt": "df39332fbe0c17cbee3d1f42f0caf63f9d76076b36f2f633c6d712d5c38af4e8",
+   "Runes.txt": "9f9d330716300e05a00e1e5441d87656bcb728c6bd45d13d20172d20467ec9c8",
+   "Gems.txt": "52ea3e27a905f0bb2dc2bf0d60835e6f980f16e797c91e85aeccee561e219145",
+   "Weapons.txt": "706f39eafa8393e428b049ef7f629eb59096435f62f849b6ab2b144b704ccd4b",
+   "MonStats.txt": "973eedacd121f724f6dca1c7201750f6a4e60480c3d536ef5a9cb36853d38193",
+   "Levels.txt": "3163b66ea391b1e51a4ead54d7f3465d7fdc4fe6f3385f098826c9bb6cca837b",
+   "MonLvl.txt": "7624abe33673f8bf4f243de141fb387a1d78f1192466ace49ac8b3c175fa4df8",
+   "DifficultyLevels.txt (fetched from the same commit; NOT in the local raw/ dir)": "aaa1a5d93df8c62707cf05308d82418ae7058ac1ac15ac768331f2abe440ff88"
+  }
+ },
+ "formula_evaluation_rule": {
+  "lnXY": "ParamX + (slvl - 1) * ParamY. SkillCalc.txt's own comment reads 'a+lvl*b'; D2MOO D2Skills.cpp evaluates it with (nSkillLevel - 1). The Arreat Summit and Basin tables reproduce only the (slvl - 1) form (asserted below).",
+  "mana": "((mana + (slvl - 1) * lvlmana) << manashift) / 256, floored at minmana (D2MOO Skills.cpp D2GAME_SKILLMANA_Consume).",
+  "skill_tohit": "ToHit + (slvl - 1) * LevToHit, used as a % bonus to attack rating (D2MOO D2Skills.cpp case 20; SUNITDMG_IsHitSuccessful)."
+ },
+ "kit_scope": {
+  "castable_rows": {
+   "151": "Whirlwind",
+   "149": "Battle Orders"
+  },
+  "operand_rows": {
+   "138 Shout": "referenced by row 149 auralencalc: + skill('Shout'.blvl) * Param8 (duration synergy)",
+   "155 Battle Command": "referenced by row 149 auralencalc: + skill('Battle Command'.blvl) * Param8 (duration synergy)",
+   "Missiles.txt battleorders (Id 237)": "row 149 srvmissilea / cltmissilea (the shout's area wave)",
+   "SkillDesc.txt whirlwind / battle orders": "the tooltip formulas; they name the same calcs (clc1, toht, ln34, len)",
+   "ItemStatCost item_maxhp_percent / item_maxmana_percent / skill_staminapercent": "row 149 aurastat1-3. op 11 (hp/mana) and op 1 (stamina): how the % is applied",
+   "CharStats Barbarian": "life/mana scaling operands (hpadd, LifePerLevel, LifePerVitality, ManaPerLevel, ManaPerMagic, ToHitFactor)",
+   "DifficultyLevels": "ResistPenalty, LifeStealDivisor, ManaStealDivisor (used by the resist and leech laws)"
+  },
+  "row_151_operands": "Row 151 references NO other skill row: calc1 = ln12 on its own Params, no synergy (EDmgSymPerCalc empty), no aurastat. Its prerequisites (reqskill1 Leap Attack, reqskill2 Concentrate) are tree gates, not operands.",
+  "considered_and_excluded": {
+   "127 Sword Mastery / 128 Axe Mastery": "Referenced by MECHANISM, not by row: D2MOO applies the matching weapon mastery's AR%, damage% and crit to any melee hit (SKILLS_GetWeaponMasteryBonus). Neither row 151 nor the kit record names a mastery; Maxroll's build maxes one. Included below under 'excluded_but_mechanism_relevant' so the adapter can see them; NOT kit scope. Note passiveitype: Sword Mastery only applies to 'swor', Axe Mastery only to 'axe'. A sword + axe loadout gets mastery on one hand only unless both are taken (INFERRED from passiveitype).",
+   "152 Berserk": "Named only as the kit record's scaffold variant ('Berserk variant for physical-immune'); not a kit skill.",
+   "States.txt (aurastate battleorders, whirlwind)": "Not in the local datamine; not acquired. UNKNOWN whether it carries anything load-bearing beyond the overlay/state flags."
+  }
+ },
+ "rows": {
+  "Skills.txt#151 Whirlwind": {
+   "skill": "Whirlwind",
+   "Id": "151",
+   "charclass": "bar",
+   "skilldesc": "whirlwind",
+   "srvstfunc": "38",
+   "srvdofunc": "76",
+   "aurastate": "whirlwind",
+   "stsuccessonly": "1",
+   "stsoundclass": "barbarian_whirlwind",
+   "cltstfunc": "31",
+   "cltdofunc": "45",
+   "enhanceable": "1",
+   "attackrank": "3",
+   "range": "none",
+   "weapsel": "2",
+   "itypea1": "mele",
+   "anim": "SQ",
+   "seqtrans": "A1",
+   "monanim": "xx",
+   "seqnum": "10",
+   "durability": "1",
+   "TargetableOnly": "1",
+   "AttackNoMana": "1",
+   "reqlevel": "30",
+   "maxlvl": "20",
+   "reqskill1": "Leap Attack",
+   "reqskill2": "Concentrate",
+   "leftskill": "1",
+   "minmana": "1",
+   "manashift": "7",
+   "mana": "25",
+   "lvlmana": "1",
+   "calc1": "ln12",
+   "*calc1 desc": "damage%",
+   "Param1": "-50",
+   "*Param1 Description": "Damage percent per attack",
+   "Param2": "8",
+   "*Param2 Description": "Damage percent per level",
+   "Param3": "1",
+   "*Param3 Description": "Attacks per tick",
+   "InGame": "1",
+   "LevToHit": "5",
+   "HitShift": "8",
+   "SrcDam": "128",
+   "cost mult": "896",
+   "cost add": "64000"
+  },
+  "Skills.txt#149 Battle Orders": {
+   "skill": "Battle Orders",
+   "Id": "149",
+   "charclass": "bar",
+   "skilldesc": "battle orders",
+   "srvdofunc": "68",
+   "srvmissilea": "battleorders",
+   "aurastate": "battleorders",
+   "auratargetstate": "battleorders",
+   "auralencalc": "ln12+(skill('Shout'.blvl)+skill('Battle Command'.blvl))*par8",
+   "aurastat1": "item_maxmana_percent",
+   "aurastatcalc1": "ln34",
+   "aurastat2": "item_maxhp_percent",
+   "aurastatcalc2": "ln34",
+   "aurastat3": "skill_staminapercent",
+   "aurastatcalc3": "ln34",
+   "stsoundclass": "barbarian_battleorders_1",
+   "cltdofunc": "25",
+   "cltmissilea": "battleorders",
+   "enhanceable": "1",
+   "attackrank": "9",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "UseAttackRate": "1",
+   "reqlevel": "24",
+   "maxlvl": "20",
+   "reqskill1": "Shout",
+   "minmana": "1",
+   "manashift": "8",
+   "mana": "7",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "Param1": "750",
+   "*Param1 Description": "duration",
+   "Param2": "250",
+   "*Param2 Description": "duration/level",
+   "Param3": "35",
+   "*Param3 Description": "Base % increase",
+   "Param4": "3",
+   "*Param4 Description": "Increase per level",
+   "Param8": "125",
+   "*Param8 Description": "duration synergy",
+   "InGame": "1",
+   "ToHit": "50",
+   "LevToHit": "10",
+   "HitShift": "8",
+   "cost mult": "768",
+   "cost add": "32000"
+  },
+  "Skills.txt#138 Shout": {
+   "skill": "Shout",
+   "Id": "138",
+   "charclass": "bar",
+   "skilldesc": "shout",
+   "srvdofunc": "68",
+   "srvmissilea": "shout",
+   "aurastate": "shout",
+   "auratargetstate": "shout",
+   "auralencalc": "ln34+(skill('Battle Orders'.blvl)+skill('Battle Command'.blvl))*par8",
+   "aurastat1": "skill_armor_percent",
+   "aurastatcalc1": "ln12",
+   "stsoundclass": "barbarian_shout_1",
+   "cltdofunc": "25",
+   "cltmissilea": "shout",
+   "enhanceable": "1",
+   "attackrank": "8",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "SC",
+   "UseAttackRate": "1",
+   "reqlevel": "6",
+   "maxlvl": "20",
+   "reqskill1": "Howl",
+   "minmana": "1",
+   "manashift": "8",
+   "mana": "6",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "Param1": "100",
+   "*Param1 Description": "% AC bonus for friendlies",
+   "Param2": "10",
+   "*Param2 Description": "% AC bonus per level",
+   "Param3": "500",
+   "*Param3 Description": "duration",
+   "Param4": "250",
+   "*Param4 Description": "duration/level",
+   "Param8": "125",
+   "*Param8 Description": "duration synergy",
+   "InGame": "1",
+   "HitShift": "8",
+   "cost mult": "384",
+   "cost add": "3000"
+  },
+  "Skills.txt#155 Battle Command": {
+   "skill": "Battle Command",
+   "Id": "155",
+   "charclass": "bar",
+   "skilldesc": "battle command",
+   "srvdofunc": "68",
+   "srvmissilea": "battlecommand",
+   "aurastate": "battlecommand",
+   "auratargetstate": "battlecommand",
+   "auralencalc": "ln12+(skill('Shout'.blvl)+skill('Battle Orders'.blvl))*par8",
+   "aurastat1": "item_allskills",
+   "aurastatcalc1": "1",
+   "stsoundclass": "barbarian_command_1",
+   "cltdofunc": "25",
+   "cltmissilea": "battlecommand",
+   "enhanceable": "1",
+   "attackrank": "9",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "UseAttackRate": "1",
+   "reqlevel": "30",
+   "maxlvl": "20",
+   "reqskill1": "Battle Orders",
+   "minmana": "1",
+   "manashift": "8",
+   "mana": "11",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "Param1": "125",
+   "*Param1 Description": "duration",
+   "Param2": "250",
+   "*Param2 Description": "duration/level",
+   "Param8": "125",
+   "*Param8 Description": "duration synergy",
+   "InGame": "1",
+   "HitShift": "8",
+   "cost mult": "896",
+   "cost add": "64000"
+  },
+  "Missiles.txt#battleorders": {
+   "Missile": "battleorders",
+   "Id": "237",
+   "pCltDoFunc": "1",
+   "pSrvDoFunc": "1",
+   "pSrvHitFunc": "18",
+   "Vel": "30",
+   "MaxVel": "30",
+   "Accel": "-500",
+   "Range": "15",
+   "Red": "192",
+   "Green": "192",
+   "Blue": "192",
+   "InitSteps": "1",
+   "Activate": "0",
+   "LoopAnim": "0",
+   "CelFile": "BAYellShockWave01",
+   "animrate": "1024",
+   "AnimLen": "15",
+   "AnimSpeed": "16",
+   "CollideType": "3",
+   "CollideFriend": "1",
+   "LastCollide": "1",
+   "NextHit": "1",
+   "NextDelay": "4",
+   "Size": "1",
+   "Trans": "1",
+   "NumDirections": "32",
+   "TravelSound": "barbarian_circle_1",
+   "EOL": "0"
+  },
+  "SkillDesc.txt#whirlwind": {
+   "skilldesc": "whirlwind",
+   "SkillPage": "1",
+   "SkillRow": "6",
+   "SkillColumn": "1",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "50",
+   "str name": "skillname151",
+   "str short": "skillsd151",
+   "str long": "skillld151",
+   "str alt": "skillan151",
+   "str mana": "StrSkill3",
+   "descdam": "1",
+   "ddam calc1": "clc1",
+   "descatt": "1",
+   "descline1": "1",
+   "descline2": "2",
+   "desctexta2": "StrSkill22",
+   "desctextb2": "StrSkill23",
+   "desccalca2": "toht",
+   "descline3": "2",
+   "desctexta3": "StrSkill4",
+   "desctextb3": "StrSkill23",
+   "desccalca3": "clc1",
+   "eol": "0"
+  },
+  "SkillDesc.txt#battle orders": {
+   "skilldesc": "battle orders",
+   "SkillPage": "3",
+   "SkillRow": "5",
+   "SkillColumn": "2",
+   "ListRow": "3",
+   "ListPool": "0",
+   "IconCel": "46",
+   "str name": "skillname149",
+   "str short": "skillsd149",
+   "str long": "skillld149",
+   "str alt": "skillan149",
+   "str mana": "StrSkill3",
+   "descline1": "1",
+   "descline2": "3",
+   "desctexta2": "StrSkill101",
+   "desctextb2": "StrSkill23",
+   "desccalca2": "ln34",
+   "descline3": "3",
+   "desctexta3": "StrSkill100",
+   "desctextb3": "StrSkill23",
+   "desccalca3": "ln34",
+   "descline4": "3",
+   "desctexta4": "StrSkill102",
+   "desctextb4": "StrSkill23",
+   "desccalca4": "ln34",
+   "descline5": "12",
+   "desctexta5": "StrSkill20",
+   "desccalca5": "len",
+   "dsc3line1": "40",
+   "dsc3texta1": "Sksyn",
+   "dsc3textb1": "skillname149",
+   "dsc3calca1": "2",
+   "dsc3line2": "67",
+   "dsc3texta2": "skillname138",
+   "dsc3textb2": "Secplev2",
+   "dsc3calca2": "par8/25",
+   "dsc3line3": "67",
+   "dsc3texta3": "skillname155",
+   "dsc3textb3": "Secplev2",
+   "dsc3calca3": "par8/25",
+   "eol": "0"
+  },
+  "SkillCalc.txt (subset)": {
+   "ln12": "a+lvl*b",
+   "ln34": "a+lvl*b",
+   "dm56": "((110*lvl) * (b-a))/(100 * (lvl+6)) + a",
+   "par8": "a",
+   "lvl": "skill level",
+   "toht": "to hit"
+  },
+  "CharStats.txt#Barbarian": {
+   "class": "Barbarian",
+   "str": "30",
+   "dex": "20",
+   "int": "10",
+   "vit": "25",
+   "tot": "85",
+   "stamina": "92",
+   "hpadd": "30",
+   "PercentStr": "35",
+   "PercentDex": "30",
+   "PercentInt": "10",
+   "PercentVit": "25",
+   "ManaRegen": "120",
+   "ToHitFactor": "20",
+   "WalkVelocity": "6",
+   "RunVelocity": "9",
+   "RunDrain": "20",
+   "Comment": "The following are in fourths",
+   "LifePerLevel": "8",
+   "StaminaPerLevel": "4",
+   "ManaPerLevel": "4",
+   "LifePerVitality": "16",
+   "StaminaPerVitality": "4",
+   "ManaPerMagic": "4",
+   "StatPerLevel": "5",
+   "#walk": "7",
+   "#run": "4",
+   "#swing": "15",
+   "#spell": "22",
+   "#gethit": "5",
+   "#bow": "16",
+   "BlockFactor": "25",
+   "Skill 1": "Throw",
+   "Skill 2": "Kick",
+   "Skill 3": "Scroll of Identify",
+   "Skill 4": "Book of Identify",
+   "Skill 5": "Scroll of Townportal",
+   "Skill 6": "Book of Townportal",
+   "Skill 7": "Left Hand Throw",
+   "Skill 8": "Left Hand Swing",
+   "Skill 9": "Unsummon",
+   "StrAllSkills": "ModStr3e",
+   "StrSkillTab1": "StrSklTabItem11",
+   "StrSkillTab2": "StrSklTabItem12",
+   "StrSkillTab3": "StrSklTabItem10",
+   "StrClassOnly": "BarOnly",
+   "baseWClass": "hth",
+   "item1": "hax",
+   "item1loc": "rarm",
+   "item1count": "1",
+   "item2": "buc",
+   "item2loc": "larm",
+   "item2count": "1",
+   "item3": "hp1",
+   "item3count": "4",
+   "item4": "tsc",
+   "item4count": "1",
+   "item5": "isc",
+   "item5count": "1",
+   "item6": "0",
+   "item6count": "0",
+   "item7": "0",
+   "item7count": "0",
+   "item8": "0",
+   "item8count": "0",
+   "item9": "0",
+   "item9count": "0",
+   "item10": "0",
+   "item10count": "0"
+  },
+  "ItemStatCost.txt (subset)": {
+   "item_maxhp_percent": {
+    "Stat": "item_maxhp_percent",
+    "ID": "76",
+    "Signed": "1",
+    "Send Bits": "16",
+    "Add": "32093",
+    "Multiply": "204",
+    "Divide": "1024",
+    "1.09-Save Bits": "6",
+    "1.09-Save Add": "10",
+    "Save Bits": "6",
+    "Save Add": "10",
+    "op": "11",
+    "op stat1": "maxhp",
+    "descpriority": "58",
+    "descfunc": "2",
+    "descval": "2",
+    "descstrpos": "ModStr2g",
+    "descstrneg": "ModStr2g",
+    "*eol": "0"
+   },
+   "item_maxmana_percent": {
+    "Stat": "item_maxmana_percent",
+    "ID": "77",
+    "Signed": "1",
+    "Send Bits": "16",
+    "Add": "56452",
+    "Multiply": "204",
+    "Divide": "1024",
+    "1.09-Save Bits": "6",
+    "1.09-Save Add": "10",
+    "Save Bits": "6",
+    "Save Add": "10",
+    "op": "11",
+    "op stat1": "maxmana",
+    "descpriority": "54",
+    "descfunc": "2",
+    "descval": "2",
+    "descstrpos": "ModStr2h",
+    "descstrneg": "ModStr2h",
+    "*eol": "0"
+   },
+   "skill_staminapercent": {
+    "Stat": "skill_staminapercent",
+    "ID": "162",
+    "Signed": "1",
+    "Send Bits": "13",
+    "Divide": "1024",
+    "op": "1",
+    "op stat1": "maxstamina",
+    "*eol": "0"
+   },
+   "vitality": {
+    "Stat": "vitality",
+    "ID": "3",
+    "Send Bits": "11",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "10",
+    "fMin": "1",
+    "MinAccr": "1",
+    "Add": "100",
+    "Multiply": "55",
+    "Divide": "1024",
+    "1.09-Save Bits": "7",
+    "1.09-Save Add": "32",
+    "Save Bits": "7",
+    "Save Add": "32",
+    "op": "9",
+    "op stat1": "maxhp",
+    "op stat2": "maxstamina",
+    "descpriority": "63",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1c",
+    "descstrneg": "ModStr1c",
+    "dgrp": "1",
+    "dgrpfunc": "1",
+    "dgrpval": "1",
+    "dgrpstrpos": "Moditem2allattrib",
+    "dgrpstrneg": "Moditem2allattrib",
+    "*eol": "0"
+   },
+   "energy": {
+    "Stat": "energy",
+    "ID": "1",
+    "Send Bits": "11",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "10",
+    "fMin": "1",
+    "MinAccr": "1",
+    "Add": "100",
+    "Multiply": "55",
+    "Divide": "1024",
+    "1.09-Save Bits": "7",
+    "1.09-Save Add": "32",
+    "Save Bits": "7",
+    "Save Add": "32",
+    "op": "8",
+    "op stat1": "maxmana",
+    "descpriority": "61",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1d",
+    "descstrneg": "ModStr1d",
+    "dgrp": "1",
+    "dgrpfunc": "1",
+    "dgrpval": "1",
+    "dgrpstrpos": "Moditem2allattrib",
+    "dgrpstrneg": "Moditem2allattrib",
+    "*eol": "0"
+   },
+   "maxhp": {
+    "Stat": "maxhp",
+    "ID": "7",
+    "Send Bits": "32",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "21",
+    "fCallback": "1",
+    "fMin": "1",
+    "MinAccr": "1",
+    "Add": "56",
+    "Multiply": "20",
+    "Divide": "1024",
+    "ValShift": "8",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "32",
+    "Save Bits": "9",
+    "Save Add": "32",
+    "descpriority": "59",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1u",
+    "descstrneg": "ModStr1u",
+    "*eol": "0"
+   },
+   "maxmana": {
+    "Stat": "maxmana",
+    "ID": "9",
+    "Send Bits": "32",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "21",
+    "fCallback": "1",
+    "fMin": "1",
+    "MinAccr": "0",
+    "Add": "81",
+    "Multiply": "20",
+    "Divide": "1024",
+    "ValShift": "8",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "32",
+    "Save Bits": "8",
+    "Save Add": "32",
+    "descpriority": "55",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1e",
+    "descstrneg": "ModStr1e",
+    "*eol": "0"
+   }
+  },
+  "DifficultyLevels.txt": [
+   {
+    "Name": "Normal",
+    "ResistPenalty": "0",
+    "DeathExpPenalty": "0",
+    "UberCodeOddsNormal": "0",
+    "UberCodeOddsGood": "0",
+    "UltraCodeOddsNormal": "0",
+    "UltraCodeOddsGood": "0",
+    "MonsterSkillBonus": "0",
+    "MonsterFreezeDivisor": "1",
+    "MonsterColdDivisor": "1",
+    "AiCurseDivisor": "1",
+    "LifeStealDivisor": "1",
+    "ManaStealDivisor": "1",
+    "UniqueDamageBonus": "90",
+    "ChampionDamageBonus": "90",
+    "HireableBossDamagePercent": "50",
+    "MonsterCEDamagePercent": "50",
+    "StaticFieldMin": "0",
+    "GambleRare": "10000",
+    "GambleSet": "100",
+    "GambleUnique": "50",
+    "GambleUber": "90",
+    "GambleUltra": "33"
+   },
+   {
+    "Name": "Nightmare",
+    "ResistPenalty": "-40",
+    "DeathExpPenalty": "5",
+    "UberCodeOddsNormal": "10",
+    "UberCodeOddsGood": "20",
+    "UltraCodeOddsNormal": "0",
+    "UltraCodeOddsGood": "0",
+    "MonsterSkillBonus": "3",
+    "MonsterFreezeDivisor": "2",
+    "MonsterColdDivisor": "2",
+    "AiCurseDivisor": "2",
+    "LifeStealDivisor": "2",
+    "ManaStealDivisor": "2",
+    "UniqueDamageBonus": "75",
+    "ChampionDamageBonus": "75",
+    "HireableBossDamagePercent": "35",
+    "MonsterCEDamagePercent": "35",
+    "StaticFieldMin": "33",
+    "GambleRare": "10000",
+    "GambleSet": "100",
+    "GambleUnique": "50",
+    "GambleUber": "90",
+    "GambleUltra": "33"
+   },
+   {
+    "Name": "Hell",
+    "ResistPenalty": "-100",
+    "DeathExpPenalty": "10",
+    "UberCodeOddsNormal": "20",
+    "UberCodeOddsGood": "40",
+    "UltraCodeOddsNormal": "30",
+    "UltraCodeOddsGood": "40",
+    "MonsterSkillBonus": "7",
+    "MonsterFreezeDivisor": "4",
+    "MonsterColdDivisor": "4",
+    "AiCurseDivisor": "4",
+    "LifeStealDivisor": "3",
+    "ManaStealDivisor": "3",
+    "UniqueDamageBonus": "66",
+    "ChampionDamageBonus": "66",
+    "HireableBossDamagePercent": "25",
+    "MonsterCEDamagePercent": "20",
+    "StaticFieldMin": "50",
+    "GambleRare": "10000",
+    "GambleSet": "100",
+    "GambleUnique": "50",
+    "GambleUber": "90",
+    "GambleUltra": "33"
+   }
+  ]
+ },
+ "excluded_but_mechanism_relevant": {
+  "Skills.txt#127 Sword Mastery": {
+   "skill": "Sword Mastery",
+   "Id": "127",
+   "charclass": "bar",
+   "skilldesc": "sword mastery",
+   "passivestate": "swordmastery",
+   "passiveitype": "swor",
+   "passivestat1": "passive_mastery_melee_th",
+   "passivecalc1": "ln12",
+   "passivestat2": "passive_mastery_melee_dmg",
+   "passivecalc2": "ln34",
+   "passivestat3": "passive_mastery_melee_crit",
+   "passivecalc3": "dm56",
+   "enhanceable": "1",
+   "attackrank": "0",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "UseAttackRate": "1",
+   "reqlevel": "1",
+   "maxlvl": "20",
+   "minmana": "0",
+   "manashift": "8",
+   "mana": "0",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "aura": "1",
+   "passive": "1",
+   "Param1": "28",
+   "*Param1 Description": "Attack % base",
+   "Param2": "8",
+   "*Param2 Description": "Attack % per level",
+   "Param3": "28",
+   "*Param3 Description": "Damage % base",
+   "Param4": "5",
+   "*Param4 Description": "damage % per level",
+   "Param5": "0",
+   "*Param5 Description": "critical%",
+   "Param6": "35",
+   "*Param6 Description": "critical%",
+   "InGame": "1",
+   "HitShift": "8",
+   "cost mult": "256",
+   "cost add": "1000"
+  },
+  "Skills.txt#128 Axe Mastery": {
+   "skill": "Axe Mastery",
+   "Id": "128",
+   "charclass": "bar",
+   "skilldesc": "axe mastery",
+   "passivestate": "axemastery",
+   "passiveitype": "axe",
+   "passivestat1": "passive_mastery_melee_th",
+   "passivecalc1": "ln12",
+   "passivestat2": "passive_mastery_melee_dmg",
+   "passivecalc2": "ln34",
+   "passivestat3": "passive_mastery_melee_crit",
+   "passivecalc3": "dm56",
+   "enhanceable": "1",
+   "attackrank": "0",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "UseAttackRate": "1",
+   "reqlevel": "1",
+   "maxlvl": "20",
+   "minmana": "0",
+   "manashift": "8",
+   "mana": "0",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "aura": "1",
+   "passive": "1",
+   "Param1": "28",
+   "*Param1 Description": "Attack % base",
+   "Param2": "8",
+   "*Param2 Description": "Attack % per level",
+   "Param3": "28",
+   "*Param3 Description": "Damage % base",
+   "Param4": "5",
+   "*Param4 Description": "damage % per level",
+   "Param5": "0",
+   "*Param5 Description": "critical%",
+   "Param6": "35",
+   "*Param6 Description": "critical%",
+   "InGame": "1",
+   "HitShift": "8",
+   "cost mult": "256",
+   "cost add": "1000"
+  }
+ },
+ "per_level_tables": {
+  "levels_the_kit_record_uses": "NONE. The kit record d2-ww-barb.json names Whirlwind and Battle Orders but pins no skill level, character level, or +skills. Full 1-60 tables are given; the adapter picks the level.",
+  "whirlwind": {
+   "version": "LoD 1.13",
+   "label": "DATAMINED (computed from row 151)",
+   "verified_against": [
+    "Arreat Summit Barbarian Combat Skills, levels 1-20 (mana, damage %, attack %): exact",
+    "Basin Wiki Whirlwind, 'Levels 1-60 (LoD)': exact"
+   ],
+   "rows": [
+    {
+     "slvl": 1,
+     "mana_cost": 12.5,
+     "attack_rating_pct": 0,
+     "damage_pct": -50
+    },
+    {
+     "slvl": 2,
+     "mana_cost": 13.0,
+     "attack_rating_pct": 5,
+     "damage_pct": -42
+    },
+    {
+     "slvl": 3,
+     "mana_cost": 13.5,
+     "attack_rating_pct": 10,
+     "damage_pct": -34
+    },
+    {
+     "slvl": 4,
+     "mana_cost": 14.0,
+     "attack_rating_pct": 15,
+     "damage_pct": -26
+    },
+    {
+     "slvl": 5,
+     "mana_cost": 14.5,
+     "attack_rating_pct": 20,
+     "damage_pct": -18
+    },
+    {
+     "slvl": 6,
+     "mana_cost": 15.0,
+     "attack_rating_pct": 25,
+     "damage_pct": -10
+    },
+    {
+     "slvl": 7,
+     "mana_cost": 15.5,
+     "attack_rating_pct": 30,
+     "damage_pct": -2
+    },
+    {
+     "slvl": 8,
+     "mana_cost": 16.0,
+     "attack_rating_pct": 35,
+     "damage_pct": 6
+    },
+    {
+     "slvl": 9,
+     "mana_cost": 16.5,
+     "attack_rating_pct": 40,
+     "damage_pct": 14
+    },
+    {
+     "slvl": 10,
+     "mana_cost": 17.0,
+     "attack_rating_pct": 45,
+     "damage_pct": 22
+    },
+    {
+     "slvl": 11,
+     "mana_cost": 17.5,
+     "attack_rating_pct": 50,
+     "damage_pct": 30
+    },
+    {
+     "slvl": 12,
+     "mana_cost": 18.0,
+     "attack_rating_pct": 55,
+     "damage_pct": 38
+    },
+    {
+     "slvl": 13,
+     "mana_cost": 18.5,
+     "attack_rating_pct": 60,
+     "damage_pct": 46
+    },
+    {
+     "slvl": 14,
+     "mana_cost": 19.0,
+     "attack_rating_pct": 65,
+     "damage_pct": 54
+    },
+    {
+     "slvl": 15,
+     "mana_cost": 19.5,
+     "attack_rating_pct": 70,
+     "damage_pct": 62
+    },
+    {
+     "slvl": 16,
+     "mana_cost": 20.0,
+     "attack_rating_pct": 75,
+     "damage_pct": 70
+    },
+    {
+     "slvl": 17,
+     "mana_cost": 20.5,
+     "attack_rating_pct": 80,
+     "damage_pct": 78
+    },
+    {
+     "slvl": 18,
+     "mana_cost": 21.0,
+     "attack_rating_pct": 85,
+     "damage_pct": 86
+    },
+    {
+     "slvl": 19,
+     "mana_cost": 21.5,
+     "attack_rating_pct": 90,
+     "damage_pct": 94
+    },
+    {
+     "slvl": 20,
+     "mana_cost": 22.0,
+     "attack_rating_pct": 95,
+     "damage_pct": 102
+    },
+    {
+     "slvl": 21,
+     "mana_cost": 22.5,
+     "attack_rating_pct": 100,
+     "damage_pct": 110
+    },
+    {
+     "slvl": 22,
+     "mana_cost": 23.0,
+     "attack_rating_pct": 105,
+     "damage_pct": 118
+    },
+    {
+     "slvl": 23,
+     "mana_cost": 23.5,
+     "attack_rating_pct": 110,
+     "damage_pct": 126
+    },
+    {
+     "slvl": 24,
+     "mana_cost": 24.0,
+     "attack_rating_pct": 115,
+     "damage_pct": 134
+    },
+    {
+     "slvl": 25,
+     "mana_cost": 24.5,
+     "attack_rating_pct": 120,
+     "damage_pct": 142
+    },
+    {
+     "slvl": 26,
+     "mana_cost": 25.0,
+     "attack_rating_pct": 125,
+     "damage_pct": 150
+    },
+    {
+     "slvl": 27,
+     "mana_cost": 25.5,
+     "attack_rating_pct": 130,
+     "damage_pct": 158
+    },
+    {
+     "slvl": 28,
+     "mana_cost": 26.0,
+     "attack_rating_pct": 135,
+     "damage_pct": 166
+    },
+    {
+     "slvl": 29,
+     "mana_cost": 26.5,
+     "attack_rating_pct": 140,
+     "damage_pct": 174
+    },
+    {
+     "slvl": 30,
+     "mana_cost": 27.0,
+     "attack_rating_pct": 145,
+     "damage_pct": 182
+    },
+    {
+     "slvl": 31,
+     "mana_cost": 27.5,
+     "attack_rating_pct": 150,
+     "damage_pct": 190
+    },
+    {
+     "slvl": 32,
+     "mana_cost": 28.0,
+     "attack_rating_pct": 155,
+     "damage_pct": 198
+    },
+    {
+     "slvl": 33,
+     "mana_cost": 28.5,
+     "attack_rating_pct": 160,
+     "damage_pct": 206
+    },
+    {
+     "slvl": 34,
+     "mana_cost": 29.0,
+     "attack_rating_pct": 165,
+     "damage_pct": 214
+    },
+    {
+     "slvl": 35,
+     "mana_cost": 29.5,
+     "attack_rating_pct": 170,
+     "damage_pct": 222
+    },
+    {
+     "slvl": 36,
+     "mana_cost": 30.0,
+     "attack_rating_pct": 175,
+     "damage_pct": 230
+    },
+    {
+     "slvl": 37,
+     "mana_cost": 30.5,
+     "attack_rating_pct": 180,
+     "damage_pct": 238
+    },
+    {
+     "slvl": 38,
+     "mana_cost": 31.0,
+     "attack_rating_pct": 185,
+     "damage_pct": 246
+    },
+    {
+     "slvl": 39,
+     "mana_cost": 31.5,
+     "attack_rating_pct": 190,
+     "damage_pct": 254
+    },
+    {
+     "slvl": 40,
+     "mana_cost": 32.0,
+     "attack_rating_pct": 195,
+     "damage_pct": 262
+    },
+    {
+     "slvl": 41,
+     "mana_cost": 32.5,
+     "attack_rating_pct": 200,
+     "damage_pct": 270
+    },
+    {
+     "slvl": 42,
+     "mana_cost": 33.0,
+     "attack_rating_pct": 205,
+     "damage_pct": 278
+    },
+    {
+     "slvl": 43,
+     "mana_cost": 33.5,
+     "attack_rating_pct": 210,
+     "damage_pct": 286
+    },
+    {
+     "slvl": 44,
+     "mana_cost": 34.0,
+     "attack_rating_pct": 215,
+     "damage_pct": 294
+    },
+    {
+     "slvl": 45,
+     "mana_cost": 34.5,
+     "attack_rating_pct": 220,
+     "damage_pct": 302
+    },
+    {
+     "slvl": 46,
+     "mana_cost": 35.0,
+     "attack_rating_pct": 225,
+     "damage_pct": 310
+    },
+    {
+     "slvl": 47,
+     "mana_cost": 35.5,
+     "attack_rating_pct": 230,
+     "damage_pct": 318
+    },
+    {
+     "slvl": 48,
+     "mana_cost": 36.0,
+     "attack_rating_pct": 235,
+     "damage_pct": 326
+    },
+    {
+     "slvl": 49,
+     "mana_cost": 36.5,
+     "attack_rating_pct": 240,
+     "damage_pct": 334
+    },
+    {
+     "slvl": 50,
+     "mana_cost": 37.0,
+     "attack_rating_pct": 245,
+     "damage_pct": 342
+    },
+    {
+     "slvl": 51,
+     "mana_cost": 37.5,
+     "attack_rating_pct": 250,
+     "damage_pct": 350
+    },
+    {
+     "slvl": 52,
+     "mana_cost": 38.0,
+     "attack_rating_pct": 255,
+     "damage_pct": 358
+    },
+    {
+     "slvl": 53,
+     "mana_cost": 38.5,
+     "attack_rating_pct": 260,
+     "damage_pct": 366
+    },
+    {
+     "slvl": 54,
+     "mana_cost": 39.0,
+     "attack_rating_pct": 265,
+     "damage_pct": 374
+    },
+    {
+     "slvl": 55,
+     "mana_cost": 39.5,
+     "attack_rating_pct": 270,
+     "damage_pct": 382
+    },
+    {
+     "slvl": 56,
+     "mana_cost": 40.0,
+     "attack_rating_pct": 275,
+     "damage_pct": 390
+    },
+    {
+     "slvl": 57,
+     "mana_cost": 40.5,
+     "attack_rating_pct": 280,
+     "damage_pct": 398
+    },
+    {
+     "slvl": 58,
+     "mana_cost": 41.0,
+     "attack_rating_pct": 285,
+     "damage_pct": 406
+    },
+    {
+     "slvl": 59,
+     "mana_cost": 41.5,
+     "attack_rating_pct": 290,
+     "damage_pct": 414
+    },
+    {
+     "slvl": 60,
+     "mana_cost": 42.0,
+     "attack_rating_pct": 295,
+     "damage_pct": 422
+    }
+   ],
+   "d2r_differs": "Basin 'Levels 1-60 (D2R)': attack rating % = 5*slvl + 45, damage % = 5*slvl + 25 (slvl 20: +145 AR, +125 dmg vs LoD +95, +102). Mana identical. Asserted parsed."
+  },
+  "battle_orders": {
+   "version": "LoD 1.13 (D2R identical per Basin)",
+   "label": "DATAMINED (computed from row 149)",
+   "duration_formula_frames": "750 + 250*(slvl-1) + 125*(Shout.blvl + BattleCommand.blvl)  (25 frames = 1 s)",
+   "verified_against": [
+    "Basin Wiki Battle Orders 'Levels 1-60' (no synergy): exact for % and duration",
+    "Arreat Summit Warcries, levels 1-20: exact for %; Arreat's duration column equals the formula with Shout.blvl = 1, which is the minimum any Battle Orders user has (Shout is its prerequisite)"
+   ],
+   "rows": [
+    {
+     "slvl": 1,
+     "life_mana_stamina_pct": 35,
+     "duration_frames_no_synergy": 750,
+     "duration_s_no_synergy": 30.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 2,
+     "life_mana_stamina_pct": 38,
+     "duration_frames_no_synergy": 1000,
+     "duration_s_no_synergy": 40.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 3,
+     "life_mana_stamina_pct": 41,
+     "duration_frames_no_synergy": 1250,
+     "duration_s_no_synergy": 50.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 4,
+     "life_mana_stamina_pct": 44,
+     "duration_frames_no_synergy": 1500,
+     "duration_s_no_synergy": 60.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 5,
+     "life_mana_stamina_pct": 47,
+     "duration_frames_no_synergy": 1750,
+     "duration_s_no_synergy": 70.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 6,
+     "life_mana_stamina_pct": 50,
+     "duration_frames_no_synergy": 2000,
+     "duration_s_no_synergy": 80.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 7,
+     "life_mana_stamina_pct": 53,
+     "duration_frames_no_synergy": 2250,
+     "duration_s_no_synergy": 90.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 8,
+     "life_mana_stamina_pct": 56,
+     "duration_frames_no_synergy": 2500,
+     "duration_s_no_synergy": 100.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 9,
+     "life_mana_stamina_pct": 59,
+     "duration_frames_no_synergy": 2750,
+     "duration_s_no_synergy": 110.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 10,
+     "life_mana_stamina_pct": 62,
+     "duration_frames_no_synergy": 3000,
+     "duration_s_no_synergy": 120.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 11,
+     "life_mana_stamina_pct": 65,
+     "duration_frames_no_synergy": 3250,
+     "duration_s_no_synergy": 130.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 12,
+     "life_mana_stamina_pct": 68,
+     "duration_frames_no_synergy": 3500,
+     "duration_s_no_synergy": 140.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 13,
+     "life_mana_stamina_pct": 71,
+     "duration_frames_no_synergy": 3750,
+     "duration_s_no_synergy": 150.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 14,
+     "life_mana_stamina_pct": 74,
+     "duration_frames_no_synergy": 4000,
+     "duration_s_no_synergy": 160.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 15,
+     "life_mana_stamina_pct": 77,
+     "duration_frames_no_synergy": 4250,
+     "duration_s_no_synergy": 170.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 16,
+     "life_mana_stamina_pct": 80,
+     "duration_frames_no_synergy": 4500,
+     "duration_s_no_synergy": 180.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 17,
+     "life_mana_stamina_pct": 83,
+     "duration_frames_no_synergy": 4750,
+     "duration_s_no_synergy": 190.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 18,
+     "life_mana_stamina_pct": 86,
+     "duration_frames_no_synergy": 5000,
+     "duration_s_no_synergy": 200.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 19,
+     "life_mana_stamina_pct": 89,
+     "duration_frames_no_synergy": 5250,
+     "duration_s_no_synergy": 210.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 20,
+     "life_mana_stamina_pct": 92,
+     "duration_frames_no_synergy": 5500,
+     "duration_s_no_synergy": 220.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 21,
+     "life_mana_stamina_pct": 95,
+     "duration_frames_no_synergy": 5750,
+     "duration_s_no_synergy": 230.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 22,
+     "life_mana_stamina_pct": 98,
+     "duration_frames_no_synergy": 6000,
+     "duration_s_no_synergy": 240.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 23,
+     "life_mana_stamina_pct": 101,
+     "duration_frames_no_synergy": 6250,
+     "duration_s_no_synergy": 250.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 24,
+     "life_mana_stamina_pct": 104,
+     "duration_frames_no_synergy": 6500,
+     "duration_s_no_synergy": 260.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 25,
+     "life_mana_stamina_pct": 107,
+     "duration_frames_no_synergy": 6750,
+     "duration_s_no_synergy": 270.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 26,
+     "life_mana_stamina_pct": 110,
+     "duration_frames_no_synergy": 7000,
+     "duration_s_no_synergy": 280.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 27,
+     "life_mana_stamina_pct": 113,
+     "duration_frames_no_synergy": 7250,
+     "duration_s_no_synergy": 290.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 28,
+     "life_mana_stamina_pct": 116,
+     "duration_frames_no_synergy": 7500,
+     "duration_s_no_synergy": 300.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 29,
+     "life_mana_stamina_pct": 119,
+     "duration_frames_no_synergy": 7750,
+     "duration_s_no_synergy": 310.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 30,
+     "life_mana_stamina_pct": 122,
+     "duration_frames_no_synergy": 8000,
+     "duration_s_no_synergy": 320.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 31,
+     "life_mana_stamina_pct": 125,
+     "duration_frames_no_synergy": 8250,
+     "duration_s_no_synergy": 330.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 32,
+     "life_mana_stamina_pct": 128,
+     "duration_frames_no_synergy": 8500,
+     "duration_s_no_synergy": 340.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 33,
+     "life_mana_stamina_pct": 131,
+     "duration_frames_no_synergy": 8750,
+     "duration_s_no_synergy": 350.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 34,
+     "life_mana_stamina_pct": 134,
+     "duration_frames_no_synergy": 9000,
+     "duration_s_no_synergy": 360.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 35,
+     "life_mana_stamina_pct": 137,
+     "duration_frames_no_synergy": 9250,
+     "duration_s_no_synergy": 370.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 36,
+     "life_mana_stamina_pct": 140,
+     "duration_frames_no_synergy": 9500,
+     "duration_s_no_synergy": 380.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 37,
+     "life_mana_stamina_pct": 143,
+     "duration_frames_no_synergy": 9750,
+     "duration_s_no_synergy": 390.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 38,
+     "life_mana_stamina_pct": 146,
+     "duration_frames_no_synergy": 10000,
+     "duration_s_no_synergy": 400.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 39,
+     "life_mana_stamina_pct": 149,
+     "duration_frames_no_synergy": 10250,
+     "duration_s_no_synergy": 410.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 40,
+     "life_mana_stamina_pct": 152,
+     "duration_frames_no_synergy": 10500,
+     "duration_s_no_synergy": 420.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 41,
+     "life_mana_stamina_pct": 155,
+     "duration_frames_no_synergy": 10750,
+     "duration_s_no_synergy": 430.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 42,
+     "life_mana_stamina_pct": 158,
+     "duration_frames_no_synergy": 11000,
+     "duration_s_no_synergy": 440.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 43,
+     "life_mana_stamina_pct": 161,
+     "duration_frames_no_synergy": 11250,
+     "duration_s_no_synergy": 450.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 44,
+     "life_mana_stamina_pct": 164,
+     "duration_frames_no_synergy": 11500,
+     "duration_s_no_synergy": 460.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 45,
+     "life_mana_stamina_pct": 167,
+     "duration_frames_no_synergy": 11750,
+     "duration_s_no_synergy": 470.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 46,
+     "life_mana_stamina_pct": 170,
+     "duration_frames_no_synergy": 12000,
+     "duration_s_no_synergy": 480.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 47,
+     "life_mana_stamina_pct": 173,
+     "duration_frames_no_synergy": 12250,
+     "duration_s_no_synergy": 490.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 48,
+     "life_mana_stamina_pct": 176,
+     "duration_frames_no_synergy": 12500,
+     "duration_s_no_synergy": 500.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 49,
+     "life_mana_stamina_pct": 179,
+     "duration_frames_no_synergy": 12750,
+     "duration_s_no_synergy": 510.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 50,
+     "life_mana_stamina_pct": 182,
+     "duration_frames_no_synergy": 13000,
+     "duration_s_no_synergy": 520.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 51,
+     "life_mana_stamina_pct": 185,
+     "duration_frames_no_synergy": 13250,
+     "duration_s_no_synergy": 530.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 52,
+     "life_mana_stamina_pct": 188,
+     "duration_frames_no_synergy": 13500,
+     "duration_s_no_synergy": 540.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 53,
+     "life_mana_stamina_pct": 191,
+     "duration_frames_no_synergy": 13750,
+     "duration_s_no_synergy": 550.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 54,
+     "life_mana_stamina_pct": 194,
+     "duration_frames_no_synergy": 14000,
+     "duration_s_no_synergy": 560.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 55,
+     "life_mana_stamina_pct": 197,
+     "duration_frames_no_synergy": 14250,
+     "duration_s_no_synergy": 570.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 56,
+     "life_mana_stamina_pct": 200,
+     "duration_frames_no_synergy": 14500,
+     "duration_s_no_synergy": 580.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 57,
+     "life_mana_stamina_pct": 203,
+     "duration_frames_no_synergy": 14750,
+     "duration_s_no_synergy": 590.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 58,
+     "life_mana_stamina_pct": 206,
+     "duration_frames_no_synergy": 15000,
+     "duration_s_no_synergy": 600.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 59,
+     "life_mana_stamina_pct": 209,
+     "duration_frames_no_synergy": 15250,
+     "duration_s_no_synergy": 610.0,
+     "mana_cost": 7.0
+    },
+    {
+     "slvl": 60,
+     "life_mana_stamina_pct": 212,
+     "duration_frames_no_synergy": 15500,
+     "duration_s_no_synergy": 620.0,
+     "mana_cost": 7.0
+    }
+   ]
+  }
+ },
+ "gear_rows": {
+  "note": "The runewords and bases the kit record names (dossier.item_alterations / capstone_alterations), resolved in the 1.13 tables. A runeword's full property set = its Runes.txt T1 codes + the weapon-socket mods (Gems.txt) of each rune. Property code -> stat mapping is Properties.txt. *_perlevel stats use ItemStatCost op 2, op param 3: value * clvl / 8.",
+  "runewords": {
+   "Grief": {
+    "row_key": "Runeword47",
+    "rune_name_column": "Widowmaker",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "swor",
+     "axe"
+    ],
+    "runes": [
+     "r05",
+     "r03",
+     "r28",
+     "r23",
+     "r08"
+    ],
+    "runeword_props": [
+     {
+      "code": "dmg-dem/lvl",
+      "param": "15",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "dmg",
+      "param": "",
+      "min": "340",
+      "max": "400"
+     },
+     {
+      "code": "swing3",
+      "param": "",
+      "min": "30",
+      "max": "40"
+     },
+     {
+      "code": "hit-skill",
+      "param": "Venom",
+      "min": "35",
+      "max": "15"
+     },
+     {
+      "code": "pierce-pois",
+      "param": "",
+      "min": "20",
+      "max": "25"
+     },
+     {
+      "code": "ignore-ac",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "code": "heal-kill",
+      "param": "",
+      "min": "10",
+      "max": "15"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Eth Rune",
+      "code": "reduce-ac",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "rune": "Tir Rune",
+      "code": "mana-kill",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "rune": "Lo Rune",
+      "code": "deadly",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "rune": "Mal Rune",
+      "code": "noheal",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Ral Rune",
+      "code": "dmg-fire",
+      "param": "",
+      "min": "5",
+      "max": "30"
+     }
+    ],
+    "identification_note": "1.13 Runes.txt has no row whose 'Rune Name' is 'Grief'. Grief is identified by its rune sequence Eth-Tir-Lo-Mal-Ral (r05 r03 r28 r23 r08) at row key Runeword47, whose 'Rune Name' column reads 'Widowmaker'. The in-game name comes from the string table keyed on the row key, which this packet did not read. Identification = rune sequence + property match (+340-400 damage, 30-40% IAS, ignore target defense, Venom proc) against Basin/Maxroll Grief."
+   },
+   "Death": {
+    "row_key": "Runeword20",
+    "rune_name_column": "Death",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "swor",
+     "axe"
+    ],
+    "runes": [
+     "r15",
+     "r01",
+     "r26",
+     "r09",
+     "r25"
+    ],
+    "runeword_props": [
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "300",
+      "max": "385"
+     },
+     {
+      "code": "deadly/lvl",
+      "param": "4",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "charged",
+      "param": "BloodGolem",
+      "min": "15",
+      "max": "22"
+     },
+     {
+      "code": "att-skill",
+      "param": "Glacial Spike",
+      "min": "25",
+      "max": "18"
+     },
+     {
+      "code": "death-skill",
+      "param": "Chain Lightning",
+      "min": "100",
+      "max": "44"
+     },
+     {
+      "code": "crush",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "code": "indestruct",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Hel Rune",
+      "code": "ease",
+      "param": "",
+      "min": "-20",
+      "max": "-20"
+     },
+     {
+      "rune": "El Rune",
+      "code": "light",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "El Rune",
+      "code": "att",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "rune": "Vex Rune",
+      "code": "manasteal",
+      "param": "",
+      "min": "7",
+      "max": "7"
+     },
+     {
+      "rune": "Ort Rune",
+      "code": "dmg-ltng",
+      "param": "",
+      "min": "1",
+      "max": "50"
+     },
+     {
+      "rune": "Gul Rune",
+      "code": "att%",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     }
+    ]
+   },
+   "The Beast": {
+    "row_key": "Runeword4",
+    "rune_name_column": "The Beast",
+    "complete": "1",
+    "server_ladder_flag": "",
+    "itypes": [
+     "axe",
+     "scep",
+     "hamm"
+    ],
+    "runes": [
+     "r30",
+     "r03",
+     "r22",
+     "r23",
+     "r17"
+    ],
+    "runeword_props": [
+     {
+      "code": "swing2",
+      "param": "",
+      "min": "40",
+      "max": "40"
+     },
+     {
+      "code": "aura",
+      "param": "Fanaticism",
+      "min": "9",
+      "max": "9"
+     },
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "240",
+      "max": "270"
+     },
+     {
+      "code": "str",
+      "param": "",
+      "min": "25",
+      "max": "40"
+     },
+     {
+      "code": "charged",
+      "param": "Summon Grizzly",
+      "min": "5",
+      "max": "13"
+     },
+     {
+      "code": "oskill",
+      "param": "Wearbear",
+      "min": "3",
+      "max": "3"
+     },
+     {
+      "code": "oskill",
+      "param": "Shape Shifting",
+      "min": "3",
+      "max": "3"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Ber Rune",
+      "code": "crush",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "rune": "Tir Rune",
+      "code": "mana-kill",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "rune": "Um Rune",
+      "code": "openwounds",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "rune": "Mal Rune",
+      "code": "noheal",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Lum Rune",
+      "code": "enr",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     }
+    ]
+   },
+   "Last Wish": {
+    "row_key": "Runeword69",
+    "rune_name_column": "Last Wish",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "swor",
+     "hamm",
+     "axe"
+    ],
+    "runes": [
+     "r31",
+     "r23",
+     "r31",
+     "r29",
+     "r31",
+     "r30"
+    ],
+    "runeword_props": [
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "330",
+      "max": "375"
+     },
+     {
+      "code": "att-skill",
+      "param": "Charged Bolt",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "code": "hit-skill",
+      "param": "Life Tap",
+      "min": "10",
+      "max": "18"
+     },
+     {
+      "code": "gethit-skill",
+      "param": "Fade",
+      "min": "6",
+      "max": "11"
+     },
+     {
+      "code": "crush",
+      "param": "",
+      "min": "40",
+      "max": "50"
+     },
+     {
+      "code": "mag%/lvl",
+      "param": "4",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "aura",
+      "param": "Might",
+      "min": "17",
+      "max": "17"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Jah Rune",
+      "code": "ignore-ac",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Mal Rune",
+      "code": "noheal",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Jah Rune",
+      "code": "ignore-ac",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Sur Rune",
+      "code": "stupidity",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Jah Rune",
+      "code": "ignore-ac",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Ber Rune",
+      "code": "crush",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     }
+    ]
+   },
+   "Breath of the Dying": {
+    "row_key": "Runeword11",
+    "rune_name_column": "Breath of the Dying",
+    "complete": "1",
+    "server_ladder_flag": "",
+    "itypes": [
+     "weap"
+    ],
+    "runes": [
+     "r26",
+     "r15",
+     "r01",
+     "r02",
+     "r33",
+     "r05"
+    ],
+    "runeword_props": [
+     {
+      "code": "swing2",
+      "param": "",
+      "min": "60",
+      "max": "60"
+     },
+     {
+      "code": "dmg-undead",
+      "param": "",
+      "min": "125",
+      "max": "125"
+     },
+     {
+      "code": "lifesteal",
+      "param": "",
+      "min": "12",
+      "max": "15"
+     },
+     {
+      "code": "noheal",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "code": "kill-skill",
+      "param": "Poison Nova",
+      "min": "50",
+      "max": "20"
+     },
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "350",
+      "max": "400"
+     },
+     {
+      "code": "all-stats",
+      "param": "",
+      "min": "30",
+      "max": "30"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Vex Rune",
+      "code": "manasteal",
+      "param": "",
+      "min": "7",
+      "max": "7"
+     },
+     {
+      "rune": "Hel Rune",
+      "code": "ease",
+      "param": "",
+      "min": "-20",
+      "max": "-20"
+     },
+     {
+      "rune": "El Rune",
+      "code": "light",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "El Rune",
+      "code": "att",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "rune": "Eld Rune",
+      "code": "att-undead",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "rune": "Eld Rune",
+      "code": "dmg-undead",
+      "param": "",
+      "min": "75",
+      "max": "75"
+     },
+     {
+      "rune": "Zod Rune",
+      "code": "indestruct",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Eth Rune",
+      "code": "reduce-ac",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     }
+    ]
+   },
+   "Fortitude": {
+    "row_key": "Runeword41",
+    "rune_name_column": "Fortitude",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "weap",
+     "tors"
+    ],
+    "runes": [
+     "r01",
+     "r12",
+     "r14",
+     "r28"
+    ],
+    "runeword_props": [
+     {
+      "code": "ac%",
+      "param": "",
+      "min": "200",
+      "max": "200"
+     },
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "300",
+      "max": "300"
+     },
+     {
+      "code": "cast3",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "code": "gethit-skill",
+      "param": "Chilling Armor",
+      "min": "20",
+      "max": "15"
+     },
+     {
+      "code": "dmg-to-mana",
+      "param": "",
+      "min": "12",
+      "max": "12"
+     },
+     {
+      "code": "hp/lvl",
+      "param": "",
+      "min": "8",
+      "max": "12"
+     },
+     {
+      "code": "res-all",
+      "param": "",
+      "min": "25",
+      "max": "30"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "El Rune",
+      "code": "light",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "El Rune",
+      "code": "att",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "rune": "Sol Rune",
+      "code": "dmg-min",
+      "param": "",
+      "min": "9",
+      "max": "9"
+     },
+     {
+      "rune": "Dol Rune",
+      "code": "howl",
+      "param": "",
+      "min": "32",
+      "max": "32"
+     },
+     {
+      "rune": "Lo Rune",
+      "code": "deadly",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     }
+    ]
+   },
+   "Enigma": {
+    "row_key": "Runeword33",
+    "rune_name_column": "Enigma",
+    "complete": "1",
+    "server_ladder_flag": "",
+    "itypes": [
+     "tors"
+    ],
+    "runes": [
+     "r31",
+     "r06",
+     "r30"
+    ],
+    "runeword_props": [
+     {
+      "code": "ac",
+      "param": "",
+      "min": "750",
+      "max": "775"
+     },
+     {
+      "code": "heal-kill",
+      "param": "",
+      "min": "14",
+      "max": "14"
+     },
+     {
+      "code": "move2",
+      "param": "",
+      "min": "45",
+      "max": "45"
+     },
+     {
+      "code": "str/lvl",
+      "param": "6",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "mag%/lvl",
+      "param": "8",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "oskill",
+      "param": "Teleport",
+      "min": "1",
+      "max": "1"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Jah Rune",
+      "code": "ignore-ac",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "rune": "Ith Rune",
+      "code": "dmg-max",
+      "param": "",
+      "min": "9",
+      "max": "9"
+     },
+     {
+      "rune": "Ber Rune",
+      "code": "crush",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     }
+    ]
+   },
+   "Insight": {
+    "row_key": "Runeword62",
+    "rune_name_column": "Insight",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "pole",
+     "staf"
+    ],
+    "runes": [
+     "r08",
+     "r03",
+     "r07",
+     "r12"
+    ],
+    "runeword_props": [
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "200",
+      "max": "260"
+     },
+     {
+      "code": "att%",
+      "param": "",
+      "min": "180",
+      "max": "250"
+     },
+     {
+      "code": "mag%",
+      "param": "",
+      "min": "23",
+      "max": "23"
+     },
+     {
+      "code": "oskill",
+      "param": "Critical Strike",
+      "min": "1",
+      "max": "6"
+     },
+     {
+      "code": "cast2",
+      "param": "",
+      "min": "35",
+      "max": "35"
+     },
+     {
+      "code": "aura",
+      "param": "Meditation",
+      "min": "12",
+      "max": "17"
+     },
+     {
+      "code": "all-stats",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Ral Rune",
+      "code": "dmg-fire",
+      "param": "",
+      "min": "5",
+      "max": "30"
+     },
+     {
+      "rune": "Tir Rune",
+      "code": "mana-kill",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "rune": "Tal Rune",
+      "code": "dmg-pois",
+      "param": "125",
+      "min": "154",
+      "max": "154"
+     },
+     {
+      "rune": "Sol Rune",
+      "code": "dmg-min",
+      "param": "",
+      "min": "9",
+      "max": "9"
+     }
+    ]
+   },
+   "Obedience": {
+    "row_key": "Runeword92",
+    "rune_name_column": "Obedience",
+    "complete": "1",
+    "server_ladder_flag": "1",
+    "itypes": [
+     "pole"
+    ],
+    "runes": [
+     "r15",
+     "r18",
+     "r10",
+     "r05",
+     "r19"
+    ],
+    "runeword_props": [
+     {
+      "code": "dmg%",
+      "param": "",
+      "min": "370",
+      "max": "370"
+     },
+     {
+      "code": "crush",
+      "param": "",
+      "min": "40",
+      "max": "40"
+     },
+     {
+      "code": "kill-skill",
+      "param": "enchant",
+      "min": "30",
+      "max": "21"
+     },
+     {
+      "code": "pierce-fire",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "code": "ac",
+      "param": "",
+      "min": "200",
+      "max": "300"
+     },
+     {
+      "code": "balance3",
+      "param": "",
+      "min": "40",
+      "max": "40"
+     },
+     {
+      "code": "res-all",
+      "param": "",
+      "min": "20",
+      "max": "30"
+     }
+    ],
+    "rune_socket_weapon_mods": [
+     {
+      "rune": "Hel Rune",
+      "code": "ease",
+      "param": "",
+      "min": "-20",
+      "max": "-20"
+     },
+     {
+      "rune": "Ko Rune",
+      "code": "dex",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     },
+     {
+      "rune": "Thul Rune",
+      "code": "dmg-cold",
+      "param": "75",
+      "min": "3",
+      "max": "14"
+     },
+     {
+      "rune": "Eth Rune",
+      "code": "reduce-ac",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "rune": "Fal Rune",
+      "code": "str",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     }
+    ]
+   }
+  },
+  "bases_Weapons.txt": {
+   "Phase Blade": {
+    "name": "Phase Blade",
+    "code": "7cr",
+    "type": "swor",
+    "mindam": "31",
+    "maxdam": "35",
+    "speed": "-30",
+    "StrBonus": "100",
+    "DexBonus": "",
+    "reqstr": "25",
+    "reqdex": "136",
+    "gemsockets": "6",
+    "wclass": "1hs",
+    "rangeadder": "1",
+    "levelreq": "54",
+    "nodurability": "1"
+   },
+   "Berserker Axe": {
+    "name": "Berserker Axe",
+    "code": "7wa",
+    "type": "axe",
+    "mindam": "24",
+    "maxdam": "71",
+    "speed": "",
+    "StrBonus": "100",
+    "DexBonus": "",
+    "reqstr": "138",
+    "reqdex": "59",
+    "gemsockets": "6",
+    "wclass": "1hs",
+    "rangeadder": "2",
+    "levelreq": "64",
+    "nodurability": ""
+   }
+  }
+ },
+ "verification_log": [
+  "WW mana/damage%/AR% 1-20 == Arreat; 1-60 == Basin LoD; D2R columns parsed and == 5*slvl+25 / 5*slvl+45",
+  "BO % 1-60 == Basin; duration 1-60 == Basin (no synergy); 1-20 == Arreat with Shout.blvl=1; BO mana 7 == Arreat",
+  "Open Wounds per-frame drain: D2MOO formula == Basin piecewise for clvl 1-99",
+  "Crushing Blow divisors: D2MOO == Basin table (melee/ranged, boss/superunique, player) and Basin's 0.5+0.5*players divisor for players 1-8",
+  "WW cadence D: sister-packet law spot-checked at E = 34/33/8/7/-10/-11"
+ ]
+}
