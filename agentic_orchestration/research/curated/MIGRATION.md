@@ -7,6 +7,33 @@
 
 ---
 
+## join1-j0-2026-10-01 + join1-j0-gv-relabel-2026-10-01 — JOIN-1 J0: GD-SLICE freeze-not-drop + four derived columns; docket-sweep ledger (docket 5 → superseded-by-q86); GV relabel (850 rows) + FoI pin — 2026-10-01 — **STAGED, NOT APPLIED (disk HALT)**
+
+**Status:** both migrations are scripted and **dry-run PASS** on an in-memory copy of `corpus.db` (zero bytes written). **Apply is held at the JOIN-1 charter § 6 HALT boundary**: free disk measured 39.72 GiB, then 36.30 GiB (`df -k`), below 40 GiB. Both apply paths refuse below that line and write a file backup first. **Order:** GV first, then J0 (J0's grade columns inherit the post-GV header grade and abort otherwise). This entry is amended forward to APPLIED on landing.
+
+**Authority:** J-L4 (additive schema) + J-L1 (the supersession rule; docket 5 by name), Matt 2026-09-29, KC2-PLAY KP-110. GV remedy: jack-ryan finding collab `795334bea` (KP-159), ADR-002 within-seam, data-only.
+
+**`join1-j0-2026-10-01`** (`research/scripts/join1_j0_corpus_migration_2026_10_01.py`). **M1 GD-SLICE.**
+- `exact_skill_field` (7,250 rows) gains four columns:
+  - `vocab_scope`: mechanical from the key's game-code prefix. It agrees with `canon_key_provenance` on every row.
+  - `boundary_class` + `boundary_class_rule`: mechanical, the first GLOB match in the committed rule table `gd-slice-boundary-class-rules-2026-10-01.csv` (34 rules / 84 patterns, FILE sha256 `882ef124…aea8ef4`).
+    - Dry-run result: boundary 2,483 · internal 4,474 · out_of_arena 108 · unresolved 185 (`effect_duration_sec` only).
+  - `mechanism_grade` / `magnitude_grade`: inherit the header `fidelity_grade`. Dry-run: 7,250 DATAMINED/DATAMINED.
+- `is_core` is **FROZEN by trigger, not dropped**.
+- New objects: table `boundary_class_rule`; view `v_exact_skill_field_class_audit` (dry-run: 0 rows); an AFTER INSERT derivation trigger.
+- The original 17 columns are content-hash identical before and after.
+
+**M2.** Table `docket_disposition_sweep` (63 rows screened, prior dispositions preserved). **Docket 5 only:** `permanent-gap-record` → `superseded-by-q86`, with the prior value in `provenance_json.q86_supersession`. Every other docket row is byte-identical. Further hits (docket 3; scope questions on dockets 15, 6 and 2's secondary clause) are **PROPOSED only**: the Matt batch in `elrond/notes/2026-10-01-join1-j0-docket-sweep.md` § 3. **No engine-side artifact changes:** no engine code reads `exact_skill_field` or `mechanic_gap_docket`, so no ADR-004 cross-seam request.
+
+**`join1-j0-gv-relabel-2026-10-01`** (`research/scripts/join1_j0_gv_relabel_2026_10_01.py`; detail `MIGRATION-join1-j0-gv-relabel-2026-10-01.md`):
+- FoI `source_version` restored, **derived** from `MIGRATION-gd-edition-pin-2026-07-24.md:30` and sha-checked against the banker pin and the on-disk bytes.
+- `fidelity_grade` MEASURED → DATAMINED on exact_skill 675 / devotion_power 65 / devotion_constellation 110. The row sets equal the GV sidecar.
+- Closes the devotion migration's § 7 request.
+- Writers amended and apply-retired (`gd_devotion_bank_2026_07_25.py`, `gd_arz_adapter_2026_07_24.py`).
+- Edition-II vendor-tree hygiene is recorded, with a symlink-farm proposal. Nothing was deleted or downloaded.
+
+---
+
 ## geometry-vocab-leak-ruling-2026-08-25 — the two out-of-vocabulary `geometry_value`s ruled **CORPUS NOISE**, corrected; sweep now reads **exactly zero** — 2026-08-25 — **APPLIED**
 
 **Raised by:** gamora, X-1 spatial-vocabulary work (`reincarnated-engine/src/reincarnated/simulation/MIGRATION.md:643-646`, 2026-08-24) — corpus `kit_mapping` carries `geometry_value` values `mobility` (1) and `knockback` (1) present in no `_RICH_TO_SPATIAL` site and absent from `VALID_GEOMETRY_TYPES`; they silently default to `point` at compile time. **Gamora declined to patch them into the sim map** on the grounds that doing so would launder an upstream corpus-vocabulary violation into a mapping gap. **She was right, and the ruling ratifies her call rather than merely acting on it:** the sim's map is not incomplete; the corpus was carrying values the vocabulary never admitted. Routed to elrond by knight-rider as a curation judgment, not a patch order.
