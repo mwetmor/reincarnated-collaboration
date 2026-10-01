@@ -205,5 +205,93 @@
   "his_height_m": 1.85,
   "total_over_height": 0.703,
   "prop": "static GLB, not skinned, not bound to him"
+ },
+ "paint_pass": {
+  "conductor_finding": "Tripo texture read monochrome tan at play scale",
+  "method": "D7 camera-painted bake, two subjects: the bare champion body (ref GS-BCHB) and the dressed set (ref GS-BCH4); each sheet A (8 views at 19.77 deg + 2 head close-ups) then sheet B (52.95 deg) repainted over A's projection; occlusion by every mesh; body into its own atlas, the 8 pieces into their shared atlas",
+  "sheets": {
+   "body_A": "GS-BPA_a (4 calls incl. Astra's 2 retries; at-zero ratio 0.928)",
+   "armour_A": "GS-DPA_b (2 calls; 0.965)",
+   "body_B": "GS-BPB_b (2 calls; 0.920)",
+   "armour_B": "GS-DPB_b (2 calls; 0.874)"
+  },
+  "bake": {
+   "self_test": "99.96-100% of in-cell vertices on silhouette, every cell",
+   "body_unseen_pct": 7.7,
+   "armour_unseen_pct": 27.7,
+   "note": "unseen = texels no camera sees (under plates, inner faces); filled inside their own UV island, the remainder from the model's own texture"
+  },
+  "install": "binary image swap (s41): every other bufferView byte-identical; body_painted/nb-body_champion_painted.glb, export_painted/*.glb",
+  "separation": {
+   "full8": {
+    "stills": 32,
+    "skin_vs_armour_deltaE_median": 11.73,
+    "skin_minus_armour_L_median": 5.29,
+    "armour_colour_spread_median": 23.3,
+    "skin_chroma_mean": 38.88,
+    "armour_4cluster_min_separation": 17.61,
+    "armour_4cluster_mean_separation": 33.87,
+    "armour_clusters_Lab": [
+     [
+      58.5,
+      12.6,
+      37.5
+     ],
+     [
+      22.3,
+      10.3,
+      13.8
+     ],
+     [
+      40.4,
+      12.9,
+      24.7
+     ],
+     [
+      75.5,
+      10.3,
+      41.4
+     ]
+    ]
+   },
+   "full8_painted": {
+    "stills": 32,
+    "skin_vs_armour_deltaE_median": 7.74,
+    "skin_minus_armour_L_median": 5.95,
+    "armour_colour_spread_median": 23.41,
+    "skin_chroma_mean": 34.06,
+    "armour_4cluster_min_separation": 19.09,
+    "armour_4cluster_mean_separation": 33.86,
+    "armour_clusters_Lab": [
+     [
+      61.8,
+      12.1,
+      40.3
+     ],
+     [
+      24.4,
+      13.0,
+      17.0
+     ],
+     [
+      79.5,
+      7.1,
+      35.5
+     ],
+     [
+      43.9,
+      13.5,
+      27.0
+     ]
+    ]
+   }
+  },
+  "read": "skin less orange (chroma 38.9 -> 34.1); armour's own colour clusters slightly more distinct (min 17.6 -> 19.1); the skin-to-armour MEAN distance fell (11.7 -> 7.7) because painted skin moved toward the armour average -- the gain is real but MODEST at play scale",
+  "deliverables": [
+   "stills/champion_8headings_before_after_2x.jpg",
+   "stills/champion_stacks_before_after_2x.jpg",
+   "film/champion_before_after_2x.mp4",
+   "film/painted/champion_film_{1x,2x}.mp4"
+  ]
  }
 }
