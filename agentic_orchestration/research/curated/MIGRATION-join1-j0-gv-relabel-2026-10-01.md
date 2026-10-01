@@ -1,6 +1,8 @@
 # MIGRATION addendum: `join1-j0-gv-relabel-2026-10-01`. GV remedy: FoI pin restored; `fidelity_grade` MEASURED → DATAMINED (850 rows)
 
-> **STATUS: STAGED, NOT APPLIED.** **Dry-run PASS** (in-memory copy of `corpus.db`, zero bytes written). The apply is **held at the JOIN-1 charter § 6 HALT boundary**: free disk measured **39.72 GiB, then 36.30 GiB** (`df -k`; GiB = 2³⁰ bytes), below 40 GiB. The apply script refuses below that line. **Apply = one command (§ 6) once the conductor clears the HALT.** On apply, this header is amended forward to APPLIED, with the backup name and the before/after FILE digests, never rewritten.
+> ⚑ **STATUS (amended forward 2026-10-01T05:04:47Z): APPLIED**, on the conductor's word once disk was back above 40 GiB (gandalf, KP-162; 41.17 GiB at apply). Backup `corpus.db.pre-gv-relabel-20261001T050447Z-backup` (FILE sha256 `e1da2690045a52e0d04cb9a128eccc177bd656f740a70e6fb4f13d57a4093d05`). `corpus.db` FILE sha256 **`e1da2690…3d05` → `098f10c79614ee1069b140d50b99a66201c16d2e405ee13bea910756102847d3`**. Post-apply asserts, all PASS: rows changed 675 / 65 / 110; MEASURED remaining 0; DATAMINED 675 / 65 / 110; row counts and all other columns unchanged; FoI `source_version` = the derived pin; 0 NULL `source_version` rows; `exact_skill_field` untouched (7,250); `integrity_check` ok; `corpus_schema_meta` row `join1-j0-gv-relabel-2026-10-01` written. The original status line follows, kept as written.
+>
+> **STATUS (as staged): STAGED, NOT APPLIED.** **Dry-run PASS** (in-memory copy of `corpus.db`, zero bytes written). The apply is **held at the JOIN-1 charter § 6 HALT boundary**: free disk measured **39.72 GiB, then 36.30 GiB** (`df -k`; GiB = 2³⁰ bytes), below 40 GiB. The apply script refuses below that line. **Apply = one command (§ 6) once the conductor clears the HALT.** On apply, this header is amended forward to APPLIED, with the backup name and the before/after FILE digests, never rewritten.
 > **Date:** 2026-10-01 · **Author:** elrond · **Forward addendum to** `MIGRATION-devotion-payloads-2026-07-25.md` (the dated migration is NOT edited in place).
 > **Finding:** `agentic_orchestration/qa/findings/2026-10-01-join1-j0-gv-exact-skill-grading.md` (jack-ryan, collab `795334bea`, KC2-PLAY ledger KP-159). Sidecar `…rows.json`, FILE sha256 `96a483ea96894cde33e476770193793b634b006e6ea3f0e4f1c6731a083929c5` (re-derived; the script checks it at run time).
 > **Authority:** ADR-002 within-seam data correction, approved in the finding § 6. **No DDL. No consumer reads `fidelity_grade`** (finding § 4). No KC2 pack `grade` field is touched; that is a separate scale (finding INFO-1).
@@ -95,5 +97,31 @@ python3 join1_j0_gv_relabel_2026_10_01.py --mode apply          # refuses below 
 - Both lines abbreviate the GDX1 hash as `e28ab2…ae3f`. **`ae3f` is the tail of `database.arz`'s hash** (`8cdeff12…5ae3f`).
 - The GDX1 hash is `e28ab2515477…22a4539`, ending **`…4539`**. Line 30 of the same document carries the full, correct value, and that is the value the row pin used and the value this addendum restores.
 - The cross-reference "freeze § 3 line 46" should read line 45 (per the finding). Cosmetic. The dated document is not edited.
+
+## 8 · Edition-II vendor tree RESTORED as a symlink farm (approved by gandalf, KP-162; applied 2026-10-01)
+
+`/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/` now exists again as **8 symlinks, 0 bytes**. Nothing was copied, deleted or downloaded.
+- **Each target was sha256-checked against its recorded pin BEFORE any link was made.** The script would have aborted and made no links on any mismatch. Each link was re-hashed through the link afterwards: 8/8 OK.
+- The four `.arz` are pinned in `gd_devotion_bank_2026_07_25.py` `ARCHIVES`.
+- ⚑ **Beyond the proposal's four files:** the four `Text_EN.arc` are pinned in `gd_bridge_m1_display_tags_2026_07_26.py` `ARCS`. They are part of the same named tree (the M1 display-tag bridge reads them) and pass the same pin test, so they are linked too.
+
+| Link (under the tree) | Target | Pin |
+|---|---|---|
+| `database/database.arz` | `/Users/admin/depots/219991/24346246/database/database.arz` | `8cdeff12…5ae3f` ✓ |
+| `gdx1/database/GDX1.arz` | `/Users/admin/depots/642280/24346246/gdx1/database/GDX1.arz` | `e28ab251…a4539` ✓ |
+| `gdx2/database/GDX2.arz` | `/Users/admin/depots/897670/24346246/gdx2/database/GDX2.arz` | `f6d5bd67…1e985` ✓ |
+| `gdx3/database/GDX3.arz` | `/Users/admin/depots/2699230/24346246/gdx3/database/GDX3.arz` | `1661be5e…0dcf0` ✓ |
+| `resources/Text_EN.arc` | `/Users/admin/depots/219991/24346246/resources/Text_EN.arc` | `613457c8…d6e01` ✓ |
+| `gdx1/resources/Text_EN.arc` | `/Users/admin/depots/642280/24346246/gdx1/resources/Text_EN.arc` | `85baef4b…7093a` ✓ |
+| `gdx2/resources/Text_EN.arc` | `/Users/admin/depots/897670/24346246/gdx2/resources/Text_EN.arc` | `8aec9207…814a1` ✓ |
+| `gdx3/resources/Text_EN.arc` | `/Users/admin/depots/2699230/24346246/gdx3/resources/Text_EN.arc` | `d6e7f781…d1f18` ✓ |
+
+**Smoke test:** `gd_devotion_bank_2026_07_25.py --verify-only` now resolves `BASE`. Through the restored tree it re-derives exactly the banked population (header 674 · field 7,114 · power 65 · constellation 110), with G3 edition pins and G4 asserts GREEN and no writes.
+
+**Limits, stated:**
+- This restores only the pinned files that scripts read, not a full Edition-II install.
+- A script that reads a file not listed here fails loudly on the missing path; it does not read a wrong file.
+- The depot tree is the real holder of the bytes. If it is ever cleaned up, the links break loudly, which is the right failure mode, and this section is the inventory to restore from.
+- `~/Games/vendor` lives outside every git repo, so this section is the durable record of the farm.
 
 **Signed:** elrond, 2026-10-01.

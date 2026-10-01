@@ -7,7 +7,24 @@
 
 ---
 
-## join1-j0-2026-10-01 + join1-j0-gv-relabel-2026-10-01 — JOIN-1 J0: GD-SLICE freeze-not-drop + four derived columns; docket-sweep ledger (docket 5 → superseded-by-q86); GV relabel (850 rows) + FoI pin — 2026-10-01 — **STAGED, NOT APPLIED (disk HALT)**
+## join1-j0-2026-10-01 + join1-j0-gv-relabel-2026-10-01 — JOIN-1 J0: GD-SLICE freeze-not-drop + four derived columns; docket-sweep ledger (docket 5 → superseded-by-q86); GV relabel (850 rows) + FoI pin — 2026-10-01 — **APPLIED 2026-10-01T05:04Z** (staged under the disk HALT; applied on gandalf's word, KP-162)
+
+**⚑ APPLIED (amended forward).** Free disk 41.17 / 41.09 GiB at apply. Results:
+
+| Step | Backup (FILE sha256) | `corpus.db` FILE sha256 | Result |
+|---|---|---|---|
+| GV | `corpus.db.pre-gv-relabel-20261001T050447Z-backup` (`e1da2690…3d05`) | `e1da2690…3d05` → `098f10c7…47d3` | PASS |
+| J0 | `corpus.db.pre-join1-j0-20261001T050456Z-backup` (`098f10c7…47d3`) | → **`dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473`** | PASS |
+
+Post-apply asserts:
+- **GV:** 675 / 65 / 110 relabelled; MEASURED 0; FoI pin restored; 0 NULL `source_version` rows.
+- **J0:** 7,250 rows, the 17 original columns byte-identical; `is_core` unchanged; audit view 0 rows; 0 NULL derived values.
+- **Grades:** 7,250 rows DATAMINED/DATAMINED.
+- **Classes:** boundary 2,483 · internal 4,474 · out_of_arena 108 · unresolved 185.
+- **Dockets:** docket 5 → `superseded-by-q86` (prior value preserved); every other docket row byte-identical; sweep table 63 rows.
+- `integrity_check` ok on both. `corpus_schema_meta` rows written for both versions.
+
+The Edition-II vendor tree was restored as a pin-verified 8-link symlink farm (detail: GV addendum § 8). The original staging text follows.
 
 **Status:** both migrations are scripted and **dry-run PASS** on an in-memory copy of `corpus.db` (zero bytes written). **Apply is held at the JOIN-1 charter § 6 HALT boundary**: free disk measured 39.72 GiB, then 36.30 GiB (`df -k`), below 40 GiB. Both apply paths refuse below that line and write a file backup first. **Order:** GV first, then J0 (J0's grade columns inherit the post-GV header grade and abort otherwise). This entry is amended forward to APPLIED on landing.
 

@@ -4,7 +4,8 @@
 > **Date:** 2026-10-01 · **Author:** elrond · **Conductor:** gandalf.
 > **The rule being applied (J-L1, Matt, 2026-09-29, KC2-PLAY KP-110, "YES as a rule"):** *Q86 supersedes any pre-union `permanent-gap-record` that closed a **kit-internal** mechanism. Docket 5 is re-dispositioned SUPERSEDED-BY-Q86 first. The sweep re-dispositions the rest under the same rule and returns them to Matt as ONE batch, never silently. Boundary or world-shape dockets (e.g. 2 and 12) are untouched.*
 > **Companion:** the census `elrond/notes/2026-10-01-join1-j0-sorceress-census.md`. MIGRATION entry `join1-j0-2026-10-01` in `research/curated/MIGRATION.md`.
-> ⚑ **Write state: STAGED, NOT APPLIED.** Free disk measured **39.72 GiB, then 36.30 GiB** (`df -k`, GiB = 2³⁰ bytes), below the charter § 6 HALT line of 40 GiB. The `corpus.db` writes are fully scripted and **dry-run PASS in memory, with zero bytes written**. Applying them takes one command once the conductor clears the HALT (§ 5).
+> ⚑ **Write state (amended forward): APPLIED 2026-10-01T05:04Z** on gandalf's word (KP-162), once disk was back above 40 GiB. `corpus.db` FILE sha256 → `dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473`; every post-apply assert PASS (see the `MIGRATION.md` entry). The staging line follows, kept as written.
+> **Write state (as staged): STAGED, NOT APPLIED.** Free disk measured **39.72 GiB, then 36.30 GiB** (`df -k`, GiB = 2³⁰ bytes), below the charter § 6 HALT line of 40 GiB. The `corpus.db` writes are fully scripted and **dry-run PASS in memory, with zero bytes written**. Applying them takes one command once the conductor clears the HALT (§ 5).
 
 ---
 
