@@ -1,0 +1,3988 @@
+{
+ "schema": "join1-j4b-primary-rows/v1",
+ "date": "2026-10-01",
+ "author": "legolas (UNKNOWN-RESEARCHER)",
+ "commissioner": "gandalf (Run JOIN-1, wave J4b)",
+ "version": "Diablo II: Lord of Destruction 1.13 txt data, expansion game. Not D2R. Where D2R differs it is flagged.",
+ "label": "Every value under 'rows' is DATAMINED: copied verbatim (as strings) from the named file. Only non-empty columns are kept.",
+ "source": {
+  "repo": "https://github.com/fabd/diablo2",
+  "commit": "45112569deb9384738ccafe5c24ebbb71f41c7c9",
+  "path": "code/d2_113_data/",
+  "local_copy": "reincarnated-collaboration/agentic_orchestration/research/datamine-acquisition/d2/raw/",
+  "file_sha256": {
+   "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07",
+   "Missiles.txt": "9d6794a50e8b1931e476a4d666bfe4048d7d1dada454f19659d74a8825adef53",
+   "SkillDesc.txt": "1d5994c58e1965f4900b839e88a9f10fec15b1497728005b85f98954e103df0f",
+   "SkillCalc.txt": "942137f2f4582c35953c568340996a618292cb56f309dba41176ffa73431a6d7",
+   "CharStats.txt": "210a6f1371a475442a6f9b27a2d03b2bebc2e3e93c1e586583c112596301a8b3",
+   "ItemStatCost.txt": "4d743b7f3e260a6647f259de25a931fd2554d52315d316eac467f110ee096c27",
+   "Properties.txt": "df39332fbe0c17cbee3d1f42f0caf63f9d76076b36f2f633c6d712d5c38af4e8",
+   "UniqueItems.txt": "4b6b5ed743fb79e4a03eb2773a5503818183249ed04132189e58326897a061a1",
+   "Runes.txt": "9f9d330716300e05a00e1e5441d87656bcb728c6bd45d13d20172d20467ec9c8",
+   "Levels.txt": "3163b66ea391b1e51a4ead54d7f3465d7fdc4fe6f3385f098826c9bb6cca837b",
+   "MonStats.txt": "973eedacd121f724f6dca1c7201750f6a4e60480c3d536ef5a9cb36853d38193"
+  },
+  "DifficultyLevels.txt": "not re-fetched; J4a packet primary_rows.json carries its sha256 (aaa1a5d9...) and its rows; J-S7 manifest per KP-160 Q12"
+ },
+ "formula_evaluation_rule": {
+  "lnXY": "ParamX + (slvl - 1) * ParamY (SkillCalc comment 'a+lvl*b'; D2MOO evaluates with slvl-1; reproduced by Arreat and Basin below).",
+  "par8": "Param8 (SkillCalc 'a').",
+  "mana": "((mana + (slvl-1)*lvlmana) << manashift) / 256 (D2MOO Skills.cpp; Basin 'Mana cost' lines).",
+  "elemental_level_brackets": "EMin + EMinLev1*(slvl-1) for slvl 2-8; then EMinLev2 per level for 9-16, EMinLev3 for 17-22, EMinLev4 for 23-28, EMinLev5 for 29+ (D2MOO D2Common SKILLS_CalculateDamageBonusByLevel). Same for EMax / Missiles MinELev/MaxELev.",
+  "HitShift": "value << HitShift gives 1/256 points. Fire Ball and Fire Bolt HitShift 7 (=half points), Meteor HitShift 8 (whole points), meteorfire HitShift 3 (=1/32 point per frame)."
+ },
+ "kit_scope": {
+  "castable_rows": {
+   "47": "Fire Ball",
+   "56": "Meteor"
+  },
+  "operand_rows_pinned_by_charter": {
+   "36 Fire Bolt": "CONFIRMED. blvl operand in row 47 EDmgSymPerCalc (+14%/blvl) and row 56 EDmgSymPerCalc (+5%/blvl).",
+   "61 Fire Mastery": "CONFIRMED. passive_fire_mastery (stat 329) = 30 + 7*(slvl-1) %. Read by the skill-side damage (both castables) and by meteorfire (ApplyMastery=1).",
+   "37 Warmth": "CONFIRMED. passivestat1 manarecoverybonus = 30 + 12*(slvl-1) %. Enters only the resource economy; it is NOT a synergy for Fire Ball or Meteor in 1.13 (no reference in either EDmgSymPerCalc)."
+  },
+  "cross_references_between_castables": "Row 47 synergy reads Meteor.blvl; row 56 synergy reads Fire Ball.blvl. Each castable is an operand of the other.",
+  "operand_rows_added_v0_5_1": {
+   "41 Inferno": "PINNED as the fourth operand by charter v0.5.1 (jack-ryan census Gate-2; first surfaced by this leg). Reached through Skills#56 srvmissilea meteorcenter -> Missiles meteorcenter HitSubMissile1 meteorfire -> meteorfire EDmgSymPerCalc skill('Inferno'.blvl)*3. Printed on Meteor's synergy panel: SkillDesc meteor dsc3line4 = skillname41, 'AFDImm', calc 3. Arreat: 'Inferno: +3% Average Fire Damage Per Second Per Level'. Basin: '+% Pyre Fire Damage 3 * Inferno.blvl'. Only its blvl enters the kit; Inferno is not castable here. Floor: blvl >= 1 for any Meteor caster (prerequisite chain), so the pyre always carries at least +3%."
+  },
+  "prerequisite_rows_v0_5_1": {
+   "51 Fire Wall": "Meteor reqskill2 = Fire Wall. Level floor 1 hard point. Referenced by no damage or resource field of the kit rows.",
+   "46 Blaze": "Fire Wall reqskill1 = Blaze; Blaze reqskill1 = Inferno (verbatim reqskill columns). Level floor 1 hard point. Referenced by no damage or resource field of the kit rows."
+  },
+  "prerequisite_chain_DATAMINED": "Meteor reqskill1 Fire Ball, reqskill2 Fire Wall; Fire Ball reqskill1 Fire Bolt; Fire Wall reqskill1 Blaze; Blaze reqskill1 Inferno (Skills.txt reqskill columns; Arreat Meteor prerequisites line 'Fire Bolt [1], Inferno [6], Blaze [12], Fire Wall [18], Fireball [12]'). Forced minimum hard points for a Meteor caster: Fire Bolt 1, Fire Ball 1, Inferno 1, Blaze 1, Fire Wall 1. Forced minimum synergies: Fire Ball +14%, Meteor impact +10%, pyre +3%.",
+  "excluded": {
+   "54 Teleport": "Named only in the kit record's motion_frame, not its skills[]; movement<->engagement BOUNDARY question for a later kit (charter J-S3b). Row included verbatim for reference only.",
+   "shield block (Sorceress BL mode, FBR law)": "EXCLUDED under the pin (charter v0.5.1). Her kit record carries a shield (Spirit Monarch), so BL is reachable in the home game; not modelled. A named fidelity cost.",
+   "Sorceress cold/lightning rows": "The Meteorb hybrid is variant-scope in the kit record (fidelity_notes)."
+  }
+ },
+ "rows": {
+  "Skills.txt#47 Fire Ball": {
+   "skill": "Fire Ball",
+   "Id": "47",
+   "charclass": "sor",
+   "skilldesc": "fire ball",
+   "srvmissile": "fireball",
+   "stsound": "sorceress_cast_fire",
+   "castoverlay": "fire_cast_2",
+   "cltmissile": "fireball",
+   "enhanceable": "1",
+   "attackrank": "5",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "ItemEffect": "1",
+   "ItemCastSound": "sorceress_cast_fire",
+   "reqlevel": "12",
+   "maxlvl": "20",
+   "reqskill1": "Fire Bolt",
+   "leftskill": "1",
+   "minmana": "1",
+   "manashift": "7",
+   "mana": "10",
+   "lvlmana": "1",
+   "interrupt": "1",
+   "Param8": "14",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "7",
+   "EType": "fire",
+   "EMin": "12",
+   "EMinLev1": "13",
+   "EMinLev2": "23",
+   "EMinLev3": "28",
+   "EMinLev4": "33",
+   "EMinLev5": "38",
+   "EMax": "28",
+   "EMaxLev1": "15",
+   "EMaxLev2": "25",
+   "EMaxLev3": "30",
+   "EMaxLev4": "35",
+   "EMaxLev5": "40",
+   "EDmgSymPerCalc": "(skill('Fire Bolt'.blvl)+skill('Meteor'.blvl))*par8",
+   "cost mult": "512",
+   "cost add": "8000"
+  },
+  "Skills.txt#56 Meteor": {
+   "skill": "Meteor",
+   "Id": "56",
+   "charclass": "sor",
+   "skilldesc": "meteor",
+   "srvdofunc": "28",
+   "srvmissilea": "meteorcenter",
+   "srvmissileb": "meteorcenter",
+   "srvmissilec": "meteorcenter",
+   "aurarangecalc": "ln12",
+   "stsound": "sorceress_cast_fire",
+   "dosound": "sorceress_meteor",
+   "castoverlay": "fire_cast_2",
+   "cltdofunc": "28",
+   "cltmissilea": "meteorcenter",
+   "enhanceable": "1",
+   "attackrank": "6",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "LineOfSight": "4",
+   "SearchOpenXY": "1",
+   "ItemEffect": "1",
+   "ItemCastSound": "sorceress_cast_fire",
+   "ItemCastOverlay": "fire_cast_2",
+   "reqlevel": "24",
+   "maxlvl": "20",
+   "reqskill1": "Fire Ball",
+   "reqskill2": "Fire Wall",
+   "delay": "30",
+   "minmana": "1",
+   "manashift": "7",
+   "mana": "34",
+   "lvlmana": "1",
+   "interrupt": "1",
+   "calc1": "ln12",
+   "*calc1 desc": "radius",
+   "Param1": "6",
+   "*Param1 Description": "radius of explosion",
+   "Param2": "0",
+   "*Param2 Description": "radius per level",
+   "Param3": "30",
+   "*Param3 Description": "Frames of fire",
+   "Param4": "15",
+   "*Param4 Description": "Frames of fire per level",
+   "Param8": "5",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "8",
+   "EType": "fire",
+   "EMin": "80",
+   "EMinLev1": "23",
+   "EMinLev2": "39",
+   "EMinLev3": "79",
+   "EMinLev4": "81",
+   "EMinLev5": "83",
+   "EMax": "100",
+   "EMaxLev1": "25",
+   "EMaxLev2": "41",
+   "EMaxLev3": "81",
+   "EMaxLev4": "83",
+   "EMaxLev5": "85",
+   "EDmgSymPerCalc": "(skill('Fire Bolt'.blvl)+skill('Fire Ball'.blvl))*par8",
+   "cost mult": "768",
+   "cost add": "32000"
+  },
+  "Skills.txt#36 Fire Bolt": {
+   "skill": "Fire Bolt",
+   "Id": "36",
+   "charclass": "sor",
+   "skilldesc": "fire bolt",
+   "srvmissile": "firebolt",
+   "stsound": "sorceress_cast_fire",
+   "castoverlay": "fire_cast_1",
+   "cltmissile": "firebolt",
+   "enhanceable": "1",
+   "attackrank": "2",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "ItemEffect": "1",
+   "ItemCastSound": "sorceress_cast_fire",
+   "reqlevel": "1",
+   "maxlvl": "20",
+   "leftskill": "1",
+   "minmana": "1",
+   "manashift": "7",
+   "mana": "5",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "Param8": "16",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "7",
+   "EType": "fire",
+   "EMin": "6",
+   "EMinLev1": "3",
+   "EMinLev2": "4",
+   "EMinLev3": "8",
+   "EMinLev4": "18",
+   "EMinLev5": "54",
+   "EMax": "12",
+   "EMaxLev1": "3",
+   "EMaxLev2": "6",
+   "EMaxLev3": "10",
+   "EMaxLev4": "20",
+   "EMaxLev5": "56",
+   "EDmgSymPerCalc": "(skill('Fire Ball'.blvl)+skill('Meteor'.blvl))*par8",
+   "cost mult": "256",
+   "cost add": "1000"
+  },
+  "Skills.txt#61 Fire Mastery": {
+   "skill": "Fire Mastery",
+   "Id": "61",
+   "charclass": "sor",
+   "skilldesc": "fire mastery",
+   "passivestate": "firemastery",
+   "passivestat1": "passive_fire_mastery",
+   "passivecalc1": "ln12",
+   "enhanceable": "1",
+   "attackrank": "3",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "reqlevel": "30",
+   "maxlvl": "20",
+   "leftskill": "1",
+   "minmana": "0",
+   "manashift": "8",
+   "mana": "0",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "passive": "1",
+   "Param1": "30",
+   "*Param1 Description": "% Damage bonus",
+   "Param2": "7",
+   "*Param2 Description": "% Damage bonus per level",
+   "InGame": "1",
+   "HitShift": "8",
+   "EType": "fire",
+   "cost mult": "896",
+   "cost add": "64000"
+  },
+  "Skills.txt#37 Warmth": {
+   "skill": "Warmth",
+   "Id": "37",
+   "charclass": "sor",
+   "skilldesc": "warmth",
+   "passivestate": "warmth",
+   "passivestat1": "manarecoverybonus",
+   "passivecalc1": "ln12",
+   "enhanceable": "1",
+   "attackrank": "0",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "reqlevel": "1",
+   "maxlvl": "20",
+   "leftskill": "1",
+   "minmana": "0",
+   "manashift": "8",
+   "mana": "0",
+   "lvlmana": "0",
+   "interrupt": "1",
+   "InTown": "1",
+   "passive": "1",
+   "Param1": "30",
+   "*Param1 Description": "increase in mana recovery",
+   "Param2": "12",
+   "*Param2 Description": "additional increase/level",
+   "InGame": "1",
+   "HitShift": "8",
+   "EType": "fire",
+   "cost mult": "256",
+   "cost add": "1000"
+  },
+  "Skills.txt#41 Inferno (operand, v0.5.1)": {
+   "skill": "Inferno",
+   "Id": "41",
+   "charclass": "sor",
+   "skilldesc": "inferno",
+   "srvstfunc": "11",
+   "srvdofunc": "19",
+   "srvmissilea": "infernoflame1",
+   "srvmissileb": "infernoflame1",
+   "srvmissilec": "infernoflame1",
+   "aurarangecalc": "ln12/4-2",
+   "cltstfunc": "15",
+   "cltdofunc": "24",
+   "cltmissilea": "infernoflame1",
+   "cltmissileb": "infernoflame2",
+   "enhanceable": "1",
+   "attackrank": "7",
+   "range": "rng",
+   "anim": "SQ",
+   "seqtrans": "SQ",
+   "monanim": "xx",
+   "seqnum": "6",
+   "seqinput": "10",
+   "reqlevel": "6",
+   "maxlvl": "20",
+   "leftskill": "1",
+   "repeat": "1",
+   "startmana": "6",
+   "minmana": "0",
+   "manashift": "2",
+   "mana": "36",
+   "lvlmana": "1",
+   "interrupt": "1",
+   "calc1": "ln12/2",
+   "*calc1 desc": "range",
+   "calc2": "20",
+   "*calc2 desc": "frames if monster",
+   "Param1": "20",
+   "*Param1 Description": "base ranged (doubled)",
+   "Param2": "3",
+   "*Param2 Description": "level range (doubled)",
+   "Param3": "6",
+   "*Param3 Description": "Min Mana to start casting",
+   "Param8": "13",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "2",
+   "EType": "fire",
+   "EMin": "32",
+   "EMinLev1": "24",
+   "EMinLev2": "26",
+   "EMinLev3": "28",
+   "EMinLev4": "32",
+   "EMinLev5": "36",
+   "EMax": "64",
+   "EMaxLev1": "24",
+   "EMaxLev2": "27",
+   "EMaxLev3": "29",
+   "EMaxLev4": "33",
+   "EMaxLev5": "37",
+   "EDmgSymPerCalc": "(skill('Warmth'.blvl))*par8",
+   "cost mult": "384",
+   "cost add": "3000"
+  },
+  "Missiles.txt#62 fireball": {
+   "Missile": "fireball",
+   "Id": "62",
+   "pCltDoFunc": "1",
+   "pCltHitFunc": "1",
+   "pSrvDoFunc": "1",
+   "pSrvHitFunc": "1",
+   "sHitPar1": "4",
+   "*server hit param1 desc": "damage radius",
+   "cHitPar1": "3",
+   "*client hit param1 desc": "explosions radius",
+   "cHitPar2": "1",
+   "*client hit param2 desc": "explosions density",
+   "Vel": "20",
+   "MaxVel": "20",
+   "Range": "50",
+   "Light": "7",
+   "Red": "255",
+   "Green": "178",
+   "Blue": "64",
+   "InitSteps": "1",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "Fireball",
+   "animrate": "1024",
+   "AnimLen": "5",
+   "AnimSpeed": "16",
+   "CollideType": "3",
+   "CollideKill": "1",
+   "LastCollide": "1",
+   "ClientCol": "1",
+   "Size": "1",
+   "CanSlow": "1",
+   "ReturnFire": "1",
+   "GetHit": "1",
+   "Trans": "1",
+   "Skill": "Fire Ball",
+   "ResultFlags": "5",
+   "HitFlags": "2",
+   "EType": "fire",
+   "NumDirections": "16",
+   "TravelSound": "sorceress_fireball_1",
+   "HitSound": "sorceress_fireball_impact_1",
+   "ExplosionMissile": "explodingarrowexp",
+   "CltHitSubMissile1": "fireexplosion2",
+   "EOL": "0"
+  },
+  "Missiles.txt#101 meteorcenter": {
+   "Missile": "meteorcenter",
+   "Id": "101",
+   "pCltDoFunc": "9",
+   "pCltHitFunc": "18",
+   "pSrvDoFunc": "1",
+   "pSrvHitFunc": "14",
+   "CltParam1": "59",
+   "*client param1 desc": "frames",
+   "CltParam2": "25",
+   "*client param2 desc": "fallrate",
+   "CltParam3": "15",
+   "*client param3 desc": "sliderate",
+   "sHitPar1": "0",
+   "*server hit param1 desc": "range (0 = skill)",
+   "sHitPar2": "1",
+   "*server hit param2 desc": "flames increment",
+   "cHitPar1": "5",
+   "*client hit param1 desc": "# submissile1",
+   "cHitPar2": "3",
+   "*client hit param2 desc": "# submissile3",
+   "cHitPar3": "15",
+   "*client hit param3 desc": "# submissile4",
+   "Range": "60",
+   "Light": "4",
+   "Red": "255",
+   "Green": "64",
+   "Blue": "64",
+   "InitSteps": "0",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "MeteorTargetIndicator",
+   "animrate": "1024",
+   "AnimLen": "17",
+   "AnimSpeed": "16",
+   "LastCollide": "1",
+   "ClientSend": "1",
+   "Size": "1",
+   "AlwaysExplode": "1",
+   "GetHit": "1",
+   "Trans": "1",
+   "Skill": "Meteor",
+   "ResultFlags": "5",
+   "HitFlags": "2",
+   "HitShift": "8",
+   "NumDirections": "1",
+   "ProgSound": "sorceress_meteor_impact",
+   "HitSubMissile1": "meteorfire",
+   "CltSubMissile1": "meteor",
+   "CltSubMissile2": "meteortail",
+   "CltHitSubMissile1": "meteorexplode",
+   "CltHitSubMissile2": "whitelightmissile",
+   "CltHitSubMissile3": "firemedium",
+   "CltHitSubMissile4": "firesmall",
+   "EOL": "0"
+  },
+  "Missiles.txt#240 meteorfire": {
+   "Missile": "meteorfire",
+   "Id": "240",
+   "pCltDoFunc": "5",
+   "pSrvDoFunc": "5",
+   "pSrvDmgFunc": "3",
+   "dParam1": "19",
+   "*damage param1 desc": "softhit chance (128)",
+   "Range": "90",
+   "Light": "3",
+   "Flicker": "2",
+   "Red": "255",
+   "Green": "178",
+   "Blue": "64",
+   "InitSteps": "0",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "groundFireMedium",
+   "animrate": "1024",
+   "AnimLen": "37",
+   "AnimSpeed": "16",
+   "SubLoop": "1",
+   "SubStart": "12",
+   "SubStop": "36",
+   "CollideType": "3",
+   "Collision": "1",
+   "ClientSend": "1",
+   "Size": "2",
+   "SrcTown": "1",
+   "CltSrcTown": "12",
+   "Trans": "1",
+   "HitShift": "3",
+   "ApplyMastery": "1",
+   "EType": "fire",
+   "EMin": "15",
+   "MinELev1": "4",
+   "MinELev2": "5",
+   "MinELev3": "6",
+   "MinELev4": "6",
+   "MinELev5": "6",
+   "Emax": "25",
+   "MaxELev1": "4",
+   "MaxELev2": "5",
+   "MaxELev3": "6",
+   "MaxELev4": "6",
+   "MaxELev5": "6",
+   "EDmgSymPerCalc": "skill('Inferno'.blvl)*3",
+   "HitClass": "32",
+   "NumDirections": "1",
+   "DamageRate": "41",
+   "TravelSound": "object_fire_loop_magic",
+   "EOL": "0"
+  },
+  "Missiles.txt#58 firebolt": {
+   "Missile": "firebolt",
+   "Id": "58",
+   "pCltDoFunc": "1",
+   "pSrvDoFunc": "1",
+   "Vel": "20",
+   "MaxVel": "20",
+   "Range": "50",
+   "Light": "7",
+   "Red": "255",
+   "Green": "178",
+   "Blue": "64",
+   "InitSteps": "1",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "Firebolt",
+   "animrate": "1024",
+   "AnimLen": "5",
+   "AnimSpeed": "16",
+   "CollideType": "3",
+   "CollideKill": "1",
+   "LastCollide": "1",
+   "ClientCol": "1",
+   "Size": "1",
+   "CanSlow": "1",
+   "ReturnFire": "1",
+   "GetHit": "1",
+   "Trans": "1",
+   "Skill": "Fire Bolt",
+   "ResultFlags": "4",
+   "NumDirections": "16",
+   "TravelSound": "sorceress_firebolt_1",
+   "HitSound": "sorceress_firebolt_impact_1",
+   "ExplosionMissile": "fireexplode",
+   "EOL": "0"
+  },
+  "Missiles.txt#100 meteor (client visual)": {
+   "Missile": "meteor",
+   "Id": "100",
+   "pCltDoFunc": "1",
+   "Range": "60",
+   "Red": "0",
+   "Green": "0",
+   "Blue": "0",
+   "InitSteps": "0",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "Meteor",
+   "animrate": "1024",
+   "AnimLen": "12",
+   "AnimSpeed": "16",
+   "CollideKill": "1",
+   "LastCollide": "1",
+   "ClientSend": "1",
+   "NumDirections": "1",
+   "EOL": "0"
+  },
+  "Missiles.txt#102 meteortail (client visual)": {
+   "Missile": "meteortail",
+   "Id": "102",
+   "pCltDoFunc": "1",
+   "Range": "60",
+   "Red": "0",
+   "Green": "0",
+   "Blue": "0",
+   "InitSteps": "0",
+   "Activate": "0",
+   "LoopAnim": "1",
+   "CelFile": "MeteorTail",
+   "animrate": "1024",
+   "AnimLen": "12",
+   "AnimSpeed": "16",
+   "CollideKill": "1",
+   "LastCollide": "1",
+   "Trans": "1",
+   "HitShift": "8",
+   "NumDirections": "1",
+   "EOL": "0"
+  },
+  "Missiles.txt#103 meteorexplode (client visual)": {
+   "Missile": "meteorexplode",
+   "Id": "103",
+   "pCltDoFunc": "1",
+   "pSrvDoFunc": "1",
+   "Param1": "2",
+   "*param1 desc": "none",
+   "Range": "16",
+   "Light": "13",
+   "Red": "255",
+   "Green": "178",
+   "Blue": "64",
+   "InitSteps": "0",
+   "Activate": "0",
+   "LoopAnim": "0",
+   "CelFile": "ExpArrowExplode",
+   "animrate": "1024",
+   "AnimLen": "16",
+   "AnimSpeed": "16",
+   "LastCollide": "1",
+   "Size": "1",
+   "Explosion": "1",
+   "NoMultiShot": "1",
+   "ReturnFire": "1",
+   "GetHit": "1",
+   "Trans": "1",
+   "ResultFlags": "4",
+   "HitShift": "8",
+   "NumDirections": "1",
+   "EOL": "0"
+  },
+  "SkillDesc.txt fire ball": {
+   "skilldesc": "fire ball",
+   "SkillPage": "1",
+   "SkillRow": "3",
+   "SkillColumn": "2",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "22",
+   "str name": "skillname47",
+   "str short": "skillsd47",
+   "str long": "skillld47",
+   "str alt": "skillan47",
+   "str mana": "StrSkill3",
+   "descdam": "5",
+   "descmissile1": "fireball",
+   "descline1": "1",
+   "descline2": "11",
+   "descline3": "10",
+   "descline4": "9",
+   "descline5": "8",
+   "dsc2line1": "28",
+   "dsc3line1": "40",
+   "dsc3texta1": "Sksyn",
+   "dsc3textb1": "skillname47",
+   "dsc3calca1": "2",
+   "dsc3line2": "63",
+   "dsc3texta2": "skillname36",
+   "dsc3textb2": "Firedplev",
+   "dsc3calca2": "par8",
+   "dsc3line3": "63",
+   "dsc3texta3": "skillname56",
+   "dsc3textb3": "Firedplev",
+   "dsc3calca3": "par8",
+   "eol": "0"
+  },
+  "SkillDesc.txt meteor": {
+   "skilldesc": "meteor",
+   "SkillPage": "1",
+   "SkillRow": "5",
+   "SkillColumn": "2",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "40",
+   "str name": "skillname56",
+   "str short": "skillsd56",
+   "str long": "skillld56",
+   "str alt": "skillan56",
+   "str mana": "StrSkill3",
+   "descdam": "5",
+   "descmissile1": "meteorfire",
+   "descline1": "1",
+   "descline2": "22",
+   "descline3": "19",
+   "desctexta3": "StrSkill18",
+   "desccalca3": "ln12",
+   "descline4": "10",
+   "dsc3line1": "40",
+   "dsc3texta1": "Sksyn",
+   "dsc3textb1": "skillname56",
+   "dsc3calca1": "2",
+   "dsc3line2": "63",
+   "dsc3texta2": "skillname36",
+   "dsc3textb2": "Firedplev",
+   "dsc3calca2": "par8",
+   "dsc3line3": "63",
+   "dsc3texta3": "skillname47",
+   "dsc3textb3": "Firedplev",
+   "dsc3calca3": "par8",
+   "dsc3line4": "63",
+   "dsc3texta4": "skillname41",
+   "dsc3textb4": "AFDImm",
+   "dsc3calca4": "3",
+   "eol": "0"
+  },
+  "SkillDesc.txt fire bolt": {
+   "skilldesc": "fire bolt",
+   "SkillPage": "1",
+   "SkillRow": "1",
+   "SkillColumn": "2",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "0",
+   "str name": "skillname36",
+   "str short": "skillsd36",
+   "str long": "skillld36",
+   "str alt": "skillan36",
+   "str mana": "StrSkill3",
+   "descdam": "5",
+   "descline1": "11",
+   "descline2": "10",
+   "descline3": "9",
+   "descline4": "8",
+   "dsc2line1": "1",
+   "dsc3line1": "40",
+   "dsc3texta1": "Sksyn",
+   "dsc3textb1": "skillname36",
+   "dsc3calca1": "2",
+   "dsc3line2": "63",
+   "dsc3texta2": "skillname47",
+   "dsc3textb2": "Firedplev",
+   "dsc3calca2": "par8",
+   "dsc3line3": "63",
+   "dsc3texta3": "skillname56",
+   "dsc3textb3": "Firedplev",
+   "dsc3calca3": "par8",
+   "eol": "0"
+  },
+  "SkillDesc.txt fire mastery": {
+   "skilldesc": "fire mastery",
+   "SkillPage": "1",
+   "SkillRow": "6",
+   "SkillColumn": "2",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "50",
+   "str name": "skillsname61",
+   "str short": "skillsd61",
+   "str long": "skillld61",
+   "str alt": "skillan61",
+   "str mana": "StrSkill3",
+   "descline1": "2",
+   "desctexta1": "StrSkill5",
+   "desctextb1": "StrSkill23",
+   "desccalca1": "ln12",
+   "eol": "0"
+  },
+  "SkillDesc.txt warmth": {
+   "skilldesc": "warmth",
+   "SkillPage": "1",
+   "SkillRow": "1",
+   "SkillColumn": "3",
+   "ListRow": "1",
+   "ListPool": "0",
+   "IconCel": "2",
+   "str name": "skillname37",
+   "str short": "skillsd37",
+   "str long": "skillld37",
+   "str alt": "skillan37",
+   "str mana": "StrSkill3",
+   "descline1": "7",
+   "desctexta1": "StrSkill23",
+   "desccalca1": "ln12",
+   "eol": "0"
+  },
+  "SkillCalc.txt": {
+   "ln12": {
+    "code": "ln12",
+    "*desc": "a+lvl*b"
+   },
+   "par8": {
+    "code": "par8",
+    "*desc": "a"
+   },
+   "clc1": {
+    "code": "clc1",
+    "*desc": "calc1 field"
+   }
+  },
+  "CharStats.txt Sorceress": {
+   "class": "Sorceress",
+   "str": "10",
+   "dex": "25",
+   "int": "35",
+   "vit": "10",
+   "tot": "80",
+   "stamina": "74",
+   "hpadd": "30",
+   "PercentStr": "25",
+   "PercentDex": "30",
+   "PercentInt": "30",
+   "PercentVit": "15",
+   "ManaRegen": "120",
+   "ToHitFactor": "-15",
+   "WalkVelocity": "6",
+   "RunVelocity": "9",
+   "RunDrain": "20",
+   "Comment": "The following are in fourths",
+   "LifePerLevel": "4",
+   "StaminaPerLevel": "4",
+   "ManaPerLevel": "8",
+   "LifePerVitality": "8",
+   "StaminaPerVitality": "4",
+   "ManaPerMagic": "8",
+   "StatPerLevel": "5",
+   "#walk": "8",
+   "#run": "5",
+   "#swing": "20",
+   "#spell": "14",
+   "#gethit": "8",
+   "#bow": "18",
+   "BlockFactor": "20",
+   "StartSkill": "fire bolt",
+   "Skill 1": "Throw",
+   "Skill 2": "Kick",
+   "Skill 3": "Scroll of Identify",
+   "Skill 4": "Book of Identify",
+   "Skill 5": "Scroll of Townportal",
+   "Skill 6": "Book of Townportal",
+   "Skill 7": "Unsummon",
+   "StrAllSkills": "ModStr3d",
+   "StrSkillTab1": "StrSklTabItem15",
+   "StrSkillTab2": "StrSklTabItem14",
+   "StrSkillTab3": "StrSklTabItem13",
+   "StrClassOnly": "SorOnly",
+   "baseWClass": "hth",
+   "item1": "sst",
+   "item1loc": "rarm",
+   "item1count": "1",
+   "item2": "hp1",
+   "item2count": "4",
+   "item3": "tsc",
+   "item3count": "1",
+   "item4": "isc",
+   "item4count": "1",
+   "item5": "0",
+   "item5count": "0",
+   "item6": "0",
+   "item6count": "0",
+   "item7": "0",
+   "item7count": "0",
+   "item8": "0",
+   "item8count": "0",
+   "item9": "0",
+   "item9count": "0",
+   "item10": "0",
+   "item10count": "0"
+  }
+ },
+ "rows_prerequisite": {
+  "Skills.txt#51 Fire Wall (floor 1)": {
+   "skill": "Fire Wall",
+   "Id": "51",
+   "charclass": "sor",
+   "skilldesc": "fire wall",
+   "srvdofunc": "24",
+   "srvmissilea": "firewallmaker",
+   "srvmissileb": "firewall",
+   "stsound": "sorceress_cast_fire",
+   "castoverlay": "fire_cast_2",
+   "cltdofunc": "26",
+   "cltmissilea": "firewallmaker",
+   "enhanceable": "1",
+   "attackrank": "4",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "SC",
+   "LineOfSight": "4",
+   "SearchOpenXY": "1",
+   "ItemEffect": "1",
+   "ItemCastSound": "sorceress_cast_fire",
+   "reqlevel": "18",
+   "maxlvl": "20",
+   "reqskill1": "Blaze",
+   "delay": "35",
+   "minmana": "1",
+   "manashift": "8",
+   "mana": "22",
+   "lvlmana": "1",
+   "interrupt": "1",
+   "Param7": "1",
+   "*Param7 Description": "damage synergy",
+   "Param8": "4",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "4",
+   "EType": "fire",
+   "EMin": "15",
+   "EMinLev1": "9",
+   "EMinLev2": "14",
+   "EMinLev3": "21",
+   "EMinLev4": "21",
+   "EMinLev5": "21",
+   "EMax": "20",
+   "EMaxLev1": "9",
+   "EMaxLev2": "14",
+   "EMaxLev3": "21",
+   "EMaxLev4": "21",
+   "EMaxLev5": "21",
+   "EDmgSymPerCalc": "(skill('Warmth'.blvl)*par8+skill('Inferno'.blvl)*par7",
+   "cost mult": "640",
+   "cost add": "16000"
+  },
+  "Skills.txt#46 Blaze (floor 1)": {
+   "skill": "Blaze",
+   "Id": "46",
+   "charclass": "sor",
+   "skilldesc": "blaze",
+   "srvdofunc": "23",
+   "srvmissilea": "blaze",
+   "srvmissileb": "blaze",
+   "srvmissilec": "blaze",
+   "aurastate": "blaze",
+   "auralencalc": "dm12",
+   "stsound": "sorceress_cast_fire",
+   "castoverlay": "fire_cast_2",
+   "cltmissile": "blaze",
+   "cltmissilea": "firewall",
+   "cltmissileb": "firesmall",
+   "cltmissilec": "firemedium",
+   "enhanceable": "1",
+   "attackrank": "3",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "ItemEffect": "1",
+   "reqlevel": "12",
+   "maxlvl": "20",
+   "reqskill1": "Inferno",
+   "minmana": "1",
+   "manashift": "7",
+   "mana": "22",
+   "lvlmana": "1",
+   "interrupt": "1",
+   "Param1": "50",
+   "*Param1 Description": "Min Frames",
+   "Param2": "500",
+   "*Param2 Description": "Max Frames",
+   "Param7": "1",
+   "*Param7 Description": "damage synergy",
+   "Param8": "4",
+   "*Param8 Description": "damage synergy",
+   "InGame": "1",
+   "HitShift": "4",
+   "EType": "fire",
+   "EMin": "4",
+   "EMinLev1": "2",
+   "EMinLev2": "3",
+   "EMinLev3": "4",
+   "EMinLev4": "6",
+   "EMinLev5": "9",
+   "EMax": "8",
+   "EMaxLev1": "2",
+   "EMaxLev2": "3",
+   "EMaxLev3": "4",
+   "EMaxLev4": "6",
+   "EMaxLev5": "9",
+   "EDmgSymPerCalc": "skill('Warmth'.blvl)*par8+skill('Fire Wall'.blvl)*par7",
+   "cost mult": "512",
+   "cost add": "8000"
+  }
+ },
+ "damage_types": {
+  "rule": "Every damage component the kit emits, by type. DATAMINED from the EType / MinDam / MaxDam / SrcDam columns (an absent column is absent from the row).",
+  "Fire Ball hit (Skills#47 + Missiles fireball, area radius 4 subtiles)": "FIRE only. Row 47 EType fire; no MinDam/MaxDam (no physical); no SrcDam (no weapon damage); fireball missile EType fire, no physical columns.",
+  "Meteor impact (Skills#56 via meteorcenter, area radius 6 subtiles)": "FIRE only. Row 56 EType fire; no MinDam/MaxDam (no physical in 1.13); no SrcDam.",
+  "Meteor pyre (Missiles meteorfire x18, per frame)": "FIRE only. meteorfire EType fire, EMin/Emax; no physical columns.",
+  "Fire Bolt (operand only, never cast by this kit)": "FIRE only (row 36 EType fire).",
+  "Inferno (operand only, never cast by this kit)": "its own damage is FIRE; only its blvl enters the kit.",
+  "Not emitted": "physical, magic, cold, lightning, poison: none of the castable rows or their missiles carries them. No burn (STAT_FIRELENGTH) component: no ELen columns on rows 47/56/meteorfire. No leech.",
+  "client-only visual missiles": "meteor, meteortail, meteorexplode, explodingarrowexp, fireexplosion2, firemedium, firesmall: CLIENT visuals spawned by pCltHitFunc/Clt* columns; the server damage path does not use them (firemedium/firesmall carry EType fire values 2/1 in the file but are spawned only as CltHitSubMissile3/4 of meteorcenter)."
+ },
+ "rows_excluded_reference_only": {
+  "Skills.txt#54 Teleport": {
+   "skill": "Teleport",
+   "Id": "54",
+   "charclass": "sor",
+   "skilldesc": "teleport",
+   "srvdofunc": "27",
+   "stsound": "sorceress_teleport",
+   "castoverlay": "teleport",
+   "warp": "1",
+   "enhanceable": "1",
+   "attackrank": "0",
+   "range": "none",
+   "anim": "SC",
+   "seqtrans": "SC",
+   "monanim": "xx",
+   "ItemEffect": "1",
+   "ItemTgtDo": "1",
+   "ItemTarget": "2",
+   "ItemCastSound": "sorceress_teleport",
+   "ItemCastOverlay": "teleport",
+   "reqlevel": "18",
+   "maxlvl": "20",
+   "reqskill1": "Telekinesis",
+   "minmana": "1",
+   "manashift": "8",
+   "mana": "24",
+   "lvlmana": "-1",
+   "interrupt": "1",
+   "InGame": "1",
+   "HitShift": "8",
+   "cost mult": "640",
+   "cost add": "16000"
+  }
+ },
+ "fidelity_costs_named_here": [
+  "Sorceress shield block (BL / FBR) EXCLUDED under the pin (charter v0.5.1)."
+ ],
+ "missile_notes": {
+  "fireball explosion_missile": "Missiles.txt fireball ExplosionMissile = 'explodingarrowexp' and CltHitSubMissile1 = 'fireexplosion2' are CLIENT visuals. The server damage radius is sHitPar1 = 4 ('damage radius'), applied by D2MOO MISSMODE_SrvHit01 around the missile's own position.",
+  "meteor offsets (D2MOO MISSMODE_CreateMeteor_MoltenBoulderSubmissiles, 1.10f reconstruction; DATAMINED from code)": {
+   "x": [
+    2,
+    -2,
+    0,
+    0,
+    -3,
+    0,
+    3,
+    -1,
+    1,
+    -1,
+    2,
+    -4,
+    -3,
+    -1,
+    0,
+    1,
+    3,
+    4
+   ],
+   "y": [
+    -2,
+    -2,
+    2,
+    5,
+    3,
+    3,
+    3,
+    2,
+    1,
+    -1,
+    -1,
+    -2,
+    -2,
+    -3,
+    -4,
+    -3,
+    -3,
+    -2
+   ],
+   "unit": "subtiles from the impact point; step = meteorcenter sHitPar2 = 1 (all 18 spawned)"
+  }
+ },
+ "per_level_tables": {
+  "levels_the_kit_record_uses": "NONE. d2-fire-sorc.json pins no slvl, clvl, hard points or +skills. Its verify_ledger anchor quotes Icy Veins: '20 points to Fire Ball ... 20 points to Meteor ... 20 points to Fire Mastery' (hard points, not effective slvl). Full 1-60 tables follow; values are RAW (no synergy, no mastery) unless named.",
+  "units": "fire_min/max in points (Fire Ball/Fire Bolt carry .5 because HitShift 7). pyre bit rate in 1/256 point per frame per missile.",
+  "fire_ball": [
+   {
+    "slvl": 1,
+    "mana_cost": 5.0,
+    "fire_min": 6.0,
+    "fire_max": 14.0
+   },
+   {
+    "slvl": 2,
+    "mana_cost": 5.5,
+    "fire_min": 12.5,
+    "fire_max": 21.5
+   },
+   {
+    "slvl": 3,
+    "mana_cost": 6.0,
+    "fire_min": 19.0,
+    "fire_max": 29.0
+   },
+   {
+    "slvl": 4,
+    "mana_cost": 6.5,
+    "fire_min": 25.5,
+    "fire_max": 36.5
+   },
+   {
+    "slvl": 5,
+    "mana_cost": 7.0,
+    "fire_min": 32.0,
+    "fire_max": 44.0
+   },
+   {
+    "slvl": 6,
+    "mana_cost": 7.5,
+    "fire_min": 38.5,
+    "fire_max": 51.5
+   },
+   {
+    "slvl": 7,
+    "mana_cost": 8.0,
+    "fire_min": 45.0,
+    "fire_max": 59.0
+   },
+   {
+    "slvl": 8,
+    "mana_cost": 8.5,
+    "fire_min": 51.5,
+    "fire_max": 66.5
+   },
+   {
+    "slvl": 9,
+    "mana_cost": 9.0,
+    "fire_min": 63.0,
+    "fire_max": 79.0
+   },
+   {
+    "slvl": 10,
+    "mana_cost": 9.5,
+    "fire_min": 74.5,
+    "fire_max": 91.5
+   },
+   {
+    "slvl": 11,
+    "mana_cost": 10.0,
+    "fire_min": 86.0,
+    "fire_max": 104.0
+   },
+   {
+    "slvl": 12,
+    "mana_cost": 10.5,
+    "fire_min": 97.5,
+    "fire_max": 116.5
+   },
+   {
+    "slvl": 13,
+    "mana_cost": 11.0,
+    "fire_min": 109.0,
+    "fire_max": 129.0
+   },
+   {
+    "slvl": 14,
+    "mana_cost": 11.5,
+    "fire_min": 120.5,
+    "fire_max": 141.5
+   },
+   {
+    "slvl": 15,
+    "mana_cost": 12.0,
+    "fire_min": 132.0,
+    "fire_max": 154.0
+   },
+   {
+    "slvl": 16,
+    "mana_cost": 12.5,
+    "fire_min": 143.5,
+    "fire_max": 166.5
+   },
+   {
+    "slvl": 17,
+    "mana_cost": 13.0,
+    "fire_min": 157.5,
+    "fire_max": 181.5
+   },
+   {
+    "slvl": 18,
+    "mana_cost": 13.5,
+    "fire_min": 171.5,
+    "fire_max": 196.5
+   },
+   {
+    "slvl": 19,
+    "mana_cost": 14.0,
+    "fire_min": 185.5,
+    "fire_max": 211.5
+   },
+   {
+    "slvl": 20,
+    "mana_cost": 14.5,
+    "fire_min": 199.5,
+    "fire_max": 226.5
+   },
+   {
+    "slvl": 21,
+    "mana_cost": 15.0,
+    "fire_min": 213.5,
+    "fire_max": 241.5
+   },
+   {
+    "slvl": 22,
+    "mana_cost": 15.5,
+    "fire_min": 227.5,
+    "fire_max": 256.5
+   },
+   {
+    "slvl": 23,
+    "mana_cost": 16.0,
+    "fire_min": 244.0,
+    "fire_max": 274.0
+   },
+   {
+    "slvl": 24,
+    "mana_cost": 16.5,
+    "fire_min": 260.5,
+    "fire_max": 291.5
+   },
+   {
+    "slvl": 25,
+    "mana_cost": 17.0,
+    "fire_min": 277.0,
+    "fire_max": 309.0
+   },
+   {
+    "slvl": 26,
+    "mana_cost": 17.5,
+    "fire_min": 293.5,
+    "fire_max": 326.5
+   },
+   {
+    "slvl": 27,
+    "mana_cost": 18.0,
+    "fire_min": 310.0,
+    "fire_max": 344.0
+   },
+   {
+    "slvl": 28,
+    "mana_cost": 18.5,
+    "fire_min": 326.5,
+    "fire_max": 361.5
+   },
+   {
+    "slvl": 29,
+    "mana_cost": 19.0,
+    "fire_min": 345.5,
+    "fire_max": 381.5
+   },
+   {
+    "slvl": 30,
+    "mana_cost": 19.5,
+    "fire_min": 364.5,
+    "fire_max": 401.5
+   },
+   {
+    "slvl": 31,
+    "mana_cost": 20.0,
+    "fire_min": 383.5,
+    "fire_max": 421.5
+   },
+   {
+    "slvl": 32,
+    "mana_cost": 20.5,
+    "fire_min": 402.5,
+    "fire_max": 441.5
+   },
+   {
+    "slvl": 33,
+    "mana_cost": 21.0,
+    "fire_min": 421.5,
+    "fire_max": 461.5
+   },
+   {
+    "slvl": 34,
+    "mana_cost": 21.5,
+    "fire_min": 440.5,
+    "fire_max": 481.5
+   },
+   {
+    "slvl": 35,
+    "mana_cost": 22.0,
+    "fire_min": 459.5,
+    "fire_max": 501.5
+   },
+   {
+    "slvl": 36,
+    "mana_cost": 22.5,
+    "fire_min": 478.5,
+    "fire_max": 521.5
+   },
+   {
+    "slvl": 37,
+    "mana_cost": 23.0,
+    "fire_min": 497.5,
+    "fire_max": 541.5
+   },
+   {
+    "slvl": 38,
+    "mana_cost": 23.5,
+    "fire_min": 516.5,
+    "fire_max": 561.5
+   },
+   {
+    "slvl": 39,
+    "mana_cost": 24.0,
+    "fire_min": 535.5,
+    "fire_max": 581.5
+   },
+   {
+    "slvl": 40,
+    "mana_cost": 24.5,
+    "fire_min": 554.5,
+    "fire_max": 601.5
+   },
+   {
+    "slvl": 41,
+    "mana_cost": 25.0,
+    "fire_min": 573.5,
+    "fire_max": 621.5
+   },
+   {
+    "slvl": 42,
+    "mana_cost": 25.5,
+    "fire_min": 592.5,
+    "fire_max": 641.5
+   },
+   {
+    "slvl": 43,
+    "mana_cost": 26.0,
+    "fire_min": 611.5,
+    "fire_max": 661.5
+   },
+   {
+    "slvl": 44,
+    "mana_cost": 26.5,
+    "fire_min": 630.5,
+    "fire_max": 681.5
+   },
+   {
+    "slvl": 45,
+    "mana_cost": 27.0,
+    "fire_min": 649.5,
+    "fire_max": 701.5
+   },
+   {
+    "slvl": 46,
+    "mana_cost": 27.5,
+    "fire_min": 668.5,
+    "fire_max": 721.5
+   },
+   {
+    "slvl": 47,
+    "mana_cost": 28.0,
+    "fire_min": 687.5,
+    "fire_max": 741.5
+   },
+   {
+    "slvl": 48,
+    "mana_cost": 28.5,
+    "fire_min": 706.5,
+    "fire_max": 761.5
+   },
+   {
+    "slvl": 49,
+    "mana_cost": 29.0,
+    "fire_min": 725.5,
+    "fire_max": 781.5
+   },
+   {
+    "slvl": 50,
+    "mana_cost": 29.5,
+    "fire_min": 744.5,
+    "fire_max": 801.5
+   },
+   {
+    "slvl": 51,
+    "mana_cost": 30.0,
+    "fire_min": 763.5,
+    "fire_max": 821.5
+   },
+   {
+    "slvl": 52,
+    "mana_cost": 30.5,
+    "fire_min": 782.5,
+    "fire_max": 841.5
+   },
+   {
+    "slvl": 53,
+    "mana_cost": 31.0,
+    "fire_min": 801.5,
+    "fire_max": 861.5
+   },
+   {
+    "slvl": 54,
+    "mana_cost": 31.5,
+    "fire_min": 820.5,
+    "fire_max": 881.5
+   },
+   {
+    "slvl": 55,
+    "mana_cost": 32.0,
+    "fire_min": 839.5,
+    "fire_max": 901.5
+   },
+   {
+    "slvl": 56,
+    "mana_cost": 32.5,
+    "fire_min": 858.5,
+    "fire_max": 921.5
+   },
+   {
+    "slvl": 57,
+    "mana_cost": 33.0,
+    "fire_min": 877.5,
+    "fire_max": 941.5
+   },
+   {
+    "slvl": 58,
+    "mana_cost": 33.5,
+    "fire_min": 896.5,
+    "fire_max": 961.5
+   },
+   {
+    "slvl": 59,
+    "mana_cost": 34.0,
+    "fire_min": 915.5,
+    "fire_max": 981.5
+   },
+   {
+    "slvl": 60,
+    "mana_cost": 34.5,
+    "fire_min": 934.5,
+    "fire_max": 1001.5
+   }
+  ],
+  "meteor": [
+   {
+    "slvl": 1,
+    "mana_cost": 17.0,
+    "impact_fire_min": 80.0,
+    "impact_fire_max": 100.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 120,
+    "pyre_bitrate_max_256ths_per_frame": 200,
+    "pyre_hp_per_second_per_missile_min": 11.7188,
+    "pyre_hp_per_second_per_missile_max": 19.5312,
+    "pyre_displayed_dps_min_3_missiles": 35,
+    "pyre_displayed_dps_max_3_missiles": 58,
+    "pyre_frames_code": 30,
+    "pyre_frames_basin": 29
+   },
+   {
+    "slvl": 2,
+    "mana_cost": 17.5,
+    "impact_fire_min": 103.0,
+    "impact_fire_max": 125.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 152,
+    "pyre_bitrate_max_256ths_per_frame": 232,
+    "pyre_hp_per_second_per_missile_min": 14.8438,
+    "pyre_hp_per_second_per_missile_max": 22.6562,
+    "pyre_displayed_dps_min_3_missiles": 44,
+    "pyre_displayed_dps_max_3_missiles": 67,
+    "pyre_frames_code": 45,
+    "pyre_frames_basin": 44
+   },
+   {
+    "slvl": 3,
+    "mana_cost": 18.0,
+    "impact_fire_min": 126.0,
+    "impact_fire_max": 150.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 184,
+    "pyre_bitrate_max_256ths_per_frame": 264,
+    "pyre_hp_per_second_per_missile_min": 17.9688,
+    "pyre_hp_per_second_per_missile_max": 25.7812,
+    "pyre_displayed_dps_min_3_missiles": 53,
+    "pyre_displayed_dps_max_3_missiles": 77,
+    "pyre_frames_code": 60,
+    "pyre_frames_basin": 59
+   },
+   {
+    "slvl": 4,
+    "mana_cost": 18.5,
+    "impact_fire_min": 149.0,
+    "impact_fire_max": 175.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 216,
+    "pyre_bitrate_max_256ths_per_frame": 296,
+    "pyre_hp_per_second_per_missile_min": 21.0938,
+    "pyre_hp_per_second_per_missile_max": 28.9062,
+    "pyre_displayed_dps_min_3_missiles": 63,
+    "pyre_displayed_dps_max_3_missiles": 86,
+    "pyre_frames_code": 75,
+    "pyre_frames_basin": 74
+   },
+   {
+    "slvl": 5,
+    "mana_cost": 19.0,
+    "impact_fire_min": 172.0,
+    "impact_fire_max": 200.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 248,
+    "pyre_bitrate_max_256ths_per_frame": 328,
+    "pyre_hp_per_second_per_missile_min": 24.2188,
+    "pyre_hp_per_second_per_missile_max": 32.0312,
+    "pyre_displayed_dps_min_3_missiles": 72,
+    "pyre_displayed_dps_max_3_missiles": 96,
+    "pyre_frames_code": 90,
+    "pyre_frames_basin": 89
+   },
+   {
+    "slvl": 6,
+    "mana_cost": 19.5,
+    "impact_fire_min": 195.0,
+    "impact_fire_max": 225.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 280,
+    "pyre_bitrate_max_256ths_per_frame": 360,
+    "pyre_hp_per_second_per_missile_min": 27.3438,
+    "pyre_hp_per_second_per_missile_max": 35.1562,
+    "pyre_displayed_dps_min_3_missiles": 82,
+    "pyre_displayed_dps_max_3_missiles": 105,
+    "pyre_frames_code": 105,
+    "pyre_frames_basin": 104
+   },
+   {
+    "slvl": 7,
+    "mana_cost": 20.0,
+    "impact_fire_min": 218.0,
+    "impact_fire_max": 250.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 312,
+    "pyre_bitrate_max_256ths_per_frame": 392,
+    "pyre_hp_per_second_per_missile_min": 30.4688,
+    "pyre_hp_per_second_per_missile_max": 38.2812,
+    "pyre_displayed_dps_min_3_missiles": 91,
+    "pyre_displayed_dps_max_3_missiles": 114,
+    "pyre_frames_code": 120,
+    "pyre_frames_basin": 119
+   },
+   {
+    "slvl": 8,
+    "mana_cost": 20.5,
+    "impact_fire_min": 241.0,
+    "impact_fire_max": 275.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 344,
+    "pyre_bitrate_max_256ths_per_frame": 424,
+    "pyre_hp_per_second_per_missile_min": 33.5938,
+    "pyre_hp_per_second_per_missile_max": 41.4062,
+    "pyre_displayed_dps_min_3_missiles": 100,
+    "pyre_displayed_dps_max_3_missiles": 124,
+    "pyre_frames_code": 135,
+    "pyre_frames_basin": 134
+   },
+   {
+    "slvl": 9,
+    "mana_cost": 21.0,
+    "impact_fire_min": 280.0,
+    "impact_fire_max": 316.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 384,
+    "pyre_bitrate_max_256ths_per_frame": 464,
+    "pyre_hp_per_second_per_missile_min": 37.5,
+    "pyre_hp_per_second_per_missile_max": 45.3125,
+    "pyre_displayed_dps_min_3_missiles": 112,
+    "pyre_displayed_dps_max_3_missiles": 135,
+    "pyre_frames_code": 150,
+    "pyre_frames_basin": 149
+   },
+   {
+    "slvl": 10,
+    "mana_cost": 21.5,
+    "impact_fire_min": 319.0,
+    "impact_fire_max": 357.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 424,
+    "pyre_bitrate_max_256ths_per_frame": 504,
+    "pyre_hp_per_second_per_missile_min": 41.4062,
+    "pyre_hp_per_second_per_missile_max": 49.2188,
+    "pyre_displayed_dps_min_3_missiles": 124,
+    "pyre_displayed_dps_max_3_missiles": 147,
+    "pyre_frames_code": 165,
+    "pyre_frames_basin": 164
+   },
+   {
+    "slvl": 11,
+    "mana_cost": 22.0,
+    "impact_fire_min": 358.0,
+    "impact_fire_max": 398.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 464,
+    "pyre_bitrate_max_256ths_per_frame": 544,
+    "pyre_hp_per_second_per_missile_min": 45.3125,
+    "pyre_hp_per_second_per_missile_max": 53.125,
+    "pyre_displayed_dps_min_3_missiles": 135,
+    "pyre_displayed_dps_max_3_missiles": 159,
+    "pyre_frames_code": 180,
+    "pyre_frames_basin": 179
+   },
+   {
+    "slvl": 12,
+    "mana_cost": 22.5,
+    "impact_fire_min": 397.0,
+    "impact_fire_max": 439.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 504,
+    "pyre_bitrate_max_256ths_per_frame": 584,
+    "pyre_hp_per_second_per_missile_min": 49.2188,
+    "pyre_hp_per_second_per_missile_max": 57.0312,
+    "pyre_displayed_dps_min_3_missiles": 147,
+    "pyre_displayed_dps_max_3_missiles": 171,
+    "pyre_frames_code": 195,
+    "pyre_frames_basin": 194
+   },
+   {
+    "slvl": 13,
+    "mana_cost": 23.0,
+    "impact_fire_min": 436.0,
+    "impact_fire_max": 480.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 544,
+    "pyre_bitrate_max_256ths_per_frame": 624,
+    "pyre_hp_per_second_per_missile_min": 53.125,
+    "pyre_hp_per_second_per_missile_max": 60.9375,
+    "pyre_displayed_dps_min_3_missiles": 159,
+    "pyre_displayed_dps_max_3_missiles": 182,
+    "pyre_frames_code": 210,
+    "pyre_frames_basin": 209
+   },
+   {
+    "slvl": 14,
+    "mana_cost": 23.5,
+    "impact_fire_min": 475.0,
+    "impact_fire_max": 521.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 584,
+    "pyre_bitrate_max_256ths_per_frame": 664,
+    "pyre_hp_per_second_per_missile_min": 57.0312,
+    "pyre_hp_per_second_per_missile_max": 64.8438,
+    "pyre_displayed_dps_min_3_missiles": 171,
+    "pyre_displayed_dps_max_3_missiles": 194,
+    "pyre_frames_code": 225,
+    "pyre_frames_basin": 224
+   },
+   {
+    "slvl": 15,
+    "mana_cost": 24.0,
+    "impact_fire_min": 514.0,
+    "impact_fire_max": 562.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 624,
+    "pyre_bitrate_max_256ths_per_frame": 704,
+    "pyre_hp_per_second_per_missile_min": 60.9375,
+    "pyre_hp_per_second_per_missile_max": 68.75,
+    "pyre_displayed_dps_min_3_missiles": 182,
+    "pyre_displayed_dps_max_3_missiles": 206,
+    "pyre_frames_code": 240,
+    "pyre_frames_basin": 239
+   },
+   {
+    "slvl": 16,
+    "mana_cost": 24.5,
+    "impact_fire_min": 553.0,
+    "impact_fire_max": 603.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 664,
+    "pyre_bitrate_max_256ths_per_frame": 744,
+    "pyre_hp_per_second_per_missile_min": 64.8438,
+    "pyre_hp_per_second_per_missile_max": 72.6562,
+    "pyre_displayed_dps_min_3_missiles": 194,
+    "pyre_displayed_dps_max_3_missiles": 217,
+    "pyre_frames_code": 255,
+    "pyre_frames_basin": 254
+   },
+   {
+    "slvl": 17,
+    "mana_cost": 25.0,
+    "impact_fire_min": 632.0,
+    "impact_fire_max": 684.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 712,
+    "pyre_bitrate_max_256ths_per_frame": 792,
+    "pyre_hp_per_second_per_missile_min": 69.5312,
+    "pyre_hp_per_second_per_missile_max": 77.3438,
+    "pyre_displayed_dps_min_3_missiles": 208,
+    "pyre_displayed_dps_max_3_missiles": 232,
+    "pyre_frames_code": 270,
+    "pyre_frames_basin": 269
+   },
+   {
+    "slvl": 18,
+    "mana_cost": 25.5,
+    "impact_fire_min": 711.0,
+    "impact_fire_max": 765.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 760,
+    "pyre_bitrate_max_256ths_per_frame": 840,
+    "pyre_hp_per_second_per_missile_min": 74.2188,
+    "pyre_hp_per_second_per_missile_max": 82.0312,
+    "pyre_displayed_dps_min_3_missiles": 222,
+    "pyre_displayed_dps_max_3_missiles": 246,
+    "pyre_frames_code": 285,
+    "pyre_frames_basin": 284
+   },
+   {
+    "slvl": 19,
+    "mana_cost": 26.0,
+    "impact_fire_min": 790.0,
+    "impact_fire_max": 846.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 808,
+    "pyre_bitrate_max_256ths_per_frame": 888,
+    "pyre_hp_per_second_per_missile_min": 78.9062,
+    "pyre_hp_per_second_per_missile_max": 86.7188,
+    "pyre_displayed_dps_min_3_missiles": 236,
+    "pyre_displayed_dps_max_3_missiles": 260,
+    "pyre_frames_code": 300,
+    "pyre_frames_basin": 299
+   },
+   {
+    "slvl": 20,
+    "mana_cost": 26.5,
+    "impact_fire_min": 869.0,
+    "impact_fire_max": 927.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 856,
+    "pyre_bitrate_max_256ths_per_frame": 936,
+    "pyre_hp_per_second_per_missile_min": 83.5938,
+    "pyre_hp_per_second_per_missile_max": 91.4062,
+    "pyre_displayed_dps_min_3_missiles": 250,
+    "pyre_displayed_dps_max_3_missiles": 274,
+    "pyre_frames_code": 315,
+    "pyre_frames_basin": 314
+   },
+   {
+    "slvl": 21,
+    "mana_cost": 27.0,
+    "impact_fire_min": 948.0,
+    "impact_fire_max": 1008.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 904,
+    "pyre_bitrate_max_256ths_per_frame": 984,
+    "pyre_hp_per_second_per_missile_min": 88.2812,
+    "pyre_hp_per_second_per_missile_max": 96.0938,
+    "pyre_displayed_dps_min_3_missiles": 264,
+    "pyre_displayed_dps_max_3_missiles": 288,
+    "pyre_frames_code": 330,
+    "pyre_frames_basin": 329
+   },
+   {
+    "slvl": 22,
+    "mana_cost": 27.5,
+    "impact_fire_min": 1027.0,
+    "impact_fire_max": 1089.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 952,
+    "pyre_bitrate_max_256ths_per_frame": 1032,
+    "pyre_hp_per_second_per_missile_min": 92.9688,
+    "pyre_hp_per_second_per_missile_max": 100.7812,
+    "pyre_displayed_dps_min_3_missiles": 278,
+    "pyre_displayed_dps_max_3_missiles": 302,
+    "pyre_frames_code": 345,
+    "pyre_frames_basin": 344
+   },
+   {
+    "slvl": 23,
+    "mana_cost": 28.0,
+    "impact_fire_min": 1108.0,
+    "impact_fire_max": 1172.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1000,
+    "pyre_bitrate_max_256ths_per_frame": 1080,
+    "pyre_hp_per_second_per_missile_min": 97.6562,
+    "pyre_hp_per_second_per_missile_max": 105.4688,
+    "pyre_displayed_dps_min_3_missiles": 292,
+    "pyre_displayed_dps_max_3_missiles": 316,
+    "pyre_frames_code": 360,
+    "pyre_frames_basin": 359
+   },
+   {
+    "slvl": 24,
+    "mana_cost": 28.5,
+    "impact_fire_min": 1189.0,
+    "impact_fire_max": 1255.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1048,
+    "pyre_bitrate_max_256ths_per_frame": 1128,
+    "pyre_hp_per_second_per_missile_min": 102.3438,
+    "pyre_hp_per_second_per_missile_max": 110.1562,
+    "pyre_displayed_dps_min_3_missiles": 307,
+    "pyre_displayed_dps_max_3_missiles": 330,
+    "pyre_frames_code": 375,
+    "pyre_frames_basin": 374
+   },
+   {
+    "slvl": 25,
+    "mana_cost": 29.0,
+    "impact_fire_min": 1270.0,
+    "impact_fire_max": 1338.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1096,
+    "pyre_bitrate_max_256ths_per_frame": 1176,
+    "pyre_hp_per_second_per_missile_min": 107.0312,
+    "pyre_hp_per_second_per_missile_max": 114.8438,
+    "pyre_displayed_dps_min_3_missiles": 321,
+    "pyre_displayed_dps_max_3_missiles": 344,
+    "pyre_frames_code": 390,
+    "pyre_frames_basin": 389
+   },
+   {
+    "slvl": 26,
+    "mana_cost": 29.5,
+    "impact_fire_min": 1351.0,
+    "impact_fire_max": 1421.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1144,
+    "pyre_bitrate_max_256ths_per_frame": 1224,
+    "pyre_hp_per_second_per_missile_min": 111.7188,
+    "pyre_hp_per_second_per_missile_max": 119.5312,
+    "pyre_displayed_dps_min_3_missiles": 335,
+    "pyre_displayed_dps_max_3_missiles": 358,
+    "pyre_frames_code": 405,
+    "pyre_frames_basin": 404
+   },
+   {
+    "slvl": 27,
+    "mana_cost": 30.0,
+    "impact_fire_min": 1432.0,
+    "impact_fire_max": 1504.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1192,
+    "pyre_bitrate_max_256ths_per_frame": 1272,
+    "pyre_hp_per_second_per_missile_min": 116.4062,
+    "pyre_hp_per_second_per_missile_max": 124.2188,
+    "pyre_displayed_dps_min_3_missiles": 349,
+    "pyre_displayed_dps_max_3_missiles": 372,
+    "pyre_frames_code": 420,
+    "pyre_frames_basin": 419
+   },
+   {
+    "slvl": 28,
+    "mana_cost": 30.5,
+    "impact_fire_min": 1513.0,
+    "impact_fire_max": 1587.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1240,
+    "pyre_bitrate_max_256ths_per_frame": 1320,
+    "pyre_hp_per_second_per_missile_min": 121.0938,
+    "pyre_hp_per_second_per_missile_max": 128.9062,
+    "pyre_displayed_dps_min_3_missiles": 363,
+    "pyre_displayed_dps_max_3_missiles": 386,
+    "pyre_frames_code": 435,
+    "pyre_frames_basin": 434
+   },
+   {
+    "slvl": 29,
+    "mana_cost": 31.0,
+    "impact_fire_min": 1596.0,
+    "impact_fire_max": 1672.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1288,
+    "pyre_bitrate_max_256ths_per_frame": 1368,
+    "pyre_hp_per_second_per_missile_min": 125.7812,
+    "pyre_hp_per_second_per_missile_max": 133.5938,
+    "pyre_displayed_dps_min_3_missiles": 377,
+    "pyre_displayed_dps_max_3_missiles": 400,
+    "pyre_frames_code": 450,
+    "pyre_frames_basin": 449
+   },
+   {
+    "slvl": 30,
+    "mana_cost": 31.5,
+    "impact_fire_min": 1679.0,
+    "impact_fire_max": 1757.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1336,
+    "pyre_bitrate_max_256ths_per_frame": 1416,
+    "pyre_hp_per_second_per_missile_min": 130.4688,
+    "pyre_hp_per_second_per_missile_max": 138.2812,
+    "pyre_displayed_dps_min_3_missiles": 391,
+    "pyre_displayed_dps_max_3_missiles": 414,
+    "pyre_frames_code": 465,
+    "pyre_frames_basin": 464
+   },
+   {
+    "slvl": 31,
+    "mana_cost": 32.0,
+    "impact_fire_min": 1762.0,
+    "impact_fire_max": 1842.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1384,
+    "pyre_bitrate_max_256ths_per_frame": 1464,
+    "pyre_hp_per_second_per_missile_min": 135.1562,
+    "pyre_hp_per_second_per_missile_max": 142.9688,
+    "pyre_displayed_dps_min_3_missiles": 405,
+    "pyre_displayed_dps_max_3_missiles": 428,
+    "pyre_frames_code": 480,
+    "pyre_frames_basin": 479
+   },
+   {
+    "slvl": 32,
+    "mana_cost": 32.5,
+    "impact_fire_min": 1845.0,
+    "impact_fire_max": 1927.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1432,
+    "pyre_bitrate_max_256ths_per_frame": 1512,
+    "pyre_hp_per_second_per_missile_min": 139.8438,
+    "pyre_hp_per_second_per_missile_max": 147.6562,
+    "pyre_displayed_dps_min_3_missiles": 419,
+    "pyre_displayed_dps_max_3_missiles": 442,
+    "pyre_frames_code": 495,
+    "pyre_frames_basin": 494
+   },
+   {
+    "slvl": 33,
+    "mana_cost": 33.0,
+    "impact_fire_min": 1928.0,
+    "impact_fire_max": 2012.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1480,
+    "pyre_bitrate_max_256ths_per_frame": 1560,
+    "pyre_hp_per_second_per_missile_min": 144.5312,
+    "pyre_hp_per_second_per_missile_max": 152.3438,
+    "pyre_displayed_dps_min_3_missiles": 433,
+    "pyre_displayed_dps_max_3_missiles": 457,
+    "pyre_frames_code": 510,
+    "pyre_frames_basin": 509
+   },
+   {
+    "slvl": 34,
+    "mana_cost": 33.5,
+    "impact_fire_min": 2011.0,
+    "impact_fire_max": 2097.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1528,
+    "pyre_bitrate_max_256ths_per_frame": 1608,
+    "pyre_hp_per_second_per_missile_min": 149.2188,
+    "pyre_hp_per_second_per_missile_max": 157.0312,
+    "pyre_displayed_dps_min_3_missiles": 447,
+    "pyre_displayed_dps_max_3_missiles": 471,
+    "pyre_frames_code": 525,
+    "pyre_frames_basin": 524
+   },
+   {
+    "slvl": 35,
+    "mana_cost": 34.0,
+    "impact_fire_min": 2094.0,
+    "impact_fire_max": 2182.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1576,
+    "pyre_bitrate_max_256ths_per_frame": 1656,
+    "pyre_hp_per_second_per_missile_min": 153.9062,
+    "pyre_hp_per_second_per_missile_max": 161.7188,
+    "pyre_displayed_dps_min_3_missiles": 461,
+    "pyre_displayed_dps_max_3_missiles": 485,
+    "pyre_frames_code": 540,
+    "pyre_frames_basin": 539
+   },
+   {
+    "slvl": 36,
+    "mana_cost": 34.5,
+    "impact_fire_min": 2177.0,
+    "impact_fire_max": 2267.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1624,
+    "pyre_bitrate_max_256ths_per_frame": 1704,
+    "pyre_hp_per_second_per_missile_min": 158.5938,
+    "pyre_hp_per_second_per_missile_max": 166.4062,
+    "pyre_displayed_dps_min_3_missiles": 475,
+    "pyre_displayed_dps_max_3_missiles": 499,
+    "pyre_frames_code": 555,
+    "pyre_frames_basin": 554
+   },
+   {
+    "slvl": 37,
+    "mana_cost": 35.0,
+    "impact_fire_min": 2260.0,
+    "impact_fire_max": 2352.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1672,
+    "pyre_bitrate_max_256ths_per_frame": 1752,
+    "pyre_hp_per_second_per_missile_min": 163.2812,
+    "pyre_hp_per_second_per_missile_max": 171.0938,
+    "pyre_displayed_dps_min_3_missiles": 489,
+    "pyre_displayed_dps_max_3_missiles": 513,
+    "pyre_frames_code": 570,
+    "pyre_frames_basin": 569
+   },
+   {
+    "slvl": 38,
+    "mana_cost": 35.5,
+    "impact_fire_min": 2343.0,
+    "impact_fire_max": 2437.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1720,
+    "pyre_bitrate_max_256ths_per_frame": 1800,
+    "pyre_hp_per_second_per_missile_min": 167.9688,
+    "pyre_hp_per_second_per_missile_max": 175.7812,
+    "pyre_displayed_dps_min_3_missiles": 503,
+    "pyre_displayed_dps_max_3_missiles": 527,
+    "pyre_frames_code": 585,
+    "pyre_frames_basin": 584
+   },
+   {
+    "slvl": 39,
+    "mana_cost": 36.0,
+    "impact_fire_min": 2426.0,
+    "impact_fire_max": 2522.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1768,
+    "pyre_bitrate_max_256ths_per_frame": 1848,
+    "pyre_hp_per_second_per_missile_min": 172.6562,
+    "pyre_hp_per_second_per_missile_max": 180.4688,
+    "pyre_displayed_dps_min_3_missiles": 517,
+    "pyre_displayed_dps_max_3_missiles": 541,
+    "pyre_frames_code": 600,
+    "pyre_frames_basin": 599
+   },
+   {
+    "slvl": 40,
+    "mana_cost": 36.5,
+    "impact_fire_min": 2509.0,
+    "impact_fire_max": 2607.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1816,
+    "pyre_bitrate_max_256ths_per_frame": 1896,
+    "pyre_hp_per_second_per_missile_min": 177.3438,
+    "pyre_hp_per_second_per_missile_max": 185.1562,
+    "pyre_displayed_dps_min_3_missiles": 532,
+    "pyre_displayed_dps_max_3_missiles": 555,
+    "pyre_frames_code": 615,
+    "pyre_frames_basin": 614
+   },
+   {
+    "slvl": 41,
+    "mana_cost": 37.0,
+    "impact_fire_min": 2592.0,
+    "impact_fire_max": 2692.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1864,
+    "pyre_bitrate_max_256ths_per_frame": 1944,
+    "pyre_hp_per_second_per_missile_min": 182.0312,
+    "pyre_hp_per_second_per_missile_max": 189.8438,
+    "pyre_displayed_dps_min_3_missiles": 546,
+    "pyre_displayed_dps_max_3_missiles": 569,
+    "pyre_frames_code": 630,
+    "pyre_frames_basin": 629
+   },
+   {
+    "slvl": 42,
+    "mana_cost": 37.5,
+    "impact_fire_min": 2675.0,
+    "impact_fire_max": 2777.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1912,
+    "pyre_bitrate_max_256ths_per_frame": 1992,
+    "pyre_hp_per_second_per_missile_min": 186.7188,
+    "pyre_hp_per_second_per_missile_max": 194.5312,
+    "pyre_displayed_dps_min_3_missiles": 560,
+    "pyre_displayed_dps_max_3_missiles": 583,
+    "pyre_frames_code": 645,
+    "pyre_frames_basin": 644
+   },
+   {
+    "slvl": 43,
+    "mana_cost": 38.0,
+    "impact_fire_min": 2758.0,
+    "impact_fire_max": 2862.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 1960,
+    "pyre_bitrate_max_256ths_per_frame": 2040,
+    "pyre_hp_per_second_per_missile_min": 191.4062,
+    "pyre_hp_per_second_per_missile_max": 199.2188,
+    "pyre_displayed_dps_min_3_missiles": 574,
+    "pyre_displayed_dps_max_3_missiles": 597,
+    "pyre_frames_code": 660,
+    "pyre_frames_basin": 659
+   },
+   {
+    "slvl": 44,
+    "mana_cost": 38.5,
+    "impact_fire_min": 2841.0,
+    "impact_fire_max": 2947.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2008,
+    "pyre_bitrate_max_256ths_per_frame": 2088,
+    "pyre_hp_per_second_per_missile_min": 196.0938,
+    "pyre_hp_per_second_per_missile_max": 203.9062,
+    "pyre_displayed_dps_min_3_missiles": 588,
+    "pyre_displayed_dps_max_3_missiles": 611,
+    "pyre_frames_code": 675,
+    "pyre_frames_basin": 674
+   },
+   {
+    "slvl": 45,
+    "mana_cost": 39.0,
+    "impact_fire_min": 2924.0,
+    "impact_fire_max": 3032.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2056,
+    "pyre_bitrate_max_256ths_per_frame": 2136,
+    "pyre_hp_per_second_per_missile_min": 200.7812,
+    "pyre_hp_per_second_per_missile_max": 208.5938,
+    "pyre_displayed_dps_min_3_missiles": 602,
+    "pyre_displayed_dps_max_3_missiles": 625,
+    "pyre_frames_code": 690,
+    "pyre_frames_basin": 689
+   },
+   {
+    "slvl": 46,
+    "mana_cost": 39.5,
+    "impact_fire_min": 3007.0,
+    "impact_fire_max": 3117.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2104,
+    "pyre_bitrate_max_256ths_per_frame": 2184,
+    "pyre_hp_per_second_per_missile_min": 205.4688,
+    "pyre_hp_per_second_per_missile_max": 213.2812,
+    "pyre_displayed_dps_min_3_missiles": 616,
+    "pyre_displayed_dps_max_3_missiles": 639,
+    "pyre_frames_code": 705,
+    "pyre_frames_basin": 704
+   },
+   {
+    "slvl": 47,
+    "mana_cost": 40.0,
+    "impact_fire_min": 3090.0,
+    "impact_fire_max": 3202.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2152,
+    "pyre_bitrate_max_256ths_per_frame": 2232,
+    "pyre_hp_per_second_per_missile_min": 210.1562,
+    "pyre_hp_per_second_per_missile_max": 217.9688,
+    "pyre_displayed_dps_min_3_missiles": 630,
+    "pyre_displayed_dps_max_3_missiles": 653,
+    "pyre_frames_code": 720,
+    "pyre_frames_basin": 719
+   },
+   {
+    "slvl": 48,
+    "mana_cost": 40.5,
+    "impact_fire_min": 3173.0,
+    "impact_fire_max": 3287.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2200,
+    "pyre_bitrate_max_256ths_per_frame": 2280,
+    "pyre_hp_per_second_per_missile_min": 214.8438,
+    "pyre_hp_per_second_per_missile_max": 222.6562,
+    "pyre_displayed_dps_min_3_missiles": 644,
+    "pyre_displayed_dps_max_3_missiles": 667,
+    "pyre_frames_code": 735,
+    "pyre_frames_basin": 734
+   },
+   {
+    "slvl": 49,
+    "mana_cost": 41.0,
+    "impact_fire_min": 3256.0,
+    "impact_fire_max": 3372.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2248,
+    "pyre_bitrate_max_256ths_per_frame": 2328,
+    "pyre_hp_per_second_per_missile_min": 219.5312,
+    "pyre_hp_per_second_per_missile_max": 227.3438,
+    "pyre_displayed_dps_min_3_missiles": 658,
+    "pyre_displayed_dps_max_3_missiles": 682,
+    "pyre_frames_code": 750,
+    "pyre_frames_basin": 749
+   },
+   {
+    "slvl": 50,
+    "mana_cost": 41.5,
+    "impact_fire_min": 3339.0,
+    "impact_fire_max": 3457.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2296,
+    "pyre_bitrate_max_256ths_per_frame": 2376,
+    "pyre_hp_per_second_per_missile_min": 224.2188,
+    "pyre_hp_per_second_per_missile_max": 232.0312,
+    "pyre_displayed_dps_min_3_missiles": 672,
+    "pyre_displayed_dps_max_3_missiles": 696,
+    "pyre_frames_code": 765,
+    "pyre_frames_basin": 764
+   },
+   {
+    "slvl": 51,
+    "mana_cost": 42.0,
+    "impact_fire_min": 3422.0,
+    "impact_fire_max": 3542.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2344,
+    "pyre_bitrate_max_256ths_per_frame": 2424,
+    "pyre_hp_per_second_per_missile_min": 228.9062,
+    "pyre_hp_per_second_per_missile_max": 236.7188,
+    "pyre_displayed_dps_min_3_missiles": 686,
+    "pyre_displayed_dps_max_3_missiles": 710,
+    "pyre_frames_code": 780,
+    "pyre_frames_basin": 779
+   },
+   {
+    "slvl": 52,
+    "mana_cost": 42.5,
+    "impact_fire_min": 3505.0,
+    "impact_fire_max": 3627.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2392,
+    "pyre_bitrate_max_256ths_per_frame": 2472,
+    "pyre_hp_per_second_per_missile_min": 233.5938,
+    "pyre_hp_per_second_per_missile_max": 241.4062,
+    "pyre_displayed_dps_min_3_missiles": 700,
+    "pyre_displayed_dps_max_3_missiles": 724,
+    "pyre_frames_code": 795,
+    "pyre_frames_basin": 794
+   },
+   {
+    "slvl": 53,
+    "mana_cost": 43.0,
+    "impact_fire_min": 3588.0,
+    "impact_fire_max": 3712.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2440,
+    "pyre_bitrate_max_256ths_per_frame": 2520,
+    "pyre_hp_per_second_per_missile_min": 238.2812,
+    "pyre_hp_per_second_per_missile_max": 246.0938,
+    "pyre_displayed_dps_min_3_missiles": 714,
+    "pyre_displayed_dps_max_3_missiles": 738,
+    "pyre_frames_code": 810,
+    "pyre_frames_basin": 809
+   },
+   {
+    "slvl": 54,
+    "mana_cost": 43.5,
+    "impact_fire_min": 3671.0,
+    "impact_fire_max": 3797.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2488,
+    "pyre_bitrate_max_256ths_per_frame": 2568,
+    "pyre_hp_per_second_per_missile_min": 242.9688,
+    "pyre_hp_per_second_per_missile_max": 250.7812,
+    "pyre_displayed_dps_min_3_missiles": 728,
+    "pyre_displayed_dps_max_3_missiles": 752,
+    "pyre_frames_code": 825,
+    "pyre_frames_basin": 824
+   },
+   {
+    "slvl": 55,
+    "mana_cost": 44.0,
+    "impact_fire_min": 3754.0,
+    "impact_fire_max": 3882.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2536,
+    "pyre_bitrate_max_256ths_per_frame": 2616,
+    "pyre_hp_per_second_per_missile_min": 247.6562,
+    "pyre_hp_per_second_per_missile_max": 255.4688,
+    "pyre_displayed_dps_min_3_missiles": 742,
+    "pyre_displayed_dps_max_3_missiles": 766,
+    "pyre_frames_code": 840,
+    "pyre_frames_basin": 839
+   },
+   {
+    "slvl": 56,
+    "mana_cost": 44.5,
+    "impact_fire_min": 3837.0,
+    "impact_fire_max": 3967.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2584,
+    "pyre_bitrate_max_256ths_per_frame": 2664,
+    "pyre_hp_per_second_per_missile_min": 252.3438,
+    "pyre_hp_per_second_per_missile_max": 260.1562,
+    "pyre_displayed_dps_min_3_missiles": 757,
+    "pyre_displayed_dps_max_3_missiles": 780,
+    "pyre_frames_code": 855,
+    "pyre_frames_basin": 854
+   },
+   {
+    "slvl": 57,
+    "mana_cost": 45.0,
+    "impact_fire_min": 3920.0,
+    "impact_fire_max": 4052.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2632,
+    "pyre_bitrate_max_256ths_per_frame": 2712,
+    "pyre_hp_per_second_per_missile_min": 257.0312,
+    "pyre_hp_per_second_per_missile_max": 264.8438,
+    "pyre_displayed_dps_min_3_missiles": 771,
+    "pyre_displayed_dps_max_3_missiles": 794,
+    "pyre_frames_code": 870,
+    "pyre_frames_basin": 869
+   },
+   {
+    "slvl": 58,
+    "mana_cost": 45.5,
+    "impact_fire_min": 4003.0,
+    "impact_fire_max": 4137.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2680,
+    "pyre_bitrate_max_256ths_per_frame": 2760,
+    "pyre_hp_per_second_per_missile_min": 261.7188,
+    "pyre_hp_per_second_per_missile_max": 269.5312,
+    "pyre_displayed_dps_min_3_missiles": 785,
+    "pyre_displayed_dps_max_3_missiles": 808,
+    "pyre_frames_code": 885,
+    "pyre_frames_basin": 884
+   },
+   {
+    "slvl": 59,
+    "mana_cost": 46.0,
+    "impact_fire_min": 4086.0,
+    "impact_fire_max": 4222.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2728,
+    "pyre_bitrate_max_256ths_per_frame": 2808,
+    "pyre_hp_per_second_per_missile_min": 266.4062,
+    "pyre_hp_per_second_per_missile_max": 274.2188,
+    "pyre_displayed_dps_min_3_missiles": 799,
+    "pyre_displayed_dps_max_3_missiles": 822,
+    "pyre_frames_code": 900,
+    "pyre_frames_basin": 899
+   },
+   {
+    "slvl": 60,
+    "mana_cost": 46.5,
+    "impact_fire_min": 4169.0,
+    "impact_fire_max": 4307.0,
+    "impact_radius_subtiles": 6,
+    "impact_radius_yards": 4.0,
+    "pyre_bitrate_min_256ths_per_frame": 2776,
+    "pyre_bitrate_max_256ths_per_frame": 2856,
+    "pyre_hp_per_second_per_missile_min": 271.0938,
+    "pyre_hp_per_second_per_missile_max": 278.9062,
+    "pyre_displayed_dps_min_3_missiles": 813,
+    "pyre_displayed_dps_max_3_missiles": 836,
+    "pyre_frames_code": 915,
+    "pyre_frames_basin": 914
+   }
+  ],
+  "fire_bolt": [
+   {
+    "slvl": 1,
+    "mana_cost": 2.5,
+    "fire_min": 3.0,
+    "fire_max": 6.0
+   },
+   {
+    "slvl": 2,
+    "mana_cost": 2.5,
+    "fire_min": 4.5,
+    "fire_max": 7.5
+   },
+   {
+    "slvl": 3,
+    "mana_cost": 2.5,
+    "fire_min": 6.0,
+    "fire_max": 9.0
+   },
+   {
+    "slvl": 4,
+    "mana_cost": 2.5,
+    "fire_min": 7.5,
+    "fire_max": 10.5
+   },
+   {
+    "slvl": 5,
+    "mana_cost": 2.5,
+    "fire_min": 9.0,
+    "fire_max": 12.0
+   },
+   {
+    "slvl": 6,
+    "mana_cost": 2.5,
+    "fire_min": 10.5,
+    "fire_max": 13.5
+   },
+   {
+    "slvl": 7,
+    "mana_cost": 2.5,
+    "fire_min": 12.0,
+    "fire_max": 15.0
+   },
+   {
+    "slvl": 8,
+    "mana_cost": 2.5,
+    "fire_min": 13.5,
+    "fire_max": 16.5
+   },
+   {
+    "slvl": 9,
+    "mana_cost": 2.5,
+    "fire_min": 15.5,
+    "fire_max": 19.5
+   },
+   {
+    "slvl": 10,
+    "mana_cost": 2.5,
+    "fire_min": 17.5,
+    "fire_max": 22.5
+   },
+   {
+    "slvl": 11,
+    "mana_cost": 2.5,
+    "fire_min": 19.5,
+    "fire_max": 25.5
+   },
+   {
+    "slvl": 12,
+    "mana_cost": 2.5,
+    "fire_min": 21.5,
+    "fire_max": 28.5
+   },
+   {
+    "slvl": 13,
+    "mana_cost": 2.5,
+    "fire_min": 23.5,
+    "fire_max": 31.5
+   },
+   {
+    "slvl": 14,
+    "mana_cost": 2.5,
+    "fire_min": 25.5,
+    "fire_max": 34.5
+   },
+   {
+    "slvl": 15,
+    "mana_cost": 2.5,
+    "fire_min": 27.5,
+    "fire_max": 37.5
+   },
+   {
+    "slvl": 16,
+    "mana_cost": 2.5,
+    "fire_min": 29.5,
+    "fire_max": 40.5
+   },
+   {
+    "slvl": 17,
+    "mana_cost": 2.5,
+    "fire_min": 33.5,
+    "fire_max": 45.5
+   },
+   {
+    "slvl": 18,
+    "mana_cost": 2.5,
+    "fire_min": 37.5,
+    "fire_max": 50.5
+   },
+   {
+    "slvl": 19,
+    "mana_cost": 2.5,
+    "fire_min": 41.5,
+    "fire_max": 55.5
+   },
+   {
+    "slvl": 20,
+    "mana_cost": 2.5,
+    "fire_min": 45.5,
+    "fire_max": 60.5
+   },
+   {
+    "slvl": 21,
+    "mana_cost": 2.5,
+    "fire_min": 49.5,
+    "fire_max": 65.5
+   },
+   {
+    "slvl": 22,
+    "mana_cost": 2.5,
+    "fire_min": 53.5,
+    "fire_max": 70.5
+   },
+   {
+    "slvl": 23,
+    "mana_cost": 2.5,
+    "fire_min": 62.5,
+    "fire_max": 80.5
+   },
+   {
+    "slvl": 24,
+    "mana_cost": 2.5,
+    "fire_min": 71.5,
+    "fire_max": 90.5
+   },
+   {
+    "slvl": 25,
+    "mana_cost": 2.5,
+    "fire_min": 80.5,
+    "fire_max": 100.5
+   },
+   {
+    "slvl": 26,
+    "mana_cost": 2.5,
+    "fire_min": 89.5,
+    "fire_max": 110.5
+   },
+   {
+    "slvl": 27,
+    "mana_cost": 2.5,
+    "fire_min": 98.5,
+    "fire_max": 120.5
+   },
+   {
+    "slvl": 28,
+    "mana_cost": 2.5,
+    "fire_min": 107.5,
+    "fire_max": 130.5
+   },
+   {
+    "slvl": 29,
+    "mana_cost": 2.5,
+    "fire_min": 134.5,
+    "fire_max": 158.5
+   },
+   {
+    "slvl": 30,
+    "mana_cost": 2.5,
+    "fire_min": 161.5,
+    "fire_max": 186.5
+   },
+   {
+    "slvl": 31,
+    "mana_cost": 2.5,
+    "fire_min": 188.5,
+    "fire_max": 214.5
+   },
+   {
+    "slvl": 32,
+    "mana_cost": 2.5,
+    "fire_min": 215.5,
+    "fire_max": 242.5
+   },
+   {
+    "slvl": 33,
+    "mana_cost": 2.5,
+    "fire_min": 242.5,
+    "fire_max": 270.5
+   },
+   {
+    "slvl": 34,
+    "mana_cost": 2.5,
+    "fire_min": 269.5,
+    "fire_max": 298.5
+   },
+   {
+    "slvl": 35,
+    "mana_cost": 2.5,
+    "fire_min": 296.5,
+    "fire_max": 326.5
+   },
+   {
+    "slvl": 36,
+    "mana_cost": 2.5,
+    "fire_min": 323.5,
+    "fire_max": 354.5
+   },
+   {
+    "slvl": 37,
+    "mana_cost": 2.5,
+    "fire_min": 350.5,
+    "fire_max": 382.5
+   },
+   {
+    "slvl": 38,
+    "mana_cost": 2.5,
+    "fire_min": 377.5,
+    "fire_max": 410.5
+   },
+   {
+    "slvl": 39,
+    "mana_cost": 2.5,
+    "fire_min": 404.5,
+    "fire_max": 438.5
+   },
+   {
+    "slvl": 40,
+    "mana_cost": 2.5,
+    "fire_min": 431.5,
+    "fire_max": 466.5
+   },
+   {
+    "slvl": 41,
+    "mana_cost": 2.5,
+    "fire_min": 458.5,
+    "fire_max": 494.5
+   },
+   {
+    "slvl": 42,
+    "mana_cost": 2.5,
+    "fire_min": 485.5,
+    "fire_max": 522.5
+   },
+   {
+    "slvl": 43,
+    "mana_cost": 2.5,
+    "fire_min": 512.5,
+    "fire_max": 550.5
+   },
+   {
+    "slvl": 44,
+    "mana_cost": 2.5,
+    "fire_min": 539.5,
+    "fire_max": 578.5
+   },
+   {
+    "slvl": 45,
+    "mana_cost": 2.5,
+    "fire_min": 566.5,
+    "fire_max": 606.5
+   },
+   {
+    "slvl": 46,
+    "mana_cost": 2.5,
+    "fire_min": 593.5,
+    "fire_max": 634.5
+   },
+   {
+    "slvl": 47,
+    "mana_cost": 2.5,
+    "fire_min": 620.5,
+    "fire_max": 662.5
+   },
+   {
+    "slvl": 48,
+    "mana_cost": 2.5,
+    "fire_min": 647.5,
+    "fire_max": 690.5
+   },
+   {
+    "slvl": 49,
+    "mana_cost": 2.5,
+    "fire_min": 674.5,
+    "fire_max": 718.5
+   },
+   {
+    "slvl": 50,
+    "mana_cost": 2.5,
+    "fire_min": 701.5,
+    "fire_max": 746.5
+   },
+   {
+    "slvl": 51,
+    "mana_cost": 2.5,
+    "fire_min": 728.5,
+    "fire_max": 774.5
+   },
+   {
+    "slvl": 52,
+    "mana_cost": 2.5,
+    "fire_min": 755.5,
+    "fire_max": 802.5
+   },
+   {
+    "slvl": 53,
+    "mana_cost": 2.5,
+    "fire_min": 782.5,
+    "fire_max": 830.5
+   },
+   {
+    "slvl": 54,
+    "mana_cost": 2.5,
+    "fire_min": 809.5,
+    "fire_max": 858.5
+   },
+   {
+    "slvl": 55,
+    "mana_cost": 2.5,
+    "fire_min": 836.5,
+    "fire_max": 886.5
+   },
+   {
+    "slvl": 56,
+    "mana_cost": 2.5,
+    "fire_min": 863.5,
+    "fire_max": 914.5
+   },
+   {
+    "slvl": 57,
+    "mana_cost": 2.5,
+    "fire_min": 890.5,
+    "fire_max": 942.5
+   },
+   {
+    "slvl": 58,
+    "mana_cost": 2.5,
+    "fire_min": 917.5,
+    "fire_max": 970.5
+   },
+   {
+    "slvl": 59,
+    "mana_cost": 2.5,
+    "fire_min": 944.5,
+    "fire_max": 998.5
+   },
+   {
+    "slvl": 60,
+    "mana_cost": 2.5,
+    "fire_min": 971.5,
+    "fire_max": 1026.5
+   }
+  ],
+  "fire_mastery": [
+   {
+    "slvl": 1,
+    "fire_skill_damage_pct": 30
+   },
+   {
+    "slvl": 2,
+    "fire_skill_damage_pct": 37
+   },
+   {
+    "slvl": 3,
+    "fire_skill_damage_pct": 44
+   },
+   {
+    "slvl": 4,
+    "fire_skill_damage_pct": 51
+   },
+   {
+    "slvl": 5,
+    "fire_skill_damage_pct": 58
+   },
+   {
+    "slvl": 6,
+    "fire_skill_damage_pct": 65
+   },
+   {
+    "slvl": 7,
+    "fire_skill_damage_pct": 72
+   },
+   {
+    "slvl": 8,
+    "fire_skill_damage_pct": 79
+   },
+   {
+    "slvl": 9,
+    "fire_skill_damage_pct": 86
+   },
+   {
+    "slvl": 10,
+    "fire_skill_damage_pct": 93
+   },
+   {
+    "slvl": 11,
+    "fire_skill_damage_pct": 100
+   },
+   {
+    "slvl": 12,
+    "fire_skill_damage_pct": 107
+   },
+   {
+    "slvl": 13,
+    "fire_skill_damage_pct": 114
+   },
+   {
+    "slvl": 14,
+    "fire_skill_damage_pct": 121
+   },
+   {
+    "slvl": 15,
+    "fire_skill_damage_pct": 128
+   },
+   {
+    "slvl": 16,
+    "fire_skill_damage_pct": 135
+   },
+   {
+    "slvl": 17,
+    "fire_skill_damage_pct": 142
+   },
+   {
+    "slvl": 18,
+    "fire_skill_damage_pct": 149
+   },
+   {
+    "slvl": 19,
+    "fire_skill_damage_pct": 156
+   },
+   {
+    "slvl": 20,
+    "fire_skill_damage_pct": 163
+   },
+   {
+    "slvl": 21,
+    "fire_skill_damage_pct": 170
+   },
+   {
+    "slvl": 22,
+    "fire_skill_damage_pct": 177
+   },
+   {
+    "slvl": 23,
+    "fire_skill_damage_pct": 184
+   },
+   {
+    "slvl": 24,
+    "fire_skill_damage_pct": 191
+   },
+   {
+    "slvl": 25,
+    "fire_skill_damage_pct": 198
+   },
+   {
+    "slvl": 26,
+    "fire_skill_damage_pct": 205
+   },
+   {
+    "slvl": 27,
+    "fire_skill_damage_pct": 212
+   },
+   {
+    "slvl": 28,
+    "fire_skill_damage_pct": 219
+   },
+   {
+    "slvl": 29,
+    "fire_skill_damage_pct": 226
+   },
+   {
+    "slvl": 30,
+    "fire_skill_damage_pct": 233
+   },
+   {
+    "slvl": 31,
+    "fire_skill_damage_pct": 240
+   },
+   {
+    "slvl": 32,
+    "fire_skill_damage_pct": 247
+   },
+   {
+    "slvl": 33,
+    "fire_skill_damage_pct": 254
+   },
+   {
+    "slvl": 34,
+    "fire_skill_damage_pct": 261
+   },
+   {
+    "slvl": 35,
+    "fire_skill_damage_pct": 268
+   },
+   {
+    "slvl": 36,
+    "fire_skill_damage_pct": 275
+   },
+   {
+    "slvl": 37,
+    "fire_skill_damage_pct": 282
+   },
+   {
+    "slvl": 38,
+    "fire_skill_damage_pct": 289
+   },
+   {
+    "slvl": 39,
+    "fire_skill_damage_pct": 296
+   },
+   {
+    "slvl": 40,
+    "fire_skill_damage_pct": 303
+   },
+   {
+    "slvl": 41,
+    "fire_skill_damage_pct": 310
+   },
+   {
+    "slvl": 42,
+    "fire_skill_damage_pct": 317
+   },
+   {
+    "slvl": 43,
+    "fire_skill_damage_pct": 324
+   },
+   {
+    "slvl": 44,
+    "fire_skill_damage_pct": 331
+   },
+   {
+    "slvl": 45,
+    "fire_skill_damage_pct": 338
+   },
+   {
+    "slvl": 46,
+    "fire_skill_damage_pct": 345
+   },
+   {
+    "slvl": 47,
+    "fire_skill_damage_pct": 352
+   },
+   {
+    "slvl": 48,
+    "fire_skill_damage_pct": 359
+   },
+   {
+    "slvl": 49,
+    "fire_skill_damage_pct": 366
+   },
+   {
+    "slvl": 50,
+    "fire_skill_damage_pct": 373
+   },
+   {
+    "slvl": 51,
+    "fire_skill_damage_pct": 380
+   },
+   {
+    "slvl": 52,
+    "fire_skill_damage_pct": 387
+   },
+   {
+    "slvl": 53,
+    "fire_skill_damage_pct": 394
+   },
+   {
+    "slvl": 54,
+    "fire_skill_damage_pct": 401
+   },
+   {
+    "slvl": 55,
+    "fire_skill_damage_pct": 408
+   },
+   {
+    "slvl": 56,
+    "fire_skill_damage_pct": 415
+   },
+   {
+    "slvl": 57,
+    "fire_skill_damage_pct": 422
+   },
+   {
+    "slvl": 58,
+    "fire_skill_damage_pct": 429
+   },
+   {
+    "slvl": 59,
+    "fire_skill_damage_pct": 436
+   },
+   {
+    "slvl": 60,
+    "fire_skill_damage_pct": 443
+   }
+  ],
+  "warmth": [
+   {
+    "slvl": 1,
+    "mana_regen_pct": 30
+   },
+   {
+    "slvl": 2,
+    "mana_regen_pct": 42
+   },
+   {
+    "slvl": 3,
+    "mana_regen_pct": 54
+   },
+   {
+    "slvl": 4,
+    "mana_regen_pct": 66
+   },
+   {
+    "slvl": 5,
+    "mana_regen_pct": 78
+   },
+   {
+    "slvl": 6,
+    "mana_regen_pct": 90
+   },
+   {
+    "slvl": 7,
+    "mana_regen_pct": 102
+   },
+   {
+    "slvl": 8,
+    "mana_regen_pct": 114
+   },
+   {
+    "slvl": 9,
+    "mana_regen_pct": 126
+   },
+   {
+    "slvl": 10,
+    "mana_regen_pct": 138
+   },
+   {
+    "slvl": 11,
+    "mana_regen_pct": 150
+   },
+   {
+    "slvl": 12,
+    "mana_regen_pct": 162
+   },
+   {
+    "slvl": 13,
+    "mana_regen_pct": 174
+   },
+   {
+    "slvl": 14,
+    "mana_regen_pct": 186
+   },
+   {
+    "slvl": 15,
+    "mana_regen_pct": 198
+   },
+   {
+    "slvl": 16,
+    "mana_regen_pct": 210
+   },
+   {
+    "slvl": 17,
+    "mana_regen_pct": 222
+   },
+   {
+    "slvl": 18,
+    "mana_regen_pct": 234
+   },
+   {
+    "slvl": 19,
+    "mana_regen_pct": 246
+   },
+   {
+    "slvl": 20,
+    "mana_regen_pct": 258
+   },
+   {
+    "slvl": 21,
+    "mana_regen_pct": 270
+   },
+   {
+    "slvl": 22,
+    "mana_regen_pct": 282
+   },
+   {
+    "slvl": 23,
+    "mana_regen_pct": 294
+   },
+   {
+    "slvl": 24,
+    "mana_regen_pct": 306
+   },
+   {
+    "slvl": 25,
+    "mana_regen_pct": 318
+   },
+   {
+    "slvl": 26,
+    "mana_regen_pct": 330
+   },
+   {
+    "slvl": 27,
+    "mana_regen_pct": 342
+   },
+   {
+    "slvl": 28,
+    "mana_regen_pct": 354
+   },
+   {
+    "slvl": 29,
+    "mana_regen_pct": 366
+   },
+   {
+    "slvl": 30,
+    "mana_regen_pct": 378
+   },
+   {
+    "slvl": 31,
+    "mana_regen_pct": 390
+   },
+   {
+    "slvl": 32,
+    "mana_regen_pct": 402
+   },
+   {
+    "slvl": 33,
+    "mana_regen_pct": 414
+   },
+   {
+    "slvl": 34,
+    "mana_regen_pct": 426
+   },
+   {
+    "slvl": 35,
+    "mana_regen_pct": 438
+   },
+   {
+    "slvl": 36,
+    "mana_regen_pct": 450
+   },
+   {
+    "slvl": 37,
+    "mana_regen_pct": 462
+   },
+   {
+    "slvl": 38,
+    "mana_regen_pct": 474
+   },
+   {
+    "slvl": 39,
+    "mana_regen_pct": 486
+   },
+   {
+    "slvl": 40,
+    "mana_regen_pct": 498
+   },
+   {
+    "slvl": 41,
+    "mana_regen_pct": 510
+   },
+   {
+    "slvl": 42,
+    "mana_regen_pct": 522
+   },
+   {
+    "slvl": 43,
+    "mana_regen_pct": 534
+   },
+   {
+    "slvl": 44,
+    "mana_regen_pct": 546
+   },
+   {
+    "slvl": 45,
+    "mana_regen_pct": 558
+   },
+   {
+    "slvl": 46,
+    "mana_regen_pct": 570
+   },
+   {
+    "slvl": 47,
+    "mana_regen_pct": 582
+   },
+   {
+    "slvl": 48,
+    "mana_regen_pct": 594
+   },
+   {
+    "slvl": 49,
+    "mana_regen_pct": 606
+   },
+   {
+    "slvl": 50,
+    "mana_regen_pct": 618
+   },
+   {
+    "slvl": 51,
+    "mana_regen_pct": 630
+   },
+   {
+    "slvl": 52,
+    "mana_regen_pct": 642
+   },
+   {
+    "slvl": 53,
+    "mana_regen_pct": 654
+   },
+   {
+    "slvl": 54,
+    "mana_regen_pct": 666
+   },
+   {
+    "slvl": 55,
+    "mana_regen_pct": 678
+   },
+   {
+    "slvl": 56,
+    "mana_regen_pct": 690
+   },
+   {
+    "slvl": 57,
+    "mana_regen_pct": 702
+   },
+   {
+    "slvl": 58,
+    "mana_regen_pct": 714
+   },
+   {
+    "slvl": 59,
+    "mana_regen_pct": 726
+   },
+   {
+    "slvl": 60,
+    "mana_regen_pct": 738
+   }
+  ]
+ },
+ "gear_rows": {
+  "note": "Items the kit record names (dossier.item_alterations.key_items + capstone_alterations), resolved in the 1.13 tables. Runeword props = Runes.txt T1 codes only; the runes' own socket mods (Gems.txt) are not expanded here because none of them carries FCR, +skills, +% fire skill damage or -enemy fire resist. Property -> stat via Properties.txt.",
+  "uniques": {
+   "Eschuta's temper": {
+    "lvl_req": "72",
+    "base_code": "obc",
+    "base": "eldritch orb",
+    "props": [
+     {
+      "code": "sor",
+      "param": "",
+      "min": "1",
+      "max": "3"
+     },
+     {
+      "code": "cast2",
+      "param": "",
+      "min": "40",
+      "max": "40"
+     },
+     {
+      "code": "extra-fire",
+      "param": "",
+      "min": "10",
+      "max": "20"
+     },
+     {
+      "code": "extra-ltng",
+      "param": "",
+      "min": "10",
+      "max": "20"
+     },
+     {
+      "code": "enr",
+      "param": "",
+      "min": "20",
+      "max": "30"
+     }
+    ]
+   },
+   "Harlequin Crest": {
+    "lvl_req": "62",
+    "base_code": "uap",
+    "base": "Shako",
+    "props": [
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "hp/lvl",
+      "param": "12",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "mana/lvl",
+      "param": "12",
+      "min": "",
+      "max": ""
+     },
+     {
+      "code": "mag%",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "code": "red-dmg%",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     },
+     {
+      "code": "str",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "dex",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "vit",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "enr",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     }
+    ]
+   },
+   "Magefist": {
+    "lvl_req": "23",
+    "base_code": "tgl",
+    "base": "Light Gauntlets",
+    "props": [
+     {
+      "code": "cast3",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "code": "regen-mana",
+      "param": "",
+      "min": "25",
+      "max": "25"
+     },
+     {
+      "code": "fireskill",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "code": "dmg-fire",
+      "param": "",
+      "min": "1",
+      "max": "6"
+     },
+     {
+      "code": "ac",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     },
+     {
+      "code": "ac%",
+      "param": "",
+      "min": "20",
+      "max": "30"
+     }
+    ]
+   },
+   "Arachnid Mesh": {
+    "lvl_req": "80",
+    "base_code": "ulc",
+    "base": "spiderweb sash",
+    "props": [
+     {
+      "code": "ac%",
+      "param": "",
+      "min": "90",
+      "max": "120"
+     },
+     {
+      "code": "cast2",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "code": "charged",
+      "param": "Venom",
+      "min": "11",
+      "max": "3"
+     },
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "1",
+      "max": "1"
+     },
+     {
+      "code": "slow",
+      "param": "",
+      "min": "10",
+      "max": "10"
+     },
+     {
+      "code": "mana%",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     }
+    ]
+   },
+   "Mara's Kaleidoscope": {
+    "lvl_req": "67",
+    "base_code": "amu",
+    "base": "Amulet",
+    "props": [
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "res-all",
+      "param": "",
+      "min": "20",
+      "max": "30"
+     },
+     {
+      "code": "str",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     },
+     {
+      "code": "dex",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     },
+     {
+      "code": "vit",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     },
+     {
+      "code": "enr",
+      "param": "",
+      "min": "5",
+      "max": "5"
+     }
+    ]
+   }
+  },
+  "runewords": {
+   "Spirit": {
+    "row_key": "Runeword130",
+    "rune_name_column": "Spirit",
+    "itypes": [
+     "swor",
+     "shld"
+    ],
+    "props": [
+     {
+      "code": "balance3",
+      "param": "",
+      "min": "55",
+      "max": "55"
+     },
+     {
+      "code": "mana",
+      "param": "",
+      "min": "89",
+      "max": "112"
+     },
+     {
+      "code": "ac-miss",
+      "param": "",
+      "min": "250",
+      "max": "250"
+     },
+     {
+      "code": "vit",
+      "param": "",
+      "min": "22",
+      "max": "22"
+     },
+     {
+      "code": "cast3",
+      "param": "",
+      "min": "25",
+      "max": "35"
+     },
+     {
+      "code": "abs-mag",
+      "param": "",
+      "min": "3",
+      "max": "8"
+     },
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     }
+    ]
+   },
+   "Heart of the Oak": {
+    "row_key": "Runeword51",
+    "rune_name_column": "Heart of the Oak",
+    "itypes": [
+     "staf",
+     "mace"
+    ],
+    "props": [
+     {
+      "code": "cast2",
+      "param": "",
+      "min": "40",
+      "max": "40"
+     },
+     {
+      "code": "charged",
+      "param": "Oak Sage",
+      "min": "25",
+      "max": "4"
+     },
+     {
+      "code": "mana%",
+      "param": "",
+      "min": "15",
+      "max": "15"
+     },
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "3",
+      "max": "3"
+     },
+     {
+      "code": "regen",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     },
+     {
+      "code": "res-all",
+      "param": "",
+      "min": "30",
+      "max": "40"
+     },
+     {
+      "code": "charged",
+      "param": "Raven",
+      "min": "60",
+      "max": "14"
+     }
+    ]
+   },
+   "Chains of Honor": {
+    "row_key": "Runeword14",
+    "rune_name_column": "Bound by Duty",
+    "itypes": [
+     "tors"
+    ],
+    "props": [
+     {
+      "code": "res-all",
+      "param": "",
+      "min": "50",
+      "max": "50"
+     },
+     {
+      "code": "ac%",
+      "param": "",
+      "min": "70",
+      "max": "70"
+     },
+     {
+      "code": "dmg-demon",
+      "param": "",
+      "min": "200",
+      "max": "200"
+     },
+     {
+      "code": "dmg-undead",
+      "param": "",
+      "min": "100",
+      "max": "100"
+     },
+     {
+      "code": "lifesteal",
+      "param": "",
+      "min": "8",
+      "max": "8"
+     },
+     {
+      "code": "allskills",
+      "param": "",
+      "min": "2",
+      "max": "2"
+     },
+     {
+      "code": "str",
+      "param": "",
+      "min": "20",
+      "max": "20"
+     }
+    ],
+    "flag": "1.13 Runes.txt names this row 'Bound by Duty' in its Rune Name column; identified as Chains of Honor by its runes Dol-Um-Ber-Ist (same quirk as Grief='Widowmaker' in J4a)."
+   }
+  },
+  "not_in_1_13": {
+   "Flickering Flame": "No row in 1.13 UniqueItems.txt. Basin Mana page lists 'Flickering Flame helm ... (D2R only)'. The 1.13 profile must take the record's alternative, Harlequin Crest."
+  },
+  "property_codes": {
+   "extra-fire": {
+    "code": "extra-fire",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "passive_fire_mastery",
+    "*eol": "0"
+   },
+   "pierce-fire": {
+    "code": "pierce-fire",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "passive_fire_pierce",
+    "*desc": "Negates % of Enemy Cold Resistance",
+    "*min": "min",
+    "*max": "max",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "cast2": {
+    "code": "cast2",
+    "*done": "1",
+    "func1": "8",
+    "stat1": "item_fastercastrate",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "cast3": {
+    "code": "cast3",
+    "*done": "1",
+    "func1": "8",
+    "stat1": "item_fastercastrate",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "regen-mana": {
+    "code": "regen-mana",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "manarecoverybonus",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "sor": {
+    "code": "sor",
+    "*done": "1",
+    "val1": "1",
+    "func1": "21",
+    "stat1": "item_addclassskills",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "fireskill": {
+    "code": "fireskill",
+    "*done": "1",
+    "val1": "1",
+    "func1": "21",
+    "stat1": "item_elemskill",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "allskills": {
+    "code": "allskills",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "item_allskills",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "mana": {
+    "code": "mana",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "maxmana",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "mana%": {
+    "code": "mana%",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "item_maxmana_percent",
+    "*notes": "none",
+    "*eol": "0"
+   },
+   "enr": {
+    "code": "enr",
+    "*done": "1",
+    "func1": "1",
+    "stat1": "energy",
+    "*notes": "none",
+    "*eol": "0"
+   }
+  },
+  "itemstatcost": {
+   "passive_fire_mastery": {
+    "Stat": "passive_fire_mastery",
+    "ID": "329",
+    "Signed": "1",
+    "Send Bits": "12",
+    "Add": "1117",
+    "Multiply": "415",
+    "Divide": "1024",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "0",
+    "Save Bits": "9",
+    "Save Add": "50",
+    "descpriority": "88",
+    "descfunc": "4",
+    "descval": "1",
+    "descstrpos": "ModitemdamFiresk",
+    "descstrneg": "ModitemdamFiresk",
+    "*eol": "0"
+   },
+   "passive_fire_pierce": {
+    "Stat": "passive_fire_pierce",
+    "ID": "333",
+    "Signed": "1",
+    "Send Bits": "9",
+    "Multiply": "2578",
+    "Divide": "1024",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "0",
+    "Save Bits": "8",
+    "Save Add": "0",
+    "descpriority": "88",
+    "descfunc": "20",
+    "descval": "1",
+    "descstrpos": "Moditemenresfiresk",
+    "descstrneg": "Moditemenresfiresk",
+    "*eol": "0"
+   },
+   "manarecoverybonus": {
+    "Stat": "manarecoverybonus",
+    "ID": "27",
+    "Signed": "1",
+    "Send Bits": "16",
+    "Divide": "1024",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "0",
+    "Save Bits": "8",
+    "Save Add": "0",
+    "descpriority": "52",
+    "descfunc": "2",
+    "descval": "2",
+    "descstrpos": "ModStr4g",
+    "descstrneg": "ModStr4g",
+    "*eol": "0"
+   },
+   "manarecovery": {
+    "Stat": "manarecovery",
+    "ID": "26",
+    "Divide": "1024",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "0",
+    "Save Bits": "8",
+    "Save Add": "0",
+    "*eol": "0"
+   },
+   "item_fastercastrate": {
+    "Stat": "item_fastercastrate",
+    "ID": "105",
+    "Send Other": "1",
+    "Signed": "1",
+    "Send Bits": "9",
+    "Add": "3876",
+    "Multiply": "156",
+    "Divide": "1024",
+    "1.09-Save Bits": "7",
+    "1.09-Save Add": "20",
+    "Save Bits": "7",
+    "Save Add": "20",
+    "descpriority": "142",
+    "descfunc": "4",
+    "descval": "1",
+    "descstrpos": "ModStr4v",
+    "descstrneg": "ModStr4v",
+    "*eol": "0"
+   },
+   "fireresist": {
+    "Stat": "fireresist",
+    "ID": "39",
+    "Signed": "1",
+    "Send Bits": "9",
+    "Add": "43",
+    "Multiply": "20",
+    "Divide": "1024",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "0",
+    "Save Bits": "8",
+    "Save Add": "50",
+    "descpriority": "36",
+    "descfunc": "4",
+    "descval": "2",
+    "descstrpos": "ModStr1j",
+    "descstrneg": "ModStr1j",
+    "dgrp": "2",
+    "dgrpfunc": "19",
+    "dgrpstrpos": "strModAllResistances",
+    "dgrpstrneg": "strModAllResistances",
+    "*eol": "0"
+   },
+   "maxmana": {
+    "Stat": "maxmana",
+    "ID": "9",
+    "Send Bits": "32",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "21",
+    "fCallback": "1",
+    "fMin": "1",
+    "MinAccr": "0",
+    "Add": "81",
+    "Multiply": "20",
+    "Divide": "1024",
+    "ValShift": "8",
+    "1.09-Save Bits": "8",
+    "1.09-Save Add": "32",
+    "Save Bits": "8",
+    "Save Add": "32",
+    "descpriority": "55",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1e",
+    "descstrneg": "ModStr1e",
+    "*eol": "0"
+   },
+   "energy": {
+    "Stat": "energy",
+    "ID": "1",
+    "Send Bits": "11",
+    "Saved": "1",
+    "CSvSigned": "0",
+    "CSvBits": "10",
+    "fMin": "1",
+    "MinAccr": "1",
+    "Add": "100",
+    "Multiply": "55",
+    "Divide": "1024",
+    "1.09-Save Bits": "7",
+    "1.09-Save Add": "32",
+    "Save Bits": "7",
+    "Save Add": "32",
+    "op": "8",
+    "op stat1": "maxmana",
+    "descpriority": "61",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr1d",
+    "descstrneg": "ModStr1d",
+    "dgrp": "1",
+    "dgrpfunc": "1",
+    "dgrpval": "1",
+    "dgrpstrpos": "Moditem2allattrib",
+    "dgrpstrneg": "Moditem2allattrib",
+    "*eol": "0"
+   },
+   "item_maxmana_percent": {
+    "Stat": "item_maxmana_percent",
+    "ID": "77",
+    "Signed": "1",
+    "Send Bits": "16",
+    "Add": "56452",
+    "Multiply": "204",
+    "Divide": "1024",
+    "1.09-Save Bits": "6",
+    "1.09-Save Add": "10",
+    "Save Bits": "6",
+    "Save Add": "10",
+    "op": "11",
+    "op stat1": "maxmana",
+    "descpriority": "54",
+    "descfunc": "2",
+    "descval": "2",
+    "descstrpos": "ModStr2h",
+    "descstrneg": "ModStr2h",
+    "*eol": "0"
+   },
+   "item_elemskill": {
+    "Stat": "item_elemskill",
+    "ID": "126",
+    "Signed": "1",
+    "Send Bits": "3",
+    "Send Param Bits": "3",
+    "fCallback": "1",
+    "Add": "76",
+    "Multiply": "1024",
+    "Divide": "1024",
+    "1.09-Save Bits": "4",
+    "1.09-Save Add": "0",
+    "Save Bits": "3",
+    "Save Add": "0",
+    "Save Param Bits": "3",
+    "descpriority": "157",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr3i",
+    "descstrneg": "ModStr3i",
+    "*eol": "0"
+   },
+   "item_addclassskills": {
+    "Stat": "item_addclassskills",
+    "ID": "83",
+    "Signed": "1",
+    "Send Bits": "4",
+    "Send Param Bits": "3",
+    "fCallback": "1",
+    "Add": "49523",
+    "Multiply": "1560",
+    "Divide": "1024",
+    "1.09-Save Bits": "3",
+    "1.09-Save Add": "0",
+    "Save Bits": "3",
+    "Save Add": "0",
+    "Save Param Bits": "3",
+    "descpriority": "150",
+    "descfunc": "13",
+    "descval": "1",
+    "descstrpos": "ModStr3a",
+    "descstrneg": "ModStr3a",
+    "*eol": "0"
+   },
+   "item_allskills": {
+    "Stat": "item_allskills",
+    "ID": "127",
+    "Signed": "1",
+    "Send Bits": "8",
+    "fCallback": "1",
+    "Add": "15123",
+    "Multiply": "4096",
+    "Divide": "1024",
+    "1.09-Save Bits": "3",
+    "1.09-Save Add": "0",
+    "Save Bits": "3",
+    "Save Add": "0",
+    "descpriority": "158",
+    "descfunc": "1",
+    "descval": "1",
+    "descstrpos": "ModStr3k",
+    "descstrneg": "ModStr3k",
+    "*eol": "0"
+   }
+  }
+ },
+ "verification_log": [
+  "Basin Fire_Ball mana 1-60: exact (60 levels)",
+  "Basin Fire_Ball min fire 1-60: exact (60 levels)",
+  "Basin Fire_Ball max fire 1-60: exact (60 levels)",
+  "Basin Meteor mana 1-60: exact (60 levels)",
+  "Basin Meteor min fire 1-60: exact (60 levels)",
+  "Basin Meteor max fire 1-60: exact (60 levels)",
+  "Basin Meteor displayed min fire/s 1-60 (3 missiles): exact (60 levels)",
+  "Basin Meteor displayed max fire/s 1-60 (3 missiles): exact (60 levels)",
+  "Basin Meteor seconds 1-60 = (14+15*slvl)/25: exact (60 levels)",
+  "Basin Fire_Mastery 1-60: exact (60 levels)",
+  "Basin Warmth 1-60: exact (60 levels)",
+  "Basin Fire_Bolt min fire 1-60: exact (60 levels)",
+  "Basin Fire_Bolt max fire 1-60: exact (60 levels)",
+  "Arreat Fireball 1-20 (Fire Bolt.blvl=1, +14%): exact (20 levels)",
+  "Arreat Fireball mana 1-20: exact (20 levels)",
+  "Arreat Meteor impact 1-20 (Fire Bolt=1, Fire Ball=1, +10%): 39/40 cells exact; slvl 17 minimum Arreat 696 vs code 695 (Basin raw 632 agrees with the code; 632 x 1.10 = 695.2)",
+  "Arreat Meteor fire/s 1-20 (Inferno.blvl=1, +3%, 3 missiles): exact (20 levels)",
+  "Arreat Meteor mana 1-20 (Arreat floors to whole points): exact (20 levels)",
+  "Arreat Fire Bolt 1-20 (no synergy): exact (20 levels)",
+  "Arreat Fire Mastery 1-20: exact (20 levels)",
+  "Arreat Warmth 1-20: exact (20 levels)"
+ ]
+}
