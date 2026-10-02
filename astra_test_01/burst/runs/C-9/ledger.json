@@ -30196,6 +30196,12 @@
       "topic": "The dark knight shipped (and was judged) with Tripo's flat texture; the painted bake was never embedded",
       "note": "E1 render scripts applied work/tex_final.png by override; no step wrote it into the GLB. Every export final_e..final_i, and the live warlord.pck, embed Tripo's flat texture (mean diff 0.0 to it, 20.8 to the bake). Consequences: Matt's live play and every Godot still since stage G showed the unpainted body; the stage-G \"plate L* 24.8 vs sheet 26.7, no grade needed\" verdict was measured on the wrong texture and is void. Fix: e42_embed_tex.py (diff 0.63 to the bake). Instrument added: a texture-provenance row in the web fence (embedded image vs intended atlas, every GLB in every pack; current warlord.pck as the negative control). Same shape as the D5 lessons: a render override that the shipped file does not carry.",
       "ts": "2026-10-01T18:18:24"
+    },
+    {
+      "id": "N-C9-TELEMETRY-DONE",
+      "topic": "Q69 step 1 done: telemetry.db archived to the PC (raw + zstd) and the Mac zstd; Mac original removed",
+      "note": "PC (mhwet@192.168.1.133) C:\\Users\\mhwet\\reincarnated-archive\\2026-10-01: telemetry.db (35,557,154,816 B, sha256 10c29db7...f3d4) and telemetry.db.zst (sha256 4a3ee0bb...f220), both verified ON THE PC by Get-FileHash; SHA256SUMS beside them. Mac keeps ~/Games/_telemetry_archive/telemetry.db.zst + SHA256SUMS + README. Matt's pre-authorised deletion (verbatim \"I pre-authorize the deletion/removal of the Telemetry DB once it's securely backed up\") executed after verification: rm of engine data/telemetry.db at ~20:05 EDT; disk 20 -> 54 GiB free. The Pi share failed every write (SMB I/O error) and holds a 236 MB partial .zst; the Pi needs a look by Matt.",
+      "ts": "2026-10-01T20:02:03"
     }
   ]
 }
