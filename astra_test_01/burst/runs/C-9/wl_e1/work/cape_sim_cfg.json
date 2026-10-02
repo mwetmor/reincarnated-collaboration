@@ -1,0 +1,14 @@
+{"_note": "E1 R-C9-128 cape secondary motion v1: one setting per cape column; capsules on the back, hips, thighs, shins (metres at 1.96 m)",
+ "settings": [
+  {"root": "cape_B_0", "end": "cape_B_3", "stiffness": 1.0, "drag": 0.4, "gravity": 2.0, "radius_m": 0.03},
+  {"root": "cape_L_0", "end": "cape_L_3", "stiffness": 1.0, "drag": 0.4, "gravity": 2.0, "radius_m": 0.03},
+  {"root": "cape_R_0", "end": "cape_R_3", "stiffness": 1.0, "drag": 0.4, "gravity": 2.0, "radius_m": 0.03}],
+ "capsules": [
+  {"bone": "Spine", "to": "neck", "radius_m": 0.15},
+  {"bone": "Spine01", "to": "Spine", "radius_m": 0.15},
+  {"bone": "Spine02", "to": "Spine01", "radius_m": 0.15},
+  {"bone": "Hips", "to": "Spine02", "radius_m": 0.16},
+  {"bone": "LeftUpLeg", "to": "LeftLeg", "radius_m": 0.09},
+  {"bone": "RightUpLeg", "to": "RightLeg", "radius_m": 0.09},
+  {"bone": "LeftLeg", "to": "LeftFoot", "radius_m": 0.065},
+  {"bone": "RightLeg", "to": "RightFoot", "radius_m": 0.065}]}

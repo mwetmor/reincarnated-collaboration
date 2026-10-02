@@ -64,3 +64,5 @@
 {"ev": "end", "step": "L-final", "t": 1790906863.977599, "note": "final_k: idle (4) seam-blended, all rows PASS"}
 {"ev": "start", "step": "M-spin", "t": 1790906880.461932, "note": "R-C9-128: EoR spin start/loop, (a) rigid idle-stance spin, (b) Mixamo high spin attack"}
 {"ev": "end", "step": "M-spin", "t": 1790907166.8039129, "note": "EoR spin (a) shipped in final_k_eor; (b) film-only (wrist flexion 92 deg, feet slide)"}
+{"ev": "start", "step": "N-cape-sim", "t": 1790907199.130643, "note": "R-C9-128 cape: SpringBoneSimulator3D web check, chain design, prototype"}
+{"ev": "end", "step": "N-cape-sim", "t": 1790910002.155828, "note": "PAUSED (R-C9-132): chain built (3 cols x 4), sim runs in Godot (web templates carry SpringBoneSimulator3D); modified poses only readable in skeleton_updated; stiffness/gravity unit scaling under test (grav 0.8 scaled: hem 0.46 m off rest; grav 0: 0.05 m)"}

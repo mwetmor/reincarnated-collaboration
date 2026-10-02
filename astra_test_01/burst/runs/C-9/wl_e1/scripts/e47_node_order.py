@@ -13,10 +13,11 @@ for p in sys.argv[2:]:
     js, b = L.load_glb(p); nodes = js['nodes']; jset = set(js['skins'][0]['joints'])
     name = {i: nodes[i].get('name') for i in range(len(nodes))}
     jidx = {name[i]: i for i in jset}
-    assert set(jidx) == set(border), "%s: joint set differs from the body's" % p
+    extra = [n for n in [name[i] for i in sorted(jset)] if n not in border]
+    assert set(border) <= set(jidx) and all(n.startswith('cape_') for n in extra), "%s: joint set differs from the body's (extras must be cape_*)" % p
     others = [i for i in range(len(nodes)) if i not in jset]
     # keep non-joint nodes in their relative order, joints in the body's order, joints placed where the first joint was
-    first = min(jset); newold = [i for i in others if i < first] + [jidx[n] for n in border] + [i for i in others if i > first]
+    first = min(jset); newold = [i for i in others if i < first] + [jidx[n] for n in border] + [jidx[n] for n in extra] + [i for i in others if i > first]
     o2n = {o: n for n, o in enumerate(newold)}
     js['nodes'] = [nodes[o] for o in newold]
     for nd in js['nodes']:
@@ -29,4 +30,4 @@ for p in sys.argv[2:]:
         for ch in an['channels']: ch['target']['node'] = o2n[ch['target']['node']]
     R_.write_glb(p, js, bytearray(b))
     js2, _ = L.load_glb(p); after = [js2['nodes'][i]['name'] for i in range(len(js2['nodes'])) if i in set(js2['skins'][0]['joints'])]
-    r = L.lint(p); print(os.path.basename(p), 'joint node order == body:', after == border, '| lint', r['verdict'], r['fails'][:2])
+    r = L.lint(p); print(os.path.basename(p), 'joint node order == body:', after[:len(border)] == border, 'extras', len(after) - len(border), '| lint', r['verdict'], r['fails'][:2])

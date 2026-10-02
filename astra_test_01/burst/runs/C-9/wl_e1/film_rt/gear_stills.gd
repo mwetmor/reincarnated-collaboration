@@ -46,7 +46,11 @@ var cam: Camera3D
 var ground: MeshInstance3D
 var sun: DirectionalLight3D
 var we: WorldEnvironment
-var piece_of := {}            # MeshInstance3D -> piece name ("" = the body)
+var piece_of := {}
+var added_bones: Array = []
+var sim: SpringBoneSimulator3D = null
+var cape_dump: Array = []
+var sim_us: Array = []            # MeshInstance3D -> piece name ("" = the body)
 var orig := {}
 var class_tex: ImageTexture = null
 
@@ -68,6 +72,15 @@ func _bind(path: String, piece: String) -> void:
 		if OS.has_environment("GS_BIND_BY_NAME"):
 			var ps := mi.get_node_or_null(mi.skeleton) as Skeleton3D
 			if ps != null:
+				# E1 R-C9-128: a piece may carry EXTRA bones (the cape chain, cape_*): add them to the body skeleton first, by name,
+				# parented by name, with the piece's own rest -- then the name bind below finds them
+				for pi in ps.get_bone_count():
+					var bn := ps.get_bone_name(pi)
+					if skel.find_bone(bn) < 0:
+						var ni := skel.add_bone(bn); var pp := ps.get_bone_parent(pi)
+						if pp >= 0: skel.set_bone_parent(ni, skel.find_bone(ps.get_bone_name(pp)))
+						skel.set_bone_rest(ni, ps.get_bone_rest(pi)); skel.reset_bone_pose(ni)
+						added_bones.append(bn)
 				skin = skin.duplicate()
 				for bi in skin.get_bind_count():
 					var bb := skin.get_bind_bone(bi)
@@ -118,6 +131,8 @@ func _ready() -> void:
 	if OS.has_environment("GS_CLASS_TEX"):
 		class_tex = ImageTexture.create_from_image(Image.load_from_file(OS.get_environment("GS_CLASS_TEX")))
 	_build_tree()
+	if OS.has_environment("GS_CAPE_SIM"):
+		_cape_sim(OS.get_environment("GS_CAPE_SIM"))
 	if OS.has_environment("GS_EYES"):
 		await _eyes(OS.get_environment("GS_EYES"))
 	cam = Camera3D.new(); cam.projection = Camera3D.PROJECTION_ORTHOGONAL
@@ -165,6 +180,56 @@ func _eye_flicker(t: float) -> void:
 	var f := OS.get_environment("GS_EYES_FLICKER").split(",")
 	var v := 1.0 - float(f[1]) * (0.5 + 0.5 * sin(TAU * float(f[0]) * t)) - 0.04 * sin(TAU * 3.7 * t + 1.3)
 	for m in eye_mats: (m as StandardMaterial3D).albedo_color = Color(v, v, v, 1.0)
+
+## E1 R-C9-128 CAPE SECONDARY MOTION: a SpringBoneSimulator3D on the body skeleton, one setting per cape column (root cape_X_0 ..
+## end cape_X_3, the end extended by its own length), body CAPSULE collisions (GS_CAPE_SIM = json: settings + capsules, radii in
+## metres, converted to skeleton units by the skeleton's world scale). GS_CAPE_DUMP = out json: every film frame's cape-bone and
+## Hips poses in skeleton space (the measuring side skins the cape with them). GS_CAPE_SIM_OFF=1 builds it inactive (rigid chain).
+func _cape_sim(path: String) -> void:
+	var cfg2: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var u := 1.0 / skel.global_transform.basis.get_scale().x
+	sim = SpringBoneSimulator3D.new(); skel.add_child(sim)
+	var S: Array = cfg2["settings"]; sim.setting_count = S.size()
+	for i in S.size():
+		var st: Dictionary = S[i]
+		sim.set_root_bone_name(i, st["root"]); sim.set_end_bone_name(i, st["end"]); sim.set_extend_end_bone(i, true)
+		var eb := skel.find_bone(st["end"]); var lenu := (skel.get_bone_rest(eb).origin).length()
+		sim.set_end_bone_length(i, lenu)
+		sim.set_stiffness(i, float(st.get("stiffness", 1.0)) * (u if OS.has_environment("GS_CAPE_SCALE_STIFF") else 1.0)); sim.set_drag(i, float(st.get("drag", 0.4)))
+		sim.set_gravity(i, float(st.get("gravity", 0.0)) * u); sim.set_gravity_direction(i, Vector3.DOWN)
+		sim.set_radius(i, float(st.get("radius_m", 0.02)) * u); sim.set_enable_all_child_collisions(i, true)
+	for c in (cfg2.get("capsules", []) as Array):
+		var cap := SpringBoneCollisionCapsule3D.new(); sim.add_child(cap)
+		cap.bone_name = c["bone"]; var bi := skel.find_bone(c["bone"])
+		var ch := skel.find_bone(c.get("to", "")) if c.has("to") else -1
+		var L := (skel.get_bone_rest(ch).origin.length() if ch >= 0 else float(c.get("length_m", 0.2)) * u)
+		cap.radius = float(c["radius_m"]) * u; cap.height = L + 2.0 * cap.radius
+		cap.position_offset = Vector3(0, L * 0.5, 0) + Vector3(float(c.get("dx_m", 0.0)), float(c.get("dy_m", 0.0)), float(c.get("dz_m", 0.0))) * u
+	sim.active = not OS.has_environment("GS_CAPE_SIM_OFF")
+	skel.skeleton_updated.connect(_on_skel_updated)
+	# DETERMINISTIC STEPPING: the film advances the skeleton's modifiers by exactly 1/30 s per output frame (MANUAL), so the cloth
+	# sees play-speed time however fast the offscreen renderer runs
+	if not OS.has_environment("GS_CAPE_IDLE"): skel.modifier_callback_mode_process = Skeleton3D.MODIFIER_CALLBACK_MODE_PROCESS_MANUAL
+	for i in S.size(): print("[gs]   setting %d: joints %d, root %s end %s" % [i, sim.get_joint_count(i), sim.get_root_bone_name(i), sim.get_end_bone_name(i)])
+	print("[gs] cape sim: %d settings, %d capsules, active %s, added bones %d, skeleton unit %.4f m" % [S.size(), (cfg2.get("capsules", []) as Array).size(), str(sim.active), added_bones.size(), 1.0 / u])
+
+var cape_last := {}
+var cur_clip := ""
+var cur_tc := 0.0
+var upd_count := 0
+func _on_skel_updated() -> void:
+	# the MODIFIED poses only exist inside this signal (the skeleton restores the animated poses after skinning)
+	upd_count += 1
+	for bn in added_bones + ["Hips", "Spine"]:
+		cape_last[bn] = skel.get_bone_global_pose(skel.find_bone(bn))
+
+func _cape_record(t: float) -> void:
+	if not OS.has_environment("GS_CAPE_DUMP"): return
+	var fr := {"t": t, "clip": cur_clip, "tc": cur_tc, "bones": {}, "updates": upd_count}
+	for bn in added_bones + ["Hips", "Spine"]:
+		var tr: Transform3D = cape_last.get(bn, skel.get_bone_global_pose(skel.find_bone(bn)))
+		fr["bones"][bn] = [tr.basis.x.x, tr.basis.x.y, tr.basis.x.z, tr.basis.y.x, tr.basis.y.y, tr.basis.y.z, tr.basis.z.x, tr.basis.z.y, tr.basis.z.z, tr.origin.x, tr.origin.y, tr.origin.z]
+	cape_dump.append(fr)
 
 func _build_tree() -> void:
 	# the clip, then ONE filtered Blend2 for the carry (the package's arm_layer_armed_R), its weight set per stack
@@ -314,14 +379,24 @@ func _film() -> void:
 			who.position = pos + fwd * spd * t
 			_pose(clip, tc, armed)
 			_eye_flicker(float(nframes) / 30.0)
+			if sim != null:
+				var t0 := Time.get_ticks_usec(); skel.advance(1.0 / 30.0); sim_us.append(Time.get_ticks_usec() - t0)
 			_aim(sc / sc)
 			cam.size = (float(H) / PPM) / sc
 			for i in 2: await RenderingServer.frame_post_draw
 			var img := sv.get_texture().get_image()
 			img.convert(Image.FORMAT_RGBA8)
 			io.store_buffer(img.get_data())
+			cur_clip = clip; cur_tc = tc
+			_cape_record(float(nframes) / 30.0)
 			nframes += 1
 		pos = pos + fwd * spd * secs
 	io.close()
+	if not sim_us.is_empty():
+		var tot := 0.0
+		for v in sim_us: tot += float(v)
+		print("[gs] skeleton.advance (modifiers incl. the cape sim): mean %.1f us over %d frames" % [tot / sim_us.size(), sim_us.size()])
+	if OS.has_environment("GS_CAPE_DUMP"):
+		var fd := FileAccess.open(OS.get_environment("GS_CAPE_DUMP"), FileAccess.WRITE); fd.store_string(JSON.stringify({"frames": cape_dump, "skel_global": str(skel.global_transform)})); fd.close()
 	OS.delay_msec(1500)
 	print("[gs] film %s: %d frames, %dx%d, stack %d, armed %s" % [out, nframes, W, H, si, str(armed)])
