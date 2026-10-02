@@ -28205,6 +28205,11 @@
       "id": "M-C9-T12-12D",
       "note": "T12_12d staged (cb0bb334a), on F25L, web-only: legs narrowed per clip (66_stance_narrow.py: feet moved in by a constant world vector, knees by two-bone geometry, foot pose exact) at -25%/-40% of the excess over hip width (idle 2.60 -> 2.20/1.96 x hip; guard 1.96 -> 1.72/1.58); walk replaced by library 566 \"Walking 2\" (heel 21.6 / toe-off 26.4 deg, rigid 36% vs 75%), 9 Meshy credits; the new walk is 16.8% slower on the ground (1.32 vs 1.59 m/s, to keep the feet planted). Base (rest-pose) fix declined by the lane with reasons: re-binding body+morphs+6 pieces and rebuilding ~20 clips/poses; the per-clip edit gives the same visible result and transfers to JOIN. Gate PASS, contact 0, joint lint 12/12, new LEG CLEARANCE row. Sent to Matt; added to the combined deploy as hold toggles.",
       "ts": "2026-10-01T20:20:22"
+    },
+    {
+      "id": "M-C9-E1-STAGE-K-CAND",
+      "note": "E1 stage K candidate (ee23751be, export/final_k_cand, not shipped): narrowed base via two adduction passes + re-rigs (rest 1.63 -> 1.49 -> 1.26 x hip; walk heel-to-heel 0.42 -> 0.17 m); Mixamo Great Sword retargeted T-pose -> A-pose with per-joint rest alignment (bone-direction lint 0.00 deg; negative control 63.9). Clips: great sword idle/walk/run, slash (3) as attack (contact 47%), power up as war cry, impact, two-handed death, idle (4) as upright alternate; unarmed set. Shoulders 0.94-0.98 of rest, hands at half height, no high arm. Misses: idle leans 17.8 deg (alt 2.9), run heel-strike ~0, mace head 1.44-1.47 m (target 1.65). Value grade (plate x0.80) and bind-order fix included. Sheet sent to Matt; play-speed film requested.",
+      "ts": "2026-10-01T20:57:04"
     }
   ],
   "halts": [
