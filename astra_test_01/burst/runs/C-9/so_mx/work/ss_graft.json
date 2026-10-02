@@ -1,0 +1,283 @@
+{
+ "clips": {
+  "mx_ss_idle": {
+   "source": "mixamo/ss/idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.633333444595337
+   ],
+   "keys": 109,
+   "length_s": 3.6000001095235348,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0037,
+    -0.0052
+   ],
+   "grounded_by_m": 0.02838,
+   "feet_span_m": [
+    0.0,
+    0.003
+   ]
+  },
+  "walk": {
+   "source": "mixamo/ss/walk.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.1333333253860474
+   ],
+   "keys": 34,
+   "length_s": 1.0999999903142452,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.5183
+   ],
+   "grounded_by_m": 0.02463,
+   "feet_span_m": [
+    0.0,
+    0.0342
+   ]
+  },
+  "run": {
+   "source": "mixamo/ss/run.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.7333333492279053
+   ],
+   "keys": 22,
+   "length_s": 0.7000000141561031,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    2.6674
+   ],
+   "grounded_by_m": 0.02291,
+   "feet_span_m": [
+    0.0,
+    0.1142
+   ]
+  },
+  "block": {
+   "source": "mixamo/ss/block.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6000000238418579
+   ],
+   "keys": 18,
+   "length_s": 0.5666666887700558,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0294,
+    0.2428
+   ],
+   "grounded_by_m": 0.03111,
+   "feet_span_m": [
+    0.0,
+    0.0087
+   ]
+  },
+  "block_idle": {
+   "source": "mixamo/ss/block_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0002,
+    -0.0004
+   ],
+   "grounded_by_m": 0.03148,
+   "feet_span_m": [
+    0.0,
+    0.0004
+   ]
+  },
+  "hit": {
+   "source": "mixamo/ss/impact.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.7333333492279053
+   ],
+   "keys": 22,
+   "length_s": 0.7000000141561031,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0009,
+    -0.0018
+   ],
+   "grounded_by_m": 0.03121,
+   "feet_span_m": [
+    0.0,
+    0.0084
+   ]
+  },
+  "mx_hit2": {
+   "source": "mixamo/ss/impact2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.0
+   ],
+   "keys": 30,
+   "length_s": 0.9666666649281979,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.03512,
+   "feet_span_m": [
+    0.0,
+    0.0154
+   ]
+  },
+  "death": {
+   "source": "mixamo/ss/death.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.3333332538604736
+   ],
+   "keys": 70,
+   "length_s": 2.2999999187886715,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    0.0405,
+    -1.1621
+   ],
+   "grounded_by_m": 0.02691,
+   "feet_span_m": [
+    0.0,
+    0.2409
+   ]
+  },
+  "mx_death2": {
+   "source": "mixamo/ss/death2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.933333396911621
+   ],
+   "keys": 118,
+   "length_s": 3.900000061839819,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    -0.2283,
+    0.9315
+   ],
+   "grounded_by_m": 0.06676,
+   "feet_span_m": [
+    0.0,
+    0.3433
+   ]
+  },
+  "cast_meteor": {
+   "source": "mixamo/ss/casting.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.0
+   ],
+   "keys": 90,
+   "length_s": 2.966666664928198,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    0.0008
+   ],
+   "grounded_by_m": 0.05489,
+   "feet_span_m": [
+    0.0,
+    0.0311
+   ]
+  },
+  "mx_casting2": {
+   "source": "mixamo/ss/casting2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.0666667222976685
+   ],
+   "keys": 32,
+   "length_s": 1.0333333872258663,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.02913,
+   "feet_span_m": [
+    0.0,
+    0.0029
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "ss_c2.glb: SKELETON IDENTITY -- 26 joints, order differs; the base rig is 26 in a fixed order. gear.gd will not bind a piece whose bone list differs from the body's: run scripts/52_weapon_bones.py",
+   "ss_c2.glb: WEAPON REST -- weapon_r's rest is 0.153 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 14
+ }
+}

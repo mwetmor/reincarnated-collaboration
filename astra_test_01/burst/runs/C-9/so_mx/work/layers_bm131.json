@@ -1,0 +1,47 @@
+[
+ {
+  "name": "book",
+  "action": "book_carry_L",
+  "bones": [
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "idle",
+   "walk",
+   "run",
+   "hit",
+   "death",
+   "cast_fireball_m",
+   "cast_meteor",
+   "mx_fireball_b",
+   "mx_meteor_b",
+   "mx_death_fwd"
+  ],
+  "time": "pose"
+ },
+ {
+  "name": "carry",
+  "action": "staff_carry_R",
+  "bones": [
+   "Spine02",
+   "Spine01",
+   "Spine",
+   "neck",
+   "Head",
+   "RightShoulder",
+   "RightArm",
+   "RightForeArm",
+   "RightHand"
+  ],
+  "weight": 1.0,
+  "states": [
+   "idle",
+   "walk",
+   "run"
+  ],
+  "time": "pose"
+ }
+]

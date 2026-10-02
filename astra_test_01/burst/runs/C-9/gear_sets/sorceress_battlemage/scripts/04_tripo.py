@@ -17,7 +17,7 @@ EP = 'tripo3d/h3.1/multiview-to-3d'
 # per-build check() would race: five threads can each read the same running
 # total and each conclude there is room. So the whole batch is checked once,
 # up front, against n x the build price; each build is recorded as it lands.
-assert os.environ.get("FAL_LEDGER","").endswith(("fal_spend_R-C9-98.json", "fal_spend_R-C9-119.json")), "set FAL_LEDGER (R-C9-98 or R-C9-119)"
+assert os.environ.get("FAL_LEDGER","").endswith(("fal_spend_R-C9-98.json", "fal_spend_R-C9-119.json", "fal_spend_R-C9-134.json")), "set FAL_LEDGER (R-C9-98, R-C9-119 or R-C9-134)"
 os.environ.setdefault("FAL_BUDGET", "3.00")
 sys.path.insert(0, "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/t10_barrow")
 import fal_ledger as FL

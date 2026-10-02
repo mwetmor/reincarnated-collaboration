@@ -1,0 +1,58 @@
+{
+ "clips": {
+  "cast_meteor": {
+   "source": "mixamo/glb/area2h_01.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.0
+   ],
+   "keys": 90,
+   "length_s": 2.966666664928198,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    0.0041,
+    0.0104
+   ],
+   "grounded_by_m": 0.04782,
+   "feet_span_m": [
+    0.0,
+    0.0395
+   ]
+  },
+  "mx_meteor_b": {
+   "source": "mixamo/glb/cast2h.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.200000047683716
+   ],
+   "keys": 66,
+   "length_s": 2.1666667126119137,
+   "joints": 22,
+   "rest_match": 1.09879,
+   "hip_ratio": 0.91908,
+   "flags": [],
+   "source_travel_m": [
+    -0.0252,
+    0.0762
+   ],
+   "grounded_by_m": 0.03741,
+   "feet_span_m": [
+    0.0,
+    0.0264
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "st_c2.glb: SKELETON IDENTITY -- 26 joints, order differs; the base rig is 26 in a fixed order. gear.gd will not bind a piece whose bone list differs from the body's: run scripts/52_weapon_bones.py",
+   "st_c2.glb: WEAPON REST -- weapon_r's rest is 0.153 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 14
+ }
+}
