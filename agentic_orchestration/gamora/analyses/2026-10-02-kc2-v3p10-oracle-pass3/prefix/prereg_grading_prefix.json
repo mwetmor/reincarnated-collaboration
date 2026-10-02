@@ -1,0 +1,522 @@
+{
+ "grading": [
+  {
+   "q": "P1 F1 ratio",
+   "value": 2.2808,
+   "known": 2.2808,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P1 F1 standing step",
+   "value": 0.586,
+   "known": 0.586,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P1 F1 w152",
+   "value": 35.36,
+   "known": 35.4,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P3 F3 ratio",
+   "value": 2.381,
+   "known": 2.381,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P3 F3 w155",
+   "value": 22.76,
+   "known": 22.8,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "replica R-SLOT ratio",
+   "value": 1.9937,
+   "known": 1.9937,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "replica R-FULL ratio",
+   "value": 2.168,
+   "known": 2.168,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "replica R-FULL standing step",
+   "value": 0.57,
+   "known": 0.57,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "replica R-FULL standing net",
+   "value": 0.5953,
+   "known": 0.595,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "control ratio",
+   "value": 2.3037,
+   "known": 2.3037,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "control standing step",
+   "value": 0.575,
+   "known": 0.575,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "control standing net",
+   "value": 0.479,
+   "known": 0.479,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P2 F2-SLOT ratio",
+   "value": 1.8816,
+   "interval": [
+    1.8,
+    2.07
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT first deaths w152",
+   "value": 8,
+   "interval": [
+    7,
+    14
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT survivors",
+   "value": 5,
+   "interval": [
+    3,
+    20
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT w152 s",
+   "value": 39.25,
+   "interval": [
+    35,
+    47
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT w155 s",
+   "value": 27.98,
+   "interval": [
+    24,
+    32
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT standing step",
+   "value": 0.533,
+   "interval": [
+    0.51,
+    0.57
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT standing net",
+   "value": 0.4508,
+   "interval": [
+    0.43,
+    0.5
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 F2-SLOT closing empty",
+   "value": 0.8091,
+   "interval": [
+    0.85,
+    1.15
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD ratio",
+   "value": 1.8466,
+   "interval": [
+    1.85,
+    2.21
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD first deaths w152",
+   "value": 12,
+   "interval": [
+    6,
+    14
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD survivors",
+   "value": 6,
+   "interval": [
+    2,
+    20
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD w152 s",
+   "value": 42.24,
+   "interval": [
+    38,
+    56
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD w155 s",
+   "value": 28.0,
+   "interval": [
+    20,
+    31
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD standing step",
+   "value": 0.56,
+   "interval": [
+    0.53,
+    0.61
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD standing net",
+   "value": 0.5824,
+   "interval": [
+    0.52,
+    0.68
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P4 F24-SLOT-CROWD closing empty",
+   "value": 1.4977,
+   "interval": [
+    0.95,
+    1.3
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P5 F5-MOVE ratio",
+   "value": 1.9994,
+   "interval": [
+    2.3,
+    2.65
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P5 F5-MOVE first deaths w152",
+   "value": 11,
+   "interval": [
+    14,
+    20
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P5 F5-MOVE w152 s",
+   "value": 36.53,
+   "interval": [
+    22,
+    34
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P5 F5-MOVE w155 s",
+   "value": 21.9,
+   "interval": [
+    18,
+    28
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P5 F5-MOVE standing step",
+   "value": 0.59,
+   "interval": [
+    0.5,
+    0.61
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P5 F5-MOVE standing net",
+   "value": 0.4944,
+   "interval": [
+    0.42,
+    0.56
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P5 F5-MOVE closing empty",
+   "value": 1.0012,
+   "interval": [
+    0.85,
+    1.2
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE ratio",
+   "value": 2.0184,
+   "interval": [
+    2.0,
+    2.25
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE first deaths w152",
+   "value": 12,
+   "interval": [
+    6,
+    13
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE survivors",
+   "value": 3,
+   "interval": [
+    1,
+    7
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE w152 s",
+   "value": 51.66,
+   "interval": [
+    44,
+    62
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE w155 s",
+   "value": 21.99,
+   "interval": [
+    18,
+    26
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE standing step",
+   "value": 0.537,
+   "interval": [
+    0.54,
+    0.6
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P6 V310-NOMOVE standing net",
+   "value": 0.56,
+   "interval": [
+    0.55,
+    0.65
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE closing empty",
+   "value": 1.1061,
+   "interval": [
+    0.85,
+    1.15
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P6 V310-NOMOVE first deaths w160",
+   "value": 4,
+   "interval": [
+    3,
+    9
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL ratio",
+   "value": 1.8033,
+   "interval": [
+    2.05,
+    2.45
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P7 V310-FULL first deaths w152",
+   "value": 6,
+   "interval": [
+    6,
+    15
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL survivors",
+   "value": 0,
+   "interval": [
+    0,
+    6
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL w152 s",
+   "value": 43.24,
+   "interval": [
+    33,
+    55
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL w155 s",
+   "value": 19.2,
+   "interval": [
+    17,
+    26
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL standing step",
+   "value": 0.529,
+   "interval": [
+    0.5,
+    0.6
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL standing net",
+   "value": 0.5474,
+   "interval": [
+    0.5,
+    0.65
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL closing empty",
+   "value": 0.9524,
+   "interval": [
+    0.85,
+    1.2
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 V310-FULL first deaths w160",
+   "value": 0,
+   "interval": [
+    2,
+    9
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P9 standing step above 0.34 by",
+   "value": 0.189,
+   "interval": [
+    0.16,
+    0.26
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P9 standing net above 0.34 by",
+   "value": 0.2074,
+   "interval": [
+    0.16,
+    0.31
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P10 pilot moving fraction",
+   "value": 0.8528,
+   "interval": [
+    0.74,
+    0.88
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P10 pilot mean speed",
+   "value": 3.3489,
+   "interval": [
+    2.3,
+    3.1
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P11 closing occupied",
+   "value": 0.3045,
+   "interval": [
+    -0.4,
+    0.4
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P12 disc 151-159",
+   "value": 1.596,
+   "interval": [
+    1.8,
+    2.8
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P13 w152 and w155 longer than 16.3 / 16.2",
+   "value": [
+    43.24,
+    19.2
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P8 F1-LAND ratio rel F1 (%)",
+   "value": -0.56,
+   "interval": [
+    -2,
+    2
+   ],
+   "grade": "HIT"
+  }
+ ],
+ "counts": {
+  "HIT": 38,
+  "MISS": 11,
+  "REPLICA-EXACT": 12,
+  "REPLICA-FAILED": 0
+ }
+}
