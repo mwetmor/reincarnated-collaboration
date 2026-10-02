@@ -71,7 +71,8 @@
   "SWEEP_WOBBLE": 0.08028,
   "SWEEP_Y": 1.204207
  },
- "rig": "res://models/variants/barb_gladc/nb-body_champion_graded.glb",
+ "rig": "res://models/gear/nb-body.glb",
+ "rig_note": "the JOIN body (nb_join/export/nb-body_join.glb: sword on weapon_r, axe on weapon_l) shares the barbarian nb skeleton (26 joints, same names, unit 0.010882 m); bound here on the Barrow's barbarian nb-body (models/gear/nb-body.glb). Re-dump when the bm_mx dual Mixamo export and E1's dual spin land.",
  "scale_vs_source": 1.003506,
  "source_constants": {
   "ARC_LIGHT_ENERGY": 2.2,
@@ -240,13 +241,13 @@
     "RightForeArm"
    ],
    "head_local_bone_space": [
-    0.0,
-    0.0,
-    0.0
+    0.041,
+    71.3857,
+    0.049
    ],
-   "length_m": 0.0,
+   "length_m": 0.7768,
    "ribbon_only": false,
-   "status": "TBD: no weapon mesh on this rig yet -- read when the export lands (rule below)"
+   "status": "measured off the JOIN dual barbarian's weapons, tools/measure_weapon_heads.py: weapon_r = nb_w2/export/sword.glb (0.7768 m, = join_manifest tip_along_y_m), weapon_l = nb_d2/export_staging/JOIN_hold_v2/axe_l.glb (0.8358 m to the edge corner; the haft line 0.8089)"
   },
   {
    "bone": "weapon_l",
@@ -255,13 +256,13 @@
     "LeftForeArm"
    ],
    "head_local_bone_space": [
-    0.0,
-    0.0,
-    0.0
+    -0.2766,
+    74.3285,
+    19.3468
    ],
-   "length_m": 0.0,
+   "length_m": 0.8358,
    "ribbon_only": true,
-   "status": "TBD: no weapon mesh on this rig yet -- read when the export lands (rule below)"
+   "status": "measured off the JOIN dual barbarian's weapons, tools/measure_weapon_heads.py: weapon_r = nb_w2/export/sword.glb (0.7768 m, = join_manifest tip_along_y_m), weapon_l = nb_d2/export_staging/JOIN_hold_v2/axe_l.glb (0.8358 m to the edge corner; the haft line 0.8089)"
   }
  ]
 }
