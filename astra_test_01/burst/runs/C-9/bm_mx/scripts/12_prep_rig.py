@@ -1,0 +1,1 @@
+../../wl_e1/scripts/12_prep_rig.py

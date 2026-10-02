@@ -1,0 +1,1 @@
+../../wl_e1/scripts/e01_briefs_A.py

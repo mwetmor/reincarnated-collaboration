@@ -1,0 +1,29 @@
+{
+ "_note": "bm_mx STAGE 1 (R-C9-127): the barbarian CHAMPION on the Mixamo Great Sword set with the GREAT MAUL two-handed (export/s1). His original stance width (not narrowed). Stack 0 = the body alone (unarmed set shown where its clips are named), stack 1 = body + maul, stack 2 = the full champion set + maul.",
+ "model": "bm_body.glb",
+ "forward_axis": "+Z",
+ "gear_stacks": [
+  [
+   "girdle",
+   "kilt",
+   "wraps",
+   "greaves",
+   "chest",
+   "wrists",
+   "helm",
+   "pauldron",
+   "bm_maul"
+  ]
+ ],
+ "gear_stack_names": [
+  "full set + maul"
+ ],
+ "armed_when_pieces": [
+  "bm_maul"
+ ],
+ "morph_rules": {
+  "helmet_on": "helm",
+  "grip_R": "bm_maul",
+  "grip_L": "bm_maul"
+ }
+}

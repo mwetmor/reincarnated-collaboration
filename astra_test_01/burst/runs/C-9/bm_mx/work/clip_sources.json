@@ -1,0 +1,177 @@
+{
+ "body_rig": {
+  "glb": "../gear_sets/barbarian_gladiator/body_graded/nb-body_champion_graded.glb",
+  "note": "the champion gladiator body on his JOIN skeleton (26 joints), ORIGINAL stance width (Matt R-C9-127: not narrowed)"
+ },
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/great_sword_idle_4.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword idle (4)\" -- the UPRIGHT idle (the dark knight's final_k pick) (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "loop_blend",
+    "arm_hold"
+   ],
+   "loop": true,
+   "loop_blend": "58_loop_blend offset a 0 b 111 w 20 (seam 1.6 cm / 3.9 deg -> 0)",
+   "arm_hold": "e32_world_hold: the arm chain held in WORLD space at the default great sword idle's two-handed pose (idle_lean @1.0 s, fists 0.21 m apart) over idle (4)'s upright body. WHY: idle (4)'s source lets go with the left hand (fists 0.65-0.70 m apart, 0.83-2.37 s: a hand to the face) -- on the maul (left fist runs out of haft at 0.34 m) that read as the head dangling at the thigh, then the haft swinging through his chest/pauldron as the hand came back (2.37-2.63 s, up to 9.9% of maul vertices inside the body)"
+  },
+  "idle_lean": {
+   "source": "mixamo/glb/great_sword_idle.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword idle\" -- the default (leaning) idle, kept as an alternate (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "walk": {
+   "source": "mixamo/glb/great_sword_walk.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword walk\" (forward: source hips +1.42 m along his facing) (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "run": {
+   "source": "mixamo/glb/great_sword_run_2.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword run (2)\" -- the FORWARD run (+2.46 m); \"great sword run\" is BACKWARD (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": true
+  },
+  "attack": {
+   "source": "mixamo/glb/great_sword_slash_3.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword slash (3)\" -- the heavy downward two-handed strike (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false
+  },
+  "warcry": {
+   "source": "mixamo/glb/great_sword_power_up.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword power up\" as the war cry (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "hit": {
+   "source": "mixamo/glb/great_sword_impact.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"great sword impact\" as the hit (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "death": {
+   "source": "mixamo/glb/two_handed_sword_death.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"two handed sword death\" (Mixamo Great Sword Pack, Matt R-C9-127; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false,
+   "joint_fix_note": "also wrist_R FLEXION capped 82.0 -> 78 at 2 keys (63_joint_fix on the learned flexion axis, work/joint_ref_flexcap.json)"
+  },
+  "idle_unarmed": {
+   "source": "work/src_idle_unarmed.glb",
+   "action": "his EXISTING unarmed idle on the champion body (JOIN \"idle\"), unchanged",
+   "flags": [
+    "loop"
+   ],
+   "edits": [],
+   "loop": true
+  },
+  "walk_unarmed": {
+   "source": "work/src_walk_unarmed.glb",
+   "action": "his EXISTING unarmed walk (JOIN \"walk\"), unchanged",
+   "flags": [
+    "loop"
+   ],
+   "edits": [],
+   "loop": true
+  },
+  "run_unarmed": {
+   "source": "work/src_run_unarmed.glb",
+   "action": "his EXISTING unarmed run (JOIN \"run\"), unchanged",
+   "flags": [
+    "loop"
+   ],
+   "edits": [],
+   "loop": true
+  },
+  "whirlwind_start": {
+   "source": null,
+   "path": "bm_e48_spin (e48 recipe a)",
+   "note": "AUTHORED (R-C9-130): one frame of his approved two-handed idle (idle = great sword idle (4) + arm_hold) @1.0 s turned rigidly CCW about his vertical, accelerating to 1350 deg/s (3.75 rev/s) over 0.2 s, 135 deg; in place; weapon_r keyed on every key"
+  },
+  "whirlwind_loop": {
+   "source": null,
+   "path": "bm_e48_spin (e48 recipe a)",
+   "loop": true,
+   "grid_source": "mixamo/glb/great_sword_idle_4.glb",
+   "grid_window": [
+    0.03333333333333333,
+    0.3
+   ],
+   "note": "AUTHORED (R-C9-130): the same frame, one CCW revolution per 0.2667 s (8 x 45 deg, 3.75 rev/s = the barbarian approved rate, R-C9-108); closes exactly; keyed on the idle source 30 fps grid (9 keys)"
+  }
+ }
+}

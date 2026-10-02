@@ -1,0 +1,212 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/great_sword_idle_4.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.7333333492279053
+   ],
+   "keys": 112,
+   "length_s": 3.700000014156103,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0058,
+    0.0039
+   ],
+   "grounded_by_m": 0.04976,
+   "feet_span_m": [
+    0.0,
+    0.0053
+   ]
+  },
+  "idle_lean": {
+   "source": "mixamo/glb/great_sword_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.0333333015441895
+   ],
+   "keys": 61,
+   "length_s": 1.9999999664723873,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.04715,
+   "feet_span_m": [
+    0.0,
+    0.0006
+   ]
+  },
+  "walk": {
+   "source": "mixamo/glb/great_sword_walk.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.4225
+   ],
+   "grounded_by_m": 0.05246,
+   "feet_span_m": [
+    0.0,
+    0.0267
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/great_sword_run_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6333333253860474
+   ],
+   "keys": 19,
+   "length_s": 0.5999999903142452,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    2.4612
+   ],
+   "grounded_by_m": 0.06165,
+   "feet_span_m": [
+    0.0,
+    0.0919
+   ]
+  },
+  "attack": {
+   "source": "mixamo/glb/great_sword_slash_3.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [],
+   "source_travel_m": [
+    -0.002,
+    -0.0109
+   ],
+   "grounded_by_m": 0.06695,
+   "feet_span_m": [
+    0.0,
+    0.0304
+   ]
+  },
+  "warcry": {
+   "source": "mixamo/glb/great_sword_power_up.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.133333444595337
+   ],
+   "keys": 94,
+   "length_s": 3.1000001095235348,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0381,
+    -0.0574
+   ],
+   "grounded_by_m": 0.04872,
+   "feet_span_m": [
+    0.0,
+    0.0058
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/great_sword_impact.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.8999999761581421
+   ],
+   "keys": 27,
+   "length_s": 0.86666664108634,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0014,
+    -0.001
+   ],
+   "grounded_by_m": 0.05473,
+   "feet_span_m": [
+    0.0,
+    0.002
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/two_handed_sword_death.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 22,
+   "rest_match": 1.00686,
+   "hip_ratio": 0.93916,
+   "flags": [],
+   "source_travel_m": [
+    -0.0024,
+    -0.816
+   ],
+   "grounded_by_m": 0.07139,
+   "feet_span_m": [
+    0.0,
+    0.1789
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "c0.glb: WEAPON REST -- weapon_r's rest is 0.204 m from the hand (coincident) (tolerance 1 um)",
+   "c0.glb: WEAPON REST -- weapon_l's rest is 0.203 m from the hand (coincident) (tolerance 1 um)"
+  ],
+  "warns": 3
+ }
+}

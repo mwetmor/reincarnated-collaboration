@@ -1,0 +1,1 @@
+../../wl_e1/scripts/52_weapon_bones.py

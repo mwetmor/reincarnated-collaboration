@@ -1,0 +1,14 @@
+{"ev": "start", "step": "S1-setup", "t": 1790905660.045076, "note": "lane bm_mx created; wl_e1 scripts symlinked (ROOT=bm_mx)"}
+{"ev": "end", "step": "S1-setup", "t": 1790905733.1827252, "note": "base body b0 (champion graded, unarmed idle/walk/run renamed, 32 JOIN clips dropped, compacted 9.07->8.28 MB)"}
+{"ev": "start", "step": "S2-graft", "t": 1790905733.210349, "note": "e40b Mixamo great sword family onto the champion body"}
+{"ev": "start", "step": "S3-maul-mount", "t": 1790905983.696821, "note": "e10 maul on RightHand from the walk's two-hand hold, rgrip 0.34, length 1.30"}
+{"ev": "end", "step": "S3-maul-mount", "t": 1790906332.813119, "note": "e10 mount (330 s waiting on the heavy lock: build_web_painted.sh)"}
+{"ev": "start", "step": "S4-weapon", "t": 1790906332.838808, "note": "bm_e12 two-hand weapon_r channel, strike assert, face roll"}
+{"ev": "end", "step": "S4-weapon", "t": 1790907010.335197, "note": "weapon_r channel (release 0.34-0.44 for the maul's short butt), strike assert PASS, face roll -33.2 (blow |cos| 0.796 -> 0.945), gear e47+e14, maul measures"}
+{"ev": "start", "step": "S5-godot-check", "t": 1790907010.356946, "note": "stage package + harness copy, bind-order + texture checks in Godot, debug stills"}
+{"ev": "end", "step": "S5-godot-check", "t": 1790907422.400723, "note": "bind order 0 px index vs name (16 frames); textures verified; idle (4) left-hand release found and fixed by arm_hold; whirlwind added (R-C9-130)"}
+{"ev": "start", "step": "S6-sheet", "t": 1790907422.4204328, "note": "Godot stills 6 poses x 8 headings x 1x/2x, full set + maul"}
+{"ev": "end", "step": "S6-sheet", "t": 1790907486.806543, "note": "sheet 6 rows x 8 headings at 1x and 2x; bind-order positive control NOT run (command denied)"}
+{"ev": "start", "step": "S7-film", "t": 1790907486.842195, "note": "play-speed film, 2 headings"}
+{"ev": "end", "step": "S7-film", "t": 1790908788.695331, "note": "1x film 48.7 s 960x540 4.1 MB; the 2x render STALLED in Godot (0.7% CPU, 12 min, holding the heavy lock) -- stopped, partial file removed, not re-run"}
+{"ev": "end", "step": "S2-graft", "t": 1790905983.696821, "note": "CORRECTION (closed late): e40b graft 2.3 s, loop-blend search 414 s, joint lint + fixes; S2 ran to S3's start"}
