@@ -120,11 +120,27 @@ for clip in CLIPS:
                         # a wand vertex inside the RIGHT HAND's own fist is the grip, not a penetration
                         ins += 1
                 row["%s_in_%s" % (prop, k)] = ins; row["%s_clear_%s" % (prop, k)] = round(dmin, 4)
+                if "--parity" in a and k == "body":
+                    # the JOIN clamp's own inside test (j_weapon_clamp.inside): nearest-face side, then ray PARITY along
+                    # all six axes -- a point is inside only if every ray crosses the closed body an odd number of times
+                    def par(p_):
+                        loc, nrm, fi, dist = tr.find_nearest(Vector(p_))
+                        if loc is None or ((Vector(p_) - loc).dot(nrm) > 0 and dist > 1e-4): return False
+                        for dv in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+                            o_ = Vector(p_); dv = Vector(dv); n_ = 0
+                            for _ in range(64):
+                                h_ = tr.ray_cast(o_, dv, 10.0)
+                                if h_[0] is None: break
+                                n_ += 1; o_ = h_[0] + dv * 1e-5
+                            if n_ % 2 == 0: return False
+                        return True
+                    row["%s_parity_in_body" % prop] = sum(1 for p_ in samp if par(p_.tolist()))
         rows.append(row)
     keys = [k for k in rows[0] if k != 'f']
-    rep[clip] = dict(frames=len(rows), **{k: (max(r[k] for r in rows) if "_in_" in k else min(r[k] for r in rows)) for k in keys},
+    rep[clip] = dict(frames=len(rows), **{k: (max(r[k] for r in rows) if ("_in_" in k or "parity" in k) else min(r[k] for r in rows)) for k in keys},
                      frames_with_book_inside=sum(1 for r in rows if any(r[k] for k in keys if k.startswith("grimoire_in_"))),
+                     frames_parity={pp: sum(1 for r in rows if r.get(pp + "_parity_in_body", 0)) for pp in PROPS},
                      frames_with_prop_inside={pp: sum(1 for r in rows if any(r[k] for k in keys if k.startswith(pp + "_in_"))) for pp in PROPS})
-    print("CHK %-16s " % clip + " ".join("%s=%s" % (k, rep[clip][k]) for k in sorted(rep[clip]) if "_in_" in k or k == "frames_with_prop_inside"))
+    print("CHK %-16s " % clip + " ".join("%s=%s" % (k, rep[clip][k]) for k in sorted(rep[clip]) if "_in_body" in k or k in ("frames_with_prop_inside", "frames_parity")))
 json.dump(rep, open(OUT, "w"), indent=1)
 if WHO: print("WHO", {"%s/%s" % k: v for k, v in WHO.items()})

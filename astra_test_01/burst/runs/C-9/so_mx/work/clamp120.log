@@ -1,0 +1,11 @@
+heavy_lock: waiting — held by {"pid": 46844, "run": "C-9", "ts": "2026-10-02T04:26:35Z", "cmd": "zsh -c for g in m f; do blender -b -noaudio --python 
+heavy_lock: acquired after 170s (C-9)
+[clamp] clamped keys {'r': 4}; inside after (sampled) max {'r': 0}; lowest after {'r': 0.7539} -> work/ss_c10.glb
+[clamp] clamped keys {'r': 5}; inside after (sampled) max {'r': 0}; lowest after {'r': 0.6934} -> work/ss_c10.glb
+CHK walk             frames_parity={'orbstaff': 0} frames_with_prop_inside={'orbstaff': 4} orbstaff_in_body=13 orbstaff_parity_in_body=0
+CHK run              frames_parity={'orbstaff': 1} frames_with_prop_inside={'orbstaff': 8} orbstaff_in_body=29 orbstaff_parity_in_body=1
+CHK cast_fireball_m  frames_parity={'orbstaff': 3} frames_with_prop_inside={'orbstaff': 3} orbstaff_in_body=41 orbstaff_parity_in_body=3
+CHK cast_meteor      frames_parity={'orbstaff': 0} frames_with_prop_inside={'orbstaff': 6} orbstaff_in_body=18 orbstaff_parity_in_body=0
+CHK death            frames_parity={'orbstaff': 0} frames_with_prop_inside={'orbstaff': 2} orbstaff_in_body=18 orbstaff_parity_in_body=0
+WHO {'walk/orbstaff': {np.str_('RightLeg'): 32}, 'run/orbstaff': {np.str_('RightLeg'): 89, np.str_('RightUpLeg'): 12}, 'cast_fireball_m/orbstaff': {np.str_('Head'): 12, np.str_('LeftShoulder'): 37, np.str_('neck'): 1, np.str_('Spine01'): 16}, 'cast_meteor/orbstaff': {np.str_('Spine01'): 42, np.str_('Head'): 1}, 'death/orbstaff': {np.str_('Spine01'): 17, np.str_('Head'): 1, np.str_('LeftUpLeg'): 4}
+PASS2_DONE
