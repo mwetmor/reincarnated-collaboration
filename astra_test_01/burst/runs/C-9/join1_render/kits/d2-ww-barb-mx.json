@@ -1,0 +1,164 @@
+{
+ "kit": "d2-ww-barb-mx",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the BARBARIAN DUAL (the WW barbarian kit of record, R-C9-133): sword main hand R, axe off hand L, the Mixamo one-handed set on his JOIN body (original stance), bm_mx/s3 export af276f8c7. A NEW pack root (join1_pack/d2-ww-barb-mx); join1_pack_draft/d2-ww-barb is untouched.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/nb-body_join_mx.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/byrnie.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/helmet.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/mantle.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/bracers.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/sword.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/axe_l.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/d2-ww-barb-mx_clips.json",
+  "loadout": {
+   "main_hand": "sword",
+   "main_side": "R",
+   "off_hand": "axe",
+   "weapsel": 2
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "whirlwind_start": {
+   "clip": "whirlwind_dual_start",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 7,
+   "sampling": "ends",
+   "manifest_entry": "clips.whirlwind_dual_start",
+   "skill": "Skills.txt Id 151, the spin's start (0.2 s, one frame per key)"
+  },
+  "whirlwind": {
+   "clip": "whirlwind_dual_loop",
+   "kind": "loop",
+   "role": "channel_loop",
+   "frames": 16,
+   "sampling": "loop",
+   "manifest_entry": "clips.whirlwind_dual_loop",
+   "skill": "Skills.txt Id 151 (3.75 rev/s, one CCW revolution a cycle)"
+  },
+  "shout": {
+   "clip": "shout",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.shout.release_s",
+   "release_socket": "head_top",
+   "manifest_entry": "casts.shout",
+   "skill": "Skills.txt Id 149 (Battle Orders)"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.attack.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.attack",
+   "skill": "A1 normal attack (the sword)"
+  },
+  "combo": {
+   "clip": "combo",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_from": "casts.combo.release_s",
+   "release_socket": "off_tip",
+   "manifest_entry": "casts.combo",
+   "skill": "dual combo: two strikes, the first (the axe) is the release; the second (the sword, 1.1 s) is in casts.combo.second_strike_s",
+   "notes_from": [
+    "casts.combo.second_strike_s"
+   ]
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "morphs": {
+  "grip_R": 1,
+  "grip_L": 1,
+  "helmet_on": 1,
+  "_what": "both fists closed on their weapons; the helmet worn"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "weapon_r",
+   "_what": "the sword grip"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.7768,
+   "_what": "the sword tip"
+  },
+  "off_grip": {
+   "bone": "weapon_l",
+   "_what": "the axe grip"
+  },
+  "off_tip": {
+   "bone": "weapon_l",
+   "along_bone_m": 0.8089,
+   "_what": "the axe head's far point"
+  },
+  "head_top": {
+   "bone": "head_end"
+  },
+  "chest": {
+   "bone": "Spine02"
+  }
+ },
+ "watchdog_s": 2400
+}

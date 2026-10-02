@@ -1,0 +1,70 @@
+{
+ "what": "JOIN-1 clip manifest for the BARBARIAN DUAL cell pack (the WW barbarian kit of record, R-C9-133) -- this lane's (join1_render), read off bm_mx/s3/export (commit af276f8c7, read-only)",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/nb-body_join_mx.glb",
+  "sha256": "6a144e93b1c04ceaf1c4bf3a50b171b79788ff18898bbf163604ef67e451773d"
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.8
+  },
+  "walk": {
+   "seconds": 1.3333
+  },
+  "run": {
+   "seconds": 0.7333
+  },
+  "attack": {
+   "seconds": 2.4
+  },
+  "combo": {
+   "seconds": 3.6333
+  },
+  "shout": {
+   "seconds": 2.8333
+  },
+  "hit": {
+   "seconds": 1.4667
+  },
+  "death": {
+   "seconds": 2.3
+  },
+  "whirlwind_dual_start": {
+   "seconds": 0.2
+  },
+  "whirlwind_dual_loop": {
+   "seconds": 0.2667
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 0.955,
+   "rule": "scene foot-lock (s18: stance by the lower toe, ankle speed)"
+  },
+  "run": {
+   "speed_m_s": 2.148,
+   "rule": "scene foot-lock (s18)"
+  }
+ },
+ "casts": {
+  "shout": {
+   "release_s": 1.2667,
+   "definition": "the roar (chin highest, 68.5 deg), the export manifest's release"
+  },
+  "attack": {
+   "release_s": 0.9333,
+   "definition": "the strike (A1 normal attack, the sword), the export manifest's strike_s"
+  },
+  "combo": {
+   "release_s": 0.7333,
+   "second_strike_s": 1.1,
+   "definition": "the FIRST strike (the axe, off hand) is the release; the second (the sword) is noted as second_strike_s"
+  }
+ },
+ "whirlwind": {
+  "start": "whirlwind_dual_start",
+  "loop": "whirlwind_dual_loop",
+  "rev_per_s": 3.75,
+  "note": "E1 recipe (e52 + e48, f734570d2) on this set's idle@1.0"
+ }
+}

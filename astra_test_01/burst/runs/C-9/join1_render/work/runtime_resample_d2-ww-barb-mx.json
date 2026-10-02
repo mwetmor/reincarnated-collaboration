@@ -1,0 +1,211 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "nb-body_join_mx.glb",
+ "clips": {
+  "idle": {
+   "length_glb": 1.8,
+   "length_godot": 1.8,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "walk": {
+   "length_glb": 1.33333,
+   "length_godot": 1.33333,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "run": {
+   "length_glb": 0.73333,
+   "length_godot": 0.73333,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "attack": {
+   "length_glb": 2.4,
+   "length_godot": 2.4,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "shout": {
+   "length_glb": 2.83333,
+   "length_godot": 2.83333,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "hit": {
+   "length_glb": 1.46667,
+   "length_godot": 1.46667,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "death": {
+   "length_glb": 2.3,
+   "length_godot": 2.3,
+   "tracks": 25,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "weapon_r.rotation"
+   ]
+  },
+  "combo": {
+   "length_glb": 3.63333,
+   "length_godot": 3.63333,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "whirlwind_dual_start": {
+   "length_glb": 0.2,
+   "length_godot": 0.2,
+   "tracks": 29,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "head_end.rotation",
+    "headfront.rotation",
+    "weapon_r.rotation",
+    "weapon_r.translation",
+    "weapon_l.rotation",
+    "weapon_l.translation"
+   ]
+  },
+  "whirlwind_dual_loop": {
+   "length_glb": 0.26667,
+   "length_godot": 0.26667,
+   "tracks": 29,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "head_end.rotation",
+    "headfront.rotation",
+    "weapon_r.rotation",
+    "weapon_r.translation",
+    "weapon_l.rotation",
+    "weapon_l.translation"
+   ]
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb-mx.json",
+  "states": {
+   "idle": {
+    "clip": "idle",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "run": {
+    "clip": "run",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "whirlwind_start": {
+    "clip": "whirlwind_dual_start",
+    "frames": 7,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "whirlwind": {
+    "clip": "whirlwind_dual_loop",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "shout": {
+    "clip": "shout",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "attack": {
+    "clip": "attack",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "combo": {
+    "clip": "combo",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "hit": {
+    "clip": "hit",
+    "frames": 8,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}

@@ -1,0 +1,49 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-ww-barb-mx.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/d2-ww-barb-mx.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "whirlwind_start": {
+   "worst_m": 1e-05,
+   "samples": 336
+  },
+  "whirlwind": {
+   "worst_m": 1e-05,
+   "samples": 768
+  },
+  "shout": {
+   "worst_m": 0.0041,
+   "samples": 576
+  },
+  "attack": {
+   "worst_m": 3e-05,
+   "samples": 576
+  },
+  "combo": {
+   "worst_m": 0.00017,
+   "samples": 768
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "death": {
+   "worst_m": 0.00013,
+   "samples": 768
+  }
+ },
+ "samples": 5904,
+ "worst_m": 0.0041
+}
