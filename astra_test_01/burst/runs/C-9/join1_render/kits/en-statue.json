@@ -1,0 +1,155 @@
+{
+ "kit": "en-statue",
+ "size_call": "DOWNSCALED 2.30 -> 2.05 m to fit the 768 canvas with a >= 5 % margin; see the manifest size_call (the conductor's call)",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the en-statue (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, 2.05 m. No layers, no morphs.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_s/en_s_body.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_s/spear3.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-statue_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.attack.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.attack",
+   "skill": "the overwhelming two-handed strike (melee 49 %)"
+  },
+  "thrust": {
+   "clip": "thrust",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.thrust.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.thrust",
+   "skill": "the spear thrust (the mega-punch row, r 4.5 m)"
+  },
+  "sweep": {
+   "clip": "sweep",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_from": "casts.sweep.release_s",
+   "release_socket": "main_hand",
+   "manifest_entry": "casts.sweep",
+   "skill": "the leaping slam (aoe 38 %: double swipe; the spin attack cleared the canvas)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "sockets": {
+  "main_hand": {
+   "bone": "RightHand",
+   "along_bone_m": 0.2979,
+   "_what": "the right hand's TIP (+0.2979 m along +Y, measured): the strike / throw hand (en09)"
+  },
+  "off_hand": {
+   "bone": "LeftHand",
+   "along_bone_m": 0.2872,
+   "_what": "the left hand's tip (+0.2872 m)"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest (Meshy \"Spine\" = the top spine joint)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  },
+  "main_grip": {
+   "bone": "weapon_r",
+   "_what": "the spear grip (the right fist on the shaft)"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.9768,
+   "_what": "the spear BLADE TIP: weapon_r + (length - grip) along +Y"
+  }
+ },
+ "vfx_runtime": {
+  "stone": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_s_stone_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_s_stone_frames.json",
+   "atlas_px": [
+    4096,
+    2156
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.5,
+    "seed": 111,
+    "palette": "stone",
+    "slash_r_m": 0.9
+   }
+  }
+ },
+ "watchdog_s": 2400
+}

@@ -1,0 +1,432 @@
+{
+ "instrument": "scripts/j_joint_lint.py",
+ "body": "_s_tmp.glb",
+ "limits_deg": {
+  "elbow": {
+   "flex": [
+    -5,
+    150
+   ],
+   "lateral": 20
+  },
+  "knee": {
+   "flex": [
+    -5,
+    155
+   ],
+   "lateral": 15
+  },
+  "wrist": {
+   "flex": 80,
+   "dev": 40,
+   "twist": 90
+  }
+ },
+ "learned": {
+  "hinge": {
+   "elbow_R": {
+    "n": 27,
+    "coherence": 1.0
+   },
+   "elbow_L": {
+    "n": 27,
+    "coherence": 1.0
+   },
+   "knee_R": {
+    "n": 27,
+    "coherence": 1.0
+   },
+   "knee_L": {
+    "n": 27,
+    "coherence": 1.0
+   }
+  },
+  "wrist": {
+   "wrist_R": {
+    "n": 27
+   },
+   "wrist_L": {
+    "n": 27
+   }
+  },
+  "from_clips": [
+   "hit"
+  ],
+  "axes": {
+   "wrist": {
+    "wrist_R": {
+     "flex": [
+      -0.9900894192978263,
+      0.0,
+      0.14043839145508977
+     ],
+     "dev": [
+      0.14043839145508977,
+      -0.0,
+      0.9900894192978263
+     ]
+    },
+    "wrist_L": {
+     "flex": [
+      0.9439513107172195,
+      0.0,
+      0.3300847209357674
+     ],
+     "dev": [
+      0.3300847209357674,
+      0.0,
+      -0.9439513107172195
+     ]
+    }
+   },
+   "hinge": {
+    "elbow_R": [
+     -0.6499052290937827,
+     -6.978352795348694e-08,
+     0.7600152585287698
+    ],
+    "elbow_L": [
+     0.6368674702130915,
+     1.8328704651202146e-07,
+     0.7709732974522161
+    ],
+    "knee_R": [
+     0.009523951296124265,
+     2.9292372894815113e-08,
+     0.9999546461473681
+    ],
+    "knee_L": [
+     -0.14812565613074802,
+     -6.229152960822303e-09,
+     0.98896854853723
+    ]
+   }
+  }
+ },
+ "moves": {
+  "sweep": {
+   "frames": 66,
+   "failing_frames": 5,
+   "verdict": "FAIL",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 25.1,
+      "t": 1.9
+     },
+     "lateral_worst": {
+      "deg": 45.3,
+      "t": 0.2333
+     },
+     "flex_max": {
+      "deg": 89.2,
+      "t": 0.2
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 19.3,
+      "t": 1.6667
+     },
+     "lateral_worst": {
+      "deg": 97.5,
+      "t": 0.6333
+     },
+     "flex_max": {
+      "deg": 81.6,
+      "t": 0.3
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 6.3,
+      "t": 0.9
+     },
+     "lateral_worst": {
+      "deg": -15.0,
+      "t": 0.5333
+     },
+     "flex_max": {
+      "deg": 111.7,
+      "t": 0.6
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 10.5,
+      "t": 0.6
+     },
+     "lateral_worst": {
+      "deg": 36.0,
+      "t": 0.1333
+     },
+     "flex_max": {
+      "deg": 101.7,
+      "t": 1.0
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -53.4,
+      "t": 1.1
+     },
+     "flex_worst": {
+      "deg": -59.8,
+      "t": 0.4
+     },
+     "twist_worst": {
+      "deg": -108.3,
+      "t": 1.3
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 38.2,
+      "t": 1.6667
+     },
+     "flex_worst": {
+      "deg": -76.5,
+      "t": 0.4667
+     },
+     "twist_worst": {
+      "deg": 128.6,
+      "t": 1.1
+     }
+    }
+   },
+   "info_frames": 54,
+   "fails": [
+    {
+     "t": 0.6667,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": -42.7
+      }
+     ],
+     "info": [
+      {
+       "joint": "elbow_R",
+       "what": "lateral",
+       "deg": 95.5
+      },
+      {
+       "joint": "elbow_L",
+       "what": "lateral",
+       "deg": -26.1
+      },
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 115.8
+      }
+     ]
+    },
+    {
+     "t": 0.7,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": -40.7
+      }
+     ],
+     "info": [
+      {
+       "joint": "elbow_R",
+       "what": "lateral",
+       "deg": 94.7
+      },
+      {
+       "joint": "elbow_L",
+       "what": "lateral",
+       "deg": -31.2
+      },
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 115.9
+      }
+     ]
+    },
+    {
+     "t": 1.0667,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": -44.1
+      }
+     ],
+     "info": [
+      {
+       "joint": "elbow_R",
+       "what": "lateral",
+       "deg": 44.5
+      },
+      {
+       "joint": "elbow_L",
+       "what": "lateral",
+       "deg": 28.5
+      },
+      {
+       "joint": "knee_R",
+       "what": "lateral",
+       "deg": 25.5
+      },
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 126.3
+      }
+     ]
+    },
+    {
+     "t": 1.1,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": -53.4
+      }
+     ],
+     "info": [
+      {
+       "joint": "elbow_R",
+       "what": "lateral",
+       "deg": 37.8
+      },
+      {
+       "joint": "elbow_L",
+       "what": "lateral",
+       "deg": 22.2
+      },
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 128.6
+      }
+     ]
+    },
+    {
+     "t": 1.1333,
+     "fails": [
+      {
+       "joint": "wrist_L",
+       "what": "deviation",
+       "deg": -44.2
+      }
+     ],
+     "info": [
+      {
+       "joint": "elbow_R",
+       "what": "lateral",
+       "deg": 26.2
+      },
+      {
+       "joint": "wrist_R",
+       "what": "forearm twist",
+       "deg": 111.8
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "control_library": {
+  "hit": {
+   "frames": 27,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 68.5,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": -1.6,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 75.9,
+      "t": 0.7
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 55.0,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": -3.0,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 67.0,
+      "t": 0.8
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 76.6,
+      "t": 0.7333
+     },
+     "lateral_worst": {
+      "deg": -1.5,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 78.6,
+      "t": 0.2
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 94.9,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -1.5,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 95.9,
+      "t": 0.2
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 10.2,
+      "t": 0.1667
+     },
+     "flex_worst": {
+      "deg": -20.1,
+      "t": 0.7333
+     },
+     "twist_worst": {
+      "deg": -12.1,
+      "t": 0.2
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 8.7,
+      "t": 0.1667
+     },
+     "flex_worst": {
+      "deg": -74.4,
+      "t": 0.2
+     },
+     "twist_worst": {
+      "deg": 47.5,
+      "t": 0.0
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  }
+ }
+}

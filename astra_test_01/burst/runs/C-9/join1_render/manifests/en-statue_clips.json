@@ -1,0 +1,202 @@
+{
+ "what": "JOIN-1 clip manifest for the en-statue (crucible, roster rig possessedstatue) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_s",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_s/en_s_body.glb",
+  "sha256_16": "e630b1e99fcc9dc5",
+  "height_m": 2.05
+ },
+ "roster": {
+  "rig": "possessedstatue",
+  "referent_rank": 2,
+  "bodies": "2.4 referent (w156, 4 raw)",
+  "lead": "The Steward (BOSS; scale 3.0, actorRadius 0.75 -> 2.25 m) / statue_a01-b02 trash; range 0.6-2.25",
+  "run_m_per_s": [
+   3.209,
+   3.53
+  ],
+  "style": "melee 49 % / aoe 38 % / projectile 13 %",
+  "p05_bodies": 0.0,
+  "weapon": "Spear2h (a prop: join1 piece spear3.glb on weapon_r)"
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "great sword walk (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.6,
+   "source": "great sword run 2 (Mixamo)"
+  },
+  "attack": {
+   "seconds": 1.8333,
+   "source": "great sword slash 3 (Mixamo)"
+  },
+  "thrust": {
+   "seconds": 1.2,
+   "source": "great sword attack (Mixamo)"
+  },
+  "hit": {
+   "seconds": 0.8667,
+   "source": "great sword impact (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "sweep": {
+   "seconds": 2.1667,
+   "source": "great sword high spin attack (Mixamo)"
+  },
+  "idle": {
+   "seconds": 3.7,
+   "source": "great sword idle 4 (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.173,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 4.621,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "attack": {
+   "release_s": 0.7667,
+   "hand": "LeftHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 23"
+  },
+  "thrust": {
+   "release_s": 0.4667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 14"
+  },
+  "sweep": {
+   "release_s": 1.0,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 30"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.347 m from the origin, ends 0.020 m"
+ },
+ "vfx_runtime": {
+  "stone": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_s_stone_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_s_stone_frames.json",
+   "atlas_px": [
+    4096,
+    2156
+   ],
+   "atlas_sha256": "bd21c9b76a196e2f7bcdfe49358e583900ecef07429c103d0e0026036d622791",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.5,
+    "seed": 111,
+    "palette": "stone",
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      132,
+      82
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      347,
+      347
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      508,
+      509
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      509,
+      509
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      526,
+      284
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      117,
+      70
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the sweep / strike arcs; ring_* (r 4.5 m) = the thrust impact (mega-punch row); burst = the strike impact"
+  }
+ },
+ "weapon": {
+  "piece": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_s/spear3.glb",
+  "bone": "weapon_r",
+  "length_m": 1.8691,
+  "right_fist_from_butt_m": 0.8924,
+  "mount": "e10 (the two-hand grip from the great-sword idle) + en45 (wl_e1 e12 with LEN from env): weapon_r carries a channel on every clip laying the shaft through both fists",
+  "mount_record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_s/weapon_mount.json"
+ },
+ "size_call": {
+  "designed_height_m": 2.3,
+  "shipped_height_m": 2.05,
+  "factor": 0.8913,
+  "why": "at 2.30 m with a 2.50 m spear the strikes cleared the 768 canvas; the spear was shortened (2.50 -> 2.10 m at 2.30, the same ratio now 1.87 m), the great-sword HIGH SPIN (a full-length spinning reach) replaced by the leaping slam, and the body shipped at 2.05 m (tightest 45 px = 5.9 %). The CONDUCTOR's size call (5 % working margin)."
+ }
+}

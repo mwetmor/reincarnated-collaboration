@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); import importlib; B = importlib.import_module('en01_briefs')
 G, NAME, CANVAS = sys.argv[1], sys.argv[2], sys.argv[3]
 L = json.load(open(os.path.join(ROOT, "work", "layout_%s%s.json" % (G, NAME))))
-P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"), b=("its", "it", "it", "figure"), c=("his", "him", "he", "man"), i=("its", "it", "it", "figure"), g=("its", "it", "it", "figure"), n=("its", "it", "it", "figure"), y=("its", "it", "it", "figure"), v=("its", "it", "it", "figure"))[G]
+P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"), b=("its", "it", "it", "figure"), c=("his", "him", "he", "man"), i=("its", "it", "it", "figure"), g=("its", "it", "it", "figure"), n=("its", "it", "it", "figure"), y=("its", "it", "it", "figure"), v=("its", "it", "it", "figure"), s=("its", "it", "it", "figure"), o=("its", "it", "it", "figure"))[G]
 WORD = dict(S="FACING THE VIEWER (south)", N="seen from BEHIND (north)", E="facing the viewer's RIGHT in profile (east)",
             W="facing the viewer's LEFT in profile (west)", SE="facing the lower right (south-east)", SW="facing the lower left (south-west)",
             NE="facing away to the upper right (north-east)", NW="facing away to the upper left (north-west)",
@@ -19,8 +19,8 @@ desc = " ".join("%s row, left to right: %s." % (rn, "; ".join(WORD[k] for _, k i
 GD = pathlib.Path(B.A) / "CS9-guides"; dst = GD / ("en2_%s_canvas_%s.png" % (G, NAME)); shutil.copy(CANVAS, dst)
 man = json.load(open(GD / "manifest.json")); man[dst.name] = hashlib.sha256(dst.read_bytes()).hexdigest()
 json.dump(man, open(GD / "manifest.json", "w"), indent=1)
-TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R", b="EN2-B", c="EN2-C", i="EN2-I", g="EN2-G", n="EN2-N", y="EN2-Y", v="EN2-V")[G]
-PICK = dict(m="a", f="a", w="b", r="a", b="b_r1", c="a", i="b", g="a", n="a", y="a", v="a")[G]   # round 3: the wraith's sheet of record is b
+TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R", b="EN2-B", c="EN2-C", i="EN2-I", g="EN2-G", n="EN2-N", y="EN2-Y", v="EN2-V", s="EN2-S", o="EN2-O")[G]
+PICK = dict(m="a", f="a", w="b", r="a", b="b_r1", c="a", i="b", g="a", n="a", y="a", v="a", s="a", o="a")[G]   # round 3: the wraith's sheet of record is b
 LOOK = dict(path=B.A + "%s/%s_%s.png" % (TID, TID, PICK), role="IMAGE %%d -- %s approved model sheet (%s_%s): the look" % (P[0], TID, PICK))
 STY = dict(B.STYLE, role="IMAGE %d -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose")
 WHO = dict(
@@ -66,19 +66,26 @@ WHO = dict(
        "thin pale violet-white seams, a long narrow bone skull-mask face with small pale violet-white eyes, two great ridged curling horns of dark bone, "
        "bone spines down the back and ragged bone plates on the shoulders, a broken brass hour-ring driven into the chest, a torn war-skirt of faded "
        "lapis Keeper banners on a heavy chain-and-brass belt, long clawed hands and clawed feet; and ONE heavy BRASS RING with a short broken chain "
-       "clamped round its LEFT horn only"))[G]
+       "clamped round its LEFT horn only"),
+    s=("an animated temple statue: a tall armoured warrior carved in pale weathered grey stone, a domed helm with a blank face-plate and two shallow eye-slits, "
+       "a breastplate with a sunken hour-ring inlaid in tarnished brass, layered carved shoulder plates, a carved stone tabard to the knee, carved greaves "
+       "and sandalled feet, thin brass inlay along the edges, cracks and chips darker grey, pale green lichen and old water-stains; and ONE carved stone "
+       "sundial fin rising from its LEFT shoulder plate only"),
+    o=("a bone golem: a towering hunched construct of fused old ivory-grey bones, ribcages stacked into a barrel chest, long bones bundled into the limbs, "
+       "skulls packed into the shoulders and back, bound with rusted brass bands and iron chain, tattered grey burial cloth, a horned skull head with "
+       "pale blue-white points in the sockets; and ONE cracked brass bell on a short chain at its LEFT wrist only"))[G]
 MARK = dict(m="THE BRASS BRACER is on his LEFT forearm ONLY", f="THE CLOCK-FACE DISC hangs at her LEFT hip ONLY",
             w="THE LAPIS CLOTH STRIP is tied around its LEFT upper arm ONLY", r="THE BRASS BRACER is on its LEFT forearm ONLY",
             b="THE SWOLLEN ARM is its RIGHT arm and THE BRASS GEAR is fused into its LEFT shoulder", c="THE BONE BRACELET is on his LEFT wrist ONLY",
             i="THE BRASS RING is on its LEFT upper arm ONLY", g="THE RUSTED CHAIN is wrapped around its LEFT forearm ONLY",
-            n="THE BROKEN ANTLER STUMP is its LEFT antler ONLY", y="THE SHACKLE is on its LEFT wrist ONLY", v="THE BRASS RING is on its LEFT horn ONLY")[G]
+            n="THE BROKEN ANTLER STUMP is its LEFT antler ONLY", y="THE SHACKLE is on its LEFT wrist ONLY", v="THE BRASS RING is on its LEFT horn ONLY", s="THE SUNDIAL FIN is on its LEFT shoulder ONLY", o="THE BRASS BELL hangs at its LEFT wrist ONLY")[G]
 SKIN = dict(m="", f="Her skin is ASHEN: a cold grey-blue, the colour of the dead, never warm or rosy (the conductor's note); ",
             w="Its skin is a cold pale grey-blue and the shroud is thin, pale and cold; ", r="The bone is old ivory-grey, cracked and stained darker in the joints; ",
             b="The flesh is sickly pale grey-violet, bruised and stitched, never a healthy pink; ",
             c="His skin is a bog-mud GREEN-GREY with algae and silt tones, darkest on the shins, feet and hands (the conductor's note), never a healthy tan; ",
             i="Its skin is a pale grey-violet with violet blotches, never pink; ", g="The mud is wet and dark, the moss a cool deep green; ",
             n="Its skin is a cold frost-blue-grey, never warm; ", y="The fur is a cool pale grey-white, never yellow; ",
-            v="The violet skin is never a flat black: pale highlights on every ridge; ")[G]
+            v="The violet skin is never a flat black: pale highlights on every ridge; ", s="The stone is pale and cool, never yellow; ", o="The bone is old ivory-grey, stained darker in the joints; ")[G]
 RULES = ("Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no glow, no shading that belongs to one "
          "viewpoint. " + SKIN + "The darks are hatching and layered transparent washes with pale paper highlights, never a flat black fill. Brass is a "
          "tarnished ochre-brown wash with pale highlights. Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING the look sheet "

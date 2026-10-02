@@ -1,0 +1,40 @@
+{
+ "clips": {
+  "idle": {
+   "footlock_m_s": -0.0023,
+   "support_pairs": 109,
+   "probe_pairs": 109,
+   "blend_support_max_mm": 1.29,
+   "blend_support_med_mm": 1.1,
+   "blend_support_pairs": 8,
+   "loop_slide_med_mm": 0.38,
+   "loop_slide_p95_mm": 1.04,
+   "loop_slide_max_mm": 1.29,
+   "blend_intervals": 8,
+   "a": 0,
+   "b": 111,
+   "w": 8,
+   "mode": "offset",
+   "L": 111,
+   "seconds": 3.7,
+   "gait": "walk",
+   "source_keys": [
+    0.0,
+    3.7
+   ],
+   "keys": 112,
+   "retime": 1.0,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "s_c2.glb: WEAPON REST -- weapon_r's rest is 0.15 m from the hand (coincident) (tolerance 1 um)"
+  ]
+ }
+}

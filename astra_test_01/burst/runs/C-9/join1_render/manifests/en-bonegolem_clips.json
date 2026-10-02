@@ -1,0 +1,205 @@
+{
+ "what": "JOIN-1 clip manifest for the en-bonegolem (crucible, roster rig golembone_phase01) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_o",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_o/en_o_body.glb",
+  "sha256_16": "37885b8afeb93416",
+  "height_m": 2.2
+ },
+ "roster": {
+  "rig": "golembone_phase01",
+  "referent_rank": 10,
+  "bodies": "1.0 referent (w158 hero)",
+  "lead": "Skeletal Monstrosity (scale 1.4, actorRadius 0.75 -> 1.05 m; range 0.9-1.125)",
+  "run_m_per_s": [
+   4.33,
+   4.97
+  ],
+  "style": "aoe 46 % / buff 45 % (bone prison) / summons on 22 %",
+  "p05_bodies": 0.0
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "slam": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "buff": {
+   "seconds": 3.1,
+   "source": "great sword power up (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.17,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.143,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "slam": {
+   "release_s": 0.8333,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 25"
+  },
+  "attack": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  },
+  "buff": {
+   "release_s": 0.3667,
+   "hand": "LeftHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 11"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.552 m from the origin, ends 0.516 m"
+ },
+ "vfx_runtime": {
+  "bone": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_o_bone_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_o_bone_frames.json",
+   "atlas_px": [
+    4096,
+    2490
+   ],
+   "atlas_sha256": "e93f2d164dc6a05221b24e5c8a2f0afd19b6a2d08c2d99190ba63bb0440903d2",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 3.0,
+    "ring_r_m": 3.0,
+    "seed": 121,
+    "palette": "bone",
+    "aura_r_m": 4.0,
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      131,
+      83
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      694,
+      694
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      340,
+      340
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      340,
+      340
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      349,
+      176
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      119,
+      70
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      432,
+      432
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the heavy swing; ring_* (r 3.0 m) = the slam / bone prison; aura (r 4.0 m) = the disease cloud (hero rows)"
+  }
+ },
+ "size_call": {
+  "designed_height_m": 2.6,
+  "shipped_height_m": 2.2,
+  "factor": 0.8462,
+  "why": "at 2.60 m the swing and the death fall cleared the canvas; the death fall centred (en42) and the body shipped at 2.20 m (tightest 45 px = 5.9 %). The CONDUCTOR's size call."
+ }
+}

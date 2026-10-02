@@ -1,0 +1,74 @@
+{
+ "shots": [],
+ "headings": [],
+ "scales": [],
+ "watchdog_s": 2000,
+ "film_plan": [
+  {
+   "clip": "idle",
+   "seconds": 2.4,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "walk",
+   "seconds": 3.0,
+   "speed": 1.173,
+   "heading_deg": 100
+  },
+  {
+   "clip": "run",
+   "seconds": 2.0,
+   "speed": 4.621,
+   "heading_deg": 100
+  },
+  {
+   "clip": "idle",
+   "seconds": 0.6,
+   "speed": 0.0,
+   "heading_deg": 100
+  },
+  {
+   "clip": "attack",
+   "seconds": 1.8333,
+   "speed": 0.0,
+   "heading_deg": 100,
+   "release_s": 0.7667,
+   "hand": "LeftHand",
+   "vfx": "slash"
+  },
+  {
+   "clip": "thrust",
+   "seconds": 1.2,
+   "speed": 0.0,
+   "heading_deg": 100,
+   "release_s": 0.4667,
+   "hand": "RightHand",
+   "vfx": "bolt",
+   "speed_vfx": 16.0,
+   "range": 0.1
+  },
+  {
+   "clip": "sweep",
+   "seconds": 2.1667,
+   "speed": 0.0,
+   "heading_deg": 100,
+   "release_s": 1.0,
+   "hand": "RightHand",
+   "vfx": "area",
+   "dist": 2.0
+  },
+  {
+   "clip": "hit",
+   "seconds": 0.8667,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "death",
+   "seconds": 4.5333000000000006,
+   "speed": 0.0,
+   "heading_deg": 25
+  }
+ ]
+}

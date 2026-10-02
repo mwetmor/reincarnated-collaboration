@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST EN2-SP -- Run C-9 Phase 2 (Matt, R-C9-132/133): the animated temple statue's TWO-HANDED SPEAR as a MODEL SHEET for 3D. task_id \"EN2-SP\".\n\nIMAGE 1 is a STYLE reference ONLY (the hand: ink line, transparent washes, hatching); copy nothing else. IMAGE 2 is our own earlier weapon sheet: copy its LAYOUT only (three orthographic views side by side at one scale, the butt on one ground line); never its weapon's design.\nDeliver ONE 1536x1024 sheet on flat pure #00ff00 showing ONE object alone (no hands, no person), in THREE orthographic views side by side, all at ONE common scale, the butt on one ground line near the bottom edge, the top near the top edge, nothing overlapping. LEFT the spear FRONT-ON (the blade's flat face); MIDDLE turned 90 degrees (the blade edge-on); RIGHT turned 180 degrees.\nTHE SPEAR, a Keeper temple guardian's ceremonial two-handed spear, carved and cast:\n- the BLADE: a long, narrow, leaf-shaped blade of tarnished BRASS shaped like the HOUR HAND of a great clock (a slim pointed hand with a small pierced ring near its base), about a sixth of the whole length; a brass collar ring where it meets the shaft;\n- the SHAFT: a long, straight, round shaft of pale weathered grey STONE (the same stone as the statue), about 30 pixels thick, banded with three thin brass rings along its length, a plain stone butt-cap at the bottom;\n- the whole spear about 990 pixels tall: the blade about 170 pixels, the shaft below it about 820 pixels.\nPaint in IMAGE 1's hand: pale stone and tarnished brass laid as transparent washes with pale paper highlights; soft even light, no glow, no cast shadows, no ground, no text, no labels.\nBACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\nONE image_gen call. ONE RETRY ONLY if the proportions are off (the blade longer than a quarter of the whole) or the three views disagree -- name the reason and deliver BOTH images. Copy the output to out/EN2-SP.png (a retry to out/EN2-SP_r1.png) with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"EN2-SP\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 1 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/GS-BMAUL2/GS-BMAUL2_a.png",
+   "role": "IMAGE 2 -- LAYOUT reference (our own earlier weapon sheet): three views, one scale, one ground line; never its weapon's design"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/EN2-SP.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-132-crucible-enemies"
+}

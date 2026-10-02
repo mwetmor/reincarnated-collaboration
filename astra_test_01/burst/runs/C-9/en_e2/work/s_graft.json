@@ -1,0 +1,212 @@
+{
+ "clips": {
+  "idle": {
+   "source": "../wl_e1/mixamo/glb/great_sword_idle_4.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.7333333492279053
+   ],
+   "keys": 112,
+   "length_s": 3.700000014156103,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0054,
+    0.0036
+   ],
+   "grounded_by_m": 0.04681,
+   "feet_span_m": [
+    0.0,
+    0.0058
+   ]
+  },
+  "walk": {
+   "source": "../wl_e1/mixamo/glb/great_sword_walk.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.329
+   ],
+   "grounded_by_m": 0.07765,
+   "feet_span_m": [
+    0.0,
+    0.0375
+   ]
+  },
+  "run": {
+   "source": "../wl_e1/mixamo/glb/great_sword_run_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6333333253860474
+   ],
+   "keys": 19,
+   "length_s": 0.5999999903142452,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    2.2994
+   ],
+   "grounded_by_m": 0.07809,
+   "feet_span_m": [
+    0.0,
+    0.0836
+   ]
+  },
+  "attack": {
+   "source": "../wl_e1/mixamo/glb/great_sword_slash_3.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0019,
+    -0.0102
+   ],
+   "grounded_by_m": 0.07996,
+   "feet_span_m": [
+    0.0,
+    0.0382
+   ]
+  },
+  "thrust": {
+   "source": "../wl_e1/mixamo/glb/great_sword_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2333333492279053
+   ],
+   "keys": 37,
+   "length_s": 1.2000000141561031,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.05851,
+   "feet_span_m": [
+    0.0,
+    0.0131
+   ]
+  },
+  "sweep": {
+   "source": "../wl_e1/mixamo/glb/great_sword_high_spin_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.899999976158142
+   ],
+   "keys": 57,
+   "length_s": 1.86666664108634,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0072,
+    2.0908
+   ],
+   "grounded_by_m": 0.10334,
+   "feet_span_m": [
+    0.0,
+    0.0681
+   ]
+  },
+  "hit": {
+   "source": "../wl_e1/mixamo/glb/great_sword_impact.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.8999999761581421
+   ],
+   "keys": 27,
+   "length_s": 0.86666664108634,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0013,
+    -0.001
+   ],
+   "grounded_by_m": 0.07911,
+   "feet_span_m": [
+    0.0,
+    0.0028
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/standing_react_death_backward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.566666603088379
+   ],
+   "keys": 107,
+   "length_s": 3.5333332680165768,
+   "joints": 22,
+   "rest_match": 0.91753,
+   "hip_ratio": 0.87742,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.1081,
+    -0.7828
+   ],
+   "grounded_by_m": 0.0527,
+   "feet_span_m": [
+    0.0,
+    0.4975
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 3
+ }
+}
