@@ -1,0 +1,799 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 gamora KP-205/KP-207 v3.8 oracle re-run (prereg v1.14 grades). Nothing tuned; every configuration named before it ran.",
+ "configs": {
+  "R-A0": {
+   "old_geometry": true,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "R-A1": {
+   "old_geometry": true,
+   "fire_range": "A1",
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "R-A3": {
+   "old_geometry": true,
+   "fire_range": "A1",
+   "emergence": "A3",
+   "stationary": false,
+   "composition": false
+  },
+  "R-COMP": {
+   "old_geometry": true,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": true
+  },
+  "G": {
+   "old_geometry": false,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "G+FR": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "G+FR+EM": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": false,
+   "composition": false
+  },
+  "V38-RS": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": true,
+   "composition": false
+  },
+  "V38-RS-SHORT": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "SHORT",
+   "stationary": true,
+   "composition": false
+  },
+  "V38-COMP": {
+   "old_geometry": false,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": true
+  },
+  "V38-FULL": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": true,
+   "composition": true
+  },
+  "V38-FULL-SHORT": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "SHORT",
+   "stationary": true,
+   "composition": true
+  }
+ },
+ "referent_hp_per_s": 1605.6,
+ "tick_period_s": 0.0816326530612245,
+ "results": {
+  "M0": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.1858,
+    "landed_hp_per_s_151_159": 3509.4,
+    "t_s_151_159": 730.04,
+    "per_salt_ratio": [
+     2.1575,
+     2.3049,
+     1.9104,
+     2.2488,
+     2.2968
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     160,
+     156
+    ],
+    "leg_a_t_into_wave_s": [
+     9.959,
+     4.653,
+     8.245,
+     3.51,
+     10.449
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 1.32,
+      "deaths": 0,
+      "mean_t_s": 20.0
+     },
+     "152": {
+      "ratio": 2.191,
+      "deaths": 0,
+      "mean_t_s": 17.04
+     },
+     "153": {
+      "ratio": 2.129,
+      "deaths": 0,
+      "mean_t_s": 14.78
+     },
+     "154": {
+      "ratio": 2.444,
+      "deaths": 0,
+      "mean_t_s": 19.61
+     },
+     "155": {
+      "ratio": 1.678,
+      "deaths": 0,
+      "mean_t_s": 14.2
+     },
+     "156": {
+      "ratio": 5.034,
+      "deaths": 3,
+      "mean_t_s": 13.14
+     },
+     "157": {
+      "ratio": 1.378,
+      "deaths": 0,
+      "mean_t_s": 16.26
+     },
+     "158": {
+      "ratio": 1.427,
+      "deaths": 0,
+      "mean_t_s": 13.8
+     },
+     "159": {
+      "ratio": 2.556,
+      "deaths": 0,
+      "mean_t_s": 17.18
+     },
+     "160": {
+      "ratio": 3.853,
+      "deaths": 5,
+      "mean_t_s": 5.42
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 7760.0,
+      "pre_oracle_inst": 32317670.2,
+      "pre_gd_inst": 21921860.7,
+      "n_dot_rows": 1593.0,
+      "pre_oracle_dot": 25485.0,
+      "pre_gd_dot": 1250336.7,
+      "n_phys_unclamped": 2023.0,
+      "n_phys_clamped_restored": 770.0,
+      "n_phys_factor_unmapped": 481.0
+     }
+    }
+   }
+  },
+  "M-POL-2": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.2352,
+    "landed_hp_per_s_151_159": 3588.9,
+    "t_s_151_159": 708.24,
+    "per_salt_ratio": [
+     2.0299,
+     2.3362,
+     1.9534,
+     2.3189,
+     2.5154
+    ],
+    "leg_a_terminals": [
+     156,
+     156,
+     156,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     8.327,
+     10.122,
+     6.612,
+     5.388,
+     5.878
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 1.43,
+      "deaths": 0,
+      "mean_t_s": 18.42
+     },
+     "152": {
+      "ratio": 2.074,
+      "deaths": 0,
+      "mean_t_s": 16.6
+     },
+     "153": {
+      "ratio": 2.128,
+      "deaths": 0,
+      "mean_t_s": 15.0
+     },
+     "154": {
+      "ratio": 2.595,
+      "deaths": 0,
+      "mean_t_s": 19.2
+     },
+     "155": {
+      "ratio": 1.833,
+      "deaths": 0,
+      "mean_t_s": 13.4
+     },
+     "156": {
+      "ratio": 4.447,
+      "deaths": 3,
+      "mean_t_s": 13.01
+     },
+     "157": {
+      "ratio": 1.672,
+      "deaths": 0,
+      "mean_t_s": 16.2
+     },
+     "158": {
+      "ratio": 1.539,
+      "deaths": 0,
+      "mean_t_s": 13.21
+     },
+     "159": {
+      "ratio": 2.665,
+      "deaths": 0,
+      "mean_t_s": 16.6
+     },
+     "160": {
+      "ratio": 4.046,
+      "deaths": 5,
+      "mean_t_s": 5.19
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 7853.0,
+      "pre_oracle_inst": 32369886.0,
+      "pre_gd_inst": 21893589.8,
+      "n_dot_rows": 1660.0,
+      "pre_oracle_dot": 26521.1,
+      "pre_gd_dot": 1313128.3,
+      "n_phys_unclamped": 2033.0,
+      "n_phys_clamped_restored": 757.0,
+      "n_phys_factor_unmapped": 471.0
+     }
+    }
+   }
+  },
+  "M-POL-2-NULL": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.1858,
+    "landed_hp_per_s_151_159": 3509.4,
+    "t_s_151_159": 730.04,
+    "per_salt_ratio": [
+     2.1575,
+     2.3049,
+     1.9104,
+     2.2488,
+     2.2968
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     160,
+     156
+    ],
+    "leg_a_t_into_wave_s": [
+     9.959,
+     4.653,
+     8.245,
+     3.51,
+     10.449
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 1.32,
+      "deaths": 0,
+      "mean_t_s": 20.0
+     },
+     "152": {
+      "ratio": 2.191,
+      "deaths": 0,
+      "mean_t_s": 17.04
+     },
+     "153": {
+      "ratio": 2.129,
+      "deaths": 0,
+      "mean_t_s": 14.78
+     },
+     "154": {
+      "ratio": 2.444,
+      "deaths": 0,
+      "mean_t_s": 19.61
+     },
+     "155": {
+      "ratio": 1.678,
+      "deaths": 0,
+      "mean_t_s": 14.2
+     },
+     "156": {
+      "ratio": 5.034,
+      "deaths": 3,
+      "mean_t_s": 13.14
+     },
+     "157": {
+      "ratio": 1.378,
+      "deaths": 0,
+      "mean_t_s": 16.26
+     },
+     "158": {
+      "ratio": 1.427,
+      "deaths": 0,
+      "mean_t_s": 13.8
+     },
+     "159": {
+      "ratio": 2.556,
+      "deaths": 0,
+      "mean_t_s": 17.18
+     },
+     "160": {
+      "ratio": 3.853,
+      "deaths": 5,
+      "mean_t_s": 5.42
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 7760.0,
+      "pre_oracle_inst": 32317670.2,
+      "pre_gd_inst": 21921860.7,
+      "n_dot_rows": 1593.0,
+      "pre_oracle_dot": 25485.0,
+      "pre_gd_dot": 1250336.7,
+      "n_phys_unclamped": 2023.0,
+      "n_phys_clamped_restored": 770.0,
+      "n_phys_factor_unmapped": 481.0
+     }
+    }
+   }
+  },
+  "W1": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.242,
+    "landed_hp_per_s_151_159": 3599.8,
+    "t_s_151_159": 722.2,
+    "per_salt_ratio": [
+     2.0299,
+     2.3406,
+     1.9534,
+     2.3189,
+     2.5372
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     8.327,
+     5.878,
+     6.612,
+     5.388,
+     4.735
+    ],
+    "mean_leg_a_wave": 158.4,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 3,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.4,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 1.407,
+      "deaths": 0,
+      "mean_t_s": 18.42
+     },
+     "152": {
+      "ratio": 2.076,
+      "deaths": 0,
+      "mean_t_s": 16.8
+     },
+     "153": {
+      "ratio": 2.041,
+      "deaths": 0,
+      "mean_t_s": 15.41
+     },
+     "154": {
+      "ratio": 2.665,
+      "deaths": 0,
+      "mean_t_s": 18.81
+     },
+     "155": {
+      "ratio": 1.825,
+      "deaths": 0,
+      "mean_t_s": 13.99
+     },
+     "156": {
+      "ratio": 4.609,
+      "deaths": 2,
+      "mean_t_s": 14.79
+     },
+     "157": {
+      "ratio": 1.489,
+      "deaths": 0,
+      "mean_t_s": 16.02
+     },
+     "158": {
+      "ratio": 1.519,
+      "deaths": 0,
+      "mean_t_s": 13.6
+     },
+     "159": {
+      "ratio": 2.605,
+      "deaths": 0,
+      "mean_t_s": 16.6
+     },
+     "160": {
+      "ratio": 4.094,
+      "deaths": 5,
+      "mean_t_s": 5.14
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 7988.0,
+      "pre_oracle_inst": 32710501.2,
+      "pre_gd_inst": 22212530.1,
+      "n_dot_rows": 1677.0,
+      "pre_oracle_dot": 26748.0,
+      "pre_gd_dot": 1309223.3,
+      "n_phys_unclamped": 2057.0,
+      "n_phys_clamped_restored": 790.0,
+      "n_phys_factor_unmapped": 512.0
+     }
+    }
+   }
+  },
+  "W1-NULL": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.2352,
+    "landed_hp_per_s_151_159": 3588.9,
+    "t_s_151_159": 708.24,
+    "per_salt_ratio": [
+     2.0299,
+     2.3362,
+     1.9534,
+     2.3189,
+     2.5154
+    ],
+    "leg_a_terminals": [
+     156,
+     156,
+     156,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     8.327,
+     10.122,
+     6.612,
+     5.388,
+     5.878
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 1.43,
+      "deaths": 0,
+      "mean_t_s": 18.42
+     },
+     "152": {
+      "ratio": 2.074,
+      "deaths": 0,
+      "mean_t_s": 16.6
+     },
+     "153": {
+      "ratio": 2.128,
+      "deaths": 0,
+      "mean_t_s": 15.0
+     },
+     "154": {
+      "ratio": 2.595,
+      "deaths": 0,
+      "mean_t_s": 19.2
+     },
+     "155": {
+      "ratio": 1.833,
+      "deaths": 0,
+      "mean_t_s": 13.4
+     },
+     "156": {
+      "ratio": 4.447,
+      "deaths": 3,
+      "mean_t_s": 13.01
+     },
+     "157": {
+      "ratio": 1.672,
+      "deaths": 0,
+      "mean_t_s": 16.2
+     },
+     "158": {
+      "ratio": 1.539,
+      "deaths": 0,
+      "mean_t_s": 13.21
+     },
+     "159": {
+      "ratio": 2.665,
+      "deaths": 0,
+      "mean_t_s": 16.6
+     },
+     "160": {
+      "ratio": 4.046,
+      "deaths": 5,
+      "mean_t_s": 5.19
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 7853.0,
+      "pre_oracle_inst": 32369886.0,
+      "pre_gd_inst": 21893589.8,
+      "n_dot_rows": 1660.0,
+      "pre_oracle_dot": 26521.1,
+      "pre_gd_dot": 1313128.3,
+      "n_phys_unclamped": 2033.0,
+      "n_phys_clamped_restored": 757.0,
+      "n_phys_factor_unmapped": 471.0
+     }
+    }
+   }
+  }
+ },
+ "graded_config": "V38-COMP",
+ "wall_s": 198.6
+}

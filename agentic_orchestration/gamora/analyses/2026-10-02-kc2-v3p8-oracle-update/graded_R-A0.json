@@ -1,0 +1,734 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 gamora KP-205/KP-207 v3.8 oracle re-run (prereg v1.14 grades). Nothing tuned; every configuration named before it ran.",
+ "configs": {
+  "R-A0": {
+   "old_geometry": true,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "R-A1": {
+   "old_geometry": true,
+   "fire_range": "A1",
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "R-A3": {
+   "old_geometry": true,
+   "fire_range": "A1",
+   "emergence": "A3",
+   "stationary": false,
+   "composition": false
+  },
+  "R-COMP": {
+   "old_geometry": true,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": true
+  },
+  "G": {
+   "old_geometry": false,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "G+FR": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": null,
+   "stationary": false,
+   "composition": false
+  },
+  "G+FR+EM": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": false,
+   "composition": false
+  },
+  "V38-RS": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": true,
+   "composition": false
+  },
+  "V38-RS-SHORT": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "SHORT",
+   "stationary": true,
+   "composition": false
+  },
+  "V38-COMP": {
+   "old_geometry": false,
+   "fire_range": null,
+   "emergence": null,
+   "stationary": false,
+   "composition": true
+  },
+  "V38-FULL": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "LONG",
+   "stationary": true,
+   "composition": true
+  },
+  "V38-FULL-SHORT": {
+   "old_geometry": false,
+   "fire_range": "FULL",
+   "emergence": "SHORT",
+   "stationary": true,
+   "composition": true
+  }
+ },
+ "referent_hp_per_s": 1605.6,
+ "tick_period_s": 0.0816326530612245,
+ "results": {
+  "M0": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 3.227,
+    "landed_hp_per_s_151_159": 5181.2,
+    "t_s_151_159": 644.16,
+    "per_salt_ratio": [
+     3.1412,
+     3.5065,
+     3.2691,
+     3.0763,
+     3.1468
+    ],
+    "leg_a_terminals": [
+     155,
+     151,
+     156,
+     155,
+     155
+    ],
+    "leg_a_t_into_wave_s": [
+     7.347,
+     13.143,
+     7.347,
+     6.449,
+     5.143
+    ],
+    "mean_leg_a_wave": 154.4,
+    "n_die_in_151": 1,
+    "n_first_death_in_160": 0,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 3.0,
+    "leg_b_death_waves": [
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      151,
+      155,
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.777,
+      "deaths": 1,
+      "mean_t_s": 17.45
+     },
+     "152": {
+      "ratio": 4.628,
+      "deaths": 0,
+      "mean_t_s": 15.97
+     },
+     "153": {
+      "ratio": 4.762,
+      "deaths": 0,
+      "mean_t_s": 15.41
+     },
+     "154": {
+      "ratio": 2.365,
+      "deaths": 0,
+      "mean_t_s": 20.0
+     },
+     "155": {
+      "ratio": 3.118,
+      "deaths": 4,
+      "mean_t_s": 8.03
+     },
+     "156": {
+      "ratio": 4.251,
+      "deaths": 5,
+      "mean_t_s": 5.53
+     },
+     "157": {
+      "ratio": 1.962,
+      "deaths": 0,
+      "mean_t_s": 16.44
+     },
+     "158": {
+      "ratio": 4.102,
+      "deaths": 0,
+      "mean_t_s": 13.58
+     },
+     "159": {
+      "ratio": 2.201,
+      "deaths": 0,
+      "mean_t_s": 16.41
+     },
+     "160": {
+      "ratio": 4.188,
+      "deaths": 5,
+      "mean_t_s": 5.04
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": null
+   }
+  },
+  "M-POL-2": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 3.1703,
+    "landed_hp_per_s_151_159": 5090.3,
+    "t_s_151_159": 632.16,
+    "per_salt_ratio": [
+     3.4248,
+     3.2871,
+     3.0931,
+     2.9564,
+     3.0772
+    ],
+    "leg_a_terminals": [
+     156,
+     152,
+     155,
+     152,
+     152
+    ],
+    "leg_a_t_into_wave_s": [
+     7.184,
+     4.408,
+     7.02,
+     7.184,
+     6.122
+    ],
+    "mean_leg_a_wave": 153.4,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 0,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 3.4,
+    "leg_b_death_waves": [
+     [
+      156,
+      158,
+      160
+     ],
+     [
+      152,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      152,
+      155,
+      156,
+      160
+     ],
+     [
+      152,
+      155,
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.141,
+      "deaths": 0,
+      "mean_t_s": 18.84
+     },
+     "152": {
+      "ratio": 4.341,
+      "deaths": 3,
+      "mean_t_s": 10.14
+     },
+     "153": {
+      "ratio": 4.733,
+      "deaths": 0,
+      "mean_t_s": 15.44
+     },
+     "154": {
+      "ratio": 2.505,
+      "deaths": 0,
+      "mean_t_s": 19.4
+     },
+     "155": {
+      "ratio": 3.374,
+      "deaths": 3,
+      "mean_t_s": 9.78
+     },
+     "156": {
+      "ratio": 3.587,
+      "deaths": 5,
+      "mean_t_s": 5.84
+     },
+     "157": {
+      "ratio": 1.785,
+      "deaths": 0,
+      "mean_t_s": 16.38
+     },
+     "158": {
+      "ratio": 4.002,
+      "deaths": 1,
+      "mean_t_s": 13.58
+     },
+     "159": {
+      "ratio": 2.254,
+      "deaths": 0,
+      "mean_t_s": 17.03
+     },
+     "160": {
+      "ratio": 4.161,
+      "deaths": 5,
+      "mean_t_s": 5.04
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": null
+   }
+  },
+  "M-POL-2-NULL": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 3.227,
+    "landed_hp_per_s_151_159": 5181.2,
+    "t_s_151_159": 644.16,
+    "per_salt_ratio": [
+     3.1412,
+     3.5065,
+     3.2691,
+     3.0763,
+     3.1468
+    ],
+    "leg_a_terminals": [
+     155,
+     151,
+     156,
+     155,
+     155
+    ],
+    "leg_a_t_into_wave_s": [
+     7.347,
+     13.143,
+     7.347,
+     6.449,
+     5.143
+    ],
+    "mean_leg_a_wave": 154.4,
+    "n_die_in_151": 1,
+    "n_first_death_in_160": 0,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 3.0,
+    "leg_b_death_waves": [
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      151,
+      155,
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.777,
+      "deaths": 1,
+      "mean_t_s": 17.45
+     },
+     "152": {
+      "ratio": 4.628,
+      "deaths": 0,
+      "mean_t_s": 15.97
+     },
+     "153": {
+      "ratio": 4.762,
+      "deaths": 0,
+      "mean_t_s": 15.41
+     },
+     "154": {
+      "ratio": 2.365,
+      "deaths": 0,
+      "mean_t_s": 20.0
+     },
+     "155": {
+      "ratio": 3.118,
+      "deaths": 4,
+      "mean_t_s": 8.03
+     },
+     "156": {
+      "ratio": 4.251,
+      "deaths": 5,
+      "mean_t_s": 5.53
+     },
+     "157": {
+      "ratio": 1.962,
+      "deaths": 0,
+      "mean_t_s": 16.44
+     },
+     "158": {
+      "ratio": 4.102,
+      "deaths": 0,
+      "mean_t_s": 13.58
+     },
+     "159": {
+      "ratio": 2.201,
+      "deaths": 0,
+      "mean_t_s": 16.41
+     },
+     "160": {
+      "ratio": 4.188,
+      "deaths": 5,
+      "mean_t_s": 5.04
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": null
+   }
+  },
+  "W1": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 3.2814,
+    "landed_hp_per_s_151_159": 5268.7,
+    "t_s_151_159": 643.18,
+    "per_salt_ratio": [
+     3.3031,
+     3.2871,
+     3.0931,
+     2.9564,
+     3.7652
+    ],
+    "leg_a_terminals": [
+     156,
+     152,
+     155,
+     152,
+     155
+    ],
+    "leg_a_t_into_wave_s": [
+     6.286,
+     4.408,
+     7.02,
+     7.184,
+     6.939
+    ],
+    "mean_leg_a_wave": 154,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 0,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 3.0,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      152,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      152,
+      155,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.487,
+      "deaths": 0,
+      "mean_t_s": 18.82
+     },
+     "152": {
+      "ratio": 4.516,
+      "deaths": 2,
+      "mean_t_s": 12.33
+     },
+     "153": {
+      "ratio": 4.71,
+      "deaths": 0,
+      "mean_t_s": 15.67
+     },
+     "154": {
+      "ratio": 2.572,
+      "deaths": 0,
+      "mean_t_s": 19.0
+     },
+     "155": {
+      "ratio": 3.076,
+      "deaths": 3,
+      "mean_t_s": 9.94
+     },
+     "156": {
+      "ratio": 3.987,
+      "deaths": 5,
+      "mean_t_s": 5.71
+     },
+     "157": {
+      "ratio": 1.927,
+      "deaths": 0,
+      "mean_t_s": 16.75
+     },
+     "158": {
+      "ratio": 4.049,
+      "deaths": 0,
+      "mean_t_s": 14.01
+     },
+     "159": {
+      "ratio": 2.181,
+      "deaths": 0,
+      "mean_t_s": 16.39
+     },
+     "160": {
+      "ratio": 4.229,
+      "deaths": 5,
+      "mean_t_s": 4.96
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": null
+   }
+  },
+  "W1-NULL": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 3.1703,
+    "landed_hp_per_s_151_159": 5090.3,
+    "t_s_151_159": 632.16,
+    "per_salt_ratio": [
+     3.4248,
+     3.2871,
+     3.0931,
+     2.9564,
+     3.0772
+    ],
+    "leg_a_terminals": [
+     156,
+     152,
+     155,
+     152,
+     152
+    ],
+    "leg_a_t_into_wave_s": [
+     7.184,
+     4.408,
+     7.02,
+     7.184,
+     6.122
+    ],
+    "mean_leg_a_wave": 153.4,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 0,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 3.4,
+    "leg_b_death_waves": [
+     [
+      156,
+      158,
+      160
+     ],
+     [
+      152,
+      156,
+      160
+     ],
+     [
+      155,
+      156,
+      160
+     ],
+     [
+      152,
+      155,
+      156,
+      160
+     ],
+     [
+      152,
+      155,
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": null,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.141,
+      "deaths": 0,
+      "mean_t_s": 18.84
+     },
+     "152": {
+      "ratio": 4.341,
+      "deaths": 3,
+      "mean_t_s": 10.14
+     },
+     "153": {
+      "ratio": 4.733,
+      "deaths": 0,
+      "mean_t_s": 15.44
+     },
+     "154": {
+      "ratio": 2.505,
+      "deaths": 0,
+      "mean_t_s": 19.4
+     },
+     "155": {
+      "ratio": 3.374,
+      "deaths": 3,
+      "mean_t_s": 9.78
+     },
+     "156": {
+      "ratio": 3.587,
+      "deaths": 5,
+      "mean_t_s": 5.84
+     },
+     "157": {
+      "ratio": 1.785,
+      "deaths": 0,
+      "mean_t_s": 16.38
+     },
+     "158": {
+      "ratio": 4.002,
+      "deaths": 1,
+      "mean_t_s": 13.58
+     },
+     "159": {
+      "ratio": 2.254,
+      "deaths": 0,
+      "mean_t_s": 17.03
+     },
+     "160": {
+      "ratio": 4.161,
+      "deaths": 5,
+      "mean_t_s": 5.04
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": null,
+    "emergence": null,
+    "stationary": null,
+    "composition": null
+   }
+  }
+ },
+ "graded_config": "R-A0",
+ "wall_s": 188.7
+}
