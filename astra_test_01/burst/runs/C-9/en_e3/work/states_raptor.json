@@ -1,0 +1,90 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "walk": {
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "run": {
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "claw_L_tip",
+   "skill": "the roster's double swipe (melee 0-2.95 m); release = the left rake's contact"
+  },
+  "attack_kick": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "sickle_R",
+   "skill": "the roster's leg claw (melee 0-3.02 m); release = the sickle claw's stab"
+  },
+  "attack_leap": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "chest",
+   "skill": "the roster's leap (aoe r 2.8 m at landing); release = the landing; the travel is the runtime's"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.4289,
+   "_what": "the jaw tip"
+  },
+  "claw_L_tip": {
+   "bone": "arm_L_3",
+   "along_bone_m": 0.2566,
+   "_what": "the LEFT forelimb's claw tip (wrist -> tip, measured)"
+  },
+  "sickle_R": {
+   "bone": "leg_R_3",
+   "along_bone_m": 0.4003,
+   "_what": "the RIGHT foot's ball, where the sickle claw sits"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.15,
+   "local_m": [
+    0.0,
+    0.0,
+    0.18
+   ],
+   "_what": "the crest at the back of the skull"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ }
+}

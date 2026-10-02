@@ -1,0 +1,192 @@
+{
+ "what": "JOIN-1 clip manifest for the cinder stalker (crucible creature, roster rig sandlizard) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/raptor/raptor.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/raptor/raptor.glb",
+  "sha256_16": "33541da76a677b21",
+  "height_m": 2.4714,
+  "length_m": 5.4697
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.6,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster combat idle 46f; ours 48f: breathing, a scanning head sweep, one jaw snap"
+  },
+  "walk": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01 41f; walkSpeed 1.2 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "seconds": 0.6,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 25f"
+  },
+  "attack_swipe": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: double swipe: attack_a01 31f hit f14"
+  },
+  "attack_kick": {
+   "seconds": 1.16667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: leg claw: attackspecial_a01 36f rel f22"
+  },
+  "attack_leap": {
+   "seconds": 0.83333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: leap (aoe r 2.8 m at landing): attackspecial_c01_leap 26f rel f19; travel is the runtime's"
+  },
+  "hit": {
+   "seconds": 0.43333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: take_hit 14f (borrowed biped clip in the roster)"
+  },
+  "death": {
+   "seconds": 1.86667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_a01 57f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.6,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.21,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_swipe": {
+   "release_s": 0.4667,
+   "frame": 14,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 14)"
+  },
+  "attack_kick": {
+   "release_s": 0.7333,
+   "frame": 22,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 22)"
+  }
+ },
+ "casts": {
+  "attack_leap": {
+   "release_s": 0.6333,
+   "frame": 19,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 19)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "raptor_rake_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/raptor/raptor_rake_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 200.0,
+    "plane": "billboard",
+    "pivot": "centre = the left forelimb claw tip at contact",
+    "ability": "sandlizard / eldritchlizard double swipe (melee 0-2.95 m)",
+    "trigger": "attack_swipe contact f14",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "raptor_kick_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/raptor/raptor_kick_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.0667,
+     1.0667
+    ],
+    "px_per_m": 240.0,
+    "plane": "billboard",
+    "pivot": "centre = the right sickle claw at contact",
+    "ability": "sandlizard leg claw / volcanic fire claw (melee 0-3.02 m, bleeding / fire)",
+    "trigger": "attack_kick contact f22",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "raptor_leap_ring",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/raptor/raptor_leap_ring.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     5.8435,
+     5.8435
+    ],
+    "px_per_m": 65.714,
+    "plane": "ground",
+    "pivot": "centre = the landing point (root)",
+    "ability": "sandlizard_leap (aoe r 2.8 m at landing, bleeding)",
+    "trigger": "attack_leap release f19",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "raptor_leap_dust",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/raptor/raptor_leap_dust.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     2.518,
+     2.518
+    ],
+    "px_per_m": 101.667,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the landing point",
+    "ability": "sandlizard_leap landing dust",
+    "trigger": "attack_leap release f19",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

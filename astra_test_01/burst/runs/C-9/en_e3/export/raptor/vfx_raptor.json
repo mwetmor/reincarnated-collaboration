@@ -1,0 +1,117 @@
+{
+ "creature": "raptor",
+ "effects": [
+  {
+   "id": "raptor_rake_impact",
+   "atlas": "raptor_rake_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.28,
+    1.28
+   ],
+   "px_per_m": 200.0,
+   "plane": "billboard",
+   "pivot": "centre = the left forelimb claw tip at contact",
+   "ability": "sandlizard / eldritchlizard double swipe (melee 0-2.95 m)",
+   "trigger": "attack_swipe contact f14",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "raptor_kick_impact",
+   "atlas": "raptor_kick_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.0667,
+    1.0667
+   ],
+   "px_per_m": 240.0,
+   "plane": "billboard",
+   "pivot": "centre = the right sickle claw at contact",
+   "ability": "sandlizard leg claw / volcanic fire claw (melee 0-3.02 m, bleeding / fire)",
+   "trigger": "attack_kick contact f22",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "raptor_leap_ring",
+   "atlas": "raptor_leap_ring.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 30,
+   "duration_s": 0.4,
+   "cell_m": [
+    5.8435,
+    5.8435
+   ],
+   "px_per_m": 65.714,
+   "plane": "ground",
+   "pivot": "centre = the landing point (root)",
+   "ability": "sandlizard_leap (aoe r 2.8 m at landing, bleeding)",
+   "trigger": "attack_leap release f19",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "raptor_leap_dust",
+   "atlas": "raptor_leap_dust.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    2.518,
+    2.518
+   ],
+   "px_per_m": 101.667,
+   "plane": "billboard",
+   "pivot": "bottom-centre = the landing point",
+   "ability": "sandlizard_leap landing dust",
+   "trigger": "attack_leap release f19",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

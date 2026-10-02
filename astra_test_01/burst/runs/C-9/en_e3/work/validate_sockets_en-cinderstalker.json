@@ -1,0 +1,41 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/work/raw_en-cinderstalker.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-cinderstalker.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 480
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 480
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 480
+  },
+  "attack_swipe": {
+   "worst_m": 0.00051,
+   "samples": 480
+  },
+  "attack_kick": {
+   "worst_m": 6e-05,
+   "samples": 480
+  },
+  "attack_leap": {
+   "worst_m": 0.00016,
+   "samples": 480
+  },
+  "hit": {
+   "worst_m": 0.00014,
+   "samples": 320
+  },
+  "death": {
+   "worst_m": 3e-05,
+   "samples": 640
+  }
+ },
+ "samples": 3840,
+ "worst_m": 0.00051
+}

@@ -1,0 +1,373 @@
+{
+ "landmarks": {
+  "H": 2.4712977409362793,
+  "y_snout": -2.4417715072631836,
+  "y_tail": 3.027935028076172,
+  "z_back": 1.966309485435486,
+  "z_hip": 1.5730475883483888,
+  "y_head_base": -1.8401037883758544,
+  "z_lip": 1.847298550605774,
+  "y_hinge": -1.9604373321533204,
+  "feet": {
+   "L": {
+    "x": 0.309209942817688,
+    "y": -0.36797773838043213,
+    "toe_y": -0.5568060278892517,
+    "heel_y": -0.06154874637723293
+   },
+   "R": {
+    "x": -0.3121795207262039,
+    "y": -0.37078967690467834,
+    "toe_y": -0.556704785823822,
+    "heel_y": -0.12571409344673173
+   }
+  },
+  "arms": {
+   "L": {
+    "sh": [
+     0.18305960446596148,
+     -0.9621590971946716,
+     1.684366774559021
+    ],
+    "el": [
+     0.5017868876457214,
+     -1.300829529762268,
+     1.161043462753296
+    ],
+    "wr": [
+     0.5509904026985168,
+     -1.581235408782959,
+     0.7540142202377319
+    ],
+    "tip": [
+     0.6130247116088867,
+     -1.492350697517395,
+     0.5214260816574097
+    ]
+   },
+   "R": {
+    "sh": [
+     -0.18461307138204577,
+     -1.059065818786621,
+     1.6985826015472412
+    ],
+    "el": [
+     -0.4792274534702301,
+     -1.108510971069336,
+     1.168490252494812
+    ],
+    "wr": [
+     -0.5591742396354675,
+     -1.5789088010787964,
+     0.7561962032318115
+    ],
+    "tip": [
+     -0.6081491708755493,
+     -1.4829845428466797,
+     0.5205996036529541
+    ]
+   }
+  },
+  "legj": {
+   "L": {
+    "K": [
+     0.2006307691335678,
+     -0.38197756886482237,
+     0.9164498448371887
+    ],
+    "A": [
+     0.17965911328792572,
+     -0.04981638893950722,
+     0.2992977797985077
+    ]
+   },
+   "R": {
+    "K": [
+     -0.19105231761932373,
+     -0.3685178780555725,
+     0.900506466627121
+    ],
+    "A": [
+     -0.1727638840675354,
+     -0.05166723989415912,
+     0.29654839634895325
+    ]
+   }
+  },
+  "leg_L": {
+   "joint": [
+    0.18,
+    -0.31938370764255525,
+    1.5230475883483887
+   ],
+   "knee": [
+    0.2006307691335678,
+    -0.38197756886482237,
+    0.9164498448371887
+   ],
+   "ankle": [
+    0.17965911328792572,
+    -0.04981638893950722,
+    0.2992977797985077
+   ],
+   "toe": [
+    0.309209942817688,
+    -0.5268060278892517,
+    0.03
+   ],
+   "ball": [
+    0.309209942817688,
+    -0.3479777383804321,
+    0.07
+   ],
+   "chain_len": 1.3113,
+   "rest_reach": 1.2531,
+   "pole_angle_deg": -86.0,
+   "pole_rest_err": 0.01868
+  },
+  "leg_R": {
+   "joint": [
+    -0.18,
+    -0.31938370764255525,
+    1.5230475883483887
+   ],
+   "knee": [
+    -0.19105231761932373,
+    -0.3685178780555725,
+    0.900506466627121
+   ],
+   "ankle": [
+    -0.1727638840675354,
+    -0.05166723989415912,
+    0.29654839634895325
+   ],
+   "toe": [
+    -0.3121795207262039,
+    -0.526704785823822,
+    0.03
+   ],
+   "ball": [
+    -0.3121795207262039,
+    -0.3507896769046783,
+    0.07
+   ],
+   "chain_len": 1.3068,
+   "rest_reach": 1.2554,
+   "pole_angle_deg": -92.0,
+   "pole_rest_err": 0.00806
+  },
+  "mouth_cut_edges": 85,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 508,
+   "unweighted_verts": 0,
+   "groups": 24
+  },
+  "texture": {
+   "path": "work/tex_raptor_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "arm_L_1",
+   "arm_L_2",
+   "arm_L_3",
+   "arm_R_1",
+   "arm_R_2",
+   "arm_R_3",
+   "tail1",
+   "tail2",
+   "tail3",
+   "leg_L_1",
+   "leg_L_2",
+   "leg_L_3",
+   "leg_L_4",
+   "leg_R_1",
+   "leg_R_2",
+   "leg_R_3",
+   "leg_R_4"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 49,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    17,
+    [
+     0.325,
+     -0.545,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 31,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    3,
+    [
+     0.325,
+     -0.865,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 3
+  },
+  "run": {
+   "frames": 19,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    4,
+    [
+     0.325,
+     -0.454,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 2
+  },
+  "attack_swipe": {
+   "frames": 31,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    7,
+    [
+     0.325,
+     -0.545,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_kick": {
+   "frames": 36,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.0025,
+   "worst_frame_vertex": [
+    11,
+    [
+     0.588,
+     2.679,
+     -0.003
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_leap": {
+   "frames": 26,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0014,
+   "worst_frame_vertex": [
+    21,
+    [
+     0.729,
+     -1.206,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "hit": {
+   "frames": 14,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    9,
+    [
+     0.325,
+     -0.545,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 57,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0001,
+   "worst_frame_vertex": [
+    9,
+    [
+     0.325,
+     -0.545,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 48,
+   "src": "roster combat idle 46f; ours 48f: breathing, a scanning head sweep, one jaw snap"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 30,
+   "speed": 1.6,
+   "duty": 0.6,
+   "src": "roster walk_a01 41f; walkSpeed 1.2 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 18,
+   "speed": 3.21,
+   "duty": 0.35,
+   "src": "roster run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 25f"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "kind_fn": "swipe",
+   "frames": 31,
+   "contact": 14,
+   "src": "double swipe: attack_a01 31f hit f14"
+  },
+  "attack_kick": {
+   "kind": "oneshot",
+   "kind_fn": "kick",
+   "frames": 36,
+   "contact": 22,
+   "src": "leg claw: attackspecial_a01 36f rel f22"
+  },
+  "attack_leap": {
+   "kind": "oneshot",
+   "kind_fn": "leap",
+   "frames": 26,
+   "release": 19,
+   "src": "leap (aoe r 2.8 m at landing): attackspecial_c01_leap 26f rel f19; travel is the runtime's"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "src": "take_hit 14f (borrowed biped clip in the roster)"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 57,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01 57f"
+  }
+ }
+}

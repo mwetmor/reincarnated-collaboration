@@ -16,6 +16,10 @@ PITCH = 52.9535411256029
 BEAR = dict(S=90, SW=135, W=180, NW=225, N=270, NE=315, E=0, SE=45)
 DIRS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE']
 bpy.ops.wm.read_factory_settings(use_empty=True)
+# FPS BEFORE IMPORT (found on the raptor, 2026-10-02): the glTF importer maps clip seconds onto scene frames at the scene's CURRENT
+# fps; read_factory_settings leaves 24, so every earlier film played its 30 fps clips 25 % fast and every still's 'f<n>' was a
+# 24 fps frame. The GLBs were right (Godot reads seconds); the renders were not.
+bpy.context.scene.render.fps = 30
 bpy.ops.import_scene.gltf(filepath=GLB)
 sc = bpy.context.scene
 sc.render.fps = 30
@@ -105,7 +109,8 @@ elif MODE == 'strip':
     cells, labels = [], []
     for clip, fr in items:
         set_clip(clip); sc.frame_set(int(fr)); piv.rotation_euler = (0, 0, math.radians(90 - BEAR[d])); bpy.context.view_layer.update()
-        if '--side' in a: cam_elev((0, 0, hi.z * 0.45), (0, -1, 0), 8, L)
+        if '--legs' in a: cam_elev((0, 0, 0.6), (0, -1, 0), 8, 2.2)
+        elif '--side' in a: cam_elev((0, 0, hi.z * 0.45), (0, -1, 0), 8, L)
         else: cam_game((0, 0, hi.z * 0.35), L)
         p = os.path.join(TMP, 'st_%s_%s.png' % (clip, fr)); render(p, 400, 400); cells.append(p); labels.append('%s f%s %s' % (clip, fr, d))
     compose(cells, 6, labels, OUT, os.path.basename(GLB) + ' strip')

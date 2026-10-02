@@ -21,6 +21,23 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'raptor': dict(type_id='sandlizard', tid='EN3-RP', marker='the brass ring on its LEFT forearm', body='a two-legged reptile',
+   pose=("POSE (for building and rigging a 3D model): standing still on its two hind legs in a neutral pose, the body level and horizontal, "
+         "the tail held straight out behind, level with the hips, the neck and head level and pointing straight ahead, the MOUTH CLOSED. Both hind legs "
+         "straight under the hips, the feet flat and a little apart, so that in the front and back views a clear gap of green shows between the legs. "
+         "Both forelimbs held a little forward and AWAY from the chest, the claws open and relaxed, so that a gap of green shows between each forelimb and "
+         "the body in the front and back views. Nothing overlaps anything."),
+   text="""THE CREATURE, a CINDER STALKER: a fast, lean, two-legged reptile hunter of the burning crypt. It runs down its prey, rakes with its forelimbs, kicks with a hooked claw, and LEAPS onto its target from far away.
+- SIZE AND BUILD: a big lean predator that runs on its two hind legs like a giant bird, its body held level: about 5.5 m from snout to tail tip, about half of that the long tail; the top of the hips about 1.6 m from the ground, the head carried at about 2.2 m. Lean, long-legged, never bulky.
+- THE HEAD: long and narrow, with a long closed jaw lined with small hooked teeth showing along the lip, a bony ridge over the eyes, two small amber eyes; a short crest of three backward-pointing horn spines at the back of the skull.
+- THE HIDE: small tight scales, ash-grey and charcoal, with cracks of dull EMBER ORANGE and ochre running across the back, the flanks and the tail like cooling lava under the scales (painted as warm colour, never as glow); the throat and belly paler, a warm ash-ivory.
+- THE HIND LEGS: long, powerful and bird-like, the shin long and the ankle high off the ground; each foot with three forward toes, and on the inner toe one large hooked SICKLE CLAW held up off the ground.
+- THE FORELIMBS: two lean arms, shorter than the legs but strong, each hand with three long hooked claws for raking.
+- THE TAIL: long, thick at the hips and tapering to a point, with a low ridge of small dark spines along its top.
+- ASYMMETRY MARKER: a corroded BRASS RING engraved with hour-marks, clamped around its LEFT forearm ONLY. It shows in every view where the left forearm is visible, and never on the right.
+- Nothing else on it: no rider, no saddle, no chains, no cloth, no feathers.
+"""),
+
  'crab': dict(type_id='crabmonstrosity', tid='EN3-CR', marker='the brass band on its LEFT claw', body='a many-legged creature',
    pose=("POSE (for building and rigging a 3D model): standing still and level in a neutral pose, the shell level. The SIX walking legs spread "
          "evenly, three on each side, each rising to its knee and down to a point on the ground, with clear gaps of green between neighbouring legs in "

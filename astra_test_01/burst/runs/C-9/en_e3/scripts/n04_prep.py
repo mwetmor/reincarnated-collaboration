@@ -36,6 +36,18 @@ for f in bm.faces:
     islands.append(isl)
 MINI = float(a[a.index('--minisland') + 1]) if '--minisland' in a else 0.005   # the crab's legs and shell plates are separate shells: keep them
 drop = [isl for isl in islands if len(isl) < MINI * n0]
+# --dropbox x0,x1,y0,y1,z0,z1 (metres, in the FINAL frame): drop whole islands lying entirely inside it. The raptor's Tripo build read
+# the side view's far leg as a SECOND pair of lower legs (two free-standing shins behind the real ones); they are separate shells.
+if '--dropbox' in a:
+    bx = [float(t) for t in a[a.index('--dropbox') + 1].split(',')]
+    keep_after = []
+    for isl in islands:
+        if isl in drop: continue
+        P = np.array([[c for c in v.co] for f in isl for v in f.verts])
+        keep_after.append((isl, P))
+    DROPBOX = (bx, keep_after)
+else:
+    DROPBOX = None
 bmesh.ops.delete(bm, geom=[f for isl in drop for f in isl], context='FACES')
 bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)
 bm.to_mesh(me); bm.free()
@@ -64,6 +76,23 @@ low = V[V[:, 2] < V[:, 2].min() + 0.1 * np.ptp(V[:, 2])]
 off = Vector((-float((low[:, 0].min() + low[:, 0].max()) / 2), -float((low[:, 1].min() + low[:, 1].max()) / 2), -float(V[:, 2].min())))
 me.transform(Matrix.Translation(off))
 me.update()
+if DROPBOX:
+    bx, _ = DROPBOX
+    bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table()
+    seen = set(); kill = []; n_isl = 0
+    for f in bm.faces:
+        if f.index in seen: continue
+        st = [f]; isl = []; seen.add(f.index)
+        while st:
+            g = st.pop(); isl.append(g)
+            for e in g.edges:
+                for h in e.link_faces:
+                    if h.index not in seen: seen.add(h.index); st.append(h)
+        P = np.array([v.co[:] for g in isl for v in g.verts])
+        if (P[:, 0].min() > bx[0] and P[:, 0].max() < bx[1] and P[:, 1].min() > bx[2] and P[:, 1].max() < bx[3] and P[:, 2].min() > bx[4] and P[:, 2].max() < bx[5]):
+            kill += isl; n_isl += 1
+    bmesh.ops.delete(bm, geom=kill, context='FACES'); bm.to_mesh(me); bm.free(); me.update()
+    print('dropbox removed %d islands, %d faces' % (n_isl, len(kill)))
 # decimate
 n1 = len(me.polygons)
 if n1 > FACES:

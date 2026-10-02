@@ -1,0 +1,83 @@
+{
+ "name": "raptor",
+ "type_id": "sandlizard",
+ "foot_band": 0.04,
+ "hip_frac": 0.8,
+ "head_len_frac": 0.11,
+ "lip_z_frac": 0.4,
+ "hinge_frac": 0.8,
+ "tail_frac": 0.48,
+ "arm_x_min": 0.33,
+ "arm_y_off": 0.35,
+ "hip_x": 0.18,
+ "hip_back": 0.05,
+ "foot_block_z": 0.1,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_half_h": 0.02,
+ "bag_w": [
+  0.25,
+  0.4
+ ],
+ "bag_y0_frac": 0.3,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 48,
+   "src": "roster combat idle 46f; ours 48f: breathing, a scanning head sweep, one jaw snap"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 30,
+   "speed": 1.6,
+   "duty": 0.6,
+   "src": "roster walk_a01 41f; walkSpeed 1.2 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 18,
+   "speed": 3.21,
+   "duty": 0.35,
+   "src": "roster run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 25f"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "kind_fn": "swipe",
+   "frames": 31,
+   "contact": 14,
+   "src": "double swipe: attack_a01 31f hit f14"
+  },
+  "attack_kick": {
+   "kind": "oneshot",
+   "kind_fn": "kick",
+   "frames": 36,
+   "contact": 22,
+   "src": "leg claw: attackspecial_a01 36f rel f22"
+  },
+  "attack_leap": {
+   "kind": "oneshot",
+   "kind_fn": "leap",
+   "frames": 26,
+   "release": 19,
+   "src": "leap (aoe r 2.8 m at landing): attackspecial_c01_leap 26f rel f19; travel is the runtime's"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "src": "take_hit 14f (borrowed biped clip in the roster)"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 57,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01 57f"
+  }
+ },
+ "texture": "work/tex_raptor_GT.png"
+}

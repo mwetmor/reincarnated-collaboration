@@ -129,6 +129,16 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'raptor': [
+  dict(id='raptor_rake_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
+       plane='billboard', pivot='centre = the left forelimb claw tip at contact', ability='sandlizard / eldritchlizard double swipe (melee 0-2.95 m)', trigger='attack_swipe contact f14'),
+  dict(id='raptor_kick_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.5, col=(206, 112, 52), dark=(120, 52, 30),
+       plane='billboard', pivot='centre = the right sickle claw at contact', ability='sandlizard leg claw / volcanic fire claw (melee 0-3.02 m, bleeding / fire)', trigger='attack_kick contact f22'),
+  dict(id='raptor_leap_ring', fn='ring', n=12, fps=30, cols=4, S=384, radius_m=2.8, col=(204, 160, 118), dark=(118, 70, 46),
+       plane='ground', pivot='centre = the landing point (root)', ability='sandlizard_leap (aoe r 2.8 m at landing, bleeding)', trigger='attack_leap release f19'),
+  dict(id='raptor_leap_dust', fn='puff', n=12, fps=24, cols=4, S=256, radius_m=1.2, col=(186, 170, 150), dark=(110, 98, 86),
+       plane='billboard', pivot='bottom-centre = the landing point', ability='sandlizard_leap landing dust', trigger='attack_leap release f19'),
+ ],
  'crab': [
   dict(id='crab_frost_breath', fn='spray', n=16, fps=20, cols=4, W=640, H=256, length_m=3.5, width_m=1.0, col=(214, 226, 232), dark=(112, 142, 164),
        plane='ground', pivot='left-middle (the mouth plates, projected to the ground)', ability='ghostcrab_waterbreath (aoe wave 3.5 m long x 1 m wide, cold 6 s)',
