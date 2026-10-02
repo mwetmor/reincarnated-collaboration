@@ -169,7 +169,8 @@
     "to_play_ms": 5420,
     "errors": 0
    }
-  }
+  },
+  "final_k": "R-C9-127: the Mixamo set (export/final_k) is approved; it had not landed at build time (only final_k_cand), so this deploy ships final_j2 and final_k goes in the next"
  },
  "bind_order": {
   "fence": "godot/tools/probe_bind_order.gd: every gear piece of 13 packs on its body's skeleton in one fixed non-rest pose, rendered bound by index, by name, as imported, and a positive control (every bind moved one bone); FAIL on any index~name pixel, on an empty frame, or on a control the render cannot see",
@@ -239,14 +240,15 @@
   "post_fix_final_j2": {
    "pass": 84,
    "of": 84,
-   "failing": {}
+   "failing": {},
+   "note": "the 84-piece count included barb_n25/n40 (12 pieces); after R-C9-127 the build fence covers 72"
   },
   "was_any_piece_misbound_in_the_shipped_build": "NO: every import here uses skins/use_named_skins=true, the binds carry names, Godot resolved them by name; shipped~name 0 px for all 84 pieces before the fix. The index-order defect was real in final_j (mace, chest, pauldrons, helm: 9 bone indices name different bones) and would have drawn wrong under any index binding; the armour lane's Blender pieces (gladiator B/C, battle mage C/D) and the sorceress / Viking sets match their bodies' order exactly",
   "gear_gd": "_bind_by_name(mi): a duplicated skin, every unnamed bind given its piece-skeleton bone name (named binds kept); otherwise unchanged"
  },
  "texture_provenance": "59/59 (take/build/texture_provenance.json), warlord rows against final_j2",
  "sorceress_r119_120": "default robe/export_r120_ship; battle mage C/D body119 + export_bmc120/bmd120, book in the left hand through both casts, wand tip 0.39, mirrored cast_fireball_m (release 0.900, cast_hand_R)",
- "barbarian_t12_12d": "N25/N40 on the hold toggle, manifest gear_t12d.json md5 5fdfc147 (walk 1.3199 m/s)",
+ "barbarian_t12_12d": "R-C9-127: N25/N40 DROPPED before shipping (Matt prefers the original width); the barbarian card stays T12_11 / F25L / F40L. The R-C9-122 slot data (barb_n25/n40.json, gear_t12d.json md5 5fdfc147) remain on disk, unreferenced",
  "defaults": "Fire Ball c75 (?fb=full old); Meteor mix4 (?meteor=mix3 old)",
  "build": "tools/build_web_painted.sh rc=0, every fence row ok incl. bind order 84/84 and provenance 59/59"
 }

@@ -17,8 +17,6 @@ const PACKS := [
 	["barb_t1211", "res://data/slots/barb_t1211.json"],
 	["barb_f25l", "res://data/slots/barb_f25l.json"],
 	["barb_f40l", "res://data/slots/barb_f40l.json"],
-	["barb_n25", "res://data/slots/barb_n25.json"],
-	["barb_n40", "res://data/slots/barb_n40.json"],
 	["barb_gladb", "res://data/slots/barb_gladb.json"],
 	["barb_gladc", "res://data/slots/barb_gladc.json"],
 	["sorceress", "res://data/character_sorceress.json"],

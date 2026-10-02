@@ -194,10 +194,10 @@ ST = C9 / "attack_lab/staged"
 kg = G / "scripts/variants/knight_t12_11.gd"
 shutil.copyfile(ST / "t12_11/knight.gd", kg)
 assert md5(kg) == "86141f65", md5(kg)
+# R-C9-127: T12_12d N25/N40 DROPPED from the ship (Matt prefers the original width); the record of R-C9-122 kept below.
 # R-C9-122 (cb0bb334a): T12_12d -- F25L with the legs taken in (N25: -25%, N40: -40% of the excess over hip width) and the
 # heel-to-toe walk; its manifest (5fdfc147) carries locomotion_in_place.walk 1.3199 m/s, which the knight prefers
-for tag, bsrc, chsrc in (("t1211", "T12_11_trails", "t12_11"), ("f25l", "T12_12c_F25L", "t12_12c"), ("f40l", "T12_12c_F40L", "t12_12c"),
-                         ("n25", "T12_12d_N25", "t12_12d"), ("n40", "T12_12d_N40", "t12_12d")):
+for tag, bsrc, chsrc in (("t1211", "T12_11_trails", "t12_11"), ("f25l", "T12_12c_F25L", "t12_12c"), ("f40l", "T12_12c_F40L", "t12_12c")):
     d = MV / f"barb_{tag}"
     body = put(C9 / "nb_d2/export_staging" / bsrc / "nb-body.glb", d / "nb-body.glb", optimizer_off=True)
     ch = jload(ST / chsrc / "character.json")
@@ -208,8 +208,6 @@ for tag, bsrc, chsrc in (("t1211", "T12_11_trails", "t12_11"), ("f25l", "T12_12c
     jsave(f"barb_{tag}.json", ch)
     OUT[f"barb_{tag}"] = {"body_md5": body, "character_md5_src": md5(ST / chsrc / "character.json")}
 shutil.copyfile(C9 / "nb_d2/export_staging/T12_11_trails/gear_manifest.json", SL / "gear_t12.json")
-shutil.copyfile(C9 / "nb_d2/export_staging/T12_12d_N25/gear_manifest.json", SL / "gear_t12d.json")
-assert md5(SL / "gear_t12d.json") == "5fdfc147", md5(SL / "gear_t12d.json")
 assert OUT["barb_t1211"]["body_md5"] == "3e32a9fc" and OUT["barb_f25l"]["body_md5"] == "23e5fde7" and OUT["barb_f40l"]["body_md5"] == "614de31d", OUT
 
 # ---- THE DARK KNIGHT (c=warlord) --------------------------------------------------------------------------------

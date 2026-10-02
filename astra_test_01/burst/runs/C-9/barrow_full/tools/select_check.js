@@ -14,8 +14,6 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['barbarian', {}, 'c=barbarian&hold=t1211'],
     ['barbarian', { b_hold: 'f25l' }, 'c=barbarian&hold=f25l'],
     ['barbarian', { b_hold: 'f40l' }, 'c=barbarian&hold=f40l'],
-    ['barbarian', { b_hold: 'n25' }, 'c=barbarian&hold=n25'],
-    ['barbarian', { b_hold: 'n40' }, 'c=barbarian&hold=n40'],
     ['barbarian', { b_armor: 'gladc' }, 'c=barbarian&armor=gladc'],
     ['barbarian', { b_armor: 'gladb' }, 'c=barbarian&armor=gladb'],
     ['sorceress', {}, 'c=sorceress'],

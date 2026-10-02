@@ -130,7 +130,7 @@ FILES_HER=$(list_files her)
 FILES_WL=$(list_files wl)
 # R-C9-117: A VARIANT PACK PER SLOT (the select page's armor / hold), fetched by the page only for that slot
 vfiles() { (cd "$DEST" && ls models/variants/$1/*.glb | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
-VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l barb_n25 barb_n40"
+VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l"  # R-C9-127: N25/N40 dropped
 vinc() { case "$1" in
   so_*) echo "data/slots/$1.json,data/slots/gear_$1.json,data/slots/sockets_so_bm.json";;
   barb_glad*) echo "data/slots/$1.json,data/slots/gear_$1.json";;

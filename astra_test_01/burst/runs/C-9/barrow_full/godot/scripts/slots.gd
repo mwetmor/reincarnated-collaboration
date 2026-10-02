@@ -22,10 +22,6 @@ const SLOTS := {
 		"label": "axe hold T12_12c F25L"},
 	"barb_f40l": {"who": "barbarian", "path": "res://data/slots/barb_f40l.json", "script": "res://scripts/variants/slot_knight_t12.gd",
 		"label": "axe hold T12_12c F40L"},
-	"barb_n25": {"who": "barbarian", "path": "res://data/slots/barb_n25.json", "script": "res://scripts/variants/slot_knight_t12.gd",
-		"label": "F25L, narrower stance (-25%), heel-to-toe walk (T12_12d)"},
-	"barb_n40": {"who": "barbarian", "path": "res://data/slots/barb_n40.json", "script": "res://scripts/variants/slot_knight_t12.gd",
-		"label": "F25L, narrower stance (-40%), heel-to-toe walk (T12_12d)"},
 	"warlord": {"who": "warlord", "path": "res://data/slots/warlord.json", "script": "res://scripts/slot_knight.gd",
 		"label": "dark knight (violet eyes)"},
 	"warlord_ice": {"who": "warlord", "path": "res://data/slots/warlord_ice.json", "script": "res://scripts/slot_knight.gd",
@@ -52,7 +48,7 @@ static func choose(who: String) -> String:
 	if armor in ["gladc", "gladb"]:
 		return "barb_" + armor
 	var hold := arg("hold")
-	return {"t1211": "barb_t1211", "f25l": "barb_f25l", "f40l": "barb_f40l", "n25": "barb_n25", "n40": "barb_n40"}.get(hold, "")
+	return {"t1211": "barb_t1211", "f25l": "barb_f25l", "f40l": "barb_f40l"}.get(hold, "")  # R-C9-127: N25/N40 dropped (Matt prefers the original width)
 
 
 static func fetch_pack(host: Node, slot: String) -> Dictionary:

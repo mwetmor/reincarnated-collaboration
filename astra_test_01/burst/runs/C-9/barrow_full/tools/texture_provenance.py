@@ -67,7 +67,7 @@ def rows():
         R.append({"glb": str(staged.relative_to(C9)), "kind": kind, "source": str(src.relative_to(C9)), "record": record,
                   "alternatives": [str(a.relative_to(C9)) for a in alt]})
     # the barbarian: the painted body (nb_t8 bake); his gear unpainted by design
-    for b in [G / "gear/nb-body.glb"] + [G / f"variants/barb_{v}/nb-body.glb" for v in ("t1211", "f25l", "f40l", "n25", "n40")]:
+    for b in [G / "gear/nb-body.glb"] + [G / f"variants/barb_{v}/nb-body.glb" for v in ("t1211", "f25l", "f40l")]:
         add(b, "painted", C9 / "nb_t8/work/texture_AB.png", "nb_d2/artifacts/D2-manifest.json body_texture")
     for p in ("axe", "bracers", "byrnie", "helmet", "mantle", "shield"):
         add(G / f"gear/{p}.glb", "own", C9 / f"nb_d2/export_staging/T12_11_trails/{p}.glb", "D2-manifest: only the body is painted")
