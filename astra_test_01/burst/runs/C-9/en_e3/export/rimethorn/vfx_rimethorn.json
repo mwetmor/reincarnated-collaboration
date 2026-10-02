@@ -1,0 +1,145 @@
+{
+ "creature": "rimethorn",
+ "effects": [
+  {
+   "id": "rimethorn_slash_impact",
+   "atlas": "rimethorn_slash_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.4933,
+    1.4933
+   ],
+   "px_per_m": 171.429,
+   "plane": "billboard",
+   "pivot": "centre = the crossing forefeet at contact",
+   "ability": "thornedhorrorfrost_iceslash (melee 0-2.98 m)",
+   "trigger": "attack_swipe contact f25",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "rimethorn_impale_wave",
+   "atlas": "rimethorn_impale_wave.png",
+   "frames": 20,
+   "grid": [
+    4,
+    5
+   ],
+   "cell_px": [
+    1024,
+    192
+   ],
+   "fps": 24,
+   "duration_s": 0.8333,
+   "cell_m": [
+    18.2044,
+    3.4133
+   ],
+   "px_per_m": 56.25,
+   "plane": "ground",
+   "pivot": "left-middle (the forefeet at the slam, projected to the ground)",
+   "ability": "thornedhorrorfrost_avalanche (aoe wave 16 m long x 2 m, slow)",
+   "trigger": "cast_impale release f27; the spikes run out over 0.83 s",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "rimethorn_shard_orb",
+   "atlas": "rimethorn_shard_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    128,
+    128
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    0.5517,
+    0.5517
+   ],
+   "px_per_m": 232.0,
+   "plane": "billboard",
+   "pivot": "centre = the shard in flight (body r 0.5)",
+   "ability": "thornedhorrorfrost_iceshardburst (projectile 18 metres per second)",
+   "trigger": "cast_shards release f31 at the maw",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "rimethorn_shard_impact",
+   "atlas": "rimethorn_shard_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    2.1818,
+    2.1818
+   ],
+   "px_per_m": 88.0,
+   "plane": "billboard",
+   "pivot": "centre = the impact point (area 1 m)",
+   "ability": "iceshardburst impact",
+   "trigger": "on shard impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "rimethorn_thornfield",
+   "atlas": "rimethorn_thornfield.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    7.9304,
+    7.9304
+   ],
+   "px_per_m": 48.421,
+   "plane": "ground",
+   "pivot": "centre = the corpse root (area r 3.8 m; the 6 s slow field is a runtime tint)",
+   "ability": "thornedhorrorfrost_icethornfield (on death)",
+   "trigger": "death start",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

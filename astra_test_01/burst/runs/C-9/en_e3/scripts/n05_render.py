@@ -119,7 +119,7 @@ elif MODE == 'strip':
     cells, labels = [], []
     for clip, fr in items:
         set_clip(clip); sc.frame_set(int(fr)); piv.rotation_euler = (0, 0, math.radians(90 - BEAR[d])); bpy.context.view_layer.update()
-        if '--legs' in a: cam_elev((0, 0, 0.6), (0, -1, 0), 8, 2.2)
+        if '--legs' in a: cam_elev((0, float(os.environ.get('EN3_CAMY', 0)), float(os.environ.get('EN3_CAMZ', 0.6))), (0, -1, 0), 8, float(os.environ.get('EN3_CAMS', 2.2)))
         elif '--side' in a: cam_elev((0, 0, hi.z * 0.45), (0, -1, 0), 8, L)
         else: cam_game((0, 0, hi.z * 0.35), L)
         p = os.path.join(TMP, 'st_%s_%s.png' % (clip, fr)); render(p, 400, 400); cells.append(p); labels.append('%s f%s %s' % (clip, fr, d))

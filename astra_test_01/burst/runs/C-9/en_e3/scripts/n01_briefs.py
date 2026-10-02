@@ -21,6 +21,34 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'blightsac': dict(type_id='voidfiend', tid='EN3-BS', marker='the brass hour-ring on its LEFT side', body='a floating creature',
+   pose=("POSE (for building and rigging a 3D model): floating still in a neutral pose, the body level, about a metre clear of the ground "
+         "(draw NO ground), the mouth CLOSED, the six tendrils hanging straight down and evenly spaced around the underside, not touching each "
+         "other, their tips well clear of the ground line. In every view a clear gap of green shows between the tendrils and under the tips. Nothing overlaps anything."),
+   text="""THE CREATURE, a BLIGHT SAC: a floating, bloated horror that drifts up out of the crypt like a swollen bladder of plague. It retches a cone of acid, spits heavy orbs of poison, and leaks a choking caustic haze around itself; when it dies it bursts.
+- SIZE AND BUILD: a single swollen, roughly egg-shaped body about 1.4 m long, 1.2 m wide and 1.1 m tall, its underside hanging about 0.9 m above the floor, so the top is at about 2 m. It HAS NO LEGS: it floats.
+- THE BODY: tight, shiny-wet but painted matte, pallid grey-violet skin stretched over the swelling, mottled with sickly yellow-green blotches; dark veins; on its BACK a cluster of five or six open, crusted VENTS like small chimneys rimmed with yellow crust, where the haze leaks out (painted, no smoke drawn).
+- THE FRONT: a wide round lamprey MOUTH at the front, ringed with rows of small inward-pointing pale teeth, CLOSED as a puckered ring in this sheet; above it a band of five small pale-yellow eyes in an arc.
+- THE TENDRILS: SIX thick, tapering, fleshy tendrils hang from the underside in a ring, each about 0.8 m long, grey-violet with paler sucker rings.
+- ASYMMETRY MARKER: a corroded BRASS HOUR-RING (a band engraved with hour-marks) sunk into the skin of its LEFT flank ONLY, like a buckle swallowed into the flesh. It shows in every view where the left flank is visible, never on the right.
+- Nothing else on it: no rider, no chains, no wings, no cloth.
+"""),
+
+ 'rimethorn': dict(type_id='thornedhorrora01', tid='EN3-RT', marker='the brass ring around its LEFT foreleg', body='a four-legged spiny beast',
+   pose=("POSE (for building and rigging a 3D model): standing square and still on all four legs in a neutral pose, the legs straight and "
+         "vertical under the body, the feet flat and apart, the head level and facing straight ahead, the MOUTH CLOSED, the short tail straight "
+         "out behind. In the front and back views a clear gap of green shows between the left and right legs and under the belly; in the side "
+         "views between the front and hind legs. Nothing overlaps anything."),
+   text="""THE CREATURE, a RIMETHORN BRUTE: a hulking four-legged horror of frost, bone and thorn that has crawled up from the frozen lower crypt. It slashes with its long foreclaws, drives a wall of ice spikes out of the floor ahead of it, and bursts ice shards.
+- SIZE AND BUILD: heavy and hunched, like a great bear or a bull: about 2.6 m from snout to rump, the top of its humped shoulders about 1.6 m from the ground, the back sloping down to lower hips. The FORELEGS are longer and much heavier than the hind legs.
+- THE HEAD: low-slung and heavy, a long skull of bare pale bone like a horse's skull without skin, with a closed jaw of uneven teeth and two small pale ice-blue eyes deep in the sockets, painted pale, never glowing.
+- THE BODY: dark slate and blue-grey hide, rough, matted; out of the hump, the spine and the shoulders grow DOZENS of long, sharp, crooked THORNS of pale bone and clear blue-white ice, pointing up and back like a broken crown -- the creature's silhouette is a spiky hump. Frost crusts the thorn roots.
+- THE FORELIMBS: thick, end in long hooked claws of pale bone, three per hand, longer than the feet; the hind legs shorter with blunt claws.
+- THE TAIL: short and thick, with a few thorns.
+- ASYMMETRY MARKER: a corroded BRASS RING engraved with hour-marks clamped around its LEFT foreleg ONLY, above the claws. It shows in every view where the left foreleg is visible, never on any other leg.
+- Nothing else on it: no rider, no chains, no cloth.
+"""),
+
  'gazer': dict(type_id='basilisk', tid='EN3-GZ', marker='the brass band on its LEFT foreleg', body='a four-legged reptile',
    pose=("POSE (for building and rigging a 3D model): standing square and still on all four legs in a neutral pose, the legs straight and "
          "vertical under the body, the feet flat and a little apart, the long neck held up and forward in a gentle curve, the head level and "

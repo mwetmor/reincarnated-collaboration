@@ -181,17 +181,17 @@ for j, n in enumerate(bones_w):
     if n.startswith('leg_'):
         lg = n[4:6]; sgn = 1 if lg[1] == 'L' else -1; fy = feet[lg]['y']
         zj = (z_sh if lg[0] == 'F' else z_hp) + 0.06
-        g = ((VW[:, 0] * sgn > 0.02) & (np.abs(VW[:, 1] - fy) < 0.32) & (VW[:, 2] < zj)).astype(float)
-        if n.endswith('_1'): g = np.maximum(g, 0.3 * ((VW[:, 0] * sgn > 0.05) & (np.abs(VW[:, 1] - fy) < 0.32) & (VW[:, 2] < zj + 0.12)))
+        g = ((VW[:, 0] * sgn > 0.02) & (np.abs(VW[:, 1] - fy) < CFG.get('leg_gate_y', 0.32)) & (VW[:, 2] < zj)).astype(float)
+        if n.endswith('_1'): g = np.maximum(g, 0.3 * ((VW[:, 0] * sgn > 0.05) & (np.abs(VW[:, 1] - fy) < CFG.get('leg_gate_y', 0.32)) & (VW[:, 2] < zj + 0.12)))
     if n.startswith('tail'):
-        g = (VW[:, 1] > y_tb - 0.25).astype(float)
+        g = ((VW[:, 1] > y_tb - 0.25) & (VW[:, 2] > CFG.get('tail_gate_z', -1.0))).astype(float)   # long feet must not take the tail
     if n in ('head', 'jaw', 'neck'):
         g = (VW[:, 1] < (y_ch - 0.05 if (CFG.get('long_neck') and n == 'neck') else y_hb + 0.25)).astype(float)
     Wm[:, j] = g / (dist ** 4 + 1e-6)
 # the FOOT BLOCK (below the ankle, inside a leg's gate) rides the foot bone alone, so a bending shin cannot push the sole into the floor
 for lg in LEGS:
     j3 = bones_w.index('leg_%s_3' % lg); sgn = 1 if lg[1] == 'L' else -1
-    fb = (VW[:, 0] * sgn > 0.02) & (np.abs(VW[:, 1] - feet[lg]['y']) < 0.32) & (VW[:, 2] < ank_z + CFG.get('foot_block_dz', 0.02))
+    fb = (VW[:, 0] * sgn > 0.02) & (np.abs(VW[:, 1] - feet[lg]['y']) < CFG.get('leg_gate_y', 0.32)) & (VW[:, 2] < ank_z + CFG.get('foot_block_dz', 0.02))
     Wm[fb] = 0.0; Wm[fb, j3] = 1.0
 top = np.argsort(-Wm, 1)[:, :4]
 for i in range(len(VW)):
@@ -331,7 +331,7 @@ def clip_state(name, f):
         st['neck'] = (-1.0 * math.sin(w) + 1.5 * math.sin(2 * w) * 0.3, 0, 3.0 * math.sin(w + 0.5))
         st['head'] = (1.0 * math.sin(2 * w), 2.0 * math.sin(w), 0)
         tw = math.exp(-((f / N - 0.62) * 14) ** 2)                       # one twitch per cycle: a jaw snap and a head jerk
-        st['jaw'] = (-4.0 - 9.0 * (0.5 - 0.5 * math.cos(w)) - 14.0 * tw, 0, 3.0 * math.sin(3 * w)); st['head'] = (st['head'][0] + 6 * tw, st['head'][1], 6 * tw)   # slow jaw work + grinding (rz), one snap
+        st['jaw'] = (CFG.get('jaw_rest', -4.0) - CFG.get('jaw_work', 9.0) * (0.5 - 0.5 * math.cos(w)) - 14.0 * tw, 0, 3.0 * math.sin(3 * w)); st['head'] = (st['head'][0] + 6 * tw, st['head'][1], 6 * tw)   # slow jaw work + grinding (rz), one snap
         st['tail1'] = (0, 0, 6 * math.sin(w)); st['tail2'] = (0, 0, 8 * math.sin(w + 0.9)); st['tail3'] = (0, 0, 10 * math.sin(w + 1.8))
         return st
     if k == 'walk':
@@ -395,6 +395,30 @@ def clip_state(name, f):
         for lg in LEGS:
             fr = lg[0] == 'F'; cur = kf([(0, 0), (c0, 0), (c1, 1), (N, 1.1)], f)
             st['fk_' + lg] = (infl, (-35 if fr else 30) * cur, (60 if fr else -55) * cur, (-30) * cur)
+        return st
+    if k == 'stomp':
+        # the GROUND IMPALE: the forequarters rear (both front feet lift high and forward, the body pitches up on the hind legs), then
+        # SLAM both forefeet down at the release -- the ice spikes erupt ahead (runtime VFX); a heavy settle, then recover
+        rf = c['release']; st = {}; a0 = max(3, rf - 10)
+        lift = kf([(0, 0), (a0, 0.55), (rf - 2, 0.62), (rf, 0.0), (N, 0)], f); fwd = kf([(0, 0), (a0, -0.10), (rf, -0.22), (rf + 8, -0.22), (N, 0)], f)
+        for lg in ('FL', 'FR'): st['foot_' + lg] = (0.0, fwd, lift, kf([(0, 0), (a0, 20), (rf, 0), (N, 0)], f))
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.10), (rf, -0.12), (rf + 8, -0.10), (N, 0)], f), kf([(0, 0), (a0, 0.08), (rf, -0.10), (rf + 6, -0.06), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (a0, 22), (rf, -6), (rf + 6, -4), (N, 0)], f), 0, 0)
+        st['chest'] = (kf([(0, 0), (a0, 10), (rf, -8), (N, 0)], f), 0, 0)
+        st['neck'] = (kf([(0, 0), (a0, 14), (rf, -14), (rf + 6, -10), (N, 0)], f), 0, 0)
+        st['jaw'] = (kf([(0, -2), (a0, -30), (rf, -8), (N, -2)], f), 0, 0)
+        return st
+    if k == 'crossswipe':
+        # rear a little and RAKE: the left forefoot swings out and across in front, then the right, crossing at the contact
+        cf = c['contact']; st = {}; a0 = max(3, cf - 9)
+        for lg, sg, dt in (('FL', 1, 0), ('FR', -1, 3)):
+            st['foot_' + lg] = (kf([(0, 0), (a0 + dt, sg * 0.35), (cf + dt, -sg * 0.30), (cf + dt + 6, 0), (N, 0)], f),
+                                kf([(0, 0), (a0 + dt, -0.15), (cf + dt, -0.45), (cf + dt + 6, 0), (N, 0)], f),
+                                kf([(0, 0), (a0 + dt, 0.55), (cf + dt, 0.25), (cf + dt + 6, 0), (N, 0)], f), 0.0)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.08), (cf, -0.14), (N, 0)], f), kf([(0, 0), (a0, 0.06), (cf, 0.0), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (a0, 16), (cf, 6), (N, 0)], f), 0, kf([(0, 0), (a0, 8), (cf, -8), (cf + 4, -4), (N, 0)], f))
+        st['neck'] = (kf([(0, 0), (a0, 10), (cf, -6), (N, 0)], f), 0, kf([(0, 0), (cf, 8), (N, 0)], f))
+        st['jaw'] = (kf([(0, -2), (cf - 2, -28), (cf + 4, -6), (N, -2)], f), 0, 0)
         return st
     if k == 'glare':
         # the PETRIFYING STARE: the neck rears up and back, the head lowers to level and LOCKS on the target at the release (head
@@ -488,6 +512,15 @@ for name, c in CL.items():
                     for lg in LEGS if pb['leg_%s_2' % lg].constraints[0].influence > 0.99], default=0.0)
         ikmax = max(ikmax, ikerr) if f else ikerr
         mz, co = mesh_minz()
+        # TAIL CONTACT SOLVE (as n15): a tail that would go through the floor is lifted 2 deg at a time at tail1
+        for _ in range(40):
+            if mz >= -0.003: break
+            wv = co[int(np.argmin(co[:, 2]))]
+            if wv[1] < y_hb + 0.1 and c['kind'] == 'oneshot' and CL[name].get('kind_fn', name) != 'death':
+                r = st.get('neck', (0, 0, 0)); st['neck'] = (r[0] + 2.0, r[1], r[2])     # a head driven into the floor lifts at the neck
+            elif wv[1] < y_tb - 0.1: break
+            else: r = st.get('tail1', (0, 0, 0)); st['tail1'] = (r[0] - 2.0, r[1], r[2])
+            apply(st); bpy.context.view_layer.update(); mz, co = mesh_minz()
         for _ in range(4):
             if not (c.get('ground_solve') and mz < 0.0): break
             l = pb['Hips'].location.copy(); pb['Hips'].location = l + wloc('Hips', (0, 0, -mz + 0.003)); bpy.context.view_layer.update()

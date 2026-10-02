@@ -1,0 +1,83 @@
+{
+ "name": "rimethorn",
+ "type_id": "thornedhorrora01",
+ "head_len_frac": 0.2,
+ "lip_z_frac": 0.55,
+ "hinge_frac": 0.92,
+ "tail_frac": 0.16,
+ "joint_frac": 0.5,
+ "ankle_z": 0.18,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_w": [
+  0.14,
+  0.22
+ ],
+ "bag_half_h": 0.02,
+ "bag_y0_frac": 0.45,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 60,
+   "src": "roster idle_01 76f; ours 60f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 18,
+   "speed": 1.6,
+   "src": "roster walk_01 41f; walkSpeed 1.25 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 12,
+   "speed": 3.72,
+   "duty": 0.35,
+   "src": "roster lead record run 3.723 m/s (characterRunSpeed 1.16 x K4-0), run_01 21f"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "kind_fn": "crossswipe",
+   "frames": 56,
+   "contact": 25,
+   "src": "ice slash: attack_crossswipe 56f rel f25 (melee 0-2.98 m)"
+  },
+  "cast_impale": {
+   "kind": "oneshot",
+   "kind_fn": "stomp",
+   "frames": 86,
+   "release": 27,
+   "src": "avalanche: attack_3x_groundimpale 86f rel f27 (aoe wave 16 m long x 2 m)"
+  },
+  "cast_shards": {
+   "kind": "oneshot",
+   "kind_fn": "spitshot",
+   "frames": 51,
+   "release": 31,
+   "src": "ice shard burst: cast_attack_01 51f rel f31 (projectile 18 metres per second)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "hit_react_01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 61,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_01 61f"
+  }
+ },
+ "jaw_rest": -1.0,
+ "jaw_work": 3.0,
+ "foot_block_dz": 0.03,
+ "leg_gate_y": 0.55,
+ "tail_gate_z": 0.35,
+ "texture": "work/tex_rimethorn_GT2.png",
+ "_scale_note": "built at the roster lead record size: AABB depth 5.12 x scale 0.65 = 3.33 m; n17 s_fit 1.29 (fits the canvas with 29% margin)"
+}

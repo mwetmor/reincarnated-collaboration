@@ -129,6 +129,19 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'rimethorn': [
+  dict(id='rimethorn_slash_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.7, col=(206, 226, 236), dark=(102, 136, 160),
+       plane='billboard', pivot='centre = the crossing forefeet at contact', ability='thornedhorrorfrost_iceslash (melee 0-2.98 m)', trigger='attack_swipe contact f25'),
+  dict(id='rimethorn_impale_wave', fn='spray', n=20, fps=24, cols=4, W=1024, H=192, length_m=16.0, width_m=2.0, col=(214, 230, 238), dark=(96, 130, 156),
+       plane='ground', pivot='left-middle (the forefeet at the slam, projected to the ground)', ability='thornedhorrorfrost_avalanche (aoe wave 16 m long x 2 m, slow)',
+       trigger='cast_impale release f27; the spikes run out over 0.83 s'),
+  dict(id='rimethorn_shard_orb', fn='orb', n=8, fps=20, cols=4, S=128, radius_m=0.25, col=(206, 228, 240), dark=(100, 140, 168),
+       plane='billboard', pivot='centre = the shard in flight (body r 0.5)', ability='thornedhorrorfrost_iceshardburst (projectile 18 metres per second)', trigger='cast_shards release f31 at the maw'),
+  dict(id='rimethorn_shard_impact', fn='impact', n=8, fps=30, cols=4, S=192, radius_m=1.0, col=(206, 228, 240), dark=(100, 140, 168),
+       plane='billboard', pivot='centre = the impact point (area 1 m)', ability='iceshardburst impact', trigger='on shard impact'),
+  dict(id='rimethorn_thornfield', fn='ring', n=12, fps=24, cols=4, S=384, radius_m=3.8, col=(196, 220, 232), dark=(96, 130, 156),
+       plane='ground', pivot='centre = the corpse root (area r 3.8 m; the 6 s slow field is a runtime tint)', ability='thornedhorrorfrost_icethornfield (on death)', trigger='death start'),
+ ],
  'gazer': [
   dict(id='gazer_glare_cone', fn='spray', n=16, fps=24, cols=4, W=704, H=256, length_m=6.0, width_m=2.0, col=(198, 214, 196), dark=(110, 128, 112),
        plane='ground', pivot='left-middle (the eyes, projected to the ground)', ability='basilisk_petrifyingglare (aoe wave 6 m long, 1.4-2 m wide, slow)',

@@ -1,0 +1,85 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "walk": {
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "run": {
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "claw_FL",
+   "skill": "the roster's ice slash (melee 0-2.98 m); release = the cross-swipe contact"
+  },
+  "cast_impale": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "claw_FL",
+   "skill": "the roster's avalanche (aoe wave 16 m x 2 m) -- the forefeet slam"
+  },
+  "cast_shards": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's ice shard burst (projectile)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.5699,
+   "_what": "the jaw tip"
+  },
+  "claw_FL": {
+   "bone": "leg_FL_3",
+   "along_bone_m": 0.3029,
+   "_what": "the left fore-claw tip"
+  },
+  "head_top": {
+   "bone": "chest",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.55
+   ],
+   "_what": "the thorn hump (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ }
+}

@@ -1,0 +1,540 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "rimethorn",
+ "roster_type_id": "thornedhorrora01",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn.glb",
+ "glb_sha256": "c54618b3f2b963c5530201da6420c3b051c1489cf8fcaa8a994244bb4b47642e",
+ "glb_bytes": 2902176,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 1.7414,
+ "length_m": 3.3302,
+ "width_m": 1.3874,
+ "skin_joints": 22,
+ "materials": [
+  {
+   "name": "tripo_material_d1be64ff-b391-4ca9-9e6e-53f0ed326d22",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "roster idle_01 76f; ours 60f",
+   "lint": {
+    "frames": 61,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     39,
+     [
+      -0.595,
+      -0.727,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 60 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 19,
+   "duration_s": 0.6,
+   "fps": 30,
+   "source": "roster walk_01 41f; walkSpeed 1.25 has no stated base -- 1.6 m/s INFERRED",
+   "lint": {
+    "frames": 19,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     16,
+     [
+      -0.595,
+      -0.905,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 6
+   },
+   "loop": "closing key == first key (frames 0..N, N = 18 intervals)",
+   "ground_speed_m_s": 1.6,
+   "stride_m_per_cycle": 0.96
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 13,
+   "duration_s": 0.4,
+   "fps": 30,
+   "source": "roster lead record run 3.723 m/s (characterRunSpeed 1.16 x K4-0), run_01 21f",
+   "lint": {
+    "frames": 13,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     12,
+     [
+      -0.595,
+      -0.809,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 5
+   },
+   "loop": "closing key == first key (frames 0..N, N = 12 intervals)",
+   "ground_speed_m_s": 3.72,
+   "stride_m_per_cycle": 1.488
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "frames": 56,
+   "duration_s": 1.83333,
+   "fps": 30,
+   "source": "ice slash: attack_crossswipe 56f rel f25 (melee 0-2.98 m)",
+   "lint": {
+    "frames": 56,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     34,
+     [
+      -0.595,
+      -0.727,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 25,
+   "contact_s": 0.8333
+  },
+  "cast_impale": {
+   "kind": "oneshot",
+   "frames": 86,
+   "duration_s": 2.83333,
+   "fps": 30,
+   "source": "avalanche: attack_3x_groundimpale 86f rel f27 (aoe wave 16 m long x 2 m)",
+   "lint": {
+    "frames": 86,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     30,
+     [
+      -0.595,
+      -0.947,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 27,
+   "release_s": 0.9
+  },
+  "cast_shards": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "ice shard burst: cast_attack_01 51f rel f31 (projectile 18 metres per second)",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     50,
+     [
+      -0.595,
+      -0.727,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 31,
+   "release_s": 1.0333
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "hit_react_01 21f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0012,
+    "worst_frame_vertex": [
+     8,
+     [
+      -0.595,
+      -0.727,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "death_01 61f",
+   "lint": {
+    "frames": 61,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0035,
+    "worst_frame_vertex": [
+     7,
+     [
+      -0.593,
+      -0.743,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "rimethorn",
+  "effects": [
+   {
+    "id": "rimethorn_slash_impact",
+    "atlas": "rimethorn_slash_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.4933,
+     1.4933
+    ],
+    "px_per_m": 171.429,
+    "plane": "billboard",
+    "pivot": "centre = the crossing forefeet at contact",
+    "ability": "thornedhorrorfrost_iceslash (melee 0-2.98 m)",
+    "trigger": "attack_swipe contact f25",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_impale_wave",
+    "atlas": "rimethorn_impale_wave.png",
+    "frames": 20,
+    "grid": [
+     4,
+     5
+    ],
+    "cell_px": [
+     1024,
+     192
+    ],
+    "fps": 24,
+    "duration_s": 0.8333,
+    "cell_m": [
+     18.2044,
+     3.4133
+    ],
+    "px_per_m": 56.25,
+    "plane": "ground",
+    "pivot": "left-middle (the forefeet at the slam, projected to the ground)",
+    "ability": "thornedhorrorfrost_avalanche (aoe wave 16 m long x 2 m, slow)",
+    "trigger": "cast_impale release f27; the spikes run out over 0.83 s",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_shard_orb",
+    "atlas": "rimethorn_shard_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.5517,
+     0.5517
+    ],
+    "px_per_m": 232.0,
+    "plane": "billboard",
+    "pivot": "centre = the shard in flight (body r 0.5)",
+    "ability": "thornedhorrorfrost_iceshardburst (projectile 18 metres per second)",
+    "trigger": "cast_shards release f31 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_shard_impact",
+    "atlas": "rimethorn_shard_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     2.1818,
+     2.1818
+    ],
+    "px_per_m": 88.0,
+    "plane": "billboard",
+    "pivot": "centre = the impact point (area 1 m)",
+    "ability": "iceshardburst impact",
+    "trigger": "on shard impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_thornfield",
+    "atlas": "rimethorn_thornfield.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     7.9304,
+     7.9304
+    ],
+    "px_per_m": 48.421,
+    "plane": "ground",
+    "pivot": "centre = the corpse root (area r 3.8 m; the 6 s slow field is a runtime tint)",
+    "ability": "thornedhorrorfrost_icethornfield (on death)",
+    "trigger": "death start",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 1.7402304410934448,
+  "y_snout": -1.6759675741195679,
+  "y_tail": 1.6542099714279175,
+  "z_belly": 0.5811768770217896,
+  "z_shoulder": 1.0434790760278703,
+  "z_hip": 0.8792275786399841,
+  "y_head_base": -1.0099320650100707,
+  "z_lip": 0.8019568741321563,
+  "y_hinge": -1.0632149057388305,
+  "feet": {
+   "FL": {
+    "x": 0.49155521392822266,
+    "y": -0.7143545746803284,
+    "toe_y": -0.9674741744995117,
+    "heel_y": -0.5061867237091064
+   },
+   "BL": {
+    "x": 0.26410195231437683,
+    "y": 0.71042400598526,
+    "toe_y": 0.2584158778190613,
+    "heel_y": 0.9727956056594849
+   },
+   "FR": {
+    "x": -0.4699071943759918,
+    "y": -0.7531096339225769,
+    "toe_y": -0.9877776503562927,
+    "heel_y": -0.5819947421550751
+   },
+   "BR": {
+    "x": -0.2605760991573334,
+    "y": 0.6725332140922546,
+    "toe_y": 0.2577003717422485,
+    "heel_y": 0.9646632647514344
+   }
+  },
+  "leg_FL": {
+   "joint": [
+    0.368666410446167,
+    -0.6943545746803284,
+    1.0434790760278703
+   ],
+   "knee": [
+    0.4522307968139649,
+    -0.6443545746803283,
+    0.6117395380139352
+   ],
+   "ankle": [
+    0.49155521392822266,
+    -0.6843545746803283,
+    0.18
+   ],
+   "toe": [
+    0.49155521392822266,
+    -0.9474741744995117,
+    0.03
+   ],
+   "chain_len": 0.878,
+   "rest_reach": 0.8722,
+   "pole_angle_deg": 98.0,
+   "pole_rest_err": 0.02469
+  },
+  "leg_FR": {
+   "joint": [
+    -0.35243039578199387,
+    -0.7331096339225769,
+    1.0434790760278703
+   ],
+   "knee": [
+    -0.4323146188259125,
+    -0.6831096339225768,
+    0.6117395380139352
+   ],
+   "ankle": [
+    -0.4699071943759918,
+    -0.7231096339225769,
+    0.18
+   ],
+   "toe": [
+    -0.4699071943759918,
+    -0.9677776503562927,
+    0.03
+   ],
+   "chain_len": 0.8771,
+   "rest_reach": 0.8715,
+   "pole_angle_deg": 82.0,
+   "pole_rest_err": 0.03946
+  },
+  "leg_BL": {
+   "joint": [
+    0.19807646423578262,
+    0.69042400598526,
+    0.8792275786399841
+   ],
+   "knee": [
+    0.2429737961292267,
+    0.64042400598526,
+    0.5296137893199921
+   ],
+   "ankle": [
+    0.26410195231437683,
+    0.74042400598526,
+    0.18
+   ],
+   "toe": [
+    0.26410195231437683,
+    0.2784158778190613,
+    0.03
+   ],
+   "chain_len": 0.7203,
+   "rest_reach": 0.7041,
+   "pole_angle_deg": -80.0,
+   "pole_rest_err": 0.04001
+  },
+  "leg_BR": {
+   "joint": [
+    -0.19543207436800003,
+    0.6525332140922546,
+    0.8792275786399841
+   ],
+   "knee": [
+    -0.23973001122474671,
+    0.6025332140922546,
+    0.5296137893199921
+   ],
+   "ankle": [
+    -0.2605760991573334,
+    0.7025332140922547,
+    0.18
+   ],
+   "toe": [
+    -0.2605760991573334,
+    0.27770037174224854,
+    0.03
+   ],
+   "chain_len": 0.7202,
+   "rest_reach": 0.704,
+   "pole_angle_deg": -100.0,
+   "pole_rest_err": 0.04565
+  },
+  "mouth_cut_edges": 283,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 1400,
+   "unweighted_verts": 0,
+   "groups": 22
+  },
+  "texture": {
+   "path": "work/tex_rimethorn_GT2.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "leg_FL_1",
+   "leg_FL_2",
+   "leg_FL_3",
+   "leg_FR_1",
+   "leg_FR_2",
+   "leg_FR_3",
+   "tail1",
+   "tail2",
+   "tail3",
+   "leg_BL_1",
+   "leg_BL_2",
+   "leg_BL_3",
+   "leg_BR_1",
+   "leg_BR_2",
+   "leg_BR_3"
+  ]
+ }
+}

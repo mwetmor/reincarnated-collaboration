@@ -19,12 +19,16 @@ M = np.asarray(Image.open(TIN.replace('T.png', '.png').replace('.png', '_mask.pn
 lumA = A.mean(2)
 if np.mean(lumA[on[::-1]] > 3) > np.mean(lumA[on] > 3): P = P[::-1]; on = on[::-1]
 if REG == 'crab_legs':
-    rig = json.load(open(GLB.replace('builds/crab_prep.glb', 'export/crab/crab.rig.json')))['landmarks'] if 'crab_prep' in GLB else None
+    rig = json.load(open(GLB.replace('builds/crab_prep.glb', 'export/crab/crab.rig.json')))['landmarks']
     cy = rig['cy']; ex, ey = 0.82, 0.86
     x, y, z = P[..., 0], P[..., 1], P[..., 2]
     core = (x / ex) ** 2 + ((y - cy) / ey) ** 2 < 1.0
     claw = (np.abs(x) < 0.85) & (y < cy - 0.6)
     reg = on & ~core & ~claw & (z > 0.0)
+elif REG == 'all':
+    # the whole surface (the rimethorn: the paint bake washed the dark slate hide to cream; Tripo's projection of the approved sheet
+    # keeps the local colour, the paint keeps its ink and hatching)
+    reg = on.copy()
 else:
     raise SystemExit('unknown region')
 w = ndimage.gaussian_filter(reg.astype(np.float32), 1.5)[..., None]

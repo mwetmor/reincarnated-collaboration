@@ -1,0 +1,220 @@
+{
+ "what": "JOIN-1 clip manifest for the rimethorn brute (crucible creature, roster rig thornedhorrora01) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/rimethorn/rimethorn.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn.glb",
+  "sha256_16": "c54618b3f2b963c5",
+  "height_m": 1.7414,
+  "length_m": 3.3302
+ },
+ "clips": {
+  "idle": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster idle_01 76f; ours 60f"
+  },
+  "walk": {
+   "seconds": 0.6,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_01 41f; walkSpeed 1.25 has no stated base -- 1.6 metres per second INFERRED"
+  },
+  "run": {
+   "seconds": 0.4,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.723 metres per second (characterRunSpeed 1.16 x K4-0), run_01 21f"
+  },
+  "attack_swipe": {
+   "seconds": 1.83333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: ice slash: attack_crossswipe 56f rel f25 (melee 0-2.98 m)"
+  },
+  "cast_impale": {
+   "seconds": 2.83333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: avalanche: attack_3x_groundimpale 86f rel f27 (aoe wave 16 m long x 2 m)"
+  },
+  "cast_shards": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: ice shard burst: cast_attack_01 51f rel f31 (projectile 18 metres per second)"
+  },
+  "hit": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: hit_react_01 21f"
+  },
+  "death": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_01 61f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.6,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.72,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_swipe": {
+   "release_s": 0.8333,
+   "frame": 25,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 25)"
+  }
+ },
+ "casts": {
+  "cast_impale": {
+   "release_s": 0.9,
+   "frame": 27,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 27)"
+  },
+  "cast_shards": {
+   "release_s": 1.0333,
+   "frame": 31,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 31)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "rimethorn_slash_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn_slash_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.4933,
+     1.4933
+    ],
+    "px_per_m": 171.429,
+    "plane": "billboard",
+    "pivot": "centre = the crossing forefeet at contact",
+    "ability": "thornedhorrorfrost_iceslash (melee 0-2.98 m)",
+    "trigger": "attack_swipe contact f25",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_impale_wave",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn_impale_wave.png",
+    "frames": 20,
+    "grid": [
+     4,
+     5
+    ],
+    "cell_px": [
+     1024,
+     192
+    ],
+    "fps": 24,
+    "duration_s": 0.8333,
+    "cell_m": [
+     18.2044,
+     3.4133
+    ],
+    "px_per_m": 56.25,
+    "plane": "ground",
+    "pivot": "left-middle (the forefeet at the slam, projected to the ground)",
+    "ability": "thornedhorrorfrost_avalanche (aoe wave 16 m long x 2 m, slow)",
+    "trigger": "cast_impale release f27; the spikes run out over 830 ms",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_shard_orb",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn_shard_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.5517,
+     0.5517
+    ],
+    "px_per_m": 232.0,
+    "plane": "billboard",
+    "pivot": "centre = the shard in flight (body r 0.5)",
+    "ability": "thornedhorrorfrost_iceshardburst (projectile 18 metres per second)",
+    "trigger": "cast_shards release f31 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_shard_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn_shard_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     2.1818,
+     2.1818
+    ],
+    "px_per_m": 88.0,
+    "plane": "billboard",
+    "pivot": "centre = the impact point (area 1 m)",
+    "ability": "iceshardburst impact",
+    "trigger": "on shard impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "rimethorn_thornfield",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/rimethorn/rimethorn_thornfield.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     7.9304,
+     7.9304
+    ],
+    "px_per_m": 48.421,
+    "plane": "ground",
+    "pivot": "centre = the corpse root (area r 3.8 m; the 6000 ms slow field is a runtime tint)",
+    "ability": "thornedhorrorfrost_icethornfield (on death)",
+    "trigger": "death start",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}
