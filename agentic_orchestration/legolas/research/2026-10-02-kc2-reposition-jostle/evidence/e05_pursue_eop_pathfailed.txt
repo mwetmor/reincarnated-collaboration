@@ -1,0 +1,268 @@
+=== 0xffcf0 ===
+  0x000ffcf0  push     ebp
+  0x000ffcf1  mov      ebp, esp
+  0x000ffcf3  mov      eax, dword ptr fs:[0]
+  0x000ffcf9  push     -1
+  0x000ffcfb  push     0x104c9758
+  0x000ffd00  push     eax
+  0x000ffd01  mov      dword ptr fs:[0], esp
+  0x000ffd08  sub      esp, 0x60
+  0x000ffd0b  push     ebx
+  0x000ffd0c  mov      ebx, ecx
+  0x000ffd0e  push     esi
+  0x000ffd0f  push     edi
+  0x000ffd10  mov      ecx, dword ptr [ebx + 4]
+  0x000ffd13  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffd18  push     dword ptr [eax + 8]
+  0x000ffd1b  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000ffd21  mov      ecx, eax
+  0x000ffd23  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000ffd28  mov      ecx, dword ptr [ebx + 4]
+  0x000ffd2b  mov      edi, eax
+  0x000ffd2d  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffd32  mov      ecx, dword ptr [ebx + 4]
+  0x000ffd35  mov      esi, dword ptr [eax + 8]
+  0x000ffd38  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffd3d  mov      edx, dword ptr [ebx]
+  0x000ffd3f  mov      ecx, ebx
+  0x000ffd41  push     esi
+  0x000ffd42  push     dword ptr [eax]
+  0x000ffd44  mov      eax, dword ptr [edx + 8]
+  0x000ffd47  call     eax
+  0x000ffd49  test     al, al
+  0x000ffd4b  je       0x100ffd57
+  0x000ffd4d  mov      ecx, dword ptr [ebx + 4]
+  0x000ffd50  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffd55  jmp      0x100ffd6f   ; -> ?EndOfPathReached@ControllerMonsterStatePursue@GAME@@MAEXXZ+0x7f
+  0x000ffd57  test     edi, edi
+  0x000ffd59  je       0x100ffded
+  0x000ffd5f  mov      eax, dword ptr [edi]
+  0x000ffd61  mov      ecx, edi
+  0x000ffd63  mov      eax, dword ptr [eax + 0x2ac]
+  0x000ffd69  call     eax
+  0x000ffd6b  test     al, al
+  0x000ffd6d  je       0x100ffded
+  0x000ffd6f  push     6
+  0x000ffd71  push     0x1052df04   ; "Attack"
+  0x000ffd76  lea      ecx, [ebp - 0x34]
+  0x000ffd79  mov      dword ptr [ebp - 0x20], 0xf
+  0x000ffd80  mov      dword ptr [ebp - 0x24], 0
+  0x000ffd87  mov      byte ptr [ebp - 0x34], 0
+  0x000ffd8b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000ffd90  mov      dword ptr [ebp - 4], 0
+  0x000ffd97  mov      ecx, dword ptr [ebx + 4]
+  0x000ffd9a  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffd9f  mov      ecx, dword ptr [ebx + 4]
+  0x000ffda2  mov      edi, dword ptr [eax + 8]
+  0x000ffda5  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffdaa  lea      ecx, [ebp - 0x1c]
+  0x000ffdad  mov      esi, dword ptr [eax]
+  0x000ffdaf  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x000ffdb5  mov      ecx, dword ptr [ebx + 4]
+  0x000ffdb8  mov      dword ptr [ebp - 0x50], esi
+  0x000ffdbb  mov      dword ptr [ebp - 0x4c], 0
+  0x000ffdc2  movups   xmm0, xmmword ptr [eax]
+  0x000ffdc5  lea      eax, [ebp - 0x50]
+  0x000ffdc8  mov      dword ptr [ebp - 0x48], edi
+  0x000ffdcb  push     eax
+  0x000ffdcc  lea      eax, [ebp - 0x34]
+  0x000ffdcf  push     eax
+  0x000ffdd0  movups   xmmword ptr [ebp - 0x44], xmm0
+  0x000ffdd4  call     0x100e6b30   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x000ffdd9  mov      edx, dword ptr [ebp - 0x20]
+  0x000ffddc  cmp      edx, 0x10
+  0x000ffddf  jb       0x100ffeaa
+  0x000ffde5  mov      ecx, dword ptr [ebp - 0x34]
+  0x000ffde8  jmp      0x100ffe9f   ; -> ?EndOfPathReached@ControllerMonsterStatePursue@GAME@@MAEXXZ+0x1af
+  0x000ffded  mov      ecx, dword ptr [ebx + 4]
+  0x000ffdf0  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffdf5  mov      esi, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000ffdfb  push     dword ptr [eax]
+  0x000ffdfd  call     esi
+  0x000ffdff  mov      ecx, eax
+  0x000ffe01  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000ffe06  mov      edi, eax
+  0x000ffe08  test     edi, edi
+  0x000ffe0a  je       0x100ffe52
+  0x000ffe0c  mov      eax, dword ptr [ebx + 8]
+  0x000ffe0f  test     eax, eax
+  0x000ffe11  jne      0x100ffe25
+  0x000ffe13  mov      eax, dword ptr [ebx + 4]
+  0x000ffe16  push     dword ptr [eax + 0x24]
+  0x000ffe19  call     esi
+  0x000ffe1b  mov      ecx, eax
+  0x000ffe1d  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000ffe22  mov      dword ptr [ebx + 8], eax
+  0x000ffe25  mov      ecx, eax
+  0x000ffe27  call     dword ptr [0x104e6094]   ; f32=1.16425e-38 i32=8308360 f64=2.73916e-306
+  0x000ffe2d  mov      ecx, dword ptr [edi + 0x1dd0]
+  0x000ffe33  push     eax
+  0x000ffe34  call     0x104608c0   ; -> ?ReleaseSlot@SlotManager@GAME@@QAEXI@Z
+  0x000ffe39  push     0x1052def4   ; "WaitToAttack"
+  0x000ffe3e  lea      ecx, [ebp - 0x34]
+  0x000ffe41  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000ffe46  mov      dword ptr [ebp - 4], 1
+  0x000ffe4d  jmp      0x100ffd97   ; -> ?EndOfPathReached@ControllerMonsterStatePursue@GAME@@MAEXXZ+0xa7
+  0x000ffe52  push     0x1052df14   ; "Return"
+  0x000ffe57  lea      ecx, [ebp - 0x4c]
+  0x000ffe5a  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000ffe5f  mov      dword ptr [ebp - 4], 2
+  0x000ffe66  lea      ecx, [ebp - 0x60]
+  0x000ffe69  mov      dword ptr [ebp - 0x6c], 0
+  0x000ffe70  mov      dword ptr [ebp - 0x68], 0
+  0x000ffe77  mov      dword ptr [ebp - 0x64], 0
+  0x000ffe7e  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x000ffe84  mov      ecx, dword ptr [ebx + 4]
+  0x000ffe87  lea      eax, [ebp - 0x6c]
+  0x000ffe8a  push     eax
+  0x000ffe8b  lea      eax, [ebp - 0x4c]
+  0x000ffe8e  push     eax
+  0x000ffe8f  call     0x100e6b30   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x000ffe94  mov      edx, dword ptr [ebp - 0x38]
+  0x000ffe97  cmp      edx, 0x10
+  0x000ffe9a  jb       0x100ffeaa
+  0x000ffe9c  mov      ecx, dword ptr [ebp - 0x4c]
+  0x000ffe9f  push     1
+  0x000ffea1  inc      edx
+  0x000ffea2  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000ffea7  add      esp, 4
+  0x000ffeaa  mov      ecx, dword ptr [ebp - 0xc]
+  0x000ffead  pop      edi
+  0x000ffeae  pop      esi
+  0x000ffeaf  pop      ebx
+  0x000ffeb0  mov      dword ptr fs:[0], ecx
+  0x000ffeb7  mov      esp, ebp
+  0x000ffeb9  pop      ebp
+  0x000ffeba  ret      
+=== 0xffec0 ===
+  0x000ffec0  push     ebp
+  0x000ffec1  mov      ebp, esp
+  0x000ffec3  mov      eax, dword ptr fs:[0]
+  0x000ffec9  push     -1
+  0x000ffecb  push     0x104c9788
+  0x000ffed0  push     eax
+  0x000ffed1  mov      dword ptr fs:[0], esp
+  0x000ffed8  sub      esp, 0x64
+  0x000ffedb  push     ebx
+  0x000ffedc  mov      ebx, ecx
+  0x000ffede  push     esi
+  0x000ffedf  push     edi
+  0x000ffee0  mov      ecx, dword ptr [ebx + 4]
+  0x000ffee3  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000ffee8  mov      esi, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000ffeee  push     dword ptr [eax + 8]
+  0x000ffef1  call     esi
+  0x000ffef3  mov      ecx, eax
+  0x000ffef5  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000ffefa  mov      ecx, eax
+  0x000ffefc  test     ecx, ecx
+  0x000ffefe  je       0x100fff78
+  0x000fff00  mov      eax, dword ptr [ecx]
+  0x000fff02  mov      eax, dword ptr [eax + 0x2ac]
+  0x000fff08  call     eax
+  0x000fff0a  test     al, al
+  0x000fff0c  je       0x100fff78
+  0x000fff0e  push     0x1052df0c   ; "Attack"
+  0x000fff13  lea      ecx, [ebp - 0x50]
+  0x000fff16  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000fff1b  mov      dword ptr [ebp - 4], 0
+  0x000fff22  mov      ecx, dword ptr [ebx + 4]
+  0x000fff25  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000fff2a  mov      ecx, dword ptr [ebx + 4]
+  0x000fff2d  mov      edi, dword ptr [eax + 8]
+  0x000fff30  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000fff35  lea      ecx, [ebp - 0x1c]
+  0x000fff38  mov      esi, dword ptr [eax]
+  0x000fff3a  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x000fff40  mov      dword ptr [ebp - 0x70], esi
+  0x000fff43  mov      dword ptr [ebp - 0x6c], 0
+  0x000fff4a  mov      dword ptr [ebp - 0x68], edi
+  0x000fff4d  movups   xmm0, xmmword ptr [eax]
+  0x000fff50  lea      eax, [ebp - 0x70]
+  0x000fff53  movups   xmmword ptr [ebp - 0x64], xmm0
+  0x000fff57  mov      ecx, dword ptr [ebx + 4]
+  0x000fff5a  push     eax
+  0x000fff5b  lea      eax, [ebp - 0x50]
+  0x000fff5e  push     eax
+  0x000fff5f  call     0x100e6b30   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x000fff64  mov      edx, dword ptr [ebp - 0x3c]
+  0x000fff67  cmp      edx, 0x10
+  0x000fff6a  jb       0x1010006d
+  0x000fff70  mov      ecx, dword ptr [ebp - 0x50]
+  0x000fff73  jmp      0x10100062   ; -> ?PathFailed@ControllerMonsterStatePursue@GAME@@MAEXXZ+0x1a2
+  0x000fff78  mov      ecx, dword ptr [ebx + 4]
+  0x000fff7b  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000fff80  push     dword ptr [eax]
+  0x000fff82  call     esi
+  0x000fff84  mov      ecx, eax
+  0x000fff86  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000fff8b  mov      edi, eax
+  0x000fff8d  test     edi, edi
+  0x000fff8f  je       0x100fffbe
+  0x000fff91  mov      eax, dword ptr [ebx + 8]
+  0x000fff94  test     eax, eax
+  0x000fff96  jne      0x100fffaa
+  0x000fff98  mov      eax, dword ptr [ebx + 4]
+  0x000fff9b  push     dword ptr [eax + 0x24]
+  0x000fff9e  call     esi
+  0x000fffa0  mov      ecx, eax
+  0x000fffa2  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000fffa7  mov      dword ptr [ebx + 8], eax
+  0x000fffaa  mov      ecx, eax
+  0x000fffac  call     dword ptr [0x104e6094]   ; f32=1.16425e-38 i32=8308360 f64=2.73916e-306
+  0x000fffb2  mov      ecx, dword ptr [edi + 0x1dd0]
+  0x000fffb8  push     eax
+  0x000fffb9  call     0x104608c0   ; -> ?ReleaseSlot@SlotManager@GAME@@QAEXI@Z
+  0x000fffbe  inc      dword ptr [ebx + 0x18]
+  0x000fffc1  cmp      dword ptr [ebx + 0x18], 5
+  0x000fffc5  jl       0x10100001
+  0x000fffc7  push     0x1052df30   ; "Idle"
+  0x000fffcc  lea      ecx, [ebp - 0x50]
+  0x000fffcf  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000fffd4  mov      dword ptr [ebp - 4], 1
+  0x000fffdb  lea      ecx, [ebp - 0x1c]
+  0x000fffde  mov      dword ptr [ebp - 0x28], 0
+  0x000fffe5  mov      dword ptr [ebp - 0x24], 0
+  0x000fffec  mov      dword ptr [ebp - 0x20], 0
+  0x000ffff3  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x000ffff9  lea      eax, [ebp - 0x28]
+  0x000ffffc  jmp      0x100fff57   ; -> ?PathFailed@ControllerMonsterStatePursue@GAME@@MAEXXZ+0x97
+  0x00100001  push     0x1052df1c   ; "RepositionForAttack"
+  0x00100006  lea      ecx, [ebp - 0x6c]
+  0x00100009  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x0010000e  mov      dword ptr [ebp - 4], 2
+  0x00100015  mov      ecx, dword ptr [ebx + 4]
+  0x00100018  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x0010001d  mov      ecx, dword ptr [ebx + 4]
+  0x00100020  mov      edi, dword ptr [eax + 8]
+  0x00100023  call     0x100e8890   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x00100028  lea      ecx, [ebp - 0x38]
+  0x0010002b  mov      esi, dword ptr [eax]
+  0x0010002d  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x00100033  mov      ecx, dword ptr [ebx + 4]
+  0x00100036  mov      dword ptr [ebp - 0x54], esi
+  0x00100039  mov      dword ptr [ebp - 0x50], 0
+  0x00100040  movups   xmm0, xmmword ptr [eax]
+  0x00100043  lea      eax, [ebp - 0x54]
+  0x00100046  mov      dword ptr [ebp - 0x4c], edi
+  0x00100049  push     eax
+  0x0010004a  lea      eax, [ebp - 0x6c]
+  0x0010004d  push     eax
+  0x0010004e  movups   xmmword ptr [ebp - 0x48], xmm0
+  0x00100052  call     0x100e6b30   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x00100057  mov      edx, dword ptr [ebp - 0x58]
+  0x0010005a  cmp      edx, 0x10
+  0x0010005d  jb       0x1010006d
+  0x0010005f  mov      ecx, dword ptr [ebp - 0x6c]
+  0x00100062  push     1
+  0x00100064  inc      edx
+  0x00100065  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0010006a  add      esp, 4
+  0x0010006d  mov      ecx, dword ptr [ebp - 0xc]
+  0x00100070  pop      edi
+  0x00100071  pop      esi
+  0x00100072  pop      ebx
+  0x00100073  mov      dword ptr fs:[0], ecx
+  0x0010007a  mov      esp, ebp
+  0x0010007c  pop      ebp
+  0x0010007d  ret      

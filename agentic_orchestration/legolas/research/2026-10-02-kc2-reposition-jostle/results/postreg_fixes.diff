@@ -1,0 +1,16 @@
+666c666,667
+<         wp = fold.waypoint(self.actor_id, self.xy, player_xy)
+---
+>         pre_xy = self.xy                                 # ⚑ fix (post-prereg, disclosed): the net instrument
+>         wp = fold.waypoint(self.actor_id, self.xy, player_xy)   # must difference PRE-step positions
+678c679,680
+<                 WTEL["_prev"][self.actor_id] = (t, self.xy, b)
+---
+>                 bp = _band(math.hypot(pre_xy[0] - player_xy[0], pre_xy[1] - player_xy[1]))
+>                 WTEL["_prev"][self.actor_id] = (t, pre_xy, bp)
+788a791,795
+>         # ⚑ fix (post-prereg, disclosed): per-wave RNG caches were keyed by id(engine), which CPython can reuse
+>         #   for the next wave's engine -> run-to-run nondeterminism. Fresh streams per wave, as intended.
+>         for k in ("_rj_rfa", "_rj_wta", "_rj_roam", "_rj_rp"):
+>             if hasattr(f, k):
+>                 setattr(f, k, {})

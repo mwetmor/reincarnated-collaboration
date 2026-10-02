@@ -1,0 +1,490 @@
+=== ?CrowdAgentCreated@Character@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z ===
+  0x000527d0  push     ebp
+  0x000527d1  mov      ebp, esp
+  0x000527d3  sub      esp, 0x40
+  0x000527d6  lea      eax, [ebp - 0x40]
+  0x000527d9  push     ebx
+  0x000527da  push     esi
+  0x000527db  mov      ebx, ecx
+  0x000527dd  push     edi
+  0x000527de  push     eax
+  0x000527df  lea      ecx, [ebx - 0x28]
+  0x000527e2  call     dword ptr [0x104e628c]   ; f32=1.16524e-38 i32=8315442 f64=2.7488e-306
+  0x000527e8  lea      ecx, [ebp - 0x40]
+  0x000527eb  call     dword ptr [0x104e6250]   ; f32=1.16512e-38 i32=8314588 f64=2.74763e-306
+  0x000527f1  test     eax, eax
+  0x000527f3  je       0x10052813
+  0x000527f5  lea      eax, [ebp - 0xc]
+  0x000527f8  push     eax
+  0x000527f9  lea      ecx, [ebp - 0x40]
+  0x000527fc  call     dword ptr [0x104e66cc]   ; f32=1.16729e-38 i32=8330070 f64=2.76867e-306
+  0x00052802  mov      ecx, dword ptr [ebp + 8]
+  0x00052805  movq     xmm0, qword ptr [eax]
+  0x00052809  movq     qword ptr [ecx], xmm0
+  0x0005280d  mov      eax, dword ptr [eax + 8]
+  0x00052810  mov      dword ptr [ecx + 8], eax
+  0x00052813  mov      esi, dword ptr [ebp + 0x10]
+  0x00052816  mov      ecx, dword ptr [ebp + 0xc]
+  0x00052819  movq     xmm0, qword ptr [ebp - 0x18]
+  0x0005281e  mov      eax, dword ptr [ebp - 0x10]
+  0x00052821  movq     qword ptr [ecx], xmm0
+  0x00052825  mov      dword ptr [ecx + 8], eax
+  0x00052828  lea      ecx, [ebx - 0x28]
+  0x0005282b  mov      dword ptr [esi + 0xc], 0
+  0x00052832  mov      dword ptr [esi + 0x34], 0x481
+  0x00052839  mov      dword ptr [esi + 0x10], 4
+  0x00052840  mov      dword ptr [esi + 0x14], 6
+  0x00052847  mov      dword ptr [esi + 0x2c], 0
+  0x0005284e  mov      dword ptr [esi + 0x30], 0
+  0x00052855  mov      dword ptr [esi + 0x18], 0x3ccccccd
+  0x0005285c  call     dword ptr [0x104e66d0]   ; f32=1.1673e-38 i32=8330122 f64=2.76871e-306
+  0x00052862  lea      ecx, [ebx - 0x28]
+  0x00052865  fstp     dword ptr [esi + 4]
+  0x00052868  call     dword ptr [0x104e6684]   ; f32=1.16715e-38 i32=8329092 f64=2.76732e-306
+  0x0005286e  movss    xmm1, dword ptr [eax + 4]
+  0x00052873  movss    xmm2, dword ptr [eax]
+  0x00052877  movss    xmm0, dword ptr [eax + 8]
+  0x0005287c  mulss    xmm2, xmm2
+  0x00052880  mulss    xmm1, xmm1
+  0x00052884  mulss    xmm0, xmm0
+  0x00052888  addss    xmm2, xmm1
+  0x0005288c  addss    xmm2, xmm0
+  0x00052890  xorps    xmm0, xmm0
+  0x00052893  ucomiss  xmm2, xmm0
+  0x00052896  lahf     
+  0x00052897  test     ah, 0x44
+  0x0005289a  jnp      0x100528a3
+  0x0005289c  xorps    xmm0, xmm0
+  0x0005289f  sqrtss   xmm0, xmm2
+  0x000528a3  movss    dword ptr [esi + 8], xmm0
+  0x000528a8  lea      ecx, [ebx - 0x28]
+  0x000528ab  mov      eax, dword ptr [ebx - 0x28]
+  0x000528ae  mov      eax, dword ptr [eax + 0xe4]
+  0x000528b4  call     eax
+  0x000528b6  fstp     dword ptr [esi]
+  0x000528b8  mov      dword ptr [esi + 0x1c], 0
+  0x000528bf  mov      dword ptr [esi + 0x20], 1
+  0x000528c6  mov      dword ptr [esi + 0x28], 0x3f8ccccd
+  0x000528cd  mov      dword ptr [esi + 0x2c], 0x190
+  0x000528d4  cmp      byte ptr [ebx + 0x9d2], 0
+  0x000528db  je       0x100528e1
+  0x000528dd  or       dword ptr [esi + 0x34], 0x20
+  0x000528e1  pop      edi
+  0x000528e2  pop      esi
+  0x000528e3  pop      ebx
+  0x000528e4  mov      esp, ebp
+  0x000528e6  pop      ebp
+  0x000528e7  ret      0xc
+=== ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z ===
+  0x000528f0  push     ebp
+  0x000528f1  mov      ebp, esp
+  0x000528f3  push     ebx
+  0x000528f4  push     esi
+  0x000528f5  mov      esi, ecx
+  0x000528f7  push     edi
+  0x000528f8  lea      ebx, [esi - 0x28]
+  0x000528fb  mov      ecx, ebx
+  0x000528fd  call     dword ptr [0x104e6684]   ; f32=1.16715e-38 i32=8329092 f64=2.76732e-306
+  0x00052903  xorps    xmm3, xmm3
+  0x00052906  movss    xmm1, dword ptr [eax + 4]
+  0x0005290b  movss    xmm2, dword ptr [eax]
+  0x0005290f  movss    xmm0, dword ptr [eax + 8]
+  0x00052914  mulss    xmm2, xmm2
+  0x00052918  mulss    xmm1, xmm1
+  0x0005291c  mulss    xmm0, xmm0
+  0x00052920  addss    xmm2, xmm1
+  0x00052924  addss    xmm2, xmm0
+  0x00052928  ucomiss  xmm2, xmm3
+  0x0005292b  lahf     
+  0x0005292c  test     ah, 0x44
+  0x0005292f  jp       0x10052936
+  0x00052931  movaps   xmm1, xmm3
+  0x00052934  jmp      0x1005293d   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0x4d
+  0x00052936  xorps    xmm1, xmm1
+  0x00052939  sqrtss   xmm1, xmm2
+  0x0005293d  mov      edi, dword ptr [ebp + 8]
+  0x00052940  movss    dword ptr [edi + 8], xmm1
+  0x00052945  movss    xmm0, dword ptr [esi + 0x930]
+  0x0005294d  comiss   xmm0, xmm3
+  0x00052950  jbe      0x1005295b
+  0x00052952  mulss    xmm0, xmm1
+  0x00052956  movss    dword ptr [edi + 8], xmm0
+  0x0005295b  cmp      byte ptr [esi + 0x92c], 0
+  0x00052962  je       0x1005296d
+  0x00052964  or       dword ptr [edi + 0x34], 0x800
+  0x0005296b  jmp      0x10052974   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0x84
+  0x0005296d  and      dword ptr [edi + 0x34], 0xfffff7ff
+  0x00052974  cmp      byte ptr [esi + 0x92d], 0
+  0x0005297b  je       0x10052986
+  0x0005297d  mov      dword ptr [edi + 0x14], 8
+  0x00052984  jmp      0x100529ca   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0xda
+  0x00052986  mov      eax, dword ptr [ebx]
+  0x00052988  mov      ecx, ebx
+  0x0005298a  call     dword ptr [eax]
+  0x0005298c  cmp      eax, 0x108005a0   ; [?classInfo@Player@GAME@@1VRTTI_ClassInfo@2@B] f32=4.40597e-29 i32=274688188 f64=1.35714e-315
+  0x00052991  je       0x100529b4
+  0x00052993  mov      ecx, dword ptr [eax + 8]
+  0x00052996  test     ecx, ecx
+  0x00052998  je       0x100529b0
+  0x0005299a  cmp      ecx, 0x108005a0   ; [?classInfo@Player@GAME@@1VRTTI_ClassInfo@2@B] f32=4.40597e-29 i32=274688188 f64=1.35714e-315
+  0x000529a0  je       0x100529b4
+  0x000529a2  push     0x108005a0   ; [?classInfo@Player@GAME@@1VRTTI_ClassInfo@2@B] f32=4.40597e-29 i32=274688188 f64=1.35714e-315
+  0x000529a7  call     0x1048b870   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2950
+  0x000529ac  test     al, al
+  0x000529ae  jne      0x100529b4
+  0x000529b0  xor      ecx, ecx
+  0x000529b2  jmp      0x100529b9   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0xc9
+  0x000529b4  mov      ecx, 1
+  0x000529b9  xor      eax, eax
+  0x000529bb  test     cl, cl
+  0x000529bd  sete     al
+  0x000529c0  lea      eax, [eax*4 + 2]
+  0x000529c7  mov      dword ptr [edi + 0x14], eax
+  0x000529ca  mov      eax, dword ptr [ebx]
+  0x000529cc  mov      ecx, ebx
+  0x000529ce  call     dword ptr [eax + 0x22c]
+  0x000529d4  cmp      eax, 0x13
+  0x000529d7  je       0x100529f5
+  0x000529d9  mov      eax, dword ptr [ebx]
+  0x000529db  mov      ecx, ebx
+  0x000529dd  call     dword ptr [eax + 0x22c]
+  0x000529e3  cmp      eax, 0x15
+  0x000529e6  je       0x100529f5
+  0x000529e8  mov      eax, dword ptr [edi + 0x34]
+  0x000529eb  and      eax, 0xffffffdf
+  0x000529ee  or       eax, 0x80
+  0x000529f3  jmp      0x10052a00   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0x110
+  0x000529f5  mov      eax, dword ptr [edi + 0x34]
+  0x000529f8  and      eax, 0xffffff7f
+  0x000529fd  or       eax, 0x20
+  0x00052a00  mov      dword ptr [edi + 0x34], eax
+  0x00052a03  cmp      byte ptr [esi + 0x9d2], 0
+  0x00052a0a  je       0x10052a10
+  0x00052a0c  or       dword ptr [edi + 0x34], 0x20
+  0x00052a10  mov      ecx, dword ptr [0x104e6028]   ; f32=1.16404e-38 i32=8306902 f64=2.73717e-306
+  0x00052a16  mov      ecx, dword ptr [ecx]
+  0x00052a18  call     dword ptr [0x104e66d8]   ; f32=1.16731e-38 i32=8330198 f64=2.76882e-306
+  0x00052a1e  mov      ecx, ebx
+  0x00052a20  lea      esi, [eax - 1]
+  0x00052a23  call     dword ptr [0x104e66d4]   ; f32=1.1673e-38 i32=8330154 f64=2.76877e-306
+  0x00052a29  cmp      eax, esi
+  0x00052a2b  jb       0x10052a3b
+  0x00052a2d  and      dword ptr [edi + 0x34], 0xffffefff
+  0x00052a34  pop      edi
+  0x00052a35  pop      esi
+  0x00052a36  pop      ebx
+  0x00052a37  pop      ebp
+  0x00052a38  ret      4
+  0x00052a3b  or       dword ptr [edi + 0x34], 0x1000
+  0x00052a42  pop      edi
+  0x00052a43  pop      esi
+  0x00052a44  pop      ebx
+  0x00052a45  pop      ebp
+  0x00052a46  ret      4
+=== ?CrowdAgentCreated@Monster@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z ===
+  0x002d6f20  push     ebp
+  0x002d6f21  mov      ebp, esp
+  0x002d6f23  push     esi
+  0x002d6f24  mov      esi, dword ptr [ebp + 0x10]
+  0x002d6f27  push     edi
+  0x002d6f28  push     esi
+  0x002d6f29  push     dword ptr [ebp + 0xc]
+  0x002d6f2c  mov      edi, ecx
+  0x002d6f2e  push     dword ptr [ebp + 8]
+  0x002d6f31  call     0x100527d0   ; -> ?CrowdAgentCreated@Character@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z
+  0x002d6f36  or       dword ptr [esi + 0x34], 0x100
+  0x002d6f3d  mov      dword ptr [esi + 0x1c], 0x3f8ccccd
+  0x002d6f44  cmp      dword ptr [edi + 0x15d0], 0
+  0x002d6f4b  je       0x102d6f7b
+  0x002d6f4d  movss    xmm1, dword ptr [edi + 0x133c]
+  0x002d6f55  xorps    xmm0, xmm0
+  0x002d6f58  ucomiss  xmm1, xmm0
+  0x002d6f5b  lahf     
+  0x002d6f5c  test     ah, 0x44
+  0x002d6f5f  jnp      0x102d6f7b
+  0x002d6f61  comiss   xmm1, xmm0
+  0x002d6f64  setae    al
+  0x002d6f67  test     al, al
+  0x002d6f69  jne      0x102d6f7b
+  0x002d6f6b  mov      dword ptr [esi + 0x10], 2
+  0x002d6f72  mov      dword ptr [esi + 0x14], 7
+  0x002d6f79  jmp      0x102d6f89   ; -> ?CrowdAgentCreated@Monster@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z+0x69
+  0x002d6f7b  mov      dword ptr [esi + 0x10], 1
+  0x002d6f82  mov      dword ptr [esi + 0x14], 2
+  0x002d6f89  cmp      byte ptr [edi + 0x3a94], 0
+  0x002d6f90  je       0x102d6f96
+  0x002d6f92  or       dword ptr [esi + 0x10], 8
+  0x002d6f96  cmp      byte ptr [edi + 0x3a95], 0
+  0x002d6f9d  je       0x102d6fa6
+  0x002d6f9f  mov      dword ptr [esi + 0x10], 0
+  0x002d6fa6  pop      edi
+  0x002d6fa7  pop      esi
+  0x002d6fa8  pop      ebp
+  0x002d6fa9  ret      0xc
+=== ?CrowdAgentUpdate@Monster@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z ===
+  0x002d6fb0  push     ebp
+  0x002d6fb1  mov      ebp, esp
+  0x002d6fb3  push     ebx
+  0x002d6fb4  push     esi
+  0x002d6fb5  mov      esi, dword ptr [ebp + 8]
+  0x002d6fb8  push     edi
+  0x002d6fb9  push     esi
+  0x002d6fba  mov      edi, ecx
+  0x002d6fbc  call     0x100528f0   ; -> ?CrowdAgentUpdate@Character@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z
+  0x002d6fc1  mov      ebx, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x002d6fc7  mov      ecx, dword ptr [ebx + 0x27f4]
+  0x002d6fcd  mov      eax, dword ptr [ecx]
+  0x002d6fcf  call     dword ptr [eax + 0xc]
+  0x002d6fd2  cmp      dword ptr [eax + 8], 0
+  0x002d6fd6  je       0x102d7055
+  0x002d6fd8  mov      ecx, dword ptr [ebx + 0x27f4]
+  0x002d6fde  mov      eax, dword ptr [ecx]
+  0x002d6fe0  call     dword ptr [eax + 0xc]
+  0x002d6fe3  push     dword ptr [eax + 8]
+  0x002d6fe6  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x002d6fec  mov      ecx, eax
+  0x002d6fee  call     0x1000b210   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+  0x002d6ff3  mov      ebx, eax
+  0x002d6ff5  test     ebx, ebx
+  0x002d6ff7  je       0x102d7055
+  0x002d6ff9  mov      edx, dword ptr [edi - 0x28]
+  0x002d6ffc  lea      ecx, [edi - 0x28]
+  0x002d6fff  call     dword ptr [edx + 0x254]
+  0x002d7005  cmp      dword ptr [edi + 0x15d0], 0
+  0x002d700c  mov      ecx, eax
+  0x002d700e  je       0x102d7083
+  0x002d7010  movss    xmm1, dword ptr [edi + 0x133c]
+  0x002d7018  xorps    xmm0, xmm0
+  0x002d701b  ucomiss  xmm1, xmm0
+  0x002d701e  lahf     
+  0x002d701f  test     ah, 0x44
+  0x002d7022  jp       0x102d7079
+  0x002d7024  push     ecx
+  0x002d7025  lea      ecx, [ebx + 0x1360]
+  0x002d702b  call     0x1022d3e0   ; -> ?GetValue@FactionPack@GAME@@QBEMW4FactionType@2@@Z
+  0x002d7030  fstp     dword ptr [ebp + 8]
+  0x002d7033  cvttss2si eax, dword ptr [ebp + 8]
+  0x002d7038  xorps    xmm1, xmm1
+  0x002d703b  movd     xmm0, eax
+  0x002d703f  cvtdq2ps xmm0, xmm0
+  0x002d7042  comiss   xmm1, xmm0
+  0x002d7045  jbe      0x102d7083
+  0x002d7047  mov      dword ptr [esi + 0x10], 2
+  0x002d704e  mov      dword ptr [esi + 0x14], 7
+  0x002d7055  cmp      byte ptr [edi + 0x3a94], 0
+  0x002d705c  je       0x102d7062
+  0x002d705e  or       dword ptr [esi + 0x10], 8
+  0x002d7062  cmp      byte ptr [edi + 0x3a95], 0
+  0x002d7069  je       0x102d7072
+  0x002d706b  mov      dword ptr [esi + 0x10], 0
+  0x002d7072  pop      edi
+  0x002d7073  pop      esi
+  0x002d7074  pop      ebx
+  0x002d7075  pop      ebp
+  0x002d7076  ret      4
+  0x002d7079  comiss   xmm1, xmm0
+  0x002d707c  setae    al
+  0x002d707f  test     al, al
+  0x002d7081  je       0x102d7047
+  0x002d7083  cmp      byte ptr [edi + 0x3a94], 0
+  0x002d708a  jne      0x102d7047
+  0x002d708c  mov      dword ptr [esi + 0x10], 1
+  0x002d7093  mov      dword ptr [esi + 0x14], 2
+  0x002d709a  jmp      0x102d7055   ; -> ?CrowdAgentUpdate@Monster@GAME@@UAEXAAUCrowdAgentParams@CROWD@@@Z+0xa5
+=== ?CrowdAgentDepenetrate@Monster@GAME@@UAE_NW4CrowdAgentState@CROWD@@H0H@Z ===
+  0x002d70a0  push     ebp
+  0x002d70a1  mov      ebp, esp
+  0x002d70a3  push     esi
+  0x002d70a4  mov      esi, ecx
+  0x002d70a6  cmp      byte ptr [esi + 0x3a94], 0
+  0x002d70ad  jne      0x102d70e1
+  0x002d70af  cmp      byte ptr [esi + 0x1c3c], 0
+  0x002d70b6  je       0x102d70cd
+  0x002d70b8  lea      ecx, [esi - 0x28]
+  0x002d70bb  call     0x10046890   ; -> ?GetAnimationSet@Character@GAME@@QBEPAVAnimationSet@2@XZ
+  0x002d70c0  cmp      dword ptr [eax + 4], 0x13
+  0x002d70c4  je       0x102d70e1
+  0x002d70c6  mov      byte ptr [esi + 0x1c3c], 0
+  0x002d70cd  cmp      dword ptr [ebp + 8], 2
+  0x002d70d1  jne      0x102d70e8
+  0x002d70d3  cmp      dword ptr [ebp + 0x10], 2
+  0x002d70d7  jne      0x102d70f6
+  0x002d70d9  mov      eax, dword ptr [ebp + 0x14]
+  0x002d70dc  cmp      eax, dword ptr [ebp + 0xc]
+  0x002d70df  jle      0x102d70f6
+  0x002d70e1  xor      al, al
+  0x002d70e3  pop      esi
+  0x002d70e4  pop      ebp
+  0x002d70e5  ret      0x10
+  0x002d70e8  cmp      dword ptr [ebp + 0x10], 2
+  0x002d70ec  je       0x102d70e1
+  0x002d70ee  mov      eax, dword ptr [ebp + 0x14]
+  0x002d70f1  cmp      eax, dword ptr [ebp + 0xc]
+  0x002d70f4  jle      0x102d70e1
+  0x002d70f6  mov      al, 1
+  0x002d70f8  pop      esi
+  0x002d70f9  pop      ebp
+  0x002d70fa  ret      0x10
+=== ?CrowdAgentDepenetrate@Character@GAME@@UAE_NW4CrowdAgentState@CROWD@@H0H@Z ===
+  0x00052d70  push     ebp
+  0x00052d71  mov      ebp, esp
+  0x00052d73  cmp      dword ptr [ebp + 8], 2
+  0x00052d77  jne      0x10052d8d
+  0x00052d79  cmp      dword ptr [ebp + 0x10], 2
+  0x00052d7d  jne      0x10052d9b
+  0x00052d7f  mov      eax, dword ptr [ebp + 0x14]
+  0x00052d82  cmp      eax, dword ptr [ebp + 0xc]
+  0x00052d85  jle      0x10052d9b
+  0x00052d87  xor      al, al
+  0x00052d89  pop      ebp
+  0x00052d8a  ret      0x10
+  0x00052d8d  cmp      dword ptr [ebp + 0x10], 2
+  0x00052d91  je       0x10052d87
+  0x00052d93  mov      eax, dword ptr [ebp + 0x14]
+  0x00052d96  cmp      eax, dword ptr [ebp + 0xc]
+  0x00052d99  jle      0x10052d87
+  0x00052d9b  mov      al, 1
+  0x00052d9d  pop      ebp
+  0x00052d9e  ret      0x10
+=== ?CrowdAgentCreated@Player@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z ===
+  0x0032fb30  push     ebp
+  0x0032fb31  mov      ebp, esp
+  0x0032fb33  push     esi
+  0x0032fb34  mov      esi, dword ptr [ebp + 0x10]
+  0x0032fb37  push     esi
+  0x0032fb38  push     dword ptr [ebp + 0xc]
+  0x0032fb3b  push     dword ptr [ebp + 8]
+  0x0032fb3e  call     0x100527d0   ; -> ?CrowdAgentCreated@Character@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z
+  0x0032fb43  or       dword ptr [esi + 0x34], 0x80000044
+  0x0032fb4a  inc      dword ptr [esi + 0x20]
+  0x0032fb4d  mov      dword ptr [esi + 0x10], 1
+  0x0032fb54  mov      dword ptr [esi + 0x14], 2
+  0x0032fb5b  pop      esi
+  0x0032fb5c  pop      ebp
+  0x0032fb5d  ret      0xc
+=== ?CrowdAgentError@Monster@GAME@@UAEXABUCrowdAgentData@CROWD@@W4CrowdError@4@@Z ===
+  0x002d7130  push     ebp
+  0x002d7131  mov      ebp, esp
+  0x002d7133  push     edi
+  0x002d7134  push     dword ptr [ebp + 0xc]
+  0x002d7137  mov      edi, ecx
+  0x002d7139  push     dword ptr [ebp + 8]
+  0x002d713c  call     0x10052db0   ; -> ?CrowdAgentError@Character@GAME@@UAEXABUCrowdAgentData@CROWD@@W4CrowdError@4@@Z
+  0x002d7141  cmp      dword ptr [ebp + 0xc], 5
+  0x002d7145  jne      0x102d7173
+  0x002d7147  cmp      byte ptr [edi + 0x3a97], 0
+  0x002d714e  je       0x102d7173
+  0x002d7150  cmp      dword ptr [edi + 0x3770], 3
+  0x002d7157  jl       0x102d7173
+  0x002d7159  cmp      byte ptr [edi + 0x3a98], 0
+  0x002d7160  jne      0x102d7173
+  0x002d7162  mov      dword ptr [edi + 0x3a9c], 0xfa0
+  0x002d716c  mov      byte ptr [edi + 0x3a98], 1
+  0x002d7173  pop      edi
+  0x002d7174  pop      ebp
+  0x002d7175  ret      8
+=== ?CrowdAgentError@Character@GAME@@UAEXABUCrowdAgentData@CROWD@@W4CrowdError@4@@Z ===
+  0x00052db0  push     esi
+  0x00052db1  push     edi
+  0x00052db2  mov      edi, ecx
+  0x00052db4  mov      eax, dword ptr [edi - 0x28]
+  0x00052db7  lea      ecx, [edi - 0x28]
+  0x00052dba  call     dword ptr [eax + 0x22c]
+  0x00052dc0  cmp      eax, 5
+  0x00052dc3  je       0x10052df8
+  0x00052dc5  mov      eax, dword ptr [edi - 0x28]
+  0x00052dc8  lea      ecx, [edi - 0x28]
+  0x00052dcb  call     dword ptr [eax + 0x22c]
+  0x00052dd1  cmp      eax, 6
+  0x00052dd4  je       0x10052df8
+  0x00052dd6  mov      eax, dword ptr [edi - 0x28]
+  0x00052dd9  lea      ecx, [edi - 0x28]
+  0x00052ddc  call     dword ptr [eax + 0x22c]
+  0x00052de2  cmp      eax, 0x13
+  0x00052de5  je       0x10052df8
+  0x00052de7  mov      eax, dword ptr [edi - 0x28]
+  0x00052dea  lea      ecx, [edi - 0x28]
+  0x00052ded  call     dword ptr [eax + 0x22c]
+  0x00052df3  cmp      eax, 0x15
+  0x00052df6  jne      0x10052e26
+  0x00052df8  mov      eax, dword ptr [edi - 0x28]
+  0x00052dfb  lea      ecx, [edi - 0x28]
+  0x00052dfe  call     dword ptr [eax + 0x22c]
+  0x00052e04  cmp      eax, 0x13
+  0x00052e07  je       0x10052e26
+  0x00052e09  mov      eax, dword ptr [edi - 0x28]
+  0x00052e0c  lea      ecx, [edi - 0x28]
+  0x00052e0f  call     dword ptr [eax + 0x22c]
+  0x00052e15  cmp      eax, 0x15
+  0x00052e18  je       0x10052e26
+  0x00052e1a  mov      eax, dword ptr [edi - 0x28]
+  0x00052e1d  lea      ecx, [edi - 0x28]
+  0x00052e20  call     dword ptr [eax + 0x418]
+  0x00052e26  mov      eax, dword ptr [edi + 0x928]
+  0x00052e2c  mov      byte ptr [eax + 0x24], 0
+  0x00052e30  push     dword ptr [edi + 0x10f8]
+  0x00052e36  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00052e3c  mov      ecx, eax
+  0x00052e3e  call     0x10062460   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x230
+  0x00052e43  pop      edi
+  0x00052e44  pop      esi
+  0x00052e45  test     eax, eax
+  0x00052e47  je       0x10052e50
+  0x00052e49  mov      edx, dword ptr [eax]
+  0x00052e4b  mov      ecx, eax
+  0x00052e4d  call     dword ptr [edx + 0x44]
+  0x00052e50  ret      8
+=== ?CrowdAgentReachedGoal@Character@GAME@@UAEXABUCrowdAgentData@CROWD@@@Z ===
+  0x00052cb0  push     esi
+  0x00052cb1  push     edi
+  0x00052cb2  mov      edi, ecx
+  0x00052cb4  mov      eax, dword ptr [edi - 0x28]
+  0x00052cb7  lea      ecx, [edi - 0x28]
+  0x00052cba  call     dword ptr [eax + 0x22c]
+  0x00052cc0  cmp      eax, 5
+  0x00052cc3  je       0x10052cf8
+  0x00052cc5  mov      eax, dword ptr [edi - 0x28]
+  0x00052cc8  lea      ecx, [edi - 0x28]
+  0x00052ccb  call     dword ptr [eax + 0x22c]
+  0x00052cd1  cmp      eax, 6
+  0x00052cd4  je       0x10052cf8
+  0x00052cd6  mov      eax, dword ptr [edi - 0x28]
+  0x00052cd9  lea      ecx, [edi - 0x28]
+  0x00052cdc  call     dword ptr [eax + 0x22c]
+  0x00052ce2  cmp      eax, 0x13
+  0x00052ce5  je       0x10052cf8
+  0x00052ce7  mov      eax, dword ptr [edi - 0x28]
+  0x00052cea  lea      ecx, [edi - 0x28]
+  0x00052ced  call     dword ptr [eax + 0x22c]
+  0x00052cf3  cmp      eax, 0x15
+  0x00052cf6  jne      0x10052d26
+  0x00052cf8  mov      eax, dword ptr [edi - 0x28]
+  0x00052cfb  lea      ecx, [edi - 0x28]
+  0x00052cfe  call     dword ptr [eax + 0x22c]
+  0x00052d04  cmp      eax, 0x13
+  0x00052d07  je       0x10052d26
+  0x00052d09  mov      eax, dword ptr [edi - 0x28]
+  0x00052d0c  lea      ecx, [edi - 0x28]
+  0x00052d0f  call     dword ptr [eax + 0x22c]
+  0x00052d15  cmp      eax, 0x15
+  0x00052d18  je       0x10052d26
+  0x00052d1a  mov      eax, dword ptr [edi - 0x28]
+  0x00052d1d  lea      ecx, [edi - 0x28]
+  0x00052d20  call     dword ptr [eax + 0x418]
+  0x00052d26  mov      eax, dword ptr [edi + 0x928]
+  0x00052d2c  mov      byte ptr [eax + 0x24], 0
+  0x00052d30  push     dword ptr [edi + 0x10f8]
+  0x00052d36  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00052d3c  mov      ecx, eax
+  0x00052d3e  call     0x10062460   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x230
+  0x00052d43  test     eax, eax
+  0x00052d45  je       0x10052d4e
+  0x00052d47  mov      edx, dword ptr [eax]
+  0x00052d49  mov      ecx, eax
+  0x00052d4b  call     dword ptr [edx + 0x40]
+  0x00052d4e  push     9
+  0x00052d50  lea      ecx, [edi + 0x301c]
+  0x00052d56  call     dword ptr [0x104e66e4]   ; f32=1.16733e-38 i32=8330340 f64=2.76902e-306
+  0x00052d5c  pop      edi
+  0x00052d5d  pop      esi
+  0x00052d5e  ret      4

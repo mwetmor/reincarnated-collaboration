@@ -1,0 +1,596 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 legolas reposition/jostle counterfactual on the v3.9 oracle (V39-FULL, fixed seed-9 line-up, salts listed). Nothing tuned.",
+ "arm": "RJ-CROWD",
+ "flags": {
+  "crowd": true
+ },
+ "salts": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "summary": {
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19
+  ],
+  "ratio_vs_referent": 2.1713,
+  "landed_hp_per_s_151_159": 3486.3,
+  "t_s_151_159": 7436.73,
+  "per_salt_ratio": [
+   2.1536,
+   1.88,
+   2.1981,
+   2.3106,
+   2.2025,
+   2.2879,
+   2.3418,
+   2.0572,
+   2.187,
+   2.3946,
+   2.3473,
+   2.0313,
+   2.2711,
+   2.0195,
+   2.4049,
+   1.9646,
+   2.2112,
+   1.9918,
+   2.0492,
+   2.215
+  ],
+  "leg_a_terminals": [
+   152,
+   152,
+   160,
+   152,
+   null,
+   152,
+   152,
+   null,
+   152,
+   152,
+   152,
+   null,
+   152,
+   152,
+   152,
+   160,
+   152,
+   152,
+   null,
+   160
+  ],
+  "leg_a_t_into_wave_s": [
+   42.286,
+   37.306,
+   13.469,
+   38.204,
+   null,
+   38.776,
+   38.939,
+   null,
+   39.51,
+   40.98,
+   44.408,
+   null,
+   36.735,
+   38.857,
+   39.673,
+   12.49,
+   50.449,
+   35.673,
+   null,
+   12.571
+  ],
+  "mean_leg_a_wave": 155,
+  "n_die_in_151": 0,
+  "n_first_death_in_160": 3,
+  "n_survive_160": 4,
+  "leg_b_deaths_per_salt": 1.25,
+  "leg_b_death_waves": [
+   [
+    152,
+    160
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    160
+   ],
+   [
+    152,
+    153,
+    160
+   ],
+   [],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [],
+   [
+    152,
+    160
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [],
+   [
+    152
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [
+    160
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [],
+   [
+    160
+   ]
+  ],
+  "p05_killed_while_emerging": 40,
+  "raised": {},
+  "per_wave": {
+   "151": {
+    "ratio": 2.291,
+    "deaths": 0,
+    "mean_t_s": 39.28
+   },
+   "152": {
+    "ratio": 2.933,
+    "deaths": 13,
+    "mean_t_s": 41.24
+   },
+   "153": {
+    "ratio": 2.365,
+    "deaths": 1,
+    "mean_t_s": 28.92
+   },
+   "154": {
+    "ratio": 2.277,
+    "deaths": 0,
+    "mean_t_s": 91.73
+   },
+   "155": {
+    "ratio": 0.73,
+    "deaths": 0,
+    "mean_t_s": 30.45
+   },
+   "156": {
+    "ratio": 2.82,
+    "deaths": 0,
+    "mean_t_s": 57.2
+   },
+   "157": {
+    "ratio": 0.813,
+    "deaths": 0,
+    "mean_t_s": 29.64
+   },
+   "158": {
+    "ratio": 1.06,
+    "deaths": 0,
+    "mean_t_s": 25.51
+   },
+   "159": {
+    "ratio": 3.032,
+    "deaths": 0,
+    "mean_t_s": 27.85
+   },
+   "160": {
+    "ratio": 5.366,
+    "deaths": 11,
+    "mean_t_s": 20.48
+   }
+  },
+  "instruments": {
+   "still_frac_by_H2_band_151_160": [
+    1.0,
+    1.0,
+    1.0,
+    0.987,
+    0.684,
+    0.581,
+    0.588,
+    0.554
+   ],
+   "still_frac_referent_H2": [
+    0.201,
+    0.229,
+    0.283,
+    0.279,
+    0.336,
+    0.346,
+    0.243,
+    0.145
+   ],
+   "still_frac_2p46_4p92m": 0.622,
+   "still_frac_2p46_4p92m_referent": 0.343,
+   "body_steps_by_band": [
+    2273,
+    2675,
+    6134,
+    11125,
+    29362,
+    44582,
+    71690,
+    118151
+   ],
+   "disc_occupancy_mean_bodies_per_tick_151_159": 2.24,
+   "disc_occupancy_by_wave": {
+    "151": 0.778,
+    "152": 1.411,
+    "153": 0.796,
+    "154": 5.207,
+    "155": 0.449,
+    "156": 0.857,
+    "157": 2.173,
+    "158": 1.13,
+    "159": 2.898,
+    "160": 2.209
+   },
+   "pilot_closing": {
+    "empty": {
+     "n_ticks": 41318,
+     "mean_closing_nearest_m_s": 1.5738
+    },
+    "occupied": {
+     "n_ticks": 53889,
+     "mean_closing_nearest_m_s": -1.2386
+    },
+    "disc_empty_fraction": 0.434,
+    "n_drift_ticks": 41344,
+    "drift_path_m": 3101.64,
+    "referent": {
+     "empty": 0.919,
+     "occupied": 0.129,
+     "disc_empty_fraction_plate_frames": 0.142
+    }
+   },
+   "wave_s_referent": {
+    "151": 15.6,
+    "152": 16.3,
+    "153": 14.9,
+    "154": 14.2,
+    "155": 16.2,
+    "156": 20.2,
+    "157": 19.3,
+    "158": 13.0,
+    "159": 26.3,
+    "160": 25.0
+   }
+  }
+ },
+ "rj_modes": {
+  "moving_standing_by_mode_and_band": {
+   "A": [
+    [
+     0,
+     2269
+    ],
+    [
+     0,
+     2666
+    ],
+    [
+     0,
+     6109
+    ],
+    [
+     0,
+     10912
+    ],
+    [
+     0,
+     19586
+    ],
+    [
+     0,
+     24132
+    ],
+    [
+     0,
+     38627
+    ],
+    [
+     0,
+     58241
+    ]
+   ],
+   "P": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     143,
+     0
+    ],
+    [
+     9288,
+     151
+    ],
+    [
+     18657,
+     663
+    ],
+    [
+     29488,
+     1638
+    ],
+    [
+     52616,
+     2902
+    ]
+   ],
+   "R": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "W": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "x": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     0,
+     25
+    ],
+    [
+     0,
+     70
+    ],
+    [
+     4,
+     333
+    ],
+    [
+     18,
+     1112
+    ],
+    [
+     36,
+     1901
+    ],
+    [
+     85,
+     4307
+    ]
+   ]
+  },
+  "net_speed_moving_still_by_band": [
+   [
+    30,
+    2082
+   ],
+   [
+    3,
+    2422
+   ],
+   [
+    0,
+    5633
+   ],
+   [
+    1,
+    10050
+   ],
+   [
+    4956,
+    19971
+   ],
+   [
+    18805,
+    26055
+   ],
+   [
+    28694,
+    42468
+   ],
+   [
+    52138,
+    65933
+   ]
+  ],
+  "net_still_frac_by_band": [
+   0.986,
+   0.999,
+   1.0,
+   1.0,
+   0.801,
+   0.581,
+   0.597,
+   0.558
+  ],
+  "net_still_2p46_4p92": 0.6595,
+  "mode_share_2p46_4p92": {
+   "A": 0.5912,
+   "P": 0.3889,
+   "R": 0.0,
+   "W": 0.0,
+   "x": 0.0198
+  },
+  "roster_still_2p46_4p92": 0.6218
+ },
+ "rj_tel": {
+  "crowd_displaced_moving": 541927.0,
+  "crowd_displaced_standing": 714.0,
+  "crowd_overlap_pairs": 706781.0,
+  "crowd_ticks": 96118.0
+ },
+ "fold_reports": {
+  "eng": {
+   "rule": "pursue to CloseEnoughToUseSkill(chosen); stand in Attack (Idle); re-choose after each skill; specials -> Normal -> Default melee; 2.4 m halt retired for roster (legolas lead 1, DATAMINED A; port of tools/arms_extra.py p_ai + p_default_attack)",
+   "stand_ins": [
+    "swing period = animation length",
+    "no RepositionForAttack",
+    "no walk/run switch",
+    "GetMoveToPoint slot geometry not modelled",
+    "pets keep the incumbent movement and selection (Default slot + pause only)"
+   ],
+   "n_default_profiles_added": 339,
+   "n_default_radius_fallback": 46,
+   "n_default_profiles_without_weapon_rows": 44,
+   "n_choose": 156738,
+   "n_no_skill": 0,
+   "n_fire": {
+    "tree_attack": 2208,
+    "special": 7874,
+    "basic": 9752,
+    "default": 1631
+   },
+   "n_step_stand": 246917,
+   "n_step_pursue": 409735,
+   "rj_flags": {
+    "rfa": false,
+    "slots": false,
+    "crowd": true,
+    "persist": false
+   }
+  },
+  "hunt": {
+   "armed": true,
+   "v_close_m_s": 0.919,
+   "derivation": {
+    "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+   },
+   "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+   "n_drift_ticks": 41344,
+   "drift_path_m": 3101.644
+  }
+ },
+ "wall_s": 73.3
+}

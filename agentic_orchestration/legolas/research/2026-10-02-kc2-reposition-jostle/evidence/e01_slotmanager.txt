@@ -1,0 +1,1055 @@
+=== ??0SlotManager@GAME@@QAE@PAVCharacter@1@W4SlotMode@01@@Z ===
+  0x004600f0  push     ebp
+  0x004600f1  mov      ebp, esp
+  0x004600f3  mov      eax, dword ptr [ebp + 8]
+  0x004600f6  mov      dword ptr [ecx], eax
+  0x004600f8  mov      eax, dword ptr [ebp + 0xc]
+  0x004600fb  mov      dword ptr [ecx + 4], 0
+  0x00460102  mov      dword ptr [ecx + 8], 0
+  0x00460109  mov      dword ptr [ecx + 0xc], 0
+  0x00460110  mov      dword ptr [ecx + 0x14], eax
+  0x00460113  mov      eax, ecx
+  0x00460115  mov      dword ptr [ecx + 0x18], 0
+  0x0046011c  mov      dword ptr [ecx + 0x1c], 0
+  0x00460123  mov      dword ptr [ecx + 0x20], 0
+  0x0046012a  pop      ebp
+  0x0046012b  ret      8
+  0x0046012e  int3     
+  0x0046012f  int3     
+=== ?SetNumSlots@SlotManager@GAME@@QAEXI@Z ===
+  0x004601b0  push     ebp
+  0x004601b1  mov      ebp, esp
+  0x004601b3  and      esp, 0xfffffff8
+  0x004601b6  sub      esp, 0x14
+  0x004601b9  push     ebx
+  0x004601ba  push     esi
+  0x004601bb  push     edi
+  0x004601bc  lea      ebx, [ecx + 4]
+  0x004601bf  push     ecx
+  0x004601c0  mov      ecx, ebx
+  0x004601c2  mov      dword ptr [esp + 0x10], ebx
+  0x004601c6  call     0x10460eb0   ; -> ?DebugRender@SlotManager@GAME@@QAEXXZ+0x130
+  0x004601cb  push     dword ptr [ebp + 8]
+  0x004601ce  mov      ecx, dword ptr [ebx]
+  0x004601d0  call     0x10460fe0   ; -> ?DebugRender@SlotManager@GAME@@QAEXXZ+0x260
+  0x004601d5  mov      eax, dword ptr [ebx]
+  0x004601d7  lea      ecx, [esp + 0x10]
+  0x004601db  mov      dword ptr [eax + 0x1c], 0
+  0x004601e2  mov      esi, dword ptr [ebx]
+  0x004601e4  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x004601ea  xor      edi, edi
+  0x004601ec  movups   xmm0, xmmword ptr [eax]
+  0x004601ef  mov      eax, 0x66666667
+  0x004601f4  movups   xmmword ptr [esi + 0xc], xmm0
+  0x004601f8  mov      ebx, dword ptr [ebx]
+  0x004601fa  mov      ecx, dword ptr [ebx + 4]
+  0x004601fd  sub      ecx, dword ptr [ebx]
+  0x004601ff  imul     ecx
+  0x00460201  sar      edx, 3
+  0x00460204  mov      eax, edx
+  0x00460206  shr      eax, 0x1f
+  0x00460209  add      eax, edx
+  0x0046020b  je       0x10460240
+  0x0046020d  xor      esi, esi
+  0x0046020f  nop      
+  0x00460210  mov      eax, dword ptr [ebx]
+  0x00460212  lea      esi, [esi + 0x14]
+  0x00460215  inc      edi
+  0x00460216  mov      dword ptr [esi + eax - 0x14], 0
+  0x0046021e  mov      eax, dword ptr [esp + 0xc]
+  0x00460222  mov      eax, dword ptr [eax]
+  0x00460224  mov      ebx, eax
+  0x00460226  mov      ecx, dword ptr [eax + 4]
+  0x00460229  sub      ecx, dword ptr [eax]
+  0x0046022b  mov      eax, 0x66666667
+  0x00460230  imul     ecx
+  0x00460232  sar      edx, 3
+  0x00460235  mov      eax, edx
+  0x00460237  shr      eax, 0x1f
+  0x0046023a  add      eax, edx
+  0x0046023c  cmp      edi, eax
+  0x0046023e  jb       0x10460210
+  0x00460240  pop      edi
+  0x00460241  pop      esi
+  0x00460242  pop      ebx
+  0x00460243  mov      esp, ebp
+  0x00460245  pop      ebp
+  0x00460246  ret      4
+  0x00460249  int3     
+  0x0046024a  int3     
+  0x0046024b  int3     
+  0x0046024c  int3     
+  0x0046024d  int3     
+  0x0046024e  int3     
+  0x0046024f  int3     
+=== ?CleanupRing@SlotManager@GAME@@AAEXIAAUSlotRing@12@@Z ===
+  0x00460250  push     ebp
+  0x00460251  mov      ebp, esp
+  0x00460253  push     ebx
+  0x00460254  push     esi
+  0x00460255  mov      esi, dword ptr [ebp + 0xc]
+  0x00460258  mov      eax, 0x66666667
+  0x0046025d  mov      ecx, dword ptr [esi + 4]
+  0x00460260  sub      ecx, dword ptr [esi]
+  0x00460262  imul     ecx
+  0x00460264  sar      edx, 3
+  0x00460267  mov      ebx, edx
+  0x00460269  shr      ebx, 0x1f
+  0x0046026c  add      ebx, edx
+  0x0046026e  je       0x104602b6
+  0x00460270  push     edi
+  0x00460271  xor      edi, edi
+  0x00460273  mov      esi, dword ptr [esi]
+  0x00460275  mov      eax, dword ptr [esi + edi]
+  0x00460278  test     eax, eax
+  0x0046027a  je       0x104602aa
+  0x0046027c  cmp      eax, dword ptr [ebp + 8]
+  0x0046027f  je       0x104602a3
+  0x00460281  push     eax
+  0x00460282  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00460288  mov      ecx, eax
+  0x0046028a  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0046028f  mov      ecx, eax
+  0x00460291  test     ecx, ecx
+  0x00460293  je       0x104602a3
+  0x00460295  mov      eax, dword ptr [ecx]
+  0x00460297  mov      eax, dword ptr [eax + 0x230]
+  0x0046029d  call     eax
+  0x0046029f  test     al, al
+  0x004602a1  jne      0x104602aa
+  0x004602a3  mov      dword ptr [esi + edi], 0
+  0x004602aa  mov      esi, dword ptr [ebp + 0xc]
+  0x004602ad  add      edi, 0x14
+  0x004602b0  sub      ebx, 1
+  0x004602b3  jne      0x10460273
+  0x004602b5  pop      edi
+  0x004602b6  pop      esi
+  0x004602b7  pop      ebx
+  0x004602b8  pop      ebp
+  0x004602b9  ret      8
+  0x004602bc  int3     
+  0x004602bd  int3     
+  0x004602be  int3     
+  0x004602bf  int3     
+=== ?GetPrioritizedSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@_NAAUSlotRing@12@AAVWorldVec3@2@@Z ===
+  0x004602c0  push     ebp
+  0x004602c1  mov      ebp, esp
+  0x004602c3  sub      esp, 0x14
+  0x004602c6  push     ebx
+  0x004602c7  mov      ebx, ecx
+  0x004602c9  xor      cl, cl
+  0x004602cb  push     esi
+  0x004602cc  push     edi
+  0x004602cd  mov      byte ptr [ebp - 1], cl
+  0x004602d0  mov      eax, dword ptr [ebx + 0x18]
+  0x004602d3  cmp      eax, dword ptr [ebx + 0x1c]
+  0x004602d6  je       0x104603ef
+  0x004602dc  mov      edx, dword ptr [ebx + 0x1c]
+  0x004602df  mov      ecx, eax
+  0x004602e1  mov      al, byte ptr [ebp + 0xf]
+  0x004602e4  mov      byte ptr [ebp - 8], al
+  0x004602e7  lea      eax, [ebp - 8]
+  0x004602ea  push     eax
+  0x004602eb  mov      eax, edx
+  0x004602ed  sub      eax, ecx
+  0x004602ef  sar      eax, 3
+  0x004602f2  push     eax
+  0x004602f3  call     0x10461420   ; -> ?DebugRender@SlotManager@GAME@@QAEXXZ+0x6a0
+  0x004602f8  mov      eax, dword ptr [ebx + 0x1c]
+  0x004602fb  add      esp, 8
+  0x004602fe  sub      eax, dword ptr [ebx + 0x18]
+  0x00460301  xor      esi, esi
+  0x00460303  sar      eax, 3
+  0x00460306  mov      dword ptr [ebp - 0xc], 0
+  0x0046030d  test     eax, eax
+  0x0046030f  je       0x1046036e
+  0x00460311  mov      eax, dword ptr [ebx + 0x18]
+  0x00460314  mov      eax, dword ptr [eax + esi*8]
+  0x00460317  mov      dword ptr [ebp - 0x10], eax
+  0x0046031a  lea      ecx, [eax + eax*4]
+  0x0046031d  mov      eax, dword ptr [ebp + 0x10]
+  0x00460320  lea      ecx, [ecx + 1]
+  0x00460323  mov      eax, dword ptr [eax]
+  0x00460325  lea      edi, [eax + ecx*4]
+  0x00460328  push     edi
+  0x00460329  mov      dword ptr [ebp - 0x14], edi
+  0x0046032c  call     dword ptr [0x104e6608]   ; f32=1.16688e-38 i32=8327128 f64=2.76469e-306
+  0x00460332  mov      ecx, eax
+  0x00460334  call     dword ptr [0x104e6ba0]   ; f32=1.16976e-38 i32=8347686 f64=2.7926e-306
+  0x0046033a  test     al, al
+  0x0046033c  je       0x10460360
+  0x0046033e  cmp      byte ptr [ebp + 0xc], 0
+  0x00460342  jne      0x104603b8
+  0x00460344  mov      ecx, dword ptr [ebp + 8]
+  0x00460347  push     0
+  0x00460349  push     ecx
+  0x0046034a  mov      dword ptr [esp], 0
+  0x00460351  mov      eax, dword ptr [ecx]
+  0x00460353  push     edi
+  0x00460354  mov      eax, dword ptr [eax + 0x2a8]
+  0x0046035a  call     eax
+  0x0046035c  test     al, al
+  0x0046035e  jne      0x104603b8
+  0x00460360  mov      eax, dword ptr [ebx + 0x1c]
+  0x00460363  inc      esi
+  0x00460364  sub      eax, dword ptr [ebx + 0x18]
+  0x00460367  sar      eax, 3
+  0x0046036a  cmp      esi, eax
+  0x0046036c  jb       0x10460311
+  0x0046036e  mov      cl, byte ptr [ebp - 1]
+  0x00460371  mov      eax, dword ptr [ebx + 0x18]
+  0x00460374  mov      dword ptr [ebx + 0x1c], eax
+  0x00460377  mov      eax, dword ptr [ebp - 0xc]
+  0x0046037a  test     eax, eax
+  0x0046037c  je       0x104603ef
+  0x0046037e  mov      esi, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00460384  push     eax
+  0x00460385  call     esi
+  0x00460387  mov      ecx, eax
+  0x00460389  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0046038e  test     eax, eax
+  0x00460390  je       0x104603ac
+  0x00460392  push     dword ptr [eax + 0x1120]
+  0x00460398  call     esi
+  0x0046039a  mov      ecx, eax
+  0x0046039c  call     0x10062460   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x230
+  0x004603a1  test     eax, eax
+  0x004603a3  je       0x104603ac
+  0x004603a5  mov      edx, dword ptr [eax]
+  0x004603a7  mov      ecx, eax
+  0x004603a9  call     dword ptr [edx + 0x48]
+  0x004603ac  mov      al, byte ptr [ebp - 1]
+  0x004603af  pop      edi
+  0x004603b0  pop      esi
+  0x004603b1  pop      ebx
+  0x004603b2  mov      esp, ebp
+  0x004603b4  pop      ebp
+  0x004603b5  ret      0x10
+  0x004603b8  mov      eax, dword ptr [ebp - 0x10]
+  0x004603bb  xor      ecx, ecx
+  0x004603bd  lea      edi, [eax + eax*4]
+  0x004603c0  mov      eax, dword ptr [ebp + 0x10]
+  0x004603c3  mov      esi, dword ptr [eax]
+  0x004603c5  mov      eax, dword ptr [esi + edi*4]
+  0x004603c8  test     eax, eax
+  0x004603ca  cmovne   ecx, eax
+  0x004603cd  mov      dword ptr [ebp - 0xc], ecx
+  0x004603d0  mov      ecx, dword ptr [ebp + 8]
+  0x004603d3  call     dword ptr [0x104e6094]   ; f32=1.16425e-38 i32=8308360 f64=2.73916e-306
+  0x004603d9  mov      dword ptr [esi + edi*4], eax
+  0x004603dc  mov      cl, 1
+  0x004603de  mov      eax, dword ptr [ebp - 0x14]
+  0x004603e1  mov      byte ptr [ebp - 1], cl
+  0x004603e4  movups   xmm0, xmmword ptr [eax]
+  0x004603e7  mov      eax, dword ptr [ebp + 0x14]
+  0x004603ea  movups   xmmword ptr [eax], xmm0
+  0x004603ed  jmp      0x10460371   ; -> ?GetPrioritizedSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@_NAAUSlotRing@12@AAVWorldVec3@2@@Z+0xb1
+  0x004603ef  pop      edi
+  0x004603f0  pop      esi
+  0x004603f1  mov      al, cl
+  0x004603f3  pop      ebx
+  0x004603f4  mov      esp, ebp
+  0x004603f6  pop      ebp
+  0x004603f7  ret      0x10
+  0x004603fa  int3     
+  0x004603fb  int3     
+  0x004603fc  int3     
+  0x004603fd  int3     
+  0x004603fe  int3     
+  0x004603ff  int3     
+=== ?SearchRingForFreeSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@M_NAAUSlotRing@12@AAVWorldVec3@2@@Z ===
+  0x00460400  push     ebp
+  0x00460401  mov      ebp, esp
+  0x00460403  and      esp, 0xfffffff0
+  0x00460406  sub      esp, 0x38
+  0x00460409  push     esi
+  0x0046040a  mov      dword ptr [esp + 0x14], ecx
+  0x0046040e  mov      ecx, dword ptr [ebp + 8]
+  0x00460411  push     edi
+  0x00460412  call     dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x00460418  mov      esi, dword ptr [ebp + 0x14]
+  0x0046041b  mov      dword ptr [esp + 0x14], 0
+  0x00460423  movups   xmm0, xmmword ptr [eax]
+  0x00460426  mov      ecx, dword ptr [esi + 4]
+  0x00460429  mov      eax, 0x66666667
+  0x0046042e  sub      ecx, dword ptr [esi]
+  0x00460430  imul     ecx
+  0x00460432  movups   xmmword ptr [esp + 0x30], xmm0
+  0x00460437  sar      edx, 3
+  0x0046043a  mov      eax, edx
+  0x0046043c  shr      eax, 0x1f
+  0x0046043f  add      eax, edx
+  0x00460441  je       0x104604cf
+  0x00460447  xor      edi, edi
+  0x00460449  xor      ecx, ecx
+  0x0046044b  nop      dword ptr [eax + eax]
+  0x00460450  mov      eax, dword ptr [esi]
+  0x00460452  cmp      dword ptr [eax + edi], 0
+  0x00460456  jne      0x104604aa
+  0x00460458  mov      dword ptr [esp + 0x1c], ecx
+  0x0046045c  lea      ecx, [esp + 0x30]
+  0x00460460  push     ecx
+  0x00460461  lea      ecx, [esp + 0x28]
+  0x00460465  push     ecx
+  0x00460466  lea      ecx, [eax + 4]
+  0x00460469  add      ecx, edi
+  0x0046046b  call     dword ptr [0x104e6524]   ; f32=1.16645e-38 i32=8324048 f64=2.76048e-306
+  0x00460471  mov      ecx, dword ptr [esp + 0x18]
+  0x00460475  movss    xmm1, dword ptr [eax + 4]
+  0x0046047a  movss    xmm2, dword ptr [eax]
+  0x0046047e  lea      ecx, [ecx + 0x18]
+  0x00460481  movss    xmm0, dword ptr [eax + 8]
+  0x00460486  lea      eax, [esp + 0x1c]
+  0x0046048a  mulss    xmm2, xmm2
+  0x0046048e  push     eax
+  0x0046048f  mulss    xmm1, xmm1
+  0x00460493  mulss    xmm0, xmm0
+  0x00460497  addss    xmm2, xmm1
+  0x0046049b  addss    xmm2, xmm0
+  0x0046049f  movss    dword ptr [esp + 0x24], xmm2
+  0x004604a5  call     0x100e53d0   ; -> ?RecordHit@CombatManager@GAME@@IAEXPAVCharacter@2@I_NM@Z+0x2c0
+  0x004604aa  mov      ecx, dword ptr [esi + 4]
+  0x004604ad  mov      eax, 0x66666667
+  0x004604b2  sub      ecx, dword ptr [esi]
+  0x004604b4  add      edi, 0x14
+  0x004604b7  inc      dword ptr [esp + 0x14]
+  0x004604bb  imul     ecx
+  0x004604bd  mov      ecx, dword ptr [esp + 0x14]
+  0x004604c1  sar      edx, 3
+  0x004604c4  mov      eax, edx
+  0x004604c6  shr      eax, 0x1f
+  0x004604c9  add      eax, edx
+  0x004604cb  cmp      ecx, eax
+  0x004604cd  jb       0x10460450
+  0x004604cf  push     dword ptr [ebp + 0x18]
+  0x004604d2  mov      ecx, dword ptr [esp + 0x1c]
+  0x004604d6  push     esi
+  0x004604d7  push     dword ptr [ebp + 0x10]
+  0x004604da  push     dword ptr [ebp + 8]
+  0x004604dd  call     0x104602c0   ; -> ?GetPrioritizedSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@_NAAUSlotRing@12@AAVWorldVec3@2@@Z
+  0x004604e2  pop      edi
+  0x004604e3  pop      esi
+  0x004604e4  mov      esp, ebp
+  0x004604e6  pop      ebp
+  0x004604e7  ret      0x14
+  0x004604ea  int3     
+  0x004604eb  int3     
+  0x004604ec  int3     
+  0x004604ed  int3     
+  0x004604ee  int3     
+  0x004604ef  int3     
+=== ?SearchRingForOverrideSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@M_NAAUSlotRing@12@AAVWorldVec3@2@@Z ===
+  0x004604f0  push     ebp
+  0x004604f1  mov      ebp, esp
+  0x004604f3  and      esp, 0xfffffff0
+  0x004604f6  sub      esp, 0x68
+  0x004604f9  push     esi
+  0x004604fa  mov      esi, dword ptr [ebp + 8]
+  0x004604fd  mov      dword ptr [esp + 0x10], ecx
+  0x00460501  mov      ecx, esi
+  0x00460503  push     edi
+  0x00460504  call     dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x0046050a  mov      edi, dword ptr [ebp + 0x14]
+  0x0046050d  mov      dword ptr [esp + 0xc], 0
+  0x00460515  movups   xmm0, xmmword ptr [eax]
+  0x00460518  mov      ecx, dword ptr [edi + 4]
+  0x0046051b  mov      eax, 0x66666667
+  0x00460520  sub      ecx, dword ptr [edi]
+  0x00460522  imul     ecx
+  0x00460524  movups   xmmword ptr [esp + 0x50], xmm0
+  0x00460529  sar      edx, 3
+  0x0046052c  mov      eax, edx
+  0x0046052e  shr      eax, 0x1f
+  0x00460531  add      eax, edx
+  0x00460533  je       0x104606f7
+  0x00460539  xor      esi, esi
+  0x0046053b  nop      dword ptr [eax + eax]
+  0x00460540  mov      eax, dword ptr [edi]
+  0x00460542  cmp      dword ptr [esi + eax], 0
+  0x00460546  je       0x104606cd
+  0x0046054c  push     dword ptr [esi + eax]
+  0x0046054f  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00460555  mov      ecx, eax
+  0x00460557  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0046055c  mov      dword ptr [esp + 0x10], eax
+  0x00460560  test     eax, eax
+  0x00460562  je       0x104606cd
+  0x00460568  mov      ecx, dword ptr [edi]
+  0x0046056a  lea      eax, [esp + 0x50]
+  0x0046056e  push     eax
+  0x0046056f  add      ecx, 4
+  0x00460572  lea      eax, [esp + 0x30]
+  0x00460576  push     eax
+  0x00460577  add      ecx, esi
+  0x00460579  call     dword ptr [0x104e6524]   ; f32=1.16645e-38 i32=8324048 f64=2.76048e-306
+  0x0046057f  mov      ecx, dword ptr [ebp + 8]
+  0x00460582  movss    xmm1, dword ptr [eax + 4]
+  0x00460587  movss    xmm2, dword ptr [eax]
+  0x0046058b  movss    xmm0, dword ptr [eax + 8]
+  0x00460590  mov      eax, dword ptr [ecx]
+  0x00460592  mulss    xmm2, xmm2
+  0x00460596  mulss    xmm1, xmm1
+  0x0046059a  mov      eax, dword ptr [eax + 0xe0]
+  0x004605a0  mulss    xmm0, xmm0
+  0x004605a4  addss    xmm2, xmm1
+  0x004605a8  addss    xmm2, xmm0
+  0x004605ac  movss    dword ptr [esp + 0x1c], xmm2
+  0x004605b2  call     eax
+  0x004605b4  mov      ecx, dword ptr [ebp + 8]
+  0x004605b7  fstp     dword ptr [esp + 0x18]
+  0x004605bb  mov      eax, dword ptr [ecx]
+  0x004605bd  mov      eax, dword ptr [eax + 0xe0]
+  0x004605c3  call     eax
+  0x004605c5  fmul     dword ptr [esp + 0x18]
+  0x004605c9  mov      ecx, dword ptr [esp + 0x10]
+  0x004605cd  fsubr    dword ptr [esp + 0x1c]
+  0x004605d1  fstp     dword ptr [esp + 0x1c]
+  0x004605d5  call     dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x004605db  mov      ecx, dword ptr [edi]
+  0x004605dd  add      ecx, 4
+  0x004605e0  add      ecx, esi
+  0x004605e2  movups   xmm0, xmmword ptr [eax]
+  0x004605e5  lea      eax, [esp + 0x60]
+  0x004605e9  push     eax
+  0x004605ea  lea      eax, [esp + 0x3c]
+  0x004605ee  push     eax
+  0x004605ef  movups   xmmword ptr [esp + 0x68], xmm0
+  0x004605f4  call     dword ptr [0x104e6524]   ; f32=1.16645e-38 i32=8324048 f64=2.76048e-306
+  0x004605fa  mov      ecx, dword ptr [esp + 0x10]
+  0x004605fe  movss    xmm1, dword ptr [eax + 4]
+  0x00460603  movss    xmm2, dword ptr [eax]
+  0x00460607  movss    xmm0, dword ptr [eax + 8]
+  0x0046060c  mov      eax, dword ptr [ecx]
+  0x0046060e  mulss    xmm2, xmm2
+  0x00460612  mulss    xmm1, xmm1
+  0x00460616  mov      eax, dword ptr [eax + 0xe0]
+  0x0046061c  mulss    xmm0, xmm0
+  0x00460620  addss    xmm2, xmm1
+  0x00460624  xorps    xmm1, xmm1
+  0x00460627  addss    xmm2, xmm0
+  0x0046062b  movss    xmm0, dword ptr [esp + 0x1c]
+  0x00460631  maxss    xmm0, xmm1
+  0x00460635  movss    dword ptr [esp + 0x18], xmm2
+  0x0046063b  movss    dword ptr [esp + 0x20], xmm0
+  0x00460641  call     eax
+  0x00460643  mov      ecx, dword ptr [esp + 0x10]
+  0x00460647  fstp     dword ptr [esp + 0x1c]
+  0x0046064b  mov      eax, dword ptr [ecx]
+  0x0046064d  mov      eax, dword ptr [eax + 0xe0]
+  0x00460653  call     eax
+  0x00460655  fmul     dword ptr [esp + 0x1c]
+  0x00460659  xorps    xmm1, xmm1
+  0x0046065c  fsubr    dword ptr [esp + 0x18]
+  0x00460660  fstp     dword ptr [esp + 0x1c]
+  0x00460664  movss    xmm0, dword ptr [esp + 0x1c]
+  0x0046066a  maxss    xmm0, xmm1
+  0x0046066e  comiss   xmm0, dword ptr [esp + 0x20]
+  0x00460673  jbe      0x104606cd
+  0x00460675  mov      eax, dword ptr [esp + 0xc]
+  0x00460679  mov      ecx, dword ptr [edi]
+  0x0046067b  mov      dword ptr [esp + 0x24], eax
+  0x0046067f  add      ecx, 4
+  0x00460682  lea      eax, [esp + 0x50]
+  0x00460686  add      ecx, esi
+  0x00460688  push     eax
+  0x00460689  lea      eax, [esp + 0x48]
+  0x0046068d  push     eax
+  0x0046068e  call     dword ptr [0x104e6524]   ; f32=1.16645e-38 i32=8324048 f64=2.76048e-306
+  0x00460694  mov      ecx, dword ptr [esp + 0x14]
+  0x00460698  movss    xmm1, dword ptr [eax + 4]
+  0x0046069d  movss    xmm2, dword ptr [eax]
+  0x004606a1  lea      ecx, [ecx + 0x18]
+  0x004606a4  movss    xmm0, dword ptr [eax + 8]
+  0x004606a9  lea      eax, [esp + 0x24]
+  0x004606ad  mulss    xmm2, xmm2
+  0x004606b1  push     eax
+  0x004606b2  mulss    xmm1, xmm1
+  0x004606b6  mulss    xmm0, xmm0
+  0x004606ba  addss    xmm2, xmm1
+  0x004606be  addss    xmm2, xmm0
+  0x004606c2  movss    dword ptr [esp + 0x2c], xmm2
+  0x004606c8  call     0x100e53d0   ; -> ?RecordHit@CombatManager@GAME@@IAEXPAVCharacter@2@I_NM@Z+0x2c0
+  0x004606cd  mov      ecx, dword ptr [edi + 4]
+  0x004606d0  mov      eax, 0x66666667
+  0x004606d5  sub      ecx, dword ptr [edi]
+  0x004606d7  add      esi, 0x14
+  0x004606da  inc      dword ptr [esp + 0xc]
+  0x004606de  imul     ecx
+  0x004606e0  sar      edx, 3
+  0x004606e3  mov      eax, edx
+  0x004606e5  shr      eax, 0x1f
+  0x004606e8  add      eax, edx
+  0x004606ea  cmp      dword ptr [esp + 0xc], eax
+  0x004606ee  jb       0x10460540
+  0x004606f4  mov      esi, dword ptr [ebp + 8]
+  0x004606f7  push     dword ptr [ebp + 0x18]
+  0x004606fa  mov      ecx, dword ptr [esp + 0x18]
+  0x004606fe  push     edi
+  0x004606ff  push     dword ptr [ebp + 0x10]
+  0x00460702  push     esi
+  0x00460703  call     0x104602c0   ; -> ?GetPrioritizedSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@_NAAUSlotRing@12@AAVWorldVec3@2@@Z
+  0x00460708  pop      edi
+  0x00460709  pop      esi
+  0x0046070a  mov      esp, ebp
+  0x0046070c  pop      ebp
+  0x0046070d  ret      0x14
+=== ?RequestSlot@SlotManager@GAME@@QAEXAAVWorldVec3@2@IM_N@Z ===
+  0x00460710  push     ebp
+  0x00460711  mov      ebp, esp
+  0x00460713  and      esp, 0xfffffff0
+  0x00460716  sub      esp, 0x18
+  0x00460719  push     esi
+  0x0046071a  push     edi
+  0x0046071b  push     dword ptr [ebp + 0xc]
+  0x0046071e  mov      esi, ecx
+  0x00460720  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x00460726  mov      ecx, eax
+  0x00460728  call     0x1000b100   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0046072d  mov      dword ptr [esp + 0xc], eax
+  0x00460731  test     eax, eax
+  0x00460733  je       0x1046089f
+  0x00460739  movss    xmm0, dword ptr [ebp + 0x10]
+  0x0046073e  ucomiss  xmm0, dword ptr [0x105f690c]   ; f32=0 i32=0 f64=0
+  0x00460745  lahf     
+  0x00460746  test     ah, 0x44
+  0x00460749  jnp      0x1046089f
+  0x0046074f  mov      eax, dword ptr [esi + 4]
+  0x00460752  cmp      eax, dword ptr [esi + 8]
+  0x00460755  je       0x1046089f
+  0x0046075b  mov      ecx, dword ptr [esi]
+  0x0046075d  call     dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x00460763  lea      ecx, [esp + 0x10]
+  0x00460767  movups   xmm0, xmmword ptr [eax]
+  0x0046076a  movups   xmmword ptr [esp + 0x10], xmm0
+  0x0046076f  call     dword ptr [0x104e6250]   ; f32=1.16512e-38 i32=8314588 f64=2.74763e-306
+  0x00460775  test     eax, eax
+  0x00460777  je       0x1046089f
+  0x0046077d  mov      eax, dword ptr [esi + 8]
+  0x00460780  xor      edi, edi
+  0x00460782  sub      eax, dword ptr [esi + 4]
+  0x00460785  sar      eax, 5
+  0x00460788  test     eax, eax
+  0x0046078a  je       0x104607fc
+  0x0046078c  mov      dword ptr [esp + 8], edi
+  0x00460790  movss    xmm0, dword ptr [ebp + 0x10]
+  0x00460795  push     ecx
+  0x00460796  movss    dword ptr [esp], xmm0
+  0x0046079b  mov      ecx, esi
+  0x0046079d  push     edi
+  0x0046079e  call     0x10460ae0   ; -> ?CalculateSlotPositions@SlotManager@GAME@@AAEXIM@Z
+  0x004607a3  mov      eax, dword ptr [esi + 4]
+  0x004607a6  add      eax, dword ptr [esp + 8]
+  0x004607aa  mov      ecx, dword ptr [esp + 0xc]
+  0x004607ae  push     eax
+  0x004607af  call     dword ptr [0x104e6094]   ; f32=1.16425e-38 i32=8308360 f64=2.73916e-306
+  0x004607b5  push     eax
+  0x004607b6  mov      ecx, esi
+  0x004607b8  call     0x10460250   ; -> ?CleanupRing@SlotManager@GAME@@AAEXIAAUSlotRing@12@@Z
+  0x004607bd  push     dword ptr [ebp + 8]
+  0x004607c0  mov      eax, dword ptr [esi + 4]
+  0x004607c3  add      eax, dword ptr [esp + 0xc]
+  0x004607c7  movss    xmm0, dword ptr [ebp + 0x10]
+  0x004607cc  push     eax
+  0x004607cd  push     dword ptr [ebp + 0x14]
+  0x004607d0  push     ecx
+  0x004607d1  movss    dword ptr [esp], xmm0
+  0x004607d6  mov      ecx, esi
+  0x004607d8  push     dword ptr [esp + 0x1c]
+  0x004607dc  call     0x10460400   ; -> ?SearchRingForFreeSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@M_NAAUSlotRing@12@AAVWorldVec3@2@@Z
+  0x004607e1  test     al, al
+  0x004607e3  jne      0x104608b2
+  0x004607e9  mov      eax, dword ptr [esi + 8]
+  0x004607ec  inc      edi
+  0x004607ed  sub      eax, dword ptr [esi + 4]
+  0x004607f0  add      dword ptr [esp + 8], 0x20
+  0x004607f5  sar      eax, 5
+  0x004607f8  cmp      edi, eax
+  0x004607fa  jb       0x10460790
+  0x004607fc  cmp      dword ptr [esi + 0x14], 1
+  0x00460800  jne      0x10460848
+  0x00460802  mov      eax, dword ptr [esi + 8]
+  0x00460805  sub      eax, dword ptr [esi + 4]
+  0x00460808  sar      eax, 5
+  0x0046080b  cmp      eax, 3
+  0x0046080e  jae      0x10460848
+  0x00460810  push     dword ptr [ebp + 8]
+  0x00460813  movss    xmm0, dword ptr [ebp + 0x10]
+  0x00460818  mov      ecx, esi
+  0x0046081a  sub      esp, 8
+  0x0046081d  movss    dword ptr [esp], xmm0
+  0x00460822  call     0x10460bf0   ; -> ?AddNewRing@SlotManager@GAME@@AAEAAUSlotRing@12@M@Z
+  0x00460827  movss    xmm0, dword ptr [ebp + 0x10]
+  0x0046082c  add      esp, 4
+  0x0046082f  push     eax
+  0x00460830  push     dword ptr [ebp + 0x14]
+  0x00460833  push     ecx
+  0x00460834  movss    dword ptr [esp], xmm0
+  0x00460839  mov      ecx, esi
+  0x0046083b  push     dword ptr [esp + 0x1c]
+  0x0046083f  call     0x10460400   ; -> ?SearchRingForFreeSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@M_NAAUSlotRing@12@AAVWorldVec3@2@@Z
+  0x00460844  test     al, al
+  0x00460846  jne      0x104608b2
+  0x00460848  mov      eax, dword ptr [esi + 8]
+  0x0046084b  xor      edi, edi
+  0x0046084d  sub      eax, dword ptr [esi + 4]
+  0x00460850  sar      eax, 5
+  0x00460853  test     eax, eax
+  0x00460855  je       0x1046089f
+  0x00460857  xor      ecx, ecx
+  0x00460859  mov      dword ptr [esp + 8], ecx
+  0x0046085d  nop      dword ptr [eax]
+  0x00460860  push     dword ptr [ebp + 8]
+  0x00460863  mov      eax, dword ptr [esi + 4]
+  0x00460866  movss    xmm0, dword ptr [ebp + 0x10]
+  0x0046086b  add      eax, ecx
+  0x0046086d  push     eax
+  0x0046086e  push     dword ptr [ebp + 0x14]
+  0x00460871  push     ecx
+  0x00460872  movss    dword ptr [esp], xmm0
+  0x00460877  mov      ecx, esi
+  0x00460879  push     dword ptr [esp + 0x1c]
+  0x0046087d  call     0x104604f0   ; -> ?SearchRingForOverrideSlot@SlotManager@GAME@@AAE_NPBVCharacter@2@M_NAAUSlotRing@12@AAVWorldVec3@2@@Z
+  0x00460882  test     al, al
+  0x00460884  jne      0x104608b2
+  0x00460886  mov      eax, dword ptr [esi + 8]
+  0x00460889  inc      edi
+  0x0046088a  sub      eax, dword ptr [esi + 4]
+  0x0046088d  mov      ecx, dword ptr [esp + 8]
+  0x00460891  add      ecx, 0x20
+  0x00460894  sar      eax, 5
+  0x00460897  mov      dword ptr [esp + 8], ecx
+  0x0046089b  cmp      edi, eax
+  0x0046089d  jb       0x10460860
+  0x0046089f  lea      ecx, [esp + 0x10]
+  0x004608a3  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x004608a9  movups   xmm0, xmmword ptr [eax]
+  0x004608ac  mov      eax, dword ptr [ebp + 8]
+  0x004608af  movups   xmmword ptr [eax], xmm0
+  0x004608b2  pop      edi
+  0x004608b3  pop      esi
+  0x004608b4  mov      esp, ebp
+  0x004608b6  pop      ebp
+  0x004608b7  ret      0x10
+  0x004608ba  int3     
+  0x004608bb  int3     
+  0x004608bc  int3     
+  0x004608bd  int3     
+  0x004608be  int3     
+  0x004608bf  int3     
+=== ?ReleaseSlot@SlotManager@GAME@@QAEXI@Z ===
+  0x004608c0  push     ebp
+  0x004608c1  mov      ebp, esp
+  0x004608c3  sub      esp, 0x10
+  0x004608c6  mov      eax, dword ptr [ecx + 8]
+  0x004608c9  sub      eax, dword ptr [ecx + 4]
+  0x004608cc  push     ebx
+  0x004608cd  sar      eax, 5
+  0x004608d0  xor      ebx, ebx
+  0x004608d2  mov      dword ptr [ebp - 0x10], ecx
+  0x004608d5  test     eax, eax
+  0x004608d7  je       0x10460985
+  0x004608dd  mov      eax, dword ptr [ecx + 4]
+  0x004608e0  xor      edx, edx
+  0x004608e2  push     esi
+  0x004608e3  mov      dword ptr [ebp - 4], eax
+  0x004608e6  add      eax, 4
+  0x004608e9  push     edi
+  0x004608ea  mov      edi, dword ptr [ebp + 8]
+  0x004608ed  mov      dword ptr [ebp - 8], edx
+  0x004608f0  mov      dword ptr [ebp - 0xc], eax
+  0x004608f3  mov      ecx, dword ptr [eax]
+  0x004608f5  xor      esi, esi
+  0x004608f7  mov      eax, dword ptr [ebp - 4]
+  0x004608fa  sub      ecx, dword ptr [edx + eax]
+  0x004608fd  mov      eax, 0x66666667
+  0x00460902  imul     ecx
+  0x00460904  sar      edx, 3
+  0x00460907  mov      eax, edx
+  0x00460909  shr      eax, 0x1f
+  0x0046090c  add      eax, edx
+  0x0046090e  je       0x10460950
+  0x00460910  mov      eax, dword ptr [ebp - 8]
+  0x00460913  mov      edx, dword ptr [ebp - 4]
+  0x00460916  mov      ecx, dword ptr [eax + edx]
+  0x00460919  jmp      0x10460923   ; -> ?ReleaseSlot@SlotManager@GAME@@QAEXI@Z+0x63
+  0x0046091b  nop      dword ptr [eax + eax]
+  0x00460920  mov      edx, dword ptr [ebp - 4]
+  0x00460923  cmp      dword ptr [ecx], edi
+  0x00460925  je       0x10460973
+  0x00460927  mov      edx, dword ptr [eax + edx + 4]
+  0x0046092b  inc      esi
+  0x0046092c  mov      edi, dword ptr [ebp - 4]
+  0x0046092f  add      ecx, 0x14
+  0x00460932  sub      edx, dword ptr [eax + edi]
+  0x00460935  mov      eax, 0x66666667
+  0x0046093a  mov      edi, dword ptr [ebp + 8]
+  0x0046093d  imul     edx
+  0x0046093f  sar      edx, 3
+  0x00460942  mov      eax, edx
+  0x00460944  shr      eax, 0x1f
+  0x00460947  add      eax, edx
+  0x00460949  cmp      esi, eax
+  0x0046094b  mov      eax, dword ptr [ebp - 8]
+  0x0046094e  jb       0x10460920
+  0x00460950  mov      ecx, dword ptr [ebp - 0x10]
+  0x00460953  inc      ebx
+  0x00460954  mov      edx, dword ptr [ebp - 8]
+  0x00460957  add      dword ptr [ebp - 0xc], 0x20
+  0x0046095b  add      edx, 0x20
+  0x0046095e  mov      dword ptr [ebp - 8], edx
+  0x00460961  mov      eax, dword ptr [ecx + 8]
+  0x00460964  sub      eax, dword ptr [ecx + 4]
+  0x00460967  sar      eax, 5
+  0x0046096a  cmp      ebx, eax
+  0x0046096c  jae      0x10460983
+  0x0046096e  mov      eax, dword ptr [ebp - 0xc]
+  0x00460971  jmp      0x104608f3   ; -> ?ReleaseSlot@SlotManager@GAME@@QAEXI@Z+0x33
+  0x00460973  shl      ebx, 5
+  0x00460976  lea      ecx, [esi + esi*4]
+  0x00460979  mov      eax, dword ptr [ebx + edx]
+  0x0046097c  mov      dword ptr [eax + ecx*4], 0
+  0x00460983  pop      edi
+  0x00460984  pop      esi
+  0x00460985  pop      ebx
+  0x00460986  mov      esp, ebp
+  0x00460988  pop      ebp
+  0x00460989  ret      4
+  0x0046098c  int3     
+  0x0046098d  int3     
+  0x0046098e  int3     
+  0x0046098f  int3     
+=== ?CalculateSlotPosition@SlotManager@GAME@@AAE?AVWorldVec3@2@IIM@Z ===
+  0x00460990  push     ebp
+  0x00460991  mov      ebp, esp
+  0x00460993  sub      esp, 0xc
+  0x00460996  push     ebx
+  0x00460997  push     esi
+  0x00460998  mov      esi, dword ptr [ebp + 8]
+  0x0046099b  push     edi
+  0x0046099c  mov      edi, ecx
+  0x0046099e  mov      ecx, esi
+  0x004609a0  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x004609a6  mov      eax, dword ptr [edi + 8]
+  0x004609a9  sub      eax, dword ptr [edi + 4]
+  0x004609ac  mov      ebx, dword ptr [ebp + 0xc]
+  0x004609af  sar      eax, 5
+  0x004609b2  cmp      ebx, eax
+  0x004609b4  ja       0x10460ace
+  0x004609ba  mov      eax, dword ptr [edi + 4]
+  0x004609bd  mov      ecx, ebx
+  0x004609bf  shl      ecx, 5
+  0x004609c2  add      eax, ecx
+  0x004609c4  mov      dword ptr [ebp + 8], ecx
+  0x004609c7  mov      ecx, dword ptr [eax + 4]
+  0x004609ca  sub      ecx, dword ptr [eax]
+  0x004609cc  mov      eax, 0x66666667
+  0x004609d1  imul     ecx
+  0x004609d3  sar      edx, 3
+  0x004609d6  mov      eax, edx
+  0x004609d8  shr      eax, 0x1f
+  0x004609db  add      eax, edx
+  0x004609dd  cmp      dword ptr [ebp + 0x10], eax
+  0x004609e0  ja       0x10460ace
+  0x004609e6  mov      ecx, dword ptr [edi]
+  0x004609e8  call     dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x004609ee  movss    xmm1, dword ptr [0x105f6a98]   ; f32=6.28319 i32=1086918619 f64=131072
+  0x004609f6  movups   xmm0, xmmword ptr [eax]
+  0x004609f9  movups   xmmword ptr [esi], xmm0
+  0x004609fc  mov      eax, dword ptr [edi + 4]
+  0x004609ff  add      eax, dword ptr [ebp + 8]
+  0x00460a02  mov      ecx, dword ptr [eax + 4]
+  0x00460a05  sub      ecx, dword ptr [eax]
+  0x00460a07  mov      eax, 0x66666667
+  0x00460a0c  imul     ecx
+  0x00460a0e  sar      edx, 3
+  0x00460a11  mov      eax, edx
+  0x00460a13  shr      eax, 0x1f
+  0x00460a16  add      eax, edx
+  0x00460a18  movd     xmm0, eax
+  0x00460a1c  cvtdq2pd xmm0, xmm0
+  0x00460a20  shr      eax, 0x1f
+  0x00460a23  addsd    xmm0, qword ptr [eax*8 + 0x105f6ce0]   ; f32=0 i32=0 f64=0
+  0x00460a2c  mov      eax, dword ptr [ebp + 0x10]
+  0x00460a2f  cvtpd2ps xmm0, xmm0
+  0x00460a33  divss    xmm1, xmm0
+  0x00460a37  movd     xmm0, eax
+  0x00460a3b  cvtdq2pd xmm0, xmm0
+  0x00460a3f  shr      eax, 0x1f
+  0x00460a42  addsd    xmm0, qword ptr [eax*8 + 0x105f6ce0]   ; f32=0 i32=0 f64=0
+  0x00460a4b  cvtpd2ps xmm2, xmm0
+  0x00460a4f  mulss    xmm2, xmm1
+  0x00460a53  movss    dword ptr [ebp + 0x10], xmm2
+  0x00460a58  test     bl, 1
+  0x00460a5b  je       0x10460a6e
+  0x00460a5d  mulss    xmm1, dword ptr [0x105f69dc]   ; f32=0.5 i32=1056964608 f64=3.05225e-05
+  0x00460a65  addss    xmm2, xmm1
+  0x00460a69  movss    dword ptr [ebp + 0x10], xmm2
+  0x00460a6e  lea      eax, [ebx + 1]
+  0x00460a71  movd     xmm1, eax
+  0x00460a75  cvtdq2pd xmm1, xmm1
+  0x00460a79  shr      eax, 0x1f
+  0x00460a7c  addsd    xmm1, qword ptr [eax*8 + 0x105f6ce0]   ; f32=0 i32=0 f64=0
+  0x00460a85  cvtpd2ps xmm0, xmm1
+  0x00460a89  mulss    xmm0, dword ptr [ebp + 0x14]
+  0x00460a8e  movss    dword ptr [ebp + 8], xmm0
+  0x00460a93  movaps   xmm0, xmm2
+  0x00460a96  call     0x104c12f4   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x383d4
+  0x00460a9b  mulss    xmm0, dword ptr [ebp + 8]
+  0x00460aa0  mov      dword ptr [ebp - 8], 0
+  0x00460aa7  movss    dword ptr [ebp - 0xc], xmm0
+  0x00460aac  movss    xmm0, dword ptr [ebp + 0x10]
+  0x00460ab1  call     0x104c1300   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x383e0
+  0x00460ab6  mulss    xmm0, dword ptr [ebp + 8]
+  0x00460abb  lea      ecx, [ebp - 0xc]
+  0x00460abe  push     0
+  0x00460ac0  push     ecx
+  0x00460ac1  mov      ecx, esi
+  0x00460ac3  movss    dword ptr [ebp - 4], xmm0
+  0x00460ac8  call     dword ptr [0x104e6600]   ; f32=1.16686e-38 i32=8326996 f64=2.76449e-306
+  0x00460ace  pop      edi
+  0x00460acf  mov      eax, esi
+  0x00460ad1  pop      esi
+  0x00460ad2  pop      ebx
+  0x00460ad3  mov      esp, ebp
+  0x00460ad5  pop      ebp
+  0x00460ad6  ret      0x10
+  0x00460ad9  int3     
+  0x00460ada  int3     
+  0x00460adb  int3     
+  0x00460adc  int3     
+  0x00460add  int3     
+  0x00460ade  int3     
+  0x00460adf  int3     
+=== ?CalculateSlotPositions@SlotManager@GAME@@AAEXIM@Z ===
+  0x00460ae0  push     ebp
+  0x00460ae1  mov      ebp, esp
+  0x00460ae3  and      esp, 0xfffffff0
+  0x00460ae6  sub      esp, 0x28
+  0x00460ae9  push     esi
+  0x00460aea  mov      esi, ecx
+  0x00460aec  mov      ecx, dword ptr [ebp + 8]
+  0x00460aef  push     edi
+  0x00460af0  mov      dword ptr [esp + 0x1c], esi
+  0x00460af4  mov      eax, dword ptr [esi + 8]
+  0x00460af7  sub      eax, dword ptr [esi + 4]
+  0x00460afa  sar      eax, 5
+  0x00460afd  cmp      ecx, eax
+  0x00460aff  jae      0x10460bde
+  0x00460b05  movss    xmm0, dword ptr [ebp + 0xc]
+  0x00460b0a  mov      edi, ecx
+  0x00460b0c  shl      edi, 5
+  0x00460b0f  add      edi, dword ptr [esi + 4]
+  0x00460b12  ucomiss  xmm0, dword ptr [edi + 0x1c]
+  0x00460b16  lahf     
+  0x00460b17  test     ah, 0x44
+  0x00460b1a  mov      eax, dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x00460b1f  jp       0x10460b51
+  0x00460b21  mov      ecx, dword ptr [esi]
+  0x00460b23  call     eax
+  0x00460b25  movups   xmm0, xmmword ptr [eax]
+  0x00460b28  lea      eax, [esp + 0x20]
+  0x00460b2c  push     eax
+  0x00460b2d  lea      eax, [edi + 0xc]
+  0x00460b30  push     eax
+  0x00460b31  movups   xmmword ptr [esp + 0x28], xmm0
+  0x00460b36  call     dword ptr [0x104e6868]   ; f32=1.16807e-38 i32=8335606 f64=2.77616e-306
+  0x00460b3c  add      esp, 8
+  0x00460b3f  test     al, al
+  0x00460b41  jne      0x10460bde
+  0x00460b47  movss    xmm0, dword ptr [ebp + 0xc]
+  0x00460b4c  mov      eax, dword ptr [0x104e65f4]   ; f32=1.16684e-38 i32=8326830 f64=2.76428e-306
+  0x00460b51  movss    dword ptr [edi + 0x1c], xmm0
+  0x00460b56  mov      ecx, dword ptr [esi]
+  0x00460b58  call     eax
+  0x00460b5a  mov      dword ptr [esp + 0x14], 0
+  0x00460b62  movups   xmm0, xmmword ptr [eax]
+  0x00460b65  mov      eax, 0x66666667
+  0x00460b6a  movups   xmmword ptr [edi + 0xc], xmm0
+  0x00460b6e  mov      ecx, dword ptr [edi + 4]
+  0x00460b71  sub      ecx, dword ptr [edi]
+  0x00460b73  imul     ecx
+  0x00460b75  sar      edx, 3
+  0x00460b78  mov      eax, edx
+  0x00460b7a  shr      eax, 0x1f
+  0x00460b7d  add      eax, edx
+  0x00460b7f  je       0x10460bde
+  0x00460b81  xor      eax, eax
+  0x00460b83  mov      dword ptr [esp + 0x18], eax
+  0x00460b87  movss    xmm0, dword ptr [ebp + 0xc]
+  0x00460b8c  mov      esi, dword ptr [edi]
+  0x00460b8e  push     ecx
+  0x00460b8f  mov      ecx, dword ptr [esp + 0x20]
+  0x00460b93  add      esi, eax
+  0x00460b95  movss    dword ptr [esp], xmm0
+  0x00460b9a  lea      eax, [esp + 0x24]
+  0x00460b9e  push     dword ptr [esp + 0x18]
+  0x00460ba2  push     dword ptr [ebp + 8]
+  0x00460ba5  push     eax
+  0x00460ba6  call     0x10460990   ; -> ?CalculateSlotPosition@SlotManager@GAME@@AAE?AVWorldVec3@2@IIM@Z
+  0x00460bab  add      dword ptr [esp + 0x18], 0x14
+  0x00460bb0  movups   xmm0, xmmword ptr [eax]
+  0x00460bb3  mov      eax, 0x66666667
+  0x00460bb8  movups   xmmword ptr [esi + 4], xmm0
+  0x00460bbc  mov      ecx, dword ptr [edi + 4]
+  0x00460bbf  sub      ecx, dword ptr [edi]
+  0x00460bc1  mov      esi, dword ptr [esp + 0x14]
+  0x00460bc5  imul     ecx
+  0x00460bc7  inc      esi
+  0x00460bc8  sar      edx, 3
+  0x00460bcb  mov      eax, edx
+  0x00460bcd  mov      dword ptr [esp + 0x14], esi
+  0x00460bd1  shr      eax, 0x1f
+  0x00460bd4  add      eax, edx
+  0x00460bd6  cmp      esi, eax
+  0x00460bd8  mov      eax, dword ptr [esp + 0x18]
+  0x00460bdc  jb       0x10460b87
+  0x00460bde  pop      edi
+  0x00460bdf  pop      esi
+  0x00460be0  mov      esp, ebp
+  0x00460be2  pop      ebp
+  0x00460be3  ret      8
+  0x00460be6  int3     
+  0x00460be7  int3     
+  0x00460be8  int3     
+  0x00460be9  int3     
+  0x00460bea  int3     
+  0x00460beb  int3     
+  0x00460bec  int3     
+  0x00460bed  int3     
+  0x00460bee  int3     
+  0x00460bef  int3     
+=== ?AddNewRing@SlotManager@GAME@@AAEAAUSlotRing@12@M@Z ===
+  0x00460bf0  push     ebx
+  0x00460bf1  mov      ebx, esp
+  0x00460bf3  sub      esp, 8
+  0x00460bf6  and      esp, 0xfffffff8
+  0x00460bf9  add      esp, 4
+  0x00460bfc  push     ebp
+  0x00460bfd  mov      ebp, dword ptr [ebx + 4]
+  0x00460c00  mov      dword ptr [esp + 4], ebp
+  0x00460c04  mov      ebp, esp
+  0x00460c06  push     -1
+  0x00460c08  push     0x104de890
+  0x00460c0d  mov      eax, dword ptr fs:[0]
+  0x00460c13  push     eax
+  0x00460c14  mov      dword ptr fs:[0], esp
+  0x00460c1b  push     ebx
+  0x00460c1c  sub      esp, 0x30
+  0x00460c1f  push     esi
+  0x00460c20  mov      esi, ecx
+  0x00460c22  xorps    xmm0, xmm0
+  0x00460c25  mov      eax, dword ptr [esi + 4]
+  0x00460c28  push     edi
+  0x00460c29  lea      edi, [esi + 4]
+  0x00460c2c  mov      dword ptr [ebp - 0x1c], esi
+  0x00460c2f  movups   xmmword ptr [ebp - 0x3c], xmm0
+  0x00460c33  mov      edx, dword ptr [eax + 4]
+  0x00460c36  sub      edx, dword ptr [eax]
+  0x00460c38  mov      eax, 0x66666667
+  0x00460c3d  imul     edx
+  0x00460c3f  movups   xmmword ptr [ebp - 0x2c], xmm0
+  0x00460c43  mov      eax, dword ptr [edi + 4]
+  0x00460c46  sub      eax, dword ptr [edi]
+  0x00460c48  sar      edx, 3
+  0x00460c4b  mov      ecx, edx
+  0x00460c4d  sar      eax, 5
+  0x00460c50  shr      ecx, 0x1f
+  0x00460c53  inc      eax
+  0x00460c54  add      ecx, edx
+  0x00460c56  mov      dword ptr [ebp - 0x18], edi
+  0x00460c59  imul     eax, ecx
+  0x00460c5c  mov      dword ptr [ebp - 0x3c], 0
+  0x00460c63  mov      dword ptr [ebp - 0x38], 0
+  0x00460c6a  mov      dword ptr [ebp - 0x34], 0
+  0x00460c71  mov      dword ptr [ebp - 0x14], eax
+  0x00460c74  lea      ecx, [ebp - 0x30]
+  0x00460c77  mov      dword ptr [ebp - 4], 0
+  0x00460c7e  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x00460c84  lea      eax, [ebp - 0x3c]
+  0x00460c87  mov      dword ptr [ebp - 4], 1
+  0x00460c8e  push     eax
+  0x00460c8f  mov      ecx, edi
+  0x00460c91  call     0x10460f80   ; -> ?DebugRender@SlotManager@GAME@@QAEXXZ+0x200
+  0x00460c96  mov      dword ptr [ebp - 4], 0xffffffff
+  0x00460c9d  mov      ecx, dword ptr [ebp - 0x3c]
+  0x00460ca0  test     ecx, ecx
+  0x00460ca2  je       0x10460cc6
+  0x00460ca4  mov      edx, dword ptr [ebp - 0x34]
+  0x00460ca7  mov      eax, 0x66666667
+  0x00460cac  sub      edx, ecx
+  0x00460cae  imul     edx
+  0x00460cb0  push     0x14
+  0x00460cb2  mov      eax, edx
+  0x00460cb4  sar      eax, 3
+  0x00460cb7  mov      edx, eax
+  0x00460cb9  shr      edx, 0x1f
+  0x00460cbc  add      edx, eax
+  0x00460cbe  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x00460cc3  add      esp, 4
+  0x00460cc6  mov      esi, dword ptr [esi + 8]
+  0x00460cc9  lea      ecx, [ebp - 0x2c]
+  0x00460ccc  add      esi, -0x20
+  0x00460ccf  mov      dword ptr [esi + 0x1c], 0
+  0x00460cd6  call     dword ptr [0x104e6390]   ; f32=1.16572e-38 i32=8318880 f64=2.75344e-306
+  0x00460cdc  push     dword ptr [ebp - 0x14]
+  0x00460cdf  mov      ecx, esi
+  0x00460ce1  movups   xmm0, xmmword ptr [eax]
+  0x00460ce4  movups   xmmword ptr [esi + 0xc], xmm0
+  0x00460ce8  call     0x10460fe0   ; -> ?DebugRender@SlotManager@GAME@@QAEXXZ+0x260
+  0x00460ced  xor      ecx, ecx
+  0x00460cef  mov      eax, 0x66666667
+  0x00460cf4  mov      dword ptr [ebp - 0x14], ecx
+  0x00460cf7  mov      ecx, dword ptr [esi + 4]
+  0x00460cfa  sub      ecx, dword ptr [esi]
+  0x00460cfc  imul     ecx
+  0x00460cfe  sar      edx, 3
+  0x00460d01  mov      eax, edx
+  0x00460d03  shr      eax, 0x1f
+  0x00460d06  add      eax, edx
+  0x00460d08  je       0x10460d40
+  0x00460d0a  xor      edi, edi
+  0x00460d0c  nop      dword ptr [eax]
+  0x00460d10  mov      eax, dword ptr [esi]
+  0x00460d12  lea      edi, [edi + 0x14]
+  0x00460d15  inc      dword ptr [ebp - 0x14]
+  0x00460d18  mov      dword ptr [edi + eax - 0x14], 0
+  0x00460d20  mov      eax, 0x66666667
+  0x00460d25  mov      ecx, dword ptr [esi + 4]
+  0x00460d28  sub      ecx, dword ptr [esi]
+  0x00460d2a  imul     ecx
+  0x00460d2c  mov      ecx, dword ptr [ebp - 0x14]
+  0x00460d2f  sar      edx, 3
+  0x00460d32  mov      eax, edx
+  0x00460d34  shr      eax, 0x1f
+  0x00460d37  add      eax, edx
+  0x00460d39  cmp      ecx, eax
+  0x00460d3b  jb       0x10460d10
+  0x00460d3d  mov      edi, dword ptr [ebp - 0x18]
+  0x00460d40  mov      eax, dword ptr [edi + 4]
+  0x00460d43  sub      eax, dword ptr [edi]
+  0x00460d45  movss    xmm0, dword ptr [ebx + 8]
+  0x00460d4a  mov      esi, dword ptr [ebp - 0x1c]
+  0x00460d4d  push     ecx
+  0x00460d4e  sar      eax, 5
+  0x00460d51  mov      ecx, esi
+  0x00460d53  dec      eax
+  0x00460d54  movss    dword ptr [esp], xmm0
+  0x00460d59  push     eax
+  0x00460d5a  call     0x10460ae0   ; -> ?CalculateSlotPositions@SlotManager@GAME@@AAEXIM@Z
+  0x00460d5f  mov      eax, dword ptr [esi + 8]
+  0x00460d62  mov      ecx, dword ptr [ebp - 0xc]
+  0x00460d65  add      eax, -0x20
+  0x00460d68  pop      edi
+  0x00460d69  mov      dword ptr fs:[0], ecx
+  0x00460d70  pop      esi
+  0x00460d71  mov      esp, ebp
+  0x00460d73  pop      ebp
+  0x00460d74  mov      esp, ebx
+  0x00460d76  pop      ebx
+  0x00460d77  ret      4
+  0x00460d7a  int3     
+  0x00460d7b  int3     
+  0x00460d7c  int3     
+  0x00460d7d  int3     
+  0x00460d7e  int3     
+  0x00460d7f  int3     

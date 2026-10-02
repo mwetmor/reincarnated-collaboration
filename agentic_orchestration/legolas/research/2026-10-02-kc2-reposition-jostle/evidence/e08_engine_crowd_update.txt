@@ -1,0 +1,1124 @@
+=== Engine.dll Ed IV (sha in README). Crowd::Update excerpts (crowd.cpp region; no exports: addresses are RVAs)
+--- mover separation steering (agent+0x24 weight) 0x20714a-0x20738a
+  0x0020714a  movss    xmm0, dword ptr [esi + 0x24]
+  0x0020714f  comiss   xmm0, xmm4
+  0x00207152  jbe      0x1020738a
+  0x00207158  test     dword ptr [esi + 0x3c], 0x800
+  0x0020715f  jne      0x1020738a
+  0x00207165  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x0020716a  movaps   xmm0, xmm5
+  0x0020716d  divss    xmm0, dword ptr [esp + 0x30]
+  0x00207173  mov      ecx, dword ptr [esi + 0x80]
+  0x00207179  xor      edx, edx
+  0x0020717b  mov      dword ptr [esp + 0x40], eax
+  0x0020717f  mov      eax, ecx
+  0x00207181  sub      eax, dword ptr [esi + 0x7c]
+  0x00207184  sar      eax, 2
+  0x00207187  movaps   xmm3, xmm4
+  0x0020718a  movss    dword ptr [esp + 0x18], xmm0
+  0x00207190  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207198  movss    dword ptr [esp + 0x24], xmm3
+  0x0020719e  movq     qword ptr [esp + 0x38], xmm0
+  0x002071a4  test     eax, eax
+  0x002071a6  je       0x1020738a
+  0x002071ac  mov      eax, dword ptr [esi + 0x7c]
+  0x002071af  sub      ecx, eax
+  0x002071b1  movss    xmm2, dword ptr [esp + 0x40]
+  0x002071b7  movss    xmm1, dword ptr [esp + 0x3c]
+  0x002071bd  movss    xmm7, dword ptr [esp + 0x38]
+  0x002071c3  sar      ecx, 2
+  0x002071c6  mov      dword ptr [esp + 0x30], ecx
+  0x002071ca  movss    dword ptr [esp + 0x1c], xmm2
+  0x002071d0  movss    dword ptr [esp + 0x20], xmm1
+  0x002071d6  nop      word ptr [eax + eax]
+  0x002071e0  mov      ecx, dword ptr [eax + edx*4]
+  0x002071e3  movss    xmm0, dword ptr [ecx + 0x24]
+  0x002071e8  ucomiss  xmm0, xmm4
+  0x002071eb  lahf     
+  0x002071ec  test     ah, 0x44
+  0x002071ef  jnp      0x102072cd
+  0x002071f5  movss    xmm5, dword ptr [edi]
+  0x002071f9  movss    xmm6, dword ptr [edi + 8]
+  0x002071fe  subss    xmm5, dword ptr [ecx + 0x40]
+  0x00207203  subss    xmm6, dword ptr [ecx + 0x48]
+  0x00207208  movss    xmm1, dword ptr [esi + 8]
+  0x0020720d  movss    xmm2, dword ptr [ecx + 8]
+  0x00207212  mulss    xmm1, xmm1
+  0x00207216  movaps   xmm3, xmm5
+  0x00207219  mulss    xmm2, xmm2
+  0x0020721d  mulss    xmm3, xmm5
+  0x00207221  movaps   xmm0, xmm6
+  0x00207224  mulss    xmm0, xmm6
+  0x00207228  addss    xmm3, xmm0
+  0x0020722c  subss    xmm3, xmm1
+  0x00207230  subss    xmm3, xmm2
+  0x00207234  comiss   xmm3, dword ptr [0x102e1838]   ; f32=0.0001 i32=953267991
+  0x0020723b  jbe      0x102072b3
+  0x0020723d  xorps    xmm1, xmm1
+  0x00207240  movss    xmm2, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x00207248  sqrtss   xmm1, xmm3
+  0x0020724c  movss    xmm3, dword ptr [esp + 0x24]
+  0x00207252  movaps   xmm0, xmm1
+  0x00207255  mulss    xmm0, dword ptr [esp + 0x18]
+  0x0020725b  mulss    xmm0, xmm0
+  0x0020725f  subss    xmm2, xmm0
+  0x00207263  mulss    xmm2, dword ptr [esi + 0x24]
+  0x00207268  divss    xmm2, xmm1
+  0x0020726c  movss    xmm1, dword ptr [esp + 0x20]
+  0x00207272  mulss    xmm5, xmm2
+  0x00207276  movaps   xmm0, xmm2
+  0x00207279  mulss    xmm6, xmm2
+  0x0020727d  movss    xmm2, dword ptr [esp + 0x1c]
+  0x00207283  addss    xmm7, xmm5
+  0x00207287  movss    xmm5, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x0020728f  mulss    xmm0, xmm4
+  0x00207293  addss    xmm2, xmm6
+  0x00207297  addss    xmm3, xmm5
+  0x0020729b  addss    xmm1, xmm0
+  0x0020729f  movss    dword ptr [esp + 0x1c], xmm2
+  0x002072a5  movss    dword ptr [esp + 0x24], xmm3
+  0x002072ab  movss    dword ptr [esp + 0x20], xmm1
+  0x002072b1  jmp      0x102072cd   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2746d
+  0x002072b3  movss    xmm1, dword ptr [esp + 0x20]
+  0x002072b9  movss    xmm2, dword ptr [esp + 0x1c]
+  0x002072bf  movss    xmm3, dword ptr [esp + 0x24]
+  0x002072c5  movss    xmm5, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x002072cd  mov      eax, dword ptr [esi + 0x7c]
+  0x002072d0  inc      edx
+  0x002072d1  cmp      edx, dword ptr [esp + 0x30]
+  0x002072d5  jb       0x102071e0
+  0x002072db  comiss   xmm3, xmm4
+  0x002072de  jbe      0x1020738a
+  0x002072e4  movaps   xmm0, xmm5
+  0x002072e7  divss    xmm0, xmm3
+  0x002072eb  mulss    xmm2, xmm0
+  0x002072ef  mulss    xmm1, xmm0
+  0x002072f3  addss    xmm2, dword ptr [esi + 0x9c]
+  0x002072fb  mulss    xmm7, xmm0
+  0x002072ff  addss    xmm1, dword ptr [esi + 0x98]
+  0x00207307  addss    xmm7, dword ptr [esi + 0x94]
+  0x0020730f  movss    dword ptr [esi + 0x9c], xmm2
+  0x00207317  movss    dword ptr [esi + 0x98], xmm1
+  0x0020731f  mulss    xmm1, xmm1
+  0x00207323  movaps   xmm2, xmm7
+  0x00207326  movss    dword ptr [esi + 0x94], xmm7
+  0x0020732e  movss    xmm0, dword ptr [esi + 0x9c]
+  0x00207336  mulss    xmm2, xmm2
+  0x0020733a  mulss    xmm0, xmm0
+  0x0020733e  addss    xmm2, xmm1
+  0x00207342  movss    xmm1, dword ptr [esi + 0x10]
+  0x00207347  mulss    xmm1, xmm1
+  0x0020734b  addss    xmm2, xmm0
+  0x0020734f  comiss   xmm2, xmm1
+  0x00207352  jbe      0x1020738a
+  0x00207354  divss    xmm1, xmm2
+  0x00207358  movaps   xmm0, xmm7
+  0x0020735b  mulss    xmm0, xmm1
+  0x0020735f  movss    dword ptr [esi + 0x94], xmm0
+  0x00207367  movaps   xmm0, xmm1
+  0x0020736a  mulss    xmm0, dword ptr [esi + 0x98]
+  0x00207372  mulss    xmm1, dword ptr [esi + 0x9c]
+  0x0020737a  movss    dword ptr [esi + 0x98], xmm0
+  0x00207382  movss    dword ptr [esi + 0x9c], xmm1
+  0x0020738a  mov      ecx, dword ptr [esp + 0x14]
+--- goal-occupied / blocked stop + integrate, depenetration, apply, stuck: 0x207999-0x208776
+  0x00207999  xorps    xmm6, xmm6
+  0x0020799c  movss    xmm3, dword ptr [esi + 0x64]
+  0x002079a1  lea      edi, [esi + 0x40]
+  0x002079a4  mulss    xmm3, dword ptr [esp + 0x58]
+  0x002079aa  mov      eax, dword ptr [esi + 0x3c]
+  0x002079ad  movss    xmm1, dword ptr [esi + 0x50]
+  0x002079b2  movss    xmm2, dword ptr [esi + 0x54]
+  0x002079b7  movss    xmm5, dword ptr [edi]
+  0x002079bb  movaps   xmm0, xmm3
+  0x002079be  mulss    xmm0, dword ptr [esi + 0x4c]
+  0x002079c3  movss    xmm4, dword ptr [edi + 4]
+  0x002079c8  movss    xmm7, dword ptr [edi + 8]
+  0x002079cd  mulss    xmm1, xmm3
+  0x002079d1  addss    xmm5, xmm0
+  0x002079d5  mulss    xmm2, xmm3
+  0x002079d9  movss    dword ptr [esp + 0x1c], xmm3
+  0x002079df  addss    xmm4, xmm1
+  0x002079e3  movss    dword ptr [esp + 0x24], xmm5
+  0x002079e9  movss    dword ptr [esp + 0x5c], xmm5
+  0x002079ef  addss    xmm7, xmm2
+  0x002079f3  movss    dword ptr [esp + 0x20], xmm4
+  0x002079f9  movss    dword ptr [esp + 0x60], xmm4
+  0x002079ff  movss    dword ptr [esp + 0x78], xmm7
+  0x00207a05  movss    dword ptr [esp + 0x64], xmm7
+  0x00207a0b  test     eax, 0x800
+  0x00207a10  jne      0x10207efe
+  0x00207a16  test     al, 0x10
+  0x00207a18  je       0x10207da8
+  0x00207a1e  mov      ecx, dword ptr [esi + 0x80]
+  0x00207a24  movaps   xmm1, xmm6
+  0x00207a27  sub      ecx, dword ptr [esi + 0x7c]
+  0x00207a2a  xor      edi, edi
+  0x00207a2c  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207a34  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00207a39  sar      ecx, 2
+  0x00207a3c  movq     qword ptr [esp + 0x38], xmm0
+  0x00207a42  mov      dword ptr [esp + 0x40], eax
+  0x00207a46  movss    dword ptr [esp + 0x50], xmm1
+  0x00207a4c  mov      dword ptr [esp + 0x74], ecx
+  0x00207a50  test     ecx, ecx
+  0x00207a52  je       0x10207efb
+  0x00207a58  mov      eax, dword ptr [esi + 0x3c]
+  0x00207a5b  movss    xmm3, dword ptr [esp + 0x40]
+  0x00207a61  and      eax, 4
+  0x00207a64  movss    xmm7, dword ptr [esp + 0x3c]
+  0x00207a6a  movss    xmm2, dword ptr [esp + 0x38]
+  0x00207a70  mov      edx, dword ptr [esi + 0x7c]
+  0x00207a73  mov      dword ptr [esp + 0x94], eax
+  0x00207a7a  mov      eax, ecx
+  0x00207a7c  movss    dword ptr [esp + 0x14], xmm3
+  0x00207a82  movss    dword ptr [esp + 0x30], xmm7
+  0x00207a88  movss    dword ptr [esp + 0x2c], xmm2
+  0x00207a8e  nop      
+  0x00207a90  cmp      dword ptr [esp + 0x94], 0
+  0x00207a98  mov      ecx, dword ptr [edx]
+  0x00207a9a  je       0x10207aa6
+  0x00207a9c  cmp      dword ptr [ecx + 0x68], 2
+  0x00207aa0  je       0x10207c80
+  0x00207aa6  movaps   xmm3, xmm5
+  0x00207aa9  movaps   xmm5, xmm4
+  0x00207aac  movss    xmm4, dword ptr [esp + 0x78]
+  0x00207ab2  subss    xmm3, dword ptr [ecx + 0x40]
+  0x00207ab7  subss    xmm4, dword ptr [ecx + 0x48]
+  0x00207abc  subss    xmm5, dword ptr [ecx + 0x44]
+  0x00207ac1  movaps   xmm0, xmm3
+  0x00207ac4  movaps   xmm1, xmm4
+  0x00207ac7  mulss    xmm0, xmm3
+  0x00207acb  mulss    xmm1, xmm4
+  0x00207acf  movss    dword ptr [esp + 0x9c], xmm0
+  0x00207ad8  addss    xmm0, xmm1
+  0x00207adc  movss    dword ptr [esp + 0x4c], xmm1
+  0x00207ae2  ucomiss  xmm0, xmm6
+  0x00207ae5  lahf     
+  0x00207ae6  test     ah, 0x44
+  0x00207ae9  jp       0x10207af0
+  0x00207aeb  movaps   xmm1, xmm6
+  0x00207aee  jmp      0x10207af7   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27c97
+  0x00207af0  xorps    xmm1, xmm1
+  0x00207af3  sqrtss   xmm1, xmm0
+  0x00207af7  movss    xmm2, dword ptr [ecx + 8]
+  0x00207afc  movss    xmm0, dword ptr [esi + 8]
+  0x00207b01  addss    xmm0, xmm2
+  0x00207b05  comiss   xmm0, xmm1
+  0x00207b08  jb       0x10207c70
+  0x00207b0e  movss    xmm0, dword ptr [ecx + 0x40]
+  0x00207b13  movss    xmm1, dword ptr [ecx + 0x48]
+  0x00207b18  subss    xmm1, dword ptr [esi + 0x78]
+  0x00207b1d  subss    xmm0, dword ptr [esi + 0x70]
+  0x00207b22  movss    xmm2, dword ptr [ecx + 0xc]
+  0x00207b27  mulss    xmm1, xmm1
+  0x00207b2b  mulss    xmm0, xmm0
+  0x00207b2f  addss    xmm1, xmm0
+  0x00207b33  ucomiss  xmm1, xmm6
+  0x00207b36  lahf     
+  0x00207b37  test     ah, 0x44
+  0x00207b3a  jp       0x10207b41
+  0x00207b3c  movaps   xmm0, xmm6
+  0x00207b3f  jmp      0x10207b48   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27ce8
+  0x00207b41  xorps    xmm0, xmm0
+  0x00207b44  sqrtss   xmm0, xmm1
+  0x00207b48  mulss    xmm2, dword ptr [0x102e1990]   ; f32=0.5 i32=1056964608
+  0x00207b50  movss    xmm1, dword ptr [ecx + 8]
+  0x00207b55  comiss   xmm1, xmm0
+  0x00207b58  movss    dword ptr [esp + 0x98], xmm2
+  0x00207b61  jb       0x10207b90
+  0x00207b63  movss    xmm1, dword ptr [ecx + 0x44]
+  0x00207b68  movaps   xmm0, xmm1
+  0x00207b6b  subss    xmm0, xmm2
+  0x00207b6f  movss    xmm2, dword ptr [esi + 0x74]
+  0x00207b74  comiss   xmm2, xmm0
+  0x00207b77  movss    xmm2, dword ptr [esp + 0x98]
+  0x00207b80  jb       0x10207b90
+  0x00207b82  addss    xmm1, xmm2
+  0x00207b86  comiss   xmm1, dword ptr [esi + 0x74]
+  0x00207b8a  jae      0x10207d5c
+  0x00207b90  movss    xmm0, dword ptr [esp + 0x24]
+  0x00207b96  movss    xmm1, dword ptr [esp + 0x78]
+  0x00207b9c  subss    xmm1, dword ptr [esi + 0x78]
+  0x00207ba1  subss    xmm0, dword ptr [esi + 0x70]
+  0x00207ba6  movss    xmm2, dword ptr [esi + 0xc]
+  0x00207bab  mulss    xmm1, xmm1
+  0x00207baf  mulss    xmm0, xmm0
+  0x00207bb3  addss    xmm1, xmm0
+  0x00207bb7  ucomiss  xmm1, xmm6
+  0x00207bba  lahf     
+  0x00207bbb  test     ah, 0x44
+  0x00207bbe  jp       0x10207bc5
+  0x00207bc0  movaps   xmm0, xmm6
+  0x00207bc3  jmp      0x10207bcc   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27d6c
+  0x00207bc5  xorps    xmm0, xmm0
+  0x00207bc8  sqrtss   xmm0, xmm1
+  0x00207bcc  movss    xmm1, dword ptr [esi + 8]
+  0x00207bd1  comiss   xmm1, xmm0
+  0x00207bd4  mulss    xmm2, dword ptr [0x102e1990]   ; f32=0.5 i32=1056964608
+  0x00207bdc  jb       0x10207c01
+  0x00207bde  movss    xmm0, dword ptr [esp + 0x20]
+  0x00207be4  movss    xmm1, dword ptr [esi + 0x74]
+  0x00207be9  subss    xmm0, xmm2
+  0x00207bed  comiss   xmm1, xmm0
+  0x00207bf0  jb       0x10207c01
+  0x00207bf2  addss    xmm2, dword ptr [esp + 0x20]
+  0x00207bf8  comiss   xmm2, xmm1
+  0x00207bfb  jae      0x10207d5c
+  0x00207c01  movaps   xmm0, xmm5
+  0x00207c04  movss    xmm2, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x00207c0c  mulss    xmm0, xmm5
+  0x00207c10  movaps   xmm1, xmm2
+  0x00207c13  addss    xmm0, dword ptr [esp + 0x9c]
+  0x00207c1c  addss    xmm0, dword ptr [esp + 0x4c]
+  0x00207c22  sqrtss   xmm0, xmm0
+  0x00207c26  divss    xmm1, xmm0
+  0x00207c2a  movss    xmm0, dword ptr [esp + 0x2c]
+  0x00207c30  mulss    xmm3, xmm1
+  0x00207c34  mulss    xmm4, xmm1
+  0x00207c38  addss    xmm0, xmm3
+  0x00207c3c  mulss    xmm5, xmm1
+  0x00207c40  addss    xmm7, xmm5
+  0x00207c44  movss    dword ptr [esp + 0x2c], xmm0
+  0x00207c4a  movss    xmm0, dword ptr [esp + 0x14]
+  0x00207c50  addss    xmm0, xmm4
+  0x00207c54  movss    dword ptr [esp + 0x30], xmm7
+  0x00207c5a  movss    dword ptr [esp + 0x14], xmm0
+  0x00207c60  movss    xmm0, dword ptr [esp + 0x50]
+  0x00207c66  addss    xmm0, xmm2
+  0x00207c6a  movss    dword ptr [esp + 0x50], xmm0
+  0x00207c70  mov      eax, dword ptr [esp + 0x74]
+  0x00207c74  movss    xmm5, dword ptr [esp + 0x24]
+  0x00207c7a  movss    xmm4, dword ptr [esp + 0x20]
+  0x00207c80  inc      edi
+  0x00207c81  add      edx, 4
+  0x00207c84  cmp      edi, eax
+  0x00207c86  jb       0x10207a90
+  0x00207c8c  lea      edi, [esi + 0x40]
+  0x00207c8f  movss    xmm1, dword ptr [esp + 0x50]
+  0x00207c95  comiss   xmm1, xmm6
+  0x00207c98  jbe      0x10207d51
+  0x00207c9e  movss    xmm0, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x00207ca6  divss    xmm0, xmm1
+  0x00207caa  movss    xmm2, dword ptr [esp + 0x2c]
+  0x00207cb0  movss    xmm3, dword ptr [esp + 0x14]
+  0x00207cb6  mulss    xmm2, xmm0
+  0x00207cba  mulss    xmm7, xmm0
+  0x00207cbe  mulss    xmm3, xmm0
+  0x00207cc2  movaps   xmm0, xmm2
+  0x00207cc5  mulss    xmm0, xmm2
+  0x00207cc9  mulss    xmm7, xmm7
+  0x00207ccd  movss    xmm1, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x00207cd5  addss    xmm7, xmm0
+  0x00207cd9  movaps   xmm0, xmm3
+  0x00207cdc  mulss    xmm0, xmm3
+  0x00207ce0  addss    xmm7, xmm0
+  0x00207ce4  xorps    xmm0, xmm0
+  0x00207ce7  sqrtss   xmm0, xmm7
+  0x00207ceb  divss    xmm1, xmm0
+  0x00207cef  movss    xmm0, dword ptr [0x10364f34]   ; f32=-0.707107 i32=-1087044365
+  0x00207cf7  mulss    xmm2, xmm1
+  0x00207cfb  mulss    xmm3, xmm1
+  0x00207cff  movss    xmm1, dword ptr [esi + 0x54]
+  0x00207d04  mulss    xmm2, dword ptr [esi + 0x4c]
+  0x00207d09  mulss    xmm1, xmm3
+  0x00207d0d  addss    xmm1, xmm2
+  0x00207d11  comiss   xmm0, xmm1
+  0x00207d14  jbe      0x10207d51
+  0x00207d16  mov      ecx, dword ptr [esi + 4]
+  0x00207d19  mov      dword ptr [esi + 0x68], 6
+  0x00207d20  mov      dword ptr [esi + 0x6c], 1
+  0x00207d27  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207d2f  movq     qword ptr [esi + 0x94], xmm0
+  0x00207d37  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00207d3c  mov      dword ptr [esi + 0x9c], eax
+  0x00207d42  mov      dword ptr [esi + 0x64], 0
+  0x00207d49  mov      eax, dword ptr [ecx]
+  0x00207d4b  push     1
+  0x00207d4d  push     edi
+  0x00207d4e  call     dword ptr [eax + 0x1c]
+  0x00207d51  movss    xmm3, dword ptr [esp + 0x1c]
+  0x00207d57  jmp      0x10207efe   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2809e
+  0x00207d5c  mov      ecx, dword ptr [esi + 4]
+  0x00207d5f  lea      edi, [esi + 0x40]
+  0x00207d62  mov      dword ptr [esi + 0x68], 6
+  0x00207d69  mov      dword ptr [esi + 0x6c], 2
+  0x00207d70  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207d78  movq     qword ptr [esi + 0x94], xmm0
+  0x00207d80  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00207d85  mov      dword ptr [esi + 0x9c], eax
+  0x00207d8b  mov      dword ptr [esi + 0x64], 0
+  0x00207d92  mov      eax, dword ptr [ecx]
+  0x00207d94  push     2
+  0x00207d96  push     edi
+  0x00207d97  call     dword ptr [eax + 0x1c]
+  0x00207d9a  movss    xmm7, dword ptr [esp + 0x30]
+  0x00207da0  xorps    xmm6, xmm6
+  0x00207da3  jmp      0x10207c8f   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27e2f
+  0x00207da8  mov      eax, dword ptr [esi + 0x80]
+  0x00207dae  xor      edx, edx
+  0x00207db0  sub      eax, dword ptr [esi + 0x7c]
+  0x00207db3  sar      eax, 2
+  0x00207db6  mov      dword ptr [esp + 0x4c], eax
+  0x00207dba  test     eax, eax
+  0x00207dbc  je       0x10207efe
+  0x00207dc2  movss    xmm2, dword ptr [esi + 8]
+  0x00207dc7  mov      edi, dword ptr [esi + 0x7c]
+  0x00207dca  movss    dword ptr [esp + 0x14], xmm2
+  0x00207dd0  mov      ecx, dword ptr [edi]
+  0x00207dd2  movaps   xmm0, xmm5
+  0x00207dd5  movaps   xmm1, xmm7
+  0x00207dd8  subss    xmm1, dword ptr [ecx + 0x48]
+  0x00207ddd  subss    xmm0, dword ptr [ecx + 0x40]
+  0x00207de2  mulss    xmm1, xmm1
+  0x00207de6  mulss    xmm0, xmm0
+  0x00207dea  addss    xmm1, xmm0
+  0x00207dee  ucomiss  xmm1, xmm6
+  0x00207df1  lahf     
+  0x00207df2  test     ah, 0x44
+  0x00207df5  jp       0x10207dfc
+  0x00207df7  movaps   xmm1, xmm6
+  0x00207dfa  jmp      0x10207e00   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27fa0
+  0x00207dfc  sqrtss   xmm1, xmm1
+  0x00207e00  movss    xmm3, dword ptr [ecx + 8]
+  0x00207e05  movaps   xmm0, xmm3
+  0x00207e08  addss    xmm0, xmm2
+  0x00207e0c  comiss   xmm0, xmm1
+  0x00207e0f  jb       0x10207ee7
+  0x00207e15  movss    xmm0, dword ptr [ecx + 0x40]
+  0x00207e1a  movss    xmm1, dword ptr [ecx + 0x48]
+  0x00207e1f  subss    xmm1, dword ptr [esi + 0x78]
+  0x00207e24  subss    xmm0, dword ptr [esi + 0x70]
+  0x00207e29  movss    xmm2, dword ptr [ecx + 0xc]
+  0x00207e2e  mulss    xmm1, xmm1
+  0x00207e32  mulss    xmm0, xmm0
+  0x00207e36  addss    xmm1, xmm0
+  0x00207e3a  ucomiss  xmm1, xmm6
+  0x00207e3d  lahf     
+  0x00207e3e  test     ah, 0x44
+  0x00207e41  jp       0x10207e48
+  0x00207e43  movaps   xmm0, xmm6
+  0x00207e46  jmp      0x10207e4f   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x27fef
+  0x00207e48  xorps    xmm0, xmm0
+  0x00207e4b  sqrtss   xmm0, xmm1
+  0x00207e4f  comiss   xmm3, xmm0
+  0x00207e52  mulss    xmm2, dword ptr [0x102e1990]   ; f32=0.5 i32=1056964608
+  0x00207e5a  jb       0x10207e7f
+  0x00207e5c  movss    xmm1, dword ptr [ecx + 0x44]
+  0x00207e61  movss    xmm3, dword ptr [esi + 0x74]
+  0x00207e66  movaps   xmm0, xmm1
+  0x00207e69  subss    xmm0, xmm2
+  0x00207e6d  comiss   xmm3, xmm0
+  0x00207e70  jb       0x10207e7f
+  0x00207e72  addss    xmm1, xmm2
+  0x00207e76  comiss   xmm1, xmm3
+  0x00207e79  jae      0x10207f4a
+  0x00207e7f  movaps   xmm0, xmm5
+  0x00207e82  movss    xmm2, dword ptr [esi + 0xc]
+  0x00207e87  subss    xmm0, dword ptr [esi + 0x70]
+  0x00207e8c  movaps   xmm1, xmm7
+  0x00207e8f  subss    xmm1, dword ptr [esi + 0x78]
+  0x00207e94  mulss    xmm0, xmm0
+  0x00207e98  mulss    xmm1, xmm1
+  0x00207e9c  addss    xmm1, xmm0
+  0x00207ea0  ucomiss  xmm1, xmm6
+  0x00207ea3  lahf     
+  0x00207ea4  test     ah, 0x44
+  0x00207ea7  jp       0x10207eae
+  0x00207ea9  movaps   xmm0, xmm6
+  0x00207eac  jmp      0x10207eb5   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x28055
+  0x00207eae  xorps    xmm0, xmm0
+  0x00207eb1  sqrtss   xmm0, xmm1
+  0x00207eb5  movss    xmm1, dword ptr [esi + 8]
+  0x00207eba  comiss   xmm1, xmm0
+  0x00207ebd  mulss    xmm2, dword ptr [0x102e1990]   ; f32=0.5 i32=1056964608
+  0x00207ec5  jb       0x10207ee1
+  0x00207ec7  movss    xmm1, dword ptr [esi + 0x74]
+  0x00207ecc  movaps   xmm0, xmm4
+  0x00207ecf  subss    xmm0, xmm2
+  0x00207ed3  comiss   xmm1, xmm0
+  0x00207ed6  jb       0x10207ee1
+  0x00207ed8  addss    xmm2, xmm4
+  0x00207edc  comiss   xmm2, xmm1
+  0x00207edf  jae      0x10207f4a
+  0x00207ee1  movss    xmm2, dword ptr [esp + 0x14]
+  0x00207ee7  inc      edx
+  0x00207ee8  add      edi, 4
+  0x00207eeb  cmp      edx, dword ptr [esp + 0x4c]
+  0x00207eef  jb       0x10207dd0
+  0x00207ef5  movss    xmm3, dword ptr [esp + 0x1c]
+  0x00207efb  lea      edi, [esi + 0x40]
+  0x00207efe  cmp      dword ptr [esi + 0x68], 6
+  0x00207f02  xorps    xmm6, xmm6
+  0x00207f05  je       0x10207fba
+  0x00207f0b  movss    xmm1, dword ptr [esi + 0x70]
+  0x00207f10  movss    xmm2, dword ptr [esi + 0x74]
+  0x00207f15  subss    xmm2, dword ptr [edi + 4]
+  0x00207f1a  subss    xmm1, dword ptr [edi]
+  0x00207f1e  movss    xmm0, dword ptr [esi + 0x78]
+  0x00207f23  subss    xmm0, dword ptr [edi + 8]
+  0x00207f28  mulss    xmm2, xmm2
+  0x00207f2c  mulss    xmm1, xmm1
+  0x00207f30  mulss    xmm0, xmm0
+  0x00207f34  addss    xmm2, xmm1
+  0x00207f38  addss    xmm2, xmm0
+  0x00207f3c  ucomiss  xmm2, xmm6
+  0x00207f3f  lahf     
+  0x00207f40  test     ah, 0x44
+  0x00207f43  jp       0x10207f93
+  0x00207f45  movaps   xmm0, xmm6
+  0x00207f48  jmp      0x10207f9a   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2813a
+  0x00207f4a  mov      ecx, dword ptr [esi + 4]
+  0x00207f4d  lea      edi, [esi + 0x40]
+  0x00207f50  mov      dword ptr [esi + 0x68], 6
+  0x00207f57  mov      dword ptr [esi + 0x6c], 2
+  0x00207f5e  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207f66  movq     qword ptr [esi + 0x94], xmm0
+  0x00207f6e  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00207f73  mov      dword ptr [esi + 0x9c], eax
+  0x00207f79  mov      dword ptr [esi + 0x64], 0
+  0x00207f80  mov      eax, dword ptr [ecx]
+  0x00207f82  push     2
+  0x00207f84  push     edi
+  0x00207f85  call     dword ptr [eax + 0x1c]
+  0x00207f88  movss    xmm3, dword ptr [esp + 0x1c]
+  0x00207f8e  jmp      0x10207efe   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2809e
+  0x00207f93  xorps    xmm0, xmm0
+  0x00207f96  sqrtss   xmm0, xmm2
+  0x00207f9a  comiss   xmm3, xmm0
+  0x00207f9d  jb       0x10207fa9
+  0x00207f9f  movq     xmm0, qword ptr [esi + 0x70]
+  0x00207fa4  mov      eax, dword ptr [esi + 0x78]
+  0x00207fa7  jmp      0x10207fb3   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x28153
+  0x00207fa9  movq     xmm0, qword ptr [esp + 0x5c]
+  0x00207faf  mov      eax, dword ptr [esp + 0x64]
+  0x00207fb3  movq     qword ptr [edi], xmm0
+  0x00207fb7  mov      dword ptr [edi + 8], eax
+  0x00207fba  mov      edi, dword ptr [0x102a34f4]   ; [IAT _finite]
+  0x00207fc0  mov      esi, dword ptr [esp + 0x18]
+  0x00207fc4  inc      esi
+  0x00207fc5  mov      dword ptr [esp + 0x18], esi
+  0x00207fc9  cmp      esi, dword ptr [esp + 0x28]
+  0x00207fcd  jb       0x102077d6
+  0x00207fd3  mov      edi, dword ptr [esp + 0x28]
+  0x00207fd7  xor      esi, esi
+  0x00207fd9  mov      dword ptr [esp + 0x30], esi
+  0x00207fdd  cmp      dword ptr [esp + 0x48], esi
+  0x00207fe1  jbe      0x10208281
+  0x00207fe7  nop      word ptr [eax + eax]
+  0x00207ff0  mov      eax, dword ptr [esp + 0x10]
+  0x00207ff4  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x00207ffc  mov      eax, dword ptr [eax + 0x20]
+  0x00207fff  mov      esi, dword ptr [eax + esi*4]
+  0x00208002  mov      dword ptr [esp + 0x4c], esi
+  0x00208006  movq     qword ptr [esi + 0xac], xmm0
+  0x0020800e  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00208013  mov      dword ptr [esi + 0xb4], eax
+  0x00208019  mov      eax, dword ptr [esi + 0x3c]
+  0x0020801c  and      eax, 0x801
+  0x00208021  cmp      eax, 1
+  0x00208024  jne      0x1020826e
+  0x0020802a  cmp      dword ptr [esi + 0x68], 2
+  0x0020802e  xorps    xmm0, xmm0
+  0x00208031  movss    dword ptr [esp + 0x1c], xmm0
+  0x00208037  je       0x10208078
+  0x00208039  movss    xmm2, dword ptr [esi + 8]
+  0x0020803e  lea      ecx, [esi + 0x7c]
+  0x00208041  mov      eax, dword ptr [ecx]
+  0x00208043  movaps   xmm0, xmm2
+  0x00208046  addss    xmm0, dword ptr [esp + 0x54]
+  0x0020804c  mulss    xmm2, dword ptr [0x102e1af0]   ; f32=4 i32=1082130432
+  0x00208054  push     ecx
+  0x00208055  mov      dword ptr [ecx + 4], eax
+  0x00208058  lea      eax, [esi + 0x40]
+  0x0020805b  movss    xmm3, dword ptr [esi + 0xc]
+  0x00208060  mov      ecx, dword ptr [esp + 0x48]
+  0x00208064  maxss    xmm2, xmm0
+  0x00208068  push     esi
+  0x00208069  push     dword ptr [esi + 0x1c]
+  0x0020806c  push     eax
+  0x0020806d  call     0x10208d00   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x28ea0
+  0x00208072  movss    xmm0, dword ptr [esp + 0x1c]
+  0x00208078  mov      eax, dword ptr [esi + 0x80]
+  0x0020807e  xor      edi, edi
+  0x00208080  sub      eax, dword ptr [esi + 0x7c]
+  0x00208083  sar      eax, 2
+  0x00208086  mov      dword ptr [esp + 0x18], edi
+  0x0020808a  test     eax, eax
+  0x0020808c  je       0x1020821d
+  0x00208092  mov      eax, dword ptr [esi + 0x7c]
+  0x00208095  mov      edi, dword ptr [eax + edi*4]
+  0x00208098  test     byte ptr [edi + 0x3c], 1
+  0x0020809c  je       0x102081b4
+  0x002080a2  push     dword ptr [edi + 0x28]
+  0x002080a5  mov      ecx, dword ptr [esi + 4]
+  0x002080a8  push     dword ptr [edi + 0x68]
+  0x002080ab  push     dword ptr [esi + 0x28]
+  0x002080ae  mov      eax, dword ptr [ecx]
+  0x002080b0  push     dword ptr [esi + 0x68]
+  0x002080b3  mov      eax, dword ptr [eax + 0x18]
+  0x002080b6  call     eax
+  0x002080b8  test     al, al
+  0x002080ba  je       0x102081ae
+  0x002080c0  movss    xmm1, dword ptr [esi + 0x40]
+  0x002080c5  movss    xmm4, dword ptr [esi + 0x48]
+  0x002080ca  subss    xmm1, dword ptr [edi + 0x40]
+  0x002080cf  subss    xmm4, dword ptr [edi + 0x48]
+  0x002080d4  movss    xmm3, dword ptr [edi + 8]
+  0x002080d9  addss    xmm3, dword ptr [esi + 8]
+  0x002080de  movaps   xmm0, xmm1
+  0x002080e1  movaps   xmm2, xmm4
+  0x002080e4  mulss    xmm0, xmm1
+  0x002080e8  mulss    xmm2, xmm4
+  0x002080ec  addss    xmm2, xmm0
+  0x002080f0  movaps   xmm0, xmm3
+  0x002080f3  mulss    xmm0, xmm3
+  0x002080f7  comiss   xmm0, xmm2
+  0x002080fa  jbe      0x102081ae
+  0x00208100  xorps    xmm0, xmm0
+  0x00208103  sqrtss   xmm0, xmm2
+  0x00208107  movss    xmm2, dword ptr [0x102e1864]   ; f32=0.001 i32=981668463
+  0x0020810f  comiss   xmm0, xmm2
+  0x00208112  jbe      0x10208126
+  0x00208114  subss    xmm3, xmm0
+  0x00208118  divss    xmm3, xmm0
+  0x0020811c  mulss    xmm3, dword ptr [0x102e195c]   ; f32=0.35 i32=1051931443
+  0x00208124  jmp      0x10208147   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x282e7
+  0x00208126  movss    xmm1, dword ptr [esi + 0x4c]
+  0x0020812b  movaps   xmm3, xmm2
+  0x0020812e  movss    xmm4, dword ptr [esi + 0x54]
+  0x00208133  cmp      esi, edi
+  0x00208135  jae      0x10208140
+  0x00208137  xorps    xmm1, xmmword ptr [0x102e22e0]   ; f32=-0 i32=-2147483648
+  0x0020813e  jmp      0x10208147   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x282e7
+  0x00208140  xorps    xmm4, xmmword ptr [0x102e22e0]   ; f32=-0 i32=-2147483648
+  0x00208147  movaps   xmm0, xmm3
+  0x0020814a  xorps    xmm2, xmm2
+  0x0020814d  mulss    xmm0, xmm1
+  0x00208151  movaps   xmm1, xmm3
+  0x00208154  mulss    xmm1, xmm2
+  0x00208158  addss    xmm0, dword ptr [esi + 0xac]
+  0x00208160  mulss    xmm3, xmm4
+  0x00208164  movss    dword ptr [esi + 0xac], xmm0
+  0x0020816c  movss    xmm0, dword ptr [esi + 0xb0]
+  0x00208174  addss    xmm0, xmm1
+  0x00208178  movss    xmm1, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x00208180  movss    dword ptr [esi + 0xb0], xmm0
+  0x00208188  movss    xmm0, dword ptr [esi + 0xb4]
+  0x00208190  addss    xmm0, xmm3
+  0x00208194  movss    dword ptr [esi + 0xb4], xmm0
+  0x0020819c  movss    xmm0, dword ptr [esp + 0x1c]
+  0x002081a2  addss    xmm0, xmm1
+  0x002081a6  movss    dword ptr [esp + 0x1c], xmm0
+  0x002081ac  jmp      0x102081bc   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2835c
+  0x002081ae  movss    xmm0, dword ptr [esp + 0x1c]
+  0x002081b4  movss    xmm1, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x002081bc  mov      eax, dword ptr [esi + 0x80]
+  0x002081c2  mov      edi, dword ptr [esp + 0x18]
+  0x002081c6  sub      eax, dword ptr [esi + 0x7c]
+  0x002081c9  inc      edi
+  0x002081ca  sar      eax, 2
+  0x002081cd  mov      dword ptr [esp + 0x18], edi
+  0x002081d1  cmp      edi, eax
+  0x002081d3  jb       0x10208092
+  0x002081d9  comiss   xmm0, dword ptr [0x102e1838]   ; f32=0.0001 i32=953267991
+  0x002081e0  jbe      0x1020821d
+  0x002081e2  divss    xmm1, xmm0
+  0x002081e6  movss    xmm0, dword ptr [esi + 0xac]
+  0x002081ee  mulss    xmm0, xmm1
+  0x002081f2  movss    dword ptr [esi + 0xac], xmm0
+  0x002081fa  movaps   xmm0, xmm1
+  0x002081fd  mulss    xmm0, dword ptr [esi + 0xb0]
+  0x00208205  mulss    xmm1, dword ptr [esi + 0xb4]
+  0x0020820d  movss    dword ptr [esi + 0xb0], xmm0
+  0x00208215  movss    dword ptr [esi + 0xb4], xmm1
+  0x0020821d  cmp      dword ptr [esi + 0x68], 2
+  0x00208221  je       0x1020826a
+  0x00208223  test     dword ptr [esi + 0x3c], 0x1000
+  0x0020822a  jne      0x1020826a
+  0x0020822c  movss    xmm1, dword ptr [esi + 0xb4]
+  0x00208234  movss    xmm0, dword ptr [esi + 0xac]
+  0x0020823c  mulss    xmm0, xmm0
+  0x00208240  mulss    xmm1, xmm1
+  0x00208244  addss    xmm0, xmm1
+  0x00208248  comiss   xmm0, dword ptr [0x102e1864]   ; f32=0.001 i32=981668463
+  0x0020824f  jb       0x1020826a
+  0x00208251  mov      ecx, dword ptr [esp + 0x34]
+  0x00208255  lea      eax, [esp + 0x4c]
+  0x00208259  push     eax
+  0x0020825a  call     0x102055b0   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x25750
+  0x0020825f  mov      edi, dword ptr [esp + 0x28]
+  0x00208263  inc      edi
+  0x00208264  mov      dword ptr [esp + 0x28], edi
+  0x00208268  jmp      0x1020826e   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2840e
+  0x0020826a  mov      edi, dword ptr [esp + 0x28]
+  0x0020826e  mov      esi, dword ptr [esp + 0x30]
+  0x00208272  inc      esi
+  0x00208273  mov      dword ptr [esp + 0x30], esi
+  0x00208277  cmp      esi, dword ptr [esp + 0x48]
+  0x0020827b  jb       0x10207ff0
+  0x00208281  xor      ecx, ecx
+  0x00208283  mov      dword ptr [esp + 0x18], ecx
+  0x00208287  test     edi, edi
+  0x00208289  je       0x10208768
+  0x0020828f  nop      
+  0x00208290  mov      eax, dword ptr [esp + 0x34]
+  0x00208294  mov      eax, dword ptr [eax]
+  0x00208296  mov      esi, dword ptr [eax + ecx*4]
+  0x00208299  movss    xmm0, dword ptr [esi + 0x40]
+  0x0020829e  lea      edi, [esi + 0x40]
+  0x002082a1  addss    xmm0, dword ptr [esi + 0xac]
+  0x002082a9  movss    dword ptr [edi], xmm0
+  0x002082ad  movss    xmm0, dword ptr [esi + 0xb0]
+  0x002082b5  addss    xmm0, dword ptr [edi + 4]
+  0x002082ba  movss    dword ptr [edi + 4], xmm0
+  0x002082bf  movss    xmm0, dword ptr [esi + 0xb4]
+  0x002082c7  addss    xmm0, dword ptr [edi + 8]
+  0x002082cc  movss    dword ptr [edi + 8], xmm0
+  0x002082d1  test     byte ptr [esi + 0x3c], 2
+  0x002082d5  je       0x102083ac
+  0x002082db  movss    xmm1, dword ptr [edi]
+  0x002082df  subss    xmm0, dword ptr [esi + 0xa8]
+  0x002082e7  subss    xmm1, dword ptr [esi + 0xa0]
+  0x002082ef  mulss    xmm0, xmm0
+  0x002082f3  mulss    xmm1, xmm1
+  0x002082f7  addss    xmm0, xmm1
+  0x002082fb  comiss   xmm0, dword ptr [0x102e1838]   ; f32=0.0001 i32=953267991
+  0x00208302  jbe      0x102083ac
+  0x00208308  movss    xmm4, dword ptr [edi]
+  0x0020830c  movss    xmm2, dword ptr [edi + 4]
+  0x00208311  subss    xmm4, dword ptr [esi + 0xa0]
+  0x00208319  subss    xmm2, dword ptr [esi + 0xa4]
+  0x00208321  movss    xmm3, dword ptr [edi + 8]
+  0x00208326  subss    xmm3, dword ptr [esi + 0xa8]
+  0x0020832e  movaps   xmm0, xmm4
+  0x00208331  mulss    xmm0, xmm4
+  0x00208335  movaps   xmm1, xmm2
+  0x00208338  mulss    xmm1, xmm2
+  0x0020833c  addss    xmm1, xmm0
+  0x00208340  movaps   xmm0, xmm3
+  0x00208343  mulss    xmm0, xmm3
+  0x00208347  addss    xmm1, xmm0
+  0x0020834b  xorps    xmm0, xmm0
+  0x0020834e  sqrtss   xmm0, xmm1
+  0x00208352  movss    xmm1, dword ptr [0x102e19fc]   ; f32=1 i32=1065353216
+  0x0020835a  divss    xmm1, xmm0
+  0x0020835e  movss    xmm0, dword ptr [esi + 0x4c]
+  0x00208363  mulss    xmm4, xmm1
+  0x00208367  mulss    xmm3, xmm1
+  0x0020836b  mulss    xmm2, xmm1
+  0x0020836f  movss    xmm1, dword ptr [esi + 0x54]
+  0x00208374  mulss    xmm0, xmm4
+  0x00208378  mulss    xmm1, xmm3
+  0x0020837c  movss    dword ptr [esp + 0x5c], xmm4
+  0x00208382  movss    dword ptr [esp + 0x60], xmm2
+  0x00208388  addss    xmm1, xmm0
+  0x0020838c  movss    dword ptr [esp + 0x64], xmm3
+  0x00208392  xorps    xmm0, xmm0
+  0x00208395  comiss   xmm1, xmm0
+  0x00208398  jbe      0x102083af
+  0x0020839a  movq     xmm0, qword ptr [esp + 0x5c]
+  0x002083a0  mov      eax, dword ptr [esp + 0x64]
+  0x002083a4  movq     qword ptr [esi + 0x4c], xmm0
+  0x002083a9  mov      dword ptr [esi + 0x54], eax
+  0x002083ac  xorps    xmm0, xmm0
+  0x002083af  cmp      dword ptr [esi + 0x68], 2
+  0x002083b3  jne      0x10208749
+  0x002083b9  movss    xmm1, dword ptr [esi + 0x38]
+  0x002083be  comiss   xmm1, xmm0
+  0x002083c1  movss    dword ptr [esp + 0x48], xmm1
+  0x002083c7  jbe      0x102084e7
+  0x002083cd  movss    xmm1, dword ptr [esi + 0x5c]
+  0x002083d2  movss    xmm2, dword ptr [esi + 0x58]
+  0x002083d7  movss    xmm0, dword ptr [esi + 0x60]
+  0x002083dc  mulss    xmm2, xmm2
+  0x002083e0  mulss    xmm1, xmm1
+  0x002083e4  mulss    xmm0, xmm0
+  0x002083e8  addss    xmm2, xmm1
+  0x002083ec  addss    xmm2, xmm0
+  0x002083f0  movss    xmm0, dword ptr [0x102e1838]   ; f32=0.0001 i32=953267991
+  0x002083f8  comiss   xmm0, xmm2
+  0x002083fb  jb       0x1020840d
+  0x002083fd  movq     xmm0, qword ptr [esi + 0x4c]
+  0x00208402  mov      eax, dword ptr [esi + 0x54]
+  0x00208405  movq     qword ptr [esi + 0x58], xmm0
+  0x0020840a  mov      dword ptr [esi + 0x60], eax
+  0x0020840d  movss    xmm1, dword ptr [esi + 0x60]
+  0x00208412  movss    xmm0, dword ptr [esi + 0x4c]
+  0x00208417  mulss    xmm1, dword ptr [esi + 0x54]
+  0x0020841c  mulss    xmm0, dword ptr [esi + 0x58]
+  0x00208421  addss    xmm1, xmm0
+  0x00208425  movaps   xmm0, xmm1
+  0x00208428  movss    dword ptr [esp + 0x4c], xmm1
+  0x0020842e  call     0x10281198   ; -> LZ4_decompress_fast_usingDict+0x60c28
+  0x00208433  comiss   xmm0, dword ptr [0x102e1838]   ; f32=0.0001 i32=953267991
+  0x0020843a  jbe      0x102084f7
+  0x00208440  movss    xmm3, dword ptr [esp + 0x48]
+  0x00208446  mulss    xmm3, dword ptr [esp + 0x58]
+  0x0020844c  movss    xmm1, dword ptr [esi + 0x60]
+  0x00208451  mulss    xmm1, dword ptr [esp + 0x4c]
+  0x00208457  movss    xmm2, dword ptr [esi + 0x4c]
+  0x0020845c  minss    xmm3, xmm0
+  0x00208460  movss    xmm0, dword ptr [esp + 0x4c]
+  0x00208466  mulss    xmm0, dword ptr [esi + 0x58]
+  0x0020846b  movss    dword ptr [esp + 0x48], xmm3
+  0x00208471  subss    xmm2, xmm0
+  0x00208475  movss    xmm0, dword ptr [esi + 0x54]
+  0x0020847a  subss    xmm0, xmm1
+  0x0020847e  movss    dword ptr [esp + 0x44], xmm2
+  0x00208484  movss    dword ptr [esp + 0x14], xmm0
+  0x0020848a  movaps   xmm0, xmm3
+  0x0020848d  call     0x1028118c   ; -> LZ4_decompress_fast_usingDict+0x60c1c
+  0x00208492  movss    xmm1, dword ptr [esp + 0x44]
+  0x00208498  mulss    xmm1, xmm0
+  0x0020849c  movss    dword ptr [esp + 0x44], xmm1
+  0x002084a2  movss    xmm1, dword ptr [esp + 0x14]
+  0x002084a8  mulss    xmm1, xmm0
+  0x002084ac  movss    xmm0, dword ptr [esp + 0x48]
+  0x002084b2  movss    dword ptr [esp + 0x14], xmm1
+  0x002084b8  call     0x10281186   ; -> LZ4_decompress_fast_usingDict+0x60c16
+  0x002084bd  movss    xmm2, dword ptr [esi + 0x58]
+  0x002084c2  movss    xmm1, dword ptr [esi + 0x60]
+  0x002084c7  mulss    xmm2, xmm0
+  0x002084cb  mulss    xmm1, xmm0
+  0x002084cf  addss    xmm2, dword ptr [esp + 0x44]
+  0x002084d5  addss    xmm1, dword ptr [esp + 0x14]
+  0x002084db  movss    dword ptr [esi + 0x58], xmm2
+  0x002084e0  movss    dword ptr [esi + 0x60], xmm1
+  0x002084e5  jmp      0x102084f7   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x28697
+  0x002084e7  movq     xmm0, qword ptr [esi + 0x4c]
+  0x002084ec  mov      eax, dword ptr [esi + 0x54]
+  0x002084ef  movq     qword ptr [esi + 0x58], xmm0
+  0x002084f4  mov      dword ptr [esi + 0x60], eax
+  0x002084f7  test     byte ptr [esi + 0x3c], 0x20
+  0x002084fb  jne      0x1020855a
+  0x002084fd  mov      eax, dword ptr [esp + 0x10]
+  0x00208501  lea      edx, [esp + 0x38]
+  0x00208505  push     edx
+  0x00208506  push     edi
+  0x00208507  mov      ecx, dword ptr [eax + 4]
+  0x0020850a  mov      eax, dword ptr [ecx]
+  0x0020850c  mov      eax, dword ptr [eax + 0xc]
+  0x0020850f  call     eax
+  0x00208511  test     eax, eax
+  0x00208513  je       0x10208522
+  0x00208515  movss    xmm0, dword ptr [esp + 0x3c]
+  0x0020851b  movss    dword ptr [esi + 0x44], xmm0
+  0x00208520  jmp      0x1020855a   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x286fa
+  0x00208522  mov      eax, dword ptr [esp + 0x10]
+  0x00208526  lea      edx, [esp + 0x38]
+  0x0020852a  push     edx
+  0x0020852b  mov      ecx, dword ptr [eax + 4]
+  0x0020852e  push     ecx
+  0x0020852f  mov      dword ptr [esp], 0x41200000
+  0x00208536  push     edi
+  0x00208537  mov      eax, dword ptr [ecx]
+  0x00208539  mov      eax, dword ptr [eax + 0x10]
+  0x0020853c  call     eax
+  0x0020853e  test     al, al
+  0x00208540  je       0x1020855a
+  0x00208542  movq     xmm0, qword ptr [esp + 0x38]
+  0x00208548  mov      eax, dword ptr [esp + 0x40]
+  0x0020854c  movq     qword ptr [edi], xmm0
+  0x00208550  mov      dword ptr [edi + 8], eax
+  0x00208553  mov      byte ptr [esi + 0xf8], 1
+  0x0020855a  mov      ecx, dword ptr [esi + 4]
+  0x0020855d  push     edi
+  0x0020855e  push     dword ptr [ebp + 8]
+  0x00208561  mov      eax, dword ptr [ecx]
+  0x00208563  call     dword ptr [eax + 0xc]
+  0x00208566  mov      eax, dword ptr [esi + 0x78]
+  0x00208569  movq     xmm0, qword ptr [esi + 0x70]
+  0x0020856e  mov      dword ptr [esp + 0x70], eax
+  0x00208572  mov      eax, dword ptr [esi + 0xe8]
+  0x00208578  movq     qword ptr [esp + 0x68], xmm0
+  0x0020857e  cmp      eax, dword ptr [esi + 0xec]
+  0x00208584  je       0x10208598
+  0x00208586  lea      ecx, [esi + 0xc0]
+  0x0020858c  call     0x10206440   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x265e0
+  0x00208591  movss    xmm3, dword ptr [eax + 4]
+  0x00208596  jmp      0x1020859e   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x2873e
+  0x00208598  movss    xmm3, dword ptr [esp + 0x6c]
+  0x0020859e  movss    xmm5, dword ptr [esp + 0x68]
+  0x002085a4  subss    xmm3, dword ptr [edi + 4]
+  0x002085a9  movss    xmm4, dword ptr [esp + 0x70]
+  0x002085af  movaps   xmm2, xmm5
+  0x002085b2  subss    xmm2, dword ptr [edi]
+  0x002085b6  movss    xmm0, dword ptr [esi + 0x20]
+  0x002085bb  movaps   xmm1, xmm4
+  0x002085be  subss    xmm1, dword ptr [edi + 8]
+  0x002085c3  subss    xmm5, dword ptr [edi]
+  0x002085c7  subss    xmm4, dword ptr [edi + 8]
+  0x002085cc  mulss    xmm3, xmm3
+  0x002085d0  mulss    xmm2, xmm2
+  0x002085d4  mulss    xmm1, xmm1
+  0x002085d8  addss    xmm3, xmm2
+  0x002085dc  mulss    xmm0, xmm0
+  0x002085e0  addss    xmm3, xmm1
+  0x002085e4  comiss   xmm0, xmm3
+  0x002085e7  jae      0x10208601
+  0x002085e9  mulss    xmm4, xmm4
+  0x002085ed  xorps    xmm0, xmm0
+  0x002085f0  mulss    xmm5, xmm5
+  0x002085f4  addss    xmm4, xmm5
+  0x002085f8  ucomiss  xmm4, xmm0
+  0x002085fb  lahf     
+  0x002085fc  test     ah, 0x44
+  0x002085ff  jp       0x1020863a
+  0x00208601  mov      ecx, dword ptr [esi + 4]
+  0x00208604  mov      dword ptr [esi + 0x68], 4
+  0x0020860b  mov      dword ptr [esi + 0x6c], 0
+  0x00208612  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x0020861a  movq     qword ptr [esi + 0x94], xmm0
+  0x00208622  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00208627  mov      dword ptr [esi + 0x9c], eax
+  0x0020862d  mov      dword ptr [esi + 0x64], 0
+  0x00208634  mov      eax, dword ptr [ecx]
+  0x00208636  push     edi
+  0x00208637  call     dword ptr [eax + 0x14]
+  0x0020863a  test     byte ptr [esi + 0x3c], 0x80
+  0x0020863e  je       0x10208668
+  0x00208640  mov      eax, dword ptr [esp + 0x10]
+  0x00208644  push     0
+  0x00208646  push     edi
+  0x00208647  mov      ecx, dword ptr [eax + 4]
+  0x0020864a  mov      eax, dword ptr [ecx]
+  0x0020864c  mov      eax, dword ptr [eax + 0xc]
+  0x0020864f  call     eax
+  0x00208651  push     eax
+  0x00208652  lea      ecx, [esi + 0xc0]
+  0x00208658  call     0x102063b0   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x26550
+  0x0020865d  test     al, al
+  0x0020865f  jne      0x10208668
+  0x00208661  mov      byte ptr [esi + 0xf8], 1
+  0x00208668  movss    xmm4, dword ptr [esi + 0x30]
+  0x0020866d  xorps    xmm2, xmm2
+  0x00208670  comiss   xmm4, xmm2
+  0x00208673  jbe      0x10208755
+  0x00208679  movss    xmm0, dword ptr [esi + 0x10]
+  0x0020867e  comiss   xmm0, xmm4
+  0x00208681  jbe      0x10208755
+  0x00208687  cmp      dword ptr [esi + 0x68], 2
+  0x0020868b  jne      0x10208755
+  0x00208691  movss    xmm1, dword ptr [edi]
+  0x00208695  movss    xmm3, dword ptr [edi + 4]
+  0x0020869a  subss    xmm3, dword ptr [esi + 0xa4]
+  0x002086a2  subss    xmm1, dword ptr [esi + 0xa0]
+  0x002086aa  movss    xmm0, dword ptr [edi + 8]
+  0x002086af  subss    xmm0, dword ptr [esi + 0xa8]
+  0x002086b7  mulss    xmm3, xmm3
+  0x002086bb  mulss    xmm1, xmm1
+  0x002086bf  mulss    xmm0, xmm0
+  0x002086c3  addss    xmm3, xmm1
+  0x002086c7  addss    xmm3, xmm0
+  0x002086cb  ucomiss  xmm3, xmm2
+  0x002086ce  lahf     
+  0x002086cf  test     ah, 0x44
+  0x002086d2  jnp      0x102086db
+  0x002086d4  xorps    xmm2, xmm2
+  0x002086d7  sqrtss   xmm2, xmm3
+  0x002086db  divss    xmm2, dword ptr [esp + 0x58]
+  0x002086e1  comiss   xmm4, xmm2
+  0x002086e4  movss    dword ptr [esi + 0xb8], xmm2
+  0x002086ec  jbe      0x1020873d
+  0x002086ee  mov      eax, dword ptr [ebp + 8]
+  0x002086f1  add      dword ptr [esi + 0xbc], eax
+  0x002086f7  mov      eax, dword ptr [esi + 0xbc]
+  0x002086fd  cmp      eax, dword ptr [esi + 0x34]
+  0x00208700  jle      0x10208755
+  0x00208702  mov      ecx, dword ptr [esi + 4]
+  0x00208705  mov      dword ptr [esi + 0x68], 6
+  0x0020870c  mov      dword ptr [esi + 0x6c], 3
+  0x00208713  movq     xmm0, qword ptr [0x103696fc]   ; f32=0.0183394 i32=1016478862
+  0x0020871b  movq     qword ptr [esi + 0x94], xmm0
+  0x00208723  mov      eax, dword ptr [0x10369704]   ; f32=0.0250534 i32=1020083392
+  0x00208728  mov      dword ptr [esi + 0x9c], eax
+  0x0020872e  mov      dword ptr [esi + 0x64], 0
+  0x00208735  mov      eax, dword ptr [ecx]
+  0x00208737  push     3
+  0x00208739  push     edi
+  0x0020873a  call     dword ptr [eax + 0x1c]
+  0x0020873d  mov      dword ptr [esi + 0xbc], 0
+  0x00208747  jmp      0x10208755   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x288f5
+  0x00208749  mov      ecx, dword ptr [esi + 4]
+  0x0020874c  push     edi
+  0x0020874d  push     dword ptr [ebp + 8]
+  0x00208750  mov      eax, dword ptr [ecx]
+  0x00208752  call     dword ptr [eax + 0xc]
+  0x00208755  mov      ecx, dword ptr [esp + 0x18]
+  0x00208759  inc      ecx
+  0x0020875a  mov      dword ptr [esp + 0x18], ecx
+  0x0020875e  cmp      ecx, dword ptr [esp + 0x28]
+  0x00208762  jb       0x10208290
+  0x00208768  mov      ecx, dword ptr [esp + 0x34]
+  0x0020876c  pop      edi
+  0x0020876d  pop      esi
+  0x0020876e  mov      eax, dword ptr [ecx]
+  0x00208770  mov      dword ptr [ecx + 4], eax
+  0x00208773  mov      esp, ebp
+  0x00208775  pop      ebp
+  0x00208776  ret      4
+=== ProximityMap query (group & mask test at 0x208e26) 0x208d00-0x208e70
+  0x00208d00  sub      esp, 0x38
+  0x00208d03  mov      eax, dword ptr [esp + 0x3c]
+  0x00208d07  movaps   xmm5, xmm2
+  0x00208d0a  mulss    xmm3, dword ptr [0x102e1990]   ; f32=0.5 i32=1056964608
+  0x00208d12  push     ebx
+  0x00208d13  mov      ebx, ecx
+  0x00208d15  movss    xmm4, dword ptr [eax]
+  0x00208d19  movss    xmm2, dword ptr [eax + 4]
+  0x00208d1e  movaps   xmm0, xmm4
+  0x00208d21  movss    xmm1, dword ptr [eax + 8]
+  0x00208d26  subss    xmm0, xmm5
+  0x00208d2a  addss    xmm4, xmm5
+  0x00208d2e  mov      dword ptr [esp + 0x30], ebx
+  0x00208d32  push     ebp
+  0x00208d33  push     esi
+  0x00208d34  cvttss2si ecx, xmm0
+  0x00208d38  movaps   xmm0, xmm2
+  0x00208d3b  addss    xmm2, xmm3
+  0x00208d3f  subss    xmm0, xmm3
+  0x00208d43  mov      dword ptr [esp + 0x2c], ecx
+  0x00208d47  cvttss2si ebp, xmm4
+  0x00208d4b  cvttss2si edx, xmm0
+  0x00208d4f  mov      dword ptr [esp + 0x3c], ebp
+  0x00208d53  movaps   xmm0, xmm1
+  0x00208d56  addss    xmm1, xmm5
+  0x00208d5a  subss    xmm0, xmm5
+  0x00208d5e  mov      dword ptr [esp + 0x18], edx
+  0x00208d62  cvttss2si ecx, xmm2
+  0x00208d66  cvttss2si esi, xmm0
+  0x00208d6a  mov      dword ptr [esp + 0x40], ecx
+  0x00208d6e  mulss    xmm5, xmm5
+  0x00208d72  mov      dword ptr [esp + 0x20], esi
+  0x00208d76  cvttss2si eax, xmm1
+  0x00208d7a  movss    dword ptr [esp + 0x24], xmm5
+  0x00208d80  mov      dword ptr [esp + 0x14], eax
+  0x00208d84  cmp      edx, ecx
+  0x00208d86  jg       0x10208fea
+  0x00208d8c  imul     ecx, edx, 0x127409f
+  0x00208d92  push     edi
+  0x00208d93  mov      edi, dword ptr [esp + 0x58]
+  0x00208d97  mov      dword ptr [esp + 0x20], ecx
+  0x00208d9b  nop      dword ptr [eax + eax]
+  0x00208da0  mov      dword ptr [esp + 0x14], esi
+  0x00208da4  cmp      dword ptr [esp + 0x24], eax
+  0x00208da8  jg       0x10208fc0
+  0x00208dae  imul     edx, dword ptr [esp + 0x24], 0x4f9ffb7
+  0x00208db6  mov      eax, dword ptr [esp + 0x30]
+  0x00208dba  mov      dword ptr [esp + 0x34], edx
+  0x00208dbe  nop      
+  0x00208dc0  mov      ecx, eax
+  0x00208dc2  mov      dword ptr [esp + 0x10], ecx
+  0x00208dc6  cmp      eax, ebp
+  0x00208dc8  jg       0x10208f9b
+  0x00208dce  imul     eax, eax, 0x466f45d
+  0x00208dd4  add      eax, dword ptr [esp + 0x20]
+  0x00208dd8  add      eax, edx
+  0x00208dda  mov      dword ptr [esp + 0x2c], eax
+  0x00208dde  nop      
+  0x00208de0  xor      edx, edx
+  0x00208de2  div      dword ptr [ebx + 8]
+  0x00208de5  mov      eax, dword ptr [ebx]
+  0x00208de7  mov      ebp, dword ptr [eax + edx*4]
+  0x00208dea  test     ebp, ebp
+  0x00208dec  je       0x10208f75
+  0x00208df2  mov      ebx, dword ptr [ebp + 0xc]
+  0x00208df5  mov      dword ptr [esp + 0x58], ebx
+  0x00208df9  cmp      ebx, dword ptr [esp + 0x54]
+  0x00208dfd  je       0x10208f66
+  0x00208e03  cmp      dword ptr [ebp], ecx
+  0x00208e06  jne      0x10208f66
+  0x00208e0c  mov      eax, dword ptr [esp + 0x1c]
+  0x00208e10  cmp      dword ptr [ebp + 4], eax
+  0x00208e13  jne      0x10208f66
+  0x00208e19  cmp      dword ptr [ebp + 8], esi
+  0x00208e1c  jne      0x10208f66
+  0x00208e22  mov      eax, dword ptr [esp + 0x50]
+  0x00208e26  test     dword ptr [ebx + 0x18], eax
+  0x00208e29  je       0x10208f66
+  0x00208e2f  mov      eax, dword ptr [esp + 0x4c]
+  0x00208e33  movss    xmm1, dword ptr [ebx + 0x40]
+  0x00208e38  movss    xmm2, dword ptr [ebx + 0x44]
+  0x00208e3d  movss    xmm0, dword ptr [ebx + 0x48]
+  0x00208e42  subss    xmm2, dword ptr [eax + 4]
+  0x00208e47  subss    xmm1, dword ptr [eax]
+  0x00208e4b  subss    xmm0, dword ptr [eax + 8]
+  0x00208e50  mulss    xmm2, xmm2
+  0x00208e54  mulss    xmm1, xmm1
+  0x00208e58  mulss    xmm0, xmm0
+  0x00208e5c  addss    xmm2, xmm1
+  0x00208e60  addss    xmm2, xmm0
+  0x00208e64  comiss   xmm5, xmm2
+  0x00208e67  jbe      0x10208f66
+  0x00208e6d  mov      esi, dword ptr [edi + 4]
+=== NavManager::SetDefaultConfig 0x127040 (navmesh build config; NOT crowd)
+  0x00127040  mov      dword ptr [ecx + 0xc], 0x20
+  0x00127047  mov      dword ptr [ecx + 0x10], 0x3e800000
+  0x0012704e  mov      dword ptr [ecx + 0x14], 0x3e4ccccd
+  0x00127055  mov      dword ptr [ecx + 0x18], 0x40000000
+  0x0012705c  mov      dword ptr [ecx + 0x1c], 0x3f4ccccd
+  0x00127063  mov      dword ptr [ecx + 0x20], 0x3f000000
+  0x0012706a  mov      dword ptr [ecx + 0x24], 0x41800000
+  0x00127071  mov      dword ptr [ecx + 0x28], 0x3fc00000
+  0x00127078  mov      dword ptr [ecx + 0x2c], 0x41a00000
+  0x0012707f  mov      dword ptr [ecx + 0x30], 0x42480000
+  0x00127086  mov      dword ptr [ecx + 0x34], 6
+  0x0012708d  mov      dword ptr [ecx + 0x38], 0x40c00000
+  0x00127094  mov      dword ptr [ecx + 0x3c], 0x3f800000
+  0x0012709b  ret      
+=== CrowdManager::Update 0x205360
+  0x00205360  push     ecx
+  0x00205361  push     ebx
+  0x00205362  push     esi
+  0x00205363  mov      esi, ecx
+  0x00205365  push     edi
+  0x00205366  xor      edi, edi
+  0x00205368  mov      eax, dword ptr [esi + 0x14]
+  0x0020536b  sub      eax, dword ptr [esi + 0x10]
+  0x0020536e  sar      eax, 2
+  0x00205371  test     eax, eax
+  0x00205373  je       0x1020539a
+  0x00205375  mov      ebx, dword ptr [esp + 0x14]
+  0x00205379  nop      dword ptr [eax]
+  0x00205380  mov      ecx, dword ptr [esi + 0x10]
+  0x00205383  push     ebx
+  0x00205384  mov      ecx, dword ptr [ecx + edi*4]
+  0x00205387  call     0x10206760   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x26900
+  0x0020538c  mov      eax, dword ptr [esi + 0x14]
+  0x0020538f  inc      edi
+  0x00205390  sub      eax, dword ptr [esi + 0x10]
+  0x00205393  sar      eax, 2
+  0x00205396  cmp      edi, eax
+  0x00205398  jb       0x10205380
+  0x0020539a  mov      eax, dword ptr [esi + 0x68]
+  0x0020539d  cmp      eax, dword ptr [esi + 0x6c]
+  0x002053a0  je       0x102053f5
+  0x002053a2  push     dword ptr [esi + 0x58]
+  0x002053a5  call     dword ptr [0x102a3194]   ; [IAT EnterCriticalSection]
+  0x002053ab  mov      eax, dword ptr [esi + 0x68]
+  0x002053ae  cmp      eax, dword ptr [esi + 0x6c]
+  0x002053b1  je       0x102053ec
+  0x002053b3  mov      eax, dword ptr [esi + 0x6c]
+  0x002053b6  mov      edi, dword ptr [eax - 4]
+  0x002053b9  cmp      dword ptr [edi + 0xc0], 0
+  0x002053c0  je       0x102053cb
+  0x002053c2  cmp      byte ptr [edi + 0xf4], 0
+  0x002053c9  je       0x102053ec
+  0x002053cb  mov      ecx, edi
+  0x002053cd  call     0x10204d90   ; -> ?UpdateBoundingBox@GridBase@GAME@@UAEXXZ+0x24f30
+  0x002053d2  push     0xfc
+  0x002053d7  push     edi
+  0x002053d8  call     0x1027fe22   ; -> LZ4_decompress_fast_usingDict+0x5f8b2
+  0x002053dd  add      dword ptr [esi + 0x6c], -4
+  0x002053e1  add      esp, 8
+  0x002053e4  mov      eax, dword ptr [esi + 0x68]
+  0x002053e7  cmp      eax, dword ptr [esi + 0x6c]
+  0x002053ea  jne      0x102053b3
+  0x002053ec  push     dword ptr [esi + 0x58]
+  0x002053ef  call     dword ptr [0x102a3198]   ; [IAT LeaveCriticalSection]
+  0x002053f5  pop      edi
+  0x002053f6  pop      esi
+  0x002053f7  pop      ebx
+  0x002053f8  pop      ecx
+  0x002053f9  ret      4
