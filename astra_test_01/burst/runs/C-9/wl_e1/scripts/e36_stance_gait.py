@@ -34,8 +34,9 @@ for c in clips:
                 v = p[side + 'ToeBase'] - p[side + 'Foot']; pit = math.degrees(math.atan2(v[1], np.hypot(v[0], v[2])))
                 toe_up.append(pit); heel_up.append(-pit)
     rest_pitch = math.degrees(math.atan2((p0['LeftToeBase'] - p0['LeftFoot'])[1], np.hypot(*(p0['LeftToeBase'] - p0['LeftFoot'])[[0, 2]])))
-    out[c] = dict(stance=round(float(np.median(st)), 2), hands_y=round(float(np.median(hy)), 3), hand_sep=round(float(np.median(hs)), 2),
+    h2h = [abs(np.dot(p['LeftFoot'] - p['RightFoot'], lat(p))) * K for p in R]
+    out[c] = dict(stance=round(float(np.median(st)), 2), heel_to_heel_m=round(float(np.median(h2h)), 3), hip_joint_width_m=round(float(np.linalg.norm(p0['LeftUpLeg'] - p0['RightUpLeg']) * K), 3), hands_y=round(float(np.median(hy)), 3), hand_sep=round(float(np.median(hs)), 2),
                   arm_up_m=round(float(np.median(up)), 3), shoulders=round(float(np.median(sw) / SW0), 3),
                   toe_up_deg=round(max(toe_up) - rest_pitch, 1) if toe_up else None, heel_up_deg=round(max(heel_up) + rest_pitch, 1) if heel_up else None)
-    print('%-18s stance %.2f  hands_y %.3f  hand_sep %.2f  arm_up %+.3f m  shoulders %.3f  toe_up %s  heel_up %s' % (c, out[c]['stance'], out[c]['hands_y'], out[c]['hand_sep'], out[c]['arm_up_m'], out[c]['shoulders'], out[c]['toe_up_deg'], out[c]['heel_up_deg']))
+    print('%-18s h2h %.3f m  stance %.2f  hands_y %.3f  hand_sep %.2f  arm_up %+.3f m  shoulders %.3f  toe_up %s  heel_up %s' % (c, out[c]['heel_to_heel_m'], out[c]['stance'], out[c]['hands_y'], out[c]['hand_sep'], out[c]['arm_up_m'], out[c]['shoulders'], out[c]['toe_up_deg'], out[c]['heel_up_deg']))
 if '--json' in sys.argv: json.dump(out, open(sys.argv[sys.argv.index('--json') + 1], 'w'), indent=1)

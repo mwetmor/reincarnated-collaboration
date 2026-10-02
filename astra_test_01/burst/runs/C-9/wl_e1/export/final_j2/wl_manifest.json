@@ -1,0 +1,141 @@
+{
+ "_what": "E1 dark knight, stage J SHIPPABLE set (R-C9-121 fixes): painted body (bake embedded), fitted cape, eye-slit glow, unarmed clip set. Scale 1.96 m; every file the same 26-joint skeleton.",
+ "files": {
+  "wl_body.glb": {
+   "lint": "WARN",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 1.96,
+   "top_m": 1.96,
+   "clips": [
+    "idle",
+    "walk",
+    "run",
+    "attack",
+    "hit",
+    "death",
+    "warcry",
+    "idle_unarmed",
+    "walk_unarmed",
+    "run_unarmed"
+   ],
+   "mb": 19.77,
+   "sha256": "3625aa8a914d9aca",
+   "painted_texture_diff": 0.31
+  },
+  "wl_cape.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 1.4075,
+   "top_m": 1.5666,
+   "clips": [],
+   "mb": 5.36,
+   "sha256": "157b88351a0379bf"
+  },
+  "wl_chest.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 0.5569,
+   "top_m": 1.6573,
+   "clips": [],
+   "mb": 5.24,
+   "sha256": "9371ec4952eb27d1"
+  },
+  "wl_helm.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 0.3664,
+   "top_m": 2.0166,
+   "clips": [],
+   "mb": 5.11,
+   "sha256": "da2e6c4b8356bbbb",
+   "emissive": {
+    "texture": true,
+    "strength": 6
+   }
+  },
+  "wl_helm_ice.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 0.3664,
+   "top_m": 2.0166,
+   "clips": [],
+   "mb": 5.11,
+   "sha256": "0fe0dfb454d2676a",
+   "emissive": {
+    "texture": true,
+    "strength": 6
+   }
+  },
+  "wl_mace.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 0.7775,
+   "top_m": 1.3987,
+   "clips": [],
+   "mb": 2.47,
+   "sha256": "1d6013d6a9466f5e"
+  },
+  "wl_pauldrons.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "joints": 26,
+   "same_skeleton": true,
+   "height_m": 0.3476,
+   "top_m": 1.7405,
+   "clips": [],
+   "mb": 5.01,
+   "sha256": "120bf0d54f19979d"
+  }
+ },
+ "weapon_state": {
+  "flag": "armed",
+  "armed_when_pieces": [
+   "wl_mace"
+  ],
+  "armed_clips": {
+   "idle": "idle",
+   "walk": "walk",
+   "run": "run",
+   "attack": "attack",
+   "hit": "hit",
+   "death": "death",
+   "warcry": "warcry"
+  },
+  "unarmed_clips": {
+   "idle": "idle_unarmed",
+   "walk": "walk_unarmed",
+   "run": "run_unarmed",
+   "hit": "hit",
+   "death": "death"
+  },
+  "rule": "the weapon-state flag picks the clip SET: armed (mace shown) plays idle/walk/run; unarmed (mace removed by GEAR) plays idle_unarmed/walk_unarmed/run_unarmed -- the same switch as the barbarian's armed/unarmed. hit and death serve both; attack and warcry need the mace (strikes_need_armed).",
+  "foot_lock_m_per_s": {
+   "walk": 1.519,
+   "run": 4.924,
+   "walk_unarmed": 1.519,
+   "run_unarmed": 4.924
+  }
+ },
+ "eye_variant": {
+  "param": "eye_color",
+  "default": "violet",
+  "values": {
+   "violet": "wl_helm.glb",
+   "ice": "wl_helm_ice.glb"
+  },
+  "rule": "one helm piece is loaded: wl_helm.glb (violet, default) or wl_helm_ice.glb (ice blue) by the eye_color param; both are emission painted into the helm's own texture (KHR_materials_emissive_strength 6), no light"
+ },
+ "not_in_this_set": "the narrowed base (R-C9-123 A) and the Mixamo great-sword set (B) -- next export"
+}

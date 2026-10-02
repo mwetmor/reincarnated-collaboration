@@ -1,0 +1,195 @@
+{
+ "clips": {
+  "a_attack": {
+   "source": "mixamo/glb/great_sword_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2333333492279053
+   ],
+   "keys": 37,
+   "length_s": 1.2000000141561031,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.03396,
+   "feet_span_m": [
+    0.0,
+    0.0131
+   ]
+  },
+  "a_slash": {
+   "source": "mixamo/glb/great_sword_slash.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2999999523162842
+   ],
+   "keys": 39,
+   "length_s": 1.266666617244482,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.03298,
+   "feet_span_m": [
+    0.0,
+    0.0335
+   ]
+  },
+  "a_slash2": {
+   "source": "mixamo/glb/great_sword_slash_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.566666603088379
+   ],
+   "keys": 107,
+   "length_s": 3.5333332680165768,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    2.8781
+   ],
+   "grounded_by_m": 0.08908,
+   "feet_span_m": [
+    0.0,
+    0.0846
+   ]
+  },
+  "a_slash3": {
+   "source": "mixamo/glb/great_sword_slash_3.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.002,
+    -0.0106
+   ],
+   "grounded_by_m": 0.0518,
+   "feet_span_m": [
+    0.0,
+    0.0367
+   ]
+  },
+  "a_slash4": {
+   "source": "mixamo/glb/great_sword_slash_4.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8333333730697632
+   ],
+   "keys": 55,
+   "length_s": 1.800000037997961,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    0.0,
+    1.0461
+   ],
+   "grounded_by_m": 0.05673,
+   "feet_span_m": [
+    0.0,
+    0.0484
+   ]
+  },
+  "a_slash5": {
+   "source": "mixamo/glb/great_sword_slash_5.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.4666666984558105
+   ],
+   "keys": 44,
+   "length_s": 1.4333333633840084,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.0032,
+    0.0147
+   ],
+   "grounded_by_m": 0.07602,
+   "feet_span_m": [
+    0.0,
+    0.0189
+   ]
+  },
+  "a_spin": {
+   "source": "mixamo/glb/great_sword_high_spin_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.899999976158142
+   ],
+   "keys": 57,
+   "length_s": 1.86666664108634,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    0.0075,
+    2.1671
+   ],
+   "grounded_by_m": 0.05045,
+   "feet_span_m": [
+    0.0,
+    0.0475
+   ]
+  },
+  "a_jump": {
+   "source": "mixamo/glb/great_sword_jump_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.200000047683716
+   ],
+   "keys": 66,
+   "length_s": 2.1666667126119137,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.0713,
+    2.9525
+   ],
+   "grounded_by_m": 0.04632,
+   "feet_span_m": [
+    0.0,
+    0.2207
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "k_atk.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)"
+  ],
+  "warns": 6
+ }
+}

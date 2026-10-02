@@ -1,0 +1,76 @@
+{
+ "roll_deg": null,
+ "files": {
+  "wl_rigged3.glb": {
+   "file": "wl_rigged3.glb",
+   "order_before": [
+    "Hips",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase",
+    "weapon_r",
+    "weapon_l"
+   ],
+   "rest_displacement_m": {
+    "max": 0.0,
+    "median": 0.0
+   },
+   "joints": [
+    "Hips",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase",
+    "Spine02",
+    "Spine01",
+    "Spine",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "weapon_l",
+    "neck",
+    "Head",
+    "head_end",
+    "headfront",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "weapon_r"
+   ],
+   "lint": {
+    "verdict": "FAIL",
+    "fails": [
+     "wl_rigged3.glb: WEAPON REST -- weapon_r's rest is 0.198 m from the recorded mount (tolerance 1 um)"
+    ],
+    "warns": 0
+   }
+  }
+ },
+ "skeleton_identity": true
+}

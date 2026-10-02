@@ -1,0 +1,88 @@
+{
+ "body_height_m": 1.7,
+ "pieces": {
+  "helm": {
+   "faces": [
+    149470,
+    24000
+   ],
+   "welded": [
+    78331,
+    75087
+   ],
+   "pushed": 3239,
+   "offset_m": 0.006,
+   "skinned": 12270,
+   "mode": "skin (nearest body point)",
+   "file": "export/k/wl_helm.glb"
+  },
+  "pauldrons": {
+   "faces": [
+    147668,
+    23999
+   ],
+   "welded": [
+    76509,
+    74638
+   ],
+   "pushed": 0,
+   "offset_m": 0.01,
+   "skinned": 12707,
+   "mode": "skin (nearest body point)",
+   "file": "export/k/wl_pauldrons.glb"
+  },
+  "chest": {
+   "faces": [
+    200090,
+    30000
+   ],
+   "welded": [
+    104388,
+    101181
+   ],
+   "pushed": 3208,
+   "offset_m": 0.008,
+   "skinned": 15924,
+   "mode": "skin (nearest body point)",
+   "file": "export/k/wl_chest.glb"
+  },
+  "cape": {
+   "faces": [
+    437659,
+    29999
+   ],
+   "welded": [
+    230129,
+    219151
+   ],
+   "pushed": 0,
+   "offset_m": 0.012,
+   "mode": "panel-split skin",
+   "slit_x_m": 0.1604,
+   "hips_zf": 0.579,
+   "slit_faces_cut": 3039,
+   "panel_verts": {
+    "back": 4525,
+    "left": 4748,
+    "right": 4790
+   },
+   "verts_on_both_thighs": 0,
+   "fit_back": true,
+   "clear_m": 0.01,
+   "top_from_m": 1.3293,
+   "top_to_m": 1.3296,
+   "shoulder_line_m": 1.3469,
+   "verts_moved": 1772,
+   "moved_median_m": 0.0549,
+   "top_weights": "spine ladder Hips>Spine02>Spine01>Spine>neck",
+   "shin": 0.4,
+   "gap": 0.03,
+   "thigh": 0.65,
+   "ramp": "hem",
+   "flare_m": 0.2,
+   "side_m": 0.1,
+   "split_edges": 6,
+   "file": "export/k/wl_cape.glb"
+  }
+ }
+}

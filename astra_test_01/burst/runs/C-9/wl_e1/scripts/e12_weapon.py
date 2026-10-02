@@ -109,7 +109,11 @@ for clip, rows in meas.items():
 STRIKE_CLIP = os.environ.get('E1_STRIKE', 'attack')
 if STRIKE_CLIP not in meas:
     json.dump(dict(rows=meas), open(OUTJ, 'w')) if OUTJ else None; sys.exit(0)
-ar = meas[STRIKE_CLIP]; hy = np.array([r['head'][1] for r in ar]); top = int(np.argmax(hy)); k = top + int(np.argmin(hy[top:]))
+ar = meas[STRIKE_CLIP]; hy = np.array([r['head'][1] for r in ar])
+# v3 (stage K): CONTACT = the LOWEST head after the wind-up first reaches 90% of its peak height. v1 ('lowest after the global
+# highest') and v2 ('lowest within 0.25 s of the fastest motion') both picked the RECOVERY of Mixamo slash 3, whose rebound
+# swings the weapon higher and faster than the blow itself.
+_w0 = int(np.argmax(hy >= 0.9 * hy.max())); k = _w0 + int(np.argmin(hy[_w0:]))
 G = C.globals_at(m, STRIKE_CLIP, ar[k]['t']); hips = G[nid['Hips']][:3, 3]; head = np.array(ar[k]['head'])
 fwd = np.array([0, 0, 1.0])                                  # the rest forward (Blender -Y = glTF +Z)
 hz = head - hips; hz[1] = 0

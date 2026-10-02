@@ -63,6 +63,16 @@ func _bind(path: String, piece: String) -> void:
 		if mi.mesh == null or mi.skin == null:
 			continue
 		var local := mi.transform; var skin := mi.skin
+		# E1 stage K: bind by bone NAME (Godot's glTF skeleton bone order follows each FILE's node order, which differs
+		# between a Meshy-built body and a Blender-exported piece -- rig 3's order put every piece on the wrong bones).
+		if OS.has_environment("GS_BIND_BY_NAME"):
+			var ps := mi.get_node_or_null(mi.skeleton) as Skeleton3D
+			if ps != null:
+				skin = skin.duplicate()
+				for bi in skin.get_bind_count():
+					var bb := skin.get_bind_bone(bi)
+					if bb >= 0:
+						skin.set_bind_name(bi, ps.get_bone_name(bb))
 		mi.owner = null; mi.get_parent().remove_child(mi)
 		skel.add_child(mi)
 		mi.transform = local; mi.skin = skin; mi.skeleton = NodePath("..")

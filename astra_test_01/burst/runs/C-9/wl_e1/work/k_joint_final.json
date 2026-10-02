@@ -1,0 +1,1325 @@
+{
+ "instrument": "scripts/j_joint_lint.py",
+ "body": "wl_body.glb",
+ "limits_deg": {
+  "elbow": {
+   "flex": [
+    -5,
+    150
+   ],
+   "lateral": 20
+  },
+  "knee": {
+   "flex": [
+    -5,
+    155
+   ],
+   "lateral": 15
+  },
+  "wrist": {
+   "flex": 80,
+   "dev": 40,
+   "twist": 90
+  }
+ },
+ "learned": {
+  "hinge": {
+   "elbow_R": {
+    "n": 121,
+    "coherence": 0.994
+   },
+   "elbow_L": {
+    "n": 121,
+    "coherence": 0.987
+   },
+   "knee_R": {
+    "n": 72,
+    "coherence": 0.992
+   },
+   "knee_L": {
+    "n": 69,
+    "coherence": 1.0
+   }
+  },
+  "wrist": {
+   "wrist_R": {
+    "n": 121
+   },
+   "wrist_L": {
+    "n": 121
+   }
+  },
+  "from_clips": [
+   "hit",
+   "warcry"
+  ],
+  "axes": {
+   "wrist": {
+    "wrist_R": {
+     "flex": [
+      -0.999600780523421,
+      0.0,
+      0.028253841808991834
+     ],
+     "dev": [
+      0.028253841808991834,
+      -0.0,
+      0.999600780523421
+     ]
+    },
+    "wrist_L": {
+     "flex": [
+      0.9999969994396412,
+      0.0,
+      -0.0024497166600081673
+     ],
+     "dev": [
+      -0.0024497166600081673,
+      0.0,
+      -0.9999969994396412
+     ]
+    }
+   },
+   "hinge": {
+    "elbow_R": [
+     -0.7437309699266931,
+     -2.9973543404779306e-07,
+     0.6684790530538788
+    ],
+    "elbow_L": [
+     0.8253826393361822,
+     -9.75128416357444e-09,
+     0.5645737318388429
+    ],
+    "knee_R": [
+     0.08725411893328996,
+     1.936686128925578e-08,
+     0.9961860863960985
+    ],
+    "knee_L": [
+     -0.053763905747886774,
+     3.9509999242530366e-08,
+     0.9985536752917846
+    ]
+   }
+  }
+ },
+ "moves": {
+  "idle": {
+   "frames": 61,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 41.3,
+      "t": 1.0667
+     },
+     "lateral_worst": {
+      "deg": -8.7,
+      "t": 1.8333
+     },
+     "flex_max": {
+      "deg": 42.6,
+      "t": 0.5
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 52.8,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": 24.9,
+      "t": 0.7333
+     },
+     "flex_max": {
+      "deg": 54.9,
+      "t": 1.5
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 31.6,
+      "t": 0.7333
+     },
+     "lateral_worst": {
+      "deg": -0.7,
+      "t": 1.8333
+     },
+     "flex_max": {
+      "deg": 34.0,
+      "t": 1.9
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 34.9,
+      "t": 0.4
+     },
+     "lateral_worst": {
+      "deg": 3.9,
+      "t": 1.0333
+     },
+     "flex_max": {
+      "deg": 36.8,
+      "t": 1.0
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 13.4,
+      "t": 1.8333
+     },
+     "flex_worst": {
+      "deg": 16.6,
+      "t": 0.4
+     },
+     "twist_worst": {
+      "deg": -21.4,
+      "t": 0.0
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 16.3,
+      "t": 0.5
+     },
+     "flex_worst": {
+      "deg": -19.8,
+      "t": 1.0333
+     },
+     "twist_worst": {
+      "deg": 44.8,
+      "t": 1.8
+     }
+    }
+   },
+   "info_frames": 61,
+   "fails": []
+  },
+  "walk": {
+   "frames": 42,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 54.0,
+      "t": 0.7
+     },
+     "lateral_worst": {
+      "deg": 4.8,
+      "t": 0.9667
+     },
+     "flex_max": {
+      "deg": 65.4,
+      "t": 1.3
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 48.9,
+      "t": 0.1
+     },
+     "lateral_worst": {
+      "deg": 17.5,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 56.1,
+      "t": 0.6
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 24.9,
+      "t": 0.3
+     },
+     "lateral_worst": {
+      "deg": -12.1,
+      "t": 0.7
+     },
+     "flex_max": {
+      "deg": 90.1,
+      "t": 1.3
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 30.9,
+      "t": 1.0333
+     },
+     "lateral_worst": {
+      "deg": 12.5,
+      "t": 0.9
+     },
+     "flex_max": {
+      "deg": 86.5,
+      "t": 0.6
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -20.5,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": 16.9,
+      "t": 1.0333
+     },
+     "twist_worst": {
+      "deg": -34.2,
+      "t": 1.2
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 20.8,
+      "t": 0.0333
+     },
+     "flex_worst": {
+      "deg": -10.8,
+      "t": 0.3
+     },
+     "twist_worst": {
+      "deg": 42.9,
+      "t": 0.1667
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  },
+  "run": {
+   "frames": 23,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 49.0,
+      "t": 0.3667
+     },
+     "lateral_worst": {
+      "deg": 15.1,
+      "t": 0.5
+     },
+     "flex_max": {
+      "deg": 69.9,
+      "t": 0.1
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 63.8,
+      "t": 0.7333
+     },
+     "lateral_worst": {
+      "deg": -11.6,
+      "t": 0.6
+     },
+     "flex_max": {
+      "deg": 79.3,
+      "t": 0.2
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 21.5,
+      "t": 0.5
+     },
+     "lateral_worst": {
+      "deg": -17.8,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 83.3,
+      "t": 0.1
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 32.6,
+      "t": 0.6
+     },
+     "lateral_worst": {
+      "deg": -16.9,
+      "t": 0.4333
+     },
+     "flex_max": {
+      "deg": 91.9,
+      "t": 0.4
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 9.9,
+      "t": 0.3
+     },
+     "flex_worst": {
+      "deg": 23.3,
+      "t": 0.2667
+     },
+     "twist_worst": {
+      "deg": -18.6,
+      "t": 0.7333
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 18.9,
+      "t": 0.5333
+     },
+     "flex_worst": {
+      "deg": -10.9,
+      "t": 0.1667
+     },
+     "twist_worst": {
+      "deg": 34.0,
+      "t": 0.0667
+     }
+    }
+   },
+   "info_frames": 5,
+   "fails": []
+  },
+  "attack": {
+   "frames": 56,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": -3.0,
+      "t": 0.6333
+     },
+     "lateral_worst": {
+      "deg": -84.1,
+      "t": 0.5333
+     },
+     "flex_max": {
+      "deg": 88.7,
+      "t": 0.9
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 40.6,
+      "t": 0.6667
+     },
+     "lateral_worst": {
+      "deg": 106.5,
+      "t": 1.3667
+     },
+     "flex_max": {
+      "deg": 101.5,
+      "t": 1.5
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 27.8,
+      "t": 0.6333
+     },
+     "lateral_worst": {
+      "deg": -11.2,
+      "t": 1.2667
+     },
+     "flex_max": {
+      "deg": 80.2,
+      "t": 1.0
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 20.2,
+      "t": 1.5667
+     },
+     "lateral_worst": {
+      "deg": -17.2,
+      "t": 1.0
+     },
+     "flex_max": {
+      "deg": 76.8,
+      "t": 0.9
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -38.0,
+      "t": 1.4333
+     },
+     "flex_worst": {
+      "deg": 66.2,
+      "t": 0.6333
+     },
+     "twist_worst": {
+      "deg": -127.4,
+      "t": 0.9
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -38.0,
+      "t": 1.0667
+     },
+     "flex_worst": {
+      "deg": -66.6,
+      "t": 1.2
+     },
+     "twist_worst": {
+      "deg": 134.1,
+      "t": 1.1
+     }
+    }
+   },
+   "info_frames": 56,
+   "fails": []
+  },
+  "warcry": {
+   "frames": 94,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 26.9,
+      "t": 0.5667
+     },
+     "lateral_worst": {
+      "deg": -15.3,
+      "t": 2.8
+     },
+     "flex_max": {
+      "deg": 66.5,
+      "t": 1.0
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 46.6,
+      "t": 0.3333
+     },
+     "lateral_worst": {
+      "deg": -11.3,
+      "t": 2.2333
+     },
+     "flex_max": {
+      "deg": 83.5,
+      "t": 0.8
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 3.1,
+      "t": 0.9667
+     },
+     "lateral_worst": {
+      "deg": -2.3,
+      "t": 0.6
+     },
+     "flex_max": {
+      "deg": 37.7,
+      "t": 0.2
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 12.4,
+      "t": 1.4333
+     },
+     "lateral_worst": {
+      "deg": 8.6,
+      "t": 3.0
+     },
+     "flex_max": {
+      "deg": 61.1,
+      "t": 2.4
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 27.6,
+      "t": 0.6
+     },
+     "flex_worst": {
+      "deg": 48.4,
+      "t": 1.4667
+     },
+     "twist_worst": {
+      "deg": -52.3,
+      "t": 2.7667
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 17.5,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": -68.3,
+      "t": 2.1
+     },
+     "twist_worst": {
+      "deg": 43.0,
+      "t": 0.2333
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  },
+  "hit": {
+   "frames": 27,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 68.3,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": -5.9,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 75.9,
+      "t": 0.7
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 54.9,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": 9.7,
+      "t": 0.0
+     },
+     "flex_max": {
+      "deg": 66.3,
+      "t": 0.8
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 76.6,
+      "t": 0.7333
+     },
+     "lateral_worst": {
+      "deg": -2.1,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 78.6,
+      "t": 0.2
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 93.5,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -16.3,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 94.9,
+      "t": 0.2
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 8.0,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": -18.2,
+      "t": 0.8
+     },
+     "twist_worst": {
+      "deg": -6.8,
+      "t": 0.6667
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -10.0,
+      "t": 0.8
+     },
+     "flex_worst": {
+      "deg": -75.7,
+      "t": 0.2
+     },
+     "twist_worst": {
+      "deg": 44.3,
+      "t": 0.0
+     }
+    }
+   },
+   "info_frames": 11,
+   "fails": []
+  },
+  "death": {
+   "frames": 73,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 14.4,
+      "t": 2.4
+     },
+     "lateral_worst": {
+      "deg": -27.3,
+      "t": 1.4333
+     },
+     "flex_max": {
+      "deg": 61.1,
+      "t": 0.4
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 20.6,
+      "t": 0.2333
+     },
+     "lateral_worst": {
+      "deg": 28.6,
+      "t": 0.4667
+     },
+     "flex_max": {
+      "deg": 70.4,
+      "t": 1.5
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 33.9,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -14.5,
+      "t": 2.4
+     },
+     "flex_max": {
+      "deg": 127.1,
+      "t": 1.9
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 35.3,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": 7.7,
+      "t": 2.4
+     },
+     "flex_max": {
+      "deg": 139.3,
+      "t": 2.0
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 38.0,
+      "t": 1.5333
+     },
+     "flex_worst": {
+      "deg": 35.2,
+      "t": 2.1667
+     },
+     "twist_worst": {
+      "deg": -96.6,
+      "t": 0.7
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -38.0,
+      "t": 1.7667
+     },
+     "flex_worst": {
+      "deg": 79.9,
+      "t": 1.4333
+     },
+     "twist_worst": {
+      "deg": -101.6,
+      "t": 2.1667
+     }
+    }
+   },
+   "info_frames": 41,
+   "fails": []
+  },
+  "idle_alt": {
+   "frames": 112,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 43.2,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -50.5,
+      "t": 2.1667
+     },
+     "flex_max": {
+      "deg": 129.1,
+      "t": 1.8
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 45.4,
+      "t": 0.3667
+     },
+     "lateral_worst": {
+      "deg": 19.3,
+      "t": 2.6333
+     },
+     "flex_max": {
+      "deg": 76.7,
+      "t": 1.2
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 8.5,
+      "t": 1.8333
+     },
+     "lateral_worst": {
+      "deg": -1.6,
+      "t": 2.1667
+     },
+     "flex_max": {
+      "deg": 33.9,
+      "t": 0.0
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 14.8,
+      "t": 0.6
+     },
+     "lateral_worst": {
+      "deg": 4.5,
+      "t": 1.9333
+     },
+     "flex_max": {
+      "deg": 35.3,
+      "t": 0.0
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -24.1,
+      "t": 2.5
+     },
+     "flex_worst": {
+      "deg": 53.9,
+      "t": 1.9667
+     },
+     "twist_worst": {
+      "deg": -55.3,
+      "t": 1.2
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 38.0,
+      "t": 1.3333
+     },
+     "flex_worst": {
+      "deg": -29.7,
+      "t": 2.8333
+     },
+     "twist_worst": {
+      "deg": 53.7,
+      "t": 2.9333
+     }
+    }
+   },
+   "info_frames": 23,
+   "fails": []
+  },
+  "idle_unarmed": {
+   "frames": 57,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 11.9,
+      "t": 1.7667
+     },
+     "lateral_worst": {
+      "deg": -6.4,
+      "t": 0.6
+     },
+     "flex_max": {
+      "deg": 21.7,
+      "t": 0.6
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 53.5,
+      "t": 0.4
+     },
+     "lateral_worst": {
+      "deg": 19.1,
+      "t": 1.3333
+     },
+     "flex_max": {
+      "deg": 59.7,
+      "t": 1.3
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 21.3,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -2.2,
+      "t": 0.7667
+     },
+     "flex_max": {
+      "deg": 25.8,
+      "t": 0.8
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 13.1,
+      "t": 1.8333
+     },
+     "lateral_worst": {
+      "deg": 1.5,
+      "t": 0.7667
+     },
+     "flex_max": {
+      "deg": 23.4,
+      "t": 0.8
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -19.5,
+      "t": 0.6333
+     },
+     "flex_worst": {
+      "deg": -7.3,
+      "t": 0.3667
+     },
+     "twist_worst": {
+      "deg": -6.4,
+      "t": 0.4333
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -15.2,
+      "t": 1.4333
+     },
+     "flex_worst": {
+      "deg": 26.9,
+      "t": 1.3333
+     },
+     "twist_worst": {
+      "deg": 20.7,
+      "t": 0.5667
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  },
+  "walk_unarmed": {
+   "frames": 32,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 4.1,
+      "t": 0.2333
+     },
+     "lateral_worst": {
+      "deg": -9.0,
+      "t": 0.7333
+     },
+     "flex_max": {
+      "deg": 56.5,
+      "t": 0.7
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 8.8,
+      "t": 0.8
+     },
+     "lateral_worst": {
+      "deg": 5.9,
+      "t": 0.1667
+     },
+     "flex_max": {
+      "deg": 33.0,
+      "t": 0.2
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 7.6,
+      "t": 0.7667
+     },
+     "lateral_worst": {
+      "deg": 9.7,
+      "t": 0.8
+     },
+     "flex_max": {
+      "deg": 70.9,
+      "t": 1.0
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 8.0,
+      "t": 0.7
+     },
+     "lateral_worst": {
+      "deg": -7.2,
+      "t": 0.3
+     },
+     "flex_max": {
+      "deg": 77.0,
+      "t": 0.5
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -36.4,
+      "t": 0.8667
+     },
+     "flex_worst": {
+      "deg": -17.8,
+      "t": 0.3
+     },
+     "twist_worst": {
+      "deg": 6.2,
+      "t": 0.3
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -10.8,
+      "t": 0.2333
+     },
+     "flex_worst": {
+      "deg": 18.1,
+      "t": 0.8333
+     },
+     "twist_worst": {
+      "deg": -10.7,
+      "t": 0.4667
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  },
+  "run_unarmed": {
+   "frames": 20,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 62.6,
+      "t": 0.6
+     },
+     "lateral_worst": {
+      "deg": -18.1,
+      "t": 0.4
+     },
+     "flex_max": {
+      "deg": 116.2,
+      "t": 0.4
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 75.6,
+      "t": 0.5667
+     },
+     "lateral_worst": {
+      "deg": 20.7,
+      "t": 0.0667
+     },
+     "flex_max": {
+      "deg": 117.9,
+      "t": 0.1
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 22.9,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": -18.1,
+      "t": 0.0667
+     },
+     "flex_max": {
+      "deg": 146.3,
+      "t": 0.6
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 5.3,
+      "t": 0.5
+     },
+     "lateral_worst": {
+      "deg": 18.7,
+      "t": 0.2333
+     },
+     "flex_max": {
+      "deg": 134.4,
+      "t": 0.3
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": -38.0,
+      "t": 0.4333
+     },
+     "flex_worst": {
+      "deg": -13.7,
+      "t": 0.4
+     },
+     "twist_worst": {
+      "deg": -43.4,
+      "t": 0.4
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -38.0,
+      "t": 0.2667
+     },
+     "flex_worst": {
+      "deg": -47.9,
+      "t": 0.5667
+     },
+     "twist_worst": {
+      "deg": 27.0,
+      "t": 0.4
+     }
+    }
+   },
+   "info_frames": 9,
+   "fails": []
+  }
+ },
+ "control_library": {
+  "hit": {
+   "frames": 27,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 68.3,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": -5.9,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 75.9,
+      "t": 0.7
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 54.9,
+      "t": 0.1667
+     },
+     "lateral_worst": {
+      "deg": 9.7,
+      "t": 0.0
+     },
+     "flex_max": {
+      "deg": 66.3,
+      "t": 0.8
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 76.6,
+      "t": 0.7333
+     },
+     "lateral_worst": {
+      "deg": -2.1,
+      "t": 0.2
+     },
+     "flex_max": {
+      "deg": 78.6,
+      "t": 0.2
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 93.5,
+      "t": 0.0
+     },
+     "lateral_worst": {
+      "deg": -16.3,
+      "t": 0.1
+     },
+     "flex_max": {
+      "deg": 94.9,
+      "t": 0.2
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 8.0,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": -18.2,
+      "t": 0.8
+     },
+     "twist_worst": {
+      "deg": -6.8,
+      "t": 0.6667
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": -10.0,
+      "t": 0.8
+     },
+     "flex_worst": {
+      "deg": -75.7,
+      "t": 0.2
+     },
+     "twist_worst": {
+      "deg": 44.3,
+      "t": 0.0
+     }
+    }
+   },
+   "info_frames": 11,
+   "fails": []
+  },
+  "warcry": {
+   "frames": 94,
+   "failing_frames": 0,
+   "verdict": "PASS",
+   "worst": {
+    "elbow_L": {
+     "flex_min": {
+      "deg": 26.9,
+      "t": 0.5667
+     },
+     "lateral_worst": {
+      "deg": -15.3,
+      "t": 2.8
+     },
+     "flex_max": {
+      "deg": 66.5,
+      "t": 1.0
+     }
+    },
+    "elbow_R": {
+     "flex_min": {
+      "deg": 46.6,
+      "t": 0.3333
+     },
+     "lateral_worst": {
+      "deg": -11.3,
+      "t": 2.2333
+     },
+     "flex_max": {
+      "deg": 83.5,
+      "t": 0.8
+     }
+    },
+    "knee_L": {
+     "flex_min": {
+      "deg": 3.1,
+      "t": 0.9667
+     },
+     "lateral_worst": {
+      "deg": -2.3,
+      "t": 0.6
+     },
+     "flex_max": {
+      "deg": 37.7,
+      "t": 0.2
+     }
+    },
+    "knee_R": {
+     "flex_min": {
+      "deg": 12.4,
+      "t": 1.4333
+     },
+     "lateral_worst": {
+      "deg": 8.6,
+      "t": 3.0
+     },
+     "flex_max": {
+      "deg": 61.1,
+      "t": 2.4
+     }
+    },
+    "wrist_L": {
+     "dev_worst": {
+      "deg": 27.6,
+      "t": 0.6
+     },
+     "flex_worst": {
+      "deg": 48.4,
+      "t": 1.4667
+     },
+     "twist_worst": {
+      "deg": -52.3,
+      "t": 2.7667
+     }
+    },
+    "wrist_R": {
+     "dev_worst": {
+      "deg": 17.5,
+      "t": 0.0
+     },
+     "flex_worst": {
+      "deg": -68.3,
+      "t": 2.1
+     },
+     "twist_worst": {
+      "deg": 43.0,
+      "t": 0.2333
+     }
+    }
+   },
+   "info_frames": 0,
+   "fails": []
+  }
+ },
+ "negative_control": {
+  "what": "clip idle t 0.0000 with the right elbow bent past straight about its hinge",
+  "elbow_R_flex": -21.6,
+  "verdict": "FAIL"
+ }
+}
