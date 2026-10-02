@@ -33885,9 +33885,790 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN3-RH",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "0c40dc132b45d9ffe550d1dbee069001e51eb54ff43356d0d33da1fa105a1ee6",
+      "started": "2026-10-02T23:10:35.520152+00:00",
+      "ended": "2026-10-02T23:19:07.768747+00:00",
+      "minutes": 8.537376295133921,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-0b07afbc-f0b6-4cb8-bd25-2edf98984b02.png",
+            "sha256": "06900e3e44954c41f866a58bcebad2be330e38149aa5c3bce81f056e85872019"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-4a0e8e52-b40a-4e02-97e6-8b944e7a4c6c.png",
+            "sha256": "74dc8f485ac705cfb368875b485727474aa8906f920be4354d12ef7a3be5cd31"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-5d6f438e-fa64-4cdc-8b93-9047339815ee.png",
+            "sha256": "75f77a4d7ec7fb587046f0ac28af9f8b1890503cd8a50f7bbdc39feb8391583f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-7dee5d41-27cb-4e5d-95dd-112167661ca2.png",
+            "sha256": "1945a695d2aa82d816a9db78e484c7151b28fd1b61f21ac9833223df95d15fc4"
+          }
+        ]
+      },
+      "receipt_sha256": "33b95ea85319f9c6f3c71071fe4445cc889526e22b352d3f5696de62ddd34df0",
+      "artifacts": [
+        {
+          "name": "EN3-RH_a.png",
+          "sha256": "06900e3e44954c41f866a58bcebad2be330e38149aa5c3bce81f056e85872019"
+        },
+        {
+          "name": "EN3-RH_a_r1.png",
+          "sha256": "74dc8f485ac705cfb368875b485727474aa8906f920be4354d12ef7a3be5cd31"
+        },
+        {
+          "name": "EN3-RH_b.png",
+          "sha256": "1945a695d2aa82d816a9db78e484c7151b28fd1b61f21ac9833223df95d15fc4"
+        },
+        {
+          "name": "EN3-RH_b_r1.png",
+          "sha256": "75f77a4d7ec7fb587046f0ac28af9f8b1890503cd8a50f7bbdc39feb8391583f"
+        },
+        {
+          "name": "exec-0b07afbc-f0b6-4cb8-bd25-2edf98984b02.provenance.json",
+          "sha256": "8be27627b108f86e796f2a76c89c2e38fac190b670a20213345bc6661464b46b"
+        },
+        {
+          "name": "exec-4a0e8e52-b40a-4e02-97e6-8b944e7a4c6c.provenance.json",
+          "sha256": "4ea088ac1b1ffa123bfc32c5c320528f55393650d9293e65351e6062cb9f8fa7"
+        },
+        {
+          "name": "exec-5d6f438e-fa64-4cdc-8b93-9047339815ee.provenance.json",
+          "sha256": "cc9868695399415053d42054a9abfef9a1d4036ae9ac039badb7e16213e9e08a"
+        },
+        {
+          "name": "exec-7dee5d41-27cb-4e5d-95dd-112167661ca2.provenance.json",
+          "sha256": "a072dfd59f6f6616c424e196ae351559a4913f35a6f5dc2482f4196a5a2f7e94"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-0b07afbc-f0b6-4cb8-bd25-2edf98984b02.png",
+          "sha256": "06900e3e44954c41f866a58bcebad2be330e38149aa5c3bce81f056e85872019"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-4a0e8e52-b40a-4e02-97e6-8b944e7a4c6c.png",
+          "sha256": "74dc8f485ac705cfb368875b485727474aa8906f920be4354d12ef7a3be5cd31"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-5d6f438e-fa64-4cdc-8b93-9047339815ee.png",
+          "sha256": "75f77a4d7ec7fb587046f0ac28af9f8b1890503cd8a50f7bbdc39feb8391583f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413a-7f62-a545-098cb4ca5ed9/exec-7dee5d41-27cb-4e5d-95dd-112167661ca2.png",
+          "sha256": "1945a695d2aa82d816a9db78e484c7151b28fd1b61f21ac9833223df95d15fc4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN3-RW",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "8427ab565464890afebcd666335679062bfaa1d0f0ecafef5f150cfc41c31361",
+      "started": "2026-10-02T23:10:35.520118+00:00",
+      "ended": "2026-10-02T23:19:11.486811+00:00",
+      "minutes": 8.59933189098374,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-20dd30d3-c1cf-4d78-84b2-668098bc547d.png",
+            "sha256": "e275443a77162a728916a2d16515a62a57dfcc548e38fb3db3fbdc40f96dc7e4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-7f62cb0d-c4a0-423c-b6e7-75f31b34ccb4.png",
+            "sha256": "f7ef564d816a4c2a357f657cda60a4ac77ebddece234a08c85b0771b016e024c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-a570bf7c-5a10-4bb2-b0d1-c7937a3644b5.png",
+            "sha256": "e0311c947578673b3a93ea0bb01767414acbca923faf13d9258f54e40e45dc79"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-dd9afc78-4838-44b8-813b-14c7dd75ba79.png",
+            "sha256": "6f3841203fcd4164ca89359b0815114283a5df685045b4214dffdb70fb09bc14"
+          }
+        ]
+      },
+      "receipt_sha256": "9bcd248f4f45efc793fce3438a2451c1cc01ae9482851059e18ef716cef74a62",
+      "artifacts": [
+        {
+          "name": "EN3-RW_a.png",
+          "sha256": "e275443a77162a728916a2d16515a62a57dfcc548e38fb3db3fbdc40f96dc7e4"
+        },
+        {
+          "name": "EN3-RW_a_r1.png",
+          "sha256": "f7ef564d816a4c2a357f657cda60a4ac77ebddece234a08c85b0771b016e024c"
+        },
+        {
+          "name": "EN3-RW_b.png",
+          "sha256": "e0311c947578673b3a93ea0bb01767414acbca923faf13d9258f54e40e45dc79"
+        },
+        {
+          "name": "EN3-RW_b_r1.png",
+          "sha256": "6f3841203fcd4164ca89359b0815114283a5df685045b4214dffdb70fb09bc14"
+        },
+        {
+          "name": "exec-20dd30d3-c1cf-4d78-84b2-668098bc547d.provenance.json",
+          "sha256": "2ee41e3e1976130f925baba858b114bda835393e2000e18326c5f2a7f44435ff"
+        },
+        {
+          "name": "exec-7f62cb0d-c4a0-423c-b6e7-75f31b34ccb4.provenance.json",
+          "sha256": "fbafd5bcf63bfff2520d240c65ec2642bef79f3198250980e9029a8d33f3bd9d"
+        },
+        {
+          "name": "exec-a570bf7c-5a10-4bb2-b0d1-c7937a3644b5.provenance.json",
+          "sha256": "8ef29e1e85d6921993df8843b6eb6672545f5466037bba3058bdaff7bf60e89e"
+        },
+        {
+          "name": "exec-dd9afc78-4838-44b8-813b-14c7dd75ba79.provenance.json",
+          "sha256": "e5c81735c8c1757a12b4713db59b50c0a97eb1459c45031e441ae5cc4aa2c2d9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-20dd30d3-c1cf-4d78-84b2-668098bc547d.png",
+          "sha256": "e275443a77162a728916a2d16515a62a57dfcc548e38fb3db3fbdc40f96dc7e4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-7f62cb0d-c4a0-423c-b6e7-75f31b34ccb4.png",
+          "sha256": "f7ef564d816a4c2a357f657cda60a4ac77ebddece234a08c85b0771b016e024c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-a570bf7c-5a10-4bb2-b0d1-c7937a3644b5.png",
+          "sha256": "e0311c947578673b3a93ea0bb01767414acbca923faf13d9258f54e40e45dc79"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fee2-413b-7042-9657-d8027717b914/exec-dd9afc78-4838-44b8-813b-14c7dd75ba79.png",
+          "sha256": "6f3841203fcd4164ca89359b0815114283a5df685045b4214dffdb70fb09bc14"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-X",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "bf48d0bf72a0a1a6eaf2adda21038511a090b0d78caadf460a4268d0eaa34d0b",
+      "started": "2026-10-02T23:19:32.437510+00:00",
+      "ended": "2026-10-02T23:24:02.355645+00:00",
+      "minutes": 4.49859232083351,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79c0-a90f-5cb34e8901aa/exec-64c7e3c4-a7a5-4824-b2bc-81b68c35cadd.png",
+            "sha256": "b57c3f197929db77356334750b5d7756d523b247e1c131bad767ce339044e28f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79c0-a90f-5cb34e8901aa/exec-87d3aa00-9db1-48b4-bba3-faa7aedd0498.png",
+            "sha256": "69be29f048c5bec047a7b296cf5bba8b86110a1a417d56c0c0fc46c4815b94af"
+          }
+        ]
+      },
+      "receipt_sha256": "dfc361eaa0832dc8670e0b144e3b1c2deb7430217b2224cd645514e1d489e4a8",
+      "artifacts": [
+        {
+          "name": "EN2-X_a.png",
+          "sha256": "b57c3f197929db77356334750b5d7756d523b247e1c131bad767ce339044e28f"
+        },
+        {
+          "name": "EN2-X_a_r1.png",
+          "sha256": "69be29f048c5bec047a7b296cf5bba8b86110a1a417d56c0c0fc46c4815b94af"
+        },
+        {
+          "name": "exec-64c7e3c4-a7a5-4824-b2bc-81b68c35cadd.provenance.json",
+          "sha256": "ac4ff380b6a6027fe6d40d13311ac7a6945df2e748cad843bdd76cb029104c65"
+        },
+        {
+          "name": "exec-87d3aa00-9db1-48b4-bba3-faa7aedd0498.provenance.json",
+          "sha256": "de3789b846b5f67ac6c485ac0b4a1973512e1c0db1f8cd322f987716ffbac10f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79c0-a90f-5cb34e8901aa/exec-64c7e3c4-a7a5-4824-b2bc-81b68c35cadd.png",
+          "sha256": "b57c3f197929db77356334750b5d7756d523b247e1c131bad767ce339044e28f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79c0-a90f-5cb34e8901aa/exec-87d3aa00-9db1-48b4-bba3-faa7aedd0498.png",
+          "sha256": "69be29f048c5bec047a7b296cf5bba8b86110a1a417d56c0c0fc46c4815b94af"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-U",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "858410d1d880ec7972ca552ac146b5414ba36c3b36dddd58a8d16b37f40825d5",
+      "started": "2026-10-02T23:19:32.437548+00:00",
+      "ended": "2026-10-02T23:24:15.072688+00:00",
+      "minutes": 4.710533940282767,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7181-9e62-068a36f5d191/exec-2fb5e420-dc10-4a57-8b4f-03c83eb534d9.png",
+            "sha256": "d8550843da700b1353d580ebc4fd810b685ed624711c2d54ba539d1996878a16"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7181-9e62-068a36f5d191/exec-43314ed7-9796-4b3c-a384-0cd9b046cfa7.png",
+            "sha256": "7bc9a8aa2604293083d036b5f29852001ef058389c530f2264e97967e32aa9be"
+          }
+        ]
+      },
+      "receipt_sha256": "343c3f312fb816262cd723eb211e1c01b2c587507ccaaf415cfe4ad1310aee66",
+      "artifacts": [
+        {
+          "name": "EN2-U_a.png",
+          "sha256": "d8550843da700b1353d580ebc4fd810b685ed624711c2d54ba539d1996878a16"
+        },
+        {
+          "name": "EN2-U_a_r1.png",
+          "sha256": "7bc9a8aa2604293083d036b5f29852001ef058389c530f2264e97967e32aa9be"
+        },
+        {
+          "name": "exec-2fb5e420-dc10-4a57-8b4f-03c83eb534d9.provenance.json",
+          "sha256": "3bd3132dbc9c501d750ad0a584630e9d1d479ed275ae324d21707c33b29aa6bd"
+        },
+        {
+          "name": "exec-43314ed7-9796-4b3c-a384-0cd9b046cfa7.provenance.json",
+          "sha256": "2eacb43e3a80604e9873f296f6ea2affa59dd4b7cc8310492d442ddba57e8483"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7181-9e62-068a36f5d191/exec-2fb5e420-dc10-4a57-8b4f-03c83eb534d9.png",
+          "sha256": "d8550843da700b1353d580ebc4fd810b685ed624711c2d54ba539d1996878a16"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7181-9e62-068a36f5d191/exec-43314ed7-9796-4b3c-a384-0cd9b046cfa7.png",
+          "sha256": "7bc9a8aa2604293083d036b5f29852001ef058389c530f2264e97967e32aa9be"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-L",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "15f22630712ebeda73e362351f12bfeab95094a8fb3f4059d421253e0b752649",
+      "started": "2026-10-02T23:19:32.437467+00:00",
+      "ended": "2026-10-02T23:24:32.377810+00:00",
+      "minutes": 4.999005968049945,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7922-b6ef-65551e3f950b/exec-30a5e4a0-7077-4f83-b83d-f535c1d59526.png",
+            "sha256": "35066c511f8cc3b8f334160cf343eae2f497009c9457cbcab025a8d205895198"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7922-b6ef-65551e3f950b/exec-4981055e-4deb-403d-a7fb-37260d96f97b.png",
+            "sha256": "5ff32dc4edc4335d2b4414b11203ba9189301d895f326e287262cd5327ba62fc"
+          }
+        ]
+      },
+      "receipt_sha256": "1de4d7239ce7ad052c3410faf26f0b5e39521f25c9f3a76c328746d726934623",
+      "artifacts": [
+        {
+          "name": "EN2-L_a.png",
+          "sha256": "5ff32dc4edc4335d2b4414b11203ba9189301d895f326e287262cd5327ba62fc"
+        },
+        {
+          "name": "EN2-L_a_r1.png",
+          "sha256": "35066c511f8cc3b8f334160cf343eae2f497009c9457cbcab025a8d205895198"
+        },
+        {
+          "name": "exec-30a5e4a0-7077-4f83-b83d-f535c1d59526.provenance.json",
+          "sha256": "400229625cfaca02b82acc8dbe154532b979e75db47a02d54c054ac9f7462149"
+        },
+        {
+          "name": "exec-4981055e-4deb-403d-a7fb-37260d96f97b.provenance.json",
+          "sha256": "e2652c02c014bae63dd2dc4bf231d18c7a27ab345415ed05f3c27f0bfc4935bf"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7922-b6ef-65551e3f950b/exec-30a5e4a0-7077-4f83-b83d-f535c1d59526.png",
+          "sha256": "35066c511f8cc3b8f334160cf343eae2f497009c9457cbcab025a8d205895198"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-7922-b6ef-65551e3f950b/exec-4981055e-4deb-403d-a7fb-37260d96f97b.png",
+          "sha256": "5ff32dc4edc4335d2b4414b11203ba9189301d895f326e287262cd5327ba62fc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-E",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "754cb81adf1f364ebdbf58721e9cd14c2c9e6825134303b678086d6b91456132",
+      "started": "2026-10-02T23:19:32.437491+00:00",
+      "ended": "2026-10-02T23:24:32.883531+00:00",
+      "minutes": 5.00741068541732,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-74f2-b890-307272b42eb0/exec-03efff45-e645-4680-8b36-cd35a2aa0d0b.png",
+            "sha256": "7818bd84fad8acabb343da948b18fd3ca26519446dd0794a1596087582637fb7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-74f2-b890-307272b42eb0/exec-b010eeb4-d754-4771-9577-255dc731b817.png",
+            "sha256": "f0b64f4850e4063bec5f793fbabb51cb38a3485bc487ed5bcdfac6d1bbb10603"
+          }
+        ]
+      },
+      "receipt_sha256": "7f3213257c92fb2b76b607d9a54db11cdb66e314d022c3e3407b2795ec18da5e",
+      "artifacts": [
+        {
+          "name": "EN2-E_a.png",
+          "sha256": "7818bd84fad8acabb343da948b18fd3ca26519446dd0794a1596087582637fb7"
+        },
+        {
+          "name": "EN2-E_a_r1.png",
+          "sha256": "f0b64f4850e4063bec5f793fbabb51cb38a3485bc487ed5bcdfac6d1bbb10603"
+        },
+        {
+          "name": "exec-03efff45-e645-4680-8b36-cd35a2aa0d0b.provenance.json",
+          "sha256": "a82b8ac3e672b12558031bbc329863f89203a4eff11c31d0087b9573614ab37f"
+        },
+        {
+          "name": "exec-b010eeb4-d754-4771-9577-255dc731b817.provenance.json",
+          "sha256": "9b40dc4115603e6fb8781198c22adacfb200701fdbfaf7b4ccff5d0ef3cc2425"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-74f2-b890-307272b42eb0/exec-03efff45-e645-4680-8b36-cd35a2aa0d0b.png",
+          "sha256": "7818bd84fad8acabb343da948b18fd3ca26519446dd0794a1596087582637fb7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-74f2-b890-307272b42eb0/exec-b010eeb4-d754-4771-9577-255dc731b817.png",
+          "sha256": "f0b64f4850e4063bec5f793fbabb51cb38a3485bc487ed5bcdfac6d1bbb10603"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-D",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "d3e1a476ad6e54befa8c96ac4587d8f6ca4c184a8ef5289aca8f4d0073701478",
+      "started": "2026-10-02T23:19:32.437582+00:00",
+      "ended": "2026-10-02T23:24:53.219211+00:00",
+      "minutes": 5.346355969433595,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79a0-8e0a-7c1262d238fd/exec-18617d45-af9b-4d0b-9fa2-4473039c6194.png",
+            "sha256": "81b34846712a61f8551a89c11f2e7358c98e9ab3be3a2c36921df03ca45db503"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79a0-8e0a-7c1262d238fd/exec-a8ca13c3-7815-4a8e-b0d9-7dca151ba424.png",
+            "sha256": "6605d80d57a4ddb0c519b8e49bd1408a61c954e3e780f1625d79dff8741ef70e"
+          }
+        ]
+      },
+      "receipt_sha256": "393fab1002f4e2e986d74cfa73a7e81483415eaf5d8c5c7c7136e495b75376ab",
+      "artifacts": [
+        {
+          "name": "EN2-D_a.png",
+          "sha256": "81b34846712a61f8551a89c11f2e7358c98e9ab3be3a2c36921df03ca45db503"
+        },
+        {
+          "name": "EN2-D_a_r1.png",
+          "sha256": "6605d80d57a4ddb0c519b8e49bd1408a61c954e3e780f1625d79dff8741ef70e"
+        },
+        {
+          "name": "exec-18617d45-af9b-4d0b-9fa2-4473039c6194.provenance.json",
+          "sha256": "e6922ee848103d90d5af78d836393dd7e9d9dd7aff501e54cd141d0e79e69d9b"
+        },
+        {
+          "name": "exec-a8ca13c3-7815-4a8e-b0d9-7dca151ba424.provenance.json",
+          "sha256": "ae34a7415bef69d96062946e6fd58cf591bf3e3f89aab4a1a50bfcf9ce12ffbb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79a0-8e0a-7c1262d238fd/exec-18617d45-af9b-4d0b-9fa2-4473039c6194.png",
+          "sha256": "81b34846712a61f8551a89c11f2e7358c98e9ab3be3a2c36921df03ca45db503"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feea-72e4-79a0-8e0a-7c1262d238fd/exec-a8ca13c3-7815-4a8e-b0d9-7dca151ba424.png",
+          "sha256": "6605d80d57a4ddb0c519b8e49bd1408a61c954e3e780f1625d79dff8741ef70e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-W2PB",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "49c4e1ac49dc6adf441a599d8319340dad7a7b85f6d15721ad72dbb86f5952c2",
+      "started": "2026-10-02T23:25:03.901997+00:00",
+      "ended": "2026-10-02T23:30:03.649053+00:00",
+      "minutes": 4.995726958333398,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7ca3-90ed-8bcebcc5f01c/exec-93feacdf-b8a4-422f-8c12-c5d5cfe9dc8c.png",
+            "sha256": "3eb9cb4472630d0ece74f9ab6b1a63f5901eea372aa0eef2440832cf2c46233f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7ca3-90ed-8bcebcc5f01c/exec-ecc943cb-4af9-4d5b-8ed1-f2593433d79b.png",
+            "sha256": "65646e75aa83ca8664e48a9a8633acc24feb2a2edd9aab293d2582ef6bf7893c"
+          }
+        ]
+      },
+      "receipt_sha256": "fa78368183a9923968ceb71f4675a7277b046075ed891bb7d1ff86cf82fe6019",
+      "artifacts": [
+        {
+          "name": "EN2-W2PB_a.png",
+          "sha256": "65646e75aa83ca8664e48a9a8633acc24feb2a2edd9aab293d2582ef6bf7893c"
+        },
+        {
+          "name": "EN2-W2PB_b.png",
+          "sha256": "3eb9cb4472630d0ece74f9ab6b1a63f5901eea372aa0eef2440832cf2c46233f"
+        },
+        {
+          "name": "exec-93feacdf-b8a4-422f-8c12-c5d5cfe9dc8c.provenance.json",
+          "sha256": "f12d514e66b9ca66e1549a4f064ab346d6eee52c01714f80c10e9f2f3cf454d7"
+        },
+        {
+          "name": "exec-ecc943cb-4af9-4d5b-8ed1-f2593433d79b.provenance.json",
+          "sha256": "1833524a4276b39ce150efd7e3a0f442a194e0d0be69b80947dedef71f98ea86"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7ca3-90ed-8bcebcc5f01c/exec-93feacdf-b8a4-422f-8c12-c5d5cfe9dc8c.png",
+          "sha256": "3eb9cb4472630d0ece74f9ab6b1a63f5901eea372aa0eef2440832cf2c46233f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7ca3-90ed-8bcebcc5f01c/exec-ecc943cb-4af9-4d5b-8ed1-f2593433d79b.png",
+          "sha256": "65646e75aa83ca8664e48a9a8633acc24feb2a2edd9aab293d2582ef6bf7893c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-H2PB",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c5242eaef465d5733e8fc97994c3265fbe1e61f5baa41aff7f0fe908d9459c2d",
+      "started": "2026-10-02T23:25:03.902100+00:00",
+      "ended": "2026-10-02T23:31:18.455381+00:00",
+      "minutes": 6.242491943750065,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-2c1847fc-f011-4a3c-a435-eafc4e996da4.png",
+            "sha256": "cc29bfa80940ac4fca603274db403e8e7d1f6237da79437694192a07ba78d326"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-6f7454b5-8b73-4f63-9784-2229c8d256e7.png",
+            "sha256": "1fd24ec4cda4182d5d4ebd538f41a77380141004ea087b42b55a8b1f1e1c028c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-a9582b44-725d-40f4-aee6-089e40a85d45.png",
+            "sha256": "9ecfbd032bc2a1fd183d51942d9bf1e4235e87eca496ddea98418ea70e817112"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-d83dc243-d3bc-4c7d-b5cb-329d810713d6.png",
+            "sha256": "34aa97c3e7c0d8cf8157962a55018b2a08e2734881708fd7059374f8f1ead09a"
+          }
+        ]
+      },
+      "receipt_sha256": "56e7582c04b4075e39eb4944234c2649c30bc18949aad6e7f81d24f1e0afb520",
+      "artifacts": [
+        {
+          "name": "EN2-H2PB_a.png",
+          "sha256": "34aa97c3e7c0d8cf8157962a55018b2a08e2734881708fd7059374f8f1ead09a"
+        },
+        {
+          "name": "EN2-H2PB_b.png",
+          "sha256": "1fd24ec4cda4182d5d4ebd538f41a77380141004ea087b42b55a8b1f1e1c028c"
+        },
+        {
+          "name": "exec-2c1847fc-f011-4a3c-a435-eafc4e996da4.provenance.json",
+          "sha256": "8129eaabe265bdbbfe6245addb4c724fdb477b0e06d159adb51278b8faa477eb"
+        },
+        {
+          "name": "exec-6f7454b5-8b73-4f63-9784-2229c8d256e7.provenance.json",
+          "sha256": "8e20ce8b476b2afb8841461179a8e097e454b149c54709e9e80b831b83f649b5"
+        },
+        {
+          "name": "exec-a9582b44-725d-40f4-aee6-089e40a85d45.provenance.json",
+          "sha256": "31414037c4e0fbfb1f2f395a7df849d39d01311fe8cc7220922aa09cc0b443e3"
+        },
+        {
+          "name": "exec-d83dc243-d3bc-4c7d-b5cb-329d810713d6.provenance.json",
+          "sha256": "43c196dbfe236f786fa6227f27373ec2fb3feca0edb87f780d3e9d71d08c113c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-2c1847fc-f011-4a3c-a435-eafc4e996da4.png",
+          "sha256": "cc29bfa80940ac4fca603274db403e8e7d1f6237da79437694192a07ba78d326"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-6f7454b5-8b73-4f63-9784-2229c8d256e7.png",
+          "sha256": "1fd24ec4cda4182d5d4ebd538f41a77380141004ea087b42b55a8b1f1e1c028c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-a9582b44-725d-40f4-aee6-089e40a85d45.png",
+          "sha256": "9ecfbd032bc2a1fd183d51942d9bf1e4235e87eca496ddea98418ea70e817112"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7fd0-912b-817f640ffae0/exec-d83dc243-d3bc-4c7d-b5cb-329d810713d6.png",
+          "sha256": "34aa97c3e7c0d8cf8157962a55018b2a08e2734881708fd7059374f8f1ead09a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1012,
+  "images_used": 1036,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -36096,6 +36877,17 @@
       "ruling": "Sim Session (KC2 conductor) ruled REFERENT-v1 needs BOTH alternates where the footage could not tell them apart (the frozen oracle Q102 rolls by GD pool weight each run): w153 slith01 (dc_bounty08), w156 hellhound (direwolf_frozenwastes_01), w158 p05 gryphon-rig hero (hypporaven_h01..h04). Queued right after Haraxis/Kymon/abomination, ahead of unstarted w159-160 work. Hellhound -> EN-E3 after the abomination (n10 quadruped). New lane EN-E4 (own folder en_e4/, copies en_e3 scripts, never edits them): slith01 then the gryphon hero; caps Astra 30, Meshy 60, fal $1.50. Sim Session adopted R-C9-136. Veto-open to Matt.",
       "verbatim": [],
       "ts": "2026-10-02T22:55:40Z"
+    },
+    {
+      "id": "R-C9-138",
+      "by": "Matt",
+      "ruling": "Sorceress review (Barrow page, battle-mage wand + open book variant): the open book reads well but her idle body is too upturned; the wand is a decent size but points DOWN and drops through the palm instead of being gripped and pointed toward her facing. Ruled: the sorceress of record keeps the SHIELD (R-C9-133/134, orb-staff + shield on the Pro Sword and Shield clips). Fix on the kit of record: orb-staff gripped in the right hand and pointed forward along facing (no palm pass-through), calmer, less upturned idle. Review route: the fixed kit goes on the Barrow select page as a new option first (loadout push, R-C9-117), then the JOIN-1 pack is re-rendered from the same GLB as a new pack root (join1_pack_v3/d2-fire-sorc-bm stays DRAFT, superseded).",
+      "verbatim": [
+        "Regarding the sorceress, the open book is good, albeit the body of the character is a bit too upturned in the idle state.",
+        "The wand is a decent size, but it's pointing downwards and dropping directly through the palm of the hand.. not held and gripped and pointed towards the enemies direction (where she is facing).",
+        "(AskUserQuestion) Off-hand: \"Shield, as ruled\"; Review: \"Barrow page first (Recommended)\""
+      ],
+      "ts": "2026-10-02T23:31:31Z"
     }
   ],
   "grok_calls": [
