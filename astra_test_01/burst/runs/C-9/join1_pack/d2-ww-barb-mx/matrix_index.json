@@ -7,16 +7,16 @@
  "producer": {
   "run": "C-9",
   "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/render_cells.gd",
-  "tool_sha256": "71fe7b0079ddd21256ea761dcfae529be4ce4c47f4a9a3fc003400d0c9e67066",
+  "tool_sha256": "e18ff4e7e51bb3e1b56d709fd88c4a2af2c72cf9c871fa0a8beec4d82c8e49b8",
   "indexer": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/index_cells.py",
   "indexer_sha256": "d3d96b625566c3f8552c171d62224fd04b4a73a83becec2507d6a3af470c6b19",
   "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/d2-ww-barb-mx.json",
-  "kit_config_sha256": "ab50ac6e0cc82beedfa2a163d0e876d164bdd46ccdd8ce66ac283e27b4b7d85d",
-  "ts": "2026-10-02T00:50:34-0400"
+  "kit_config_sha256": "f3cfb93a9694746d76c15d82076dbb09a10cb558f305505e7e12dee3048cb39c",
+  "ts": "2026-10-02T01:15:35-0400"
  },
  "source": {
   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/nb-body_join_mx.glb",
-  "glb_sha256": "6a144e93b1c04ceaf1c4bf3a50b171b79788ff18898bbf163604ef67e451773d",
+  "glb_sha256": "d68f03d701834af6055beb9766b81591626d036ad382b805382acfffae1c5acc",
   "pieces": [
    {
     "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/bm_mx/s3/export/byrnie.glb",
@@ -54,7 +54,7 @@
  },
  "clip_manifest": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/d2-ww-barb-mx_clips.json",
-  "sha256": "82779b4d31046674cbd93e38c86b5533ef10d62571b1713379dee8c93a426b62"
+  "sha256": "4258ba8298f62f3dc733f07cfaeaa268b98cadcab35b1e7570cc3781ed3306d4"
  },
  "camera": {
   "projection": "orthographic",
@@ -137,8 +137,7 @@
    "release_index": null,
    "release_s": null,
    "hold_last": false,
-   "closure_mad": 7.8115,
-   "closure_flag": "OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one.",
+   "closure_mad": 0.0013,
    "closure_mad_note": "max over the 8 directions of mean |RGBA(T) - RGBA(0)| over the FIGURE's pixels (either frame opaque), 0-255; render(T) is rendered for this and is not in the pack"
   },
   "walk": {
@@ -452,13 +451,44 @@
   "_what": "both fists closed on their weapons; the helmet worn"
  },
  "runtime_resampling": null,
- "render_passes": null,
+ "render_passes": {
+  "p1": {
+   "pass": "p1",
+   "body_glb_sha256": "6a144e93b1c04cea... (bm_mx af276f8c7)",
+   "what": "the full first render, 80 cells",
+   "cells_in_pack": 64
+  },
+  "p2": {
+   "pass": "p2",
+   "body_glb_sha256": "d68f03d701834af6055beb9766b81591626d036ad382b805382acfffae1c5acc",
+   "kit_config_sha256": "f3cfb93a9694746d76c15d82076dbb09a10cb558f305505e7e12dee3048cb39c",
+   "tool_sha256": "e18ff4e7e51bb3e1b56d709fd88c4a2af2c72cf9c871fa0a8beec4d82c8e49b8",
+   "what": "rev b (bm_mx 2c4e7ba54): idle seam-blended, death de-rooted -- idle/* and death/* re-rendered",
+   "cells": [
+    "death/E",
+    "death/N",
+    "death/NE",
+    "death/NW",
+    "death/S",
+    "death/SE",
+    "death/SW",
+    "death/W",
+    "idle/E",
+    "idle/N",
+    "idle/NE",
+    "idle/NW",
+    "idle/S",
+    "idle/SE",
+    "idle/SW",
+    "idle/W"
+   ],
+   "cells_in_pack": 16
+  }
+ },
  "cells": {
   "idle/S": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -467,51 +497,51 @@
     },
     {
      "name": "idle_S_01.png",
-     "sha256": "65921e439cf8d15ab4ed524a3937109eb8e520dec26b4e5910ccae1fe107d5ef"
+     "sha256": "e2fe4282c0cd6d1a9ba7fd4949148d6595e6c7c2b69e6008ed77a408ee0a71ff"
     },
     {
      "name": "idle_S_02.png",
-     "sha256": "5a15e4ca37dce130c624f5879a60153d3d59de31b7faa65e6463f686cbaf891a"
+     "sha256": "542767bf646bd2ad83d8385f59397391d0d884f4e5df929183d1874f853d9f55"
     },
     {
      "name": "idle_S_03.png",
-     "sha256": "388bd38caf7a2cbcd7ab1b9f82110c9fe7e2b37f7970638c00af3bafc05ba70e"
+     "sha256": "bcd56ab20cabb81c44101a322a7839099785b1c19be2a565fbeeeb27ebab164b"
     },
     {
      "name": "idle_S_04.png",
-     "sha256": "a5e5ef382be653168fb45a5d3e91edcdb58119d4b950a31a245addc4d12eee7e"
+     "sha256": "5c832228a4f03d96da2d683a43057c7661b779c403518bbd240a8e311aeef2f9"
     },
     {
      "name": "idle_S_05.png",
-     "sha256": "563cb703ffa09ca73442b1d7ac19b7d1e05b55566711cfc6d1233c76966e582f"
+     "sha256": "cade430fab74b086f79136f0d1dcfcd6031a1ef2ebb248b5469145d8b8b047f3"
     },
     {
      "name": "idle_S_06.png",
-     "sha256": "64354c3475dd8140e6a0c51f31efadd439c8b3c5f48fd3da25ad2e84399db46c"
+     "sha256": "72e808932a4f2364fbcff05cac38529f6ab99c1f069c67ce84b7dd469bb85722"
     },
     {
      "name": "idle_S_07.png",
-     "sha256": "3ebcb63aaef598e030a9c5e3583fdc98176c246d5df029deeda8d17a8b1308b9"
+     "sha256": "46d32a96c847a917910931584de480a3913b49c846dfebad01e79e956128930c"
     },
     {
      "name": "idle_S_08.png",
-     "sha256": "5b827d70c181c09f82ded3e8d2b3d98acca76f94e539f0e7d99cbd1f8a266f21"
+     "sha256": "443990a2ebc49d508fe3051bf38260d69f04ef871b973f29ec30465bd6674c4a"
     },
     {
      "name": "idle_S_09.png",
-     "sha256": "60d1d401e5fd2c6fa5bb399569f381b96b009dd3cb46dc48366f17a7d9ac9313"
+     "sha256": "507e285655565a9dbb8afc848e97c940cb8892ecfd045906f0f6da8a33afe571"
     },
     {
      "name": "idle_S_10.png",
-     "sha256": "f7b115357e226c06559b8011dfe2cd26c6503222ab4372bf7d27cfeced11383b"
+     "sha256": "9ead858da19d807f5ce18fc9c06462d5cb250f11c7a3cf654de4b2eaef9826c2"
     },
     {
      "name": "idle_S_11.png",
-     "sha256": "96974b739f21403d58132db90a70fb9fee3bfad3154c2ce15597ab3445e15094"
+     "sha256": "32c987f797770e9e5e7cda360a541c03ec488d7e2435d1721e035c9df9fc634d"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "1422188c7b648281f9f3aed5195b7de4e119a0f1d96478b6f7b186cb64f12b6a",
+   "render_pass": "p2",
+   "cell_sha256": "761a8ee30c3149490e8e999f6c718fdbfdccd46e77bba69f744e598cdaf5f87e",
    "alpha_union_bbox": [
     283,
     288,
@@ -580,9 +610,9 @@
       0.90951
      ],
      [
-      -0.55449,
-      -0.10906,
-      0.88149
+      -0.55417,
+      -0.10904,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -642,9 +672,9 @@
       1.23361
      ],
      [
-      -0.53108,
-      0.59342,
-      1.21224
+      -0.53193,
+      0.59313,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -704,9 +734,9 @@
       0.90749
      ],
      [
-      0.25224,
-      0.42866,
-      0.88209
+      0.25322,
+      0.42757,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -746,7 +776,7 @@
       1.18264
      ],
      [
-      0.3386,
+      0.33859,
       1.16604,
       1.21614
      ],
@@ -766,9 +796,9 @@
       1.24498
      ],
      [
-      0.22787,
-      1.16017,
-      1.22651
+      0.22997,
+      1.15881,
+      1.22647
      ]
     ],
     "head_top": [
@@ -828,9 +858,9 @@
       1.73622
      ],
      [
-      -0.09803,
-      0.15364,
-      1.72823
+      -0.09841,
+      0.154,
+      1.7282
      ]
     ],
     "chest": [
@@ -890,18 +920,16 @@
       1.06247
      ],
      [
-      -0.02681,
-      0.00515,
-      1.05836
+      -0.02677,
+      0.00519,
+      1.05833
      ]
     ]
    }
   },
   "idle/SW": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -910,51 +938,51 @@
     },
     {
      "name": "idle_SW_01.png",
-     "sha256": "38ea1ffd9c6fc4ea262b08f25c3bc19b80e024e1842ed7a6c8031f5ab113ce56"
+     "sha256": "ba0d0352a8feb4e29559bd201f376123a00bd2bf2eb942b65e84d25f7bda615e"
     },
     {
      "name": "idle_SW_02.png",
-     "sha256": "28a38679d533c94d9dd6e54c629b243b5bf239af195f4167f9fef653199f7c02"
+     "sha256": "751776a36df884206240dc576b802afb86a56aabb327b8357494eb7ab4ef92b3"
     },
     {
      "name": "idle_SW_03.png",
-     "sha256": "8424ace18e1110ea8c532b03d55b34d1397f6c70e39e927b5a4809fb19a5cbd7"
+     "sha256": "9b3b1f7b8b056329d32819827f823a8c50cbcc98deef5afc026fcf8de40e80c0"
     },
     {
      "name": "idle_SW_04.png",
-     "sha256": "af6f17918c2c13908440281a5105f4f22659254a2dc2d299efd30f0698926771"
+     "sha256": "e8038edb29254fd9521c0bae3b6bace2f94ed7b0d5f9aeb49cfd6bee0d0f77fe"
     },
     {
      "name": "idle_SW_05.png",
-     "sha256": "aceb5e99d4b35eacf43741a90c2c969ff6b06ba08b20d274801b188775204510"
+     "sha256": "141373e743458125cd0010e0d3a6d3f322b1e52ad2675f5dd5b106426350933e"
     },
     {
      "name": "idle_SW_06.png",
-     "sha256": "36404f195f4c043c90939fb31fe93a0d10173523c39d18883fc472f7d44ee8c9"
+     "sha256": "ec598ce324859024dbdb95f22a06bfaeff2129746dd904047200eefec00b19f5"
     },
     {
      "name": "idle_SW_07.png",
-     "sha256": "bcfa653884aebba959f53dd67ee804334e1177d83b8a65c5946d8bdc976967d4"
+     "sha256": "8724c99e80119a9f56c1d1d8f359634a90c86a724340885ff7502107e5830f18"
     },
     {
      "name": "idle_SW_08.png",
-     "sha256": "2f57cf6fa1d3c900a288e3e3bf048a892a68b896f99c6fc735a99d649e310162"
+     "sha256": "e3c835491b4951d08a3141274ba044ca0f266ca9b6c287352ea3c8886bb79bd4"
     },
     {
      "name": "idle_SW_09.png",
-     "sha256": "c68b0e3d52442388a77138bbd6227779ff0b2c2bc23f6cc5819fb7abf3c490c7"
+     "sha256": "e7e07bbb774236e33ea6893601d41d51b0a912664fe09485734111241e1839be"
     },
     {
      "name": "idle_SW_10.png",
-     "sha256": "c24dbf4b13878215832dee0eb70b7225f746d1877e75d1c56fdbeb32be12de46"
+     "sha256": "1558749dbf1a02189ec7a005672d5644351db1084f794ed406fd02b2884bc058"
     },
     {
      "name": "idle_SW_11.png",
-     "sha256": "63cf83f08dd048f78e240aa190727bbc96e1d60fdd73bbdda622ee763f0415f2"
+     "sha256": "32806aa3797c0348101378f47ec7424b177f7ee73cf2a076382582f27ddd4838"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "2faf37e91a148dd91ae72ec455a241fd0a16820ad47a3fd7e17c2148e5538fb9",
+   "render_pass": "p2",
+   "cell_sha256": "200468fb8954674114f15db7be365d5e13700a649d0beb230b071e9bdcb2f924",
    "alpha_union_bbox": [
     253,
     271,
@@ -1023,9 +1051,9 @@
       0.90951
      ],
      [
-      -0.31496,
-      -0.4692,
-      0.88149
+      -0.31476,
+      -0.46896,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -1085,9 +1113,9 @@
       1.23361
      ],
      [
-      -0.79514,
-      0.04408,
-      1.21224
+      -0.79554,
+      0.04327,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -1147,9 +1175,9 @@
       0.90749
      ],
      [
-      -0.12475,
-      0.48147,
-      0.88209
+      -0.12328,
+      0.48139,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -1209,9 +1237,9 @@
       1.24498
      ],
      [
-      -0.65924,
-      0.98149,
-      1.22651
+      -0.65679,
+      0.98201,
+      1.22647
      ]
     ],
     "head_top": [
@@ -1271,9 +1299,9 @@
       1.73622
      ],
      [
-      -0.17796,
-      0.03932,
-      1.72823
+      -0.17848,
+      0.0393,
+      1.7282
      ]
     ],
     "chest": [
@@ -1333,18 +1361,16 @@
       1.06247
      ],
      [
-      -0.0226,
-      -0.01532,
-      1.05836
+      -0.02259,
+      -0.01526,
+      1.05833
      ]
     ]
    }
   },
   "idle/W": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -1353,51 +1379,51 @@
     },
     {
      "name": "idle_W_01.png",
-     "sha256": "935660aaaaae72cc11bb3f3613da7177dfdeeb9a5ca66c8737829de344b53d9c"
+     "sha256": "a69bdfcfac2435781b0d3231975bab5a765f17fbe26136d93e1dc217cff0020f"
     },
     {
      "name": "idle_W_02.png",
-     "sha256": "e77158cb389a4af039e3786f43c8ee6fc15d5ba7c036b2361987387c0370d63d"
+     "sha256": "f72e30e0d5052c852d5e592f38ec2ae1847afd2fc32deee4e6eef0a662bb2603"
     },
     {
      "name": "idle_W_03.png",
-     "sha256": "afaf0fc0af18410d84f32c3dac378d695020db5fe682d141fa085eb0f67c8788"
+     "sha256": "21f072fe236ff99f43e4790ac1da16007de98ee15954097cb672841bca394fc5"
     },
     {
      "name": "idle_W_04.png",
-     "sha256": "e47e1f5dfa6430b9cdc71f685c268c0c362de4481f52ca637834b9bac8c8e3c3"
+     "sha256": "84bde0c1aa7444d242b0c76dea85995db9a9e117b1b59213adf2f5b1d8ec38a7"
     },
     {
      "name": "idle_W_05.png",
-     "sha256": "6c0fccda064e58d82a39b6d6f8cf968bf514697549a3a93a8d71d1de89eacb75"
+     "sha256": "0ac0a72fd73fd00302ecdda2bf873f96c51bedb25cf0408850c2ae5876312394"
     },
     {
      "name": "idle_W_06.png",
-     "sha256": "c5126e24ac43c65b593f951376f3d02126f4cb958112b2f64ddca831cd5961b4"
+     "sha256": "f7ee8477bb891c50d6191be6443e1b7fa787733608c353081718b793e1601881"
     },
     {
      "name": "idle_W_07.png",
-     "sha256": "c2a548fb8f60cccb49e917991a3599d4d73e33551bb50335359555c9f087de58"
+     "sha256": "24d289f00778fbd0d85b970a8da2cbd8f0f19f296b7a338c744bdbe357cd3cba"
     },
     {
      "name": "idle_W_08.png",
-     "sha256": "039fe457f984107a6853ab215b21a8bd687840ac3a0898fe12173fcbd3aa1b9a"
+     "sha256": "8612f32cf866842186c61e1c6327a78cb5cd6e2dd814e85ed297db29f6def27c"
     },
     {
      "name": "idle_W_09.png",
-     "sha256": "2b442c47937eb9385af5cc3b11b7613c21a582d5fe11e10dce3ef4025d0e8623"
+     "sha256": "f854662b5ea2fe2266e68708fe9a8493a3f9885998a03f1e2bff3e33d882066d"
     },
     {
      "name": "idle_W_10.png",
-     "sha256": "39680c31de7625c4cce8ead31e625228d070d0836adbbce57ba3cb7ae90cbccd"
+     "sha256": "4e5cf1dfdd298dfc6ca278ddc7ae7e88b6e65e007bf8c3ee04d253c0e6a6f8f4"
     },
     {
      "name": "idle_W_11.png",
-     "sha256": "a583c5b71b68a067b42d1ee19f6f08d146808319cd7d5f95727880c8ced819f8"
+     "sha256": "16022aff92dd2c2af73214e76267cf17af924cc871666d9b192cc00db6ccb6a8"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "8ddde3363c5beb2c3f5fa47a9ee8705e81c0e9bc89a7fbf6da9674874a5f23f9",
+   "render_pass": "p2",
+   "cell_sha256": "aaae31f16fc7ca87c7e4cfb310f7bafdefbaa1d474c3f5a4533107b835a56d27",
    "alpha_union_bbox": [
     199,
     263,
@@ -1466,9 +1492,9 @@
       0.90951
      ],
      [
-      0.10906,
-      -0.55449,
-      0.88149
+      0.10904,
+      -0.55417,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -1528,9 +1554,9 @@
       1.23361
      ],
      [
-      -0.59342,
-      -0.53108,
-      1.21224
+      -0.59313,
+      -0.53193,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -1590,9 +1616,9 @@
       0.90749
      ],
      [
-      -0.42866,
-      0.25224,
-      0.88209
+      -0.42757,
+      0.25322,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -1633,7 +1659,7 @@
      ],
      [
       -1.16604,
-      0.3386,
+      0.33859,
       1.21614
      ],
      [
@@ -1652,9 +1678,9 @@
       1.24498
      ],
      [
-      -1.16017,
-      0.22787,
-      1.22651
+      -1.15881,
+      0.22997,
+      1.22647
      ]
     ],
     "head_top": [
@@ -1714,9 +1740,9 @@
       1.73622
      ],
      [
-      -0.15364,
-      -0.09803,
-      1.72823
+      -0.154,
+      -0.09841,
+      1.7282
      ]
     ],
     "chest": [
@@ -1776,18 +1802,16 @@
       1.06247
      ],
      [
-      -0.00515,
-      -0.02681,
-      1.05836
+      -0.00519,
+      -0.02677,
+      1.05833
      ]
     ]
    }
   },
   "idle/NW": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -1796,51 +1820,51 @@
     },
     {
      "name": "idle_NW_01.png",
-     "sha256": "eb8e4132f203decc82377d1274ca686715422c3139989a97a847daaf849c4c35"
+     "sha256": "671747d24bdfd53332e743ebe14829c2be375af209bf3c41c7d8b2320b4f84b7"
     },
     {
      "name": "idle_NW_02.png",
-     "sha256": "e14503708ddf9de318abb36d038b30bb3f15f93f66d8644e230451719b08fd1b"
+     "sha256": "d4d29eaf470fba9b418e84d601b056b2201dc5323381dfb98a60616fa0e111ec"
     },
     {
      "name": "idle_NW_03.png",
-     "sha256": "d74b24672f511a4bb3354c6a2e250de7ecafaac1319109185a506c9442abdb95"
+     "sha256": "ab0fa1a37ca64b0dcfd9bc8b5556d664478730a179e6c404280128eaf3e30184"
     },
     {
      "name": "idle_NW_04.png",
-     "sha256": "131e610dd3605ca1e4dcc86d9b9e76c86fd881f246ba11a1089b9018c74ff877"
+     "sha256": "2a3722918f10d8aa31f70a947cbe3c738e243cce7adb091902545654544519ff"
     },
     {
      "name": "idle_NW_05.png",
-     "sha256": "7a445329761ea11877a229d14a0a5cc33397ba880d82863b12ceba8f6b815bb5"
+     "sha256": "7c557fef6c35d2614c203f28a2eb1d084197748dd34a8d94acb8cf3e183b4985"
     },
     {
      "name": "idle_NW_06.png",
-     "sha256": "630c2b8660aeea381a962c071164228e87d587418e17a29e8eefb3425ce4416d"
+     "sha256": "bac02d38ca7e3f2197db6c450cd40dbdefa7f027e6e0d30718bd192b76bc9de8"
     },
     {
      "name": "idle_NW_07.png",
-     "sha256": "d20efa6b22decfbca0413aa81b75db380af00917a561d1ba348675a813c7f7c5"
+     "sha256": "151641a9260c4d9794111320cd7ebf1d1dbe98757f4bfebf1a2937685501a7dc"
     },
     {
      "name": "idle_NW_08.png",
-     "sha256": "2b00d828931b08f488a07d1f5e4c5ea6df8b0a6ec98e5c91a8eb327a42bd4e32"
+     "sha256": "e7d73f6c85e2a7b2d94f853f8034636a2af461631189d6045b19471f62c6f82b"
     },
     {
      "name": "idle_NW_09.png",
-     "sha256": "01a64e085b4464f4b57185134f10a6b0b3cb9ac44e8452b950294ce99fd659a6"
+     "sha256": "3deeceb54d0a5c03862909203764aaac888334987e35d2bffa014ecb8705b056"
     },
     {
      "name": "idle_NW_10.png",
-     "sha256": "30ae59a895f436a317aadda7831b7b4393f62c135a7266a0f2aec150c01a824f"
+     "sha256": "2610e1adbab034b8ba3ac5b5462714544c43e45d4731ab62e82f6b34977651e8"
     },
     {
      "name": "idle_NW_11.png",
-     "sha256": "999d95bca1513cc2770cf8536149286a211a9905ba3d0c53f5bf4b5130a759d1"
+     "sha256": "aa79a45e10fa5f3c674ad38d2530a6c6f6e549ecd5e5f3cebf74b2b0c519ab71"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "93f3106ea2f19f33101170fb26276e933c14ea09b1fc58a99f77dee7f4c02465",
+   "render_pass": "p2",
+   "cell_sha256": "f61ec815b3aefa328689de73941efe1beb71a0f0d0f8c8975c6acfcd9ebac8eb",
    "alpha_union_bbox": [
     198,
     238,
@@ -1909,9 +1933,9 @@
       0.90951
      ],
      [
-      0.4692,
-      -0.31496,
-      0.88149
+      0.46896,
+      -0.31476,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -1971,9 +1995,9 @@
       1.23361
      ],
      [
-      -0.04408,
-      -0.79514,
-      1.21224
+      -0.04327,
+      -0.79554,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -2033,9 +2057,9 @@
       0.90749
      ],
      [
-      -0.48147,
-      -0.12475,
-      0.88209
+      -0.48139,
+      -0.12328,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -2095,9 +2119,9 @@
       1.24498
      ],
      [
-      -0.98149,
-      -0.65924,
-      1.22651
+      -0.98201,
+      -0.65679,
+      1.22647
      ]
     ],
     "head_top": [
@@ -2157,9 +2181,9 @@
       1.73622
      ],
      [
-      -0.03932,
-      -0.17796,
-      1.72823
+      -0.0393,
+      -0.17848,
+      1.7282
      ]
     ],
     "chest": [
@@ -2219,18 +2243,16 @@
       1.06247
      ],
      [
-      0.01532,
-      -0.0226,
-      1.05836
+      0.01526,
+      -0.02259,
+      1.05833
      ]
     ]
    }
   },
   "idle/N": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -2239,51 +2261,51 @@
     },
     {
      "name": "idle_N_01.png",
-     "sha256": "d8c673acabede7dd4cbf5aacd992108b0b711c1593a7b8d05d7f5200ea942cfd"
+     "sha256": "8f5b5d2fa40b2d8ad2aae154af8926a361d9f8c2c6b25ef5a88f821e0b36a16b"
     },
     {
      "name": "idle_N_02.png",
-     "sha256": "c632d3cb442e8fea9c391caaf5f472263ea7991cb0ffa37c2324403a588a8b92"
+     "sha256": "36d52239437024ee1fb1f30cc4a488b035dc5e1b1c5dc808e3ff6019c04ae07b"
     },
     {
      "name": "idle_N_03.png",
-     "sha256": "b54352d750b2dd2077e3a78598f79ef330b125eb924023665fc9f94e6bd66220"
+     "sha256": "282c29a84d93f97174ea867ad2c6df050a421464f5eda600ab5ac70a211fec20"
     },
     {
      "name": "idle_N_04.png",
-     "sha256": "ac09a6dab213073d83a5ba0e81aff9efccd9992d9182ce561acbf471d7d63412"
+     "sha256": "674d1473321b2175890e00eea9ff55a9fc1048f803bd0885e5385b8cfbc4c3a0"
     },
     {
      "name": "idle_N_05.png",
-     "sha256": "259e34e11fcf010ae2b5fe65ef3ebaa9d0b7be91dfd0080857dd8a273d4f62b1"
+     "sha256": "3fd29572447ff78f28384d9cfacc3b53c8ec176321c213ac54146b4e954fc932"
     },
     {
      "name": "idle_N_06.png",
-     "sha256": "dbdeac62e5c3a9afb1aceb881f6c330e032e46359bde6f52695b890d251cf272"
+     "sha256": "aaa4e68dd45b43ba0f805bce2e04270b8c8c392cddd99f90ba98cfd3783148b3"
     },
     {
      "name": "idle_N_07.png",
-     "sha256": "4fd43d38ce1e2b58c6656d4daf019c6c72c63c7d67d4894bec12fe5bc3cad527"
+     "sha256": "319662e173d423c09ce47ba65d26877be4206348aafef4cb865af468c28b53a7"
     },
     {
      "name": "idle_N_08.png",
-     "sha256": "ac7a68b8ede1cd976e24a94985d0b0862087f89769ff01acc2454a54696118f6"
+     "sha256": "67f7ea6f417c10baa225e10bd96f98a4ba358d8166b12768b795ed58d3d5edf2"
     },
     {
      "name": "idle_N_09.png",
-     "sha256": "af30d386452461ca6311b0455c5875c1661b61b3606ad3f868a0685a155b2da0"
+     "sha256": "6348742b12c6ade4efa42e2f940670765c8454a6504beab3e300d16b26880d52"
     },
     {
      "name": "idle_N_10.png",
-     "sha256": "d9f51ebab335308b522ad7f5add48f135f96f16e5242e4e0fbd2c1a289610638"
+     "sha256": "b75636578681ec013199afb6a94998573f99842647074954c288b965ec47972b"
     },
     {
      "name": "idle_N_11.png",
-     "sha256": "499a1bf3604a4f4c526b16c512bbf0eb1c8eef2496cf73f80ac4b4b649d1cab7"
+     "sha256": "b4c005e242faee592d3304b9637e04e2ef72b2f62f9ea0d0b1847a891f816e43"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "babc31804e98af7e38c5f6f4b057fd475ef86c9cd5acad23d981a35889bc572e",
+   "render_pass": "p2",
+   "cell_sha256": "a74a471263a7c74e0da61d753e46000d7ba41f378a6e2e855f2458727bd6b689",
    "alpha_union_bbox": [
     304,
     196,
@@ -2352,9 +2374,9 @@
       0.90951
      ],
      [
-      0.55449,
-      0.10906,
-      0.88149
+      0.55417,
+      0.10904,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -2414,9 +2436,9 @@
       1.23361
      ],
      [
-      0.53108,
-      -0.59342,
-      1.21224
+      0.53193,
+      -0.59313,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -2476,9 +2498,9 @@
       0.90749
      ],
      [
-      -0.25224,
-      -0.42866,
-      0.88209
+      -0.25322,
+      -0.42757,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -2518,7 +2540,7 @@
       1.18264
      ],
      [
-      -0.3386,
+      -0.33859,
       -1.16604,
       1.21614
      ],
@@ -2538,9 +2560,9 @@
       1.24498
      ],
      [
-      -0.22787,
-      -1.16017,
-      1.22651
+      -0.22997,
+      -1.15881,
+      1.22647
      ]
     ],
     "head_top": [
@@ -2600,9 +2622,9 @@
       1.73622
      ],
      [
-      0.09803,
-      -0.15364,
-      1.72823
+      0.09841,
+      -0.154,
+      1.7282
      ]
     ],
     "chest": [
@@ -2662,18 +2684,16 @@
       1.06247
      ],
      [
-      0.02681,
-      -0.00515,
-      1.05836
+      0.02677,
+      -0.00519,
+      1.05833
      ]
     ]
    }
   },
   "idle/NE": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -2682,51 +2702,51 @@
     },
     {
      "name": "idle_NE_01.png",
-     "sha256": "d032db623e18a911ebf38f542baa6a8f758c9c5d239105cc26b826ef4dcbb373"
+     "sha256": "2437af3441860f7c78d83d8f0c96d4ea81a515d087a53a9294a650e4e6f67bc8"
     },
     {
      "name": "idle_NE_02.png",
-     "sha256": "32eabbf6635ed4d976275b2a9583ecf30f35b130934a2154839d80da10e7bdbc"
+     "sha256": "20ba549ed4e58abfa0907fd399b03e7de867cd0b7309c77c4d782c7e8fa89dc1"
     },
     {
      "name": "idle_NE_03.png",
-     "sha256": "64c51d2b692f541de57c79ee324936c1dbd5bf4d4ea6b32ae33324b5ec629ea1"
+     "sha256": "029db65822f19e05326b6db768187c275d47ea4449e713554c2f9591cd5a6175"
     },
     {
      "name": "idle_NE_04.png",
-     "sha256": "a59d13176e664bfb00ca9e39052be8b0663a78938bbc4e2ba887c04bc6d9953d"
+     "sha256": "b3524e461a8aec72fda55c324ff8528868b17e60a5fc22207eebc3c678179992"
     },
     {
      "name": "idle_NE_05.png",
-     "sha256": "043dfb7716f1b679c6efa5f11dba247523585350e8795176fc5cd64a916af7f3"
+     "sha256": "164bc3911edeac5ea2ba98d1df38bef904771434e0a21a42289fbfe04687ae72"
     },
     {
      "name": "idle_NE_06.png",
-     "sha256": "9e4759a5478bdd18de3c711634554bdd8675f6e83d296931fca7667825baf14a"
+     "sha256": "c4c5b2db5df4ded49f64540bff19edb89f5a39183ea7d34abc6a67679c2f58fd"
     },
     {
      "name": "idle_NE_07.png",
-     "sha256": "2805eeb8ff24cd9d8fe11c55a969bf220c29a31396cea29ab8d879583627f273"
+     "sha256": "06a2f659bfcf6b38418bcc671e5dc9411fc919592540885b5088b8ba8d3ffc32"
     },
     {
      "name": "idle_NE_08.png",
-     "sha256": "ca5c7564a03c8f8c8a18b382d12546ef7d904f9245d0edbc26d6eda1f58567e1"
+     "sha256": "45f8bca1c9291b35f3afbe58ce8798d100e5a6de2a057daef40230e200c93173"
     },
     {
      "name": "idle_NE_09.png",
-     "sha256": "f7ae471b911bd83a5f4bf9a91e765161e120c01bd403beaba6898f6f8f29ffa9"
+     "sha256": "1e5e51ea43737f462437abc1ab4b4fab0de1a2bbe50a50fb66227efd4e6e794d"
     },
     {
      "name": "idle_NE_10.png",
-     "sha256": "8cb687754cdb6cffc3f93ba2a374ce980f0349f5c790bed16dfae91f59a6ed1d"
+     "sha256": "8d38e6177d333074e62378fa67b14460b5a2664df0d01e5bcde49a3a2f76944f"
     },
     {
      "name": "idle_NE_11.png",
-     "sha256": "f8b4a42316032e30ea24b5694e001bf5430a1f53a4e42cee12609a867f2eb6c7"
+     "sha256": "fbb6f44a73ebd2d6a05e27052d68a0ccd0ae702135f11b8dfd1020eae4400ef6"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "bb3a6c990e9782102d3c5549969755950d1e7ded6c047628fa1e675f6a227c95",
+   "render_pass": "p2",
+   "cell_sha256": "31f2ea981afbb8ae0a7a588c1e1eedbf084c23805c41a5c943be75cd449838db",
    "alpha_union_bbox": [
     347,
     204,
@@ -2795,9 +2815,9 @@
       0.90951
      ],
      [
-      0.31496,
-      0.4692,
-      0.88149
+      0.31476,
+      0.46896,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -2857,9 +2877,9 @@
       1.23361
      ],
      [
-      0.79514,
-      -0.04408,
-      1.21224
+      0.79554,
+      -0.04327,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -2919,9 +2939,9 @@
       0.90749
      ],
      [
-      0.12475,
-      -0.48147,
-      0.88209
+      0.12328,
+      -0.48139,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -2981,9 +3001,9 @@
       1.24498
      ],
      [
-      0.65924,
-      -0.98149,
-      1.22651
+      0.65679,
+      -0.98201,
+      1.22647
      ]
     ],
     "head_top": [
@@ -3043,9 +3063,9 @@
       1.73622
      ],
      [
-      0.17796,
-      -0.03932,
-      1.72823
+      0.17848,
+      -0.0393,
+      1.7282
      ]
     ],
     "chest": [
@@ -3105,18 +3125,16 @@
       1.06247
      ],
      [
-      0.0226,
-      0.01532,
-      1.05836
+      0.02259,
+      0.01526,
+      1.05833
      ]
     ]
    }
   },
   "idle/E": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -3125,51 +3143,51 @@
     },
     {
      "name": "idle_E_01.png",
-     "sha256": "d2db154dbfa8917b1e8c5067e508e86f4a0ac8484f31e12d509f01ccfab21160"
+     "sha256": "b218632ac1a1d6eb57076a98ddbf96d6c335fab14cd4bd74bbcccd4bb273ba56"
     },
     {
      "name": "idle_E_02.png",
-     "sha256": "d4a81522b9f46130f1ee814ce3db8861e823987b5e4e5c912c33b961fdfb13f3"
+     "sha256": "363cf0de734cf82f3afce8e5fa9075703d214df99ecf4016975aa8458422fbf6"
     },
     {
      "name": "idle_E_03.png",
-     "sha256": "087d9b73a9fcbaa4fe35a1a58cfbc03fbd52fb2445e1fa9ca9c7c5a94dc646bb"
+     "sha256": "fb9cc08d9caf6664e640a7832602cb9b60233d5c3a167b3471cc0a0b4f2247b7"
     },
     {
      "name": "idle_E_04.png",
-     "sha256": "27b191bc509885847e54d6bbb9b3f40e202cc4cb7b97854f801b3d35d2cd4d10"
+     "sha256": "0f877ffb0621509a12ee763e625e6a6474c8e954b3029ccf3eaf573584659cfa"
     },
     {
      "name": "idle_E_05.png",
-     "sha256": "eb0977a14b976bdad6312fc5dd37ed587037d65d0411d333a5beb38f1c33adff"
+     "sha256": "39a8697a783c9d8ae24f92d9e01ff06baba9a7dd4f0caef4a47349fad1e332be"
     },
     {
      "name": "idle_E_06.png",
-     "sha256": "71248b3a55a8b1eb46b3adecbffe10170901e55f93047f3ca7eaa568f38507ee"
+     "sha256": "68a7029442d3f77a5da629954fb9633c8b19ed55804904cb5be1e813e77fadbe"
     },
     {
      "name": "idle_E_07.png",
-     "sha256": "0f7769840f3968f7b11d9013733bca34812e97fafebbe7d8d2f83e3b6ee47537"
+     "sha256": "8e36b1ce1261ef7fa80de0d0a52f29c2877e1b9b676a931309af2a5a27d86367"
     },
     {
      "name": "idle_E_08.png",
-     "sha256": "fddf940319095624d15166dee10850d2b69bf3a733ccc5d1323357faae9e06c5"
+     "sha256": "96d3882a525cac535ec37779e63cc44ab55517fea1b660c1f1aa89589c95ef84"
     },
     {
      "name": "idle_E_09.png",
-     "sha256": "b0ae6c8ec627aecf5bc2d8720f1f90a1c6095398473c9db2cc6aa1cfc271092c"
+     "sha256": "611c5a40ffa60fb1a494f638010c59704b302475d0b079e3ca383e4cd5dc0cbf"
     },
     {
      "name": "idle_E_10.png",
-     "sha256": "a05a5c989d46850d4e9247309c9f31e20548ae043ab4a7060603bcb4935cfef2"
+     "sha256": "1820527794e3cdb66098140d34072e2e55b369e5c7d86b2ed0c8c4232b13ea13"
     },
     {
      "name": "idle_E_11.png",
-     "sha256": "883b1d7dce79d79ebd28ab2ffb5ffe006a67be9cd19ce78b96cda1f3f1ea33bb"
+     "sha256": "44d5834e11eec91e53df1402ffbdfc9001e42f821694131b6a6d928ce1339f9f"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "f3aa5e742253c7f207ace63272b64670b428de61cd8e310130ec9607d0075976",
+   "render_pass": "p2",
+   "cell_sha256": "b81634c799b027fb19cc90720f9ca92d3f1a0c7f28e5d260d5e1ea152b47ff93",
    "alpha_union_bbox": [
     318,
     285,
@@ -3193,7 +3211,7 @@
       0.86868
      ],
      [
-      -0.13609,
+      -0.13608,
       0.54209,
       0.89629
      ],
@@ -3238,9 +3256,9 @@
       0.90951
      ],
      [
-      -0.10906,
-      0.55449,
-      0.88149
+      -0.10904,
+      0.55417,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -3300,9 +3318,9 @@
       1.23361
      ],
      [
-      0.59342,
-      0.53108,
-      1.21224
+      0.59313,
+      0.53193,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -3362,9 +3380,9 @@
       0.90749
      ],
      [
-      0.42866,
-      -0.25224,
-      0.88209
+      0.42757,
+      -0.25322,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -3405,7 +3423,7 @@
      ],
      [
       1.16604,
-      -0.3386,
+      -0.33859,
       1.21614
      ],
      [
@@ -3424,9 +3442,9 @@
       1.24498
      ],
      [
-      1.16017,
-      -0.22787,
-      1.22651
+      1.15881,
+      -0.22997,
+      1.22647
      ]
     ],
     "head_top": [
@@ -3486,9 +3504,9 @@
       1.73622
      ],
      [
-      0.15364,
-      0.09803,
-      1.72823
+      0.154,
+      0.09841,
+      1.7282
      ]
     ],
     "chest": [
@@ -3548,18 +3566,16 @@
       1.06247
      ],
      [
-      0.00515,
-      0.02681,
-      1.05836
+      0.00519,
+      0.02677,
+      1.05833
      ]
     ]
    }
   },
   "idle/SE": {
    "status": "COMPLETE",
-   "flags": [
-    "note: OPEN LOOP SEAM: the clip's last key is not its first (render(T) differs from render(0) by 7.8 in-figure); the wrap from frame N-1 to frame 0 pops. A clip-hygiene fix at the source, not a render one."
-   ],
+   "flags": [],
    "frames": 12,
    "files": [
     {
@@ -3568,51 +3584,51 @@
     },
     {
      "name": "idle_SE_01.png",
-     "sha256": "f8665f10cbcc8b7d0463fd1041d6097f9ec9db7ccbf459bf31a24a54eacd5fc1"
+     "sha256": "3fe97cbb5235af50d16f61e1f1a20490a169b30743dc2992078b976426a5e852"
     },
     {
      "name": "idle_SE_02.png",
-     "sha256": "85403e2d152348f59bc7220381cb1e1e35e280ec6c942b2c0bfc2e615b149bcd"
+     "sha256": "6b84e0acb819f9efadc9a26b353bf260830f973cccb0643bdb00febcc7ffe0cb"
     },
     {
      "name": "idle_SE_03.png",
-     "sha256": "9a6acf1573547953822c26804509cab19747feab8729bb1461ca97391f2e01fe"
+     "sha256": "df451325cd6c6febf88cf28e91f3b1f0ff789d16b55a84bc8ca6a1c15673d916"
     },
     {
      "name": "idle_SE_04.png",
-     "sha256": "033e670b2511b9c3b262d83d99e7f83f7f245f3d936c019e9b63a620194044d8"
+     "sha256": "0bcd6210011662e87543e6a92273765d27fa47fcb2eef8924fbbe7c7e72fa363"
     },
     {
      "name": "idle_SE_05.png",
-     "sha256": "a8dd394405c8f95bf9215598b6744775b636b68883df7b2958b3f772daa6ea72"
+     "sha256": "dbd88530a5febd728c02ce43e59376874b52b5844cbf006b25637930a7133122"
     },
     {
      "name": "idle_SE_06.png",
-     "sha256": "bb330bfd515f41d4eec831279d4b748c68ed9d3f4619a6c9117f038dc747285b"
+     "sha256": "45386e27ad00af4de15631552f0ba2679cbbc902e4bb25065542b5a0f7da7499"
     },
     {
      "name": "idle_SE_07.png",
-     "sha256": "87a5e0416f9ff9bb1a06427c67f6fedb1456953b13091e45d6fb4d42a3d04605"
+     "sha256": "20c920d423fbbc73afda2f3475c4a1b014f0913450866fd447d1785a3c135a6d"
     },
     {
      "name": "idle_SE_08.png",
-     "sha256": "cef231693412cc8853724cdcd18120888c8dc83198dd22ad63606d2a3d9e7413"
+     "sha256": "8b09c2992398f2fee11e487538c370f39cda74f6556a3df304b9f5abbebe3d7f"
     },
     {
      "name": "idle_SE_09.png",
-     "sha256": "efad4392ef9d484175584dd74785caf61e33e1e135c53e76842b9afa77e2a2ab"
+     "sha256": "3a7cc375925ec176c0c87f8e6d8c894847b26e030676c69c070532de7e18835e"
     },
     {
      "name": "idle_SE_10.png",
-     "sha256": "70d1f4c3f64057617fe833f1e18067de51ffe6fa657092c4a8ba339537a86fbe"
+     "sha256": "55ec016bbed2f26146024d1d34040a180c7238afab14ea6c2a7a97f398365f63"
     },
     {
      "name": "idle_SE_11.png",
-     "sha256": "ed7b43fe4491f4fc78d8b212e4fd7b229231ef1c0db4bb308f1fbc9320ee9744"
+     "sha256": "83c72488ce48ab967ff8a2262ca28817eeff1c03845113aa174e5367e3ea83cc"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "12f335596562dfbdb30200b0502525d74bf51c6b0b90f0622e95fe52762f3e7c",
+   "render_pass": "p2",
+   "cell_sha256": "9566d1da956ba7281c8a38194902493716fcfc41d92b743b449e792d86e11a64",
    "alpha_union_bbox": [
     291,
     292,
@@ -3681,9 +3697,9 @@
       0.90951
      ],
      [
-      -0.4692,
-      0.31496,
-      0.88149
+      -0.46896,
+      0.31476,
+      0.88106
      ]
     ],
     "main_tip": [
@@ -3743,9 +3759,9 @@
       1.23361
      ],
      [
-      0.04408,
-      0.79514,
-      1.21224
+      0.04327,
+      0.79554,
+      1.21255
      ]
     ],
     "off_grip": [
@@ -3805,9 +3821,9 @@
       0.90749
      ],
      [
-      0.48147,
-      0.12475,
-      0.88209
+      0.48139,
+      0.12328,
+      0.8814
      ]
     ],
     "off_tip": [
@@ -3867,9 +3883,9 @@
       1.24498
      ],
      [
-      0.98149,
-      0.65924,
-      1.22651
+      0.98201,
+      0.65679,
+      1.22647
      ]
     ],
     "head_top": [
@@ -3929,9 +3945,9 @@
       1.73622
      ],
      [
-      0.03932,
-      0.17796,
-      1.72823
+      0.0393,
+      0.17848,
+      1.7282
      ]
     ],
     "chest": [
@@ -3991,9 +4007,9 @@
       1.06247
      ],
      [
-      -0.01532,
-      0.0226,
-      1.05836
+      -0.01526,
+      0.02259,
+      1.05833
      ]
     ]
    }
@@ -4052,7 +4068,7 @@
      "sha256": "50b3167b5e3f866f3a3cb218c1f537aaf8d990b2f91fe2691525c1fd345f62ef"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "18e7a115b736a52fc263a6addfce16d48af71aee04ceed7ca05181344e193e35",
    "alpha_union_bbox": [
     310,
@@ -4493,7 +4509,7 @@
      "sha256": "41c74def92386657a3d97b6e60e2a936c9aef5d89c025bddeb2139e18d4a68b2"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "2d5b8bb90f2702c87ac10108be3ef78c847925c812bb40a70ab420561c9d9efb",
    "alpha_union_bbox": [
     238,
@@ -4934,7 +4950,7 @@
      "sha256": "aecc0656a4baa9140ef7e8a51b3a6176148f0fcee2e3a078322c3dede1476538"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "7a2fce4a4fef7158c7a17e8849bd5564d4a0e8dd00d70ed02d5b7839bc6f1cc9",
    "alpha_union_bbox": [
     203,
@@ -5375,7 +5391,7 @@
      "sha256": "624155e598a51b050a655bcf68f33f13f3da2f07ac99bf45d8e76b08263211a0"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "9420fa1ad7646b45a3b0f8dfaa0ea00ab0dcb1f26811d6597cd85d458cec4113",
    "alpha_union_bbox": [
     257,
@@ -5816,7 +5832,7 @@
      "sha256": "96fc626c18535a87f9fa0718b988a47b53c59d3743fe8bb7e8acdfafa6648675"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6aeae16af09d6862f967b027e2a7b1e605563fb8de7c95d13e750acf33511d29",
    "alpha_union_bbox": [
     335,
@@ -6257,7 +6273,7 @@
      "sha256": "7b3b172600318f9e4e40af332637694c0099431e33b7048c5d974ae0a24eb9a5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "f04add9ddca812fd4ca3271000045c20823559db7a1d4a05117a975544ccd954",
    "alpha_union_bbox": [
     317,
@@ -6698,7 +6714,7 @@
      "sha256": "becdd81f98c91e59bdbe5f635beaab81a2fd328033a82550ccf5f413f6d5ca97"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1ecc8042439f1fb3ae4bcb8d01e4b3032f74939fdbb6a7fa1b4d90a3800fb2a7",
    "alpha_union_bbox": [
     303,
@@ -7139,7 +7155,7 @@
      "sha256": "d023efa9094f5772a9b563de529d503c737f93000e71188bc2b6341b13569d02"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "cc285c423f34bc44a2958141fcb4d5dc87d44e9aa77bd73c9d37c5c4af144061",
    "alpha_union_bbox": [
     307,
@@ -7580,7 +7596,7 @@
      "sha256": "250b19047986ce547d40afd96358d52e4fd3b8174c35a44e5ee4a4e3d5233712"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "11c2fa9fdc32e88b5ac6fc54a6d9a132e02a57223a71bae36d138fdc49451af6",
    "alpha_union_bbox": [
     298,
@@ -8021,7 +8037,7 @@
      "sha256": "ac175de44633f2f5b9d883601ba72890f209e7f20f71803829f92270323310bb"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "639e51f2776aa08b7107b87503e9e25f9ef9f1435cf621159192be1e08223697",
    "alpha_union_bbox": [
     261,
@@ -8462,7 +8478,7 @@
      "sha256": "f10f67a8d14f25eb41697ab7de0944fd0b82a5c97e93d61e73f29b6b4fc08597"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "a814a94e18e99344ac2b5376b2de77ab41586d9548abbe4cd7573c1a0adb629f",
    "alpha_union_bbox": [
     201,
@@ -8903,7 +8919,7 @@
      "sha256": "7b2a05ebcaf118fe611c51a150449d17865e6b2b0802fe7b32b81d08fd8690ff"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d4be48e6a11aea6fc7f4a4eab25d9b7aa36f37de8d4d08d3a2c9aa874a219ef8",
    "alpha_union_bbox": [
     217,
@@ -9344,7 +9360,7 @@
      "sha256": "2666778efa2c9d95142d67a611ade9e11e694ad8cc062fcf001816423a2ea921"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d90c4811c269a7dadcb8ead9d8d810b7070624662058120291bd529d9629ca9d",
    "alpha_union_bbox": [
     319,
@@ -9785,7 +9801,7 @@
      "sha256": "9567b6ae1a1791d43f7d90337f01148f5c31f28a39d2f13feb71a8acd50d5297"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "54b55cde8a7fa798f16d0a1309beab465f8ec6ce1edac19333230cc2d5048e4d",
    "alpha_union_bbox": [
     319,
@@ -10226,7 +10242,7 @@
      "sha256": "fc9be02b1d47c9234c0a01bd5c45320a7a613bd2b48aebcd0687715942f756bf"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "057c6a944b4472f30da73cf2fcf6001c1f624eb97e19a5c28541a39074a179a9",
    "alpha_union_bbox": [
     303,
@@ -10667,7 +10683,7 @@
      "sha256": "e43112043bbd828b72debebdd237d489f24368d51ae76f735f77b6e960d66f88"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "7da58f9937fd6fead30feb57eb4beb500cf9493b02a288d81a1daf7ee25cc5cc",
    "alpha_union_bbox": [
     295,
@@ -11088,7 +11104,7 @@
      "sha256": "eebf0818e166a5faf8b061f165ed66ba0380c203be090e7c679d11cff7e4a761"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "2f6ff4e3eb320e650b63e4165fe4084fe43ad2d9ec9efc35e36ed90bdf627343",
    "alpha_union_bbox": [
     224,
@@ -11359,7 +11375,7 @@
      "sha256": "2125b72726186ef91e202e9575dbe51c153acc4d55a2030d6f925ee59c2a0a41"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6fd9ef822a7f123120727a767e183e8b9f3a31f574d3bcb3699d59bdd9594d25",
    "alpha_union_bbox": [
     188,
@@ -11630,7 +11646,7 @@
      "sha256": "c4d2d20890095612f4f38a5328af1c65053f2ba0d135f2ff64cd7e6213084682"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1acaa3f7b08f5c0a58e77b57fb24753890a4e982959bf4bb14769b6be18b6141",
    "alpha_union_bbox": [
     189,
@@ -11901,7 +11917,7 @@
      "sha256": "41ee817490b8b26d8dcf8f671ab5d5a4d042b4301ba1647b4c632a0d53cc3856"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6f26708a8a84eb9523f60539c0b24a42a9325f9402bfae288837b347ea7632ba",
    "alpha_union_bbox": [
     176,
@@ -12172,7 +12188,7 @@
      "sha256": "9fdca00c7ad0165d15bf976d9c33f4855b8f1055a47c8c9dd4aa3591b9650801"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "8a5364dfd441c8fdbf1f77a9f82c402da984ec29c675adffef0aef613dda2812",
    "alpha_union_bbox": [
     170,
@@ -12443,7 +12459,7 @@
      "sha256": "4cda60a1888643d9ff9bad4a410d55dd3e18e2cc45448be1c6fbd165c024f772"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "7c9370b67d7b8e1abd7f66fa65f34547705f0a42f6ce6cf1bdfb66814e622e99",
    "alpha_union_bbox": [
     175,
@@ -12714,7 +12730,7 @@
      "sha256": "2305632c72d23b478fa6ac92937248bf28ef860e3b56abf1f951f7d8799a5c35"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "a13ee84c77061b15096af9121764ff42d98d23b3f828e1963fc59d0a1edef570",
    "alpha_union_bbox": [
     178,
@@ -12985,7 +13001,7 @@
      "sha256": "1d39d3dd4a65567db515cc0bd41943ae976a225b0f9991adce83a6c78f257841"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1ce59e56c6f0672f2fc3aa59fcd95c03db5b709deb3d2de77615d1aec8b1ec3e",
    "alpha_union_bbox": [
     195,
@@ -13292,7 +13308,7 @@
      "sha256": "d4960488f7f60f9e7ea0eaf185de4c5fd022cd1a03f1c2208e6a2cc0b0a65b6e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "10b9296cbf4414c3bed1830fe53605f321620745276249d54affe88b434b6228",
    "alpha_union_bbox": [
     168,
@@ -13869,7 +13885,7 @@
      "sha256": "30b71706d6804d41a4924fdf9f9e1abc85c7ab9718b202f432ecc5abf90a6ea6"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "0e074ab816d4c7f65efb23598a9dbbba3911af225126a47fbde350344c961a55",
    "alpha_union_bbox": [
     167,
@@ -14446,7 +14462,7 @@
      "sha256": "c17049ed5528462a08cdc35583718a966606b7012942a875b813ffe2540fbe68"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "9e7796bfdff42b096ddc6deb7af8d02c8123d931ed3a7ff0e3a48074ead2c946",
    "alpha_union_bbox": [
     168,
@@ -15023,7 +15039,7 @@
      "sha256": "cc3771a709fd0b05dcfe79216653aa56e3ca89336132ce70106950412fa92f01"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "71876778f19204d8c40302946c76ad5ddf8434142c1347de8537ae191c40b5e4",
    "alpha_union_bbox": [
     169,
@@ -15600,7 +15616,7 @@
      "sha256": "2506f22dcd44b521cb2c6e50320bbd5d91be575826529906323b5c2bd0f2a7c3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1acf210e269bb0e33fc5c4d07258840949a9d996e77175c54ca376da80b27872",
    "alpha_union_bbox": [
     170,
@@ -16177,7 +16193,7 @@
      "sha256": "22b1458156a188375f0278fbd155a62cc9e595c1f70101fcb9752d631b1a2dc7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "3b77f72133ff84a1132bf7b632429b43bde14d4ae9d867397098cf1d34f2199f",
    "alpha_union_bbox": [
     171,
@@ -16754,7 +16770,7 @@
      "sha256": "15fc1444561d83809c8d1a70074e2c550e89d6b620800fa651268534fb8ce231"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1e7d95991ae5becb3d00393a3d499f9baf120f5be99eb56d35b3924d27183856",
    "alpha_union_bbox": [
     170,
@@ -17331,7 +17347,7 @@
      "sha256": "87e473425ff402efd509cb3e038dbebe1e4a6912825e4b4a7f0a5d8a7d28e10a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "372b03456e96d81bdb83be88da0d2ac942bee6c45ade8fd8c23f75996f326160",
    "alpha_union_bbox": [
     169,
@@ -17892,7 +17908,7 @@
      "sha256": "bdacfe628c41300c81c63dbad61e8d71a0e079e0e4f1f4f73c9f55bb7e6fbde5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "543925d88cf7fffa95cd0609810d5dfd3d95c8560adef75b056272ea3b81cef3",
    "alpha_union_bbox": [
     224,
@@ -18333,7 +18349,7 @@
      "sha256": "7846bab081c68f77623c88c050fdddd68f05e75b3126ecd18d58e61806403652"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "5bb43302f200a91d7fb983ee10b7c92ae0b49e05d3140d036558ac7318225852",
    "alpha_union_bbox": [
     222,
@@ -18774,7 +18790,7 @@
      "sha256": "9baa29f4c1c35095bbd9625d503512398cfce413bc8f81423d7ebba10c2fc05a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "062b0147724da2b79d95101f5369b67096aa918d4d6c3539852fec1756ee1c93",
    "alpha_union_bbox": [
     193,
@@ -19215,7 +19231,7 @@
      "sha256": "c24f6a68005a4443b7e3d7aa315f5aa83a85d8259bef67dd521c703148dedc42"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "dba71a479bd107498256e83f6238353d6d7120e35885556c395433b906761231",
    "alpha_union_bbox": [
     165,
@@ -19656,7 +19672,7 @@
      "sha256": "3d64df9a64c97797351aaca8bd4db53719169992d46900c6ffbd2eeffd91779e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "21dd8cc9c3333b1bb8b4a9c9258da926219e8b2f67d122f11424b383ebe21056",
    "alpha_union_bbox": [
     178,
@@ -20097,7 +20113,7 @@
      "sha256": "63c7597d08cb44e954a0255c3dc2a5fe841ad0a63c324574916e5d04efc61550"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "423fff0b4c89d7231df47fea5df71c4e0265957e7a946ace02f2193d9535ebfb",
    "alpha_union_bbox": [
     268,
@@ -20538,7 +20554,7 @@
      "sha256": "c56e3a1b7fe932e1fa830d6a0196acad9e4999b888b105066f7cfc359871a8ea"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "713a2b339c0b3def51f76e97074524cfaafc5912449d3405e0b1cca547e0fb84",
    "alpha_union_bbox": [
     235,
@@ -20979,7 +20995,7 @@
      "sha256": "fd10ed8273615e2bbe350ace96a8e372f04f1b1c8e263dede153f158ad966abc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "b91c0013abab0b8e199cef01fb4c21dc7ce6127956a72e48e154c369f1c40846",
    "alpha_union_bbox": [
     181,
@@ -21420,7 +21436,7 @@
      "sha256": "95e7202c12fd49711f4ddeee1dd81dcd356bc63be072d4f9e9ed7492814098e4"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "080c83a3073d18ee3f89cec8a44c086f4ff6adfaab97637d9833fc1d6d21465b",
    "alpha_union_bbox": [
     219,
@@ -21861,7 +21877,7 @@
      "sha256": "26044620bdb9252bacbfd64a3b6b7c7ce4f9ed5b9d8b9a7e8814c7c7f3ed8746"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "5f5b71c35137efe151b81bff5bd51387db2f35b03a9a9b9774d19a06c7e0f460",
    "alpha_union_bbox": [
     188,
@@ -22302,7 +22318,7 @@
      "sha256": "1eed0e5a3367a4f74a722b53f7c7736ecb2e5cac83512269cca30ec3c112e04e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ccc7b7e5b2aab35e80f9ca2aea0a77914efbf23f9c94b9a50e3bf3c0632820a1",
    "alpha_union_bbox": [
     162,
@@ -22743,7 +22759,7 @@
      "sha256": "f687fdc0be771f3bf254312e548946291c494266b5a182628a4745f28920f0bb"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ded89de6f59db022a39ec3e8f047c81a838d8cfecd3a6c11d915aac82a36d0b3",
    "alpha_union_bbox": [
     202,
@@ -23184,7 +23200,7 @@
      "sha256": "274e6143b50a9b6a0ebe813cbfacb1242748483d0ec3efef47dc646095d3f11d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "588ef01e1e21c438d7ff1180c1e0945f0ca0dd8f8d05db868a68aa1bec50dc91",
    "alpha_union_bbox": [
     188,
@@ -23625,7 +23641,7 @@
      "sha256": "c7e4a267757a33b35341ebab8d2172f465c9514f5271d38cd1fe58b954aac76d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "2bcc8f1454ddebd78102a3cc641fa349677e5f42121315ab374a2d7226ee8173",
    "alpha_union_bbox": [
     198,
@@ -24066,7 +24082,7 @@
      "sha256": "09930694f94012fef5eea033bb490ffd7db23558809cebc1a0733de18a5a503c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "cabfa460c8f3e8959d5c22c29f9a2c4db2cd26beb3bb120cca8fc76f4944c84c",
    "alpha_union_bbox": [
     202,
@@ -24507,7 +24523,7 @@
      "sha256": "7d52290811fabe99729e273c201d30fe2e8adb19c164c0ed7bb254af49824a53"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "41c9b116ba4789ccf3a3f58c380cf2c901486447d3290b1a97723623591cbd95",
    "alpha_union_bbox": [
     183,
@@ -24964,7 +24980,7 @@
      "sha256": "e857de6115f917ccca5b44aaa3c7e9cb93615a79f4cebf53109ab4f1d4c81b18"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "826304d48a586d7bb4fa2072867bebe7a6d726dfd8d64c3b6d6286cc683415d5",
    "alpha_union_bbox": [
     166,
@@ -25541,7 +25557,7 @@
      "sha256": "79e9b6d35b4b8b5d4fc80af6eda8b700adf5de807d5967e67a93d82469033b13"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "617bf98a25e3baee447fc80e97b0174c76de8d92a9d15f482925df68868ac97c",
    "alpha_union_bbox": [
     92,
@@ -26118,7 +26134,7 @@
      "sha256": "ab62df626a95a0377afff35874b26cf906dedcbc51cada41d3e9d8d682187a4a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e168af29650de11ddd0db796b84ff1f417aac8b98e8649c11f2b6f45197c54e9",
    "alpha_union_bbox": [
     115,
@@ -26695,7 +26711,7 @@
      "sha256": "bfebff97ca3e7852e1458b3417332883758e26660a050d0ba8458c5ce7df9183"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "91c3aea0b1f7f87e6eea79d06831c5c0fb9450053f02613fca48ca3896da8256",
    "alpha_union_bbox": [
     63,
@@ -27272,7 +27288,7 @@
      "sha256": "faae178816cd6728c44ff45e15442d791281ab7a37e2800f56a3ce1dfcefac7a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "f5b094c15c248b751299dcd6d613fb1bf06cb73311125287b16c311d0e92b4e9",
    "alpha_union_bbox": [
     148,
@@ -27849,7 +27865,7 @@
      "sha256": "7bb83fb4f78f569a2409dd23312e7de8665b961f30cc12c4b6cb75ced4934aa5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6e181864275130ee9ff24102effe3d59a4d5a07af442bc4f89e6efc393644c23",
    "alpha_union_bbox": [
     243,
@@ -28426,7 +28442,7 @@
      "sha256": "d4e2eb97c743c522347e04b40ca12507e6ad7611375eb5a02cd4626cd2702154"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "3ed05ccfa0bedc43e4dd441a4512d883b7fe971f8d4c36654a90eaeb9efbd258",
    "alpha_union_bbox": [
     215,
@@ -29003,7 +29019,7 @@
      "sha256": "9fea782671dd28dc202b191f83d7f0da79ce0c71562bb4b6448f12db28cf405d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "79b6441846bbe689746e0fe62d2f02f6483ca457cfb44e46174920ea87f11265",
    "alpha_union_bbox": [
     220,
@@ -29548,7 +29564,7 @@
      "sha256": "f39fa4df52aa4228762d34cf2a02a01b638ce4e0b7addf222ec237f0015799ad"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "efc7145032b28e82c2c8c7495c1ddcd2df4a0d1a293084553ea8b2950f355806",
    "alpha_union_bbox": [
     228,
@@ -29853,7 +29869,7 @@
      "sha256": "d9645855eb694097e8b223cefdd6da62485f2ab7995ab686b27c918934784254"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "65cbe1e81f5663d4bf83eda3d2dced19b719043a8f88a5e2b3b6c9ec4b584dbf",
    "alpha_union_bbox": [
     256,
@@ -30158,7 +30174,7 @@
      "sha256": "5201eeb79c87cdefb6bbd62d3728bbc53113efffa9b5217acdecd69f2ef52878"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "47e44f41beeb67b2f11eb8b3c82151153a5e603ea249c02bdacc15923e9f8cdd",
    "alpha_union_bbox": [
     276,
@@ -30463,7 +30479,7 @@
      "sha256": "1b34a9458c82a81845c4d240e1461d849e0ccde982894133af130657dc30cc58"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d34667c88fc33860781f09ef802693a18300e72520011b9e867bb6d80f7b56b0",
    "alpha_union_bbox": [
     204,
@@ -30768,7 +30784,7 @@
      "sha256": "e9fe7ca22a3e60471553bd6d32e3a0265a41640fe9272ca4dc0c4c4e55c27e93"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ca63ed5d69f4c65951109fc5848aa5894679b6d2bd8e948e9af2f7754f50bdbc",
    "alpha_union_bbox": [
     190,
@@ -31073,7 +31089,7 @@
      "sha256": "40c9f0a8fd07c26ea4ba231594384a797a6e674d65b124725a7e3c0bf1f8df13"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "c8a3b30c5363440efbac2f418fed2452c595b0c1aa6e9c163d0e50fa7dc9997e",
    "alpha_union_bbox": [
     240,
@@ -31378,7 +31394,7 @@
      "sha256": "bceabb633338ca186e9ada79da78b8a49a1229e6bdfdaad5c97ab6085952d02a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e82e78c5670589bb05328b35da1b548a0c14f1b98a5bde7164cd772b147f959a",
    "alpha_union_bbox": [
     288,
@@ -31683,7 +31699,7 @@
      "sha256": "dcede820f0ee68aad22163c143ddc4e3e11bfa5c4b215a41c79df5f95e07613f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "42977a8c337957803c7ca00a036951e3ab82b0b024c86a0e6cab9c4a27e728df",
    "alpha_union_bbox": [
     268,
@@ -31957,76 +31973,76 @@
    "files": [
     {
      "name": "death_S_00.png",
-     "sha256": "42f8714665bdabc01db374f98b6cf0389ef07949f4b8429a6d619ae69ddc8ed6"
+     "sha256": "700cf172cc2e2f339a3d10cc8ae3402bf1fb891e7e29fba1a44ada9edd4c2e7e"
     },
     {
      "name": "death_S_01.png",
-     "sha256": "90205722933f70a22599ce84916bd8d841d1781bf129c11c3c74e023ac938045"
+     "sha256": "fb5ec4a33f46d6e1d44cb3a32ac304d0e8aeda323c53375e4addd0fb72ff43fc"
     },
     {
      "name": "death_S_02.png",
-     "sha256": "dd3d83c796e36e1ed82a5c8640b3464a5d82ec228e07c60eca380e96f992c413"
+     "sha256": "a31c3568eda1cf78b0dcd7664781b2c0df467c1476a2bf10f57e3358db55aad5"
     },
     {
      "name": "death_S_03.png",
-     "sha256": "e2f57cc03b99d4a7737a5e0292d50292e53940256c02a67e63d801b05c19d706"
+     "sha256": "a03035a9d56dd0324dfefcd3cbab239139b64c24d20d59577e933fb46ce65ae1"
     },
     {
      "name": "death_S_04.png",
-     "sha256": "73b6594157335c1b1e5406fc07092928f18edc723b3fda5febbca26d2fa3995b"
+     "sha256": "1656a508432cf2cbab5a9bb59b6ab96bd055c35d68ea3217f5b6f0000c9c0362"
     },
     {
      "name": "death_S_05.png",
-     "sha256": "594af30eb6bf67e79296745fceb167996d232e9d692a10173ddf3f29075e7d57"
+     "sha256": "f512ba4ce97b71df3dc3b512a2d7e4de071d551b40d3dd0ed55ea4ea07ed2179"
     },
     {
      "name": "death_S_06.png",
-     "sha256": "06973b883181ef1517873f25404eefc694a710d2b03d8b4f053882ad41083b18"
+     "sha256": "2a709a96134635ad83948879652ef5fdf983f4bfb3456cb1aa2c0b3b63280dd4"
     },
     {
      "name": "death_S_07.png",
-     "sha256": "eeb8fd9570a52a1ef9b90ae462e39d5986460cbf0af4f3e9cef924db9d83549b"
+     "sha256": "44f9cac5b3689bfb1df3d39b46b4146006f4ec57bd73057db1eae8b620f55032"
     },
     {
      "name": "death_S_08.png",
-     "sha256": "77661bdf9ee67d822997081d4761cbe1b85b291123f9fc68fdc572fad5da3404"
+     "sha256": "232fe2426d4c769cf8988baf5894880106e57c24e746d6ce1119e8ffab6db2d2"
     },
     {
      "name": "death_S_09.png",
-     "sha256": "71270bdad37e5c308a5bea459427a4d3674042f9daf40ea1edf19a01b2fb6a9b"
+     "sha256": "4dfd727694a45df497171344b35ae650acf49cc3f12dfd7c9710b4794298a39f"
     },
     {
      "name": "death_S_10.png",
-     "sha256": "00201c0b89f52d48ae3c6d94d3bf536212f273f24b50cfa5cc9a2ae084bf5dc0"
+     "sha256": "620b1acf2a1a07413e45b7d26362f6a940d3f54484a74673093fc6a8c75bbf0d"
     },
     {
      "name": "death_S_11.png",
-     "sha256": "5d8be85b89a67b3731a4613c30d90bb5d1b7c9d44bb08cd36efcbef309a0d8ea"
+     "sha256": "1772b8ed3ef140d132cf7e656e3f16cb186e6f5d732b0d0a63227893845d4095"
     },
     {
      "name": "death_S_12.png",
-     "sha256": "3e809bf2776d27c67925e9296c07892dd28c5b957d7b8f5718912ae94b0f1467"
+     "sha256": "fcfc9b86ef63a0e90d54d0ebe4b035bd952bdbcc1c3491f2944da960ddb3f1ca"
     },
     {
      "name": "death_S_13.png",
-     "sha256": "92f98dea055cd9253f6173ef3002e9938580726b11b54bb728de92309064a25e"
+     "sha256": "bf8a0557150d082ea1eca18771a68f00dd93ae3e5f209ee30cb37786cd723a15"
     },
     {
      "name": "death_S_14.png",
-     "sha256": "84c131270bc0ce7e39e54681e2f5279c4caf7f453c568d0056102a4dcfe58787"
+     "sha256": "134a5898b9d8dbc16798c191932a62c4dc68a54b991703ce51aa6922460b57a6"
     },
     {
      "name": "death_S_15.png",
-     "sha256": "c72db1b168807a77cc95af9c60cb983840a144aa75d9ae92173218bbfa0b87b5"
+     "sha256": "c8c925373a07c60274df598d74b8f8b820869e4ea0ca8c69333780680d897c31"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "a9feb56597802c4bb4daf9bb1ba712c32145892d63e2305a0b825578fbc30c33",
+   "render_pass": "p2",
+   "cell_sha256": "39b21df1036d102eaaf2177c7920d05f08ee1b007b58f056c30c5fc3e6d3400b",
    "alpha_union_bbox": [
-    169,
-    140,
-    508,
-    524
+    173,
+    204,
+    510,
+    559
    ],
    "edge_touch": false,
    "facing_measured_deg": 90.0,
@@ -32035,493 +32051,493 @@
    "sockets_m": {
     "main_grip": [
      [
-      -0.42599,
-      -0.17049,
+      -0.36684,
+      -0.13689,
       0.99443
      ],
      [
-      -0.56514,
-      -0.19582,
+      -0.50875,
+      -0.08305,
       1.01788
      ],
      [
-      -0.59014,
-      -0.3093,
+      -0.5365,
+      -0.11737,
       1.65981
      ],
      [
-      -0.45526,
-      -0.71203,
+      -0.40438,
+      -0.44093,
       1.90682
      ],
      [
-      -0.53081,
-      -0.77582,
+      -0.48269,
+      -0.42556,
       1.86419
      ],
      [
-      -0.65192,
-      -0.68206,
+      -0.60656,
+      -0.25263,
       1.79767
      ],
      [
-      -0.74526,
-      -0.53398,
+      -0.70265,
+      -0.02538,
       1.71393
      ],
      [
-      -0.76521,
-      -0.40231,
+      -0.72536,
+      0.18545,
       1.62685
      ],
      [
-      -0.72204,
-      -0.40831,
+      -0.68495,
+      0.25862,
       1.54699
      ],
      [
-      -0.72544,
-      -0.55255,
+      -0.69111,
+      0.19355,
       1.35901
      ],
      [
-      -0.75657,
-      -0.89892,
+      -0.725,
+      -0.07365,
       0.92727
      ],
      [
-      -0.89685,
-      -1.34378,
+      -0.86804,
+      -0.43934,
       0.33067
      ],
      [
-      -0.9275,
-      -1.46782,
+      -0.90144,
+      -0.48422,
       0.10189
      ],
      [
-      -0.92571,
-      -1.58241,
+      -0.9024,
+      -0.51964,
       0.19887
      ],
      [
-      -0.93416,
-      -1.64618,
+      -0.91361,
+      -0.50424,
       0.11864
      ],
      [
-      -0.92545,
-      -1.65095,
+      -0.90766,
+      -0.42985,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      -0.35152,
-      0.4727,
+      -0.29237,
+      0.5063,
       1.42358
      ],
      [
-      -0.1033,
-      0.42145,
+      -0.0469,
+      0.53421,
       0.92249
      ],
      [
-      -0.61448,
-      0.13212,
+      -0.56084,
+      0.32405,
       1.02109
      ],
      [
-      -0.9931,
-      -0.22317,
+      -0.94222,
+      0.04793,
       1.63265
      ],
      [
-      -0.98122,
-      -0.15235,
+      -0.93309,
+      0.19792,
       1.97297
      ],
      [
-      -0.90857,
-      0.02807,
+      -0.8632,
+      0.4575,
       1.98004
      ],
      [
-      -0.81477,
-      0.21934,
+      -0.77217,
+      0.72794,
       1.89026
      ],
      [
-      -0.65511,
-      0.34443,
+      -0.61526,
+      0.93219,
       1.81036
      ],
      [
-      -0.45529,
-      0.26625,
+      -0.4182,
+      0.93318,
       1.82489
      ],
      [
-      -0.39483,
-      0.00439,
+      -0.3605,
+      0.75049,
       1.78788
      ],
      [
-      -0.39882,
-      -0.54326,
+      -0.36724,
+      0.282,
       1.51798
      ],
      [
-      -0.95168,
-      -1.67621,
+      -0.92286,
+      -0.77178,
       1.0306
      ],
      [
-      -1.42097,
-      -2.0614,
+      -1.39491,
+      -1.0778,
       0.1889
      ],
      [
-      -1.20919,
-      -2.28961,
+      -1.18589,
+      -1.22684,
       0.3503
      ],
      [
-      -1.22367,
-      -2.3639,
+      -1.20312,
+      -1.22197,
       0.18556
      ],
      [
-      -1.21443,
-      -2.36018,
+      -1.19664,
+      -1.13909,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      -0.18597,
-      0.41217,
+      -0.12681,
+      0.44577,
       1.09046
      ],
      [
-      0.03728,
-      0.28738,
+      0.09367,
+      0.40014,
       1.22285
      ],
      [
-      0.22137,
-      0.11605,
+      0.27501,
+      0.30798,
       0.85215
      ],
      [
-      0.21892,
-      -0.29123,
+      0.2698,
+      -0.02013,
       0.7066
      ],
      [
-      0.24576,
-      -0.1553,
+      0.29389,
+      0.19497,
       0.81495
      ],
      [
-      0.26486,
-      -0.07332,
+      0.31022,
+      0.35612,
       0.89253
      ],
      [
-      0.26299,
-      -0.02803,
+      0.30559,
+      0.48057,
       0.93724
      ],
      [
-      0.241,
-      0.0022,
+      0.28085,
+      0.58997,
       0.9696
      ],
      [
-      0.21424,
-      -0.01898,
+      0.25133,
+      0.64796,
       0.95837
      ],
      [
-      0.23212,
-      -0.17227,
+      0.26646,
+      0.57383,
       0.8927
      ],
      [
-      0.27068,
-      -0.59653,
+      0.30226,
+      0.22873,
       0.59863
      ],
      [
-      0.3831,
-      -0.97521,
+      0.41192,
+      -0.07078,
       0.30687
      ],
      [
-      0.6119,
-      -1.23579,
+      0.63796,
+      -0.25219,
       0.06801
      ],
      [
-      0.66449,
-      -1.34304,
+      0.68779,
+      -0.28028,
       0.06956
      ],
      [
-      0.65029,
-      -1.33858,
+      0.67084,
+      -0.19664,
       0.07807
      ],
      [
-      0.69363,
-      -1.3714,
+      0.71142,
+      -0.1503,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      -0.60904,
-      0.25794,
+      -0.54989,
+      0.29154,
       1.76242
      ],
      [
-      -0.0877,
-      0.19599,
+      -0.0313,
+      0.30876,
       2.0168
      ],
      [
-      -0.27208,
-      0.65227,
+      -0.21844,
+      0.8442,
       1.20328
      ],
      [
-      0.24797,
-      0.4661,
+      0.29885,
+      0.7372,
       0.42387
      ],
      [
-      0.1538,
-      0.63696,
+      0.20193,
+      0.98722,
       0.68007
      ],
      [
-      0.03508,
-      0.70074,
+      0.08045,
+      1.13018,
       0.844
      ],
      [
-      -0.1245,
-      0.68142,
+      -0.08189,
+      1.19002,
       0.90805
      ],
      [
-      -0.29162,
-      0.61084,
+      -0.25177,
+      1.19861,
       0.98331
      ],
      [
-      -0.41918,
-      0.46899,
+      -0.38209,
+      1.13592,
       1.08079
      ],
      [
-      -0.4237,
-      0.26331,
+      -0.38936,
+      1.00941,
       1.07842
      ],
      [
-      -0.43389,
-      -0.22104,
+      -0.40232,
+      0.60423,
       0.7286
      ],
      [
-      -0.2359,
-      -0.79276,
+      -0.20708,
+      0.11167,
       0.79459
      ],
      [
-      0.04293,
-      -0.66595,
+      0.06899,
+      0.31765,
       0.14463
      ],
      [
-      0.46747,
-      -0.56019,
+      0.49078,
+      0.50257,
       0.01805
      ],
      [
-      0.4837,
-      -0.54749,
+      0.50425,
+      0.59444,
       0.05061
      ],
      [
-      0.53898,
-      -0.57783,
+      0.55677,
+      0.64327,
       0.05634
      ]
     ],
     "head_top": [
      [
-      -0.10992,
-      0.13426,
+      -0.05077,
+      0.16786,
       1.74424
      ],
      [
-      -0.04709,
-      -0.05261,
+      0.0093,
+      0.06015,
       1.70654
      ],
      [
-      0.04923,
-      -0.39074,
+      0.10287,
+      -0.19881,
       1.77527
      ],
      [
-      0.09597,
-      -0.60995,
+      0.14685,
+      -0.33885,
       1.69517
      ],
      [
-      0.08188,
-      -0.62958,
+      0.13,
+      -0.27931,
       1.70527
      ],
      [
-      0.02636,
-      -0.58683,
+      0.07172,
+      -0.1574,
       1.76285
      ],
      [
-      -0.05176,
-      -0.52923,
+      -0.00916,
+      -0.02063,
       1.78597
      ],
      [
-      -0.11296,
-      -0.51711,
+      -0.07312,
+      0.07065,
       1.74971
      ],
      [
-      -0.12797,
-      -0.65042,
+      -0.09088,
+      0.01652,
       1.63261
      ],
      [
-      -0.16367,
-      -0.89184,
+      -0.12933,
+      -0.14574,
       1.4297
      ],
      [
-      -0.20025,
-      -1.29905,
+      -0.16867,
+      -0.47378,
       0.99769
      ],
      [
-      -0.19858,
-      -1.861,
+      -0.16976,
+      -0.95657,
       0.35563
      ],
      [
-      -0.21626,
-      -1.93272,
+      -0.1902,
+      -0.94912,
       0.20786
      ],
      [
-      -0.25421,
-      -1.936,
+      -0.23091,
+      -0.87324,
       0.18789
      ],
      [
-      -0.2712,
-      -1.93539,
+      -0.25065,
+      -0.79345,
       0.17079
      ],
      [
-      -0.24856,
-      -1.95164,
+      -0.23077,
+      -0.73054,
       0.18084
      ]
     ],
     "chest": [
      [
-      -0.02526,
-      0.02097,
+      0.03389,
+      0.05457,
       1.06709
      ],
      [
-      -0.02105,
-      -0.17745,
+      0.03535,
+      -0.06468,
       1.07054
      ],
      [
-      -0.04626,
-      -0.23649,
+      0.00738,
+      -0.04456,
       1.1112
      ],
      [
-      -0.06194,
-      -0.27069,
+      -0.01106,
+      0.00041,
       1.13276
      ],
      [
-      -0.07004,
-      -0.30659,
+      -0.02192,
+      0.04368,
       1.13559
      ],
      [
-      -0.07716,
-      -0.34534,
+      -0.03179,
+      0.08409,
       1.12733
      ],
      [
-      -0.08452,
-      -0.38908,
+      -0.04192,
+      0.11952,
       1.11054
      ],
      [
-      -0.08957,
-      -0.44627,
+      -0.04972,
+      0.14149,
       1.07251
      ],
      [
-      -0.09622,
-      -0.55172,
+      -0.05913,
+      0.11521,
       0.96675
      ],
      [
-      -0.10922,
-      -0.71646,
+      -0.07489,
+      0.02964,
       0.78598
      ],
      [
-      -0.09803,
-      -1.00404,
+      -0.06645,
+      -0.17877,
       0.44006
      ],
      [
-      -0.05235,
-      -1.20254,
+      -0.02353,
+      -0.29811,
       0.25063
      ],
      [
-      0.00291,
-      -1.28402,
+      0.02898,
+      -0.30042,
       0.27453
      ],
      [
-      0.01824,
-      -1.30761,
+      0.04155,
+      -0.24484,
       0.22015
      ],
      [
-      0.01863,
-      -1.31839,
+      0.03918,
+      -0.17646,
       0.21896
      ],
      [
-      0.0228,
-      -1.32231,
+      0.04059,
+      -0.10121,
       0.22078
      ]
     ]
@@ -32534,76 +32550,76 @@
    "files": [
     {
      "name": "death_SW_00.png",
-     "sha256": "08ac81a49a70228ba74c0dab6b8dee5b4bcaba11c3a08e1725736a9a961b368c"
+     "sha256": "0eaf1cf2c11bea3b2f53f05e72937e885923fdb5337b64b57e5d78efcdca672e"
     },
     {
      "name": "death_SW_01.png",
-     "sha256": "fd1c377ced58d4750d36771f961123ed90daca2f55d4488bff63d12a6bc2e194"
+     "sha256": "25c777f81301bec591a1045c92282c55b8ab1854b126d270a82512f18161a699"
     },
     {
      "name": "death_SW_02.png",
-     "sha256": "759eab1cd5e5a5dee23be50778dd0671861b414afbe2508a141bd961f940294f"
+     "sha256": "5e031023e8bbc93126eef405f6b47904870869b6a7087c80c22e7355637d2127"
     },
     {
      "name": "death_SW_03.png",
-     "sha256": "40b5eec112407663e4d1b273c66b1770bb85db67dbd67433fe6dd69d6398deac"
+     "sha256": "b22ac2c7818ec6a600726c1f916c49ace1bf641a5a2916a37e336b99f367751c"
     },
     {
      "name": "death_SW_04.png",
-     "sha256": "5be86f3b81d5c600471d2229f88e7c38dd90390c0af6ab22b9179dbdb3b08f46"
+     "sha256": "2f659329789b67ddcb6ae761bed4e3b0c1a63687453bcddad168b5ac2d722048"
     },
     {
      "name": "death_SW_05.png",
-     "sha256": "abb69c86a8303545278d5aa321d753127813b489cead8ab8af8643c0575977c5"
+     "sha256": "c55760bf5c0c4af52bfb52a1e9ab0883fb0f801065fc256c457654cabb26e6b9"
     },
     {
      "name": "death_SW_06.png",
-     "sha256": "108c5a9cf1b88ee42784d3a06305252172e094215d006b5e413712146b18c05e"
+     "sha256": "6791c76f0c9b520c1f27b0b74045098fc974d0260884415caa72a1765432aff6"
     },
     {
      "name": "death_SW_07.png",
-     "sha256": "70c7dbbc2098bbf9c0ba8a6f0938fe1723c6c3f72aa27398d41fae0360781f96"
+     "sha256": "d0bb2dff0fe4d4ab761a793cb2af00b9955f291867fa2951b48fba2b8330e0e1"
     },
     {
      "name": "death_SW_08.png",
-     "sha256": "de3b3ac5489a7258b3d4bd984190b19d13fd8f16bd6b0d5fd05cda6a09ec4534"
+     "sha256": "1c08725b8e915c5e08f357a8b6bb8928e142c49949b3192bc49b09ac39dd413b"
     },
     {
      "name": "death_SW_09.png",
-     "sha256": "9a634df41ac55851ec9782a45f041cb7861cfa8e0b12781754cde0912f7ae265"
+     "sha256": "3bfbd0ab05395178e253c2cf302a0df933bc8747461dcc3d437f78725d3823fb"
     },
     {
      "name": "death_SW_10.png",
-     "sha256": "a1229af1519600ecbd93f64ccd20db60f51fe210dd3dd032bad79939b3da9bed"
+     "sha256": "931ffb6d4e535287281864964521eb7d848c9477500ef007900e1fdcc226e8fa"
     },
     {
      "name": "death_SW_11.png",
-     "sha256": "deb4a8c37e1a1b7845d75a05340b68fc20441104d9818ab1bce199ee0053533f"
+     "sha256": "f43f912724918c076c863c20b7643154df0155fb0b62eed4c9b6acc91d554dab"
     },
     {
      "name": "death_SW_12.png",
-     "sha256": "3f5e9234b95725d8ef407b4dcaa0ae3e3bad714e74ad36941a39755acc65597a"
+     "sha256": "a486f995d8689b605320e0a7ce923742adbaa24b7acba9c7ba367c05304656ab"
     },
     {
      "name": "death_SW_13.png",
-     "sha256": "58319bf2d992605bca9c4efdf35af0ae9a2c6e462c94ff4df0c14bd21c47a8c3"
+     "sha256": "0e745ffbe8544d01c493ab98c1d5351d81dc3eb4458eb74ad6b734108b511227"
     },
     {
      "name": "death_SW_14.png",
-     "sha256": "445cb8a6b4e4811924c77c579094e17b5595f92d2f6d1802ca9b0e0aed615408"
+     "sha256": "6b4106ed6410c059ffed41a97468c78ab748f31992a13d7327b223ff36e5a01b"
     },
     {
      "name": "death_SW_15.png",
-     "sha256": "807113a3aae65657e3df9702291ea403929b7d283e8e6b54590711c9f48322ba"
+     "sha256": "45545906a1027bed61eb124f1b1101f4b329fac27ccc0487ad7ce79d9efc7742"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "9299c0265b844434f2f3e20d7c02ae9c641a58e4d14086656d37fe0cfca38a3f",
+   "render_pass": "p2",
+   "cell_sha256": "370b33499231bce37f10f84cd7487a672d795a4d8855d58497b9f04bc9e8b5b1",
    "alpha_union_bbox": [
-    265,
-    117,
-    621,
-    511
+    216,
+    189,
+    504,
+    565
    ],
    "edge_touch": false,
    "facing_measured_deg": 135.0,
@@ -32612,493 +32628,493 @@
    "sockets_m": {
     "main_grip": [
      [
-      -0.18067,
-      -0.42178,
+      -0.1626,
+      -0.35619,
       0.99443
      ],
      [
-      -0.26115,
-      -0.53808,
+      -0.30101,
+      -0.41846,
       1.01788
      ],
      [
-      -0.19858,
-      -0.636,
+      -0.29637,
+      -0.46236,
       1.65981
      ],
      [
-      0.18156,
-      -0.8254,
+      0.02584,
+      -0.59772,
       1.90682
      ],
      [
-      0.17325,
-      -0.92393,
+      -0.0404,
+      -0.64222,
       1.86419
      ],
      [
-      0.02131,
-      -0.94327,
+      -0.25026,
+      -0.60754,
       1.79767
      ],
      [
-      -0.14939,
-      -0.90456,
+      -0.4789,
+      -0.5148,
       1.71393
      ],
      [
-      -0.25661,
-      -0.82557,
+      -0.64404,
+      -0.38178,
       1.62685
      ],
      [
-      -0.22184,
-      -0.79928,
+      -0.6672,
+      -0.30146,
       1.54699
      ],
      [
-      -0.12226,
-      -0.90367,
+      -0.62555,
+      -0.35182,
       1.35901
      ],
      [
-      0.10066,
-      -1.17061,
+      -0.46057,
+      -0.56473,
       0.92727
      ],
      [
-      0.31602,
-      -1.58437,
+      -0.30313,
+      -0.92446,
       0.33067
      ],
      [
-      0.38206,
-      -1.69374,
+      -0.29502,
+      -0.97981,
       0.10189
      ],
      [
-      0.46436,
-      -1.77351,
+      -0.27065,
+      -1.00554,
       0.19887
      ],
      [
-      0.50347,
-      -1.82457,
+      -0.28947,
+      -1.00258,
       0.11864
      ],
      [
-      0.51301,
-      -1.82179,
+      -0.33786,
+      -0.94576,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      -0.58281,
-      0.08569,
+      -0.56475,
+      0.15127,
       1.42358
      ],
      [
-      -0.37105,
-      0.22497,
+      -0.41091,
+      0.34458,
       0.92249
      ],
      [
-      -0.52793,
-      -0.34108,
+      -0.62572,
+      -0.16743,
       1.02109
      ],
      [
-      -0.54442,
-      -0.86003,
+      -0.70014,
+      -0.63236,
       1.63265
      ],
      [
-      -0.5861,
-      -0.80155,
+      -0.79975,
+      -0.51985,
       1.97297
      ],
      [
-      -0.6623,
-      -0.62261,
+      -0.93388,
+      -0.28687,
       1.98004
      ],
      [
-      -0.73123,
-      -0.42103,
+      -1.06073,
+      -0.03127,
       1.89026
      ],
      [
-      -0.70678,
-      -0.21969,
+      -1.09422,
+      0.2241,
       1.81036
      ],
      [
-      -0.51021,
-      -0.13367,
+      -0.95557,
+      0.36415,
       1.82489
      ],
      [
-      -0.28229,
-      -0.27608,
+      -0.78559,
+      0.27577,
       1.78788
      ],
      [
-      0.10214,
-      -0.66615,
+      -0.45909,
+      -0.06027,
       1.51798
      ],
      [
-      0.51232,
-      -1.8582,
+      -0.10683,
+      -1.19829,
       1.0306
      ],
      [
-      0.45285,
-      -2.4624,
+      -0.22423,
+      -1.74846,
       0.1889
      ],
      [
-      0.76397,
-      -2.47402,
+      0.02896,
+      -1.70605,
       0.3503
      ],
      [
-      0.80626,
-      -2.53679,
+      0.01332,
+      -1.7148,
       0.18556
      ],
      [
-      0.81017,
-      -2.52763,
+      -0.0407,
+      -1.65161,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      -0.42295,
-      0.15995,
+      -0.40488,
+      0.22554,
       1.09046
      ],
      [
-      -0.17685,
-      0.22957,
+      -0.21671,
+      0.34918,
       1.22285
      ],
      [
-      0.07447,
-      0.23859,
+      -0.02332,
+      0.41223,
       0.85215
      ],
      [
-      0.36073,
-      -0.05113,
+      0.20501,
+      0.17655,
       0.7066
      ],
      [
-      0.28359,
-      0.06397,
+      0.06995,
+      0.34567,
       0.81495
      ],
      [
-      0.23913,
-      0.13544,
+      -0.03245,
+      0.47117,
       0.89253
      ],
      [
-      0.20578,
-      0.16614,
+      -0.12372,
+      0.5559,
       0.93724
      ],
      [
-      0.16886,
-      0.17197,
+      -0.21858,
+      0.61576,
       0.9696
      ],
      [
-      0.16491,
-      0.13807,
+      -0.28046,
+      0.63589,
       0.95837
      ],
      [
-      0.28595,
-      0.04233,
+      -0.21735,
+      0.59418,
       0.8927
      ],
      [
-      0.61321,
-      -0.23041,
+      0.05199,
+      0.37547,
       0.59863
      ],
      [
-      0.96048,
-      -0.41868,
+      0.34132,
+      0.24122,
       0.30687
      ],
      [
-      1.30652,
-      -0.44115,
+      0.62943,
+      0.27278,
       0.06801
      ],
      [
-      1.41954,
-      -0.47981,
+      0.68453,
+      0.28816,
       0.06956
      ],
      [
-      1.40634,
-      -0.48669,
+      0.6134,
+      0.33531,
       0.07807
      ],
      [
-      1.46019,
-      -0.47926,
+      0.60932,
+      0.39677,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      -0.61305,
-      -0.24827,
+      -0.59498,
+      -0.18268,
       1.76242
      ],
      [
-      -0.2006,
-      0.07658,
+      -0.24046,
+      0.19619,
       2.0168
      ],
      [
-      -0.65361,
-      0.26883,
+      -0.7514,
+      0.44248,
       1.20328
      ],
      [
-      -0.15424,
-      0.50492,
+      -0.30996,
+      0.7326,
       0.42387
      ],
      [
-      -0.34164,
-      0.55915,
+      -0.55529,
+      0.84086,
       0.68007
      ],
      [
-      -0.47069,
-      0.52031,
+      -0.74227,
+      0.85604,
       0.844
      ],
      [
-      -0.56987,
-      0.39381,
+      -0.89938,
+      0.78357,
       0.90805
      ],
      [
-      -0.63814,
-      0.22572,
+      -1.02557,
+      0.66951,
       0.98331
      ],
      [
-      -0.62803,
-      0.03522,
+      -1.0734,
+      0.53304,
       1.08079
      ],
      [
-      -0.48579,
-      -0.11341,
+      -0.98908,
+      0.43844,
       1.07842
      ],
      [
-      -0.15051,
-      -0.46311,
+      -0.71174,
+      0.14277,
       0.7286
      ],
      [
-      0.39376,
-      -0.72737,
+      -0.22539,
+      -0.06747,
       0.79459
      ],
      [
-      0.50125,
-      -0.44055,
+      -0.17583,
+      0.27339,
       0.14463
      ],
      [
-      0.72667,
-      -0.06556,
+      -0.00834,
+      0.7024,
       0.01805
      ],
      [
-      0.72917,
-      -0.04511,
+      -0.06377,
+      0.77689,
       0.05061
      ],
      [
-      0.7897,
-      -0.02747,
+      -0.06117,
+      0.84856,
       0.05634
      ]
     ],
     "head_top": [
      [
-      -0.17267,
-      0.01721,
+      -0.1546,
+      0.0828,
       1.74424
      ],
      [
-      0.0039,
-      -0.0705,
+      -0.03596,
+      0.04911,
       1.70654
      ],
      [
-      0.31111,
-      -0.24149,
+      0.21332,
+      -0.06784,
       1.77527
      ],
      [
-      0.49916,
-      -0.36344,
+      0.34344,
+      -0.13576,
       1.69517
      ],
      [
-      0.50308,
-      -0.38728,
+      0.28943,
+      -0.10558,
       1.70527
      ],
      [
-      0.43359,
-      -0.39631,
+      0.16201,
+      -0.06058,
       1.76285
      ],
      [
-      0.33762,
-      -0.41083,
+      0.00811,
+      -0.02106,
       1.78597
      ],
      [
-      0.28578,
-      -0.44553,
+      -0.10166,
+      -0.00174,
       1.74971
      ],
      [
-      0.36943,
-      -0.5504,
+      -0.07594,
+      -0.05258,
       1.63261
      ],
      [
-      0.5149,
-      -0.74635,
+      0.0116,
+      -0.1945,
       1.4297
      ],
      [
-      0.77697,
-      -1.06016,
+      0.21574,
+      -0.45428,
       0.99769
      ],
      [
-      1.17551,
-      -1.45635,
+      0.55636,
+      -0.79644,
       0.35563
      ],
      [
-      1.21372,
-      -1.51956,
+      0.53663,
+      -0.80562,
       0.20786
      ],
      [
-      1.18921,
-      -1.54871,
+      0.4542,
+      -0.78075,
       0.18789
      ],
      [
-      1.17676,
-      -1.56029,
+      0.38382,
+      -0.73829,
       0.17079
      ],
      [
-      1.20426,
-      -1.55578,
+      0.35339,
+      -0.67975,
       0.18084
      ]
     ],
     "chest": [
      [
-      -0.03269,
-      -0.00303,
+      -0.01462,
+      0.06255,
       1.06709
      ],
      [
-      0.11059,
-      -0.14036,
+      0.07073,
+      -0.02074,
       1.07054
      ],
      [
-      0.13452,
-      -0.19994,
+      0.03673,
+      -0.02629,
       1.1112
      ],
      [
-      0.14761,
-      -0.23521,
+      -0.00811,
+      -0.00753,
       1.13276
      ],
      [
-      0.16726,
-      -0.26631,
+      -0.04638,
+      0.01539,
       1.13559
      ],
      [
-      0.18964,
-      -0.29875,
+      -0.08194,
+      0.03698,
       1.12733
      ],
      [
-      0.21536,
-      -0.33489,
+      -0.11415,
+      0.05487,
       1.11054
      ],
      [
-      0.25223,
-      -0.3789,
+      -0.13521,
+      0.06489,
       1.07251
      ],
      [
-      0.32209,
-      -0.45817,
+      -0.12328,
+      0.03965,
       0.96675
      ],
      [
-      0.42939,
-      -0.58385,
+      -0.07391,
+      -0.032,
       0.78598
      ],
      [
-      0.64064,
-      -0.77928,
+      0.07942,
+      -0.1734,
       0.44006
      ],
      [
-      0.81331,
-      -0.88734,
+      0.19415,
+      -0.22744,
       0.25063
      ],
      [
-      0.91,
-      -0.90588,
+      0.23292,
+      -0.19194,
       0.27453
      ],
      [
-      0.93752,
-      -0.91172,
+      0.20251,
+      -0.14375,
       0.22015
      ],
      [
-      0.94542,
-      -0.91907,
+      0.15248,
+      -0.09707,
       0.21896
      ],
      [
-      0.95114,
-      -0.91889,
+      0.10027,
+      -0.04286,
       0.22078
      ]
     ]
@@ -33111,76 +33127,76 @@
    "files": [
     {
      "name": "death_W_00.png",
-     "sha256": "3ab146c0796915d1a43507192adb4312524b6b8719693182e4a90d9c24f4fc84"
+     "sha256": "9d89ee8e5e9320b202e86274a8fd8417e47f26274aaac893fd508156bb4d7580"
     },
     {
      "name": "death_W_01.png",
-     "sha256": "824531c7f39c4db9a8889511a8f02724a1ed9405310be1b74bc9842f846bd43b"
+     "sha256": "db6c07b766a9ba68e37c3ea9ecd5c64f157d028d23f7b56203aa824faa0484ca"
     },
     {
      "name": "death_W_02.png",
-     "sha256": "b3e0bc8cfee0f742b9cc3e948e0370e3cf3f275bbf837e3eda1c7b3830091b65"
+     "sha256": "75516ce6451b28f41c14985a685f092c32354d70b244ddc5e741482a3cf56d47"
     },
     {
      "name": "death_W_03.png",
-     "sha256": "56ca37938a051320049a2883f83f7ed2a86a4c43978c0153f494c7b68ae7aa62"
+     "sha256": "7eeecaff8e89ef22d47650b2d03f36db849a5f381f6dbff434ce727acefffb2c"
     },
     {
      "name": "death_W_04.png",
-     "sha256": "9f6793b44f6f09a5b94e42cb34291ff48f9be41eb4162d645696845e3bbb29c4"
+     "sha256": "6084f63743df6d012c1b201cfd4129f11a131645cf8803d95f6db56b115545a6"
     },
     {
      "name": "death_W_05.png",
-     "sha256": "e736e987b1b33d5b91a45d09f17ad5ba103db94059d2604e740a0cf2f178de5a"
+     "sha256": "8e7e5c10b27809a4c7e36529e680b9b557bebe1f9a3350c5f965f8cf083d3b30"
     },
     {
      "name": "death_W_06.png",
-     "sha256": "0ce4f2b94600e0aaec2c3467bf86b18e94493e22f4d3fe9e5c77d4988372abd9"
+     "sha256": "d349d8085824addf42ec5bddcaaa04fb0aa368babca40defafa3dc2d7829f204"
     },
     {
      "name": "death_W_07.png",
-     "sha256": "a28d83aee64ce360ced55089b556e27748e396dbc3f6b312c1f1b3275d03184e"
+     "sha256": "f45f1931853d3e6e3cf0028ab39662247feaf525f66e4bdb8965b20848a986dd"
     },
     {
      "name": "death_W_08.png",
-     "sha256": "f76f67e542a6a35c38d5a55214d41915b23216b1577d7a8e5372dc21061f140e"
+     "sha256": "42daae2d8c387ac126e0837933932fe6556a7442cbce1b9b9695ecd2b8ae4738"
     },
     {
      "name": "death_W_09.png",
-     "sha256": "ecc087fce5e796415eebca0244010ee42dc75e70c85166d43e792349fac56b44"
+     "sha256": "657edff95dc6c14a2d48fcfc72de1edf97361fd75ee050b481cd0fb75fbf5900"
     },
     {
      "name": "death_W_10.png",
-     "sha256": "fc80d6afd1d813664d544547f9bc4e89ea7c54cc25c908531e3f2d5b11e55bf6"
+     "sha256": "bb42580adba4c9f62cbf17f5a7496868a50f1bdb9bedd20060877213dac0e2c1"
     },
     {
      "name": "death_W_11.png",
-     "sha256": "adf74e195e7c14aaf1a5a8fe8977fe9f5554aa53e8c36e55a74d54bf1f5b0d4b"
+     "sha256": "47aa9ed42620657c9eee4756c340806bc588402f3113bd5cc51720d0e957761d"
     },
     {
      "name": "death_W_12.png",
-     "sha256": "652d3bc8c01e44976a8df192cbd9d560dc2831486b7bd70a90e51acb64ccc8a2"
+     "sha256": "39a906deeab380171627a569dd243fee9882b590e4b184e9df7d1101580d6f0d"
     },
     {
      "name": "death_W_13.png",
-     "sha256": "29f3df9ed4f2436c679a7949dbc17adb21081cc90f3b6953b87eae00487e810e"
+     "sha256": "29d7f6d4ac9b0df9a9395c4fec818e8fdfc7d2f34b0b5a247ac9d301eaf24527"
     },
     {
      "name": "death_W_14.png",
-     "sha256": "5d6b09630af560ca59ed66d4ed4cb2fb3da717a71fedb75b4de37e3024830a7a"
+     "sha256": "010379c0669d3de4f2b1479dbca64e0ae5399cf2ac1bc87a739a601b18893973"
     },
     {
      "name": "death_W_15.png",
-     "sha256": "6e1ee1c55cd44ad262559d995262e4e938b47553f11c22245ebad2e88bc38c8b"
+     "sha256": "ab80ace46363ba6339e60e1735836a310d8a8460d927221fcd0456bda0c0f763"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "d59eca815567b149ae780ad472887e2ba4fdb47098590fc85b832c94fe69e2a0",
+   "render_pass": "p2",
+   "cell_sha256": "95707511ac413762f9ed4eb302d779b640ef8d262001e071ceefc738161493b1",
    "alpha_union_bbox": [
-    264,
-    149,
-    742,
-    540
+    187,
+    155,
+    569,
+    542
    ],
    "edge_touch": false,
    "facing_measured_deg": 180.0,
@@ -33189,1072 +33205,1070 @@
    "sockets_m": {
     "main_grip": [
      [
-      0.17049,
-      -0.42599,
+      0.13689,
+      -0.36684,
       0.99443
      ],
      [
-      0.19582,
-      -0.56514,
+      0.08305,
+      -0.50875,
       1.01788
      ],
      [
-      0.3093,
-      -0.59014,
+      0.11737,
+      -0.5365,
       1.65981
      ],
      [
-      0.71203,
-      -0.45526,
+      0.44093,
+      -0.40438,
       1.90682
      ],
      [
-      0.77582,
-      -0.53081,
+      0.42556,
+      -0.48269,
       1.86419
      ],
      [
-      0.68206,
-      -0.65192,
+      0.25263,
+      -0.60656,
       1.79767
      ],
      [
-      0.53398,
-      -0.74526,
+      0.02538,
+      -0.70265,
       1.71393
      ],
      [
-      0.40231,
-      -0.76521,
+      -0.18545,
+      -0.72536,
       1.62685
      ],
      [
-      0.40831,
-      -0.72204,
+      -0.25862,
+      -0.68495,
       1.54699
      ],
      [
-      0.55255,
-      -0.72544,
+      -0.19355,
+      -0.69111,
       1.35901
      ],
      [
-      0.89892,
-      -0.75657,
+      0.07365,
+      -0.725,
       0.92727
      ],
      [
-      1.34378,
-      -0.89685,
+      0.43934,
+      -0.86804,
       0.33067
      ],
      [
-      1.46782,
-      -0.9275,
+      0.48422,
+      -0.90144,
       0.10189
      ],
      [
-      1.58241,
-      -0.92571,
+      0.51964,
+      -0.9024,
       0.19887
      ],
      [
-      1.64618,
-      -0.93416,
+      0.50424,
+      -0.91361,
       0.11864
      ],
      [
-      1.65095,
-      -0.92545,
+      0.42985,
+      -0.90766,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      -0.4727,
-      -0.35152,
+      -0.5063,
+      -0.29237,
       1.42358
      ],
      [
-      -0.42145,
-      -0.1033,
+      -0.53421,
+      -0.0469,
       0.92249
      ],
      [
-      -0.13212,
-      -0.61448,
+      -0.32405,
+      -0.56084,
       1.02109
      ],
      [
-      0.22317,
-      -0.9931,
+      -0.04793,
+      -0.94222,
       1.63265
      ],
      [
-      0.15235,
-      -0.98122,
+      -0.19792,
+      -0.93309,
       1.97297
      ],
      [
-      -0.02807,
-      -0.90857,
+      -0.4575,
+      -0.8632,
       1.98004
      ],
      [
-      -0.21934,
-      -0.81477,
+      -0.72794,
+      -0.77217,
       1.89026
      ],
      [
-      -0.34443,
-      -0.65511,
+      -0.93219,
+      -0.61526,
       1.81036
      ],
      [
-      -0.26625,
-      -0.45529,
+      -0.93318,
+      -0.4182,
       1.82489
      ],
      [
-      -0.00439,
-      -0.39483,
+      -0.75049,
+      -0.3605,
       1.78788
      ],
      [
-      0.54326,
-      -0.39882,
+      -0.282,
+      -0.36724,
       1.51798
      ],
      [
-      1.67621,
-      -0.95168,
+      0.77178,
+      -0.92286,
       1.0306
      ],
      [
-      2.0614,
-      -1.42097,
+      1.0778,
+      -1.39491,
       0.1889
      ],
      [
-      2.28961,
-      -1.20919,
+      1.22684,
+      -1.18589,
       0.3503
      ],
      [
-      2.3639,
-      -1.22367,
+      1.22197,
+      -1.20312,
       0.18556
      ],
      [
-      2.36018,
-      -1.21443,
+      1.13909,
+      -1.19664,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      -0.41217,
-      -0.18597,
+      -0.44577,
+      -0.12681,
       1.09046
      ],
      [
-      -0.28738,
-      0.03728,
+      -0.40014,
+      0.09367,
       1.22285
      ],
      [
-      -0.11605,
-      0.22137,
+      -0.30798,
+      0.27501,
       0.85215
      ],
      [
-      0.29123,
-      0.21892,
+      0.02013,
+      0.2698,
       0.7066
      ],
      [
-      0.1553,
-      0.24576,
+      -0.19497,
+      0.29389,
       0.81495
      ],
      [
-      0.07332,
-      0.26486,
+      -0.35612,
+      0.31022,
       0.89253
      ],
      [
-      0.02803,
-      0.26299,
+      -0.48057,
+      0.30559,
       0.93724
      ],
      [
-      -0.0022,
-      0.241,
+      -0.58997,
+      0.28085,
       0.9696
      ],
      [
-      0.01898,
-      0.21424,
+      -0.64796,
+      0.25133,
       0.95837
      ],
      [
-      0.17227,
-      0.23212,
+      -0.57383,
+      0.26646,
       0.8927
      ],
      [
-      0.59653,
-      0.27068,
+      -0.22873,
+      0.30226,
       0.59863
      ],
      [
-      0.97521,
-      0.3831,
+      0.07078,
+      0.41192,
       0.30687
      ],
      [
-      1.23579,
-      0.6119,
+      0.25219,
+      0.63796,
       0.06801
      ],
      [
-      1.34304,
-      0.66449,
+      0.28028,
+      0.68779,
       0.06956
      ],
      [
-      1.33858,
-      0.65029,
+      0.19664,
+      0.67084,
       0.07807
      ],
      [
-      1.3714,
-      0.69363,
+      0.1503,
+      0.71142,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      -0.25794,
-      -0.60904,
+      -0.29154,
+      -0.54989,
       1.76242
      ],
      [
-      -0.19599,
-      -0.0877,
+      -0.30876,
+      -0.0313,
       2.0168
      ],
      [
-      -0.65227,
-      -0.27208,
+      -0.8442,
+      -0.21844,
       1.20328
      ],
      [
-      -0.4661,
-      0.24797,
+      -0.7372,
+      0.29885,
       0.42387
      ],
      [
-      -0.63696,
-      0.1538,
+      -0.98722,
+      0.20193,
       0.68007
      ],
      [
-      -0.70074,
-      0.03508,
+      -1.13018,
+      0.08045,
       0.844
      ],
      [
-      -0.68142,
-      -0.1245,
+      -1.19002,
+      -0.08189,
       0.90805
      ],
      [
-      -0.61084,
-      -0.29162,
+      -1.19861,
+      -0.25177,
       0.98331
      ],
      [
-      -0.46899,
-      -0.41918,
+      -1.13592,
+      -0.38209,
       1.08079
      ],
      [
-      -0.26331,
-      -0.4237,
+      -1.00941,
+      -0.38936,
       1.07842
      ],
      [
-      0.22104,
-      -0.43389,
+      -0.60423,
+      -0.40232,
       0.7286
      ],
      [
-      0.79276,
-      -0.2359,
+      -0.11167,
+      -0.20708,
       0.79459
      ],
      [
-      0.66595,
-      0.04293,
+      -0.31765,
+      0.06899,
       0.14463
      ],
      [
-      0.56019,
-      0.46747,
+      -0.50257,
+      0.49078,
       0.01805
      ],
      [
-      0.54749,
-      0.4837,
+      -0.59444,
+      0.50425,
       0.05061
      ],
      [
-      0.57783,
-      0.53898,
+      -0.64327,
+      0.55677,
       0.05634
      ]
     ],
     "head_top": [
      [
-      -0.13426,
-      -0.10992,
+      -0.16786,
+      -0.05077,
       1.74424
      ],
      [
-      0.05261,
-      -0.04709,
+      -0.06015,
+      0.0093,
       1.70654
      ],
      [
-      0.39074,
-      0.04923,
+      0.19881,
+      0.10287,
       1.77527
      ],
      [
-      0.60995,
-      0.09597,
+      0.33885,
+      0.14685,
       1.69517
      ],
      [
-      0.62958,
-      0.08188,
+      0.27931,
+      0.13,
       1.70527
      ],
      [
-      0.58683,
-      0.02636,
+      0.1574,
+      0.07172,
       1.76285
      ],
      [
-      0.52923,
-      -0.05176,
+      0.02063,
+      -0.00916,
       1.78597
      ],
      [
-      0.51711,
-      -0.11296,
+      -0.07065,
+      -0.07312,
       1.74971
      ],
      [
-      0.65042,
-      -0.12797,
+      -0.01652,
+      -0.09088,
       1.63261
      ],
      [
-      0.89184,
-      -0.16367,
+      0.14574,
+      -0.12933,
       1.4297
      ],
      [
-      1.29905,
-      -0.20025,
+      0.47378,
+      -0.16867,
       0.99769
      ],
      [
-      1.861,
-      -0.19858,
+      0.95657,
+      -0.16976,
       0.35563
      ],
      [
-      1.93272,
-      -0.21626,
+      0.94912,
+      -0.1902,
       0.20786
      ],
      [
-      1.936,
-      -0.25421,
+      0.87324,
+      -0.23091,
       0.18789
      ],
      [
-      1.93539,
-      -0.2712,
+      0.79345,
+      -0.25065,
       0.17079
      ],
      [
-      1.95164,
-      -0.24856,
+      0.73054,
+      -0.23077,
       0.18084
      ]
     ],
     "chest": [
      [
-      -0.02097,
-      -0.02526,
+      -0.05457,
+      0.03389,
       1.06709
      ],
      [
-      0.17745,
-      -0.02105,
+      0.06468,
+      0.03535,
       1.07054
      ],
      [
-      0.23649,
-      -0.04626,
+      0.04456,
+      0.00738,
       1.1112
      ],
      [
-      0.27069,
-      -0.06194,
+      -0.00041,
+      -0.01106,
       1.13276
      ],
      [
-      0.30659,
-      -0.07004,
+      -0.04368,
+      -0.02192,
       1.13559
      ],
      [
-      0.34534,
-      -0.07716,
+      -0.08409,
+      -0.03179,
       1.12733
      ],
      [
-      0.38908,
-      -0.08452,
+      -0.11952,
+      -0.04192,
       1.11054
      ],
      [
-      0.44627,
-      -0.08957,
+      -0.14149,
+      -0.04972,
       1.07251
      ],
      [
-      0.55172,
-      -0.09622,
+      -0.11521,
+      -0.05913,
       0.96675
      ],
      [
-      0.71646,
-      -0.10922,
+      -0.02964,
+      -0.07489,
       0.78598
      ],
      [
-      1.00404,
-      -0.09803,
+      0.17877,
+      -0.06645,
       0.44006
      ],
      [
-      1.20254,
-      -0.05235,
+      0.29811,
+      -0.02353,
       0.25063
      ],
      [
-      1.28402,
-      0.00291,
+      0.30042,
+      0.02898,
       0.27453
      ],
      [
-      1.30761,
-      0.01824,
+      0.24484,
+      0.04155,
       0.22015
      ],
      [
-      1.31839,
-      0.01863,
+      0.17646,
+      0.03918,
       0.21896
      ],
      [
-      1.32231,
-      0.0228,
+      0.10121,
+      0.04059,
       0.22078
      ]
     ]
    }
   },
   "death/NW": {
-   "status": "FAILED_LINT",
-   "flags": [
-    "EDGE_TOUCH: alpha on the 1 px border"
-   ],
+   "status": "COMPLETE",
+   "flags": [],
    "frames": 16,
    "files": [
     {
      "name": "death_NW_00.png",
-     "sha256": "af1201a5e23721fa9792ad50fbc21d101fa5ef3ca6d8305f58a6bfe888a53ef1"
+     "sha256": "6efc433a2450185b0aa05dbb70680e4589d2bb65a22ee248c7d8519a423a354b"
     },
     {
      "name": "death_NW_01.png",
-     "sha256": "e36f52b43ca8458c27bbc7a27a6a6275821a388e78ce2adc5fc752f57cd7f37b"
+     "sha256": "ce9b4e690748c7930bdf7c38345a517dc6844f7436560733d6865092b1f2d1ef"
     },
     {
      "name": "death_NW_02.png",
-     "sha256": "d8ff12885d0cb54606aa6439e0be08b2023e92cae7f4b7437388a7a24ea02f28"
+     "sha256": "57e859fcdbeb57d4a09e02dcce6adb1a4b1204decdb0058734b3845e2deb94b3"
     },
     {
      "name": "death_NW_03.png",
-     "sha256": "2d8ba864de89a0c011ef4a5d1ab55e15fa12a4883d106620cf2b59c243602456"
+     "sha256": "b0624c33af23dc5839802a4c8751e7aa19043225d1d837c51d53bb820415fff5"
     },
     {
      "name": "death_NW_04.png",
-     "sha256": "4a08f1b0c361491ff96977ad0321e0438b7303bb8cd71edd15ca7df17508385b"
+     "sha256": "c1a122aa0e3f685d03e6cb40727ccafe130bce1297bf6434d2dc5dab6aa048f4"
     },
     {
      "name": "death_NW_05.png",
-     "sha256": "8ef1aa318022eb7a847ea93ffb8414692b0cd62ebbeb0fd4f0f082bb7b314bd2"
+     "sha256": "0751be0aba3d1587159b7a214a3a05f2d497bc578a947896d541c27c27673b34"
     },
     {
      "name": "death_NW_06.png",
-     "sha256": "f7dcd43b1c25f8a14c061b3a949b69cb19fa41bee4ce503b186bcc8b7b08405d"
+     "sha256": "156e217667459a157d22857cdf179a54846845474d38cc97312e3958f35ae9ff"
     },
     {
      "name": "death_NW_07.png",
-     "sha256": "86ad66a5a1282657b62197c6be3c450fab56dae41dfffe687071bca6654d91fa"
+     "sha256": "149fef01a8990935c64bc07a3768aa7cff523a75ed0799288049342a6129be39"
     },
     {
      "name": "death_NW_08.png",
-     "sha256": "b5a3d080f54cae6ba7d16766e1dbf5d49e377fe955f2a95ede43d8314d793188"
+     "sha256": "740872a02d57d2d74e1096d003af3ae31b9da874116b30400b31409bef3895c6"
     },
     {
      "name": "death_NW_09.png",
-     "sha256": "37774586302ae68b172e688f58223a0c51660619fc71e75d58706edc12da0af6"
+     "sha256": "bacb38c5d4b59465ee43daa73bb615cf8211c63bc3aed62bd1033f38e9c23656"
     },
     {
      "name": "death_NW_10.png",
-     "sha256": "4bbb5a94ba6040ab9c4746525ba2c4c0293c1ebed1387de35fa68cdd8688d150"
+     "sha256": "9cd76a2faba5fb87e263218f16b5d1a29802fd5c34405f025760efd50b36c598"
     },
     {
      "name": "death_NW_11.png",
-     "sha256": "07581b96cca9ff6d9e516691d1199e6a8c422b38d457325412b45b864637e2e0"
+     "sha256": "a57772f4d2d5f87b80767968cc4a304d6a1b3999742f1601d01b60b36fc73233"
     },
     {
      "name": "death_NW_12.png",
-     "sha256": "0514253c46aaec86e003338ec1939cc3a52ff56c60586dfe53b013469eb271ce"
+     "sha256": "16b06c128408c16fb4d42ec296203843650dcfe7d55361fc036f43878e6b5a94"
     },
     {
      "name": "death_NW_13.png",
-     "sha256": "bf00dd67ab8d0d314d9041000fc0a2ab832f12c1b5fcee691a96d0be417af2d3"
+     "sha256": "04460e2028765aef4ad51c87f7a41e7579816bc3ce747305ee11d43b2f0ff78e"
     },
     {
      "name": "death_NW_14.png",
-     "sha256": "8e85bdf3e838aac1311ffb7462ea5edb64e0213b62550eb74bd0a0302432038c"
+     "sha256": "b73a1330f9841f53c992ab0436442ee4d6a228133fd73165bde8b9c3d4a5dafc"
     },
     {
      "name": "death_NW_15.png",
-     "sha256": "05e6092e3dafedb85ed9ebe8c65bc12e2f308f90ff8deef3c5ed7251c42ceac3"
+     "sha256": "f69eb1950ebefd11c8756c81992c85c0fe93ca2ca662ff5d729869c28db60038"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "91e8506f973f5781af63efbd177e7c34612075043055bf23bb81bc880eee7ca5",
+   "render_pass": "p2",
+   "cell_sha256": "6a67e47986ab1490a1d0b3579f876d94e1b8633cd220519c10b0a0eb78f20744",
    "alpha_union_bbox": [
-    296,
-    187,
-    768,
-    632
+    217,
+    147,
+    648,
+    539
    ],
-   "edge_touch": true,
+   "edge_touch": false,
    "facing_measured_deg": 225.0,
    "facing_hips_frame0_deg": 279.523,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_grip": [
      [
-      0.42178,
-      -0.18067,
+      0.35619,
+      -0.1626,
       0.99443
      ],
      [
-      0.53808,
-      -0.26115,
+      0.41846,
+      -0.30101,
       1.01788
      ],
      [
-      0.636,
-      -0.19858,
+      0.46236,
+      -0.29637,
       1.65981
      ],
      [
-      0.8254,
-      0.18156,
+      0.59772,
+      0.02584,
       1.90682
      ],
      [
-      0.92393,
-      0.17325,
+      0.64222,
+      -0.0404,
       1.86419
      ],
      [
-      0.94327,
-      0.02131,
+      0.60754,
+      -0.25026,
       1.79767
      ],
      [
-      0.90456,
-      -0.14939,
+      0.5148,
+      -0.4789,
       1.71393
      ],
      [
-      0.82557,
-      -0.25661,
+      0.38178,
+      -0.64404,
       1.62685
      ],
      [
-      0.79928,
-      -0.22184,
+      0.30146,
+      -0.6672,
       1.54699
      ],
      [
-      0.90367,
-      -0.12226,
+      0.35182,
+      -0.62555,
       1.35901
      ],
      [
-      1.17061,
-      0.10066,
+      0.56473,
+      -0.46057,
       0.92727
      ],
      [
-      1.58437,
-      0.31602,
+      0.92446,
+      -0.30313,
       0.33067
      ],
      [
-      1.69374,
-      0.38206,
+      0.97981,
+      -0.29502,
       0.10189
      ],
      [
-      1.77351,
-      0.46436,
+      1.00554,
+      -0.27065,
       0.19887
      ],
      [
-      1.82457,
-      0.50347,
+      1.00258,
+      -0.28947,
       0.11864
      ],
      [
-      1.82179,
-      0.51301,
+      0.94576,
+      -0.33786,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      -0.08569,
-      -0.58281,
+      -0.15127,
+      -0.56475,
       1.42358
      ],
      [
-      -0.22497,
-      -0.37105,
+      -0.34458,
+      -0.41091,
       0.92249
      ],
      [
-      0.34108,
-      -0.52793,
+      0.16743,
+      -0.62572,
       1.02109
      ],
      [
-      0.86003,
-      -0.54442,
+      0.63236,
+      -0.70014,
       1.63265
      ],
      [
-      0.80155,
-      -0.5861,
+      0.51985,
+      -0.79975,
       1.97297
      ],
      [
-      0.62261,
-      -0.6623,
+      0.28687,
+      -0.93388,
       1.98004
      ],
      [
-      0.42103,
-      -0.73123,
+      0.03127,
+      -1.06073,
       1.89026
      ],
      [
-      0.21969,
-      -0.70678,
+      -0.2241,
+      -1.09422,
       1.81036
      ],
      [
-      0.13367,
-      -0.51021,
+      -0.36415,
+      -0.95557,
       1.82489
      ],
      [
-      0.27608,
-      -0.28229,
+      -0.27577,
+      -0.78559,
       1.78788
      ],
      [
-      0.66615,
-      0.10214,
+      0.06027,
+      -0.45909,
       1.51798
      ],
      [
-      1.8582,
-      0.51232,
+      1.19829,
+      -0.10683,
       1.0306
      ],
      [
-      2.4624,
-      0.45285,
+      1.74846,
+      -0.22423,
       0.1889
      ],
      [
-      2.47402,
-      0.76397,
+      1.70605,
+      0.02896,
       0.3503
      ],
      [
-      2.53679,
-      0.80626,
+      1.7148,
+      0.01332,
       0.18556
      ],
      [
-      2.52763,
-      0.81017,
+      1.65161,
+      -0.0407,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      -0.15995,
-      -0.42295,
+      -0.22554,
+      -0.40488,
       1.09046
      ],
      [
-      -0.22957,
-      -0.17685,
+      -0.34918,
+      -0.21671,
       1.22285
      ],
      [
-      -0.23859,
-      0.07447,
+      -0.41223,
+      -0.02332,
       0.85215
      ],
      [
-      0.05113,
-      0.36073,
+      -0.17655,
+      0.20501,
       0.7066
      ],
      [
-      -0.06397,
-      0.28359,
+      -0.34567,
+      0.06995,
       0.81495
      ],
      [
-      -0.13544,
-      0.23913,
+      -0.47117,
+      -0.03245,
       0.89253
      ],
      [
-      -0.16614,
-      0.20578,
+      -0.5559,
+      -0.12372,
       0.93724
      ],
      [
-      -0.17197,
-      0.16886,
+      -0.61576,
+      -0.21858,
       0.9696
      ],
      [
-      -0.13807,
-      0.16491,
+      -0.63589,
+      -0.28046,
       0.95837
      ],
      [
-      -0.04233,
-      0.28595,
+      -0.59418,
+      -0.21735,
       0.8927
      ],
      [
-      0.23041,
-      0.61321,
+      -0.37547,
+      0.05199,
       0.59863
      ],
      [
-      0.41868,
-      0.96048,
+      -0.24122,
+      0.34132,
       0.30687
      ],
      [
-      0.44115,
-      1.30652,
+      -0.27278,
+      0.62943,
       0.06801
      ],
      [
-      0.47981,
-      1.41954,
+      -0.28816,
+      0.68453,
       0.06956
      ],
      [
-      0.48669,
-      1.40634,
+      -0.33531,
+      0.6134,
       0.07807
      ],
      [
-      0.47926,
-      1.46019,
+      -0.39677,
+      0.60932,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      0.24827,
-      -0.61305,
+      0.18268,
+      -0.59498,
       1.76242
      ],
      [
-      -0.07658,
-      -0.2006,
+      -0.19619,
+      -0.24046,
       2.0168
      ],
      [
-      -0.26883,
-      -0.65361,
+      -0.44248,
+      -0.7514,
       1.20328
      ],
      [
-      -0.50492,
-      -0.15424,
+      -0.7326,
+      -0.30996,
       0.42387
      ],
      [
-      -0.55915,
-      -0.34164,
+      -0.84086,
+      -0.55529,
       0.68007
      ],
      [
-      -0.52031,
-      -0.47069,
+      -0.85604,
+      -0.74227,
       0.844
      ],
      [
-      -0.39381,
-      -0.56987,
+      -0.78357,
+      -0.89938,
       0.90805
      ],
      [
-      -0.22572,
-      -0.63814,
+      -0.66951,
+      -1.02557,
       0.98331
      ],
      [
-      -0.03522,
-      -0.62803,
+      -0.53304,
+      -1.0734,
       1.08079
      ],
      [
-      0.11341,
-      -0.48579,
+      -0.43844,
+      -0.98908,
       1.07842
      ],
      [
-      0.46311,
-      -0.15051,
+      -0.14277,
+      -0.71174,
       0.7286
      ],
      [
-      0.72737,
-      0.39376,
+      0.06747,
+      -0.22539,
       0.79459
      ],
      [
-      0.44055,
-      0.50125,
+      -0.27339,
+      -0.17583,
       0.14463
      ],
      [
-      0.06556,
-      0.72667,
+      -0.7024,
+      -0.00834,
       0.01805
      ],
      [
-      0.04511,
-      0.72917,
+      -0.77689,
+      -0.06377,
       0.05061
      ],
      [
-      0.02747,
-      0.7897,
+      -0.84856,
+      -0.06117,
       0.05634
      ]
     ],
     "head_top": [
      [
-      -0.01721,
-      -0.17267,
+      -0.0828,
+      -0.1546,
       1.74424
      ],
      [
-      0.0705,
-      0.0039,
+      -0.04911,
+      -0.03596,
       1.70654
      ],
      [
-      0.24149,
-      0.31111,
+      0.06784,
+      0.21332,
       1.77527
      ],
      [
-      0.36344,
-      0.49916,
+      0.13576,
+      0.34344,
       1.69517
      ],
      [
-      0.38728,
-      0.50308,
+      0.10558,
+      0.28943,
       1.70527
      ],
      [
-      0.39631,
-      0.43359,
+      0.06058,
+      0.16201,
       1.76285
      ],
      [
-      0.41083,
-      0.33762,
+      0.02106,
+      0.00811,
       1.78597
      ],
      [
-      0.44553,
-      0.28578,
+      0.00174,
+      -0.10166,
       1.74971
      ],
      [
-      0.5504,
-      0.36943,
+      0.05258,
+      -0.07594,
       1.63261
      ],
      [
-      0.74635,
-      0.5149,
+      0.1945,
+      0.0116,
       1.4297
      ],
      [
-      1.06016,
-      0.77697,
+      0.45428,
+      0.21574,
       0.99769
      ],
      [
-      1.45635,
-      1.17551,
+      0.79644,
+      0.55636,
       0.35563
      ],
      [
-      1.51956,
-      1.21372,
+      0.80562,
+      0.53663,
       0.20786
      ],
      [
-      1.54871,
-      1.18921,
+      0.78075,
+      0.4542,
       0.18789
      ],
      [
-      1.56029,
-      1.17676,
+      0.73829,
+      0.38382,
       0.17079
      ],
      [
-      1.55578,
-      1.20426,
+      0.67975,
+      0.35339,
       0.18084
      ]
     ],
     "chest": [
      [
-      0.00303,
-      -0.03269,
+      -0.06255,
+      -0.01462,
       1.06709
      ],
      [
-      0.14036,
-      0.11059,
+      0.02074,
+      0.07073,
       1.07054
      ],
      [
-      0.19994,
-      0.13452,
+      0.02629,
+      0.03673,
       1.1112
      ],
      [
-      0.23521,
-      0.14761,
+      0.00753,
+      -0.00811,
       1.13276
      ],
      [
-      0.26631,
-      0.16726,
+      -0.01539,
+      -0.04638,
       1.13559
      ],
      [
-      0.29875,
-      0.18964,
+      -0.03698,
+      -0.08194,
       1.12733
      ],
      [
-      0.33489,
-      0.21536,
+      -0.05487,
+      -0.11415,
       1.11054
      ],
      [
-      0.3789,
-      0.25223,
+      -0.06489,
+      -0.13521,
       1.07251
      ],
      [
-      0.45817,
-      0.32209,
+      -0.03965,
+      -0.12328,
       0.96675
      ],
      [
-      0.58385,
-      0.42939,
+      0.032,
+      -0.07391,
       0.78598
      ],
      [
-      0.77928,
-      0.64064,
+      0.1734,
+      0.07942,
       0.44006
      ],
      [
-      0.88734,
-      0.81331,
+      0.22744,
+      0.19415,
       0.25063
      ],
      [
-      0.90588,
-      0.91,
+      0.19194,
+      0.23292,
       0.27453
      ],
      [
-      0.91172,
-      0.93752,
+      0.14375,
+      0.20251,
       0.22015
      ],
      [
-      0.91907,
-      0.94542,
+      0.09707,
+      0.15248,
       0.21896
      ],
      [
-      0.91889,
-      0.95114,
+      0.04286,
+      0.10027,
       0.22078
      ]
     ]
@@ -34267,76 +34281,76 @@
    "files": [
     {
      "name": "death_N_00.png",
-     "sha256": "6155bf24a78a0a5ebe96584429fdbf2e2cfa7fc84ce389154dcea4460f807bf1"
+     "sha256": "2ecd7fa20d35ff74ed47697cfb22b8458a8adf934983e0cfc7c5448b6672be8a"
     },
     {
      "name": "death_N_01.png",
-     "sha256": "1581595e13456ef4e127fb779a43af3b07346e1ead503552d211be7758ba31c6"
+     "sha256": "558821e1369a1bd87a1e94b9dd21debff75f3e2ae6fc3614df0ff3948f78c917"
     },
     {
      "name": "death_N_02.png",
-     "sha256": "af24ab8f06334837e1ad8101e0bf9822eb0a3edb5b1f87e12d1c508dc4282292"
+     "sha256": "80d42eec331eeedc1a3aba462bad9a904e46c73187423107a8d42b08dcf5dd78"
     },
     {
      "name": "death_N_03.png",
-     "sha256": "7eec39eaec375d9700c3c08f13c776b467392d44166d966d7b404f2154b88bff"
+     "sha256": "b89c69ec54f689ebba6c889692e89e6b003f8dcc2f6e2c0be6155a38d772e3b7"
     },
     {
      "name": "death_N_04.png",
-     "sha256": "08507d1d259df6424619c1490dbbd49513f5443b3b71a4a01803d2a49fb2bd18"
+     "sha256": "6436bffd12a60370b609144624271d7688d9c81f752e918b9382c9b190f18ab5"
     },
     {
      "name": "death_N_05.png",
-     "sha256": "bcd53cba3af92298d936bbc6d1fe30c4ba4ea43dcf516a88d4001d2764f7dcc0"
+     "sha256": "5e9c76a25af4e4e04cc6e77c34d4643904394249a3e84a0b389945a9658bbd37"
     },
     {
      "name": "death_N_06.png",
-     "sha256": "6ea0078363d6f3c292b13c688889ce0a557193f289a86e904e954cb2a324bbd5"
+     "sha256": "3c221ba302aeace385d4557641e4fb1f9adc7a1516620150d74174abbaabee9c"
     },
     {
      "name": "death_N_07.png",
-     "sha256": "3085665ed6bebcd57a703558995a21712e717dc2c57887a8fd0c9913d2a6e121"
+     "sha256": "d32bb1abccbcaa573c8f5c0703fb39b0a67d45ebb91581df20cac7c01da363db"
     },
     {
      "name": "death_N_08.png",
-     "sha256": "b40c212b5a33088f46b507ee2bb4cedc7bc12bc2fb523f9a520bf04d0b98d910"
+     "sha256": "49538c87a2aa2d27977b8633b9a3c4af1e33d3612fd7defc18c48888c9ea1108"
     },
     {
      "name": "death_N_09.png",
-     "sha256": "06bafefd9e7c4853a9c09b95d3879e190adc3f2917830945ce801ffad42ee48d"
+     "sha256": "7545718f158d34148e58cc44252179a4b7155ff51e7695b4041802ccb8630a5f"
     },
     {
      "name": "death_N_10.png",
-     "sha256": "706771f5c8881f60bcf3cf481ca5ab87c0406b9af21c54c19341ba06530ac19f"
+     "sha256": "bbc5677de6fff98ea338c3e38345c79768464b912500ff6f3552d0c51027322e"
     },
     {
      "name": "death_N_11.png",
-     "sha256": "62cc28b3e2b6c191f94a47fa8ccb980964eb41c3c1b3f93d2a5833e115d34fee"
+     "sha256": "569bd77e2d390d167bf4cb51a40ea541d8fe7e130d5b215d858409c6a40eddcc"
     },
     {
      "name": "death_N_12.png",
-     "sha256": "c2c9ab9fe92fe004a3f2f19740324e3d276818b83b925746ed71af390a53c403"
+     "sha256": "549b401fbb728a84651f342aead5c7dc61b8ae4a539291ab82292176ec38e655"
     },
     {
      "name": "death_N_13.png",
-     "sha256": "9073ae0c9978649fc0544e733618ebdec7c833e36102cc9ec0a5d187f6687d3d"
+     "sha256": "93c12c0577b2e20db293e7be174fd0ce6701eb036fca312ee5fad8d5cb1df3ca"
     },
     {
      "name": "death_N_14.png",
-     "sha256": "2e2781e285608a9cd49d3f45ffc93ce1f42f0116a2169d4118d3aabf42a273d0"
+     "sha256": "4a00c93c108995cdf14163e082de5dc6de236bec7cd12844e81bc68545dd62ad"
     },
     {
      "name": "death_N_15.png",
-     "sha256": "ba8497d1f0f18ce8b7565daf18305a52ac0817ec737b92dd33fdf05aa9986ea7"
+     "sha256": "55480aa1e899248b80ad8f923eefd6576e647ad63f83ffbb9faf215228ab4a90"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "4bde60eaadd154d01458aba8977f818a87d50e1015d2bd6b452905f4f7a0f40f",
+   "render_pass": "p2",
+   "cell_sha256": "1cf707ff1fe5bed9c765699ae2ca70abc6bb03c379979ef3fb1321b1ceb0b2bd",
    "alpha_union_bbox": [
-    260,
-    222,
-    599,
-    716
+    258,
+    169,
+    595,
+    578
    ],
    "edge_touch": false,
    "facing_measured_deg": 270.0,
@@ -34345,493 +34359,493 @@
    "sockets_m": {
     "main_grip": [
      [
-      0.42599,
-      0.17049,
+      0.36684,
+      0.13689,
       0.99443
      ],
      [
-      0.56514,
-      0.19582,
+      0.50875,
+      0.08305,
       1.01788
      ],
      [
-      0.59014,
-      0.3093,
+      0.5365,
+      0.11737,
       1.65981
      ],
      [
-      0.45526,
-      0.71203,
+      0.40438,
+      0.44093,
       1.90682
      ],
      [
-      0.53081,
-      0.77582,
+      0.48269,
+      0.42556,
       1.86419
      ],
      [
-      0.65192,
-      0.68206,
+      0.60656,
+      0.25263,
       1.79767
      ],
      [
-      0.74526,
-      0.53398,
+      0.70265,
+      0.02538,
       1.71393
      ],
      [
-      0.76521,
-      0.40231,
+      0.72536,
+      -0.18545,
       1.62685
      ],
      [
-      0.72204,
-      0.40831,
+      0.68495,
+      -0.25862,
       1.54699
      ],
      [
-      0.72544,
-      0.55255,
+      0.69111,
+      -0.19355,
       1.35901
      ],
      [
-      0.75657,
-      0.89892,
+      0.725,
+      0.07365,
       0.92727
      ],
      [
-      0.89685,
-      1.34378,
+      0.86804,
+      0.43934,
       0.33067
      ],
      [
-      0.9275,
-      1.46782,
+      0.90144,
+      0.48422,
       0.10189
      ],
      [
-      0.92571,
-      1.58241,
+      0.9024,
+      0.51964,
       0.19887
      ],
      [
-      0.93416,
-      1.64618,
+      0.91361,
+      0.50424,
       0.11864
      ],
      [
-      0.92545,
-      1.65095,
+      0.90766,
+      0.42985,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      0.35152,
-      -0.4727,
+      0.29237,
+      -0.5063,
       1.42358
      ],
      [
-      0.1033,
-      -0.42145,
+      0.0469,
+      -0.53421,
       0.92249
      ],
      [
-      0.61448,
-      -0.13212,
+      0.56084,
+      -0.32405,
       1.02109
      ],
      [
-      0.9931,
-      0.22317,
+      0.94222,
+      -0.04793,
       1.63265
      ],
      [
-      0.98122,
-      0.15235,
+      0.93309,
+      -0.19792,
       1.97297
      ],
      [
-      0.90857,
-      -0.02807,
+      0.8632,
+      -0.4575,
       1.98004
      ],
      [
-      0.81477,
-      -0.21934,
+      0.77217,
+      -0.72794,
       1.89026
      ],
      [
-      0.65511,
-      -0.34443,
+      0.61526,
+      -0.93219,
       1.81036
      ],
      [
-      0.45529,
-      -0.26625,
+      0.4182,
+      -0.93318,
       1.82489
      ],
      [
-      0.39483,
-      -0.00439,
+      0.3605,
+      -0.75049,
       1.78788
      ],
      [
-      0.39882,
-      0.54326,
+      0.36724,
+      -0.282,
       1.51798
      ],
      [
-      0.95168,
-      1.67621,
+      0.92286,
+      0.77178,
       1.0306
      ],
      [
-      1.42097,
-      2.0614,
+      1.39491,
+      1.0778,
       0.1889
      ],
      [
-      1.20919,
-      2.28961,
+      1.18589,
+      1.22684,
       0.3503
      ],
      [
-      1.22367,
-      2.3639,
+      1.20312,
+      1.22197,
       0.18556
      ],
      [
-      1.21443,
-      2.36018,
+      1.19664,
+      1.13909,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      0.18597,
-      -0.41217,
+      0.12681,
+      -0.44577,
       1.09046
      ],
      [
-      -0.03728,
-      -0.28738,
+      -0.09367,
+      -0.40014,
       1.22285
      ],
      [
-      -0.22137,
-      -0.11605,
+      -0.27501,
+      -0.30798,
       0.85215
      ],
      [
-      -0.21892,
-      0.29123,
+      -0.2698,
+      0.02013,
       0.7066
      ],
      [
-      -0.24576,
-      0.1553,
+      -0.29389,
+      -0.19497,
       0.81495
      ],
      [
-      -0.26486,
-      0.07332,
+      -0.31022,
+      -0.35612,
       0.89253
      ],
      [
-      -0.26299,
-      0.02803,
+      -0.30559,
+      -0.48057,
       0.93724
      ],
      [
-      -0.241,
-      -0.0022,
+      -0.28085,
+      -0.58997,
       0.9696
      ],
      [
-      -0.21424,
-      0.01898,
+      -0.25133,
+      -0.64796,
       0.95837
      ],
      [
-      -0.23212,
-      0.17227,
+      -0.26646,
+      -0.57383,
       0.8927
      ],
      [
-      -0.27068,
-      0.59653,
+      -0.30226,
+      -0.22873,
       0.59863
      ],
      [
-      -0.3831,
-      0.97521,
+      -0.41192,
+      0.07078,
       0.30687
      ],
      [
-      -0.6119,
-      1.23579,
+      -0.63796,
+      0.25219,
       0.06801
      ],
      [
-      -0.66449,
-      1.34304,
+      -0.68779,
+      0.28027,
       0.06956
      ],
      [
-      -0.65029,
-      1.33858,
+      -0.67084,
+      0.19664,
       0.07807
      ],
      [
-      -0.69363,
-      1.3714,
+      -0.71142,
+      0.1503,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      0.60904,
-      -0.25794,
+      0.54989,
+      -0.29154,
       1.76242
      ],
      [
-      0.0877,
-      -0.19599,
+      0.0313,
+      -0.30876,
       2.0168
      ],
      [
-      0.27208,
-      -0.65227,
+      0.21844,
+      -0.8442,
       1.20328
      ],
      [
-      -0.24797,
-      -0.4661,
+      -0.29885,
+      -0.7372,
       0.42387
      ],
      [
-      -0.1538,
-      -0.63696,
+      -0.20193,
+      -0.98722,
       0.68007
      ],
      [
-      -0.03508,
-      -0.70074,
+      -0.08045,
+      -1.13018,
       0.844
      ],
      [
-      0.1245,
-      -0.68142,
+      0.08189,
+      -1.19002,
       0.90805
      ],
      [
-      0.29162,
-      -0.61084,
+      0.25177,
+      -1.19861,
       0.98331
      ],
      [
-      0.41918,
-      -0.46899,
+      0.38209,
+      -1.13592,
       1.08079
      ],
      [
-      0.4237,
-      -0.26331,
+      0.38936,
+      -1.00941,
       1.07842
      ],
      [
-      0.43389,
-      0.22104,
+      0.40232,
+      -0.60423,
       0.7286
      ],
      [
-      0.2359,
-      0.79276,
+      0.20708,
+      -0.11167,
       0.79459
      ],
      [
-      -0.04293,
-      0.66595,
+      -0.06899,
+      -0.31765,
       0.14463
      ],
      [
-      -0.46747,
-      0.56019,
+      -0.49078,
+      -0.50257,
       0.01805
      ],
      [
-      -0.4837,
-      0.54749,
+      -0.50425,
+      -0.59444,
       0.05061
      ],
      [
-      -0.53898,
-      0.57783,
+      -0.55677,
+      -0.64327,
       0.05634
      ]
     ],
     "head_top": [
      [
-      0.10992,
-      -0.13426,
+      0.05077,
+      -0.16786,
       1.74424
      ],
      [
-      0.04709,
-      0.05261,
+      -0.0093,
+      -0.06015,
       1.70654
      ],
      [
-      -0.04923,
-      0.39074,
+      -0.10287,
+      0.19881,
       1.77527
      ],
      [
-      -0.09597,
-      0.60995,
+      -0.14685,
+      0.33885,
       1.69517
      ],
      [
-      -0.08188,
-      0.62958,
+      -0.13,
+      0.27931,
       1.70527
      ],
      [
-      -0.02636,
-      0.58683,
+      -0.07172,
+      0.1574,
       1.76285
      ],
      [
-      0.05176,
-      0.52923,
+      0.00916,
+      0.02063,
       1.78597
      ],
      [
-      0.11296,
-      0.51711,
+      0.07312,
+      -0.07065,
       1.74971
      ],
      [
-      0.12797,
-      0.65042,
+      0.09088,
+      -0.01652,
       1.63261
      ],
      [
-      0.16367,
-      0.89184,
+      0.12933,
+      0.14574,
       1.4297
      ],
      [
-      0.20025,
-      1.29905,
+      0.16867,
+      0.47378,
       0.99769
      ],
      [
-      0.19858,
-      1.861,
+      0.16976,
+      0.95657,
       0.35563
      ],
      [
-      0.21626,
-      1.93272,
+      0.1902,
+      0.94912,
       0.20786
      ],
      [
-      0.25421,
-      1.936,
+      0.23091,
+      0.87324,
       0.18789
      ],
      [
-      0.2712,
-      1.93539,
+      0.25065,
+      0.79345,
       0.17079
      ],
      [
-      0.24856,
-      1.95164,
+      0.23077,
+      0.73054,
       0.18084
      ]
     ],
     "chest": [
      [
-      0.02526,
-      -0.02097,
+      -0.03389,
+      -0.05457,
       1.06709
      ],
      [
-      0.02105,
-      0.17745,
+      -0.03535,
+      0.06468,
       1.07054
      ],
      [
-      0.04626,
-      0.23649,
+      -0.00738,
+      0.04456,
       1.1112
      ],
      [
-      0.06194,
-      0.27069,
+      0.01106,
+      -0.00041,
       1.13276
      ],
      [
-      0.07004,
-      0.30659,
+      0.02192,
+      -0.04368,
       1.13559
      ],
      [
-      0.07716,
-      0.34534,
+      0.03179,
+      -0.08409,
       1.12733
      ],
      [
-      0.08452,
-      0.38908,
+      0.04192,
+      -0.11952,
       1.11054
      ],
      [
-      0.08957,
-      0.44627,
+      0.04972,
+      -0.14149,
       1.07251
      ],
      [
-      0.09622,
-      0.55172,
+      0.05913,
+      -0.11521,
       0.96675
      ],
      [
-      0.10922,
-      0.71646,
+      0.07489,
+      -0.02964,
       0.78598
      ],
      [
-      0.09803,
-      1.00404,
+      0.06645,
+      0.17877,
       0.44006
      ],
      [
-      0.05235,
-      1.20254,
+      0.02353,
+      0.29811,
       0.25063
      ],
      [
-      -0.00291,
-      1.28402,
+      -0.02898,
+      0.30042,
       0.27453
      ],
      [
-      -0.01824,
-      1.30761,
+      -0.04155,
+      0.24484,
       0.22015
      ],
      [
-      -0.01863,
-      1.31839,
+      -0.03918,
+      0.17646,
       0.21896
      ],
      [
-      -0.0228,
-      1.32231,
+      -0.04059,
+      0.10121,
       0.22078
      ]
     ]
@@ -34844,76 +34858,76 @@
    "files": [
     {
      "name": "death_NE_00.png",
-     "sha256": "abb6c768bd56fcb2ac803a7586482fedbc5d992b722cfadfaa47cb098e25026e"
+     "sha256": "d1ff885485a7e2a41b58ea9b56534d7d062ac0d02f787b4f6b9bda8edb71e496"
     },
     {
      "name": "death_NE_01.png",
-     "sha256": "a47a04f68c65eabb7d2f8aad098705048fa7244254462f3764bad2fd28b99e89"
+     "sha256": "9dd124b9f79efa706fd6325d13c6c52a357736e5eb3807917e91029dcacce625"
     },
     {
      "name": "death_NE_02.png",
-     "sha256": "e43e03299e59d180c801667a222d788e21d53d1f60eb5c1249b8f1cc4805009f"
+     "sha256": "54674a5d4c145501e492e5939fc5fcb0a95f4b0d32a22d10e1a2cb1d93950f44"
     },
     {
      "name": "death_NE_03.png",
-     "sha256": "1f6e9a9ef5cbb41115f09a528a5960749847f9d8b4b22966042a2ec2a47195ce"
+     "sha256": "c6066af69f6509a5f8327c8d9c31e202c3367683367a6606af7f55ccd7637706"
     },
     {
      "name": "death_NE_04.png",
-     "sha256": "81650d49158caf18b0e35e38658f156588c23bcccc70b0a34362ac8d37f2889b"
+     "sha256": "4fb7ff983c425bfdd6ce0f7411d4b4038bf2fc830bdf775e898ac3182e7cee54"
     },
     {
      "name": "death_NE_05.png",
-     "sha256": "995b3972aea96426139472ea370878b56a2aecccf64417dfe48238e0b526acc7"
+     "sha256": "5c1d0aa7a97af1f45c8e55cf0c85016af3fd8a5e3c974768f42bcab79305e055"
     },
     {
      "name": "death_NE_06.png",
-     "sha256": "6005f9363b61fc4cae1494973804d605764139d2208179d5ad7492447b2b0036"
+     "sha256": "d203cceb3a36e07b68d4eabe61e9932424a58ab787d811f3b5a6c24be37ee2ca"
     },
     {
      "name": "death_NE_07.png",
-     "sha256": "08cf692c1f6707074d5457df8cb49f721ab04237685b19e833f775864b63a064"
+     "sha256": "527566e4b9261cac8f4078a682a7ec8c4a9f4577476d3a001e44f298923a1acb"
     },
     {
      "name": "death_NE_08.png",
-     "sha256": "8f63c6fbe20212582371797d63d507673fb7772a37fe84b98eacd07371d18617"
+     "sha256": "cedc9968aaeb8498c6aa6ebf700d1e48299bdd8527e857aa6074638d2eac6d44"
     },
     {
      "name": "death_NE_09.png",
-     "sha256": "74915b6055c5c1aca366c39cda627026d07cee41ec2b2aaa11ef20b977b0bfb4"
+     "sha256": "0a601f46af505f767aac7c3fb69898c9bfa4817ab172346c42ea4f13ee5dd618"
     },
     {
      "name": "death_NE_10.png",
-     "sha256": "c2d9beac10d0f1fdb0114b0afd13e064cdd9b38f6059d9b046aff33f8aa5c061"
+     "sha256": "f2ecf648eaac13e4dbece4aebd869c3753f242aa1fd6081a23b28f3054a76982"
     },
     {
      "name": "death_NE_11.png",
-     "sha256": "e068efe51a90925a3b11fa6de09f4944fbb47788fb3ff9ef633f4bebed4a117a"
+     "sha256": "d74efbb7d1aeb0b6d4d1d2c410aeae1b664549a2356319e16841d14c7a82c99d"
     },
     {
      "name": "death_NE_12.png",
-     "sha256": "6120d199a49c3a6664984a37e0b2025a0fe9c5f0eef1298132a237446e8c6d55"
+     "sha256": "895990a75a27c0174f71a0a7fbb8c9198b450c9fdeef64d804ff1e4f1faa80f2"
     },
     {
      "name": "death_NE_13.png",
-     "sha256": "75ca4d13e0acea9d6874d970d746011b59abad1a065b092cfcbb999622cfe9af"
+     "sha256": "644295485776cbe5942821c84229e0b0b06f819db24c33d083cf4e5b212b3af8"
     },
     {
      "name": "death_NE_14.png",
-     "sha256": "459f37d1fd1bf0acd7e5e7a1d4acf499954343341ab904611f2fa84a1111f2b5"
+     "sha256": "fa5e13d653910ac07903b7804f83362bfb3ed1d873a4b20ef2f5f15aa3720473"
     },
     {
      "name": "death_NE_15.png",
-     "sha256": "c891077cc89c85a9e04403c162fd2935728c907bbb15da701932b155e5e6d949"
+     "sha256": "32aeff33180396a31de19218f87d838289f7c48958778f4913940eed7a3a8c28"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "4b21236da3b379abfcfe8efd03fac650032211703dbae0051cb5e7da0aa0306a",
+   "render_pass": "p2",
+   "cell_sha256": "b1dce709d74218c1f44d22cafd1aa73bba01c32b346c66240dc785629c5dde3d",
    "alpha_union_bbox": [
-    147,
-    254,
-    503,
-    738
+    264,
+    238,
+    552,
+    642
    ],
    "edge_touch": false,
    "facing_measured_deg": 315.0,
@@ -34922,493 +34936,493 @@
    "sockets_m": {
     "main_grip": [
      [
-      0.18067,
-      0.42178,
+      0.1626,
+      0.35619,
       0.99443
      ],
      [
-      0.26115,
-      0.53808,
+      0.30101,
+      0.41846,
       1.01788
      ],
      [
-      0.19858,
-      0.636,
+      0.29637,
+      0.46236,
       1.65981
      ],
      [
-      -0.18156,
-      0.8254,
+      -0.02584,
+      0.59772,
       1.90682
      ],
      [
-      -0.17325,
-      0.92393,
+      0.0404,
+      0.64222,
       1.86419
      ],
      [
-      -0.02131,
-      0.94327,
+      0.25026,
+      0.60754,
       1.79767
      ],
      [
-      0.14939,
-      0.90456,
+      0.4789,
+      0.5148,
       1.71393
      ],
      [
-      0.25661,
-      0.82557,
+      0.64404,
+      0.38178,
       1.62685
      ],
      [
-      0.22184,
-      0.79928,
+      0.6672,
+      0.30146,
       1.54699
      ],
      [
-      0.12226,
-      0.90367,
+      0.62555,
+      0.35182,
       1.35901
      ],
      [
-      -0.10066,
-      1.17061,
+      0.46057,
+      0.56473,
       0.92727
      ],
      [
-      -0.31602,
-      1.58437,
+      0.30313,
+      0.92446,
       0.33067
      ],
      [
-      -0.38206,
-      1.69374,
+      0.29502,
+      0.97981,
       0.10189
      ],
      [
-      -0.46436,
-      1.77351,
+      0.27065,
+      1.00554,
       0.19887
      ],
      [
-      -0.50347,
-      1.82457,
+      0.28947,
+      1.00258,
       0.11864
      ],
      [
-      -0.51301,
-      1.82179,
+      0.33786,
+      0.94576,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      0.58281,
-      -0.08569,
+      0.56475,
+      -0.15127,
       1.42358
      ],
      [
-      0.37105,
-      -0.22497,
+      0.41091,
+      -0.34458,
       0.92249
      ],
      [
-      0.52793,
-      0.34108,
+      0.62572,
+      0.16743,
       1.02109
      ],
      [
-      0.54442,
-      0.86003,
+      0.70014,
+      0.63236,
       1.63265
      ],
      [
-      0.5861,
-      0.80155,
+      0.79975,
+      0.51985,
       1.97297
      ],
      [
-      0.6623,
-      0.62261,
+      0.93388,
+      0.28687,
       1.98004
      ],
      [
-      0.73123,
-      0.42103,
+      1.06073,
+      0.03127,
       1.89026
      ],
      [
-      0.70678,
-      0.21969,
+      1.09422,
+      -0.2241,
       1.81036
      ],
      [
-      0.51021,
-      0.13367,
+      0.95557,
+      -0.36415,
       1.82489
      ],
      [
-      0.28229,
-      0.27608,
+      0.78559,
+      -0.27577,
       1.78788
      ],
      [
-      -0.10214,
-      0.66615,
+      0.45909,
+      0.06027,
       1.51798
      ],
      [
-      -0.51232,
-      1.8582,
+      0.10683,
+      1.19829,
       1.0306
      ],
      [
-      -0.45285,
-      2.4624,
+      0.22423,
+      1.74846,
       0.1889
      ],
      [
-      -0.76397,
-      2.47402,
+      -0.02896,
+      1.70605,
       0.3503
      ],
      [
-      -0.80626,
-      2.53679,
+      -0.01332,
+      1.7148,
       0.18556
      ],
      [
-      -0.81017,
-      2.52764,
+      0.0407,
+      1.65161,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      0.42295,
-      -0.15995,
+      0.40488,
+      -0.22554,
       1.09046
      ],
      [
-      0.17685,
-      -0.22957,
+      0.21671,
+      -0.34918,
       1.22285
      ],
      [
-      -0.07447,
-      -0.23859,
+      0.02332,
+      -0.41223,
       0.85215
      ],
      [
-      -0.36073,
-      0.05113,
+      -0.20501,
+      -0.17655,
       0.7066
      ],
      [
-      -0.28359,
-      -0.06397,
+      -0.06995,
+      -0.34567,
       0.81495
      ],
      [
-      -0.23913,
-      -0.13544,
+      0.03245,
+      -0.47117,
       0.89253
      ],
      [
-      -0.20578,
-      -0.16614,
+      0.12372,
+      -0.5559,
       0.93724
      ],
      [
-      -0.16886,
-      -0.17197,
+      0.21858,
+      -0.61576,
       0.9696
      ],
      [
-      -0.16491,
-      -0.13807,
+      0.28046,
+      -0.63589,
       0.95837
      ],
      [
-      -0.28595,
-      -0.04233,
+      0.21735,
+      -0.59418,
       0.8927
      ],
      [
-      -0.61321,
-      0.23041,
+      -0.05199,
+      -0.37547,
       0.59863
      ],
      [
-      -0.96048,
-      0.41869,
+      -0.34132,
+      -0.24122,
       0.30687
      ],
      [
-      -1.30652,
-      0.44115,
+      -0.62943,
+      -0.27278,
       0.06801
      ],
      [
-      -1.41954,
-      0.47981,
+      -0.68453,
+      -0.28816,
       0.06956
      ],
      [
-      -1.40634,
-      0.48669,
+      -0.6134,
+      -0.33531,
       0.07807
      ],
      [
-      -1.46019,
-      0.47926,
+      -0.60932,
+      -0.39677,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      0.61305,
-      0.24827,
+      0.59498,
+      0.18268,
       1.76242
      ],
      [
-      0.2006,
-      -0.07658,
+      0.24046,
+      -0.19619,
       2.0168
      ],
      [
-      0.65361,
-      -0.26883,
+      0.7514,
+      -0.44248,
       1.20328
      ],
      [
-      0.15424,
-      -0.50492,
+      0.30996,
+      -0.7326,
       0.42387
      ],
      [
-      0.34164,
-      -0.55915,
+      0.55529,
+      -0.84086,
       0.68007
      ],
      [
-      0.47069,
-      -0.52031,
+      0.74227,
+      -0.85604,
       0.844
      ],
      [
-      0.56987,
-      -0.39381,
+      0.89938,
+      -0.78357,
       0.90805
      ],
      [
-      0.63814,
-      -0.22572,
+      1.02557,
+      -0.66951,
       0.98331
      ],
      [
-      0.62803,
-      -0.03522,
+      1.0734,
+      -0.53304,
       1.08079
      ],
      [
-      0.48579,
-      0.11341,
+      0.98908,
+      -0.43844,
       1.07842
      ],
      [
-      0.15051,
-      0.46311,
+      0.71174,
+      -0.14277,
       0.7286
      ],
      [
-      -0.39376,
-      0.72737,
+      0.22539,
+      0.06747,
       0.79459
      ],
      [
-      -0.50125,
-      0.44055,
+      0.17583,
+      -0.27339,
       0.14463
      ],
      [
-      -0.72667,
-      0.06556,
+      0.00834,
+      -0.7024,
       0.01805
      ],
      [
-      -0.72917,
-      0.04511,
+      0.06377,
+      -0.77689,
       0.05061
      ],
      [
-      -0.7897,
-      0.02747,
+      0.06117,
+      -0.84856,
       0.05634
      ]
     ],
     "head_top": [
      [
-      0.17267,
-      -0.01721,
+      0.1546,
+      -0.0828,
       1.74424
      ],
      [
-      -0.0039,
-      0.0705,
+      0.03596,
+      -0.04911,
       1.70654
      ],
      [
-      -0.31111,
-      0.24149,
+      -0.21332,
+      0.06784,
       1.77527
      ],
      [
-      -0.49916,
-      0.36344,
+      -0.34344,
+      0.13576,
       1.69517
      ],
      [
-      -0.50308,
-      0.38728,
+      -0.28943,
+      0.10558,
       1.70527
      ],
      [
-      -0.43359,
-      0.39631,
+      -0.16201,
+      0.06058,
       1.76285
      ],
      [
-      -0.33762,
-      0.41083,
+      -0.00811,
+      0.02106,
       1.78597
      ],
      [
-      -0.28578,
-      0.44553,
+      0.10166,
+      0.00174,
       1.74971
      ],
      [
-      -0.36943,
-      0.5504,
+      0.07594,
+      0.05258,
       1.63261
      ],
      [
-      -0.5149,
-      0.74635,
+      -0.0116,
+      0.1945,
       1.4297
      ],
      [
-      -0.77697,
-      1.06016,
+      -0.21574,
+      0.45428,
       0.99769
      ],
      [
-      -1.17551,
-      1.45635,
+      -0.55636,
+      0.79644,
       0.35563
      ],
      [
-      -1.21372,
-      1.51956,
+      -0.53663,
+      0.80562,
       0.20786
      ],
      [
-      -1.18921,
-      1.54871,
+      -0.4542,
+      0.78075,
       0.18789
      ],
      [
-      -1.17676,
-      1.56029,
+      -0.38382,
+      0.73829,
       0.17079
      ],
      [
-      -1.20426,
-      1.55578,
+      -0.35339,
+      0.67975,
       0.18084
      ]
     ],
     "chest": [
      [
-      0.03269,
-      0.00303,
+      0.01462,
+      -0.06255,
       1.06709
      ],
      [
-      -0.11059,
-      0.14036,
+      -0.07073,
+      0.02074,
       1.07054
      ],
      [
-      -0.13452,
-      0.19994,
+      -0.03673,
+      0.02629,
       1.1112
      ],
      [
-      -0.14761,
-      0.23521,
+      0.00811,
+      0.00753,
       1.13276
      ],
      [
-      -0.16726,
-      0.26631,
+      0.04638,
+      -0.01539,
       1.13559
      ],
      [
-      -0.18964,
-      0.29875,
+      0.08194,
+      -0.03698,
       1.12733
      ],
      [
-      -0.21536,
-      0.33489,
+      0.11415,
+      -0.05487,
       1.11054
      ],
      [
-      -0.25223,
-      0.3789,
+      0.13521,
+      -0.06489,
       1.07251
      ],
      [
-      -0.32209,
-      0.45817,
+      0.12328,
+      -0.03965,
       0.96675
      ],
      [
-      -0.42939,
-      0.58385,
+      0.07391,
+      0.032,
       0.78598
      ],
      [
-      -0.64064,
-      0.77928,
+      -0.07942,
+      0.1734,
       0.44006
      ],
      [
-      -0.81331,
-      0.88734,
+      -0.19415,
+      0.22744,
       0.25063
      ],
      [
-      -0.91,
-      0.90588,
+      -0.23292,
+      0.19194,
       0.27453
      ],
      [
-      -0.93752,
-      0.91172,
+      -0.20251,
+      0.14375,
       0.22015
      ],
      [
-      -0.94542,
-      0.91907,
+      -0.15248,
+      0.09707,
       0.21896
      ],
      [
-      -0.95114,
-      0.91889,
+      -0.10027,
+      0.04286,
       0.22078
      ]
     ]
@@ -35421,76 +35435,76 @@
    "files": [
     {
      "name": "death_E_00.png",
-     "sha256": "e8d2b22059933e06c7cc27fd0b137062a8a7264b1b683273d2cc80a72fb265ef"
+     "sha256": "398d2bf0c0d2518236574d862bc598c52032dce3feba325e1e8a192bd2726020"
     },
     {
      "name": "death_E_01.png",
-     "sha256": "5f1c4639d2545a5edccb07cfdb284555ddbdd9fdf0429fd263e6f20ad4feca2a"
+     "sha256": "b7ea72f8280f7ead4657964c2146c4e9d1613c7b779ea476ebaabb4d46ed407f"
     },
     {
      "name": "death_E_02.png",
-     "sha256": "314dc63aaa167bd81a7250e39fc10ace3843ff9e502e793b0fcf166485608be9"
+     "sha256": "dd7a9b102a123b794f726d55b00b21010f2fb83fd029ea3f9b723b4c0a289ee9"
     },
     {
      "name": "death_E_03.png",
-     "sha256": "213f490c2977e72da6ad835c484c9140f3e5a5919ce3560a6ba8d2b6e411f440"
+     "sha256": "b6eea984e4f3725678539f42d7990d243f8c0705630e0e0c83226b4fe1252a59"
     },
     {
      "name": "death_E_04.png",
-     "sha256": "74a49ff650e4552990fd43d40f15c274df84d78d18d7bcb4760c0a47346d4449"
+     "sha256": "5acb7031e400944aa5f7e1062e68bd37d7eacb6c923e488981339ca0bf693c91"
     },
     {
      "name": "death_E_05.png",
-     "sha256": "12053c906848a5bde4d0bc41831a1cc183867a79f45ab4be9f1c5575b910a257"
+     "sha256": "d911b0cddfbda1a9e0edb083a1e8bef8b69d91c0d2e0fd76a03366ebad71b96b"
     },
     {
      "name": "death_E_06.png",
-     "sha256": "9e3f452959c817da4fc7aa53f2ca53c585ae984a1a8ab5c54269330f3e3e62a3"
+     "sha256": "8720a2de2b0efa2f401969ed4b85d2419ccbbeb9bd9eabef76864c148872a503"
     },
     {
      "name": "death_E_07.png",
-     "sha256": "d310806b4f0de1cf1404df45f4be22ef15c699fbba23741f9ca265e55259a605"
+     "sha256": "bb0d9a5345acb544cedd48aee9477f7b678fd07a635f294f4b4c7e2f7d189401"
     },
     {
      "name": "death_E_08.png",
-     "sha256": "8ac79d46a88bc1da5ef7059af176745e1fe2e2dec52bcde56f8c5e203286aa9b"
+     "sha256": "1361c21e12494f51b54da193162a368664add06e721a0162ff8c4c9b9d795842"
     },
     {
      "name": "death_E_09.png",
-     "sha256": "8c5e28e78d8f32f7ae35525a3efcd3f839c41e9a95ace6c137016d0c2a02895e"
+     "sha256": "ac82b6527bcce2e9c6ab760ed45f8d4c03483f86199cba43bb2e01c439e551c7"
     },
     {
      "name": "death_E_10.png",
-     "sha256": "dd107218885e1bbd68c06e3c37a44210f65e32a87776fd254f5701fc50fba93b"
+     "sha256": "26782d1f202fa0b5e87baf599ecca8601a8ba1662f4244673b1156a1e2dbce37"
     },
     {
      "name": "death_E_11.png",
-     "sha256": "7c0187247d21ff6de7f3bc881e6758fae9bd826f6b9082258a4b0f004836abc9"
+     "sha256": "b1ae69cee5b73b6a979fc95517e242758ff47a90ed3001d352ae1115e8804c9d"
     },
     {
      "name": "death_E_12.png",
-     "sha256": "fc2964b6e7c36734c1623d68117ae5c8ed31637d576ad5ddc9c719f42b81001a"
+     "sha256": "9b2a6ced35ccba00509f348ea59dd5c5340bd746e40862cc00b5c9c203356044"
     },
     {
      "name": "death_E_13.png",
-     "sha256": "48de07192a8510683d03b26a1f3ebaefb11e4db98e69f3c5c061223a9de860e2"
+     "sha256": "cb8be20d78b366712453642d386e3eafe505b89fee814a9903c9eaf3e4f04a12"
     },
     {
      "name": "death_E_14.png",
-     "sha256": "167be749a01fa12b95fa6d245d507db9e611a847d4454fd6b646babb4c3acc22"
+     "sha256": "9faa9fd127bd9c8f1909463ac10ce118a4ee04f32efd8696205eaf204234c2ff"
     },
     {
      "name": "death_E_15.png",
-     "sha256": "509fb61feaa66bd73682b6ff28f778698f75befb7994172dad7f0305b8967891"
+     "sha256": "679bdde5305029279f79cc6e885fe4cb6a715b9e2f667c3db5163b38204e52cf"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "721235297594ad61bab8b9e03f9bbf4ff9cbde39a397c07fca834cd8ca2d2d70",
+   "render_pass": "p2",
+   "cell_sha256": "89b0603db230f5b710596c257f69f7acb9e4585d95b70639170ed2cb6b87cea6",
    "alpha_union_bbox": [
-    26,
-    266,
-    505,
-    603
+    199,
+    259,
+    581,
+    600
    ],
    "edge_touch": false,
    "facing_measured_deg": 360.0,
@@ -35499,1072 +35513,1070 @@
    "sockets_m": {
     "main_grip": [
      [
-      -0.17049,
-      0.42599,
+      -0.13689,
+      0.36684,
       0.99443
      ],
      [
-      -0.19582,
-      0.56514,
+      -0.08305,
+      0.50875,
       1.01788
      ],
      [
-      -0.3093,
-      0.59014,
+      -0.11737,
+      0.5365,
       1.65981
      ],
      [
-      -0.71203,
-      0.45526,
+      -0.44093,
+      0.40438,
       1.90682
      ],
      [
-      -0.77582,
-      0.53081,
+      -0.42556,
+      0.48269,
       1.86419
      ],
      [
-      -0.68206,
-      0.65192,
+      -0.25263,
+      0.60656,
       1.79767
      ],
      [
-      -0.53398,
-      0.74526,
+      -0.02538,
+      0.70265,
       1.71393
      ],
      [
-      -0.40231,
-      0.76521,
+      0.18545,
+      0.72536,
       1.62685
      ],
      [
-      -0.40831,
-      0.72204,
+      0.25862,
+      0.68495,
       1.54699
      ],
      [
-      -0.55255,
-      0.72544,
+      0.19355,
+      0.69111,
       1.35901
      ],
      [
-      -0.89892,
-      0.75657,
+      -0.07365,
+      0.725,
       0.92727
      ],
      [
-      -1.34378,
-      0.89685,
+      -0.43934,
+      0.86804,
       0.33067
      ],
      [
-      -1.46782,
-      0.9275,
+      -0.48422,
+      0.90144,
       0.10189
      ],
      [
-      -1.58241,
-      0.92571,
+      -0.51964,
+      0.9024,
       0.19887
      ],
      [
-      -1.64618,
-      0.93416,
+      -0.50424,
+      0.91361,
       0.11864
      ],
      [
-      -1.65095,
-      0.92545,
+      -0.42985,
+      0.90766,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      0.4727,
-      0.35152,
+      0.5063,
+      0.29237,
       1.42358
      ],
      [
-      0.42145,
-      0.1033,
+      0.53421,
+      0.0469,
       0.92249
      ],
      [
-      0.13212,
-      0.61448,
+      0.32405,
+      0.56084,
       1.02109
      ],
      [
-      -0.22317,
-      0.9931,
+      0.04793,
+      0.94222,
       1.63265
      ],
      [
-      -0.15235,
-      0.98122,
+      0.19792,
+      0.93309,
       1.97297
      ],
      [
-      0.02807,
-      0.90857,
+      0.4575,
+      0.8632,
       1.98004
      ],
      [
-      0.21934,
-      0.81477,
+      0.72794,
+      0.77217,
       1.89026
      ],
      [
-      0.34443,
-      0.65511,
+      0.93219,
+      0.61526,
       1.81036
      ],
      [
-      0.26625,
-      0.45529,
+      0.93318,
+      0.4182,
       1.82489
      ],
      [
-      0.00439,
-      0.39483,
+      0.75049,
+      0.3605,
       1.78788
      ],
      [
-      -0.54326,
-      0.39882,
+      0.282,
+      0.36724,
       1.51798
      ],
      [
-      -1.67621,
-      0.95168,
+      -0.77178,
+      0.92286,
       1.0306
      ],
      [
-      -2.0614,
-      1.42097,
+      -1.0778,
+      1.39491,
       0.1889
      ],
      [
-      -2.28961,
-      1.20919,
+      -1.22684,
+      1.18589,
       0.3503
      ],
      [
-      -2.3639,
-      1.22367,
+      -1.22196,
+      1.20312,
       0.18556
      ],
      [
-      -2.36018,
-      1.21443,
+      -1.13908,
+      1.19664,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      0.41217,
-      0.18597,
+      0.44577,
+      0.12681,
       1.09046
      ],
      [
-      0.28738,
-      -0.03728,
+      0.40014,
+      -0.09367,
       1.22285
      ],
      [
-      0.11605,
-      -0.22137,
+      0.30798,
+      -0.27501,
       0.85215
      ],
      [
-      -0.29123,
-      -0.21892,
+      -0.02013,
+      -0.2698,
       0.7066
      ],
      [
-      -0.1553,
-      -0.24576,
+      0.19497,
+      -0.29389,
       0.81495
      ],
      [
-      -0.07332,
-      -0.26486,
+      0.35612,
+      -0.31022,
       0.89253
      ],
      [
-      -0.02803,
-      -0.26299,
+      0.48057,
+      -0.30559,
       0.93724
      ],
      [
-      0.0022,
-      -0.241,
+      0.58997,
+      -0.28085,
       0.9696
      ],
      [
-      -0.01898,
-      -0.21424,
+      0.64796,
+      -0.25133,
       0.95837
      ],
      [
-      -0.17227,
-      -0.23212,
+      0.57383,
+      -0.26646,
       0.8927
      ],
      [
-      -0.59653,
-      -0.27068,
+      0.22873,
+      -0.30226,
       0.59863
      ],
      [
-      -0.97521,
-      -0.3831,
+      -0.07078,
+      -0.41192,
       0.30687
      ],
      [
-      -1.23579,
-      -0.6119,
+      -0.25219,
+      -0.63796,
       0.06801
      ],
      [
-      -1.34304,
-      -0.66449,
+      -0.28028,
+      -0.68779,
       0.06956
      ],
      [
-      -1.33858,
-      -0.65029,
+      -0.19664,
+      -0.67084,
       0.07807
      ],
      [
-      -1.3714,
-      -0.69363,
+      -0.1503,
+      -0.71142,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      0.25794,
-      0.60904,
+      0.29154,
+      0.54989,
       1.76242
      ],
      [
-      0.19599,
-      0.0877,
+      0.30876,
+      0.0313,
       2.0168
      ],
      [
-      0.65227,
-      0.27208,
+      0.8442,
+      0.21844,
       1.20328
      ],
      [
-      0.4661,
-      -0.24797,
+      0.7372,
+      -0.29885,
       0.42387
      ],
      [
-      0.63696,
-      -0.1538,
+      0.98722,
+      -0.20193,
       0.68007
      ],
      [
-      0.70074,
-      -0.03508,
+      1.13018,
+      -0.08045,
       0.844
      ],
      [
-      0.68142,
-      0.1245,
+      1.19002,
+      0.08189,
       0.90805
      ],
      [
-      0.61084,
-      0.29162,
+      1.19861,
+      0.25177,
       0.98331
      ],
      [
-      0.46899,
-      0.41918,
+      1.13592,
+      0.38209,
       1.08079
      ],
      [
-      0.26331,
-      0.4237,
+      1.00941,
+      0.38936,
       1.07842
      ],
      [
-      -0.22104,
-      0.43389,
+      0.60423,
+      0.40232,
       0.7286
      ],
      [
-      -0.79276,
-      0.2359,
+      0.11167,
+      0.20708,
       0.79459
      ],
      [
-      -0.66595,
-      -0.04293,
+      0.31765,
+      -0.06899,
       0.14463
      ],
      [
-      -0.56019,
-      -0.46747,
+      0.50257,
+      -0.49078,
       0.01805
      ],
      [
-      -0.54749,
-      -0.4837,
+      0.59444,
+      -0.50425,
       0.05061
      ],
      [
-      -0.57783,
-      -0.53898,
+      0.64327,
+      -0.55677,
       0.05634
      ]
     ],
     "head_top": [
      [
-      0.13426,
-      0.10992,
+      0.16786,
+      0.05077,
       1.74424
      ],
      [
-      -0.05261,
-      0.04709,
+      0.06015,
+      -0.0093,
       1.70654
      ],
      [
-      -0.39074,
-      -0.04923,
+      -0.19881,
+      -0.10287,
       1.77527
      ],
      [
-      -0.60995,
-      -0.09597,
+      -0.33885,
+      -0.14685,
       1.69517
      ],
      [
-      -0.62958,
-      -0.08188,
+      -0.27931,
+      -0.13,
       1.70527
      ],
      [
-      -0.58683,
-      -0.02636,
+      -0.1574,
+      -0.07172,
       1.76285
      ],
      [
-      -0.52923,
-      0.05176,
+      -0.02063,
+      0.00916,
       1.78597
      ],
      [
-      -0.51711,
-      0.11296,
+      0.07065,
+      0.07312,
       1.74971
      ],
      [
-      -0.65042,
-      0.12797,
+      0.01652,
+      0.09088,
       1.63261
      ],
      [
-      -0.89184,
-      0.16367,
+      -0.14574,
+      0.12933,
       1.4297
      ],
      [
-      -1.29905,
-      0.20025,
+      -0.47378,
+      0.16867,
       0.99769
      ],
      [
-      -1.861,
-      0.19858,
+      -0.95657,
+      0.16976,
       0.35563
      ],
      [
-      -1.93272,
-      0.21626,
+      -0.94912,
+      0.1902,
       0.20786
      ],
      [
-      -1.936,
-      0.25421,
+      -0.87324,
+      0.23091,
       0.18789
      ],
      [
-      -1.93539,
-      0.2712,
+      -0.79345,
+      0.25065,
       0.17079
      ],
      [
-      -1.95164,
-      0.24856,
+      -0.73054,
+      0.23077,
       0.18084
      ]
     ],
     "chest": [
      [
-      0.02097,
-      0.02526,
+      0.05457,
+      -0.03389,
       1.06709
      ],
      [
-      -0.17745,
-      0.02105,
+      -0.06468,
+      -0.03535,
       1.07054
      ],
      [
-      -0.23649,
-      0.04626,
+      -0.04456,
+      -0.00738,
       1.1112
      ],
      [
-      -0.27069,
-      0.06194,
+      0.00041,
+      0.01106,
       1.13276
      ],
      [
-      -0.30659,
-      0.07004,
+      0.04368,
+      0.02192,
       1.13559
      ],
      [
-      -0.34534,
-      0.07716,
+      0.08409,
+      0.03179,
       1.12733
      ],
      [
-      -0.38908,
-      0.08452,
+      0.11952,
+      0.04192,
       1.11054
      ],
      [
-      -0.44627,
-      0.08957,
+      0.14149,
+      0.04972,
       1.07251
      ],
      [
-      -0.55172,
-      0.09622,
+      0.11521,
+      0.05913,
       0.96675
      ],
      [
-      -0.71646,
-      0.10922,
+      0.02964,
+      0.07489,
       0.78598
      ],
      [
-      -1.00404,
-      0.09803,
+      -0.17877,
+      0.06645,
       0.44006
      ],
      [
-      -1.20254,
-      0.05235,
+      -0.29811,
+      0.02353,
       0.25063
      ],
      [
-      -1.28402,
-      -0.00291,
+      -0.30042,
+      -0.02898,
       0.27453
      ],
      [
-      -1.30761,
-      -0.01824,
+      -0.24484,
+      -0.04155,
       0.22015
      ],
      [
-      -1.31839,
-      -0.01863,
+      -0.17646,
+      -0.03918,
       0.21896
      ],
      [
-      -1.32231,
-      -0.0228,
+      -0.10121,
+      -0.04059,
       0.22078
      ]
     ]
    }
   },
   "death/SE": {
-   "status": "FAILED_LINT",
-   "flags": [
-    "EDGE_TOUCH: alpha on the 1 px border"
-   ],
+   "status": "COMPLETE",
+   "flags": [],
    "frames": 16,
    "files": [
     {
      "name": "death_SE_00.png",
-     "sha256": "45c3aa2361e1e2de50429ea0df50152758fb3d792470027467e8d5e6cafdbd67"
+     "sha256": "f91a40ae1e34085bdf887f6c4754db941cf12c80514cc4047284ba8566bce364"
     },
     {
      "name": "death_SE_01.png",
-     "sha256": "c9b6791049f22be33c55ca3d3e131027baf9796e96c0a2fb5a2181b0d6025787"
+     "sha256": "dbdf12afc315972b30af471dcc1e8c215b605ccd9f0962ad7b5605e1fd48e90b"
     },
     {
      "name": "death_SE_02.png",
-     "sha256": "25fa63fe84df1fc41f3758f691eab35465cf356137601526190e759166d891b6"
+     "sha256": "000ea7a8cf49c9da2ad0d120bf3de5d598c7be1361826904f9e46c576d9fe3b7"
     },
     {
      "name": "death_SE_03.png",
-     "sha256": "77f3465ca51c7889d0b756b5aa732cf4fbe13fdf01640a012c9215b309463e9c"
+     "sha256": "97dfaf06b1bc40a9eb4a510a4081598ac0139f7af661c1a7e96be0821ad7f799"
     },
     {
      "name": "death_SE_04.png",
-     "sha256": "ce06ea924be891c8e2cd01bdf408f0159077e7a1e96a82504245174b98f04740"
+     "sha256": "2844bcb5ebf72206609e49fcbfb0820755b94642e525720f2e0f196bb1de1f6f"
     },
     {
      "name": "death_SE_05.png",
-     "sha256": "2d8101141101e7fe293fe7ea7dbb64bbe89ba6bf6707109e2a46736ae5fa2b72"
+     "sha256": "63977613f68e97fd9ef609f3af813a2ab9bebb10796bc4363cb2c361af95bc23"
     },
     {
      "name": "death_SE_06.png",
-     "sha256": "8af5192fe79c8f03f78312b9aebbe04ff1804eaf8c587af89d948120ac86566e"
+     "sha256": "dd1a260db98a28594e0c6a00324ea0a4eaf6332414f7203e0ff279ddcb384c1d"
     },
     {
      "name": "death_SE_07.png",
-     "sha256": "d03a08934fd12c9e0495f60ca4193d2b3f6b8209e788266aa3eaf26c09072b22"
+     "sha256": "e3ffcda298039a786c58aa6768180a0f5fc36d948f9791d4a855a3ba4d4d33ee"
     },
     {
      "name": "death_SE_08.png",
-     "sha256": "96eb77651f2996b89487793a2d8d982fb42bf00e00fd4fef5012cb86cdc03758"
+     "sha256": "705571c9fd5da54ad2fbe06fa1556731def5b6a53feb5cacf174d8afd57d6b0e"
     },
     {
      "name": "death_SE_09.png",
-     "sha256": "ec4eae3616e323143f89bec06f157d5c818e4a17bf676ae47803d4bdeef0699c"
+     "sha256": "3c02b1853b208372186bcf0ba8cf5deb3725b442ffca5c5f86eb84c7166cf216"
     },
     {
      "name": "death_SE_10.png",
-     "sha256": "309634b8802eccf264f1a133178c0f44ea8c135f768471075b8868a7547fd7ba"
+     "sha256": "6a2bf99b5f23c13a2fea05790dfdb5fb0e471e2d8badb310feb9e4da3ff09d6c"
     },
     {
      "name": "death_SE_11.png",
-     "sha256": "786a85471a54a601234cd0dbad4ade3637ca04eb3bca05be21a20b7f868f999c"
+     "sha256": "156f6bdbfead9a1e1641d560af290984a39287915c9ee00e29c89c66e7530c65"
     },
     {
      "name": "death_SE_12.png",
-     "sha256": "3013a06e4ee5f0e783f9743ad6ebec0881bd98669346b9ba0603221f59452bb3"
+     "sha256": "6baf20478cc7f1810b75694cd1dc4f95049689ae6d9824c4da4aa2e57047a7b6"
     },
     {
      "name": "death_SE_13.png",
-     "sha256": "6eec060979cd72cccf7c867277cc6ee8d5b2018f78aebbc43279e13574288c19"
+     "sha256": "76786c7149d3587c4edd9f709b092e4b679240d782382b9ebb7aa99026f763d5"
     },
     {
      "name": "death_SE_14.png",
-     "sha256": "b08e3d16bea4f5f8a2ac167ae7f917418512368d463fc5e89c8bb49f6cc7ecc8"
+     "sha256": "21ac502eb562641f90f1ea21729419ca5a863140ac2623031f9464de70ad262a"
     },
     {
      "name": "death_SE_15.png",
-     "sha256": "29c0a0900921e828482e37ab7c56c31c491356f4a5c27b46a1e9092f0daf9e4d"
+     "sha256": "e910a9d02b6052293f097885503b67dd2fed7aa4552501849b45d05dfd46848a"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "6deff80630c7642caab4207f9c0add13e84f281be14fcc1efd984349846eecf8",
+   "render_pass": "p2",
+   "cell_sha256": "bb2d6ff33e2ae456505489601ddc423eea9e43b34c9da7ba63b93c7141a52352",
    "alpha_union_bbox": [
-    0,
-    233,
-    472,
-    496
+    120,
+    252,
+    551,
+    517
    ],
-   "edge_touch": true,
+   "edge_touch": false,
    "facing_measured_deg": 45.0,
    "facing_hips_frame0_deg": 99.523,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_grip": [
      [
-      -0.42178,
-      0.18067,
+      -0.35619,
+      0.1626,
       0.99443
      ],
      [
-      -0.53808,
-      0.26115,
+      -0.41846,
+      0.30101,
       1.01788
      ],
      [
-      -0.636,
-      0.19858,
+      -0.46236,
+      0.29637,
       1.65981
      ],
      [
-      -0.8254,
-      -0.18156,
+      -0.59772,
+      -0.02584,
       1.90682
      ],
      [
-      -0.92393,
-      -0.17325,
+      -0.64222,
+      0.0404,
       1.86419
      ],
      [
-      -0.94327,
-      -0.02131,
+      -0.60754,
+      0.25026,
       1.79767
      ],
      [
-      -0.90456,
-      0.14939,
+      -0.5148,
+      0.4789,
       1.71393
      ],
      [
-      -0.82557,
-      0.25661,
+      -0.38178,
+      0.64404,
       1.62685
      ],
      [
-      -0.79928,
-      0.22184,
+      -0.30146,
+      0.6672,
       1.54699
      ],
      [
-      -0.90367,
-      0.12226,
+      -0.35182,
+      0.62555,
       1.35901
      ],
      [
-      -1.17061,
-      -0.10066,
+      -0.56473,
+      0.46057,
       0.92727
      ],
      [
-      -1.58437,
-      -0.31602,
+      -0.92446,
+      0.30313,
       0.33067
      ],
      [
-      -1.69374,
-      -0.38206,
+      -0.97981,
+      0.29502,
       0.10189
      ],
      [
-      -1.77351,
-      -0.46436,
+      -1.00554,
+      0.27065,
       0.19887
      ],
      [
-      -1.82457,
-      -0.50347,
+      -1.00258,
+      0.28947,
       0.11864
      ],
      [
-      -1.82179,
-      -0.51301,
+      -0.94576,
+      0.33786,
       0.11722
      ]
     ],
     "main_tip": [
      [
-      0.08569,
-      0.58281,
+      0.15127,
+      0.56475,
       1.42358
      ],
      [
-      0.22497,
-      0.37105,
+      0.34458,
+      0.41091,
       0.92249
      ],
      [
-      -0.34108,
-      0.52793,
+      -0.16743,
+      0.62572,
       1.02109
      ],
      [
-      -0.86003,
-      0.54442,
+      -0.63236,
+      0.70014,
       1.63265
      ],
      [
-      -0.80155,
-      0.5861,
+      -0.51985,
+      0.79975,
       1.97297
      ],
      [
-      -0.62261,
-      0.6623,
+      -0.28687,
+      0.93388,
       1.98004
      ],
      [
-      -0.42103,
-      0.73123,
+      -0.03127,
+      1.06073,
       1.89026
      ],
      [
-      -0.21969,
-      0.70678,
+      0.2241,
+      1.09422,
       1.81036
      ],
      [
-      -0.13367,
-      0.51021,
+      0.36415,
+      0.95557,
       1.82489
      ],
      [
-      -0.27608,
-      0.28229,
+      0.27577,
+      0.78559,
       1.78788
      ],
      [
-      -0.66615,
-      -0.10214,
+      -0.06027,
+      0.45909,
       1.51798
      ],
      [
-      -1.8582,
-      -0.51232,
+      -1.19829,
+      0.10683,
       1.0306
      ],
      [
-      -2.4624,
-      -0.45285,
+      -1.74846,
+      0.22423,
       0.1889
      ],
      [
-      -2.47402,
-      -0.76397,
+      -1.70605,
+      -0.02896,
       0.3503
      ],
      [
-      -2.53679,
-      -0.80626,
+      -1.7148,
+      -0.01332,
       0.18556
      ],
      [
-      -2.52763,
-      -0.81017,
+      -1.65161,
+      0.0407,
       0.2472
      ]
     ],
     "off_grip": [
      [
-      0.15995,
-      0.42295,
+      0.22554,
+      0.40488,
       1.09046
      ],
      [
-      0.22957,
-      0.17685,
+      0.34918,
+      0.21671,
       1.22285
      ],
      [
-      0.23859,
-      -0.07447,
+      0.41223,
+      0.02332,
       0.85215
      ],
      [
-      -0.05113,
-      -0.36073,
+      0.17655,
+      -0.20501,
       0.7066
      ],
      [
-      0.06397,
-      -0.28359,
+      0.34567,
+      -0.06995,
       0.81495
      ],
      [
-      0.13544,
-      -0.23913,
+      0.47117,
+      0.03245,
       0.89253
      ],
      [
-      0.16614,
-      -0.20578,
+      0.5559,
+      0.12372,
       0.93724
      ],
      [
-      0.17197,
-      -0.16886,
+      0.61576,
+      0.21858,
       0.9696
      ],
      [
-      0.13807,
-      -0.16491,
+      0.63589,
+      0.28046,
       0.95837
      ],
      [
-      0.04233,
-      -0.28595,
+      0.59418,
+      0.21735,
       0.8927
      ],
      [
-      -0.23041,
-      -0.61321,
+      0.37547,
+      -0.05199,
       0.59863
      ],
      [
-      -0.41868,
-      -0.96048,
+      0.24122,
+      -0.34132,
       0.30687
      ],
      [
-      -0.44115,
-      -1.30652,
+      0.27278,
+      -0.62943,
       0.06801
      ],
      [
-      -0.47981,
-      -1.41954,
+      0.28816,
+      -0.68453,
       0.06956
      ],
      [
-      -0.48669,
-      -1.40634,
+      0.33531,
+      -0.6134,
       0.07807
      ],
      [
-      -0.47926,
-      -1.46019,
+      0.39677,
+      -0.60932,
       0.08179
      ]
     ],
     "off_tip": [
      [
-      -0.24827,
-      0.61305,
+      -0.18268,
+      0.59498,
       1.76242
      ],
      [
-      0.07658,
-      0.2006,
+      0.19619,
+      0.24046,
       2.0168
      ],
      [
-      0.26883,
-      0.65361,
+      0.44248,
+      0.7514,
       1.20328
      ],
      [
-      0.50492,
-      0.15424,
+      0.7326,
+      0.30996,
       0.42387
      ],
      [
-      0.55915,
-      0.34164,
+      0.84086,
+      0.55529,
       0.68007
      ],
      [
-      0.52031,
-      0.47069,
+      0.85604,
+      0.74227,
       0.844
      ],
      [
-      0.39381,
-      0.56987,
+      0.78357,
+      0.89938,
       0.90805
      ],
      [
-      0.22572,
-      0.63814,
+      0.66951,
+      1.02557,
       0.98331
      ],
      [
-      0.03522,
-      0.62803,
+      0.53304,
+      1.0734,
       1.08079
      ],
      [
-      -0.11341,
-      0.48579,
+      0.43844,
+      0.98908,
       1.07842
      ],
      [
-      -0.46311,
-      0.15051,
+      0.14277,
+      0.71174,
       0.7286
      ],
      [
-      -0.72737,
-      -0.39376,
+      -0.06747,
+      0.22539,
       0.79459
      ],
      [
-      -0.44055,
-      -0.50125,
+      0.27339,
+      0.17583,
       0.14463
      ],
      [
-      -0.06556,
-      -0.72667,
+      0.7024,
+      0.00834,
       0.01805
      ],
      [
-      -0.04511,
-      -0.72917,
+      0.77689,
+      0.06377,
       0.05061
      ],
      [
-      -0.02747,
-      -0.7897,
+      0.84856,
+      0.06117,
       0.05634
      ]
     ],
     "head_top": [
      [
-      0.01721,
-      0.17267,
+      0.0828,
+      0.1546,
       1.74424
      ],
      [
-      -0.0705,
-      -0.0039,
+      0.04911,
+      0.03596,
       1.70654
      ],
      [
-      -0.24149,
-      -0.31111,
+      -0.06784,
+      -0.21332,
       1.77527
      ],
      [
-      -0.36344,
-      -0.49916,
+      -0.13576,
+      -0.34344,
       1.69517
      ],
      [
-      -0.38728,
-      -0.50308,
+      -0.10558,
+      -0.28943,
       1.70527
      ],
      [
-      -0.39631,
-      -0.43359,
+      -0.06058,
+      -0.16201,
       1.76285
      ],
      [
-      -0.41083,
-      -0.33762,
+      -0.02106,
+      -0.00811,
       1.78597
      ],
      [
-      -0.44553,
-      -0.28578,
+      -0.00174,
+      0.10166,
       1.74971
      ],
      [
-      -0.5504,
-      -0.36943,
+      -0.05258,
+      0.07594,
       1.63261
      ],
      [
-      -0.74635,
-      -0.5149,
+      -0.1945,
+      -0.0116,
       1.4297
      ],
      [
-      -1.06016,
-      -0.77697,
+      -0.45428,
+      -0.21574,
       0.99769
      ],
      [
-      -1.45635,
-      -1.17551,
+      -0.79644,
+      -0.55636,
       0.35563
      ],
      [
-      -1.51956,
-      -1.21372,
+      -0.80562,
+      -0.53663,
       0.20786
      ],
      [
-      -1.54871,
-      -1.18921,
+      -0.78075,
+      -0.4542,
       0.18789
      ],
      [
-      -1.56029,
-      -1.17676,
+      -0.73829,
+      -0.38382,
       0.17079
      ],
      [
-      -1.55578,
-      -1.20426,
+      -0.67975,
+      -0.35339,
       0.18084
      ]
     ],
     "chest": [
      [
-      -0.00303,
-      0.03269,
+      0.06255,
+      0.01462,
       1.06709
      ],
      [
-      -0.14036,
-      -0.11059,
+      -0.02074,
+      -0.07073,
       1.07054
      ],
      [
-      -0.19994,
-      -0.13452,
+      -0.02629,
+      -0.03673,
       1.1112
      ],
      [
-      -0.23521,
-      -0.14761,
+      -0.00753,
+      0.00811,
       1.13276
      ],
      [
-      -0.26631,
-      -0.16726,
+      0.01539,
+      0.04638,
       1.13559
      ],
      [
-      -0.29875,
-      -0.18964,
+      0.03698,
+      0.08194,
       1.12733
      ],
      [
-      -0.33489,
-      -0.21536,
+      0.05487,
+      0.11415,
       1.11054
      ],
      [
-      -0.3789,
-      -0.25223,
+      0.06489,
+      0.13521,
       1.07251
      ],
      [
-      -0.45817,
-      -0.32209,
+      0.03965,
+      0.12328,
       0.96675
      ],
      [
-      -0.58385,
-      -0.42939,
+      -0.032,
+      0.07391,
       0.78598
      ],
      [
-      -0.77928,
-      -0.64064,
+      -0.1734,
+      -0.07942,
       0.44006
      ],
      [
-      -0.88734,
-      -0.81331,
+      -0.22744,
+      -0.19415,
       0.25063
      ],
      [
-      -0.90588,
-      -0.91,
+      -0.19194,
+      -0.23292,
       0.27453
      ],
      [
-      -0.91172,
-      -0.93752,
+      -0.14375,
+      -0.20251,
       0.22015
      ],
      [
-      -0.91907,
-      -0.94542,
+      -0.09707,
+      -0.15248,
       0.21896
      ],
      [
-      -0.91889,
-      -0.95114,
+      -0.04286,
+      -0.10027,
       0.22078
      ]
     ]
@@ -36572,5 +36584,5 @@
   }
  },
  "expected": 80,
- "complete": 78
+ "complete": 80
 }

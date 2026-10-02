@@ -4,15 +4,6 @@
  "gltf_state_bake_fps": 30.0,
  "glb": "nb-body_join_mx.glb",
  "clips": {
-  "idle": {
-   "length_glb": 1.8,
-   "length_godot": 1.8,
-   "tracks": 24,
-   "exact": 24,
-   "two_key": 0,
-   "resampled": [],
-   "dropped": []
-  },
   "walk": {
    "length_glb": 1.33333,
    "length_godot": 1.33333,
@@ -109,6 +100,15 @@
     "weapon_l.rotation",
     "weapon_l.translation"
    ]
+  },
+  "idle": {
+   "length_glb": 1.8,
+   "length_godot": 1.8,
+   "tracks": 24,
+   "exact": 24,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
   }
  },
  "at_pack_frames": {
