@@ -163,7 +163,7 @@ idx = {
                  "kit_config": os.path.abspath(KIT), "kit_config_sha256": sha(KIT), "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z")},
     "source": {"glb": kit["source"]["body"], "glb_sha256": sha(kit["source"]["body"]),
                "pieces": [{"glb": p, "sha256": sha(p)} for p in kit["source"].get("pieces", [])],
-               "h_model_m": raw["h_model"]["h_m"], "h_model_method": kit["h_model"]["method"] + " (every 7th vertex; sole %.4f, crown %.4f)" % (raw["h_model"]["sole_m"], raw["h_model"]["crown_m"]),
+               "h_model_m": raw["h_model"]["h_m"], "h_model_method": kit["h_model"]["method"] + ((" (crown = %s at rest %.4f; sole = the ground 0)" % (raw["h_model"]["crown_bone"], raw["h_model"]["crown_m"])) if "crown_bone" in raw["h_model"] else (" (every 7th vertex; sole %.4f, crown %.4f)" % (raw["h_model"]["sole_m"], raw["h_model"]["crown_m"]))),
                "loadout": kit["source"]["loadout"]},
     "clip_manifest": {"path": man_path, "sha256": sha(man_path)},
     "camera": {"projection": "orthographic", "pitch_deg": ALPHA, "ppm_render": PPM, "ppm_multiple_of_gd": 2,

@@ -375,6 +375,14 @@ func _render_all() -> void:
 func _h_model() -> Dictionary:
 	# sole to crown at REST: skin the body mesh at the skeleton's rest on the CPU (vertex x bone weights)
 	skel.reset_bone_poses()
+	var hm: Dictionary = kit.get("h_model", {})
+	if hm.has("crown_bone"):
+		# a COSTUME-COVERED body (the body mesh is cut where the pieces cover it, so its extent is not the figure's):
+		# crown = the named bone's world origin at rest (head_end = the top of the head), sole = the ground plane (y = 0,
+		# where every rig here stands at rest -- the mesh-measured soles are 0.0002 m)
+		var cb := skel.find_bone(String(hm["crown_bone"]))
+		var cy := (skel.global_transform * skel.get_bone_global_rest(cb)).origin.y
+		return {"h_m": snappedf(cy, 0.0001), "sole_m": 0.0, "crown_m": snappedf(cy, 0.0001), "crown_bone": String(hm["crown_bone"])}
 	var mesh := body.mesh
 	var arr := mesh.surface_get_arrays(0)
 	var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]

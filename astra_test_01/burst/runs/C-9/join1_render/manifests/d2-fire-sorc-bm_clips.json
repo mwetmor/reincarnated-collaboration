@@ -1,8 +1,9 @@
 {
- "what": "JOIN-1 clip manifest for the SORCERESS BATTLE MAGE cell pack (the Q95 kit of record: one-handed orb staff main hand + shield) -- this lane's (join1_render), read off so_mx/export/ss134c_final (commit 292a9562c, read-only) and so_mx/work/character_sorceress_ss134.json",
+ "what": "JOIN-1 clip manifest for the SORCERESS BATTLE MAGE cell pack (the Q95 kit of record: one-handed orb staff main hand + shield) -- this lane's (join1_render), read off so_mx/export/ss134f (commit a88a72e2c; was ss134c_final, 292a9562c, read-only) and so_mx/work/character_sorceress_ss134.json",
  "body": {
-  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss134c_final/so-body_ss134.glb",
-  "model_height_m": 1.6995
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss134f/so-body_ss134.glb",
+  "model_height_m": 1.6995,
+  "revision": "f (so_mx a88a72e2c): only the Fire Ball clip's orb-staff keys changed (the 120 Hz clamp re-ramped at 2.5 deg/key); every other clip's channels and all non-animation glTF JSON byte-identical to ss134c_final; all eight piece GLBs byte-identical; the Fire Ball release unchanged (see casts)"
  },
  "clips": {
   "idle": {
