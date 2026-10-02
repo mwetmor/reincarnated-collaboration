@@ -1,0 +1,15 @@
+== the manifest
+  release_s checked on 1 cast(s): cast_spit
+  6 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: neg_release
+  release_s checked on 1 cast(s): cast_spit
+  MANIFEST MISMATCH  casts.cast_spit.release_s = 4.0000 is outside the clip (0, 1.4333)
+  MANIFEST MISMATCH  casts.cast_spit.release_s = 4.0000 falls 2.5667 s from the nearest key (frame step 0.0333) -- a pose between keys
+  6 clip(s) checked, 2 mismatch(es)
+exit 1
+== negative control: neg_prose
+  release_s checked on 1 cast(s): cast_spit
+  MANIFEST MISMATCH  .clips.idle.note_neg says 'idle ... 0.9 s' but the GLB says 4.0000 s
+  6 clip(s) checked, 1 mismatch(es)
+exit 1

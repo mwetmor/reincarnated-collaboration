@@ -1,0 +1,62 @@
+{
+ "name": "bloom",
+ "type_id": "carnivorousplant01a_p1",
+ "leaves": 6,
+ "leaf_band": 0.12,
+ "head_min_len": 0.5,
+ "lip_z_frac": 0.5,
+ "hinge_frac": 0.82,
+ "hinge_rise": 0.02,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_half_h": 0.03,
+ "bag_w": [
+  0.3,
+  0.45
+ ],
+ "bag_y0_frac": 0.25,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 120,
+   "src": "roster combat idle 121f (walk and run are this same clip: stationary, never rotates)"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "kind_fn": "bite",
+   "frames": 51,
+   "contact": 13,
+   "src": "livingplant_bite: attack_b01 51f rel f13 (melee 0-2.86 m)"
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "kind_fn": "spit",
+   "frames": 44,
+   "release": 19,
+   "src": "livingplant_venomousseed: cast_b01 44f rel f19 (mortar, 30 m/s, r 1, area 1.5/2.5)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 19,
+   "src": "gethit_a01 19f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 63,
+   "hold_last": true,
+   "src": "death_a01 63f"
+  },
+  "spawn": {
+   "kind": "oneshot",
+   "kind_fn": "sprout",
+   "frames": 46,
+   "src": "p05 emergence: spawn_b01 46f -> 1.5 s (PACK V38-AM3-30)"
+  }
+ },
+ "texture": "work/tex_bloom_GT.png"
+}

@@ -1,0 +1,380 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "bloom",
+ "roster_type_id": "carnivorousplant01a_p1",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/bloom/bloom.glb",
+ "glb_sha256": "5aebc26d83e14181b1bf53dfc3c26cb6e986f345add3a2345d668224d228e0d0",
+ "glb_bytes": 2480952,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 2.0067,
+ "length_m": 3.0022,
+ "width_m": 2.9782,
+ "skin_joints": 19,
+ "materials": [
+  {
+   "name": "tripo_material_c843c6a0-1b75-469f-b970-8a576842b377",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 121,
+   "duration_s": 4,
+   "fps": 30,
+   "source": "roster combat idle 121f (walk and run are this same clip: stationary, never rotates)",
+   "lint": {
+    "frames": 121,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     29,
+     [
+      -0.124,
+      0.321,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 120 intervals)"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "livingplant_bite: attack_b01 51f rel f13 (melee 0-2.86 m)",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0029,
+    "worst_frame_vertex": [
+     16,
+     [
+      -0.048,
+      -0.138,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 13,
+   "contact_s": 0.4333
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "frames": 44,
+   "duration_s": 1.43333,
+   "fps": 30,
+   "source": "livingplant_venomousseed: cast_b01 44f rel f19 (mortar, 30 m/s, r 1, area 1.5/2.5)",
+   "lint": {
+    "frames": 44,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0028,
+    "worst_frame_vertex": [
+     11,
+     [
+      -0.131,
+      0.353,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 19,
+   "release_s": 0.6333
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 19,
+   "duration_s": 0.6,
+   "fps": 30,
+   "source": "gethit_a01 19f",
+   "lint": {
+    "frames": 19,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0017,
+    "worst_frame_vertex": [
+     3,
+     [
+      -0.125,
+      0.317,
+      -0.002
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 63,
+   "duration_s": 2.06667,
+   "fps": 30,
+   "source": "death_a01 63f",
+   "lint": {
+    "frames": 63,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0028,
+    "worst_frame_vertex": [
+     54,
+     [
+      0.292,
+      -1.232,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  },
+  "spawn": {
+   "kind": "oneshot",
+   "frames": 46,
+   "duration_s": 1.5,
+   "fps": 30,
+   "source": "p05 emergence: spawn_b01 46f -> 1.5 s (PACK V38-AM3-30)",
+   "lint": {
+    "frames": 46,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0018,
+    "worst_frame_vertex": [
+     33,
+     [
+      0.228,
+      0.056,
+      -0.002
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  }
+ },
+ "vfx": {
+  "creature": "bloom",
+  "effects": [
+   {
+    "id": "bloom_bite_impact",
+    "atlas": "bloom_bite_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 200.0,
+    "plane": "billboard",
+    "pivot": "centre = the jaw tip at contact",
+    "ability": "livingplant_bite (melee 0-2.86 m, bleeding 5 s)",
+    "trigger": "attack_bite contact f13",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "bloom_seed_orb",
+    "atlas": "bloom_seed_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     160,
+     160
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.7568,
+     0.7568
+    ],
+    "px_per_m": 211.429,
+    "plane": "billboard",
+    "pivot": "centre = the seed in flight (a mortar lob from the mouth; the roster body radius is 1 m, the drawn seed 0.35 m)",
+    "ability": "livingplant_venomousseed (projectile drop/mortar, 30 m/s, 3.6-23 m)",
+    "trigger": "cast_spit release f19 at the maw socket",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "bloom_seed_splash",
+    "atlas": "bloom_seed_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     5.2174,
+     5.2174
+    ],
+    "px_per_m": 73.6,
+    "plane": "ground",
+    "pivot": "centre = the landing point (area 1.5 / 2.5 m; the 5 s poison field is a runtime tint, not baked)",
+    "ability": "livingplant_venomousseed landing",
+    "trigger": "on seed landing",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "bloom_sprout_dust",
+    "atlas": "bloom_sprout_dust.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     2.518,
+     2.518
+    ],
+    "px_per_m": 101.667,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the plant root (the p05 breach)",
+    "ability": "p05 emergence (sprout 1.5 s)",
+    "trigger": "spawn start f0",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 2.0063745975494385,
+  "z_head_base": 1.1412749195098872,
+  "y_snout": -0.9821292161941528,
+  "y_head_back": 0.5747122168540955,
+  "z_lip": 1.5499336123466492,
+  "y_hinge": 0.2944807589054106,
+  "stem_xy": [
+   -0.06607983261346817,
+   0.14289484173059464
+  ],
+  "leaves": {
+   "leaf0": {
+    "ang": -2.3540297730855104,
+    "tip": [
+     -1.3969788551330566,
+     -0.5295629501342773,
+     0.2286096066236496
+    ],
+    "n": 1355
+   },
+   "leaf1": {
+    "ang": -1.5630939201450362,
+    "tip": [
+     -0.0427282489836216,
+     -1.3960120677947998,
+     0.23132236301898956
+    ],
+    "n": 896
+   },
+   "leaf2": {
+    "ang": -0.8250020309275347,
+    "tip": [
+     0.8346441388130188,
+     -0.9641883969306946,
+     0.1741497963666916
+    ],
+    "n": 1183
+   },
+   "leaf3": {
+    "ang": 0.25393860342073044,
+    "tip": [
+     1.370395541191101,
+     0.650898277759552,
+     0.23691017925739288
+    ],
+    "n": 410
+   },
+   "leaf4": {
+    "ang": 1.6064351367175291,
+    "tip": [
+     -0.07342822849750519,
+     1.433282494544983,
+     0.23590055108070374
+    ],
+    "n": 244
+   },
+   "leaf5": {
+    "ang": 2.705010303810063,
+    "tip": [
+     -1.1929693222045898,
+     0.7598490715026855,
+     0.2049437314271927
+    ],
+    "n": 804
+   }
+  },
+  "mouth_cut_edges": 452,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 5329,
+   "unweighted_verts": 0,
+   "groups": 19
+  },
+  "texture": {
+   "path": "work/tex_bloom_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "stem1",
+   "stem2",
+   "neck",
+   "head",
+   "jaw",
+   "leaf0_1",
+   "leaf0_2",
+   "leaf1_1",
+   "leaf1_2",
+   "leaf2_1",
+   "leaf2_2",
+   "leaf3_1",
+   "leaf3_2",
+   "leaf4_1",
+   "leaf4_2",
+   "leaf5_1",
+   "leaf5_2"
+  ]
+ }
+}

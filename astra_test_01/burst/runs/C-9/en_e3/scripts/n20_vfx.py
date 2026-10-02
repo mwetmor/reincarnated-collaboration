@@ -129,6 +129,17 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'bloom': [
+  dict(id='bloom_bite_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
+       plane='billboard', pivot='centre = the jaw tip at contact', ability='livingplant_bite (melee 0-2.86 m, bleeding 5 s)', trigger='attack_bite contact f13'),
+  dict(id='bloom_seed_orb', fn='orb', n=8, fps=20, cols=4, S=160, radius_m=0.35, col=(150, 170, 70), dark=(86, 104, 34),
+       plane='billboard', pivot='centre = the seed in flight (a mortar lob from the mouth; the roster body radius is 1 m, the drawn seed 0.35 m)',
+       ability='livingplant_venomousseed (projectile drop/mortar, 30 m/s, 3.6-23 m)', trigger='cast_spit release f19 at the maw socket'),
+  dict(id='bloom_seed_splash', fn='ring', n=12, fps=24, cols=4, S=384, radius_m=2.5, col=(170, 186, 86), dark=(96, 112, 40),
+       plane='ground', pivot='centre = the landing point (area 1.5 / 2.5 m; the 5 s poison field is a runtime tint, not baked)', ability='livingplant_venomousseed landing', trigger='on seed landing'),
+  dict(id='bloom_sprout_dust', fn='puff', n=12, fps=24, cols=4, S=256, radius_m=1.2, col=(178, 166, 148), dark=(104, 94, 82),
+       plane='billboard', pivot='bottom-centre = the plant root (the p05 breach)', ability='p05 emergence (sprout 1.5 s)', trigger='spawn start f0'),
+ ],
  'raptor': [
   dict(id='raptor_rake_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
        plane='billboard', pivot='centre = the left forelimb claw tip at contact', ability='sandlizard / eldritchlizard double swipe (melee 0-2.95 m)', trigger='attack_swipe contact f14'),

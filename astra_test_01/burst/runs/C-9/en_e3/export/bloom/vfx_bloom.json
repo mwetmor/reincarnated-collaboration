@@ -1,0 +1,117 @@
+{
+ "creature": "bloom",
+ "effects": [
+  {
+   "id": "bloom_bite_impact",
+   "atlas": "bloom_bite_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.28,
+    1.28
+   ],
+   "px_per_m": 200.0,
+   "plane": "billboard",
+   "pivot": "centre = the jaw tip at contact",
+   "ability": "livingplant_bite (melee 0-2.86 m, bleeding 5 s)",
+   "trigger": "attack_bite contact f13",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "bloom_seed_orb",
+   "atlas": "bloom_seed_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    160,
+    160
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    0.7568,
+    0.7568
+   ],
+   "px_per_m": 211.429,
+   "plane": "billboard",
+   "pivot": "centre = the seed in flight (a mortar lob from the mouth; the roster body radius is 1 m, the drawn seed 0.35 m)",
+   "ability": "livingplant_venomousseed (projectile drop/mortar, 30 m/s, 3.6-23 m)",
+   "trigger": "cast_spit release f19 at the maw socket",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "bloom_seed_splash",
+   "atlas": "bloom_seed_splash.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    5.2174,
+    5.2174
+   ],
+   "px_per_m": 73.6,
+   "plane": "ground",
+   "pivot": "centre = the landing point (area 1.5 / 2.5 m; the 5 s poison field is a runtime tint, not baked)",
+   "ability": "livingplant_venomousseed landing",
+   "trigger": "on seed landing",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "bloom_sprout_dust",
+   "atlas": "bloom_sprout_dust.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    2.518,
+    2.518
+   ],
+   "px_per_m": 101.667,
+   "plane": "billboard",
+   "pivot": "bottom-centre = the plant root (the p05 breach)",
+   "ability": "p05 emergence (sprout 1.5 s)",
+   "trigger": "spawn start f0",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

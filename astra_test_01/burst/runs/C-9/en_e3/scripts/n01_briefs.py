@@ -21,6 +21,18 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'bloom': dict(type_id='carnivorousplant01a_p1', tid='EN3-BL', marker='the brass clock-hand in the LEFT side of its head', body='a rooted flesh-eating plant',
+   pose=("POSE (for building and rigging a 3D model): standing still and upright, rooted in place, in a neutral pose: the stem straight up, the head level "
+         "and facing straight ahead, the MOUTH CLOSED, the floor leaves spread flat and evenly around the base. In the side views a clear gap of green "
+         "shows between the stem and the leaves above the floor, and between the head and the leaves. Nothing overlaps anything."),
+   text="""THE CREATURE, an OSSUARY BLOOM: a great flesh-eating plant that has burst up through the cracked crypt floor. It never moves from its spot: it snaps at anything close and spits heavy venom seeds at anything far.
+- SIZE AND BUILD: about 2.2 m tall. A ROSETTE of six broad, thick, leathery leaves lies spread flat on the floor around its base, about 2.4 m across, their tips curling up a little. From its middle rises one thick, ribbed, slightly twisting STEM, as thick as a man's thigh at the bottom, narrowing upward.
+- THE HEAD at the top of the stem: a large swollen bulb, about 1 m long from front to back, like a great seed pod or a closed flower bud on its side, with a wide horizontal MOUTH running across its front and around both sides. The mouth is CLOSED: its two thick lips are fringed with long pale ivory thorn-teeth that interlock. Thin dark madder-red lines show at the lip seam. No eyes.
+- COLOURS: the leaves and stem a dull verdigris green going to a bruised violet-grey at the edges; the head the same with pale ivory veins running back from the mouth like old bone; small vermilion-red flecks on the head; the underside of the leaves paler.
+- ASYMMETRY MARKER: a bent, tarnished BRASS CLOCK-HAND, as long as a forearm, pierced through the LEFT side of the head and stuck there ONLY. It shows in every view where the left side of the head is visible, and never on the right.
+- Nothing else on it: no flowers, no pot, no chains, no bones lying around it, no ground or floor drawn.
+"""),
+
  'raptor': dict(type_id='sandlizard', tid='EN3-RP', marker='the brass ring on its LEFT forearm', body='a two-legged reptile',
    pose=("POSE (for building and rigging a 3D model): standing still on its two hind legs in a neutral pose, the body level and horizontal, "
          "the tail held straight out behind, level with the hips, the neck and head level and pointing straight ahead, the MOUTH CLOSED. Both hind legs "
