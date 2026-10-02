@@ -8,7 +8,12 @@ M=mixamo/glb
 mkdir -p work/wb_$g; python3 scripts/52_weapon_bones.py --out work/wb_$g builds/en_${g}_rigged.glb --json work/wb_$g.json | tail -1
 python3 scripts/e40b_mixamo_graft.py graft work/wb_$g/en_${g}_rigged.glb work/${g}_c0.glb ${=SPECS} --json work/${g}_graft.json | grep -E "^lint"
 if [ $EM = emerge ]; then
-  python3 scripts/en29_concat.py work/${g}_c0.glb work/${g}_c0.glb emerge crouch_hold@0:1.0 crouch_up --drop crouch_hold,crouch_up --blend 4
+  if [ -n "$EN_EMERGE_S" ]; then   # round 5: a LONG emerge sized to the roster's spawn window (crouch idle, a second crouch window, then the rise)
+    python3 scripts/en29_concat.py work/${g}_c0.glb work/${g}_c0.glb em1 crouch_hold@0:1.6667 crouch_hold@0:$(python3 -c "print(round($EN_EMERGE_S - 1.6667 - 0.6 - 0.0667, 4))") --blend 4
+    python3 scripts/en29_concat.py work/${g}_c0.glb work/${g}_c0.glb emerge em1@0:99 crouch_up --drop em1,crouch_hold,crouch_up --blend 4 --json work/${g}_emerge.json
+  else
+    python3 scripts/en29_concat.py work/${g}_c0.glb work/${g}_c0.glb emerge crouch_hold@0:1.0 crouch_up --drop crouch_hold,crouch_up --blend 4
+  fi
 fi
 if [ -n "$HUNCH" ]; then python3 scripts/en31_hunch.py work/${g}_c0.glb work/${g}_c0.glb ${=HUNCH} --json work/${g}_hunch.json | cut -c1-160; fi
 ALL=$(python3 -c "import sys;sys.path.insert(0,'scripts');L=__import__('21_lint_export');js,_=L.load_glb('work/${g}_c0.glb');print(','.join(a['name'] for a in js['animations'] if not a['name'].startswith('Armature')))")

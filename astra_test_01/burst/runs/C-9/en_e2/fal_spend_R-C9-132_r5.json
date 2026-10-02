@@ -1,0 +1,51 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $2.00 (EN-E2 round 5), cap set by the conductor.",
+ "_basis": "tripo $0.40 per build; birefnet at wall-clock seconds x $0.0008/s (upper bound).",
+ "_starts_after": "Opened 2026-10-02T07:08:50.",
+ "budget_usd": 2.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T11:18:42+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-G_a.png",
+   "usd": 0.00232,
+   "wall_s": 2.9
+  },
+  {
+   "ts": "2026-10-02T11:18:48+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-N_a.png",
+   "usd": 0.00225,
+   "wall_s": 2.81
+  },
+  {
+   "ts": "2026-10-02T11:19:11+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-Y_a.png",
+   "usd": 0.01635,
+   "wall_s": 20.43
+  },
+  {
+   "ts": "2026-10-02T11:22:05+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_n_tripo",
+   "usd": 0.4,
+   "wall_s": 173.08
+  },
+  {
+   "ts": "2026-10-02T11:22:39+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_y_tripo",
+   "usd": 0.4,
+   "wall_s": 207.4
+  },
+  {
+   "ts": "2026-10-02T11:23:06+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_g_tripo",
+   "usd": 0.4,
+   "wall_s": 234.11
+  }
+ ],
+ "running_usd": 1.2209
+}

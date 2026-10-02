@@ -1,0 +1,215 @@
+{
+ "what": "JOIN-1 clip manifest for the en-golem (crucible, roster rig golemswamp_phase01) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_g",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_g/en_g_body.glb",
+  "sha256_16": "76b7937ab66e25e4",
+  "height_m": 2.3
+ },
+ "roster": {
+  "rig": "golemswamp_phase01",
+  "tier1_rank": 5,
+  "bodies": 9.03,
+  "lead": "Ugdenbog Golem (scale 1.0, actorRadius 0.5 -> 0.5 m; range 0.5-0.99)",
+  "run_m_per_s": [
+   3.851,
+   4.975
+  ],
+  "style": "aoe 66 % / melee 17 % / projectile 17 %",
+  "p05_bodies": 3.12,
+  "spawn": "golemswamp_phase01_appearance_a01, 108 frames",
+  "spawn_clip_frames": 108,
+  "summons": "the carnivorous plant (our ossuary bloom)",
+  "roster_projectile": {
+   "row": "swampgolem_vinenova",
+   "speed_mps": 11.0,
+   "body_r_m": 0.5,
+   "explosion_r_m": 2.0
+  }
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "slam": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "lob": {
+   "seconds": 2.6667,
+   "source": "standing 2h magic attack 01 (Mixamo)"
+  },
+  "summon": {
+   "seconds": 2.1667,
+   "source": "standing 2h cast spell 01 (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 2.4,
+   "source": "two handed sword death (Mixamo)"
+  },
+  "emerge": {
+   "seconds": 3.5333,
+   "source": "en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.103,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 2.962,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "slam": {
+   "release_s": 0.8333,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 25"
+  },
+  "attack": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  },
+  "lob": {
+   "release_s": 1.1333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 34"
+  },
+  "summon": {
+   "release_s": 1.2667,
+   "hand": "LeftHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 38"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.194 m from the origin, ends 0.105 m"
+ },
+ "vfx_runtime": {
+  "mud": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_g_mud_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_g_mud_frames.json",
+   "atlas_px": [
+    4096,
+    1988
+   ],
+   "atlas_sha256": "57682b40009a2d046245adedf05a1e384fc1c97c38d6b06224f3979a91bfdf4f",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.5,
+    "burst_r_m": 2.0,
+    "ring_r_m": 4.0,
+    "seed": 71,
+    "palette": "mud",
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      216,
+      134
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      462,
+      462
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      452
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      452
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      470,
+      248
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      118,
+      70
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the heavy swing; ring_* = the SLAM shock ring (r 4.0 m); bolt + burst (r 2.0 m) = the mud lob (the vine nova row: see roster_projectile)"
+  }
+ },
+ "emerge": {
+  "clip": "emerge",
+  "seconds": 3.5333,
+  "roster": "p05 3.12 bodies; golemswamp_phase01_appearance_a01, 108 frames (DATAMINED)",
+  "method": "unfolds UP from a crouch (no floor crossing; cells have no floor); the fade-in and any duration warp are the runtime's"
+ }
+}

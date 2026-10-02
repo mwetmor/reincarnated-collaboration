@@ -1,0 +1,287 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/axe_unarmed_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8333333730697632
+   ],
+   "keys": 55,
+   "length_s": 1.800000037997961,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0004,
+    -0.0012
+   ],
+   "grounded_by_m": 0.07753,
+   "feet_span_m": [
+    0.0,
+    0.0014
+   ]
+  },
+  "walk": {
+   "source": "mixamo/glb/axe_unarmed_walk_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.1142
+   ],
+   "grounded_by_m": 0.10386,
+   "feet_span_m": [
+    0.0,
+    0.0379
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/axe_unarmed_run_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.8333333134651184
+   ],
+   "keys": 25,
+   "length_s": 0.7999999783933163,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    1.7516
+   ],
+   "grounded_by_m": 0.11012,
+   "feet_span_m": [
+    0.0,
+    0.1
+   ]
+  },
+  "slam": {
+   "source": "mixamo/glb/axe_standing_melee_attack_downward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.299999952316284
+   ],
+   "keys": 69,
+   "length_s": 2.266666617244482,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.09856,
+   "feet_span_m": [
+    0.0,
+    0.027
+   ]
+  },
+  "attack": {
+   "source": "mixamo/glb/axe_standing_melee_attack_horizontal.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0046,
+    -0.0013
+   ],
+   "grounded_by_m": 0.10896,
+   "feet_span_m": [
+    0.0,
+    0.0378
+   ]
+  },
+  "lob": {
+   "source": "mixamo/glb/standing_2h_magic_attack_01.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.700000047683716
+   ],
+   "keys": 81,
+   "length_s": 2.6666667126119137,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0003,
+    0.0002
+   ],
+   "grounded_by_m": 0.10945,
+   "feet_span_m": [
+    0.0,
+    0.0338
+   ]
+  },
+  "summon": {
+   "source": "mixamo/glb/standing_2h_cast_spell_01.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.200000047683716
+   ],
+   "keys": 66,
+   "length_s": 2.1666667126119137,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.022,
+    0.0665
+   ],
+   "grounded_by_m": 0.1206,
+   "feet_span_m": [
+    0.0,
+    0.0475
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/axe_standing_react_large_gut.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.5
+   ],
+   "keys": 45,
+   "length_s": 1.4666666649281979,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0125,
+    0.0023
+   ],
+   "grounded_by_m": 0.08719,
+   "feet_span_m": [
+    0.0,
+    0.0119
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/two_handed_sword_death.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.002,
+    -0.6963
+   ],
+   "grounded_by_m": 0.0868,
+   "feet_span_m": [
+    0.0,
+    0.1675
+   ]
+  },
+  "crouch_hold": {
+   "source": "mixamo/glb/axe_crouch_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.7000000476837158
+   ],
+   "keys": 51,
+   "length_s": 1.6666667126119137,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.0857,
+   "feet_span_m": [
+    0.0,
+    0.0013
+   ]
+  },
+  "crouch_up": {
+   "source": "mixamo/glb/axe_crouch_to_standing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6333333253860474
+   ],
+   "keys": 19,
+   "length_s": 0.5999999903142452,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 0.80146,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0016,
+    -0.0009
+   ],
+   "grounded_by_m": 0.08485,
+   "feet_span_m": [
+    0.0,
+    0.0101
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 5
+ }
+}

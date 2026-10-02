@@ -1,0 +1,187 @@
+{
+ "what": "JOIN-1 clip manifest for the en-icebrute (crucible, roster rig yeti) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_y",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_y/en_y_body.glb",
+  "sha256_16": "6fa22b049b924ac0",
+  "height_m": 2.2
+ },
+ "roster": {
+  "rig": "yeti",
+  "tier1_rank": 19,
+  "bodies": 3.04,
+  "lead": "Diremane Brute (scale 0.8, actorRadius 1.3 -> 1.04 m; range 1.04-1.62)",
+  "run_m_per_s": [
+   2.247,
+   3.691
+  ],
+  "style": "projectile 39 % / aoe 37 % / aura 14 %",
+  "p05_bodies": 0.0
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "throw": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "pound": {
+   "seconds": 2.9667,
+   "source": "standing 2h magic area attack 01 (Mixamo)"
+  },
+  "roar": {
+   "seconds": 2.5333,
+   "source": "axe standing taunt chest thump (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 2.4,
+   "source": "two handed sword death (Mixamo)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.128,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.031,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "throw": {
+   "release_s": 0.7,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 21"
+  },
+  "pound": {
+   "release_s": 1.2667,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 38"
+  },
+  "roar": {
+   "release_s": 0.7,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 21"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.253 m from the origin, ends 0.001 m"
+ },
+ "vfx_runtime": {
+  "frost": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_y_frost_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_y_frost_frames.json",
+   "atlas_px": [
+    4096,
+    4802
+   ],
+   "atlas_sha256": "10e2de2d318664089cb3de5ffb375f9e5ee05e8d09a996301f7ed2625bd427af",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.5,
+    "burst_r_m": 2.4,
+    "ring_r_m": 4.0,
+    "seed": 91,
+    "palette": "frost",
+    "aura_r_m": 8.0
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      218,
+      135
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      555,
+      555
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      449,
+      448
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      452
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      469,
+      252
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      865,
+      865
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "bolt + burst (r 2.4 m) = the boulder/ice throw; ring_* = the ground pound (r 4.0 m); aura = the roar (ice howl row r 8.0 m)"
+  }
+ }
+}

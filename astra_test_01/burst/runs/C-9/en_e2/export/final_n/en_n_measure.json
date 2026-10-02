@@ -1,0 +1,161 @@
+{
+ "body": "export/final_n/en_n_body.glb",
+ "export_scale": 1.411765,
+ "release": {
+  "claw": {
+   "hand": "RightHand",
+   "release_s": 1.0,
+   "key": 30,
+   "speed_mps": 12.51,
+   "hand_pos_m": [
+    -0.381,
+    1.206,
+    0.871
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "throw": {
+   "hand": "RightHand",
+   "release_s": 0.8,
+   "key": 24,
+   "speed_mps": 9.819,
+   "hand_pos_m": [
+    -0.585,
+    1.55,
+    0.955
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "aura": {
+   "hand": "LeftHand",
+   "release_s": 0.4667,
+   "key": 14,
+   "speed_mps": 13.11,
+   "hand_pos_m": [
+    0.556,
+    1.314,
+    0.503
+   ],
+   "rule": "peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "walk": 0.0001,
+  "run": 0.0001,
+  "idle": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.6618,
+   "loop_s": 1.3667,
+   "m_per_s": 1.216,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.6126,
+   "loop_s": 0.8,
+   "m_per_s": 3.266,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "walk": {
+   "x": [
+    -0.521,
+    0.439
+   ],
+   "y_top": 1.815,
+   "z": [
+    -0.707,
+    0.578
+   ]
+  },
+  "run": {
+   "x": [
+    -0.475,
+    0.441
+   ],
+   "y_top": 1.815,
+   "z": [
+    -0.81,
+    0.353
+   ]
+  },
+  "claw": {
+   "x": [
+    -0.643,
+    0.946
+   ],
+   "y_top": 2.306,
+   "z": [
+    -0.924,
+    1.361
+   ]
+  },
+  "throw": {
+   "x": [
+    -0.758,
+    0.774
+   ],
+   "y_top": 1.814,
+   "z": [
+    -0.731,
+    1.218
+   ]
+  },
+  "aura": {
+   "x": [
+    -0.663,
+    0.906
+   ],
+   "y_top": 1.819,
+   "z": [
+    -0.759,
+    0.576
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.658,
+    0.441
+   ],
+   "y_top": 1.747,
+   "z": [
+    -0.592,
+    0.518
+   ]
+  },
+  "death": {
+   "x": [
+    -0.806,
+    0.955
+   ],
+   "y_top": 1.832,
+   "z": [
+    -1.565,
+    1.292
+   ]
+  },
+  "idle": {
+   "x": [
+    -0.406,
+    0.467
+   ],
+   "y_top": 1.852,
+   "z": [
+    -0.382,
+    0.183
+   ]
+  }
+ },
+ "clip_len_s": {
+  "walk": 1.3667,
+  "run": 0.8,
+  "claw": 3.1667,
+  "throw": 2.3,
+  "aura": 2.8333,
+  "hit": 1.1667,
+  "death": 3.5333,
+  "idle": 1.8
+ }
+}

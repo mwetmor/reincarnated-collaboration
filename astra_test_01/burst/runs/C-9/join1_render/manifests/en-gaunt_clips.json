@@ -1,0 +1,218 @@
+{
+ "what": "JOIN-1 clip manifest for the en-gaunt (crucible, roster rig wendigo) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_n",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_n/en_n_body.glb",
+  "sha256_16": "20d6214bd1fa2f00",
+  "height_m": 2.4
+ },
+ "roster": {
+  "rig": "wendigo",
+  "tier1_rank": 8,
+  "bodies": 6.04,
+  "lead": "Wendigo (scale 1.0, actorRadius 0.75 -> 0.75 m; range 0.75-0.98)",
+  "run_m_per_s": [
+   2.889,
+   3.209
+  ],
+  "style": "melee 55 % / projectile 26 % / aura 17 %",
+  "p05_bodies": 0.0
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "claw": {
+   "seconds": 3.1667,
+   "source": "axe standing melee attack backhand (Mixamo)"
+  },
+  "throw": {
+   "seconds": 2.3,
+   "source": "standing 1h magic attack 01 (Mixamo)"
+  },
+  "aura": {
+   "seconds": 2.8333,
+   "source": "axe standing taunt battlecry (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.216,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.266,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "claw": {
+   "release_s": 1.0,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 30"
+  },
+  "throw": {
+   "release_s": 0.8,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 24"
+  },
+  "aura": {
+   "release_s": 0.4667,
+   "hand": "LeftHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 14"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.405 m from the origin, ends 0.035 m"
+ },
+ "vfx_runtime": {
+  "frost": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_n_frost_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_n_frost_frames.json",
+   "atlas_px": [
+    4096,
+    2918
+   ],
+   "atlas_sha256": "a55c534f410d96e4030520affe38bf2cd89c24dcca4170c35066506e967538fb",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.15,
+    "burst_r_m": 1.5,
+    "ring_r_m": 2.4,
+    "seed": 81,
+    "palette": "frost",
+    "aura_r_m": 7.0,
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      65,
+      41
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      347,
+      347
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      258,
+      258
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      272,
+      272
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      286,
+      142
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      117,
+      71
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      757,
+      757
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the lunging claw; bolt = the ice shard; aura = the chilling howl (soul-siphon row r 7.0 m)"
+  }
+ },
+ "hunch": {
+  "bend_deg": {
+   "Spine01": 16.0,
+   "Spine": 14.0,
+   "neck": -20.0
+  },
+  "clips": [
+   "idle",
+   "walk",
+   "run",
+   "claw",
+   "throw",
+   "aura",
+   "hit",
+   "death"
+  ],
+  "idle_head_forward_of_hips_m": 0.096,
+  "note": "the named edit en31 (the conductor: a hunched feral carriage) is IN every clip of the shipped body"
+ }
+}
