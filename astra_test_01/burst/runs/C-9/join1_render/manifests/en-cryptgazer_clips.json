@@ -13,11 +13,11 @@
   },
   "walk": {
    "seconds": 0.66667,
-   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01 49f; walkSpeed 0.45/0.6 has no stated base -- 1.3 m/s INFERRED; 670 ms cycle so the stride stays inside the short legs' reach"
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01 49f; walkSpeed 0.45/0.6 has no stated base -- 1.3 metres per second INFERRED; 670 ms cycle so the stride stays inside the short legs' reach"
   },
   "run": {
    "seconds": 0.46667,
-   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 35f"
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.209 metres per second (characterRunSpeed 1.0 x K4-0), run_a01 35f"
   },
   "cast_glare": {
    "seconds": 1.46667,
@@ -33,7 +33,7 @@
   },
   "cast_spit": {
    "seconds": 1.13333,
-   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: acid spit projectile 18 m/s: castattack_a01 35f rel f21"
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: acid spit projectile 18 metres per second: castattack_a01 35f rel f21"
   },
   "hit": {
    "seconds": 0.66667,
@@ -188,7 +188,7 @@
     "px_per_m": 350.0,
     "plane": "billboard",
     "pivot": "centre = the spit in flight (body r 0.1 m)",
-    "ability": "basilisk_acidspit (projectile 18 m/s)",
+    "ability": "basilisk_acidspit (projectile 18 metres per second)",
     "trigger": "cast_spit release f21 at the maw",
     "alpha": "straight",
     "colorspace": "sRGB",

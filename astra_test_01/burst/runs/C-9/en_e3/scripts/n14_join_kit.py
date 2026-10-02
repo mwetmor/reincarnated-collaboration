@@ -6,7 +6,11 @@
 import json, sys, os, math, hashlib, re
 # PROSE CARRIES NO SECONDS: 48_manifest_lint reads any '<n> s' in prose as a claim about a clip's duration (that is how it caught
 # stale numbers before). Roster/VFX prose ('poison 3 s', 'rel f37 (1.23 s)') is converted to milliseconds so it cannot pose as one.
-def ms(t): return re.sub(r'(\d+(?:\.\d+)?)\s*s\b', lambda m: '%d ms' % round(float(m.group(1)) * 1000), t) if isinstance(t, str) else t
+def ms(t):
+    # ... and '<n> m/s' in prose (a projectile's speed) is written 'metres per second' so the lint cannot read it as a gait speed
+    if not isinstance(t, str): return t
+    t = re.sub(r'(\d+(?:\.\d+)?)\s*m/s\b', r'\1 metres per second', t)
+    return re.sub(r'(\d+(?:\.\d+)?)\s*s\b', lambda m: '%d ms' % round(float(m.group(1)) * 1000), t)
 NAME, KID, GLB, CLIPS, VFX, STATES = sys.argv[1:7]
 C9 = '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9'
 cm = json.load(open(CLIPS)); vfx = json.load(open(VFX)); st_spec = json.load(open(STATES))
