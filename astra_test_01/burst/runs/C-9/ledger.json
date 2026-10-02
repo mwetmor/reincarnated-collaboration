@@ -27202,9 +27202,163 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "GS-SORBST",
+      "type": "GENERATE",
+      "experiment": "R-C9-134-props",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "fe353aa3894bb66f4015929ddee13545908c591728386c9e21e74e556d608368",
+      "started": "2026-10-02T03:01:35.331700+00:00",
+      "ended": "2026-10-02T03:04:50.909713+00:00",
+      "minutes": 3.259659495132898,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fa8f-6661-7d31-a64b-f059e244be0c/exec-201a36b7-ed93-41c2-b320-856170160171.png",
+            "sha256": "34dd3e6a9dfa467bd3e6581685c95854c5feeae92471510b602f1e8d16f47bc1"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fa8f-6661-7d31-a64b-f059e244be0c/exec-a54173d9-8844-4255-ac75-da3d66b32f8e.png",
+            "sha256": "58aa596eead439e7f4a4cfc3be986399a217cbc51c76100ba6124a67dd287bfa"
+          }
+        ]
+      },
+      "receipt_sha256": "49f7fed2749fae38bdb9e56b18d8345ec79e9701a1bf2f31e070a7dde49bb49d",
+      "artifacts": [
+        {
+          "name": "GS-SORBST_a.png",
+          "sha256": "34dd3e6a9dfa467bd3e6581685c95854c5feeae92471510b602f1e8d16f47bc1"
+        },
+        {
+          "name": "GS-SORBST_b.png",
+          "sha256": "58aa596eead439e7f4a4cfc3be986399a217cbc51c76100ba6124a67dd287bfa"
+        },
+        {
+          "name": "exec-201a36b7-ed93-41c2-b320-856170160171.provenance.json",
+          "sha256": "b999aa552c2d7fa40adfa6721ffc3bf638d180cfcf8d38d677b998ce871a1c89"
+        },
+        {
+          "name": "exec-a54173d9-8844-4255-ac75-da3d66b32f8e.provenance.json",
+          "sha256": "ad5314b81b5a5223fd9d73658bbfe9c083a34a7a1c4f441f9e5393df6eba3a62"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fa8f-6661-7d31-a64b-f059e244be0c/exec-201a36b7-ed93-41c2-b320-856170160171.png",
+          "sha256": "34dd3e6a9dfa467bd3e6581685c95854c5feeae92471510b602f1e8d16f47bc1"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fa8f-6661-7d31-a64b-f059e244be0c/exec-a54173d9-8844-4255-ac75-da3d66b32f8e.png",
+          "sha256": "58aa596eead439e7f4a4cfc3be986399a217cbc51c76100ba6124a67dd287bfa"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "GS-SSHLD",
+      "type": "GENERATE",
+      "experiment": "R-C9-134-props",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "d90c208533fbecf52ff16cddeac6945f37c30336356fad5444b10aa2790903d1",
+      "started": "2026-10-02T03:01:35.332195+00:00",
+      "ended": "2026-10-02T03:05:07.181383+00:00",
+      "minutes": 3.530847554849849,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fa8f-6703-7c91-a0fd-104641033d5e/exec-12dcce9f-d8e6-488a-8470-67d37ba35be6.png",
+            "sha256": "41e64ae56c8e8fee9f55bb21f9ed8abb6bb3c6d1f0846367173942264071cd72"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0fa8f-6703-7c91-a0fd-104641033d5e/exec-9e391e10-0aed-4e3e-9d1e-000b12fa4969.png",
+            "sha256": "5c8cff29c39271cc58969baa3260266f3280e3c66f0bd0b2aa3b8167a3b4c3f5"
+          }
+        ]
+      },
+      "receipt_sha256": "3d8fe13447da95759ed70b1fca5d97de4ee86deb15dadbc24ce64520f5e6a3b0",
+      "artifacts": [
+        {
+          "name": "GS-SSHLD_a.png",
+          "sha256": "5c8cff29c39271cc58969baa3260266f3280e3c66f0bd0b2aa3b8167a3b4c3f5"
+        },
+        {
+          "name": "GS-SSHLD_b.png",
+          "sha256": "41e64ae56c8e8fee9f55bb21f9ed8abb6bb3c6d1f0846367173942264071cd72"
+        },
+        {
+          "name": "exec-12dcce9f-d8e6-488a-8470-67d37ba35be6.provenance.json",
+          "sha256": "c3e9e60bef040678eae3c83eec4e50b41f1c94689aea05a5aaf90e120662536f"
+        },
+        {
+          "name": "exec-9e391e10-0aed-4e3e-9d1e-000b12fa4969.provenance.json",
+          "sha256": "790c0097f5e84f31a0ec64c15bec69ce97b4e91e52be89b7ccaa16a382485b61"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fa8f-6703-7c91-a0fd-104641033d5e/exec-12dcce9f-d8e6-488a-8470-67d37ba35be6.png",
+          "sha256": "41e64ae56c8e8fee9f55bb21f9ed8abb6bb3c6d1f0846367173942264071cd72"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0fa8f-6703-7c91-a0fd-104641033d5e/exec-9e391e10-0aed-4e3e-9d1e-000b12fa4969.png",
+          "sha256": "5c8cff29c39271cc58969baa3260266f3280e3c66f0bd0b2aa3b8167a3b4c3f5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 787,
+  "images_used": 791,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -30328,6 +30482,12 @@
       "topic": "The Vercel \"rate limited\" failures are caused by the collaboration repo auto-deploying the reincarnated-glance project on every push",
       "note": "Loadout 34298c1 (the combined deploy) FAILED: \"Deployment rate limited - retry in 24 hours\"; live remains d7a7378. Root cause: reincarnated-collaboration (PUBLIC) is git-linked to Vercel project reincarnated-glance (rootDirectory glance/app); every collab push created a Production deployment -- 95 on 2026-10-01 alone -- exhausting the account's daily deployment quota, which the loadout playtest shares. The same cause likely explains the 2026-09-30 limit (R-C9-91). Conductor action: collab pushes HELD (commits stay local) until Matt chooses a fix (disable git auto-deploy for reincarnated-glance via glance/app/vercel.json git.deploymentEnabled=false, or disconnect it in the Vercel dashboard, or an ignoreCommand). Also: my curl polling of the site triggered a Vercel firewall challenge (403 x-vercel-mitigated: challenge) for scripted requests.",
       "ts": "2026-10-01T22:42:45"
+    },
+    {
+      "id": "N-C9-CRUCIBLE-PLAN",
+      "topic": "Crucible enemies: the plan for the night",
+      "note": "Roster of record: legolas packet collab d51b3c47a (68 rigs; tier 1 = 19 rigs, 81% of bodies; top five rigs = 39%, mostly non-biped trash; two humanoid hero rigs = 11% incl. most bosses; peak ~33 bodies on wave 158; w159 5-7 bosses). The arena runtime is 2D cells per the JOIN-1 contract. Lanes: D2 lane renders hero cell packs (dark knight first from final_k_eor; then barbarian dual, sorceress battle mage orb-staff + shield); new lane en_e2 builds the humanoid caster enemies first (hero01/heroine01 on the Pro Magic pack, original designs for the Keepers-of-Hours cathedral, generic prompts only); legolas writes ENEMIES.md (body plan + route per tier-1 rig, Mixamo singles for bipeds, non-biped routes incl. Tripo rig types via fal, Blender procedural, painted-sprite) before the creature lanes start. Spend caps per lane; images via Astra.",
+      "ts": "2026-10-01T23:18:08"
     }
   ]
 }
