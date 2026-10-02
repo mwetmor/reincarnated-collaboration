@@ -165,7 +165,9 @@
    "joints": 22,
    "rest_match": 0.97711,
    "hip_ratio": 0.8647,
-   "flags": [],
+   "flags": [
+    "deroot"
+   ],
    "source_travel_m": [
     -0.0543,
     1.1876
@@ -180,6 +182,6 @@
  "lint": {
   "verdict": "WARN",
   "fails": [],
-  "warns": 8
+  "warns": 7
  }
 }

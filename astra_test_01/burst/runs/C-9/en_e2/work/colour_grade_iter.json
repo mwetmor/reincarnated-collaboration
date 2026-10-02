@@ -1,0 +1,320 @@
+{
+ "rule": "en17 region grade (Lab, regions frozen from the pre-grade atlas by en16.classify_lab; skin/hair by UV; his hood graded as lapis), measured by en18 at the play camera (idle+walk, 8 headings, scale 1, class pass for exact region pixels) against the sheet (4 matted views; her head band excluded)",
+ "target": "dE <= ~10 per region",
+ "rounds": {
+  "m": [
+   {
+    "tag": "m0",
+    "params": "none (shipped atlas)",
+    "colour": {
+     "lapis": {
+      "sheet_lab": [
+       40.73,
+       2.36,
+       -4.7
+      ],
+      "render_lab": [
+       40.52,
+       2.47,
+       2.14
+      ],
+      "dE": 6.85,
+      "render_px": 18584
+     },
+     "ivory": {
+      "sheet_lab": [
+       73.39,
+       4.68,
+       13.48
+      ],
+      "render_lab": [
+       56.14,
+       5.28,
+       15.87
+      ],
+      "dE": 17.43,
+      "render_px": 15807
+     },
+     "brass": {
+      "sheet_lab": [
+       41.6,
+       7.11,
+       17.22
+      ],
+      "render_lab": [
+       39.28,
+       5.88,
+       16.12
+      ],
+      "dE": 2.84,
+      "render_px": 15389
+     }
+    }
+   },
+   {
+    "tag": "m1",
+    "params": {
+     "lapis": {
+      "dL": 0,
+      "da": -1.5,
+      "db": -8,
+      "kL": 1.0,
+      "kC": 1.15
+     },
+     "ivory": {
+      "dL": 15,
+      "da": 0,
+      "db": -2,
+      "kL": 0.85,
+      "kC": 0.95
+     },
+     "brass": {
+      "dL": 2,
+      "da": 1,
+      "db": 1,
+      "kL": 1.35,
+      "kC": 1.15
+     }
+    },
+    "colour": {
+     "lapis": {
+      "sheet_lab": [
+       40.73,
+       2.36,
+       -4.7
+      ],
+      "render_lab": [
+       40.43,
+       1.48,
+       -4.02
+      ],
+      "dE": 1.15,
+      "render_px": 18584
+     },
+     "ivory": {
+      "sheet_lab": [
+       73.39,
+       4.68,
+       13.48
+      ],
+      "render_lab": [
+       68.74,
+       4.87,
+       14.52
+      ],
+      "dE": 4.77,
+      "render_px": 15807
+     },
+     "brass": {
+      "sheet_lab": [
+       41.6,
+       7.11,
+       17.22
+      ],
+      "render_lab": [
+       41.81,
+       7.32,
+       18.43
+      ],
+      "dE": 1.24,
+      "render_px": 15389
+     }
+    }
+   }
+  ],
+  "f": [
+   {
+    "tag": "f0",
+    "params": "none (shipped atlas)",
+    "colour": {
+     "lapis": {
+      "sheet_lab": [
+       37.15,
+       -0.65,
+       -8.6
+      ],
+      "render_lab": [
+       44.45,
+       1.01,
+       2.06
+      ],
+      "dE": 13.03,
+      "render_px": 16649
+     },
+     "ivory": {
+      "sheet_lab": [
+       78.09,
+       4.07,
+       17.14
+      ],
+      "render_lab": [
+       61.89,
+       4.61,
+       16.85
+      ],
+      "dE": 16.21,
+      "render_px": 23578
+     },
+     "brass": {
+      "sheet_lab": [
+       41.74,
+       6.9,
+       18.16
+      ],
+      "render_lab": [
+       39.79,
+       6.18,
+       15.73
+      ],
+      "dE": 3.19,
+      "render_px": 12335
+     }
+    }
+   },
+   {
+    "tag": "f1",
+    "params": {
+     "lapis": {
+      "dL": -6,
+      "da": -2,
+      "db": -10,
+      "kL": 1.0,
+      "kC": 1.2
+     },
+     "ivory": {
+      "dL": 15,
+      "da": 0,
+      "db": 0,
+      "kL": 0.85,
+      "kC": 0.95
+     },
+     "brass": {
+      "dL": 2,
+      "da": 1,
+      "db": 2.5,
+      "kL": 1.35,
+      "kC": 1.15
+     }
+    },
+    "colour": {
+     "lapis": {
+      "sheet_lab": [
+       37.15,
+       -0.65,
+       -8.6
+      ],
+      "render_lab": [
+       29.43,
+       -0.49,
+       -6.82
+      ],
+      "dE": 7.92,
+      "render_px": 6411
+     },
+     "ivory": {
+      "sheet_lab": [
+       78.09,
+       4.07,
+       17.14
+      ],
+      "render_lab": [
+       74.12,
+       2.34,
+       16.15
+      ],
+      "dE": 4.44,
+      "render_px": 23578
+     },
+     "brass": {
+      "sheet_lab": [
+       41.74,
+       6.9,
+       18.16
+      ],
+      "render_lab": [
+       41.89,
+       7.72,
+       19.12
+      ],
+      "dE": 1.27,
+      "render_px": 12335
+     }
+    }
+   },
+   {
+    "tag": "f2",
+    "params": {
+     "lapis": {
+      "dL": 2,
+      "da": -2,
+      "db": -11,
+      "kL": 1.0,
+      "kC": 1.2
+     },
+     "ivory": {
+      "dL": 15,
+      "da": 0,
+      "db": 0,
+      "kL": 0.85,
+      "kC": 0.95
+     },
+     "brass": {
+      "dL": 2,
+      "da": 1,
+      "db": 2.5,
+      "kL": 1.35,
+      "kC": 1.15
+     }
+    },
+    "colour": {
+     "lapis": {
+      "sheet_lab": [
+       37.15,
+       -0.65,
+       -8.6
+      ],
+      "render_lab": [
+       35.48,
+       -0.53,
+       -7.47
+      ],
+      "dE": 2.02,
+      "render_px": 6411
+     },
+     "ivory": {
+      "sheet_lab": [
+       78.09,
+       4.07,
+       17.14
+      ],
+      "render_lab": [
+       74.13,
+       2.34,
+       16.14
+      ],
+      "dE": 4.44,
+      "render_px": 23578
+     },
+     "brass": {
+      "sheet_lab": [
+       41.74,
+       6.9,
+       18.16
+      ],
+      "render_lab": [
+       41.89,
+       7.72,
+       19.12
+      ],
+      "dE": 1.26,
+      "render_px": 12335
+     }
+    }
+   }
+  ]
+ },
+ "shipped": {
+  "m": "work/m_tex_graded1.png (round m1)",
+  "f": "work/f_tex_graded2.png (round f2; f1 graded her ash hair as lapis -- fixed: lapis excluded from her head mask)"
+ }
+}

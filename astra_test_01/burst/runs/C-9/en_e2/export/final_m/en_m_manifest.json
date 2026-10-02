@@ -3,14 +3,14 @@
  "what": "possessed acolyte of the Keepers of Hours, male trash caster (R-C9-132/133, lane EN-E2)",
  "body": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_m/en_m_body.glb",
-  "sha256": "f342bd8ee306a4e677d305cb7cdac65273b65f85556c5ff145a50e12e9aabd60",
+  "sha256": "c548c304d5aba5bcda86a85c1a4aba486adf4b89e5ae300e8e61a93b09f6ae00",
   "height_m": 1.88,
   "export_scale": 1.105882,
   "forward": "+Z",
   "up": "+Y",
   "joints": 26,
   "skeleton": "Meshy 24 + weapon_r/weapon_l (52_weapon_bones), skeleton identity PASS",
-  "texture": "painted (D7 method: sheet A 19.77 deg + sheet B 52.95 deg over A) EMBEDDED in the GLB (e42)",
+  "texture": "painted (D7 method: sheet A 19.77 deg + sheet B 52.95 deg over A) EMBEDDED in the GLB (e42); REGION GRADE v2 (en17: lapis/ivory/brass toward the sheet, measured at the play camera, dE lapis/ivory/brass = 1.15/4.77/1.24)",
   "gear": "none (one body; nothing to bind, so no node-order rewrite applies)"
  },
  "roster": {
@@ -164,17 +164,19 @@
    "length_s": 3.5333,
    "loop": false,
    "source": "standing_react_death_backward (Mixamo Pro Magic Pack)",
-   "flags": [],
-   "root_travel_note": "NOT de-rooted: the fall travels (lint WARN); extent {'x': [-0.773, 0.644], 'y_top': 1.766, 'z': [-1.857, 0.54]} m",
+   "flags": [
+    "deroot"
+   ],
+   "root_travel_note": "de-rooted at source (graft +deroot); hips ground track max 0.299 m from origin, ends at the origin",
    "extent_m": {
     "x": [
-     -0.773,
-     0.644
+     -0.665,
+     0.738
     ],
     "y_top": 1.766,
     "z": [
-     -1.857,
-     0.54
+     -1.213,
+     1.055
     ]
    }
   },
@@ -267,5 +269,9 @@
   "film_playscale": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/film/en_m_playscale.mp4",
   "film_2x": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/film/en_m_2x.mp4"
  },
- "emergence": "none: the roster marks the type p05 = 0 (ring trash, appears at t=0 with no spawn clip); a rise clip exists if wanted (Pro Magic \"Crouch To Standing Idle\", converted, not grafted)"
+ "emergence": "none: the roster marks the type p05 = 0 (ring trash, appears at t=0 with no spawn clip); a rise clip exists if wanted (Pro Magic \"Crouch To Standing Idle\", converted, not grafted)",
+ "join1_pack": {
+  "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-acolyte-m",
+  "kit": "join1_render/kits/en-acolyte-m.json"
+ }
 }
