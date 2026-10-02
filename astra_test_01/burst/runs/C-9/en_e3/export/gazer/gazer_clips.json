@@ -1,0 +1,604 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "gazer",
+ "roster_type_id": "basilisk",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer.glb",
+ "glb_sha256": "5524fd9113c0f899a6e9dc2a60801016dded70dfac1e0db1a257fcdde9995cd1",
+ "glb_bytes": 2394504,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 1.6198,
+ "length_m": 3.517,
+ "width_m": 1.0495,
+ "skin_joints": 22,
+ "materials": [
+  {
+   "name": "tripo_material_10dc45a2-fc21-415a-a798-349a2a182a19",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 57,
+   "duration_s": 1.86667,
+   "fps": 30,
+   "source": "roster combat idle 57f",
+   "lint": {
+    "frames": 57,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     15,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 56 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "roster walk_a01 49f; walkSpeed 0.45/0.6 has no stated base -- 1.3 m/s INFERRED; 0.67 s cycle so the stride stays inside the short legs' reach",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     3,
+     [
+      -0.413,
+      -0.573,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 6
+   },
+   "loop": "closing key == first key (frames 0..N, N = 20 intervals)",
+   "ground_speed_m_s": 1.3,
+   "stride_m_per_cycle": 0.8667
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 15,
+   "duration_s": 0.46667,
+   "fps": 30,
+   "source": "roster lead record run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 35f",
+   "lint": {
+    "frames": 15,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     14,
+     [
+      -0.413,
+      -0.721,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 5
+   },
+   "loop": "closing key == first key (frames 0..N, N = 14 intervals)",
+   "ground_speed_m_s": 3.21,
+   "stride_m_per_cycle": 1.498
+  },
+  "cast_glare": {
+   "kind": "oneshot",
+   "frames": 45,
+   "duration_s": 1.46667,
+   "fps": 30,
+   "source": "petrifying glare cone 6 m x 1.4-2 m, totalspeed slow: petrifyingglare_a01 45f rel f16",
+   "lint": {
+    "frames": 45,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     36,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 16,
+   "release_s": 0.5333
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "frames": 45,
+   "duration_s": 1.46667,
+   "fps": 30,
+   "source": "acid retch cone 4 m x 2 m, poison: breath_a01 45f rel f16",
+   "lint": {
+    "frames": 45,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     18,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 16,
+   "release_s": 0.5333
+  },
+  "attack_tail": {
+   "kind": "oneshot",
+   "frames": 44,
+   "duration_s": 1.43333,
+   "fps": 30,
+   "source": "tail swipe aoe r 3.8 m: attackspecial_a01 44f rel f16",
+   "lint": {
+    "frames": 44,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     7,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 16,
+   "release_s": 0.5333
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "frames": 35,
+   "duration_s": 1.13333,
+   "fps": 30,
+   "source": "acid spit projectile 18 m/s: castattack_a01 35f rel f21",
+   "lint": {
+    "frames": 35,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     9,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 21,
+   "release_s": 0.7
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "gethit_a01 21f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     4,
+     [
+      -0.413,
+      -0.638,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 37,
+   "duration_s": 1.2,
+   "fps": 30,
+   "source": "death_a01 37f",
+   "lint": {
+    "frames": 37,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0052,
+    "worst_frame_vertex": [
+     8,
+     [
+      -0.519,
+      0.477,
+      -0.005
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "gazer",
+  "effects": [
+   {
+    "id": "gazer_glare_cone",
+    "atlas": "gazer_glare_cone.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     704,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     6.8763,
+     2.5005
+    ],
+    "px_per_m": 102.381,
+    "plane": "ground",
+    "pivot": "left-middle (the eyes, projected to the ground)",
+    "ability": "basilisk_petrifyingglare (aoe wave 6 m long, 1.4-2 m wide, slow)",
+    "trigger": "cast_glare release f16; loop frames 4-11 while the stare holds (the clip holds f16-f34)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_eye_flare",
+    "atlas": "gazer_eye_flare.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 24,
+    "duration_s": 0.3333,
+    "cell_m": [
+     0.3657,
+     0.3657
+    ],
+    "px_per_m": 350.0,
+    "plane": "billboard",
+    "pivot": "centre = each eye socket (eye_L / eye_R)",
+    "ability": "basilisk_petrifyingglare: the eyes FLARE",
+    "trigger": "cast_glare f12 to f34, then fade",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_acid_breath",
+    "atlas": "gazer_acid_breath.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     576,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     4.608,
+     2.56
+    ],
+    "px_per_m": 125.0,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "basilisk_acidbarf (aoe wave 4 m x 2 m, poison)",
+    "trigger": "cast_breath release f16",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_spit_orb",
+    "atlas": "gazer_spit_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     96,
+     96
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.2743,
+     0.2743
+    ],
+    "px_per_m": 350.0,
+    "plane": "billboard",
+    "pivot": "centre = the spit in flight (body r 0.1 m)",
+    "ability": "basilisk_acidspit (projectile 18 m/s)",
+    "trigger": "cast_spit release f21 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_spit_splash",
+    "atlas": "gazer_spit_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     3.2,
+     3.2
+    ],
+    "px_per_m": 80.0,
+    "plane": "ground",
+    "pivot": "centre = the impact point (area 1.5 m)",
+    "ability": "basilisk_acidspit impact",
+    "trigger": "on spit impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_tail_ring",
+    "atlas": "gazer_tail_ring.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     7.9304,
+     7.9304
+    ],
+    "px_per_m": 48.421,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "basilisk_tailswipe (aoe r 3.8 m)",
+    "trigger": "attack_tail release f16",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 1.6191498041152954,
+  "y_snout": -1.1874961853027344,
+  "y_tail": 2.329498291015625,
+  "z_belly": 0.3054499924182892,
+  "z_shoulder": 0.7312168362736702,
+  "z_hip": 0.5106891795992852,
+  "y_head_base": -0.8006267929077149,
+  "z_lip": 1.2600122213363647,
+  "y_hinge": -0.8586572017669678,
+  "feet": {
+   "FL": {
+    "x": 0.3364970088005066,
+    "y": -0.553620457649231,
+    "toe_y": -0.6834266352653503,
+    "heel_y": -0.36125134676694864
+   },
+   "BL": {
+    "x": 0.3389389216899872,
+    "y": 0.4675324708223343,
+    "toe_y": 0.33766281813383103,
+    "heel_y": 0.6758327484130859
+   },
+   "FR": {
+    "x": -0.3346506953239441,
+    "y": -0.5524052381515503,
+    "toe_y": -0.6850362420082092,
+    "heel_y": -0.3593915915489197
+   },
+   "BR": {
+    "x": -0.3389848917722702,
+    "y": 0.46803949773311615,
+    "toe_y": 0.3390795588493347,
+    "heel_y": 0.6783902049064636
+   }
+  },
+  "leg_FL": {
+   "joint": [
+    0.25237275660037994,
+    -0.5336204576492309,
+    0.7312168362736702
+   ],
+   "knee": [
+    0.3095772480964661,
+    -0.48362045764923095,
+    0.41560841813683513
+   ],
+   "ankle": [
+    0.3364970088005066,
+    -0.5236204576492309,
+    0.1
+   ],
+   "toe": [
+    0.3364970088005066,
+    -0.6634266352653503,
+    0.03
+   ],
+   "chain_len": 0.6439,
+   "rest_reach": 0.6369,
+   "pole_angle_deg": 98.0,
+   "pole_rest_err": 0.01394
+  },
+  "leg_FR": {
+   "joint": [
+    -0.25098802149295807,
+    -0.5324052381515503,
+    0.7312168362736702
+   ],
+   "knee": [
+    -0.3078786396980286,
+    -0.4824052381515503,
+    0.41560841813683513
+   ],
+   "ankle": [
+    -0.3346506953239441,
+    -0.5224052381515503,
+    0.1
+   ],
+   "toe": [
+    -0.3346506953239441,
+    -0.6650362420082092,
+    0.03
+   ],
+   "chain_len": 0.6438,
+   "rest_reach": 0.6368,
+   "pole_angle_deg": 82.0,
+   "pole_rest_err": 0.01589
+  },
+  "leg_BL": {
+   "joint": [
+    0.2542041912674904,
+    0.44753247082233427,
+    0.5106891795992852
+   ],
+   "knee": [
+    0.3118238079547882,
+    0.3975324708223343,
+    0.30534458979964263
+   ],
+   "ankle": [
+    0.3389389216899872,
+    0.4975324708223343,
+    0.1
+   ],
+   "toe": [
+    0.3389389216899872,
+    0.35766281813383105,
+    0.03
+   ],
+   "chain_len": 0.4491,
+   "rest_reach": 0.4223,
+   "pole_angle_deg": -72.0,
+   "pole_rest_err": 0.02893
+  },
+  "leg_BR": {
+   "joint": [
+    -0.25423866882920265,
+    0.44803949773311613,
+    0.5106891795992852
+   ],
+   "knee": [
+    -0.3118661004304886,
+    0.39803949773311614,
+    0.30534458979964263
+   ],
+   "ankle": [
+    -0.3389848917722702,
+    0.4980394977331162,
+    0.1
+   ],
+   "toe": [
+    -0.3389848917722702,
+    0.35907955884933473,
+    0.03
+   ],
+   "chain_len": 0.4491,
+   "rest_reach": 0.4223,
+   "pole_angle_deg": -108.0,
+   "pole_rest_err": 0.02907
+  },
+  "mouth_cut_edges": 72,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 472,
+   "unweighted_verts": 0,
+   "groups": 22
+  },
+  "texture": {
+   "path": "work/tex_gazer_GTd.png",
+   "nodes": 1
+  },
+  "emissive": "work/emis_gazer.png",
+  "eye_sockets_head_local": {
+   "L": [
+    0.104,
+    0.1786,
+    0.1147
+   ],
+   "R": [
+    -0.104,
+    0.1786,
+    0.1147
+   ]
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "leg_FL_1",
+   "leg_FL_2",
+   "leg_FL_3",
+   "leg_FR_1",
+   "leg_FR_2",
+   "leg_FR_3",
+   "tail1",
+   "tail2",
+   "tail3",
+   "leg_BL_1",
+   "leg_BL_2",
+   "leg_BL_3",
+   "leg_BR_1",
+   "leg_BR_2",
+   "leg_BR_3"
+  ]
+ }
+}

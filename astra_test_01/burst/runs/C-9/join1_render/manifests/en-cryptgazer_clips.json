@@ -1,0 +1,256 @@
+{
+ "what": "JOIN-1 clip manifest for the crypt gazer (crucible creature, roster rig basilisk) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/gazer/gazer.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer.glb",
+  "sha256_16": "5524fd9113c0f899",
+  "height_m": 1.6198,
+  "length_m": 3.517
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.86667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster combat idle 57f"
+  },
+  "walk": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01 49f; walkSpeed 0.45/0.6 has no stated base -- 1.3 m/s INFERRED; 670 ms cycle so the stride stays inside the short legs' reach"
+  },
+  "run": {
+   "seconds": 0.46667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 35f"
+  },
+  "cast_glare": {
+   "seconds": 1.46667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: petrifying glare cone 6 m x 1.4-2 m, totalspeed slow: petrifyingglare_a01 45f rel f16"
+  },
+  "cast_breath": {
+   "seconds": 1.46667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: acid retch cone 4 m x 2 m, poison: breath_a01 45f rel f16"
+  },
+  "attack_tail": {
+   "seconds": 1.43333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: tail swipe aoe r 3.8 m: attackspecial_a01 44f rel f16"
+  },
+  "cast_spit": {
+   "seconds": 1.13333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: acid spit projectile 18 m/s: castattack_a01 35f rel f21"
+  },
+  "hit": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: gethit_a01 21f"
+  },
+  "death": {
+   "seconds": 1.2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_a01 37f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.3,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.21,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {},
+ "casts": {
+  "cast_glare": {
+   "release_s": 0.5333,
+   "frame": 16,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 16)"
+  },
+  "cast_breath": {
+   "release_s": 0.5333,
+   "frame": 16,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 16)"
+  },
+  "attack_tail": {
+   "release_s": 0.5333,
+   "frame": 16,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 16)"
+  },
+  "cast_spit": {
+   "release_s": 0.7,
+   "frame": 21,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 21)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "gazer_glare_cone",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_glare_cone.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     704,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     6.8763,
+     2.5005
+    ],
+    "px_per_m": 102.381,
+    "plane": "ground",
+    "pivot": "left-middle (the eyes, projected to the ground)",
+    "ability": "basilisk_petrifyingglare (aoe wave 6 m long, 1.4-2 m wide, slow)",
+    "trigger": "cast_glare release f16; loop frames 4-11 while the stare holds (the clip holds f16-f34)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_eye_flare",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_eye_flare.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 24,
+    "duration_s": 0.3333,
+    "cell_m": [
+     0.3657,
+     0.3657
+    ],
+    "px_per_m": 350.0,
+    "plane": "billboard",
+    "pivot": "centre = each eye socket (eye_L / eye_R)",
+    "ability": "basilisk_petrifyingglare: the eyes FLARE",
+    "trigger": "cast_glare f12 to f34, then fade",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_acid_breath",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_acid_breath.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     576,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     4.608,
+     2.56
+    ],
+    "px_per_m": 125.0,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "basilisk_acidbarf (aoe wave 4 m x 2 m, poison)",
+    "trigger": "cast_breath release f16",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_spit_orb",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_spit_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     96,
+     96
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.2743,
+     0.2743
+    ],
+    "px_per_m": 350.0,
+    "plane": "billboard",
+    "pivot": "centre = the spit in flight (body r 0.1 m)",
+    "ability": "basilisk_acidspit (projectile 18 m/s)",
+    "trigger": "cast_spit release f21 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_spit_splash",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_spit_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     3.2,
+     3.2
+    ],
+    "px_per_m": 80.0,
+    "plane": "ground",
+    "pivot": "centre = the impact point (area 1.5 m)",
+    "ability": "basilisk_acidspit impact",
+    "trigger": "on spit impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gazer_tail_ring",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/gazer/gazer_tail_ring.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     7.9304,
+     7.9304
+    ],
+    "px_per_m": 48.421,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "basilisk_tailswipe (aoe r 3.8 m)",
+    "trigger": "attack_tail release f16",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

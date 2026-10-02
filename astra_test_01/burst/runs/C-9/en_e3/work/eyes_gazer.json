@@ -1,0 +1,25 @@
+{
+ "eyes": {
+  "L": {
+   "center_m": [
+    0.104,
+    -1.0055,
+    1.2562
+   ],
+   "texels": 388,
+   "extent_m": 0.0661
+  },
+  "R": {
+   "center_m": [
+    -0.104,
+    -1.0055,
+    1.2562
+   ],
+   "texels": 0,
+   "extent_m": 0.0661,
+   "mirrored_from": "L"
+  }
+ },
+ "emissive": "work/emis_gazer.png",
+ "rule": "head, lum>150, G>=R, upper half of the head; largest blob per side"
+}

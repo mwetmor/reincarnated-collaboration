@@ -27,6 +27,12 @@ func _ready():
 			var an = ap.get_animation(a)
 			print("[chk] anim ", a, " length ", snapped(an.length, 0.0001), " tracks ", an.get_track_count())
 	print("[chk] texture_embedded ", tex_ok)
+	# EN3_SOCK = "bone,along,lx,ly,lz": the socket at REST, computed the renderer's way (bone global rest origin + along x basis.y + local)
+	if OS.get_environment("EN3_SOCK") != "" and sk:
+		var a = OS.get_environment("EN3_SOCK").split(",")
+		var g: Transform3D = sk.global_transform * sk.get_bone_global_rest(sk.find_bone(a[0]))
+		var p = g.origin + g.basis.y.normalized() * float(a[1]) + g.basis.x.normalized() * float(a[2]) + g.basis.y.normalized() * float(a[3]) + g.basis.z.normalized() * float(a[4])
+		print("[chk] socket_rest_world ", p)
 	var cam = Camera3D.new(); add_child(cam); cam.projection = Camera3D.PROJECTION_ORTHOGONAL; cam.size = 3.6
 	var el = deg_to_rad(52.9535411256029); var aim = Vector3(0, 0.45, 0)
 	cam.position = aim + Vector3(0, sin(el), cos(el)) * 20.0; cam.look_at(aim, Vector3.UP); cam.current = true

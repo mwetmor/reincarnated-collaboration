@@ -77,8 +77,15 @@ bone('root', (0, 0, 0), (0, -0.25, 0))
 y_sp1 = fy_b - 0.35 * (fy_b - fy_f); y_ch = fy_f + 0.05
 bone('Hips', (0, fy_b + 0.06, z_sp_b), (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), 'root')
 bone('spine', (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), (0, y_ch, z_sp_f), 'Hips', conn=True)
-bone('chest', (0, y_ch, z_sp_f), (0, y_hb + 0.12, zh_c + 0.03), 'spine', conn=True)
-bone('neck', (0, y_hb + 0.12, zh_c + 0.03), (0, y_hb - 0.02, zh_c + 0.02), 'chest', conn=True)
+if CFG.get('long_neck'):
+    # LONG NECK (the gazer): the chest ends over the shoulders and ONE long neck bone carries the S-neck up to the head base, so a
+    # neck rotation lifts the head (n10's default neck is a 0.14 m stub for a short-necked crawler)
+    y_nb = y_ch - CFG.get('neck_root_fwd', 0.15); z_nb = ztop(y_nb) - 0.12
+    bone('chest', (0, y_ch, z_sp_f), (0, y_nb, z_nb), 'spine', conn=True)
+    bone('neck', (0, y_nb, z_nb), (0, y_hb - 0.02, zh_c + 0.02), 'chest', conn=True)
+else:
+    bone('chest', (0, y_ch, z_sp_f), (0, y_hb + 0.12, zh_c + 0.03), 'spine', conn=True)
+    bone('neck', (0, y_hb + 0.12, zh_c + 0.03), (0, y_hb - 0.02, zh_c + 0.02), 'chest', conn=True)
 bone('head', (0, y_hb - 0.02, zh_c + 0.02), (0, y0 + 0.02, zh_c + 0.04), 'neck', conn=True)
 bone('jaw', (0, y_hinge, z_hinge), (0, y0 + 0.05, z_lip - 0.06), 'head')
 bone('tail1', (0, y_tb - 0.1, z_tb + 0.02), (0, y_tb + 0.25 * TLF * LF, z_tb), 'Hips')
@@ -179,7 +186,7 @@ for j, n in enumerate(bones_w):
     if n.startswith('tail'):
         g = (VW[:, 1] > y_tb - 0.25).astype(float)
     if n in ('head', 'jaw', 'neck'):
-        g = (VW[:, 1] < y_hb + 0.25).astype(float)
+        g = (VW[:, 1] < (y_ch - 0.05 if (CFG.get('long_neck') and n == 'neck') else y_hb + 0.25)).astype(float)
     Wm[:, j] = g / (dist ** 4 + 1e-6)
 # the FOOT BLOCK (below the ankle, inside a leg's gate) rides the foot bone alone, so a bending shin cannot push the sole into the floor
 for lg in LEGS:
@@ -311,7 +318,7 @@ def gait(f, N, v, duty, offs, lift, bob, pitch_amp, flex_amp, lead):
     st['neck'] = (-0.5 * pitch_amp * math.sin(w + 0.6), 0.0, 1.5 * math.sin(w + 0.4))
     st['head'] = (-0.4 * pitch_amp * math.sin(w + 1.0), 0.0, 0.0)
     st['jaw'] = (-1.0 - 2.0 * (0.5 + 0.5 * math.sin(2 * w)), 0.0, 0.0)
-    st['tail1'] = (2.0 * math.sin(w), 0.0, 9.0 * math.sin(w + 0.8)); st['tail2'] = (0.0, 0.0, 12.0 * math.sin(w + 1.6)); st['tail3'] = (0.0, 0.0, 14.0 * math.sin(w + 2.4))
+    st['tail1'] = (2.0 * math.sin(w) - CFG.get('tail_lift', 0.0), 0.0, 9.0 * math.sin(w + 0.8))   # tail_lift: + raises the tip (the tail points +Y); st['tail2'] = (0.0, 0.0, 12.0 * math.sin(w + 1.6)); st['tail3'] = (0.0, 0.0, 14.0 * math.sin(w + 2.4))
     return st
 
 def clip_state(name, f):
@@ -389,7 +396,58 @@ def clip_state(name, f):
             fr = lg[0] == 'F'; cur = kf([(0, 0), (c0, 0), (c1, 1), (N, 1.1)], f)
             st['fk_' + lg] = (infl, (-35 if fr else 30) * cur, (60 if fr else -55) * cur, (-30) * cur)
         return st
+    if k == 'glare':
+        # the PETRIFYING STARE: the neck rears up and back, the head lowers to level and LOCKS on the target at the release (head
+        # stabilised, jaw a little open, the body braced low), holds the stare for the cone, then releases
+        rf = c['release']; ho = c.get('hold', 14); st = {}; a0 = max(2, rf - 9)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.06), (rf, 0.02), (rf + ho, 0.02), (N, 0)], f), kf([(0, 0), (a0, -0.02), (rf, -0.05), (rf + ho, -0.05), (N, 0)], f))
+        st['chest'] = (kf([(0, 0), (a0, 14), (rf, 16), (rf + ho, 16), (N, 0)], f), 0, 0)
+        st['neck'] = (kf([(0, 0), (a0, 40), (rf, 32), (rf + ho, 32), (N, 0)], f), 0, kf([(rf, 0), (rf + 3, 2), (rf + 6, -2), (rf + 9, 1), (rf + ho, 0)], f))
+        st['head'] = (kf([(0, 0), (a0, 10), (rf, -36), (rf + ho, -36), (N, 0)], f), 0, 0)
+        st['jaw'] = (kf([(0, -2), (a0, -4), (rf, -14), (rf + ho, -14), (N, -2)], f), 0, 0)
+        st['tail1'] = (0, 0, kf([(0, 0), (a0, 10), (rf + ho, -6), (N, 0)], f))
+        return st
+    if k == 'breath':
+        # rear back and swell, then THRUST the head forward-down and pour the breath from a gaping jaw at the release, hold, recover
+        rf = c['release']; ho = c.get('hold', 12); st = {}; a0 = max(2, rf - 9)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.12), (rf, -0.08), (rf + ho, -0.06), (N, 0)], f), kf([(0, 0), (a0, -0.02), (rf, -0.05), (N, 0)], f))
+        st['chest'] = (kf([(0, 0), (a0, 12), (rf, -6), (rf + ho, -6), (N, 0)], f), 0, 0)
+        st['neck'] = (kf([(0, 0), (a0, 22), (rf, -4), (rf + ho, -4), (N, 0)], f), 0, kf([(rf, 0), (rf + 4, 8), (rf + 8, -8), (rf + ho, 0)], f))
+        st['head'] = (kf([(0, 0), (a0, 8), (rf, -8), (rf + ho, -8), (N, 0)], f), 0, 0)
+        st['jaw'] = (kf([(0, -2), (a0, -10), (rf - 1, -45), (rf + ho, -45), (rf + ho + 4, -4), (N, -2)], f), 0, 0)
+        st['tail1'] = (kf([(0, 0), (a0, 10), (rf, -6), (N, 0)], f), 0, 0)
+        return st
+    if k == 'spitshot':
+        # a quick JAB: head cocks back, snaps forward, jaw pops open at the release (the projectile leaves), recovers
+        rf = c['release']; st = {}; a0 = max(2, rf - 7)
+        st['neck'] = (kf([(0, 0), (a0, 20), (rf, -10), (rf + 5, -6), (N, 0)], f), 0, 0)
+        st['head'] = (kf([(0, 0), (a0, 10), (rf, -6), (N, 0)], f), 0, 0)
+        st['jaw'] = (kf([(0, -2), (a0, -6), (rf - 1, -30), (rf + 2, -30), (rf + 6, -3), (N, -2)], f), 0, 0)
+        st['chest'] = (kf([(0, 0), (a0, 6), (rf, -4), (N, 0)], f), 0, 0)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.06), (rf, -0.06), (N, 0)], f), 0)
+        return st
+    if k == 'tailswipe':
+        # the body coils and SPINS on its planted feet (a hip yaw), the heavy tail sweeping a full arc at hip height through the
+        # release; the head and neck counter-turn to keep the target in sight
+        rf = c['release']; st = {}; a0 = max(2, rf - 8)
+        yaw = kf([(0, 0), (a0, -10), (rf, 16), (rf + 6, 12), (N, 0)], f) * c.get('hip_yaw', 1.0)
+        st['Hips'] = (0, 0, yaw); st['spine'] = (0, 0, yaw * 0.5); st['chest'] = (0, 0, -yaw * 0.3)
+        st['neck'] = (0, 0, -yaw * 0.6); st['head'] = (0, 0, -yaw * 0.3)
+        st['tail1'] = (kf([(0, 0), (a0, 6), (rf, 2), (N, 0)], f), 0, kf([(0, 0), (a0, -40), (rf, 60), (rf + 6, 50), (N, 0)], f))
+        st['tail2'] = (0, 0, kf([(0, 0), (a0, -25), (rf, 40), (rf + 6, 30), (N, 0)], f)); st['tail3'] = (0, 0, kf([(0, 0), (a0, -20), (rf, 35), (rf + 6, 25), (N, 0)], f))
+        st['jaw'] = (kf([(0, -2), (rf, -18), (N, -2)], f), 0, 0)
+        return st
     raise KeyError(k)
+
+# MOTION SCALE (as n15): typed clip offsets scale with a creature scaled to fit the canvas; gait strides and derived drops do not.
+_clip_state_raw = clip_state
+def clip_state(name, f):
+    st = _clip_state_raw(name, f); ms = CFG.get('motion_scale', 1.0); k = CL[name].get('kind_fn', name)
+    if ms != 1.0 and k not in ('walk', 'run', 'death', 'idle'):
+        if 'pelvis_loc' in st: st['pelvis_loc'] = tuple(v * ms for v in st['pelvis_loc'])
+        for lg in LEGS:
+            if 'foot_' + lg in st: o = st['foot_' + lg]; st['foot_' + lg] = (o[0] * ms, o[1] * ms, o[2] * ms) + tuple(o[3:])
+    return st
 
 dg = None
 def mesh_minz():
@@ -492,6 +550,19 @@ if CFG.get('texture'):
         if nd.type == 'TEX_IMAGE': nd.image = img; nset += 1
     assert nset, 'no image node on the body material'
     LM['texture'] = dict(path=CFG['texture'], nodes=nset)
+if CFG.get('emissive'):
+    # costume EMISSION (contract 2.2: emissive costume stays): the eyes' own pale verdigris-white, steady
+    em = bpy.data.images.load(os.path.abspath(CFG['emissive'])); em.colorspace_settings.name = 'sRGB'
+    m0 = body.data.materials[0]; bsdf = next(nd for nd in m0.node_tree.nodes if nd.type == 'BSDF_PRINCIPLED')
+    uvn = next((nd.inputs['Vector'].links[0].from_node for nd in m0.node_tree.nodes if nd.type == 'TEX_IMAGE' and nd.inputs['Vector'].links), None)
+    te = m0.node_tree.nodes.new('ShaderNodeTexImage'); te.image = em
+    if uvn: m0.node_tree.links.new(uvn.outputs[0], te.inputs['Vector'])
+    m0.node_tree.links.new(te.outputs['Color'], bsdf.inputs['Emission Color']); bsdf.inputs['Emission Strength'].default_value = CFG.get('emissive_strength', 1.0)
+    LM['emissive'] = CFG['emissive']
+if CFG.get('eyes_json'):
+    # the eye sockets in the HEAD bone's rest frame (x, along-bone y, z), for the runtime glare flare (n14 writes them as sockets)
+    EJ = json.load(open(CFG['eyes_json']))['eyes']; hb = arm.data.bones['head'].matrix_local; hbi = hb.inverted()
+    LM['eye_sockets_head_local'] = {k: list(map(lambda x: round(x, 4), (hbi @ Vector(v['center_m'])))) for k, v in EJ.items()}
 for o in sc.objects: o.select_set(o in (arm, body))
 bpy.context.view_layer.objects.active = arm
 bpy.ops.export_scene.gltf(filepath=OUT, export_format='GLB', use_selection=True, export_animations=True, export_animation_mode='NLA_TRACKS',

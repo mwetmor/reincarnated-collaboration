@@ -27,6 +27,16 @@ arm = next((o for o in sc.objects if o.type == 'ARMATURE'), None)
 meshes = [o for o in sc.objects if o.type == 'MESH']
 top = arm or meshes[0]
 while top.parent: top = top.parent
+# Workbench's TEXTURE colour is the material's ACTIVE image node: with an emissive map present the importer can leave the emission
+# image active and the whole body renders black (found on the gazer) -- make the BASE COLOUR image active
+for _m in bpy.data.materials:
+    if _m.node_tree:
+        _b = next((nd for nd in _m.node_tree.nodes if nd.type == 'BSDF_PRINCIPLED'), None)
+        if _b and _b.inputs['Base Color'].links:
+            _src = _b.inputs['Base Color'].links[0].from_node
+            while _src.type != 'TEX_IMAGE' and _src.inputs and any(i.links for i in _src.inputs):
+                _src = next(i.links[0].from_node for i in _src.inputs if i.links)
+            if _src.type == 'TEX_IMAGE': _m.node_tree.nodes.active = _src
 piv = bpy.data.objects.new('pivot', None); sc.collection.objects.link(piv)
 for o in sc.objects:
     if o.parent is None and o is not piv: o.parent = piv

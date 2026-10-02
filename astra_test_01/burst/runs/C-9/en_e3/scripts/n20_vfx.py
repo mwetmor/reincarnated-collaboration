@@ -129,6 +129,21 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'gazer': [
+  dict(id='gazer_glare_cone', fn='spray', n=16, fps=24, cols=4, W=704, H=256, length_m=6.0, width_m=2.0, col=(198, 214, 196), dark=(110, 128, 112),
+       plane='ground', pivot='left-middle (the eyes, projected to the ground)', ability='basilisk_petrifyingglare (aoe wave 6 m long, 1.4-2 m wide, slow)',
+       trigger='cast_glare release f16; loop frames 4-11 while the stare holds (the clip holds f16-f34)'),
+  dict(id='gazer_eye_flare', fn='impact', n=8, fps=24, cols=4, S=128, radius_m=0.16, col=(214, 246, 228), dark=(120, 170, 150),
+       plane='billboard', pivot='centre = each eye socket (eye_L / eye_R)', ability='basilisk_petrifyingglare: the eyes FLARE', trigger='cast_glare f12 to f34, then fade'),
+  dict(id='gazer_acid_breath', fn='spray', n=16, fps=24, cols=4, W=576, H=320, length_m=4.0, width_m=2.0, col=(176, 172, 84), dark=(104, 110, 44),
+       plane='ground', pivot='left-middle (the mouth, projected to the ground)', ability='basilisk_acidbarf (aoe wave 4 m x 2 m, poison)', trigger='cast_breath release f16'),
+  dict(id='gazer_spit_orb', fn='orb', n=8, fps=20, cols=4, S=96, radius_m=0.12, col=(160, 176, 70), dark=(90, 106, 34),
+       plane='billboard', pivot='centre = the spit in flight (body r 0.1 m)', ability='basilisk_acidspit (projectile 18 m/s)', trigger='cast_spit release f21 at the maw'),
+  dict(id='gazer_spit_splash', fn='ring', n=12, fps=24, cols=4, S=256, radius_m=1.5, col=(170, 186, 86), dark=(96, 112, 40),
+       plane='ground', pivot='centre = the impact point (area 1.5 m)', ability='basilisk_acidspit impact', trigger='on spit impact'),
+  dict(id='gazer_tail_ring', fn='ring', n=12, fps=30, cols=4, S=384, radius_m=3.8, col=(196, 186, 164), dark=(112, 102, 90),
+       plane='ground', pivot='centre = the root', ability='basilisk_tailswipe (aoe r 3.8 m)', trigger='attack_tail release f16'),
+ ],
  'bloom': [
   dict(id='bloom_bite_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
        plane='billboard', pivot='centre = the jaw tip at contact', ability='livingplant_bite (melee 0-2.86 m, bleeding 5 s)', trigger='attack_bite contact f13'),

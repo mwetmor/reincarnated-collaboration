@@ -21,6 +21,21 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'gazer': dict(type_id='basilisk', tid='EN3-GZ', marker='the brass band on its LEFT foreleg', body='a four-legged reptile',
+   pose=("POSE (for building and rigging a 3D model): standing square and still on all four legs in a neutral pose, the legs straight and "
+         "vertical under the body, the feet flat and a little apart, the long neck held up and forward in a gentle curve, the head level and "
+         "facing straight ahead, the MOUTH CLOSED, the long tail held straight out behind, level. In the front and back views a clear gap of "
+         "green shows between the left and right legs and under the belly; in the side views between the front and hind legs. Nothing overlaps anything."),
+   text="""THE CREATURE, a CRYPT GAZER: a long, low, four-legged reptile of the ossuary with a long serpentine neck. Its stare turns flesh to stone; it also spits and retches acid and sweeps with its heavy tail.
+- SIZE AND BUILD: about 4 m from snout to tail tip, a third of that the tail; the body low and long, the top of the back about 1.1 m from the ground; the neck rises from the shoulders in an S-curve so the head is carried at about 1.8 m.
+- THE HEAD: wedge-shaped, with a closed lipless mouth and a crown of SIX short pale bone horns swept back from the brow like a broken diadem; two large round EYES, pale verdigris-white with a black slit pupil, painted pale, never glowing.
+- THE HIDE: small dull scales, slate-grey and dark verdigris green, mottled; the belly and throat pale chalky ivory, banded; along the spine a row of low, flat, stone-grey scutes, as if part of it were already stone.
+- THE LEGS: four short, thick, sprawling legs with five-clawed feet, the claws dark.
+- THE TAIL: long and heavy, ending in a flattened club of stony scutes.
+- ASYMMETRY MARKER: a corroded BRASS BAND engraved with hour-marks clamped around its LEFT foreleg ONLY, just above the foot. It shows in every view where the left foreleg is visible, never on the right.
+- Nothing else on it: no rider, no collar, no chains, no cloth, no wings.
+"""),
+
  'bloom': dict(type_id='carnivorousplant01a_p1', tid='EN3-BL', marker='the brass clock-hand in the LEFT side of its head', body='a rooted flesh-eating plant',
    pose=("POSE (for building and rigging a 3D model): standing still and upright, rooted in place, in a neutral pose: the stem straight up, the head level "
          "and facing straight ahead, the MOUTH CLOSED, the floor leaves spread flat and evenly around the base. In the side views a clear gap of green "

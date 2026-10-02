@@ -1,0 +1,93 @@
+{
+ "name": "gazer",
+ "type_id": "basilisk",
+ "head_len_frac": 0.11,
+ "lip_z_frac": 0.4,
+ "hinge_frac": 0.85,
+ "tail_frac": 0.36,
+ "joint_frac": 0.35,
+ "ankle_z": 0.1,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_w": [
+  0.2,
+  0.32
+ ],
+ "bag_half_h": 0.025,
+ "bag_y0_frac": 0.3,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 56,
+   "src": "roster combat idle 57f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 20,
+   "speed": 1.3,
+   "src": "roster walk_a01 49f; walkSpeed 0.45/0.6 has no stated base -- 1.3 m/s INFERRED; 0.67 s cycle so the stride stays inside the short legs' reach"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 14,
+   "speed": 3.21,
+   "src": "roster lead record run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 35f",
+   "duty": 0.35
+  },
+  "cast_glare": {
+   "kind": "oneshot",
+   "kind_fn": "glare",
+   "frames": 45,
+   "release": 16,
+   "hold": 18,
+   "src": "petrifying glare cone 6 m x 1.4-2 m, totalspeed slow: petrifyingglare_a01 45f rel f16"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 45,
+   "release": 16,
+   "hold": 14,
+   "src": "acid retch cone 4 m x 2 m, poison: breath_a01 45f rel f16"
+  },
+  "attack_tail": {
+   "kind": "oneshot",
+   "kind_fn": "tailswipe",
+   "frames": 44,
+   "release": 16,
+   "src": "tail swipe aoe r 3.8 m: attackspecial_a01 44f rel f16"
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "kind_fn": "spitshot",
+   "frames": 35,
+   "release": 21,
+   "src": "acid spit projectile 18 m/s: castattack_a01 35f rel f21"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "gethit_a01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 37,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01 37f"
+  }
+ },
+ "motion_scale": 0.879,
+ "tail_lift": 5.0,
+ "long_neck": true,
+ "texture": "work/tex_gazer_GTd.png",
+ "emissive": "work/emis_gazer.png",
+ "eyes_json": "work/eyes_gazer.json",
+ "emissive_strength": 1.0,
+ "_scale_note": "fit-to-canvas from the start (conductor): built at 3.516 m = 4.0 m x 0.879 from n17 on the 4.0 m first rig (binding cast_breath f7 heading 6); final s_fit 1.050"
+}
