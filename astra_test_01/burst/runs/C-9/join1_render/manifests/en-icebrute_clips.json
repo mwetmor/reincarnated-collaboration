@@ -183,5 +183,15 @@
    "telegraph_lead_s": 0.8,
    "use": "bolt + burst (r 2.4 m) = the boulder/ice throw; ring_* = the ground pound (r 4.0 m); aura = the roar (ice howl row r 8.0 m)"
   }
+ },
+ "size_call": {
+  "designed_height_m": 2.8,
+  "shipped_height_m": 2.2,
+  "factor": 0.7857,
+  "why": "at 2.80 m the overhead throw and the ground pound cleared the 768 x 768 canvas (edge touch on 8 cells); the 5 % margin gate (38.4 px) allows at most ~2.26 m; shipped at 2.20 m (margin 53 px = 6.9 %). The CONDUCTOR's size call (round 5 brief), not the art's.",
+  "roster_radius_x_scale_m": [
+   1.04,
+   1.625
+  ]
  }
 }

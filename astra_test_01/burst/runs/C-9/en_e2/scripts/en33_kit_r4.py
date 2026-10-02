@@ -58,6 +58,11 @@ if g in ('c', 'n'):
 if 'emerge' in M['clip_len_s']:
     man['emerge'] = dict(clip='emerge', seconds=M['clip_len_s']['emerge'], roster='p05 %.2f bodies; %s (DATAMINED)' % (ROSTER['p05_bodies'], ROSTER['spawn']),
                          method='unfolds UP from a crouch (no floor crossing; cells have no floor); the fade-in and any duration warp are the runtime\'s')
+if g == 'y':
+    man['size_call'] = dict(designed_height_m=2.80, shipped_height_m=H['target_m'], factor=round(H['target_m'] / 2.80, 4),
+                            why='at 2.80 m the overhead throw and the ground pound cleared the 768 x 768 canvas (edge touch on 8 cells); the 5 % margin gate (38.4 px) '
+                                'allows at most ~2.26 m; shipped at 2.20 m (margin 53 px = 6.9 %). The CONDUCTOR\'s size call (round 5 brief), not the art\'s.',
+                            roster_radius_x_scale_m=[1.04, 1.625])
 mp = os.path.join(J, 'manifests', '%s_clips.json' % KID); json.dump(man, open(mp, 'w'), indent=1)
 st = lambda clip, kind, role, n, samp, **kw: dict(clip=clip, kind=kind, role=role, frames=n, sampling=samp, **kw)
 states = dict(idle=st('idle', 'loop', 'locomotion_idle', 12, 'loop', manifest_entry='clips.idle'),
@@ -81,7 +86,7 @@ sockets = dict(main_hand=dict(bone='RightHand', along_bone_m=TIP['RightHand'], _
                               % (TIP['RightHand'], '; the brute\'s HUGE right fist' if g == 'b' else '')),
                off_hand=dict(bone='LeftHand', along_bone_m=TIP['LeftHand'], _what='the left hand\'s tip (+%.4f m)' % TIP['LeftHand']),
                chest=dict(bone='Spine', _what='the chest (Meshy "Spine" = the top spine joint)'), head_top=dict(bone='head_end', _what='the top of the head'))
-kit = dict(kit=KID, _what='Per-kit config for the JOIN-1 sprite-cell renderer: the %s (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, %.2f m. No layers, no morphs.' % (KID, H['target_m']),
+kit = dict(kit=KID, **({'size_call': 'DOWNSCALED 2.80 -> 2.20 m to fit the 768 canvas with a >= 5 % margin; see the manifest size_call (the conductor\'s call)'} if g == 'y' else {}), _what='Per-kit config for the JOIN-1 sprite-cell renderer: the %s (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, %.2f m. No layers, no morphs.' % (KID, H['target_m']),
            contract=dict(doc='reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md', commit='d95e1df', schema='join1-sprite-cells/1'),
            source=dict(body=body, pieces=[], clip_manifest=mp, loadout=dict(main_hand=None, main_side='R', off_hand=None, weapsel=0)),
            h_model=dict(method='rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres', mesh_name_contains='char1'),
