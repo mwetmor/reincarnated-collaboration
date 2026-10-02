@@ -1,0 +1,6906 @@
+{
+ "TA-X-09": {
+  "equals_v1.13": true,
+  "math_rules_file": "af2b0c52f9c7472febfea4f86413a8d088a6cb6efee8b099c4e56973fdf721de",
+  "n": 9,
+  "rowset": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78"
+ },
+ "TA-X-16": {
+  "LU-KEYS": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "LU-KEYS_sets": {
+   "151": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "152": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "153": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "154": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "155": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "156": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "157": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "158": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "159": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "160": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  "P06-KEY": [
+   0,
+   1,
+   1,
+   0,
+   1,
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "V11-P06-1 (waves.json, incumbent roll)": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "checks": {
+   "LU key set == pools_for(w, False) key set, every wave": true,
+   "LU vector == V11-P06-1 (waves.json)": true,
+   "V11-P06-1 == the pack's V11-P06-1 row": true,
+   "equals v1.13's vector": true,
+   "every LU spec resolves to exactly one alternative (p06 OFF)": true,
+   "no key 6 in any LU wave": true,
+   "pools_for(w, True) minus pools_for(w, False) == {6} iff P06-KEY": true
+  },
+  "law_v1.14": "LU-KEYS[w] = |keys of referent_lineup.REFERENT_LINEUP[w]| (the fought board's spawn-point keys), w = 151..160",
+  "sum_LU": 47,
+  "sum_V11": 47
+ },
+ "TA-X-17": {
+  "lo.PLACEMENT_EXTENTS_M": null,
+  "placement_extents_m (arena.json)": 8.0
+ },
+ "TA-X-18": {
+  "bits": [
+   "c00fffffffffffde",
+   "be9777a5cf72cec6"
+  ],
+  "equals_v1.13": true,
+  "value": [
+   "-3.999999999999985",
+   "-3.49691120014899e-07"
+  ]
+ },
+ "TA-X-20": {
+  "kit_channel_radius_m": 3.0,
+  "player_kit_file": "2b68af939b6c795c1b4c9f0411aa037fb4d0332f983fa942aa307c85329eeac6"
+ },
+ "TA-X-21": {
+  "all_int_round": true,
+  "line_numbers_equal_v1.13": false,
+  "round_sites": [
+   [
+    1613,
+    "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+   ],
+   [
+    1774,
+    "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+   ],
+   [
+    1813,
+    "1, int(round(cd * self.ticks_per_s)))"
+   ],
+   [
+    2182,
+    "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+   ]
+  ],
+  "threat_py": "18b2500e7c429f67e82e489637212b3f1148762ac7f865d340b2a64f51a2d8a3"
+ },
+ "TA-X-26": {
+  "P-i": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+  "P-i_equals_v1.13": true,
+  "records": 790,
+  "rows": 7900
+ },
+ "TA-X-27d": {
+  "degenerate": 97,
+  "equals_v1.13": true,
+  "pairs": 139
+ },
+ "TA-X-29c": {
+  "151": [
+   1.82,
+   1.82
+  ],
+  "152": [
+   1.82,
+   1.82
+  ],
+  "153": [
+   1.82,
+   1.82
+  ],
+  "154": [
+   1.82,
+   1.82
+  ],
+  "155": [
+   1.82,
+   1.82
+  ],
+  "156": [
+   1.83,
+   1.83
+  ],
+  "157": [
+   1.83,
+   1.83
+  ],
+  "158": [
+   1.83,
+   1.83
+  ],
+  "159": [
+   1.83,
+   1.83
+  ],
+  "160": [
+   1.83,
+   1.83
+  ]
+ },
+ "TA-X-29e": {
+  "equals star-lord's bare walk": true,
+  "star-lord POST-bare-WALK (cross-reference)": {
+   "file": "d34ca5cbd217989cd561cf59f76bf03caa231fdaa6bc2637bd756253e7645a31",
+   "ten_ratios": [
+    3.350941,
+    1.771304,
+    1.909824,
+    3.038476,
+    1.923423,
+    2.837159,
+    1.968532,
+    1.598751,
+    3.197066,
+    4.935649
+   ]
+  },
+  "ten_ratios": [
+   3.350941,
+   1.771304,
+   1.909824,
+   3.038476,
+   1.923423,
+   2.837159,
+   1.968532,
+   1.598751,
+   3.197066,
+   4.935649
+  ],
+  "v1.13_ten_ratios": [
+   3.353866,
+   1.768566,
+   1.89933,
+   2.994929,
+   1.927777,
+   2.846875,
+   1.979824,
+   1.592632,
+   3.207764,
+   4.980316
+  ],
+  "w159": 3.197066,
+  "w160": 4.935649,
+  "walk": {
+   "151": {
+    "M_inst": 1.82,
+    "n_candidates": 31,
+    "n_identity_path_priced": 8,
+    "n_priced": 26,
+    "ratio": 3.350941,
+    "records": {
+     "records/creatures/enemies/ghost_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.646706,
+      "sum_fold_off": 1162.98,
+      "sum_fold_on": 5404.026
+     },
+     "records/creatures/enemies/ghost_a02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.646706,
+      "sum_fold_off": 1162.98,
+      "sum_fold_on": 5404.026
+     },
+     "records/creatures/enemies/ghost_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.227113,
+      "sum_fold_off": 3781.96,
+      "sum_fold_on": 19768.732
+     },
+     "records/creatures/enemies/ghost_b02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.257082,
+      "sum_fold_off": 2442.44,
+      "sum_fold_on": 12840.107
+     },
+     "records/creatures/enemies/ghost_b03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.143025,
+      "sum_fold_off": 5949.58,
+      "sum_fold_on": 30598.836
+     },
+     "records/creatures/enemies/ghost_b04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.177124,
+      "sum_fold_off": 6354.53,
+      "sum_fold_on": 32898.191
+     },
+     "records/creatures/enemies/hero/swampgolem_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.162,
+      "sum_fold_off": 10749.83,
+      "sum_fold_on": 66240.45
+     },
+     "records/creatures/enemies/hero/swampgolem_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.151405,
+      "sum_fold_off": 11168.43,
+      "sum_fold_on": 68701.532
+     },
+     "records/creatures/enemies/hero/swampgolem_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.225275,
+      "sum_fold_off": 10352.16,
+      "sum_fold_on": 12684.24
+     },
+     "records/creatures/enemies/hero/swampgolem_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.225275,
+      "sum_fold_off": 13927.55,
+      "sum_fold_on": 17065.075
+     },
+     "records/creatures/enemies/hero/swampgolem_h05.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.239652,
+      "sum_fold_off": 19283.81,
+      "sum_fold_on": 120324.254
+     },
+     "records/creatures/enemies/hero/wendigo_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.89198,
+      "sum_fold_off": 13765.57,
+      "sum_fold_on": 81106.457
+     },
+     "records/creatures/enemies/hero/wendigo_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.896969,
+      "sum_fold_off": 10598.77,
+      "sum_fold_on": 9506.77
+     },
+     "records/creatures/enemies/hero/wendigo_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.857911,
+      "sum_fold_off": 8966.23,
+      "sum_fold_on": 7692.23
+     },
+     "records/creatures/enemies/hero/wendigo_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.461981,
+      "sum_fold_off": 8361.08,
+      "sum_fold_on": 45668.058
+     },
+     "records/creatures/enemies/hero/wendigo_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.930656,
+      "sum_fold_off": 15747.55,
+      "sum_fold_on": 14655.55
+     },
+     "records/creatures/enemies/hero/wraith_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.986479,
+      "sum_fold_off": 13460.72,
+      "sum_fold_on": 13278.72
+     },
+     "records/creatures/enemies/hero/wraith_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.944751,
+      "sum_fold_off": 6588.4,
+      "sum_fold_on": 6224.4
+     },
+     "records/creatures/enemies/hero/wraith_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.96681,
+      "sum_fold_off": 5483.66,
+      "sum_fold_on": 5301.66
+     },
+     "records/creatures/enemies/hero/wraith_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.848255,
+      "sum_fold_off": 10794.42,
+      "sum_fold_on": 9156.42
+     },
+     "records/creatures/enemies/hero/wraith_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.98498,
+      "sum_fold_off": 12117.56,
+      "sum_fold_on": 11935.56
+     },
+     "records/creatures/enemies/livingplant_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.985686,
+      "sum_fold_off": 5050.5,
+      "sum_fold_on": 25180.205
+     },
+     "records/creatures/enemies/swampgolem_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.583508,
+      "sum_fold_off": 5009.55,
+      "sum_fold_on": 22961.313
+     },
+     "records/creatures/enemies/wraith_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.334058,
+      "sum_fold_off": 2831.01,
+      "sum_fold_on": 15100.771
+     },
+     "records/creatures/enemies/wraith_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.879303,
+      "sum_fold_off": 4872.14,
+      "sum_fold_on": 23772.645
+     },
+     "records/creatures/enemies/wraith_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.768615,
+      "sum_fold_off": 14228.76,
+      "sum_fold_on": 67851.474
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w01_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w01_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w01_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w01_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w01_p05a.dbr"
+    ]
+   },
+   "152": {
+    "M_inst": 1.82,
+    "n_candidates": 124,
+    "n_identity_path_priced": 94,
+    "n_priced": 118,
+    "ratio": 1.771304,
+    "records": {
+     "records/creatures/enemies/basilisk_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.711168,
+      "sum_fold_off": 1154.79,
+      "sum_fold_on": 7749.99
+     },
+     "records/creatures/enemies/basilisk_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.061076,
+      "sum_fold_off": 4369.82,
+      "sum_fold_on": 22115.993
+     },
+     "records/creatures/enemies/basilisk_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.842184,
+      "sum_fold_off": 2599.87,
+      "sum_fold_on": 15188.919
+     },
+     "records/creatures/enemies/boss&quest/aetherial_fleshweaverkrieg.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16474.64,
+      "sum_fold_on": 16474.64
+     },
+     "records/creatures/enemies/boss&quest/aetherial_fleshweaverkriegb.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16474.64,
+      "sum_fold_on": 16474.64
+     },
+     "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 22396.92,
+      "sum_fold_on": 22396.92
+     },
+     "records/creatures/enemies/boss&quest/aetherialfleshshaper_hinissius.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 17900.61,
+      "sum_fold_on": 17900.61
+     },
+     "records/creatures/enemies/boss&quest/swampcrab_ugdenbog_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.563039,
+      "sum_fold_off": 29087.24,
+      "sum_fold_on": 103638.961
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6183.45,
+      "sum_fold_on": 6183.45
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8683.22,
+      "sum_fold_on": 8683.22
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8985.34,
+      "sum_fold_on": 8985.34
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.941809,
+      "sum_fold_off": 7193.55,
+      "sum_fold_on": 6774.95
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.940066,
+      "sum_fold_off": 9110.01,
+      "sum_fold_on": 8564.01
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6520.15,
+      "sum_fold_on": 6520.15
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7077.07,
+      "sum_fold_on": 7077.07
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6228.95,
+      "sum_fold_on": 6228.95
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.935059,
+      "sum_fold_off": 9808.89,
+      "sum_fold_on": 9171.89
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7731.36,
+      "sum_fold_on": 7731.36
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.977694,
+      "sum_fold_off": 8159.06,
+      "sum_fold_on": 7977.06
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9689.68,
+      "sum_fold_on": 9689.68
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5878.6,
+      "sum_fold_on": 5878.6
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9615.06,
+      "sum_fold_on": 9615.06
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4169.62,
+      "sum_fold_on": 4169.62
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6826.82,
+      "sum_fold_on": 6826.82
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8275.54,
+      "sum_fold_on": 8275.54
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9487.66,
+      "sum_fold_on": 9487.66
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6539.26,
+      "sum_fold_on": 6539.26
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11132.03,
+      "sum_fold_on": 11132.03
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.987033,
+      "sum_fold_off": 7017.92,
+      "sum_fold_on": 6926.92
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5354.44,
+      "sum_fold_on": 5354.44
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.985418,
+      "sum_fold_off": 6240.78,
+      "sum_fold_on": 6149.78
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.977488,
+      "sum_fold_off": 12126.66,
+      "sum_fold_on": 11853.66
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.979944,
+      "sum_fold_off": 4537.26,
+      "sum_fold_on": 4446.26
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.962217,
+      "sum_fold_off": 7225.4,
+      "sum_fold_on": 6952.4
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.962589,
+      "sum_fold_off": 7297.29,
+      "sum_fold_on": 7024.29
+     },
+     "records/creatures/enemies/devotion/chthonianmonstrosity_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.445028,
+      "sum_fold_off": 33778.29,
+      "sum_fold_on": 15032.29
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11386.83,
+      "sum_fold_on": 11386.83
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9916.27,
+      "sum_fold_on": 9916.27
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.058472,
+      "sum_fold_off": 17688.58,
+      "sum_fold_on": 107165.758
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16694.86,
+      "sum_fold_on": 16694.86
+     },
+     "records/creatures/enemies/devotion/ghost_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.270385,
+      "sum_fold_off": 16807.7,
+      "sum_fold_on": 105390.745
+     },
+     "records/creatures/enemies/devotion/ghost_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.280466,
+      "sum_fold_off": 6182.54,
+      "sum_fold_on": 38829.232
+     },
+     "records/creatures/enemies/devotion/ghost_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5170.62,
+      "sum_fold_on": 5170.62
+     },
+     "records/creatures/enemies/devotion/ghost_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9558.64,
+      "sum_fold_on": 9558.64
+     },
+     "records/creatures/enemies/devotion/ghost_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9558.64,
+      "sum_fold_on": 9558.64
+     },
+     "records/creatures/enemies/devotion/ghost_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9418.5,
+      "sum_fold_on": 9418.5
+     },
+     "records/creatures/enemies/devotion/ghost_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16063.32,
+      "sum_fold_on": 16063.32
+     },
+     "records/creatures/enemies/devotion/ghost_h08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.957167,
+      "sum_fold_off": 12747.28,
+      "sum_fold_on": 12201.28
+     },
+     "records/creatures/enemies/devotion/ghost_h09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13471.64,
+      "sum_fold_on": 13471.64
+     },
+     "records/creatures/enemies/devotion/prawncave_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8169.98,
+      "sum_fold_on": 8169.98
+     },
+     "records/creatures/enemies/devotion/prawncave_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4934.02,
+      "sum_fold_on": 4934.02
+     },
+     "records/creatures/enemies/devotion/prawncave_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4543.63,
+      "sum_fold_on": 4543.63
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.915728,
+      "sum_fold_off": 7191.73,
+      "sum_fold_on": 6585.67
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.935334,
+      "sum_fold_off": 9372.09,
+      "sum_fold_on": 8766.03
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.931657,
+      "sum_fold_off": 8867.95,
+      "sum_fold_on": 8261.89
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.940795,
+      "sum_fold_off": 10236.59,
+      "sum_fold_on": 9630.53
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.9408,
+      "sum_fold_off": 10237.5,
+      "sum_fold_on": 9631.44
+     },
+     "records/creatures/enemies/devotion/skeleton_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.93062,
+      "sum_fold_off": 7869.68,
+      "sum_fold_on": 7323.68
+     },
+     "records/creatures/enemies/devotion/skeleton_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.967782,
+      "sum_fold_off": 7343.7,
+      "sum_fold_on": 7107.1
+     },
+     "records/creatures/enemies/devotion/skeleton_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7486.57,
+      "sum_fold_on": 7486.57
+     },
+     "records/creatures/enemies/devotion/skeleton_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8574.02,
+      "sum_fold_on": 8574.02
+     },
+     "records/creatures/enemies/devotion/skeleton_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8796.06,
+      "sum_fold_on": 8796.06
+     },
+     "records/creatures/enemies/devotion/skeleton_h06.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.231699,
+      "sum_fold_off": 8590.4,
+      "sum_fold_on": 53532.786
+     },
+     "records/creatures/enemies/devotion/skeleton_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16663.92,
+      "sum_fold_on": 16663.92
+     },
+     "records/creatures/enemies/devotion/skeleton_h08.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.230169,
+      "sum_fold_off": 9791.6,
+      "sum_fold_on": 61003.322
+     },
+     "records/creatures/enemies/devotion/skeleton_h09.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.846599,
+      "sum_fold_off": 8421.14,
+      "sum_fold_on": 40813.892
+     },
+     "records/creatures/enemies/devotion/skeleton_h10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12936.56,
+      "sum_fold_on": 12936.56
+     },
+     "records/creatures/enemies/devotion/slith_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13211.38,
+      "sum_fold_on": 13211.38
+     },
+     "records/creatures/enemies/devotion/slith_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10111.92,
+      "sum_fold_on": 10111.92
+     },
+     "records/creatures/enemies/devotion/slith_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9584.12,
+      "sum_fold_on": 9584.12
+     },
+     "records/creatures/enemies/devotion/slith_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8267.35,
+      "sum_fold_on": 8267.35
+     },
+     "records/creatures/enemies/devotion/slith_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.997041,
+      "sum_fold_off": 6151.6,
+      "sum_fold_on": 6133.4
+     },
+     "records/creatures/enemies/devotion/slith_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.997307,
+      "sum_fold_off": 6758.57,
+      "sum_fold_on": 6740.37
+     },
+     "records/creatures/enemies/devotion/slith_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14273.35,
+      "sum_fold_on": 14273.35
+     },
+     "records/creatures/enemies/devotion/slith_h08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13810.16,
+      "sum_fold_on": 13810.16
+     },
+     "records/creatures/enemies/devotion/spider_cave_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6519.24,
+      "sum_fold_on": 6519.24
+     },
+     "records/creatures/enemies/devotion/spider_cave_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3366.09,
+      "sum_fold_on": 3366.09
+     },
+     "records/creatures/enemies/devotion/spider_cave_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3366.09,
+      "sum_fold_on": 3366.09
+     },
+     "records/creatures/enemies/devotion/zombie_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5554.64,
+      "sum_fold_on": 5554.64
+     },
+     "records/creatures/enemies/devotion/zombie_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2468.83,
+      "sum_fold_on": 2468.83
+     },
+     "records/creatures/enemies/devotion/zombie_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5102.37,
+      "sum_fold_on": 5102.37
+     },
+     "records/creatures/enemies/devotion/zombie_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6905.99,
+      "sum_fold_on": 6905.99
+     },
+     "records/creatures/enemies/devotion/zombie_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.992397,
+      "sum_fold_off": 7181.72,
+      "sum_fold_on": 7127.12
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3832.92,
+      "sum_fold_on": 3832.92
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12117.56,
+      "sum_fold_on": 12117.56
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.905213,
+      "sum_fold_off": 7680.4,
+      "sum_fold_on": 6952.4
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8657.74,
+      "sum_fold_on": 8657.74
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.292137,
+      "sum_fold_off": 13532.61,
+      "sum_fold_on": 85149.036
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.162967,
+      "sum_fold_off": 10737.09,
+      "sum_fold_on": 12486.885
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.225275,
+      "sum_fold_off": 6405.49,
+      "sum_fold_on": 7848.485
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.225275,
+      "sum_fold_off": 7166.25,
+      "sum_fold_on": 8780.625
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.225275,
+      "sum_fold_off": 6019.65,
+      "sum_fold_on": 7375.725
+     },
+     "records/creatures/enemies/hero/basilisk_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.216268,
+      "sum_fold_off": 6442.8,
+      "sum_fold_on": 40050.17
+     },
+     "records/creatures/enemies/hero/basilisk_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.092415,
+      "sum_fold_off": 4280.64,
+      "sum_fold_on": 26079.434
+     },
+     "records/creatures/enemies/hero/basilisk_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.245814,
+      "sum_fold_off": 7325.5,
+      "sum_fold_on": 45753.712
+     },
+     "records/creatures/enemies/hero/basilisk_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6666.66,
+      "sum_fold_on": 6666.66
+     },
+     "records/creatures/enemies/hero/basilisk_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4699.24,
+      "sum_fold_on": 4699.24
+     },
+     "records/creatures/enemies/hero/ghostcrab_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7178.08,
+      "sum_fold_on": 7178.08
+     },
+     "records/creatures/enemies/hero/ghostcrab_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7997.99,
+      "sum_fold_on": 7997.99
+     },
+     "records/creatures/enemies/hero/ghostcrab_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7533.89,
+      "sum_fold_on": 7533.89
+     },
+     "records/creatures/enemies/hero/ghostcrab_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10549.63,
+      "sum_fold_on": 10549.63
+     },
+     "records/creatures/enemies/hero/ghostcrab_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15025.01,
+      "sum_fold_on": 15025.01
+     },
+     "records/creatures/enemies/hero/springscrab_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.213339,
+      "sum_fold_off": 7261.8,
+      "sum_fold_on": 45120.027
+     },
+     "records/creatures/enemies/hero/springscrab_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.362458,
+      "sum_fold_off": 12821.9,
+      "sum_fold_on": 81578.795
+     },
+     "records/creatures/enemies/hero/springscrab_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7014.28,
+      "sum_fold_on": 7014.28
+     },
+     "records/creatures/enemies/hero/springscrab_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.220553,
+      "sum_fold_off": 7417.41,
+      "sum_fold_on": 46140.395
+     },
+     "records/creatures/enemies/hero/swampcrab_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12135.76,
+      "sum_fold_on": 12135.76
+     },
+     "records/creatures/enemies/hero/swampcrab_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11404.12,
+      "sum_fold_on": 11404.12
+     },
+     "records/creatures/enemies/hero/swampcrab_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7653.1,
+      "sum_fold_on": 7653.1
+     },
+     "records/creatures/enemies/hero/swampcrab_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11228.49,
+      "sum_fold_on": 11228.49
+     },
+     "records/creatures/enemies/hero/swampcrab_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7653.1,
+      "sum_fold_on": 7653.1
+     },
+     "records/creatures/enemies/hero/thornedhorrorfrost_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12588.94,
+      "sum_fold_on": 12588.94
+     },
+     "records/creatures/enemies/hero/thornedhorrorfrost_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7249.06,
+      "sum_fold_on": 7249.06
+     },
+     "records/creatures/enemies/hero/thornedhorrorfrost_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6830.46,
+      "sum_fold_on": 6830.46
+     },
+     "records/creatures/enemies/hero/thornedhorrorfrost_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6830.46,
+      "sum_fold_on": 6830.46
+     },
+     "records/creatures/enemies/thornedhorrorfrost_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.017495,
+      "sum_fold_off": 4471.74,
+      "sum_fold_on": 26908.675
+     },
+     "records/creatures/enemies/thornedhorrorfrost_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.498971,
+      "sum_fold_off": 7849.66,
+      "sum_fold_on": 43165.049
+     },
+     "records/creatures/enemies/thornedhorrorfrost_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.83932,
+      "sum_fold_off": 7105.28,
+      "sum_fold_on": 41490.002
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w02_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w02_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w02_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w02_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w02_p05a.dbr",
+     "records/proxies/tier16waves/proxy_w02_p06a.dbr"
+    ]
+   },
+   "153": {
+    "M_inst": 1.82,
+    "n_candidates": 104,
+    "n_identity_path_priced": 73,
+    "n_priced": 98,
+    "ratio": 1.909824,
+    "records": {
+     "records/creatures/enemies/bounties/bl_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.954821,
+      "sum_fold_off": 10070.97,
+      "sum_fold_on": 9615.97
+     },
+     "records/creatures/enemies/bounties/bl_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6084.26,
+      "sum_fold_on": 6084.26
+     },
+     "records/creatures/enemies/bounties/bl_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7116.2,
+      "sum_fold_on": 7116.2
+     },
+     "records/creatures/enemies/bounties/bl_bounty17.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3994.9,
+      "sum_fold_on": 3994.9
+     },
+     "records/creatures/enemies/bounties/bl_bounty18.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8028.02,
+      "sum_fold_on": 8028.02
+     },
+     "records/creatures/enemies/bounties/bl_bounty19.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.909173,
+      "sum_fold_off": 6011.46,
+      "sum_fold_on": 5465.46
+     },
+     "records/creatures/enemies/bounties/bl_bounty20.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6027.84,
+      "sum_fold_on": 6027.84
+     },
+     "records/creatures/enemies/bounties/cu_bounty04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.150925,
+      "sum_fold_off": 7759.57,
+      "sum_fold_on": 47728.531
+     },
+     "records/creatures/enemies/bounties/cu_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10267.53,
+      "sum_fold_on": 10267.53
+     },
+     "records/creatures/enemies/bounties/cu_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.734976,
+      "sum_fold_off": 27469.26,
+      "sum_fold_on": 20189.26
+     },
+     "records/creatures/enemies/bounties/cu_bounty07.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.299618,
+      "sum_fold_off": 9760.66,
+      "sum_fold_on": 61488.43
+     },
+     "records/creatures/enemies/bounties/cu_bounty08.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.195395,
+      "sum_fold_off": 13597.22,
+      "sum_fold_on": 84240.153
+     },
+     "records/creatures/enemies/bounties/cu_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.855439,
+      "sum_fold_off": 7553.91,
+      "sum_fold_on": 6461.91
+     },
+     "records/creatures/enemies/bounties/cw_bounty04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.283728,
+      "sum_fold_off": 21040.11,
+      "sum_fold_on": 132210.329
+     },
+     "records/creatures/enemies/bounties/cw_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11401.39,
+      "sum_fold_on": 11401.39
+     },
+     "records/creatures/enemies/bounties/cw_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13731.9,
+      "sum_fold_on": 13731.9
+     },
+     "records/creatures/enemies/bounties/cw_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.972878,
+      "sum_fold_off": 6710.34,
+      "sum_fold_on": 6528.34
+     },
+     "records/creatures/enemies/bounties/cw_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.863925,
+      "sum_fold_off": 12037.48,
+      "sum_fold_on": 10399.48
+     },
+     "records/creatures/enemies/bounties/cw_bounty09.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.464938,
+      "sum_fold_off": 12230.4,
+      "sum_fold_on": 66838.373
+     },
+     "records/creatures/enemies/bounties/dc_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15476.37,
+      "sum_fold_on": 15476.37
+     },
+     "records/creatures/enemies/bounties/dc_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.989507,
+      "sum_fold_off": 5203.38,
+      "sum_fold_on": 5148.78
+     },
+     "records/creatures/enemies/bounties/dc_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9088.17,
+      "sum_fold_on": 9088.17
+     },
+     "records/creatures/enemies/bounties/dc_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8503.04,
+      "sum_fold_on": 8503.04
+     },
+     "records/creatures/enemies/bounties/dc_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6071.52,
+      "sum_fold_on": 6071.52
+     },
+     "records/creatures/enemies/bounties/dc_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2791.88,
+      "sum_fold_on": 2791.88
+     },
+     "records/creatures/enemies/bounties/dc_bounty15.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12775.49,
+      "sum_fold_on": 12775.49
+     },
+     "records/creatures/enemies/bounties/dc_bounty17.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3430.7,
+      "sum_fold_on": 3430.7
+     },
+     "records/creatures/enemies/bounties/exile_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6300.84,
+      "sum_fold_on": 6300.84
+     },
+     "records/creatures/enemies/bounties/exile_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7323.68,
+      "sum_fold_on": 7323.68
+     },
+     "records/creatures/enemies/bounties/exile_bounty14.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6973.33,
+      "sum_fold_on": 6973.33
+     },
+     "records/creatures/enemies/bounties/exile_bounty15.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9618.7,
+      "sum_fold_on": 9618.7
+     },
+     "records/creatures/enemies/bounties/hs_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10416.77,
+      "sum_fold_on": 10416.77
+     },
+     "records/creatures/enemies/bounties/hs_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.967664,
+      "sum_fold_off": 5628.35,
+      "sum_fold_on": 5446.35
+     },
+     "records/creatures/enemies/bounties/hs_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5046.86,
+      "sum_fold_on": 5046.86
+     },
+     "records/creatures/enemies/bounties/hs_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.898477,
+      "sum_fold_off": 7170.8,
+      "sum_fold_on": 6442.8
+     },
+     "records/creatures/enemies/bounties/hs_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8250.06,
+      "sum_fold_on": 8250.06
+     },
+     "records/creatures/enemies/bounties/kc_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.815401,
+      "sum_fold_off": 6901.44,
+      "sum_fold_on": 5627.44
+     },
+     "records/creatures/enemies/bounties/kc_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3336.06,
+      "sum_fold_on": 3336.06
+     },
+     "records/creatures/enemies/bounties/kc_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11132.03,
+      "sum_fold_on": 11132.03
+     },
+     "records/creatures/enemies/bounties/kc_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3365.18,
+      "sum_fold_on": 3365.18
+     },
+     "records/creatures/enemies/bounties/kc_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5529.16,
+      "sum_fold_on": 5529.16
+     },
+     "records/creatures/enemies/bounties/kc_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.409158,
+      "sum_fold_off": 31419.57,
+      "sum_fold_on": 12855.57
+     },
+     "records/creatures/enemies/bounties/kc_bounty19.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.972539,
+      "sum_fold_off": 6627.53,
+      "sum_fold_on": 6445.53
+     },
+     "records/creatures/enemies/bounties/ku_bounty_05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4550.91,
+      "sum_fold_on": 4550.91
+     },
+     "records/creatures/enemies/bounties/ku_bounty_06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8708.7,
+      "sum_fold_on": 8708.7
+     },
+     "records/creatures/enemies/bounties/ku_bounty_07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2367.82,
+      "sum_fold_on": 2367.82
+     },
+     "records/creatures/enemies/bounties/ku_bounty_08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7513.87,
+      "sum_fold_on": 7513.87
+     },
+     "records/creatures/enemies/bounties/ku_bounty_09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10369.45,
+      "sum_fold_on": 10369.45
+     },
+     "records/creatures/enemies/bounties/ku_bounty_10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14064.05,
+      "sum_fold_on": 14064.05
+     },
+     "records/creatures/enemies/bounties/odv_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3983.98,
+      "sum_fold_on": 3983.98
+     },
+     "records/creatures/enemies/bounties/odv_bounty07.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.263214,
+      "sum_fold_off": 9252.88,
+      "sum_fold_on": 57952.769
+     },
+     "records/creatures/enemies/bounties/odv_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4781.14,
+      "sum_fold_on": 4781.14
+     },
+     "records/creatures/enemies/bounties/odv_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5541.9,
+      "sum_fold_on": 5541.9
+     },
+     "records/creatures/enemies/bounties/odv_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6053.32,
+      "sum_fold_on": 6053.32
+     },
+     "records/creatures/enemies/bounties/odv_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6486.48,
+      "sum_fold_on": 6486.48
+     },
+     "records/creatures/enemies/bounties/odv_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6520.15,
+      "sum_fold_on": 6520.15
+     },
+     "records/creatures/enemies/bounties/odv_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.644255,
+      "sum_fold_off": 5116.02,
+      "sum_fold_on": 3296.02
+     },
+     "records/creatures/enemies/bounties/pm_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11095.63,
+      "sum_fold_on": 11095.63
+     },
+     "records/creatures/enemies/bounties/pm_bounty06.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.331862,
+      "sum_fold_off": 15654.73,
+      "sum_fold_on": 99123.591
+     },
+     "records/creatures/enemies/bounties/pm_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11627.07,
+      "sum_fold_on": 11627.07
+     },
+     "records/creatures/enemies/bounties/pm_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8384.74,
+      "sum_fold_on": 8384.74
+     },
+     "records/creatures/enemies/bounties/ro_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7278.18,
+      "sum_fold_on": 7278.18
+     },
+     "records/creatures/enemies/bounties/ro_bounty11.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.925239,
+      "sum_fold_off": 1315.86,
+      "sum_fold_on": 7796.785
+     },
+     "records/creatures/enemies/bounties/ro_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8335.6,
+      "sum_fold_on": 8335.6
+     },
+     "records/creatures/enemies/bounties/ro_bounty19.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.676372,
+      "sum_fold_off": 8465.73,
+      "sum_fold_on": 48054.636
+     },
+     "records/creatures/enemies/giant_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6362.72,
+      "sum_fold_on": 6362.72
+     },
+     "records/creatures/enemies/giant_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.638092,
+      "sum_fold_off": 6153.42,
+      "sum_fold_on": 34693.545
+     },
+     "records/creatures/enemies/giant_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.097488,
+      "sum_fold_off": 7724.08,
+      "sum_fold_on": 47097.487
+     },
+     "records/creatures/enemies/groblefrost_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.369276,
+      "sum_fold_off": 934.57,
+      "sum_fold_on": 4083.394
+     },
+     "records/creatures/enemies/groblefrost_a02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3558.1,
+      "sum_fold_on": 3558.1
+     },
+     "records/creatures/enemies/groblefrost_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.439932,
+      "sum_fold_off": 1240.33,
+      "sum_fold_on": 7987.641
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6759.48,
+      "sum_fold_on": 6759.48
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.977221,
+      "sum_fold_off": 7989.8,
+      "sum_fold_on": 7807.8
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8035.3,
+      "sum_fold_on": 8035.3
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4850.3,
+      "sum_fold_on": 4850.3
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7030.66,
+      "sum_fold_on": 7030.66
+     },
+     "records/creatures/enemies/hero/chthoniandreadguard_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5268.9,
+      "sum_fold_on": 5268.9
+     },
+     "records/creatures/enemies/hero/chthonianfiend_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3598.14,
+      "sum_fold_on": 3598.14
+     },
+     "records/creatures/enemies/hero/chthonianfiend_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5150.6,
+      "sum_fold_on": 5150.6
+     },
+     "records/creatures/enemies/hero/chthonianfiend_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6413.68,
+      "sum_fold_on": 6413.68
+     },
+     "records/creatures/enemies/hero/chthonianfiend_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4440.8,
+      "sum_fold_on": 4440.8
+     },
+     "records/creatures/enemies/hero/chthonianfiend_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6539.26,
+      "sum_fold_on": 6539.26
+     },
+     "records/creatures/enemies/hero/giant_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.269231,
+      "sum_fold_off": 12841.01,
+      "sum_fold_on": 16298.205
+     },
+     "records/creatures/enemies/hero/giant_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.269231,
+      "sum_fold_off": 12310.48,
+      "sum_fold_on": 15624.84
+     },
+     "records/creatures/enemies/hero/giant_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.269231,
+      "sum_fold_off": 9684.22,
+      "sum_fold_on": 12291.51
+     },
+     "records/creatures/enemies/hero/giant_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.13524,
+      "sum_fold_off": 13791.96,
+      "sum_fold_on": 15657.18
+     },
+     "records/creatures/enemies/livingplant_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.985686,
+      "sum_fold_off": 5050.5,
+      "sum_fold_on": 25180.205
+     },
+     "records/creatures/enemies/skeleton_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6278.09,
+      "sum_fold_on": 6278.09
+     },
+     "records/creatures/enemies/skeleton_c02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5255.25,
+      "sum_fold_on": 5255.25
+     },
+     "records/creatures/enemies/skeleton_c03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3254.16,
+      "sum_fold_on": 3254.16
+     },
+     "records/creatures/enemies/skeleton_d01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.715284,
+      "sum_fold_off": 7031.57,
+      "sum_fold_on": 5029.57
+     },
+     "records/creatures/enemies/swampgolem_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.583508,
+      "sum_fold_off": 5009.55,
+      "sum_fold_on": 22961.313
+     },
+     "records/creatures/enemies/wendigo_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.948502,
+      "sum_fold_off": 4334.33,
+      "sum_fold_on": 25782.769
+     },
+     "records/creatures/enemies/wendigo_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.657277,
+      "sum_fold_off": 4498.13,
+      "sum_fold_on": 25447.166
+     },
+     "records/creatures/enemies/wendigo_b02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.629705,
+      "sum_fold_off": 4465.37,
+      "sum_fold_on": 20673.345
+     },
+     "records/creatures/enemies/wendigo_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.669683,
+      "sum_fold_off": 7069.79,
+      "sum_fold_on": 33013.681
+     },
+     "records/creatures/enemies/wendigocannibal_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.552949,
+      "sum_fold_off": 893.62,
+      "sum_fold_on": 4068.606
+     },
+     "records/creatures/enemies/wendigocannibal_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.377771,
+      "sum_fold_off": 2812.81,
+      "sum_fold_on": 12313.838
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w03_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w03_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w03_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w03_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w03_p05a.dbr",
+     "records/proxies/tier16waves/proxy_w03_p06a.dbr"
+    ]
+   },
+   "154": {
+    "M_inst": 1.82,
+    "n_candidates": 23,
+    "n_identity_path_priced": 4,
+    "n_priced": 19,
+    "ratio": 3.038476,
+    "records": {
+     "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.392512,
+      "sum_fold_off": 23402.47,
+      "sum_fold_on": 79393.168
+     },
+     "records/creatures/enemies/boss&quest/chthoniantyrant_grulthunn.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16289.91,
+      "sum_fold_on": 16289.91
+     },
+     "records/creatures/enemies/boss&quest/cultist_cultleader_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.416716,
+      "sum_fold_off": 12193.09,
+      "sum_fold_on": 53853.411
+     },
+     "records/creatures/enemies/boss&quest/fatherkymon.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12855.57,
+      "sum_fold_on": 12855.57
+     },
+     "records/creatures/enemies/boss&quest/korvaak_lieutenant_01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 17179.89,
+      "sum_fold_on": 17179.89
+     },
+     "records/creatures/enemies/chthonianwretch_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.950994,
+      "sum_fold_off": 2950.22,
+      "sum_fold_on": 14606.522
+     },
+     "records/creatures/enemies/chthonianwretch_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.777122,
+      "sum_fold_off": 3206.84,
+      "sum_fold_on": 15319.467
+     },
+     "records/creatures/enemies/chthonianwretch_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.451802,
+      "sum_fold_off": 4242.42,
+      "sum_fold_on": 23128.836
+     },
+     "records/creatures/enemies/eldritcharmor_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.783128,
+      "sum_fold_off": 4321.59,
+      "sum_fold_on": 20670.716
+     },
+     "records/creatures/enemies/eldritcharmor_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.414522,
+      "sum_fold_off": 7087.08,
+      "sum_fold_on": 38373.15
+     },
+     "records/creatures/enemies/eldritcharmor_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.740665,
+      "sum_fold_off": 6929.65,
+      "sum_fold_on": 39780.797
+     },
+     "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.837219,
+      "sum_fold_off": 12671.75,
+      "sum_fold_on": 48624.277
+     },
+     "records/creatures/enemies/nemesis/nemesis_beast_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.693071,
+      "sum_fold_off": 12806.43,
+      "sum_fold_on": 34488.626
+     },
+     "records/creatures/enemies/nemesis/nemesis_chthonickurn_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.179217,
+      "sum_fold_off": 20488.65,
+      "sum_fold_on": 126603.816
+     },
+     "records/creatures/enemies/nemesis/nemesis_eldritch_01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.93305,
+      "sum_fold_off": 27184.43,
+      "sum_fold_on": 25364.43
+     },
+     "records/creatures/enemies/nemesis/nemesis_eldritch_02a.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.379121,
+      "sum_fold_off": 10706.15,
+      "sum_fold_on": 14765.075
+     },
+     "records/creatures/enemies/wendigocannibal_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.552949,
+      "sum_fold_off": 893.62,
+      "sum_fold_on": 4068.606
+     },
+     "records/creatures/enemies/wendigocannibal_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.377771,
+      "sum_fold_off": 2812.81,
+      "sum_fold_on": 12313.838
+     },
+     "records/creatures/enemies/wendigocannibal_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.641633,
+      "sum_fold_off": 2878.33,
+      "sum_fold_on": 13360.151
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w04_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w04_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w04_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w04_p04a.dbr"
+    ]
+   },
+   "155": {
+    "M_inst": 1.82,
+    "n_candidates": 73,
+    "n_identity_path_priced": 53,
+    "n_priced": 68,
+    "ratio": 1.923423,
+    "records": {
+     "records/creatures/enemies/aetherialcorruption_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.231603,
+      "sum_fold_off": 5584.67,
+      "sum_fold_on": 29216.779
+     },
+     "records/creatures/enemies/aetherialimp_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 893.62,
+      "sum_fold_on": 893.62
+     },
+     "records/creatures/enemies/aetherialimp_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4014.01,
+      "sum_fold_on": 4014.01
+     },
+     "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.569741,
+      "sum_fold_off": 13503.49,
+      "sum_fold_on": 48203.96
+     },
+     "records/creatures/enemies/boss&quest/eldritcharmor_dreegmindreaper_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.481774,
+      "sum_fold_off": 13400.66,
+      "sum_fold_on": 33257.411
+     },
+     "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 20272.98,
+      "sum_fold_on": 20272.98
+     },
+     "records/creatures/enemies/bounties/bl_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.954821,
+      "sum_fold_off": 10070.97,
+      "sum_fold_on": 9615.97
+     },
+     "records/creatures/enemies/bounties/bl_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6084.26,
+      "sum_fold_on": 6084.26
+     },
+     "records/creatures/enemies/bounties/bl_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7116.2,
+      "sum_fold_on": 7116.2
+     },
+     "records/creatures/enemies/bounties/bl_bounty17.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3994.9,
+      "sum_fold_on": 3994.9
+     },
+     "records/creatures/enemies/bounties/bl_bounty18.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8028.02,
+      "sum_fold_on": 8028.02
+     },
+     "records/creatures/enemies/bounties/bl_bounty19.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.909173,
+      "sum_fold_off": 6011.46,
+      "sum_fold_on": 5465.46
+     },
+     "records/creatures/enemies/bounties/bl_bounty20.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6027.84,
+      "sum_fold_on": 6027.84
+     },
+     "records/creatures/enemies/bounties/cu_bounty04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.150925,
+      "sum_fold_off": 7759.57,
+      "sum_fold_on": 47728.531
+     },
+     "records/creatures/enemies/bounties/cu_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10267.53,
+      "sum_fold_on": 10267.53
+     },
+     "records/creatures/enemies/bounties/cu_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.734976,
+      "sum_fold_off": 27469.26,
+      "sum_fold_on": 20189.26
+     },
+     "records/creatures/enemies/bounties/cu_bounty07.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.299618,
+      "sum_fold_off": 9760.66,
+      "sum_fold_on": 61488.43
+     },
+     "records/creatures/enemies/bounties/cu_bounty08.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.195395,
+      "sum_fold_off": 13597.22,
+      "sum_fold_on": 84240.153
+     },
+     "records/creatures/enemies/bounties/cu_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.855439,
+      "sum_fold_off": 7553.91,
+      "sum_fold_on": 6461.91
+     },
+     "records/creatures/enemies/bounties/cw_bounty04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.283728,
+      "sum_fold_off": 21040.11,
+      "sum_fold_on": 132210.329
+     },
+     "records/creatures/enemies/bounties/cw_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11401.39,
+      "sum_fold_on": 11401.39
+     },
+     "records/creatures/enemies/bounties/cw_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13731.9,
+      "sum_fold_on": 13731.9
+     },
+     "records/creatures/enemies/bounties/cw_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.972878,
+      "sum_fold_off": 6710.34,
+      "sum_fold_on": 6528.34
+     },
+     "records/creatures/enemies/bounties/cw_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.863925,
+      "sum_fold_off": 12037.48,
+      "sum_fold_on": 10399.48
+     },
+     "records/creatures/enemies/bounties/cw_bounty09.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.464938,
+      "sum_fold_off": 12230.4,
+      "sum_fold_on": 66838.373
+     },
+     "records/creatures/enemies/bounties/dc_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15476.37,
+      "sum_fold_on": 15476.37
+     },
+     "records/creatures/enemies/bounties/dc_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.989507,
+      "sum_fold_off": 5203.38,
+      "sum_fold_on": 5148.78
+     },
+     "records/creatures/enemies/bounties/dc_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9088.17,
+      "sum_fold_on": 9088.17
+     },
+     "records/creatures/enemies/bounties/dc_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8503.04,
+      "sum_fold_on": 8503.04
+     },
+     "records/creatures/enemies/bounties/dc_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6071.52,
+      "sum_fold_on": 6071.52
+     },
+     "records/creatures/enemies/bounties/dc_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2791.88,
+      "sum_fold_on": 2791.88
+     },
+     "records/creatures/enemies/bounties/dc_bounty15.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12775.49,
+      "sum_fold_on": 12775.49
+     },
+     "records/creatures/enemies/bounties/dc_bounty17.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3430.7,
+      "sum_fold_on": 3430.7
+     },
+     "records/creatures/enemies/bounties/exile_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6300.84,
+      "sum_fold_on": 6300.84
+     },
+     "records/creatures/enemies/bounties/exile_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7323.68,
+      "sum_fold_on": 7323.68
+     },
+     "records/creatures/enemies/bounties/exile_bounty14.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6973.33,
+      "sum_fold_on": 6973.33
+     },
+     "records/creatures/enemies/bounties/exile_bounty15.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9618.7,
+      "sum_fold_on": 9618.7
+     },
+     "records/creatures/enemies/bounties/hs_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10416.77,
+      "sum_fold_on": 10416.77
+     },
+     "records/creatures/enemies/bounties/hs_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.967664,
+      "sum_fold_off": 5628.35,
+      "sum_fold_on": 5446.35
+     },
+     "records/creatures/enemies/bounties/hs_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5046.86,
+      "sum_fold_on": 5046.86
+     },
+     "records/creatures/enemies/bounties/hs_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.898477,
+      "sum_fold_off": 7170.8,
+      "sum_fold_on": 6442.8
+     },
+     "records/creatures/enemies/bounties/hs_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8250.06,
+      "sum_fold_on": 8250.06
+     },
+     "records/creatures/enemies/bounties/kc_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.815401,
+      "sum_fold_off": 6901.44,
+      "sum_fold_on": 5627.44
+     },
+     "records/creatures/enemies/bounties/kc_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3336.06,
+      "sum_fold_on": 3336.06
+     },
+     "records/creatures/enemies/bounties/kc_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11132.03,
+      "sum_fold_on": 11132.03
+     },
+     "records/creatures/enemies/bounties/kc_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3365.18,
+      "sum_fold_on": 3365.18
+     },
+     "records/creatures/enemies/bounties/kc_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5529.16,
+      "sum_fold_on": 5529.16
+     },
+     "records/creatures/enemies/bounties/kc_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.409158,
+      "sum_fold_off": 31419.57,
+      "sum_fold_on": 12855.57
+     },
+     "records/creatures/enemies/bounties/kc_bounty19.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.972539,
+      "sum_fold_off": 6627.53,
+      "sum_fold_on": 6445.53
+     },
+     "records/creatures/enemies/bounties/odv_bounty06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3983.98,
+      "sum_fold_on": 3983.98
+     },
+     "records/creatures/enemies/bounties/odv_bounty07.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.263214,
+      "sum_fold_off": 9252.88,
+      "sum_fold_on": 57952.769
+     },
+     "records/creatures/enemies/bounties/odv_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4781.14,
+      "sum_fold_on": 4781.14
+     },
+     "records/creatures/enemies/bounties/odv_bounty09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5541.9,
+      "sum_fold_on": 5541.9
+     },
+     "records/creatures/enemies/bounties/odv_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6053.32,
+      "sum_fold_on": 6053.32
+     },
+     "records/creatures/enemies/bounties/odv_bounty11.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6486.48,
+      "sum_fold_on": 6486.48
+     },
+     "records/creatures/enemies/bounties/odv_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6520.15,
+      "sum_fold_on": 6520.15
+     },
+     "records/creatures/enemies/bounties/odv_bounty13.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.644255,
+      "sum_fold_off": 5116.02,
+      "sum_fold_on": 3296.02
+     },
+     "records/creatures/enemies/bounties/pm_bounty05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11095.63,
+      "sum_fold_on": 11095.63
+     },
+     "records/creatures/enemies/bounties/pm_bounty06.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.331862,
+      "sum_fold_off": 15654.73,
+      "sum_fold_on": 99123.591
+     },
+     "records/creatures/enemies/bounties/pm_bounty07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11627.07,
+      "sum_fold_on": 11627.07
+     },
+     "records/creatures/enemies/bounties/pm_bounty08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8384.74,
+      "sum_fold_on": 8384.74
+     },
+     "records/creatures/enemies/bounties/ro_bounty10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7278.18,
+      "sum_fold_on": 7278.18
+     },
+     "records/creatures/enemies/bounties/ro_bounty11.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.925239,
+      "sum_fold_off": 1315.86,
+      "sum_fold_on": 7796.785
+     },
+     "records/creatures/enemies/bounties/ro_bounty12.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8335.6,
+      "sum_fold_on": 8335.6
+     },
+     "records/creatures/enemies/bounties/ro_bounty19.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.676372,
+      "sum_fold_off": 8465.73,
+      "sum_fold_on": 48054.636
+     },
+     "records/creatures/enemies/eldritchwraith_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.252747,
+      "sum_fold_off": 2630.81,
+      "sum_fold_on": 3295.74
+     },
+     "records/creatures/enemies/eldritchwraith_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.104252,
+      "sum_fold_off": 6141.59,
+      "sum_fold_on": 6781.86
+     },
+     "records/creatures/enemies/eldritchwraith_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 0.951667,
+      "sum_fold_off": 11410.49,
+      "sum_fold_on": 10858.985
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w05_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w05_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w05_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w05_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w05_p06a.dbr"
+    ]
+   },
+   "156": {
+    "M_inst": 1.83,
+    "n_candidates": 40,
+    "n_identity_path_priced": 5,
+    "n_priced": 34,
+    "ratio": 2.837159,
+    "records": {
+     "records/creatures/enemies/aetherialbloater_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3642.615,
+      "sum_fold_on": 3642.615
+     },
+     "records/creatures/enemies/aetherialbloater_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.266237,
+      "sum_fold_off": 9468.42,
+      "sum_fold_on": 49862.943
+     },
+     "records/creatures/enemies/aetherialbloater_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.526221,
+      "sum_fold_off": 5850.51,
+      "sum_fold_on": 32331.211
+     },
+     "records/creatures/enemies/aetherialcorruption_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.816526,
+      "sum_fold_off": 3469.68,
+      "sum_fold_on": 13242.124
+     },
+     "records/creatures/enemies/aetherialcorruption_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.432349,
+      "sum_fold_off": 5602.545,
+      "sum_fold_on": 24832.434
+     },
+     "records/creatures/enemies/aetherialcorruption_b02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.435524,
+      "sum_fold_off": 5307.915,
+      "sum_fold_on": 23543.385
+     },
+     "records/creatures/enemies/aetherialcorruption_b03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.245902,
+      "sum_fold_off": 5684.895,
+      "sum_fold_on": 7082.82
+     },
+     "records/creatures/enemies/aetherialcorruption_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.225936,
+      "sum_fold_off": 5615.355,
+      "sum_fold_on": 29345.487
+     },
+     "records/creatures/enemies/boss&quest/basilisk_witchritual.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.863242,
+      "sum_fold_off": 22169.535,
+      "sum_fold_on": 63476.745
+     },
+     "records/creatures/enemies/boss&quest/direwolf_frozenwastes_01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14020.545,
+      "sum_fold_on": 14020.545
+     },
+     "records/creatures/enemies/boss&quest/human_chthonickurn_shaman_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.329898,
+      "sum_fold_off": 16755.48,
+      "sum_fold_on": 55794.045
+     },
+     "records/creatures/enemies/boss&quest/witch_janaxia.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.267761,
+      "sum_fold_off": 17998.05,
+      "sum_fold_on": 76811.382
+     },
+     "records/creatures/enemies/boss&quest/witch_larria.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 21429.3,
+      "sum_fold_on": 21429.3
+     },
+     "records/creatures/enemies/chthonianherald_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.202186,
+      "sum_fold_off": 7933.965,
+      "sum_fold_on": 9538.1
+     },
+     "records/creatures/enemies/chthonianherald_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.898337,
+      "sum_fold_off": 11975.52,
+      "sum_fold_on": 70635.649
+     },
+     "records/creatures/enemies/chthonianherald_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.848543,
+      "sum_fold_off": 12738.63,
+      "sum_fold_on": 74502.431
+     },
+     "records/creatures/enemies/chthonianwretch_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.946321,
+      "sum_fold_off": 2966.43,
+      "sum_fold_on": 14672.915
+     },
+     "records/creatures/enemies/chthonianwretch_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.772613,
+      "sum_fold_off": 3224.46,
+      "sum_fold_on": 15389.101
+     },
+     "records/creatures/enemies/chthonianwretch_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.445792,
+      "sum_fold_off": 4265.73,
+      "sum_fold_on": 23230.278
+     },
+     "records/creatures/enemies/eldritchwraith_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.251366,
+      "sum_fold_off": 2645.265,
+      "sum_fold_on": 3310.195
+     },
+     "records/creatures/enemies/eldritchwraith_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.103034,
+      "sum_fold_off": 6175.335,
+      "sum_fold_on": 6811.605
+     },
+     "records/creatures/enemies/human_wendigo_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.797074,
+      "sum_fold_off": 1743.99,
+      "sum_fold_on": 8366.049
+     },
+     "records/creatures/enemies/human_wendigo_a02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.829762,
+      "sum_fold_off": 1794.315,
+      "sum_fold_on": 8666.115
+     },
+     "records/creatures/enemies/human_wendigo_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.189669,
+      "sum_fold_off": 3157.665,
+      "sum_fold_on": 16387.237
+     },
+     "records/creatures/enemies/human_wendigo_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.515606,
+      "sum_fold_off": 2838.33,
+      "sum_fold_on": 15655.11
+     },
+     "records/creatures/enemies/statue_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.655738,
+      "sum_fold_off": 6641.07,
+      "sum_fold_on": 10995.87
+     },
+     "records/creatures/enemies/statue_a02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.655738,
+      "sum_fold_off": 6641.07,
+      "sum_fold_on": 10995.87
+     },
+     "records/creatures/enemies/statue_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.245902,
+      "sum_fold_off": 12795.36,
+      "sum_fold_on": 15941.76
+     },
+     "records/creatures/enemies/statue_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.245902,
+      "sum_fold_off": 12795.36,
+      "sum_fold_on": 15941.76
+     },
+     "records/creatures/enemies/statue_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 10273.62,
+      "sum_fold_on": 13024.48
+     },
+     "records/creatures/enemies/statue_c02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 10273.62,
+      "sum_fold_on": 13024.48
+     },
+     "records/creatures/enemies/swampgolem_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.578543,
+      "sum_fold_off": 5037.075,
+      "sum_fold_on": 23062.464
+     },
+     "records/creatures/enemies/swampgolem_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11162.085,
+      "sum_fold_on": 11162.085
+     },
+     "records/creatures/enemies/swampgolem_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10386.165,
+      "sum_fold_on": 10386.165
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w06_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w06_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w06_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w06_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w06_p05a.dbr",
+     "records/proxies/tier16waves/proxy_w06_p06a.dbr"
+    ]
+   },
+   "157": {
+    "M_inst": 1.83,
+    "n_candidates": 132,
+    "n_identity_path_priced": 69,
+    "n_priced": 126,
+    "ratio": 1.968532,
+    "records": {
+     "records/creatures/enemies/aetherialbloater_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3642.615,
+      "sum_fold_on": 3642.615
+     },
+     "records/creatures/enemies/aetherialbloater_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.266237,
+      "sum_fold_off": 9468.42,
+      "sum_fold_on": 49862.943
+     },
+     "records/creatures/enemies/aetherialbloater_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.526221,
+      "sum_fold_off": 5850.51,
+      "sum_fold_on": 32331.211
+     },
+     "records/creatures/enemies/aetherialcorruption_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.816526,
+      "sum_fold_off": 3469.68,
+      "sum_fold_on": 13242.124
+     },
+     "records/creatures/enemies/aetherialcorruption_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.225936,
+      "sum_fold_off": 5615.355,
+      "sum_fold_on": 29345.487
+     },
+     "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.534319,
+      "sum_fold_off": 8272.515,
+      "sum_fold_on": 20965.191
+     },
+     "records/creatures/enemies/boss&quest/ghoul_necropolis_01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.996175,
+      "sum_fold_off": 14352.69,
+      "sum_fold_on": 14297.79
+     },
+     "records/creatures/enemies/boss&quest/wendigocannibal_packla.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.953732,
+      "sum_fold_off": 11865.72,
+      "sum_fold_on": 11316.72
+     },
+     "records/creatures/enemies/chthoniandevourer_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.099246,
+      "sum_fold_off": 2075.22,
+      "sum_fold_on": 8506.837
+     },
+     "records/creatures/enemies/chthoniandevourer_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.616793,
+      "sum_fold_off": 3774.375,
+      "sum_fold_on": 17425.508
+     },
+     "records/creatures/enemies/chthonianleech_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.826776,
+      "sum_fold_off": 3697.515,
+      "sum_fold_on": 3057.015
+     },
+     "records/creatures/enemies/chthonianleech_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.961158,
+      "sum_fold_off": 4711.335,
+      "sum_fold_on": 4528.335
+     },
+     "records/creatures/enemies/chthonianleech_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.82679,
+      "sum_fold_off": 6339.12,
+      "sum_fold_on": 5241.12
+     },
+     "records/creatures/enemies/chthonianrylok_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.953827,
+      "sum_fold_off": 8343.885,
+      "sum_fold_on": 58021.931
+     },
+     "records/creatures/enemies/chthonianrylok_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 7.436302,
+      "sum_fold_off": 10112.58,
+      "sum_fold_on": 75200.204
+     },
+     "records/creatures/enemies/chthonianrylok_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.681678,
+      "sum_fold_off": 10118.985,
+      "sum_fold_on": 57492.814
+     },
+     "records/creatures/enemies/chthonianservitor_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3324.195,
+      "sum_fold_on": 3324.195
+     },
+     "records/creatures/enemies/chthonianservitor_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.883389,
+      "sum_fold_off": 7061.97,
+      "sum_fold_on": 6238.47
+     },
+     "records/creatures/enemies/chthonianservitor_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9982.65,
+      "sum_fold_on": 9982.65
+     },
+     "records/creatures/enemies/chthonianservitor_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6802.11,
+      "sum_fold_on": 6802.11
+     },
+     "records/creatures/enemies/devotion/aetherialbloater_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10034.805,
+      "sum_fold_on": 10034.805
+     },
+     "records/creatures/enemies/devotion/aetherialbloater_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11156.595,
+      "sum_fold_on": 11156.595
+     },
+     "records/creatures/enemies/devotion/aetherialbloater_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14207.205,
+      "sum_fold_on": 14207.205
+     },
+     "records/creatures/enemies/devotion/aetherialbloater_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.847596,
+      "sum_fold_off": 12007.545,
+      "sum_fold_on": 10177.545
+     },
+     "records/creatures/enemies/devotion/aetherialcolossus_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13956.495,
+      "sum_fold_on": 13956.495
+     },
+     "records/creatures/enemies/devotion/aetherialcolossus_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13350.765,
+      "sum_fold_on": 13350.765
+     },
+     "records/creatures/enemies/devotion/aetherialcolossus_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.88776,
+      "sum_fold_off": 16304.385,
+      "sum_fold_on": 14474.385
+     },
+     "records/creatures/enemies/devotion/aetherialcolossus_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.37191,
+      "sum_fold_off": 26513.955,
+      "sum_fold_on": 168944.539
+     },
+     "records/creatures/enemies/devotion/aetherialcorruption_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.3039,
+      "sum_fold_off": 14604.315,
+      "sum_fold_on": 92064.138
+     },
+     "records/creatures/enemies/devotion/aetherialcorruption_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.949148,
+      "sum_fold_off": 10796.085,
+      "sum_fold_on": 10247.085
+     },
+     "records/creatures/enemies/devotion/aetherialcorruption_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.187045,
+      "sum_fold_off": 6662.115,
+      "sum_fold_on": 41218.808
+     },
+     "records/creatures/enemies/devotion/aetherialcorruption_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.16156,
+      "sum_fold_off": 8528.715,
+      "sum_fold_on": 52550.191
+     },
+     "records/creatures/enemies/devotion/aetherialfleshshaper_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8999.025,
+      "sum_fold_on": 8999.025
+     },
+     "records/creatures/enemies/devotion/aetherialfleshshaper_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9727.365,
+      "sum_fold_on": 9727.365
+     },
+     "records/creatures/enemies/devotion/aetherialfleshshaper_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7333.725,
+      "sum_fold_on": 7333.725
+     },
+     "records/creatures/enemies/devotion/aetherialfleshshaper_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5535.75,
+      "sum_fold_on": 5535.75
+     },
+     "records/creatures/enemies/devotion/basilisk_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6478.2,
+      "sum_fold_on": 6478.2
+     },
+     "records/creatures/enemies/devotion/basilisk_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7604.565,
+      "sum_fold_on": 7604.565
+     },
+     "records/creatures/enemies/devotion/basilisk_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10760.4,
+      "sum_fold_on": 10760.4
+     },
+     "records/creatures/enemies/devotion/basilisk_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10238.85,
+      "sum_fold_on": 10238.85
+     },
+     "records/creatures/enemies/devotion/chthonianherald_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 13708.53,
+      "sum_fold_on": 16779.84
+     },
+     "records/creatures/enemies/devotion/chthonianherald_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 16047.27,
+      "sum_fold_on": 19642.56
+     },
+     "records/creatures/enemies/devotion/chthonianherald_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 15859.695,
+      "sum_fold_on": 19412.96
+     },
+     "records/creatures/enemies/devotion/chthonianherald_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.440863,
+      "sum_fold_off": 14497.26,
+      "sum_fold_on": 93374.87
+     },
+     "records/creatures/enemies/devotion/chthonianrylok_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 17557.935,
+      "sum_fold_on": 17557.935
+     },
+     "records/creatures/enemies/devotion/chthonianrylok_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12305.835,
+      "sum_fold_on": 12305.835
+     },
+     "records/creatures/enemies/devotion/chthonianrylok_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.76891,
+      "sum_fold_off": 22173.195,
+      "sum_fold_on": 17049.195
+     },
+     "records/creatures/enemies/devotion/chthonianrylok_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14137.665,
+      "sum_fold_on": 14137.665
+     },
+     "records/creatures/enemies/devotion/chthonianservitor_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.218417,
+      "sum_fold_off": 13509.975,
+      "sum_fold_on": 84010.662
+     },
+     "records/creatures/enemies/devotion/chthonianservitor_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.15229,
+      "sum_fold_off": 12807.255,
+      "sum_fold_on": 78793.951
+     },
+     "records/creatures/enemies/devotion/chthonianservitor_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.228667,
+      "sum_fold_off": 11892.255,
+      "sum_fold_on": 74072.892
+     },
+     "records/creatures/enemies/devotion/chthonianservitor_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15405.855,
+      "sum_fold_on": 15405.855
+     },
+     "records/creatures/enemies/devotion/dranghoul_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 4232.79,
+      "sum_fold_on": 5181.12
+     },
+     "records/creatures/enemies/devotion/dranghoul_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.025429,
+      "sum_fold_off": 2437.56,
+      "sum_fold_on": 14687.344
+     },
+     "records/creatures/enemies/devotion/dranghoul_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 12247.275,
+      "sum_fold_on": 14991.2
+     },
+     "records/creatures/enemies/devotion/dranghoul_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 9732.855,
+      "sum_fold_on": 11913.44
+     },
+     "records/creatures/enemies/devotion/rhino_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 7435.29,
+      "sum_fold_on": 9101.12
+     },
+     "records/creatures/enemies/devotion/rhino_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.176248,
+      "sum_fold_off": 15988.71,
+      "sum_fold_on": 98750.231
+     },
+     "records/creatures/enemies/devotion/rhino_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 16124.13,
+      "sum_fold_on": 19736.64
+     },
+     "records/creatures/enemies/devotion/rhino_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 8125.2,
+      "sum_fold_on": 9945.6
+     },
+     "records/creatures/enemies/devotion/rok_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 12166.755,
+      "sum_fold_on": 15424.52
+     },
+     "records/creatures/enemies/devotion/rok_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 22107.315,
+      "sum_fold_on": 28026.76
+     },
+     "records/creatures/enemies/devotion/rok_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 17042.79,
+      "sum_fold_on": 21606.16
+     },
+     "records/creatures/enemies/devotion/rok_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.26776,
+      "sum_fold_off": 18814.23,
+      "sum_fold_on": 23851.92
+     },
+     "records/creatures/enemies/devotion/swampcrab_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13673.76,
+      "sum_fold_on": 13673.76
+     },
+     "records/creatures/enemies/devotion/swampcrab_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15723.36,
+      "sum_fold_on": 15723.36
+     },
+     "records/creatures/enemies/devotion/swampcrab_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9245.16,
+      "sum_fold_on": 9245.16
+     },
+     "records/creatures/enemies/devotion/swampcrab_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10042.125,
+      "sum_fold_on": 10042.125
+     },
+     "records/creatures/enemies/devotion/swampgolem_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10409.04,
+      "sum_fold_on": 10409.04
+     },
+     "records/creatures/enemies/devotion/swampgolem_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14209.95,
+      "sum_fold_on": 14209.95
+     },
+     "records/creatures/enemies/devotion/swampgolem_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 15630.03,
+      "sum_fold_on": 15630.03
+     },
+     "records/creatures/enemies/devotion/swampgolem_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 17547.87,
+      "sum_fold_on": 17547.87
+     },
+     "records/creatures/enemies/devotion/wendigo_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.92381,
+      "sum_fold_off": 16813.125,
+      "sum_fold_on": 15532.125
+     },
+     "records/creatures/enemies/devotion/wendigo_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.912816,
+      "sum_fold_off": 12594.06,
+      "sum_fold_on": 11496.06
+     },
+     "records/creatures/enemies/devotion/wendigo_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.87162,
+      "sum_fold_off": 11403.645,
+      "sum_fold_on": 9939.645
+     },
+     "records/creatures/enemies/devotion/wendigo_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.885002,
+      "sum_fold_off": 9548.025,
+      "sum_fold_on": 8450.025
+     },
+     "records/creatures/enemies/devotion/wight_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.111374,
+      "sum_fold_off": 9940.56,
+      "sum_fold_on": 11047.68
+     },
+     "records/creatures/enemies/devotion/wight_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.023102,
+      "sum_fold_off": 14491.77,
+      "sum_fold_on": 14826.56
+     },
+     "records/creatures/enemies/devotion/wight_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.14197,
+      "sum_fold_off": 13646.31,
+      "sum_fold_on": 15583.68
+     },
+     "records/creatures/enemies/devotion/wight_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.116803,
+      "sum_fold_off": 10443.81,
+      "sum_fold_on": 11663.68
+     },
+     "records/creatures/enemies/devotion/wraith_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.988683,
+      "sum_fold_off": 16169.88,
+      "sum_fold_on": 15986.88
+     },
+     "records/creatures/enemies/devotion/wraith_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.960024,
+      "sum_fold_off": 9155.49,
+      "sum_fold_on": 8789.49
+     },
+     "records/creatures/enemies/devotion/wraith_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6950.34,
+      "sum_fold_on": 6950.34
+     },
+     "records/creatures/enemies/devotion/wraith_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.860379,
+      "sum_fold_off": 11796.18,
+      "sum_fold_on": 10149.18
+     },
+     "records/creatures/enemies/devotion/yetidire_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 9679.785,
+      "sum_fold_on": 11848.48
+     },
+     "records/creatures/enemies/devotion/yetidire_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 11659.845,
+      "sum_fold_on": 14272.16
+     },
+     "records/creatures/enemies/devotion/yetidire_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 5869.725,
+      "sum_fold_on": 7184.8
+     },
+     "records/creatures/enemies/devotion/yetidire_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 10846.41,
+      "sum_fold_on": 13276.48
+     },
+     "records/creatures/enemies/gargoyle_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8908.44,
+      "sum_fold_on": 8908.44
+     },
+     "records/creatures/enemies/gargoyle_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7491.105,
+      "sum_fold_on": 7491.105
+     },
+     "records/creatures/enemies/gargoyle_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7433.46,
+      "sum_fold_on": 7433.46
+     },
+     "records/creatures/enemies/hero/aetherialcolossus_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 12853.005,
+      "sum_fold_on": 15732.64
+     },
+     "records/creatures/enemies/hero/aetherialcolossus_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 11335.935,
+      "sum_fold_on": 13875.68
+     },
+     "records/creatures/enemies/hero/aetherialcolossus_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.097862,
+      "sum_fold_off": 14201.715,
+      "sum_fold_on": 15591.52
+     },
+     "records/creatures/enemies/hero/aetherialcolossus_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 15440.625,
+      "sum_fold_on": 18900.0
+     },
+     "records/creatures/enemies/hero/aetherialcolossus_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 17212.065,
+      "sum_fold_on": 21068.32
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.285815,
+      "sum_fold_off": 13606.965,
+      "sum_fold_on": 85530.87
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.161799,
+      "sum_fold_off": 10796.085,
+      "sum_fold_on": 12542.88
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 6440.685,
+      "sum_fold_on": 7883.68
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 7205.625,
+      "sum_fold_on": 8820.0
+     },
+     "records/creatures/enemies/hero/aetherialcorruption_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 6052.725,
+      "sum_fold_on": 7408.8
+     },
+     "records/creatures/enemies/hero/aetherialimp_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8558.91,
+      "sum_fold_on": 8558.91
+     },
+     "records/creatures/enemies/hero/aetherialimp_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.410897,
+      "sum_fold_off": 10696.35,
+      "sum_fold_on": 68573.194
+     },
+     "records/creatures/enemies/hero/aetherialimp_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.216589,
+      "sum_fold_off": 4474.35,
+      "sum_fold_on": 27815.196
+     },
+     "records/creatures/enemies/hero/aetherialimp_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.216589,
+      "sum_fold_off": 4474.35,
+      "sum_fold_on": 27815.196
+     },
+     "records/creatures/enemies/hero/aetherialimp_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4747.02,
+      "sum_fold_on": 4747.02
+     },
+     "records/creatures/enemies/hero/wight_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.907953,
+      "sum_fold_off": 9940.56,
+      "sum_fold_on": 9025.56
+     },
+     "records/creatures/enemies/hero/wight_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.835838,
+      "sum_fold_off": 14491.77,
+      "sum_fold_on": 12112.77
+     },
+     "records/creatures/enemies/hero/wight_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.932949,
+      "sum_fold_off": 13646.31,
+      "sum_fold_on": 12731.31
+     },
+     "records/creatures/enemies/hero/wight_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.912388,
+      "sum_fold_off": 10443.81,
+      "sum_fold_on": 9528.81
+     },
+     "records/creatures/enemies/sandlizard_eldritch_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3606.015,
+      "sum_fold_on": 3606.015
+     },
+     "records/creatures/enemies/sandlizard_eldritch_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3982.995,
+      "sum_fold_on": 3982.995
+     },
+     "records/creatures/enemies/sandlizard_eldritch_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5146.875,
+      "sum_fold_on": 5146.875
+     },
+     "records/creatures/enemies/skeletalgolem_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.92061,
+      "sum_fold_off": 7675.935,
+      "sum_fold_on": 7066.545
+     },
+     "records/creatures/enemies/skeletalgolem_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.920705,
+      "sum_fold_off": 7685.085,
+      "sum_fold_on": 7075.695
+     },
+     "records/creatures/enemies/skeleton_b02_knight.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.972949,
+      "sum_fold_off": 1014.735,
+      "sum_fold_on": 987.285
+     },
+     "records/creatures/enemies/skeleton_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6312.585,
+      "sum_fold_on": 6312.585
+     },
+     "records/creatures/enemies/skeleton_c02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5284.125,
+      "sum_fold_on": 5284.125
+     },
+     "records/creatures/enemies/skeleton_c03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3272.04,
+      "sum_fold_on": 3272.04
+     },
+     "records/creatures/enemies/swampgolem_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.578543,
+      "sum_fold_off": 5037.075,
+      "sum_fold_on": 23062.464
+     },
+     "records/creatures/enemies/swampgolem_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11162.085,
+      "sum_fold_on": 11162.085
+     },
+     "records/creatures/enemies/swampgolem_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10386.165,
+      "sum_fold_on": 10386.165
+     },
+     "records/creatures/enemies/yetidire_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.508364,
+      "sum_fold_off": 1639.68,
+      "sum_fold_on": 9031.954
+     },
+     "records/creatures/enemies/yetidire_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 1719.285,
+      "sum_fold_on": 1719.285
+     },
+     "records/creatures/enemies/yetidire_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8289.9,
+      "sum_fold_on": 8289.9
+     },
+     "records/creatures/enemies/yetidire_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.674916,
+      "sum_fold_off": 6071.025,
+      "sum_fold_on": 34452.554
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w07_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w07_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w07_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w07_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w07_p05a.dbr",
+     "records/proxies/tier16waves/proxy_w07_p06a.dbr"
+    ]
+   },
+   "158": {
+    "M_inst": 1.83,
+    "n_candidates": 121,
+    "n_identity_path_priced": 95,
+    "n_priced": 115,
+    "ratio": 1.598751,
+    "records": {
+     "records/creatures/enemies/chthoniandevourer_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.099246,
+      "sum_fold_off": 2075.22,
+      "sum_fold_on": 8506.837
+     },
+     "records/creatures/enemies/chthoniandevourer_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.616793,
+      "sum_fold_off": 3774.375,
+      "sum_fold_on": 17425.508
+     },
+     "records/creatures/enemies/chthoniandevourer_b02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.156998,
+      "sum_fold_off": 3342.495,
+      "sum_fold_on": 17237.24
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6217.425,
+      "sum_fold_on": 6217.425
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8730.93,
+      "sum_fold_on": 8730.93
+     },
+     "records/creatures/enemies/devotion/aetherialphantom_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9034.71,
+      "sum_fold_on": 9034.71
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.941809,
+      "sum_fold_off": 7233.075,
+      "sum_fold_on": 6812.175
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.940066,
+      "sum_fold_off": 9160.065,
+      "sum_fold_on": 8611.065
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6555.975,
+      "sum_fold_on": 6555.975
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7115.955,
+      "sum_fold_on": 7115.955
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6263.175,
+      "sum_fold_on": 6263.175
+     },
+     "records/creatures/enemies/devotion/chthoniandevourer_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.935059,
+      "sum_fold_off": 9862.785,
+      "sum_fold_on": 9222.285
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7773.84,
+      "sum_fold_on": 7773.84
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.977694,
+      "sum_fold_off": 8203.89,
+      "sum_fold_on": 8020.89
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9742.92,
+      "sum_fold_on": 9742.92
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5910.9,
+      "sum_fold_on": 5910.9
+     },
+     "records/creatures/enemies/devotion/chthoniandreadguard_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9667.89,
+      "sum_fold_on": 9667.89
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4192.53,
+      "sum_fold_on": 4192.53
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6864.33,
+      "sum_fold_on": 6864.33
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8321.01,
+      "sum_fold_on": 8321.01
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9539.79,
+      "sum_fold_on": 9539.79
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6575.19,
+      "sum_fold_on": 6575.19
+     },
+     "records/creatures/enemies/devotion/chthonianfiend_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11193.195,
+      "sum_fold_on": 11193.195
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.987033,
+      "sum_fold_off": 7056.48,
+      "sum_fold_on": 6964.98
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5383.86,
+      "sum_fold_on": 5383.86
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.985418,
+      "sum_fold_off": 6275.07,
+      "sum_fold_on": 6183.57
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.977488,
+      "sum_fold_off": 12193.29,
+      "sum_fold_on": 11918.79
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.979944,
+      "sum_fold_off": 4562.19,
+      "sum_fold_on": 4470.69
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.962217,
+      "sum_fold_off": 7265.1,
+      "sum_fold_on": 6990.6
+     },
+     "records/creatures/enemies/devotion/chthonianminion_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.962589,
+      "sum_fold_off": 7337.385,
+      "sum_fold_on": 7062.885
+     },
+     "records/creatures/enemies/devotion/chthonianmonstrosity_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.445028,
+      "sum_fold_off": 33963.885,
+      "sum_fold_on": 15114.885
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 11449.395,
+      "sum_fold_on": 11449.395
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9970.755,
+      "sum_fold_on": 9970.755
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.052385,
+      "sum_fold_off": 17785.77,
+      "sum_fold_on": 107646.322
+     },
+     "records/creatures/enemies/devotion/fleshhulk_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16786.59,
+      "sum_fold_on": 16786.59
+     },
+     "records/creatures/enemies/devotion/ghost_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.264085,
+      "sum_fold_off": 16900.05,
+      "sum_fold_on": 105863.349
+     },
+     "records/creatures/enemies/devotion/ghost_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.274156,
+      "sum_fold_off": 6216.51,
+      "sum_fold_on": 39003.355
+     },
+     "records/creatures/enemies/devotion/ghost_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5199.03,
+      "sum_fold_on": 5199.03
+     },
+     "records/creatures/enemies/devotion/ghost_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9611.16,
+      "sum_fold_on": 9611.16
+     },
+     "records/creatures/enemies/devotion/ghost_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9611.16,
+      "sum_fold_on": 9611.16
+     },
+     "records/creatures/enemies/devotion/ghost_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9470.25,
+      "sum_fold_on": 9470.25
+     },
+     "records/creatures/enemies/devotion/ghost_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16151.58,
+      "sum_fold_on": 16151.58
+     },
+     "records/creatures/enemies/devotion/ghost_h08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.957167,
+      "sum_fold_off": 12817.32,
+      "sum_fold_on": 12268.32
+     },
+     "records/creatures/enemies/devotion/ghost_h09.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13545.66,
+      "sum_fold_on": 13545.66
+     },
+     "records/creatures/enemies/devotion/prawncave_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8214.87,
+      "sum_fold_on": 8214.87
+     },
+     "records/creatures/enemies/devotion/prawncave_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4961.13,
+      "sum_fold_on": 4961.13
+     },
+     "records/creatures/enemies/devotion/prawncave_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4568.595,
+      "sum_fold_on": 4568.595
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.915728,
+      "sum_fold_off": 7231.245,
+      "sum_fold_on": 6621.855
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.935334,
+      "sum_fold_off": 9423.585,
+      "sum_fold_on": 8814.195
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.931657,
+      "sum_fold_off": 8916.675,
+      "sum_fold_on": 8307.285
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.940795,
+      "sum_fold_off": 10292.835,
+      "sum_fold_on": 9683.445
+     },
+     "records/creatures/enemies/devotion/skeletalgolem_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.9408,
+      "sum_fold_off": 10293.75,
+      "sum_fold_on": 9684.36
+     },
+     "records/creatures/enemies/devotion/skeleton_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.93062,
+      "sum_fold_off": 7912.92,
+      "sum_fold_on": 7363.92
+     },
+     "records/creatures/enemies/devotion/skeleton_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.967782,
+      "sum_fold_off": 7384.05,
+      "sum_fold_on": 7146.15
+     },
+     "records/creatures/enemies/devotion/skeleton_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7527.705,
+      "sum_fold_on": 7527.705
+     },
+     "records/creatures/enemies/devotion/skeleton_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8621.13,
+      "sum_fold_on": 8621.13
+     },
+     "records/creatures/enemies/devotion/skeleton_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8844.39,
+      "sum_fold_on": 8844.39
+     },
+     "records/creatures/enemies/devotion/skeleton_h06.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.225438,
+      "sum_fold_off": 8637.6,
+      "sum_fold_on": 53772.844
+     },
+     "records/creatures/enemies/devotion/skeleton_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 16755.48,
+      "sum_fold_on": 16755.48
+     },
+     "records/creatures/enemies/devotion/skeleton_h08.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.22391,
+      "sum_fold_off": 9845.4,
+      "sum_fold_on": 61276.88
+     },
+     "records/creatures/enemies/devotion/skeleton_h09.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.84173,
+      "sum_fold_off": 8467.41,
+      "sum_fold_on": 40996.914
+     },
+     "records/creatures/enemies/devotion/skeleton_h10.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13007.64,
+      "sum_fold_on": 13007.64
+     },
+     "records/creatures/enemies/devotion/slith_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13283.97,
+      "sum_fold_on": 13283.97
+     },
+     "records/creatures/enemies/devotion/slith_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10167.48,
+      "sum_fold_on": 10167.48
+     },
+     "records/creatures/enemies/devotion/slith_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 9636.78,
+      "sum_fold_on": 9636.78
+     },
+     "records/creatures/enemies/devotion/slith_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8312.775,
+      "sum_fold_on": 8312.775
+     },
+     "records/creatures/enemies/devotion/slith_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.997041,
+      "sum_fold_off": 6185.4,
+      "sum_fold_on": 6167.1
+     },
+     "records/creatures/enemies/devotion/slith_h06.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.997307,
+      "sum_fold_off": 6795.705,
+      "sum_fold_on": 6777.405
+     },
+     "records/creatures/enemies/devotion/slith_h07.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 14351.775,
+      "sum_fold_on": 14351.775
+     },
+     "records/creatures/enemies/devotion/slith_h08.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 13886.04,
+      "sum_fold_on": 13886.04
+     },
+     "records/creatures/enemies/devotion/spider_cave_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6555.06,
+      "sum_fold_on": 6555.06
+     },
+     "records/creatures/enemies/devotion/spider_cave_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3384.585,
+      "sum_fold_on": 3384.585
+     },
+     "records/creatures/enemies/devotion/spider_cave_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3384.585,
+      "sum_fold_on": 3384.585
+     },
+     "records/creatures/enemies/devotion/zombie_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5585.16,
+      "sum_fold_on": 5585.16
+     },
+     "records/creatures/enemies/devotion/zombie_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2482.395,
+      "sum_fold_on": 2482.395
+     },
+     "records/creatures/enemies/devotion/zombie_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5130.405,
+      "sum_fold_on": 5130.405
+     },
+     "records/creatures/enemies/devotion/zombie_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6943.935,
+      "sum_fold_on": 6943.935
+     },
+     "records/creatures/enemies/devotion/zombie_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.992397,
+      "sum_fold_off": 7221.18,
+      "sum_fold_on": 7166.28
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3853.98,
+      "sum_fold_on": 3853.98
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 12184.14,
+      "sum_fold_on": 12184.14
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.905213,
+      "sum_fold_off": 7722.6,
+      "sum_fold_on": 6990.6
+     },
+     "records/creatures/enemies/devotion/zombiemutated_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8705.31,
+      "sum_fold_on": 8705.31
+     },
+     "records/creatures/enemies/hero/aetherialfleshshaper_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 8999.025,
+      "sum_fold_on": 8999.025
+     },
+     "records/creatures/enemies/hero/aetherialfleshshaper_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6178.995,
+      "sum_fold_on": 6178.995
+     },
+     "records/creatures/enemies/hero/aetherialfleshshaper_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 6230.235,
+      "sum_fold_on": 6230.235
+     },
+     "records/creatures/enemies/hero/aetherialfleshshaper_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3598.695,
+      "sum_fold_on": 3598.695
+     },
+     "records/creatures/enemies/hero/aetherialfleshshaper_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10589.295,
+      "sum_fold_on": 10589.295
+     },
+     "records/creatures/enemies/hero/dranghoul_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4554.87,
+      "sum_fold_on": 4554.87
+     },
+     "records/creatures/enemies/hero/dranghoul_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 4554.87,
+      "sum_fold_on": 4554.87
+     },
+     "records/creatures/enemies/hero/dranghoul_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 10810.725,
+      "sum_fold_on": 10810.725
+     },
+     "records/creatures/enemies/hero/dranghoul_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 7608.225,
+      "sum_fold_on": 7608.225
+     },
+     "records/creatures/enemies/hero/hypporaven_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.119552,
+      "sum_fold_off": 4707.675,
+      "sum_fold_on": 28808.861
+     },
+     "records/creatures/enemies/hero/hypporaven_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 4575.915,
+      "sum_fold_on": 5601.12
+     },
+     "records/creatures/enemies/hero/hypporaven_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.313522,
+      "sum_fold_off": 9392.475,
+      "sum_fold_on": 49907.119
+     },
+     "records/creatures/enemies/hero/hypporaven_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": true,
+      "ratio": 1.224044,
+      "sum_fold_off": 4575.915,
+      "sum_fold_on": 5601.12
+     },
+     "records/creatures/enemies/hero/wraith_h01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.986479,
+      "sum_fold_off": 13534.68,
+      "sum_fold_on": 13351.68
+     },
+     "records/creatures/enemies/hero/wraith_h02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.944751,
+      "sum_fold_off": 6624.6,
+      "sum_fold_on": 6258.6
+     },
+     "records/creatures/enemies/hero/wraith_h03.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.96681,
+      "sum_fold_off": 5513.79,
+      "sum_fold_on": 5330.79
+     },
+     "records/creatures/enemies/hero/wraith_h04.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.848255,
+      "sum_fold_off": 10853.73,
+      "sum_fold_on": 9206.73
+     },
+     "records/creatures/enemies/hero/wraith_h05.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 0.98498,
+      "sum_fold_off": 12184.14,
+      "sum_fold_on": 12001.14
+     },
+     "records/creatures/enemies/sandlizard_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2438.475,
+      "sum_fold_on": 2438.475
+     },
+     "records/creatures/enemies/sandlizard_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3606.015,
+      "sum_fold_on": 3606.015
+     },
+     "records/creatures/enemies/sandlizard_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3304.065,
+      "sum_fold_on": 3304.065
+     },
+     "records/creatures/enemies/sandlizard_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5187.135,
+      "sum_fold_on": 5187.135
+     },
+     "records/creatures/enemies/sandlizard_eldritch_a01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 2438.475,
+      "sum_fold_on": 2438.475
+     },
+     "records/creatures/enemies/sandlizard_eldritch_b01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3606.015,
+      "sum_fold_on": 3606.015
+     },
+     "records/creatures/enemies/sandlizard_eldritch_b02.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 3982.995,
+      "sum_fold_on": 3982.995
+     },
+     "records/creatures/enemies/sandlizard_eldritch_c01.dbr": {
+      "folds_attr": false,
+      "folds_own": false,
+      "ratio": 1.0,
+      "sum_fold_off": 5146.875,
+      "sum_fold_on": 5146.875
+     },
+     "records/creatures/enemies/sandlizard_volcanic_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.815843,
+      "sum_fold_off": 2609.58,
+      "sum_fold_on": 17786.488
+     },
+     "records/creatures/enemies/sandlizard_volcanic_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.144528,
+      "sum_fold_off": 3879.6,
+      "sum_fold_on": 19958.711
+     },
+     "records/creatures/enemies/sandlizard_volcanic_b02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.974822,
+      "sum_fold_off": 3407.46,
+      "sum_fold_on": 23766.428
+     },
+     "records/creatures/enemies/sandlizard_volcanic_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.667874,
+      "sum_fold_off": 6207.36,
+      "sum_fold_on": 35182.537
+     },
+     "records/creatures/enemies/swampcrab_a01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.129943,
+      "sum_fold_off": 3058.845,
+      "sum_fold_on": 18750.546
+     },
+     "records/creatures/enemies/swampcrab_b01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.994911,
+      "sum_fold_off": 7236.735,
+      "sum_fold_on": 28910.113
+     },
+     "records/creatures/enemies/swampcrab_c01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.190052,
+      "sum_fold_off": 4992.24,
+      "sum_fold_on": 25909.987
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w08_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w08_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w08_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w08_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w08_p05a.dbr",
+     "records/proxies/tier16waves/proxy_w08_p06a.dbr"
+    ]
+   },
+   "159": {
+    "M_inst": 1.83,
+    "n_candidates": 21,
+    "n_identity_path_priced": 0,
+    "n_priced": 16,
+    "ratio": 3.197066,
+    "records": {
+     "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.514042,
+      "sum_fold_off": 30090.69,
+      "sum_fold_on": 105739.935
+     },
+     "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.301094,
+      "sum_fold_off": 20979.12,
+      "sum_fold_on": 69254.047
+     },
+     "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.59875,
+      "sum_fold_off": 27940.44,
+      "sum_fold_on": 100550.672
+     },
+     "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.546547,
+      "sum_fold_off": 19181.145,
+      "sum_fold_on": 48845.693
+     },
+     "records/creatures/enemies/boss&quest/humanwendigo_darkwood_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.75048,
+      "sum_fold_off": 12423.87,
+      "sum_fold_on": 46595.48
+     },
+     "records/creatures/enemies/boss&quest/korvaakmessenger_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.033476,
+      "sum_fold_off": 28461.075,
+      "sum_fold_on": 86335.987
+     },
+     "records/creatures/enemies/boss&quest/korvaakmessenger_02b.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.034357,
+      "sum_fold_off": 29575.545,
+      "sum_fold_on": 89742.771
+     },
+     "records/creatures/enemies/boss&quest/manticore_jaggedwaste_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.956584,
+      "sum_fold_off": 15284.16,
+      "sum_fold_on": 45188.897
+     },
+     "records/creatures/enemies/boss&quest/rokwind_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.362895,
+      "sum_fold_off": 11702.85,
+      "sum_fold_on": 39355.455
+     },
+     "records/creatures/enemies/boss&quest/skeletalgolem_stepsoftorment_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.120862,
+      "sum_fold_off": 10196.76,
+      "sum_fold_on": 31822.677
+     },
+     "records/creatures/enemies/boss&quest/statue_templeguardian_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 1.960798,
+      "sum_fold_off": 12860.325,
+      "sum_fold_on": 25216.503
+     },
+     "records/creatures/enemies/boss&quest/statue_templeguardian_03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 1.960798,
+      "sum_fold_off": 12860.325,
+      "sum_fold_on": 25216.503
+     },
+     "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.762796,
+      "sum_fold_off": 20521.62,
+      "sum_fold_on": 56697.046
+     },
+     "records/creatures/enemies/boss&quest/wendigo_ancient_namadea.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.077782,
+      "sum_fold_off": 23978.49,
+      "sum_fold_on": 97779.057
+     },
+     "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.978465,
+      "sum_fold_off": 20115.36,
+      "sum_fold_on": 80028.246
+     },
+     "records/creatures/enemies/boss&quest/yeti_rimehorn_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.080011,
+      "sum_fold_off": 12713.925,
+      "sum_fold_on": 39159.032
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w09_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w09_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w09_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w09_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w09_p05a.dbr"
+    ]
+   },
+   "160": {
+    "M_inst": 1.83,
+    "n_candidates": 28,
+    "n_identity_path_priced": 0,
+    "n_priced": 23,
+    "ratio": 4.935649,
+    "records": {
+     "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.80807,
+      "sum_fold_off": 22698.405,
+      "sum_fold_on": 86437.112
+     },
+     "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.102804,
+      "sum_fold_off": 27216.675,
+      "sum_fold_on": 111664.686
+     },
+     "records/creatures/enemies/hero/wendigocannibal_h01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.916297,
+      "sum_fold_off": 6642.9,
+      "sum_fold_on": 39301.37
+     },
+     "records/creatures/enemies/hero/wendigocannibal_h02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.946459,
+      "sum_fold_off": 8013.57,
+      "sum_fold_on": 47652.363
+     },
+     "records/creatures/enemies/hero/wendigocannibal_h03.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.476449,
+      "sum_fold_off": 3447.72,
+      "sum_fold_on": 18881.261
+     },
+     "records/creatures/enemies/hero/wendigocannibal_h04.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.429514,
+      "sum_fold_off": 3045.12,
+      "sum_fold_on": 16533.522
+     },
+     "records/creatures/enemies/hero/wendigocannibal_h05.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.429514,
+      "sum_fold_off": 3045.12,
+      "sum_fold_on": 16533.522
+     },
+     "records/creatures/enemies/nemesis/nemesis_aetherial_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 8.165613,
+      "sum_fold_off": 28834.395,
+      "sum_fold_on": 235450.515
+     },
+     "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.466635,
+      "sum_fold_off": 24021.495,
+      "sum_fold_on": 155338.25
+     },
+     "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.829365,
+      "sum_fold_off": 12741.375,
+      "sum_fold_on": 48791.371
+     },
+     "records/creatures/enemies/nemesis/nemesis_beast_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 2.689026,
+      "sum_fold_off": 12876.795,
+      "sum_fold_on": 34626.031
+     },
+     "records/creatures/enemies/nemesis/nemesis_chthonian_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.55761,
+      "sum_fold_off": 13284.885,
+      "sum_fold_on": 73832.204
+     },
+     "records/creatures/enemies/nemesis/nemesis_chthonianvoidborn_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.517305,
+      "sum_fold_off": 26700.615,
+      "sum_fold_on": 120614.819
+     },
+     "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.474869,
+      "sum_fold_off": 48323.895,
+      "sum_fold_on": 167919.204
+     },
+     "records/creatures/enemies/nemesis/nemesis_kymon_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 1.075958,
+      "sum_fold_off": 12552.885,
+      "sum_fold_on": 13506.377
+     },
+     "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.921402,
+      "sum_fold_off": 25652.025,
+      "sum_fold_on": 177547.981
+     },
+     "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.658935,
+      "sum_fold_off": 6016.125,
+      "sum_fold_on": 22012.61
+     },
+     "records/creatures/enemies/nemesis/nemesis_outlaw_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.837726,
+      "sum_fold_off": 15135.015,
+      "sum_fold_on": 88354.076
+     },
+     "records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.07033,
+      "sum_fold_off": 15755.385,
+      "sum_fold_on": 79884.996
+     },
+     "records/creatures/enemies/nemesis/nemesis_undead_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 3.822594,
+      "sum_fold_off": 19794.195,
+      "sum_fold_on": 75665.167
+     },
+     "records/creatures/enemies/nemesis/nemesis_undead_02b.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 5.470426,
+      "sum_fold_off": 22808.205,
+      "sum_fold_on": 124770.592
+     },
+     "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 6.06632,
+      "sum_fold_off": 22332.405,
+      "sum_fold_on": 135475.515
+     },
+     "records/creatures/enemies/nemesis/nemesis_wendigo_02.dbr": {
+      "folds_attr": true,
+      "folds_own": true,
+      "ratio": 4.391011,
+      "sum_fold_off": 19483.095,
+      "sum_fold_on": 85550.484
+     }
+    },
+    "unpriced_no_profile": [
+     "records/proxies/tier16waves/proxy_w10_p01a.dbr",
+     "records/proxies/tier16waves/proxy_w10_p02a.dbr",
+     "records/proxies/tier16waves/proxy_w10_p03a.dbr",
+     "records/proxies/tier16waves/proxy_w10_p04a.dbr",
+     "records/proxies/tier16waves/proxy_w10_p06a.dbr"
+    ]
+   }
+  }
+ },
+ "a8": {
+  "arm_keys": {
+   "M-POL-2": {
+    "kc2.threat.load_profiles": [
+     []
+    ],
+    "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell": [
+     {
+      "arena": false,
+      "seat": {
+       "explicit": true,
+       "value": true
+      }
+     },
+     {
+      "arena": false,
+      "seat": {
+       "explicit": true,
+       "value": true
+      }
+     },
+     {
+      "arena": false,
+      "seat": {
+       "explicit": true,
+       "value": true
+      }
+     },
+     {
+      "arena": false,
+      "seat": {
+       "explicit": true,
+       "value": true
+      }
+     },
+     {
+      "arena": false,
+      "seat": {
+       "explicit": true,
+       "value": true
+      }
+     }
+    ]
+   },
+   "M-POL-2-NULL": {
+    "kc2.channel_policy.ChannelPolicyFold.__init__": [
+     {
+      "explicit": true,
+      "value": false
+     },
+     {
+      "explicit": true,
+      "value": false
+     },
+     {
+      "explicit": true,
+      "value": false
+     },
+     {
+      "explicit": true,
+      "value": false
+     },
+     {
+      "explicit": true,
+      "value": false
+     }
+    ],
+    "kc2.threat.load_profiles": [
+     []
+    ],
+    "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell": [
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     }
+    ]
+   },
+   "M0": {
+    "kc2.threat.load_profiles": [
+     []
+    ],
+    "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell": [
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": false
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": false
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": false
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": false
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": false
+      }
+     }
+    ]
+   },
+   "W1": {
+    "kc2.arena_fold.ArenaFold.__init__": [
+     {
+      "armed": {
+       "explicit": true,
+       "value": true
+      },
+      "avoidance": {
+       "explicit": true,
+       "value": true
+      }
+     }
+    ],
+    "kc2.threat.load_profiles": [
+     []
+    ],
+    "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell": [
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     }
+    ]
+   },
+   "W1-NULL": {
+    "kc2.arena_fold.ArenaFold.__init__": [
+     {
+      "armed": {
+       "explicit": true,
+       "value": false
+      },
+      "avoidance": {
+       "explicit": false,
+       "value": true
+      }
+     }
+    ],
+    "kc2.threat.load_profiles": [
+     []
+    ],
+    "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell": [
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     },
+     {
+      "arena": null,
+      "seat": {
+       "explicit": null,
+       "value": true
+      }
+     }
+    ]
+   }
+  },
+  "callees_per_arm": {
+   "M-POL-2": [
+    [
+     "kc2.c11a_corrections.C11aFold.__init__",
+     10
+    ],
+    [
+     "kc2.c11a_corrections.C11aLoader.__init__",
+     1
+    ],
+    [
+     "kc2.gd_composition.CompositionFold.__init__",
+     2
+    ],
+    [
+     "kc2.gd_engagement.GdEngagementFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_fire_range.GdFireRangeFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_reposition.GdRepositionFold.__init__",
+     1
+    ],
+    [
+     "kc2.global_magnitude.C11bAttributeFold.__init__",
+     1
+    ],
+    [
+     "kc2.hunt_pilot.HuntPilotFold.__init__",
+     2
+    ],
+    [
+     "kc2.initial_self_cast.InitialSelfCastFold.__init__",
+     1
+    ],
+    [
+     "kc2.kinematics.KinematicsFold.__init__",
+     5
+    ],
+    [
+     "kc2.mutators.MutatorFold.__init__",
+     1
+    ],
+    [
+     "kc2.p05_emergence.P05EmergenceFold.__init__",
+     2
+    ],
+    [
+     "kc2.pilot_move.PilotMoveFold.__init__",
+     1
+    ],
+    [
+     "kc2.pool_lift.load",
+     1
+    ],
+    [
+     "kc2.referent_lineup.ReferentLineupFold.__init__",
+     1
+    ],
+    [
+     "kc2.run.simulate_wave",
+     1
+    ],
+    [
+     "kc2.stationary.StationaryFold.__init__",
+     1
+    ],
+    [
+     "kc2.swing_pause.SwingPauseFold.__init__",
+     1
+    ],
+    [
+     "kc2.threat.load_pet_contracts",
+     1
+    ],
+    [
+     "kc2.threat.load_profiles",
+     1
+    ],
+    [
+     "kc2.winner_surface.WinnerSurfaceFold.from_x8",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_kw",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_patches",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._capture",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm.<locals>.capture",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._counterfactual",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._winner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.fac",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02._fold_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.lp_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_pm4_i17_sustain_fold_2026_08_14.load_volley_population",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_upn4_occupancy_by_pilot_2026_09_29._overrides",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell",
+     5
+    ]
+   ],
+   "M-POL-2-NULL": [
+    [
+     "kc2.c11a_corrections.C11aFold.__init__",
+     10
+    ],
+    [
+     "kc2.c11a_corrections.C11aLoader.__init__",
+     1
+    ],
+    [
+     "kc2.channel_policy.ChannelPolicyFold.__init__",
+     5
+    ],
+    [
+     "kc2.gd_composition.CompositionFold.__init__",
+     2
+    ],
+    [
+     "kc2.gd_engagement.GdEngagementFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_fire_range.GdFireRangeFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_reposition.GdRepositionFold.__init__",
+     1
+    ],
+    [
+     "kc2.global_magnitude.C11bAttributeFold.__init__",
+     1
+    ],
+    [
+     "kc2.hunt_pilot.HuntPilotFold.__init__",
+     2
+    ],
+    [
+     "kc2.initial_self_cast.InitialSelfCastFold.__init__",
+     1
+    ],
+    [
+     "kc2.kinematics.KinematicsFold.__init__",
+     5
+    ],
+    [
+     "kc2.mutators.MutatorFold.__init__",
+     1
+    ],
+    [
+     "kc2.p05_emergence.P05EmergenceFold.__init__",
+     2
+    ],
+    [
+     "kc2.pilot_move.PilotMoveFold.__init__",
+     1
+    ],
+    [
+     "kc2.pool_lift.load",
+     1
+    ],
+    [
+     "kc2.referent_lineup.ReferentLineupFold.__init__",
+     1
+    ],
+    [
+     "kc2.run.simulate_wave",
+     1
+    ],
+    [
+     "kc2.stationary.StationaryFold.__init__",
+     1
+    ],
+    [
+     "kc2.swing_pause.SwingPauseFold.__init__",
+     1
+    ],
+    [
+     "kc2.threat.load_pet_contracts",
+     1
+    ],
+    [
+     "kc2.threat.load_profiles",
+     1
+    ],
+    [
+     "kc2.winner_surface.WinnerSurfaceFold.from_x8",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_kw",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_patches",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._capture",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm.<locals>.capture",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._counterfactual",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._winner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.fac",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02._fold_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP.ChannelPolicyFold",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.lp_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_pm4_i17_sustain_fold_2026_08_14.load_volley_population",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_upn4_occupancy_by_pilot_2026_09_29._overrides",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell",
+     5
+    ]
+   ],
+   "M0": [
+    [
+     "kc2.c11a_corrections.C11aFold.__init__",
+     10
+    ],
+    [
+     "kc2.c11a_corrections.C11aLoader.__init__",
+     1
+    ],
+    [
+     "kc2.gd_composition.CompositionFold.__init__",
+     2
+    ],
+    [
+     "kc2.gd_engagement.GdEngagementFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_fire_range.GdFireRangeFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_reposition.GdRepositionFold.__init__",
+     1
+    ],
+    [
+     "kc2.global_magnitude.C11bAttributeFold.__init__",
+     1
+    ],
+    [
+     "kc2.hunt_pilot.HuntPilotFold.__init__",
+     2
+    ],
+    [
+     "kc2.initial_self_cast.InitialSelfCastFold.__init__",
+     1
+    ],
+    [
+     "kc2.kinematics.KinematicsFold.__init__",
+     5
+    ],
+    [
+     "kc2.mutators.MutatorFold.__init__",
+     1
+    ],
+    [
+     "kc2.p05_emergence.P05EmergenceFold.__init__",
+     2
+    ],
+    [
+     "kc2.pilot_move.PilotMoveFold.__init__",
+     1
+    ],
+    [
+     "kc2.pool_lift.load",
+     1
+    ],
+    [
+     "kc2.referent_lineup.ReferentLineupFold.__init__",
+     1
+    ],
+    [
+     "kc2.run.simulate_wave",
+     1
+    ],
+    [
+     "kc2.stationary.StationaryFold.__init__",
+     1
+    ],
+    [
+     "kc2.swing_pause.SwingPauseFold.__init__",
+     1
+    ],
+    [
+     "kc2.threat.load_pet_contracts",
+     1
+    ],
+    [
+     "kc2.threat.load_profiles",
+     1
+    ],
+    [
+     "kc2.winner_surface.WinnerSurfaceFold.from_x8",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_kw",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_patches",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._capture",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm.<locals>.capture",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._counterfactual",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._winner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.fac",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02._fold_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.lp_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_pm4_i17_sustain_fold_2026_08_14.load_volley_population",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_upn4_occupancy_by_pilot_2026_09_29._overrides",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell",
+     5
+    ]
+   ],
+   "W1": [
+    [
+     "kc2.arena_fold.ArenaFold.__init__",
+     1
+    ],
+    [
+     "kc2.c11a_corrections.C11aFold.__init__",
+     10
+    ],
+    [
+     "kc2.c11a_corrections.C11aLoader.__init__",
+     1
+    ],
+    [
+     "kc2.gd_composition.CompositionFold.__init__",
+     2
+    ],
+    [
+     "kc2.gd_engagement.GdEngagementFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_fire_range.GdFireRangeFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_reposition.GdRepositionFold.__init__",
+     1
+    ],
+    [
+     "kc2.global_magnitude.C11bAttributeFold.__init__",
+     1
+    ],
+    [
+     "kc2.hunt_pilot.HuntPilotFold.__init__",
+     2
+    ],
+    [
+     "kc2.initial_self_cast.InitialSelfCastFold.__init__",
+     1
+    ],
+    [
+     "kc2.kinematics.KinematicsFold.__init__",
+     5
+    ],
+    [
+     "kc2.mutators.MutatorFold.__init__",
+     1
+    ],
+    [
+     "kc2.p05_emergence.P05EmergenceFold.__init__",
+     2
+    ],
+    [
+     "kc2.pilot_move.PilotMoveFold.__init__",
+     1
+    ],
+    [
+     "kc2.pool_lift.load",
+     1
+    ],
+    [
+     "kc2.referent_lineup.ReferentLineupFold.__init__",
+     1
+    ],
+    [
+     "kc2.run.simulate_wave",
+     1
+    ],
+    [
+     "kc2.stationary.StationaryFold.__init__",
+     1
+    ],
+    [
+     "kc2.swing_pause.SwingPauseFold.__init__",
+     1
+    ],
+    [
+     "kc2.threat.load_pet_contracts",
+     1
+    ],
+    [
+     "kc2.threat.load_profiles",
+     1
+    ],
+    [
+     "kc2.winner_surface.WinnerSurfaceFold.from_x8",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_kw",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_patches",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._capture",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm.<locals>.capture",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._counterfactual",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._winner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.fac",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02._fold_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.lp_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_pm4_i17_sustain_fold_2026_08_14.load_volley_population",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_upn4_occupancy_by_pilot_2026_09_29._overrides",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell",
+     5
+    ]
+   ],
+   "W1-NULL": [
+    [
+     "kc2.arena_fold.ArenaFold.__init__",
+     1
+    ],
+    [
+     "kc2.c11a_corrections.C11aFold.__init__",
+     10
+    ],
+    [
+     "kc2.c11a_corrections.C11aLoader.__init__",
+     1
+    ],
+    [
+     "kc2.gd_composition.CompositionFold.__init__",
+     2
+    ],
+    [
+     "kc2.gd_engagement.GdEngagementFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_fire_range.GdFireRangeFold.__init__",
+     1
+    ],
+    [
+     "kc2.gd_reposition.GdRepositionFold.__init__",
+     1
+    ],
+    [
+     "kc2.global_magnitude.C11bAttributeFold.__init__",
+     1
+    ],
+    [
+     "kc2.hunt_pilot.HuntPilotFold.__init__",
+     2
+    ],
+    [
+     "kc2.initial_self_cast.InitialSelfCastFold.__init__",
+     1
+    ],
+    [
+     "kc2.kinematics.KinematicsFold.__init__",
+     5
+    ],
+    [
+     "kc2.mutators.MutatorFold.__init__",
+     1
+    ],
+    [
+     "kc2.p05_emergence.P05EmergenceFold.__init__",
+     2
+    ],
+    [
+     "kc2.pilot_move.PilotMoveFold.__init__",
+     1
+    ],
+    [
+     "kc2.pool_lift.load",
+     1
+    ],
+    [
+     "kc2.referent_lineup.ReferentLineupFold.__init__",
+     1
+    ],
+    [
+     "kc2.run.simulate_wave",
+     1
+    ],
+    [
+     "kc2.stationary.StationaryFold.__init__",
+     1
+    ],
+    [
+     "kc2.swing_pause.SwingPauseFold.__init__",
+     1
+    ],
+    [
+     "kc2.threat.load_pet_contracts",
+     1
+    ],
+    [
+     "kc2.threat.load_profiles",
+     1
+    ],
+    [
+     "kc2.winner_surface.WinnerSurfaceFold.from_x8",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_kw",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._arm_patches",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29._capture",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_c11_lethality_decomposition_2026_09_29.run_arm.<locals>.capture",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._counterfactual",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30._winner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.fac",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_c11a_fold_pricing_2026_09_30.run_arm.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.Folds310.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02._fold_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p10_oracle_2026_10_02.v3p10_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.Folds311.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.arm",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p11_oracle_2026_10_02.v3p11_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.Folds.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.v3p8_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.__init__",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.lp_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.Folds39.sw_kwargs",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.lp",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_play_v3p9_oracle_2026_10_02.v3p9_oracle.<locals>.sw",
+     10
+    ],
+    [
+     "scripts.gamora_kc2_pm4_i17_sustain_fold_2026_08_14.load_volley_population",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_upn4_occupancy_by_pilot_2026_09_29._overrides",
+     5
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner",
+     1
+    ],
+    [
+     "scripts.gamora_kc2_w1w2_lift_build_2026_08_25.make_runner.<locals>.run_cell",
+     5
+    ]
+   ]
+  },
+  "distinguishing_callees": {
+   "M-POL-2": [],
+   "M-POL-2-NULL": [
+    "reincarnated.simulation.kc2.channel_policy.ChannelPolicyFold.__init__",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP.ChannelPolicyFold",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._DisarmedCP.__init__",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm"
+   ],
+   "M0": [
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm"
+   ],
+   "W1": [
+    "reincarnated.simulation.kc2.arena_fold.ArenaFold.__init__",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm"
+   ],
+   "W1-NULL": [
+    "reincarnated.simulation.kc2.arena_fold.ArenaFold.__init__",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr",
+    "reincarnated.simulation.scripts.gamora_kc2_play_v3p8_oracle_2026_10_02.graded_arm.<locals>._mr.<locals>.rc_arm"
+   ]
+  },
+  "jobs": {
+   "M-POL-2": {
+    "ids": [
+     "IC7-A-V311-0168",
+     "IC7-A-V311-0321"
+    ],
+    "n": 154,
+    "rowset": "cf1c96e40535037d2c8dc42aa84615a9c0feca608d6a9d436fbb9e3c775e7ca7"
+   },
+   "M-POL-2-NULL": {
+    "ids": [
+     "IC7-A-V311-0001",
+     "IC7-A-V311-0167"
+    ],
+    "n": 167,
+    "rowset": "629b9271cc254833a45b2a0ff83d872712a0d99e273660221595dd71cda3505f"
+   },
+   "M0": {
+    "ids": [
+     "IC7-A-V311-0322",
+     "IC7-A-V311-0477"
+    ],
+    "n": 156,
+    "rowset": "7c20aad10038076dccacc7e2c820d4fa32ff41466351fb7e9e8c8b18d03ec76c"
+   },
+   "W1": {
+    "ids": [
+     "IC7-A-V311-0635",
+     "IC7-A-V311-0791"
+    ],
+    "n": 157,
+    "rowset": "5102fd732dde3f1c7a1bda7ea522be9ff15bc26acc86c3b640d6414d8ff8361e"
+   },
+   "W1-NULL": {
+    "ids": [
+     "IC7-A-V311-0478",
+     "IC7-A-V311-0634"
+    ],
+    "n": 157,
+    "rowset": "54934746784371a15caf6053e4379e4fb04d680202714cae68992af33bb1ca8f"
+   },
+   "WALK": {
+    "ids": [
+     "IC7-A-V311-0792",
+     "IC7-A-V311-0830"
+    ],
+    "n": 39,
+    "rowset": "00cbc299db12f50314bdc8d737b503575dd4ffea6a1312e971c08d261e3debe7"
+   },
+   "setup": {
+    "ids": [
+     "IC7-A-V311-0831",
+     "IC7-A-V311-0835"
+    ],
+    "n": 5,
+    "rowset": "7750a88f0c03c181ad0487e2d27567063910ebabb11b4fcb346c2e0c5f5532e8"
+   }
+  },
+  "n": 835,
+  "setup_partition": {
+   "C (shared config)": [
+    "IC7-A-V311-0832"
+   ],
+   "T (probe instance)": [
+    "IC7-A-V311-0831",
+    "IC7-A-V311-0833",
+    "IC7-A-V311-0834",
+    "IC7-A-V311-0835"
+   ],
+   "neither": []
+  }
+ },
+ "additive_over_v371": {
+  "model/ai_states.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/arena.json": {
+   "added": [
+    "⚑ v3p11_rows",
+    "⚑ v3p8_grain_law",
+    "⚑ v3p8_points_to",
+    "⚑ v3p8_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/config_of_record.json": {
+   "added": [
+    "⚑ v3p11_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/controllers.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/math_rules.json": {
+   "added": [
+    "⚑ v3p11_rows",
+    "⚑ v3p8_grain_law",
+    "⚑ v3p8_points_to",
+    "⚑ v3p8_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/meta.json": {
+   "added": [
+    "⚑ v3p11_closure",
+    "⚑ v3p11_supersession",
+    "⚑ v3p8_gd_fidelity",
+    "⚑ v3p8_supersession"
+   ],
+   "changed_v371_keys": [
+    "emitted_at_utc",
+    "emitted_by",
+    "headline",
+    "pack_revision"
+   ],
+   "removed": []
+  },
+  "model/monster_defense.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/monster_kinematics.json": {
+   "added": [
+    "⚑ v3p11_rows",
+    "⚑ v3p8_grain_law",
+    "⚑ v3p8_points_to",
+    "⚑ v3p8_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/monster_offense.json": {
+   "added": [
+    "⚑ v3p11_rows",
+    "⚑ v3p8_grain_law",
+    "⚑ v3p8_points_to",
+    "⚑ v3p8_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/monsters.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/player_kit.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/projectiles.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/provenance.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/rng_contract.json": {
+   "added": [
+    "⚑ v3p11_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/summons.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/target_selection.json": {
+   "added": [],
+   "changed_v371_keys": [],
+   "removed": []
+  },
+  "model/waves.json": {
+   "added": [
+    "⚑ v3p11_rows",
+    "⚑ v3p8_grain_law",
+    "⚑ v3p8_points_to",
+    "⚑ v3p8_rows"
+   ],
+   "changed_v371_keys": [],
+   "removed": []
+  }
+ },
+ "cg1_scope_pointers": [
+  {
+   "id": "V311-CG1-07",
+   "member": "model/arena.json",
+   "targets": "SCOPE-POINTER|G12-LAW-SOLVE",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_reposition.GdRepositionFold(crowd=True).separate\", \"member\": \"model/arena.json\", \"prior_row\": {\"id\": \"G12-LAW-SOLVE\", \"key\": \"geometry.separation.sequential_projection.law\", \"normative\": true, \"note\": \"⚑ Port the pair ORDER exactly: it is sorted(id) × the index's cell-scan order (G12-LAW-INDEX), and a different admissible order lands bodies elsewh"
+  },
+  {
+   "id": "V311-CG1-03",
+   "member": "model/config_of_record.json",
+   "targets": "SCOPE-POINTER|V0-12",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_engagement / gd_reposition.GdRepositionFold\", \"member\": \"model/config_of_record.json\", \"prior_row\": {\"id\": \"V0-12\", \"key\": \"ring_predicate.halt\", \"note\": \"D_ENGAGE_M = 2.4; MELEE_REACH_M is IMPORTED from it, so the fight introduces no second distance number.\", \"precedence\": \"DRIVER-OF-RECORD\", \"provenance\": \"scripts/gamora_kc2_mpol2_channel_policy"
+  },
+  {
+   "id": "V311-CG1-04",
+   "member": "model/config_of_record.json",
+   "targets": "SCOPE-POINTER|V0-13",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"pilot_move.PilotMoveFold (simulate_wave(pilot_move=))\", \"member\": \"model/config_of_record.json\", \"prior_row\": {\"id\": \"V0-13\", \"key\": \"kinematics.shape\", \"precedence\": \"DRIVER-OF-RECORD\", \"provenance\": \"scripts/gamora_kc2_mpol2_channel_policy_2026_08_25.py:206-208\", \"scope\": \"cell:M-POL-2@E-s09-cp150\", \"value\": \"Shape.K_MILL\"}, \"prior_text_kept\": true"
+  },
+  {
+   "id": "V311-CG1-05",
+   "member": "model/config_of_record.json",
+   "targets": "SCOPE-POINTER|V0-04",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"pilot_move.PilotMoveFold (simulate_wave(pilot_move=))\", \"member\": \"model/config_of_record.json\", \"prior_row\": {\"id\": \"V0-04\", \"key\": \"policy\", \"note\": \"drive-THROUGH with rolling re-target; the step is never clamped at the target.\", \"precedence\": \"DRIVER-OF-RECORD\", \"provenance\": \"scripts/gamora_kc2_mpol2_channel_policy_2026_08_25.py:200\", \"scope\": \""
+  },
+  {
+   "id": "V311-CG1-06",
+   "member": "model/config_of_record.json",
+   "targets": "SCOPE-POINTER|V0-40",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_reposition.GdRepositionFold(crowd=True).separate\", \"member\": \"model/config_of_record.json\", \"prior_row\": {\"id\": \"V0-40\", \"key\": \"separation_solver\", \"precedence\": \"MODULE-DEFAULT\", \"provenance\": \"scripts/gamora_kc2_pm4_i26_spawn_structure_fold_2026_08_16.py:407\", \"scope\": \"cell:M-POL-2@E-s09-cp150\", \"value\": \"sequential_projection\"}, \"prior_text_k"
+  },
+  {
+   "id": "V311-CG1-09",
+   "member": "model/math_rules.json",
+   "targets": "SCOPE-POINTER|C5-Z5-LAW",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_composition.CompositionFold (simulate_wave(composition=)); Matt Q98 KP-207\", \"member\": \"model/math_rules.json\", \"prior_row\": {\"edition_mechanism\": \"IV (x64/Game.dll build 24825149, POST-referent)\", \"edition_values\": \"II depot, CRUCIBLE winner() (KP-79)\", \"id\": \"C5-Z5-LAW\", \"key\": \"magnitude_law.global_fold_composition\", \"precedence\": \"NORMATIVE\", "
+  },
+  {
+   "id": "V311-CG1-01",
+   "member": "model/monster_kinematics.json",
+   "targets": "SCOPE-POINTER|V4-LAW-2",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"swing_pause.SwingPauseFold (simulate_wave(swing_pause=))\", \"member\": \"model/monster_kinematics.json\", \"prior_row\": {\"id\": \"V4-LAW-2\", \"key\": \"monster.opportunity_predicate\", \"precedence\": \"DECODED\", \"provenance\": \"kc2/threat.py:1475\", \"scope\": \"cell:M-POL-2@E-s09-cp150\", \"value\": \"n > 0 and (tick - phi) mod n == 0\"}, \"prior_text_kept\": true, \"rowset\""
+  },
+  {
+   "id": "V311-CG1-02",
+   "member": "model/monster_kinematics.json",
+   "targets": "SCOPE-POINTER|V4-LAW-4",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_engagement / gd_reposition.GdRepositionFold (load_profiles(gd_engagement=), simulate_wave(gd_engagement=))\", \"member\": \"model/monster_kinematics.json\", \"prior_row\": {\"id\": \"V4-LAW-4\", \"key\": \"monster.one_slot_per_opportunity\", \"note\": \"⚑ FIRING EVERY ELIGIBLE SLOT IS EXPLICITLY REFUSED: 'firing every eligible slot would let a five-special boss dis"
+  },
+  {
+   "id": "V311-CG1-08",
+   "member": "model/monster_offense.json",
+   "targets": "SCOPE-POINTER|P14-LAW-TTL-PURSUIT-ATTACK",
+   "text": "{\"action\": \"SCOPE-NARROWED\", \"governing_fold\": \"gd_reposition.GdRepositionFold(pets=True, slots=True)\", \"member\": \"model/monster_offense.json\", \"prior_row\": {\"id\": \"P14-LAW-TTL-PURSUIT-ATTACK\", \"key\": \"monster.pet.lifecycle_law\", \"normative\": true, \"precedence\": \"DECODED\", \"provenance\": \"reincarnated/simulation/kc2/run.py:1859-1877 :: _pet_motion_and_separation; attackers 3550-3557, gate 3601\", \"s"
+  }
+ ],
+ "documents": {
+  "MIGRATION.md": "97971391940b84d0b45a4fa04aea1c7cf22f810513004f641a796a188bf5f230",
+  "oracle_script": "dc39d8b64ff1e522e47f566220e7e4875cd9f0c96d3768d54c5aad47e2778802",
+  "receipt": "f256b5e85b500360d927df98c1febc025892d7f90c9081fcda524c335ac72d94",
+  "x8 (P-n.2)": "cc361a3fea3e24e55fdf0c8c8eaf52bcc0c729c7de0563d3c84dd0dc21202960"
+ },
+ "engine": {
+  "HEAD": "969fbd8d3cb7d07d05c22c80ee925dd34444118c",
+  "modules_differing_from_blob": [],
+  "modules_imported": 150,
+  "porcelain_oracle_tree": ""
+ },
+ "engine_rev": "969fbd8d",
+ "packs": {
+  "model": {
+   "cross_pin": null,
+   "digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "disk_equals_manifest": true,
+   "manifest_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "manifest_file": "7549e8f7689071777f164da5002ed650ffb1e093a5e5e85c6944ec9314f03cc3",
+   "member_failures": [],
+   "members": {
+    "model/ai_states.json": {
+     "bytes": 2497,
+     "sha256": "928ded88e74e636422cbc107bdb02ff4cf27521dc74636e5e7e0e1680bd6060e"
+    },
+    "model/arena.json": {
+     "bytes": 646598,
+     "sha256": "f06f3a64ae9d5a88b3b163433c494dc6881c9f1f0f8195c211867b708aac4c3b"
+    },
+    "model/config_of_record.json": {
+     "bytes": 41702,
+     "sha256": "8c37812ac8ddb337cce3b03ae70007b77031122e926166725bbe90149aba432f"
+    },
+    "model/controllers.json": {
+     "bytes": 5384891,
+     "sha256": "b4217daac06f2f55acb3ec68571dd7766d31ac156ee01ee903b721f26042e478"
+    },
+    "model/input_closure.json": {
+     "bytes": 26963137,
+     "sha256": "13be3550f65ef9b57f14ddee26c43b94296862fe94d221847bdc02c8e22e1b4f"
+    },
+    "model/input_closure_v3p11.json": {
+     "bytes": 3840489,
+     "sha256": "073d57cd3611bc95f66277ffac0de7baea7a32f265b95c45d5bbdc13969b3a2c"
+    },
+    "model/input_closure_v3p7p1.json": {
+     "bytes": 2339790,
+     "sha256": "d1b759800a5709d09170a956c5dea759d80bf69e51a30781db7d16a78e49aadb"
+    },
+    "model/math_rules.json": {
+     "bytes": 215564,
+     "sha256": "af2b0c52f9c7472febfea4f86413a8d088a6cb6efee8b099c4e56973fdf721de"
+    },
+    "model/meta.json": {
+     "bytes": 191415,
+     "sha256": "ed59c4e8ad9e554cee0eecce315e567cfd6e463601885e476e1892acc7ec9a43"
+    },
+    "model/monster_defense.json": {
+     "bytes": 8816113,
+     "sha256": "00ffab1576577164cc132b498817d5480822df3234f3f3bcf286c0a407193aac"
+    },
+    "model/monster_kinematics.json": {
+     "bytes": 1125381,
+     "sha256": "4da218125ebc569f2b3759bc2cd54769472fefd3f8f78b81867ba5fdabd9b1c4"
+    },
+    "model/monster_offense.json": {
+     "bytes": 22800231,
+     "sha256": "5ef058c376a536272518dadef50acabbedd37bd42268542b6b4d115d89b09d43"
+    },
+    "model/monsters.json": {
+     "bytes": 15211150,
+     "sha256": "3839322955b7d4af0a6c8c8b169656136a0271a7ab9bb68893a272df703701a0"
+    },
+    "model/oracle_inputs_v3p11.json": {
+     "bytes": 837367,
+     "sha256": "8c56d2a07dd787e0014f6919c5285b581c94b326f6e1f5bf57bdc062e2712ca3"
+    },
+    "model/player_kit.json": {
+     "bytes": 143191,
+     "sha256": "2b68af939b6c795c1b4c9f0411aa037fb4d0332f983fa942aa307c85329eeac6"
+    },
+    "model/projectiles.json": {
+     "bytes": 74198,
+     "sha256": "ed32ff8a648d2b3c24918cd20150f27856b371e2a45a0e699cc1c8b6c949a0e5"
+    },
+    "model/provenance.json": {
+     "bytes": 651204,
+     "sha256": "1d06e08a1744c8df7e188725f2c2bc5cdbbdf4d1007e75dba01a33fc9f8a0710"
+    },
+    "model/rng_contract.json": {
+     "bytes": 47533,
+     "sha256": "c542a848db597c4d4a666e88317e408a0992e14ccfccea50cf00a76da0d6822a"
+    },
+    "model/summons.json": {
+     "bytes": 111259,
+     "sha256": "6a7cc5af2bd7291b46c1beafedf2e13b70990a3f9a1a194f2092c1a64e586a93"
+    },
+    "model/target_selection.json": {
+     "bytes": 31936,
+     "sha256": "e1df3cf69d2f3f91cce5ab5f9a71de4b7be4fb2372d18de2cc99517d399d68ce"
+    },
+    "model/waves.json": {
+     "bytes": 1238624,
+     "sha256": "3bd82009a41833693f76344b3b4b633ca409daa0b1ff452b31db1a844b957cef"
+    }
+   },
+   "n": 21
+  },
+  "reference": {
+   "cross_pin": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "disk_equals_manifest": true,
+   "manifest_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "manifest_file": "159be540bf6326c3f2b02d07a27d212cc2e2db662c06b3dadf9c9cbb70b718eb",
+   "member_failures": [],
+   "members": {
+    "reference/acceptance.json": {
+     "bytes": 4716,
+     "sha256": "f5ce2c174cccf9a253603ac8bfc3f20b872b2e2a92c8d24e461601e64f1f9853"
+    },
+    "reference/actors.json": {
+     "bytes": 1956876,
+     "sha256": "ef03536f97fe7122e14b34ae69a26bc7616fe58fcbe5989ab3aa09e7420ea04b"
+    },
+    "reference/meta.json": {
+     "bytes": 171854,
+     "sha256": "c07730acbc1cb21f33a9718ee1ca2f59ad68f09e66d4d4089fb16600de5dd291"
+    },
+    "reference/rng_tape.json": {
+     "bytes": 406,
+     "sha256": "607bf3bffd6a5a330d2ede97eebcd7139f3c218292954aa56fbf38c34e833ea0"
+    },
+    "reference/skill_interrupt_reference.json": {
+     "bytes": 3113,
+     "sha256": "45522df26b1703ac2489d08e7e7fa6986255ca80e64f057279ca6b492fdf3707"
+    },
+    "reference/tracks.json": {
+     "bytes": 44733,
+     "sha256": "bb3495218fcdeaab11d4d5e9a5d25a2e14f2fd21384bcebc7dd1f93b0b7d9bfd"
+    },
+    "reference/u7_heading_conditioning.json": {
+     "bytes": 3601,
+     "sha256": "5ad6ab0f089d3409506f29293433849f6abcbd1bee2a2242344fe12367287c05"
+    }
+   },
+   "n": 7
+  }
+ },
+ "receipt_verdict": "PASS",
+ "rowsets": {
+  "n_closure_rows": 1035,
+  "n_closure_rowsets": 11,
+  "n_hand_rows": 168,
+  "n_hand_rowsets": 13,
+  "v3p11_all": "8dad7a2d9e3081699ebf22d997be798e9e532ccbc8506352b3eeb43a17aa418d",
+  "v3p11_closure_all": "00786a3d83670f97f37fa6a8b3181afdff475b78c1796d51d1d7f14350f53d71",
+  "v3p11_hand_all": "5b7a6a53a27dbc3bb9b4d0f498a4fd8aa1cc8cf7d0b9b5d2ea1e3faf08144052"
+ },
+ "self_check_failures": [],
+ "sets": {
+  "FALLBACK": {
+   "digest": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb",
+   "n": 158
+  },
+  "NONSWING (v3.11 graded loader)": {
+   "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "members": [],
+   "n": 0
+  },
+  "POOL-466": {
+   "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "n": 466,
+   "routes_agree": true
+  },
+  "SWING (v3.11 graded loader)": {
+   "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+   "n": 466
+  },
+  "equals_v1.13": {
+   "FALLBACK-158": true,
+   "NONSWING-10": false,
+   "POOL-466": true,
+   "SWING-456": false
+  },
+  "march_base": 3.209466,
+  "partition": {
+   "BANDA-DB-CITED": 180,
+   "FALLBACK": 158,
+   "LAPR-MEASURED": 128
+  }
+ }
+}
