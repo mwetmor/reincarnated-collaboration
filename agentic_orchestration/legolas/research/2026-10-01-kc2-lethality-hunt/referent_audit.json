@@ -1,0 +1,281 @@
+{
+ "trace": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+ "trace_sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+ "n_frames": 10861,
+ "method_reproduced": {
+  "pooled_151_159_intake_hp": 250475,
+  "pooled_dur_s": 156.0,
+  "pooled_intake_hp_per_s": 1605.6,
+  "matches_C11_1605p6": true
+ },
+ "per_wave": {
+  "151": {
+   "dur_s": 15.6,
+   "intake_hp": 19032,
+   "heal_hp": 19032,
+   "intake_hp_per_s": 1220.0,
+   "net_hp_change": 0,
+   "intake_first10s_hp": 6012,
+   "first_decrement_t_s": 5.3,
+   "frac_frames_at_full": 0.591,
+   "idle_tail_at_full_s": 1.32,
+   "n_decrement_frames": 49,
+   "max_single_frame_decrement": 3661,
+   "health_max_steps": []
+  },
+  "152": {
+   "dur_s": 16.3,
+   "intake_hp": 16117,
+   "heal_hp": 12480,
+   "intake_hp_per_s": 988.8,
+   "net_hp_change": -3637,
+   "intake_first10s_hp": 0,
+   "first_decrement_t_s": 10.47,
+   "frac_frames_at_full": 0.78,
+   "idle_tail_at_full_s": 1.53,
+   "n_decrement_frames": 98,
+   "max_single_frame_decrement": 3637,
+   "health_max_steps": [
+    [
+     713.3833,
+     20005,
+     16368,
+     -3637
+    ]
+   ]
+  },
+  "153": {
+   "dur_s": 14.9,
+   "intake_hp": 20766,
+   "heal_hp": 24403,
+   "intake_hp_per_s": 1393.7,
+   "net_hp_change": 3637,
+   "intake_first10s_hp": 20467,
+   "first_decrement_t_s": 3.72,
+   "frac_frames_at_full": 0.566,
+   "idle_tail_at_full_s": 3.43,
+   "n_decrement_frames": 77,
+   "max_single_frame_decrement": 2378,
+   "health_max_steps": [
+    [
+     721.6667,
+     16368,
+     20005,
+     3735
+    ]
+   ]
+  },
+  "154": {
+   "dur_s": 14.2,
+   "intake_hp": 38230,
+   "heal_hp": 36484,
+   "intake_hp_per_s": 2692.3,
+   "net_hp_change": -1746,
+   "intake_first10s_hp": 22924,
+   "first_decrement_t_s": 3.22,
+   "frac_frames_at_full": 0.37,
+   "idle_tail_at_full_s": 0.0,
+   "n_decrement_frames": 188,
+   "max_single_frame_decrement": 4359,
+   "health_max_steps": []
+  },
+  "155": {
+   "dur_s": 16.2,
+   "intake_hp": 16497,
+   "heal_hp": 18045,
+   "intake_hp_per_s": 1018.3,
+   "net_hp_change": 1548,
+   "intake_first10s_hp": 13024,
+   "first_decrement_t_s": 0.05,
+   "frac_frames_at_full": 0.255,
+   "idle_tail_at_full_s": 0.0,
+   "n_decrement_frames": 206,
+   "max_single_frame_decrement": 2684,
+   "health_max_steps": []
+  },
+  "156": {
+   "dur_s": 20.2,
+   "intake_hp": 33290,
+   "heal_hp": 33503,
+   "intake_hp_per_s": 1648.0,
+   "net_hp_change": 213,
+   "intake_first10s_hp": 15011,
+   "first_decrement_t_s": 0.03,
+   "frac_frames_at_full": 0.404,
+   "idle_tail_at_full_s": 3.98,
+   "n_decrement_frames": 228,
+   "max_single_frame_decrement": 3370,
+   "health_max_steps": []
+  },
+  "157": {
+   "dur_s": 19.3,
+   "intake_hp": 41832,
+   "heal_hp": 41214,
+   "intake_hp_per_s": 2167.5,
+   "net_hp_change": -618,
+   "intake_first10s_hp": 22802,
+   "first_decrement_t_s": 2.02,
+   "frac_frames_at_full": 0.33,
+   "idle_tail_at_full_s": 0.0,
+   "n_decrement_frames": 186,
+   "max_single_frame_decrement": 2195,
+   "health_max_steps": []
+  },
+  "158": {
+   "dur_s": 13.0,
+   "intake_hp": 3748,
+   "heal_hp": 4363,
+   "intake_hp_per_s": 288.3,
+   "net_hp_change": 615,
+   "intake_first10s_hp": 3069,
+   "first_decrement_t_s": 4.22,
+   "frac_frames_at_full": 0.863,
+   "idle_tail_at_full_s": 2.65,
+   "n_decrement_frames": 9,
+   "max_single_frame_decrement": 679,
+   "health_max_steps": []
+  },
+  "159": {
+   "dur_s": 26.3,
+   "intake_hp": 60963,
+   "heal_hp": 60106,
+   "intake_hp_per_s": 2318.0,
+   "net_hp_change": -857,
+   "intake_first10s_hp": 17169,
+   "first_decrement_t_s": 4.07,
+   "frac_frames_at_full": 0.328,
+   "idle_tail_at_full_s": 0.0,
+   "n_decrement_frames": 165,
+   "max_single_frame_decrement": 3830,
+   "health_max_steps": []
+  },
+  "160": {
+   "dur_s": 25.0,
+   "intake_hp": 101747,
+   "heal_hp": 102599,
+   "intake_hp_per_s": 4069.9,
+   "net_hp_change": 852,
+   "intake_first10s_hp": 54254,
+   "first_decrement_t_s": 0.35,
+   "frac_frames_at_full": 0.136,
+   "idle_tail_at_full_s": 0.68,
+   "n_decrement_frames": 284,
+   "max_single_frame_decrement": 12517,
+   "health_max_steps": []
+  }
+ },
+ "E1_health_max_step_counted_as_intake": {
+  "pooled_intake_hp_excluding_maxhp_frames": 246838,
+  "pooled_intake_hp_per_s_corrected": 1582.3,
+  "delta_pct": -1.45,
+  "ratio_A0_before_after": [
+   3.2431,
+   3.2909
+  ]
+ },
+ "E2_masking_by_same_frame_heal": {
+  "update_grid": {
+   "drip_frame_gaps": {
+    "1": 1584,
+    "2": 580,
+    "3": 218,
+    "4": 133,
+    "5": 77,
+    "6": 69,
+    "7": 20,
+    "8": 11,
+    "9": 13,
+    "10": 5
+   },
+   "tick_frame_gaps": {
+    "1": 11,
+    "2": 11,
+    "3": 8,
+    "4": 15,
+    "5": 100,
+    "6": 146,
+    "7": 34,
+    "8": 12,
+    "9": 6,
+    "10": 18
+   },
+   "decrement_frame_gaps": {
+    "1": 213,
+    "2": 282,
+    "3": 190,
+    "4": 184,
+    "5": 161,
+    "6": 245,
+    "7": 100,
+    "8": 21,
+    "9": 13,
+    "10": 4
+   },
+   "parity_drip": {
+    "1": 1373,
+    "0": 1429
+   },
+   "parity_decrement": {
+    "0": 743,
+    "1": 748
+   }
+  },
+  "p_visible_tick_per_below_full_frame": 0.0511,
+  "p_tick_per_frame_at_decoded_channel_cadence": 0.1901,
+  "hard_cap_multiplier_if_every_coincident_hit_fully_hidden": 1.2348,
+  "C11_estimate_multiplier": 1.151
+ },
+ "E3_window_composition": {
+  "pooled_first10s_hp_per_s": 1338.6,
+  "oracle_first10s_hp_per_s": 5327.0,
+  "ratio_first10s": 3.979,
+  "idle_tails_at_full_s_151_159": 12.91,
+  "rate_excluding_idle_tails": 1750.5
+ },
+ "E4_heal_over_intake_is_a_telescoping_identity": {
+  "151": {
+   "heal_minus_intake": 0,
+   "net_hp_change": 0
+  },
+  "152": {
+   "heal_minus_intake": -3637,
+   "net_hp_change": -3637
+  },
+  "153": {
+   "heal_minus_intake": 3637,
+   "net_hp_change": 3637
+  },
+  "154": {
+   "heal_minus_intake": -1746,
+   "net_hp_change": -1746
+  },
+  "155": {
+   "heal_minus_intake": 1548,
+   "net_hp_change": 1548
+  },
+  "156": {
+   "heal_minus_intake": 213,
+   "net_hp_change": 213
+  },
+  "157": {
+   "heal_minus_intake": -618,
+   "net_hp_change": -618
+  },
+  "158": {
+   "heal_minus_intake": 615,
+   "net_hp_change": 615
+  },
+  "159": {
+   "heal_minus_intake": -857,
+   "net_hp_change": -857
+  },
+  "160": {
+   "heal_minus_intake": 852,
+   "net_hp_change": 852
+  }
+ },
+ "bounds": {
+  "most_generous_true_referent_hp_per_s": 1953.8,
+  "ratio_floor_A0": 2.665
+ }
+}
