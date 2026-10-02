@@ -1,0 +1,217 @@
+<title>Morning Look, Oct 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#1d2330; --muted:#5a6475; --rule:#d5dbe3;
+  --ember:#b4471f; --ember-soft:#f6e3da; --violet:#4b3f72; --violet-soft:#e6e2f1;
+  --ok:#2f6b4a; --ok-soft:#dcefe4;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13161c; --surface:#1b2028; --ink:#e4e7ec; --muted:#9aa4b3; --rule:#2c333e;
+    --ember:#e6774a; --ember-soft:#3a2219; --violet:#b3a6e0; --violet-soft:#2a2540;
+    --ok:#7cc79c; --ok-soft:#1c3327; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13161c; --surface:#1b2028; --ink:#e4e7ec; --muted:#9aa4b3; --rule:#2c333e;
+  --ember:#e6774a; --ember-soft:#3a2219; --violet:#b3a6e0; --violet-soft:#2a2540;
+  --ok:#7cc79c; --ok-soft:#1c3327; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--sans);margin:0;padding-inline:18px;padding-block:28px 64px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 34px/1.15 var(--serif);margin:0;text-wrap:balance}
+h2{font:700 24px/1.2 var(--serif);margin:0;text-wrap:balance}
+h3{font:600 16px/1.35 var(--sans);margin:0}
+p{margin:0;max-width:65ch}
+.lede{color:var(--muted);font-size:16px}
+.picks{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.picks ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.picks a{color:var(--ink);text-decoration-color:var(--rule);text-underline-offset:3px}
+.picks a:hover,.picks a:focus-visible{text-decoration-color:var(--ember)}
+.reply{font:400 13px/1.5 var(--mono);color:var(--muted)}
+section.char{display:flex;flex-direction:column;gap:22px}
+.charhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding-bottom:8px}
+.charhead .sub{color:var(--muted);font-size:14px}
+.look{display:flex;flex-direction:column;gap:12px}
+figure{margin:0;display:flex;flex-direction:column;gap:6px}
+figure img{width:100%;max-width:100%;height:auto;border-radius:6px;border:1px solid var(--rule);background:#d9d5ce;display:block}
+figcaption{font-size:13px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:500 13px/1 var(--sans);padding:7px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
+.opt.rec{background:var(--ember-soft);border-color:var(--ember);color:var(--ink)}
+.opt.rec::before{content:"Recommended · ";color:var(--ember);font-weight:600}
+.n{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;font-size:14px;min-width:420px;width:100%}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--rule)}
+th{font:500 12px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.done{display:inline-block;font:500 12px/1 var(--mono);padding:4px 8px;border-radius:4px;background:var(--ok-soft);color:var(--ok)}
+.note{font-size:14px;color:var(--muted)}
+.ops{background:var(--violet-soft);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.ops h2{color:var(--violet);font-size:20px}
+.ops ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+code{font:400 13px/1.4 var(--mono)}
+@media (max-width:480px){h1{font-size:28px}h2{font-size:21px}}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Run C-9 · overnight, Sep 30 → Oct 1</span>
+  <h1>Morning Look</h1>
+  <p class="lede">Three characters moved overnight. These are the calls waiting on your eye, each with a recommendation. Reply in the session with the numbers, for example <span class="n">"1 yes, 2 same-side, 4 F25L install"</span>.</p>
+</header>
+
+<nav class="picks" aria-label="Decisions">
+  <h3>Your picks</h3>
+  <ol>
+    <li><a href="#d1">Barbarian moves on the forward-tip stance (whirlwind v9, war cry)</a></li>
+    <li><a href="#d2">His normal attack: same-side chop or cross-body chop</a></li>
+    <li><a href="#d3">D2 timing law vs the speeds you approved (end-game numbers in)</a></li>
+    <li><a href="#d4">Barrow axe tilt: which version, and install?</a></li>
+    <li><a href="#d5">Gladiator texture: painted, or painted + colour pass</a></li>
+    <li><a href="#d6">Battle mage texture, and the knee see-through</a></li>
+    <li><a href="#d7">Meteor crater v4 as her default</a></li>
+    <li><a href="#d8">Fire Ball: smaller blast as default; keep or soften the angular pieces</a></li>
+    <li><a href="#d9">Dark knight: long cape, and his remaining fixes</a></li>
+  </ol>
+  <p class="reply">Films for every item are in the run folders named under each look.</p>
+</nav>
+
+<section class="char" aria-labelledby="barb">
+  <div class="charhead"><h2 id="barb">The barbarian</h2><span class="sub">JOIN body (browser game) and the Barrow body</span></div>
+
+  <div class="look" id="d1">
+    <h3>1 · Forward-tip stance, and his moves rebuilt on it</h3>
+    <figure>
+      <img src="{{barb_tips}}" alt="Barbarian idle at 8 headings. Top row: the shipped stance with weapons pointing down and out. Bottom row: weapons turned 20 degrees in the fist so the tips point forward.">
+      <figcaption>Top: as shipped, tips <span class="n">65°</span> off his facing. Bottom: handles turned <span class="n">20°</span> in the fist, tips <span class="n">21°</span> off. No joint changed, nothing clips.</figcaption>
+    </figure>
+    <p>Whirlwind v9 is his battle stance spun as one piece at your speed, with no crossed arms. The set film shows idle, walk, run, attack, whirlwind and war cry in one take: <code>nb_join/artifacts/JOIN-draft-v4b-set-…-2x.mp4</code>.</p>
+    <div class="opts"><span class="opt rec">Pass the set</span><span class="opt">Change something</span></div>
+  </div>
+
+  <div class="look" id="d2">
+    <h3>2 · His normal attack</h3>
+    <p>Three library swings all crossed his body or over-bent the wrist. The animator built an overhead chop that stays on his right side. Contact lands at <span class="n">47%</span>, matching the D2 hit tick. While the sword rises it passes over the axe from two angles. The cross-body diagonal chop also clips his hip on the way back.</p>
+    <div class="opts"><span class="opt rec">Same-side chop</span><span class="opt">Cross-body chop (needs a return fix)</span></div>
+    <p class="note">Film: <code>nb_join/artifacts/JOIN-attack-same-side-vs-cross-body-2x.mp4</code></p>
+  </div>
+
+  <div class="look" id="d3">
+    <h3>3 · D2 timing law at end-game speed vs what you approved</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Move</th><th>You approved</th><th>D2 law, end game</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>War cry</td><td class="num">1.40 s</td><td class="num">0.52 s</td><td>His kit has no cast-speed gear, so 13 ticks. After the shout, the rest plays <span class="n">6.5×</span> fast</td></tr>
+        <tr><td>Attack (same-side)</td><td class="num">0.63 s</td><td class="num">0.36 s</td><td>9 ticks with his double Grief: wind-up <span class="n">1.5×</span>, follow-through <span class="n">2.1×</span>. Still reads</td></tr>
+        <tr><td>Meteor fall</td><td class="num">0.82 s</td><td class="num">2.40 s</td><td>Fixed delay; three times slower</td></tr>
+      </tbody>
+    </table></div>
+    <p>His gear of record is now pinned: double Grief, with no cast-speed items. The attack holds up at end-game speed. The war cry's tail still plays far faster than the take you approved. I recommend keeping your approved war cry and Meteor timing as art, and letting the law set only when the effect lands.</p>
+    <div class="opts"><span class="opt rec">Keep approved art timing</span><span class="opt">Follow the law fully</span></div>
+    <p class="note">Films: <code>nb_join/artifacts/JOIN-timing-wc-authored-vs-D2-law-GEAR.mp4</code> and <code>…-at-…-GEAR.mp4</code></p>
+  </div>
+
+  <div class="look" id="d4">
+    <h3>4 · Barrow axe tilt (ready to install)</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Version</th><th>Tip off his aim, standing</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Installed now</td><td class="num">74°</td><td></td></tr>
+        <tr><td>az50</td><td class="num">59°</td><td>Turned in only</td></tr>
+        <tr><td>F25L</td><td class="num">40°</td><td>Clean on every check</td></tr>
+        <tr><td>F40L</td><td class="num">18°</td><td>Most forward; one forearm twist flagged</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">The block keeps its current angle because any turn drives the handle into his hip. Films: <code>C-9 cliffside 3D/attack fix/t12_12c_…</code></p>
+    <div class="opts"><span class="opt rec">F25L, install</span><span class="opt">F40L</span><span class="opt">az50</span></div>
+  </div>
+
+  <div class="look" id="d5">
+    <h3>5 · Gladiator texture</h3>
+    <figure>
+      <img src="{{champ}}" alt="Champion gladiator at 8 headings in three rows: the raw 3D texture, the painted texture, and painted with a colour pass.">
+      <figcaption>Rows: raw 3D texture · painted · painted + colour pass. The pass separates skin from gold (contrast <span class="n">7.7 → 14.0</span>) and darkens the pelt.</figcaption>
+    </figure>
+    <div class="opts"><span class="opt rec">Painted + colour pass</span><span class="opt">Painted only</span></div>
+  </div>
+</section>
+
+<section class="char" aria-labelledby="sorc">
+  <div class="charhead"><h2 id="sorc">The sorceress</h2><span class="sub">Battle-mage armor and her spells</span></div>
+
+  <div class="look" id="d6">
+    <h3>6 · Battle mage texture, and the knee see-through</h3>
+    <figure>
+      <img src="{{mage}}" alt="Sorceress battle mage at 4 headings in four rows: raw texture, with dark leggings, painted, and painted with a steel colour pass.">
+      <figcaption>Rows: raw · dark under-layer · painted · painted + steel pass. Skin showing at the knees is cut <span class="n">62%</span>; a little remains at the deepest knee bend.</figcaption>
+    </figure>
+    <p>Painted keeps her warm and storybook, with pale steel. The steel pass reads as real metal but leans blue-white. The book rides at her right hip, because her left hand throws the Fire Ball.</p>
+    <div class="opts"><span class="opt rec">Painted</span><span class="opt">Painted + steel pass</span><span class="opt">A softer steel pass</span></div>
+  </div>
+
+  <div class="look" id="d7">
+    <h3>7 · Meteor crater v4</h3>
+    <figure>
+      <img src="{{crater}}" alt="Two craters in snow at 2 seconds after impact. Left: the flat v3 crater. Right: v4, a painted sunken bowl with a broken snowy rim and glowing cracks.">
+      <figcaption>Left v3, right v4 at <span class="n">2 s</span>: real 3D bowl, painted over at the game camera, with embers, smoke and settling debris. It cools over <span class="n">12.6 s</span>. Cost under <span class="n">1 ms</span> a frame.</figcaption>
+    </figure>
+    <div class="opts"><span class="opt rec">Make v4 her default</span><span class="opt">Keep v3</span></div>
+  </div>
+
+  <div class="look" id="d8">
+    <h3>8 · Fire Ball</h3>
+    <figure>
+      <img src="{{fireball}}" alt="Fire Ball burst at its peak. Left: the current wide burst. Right: condensed to three quarters of the width.">
+      <figcaption>Blast width <span class="n">1.87 m → 1.42 m</span>, denser core, same brightness and length. The straight-sided flame pieces come from the original cliffside effect's design. Softening them changes a look you approved.</figcaption>
+    </figure>
+    <div class="opts"><span class="opt rec">Condensed as default</span><span class="opt rec">Keep the angular pieces</span><span class="opt">Soften the piece edges</span></div>
+  </div>
+</section>
+
+<section class="char" aria-labelledby="wl">
+  <div class="charhead"><h2 id="wl">The dark knight</h2><span class="sub">Third character, built end to end in about 5 hours</span></div>
+
+  <div class="look" id="d9">
+    <h3>9 · Long cape, and what's left</h3>
+    <figure>
+      <img src="{{wl_sheet}}" alt="Two model sheets of a horned dark knight in near-black plate with gold filigree. Left: a long violet cape in three panels. Right: a shoulder-length cape.">
+      <figcaption>Left: long cape in three panels (built). Right: shoulder cape (kept for comparison).</figcaption>
+    </figure>
+    <figure>
+      <img src="{{wl_g2}}" alt="The built dark knight at 8 headings in the game renderer, standing upright with the mace carried forward.">
+      <figcaption>Built, in the game renderer: upright carriage, mace carried forward in a ready diagonal, attack landing at <span class="n">40%</span>.</figcaption>
+    </figure>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Still open</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>Legs showing through the cape</td><td class="num">walk 13% · run 18% · attack 28%</td></tr>
+        <tr><td>Head tipped down in idle</td><td class="num">−19°</td></tr>
+        <tr><td>Mace head a little under shoulder height</td><td class="num">≈0.1 m</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Spend: fal <span class="n">$2.01</span>, Meshy <span class="n">59</span> credits, <span class="n">12</span> paint images. Film: <code>wl_e1/film/G2-2x.mp4</code></p>
+    <div class="opts"><span class="opt rec">Long cape, keep fixing</span><span class="opt">Switch to shoulder cape</span></div>
+  </div>
+</section>
+
+<aside class="ops" aria-labelledby="ops">
+  <h2 id="ops">Housekeeping</h2>
+  <ul>
+    <li><span class="done">Done</span> Both armor sets, painted and filmed. Everything committed and pushed.</li>
+    <li>Telemetry database copy to the Pi: <span class="n">86%</span> at 05:30, slow link. The Mac copy is deleted only after the fingerprint check passes, as you authorized.</li>
+    <li>Vercel reopens about <span class="n">9:50 AM</span> Eastern. I deploy the held batch then, so her page gets GEAR, the real Fire Ball, Meteor v3 and faster loading.</li>
+    <li>Disk: <span class="n">32 GB</span> free now, about <span class="n">65 GB</span> once the telemetry move finishes.</li>
+  </ul>
+</aside>
+</div>
