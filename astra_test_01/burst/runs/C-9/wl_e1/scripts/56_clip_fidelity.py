@@ -206,7 +206,10 @@ def check(ship_glb, reg=None):
         for ed in e.get("edits", []):
             ex += list(EXCLUDES.get(ed, ()))
         if e.get("retarget") == "mixamo_aligned":
-            r = fidelity_dirs(S, clip, C, e.get("window"), tuple(ex)); r["source"] = e["source"]; r["rest_match"] = None; r["edits"] = e.get("edits", [])
+            win = e.get("window")
+            if e.get("seam_blend") and win:                       # the blended tail (58_loop_blend) is not the source's: judged up to it
+                win = [win[0], win[1] - float(e["seam_blend"]["blend_s"])]
+            r = fidelity_dirs(S, clip, C, win, tuple(ex)); r["source"] = e["source"]; r["rest_match"] = None; r["edits"] = e.get("edits", [])
             r["status"] = "PASS" if r["within"] else "FAIL"; out.append(r); continue
         r = fidelity(S, clip, C, e.get("window"), tuple(ex))
         r["source"] = e["source"]

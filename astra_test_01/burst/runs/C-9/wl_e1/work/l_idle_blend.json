@@ -1,0 +1,41 @@
+{
+ "clips": {
+  "idle": {
+   "footlock_m_s": -0.0039,
+   "support_pairs": 101,
+   "probe_pairs": 101,
+   "blend_support_max_mm": 3.75,
+   "blend_support_med_mm": 2.59,
+   "blend_support_pairs": 10,
+   "loop_slide_med_mm": 0.35,
+   "loop_slide_p95_mm": 2.47,
+   "loop_slide_max_mm": 3.75,
+   "blend_intervals": 10,
+   "a": 10,
+   "b": 111,
+   "w": 10,
+   "mode": "pre",
+   "L": 101,
+   "seconds": 3.3667,
+   "gait": "walk",
+   "source_keys": [
+    0.333333,
+    3.7
+   ],
+   "keys": 102,
+   "retime": 1.0,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "l_c1b.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)",
+   "l_c1b.glb: SOURCE FIDELITY -- clip 'idle' is 9.180 hips-to-head from mixamo/glb/great_sword_idle_4.glb at 0.53 s (LeftForeArm); limit 0.10"
+  ]
+ }
+}

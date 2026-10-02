@@ -1,0 +1,213 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/great_sword_idle_4.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.7333333492279053
+   ],
+   "keys": 112,
+   "length_s": 3.700000014156103,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0056,
+    0.0038
+   ],
+   "grounded_by_m": 0.02086,
+   "feet_span_m": [
+    0.0,
+    0.0037
+   ]
+  },
+  "idle_lean": {
+   "source": "mixamo/glb/great_sword_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.0333333015441895
+   ],
+   "keys": 61,
+   "length_s": 1.9999999664723873,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.02099,
+   "feet_span_m": [
+    0.0,
+    0.0007
+   ]
+  },
+  "walk": {
+   "source": "mixamo/glb/great_sword_walk.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.3775
+   ],
+   "grounded_by_m": 0.04938,
+   "feet_span_m": [
+    0.0,
+    0.0429
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/great_sword_run_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6333333253860474
+   ],
+   "keys": 19,
+   "length_s": 0.5999999903142452,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    2.3833
+   ],
+   "grounded_by_m": 0.03519,
+   "feet_span_m": [
+    0.0,
+    0.0725
+   ]
+  },
+  "attack": {
+   "source": "mixamo/glb/great_sword_slash_3.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8666666746139526
+   ],
+   "keys": 56,
+   "length_s": 1.8333333395421505,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.002,
+    -0.0106
+   ],
+   "grounded_by_m": 0.0518,
+   "feet_span_m": [
+    0.0,
+    0.0367
+   ]
+  },
+  "warcry": {
+   "source": "mixamo/glb/great_sword_power_up.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.133333444595337
+   ],
+   "keys": 94,
+   "length_s": 3.1000001095235348,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0369,
+    -0.0556
+   ],
+   "grounded_by_m": 0.02355,
+   "feet_span_m": [
+    0.0,
+    0.0083
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/great_sword_impact.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.8999999761581421
+   ],
+   "keys": 27,
+   "length_s": 0.86666664108634,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0014,
+    -0.001
+   ],
+   "grounded_by_m": 0.04044,
+   "feet_span_m": [
+    0.0,
+    0.0003
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/two_handed_sword_death.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.0023,
+    -0.7901
+   ],
+   "grounded_by_m": 0.06391,
+   "feet_span_m": [
+    0.0,
+    0.1334
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "l_c0.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)",
+   "l_c0.glb: SOURCE FIDELITY -- clip 'idle' is 67.940 hips-to-head from mixamo/glb/great_sword_idle_4.glb at 0.67 s (LeftForeArm); limit 0.10",
+   "l_c0.glb: SOURCE GRID -- loop 'idle' is RESAMPLED: 112 keys at 0.0333 s against the source's 102 at 0.0333 s (great_sword_idle_4.glb) (re-cut it on the source's own keys: 55_clip_graft.py)",
+   "l_c0.glb: LOOP SEAM -- loop 'idle' does not close: pose(0) vs pose(T) 0.0109 m (LeftHand) / 3.90 deg, limit 0.005 m / 1.0 deg; first interval 0.58 of the median (a source that is not periodic is blended: 58_loop_blend.py)"
+  ],
+  "warns": 3
+ }
+}
