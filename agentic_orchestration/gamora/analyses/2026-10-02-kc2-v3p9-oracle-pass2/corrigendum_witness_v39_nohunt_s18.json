@@ -1,0 +1,55 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN -- OBS-1 corrigendum witness (read-only re-run of v3.9 V39-NOHUNT salt 18, oracle unmodified)",
+ "per_salt_ratio": [
+  0.3935
+ ],
+ "leg_a_terminals": [
+  null
+ ],
+ "n_rows": 2,
+ "per_wave": [
+  {
+   "wave": 151,
+   "outcome": "cleared",
+   "t_s": 37.061
+  },
+  {
+   "wave": 152,
+   "outcome": "timeout",
+   "t_s": 326.531,
+   "surviving_bodies": [
+    {
+     "id": "w152_a006",
+     "rec": "thornedhorrorfrost_b01.dbr",
+     "res_phys": 0.0,
+     "hits": 0,
+     "contact": null,
+     "ring_halt": true
+    }
+   ],
+   "surviving_pets": [
+    {
+     "id": "w152_pet0009",
+     "rec": "trap_lightningspike_hero_a01.dbr",
+     "res_phys": 500.0,
+     "res_bleed": 0.0,
+     "hits": 0
+    },
+    {
+     "id": "w152_pet0034",
+     "rec": "trap_lightningspike_hero_a01.dbr",
+     "res_phys": 500.0,
+     "res_bleed": 0.0,
+     "hits": 0
+    },
+    {
+     "id": "w152_pet0038",
+     "rec": "trap_lightningspike_hero_a01.dbr",
+     "res_phys": 500.0,
+     "res_bleed": 0.0,
+     "hits": 0
+    }
+   ]
+  }
+ ]
+}

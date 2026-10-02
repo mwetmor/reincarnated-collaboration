@@ -1,0 +1,555 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN -- OBS-1 retro-audit, artifact-specific checks (read-only)",
+ "checks": {
+  "KP-189 G3 25-cell oracle traces (godot b4c1ff3 kp177)": {
+   "rule": "10 waves 151..160, every outcome cleared|player_death, leg_a == first player_death, no wave at 4000 ticks",
+   "cells": {
+    "M-POL-2-NULL_s0.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 221
+    },
+    "M-POL-2-NULL_s1.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 151,
+     "first_death": 151,
+     "max_ticks_in_a_wave": 232
+    },
+    "M-POL-2-NULL_s2.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 156,
+     "first_death": 156,
+     "max_ticks_in_a_wave": 270
+    },
+    "M-POL-2-NULL_s3.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 257
+    },
+    "M-POL-2-NULL_s4.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 245
+    },
+    "M-POL-2_s0.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 156,
+     "first_death": 156,
+     "max_ticks_in_a_wave": 233
+    },
+    "M-POL-2_s1.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 233
+    },
+    "M-POL-2_s2.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 245
+    },
+    "M-POL-2_s3.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 232
+    },
+    "M-POL-2_s4.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 258
+    },
+    "M0_s0.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 221
+    },
+    "M0_s1.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 151,
+     "first_death": 151,
+     "max_ticks_in_a_wave": 232
+    },
+    "M0_s2.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 156,
+     "first_death": 156,
+     "max_ticks_in_a_wave": 270
+    },
+    "M0_s3.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 257
+    },
+    "M0_s4.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 245
+    },
+    "W1-NULL_s0.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 156,
+     "first_death": 156,
+     "max_ticks_in_a_wave": 233
+    },
+    "W1-NULL_s1.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 233
+    },
+    "W1-NULL_s2.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 245
+    },
+    "W1-NULL_s3.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 232
+    },
+    "W1-NULL_s4.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 258
+    },
+    "W1_s0.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 156,
+     "first_death": 156,
+     "max_ticks_in_a_wave": 245
+    },
+    "W1_s1.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 233
+    },
+    "W1_s2.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 245
+    },
+    "W1_s3.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 152,
+     "first_death": 152,
+     "max_ticks_in_a_wave": 232
+    },
+    "W1_s4.json.gz": {
+     "waves": 10,
+     "contiguous_151_160": true,
+     "outcomes": [
+      "cleared",
+      "player_death"
+     ],
+     "leg_a": 155,
+     "first_death": 155,
+     "max_ticks_in_a_wave": 233
+    }
+   },
+   "truncated": []
+  },
+  "legolas/research/2026-10-01-crucible-ambush-semantics/ambush_counterfactual_PW-FOLDED_salts0-19.json": {
+   "rule": "per_wave n_salt_rows == N on w151..159 (w160 not tabulated)",
+   "blocks": {
+    "PACK": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "PACK@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "HOLD-SHORT": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "HOLD-SHORT@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "HOLD-LONG": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "HOLD-LONG@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "PLANT": {
+     "N": 20,
+     "short_waves_n_salt_rows": {
+      "154": 17,
+      "155": 17,
+      "156": 17,
+      "157": 17,
+      "158": 17,
+      "159": 17
+     },
+     "truncated_salts_min": 3
+    },
+    "PLANT@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {
+      "154": 4,
+      "155": 4,
+      "156": 4,
+      "157": 4,
+      "158": 4,
+      "159": 4
+     },
+     "truncated_salts_min": 1
+    },
+    "GD-SHORT": {
+     "N": 20,
+     "short_waves_n_salt_rows": {
+      "154": 18,
+      "155": 18,
+      "156": 18,
+      "157": 18,
+      "158": 18,
+      "159": 18
+     },
+     "truncated_salts_min": 2
+    },
+    "GD-SHORT@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {
+      "154": 4,
+      "155": 4,
+      "156": 4,
+      "157": 4,
+      "158": 4,
+      "159": 4
+     },
+     "truncated_salts_min": 1
+    },
+    "GD-LONG": {
+     "N": 20,
+     "short_waves_n_salt_rows": {
+      "154": 19,
+      "155": 19,
+      "156": 19,
+      "157": 19,
+      "158": 19,
+      "159": 19
+     },
+     "truncated_salts_min": 1
+    },
+    "GD-LONG@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {
+      "154": 4,
+      "155": 4,
+      "156": 4,
+      "157": 4,
+      "158": 4,
+      "159": 4
+     },
+     "truncated_salts_min": 1
+    },
+    "GD-LONG@TRUE-A": {
+     "N": 20,
+     "short_waves_n_salt_rows": {
+      "154": 16,
+      "155": 16,
+      "156": 16,
+      "157": 16,
+      "158": 16,
+      "159": 16
+     },
+     "truncated_salts_min": 4
+    },
+    "GD-LONG@TRUE-A@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {
+      "154": 4,
+      "155": 4,
+      "156": 4,
+      "157": 4,
+      "158": 4,
+      "159": 4
+     },
+     "truncated_salts_min": 1
+    },
+    "ABSENT-LONG": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "ABSENT-LONG@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    }
+   }
+  },
+  "legolas/research/2026-10-01-crucible-spawn-p05/p05_position_counterfactual_PW-FOLDED_salts0-19.json": {
+   "rule": "per_wave n_salt_rows == N on w151..159 (w160 not tabulated)",
+   "blocks": {
+    "PACK": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "PACK@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "TRUE-A": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "TRUE-A@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "TRUE-E": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "TRUE-E@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "RING-33": {
+     "N": 20,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    },
+    "RING-33@salts0-4": {
+     "N": 5,
+     "short_waves_n_salt_rows": {},
+     "truncated_salts_min": 0
+    }
+   }
+  },
+  "gamora range-rule counterfactual (KP-199)": {
+   "rule": "rows not persisted; leg-A: every salt dies (so no stall reads as a survival); a leg-B stall after the leg-A death is not excludable from the summary",
+   "blocks": {
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A0": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A0@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A1": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A1@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A2": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A2@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A3": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A3@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A4@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A5": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A5@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A1-BAND": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_PW-FOLDED_salts0-19.json:A1-BAND@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_A6_raise-only_salts0-19.json:A0": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_A6_raise-only_salts0-19.json:A0@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_A6_raise-only_salts0-19.json:A6": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    },
+    "range_rule_counterfactual_results_A6_raise-only_salts0-19.json:A6@salts0-4": {
+     "n_salts_survive_leg_a": 0,
+     "every_salt_has_leg_a_death": true
+    }
+   }
+  },
+  "legolas standing-instrument-validity oracle replica": {
+   "rule": "replica == audited pass-4 pw_A V310-FULL (complete by the summary check; 0 survivors)",
+   "per_salt_equal": true,
+   "terminals_equal": true,
+   "lfl_and_sensitivity": "footage-pipeline layers over that same capture; no separate oracle composition"
+  }
+ }
+}
