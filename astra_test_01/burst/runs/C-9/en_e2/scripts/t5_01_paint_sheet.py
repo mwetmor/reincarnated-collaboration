@@ -100,6 +100,16 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import t2lib_ref as T
 
 _load(BLEND)
+# REST POSE, ALWAYS (EN-E2 R-C9-132 fix, 2026-10-02). A rigged GLB that CARRIES CLIPS imports with its first action assigned,
+# so every cell rendered the FIRST CLIP'S POSE while the cell boxes and the 06a projection used the REST mesh: the acolytes'
+# first canvases came out in a cast stance with the head close-ups framed on the crown. 06a_surface already resets to rest;
+# this does the same, so the sheet, its boxes and the projection all see one pose. Test: tests/t5_rest_pose_test.sh.
+for _a in [o for o in bpy.context.scene.objects if o.type == 'ARMATURE']:
+    if _a.animation_data:
+        _a.animation_data.action = None
+    for _pb in _a.pose.bones:
+        _pb.matrix_basis.identity()
+bpy.context.view_layer.update()
 sc = bpy.context.scene
 objs = _skinned([o for o in sc.objects if o.type == 'MESH'])
 if TEXOVR:
