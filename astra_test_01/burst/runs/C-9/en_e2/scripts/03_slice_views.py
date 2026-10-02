@@ -66,6 +66,17 @@ def alpha(path):
 
 
 rgb, a = alpha(SRC)
+# DESPILL (EN-E2 round 7, the conductor: "check that the BiRefNet mask is clean around the silver hair"). On a GREEN-PLATE sheet the
+# BiRefNet foreground keeps a green fringe: measured on the betrayer witch, 27 %% of the matte's outer 0-2 px are green-dominant
+# (4.8 %% at 2-4 px, ~1 %% deeper = the costume's own glow rate). Tripo would bake that fringe into the hair. --despill <px> clamps
+# G to max(R, B) inside that edge band only; the interior (the drawn green glows) is untouched. Off by default: old cuts unchanged.
+DESPILL = float(sys.argv[sys.argv.index("--despill") + 1]) if "--despill" in sys.argv else 0.0
+if DESPILL > 0:
+    _band = ndimage.distance_transform_edt(a > 128) <= DESPILL
+    _rgb = rgb.astype(np.int16); _cap = np.maximum(_rgb[..., 0], _rgb[..., 2])
+    _hit = _band & (_rgb[..., 1] > _cap)
+    _rgb[..., 1] = np.where(_hit, _cap, _rgb[..., 1]); rgb = _rgb.astype(np.uint8)
+    print("%s: despill band %.1f px: %d px clamped" % (TAG, DESPILL, int(_hit.sum())))
 m = a > 128
 m = ndimage.binary_opening(m, np.ones((3, 3)))
 print("%s: matte covers %.2f%% (%s)" % (TAG, 100 * m.mean(), MATTE))
@@ -123,5 +134,5 @@ for name, (x0, y0, x1, y1) in pieces.items():
                       h_src=int(y1 - y0), scale=round(S, 5),
                       placed=[px, max(py, 0), *fig.size])
     print("   %-13s src %4dx%-4d -> placed %s" % (name, x1 - x0, y1 - y0, meta[name]["placed"]))
-json.dump(dict(sheet=SRC, mode=MODE, matte=MATTE, common_scale=round(S, 5),
+json.dump(dict(sheet=SRC, mode=MODE, matte=MATTE, despill_px=DESPILL, common_scale=round(S, 5),
                views=meta), open(os.path.join(OUT, "views.json"), "w"), indent=1)

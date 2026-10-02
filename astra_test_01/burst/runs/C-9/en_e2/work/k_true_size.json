@@ -1,0 +1,15 @@
+{
+ "base_height_m": 2.54,
+ "designed_height_m": 1.88,
+ "reference_record": "ghost_a02.dbr",
+ "reference_scale": 1.0,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "nemesis_aetherialvanguard_01 (nemesis)": {
+   "scale": 1.35,
+   "true_height_m": 2.538,
+   "factor": 0.999,
+   "e_bodies": 0.5
+  }
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "what": "JOIN-1 clip manifest for the MIND-TAKER (gaunt sorceress; the needle bracelet is costume) (crucible boss mesh, roster rig heroine01_unarmed) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133), read off en_e2/export/final_q",
+ "provisional_texture": {
+  "status": "PROVISIONAL TEXTURE",
+  "texture": "Tripo H3.1 own texture (work/q_tripo_tex.png), embedded; no paint pass, no grade",
+  "why": "the Astra image limit: the D7 paint (sheets A/B, register, region grade) waits for the reset, 2026-10-03 20:32 local",
+  "replace": "paint A/B (en08 + en32 bake) -> en17/en19 grade -> en10_final -> en21 cells -> index; geometry, rig and clips stay"
+ },
+ "rig": {
+  "method": "FREE weight transfer (en49, no Meshy credit) from the female acolyte's Meshy rig (builds/en_f_rigged.glb, heroine01 skeleton) onto this mesh: k=8 inverse-distance weights, leg side rule (midline gap 0.04), joints refit by the displacement field",
+  "why": "Meshy stopped at 25/30 by the ledger's own 10-credit reservation for a 5-credit rig; not worked around",
+  "validation": "en49 self-test exact (weights 0 disagreement, joints 0 m); cross-body f -> witch scored against the witch's Meshy rig: joint error mean 0.029 / max 0.047 (mesh units, 1.70 tall); limb girth minima in line with the Meshy-rigged witch",
+  "report": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/work/wt_q.json",
+  "bridge_cut": {
+   "tool": "en55 (after en10_final)",
+   "faces_removed": 301,
+   "vertices_unblended": 171,
+   "why": "Tripo fused the hanging hands and wrap-strap ends to the thighs; a lifted arm pulled them into a bar (0.94 m at walk 0.3). After the cut the longest torn sliver is 0.27 m (the Meshy-rigged witch: 0.43 m)"
+  }
+ },
+ "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-W2/EN2-W2_a_r1.png",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_q/en_q_body.glb",
+  "sha256_16": "d01f07ea72581eb3",
+  "height_m": 1.8
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.1333,
+   "source": "standing walk forward (Mixamo Pro Magic Pack)"
+  },
+  "run": {
+   "seconds": 0.7333,
+   "source": "standing run forward (Mixamo Pro Magic Pack)"
+  },
+  "cast_bolt": {
+   "seconds": 2.2,
+   "source": "standing 1h magic attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "cast_area": {
+   "seconds": 3.1333,
+   "source": "standing 2h magic area attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo Pro Magic Pack)"
+  },
+  "death": {
+   "seconds": 3.6667,
+   "source": "standing react death forward (Mixamo Pro Magic Pack)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "standing idle (Mixamo Pro Magic Pack)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.521,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.58,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.5333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 16"
+  },
+  "cast_area": {
+   "release_s": 1.8,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 54"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.442 m from the origin, ends 0.005 m"
+ },
+ "roster": {
+  "rig": "heroine01_unarmed",
+  "attack_mix": "projectile 65 % / aura 12 % / melee 12 % (the rig, BUILD_PRIORITY.md)",
+  "melee": "the rig's melee share has no clip in this caster set (as the acolytes); the runtime may play cast_bolt"
+ },
+ "vfx_runtime": {
+  "storm": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_q_storm_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_q_storm_frames.json",
+   "atlas_px": [
+    4096,
+    1204
+   ],
+   "atlas_sha256": "54fb9ac6bdeff7aed808b0cdd78d46ee411c1dc981686c9256d9f604260bcd67",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.18,
+    "burst_r_m": 1.6,
+    "ring_r_m": 3.0,
+    "seed": 161,
+    "palette": "storm"
+   },
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      78,
+      47
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      370,
+      370
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      328,
+      338
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      340,
+      340
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      361,
+      188
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax."
+  }
+ },
+ "true_size": {
+  "base_height_m": 1.8,
+  "designed_height_m": 1.8,
+  "reference_record": "ghost_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "humanascendant_mindthief_01 (boss)": {
+    "scale": 1.0,
+    "true_height_m": 1.8,
+    "factor": 1.0,
+    "e_bodies": 0.494
+   }
+  }
+ }
+}

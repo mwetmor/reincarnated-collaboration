@@ -1,0 +1,137 @@
+{
+ "refit": "disp",
+ "template": "builds/en_f_rigged.glb",
+ "target": "builds/en_r_prepped.glb",
+ "target_height_m": 1.8,
+ "k": 8,
+ "side_gap": 0.04,
+ "verts": 167376,
+ "faces": 290000,
+ "nearest_m": {
+  "p50": 0.016313036579742923,
+  "p95": 0.05798986492761926,
+  "max": 0.11340541921332353
+ },
+ "side_rule_verts": 7861,
+ "rings_tpl_tgt": {
+  "Spine02": [
+   3167,
+   6962
+  ],
+  "Spine01": [
+   1965,
+   5600
+  ],
+  "Spine": [
+   0,
+   0
+  ],
+  "neck": [
+   0,
+   0
+  ],
+  "Head": [
+   39,
+   2
+  ],
+  "head_end": [
+   0,
+   0
+  ],
+  "headfront": [
+   0,
+   0
+  ],
+  "LeftShoulder": [
+   0,
+   0
+  ],
+  "LeftArm": [
+   1166,
+   4199
+  ],
+  "LeftForeArm": [
+   928,
+   619
+  ],
+  "LeftHand": [
+   644,
+   846
+  ],
+  "RightShoulder": [
+   0,
+   0
+  ],
+  "RightArm": [
+   972,
+   3714
+  ],
+  "RightForeArm": [
+   950,
+   526
+  ],
+  "RightHand": [
+   1198,
+   757
+  ],
+  "LeftUpLeg": [
+   9174,
+   5176
+  ],
+  "LeftLeg": [
+   864,
+   1478
+  ],
+  "LeftFoot": [
+   1545,
+   1320
+  ],
+  "LeftToeBase": [
+   695,
+   1698
+  ],
+  "RightUpLeg": [
+   3839,
+   4959
+  ],
+  "RightLeg": [
+   852,
+   1434
+  ],
+  "RightFoot": [
+   1387,
+   1311
+  ],
+  "RightToeBase": [
+   512,
+   1357
+  ]
+ },
+ "joint_move_m": {
+  "Hips": 0.0351,
+  "Spine02": 0.0411,
+  "Spine01": 0.0045,
+  "Spine": 0.0045,
+  "neck": 0.0045,
+  "Head": 0.0056,
+  "head_end": 0.0056,
+  "headfront": 0.0056,
+  "LeftShoulder": 0.0047,
+  "LeftArm": 0.0127,
+  "LeftForeArm": 0.0011,
+  "LeftHand": 0.0094,
+  "RightShoulder": 0.0053,
+  "RightArm": 0.0159,
+  "RightForeArm": 0.0045,
+  "RightHand": 0.0087,
+  "LeftUpLeg": 0.007,
+  "LeftLeg": 0.0013,
+  "LeftFoot": 0.0018,
+  "LeftToeBase": 0.004,
+  "RightUpLeg": 0.0078,
+  "RightLeg": 0.0017,
+  "RightFoot": 0.0018,
+  "RightToeBase": 0.0034
+ },
+ "note": "mesh-space units = 1.70 m tall template (Meshy); the export rescales to the target height"
+}
