@@ -1,4 +1,6 @@
 # JOIN-1 RUN — charter v0.4.1 (LAUNCH SHEET RULED; GATE-1 GO; LAUNCHES AT THE SEAL)
+> **v0.6.2, 2026-10-02 (Matt, ELICITOR, KC2 KP-251): KIT ORDER SWAPPED: THE D2 FIRE SORCERESS JOINS FIRST (J4b runs before J4a),** following Matt's playtest order R-C9-135 (Warlord → Sorceress → Barbarian → barrow-fit arena). The D2 adapter is built for her and then extended for the Barbarian. **B0-N (the numeric self-join on J-S4b) stays the binder's positive control, owed before ANY D2 kit is graded**, i.e. now at the start of J4b. Each kit's denominator anchor is unchanged (the Sorceress at her J0 Gate-2 freeze, the Barbarian at launch). Where the text below says "the Barbarian first", this line GOVERNS. Wording in § 0 / § 4.5 is otherwise left as ruled.
+>
 
 > **v0.6.1, 2026-10-02 (KC2 KP-236/237):** B0 = PASS-BY-DISPOSITION, STRUCTURAL, SIBLING-JOIN (0 of 4 rows numeric; label never shortened). **Matt adds J-S4b: the referent Warlord's own corpus record** (from his save; numeric rows), minted by elrond; **B0-N, a numeric self-join on J-S4b, is owed at J4a as the binder's positive control before any D2 kit is graded.** TA-X-07's received-side schema change goes to Matt as its own ADR-002 item when proposed; TA-X-20 closes in J2.
 >
