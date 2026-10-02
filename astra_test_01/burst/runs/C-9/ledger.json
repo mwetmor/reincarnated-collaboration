@@ -34212,6 +34212,12 @@
       "id": "M-C9-HANDOFF-P2",
       "note": "Phase 2 conductor handoff (Matt request, before a session reset + temp purge): agentic_orchestration/gandalf/notes/2026-10-02-c9-phase2-handoff.md with fresh-session prompt in its section 11; small scratch keepers in 2026-10-02-c9-handoff-kit/. State: 3 hero packs final; 30 enemy packs (6 PROVISIONAL texture: warden, magister, witch, mindtaker, crawlerlarva, burrowworm); lanes idle; loadout 3f1ee3e held for Vercel; cleanup manifest 13 staged (15.9 GiB).",
       "ts": "2026-10-02T16:05:00Z"
+    },
+    {
+      "id": "M-C9-SZ-TRUESIZE",
+      "lane": "SZ (drax)",
+      "ts": "2026-10-02T23:00:00Z",
+      "note": "KC2 KP-222 true_size: 27 of the 29 enemy kits now carry a true_size block (18 added: acolyte-f, acolyte-m, blightsac, brute, cinderstalker, cryptgazer, cryptglutton, cryptmaw, gaunt, golem, imp, ossuarybloom, ossuarycrab, revenant, rimethorn, voidlord, wraith, wretch; 9 existing blocks read in unchanged; crawlerlarva and burrowworm get table rows only because EN-E3 holds those kits). Rule: true = designed x scale(rec)/scale(ref); factor = true / shipped h_model. All packs are cut at ppm_render 151.337. Table: join1_render/true_size_table_2026-10-02.md + .json. UNRESOLVED: none. Voidlord's reference = Ekket'Zul (as named by the manifest roster.lead), so its trash rylok records come out at factor 0.625-0.875. Commit 5fd5f6660 (not pushed)."
     }
   ],
   "halts": [
