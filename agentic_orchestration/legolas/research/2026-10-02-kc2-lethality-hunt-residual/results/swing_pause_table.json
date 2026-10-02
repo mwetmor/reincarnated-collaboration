@@ -1,0 +1,1204 @@
+{
+ "edition": "II",
+ "precedence": "CRUCIBLE (last archive wins)",
+ "n_records": 124,
+ "cross_check_vs_pm2_timing": {
+  "n": 77,
+  "agree": 77
+ },
+ "records": {
+  "records/creatures/enemies/aetherialcorruption_b01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/aetherialcorruption_c01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/aetherialimp_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialimp.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.5
+  },
+  "records/creatures/enemies/aetherialimp_b01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialimp.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.5
+  },
+  "records/creatures/enemies/aetherialworm_b01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialworm.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/aetherialworm_b02_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialworm.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/aetherialworm_b03_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialworm.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/aetherialworm_b04_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialworm.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/bonerat_witchgod_a01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_bonerat_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/creatures/enemies/bonerat_witchgod_b01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_bonerat_ranged.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0,
+   "maxSwingPause": 1.399999976158142
+  },
+  "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_aetherialbloater.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.0,
+   "maxSwingPause": 0.30000001192092896,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_chthonicrylok.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_chthonianservitor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/cultist_cultleader_01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_humanchthonic_bosscaster.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 0.800000011920929,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/direwolf_frozenwastes_01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_boss_icewolf.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.4000000059604645
+  },
+  "records/creatures/enemies/boss&quest/human_chthonickurn_shaman_01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_kurnchthonic_shamanboss.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.600000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_humanpossessed_rangedcaster.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.949999988079071,
+   "maxSwingPause": 1.7999999523162842
+  },
+  "records/creatures/enemies/boss&quest/korvaakmessenger_02b.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_boss_themessenger.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/rokwind_01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_rok.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_boss_tombguardian.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/swampcrab_ugdenbog_01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/witch_janaxia.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_boss_witch.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 0.800000011920929,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_boss_witchgodguardian_temple.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.10000000149011612,
+   "maxSwingPause": 0.30000001192092896,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/boss&quest/yeti_rimehorn_01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_boss_yeti.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 1.0
+  },
+  "records/creatures/enemies/bounties/cu_bounty04.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialbloater.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.0,
+   "maxSwingPause": 0.30000001192092896,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/bounties/cu_bounty07.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_basilisk_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/bounties/cu_bounty08.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/bounties/odv_bounty07.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_zealot_meleebasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/bounties/ro_bounty11.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_harpymelee01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.8999999761581421,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/bounties/ro_bounty19.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_meleetank.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthoniandevourer_a01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthoniandevourer.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.0,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthoniandevourer_b01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthoniandevourer.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.0,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthoniandevourer_b02.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthoniandevourer.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.0,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthonianherald_b01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_chthonicherald.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthonianherald_c01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_chthonicherald.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthonianleech_a01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthonicleech_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.4000000059604645
+  },
+  "records/creatures/enemies/chthonianleech_b01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthonicleech_ranged.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.0
+  },
+  "records/creatures/enemies/chthonianleech_b02.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthonicleech_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.4000000059604645
+  },
+  "records/creatures/enemies/chthonianminion_b01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_chthonicminiona01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/creatures/enemies/chthonianservitor_a01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_chthonianservitor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.2000000476837158
+  },
+  "records/creatures/enemies/chthonianwretch_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_zombiemutanta01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthonianwretch_b01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_humanchthonic_rangedcaster.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0499999523162842,
+   "maxSwingPause": 1.600000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/chthonianwretch_c01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_zombiemutanta01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/devotion/chthonianherald_h01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_chthonicherald.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.2000000476837158
+  },
+  "records/creatures/enemies/devotion/rhino_h01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_rhino.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/creatures/enemies/devotion/rhino_h04.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_rhino.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/creatures/enemies/devotion/skeleton_h06.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_skeletoncaster01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0,
+   "maxSwingPause": 1.7999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/devotion/skeleton_h08.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_skeletoncaster01_slow.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 2.0,
+   "maxSwingPause": 3.299999952316284,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/devotion/skeleton_h09.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_skeletoncaster01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0,
+   "maxSwingPause": 1.7999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/eldritcharmor_a01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_eldritcharmor_meleebasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.550000011920929,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/eldritcharmor_b01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_eldritcharmor_rangedcaster.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.949999988079071,
+   "maxSwingPause": 1.7999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/eldritcharmor_c01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_eldritcharmor_firebreath.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 1.2999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_a01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleebasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_a01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleebasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158
+  },
+  "records/creatures/enemies/ghost_a02.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleebasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_b01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_rangedbasic.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0499999523162842,
+   "maxSwingPause": 1.7000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_b02.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleechampion.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_b03.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleechampion.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/ghost_b04.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_ghost_meleechampion.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2999999523162842,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/giant_b01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_giant.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/giant_c01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_giant.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/groblefrost_a01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_groblescavenger01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/groblefrost_b01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_groblemelee01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hellhound_witchgod_a01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_raptor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/hellhound_witchgod_b01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_raptor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/hero/aetherialcorruption_h01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858
+  },
+  "records/creatures/enemies/hero/aetherialcorruption_h05.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_aetherialcorruption.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.100000023841858
+  },
+  "records/creatures/enemies/hero/basilisk_h01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_basilisk_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/basilisk_h02.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_basilisk_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/basilisk_h03.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_basilisk_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6499999761581421,
+   "maxSwingPause": 1.2000000476837158,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/hypporaven_h01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/hypporaven_h03.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/springscrab_h01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/springscrab_h02.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/springscrab_h04.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/swampgolem_h01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampgolem.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/swampgolem_h02.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampgolem.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/swampgolem_h05.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampgolem.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/wendigo_h01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/hero/wendigo_h04.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/livingplant_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_livingplant.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 1.600000023841858,
+   "maxSwingPause": 2.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/livingplant_a01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_livingplant.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 1.600000023841858,
+   "maxSwingPause": 2.0
+  },
+  "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_nemesis_aetherialvanguard.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.6000000238418579,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_nemesis_yeti.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.800000011920929,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_boss_kymonnemesis_01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_nemesis_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/raptor_witchgod_a01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_raptor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/raptor_witchgod_b01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_raptor.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/sandlizard_volcanic_a01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_sandlizard.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/sandlizard_volcanic_b01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_sandlizard.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/sandlizard_volcanic_b02.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_sandlizard.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/sandlizard_volcanic_c01.dbr": {
+   "archive": "sm2",
+   "controller": "records/controllers/enemy/controller_sandlizard.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm2",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/skeletalgolem_b01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_meleetank.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0
+  },
+  "records/creatures/enemies/skeleton_a01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_zombiea01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.44999998807907104,
+   "maxSwingPause": 1.0
+  },
+  "records/creatures/enemies/skeleton_b02_knight.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_herotank01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.25,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/skeleton_b02_knight_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_herotank01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.25,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/skeleton_c01.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_herotank01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.25,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/skeleton_c03.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_herotank01.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.25,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/springscrab_a00_summon.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071
+  },
+  "records/creatures/enemies/swampcrab_a00_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071
+  },
+  "records/creatures/enemies/swampcrab_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/swampcrab_b01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/swampcrab_b01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071
+  },
+  "records/creatures/enemies/swampcrab_c01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/swampcrab_c01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampcrab_melee.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.30000001192092896,
+   "maxSwingPause": 0.699999988079071
+  },
+  "records/creatures/enemies/swampgolem_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_swampgolem.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.5,
+   "maxSwingPause": 1.0,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/thornedhorrorfrost_a01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_thornedhorror.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/thornedhorrorfrost_b01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_thornedhorror.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/thornedhorrorfrost_c01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_thornedhorror.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/trap_lightningspike_hero_a01.dbr": {
+   "archive": "sm3",
+   "controller": "records/controllers/enemy/controller_traplightningspike.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm3",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.800000011920929,
+   "maxSwingPause": 0.800000011920929
+  },
+  "records/creatures/enemies/wendigo_a01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/wendigo_b02.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/wendigo_c01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.6000000238418579,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/wendigocannibal_b01.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_cannibal.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.20000000298023224,
+   "maxSwingPause": 0.5,
+   "pm2_timing_agrees": true
+  },
+  "records/creatures/enemies/wraith_b01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wraith.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.4000000059604645,
+   "maxSwingPause": 1.0
+  },
+  "records/creatures/enemies/wraith_c01_summon.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_wraith_ranged.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 0.8999999761581421,
+   "maxSwingPause": 1.2999999523162842
+  },
+  "records/skills/nonplayerskills/bossskills/pets/chthonicshard_zap_b01_summon.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/enemy/controller_trapzaplongdelay.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 2.0,
+   "maxSwingPause": 2.0
+  },
+  "records/skills/nonplayerskills/bossskills/pets/loghorrean_void.dbr": {
+   "archive": "sm_mod",
+   "controller": "records/controllers/pets/controller_winddevil.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "base",
+   "ctrl_class": "ControllerMonster",
+   "minSwingPause": 1.0,
+   "maxSwingPause": 1.0
+  },
+  "records/skills/nonplayerskills/bossskills/pets/witchgodguardian_sentinel_crystal.dbr": {
+   "archive": "base",
+   "controller": "records/controllers/enemy/controller_trapzaplongdelay.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 2.0,
+   "maxSwingPause": 2.0
+  },
+  "records/skills/nonplayerskillsgdx1/bossskills/nemesis/aetherialvanguard_crystal.dbr": {
+   "archive": "gdx1",
+   "controller": "records/controllers/enemy/controller_nemesis_aethercrystal.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm1",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 0.699999988079071,
+   "maxSwingPause": 1.2000000476837158
+  },
+  "records/skills/nonplayerskillsgdx1/bossskills/nemesis/beast_bloodpool.dbr": {
+   "archive": "gdx1",
+   "controller": "records/controllers/pets/controller_totemwendigo.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "base",
+   "ctrl_class": "ControllerTotem",
+   "minSwingPause": 0.6000000238418579,
+   "maxSwingPause": 0.6000000238418579
+  },
+  "records/skills/nonplayerskillsgdx1/bossskills/pets/gabbalthunn_obsidianshard.dbr": {
+   "archive": "sm1",
+   "controller": "records/controllers/enemy/controller_trapzaplongdelay.dbr",
+   "Class": "Monster",
+   "ctrl_archive": "sm_mod",
+   "ctrl_class": "ControllerStationaryMonster",
+   "minSwingPause": 2.0,
+   "maxSwingPause": 2.0
+  }
+ }
+}

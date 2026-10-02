@@ -1,0 +1,429 @@
+{
+ "arm": "AIFULL-P",
+ "arm_doc": "POST-REG DIAGNOSTIC: AIFULL + pilot collect rule widened to standing bodies",
+ "artifact_class": "NOT-A-GRADED-RUN (legolas residual hunt, KC2-PLAY). Harness-only counterfactual; nothing tuned; engine snapshot a40e609b read-only.",
+ "salts": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "summary": {
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19
+  ],
+  "ratio_vs_referent": 1.8847,
+  "landed_hp_per_s_151_159": 3026.1,
+  "t_s_151_159": 5952.73,
+  "per_salt_ratio": [
+   2.0623,
+   2.2003,
+   2.1202,
+   0.4909,
+   1.9365,
+   2.0932,
+   1.4725,
+   2.1628,
+   1.9434,
+   2.188,
+   2.1204,
+   2.2882,
+   0.7684,
+   2.1579,
+   2.0753,
+   2.1396,
+   2.2545,
+   2.1291,
+   1.9378,
+   1.9822
+  ],
+  "leg_a_terminals": [
+   152,
+   152,
+   152,
+   null,
+   152,
+   152,
+   156,
+   152,
+   152,
+   152,
+   152,
+   152,
+   null,
+   152,
+   152,
+   152,
+   152,
+   152,
+   152,
+   152
+  ],
+  "leg_a_t_into_wave_s": [
+   33.224,
+   35.102,
+   34.367,
+   null,
+   34.286,
+   32.898,
+   40.898,
+   32.816,
+   33.878,
+   28.0,
+   31.51,
+   36.0,
+   null,
+   32.898,
+   36.816,
+   34.122,
+   35.102,
+   32.571,
+   33.633,
+   32.98
+  ],
+  "mean_leg_a_wave": 153.1,
+  "n_die_in_151": 0,
+  "n_first_death_in_160": 0,
+  "n_survive_160": 2,
+  "leg_b_deaths_per_salt": 1.6,
+  "leg_b_death_waves": [
+   [
+    152,
+    156
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [],
+   [
+    152
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    156
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152,
+    154,
+    160
+   ],
+   [
+    152
+   ],
+   [
+    152,
+    156
+   ],
+   [
+    152,
+    156
+   ],
+   [],
+   [
+    152
+   ],
+   [
+    152,
+    156
+   ],
+   [
+    152,
+    160
+   ],
+   [
+    152
+   ],
+   [
+    152,
+    156
+   ],
+   [
+    152,
+    156,
+    160
+   ],
+   [
+    152,
+    160
+   ]
+  ],
+  "p05_killed_while_emerging": 11,
+  "raised": {},
+  "per_wave": {
+   "151": {
+    "ratio": 2.538,
+    "deaths": 0,
+    "mean_t_s": 29.18
+   },
+   "152": {
+    "ratio": 1.337,
+    "deaths": 17,
+    "mean_t_s": 70.96
+   },
+   "153": {
+    "ratio": 2.101,
+    "deaths": 0,
+    "mean_t_s": 30.31
+   },
+   "154": {
+    "ratio": 3.365,
+    "deaths": 1,
+    "mean_t_s": 39.41
+   },
+   "155": {
+    "ratio": 0.579,
+    "deaths": 0,
+    "mean_t_s": 26.44
+   },
+   "156": {
+    "ratio": 2.434,
+    "deaths": 7,
+    "mean_t_s": 48.64
+   },
+   "157": {
+    "ratio": 0.812,
+    "deaths": 0,
+    "mean_t_s": 25.25
+   },
+   "158": {
+    "ratio": 0.952,
+    "deaths": 0,
+    "mean_t_s": 21.27
+   },
+   "159": {
+    "ratio": 2.307,
+    "deaths": 0,
+    "mean_t_s": 28.12
+   },
+   "160": {
+    "ratio": 4.473,
+    "deaths": 7,
+    "mean_t_s": 22.6
+   }
+  }
+ },
+ "fold_reports": {
+  "fire_range": {
+   "file": {
+    "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+   },
+   "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+   "band_armed": true,
+   "auras_applied": true,
+   "n_ai_rows": 1816,
+   "n_aura_records": 15,
+   "n_banded_slots": 1210,
+   "n_slots_replaced": 1814,
+   "n_up": 1005,
+   "n_down": 809,
+   "n_same": 0,
+   "n_ai_slots_without_row": 0,
+   "n_aura_slots_replaced": 20,
+   "unloaded_rows": [
+    {
+     "pack_row_id": "V20-236",
+     "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+    },
+    {
+     "pack_row_id": "U1-714",
+     "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+    }
+   ],
+   "band": {
+    "n_evaluations": 76311,
+    "n_refused_max": 61147,
+    "n_refused_min": 1733
+   },
+   "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+  },
+  "emergence": {
+   "file": {
+    "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+   },
+   "bound": "D_long",
+   "acquisition_latency_s": "0 (UNKNOWN in GD, am4; DECLARED)",
+   "acquire_during_emergence": false,
+   "window_override": false,
+   "n_records": 31,
+   "n_ranged_records": 14,
+   "n_bodies_registered": 482,
+   "n_specials_armed": 876,
+   "n_specials_without_timeout_row": 0,
+   "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+   "pets": "VACUOUS: no p05 record carries a pet contract"
+  },
+  "stationary": {
+   "file": {
+    "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+   },
+   "stationary_records": {
+    "records/creatures/enemies/livingplant_a01.dbr": {
+     "max_pursuit_distance_m": 35.0
+    }
+   },
+   "n_bodies_pinned": 94,
+   "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+   "n_mill_superseded_ticks": 12177,
+   "n_waves_with_mill_superseded": 0,
+   "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+  },
+  "composition": {
+   "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+   "phys_limb": "f_unmapped = min(measured)",
+   "f_unmapped": -0.44,
+   "files": {
+    "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+    "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+   },
+   "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+   "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+   "telemetry": {
+    "n_inst_rows": 59388.0,
+    "pre_oracle_inst": 261082749.8,
+    "pre_gd_inst": 172772573.1,
+    "n_phys_unclamped": 14036.0,
+    "n_dot_rows": 11226.0,
+    "pre_oracle_dot": 133080.1,
+    "pre_gd_dot": 5799276.8,
+    "n_phys_clamped_restored": 5185.0,
+    "n_phys_factor_unmapped": 3025.0
+   }
+  }
+ },
+ "paired_delta_vs_control": {
+  "mean": -0.4655,
+  "ci95": [
+   -0.692,
+   -0.239
+  ]
+ },
+ "first_hit_by_wave": {
+  "151": {
+   "oracle_median_s": 5.878,
+   "referent_first_decrement_ge100_s": 5.666699999999992
+  },
+  "152": {
+   "oracle_median_s": 4.98,
+   "referent_first_decrement_ge100_s": 10.466699999999946
+  },
+  "153": {
+   "oracle_median_s": 4.653,
+   "referent_first_decrement_ge100_s": 3.71670000000006
+  },
+  "154": {
+   "oracle_median_s": 5.796,
+   "referent_first_decrement_ge100_s": 3.21670000000006
+  },
+  "155": {
+   "oracle_median_s": 6.082,
+   "referent_first_decrement_ge100_s": 4.9500000000000455
+  },
+  "156": {
+   "oracle_median_s": 5.551,
+   "referent_first_decrement_ge100_s": 0.5332999999999402
+  },
+  "157": {
+   "oracle_median_s": 2.898,
+   "referent_first_decrement_ge100_s": 2.0167000000000144
+  },
+  "158": {
+   "oracle_median_s": 7.02,
+   "referent_first_decrement_ge100_s": 4.216699999999946
+  },
+  "159": {
+   "oracle_median_s": 4.694,
+   "referent_first_decrement_ge100_s": 4.066699999999969
+  },
+  "160": {
+   "oracle_median_s": 4.938,
+   "referent_first_decrement_ge100_s": 0.35000000000002274
+  }
+ },
+ "standoff": {
+  "arm": "AIFULL-P",
+  "ratio": 1.8847,
+  "landed_share_by_hit_distance_m": {
+   "0-1.5": 0.053,
+   "1.5-2.5": 0.085,
+   "2.5-3.5": 0.149,
+   "3.5-5": 0.082,
+   "5-7.5": 0.133,
+   "7.5-11.5": 0.202,
+   "11.5-16": 0.197,
+   "16+": 0.099
+  },
+  "median_hit_distance_band": "5-7.5",
+  "share_beyond_5m": 0.631,
+  "share_beyond_7p5m": 0.498,
+  "still_frac_by_band": [
+   1.0,
+   1.0,
+   1.0,
+   0.974,
+   0.627,
+   0.516,
+   0.526,
+   0.572
+  ],
+  "body_steps_by_band": [
+   1550,
+   3570,
+   6787,
+   9393,
+   21708,
+   37180,
+   58058,
+   111163
+  ]
+ }
+}

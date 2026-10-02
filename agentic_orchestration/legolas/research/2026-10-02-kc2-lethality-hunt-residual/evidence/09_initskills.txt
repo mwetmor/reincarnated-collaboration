@@ -1,0 +1,983 @@
+=== ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z ===
+  0x002da1e0  push     ebp
+  0x002da1e1  mov      ebp, esp
+  0x002da1e3  and      esp, 0xfffffff8
+  0x002da1e6  sub      esp, 0x34
+  0x002da1e9  mov      eax, dword ptr [ebp + 0x10]
+  0x002da1ec  push     ebx
+  0x002da1ed  push     esi
+  0x002da1ee  mov      esi, dword ptr [ebp + 8]
+  0x002da1f1  mov      ebx, ecx
+  0x002da1f3  push     edi
+  0x002da1f4  mov      edi, dword ptr [ebp + 0xc]
+  0x002da1f7  mov      ecx, esi
+  0x002da1f9  push     0x104f5f77   ; f32=1.94274e+34 i32=2020570624 f64=1.2397e+224
+  0x002da1fe  push     0x105625d8   ; "attackSkillName"
+  0x002da203  mov      dword ptr [esp + 0x14], ebx
+  0x002da207  mov      dword ptr [edi + 0x3b8], eax
+  0x002da20d  mov      eax, dword ptr [esi]
+  0x002da20f  call     dword ptr [eax + 0x14]
+  0x002da212  test     eax, eax
+  0x002da214  je       0x102da231
+  0x002da216  cmp      byte ptr [eax], 0
+  0x002da219  je       0x102da231
+  0x002da21b  push     eax
+  0x002da21c  lea      ecx, [ebx + 0x600]
+  0x002da222  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da227  test     eax, eax
+  0x002da229  je       0x102da231
+  0x002da22b  mov      dword ptr [edi + 0x3bc], eax
+  0x002da231  mov      eax, dword ptr [esi]
+  0x002da233  mov      ecx, esi
+  0x002da235  push     0x104f5f82   ; f32=6.72937e+22 i32=1701052416 f64=6.37631e+93
+  0x002da23a  push     0x105625a8   ; "specialAttackSkillName"
+  0x002da23f  call     dword ptr [eax + 0x14]
+  0x002da242  test     eax, eax
+  0x002da244  je       0x102da34b
+  0x002da24a  cmp      byte ptr [eax], 0
+  0x002da24d  je       0x102da34b
+  0x002da253  push     eax
+  0x002da254  lea      ecx, [ebx + 0x600]
+  0x002da25a  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da25f  mov      dword ptr [esp + 0x14], eax
+  0x002da263  test     eax, eax
+  0x002da265  je       0x102da34b
+  0x002da26b  mov      edx, dword ptr [esi]
+  0x002da26d  push     ecx
+  0x002da26e  mov      dword ptr [esp], 0
+  0x002da275  mov      ecx, esi
+  0x002da277  push     0x105625c0   ; "specialAttackTimeout"
+  0x002da27c  mov      edx, dword ptr [edx + 0x24]
+  0x002da27f  call     edx
+  0x002da281  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da287  mov      eax, dword ptr [esi]
+  0x002da289  push     ecx
+  0x002da28a  mov      dword ptr [esp], 0
+  0x002da291  mov      ecx, esi
+  0x002da293  push     0x105625fc   ; "specialAttackDelay"
+  0x002da298  mov      eax, dword ptr [eax + 0x24]
+  0x002da29b  fstp     dword ptr [esp + 0x18]
+  0x002da29f  cvttss2si ebx, dword ptr [esp + 0x18]
+  0x002da2a5  call     eax
+  0x002da2a7  mov      eax, dword ptr [esi]
+  0x002da2a9  push     ecx
+  0x002da2aa  mov      ecx, esi
+  0x002da2ac  mov      dword ptr [esp], 0
+  0x002da2b3  push     0x10562610   ; "specialAttackChance"
+  0x002da2b8  mov      eax, dword ptr [eax + 0x24]
+  0x002da2bb  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da2c1  fstp     dword ptr [esp + 0x18]
+  0x002da2c5  cvttss2si edi, dword ptr [esp + 0x18]
+  0x002da2cb  call     eax
+  0x002da2cd  mov      eax, dword ptr [esi]
+  0x002da2cf  mov      ecx, esi
+  0x002da2d1  push     0x104f5f83   ; f32=2.64469e+20 i32=1634034688 f64=1.83907e+228
+  0x002da2d6  push     0x105625e8   ; "specialAttackRange"
+  0x002da2db  fstp     dword ptr [esp + 0x18]
+  0x002da2df  call     dword ptr [eax + 0x14]
+  0x002da2e2  push     eax
+  0x002da2e3  lea      ecx, [esp + 0x28]
+  0x002da2e7  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da2ec  lea      ecx, [esp + 0x24]
+  0x002da2f0  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da2f5  lea      ecx, [esp + 0x24]
+  0x002da2f9  mov      esi, eax
+  0x002da2fb  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da300  mov      eax, dword ptr [esp + 0x14]
+  0x002da304  movss    xmm0, dword ptr [esp + 0x10]
+  0x002da30a  mov      dword ptr [esp + 0x24], eax
+  0x002da30e  mov      dword ptr [esp + 0x28], ebx
+  0x002da312  mov      dword ptr [esp + 0x2c], edi
+  0x002da316  mov      dword ptr [esp + 0x30], 0
+  0x002da31e  mov      dword ptr [esp + 0x34], 0
+  0x002da326  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da32b  mov      edi, dword ptr [ebp + 0xc]
+  0x002da32e  mov      ecx, edi
+  0x002da330  mov      dword ptr [esp + 0x38], eax
+  0x002da334  lea      eax, [esp + 0x24]
+  0x002da338  push     eax
+  0x002da339  push     0
+  0x002da33b  mov      dword ptr [esp + 0x44], esi
+  0x002da33f  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da344  mov      esi, dword ptr [ebp + 8]
+  0x002da347  mov      ebx, dword ptr [esp + 0xc]
+  0x002da34b  mov      eax, dword ptr [esi]
+  0x002da34d  mov      ecx, esi
+  0x002da34f  push     0x104f6006   ; f32=1.54138e+25 i32=1766588416 f64=1.96871e-153
+  0x002da354  push     0x10562650   ; "specialAttack2SkillName"
+  0x002da359  call     dword ptr [eax + 0x14]
+  0x002da35c  test     eax, eax
+  0x002da35e  je       0x102da461
+  0x002da364  cmp      byte ptr [eax], 0
+  0x002da367  je       0x102da461
+  0x002da36d  push     eax
+  0x002da36e  lea      ecx, [ebx + 0x600]
+  0x002da374  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da379  mov      dword ptr [esp + 0x10], eax
+  0x002da37d  test     eax, eax
+  0x002da37f  je       0x102da461
+  0x002da385  mov      edx, dword ptr [esi]
+  0x002da387  push     ecx
+  0x002da388  mov      dword ptr [esp], 0
+  0x002da38f  mov      ecx, esi
+  0x002da391  push     0x10562624   ; "specialAttack2Timeout"
+  0x002da396  mov      edx, dword ptr [edx + 0x24]
+  0x002da399  call     edx
+  0x002da39b  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da3a1  mov      eax, dword ptr [esi]
+  0x002da3a3  push     ecx
+  0x002da3a4  mov      dword ptr [esp], 0
+  0x002da3ab  mov      ecx, esi
+  0x002da3ad  push     0x1056263c   ; "specialAttack2Delay"
+  0x002da3b2  mov      eax, dword ptr [eax + 0x24]
+  0x002da3b5  fstp     dword ptr [esp + 0x1c]
+  0x002da3b9  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da3bf  call     eax
+  0x002da3c1  mov      eax, dword ptr [esi]
+  0x002da3c3  push     ecx
+  0x002da3c4  mov      ecx, esi
+  0x002da3c6  mov      dword ptr [esp], 0
+  0x002da3cd  push     0x1056267c   ; "specialAttack2Chance"
+  0x002da3d2  mov      eax, dword ptr [eax + 0x24]
+  0x002da3d5  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da3db  fstp     dword ptr [esp + 0x1c]
+  0x002da3df  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da3e5  call     eax
+  0x002da3e7  mov      eax, dword ptr [esi]
+  0x002da3e9  mov      ecx, esi
+  0x002da3eb  push     0x104f601b   ; f32=2.75428e+23 i32=1718176768 f64=531763
+  0x002da3f0  push     0x10562668   ; "specialAttack2Range"
+  0x002da3f5  fstp     dword ptr [esp + 0x1c]
+  0x002da3f9  call     dword ptr [eax + 0x14]
+  0x002da3fc  push     eax
+  0x002da3fd  lea      ecx, [esp + 0x28]
+  0x002da401  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da406  lea      ecx, [esp + 0x24]
+  0x002da40a  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da40f  lea      ecx, [esp + 0x24]
+  0x002da413  mov      esi, eax
+  0x002da415  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da41a  mov      eax, dword ptr [esp + 0x10]
+  0x002da41e  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da424  mov      dword ptr [esp + 0x24], eax
+  0x002da428  mov      dword ptr [esp + 0x28], ebx
+  0x002da42c  mov      dword ptr [esp + 0x2c], edi
+  0x002da430  mov      dword ptr [esp + 0x30], 0
+  0x002da438  mov      dword ptr [esp + 0x34], 0
+  0x002da440  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da445  mov      edi, dword ptr [ebp + 0xc]
+  0x002da448  mov      ecx, edi
+  0x002da44a  mov      dword ptr [esp + 0x38], eax
+  0x002da44e  lea      eax, [esp + 0x24]
+  0x002da452  push     eax
+  0x002da453  push     1
+  0x002da455  mov      dword ptr [esp + 0x44], esi
+  0x002da459  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da45e  mov      esi, dword ptr [ebp + 8]
+  0x002da461  mov      eax, dword ptr [esi]
+  0x002da463  mov      ecx, esi
+  0x002da465  push     0x104f6007   ; f32=2.75428e+23 i32=1718176768 f64=1.80949e+44
+  0x002da46a  push     0x105626c0   ; "specialAttack3SkillName"
+  0x002da46f  call     dword ptr [eax + 0x14]
+  0x002da472  test     eax, eax
+  0x002da474  je       0x102da57b
+  0x002da47a  cmp      byte ptr [eax], 0
+  0x002da47d  mov      ebx, dword ptr [esp + 0xc]
+  0x002da481  je       0x102da57f
+  0x002da487  push     eax
+  0x002da488  lea      ecx, [ebx + 0x600]
+  0x002da48e  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da493  mov      dword ptr [esp + 0x10], eax
+  0x002da497  test     eax, eax
+  0x002da499  je       0x102da57f
+  0x002da49f  mov      edx, dword ptr [esi]
+  0x002da4a1  push     ecx
+  0x002da4a2  mov      dword ptr [esp], 0
+  0x002da4a9  mov      ecx, esi
+  0x002da4ab  push     0x105626d8   ; "specialAttack3Timeout"
+  0x002da4b0  mov      edx, dword ptr [edx + 0x24]
+  0x002da4b3  call     edx
+  0x002da4b5  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da4bb  mov      eax, dword ptr [esi]
+  0x002da4bd  push     ecx
+  0x002da4be  mov      dword ptr [esp], 0
+  0x002da4c5  mov      ecx, esi
+  0x002da4c7  push     0x10562694   ; "specialAttack3Delay"
+  0x002da4cc  mov      eax, dword ptr [eax + 0x24]
+  0x002da4cf  fstp     dword ptr [esp + 0x1c]
+  0x002da4d3  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da4d9  call     eax
+  0x002da4db  mov      eax, dword ptr [esi]
+  0x002da4dd  push     ecx
+  0x002da4de  mov      ecx, esi
+  0x002da4e0  mov      dword ptr [esp], 0
+  0x002da4e7  push     0x105626a8   ; "specialAttack3Chance"
+  0x002da4ec  mov      eax, dword ptr [eax + 0x24]
+  0x002da4ef  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da4f5  fstp     dword ptr [esp + 0x1c]
+  0x002da4f9  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da4ff  call     eax
+  0x002da501  mov      eax, dword ptr [esi]
+  0x002da503  mov      ecx, esi
+  0x002da505  push     0x104f6051   ; f32=3.35544e+07 i32=1275068416 f64=2.16085e-27
+  0x002da50a  push     0x10562708   ; "specialAttack3Range"
+  0x002da50f  fstp     dword ptr [esp + 0x1c]
+  0x002da513  call     dword ptr [eax + 0x14]
+  0x002da516  push     eax
+  0x002da517  lea      ecx, [esp + 0x28]
+  0x002da51b  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da520  lea      ecx, [esp + 0x24]
+  0x002da524  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da529  lea      ecx, [esp + 0x24]
+  0x002da52d  mov      esi, eax
+  0x002da52f  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da534  mov      eax, dword ptr [esp + 0x10]
+  0x002da538  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da53e  mov      dword ptr [esp + 0x24], eax
+  0x002da542  mov      dword ptr [esp + 0x28], ebx
+  0x002da546  mov      dword ptr [esp + 0x2c], edi
+  0x002da54a  mov      dword ptr [esp + 0x30], 0
+  0x002da552  mov      dword ptr [esp + 0x34], 0
+  0x002da55a  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da55f  mov      edi, dword ptr [ebp + 0xc]
+  0x002da562  mov      ecx, edi
+  0x002da564  mov      dword ptr [esp + 0x38], eax
+  0x002da568  lea      eax, [esp + 0x24]
+  0x002da56c  push     eax
+  0x002da56d  push     2
+  0x002da56f  mov      dword ptr [esp + 0x44], esi
+  0x002da573  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da578  mov      esi, dword ptr [ebp + 8]
+  0x002da57b  mov      ebx, dword ptr [esp + 0xc]
+  0x002da57f  mov      eax, dword ptr [esi]
+  0x002da581  mov      ecx, esi
+  0x002da583  push     0x104f603f   ; f32=2.75428e+23 i32=1718176768 f64=4.03531e+87
+  0x002da588  push     0x105626f0   ; "specialAttack4SkillName"
+  0x002da58d  call     dword ptr [eax + 0x14]
+  0x002da590  test     eax, eax
+  0x002da592  je       0x102da695
+  0x002da598  cmp      byte ptr [eax], 0
+  0x002da59b  je       0x102da695
+  0x002da5a1  push     eax
+  0x002da5a2  lea      ecx, [ebx + 0x600]
+  0x002da5a8  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da5ad  mov      dword ptr [esp + 0x10], eax
+  0x002da5b1  test     eax, eax
+  0x002da5b3  je       0x102da695
+  0x002da5b9  mov      edx, dword ptr [esi]
+  0x002da5bb  push     ecx
+  0x002da5bc  mov      dword ptr [esp], 0
+  0x002da5c3  mov      ecx, esi
+  0x002da5c5  push     0x10562734   ; "specialAttack4Timeout"
+  0x002da5ca  mov      edx, dword ptr [edx + 0x24]
+  0x002da5cd  call     edx
+  0x002da5cf  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da5d5  mov      eax, dword ptr [esi]
+  0x002da5d7  push     ecx
+  0x002da5d8  mov      dword ptr [esp], 0
+  0x002da5df  mov      ecx, esi
+  0x002da5e1  push     0x1056274c   ; "specialAttack4Delay"
+  0x002da5e6  mov      eax, dword ptr [eax + 0x24]
+  0x002da5e9  fstp     dword ptr [esp + 0x1c]
+  0x002da5ed  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da5f3  call     eax
+  0x002da5f5  mov      eax, dword ptr [esi]
+  0x002da5f7  push     ecx
+  0x002da5f8  mov      ecx, esi
+  0x002da5fa  mov      dword ptr [esp], 0
+  0x002da601  push     0x1056271c   ; "specialAttack4Chance"
+  0x002da606  mov      eax, dword ptr [eax + 0x24]
+  0x002da609  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da60f  fstp     dword ptr [esp + 0x1c]
+  0x002da613  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da619  call     eax
+  0x002da61b  mov      eax, dword ptr [esi]
+  0x002da61d  mov      ecx, esi
+  0x002da61f  push     0x104f6052   ; f32=1.54138e+25 i32=1766588416 f64=1.96871e-153
+  0x002da624  push     0x10562790   ; "specialAttack4Range"
+  0x002da629  fstp     dword ptr [esp + 0x1c]
+  0x002da62d  call     dword ptr [eax + 0x14]
+  0x002da630  push     eax
+  0x002da631  lea      ecx, [esp + 0x28]
+  0x002da635  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da63a  lea      ecx, [esp + 0x24]
+  0x002da63e  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da643  lea      ecx, [esp + 0x24]
+  0x002da647  mov      esi, eax
+  0x002da649  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da64e  mov      eax, dword ptr [esp + 0x10]
+  0x002da652  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da658  mov      dword ptr [esp + 0x24], eax
+  0x002da65c  mov      dword ptr [esp + 0x28], ebx
+  0x002da660  mov      dword ptr [esp + 0x2c], edi
+  0x002da664  mov      dword ptr [esp + 0x30], 0
+  0x002da66c  mov      dword ptr [esp + 0x34], 0
+  0x002da674  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da679  mov      edi, dword ptr [ebp + 0xc]
+  0x002da67c  mov      ecx, edi
+  0x002da67e  mov      dword ptr [esp + 0x38], eax
+  0x002da682  lea      eax, [esp + 0x24]
+  0x002da686  push     eax
+  0x002da687  push     3
+  0x002da689  mov      dword ptr [esp + 0x44], esi
+  0x002da68d  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da692  mov      esi, dword ptr [ebp + 8]
+  0x002da695  mov      eax, dword ptr [esi]
+  0x002da697  mov      ecx, esi
+  0x002da699  push     0x104f6053   ; f32=2.75428e+23 i32=1718176768 f64=1.80949e+44
+  0x002da69e  push     0x10562760   ; "specialAttack5SkillName"
+  0x002da6a3  call     dword ptr [eax + 0x14]
+  0x002da6a6  test     eax, eax
+  0x002da6a8  je       0x102da7af
+  0x002da6ae  cmp      byte ptr [eax], 0
+  0x002da6b1  mov      ebx, dword ptr [esp + 0xc]
+  0x002da6b5  je       0x102da7b3
+  0x002da6bb  push     eax
+  0x002da6bc  lea      ecx, [ebx + 0x600]
+  0x002da6c2  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da6c7  mov      dword ptr [esp + 0x10], eax
+  0x002da6cb  test     eax, eax
+  0x002da6cd  je       0x102da7b3
+  0x002da6d3  mov      edx, dword ptr [esi]
+  0x002da6d5  push     ecx
+  0x002da6d6  mov      dword ptr [esp], 0
+  0x002da6dd  mov      ecx, esi
+  0x002da6df  push     0x10562778   ; "specialAttack5Timeout"
+  0x002da6e4  mov      edx, dword ptr [edx + 0x24]
+  0x002da6e7  call     edx
+  0x002da6e9  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da6ef  mov      eax, dword ptr [esi]
+  0x002da6f1  push     ecx
+  0x002da6f2  mov      dword ptr [esp], 0
+  0x002da6f9  mov      ecx, esi
+  0x002da6fb  push     0x105627b8   ; "specialAttack5Delay"
+  0x002da700  mov      eax, dword ptr [eax + 0x24]
+  0x002da703  fstp     dword ptr [esp + 0x1c]
+  0x002da707  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da70d  call     eax
+  0x002da70f  mov      eax, dword ptr [esi]
+  0x002da711  push     ecx
+  0x002da712  mov      ecx, esi
+  0x002da714  mov      dword ptr [esp], 0
+  0x002da71b  push     0x105627cc   ; "specialAttack5Chance"
+  0x002da720  mov      eax, dword ptr [eax + 0x24]
+  0x002da723  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da729  fstp     dword ptr [esp + 0x1c]
+  0x002da72d  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da733  call     eax
+  0x002da735  mov      eax, dword ptr [esi]
+  0x002da737  mov      ecx, esi
+  0x002da739  push     0x104f6062   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002da73e  push     0x105627a4   ; "specialAttack5Range"
+  0x002da743  fstp     dword ptr [esp + 0x1c]
+  0x002da747  call     dword ptr [eax + 0x14]
+  0x002da74a  push     eax
+  0x002da74b  lea      ecx, [esp + 0x28]
+  0x002da74f  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da754  lea      ecx, [esp + 0x24]
+  0x002da758  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da75d  lea      ecx, [esp + 0x24]
+  0x002da761  mov      esi, eax
+  0x002da763  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da768  mov      eax, dword ptr [esp + 0x10]
+  0x002da76c  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da772  mov      dword ptr [esp + 0x24], eax
+  0x002da776  mov      dword ptr [esp + 0x28], ebx
+  0x002da77a  mov      dword ptr [esp + 0x2c], edi
+  0x002da77e  mov      dword ptr [esp + 0x30], 0
+  0x002da786  mov      dword ptr [esp + 0x34], 0
+  0x002da78e  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da793  mov      edi, dword ptr [ebp + 0xc]
+  0x002da796  mov      ecx, edi
+  0x002da798  mov      dword ptr [esp + 0x38], eax
+  0x002da79c  lea      eax, [esp + 0x24]
+  0x002da7a0  push     eax
+  0x002da7a1  push     4
+  0x002da7a3  mov      dword ptr [esp + 0x44], esi
+  0x002da7a7  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da7ac  mov      esi, dword ptr [ebp + 8]
+  0x002da7af  mov      ebx, dword ptr [esp + 0xc]
+  0x002da7b3  mov      eax, dword ptr [esi]
+  0x002da7b5  mov      ecx, esi
+  0x002da7b7  push     0x104f6063   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002da7bc  push     0x10562810   ; "specialAttack6SkillName"
+  0x002da7c1  call     dword ptr [eax + 0x14]
+  0x002da7c4  test     eax, eax
+  0x002da7c6  je       0x102da8c9
+  0x002da7cc  cmp      byte ptr [eax], 0
+  0x002da7cf  je       0x102da8c9
+  0x002da7d5  push     eax
+  0x002da7d6  lea      ecx, [ebx + 0x600]
+  0x002da7dc  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da7e1  mov      dword ptr [esp + 0x10], eax
+  0x002da7e5  test     eax, eax
+  0x002da7e7  je       0x102da8c9
+  0x002da7ed  mov      edx, dword ptr [esi]
+  0x002da7ef  push     ecx
+  0x002da7f0  mov      dword ptr [esp], 0
+  0x002da7f7  mov      ecx, esi
+  0x002da7f9  push     0x105627e4   ; "specialAttack6Timeout"
+  0x002da7fe  mov      edx, dword ptr [edx + 0x24]
+  0x002da801  call     edx
+  0x002da803  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da809  mov      eax, dword ptr [esi]
+  0x002da80b  push     ecx
+  0x002da80c  mov      dword ptr [esp], 0
+  0x002da813  mov      ecx, esi
+  0x002da815  push     0x105627fc   ; "specialAttack6Delay"
+  0x002da81a  mov      eax, dword ptr [eax + 0x24]
+  0x002da81d  fstp     dword ptr [esp + 0x1c]
+  0x002da821  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da827  call     eax
+  0x002da829  mov      eax, dword ptr [esi]
+  0x002da82b  push     ecx
+  0x002da82c  mov      ecx, esi
+  0x002da82e  mov      dword ptr [esp], 0
+  0x002da835  push     0x1056283c   ; "specialAttack6Chance"
+  0x002da83a  mov      eax, dword ptr [eax + 0x24]
+  0x002da83d  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da843  fstp     dword ptr [esp + 0x1c]
+  0x002da847  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da84d  call     eax
+  0x002da84f  mov      eax, dword ptr [esi]
+  0x002da851  mov      ecx, esi
+  0x002da853  push     0x104f607b   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002da858  push     0x10562828   ; "specialAttack6Range"
+  0x002da85d  fstp     dword ptr [esp + 0x1c]
+  0x002da861  call     dword ptr [eax + 0x14]
+  0x002da864  push     eax
+  0x002da865  lea      ecx, [esp + 0x28]
+  0x002da869  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da86e  lea      ecx, [esp + 0x24]
+  0x002da872  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da877  lea      ecx, [esp + 0x24]
+  0x002da87b  mov      esi, eax
+  0x002da87d  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da882  mov      eax, dword ptr [esp + 0x10]
+  0x002da886  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da88c  mov      dword ptr [esp + 0x24], eax
+  0x002da890  mov      dword ptr [esp + 0x28], ebx
+  0x002da894  mov      dword ptr [esp + 0x2c], edi
+  0x002da898  mov      dword ptr [esp + 0x30], 0
+  0x002da8a0  mov      dword ptr [esp + 0x34], 0
+  0x002da8a8  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da8ad  mov      edi, dword ptr [ebp + 0xc]
+  0x002da8b0  mov      ecx, edi
+  0x002da8b2  mov      dword ptr [esp + 0x38], eax
+  0x002da8b6  lea      eax, [esp + 0x24]
+  0x002da8ba  push     eax
+  0x002da8bb  push     5
+  0x002da8bd  mov      dword ptr [esp + 0x44], esi
+  0x002da8c1  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da8c6  mov      esi, dword ptr [ebp + 8]
+  0x002da8c9  mov      eax, dword ptr [esi]
+  0x002da8cb  mov      ecx, esi
+  0x002da8cd  push     0x104f607a   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002da8d2  push     0x10562880   ; "specialAttack7SkillName"
+  0x002da8d7  call     dword ptr [eax + 0x14]
+  0x002da8da  test     eax, eax
+  0x002da8dc  je       0x102da9e3
+  0x002da8e2  cmp      byte ptr [eax], 0
+  0x002da8e5  mov      ebx, dword ptr [esp + 0xc]
+  0x002da8e9  je       0x102da9e7
+  0x002da8ef  push     eax
+  0x002da8f0  lea      ecx, [ebx + 0x600]
+  0x002da8f6  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002da8fb  mov      dword ptr [esp + 0x10], eax
+  0x002da8ff  test     eax, eax
+  0x002da901  je       0x102da9e7
+  0x002da907  mov      edx, dword ptr [esi]
+  0x002da909  push     ecx
+  0x002da90a  mov      dword ptr [esp], 0
+  0x002da911  mov      ecx, esi
+  0x002da913  push     0x10562898   ; "specialAttack7Timeout"
+  0x002da918  mov      edx, dword ptr [edx + 0x24]
+  0x002da91b  call     edx
+  0x002da91d  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da923  mov      eax, dword ptr [esi]
+  0x002da925  push     ecx
+  0x002da926  mov      dword ptr [esp], 0
+  0x002da92d  mov      ecx, esi
+  0x002da92f  push     0x10562854   ; "specialAttack7Delay"
+  0x002da934  mov      eax, dword ptr [eax + 0x24]
+  0x002da937  fstp     dword ptr [esp + 0x1c]
+  0x002da93b  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002da941  call     eax
+  0x002da943  mov      eax, dword ptr [esi]
+  0x002da945  push     ecx
+  0x002da946  mov      ecx, esi
+  0x002da948  mov      dword ptr [esp], 0
+  0x002da94f  push     0x10562868   ; "specialAttack7Chance"
+  0x002da954  mov      eax, dword ptr [eax + 0x24]
+  0x002da957  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002da95d  fstp     dword ptr [esp + 0x1c]
+  0x002da961  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002da967  call     eax
+  0x002da969  mov      eax, dword ptr [esi]
+  0x002da96b  mov      ecx, esi
+  0x002da96d  push     0x104f6097   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002da972  push     0x105628c8   ; "specialAttack7Range"
+  0x002da977  fstp     dword ptr [esp + 0x1c]
+  0x002da97b  call     dword ptr [eax + 0x14]
+  0x002da97e  push     eax
+  0x002da97f  lea      ecx, [esp + 0x28]
+  0x002da983  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002da988  lea      ecx, [esp + 0x24]
+  0x002da98c  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002da991  lea      ecx, [esp + 0x24]
+  0x002da995  mov      esi, eax
+  0x002da997  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002da99c  mov      eax, dword ptr [esp + 0x10]
+  0x002da9a0  movss    xmm0, dword ptr [esp + 0x14]
+  0x002da9a6  mov      dword ptr [esp + 0x24], eax
+  0x002da9aa  mov      dword ptr [esp + 0x28], ebx
+  0x002da9ae  mov      dword ptr [esp + 0x2c], edi
+  0x002da9b2  mov      dword ptr [esp + 0x30], 0
+  0x002da9ba  mov      dword ptr [esp + 0x34], 0
+  0x002da9c2  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002da9c7  mov      edi, dword ptr [ebp + 0xc]
+  0x002da9ca  mov      ecx, edi
+  0x002da9cc  mov      dword ptr [esp + 0x38], eax
+  0x002da9d0  lea      eax, [esp + 0x24]
+  0x002da9d4  push     eax
+  0x002da9d5  push     6
+  0x002da9d7  mov      dword ptr [esp + 0x44], esi
+  0x002da9db  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002da9e0  mov      esi, dword ptr [ebp + 8]
+  0x002da9e3  mov      ebx, dword ptr [esp + 0xc]
+  0x002da9e7  mov      eax, dword ptr [esi]
+  0x002da9e9  mov      ecx, esi
+  0x002da9eb  push     0x104f6096   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002da9f0  push     0x105628b0   ; "specialAttack8SkillName"
+  0x002da9f5  call     dword ptr [eax + 0x14]
+  0x002da9f8  test     eax, eax
+  0x002da9fa  je       0x102daafd
+  0x002daa00  cmp      byte ptr [eax], 0
+  0x002daa03  je       0x102daafd
+  0x002daa09  push     eax
+  0x002daa0a  lea      ecx, [ebx + 0x600]
+  0x002daa10  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002daa15  mov      dword ptr [esp + 0x10], eax
+  0x002daa19  test     eax, eax
+  0x002daa1b  je       0x102daafd
+  0x002daa21  mov      edx, dword ptr [esi]
+  0x002daa23  push     ecx
+  0x002daa24  mov      dword ptr [esp], 0
+  0x002daa2b  mov      ecx, esi
+  0x002daa2d  push     0x105628f4   ; "specialAttack8Timeout"
+  0x002daa32  mov      edx, dword ptr [edx + 0x24]
+  0x002daa35  call     edx
+  0x002daa37  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002daa3d  mov      eax, dword ptr [esi]
+  0x002daa3f  push     ecx
+  0x002daa40  mov      dword ptr [esp], 0
+  0x002daa47  mov      ecx, esi
+  0x002daa49  push     0x1056290c   ; "specialAttack8Delay"
+  0x002daa4e  mov      eax, dword ptr [eax + 0x24]
+  0x002daa51  fstp     dword ptr [esp + 0x1c]
+  0x002daa55  cvttss2si ebx, dword ptr [esp + 0x1c]
+  0x002daa5b  call     eax
+  0x002daa5d  mov      eax, dword ptr [esi]
+  0x002daa5f  push     ecx
+  0x002daa60  mov      ecx, esi
+  0x002daa62  mov      dword ptr [esp], 0
+  0x002daa69  push     0x105628dc   ; "specialAttack8Chance"
+  0x002daa6e  mov      eax, dword ptr [eax + 0x24]
+  0x002daa71  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002daa77  fstp     dword ptr [esp + 0x1c]
+  0x002daa7b  cvttss2si edi, dword ptr [esp + 0x1c]
+  0x002daa81  call     eax
+  0x002daa83  mov      eax, dword ptr [esi]
+  0x002daa85  mov      ecx, esi
+  0x002daa87  push     0x104f60b5   ; f32=8 i32=1090519040 f64=4.82407e+228
+  0x002daa8c  push     0x10562934   ; "specialAttack8Range"
+  0x002daa91  fstp     dword ptr [esp + 0x1c]
+  0x002daa95  call     dword ptr [eax + 0x14]
+  0x002daa98  push     eax
+  0x002daa99  lea      ecx, [esp + 0x28]
+  0x002daa9d  call     0x1000c330   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x002daaa2  lea      ecx, [esp + 0x24]
+  0x002daaa6  call     0x100fdc50   ; -> ?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10
+  0x002daaab  lea      ecx, [esp + 0x24]
+  0x002daaaf  mov      esi, eax
+  0x002daab1  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x002daab6  mov      eax, dword ptr [esp + 0x10]
+  0x002daaba  movss    xmm0, dword ptr [esp + 0x14]
+  0x002daac0  mov      dword ptr [esp + 0x24], eax
+  0x002daac4  mov      dword ptr [esp + 0x28], ebx
+  0x002daac8  mov      dword ptr [esp + 0x2c], edi
+  0x002daacc  mov      dword ptr [esp + 0x30], 0
+  0x002daad4  mov      dword ptr [esp + 0x34], 0
+  0x002daadc  call     0x104c0f70   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38050
+  0x002daae1  mov      edi, dword ptr [ebp + 0xc]
+  0x002daae4  mov      ecx, edi
+  0x002daae6  mov      dword ptr [esp + 0x38], eax
+  0x002daaea  lea      eax, [esp + 0x24]
+  0x002daaee  push     eax
+  0x002daaef  push     7
+  0x002daaf1  mov      dword ptr [esp + 0x44], esi
+  0x002daaf5  call     0x100f80a0   ; -> ?SetSpecialAttackSkill@ControllerMonster@GAME@@QAEXIABUSpecialAttackSkill@2@@Z
+  0x002daafa  mov      esi, dword ptr [ebp + 8]
+  0x002daafd  mov      eax, dword ptr [esi]
+  0x002daaff  mov      ecx, esi
+  0x002dab01  push     0x104f60b7   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dab06  push     0x10562920   ; "buffSelfSkillName"
+  0x002dab0b  call     dword ptr [eax + 0x14]
+  0x002dab0e  mov      ebx, dword ptr [esp + 0xc]
+  0x002dab12  test     eax, eax
+  0x002dab14  je       0x102dab31
+  0x002dab16  cmp      byte ptr [eax], 0
+  0x002dab19  je       0x102dab31
+  0x002dab1b  push     eax
+  0x002dab1c  lea      ecx, [ebx + 0x600]
+  0x002dab22  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dab27  test     eax, eax
+  0x002dab29  je       0x102dab31
+  0x002dab2b  mov      dword ptr [edi + 0x3d4], eax
+  0x002dab31  mov      eax, dword ptr [esi]
+  0x002dab33  mov      ecx, esi
+  0x002dab35  push     0x104f60b6   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002dab3a  push     0x1056295c   ; "buffSelf2SkillName"
+  0x002dab3f  call     dword ptr [eax + 0x14]
+  0x002dab42  test     eax, eax
+  0x002dab44  je       0x102dab61
+  0x002dab46  cmp      byte ptr [eax], 0
+  0x002dab49  je       0x102dab61
+  0x002dab4b  push     eax
+  0x002dab4c  lea      ecx, [ebx + 0x600]
+  0x002dab52  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dab57  test     eax, eax
+  0x002dab59  je       0x102dab61
+  0x002dab5b  mov      dword ptr [edi + 0x3d8], eax
+  0x002dab61  mov      eax, dword ptr [esi]
+  0x002dab63  mov      ecx, esi
+  0x002dab65  push     0x104f60e1   ; f32=8 i32=1090519040 f64=4.82407e+228
+  0x002dab6a  push     0x10562948   ; "buffSelf3SkillName"
+  0x002dab6f  call     dword ptr [eax + 0x14]
+  0x002dab72  test     eax, eax
+  0x002dab74  je       0x102dab91
+  0x002dab76  cmp      byte ptr [eax], 0
+  0x002dab79  je       0x102dab91
+  0x002dab7b  push     eax
+  0x002dab7c  lea      ecx, [ebx + 0x600]
+  0x002dab82  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dab87  test     eax, eax
+  0x002dab89  je       0x102dab91
+  0x002dab8b  mov      dword ptr [edi + 0x3dc], eax
+  0x002dab91  mov      eax, dword ptr [esi]
+  0x002dab93  mov      ecx, esi
+  0x002dab95  push     0x104f60cb   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dab9a  push     0x10562984   ; "buffOtherSkillName"
+  0x002dab9f  call     dword ptr [eax + 0x14]
+  0x002daba2  test     eax, eax
+  0x002daba4  je       0x102dabc1
+  0x002daba6  cmp      byte ptr [eax], 0
+  0x002daba9  je       0x102dabc1
+  0x002dabab  push     eax
+  0x002dabac  lea      ecx, [ebx + 0x600]
+  0x002dabb2  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dabb7  test     eax, eax
+  0x002dabb9  je       0x102dabc1
+  0x002dabbb  mov      dword ptr [edi + 0x3e0], eax
+  0x002dabc1  mov      eax, dword ptr [esi]
+  0x002dabc3  mov      ecx, esi
+  0x002dabc5  push     0x104f60e3   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dabca  push     0x10562970   ; "buffOther2SkillName"
+  0x002dabcf  call     dword ptr [eax + 0x14]
+  0x002dabd2  test     eax, eax
+  0x002dabd4  je       0x102dabf1
+  0x002dabd6  cmp      byte ptr [eax], 0
+  0x002dabd9  je       0x102dabf1
+  0x002dabdb  push     eax
+  0x002dabdc  lea      ecx, [ebx + 0x600]
+  0x002dabe2  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dabe7  test     eax, eax
+  0x002dabe9  je       0x102dabf1
+  0x002dabeb  mov      dword ptr [edi + 0x3e4], eax
+  0x002dabf1  mov      eax, dword ptr [esi]
+  0x002dabf3  mov      ecx, esi
+  0x002dabf5  push     0x104f60e2   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002dabfa  push     0x105629b8   ; "buffOther3SkillName"
+  0x002dabff  call     dword ptr [eax + 0x14]
+  0x002dac02  test     eax, eax
+  0x002dac04  je       0x102dac21
+  0x002dac06  cmp      byte ptr [eax], 0
+  0x002dac09  je       0x102dac21
+  0x002dac0b  push     eax
+  0x002dac0c  lea      ecx, [ebx + 0x600]
+  0x002dac12  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dac17  test     eax, eax
+  0x002dac19  je       0x102dac21
+  0x002dac1b  mov      dword ptr [edi + 0x3e8], eax
+  0x002dac21  mov      eax, dword ptr [esi]
+  0x002dac23  mov      ecx, esi
+  0x002dac25  push     0x104f60f7   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dac2a  push     0x10562998   ; "healSkillName"
+  0x002dac2f  call     dword ptr [eax + 0x14]
+  0x002dac32  test     eax, eax
+  0x002dac34  je       0x102dac85
+  0x002dac36  cmp      byte ptr [eax], 0
+  0x002dac39  je       0x102dac85
+  0x002dac3b  push     eax
+  0x002dac3c  lea      ecx, [ebx + 0x600]
+  0x002dac42  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dac47  mov      dword ptr [esp + 0x10], eax
+  0x002dac4b  test     eax, eax
+  0x002dac4d  je       0x102dac85
+  0x002dac4f  mov      edx, dword ptr [esi]
+  0x002dac51  push     ecx
+  0x002dac52  mov      dword ptr [esp], 0x40400000
+  0x002dac59  mov      ecx, esi
+  0x002dac5b  push     0x105629a8   ; "healSkillDelay"
+  0x002dac60  mov      edx, dword ptr [edx + 0x24]
+  0x002dac63  call     edx
+  0x002dac65  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002dac6b  mov      ecx, dword ptr [esp + 0x10]
+  0x002dac6f  mov      dword ptr [edi + 0x3c8], ecx
+  0x002dac75  fstp     dword ptr [esp + 0x14]
+  0x002dac79  cvttss2si eax, dword ptr [esp + 0x14]
+  0x002dac7f  mov      dword ptr [edi + 0x3cc], eax
+  0x002dac85  mov      eax, dword ptr [esi]
+  0x002dac87  mov      ecx, esi
+  0x002dac89  push     0x104f6121   ; f32=8 i32=1090519040 f64=4.82407e+228
+  0x002dac8e  push     0x105629dc   ; "berserkSkillName"
+  0x002dac93  call     dword ptr [eax + 0x14]
+  0x002dac96  test     eax, eax
+  0x002dac98  je       0x102dacb5
+  0x002dac9a  cmp      byte ptr [eax], 0
+  0x002dac9d  je       0x102dacb5
+  0x002dac9f  push     eax
+  0x002daca0  lea      ecx, [ebx + 0x600]
+  0x002daca6  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dacab  test     eax, eax
+  0x002dacad  je       0x102dacb5
+  0x002dacaf  mov      dword ptr [edi + 0x3c0], eax
+  0x002dacb5  mov      eax, dword ptr [esi]
+  0x002dacb7  mov      ecx, esi
+  0x002dacb9  push     0x104f610b   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dacbe  push     0x105629cc   ; "dyingSkillName"
+  0x002dacc3  call     dword ptr [eax + 0x14]
+  0x002dacc6  test     eax, eax
+  0x002dacc8  je       0x102dace5
+  0x002dacca  cmp      byte ptr [eax], 0
+  0x002daccd  je       0x102dace5
+  0x002daccf  push     eax
+  0x002dacd0  lea      ecx, [ebx + 0x600]
+  0x002dacd6  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dacdb  test     eax, eax
+  0x002dacdd  je       0x102dace5
+  0x002dacdf  mov      dword ptr [edi + 0x3c4], eax
+  0x002dace5  mov      eax, dword ptr [esi]
+  0x002dace7  mov      ecx, esi
+  0x002dace9  push     0x104f6123   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dacee  push     0x10562a04   ; "initialSkillName"
+  0x002dacf3  call     dword ptr [eax + 0x14]
+  0x002dacf6  test     eax, eax
+  0x002dacf8  je       0x102dad15
+  0x002dacfa  cmp      byte ptr [eax], 0
+  0x002dacfd  je       0x102dad15
+  0x002dacff  push     eax
+  0x002dad00  lea      ecx, [ebx + 0x600]
+  0x002dad06  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dad0b  test     eax, eax
+  0x002dad0d  je       0x102dad15
+  0x002dad0f  mov      dword ptr [edi + 0x4cc], eax
+  0x002dad15  mov      eax, dword ptr [esi]
+  0x002dad17  mov      ecx, esi
+  0x002dad19  push     0x104f6122   ; f32=3.56022e+21 i32=1665204224 f64=9.08367e+223
+  0x002dad1e  push     0x105629f0   ; "initial2SkillName"
+  0x002dad23  call     dword ptr [eax + 0x14]
+  0x002dad26  test     eax, eax
+  0x002dad28  je       0x102dad45
+  0x002dad2a  cmp      byte ptr [eax], 0
+  0x002dad2d  je       0x102dad45
+  0x002dad2f  push     eax
+  0x002dad30  lea      ecx, [ebx + 0x600]
+  0x002dad36  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dad3b  test     eax, eax
+  0x002dad3d  je       0x102dad45
+  0x002dad3f  mov      dword ptr [edi + 0x4d0], eax
+  0x002dad45  mov      eax, dword ptr [esi]
+  0x002dad47  push     ecx
+  0x002dad48  mov      dword ptr [esp], 0
+  0x002dad4f  mov      ecx, esi
+  0x002dad51  push     0x10562a38   ; "shortRangeMin"
+  0x002dad56  mov      eax, dword ptr [eax + 0x24]
+  0x002dad59  call     eax
+  0x002dad5b  mov      eax, dword ptr [esi]
+  0x002dad5d  push     ecx
+  0x002dad5e  mov      dword ptr [esp], 0x40800000
+  0x002dad65  mov      ecx, esi
+  0x002dad67  fstp     dword ptr [esp + 0x18]
+  0x002dad6b  mov      eax, dword ptr [eax + 0x24]
+  0x002dad6e  push     0x10562a48   ; "shortRangeMax"
+  0x002dad73  call     eax
+  0x002dad75  mov      eax, dword ptr [esi]
+  0x002dad77  push     ecx
+  0x002dad78  mov      dword ptr [esp], 0x40800000
+  0x002dad7f  mov      ecx, esi
+  0x002dad81  fstp     dword ptr [esp + 0x14]
+  0x002dad85  mov      eax, dword ptr [eax + 0x24]
+  0x002dad88  push     0x10562a18   ; "mediumRangeMin"
+  0x002dad8d  call     eax
+  0x002dad8f  mov      eax, dword ptr [esi]
+  0x002dad91  push     ecx
+  0x002dad92  mov      dword ptr [esp], 0x41000000
+  0x002dad99  mov      ecx, esi
+  0x002dad9b  fstp     dword ptr [esp + 0x10]
+  0x002dad9f  mov      eax, dword ptr [eax + 0x24]
+  0x002dada2  push     0x10562a28   ; "mediumRangeMax"
+  0x002dada7  call     eax
+  0x002dada9  mov      eax, dword ptr [esi]
+  0x002dadab  push     ecx
+  0x002dadac  mov      dword ptr [esp], 0x41000000
+  0x002dadb3  mov      ecx, esi
+  0x002dadb5  fstp     dword ptr [esp + 0x1c]
+  0x002dadb9  mov      eax, dword ptr [eax + 0x24]
+  0x002dadbc  push     0x10562a6c   ; "longRangeMin"
+  0x002dadc1  call     eax
+  0x002dadc3  mov      eax, dword ptr [esi]
+  0x002dadc5  push     ecx
+  0x002dadc6  mov      dword ptr [esp], 0x41800000
+  0x002dadcd  mov      ecx, esi
+  0x002dadcf  fstp     dword ptr [esp + 0x20]
+  0x002dadd3  mov      eax, dword ptr [eax + 0x24]
+  0x002dadd6  push     0x10562a7c   ; "longRangeMax"
+  0x002daddb  call     eax
+  0x002daddd  movss    xmm0, dword ptr [esp + 0x14]
+  0x002dade3  mov      ecx, esi
+  0x002dade5  movss    dword ptr [edi + 0x550], xmm0
+  0x002daded  movss    xmm0, dword ptr [esp + 0x10]
+  0x002dadf3  movss    dword ptr [edi + 0x554], xmm0
+  0x002dadfb  movss    xmm0, dword ptr [esp + 0xc]
+  0x002dae01  movss    dword ptr [edi + 0x558], xmm0
+  0x002dae09  movss    xmm0, dword ptr [esp + 0x18]
+  0x002dae0f  movss    dword ptr [edi + 0x55c], xmm0
+  0x002dae17  movss    xmm0, dword ptr [esp + 0x1c]
+  0x002dae1d  movss    dword ptr [edi + 0x560], xmm0
+  0x002dae25  fstp     dword ptr [esp + 0x20]
+  0x002dae29  movss    xmm0, dword ptr [esp + 0x20]
+  0x002dae2f  movss    dword ptr [edi + 0x564], xmm0
+  0x002dae37  mov      eax, dword ptr [esi]
+  0x002dae39  push     0x104f6137   ; f32=7.20196e+31 i32=1952661760 f64=1.81597e-152
+  0x002dae3e  push     0x10562a58   ; "chainInitialSkill"
+  0x002dae43  call     dword ptr [eax + 0x14]
+  0x002dae46  test     eax, eax
+  0x002dae48  je       0x102dae65
+  0x002dae4a  cmp      byte ptr [eax], 0
+  0x002dae4d  je       0x102dae65
+  0x002dae4f  push     eax
+  0x002dae50  lea      ecx, [ebx + 0x600]
+  0x002dae56  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dae5b  test     eax, eax
+  0x002dae5d  je       0x102dae65
+  0x002dae5f  mov      dword ptr [edi + 0x544], eax
+  0x002dae65  mov      eax, dword ptr [esi]
+  0x002dae67  mov      ecx, esi
+  0x002dae69  push     0x104f6151   ; f32=8 i32=1090519040 f64=4.82407e+228
+  0x002dae6e  push     0x10562aa8   ; "chainNextSkill"
+  0x002dae73  call     dword ptr [eax + 0x14]
+  0x002dae76  test     eax, eax
+  0x002dae78  je       0x102dae95
+  0x002dae7a  cmp      byte ptr [eax], 0
+  0x002dae7d  je       0x102dae95
+  0x002dae7f  push     eax
+  0x002dae80  lea      ecx, [ebx + 0x600]
+  0x002dae86  call     0x1043d590   ; -> ?FindSkillId@SkillManager@GAME@@QBE?BIPBD@Z
+  0x002dae8b  test     eax, eax
+  0x002dae8d  je       0x102dae95
+  0x002dae8f  mov      dword ptr [edi + 0x548], eax
+  0x002dae95  mov      eax, dword ptr [esi]
+  0x002dae97  mov      ecx, esi
+  0x002dae99  push     0
+  0x002dae9b  push     0x10562a8c   ; "chainBehavior"
+  0x002daea0  call     dword ptr [eax + 0x14]
+  0x002daea3  test     eax, eax
+  0x002daea5  je       0x102daf75
+  0x002daeab  xor      esi, esi
+  0x002daead  mov      edx, 0x10562a9c   ; "UseOnLeader"
+  0x002daeb2  mov      ecx, eax
+  0x002daeb4  mov      bl, byte ptr [ecx]
+  0x002daeb6  cmp      bl, byte ptr [edx]
+  0x002daeb8  jne      0x102daed4
+  0x002daeba  test     bl, bl
+  0x002daebc  je       0x102daed0
+  0x002daebe  mov      bl, byte ptr [ecx + 1]
+  0x002daec1  cmp      bl, byte ptr [edx + 1]
+  0x002daec4  jne      0x102daed4
+  0x002daec6  add      ecx, 2
+  0x002daec9  add      edx, 2
+  0x002daecc  test     bl, bl
+  0x002daece  jne      0x102daeb4
+  0x002daed0  xor      ecx, ecx
+  0x002daed2  jmp      0x102daed9   ; -> ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xcf9
+  0x002daed4  sbb      ecx, ecx
+  0x002daed6  or       ecx, 1
+  0x002daed9  test     ecx, ecx
+  0x002daedb  jne      0x102daef1
+  0x002daedd  mov      esi, 1
+  0x002daee2  mov      dword ptr [edi + 0x54c], esi
+  0x002daee8  pop      edi
+  0x002daee9  pop      esi
+  0x002daeea  pop      ebx
+  0x002daeeb  mov      esp, ebp
+  0x002daeed  pop      ebp
+  0x002daeee  ret      0xc
+  0x002daef1  mov      edx, 0x10562ae8   ; "UseOnSelf"
+  0x002daef6  mov      ecx, eax
+  0x002daef8  mov      bl, byte ptr [ecx]
+  0x002daefa  cmp      bl, byte ptr [edx]
+  0x002daefc  jne      0x102daf18
+  0x002daefe  test     bl, bl
+  0x002daf00  je       0x102daf14
+  0x002daf02  mov      bl, byte ptr [ecx + 1]
+  0x002daf05  cmp      bl, byte ptr [edx + 1]
+  0x002daf08  jne      0x102daf18
+  0x002daf0a  add      ecx, 2
+  0x002daf0d  add      edx, 2
+  0x002daf10  test     bl, bl
+  0x002daf12  jne      0x102daef8
+  0x002daf14  xor      ecx, ecx
+  0x002daf16  jmp      0x102daf1d   ; -> ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xd3d
+  0x002daf18  sbb      ecx, ecx
+  0x002daf1a  or       ecx, 1
+  0x002daf1d  test     ecx, ecx
+  0x002daf1f  jne      0x102daf35
+  0x002daf21  mov      esi, 2
+  0x002daf26  mov      dword ptr [edi + 0x54c], esi
+  0x002daf2c  pop      edi
+  0x002daf2d  pop      esi
+  0x002daf2e  pop      ebx
+  0x002daf2f  mov      esp, ebp
+  0x002daf31  pop      ebp
+  0x002daf32  ret      0xc
+  0x002daf35  mov      ecx, 0x10562af4   ; "UseOnAllies"
+  0x002daf3a  nop      word ptr [eax + eax]
+  0x002daf40  mov      dl, byte ptr [eax]
+  0x002daf42  cmp      dl, byte ptr [ecx]
+  0x002daf44  jne      0x102daf60
+  0x002daf46  test     dl, dl
+  0x002daf48  je       0x102daf5c
+  0x002daf4a  mov      dl, byte ptr [eax + 1]
+  0x002daf4d  cmp      dl, byte ptr [ecx + 1]
+  0x002daf50  jne      0x102daf60
+  0x002daf52  add      eax, 2
+  0x002daf55  add      ecx, 2
+  0x002daf58  test     dl, dl
+  0x002daf5a  jne      0x102daf40
+  0x002daf5c  xor      eax, eax
+  0x002daf5e  jmp      0x102daf65   ; -> ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xd85
+  0x002daf60  sbb      eax, eax
+  0x002daf62  or       eax, 1
+  0x002daf65  test     eax, eax
+  0x002daf67  mov      ecx, 3
+  0x002daf6c  cmove    esi, ecx
+  0x002daf6f  mov      dword ptr [edi + 0x54c], esi
+  0x002daf75  pop      edi
+  0x002daf76  pop      esi
+  0x002daf77  pop      ebx
+  0x002daf78  mov      esp, ebp
+  0x002daf7a  pop      ebp
+  0x002daf7b  ret      0xc
+  0x002daf7e  int3     
+  0x002daf7f  int3     

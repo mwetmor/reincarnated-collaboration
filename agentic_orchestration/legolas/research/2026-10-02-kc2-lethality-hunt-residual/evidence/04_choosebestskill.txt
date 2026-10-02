@@ -1,0 +1,213 @@
+=== ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z ===
+  0x000f83d0  push     ebp
+  0x000f83d1  mov      ebp, esp
+  0x000f83d3  sub      esp, 0x10
+  0x000f83d6  push     edi
+  0x000f83d7  mov      edi, ecx
+  0x000f83d9  cmp      byte ptr [edi + 0x3b4], 0
+  0x000f83e0  jne      0x100f83eb
+  0x000f83e2  xor      eax, eax
+  0x000f83e4  pop      edi
+  0x000f83e5  mov      esp, ebp
+  0x000f83e7  pop      ebp
+  0x000f83e8  ret      8
+  0x000f83eb  push     dword ptr [ebp + 0xc]
+  0x000f83ee  mov      eax, dword ptr [edi]
+  0x000f83f0  push     dword ptr [ebp + 8]
+  0x000f83f3  call     dword ptr [eax + 0x124]
+  0x000f83f9  mov      dword ptr [ebp - 0x10], eax
+  0x000f83fc  test     eax, eax
+  0x000f83fe  jne      0x100f864e
+  0x000f8404  push     ebx
+  0x000f8405  mov      ebx, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f840b  push     esi
+  0x000f840c  push     dword ptr [edi + 0x24]
+  0x000f840f  call     ebx
+  0x000f8411  mov      ecx, eax
+  0x000f8413  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8418  mov      esi, dword ptr [eax + 0x86c]
+  0x000f841e  add      eax, 0x600
+  0x000f8423  mov      dword ptr [ebp - 0xc], eax
+  0x000f8426  xor      eax, eax
+  0x000f8428  mov      dword ptr [ebp - 8], esi
+  0x000f842b  lea      esi, [edi + 0x3fc]
+  0x000f8431  mov      dword ptr [ebp - 4], 0
+  0x000f8438  nop      dword ptr [eax + eax]
+  0x000f8440  cmp      dword ptr [esi - 0x10], 0
+  0x000f8444  je       0x100f84e8
+  0x000f844a  cmp      dword ptr [esi - 4], 0
+  0x000f844e  jg       0x100f84e8
+  0x000f8454  cmp      dword ptr [esi], 0
+  0x000f8457  jg       0x100f84e8
+  0x000f845d  call     dword ptr [0x104e7518]   ; f32=1.1741e-38 i32=8378668 f64=4.13961e-317
+  0x000f8463  cdq      
+  0x000f8464  mov      ecx, 0x64
+  0x000f8469  idiv     ecx
+  0x000f846b  cmp      edx, dword ptr [esi + 4]
+  0x000f846e  jae      0x100f84e5
+  0x000f8470  push     dword ptr [esi - 0x10]
+  0x000f8473  call     ebx
+  0x000f8475  mov      ecx, eax
+  0x000f8477  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000f847c  mov      ebx, eax
+  0x000f847e  test     ebx, ebx
+  0x000f8480  je       0x100f84df
+  0x000f8482  mov      edx, dword ptr [ebx]
+  0x000f8484  mov      ecx, ebx
+  0x000f8486  mov      edx, dword ptr [edx + 0xf4]
+  0x000f848c  call     edx
+  0x000f848e  test     al, al
+  0x000f8490  je       0x100f84df
+  0x000f8492  push     dword ptr [esi + 8]
+  0x000f8495  mov      ecx, edi
+  0x000f8497  push     dword ptr [ebp + 8]
+  0x000f849a  call     0x100f8660   ; -> ?IsSkillInProperRange@ControllerMonster@GAME@@QBE_NIW4SkillUseRange@@@Z
+  0x000f849f  test     al, al
+  0x000f84a1  je       0x100f84df
+  0x000f84a3  mov      ecx, dword ptr [ebp - 8]
+  0x000f84a6  cmp      dword ptr [ebx + 0x140], ecx
+  0x000f84ac  je       0x100f84bf
+  0x000f84ae  test     ecx, ecx
+  0x000f84b0  je       0x100f84df
+  0x000f84b2  mov      ecx, dword ptr [ebp - 0xc]
+  0x000f84b5  push     ebx
+  0x000f84b6  call     0x10447c60   ; -> ?IsGlobalSkillTypeAndAllowed@SkillManager@GAME@@QBE_NPBVSkill@2@@Z
+  0x000f84bb  test     al, al
+  0x000f84bd  je       0x100f84df
+  0x000f84bf  cmp      byte ptr [ebp + 0xc], 0
+  0x000f84c3  je       0x100f8525
+  0x000f84c5  mov      ecx, edi
+  0x000f84c7  call     0x100e88d0   ; -> ?GetExecutingState@ControllerAI@GAME@@IBEPAVControllerAIState@2@XZ
+  0x000f84cc  push     dword ptr [esi - 0x10]
+  0x000f84cf  mov      ecx, eax
+  0x000f84d1  push     dword ptr [ebp + 8]
+  0x000f84d4  mov      edx, dword ptr [eax]
+  0x000f84d6  mov      eax, dword ptr [edx + 8]
+  0x000f84d9  call     eax
+  0x000f84db  test     al, al
+  0x000f84dd  jne      0x100f8525
+  0x000f84df  mov      ebx, dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f84e5  mov      eax, dword ptr [ebp - 4]
+  0x000f84e8  inc      eax
+  0x000f84e9  add      esi, 0x1c
+  0x000f84ec  mov      dword ptr [ebp - 4], eax
+  0x000f84ef  cmp      eax, 8
+  0x000f84f2  jl       0x100f8440
+  0x000f84f8  mov      ebx, dword ptr [ebp - 0x10]
+  0x000f84fb  mov      edx, dword ptr [edi + 0x3bc]
+  0x000f8501  test     edx, edx
+  0x000f8503  je       0x100f859a
+  0x000f8509  cmp      byte ptr [ebp + 0xc], 0
+  0x000f850d  je       0x100f8557
+  0x000f850f  cmp      dword ptr [edi + 0x214], 0
+  0x000f8516  je       0x100f8542
+  0x000f8518  mov      eax, dword ptr [edi + 0x210]
+  0x000f851e  mov      eax, dword ptr [eax]
+  0x000f8520  mov      ecx, dword ptr [eax + 8]
+  0x000f8523  jmp      0x100f8548   ; -> ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z+0x178
+  0x000f8525  mov      ecx, dword ptr [ebp - 4]
+  0x000f8528  lea      eax, [ecx*8]
+  0x000f852f  sub      eax, ecx
+  0x000f8531  mov      ebx, dword ptr [edi + eax*4 + 0x3ec]
+  0x000f8538  test     ebx, ebx
+  0x000f853a  jne      0x100f864a
+  0x000f8540  jmp      0x100f84fb   ; -> ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z+0x12b
+  0x000f8542  mov      ecx, dword ptr [edi + 0x1e4]
+  0x000f8548  mov      eax, dword ptr [ecx]
+  0x000f854a  push     edx
+  0x000f854b  push     dword ptr [ebp + 8]
+  0x000f854e  mov      eax, dword ptr [eax + 8]
+  0x000f8551  call     eax
+  0x000f8553  test     al, al
+  0x000f8555  je       0x100f859a
+  0x000f8557  push     dword ptr [edi + 0x3bc]
+  0x000f855d  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f8563  mov      ecx, eax
+  0x000f8565  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000f856a  mov      esi, dword ptr [ebp - 8]
+  0x000f856d  test     eax, eax
+  0x000f856f  je       0x100f859d
+  0x000f8571  cmp      dword ptr [eax + 0x140], esi
+  0x000f8577  je       0x100f858a
+  0x000f8579  test     esi, esi
+  0x000f857b  je       0x100f859d
+  0x000f857d  mov      ecx, dword ptr [ebp - 0xc]
+  0x000f8580  push     eax
+  0x000f8581  call     0x10447c60   ; -> ?IsGlobalSkillTypeAndAllowed@SkillManager@GAME@@QBE_NPBVSkill@2@@Z
+  0x000f8586  test     al, al
+  0x000f8588  je       0x100f859d
+  0x000f858a  mov      ebx, dword ptr [edi + 0x3bc]
+  0x000f8590  test     ebx, ebx
+  0x000f8592  jne      0x100f864a
+  0x000f8598  jmp      0x100f859d   ; -> ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z+0x1cd
+  0x000f859a  mov      esi, dword ptr [ebp - 8]
+  0x000f859d  cmp      byte ptr [ebp + 0xc], 0
+  0x000f85a1  je       0x100f85d3
+  0x000f85a3  cmp      dword ptr [edi + 0x214], 0
+  0x000f85aa  je       0x100f85b9
+  0x000f85ac  mov      eax, dword ptr [edi + 0x210]
+  0x000f85b2  mov      eax, dword ptr [eax]
+  0x000f85b4  mov      ecx, dword ptr [eax + 8]
+  0x000f85b7  jmp      0x100f85bf   ; -> ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z+0x1ef
+  0x000f85b9  mov      ecx, dword ptr [edi + 0x1e4]
+  0x000f85bf  mov      eax, dword ptr [ecx]
+  0x000f85c1  push     dword ptr [edi + 0x3b8]
+  0x000f85c7  push     dword ptr [ebp + 8]
+  0x000f85ca  mov      eax, dword ptr [eax + 8]
+  0x000f85cd  call     eax
+  0x000f85cf  test     al, al
+  0x000f85d1  je       0x100f860d
+  0x000f85d3  push     dword ptr [edi + 0x3b8]
+  0x000f85d9  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f85df  mov      ecx, eax
+  0x000f85e1  call     0x1000d4a0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000f85e6  test     eax, eax
+  0x000f85e8  je       0x100f860d
+  0x000f85ea  cmp      dword ptr [eax + 0x140], esi
+  0x000f85f0  je       0x100f8603
+  0x000f85f2  test     esi, esi
+  0x000f85f4  je       0x100f860d
+  0x000f85f6  mov      ecx, dword ptr [ebp - 0xc]
+  0x000f85f9  push     eax
+  0x000f85fa  call     0x10447c60   ; -> ?IsGlobalSkillTypeAndAllowed@SkillManager@GAME@@QBE_NPBVSkill@2@@Z
+  0x000f85ff  test     al, al
+  0x000f8601  je       0x100f860d
+  0x000f8603  mov      ebx, dword ptr [edi + 0x3b8]
+  0x000f8609  test     ebx, ebx
+  0x000f860b  jne      0x100f864a
+  0x000f860d  cmp      byte ptr [ebp + 0xc], 0
+  0x000f8611  jne      0x100f864a
+  0x000f8613  push     dword ptr [edi + 0x24]
+  0x000f8616  call     dword ptr [0x104e604c]   ; f32=1.16413e-38 i32=8307502 f64=2.73804e-306
+  0x000f861c  mov      ecx, eax
+  0x000f861e  call     0x1000b070   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8623  mov      ecx, dword ptr [0x104e6028]   ; f32=1.16404e-38 i32=8306902 f64=2.73717e-306
+  0x000f8629  mov      ecx, dword ptr [ecx]
+  0x000f862b  mov      esi, dword ptr [ecx]
+  0x000f862d  mov      ecx, eax
+  0x000f862f  call     dword ptr [0x104e6290]   ; f32=1.16525e-38 i32=8315492 f64=2.74885e-306
+  0x000f8635  push     eax
+  0x000f8636  mov      eax, dword ptr [0x104e6028]   ; f32=1.16404e-38 i32=8306902 f64=2.73717e-306
+  0x000f863b  push     0x1052d148   ; "ControllerMonster::ChooseBestSkill picked an invalid skill for %s"
+  0x000f8640  push     2
+  0x000f8642  push     dword ptr [eax]
+  0x000f8644  call     dword ptr [esi + 0xc]
+  0x000f8647  add      esp, 0x10
+  0x000f864a  pop      esi
+  0x000f864b  mov      eax, ebx
+  0x000f864d  pop      ebx
+  0x000f864e  pop      edi
+  0x000f864f  mov      esp, ebp
+  0x000f8651  pop      ebp
+  0x000f8652  ret      8
+  0x000f8655  int3     
+  0x000f8656  int3     
+  0x000f8657  int3     
+  0x000f8658  int3     
+  0x000f8659  int3     
+  0x000f865a  int3     
+  0x000f865b  int3     
+  0x000f865c  int3     
+  0x000f865d  int3     
+  0x000f865e  int3     
+  0x000f865f  int3     

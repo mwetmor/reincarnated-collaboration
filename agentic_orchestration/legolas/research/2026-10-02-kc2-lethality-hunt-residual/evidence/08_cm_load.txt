@@ -1,0 +1,1117 @@
+=== ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z ===
+  0x000f7150  push     ebp
+  0x000f7151  mov      ebp, esp
+  0x000f7153  push     -1
+  0x000f7155  push     0x104c91f8
+  0x000f715a  mov      eax, dword ptr fs:[0]
+  0x000f7160  push     eax
+  0x000f7161  mov      dword ptr fs:[0], esp
+  0x000f7168  sub      esp, 0x3c
+  0x000f716b  push     ebx
+  0x000f716c  push     esi
+  0x000f716d  mov      esi, dword ptr [ebp + 8]
+  0x000f7170  push     edi
+  0x000f7171  push     ecx
+  0x000f7172  mov      edi, ecx
+  0x000f7174  mov      dword ptr [esp], 0x41700000
+  0x000f717b  mov      eax, dword ptr [esi]
+  0x000f717d  mov      ecx, esi
+  0x000f717f  push     0x10529e68   ; "ViewDistance"
+  0x000f7184  mov      eax, dword ptr [eax + 0x24]
+  0x000f7187  call     eax
+  0x000f7189  fstp     dword ptr [edi + 0x21c]
+  0x000f718f  mov      eax, dword ptr [esi]
+  0x000f7191  push     ecx
+  0x000f7192  mov      dword ptr [esp], 0
+  0x000f7199  mov      ecx, esi
+  0x000f719b  push     0x10529e54   ; "pathingViewDistance"
+  0x000f71a0  mov      eax, dword ptr [eax + 0x24]
+  0x000f71a3  call     eax
+  0x000f71a5  fstp     dword ptr [edi + 0x220]
+  0x000f71ab  mov      dword ptr [ebp - 0x1c], 0xf
+  0x000f71b2  mov      dword ptr [ebp - 0x20], 0
+  0x000f71b9  mov      byte ptr [ebp - 0x30], 0
+  0x000f71bd  mov      dword ptr [ebp - 4], 0
+  0x000f71c4  mov      eax, dword ptr [esi]
+  0x000f71c6  push     ecx
+  0x000f71c7  mov      dword ptr [esp], 0
+  0x000f71ce  mov      ecx, esi
+  0x000f71d0  push     0x1052c9bc   ; "minSwingPause"
+  0x000f71d5  mov      eax, dword ptr [eax + 0x24]
+  0x000f71d8  call     eax
+  0x000f71da  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x000f71e0  push     ecx
+  0x000f71e1  mov      dword ptr [esp], 0
+  0x000f71e8  mov      ecx, esi
+  0x000f71ea  push     0x1052c9e0   ; "maxSwingPause"
+  0x000f71ef  fstp     dword ptr [ebp + 8]
+  0x000f71f2  cvttss2si eax, dword ptr [ebp + 8]
+  0x000f71f7  mov      dword ptr [edi + 0x2f0], eax
+  0x000f71fd  mov      eax, dword ptr [esi]
+  0x000f71ff  mov      eax, dword ptr [eax + 0x24]
+  0x000f7202  call     eax
+  0x000f7204  fmul     dword ptr [0x105f6b18]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x000f720a  fstp     dword ptr [ebp + 8]
+  0x000f720d  cvttss2si edx, dword ptr [ebp + 8]
+  0x000f7212  mov      dword ptr [edi + 0x2f4], edx
+  0x000f7218  mov      ecx, dword ptr [0x108090a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x000f721e  push     edx
+  0x000f721f  push     dword ptr [edi + 0x2f0]
+  0x000f7225  lea      ecx, [ecx + 0xc04]
+  0x000f722b  call     dword ptr [0x104e654c]   ; f32=1.16652e-38 i32=8324598 f64=2.76123e-306
+  0x000f7231  mov      dword ptr [edi + 0x2f8], eax
+  0x000f7237  mov      ecx, esi
+  0x000f7239  mov      eax, dword ptr [esi]
+  0x000f723b  push     0xbb8
+  0x000f7240  push     0x1052c9d4   ; "FleeTime"
+  0x000f7245  call     dword ptr [eax + 0x1c]
+  0x000f7248  mov      dword ptr [edi + 0x310], eax
+  0x000f724e  mov      ecx, esi
+  0x000f7250  mov      eax, dword ptr [esi]
+  0x000f7252  push     2
+  0x000f7254  push     0x1052ca00   ; "maxFleeCount"
+  0x000f7259  call     dword ptr [eax + 0x1c]
+  0x000f725c  mov      dword ptr [edi + 0x30c], eax
+  0x000f7262  mov      eax, dword ptr [esi]
+  0x000f7264  push     ecx
+  0x000f7265  mov      dword ptr [esp], 0x40a00000
+  0x000f726c  mov      ecx, esi
+  0x000f726e  push     0x1052c9f0   ; "fleeDistance"
+  0x000f7273  mov      eax, dword ptr [eax + 0x24]
+  0x000f7276  call     eax
+  0x000f7278  fstp     dword ptr [edi + 0x318]
+  0x000f727e  mov      eax, dword ptr [esi]
+  0x000f7280  mov      ecx, esi
+  0x000f7282  push     0
+  0x000f7284  push     0x1052ca28   ; "ClearAngerWhenFleeing"
+  0x000f7289  mov      eax, dword ptr [eax + 0x2c]
+  0x000f728c  call     eax
+  0x000f728e  mov      byte ptr [edi + 0x31c], al
+  0x000f7294  mov      eax, dword ptr [esi]
+  0x000f7296  mov      ecx, esi
+  0x000f7298  push     0
+  0x000f729a  push     0x1052ca10   ; "ResetOriginAfterFleeing"
+  0x000f729f  mov      eax, dword ptr [eax + 0x2c]
+  0x000f72a2  call     eax
+  0x000f72a4  mov      byte ptr [edi + 0x3a4], al
+  0x000f72aa  mov      ecx, esi
+  0x000f72ac  mov      eax, dword ptr [esi]
+  0x000f72ae  push     0x1052ca50   ; "NeverFlee"
+  0x000f72b3  push     0x1052ca40   ; "FleeBehavior"
+  0x000f72b8  call     dword ptr [eax + 0x14]
+  0x000f72bb  mov      edx, eax
+  0x000f72bd  cmp      byte ptr [edx], 0
+  0x000f72c0  jne      0x100f72c6
+  0x000f72c2  xor      ecx, ecx
+  0x000f72c4  jmp      0x100f72d9   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x189
+  0x000f72c6  mov      ecx, edx
+  0x000f72c8  lea      ebx, [ecx + 1]
+  0x000f72cb  nop      dword ptr [eax + eax]
+  0x000f72d0  mov      al, byte ptr [ecx]
+  0x000f72d2  inc      ecx
+  0x000f72d3  test     al, al
+  0x000f72d5  jne      0x100f72d0
+  0x000f72d7  sub      ecx, ebx
+  0x000f72d9  push     ecx
+  0x000f72da  push     edx
+  0x000f72db  lea      ecx, [ebp - 0x30]
+  0x000f72de  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f72e3  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f72e7  lea      ecx, [ebp - 0x30]
+  0x000f72ea  mov      ebx, dword ptr [ebp - 0x20]
+  0x000f72ed  mov      eax, 9
+  0x000f72f2  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f72f6  mov      edx, 0x1052ca6c   ; "NeverFlee"
+  0x000f72fb  cmp      ebx, eax
+  0x000f72fd  cmovb    eax, ebx
+  0x000f7300  push     eax
+  0x000f7301  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f7306  add      esp, 4
+  0x000f7309  test     eax, eax
+  0x000f730b  jne      0x100f731c
+  0x000f730d  cmp      ebx, 9
+  0x000f7310  jb       0x100f731c
+  0x000f7312  ja       0x100f731c
+  0x000f7314  mov      dword ptr [edi + 0x304], eax
+  0x000f731a  jmp      0x100f7371   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221
+  0x000f731c  mov      edx, 0x1052ca5c   ; "FleeOnLowHealth"
+  0x000f7321  lea      ecx, [ebp - 0x30]
+  0x000f7324  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7329  test     al, al
+  0x000f732b  je       0x100f7339
+  0x000f732d  mov      dword ptr [edi + 0x304], 1
+  0x000f7337  jmp      0x100f7371   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221
+  0x000f7339  mov      edx, 0x1052ca8c   ; "FleeOnDamage"
+  0x000f733e  lea      ecx, [ebp - 0x30]
+  0x000f7341  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7346  test     al, al
+  0x000f7348  je       0x100f7356
+  0x000f734a  mov      dword ptr [edi + 0x304], 2
+  0x000f7354  jmp      0x100f7371   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221
+  0x000f7356  mov      edx, 0x1052ca78   ; "FleeWhenEnemyClose"
+  0x000f735b  lea      ecx, [ebp - 0x30]
+  0x000f735e  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7363  test     al, al
+  0x000f7365  je       0x100f7371
+  0x000f7367  mov      dword ptr [edi + 0x304], 3
+  0x000f7371  mov      eax, dword ptr [esi]
+  0x000f7373  mov      ecx, esi
+  0x000f7375  push     0x1052caa8   ; "AwayFromEnemy"
+  0x000f737a  push     0x1052ca9c   ; "FleeTarget"
+  0x000f737f  call     dword ptr [eax + 0x14]
+  0x000f7382  mov      edx, eax
+  0x000f7384  cmp      byte ptr [edx], 0
+  0x000f7387  jne      0x100f738d
+  0x000f7389  xor      ecx, ecx
+  0x000f738b  jmp      0x100f739b   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x24b
+  0x000f738d  mov      ecx, edx
+  0x000f738f  lea      ebx, [ecx + 1]
+  0x000f7392  mov      al, byte ptr [ecx]
+  0x000f7394  inc      ecx
+  0x000f7395  test     al, al
+  0x000f7397  jne      0x100f7392
+  0x000f7399  sub      ecx, ebx
+  0x000f739b  push     ecx
+  0x000f739c  push     edx
+  0x000f739d  lea      ecx, [ebp - 0x30]
+  0x000f73a0  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f73a5  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f73a9  lea      ecx, [ebp - 0x30]
+  0x000f73ac  mov      ebx, 0xd
+  0x000f73b1  mov      edx, 0x1052cac8   ; "AwayFromEnemy"
+  0x000f73b6  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f73ba  mov      eax, ebx
+  0x000f73bc  cmp      dword ptr [ebp - 0x20], eax
+  0x000f73bf  cmovb    eax, dword ptr [ebp - 0x20]
+  0x000f73c3  push     eax
+  0x000f73c4  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f73c9  add      esp, 4
+  0x000f73cc  test     eax, eax
+  0x000f73ce  jne      0x100f73e5
+  0x000f73d0  mov      eax, dword ptr [ebp - 0x20]
+  0x000f73d3  cmp      eax, ebx
+  0x000f73d5  jb       0x100f73e5
+  0x000f73d7  ja       0x100f73e5
+  0x000f73d9  mov      dword ptr [edi + 0x308], 0
+  0x000f73e3  jmp      0x100f741d   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2cd
+  0x000f73e5  mov      edx, 0x1052cab8   ; "TowardsAllies"
+  0x000f73ea  lea      ecx, [ebp - 0x30]
+  0x000f73ed  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f73f2  test     al, al
+  0x000f73f4  je       0x100f7402
+  0x000f73f6  mov      dword ptr [edi + 0x308], 1
+  0x000f7400  jmp      0x100f741d   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2cd
+  0x000f7402  mov      edx, 0x1052cae8   ; "TowardsHome"
+  0x000f7407  lea      ecx, [ebp - 0x30]
+  0x000f740a  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f740f  test     al, al
+  0x000f7411  je       0x100f741d
+  0x000f7413  mov      dword ptr [edi + 0x308], 2
+  0x000f741d  mov      eax, dword ptr [esi]
+  0x000f741f  mov      ecx, esi
+  0x000f7421  push     3
+  0x000f7423  push     0x1052cad8   ; "maxFleeCount"
+  0x000f7428  call     dword ptr [eax + 0x1c]
+  0x000f742b  mov      dword ptr [edi + 0x30c], eax
+  0x000f7431  mov      ecx, esi
+  0x000f7433  mov      eax, dword ptr [esi]
+  0x000f7435  push     0x7d0
+  0x000f743a  push     0x1052cb00   ; "FleeDelay"
+  0x000f743f  call     dword ptr [eax + 0x1c]
+  0x000f7442  mov      dword ptr [edi + 0x314], eax
+  0x000f7448  mov      ecx, esi
+  0x000f744a  mov      eax, dword ptr [esi]
+  0x000f744c  push     0x64
+  0x000f744e  push     0x1052caf4   ; "FleeChance"
+  0x000f7453  call     dword ptr [eax + 0x1c]
+  0x000f7456  mov      dword ptr [edi + 0x2d8], eax
+  0x000f745c  mov      eax, dword ptr [esi]
+  0x000f745e  push     ecx
+  0x000f745f  mov      dword ptr [esp], 0x40a00000
+  0x000f7466  mov      ecx, esi
+  0x000f7468  push     0x1052cb20   ; "InnerViewDistance"
+  0x000f746d  mov      eax, dword ptr [eax + 0x24]
+  0x000f7470  call     eax
+  0x000f7472  fstp     dword ptr [edi + 0x388]
+  0x000f7478  mov      eax, dword ptr [esi]
+  0x000f747a  push     ecx
+  0x000f747b  mov      dword ptr [esp], 0
+  0x000f7482  mov      ecx, esi
+  0x000f7484  push     0x1052cb0c   ; "MaxYViewDistance"
+  0x000f7489  mov      eax, dword ptr [eax + 0x24]
+  0x000f748c  call     eax
+  0x000f748e  fstp     dword ptr [edi + 0x38c]
+  0x000f7494  mov      eax, dword ptr [esi]
+  0x000f7496  mov      ecx, esi
+  0x000f7498  push     0x2710
+  0x000f749d  push     0x1052cb48   ; "PursuitTime"
+  0x000f74a2  call     dword ptr [eax + 0x1c]
+  0x000f74a5  cmp      eax, 0x3e8
+  0x000f74aa  mov      ecx, 0x1f40
+  0x000f74af  push     ecx
+  0x000f74b0  cmovl    eax, ecx
+  0x000f74b3  mov      dword ptr [esp], 0
+  0x000f74ba  mov      dword ptr [edi + 0x2fc], eax
+  0x000f74c0  mov      ecx, esi
+  0x000f74c2  mov      eax, dword ptr [esi]
+  0x000f74c4  push     0x1052cb34   ; "MaxPursuitDistance"
+  0x000f74c9  mov      eax, dword ptr [eax + 0x24]
+  0x000f74cc  call     eax
+  0x000f74ce  fstp     dword ptr [edi + 0x300]
+  0x000f74d4  mov      eax, dword ptr [esi]
+  0x000f74d6  mov      ecx, esi
+  0x000f74d8  push     0x1052cb64   ; "NeverRoam"
+  0x000f74dd  push     0x1052cb54   ; "RoamBehavior"
+  0x000f74e2  call     dword ptr [eax + 0x14]
+  0x000f74e5  mov      edx, eax
+  0x000f74e7  cmp      byte ptr [edx], 0
+  0x000f74ea  jne      0x100f74f0
+  0x000f74ec  xor      ecx, ecx
+  0x000f74ee  jmp      0x100f7502   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3b2
+  0x000f74f0  mov      ecx, edx
+  0x000f74f2  lea      eax, [ecx + 1]
+  0x000f74f5  mov      dword ptr [ebp + 8], eax
+  0x000f74f8  mov      al, byte ptr [ecx]
+  0x000f74fa  inc      ecx
+  0x000f74fb  test     al, al
+  0x000f74fd  jne      0x100f74f8
+  0x000f74ff  sub      ecx, dword ptr [ebp + 8]
+  0x000f7502  push     ecx
+  0x000f7503  push     edx
+  0x000f7504  lea      ecx, [ebp - 0x30]
+  0x000f7507  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f750c  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f7510  lea      ecx, [ebp - 0x30]
+  0x000f7513  mov      eax, 9
+  0x000f7518  mov      edx, 0x1052cb78   ; "NeverRoam"
+  0x000f751d  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f7521  cmp      dword ptr [ebp - 0x20], eax
+  0x000f7524  cmovb    eax, dword ptr [ebp - 0x20]
+  0x000f7528  push     eax
+  0x000f7529  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f752e  add      esp, 4
+  0x000f7531  test     eax, eax
+  0x000f7533  jne      0x100f754b
+  0x000f7535  mov      eax, dword ptr [ebp - 0x20]
+  0x000f7538  cmp      eax, 9
+  0x000f753b  jb       0x100f754b
+  0x000f753d  ja       0x100f754b
+  0x000f753f  mov      dword ptr [edi + 0x320], 0
+  0x000f7549  jmp      0x100f7566   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x416
+  0x000f754b  mov      edx, 0x1052cb70   ; "Roam"
+  0x000f7550  lea      ecx, [ebp - 0x30]
+  0x000f7553  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7558  test     al, al
+  0x000f755a  je       0x100f7566
+  0x000f755c  mov      dword ptr [edi + 0x320], 1
+  0x000f7566  mov      eax, dword ptr [esi]
+  0x000f7568  push     ecx
+  0x000f7569  mov      dword ptr [esp], 0x40000000
+  0x000f7570  mov      ecx, esi
+  0x000f7572  push     0x1052cb94   ; "MinRoamDistance"
+  0x000f7577  mov      eax, dword ptr [eax + 0x24]
+  0x000f757a  call     eax
+  0x000f757c  fstp     dword ptr [edi + 0x39c]
+  0x000f7582  mov      eax, dword ptr [esi]
+  0x000f7584  push     ecx
+  0x000f7585  mov      dword ptr [esp], 0x41200000
+  0x000f758c  mov      ecx, esi
+  0x000f758e  push     0x1052cb84   ; "RoamDistance"
+  0x000f7593  mov      eax, dword ptr [eax + 0x24]
+  0x000f7596  call     eax
+  0x000f7598  fstp     dword ptr [edi + 0x374]
+  0x000f759e  mov      eax, dword ptr [esi]
+  0x000f75a0  mov      ecx, esi
+  0x000f75a2  push     0xbb8
+  0x000f75a7  push     0x1052cbb8   ; "MinTimeBeforeRoam"
+  0x000f75ac  call     dword ptr [eax + 0x1c]
+  0x000f75af  mov      dword ptr [edi + 0x394], eax
+  0x000f75b5  mov      ecx, esi
+  0x000f75b7  mov      eax, dword ptr [esi]
+  0x000f75b9  push     0x2710
+  0x000f75be  push     0x1052cba4   ; "MaxTimeBeforeRoam"
+  0x000f75c3  call     dword ptr [eax + 0x1c]
+  0x000f75c6  mov      dword ptr [edi + 0x398], eax
+  0x000f75cc  mov      eax, dword ptr [esi]
+  0x000f75ce  push     ecx
+  0x000f75cf  mov      dword ptr [esp], 0x40000000
+  0x000f75d6  mov      ecx, esi
+  0x000f75d8  push     0x1052cbdc   ; "MinWanderDistance"
+  0x000f75dd  mov      eax, dword ptr [eax + 0x24]
+  0x000f75e0  call     eax
+  0x000f75e2  fstp     dword ptr [edi + 0x3a0]
+  0x000f75e8  mov      eax, dword ptr [esi]
+  0x000f75ea  push     ecx
+  0x000f75eb  mov      dword ptr [esp], 0x40a00000
+  0x000f75f2  mov      ecx, esi
+  0x000f75f4  push     0x1052cbcc   ; "WanderDistance"
+  0x000f75f9  mov      eax, dword ptr [eax + 0x24]
+  0x000f75fc  call     eax
+  0x000f75fe  fstp     dword ptr [edi + 0x370]
+  0x000f7604  mov      eax, dword ptr [esi]
+  0x000f7606  push     ecx
+  0x000f7607  mov      dword ptr [esp], 0x41a00000
+  0x000f760e  mov      ecx, esi
+  0x000f7610  push     0x1052cc00   ; "TeleportToLeaderDistance"
+  0x000f7615  mov      eax, dword ptr [eax + 0x24]
+  0x000f7618  call     eax
+  0x000f761a  fstp     dword ptr [edi + 0x378]
+  0x000f7620  mov      eax, dword ptr [esi]
+  0x000f7622  mov      ecx, esi
+  0x000f7624  push     0x1052cbf0   ; "NeverUseSkill"
+  0x000f7629  push     0x1052cc2c   ; "BuffSelfBehavior"
+  0x000f762e  call     dword ptr [eax + 0x14]
+  0x000f7631  mov      edx, eax
+  0x000f7633  cmp      byte ptr [edx], 0
+  0x000f7636  jne      0x100f763c
+  0x000f7638  xor      ecx, ecx
+  0x000f763a  jmp      0x100f764e   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x4fe
+  0x000f763c  mov      ecx, edx
+  0x000f763e  lea      eax, [ecx + 1]
+  0x000f7641  mov      dword ptr [ebp + 8], eax
+  0x000f7644  mov      al, byte ptr [ecx]
+  0x000f7646  inc      ecx
+  0x000f7647  test     al, al
+  0x000f7649  jne      0x100f7644
+  0x000f764b  sub      ecx, dword ptr [ebp + 8]
+  0x000f764e  push     ecx
+  0x000f764f  push     edx
+  0x000f7650  lea      ecx, [ebp - 0x30]
+  0x000f7653  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7658  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f765c  lea      ecx, [ebp - 0x30]
+  0x000f765f  mov      eax, ebx
+  0x000f7661  mov      edx, 0x1052cc1c   ; "NeverUseSkill"
+  0x000f7666  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f766a  cmp      dword ptr [ebp - 0x20], eax
+  0x000f766d  cmovb    eax, dword ptr [ebp - 0x20]
+  0x000f7671  push     eax
+  0x000f7672  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f7677  add      esp, 4
+  0x000f767a  test     eax, eax
+  0x000f767c  jne      0x100f7694
+  0x000f767e  mov      eax, dword ptr [ebp - 0x20]
+  0x000f7681  cmp      eax, 0xd
+  0x000f7684  jb       0x100f7694
+  0x000f7686  ja       0x100f7694
+  0x000f7688  mov      dword ptr [edi + 0x324], 0
+  0x000f7692  jmp      0x100f76e9   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599
+  0x000f7694  mov      edx, 0x1052cc50   ; "WhenIdle"
+  0x000f7699  lea      ecx, [ebp - 0x30]
+  0x000f769c  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f76a1  test     al, al
+  0x000f76a3  je       0x100f76b1
+  0x000f76a5  mov      dword ptr [edi + 0x324], 1
+  0x000f76af  jmp      0x100f76e9   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599
+  0x000f76b1  mov      edx, 0x1052cc40   ; "WhenEnemyIsSeen"
+  0x000f76b6  lea      ecx, [ebp - 0x30]
+  0x000f76b9  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f76be  test     al, al
+  0x000f76c0  je       0x100f76ce
+  0x000f76c2  mov      dword ptr [edi + 0x324], 2
+  0x000f76cc  jmp      0x100f76e9   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599
+  0x000f76ce  mov      edx, 0x1052cc6c   ; "WheneverPossible"
+  0x000f76d3  lea      ecx, [ebp - 0x30]
+  0x000f76d6  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f76db  test     al, al
+  0x000f76dd  je       0x100f76e9
+  0x000f76df  mov      dword ptr [edi + 0x324], 3
+  0x000f76e9  mov      eax, dword ptr [esi]
+  0x000f76eb  mov      ecx, esi
+  0x000f76ed  push     0x1052cc5c   ; "NeverUseSkill"
+  0x000f76f2  push     0x1052cc90   ; "BuffAllyBehavior"
+  0x000f76f7  call     dword ptr [eax + 0x14]
+  0x000f76fa  mov      edx, eax
+  0x000f76fc  cmp      byte ptr [edx], 0
+  0x000f76ff  jne      0x100f7705
+  0x000f7701  xor      ecx, ecx
+  0x000f7703  jmp      0x100f771a   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x5ca
+  0x000f7705  mov      ecx, edx
+  0x000f7707  lea      eax, [ecx + 1]
+  0x000f770a  mov      dword ptr [ebp + 8], eax
+  0x000f770d  nop      dword ptr [eax]
+  0x000f7710  mov      al, byte ptr [ecx]
+  0x000f7712  inc      ecx
+  0x000f7713  test     al, al
+  0x000f7715  jne      0x100f7710
+  0x000f7717  sub      ecx, dword ptr [ebp + 8]
+  0x000f771a  push     ecx
+  0x000f771b  push     edx
+  0x000f771c  lea      ecx, [ebp - 0x30]
+  0x000f771f  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7724  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f7728  lea      ecx, [ebp - 0x30]
+  0x000f772b  mov      eax, ebx
+  0x000f772d  mov      edx, 0x1052cc80   ; "NeverUseSkill"
+  0x000f7732  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f7736  cmp      dword ptr [ebp - 0x20], eax
+  0x000f7739  cmovb    eax, dword ptr [ebp - 0x20]
+  0x000f773d  push     eax
+  0x000f773e  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f7743  add      esp, 4
+  0x000f7746  test     eax, eax
+  0x000f7748  jne      0x100f7760
+  0x000f774a  mov      eax, dword ptr [ebp - 0x20]
+  0x000f774d  cmp      eax, 0xd
+  0x000f7750  jb       0x100f7760
+  0x000f7752  ja       0x100f7760
+  0x000f7754  mov      dword ptr [edi + 0x328], 0
+  0x000f775e  jmp      0x100f77b5   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665
+  0x000f7760  mov      edx, 0x1052ccb4   ; "WhenIdle"
+  0x000f7765  lea      ecx, [ebp - 0x30]
+  0x000f7768  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f776d  test     al, al
+  0x000f776f  je       0x100f777d
+  0x000f7771  mov      dword ptr [edi + 0x328], 1
+  0x000f777b  jmp      0x100f77b5   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665
+  0x000f777d  mov      edx, 0x1052cca4   ; "WhenEnemyIsSeen"
+  0x000f7782  lea      ecx, [ebp - 0x30]
+  0x000f7785  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f778a  test     al, al
+  0x000f778c  je       0x100f779a
+  0x000f778e  mov      dword ptr [edi + 0x328], 2
+  0x000f7798  jmp      0x100f77b5   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665
+  0x000f779a  mov      edx, 0x1052cccc   ; "WheneverPossible"
+  0x000f779f  lea      ecx, [ebp - 0x30]
+  0x000f77a2  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f77a7  test     al, al
+  0x000f77a9  je       0x100f77b5
+  0x000f77ab  mov      dword ptr [edi + 0x328], 3
+  0x000f77b5  mov      eax, dword ptr [esi]
+  0x000f77b7  mov      ecx, esi
+  0x000f77b9  push     0x1052ccc0   ; "BuffClosest"
+  0x000f77be  push     0x1052ccec   ; "BuffAllyTargeting"
+  0x000f77c3  call     dword ptr [eax + 0x14]
+  0x000f77c6  mov      edx, eax
+  0x000f77c8  cmp      byte ptr [edx], 0
+  0x000f77cb  jne      0x100f77d1
+  0x000f77cd  xor      ecx, ecx
+  0x000f77cf  jmp      0x100f77ea   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x69a
+  0x000f77d1  mov      ecx, edx
+  0x000f77d3  lea      eax, [ecx + 1]
+  0x000f77d6  mov      dword ptr [ebp + 8], eax
+  0x000f77d9  nop      dword ptr [eax]
+  0x000f77e0  mov      al, byte ptr [ecx]
+  0x000f77e2  inc      ecx
+  0x000f77e3  test     al, al
+  0x000f77e5  jne      0x100f77e0
+  0x000f77e7  sub      ecx, dword ptr [ebp + 8]
+  0x000f77ea  push     ecx
+  0x000f77eb  push     edx
+  0x000f77ec  lea      ecx, [ebp - 0x30]
+  0x000f77ef  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f77f4  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f77f8  lea      ecx, [ebp - 0x30]
+  0x000f77fb  mov      eax, 0xb
+  0x000f7800  mov      edx, 0x1052cce0   ; "BuffClosest"
+  0x000f7805  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f7809  cmp      dword ptr [ebp - 0x20], eax
+  0x000f780c  cmovb    eax, dword ptr [ebp - 0x20]
+  0x000f7810  push     eax
+  0x000f7811  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f7816  add      esp, 4
+  0x000f7819  test     eax, eax
+  0x000f781b  jne      0x100f7833
+  0x000f781d  mov      eax, dword ptr [ebp - 0x20]
+  0x000f7820  cmp      eax, 0xb
+  0x000f7823  jb       0x100f7833
+  0x000f7825  ja       0x100f7833
+  0x000f7827  mov      dword ptr [edi + 0x32c], 0
+  0x000f7831  jmp      0x100f786b   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x71b
+  0x000f7833  mov      edx, 0x1052cd0c   ; "BuffStrongest"
+  0x000f7838  lea      ecx, [ebp - 0x30]
+  0x000f783b  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7840  test     al, al
+  0x000f7842  je       0x100f7850
+  0x000f7844  mov      dword ptr [edi + 0x32c], 1
+  0x000f784e  jmp      0x100f786b   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x71b
+  0x000f7850  mov      edx, 0x1052cd00   ; "BuffWeakest"
+  0x000f7855  lea      ecx, [ebp - 0x30]
+  0x000f7858  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f785d  test     al, al
+  0x000f785f  je       0x100f786b
+  0x000f7861  mov      dword ptr [edi + 0x32c], 2
+  0x000f786b  mov      eax, dword ptr [esi]
+  0x000f786d  mov      ecx, esi
+  0x000f786f  push     0x1052cd30   ; "NeverUseDebuff"
+  0x000f7874  push     0x1052cd1c   ; "DebuffEnemyBehavior"
+  0x000f7879  call     dword ptr [eax + 0x14]
+  0x000f787c  mov      edx, eax
+  0x000f787e  cmp      byte ptr [edx], 0
+  0x000f7881  jne      0x100f7887
+  0x000f7883  xor      ecx, ecx
+  0x000f7885  jmp      0x100f789a   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x74a
+  0x000f7887  mov      ecx, edx
+  0x000f7889  lea      eax, [ecx + 1]
+  0x000f788c  mov      dword ptr [ebp + 8], eax
+  0x000f788f  nop      
+  0x000f7890  mov      al, byte ptr [ecx]
+  0x000f7892  inc      ecx
+  0x000f7893  test     al, al
+  0x000f7895  jne      0x100f7890
+  0x000f7897  sub      ecx, dword ptr [ebp + 8]
+  0x000f789a  push     ecx
+  0x000f789b  push     edx
+  0x000f789c  lea      ecx, [ebp - 0x30]
+  0x000f789f  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f78a4  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f78a8  lea      ecx, [ebp - 0x30]
+  0x000f78ab  mov      edx, 0x1052cd4c   ; "NeverUseSkill"
+  0x000f78b0  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f78b4  cmp      dword ptr [ebp - 0x20], ebx
+  0x000f78b7  cmovb    ebx, dword ptr [ebp - 0x20]
+  0x000f78bb  push     ebx
+  0x000f78bc  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f78c1  add      esp, 4
+  0x000f78c4  test     eax, eax
+  0x000f78c6  jne      0x100f78de
+  0x000f78c8  mov      eax, dword ptr [ebp - 0x20]
+  0x000f78cb  cmp      eax, 0xd
+  0x000f78ce  jb       0x100f78de
+  0x000f78d0  ja       0x100f78de
+  0x000f78d2  mov      dword ptr [edi + 0x330], 0
+  0x000f78dc  jmp      0x100f7916   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7c6
+  0x000f78de  mov      edx, 0x1052cd40   ; "WhenIdle"
+  0x000f78e3  lea      ecx, [ebp - 0x30]
+  0x000f78e6  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f78eb  test     al, al
+  0x000f78ed  je       0x100f78fb
+  0x000f78ef  mov      dword ptr [edi + 0x330], 1
+  0x000f78f9  jmp      0x100f7916   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7c6
+  0x000f78fb  mov      edx, 0x1052cd7c   ; "WhenEnemyIsSeen"
+  0x000f7900  lea      ecx, [ebp - 0x30]
+  0x000f7903  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7908  test     al, al
+  0x000f790a  je       0x100f7916
+  0x000f790c  mov      dword ptr [edi + 0x330], 2
+  0x000f7916  mov      eax, dword ptr [esi]
+  0x000f7918  mov      ecx, esi
+  0x000f791a  push     0x64
+  0x000f791c  push     0x1052cd5c   ; "ChanceToRespondToDistressCall"
+  0x000f7921  call     dword ptr [eax + 0x1c]
+  0x000f7924  mov      dword ptr [edi + 0x338], eax
+  0x000f792a  mov      ecx, esi
+  0x000f792c  mov      eax, dword ptr [esi]
+  0x000f792e  push     0x104f1bd3   ; f32=7.31581e+28 i32=1869374208 f64=7.34747e+223
+  0x000f7933  push     0x1052cd8c   ; "DistressResponseGroup"
+  0x000f7938  call     dword ptr [eax + 0x14]
+  0x000f793b  mov      edx, eax
+  0x000f793d  cmp      byte ptr [edx], 0
+  0x000f7940  jne      0x100f7946
+  0x000f7942  xor      ecx, ecx
+  0x000f7944  jmp      0x100f7959   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x809
+  0x000f7946  mov      ecx, edx
+  0x000f7948  lea      ebx, [ecx + 1]
+  0x000f794b  nop      dword ptr [eax + eax]
+  0x000f7950  mov      al, byte ptr [ecx]
+  0x000f7952  inc      ecx
+  0x000f7953  test     al, al
+  0x000f7955  jne      0x100f7950
+  0x000f7957  sub      ecx, ebx
+  0x000f7959  push     ecx
+  0x000f795a  push     edx
+  0x000f795b  lea      ecx, [edi + 0x33c]
+  0x000f7961  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7966  mov      eax, dword ptr [esi]
+  0x000f7968  mov      ecx, esi
+  0x000f796a  push     0x1052cdc0   ; "RespondToAll"
+  0x000f796f  push     0x1052cda4   ; "DistressResponseBehavior"
+  0x000f7974  call     dword ptr [eax + 0x14]
+  0x000f7977  mov      edx, eax
+  0x000f7979  cmp      byte ptr [edx], 0
+  0x000f797c  jne      0x100f7982
+  0x000f797e  xor      ecx, ecx
+  0x000f7980  jmp      0x100f7990   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x840
+  0x000f7982  mov      ecx, edx
+  0x000f7984  lea      ebx, [ecx + 1]
+  0x000f7987  mov      al, byte ptr [ecx]
+  0x000f7989  inc      ecx
+  0x000f798a  test     al, al
+  0x000f798c  jne      0x100f7987
+  0x000f798e  sub      ecx, ebx
+  0x000f7990  push     ecx
+  0x000f7991  push     edx
+  0x000f7992  lea      ecx, [ebp - 0x30]
+  0x000f7995  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f799a  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f799e  lea      ecx, [ebp - 0x30]
+  0x000f79a1  mov      ebx, dword ptr [ebp - 0x20]
+  0x000f79a4  mov      eax, 0x12
+  0x000f79a9  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f79ad  mov      edx, 0x1052cde4   ; "RespondToSameGroup"
+  0x000f79b2  cmp      ebx, eax
+  0x000f79b4  cmovb    eax, ebx
+  0x000f79b7  push     eax
+  0x000f79b8  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f79bd  add      esp, 4
+  0x000f79c0  test     eax, eax
+  0x000f79c2  jne      0x100f79d3
+  0x000f79c4  cmp      ebx, 0x12
+  0x000f79c7  jb       0x100f79d3
+  0x000f79c9  ja       0x100f79d3
+  0x000f79cb  mov      dword ptr [edi + 0x354], eax
+  0x000f79d1  jmp      0x100f79f0   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8a0
+  0x000f79d3  mov      edx, 0x1052cdd0   ; "RespondToSameRace"
+  0x000f79d8  lea      ecx, [ebp - 0x30]
+  0x000f79db  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f79e0  movzx    eax, al
+  0x000f79e3  neg      eax
+  0x000f79e5  sbb      eax, eax
+  0x000f79e7  add      eax, 2
+  0x000f79ea  mov      dword ptr [edi + 0x354], eax
+  0x000f79f0  mov      eax, dword ptr [esi]
+  0x000f79f2  mov      ecx, esi
+  0x000f79f4  push     0x1052ce08   ; "NeverLead"
+  0x000f79f9  push     0x1052cdf8   ; "LeaderBehavior"
+  0x000f79fe  call     dword ptr [eax + 0x14]
+  0x000f7a01  mov      edx, eax
+  0x000f7a03  cmp      byte ptr [edx], 0
+  0x000f7a06  jne      0x100f7a0c
+  0x000f7a08  xor      ecx, ecx
+  0x000f7a0a  jmp      0x100f7a1a   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8ca
+  0x000f7a0c  mov      ecx, edx
+  0x000f7a0e  lea      ebx, [ecx + 1]
+  0x000f7a11  mov      al, byte ptr [ecx]
+  0x000f7a13  inc      ecx
+  0x000f7a14  test     al, al
+  0x000f7a16  jne      0x100f7a11
+  0x000f7a18  sub      ecx, ebx
+  0x000f7a1a  push     ecx
+  0x000f7a1b  push     edx
+  0x000f7a1c  lea      ecx, [ebp - 0x30]
+  0x000f7a1f  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7a24  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x000f7a28  lea      ecx, [ebp - 0x30]
+  0x000f7a2b  mov      ebx, dword ptr [ebp - 0x20]
+  0x000f7a2e  mov      eax, 9
+  0x000f7a33  cmovae   ecx, dword ptr [ebp - 0x30]
+  0x000f7a37  mov      edx, 0x1052ce24   ; "NeverLead"
+  0x000f7a3c  cmp      ebx, 9
+  0x000f7a3f  cmovb    eax, ebx
+  0x000f7a42  push     eax
+  0x000f7a43  call     0x1000bcf0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000f7a48  add      esp, 4
+  0x000f7a4b  test     eax, eax
+  0x000f7a4d  jne      0x100f7a5e
+  0x000f7a4f  cmp      ebx, 9
+  0x000f7a52  jb       0x100f7a5e
+  0x000f7a54  ja       0x100f7a5e
+  0x000f7a56  mov      dword ptr [edi + 0x360], eax
+  0x000f7a5c  jmp      0x100f7ab3   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963
+  0x000f7a5e  mov      edx, 0x1052ce14   ; "LeadOnPatrol"
+  0x000f7a63  lea      ecx, [ebp - 0x30]
+  0x000f7a66  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7a6b  test     al, al
+  0x000f7a6d  je       0x100f7a7b
+  0x000f7a6f  mov      dword ptr [edi + 0x360], 1
+  0x000f7a79  jmp      0x100f7ab3   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963
+  0x000f7a7b  mov      edx, 0x1052ce40   ; "LeadWhenEnemyIsSeen"
+  0x000f7a80  lea      ecx, [ebp - 0x30]
+  0x000f7a83  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7a88  test     al, al
+  0x000f7a8a  je       0x100f7a98
+  0x000f7a8c  mov      dword ptr [edi + 0x360], 2
+  0x000f7a96  jmp      0x100f7ab3   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963
+  0x000f7a98  mov      edx, 0x1052ce30   ; "LeadOnDamage"
+  0x000f7a9d  lea      ecx, [ebp - 0x30]
+  0x000f7aa0  call     0x1000bd50   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000f7aa5  test     al, al
+  0x000f7aa7  je       0x100f7ab3
+  0x000f7aa9  mov      dword ptr [edi + 0x360], 3
+  0x000f7ab3  mov      eax, dword ptr [esi]
+  0x000f7ab5  push     ecx
+  0x000f7ab6  mov      dword ptr [esp], 0x40a00000
+  0x000f7abd  mov      ecx, esi
+  0x000f7abf  push     0x1052ce64   ; "LeaderDistance"
+  0x000f7ac4  mov      eax, dword ptr [eax + 0x24]
+  0x000f7ac7  call     eax
+  0x000f7ac9  fstp     dword ptr [edi + 0x364]
+  0x000f7acf  mov      eax, dword ptr [esi]
+  0x000f7ad1  mov      ecx, esi
+  0x000f7ad3  push     4
+  0x000f7ad5  push     0x1052ce54   ; "MaxFollowers"
+  0x000f7ada  call     dword ptr [eax + 0x1c]
+  0x000f7add  mov      dword ptr [edi + 0x368], eax
+  0x000f7ae3  mov      ecx, esi
+  0x000f7ae5  mov      eax, dword ptr [esi]
+  0x000f7ae7  push     0
+  0x000f7ae9  push     0x1052ce90   ; "healLeaderHealthPercentage"
+  0x000f7aee  call     dword ptr [eax + 0x1c]
+  0x000f7af1  mov      dword ptr [edi + 0x358], eax
+  0x000f7af7  mov      ecx, esi
+  0x000f7af9  mov      eax, dword ptr [esi]
+  0x000f7afb  push     0
+  0x000f7afd  push     0x1052ce74   ; "healAllyHealthPercentage"
+  0x000f7b02  call     dword ptr [eax + 0x1c]
+  0x000f7b05  mov      dword ptr [edi + 0x35c], eax
+  0x000f7b0b  mov      ecx, esi
+  0x000f7b0d  mov      eax, dword ptr [esi]
+  0x000f7b0f  push     0x14
+  0x000f7b11  push     0x1052cec0   ; "ChanceToIdleOnPatrol"
+  0x000f7b16  call     dword ptr [eax + 0x1c]
+  0x000f7b19  mov      dword ptr [edi + 0x37c], eax
+  0x000f7b1f  mov      ecx, esi
+  0x000f7b21  mov      eax, dword ptr [esi]
+  0x000f7b23  push     0x7d0
+  0x000f7b28  push     0x1052ceac   ; "MinPatrolIdleTime"
+  0x000f7b2d  call     dword ptr [eax + 0x1c]
+  0x000f7b30  mov      dword ptr [edi + 0x380], eax
+  0x000f7b36  mov      ecx, esi
+  0x000f7b38  mov      eax, dword ptr [esi]
+  0x000f7b3a  push     0x1388
+  0x000f7b3f  push     0x1052cee8   ; "MaxPatrolIdleTime"
+  0x000f7b44  call     dword ptr [eax + 0x1c]
+  0x000f7b47  mov      dword ptr [edi + 0x384], eax
+  0x000f7b4d  mov      eax, dword ptr [esi]
+  0x000f7b4f  push     ecx
+  0x000f7b50  mov      dword ptr [esp], 0x41200000
+  0x000f7b57  mov      ecx, esi
+  0x000f7b59  push     0x1052ced8   ; "AngerTolerance"
+  0x000f7b5e  mov      eax, dword ptr [eax + 0x24]
+  0x000f7b61  call     eax
+  0x000f7b63  fstp     dword ptr [edi + 0x294]
+  0x000f7b69  mov      eax, dword ptr [esi]
+  0x000f7b6b  push     ecx
+  0x000f7b6c  mov      dword ptr [esp], 0x42c80000
+  0x000f7b73  mov      ecx, esi
+  0x000f7b75  push     0x1052cf10   ; "AttackedAnger"
+  0x000f7b7a  mov      eax, dword ptr [eax + 0x24]
+  0x000f7b7d  call     eax
+  0x000f7b7f  fstp     dword ptr [edi + 0x298]
+  0x000f7b85  mov      eax, dword ptr [esi]
+  0x000f7b87  push     ecx
+  0x000f7b88  mov      dword ptr [esp], 0x3f800000
+  0x000f7b8f  mov      ecx, esi
+  0x000f7b91  push     0x1052cefc   ; "AllyAttackedAnger"
+  0x000f7b96  mov      eax, dword ptr [eax + 0x24]
+  0x000f7b99  call     eax
+  0x000f7b9b  fstp     dword ptr [edi + 0x29c]
+  0x000f7ba1  mov      eax, dword ptr [esi]
+  0x000f7ba3  push     ecx
+  0x000f7ba4  mov      dword ptr [esp], 0x41a00000
+  0x000f7bab  mov      ecx, esi
+  0x000f7bad  push     0x1052cf34   ; "SightAngerRate"
+  0x000f7bb2  mov      eax, dword ptr [eax + 0x24]
+  0x000f7bb5  call     eax
+  0x000f7bb7  push     ecx
+  0x000f7bb8  fstp     dword ptr [edi + 0x2a0]
+  0x000f7bbe  mov      eax, dword ptr [esi]
+  0x000f7bc0  mov      ecx, esi
+  0x000f7bc2  mov      dword ptr [esp], 0x41a00000
+  0x000f7bc9  push     0x1052cf20   ; "InnerSightAngerRate"
+  0x000f7bce  mov      eax, dword ptr [eax + 0x24]
+  0x000f7bd1  call     eax
+  0x000f7bd3  fstp     dword ptr [edi + 0x2a8]
+  0x000f7bd9  mov      eax, dword ptr [esi]
+  0x000f7bdb  push     ecx
+  0x000f7bdc  mov      dword ptr [esp], 0x41a00000
+  0x000f7be3  mov      ecx, esi
+  0x000f7be5  push     0x1052cf50   ; "ProjectileAnger"
+  0x000f7bea  mov      eax, dword ptr [eax + 0x24]
+  0x000f7bed  call     eax
+  0x000f7bef  fstp     dword ptr [edi + 0x2ac]
+  0x000f7bf5  mov      eax, dword ptr [esi]
+  0x000f7bf7  push     ecx
+  0x000f7bf8  mov      dword ptr [esp], 0x42480000
+  0x000f7bff  mov      ecx, esi
+  0x000f7c01  push     0x1052cf44   ; "ForgiveRate"
+  0x000f7c06  mov      eax, dword ptr [eax + 0x24]
+  0x000f7c09  call     eax
+  0x000f7c0b  fstp     dword ptr [edi + 0x2a4]
+  0x000f7c11  mov      eax, dword ptr [esi]
+  0x000f7c13  push     ecx
+  0x000f7c14  mov      dword ptr [esp], 0x40a00000
+  0x000f7c1b  mov      ecx, esi
+  0x000f7c1d  push     0x1052cf74   ; "enemyTooClose"
+  0x000f7c22  mov      eax, dword ptr [eax + 0x24]
+  0x000f7c25  call     eax
+  0x000f7c27  fstp     dword ptr [edi + 0x2b4]
+  0x000f7c2d  mov      eax, dword ptr [esi]
+  0x000f7c2f  mov      ecx, esi
+  0x000f7c31  push     0
+  0x000f7c33  push     0x1052cf60   ; "RandomAngerChance"
+  0x000f7c38  call     dword ptr [eax + 0x1c]
+  0x000f7c3b  mov      dword ptr [edi + 0x390], eax
+  0x000f7c41  mov      ecx, esi
+  0x000f7c43  mov      eax, dword ptr [esi]
+  0x000f7c45  push     0xbb8
+  0x000f7c4a  push     0x1052cf90   ; "RandomAngerEvaluationTime"
+  0x000f7c4f  call     dword ptr [eax + 0x1c]
+  0x000f7c52  mov      dword ptr [edi + 0x504], eax
+  0x000f7c58  mov      ecx, esi
+  0x000f7c5a  mov      eax, dword ptr [esi]
+  0x000f7c5c  push     0x1388
+  0x000f7c61  push     0x1052cf84   ; "DodgeDelay"
+  0x000f7c66  call     dword ptr [eax + 0x1c]
+  0x000f7c69  mov      dword ptr [edi + 0x510], eax
+  0x000f7c6f  mov      eax, dword ptr [esi]
+  0x000f7c71  push     ecx
+  0x000f7c72  mov      dword ptr [esp], 0x40800000
+  0x000f7c79  mov      ecx, esi
+  0x000f7c7b  push     0x1052cfb8   ; "DodgeDistance"
+  0x000f7c80  mov      eax, dword ptr [eax + 0x24]
+  0x000f7c83  call     eax
+  0x000f7c85  fstp     dword ptr [edi + 0x3a8]
+  0x000f7c8b  mov      eax, dword ptr [esi]
+  0x000f7c8d  mov      ecx, esi
+  0x000f7c8f  push     0
+  0x000f7c91  push     0x1052cfac   ; "DodgeChance"
+  0x000f7c96  call     dword ptr [eax + 0x1c]
+  0x000f7c99  mov      dword ptr [edi + 0x2dc], eax
+  0x000f7c9f  mov      eax, dword ptr [esi]
+  0x000f7ca1  push     ecx
+  0x000f7ca2  mov      dword ptr [esp], 0
+  0x000f7ca9  mov      ecx, esi
+  0x000f7cab  push     0x1052cfdc   ; "MinDodgeDistance"
+  0x000f7cb0  mov      eax, dword ptr [eax + 0x24]
+  0x000f7cb3  call     eax
+  0x000f7cb5  fstp     dword ptr [edi + 0x3ac]
+  0x000f7cbb  mov      eax, dword ptr [esi]
+  0x000f7cbd  mov      ecx, esi
+  0x000f7cbf  push     0
+  0x000f7cc1  push     0x1052cfc8   ; "RepositionChance"
+  0x000f7cc6  call     dword ptr [eax + 0x1c]
+  0x000f7cc9  mov      dword ptr [edi + 0x3b0], eax
+  0x000f7ccf  mov      ecx, esi
+  0x000f7cd1  mov      eax, dword ptr [esi]
+  0x000f7cd3  push     0
+  0x000f7cd5  push     0x1052cffc   ; "randomRepositionChance"
+  0x000f7cda  call     dword ptr [eax + 0x1c]
+  0x000f7cdd  mov      dword ptr [edi + 0x2e0], eax
+  0x000f7ce3  mov      dword ptr [ebp - 0x18], 0
+  0x000f7cea  mov      dword ptr [ebp - 0x14], 0
+  0x000f7cf1  mov      dword ptr [ebp - 0x10], 0
+  0x000f7cf8  mov      byte ptr [ebp - 4], 1
+  0x000f7cfc  lea      ecx, [ebp - 0x18]
+  0x000f7cff  mov      eax, dword ptr [esi]
+  0x000f7d01  push     ecx
+  0x000f7d02  push     0x1052cff0   ; "LeadChance"
+  0x000f7d07  mov      ecx, esi
+  0x000f7d09  call     dword ptr [eax + 0x34]
+  0x000f7d0c  mov      edx, dword ptr [ebp - 0x18]
+  0x000f7d0f  mov      ecx, dword ptr [ebp - 0x14]
+  0x000f7d12  cmp      edx, ecx
+  0x000f7d14  movss    xmm1, dword ptr [0x105f6980]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000f7d1c  sete     al
+  0x000f7d1f  test     al, al
+  0x000f7d21  jne      0x100f7d83
+  0x000f7d23  movd     xmm0, dword ptr [edx]
+  0x000f7d27  sub      ecx, edx
+  0x000f7d29  cvtdq2ps xmm0, xmm0
+  0x000f7d2c  sar      ecx, 2
+  0x000f7d2f  mulss    xmm0, xmm1
+  0x000f7d33  movss    dword ptr [edi + 0x2e4], xmm0
+  0x000f7d3b  cmp      ecx, 1
+  0x000f7d3e  jbe      0x100f7d6f
+  0x000f7d40  movd     xmm0, dword ptr [edx + 4]
+  0x000f7d45  cvtdq2ps xmm0, xmm0
+  0x000f7d48  mulss    xmm0, xmm1
+  0x000f7d4c  movss    dword ptr [edi + 0x2e8], xmm0
+  0x000f7d54  cmp      ecx, 2
+  0x000f7d57  jbe      0x100f7d65
+  0x000f7d59  movd     xmm0, dword ptr [edx + 8]
+  0x000f7d5e  cvtdq2ps xmm0, xmm0
+  0x000f7d61  mulss    xmm0, xmm1
+  0x000f7d65  movss    dword ptr [edi + 0x2ec], xmm0
+  0x000f7d6d  jmp      0x100f7d83   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xc33
+  0x000f7d6f  mov      eax, dword ptr [edi + 0x2e4]
+  0x000f7d75  movss    dword ptr [edi + 0x2e8], xmm0
+  0x000f7d7d  mov      dword ptr [edi + 0x2ec], eax
+  0x000f7d83  mov      eax, dword ptr [esi]
+  0x000f7d85  mov      ecx, esi
+  0x000f7d87  push     0
+  0x000f7d89  push     0x1052d028   ; "ignoreSleepingEnemies"
+  0x000f7d8e  mov      eax, dword ptr [eax + 0x2c]
+  0x000f7d91  call     eax
+  0x000f7d93  mov      byte ptr [edi + 0x4d9], al
+  0x000f7d99  mov      ecx, esi
+  0x000f7d9b  mov      eax, dword ptr [esi]
+  0x000f7d9d  push     0x64
+  0x000f7d9f  push     0x1052d014   ; "randomEmoteChance"
+  0x000f7da4  call     dword ptr [eax + 0x1c]
+  0x000f7da7  mov      dword ptr [edi + 0x514], eax
+  0x000f7dad  mov      ecx, esi
+  0x000f7daf  mov      eax, dword ptr [esi]
+  0x000f7db1  push     0x1388
+  0x000f7db6  push     0x1052d054   ; "randomEmoteMinTime"
+  0x000f7dbb  call     dword ptr [eax + 0x1c]
+  0x000f7dbe  mov      dword ptr [edi + 0x518], eax
+  0x000f7dc4  mov      ecx, esi
+  0x000f7dc6  mov      eax, dword ptr [esi]
+  0x000f7dc8  push     0x2710
+  0x000f7dcd  push     0x1052d040   ; "randomEmoteMaxTime"
+  0x000f7dd2  call     dword ptr [eax + 0x1c]
+  0x000f7dd5  mov      dword ptr [edi + 0x51c], eax
+  0x000f7ddb  mov      ecx, esi
+  0x000f7ddd  mov      eax, dword ptr [esi]
+  0x000f7ddf  push     0
+  0x000f7de1  push     0x1052d07c   ; "ignorePetsChance"
+  0x000f7de6  call     dword ptr [eax + 0x1c]
+  0x000f7de9  mov      dword ptr [edi + 0x56c], eax
+  0x000f7def  mov      ecx, esi
+  0x000f7df1  mov      eax, dword ptr [esi]
+  0x000f7df3  push     0x1388
+  0x000f7df8  push     0x1052d068   ; "ignorePetsInterval"
+  0x000f7dfd  call     dword ptr [eax + 0x1c]
+  0x000f7e00  mov      dword ptr [edi + 0x570], eax
+  0x000f7e06  mov      ecx, esi
+  0x000f7e08  mov      eax, dword ptr [esi]
+  0x000f7e0a  push     0
+  0x000f7e0c  push     0x1052d0a4   ; "petAngerTransference"
+  0x000f7e11  call     dword ptr [eax + 0x1c]
+  0x000f7e14  push     0x3e8
+  0x000f7e19  push     0x1052d090   ; "petTargetLevelRange"
+  0x000f7e1e  mov      ecx, esi
+  0x000f7e20  movd     xmm0, eax
+  0x000f7e24  cvtdq2ps xmm0, xmm0
+  0x000f7e27  mulss    xmm0, dword ptr [0x105f6980]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000f7e2f  movss    dword ptr [edi + 0x57c], xmm0
+  0x000f7e37  mov      eax, dword ptr [esi]
+  0x000f7e39  call     dword ptr [eax + 0x1c]
+  0x000f7e3c  mov      dword ptr [edi + 0x580], eax
+  0x000f7e42  mov      ecx, esi
+  0x000f7e44  mov      eax, dword ptr [esi]
+  0x000f7e46  push     0
+  0x000f7e48  push     0x1052d0d4   ; "petTargetLeastAttacked"
+  0x000f7e4d  mov      eax, dword ptr [eax + 0x2c]
+  0x000f7e50  call     eax
+  0x000f7e52  mov      byte ptr [edi + 0x584], al
+  0x000f7e58  mov      ecx, esi
+  0x000f7e5a  mov      eax, dword ptr [esi]
+  0x000f7e5c  push     0
+  0x000f7e5e  push     0x1052d0bc   ; "petTargetGreatestHealth"
+  0x000f7e63  mov      eax, dword ptr [eax + 0x2c]
+  0x000f7e66  call     eax
+  0x000f7e68  mov      byte ptr [edi + 0x585], al
+  0x000f7e6e  mov      ecx, esi
+  0x000f7e70  mov      eax, dword ptr [esi]
+  0x000f7e72  push     0x104f1be5   ; f32=2.36118e+21 i32=1660944384 f64=1.49175e+195
+  0x000f7e77  push     0x1052d0ec   ; "lootDropCallbackPoint"
+  0x000f7e7c  call     dword ptr [eax + 0x14]
+  0x000f7e7f  mov      edx, eax
+  0x000f7e81  cmp      byte ptr [edx], 0
+  0x000f7e84  jne      0x100f7e8a
+  0x000f7e86  xor      ecx, ecx
+  0x000f7e88  jmp      0x100f7e99   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd49
+  0x000f7e8a  mov      ecx, edx
+  0x000f7e8c  lea      ebx, [ecx + 1]
+  0x000f7e8f  nop      
+  0x000f7e90  mov      al, byte ptr [ecx]
+  0x000f7e92  inc      ecx
+  0x000f7e93  test     al, al
+  0x000f7e95  jne      0x100f7e90
+  0x000f7e97  sub      ecx, ebx
+  0x000f7e99  push     ecx
+  0x000f7e9a  push     edx
+  0x000f7e9b  lea      ecx, [edi + 0x64c]
+  0x000f7ea1  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7ea6  mov      eax, dword ptr [esi]
+  0x000f7ea8  mov      ecx, esi
+  0x000f7eaa  push     0x104f1be6   ; f32=1.0977e+27 i32=1818427392 f64=5.84967e+199
+  0x000f7eaf  push     0x1052d104   ; "lootDropAttachPointName"
+  0x000f7eb4  call     dword ptr [eax + 0x14]
+  0x000f7eb7  mov      edx, eax
+  0x000f7eb9  mov      dword ptr [ebp - 0x34], 0xf
+  0x000f7ec0  mov      dword ptr [ebp - 0x38], 0
+  0x000f7ec7  mov      byte ptr [ebp - 0x48], 0
+  0x000f7ecb  cmp      byte ptr [edx], 0
+  0x000f7ece  jne      0x100f7ed4
+  0x000f7ed0  xor      ecx, ecx
+  0x000f7ed2  jmp      0x100f7ee9   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd99
+  0x000f7ed4  mov      ecx, edx
+  0x000f7ed6  lea      ebx, [ecx + 1]
+  0x000f7ed9  nop      dword ptr [eax]
+  0x000f7ee0  mov      al, byte ptr [ecx]
+  0x000f7ee2  inc      ecx
+  0x000f7ee3  test     al, al
+  0x000f7ee5  jne      0x100f7ee0
+  0x000f7ee7  sub      ecx, ebx
+  0x000f7ee9  push     ecx
+  0x000f7eea  push     edx
+  0x000f7eeb  lea      ecx, [ebp - 0x48]
+  0x000f7eee  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7ef3  mov      byte ptr [ebp - 4], 2
+  0x000f7ef7  cmp      dword ptr [ebp - 0x38], 0
+  0x000f7efb  je       0x100f7f1e
+  0x000f7efd  cmp      dword ptr [ebp - 0x34], 0x10
+  0x000f7f01  lea      eax, [ebp - 0x48]
+  0x000f7f04  cmovae   eax, dword ptr [ebp - 0x48]
+  0x000f7f08  push     eax
+  0x000f7f09  lea      eax, [ebp + 8]
+  0x000f7f0c  push     eax
+  0x000f7f0d  call     dword ptr [0x104e625c]   ; f32=1.16514e-38 i32=8314740 f64=2.74782e-306
+  0x000f7f13  add      esp, 8
+  0x000f7f16  mov      eax, dword ptr [eax]
+  0x000f7f18  mov      dword ptr [edi + 0x648], eax
+  0x000f7f1e  mov      eax, dword ptr [esi]
+  0x000f7f20  mov      ecx, esi
+  0x000f7f22  push     0x104f1be7   ; f32=7.31581e+28 i32=1869374208 f64=7.34747e+223
+  0x000f7f27  push     0x1052d11c   ; "dyingSkillCallbackPoint"
+  0x000f7f2c  call     dword ptr [eax + 0x14]
+  0x000f7f2f  mov      edx, eax
+  0x000f7f31  cmp      byte ptr [edx], 0
+  0x000f7f34  jne      0x100f7f3a
+  0x000f7f36  xor      ecx, ecx
+  0x000f7f38  jmp      0x100f7f49   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xdf9
+  0x000f7f3a  mov      ecx, edx
+  0x000f7f3c  lea      esi, [ecx + 1]
+  0x000f7f3f  nop      
+  0x000f7f40  mov      al, byte ptr [ecx]
+  0x000f7f42  inc      ecx
+  0x000f7f43  test     al, al
+  0x000f7f45  jne      0x100f7f40
+  0x000f7f47  sub      ecx, esi
+  0x000f7f49  push     ecx
+  0x000f7f4a  push     edx
+  0x000f7f4b  lea      ecx, [edi + 0x664]
+  0x000f7f51  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f7f56  mov      edx, dword ptr [ebp - 0x34]
+  0x000f7f59  pop      edi
+  0x000f7f5a  pop      esi
+  0x000f7f5b  pop      ebx
+  0x000f7f5c  cmp      edx, 0x10
+  0x000f7f5f  jb       0x100f7f6f
+  0x000f7f61  mov      ecx, dword ptr [ebp - 0x48]
+  0x000f7f64  inc      edx
+  0x000f7f65  push     1
+  0x000f7f67  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f7f6c  add      esp, 4
+  0x000f7f6f  mov      ecx, dword ptr [ebp - 0x18]
+  0x000f7f72  mov      dword ptr [ebp - 0x34], 0xf
+  0x000f7f79  mov      dword ptr [ebp - 0x38], 0
+  0x000f7f80  mov      byte ptr [ebp - 0x48], 0
+  0x000f7f84  test     ecx, ecx
+  0x000f7f86  je       0x100f7faf
+  0x000f7f88  mov      edx, dword ptr [ebp - 0x10]
+  0x000f7f8b  sub      edx, ecx
+  0x000f7f8d  push     4
+  0x000f7f8f  sar      edx, 2
+  0x000f7f92  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f7f97  add      esp, 4
+  0x000f7f9a  mov      dword ptr [ebp - 0x18], 0
+  0x000f7fa1  mov      dword ptr [ebp - 0x14], 0
+  0x000f7fa8  mov      dword ptr [ebp - 0x10], 0
+  0x000f7faf  mov      edx, dword ptr [ebp - 0x1c]
+  0x000f7fb2  cmp      edx, 0x10
+  0x000f7fb5  jb       0x100f7fc5
+  0x000f7fb7  mov      ecx, dword ptr [ebp - 0x30]
+  0x000f7fba  inc      edx
+  0x000f7fbb  push     1
+  0x000f7fbd  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f7fc2  add      esp, 4
+  0x000f7fc5  mov      ecx, dword ptr [ebp - 0xc]
+  0x000f7fc8  mov      dword ptr fs:[0], ecx
+  0x000f7fcf  mov      esp, ebp
+  0x000f7fd1  pop      ebp
+  0x000f7fd2  ret      4
+  0x000f7fd5  int3     
+  0x000f7fd6  int3     
+  0x000f7fd7  int3     
+  0x000f7fd8  int3     
+  0x000f7fd9  int3     
+  0x000f7fda  int3     
+  0x000f7fdb  int3     
+  0x000f7fdc  int3     
+  0x000f7fdd  int3     
+  0x000f7fde  int3     
+  0x000f7fdf  int3     

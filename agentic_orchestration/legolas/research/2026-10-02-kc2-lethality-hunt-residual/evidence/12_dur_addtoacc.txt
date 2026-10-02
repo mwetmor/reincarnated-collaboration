@@ -1,0 +1,198 @@
+=== ?AddDamageToAccumulator@DamageAttributeDur@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z ===
+  0x001429a0  push     ebp
+  0x001429a1  mov      ebp, esp
+  0x001429a3  push     -1
+  0x001429a5  push     0x104cb1cf
+  0x001429aa  mov      eax, dword ptr fs:[0]
+  0x001429b0  push     eax
+  0x001429b1  mov      dword ptr fs:[0], esp
+  0x001429b8  sub      esp, 0x10
+  0x001429bb  push     ebx
+  0x001429bc  mov      ebx, ecx
+  0x001429be  push     esi
+  0x001429bf  mov      esi, dword ptr [ebp + 0x10]
+  0x001429c2  push     esi
+  0x001429c3  mov      eax, dword ptr [ebx]
+  0x001429c5  mov      dword ptr [ebp - 0x1c], ebx
+  0x001429c8  mov      eax, dword ptr [eax + 4]
+  0x001429cb  call     eax
+  0x001429cd  cmp      byte ptr [ebp + 0x18], 0
+  0x001429d1  fstp     dword ptr [ebp - 0x10]
+  0x001429d4  jne      0x101429f3
+  0x001429d6  mov      ecx, dword ptr [ebp + 0xc]
+  0x001429d9  movss    xmm0, dword ptr [ebp - 0x10]
+  0x001429de  push     ecx
+  0x001429df  movss    dword ptr [esp], xmm0
+  0x001429e4  mov      eax, dword ptr [ecx]
+  0x001429e6  mov      eax, dword ptr [eax + 8]
+  0x001429e9  call     eax
+  0x001429eb  test     al, al
+  0x001429ed  je       0x10142c39
+  0x001429f3  mov      eax, dword ptr [ebx]
+  0x001429f5  mov      ecx, ebx
+  0x001429f7  push     edi
+  0x001429f8  push     0
+  0x001429fa  push     esi
+  0x001429fb  mov      eax, dword ptr [eax + 0xb4]
+  0x00142a01  call     eax
+  0x00142a03  mov      eax, dword ptr [ebx]
+  0x00142a05  mov      ecx, ebx
+  0x00142a07  push     0
+  0x00142a09  fstp     dword ptr [ebp - 0x18]
+  0x00142a0c  push     esi
+  0x00142a0d  mov      eax, dword ptr [eax + 0xb8]
+  0x00142a13  call     eax
+  0x00142a15  mov      edi, dword ptr [ebp + 0x14]
+  0x00142a18  xor      edx, edx
+  0x00142a1a  mov      ecx, 0x1f31d
+  0x00142a1f  movss    xmm0, dword ptr [ebp + 0x1c]
+  0x00142a24  addss    xmm0, dword ptr [ebp + 0x20]
+  0x00142a29  fstp     dword ptr [ebp - 0x14]
+  0x00142a2c  mov      eax, dword ptr [edi]
+  0x00142a2e  div      ecx
+  0x00142a30  mov      ecx, dword ptr [ebp + 0xc]
+  0x00142a33  imul     eax, eax, 0xb14
+  0x00142a39  imul     esi, edx, 0x41a7
+  0x00142a3f  movss    dword ptr [ebp + 0x18], xmm0
+  0x00142a44  movss    xmm0, dword ptr [ebp - 0x10]
+  0x00142a49  push     ecx
+  0x00142a4a  movss    dword ptr [esp], xmm0
+  0x00142a4f  sub      esi, eax
+  0x00142a51  lea      eax, [esi + 0x7fffffff]
+  0x00142a57  cmovs    esi, eax
+  0x00142a5a  mov      dword ptr [edi], esi
+  0x00142a5c  mov      eax, dword ptr [ecx]
+  0x00142a5e  mov      eax, dword ptr [eax + 0xc]
+  0x00142a61  call     eax
+  0x00142a63  movss    xmm2, dword ptr [ebp - 0x14]
+  0x00142a68  mov      ecx, ebx
+  0x00142a6a  subss    xmm2, dword ptr [ebp - 0x18]
+  0x00142a6f  movd     xmm0, esi
+  0x00142a73  cvtdq2pd xmm0, xmm0
+  0x00142a77  shr      esi, 0x1f
+  0x00142a7a  mov      eax, dword ptr [ebx]
+  0x00142a7c  push     0
+  0x00142a7e  mov      eax, dword ptr [eax + 0xbc]
+  0x00142a84  addsd    xmm0, qword ptr [esi*8 + 0x105f6ce0]   ; f32=0 i32=0 f64=0
+  0x00142a8d  mov      esi, dword ptr [ebp + 0x10]
+  0x00142a90  push     esi
+  0x00142a91  cvtpd2ps xmm0, xmm0
+  0x00142a95  mulss    xmm2, xmm0
+  0x00142a99  mulss    xmm2, dword ptr [0x105f6918]   ; f32=4.65661e-10 i32=805306368 f64=4.52784e-72
+  0x00142aa1  addss    xmm2, dword ptr [ebp - 0x18]
+  0x00142aa6  movss    dword ptr [ebp + 0x14], xmm2
+  0x00142aab  fmul     dword ptr [ebp + 0x14]
+  0x00142aae  fmul     dword ptr [ebp + 0x18]
+  0x00142ab1  fstp     dword ptr [ebp + 0x20]
+  0x00142ab4  call     eax
+  0x00142ab6  mov      eax, dword ptr [ebx]
+  0x00142ab8  mov      ecx, ebx
+  0x00142aba  push     0
+  0x00142abc  fstp     dword ptr [ebp + 0x1c]
+  0x00142abf  push     esi
+  0x00142ac0  mov      eax, dword ptr [eax + 0xc0]
+  0x00142ac6  call     eax
+  0x00142ac8  mov      eax, dword ptr [edi]
+  0x00142aca  xor      edx, edx
+  0x00142acc  mov      ecx, 0x1f31d
+  0x00142ad1  div      ecx
+  0x00142ad3  fstp     dword ptr [ebp + 0x14]
+  0x00142ad6  movss    xmm2, dword ptr [ebp + 0x14]
+  0x00142adb  subss    xmm2, dword ptr [ebp + 0x1c]
+  0x00142ae0  imul     eax, eax, 0xb14
+  0x00142ae6  imul     ecx, edx, 0x41a7
+  0x00142aec  sub      ecx, eax
+  0x00142aee  lea      eax, [ecx + 0x7fffffff]
+  0x00142af4  cmovs    ecx, eax
+  0x00142af7  mov      dword ptr [edi], ecx
+  0x00142af9  movd     xmm0, ecx
+  0x00142afd  cvtdq2pd xmm0, xmm0
+  0x00142b01  shr      ecx, 0x1f
+  0x00142b04  addsd    xmm0, qword ptr [ecx*8 + 0x105f6ce0]   ; f32=0 i32=0 f64=0
+  0x00142b0d  mov      eax, dword ptr [ebx]
+  0x00142b0f  mov      ecx, ebx
+  0x00142b11  cvtpd2ps xmm0, xmm0
+  0x00142b15  push     0
+  0x00142b17  push     esi
+  0x00142b18  mov      eax, dword ptr [eax + 0xb4]
+  0x00142b1e  mulss    xmm2, xmm0
+  0x00142b22  mulss    xmm2, dword ptr [0x105f6918]   ; f32=4.65661e-10 i32=805306368 f64=4.52784e-72
+  0x00142b2a  addss    xmm2, dword ptr [ebp + 0x1c]
+  0x00142b2f  movss    dword ptr [ebp + 0x1c], xmm2
+  0x00142b34  call     eax
+  0x00142b36  mov      esi, dword ptr [ebp + 0xc]
+  0x00142b39  movss    xmm0, dword ptr [ebp - 0x10]
+  0x00142b3e  push     ecx
+  0x00142b3f  fstp     dword ptr [ebp + 0x14]
+  0x00142b42  mov      eax, dword ptr [esi]
+  0x00142b44  mov      ecx, esi
+  0x00142b46  movss    dword ptr [esp], xmm0
+  0x00142b4b  mov      eax, dword ptr [eax + 0xc]
+  0x00142b4e  call     eax
+  0x00142b50  fmul     dword ptr [ebp + 0x14]
+  0x00142b53  mov      ecx, ebx
+  0x00142b55  mov      eax, dword ptr [ebx]
+  0x00142b57  push     0
+  0x00142b59  push     dword ptr [ebp + 0x10]
+  0x00142b5c  fmul     dword ptr [ebp + 0x18]
+  0x00142b5f  mov      eax, dword ptr [eax + 0xb8]
+  0x00142b65  fstp     dword ptr [ebp + 0x14]
+  0x00142b68  call     eax
+  0x00142b6a  mov      eax, dword ptr [esi]
+  0x00142b6c  movss    xmm0, dword ptr [ebp - 0x10]
+  0x00142b71  push     ecx
+  0x00142b72  fstp     dword ptr [ebp + 0x10]
+  0x00142b75  mov      eax, dword ptr [eax + 0xc]
+  0x00142b78  mov      ecx, esi
+  0x00142b7a  movss    dword ptr [esp], xmm0
+  0x00142b7f  call     eax
+  0x00142b81  fmul     dword ptr [ebp + 0x10]
+  0x00142b84  push     0x3c
+  0x00142b86  fmul     dword ptr [ebp + 0x18]
+  0x00142b89  fstp     dword ptr [ebp + 0x18]
+  0x00142b8c  call     0x104bfba6   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c86
+  0x00142b91  mov      ebx, eax
+  0x00142b93  add      esp, 4
+  0x00142b96  mov      dword ptr [ebp + 0x10], ebx
+  0x00142b99  mov      ecx, dword ptr [ebp - 0x1c]
+  0x00142b9c  mov      esi, dword ptr [ebp + 8]
+  0x00142b9f  mov      dword ptr [ebp - 4], 0
+  0x00142ba6  mov      edx, dword ptr [ecx]
+  0x00142ba8  mov      edi, dword ptr [ecx + 0x54]
+  0x00142bab  call     dword ptr [edx + 0x14]
+  0x00142bae  movss    xmm0, dword ptr [ebp + 0x20]
+  0x00142bb3  mov      ecx, dword ptr [ebp + 0xc]
+  0x00142bb6  mov      dword ptr [ebx + 4], eax
+  0x00142bb9  add      ecx, 4
+  0x00142bbc  mov      dword ptr [ebx + 8], 0
+  0x00142bc3  lea      eax, [ebp + 0x18]
+  0x00142bc6  mov      dword ptr [ebx + 0x10], 0
+  0x00142bcd  mov      dword ptr [ebx + 0x14], 0
+  0x00142bd4  movss    dword ptr [ebx + 0x1c], xmm0
+  0x00142bd9  movss    xmm0, dword ptr [ebp + 0x14]
+  0x00142bde  movss    dword ptr [ebx + 0x28], xmm0
+  0x00142be3  movss    xmm0, dword ptr [ebp + 0x18]
+  0x00142be8  movss    dword ptr [ebx + 0x2c], xmm0
+  0x00142bed  movss    xmm0, dword ptr [ebp + 0x1c]
+  0x00142bf2  mov      dword ptr [ebp - 4], 0xffffffff
+  0x00142bf9  push     eax
+  0x00142bfa  mov      dword ptr [ebx + 0x18], 0
+  0x00142c01  mov      dword ptr [ebx], 0x105ba824   ; [??_7CombatAttributeDurDamage@GAME@@6B@] f32=2.79335e-29 i32=269329344 f64=2.37541e-231
+  0x00142c07  movss    dword ptr [ebx + 0x20], xmm0
+  0x00142c0c  movss    dword ptr [ebx + 0x24], xmm0
+  0x00142c11  mov      dword ptr [ebx + 0x10], esi
+  0x00142c14  mov      dword ptr [ebx + 0x14], edi
+  0x00142c17  mov      dword ptr [ebx + 0x30], 0
+  0x00142c1e  mov      dword ptr [ebx + 0x34], 0
+  0x00142c25  mov      dword ptr [ebx + 0x38], 0
+  0x00142c2c  mov      byte ptr [ebx + 0xc], 1
+  0x00142c30  mov      dword ptr [ebp + 0x18], ebx
+  0x00142c33  call     0x1000a390   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x20
+  0x00142c38  pop      edi
+  0x00142c39  mov      ecx, dword ptr [ebp - 0xc]
+  0x00142c3c  pop      esi
+  0x00142c3d  pop      ebx
+  0x00142c3e  mov      dword ptr fs:[0], ecx
+  0x00142c45  mov      esp, ebp
+  0x00142c47  pop      ebp
+  0x00142c48  ret      0x1c
