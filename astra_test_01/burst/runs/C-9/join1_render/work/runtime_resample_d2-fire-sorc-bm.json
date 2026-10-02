@@ -1,0 +1,255 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "so-body_ss134.glb",
+ "clips": {
+  "idle": {
+   "length_glb": 2.33333,
+   "length_godot": 2.33333,
+   "tracks": 74,
+   "exact": 46,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.rotation",
+    "headfront.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  },
+  "walk": {
+   "length_glb": 1.1,
+   "length_godot": 1.1,
+   "tracks": 24,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 67,
+     "spacing_glb": 0.01667,
+     "keys_godot": 34,
+     "worst_deg": 1.151
+    }
+   ],
+   "dropped": []
+  },
+  "run": {
+   "length_glb": 0.7,
+   "length_godot": 0.7,
+   "tracks": 24,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 85,
+     "spacing_glb": 0.00833,
+     "keys_godot": 22,
+     "worst_deg": 2.066
+    }
+   ],
+   "dropped": []
+  },
+  "hit": {
+   "length_glb": 0.7,
+   "length_godot": 0.7,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "death": {
+   "length_glb": 2.3,
+   "length_godot": 2.3,
+   "tracks": 24,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "weapon_r.rotation"
+   ]
+  },
+  "cast_meteor": {
+   "length_glb": 2.96667,
+   "length_godot": 2.96667,
+   "tracks": 24,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 179,
+     "spacing_glb": 0.01667,
+     "keys_godot": 90,
+     "worst_deg": 4.051
+    }
+   ],
+   "dropped": []
+  },
+  "cast_fireball_m": {
+   "length_glb": 1.03333,
+   "length_godot": 1.03333,
+   "tracks": 27,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [
+    {
+     "track": "weapon_r.rotation",
+     "keys_glb": 125,
+     "spacing_glb": 0.00833,
+     "keys_godot": 32,
+     "worst_deg": 12.386
+    }
+   ],
+   "dropped": [
+    "head_end.rotation",
+    "headfront.rotation",
+    "weapon_l.rotation"
+   ]
+  },
+  "block": {
+   "length_glb": 0.6,
+   "length_godot": 0.6,
+   "tracks": 74,
+   "exact": 46,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "Hips.scale",
+    "LeftUpLeg.scale",
+    "LeftLeg.scale",
+    "LeftFoot.scale",
+    "LeftToeBase.scale",
+    "RightUpLeg.scale",
+    "RightLeg.scale",
+    "RightFoot.scale",
+    "RightToeBase.scale",
+    "Spine02.scale",
+    "Spine01.scale",
+    "Spine.scale",
+    "LeftShoulder.scale",
+    "LeftArm.scale",
+    "LeftForeArm.scale",
+    "LeftHand.scale",
+    "RightShoulder.scale",
+    "RightArm.scale",
+    "RightForeArm.scale",
+    "RightHand.scale",
+    "neck.scale",
+    "Head.scale",
+    "head_end.rotation",
+    "head_end.scale",
+    "headfront.rotation",
+    "headfront.scale",
+    "weapon_r.rotation",
+    "weapon_r.translation"
+   ]
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-fire-sorc-bm.json",
+  "states": {
+   "idle": {
+    "clip": "idle",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 12,
+    "worst_deg": 0.584,
+    "worst_track": "weapon_r.rotation",
+    "worst_at_t": 1.00833335518837,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "run": {
+    "clip": "run",
+    "frames": 12,
+    "worst_deg": 0.309,
+    "worst_track": "weapon_r.rotation",
+    "worst_at_t": 0.583333323399226,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "cast_fireball": {
+    "clip": "cast_fireball_m",
+    "frames": 12,
+    "worst_deg": 0.004,
+    "worst_track": "weapon_r.rotation",
+    "worst_at_t": 0.1333,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "cast_meteor": {
+    "clip": "cast_meteor",
+    "frames": 16,
+    "worst_deg": 1.462,
+    "worst_track": "weapon_r.rotation",
+    "worst_at_t": 0.2083375,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "block": {
+    "clip": "block",
+    "frames": 5,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "hit": {
+    "clip": "hit",
+    "frames": 8,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}

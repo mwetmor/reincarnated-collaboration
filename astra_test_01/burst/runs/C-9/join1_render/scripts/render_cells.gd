@@ -312,6 +312,9 @@ func _sockets(state: String) -> Dictionary:
 		var bone := String(sd.get("per_state_bone", {}).get(state, sd["bone"]))
 		var g := _world(bone)
 		var p := g.origin + g.basis.y.normalized() * float(sd.get("along_bone_m", 0.0))
+		if sd.has("local_m"):                     # a point OFF the bone's axis (the shield's centre): metres in its normalised frame
+			var lm: Array = sd["local_m"]
+			p += g.basis.x.normalized() * float(lm[0]) + g.basis.y.normalized() * float(lm[1]) + g.basis.z.normalized() * float(lm[2])
 		out[k] = _port(p)
 	return out
 

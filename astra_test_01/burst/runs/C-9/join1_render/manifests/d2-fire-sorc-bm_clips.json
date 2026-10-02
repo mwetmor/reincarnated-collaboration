@@ -1,0 +1,58 @@
+{
+ "what": "JOIN-1 clip manifest for the SORCERESS BATTLE MAGE cell pack (the Q95 kit of record: one-handed orb staff main hand + shield) -- this lane's (join1_render), read off so_mx/export/ss134c_final (commit 292a9562c, read-only) and so_mx/work/character_sorceress_ss134.json",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss134c_final/so-body_ss134.glb",
+  "model_height_m": 1.6995
+ },
+ "clips": {
+  "idle": {
+   "seconds": 2.3333
+  },
+  "walk": {
+   "seconds": 1.1
+  },
+  "run": {
+   "seconds": 0.7
+  },
+  "cast_fireball_m": {
+   "seconds": 1.0333
+  },
+  "cast_meteor": {
+   "seconds": 2.9667
+  },
+  "block": {
+   "seconds": 0.6
+  },
+  "hit": {
+   "seconds": 0.7
+  },
+  "death": {
+   "seconds": 2.3
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.368,
+   "rule": "the stance-toe speed (s18_footlock_contact), the package's _r134_speed_note"
+  },
+  "run": {
+   "speed_m_s": 3.646,
+   "rule": "the stance-toe speed (s18_footlock_contact)"
+  }
+ },
+ "casts": {
+  "cast_fireball_m": {
+   "release_s": 0.1333,
+   "definition": "the package's Fire Ball release (the staff hand's fastest forward interval, key 4 on the 30 fps keys)"
+  },
+  "cast_meteor": {
+   "release_s": 1.6667,
+   "definition": "the package's Meteor release (the staff hand driven down, key 50 on the 30 fps keys)"
+  }
+ },
+ "block": {
+  "raise_s": 0.18,
+  "lower_s": 0.2,
+  "note": "R-C9-134: the shield raise -- the D7 idle body, the arms slerped from the held idle arms to the held block arms over its first 35 hundredths of a second, then held to its end; block_idle (not in this pack) is the held block loop"
+ }
+}

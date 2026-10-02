@@ -1,0 +1,20 @@
+== the manifest
+  release_s checked on 2 cast(s): cast_fireball_m, cast_meteor
+  18 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: neg_release (a copy with one planted error)
+  release_s checked on 2 cast(s): cast_fireball_m, cast_meteor
+  MANIFEST MISMATCH  casts.cast_meteor.release_s = 3.5000 is outside the clip (0, 2.9667)
+  MANIFEST MISMATCH  casts.cast_meteor.release_s = 3.5000 falls 0.5333 s from the nearest key (frame step 0.0167) -- a pose between keys
+  18 clip(s) checked, 2 mismatch(es)
+exit 1
+== negative control: neg_prose (a copy with one planted error)
+  release_s checked on 2 cast(s): cast_fireball_m, cast_meteor
+  MANIFEST MISMATCH  .clips.run.note_neg says 'run ... 0.9 s' but the GLB says 0.7000 s
+  18 clip(s) checked, 1 mismatch(es)
+exit 1
+== negative control: neg_spin (a copy with one planted error)
+  release_s checked on 2 cast(s): cast_fireball_m, cast_meteor
+  MANIFEST MISMATCH  .clips.cast_meteor.note_neg says 'cast_meteor ... 2.5 s' but the GLB says 2.9667 s
+  18 clip(s) checked, 1 mismatch(es)
+exit 1

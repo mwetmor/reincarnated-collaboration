@@ -37,6 +37,8 @@ for st, sd in kit["states"].items():
             for k, sdef in kit["sockets"].items():
                 M = G[nid[sdef["bone"]]]; Y = M[:3, 1] / np.linalg.norm(M[:3, 1])
                 want = M[:3, 3] + float(sdef.get("along_bone_m", 0.0)) * Y
+                if "local_m" in sdef:                                  # an off-axis point (render_cells.gd's local_m)
+                    Rn = M[:3, :3] / np.linalg.norm(M[:3, :3], axis=0); want = want + Rn @ np.array(sdef["local_m"], float)
                 e = float(np.linalg.norm(port(want, b) - np.array(sk[k]))); ws = max(ws, e); n += 1
     out["states"][st] = dict(worst_m=round(ws, 5), samples=n); out["samples"] += n; worst = max(worst, ws)
     print("  %-15s worst %.5f m over %d socket samples" % (st, ws, n))
