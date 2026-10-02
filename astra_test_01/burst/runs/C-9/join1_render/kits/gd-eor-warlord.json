@@ -1,19 +1,19 @@
 {
  "kit": "gd-eor-warlord",
- "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the GD EoR WARLORD (the dark knight, E1 FINAL K): a two-handed mace in the Mixamo great-sword grip, 1.96 m. Arena push R-C9-132/133. Blitz uses the run cell; buffs and summons use the warcry cell.",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the GD EoR WARLORD (the dark knight, E1 FINAL K): a two-handed mace in the Mixamo great-sword grip, 1.96 m. Arena push R-C9-132/133. Blitz uses the run cell; buffs and summons use the warcry cell. Rev eor2: body re-pointed to wl_e1/export/final_k_eor2 (the extended-arm spin); eor_spin_start/* and eor_spin_loop/* re-rendered (pass p2), the other 56 cells carried (their clips byte-identical).",
  "contract": {
   "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
   "commit": "d95e1df",
   "schema": "join1-sprite-cells/1"
  },
  "source": {
-  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_body.glb",
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_body.glb",
   "pieces": [
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_chest.glb",
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_pauldrons.glb",
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_cape.glb",
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_helm.glb",
-   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_mace.glb"
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_chest.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_pauldrons.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_cape.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_helm.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_mace.glb"
   ],
   "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/gd-eor-warlord_clips.json",
   "loadout": {
@@ -115,7 +115,7 @@
  },
  "morphs": {},
  "eyes": {
-  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/eye_sockets.json",
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/eye_sockets.json",
   "color": "#9e4dff",
   "_what": "his runtime eye billboards rendered INTO the cells (render_cells.gd _eyes); steady, no flicker"
  },

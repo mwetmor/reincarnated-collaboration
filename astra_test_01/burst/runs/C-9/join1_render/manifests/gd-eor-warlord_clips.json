@@ -1,9 +1,10 @@
 {
  "what": "JOIN-1 clip manifest for the GD EoR warlord (the dark knight) cell pack -- this lane's (drax nb_join / join1_render), read off wl_e1/export/final_k_eor (E1, R-C9-127/128), the arena push R-C9-132/133",
  "body": {
-  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_body.glb",
-  "sha256_16": "8080fd58d190dd55",
-  "height_m": 1.96
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_body.glb",
+  "sha256_16": "492b9e99641e5f8e",
+  "height_m": 1.96,
+  "revision": "eor2 (wl_e1/export/final_k_eor2, E1 f734570d2): the extended-arm spin -- only the two spin clips' channels differ from final_k_eor; every other clip byte-identical, the piece meshes, skins and textures byte-identical (the glTF JSON differs only in accessor/bufferView numbering)"
  },
  "clips": {
   "idle": {
@@ -36,11 +37,11 @@
   },
   "eor_spin_start": {
    "seconds": 0.2,
-   "source": "recipe (a), the v7 rule: one frame of idle turned rigidly CCW about his vertical; the START accelerates to 1200 deg/s and turns 120 deg (wl_manifest eor_spin.a)"
+   "source": "the extended-arm recipe (R-C9-132): one frame of idle with named edits (elbow opened, interior capped 166 deg; shoulder aimed to az 90; no solver), turned rigidly CCW, accelerating to 1200 deg/s and turning 120 deg; the haft slid 0.20 m outward through the fists (e54) -- clip_sources.json"
   },
   "eor_spin_loop": {
    "seconds": 0.3,
-   "source": "recipe (a), the v7 rule: the LOOP turns 9 x 40 deg at rate 1.0 and closes exactly (wl_manifest eor_spin.a)"
+   "source": "the same extended-arm frame, 9 x 40 deg CCW at rate 1.0, closes exactly; the haft slid 0.20 m outward (e54) -- clip_sources.json"
   }
  },
  "locomotion_in_place": {
@@ -70,11 +71,11 @@
   },
   "b": "NOT SHIPPED: recipe (b) is in the comparison film only (wl_e1/export/spin_film); its loop fails the joint-limit lint (left wrist flexion 92 deg at 2 keys) and its feet slide 55-80 mm",
   "moving": "in place: the runtime moves him while channelling (canUseWhileMoving)",
-  "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12): the effect reads the mace head off the rig",
+  "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12; slid 0.20 m outward, e54 -- so in the spin weapon_r sits off the right fist): the effect reads the mace head off the rig",
   "a": "recipe (a): see clips.eor_spin_start / clips.eor_spin_loop"
  },
  "eyes": {
-  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/eye_sockets.json",
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/eye_sockets.json",
   "color": "violet #9e4dff (wl_e1 gear_stills default)"
  }
 }
