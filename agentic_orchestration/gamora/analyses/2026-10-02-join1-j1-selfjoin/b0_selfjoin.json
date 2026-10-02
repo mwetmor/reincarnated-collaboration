@@ -1,0 +1,556 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN -- JOIN-1 J1 self-join (B0), oracle side, read-only",
+ "pins": {
+  "kit_json_sha256_FILE": "b82c9a0fcbcd373aa541edec411495fb037912872248e55c774253b61fd74a49",
+  "corpus_db_sha256_FILE": "dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473",
+  "played_kit_sha256_FILE": "2fd5a34792b96125bd55a40891dfd65cdeb43c385c6ef06607486342d53ce0b3",
+  "eor_per_hit_sha256_FILE": "120990d998ac23a4b2dadc134e0f5cf3e51a3f7f6eb34ee400d5e2531b26d5a8",
+  "pe1_sha256_FILE": "855d68b480db555a6b20ebb9df106c3c0cfa9d0306347337657314c26c16b5dd",
+  "kit_compiler_sha256_FILE": "eef2dd4c4c76b27baee747bc513536ecbe7a8edfd6effef9fd93b9ca32fc6227"
+ },
+ "consistency_json_vs_corpus_db": {
+  "json_skills": [
+   "Eye of Reckoning",
+   "Judgment"
+  ],
+  "corpus_db_skills": [
+   "Eye of Reckoning",
+   "Judgment"
+  ],
+  "json_geometry": [
+   "whirlwind",
+   "circle"
+  ],
+  "corpus_db_geometry": [
+   "whirlwind",
+   "circle"
+  ],
+  "corpus_db_original_element": "fire",
+  "corpus_db_court": "fire",
+  "json_carries_original_element": false,
+  "corpus_db_numerics": 0,
+  "corpus_db_composition": 0,
+  "skills_and_geometry_agree": true
+ },
+ "compiled_kit": {
+  "kit_id": "gd-eor-warlord",
+  "class_dict": {
+   "id": "gd-eor-warlord",
+   "archetype_tag": "Eye of Reckoning Warlord",
+   "dominant_element": "fire",
+   "energy_type": "mana",
+   "range_profile": "short",
+   "movement_speed": 5.75,
+   "stat_distribution": {
+    "strength": 10,
+    "dexterity": 0,
+    "intelligence": 0,
+    "wisdom": 0,
+    "vitality": 54
+   },
+   "skills": [
+    {
+     "id": "gd-eor-warlord::eye_of_reckoning",
+     "name": "Eye of Reckoning",
+     "geometry_type": "whirlwind",
+     "spatial_geometry_type": "circle",
+     "geometry_params": {},
+     "canonical_element": "fire",
+     "scaling_attribute": "",
+     "damage_scaling_type": null,
+     "damage_multiplier": 1.0,
+     "energy_cost": 10.0,
+     "cadence": "channel",
+     "tier": 4,
+     "effects": [
+      {
+       "name": "damage",
+       "params": {
+        "magnitude": 0.0
+       }
+      }
+     ],
+     "_delivery_class": "motion",
+     "_projectiles_per_cast": 1,
+     "_source_skill": "Eye of Reckoning"
+    },
+    {
+     "id": "gd-eor-warlord::judgment",
+     "name": "Judgment",
+     "geometry_type": "circle",
+     "spatial_geometry_type": "circle",
+     "geometry_params": {},
+     "canonical_element": "fire",
+     "scaling_attribute": "",
+     "damage_scaling_type": null,
+     "damage_multiplier": 1.0,
+     "energy_cost": 10.0,
+     "cadence": "cooldown",
+     "tier": 4,
+     "effects": [
+      {
+       "name": "damage",
+       "params": {
+        "magnitude": 0.0
+       }
+      }
+     ],
+     "_delivery_class": "zone",
+     "_projectiles_per_cast": 1,
+     "_source_skill": "Judgment"
+    }
+   ],
+   "resource_economy": {},
+   "defense": {
+    "riders": []
+   },
+   "_primary_delivery_class": "motion",
+   "_game": "gd",
+   "_build_point_level": null,
+   "_kit_fidelity_compiled": true
+  },
+  "skills": [
+   {
+    "skill_dict": {
+     "id": "gd-eor-warlord::eye_of_reckoning",
+     "name": "Eye of Reckoning",
+     "geometry_type": "whirlwind",
+     "spatial_geometry_type": "circle",
+     "geometry_params": {},
+     "canonical_element": "fire",
+     "scaling_attribute": "",
+     "damage_scaling_type": null,
+     "damage_multiplier": 1.0,
+     "energy_cost": 10.0,
+     "cadence": "channel",
+     "tier": 4,
+     "effects": [
+      {
+       "name": "damage",
+       "params": {
+        "magnitude": 0.0
+       }
+      }
+     ],
+     "_delivery_class": "motion",
+     "_projectiles_per_cast": 1,
+     "_source_skill": "Eye of Reckoning"
+    },
+    "composition": {
+     "base_min": null,
+     "base_max": null,
+     "offensive_mult": 1.0,
+     "hit_chance": 1.0,
+     "crit_ev": 1.0,
+     "mitigation_ref": null,
+     "magnitude": null,
+     "damage_multiplier": 1.0
+    },
+    "gap_excluded": [
+     "base_foi_damage (R-K5 GAP, T4 pending)"
+    ]
+   },
+   {
+    "skill_dict": {
+     "id": "gd-eor-warlord::judgment",
+     "name": "Judgment",
+     "geometry_type": "circle",
+     "spatial_geometry_type": "circle",
+     "geometry_params": {},
+     "canonical_element": "fire",
+     "scaling_attribute": "",
+     "damage_scaling_type": null,
+     "damage_multiplier": 1.0,
+     "energy_cost": 10.0,
+     "cadence": "cooldown",
+     "tier": 4,
+     "effects": [
+      {
+       "name": "damage",
+       "params": {
+        "magnitude": 0.0
+       }
+      }
+     ],
+     "_delivery_class": "zone",
+     "_projectiles_per_cast": 1,
+     "_source_skill": "Judgment"
+    },
+    "composition": {
+     "base_min": null,
+     "base_max": null,
+     "offensive_mult": 1.0,
+     "hit_chance": 1.0,
+     "crit_ev": 1.0,
+     "mitigation_ref": null,
+     "magnitude": null,
+     "damage_multiplier": 1.0
+    },
+    "gap_excluded": [
+     "base_foi_damage (R-K5 GAP, T4 pending)"
+    ]
+   }
+  ],
+  "held": false,
+  "gap_excluded": [
+   "base_foi_damage (R-K5 GAP, T4 pending)"
+  ],
+  "notes": []
+ },
+ "layer_R_record_vs_pack": [
+  {
+   "id": "R1",
+   "field": "castable skills",
+   "record": [
+    "Eye of Reckoning",
+    "Judgment"
+   ],
+   "pack": [
+    "Vire's Might",
+    "War Cry",
+    "Ascension",
+    "Violent Delights",
+    "Blitz",
+    "Weapon Attack",
+    "Eye of Reckoning",
+    "Summon Guardian of Empyrion",
+    "Summon Deathstalker"
+   ],
+   "verdict": "DIFFERS",
+   "note": "Judgment has 0 rows in the pack's 324-row kit; the record's build is a different build (forum SSF EoR Warlord) from the referent save. EoR is the only skill the two share."
+  },
+  {
+   "id": "R2",
+   "field": "element / conversion",
+   "record": {
+    "element_primary": [
+     null,
+     null
+    ],
+    "t4_doors": [
+     "ELEMENT_CONVERSION_PHYSICAL"
+    ],
+    "corpus_db_original_element": "fire"
+   },
+   "pack": {
+    "eor_conversion_skill_scoped": "Fire->Physical 100.0%",
+    "weapon_conversion_1": "Chaos->Physical 50.0%",
+    "weapon_conversion_2": "Lightning->Physical 50.0%",
+    "component_conversion": "Aether->Physical 25%"
+   },
+   "verdict": "AGREES IN IDENTITY (physical-converted); the record's raw element field says fire",
+   "note": "identity agrees; the source of the conversion differs (record: Korvan Spaulders / Beronath aura; pack: Gutsmasher's EoR modifier, Fire->Physical 100 %)."
+  },
+  {
+   "id": "R3",
+   "field": "resource economy",
+   "record": {
+    "persistent_condition_shape": "tick-cost",
+    "cost_scale": "energy-hungry spin channel + aura upkeep ('when you run out of energy, you lose Beronath conversion aura and need to recast it' -- energy management identity-load-bearing)"
+   },
+   "pack": {
+    "mana_per_tick_rank20": "13.0",
+    "channel_period_at_100pct_AS_s": "0.16"
+   },
+   "verdict": "QUALITATIVE ONLY",
+   "note": "record: no number; 'aura upkeep' names an aura the referent kit does not run."
+  },
+  {
+   "id": "R4",
+   "field": "devotion bindings (procs)",
+   "record": [
+    "Bull",
+    "Assassin",
+    "Lion",
+    "Bear (Maul proc on Judgment)",
+    "Crab",
+    "Stag",
+    "Turtle",
+    "Wraith",
+    "Hammer"
+   ],
+   "pack": [
+    {
+     "carrier": "Vire's Might",
+     "devotion_record": "records/skills/devotion/tier2_05f_skill.dbr",
+     "devotion_name": "(unnamed in pack)"
+    },
+    {
+     "carrier": "War Cry",
+     "devotion_record": "records/skills/devotion/tier2_37d_skill.dbr",
+     "devotion_name": "Ulzaad's Decree"
+    },
+    {
+     "carrier": "Eye of Reckoning",
+     "devotion_record": "records/skills/devotion/tier1_08e_skill.dbr",
+     "devotion_name": "(unnamed in pack)"
+    },
+    {
+     "carrier": "Summon Guardian of Empyrion",
+     "devotion_record": "records/skills/devotion/tier3_20e_skill.dbr",
+     "devotion_name": "Shifting Sands"
+    },
+    {
+     "carrier": "",
+     "devotion_record": "records/skills/devotion/tier1_29e_skill.dbr",
+     "devotion_name": "Turtle Shell"
+    },
+    {
+     "carrier": "Divine Mandate",
+     "devotion_record": "records/skills/devotion/tier2_17c_skill.dbr",
+     "devotion_name": "Arcane Barrier"
+    },
+    {
+     "carrier": "",
+     "devotion_record": "records/skills/devotion/tier2_02f_skill.dbr",
+     "devotion_name": "Tip the Scales"
+    }
+   ],
+   "verdict": "DIFFERS",
+   "note": "record binds Maul (Bear) to Judgment, payload UNFETCHED (APPROX by its own deviation note); the referent binds seven procs to its own bar."
+  },
+  {
+   "id": "R5",
+   "field": "key items",
+   "record": [
+    "Korvan Spaulders (elemental-to-physical conversion early)",
+    "Beronath conversion aura (from item)",
+    "Kaisan's Eldritch Eye amulet",
+    "Conduit of Divine Whispers belt"
+   ],
+   "pack": [
+    "Gutsmasher",
+    "Kaisan's Burning Eye",
+    "Sandreaver Bracers",
+    "Warborn Chestguard",
+    "Warborn Visor"
+   ],
+   "verdict": "DIFFERS",
+   "note": "no item in common by name."
+  },
+  {
+   "id": "R6",
+   "field": "pets",
+   "record": [],
+   "pack": [
+    "Summon Guardian of Empyrion",
+    "Summon Deathstalker"
+   ],
+   "verdict": "DIFFERS (record silent)",
+   "note": "the referent runs two summons; the record names none."
+  },
+  {
+   "id": "R7",
+   "field": "EoR geometry operand",
+   "record": "whirlwind, 'small radius', no number",
+   "pack": {
+    "eor_radius_m": 3.0,
+    "grade": "DB-CITED"
+   },
+   "verdict": "RECORD LACKS THE OPERAND",
+   "note": "a DATAMINED radius exists; the record carries no numeric row."
+  },
+  {
+   "id": "R8",
+   "field": "numeric rows",
+   "record": {
+    "numerics": 0,
+    "composition": 0
+   },
+   "pack": "MEASURED save + DATAMINED rows (EoR per-hit, sheet, defences)",
+   "verdict": "RECORD HAS NONE",
+   "note": "every magnitude on the corpus path is therefore a GAP or a default."
+  }
+ ],
+ "layer_C_compiler_vs_record": [
+  {
+   "id": "C1",
+   "field": "canonical_element / dominant_element",
+   "compiled": {
+    "dominant_element": "fire",
+    "skills": {
+     "Eye of Reckoning": "fire",
+     "Judgment": "fire"
+    }
+   },
+   "record": "element_primary null on both skills + ELEMENT_CONVERSION_PHYSICAL door (the PHYSICAL RULE)",
+   "verdict": "CONTRADICTS THE RECORD",
+   "mechanism": "compile_kit: `element = rec.original_element or 'physical'` then `skill.element_primary or element` -- a null element_primary (meaning element-neutral) falls through to the raw canon_corpus.original_element='fire'; t4_doors are not read."
+  },
+  {
+   "id": "C2",
+   "field": "damage magnitude + its gap label",
+   "compiled": {
+    "Eye of Reckoning": 0.0,
+    "Judgment": 0.0
+   },
+   "gap_excluded": [
+    "base_foi_damage (R-K5 GAP, T4 pending)"
+   ],
+   "held": false,
+   "notes": [],
+   "record": "no numerics (honest GAP)",
+   "verdict": "GAP CARRIED, MISLABELLED, UNANNOUNCED",
+   "mechanism": "every gd kit takes the `held or level is None` branch (level None for game 'gd') and is stamped 'base_foi_damage (R-K5 GAP, T4 pending)', a Flames-of-Ignaffar label, while held=False so the HELD note is not emitted."
+  },
+  {
+   "id": "C3",
+   "field": "energy_cost",
+   "compiled": {
+    "Eye of Reckoning": 10.0,
+    "Judgment": 10.0
+   },
+   "record": "energy-hungry channel, no number",
+   "verdict": "DEFAULT, UNFLAGGED",
+   "mechanism": "_skill_energy_cost returns 10.0 when level is None; not named in notes/gap."
+  },
+  {
+   "id": "C4",
+   "field": "resource_economy",
+   "compiled": {},
+   "record": {
+    "persistent_condition_shape": "tick-cost",
+    "cost_scale": "energy-hungry spin channel + aura upkeep ('when you run out of energy, you lose Beronath conversion aura and need to recast it' -- energy management identity-load-bearing)"
+   },
+   "verdict": "DROPPED",
+   "mechanism": "`_resource_economy(rec, level) if level else {}` -- a level-less kit loses even the provenance tags a levelled kit keeps."
+  },
+  {
+   "id": "C5",
+   "field": "movement_speed / stat_distribution",
+   "compiled": {
+    "movement_speed": 5.75,
+    "stat_distribution": {
+     "strength": 10,
+     "dexterity": 0,
+     "intelligence": 0,
+     "wisdom": 0,
+     "vitality": 54
+    }
+   },
+   "record": "none",
+   "verdict": "PROJECTION DEFAULTS, UNFLAGGED",
+   "mechanism": "movement 5.75 hard default; vitality floor 54 'projection default midpoint'; strength floor 10 from attr_val STR."
+  },
+  {
+   "id": "C6",
+   "field": "geometry operand",
+   "compiled": {
+    "Eye of Reckoning": {},
+    "Judgment": {}
+   },
+   "record": "small radius (no number)",
+   "verdict": "GAP, UNFLAGGED",
+   "mechanism": "the wide-zone default flag fires only for cone/ground_targeted_circle with width_band 'wide'."
+  },
+  {
+   "id": "C7",
+   "field": "trigger grammar / doors / support lanes",
+   "compiled": "no slot in class_dict",
+   "record": {
+    "trigger_grammar": {
+     "trigger_chain_shape": "apply-only",
+     "proc_trigger_condition": "on-cast-linked",
+     "mark_identity": null,
+     "consequence_type": null
+    },
+    "t4_doors": [
+     "ELEMENT_CONVERSION_PHYSICAL"
+    ],
+    "support_lanes": {
+     "geometry": [
+      "spin radius around moving player"
+     ],
+     "economy": [
+      "energy sustain for channel + Beronath aura upkeep"
+     ],
+     "traits_affixes": [
+      "physical + life-leech devotion-path scalers ('constellation path prioritizes physical and life leech')",
+      "elemental-to-physical conversion (Korvan Spaulders early; Beronath aura from item)"
+     ]
+    }
+   },
+   "verdict": "DROPPED (no target field)",
+   "mechanism": "the KF-4 contract has no proc/aura/leech field."
+  },
+  {
+   "id": "C8",
+   "field": "OUTPUT CONTRACT",
+   "compiled": "spatial-engine class_dict (run_spatial_fight / combatant_projection_from_class_dict)",
+   "record": "-",
+   "verdict": "DOES NOT REACH THE ARENA",
+   "mechanism": "no module under simulation/kc2/ (or any oracle script) consumes compile_kit's output; the kc2 player is assembled from the pack (PlayerOffense, SecondaryStreams, PlayerSustainFold, PlayerKitResidualFold, DefenceField, SummonFold, channel policy, P-MOVE)."
+  }
+ ],
+ "layer_B_executes_set": [
+  {
+   "row": "TA-X-07",
+   "boundary": "hit resolution + monster->player mitigation (conservation)",
+   "kit_operand_consumed": "the player's received-side defence sheet (armour, resists) inside threat.mitigate",
+   "referent": "MEASURED defence sheet (DefenceField from pm3)",
+   "corpus": "defense = {'riders': []} (received-side mitigation GAP, R-G5)",
+   "differs": true,
+   "kind": "C/R carried (operand absent), not a boundary-rule difference",
+   "proposed_disposition": "schema-change-owed (-> J-L4: received-side mitigation rows on the kit record and a defence field on the compiled contract)"
+  },
+  {
+   "row": "TA-X-20",
+   "boundary": "player hit-test predicate + target multiplicity",
+   "kit_operand_consumed": "EoR disc radius; arc gate; target cap",
+   "referent": {
+    "radius_m": 3.0,
+    "arc_gate": "none",
+    "target_cap": "none"
+   },
+   "corpus": {
+    "spatial_geometry_type": "circle",
+    "radius": null,
+    "arc_gate": "none (circle)",
+    "target_cap": "not represented"
+   },
+   "differs": true,
+   "kind": "FORM agrees (circle, no arc, no cap); OPERAND absent (radius) -- R7 + C6 carried",
+   "proposed_disposition": "schema-change-owed (-> J-L4: a DATAMINED radius row on the record; the compiled contract's geometry_params carries it)"
+  },
+  {
+   "row": "TA-X-29",
+   "boundary": "global-magnitude fold (monster pre-mitigation magnitude)",
+   "kit_operand_consumed": "none (monster records + wave modifiers)",
+   "referent": "z3 wave modifiers on the pack",
+   "corpus": "identical by construction IF bound",
+   "differs": false,
+   "kind": "kit-independent",
+   "proposed_disposition": "none owed; conditional on B-BIND"
+  },
+  {
+   "row": "TA-X-30",
+   "boundary": "movement<->engagement (pursuit halt)",
+   "kit_operand_consumed": "none in form (d_engage_m is arena-side); values depend on the pilot's trajectory",
+   "referent": {
+    "d_engage_m": 2.4
+   },
+   "corpus": "identical in form IF bound",
+   "differs": false,
+   "kind": "kit-independent in form",
+   "proposed_disposition": "none owed; conditional on B-BIND"
+  },
+  {
+   "row": "B-BIND",
+   "boundary": "the corpus path reaching the arena at all",
+   "kit_operand_consumed": "-",
+   "referent": "pack-assembled player",
+   "corpus": "C8: no consumer",
+   "differs": true,
+   "kind": "contract gap between the KF-4 compiler and the kc2 arena",
+   "proposed_disposition": "closes-in-J2 (J2's FORM/OPERAND split names the operand interface a compiled kit must fill; the binder itself is the J4 adapter piece)"
+  }
+ ],
+ "verdict": {
+  "reproduces_on_the_set": false,
+  "n_rows_numerically_reproduced": 0,
+  "n_divergent": 3,
+  "undisposed": [],
+  "B0": "NOT REPRODUCED; every divergence carries a PROPOSED disposition -> PASS-BY-DISPOSITION only if jack-ryan's Gate-2 accepts them; until then UNGRADED",
+  "APPROX_ceiling": "the corpus record is APPROX (R1-R8); it describes a different Warlord build from the referent save. Every B0 figure carries this ceiling."
+ }
+}

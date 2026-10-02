@@ -1,0 +1,386 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 JOIN-1 J0 ablation map (oracle side, v3.11 V311-FULL, scripted pilot P-MOVE). Print-only; never a T-A artifact. Nothing tuned (Law 3). One family removed per row (#24).",
+ "family": "A-MECH",
+ "spec": {
+  "sw": [
+   "mech_fold"
+  ]
+ },
+ "salts": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "tick_period_s": 0.0816326530612245,
+ "kw_hits": {
+  "sw:mech_fold": 20
+ },
+ "harness_error": null,
+ "summary": {
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19
+  ],
+  "ratio_vs_referent": null,
+  "landed_hp_per_s_151_159": null,
+  "t_s_151_159": 0,
+  "per_salt_ratio": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "leg_a_terminals": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "leg_a_t_into_wave_s": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "mean_leg_a_wave": 161,
+  "n_die_in_151": 0,
+  "n_first_death_in_160": 0,
+  "n_survive_160": 20,
+  "leg_b_deaths_per_salt": 0.0,
+  "leg_b_death_waves": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "p05_killed_while_emerging": null,
+  "raised": {},
+  "per_wave": {},
+  "instruments": {
+   "still_frac_by_H2_band_151_160": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "still_frac_referent_H2": [
+    0.201,
+    0.229,
+    0.283,
+    0.279,
+    0.336,
+    0.346,
+    0.243,
+    0.145
+   ],
+   "still_frac_2p46_4p92m": null,
+   "still_frac_2p46_4p92m_referent": 0.343,
+   "body_steps_by_band": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "disc_occupancy_mean_bodies_per_tick_151_159": null,
+   "disc_occupancy_by_wave": {
+    "151": null,
+    "152": null,
+    "153": null,
+    "154": null,
+    "155": null,
+    "156": null,
+    "157": null,
+    "158": null,
+    "159": null,
+    "160": null
+   },
+   "pilot_closing": null,
+   "wave_s_referent": {
+    "151": 15.6,
+    "152": 16.3,
+    "153": 14.9,
+    "154": 14.2,
+    "155": 16.2,
+    "156": 20.2,
+    "157": 19.3,
+    "158": 13.0,
+    "159": 26.3,
+    "160": 25.0
+   }
+  },
+  "instruments310": {
+   "net_still_frac_by_band": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "net_still_2p46_4p92": 0.0,
+   "mode_share_2p46_4p92": {
+    "A": 0.0,
+    "P": 0.0,
+    "R": 0.0,
+    "W": 0.0,
+    "x": 0.0
+   },
+   "pilot_realised": {
+    "moving_fraction_over_0p49_m_s": null,
+    "mean_speed_all_ticks_m_s": null,
+    "referent_on_the_83ms_grid": {
+     "moving_fraction": 0.8481,
+     "mean_speed_m_s": 2.9825,
+     "closing_empty": 1.053,
+     "closing_occupied": 0.1508
+    }
+   }
+  },
+  "instruments311": {
+   "own_wave_ratio_vs_referent_rate": {},
+   "referent_hp_per_s": {
+    "151": 1220.0,
+    "152": 766.0,
+    "153": 1394.0,
+    "154": 2692.0,
+    "155": 1018.0,
+    "156": 1648.0,
+    "157": 2167.0,
+    "158": 288.0,
+    "159": 2318.0,
+    "160": 4070.0
+   },
+   "time_into_w160": {
+    "per_salt": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "n_reached": 0,
+    "n_died_in_w160": 0,
+    "mean_t_first_death_in_w160_s": null,
+    "referent_w160_s": 25.0
+   },
+   "summon_check": {
+    "151": {
+     "referent": [
+      "livingplant_a01_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "152": {
+     "referent": [
+      "aetherialcorruption_c01_summon",
+      "swampcrab_a00_summon|springscrab_a00_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "153": {
+     "referent": [
+      "skeleton_a02_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "156": {
+     "referent": [
+      "wraith_b01_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "157": {
+     "referent": [
+      "aetherialworm_b0x_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "158": {
+     "referent": [
+      "swampcrab_a00_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "159": {
+     "referent": [
+      "beetle_maggot01_maggotsummon",
+      "chthonianservitor_a01_summon",
+      "hellhound_witchgod_b01_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "160": {
+     "referent": [
+      "aetherialvanguard_crystal",
+      "nemesis_orderdeathsvigil_01_revenantsummon",
+      "skeleton_a02_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    }
+   },
+   "summons_mean_per_salt": {},
+   "board_mean_per_salt": {}
+  }
+ },
+ "extra": {
+  "heal_to_intake_151_159": null,
+  "heal_landed_151_159": 0.0,
+  "landed_151_159": 0.0,
+  "n_rows_151_159": 0
+ },
+ "raised_by_salt": {
+  "0": null,
+  "1": null,
+  "2": null,
+  "3": null,
+  "4": null,
+  "5": null,
+  "6": null,
+  "7": null,
+  "8": null,
+  "9": null,
+  "10": null,
+  "11": null,
+  "12": null,
+  "13": null,
+  "14": null,
+  "15": null,
+  "16": null,
+  "17": null,
+  "18": null,
+  "19": null
+ },
+ "wall_s": 15.0
+}
