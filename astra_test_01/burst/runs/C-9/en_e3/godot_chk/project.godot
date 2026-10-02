@@ -1,0 +1,12 @@
+config_version=5
+
+[application]
+config/name="en3_chk"
+run/main_scene="res://chk.tscn"
+
+[display]
+window/size/viewport_width=768
+window/size/viewport_height=768
+
+[rendering]
+renderer/rendering_method="forward_plus"

@@ -1,0 +1,16 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $3.00 (fal_spend_R-C9-132, lane EN-E3 crucible CREATURES, non-bipeds), cap set by the conductor's dispatch (R-C9-132).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Opened 2026-10-02T03:40Z. Separate from en_e2's ledger of the same ruling: this lane's own $3.00 cap.",
+ "budget_usd": 3.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T03:39:36+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 maw base Tripo build",
+   "usd": 0.4,
+   "wall_s": 169.5
+  }
+ ],
+ "running_usd": 0.4
+}
