@@ -255,7 +255,12 @@ def main() -> int:
                 crit.update(w["events"]["crit_by_source_class"])
             c["TA-X-12"] = {"pool_tags": {k: v for k, v in tags.items() if "pool" in k.lower()},
                             "holds": not any("pool" in k.lower() for k in tags)}
-            c["TA-X-13"] = {"crit_by_source_class": dict(crit), "holds": crit.get("player", 0) == 0 and crit.get("player_summon", 0) == 0}
+            # ⚑ KP-248 (jack-ryan H-6 WARN-2; conductor scope ruling): TA-X-13 counts the PLAYER's own rows
+            #   (source_id == "player"; basis V0 · CritLimb LO). Player-summon `ps_…` rows (the summon PTH tier, graded
+            #   elsewhere) are OUT OF SCOPE and are printed, not graded. The former `player_summon == 0` clause was dead
+            #   (the classifier never matched `ps_`) and is removed, not repaired into scope. Corrected counts: v1.15 notes.
+            c["TA-X-13"] = {"crit_by_source_class": dict(crit), "holds": crit.get("player", 0) == 0,
+                            "out_of_scope_player_summon_printed": crit.get("player_summon", 0)}
             kinds = Counter()
             for w in legA:
                 kinds.update(w["release_kinds"])

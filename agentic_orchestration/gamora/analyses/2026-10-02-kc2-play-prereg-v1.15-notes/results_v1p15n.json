@@ -1,0 +1,1020 @@
+{
+ "STOP": false,
+ "TA-X-13": {
+  "monster (roster + pet)": 132,
+  "other": 0,
+  "per_cell": {
+   "M-POL-2-NULL|0": {
+    "monster_roster": 2,
+    "player_summon": 168
+   },
+   "M-POL-2-NULL|1": {
+    "monster_roster": 4,
+    "player_summon": 151
+   },
+   "M-POL-2-NULL|2": {
+    "monster_roster": 5,
+    "player_summon": 205
+   },
+   "M-POL-2-NULL|3": {
+    "monster_roster": 8,
+    "player_summon": 127
+   },
+   "M-POL-2-NULL|4": {
+    "monster_roster": 4,
+    "player_summon": 180
+   },
+   "M-POL-2|0": {
+    "monster_roster": 5,
+    "player_summon": 171
+   },
+   "M-POL-2|1": {
+    "monster_roster": 7,
+    "player_summon": 206
+   },
+   "M-POL-2|2": {
+    "monster_roster": 4,
+    "player_summon": 170
+   },
+   "M-POL-2|3": {
+    "monster_roster": 11,
+    "player_summon": 165
+   },
+   "M-POL-2|4": {
+    "monster_roster": 3,
+    "player_summon": 165
+   },
+   "M0|0": {
+    "monster_roster": 2,
+    "player_summon": 168
+   },
+   "M0|1": {
+    "monster_roster": 4,
+    "player_summon": 151
+   },
+   "M0|2": {
+    "monster_roster": 5,
+    "player_summon": 205
+   },
+   "M0|3": {
+    "monster_roster": 8,
+    "player_summon": 127
+   },
+   "M0|4": {
+    "monster_roster": 4,
+    "player_summon": 180
+   },
+   "W1-NULL|0": {
+    "monster_roster": 5,
+    "player_summon": 171
+   },
+   "W1-NULL|1": {
+    "monster_roster": 7,
+    "player_summon": 206
+   },
+   "W1-NULL|2": {
+    "monster_roster": 4,
+    "player_summon": 170
+   },
+   "W1-NULL|3": {
+    "monster_roster": 11,
+    "player_summon": 165
+   },
+   "W1-NULL|4": {
+    "monster_roster": 3,
+    "player_summon": 165
+   },
+   "W1|0": {
+    "monster_roster": 5,
+    "player_summon": 171
+   },
+   "W1|1": {
+    "monster_roster": 7,
+    "player_summon": 206
+   },
+   "W1|2": {
+    "monster_roster": 2,
+    "player_summon": 152
+   },
+   "W1|3": {
+    "monster_roster": 9,
+    "player_summon": 171
+   },
+   "W1|4": {
+    "monster_roster": 3,
+    "player_summon": 165
+   }
+  },
+  "player_rows_crit (in scope)": 0,
+  "player_summon_ps_ (out of scope)": 4281,
+  "ps_ per cell range": [
+   127,
+   206
+  ],
+  "total_by_class": {
+   "monster_roster": 132,
+   "player_summon": 4281
+  }
+ },
+ "TA-X-21": {
+  "dead_in_scope": [
+   "deferred_arrival.py:329",
+   "threat.py:1813",
+   "threat.py:2182"
+  ],
+  "dead_v1.14_cited": [
+   "threat.py:1813",
+   "threat.py:2182"
+  ],
+  "every_live_in_scope_is_int_round": true,
+  "files_equal_across_arms": true,
+  "files_sha256": {
+   "alert.py": "adfeda1352ef2e27c352a8d067e1d73bdb6667e340404f95aa242f2eb53e3c07",
+   "arrival_order.py": "ab0468d6fde72359a556933714ee2027ae0f81791182ec27a0eed46b65f0d148",
+   "calibration.py": "0cb4b09750076645756b0463133fed8aec9f5b8eb3dcd806045d9c62132c98d9",
+   "channel_policy.py": "6850878d4fc880eb46fa9106e464426595109eb44dceb0f66424db34cfe2d958",
+   "control_application.py": "c0b0cc73bea6fb860cf49b2602a507a2a57b6242728cf520bc6a4960b3405643",
+   "counterplay.py": "f375323d8b2178f40f937fff663687390129298ee29f47988fdd8f12161e4e99",
+   "defenses.py": "009e590cd770c99b7f9a3e7d8ca36d7d5919aa33a90fdafa74012a7c0b0de5eb",
+   "deferred_arrival.py": "0a6b579b78aaf748732afadce50558c6f00eb2eb916ea7d9b5def7a69243557a",
+   "discrete_volley.py": "f20228c9aa3c0b93590826f143816e2d5e5d4ae9f0be0cfae47bd85e9899d80c",
+   "dodge.py": "7ca3a1395bc31b03c512cbc4dc11cf38bdc9c4ec3c7ce23af25257ec471b11f2",
+   "dot_timeline.py": "b4a3bb8268c71005b4d2f317cbd9a7b20e505193f09e78924712258ed92cbe37",
+   "gate_model.py": "85182da16a5566075fb914782ba4d03f880f2ffbd716955924e655006748969f",
+   "gd_composition.py": "ddb0ceb47e5f08f6c46ace55382cc2b5d6891766443b0d1ef6f02cb906db6b83",
+   "gd_engagement.py": "776e7048427bbd47bbf9ffb36f9a3d162a990b182fd71e3f207a41c0cafee920",
+   "gd_reposition.py": "28c2031ddbdd8f30eeaefd10467a81353dfe9004163fd1f18f82f8164fab3c1c",
+   "global_magnitude.py": "b84816bff76b01c84f93311b427cf7fcf40bcbca3f45a86dbe88998d505b1a94",
+   "hunt_pilot.py": "7db812d1bfdad71fedb19d60a29ddbad20edc72c9705c2f125d2a6d33f13993e",
+   "intake.py": "42fd1cc0ac5d96c4d98dd711693663942b824249fb882e2dc72c8ccfd91954d1",
+   "micro_oracles.py": "3e1d8a6f6c4134324679fc02a8eba74af28997ae5038cca8864a2faf2dc5041e",
+   "mutators.py": "104debd66443e3ebaa2cf5251f6bf165ef9bcb6966c489ec7ff1c9db07d15bc9",
+   "opposition.py": "72b699d9e3707bd4ad6aefb6a592a433dd4b674fe05d065562f5ea3a17f74ac2",
+   "pilot_move.py": "e4e54d78310e1e4c0fccd51a575475ee3789fdb696a32e9d9f9db7c64fb11429",
+   "player_sustain.py": "851488e10459bca29ecaa19285605fad27169687f58e5831112eb6acbf408672",
+   "pursuit.py": "2b58fcd8eacf02b7560a71ea3fd652f4934fa69314d7c3f6b5544239b3fdeb34",
+   "residence.py": "24ff66d0907d9f9c89b26d6c077eea148d3cdab9e982af5f541ebea5ab9a0c94",
+   "roster.py": "75afebb2e725dd8345f48af99db8a637567b2c146036b41e4964791b48cc140c",
+   "run.py": "c2224cf3a3430e1d741a2f735f3ff08edbcf91fb442b55d2db1f48aaa9794a47",
+   "spawn_structure.py": "431539ffd670b7853bd9bff84b8cdb62e6642956372c4267f9f99897bddee715",
+   "summon_offense.py": "9c150b3a12a690f549e16ea3eaade71c12f73789f7d5373940b6a699f31734ea",
+   "summons.py": "dad4196c58987eca265790a9126a15b2bcd0c5eaa0e1244e9a11e85afb4eb660",
+   "threat.py": "18b2500e7c429f67e82e489637212b3f1148762ac7f865d340b2a64f51a2d8a3"
+  },
+  "live_gd": [
+   "gd_engagement.py:121",
+   "gd_engagement.py:187",
+   "gd_reposition.py:364",
+   "gd_reposition.py:365",
+   "gd_reposition.py:519",
+   "gd_reposition.py:530",
+   "gd_reposition.py:554",
+   "gd_reposition.py:726",
+   "gd_reposition.py:731",
+   "gd_reposition.py:739"
+  ],
+  "live_in_scope": [
+   "control_application.py:591",
+   "dot_timeline.py:380",
+   "gd_engagement.py:121",
+   "gd_engagement.py:187",
+   "gd_reposition.py:364",
+   "gd_reposition.py:365",
+   "gd_reposition.py:519",
+   "gd_reposition.py:530",
+   "gd_reposition.py:554",
+   "gd_reposition.py:726",
+   "gd_reposition.py:731",
+   "gd_reposition.py:739",
+   "threat.py:1613",
+   "threat.py:1774"
+  ],
+  "live_outside_scope": [
+   "alert.py:773",
+   "alert.py:781",
+   "alert.py:783",
+   "alert.py:784",
+   "channel_policy.py:148",
+   "counterplay.py:212",
+   "run.py:3361",
+   "run.py:3495",
+   "summon_offense.py:825",
+   "summons.py:821"
+  ],
+  "sites": [
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:319",
+    "text": "return round(f / s)"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:367",
+    "text": "return {\"n\": m, \"min\": round(s[0], STAT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:368",
+    "text": "\"median\": round("
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:370",
+    "text": "\"max\": round(s[-1], STAT_DP)}"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:390",
+    "text": "round(expected, INCIDENCE_DP) == round("
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:394",
+    "text": "\"duration_min_slot_window\": slot_window[\"min\"] == round(float(published_secs[\"min\"]), STAT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:396",
+    "text": "slot_window[\"median\"] == round(float(published_secs[\"median\"]), STAT_DP)),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:397",
+    "text": "\"duration_max_slot_window\": slot_window[\"max\"] == round(float(published_secs[\"max\"]), STAT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:403",
+    "text": "\"expected_alerting_actors_full_roster\": round(expected, INCIDENCE_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:408",
+    "text": "{round(r.duration_s(speed_composes=False) or 0.0, STAT_DP) for r in can})},"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:530",
+    "text": "\"t_s\": (None if t_s is None else round(float(t_s), EMIT_DP)),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:535",
+    "text": "else round(float(t_s) - float(spawn_t), EMIT_DP)),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:536",
+    "text": "\"path_len_before_push_m\": round(max(path_len - travel, 0.0), EMIT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:539",
+    "text": "\"travel_this_step_m\": round(travel, EMIT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 250,
+    "int_round": false,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "alert.py:773",
+    "text": "\"arm_latency_travel_m\": round(self.arm_latency_travel_m, EMIT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 250,
+    "int_round": false,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "alert.py:781",
+    "text": "\"held_travel_suppressed_m\": round(self.held_travel_suppressed_m, EMIT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 250,
+    "int_round": false,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "alert.py:783",
+    "text": "\"n\": len(q), \"mean\": (round(sum(q) / len(q), EMIT_DP) if q else None),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 250,
+    "int_round": false,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "alert.py:784",
+    "text": "\"max\": (round(max(q), EMIT_DP) if q else None)},"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:849",
+    "text": "\"distance_m\": round(float(v.distance_m or 0.0), EMIT_DP),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "alert.py:851",
+    "text": "else round(float(v.duration_s), EMIT_DP)),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "arrival_order.py:293",
+    "text": "vals = sorted({round(float(b[\"spawn_t_s\"]), 12) for b in bodies})"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "calibration.py:503",
+    "text": "override = None if n_scale == 1.0 else max(0, int(round(er * float(n_scale))))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 120,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "channel_policy.py:148",
+    "text": "return int(round(seconds / period_s))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 274,
+    "int_round": true,
+    "live": true,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "control_application.py:591",
+    "text": "n = max(0, int(exact) if TRUNCATE_BUCKETS else int(round(exact)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 25,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "counterplay.py:212",
+    "text": "return tuple(sorted({int(round(x * BAR_PX)) for x in h}))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "defenses.py:471",
+    "text": "\"r_from_camp_m\": round(math.hypot(*d.xy), 3)} for d in defences},"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "deferred_arrival.py:329",
+    "text": "return int(round(raw))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "discrete_volley.py:452",
+    "text": "\"dist_m\": round(dist_m, 4),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "discrete_volley.py:454",
+    "text": "\"latency_s\": round(dist_m / float(ring.velocity), 5),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "dodge.py:193",
+    "text": "refractory_ticks = int(round(DODGE_REFRACTORY_S * ticks_per_s))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "dodge.py:204",
+    "text": "self._react_until_tick = tick + max(0, int(round(latency * ticks_per_s)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 14218,
+    "int_round": true,
+    "live": true,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "dot_timeline.py:380",
+    "text": "n_ticks = int(exact) if TRUNCATE_NTICKS else int(round(exact))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "gate_model.py:323",
+    "text": "``max(1, round(delay_s * ticks_per_s)) if delay_s else 0``, memoised at first sight."
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "gate_model.py:434",
+    "text": "``max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0`` \u2014 the ``max(1, \u2026)``"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "gate_model.py:438",
+    "text": "return max(1, int(round(seconds * ticks_per_s))) if seconds else 0"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "gd_composition.py:189",
+    "text": "\"telemetry\": {k: round(v, 1) for k, v in self.tele.items()}}"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 9004,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_engagement.py:121",
+    "text": "gate = max(1, int(round(s.delay_s * tps))) if s.delay_s else 0"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 11099,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_engagement.py:187",
+    "text": "eng._cooldown_until[key] = tick + max(1, int(round(cd * eng.ticks_per_s)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 12484,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:364",
+    "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 12484,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:365",
+    "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 274825,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:519",
+    "text": "if tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= S.reach_m:"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 6609,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:530",
+    "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 231,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:554",
+    "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 284815,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:726",
+    "text": "if arrived or (tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= reach):"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 11184,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:731",
+    "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 378,
+    "int_round": true,
+    "live": true,
+    "scope": "GD fold (KP-248)",
+    "site": "gd_reposition.py:739",
+    "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "global_magnitude.py:880",
+    "text": "round(mine, 3), rawf, round(budget, 3))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "hunt_pilot.py:131",
+    "text": "\"n_drift_ticks\": self.n_drift_ticks, \"drift_path_m\": round(self.drift_path_m, 3)}"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "intake.py:1047",
+    "text": "p90 = srt[min(len(srt) - 1, int(round(0.90 * (len(srt) - 1))))]"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "micro_oracles.py:682",
+    "text": "\"margin_pct_on_pinned_target\": round(r.margin_pct, 4),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "mutators.py:202",
+    "text": "t[\"cruel_active_tick_fraction\"] = (round(t[\"cruel_ticks\"] / t[\"player_ticks\"], 4)"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "opposition.py:430",
+    "text": "return round(raw)"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "pilot_move.py:184",
+    "text": "\"commanded_moving_fraction\": (round(sum(t[\"n_move_ticks\"].values()) / n_on, 4) if n_on else None),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "pilot_move.py:185",
+    "text": "\"commanded_path_m\": round(t[\"path_m\"], 2), \"n_jumps\": t[\"n_jumps\"], \"n_advances\": t[\"n_advances\"]}"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "player_sustain.py:173",
+    "text": "total = round(sum(s.value for s in joins), 10)"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "player_sustain.py:179",
+    "text": "\"\u2691 D_P1_residual_pct\": round(ADCTH_PCT - total, 10),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "player_sustain.py:183",
+    "text": "\"\u2691 measured_inactive_pct_total\": round(sum(s.value for s in inactive), 10),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "player_sustain.py:186",
+    "text": "\"\u2691 skill_scoped_NOT_MODELLED_pct_total\": round(sum(s.value for s in skill), 10),"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "pursuit.py:408",
+    "text": "vd = sorted({round(float(m.view_distance_m), 4) for m in mv})"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "pursuit.py:409",
+    "text": "mpd = sorted({round(float(m.max_pursuit_distance_m), 4) for m in mv})"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "pursuit.py:410",
+    "text": "ptm = sorted({round(float(m.pursuit_time_ms), 4) for m in mv})"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "residence.py:220",
+    "text": "if len({round(p, 15) for p in periods}) != 1:"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "roster.py:398",
+    "text": "out[k] = {\"per_wave\": {str(w): round(per[w], 6) for w in sorted(per)},"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "roster.py:401",
+    "text": "\"\u2691 reproduces_to_3dp\": abs(round(tot, 3) - published[k]) < 5e-4}"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 169858,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "run.py:3361",
+    "text": "expires=rt + int(round((_exp - t) / period))):"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 9339,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "run.py:3495",
+    "text": "led[1] = k + max(1, int(round(c.cadence_s * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "run.py:3856",
+    "text": "detonation_tick=k + max(1, int(round(slot.detonation_s * tps))))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "spawn_structure.py:161",
+    "text": "RAND_MAX: int = int(round(1.0 / K_RHO))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 37274,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "summon_offense.py:825",
+    "text": "return max(1, int(round(body.swing_period_s * self.ticks_per_s)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 75,
+    "int_round": true,
+    "live": true,
+    "scope": "outside the row's modules",
+    "site": "summons.py:821",
+    "text": "return max(1, int(round(s * self.effective_tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "summons.py:906",
+    "text": "period = max(1, int(round(p[F_IGNORE_INTERVAL] / MS_PER_S * tps)))"
+   },
+   {
+    "cited_in_v1.14": false,
+    "hits_25_cells": 0,
+    "int_round": false,
+    "live": false,
+    "scope": "outside the row's modules",
+    "site": "summons.py:1322",
+    "text": "ts = sorted({round(v[\"t\"], 4) for v in per.values()})"
+   },
+   {
+    "cited_in_v1.14": true,
+    "hits_25_cells": 2593,
+    "int_round": true,
+    "live": true,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "threat.py:1613",
+    "text": "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+   },
+   {
+    "cited_in_v1.14": true,
+    "hits_25_cells": 6940,
+    "int_round": true,
+    "live": true,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "threat.py:1774",
+    "text": "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+   },
+   {
+    "cited_in_v1.14": true,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "threat.py:1813",
+    "text": "1, int(round(cd * self.ticks_per_s)))"
+   },
+   {
+    "cited_in_v1.14": true,
+    "hits_25_cells": 0,
+    "int_round": true,
+    "live": false,
+    "scope": "row basis (v1.2 four modules)",
+    "site": "threat.py:2182",
+    "text": "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+   }
+  ]
+ },
+ "TA-X-30_face": {
+  "clamp_calls_W1": 171478,
+  "clipped_steps": 0,
+  "non_waypoint_pursue_steps": 0
+ },
+ "divisor": {
+  "SlowChaos_SlowAether_rows_per_arm": {
+   "M-POL-2": 0,
+   "M-POL-2-NULL": 0,
+   "M0": 0,
+   "W1": 0,
+   "W1-NULL": 0
+  },
+  "dot_types_present": [
+   "SlowBleeding",
+   "SlowCold",
+   "SlowFire",
+   "SlowLife",
+   "SlowLifeLeach",
+   "SlowLightning",
+   "SlowManaLeach",
+   "SlowPhysical",
+   "SlowPoison"
+  ],
+  "n_pet_profiles": 68,
+  "n_roster_profiles": 507,
+  "pack_offense_text_hits": {
+   "monster_offense.json": 0,
+   "monsters.json": 0
+  }
+ },
+ "guard": {
+  "M-POL-2": {
+   "cell_reasons": [],
+   "complete": true,
+   "max_ticks (G2 cap)": 4000,
+   "tick_cap_s": 326.531,
+   "truncated_salts": []
+  },
+  "M-POL-2-NULL": {
+   "cell_reasons": [],
+   "complete": true,
+   "max_ticks (G2 cap)": 4000,
+   "tick_cap_s": 326.531,
+   "truncated_salts": []
+  },
+  "M0": {
+   "cell_reasons": [],
+   "complete": true,
+   "max_ticks (G2 cap)": 4000,
+   "tick_cap_s": 326.531,
+   "truncated_salts": []
+  },
+  "W1": {
+   "cell_reasons": [],
+   "complete": true,
+   "max_ticks (G2 cap)": 4000,
+   "tick_cap_s": 326.531,
+   "truncated_salts": []
+  },
+  "W1-NULL": {
+   "cell_reasons": [],
+   "complete": true,
+   "max_ticks (G2 cap)": 4000,
+   "tick_cap_s": 326.531,
+   "truncated_salts": []
+  }
+ },
+ "guard_module_sha256": [
+  "5f3f4f1e29d147e528709ef317b20ae226edc04c60534d9d506e987d5a3b54d2"
+ ],
+ "inert_vs_v1.14_bare (capture rows)": "25/25",
+ "longest_wave_ticks_25_cells (v1.14 traces)": 968,
+ "trajectories": {
+  "classes": [
+   [
+    "M-POL-2-NULL|0",
+    "M0|0"
+   ],
+   [
+    "M-POL-2-NULL|1",
+    "M0|1"
+   ],
+   [
+    "M-POL-2-NULL|2",
+    "M0|2"
+   ],
+   [
+    "M-POL-2-NULL|3",
+    "M0|3"
+   ],
+   [
+    "M-POL-2-NULL|4",
+    "M0|4"
+   ],
+   [
+    "M-POL-2|0",
+    "W1-NULL|0",
+    "W1|0"
+   ],
+   [
+    "M-POL-2|1",
+    "W1-NULL|1",
+    "W1|1"
+   ],
+   [
+    "M-POL-2|2",
+    "W1-NULL|2"
+   ],
+   [
+    "M-POL-2|3",
+    "W1-NULL|3"
+   ],
+   [
+    "M-POL-2|4",
+    "W1-NULL|4",
+    "W1|4"
+   ],
+   [
+    "W1|2"
+   ],
+   [
+    "W1|3"
+   ]
+  ],
+  "clearing": 9,
+  "distinct": 12,
+  "dying": 3
+ }
+}

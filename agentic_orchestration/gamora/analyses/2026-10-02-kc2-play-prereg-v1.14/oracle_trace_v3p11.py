@@ -436,8 +436,12 @@ if HOOKED:
         for x in rows:
             if x.get("is_crit"):
                 s = str(x.get("source_id") or "")
-                crit_by_src["player" if s == "player" else ("player_summon" if s.startswith("summon") or
-                                                             s.startswith("player_") else "other")] += 1
+                # ⚑ KP-248 (H-6 WARN-2): the player-summon id space is `summons.SUMMON_ID_PREFIX` = "ps_"; the old
+                #   test (`summon…` / `player_…`) never matched it. The traces v1.14 § Z pins were written by the old
+                #   test and are NOT regenerated: their "other" class holds player-summon AND monster crits; "player"
+                #   is unaffected. Corrected census: analyses/2026-10-02-kc2-play-prereg-v1.15-notes/.
+                crit_by_src["player" if s == "player" else ("player_summon" if s.startswith("ps_")
+                                                             else "other")] += 1
         ev_sha = hashlib.sha256(json.dumps(rows, sort_keys=True, default=str).encode()).hexdigest()
         lr = led.get("rows") or []
         live = [x for x in lr if x[2] == 1]
