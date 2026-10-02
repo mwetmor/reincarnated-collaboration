@@ -30237,6 +30237,12 @@
       "topic": "Gear pieces bound to the wrong bones in Godot: skins bind by bone INDEX in file node order, and Blender-exported pieces differ from the Meshy body",
       "note": "E1 found that its final_j pieces (Blender export) carry a different joint NODE order from the body (Meshy + binary patches). Skin joint lists matched, so the GLB lint passed; Blender binds by vertex-group name, so every Blender check looked right; Godot binds by index -> 16,293/37,747 (h0) and 21,007/41,687 (h180) figure pixels differ. Likely Matt's \"cape hangs in mid air\". Fixes: e47_node_order.py (final_j2, 0 px difference), and gear.gd bind-by-name for every character, plus a BIND-ORDER fence row on every pack (index vs name render, FAIL on any difference). Every gear-placement judgement made on E1 Godot stills since stage G was made through this defect. Same family as the unpainted body: an instrument that checks a property in a tool that resolves it differently from the runtime.",
       "ts": "2026-10-01T20:52:32"
+    },
+    {
+      "id": "N-C9-BIND-ORDER-RESULT",
+      "topic": "Bind-order probe: the SHIPPED web build was never misbound (named skins on import); the defect lived only in the E1 lane's own Godot film harness",
+      "note": "probe_bind_order.gd over 84 pieces in 13 packs: pre-fix index-vs-name FAILS only on the warlord mace/chest/pauldrons/helm (cape passes); every armour-lane piece, the sorceress default and the Viking set match their bodies exactly. Shipped-vs-name = 0 px for all 84, because the web imports use skins/use_named_skins=true. So Matt's live play was NOT misbound, and the conductor's \"likely the floating cape\" attribution was wrong: the floating cape is the cape itself (rigid skin), now addressed by the spring-bone prototype. The E1 lane's own film harness (gear_stills.gd) bound by index, so its stills since stage G were misbound. Post-fix (final_j2 + gear.gd bind-by-name): 84/84. Instrument caveat caught by the lane: the first probe run read 84/84 PASS on EMPTY frames; a positive control and an empty-frame check now make that fail.",
+      "ts": "2026-10-01T21:45:39"
     }
   ]
 }
