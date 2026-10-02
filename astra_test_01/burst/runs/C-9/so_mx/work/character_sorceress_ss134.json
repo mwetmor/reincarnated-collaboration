@@ -94,17 +94,18 @@
  "casts": {
   "cast_fireball_m": {
    "slot": "attack",
-   "release_s": 0.1333,
-   "release_index": 4,
+   "release_s": 0.2667,
+   "release_index": 8,
    "socket": "orb_tip"
   },
   "cast_meteor": {
    "slot": "chop",
-   "release_s": 1.6667,
-   "release_index": 50,
+   "release_s": 1.8,
+   "release_index": 54,
    "socket": "orb_tip"
   },
-  "_note": "R-C9-134: Mixamo Pro Sword and Shield pack. Fire Ball = 'sword and shield casting (2)' MIRRORED (s46) so the ORB-STAFF (right) hand casts forward; release = its fastest forward interval (ends key 4, 0.1333 s, 30 fps). Meteor = 'sword and shield casting': the staff hand raised 0.35 m over the head at 1.4333 s then driven down 8.3 m/s; release key 50, 1.6667 s. release_index = the key index on the clip's own 30 fps keys."
+  "_note": "R-C9-134: Mixamo Pro Sword and Shield pack. Fire Ball = 'sword and shield casting (2)' MIRRORED (s46) so the ORB-STAFF (right) hand casts forward; release = its fastest forward interval (ends key 4, 0.1333 s, 30 fps). Meteor = 'sword and shield casting': the staff hand raised 0.35 m over the head at 1.4333 s then driven down 8.3 m/s; release key 50, 1.6667 s. release_index = the key index on the clip's own 30 fps keys.",
+  "_r134_release_recheck": "RE-MEASURED on the shipped (clamped) clip, the ORB TIP (mount tip on weapon_r) per key, so25_release_tip.py: FIRE BALL -- the tip's forward thrust runs 0.20-0.2667 s, peak forward velocity 9.9 m/s in the interval ending 0.2250-0.2333; it ENDS at 0.2667 s with the arm at full extension (|shoulder-hand| 0.985 of its max, elbow 155 deg), the orb at its farthest forward (0.91 m) at chest height (1.21 m), then held. The old 0.1333 s came from the HAND's fastest forward interval on the unclamped wind-up (the arm at 0.87 extension, the staff low). METEOR -- the tip is highest (2.27 m) at 1.20 s, the slam runs 1.60-1.80 s (peak downward 14.4 m/s in the interval ending 1.7333), the orb reaches the floor (0.13 m) at 1.80 s with the arm fully extended (1.000); the old 1.6667 s was mid-swing (the orb still at 1.30 m). Release = the frame the thrust ENDS at full extension, for both. release_index = the key on the clip's own 30 fps keys (Fire Ball 8 of 31 intervals, 1.0333 s; Meteor 54 of 89, 2.9667 s)."
  },
  "speed_measured_at_scale": 1.25177951388889,
  "walk_px_s": 137.6,
