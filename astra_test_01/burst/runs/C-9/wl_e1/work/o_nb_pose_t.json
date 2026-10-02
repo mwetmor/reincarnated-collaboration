@@ -1,0 +1,41 @@
+{
+ "base": "join_guard_R_idle@0.0000",
+ "height_m": 1.85,
+ "rig_unit_m": 0.010882336436894506,
+ "arms": {
+  "Right": {
+   "target_m": [
+    -0.855,
+    1.204,
+    0.005
+   ],
+   "elbow_open_deg": 86.0,
+   "shoulder_turn_deg": 61.5,
+   "reach_limited": true,
+   "arm_roll_deg": 0.5,
+   "wrist_turn_deg": 30.0,
+   "reaim_deg": 3.8,
+   "blade_vs_radial_deg": 17.8,
+   "blade_pitch_deg": 0.8,
+   "fist_radius_m": 0.809,
+   "fist_height_m": 1.2205
+  },
+  "Left": {
+   "target_m": [
+    0.841,
+    1.204,
+    0.005
+   ],
+   "elbow_open_deg": 11.6,
+   "shoulder_turn_deg": 43.9,
+   "reach_limited": true,
+   "arm_roll_deg": -36.0,
+   "wrist_turn_deg": 30.0,
+   "reaim_deg": 4.4,
+   "blade_vs_radial_deg": 43.7,
+   "blade_pitch_deg": 1.2,
+   "fist_radius_m": 0.8407,
+   "fist_height_m": 1.207
+  }
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "shots": [],
+ "headings": [],
+ "scales": [],
+ "watchdog_s": 1800,
+ "film_plan": [
+  {
+   "clip": "idle_guard",
+   "seconds": 1.2,
+   "speed": 0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "whirlwind_dual_start",
+   "seconds": 0.2,
+   "speed": 0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "whirlwind_dual_loop",
+   "seconds": 2.4,
+   "speed": 0,
+   "heading_deg": 25,
+   "loop": true
+  },
+  {
+   "clip": "whirlwind_dual_loop",
+   "seconds": 2.4,
+   "speed": 1.073,
+   "heading_deg": 100,
+   "loop": true
+  },
+  {
+   "clip": "idle_guard",
+   "seconds": 1.0,
+   "speed": 0,
+   "heading_deg": 25
+  }
+ ]
+}

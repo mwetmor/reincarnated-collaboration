@@ -1,0 +1,80 @@
+{
+ "_what": "R-C9-133 barbarian DUAL whirlwind, extended arm (R-C9-132 recipe), built by the E1 lane on the JOIN body. The JOIN body's 36 clips are byte-identical (regression checked); two clips added.",
+ "file": "nb-body_join_dualww.glb",
+ "sha256": "529bc05fca2a3560e067648456195fa2b881988f234dfd2f3c05d0e05b471eb7",
+ "mb": 22.91,
+ "base": {
+  "file": "nb_join/export/nb-body_join.glb",
+  "sha256": "e41377c60d58eb5955ff614187a3d751833560ef05f3f8df3b691854ba59209c (manifest value; base file not modified)"
+ },
+ "weapons": {
+  "weapon_r": {
+   "piece": "nb_w2/export/sword.glb",
+   "tip_along_y_m": 0.7768
+  },
+  "weapon_l": {
+   "piece": "nb_d2/export_staging/JOIN_hold_v2/axe_l.glb",
+   "tip_along_y_m": 0.8089
+  },
+  "mount": "weapon_mount.json beside the file (copied from nb_join/export)"
+ },
+ "clips": {
+  "whirlwind_dual_start": {
+   "seconds": 0.2,
+   "keys": 7,
+   "turn_deg": 135.0,
+   "exit_speed_deg_s": 1350.0,
+   "kind": "once, then the loop"
+  },
+  "whirlwind_dual_loop": {
+   "seconds": 0.266667,
+   "keys": 9,
+   "deg_per_key": 45.0,
+   "rev_per_s": 3.75,
+   "kind": "loop, channel",
+   "revolution_deg": -360.0,
+   "closure_m": 0.0
+  }
+ },
+ "keying": "every joint keyed on every key; weapon_r AND weapon_l keyed (rotation + translation, the pose frame's local TRS, i.e. riding their mounts) on every key of both clips, so the effect reads both blade tips off the rig: tip = weapon bone origin + tip_along_y x its +Y",
+ "recipe": "ONE frame of join_guard_R_idle@0 (his upright guard stance) with named edits per arm (e52): elbow opening (interior capped 166 deg), shoulder aim to az +90 (right) / -90 (left) at 0.848 m and 1.204 m, arm ROLL about shoulder->fist (closed form: blade horizontal; right takes the root whose blade leads the CCW spin, left the trailing root so the axe's single edge leads), wrist turn toward the outward radial capped at 30 deg, one shoulder re-aim. No solver. Then turned rigidly CCW about his vertical (e48).",
+ "reference": "wwcr_whirlwind.gd R_GRIP_SWEEP 0.8449 m, SWEEP_Y 1.20 m at H_STAND 1.85 (he is 1.85 m: unscaled); the Barrow port's scaled values for him: 0.8479 / 1.2042",
+ "measured": {
+  "right_fist_radius_m": 0.809,
+  "right_fist_height_m": 1.2205,
+  "left_fist_radius_m": 0.8407,
+  "left_fist_height_m": 1.207,
+  "sword_tip_radius_m": 1.5629,
+  "sword_tip_height_m": 1.2476,
+  "axe_tip_radius_m": 1.5257,
+  "axe_tip_height_m": 1.2304,
+  "arms_min_separation_m": 0.4204,
+  "weapons_into_body_nonhand_share": [
+   0.0,
+   0.0
+  ],
+  "blade_vs_outward_radial_deg": [
+   17.8,
+   43.7
+  ],
+  "blade_pitch_deg": [
+   0.8,
+   1.2
+  ],
+  "edges_lead_cos": {
+   "weapon_r": 0.837,
+   "weapon_l": 0.844
+  },
+  "note": "both arms reach-limited (right fist 0.809 m = 95%, left 0.841 m = 99% of 0.848); the right forearm twist reads 103 deg (INFO row, not a limit); rigid spin: the planted foot turns with him (as the v7 rule and the DK's spin)"
+ },
+ "lint": {
+  "j21 (nb_join registry)": "WARN, 0 fails (WARNs are the JOIN body's own clips)",
+  "joint_lint": {
+   "idle_guard": "PASS",
+   "whirlwind_dual_start": "PASS",
+   "whirlwind_dual_loop": "PASS"
+  },
+  "negative_control": "clip idle_guard t 0.0000 with the right elbow bent past straight about its hinge -> FAIL (the row fires)"
+ },
+ "not_changed": "the arena's current 'whirlwind' (v9) is untouched; the runtime swaps by clip name"
+}
