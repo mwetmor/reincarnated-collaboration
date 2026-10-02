@@ -20,7 +20,7 @@ PPM = 100.617553710938
 ap = argparse.ArgumentParser(); ap.add_argument('out'); ap.add_argument('--id', required=True)
 ap.add_argument('--bolt-r', type=float, default=0.3); ap.add_argument('--burst-r', type=float, default=1.5)
 ap.add_argument('--ring-r', type=float, default=2.2); ap.add_argument('--seed', type=int, default=7)
-ap.add_argument('--hue', default='cold', choices=['cold', 'pale', 'frost', 'flame', 'storm', 'spirit', 'blight', 'blood', 'aether', 'mud'])
+ap.add_argument('--hue', default='cold', choices=['cold', 'pale', 'frost', 'flame', 'storm', 'spirit', 'blight', 'blood', 'aether', 'mud', 'void'])
 ap.add_argument('--extras', default='', help='round 3: slash (claw arcs), aura (a held ground ring loop at --aura-r)')
 ap.add_argument('--aura-r', type=float, default=6.0)
 A = ap.parse_args(); os.makedirs(A.out, exist_ok=True)
@@ -29,7 +29,8 @@ PAL = dict(cold=([0.93, 0.96, 1.00], [0.42, 0.58, 0.86]), pale=([0.93, 0.96, 1.0
            frost=([0.94, 0.97, 1.00], [0.50, 0.70, 0.88]), flame=([1.00, 0.93, 0.70], [0.90, 0.45, 0.16]),   # fire: the only saturated warm (register)
            storm=([0.96, 0.95, 1.00], [0.58, 0.52, 0.86]), spirit=([0.90, 0.95, 0.97], [0.55, 0.68, 0.74]),
            blight=([0.92, 0.95, 0.80], [0.52, 0.60, 0.34]), blood=([0.93, 0.84, 0.78], [0.52, 0.20, 0.18]),   # madder, moderate (register)
-           aether=([0.97, 0.92, 0.98], [0.66, 0.50, 0.78]), mud=([0.86, 0.84, 0.70], [0.42, 0.40, 0.26]))   # crypt mud + moss
+           aether=([0.97, 0.92, 0.98], [0.66, 0.50, 0.78]), mud=([0.86, 0.84, 0.70], [0.42, 0.40, 0.26]),   # crypt mud + moss
+           void=([0.93, 0.88, 0.98], [0.40, 0.28, 0.58]))   # void violet
 CORE, WASH = (np.array(v) for v in PAL[A.hue])
 INK = np.array([0.12, 0.16, 0.30]); SMOKE = np.array([0.55, 0.55, 0.56])
 

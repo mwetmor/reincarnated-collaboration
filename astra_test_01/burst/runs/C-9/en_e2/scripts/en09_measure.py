@@ -28,7 +28,7 @@ for clip in m['anims']:
                                y_top=round(float(allp[:, 1].max()), 3), z=[round(float(allp[:, 2].min()), 3), round(float(allp[:, 2].max()), 3)])
     if clip in ('idle', 'walk', 'run', 'glide'):
         rep['loops'][clip] = round(max(float(np.linalg.norm(W[0][n] - W[-1][n])) for n in W[0] if n != 'Hips'), 4)
-    RULE = dict(cast_bolt='fwd', claw='fwd', cast_area='3d', aura='3d', attack='fwd', hurl='fwd', roar='3d', swipe='fwd', throw='fwd', buff='3d', slam='3d', lob='fwd', summon='3d', pound='3d')
+    RULE = dict(cast_bolt='fwd', claw='fwd', cast_area='3d', aura='3d', attack='fwd', hurl='fwd', roar='3d', swipe='fwd', throw='fwd', buff='3d', slam='3d', lob='fwd', summon='3d', pound='3d', sweep='fwd')
     if clip in RULE:
         best = None
         for hand in ('LeftHand', 'RightHand'):

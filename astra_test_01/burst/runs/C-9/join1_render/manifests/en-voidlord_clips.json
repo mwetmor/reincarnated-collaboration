@@ -1,0 +1,221 @@
+{
+ "what": "JOIN-1 clip manifest for the en-voidlord (crucible, roster rig chthonianrylok) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_v",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_v/en_v_body.glb",
+  "sha256_16": "51b523f4b4f02478",
+  "height_m": 2.6
+ },
+ "roster": {
+  "rig": "chthonianrylok",
+  "tier1_rank": 17,
+  "bodies": 3.48,
+  "lead": "Ekket'Zul, Progenitor of Darkness (BOSS; scale 1.6, actorRadius 0.8 -> 1.28 m; range 0.8-1.575)",
+  "run_m_per_s": [
+   2.889,
+   3.53
+  ],
+  "style": "melee 42 % / projectile 28 % / aoe 27 %",
+  "p05_bodies": 1.0,
+  "spawn": "chthonianrylok_spawn_c01_fire, 106 frames",
+  "spawn_clip_frames": 106,
+  "roles": "trash 1.51 / boss 1.50 / champion-hero 0.27 / nemesis 0.20"
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "sweep": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "cast_bolt": {
+   "seconds": 2.3,
+   "source": "standing 1h magic attack 03 (Mixamo)"
+  },
+  "cast_area": {
+   "seconds": 3.1333,
+   "source": "standing 2h magic area attack 02 (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "emerge": {
+   "seconds": 3.4667,
+   "source": "en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "standing idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.364,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.664,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "attack": {
+   "release_s": 0.7,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 21"
+  },
+  "sweep": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  },
+  "cast_bolt": {
+   "release_s": 0.7333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 22"
+  },
+  "cast_area": {
+   "release_s": 1.8,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 54"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.425 m from the origin, ends 0.011 m"
+ },
+ "vfx_runtime": {
+  "void": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_v_void_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_v_void_frames.json",
+   "atlas_px": [
+    4096,
+    4387
+   ],
+   "atlas_sha256": "1da35bc8436a2ccd299a3cd87080739c6c9c17a72984c1dc4fc12d5dc2a29a00",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 1.8,
+    "ring_r_m": 4.0,
+    "seed": 101,
+    "palette": "void",
+    "aura_r_m": 8.0,
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      130,
+      83
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      416,
+      416
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      450
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      452
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      470,
+      244
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      118,
+      70
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      865,
+      865
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the claw sweep; bolt + burst (r 1.8 m) = the chaos bolt; ring_* (r 4.0 m) = the eruption; aura (r 8.0 m) = the dying chaos blast (roster r 8-9 m)"
+  }
+ },
+ "emerge": {
+  "clip": "emerge",
+  "seconds": 3.4667,
+  "roster": "p05 1.00 bodies; chthonianrylok_spawn_c01_fire, 106 frames (DATAMINED)",
+  "method": "unfolds UP from a crouch (no floor crossing; cells have no floor); the fade-in and any duration warp are the runtime's"
+ }
+}

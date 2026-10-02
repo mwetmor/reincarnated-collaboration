@@ -5,8 +5,8 @@ import json, os, sys, hashlib
 import numpy as np
 g = sys.argv[1]; E = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = os.path.join(os.path.dirname(E), 'join1_render')
 sys.path.insert(0, os.path.join(E, 'scripts')); C = __import__('s17_loop_closure')
-KID = dict(b='en-brute', c='en-wretch', i='en-imp', g='en-golem', n='en-gaunt', y='en-icebrute')[g]
-VID = dict(b='en_b_blight', c='en_c_blood', i='en_i_aether', g='en_g_mud', n='en_n_frost', y='en_y_frost')[g]
+KID = dict(b='en-brute', c='en-wretch', i='en-imp', g='en-golem', n='en-gaunt', y='en-icebrute', v='en-voidlord')[g]
+VID = dict(b='en_b_blight', c='en_c_blood', i='en_i_aether', g='en_g_mud', n='en_n_frost', y='en_y_frost', v='en_v_void')[g]
 body = os.path.join(E, 'export/final_%s/en_%s_body.glb' % (g, g))
 M = json.load(open(os.path.join(E, 'export/final_%s/en_%s_measure.json' % (g, g))))
 H = json.load(open(os.path.join(E, 'export/final_%s/height.json' % g)))
@@ -29,7 +29,10 @@ ROSTER = dict(
     n=dict(rig='wendigo', tier1_rank=8, bodies=6.04, lead='Wendigo (scale 1.0, actorRadius 0.75 -> 0.75 m; range 0.75-0.98)', run_m_per_s=[2.889, 3.209],
            style='melee 55 % / projectile 26 % / aura 17 %', p05_bodies=0.0),
     y=dict(rig='yeti', tier1_rank=19, bodies=3.04, lead='Diremane Brute (scale 0.8, actorRadius 1.3 -> 1.04 m; range 1.04-1.62)', run_m_per_s=[2.247, 3.691],
-           style='projectile 39 % / aoe 37 % / aura 14 %', p05_bodies=0.0))[g]
+           style='projectile 39 % / aoe 37 % / aura 14 %', p05_bodies=0.0),
+    v=dict(rig='chthonianrylok', tier1_rank=17, bodies=3.48, lead='Ekket\'Zul, Progenitor of Darkness (BOSS; scale 1.6, actorRadius 0.8 -> 1.28 m; range 0.8-1.575)',
+           run_m_per_s=[2.889, 3.53], style='melee 42 % / projectile 28 % / aoe 27 %', p05_bodies=1.0, spawn='chthonianrylok_spawn_c01_fire, 106 frames', spawn_clip_frames=106,
+           roles='trash 1.51 / boss 1.50 / champion-hero 0.27 / nemesis 0.20'))[g]
 def src(c):
     if c in GR: return os.path.basename(GR[c]['source']).replace('.glb', '').replace('_', ' ') + ' (Mixamo)'
     return dict(emerge='en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded')[c]
@@ -40,7 +43,8 @@ vfx = dict(atlas=os.path.join(E, 'vfx', V['atlas']), frames=os.path.join(E, 'vfx
            phases={k: dict(fps=v['fps'], frames=v['n'], plane=v['plane'], loop=v['loop'], px_per_m=v.get('px_per_m', V['px_per_m']),
                            max_frame_px=[max(f['rect'][2] for f in v['frames']), max(f['rect'][3] for f in v['frames'])]) for k, v in V['phases'].items()},
            telegraph_lead_s=round(V['phases']['ring_tele']['n'] / V['phases']['ring_tele']['fps'], 4),
-           use=dict(g='slash = the heavy swing; ring_* = the SLAM shock ring (r 4.0 m); bolt + burst (r 2.0 m) = the mud lob (the vine nova row: see roster_projectile)',
+           use=dict(v='slash = the claw sweep; bolt + burst (r 1.8 m) = the chaos bolt; ring_* (r 4.0 m) = the eruption; aura (r 8.0 m) = the dying chaos blast (roster r 8-9 m)',
+                    g='slash = the heavy swing; ring_* = the SLAM shock ring (r 4.0 m); bolt + burst (r 2.0 m) = the mud lob (the vine nova row: see roster_projectile)',
                     n='slash = the lunging claw; bolt = the ice shard; aura = the chilling howl (soul-siphon row r 7.0 m)',
                     y='bolt + burst (r 2.4 m) = the boulder/ice throw; ring_* = the ground pound (r 4.0 m); aura = the roar (ice howl row r 8.0 m)',
                     b='slash = the heavy swing (attack) arc; bolt/burst = the HURL (overhead throw, projectile 31 %); ring_* = the roar nova (poison projectile nova, r 3.5 m rot-skin aura)',
@@ -74,7 +78,9 @@ ONE = dict(b=[('attack', 12, 'the heavy unarmed swing (melee 59 %)'), ('hurl', 1
            g=[('slam', 12, 'the ground slam + shock ring (aoe 66 %)'), ('attack', 12, 'the heavy swing (melee 17 %)'), ('lob', 12, 'the mud lob (projectile 17 %)'),
               ('summon', 12, 'the summon gesture (the ossuary bloom)')],
            n=[('claw', 12, 'the lunging claw (melee 55 %)'), ('throw', 12, 'the ice-shard throw (projectile 26 %)'), ('aura', 16, 'the chilling howl (aura 17 %)')],
-           y=[('throw', 12, 'the boulder / ice throw (projectile 39 %)'), ('pound', 16, 'the ground pound (aoe 37 %)'), ('roar', 16, 'the roar (aura 14 %)')])[g]
+           y=[('throw', 12, 'the boulder / ice throw (projectile 39 %)'), ('pound', 16, 'the ground pound (aoe 37 %)'), ('roar', 16, 'the roar (aura 14 %)')],
+           v=[('attack', 12, 'the brutal downward strike (melee 42 %)'), ('sweep', 12, 'the chaos claw sweep (aoe swipe)'), ('cast_bolt', 12, 'the chaos bolt (projectile 28 %)'),
+              ('cast_area', 16, 'the eruption (aoe 27 %)')])[g]
 for c, n, sk in ONE:
     states[c] = st(c, 'oneshot', 'oneshot_release', n, 'release', release_from='casts.%s.release_s' % c,
                    release_socket='chest' if c in ('roar', 'buff', 'aura', 'summon') else ('main_hand' if M['release'][c]['hand'] == 'RightHand' else 'off_hand'), manifest_entry='casts.%s' % c, skill=sk)

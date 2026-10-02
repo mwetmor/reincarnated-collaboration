@@ -1,0 +1,23 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $2.00 (EN-E2 round 6: the rylok).",
+ "_basis": "tripo $0.40 per build; birefnet at wall-clock seconds x $0.0008/s (upper bound).",
+ "_starts_after": "Opened 2026-10-02T08:24:19.",
+ "budget_usd": 2.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T12:30:32+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-V_a.png",
+   "usd": 0.00225,
+   "wall_s": 2.81
+  },
+  {
+   "ts": "2026-10-02T12:34:00+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_v_tripo",
+   "usd": 0.4,
+   "wall_s": 207.45
+  }
+ ],
+ "running_usd": 0.4022
+}

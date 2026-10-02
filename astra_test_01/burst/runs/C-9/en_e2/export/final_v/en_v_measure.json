@@ -1,0 +1,197 @@
+{
+ "body": "export/final_v/en_v_body.glb",
+ "export_scale": 1.529412,
+ "release": {
+  "attack": {
+   "hand": "RightHand",
+   "release_s": 0.7,
+   "key": 21,
+   "speed_mps": 10.335,
+   "hand_pos_m": [
+    -0.603,
+    2.568,
+    0.479
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "sweep": {
+   "hand": "RightHand",
+   "release_s": 0.8667,
+   "key": 26,
+   "speed_mps": 12.424,
+   "hand_pos_m": [
+    -0.664,
+    1.51,
+    0.788
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.7333,
+   "key": 22,
+   "speed_mps": 8.571,
+   "hand_pos_m": [
+    -0.876,
+    0.888,
+    0.516
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "cast_area": {
+   "hand": "RightHand",
+   "release_s": 1.8,
+   "key": 54,
+   "speed_mps": 12.384,
+   "hand_pos_m": [
+    -1.186,
+    1.994,
+    0.101
+   ],
+   "rule": "peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "walk": 0.0001,
+  "run": 0.0001,
+  "idle": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.8645,
+   "loop_s": 1.3667,
+   "m_per_s": 1.364,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.9313,
+   "loop_s": 0.8,
+   "m_per_s": 3.664,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "walk": {
+   "x": [
+    -0.611,
+    0.546
+   ],
+   "y_top": 2.496,
+   "z": [
+    -0.501,
+    0.721
+   ]
+  },
+  "run": {
+   "x": [
+    -0.572,
+    0.535
+   ],
+   "y_top": 2.499,
+   "z": [
+    -0.879,
+    0.595
+   ]
+  },
+  "attack": {
+   "x": [
+    -0.719,
+    0.922
+   ],
+   "y_top": 2.568,
+   "z": [
+    -0.753,
+    1.194
+   ]
+  },
+  "sweep": {
+   "x": [
+    -0.897,
+    1.15
+   ],
+   "y_top": 2.36,
+   "z": [
+    -1.065,
+    1.116
+   ]
+  },
+  "cast_bolt": {
+   "x": [
+    -1.072,
+    0.669
+   ],
+   "y_top": 2.718,
+   "z": [
+    -0.843,
+    1.222
+   ]
+  },
+  "cast_area": {
+   "x": [
+    -1.186,
+    0.978
+   ],
+   "y_top": 2.544,
+   "z": [
+    -0.616,
+    0.842
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.705,
+    0.413
+   ],
+   "y_top": 2.298,
+   "z": [
+    -0.782,
+    0.742
+   ]
+  },
+  "death": {
+   "x": [
+    -0.98,
+    1.08
+   ],
+   "y_top": 2.402,
+   "z": [
+    -1.754,
+    1.513
+   ]
+  },
+  "emerge": {
+   "x": [
+    -0.702,
+    0.574
+   ],
+   "y_top": 2.305,
+   "z": [
+    -0.514,
+    0.743
+   ]
+  },
+  "idle": {
+   "x": [
+    -0.65,
+    0.359
+   ],
+   "y_top": 2.364,
+   "z": [
+    -0.551,
+    0.778
+   ]
+  }
+ },
+ "clip_len_s": {
+  "walk": 1.3667,
+  "run": 0.8,
+  "attack": 2.2667,
+  "sweep": 2.4,
+  "cast_bolt": 2.3,
+  "cast_area": 3.1333,
+  "hit": 1.4667,
+  "death": 3.5333,
+  "emerge": 3.4667,
+  "idle": 1.8
+ }
+}
