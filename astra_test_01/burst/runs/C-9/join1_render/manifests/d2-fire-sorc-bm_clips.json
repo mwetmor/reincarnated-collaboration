@@ -42,12 +42,14 @@
  },
  "casts": {
   "cast_fireball_m": {
-   "release_s": 0.1333,
-   "definition": "the package's Fire Ball release (the staff hand's fastest forward interval, key 4 on the 30 fps keys)"
+   "release_s": 0.2667,
+   "definition": "the release re-measured at source (commit 57cb863f4, so_mx/work/release_tip.json): where the orb's thrust ends with the arm fully extended, the clip's 30 fps key 8",
+   "was": 0.1333
   },
   "cast_meteor": {
-   "release_s": 1.6667,
-   "definition": "the package's Meteor release (the staff hand driven down, key 50 on the 30 fps keys)"
+   "release_s": 1.8,
+   "definition": "the release re-measured at source (commit 57cb863f4, so_mx/work/release_tip.json): where the orb's thrust ends with the arm fully extended, the clip's 30 fps key 54",
+   "was": 1.6667
   }
  },
  "block": {
