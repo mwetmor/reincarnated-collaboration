@@ -1,0 +1,52 @@
+family           class                    ratio       dR dead   dD  legB  wave_s heal:in   disc   mov
+CONTROL                                  1.0713             4       0.20   39.38  0.9845  1.114 0.826
+A-LINEUP         LOAD-BEARING            2.1233  +1.0520   20  +16  2.60   41.70  0.9277  1.674 0.843
+A-MUT            LOAD-BEARING            0.9351  -0.1362    2   -2  0.10   38.74  0.9868  1.023 0.825
+A-MUT-BC         LOAD-BEARING            0.9327  -0.1386    2   -2  0.10   39.13  0.9871  1.116 0.826
+A-MUT-LEECH      INCIDENTAL              1.0841  +0.0128    4   +0  0.20   39.00  0.9826  1.091 0.822
+A-MUT-CRUEL      INCIDENTAL              1.0265  -0.0448    3   -1  0.15   38.83  0.9807  1.041 0.827
+A-MUT-RA         LOAD-BEARING            1.1730  +0.1017    4   +0  0.20   39.48  0.9810  1.122 0.824
+A-ENG            LOAD-BEARING            1.2406  +0.1693   11   +7  0.55   23.14  0.9849  1.493 0.836
+A-ENG-REPOS      LOAD-BEARING            1.1649  +0.0936    3   -1  0.15   40.28  0.9611  1.012 0.826
+A-ENG-PERSIST    INCIDENTAL              1.1134  +0.0421    5   +1  0.25   39.77  0.9831  1.151 0.824
+A-ENG-RFA        LOAD-BEARING            1.0676  -0.0037    5   +1  0.25   44.01  0.9775  1.011 0.824
+A-ENG-PETS       LOAD-BEARING            1.1630  +0.0917    6   +2  0.30   39.41  0.9876  1.141 0.822
+A-ENG-SLOTS      LOAD-BEARING            1.1882  +0.1169    2   -2  0.10   36.36  0.9756  1.101 0.823
+A-ENG-CROWD      INCIDENTAL              1.0333  -0.0380    5   +1  0.25   37.17  0.9818  1.106 0.822
+A-PILOT          LOAD-BEARING            0.9683  -0.1030    7   +3  0.35   45.43  0.9872  0.937 0.737
+A-SP             LOAD-BEARING            1.1070  +0.0357   11   +7  0.55   39.62  0.9817  1.093 0.824
+A-C11B           LOAD-BEARING            1.0156  -0.0557    2   -2  0.10   39.34  0.9862  1.111 0.823
+A-INIT           INCIDENTAL              1.0255  -0.0458    5   +1  0.25   39.87  0.9794  1.123 0.825
+A-EM-LAT         INCIDENTAL              1.0812  +0.0099    5   +1  0.25   39.38  0.9849  1.126 0.826
+A-COMP-DOT       INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826
+A-FR             LOAD-BEARING            1.0180  -0.0533    3   -1  0.15   33.01  0.9591  1.248 0.824
+A-FR-BANDAURA    NOT-ABLATABLE-ALONE    ["harness raised: ValueError: InitialSelfCastFold needs the v3.8 GdFireRangeFold with its aura rows applied (the aura radius is GD's only where that fold set it)"]
+A-EM             INCIDENTAL              1.1284  +0.0571    4   +0  0.20   37.71  0.9866  1.124 0.823
+A-STAT           INCIDENTAL              1.1292  +0.0579    7   +3  0.35   36.27  0.9786  1.231 0.824
+A-COMP           LOAD-BEARING            1.5651  +0.4938   12   +8  0.65   37.45  0.9497  1.153 0.825
+A-C11A           INCIDENTAL              1.0610  -0.0103    3   -1  0.15   39.41  0.9843  1.118 0.827
+A-C1             INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826
+A-C2             INCIDENTAL              1.0610  -0.0103    3   -1  0.15   39.41  0.9843  1.118 0.827
+A-C4             INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826
+A-POOL           LOAD-BEARING            0.9071  -0.1642    3   -1  0.15   31.56  0.9961  1.443 0.841
+A-WINNER         INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826
+A-GMAG           LOAD-BEARING            0.5381  -0.5332    0   -4  0.00   38.69  0.9825  1.081 0.825
+A-MBOARD         LOAD-BEARING            0.7080  -0.3633    3   -1  0.15   38.84  0.9720  1.128 0.826
+A-DEFER          INCIDENTAL              1.0497  -0.0216    5   +1  0.25   39.80  0.9855  1.110 0.825
+A-VOLLEY         INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826
+A-SUSTAIN        LOAD-BEARING            1.1125  +0.0412    0   -4  0.00   39.74  0.9912  1.111 0.826
+A-SECOND         NOT-ABLATABLE-ALONE    ['TRUNCATED salts [4]: G3: 173 rows on w151..159, expected 180; G3/G4: sum_w mean_t_s*N exceeds t_s_151_159 by 271.32 s (a salt is missing a W9 row); G1/G2: salts with no w160 row or a w160 tick-cap stall: [4]', 'cause (diagnosed): ladder stopped: salt 4, wave 152, outcome=timeout (tick cap, 4000 ticks = 326.53 s). PILOT-CAPTURE: with the bleed rider removed, two physically-immune hazard pets (trap_lightningspike_hero_a01, res_physical 500, res_bleeding 0, no TTL) live on; they do not gate the clear, but P-MOVE steers to the nearest LIVE body incl. pets, so the pilot sits on one (3,340 player hits over the wave, 0 applied) while the one killable gating body (champion aetherialcorruption_h02, 443,554 HP, res_physical 0) is ring-halted ~8.2 m away, never contacted. Control: contacted 42.6 s, dead 43.3 s, w152 cleared in 44 s. diag/A-SECOND_salt4.json']
+A-KITRES         INCIDENTAL              1.0834  +0.0121    3   -1  0.15   39.50  0.9799  1.105 0.825
+A-DOTTL          INCIDENTAL              1.1185  +0.0472    1   -3  0.05   39.09  0.9791  1.125 0.824
+A-CC             INCIDENTAL              1.0579  -0.0134    4   +0  0.20   40.29  0.9845  1.103 0.827
+A-PETS-PLAYER    INCIDENTAL              1.0655  -0.0058    4   +0  0.20   39.22  0.9830  1.097 0.825
+A-ALERT          INCIDENTAL              1.1004  +0.0291    4   +0  0.20   39.75  0.9812  1.092 0.827
+A-MECH           NOT-ABLATABLE-ALONE    ['no wave completed (0 rows); the composition refused the removal']
+A-PATROL         LOAD-BEARING            1.1566  +0.0853    1   -3  0.05   35.59  0.9843  1.197 0.828
+A-COUNTER        LOAD-BEARING            1.2558  +0.1845    8   +4  0.40   40.08  0.9401  1.105 0.823
+A-DEF            INCIDENTAL              1.1137  +0.0424    2   -2  0.10   40.49  0.9826  1.129 0.828
+A-SEP            LOAD-BEARING            1.5163  +0.4450   11   +7  0.55   56.88  0.9951  1.253 0.821
+A-CHAN           INCIDENTAL              1.0768  +0.0055    3   -1  0.15   39.41  0.9833  1.061 0.839
+A-SEAT           INCIDENTAL              1.0768  +0.0055    3   -1  0.15   39.41  0.9833  1.061 0.839
+ARENA-W1         INCIDENTAL              1.0528  -0.0185    3   -1  0.15   40.14  0.9841  1.075 0.820
+ARENA-W1-NULL    INCIDENTAL (INERT)      1.0713  +0.0000    4   +0  0.20   39.38  0.9845  1.114 0.826

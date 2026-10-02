@@ -1,0 +1,124 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 JOIN-1 J0 ablation map (oracle side, v3.11 V311-FULL, scripted pilot P-MOVE). Print-only; never a T-A artifact. Nothing tuned (Law 3). One family removed per row (#24). \u00b7 OBS-1 diag (print-only)",
+ "family": "A-SECOND",
+ "salt": 4,
+ "per_wave": [
+  {
+   "wave": 151,
+   "outcome": "cleared",
+   "termination": "board_empty",
+   "t_s": 40.0,
+   "n_parked_actors": 0
+  },
+  {
+   "wave": 152,
+   "outcome": "timeout",
+   "termination": "tick_cap",
+   "t_s": 326.531,
+   "n_parked_actors": 1,
+   "surviving_bodies": [
+    {
+     "id": "w152_a015",
+     "record": "aetherialcorruption_h02.dbr",
+     "hp_max": 443554.0,
+     "gates_clear": true,
+     "res_physical": 0.0,
+     "res_bleeding": 0.0,
+     "player_hits": {
+      "n": 0,
+      "applied": 0.0
+     },
+     "mover": {
+      "xy": [
+       -11.907,
+       -3.212
+      ],
+      "contact_t_s": null,
+      "ring_halt": true,
+      "is_ambush": true
+     }
+    }
+   ],
+   "surviving_pets": [
+    {
+     "id": "w152_pet0001",
+     "record": "trap_lightningspike_hero_a01.dbr",
+     "hp_max": 61055.0,
+     "gates_clear": false,
+     "res_physical": 500.0,
+     "res_bleeding": 0.0,
+     "player_hits": {
+      "n": 0,
+      "applied": 0.0
+     },
+     "mover": null,
+     "spawn_xy": [
+      -34.13818345051809,
+      10.142919498873287
+     ]
+    },
+    {
+     "id": "w152_pet0020",
+     "record": "trap_lightningspike_hero_a01.dbr",
+     "hp_max": 61055.0,
+     "gates_clear": false,
+     "res_physical": 500.0,
+     "res_bleeding": 0.0,
+     "player_hits": {
+      "n": 3340,
+      "applied": 0.0
+     },
+     "mover": null,
+     "spawn_xy": [
+      -19.915649850207878,
+      -1.641494098888253
+     ]
+    }
+   ],
+   "player_last_xy": [
+    -20.036,
+    -1.883
+   ],
+   "player_last_target": "w152_pet0020"
+  }
+ ],
+ "summary_terminal": [
+  null
+ ],
+ "raised": {
+  "4": null
+ },
+ "per_salt_ratio": [
+  0.1098
+ ],
+ "kw_hits": {
+  "sw:secondary_streams": 2
+ },
+ "completeness": {
+  "complete": false,
+  "truncated_salts": [
+   "4"
+  ],
+  "cell_reasons": [
+   "G3: 2 rows on w151..159, expected 9"
+  ],
+  "per_salt": {
+   "4": {
+    "complete": false,
+    "n_rows": 2,
+    "last_wave": 152,
+    "stop": {
+     "wave": 152,
+     "outcome": "timeout"
+    },
+    "reasons": [
+     "G1: 2 rows banked (waves [151]..152), expected 10 (151..160)",
+     "G1: non-clearing, non-death wave(s) [(152, 'timeout')]"
+    ]
+   }
+  },
+  "tick_cap_s": 326.531,
+  "max_ticks": 4000,
+  "rule": "G1 10 rows w151..160 (raw outcome cleared|player_death) \u00b7 G2 w160 not at the tick cap \u00b7 G3 9N rows w151..159 \u00b7 G4 summed time matches"
+ }
+}

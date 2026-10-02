@@ -1,0 +1,1337 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 JOIN-1 J0 ablation map (oracle side, v3.11 V311-FULL, scripted pilot P-MOVE). Print-only; never a T-A artifact. Nothing tuned (Law 3). One family removed per row (#24).",
+ "family": "CONTROL",
+ "spec": {},
+ "salts": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "tick_period_s": 0.0816326530612245,
+ "kw_hits": {},
+ "harness_error": null,
+ "summary": {
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19
+  ],
+  "ratio_vs_referent": 1.0713,
+  "landed_hp_per_s_151_159": 1720.1,
+  "t_s_151_159": 7088.57,
+  "per_salt_ratio": [
+   1.0527,
+   1.2208,
+   1.0998,
+   1.1349,
+   0.9402,
+   1.0283,
+   0.8269,
+   1.0178,
+   1.1757,
+   1.032,
+   1.3122,
+   1.1151,
+   0.7788,
+   1.1397,
+   0.9937,
+   0.9879,
+   1.1266,
+   1.0548,
+   1.2904,
+   1.2289
+  ],
+  "leg_a_terminals": [
+   null,
+   null,
+   160,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   160,
+   null,
+   null,
+   null,
+   null,
+   160,
+   null,
+   null,
+   160,
+   null
+  ],
+  "leg_a_t_into_wave_s": [
+   null,
+   null,
+   18.041,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   10.122,
+   null,
+   null,
+   null,
+   null,
+   8.0,
+   null,
+   null,
+   13.959,
+   null
+  ],
+  "mean_leg_a_wave": 160.8,
+  "n_die_in_151": 0,
+  "n_first_death_in_160": 4,
+  "n_survive_160": 16,
+  "leg_b_deaths_per_salt": 0.2,
+  "leg_b_death_waves": [
+   [],
+   [],
+   [
+    160
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    160
+   ],
+   [],
+   [],
+   [],
+   [],
+   [
+    160
+   ],
+   [],
+   [],
+   [
+    160
+   ],
+   []
+  ],
+  "p05_killed_while_emerging": 8,
+  "raised": {},
+  "per_wave": {
+   "151": {
+    "ratio": 0.98,
+    "deaths": 0,
+    "mean_t_s": 53.04
+   },
+   "152": {
+    "ratio": 0.249,
+    "deaths": 0,
+    "mean_t_s": 39.4
+   },
+   "153": {
+    "ratio": 0.586,
+    "deaths": 0,
+    "mean_t_s": 47.15
+   },
+   "154": {
+    "ratio": 1.169,
+    "deaths": 0,
+    "mean_t_s": 31.6
+   },
+   "155": {
+    "ratio": 1.008,
+    "deaths": 0,
+    "mean_t_s": 27.4
+   },
+   "156": {
+    "ratio": 1.411,
+    "deaths": 0,
+    "mean_t_s": 51.36
+   },
+   "157": {
+    "ratio": 1.428,
+    "deaths": 0,
+    "mean_t_s": 53.24
+   },
+   "158": {
+    "ratio": 0.18,
+    "deaths": 0,
+    "mean_t_s": 21.29
+   },
+   "159": {
+    "ratio": 2.449,
+    "deaths": 0,
+    "mean_t_s": 29.96
+   },
+   "160": {
+    "ratio": 4.228,
+    "deaths": 4,
+    "mean_t_s": 40.5
+   }
+  },
+  "instruments": {
+   "still_frac_by_H2_band_151_160": [
+    0.936,
+    0.92,
+    0.925,
+    0.9,
+    0.659,
+    0.514,
+    0.529,
+    0.516
+   ],
+   "still_frac_referent_H2": [
+    0.201,
+    0.229,
+    0.283,
+    0.279,
+    0.336,
+    0.346,
+    0.243,
+    0.145
+   ],
+   "still_frac_2p46_4p92m": 0.569,
+   "still_frac_2p46_4p92m_referent": 0.343,
+   "body_steps_by_band": [
+    3685,
+    3214,
+    6779,
+    13029,
+    31604,
+    51535,
+    75782,
+    113557
+   ],
+   "disc_occupancy_mean_bodies_per_tick_151_159": 1.114,
+   "disc_occupancy_by_wave": {
+    "151": 0.613,
+    "152": 0.686,
+    "153": 0.388,
+    "154": 2.236,
+    "155": 0.585,
+    "156": 1.042,
+    "157": 1.474,
+    "158": 0.834,
+    "159": 2.711,
+    "160": 2.91
+   },
+   "pilot_closing": {
+    "empty": {
+     "n_ticks": 47630,
+     "mean_closing_nearest_m_s": 0.8694
+    },
+    "occupied": {
+     "n_ticks": 48098,
+     "mean_closing_nearest_m_s": 0.3449
+    },
+    "disc_empty_fraction": 0.4976,
+    "n_drift_ticks": 0,
+    "drift_path_m": 0.0,
+    "referent": {
+     "empty": 0.919,
+     "occupied": 0.129,
+     "disc_empty_fraction_plate_frames": 0.142
+    }
+   },
+   "wave_s_referent": {
+    "151": 15.6,
+    "152": 16.3,
+    "153": 14.9,
+    "154": 14.2,
+    "155": 16.2,
+    "156": 20.2,
+    "157": 19.3,
+    "158": 13.0,
+    "159": 26.3,
+    "160": 25.0
+   }
+  },
+  "instruments310": {
+   "net_still_frac_by_band": [
+    0.947,
+    0.941,
+    0.935,
+    0.932,
+    0.73,
+    0.515,
+    0.532,
+    0.518
+   ],
+   "net_still_2p46_4p92": 0.5901,
+   "mode_share_2p46_4p92": {
+    "A": 0.5366,
+    "P": 0.2722,
+    "R": 0.167,
+    "W": 0.0222,
+    "x": 0.002
+   },
+   "pilot_realised": {
+    "moving_fraction_over_0p49_m_s": 0.826,
+    "mean_speed_all_ticks_m_s": 3.2211,
+    "referent_on_the_83ms_grid": {
+     "moving_fraction": 0.8481,
+     "mean_speed_m_s": 2.9825,
+     "closing_empty": 1.053,
+     "closing_occupied": 0.1508
+    }
+   }
+  },
+  "instruments311": {
+   "own_wave_ratio_vs_referent_rate": {
+    "151": 1.29,
+    "152": 0.522,
+    "153": 0.675,
+    "154": 0.697,
+    "155": 1.59,
+    "156": 1.375,
+    "157": 1.058,
+    "158": 1.003,
+    "159": 1.696,
+    "160": 1.668
+   },
+   "referent_hp_per_s": {
+    "151": 1220.0,
+    "152": 766.0,
+    "153": 1394.0,
+    "154": 2692.0,
+    "155": 1018.0,
+    "156": 1648.0,
+    "157": 2167.0,
+    "158": 288.0,
+    "159": 2318.0,
+    "160": 4070.0
+   },
+   "time_into_w160": {
+    "per_salt": [
+     {
+      "died": false,
+      "t_s": 50.0408
+     },
+     {
+      "died": false,
+      "t_s": 79.0204
+     },
+     {
+      "died": true,
+      "t_s": 18.041
+     },
+     {
+      "died": false,
+      "t_s": 53.9592
+     },
+     {
+      "died": false,
+      "t_s": 32.0
+     },
+     {
+      "died": false,
+      "t_s": 32.9796
+     },
+     {
+      "died": false,
+      "t_s": 61.9592
+     },
+     {
+      "died": false,
+      "t_s": 51.0204
+     },
+     {
+      "died": false,
+      "t_s": 32.0
+     },
+     {
+      "died": false,
+      "t_s": 60.0
+     },
+     {
+      "died": true,
+      "t_s": 10.122
+     },
+     {
+      "died": false,
+      "t_s": 36.9796
+     },
+     {
+      "died": false,
+      "t_s": 35.0204
+     },
+     {
+      "died": false,
+      "t_s": 43.0204
+     },
+     {
+      "died": false,
+      "t_s": 49.9592
+     },
+     {
+      "died": true,
+      "t_s": 8.0
+     },
+     {
+      "died": false,
+      "t_s": 43.0204
+     },
+     {
+      "died": false,
+      "t_s": 36.9796
+     },
+     {
+      "died": true,
+      "t_s": 13.959
+     },
+     {
+      "died": false,
+      "t_s": 61.9592
+     }
+    ],
+    "n_reached": 20,
+    "n_died_in_w160": 4,
+    "mean_t_first_death_in_w160_s": 12.53,
+    "referent_w160_s": 25.0
+   },
+   "summon_check": {
+    "151": {
+     "referent": [
+      "livingplant_a01_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "livingplant_a01_summon": 27.85
+     },
+     "referent_identities_present": [
+      "livingplant_a01_summon"
+     ]
+    },
+    "152": {
+     "referent": [
+      "aetherialcorruption_c01_summon",
+      "swampcrab_a00_summon|springscrab_a00_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "springscrab_a00_summon": 17.45,
+      "trap_lightningspike_hero_a01": 0.5
+     },
+     "referent_identities_present": [
+      "swampcrab_a00_summon|springscrab_a00_summon"
+     ]
+    },
+    "153": {
+     "referent": [
+      "skeleton_a02_summon"
+     ],
+     "oracle_mean_per_salt": {},
+     "referent_identities_present": []
+    },
+    "156": {
+     "referent": [
+      "wraith_b01_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "wraith_b01_summon": 45.6
+     },
+     "referent_identities_present": [
+      "wraith_b01_summon"
+     ]
+    },
+    "157": {
+     "referent": [
+      "aetherialworm_b0x_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "aetherialworm_b01_summon": 19.0,
+      "aetherialworm_b02_summon": 19.0,
+      "aetherialworm_b03_summon": 19.0,
+      "aetherialworm_b04_summon": 19.05,
+      "trap_brambletrap_a01": 0.15
+     },
+     "referent_identities_present": []
+    },
+    "158": {
+     "referent": [
+      "swampcrab_a00_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "skeleton_a01_summon": 1.9,
+      "skeleton_b02_knight_summon": 1.45,
+      "swampcrab_a00_summon": 14.2
+     },
+     "referent_identities_present": [
+      "swampcrab_a00_summon"
+     ]
+    },
+    "159": {
+     "referent": [
+      "beetle_maggot01_maggotsummon",
+      "chthonianservitor_a01_summon",
+      "hellhound_witchgod_b01_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "bonerat_witchgod_a01_summon": 15.85,
+      "bonerat_witchgod_b01_summon": 15.7,
+      "chthonianservitor_a01_summon": 38.0,
+      "hellhound_witchgod_a01_summon": 15.65,
+      "hellhound_witchgod_b01_summon": 15.55,
+      "raptor_witchgod_a01_summon": 15.85,
+      "raptor_witchgod_b01_summon": 15.65,
+      "witchgodguardian_sentinel_crystal": 6.25
+     },
+     "referent_identities_present": [
+      "chthonianservitor_a01_summon",
+      "hellhound_witchgod_b01_summon"
+     ]
+    },
+    "160": {
+     "referent": [
+      "aetherialvanguard_crystal",
+      "nemesis_orderdeathsvigil_01_revenantsummon",
+      "skeleton_a02_summon"
+     ],
+     "oracle_mean_per_salt": {
+      "aetherialvanguard_crystal": 56.55,
+      "beast_bloodpool": 6.7,
+      "nemesis_orderdeathsvigil_01_revenantsummon": 22.4,
+      "skeleton_a02_summon": 52.75
+     },
+     "referent_identities_present": [
+      "aetherialvanguard_crystal",
+      "nemesis_orderdeathsvigil_01_revenantsummon",
+      "skeleton_a02_summon"
+     ]
+    }
+   },
+   "summons_mean_per_salt": {
+    "154": {
+     "beast_bloodpool": 6.8,
+     "gabbalthunn_obsidianshard": 5.0
+    },
+    "156": {
+     "wraith_b01_summon": 45.6
+    },
+    "157": {
+     "aetherialworm_b01_summon": 19.0,
+     "aetherialworm_b02_summon": 19.0,
+     "aetherialworm_b03_summon": 19.0,
+     "aetherialworm_b04_summon": 19.05,
+     "trap_brambletrap_a01": 0.15
+    },
+    "158": {
+     "skeleton_a01_summon": 1.9,
+     "skeleton_b02_knight_summon": 1.45,
+     "swampcrab_a00_summon": 14.2
+    },
+    "159": {
+     "bonerat_witchgod_a01_summon": 15.85,
+     "bonerat_witchgod_b01_summon": 15.7,
+     "chthonianservitor_a01_summon": 38.0,
+     "hellhound_witchgod_a01_summon": 15.65,
+     "hellhound_witchgod_b01_summon": 15.55,
+     "raptor_witchgod_a01_summon": 15.85,
+     "raptor_witchgod_b01_summon": 15.65,
+     "witchgodguardian_sentinel_crystal": 6.25
+    },
+    "160": {
+     "aetherialvanguard_crystal": 56.55,
+     "beast_bloodpool": 6.7,
+     "nemesis_orderdeathsvigil_01_revenantsummon": 22.4,
+     "skeleton_a02_summon": 52.75
+    },
+    "151": {
+     "livingplant_a01_summon": 27.85
+    },
+    "152": {
+     "springscrab_a00_summon": 17.45,
+     "trap_lightningspike_hero_a01": 0.5
+    }
+   },
+   "board_mean_per_salt": {
+    "151": {
+     "p01:wraith_a01": 2.8,
+     "p01:wraith_b01": 2.45,
+     "p01:wraith_c01": 1.75,
+     "p02:wraith_h01": 1.2,
+     "p02:wraith_h02": 0.25,
+     "p02:wraith_h03": 1.2,
+     "p02:wraith_h04": 0.15,
+     "p02:wraith_h05": 0.2,
+     "p03:swampgolem_h01": 0.65,
+     "p03:swampgolem_h02": 0.3,
+     "p03:swampgolem_h03": 0.65,
+     "p03:swampgolem_h04": 0.5,
+     "p03:swampgolem_h05": 0.9,
+     "p04:wraith_a01": 2.55,
+     "p04:wraith_b01": 2.95,
+     "p04:wraith_c01": 1.5,
+     "p05:livingplant_a01": 4.35
+    },
+    "152": {
+     "p01:springscrab_h01": 0.25,
+     "p01:springscrab_h02": 0.4,
+     "p01:springscrab_h03": 0.5,
+     "p01:springscrab_h04": 0.35,
+     "p01:swampcrab_h01": 0.3,
+     "p01:swampcrab_h02": 0.2,
+     "p01:swampcrab_h03": 0.05,
+     "p01:swampcrab_h04": 0.55,
+     "p01:swampcrab_h05": 0.4,
+     "p02:basilisk_h01": 0.2,
+     "p02:basilisk_h02": 1.25,
+     "p02:basilisk_h03": 0.15,
+     "p02:basilisk_h04": 0.3,
+     "p02:basilisk_h05": 1.1,
+     "p03:basilisk_a01": 3.0,
+     "p03:basilisk_b01": 3.0,
+     "p03:basilisk_c01": 1.0,
+     "p04:aetherialfleshshaper_haraxis": 1.0,
+     "p05:aetherialcorruption_h01": 0.4,
+     "p05:aetherialcorruption_h02": 1.35,
+     "p05:aetherialcorruption_h03": 0.4,
+     "p05:aetherialcorruption_h04": 0.5,
+     "p05:aetherialcorruption_h05": 0.35
+    },
+    "153": {
+     "p01:wendigo_a01": 2.0,
+     "p01:wendigo_b01": 0.85,
+     "p01:wendigo_b02": 1.15,
+     "p01:wendigo_c01": 2.0,
+     "p02:exile_bounty12": 0.05,
+     "p02:exile_bounty13": 0.05,
+     "p02:exile_bounty14": 0.1,
+     "p02:hs_bounty10": 0.1,
+     "p02:hs_bounty11": 0.1,
+     "p02:hs_bounty12": 0.15,
+     "p02:hs_bounty13": 0.1,
+     "p02:kc_bounty07": 0.1,
+     "p02:kc_bounty08": 0.05,
+     "p02:kc_bounty09": 1.05,
+     "p02:kc_bounty10": 0.05,
+     "p02:kc_bounty11": 0.1,
+     "p02:kc_bounty13": 1.0,
+     "p03:skeleton_c01": 1.4,
+     "p03:skeleton_c02": 2.3,
+     "p03:skeleton_c03": 2.15,
+     "p03:skeleton_d01": 1.15,
+     "p04:bl_bounty08": 0.05,
+     "p04:bl_bounty09": 0.15,
+     "p04:bl_bounty10": 0.05,
+     "p04:bl_bounty17": 0.1,
+     "p04:bl_bounty18": 0.05,
+     "p04:bl_bounty19": 0.05,
+     "p04:bl_bounty20": 0.05,
+     "p04:dc_bounty06": 0.1,
+     "p04:dc_bounty07": 0.05,
+     "p04:dc_bounty08": 0.75,
+     "p04:dc_bounty09": 0.05,
+     "p04:dc_bounty11": 0.15,
+     "p04:dc_bounty15": 0.05,
+     "p04:ku_bounty_05": 0.15,
+     "p04:ku_bounty_06": 0.5,
+     "p04:ku_bounty_07": 0.25,
+     "p04:ku_bounty_08": 0.25,
+     "p04:ku_bounty_09": 0.15,
+     "p04:ku_bounty_10": 0.05,
+     "p05:livingplant_a01": 2.0,
+     "p05:swampgolem_a01": 3.0
+    },
+    "154": {
+     "p01:fatherkymon": 1.0,
+     "p02:chthonianrylok_gabalthunn": 1.0,
+     "p03:nemesis_beast_01_p1": 1.0,
+     "p04:wendigocannibal_a01": 5.0,
+     "p04:wendigocannibal_b01": 3.0
+    },
+    "155": {
+     "p01:aetherialcorruption_intro": 1.0,
+     "p02:humanascendant_mindthief_01": 1.0,
+     "p03:eldritchwraith_a01": 4.4,
+     "p03:eldritchwraith_b01": 1.3,
+     "p03:eldritchwraith_c01": 1.3,
+     "p04:aetherialcorruption_c01": 7.0
+    },
+    "156": {
+     "p01:witch_janaxia": 1.0,
+     "p02:basilisk_witchritual": 0.6,
+     "p02:direwolf_frozenwastes_01": 0.4,
+     "p03:witch_larria": 1.0,
+     "p04:eldritchwraith_a01": 0.05,
+     "p04:statue_a01": 1.35,
+     "p04:statue_a02": 0.85,
+     "p04:statue_b01": 1.05,
+     "p04:statue_b02": 0.95,
+     "p04:statue_c01": 0.1,
+     "p04:statue_c02": 0.1,
+     "p05:aetherialcorruption_b01": 7.0
+    },
+    "157": {
+     "p01:aetherialbloater_malmouthdocks_01": 1.0,
+     "p02:chthonianherald_h01": 0.1,
+     "p02:chthonianherald_h02": 1.15,
+     "p02:chthonianherald_h03": 0.05,
+     "p02:dranghoul_h01": 0.15,
+     "p02:dranghoul_h02": 0.05,
+     "p02:dranghoul_h04": 0.1,
+     "p02:rhino_h01": 0.15,
+     "p02:rhino_h02": 1.05,
+     "p02:rhino_h03": 0.1,
+     "p02:rhino_h04": 0.1,
+     "p03:chthonianservitor_a01": 1.0,
+     "p03:chthonianservitor_b01": 3.0,
+     "p03:chthonianservitor_b02": 1.0,
+     "p03:chthonianservitor_c01": 1.0,
+     "p04:yetidire_a01": 4.0,
+     "p04:yetidire_b01": 0.95,
+     "p04:yetidire_b02": 1.05,
+     "p04:yetidire_c01": 1.0,
+     "p05:aetherialimp_h01": 1.45,
+     "p05:aetherialimp_h02": 0.4,
+     "p05:aetherialimp_h03": 0.4,
+     "p05:aetherialimp_h04": 0.3,
+     "p05:aetherialimp_h05": 0.45
+    },
+    "158": {
+     "p01:sandlizard_a01": 3.0,
+     "p01:sandlizard_b01": 2.0,
+     "p01:sandlizard_c01": 2.0,
+     "p02:skeletalgolem_h03": 1.0,
+     "p02:skeletalgolem_h04": 0.15,
+     "p02:skeletalgolem_h05": 0.05,
+     "p02:skeleton_h01": 0.05,
+     "p02:skeleton_h02": 0.2,
+     "p02:skeleton_h03": 0.05,
+     "p02:skeleton_h04": 1.0,
+     "p02:skeleton_h05": 0.2,
+     "p02:skeleton_h06": 0.1,
+     "p02:skeleton_h08": 0.05,
+     "p02:skeleton_h09": 0.15,
+     "p03:chthoniandevourer_a01": 3.85,
+     "p03:chthoniandevourer_b01": 4.35,
+     "p03:chthoniandevourer_b02": 3.8,
+     "p04:swampcrab_a01": 4.0,
+     "p04:swampcrab_b01": 3.0,
+     "p04:swampcrab_c01": 1.0,
+     "p05:hypporaven_h01": 0.25,
+     "p05:hypporaven_h02": 0.3,
+     "p05:hypporaven_h03": 0.5,
+     "p05:hypporaven_h04": 0.45,
+     "p05:wraith_h01": 0.35,
+     "p05:wraith_h02": 0.4,
+     "p05:wraith_h03": 0.15,
+     "p05:wraith_h04": 0.4,
+     "p05:wraith_h05": 0.2
+    },
+    "159": {
+     "p01:chthonianservitor_lunalvalgoth": 1.0,
+     "p02:aetherial_fleshhulk_mine": 1.0,
+     "p03:witchgod_finalboss": 1.0,
+     "p04:beetle_maggot01": 1.0,
+     "p05:chthonianrylok_ekketzul": 1.0
+    },
+    "160": {
+     "p01:nemesis_orderdeathsvigil_01": 1.0,
+     "p02:nemesis_beast_01_p1": 1.0,
+     "p03:nemesis_aetherialvanguard_01": 1.0,
+     "p04:aetherialcolossus_galakros": 1.0
+    }
+   }
+  }
+ },
+ "extra": {
+  "heal_to_intake_151_159": 0.9844781594097075,
+  "heal_landed_151_159": 12003615.200000003,
+  "landed_151_159": 12192871.000000004,
+  "n_rows_151_159": 180
+ },
+ "raised_by_salt": {
+  "0": null,
+  "1": null,
+  "2": null,
+  "3": null,
+  "4": null,
+  "5": null,
+  "6": null,
+  "7": null,
+  "8": null,
+  "9": null,
+  "10": null,
+  "11": null,
+  "12": null,
+  "13": null,
+  "14": null,
+  "15": null,
+  "16": null,
+  "17": null,
+  "18": null,
+  "19": null
+ },
+ "completeness": {
+  "complete": true,
+  "truncated_salts": [],
+  "cell_reasons": [],
+  "per_salt": {
+   "0": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "1": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "2": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "3": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "4": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "5": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "6": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "7": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "8": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "9": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "10": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "11": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "12": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "13": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "14": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "15": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "16": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "17": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "18": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   },
+   "19": {
+    "complete": true,
+    "n_rows": 10,
+    "last_wave": 160,
+    "stop": null,
+    "reasons": []
+   }
+  },
+  "tick_cap_s": 326.531,
+  "max_ticks": 4000,
+  "rule": "G1 10 rows w151..160 (raw outcome cleared|player_death) \u00b7 G2 w160 not at the tick cap \u00b7 G3 9N rows w151..159 \u00b7 G4 summed time matches"
+ },
+ "fold_reports": {
+  "fire_range": {
+   "file": {
+    "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+   },
+   "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+   "band_armed": true,
+   "auras_applied": true,
+   "n_ai_rows": 1816,
+   "n_aura_records": 15,
+   "n_banded_slots": 1210,
+   "n_slots_replaced": 1814,
+   "n_up": 1005,
+   "n_down": 809,
+   "n_same": 0,
+   "n_ai_slots_without_row": 0,
+   "n_aura_slots_replaced": 20,
+   "unloaded_rows": [
+    {
+     "pack_row_id": "V20-236",
+     "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+    },
+    {
+     "pack_row_id": "U1-714",
+     "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+    }
+   ],
+   "band": {
+    "n_evaluations": 57848,
+    "n_refused_max": 39920,
+    "n_refused_min": 3712
+   },
+   "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+  },
+  "emergence": {
+   "file": {
+    "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+   },
+   "bound": "D_long",
+   "acquisition_latency_s": "DECODED: first FindEnemyUpdate scan on the 0.2 s grid from construction (KP-212 fold 3a)",
+   "n_acquisition_delayed": 527,
+   "acquisition_latency_mean_s": 0.09237191650853953,
+   "acquire_during_emergence": false,
+   "window_override": false,
+   "n_records": 31,
+   "n_ranged_records": 14,
+   "n_bodies_registered": 527,
+   "n_specials_armed": 1116,
+   "n_specials_without_timeout_row": 0,
+   "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+   "pets": "VACUOUS: no p05 record carries a pet contract"
+  },
+  "composition": {
+   "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+   "phys_limb": "f_unmapped = min(measured)",
+   "f_unmapped": -0.44,
+   "files": {
+    "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+    "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+   },
+   "slowchaos_slowaether_a_dur": "int/200 + 1 (decoded, KP-212 fold 3b)",
+   "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+   "telemetry": {
+    "n_inst_rows": 72837.0,
+    "pre_oracle_inst": 178785193.2,
+    "pre_gd_inst": 134285680.3,
+    "n_dot_rows": 11656.0,
+    "pre_oracle_dot": 193560.2,
+    "pre_gd_dot": 7019771.1,
+    "n_phys_unclamped": 16080.0,
+    "n_phys_clamped_restored": 4149.0,
+    "n_phys_factor_unmapped": 1602.0
+   }
+  },
+  "sp": {
+   "file": {
+    "kc2_swing_pause_v3p9.json": "30403348b5623cdf2962438dca0d3e9eb047b9b5afbafc49ada6ef5b9fca5c19"
+   },
+   "rule": "next swing at max(animation, U{min..max} ms), rerolled per swing (Game.dll IV, grade A; legolas R4; star-lord sp2)",
+   "n_records_with_pause": 124,
+   "n_swings": 5718,
+   "n_pause_binds": 1121,
+   "n_no_pause_record": 1144,
+   "auras": "not swing-gated (an aura is not a swing)",
+   "pack": "V4-ANTI-1 retired by star-lord v3.9 corrigendum sp3"
+  },
+  "c11b": {
+   "b": 1.1,
+   "a_mean": 1.01,
+   "basis": "C-11b B monsterAttributePak Ultimate/1p +10% dex+int (DB-SOURCED-EXACT); A = charLevel equation, C-11b mean x1.010 (DECLARED)",
+   "n_distinct_terms_scaled": 627,
+   "n_distinct_terms_inert": 39
+  },
+  "init": {
+   "rule": "initial = one self-cast at Startup End (UseInitialSkillIfSet 0x0feb90; legolas lead 6; star-lord dc1): non-aura initial removed from the attack set; gr3 aura initial -> toggled aura at its GD radius; roster only (pets untouched, declared)",
+   "n_initial_removed": 65,
+   "n_initial_to_aura": 15,
+   "n_aura_profiles_left_without_slots": 0,
+   "to_aura": [
+    {
+     "record": "records/creatures/enemies/aetherialcorruption_c01.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/bossskills/dralgar_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/boss&quest/beetle_maggot01.dbr",
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/scarabmaggot_toxicpresence.dbr",
+     "radius_m": 5.0
+    },
+    {
+     "record": "records/creatures/enemies/boss&quest/theoutcast_03.dbr",
+     "skill": "records/skills/nonplayerskills/bossskills/angela_aetherform03.dbr",
+     "radius_m": 3.0
+    },
+    {
+     "record": "records/creatures/enemies/boss&quest/wendigo_turned_yuvoll.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigofire_burningpresence.dbr",
+     "radius_m": 3.0
+    },
+    {
+     "record": "records/creatures/enemies/bounties/pm_bounty07.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigofire_burningpresence.dbr",
+     "radius_m": 3.0
+    },
+    {
+     "record": "records/creatures/enemies/devotion/aetherialcorruption_h01.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/devotion/aetherialcorruption_h02.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/devotion/aetherialcorruption_h03.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/devotion/basilisk_h03.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigoaether_aetherpresence.dbr",
+     "radius_m": 3.0
+    },
+    {
+     "record": "records/creatures/enemies/devotion/chthonianservitor_h04.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigostorm_stormpresence.dbr",
+     "radius_m": 3.0
+    },
+    {
+     "record": "records/creatures/enemies/hero/aetherialcorruption_h01.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/hero/aetherialcorruption_h02.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/hero/aetherialcorruption_h03.dbr",
+     "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+     "radius_m": 3.5
+    },
+    {
+     "record": "records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr",
+     "skill": "records/skills/nonplayerskillsgdx3/bossskills/nemesis/outlaw2_burningaether.dbr",
+     "radius_m": 4.5
+    }
+   ]
+  },
+  "eng": {
+   "rule": "pursue to CloseEnoughToUseSkill(chosen); stand in Attack (Idle); re-choose after each skill; specials -> Normal -> Default melee; 2.4 m halt retired for roster (legolas lead 1, DATAMINED A; port of tools/arms_extra.py p_ai + p_default_attack)",
+   "stand_ins": [
+    "swing period = animation length",
+    "no RepositionForAttack",
+    "no walk/run switch",
+    "GetMoveToPoint slot geometry not modelled",
+    "pets keep the incumbent movement and selection (Default slot + pause only)"
+   ],
+   "n_default_profiles_added": 339,
+   "n_default_radius_fallback": 46,
+   "n_default_profiles_without_weapon_rows": 44,
+   "n_choose": 95030,
+   "n_no_skill": 0,
+   "n_fire": {
+    "special": 7908,
+    "chain_initial": 476,
+    "basic": 7019,
+    "default": 1656,
+    "tree_attack": 3307
+   },
+   "n_step_stand": 210589,
+   "n_step_pursue": 456755,
+   "pass3": {
+    "flags": {
+     "persist": true,
+     "land_out_of_reach": false,
+     "slots": true,
+     "pets": true,
+     "rfa": true,
+     "crowd": true,
+     "crowd_updates_per_tick": 1
+    },
+    "tables_sha256": "fa0b78b4e2cdcc4166bfedf05cd29ff4e89a950a9c8e4b46a2332fe82f6d139c",
+    "reference_impl_sha256": "d5401c218b90e317d1522d98548aab6d2db8dc23abf1afbb17c47efa966c0322",
+    "telemetry": {
+     "crowd_displaced_moving": 199041.0,
+     "crowd_displaced_standing": 24.0,
+     "crowd_overlap_pairs": 399650.0,
+     "crowd_ticks": 96758.0,
+     "lost_slot": 3236.0,
+     "pathfail_goal_P": 231.0,
+     "pathfail_goal_R": 507.0,
+     "pathfail_goal_W": 33.0,
+     "pathfail_stuck_P": 114.0,
+     "pathfail_stuck_R": 302.0,
+     "pathfail_stuck_W": 41.0,
+     "persist_fire_out_of_reach_ranged": 24.0,
+     "persist_whiff": 78.0,
+     "pet_attack_to_pursue": 1281.0,
+     "pet_eop_out_of_range": 652.0,
+     "pet_lost_slot": 4549.0,
+     "pet_pathfail_goal_P": 644.0,
+     "pet_pathfail_goal_R": 1612.0,
+     "pet_pathfail_goal_W": 327.0,
+     "pet_pathfail_stuck_P": 21.0,
+     "pet_pathfail_stuck_R": 15.0,
+     "pet_pathfail_stuck_W": 1.0,
+     "pet_rfa_exit": 1956.0,
+     "pet_wta_exit_slot": 2868.0,
+     "pursue_entries": 13292.0,
+     "pursue_eop_out_of_range": 1188.0,
+     "rfa_attack": 219.0,
+     "rfa_entries": 5790.0,
+     "rfa_exit_arrive": 1280.0,
+     "rfa_exit_timer": 732.0,
+     "rfa_pet_pursue_pathfail": 665.0,
+     "rfa_pet_wta": 2795.0,
+     "rfa_pursue_pathfail": 345.0,
+     "rfa_rolls": 1145.0,
+     "rfa_ticks": 209832.0,
+     "rfa_wta": 1766.0,
+     "slot_free": 12672.0,
+     "slot_none": 16778.0,
+     "slot_override": 7913.0,
+     "slot_override_by_pet": 4729.0,
+     "slot_override_pet_robbed": 4666.0,
+     "slot_requests": 37363.0,
+     "wta_entries": 9644.0,
+     "wta_eop": 1840.0,
+     "wta_exit_point": 804.0,
+     "wta_exit_slot": 1130.0,
+     "wta_no_slot": 7804.0,
+     "wta_roams": 10138.0,
+     "wta_ticks": 20724.0
+    }
+   }
+  },
+  "hunt": {
+   "armed": false,
+   "v_close_m_s": 0.919,
+   "derivation": {
+    "kc2_hunt_pilot_derivation_v3p9.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+   },
+   "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+   "n_drift_ticks": 0,
+   "drift_path_m": 0.0
+  },
+  "pilot_move": {
+   "rule": "P-MOVE (\u00a7 6.4 addendum): state-conditioned block replay of the referent's own windows (speed, heading offset from the nearest live body); supersedes drive + P-HUNT drift + K-MILL + I-4 apply",
+   "derivation": {
+    "kc2_pilot_move_derivation_v3p10.json": "8c40d895cd95755f83a9c1c8220e84a1e350e72c3249f5aa145c130fe56f51c2"
+   },
+   "window_s": 0.08333333333333333,
+   "n_replay_windows": {
+    "empty": 309,
+    "occupied": 1828
+   },
+   "n_ticks": 96758,
+   "n_hold_empty_board": 985,
+   "n_ticks_state": {
+    "empty": 47645,
+    "occupied": 48128
+   },
+   "n_move_ticks": {
+    "empty": 40691,
+    "occupied": 40861
+   },
+   "commanded_moving_fraction": 0.8515,
+   "commanded_path_m": 26030.76,
+   "n_jumps": 24407,
+   "n_advances": 71366
+  },
+  "lineup": {
+   "source": "legolas referent_lineup_by_wave.csv (collab 97c0f6732)",
+   "sha256": "f9cc7aac5f52894844b17149bb9347c5f97bb9145ce91bbe00b2683a3f3f1455",
+   "law": "pinned alternative; n ~ U{max(lo,k)..hi}, emitted min(n, cap); pins first; remainder uniform over the alternative minus FOOTAGE absences; per-salt line-up RNG",
+   "unknown_extras": false,
+   "n_rolls": 200
+  },
+  "mutators": {
+   "source": "legolas mutators.json (collab 97c0f6732)",
+   "sha256": "603dc869bf5cc71906c58e991b5f322761f137b7b33d6c56d934abfc43207649",
+   "on": {
+    "brutal": true,
+    "corrupted": true,
+    "leeching": true,
+    "cruel": true,
+    "resilient": true,
+    "ascended": true
+   },
+   "ascended_law": "additive",
+   "index_law": "the body's own ThreatProfile.level, 1-based (INFERRED); clamped to 102-109",
+   "retaliation_pct": "4.0 INERT (no player retaliation modelled)",
+   "telemetry": {
+    "flat_rows_pierce": 12306,
+    "flat_rows_chaos": 12306,
+    "pct_rows_pierce": 12988,
+    "pct_rows_chaos": 15280,
+    "level_clamped": 0,
+    "monster_hits": 22055,
+    "leech_heal_hp": 58216604.421508364,
+    "leech_events": 14641,
+    "leech_overheal_hp": 66103223.34951363,
+    "player_ticks": 96758,
+    "cruel_ticks": 78839,
+    "resist_rows": 12283,
+    "cruel_active_tick_fraction": 0.8148
+   }
+  }
+ },
+ "fold_telemetry": {
+  "n_retaliation_rows_unscaled": 0,
+  "n_duration_rows_rescaled": 0,
+  "n_cover_queries": 143280,
+  "n_covered": 89952,
+  "n_multi_cover_same_buff": 40307,
+  "n_multi_cover_rank_conflict": 0,
+  "n_grant_rows_applied": 5240,
+  "n_om_grant_rows": 13088,
+  "n_player_hits_res_bonus": 0,
+  "n_player_hits_zeroed_by_grant": 0,
+  "covered_by_buff": {
+   "skeleton_undeathaura1_buff.dbr": 49799,
+   "bonerat_witchgod_poisonaura_buff.dbr": 25253,
+   "sandlizard_raptoraura_buff.dbr": 4958,
+   "wendigo_ancientaura_buff.dbr": 3512,
+   "vampiric_vampireaura_buff.dbr": 2912,
+   "banezal_chaosskin_buff.dbr": 1893,
+   "frozen_icearmoraura_buff.dbr": 1326,
+   "gabbalthunn_obsidianshard_aura_buff.dbr": 1298,
+   "corrupted_aetheraura_buff.dbr": 1231,
+   "arcane_elementalaura_buff.dbr": 1128,
+   "statue_preserveraura_buff.dbr": 1094,
+   "electrified_bonus_lightningdmgaura_buff.dbr": 233,
+   "chthonicminion_chaosaura_buff.dbr": 127,
+   "zarthuzellan_furyaura_buff.dbr": 104
+  },
+  "loader": {
+   "scope": "CLASS",
+   "n_carrier_records": 131,
+   "n_rows_claimed": 157,
+   "n_slots_emptied": 131,
+   "n_tree_rows_left": 0,
+   "\u2691 can_swing_flips": [
+    [
+     "pet",
+     "records/creatures/enemies/chthonianminion_b01_summon.dbr"
+    ]
+   ],
+   "grants_csv_sha256": "749d58f45eb312e7a284734a1844f2aabcfd69b7219dd1dafc55e4bb6d64792f"
+  }
+ },
+ "wall_s": 55.8
+}
