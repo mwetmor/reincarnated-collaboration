@@ -35371,6 +35371,15 @@
         "Make the orb like a long wand or short staff with an orb atop it. We can use the barbarian sword and shield animations for those."
       ],
       "ts": "2026-10-01T22:56:45"
+    },
+    {
+      "id": "R-C9-135",
+      "by": "Matt",
+      "ruling": "Playtest priority order for the arena (KC2-PLAY Cathedral Arena, consumed via JOIN-1 packs): (1) the EoR warlord / dark knight (gd-eor-warlord), (2) the sorceress (d2-fire-sorc-bm), (3) the barbarian (d2-ww-barb-mx), (4) all three in a version of the arena reshaped by decisions still to be made so it fits the barrow. Relayed to the Sim Session (KC2-PLAY/JOIN-1 conductor), which owns wiring order in kc2_play. Item (4) is an open design fork set (ELICITOR grill owed before build).",
+      "verbatim": [
+        "Also, I have a goal of playing play tests in this priority order: 1) EOR Warlord in the arena 2) Sorceress in the Arena 3) Barbarian inthe Arena 4) all 3 in a version of the arena based on decisions that we make to fit the barrow"
+      ],
+      "ts": "2026-10-02T22:51:07Z"
     }
   ],
   "grok_calls": [
@@ -36326,6 +36335,11 @@
       "topic": "Crucible enemies: the plan for the night",
       "note": "Roster of record: legolas packet collab d51b3c47a (68 rigs; tier 1 = 19 rigs, 81% of bodies; top five rigs = 39%, mostly non-biped trash; two humanoid hero rigs = 11% incl. most bosses; peak ~33 bodies on wave 158; w159 5-7 bosses). The arena runtime is 2D cells per the JOIN-1 contract. Lanes: D2 lane renders hero cell packs (dark knight first from final_k_eor; then barbarian dual, sorceress battle mage orb-staff + shield); new lane en_e2 builds the humanoid caster enemies first (hero01/heroine01 on the Pro Magic pack, original designs for the Keepers-of-Hours cathedral, generic prompts only); legolas writes ENEMIES.md (body plan + route per tier-1 rig, Mixamo singles for bipeds, non-biped routes incl. Tripo rig types via fal, Blender procedural, painted-sprite) before the creature lanes start. Spend caps per lane; images via Astra.",
       "ts": "2026-10-01T23:18:08"
+    },
+    {
+      "id": "N-C9-ASTRA-WEEKLY",
+      "note": "Astra weekly balance reset by Matt (2026-10-02, Phase 2 conductor session aab928). Weekly baseline = images_used 987 at reset; weekly-used = images_used - 987. Absolute weekly allowance not recorded; conductor caps per lane (EN-E2 60, EN-E3 30) and any 'usage limit' response HALTs the lane and is reported to Matt with the weekly-used count.",
+      "ts": "2026-10-02T22:51:07Z"
     }
   ]
 }
