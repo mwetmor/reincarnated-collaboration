@@ -1,0 +1,132 @@
+{
+ "crit": {
+  "src=ps_prefix_not_in_tables|tgt=w15": 682,
+  "src=roster_table|tgt=player": 30,
+  "src=ps_prefix_not_in_tables|tgt=w16": 195
+ },
+ "examples": [
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0001",
+   "target_id": "w151_a018",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0001",
+   "target_id": "w151_a012",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0001",
+   "target_id": "w151_a007",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_09_0002",
+   "target_id": "w151_a007",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0003",
+   "target_id": "w151_a007",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0001",
+   "target_id": "w152_a000",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0001",
+   "target_id": "w152_a001",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  },
+  {
+   "event_type": "damage_dealt",
+   "source_id": "ps_08_0003",
+   "target_id": "w152_a001",
+   "damage_source_tag": "summon",
+   "is_crit": true,
+   "amount": null,
+   "damage_type": null,
+   "pet_row": null
+  }
+ ],
+ "pet_id_examples": [
+  [
+   "w154_pet0001",
+   "records/skills/nonplayerskillsgdx1/bossskills/pets/gabbalthunn_obsidianshard.dbr",
+   "w154_a001"
+  ],
+  [
+   "w154_pet0002",
+   "records/skills/nonplayerskillsgdx1/bossskills/nemesis/beast_bloodpool.dbr",
+   "w154_a002"
+  ],
+  [
+   "w156_pet0001",
+   "records/creatures/enemies/wraith_b01_summon.dbr",
+   "w156_a000"
+  ],
+  [
+   "w156_pet0002",
+   "records/creatures/enemies/wraith_b01_summon.dbr",
+   "w156_a000"
+  ],
+  [
+   "w157_pet0001",
+   "records/creatures/enemies/aetherialworm_b01_summon.dbr",
+   "w157_a000"
+  ],
+  [
+   "w157_pet0002",
+   "records/creatures/enemies/aetherialworm_b02_summon.dbr",
+   "w157_a000"
+  ]
+ ],
+ "actor_id_examples": [
+  "w151_a000",
+  "w152_a000",
+  "w153_a000"
+ ],
+ "ps_ids_in_pet_actors": 0,
+ "ps_ids_in_actors": 0,
+ "player_summon_registry": {},
+ "event_types_by_ps_source": {
+  "damage_dealt": 2862
+ }
+}

@@ -1,0 +1,539 @@
+{
+ "TA-X-21 round-site liveness (M-POL-2, salts 0-4, line tracer)": {
+  "alert.py:773": 50,
+  "alert.py:781": 50,
+  "alert.py:783": 50,
+  "alert.py:784": 50,
+  "channel_policy.py:148": 30,
+  "control_application.py:591": 59,
+  "counterplay.py:212": 5,
+  "dot_timeline.py:380": 2888,
+  "gd_engagement.py:121": 1790,
+  "gd_engagement.py:187": 2218,
+  "gd_reposition.py:364": 2542,
+  "gd_reposition.py:365": 2542,
+  "gd_reposition.py:519": 55872,
+  "gd_reposition.py:530": 1355,
+  "gd_reposition.py:554": 48,
+  "gd_reposition.py:726": 60022,
+  "gd_reposition.py:731": 2298,
+  "gd_reposition.py:739": 84,
+  "summon_offense.py:825": 7386,
+  "summons.py:821": 15,
+  "threat.py:1613": 519,
+  "threat.py:1774": 1461
+ },
+ "TA-X-21 trace run reproduces the untraced run": true,
+ "TA-X-29(b') divisor": {
+  "SlowChaos/SlowAether DoT rows composed (25 cells)": 0,
+  "SlowChaos/SlowAether DoT rows on ANY loaded roster or pet profile": 0,
+  "dot rows by type (25 cells)": {
+   "SlowBleeding": 5648,
+   "SlowCold": 182,
+   "SlowFire": 2733,
+   "SlowLife": 171,
+   "SlowLifeLeach": 134,
+   "SlowLightning": 5,
+   "SlowPhysical": 327,
+   "SlowPoison": 5018
+  },
+  "of which divisor-eligible": 0,
+  "profiles scanned (roster, pets)": [
+   507,
+   68
+  ]
+ },
+ "TA-X-30(a') gate rule": {
+  "holds": true,
+  "non_waypoint_pursue_steps_with_op=reach(1-1e-9)": 0,
+  "operand_classes": {
+   "attack_stand(op=dist)": 253753,
+   "op0_waypoint": 572104,
+   "ring_halt(op=2.4)": 4212
+  },
+  "totals": {
+   "held": 53888,
+   "roster_player_arg_steps": 830069,
+   "unclipped": 776181
+  }
+ },
+ "TA-X-30(b') clamp": {
+  "M-POL-2-NULL|0": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2-NULL|1": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2-NULL|2": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2-NULL|3": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2-NULL|4": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2|0": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2|1": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2|2": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2|3": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M-POL-2|4": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M0|0": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M0|1": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M0|2": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M0|3": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "M0|4": {
+   "arena_armed": false,
+   "clamp_calls": 0,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1-NULL|0": {
+   "arena_armed": false,
+   "clamp_calls": 32822,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1-NULL|1": {
+   "arena_armed": false,
+   "clamp_calls": 33744,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1-NULL|2": {
+   "arena_armed": false,
+   "clamp_calls": 35780,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1-NULL|3": {
+   "arena_armed": false,
+   "clamp_calls": 37924,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1-NULL|4": {
+   "arena_armed": false,
+   "clamp_calls": 32173,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1|0": {
+   "arena_armed": true,
+   "clamp_calls": 32822,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1|1": {
+   "arena_armed": true,
+   "clamp_calls": 33744,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1|2": {
+   "arena_armed": true,
+   "clamp_calls": 35860,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1|3": {
+   "arena_armed": true,
+   "clamp_calls": 36879,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  },
+  "W1|4": {
+   "arena_armed": true,
+   "clamp_calls": 32173,
+   "clamp_returned_True (a stop)": 0,
+   "stops beyond op": 0
+  }
+ },
+ "TA-X-30(b') summary": {
+  "W1_clamp_calls": 171478,
+  "cells_with_any_clamp_stop": 0,
+  "holds": true
+ },
+ "clip limb": {
+  "max_admissible_travel calls (25 cells)": 0,
+  "steps shortened by the clip": 0
+ },
+ "completeness": {
+  "G4": "N/A: run_one returns no summary layer (keys ['config', 'fold_reports', 'fold_telemetry', 'salts'])",
+  "n_complete": 25,
+  "per_cell": {
+   "M-POL-2-NULL|0": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 625,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2-NULL|1": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 723,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2-NULL|2": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2-NULL|3": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 797,
+    "shared_guard_G1_G2": true,
+    "terminal": 160
+   },
+   "M-POL-2-NULL|4": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 821,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2|0": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2|1": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 968,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2|2": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 625,
+    "shared_guard_G1_G2": true,
+    "terminal": 160
+   },
+   "M-POL-2|3": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 858,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M-POL-2|4": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 649,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M0|0": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 625,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M0|1": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 723,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M0|2": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "M0|3": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 797,
+    "shared_guard_G1_G2": true,
+    "terminal": 160
+   },
+   "M0|4": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 821,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1-NULL|0": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1-NULL|1": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 968,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1-NULL|2": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 625,
+    "shared_guard_G1_G2": true,
+    "terminal": 160
+   },
+   "W1-NULL|3": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 858,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1-NULL|4": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 649,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1|0": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1|1": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 968,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1|2": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 698,
+    "shared_guard_G1_G2": true,
+    "terminal": 160
+   },
+   "W1|3": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 858,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   },
+   "W1|4": {
+    "complete": true,
+    "gate_observer": true,
+    "leg_a_consistent": true,
+    "max_wave_ticks": 649,
+    "shared_guard_G1_G2": true,
+    "terminal": "cleared_w160"
+   }
+  },
+  "shared_guard_G3_per_arm": {
+   "M-POL-2": true,
+   "M-POL-2-NULL": true,
+   "M0": true,
+   "W1": true,
+   "W1-NULL": true
+  },
+  "shared_guard_module_sha256": "5f3f4f1e29d147e528709ef317b20ae226edc04c60534d9d506e987d5a3b54d2",
+  "tick_cap": [
+   4000,
+   326.531
+  ]
+ },
+ "independent_rows": {
+  "TA-X-10 (W1 max body / spawn radius vs the oracle's own r_wall)": {
+   "holds": true,
+   "max_body_r": 43.29880530043161,
+   "max_spawn_r": 43.54625981277354,
+   "oracle_r_wall_m": 43.71638147965161,
+   "prereg_bound": 43.71638147965161
+  },
+  "TA-X-11 (0 player / 0 body wall clamps, W1 + W1-NULL)": true,
+  "TA-X-12 (no 'pool' damage tag)": true,
+  "TA-X-13 (no crit row sourced by the player)": {
+   "crit_source_prefixes": [
+    "ps_08_0001",
+    "ps_08_0003",
+    "ps_09_0002",
+    "w151_a010",
+    "w151_a011",
+    "w151_a012",
+    "w152_a014",
+    "w152_a016",
+    "w154_a002",
+    "w155_a000",
+    "w156_a000",
+    "w157_a000"
+   ],
+   "holds": true
+  },
+  "TA-X-15(a) (p01-p04 at 0.0 s, p05 at 4.0 s)": true,
+  "TA-X-16 (LU-KEYS from REFERENT_LINEUP, no key 6, bonus off, every wave played)": {
+   "LU-KEYS": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4
+   ],
+   "holds": true
+  },
+  "TA-X-24 (phase ENGAGE)": true,
+  "TA-X-25 (every fought record in POOL-466; membership only)": {
+   "holds": true,
+   "pool466_size": 466
+  },
+  "bad_examples": []
+ },
+ "inputs": {
+  "M-POL-2": {
+   "wall_s": 26.7
+  },
+  "M-POL-2-NULL": {
+   "wall_s": 25.7
+  },
+  "M0": {
+   "wall_s": 25.8
+  },
+  "W1": {
+   "wall_s": 27.1
+  },
+  "W1-NULL": {
+   "wall_s": 27.2
+  }
+ },
+ "trajectories": {
+  "TA-X-03 M-POL-2-NULL==M0": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "TA-X-04 W1-NULL==M-POL-2": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "TA-X-05 M-POL-2==M0": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "TA-X-06 W1==M-POL-2": [
+   true,
+   true,
+   false,
+   false,
+   true
+  ],
+  "distinct": 12,
+  "distinct_clearing": 9,
+  "distinct_dying": 3
+ }
+}

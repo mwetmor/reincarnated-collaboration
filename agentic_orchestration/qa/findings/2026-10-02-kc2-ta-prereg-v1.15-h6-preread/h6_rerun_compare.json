@@ -1,0 +1,63 @@
+{
+ "audits": {
+  "audit_M-POL-2-NULL.json": true,
+  "audit_M-POL-2.json": true,
+  "audit_M0.json": true,
+  "audit_W1-NULL.json": true,
+  "audit_W1.json": true
+ },
+ "derive engine block differs only in HEAD": true,
+ "derive self_check_failures (re-run)": [
+  "engine HEAD is the oracle rev"
+ ],
+ "derive_v1p14.json top-level keys differing": [
+  "engine",
+  "self_check_failures"
+ ],
+ "results_v1p14.json equal (minus files)": true,
+ "results_v1p15.json equal": true,
+ "summary": {
+  "audits": 5,
+  "audits_equal": 5,
+  "traces": 36,
+  "traces_equal": 36
+ },
+ "traces": {
+  "bare_M-POL-2-NULL.json": true,
+  "bare_M-POL-2.json": true,
+  "bare_M0.json": true,
+  "bare_W1-NULL.json": true,
+  "bare_W1.json": true,
+  "hooked_M-POL-2-NULL.json": true,
+  "hooked_M-POL-2.json": true,
+  "hooked_M0.json": true,
+  "hooked_W1-NULL.json": true,
+  "hooked_W1.json": true,
+  "repeat_M0_s2.json": true,
+  "single_M-POL-2-NULL_s0.json": true,
+  "single_M-POL-2-NULL_s1.json": true,
+  "single_M-POL-2-NULL_s2.json": true,
+  "single_M-POL-2-NULL_s3.json": true,
+  "single_M-POL-2-NULL_s4.json": true,
+  "single_M-POL-2_s0.json": true,
+  "single_M-POL-2_s1.json": true,
+  "single_M-POL-2_s2.json": true,
+  "single_M-POL-2_s3.json": true,
+  "single_M-POL-2_s4.json": true,
+  "single_M0_s0.json": true,
+  "single_M0_s1.json": true,
+  "single_M0_s2.json": true,
+  "single_M0_s3.json": true,
+  "single_M0_s4.json": true,
+  "single_W1-NULL_s0.json": true,
+  "single_W1-NULL_s1.json": true,
+  "single_W1-NULL_s2.json": true,
+  "single_W1-NULL_s3.json": true,
+  "single_W1-NULL_s4.json": true,
+  "single_W1_s0.json": true,
+  "single_W1_s1.json": true,
+  "single_W1_s2.json": true,
+  "single_W1_s3.json": true,
+  "single_W1_s4.json": true
+ }
+}

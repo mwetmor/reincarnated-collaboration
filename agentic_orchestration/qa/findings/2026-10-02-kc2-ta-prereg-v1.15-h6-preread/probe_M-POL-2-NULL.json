@@ -1,0 +1,2060 @@
+{
+ "arm": "M-POL-2-NULL",
+ "chaos_aether_dot_rows_on_loaded_profiles": [],
+ "n_pet_profiles_seen": 68,
+ "n_profiles_seen": 507,
+ "obs1_guard": {
+  "cell_reasons": [],
+  "complete": true,
+  "max_ticks": 4000,
+  "per_salt": {
+   "0": {
+    "complete": true,
+    "last_wave": 160,
+    "n_rows": 10,
+    "reasons": [],
+    "stop": null
+   },
+   "1": {
+    "complete": true,
+    "last_wave": 160,
+    "n_rows": 10,
+    "reasons": [],
+    "stop": null
+   },
+   "2": {
+    "complete": true,
+    "last_wave": 160,
+    "n_rows": 10,
+    "reasons": [],
+    "stop": null
+   },
+   "3": {
+    "complete": true,
+    "last_wave": 160,
+    "n_rows": 10,
+    "reasons": [],
+    "stop": null
+   },
+   "4": {
+    "complete": true,
+    "last_wave": 160,
+    "n_rows": 10,
+    "reasons": [],
+    "stop": null
+   }
+  },
+  "rule": "G1 10 rows w151..160 (raw outcome cleared|player_death) \u00b7 G2 w160 not at the tick cap \u00b7 G3 9N rows w151..159 \u00b7 G4 summed time matches",
+  "tick_cap_s": 326.531,
+  "truncated_salts": []
+ },
+ "obs1_guard_module_sha256": "5f3f4f1e29d147e528709ef317b20ae226edc04c60534d9d506e987d5a3b54d2",
+ "period": 0.0816326530612245,
+ "ring_halt_m(arena.json)": 2.4,
+ "round_site_hits (trace_round mode only)": null,
+ "round_site_monitored_functions": null,
+ "run_one_keys": [
+  "config",
+  "fold_reports",
+  "fold_telemetry",
+  "salts"
+ ],
+ "salt_keys": [
+  "leg_a_terminal",
+  "raised",
+  "rows"
+ ],
+ "salts": {
+  "0": {
+   "arena": [],
+   "capture_rows_sha256": "9845d752a471e049dc74fa70a2bcd400e703ef829a8b3e4a72e6cdd63a2bfa17",
+   "chaos_aether": {},
+   "chaos_aether_examples": [],
+   "clamp_calls": 0,
+   "clamp_true": 0,
+   "clamp_true_player_target_nonwp_beyond_op": 0,
+   "clip_calls": 0,
+   "clip_shortened_steps": 0,
+   "crit_sources": {
+    "ps_08_0001": 71,
+    "ps_08_0003": 58,
+    "ps_09_0002": 39,
+    "w157_a000": 1,
+    "w160_a002": 1
+   },
+   "dot_by_type": {
+    "SlowBleeding": 229,
+    "SlowCold": 6,
+    "SlowFire": 88,
+    "SlowLife": 8,
+    "SlowLifeLeach": 4,
+    "SlowPhysical": 20,
+    "SlowPoison": 167
+   },
+   "exceptions": [],
+   "leg_a": {
+    "survived_to": 160,
+    "wave": null
+   },
+   "lu_keys": {
+    "151": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "152": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "153": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "154": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "155": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "156": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "157": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "158": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "159": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "160": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   },
+   "max_body_r": 43.2966016913977,
+   "max_spawn_r": 43.54625981277354,
+   "op_class": {
+    "attack_stand(op=dist)": 9416,
+    "op0_waypoint": 21756,
+    "ring_halt(op=2.4)": 168
+   },
+   "phase_model": [
+    "PhaseModel.ENGAGE"
+   ],
+   "pool_tags": {},
+   "raised": null,
+   "records": {
+    "records/creatures/enemies/aetherialcorruption_b01.dbr": 7,
+    "records/creatures/enemies/aetherialcorruption_c01.dbr": 7,
+    "records/creatures/enemies/basilisk_a01.dbr": 3,
+    "records/creatures/enemies/basilisk_b01.dbr": 3,
+    "records/creatures/enemies/basilisk_c01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": 1,
+    "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": 1,
+    "records/creatures/enemies/boss&quest/direwolf_frozenwastes_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/fatherkymon.dbr": 1,
+    "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_janaxia.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_larria.dbr": 1,
+    "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty06.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty08.dbr": 2,
+    "records/creatures/enemies/bounties/hs_bounty11.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty09.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty13.dbr": 1,
+    "records/creatures/enemies/chthoniandevourer_a01.dbr": 5,
+    "records/creatures/enemies/chthoniandevourer_b01.dbr": 5,
+    "records/creatures/enemies/chthoniandevourer_b02.dbr": 2,
+    "records/creatures/enemies/chthonianservitor_a01.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_b01.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_b02.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_c01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h02.dbr": 2,
+    "records/creatures/enemies/devotion/rhino_h02.dbr": 1,
+    "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h04.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h05.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_a01.dbr": 5,
+    "records/creatures/enemies/eldritchwraith_b01.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_c01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h04.dbr": 2,
+    "records/creatures/enemies/hero/aetherialimp_h01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h02.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h04.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h02.dbr": 2,
+    "records/creatures/enemies/hero/basilisk_h05.dbr": 1,
+    "records/creatures/enemies/hero/hypporaven_h02.dbr": 1,
+    "records/creatures/enemies/hero/hypporaven_h03.dbr": 1,
+    "records/creatures/enemies/hero/hypporaven_h04.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h02.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h04.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h05.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h03.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h04.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h01.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h03.dbr": 2,
+    "records/creatures/enemies/livingplant_a01.dbr": 6,
+    "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": 1,
+    "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": 2,
+    "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": 1,
+    "records/creatures/enemies/sandlizard_a01.dbr": 3,
+    "records/creatures/enemies/sandlizard_b01.dbr": 2,
+    "records/creatures/enemies/sandlizard_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c01.dbr": 1,
+    "records/creatures/enemies/skeleton_c02.dbr": 1,
+    "records/creatures/enemies/skeleton_c03.dbr": 4,
+    "records/creatures/enemies/skeleton_d01.dbr": 1,
+    "records/creatures/enemies/statue_a01.dbr": 1,
+    "records/creatures/enemies/statue_a02.dbr": 1,
+    "records/creatures/enemies/statue_b02.dbr": 2,
+    "records/creatures/enemies/swampcrab_a01.dbr": 4,
+    "records/creatures/enemies/swampcrab_b01.dbr": 3,
+    "records/creatures/enemies/swampcrab_c01.dbr": 1,
+    "records/creatures/enemies/swampgolem_a01.dbr": 3,
+    "records/creatures/enemies/wendigo_a01.dbr": 2,
+    "records/creatures/enemies/wendigo_b01.dbr": 1,
+    "records/creatures/enemies/wendigo_b02.dbr": 1,
+    "records/creatures/enemies/wendigo_c01.dbr": 2,
+    "records/creatures/enemies/wendigocannibal_a01.dbr": 5,
+    "records/creatures/enemies/wendigocannibal_b01.dbr": 3,
+    "records/creatures/enemies/wraith_a01.dbr": 5,
+    "records/creatures/enemies/wraith_b01.dbr": 5,
+    "records/creatures/enemies/wraith_c01.dbr": 4,
+    "records/creatures/enemies/yetidire_a01.dbr": 4,
+    "records/creatures/enemies/yetidire_b01.dbr": 2,
+    "records/creatures/enemies/yetidire_c01.dbr": 1
+   },
+   "spawn_t": {
+    "p01@0.0": 29,
+    "p02@0.0": 20,
+    "p03@0.0": 46,
+    "p04@0.0": 47,
+    "p05@4.0": 26
+   },
+   "t30": {
+    "held": 2236,
+    "roster_player_arg_steps": 31340,
+    "unclipped": 29104
+   },
+   "t30_fail": [],
+   "traj_digest": "61d5db7e86d416fc01b3d92226bc2788c7a12aa58d2f5d6c6dc3388bae3c8326",
+   "traj_per_wave": [
+    "5530b72eb65b1f410f3eeaeadc46982bcb4af0b9ef0ec01399f47f1f622a3f5b",
+    "e2936482f8c1ab0e9230773b61630e13a8f9ed328ab7e215f02c662b7afea5ea",
+    "1fd626e3394e6180c454f6c92c637af36097423d60f2d310ae248232e8607caf",
+    "5e3217d8a888ee52d584c69c304c930c33002e187785f5940d372cb294d39959",
+    "c2607ca81301d0b7ee862b5e6d5a05cc320465ded3e47ad9af5842fc5dd8fc56",
+    "e9a4a359f36d87a7011b05e751d51d5c2181705f6869a46b0a370aa63b5d0fd7",
+    "c8a692fad378508f5e6ddfebf77d7a26227759fc06eb6d43a7846229bb2500d2",
+    "68de1357635211c88b7bb6eddf088750d16eb91b0543aa47b885c2607f12c54f",
+    "bd58a8c2d13dfb63a392d70440f669904ffe567342ff99a65f92a01f36f343bd",
+    "ac2bff55a3dd322aa0dba8628d8da931fcfbcc9aed2e5a69578f15dafdb05a0d"
+   ],
+   "waves": [
+    [
+     151,
+     "cleared",
+     "board_empty",
+     0,
+     417
+    ],
+    [
+     152,
+     "cleared",
+     "board_empty",
+     417,
+     784
+    ],
+    [
+     153,
+     "cleared",
+     "board_empty",
+     784,
+     1360
+    ],
+    [
+     154,
+     "cleared",
+     "board_empty",
+     1360,
+     1862
+    ],
+    [
+     155,
+     "cleared",
+     "board_empty",
+     1862,
+     2144
+    ],
+    [
+     156,
+     "cleared",
+     "board_empty",
+     2144,
+     2646
+    ],
+    [
+     157,
+     "cleared",
+     "board_empty",
+     2646,
+     3271
+    ],
+    [
+     158,
+     "cleared",
+     "board_empty",
+     3271,
+     3516
+    ],
+    [
+     159,
+     "cleared",
+     "board_empty",
+     3516,
+     3969
+    ],
+    [
+     160,
+     "cleared",
+     "board_empty",
+     3969,
+     4545
+    ]
+   ]
+  },
+  "1": {
+   "arena": [],
+   "capture_rows_sha256": "ec64bb453b9b9945a5d779a7ef2fdab46266fe1b530930a19d6a9fef34f60215",
+   "chaos_aether": {},
+   "chaos_aether_examples": [],
+   "clamp_calls": 0,
+   "clamp_true": 0,
+   "clamp_true_player_target_nonwp_beyond_op": 0,
+   "clip_calls": 0,
+   "clip_shortened_steps": 0,
+   "crit_sources": {
+    "ps_08_0001": 58,
+    "ps_08_0003": 59,
+    "ps_09_0002": 34,
+    "w152_a014": 1,
+    "w154_a002": 1,
+    "w156_a000": 1,
+    "w157_a000": 1
+   },
+   "dot_by_type": {
+    "SlowBleeding": 231,
+    "SlowCold": 8,
+    "SlowFire": 104,
+    "SlowLife": 4,
+    "SlowLifeLeach": 3,
+    "SlowPhysical": 13,
+    "SlowPoison": 167
+   },
+   "exceptions": [],
+   "leg_a": {
+    "survived_to": 160,
+    "wave": null
+   },
+   "lu_keys": {
+    "151": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "152": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "153": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "154": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "155": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "156": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "157": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "158": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "159": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "160": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   },
+   "max_body_r": 43.286566505004124,
+   "max_spawn_r": 43.54625981277354,
+   "op_class": {
+    "attack_stand(op=dist)": 9632,
+    "op0_waypoint": 20717,
+    "ring_halt(op=2.4)": 169
+   },
+   "phase_model": [
+    "PhaseModel.ENGAGE"
+   ],
+   "pool_tags": {},
+   "raised": null,
+   "records": {
+    "records/creatures/enemies/aetherialcorruption_b01.dbr": 7,
+    "records/creatures/enemies/aetherialcorruption_c01.dbr": 7,
+    "records/creatures/enemies/basilisk_a01.dbr": 3,
+    "records/creatures/enemies/basilisk_b01.dbr": 3,
+    "records/creatures/enemies/basilisk_c01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": 1,
+    "records/creatures/enemies/boss&quest/basilisk_witchritual.dbr": 1,
+    "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": 1,
+    "records/creatures/enemies/boss&quest/fatherkymon.dbr": 1,
+    "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_janaxia.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_larria.dbr": 1,
+    "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": 1,
+    "records/creatures/enemies/bounties/bl_bounty20.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty08.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty11.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty09.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty11.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty13.dbr": 1,
+    "records/creatures/enemies/chthoniandevourer_a01.dbr": 3,
+    "records/creatures/enemies/chthoniandevourer_b01.dbr": 7,
+    "records/creatures/enemies/chthoniandevourer_b02.dbr": 2,
+    "records/creatures/enemies/chthonianservitor_a01.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_b01.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_b02.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_c01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h02.dbr": 2,
+    "records/creatures/enemies/devotion/rhino_h02.dbr": 1,
+    "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h04.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h09.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_a01.dbr": 4,
+    "records/creatures/enemies/eldritchwraith_b01.dbr": 2,
+    "records/creatures/enemies/eldritchwraith_c01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h01.dbr": 2,
+    "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h01.dbr": 2,
+    "records/creatures/enemies/hero/aetherialimp_h05.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h02.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h04.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h05.dbr": 1,
+    "records/creatures/enemies/hero/springscrab_h02.dbr": 2,
+    "records/creatures/enemies/hero/springscrab_h04.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h02.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h03.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h01.dbr": 3,
+    "records/creatures/enemies/hero/wraith_h03.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h04.dbr": 1,
+    "records/creatures/enemies/livingplant_a01.dbr": 7,
+    "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": 1,
+    "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": 2,
+    "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": 1,
+    "records/creatures/enemies/sandlizard_a01.dbr": 3,
+    "records/creatures/enemies/sandlizard_b01.dbr": 2,
+    "records/creatures/enemies/sandlizard_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c01.dbr": 1,
+    "records/creatures/enemies/skeleton_c02.dbr": 2,
+    "records/creatures/enemies/skeleton_c03.dbr": 3,
+    "records/creatures/enemies/skeleton_d01.dbr": 1,
+    "records/creatures/enemies/statue_a01.dbr": 1,
+    "records/creatures/enemies/statue_a02.dbr": 1,
+    "records/creatures/enemies/statue_b01.dbr": 2,
+    "records/creatures/enemies/swampcrab_a01.dbr": 4,
+    "records/creatures/enemies/swampcrab_b01.dbr": 3,
+    "records/creatures/enemies/swampcrab_c01.dbr": 1,
+    "records/creatures/enemies/swampgolem_a01.dbr": 3,
+    "records/creatures/enemies/wendigo_a01.dbr": 2,
+    "records/creatures/enemies/wendigo_b01.dbr": 2,
+    "records/creatures/enemies/wendigo_c01.dbr": 2,
+    "records/creatures/enemies/wendigocannibal_a01.dbr": 5,
+    "records/creatures/enemies/wendigocannibal_b01.dbr": 3,
+    "records/creatures/enemies/wraith_a01.dbr": 5,
+    "records/creatures/enemies/wraith_b01.dbr": 5,
+    "records/creatures/enemies/wraith_c01.dbr": 4,
+    "records/creatures/enemies/yetidire_a01.dbr": 4,
+    "records/creatures/enemies/yetidire_b01.dbr": 1,
+    "records/creatures/enemies/yetidire_b02.dbr": 1,
+    "records/creatures/enemies/yetidire_c01.dbr": 1
+   },
+   "spawn_t": {
+    "p01@0.0": 29,
+    "p02@0.0": 20,
+    "p03@0.0": 46,
+    "p04@0.0": 47,
+    "p05@4.0": 27
+   },
+   "t30": {
+    "held": 1089,
+    "roster_player_arg_steps": 30518,
+    "unclipped": 29429
+   },
+   "t30_fail": [],
+   "traj_digest": "295d8b8abf43d8187be681f6becbcdc156d59fa91269df82c1c3676343998ea8",
+   "traj_per_wave": [
+    "11a5225bc4e0d134b3e5b7263e2734c13963872b9166acc494a3ebed08776006",
+    "2fea265bf69aa8703887850b174be3dba67eb41b7c4949845a61e25c67034e61",
+    "dbbe3fae08ce1aa012911257d0568c06db8b73c79b0ca8f875e7e7bad2c5a9f1",
+    "d15a69c36854e85b982a8271fa90f7323e1c6076384cc0a1a47f79493b7d8171",
+    "26ee599bd6a226ca1a8fdecd89a4cb51e8845cc30105f22f98398751446f1c4e",
+    "cfd3d8d641a79574a0cc45bfd24385ddf857911a9e825be896310a13ec66e4bc",
+    "21db06a4ef921e22cb75ae9c5f40443c95d4c7bbd1a4dfd35dcdcfd78adea440",
+    "c9a56f80454899e2e17ad01779395c0794d080b589d9f452664995e0f4408efc",
+    "9269b272437d2443cd4347992d29a4a79d4b0693284b7d0e0c9395d525cce56c",
+    "e1e81c1f7721c4eaf52537d68086570abe9b2b02a894c2cfa5962e84eb36ce21"
+   ],
+   "waves": [
+    [
+     151,
+     "cleared",
+     "board_empty",
+     0,
+     380
+    ],
+    [
+     152,
+     "cleared",
+     "board_empty",
+     380,
+     723
+    ],
+    [
+     153,
+     "cleared",
+     "board_empty",
+     723,
+     1176
+    ],
+    [
+     154,
+     "cleared",
+     "board_empty",
+     1176,
+     1544
+    ],
+    [
+     155,
+     "cleared",
+     "board_empty",
+     1544,
+     1887
+    ],
+    [
+     156,
+     "cleared",
+     "board_empty",
+     1887,
+     2610
+    ],
+    [
+     157,
+     "cleared",
+     "board_empty",
+     2610,
+     3320
+    ],
+    [
+     158,
+     "cleared",
+     "board_empty",
+     3320,
+     3590
+    ],
+    [
+     159,
+     "cleared",
+     "board_empty",
+     3590,
+     3945
+    ],
+    [
+     160,
+     "cleared",
+     "board_empty",
+     3945,
+     4386
+    ]
+   ]
+  },
+  "2": {
+   "arena": [],
+   "capture_rows_sha256": "9654861da61778f81d4e2f804f84c4093268de1c61735d03aebf24271a0cd059",
+   "chaos_aether": {},
+   "chaos_aether_examples": [],
+   "clamp_calls": 0,
+   "clamp_true": 0,
+   "clamp_true_player_target_nonwp_beyond_op": 0,
+   "clip_calls": 0,
+   "clip_shortened_steps": 0,
+   "crit_sources": {
+    "ps_08_0001": 93,
+    "ps_08_0003": 76,
+    "ps_09_0002": 36,
+    "w151_a010": 2,
+    "w154_a002": 1,
+    "w156_a000": 1,
+    "w160_a002": 1
+   },
+   "dot_by_type": {
+    "SlowBleeding": 233,
+    "SlowCold": 11,
+    "SlowFire": 90,
+    "SlowLife": 9,
+    "SlowLifeLeach": 9,
+    "SlowPhysical": 12,
+    "SlowPoison": 203
+   },
+   "exceptions": [],
+   "leg_a": {
+    "survived_to": 160,
+    "wave": null
+   },
+   "lu_keys": {
+    "151": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "152": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "153": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "154": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "155": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "156": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "157": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "158": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "159": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "160": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   },
+   "max_body_r": 43.29735188731805,
+   "max_spawn_r": 43.54625981277354,
+   "op_class": {
+    "attack_stand(op=dist)": 10413,
+    "op0_waypoint": 22630,
+    "ring_halt(op=2.4)": 169
+   },
+   "phase_model": [
+    "PhaseModel.ENGAGE"
+   ],
+   "pool_tags": {},
+   "raised": null,
+   "records": {
+    "records/creatures/enemies/aetherialcorruption_b01.dbr": 7,
+    "records/creatures/enemies/aetherialcorruption_c01.dbr": 7,
+    "records/creatures/enemies/basilisk_a01.dbr": 3,
+    "records/creatures/enemies/basilisk_b01.dbr": 3,
+    "records/creatures/enemies/basilisk_c01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": 1,
+    "records/creatures/enemies/boss&quest/basilisk_witchritual.dbr": 1,
+    "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": 1,
+    "records/creatures/enemies/boss&quest/fatherkymon.dbr": 1,
+    "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_janaxia.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_larria.dbr": 1,
+    "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": 1,
+    "records/creatures/enemies/bounties/bl_bounty10.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty06.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty08.dbr": 1,
+    "records/creatures/enemies/bounties/hs_bounty11.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty09.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty13.dbr": 1,
+    "records/creatures/enemies/chthoniandevourer_a01.dbr": 4,
+    "records/creatures/enemies/chthoniandevourer_b01.dbr": 3,
+    "records/creatures/enemies/chthoniandevourer_b02.dbr": 5,
+    "records/creatures/enemies/chthonianservitor_a01.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_b01.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_b02.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_c01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h02.dbr": 1,
+    "records/creatures/enemies/devotion/rhino_h02.dbr": 1,
+    "records/creatures/enemies/devotion/rhino_h04.dbr": 1,
+    "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h04.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h08.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_a01.dbr": 5,
+    "records/creatures/enemies/eldritchwraith_b01.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_c01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h03.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h05.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h01.dbr": 2,
+    "records/creatures/enemies/hero/aetherialimp_h04.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h02.dbr": 2,
+    "records/creatures/enemies/hero/basilisk_h05.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h02.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h04.dbr": 2,
+    "records/creatures/enemies/hero/swampgolem_h04.dbr": 2,
+    "records/creatures/enemies/hero/swampgolem_h05.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h01.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h02.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h03.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h04.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h05.dbr": 1,
+    "records/creatures/enemies/livingplant_a01.dbr": 7,
+    "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": 1,
+    "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": 2,
+    "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": 1,
+    "records/creatures/enemies/sandlizard_a01.dbr": 3,
+    "records/creatures/enemies/sandlizard_b01.dbr": 2,
+    "records/creatures/enemies/sandlizard_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c02.dbr": 4,
+    "records/creatures/enemies/skeleton_d01.dbr": 1,
+    "records/creatures/enemies/statue_a01.dbr": 2,
+    "records/creatures/enemies/statue_b02.dbr": 2,
+    "records/creatures/enemies/swampcrab_a01.dbr": 4,
+    "records/creatures/enemies/swampcrab_b01.dbr": 3,
+    "records/creatures/enemies/swampcrab_c01.dbr": 1,
+    "records/creatures/enemies/swampgolem_a01.dbr": 3,
+    "records/creatures/enemies/wendigo_a01.dbr": 2,
+    "records/creatures/enemies/wendigo_b01.dbr": 1,
+    "records/creatures/enemies/wendigo_b02.dbr": 1,
+    "records/creatures/enemies/wendigo_c01.dbr": 2,
+    "records/creatures/enemies/wendigocannibal_a01.dbr": 5,
+    "records/creatures/enemies/wendigocannibal_b01.dbr": 3,
+    "records/creatures/enemies/wraith_a01.dbr": 6,
+    "records/creatures/enemies/wraith_b01.dbr": 4,
+    "records/creatures/enemies/wraith_c01.dbr": 4,
+    "records/creatures/enemies/yetidire_a01.dbr": 4,
+    "records/creatures/enemies/yetidire_b01.dbr": 2,
+    "records/creatures/enemies/yetidire_c01.dbr": 1
+   },
+   "spawn_t": {
+    "p01@0.0": 29,
+    "p02@0.0": 20,
+    "p03@0.0": 46,
+    "p04@0.0": 47,
+    "p05@4.0": 27
+   },
+   "t30": {
+    "held": 3144,
+    "roster_player_arg_steps": 33212,
+    "unclipped": 30068
+   },
+   "t30_fail": [],
+   "traj_digest": "6eca9718230019da5faa1a02d46a6ca445512aa4275df6f791fe854584ac7b96",
+   "traj_per_wave": [
+    "2bb2bf03a91b0784145e65e99c2f31f07ddc5f820d213635b8b5ebf68e3dc4a8",
+    "bf75e291469aa60346eb8360720e46e641aff5a2da8045a70d77dcce6f5ec6f3",
+    "a8de0e89f3e7ebfd79d71dca4d8c066e3941ef5c0e0f90be97badc5fd9b97fea",
+    "caea842eb15373839357715f6fa5b7e7fde20fe44ced0c694aa5016e171fa263",
+    "fb6070c60fd2b7af9843d124a1adb13b3a86ecf7962c1e770128a2f27664751c",
+    "d3472e58eb2c2a9ac37d8192d9e4a150bc9e4dd5779b6aa439b46ef38623ed64",
+    "f90c86120a553f3a7bd69d7fa26905d1b559f3800147f9367cbe3f8715d8d1d3",
+    "4228518310e7817a7be74804d26204c379aef1e47f692a40a5f38ed0af7c0131",
+    "fbe1691e5f307ebdfbd659aa74d49a699a9a9c2d90b9e21b5d17701ec80f9522",
+    "a67d370f048f6608c77d6596ee5072c24edbf33423533acacaedfcedc3ab4224"
+   ],
+   "waves": [
+    [
+     151,
+     "cleared",
+     "board_empty",
+     0,
+     674
+    ],
+    [
+     152,
+     "cleared",
+     "board_empty",
+     674,
+     980
+    ],
+    [
+     153,
+     "cleared",
+     "board_empty",
+     980,
+     1556
+    ],
+    [
+     154,
+     "cleared",
+     "board_empty",
+     1556,
+     2022
+    ],
+    [
+     155,
+     "cleared",
+     "board_empty",
+     2022,
+     2328
+    ],
+    [
+     156,
+     "cleared",
+     "board_empty",
+     2328,
+     3026
+    ],
+    [
+     157,
+     "cleared",
+     "board_empty",
+     3026,
+     3712
+    ],
+    [
+     158,
+     "cleared",
+     "board_empty",
+     3712,
+     4018
+    ],
+    [
+     159,
+     "cleared",
+     "board_empty",
+     4018,
+     4349
+    ],
+    [
+     160,
+     "cleared",
+     "board_empty",
+     4349,
+     4851
+    ]
+   ]
+  },
+  "3": {
+   "arena": [],
+   "capture_rows_sha256": "c7f4d70cf16c1a67835a9659d3e9c277eaabb4ac27403f56c9c08c97991644b2",
+   "chaos_aether": {},
+   "chaos_aether_examples": [],
+   "clamp_calls": 0,
+   "clamp_true": 0,
+   "clamp_true_player_target_nonwp_beyond_op": 0,
+   "clip_calls": 0,
+   "clip_shortened_steps": 0,
+   "crit_sources": {
+    "ps_08_0001": 53,
+    "ps_08_0003": 44,
+    "ps_09_0002": 30,
+    "w151_a010": 3,
+    "w151_a011": 2,
+    "w154_a002": 1,
+    "w155_a000": 1,
+    "w159_a000": 1
+   },
+   "dot_by_type": {
+    "SlowBleeding": 183,
+    "SlowCold": 5,
+    "SlowFire": 104,
+    "SlowLife": 9,
+    "SlowLifeLeach": 4,
+    "SlowPhysical": 14,
+    "SlowPoison": 285
+   },
+   "exceptions": [],
+   "leg_a": {
+    "t_into_wave_s": 18.367,
+    "wave": 160
+   },
+   "lu_keys": {
+    "151": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "152": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "153": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "154": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "155": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "156": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "157": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "158": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "159": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "160": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   },
+   "max_body_r": 43.29927012491503,
+   "max_spawn_r": 43.54625981277354,
+   "op_class": {
+    "attack_stand(op=dist)": 9798,
+    "op0_waypoint": 25233,
+    "ring_halt(op=2.4)": 168
+   },
+   "phase_model": [
+    "PhaseModel.ENGAGE"
+   ],
+   "pool_tags": {},
+   "raised": null,
+   "records": {
+    "records/creatures/enemies/aetherialcorruption_b01.dbr": 7,
+    "records/creatures/enemies/aetherialcorruption_c01.dbr": 7,
+    "records/creatures/enemies/basilisk_a01.dbr": 3,
+    "records/creatures/enemies/basilisk_b01.dbr": 3,
+    "records/creatures/enemies/basilisk_c01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": 1,
+    "records/creatures/enemies/boss&quest/basilisk_witchritual.dbr": 1,
+    "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": 1,
+    "records/creatures/enemies/boss&quest/fatherkymon.dbr": 1,
+    "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_janaxia.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_larria.dbr": 1,
+    "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": 1,
+    "records/creatures/enemies/bounties/bl_bounty18.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty08.dbr": 2,
+    "records/creatures/enemies/bounties/hs_bounty12.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty09.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty13.dbr": 1,
+    "records/creatures/enemies/chthoniandevourer_a01.dbr": 3,
+    "records/creatures/enemies/chthoniandevourer_b01.dbr": 6,
+    "records/creatures/enemies/chthoniandevourer_b02.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_a01.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_b01.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_b02.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_c01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h02.dbr": 1,
+    "records/creatures/enemies/devotion/rhino_h02.dbr": 1,
+    "records/creatures/enemies/devotion/rhino_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h02.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h04.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_a01.dbr": 5,
+    "records/creatures/enemies/eldritchwraith_b01.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_c01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h03.dbr": 2,
+    "records/creatures/enemies/hero/aetherialimp_h01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h03.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h05.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h01.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h02.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h05.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h01.dbr": 1,
+    "records/creatures/enemies/hero/swampcrab_h05.dbr": 2,
+    "records/creatures/enemies/hero/swampgolem_h01.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h05.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h01.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h02.dbr": 2,
+    "records/creatures/enemies/hero/wraith_h03.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h04.dbr": 2,
+    "records/creatures/enemies/livingplant_a01.dbr": 6,
+    "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": 1,
+    "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": 2,
+    "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": 1,
+    "records/creatures/enemies/sandlizard_a01.dbr": 3,
+    "records/creatures/enemies/sandlizard_b01.dbr": 2,
+    "records/creatures/enemies/sandlizard_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c01.dbr": 1,
+    "records/creatures/enemies/skeleton_c02.dbr": 2,
+    "records/creatures/enemies/skeleton_c03.dbr": 3,
+    "records/creatures/enemies/skeleton_d01.dbr": 1,
+    "records/creatures/enemies/statue_a02.dbr": 2,
+    "records/creatures/enemies/statue_b01.dbr": 1,
+    "records/creatures/enemies/statue_b02.dbr": 1,
+    "records/creatures/enemies/swampcrab_a01.dbr": 4,
+    "records/creatures/enemies/swampcrab_b01.dbr": 3,
+    "records/creatures/enemies/swampcrab_c01.dbr": 1,
+    "records/creatures/enemies/swampgolem_a01.dbr": 3,
+    "records/creatures/enemies/wendigo_a01.dbr": 2,
+    "records/creatures/enemies/wendigo_b02.dbr": 2,
+    "records/creatures/enemies/wendigo_c01.dbr": 2,
+    "records/creatures/enemies/wendigocannibal_a01.dbr": 5,
+    "records/creatures/enemies/wendigocannibal_b01.dbr": 3,
+    "records/creatures/enemies/wraith_a01.dbr": 5,
+    "records/creatures/enemies/wraith_b01.dbr": 5,
+    "records/creatures/enemies/wraith_c01.dbr": 4,
+    "records/creatures/enemies/yetidire_a01.dbr": 4,
+    "records/creatures/enemies/yetidire_b01.dbr": 1,
+    "records/creatures/enemies/yetidire_b02.dbr": 1,
+    "records/creatures/enemies/yetidire_c01.dbr": 1
+   },
+   "spawn_t": {
+    "p01@0.0": 29,
+    "p02@0.0": 20,
+    "p03@0.0": 46,
+    "p04@0.0": 47,
+    "p05@4.0": 26
+   },
+   "t30": {
+    "held": 2841,
+    "roster_player_arg_steps": 35199,
+    "unclipped": 32358
+   },
+   "t30_fail": [],
+   "traj_digest": "bf8505e194411070ab488649130f0e09529375ae5d81b10a951dc12cfce3ce0a",
+   "traj_per_wave": [
+    "6d8d15628ef34c2c9fff214fa203ee176f51bd92ca0f395c403dc069361b58c0",
+    "7f5f17f794ad52e8c2f99596e5b14e46979eb76b27a1d9eb836dff8e696c33cd",
+    "569a487414abffc0e3a9e2c74ccd88097d75a0bf38bf76cdcace41e753b6eac8",
+    "214deb077e6bb0dfc727442dd5fd12d82e94bf7531c6e40f0c0e287a613d5c53",
+    "7bbacbd67b0b93df6ad14c26739246b31936e77e0b8054390e82a8ee1632cc6f",
+    "5079f882f15263ed1b04d33bd24cdacb903af1b90ddf64f340d24d1990e08755",
+    "8dd96b5333fe171f62e6a73007bdc985bb14c706dcb645ac417abb733ff31e73",
+    "592b12b9c4e8ef05dec284fed27500853bdd551c0527a5bda9f5daf665e0fe51",
+    "e6c36b773f8d4faa34dabd533edf25803e8ba139aa00d817d016274f922d7c01",
+    "e9da31c452e55491781da5b76c3f471e246fc32143dbc11594f9f2a4fc9f6ec5"
+   ],
+   "waves": [
+    [
+     151,
+     "cleared",
+     "board_empty",
+     0,
+     797
+    ],
+    [
+     152,
+     "cleared",
+     "board_empty",
+     797,
+     1201
+    ],
+    [
+     153,
+     "cleared",
+     "board_empty",
+     1201,
+     1973
+    ],
+    [
+     154,
+     "cleared",
+     "board_empty",
+     1973,
+     2377
+    ],
+    [
+     155,
+     "cleared",
+     "board_empty",
+     2377,
+     2622
+    ],
+    [
+     156,
+     "cleared",
+     "board_empty",
+     2622,
+     3100
+    ],
+    [
+     157,
+     "cleared",
+     "board_empty",
+     3100,
+     3639
+    ],
+    [
+     158,
+     "cleared",
+     "board_empty",
+     3639,
+     3920
+    ],
+    [
+     159,
+     "cleared",
+     "board_empty",
+     3920,
+     4312
+    ],
+    [
+     160,
+     "player_death",
+     "player_died",
+     4312,
+     4537
+    ]
+   ]
+  },
+  "4": {
+   "arena": [],
+   "capture_rows_sha256": "bc5e71d94c8d313f12864ddf239c23f59d4501672cc5aa4190224096a4674c96",
+   "chaos_aether": {},
+   "chaos_aether_examples": [],
+   "clamp_calls": 0,
+   "clamp_true": 0,
+   "clamp_true_player_target_nonwp_beyond_op": 0,
+   "clip_calls": 0,
+   "clip_shortened_steps": 0,
+   "crit_sources": {
+    "ps_08_0001": 76,
+    "ps_08_0003": 53,
+    "ps_09_0002": 51,
+    "w156_a000": 2,
+    "w159_a002": 1,
+    "w160_a002": 1
+   },
+   "dot_by_type": {
+    "SlowBleeding": 302,
+    "SlowCold": 8,
+    "SlowFire": 105,
+    "SlowLife": 4,
+    "SlowLifeLeach": 3,
+    "SlowLightning": 1,
+    "SlowPhysical": 10,
+    "SlowPoison": 166
+   },
+   "exceptions": [],
+   "leg_a": {
+    "survived_to": 160,
+    "wave": null
+   },
+   "lu_keys": {
+    "151": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "152": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "153": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "154": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "155": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "156": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "157": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "158": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "159": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    "160": {
+     "bonus": false,
+     "fold_keys": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "fought_points": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   },
+   "max_body_r": 43.28749024989474,
+   "max_spawn_r": 43.54625981277354,
+   "op_class": {
+    "attack_stand(op=dist)": 11958,
+    "op0_waypoint": 22153,
+    "ring_halt(op=2.4)": 169
+   },
+   "phase_model": [
+    "PhaseModel.ENGAGE"
+   ],
+   "pool_tags": {},
+   "raised": null,
+   "records": {
+    "records/creatures/enemies/aetherialcorruption_b01.dbr": 7,
+    "records/creatures/enemies/aetherialcorruption_c01.dbr": 7,
+    "records/creatures/enemies/basilisk_a01.dbr": 3,
+    "records/creatures/enemies/basilisk_b01.dbr": 3,
+    "records/creatures/enemies/basilisk_c01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr": 1,
+    "records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr": 1,
+    "records/creatures/enemies/boss&quest/beetle_maggot01.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr": 1,
+    "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr": 1,
+    "records/creatures/enemies/boss&quest/direwolf_frozenwastes_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/fatherkymon.dbr": 1,
+    "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_janaxia.dbr": 1,
+    "records/creatures/enemies/boss&quest/witch_larria.dbr": 1,
+    "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr": 1,
+    "records/creatures/enemies/bounties/bl_bounty19.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty08.dbr": 1,
+    "records/creatures/enemies/bounties/dc_bounty11.dbr": 1,
+    "records/creatures/enemies/bounties/hs_bounty10.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty09.dbr": 1,
+    "records/creatures/enemies/bounties/kc_bounty13.dbr": 1,
+    "records/creatures/enemies/chthoniandevourer_a01.dbr": 4,
+    "records/creatures/enemies/chthoniandevourer_b01.dbr": 4,
+    "records/creatures/enemies/chthoniandevourer_b02.dbr": 4,
+    "records/creatures/enemies/chthonianservitor_a01.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_b01.dbr": 3,
+    "records/creatures/enemies/chthonianservitor_b02.dbr": 1,
+    "records/creatures/enemies/chthonianservitor_c01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h01.dbr": 1,
+    "records/creatures/enemies/devotion/chthonianherald_h02.dbr": 1,
+    "records/creatures/enemies/devotion/rhino_h02.dbr": 1,
+    "records/creatures/enemies/devotion/skeletalgolem_h03.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h04.dbr": 1,
+    "records/creatures/enemies/devotion/skeleton_h09.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_a01.dbr": 6,
+    "records/creatures/enemies/eldritchwraith_b01.dbr": 1,
+    "records/creatures/enemies/eldritchwraith_c01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialcorruption_h02.dbr": 2,
+    "records/creatures/enemies/hero/aetherialcorruption_h04.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h01.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h04.dbr": 1,
+    "records/creatures/enemies/hero/aetherialimp_h05.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h01.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h02.dbr": 1,
+    "records/creatures/enemies/hero/basilisk_h05.dbr": 1,
+    "records/creatures/enemies/hero/springscrab_h01.dbr": 1,
+    "records/creatures/enemies/hero/springscrab_h02.dbr": 1,
+    "records/creatures/enemies/hero/springscrab_h03.dbr": 1,
+    "records/creatures/enemies/hero/swampgolem_h01.dbr": 3,
+    "records/creatures/enemies/hero/wraith_h01.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h02.dbr": 1,
+    "records/creatures/enemies/hero/wraith_h03.dbr": 3,
+    "records/creatures/enemies/hero/wraith_h05.dbr": 1,
+    "records/creatures/enemies/livingplant_a01.dbr": 6,
+    "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr": 1,
+    "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr": 2,
+    "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr": 1,
+    "records/creatures/enemies/sandlizard_a01.dbr": 3,
+    "records/creatures/enemies/sandlizard_b01.dbr": 2,
+    "records/creatures/enemies/sandlizard_c01.dbr": 2,
+    "records/creatures/enemies/skeleton_c02.dbr": 4,
+    "records/creatures/enemies/skeleton_c03.dbr": 1,
+    "records/creatures/enemies/skeleton_d01.dbr": 2,
+    "records/creatures/enemies/statue_a01.dbr": 2,
+    "records/creatures/enemies/statue_b01.dbr": 1,
+    "records/creatures/enemies/statue_b02.dbr": 1,
+    "records/creatures/enemies/swampcrab_a01.dbr": 4,
+    "records/creatures/enemies/swampcrab_b01.dbr": 3,
+    "records/creatures/enemies/swampcrab_c01.dbr": 1,
+    "records/creatures/enemies/swampgolem_a01.dbr": 3,
+    "records/creatures/enemies/wendigo_a01.dbr": 2,
+    "records/creatures/enemies/wendigo_b02.dbr": 2,
+    "records/creatures/enemies/wendigo_c01.dbr": 2,
+    "records/creatures/enemies/wendigocannibal_a01.dbr": 5,
+    "records/creatures/enemies/wendigocannibal_b01.dbr": 3,
+    "records/creatures/enemies/wraith_a01.dbr": 4,
+    "records/creatures/enemies/wraith_b01.dbr": 6,
+    "records/creatures/enemies/wraith_c01.dbr": 4,
+    "records/creatures/enemies/yetidire_a01.dbr": 4,
+    "records/creatures/enemies/yetidire_b02.dbr": 2,
+    "records/creatures/enemies/yetidire_c01.dbr": 1
+   },
+   "spawn_t": {
+    "p01@0.0": 29,
+    "p02@0.0": 20,
+    "p03@0.0": 46,
+    "p04@0.0": 48,
+    "p05@4.0": 26
+   },
+   "t30": {
+    "held": 1449,
+    "roster_player_arg_steps": 34280,
+    "unclipped": 32831
+   },
+   "t30_fail": [],
+   "traj_digest": "6bd538dc02ec2c31d5f343812fc041d7ff38d09ccaf18ee3a164d920817662f6",
+   "traj_per_wave": [
+    "8c7c16a3d0b5be189c262e49a6740241400cf7938af8ef4371b61a670953e882",
+    "596311db94f733756addb0d14960040279d6962acd6943c98c0ee48994a338b2",
+    "44de637b54183849c28dfcfa6dd4972c3929d921f29078316d501b52ed2dd208",
+    "47109c1b7c9760abb27b4f7b5b2f65dd8d421f7e38a764c61c2aa839f6365d5f",
+    "6a353bc4d4b6530a6623ee67ca12486e5834280ccaa75acd293a159016da9a78",
+    "45113f06c02ad71579f881c364097c05325761e275473e133e7b32071c8da6a2",
+    "3f8b10f82fcc1ce60f731dac9d57f4509f2238d072a5271adbd25142175809e9",
+    "fc17b3268686cca3d9a6dd04a41baab48a02e3c77493476b2db5b62b733ba0fa",
+    "5366336cdd290c20e335a19aedbfb1b548cc5daf56dc9ac99dff4abf2e7f38fe",
+    "a25dc8a675d9734086f381994c0ca756836e33ef0244ab2c4290ff15424ef3b3"
+   ],
+   "waves": [
+    [
+     151,
+     "cleared",
+     "board_empty",
+     0,
+     392
+    ],
+    [
+     152,
+     "cleared",
+     "board_empty",
+     392,
+     1201
+    ],
+    [
+     153,
+     "cleared",
+     "board_empty",
+     1201,
+     1789
+    ],
+    [
+     154,
+     "cleared",
+     "board_empty",
+     1789,
+     2242
+    ],
+    [
+     155,
+     "cleared",
+     "board_empty",
+     2242,
+     2561
+    ],
+    [
+     156,
+     "cleared",
+     "board_empty",
+     2561,
+     3222
+    ],
+    [
+     157,
+     "cleared",
+     "board_empty",
+     3222,
+     4043
+    ],
+    [
+     158,
+     "cleared",
+     "board_empty",
+     4043,
+     4349
+    ],
+    [
+     159,
+     "cleared",
+     "board_empty",
+     4349,
+     4766
+    ],
+    [
+     160,
+     "cleared",
+     "board_empty",
+     4766,
+     5476
+    ]
+   ]
+  }
+ },
+ "wall_s": 25.7
+}
