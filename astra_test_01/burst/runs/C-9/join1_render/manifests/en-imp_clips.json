@@ -1,0 +1,181 @@
+{
+ "what": "JOIN-1 clip manifest for the en-imp (crucible, roster rig aetherialimp) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_i",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_i/en_i_body.glb",
+  "sha256_16": "0fe918e36a87c413",
+  "height_m": 1.15
+ },
+ "roster": {
+  "rig": "aetherialimp",
+  "tier1_rank": 9,
+  "bodies": 5.98,
+  "lead": "Aetherial Scamp (scale 0.65, actorRadius 0.8 -> 0.52 m; range 0.52-0.68)",
+  "run_m_per_s": [
+   3.209,
+   3.209
+  ],
+  "style": "melee 91 %",
+  "p05_bodies": 1.01,
+  "spawn": "aetherialimp_spawn_a01, 47 frames",
+  "spawn_clip_frames": 47
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "emerge": {
+   "seconds": 1.6333,
+   "source": "en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 0.569,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 1.528,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "attack": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.197 m from the origin, ends 0.024 m"
+ },
+ "vfx_runtime": {
+  "aether": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_i_aether_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_i_aether_frames.json",
+   "atlas_px": [
+    4096,
+    1674
+   ],
+   "atlas_sha256": "d64af58d3a4d11443d6f0e421d27bf12bf45f122ed5febd09f73748c809c3097",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.15,
+    "burst_r_m": 3.0,
+    "ring_r_m": 2.5,
+    "seed": 61,
+    "palette": "aether",
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      66,
+      41
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      694,
+      694
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      278,
+      281
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      282,
+      282
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      296,
+      149
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      119,
+      71
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the claw; burst (r 3.0 m) = its fire-strike explosion; ring_burst (r 2.5 m) = its dying eruption"
+  }
+ },
+ "emerge": {
+  "clip": "emerge",
+  "seconds": 1.6333,
+  "roster": "p05 1.01 bodies; aetherialimp_spawn_a01, 47 frames (DATAMINED)",
+  "method": "unfolds UP from a crouch (no floor crossing; cells have no floor); the fade-in and any duration warp are the runtime's"
+ }
+}

@@ -1,0 +1,212 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/axe_unarmed_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8333333730697632
+   ],
+   "keys": 55,
+   "length_s": 1.800000037997961,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0004,
+    -0.0012
+   ],
+   "grounded_by_m": 0.02499,
+   "feet_span_m": [
+    0.0,
+    0.0007
+   ]
+  },
+  "walk": {
+   "source": "mixamo/glb/axe_unarmed_walk_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.1492
+   ],
+   "grounded_by_m": 0.08514,
+   "feet_span_m": [
+    0.0,
+    0.0494
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/axe_unarmed_run_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.8333333134651184
+   ],
+   "keys": 25,
+   "length_s": 0.7999999783933163,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    1.8066
+   ],
+   "grounded_by_m": 0.08219,
+   "feet_span_m": [
+    0.0,
+    0.0768
+   ]
+  },
+  "attack": {
+   "source": "mixamo/glb/axe_standing_melee_attack_horizontal.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.433333396911621
+   ],
+   "keys": 73,
+   "length_s": 2.400000061839819,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0047,
+    -0.0013
+   ],
+   "grounded_by_m": 0.07866,
+   "feet_span_m": [
+    0.0,
+    0.0515
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/standing_react_small_from_front.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2000000476837158
+   ],
+   "keys": 36,
+   "length_s": 1.1666667126119137,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0001,
+    0.0003
+   ],
+   "grounded_by_m": 0.04104,
+   "feet_span_m": [
+    0.0,
+    0.0037
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/standing_react_death_backward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.566666603088379
+   ],
+   "keys": 107,
+   "length_s": 3.5333332680165768,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.1018,
+    -0.7375
+   ],
+   "grounded_by_m": 0.04185,
+   "feet_span_m": [
+    0.0,
+    0.4774
+   ]
+  },
+  "crouch_hold": {
+   "source": "mixamo/glb/axe_crouch_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.7000000476837158
+   ],
+   "keys": 51,
+   "length_s": 1.6666667126119137,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.04967,
+   "feet_span_m": [
+    0.0,
+    0.0072
+   ]
+  },
+  "crouch_up": {
+   "source": "mixamo/glb/axe_crouch_to_standing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.6333333253860474
+   ],
+   "keys": 19,
+   "length_s": 0.5999999903142452,
+   "joints": 22,
+   "rest_match": 1.22001,
+   "hip_ratio": 0.82662,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0017,
+    -0.0009
+   ],
+   "grounded_by_m": 0.05019,
+   "feet_span_m": [
+    0.0,
+    0.0085
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 6
+ }
+}

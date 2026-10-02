@@ -1,0 +1,130 @@
+{
+ "kit": "en-imp",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the en-imp (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, 1.15 m. No layers, no morphs.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_i/en_i_body.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-imp_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.attack.release_s",
+   "release_socket": "main_hand",
+   "manifest_entry": "casts.attack",
+   "skill": "the claw swipe (melee 91 %)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  },
+  "emerge": {
+   "clip": "emerge",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 12,
+   "sampling": "ends",
+   "manifest_entry": "clips.emerge",
+   "skill": "p05 emergence (the unfold-up approach)"
+  }
+ },
+ "sockets": {
+  "main_hand": {
+   "bone": "RightHand",
+   "along_bone_m": 0.2088,
+   "_what": "the right hand's TIP (+0.2088 m along +Y, measured): the strike / throw hand (en09)"
+  },
+  "off_hand": {
+   "bone": "LeftHand",
+   "along_bone_m": 0.2037,
+   "_what": "the left hand's tip (+0.2037 m)"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest (Meshy \"Spine\" = the top spine joint)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  }
+ },
+ "vfx_runtime": {
+  "aether": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_i_aether_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_i_aether_frames.json",
+   "atlas_px": [
+    4096,
+    1674
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.15,
+    "burst_r_m": 3.0,
+    "ring_r_m": 2.5,
+    "seed": 61,
+    "palette": "aether",
+    "slash_r_m": 0.9
+   }
+  }
+ },
+ "watchdog_s": 2400
+}

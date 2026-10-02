@@ -1,0 +1,206 @@
+{
+ "what": "JOIN-1 clip manifest for the en-wretch (crucible, roster rig cannibal) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_c",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_c/en_c_body.glb",
+  "sha256_16": "908aec7f7e3cb3fb",
+  "height_m": 1.8
+ },
+ "roster": {
+  "rig": "cannibal",
+  "tier1_rank": 12,
+  "bodies": 5.65,
+  "lead": "Ugdenbog Wretch (scale 0.9, actorRadius 0.8 -> 0.72 m; range 0.72-1.0)",
+  "run_m_per_s": [
+   3.209,
+   3.53
+  ],
+  "style": "melee 44 % / projectile 40 % / buff 12 %",
+  "p05_bodies": 0.0
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "swipe": {
+   "seconds": 3.1667,
+   "source": "axe standing melee attack backhand (Mixamo)"
+  },
+  "throw": {
+   "seconds": 2.3,
+   "source": "standing 1h magic attack 01 (Mixamo)"
+  },
+  "buff": {
+   "seconds": 2.5333,
+   "source": "axe standing taunt chest thump (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.6667,
+   "source": "standing react death forward (Mixamo)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 0.947,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 2.545,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "swipe": {
+   "release_s": 1.0,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 30"
+  },
+  "throw": {
+   "release_s": 0.8,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 24"
+  },
+  "buff": {
+   "release_s": 0.7,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 21"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.447 m from the origin, ends 0.010 m"
+ },
+ "vfx_runtime": {
+  "blood": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_c_blood_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_c_blood_frames.json",
+   "atlas_px": [
+    4096,
+    1272
+   ],
+   "atlas_sha256": "8b2329bee1c23615f2cfe198099f67ba9d6d63fb687c2aaaeab0137a2d6eea0f",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.25,
+    "burst_r_m": 2.4,
+    "ring_r_m": 2.4,
+    "seed": 51,
+    "palette": "blood",
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      108,
+      70
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      555,
+      555
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      267,
+      266
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      272,
+      272
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      276,
+      141
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      116,
+      70
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the swipe; bolt + burst (r 2.4 m) = the lobbed blood-pool throw (projectile 40 %); ring_* = the blood pool / leeching presence"
+  }
+ },
+ "hunch": {
+  "bend_deg": {
+   "Spine01": 14.0,
+   "Spine": 14.0,
+   "neck": -18.0
+  },
+  "clips": [
+   "idle",
+   "walk",
+   "run",
+   "swipe",
+   "throw",
+   "buff",
+   "hit",
+   "death"
+  ],
+  "idle_head_forward_of_hips_m": 0.1124,
+  "note": "the named edit en31 (the conductor: a hunched feral carriage) is IN every clip of the shipped body"
+ }
+}
