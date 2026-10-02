@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST BV2-6 -- Run C-9 Phase 2, lane BV2: a LOOSE CONCEPT SKETCH of one burial mound (a barrow) for a winter game level. task_id \"BV2-6\".\n\nSUBJECT: THE BURNT BARROW: a mound faced with a charred timber revetment of blackened upright planks, a few half-burned stakes leaning around it. Inside the doorway, a faint dull orange ember glow. Grey-black soot and ash smudged on the snow in front of the door; the snow around is otherwise clean.\n\nFRAMING: ONE barrow only, centred, filling about two-thirds of the frame, its doorway facing the viewer, on open snowy ground with a little trodden snow and a few tufts of rust winter heather and dark juniper around it. Seen from a high three-quarter top-down view, about 53 degrees down, like a fixed overhead game camera. One low warm winter sun from the upper LEFT; short soft blue-violet shadows. No sky, no horizon.\n\nHAND: a loose concept sketch, not a finished painting -- a varying dark warm-brown ink line (bolder on outer contours, lighter inside), transparent watercolour washes, cream paper left showing as the highlights, a cold winter palette of blue-white snow and warm grey stone with the warm low sun. Keep detail sparse and the big shape clear and readable at small size. IMAGE 1 is a reference for palette, light, snow and painted hand ONLY -- not its layout or its mound.\n\nNo characters, no creatures, no text, lettering, labels, UI, border or frame.\n\nExactly ONE image_gen call (generate, landscape 1536x1024). Do not retry inside this burst. Copy the output to out/BV2-6.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"BV2-6\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10BF-2_0/T10BF-2_0.png",
+   "role": "IMAGE 1 -- a painted chunk of the approved Barrow area: palette, light, snow and painted hand ONLY, not its layout"
+  }
+ ],
+ "image_cap": 1,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/BV2-6.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "BV2-barrow-v2-concepts"
+}
