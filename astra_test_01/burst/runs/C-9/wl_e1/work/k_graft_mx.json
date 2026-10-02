@@ -53,14 +53,14 @@
    ]
   },
   "run": {
-   "source": "mixamo/glb/great_sword_run.glb",
+   "source": "mixamo/glb/great_sword_run_2.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
     0.03333333507180214,
-    0.7666666507720947
+    0.6333333253860474
    ],
-   "keys": 23,
-   "length_s": 0.7333333157002926,
+   "keys": 19,
+   "length_s": 0.5999999903142452,
    "joints": 22,
    "rest_match": 0.98677,
    "hip_ratio": 0.90945,
@@ -69,13 +69,13 @@
     "loop"
    ],
    "source_travel_m": [
-    0.0,
-    -1.7584
+    -0.0,
+    2.3833
    ],
-   "grounded_by_m": 0.04632,
+   "grounded_by_m": 0.03519,
    "feet_span_m": [
     0.0,
-    0.0573
+    0.0725
    ]
   },
   "attack": {
@@ -205,6 +205,6 @@
   "fails": [
    "k_c0.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)"
   ],
-  "warns": 2
+  "warns": 3
  }
 }

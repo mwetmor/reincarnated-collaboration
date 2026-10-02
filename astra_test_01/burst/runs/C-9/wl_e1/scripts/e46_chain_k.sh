@@ -32,7 +32,7 @@ fi
 if [ $STEP = all -o $STEP = clips ]; then
   M=mixamo/glb
   python3 scripts/e40b_mixamo_graft.py graft export/wb3/wl_rigged3.glb work/k_c0.glb idle=$M/great_sword_idle.glb+loop+deroot \
-    walk=$M/great_sword_walk.glb+loop+deroot run=$M/great_sword_run.glb+loop+deroot attack=$M/great_sword_slash_3.glb \
+    walk=$M/great_sword_walk.glb+loop+deroot run=$M/great_sword_run_2.glb+loop+deroot attack=$M/great_sword_slash_3.glb \
     warcry=$M/great_sword_power_up.glb+deroot hit=$M/great_sword_impact.glb+deroot death=$M/two_handed_sword_death.glb \
     idle_alt=$M/great_sword_idle_4.glb+deroot --json work/k_graft_mx.json | grep -c "graft:"
   python3 scripts/55_clip_graft.py graft work/k_c0.glb work/k_c1.glb idle_unarmed=anims/idle11r3.glb+loop+deroot \

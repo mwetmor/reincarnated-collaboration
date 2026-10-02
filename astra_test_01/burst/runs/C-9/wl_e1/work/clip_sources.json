@@ -38,9 +38,9 @@
    "loop": true
   },
   "run": {
-   "source": "mixamo/glb/great_sword_run.glb",
+   "source": "mixamo/glb/great_sword_run_2.glb",
    "path": "e40b_mixamo_graft",
-   "action": "Mixamo Great Sword Pack \"great sword run\" (Matt R-C9-123; source gitignored)",
+   "action": "Mixamo Great Sword Pack \"great sword run (2)\" -- the FORWARD run. \"great sword run\" (used in the first stage-K candidate) is a BACKWARD run: source hips travel -1.74 m while facing +Z (found when the film foot-lock read the planted foot sliding forward at +2.5 m/s)",
    "retarget": "mixamo_aligned",
    "flags": [
     "loop",
@@ -49,7 +49,8 @@
    "edits": [
     "deroot",
     "recentre",
-    "reground"
+    "reground",
+    "joint_fix"
    ],
    "loop": true
   },
