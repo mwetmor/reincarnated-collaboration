@@ -5,6 +5,7 @@
 #   WISPS    the tail's lower half fades toward a pale BLUE-WHITE (the rim): weight = smoothstep over the texel's REST HEIGHT, from the
 #            hips (0) down to the tail tips (--rim, 0.55 at the tips) -- the trailing strips read as cold light thinning out (the
 #            "translucent" read without alpha, which the cells and the runtime material do not carry)
+#   CLAWS    the hands (UV mask) get the shroud's chroma / cool / pale treatment, without the rim (conductor, after round 3)
 #   EYES     in the head mask, texels darker than L* 45 go x --eye (0.70) (deeper hollows); the pale eye points (L* > 75) are untouched
 #   python3 scripts/en26_spirit_grade.py <static.glb> <in.png> <out.png> [--json f]
 import json, sys, os
@@ -42,13 +43,15 @@ lab = C.rgb2lab(im); Lc, A_, B_ = lab[..., 0].copy(), lab[..., 1].copy(), lab[..
 hood = headm & (Lc > 55) & (B_ > 4)                     # FIX (cells r3): the HOOD is head-weighted; warm pale cloth in the head mask is shroud, not face
 shroud = (used & ~headm & ~handm) | hood
 A_[shroud] *= KC; B_[shroud] = B_[shroud] * KC + DB; Lc[shroud] = np.clip(Lc[shroud] + DL, 0, 100)
+claws = used & handm & ~headm                          # round 3 fix (conductor): the claws read warm tan -- the same cool, pale treatment, no rim
+A_[claws] *= KC; B_[claws] = B_[claws] * KC + DB; Lc[claws] = np.clip(Lc[claws] + DL, 0, 100)
 u = np.clip((hips_y - hmap) / max(hips_y - y0, 1e-6), 0, 1); wgt = (u * u * (3 - 2 * u)) * RIM * shroud
 rim_lab = np.array([93.0, -2.0, -9.0])                                                # pale blue-white
 Lc = Lc * (1 - wgt) + rim_lab[0] * wgt; A_ = A_ * (1 - wgt) + rim_lab[1] * wgt; B_ = B_ * (1 - wgt) + rim_lab[2] * wgt
 eye = headm & (Lc < 45); Lc[eye] *= EYE
 out = C.lab2rgb(np.stack([Lc, A_, B_], -1)); out[~used] = im[~used]
 Image.fromarray((out * 255 + 0.5).astype(np.uint8)).save(OUT)
-rep = dict(params=dict(kc=KC, db=DB, dl=DL, rim=RIM, eye=EYE), texels=dict(shroud=int(shroud.sum()), hood=int(hood.sum()), head=int(headm.sum()), hands=int(handm.sum()),
+rep = dict(params=dict(kc=KC, db=DB, dl=DL, rim=RIM, eye=EYE), texels=dict(shroud=int(shroud.sum()), hood=int(hood.sum()), claws=int(claws.sum()), head=int(headm.sum()), hands=int(handm.sum()),
            wisp_weighted=int((wgt > 0.05).sum()), eye_darkened=int(eye.sum())), hips_y=round(hips_y, 4), tail_tip_y=round(y0, 4))
 print('SPIRIT', json.dumps(rep))
 if '--json' in a: json.dump(rep, open(a[a.index('--json') + 1], 'w'), indent=1)
