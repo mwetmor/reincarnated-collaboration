@@ -1,0 +1,31 @@
+{
+ "_what": "Meshy credits under a hard-stop cap of 20 (EN-E2 round 4: brute, cannibal, imp; conductor). The balance check counts any concurrent lane's spend against this cap (conservative).",
+ "cap_credits": 20,
+ "balance_at_start": 1987,
+ "balance_read_at": "2026-10-02T06:16:51",
+ "entries": [
+  {
+   "ts": "2026-10-02T06:32:58",
+   "what": "rig builds/en_b_prepped.glb",
+   "credits": 5,
+   "task": "01a0fc2b-907f-7208-88bf-3cf5f4577369",
+   "balance_after": 1982
+  },
+  {
+   "ts": "2026-10-02T06:40:40",
+   "what": "rig builds/en_c_prepped.glb",
+   "credits": 5,
+   "task": "01a0fc32-d631-75d3-9f10-a3a1b611e9c1",
+   "balance_after": 1977
+  },
+  {
+   "ts": "2026-10-02T06:41:36",
+   "what": "rig builds/en_i_prepped.glb",
+   "credits": 5,
+   "task": "01a0fc33-b83e-763b-ad16-5c44d7eba2a7",
+   "balance_after": 1972
+  }
+ ],
+ "spent_by_entries": 15,
+ "spent_by_balance": 15
+}

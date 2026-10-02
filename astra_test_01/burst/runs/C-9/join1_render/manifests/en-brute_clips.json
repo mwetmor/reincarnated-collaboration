@@ -1,0 +1,199 @@
+{
+ "what": "JOIN-1 clip manifest for the en-brute (crucible, roster rig aetherialcorruption) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_b",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_b/en_b_body.glb",
+  "sha256_16": "0f55fada460416cd",
+  "height_m": 2.3
+ },
+ "roster": {
+  "rig": "aetherialcorruption",
+  "tier1_rank": 1,
+  "bodies": 17.78,
+  "lead": "Fleshwarped Aberration (aetherialcorruption_a01: scale 1.6, actorRadius 0.45 -> radius x scale 0.72 m; range 0.56-0.92)",
+  "run_m_per_s": [
+   3.691,
+   4.012
+  ],
+  "style": "melee 59 % / projectile 31 %",
+  "p05_bodies": 10.99,
+  "spawn": "aetherialcorruption_spawn_a01, 148 frames",
+  "spawn_clip_frames": 148
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "hurl": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "roar": {
+   "seconds": 2.8333,
+   "source": "axe standing taunt battlecry (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 2.4,
+   "source": "two handed sword death (Mixamo)"
+  },
+  "emerge": {
+   "seconds": 1.6333,
+   "source": "en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.256,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.374,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "attack": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  },
+  "hurl": {
+   "release_s": 0.7,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 21"
+  },
+  "roar": {
+   "release_s": 0.5,
+   "hand": "LeftHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 15"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.300 m from the origin, ends 0.060 m"
+ },
+ "vfx_runtime": {
+  "blight": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_b_blight_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_b_blight_frames.json",
+   "atlas_px": [
+    4096,
+    1453
+   ],
+   "atlas_sha256": "2ee189e675fba9b2c528384794cd89d6d6eca1de978caa7696cb0c5cfac9db94",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 1.2,
+    "ring_r_m": 3.5,
+    "seed": 41,
+    "palette": "blight",
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      129,
+      80
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      277,
+      277
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      396,
+      396
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      396,
+      396
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      410,
+      221
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      116,
+      70
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the heavy swing (attack) arc; bolt/burst = the HURL (overhead throw, projectile 31 %); ring_* = the roar nova (poison projectile nova, r 3.5 m rot-skin aura)"
+  }
+ },
+ "emerge": {
+  "clip": "emerge",
+  "seconds": 1.6333,
+  "roster": "p05 10.99 bodies; aetherialcorruption_spawn_a01, 148 frames (DATAMINED)",
+  "method": "unfolds UP from a crouch (no floor crossing; cells have no floor); the fade-in and any duration warp are the runtime's"
+ }
+}

@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); import importlib; B = importlib.import_module('en01_briefs')
 G, NAME, CANVAS = sys.argv[1], sys.argv[2], sys.argv[3]
 L = json.load(open(os.path.join(ROOT, "work", "layout_%s%s.json" % (G, NAME))))
-P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"))[G]
+P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"), b=("its", "it", "it", "figure"), c=("his", "him", "he", "man"), i=("its", "it", "it", "figure"))[G]
 WORD = dict(S="FACING THE VIEWER (south)", N="seen from BEHIND (north)", E="facing the viewer's RIGHT in profile (east)",
             W="facing the viewer's LEFT in profile (west)", SE="facing the lower right (south-east)", SW="facing the lower left (south-west)",
             NE="facing away to the upper right (north-east)", NW="facing away to the upper left (north-west)",
@@ -19,8 +19,8 @@ desc = " ".join("%s row, left to right: %s." % (rn, "; ".join(WORD[k] for _, k i
 GD = pathlib.Path(B.A) / "CS9-guides"; dst = GD / ("en2_%s_canvas_%s.png" % (G, NAME)); shutil.copy(CANVAS, dst)
 man = json.load(open(GD / "manifest.json")); man[dst.name] = hashlib.sha256(dst.read_bytes()).hexdigest()
 json.dump(man, open(GD / "manifest.json", "w"), indent=1)
-TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R")[G]
-PICK = dict(m="a", f="a", w="b", r="a")[G]   # round 3: the wraith's sheet of record is b
+TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R", b="EN2-B", c="EN2-C", i="EN2-I")[G]
+PICK = dict(m="a", f="a", w="b", r="a", b="b_r1", c="a", i="b")[G]   # round 3: the wraith's sheet of record is b
 LOOK = dict(path=B.A + "%s/%s_%s.png" % (TID, TID, PICK), role="IMAGE %%d -- %s approved model sheet (%s_%s): the look" % (P[0], TID, PICK))
 STY = dict(B.STYLE, role="IMAGE %d -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose")
 WHO = dict(
@@ -40,11 +40,27 @@ WHO = dict(
     r=("a revenant: a man-sized human SKELETON of old ivory-grey bone, dark empty eye sockets each with a small pale blue-white point, a ragged grey "
        "cowl around the neck and shoulders, a torn LAPIS tabard to mid-thigh with thin tarnished brass edging and a brass hour-ring disc on the chest, "
        "a cracked leather belt with a brass clock-face buckle, ragged grey cloth wrapped around the shins, bare bone hands and feet; and ONE BRASS "
-       "BRACER ring around its LEFT forearm only"))[G]
+       "BRACER ring around its LEFT forearm only"),
+    b=("a flesh-warped brute: a hulking hunched body of swollen, stitched, sickly pale grey-violet flesh with darker violet-grey bruising and pale lapis veins; "
+       "its RIGHT arm enormous (twice the left's thickness) ending in a huge three-fingered hand, its LEFT arm thin and sinewy; a large cracked brass gear-wheel "
+       "fused into its LEFT shoulder, small brass gears and a bent clock hand along the spine, a broken brass hour-ring grown into the top of its head; "
+       "torn lapis robe-tatters hanging from a cracked leather belt as a loincloth; bare feet with thick dark toenails; small pale blue-white eyes"),
+    c=("a bog-wretch: a gaunt wiry hunched man, skin a sickly mud-grey-green streaked with dried mud and old blood, long matted dark hair and a ragged "
+       "beard tangled with reeds; a ragged hide loincloth, a rope belt hung with small bones; filthy cloth wound round the shins; bare feet; a torn faded "
+       "LAPIS sash across the chest from the right shoulder to the left hip with a cracked brass gear knotted into it; and ONE bracelet of knuckle-bones "
+       "around his LEFT wrist only"),
+    i=("a small corrupted imp: a wiry pot-bellied body of pale grey-violet skin with darker violet blotches, a large round head with two short curled "
+       "dark horns and long pointed ears, small pale blue-white eyes and a wide mouth of needle teeth; a cracked brass gear-wheel embedded in its chest; "
+       "a scrap of torn lapis cloth around its hips; long clawed fingers and toes; and ONE thin BRASS RING around its LEFT upper arm only"))[G]
 MARK = dict(m="THE BRASS BRACER is on his LEFT forearm ONLY", f="THE CLOCK-FACE DISC hangs at her LEFT hip ONLY",
-            w="THE LAPIS CLOTH STRIP is tied around its LEFT upper arm ONLY", r="THE BRASS BRACER is on its LEFT forearm ONLY")[G]
+            w="THE LAPIS CLOTH STRIP is tied around its LEFT upper arm ONLY", r="THE BRASS BRACER is on its LEFT forearm ONLY",
+            b="THE SWOLLEN ARM is its RIGHT arm and THE BRASS GEAR is fused into its LEFT shoulder", c="THE BONE BRACELET is on his LEFT wrist ONLY",
+            i="THE BRASS RING is on its LEFT upper arm ONLY")[G]
 SKIN = dict(m="", f="Her skin is ASHEN: a cold grey-blue, the colour of the dead, never warm or rosy (the conductor's note); ",
-            w="Its skin is a cold pale grey-blue and the shroud is thin, pale and cold; ", r="The bone is old ivory-grey, cracked and stained darker in the joints; ")[G]
+            w="Its skin is a cold pale grey-blue and the shroud is thin, pale and cold; ", r="The bone is old ivory-grey, cracked and stained darker in the joints; ",
+            b="The flesh is sickly pale grey-violet, bruised and stitched, never a healthy pink; ",
+            c="His skin is a bog-mud GREEN-GREY with algae and silt tones, darkest on the shins, feet and hands (the conductor's note), never a healthy tan; ",
+            i="Its skin is a pale grey-violet with violet blotches, never pink; ")[G]
 RULES = ("Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no glow, no shading that belongs to one "
          "viewpoint. " + SKIN + "The darks are hatching and layered transparent washes with pale paper highlights, never a flat black fill. Brass is a "
          "tarnished ochre-brown wash with pale highlights. Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING the look sheet "

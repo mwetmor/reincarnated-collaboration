@@ -12,7 +12,7 @@ def classify(a):
     return C.classify_lab(C.rgb2lab(a))
 sheet = {k: [] for k in ('lapis', 'ivory', 'brass')}
 for vw in ('front', 'right', 'back', 'left'):
-    a = np.asarray(Image.open('views/%s_%s/%s.jpg' % (g, dict(w='b').get(g, 'a'), vw)).convert('RGB')).astype(float) / 255
+    a = np.asarray(Image.open('views/%s_%s/%s.jpg' % (g, dict(w='b', b='b', i='b').get(g, 'a'), vw)).convert('RGB')).astype(float) / 255
     fig = a.min(2) < 0.94
     if g == 'f':                                   # her hair and face are NOT graded (skin/hair UV mask on the render side): drop the head band
         ys = np.nonzero(fig.any(1))[0]; top, hgt = ys.min(), ys.max() - ys.min()

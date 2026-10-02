@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."; g=$1; K=${2:-en-acolyte-$g}; M=../join1_render/manifest
 python3 - $M $g <<'PY'
 import json, sys
 m = json.load(open(sys.argv[1])); g = sys.argv[2]
-a = json.loads(json.dumps(m)); a['casts']['cast_bolt']['release_s'] = 4.0; json.dump(a, open('work/_neg_release_%s.json' % g, 'w'))
+a = json.loads(json.dumps(m)); a['casts'][sorted(a['casts'])[0]]['release_s'] = 9.0; json.dump(a, open('work/_neg_release_%s.json' % g, 'w'))
 b = json.loads(json.dumps(m)); c = 'run' if 'run' in b['clips'] else 'glide'; b['clips'][c]['note_neg'] = '%s lasts 0.9 s' % c; json.dump(b, open('work/_neg_prose_%s.json' % g, 'w'))   # round 3: the wraith has no run clip
 PY
 { echo "== the manifest"; python3 scripts/48_manifest_lint.py $M $B; echo "exit $?"

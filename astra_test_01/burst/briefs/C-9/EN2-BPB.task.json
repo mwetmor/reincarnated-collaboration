@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST EN2-BPB -- Run C-9 Phase 2 (Matt, R-C9-132/133): the PAINTED TEXTURE of a 3D enemy for the cathedral arena, sheet 2 of 2, at the GAME CAMERA (looking down at 53 degrees). task_id \"EN2-BPB\".\n\nIMAGE 1 is the SAME FIGURE, ALREADY PAINTED, seen from the game's own camera looking steeply down: its painted surface (from IMAGE 2) projected onto the 3D model and re-rendered from above. Top row, left to right: FACING THE VIEWER (south); facing the lower right (south-east); facing the viewer's RIGHT in profile (east); facing away to the upper right (north-east); seen from BEHIND (north); facing away to the upper left (north-west). Bottom row, left to right: facing the viewer's LEFT in profile (west); facing the lower left (south-west); a CLOSE-UP of its HEAD from the front; a CLOSE-UP of its head from the lower right, three-quarter. Every OUTLINE, POSE, CROP and CAMERA in IMAGE 1 is fixed and must not change.\nIMAGE 2 is the painting IMAGE 1 was made from (sheet 1, the same figure from ten low angles). IMAGE 3 is the approved model sheet (the look): a flesh-warped brute: a hulking hunched body of swollen, stitched, sickly pale grey-violet flesh with darker violet-grey bruising and pale lapis veins; its RIGHT arm enormous (twice the left's thickness) ending in a huge three-fingered hand, its LEFT arm thin and sinewy; a large cracked brass gear-wheel fused into its LEFT shoulder, small brass gears and a bent clock hand along the spine, a broken brass hour-ring grown into the top of its head; torn lapis robe-tatters hanging from a cracked leather belt as a loincloth; bare feet with thick dark toenails; small pale blue-white eyes. IMAGE 4 is a STYLE reference ONLY: copy its HAND, never its character, clothing or staff.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet.\nREPAINT THIS SURFACE; DO NOT PAINT A NEW VIEW. Everything already drawn in IMAGE 1 stays exactly where it is, at the same size and shape: the brass pieces, the belt, the hems and borders, the hair or hood. A feature drawn in a different place becomes a double. What this pass is FOR: the surfaces a steep camera sees properly and a low one only grazed -- the tops of the shoulders, the crown of the head or hood, the upper back, the tops of the forearms and shoes. Give them the detail and the hand of IMAGE 2 and IMAGE 4; leave everything else as found, only cleaner.\nPaint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no glow, no shading that belongs to one viewpoint. The flesh is sickly pale grey-violet, bruised and stitched, never a healthy pink; The darks are hatching and layered transparent washes with pale paper highlights, never a flat black fill. Brass is a tarnished ochre-brown wash with pale highlights. Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING the look sheet does not show: no staff, no book, no weapon, nothing held.\nTHE SWOLLEN ARM is its RIGHT arm and THE BRASS GEAR is fused into its LEFT shoulder, exactly where IMAGE 1 shows it; never on the right side.\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the figures are cut out afterwards by their exact 3D outlines. Spend retries ONLY on the faults named below.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, the figure differs between views, the brass marker is on the wrong side or missing, something is added that the look sheet does not show, or a head close-up is a different face -- name the reason. Never retry for the background colour. Copy outputs to out/EN2-BPB_a.png and out/EN2-BPB_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"EN2-BPB\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/en2_b_canvas_B.png",
+   "role": "IMAGE 1 -- the sheet to EDIT (sheet A paint projected onto the rigged 3D model, re-rendered at 52.95 deg; outlines, crops and cameras fixed)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-BPA/EN2-BPA_a.png",
+   "role": "IMAGE 2 -- the painting IMAGE 1 was made from (sheet A, chosen by registration)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-B/EN2-B_b_r1.png",
+   "role": "IMAGE 3 -- its approved model sheet (EN2-B_b_r1): the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 4 -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/EN2-BPB_a.png",
+  "out/EN2-BPB_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-132-crucible-enemies"
+}
