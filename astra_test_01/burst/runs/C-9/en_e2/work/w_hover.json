@@ -1,0 +1,61 @@
+{
+ "lift_m": 0.38,
+ "bob_m": 0.035,
+ "lean_deg": 14.0,
+ "clips": {
+  "idle": {
+   "keys": 55,
+   "length_s": 1.8,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "cast_bolt": {
+   "keys": 70,
+   "length_s": 2.3,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "claw": {
+   "keys": 80,
+   "length_s": 2.6333,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "aura": {
+   "keys": 95,
+   "length_s": 3.1333,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "hit": {
+   "keys": 36,
+   "length_s": 1.1667,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "death": {
+   "keys": 42,
+   "length_s": 1.3667,
+   "bob_period_s": 1.8,
+   "legs": "rest (channels dropped)"
+  },
+  "glide": {
+   "keys": 55,
+   "length_s": 1.8,
+   "lean_deg": 14.0,
+   "from_": "idle",
+   "in_place": true
+  },
+  "emerge": {
+   "keys": 27,
+   "length_s": 0.8667,
+   "start_hips_above_floor_m": 0.35,
+   "start_lean_deg": 50.0,
+   "note": "roster spawn clip 0.8667 s (wraith_spawn_a01, 27 frames); p05 hero members; a fade-in is the runtime's"
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

@@ -20,10 +20,15 @@ PPM = 100.617553710938
 ap = argparse.ArgumentParser(); ap.add_argument('out'); ap.add_argument('--id', required=True)
 ap.add_argument('--bolt-r', type=float, default=0.3); ap.add_argument('--burst-r', type=float, default=1.5)
 ap.add_argument('--ring-r', type=float, default=2.2); ap.add_argument('--seed', type=int, default=7)
-ap.add_argument('--hue', default='cold', choices=['cold', 'pale'])
+ap.add_argument('--hue', default='cold', choices=['cold', 'pale', 'frost', 'flame', 'storm', 'spirit'])
+ap.add_argument('--extras', default='', help='round 3: slash (claw arcs), aura (a held ground ring loop at --aura-r)')
+ap.add_argument('--aura-r', type=float, default=6.0)
 A = ap.parse_args(); os.makedirs(A.out, exist_ok=True)
 rng = np.random.default_rng(A.seed)
-CORE = np.array([0.93, 0.96, 1.00]); WASH = np.array([0.42, 0.58, 0.86]) if A.hue == 'cold' else np.array([0.55, 0.66, 0.84])
+PAL = dict(cold=([0.93, 0.96, 1.00], [0.42, 0.58, 0.86]), pale=([0.93, 0.96, 1.00], [0.55, 0.66, 0.84]),
+           frost=([0.94, 0.97, 1.00], [0.50, 0.70, 0.88]), flame=([1.00, 0.93, 0.70], [0.90, 0.45, 0.16]),   # fire: the only saturated warm (register)
+           storm=([0.96, 0.95, 1.00], [0.58, 0.52, 0.86]), spirit=([0.90, 0.95, 0.97], [0.55, 0.68, 0.74]))
+CORE, WASH = (np.array(v) for v in PAL[A.hue])
 INK = np.array([0.12, 0.16, 0.30]); SMOKE = np.array([0.55, 0.55, 0.56])
 
 def noise(h, w, scale, oct=4):
@@ -126,6 +131,36 @@ for i in range(10):
     cs, as_ = wash_layer(fs, 0.2, SMOKE, 0.3, 0.35); as_ *= 0.32 * np.sin(np.pi * (0.06 + 0.9 * k))
     frames.append(('ring_smoke', i, np.dstack([cs, as_]), (SW / 2, SH * 0.62), 'billboard'))
 
+
+# ---- round 3 EXTRAS ---------------------------------------------------------------------------------------------------------
+if 'slash' in A.extras:
+    # CLAW: three parallel curved strokes swept across ~120 deg in front of the caster, 8 frames, billboard (anchor = the arc's centre)
+    Rr = 0.9 * PPM; S = int(Rr * 2.4)
+    yy, xx = np.mgrid[0:S, 0:S]; r = np.hypot(xx - S / 2, yy - S / 2) / Rr; th = (np.degrees(np.arctan2(yy - S / 2, xx - S / 2)) + 360) % 360
+    for i in range(8):
+        k = i / 7; head = 200 + 140 * min(1, k * 1.6); tail = 200 + 140 * max(0, k * 1.6 - 0.6)
+        f = np.full((S, S), -1.0)
+        for j, off in enumerate((-0.10, 0.0, 0.10)):
+            band = 1 - np.abs(r - (0.85 + off)) / (0.035 * (1 - abs(off) * 3))
+            inarc = (th >= tail) & (th <= head)
+            f = np.maximum(f, np.where(inarc, band, -1) + 0.15 * noise(S, S, 5, 2))
+        c, a = wash_layer(f, 0.0, WASH, pool=0.5); c2, a2 = wash_layer(f, 0.45, CORE, 0.1, 0.1); c, a = over(c, a, c2, a2)
+        a *= (1 - max(0, k - 0.6) / 0.4)
+        ink = ink_line(f, 0.0) * (1 - k); c, a = over(c, a, np.broadcast_to(INK, c.shape), ink)
+        frames.append(('slash', i, np.dstack([c, a]), (S / 2, S / 2), 'billboard'))
+if 'aura' in A.extras:
+    # AURA: a held ground ring at --aura-r, a slow 12-frame breathing loop (closes: frame 12 == frame 0), ground plane
+    RA = A.aura_r * PPM; S = int(RA * 2.15)
+    yy, xx = np.mgrid[0:S, 0:S]; r = np.hypot(xx - S / 2, yy - S / 2) / RA; th = np.arctan2(yy - S / 2, xx - S / 2)
+    bn = noise(S, S, 14, 3)
+    for i in range(12):
+        ph = 2 * np.pi * i / 12
+        f = 1 - np.abs(r - 1) / (0.025 + 0.008 * np.sin(ph)) + 0.25 * bn + 0.15 * np.sin(6 * th + ph)
+        c, a = wash_layer(f, 0.0, WASH, pool=0.4, gran=0.3); a *= 0.55 + 0.15 * np.sin(ph)
+        fi = (1 - r) * 0.5 + 0.35 * bn - 0.3; ci, ai = wash_layer(fi, 0.0, WASH, 0.2, 0.4); c, a = over(ci, ai * 0.10, c, a)
+        frames.append(('aura', i, np.dstack([c, a]), (S / 2, S / 2), 'ground'))
+
+PHASE_SCALE = {ph: 0.5 for ph in ('ring_tele', 'ring_burst', 'ring_smoke', 'aura') if max(A.ring_r, A.aura_r if 'aura' in A.extras else 0) > 2.3}
 # ---- pack: premultiply, trim, shelf-pack into one atlas --------------------------------------------------------------------
 tiles = []
 for ph, i, rgba, (ax, ay), plane in frames:
@@ -133,31 +168,39 @@ for ph, i, rgba, (ax, ay), plane in frames:
     img = (np.dstack([C, a]) * 255 + 0.5).astype(np.uint8); nz = img[..., 3] > 0
     if not nz.any(): nz[int(ay), int(ax)] = True
     ys, xs = np.nonzero(nz); x0, y0, x1, y1 = max(xs.min() - 1, 0), max(ys.min() - 1, 0), xs.max() + 2, ys.max() + 2
-    tiles.append(dict(phase=ph, i=i, img=img[y0:y1, x0:x1], off=(x0 - ax, y0 - ay), plane=plane))
-AW = 2048; x = y = sh = 0
+    k_ = PHASE_SCALE.get(ph, 1.0); tile = img[y0:y1, x0:x1]; off = (x0 - ax, y0 - ay)
+    if k_ != 1.0:                                  # round 3: big ground rings are soft washes -- stored at half scale (texture-size limit)
+        tile = np.asarray(Image.fromarray(tile, 'RGBA').resize((max(1, round(tile.shape[1] * k_)), max(1, round(tile.shape[0] * k_))), Image.LANCZOS))
+        off = (off[0] * k_, off[1] * k_)
+    tiles.append(dict(phase=ph, i=i, img=tile, off=off, plane=plane))
+AW = 4096; x = y = sh = 0
 for t in sorted(tiles, key=lambda t: -t['img'].shape[0]):
     h, w = t['img'].shape[:2]
     if x + w > AW: x, y, sh = 0, y + sh + 1, 0
     t['rect'] = (x, y, w, h); x += w + 1; sh = max(sh, h)
-AH = y + sh + 1; atlas = np.zeros((AH, AW, 4), np.uint8)
+AH = y + sh + 1; assert AH <= 16384, 'atlas %d px tall: over the 16384 texture limit' % AH; atlas = np.zeros((AH, AW, 4), np.uint8)
 for t in tiles:
     x, y, w, h = t['rect']; atlas[y:y + h, x:x + w] = t['img']
 p = os.path.join(A.out, '%s_atlas.png' % A.id); Image.fromarray(atlas, 'RGBA').save(p)
 FPS = dict(bolt=20, cast=20, burst=20, ring_tele=15, ring_burst=20, ring_smoke=12)
+if 'slash' in A.extras: FPS['slash'] = 24
+if 'aura' in A.extras: FPS['aura'] = 8
 table = dict(id=A.id, atlas=os.path.basename(p), atlas_size=[AW, AH], sha256=hashlib.sha256(open(p, 'rb').read()).hexdigest(),
              px_per_m=PPM, blend='premultiplied: out = rgb + ground * (1 - a)',
-             params=dict(bolt_body_r_m=A.bolt_r, burst_r_m=A.burst_r, ring_r_m=A.ring_r, seed=A.seed),
+             params=dict(bolt_body_r_m=A.bolt_r, burst_r_m=A.burst_r, ring_r_m=A.ring_r, seed=A.seed, palette=A.hue, **({'aura_r_m': A.aura_r} if 'aura' in A.extras else {}), **({'slash_r_m': 0.9} if 'slash' in A.extras else {})),
              phases={}, procedural='en05_vfx_bake.py (no paid call)')
 for ph in FPS:
     fr = sorted([t for t in tiles if t['phase'] == ph], key=lambda t: t['i'])
-    table['phases'][ph] = dict(fps=FPS[ph], plane=fr[0]['plane'], loop=ph == 'bolt', n=len(fr),
+    table['phases'][ph] = dict(fps=FPS[ph], px_per_m=round(PPM * PHASE_SCALE.get(ph, 1.0), 6), plane=fr[0]['plane'], loop=ph in ('bolt', 'aura'), n=len(fr),
                                frames=[dict(rect=list(map(int, t['rect'])), offset_px=[round(float(v), 2) for v in t['off']]) for t in fr])
 json.dump(table, open(os.path.join(A.out, '%s_frames.json' % A.id), 'w'), indent=1)
 # preview: every phase's frames over the Barrow-ish stone grey and over the lapis floor tone
 pv = []
 for ph in FPS:
     for t in sorted([t for t in tiles if t['phase'] == ph], key=lambda t: t['i']):
-        im = t['img'].astype(float) / 255; g = np.ones(im.shape[:2] + (3,)) * np.array([0.62, 0.60, 0.57])
+        im = t['img'].astype(float) / 255
+        if im.shape[0] > 900: im = np.asarray(Image.fromarray(t['img'], 'RGBA').resize((im.shape[1] // 3, im.shape[0] // 3))).astype(float) / 255
+        g = np.ones(im.shape[:2] + (3,)) * np.array([0.62, 0.60, 0.57])
         pv.append(np.clip(im[..., :3] + g * (1 - im[..., 3:4]), 0, 1))
 mh = max(v.shape[0] for v in pv); tw = sum(v.shape[1] + 4 for v in pv)
 cols = 8; rows = [pv[i:i + cols] for i in range(0, len(pv), cols)]

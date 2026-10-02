@@ -2,7 +2,7 @@
 # account balance drop as the truth), record() AFTER with the balance read back.
 import json, os, subprocess, datetime, fcntl
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LED = os.path.join(ROOT, "meshy_spend_R-C9-132.json")
+LED = os.environ.get("MESHY_LEDGER") or os.path.join(ROOT, "meshy_spend_R-C9-132.json")
 def balance():
     r = subprocess.run(["curl", "-s", "--max-time", "30", "https://api.meshy.ai/openapi/v1/balance",
                         "-H", "Authorization: Bearer " + os.environ["MESHY_API_KEY"]], capture_output=True, text=True)

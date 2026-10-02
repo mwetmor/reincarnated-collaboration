@@ -1,0 +1,160 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/standing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8333333730697632
+   ],
+   "keys": 55,
+   "length_s": 1.800000037997961,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0006,
+    0.001
+   ],
+   "grounded_by_m": -0.06137,
+   "feet_span_m": [
+    0.0,
+    0.0097
+   ]
+  },
+  "cast_bolt": {
+   "source": "mixamo/glb/standing_1h_magic_attack_01.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.3333332538604736
+   ],
+   "keys": 70,
+   "length_s": 2.2999999187886715,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0001,
+    0.0064
+   ],
+   "grounded_by_m": -0.05466,
+   "feet_span_m": [
+    0.0,
+    0.016
+   ]
+  },
+  "claw": {
+   "source": "mixamo/glb/standing_2h_magic_attack_02.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.6666667461395264
+   ],
+   "keys": 80,
+   "length_s": 2.6333334110677242,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0016,
+    0.0098
+   ],
+   "grounded_by_m": -0.04026,
+   "feet_span_m": [
+    0.0,
+    0.0341
+   ]
+  },
+  "aura": {
+   "source": "mixamo/glb/standing_2h_magic_area_attack_02.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.1666667461395264
+   ],
+   "keys": 95,
+   "length_s": 3.1333334110677242,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0002,
+    -0.0
+   ],
+   "grounded_by_m": -0.03854,
+   "feet_span_m": [
+    0.0,
+    0.0464
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/standing_react_small_from_front.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2000000476837158
+   ],
+   "keys": 36,
+   "length_s": 1.1666667126119137,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0001,
+    0.0003
+   ],
+   "grounded_by_m": -0.07032,
+   "feet_span_m": [
+    0.0,
+    0.0065
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/standing_react_large_from_front.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.399999976158142
+   ],
+   "keys": 42,
+   "length_s": 1.36666664108634,
+   "joints": 22,
+   "rest_match": 1.06766,
+   "hip_ratio": 0.83246,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0,
+    -0.9373
+   ],
+   "grounded_by_m": -0.05465,
+   "feet_span_m": [
+    0.0,
+    0.0805
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 6
+ }
+}

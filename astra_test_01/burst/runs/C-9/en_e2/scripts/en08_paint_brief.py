@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); import importlib; B = importlib.import_module('en01_briefs')
 G, NAME, CANVAS = sys.argv[1], sys.argv[2], sys.argv[3]
 L = json.load(open(os.path.join(ROOT, "work", "layout_%s%s.json" % (G, NAME))))
-P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"))[G]
+P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"))[G]
 WORD = dict(S="FACING THE VIEWER (south)", N="seen from BEHIND (north)", E="facing the viewer's RIGHT in profile (east)",
             W="facing the viewer's LEFT in profile (west)", SE="facing the lower right (south-east)", SW="facing the lower left (south-west)",
             NE="facing away to the upper right (north-east)", NW="facing away to the upper left (north-west)",
@@ -19,8 +19,9 @@ desc = " ".join("%s row, left to right: %s." % (rn, "; ".join(WORD[k] for _, k i
 GD = pathlib.Path(B.A) / "CS9-guides"; dst = GD / ("en2_%s_canvas_%s.png" % (G, NAME)); shutil.copy(CANVAS, dst)
 man = json.load(open(GD / "manifest.json")); man[dst.name] = hashlib.sha256(dst.read_bytes()).hexdigest()
 json.dump(man, open(GD / "manifest.json", "w"), indent=1)
-TID = dict(m="EN2-M", f="EN2-F")[G]
-LOOK = dict(path=B.A + "%s/%s_a.png" % (TID, TID), role="IMAGE %%d -- %s approved model sheet (%s_a): the look" % (P[0], TID))
+TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R")[G]
+PICK = dict(m="a", f="a", w="b", r="a")[G]   # round 3: the wraith's sheet of record is b
+LOOK = dict(path=B.A + "%s/%s_%s.png" % (TID, TID, PICK), role="IMAGE %%d -- %s approved model sheet (%s_%s): the look" % (P[0], TID, PICK))
 STY = dict(B.STYLE, role="IMAGE %d -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose")
 WHO = dict(
     m=("a possessed acolyte: a deep lapis-blue hood bound in tarnished brass, the face inside it a dim cool-grey hatched shadow with two small pale "
@@ -31,9 +32,19 @@ WHO = dict(
        "brass circlet with a small broken clock-face at the brow; an ivory knee-length alb under a sleeveless lapis-blue chasuble bordered with faded "
        "brass hour-mark embroidery, ragged at the hems; a narrow lapis stole down the front with a broken brass gear near each end; dark grey "
        "leggings and soft wrapped shoes; thin bare hands, ashen grey-blue going to pale blue-white at the fingertips; and ONE cracked brass "
-       "CLOCK-FACE disc hanging at her LEFT hip only"))[G]
-MARK = dict(m="THE BRASS BRACER is on his LEFT forearm ONLY", f="THE CLOCK-FACE DISC hangs at her LEFT hip ONLY")[G]
-SKIN = dict(m="", f="Her skin is ASHEN: a cold grey-blue, the colour of the dead, never warm or rosy (the conductor's note); ")[G]
+       "CLOCK-FACE disc hanging at her LEFT hip only"),
+    w=("a wraith: a gaunt skull-like face of tight pale grey-blue skin with deep dark eye hollows and a small pale blue-white point in each, a thin dark mouth; "
+       "a hooded burial SHROUD of torn ivory and pale lapis cloth over the head and shoulders, falling past the waist into a long ragged tail of strips "
+       "(no legs, no feet); long thin pale grey-blue arms and long clawed hands with dark hooked nails; a rusted brass chain with a small cracked brass "
+       "hour-medallion on the chest; and ONE torn strip of pale lapis cloth tied around its LEFT upper arm only"),
+    r=("a revenant: a man-sized human SKELETON of old ivory-grey bone, dark empty eye sockets each with a small pale blue-white point, a ragged grey "
+       "cowl around the neck and shoulders, a torn LAPIS tabard to mid-thigh with thin tarnished brass edging and a brass hour-ring disc on the chest, "
+       "a cracked leather belt with a brass clock-face buckle, ragged grey cloth wrapped around the shins, bare bone hands and feet; and ONE BRASS "
+       "BRACER ring around its LEFT forearm only"))[G]
+MARK = dict(m="THE BRASS BRACER is on his LEFT forearm ONLY", f="THE CLOCK-FACE DISC hangs at her LEFT hip ONLY",
+            w="THE LAPIS CLOTH STRIP is tied around its LEFT upper arm ONLY", r="THE BRASS BRACER is on its LEFT forearm ONLY")[G]
+SKIN = dict(m="", f="Her skin is ASHEN: a cold grey-blue, the colour of the dead, never warm or rosy (the conductor's note); ",
+            w="Its skin is a cold pale grey-blue and the shroud is thin, pale and cold; ", r="The bone is old ivory-grey, cracked and stained darker in the joints; ")[G]
 RULES = ("Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no glow, no shading that belongs to one "
          "viewpoint. " + SKIN + "The darks are hatching and layered transparent washes with pale paper highlights, never a flat black fill. Brass is a "
          "tarnished ochre-brown wash with pale highlights. Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING the look sheet "

@@ -1,0 +1,156 @@
+{
+ "kit": "en-revenant",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the REVENANT skeleton (one base mesh; elements are runtime tints + VFX) (crucible; lane EN-E2 round 3, R-C9-132/133), one body, no gear, 1.80 m. No layers, no morphs.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_r/en_r_body.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-revenant_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "cast_bolt": {
+   "clip": "cast_bolt",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.cast_bolt.release_s",
+   "release_socket": "cast_hand",
+   "manifest_entry": "casts.cast_bolt",
+   "skill": "the roster projectile (63 %)"
+  },
+  "cast_area": {
+   "clip": "cast_area",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_from": "casts.cast_area.release_s",
+   "release_socket": "cast_hand",
+   "manifest_entry": "casts.cast_area",
+   "skill": "the roster AoE (22 %) / aura (14 %)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "sockets": {
+  "cast_hand": {
+   "bone": "RightHand",
+   "along_bone_m": 0.2391,
+   "_what": "the right hand's TIP (+0.2391 m along +Y, measured); every release in this kit is right-handed (en09)"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest: Meshy's \"Spine\" is the TOP spine joint (Spine02 is the lowest)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  }
+ },
+ "vfx_runtime": {
+  "frost": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_frost_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_frost_frames.json",
+   "atlas_px": [
+    4096,
+    1790
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.1,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.0,
+    "seed": 31,
+    "palette": "frost"
+   }
+  },
+  "flame": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_flame_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_flame_frames.json",
+   "atlas_px": [
+    4096,
+    1790
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.1,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.0,
+    "seed": 31,
+    "palette": "flame"
+   }
+  },
+  "storm": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_storm_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_r_storm_frames.json",
+   "atlas_px": [
+    4096,
+    1790
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.1,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.0,
+    "seed": 31,
+    "palette": "storm"
+   }
+  }
+ },
+ "watchdog_s": 2400
+}

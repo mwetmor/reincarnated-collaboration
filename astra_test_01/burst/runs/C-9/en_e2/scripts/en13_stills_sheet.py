@@ -4,7 +4,7 @@
 import sys, glob, os, re
 from PIL import Image, ImageDraw
 D, OUT, TITLE = sys.argv[1:4]
-rows = ['idle', 'walk', 'cast_bolt', 'death']; heads = [0, 45, 90, 135, 180, 225, 270, 315]
+rows = sys.argv[4].split(',') if len(sys.argv) > 4 else ['idle', 'walk', 'cast_bolt', 'death']; heads = [0, 45, 90, 135, 180, 225, 270, 315]
 files = glob.glob(os.path.join(D, '*_beauty.png'))
 def find(clip, h):
     for f in files:

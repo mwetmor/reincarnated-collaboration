@@ -1,0 +1,161 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "en_r_body.glb",
+ "clips": {
+  "walk": {
+   "length_glb": 1.13333,
+   "length_godot": 1.13333,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "run": {
+   "length_glb": 0.73333,
+   "length_godot": 0.73333,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "cast_bolt": {
+   "length_glb": 2.2,
+   "length_godot": 2.2,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "cast_area": {
+   "length_glb": 2.96667,
+   "length_godot": 2.96667,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "hit": {
+   "length_glb": 1.16667,
+   "length_godot": 1.16667,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "death": {
+   "length_glb": 3.53333,
+   "length_godot": 3.53333,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  },
+  "idle": {
+   "length_glb": 1.8,
+   "length_godot": 1.8,
+   "tracks": 23,
+   "exact": 23,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": []
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-revenant/matrix_index.json",
+  "states": {
+   "idle": {
+    "clip": "idle",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "walk": {
+    "clip": "walk",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "run": {
+    "clip": "run",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "cast_bolt": {
+    "clip": "cast_bolt",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null,
+    "release_frame": {
+     "index": 3,
+     "t_s": 0.5333,
+     "forearms_deg": {
+      "LeftForeArm": 0.0,
+      "RightForeArm": 0.0
+     },
+     "worst_deg": 0.0,
+     "worst_track": "Hips"
+    }
+   },
+   "cast_area": {
+    "clip": "cast_area",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null,
+    "release_frame": {
+     "index": 6,
+     "t_s": 1.2667,
+     "forearms_deg": {
+      "LeftForeArm": 0.0,
+      "RightForeArm": 0.0
+     },
+     "worst_deg": 0.0,
+     "worst_track": "Hips"
+    }
+   },
+   "hit": {
+    "clip": "hit",
+    "frames": 8,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}

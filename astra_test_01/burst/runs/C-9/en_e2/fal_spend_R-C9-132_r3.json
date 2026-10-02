@@ -1,0 +1,37 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $2.00 (EN-E2 round 3: wraith + revenant), cap set by the conductor's dispatch.",
+ "_basis": "tripo $0.40 per build; birefnet at wall-clock seconds x $0.0008/s (upper bound).",
+ "_starts_after": "Opened 2026-10-02T01:33:45; separate from round 1's fal_spend_R-C9-132.json ($0.805).",
+ "budget_usd": 2.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T05:40:55+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-W_b.png",
+   "usd": 0.00185,
+   "wall_s": 2.32
+  },
+  {
+   "ts": "2026-10-02T05:41:00+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-R_a.png",
+   "usd": 0.00162,
+   "wall_s": 2.02
+  },
+  {
+   "ts": "2026-10-02T05:43:54+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_r_tripo",
+   "usd": 0.4,
+   "wall_s": 161.89
+  },
+  {
+   "ts": "2026-10-02T05:44:16+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_w_tripo",
+   "usd": 0.4,
+   "wall_s": 184.12
+  }
+ ],
+ "running_usd": 0.8035
+}

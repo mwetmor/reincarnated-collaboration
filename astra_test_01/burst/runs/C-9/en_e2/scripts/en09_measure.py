@@ -26,21 +26,22 @@ for clip in m['anims']:
     allp = np.array([p for w in W for p in w.values()])
     rep['extent'][clip] = dict(x=[round(float(allp[:, 0].min()), 3), round(float(allp[:, 0].max()), 3)],
                                y_top=round(float(allp[:, 1].max()), 3), z=[round(float(allp[:, 2].min()), 3), round(float(allp[:, 2].max()), 3)])
-    if clip in ('idle', 'walk', 'run'):
+    if clip in ('idle', 'walk', 'run', 'glide'):
         rep['loops'][clip] = round(max(float(np.linalg.norm(W[0][n] - W[-1][n])) for n in W[0] if n != 'Hips'), 4)
-    if clip.startswith('cast_'):
+    RULE = dict(cast_bolt='fwd', claw='fwd', cast_area='3d', aura='3d')
+    if clip in RULE:
         best = None
         for hand in ('LeftHand', 'RightHand'):
             for i in range(1, len(ts)):
                 d = W[i][hand] - W[i - 1][hand]; dt = ts[i] - ts[i - 1]
-                v = (d[2] / dt) if clip == 'cast_bolt' else (np.linalg.norm(d) / dt)
+                v = (d[2] / dt) if RULE[clip] == 'fwd' else (np.linalg.norm(d) / dt)
                 if best is None or v > best[0]:
                     best = (v, hand, ts[i] - ts[0], i, [round(float(x), 3) for x in W[i][hand]])
         rep['release'][clip] = dict(hand=best[1], release_s=round(best[2], 4), key=best[3], speed_mps=round(float(best[0]), 3),
-                                    hand_pos_m=best[4], rule='bolt: peak forward (+Z) hand speed; area: peak 3D hand speed')
+                                    hand_pos_m=best[4], rule='peak forward (+Z) hand speed' if RULE[clip] == 'fwd' else 'peak 3D hand speed')
 g = json.load(open(GJ))
 for nm, c in g['clips'].items():
-    if nm in ('walk', 'run'):
+    if nm in ('walk', 'run') and nm in rep['clip_len_s']:
         tr = c.get('source_travel_m'); L = rep['clip_len_s'][nm]
         rep['speeds'][nm] = dict(travel_m=round(float(np.hypot(*tr)) * k, 4), loop_s=L, m_per_s=round(float(np.hypot(*tr)) * k / L, 3),
                                  basis='source root travel over the clip (graft json) x export scale / shipped clip length')

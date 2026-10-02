@@ -12,6 +12,7 @@ a = sys.argv[sys.argv.index('--') + 1:]
 SRC, OUT = a[0], a[1]
 lo, hi = (float(x) for x in a[a.index('--band') + 1].split(',')) if '--band' in a else (0.42, 0.62)
 OFF = float(a[a.index('--off') + 1]) if '--off' in a else 0.10
+HUE = [float(x) for x in a[a.index('--hue') + 1].split(',')] if '--hue' in a else [25.0, 55.0, 0.30]   # lo,hi,sat_min (the wraith's marker is a LAPIS strip: 190,250,0.15)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=SRC)
 ob = max([o for o in bpy.context.scene.objects if o.type == 'MESH'], key=lambda o: len(o.data.vertices))
@@ -32,7 +33,7 @@ x = np.clip((uv[first[ok], 0] * W).astype(int), 0, W - 1); y = np.clip((uv[first
 vcol = np.zeros((len(me.vertices), 3), np.float32); vcol[ok] = px[y, x]
 z0, z1 = V[:, 2].min(), V[:, 2].max(); Hm = z1 - z0
 hsv = np.array([colorsys.rgb_to_hsv(*c) for c in vcol])
-brass = (hsv[:, 0] * 360 > 25) & (hsv[:, 0] * 360 < 55) & (hsv[:, 1] > 0.30) & (hsv[:, 2] > 0.25)
+brass = (hsv[:, 0] * 360 > HUE[0]) & (hsv[:, 0] * 360 < HUE[1]) & (hsv[:, 1] > HUE[2]) & (hsv[:, 2] > 0.25)
 band = (V[:, 2] > z0 + lo * Hm) & (V[:, 2] < z0 + hi * Hm)
 span = V[:, 1].max() - V[:, 1].min()
 off = np.abs(V[:, 1] - np.median(V[:, 1])) > OFF * span

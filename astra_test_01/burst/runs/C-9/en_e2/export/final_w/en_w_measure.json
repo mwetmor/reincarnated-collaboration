@@ -1,0 +1,147 @@
+{
+ "body": "export/final_w/en_w_body.glb",
+ "export_scale": 1.088235,
+ "release": {
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.8,
+   "key": 24,
+   "speed_mps": 7.746,
+   "hand_pos_m": [
+    -0.54,
+    1.742,
+    0.712
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "claw": {
+   "hand": "RightHand",
+   "release_s": 1.3,
+   "key": 39,
+   "speed_mps": 6.59,
+   "hand_pos_m": [
+    -0.363,
+    1.699,
+    0.723
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "aura": {
+   "hand": "RightHand",
+   "release_s": 1.8,
+   "key": 54,
+   "speed_mps": 9.538,
+   "hand_pos_m": [
+    -0.832,
+    1.774,
+    0.115
+   ],
+   "rule": "peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "idle": 0.0,
+  "glide": 0.0
+ },
+ "speeds": {},
+ "extent": {
+  "cast_bolt": {
+   "x": [
+    -0.604,
+    0.58
+   ],
+   "y_top": 2.089,
+   "z": [
+    -0.494,
+    1.013
+   ]
+  },
+  "claw": {
+   "x": [
+    -0.701,
+    0.248
+   ],
+   "y_top": 2.121,
+   "z": [
+    -0.638,
+    1.096
+   ]
+  },
+  "aura": {
+   "x": [
+    -0.832,
+    0.675
+   ],
+   "y_top": 2.2,
+   "z": [
+    -0.358,
+    0.624
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.543,
+    0.186
+   ],
+   "y_top": 2.098,
+   "z": [
+    -0.362,
+    0.553
+   ]
+  },
+  "death": {
+   "x": [
+    -0.599,
+    0.379
+   ],
+   "y_top": 2.05,
+   "z": [
+    -1.006,
+    0.601
+   ]
+  },
+  "emerge": {
+   "x": [
+    -0.465,
+    0.199
+   ],
+   "y_top": 2.043,
+   "z": [
+    -0.825,
+    0.704
+   ]
+  },
+  "idle": {
+   "x": [
+    -0.478,
+    0.229
+   ],
+   "y_top": 2.054,
+   "z": [
+    -0.303,
+    0.581
+   ]
+  },
+  "glide": {
+   "x": [
+    -0.478,
+    0.229
+   ],
+   "y_top": 1.996,
+   "z": [
+    -0.355,
+    0.561
+   ]
+  }
+ },
+ "clip_len_s": {
+  "cast_bolt": 2.3,
+  "claw": 2.6333,
+  "aura": 3.1333,
+  "hit": 1.1667,
+  "death": 1.3667,
+  "emerge": 0.8667,
+  "idle": 1.8,
+  "glide": 1.8
+ }
+}

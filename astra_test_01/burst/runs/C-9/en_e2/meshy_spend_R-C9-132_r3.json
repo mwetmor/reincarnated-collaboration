@@ -1,0 +1,24 @@
+{
+ "_what": "Meshy credits under a hard-stop cap of 20 (EN-E2 round 3: wraith + revenant; conductor dispatch). Checked before, recorded after with the balance read back. NB: the balance check counts any concurrent lane's spend against this cap (conservative).",
+ "cap_credits": 20,
+ "balance_at_start": 1997,
+ "balance_read_at": "2026-10-02T01:33:45",
+ "entries": [
+  {
+   "ts": "2026-10-02T01:51:27",
+   "what": "rig builds/en_r_prepped.glb",
+   "credits": 5,
+   "task": "01a0fb2a-1114-700b-99de-1d4c0995fe73",
+   "balance_after": 1992
+  },
+  {
+   "ts": "2026-10-02T01:52:32",
+   "what": "rig builds/en_w_prepped.glb",
+   "credits": 5,
+   "task": "01a0fb2b-0c7c-70b2-8a36-088870f8158c",
+   "balance_after": 1987
+  }
+ ],
+ "spent_by_entries": 10,
+ "spent_by_balance": 10
+}

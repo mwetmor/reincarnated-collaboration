@@ -1,0 +1,196 @@
+{
+ "what": "JOIN-1 clip manifest for the WRAITH (crucible, roster rig wraith) -- lane EN-E2 round 3 (drax, R-C9-132/133), read off en_e2/export/final_w",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_w/en_w_body.glb",
+  "sha256_16": "39bbd8ff1f10d303",
+  "height_m": 1.85
+ },
+ "clips": {
+  "cast_bolt": {
+   "seconds": 2.3,
+   "source": "standing 1h magic attack 01 (Mixamo Pro Magic Pack)"
+  },
+  "claw": {
+   "seconds": 2.6333,
+   "source": "standing 2h magic attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "aura": {
+   "seconds": 3.1333,
+   "source": "standing 2h magic area attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo Pro Magic Pack)"
+  },
+  "death": {
+   "seconds": 1.3667,
+   "source": "standing react large from front (Mixamo Pro Magic Pack)"
+  },
+  "emerge": {
+   "seconds": 0.8667,
+   "source": "built by en24 (unfold up from the floor, 0.8667 s = the roster spawn clip)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "standing idle (Mixamo Pro Magic Pack)"
+  },
+  "glide": {
+   "seconds": 1.8,
+   "source": "built from idle by en24 (lean 14 deg forward, hover bob), in place"
+  }
+ },
+ "locomotion_in_place": {
+  "glide": {
+   "speed_m_s": 2.889,
+   "from": "roster: the lead Wraith record (wraith_a01) characterRunSpeed 0.9 x K4-0 = 2.889 m/s; its walk and run are BOTH the glide clip; in place, the runtime translates"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.8,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 24"
+  },
+  "claw": {
+   "release_s": 1.3,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 39"
+  },
+  "aura": {
+   "release_s": 1.8,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 54"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.301 m from the origin, ends 0.033 m"
+ },
+ "vfx_runtime": {
+  "spirit": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_w_spirit_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_w_spirit_frames.json",
+   "atlas_px": [
+    4096,
+    3073
+   ],
+   "atlas_sha256": "dddef0ced3dca0396bd5e73656a52acf3f77d5cd86ccf25929129cf415fe1427",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 1.5,
+    "ring_r_m": 4.0,
+    "seed": 21,
+    "palette": "spirit",
+    "aura_r_m": 6.0,
+    "slash_r_m": 0.9
+   },
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      129,
+      82
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      347,
+      347
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      445,
+      444
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      452,
+      452
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      472,
+      254
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      117,
+      71
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      648,
+      648
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax."
+  }
+ },
+ "hover": {
+  "lift_m": 0.38,
+  "bob_m": 0.035,
+  "glide_lean_deg": 14.0,
+  "legs": "rest inside the shroud (leg channels dropped)",
+  "note": "the cells show it FLOATING: the shroud tail tips ~0.15 m above the anchor in idle (the anchor is still the ground origin)"
+ },
+ "emerge": {
+  "clip": "emerge",
+  "seconds": 0.8667,
+  "roster": "p05 hero members 1.49 bodies; spawn clip wraith_spawn_a01 27 frames 0.8667 s (DATAMINED)",
+  "method": "unfolds UP from the floor (no floor crossing; cells have no floor to hide one); the fade-in is the runtime's"
+ },
+ "death_dissipate": "the death sinks the hips to 0.40 m and crumples; DISSIPATE = the runtime fades the held last frame (alpha ramp), nothing baked"
+}

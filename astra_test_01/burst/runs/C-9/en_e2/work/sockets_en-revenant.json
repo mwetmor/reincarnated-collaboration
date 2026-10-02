@@ -1,0 +1,37 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/work/raw_en-revenant.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-revenant.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "cast_bolt": {
+   "worst_m": 5e-05,
+   "samples": 288
+  },
+  "cast_area": {
+   "worst_m": 3e-05,
+   "samples": 384
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 192
+  },
+  "death": {
+   "worst_m": 7e-05,
+   "samples": 384
+  }
+ },
+ "samples": 2112,
+ "worst_m": 7e-05
+}

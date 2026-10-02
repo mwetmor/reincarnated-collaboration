@@ -4,13 +4,15 @@
 #   python3 scripts/en20_kit.py <m|f>   -> join1_render/manifests/en-acolyte-<g>_clips.json + join1_render/kits/en-acolyte-<g>.json
 import json, os, sys, hashlib
 g = sys.argv[1]; E = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = os.path.join(os.path.dirname(E), 'join1_render')
-KID = 'en-acolyte-%s' % g
+KID = dict(m='en-acolyte-m', f='en-acolyte-f', w='en-wraith', r='en-revenant')[g]
 body = os.path.join(E, 'export/final_%s/en_%s_body.glb' % (g, g))
 M = json.load(open(os.path.join(E, 'export/final_%s/en_%s_measure.json' % (g, g))))
 H = json.load(open(os.path.join(E, 'export/final_%s/height.json' % g)))
 G = json.load(open(os.path.join(E, 'work/%s_graft.json' % g)))['clips']
-V = json.load(open(os.path.join(E, 'vfx/en_%s_cold_frames.json' % g)))
-TIP = dict(m=0.2397, f=0.2186)[g]      # the right hand's farthest vertex weighted > 0.5 to RightHand, along the bone's +Y, at rest, metres (measured)
+VID = dict(m='en_m_cold', f='en_f_cold', w='en_w_spirit', r='en_r_frost')[g]
+V = json.load(open(os.path.join(E, 'vfx/%s_frames.json' % VID)))
+TIP = dict(m=0.2397, f=0.2186, w=0.2722, r=0.2391)[g]
+TIPL = dict(w=0.2645).get(g)      # the right hand's farthest vertex weighted > 0.5 to RightHand, along the bone's +Y, at rest, metres (measured)
 sha16 = hashlib.sha256(open(body, 'rb').read()).hexdigest()[:16]
 src = lambda c: os.path.basename(G[c]['source']).replace('.glb', '').replace('_', ' ') + ' (Mixamo Pro Magic Pack)'
 man = dict(what='JOIN-1 clip manifest for the %s possessed acolyte (crucible trash caster, roster rig %s) -- lane EN-E2 (drax, R-C9-132/133), read off en_e2/export/final_%s'
@@ -26,7 +28,7 @@ man = dict(what='JOIN-1 clip manifest for the %s possessed acolyte (crucible tra
            death=dict(root='de-rooted at source (the graft\'s +deroot: the hips\' first-to-last ground line removed, the fall kept); hips ground track max %s m from the origin'
                            % dict(m='0.299', f='0.448')[g]),
            vfx_runtime=dict(note='RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). For the KC2 drax.',
-                            atlas=os.path.join(E, 'vfx', V['atlas']), frames=os.path.join(E, 'vfx/en_%s_cold_frames.json' % g),
+                            atlas=os.path.join(E, 'vfx', V['atlas']), frames=os.path.join(E, 'vfx/%s_frames.json' % VID),
                             atlas_px=V['atlas_size'], atlas_sha256=V['sha256'], baked_px_per_m=V['px_per_m'], blend=V['blend'], sizes_m=V['params'],
                             phases={k: dict(fps=v['fps'], frames=v['n'], plane=v['plane'], loop=v['loop'],
                                             max_frame_px=[max(f['rect'][2] for f in v['frames']), max(f['rect'][3] for f in v['frames'])]) for k, v in V['phases'].items()},

@@ -414,13 +414,14 @@ func _vfx_tick(now: float) -> void:
 		if over:
 			mi.queue_free(); vfx_live.erase(e); continue
 		var fr: Dictionary = ph["frames"][fi]
+		var pp := float(ph.get("px_per_m", ppm))
 		var r: Array = fr["rect"]; var off: Array = fr["offset_px"]
 		var p: Vector3 = e["pos"] + (e["dir"] as Vector3) * float(e["vel"]) * dt
 		mi.global_position = p + (Vector3(0, 0.02, 0) if bool(e["ground"]) else Vector3.ZERO)
 		var m: ShaderMaterial = e["mat"]
 		m.set_shader_parameter("region", Vector4(float(r[0]) / aw, float(r[1]) / ah, float(r[2]) / aw, float(r[3]) / ah))
-		m.set_shader_parameter("size_m", Vector2(float(r[2]) / ppm, float(r[3]) / ppm))
-		m.set_shader_parameter("center_m", Vector2((float(off[0]) + float(r[2]) / 2.0) / ppm, -(float(off[1]) + float(r[3]) / 2.0) / ppm))
+		m.set_shader_parameter("size_m", Vector2(float(r[2]) / pp, float(r[3]) / pp))
+		m.set_shader_parameter("center_m", Vector2((float(off[0]) + float(r[2]) / 2.0) / pp, -(float(off[1]) + float(r[3]) / 2.0) / pp))
 		var rot := 0.0
 		if (e["dir"] as Vector3).length() > 0.0 and e["phase"] == "bolt":
 			var a2 := cam.unproject_position(p); var b2 := cam.unproject_position(p + (e["dir"] as Vector3))
@@ -440,6 +441,14 @@ func _vfx_step(step: Dictionary, t_start: float, pos0: Vector3, fwd: Vector3) ->
 		_vfx_spawn("cast", t_start + rel - 0.25, hp)
 		_vfx_spawn("bolt", t_start + rel, start, fwd, spd, rng / spd)
 		_vfx_spawn("burst", t_start + rel + rng / spd, start + fwd * rng)
+	elif String(step["vfx"]) == "slash":
+		_pose(String(step["clip"]), rel, false)
+		var hp2: Vector3 = skel.global_transform * skel.get_bone_global_pose(hand).origin
+		_vfx_spawn("slash", t_start + rel - 0.08, hp2 + fwd * 0.25)
+	elif String(step["vfx"]) == "aura":
+		var lp := float(step["seconds"]) - rel
+		_vfx_spawn("aura", t_start + rel, pos0, Vector3.ZERO, 0.0, lp)
+		_vfx_spawn("ring_burst", t_start + rel, pos0)
 	else:
 		var c := pos0 + fwd * float(step.get("dist", 5.0))
 		var tele := float(vfx["phases"]["ring_tele"]["n"]) / float(vfx["phases"]["ring_tele"]["fps"])

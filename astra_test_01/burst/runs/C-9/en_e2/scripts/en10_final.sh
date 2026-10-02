@@ -5,7 +5,7 @@
 set -e
 cd "$(dirname "$0")/.."
 g=$1; H=$2; TEX=$3
-python3 scripts/58_loop_blend.py build work/${g}_c1.glb work/${g}_c2.glb idle=0:54:8:offset:0,0,1 --json work/${g}_idle_blend.json | grep "build:" | cut -c1-120
+python3 scripts/58_loop_blend.py build work/${g}_c1.glb work/${g}_c2.glb idle=0:54:8:offset:0,0,1 ${=EN_LOOP_EXTRA} --json work/${g}_idle_blend.json | grep "build:" | cut -c1-120
 mkdir -p export/$g
 python3 - $g <<'PY'
 import sys; sys.path.insert(0, 'scripts'); L = __import__('21_lint_export'); R = __import__('49_recentre')

@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 C = __import__('en16_colourlib'); L = __import__('21_lint_export')
 g, cmd = sys.argv[1], sys.argv[2]
-SRC_ATLAS = 'work/%s_tex_final%s.png' % (g, '_ashen' if g == 'f' else '')
+SRC_ATLAS = {'f': 'work/f_tex_final_ashen.png', 'w': 'work/w_tex_spirit.png'}.get(g, 'work/%s_tex_final.png' % g)
 def skin_mask(size):
     js, b = L.load_glb('work/%s_static.glb' % g)
     mn = next(i for i, n in enumerate(js['nodes']) if 'skin' in n and 'mesh' in n)
