@@ -1,0 +1,1 @@
+../../scripts/bm09_mirror.py

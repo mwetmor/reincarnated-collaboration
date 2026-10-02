@@ -1,0 +1,1 @@
+../../scripts/e22_plate_lstar.py

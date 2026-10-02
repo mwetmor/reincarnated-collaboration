@@ -1,0 +1,193 @@
+{
+ "body_rig": {
+  "glb": "../../nb_join/export/nb-body_join.glb",
+  "note": "the JOIN body (d2-ww-barb kit of record: sword weapon_r, axe_l weapon_l), ORIGINAL stance; its own clips dropped (the old whirlwind replaced by whirlwind_dual_* on this set)"
+ },
+ "clips": {
+  "idle": {
+   "source": "mixamo2/glb/ax_standing_idle.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"standing idle\" (one-handed) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "arm_hold": "bm09_mirror arm --frame chest: the LEFT arm chain = the RIGHT arm mirrored through the CHEST's sagittal plane, per key (the off-hand carry). DEFECT found and fixed: the first build mirrored through the ROOT plane while the axe pack walks bladed (chest 14-23 deg turned) -> shoulder width 0.48-0.64 of rest; chest-frame: 0.96-0.99, hands symmetric within 1.2 cm",
+   "weapon_l": "bm12_weapon_mirror --frame root: weapon_l keyed per key so the axe is the sword reflected through his facing plane (the kit seat WL pointed it ACROSS him on the mirrored carry: walk bearing -98 deg, blades 2.6% overlapping)"
+  },
+  "walk": {
+   "source": "mixamo2/glb/ax_standing_walk_forward.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"standing walk forward\" (+1.31 m) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "arm_hold": "bm09_mirror arm --frame chest: the LEFT arm chain = the RIGHT arm mirrored through the CHEST's sagittal plane, per key (the off-hand carry). DEFECT found and fixed: the first build mirrored through the ROOT plane while the axe pack walks bladed (chest 14-23 deg turned) -> shoulder width 0.48-0.64 of rest; chest-frame: 0.96-0.99, hands symmetric within 1.2 cm",
+   "weapon_l": "bm12_weapon_mirror --frame root: weapon_l keyed per key so the axe is the sword reflected through his facing plane (the kit seat WL pointed it ACROSS him on the mirrored carry: walk bearing -98 deg, blades 2.6% overlapping)"
+  },
+  "run": {
+   "source": "mixamo2/glb/ax_standing_run_forward.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"standing run forward\" (+1.75 m) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "arm_hold"
+   ],
+   "loop": true,
+   "arm_hold": "bm09_mirror arm --frame chest: the LEFT arm chain = the RIGHT arm mirrored through the CHEST's sagittal plane, per key (the off-hand carry). DEFECT found and fixed: the first build mirrored through the ROOT plane while the axe pack walks bladed (chest 14-23 deg turned) -> shoulder width 0.48-0.64 of rest; chest-frame: 0.96-0.99, hands symmetric within 1.2 cm",
+   "weapon_l": "bm12_weapon_mirror --frame root: weapon_l keyed per key so the axe is the sword reflected through his facing plane (the kit seat WL pointed it ACROSS him on the mirrored carry: walk bearing -98 deg, blades 2.6% overlapping)"
+  },
+  "attack": {
+   "source": "mixamo2/glb/ax_standing_melee_attack_horizontal.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"melee attack horizontal\" -- the NORMAL attack (A1), main hand (sword) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix",
+    "arm_hold"
+   ],
+   "loop": false,
+   "arm_hold": "bm11_hold_side: the passive LEFT arm (empty in the source) held at the idle carry pose idle@1.0 (local rotations) -- in the source it drives the off-hand axe into his body (chop 49%)",
+   "weapon_l": "bm12 hold idle@1.0 --frame root: weapon_l constant at the idle carry key (the left arm is held at that pose)"
+  },
+  "chop": {
+   "source": "mixamo2/glb/ax_standing_melee_attack_downward.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"melee attack downward\", main hand (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "arm_hold",
+    "joint_fix"
+   ],
+   "loop": false,
+   "arm_hold": "bm11_hold_side: the passive LEFT arm (empty in the source) held at the idle carry pose idle@1.0 (local rotations) -- in the source it drives the off-hand axe into his body (chop 49%)",
+   "weapon_l": "bm12 hold idle@1.0 --frame root: weapon_l constant at the idle carry key (the left arm is held at that pose)"
+  },
+  "backhand": {
+   "source": "mixamo2/glb/ax_standing_melee_attack_backhand.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"melee attack backhand\", main hand (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix",
+    "arm_hold"
+   ],
+   "loop": false,
+   "arm_hold": "bm11_hold_side: the passive LEFT arm (empty in the source) held at the idle carry pose idle@1.0 (local rotations) -- in the source it drives the off-hand axe into his body (chop 49%)",
+   "weapon_l": "bm12 hold idle@1.0 --frame root: weapon_l constant at the idle carry key (the left arm is held at that pose)"
+  },
+  "combo": {
+   "source": "mixamo2/glb/dw_dual_weapon_combo.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "\"Dual Weapon Combo\" (the only dual clip; its 2.08 m lunge de-rooted: in place) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false
+  },
+  "shout": {
+   "source": "mixamo2/glb/ax_standing_taunt_battlecry.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"taunt battlecry\" as the shout (Battle Orders) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "hit": {
+   "source": "mixamo2/glb/ax_standing_react_large_gut.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Pro Melee Axe \"react large gut\" (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix",
+    "arm_hold"
+   ],
+   "loop": false,
+   "arm_hold": "bm11_hold_side: the passive LEFT arm (empty in the source) held at the idle carry pose idle@1.0 (local rotations) -- in the source it drives the off-hand axe into his body (chop 49%)",
+   "weapon_l": "bm12 hold idle@1.0 --frame root: weapon_l constant at the idle carry key (the left arm is held at that pose)"
+  },
+  "death": {
+   "source": "mixamo2/glb/ss_sword_and_shield_death.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Sword and Shield \"death\" (falls back 1.19 m) (Matt R-C9-131/133; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "weapon_clamp"
+   ],
+   "loop": false,
+   "weapon_clamp": "nb_join j_weapon_clamp (no layers): axe_l turned in its grip at 25 keys, floor tol 2 mm, 0 inside; 4 keys 1.87-1.97 s left raw (no clear blade: axe head to -0.178 m)"
+  },
+  "whirlwind_dual_start": {
+   "source": null,
+   "path": "wl_e1 e52_spin_pose + e48_spin (E1 handoff f734570d2)",
+   "note": "AUTHORED (R-C9-133): one frame of idle@1.0 (this set), arms extended by named edits (--R 0.848,90,1.204 --L 0.848,-90,1.204 --blade-out --roll --roll-trail Left --wrist-max 30 --reaim --elbow-max 166), spun rigidly CCW, 0.2 s to 1350 deg/s; weapons keyed"
+  },
+  "whirlwind_dual_loop": {
+   "source": null,
+   "path": "wl_e1 e52_spin_pose + e48_spin",
+   "loop": true,
+   "grid_source": "mixamo2/glb/ax_standing_idle.glb",
+   "grid_window": [
+    0.03333333333333333,
+    0.3
+   ],
+   "note": "AUTHORED (R-C9-133): the same frame, 3.75 rev/s, 8 x 45 deg, closes exactly; keyed on the idle source 30 fps grid"
+  }
+ }
+}

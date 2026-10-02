@@ -1,0 +1,1 @@
+../../scripts/s15_manifest_p2.py

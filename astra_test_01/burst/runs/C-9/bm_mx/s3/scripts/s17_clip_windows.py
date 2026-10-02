@@ -1,0 +1,1 @@
+../../scripts/s17_clip_windows.py

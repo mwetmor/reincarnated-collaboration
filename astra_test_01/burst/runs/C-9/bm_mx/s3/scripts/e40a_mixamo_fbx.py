@@ -1,0 +1,1 @@
+../../scripts/e40a_mixamo_fbx.py

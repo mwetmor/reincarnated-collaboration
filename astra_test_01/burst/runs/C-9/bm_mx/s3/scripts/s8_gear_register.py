@@ -1,0 +1,1 @@
+../../scripts/s8_gear_register.py

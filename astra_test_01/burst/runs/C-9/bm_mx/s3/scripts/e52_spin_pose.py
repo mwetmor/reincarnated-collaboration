@@ -1,0 +1,1 @@
+../../../wl_e1/scripts/e52_spin_pose.py

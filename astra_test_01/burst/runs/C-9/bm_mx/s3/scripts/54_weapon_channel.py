@@ -1,0 +1,1 @@
+../../scripts/54_weapon_channel.py

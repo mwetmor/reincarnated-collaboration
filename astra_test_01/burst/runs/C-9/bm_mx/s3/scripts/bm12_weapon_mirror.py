@@ -1,0 +1,1 @@
+../../scripts/bm12_weapon_mirror.py

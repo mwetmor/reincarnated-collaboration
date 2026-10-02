@@ -1,0 +1,1 @@
+../../scripts/bm_e48_spin.py

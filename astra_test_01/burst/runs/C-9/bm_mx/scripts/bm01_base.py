@@ -27,6 +27,9 @@ for s in js['skins']:
 for a in js['animations']:
     for s in a['samplers']: used.update([s['input'], s['output']])
 bvs_used = {js['accessors'][i]['bufferView'] for i in used if 'bufferView' in js['accessors'][i]}
+# DEFECT FIX (stage 3, 2026-10-02): SPARSE accessors (the JOIN/Viking bodies' morph targets helmet_on / grip_R / grip_L) keep their data in
+# sparse.indices / sparse.values bufferViews -- the first version neither kept nor remapped them (Godot: "Sparse indices size does not match")
+bvs_used |= {js['accessors'][i]['sparse'][k]['bufferView'] for i in used if 'sparse' in js['accessors'][i] for k in ('indices', 'values')}
 bvs_used |= {im['bufferView'] for im in js.get('images', []) if 'bufferView' in im}
 nb = bytearray(); bvmap = {}
 for i, bv in enumerate(js['bufferViews']):
@@ -41,6 +44,9 @@ accs = []
 for o in acc_order:
     a = dict(js['accessors'][o])
     if 'bufferView' in a: a['bufferView'] = newbv[a['bufferView']]
+    if 'sparse' in a:
+        a['sparse'] = json.loads(json.dumps(a['sparse']))
+        for k in ('indices', 'values'): a['sparse'][k]['bufferView'] = newbv[a['sparse'][k]['bufferView']]
     accs.append(a)
 js['accessors'] = accs
 for m in js['meshes']:

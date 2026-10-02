@@ -1,0 +1,1 @@
+../../scripts/s7_brief.py

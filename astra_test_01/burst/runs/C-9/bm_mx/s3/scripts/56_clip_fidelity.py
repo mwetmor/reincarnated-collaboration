@@ -1,0 +1,1 @@
+../../scripts/56_clip_fidelity.py

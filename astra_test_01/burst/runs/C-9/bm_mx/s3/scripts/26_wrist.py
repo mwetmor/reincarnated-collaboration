@@ -1,0 +1,1 @@
+../../scripts/26_wrist.py

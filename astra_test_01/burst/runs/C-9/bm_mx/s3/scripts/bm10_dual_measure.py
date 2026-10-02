@@ -1,0 +1,1 @@
+../../scripts/bm10_dual_measure.py

@@ -1,0 +1,1 @@
+../../scripts/e45_sprite_measure.py

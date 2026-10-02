@@ -1,0 +1,1 @@
+../../scripts/bm_e12_weapon.py

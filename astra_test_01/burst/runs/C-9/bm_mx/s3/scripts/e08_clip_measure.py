@@ -1,0 +1,1 @@
+../../scripts/e08_clip_measure.py

@@ -1,0 +1,35 @@
+{
+ "mode": "arm",
+ "frame": "chest",
+ "rest_asym_m": 0.0084,
+ "clips": {
+  "idle": {
+   "keys": 55,
+   "joints": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  },
+  "walk": {
+   "keys": 41,
+   "joints": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  },
+  "run": {
+   "keys": 23,
+   "joints": [
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand"
+   ]
+  }
+ },
+ "lint": "WARN"
+}

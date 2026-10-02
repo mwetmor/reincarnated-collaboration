@@ -1,0 +1,1 @@
+../../scripts/42_qa_clip.py

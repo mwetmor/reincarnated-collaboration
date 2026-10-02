@@ -1,0 +1,1 @@
+../../scripts/t5_01_paint_sheet.py

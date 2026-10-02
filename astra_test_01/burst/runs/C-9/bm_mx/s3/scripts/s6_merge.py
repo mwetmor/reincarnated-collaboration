@@ -1,0 +1,1 @@
+../../scripts/s6_merge.py

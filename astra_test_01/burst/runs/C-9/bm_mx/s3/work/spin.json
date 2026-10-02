@@ -1,0 +1,23 @@
+{
+ "pose": "spin_pose@0.0000",
+ "start": {
+  "name": "whirlwind_dual_start",
+  "seconds": 0.2,
+  "keys": 7,
+  "turn_deg": 135.0,
+  "exit_speed_deg_s": 1350.0
+ },
+ "loop": {
+  "name": "whirlwind_dual_loop",
+  "seconds": 0.266667,
+  "keys": 9,
+  "deg_per_key": 45.0,
+  "rev_per_s": 3.75,
+  "direction": "CCW from above (+Y)"
+ },
+ "joints": 26,
+ "weapons_keyed": [
+  "weapon_r",
+  "weapon_l"
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "kit": "d2-ww-barb (R-C9-133: dual wield of record -- sword main hand R, axe off hand L)",
+ "body": {
+  "file": "nb-body_join_mx.glb",
+  "sha256": "6a144e93b1c04ceaf1c4bf3a50b171b79788ff18898bbf163604ef67e451773d",
+  "from": "nb_join/export/nb-body_join.glb (its mesh, skin, morphs, texture byte-identical; its clips replaced)"
+ },
+ "pieces": {
+  "byrnie": "nb_d2/export_staging/T12_10_strafes",
+  "helmet": "nb_d2/export_staging/T12_10_strafes",
+  "mantle": "nb_d2/export_staging/T12_10_strafes",
+  "bracers": "nb_d2/export_staging/T12_10_strafes",
+  "sword": "nb_w2/export (weapon_r)",
+  "axe_l": "nb_d2/export_staging/JOIN_hold_v3 (weapon_l)",
+  "_note": "byte-identical to the kit's sources (join1_render/kits/d2-ww-barb.json); joint node order == body; weapon_mount.json = nb_join/export's (R-C9-115 re-seat draft)"
+ },
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "length_s": 1.8
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "length_s": 1.3333,
+   "speed_m_s": 0.955,
+   "speed_rule": "scene foot-lock (s18: stance by the lower toe, ankle speed)"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "length_s": 0.7333,
+   "speed_m_s": 2.148,
+   "speed_rule": "scene foot-lock (s18)"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "length_s": 2.4,
+   "strike_s": 0.9333,
+   "_note": "A1 normal attack: Pro Melee Axe horizontal, sword (main hand)"
+  },
+  "combo": {
+   "clip": "combo",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "length_s": 3.6333,
+   "strikes_s": {
+    "axe_l": 0.7333,
+    "sword": 1.1
+   },
+   "_note": "Dual Weapon Combo, in place (its 2.08 m lunge de-rooted)"
+  },
+  "chop": {
+   "clip": "chop",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "length_s": 2.2667,
+   "strike_s": 0.8333
+  },
+  "backhand": {
+   "clip": "backhand",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "length_s": 3.1667,
+   "strike_s": 1.0333
+  },
+  "shout": {
+   "clip": "shout",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "length_s": 2.8333,
+   "release_s": 1.2667,
+   "_note": "taunt battlecry; release = the roar (chin highest, 68.5 deg) at 0.45 of the clip; the law's tick 9 of 13 = 0.69 -- the port warps [0,r] and [r,N-1] separately"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "length_s": 1.4667
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "length_s": 2.3
+  },
+  "whirlwind": {
+   "clip": "whirlwind_dual_loop",
+   "start_clip": "whirlwind_dual_start",
+   "kind": "loop",
+   "role": "channel_loop",
+   "length_s": 0.2667,
+   "rev_s": 3.75,
+   "_note": "E1 recipe (e52 + e48, f734570d2) on this set's idle@1.0"
+  }
+ },
+ "clip_sources": "clip_sources.json"
+}

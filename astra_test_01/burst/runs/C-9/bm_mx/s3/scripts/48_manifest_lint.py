@@ -1,0 +1,1 @@
+../../scripts/48_manifest_lint.py

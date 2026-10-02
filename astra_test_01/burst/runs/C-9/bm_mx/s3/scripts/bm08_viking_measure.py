@@ -1,0 +1,1 @@
+../../scripts/bm08_viking_measure.py

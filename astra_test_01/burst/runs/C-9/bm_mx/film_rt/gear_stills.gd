@@ -220,7 +220,7 @@ func _dress(on: Array) -> void:
 func _kind(mi: MeshInstance3D) -> Color:
 	var p := String(piece_of[mi])
 	if p == "": return Color(1, 0, 0)
-	if p in ["staff", "circlet", "wand", "grimoire", "wl_mace", "bm_maul"]: return Color(0, 1, 0)
+	if p in ["staff", "circlet", "wand", "grimoire", "wl_mace", "bm_maul", "sword", "axe_l", "axe", "shield"]: return Color(0, 1, 0)
 	return Color(0, 0, 1)
 
 func _set_mode(mode: String) -> void:

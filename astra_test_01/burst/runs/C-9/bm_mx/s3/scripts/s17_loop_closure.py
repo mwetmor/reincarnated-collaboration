@@ -1,0 +1,1 @@
+../../scripts/s17_loop_closure.py

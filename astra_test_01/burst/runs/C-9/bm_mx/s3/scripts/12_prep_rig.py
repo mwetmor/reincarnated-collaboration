@@ -1,0 +1,1 @@
+../../scripts/12_prep_rig.py

@@ -1,0 +1,1 @@
+../../scripts/s18_release.py

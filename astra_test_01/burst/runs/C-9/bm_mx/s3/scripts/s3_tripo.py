@@ -1,0 +1,1 @@
+../../scripts/s3_tripo.py

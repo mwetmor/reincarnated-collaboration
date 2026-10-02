@@ -1,0 +1,1 @@
+../../scripts/e12_weapon.py

@@ -1,0 +1,1 @@
+../../scripts/02_gear_register.py

@@ -1,0 +1,25 @@
+{
+ "status": "PARKED 2026-10-01 ~23:00 by the conductor (R-C9-133: the arena barbarian is DUAL WIELD; stage 3 first)",
+ "state": "Viking T12_11 base (s2/work/v0.glb) + 18 Mixamo candidates grafted (s2/work/c0.glb, lint WARN 0 fails); measured once (s2/work/viking_c0.json); no joint lint/fixes, no weapon work, no Godot",
+ "picks": {
+  "walk": "ss walk (forward; walk (2) BACKWARD)",
+  "run": "ss run (forward; run (2) BACKWARD)",
+  "strafe_L": "ss strafe (2) (+X)",
+  "strafe_R": "ss strafe (-X)",
+  "block": "ss block idle (loop) + ss block (one-shot)",
+  "attack": "ax horizontal",
+  "chop": "ax downward",
+  "warcry": "ax taunt battlecry",
+  "hit": "ss impact (3)",
+  "death": "ss death (falls back 1.19 m)"
+ },
+ "findings": {
+  "FIST": "every Mixamo sword-and-shield clip holds both grips WIDE of T12's aim: idle 1.82 R / 1.58 L, walk 1.64/1.75, block 2.94/1.74 (aim 0.78, Matt ~1.0) -- Mixamo carries the sword arm out at the side",
+  "axe on the S&S idle (4)": "the axe head sits in his helmet/mantle (up to 9.9%/13.7% of axe vertices): the sword's rest-on-shoulder carry does not suit the axe's head",
+  "EDGE": "attack (horizontal) PASS cos 1.00/0.885; chop (downward) PASS 0.993/0.994; spin_high PASS 0.987/0.963; backhand FAIL -0.93 (the POLL leads: needs a 180 deg haft turn, i.e. a weapon_r channel, for that clip)",
+  "TTI": "FAIL on every axe-pack attack: strike at 0.87-1.07 s (T12 <= 0.8 s) -- the Mixamo axe attacks wind up long",
+  "shield": "faces within 5 deg of square on idle (4) (|cos| 0.91) and 21 deg in block_idle (0.87): the hand-seated shield reads square; no shield-in-body beyond 0.4% on idle/walk/block",
+  "guard layer": "T12_11's axe_guard_R (0.85) and shield_guard_L would override these clips' arms in the scene; a Mixamo set implies removing/reweighting those layers in character.json (integration, not this lane)"
+ },
+ "resume": "joint lint + 63 fixes; an axe carry for idle (lower the head off the shoulder); backhand weapon_r turn; decide TTI (trim wind-up vs accept); Godot sheet/film"
+}

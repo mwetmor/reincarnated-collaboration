@@ -1,0 +1,1 @@
+../../scripts/30_armed_stills.py
