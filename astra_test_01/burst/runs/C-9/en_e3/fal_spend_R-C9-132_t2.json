@@ -1,0 +1,23 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $2.50 (fal_spend_R-C9-132_t2, lane EN-E3 tier 2: the referent priority list: servitor, rhino, larva/worm, bone golem), cap set by the conductor's tier-2 message.",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Opened 2026-10-02 after round 2 closed at $1.2069 of its own $2.00 (fal_spend_R-C9-132_r2.json).",
+ "budget_usd": 2.5,
+ "entries": [
+  {
+   "ts": "2026-10-02T13:04:24+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN3 matte EN3-VD_b.png",
+   "usd": 0.00232,
+   "wall_s": 2.9
+  },
+  {
+   "ts": "2026-10-02T13:07:21+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 t2 voiddrone base Tripo build",
+   "usd": 0.4,
+   "wall_s": 173.22
+  }
+ ],
+ "running_usd": 0.4023
+}

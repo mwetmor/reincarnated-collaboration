@@ -21,6 +21,34 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'voiddrone': dict(type_id='chthonianservitor', tid='EN3-VD', marker='the brass band on its LEFT scythe-arm', body='a huge many-legged insect',
+   pose=("POSE (for building and rigging a 3D model): standing still and level on its SIX walking legs in a neutral pose, the legs spread evenly, "
+         "three on each side, each rising to a high bent knee and down to a point on the ground, with clear gaps of green between neighbouring legs "
+         "and under the body in every view. The two great scythe-arms held folded forward in front of the head, raised CLEAR of the ground, a gap of "
+         "green between each arm and the body and between the two arms. The head level, the mandibles CLOSED. Nothing overlaps anything."),
+   text="""THE CREATURE, a VOID DRONE: a huge insect-thing of the deep crypt, a servant of whatever is under the cathedral. It skewers prey with its scythe-arms, spits bursts of blood-black venom, and rears up to call pools of blood out of the floor.
+- SIZE AND BUILD: very large and heavy, like a horse-sized beetle crossed with a mantis: the body about 2.2 m long, its back about 1.4 m from the ground. A broad armoured THORAX at the front and a big swollen ABDOMEN behind, both one hard shell; seen from above it reads as a long oval with a smaller head at the front.
+- THE HEAD: low and wedge-shaped, armoured, with a cluster of six small dull crimson eyes and two heavy hooked MANDIBLES, closed.
+- THE SHELL: glossy-looking (painted matte) black-violet chitin plates with thin dull-crimson seams between them, the plates edged with small pale bone-like ridges; on the abdomen three rows of short blunt spines.
+- SIX WALKING LEGS, three on each side, long, jointed and thin, black-violet with crimson joints, each ending in a sharp point.
+- TWO great SCYTHE-ARMS in front, each a long jointed limb ending in a curved serrated blade of pale bone, folded forward like a mantis.
+- ASYMMETRY MARKER: a corroded BRASS BAND engraved with hour-marks clamped around the LEFT scythe-arm ONLY, near its elbow. It shows in every view where the left scythe-arm is visible, never on the right.
+- Nothing else on it: no wings, no rider, no chains, no cloth.
+"""),
+
+ 'parasite': dict(type_id='leech', tid='EN3-PZ', marker='the brass ring around its LEFT side', body='a long segmented crawling worm',
+   pose=("POSE (for building and rigging a 3D model): lying straight and still along the ground in a neutral pose, the whole body in one straight "
+         "line from the maw to the tail, the front third lifted only slightly, the maw CLOSED (a puckered ring), the tail straight out behind. "
+         "No coils, no curves. In the front and back views the body is seen end-on. Nothing overlaps anything."),
+   text="""THE CREATURE, a VOID PARASITE: a huge segmented leech-thing that crawls up out of the crypt drains. It lunges and fastens its sucker maw onto prey to drink, spits clots of black bile, and saps the life of anyone near it.
+- SIZE AND BUILD: long and heavy, about 3.2 m from the front of the maw to the tail tip and about 0.7 m thick at its widest (a third of the way back), tapering to a blunt tail. It lies low on the ground: the top of its back about 0.75 m high.
+- THE BODY: made of TWELVE clear, ringed SEGMENTS, each a fat band separated by a deep groove, like a leech or a grub. The back is a wet-looking (painted matte) dark bruise-violet and slate, with a row of small pale bony knobs down the middle of each segment; the belly flatter and a paler sickly grey-ivory.
+- THE MAW at the front end: a wide round SUCKER disc as broad as the body, ringed with three circles of small pale hooked teeth, CLOSED in this sheet as a puckered ring; around the rim six short fleshy feelers. No eyes; a few small pale pits above the maw.
+- Along the lower flanks, rows of short, stubby, fleshy bristle-feet (like a millipede's, very short, under the body).
+- ASYMMETRY MARKER: a corroded BRASS RING engraved with hour-marks clamped tightly around the body at its LEFT side ONLY -- a brass band sunk into the LEFT flank of the fourth segment, showing on the left flank, never on the right.
+- Nothing else on it: no rider, no chains, no wings, no cloth.
+"""),
+
  'glutton': dict(type_id='aetherialbloater', tid='EN3-GL', marker='the brass manacle on its LEFT wrist', body='a hunched two-legged brute',
    pose=("POSE (for building and rigging a 3D model): standing still on its two legs in a neutral pose, hunched forward as it naturally stands, "
          "the legs straight-ish and apart under the hips, the feet flat and pointing forward, so a clear gap of green shows between the legs in the "

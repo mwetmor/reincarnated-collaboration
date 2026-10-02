@@ -1,0 +1,542 @@
+{
+ "landmarks": {
+  "H": 1.9470924139022827,
+  "cy": -0.024172193370759487,
+  "z_under": 0.6688000476360321,
+  "z_top": 1.8009048700332642,
+  "feet": {
+   "L1": {
+    "x": 0.927387535572052,
+    "y": -1.1990900039672852,
+    "n": 33
+   },
+   "L2": {
+    "x": 0.7472269535064697,
+    "y": 0.07441748306155205,
+    "n": 42
+   },
+   "L3": {
+    "x": 0.3936545252799988,
+    "y": 0.36493128538131714,
+    "n": 13
+   },
+   "L4": {
+    "x": 0.983178973197937,
+    "y": 1.1968276500701904,
+    "n": 27
+   },
+   "R1": {
+    "x": -0.9259935915470123,
+    "y": -1.196671187877655,
+    "n": 30
+   },
+   "R2": {
+    "x": -0.7522078156471252,
+    "y": 0.08000146597623825,
+    "n": 29
+   },
+   "R3": {
+    "x": -0.3905700445175171,
+    "y": 0.36587151885032654,
+    "n": 13
+   },
+   "R4": {
+    "x": -0.9842403531074524,
+    "y": 1.1931028366088867,
+    "n": 28
+   }
+  },
+  "leg_L1": {
+   "joint": [
+    0.2788067479408291,
+    -0.3773956315832584,
+    0.748800047636032
+   ],
+   "knee": [
+    0.5382390629933183,
+    -0.7060733805368691,
+    0.9518664216995238
+   ],
+   "ankle": [
+    0.8365862253036807,
+    -1.0840527918335214,
+    0.36225003004074097
+   ],
+   "toe": [
+    0.927387535572052,
+    -1.1990900039672852,
+    0.02
+   ],
+   "chain_len": 1.2266,
+   "rest_reach": 0.9797,
+   "pole_angle_deg": 156.0,
+   "pole_rest_err": 0.09722
+  },
+  "leg_L2": {
+   "joint": [
+    0.44613352840436366,
+    0.034690994051200734,
+    0.748800047636032
+   ],
+   "knee": [
+    0.566570898445206,
+    0.050581589655341264,
+    0.922494796514511
+   ],
+   "ankle": [
+    0.7050738739921749,
+    0.06885577460010286,
+    0.3751474767923355
+   ],
+   "toe": [
+    0.7472269535064697,
+    0.07441748306155205,
+    0.02
+   ],
+   "chain_len": 0.7769,
+   "rest_reach": 0.4559,
+   "pole_angle_deg": -40.0,
+   "pole_rest_err": 0.161
+  },
+  "leg_L3": {
+   "joint": [
+    0.3200426828895313,
+    0.2921704707276369,
+    0.748800047636032
+   ],
+   "knee": [
+    0.3494874198457183,
+    0.321274796589109,
+    0.8171387469768524
+   ],
+   "ankle": [
+    0.38334886734533336,
+    0.3547447713298019,
+    0.4687800854444504
+   ],
+   "toe": [
+    0.3936545252799988,
+    0.36493128538131714,
+    0.02
+   ],
+   "chain_len": 0.4315,
+   "rest_reach": 0.2938,
+   "pole_angle_deg": -64.0,
+   "pole_rest_err": 0.04478
+  },
+  "leg_L4": {
+   "joint": [
+    0.28222791421659393,
+    0.32632374731465114,
+    0.748800047636032
+   ],
+   "knee": [
+    0.5626083378091311,
+    0.6745253084168669,
+    0.9492258644104004
+   ],
+   "ankle": [
+    0.8850458249405488,
+    1.0749571036844148,
+    0.3965423107147217
+   ],
+   "toe": [
+    0.983178973197937,
+    1.1968276500701904,
+    0.02
+   ],
+   "chain_len": 1.2448,
+   "rest_reach": 1.0237,
+   "pole_angle_deg": 98.0,
+   "pole_rest_err": 0.05414
+  },
+  "leg_R1": {
+   "joint": [
+    -0.27890236030868276,
+    -0.37732014170721195,
+    0.748800047636032
+   ],
+   "knee": [
+    -0.5377388528040146,
+    -0.7050605601753892,
+    0.9399134135246277
+   ],
+   "ankle": [
+    -0.8354008191736462,
+    -1.0819620414137932,
+    0.3861229866743088
+   ],
+   "toe": [
+    -0.9259935915470123,
+    -1.196671187877655,
+    0.02
+   ],
+   "chain_len": 1.1923,
+   "rest_reach": 0.9684,
+   "pole_angle_deg": 26.0,
+   "pole_rest_err": 0.02101
+  },
+  "leg_R2": {
+   "joint": [
+    -0.4457456841820035,
+    0.037559362847414644,
+    0.748800047636032
+   ],
+   "knee": [
+    -0.5683305367680522,
+    0.05453620409894409,
+    0.9193750298023223
+   ],
+   "ankle": [
+    -0.7093031172420081,
+    0.07405957153820295,
+    0.357805460691452
+   ],
+   "toe": [
+    -0.7522078156471252,
+    0.08000146597623825,
+    0.02
+   ],
+   "chain_len": 0.7901,
+   "rest_reach": 0.4729,
+   "pole_angle_deg": -138.0,
+   "pole_rest_err": 0.01775
+  },
+  "leg_R3": {
+   "joint": [
+    -0.3184125256068477,
+    0.2938112394314362,
+    0.748800047636032
+   ],
+   "knee": [
+    -0.3472755331711154,
+    0.32263535119899234,
+    0.8182066297531128
+   ],
+   "ankle": [
+    -0.3804679918700234,
+    0.3557830797316819,
+    0.4697871208190918
+   ],
+   "toe": [
+    -0.3905700445175171,
+    0.36587151885032654,
+    0.02
+   ],
+   "chain_len": 0.4321,
+   "rest_reach": 0.2925,
+   "pole_angle_deg": -116.0,
+   "pole_rest_err": 0.06335
+  },
+  "leg_R4": {
+   "joint": [
+    -0.2829354912568649,
+    0.32575280971881193,
+    0.748800047636032
+   ],
+   "knee": [
+    -0.5634574359970999,
+    0.6726928204748419,
+    0.9463947510719299
+   ],
+   "ankle": [
+    -0.8860576724483701,
+    1.0716738328442763,
+    0.4075775444507599
+   ],
+   "toe": [
+    -0.9842403531074524,
+    1.1931028366088867,
+    0.02
+   ],
+   "chain_len": 1.232,
+   "rest_reach": 1.0181,
+   "pole_angle_deg": 82.0,
+   "pole_rest_err": 0.04746
+  },
+  "claw_L": {
+   "shoulder": [
+    0.4,
+    -0.95,
+    0.95
+   ],
+   "elbow": [
+    0.6532156467437744,
+    -0.9404129981994629,
+    1.9455496072769165
+   ],
+   "wrist": [
+    0.7092950344085693,
+    -1.142520785331726,
+    1.389404296875
+   ],
+   "tip": [
+    0.9747560024261475,
+    -1.6379834413528442,
+    0.4832635223865509
+   ]
+  },
+  "claw_R": {
+   "shoulder": [
+    -0.4,
+    -0.95,
+    0.95
+   ],
+   "elbow": [
+    -0.6542053818702698,
+    -0.9367765784263611,
+    1.9470924139022827
+   ],
+   "wrist": [
+    -0.6998435258865356,
+    -1.1495225429534912,
+    1.3204047679901123
+   ],
+   "tip": [
+    -0.9816058874130249,
+    -1.64163339138031,
+    0.48978227376937866
+   ]
+  },
+  "weights": {
+   "method": "rigid shell core (ellipse 0.50 x 1.20 m) + gated inverse-distance^4, top 3",
+   "core_verts": 11798
+  },
+  "texture": {
+   "path": "work/tex_voiddrone_V.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "leg_L1_1",
+   "leg_L1_2",
+   "leg_L1_3",
+   "leg_L2_1",
+   "leg_L2_2",
+   "leg_L2_3",
+   "leg_L3_1",
+   "leg_L3_2",
+   "leg_L3_3",
+   "leg_L4_1",
+   "leg_L4_2",
+   "leg_L4_3",
+   "leg_R1_1",
+   "leg_R1_2",
+   "leg_R1_3",
+   "leg_R2_1",
+   "leg_R2_2",
+   "leg_R2_3",
+   "leg_R3_1",
+   "leg_R3_2",
+   "leg_R3_3",
+   "leg_R4_1",
+   "leg_R4_2",
+   "leg_R4_3",
+   "claw_L_1",
+   "claw_L_2",
+   "claw_L_3",
+   "claw_R_1",
+   "claw_R_2",
+   "claw_R_3"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 41,
+   "ik_residual_max_m": 0.0154,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    38,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 17,
+   "ik_residual_max_m": 0.1132,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    1,
+    [
+     -0.751,
+     -0.027,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 11
+  },
+  "run": {
+   "frames": 11,
+   "ik_residual_max_m": 0.1373,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    1,
+    [
+     -0.751,
+     0.036,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 10
+  },
+  "attack_impale": {
+   "frames": 31,
+   "ik_residual_max_m": 0.0091,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    10,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_slash": {
+   "frames": 30,
+   "ik_residual_max_m": 0.0046,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    10,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_spit": {
+   "frames": 32,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    4,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_rear": {
+   "frames": 44,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    41,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "hit": {
+   "frames": 16,
+   "ik_residual_max_m": 0.0045,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    14,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 30,
+   "ik_residual_max_m": 0.1409,
+   "min_z_m": -0.0,
+   "worst_frame_vertex": [
+    3,
+    [
+     -0.751,
+     0.086,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "roster combat idle; ours 40f: shell breathing, scythe sway and one snap, restless toe-taps"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 16,
+   "speed": 1.6,
+   "duty": 0.55,
+   "src": "roster walkSpeed 1.05-1.1 has no stated base -- 1.6 m/s INFERRED; 0.53 s cycle (4 legs a side, short chains: the stride stays in reach)"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 10,
+   "speed": 3.37,
+   "duty": 0.45,
+   "src": "roster servitor trash run 3.37 m/s (characterRunSpeed 1.05 x K4-0); 0.33 s cycle"
+  },
+  "attack_impale": {
+   "kind": "oneshot",
+   "kind_fn": "slam",
+   "frames": 31,
+   "contact": 18,
+   "src": "impale (melee 0-3.04 m, bleeding): attack_c01 37f x0.85 rel f18"
+  },
+  "attack_slash": {
+   "kind": "oneshot",
+   "kind_fn": "strike",
+   "frames": 30,
+   "contact": 12,
+   "src": "a single-scythe sideways slash (melee variant)"
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 32,
+   "release": 16,
+   "hold": 6,
+   "src": "spit burst (projectile 14 metres per second): attackspittriple_a01 36f x0.9 rel f16"
+  },
+  "cast_rear": {
+   "kind": "oneshot",
+   "kind_fn": "rear",
+   "frames": 44,
+   "release": 28,
+   "hold": 10,
+   "src": "the casting stance (blood pool lob): cast_a01 44f rel f28"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 16,
+   "src": "gethit"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death"
+  }
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "name": "voiddrone",
+ "type_id": "chthonianservitor",
+ "legs_per_side": 4,
+ "foot_band": 0.05,
+ "shell_r": 0.45,
+ "core_ellipse": [
+  0.5,
+  1.2
+ ],
+ "claw_xmax": 1.2,
+ "claw_y0": 0.55,
+ "eye_x": 0.0,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "roster combat idle; ours 40f: shell breathing, scythe sway and one snap, restless toe-taps"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 16,
+   "speed": 1.6,
+   "duty": 0.55,
+   "src": "roster walkSpeed 1.05-1.1 has no stated base -- 1.6 m/s INFERRED; 0.53 s cycle (4 legs a side, short chains: the stride stays in reach)"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 10,
+   "speed": 3.37,
+   "duty": 0.45,
+   "src": "roster servitor trash run 3.37 m/s (characterRunSpeed 1.05 x K4-0); 0.33 s cycle"
+  },
+  "attack_impale": {
+   "kind": "oneshot",
+   "kind_fn": "slam",
+   "frames": 31,
+   "contact": 18,
+   "src": "impale (melee 0-3.04 m, bleeding): attack_c01 37f x0.85 rel f18"
+  },
+  "attack_slash": {
+   "kind": "oneshot",
+   "kind_fn": "strike",
+   "frames": 30,
+   "contact": 12,
+   "src": "a single-scythe sideways slash (melee variant)"
+  },
+  "cast_spit": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 32,
+   "release": 16,
+   "hold": 6,
+   "src": "spit burst (projectile 14 metres per second): attackspittriple_a01 36f x0.9 rel f16"
+  },
+  "cast_rear": {
+   "kind": "oneshot",
+   "kind_fn": "rear",
+   "frames": 44,
+   "release": 28,
+   "hold": 10,
+   "src": "the casting stance (blood pool lob): cast_a01 44f rel f28"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 16,
+   "src": "gethit"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death"
+  }
+ },
+ "claw_mode": "scythe",
+ "claw_xmin": 0.42,
+ "claw_ymax": -0.75,
+ "claw_zmin": 0.45,
+ "claw_root_x": 0.4,
+ "claw_root_y": -0.95,
+ "claw_root_z": 0.95,
+ "rigid_islands": false,
+ "island_frac": 0.06,
+ "knee_zmax": 1.0,
+ "weight_smooth": 16,
+ "claw_tip_y": -1.3,
+ "scythe_rigid": true,
+ "texture": "work/tex_voiddrone_V.png",
+ "_scale_note": "built at 3.6 m long (n17 s_fit 1.16 with the canvas, binding cast_rear f14); the conductor size call: one base mesh, max-fit; true sizes by record in the kit (true_size block)"
+}

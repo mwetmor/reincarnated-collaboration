@@ -1,0 +1,145 @@
+{
+ "creature": "voiddrone",
+ "effects": [
+  {
+   "id": "voiddrone_impale_impact",
+   "atlas": "voiddrone_impale_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.4933,
+    1.4933
+   ],
+   "px_per_m": 171.429,
+   "plane": "billboard",
+   "pivot": "centre = the scythe tips at contact",
+   "ability": "chthonianservitor_impale (melee 0-3.04 m, bleeding)",
+   "trigger": "attack_impale contact f18",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "voiddrone_spit_orb",
+   "atlas": "voiddrone_spit_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    96,
+    96
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    0.32,
+    0.32
+   ],
+   "px_per_m": 300.0,
+   "plane": "billboard",
+   "pivot": "centre = the spit in flight (body r 0.1 m; three per burst)",
+   "ability": "spit burst (projectile 14 metres per second)",
+   "trigger": "cast_spit release f16 at the mandibles, x3 fanned",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "voiddrone_spit_splash",
+   "atlas": "voiddrone_spit_splash.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.6364,
+    1.6364
+   ],
+   "px_per_m": 117.333,
+   "plane": "billboard",
+   "pivot": "centre = the impact point (area 1.5 m)",
+   "ability": "spit burst impact",
+   "trigger": "on impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "voiddrone_bloodpool",
+   "atlas": "voiddrone_bloodpool.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 20,
+   "duration_s": 0.8,
+   "cell_m": [
+    5.0526,
+    5.0526
+   ],
+   "px_per_m": 63.333,
+   "plane": "ground",
+   "pivot": "centre = the target point (area r 2.4 m; the 10-15 s field is a runtime tint)",
+   "ability": "bloodpool (lobbed area, from the casting stance)",
+   "trigger": "cast_rear release f28",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "voiddrone_chaoswave",
+   "atlas": "voiddrone_chaoswave.png",
+   "frames": 20,
+   "grid": [
+    4,
+    5
+   ],
+   "cell_px": [
+    1024,
+    192
+   ],
+   "fps": 24,
+   "duration_s": 0.8333,
+   "cell_m": [
+    18.2044,
+    3.4133
+   ],
+   "px_per_m": 56.25,
+   "plane": "ground",
+   "pivot": "left-middle (the head, projected)",
+   "ability": "triple chaos wave (boss record only: wave 16 m x 2 m)",
+   "trigger": "boss variant: cast_spit release f16",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

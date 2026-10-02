@@ -129,6 +129,18 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'voiddrone': [
+  dict(id='voiddrone_impale_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.7, col=(150, 30, 36), dark=(80, 14, 20),
+       plane='billboard', pivot='centre = the scythe tips at contact', ability='chthonianservitor_impale (melee 0-3.04 m, bleeding)', trigger='attack_impale contact f18'),
+  dict(id='voiddrone_spit_orb', fn='orb', n=8, fps=20, cols=4, S=96, radius_m=0.14, col=(112, 22, 34), dark=(54, 10, 18),
+       plane='billboard', pivot='centre = the spit in flight (body r 0.1 m; three per burst)', ability='spit burst (projectile 14 metres per second)', trigger='cast_spit release f16 at the mandibles, x3 fanned'),
+  dict(id='voiddrone_spit_splash', fn='impact', n=8, fps=30, cols=4, S=192, radius_m=0.75, col=(130, 26, 34), dark=(70, 12, 20),
+       plane='billboard', pivot='centre = the impact point (area 1.5 m)', ability='spit burst impact', trigger='on impact'),
+  dict(id='voiddrone_bloodpool', fn='ring', n=16, fps=20, cols=4, S=320, radius_m=2.4, col=(132, 24, 34), dark=(70, 10, 18),
+       plane='ground', pivot='centre = the target point (area r 2.4 m; the 10-15 s field is a runtime tint)', ability='bloodpool (lobbed area, from the casting stance)', trigger='cast_rear release f28'),
+  dict(id='voiddrone_chaoswave', fn='spray', n=20, fps=24, cols=4, W=1024, H=192, length_m=16.0, width_m=2.0, col=(108, 52, 120), dark=(56, 22, 66),
+       plane='ground', pivot='left-middle (the head, projected)', ability='triple chaos wave (boss record only: wave 16 m x 2 m)', trigger='boss variant: cast_spit release f16'),
+ ],
  'glutton': [
   dict(id='glutton_bite_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
        plane='billboard', pivot='centre = the jaw tip at contact', ability='aetherialbloater_bite (charging melee 2.95-3.08 m, poison 8 s)', trigger='attack_bite contact f14'),

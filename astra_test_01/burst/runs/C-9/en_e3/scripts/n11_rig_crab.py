@@ -59,7 +59,7 @@ LM.update(H=H, cy=cy, z_under=z_under, z_top=z_top, feet=feet)
 def corridor_z(r, f, t0, t1, w=0.10, q=0.9):
     d = f - r; L = np.linalg.norm(d); u = d / L
     rel = V[:, :2] - r; t = rel @ u / L; perp = np.abs(rel @ np.array([-u[1], u[0]]))
-    m = (t > t0) & (t < t1) & (perp < w) & (V[:, 2] > 0.05)
+    m = (t > t0) & (t < t1) & (perp < w) & (V[:, 2] > 0.05) & (V[:, 2] < CFG.get('knee_zmax', 99.0))   # the drone: not the shell or scythes above the legs
     return float(np.quantile(V[m, 2], q)) if m.sum() > 5 else None
 
 # ---------------- armature ----------------
@@ -89,6 +89,18 @@ for lg in LEGS:
                            rest_reach=round(float((Vector(Ap) - Vector(J)).length), 4))
 CLAWS = []
 for side, sgn in (('L', 1), ('R', -1)):
+    if CFG.get('claw_mode') == 'scythe':
+        # SCYTHE ARMS (the void drone): the arm rises from the thorax to a high elbow, then the blade hangs forward and DOWN; the
+        # chain is shoulder -> top of the arm (the highest point) -> along the blade -> the blade tip (the lowest point far forward)
+        S_ = V[(V[:, 0] * sgn > CFG.get('claw_xmin', 0.3)) & (V[:, 1] < CFG.get('claw_ymax', -0.6)) & (V[:, 2] > CFG.get('claw_zmin', 0.45))]
+        topp = S_[np.argmax(S_[:, 2])]
+        far = S_[S_[:, 1] < np.quantile(S_[:, 1], 0.06)]; tip = far[np.argmin(far[:, 2])]
+        sh = np.array([sgn * CFG.get('claw_root_x', 0.35), CFG.get('claw_root_y', -0.9), CFG.get('claw_root_z', 1.0)])
+        mid = topp + (tip - topp) * 0.4; wr = S_[np.argmin(np.linalg.norm(S_ - mid, axis=1))]
+        n = 'claw_%s' % side
+        bone(n + '_1', tuple(map(float, sh)), tuple(map(float, topp)), 'Hips'); bone(n + '_2', tuple(map(float, topp)), tuple(map(float, wr)), n + '_1', conn=True)
+        bone(n + '_3', tuple(map(float, wr)), tuple(map(float, tip)), n + '_2', conn=True)
+        CLAWS.append(side); LM[n] = dict(shoulder=sh.tolist(), elbow=topp.tolist(), wrist=wr.tolist(), tip=tip.tolist()); continue
     S_ = V[(V[:, 0] * sgn > 0.02) & (np.abs(V[:, 0]) < CFG.get('claw_xmax', 0.85)) & (V[:, 1] < cy - CFG.get('claw_y0', 0.6)) & (V[:, 2] > 0.12) & (V[:, 2] < z_top)]
     tip = S_[np.argmin(S_[:, 1])]
     sh = np.array([sgn * 0.28, cy - RB * 0.8, z_under + 0.05])
@@ -121,7 +133,58 @@ for j, n in enumerate(bones_w):
         Wm[:, j] = np.where(incore, 1e6, 1.0 / (dist ** 4 + 1e-6)); continue
     sgn = 1 if ('_L' in n) else -1
     g = ((VW[:, 0] * sgn > 0.0) & ~incore).astype(float)
+    if CFG.get('claw_mode') == 'scythe':
+        inS = (VW[:, 0] * sgn > CFG.get('claw_xmin', 0.3)) & (((VW[:, 1] < CFG.get('claw_ymax', -0.6)) & (VW[:, 2] > CFG.get('claw_zmin', 0.45))) | ((VW[:, 1] < CFG.get('claw_tip_y', -9.0)) & (VW[:, 2] > 0.15)))
+        g = g * (inS if n.startswith('claw') else ~inS)
     Wm[:, j] = g / (dist ** 4 + 1e-6)
+# WEIGHT SMOOTHING over the mesh edges (n19's fix; the drone tore 1085 edges at gate boundaries)
+if CFG.get('weight_smooth', 0):
+    Wm = Wm / np.maximum(Wm.sum(1, keepdims=True), 1e-12)
+    _E = np.array([e.vertices[:] for e in body.data.edges])
+    _deg = np.zeros(len(VW)); np.add.at(_deg, _E[:, 0], 1); np.add.at(_deg, _E[:, 1], 1)
+    for _ in range(CFG.get('weight_smooth', 0)):
+        _acc = np.zeros_like(Wm); np.add.at(_acc, _E[:, 0], Wm[_E[:, 1]]); np.add.at(_acc, _E[:, 1], Wm[_E[:, 0]])
+        Wm = np.where(_deg[:, None] > 0, 0.5 * Wm + 0.5 * _acc / np.maximum(_deg[:, None], 1), Wm)
+# ...then the SCYTHE GATE is re-applied hard (smoothing had blended the blades into the front legs they nearly touch): a scythe
+# vertex takes only scythe bones (+ Hips), any other vertex no scythe bone
+if CFG.get('claw_mode') == 'scythe':
+    for side, sgn in (('L', 1), ('R', -1)):
+        inS = (VW[:, 0] * sgn > CFG.get('claw_xmin', 0.3)) & (((VW[:, 1] < CFG.get('claw_ymax', -0.6)) & (VW[:, 2] > CFG.get('claw_zmin', 0.45))) | ((VW[:, 1] < CFG.get('claw_tip_y', -9.0)) & (VW[:, 2] > 0.15)))
+        for j, n_ in enumerate(bones_w):
+            if n_.startswith('claw_%s' % side): Wm[~inS, j] = 0.0
+            elif n_.startswith('leg_%s' % side): Wm[inS, j] = 0.0
+        # inside the scythe: RIGID SEGMENTS -- each vertex to its single nearest scythe bone (blended 1+3 weights tore the blade)
+        cj = [j for j, n_ in enumerate(bones_w) if n_.startswith('claw_%s' % side)]
+        if inS.any():
+            dmat = []
+            for j in cj:
+                b_ = arm.data.bones[bones_w[j]]; h_ = np.array(b_.head_local[:]); t_ = np.array(b_.tail_local[:]); d_ = t_ - h_
+                tt = np.clip(((VW[inS] - h_) @ d_) / max(d_ @ d_, 1e-9), 0, 1); dmat.append(np.linalg.norm(VW[inS] - (h_ + tt[:, None] * d_), axis=1))
+            near = np.array(cj)[np.argmin(np.array(dmat), 0)]
+            if CFG.get('scythe_rigid', False):
+                # (v8: the bone chain does not follow the real arm closely enough for per-segment rigidity) the WHOLE scythe as ONE rigid
+                # piece on its shoulder bone: it swings from the shoulder, and the only seam is the shoulder itself
+                near = np.full(len(near), [j for j in cj if bones_w[j].endswith('_1')][0])
+            idx = np.where(inS)[0]; Wm[idx] = 0.0; Wm[idx, near] = 1.0
+# RIGID SHELLS (the void drone: the scythe blades and the shell spikes are separate Tripo shells that overlapped the front legs' and the
+# arms' weight zones, and tore into strands): weld the mesh by position, find its connected shells, and give every SMALL shell (under
+# island_frac of the vertices) to the ONE bone that dominates its summed weights -- a blade or a spike moves rigidly with one bone
+if CFG.get('rigid_islands', False):
+    _key = np.round(VW / 1e-4).astype(np.int64); _, _wid = np.unique(_key, axis=0, return_inverse=True); _wid = _wid.ravel()
+    _par = np.arange(_wid.max() + 1)
+    def _find(i):
+        while _par[i] != i:
+            _par[i] = _par[_par[i]]; i = _par[i]
+        return i
+    for e_ in body.data.edges:
+        a_, b_ = _find(_wid[e_.vertices[0]]), _find(_wid[e_.vertices[1]])
+        if a_ != b_: _par[a_] = b_
+    _root = np.array([_find(w_) for w_ in _wid]); _ids, _cnt = np.unique(_root, return_counts=True)
+    _Wn = Wm / np.maximum(Wm.sum(1, keepdims=True), 1e-12); nri = 0
+    for r_, n_ in zip(_ids, _cnt):
+        if n_ < CFG.get('island_frac', 0.06) * len(VW):
+            m_ = _root == r_; jb = int(np.argmax(_Wn[m_].sum(0))); Wm[m_] = 0.0; Wm[m_, jb] = 1.0; nri += 1
+    LM['rigid_islands'] = dict(islands=int(len(_ids)), rigid=nri)
 top = np.argsort(-Wm, 1)[:, :3]
 for i in range(len(VW)):
     ws = Wm[i, top[i]]; s_ = ws.sum()
@@ -274,6 +337,17 @@ def clip_state(name, f):
         claws(st, (kf([(0, 0), (rf - 8, -4), (rf - 2, 75), (rf, 30), (rf + 4, 10), (N, 0)], f), 0, kf([(0, 0), (rf - 8, 10), (rf, 4), (N, 0)], f)),
                   (kf([(0, 0), (rf - 8, -2), (rf - 2, 30), (rf, 0), (N, 0)], f), 0, 0), (kf([(0, 0), (rf - 2, 20), (rf, -10), (N, 0)], f), 0, 0))
         return st
+    if k == 'rear':
+        # the CASTING STANCE (the servitor): the front of the body rears up off the front legs (the body pitches nose-up about its rear
+        # legs), the scythe-arms lift and spread overhead, hold through the release, then settle
+        rf = c['release']; ho = c.get('hold', 12); st = {}; a0 = max(3, rf - 12)
+        st['Hips'] = (kf([(0, 0), (a0, 22), (rf, 26), (rf + ho, 26), (N, 0)], f), 0, 0)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.10), (rf + ho, 0.10), (N, 0)], f), kf([(0, 0), (a0, 0.12), (rf + ho, 0.12), (N, 0)], f))
+        claws(st, (kf([(0, 0), (a0, 60), (rf, 75), (rf + ho, 75), (N, 0)], f), 0, kf([(0, 0), (a0, 25), (rf, 35), (rf + ho, 35), (N, 0)], f)),
+                  (kf([(0, 0), (a0, -20), (rf, -10), (N, 0)], f), 0, 0), (kf([(0, 0), (rf, 20), (N, 0)], f), 0, 0))
+        for lg in LEGS:
+            if lg.endswith('1'): st['foot_' + lg] = (0.0, kf([(0, 0), (a0, 0.05), (rf + ho, 0.05), (N, 0)], f), kf([(0, 0), (a0, 0.35), (rf + ho, 0.35), (N, 0)], f), 0.0)
+        return st
     if k == 'hit':
         st = {}
         st['pelvis_loc'] = (kf([(0, 0), (3, 0.05), (N, 0)], f), kf([(0, 0), (3, 0.10), (N, 0)], f), kf([(0, 0), (3, -0.04), (N, 0)], f))
@@ -293,6 +367,15 @@ def clip_state(name, f):
         claws(st, (kf([(0, 0), (c0, 20), (c1, -8), (N, -10)], f), 0, kf([(0, 0), (c1, 15), (N, 18)], f)), (kf([(0, 0), (c1, -12), (N, -14)], f), 0, 0), (0, 0, 0))
         return st
     raise KeyError(k)
+_clip_state_raw = clip_state
+def clip_state(name, f):
+    st = _clip_state_raw(name, f); ms = CFG.get('motion_scale', 1.0); k = CL[name].get('kind_fn', name)
+    if ms != 1.0 and k not in ('walk', 'run', 'death', 'idle'):
+        if 'pelvis_loc' in st: st['pelvis_loc'] = tuple(v * ms for v in st['pelvis_loc'])
+        for lg in LEGS:
+            if 'foot_' + lg in st: o = st['foot_' + lg]; st['foot_' + lg] = (o[0] * ms, o[1] * ms, o[2] * ms) + tuple(o[3:])
+    return st
+
 dg = None
 def mesh_minz():
     d = bpy.context.evaluated_depsgraph_get(); e = body.evaluated_get(d); m = e.to_mesh()

@@ -1,0 +1,196 @@
+{
+ "kit": "en-voiddrone",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the void drone (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-voiddrone_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_impale": {
+   "clip": "attack_impale",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_impale",
+   "release_from": "attacks.attack_impale.release_s",
+   "release_socket": "scythe_L",
+   "skill": "the roster's impale (melee, bleeding)"
+  },
+  "attack_slash": {
+   "clip": "attack_slash",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_slash",
+   "release_from": "attacks.attack_slash.release_s",
+   "release_socket": "scythe_L",
+   "skill": "a single-scythe slash"
+  },
+  "cast_spit": {
+   "clip": "cast_spit",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_spit",
+   "release_from": "casts.cast_spit.release_s",
+   "release_socket": "mouth",
+   "skill": "the roster's spit burst (boss: + the chaos wave)"
+  },
+  "cast_rear": {
+   "clip": "cast_rear",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_rear",
+   "release_from": "casts.cast_rear.release_s",
+   "release_socket": "mouth",
+   "skill": "the casting stance (blood pool lob)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "mouth": {
+   "bone": "Hips",
+   "along_bone_m": 1.3,
+   "local_m": [
+    0.0,
+    0.0,
+    -0.35
+   ],
+   "_what": "the mandibles at the front of the shell (shell bone rear->front 0.70 m, +0.6 m beyond, 0.35 m down)"
+  },
+  "scythe_L": {
+   "bone": "claw_L_1",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "_what": "the left scythe's shoulder (the whole blade is rigid on this bone; the tip is at the rest offset below)"
+  },
+  "head_top": {
+   "bone": "Hips",
+   "along_bone_m": 0.35,
+   "local_m": [
+    0.0,
+    0.0,
+    0.8
+   ],
+   "_what": "above the shell (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "along_bone_m": 0.35,
+   "_what": "the shell's centre"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_impale_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_spit_orb.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_spit_splash.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_bloodpool.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_chaoswave.png"
+  ]
+ },
+ "watchdog_s": 2400,
+ "true_size": {
+  "base_length_m": 3.6,
+  "roster_box_depth_at_scale1": 8.79,
+  "note": "conductor size call: one max-fit base mesh; the runtime scales each record by factor = true/base when the per-kit ppm allows (KC2 side)",
+  "records": {
+   "chthonianservitor_a01 (drone summon)": {
+    "scale": 0.5,
+    "true_length_m": 4.39,
+    "factor": 1.221
+   },
+   "chthonianservitor_b01/b02": {
+    "scale": 0.7,
+    "true_length_m": 6.15,
+    "factor": 1.709
+   },
+   "chthonianservitor_c01": {
+    "scale": 0.9,
+    "true_length_m": 7.91,
+    "factor": 2.197
+   },
+   "hero records h01-h04": {
+    "scale": 0.95,
+    "true_length_m": 8.35,
+    "factor": 2.32
+   },
+   "chthonianservitor_lunalvalgoth (boss)": {
+    "scale": 1.0,
+    "true_length_m": 8.79,
+    "factor": 2.442
+   }
+  }
+ },
+ "variant": "base grade (black-violet chitin)"
+}

@@ -1,0 +1,229 @@
+{
+ "what": "JOIN-1 clip manifest for the void drone (crucible creature, roster rig chthonianservitor) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/voiddrone/voiddrone.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone.glb",
+  "sha256_16": "193b1497dedad468",
+  "height_m": 1.9471,
+  "length_m": 3.601
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster combat idle; ours 40f: shell breathing, scythe sway and one snap, restless toe-taps"
+  },
+  "walk": {
+   "seconds": 0.53333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walkSpeed 1.05-1.1 has no stated base -- 1.6 metres per second INFERRED; 530 ms cycle (4 legs a side, short chains: the stride stays in reach)"
+  },
+  "run": {
+   "seconds": 0.33333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster servitor trash run 3.37 metres per second (characterRunSpeed 1.05 x K4-0); 330 ms cycle"
+  },
+  "attack_impale": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: impale (melee 0-3.04 m, bleeding): attack_c01 37f x0.85 rel f18"
+  },
+  "attack_slash": {
+   "seconds": 0.96667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: a single-scythe sideways slash (melee variant)"
+  },
+  "cast_spit": {
+   "seconds": 1.03333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: spit burst (projectile 14 metres per second): attackspittriple_a01 36f x0.9 rel f16"
+  },
+  "cast_rear": {
+   "seconds": 1.43333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: the casting stance (blood pool lob): cast_a01 44f rel f28"
+  },
+  "hit": {
+   "seconds": 0.5,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: gethit"
+  },
+  "death": {
+   "seconds": 0.96667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.6,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.37,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_impale": {
+   "release_s": 0.6,
+   "frame": 18,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 18)"
+  },
+  "attack_slash": {
+   "release_s": 0.4,
+   "frame": 12,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 12)"
+  }
+ },
+ "casts": {
+  "cast_spit": {
+   "release_s": 0.5333,
+   "frame": 16,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 16)"
+  },
+  "cast_rear": {
+   "release_s": 0.9333,
+   "frame": 28,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 28)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "voiddrone_impale_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_impale_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.4933,
+     1.4933
+    ],
+    "px_per_m": 171.429,
+    "plane": "billboard",
+    "pivot": "centre = the scythe tips at contact",
+    "ability": "chthonianservitor_impale (melee 0-3.04 m, bleeding)",
+    "trigger": "attack_impale contact f18",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "voiddrone_spit_orb",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_spit_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     96,
+     96
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.32,
+     0.32
+    ],
+    "px_per_m": 300.0,
+    "plane": "billboard",
+    "pivot": "centre = the spit in flight (body r 0.1 m; three per burst)",
+    "ability": "spit burst (projectile 14 metres per second)",
+    "trigger": "cast_spit release f16 at the mandibles, x3 fanned",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "voiddrone_spit_splash",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_spit_splash.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.6364,
+     1.6364
+    ],
+    "px_per_m": 117.333,
+    "plane": "billboard",
+    "pivot": "centre = the impact point (area 1.5 m)",
+    "ability": "spit burst impact",
+    "trigger": "on impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "voiddrone_bloodpool",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_bloodpool.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 20,
+    "duration_s": 0.8,
+    "cell_m": [
+     5.0526,
+     5.0526
+    ],
+    "px_per_m": 63.333,
+    "plane": "ground",
+    "pivot": "centre = the target point (area r 2.4 m; the 10-15000 ms field is a runtime tint)",
+    "ability": "bloodpool (lobbed area, from the casting stance)",
+    "trigger": "cast_rear release f28",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "voiddrone_chaoswave",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/voiddrone/voiddrone_chaoswave.png",
+    "frames": 20,
+    "grid": [
+     4,
+     5
+    ],
+    "cell_px": [
+     1024,
+     192
+    ],
+    "fps": 24,
+    "duration_s": 0.8333,
+    "cell_m": [
+     18.2044,
+     3.4133
+    ],
+    "px_per_m": 56.25,
+    "plane": "ground",
+    "pivot": "left-middle (the head, projected)",
+    "ability": "triple chaos wave (boss record only: wave 16 m x 2 m)",
+    "trigger": "boss variant: cast_spit release f16",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}
