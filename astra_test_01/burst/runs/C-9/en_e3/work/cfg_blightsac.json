@@ -1,0 +1,78 @@
+{
+ "name": "blightsac",
+ "type_id": "voidfiend",
+ "tendrils": 8,
+ "body_z_frac": 0.45,
+ "mouth_depth": 0.28,
+ "lip_z_frac": 0.5,
+ "hinge_rise": 0.0,
+ "hover": 0.15,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_w": [
+  0.25,
+  0.4
+ ],
+ "bag_half_h": 0.05,
+ "bag_y0_frac": 0.3,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 60,
+   "src": "roster idle_01 61f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 30,
+   "speed": 1.4,
+   "src": "roster walk_01 31f; a floater: no feet, the move is a lean + tendril trail; 1.4 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 20,
+   "speed": 2.57,
+   "src": "roster lead record run 2.568 m/s (characterRunSpeed 0.8 x K4-0), run_01 21f"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 51,
+   "release": 19,
+   "hold": 16,
+   "src": "acid breath cone 3.5 m x 1 m: cast_barfacid_01 51f rel f19"
+  },
+  "cast_orb": {
+   "kind": "oneshot",
+   "kind_fn": "orb",
+   "frames": 43,
+   "release": 14,
+   "src": "poison orb projectile 12 metres per second: attack_02 43f rel f14"
+  },
+  "cast_aura": {
+   "kind": "oneshot",
+   "kind_fn": "aura",
+   "frames": 61,
+   "release": 45,
+   "src": "caustic presence aura r 3.5 m: cast_buff_01 61f rel f45"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "hitreact_01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 56,
+   "hold_last": true,
+   "src": "death_01 56f; the caustic eruption (r 4.8 m) fires at death",
+   "ground_solve": true
+  }
+ },
+ "texture": "work/tex_blightsac_GT2.png",
+ "_scale_note": "a floater sized to 1.6 m max horizontal extent (body ~1.4 m, hover 0.15 m); the roster box (3.0 x 2.74 x 2.62 mesh units x 1.1) reads as the GD mesh incl. its effects -- a 1.6 m sac at ~8% of the screen matches the brief; n17 s_fit 1.70"
+}

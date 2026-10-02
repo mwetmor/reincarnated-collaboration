@@ -1,0 +1,561 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "blightsac",
+ "roster_type_id": "voidfiend",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac.glb",
+ "glb_sha256": "7126cdc9fd0f8e63c7192656a4b26e8284c9e467af12b993be0c3d84aeac2378",
+ "glb_bytes": 2645524,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 1.4626,
+ "length_m": 1.6007,
+ "width_m": 1.2176,
+ "skin_joints": 30,
+ "materials": [
+  {
+   "name": "tripo_material_08f8b53c-3d63-44e8-8b21-8ca022d883ec",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "roster idle_01 61f",
+   "lint": {
+    "frames": 61,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.1075,
+    "worst_frame_vertex": [
+     33,
+     [
+      -0.226,
+      -0.363,
+      0.107
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 60 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 31,
+   "duration_s": 1,
+   "fps": 30,
+   "source": "roster walk_01 31f; a floater: no feet, the move is a lean + tendril trail; 1.4 m/s INFERRED",
+   "lint": {
+    "frames": 31,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0513,
+    "worst_frame_vertex": [
+     18,
+     [
+      0.118,
+      -0.168,
+      0.051
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 30 intervals)",
+   "ground_speed_m_s": 1.4,
+   "stride_m_per_cycle": 1.4
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "roster lead record run 2.568 m/s (characterRunSpeed 0.8 x K4-0), run_01 21f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.1691,
+    "worst_frame_vertex": [
+     12,
+     [
+      0.132,
+      0.108,
+      0.169
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 20 intervals)",
+   "ground_speed_m_s": 2.57,
+   "stride_m_per_cycle": 1.7133
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "acid breath cone 3.5 m x 1 m: cast_barfacid_01 51f rel f19",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0252,
+    "worst_frame_vertex": [
+     42,
+     [
+      0.051,
+      -0.431,
+      0.025
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 19,
+   "release_s": 0.6333
+  },
+  "cast_orb": {
+   "kind": "oneshot",
+   "frames": 43,
+   "duration_s": 1.4,
+   "fps": 30,
+   "source": "poison orb projectile 12 metres per second: attack_02 43f rel f14",
+   "lint": {
+    "frames": 43,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0826,
+    "worst_frame_vertex": [
+     24,
+     [
+      0.072,
+      -0.336,
+      0.083
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 14,
+   "release_s": 0.4667
+  },
+  "cast_aura": {
+   "kind": "oneshot",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "caustic presence aura r 3.5 m: cast_buff_01 61f rel f45",
+   "lint": {
+    "frames": 61,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.1502,
+    "worst_frame_vertex": [
+     60,
+     [
+      0.276,
+      -0.391,
+      0.15
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 45,
+   "release_s": 1.5
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "hitreact_01 21f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.1167,
+    "worst_frame_vertex": [
+     6,
+     [
+      0.132,
+      0.555,
+      0.117
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 56,
+   "duration_s": 1.83333,
+   "fps": 30,
+   "source": "death_01 56f; the caustic eruption (r 4.8 m) fires at death",
+   "lint": {
+    "frames": 56,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.003,
+    "worst_frame_vertex": [
+     53,
+     [
+      -0.602,
+      -0.459,
+      0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "blightsac",
+  "effects": [
+   {
+    "id": "blightsac_acid_breath",
+    "atlas": "blightsac_acid_breath.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     576,
+     192
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     4.032,
+     1.344
+    ],
+    "px_per_m": 142.857,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "chthonianwretch_acidbreath (aoe wave 3.5 m x 1 m, poison)",
+    "trigger": "cast_breath release f19; loop frames 4-11 while it holds (f19-f35)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_poison_orb",
+    "atlas": "blightsac_poison_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     160,
+     160
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     1.0811,
+     1.0811
+    ],
+    "px_per_m": 148.0,
+    "plane": "billboard",
+    "pivot": "centre = the orb in flight (body r 0.5 m)",
+    "ability": "chthonianwretch_poisonorb (projectile 12 metres per second, area 2.5 m)",
+    "trigger": "cast_orb release f14 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_orb_splash",
+    "atlas": "blightsac_orb_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     5.2632,
+     5.2632
+    ],
+    "px_per_m": 60.8,
+    "plane": "ground",
+    "pivot": "centre = the impact point (area 2.5 m)",
+    "ability": "poisonorb impact",
+    "trigger": "on orb impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_aura_ring",
+    "atlas": "blightsac_aura_ring.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 20,
+    "duration_s": 0.8,
+    "cell_m": [
+     7.3684,
+     7.3684
+    ],
+    "px_per_m": 43.429,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 3.5 m; loops while the 6 s field lasts)",
+    "ability": "chthonianwretch_causticpresence (aura, timed)",
+    "trigger": "cast_aura release f45",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_vent_haze",
+    "atlas": "blightsac_vent_haze.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 20,
+    "duration_s": 0.6,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 150.0,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the crown (vents) socket",
+    "ability": "causticpresence: the vents leak",
+    "trigger": "cast_aura f25-f61, loop",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_burst",
+    "atlas": "blightsac_burst.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     10.0174,
+     10.0174
+    ],
+    "px_per_m": 38.333,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "chthonianwretch_causticeruption (on death, aoe r 4.8 m, poison)",
+    "trigger": "death f21 (the rupture)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 1.4627940654754639,
+  "z_body_bottom": 0.6752479648590088,
+  "z_body_top": 1.4627940654754639,
+  "body_c": [
+   -0.0015598833560943604,
+   -0.04169243574142456,
+   1.0690210151672364
+  ],
+  "y_snout": -0.8420424461364746,
+  "z_lip": 0.8442144989967346,
+  "y_hinge": -0.5620424461364746,
+  "tendrils": {
+   "tnd0": {
+    "ang": -2.938059756379169,
+    "top": [
+     -0.5082041194768456,
+     -0.19194955652488804,
+     0.6735859052921699
+    ],
+    "tip": [
+     -0.45012813806533813,
+     -0.08048084378242493,
+     0.022893117740750313
+    ],
+    "n": 1222
+   },
+   "tnd1": {
+    "ang": -1.95118458593703,
+    "top": [
+     -0.1664174395467372,
+     -0.6611741862513802,
+     0.6715760639876374
+    ],
+    "tip": [
+     -0.2946596145629883,
+     -0.38263610005378723,
+     0.001095800893381238
+    ],
+    "n": 2413
+   },
+   "tnd2": {
+    "ang": -1.1221030130153051,
+    "top": [
+     0.20501045742428597,
+     -0.6370952512011115,
+     0.6734039197242799
+    ],
+    "tip": [
+     0.27602922916412354,
+     -0.39072373509407043,
+     0.00020508133457042277
+    ],
+    "n": 2426
+   },
+   "tnd3": {
+    "ang": -0.15524885932590332,
+    "top": [
+     0.527890777304059,
+     -0.08189090292862787,
+     0.6983438859991475
+    ],
+    "tip": [
+     0.4437902867794037,
+     -0.10127153247594833,
+     0.019959501922130585
+    ],
+    "n": 1476
+   },
+   "tnd4": {
+    "ang": 0.49501621465423434,
+    "top": [
+     0.5331751857798523,
+     0.17181325788421134,
+     0.697797934336165
+    ],
+    "tip": [
+     0.449806809425354,
+     0.21771129965782166,
+     0.01855376735329628
+    ],
+    "n": 1626
+   },
+   "tnd5": {
+    "ang": 1.2041891353443042,
+    "top": [
+     0.22172261820008446,
+     0.562799494436809,
+     0.682106021812984
+    ],
+    "tip": [
+     0.20530305802822113,
+     0.5030069351196289,
+     0.005239691585302353
+    ],
+    "n": 1742
+   },
+   "tnd6": {
+    "ang": 1.9322861520940162,
+    "top": [
+     -0.2183765450933067,
+     0.5487781602465464,
+     0.6678360061731167
+    ],
+    "tip": [
+     -0.206694558262825,
+     0.5117897391319275,
+     0.006447067484259605
+    ],
+    "n": 1668
+   },
+   "tnd7": {
+    "ang": 2.6288190274656578,
+    "top": [
+     -0.4797787646884504,
+     0.20773873950584212,
+     0.6587430191212806
+    ],
+    "tip": [
+     -0.4460964798927307,
+     0.21975365281105042,
+     0.018777906894683838
+    ],
+    "n": 1389
+   }
+  },
+  "mouth_cut_edges": 155,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 1149,
+   "unweighted_verts": 80,
+   "groups": 29
+  },
+  "texture": {
+   "path": "work/tex_blightsac_GT2.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "crown",
+   "head",
+   "jaw",
+   "tnd0_1",
+   "tnd0_2",
+   "tnd0_3",
+   "tnd1_1",
+   "tnd1_2",
+   "tnd1_3",
+   "tnd2_1",
+   "tnd2_2",
+   "tnd2_3",
+   "tnd3_1",
+   "tnd3_2",
+   "tnd3_3",
+   "tnd4_1",
+   "tnd4_2",
+   "tnd4_3",
+   "tnd5_1",
+   "tnd5_2",
+   "tnd5_3",
+   "tnd6_1",
+   "tnd6_2",
+   "tnd6_3",
+   "tnd7_1",
+   "tnd7_2",
+   "tnd7_3"
+  ]
+ }
+}

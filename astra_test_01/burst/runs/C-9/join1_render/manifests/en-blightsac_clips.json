@@ -1,0 +1,247 @@
+{
+ "what": "JOIN-1 clip manifest for the blight sac (crucible creature, roster rig voidfiend) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/blightsac/blightsac.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac.glb",
+  "sha256_16": "7126cdc9fd0f8e63",
+  "height_m": 1.4626,
+  "length_m": 1.6007
+ },
+ "clips": {
+  "idle": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster idle_01 61f"
+  },
+  "walk": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_01 31f; a floater: no feet, the move is a lean + tendril trail; 1.4 metres per second INFERRED"
+  },
+  "run": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 2.568 metres per second (characterRunSpeed 0.8 x K4-0), run_01 21f"
+  },
+  "cast_breath": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: acid breath cone 3.5 m x 1 m: cast_barfacid_01 51f rel f19"
+  },
+  "cast_orb": {
+   "seconds": 1.4,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: poison orb projectile 12 metres per second: attack_02 43f rel f14"
+  },
+  "cast_aura": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: caustic presence aura r 3.5 m: cast_buff_01 61f rel f45"
+  },
+  "hit": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: hitreact_01 21f"
+  },
+  "death": {
+   "seconds": 1.83333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_01 56f; the caustic eruption (r 4.8 m) fires at death"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.4,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 2.57,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {},
+ "casts": {
+  "cast_breath": {
+   "release_s": 0.6333,
+   "frame": 19,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 19)"
+  },
+  "cast_orb": {
+   "release_s": 0.4667,
+   "frame": 14,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 14)"
+  },
+  "cast_aura": {
+   "release_s": 1.5,
+   "frame": 45,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 45)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "blightsac_acid_breath",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_acid_breath.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     576,
+     192
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     4.032,
+     1.344
+    ],
+    "px_per_m": 142.857,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "chthonianwretch_acidbreath (aoe wave 3.5 m x 1 m, poison)",
+    "trigger": "cast_breath release f19; loop frames 4-11 while it holds (f19-f35)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_poison_orb",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_poison_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     160,
+     160
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     1.0811,
+     1.0811
+    ],
+    "px_per_m": 148.0,
+    "plane": "billboard",
+    "pivot": "centre = the orb in flight (body r 0.5 m)",
+    "ability": "chthonianwretch_poisonorb (projectile 12 metres per second, area 2.5 m)",
+    "trigger": "cast_orb release f14 at the maw",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_orb_splash",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_orb_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     5.2632,
+     5.2632
+    ],
+    "px_per_m": 60.8,
+    "plane": "ground",
+    "pivot": "centre = the impact point (area 2.5 m)",
+    "ability": "poisonorb impact",
+    "trigger": "on orb impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_aura_ring",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_aura_ring.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 20,
+    "duration_s": 0.8,
+    "cell_m": [
+     7.3684,
+     7.3684
+    ],
+    "px_per_m": 43.429,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 3.5 m; loops while the 6000 ms field lasts)",
+    "ability": "chthonianwretch_causticpresence (aura, timed)",
+    "trigger": "cast_aura release f45",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_vent_haze",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_vent_haze.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 20,
+    "duration_s": 0.6,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 150.0,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the crown (vents) socket",
+    "ability": "causticpresence: the vents leak",
+    "trigger": "cast_aura f25-f61, loop",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "blightsac_burst",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/blightsac/blightsac_burst.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     10.0174,
+     10.0174
+    ],
+    "px_per_m": 38.333,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "chthonianwretch_causticeruption (on death, aoe r 4.8 m, poison)",
+    "trigger": "death f21 (the rupture)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

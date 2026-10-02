@@ -1,0 +1,173 @@
+{
+ "creature": "blightsac",
+ "effects": [
+  {
+   "id": "blightsac_acid_breath",
+   "atlas": "blightsac_acid_breath.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    576,
+    192
+   ],
+   "fps": 24,
+   "duration_s": 0.6667,
+   "cell_m": [
+    4.032,
+    1.344
+   ],
+   "px_per_m": 142.857,
+   "plane": "ground",
+   "pivot": "left-middle (the mouth, projected to the ground)",
+   "ability": "chthonianwretch_acidbreath (aoe wave 3.5 m x 1 m, poison)",
+   "trigger": "cast_breath release f19; loop frames 4-11 while it holds (f19-f35)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "blightsac_poison_orb",
+   "atlas": "blightsac_poison_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    160,
+    160
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    1.0811,
+    1.0811
+   ],
+   "px_per_m": 148.0,
+   "plane": "billboard",
+   "pivot": "centre = the orb in flight (body r 0.5 m)",
+   "ability": "chthonianwretch_poisonorb (projectile 12 metres per second, area 2.5 m)",
+   "trigger": "cast_orb release f14 at the maw",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "blightsac_orb_splash",
+   "atlas": "blightsac_orb_splash.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    5.2632,
+    5.2632
+   ],
+   "px_per_m": 60.8,
+   "plane": "ground",
+   "pivot": "centre = the impact point (area 2.5 m)",
+   "ability": "poisonorb impact",
+   "trigger": "on orb impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "blightsac_aura_ring",
+   "atlas": "blightsac_aura_ring.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 20,
+   "duration_s": 0.8,
+   "cell_m": [
+    7.3684,
+    7.3684
+   ],
+   "px_per_m": 43.429,
+   "plane": "ground",
+   "pivot": "centre = the root (aura r 3.5 m; loops while the 6 s field lasts)",
+   "ability": "chthonianwretch_causticpresence (aura, timed)",
+   "trigger": "cast_aura release f45",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "blightsac_vent_haze",
+   "atlas": "blightsac_vent_haze.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 20,
+   "duration_s": 0.6,
+   "cell_m": [
+    1.28,
+    1.28
+   ],
+   "px_per_m": 150.0,
+   "plane": "billboard",
+   "pivot": "bottom-centre = the crown (vents) socket",
+   "ability": "causticpresence: the vents leak",
+   "trigger": "cast_aura f25-f61, loop",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "blightsac_burst",
+   "atlas": "blightsac_burst.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 30,
+   "duration_s": 0.4,
+   "cell_m": [
+    10.0174,
+    10.0174
+   ],
+   "px_per_m": 38.333,
+   "plane": "ground",
+   "pivot": "centre = the root",
+   "ability": "chthonianwretch_causticeruption (on death, aoe r 4.8 m, poison)",
+   "trigger": "death f21 (the rupture)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

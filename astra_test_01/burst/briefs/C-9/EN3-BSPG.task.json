@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST EN3-BSPG -- Run C-9 Phase 2 (Matt R-C9-132): the PAINTED TEXTURE of a 3D CREATURE, sheet 1. task_id \"EN3-BSPG\".\n\nIMAGE 1 is a sheet of 8 renders of ONE 3D model of a floating bloated creature standing still, seen from above, looking down at 53 degrees, on flat pure #00ff00. Top row, left to right: head-on, FACING THE VIEWER (south); turned toward the lower right (south-east); in profile, head toward the viewer's RIGHT (east); turned away toward the upper right (north-east). Bottom row, left to right: seen from BEHIND, tail toward the viewer (north); turned away toward the upper left (north-west); in profile, head toward the viewer's LEFT (west); turned toward the lower left (south-west). They are renders of the model: every OUTLINE, POSE, POSITION and SIZE is correct and must not change; the surface is flat, smooth and blurry.\nIMAGE 2 is the creature's approved model sheet: a floating, bloated, egg-shaped plague sac with no legs: tight pallid grey-violet skin (painted matte) mottled with sickly yellow-green blotches and dark veins; on its back a cluster of open crusted VENTS like small chimneys rimmed with yellow crust, their insides dark; at the front a wide round lamprey mouth, a puckered ring of pinkish flesh with small pale teeth, and above it an arc of small pale-yellow eyes; underneath, a ring of thick fleshy grey-violet tendrils with pale sucker rings. IMAGE 3 is a STYLE reference ONLY: copy its HAND (the dark ink line that varies in weight, transparent watercolour washes that pool and granulate, fine hatching, cream paper highlights); copy nothing else from it -- it shows a person.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 sheet in which EVERY view is repainted as the creature of IMAGE 2 seen from that direction, in IMAGE 3's hand, inside exactly that view's outline, position and size.\nTHIS PAINTING BECOMES THE MODEL'S TEXTURE: it is projected back onto the 3D model from these cameras and blended into one texture. So: ONE creature in 8 views, not 8 creatures -- the same surface, the same plates, joints and claws in every view; any disagreement between views becomes a seam.\nPaint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. Tone comes from its own colours, the pen hatching and the washes. Stay inside every outline; change no outline, leg, claw, tail or tooth position. Add NOTHING IMAGE 2 does not show.\nTHE MARKER: a corroded BRASS HOUR-RING sunk into the skin of its LEFT flank ONLY, exactly where IMAGE 1 shows it; never on the right flank.\nBACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a retry on it and still deliver the image: the views are cut out afterwards by their exact 3D outlines. Spend retries ONLY on the faults named below.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if a view's outline, pose, facing or position changed, a view is missing, the creature differs between views, or the marker is on the wrong side or missing -- name the reason. Never retry for the background colour. Copy outputs to out/EN3-BSPG_a.png and out/EN3-BSPG_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"EN3-BSPG\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/en3_canvas_blightsac_G.png",
+   "role": "IMAGE 1 -- the sheet to EDIT (8 views at 52.95 deg of the 3D creature at rest; outlines correct, surface flat)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN3-BS/EN3-BS_b.png",
+   "role": "IMAGE 2 -- the creature's approved model sheet: the look"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/nb_style_ref_matt.png",
+   "role": "IMAGE 3 -- STYLE reference ONLY (Matt-supplied): the HAND to copy; never its character, costume, staff, bag or pose"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/EN3-BSPG_a.png",
+  "out/EN3-BSPG_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "R-C9-132-crucible-creatures"
+}

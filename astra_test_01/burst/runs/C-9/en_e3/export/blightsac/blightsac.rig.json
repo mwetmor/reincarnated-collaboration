@@ -1,0 +1,346 @@
+{
+ "landmarks": {
+  "H": 1.4627940654754639,
+  "z_body_bottom": 0.6752479648590088,
+  "z_body_top": 1.4627940654754639,
+  "body_c": [
+   -0.0015598833560943604,
+   -0.04169243574142456,
+   1.0690210151672364
+  ],
+  "y_snout": -0.8420424461364746,
+  "z_lip": 0.8442144989967346,
+  "y_hinge": -0.5620424461364746,
+  "tendrils": {
+   "tnd0": {
+    "ang": -2.938059756379169,
+    "top": [
+     -0.5082041194768456,
+     -0.19194955652488804,
+     0.6735859052921699
+    ],
+    "tip": [
+     -0.45012813806533813,
+     -0.08048084378242493,
+     0.022893117740750313
+    ],
+    "n": 1222
+   },
+   "tnd1": {
+    "ang": -1.95118458593703,
+    "top": [
+     -0.1664174395467372,
+     -0.6611741862513802,
+     0.6715760639876374
+    ],
+    "tip": [
+     -0.2946596145629883,
+     -0.38263610005378723,
+     0.001095800893381238
+    ],
+    "n": 2413
+   },
+   "tnd2": {
+    "ang": -1.1221030130153051,
+    "top": [
+     0.20501045742428597,
+     -0.6370952512011115,
+     0.6734039197242799
+    ],
+    "tip": [
+     0.27602922916412354,
+     -0.39072373509407043,
+     0.00020508133457042277
+    ],
+    "n": 2426
+   },
+   "tnd3": {
+    "ang": -0.15524885932590332,
+    "top": [
+     0.527890777304059,
+     -0.08189090292862787,
+     0.6983438859991475
+    ],
+    "tip": [
+     0.4437902867794037,
+     -0.10127153247594833,
+     0.019959501922130585
+    ],
+    "n": 1476
+   },
+   "tnd4": {
+    "ang": 0.49501621465423434,
+    "top": [
+     0.5331751857798523,
+     0.17181325788421134,
+     0.697797934336165
+    ],
+    "tip": [
+     0.449806809425354,
+     0.21771129965782166,
+     0.01855376735329628
+    ],
+    "n": 1626
+   },
+   "tnd5": {
+    "ang": 1.2041891353443042,
+    "top": [
+     0.22172261820008446,
+     0.562799494436809,
+     0.682106021812984
+    ],
+    "tip": [
+     0.20530305802822113,
+     0.5030069351196289,
+     0.005239691585302353
+    ],
+    "n": 1742
+   },
+   "tnd6": {
+    "ang": 1.9322861520940162,
+    "top": [
+     -0.2183765450933067,
+     0.5487781602465464,
+     0.6678360061731167
+    ],
+    "tip": [
+     -0.206694558262825,
+     0.5117897391319275,
+     0.006447067484259605
+    ],
+    "n": 1668
+   },
+   "tnd7": {
+    "ang": 2.6288190274656578,
+    "top": [
+     -0.4797787646884504,
+     0.20773873950584212,
+     0.6587430191212806
+    ],
+    "tip": [
+     -0.4460964798927307,
+     0.21975365281105042,
+     0.018777906894683838
+    ],
+    "n": 1389
+   }
+  },
+  "mouth_cut_edges": 155,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 1149,
+   "unweighted_verts": 80,
+   "groups": 29
+  },
+  "texture": {
+   "path": "work/tex_blightsac_GT2.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "crown",
+   "head",
+   "jaw",
+   "tnd0_1",
+   "tnd0_2",
+   "tnd0_3",
+   "tnd1_1",
+   "tnd1_2",
+   "tnd1_3",
+   "tnd2_1",
+   "tnd2_2",
+   "tnd2_3",
+   "tnd3_1",
+   "tnd3_2",
+   "tnd3_3",
+   "tnd4_1",
+   "tnd4_2",
+   "tnd4_3",
+   "tnd5_1",
+   "tnd5_2",
+   "tnd5_3",
+   "tnd6_1",
+   "tnd6_2",
+   "tnd6_3",
+   "tnd7_1",
+   "tnd7_2",
+   "tnd7_3"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 61,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.1075,
+   "worst_frame_vertex": [
+    33,
+    [
+     -0.226,
+     -0.363,
+     0.107
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 31,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.0513,
+   "worst_frame_vertex": [
+    18,
+    [
+     0.118,
+     -0.168,
+     0.051
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 0
+  },
+  "run": {
+   "frames": 21,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.1691,
+   "worst_frame_vertex": [
+    12,
+    [
+     0.132,
+     0.108,
+     0.169
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 0
+  },
+  "cast_breath": {
+   "frames": 51,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.0252,
+   "worst_frame_vertex": [
+    42,
+    [
+     0.051,
+     -0.431,
+     0.025
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_orb": {
+   "frames": 43,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.0826,
+   "worst_frame_vertex": [
+    24,
+    [
+     0.072,
+     -0.336,
+     0.083
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_aura": {
+   "frames": 61,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.1502,
+   "worst_frame_vertex": [
+    60,
+    [
+     0.276,
+     -0.391,
+     0.15
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "hit": {
+   "frames": 21,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.1167,
+   "worst_frame_vertex": [
+    6,
+    [
+     0.132,
+     0.555,
+     0.117
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 56,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.003,
+   "worst_frame_vertex": [
+    53,
+    [
+     -0.602,
+     -0.459,
+     0.003
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 60,
+   "src": "roster idle_01 61f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 30,
+   "speed": 1.4,
+   "src": "roster walk_01 31f; a floater: no feet, the move is a lean + tendril trail; 1.4 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 20,
+   "speed": 2.57,
+   "src": "roster lead record run 2.568 m/s (characterRunSpeed 0.8 x K4-0), run_01 21f"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 51,
+   "release": 19,
+   "hold": 16,
+   "src": "acid breath cone 3.5 m x 1 m: cast_barfacid_01 51f rel f19"
+  },
+  "cast_orb": {
+   "kind": "oneshot",
+   "kind_fn": "orb",
+   "frames": 43,
+   "release": 14,
+   "src": "poison orb projectile 12 metres per second: attack_02 43f rel f14"
+  },
+  "cast_aura": {
+   "kind": "oneshot",
+   "kind_fn": "aura",
+   "frames": 61,
+   "release": 45,
+   "src": "caustic presence aura r 3.5 m: cast_buff_01 61f rel f45"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "hitreact_01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 56,
+   "hold_last": true,
+   "src": "death_01 56f; the caustic eruption (r 4.8 m) fires at death",
+   "ground_solve": true
+  }
+ }
+}

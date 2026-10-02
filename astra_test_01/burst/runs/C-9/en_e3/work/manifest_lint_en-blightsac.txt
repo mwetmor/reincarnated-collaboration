@@ -1,0 +1,15 @@
+== the manifest
+  release_s checked on 3 cast(s): cast_breath, cast_orb, cast_aura
+  8 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: neg_release
+  release_s checked on 3 cast(s): cast_breath, cast_orb, cast_aura
+  MANIFEST MISMATCH  casts.cast_breath.release_s = 4.0000 is outside the clip (0, 1.6667)
+  MANIFEST MISMATCH  casts.cast_breath.release_s = 4.0000 falls 2.3333 s from the nearest key (frame step 0.0333) -- a pose between keys
+  8 clip(s) checked, 2 mismatch(es)
+exit 1
+== negative control: neg_prose
+  release_s checked on 3 cast(s): cast_breath, cast_orb, cast_aura
+  MANIFEST MISMATCH  .clips.run.note_neg says 'run ... 0.9 s' but the GLB says 0.6667 s
+  8 clip(s) checked, 1 mismatch(es)
+exit 1

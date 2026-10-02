@@ -129,6 +129,20 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'blightsac': [
+  dict(id='blightsac_acid_breath', fn='spray', n=16, fps=24, cols=4, W=576, H=192, length_m=3.5, width_m=1.0, col=(176, 172, 84), dark=(104, 110, 44),
+       plane='ground', pivot='left-middle (the mouth, projected to the ground)', ability='chthonianwretch_acidbreath (aoe wave 3.5 m x 1 m, poison)', trigger='cast_breath release f19; loop frames 4-11 while it holds (f19-f35)'),
+  dict(id='blightsac_poison_orb', fn='orb', n=8, fps=20, cols=4, S=160, radius_m=0.5, col=(150, 170, 64), dark=(84, 102, 30),
+       plane='billboard', pivot='centre = the orb in flight (body r 0.5 m)', ability='chthonianwretch_poisonorb (projectile 12 metres per second, area 2.5 m)', trigger='cast_orb release f14 at the maw'),
+  dict(id='blightsac_orb_splash', fn='ring', n=12, fps=24, cols=4, S=320, radius_m=2.5, col=(170, 186, 86), dark=(96, 112, 40),
+       plane='ground', pivot='centre = the impact point (area 2.5 m)', ability='poisonorb impact', trigger='on orb impact'),
+  dict(id='blightsac_aura_ring', fn='ring', n=16, fps=20, cols=4, S=320, radius_m=3.5, col=(178, 186, 104), dark=(110, 116, 50),
+       plane='ground', pivot='centre = the root (aura r 3.5 m; loops while the 6 s field lasts)', ability='chthonianwretch_causticpresence (aura, timed)', trigger='cast_aura release f45'),
+  dict(id='blightsac_vent_haze', fn='puff', n=12, fps=20, cols=4, S=192, radius_m=0.6, col=(186, 186, 140), dark=(118, 118, 80),
+       plane='billboard', pivot='bottom-centre = the crown (vents) socket', ability='causticpresence: the vents leak', trigger='cast_aura f25-f61, loop'),
+  dict(id='blightsac_burst', fn='ring', n=12, fps=30, cols=4, S=384, radius_m=4.8, col=(176, 172, 84), dark=(104, 110, 44),
+       plane='ground', pivot='centre = the root', ability='chthonianwretch_causticeruption (on death, aoe r 4.8 m, poison)', trigger='death f21 (the rupture)'),
+ ],
  'rimethorn': [
   dict(id='rimethorn_slash_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.7, col=(206, 226, 236), dark=(102, 136, 160),
        plane='billboard', pivot='centre = the crossing forefeet at contact', ability='thornedhorrorfrost_iceslash (melee 0-2.98 m)', trigger='attack_swipe contact f25'),
