@@ -1,0 +1,41 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/work/raw_en-cryptmaw.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-cryptmaw.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 288
+  },
+  "attack_bite": {
+   "worst_m": 3e-05,
+   "samples": 288
+  },
+  "attack_bite_b": {
+   "worst_m": 2e-05,
+   "samples": 288
+  },
+  "cast_spit": {
+   "worst_m": 4e-05,
+   "samples": 384
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 192
+  },
+  "death": {
+   "worst_m": 1e-05,
+   "samples": 384
+  }
+ },
+ "samples": 2400,
+ "worst_m": 4e-05
+}

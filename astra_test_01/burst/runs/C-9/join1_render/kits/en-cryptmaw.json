@@ -1,0 +1,133 @@
+{
+ "kit": "en-cryptmaw",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the crypt maw (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-cryptmaw_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_bite": {
+   "clip": "attack_bite",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_bite",
+   "release_from": "attacks.attack_bite.release_s",
+   "release_socket": "maw",
+   "skill": "the roster's chomp / megachomp (melee 0-2.66 m); release = the bite contact"
+  },
+  "attack_bite_b": {
+   "clip": "attack_bite_b",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_bite_b",
+   "release_from": "attacks.attack_bite_b.release_s",
+   "release_socket": "maw",
+   "skill": "the sideways snap variant (roster attack_b01, hit f12)"
+  },
+  "cast_spit": {
+   "clip": "cast_spit",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_spit",
+   "release_from": "casts.cast_spit.release_s",
+   "release_socket": "maw",
+   "skill": "the roster's bile vomit (aoe wave 3 m x 1 m, poison 3 s)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.4528,
+   "_what": "the jaw tip (the chin): where the bite lands and the bile spray leaves (rig hinge -> chin, measured 0.4528 m)"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.25,
+   "local_m": [
+    0.0,
+    0.0,
+    0.22
+   ],
+   "_what": "the top of the skull: the head bone (base -> snout) + 0.25 m along it, 0.22 m up its local z"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head (between the shoulders)"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw_bile_spray.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw_bite_impact.png"
+  ]
+ },
+ "watchdog_s": 2400
+}

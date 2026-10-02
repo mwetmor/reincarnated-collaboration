@@ -1,0 +1,17 @@
+{
+ "states": {
+  "idle": {"kind": "loop", "role": "locomotion_idle", "frames": 12, "sampling": "loop"},
+  "walk": {"kind": "loop", "role": "locomotion_walk", "frames": 12, "sampling": "loop"},
+  "run": {"kind": "loop", "role": "locomotion_run", "frames": 12, "sampling": "loop"},
+  "attack_bite": {"kind": "oneshot", "role": "oneshot_release", "frames": 12, "sampling": "release", "skill": "the roster's chomp / megachomp (melee 0-2.66 m); release = the bite contact"},
+  "attack_bite_b": {"kind": "oneshot", "role": "oneshot_release", "frames": 12, "sampling": "release", "skill": "the sideways snap variant (roster attack_b01, hit f12)"},
+  "cast_spit": {"kind": "oneshot", "role": "oneshot_release", "frames": 16, "sampling": "release", "skill": "the roster's bile vomit (aoe wave 3 m x 1 m, poison 3 s)"},
+  "hit": {"kind": "oneshot", "role": "oneshot", "frames": 8, "sampling": "ends"},
+  "death": {"kind": "oneshot", "role": "oneshot_hold", "frames": 16, "sampling": "ends", "hold_last": true}
+ },
+ "sockets": {
+  "maw": {"bone": "jaw", "along_bone_m": 0.4528, "_what": "the jaw tip (the chin): where the bite lands and the bile spray leaves (rig hinge -> chin, measured 0.4528 m)"},
+  "head_top": {"bone": "head", "along_bone_m": 0.25, "local_m": [0.0, 0.0, 0.22], "_what": "the top of the skull: the head bone (base -> snout) + 0.25 m along it, 0.22 m up its local z"},
+  "chest": {"bone": "chest", "_what": "the chest bone's head (between the shoulders)"}
+ }
+}

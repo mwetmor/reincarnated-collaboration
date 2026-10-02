@@ -75,13 +75,13 @@ def bone(name, h, t, parent=None, deform=True, conn=False):
     b.roll = 0.0; return name
 bone('root', (0, 0, 0), (0, -0.25, 0))
 y_sp1 = fy_b - 0.35 * (fy_b - fy_f); y_ch = fy_f + 0.05
-bone('pelvis', (0, fy_b + 0.06, z_sp_b), (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), 'root')
-bone('spine', (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), (0, y_ch, z_sp_f), 'pelvis', conn=True)
+bone('Hips', (0, fy_b + 0.06, z_sp_b), (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), 'root')
+bone('spine', (0, y_sp1, z_sp_b + 0.3 * (z_sp_f - z_sp_b)), (0, y_ch, z_sp_f), 'Hips', conn=True)
 bone('chest', (0, y_ch, z_sp_f), (0, y_hb + 0.12, zh_c + 0.03), 'spine', conn=True)
 bone('neck', (0, y_hb + 0.12, zh_c + 0.03), (0, y_hb - 0.02, zh_c + 0.02), 'chest', conn=True)
 bone('head', (0, y_hb - 0.02, zh_c + 0.02), (0, y0 + 0.02, zh_c + 0.04), 'neck', conn=True)
 bone('jaw', (0, y_hinge, z_hinge), (0, y0 + 0.05, z_lip - 0.06), 'head')
-bone('tail1', (0, y_tb - 0.1, z_tb + 0.02), (0, y_tb + 0.25 * TLF * LF, z_tb), 'pelvis')
+bone('tail1', (0, y_tb - 0.1, z_tb + 0.02), (0, y_tb + 0.25 * TLF * LF, z_tb), 'Hips')
 bone('tail2', (0, y_tb + 0.25 * TLF * LF, z_tb), (0, y_tb + 0.62 * TLF * LF, (z_tb + z_tt) / 2), 'tail1', conn=True)
 bone('tail3', (0, y_tb + 0.62 * TLF * LF, (z_tb + z_tt) / 2), (0, y1, z_tt), 'tail2', conn=True)
 LEGS = ['FL', 'FR', 'BL', 'BR']
@@ -92,7 +92,7 @@ for lg in LEGS:
     bend = CFG.get('knee_bend', 0.07) * (1 if front else -1)   # front elbow points back (+y), hind knee forward (-y)
     J = (jx, f['y'] + (0.02 if front else -0.02), jz); K = (f['x'] * 0.92, f['y'] + bend, ank_z + 0.5 * (jz - ank_z))
     A = (f['x'], f['y'] + CFG.get('ankle_back', 0.03), ank_z); T = (f['x'], f['toe_y'] + 0.02, 0.03)
-    par = 'chest' if front else 'pelvis'
+    par = 'chest' if front else 'Hips'
     bone('leg_%s_1' % lg, J, K, par); bone('leg_%s_2' % lg, K, A, 'leg_%s_1' % lg, conn=True)
     bone('leg_%s_3' % lg, A, T, 'leg_%s_2' % lg, conn=True)
     bone('ik_%s' % lg, A, T, 'root', deform=False)
@@ -148,8 +148,15 @@ mat = bpy.data.materials.new('maw_interior')
 mat.use_nodes = True
 bs = mat.node_tree.nodes.get('Principled BSDF'); bs.inputs['Base Color'].default_value = CFG.get('mouth_rgba', (0.24, 0.05, 0.05, 1)); bs.inputs['Roughness'].default_value = 1.0
 mat.use_backface_culling = False
+if CFG.get('mouth_texture'):
+    # a PAINTED interior (n21_mouth_tex), one full 0..1 square per face of the bag, embedded like the body texture
+    _mi = bpy.data.images.load(os.path.abspath(CFG['mouth_texture'])); _mi.colorspace_settings.name = 'sRGB'
+    _tn = mat.node_tree.nodes.new('ShaderNodeTexImage'); _tn.image = _mi
+    mat.node_tree.links.new(_tn.outputs['Color'], bs.inputs['Base Color'])
 bagm.materials.append(mat)
-bagm.uv_layers.new(name=body.data.uv_layers.active.name)
+_uv = bagm.uv_layers.new(name=body.data.uv_layers.active.name)
+for _poly in bagm.polygons:
+    for _k, _li in enumerate(_poly.loop_indices): _uv.data[_li].uv = ((0, 0), (1, 0), (1, 1), (0, 1))[_k % 4]
 
 # GEOMETRIC WEIGHTS (v2 finding: Bone Heat fails on this mesh AND on its voxel proxy -- the remesh of the open Tripo shell came back
 # as 309 shells of 142 faces). So weights are solved here, deterministically: w_b = gate_b(v) / (d(v, segment_b)^4 + eps), top 4,
@@ -261,10 +268,10 @@ def pose_reset():
 
 def apply(st):
     # st: dict of channel -> value.  rotations in degrees about world axes (x = pitch: +nose up ... see sign note), loc in metres
-    for n in ('pelvis', 'spine', 'chest', 'neck', 'head', 'jaw', 'tail1', 'tail2', 'tail3'):
+    for n in ('Hips', 'spine', 'chest', 'neck', 'head', 'jaw', 'tail1', 'tail2', 'tail3'):
         r = st.get(n)
         if r: pb[n].rotation_quaternion = wrot(n, *r)
-    if 'pelvis_loc' in st: pb['pelvis'].location = wloc('pelvis', st['pelvis_loc'])
+    if 'pelvis_loc' in st: pb['Hips'].location = wloc('Hips', st['pelvis_loc'])
     for lg in LEGS:
         o = st.get('foot_' + lg, (0, 0, 0, 0))
         pb['ik_' + lg].location = wloc('ik_' + lg, o[:3])
@@ -298,7 +305,7 @@ def gait(f, N, v, duty, offs, lift, bob, pitch_amp, flex_amp, lead):
         drop = max(drop, (J.z - (A.z + o[2])) - vmax)
     st['_drop'] = drop
     st['pelvis_loc'] = (0.0, 0.0, -drop + bob[0] * math.cos(bob[1] * w))
-    st['pelvis'] = (pitch_amp * math.sin(w), 2.0 * math.sin(w), 0.0)
+    st['Hips'] = (pitch_amp * math.sin(w), 2.0 * math.sin(w), 0.0)
     st['spine'] = (flex_amp * math.sin(w + lead), 0.0, 2.5 * math.sin(w))
     st['chest'] = (-0.6 * flex_amp * math.sin(w + 2 * lead), -2.0 * math.sin(w), -2.0 * math.sin(w))
     st['neck'] = (-0.5 * pitch_amp * math.sin(w + 0.6), 0.0, 1.5 * math.sin(w + 0.4))
@@ -317,7 +324,7 @@ def clip_state(name, f):
         st['neck'] = (-1.0 * math.sin(w) + 1.5 * math.sin(2 * w) * 0.3, 0, 3.0 * math.sin(w + 0.5))
         st['head'] = (1.0 * math.sin(2 * w), 2.0 * math.sin(w), 0)
         tw = math.exp(-((f / N - 0.62) * 14) ** 2)                       # one twitch per cycle: a jaw snap and a head jerk
-        st['jaw'] = (-1.0 - 12.0 * tw, 0, 0); st['head'] = (st['head'][0] + 5 * tw, st['head'][1], 6 * tw)
+        st['jaw'] = (-4.0 - 9.0 * (0.5 - 0.5 * math.cos(w)) - 14.0 * tw, 0, 3.0 * math.sin(3 * w)); st['head'] = (st['head'][0] + 6 * tw, st['head'][1], 6 * tw)   # slow jaw work + grinding (rz), one snap
         st['tail1'] = (0, 0, 6 * math.sin(w)); st['tail2'] = (0, 0, 8 * math.sin(w + 0.9)); st['tail3'] = (0, 0, 10 * math.sin(w + 1.8))
         return st
     if k == 'walk':
@@ -325,33 +332,42 @@ def clip_state(name, f):
     if k == 'run':
         return gait(f, N, c['speed'], c.get('duty', 0.35), dict(FL=0.0, FR=0.12, BL=0.55, BR=0.67), 0.16, (0.04, 1), 6.0, 7.0, 1.2)
     if k == 'bite':
-        cf = c['contact']; tw = c.get('twist', 0.0)
-        st = {}
-        st['pelvis_loc'] = (0, kf([(0, 0), (cf - 5, 0.10), (cf, -0.20), (cf + 4, -0.16), (N, 0)], f), kf([(0, 0), (cf - 5, -0.03), (cf, -0.07), (N, 0)], f))
-        st['pelvis'] = (kf([(0, 0), (cf - 5, 6), (cf, -6), (N, 0)], f), 0, 0)
-        st['chest'] = (kf([(0, 0), (cf - 5, 10), (cf, -8), (cf + 4, -6), (N, 0)], f), 0, 0)
-        st['neck'] = (kf([(0, 0), (cf - 5, 14), (cf, -10), (N, 0)], f), 0, kf([(0, 0), (cf - 3, -tw), (cf, tw), (cf + 4, -tw * 0.5), (N, 0)], f))
-        st['head'] = (kf([(0, 0), (cf - 4, 12), (cf, -6), (N, 0)], f), kf([(0, 0), (cf, tw * 0.6), (N, 0)], f),
-                      kf([(0, 0), (cf + 1, 8), (cf + 2, -8), (cf + 3, 6), (cf + 5, 0), (N, 0)], f))
-        st['jaw'] = (kf([(0, -3), (cf - 5, -38), (cf - 2, -42), (cf, 0), (cf + 5, -4), (N, -3)], f), 0, 0)
-        st['tail1'] = (kf([(0, 0), (cf - 4, 10), (cf, -6), (N, 0)], f), 0, 0)
+        # READABILITY PASS (conductor, after the first look: "from 53 deg it reads as a spiky brown lizard; the jaw never shows"):
+        # wind-up = the head drops BACK and low; contact = head UP and FORWARD, jaw GAPING >= 50 deg so the open maw faces a camera
+        # that looks down at 53 deg, the front legs rearing slightly; recovery = the jaw SNAPS shut, then settles. bite_b = the
+        # same beat as a SIDEWAYS snap (neck yaw + head roll). Contact frames are the roster's (f11 / f12).
+        cf = c['contact']; tw = c.get('twist', 0.0); st = {}
+        st['pelvis_loc'] = (0, kf([(0, 0), (cf - 5, 0.10), (cf, -0.16), (cf + 5, -0.12), (N, 0)], f), kf([(0, 0), (cf - 5, -0.03), (cf, 0.02), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (cf - 5, -3), (cf, 7), (cf + 5, 4), (N, 0)], f), 0, 0)
+        st['spine'] = (kf([(0, 0), (cf - 5, -2), (cf, 5), (N, 0)], f), 0, 0)
+        st['chest'] = (kf([(0, 0), (cf - 5, -6), (cf, 10), (cf + 5, 6), (N, 0)], f), kf([(0, 0), (cf, -tw * 0.3), (N, 0)], f), 0)
+        st['neck'] = (kf([(0, 0), (cf - 5, -16), (cf, 22), (cf + 4, 10), (N, 0)], f), kf([(0, 0), (cf, tw * 0.5), (N, 0)], f),
+                      kf([(0, 0), (cf - 5, -tw * 0.4), (cf, tw), (cf + 4, tw * 0.6), (N, 0)], f))
+        st['head'] = (kf([(0, 0), (cf - 5, -10), (cf, 14), (cf + 3, 4), (N, 0)], f), kf([(0, 0), (cf, tw * 0.8), (N, 0)], f),
+                      kf([(0, 0), (cf + 3, 0), (cf + 4, 7), (cf + 5, -6), (cf + 6, 4), (cf + 8, 0), (N, 0)], f))
+        st['jaw'] = (kf([(0, -2), (cf - 5, -14), (cf - 1, -54), (cf, -54), (cf + 3, 0), (cf + 5, -6), (N, -2)], f), 0, 0)
+        st['tail1'] = (kf([(0, 0), (cf - 4, -8), (cf, 12), (N, 0)], f), 0, kf([(0, 0), (cf, -tw * 0.6), (N, 0)], f))
+        st['tail2'] = (0, 0, kf([(0, 0), (cf + 2, -tw * 0.8), (N, 0)], f))
+        for lg in ('FL', 'FR'):
+            st['foot_' + lg] = (0.0, kf([(0, 0), (cf - 3, 0), (cf, -0.08), (cf + 6, 0), (N, 0)], f), kf([(0, 0), (cf - 3, 0), (cf, 0.12), (cf + 6, 0), (N, 0)], f),
+                                0.0)
         return st
     if k == 'spit':
         rf = c['release']; st = {}
         heave = 0.0 if f < 14 or f > rf - 6 else math.sin((f - 14) / (rf - 20) * 3 * 2 * math.pi)
         st['pelvis_loc'] = (0, kf([(0, 0), (12, 0.12), (rf - 3, 0.14), (rf, -0.10), (rf + 7, -0.08), (N, 0)], f), kf([(0, 0), (12, -0.02), (rf, -0.05), (N, 0)], f))
-        st['pelvis'] = (kf([(0, 0), (12, 5), (rf, -4), (N, 0)], f), 0, 0)
+        st['Hips'] = (kf([(0, 0), (12, 5), (rf, -4), (N, 0)], f), 0, 0)
         st['spine'] = (kf([(0, 0), (12, 6), (rf, -4), (N, 0)], f) + 6 * heave, 0, 0)
         st['chest'] = (kf([(0, 0), (12, 14), (rf - 4, 16), (rf, -8), (rf + 7, -8), (N, 0)], f) - 5 * heave, 0, 0)
-        st['neck'] = (kf([(0, 0), (12, 18), (rf - 4, 20), (rf, -12), (rf + 7, -10), (N, 0)], f), 0, kf([(rf, 0), (rf + 2, 5), (rf + 4, -5), (rf + 6, 3), (rf + 8, 0)], f))
-        st['head'] = (kf([(0, 0), (12, 10), (rf - 4, 8), (rf, -14), (rf + 7, -12), (N, 0)], f), 0, 0)
-        st['jaw'] = (kf([(0, -3), (12, -12), (rf - 6, -18), (rf - 1, -50), (rf + 7, -48), (rf + 11, -6), (N, -3)], f) - 6 * abs(heave), 0, 0)
+        st['neck'] = (kf([(0, 0), (12, 18), (rf - 4, 20), (rf, 6), (rf + 7, 4), (N, 0)], f), 0, kf([(rf, 0), (rf + 2, 5), (rf + 4, -5), (rf + 6, 3), (rf + 8, 0)], f))
+        st['head'] = (kf([(0, 0), (12, 10), (rf - 4, 8), (rf, 4), (rf + 7, 2), (N, 0)], f), 0, 0)
+        st['jaw'] = (kf([(0, -3), (12, -12), (rf - 6, -18), (rf - 1, -56), (rf + 7, -54), (rf + 11, -6), (N, -3)], f) - 6 * abs(heave), 0, 0)
         st['tail1'] = (kf([(0, 0), (12, 12), (rf, -8), (N, 0)], f), 0, 0)
         return st
     if k == 'hit':
         st = {}
         st['pelvis_loc'] = (kf([(0, 0), (3, 0.04), (N, 0)], f), kf([(0, 0), (3, 0.09), (N, 0)], f), kf([(0, 0), (3, -0.02), (N, 0)], f))
-        st['pelvis'] = (kf([(0, 0), (3, -4), (N, 0)], f), kf([(0, 0), (3, 7), (N, 0)], f), 0)
+        st['Hips'] = (kf([(0, 0), (3, -4), (N, 0)], f), kf([(0, 0), (3, 7), (N, 0)], f), 0)
         st['chest'] = (kf([(0, 0), (3, 10), (N, 0)], f), 0, kf([(0, 0), (3, 8), (N, 0)], f))
         st['neck'] = (kf([(0, 0), (3, 14), (N, 0)], f), 0, kf([(0, 0), (3, 12), (N, 0)], f))
         st['head'] = (kf([(0, 0), (2, 16), (N, 0)], f), kf([(0, 0), (3, -8), (N, 0)], f), 0)
@@ -362,7 +378,7 @@ def clip_state(name, f):
         st = {}; c0, c1 = 6, 18
         roll = kf([(0, 0), (c0, -6), (c1, 78), (N, 82)], f)
         st['pelvis_loc'] = (kf([(0, 0), (c0, -0.03), (c1, 0.10), (N, 0.10)], f), kf([(0, 0), (c0, 0.06), (N, 0.08)], f), 0.0)
-        st['pelvis'] = (kf([(0, 0), (c0, 6), (c1, 0), (N, 0)], f), roll, 0)
+        st['Hips'] = (kf([(0, 0), (c0, 6), (c1, 0), (N, 0)], f), roll, 0)
         st['chest'] = (kf([(0, 0), (c0, 14), (c1, -4), (N, -6)], f), 0, kf([(0, 0), (c1, 8), (N, 10)], f))
         st['neck'] = (kf([(0, 0), (c0, 18), (c1, -16), (N, -20)], f), 0, kf([(0, 0), (c1, 10), (N, 14)], f))
         st['head'] = (kf([(0, 0), (c0, 14), (c1, -10), (N, -14)], f), 0, 0)
@@ -409,14 +425,14 @@ for name, c in CL.items():
                 Lc = LM['leg_' + lg]['chain_len'] * 0.985; dxy = math.hypot(Tw.x - Jw.x, Tw.y - Jw.y)
                 if (Tw - Jw).length > Lc and dxy < Lc: need = max(need, (Jw.z - Tw.z) - math.sqrt(Lc * Lc - dxy * dxy))
             if need < 1e-4: break
-            pb['pelvis'].location = pb['pelvis'].location + wloc('pelvis', (0, 0, -need - 0.002)); bpy.context.view_layer.update()
+            pb['Hips'].location = pb['Hips'].location + wloc('Hips', (0, 0, -need - 0.002)); bpy.context.view_layer.update()
         ikerr = max([((arm.matrix_world @ pb['leg_%s_2' % lg].tail) - (arm.matrix_world @ pb['ik_' + lg].head)).length
                     for lg in LEGS if pb['leg_%s_2' % lg].constraints[0].influence > 0.99], default=0.0)
         ikmax = max(ikmax, ikerr) if f else ikerr
         mz, co = mesh_minz()
         for _ in range(4):
             if not (c.get('ground_solve') and mz < 0.0): break
-            l = pb['pelvis'].location.copy(); pb['pelvis'].location = l + wloc('pelvis', (0, 0, -mz + 0.003)); bpy.context.view_layer.update()
+            l = pb['Hips'].location.copy(); pb['Hips'].location = l + wloc('Hips', (0, 0, -mz + 0.003)); bpy.context.view_layer.update()
             mz, co = mesh_minz()
         if f == 0: verts0 = co.copy()
         if f == N: vN = co.copy()
@@ -461,7 +477,7 @@ for name, frames in BAKED.items():
             if n in prev and prev[n].dot(q) < 0: q = -q
             prev[n] = q
             p = pb[n]; p.rotation_quaternion = q; p.keyframe_insert('rotation_quaternion', frame=f, group=n)
-            if n in ('pelvis', 'root'): p.location = l; p.keyframe_insert('location', frame=f, group=n)
+            if n in ('Hips', 'root'): p.location = l; p.keyframe_insert('location', frame=f, group=n)
     ad.action = None
     tr = ad.nla_tracks.new(); tr.name = name; tr.strips.new(name, 0, act); tr.mute = False
 for p in pb: p.location = (0, 0, 0); p.rotation_quaternion = (1, 0, 0, 0)

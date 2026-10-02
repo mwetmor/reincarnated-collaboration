@@ -1,0 +1,136 @@
+{
+ "what": "JOIN-1 clip manifest for the crypt maw (crucible creature, roster rig devourer) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/maw/maw.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw.glb",
+  "sha256_16": "4ffae06298db5f1b",
+  "height_m": 1.3421,
+  "length_m": 2.6403
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster combat idle 21f; ours 40f breathing + one jaw twitch per cycle"
+  },
+  "walk": {
+   "seconds": 0.6,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster: no walk clip (walk = run clip); 1.5 m/s INFERRED creep; 600 ms cycle so the stride stays inside the leg reach"
+  },
+  "run": {
+   "seconds": 0.4,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.851 m/s (characterRunSpeed 1.2 x K4-0); 400 ms cycle, duty 0.35"
+  },
+  "attack_bite": {
+   "seconds": 0.8,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: chomp/megachomp: attack_a01 25f hit f11"
+  },
+  "attack_bite_b": {
+   "seconds": 0.76667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: attack_b01 24f hit f12"
+  },
+  "cast_spit": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: vomit cone: attackspit_a01 51f rel f37 (1230 ms)"
+  },
+  "hit": {
+   "seconds": 0.5,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: gethit_a01 16f"
+  },
+  "death": {
+   "seconds": 0.86667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_a01 27f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.5,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.85,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_bite": {
+   "release_s": 0.3667,
+   "frame": 11,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 11)"
+  },
+  "attack_bite_b": {
+   "release_s": 0.4,
+   "frame": 12,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 12)"
+  }
+ },
+ "casts": {
+  "cast_spit": {
+   "release_s": 1.2333,
+   "frame": 37,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 37)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "maw_bile_spray",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw_bile_spray.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     576,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.5333,
+    "cell_m": [
+     3.456,
+     1.536
+    ],
+    "px_per_m": 166.667,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "chthoniandevourer_vomit (aoe wave 3 m long x 1 m wide, poison 3000 ms)",
+    "trigger": "cast_spit release_s 1.2333 (f37); plays 530 ms",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "maw_bite_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw_bite_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.1733,
+     1.1733
+    ],
+    "px_per_m": 218.182,
+    "plane": "billboard",
+    "pivot": "centre = the jaw tip at contact",
+    "ability": "chthoniandevourer_chomp / megachomp (melee 0-2.66 m)",
+    "trigger": "attack_bite contact_s 0.3667 (f11); attack_bite_b contact_s 0.4 (f12)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

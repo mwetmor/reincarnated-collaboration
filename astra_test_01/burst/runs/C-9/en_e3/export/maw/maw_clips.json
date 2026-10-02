@@ -3,8 +3,8 @@
  "creature": "maw",
  "roster_type_id": "devourer",
  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/maw/maw.glb",
- "glb_sha256": "f6f25afb28759d3c4f553e6bb381a3118611c7fb0df32ae55bc801b116ba5233",
- "glb_bytes": 2274404,
+ "glb_sha256": "4ffae06298db5f1b53f39af2ff50bfe95ca247583905b8ae6b4d132b6dcadb3b",
+ "glb_bytes": 2298816,
  "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
  "h_model_m": 1.3421,
  "length_m": 2.6403,
@@ -19,7 +19,7 @@
   {
    "name": "maw_interior",
    "double_sided": true,
-   "has_texture": false
+   "has_texture": true
   }
  ],
  "texture_embedded": true,
@@ -110,10 +110,10 @@
    "source": "chomp/megachomp: attack_a01 25f hit f11",
    "lint": {
     "frames": 25,
-    "ik_residual_max_m": 0.0001,
+    "ik_residual_max_m": 0.0,
     "min_z_m": -0.0004,
     "worst_frame_vertex": [
-     11,
+     4,
      [
       0.326,
       -0.76,
@@ -133,10 +133,10 @@
    "source": "attack_b01 24f hit f12",
    "lint": {
     "frames": 24,
-    "ik_residual_max_m": 0.0001,
+    "ik_residual_max_m": 0.0,
     "min_z_m": -0.0004,
     "worst_frame_vertex": [
-     12,
+     7,
      [
       0.326,
       -0.76,
@@ -430,7 +430,7 @@
   },
   "deform_bones": [
    "root",
-   "pelvis",
+   "Hips",
    "spine",
    "chest",
    "neck",

@@ -20,6 +20,21 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
          "through the broken floor, out of the ossuary, into the nave. This sheet is one of them: a CREATURE, not a person, an animal-like horror of the crypt.\n")
 
 CREATURES = {
+
+ 'crab': dict(type_id='crabmonstrosity', tid='EN3-CR', marker='the brass band on its LEFT claw', body='a many-legged creature',
+   pose=("POSE (for building and rigging a 3D model): standing still and level in a neutral pose, the shell level. The SIX walking legs spread "
+         "evenly, three on each side, each rising to its knee and down to a point on the ground, with clear gaps of green between neighbouring legs in "
+         "every view and under the shell. The two claws held forward, a little raised and CLEAR of the ground, the pincers CLOSED, a gap of green between "
+         "each claw and the shell and between the two claws. The eye stalks upright; the mouth plates shut. Nothing overlaps anything."),
+   text="""THE CREATURE, an OSSUARY CRAB: a huge crab-like horror of the drowned crypt, the size of a cart. It scuttles fast, slams its claws down, and breathes out a freezing mist.
+- SIZE AND BUILD: a broad, low-domed CARAPACE about 1.6 m across and 1.3 m from front to back, its top about 1.2 m from the ground; with the legs spread, the whole creature is about 3 m across. Heavy and wide, never tall.
+- THE CARAPACE: a dome of fused, pitted plates of old BONE, pale grey-ivory, with a cold slate-blue-grey wash in the hollows; along its front and side edges a fringe of short blunt bone points; a crust of pale white-blue frost along the rim. Seen from above it reads as one clear oval shell.
+- THE FRONT: two short stalked EYES, small and pale cold-blue, on top of the front edge; below them a small closed cluster of mouth plates, shut.
+- SIX WALKING LEGS, three on each side, long, jointed and spindly, each rising up and out from the shell to a high bent knee and then down to a sharp pointed tip on the ground; dark slate-grey, the joints paler bone.
+- TWO GREAT CLAWS in front, each on a thick jointed arm, held forward and slightly raised, CLEAR OF THE GROUND, the pincers CLOSED. The claws are the same size as each other, heavy and serrated, bone-pale with slate-grey tips.
+- ASYMMETRY MARKER: a corroded BRASS BAND engraved with hour-marks, clamped around the wrist of its LEFT claw ONLY. It shows in every view where the left claw is visible, and never on the right claw.
+- Nothing else on it: no rider, no chains, no cloth, no weeds hanging.
+"""),
  'maw': dict(type_id='devourer', tid='EN3-MW', marker='the brass gear sunk in its LEFT shoulder', text="""THE CREATURE, a CRYPT MAW: a low, four-legged crawling horror that is mostly MOUTH. It runs fast and low, bites, and retches a spray of bile.
 - SIZE AND BUILD: four-legged, about the size of a large boar: roughly 1.8 m from snout to the root of the tail, the top of the shoulders about 0.8 m from the ground. The body is heavy at the front and slung LOW between the legs; the back slopes down from high shoulders to lower hips.
 - THE HEAD is the creature: broad, blunt and heavy, as wide as the shoulders, carried level and forward on a thick short neck. It is nearly all JAW: a wide mouth that runs back almost to the neck. In this sheet the MOUTH IS CLOSED: the jaws are shut and a row of long, uneven, pale ivory-yellow TEETH interlock over the lips all along the closed jaw line, upper teeth pointing down over the lower lip and lower teeth pointing up over the upper lip. A thin line of dark madder-red shows only along the lip seam. NO nose. Two small deep-set pale cold-blue EYES set high on the head behind a heavy ridge of bony brow knobs.
@@ -35,11 +50,11 @@ def sheet_text(tid, c):
     return ("GENERATE BURST %s -- Run C-9 Phase 2 (Matt, R-C9-132): a NEW ENEMY CREATURE for the same world as the barbarian, the sorceress and the "
      "dark knight already built: ITS MODEL SHEET for a 3D model. task_id \"%s\".\n\n"
      "WHY this sheet exists (so you can judge your own result): a 3D model will be BUILT from these four views, then given a skeleton and animated "
-     "(walking, running, biting, being hit, dying). The four views must agree exactly, as four views of ONE animal. A dozen of these will fill an arena "
+     "(walking, running, attacking, being hit, dying). The four views must agree exactly, as four views of ONE animal. A dozen of these will fill an arena "
      "at once, seen from above at a small size, so its silhouette must read clearly.\n\n"
      "IMAGE 1 is a STYLE reference ONLY: copy its HAND (the varying dark ink line, the transparent watercolour washes that pool, granulate and bloom, "
      "the fine hatching in the shadows, the cream paper highlights, the moderate colour). Copy NOTHING else from it: not its character, costume, staff, "
-     "bag or pose. It shows a person; this sheet shows a four-legged creature.\n\n"
+     "bag or pose. It shows a person; this sheet shows " + c.get('body', 'a four-legged creature') + ".\n\n"
      + WORLD + c['text'] +
      "\nSTYLE: the REGISTER CARD above governs line, washes, light and plate: no glow, no rim light, no large black areas; the shadows are hatching and "
      "layered washes, never a flat black fill. Brass is a warm ochre-brown wash with pale paper highlights, tarnished, never shiny. Horror comes from "
@@ -49,15 +64,15 @@ def sheet_text(tid, c):
      "exactly the same scale as the side views (so they are narrower). Top-left FRONT (head-on, facing the viewer); top-right its RIGHT SIDE (in "
      "profile, its head toward the viewer's right); bottom-left BACK (seen from behind, the tail toward the viewer); bottom-right its LEFT SIDE (in "
      "profile, its head toward the viewer's left). The views are flat orthographic elevations: no three-quarter turn, no perspective.\n"
-     "POSE (for building and rigging a 3D model): standing SQUARE and still, in a neutral pose. All four legs STRAIGHT and VERTICAL under the body, "
+     + c.get('pose', "POSE (for building and rigging a 3D model): standing SQUARE and still, in a neutral pose. All four legs STRAIGHT and VERTICAL under the body, "
      "the feet flat on the ground and a little apart, so that in the front and back views a clear gap of green shows between the left and right legs "
      "and under the belly, and in the side views a clear gap of green shows between the front and hind legs. The head level and pointing straight "
-     "ahead; the MOUTH CLOSED; the tail straight out behind. Nothing overlaps anything.\n"
+     "ahead; the MOUTH CLOSED; the tail straight out behind. Nothing overlaps anything.") + "\n"
      "Soft even light; no cast shadows, no ground, no text, no labels, no cell borders, no other figures.\n"
      "BACKGROUND: flat pure #00ff00. If the image model returns a darker or gradient background anyway, still deliver the image.\n\n"
      "Two image_gen calls: variants a and b. ONE retry per variant only if the result DRIFTS between views (the body, head, teeth, spurs or %s "
      "change between views), a view is missing or faces the wrong way, the asymmetry marker is on the RIGHT side or missing, the mouth is open, a leg is "
-     "bent or hidden, or the views are not at one scale -- name the reason. Copy the outputs to out/%s_a.png and out/%s_b.png (a retry to "
+     "hidden or touches another, or the views are not at one scale -- name the reason. Copy the outputs to out/%s_a.png and out/%s_b.png (a retry to "
      "out/%s_a_r1.png / out/%s_b_r1.png) with sha256. No code. No other files. No web.\n"
      "RETURN: receipt task_id \"%s\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen "
      "calls; status; concerns. Never PASS/FAIL.") % (tid, tid, c['marker'], tid, tid, tid, tid, tid)
