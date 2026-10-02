@@ -1,0 +1,288 @@
+{
+ "grading": [
+  {
+   "q": "control replica ratio",
+   "value": 1.847,
+   "known": 1.847,
+   "grade": "REPLICA-EXACT"
+  },
+  {
+   "q": "P1 LU ratio",
+   "value": 0.9351,
+   "interval": [
+    1.15,
+    1.65
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P1 LU first deaths (w152<=3, w154<=8, >=8 at w156+ or none, 0-8 none)",
+   "value": {
+    "None": 18,
+    "160": 2
+   },
+   "grade": "MISS"
+  },
+  {
+   "q": "P1 LU w152 s",
+   "value": 41.15,
+   "interval": [
+    22,
+    45
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P1 LU w155 s",
+   "value": 27.13,
+   "interval": [
+    14,
+    28
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P1 LU w160 (8-20 die; mean t 5-25 s)",
+   "value": [
+    2,
+    15.51
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P2 MUT ratio",
+   "value": 2.1233,
+   "interval": [
+    1.88,
+    2.15
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 MUT first deaths (w152 8-16; none survive)",
+   "value": {
+    "154": 8,
+    "160": 1,
+    "152": 10,
+    "151": 1
+   },
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 MUT w152 s",
+   "value": 47.16,
+   "interval": [
+    40,
+    55
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 MUT w155 s",
+   "value": 20.26,
+   "interval": [
+    19,
+    27
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P2 MUT w160 (14-20 die; mean t 3-17 s)",
+   "value": [
+    17,
+    15.86
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P3 V311-FULL ratio",
+   "value": 1.0713,
+   "interval": [
+    1.2,
+    1.85
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P3 V311-FULL first deaths (w152<=5; >=6 at w156+ or none; 0-6 none)",
+   "value": {
+    "None": 16,
+    "160": 4
+   },
+   "grade": "MISS"
+  },
+  {
+   "q": "P3 V311-FULL w152 s",
+   "value": 39.4,
+   "interval": [
+    25,
+    50
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P3 V311-FULL w155 s",
+   "value": 27.4,
+   "interval": [
+    15,
+    30
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P3 V311-FULL w160 (10-20 die; mean t 4-22 s)",
+   "value": [
+    4,
+    12.53
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P4 LU per-wave own ratio (>=7/10)",
+   "value": {
+    "151": [
+     1.296,
+     true
+    ],
+    "152": [
+     0.394,
+     false
+    ],
+    "153": [
+     0.53,
+     false
+    ],
+    "154": [
+     0.62,
+     false
+    ],
+    "155": [
+     1.312,
+     true
+    ],
+    "156": [
+     1.132,
+     true
+    ],
+    "157": [
+     0.906,
+     true
+    ],
+    "158": [
+     0.764,
+     false
+    ],
+    "159": [
+     1.652,
+     true
+    ],
+    "160": [
+     1.61,
+     true
+    ]
+   },
+   "grade": "MISS"
+  },
+  {
+   "q": "P5 MUT per-wave x control in 0.95-1.20 (>=7/10)",
+   "value": {
+    "151": 0.974,
+    "152": 1.19,
+    "153": 0.985,
+    "154": 1.291,
+    "155": 1.094,
+    "156": 1.214,
+    "157": 1.365,
+    "158": 1.27,
+    "159": 1.072,
+    "160": 1.321
+   },
+   "grade": "MISS"
+  },
+  {
+   "q": "P6 V311 per-wave x LU in 0.95-1.25 (>=7/10)",
+   "value": {
+    "151": 0.995,
+    "152": 1.325,
+    "153": 1.274,
+    "154": 1.124,
+    "155": 1.212,
+    "156": 1.215,
+    "157": 1.168,
+    "158": 1.313,
+    "159": 1.027,
+    "160": 1.036
+   },
+   "grade": "HIT"
+  },
+  {
+   "q": "P7 LU-BC > LU",
+   "value": [
+    1.0842,
+    0.9351
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P8 LU-RA < LU",
+   "value": [
+    0.8618,
+    0.9351
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P9 LU-LEECH and LU-CRUEL mean duration > LU",
+   "value": [
+    38.39,
+    38.97,
+    38.74
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P10 V311-ASCX within +-3 % and duration <=",
+   "value": [
+    1.0628,
+    1.0713,
+    38.58,
+    39.38
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "P11 LU-UNK within +-6 % of LU",
+   "value": [
+    1.0039,
+    0.9351
+   ],
+   "grade": "MISS"
+  },
+  {
+   "q": "P12 oracle produces fewer referent summon identities than the referent (SEEN-informed)",
+   "value": [
+    9,
+    13
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "G1 five arms within +-10 %",
+   "value": [
+    1.0605,
+    1.0923,
+    1.0605,
+    1.067,
+    1.0923
+   ],
+   "grade": "HIT"
+  },
+  {
+   "q": "G2 <= 5 of 25 cells first die in w152",
+   "value": 0,
+   "grade": "HIT"
+  }
+ ],
+ "n_hit": 16,
+ "n_miss": 10
+}
