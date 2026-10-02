@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST BV3-4 -- Run C-9 Phase 2, lane BV3: a LOOSE CONCEPT SKETCH of a whole combat SITE for a winter game level, seen from above. task_id \"BV3-4\".\n\nSITE: open snowy ground; here the stone ring itself is the source of enemies.\n\nLAYOUT (the fixed geometry, identical in every concept): seen from high above at about 53 degrees down, like a fixed overhead game camera, NORTH AT THE TOP of the frame. In the middle, a broad FLAT OPEN floor of snow, empty and uncluttered, about two-thirds of the frame wide, ringed by ONE low line of small standing stones (knee-to-waist height, evenly spaced, the ring reading as a wide oval because of the camera tilt). Five spawn sources stand just OUTSIDE the ring: one at the top (NORTH, the grandest and largest, where the bosses enter), one at the left (WEST), one at the bottom (SOUTH), one at the right (EAST), and one at the lower right (SOUTH-EAST) close beside the east one, so east and south-east read as a near pair. A sixth, ambush source lies INSIDE the ring, a little up and to the left of centre (north-west of centre), small, so the rest of the floor stays open. Each source is a distinct, readable landmark at small size; leave the space between them as plain snow.\n\nTHE SIX SOURCES: NORTH (top): a great barrow with a massive stone doorway facing the ring -- the grandest thing in the frame. The other four sources are tall stone gateways set INTO the ring (two tall uprights and a lintel, much taller than the low ring stones), each standing in the ring line and facing the centre. Through each gateway a DIFFERENT other place shows, like a window, as if the opening were a picture of somewhere else: WEST (left) gateway: a green-grey misty swamp. SOUTH (bottom) gateway: a sun-bleached, pale gold desert. EAST (right) gateway: a starless black void. SOUTH-EAST (lower right, close beside the east one) gateway: a frozen sea under a pale sky. Around the gateways the ground is ordinary winter snow. AMBUSH (inside the ring, north-west of centre): a thin jagged crack in the snow that glows with a strange mixed light, the same other-place light as the gateways.\n\nHAND: a loose concept sketch, not a finished painting -- a varying dark warm-brown ink line (bolder on outer contours, lighter inside), transparent watercolour washes, cream paper left showing as the highlights, a cold winter palette of blue-white snow and warm grey stone, one low warm winter sun from the upper LEFT with short soft blue-violet shadows. Few specifics; the big shapes clear. IMAGE 1 is a reference for palette, light, snow and painted hand ONLY -- not its layout or its objects.\n\nNo characters, no creatures, no people, no text, lettering, labels, numbers, arrows, compass, UI, border or frame.\n\nExactly ONE image_gen call (generate, landscape 1536x1024). Do not retry inside this burst. Copy the output to out/BV3-4.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"BV3-4\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10BF-2_0/T10BF-2_0.png",
+   "role": "IMAGE 1 -- a painted chunk of the approved Barrow area: palette, light, snow and painted hand ONLY, not its layout"
+  }
+ ],
+ "image_cap": 1,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/BV3-4.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "BV3-barrow-v2-sites"
+}

@@ -35283,9 +35283,253 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV3-3",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f84edaa91535bc57da8d5b6477cc0d9e2b9259115446755a432b6a183f0488b5",
+      "started": "2026-10-02T23:51:49.876954+00:00",
+      "ended": "2026-10-02T23:54:16.084133+00:00",
+      "minutes": 2.4368120847163177,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff08-0279-7410-abb6-680404080390/exec-bcd06926-926e-437d-95fa-cef4e0d2233c.png",
+            "sha256": "7c62f882b50133d2bd33a3637ae12c7206c997828a2895e09caee8a97288ee8c"
+          }
+        ]
+      },
+      "receipt_sha256": "20aa463c42353840f4f627a49ca164efa10872c440e629d20e3ba3521bf5eecc",
+      "artifacts": [
+        {
+          "name": "BV3-3.png",
+          "sha256": "7c62f882b50133d2bd33a3637ae12c7206c997828a2895e09caee8a97288ee8c"
+        },
+        {
+          "name": "exec-bcd06926-926e-437d-95fa-cef4e0d2233c.provenance.json",
+          "sha256": "2e11f9bf4b1cc008ee681cfe0d4122ce0197364fca5ba139a1348dc07d9b110e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff08-0279-7410-abb6-680404080390/exec-bcd06926-926e-437d-95fa-cef4e0d2233c.png",
+          "sha256": "7c62f882b50133d2bd33a3637ae12c7206c997828a2895e09caee8a97288ee8c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV3-2",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "610f5db244224bcdb4750da1aa81d6a507d7c97bfddac55d9d79e0621b5f79d9",
+      "started": "2026-10-02T23:51:49.876955+00:00",
+      "ended": "2026-10-02T23:54:27.731443+00:00",
+      "minutes": 2.630937482632968,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff08-0277-7753-92c4-36e97c67a01b/exec-fc95fb7c-2908-4f4e-8c08-4a3a25e4e3ca.png",
+            "sha256": "6c2b835baafd90652c242f60853fa2c8e704fa1537c68c2498e52d8a523923f3"
+          }
+        ]
+      },
+      "receipt_sha256": "fd0a74d843352e9174d72c55732c84ebccb561394e73b3303b7f65a4e7ac2d34",
+      "artifacts": [
+        {
+          "name": "BV3-2.png",
+          "sha256": "6c2b835baafd90652c242f60853fa2c8e704fa1537c68c2498e52d8a523923f3"
+        },
+        {
+          "name": "exec-fc95fb7c-2908-4f4e-8c08-4a3a25e4e3ca.provenance.json",
+          "sha256": "702bab7073c9269c88134f8f7faa751ede5655ca326a79ed385ef2b6a8ba211f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff08-0277-7753-92c4-36e97c67a01b/exec-fc95fb7c-2908-4f4e-8c08-4a3a25e4e3ca.png",
+          "sha256": "6c2b835baafd90652c242f60853fa2c8e704fa1537c68c2498e52d8a523923f3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV3-1",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "3958d2f2c6af40936adc218da56735ff4aaeda0018726a1b0bde55f923a3bcea",
+      "started": "2026-10-02T23:51:49.877076+00:00",
+      "ended": "2026-10-02T23:54:31.439978+00:00",
+      "minutes": 2.6927465951332126,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff08-0278-76b1-a7ce-15b64593a8e4/exec-dbcc9764-1832-4eed-9c92-6508b73827b5.png",
+            "sha256": "17676b6a73d64e0d3cf4f2088fab2449dc745cbbd181f20d8c51db2c35b63217"
+          }
+        ]
+      },
+      "receipt_sha256": "406fdc382dd6dc0d60d28f5f738c099f10d2a0fc45097c62d5b50cb8d4a74db9",
+      "artifacts": [
+        {
+          "name": "BV3-1.png",
+          "sha256": "17676b6a73d64e0d3cf4f2088fab2449dc745cbbd181f20d8c51db2c35b63217"
+        },
+        {
+          "name": "exec-dbcc9764-1832-4eed-9c92-6508b73827b5.provenance.json",
+          "sha256": "e5130ba17dfa1c53d8bd7bb250ac7f6529d630352e5e1879ae2a8d3b8a47d8a0"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff08-0278-76b1-a7ce-15b64593a8e4/exec-dbcc9764-1832-4eed-9c92-6508b73827b5.png",
+          "sha256": "17676b6a73d64e0d3cf4f2088fab2449dc745cbbd181f20d8c51db2c35b63217"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV3-4",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a2a892e759deeba1ca8d886fb23e168f34df6a2e3e2f6479f0e9f885b4b457d8",
+      "started": "2026-10-02T23:51:49.876983+00:00",
+      "ended": "2026-10-02T23:54:39.443870+00:00",
+      "minutes": 2.826144064583544,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff08-0279-7c11-aafd-7b11d381c358/exec-34755e1d-9308-43aa-b246-484fd09b03dd.png",
+            "sha256": "59df5e36261253592bedba2954955af34db9f99274b1843aae664ff10eafd0fc"
+          }
+        ]
+      },
+      "receipt_sha256": "58cc2a059e49e03e2ae132b236fa0e6ed853838935de2fd3add7960545ba628a",
+      "artifacts": [
+        {
+          "name": "BV3-4.png",
+          "sha256": "59df5e36261253592bedba2954955af34db9f99274b1843aae664ff10eafd0fc"
+        },
+        {
+          "name": "exec-34755e1d-9308-43aa-b246-484fd09b03dd.provenance.json",
+          "sha256": "27430b62b5c2854fa28d7e8560ca143ddc62a4ff000a2d8f23c2f74826b6e7b7"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff08-0279-7c11-aafd-7b11d381c358/exec-34755e1d-9308-43aa-b246-484fd09b03dd.png",
+          "sha256": "59df5e36261253592bedba2954955af34db9f99274b1843aae664ff10eafd0fc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1050,
+  "images_used": 1054,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -36319,6 +36563,12 @@
       "ts": "2026-10-02T23:55:00Z",
       "status": "halted, superseded by site-level concepts (Matt)",
       "note": "Seven barrow concept sketches (BV2-1..7: King's, Broken, Ice-Sealed, Stone-Ship, Cairn, Burnt, Chained Twin), one Astra GENERATE burst each, all exit 0 at 1 image; images_used 1043 -> 1050 (7). Matt: \"Too similar\" -- conductor HALT; brief to be redesigned at site level. The HALT arrived 90 s into the single wave, after all 7 bursts were in flight; none were killed (killing would have lost generated, unledgered images); no retries fired. Outputs barrow_v2/concepts/BV2-*.png + BV2_concepts_contact.png; commit 33079a7d7 (PNGs force-added; not pushed)."
+    },
+    {
+      "id": "M-C9-BV3-SITES",
+      "lane": "BV3 (drax)",
+      "ts": "2026-10-02T23:58:00Z",
+      "note": "barrow_v2 whole-SITE concept sketches, 4 bursts BV3-1..4 (GENERATE, 1 image each, 0 retries; Astra 4 of a 6 cap). One overview per site at ~53 deg, north up, ring of low stones around an open snow floor, 5 outer sources (N grand, W, S, E + SE paired) + an inner NW ambush. 1 The Barrow Field (the only all-barrows site); 2 The Fjord Headland; 3 The Pass of the Old Wall; 4 The Rift Henge. All four came out on-brief: six sources distinct, floor open. Deviations: the rendering is more finished than a loose sketch on all four; site 3 added small heraldic banners and its wall breach sits NE rather than due E; site 1 adds extra small mounds in the field. refs_guard OK; ref = artifacts/T10BF-2_0 (style only). Outputs: runs/C-9/barrow_v2/sites/BV3-{1..4}.png + BV3_sites_contact.png. Wrapper ledgered images_used."
     }
   ],
   "halts": [
