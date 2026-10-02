@@ -1,0 +1,171 @@
+{
+ "G1": {
+  "rows": 56511,
+  "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+  "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+  "rowset_equal": true,
+  "file_rederived": "eb335ebabffb87960629f1dd24410bad32d7bd3230bcb11edd58b04324b68600",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "G2": {
+  "rows": 105045,
+  "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+  "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+  "rowset_equal": true,
+  "file_rederived": "77c4dd655f51afbecd13e9bd5e8635d09ca8ca68ebf8607a07acf55e9e967db3",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "G3": {
+  "rows": 250,
+  "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+  "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+  "rowset_equal": true,
+  "file_rederived": "447a7778f258f0b5103253a47624112b5e160ca8121e2c7543d4b121259bcdef",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "G4": {
+  "rows": 117695,
+  "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+  "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+  "rowset_equal": true,
+  "file_rederived": "d9ff9699c0bc0206401c07ad483aa977e03ce8ed42b68d675fd39e1115ded87a",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "G5": {
+  "rows": 25,
+  "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+  "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+  "rowset_equal": true,
+  "file_rederived": "efe28e88195ee74c26c5632710ba014748dfae51b2fd0e2411b1f349cdec67d8",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "G6": {
+  "rows": 0,
+  "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "rowset_equal": true,
+  "file_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "file_equal": true,
+  "n_cells_with_rows": 0
+ },
+ "G7": {
+  "rows": 250,
+  "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+  "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+  "rowset_equal": true,
+  "file_rederived": "e98699b6fabcf01d4d943d6983423fa684f6caa3161b8722ea65dfbb697aa63f",
+  "file_equal": true,
+  "n_cells_with_rows": 25
+ },
+ "warn1": {
+  "n": 56511,
+  "min_pth_used": 67.72363776155538,
+  "min_pth_raw": 66.80545402122416,
+  "n_used_lt70": 129,
+  "n_used_lt55": 0,
+  "n_eff_ne_used": 0,
+  "pth_used_quantiles": [
+   67.72363776155538,
+   67.72363776155538,
+   67.72363776155538,
+   67.72363776155538,
+   67.72363776155538
+  ]
+ },
+ "g4": {
+  "sum_halted": 253753,
+  "sum_beyond": 0,
+  "n_max_halt_nonnull": 0
+ },
+ "trajectory_classes": {
+  "n_distinct": 12,
+  "classes": [
+   [
+    "M-POL-2-NULL|0",
+    "M0|0"
+   ],
+   [
+    "M-POL-2-NULL|1",
+    "M0|1"
+   ],
+   [
+    "M-POL-2-NULL|2",
+    "M0|2"
+   ],
+   [
+    "M-POL-2-NULL|3",
+    "M0|3"
+   ],
+   [
+    "M-POL-2-NULL|4",
+    "M0|4"
+   ],
+   [
+    "M-POL-2|0",
+    "W1|0",
+    "W1-NULL|0"
+   ],
+   [
+    "M-POL-2|1",
+    "W1|1",
+    "W1-NULL|1"
+   ],
+   [
+    "M-POL-2|2",
+    "W1-NULL|2"
+   ],
+   [
+    "M-POL-2|3",
+    "W1-NULL|3"
+   ],
+   [
+    "M-POL-2|4",
+    "W1|4",
+    "W1-NULL|4"
+   ],
+   [
+    "W1|2"
+   ],
+   [
+    "W1|3"
+   ]
+  ]
+ },
+ "second": {
+  "G1": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G2": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G3": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G4": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G5": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G6": {
+   "rowset_equal": true,
+   "file_equal": true
+  },
+  "G7": {
+   "rowset_equal": true,
+   "file_equal": true
+  }
+ },
+ "second_inertness": "25/25",
+ "second_obs1": "25/25"
+}
