@@ -296,8 +296,7 @@ uniform float push_arm = 0.85;
 varying vec3 v_world;
 varying vec3 v_col;
 varying float v_rnd;
-varying vec2 v_burn;                 // R-C9-118: this clump's char and ember (PaintedWorld.FX_IMP)
-""" + PaintedWorld.FX_IMP
+"""
 
 const _SHADER_FUNCS := """
 float _press(vec2 uv) {
@@ -348,19 +347,6 @@ void vertex() {
 		d.y -= dot(d.xz, d.xz) / (2.0 * hh);
 	}
 	VERTEX += d / s;
-	// R-C9-118 (c): BURN AND CRUMBLE, per clump (its origin): char and an ember rim as the field burns, then the clump
-	// shrinks and sinks into its root at its own moment over the field's life -- in the vertex stage, nothing rebuilt
-	v_burn = vec2(0.0);
-	if (fx_imp_n > 0.5) {
-		vec2 ia = fx_imp_at(origin);
-		if (ia.x > 0.0) {
-			v_burn = fx_imp_char(ia, fx_imp_age.x + fx_imp_age.y);
-			float t0 = 0.12 + 0.45 * v_rnd;
-			float cr = ia.x * smoothstep(t0, t0 + 0.3, ia.y);
-			VERTEX *= 1.0 - cr;
-			VERTEX.y -= cr * 0.05 / s;
-		}
-	}
 	v_world = wp + d;
 	v_col = COLOR.rgb;
 }
@@ -376,8 +362,7 @@ void fragment() {
 	base = mix(base, base * vec3(0.90, 1.0, 0.78), clamp(0.5 - v_rnd, 0.0, 0.5) * hue_jitter * 2.0);
 	float m = texture(mottle_noise, v_world.xz * mottle_scale).r;
 	base *= (1.0 - mottle_amp * 0.5 + m * mottle_amp);
-	ALBEDO = mix(base, base * vec3(0.12, 0.10, 0.09), v_burn.x);
-	EMISSION = vec3(1.0, 0.36, 0.07) * v_burn.y;
+	ALBEDO = base;
 	ROUGHNESS = mesh_mark;
 }
 """
@@ -389,8 +374,7 @@ void fragment() {
 	float tj = v_rnd - 0.5;
 	base *= 1.0 + tj * tone_jitter;
 	base = mix(base, base * vec3(0.90, 1.0, 0.78), clamp(0.5 - v_rnd, 0.0, 0.5) * hue_jitter * 2.0);
-	ALBEDO = mix(base, base * vec3(0.12, 0.10, 0.09), v_burn.x);
-	EMISSION = vec3(1.0, 0.36, 0.07) * v_burn.y;
+	ALBEDO = base;
 	ALPHA = tx.a;
 	ALPHA_SCISSOR_THRESHOLD = 0.5;
 	ROUGHNESS = mesh_mark;
@@ -421,8 +405,7 @@ void fragment() {
 	float tj = v_rnd - 0.5;
 	base *= 1.0 + tj * tone_jitter;
 	base = mix(base, base * vec3(0.90, 1.0, 0.78), clamp(0.5 - v_rnd, 0.0, 0.5) * hue_jitter * 2.0);
-	ALBEDO = mix(base, base * vec3(0.12, 0.10, 0.09), v_burn.x);
-	EMISSION = vec3(1.0, 0.36, 0.07) * v_burn.y;
+	ALBEDO = base;
 	ALPHA = tx.a;
 	ALPHA_SCISSOR_THRESHOLD = 0.5;
 }

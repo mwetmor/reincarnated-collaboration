@@ -16,7 +16,7 @@ foot_lock.gd and nb-body.glb are never touched. Each variant is one SLOT (script
                     (attack_lab/staged/t12_12c: the T12_12b character + the T12_12c bodies) -- WEB ONLY: nothing
                     here touches cliffside3d. These play through attack_lab/staged/t12_11/knight.gd, copied byte for
                     byte to scripts/variants/knight_t12_11.gd (the installed T12_11 knight).
-  warlord    the dark knight, wl_e1/export/final_h (1.96 m; idle walk run attack hit death warcry)
+  warlord    the dark knight, wl_e1/export/final_j2 (1.96 m; idle walk run (+ _unarmed) attack hit death warcry; ?eye=ice)
 """
 import copy
 import hashlib
@@ -94,14 +94,21 @@ def jsave(name, d):
     (SL / name).write_text(json.dumps(d, indent=1, ensure_ascii=False))
 
 
+# ---- SORCERESS: HER DEFAULT LOOK (R-C9-120, 05a300c47): the robe v7 re-skin and the leggings body ---------------
+# gear_sets/sorceress_robe/export_r120_ship replaces her pieces in place (so_d7/scene_pkg/character_sorceress.json unchanged)
+for f in ("so-body.glb", "robe.glb", "belt.glb", "mantle.glb", "bracers.glb", "circlet.glb", "staff.glb"):
+    put(C9 / "gear_sets/sorceress_robe/export_r120_ship" / f, G / "models/sorceress" / f)
+
 # ---- SORCERESS: the battle mage, C (painted) and D (painted + steel grade) -----------------------------------
+# R-C9-119/120 (0d418619f / 05a300c47): body119 (the grip_R_wand / grip_L_book morphs, the mirrored cast_fireball_m) and
+# the bmc120 / bmd120 gear (the gown re-skin); the open book in the left hand through every clip, the casts included
 her = jload(G / "data/character_sorceress.json")
-bm = jload(C9 / "gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_battlemage_full.json")
 bmm = jload(C9 / "gear_sets/sorceress_battlemage/scene_pkg/gear_manifest_sorceress_battlemage.json")
 herm = jload(G / "data/gear_manifest_sorceress.json")
-for tag, exp in (("bmc", "export_v11"), ("bmd", "export_v12")):
+for tag, exp in (("bmc", "export_bmc120"), ("bmd", "export_bmd120")):
+    bm = jload(C9 / f"gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_{tag}119_full.json")
     d = MV / f"so_{tag}"
-    body = put(C9 / "gear_sets/sorceress_battlemage/body/so-body_battlemage_v8.glb", d / "so-body_battlemage_v8.glb")
+    body = put(C9 / "gear_sets/sorceress_battlemage/body119/so-body_bm119.glb", d / "so-body_bm119.glb")
     pieces = []
     specs = dict(bmm["pieces"])
     specs.setdefault("under_legs", {"file": "under_legs.glb", "mode": "skin"})      # v10's under-layer (s42), not in the manifest
@@ -114,14 +121,18 @@ for tag, exp in (("bmc", "export_v11"), ("bmd", "export_v12")):
         pieces.append(e)
     man = copy.deepcopy(herm)
     man["_note"] = f"R-C9-117: the battle-mage set {tag.upper()} ({exp}) on her v8 body, in her manifest's shape (tools/make_slots.py)"
-    man["body"] = "so-body_battlemage_v8.glb"
+    man["body"] = "so-body_bm119.glb"
     man["body_sha256"] = ""
     man["pieces"] = pieces
     man["layer_order"] = bmm.get("layer_order", ["body"] + [p["piece"] for p in pieces])
     jsave(f"gear_so_{tag}.json", man)
     ch = copy.deepcopy(bm)
-    ch["_note"] = f"R-C9-117: the battle mage {tag.upper()} ({exp}) -- gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_battlemage_full.json with its paths moved into the page's variant pack"
-    ch["model"] = f"res://models/variants/so_{tag}/so-body_battlemage_v8.glb"
+    ch["_note"] = (f"R-C9-117/119/120: the battle mage {tag.upper()} ({exp}) -- gear_sets/sorceress_battlemage/scene_pkg/"
+                   f"character_sorceress_{tag}119_full.json with its paths moved into the page's variant pack. THE BOOK HOLD OVER THE "
+                   "CASTS TOO (the lane's integration note: knight.gd's left slot blends over locomotion only): its strike_release -- "
+                   "a filtered Blend2 inside each strike's one-shot -- carries book_carry_L on the three left-arm bones through both "
+                   "casts (guard_throughout); the wand hand throws the mirrored Fire Ball, so the right arm needs no carry there")
+    ch["model"] = f"res://models/variants/so_{tag}/so-body_bm119.glb"
     ch["gear_dir"] = f"res://models/variants/so_{tag}"
     ch["gear_manifest"] = f"res://data/slots/gear_so_{tag}.json"
     full = list(bm["gear_stacks"][-1])
@@ -130,13 +141,17 @@ for tag, exp in (("bmc", "export_v11"), ("bmd", "export_v12")):
     ch["gear_stacks"] = [[p for p in s if p in full] for s in ch["gear_stacks"]]
     ch["gear_stack_names"] = ["base", "gown + legs", "+ breastplate", "+ hood + gauntlets", "full kit (+wand +grimoire)"]
     ch["sockets"] = "res://data/slots/sockets_so_bm.json"
+    ch["strike_release"] = {"pose": "book_carry_L", "bones": ["LeftArm", "LeftForeArm", "LeftHand"],
+                            "guard_throughout": ["cast_fireball_m", "cast_meteor"], "at_s": {}, "over_s": 0.08,
+                            "_note": "R-C9-119: the open book held through both casts (book_carry_L), as the slot's arm_layer_armed holds it over locomotion"}
     jsave(f"so_{tag}.json", ch)
     OUT[f"so_{tag}"] = {"body_md5": body, "pieces": [p["piece"] for p in pieces]}
 
 # her sockets with the crown on the WAND's tip (0.35 m along weapon_r: the battle-mage manifest's length_m), not the staff's
 sk = jload(G / "data/sockets_sorceress.json")
-sk["main_tip"] = dict(sk["main_tip"], along_bone_m=float(bmm["pieces"]["wand"].get("length_m", 0.35)),
-                      what="the WAND's tip (R-C9-117: the battle mage): weapon_r + the wand's length along its +Y")
+sk["main_tip"] = dict(sk["main_tip"], along_bone_m=0.39,
+                      what="the WAND's crystal tip (R-C9-119 sockets_r119: 0.390 m from the fist along the wand): the Meteor's call")
+sk["cast_hand_R"] = {"bone": "RightHand", "along_bone_m": 0.07, "what": "the wand hand's palm: the mirrored Fire Ball's spawn (R-C9-119)"}
 jsave("sockets_so_bm.json", sk)
 
 # ---- BARBARIAN: the freed champion, C (painted + grade) and B (painted) --------------------------------------
@@ -179,27 +194,32 @@ ST = C9 / "attack_lab/staged"
 kg = G / "scripts/variants/knight_t12_11.gd"
 shutil.copyfile(ST / "t12_11/knight.gd", kg)
 assert md5(kg) == "86141f65", md5(kg)
-for tag, bsrc, chsrc in (("t1211", "T12_11_trails", "t12_11"), ("f25l", "T12_12c_F25L", "t12_12c"), ("f40l", "T12_12c_F40L", "t12_12c")):
+# R-C9-122 (cb0bb334a): T12_12d -- F25L with the legs taken in (N25: -25%, N40: -40% of the excess over hip width) and the
+# heel-to-toe walk; its manifest (5fdfc147) carries locomotion_in_place.walk 1.3199 m/s, which the knight prefers
+for tag, bsrc, chsrc in (("t1211", "T12_11_trails", "t12_11"), ("f25l", "T12_12c_F25L", "t12_12c"), ("f40l", "T12_12c_F40L", "t12_12c"),
+                         ("n25", "T12_12d_N25", "t12_12d"), ("n40", "T12_12d_N40", "t12_12d")):
     d = MV / f"barb_{tag}"
     body = put(C9 / "nb_d2/export_staging" / bsrc / "nb-body.glb", d / "nb-body.glb", optimizer_off=True)
     ch = jload(ST / chsrc / "character.json")
     ch["_r_c9_117"] = f"R-C9-117 (web only): attack_lab/staged/{chsrc}/character.json, the body moved to models/variants/barb_{tag}; the six pieces and the manifest are T12_11's (byte-identical gear)"
     ch["model"] = f"res://models/variants/barb_{tag}/nb-body.glb"
-    ch["gear_manifest"] = "res://data/slots/gear_t12.json"
+    ch["gear_manifest"] = "res://data/slots/gear_t12d.json" if chsrc == "t12_12d" else "res://data/slots/gear_t12.json"
     ch["gear_dir"] = "res://models/gear"
     jsave(f"barb_{tag}.json", ch)
     OUT[f"barb_{tag}"] = {"body_md5": body, "character_md5_src": md5(ST / chsrc / "character.json")}
 shutil.copyfile(C9 / "nb_d2/export_staging/T12_11_trails/gear_manifest.json", SL / "gear_t12.json")
+shutil.copyfile(C9 / "nb_d2/export_staging/T12_12d_N25/gear_manifest.json", SL / "gear_t12d.json")
+assert md5(SL / "gear_t12d.json") == "5fdfc147", md5(SL / "gear_t12d.json")
 assert OUT["barb_t1211"]["body_md5"] == "3e32a9fc" and OUT["barb_f25l"]["body_md5"] == "23e5fde7" and OUT["barb_f40l"]["body_md5"] == "614de31d", OUT
 
 # ---- THE DARK KNIGHT (c=warlord) --------------------------------------------------------------------------------
 WD = G / "models/warlord"
-FH = C9 / "wl_e1/export/final_i"      # R-C9-118 deploy: the stage-I export (c6ee8e884)
-for f in ("wl_body.glb", "wl_mace.glb", "wl_chest.glb", "wl_pauldrons.glb", "wl_helm.glb", "wl_cape.glb"):
+FH = C9 / "wl_e1/export/final_j2"      # BIND-ORDER: final_j2 = final_j with every piece reordered to the body node order; R-C9-121: the stage-J ship set (81347c09d): the painted body, the cape fitted, the eye glow, unarmed clips
+for f in ("wl_body.glb", "wl_mace.glb", "wl_chest.glb", "wl_pauldrons.glb", "wl_helm.glb", "wl_helm_ice.glb", "wl_cape.glb"):
     put(FH / f, WD / f)
 wl = jload(C9 / "wl_e1/work/character_wl.json")
 man = copy.deepcopy(herm)
-man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_i, 1.96 m; R-C9-118: stage I -- the raised idle chin, the mace at shoulder height, cape v2), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
+man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_j2, 1.96 m; R-C9-121: stage J -- the painted body embedded, the cape fitted, the eye-slit glow, the unarmed clip set), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
 man["body"] = "wl_body.glb"
 man["body_sha256"] = ""
 man["height_m"] = 1.96
@@ -211,16 +231,24 @@ man["shape_key_rules"] = {}
 man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed", "walk": {"speed_m_s": 1.519},
                               "run": {"speed_m_s": 4.924}, "_source": "wl_e1/work/film_cfg_h.json (footlock_G2)"}
 jsave("gear_warlord.json", man)
+# the eye colour (wl_manifest.json eye_variant): ONE helm loaded -- violet (the default) or ice, the piece keeps its name
+mani = copy.deepcopy(man)
+for pc in mani["pieces"]:
+    if pc["piece"] == "wl_helm":
+        pc["glb"] = "wl_helm_ice.glb"
+jsave("gear_warlord_ice.json", mani)
 ch = copy.deepcopy(her)
 for k in list(ch.keys()):
     if k.startswith("_") or k in ("casts", "strikes_need_armed", "gear_stack_detail", "layers_knight_lacks", "roles_knight_lacks"):
         ch.pop(k)
-ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_i): his clips idle walk run attack hit death warcry; SLASH = the mace "
+ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_j2): his clips idle walk run attack hit death warcry; SLASH = the mace "
                "attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays "
                "her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).")
 ch["model"] = "res://models/warlord/wl_body.glb"
 ch["model_height_m"] = 1.96
-ch["clips"] = {"idle": "idle", "walk": "walk", "run": "run"}
+# the weapon state (wl_manifest.json weapon_state): armed (the mace shown) idle/walk/run; unarmed (GEAR took the mace)
+# the *_unarmed set; attack and the war cry need the mace (their buttons hide with it)
+ch["clips"] = {"idle": "idle_unarmed", "walk": "walk_unarmed", "run": "run_unarmed"}
 ch["clips_armed"] = {"idle": "idle", "walk": "walk", "run": "run", "attack": "attack", "chop": "warcry"}
 ch["roles_knight_lacks"] = {"hit": "hit", "death": "death"}
 ch["armed_when_pieces"] = list(wl["armed_when_pieces"])
@@ -237,5 +265,9 @@ ch["walk_px_s"] = round(1.519 * 100.617553710938, 1)
 ch["run_px_s"] = round(4.924 * 100.617553710938, 1)
 ch["foot_lock"] = False
 jsave("warlord.json", ch)
+chi = copy.deepcopy(ch)
+chi["gear_manifest"] = "res://data/slots/gear_warlord_ice.json"
+chi["_eye"] = "ice (wl_helm_ice.glb)"
+jsave("warlord_ice.json", chi)
 OUT["warlord"] = {"pieces": man["pieces"], "walk_px_s": ch["walk_px_s"], "run_px_s": ch["run_px_s"]}
 print(json.dumps(OUT, indent=1)[:2000])

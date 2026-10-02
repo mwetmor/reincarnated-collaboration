@@ -99,7 +99,15 @@ for imp in sorted(list((root / "models" / "gear").glob("*.import")) + list((root
         ncut += 1
     imp.write_text(t)
     ng += 1
-print(f"world models' textures discarded: {nd}; his and her gear textures VRAM+mips: {ng} (cut to 512: {ncut})")
+# R-C9-118: the craters' painted albedo and emission at 512 (a crater is ~220 px across at the play camera; her pack
+# crossed the 50 MB fence at 1024 with crater v5's ice and earth variants)
+nc = 0
+for imp in sorted((root / "data" / "vfx" / "crater_v4").glob("crater_*_*.png.import")):
+    t = imp.read_text()
+    t = setk(t, "process/size_limit", "512")
+    imp.write_text(t)
+    nc += 1
+print(f"world models' textures discarded: {nd}; his and her gear textures VRAM+mips: {ng} (cut to 512: {ncut}); crater textures cut to 512: {nc}")
 PY
 
 echo "== import"
@@ -122,14 +130,15 @@ FILES_HER=$(list_files her)
 FILES_WL=$(list_files wl)
 # R-C9-117: A VARIANT PACK PER SLOT (the select page's armor / hold), fetched by the page only for that slot
 vfiles() { (cd "$DEST" && ls models/variants/$1/*.glb | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
-VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l"
+VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l barb_n25 barb_n40"
 vinc() { case "$1" in
   so_*) echo "data/slots/$1.json,data/slots/gear_$1.json,data/slots/sockets_so_bm.json";;
   barb_glad*) echo "data/slots/$1.json,data/slots/gear_$1.json";;
+  barb_n*) echo "data/slots/$1.json,data/slots/gear_t12d.json";;
   *) echo "data/slots/$1.json,data/slots/gear_t12.json";; esac; }
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_WL="$INC_COMMON,data/slots/warlord.json,data/slots/gear_warlord.json"
+INC_WL="$INC_COMMON,data/slots/warlord.json,data/slots/gear_warlord.json,data/slots/warlord_ice.json,data/slots/gear_warlord_ice.json,data/slots/warlord_eyes.json"
 INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/vfx/crater_v4/*,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
@@ -366,6 +375,13 @@ echo "$M4LINE" | grep -q "meteor=mix4(fall=lane_b_core,impact=lane_a,burn=crater
   && ck 0 "?meteor=mix4: crater v4 armed (3 variants from her pack), the fall at 0.82 s" || ck 1 "?meteor=mix4 (got: $(echo "$M4LINE" | grep -o 'meteor=[^ ]*'))"
 grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix4.log" && ck 1 "?meteor=mix4 launch errors" || ck 0 "?meteor=mix4 launch free of script and shader errors"
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/" | grep -q -v "^0$" && ck 0 "crater v4's meshes and paintings in her pack" || ck 1 "crater v4's data missing from her pack"
+# R-C9-118 CRATER v5 (a) object impact + (b) ground-aware craters, behind ?v5=ab until Matt's look
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --v5 ab > "$LOG/launch_v5.log" 2>&1 || true
+grep -a -q '^\[barrow_painted\] web:' "$LOG/launch_v5.log" && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_v5.log" \
+  && ck 0 "?v5=ab: crater v5 (object impact, ice/earth craters) launches clean" || ck 1 "?v5=ab launch"
+python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/crater_\(101\|102\|201\|202\)" | grep -q "^[1-9]" \
+  && ck 0 "crater v5's ice and earth variants in her pack" || ck 1 "crater v5's ice/earth variants missing from her pack"
 # ?fb=c75 (R-C9-110): her Fire Ball's burst tightened to 0.75; the default stays as it was until Matt's look
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --fb full > "$LOG/launch_fb_c75.log" 2>&1 || true
@@ -386,9 +402,14 @@ echo "$PLINE" | grep -q "meteor=placeholder" && echo "$PLINE" | grep -q "fire_ba
 "$GODOT" --main-pack "$W/warlord.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
   --resolution 640x360 --quit-after 900 -- --as-web --c warlord > "$LOG/launch_warlord.log" 2>&1 || true
 WLINE=$(grep -a '^\[barrow_painted\] web:' "$LOG/launch_warlord.log" | head -1 || true)
-echo "$WLINE" | grep -q "who=warlord slot=warlord" && echo "$WLINE" | grep -q "files_sha_ok=28/28" \
-  && ck 0 "?c=warlord: the dark knight walks the painted Barrow from warlord.pck" || ck 1 "?c=warlord (got: $(echo "$WLINE" | cut -c1-120))"
+echo "$WLINE" | grep -q "who=warlord slot=warlord eyes=2:9e4dff" && echo "$WLINE" | grep -q "files_sha_ok=28/28" \
+  && ck 0 "?c=warlord: the dark knight walks the painted Barrow from warlord.pck, two eye-glow nodes, violet" || ck 1 "?c=warlord (got: $(echo "$WLINE" | cut -c1-120))"
 grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord.log" && ck 1 "?c=warlord launch errors" || ck 0 "?c=warlord launch free of script and shader errors"
+"$GODOT" --main-pack "$W/warlord.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c warlord --eye ice > "$LOG/launch_warlord_ice.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_warlord_ice.log" | head -1 | grep -q "who=warlord slot=warlord_ice eyes=2:59bfff" \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord_ice.log" \
+  && ck 0 "?c=warlord&eye=ice: the ice helm from the same pack, two eye-glow nodes, ice" || ck 1 "?c=warlord&eye=ice"
 for v in $VARIANTS; do
   case "$v" in so_*) MP=sorceress.pck; C=sorceress; Q="--armor ${v#so_}";; barb_glad*) MP=index.pck; C=barbarian; Q="--armor ${v#barb_}";; *) MP=index.pck; C=barbarian; Q="--hold ${v#barb_}";; esac
   "$GODOT" --main-pack "$W/$MP" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
@@ -398,6 +419,29 @@ for v in $VARIANTS; do
     ck 0 "variant $v: launches from $MP + variant_$v.pck ($(( $(stat -f %z "$W/variant_$v.pck") / 1000000 )) MB), no script or shader error"
   else ck 1 "variant $v (got: $(echo "$VLINE" | cut -c1-120); errors: $(grep -a -c -E 'SCRIPT ERROR|SHADER ERROR' "$LOG/launch_variant_$v.log"))"; fi
 done
+# TEXTURE PROVENANCE (the coordinator, after the E1 lane's flat-texture finding): every body and gear GLB the packs carry
+# against its intended source (the painted / graded atlas its lane's record names, or its own lane export where no painted
+# atlas exists) -- tools/texture_provenance.py; the shipped final_i dark knight body (Tripo's flat texture) is its
+# negative control
+if python3 "$SRC/../tools/texture_provenance.py" --json "$LOG/texture_provenance.json" > "$LOG/texture_provenance.txt" 2>&1; then
+  ck 0 "texture provenance: $(tail -1 "$LOG/texture_provenance.txt" | sed 's/texture provenance: //')"
+else
+  ck 1 "texture provenance: $(tail -1 "$LOG/texture_provenance.txt" | sed 's/texture provenance: //'); FAIL rows: $(grep '^FAIL' "$LOG/texture_provenance.txt" | awk '{print $3}' | tr '\n' ' ')"
+fi
+# C-9 BIND-ORDER: every gear piece of every pack, on its body's skeleton in one fixed pose, rendered bound by bone INDEX
+# and by bone NAME; ANY pixel difference fails (the piece's file order differs from its body's -- the wl_e1 stage-K
+# defect: final_j's pieces landed on the wrong bones by index). tools/probe_bind_order.gd, run on the source project
+# (the staged copy carries no tools/), imported first so a re-staged piece is what it reads.
+"$GODOT" --headless --path "$SRC" --import > "$LOG/bind_order_import.log" 2>&1 || true
+perl -e 'alarm shift; exec @ARGV' 900 "$GODOT" --path "$SRC" --resolution 640x640 --rendering-method gl_compatibility \
+  --rendering-driver opengl3_angle --script tools/probe_bind_order.gd -- --out "$LOG/bind_order" > "$LOG/bind_order.txt" 2>&1
+BO=$?
+BOL=$(grep -a '^bind order:' "$LOG/bind_order.txt" | tail -1)
+if [ "$BO" -eq 0 ] && [ -n "$BOL" ]; then
+  ck 0 "${BOL}: every gear piece draws the same pixels bound by index and by name"
+else
+  ck 1 "${BOL:-bind order: no result (exit $BO)}; FAIL rows: $(grep -a '^BIND FAIL' "$LOG/bind_order.txt" | awk '{print $3"/"$4}' | tr '\n' ' ')"
+fi
 CROSS=0
 for pk in index.pck sorceress.pck; do python3 "$SRC/../tools/pck_list.py" "$W/$pk" | grep -q -E "^models/(warlord|variants)/" && { echo "   $pk carries the dark knight or a variant" >&2; CROSS=1; }; done
 python3 "$SRC/../tools/pck_list.py" "$W/warlord.pck" | grep -q -E "^models/(gear|sorceress|variants)/" && { echo "   warlord.pck carries another character" >&2; CROSS=1; }

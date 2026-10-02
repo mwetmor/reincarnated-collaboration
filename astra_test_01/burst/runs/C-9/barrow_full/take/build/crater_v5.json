@@ -1,0 +1,252 @@
+{
+ "_what": "C-9 COMBINED DEPLOY record (R-C9-118 crater v5 a+b, stage J dark knight on final_j2, sorceress R-C9-119/120, barbarian T12_12d N25/N40, the texture-provenance and BIND-ORDER fences). drax, 2026-10-01.",
+ "crater_v5": {
+  "a_fall_stops_on_objects": "per-type proxies (standing stones/boulders: box at 0.85 of the footprint; birch: trunk cylinder r 0.14) tested along the fall segment (meteor_fx.gd first_hit); the burst at the hit height; on an object no bowl, a depth-tested scorch (crater_fx.gd scorch_only); the snow stamp only on open snow",
+  "b_surface_aware": "ground_class(p) from the splat: A ice -> craters 101/102 (emit_gain 0.4, steam, ice shards); R path / B shrub -> earth 201/202 (broken-stone debris); else snow 11/23/37 (crater v4) with the snow stamp",
+  "toggle": "?v5=ab (desktop --v5 ab); default OFF until Matt has looked",
+  "astra_images": 12,
+  "c_burn_disintegrate": {
+   "status": "DROPPED per Matt ('if burning is not feasible, let's skip it'): not in the build, not behind a toggle; code and globals removed (project.godot fx_imp*, painted_world.gd, barrow_heather.gd restored)",
+   "measured_cost": [
+    "+1.85 ms a frame, 4 impacts, phone renderer (gl_compatibility), first build; A/A control 0.08 ms",
+    "the heather vertex loop alone measured +1.8 ms -> moved to the CPU per instance (custom alpha + transform)",
+    "after that cut: +0.72 ms remaining (the 'none' isolation control was inconclusive)",
+    "raw: work/v5/bc_*.json, burn_cost_*.json (dead files, listed at hand-back)"
+   ]
+  },
+  "stills_2s_10s": {
+   "snow": {
+    "bowl_scale": 1.0,
+    "on_object": "",
+    "slot": 0,
+    "snow_D": 0.049,
+    "start_us": 1469,
+    "surf": "snow",
+    "variant": 23
+   },
+   "ice": {
+    "bowl_scale": 1.0,
+    "on_object": "",
+    "slot": 0,
+    "snow_D": 0.0,
+    "start_us": 303,
+    "surf": "ice",
+    "variant": 102
+   },
+   "earth": {
+    "bowl_scale": 1.0,
+    "on_object": "",
+    "slot": 0,
+    "snow_D": 0.0,
+    "start_us": 240,
+    "surf": "earth",
+    "variant": 201
+   },
+   "stone": {
+    "bowl_scale": 1.0,
+    "on_object": "ring_m155",
+    "slot": 0,
+    "snow_D": 0.12,
+    "start_us": 1257,
+    "surf": "snow",
+    "variant": 37
+   },
+   "plants": {
+    "bowl_scale": 1.0,
+    "on_object": "",
+    "slot": 0,
+    "snow_D": 0.0,
+    "start_us": 263,
+    "surf": "earth",
+    "variant": 201
+   }
+  },
+  "films": "Desktop review folder 'C-9 barrow full/crater v5/': snow, ice, earth (heather ground), a standing stone, a plant clump, play speed (fall 0.82 s)",
+  "budget_desktop_forward_plus": {
+   "v5_ab": {
+    "delta_ms": 0.824,
+    "first_cast_max_ms": 18.69,
+    "fourth_cast_max_ms": 19.28
+   },
+   "v4_matched_control": {
+    "delta_ms": 0.964,
+    "first_cast_max_ms": 18.94,
+    "fourth_cast_max_ms": 19.73
+   },
+   "raw": "perf_desk_v4.json / perf_desk_v5.json"
+  },
+  "budget_page_chrome": {
+   "cold_wl": {
+    "built_ms": 7101,
+    "to_play_ms": 16403,
+    "errors": 0
+   },
+   "warm_wl": {
+    "built_ms": 5181,
+    "to_play_ms": 6182,
+    "errors": 0
+   },
+   "warm_wl_ice": {
+    "built_ms": 4758,
+    "to_play_ms": 5818,
+    "errors": 0
+   },
+   "cold_sorc_v5": {
+    "built_ms": 7638,
+    "to_play_ms": 28434,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 23.9, 'over_33ms': 0} warm_on max 26.3 mean on/off 11.209 11.024 delta 0.185"
+   },
+   "warm_sorc_v5": {
+    "built_ms": 5641,
+    "to_play_ms": 7947,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 23.7, 'over_33ms': 0} warm_on max 28.2 mean on/off 10.995 10.824 delta 0.171"
+   },
+   "warm_sorc_v5c": {
+    "built_ms": 5295,
+    "to_play_ms": 7434,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 25.8, 'over_33ms': 0} warm_on max 27.1 mean on/off 10.815 10.601 delta 0.214"
+   },
+   "warm_sorc": {
+    "built_ms": 5220,
+    "to_play_ms": 7299,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 26.3, 'over_33ms': 0} warm_on max 27.8 mean on/off 10.958 10.67 delta 0.288"
+   },
+   "warm_bmc": {
+    "built_ms": 14022,
+    "to_play_ms": 16260,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 22.9, 'over_33ms': 0} warm_on max 26.8 mean on/off 10.803 10.892 delta -0.089"
+   },
+   "cold_barb": {
+    "built_ms": 14124,
+    "to_play_ms": 21871,
+    "errors": 0
+   },
+   "warm_barb": {
+    "built_ms": 7632,
+    "to_play_ms": 8477,
+    "errors": 0
+   }
+  }
+ },
+ "dark_knight_stage_j": {
+  "source": "wl_e1/export/final_j2 (final_j with every piece reordered to the body's node order; body byte-identical)",
+  "eyes": "runtime nodes on Head (warlord_eyes.gd), ?eye=violet|ice; fence rows eyes=2:9e4dff / eyes=2:59bfff",
+  "eye_cost": {
+   "forward_plus": {
+    "delta_ms": -0.017,
+    "aa_ms": 0.152
+   },
+   "gl_compatibility": {
+    "delta_ms": -0.578,
+    "aa_ms": 0.053,
+    "note": "the first off blocks carry warm-up drift (13.68 -> 12.59 ms); the on blocks sit at the A/A floor"
+   },
+   "reading": "no measurable cost (2 additive quads, one colour set a frame)"
+  },
+  "chrome_final_j2": {
+   "cold_wl": {
+    "built_ms": 6909,
+    "to_play_ms": 15995,
+    "errors": 0
+   },
+   "warm_wl": {
+    "built_ms": 4591,
+    "to_play_ms": 5513,
+    "errors": 0
+   },
+   "warm_wl_ice": {
+    "built_ms": 4519,
+    "to_play_ms": 5493,
+    "errors": 0
+   },
+   "warm_wl_perf": {
+    "built_ms": 4507,
+    "to_play_ms": 5420,
+    "errors": 0
+   }
+  }
+ },
+ "bind_order": {
+  "fence": "godot/tools/probe_bind_order.gd: every gear piece of 13 packs on its body's skeleton in one fixed non-rest pose, rendered bound by index, by name, as imported, and a positive control (every bind moved one bone); FAIL on any index~name pixel, on an empty frame, or on a control the render cannot see",
+  "instrument_note": "the first run read 84/84 PASS with EMPTY frames (camera framed off a skinned mesh's rest AABB); the control and the empty-frame check were added and the camera framed on the posed bones; the pre-fix result below is the second, sighted run",
+  "pre_fix_final_j": {
+   "pass": 76,
+   "of": 84,
+   "failing": {
+    "warlord/wl_chest": {
+     "result": "FAIL",
+     "px_index_vs_name": 7039,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 19492,
+     "bone_index_names_differ": 9
+    },
+    "warlord/wl_helm": {
+     "result": "FAIL",
+     "px_index_vs_name": 10114,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 15681,
+     "bone_index_names_differ": 9
+    },
+    "warlord/wl_mace": {
+     "result": "FAIL",
+     "px_index_vs_name": 14002,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 19193,
+     "bone_index_names_differ": 9
+    },
+    "warlord/wl_pauldrons": {
+     "result": "FAIL",
+     "px_index_vs_name": 8931,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 10819,
+     "bone_index_names_differ": 9
+    },
+    "warlord_ice/wl_chest": {
+     "result": "FAIL",
+     "px_index_vs_name": 7039,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 19492,
+     "bone_index_names_differ": 9
+    },
+    "warlord_ice/wl_helm": {
+     "result": "FAIL",
+     "px_index_vs_name": 10114,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 15681,
+     "bone_index_names_differ": 9
+    },
+    "warlord_ice/wl_mace": {
+     "result": "FAIL",
+     "px_index_vs_name": 14002,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 19193,
+     "bone_index_names_differ": 9
+    },
+    "warlord_ice/wl_pauldrons": {
+     "result": "FAIL",
+     "px_index_vs_name": 8931,
+     "px_shipped_vs_name": 0,
+     "px_control_vs_name": 10819,
+     "bone_index_names_differ": 9
+    }
+   }
+  },
+  "post_fix_final_j2": {
+   "pass": 84,
+   "of": 84,
+   "failing": {}
+  },
+  "was_any_piece_misbound_in_the_shipped_build": "NO: every import here uses skins/use_named_skins=true, the binds carry names, Godot resolved them by name; shipped~name 0 px for all 84 pieces before the fix. The index-order defect was real in final_j (mace, chest, pauldrons, helm: 9 bone indices name different bones) and would have drawn wrong under any index binding; the armour lane's Blender pieces (gladiator B/C, battle mage C/D) and the sorceress / Viking sets match their bodies' order exactly",
+  "gear_gd": "_bind_by_name(mi): a duplicated skin, every unnamed bind given its piece-skeleton bone name (named binds kept); otherwise unchanged"
+ },
+ "texture_provenance": "59/59 (take/build/texture_provenance.json), warlord rows against final_j2",
+ "sorceress_r119_120": "default robe/export_r120_ship; battle mage C/D body119 + export_bmc120/bmd120, book in the left hand through both casts, wand tip 0.39, mirrored cast_fireball_m (release 0.900, cast_hand_R)",
+ "barbarian_t12_12d": "N25/N40 on the hold toggle, manifest gear_t12d.json md5 5fdfc147 (walk 1.3199 m/s)",
+ "defaults": "Fire Ball c75 (?fb=full old); Meteor mix4 (?meteor=mix3 old)",
+ "build": "tools/build_web_painted.sh rc=0, every fence row ok incl. bind order 84/84 and provenance 59/59"
+}

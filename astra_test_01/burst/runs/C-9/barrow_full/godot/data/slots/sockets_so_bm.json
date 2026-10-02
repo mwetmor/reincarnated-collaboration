@@ -12,12 +12,17 @@
  },
  "main_tip": {
   "bone": "weapon_r",
-  "along_bone_m": 0.35,
-  "what": "the WAND's tip (R-C9-117: the battle mage): weapon_r + the wand's length along its +Y"
+  "along_bone_m": 0.39,
+  "what": "the WAND's crystal tip (R-C9-119 sockets_r119: 0.390 m from the fist along the wand): the Meteor's call"
  },
  "main_grip": {
   "bone": "weapon_r",
   "along_bone_m": 0.0,
   "what": "the staff grip: the weapon_r joint"
+ },
+ "cast_hand_R": {
+  "bone": "RightHand",
+  "along_bone_m": 0.07,
+  "what": "the wand hand's palm: the mirrored Fire Ball's spawn (R-C9-119)"
  }
 }

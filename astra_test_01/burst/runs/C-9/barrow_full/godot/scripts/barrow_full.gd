@@ -1378,6 +1378,7 @@ func _character_choice() -> String:
 	return c if c in ["sorceress", "warlord"] else "barbarian"      # R-C9-117: the dark knight (?c=warlord) too
 
 
+var eyes = null                    # R-C9-121: the dark knight's eye glow (warlord_eyes.gd)
 var slot := ""                     # R-C9-117: the select page's variant (scripts/slots.gd); "" = the page's own character
 var slot_report := {}
 
@@ -1437,6 +1438,12 @@ func _build_knight() -> void:
 			pn.name = "PerfFireBall"
 			add_child(pn)
 			pn.start(self, 20, perf == "fb" or perf == "ma", "chop" if perf.begins_with("ma") else "slash")
+	if who == "warlord" and k.get("_skel") != null:
+		# R-C9-121: his eye glow, runtime nodes on the Head bone (warlord_eyes.gd), the colour by ?eye
+		eyes = load("res://scripts/warlord_eyes.gd").new()
+		eyes.name = "WarlordEyes"
+		add_child(eyes)
+		await eyes.setup(k._skel, Slots.arg("eye"))
 	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
@@ -1612,19 +1619,25 @@ func _touch_for_strikes(tc) -> void:
 	CHOP his war cry; BASH and BLOCK hidden -- neither has a shield. GEAR as his."""
 	var keep := []
 	var names := {"SLASH": "ATTACK", "CHOP": "WAR CRY"} if who == "warlord" else {"SLASH": "WHIRLWIND", "CHOP": "WAR CRY"}
+	_her_spell_buttons.clear()
 	for b in tc._buttons:
 		var lb := String(b.get("label", ""))
 		if lb in ["BASH", "BLOCK"]:
 			continue
 		if names.has(lb):
 			b["label"] = names[lb]
+			if who == "warlord":
+				_her_spell_buttons.append(b)       # R-C9-121: attack and the war cry need the mace -- hidden with it
+				continue
 		keep.append(b)
 	tc._buttons = keep
+	if who == "warlord":
+		_touch_her_armed()
 
 
 func _touch_her_armed() -> void:
 	"""Her spell buttons follow the staff: shown while knight.armed(), re-checked after every GEAR press."""
-	if touch == null or who != "sorceress":
+	if touch == null or not (who in ["sorceress", "warlord"]):
 		return
 	var tc = touch
 	var keep := []
@@ -2129,17 +2142,13 @@ func _dress_painted() -> void:
 		_paint_mesh(mi, mat_paint, true)
 		n["mound"] += 1
 	var bakes: Dictionary = man["bakes"]
-	# R-C9-118 (c): the dressing (stones, birches, the baked models) chars in an impact; the ground and the mound do not
-	# -- the same shader, a second material with char_ok (no new pipeline)
-	var mat_dress: ShaderMaterial = mat_paint.duplicate()
-	mat_dress.set_shader_parameter("char_ok", true)
 	for e in layout["placements"]:
 		var id := String(e["id"])
 		if id == "mound" or not nodes.has(id):
 			continue
 		if String(e["kind"]) == "primitive" or String(e.get("class", "")) == "birch":
 			for mi in _meshes(nodes[id]):
-				_paint_mesh(mi, mat_dress, true)
+				_paint_mesh(mi, mat_paint, true)
 			n["birches" if String(e.get("class", "")) == "birch" else "primitives"] += 1
 			continue
 		if not bakes.has(id):
@@ -2148,7 +2157,6 @@ func _dress_painted() -> void:
 		var b: Dictionary = bakes[id]
 		var tex := PaintedWorld.load_png_bin(String(b["file"]), String(b["sha256"]), true, loads)
 		var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
-		mat.set_shader_parameter("char_ok", true)
 		for mi in _meshes(nodes[id]):
 			_paint_mesh(mi, mat, true)
 			n["baked_meshes"] += 1
@@ -2416,7 +2424,7 @@ func _paint_launch_line() -> String:
 		if String(k).begins_with("bakes/") and ok.call(String(k)):
 			bakes_ok += 1
 	var prim := int(n.get("primitives", 0)) + (1 if int(n.get("mound", 0)) > 0 else 0)
-	return ("who=" + who + " slot=" + (slot if slot != "" else "own") + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
+	return ("who=" + who + " slot=" + (slot if slot != "" else "own") + (" eyes=%d:%s" % [eyes.nodes.size(), eyes.colour.to_html(false)] if eyes != null else "") + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
 		+ "| plates: bakes=%d/25 on the real models, painting on primitives=%d/29 (the mound + 28) "
 		+ "| birches=%d inks_hidden=%d heather=%d snow=%s ms=%d") % [
 		int(paint.get("files_ok", 0)), loads.size(), str(ok.call("painting.bin")),

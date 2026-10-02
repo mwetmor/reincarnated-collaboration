@@ -14,6 +14,7 @@ var turn := 0
 var step := 0
 var t_since := 0.0
 var casting := false
+var hold_s := 6.0
 
 
 func _initialize() -> void:
@@ -32,7 +33,17 @@ func _process(dt: float) -> bool:
 				(c as CanvasLayer).visible = false
 		k = scene.knight
 		settle_end = frame + SETTLE
-		scene.place_knight(0.8, -1.2, "E")
+		var a := OS.get_cmdline_user_args()
+		if a.has("--place"):
+			# R-C9-118: the crater films -- her spot (u, v, facing) near the forced impact (-- --meteorat x,z)
+			var pp := String(a[a.find("--place") + 1]).split(",")
+			scene.place_knight(float(pp[0]), float(pp[1]), String(pp[2]))
+		else:
+			scene.place_knight(0.8, -1.2, "E")
+		if a.has("--single"):
+			# one cast at play speed, then the crater's life (the fire field 12.6 s) and a little after
+			plan = [[Vector2(1, 0), 1.0]]
+			hold_s = 15.0
 		return false
 	if frame < settle_end:
 		return false
@@ -59,7 +70,7 @@ func _process(dt: float) -> bool:
 			casting = true
 			turn = 0
 			t_since = 0.0
-	elif t_since > 6.0 / float(spec[1]):
+	elif t_since > hold_s / float(spec[1]):
 		casting = false
 		step += 1
 		t_since = 0.0

@@ -70,7 +70,7 @@ static func build(body_skel: Skeleton3D, manifest_path: String, dir: String,
 			if t <= 8:
 				empties += 1
 			var local := mi.transform          # relative to the source Skeleton3D
-			var skin := mi.skin
+			var skin := _bind_by_name(mi)
 			var mat := mi.get_active_material(0)
 			mi.owner = null                    # it belongs to the source scene until it does not
 			mi.get_parent().remove_child(mi)
@@ -126,6 +126,24 @@ static func build(body_skel: Skeleton3D, manifest_path: String, dir: String,
 	out["_report"] = report
 	out["layer_order"] = mf.get("layer_order", [])
 	return out
+
+
+static func _bind_by_name(mi: MeshInstance3D) -> Skin:
+	"""C-9 BIND-ORDER (the coordinator, after wl_e1 stage K): bind every piece's skin by bone NAME, taken from the
+	piece's OWN skeleton. Godot builds each GLB's Skeleton3D in that file's node order, and a bind left on a bone INDEX
+	lands on whatever bone holds that index on the body -- right only while the piece's file order equals the body's
+	(the barbarian's own set; not a Blender-exported piece). A bind that already carries a name keeps it. The reference
+	is _bind() in wl_e1/film_rt/gear_stills.gd (GS_BIND_BY_NAME). Fenced by tools/probe_bind_order.gd."""
+	var skin := mi.skin
+	var ps := mi.get_node_or_null(mi.skeleton) as Skeleton3D
+	if skin == null or ps == null:
+		return skin
+	skin = skin.duplicate() as Skin
+	for bi in skin.get_bind_count():
+		var bb := skin.get_bind_bone(bi)
+		if String(skin.get_bind_name(bi)) == "" and bb >= 0 and bb < ps.get_bone_count():
+			skin.set_bind_name(bi, ps.get_bone_name(bb))
+	return skin
 
 
 static func _style(mi: MeshInstance3D, src: Material) -> void:

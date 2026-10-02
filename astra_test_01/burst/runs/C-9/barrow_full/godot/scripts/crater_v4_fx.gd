@@ -46,6 +46,7 @@ uniform vec3 hot : source_color = vec3(1.0, 0.62, 0.18);
 uniform vec3 mid : source_color = vec3(0.92, 0.26, 0.05);
 uniform vec3 dull : source_color = vec3(0.42, 0.05, 0.03);
 uniform float depth_bias = 0.4;
+uniform float emit_gain = 1.0;      // R-C9-118 (b): ice glows faintly in its cracks (steam, not fire)
 void vertex() {
 	// THE BOWL SITS INTO THE SNOW: drawn this far toward the camera in depth only (the camera is orthographic,
 	// so nothing moves on screen), it wins against the snow round and under it, while anyone standing in it,
@@ -66,7 +67,7 @@ void fragment() {
 	float n = texture(noise_tex, UV * 3.0 + vec2(fx_time * 0.05, -fx_time * 0.03)).r;
 	float n2 = texture(noise_tex, UV * 7.0 - vec2(fx_time * 0.11, fx_time * 0.07)).r;
 	float pulse = 0.72 + 0.28 * sin(fx_time * 2.1 + n * 9.0) * (0.6 + 0.4 * n2);
-	float g = e * heat * pulse;
+	float g = e * heat * pulse * emit_gain;
 	vec3 fire = mix(dull, mid, smoothstep(0.15, 0.55, g));
 	fire = mix(fire, hot, smoothstep(0.55, 0.9, g));
 	vec3 col = mix(a.rgb, fire, smoothstep(0.04, 0.25, g));
@@ -117,10 +118,9 @@ var _no_embers := false
 # R-C9-118 CRATER v5, each part its own toggle until Matt looks (?v5=abc, any subset; desktop -- --v5 abc):
 #   a  the fall stops on the first object it hits (meteor_fx: the proxies), no bowl there, a scorch at its base
 #   b  the crater by the ground it lands on: snow (v4), ice, earth (the splat)
-#   c  the dressing burns: char + ember rim (stones, birches), crumble (plants) -- PaintedWorld.FX_IMP's globals
+#   (c, the dressing burning, was tried and dropped: R-C9-118, Matt "if burning is not feasible, let's skip it" --
+#    +0.72 ms a frame with 4 impacts on the phone renderer after one focused cut (1.85 ms first); take/build/crater_v5.json)
 var v5 := ""
-const BLAST_R := 2.6                # the burn's reach, m: the crater's 1.1 m bowl, its 2.1 m skirt and a little past
-var _imp_on := false
 var scorch = null                   # (a): crater_fx.gd's draped skin, scorch only, depth-tested: hidden where the object stands
 var _no_smoke := false
 
@@ -174,7 +174,6 @@ func setup(p_scene, p_cam: Camera3D, noise: Texture2D, level: int = 20) -> bool:
 	_no_embers = a.has("--v4-no-embers")
 	_no_smoke = a.has("--v4-no-smoke")
 	v5 = Slots.arg("v5")
-	RenderingServer.global_shader_parameter_set("fx_imp_life", life)
 	ok = true
 	report = {"variants": variants.size(), "pool": POOL, "fire_life_s": life, "debris": DEBRIS,
 		"draws": {"skins": POOL, "embers": 1, "smoke": 1, "debris": 1}}
@@ -363,6 +362,7 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 	sl["fade_from"] = -1.0
 	(sl["mat"] as ShaderMaterial).set_shader_parameter("fade", 1.0)
 	(sl["mat"] as ShaderMaterial).set_shader_parameter("age", 0.0)
+	(sl["mat"] as ShaderMaterial).set_shader_parameter("emit_gain", 0.4 if surf == "ice" else 1.0)
 	var live := 0
 	var old_i := -1
 	var old_a := -1.0
@@ -457,27 +457,7 @@ func _process(dt: float) -> void:
 				smoke.emitting = false
 				_emit_slot = -1
 	_step_debris(dt)
-	_push_impacts()
 	last_us = Time.get_ticks_usec() - t0
-
-
-func _push_impacts() -> void:
-	"""(c) the live slots' burn into the dressing's globals: centre, radius, age; fx_imp_n gates every term."""
-	if not v5.contains("c"):
-		return
-	var ages := Vector4.ZERO
-	var n := 0
-	for i in slots.size():
-		var sl: Dictionary = slots[i]
-		var live := bool(sl["live"]) and float(sl.get("fade_from", -1.0)) < 0.0
-		var c: Vector3 = sl.get("burn_at", Vector3.ZERO)
-		RenderingServer.global_shader_parameter_set("fx_imp%d" % i, Vector4(c.x, c.y, c.z, BLAST_R if live else 0.0))
-		ages[i] = float(sl["age"]) if live else 0.0
-		n += 1 if live else 0
-	RenderingServer.global_shader_parameter_set("fx_imp_age", ages)
-	if n > 0 or _imp_on:
-		RenderingServer.global_shader_parameter_set("fx_imp_n", float(n))
-	_imp_on = n > 0
 
 
 func _step_debris(dt: float) -> void:

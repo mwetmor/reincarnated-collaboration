@@ -1,0 +1,821 @@
+{
+ "tolerance_mean_abs_8bit": 6.0,
+ "rows": [
+  {
+   "glb": "barrow_full/godot/models/gear/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_t1211/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_f25l/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_f40l/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_n25/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_n40/nb-body.glb",
+   "kind": "painted",
+   "source": "nb_t8/work/texture_AB.png",
+   "record": "nb_d2/artifacts/D2-manifest.json body_texture",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_AB"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/axe.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/axe.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/bracers.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/bracers.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/byrnie.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/byrnie.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/helmet.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/helmet.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/mantle.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/mantle.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/gear/shield.glb",
+   "kind": "own",
+   "source": "nb_d2/export_staging/T12_11_trails/shield.glb",
+   "record": "D2-manifest: only the body is painted",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/so-body.glb",
+   "kind": "own",
+   "source": "gear_sets/sorceress_robe/export/so-body_leggings.glb",
+   "record": "sorceress_robe/export/so-body_leggings.json",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/robe.glb",
+   "kind": "own",
+   "source": "so_d7/export/robe.glb",
+   "record": "so_d7/scene_pkg/README.md: only the body is painted (the r120 re-skin keeps each texture)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/belt.glb",
+   "kind": "own",
+   "source": "so_d7/export/belt.glb",
+   "record": "so_d7/scene_pkg/README.md: only the body is painted (the r120 re-skin keeps each texture)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/mantle.glb",
+   "kind": "own",
+   "source": "so_d7/export/mantle.glb",
+   "record": "so_d7/scene_pkg/README.md: only the body is painted (the r120 re-skin keeps each texture)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/bracers.glb",
+   "kind": "own",
+   "source": "so_d7/export/bracers.glb",
+   "record": "so_d7/scene_pkg/README.md: only the body is painted (the r120 re-skin keeps each texture)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/sorceress/staff.glb",
+   "kind": "own",
+   "source": "so_d7/export/staff.glb",
+   "record": "so_d7/scene_pkg/README.md: only the body is painted (the r120 re-skin keeps each texture)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/so-body_bm119.glb",
+   "kind": "painted",
+   "source": "so_d7/work/tex_final.png",
+   "record": "battlemage paint/scenes.json images.B_body (body119)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "tex_final"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/breastplate.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_final.png",
+   "record": "battlemage stage2_results.json files (export_bmc120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 1.971,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png": 4.022
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/gauntlets.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_final.png",
+   "record": "battlemage stage2_results.json files (export_bmc120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 1.971,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png": 4.022
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/gown.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_final.png",
+   "record": "battlemage stage2_results.json files (export_bmc120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 1.971,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png": 4.022
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/hood.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_final.png",
+   "record": "battlemage stage2_results.json files (export_bmc120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 1.971,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png": 4.022
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/legs.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_final.png",
+   "record": "battlemage stage2_results.json files (export_bmc120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 1.971,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png": 4.022
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/wand.glb",
+   "kind": "own",
+   "source": "gear_sets/sorceress_battlemage/export_bmc120/wand.glb",
+   "record": "battlemage paint/scenes.json: not dressed",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmc/grimoire.glb",
+   "kind": "own",
+   "source": "gear_sets/sorceress_battlemage/export_bmc120/grimoire.glb",
+   "record": "battlemage paint/scenes.json: not dressed",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/so-body_bm119.glb",
+   "kind": "painted",
+   "source": "so_d7/work/tex_final.png",
+   "record": "battlemage paint/scenes.json images.B_body (body119)",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "tex_final"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/breastplate.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png",
+   "record": "battlemage stage2_results.json files (export_bmd120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.272,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png": 4.01
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/gauntlets.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png",
+   "record": "battlemage stage2_results.json files (export_bmd120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.272,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png": 4.01
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/gown.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png",
+   "record": "battlemage stage2_results.json files (export_bmd120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.272,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png": 4.01
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/hood.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png",
+   "record": "battlemage stage2_results.json files (export_bmd120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.272,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png": 4.01
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/legs.glb",
+   "kind": "painted",
+   "source": "gear_sets/sorceress_battlemage/paint/tex_armour_graded.png",
+   "record": "battlemage stage2_results.json files (export_bmd120)",
+   "alternatives": [
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.272,
+   "alternatives_diff": {
+    "gear_sets/sorceress_battlemage/paint/tex_armour_final.png": 4.01
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_237ee102-9ef2-447f-ac5a-acc63bdb2762"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/wand.glb",
+   "kind": "own",
+   "source": "gear_sets/sorceress_battlemage/export_bmd120/wand.glb",
+   "record": "battlemage paint/scenes.json: not dressed",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/so_bmd/grimoire.glb",
+   "kind": "own",
+   "source": "gear_sets/sorceress_battlemage/export_bmd120/grimoire.glb",
+   "record": "battlemage paint/scenes.json: not dressed",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/nb-body_champion_painted.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_body_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_body_graded.png"
+   ],
+   "mean_abs_diff": 1.816,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_body_graded.png": 16.876
+   },
+   "result": "PASS",
+   "embedded": [
+    "texture_AB",
+    "Color_8a54ddb8-32f4-450c-af78-c622cac69de1"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/chest.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/girdle.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/greaves.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/helm.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/kilt.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/pauldron.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/wraps.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladb/wrists.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_final.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png"
+   ],
+   "mean_abs_diff": 2.232,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png": 9.053
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/nb-body_champion_graded.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_body_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_body_final.png"
+   ],
+   "mean_abs_diff": 1.699,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_body_final.png": 16.764
+   },
+   "result": "PASS",
+   "embedded": [
+    "texture_AB",
+    "Color_8a54ddb8-32f4-450c-af78-c622cac69de1"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/chest.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/girdle.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/greaves.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/helm.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/kilt.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/pauldron.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/wraps.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/variants/barb_gladc/wrists.glb",
+   "kind": "painted",
+   "source": "gear_sets/barbarian_gladiator/paint/tex_armour_graded.png",
+   "record": "gladiator stage2_results.json paint_pass / s43",
+   "alternatives": [
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png"
+   ],
+   "mean_abs_diff": 2.316,
+   "alternatives_diff": {
+    "gear_sets/barbarian_gladiator/paint/tex_armour_final.png": 9.052
+   },
+   "result": "PASS",
+   "embedded": [
+    "Color_d27fdd32-339c-4d3f-8fd9-5acbb3950af6"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_body.glb",
+   "kind": "painted",
+   "source": "wl_e1/work/tex_final.png",
+   "record": "wl_e1/scripts/e42_embed_tex.py (tex_final.png)",
+   "alternatives": [],
+   "mean_abs_diff": 1.934,
+   "alternatives_diff": {},
+   "result": "PASS",
+   "embedded": [
+    "texture_0"
+   ]
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_mace.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_mace.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_chest.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_chest.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_pauldrons.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_pauldrons.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_helm.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_helm.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_helm_ice.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_helm_ice.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  },
+  {
+   "glb": "barrow_full/godot/models/warlord/wl_cape.glb",
+   "kind": "own",
+   "source": "wl_e1/export/final_j2/wl_cape.glb",
+   "record": "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials",
+   "alternatives": [],
+   "mean_abs_diff": 0.0,
+   "result": "PASS",
+   "note": "unpainted by design: equals its lane export"
+  }
+ ],
+ "fails": 0
+}

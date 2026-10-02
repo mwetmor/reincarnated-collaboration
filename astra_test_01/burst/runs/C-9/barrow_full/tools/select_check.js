@@ -14,19 +14,26 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['barbarian', {}, 'c=barbarian&hold=t1211'],
     ['barbarian', { b_hold: 'f25l' }, 'c=barbarian&hold=f25l'],
     ['barbarian', { b_hold: 'f40l' }, 'c=barbarian&hold=f40l'],
+    ['barbarian', { b_hold: 'n25' }, 'c=barbarian&hold=n25'],
+    ['barbarian', { b_hold: 'n40' }, 'c=barbarian&hold=n40'],
     ['barbarian', { b_armor: 'gladc' }, 'c=barbarian&armor=gladc'],
     ['barbarian', { b_armor: 'gladb' }, 'c=barbarian&armor=gladb'],
     ['sorceress', {}, 'c=sorceress'],
     ['sorceress', { s_armor: 'bmc', s_meteor: 'mix3' }, 'c=sorceress&armor=bmc&meteor=mix3'],
     ['sorceress', { s_armor: 'bmd', s_fb: 'full', s_fall: '2.4' }, 'c=sorceress&armor=bmd&fb=full&fall=2.4'],
+    ['sorceress', { s_v5: 'ab' }, 'c=sorceress&v5=ab'],
+    ['sorceress', { s_v5: 'b' }, 'c=sorceress&v5=b'],
     ['warlord', {}, 'c=warlord'],
+    ['warlord', { w_eye: 'ice' }, 'c=warlord&eye=ice'],
   ];
   const rows = [];
   let first = true;
   for (const [c, picks, want] of cases) {
     await page.goto(base, { waitUntil: 'load' });
     if (first) { await page.screenshot({ path: path.join(out, 'select_phone.png'), fullPage: true }); first = false; }
-    for (const [name, v] of Object.entries(picks)) await page.check(`input[name="${name}"][value="${v}"]`);
+    for (const [name, v] of Object.entries(picks)) {
+      for (const one of (name === 's_v5' ? v.split('') : [v])) await page.check(`input[name="${name}"][value="${one}"]`);
+    }
     await Promise.all([page.waitForURL('**/play.html*'), page.click(`[data-c="${c}"] .go`)]);
     const got = new URL(page.url()).search.slice(1);
     rows.push({ card: c, picks, want, got, ok: got === want });

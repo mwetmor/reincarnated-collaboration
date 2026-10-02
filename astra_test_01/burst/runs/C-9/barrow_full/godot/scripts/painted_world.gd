@@ -84,42 +84,6 @@ vec3 his_shadow(float att, vec3 wpos) {
 # THE PAINTED SURFACE. ambient_light_disabled: the environment adds nothing, so the pixel is the
 # paint times the paint sun's one term. The paint sun's LIGHT_COLOR is never read -- the painting
 # is the light; only its ATTENUATION (his shadow) is.
-# R-C9-118 (c): THE IMPACTS' BURN, one term for every dressing shader (the painted stones and birches here, the heather
-# in barrow_heather.gd): four global impact slots (centre xyz, radius; radius 0 = empty), their ages, the fire field's
-# life. A surface inside a radius chars, carries an ember rim while the field is hot, and (plants only) crumbles.
-# Read behind one global count (fx_imp_n), so an idle page pays a uniform branch; no swap, no per-plant node.
-const FX_IMP := """
-global uniform vec4 fx_imp0;
-global uniform vec4 fx_imp1;
-global uniform vec4 fx_imp2;
-global uniform vec4 fx_imp3;
-global uniform vec4 fx_imp_age;      // seconds since each slot's impact
-global uniform float fx_imp_life;    // the fire field's life, s (12.6 at level 20)
-global uniform float fx_imp_n;       // live slots (0: nothing is computed)
-// the strongest impact over p: x inside (0..1, soft and torn at the edge), y its age over the field's life
-vec2 fx_imp_at(vec3 p) {
-	vec2 o = vec2(0.0);
-	for (int i = 0; i < 4; i++) {
-		vec4 c = i == 0 ? fx_imp0 : (i == 1 ? fx_imp1 : (i == 2 ? fx_imp2 : fx_imp3));
-		if (c.w <= 0.0) { continue; }
-		vec2 dv = p.xz - c.xz;
-		float ang = atan(dv.y, dv.x);
-		float edge = c.w * (0.86 + 0.08 * sin(ang * 5.0 + c.x * 3.1) + 0.06 * sin(ang * 11.0 + c.z));
-		float inside = 1.0 - smoothstep(edge * 0.82, edge, length(dv));
-		float a = clamp(fx_imp_age[i] / max(fx_imp_life, 1e-3), 0.0, 1.0);
-		if (inside > o.x) { o = vec2(inside, a); }
-	}
-	return o;
-}
-// char (toward a warm soot), the ember rim (hot at the char's edge, cooling over the field), as (char, ember)
-vec2 fx_imp_char(vec2 ia, float age_s) {
-	float ch = ia.x * smoothstep(0.0, 0.04, ia.y) * 0.88;
-	float rim = ia.x * (1.0 - ia.x) * 4.0;
-	float em = (rim * 0.85 + ia.x * 0.07) * (1.0 - smoothstep(0.1, 0.75, ia.y)) * smoothstep(0.0, 0.02, ia.y);
-	return vec2(ch, em * (0.75 + 0.25 * sin(age_s * 9.0 + ia.x * 20.0)));
-}
-"""
-
 const PAINTED_SHADER := """
 shader_type spatial;
 render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled;
@@ -128,9 +92,8 @@ uniform sampler2D paint_tex : source_color, filter_linear_mipmap, repeat_disable
 uniform bool project_uv = true;      // true: the guide projection; false: the mesh's own UV (a bake)
 uniform float painted_mark = 0.0;
 uniform bool id_black = false;      // the overlay's heather-mask pass: the painted world drawn black
-uniform bool char_ok = false;       // R-C9-118: the stones and birches char in an impact (the ground and the mound do not)
 varying vec3 v_world;
-""" + PROJ_FUNCS + FX_IMP + """
+""" + PROJ_FUNCS + """
 void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
@@ -138,14 +101,6 @@ void vertex() {
 void fragment() {
 	ALBEDO = id_black ? vec3(0.0) : texture(paint_tex, project_uv ? guide_uv(v_world) : UV).rgb;
 	ROUGHNESS = painted_mark;
-	if (char_ok && fx_imp_n > 0.5 && !id_black) {
-		vec2 ia = fx_imp_at(v_world);
-		if (ia.x > 0.0) {
-			vec2 ce = fx_imp_char(ia, fx_imp_age.x + fx_imp_age.y);
-			ALBEDO = mix(ALBEDO, ALBEDO * vec3(0.16, 0.13, 0.11), ce.x);
-			EMISSION = vec3(1.0, 0.36, 0.07) * ce.y * 0.9;
-		}
-	}
 }
 
 void light() {

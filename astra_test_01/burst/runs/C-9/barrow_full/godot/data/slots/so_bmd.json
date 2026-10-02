@@ -1,6 +1,6 @@
 {
- "_note": "R-C9-117: the battle mage BMD (export_v12) -- gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_battlemage_full.json with its paths moved into the page's variant pack",
- "model": "res://models/variants/so_bmd/so-body_battlemage_v8.glb",
+ "_note": "R-C9-117/119/120: the battle mage BMD (export_bmd120) -- gear_sets/sorceress_battlemage/scene_pkg/character_sorceress_bmd119_full.json with its paths moved into the page's variant pack. THE BOOK HOLD OVER THE CASTS TOO (the lane's integration note: knight.gd's left slot blends over locomotion only): its strike_release -- a filtered Blend2 inside each strike's one-shot -- carries book_carry_L on the three left-arm bones through both casts (guard_throughout); the wand hand throws the mirrored Fire Ball, so the right arm needs no carry there",
+ "model": "res://models/variants/so_bmd/so-body_bm119.glb",
  "model_height_m": 1.6995,
  "forward_axis": [
   0.0,
@@ -16,7 +16,7 @@
   "idle": "idle",
   "walk": "walk",
   "run": "run",
-  "attack": "cast_fireball",
+  "attack": "cast_fireball_m",
   "chop": "cast_meteor"
  },
  "roles_knight_lacks": {
@@ -74,7 +74,8 @@
   "full kit (+wand +grimoire)"
  ],
  "morph_rules": {
-  "grip_R": "wand",
+  "grip_R_wand": "wand",
+  "grip_L_book": "grimoire",
   "under_battlemage": "gown"
  },
  "strikes_need_armed": {
@@ -118,37 +119,44 @@
   "_note": "THE CARRY'S SPINE, held through knight.gd's ARMED UPPER slot -- NOT because this is an armed gait but because it is the one slot whose filter paths come from the LOCOMOTION clips' tracks (_apply_upper). The carry keeps Spine01, Spine, neck and Head at REST, and Godot's glTF import drops rest-valued tracks: staff_carry_R arrives with 8 tracks for its 9 bones (Spine02, the shoulder and the arm), so arm_layer_armed_R -- whose filter comes from the ACTION's own tracks -- cannot hold the upper spine, and the run's spine carried the staff to 32 deg (designed 13.4). With this slot the walk and run match the reference staff_layer.gd EXACTLY (0.000 deg); the idle keeps the idle clip's own spine sway (knight.gd's upper chain plays the idle ROLE clip in idle): 5.8 deg off the reference, tilt 12.0 against 10.8. scene_pkg/test/, measured."
  },
  "arm_layer_armed": {
-  "action": "staff_carry_R",
-  "bones": [],
-  "_note": "knight.gd's _build_anim_tree RETURNS EARLY -- no tree at all -- unless this left-arm layer's action exists. Her left arm carries nothing, so the action is the carry clip with an EMPTY filter: the `blend` node then passes locomotion through untouched."
+  "action": "book_carry_L",
+  "bones": [
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
+  ],
+  "weight": 1.0,
+  "when_piece": "grimoire",
+  "clips": "ALL (idle, walk, run, cast_fireball_m, cast_meteor)",
+  "_note": "THE BOOK HOLD: her left arm holds the open grimoire to read (hand at chest height, palm under the spine, the book tilted 40 deg up toward her face) through EVERY clip, the casts included -- a filtered Blend2 over exactly these three bones. knight.gd's left slot blends over LOCOMOTION only; the integration needs it over the strike one-shots too (or the book drops in the casts)."
  },
  "strike_release": {
-  "pose": "staff_carry_R",
+  "pose": "book_carry_L",
   "bones": [
-   "RightShoulder",
-   "RightArm",
-   "RightForeArm",
-   "RightHand"
+   "LeftArm",
+   "LeftForeArm",
+   "LeftHand"
   ],
   "guard_throughout": [
-   "cast_fireball"
+   "cast_fireball_m",
+   "cast_meteor"
   ],
   "at_s": {},
   "over_s": 0.08,
-  "_note": "THE FIRE BALL'S ARM-ONLY CARRY: knight.gd's recovery release (rel_<key>, a filtered Blend2 INSIDE each strike's one-shot) held at 1 for the whole strike (`guard_throughout`), filtered to the four staff-arm bones, on the carry pose -- the staff stays carried while her LEFT hand throws. The Meteor is in neither list, so it owns every bone: its staff motion is baked into its own weapon_r tracks."
+  "_note": "R-C9-119: the open book held through both casts (book_carry_L), as the slot's arm_layer_armed holds it over locomotion"
  },
  "casts": {
-  "cast_fireball": {
+  "cast_fireball_m": {
    "slot": "attack",
-   "release_s": 0.9333,
-   "socket": "cast_hand"
+   "release_s": 0.9,
+   "socket": "cast_hand_R"
   },
   "cast_meteor": {
    "slot": "chop",
    "release_s": 1.6333,
    "socket": "cast_hand_meteor"
   },
-  "_note": "RELEASE per cast (from her export manifest's casts.<clip>.release_s): the instant the spell leaves the hand, clip time. knight.gd has no release event today (strike_release.at_s is the recovery release, a different thing): the placeholder VFX needs one, firing when the strike's position crosses release_s."
+  "_note": "R-C9-119: the Fire Ball is MIRRORED (s46) so the WAND hand throws and the book stays open in the left; release_s re-derived on the mirrored clip's RIGHT hand (its fastest forward interval ends at 0.9000 s; the original's left hand at 0.9333 -- one key, the rig's 2.3 cm rest asymmetry)"
  },
  "speed_measured_at_scale": 1.25177951388889,
  "walk_px_s": 151.7,
@@ -197,7 +205,29 @@
   }
  },
  "_model_note": "her body with ONE added morph, under_battlemage (s28: binary patch of so_d7/export/so-body.glb, clips byte-identical), set while the gown is worn; cast_meteor's weapon_r channels dropped in THIS copy (s37) so the wand stays in her fist. v10: under_legs (s42), a dark copy of her own leg skin 1.5 mm out on her own weights, worn with the legs piece.",
- "_morph_note": "grip_R closes her right fist with the WAND. The GAUNTLETS carry their own grip_R and grip_L (the body's keys transferred vertex by vertex), so the scene must set the key on every worn mesh that has it, not on the body only -- otherwise the bare fist closes inside an open steel glove and pokes through it.",
+ "_morph_note": "grip_R_wand closes her right fist through the wand's grip (to 33 mm round its 23 mm leather grip); grip_L_book cups the left fingers under the book's spine (to 32 mm). The GAUNTLETS carry both keys too: set each key on every worn mesh that has it.",
  "_carry_note": "arm_layer_armed_R / upper_armed / strike_release are the STAFF's carry, inherited unchanged: the wand is mounted on weapon_r at the staff's own mount (its axis along the staff's, its grip where the staff's axis passes the fist), so the same carry holds it. Tuning a lighter wand carry is a later step.",
+ "book_carry_measured": {
+  "tilt_deg": 40.0,
+  "achieved_centre": [
+   0.22,
+   -0.4,
+   1.2
+  ],
+  "elbow_flex_deg": 70.4,
+  "wrist_deviation_deg": 46.7,
+  "upper_arm_from_vertical_deg": 42.7,
+  "within_limits": true
+ },
+ "sockets_r119": {
+  "cast_hand_R": {
+   "bone": "RightHand",
+   "along_bone_m": 0.07,
+   "what": "the wand hand's palm: the mirrored Fire Ball's spawn"
+  },
+  "wand_tip": {
+   "what": "the wand's crystal tip, 0.390 m from the fist centre along the wand axis"
+  }
+ },
  "sockets": "res://data/slots/sockets_so_bm.json"
 }
