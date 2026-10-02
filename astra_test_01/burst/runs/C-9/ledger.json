@@ -28210,6 +28210,11 @@
       "id": "M-C9-E1-STAGE-K-CAND",
       "note": "E1 stage K candidate (ee23751be, export/final_k_cand, not shipped): narrowed base via two adduction passes + re-rigs (rest 1.63 -> 1.49 -> 1.26 x hip; walk heel-to-heel 0.42 -> 0.17 m); Mixamo Great Sword retargeted T-pose -> A-pose with per-joint rest alignment (bone-direction lint 0.00 deg; negative control 63.9). Clips: great sword idle/walk/run, slash (3) as attack (contact 47%), power up as war cry, impact, two-handed death, idle (4) as upright alternate; unarmed set. Shoulders 0.94-0.98 of rest, hands at half height, no high arm. Misses: idle leans 17.8 deg (alt 2.9), run heel-strike ~0, mace head 1.44-1.47 m (target 1.65). Value grade (plate x0.80) and bind-order fix included. Sheet sent to Matt; play-speed film requested.",
       "ts": "2026-10-01T20:57:04"
+    },
+    {
+      "id": "M-C9-E1-FINAL-K-EOR",
+      "note": "final_k (29faf3a42): the approved Mixamo set, shippable (idle 4 seam-looped, run (2) forward, slash 3, power up, impact, two-handed death, unarmed set; lint all PASS). final_k_eor (08abac31b): + eor_spin_start (0.200 s) and eor_spin_loop (0.300 s, one CCW revolution, closes exactly) by the v7 rigid-spin recipe from his approved idle; the Mixamo high-spin alternative failed the joint lint (92 deg wrist) and slid 55-80 mm. One rm -rf denial in the lane (not retried; mkdir/cp used). Combined deploy pushed (loadout 34298c1): crater v5 behind ?v5=ab (plant burning DROPPED per R-C9-125), dark knight final_j2 + eye glow, gear bound by name, sorceress robe/props.",
+      "ts": "2026-10-01T22:14:06"
     }
   ],
   "halts": [
@@ -29311,6 +29316,16 @@
         "Also I have a note on meteor: the smoke that is a video of steam/wisps doesn’t look good. I think it would be much better if it were light smoke particles, similar to what we had in the original Synty EOR warlord whirlwind animation. By the way I really want to bring the rest of that animation into our scenes.. exactly as we had it made for that warlord, but now for the barbarian and also warlord."
       ],
       "ts": "2026-10-01T21:54:13"
+    },
+    {
+      "id": "R-C9-129",
+      "by": "Matt",
+      "ruling": "Movement verbs: CLASS MOVEMENT SKILLS. No jump (the painted ground is flat), no free strafing (characters face their movement, D2/GD lineage), no universal dodge-roll. Mobility comes from each kit's own skill: sorceress Teleport, barbarian Leap, dark knight Blitz. Strafe clips only for locked-facing states (guard; channelling a spin while moving).",
+      "verbatim": [
+        "Yes, we should decide on strafe vs roll vs jump for the game.. what fits.",
+        "(AskUserQuestion) \"Class movement skills (Recommended)\""
+      ],
+      "ts": "2026-10-01T22:14:06"
     }
   ],
   "grok_calls": [
