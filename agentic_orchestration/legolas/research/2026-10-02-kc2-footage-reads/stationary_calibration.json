@@ -1,0 +1,371 @@
+{
+ "title": "Known-stationary calibration: the Carnivorous Plant through the referent standing instrument (KP-221 R6)",
+ "identity_certain_60fps": {
+  "w151_692_698": [
+   {
+    "fingerprint": 272948,
+    "readouts": 59,
+    "t": [
+     692.0167,
+     693.3167
+    ],
+    "coverage": 0.75,
+    "still_frac": 0.646,
+    "n_vel_frames": 65,
+    "speed_med_gpx_s": 40.6,
+    "world_resid_med_gpx": 7.8,
+    "world_resid_p90_gpx": 27.3,
+    "step_gt12_frac": 0.0,
+    "range_plate_to_player_gpx_med": 437,
+    "cam_travel_px": [
+     226,
+     108
+    ]
+   },
+   {
+    "fingerprint": 278543,
+    "readouts": 49,
+    "t": [
+     692.0,
+     692.9167
+    ],
+    "coverage": 0.87,
+    "still_frac": 0.976,
+    "n_vel_frames": 42,
+    "speed_med_gpx_s": 21.8,
+    "world_resid_med_gpx": 5.2,
+    "world_resid_p90_gpx": 7.9,
+    "step_gt12_frac": 0.0,
+    "range_plate_to_player_gpx_med": 453,
+    "cam_travel_px": [
+     110,
+     108
+    ]
+   },
+   {
+    "fingerprint": 278543,
+    "readouts": 167,
+    "t": [
+     693.2333,
+     697.9833
+    ],
+    "coverage": 0.58,
+    "still_frac": 0.368,
+    "n_vel_frames": 155,
+    "speed_med_gpx_s": 81.8,
+    "world_resid_med_gpx": 34.6,
+    "world_resid_p90_gpx": 72.7,
+    "step_gt12_frac": 0.007,
+    "range_plate_to_player_gpx_med": 275,
+    "cam_travel_px": [
+     261,
+     314
+    ]
+   }
+  ],
+  "w153_719_729": [
+   {
+    "fingerprint": 273975,
+    "readouts": 111,
+    "t": [
+     719.5333,
+     722.4833
+    ],
+    "coverage": 0.62,
+    "still_frac": 0.279,
+    "n_vel_frames": 86,
+    "speed_med_gpx_s": 103.6,
+    "world_resid_med_gpx": 85.5,
+    "world_resid_p90_gpx": 179.3,
+    "step_gt12_frac": 0.019,
+    "range_plate_to_player_gpx_med": 798,
+    "cam_travel_px": [
+     327,
+     298
+    ]
+   }
+  ]
+ },
+ "lap_h2_plates60_tracks_seeded_by_plant_fingerprint": {
+  "w151_692_698": [
+   {
+    "track": 5,
+    "seed_hits": 5,
+    "fingerprints": [
+     278543
+    ],
+    "frames": 39,
+    "t0": 692.0,
+    "t1": 692.6333,
+    "still_frac": 0.92,
+    "speed_med": 24.237393536617173,
+    "speed_p90": 36.82201281815311,
+    "pos_sd_gpx": [
+     3.386567887537983,
+     3.1298967326475817
+    ],
+    "pos_range_gpx": [
+     12.816959841232688,
+     10.740632273105348
+    ],
+    "jump_frac_gt12": 0.0,
+    "screen_x": [
+     740.0,
+     850.0
+    ],
+    "screen_y": [
+     304.0,
+     416.0
+    ],
+    "range_to_player_gpx_med": 393.260893342378
+   },
+   {
+    "track": 8,
+    "seed_hits": 9,
+    "fingerprints": [
+     272948
+    ],
+    "frames": 301,
+    "t0": 692.0,
+    "t1": 698.0,
+    "still_frac": 0.5017421602787456,
+    "speed_med": 49.55308236599488,
+    "speed_p90": 228.77889578871157,
+    "pos_sd_gpx": [
+     81.30245756136789,
+     40.96243530976106
+    ],
+    "pos_range_gpx": [
+     313.19938179463713,
+     227.1237485138331
+    ],
+    "jump_frac_gt12": 0.06333333333333334,
+    "screen_x": [
+     479.0,
+     1053.0
+    ],
+    "screen_y": [
+     357.5,
+     614.0
+    ],
+    "range_to_player_gpx_med": 156.890275406218
+   },
+   {
+    "track": 9,
+    "seed_hits": 12,
+    "fingerprints": [
+     278543
+    ],
+    "frames": 308,
+    "t0": 692.0,
+    "t1": 697.7333,
+    "still_frac": 0.4217687074829932,
+    "speed_med": 72.93618960927483,
+    "speed_p90": 204.35188905922752,
+    "pos_sd_gpx": [
+     72.92422104977774,
+     71.5037073965825
+    ],
+    "pos_range_gpx": [
+     242.80192300398323,
+     261.0481802211334
+    ],
+    "jump_frac_gt12": 0.048859934853420196,
+    "screen_x": [
+     842.0,
+     1182.0
+    ],
+    "screen_y": [
+     408.5,
+     756.0
+    ],
+    "range_to_player_gpx_med": 235.57059969068933
+   },
+   {
+    "track": 11,
+    "seed_hits": 3,
+    "fingerprints": [
+     278543
+    ],
+    "frames": 86,
+    "t0": 692.0,
+    "t1": 693.4167,
+    "still_frac": 0.25,
+    "speed_med": 93.09796713056286,
+    "speed_p90": 142.89369840390418,
+    "pos_sd_gpx": [
+     14.80797481823226,
+     19.6110440073907
+    ],
+    "pos_range_gpx": [
+     49.03496561675172,
+     67.48765086326148
+    ],
+    "jump_frac_gt12": 0.0,
+    "screen_x": [
+     643.0,
+     934.0
+    ],
+    "screen_y": [
+     508.0,
+     652.0
+    ],
+    "range_to_player_gpx_med": 199.59519471358595
+   }
+  ],
+  "w153_719_729": [
+   {
+    "track": 33,
+    "seed_hits": 9,
+    "fingerprints": [
+     273975
+    ],
+    "frames": 237,
+    "t0": 719.4167,
+    "t1": 723.65,
+    "still_frac": 0.28699551569506726,
+    "speed_med": 87.20205883156584,
+    "speed_p90": 214.22405581419386,
+    "pos_sd_gpx": [
+     43.1704087910054,
+     43.70201657780679
+    ],
+    "pos_range_gpx": [
+     226.11618758717657,
+     181.0895231550835
+    ],
+    "jump_frac_gt12": 0.05508474576271186,
+    "screen_x": [
+     57.0,
+     988.0
+    ],
+    "screen_y": [
+     361.5,
+     970.0
+    ],
+    "range_to_player_gpx_med": 624.4692513526666
+   },
+   {
+    "track": 37,
+    "seed_hits": 1,
+    "fingerprints": [
+     273975
+    ],
+    "frames": 33,
+    "t0": 719.45,
+    "t1": 720.15,
+    "still_frac": 0.0,
+    "speed_med": 440.9168193249045,
+    "speed_p90": 1309.586595731524,
+    "pos_sd_gpx": [
+     41.23774757132367,
+     50.83394685731314
+    ],
+    "pos_range_gpx": [
+     118.99487812293302,
+     191.4105667219651
+    ],
+    "jump_frac_gt12": 0.40625,
+    "screen_x": [
+     217.0,
+     382.0
+    ],
+    "screen_y": [
+     780.0,
+     900.0
+    ],
+    "range_to_player_gpx_med": 840.3855319430935
+   },
+   {
+    "track": 38,
+    "seed_hits": 1,
+    "fingerprints": [
+     273975
+    ],
+    "frames": 9,
+    "t0": 719.45,
+    "t1": 719.65
+   },
+   {
+    "track": 66,
+    "seed_hits": 3,
+    "fingerprints": [
+     273975
+    ],
+    "frames": 176,
+    "t0": 720.2,
+    "t1": 723.15,
+    "still_frac": 0.05555555555555555,
+    "speed_med": 160.37574516855972,
+    "speed_p90": 267.95901296625783,
+    "pos_sd_gpx": [
+     65.6679846949246,
+     87.71650880949883
+    ],
+    "pos_range_gpx": [
+     182.2283978004615,
+     278.3834811228544
+    ],
+    "jump_frac_gt12": 0.04,
+    "screen_x": [
+     344.0,
+     988.0
+    ],
+    "screen_y": [
+     434.0,
+     958.0
+    ],
+    "range_to_player_gpx_med": 646.0832459787505
+   },
+   {
+    "track": 129,
+    "seed_hits": 1,
+    "fingerprints": [
+     273975
+    ],
+    "frames": 80,
+    "t0": 721.6667,
+    "t1": 723.0,
+    "still_frac": 0.06060606060606061,
+    "speed_med": 137.63868754279403,
+    "speed_p90": 290.72756263940505,
+    "pos_sd_gpx": [
+     12.547882591238006,
+     52.904461025719606
+    ],
+    "pos_range_gpx": [
+     52.88714966197233,
+     177.78088606161873
+    ],
+    "jump_frac_gt12": 0.10126582278481013,
+    "screen_x": [
+     714.0,
+     836.0
+    ],
+    "screen_y": [
+     384.0,
+     780.5
+    ],
+    "range_to_player_gpx_med": 274.3527277079006
+   }
+  ]
+ },
+ "camera_gain_fit": {
+  "body": "livingplant_a01 L104, 278,543, one body (never 2 simultaneous; HP falls 211,915 -> 1,957 continuously), 693.2-698.0 s, 167 readouts at 60 fps",
+  "screen_vs_camera_slope": {
+   "x": 1.268,
+   "y": 1.293
+  },
+  "resid_med_gpx_slope1": 34.6,
+  "resid_med_gpx_free_slope": 11.8,
+  "second_body": {
+   "body": "livingplant_a01 L103, 272,948, 692.0-693.4 s, 59 readouts",
+   "slope": {
+    "x": 1.139,
+    "y": 1.114
+   },
+   "resid_med_gpx_slope1": 7.8,
+   "resid_med_gpx_free_slope": 6.4
+  }
+ }
+}

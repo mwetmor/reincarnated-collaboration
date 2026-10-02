@@ -1,0 +1,173 @@
+{
+ "title": "KC2 referent: the six-icon Crucible mutator row (waves 151-160)",
+ "date": "2026-10-02",
+ "agent": "legolas",
+ "footage": {
+  "file": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "sha256": "4c60960d98e9d729e17469044dbe7b4341b253d7d36ba26fe09564d6056a4de8",
+  "first_frame_with_row_s": 682.12,
+  "banner": "New Mutators Active (tag tagNewMutators, sm_mod tags_survivalui.txt)",
+  "row_region_px": [
+   1250,
+   130,
+   1570,
+   180
+  ],
+  "evidence_crop": "evidence/mutator_row_x4.png"
+ },
+ "selection_law": {
+  "grade": "DATAMINED (Ed-I smmod Lua survivalevent.lua; Ed-IV/Ed-II records identical)",
+  "when": "SurvivalEvent_Start -> SurvivalEvent_SelectMutators once per event (the 10-wave block); Game.ResetMutators at SurvivalEvent_End. So the six are active for ALL of waves 151-160.",
+  "count": "checkpointWave 150 -> rewardTier = floor(150/10) = 15 -> mutatorCount 6 -> 2 player + 4 monster",
+  "pick": "uniform without replacement; BUT the loops accept rand only if rand < listLength, so the LAST entry of each list can never be chosen: monster #17 Vengeful and player #10 Voidmarked are unselectable",
+  "difficulty_tier": "Ultimate -> the ultimateMutator (_u) record (INFERRED from GD difficulty naming; Crucible run is Ultimate per the KC2 pack)"
+ },
+ "mutators": [
+  {
+   "slot_left_to_right": 1,
+   "affects": "monsters",
+   "name": "Brutal",
+   "tag_description": "Monsters deal additional Pierce damage.",
+   "pak_record": "records/game/mutators/mutatorpak_monster_04.dbr",
+   "ultimate_record": "records/game/mutators/mutator_monster_brutal_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_monster04_brutal.tex",
+   "icon_seen": "hand gripping a dagger, red glow",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_monster_Brutal.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "offensivePierceMin": {
+     "array_len": 200,
+     "values_at_index_102_to_109 (1-based, INFERRED level index)": [
+      181.0,
+      184.0,
+      185.0,
+      187.0,
+      190.0,
+      190.0,
+      192.0,
+      194.0
+     ]
+    },
+    "offensivePierceModifier": 50.0
+   },
+   "ed_II_equal": true
+  },
+  {
+   "slot_left_to_right": 2,
+   "affects": "monsters",
+   "name": "Leeching",
+   "tag_description": "Monsters leech health back with every attack.",
+   "pak_record": "records/game/mutators/mutatorpak_monster_09.dbr",
+   "ultimate_record": "records/game/mutators/mutator_monster_leeching_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_monster09_leeching.tex",
+   "icon_seen": "fanged open maw, red glow",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_monster_Leeching.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "offensiveLifeLeechMin": 600.0
+   },
+   "ed_II_equal": true
+  },
+  {
+   "slot_left_to_right": 3,
+   "affects": "monsters",
+   "name": "Cruel",
+   "tag_description": "Monster attacks cripple the Damage of their opponents.",
+   "pak_record": "records/game/mutators/mutatorpak_monster_07.dbr",
+   "ultimate_record": "records/game/mutators/mutator_monster_cruel_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_monster07_cruel.tex",
+   "icon_seen": "skull under a crosshair, red glow",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_monster_Cruel.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "offensiveTotalDamageReductionPercentDurationMin": 1.0,
+    "offensiveTotalDamageReductionPercentMin": 8.0
+   },
+   "ed_II_equal": true
+  },
+  {
+   "slot_left_to_right": 4,
+   "affects": "monsters",
+   "name": "Corrupted",
+   "tag_description": "Monsters deal additional Chaos damage.",
+   "pak_record": "records/game/mutators/mutatorpak_monster_05.dbr",
+   "ultimate_record": "records/game/mutators/mutator_monster_corrupted_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_monster05_corrupted.tex",
+   "icon_seen": "magenta split-triangle rune",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_monster_Corrupted.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "offensiveChaosMin": {
+     "array_len": 200,
+     "values_at_index_102_to_109 (1-based, INFERRED level index)": [
+      181.0,
+      184.0,
+      185.0,
+      187.0,
+      190.0,
+      190.0,
+      192.0,
+      194.0
+     ]
+    },
+    "offensiveChaosModifier": 50.0
+   },
+   "ed_II_equal": true
+  },
+  {
+   "slot_left_to_right": 5,
+   "affects": "players",
+   "name": "Resilient",
+   "tag_description": "Players are more Resistant to Poison and Bleeding.",
+   "pak_record": "records/game/mutators/mutatorpak_player_07.dbr",
+   "ultimate_record": "records/game/mutators/mutator_player_resilient_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_player07_resilient.tex",
+   "icon_seen": "green flask with skull label",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_player_Resilient.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "defensiveBleeding": 8.0,
+    "defensiveBleedingMaxResist": 8.0,
+    "defensivePoison": 8.0,
+    "defensivePoisonMaxResist": 8.0
+   },
+   "ed_II_equal": true
+  },
+  {
+   "slot_left_to_right": 6,
+   "affects": "players",
+   "name": "Ascended",
+   "tag_description": "Players deal increased Damage.",
+   "pak_record": "records/game/mutators/mutatorpak_player_04.dbr",
+   "ultimate_record": "records/game/mutators/mutator_player_ascended_u.dbr",
+   "icon_texture": "ui/hud/mutatoricon_player04_ascended.tex",
+   "icon_seen": "green pentagram star",
+   "identification": "FOOTAGE icon matched by eye to the Grim Dawn wiki icon file for this mutator (secondary source: grimdawn.fandom.com File:Mutatoricon_player_Ascended.png); consistent with the DATAMINED 4-monster/2-player split",
+   "confidence": "HIGH",
+   "ultimate_effects_DATAMINED": {
+    "offensiveDamageMultModifier": 8.0,
+    "retaliationDamageMultModifier": 4.0
+   },
+   "ed_II_equal": true
+  }
+ ],
+ "effects_plain": {
+  "Brutal": "monsters: + flat Pierce damage (level-indexed array) and +50% Pierce damage",
+  "Leeching": "monsters: offensiveLifeLeechMin 600 = 600% of attack damage returned as health (wiki: \"attack damage converted to health\")",
+  "Cruel": "monsters: each hit reduces the target's (player's) total damage by 8% for 1 s",
+  "Corrupted": "monsters: + flat Chaos damage (level-indexed array) and +50% Chaos damage",
+  "Resilient": "player: +8% Poison and +8% Bleeding resistance, +8% max Poison and max Bleeding resistance",
+  "Ascended": "player: +8% total damage (offensiveDamageMultModifier), +4% retaliation damage"
+ },
+ "cross_check_FOOTAGE": [
+  "No life-multiplier mutator is active: Toughened (+12% life) and Regenerating (+6% life) would move every monster max-HP fingerprint; 105 of 118 recurring fingerprints match the Lap D no-mutator eHP exactly. Consistent with the identified six.",
+  "The wiki text for some mutators is out of date versus Ed IV records (e.g. wiki Brutal = crit/OA); the effects above are the Ed IV records, verbatim."
+ ],
+ "oracle_notes_INFERRED": [
+  "Leeching (600% of attack damage healed) acts on monster sustain: it lengthens time-to-kill against the player's damage, not player intake directly.",
+  "Cruel (-8% player damage for 1 s per monster hit) lowers player kill rate under crowding; it compounds with crowd density.",
+  "Brutal and Corrupted add flat + 50% pierce/chaos to every monster attack: direct intake increase; magnitude depends on the per-attack flat terms and the player's pierce/chaos resists.",
+  "Ascended +8% player damage partly offsets Cruel; Resilient matters only against bleed/poison sources.",
+  "The pack/oracle has NO mutator layer today (KP-211: \"mutators NOT run\", estimated +10-30%)."
+ ]
+}

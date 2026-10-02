@@ -1,0 +1,7823 @@
+{
+ "note": "Per wave, every distinct max-HP readout from the 10 Hz census (682.0-866.0 s): n readouts, max simultaneous bodies (simul), first/last seen, pool-legal record matches (record, level, display name, legal spawn points), legal summon matches, near misses, and the world-frame tracker upper count. Lap D eHP chain: floor(base_life(L) x (1 + (580 + G[w] + passive(L))/100)).",
+ "by_wave": {
+  "151": [
+   {
+    "max": 278543,
+    "n": 76,
+    "simul": 2,
+    "first": 686.0,
+    "last": 697.9,
+    "ncand": 1,
+    "legal": [
+     [
+      "livingplant_a01.dbr",
+      104,
+      "Carnivorous Plant",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 442747,
+    "n": 44,
+    "simul": 1,
+    "first": 684.0,
+    "last": 694.6,
+    "ncand": 232,
+    "legal": [
+     [
+      "swampgolem_h02.dbr",
+      107,
+      "Titanius Steelskin ~ Defender",
+      [
+       "3"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      107,
+      "Arcanom the Soulthief",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      107,
+      "Obliterus",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      107,
+      "Tildoom ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      107,
+      "Sulvar the Endless Hungerer ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h05.dbr",
+      107,
+      "Tulldar Endbringer ~ Celestial",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 582590,
+    "n": 31,
+    "simul": 1,
+    "first": 692.0,
+    "last": 697.7,
+    "ncand": 99,
+    "legal": [
+     [
+      "swampgolem_h01.dbr",
+      108,
+      "Ferrosius ~ Swift",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h03.dbr",
+      108,
+      "Jormundur ~ Diseased",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h04.dbr",
+      108,
+      "Garrl ~ Voidtouched",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h05.dbr",
+      108,
+      "Frulgar ~ Infernal",
+      [
+       "3"
+      ]
+     ],
+     [
+      "wendigo_h01.dbr",
+      108,
+      "Vollarius ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h02.dbr",
+      108,
+      "Anaxius ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h03.dbr",
+      108,
+      "Waraplius ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h04.dbr",
+      108,
+      "Ravagrad ~ Unstoppable",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h05.dbr",
+      108,
+      "Fovarran ~ Infernal",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 230020,
+    "n": 27,
+    "simul": 2,
+    "first": 684.2,
+    "last": 686.8,
+    "ncand": 3,
+    "legal": [
+     [
+      "wraith_b01.dbr",
+      106,
+      "Spiteful Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 569330,
+    "n": 27,
+    "simul": 1,
+    "first": 690.8,
+    "last": 697.2,
+    "ncand": 99,
+    "legal": [
+     [
+      "swampgolem_h01.dbr",
+      107,
+      "Ferrosius ~ Swift",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h03.dbr",
+      107,
+      "Jormundur ~ Diseased",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h04.dbr",
+      107,
+      "Garrl ~ Voidtouched",
+      [
+       "3"
+      ]
+     ],
+     [
+      "swampgolem_h05.dbr",
+      107,
+      "Frulgar ~ Infernal",
+      [
+       "3"
+      ]
+     ],
+     [
+      "wendigo_h01.dbr",
+      107,
+      "Vollarius ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h02.dbr",
+      107,
+      "Anaxius ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h03.dbr",
+      107,
+      "Waraplius ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h04.dbr",
+      107,
+      "Ravagrad ~ Unstoppable",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h05.dbr",
+      107,
+      "Fovarran ~ Infernal",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 139400,
+    "n": 26,
+    "simul": 2,
+    "first": 683.4,
+    "last": 692.1,
+    "ncand": 3,
+    "legal": [
+     [
+      "wraith_a01.dbr",
+      104,
+      "Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 272948,
+    "n": 25,
+    "simul": 2,
+    "first": 686.4,
+    "last": 697.1,
+    "ncand": 1,
+    "legal": [
+     [
+      "livingplant_a01.dbr",
+      103,
+      "Carnivorous Plant",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 221351,
+    "n": 24,
+    "simul": 1,
+    "first": 690.6,
+    "last": 697.2,
+    "ncand": 2,
+    "legal": [
+     [
+      "wraith_b01.dbr",
+      104,
+      "Spiteful Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 373665,
+    "n": 19,
+    "simul": 1,
+    "first": 683.2,
+    "last": 686.6,
+    "ncand": 2,
+    "legal": [
+     [
+      "wraith_c01.dbr",
+      104,
+      "Ancient Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 136975,
+    "n": 19,
+    "simul": 2,
+    "first": 683.2,
+    "last": 691.4,
+    "ncand": 3,
+    "legal": [
+     [
+      "wraith_a01.dbr",
+      103,
+      "Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 453064,
+    "n": 18,
+    "simul": 2,
+    "first": 686.0,
+    "last": 687.8,
+    "ncand": 232,
+    "legal": [
+     [
+      "swampgolem_h02.dbr",
+      108,
+      "Titanius Steelskin ~ Defender",
+      [
+       "3"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      108,
+      "Arcanom the Soulthief",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      108,
+      "Obliterus",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      108,
+      "Tildoom ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      108,
+      "Sulvar the Endless Hungerer ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h05.dbr",
+      108,
+      "Tulldar Endbringer ~ Celestial",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 225874,
+    "n": 16,
+    "simul": 1,
+    "first": 682.8,
+    "last": 685.1,
+    "ncand": 2,
+    "legal": [
+     [
+      "wraith_b01.dbr",
+      105,
+      "Spiteful Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 295984,
+    "n": 10,
+    "simul": 1,
+    "first": 694.7,
+    "last": 697.4,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "livingplant_a01_summon.dbr",
+      107,
+      "Carnivorous Plant",
+      [
+       "swampgolem_h03.dbr",
+       "swampgolem_h01.dbr",
+       "swampgolem_h05.dbr",
+       "swampgolem_h02.dbr",
+       "swampgolem_h04.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 302387,
+    "n": 5,
+    "simul": 1,
+    "first": 697.8,
+    "last": 698.3,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "livingplant_a01_summon.dbr",
+      108,
+      "Carnivorous Plant",
+      [
+       "swampgolem_h03.dbr",
+       "swampgolem_h01.dbr",
+       "swampgolem_h05.dbr",
+       "swampgolem_h02.dbr",
+       "swampgolem_h04.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 381272,
+    "n": 3,
+    "simul": 1,
+    "first": 690.6,
+    "last": 691.4,
+    "ncand": 2,
+    "legal": [
+     [
+      "wraith_c01.dbr",
+      105,
+      "Ancient Wraith",
+      [
+       "1",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 272943,
+    "n": 3,
+    "simul": 1,
+    "first": 690.7,
+    "last": 695.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.002,
+      272948,
+      "livingplant_a01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": 1
+   },
+   {
+    "max": 302934,
+    "n": 2,
+    "simul": 1,
+    "first": 698.4,
+    "last": 698.5,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.181,
+      302387,
+      "livingplant_a01_summon.dbr",
+      108
+     ],
+     [
+      0.327,
+      301944,
+      "swampcrab_c01_summon.dbr",
+      108
+     ],
+     [
+      0.363,
+      301834,
+      "aetherialcorruption_b01_summon.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 273543,
+    "n": 1,
+    "simul": 1,
+    "first": 690.9,
+    "last": 690.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.218,
+      272948,
+      "livingplant_a01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 274543,
+    "n": 1,
+    "simul": 1,
+    "first": 691.2,
+    "last": 691.2,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 569830,
+    "n": 1,
+    "simul": 1,
+    "first": 691.7,
+    "last": 691.7,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.088,
+      569330,
+      "swampgolem_h01.dbr",
+      107
+     ],
+     [
+      0.088,
+      569330,
+      "swampgolem_h03.dbr",
+      107
+     ],
+     [
+      0.088,
+      569330,
+      "swampgolem_h04.dbr",
+      107
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 146975,
+    "n": 1,
+    "simul": 1,
+    "first": 691.9,
+    "last": 691.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 2727948,
+    "n": 1,
+    "simul": 1,
+    "first": 691.9,
+    "last": 691.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 278548,
+    "n": 1,
+    "simul": 1,
+    "first": 697.6,
+    "last": 697.6,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.002,
+      278543,
+      "livingplant_a01.dbr",
+      104
+     ],
+     [
+      0.194,
+      278007,
+      "aetherialcorruption_b01_summon.dbr",
+      104
+     ],
+     [
+      0.194,
+      278007,
+      "aetherialcorruption_b02_summon.dbr",
+      104
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 302337,
+    "n": 1,
+    "simul": 1,
+    "first": 698.0,
+    "last": 698.0,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.017,
+      302387,
+      "livingplant_a01_summon.dbr",
+      108
+     ],
+     [
+      0.13,
+      301944,
+      "swampcrab_c01_summon.dbr",
+      108
+     ],
+     [
+      0.166,
+      301834,
+      "aetherialcorruption_b01_summon.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": null
+   }
+  ],
+  "152": [
+   {
+    "max": 443554,
+    "n": 85,
+    "simul": 4,
+    "first": 699.8,
+    "last": 709.2,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialphantom_h01.dbr",
+      107,
+      "Athraz, the Watcher",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialphantom_h02.dbr",
+      107,
+      "Naladrak, Essence of the Flame",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialphantom_h03.dbr",
+      107,
+      "Idalazius, the Corruptor",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h01.dbr",
+      107,
+      "Gal'Barok",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h02.dbr",
+      107,
+      "Har'Nadiin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h03.dbr",
+      107,
+      "Ellon'Siin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h04.dbr",
+      107,
+      "Udal'Nadal",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h05.dbr",
+      107,
+      "Balok'Grot",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h06.dbr",
+      107,
+      "Orudin'Ak",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h02.dbr",
+      107,
+      "Wallan'Siin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h03.dbr",
+      107,
+      "Walloth'Dar",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h05.dbr",
+      107,
+      "Sen'Udal ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianminion_h01.dbr",
+      107,
+      "Carath'Lud",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianminion_h07.dbr",
+      107,
+      "Shogal'Gargoth ~ Shielded",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h01.dbr",
+      107,
+      "Odellia Lanos",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h02.dbr",
+      107,
+      "Marden Thal ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h04.dbr",
+      107,
+      "Stormbane ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h05.dbr",
+      107,
+      "Baullos Gar ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h06.dbr",
+      107,
+      "Senal Thandris ~ Corrupted",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h07.dbr",
+      107,
+      "Develos Ondal",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h08.dbr",
+      107,
+      "Barrosa Namos",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h09.dbr",
+      107,
+      "Aneria Thandris",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h01.dbr",
+      107,
+      "Direcrix",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h02.dbr",
+      107,
+      "Malocrix ~ Voidtouched",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h03.dbr",
+      107,
+      "Idricrix ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h01.dbr",
+      107,
+      "Elledar Bloodthirster",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h04.dbr",
+      107,
+      "Everon ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h05.dbr",
+      107,
+      "Vengar the Vengeful ~ Reflective",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h06.dbr",
+      107,
+      "Rimelord ~ Frozen",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h09.dbr",
+      107,
+      "Elagorian Darkmarrow",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h01.dbr",
+      107,
+      "Rexna",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h05.dbr",
+      107,
+      "Wrallan ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h06.dbr",
+      107,
+      "Calladra ~ Corrupted",
+      [
+       "6"
+      ]
+     ],
+     [
+      "spider_cave_h01.dbr",
+      107,
+      "Shalloth",
+      [
+       "6"
+      ]
+     ],
+     [
+      "spider_cave_h03.dbr",
+      107,
+      "Waviix ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombie_h02.dbr",
+      107,
+      "Follistad",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombie_h04.dbr",
+      107,
+      "Palleod ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombiemutated_h03.dbr",
+      107,
+      "Vampireon",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombiemutated_h04.dbr",
+      107,
+      "Swiftrot ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcorruption_h01.dbr",
+      107,
+      "Challdrus the Coldheart",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      107,
+      "Vanallius the Voracious",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      107,
+      "Disallus ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      107,
+      "Chromallus ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h05.dbr",
+      107,
+      "Icallon ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "basilisk_h01.dbr",
+      107,
+      "Stormslither",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h02.dbr",
+      107,
+      "Rotmouth",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h03.dbr",
+      107,
+      "Aregos ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h04.dbr",
+      107,
+      "Ranaxus ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h05.dbr",
+      107,
+      "Chillslither ~ Arctic",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghostcrab_h01.dbr",
+      107,
+      "Foll the Burningshell",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h02.dbr",
+      107,
+      "Goll the Stormshell",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h03.dbr",
+      107,
+      "Mudrock ~ Defender",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h04.dbr",
+      107,
+      "Corrupshell ~ Corrupted",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h05.dbr",
+      107,
+      "Emptius ~ Celestial",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h01.dbr",
+      107,
+      "Sparkmucker ~ Thundering",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h02.dbr",
+      107,
+      "Magecruncher ~ Arcane",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h03.dbr",
+      107,
+      "Frostfroth ~ Arctic",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h04.dbr",
+      107,
+      "Muckclaw ~ Unstoppable",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h01.dbr",
+      107,
+      "Iceskorn",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h02.dbr",
+      107,
+      "Vileclaw",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h03.dbr",
+      107,
+      "Mudflinger ~ Reflective",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h04.dbr",
+      107,
+      "Chaosshell ~ Voidtouched",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h05.dbr",
+      107,
+      "Thornshell ~ Bramble",
+      [
+       "1"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h01.dbr",
+      107,
+      "Spellthorn ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h02.dbr",
+      107,
+      "Stormbark ~ Thundering",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h03.dbr",
+      107,
+      "Everbarb ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h04.dbr",
+      107,
+      "Ivar the Evergrowth ~ Bramble",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 6
+   },
+   {
+    "max": 42798,
+    "n": 55,
+    "simul": 3,
+    "first": 699.8,
+    "last": 706.5,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "springscrab_a00_summon.dbr",
+      107,
+      "Calcified Crabling",
+      [
+       "springscrab_h01.dbr",
+       "springscrab_h03.dbr",
+       "springscrab_h04.dbr",
+       "springscrab_h02.dbr"
+      ]
+     ],
+     [
+      "swampcrab_a00_summon.dbr",
+      107,
+      "Ugdenbog Crabling",
+      [
+       "swampcrab_h03.dbr",
+       "swampcrab_h01.dbr",
+       "swampcrab_h05.dbr",
+       "swampcrab_h02.dbr",
+       "swampcrab_h04.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 472732,
+    "n": 54,
+    "simul": 2,
+    "first": 706.6,
+    "last": 714.6,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "aetherialcorruption_c01_summon.dbr",
+      108,
+      "Fleshwarped Aberration",
+      [
+       "aetherialfleshshaper_haraxis.dbr",
+       "aetherial_fleshweaverkrieg.dbr",
+       "aetherial_fleshweaverkriegb.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 242124,
+    "n": 52,
+    "simul": 2,
+    "first": 700.4,
+    "last": 710.3,
+    "ncand": 2,
+    "legal": [
+     [
+      "basilisk_b01.dbr",
+      104,
+      "Venomgaze Basilisk",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 93599,
+    "n": 34,
+    "simul": 2,
+    "first": 701.3,
+    "last": 707.1,
+    "ncand": 2,
+    "legal": [
+     [
+      "basilisk_a01.dbr",
+      103,
+      "Juvenile Basilisk",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 453883,
+    "n": 28,
+    "simul": 2,
+    "first": 706.2,
+    "last": 709.6,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialphantom_h01.dbr",
+      108,
+      "Athraz, the Watcher",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialphantom_h02.dbr",
+      108,
+      "Naladrak, Essence of the Flame",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialphantom_h03.dbr",
+      108,
+      "Idalazius, the Corruptor",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h01.dbr",
+      108,
+      "Gal'Barok",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h02.dbr",
+      108,
+      "Har'Nadiin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h03.dbr",
+      108,
+      "Ellon'Siin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h04.dbr",
+      108,
+      "Udal'Nadal",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h05.dbr",
+      108,
+      "Balok'Grot",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandevourer_h06.dbr",
+      108,
+      "Orudin'Ak",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h02.dbr",
+      108,
+      "Wallan'Siin",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h03.dbr",
+      108,
+      "Walloth'Dar",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h05.dbr",
+      108,
+      "Sen'Udal ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianminion_h01.dbr",
+      108,
+      "Carath'Lud",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianminion_h07.dbr",
+      108,
+      "Shogal'Gargoth ~ Shielded",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h01.dbr",
+      108,
+      "Odellia Lanos",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h02.dbr",
+      108,
+      "Marden Thal ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h04.dbr",
+      108,
+      "Stormbane ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h05.dbr",
+      108,
+      "Baullos Gar ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h06.dbr",
+      108,
+      "Senal Thandris ~ Corrupted",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h07.dbr",
+      108,
+      "Develos Ondal",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h08.dbr",
+      108,
+      "Barrosa Namos",
+      [
+       "6"
+      ]
+     ],
+     [
+      "ghost_h09.dbr",
+      108,
+      "Aneria Thandris",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h01.dbr",
+      108,
+      "Direcrix",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h02.dbr",
+      108,
+      "Malocrix ~ Voidtouched",
+      [
+       "6"
+      ]
+     ],
+     [
+      "prawncave_h03.dbr",
+      108,
+      "Idricrix ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h01.dbr",
+      108,
+      "Elledar Bloodthirster",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h04.dbr",
+      108,
+      "Everon ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h05.dbr",
+      108,
+      "Vengar the Vengeful ~ Reflective",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h06.dbr",
+      108,
+      "Rimelord ~ Frozen",
+      [
+       "6"
+      ]
+     ],
+     [
+      "skeleton_h09.dbr",
+      108,
+      "Elagorian Darkmarrow",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h01.dbr",
+      108,
+      "Rexna",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h05.dbr",
+      108,
+      "Wrallan ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "slith_h06.dbr",
+      108,
+      "Calladra ~ Corrupted",
+      [
+       "6"
+      ]
+     ],
+     [
+      "spider_cave_h01.dbr",
+      108,
+      "Shalloth",
+      [
+       "6"
+      ]
+     ],
+     [
+      "spider_cave_h03.dbr",
+      108,
+      "Waviix ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombie_h02.dbr",
+      108,
+      "Follistad",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombie_h04.dbr",
+      108,
+      "Palleod ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombiemutated_h03.dbr",
+      108,
+      "Vampireon",
+      [
+       "6"
+      ]
+     ],
+     [
+      "zombiemutated_h04.dbr",
+      108,
+      "Swiftrot ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcorruption_h01.dbr",
+      108,
+      "Challdrus the Coldheart",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      108,
+      "Vanallius the Voracious",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      108,
+      "Disallus ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      108,
+      "Chromallus ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h05.dbr",
+      108,
+      "Icallon ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "basilisk_h01.dbr",
+      108,
+      "Stormslither",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h02.dbr",
+      108,
+      "Rotmouth",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h03.dbr",
+      108,
+      "Aregos ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h04.dbr",
+      108,
+      "Ranaxus ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h05.dbr",
+      108,
+      "Chillslither ~ Arctic",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghostcrab_h01.dbr",
+      108,
+      "Foll the Burningshell",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h02.dbr",
+      108,
+      "Goll the Stormshell",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h03.dbr",
+      108,
+      "Mudrock ~ Defender",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h04.dbr",
+      108,
+      "Corrupshell ~ Corrupted",
+      [
+       "1"
+      ]
+     ],
+     [
+      "ghostcrab_h05.dbr",
+      108,
+      "Emptius ~ Celestial",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h01.dbr",
+      108,
+      "Sparkmucker ~ Thundering",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h02.dbr",
+      108,
+      "Magecruncher ~ Arcane",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h03.dbr",
+      108,
+      "Frostfroth ~ Arctic",
+      [
+       "1"
+      ]
+     ],
+     [
+      "springscrab_h04.dbr",
+      108,
+      "Muckclaw ~ Unstoppable",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h01.dbr",
+      108,
+      "Iceskorn",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h02.dbr",
+      108,
+      "Vileclaw",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h03.dbr",
+      108,
+      "Mudflinger ~ Reflective",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h04.dbr",
+      108,
+      "Chaosshell ~ Voidtouched",
+      [
+       "1"
+      ]
+     ],
+     [
+      "swampcrab_h05.dbr",
+      108,
+      "Thornshell ~ Bramble",
+      [
+       "1"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h01.dbr",
+      108,
+      "Spellthorn ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h02.dbr",
+      108,
+      "Stormbark ~ Thundering",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h03.dbr",
+      108,
+      "Everbarb ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "thornedhorrorfrost_h04.dbr",
+      108,
+      "Ivar the Evergrowth ~ Bramble",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 91696,
+    "n": 26,
+    "simul": 1,
+    "first": 700.8,
+    "last": 707.3,
+    "ncand": 2,
+    "legal": [
+     [
+      "basilisk_a01.dbr",
+      102,
+      "Juvenile Basilisk",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 43548,
+    "n": 25,
+    "simul": 2,
+    "first": 699.5,
+    "last": 702.8,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "springscrab_a00_summon.dbr",
+      108,
+      "Calcified Crabling",
+      [
+       "springscrab_h01.dbr",
+       "springscrab_h03.dbr",
+       "springscrab_h04.dbr",
+       "springscrab_h02.dbr"
+      ]
+     ],
+     [
+      "swampcrab_a00_summon.dbr",
+      108,
+      "Ugdenbog Crabling",
+      [
+       "swampcrab_h03.dbr",
+       "swampcrab_h01.dbr",
+       "swampcrab_h05.dbr",
+       "swampcrab_h02.dbr",
+       "swampcrab_h04.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 237258,
+    "n": 18,
+    "simul": 1,
+    "first": 700.7,
+    "last": 709.5,
+    "ncand": 2,
+    "legal": [
+     [
+      "basilisk_b01.dbr",
+      103,
+      "Venomgaze Basilisk",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 2050807,
+    "n": 16,
+    "simul": 1,
+    "first": 705.6,
+    "last": 710.9,
+    "ncand": 35,
+    "legal": [
+     [
+      "aetherial_fleshweaverkrieg.dbr",
+      108,
+      "Fleshweaver Krieg",
+      [
+       "4"
+      ]
+     ],
+     [
+      "aetherial_fleshweaverkriegb.dbr",
+      108,
+      "Fleshweaver Krieg",
+      [
+       "4"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_haraxis.dbr",
+      108,
+      "Fleshweaver Haraxis",
+      [
+       "4"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_hinissius.dbr",
+      108,
+      "Fleshshaper Hinissius",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 369770,
+    "n": 13,
+    "simul": 1,
+    "first": 703.6,
+    "last": 705.5,
+    "ncand": 2,
+    "legal": [
+     [
+      "basilisk_c01.dbr",
+      106,
+      "Stonegaze Basilisk",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 302934,
+    "n": 1,
+    "simul": 1,
+    "first": 698.6,
+    "last": 698.6,
+    "ncand": 1,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 33599,
+    "n": 1,
+    "simul": 1,
+    "first": 705.9,
+    "last": 705.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 16364,
+    "n": 1,
+    "simul": 1,
+    "first": 713.8,
+    "last": 713.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 16368,
+    "n": 1,
+    "simul": 1,
+    "first": 713.9,
+    "last": 713.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   }
+  ],
+  "153": [
+   {
+    "max": 37840,
+    "n": 95,
+    "simul": 4,
+    "first": 719.6,
+    "last": 725.5,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "skeleton_a01_summon.dbr",
+      105,
+      "Skeletal Warrior",
+      [
+       "skeleton_d01.dbr",
+       "odv_bounty13.dbr"
+      ]
+     ],
+     [
+      "skeleton_a02_summon.dbr",
+      105,
+      "Skeletal Archer",
+      [
+       "skeleton_d01.dbr",
+       "odv_bounty13.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 6
+   },
+   {
+    "max": 275518,
+    "n": 43,
+    "simul": 1,
+    "first": 720.4,
+    "last": 726.4,
+    "ncand": 16,
+    "legal": [
+     [
+      "dc_bounty08.dbr",
+      107,
+      "Slathra, the Plagued",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_06.dbr",
+      107,
+      "Holvir the Crimson Blade",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 476173,
+    "n": 41,
+    "simul": 2,
+    "first": 716.1,
+    "last": 719.8,
+    "ncand": 7,
+    "legal": [
+     [
+      "wendigo_c01.dbr",
+      106,
+      "Wendigo ~ Ancient",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 417957,
+    "n": 41,
+    "simul": 2,
+    "first": 718.6,
+    "last": 722.5,
+    "ncand": 4,
+    "legal": [
+     [
+      "swampgolem_a01.dbr",
+      104,
+      "Ugdenbog Golem",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 303657,
+    "n": 37,
+    "simul": 1,
+    "first": 715.6,
+    "last": 721.5,
+    "ncand": 2,
+    "legal": [
+     [
+      "wendigo_b01.dbr",
+      105,
+      "Wendigo ~ Flayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "wendigo_b02.dbr",
+      105,
+      "Wendigo ~ Marroweater",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 260786,
+    "n": 33,
+    "simul": 2,
+    "first": 719.5,
+    "last": 721.9,
+    "ncand": 3,
+    "legal": [
+     [
+      "skeleton_c01.dbr",
+      104,
+      "Flame Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c02.dbr",
+      104,
+      "Frost Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c03.dbr",
+      104,
+      "Storm Revenant",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 273975,
+    "n": 25,
+    "simul": 2,
+    "first": 719.5,
+    "last": 723.1,
+    "ncand": 1,
+    "legal": [
+     [
+      "livingplant_a01.dbr",
+      103,
+      "Carnivorous Plant",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 297609,
+    "n": 24,
+    "simul": 1,
+    "first": 715.9,
+    "last": 721.3,
+    "ncand": 12,
+    "legal": [
+     [
+      "wendigo_b01.dbr",
+      104,
+      "Wendigo ~ Flayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "wendigo_b02.dbr",
+      104,
+      "Wendigo ~ Marroweater",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 203039,
+    "n": 24,
+    "simul": 1,
+    "first": 715.9,
+    "last": 719.8,
+    "ncand": 2,
+    "legal": [
+     [
+      "wendigo_a01.dbr",
+      103,
+      "Wendigo",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 638564,
+    "n": 22,
+    "simul": 1,
+    "first": 717.4,
+    "last": 719.7,
+    "ncand": 6,
+    "legal": [
+     [
+      "kc_bounty09.dbr",
+      107,
+      "Vom'Zul",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "ro_bounty12.dbr",
+      107,
+      "Mortallis ~ Charger",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "chthonianfiend_h01.dbr",
+      107,
+      "Innugaru, Terror of the Void",
+      [
+       "6"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 427128,
+    "n": 21,
+    "simul": 1,
+    "first": 718.8,
+    "last": 722.7,
+    "ncand": 3,
+    "legal": [
+     [
+      "swampgolem_a01.dbr",
+      105,
+      "Ugdenbog Golem",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 425285,
+    "n": 20,
+    "simul": 1,
+    "first": 719.8,
+    "last": 723.9,
+    "ncand": 1,
+    "legal": [
+     [
+      "skeleton_d01.dbr",
+      105,
+      "Death Revenant",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 207203,
+    "n": 17,
+    "simul": 1,
+    "first": 716.1,
+    "last": 718.8,
+    "ncand": 2,
+    "legal": [
+     [
+      "wendigo_a01.dbr",
+      104,
+      "Wendigo",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 584695,
+    "n": 14,
+    "simul": 1,
+    "first": 728.2,
+    "last": 729.6,
+    "ncand": 99,
+    "legal": [
+     [
+      "bl_bounty20.dbr",
+      108,
+      "Luthus'Balok",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty04.dbr",
+      108,
+      "Vanoxxis Bile",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty05.dbr",
+      108,
+      "Crognoth, the Blazing Vanguard",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty06.dbr",
+      108,
+      "Habnor the Void-Chosen",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty09.dbr",
+      108,
+      "Vagarroth the Insatiable",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cw_bounty04.dbr",
+      108,
+      "Dar'Vagol the Mageclaw ~ Arcane",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cw_bounty06.dbr",
+      108,
+      "Swillius",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "dc_bounty10.dbr",
+      108,
+      "Igor \"The Brawler\" ~ Corrupted",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "exile_bounty13.dbr",
+      108,
+      "Innu'Garbal",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "hs_bounty09.dbr",
+      108,
+      "Bogloth the Marrowdrinker",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "kc_bounty13.dbr",
+      108,
+      "Chthonian Unraveler",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "kc_bounty19.dbr",
+      108,
+      "Ludia Bloodwhisper",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "pm_bounty05.dbr",
+      108,
+      "Bluggraag Blazebarf",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "pm_bounty06.dbr",
+      108,
+      "Stormtitan ~ Electrified",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "ro_bounty19.dbr",
+      108,
+      "Grum ~ Diseased",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h03.dbr",
+      108,
+      "Zalyth'Uthax ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h04.dbr",
+      108,
+      "Jugak'Siin ~ Reflective",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h05.dbr",
+      108,
+      "Sarmaz'Din ~ Frozen",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h06.dbr",
+      108,
+      "Sutuum'Kazul ~ Thundering",
+      [
+       "6"
+      ]
+     ],
+     [
+      "giant_h01.dbr",
+      108,
+      "Codrommius ~ Voidtouched",
+      [
+       "6"
+      ]
+     ],
+     [
+      "giant_h02.dbr",
+      108,
+      "Edullus ~ Corrupted",
+      [
+       "6"
+      ]
+     ],
+     [
+      "giant_h03.dbr",
+      108,
+      "Hoduur ~ Arctic",
+      [
+       "6"
+      ]
+     ],
+     [
+      "giant_h04.dbr",
+      108,
+      "Dracuum ~ Vampiric",
+      [
+       "6"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 271687,
+    "n": 13,
+    "simul": 2,
+    "first": 719.4,
+    "last": 720.9,
+    "ncand": 5,
+    "legal": [
+     [
+      "skeleton_c01.dbr",
+      106,
+      "Flame Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c02.dbr",
+      106,
+      "Frost Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c03.dbr",
+      106,
+      "Storm Revenant",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 444361,
+    "n": 6,
+    "simul": 1,
+    "first": 718.3,
+    "last": 719.6,
+    "ncand": 232,
+    "legal": [
+     [
+      "bl_bounty08.dbr",
+      107,
+      "Gluttrius'Maw",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "bl_bounty09.dbr",
+      107,
+      "Sicrix, the Skittering ~ Voidtouched",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "bl_bounty10.dbr",
+      107,
+      "Emberjaw",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "bl_bounty18.dbr",
+      107,
+      "Padmanestia",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "bl_bounty19.dbr",
+      107,
+      "Corprus",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty07.dbr",
+      107,
+      "Sllancar the Tainted",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cu_bounty08.dbr",
+      107,
+      "Chillpincer",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cw_bounty05.dbr",
+      107,
+      "Rhidal'Gulvor the Stormblood ~ Electrified",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cw_bounty07.dbr",
+      107,
+      "Polterrios",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "cw_bounty08.dbr",
+      107,
+      "Vladris ~ Vampiric",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "dc_bounty09.dbr",
+      107,
+      "Ballior ~ Burning",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "exile_bounty12.dbr",
+      107,
+      "Nucus'Dal",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "exile_bounty14.dbr",
+      107,
+      "Conastaria ~ Corrupted",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "exile_bounty15.dbr",
+      107,
+      "Ludia Starfire",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "hs_bounty11.dbr",
+      107,
+      "Vizier Haxin",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "hs_bounty12.dbr",
+      107,
+      "Glukrog Lifedrinker",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "kc_bounty07.dbr",
+      107,
+      "Holvuur Bonespeaker ~ Swift",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "kc_bounty08.dbr",
+      107,
+      "Igniaa Venomtongue",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "kc_bounty11.dbr",
+      107,
+      "Abathis, the Withered ~ Frozen",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_05.dbr",
+      107,
+      "Corridius",
+      [
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_07.dbr",
+      107,
+      "Crogg the Maimer",
+      [
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_08.dbr",
+      107,
+      "Icethrasher",
+      [
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_09.dbr",
+      107,
+      "Thundra",
+      [
+       "4"
+      ]
+     ],
+     [
+      "ku_bounty_10.dbr",
+      107,
+      "Juknuuk Bloodfeather",
+      [
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty06.dbr",
+      107,
+      "Halvastra Wrathfire",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty07.dbr",
+      107,
+      "Horvald Shieldbreaker",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty08.dbr",
+      107,
+      "Olga Flamebearer",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty09.dbr",
+      107,
+      "Narroth, the Behemoth ~ Electrified",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty11.dbr",
+      107,
+      "Gravvis, the Decayed",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty12.dbr",
+      107,
+      "Narl'Sarroth",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "odv_bounty13.dbr",
+      107,
+      "Death Revenant",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "pm_bounty07.dbr",
+      107,
+      "Blazragarus",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "pm_bounty08.dbr",
+      107,
+      "Torraxsteria ~ Frozen",
+      [
+       "2",
+       "4"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h02.dbr",
+      107,
+      "Wen'Kazul, the Hungering Blade",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h03.dbr",
+      107,
+      "Sen'Thel Voidbringer",
+      [
+       "6"
+      ]
+     ],
+     [
+      "chthonianfiend_h05.dbr",
+      107,
+      "Gurgoth'Siin ~ Burning",
+      [
+       "6"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 447994,
+    "n": 6,
+    "simul": 1,
+    "first": 719.2,
+    "last": 721.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.18,
+      448801,
+      "dc_bounty17.dbr",
+      107
+     ],
+     [
+      0.239,
+      446925,
+      "dc_bounty07.dbr",
+      108
+     ],
+     [
+      0.239,
+      446925,
+      "dc_bounty11.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": 2
+   },
+   {
+    "max": 266082,
+    "n": 3,
+    "simul": 1,
+    "first": 719.5,
+    "last": 722.3,
+    "ncand": 3,
+    "legal": [
+     [
+      "skeleton_c01.dbr",
+      105,
+      "Flame Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c02.dbr",
+      105,
+      "Frost Revenant",
+      [
+       "3"
+      ]
+     ],
+     [
+      "skeleton_c03.dbr",
+      105,
+      "Storm Revenant",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 211686,
+    "n": 2,
+    "simul": 1,
+    "first": 721.4,
+    "last": 721.5,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "skeleton_b02_knight_summon.dbr",
+      105,
+      "Skeletal Knight",
+      [
+       "skeleton_d01.dbr",
+       "odv_bounty13.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 803657,
+    "n": 1,
+    "simul": 1,
+    "first": 718.8,
+    "last": 718.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.387,
+      800548,
+      "chthonianminion_b01_summon.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 467994,
+    "n": 1,
+    "simul": 1,
+    "first": 719.8,
+    "last": 719.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.353,
+      466342,
+      "wendigo_c01.dbr",
+      105
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 37340,
+    "n": 1,
+    "simul": 1,
+    "first": 721.8,
+    "last": 721.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 37860,
+    "n": 1,
+    "simul": 1,
+    "first": 722.3,
+    "last": 722.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.053,
+      37840,
+      "skeleton_a01_summon.dbr",
+      105
+     ],
+     [
+      0.053,
+      37840,
+      "skeleton_a02_summon.dbr",
+      105
+     ]
+    ],
+    "tracker_upper": null
+   }
+  ],
+  "154": [
+   {
+    "max": 94059,
+    "n": 48,
+    "simul": 3,
+    "first": 731.9,
+    "last": 734.9,
+    "ncand": 1,
+    "legal": [
+     [
+      "wendigocannibal_a01.dbr",
+      103,
+      "Ugdenbog Wretch",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 202027,
+    "n": 42,
+    "simul": 2,
+    "first": 732.4,
+    "last": 738.2,
+    "ncand": 1,
+    "legal": [
+     [
+      "wendigocannibal_b01.dbr",
+      103,
+      "Ugdenbog Turned",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 2058204,
+    "n": 41,
+    "simul": 1,
+    "first": 732.7,
+    "last": 743.3,
+    "ncand": 35,
+    "legal": [
+     [
+      "chthonianrylok_gabalthunn.dbr",
+      108,
+      "Gabal'Thunn, the Visage of Madness",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniantyrant_grulthunn.dbr",
+      108,
+      "Grul'Thunn of the Crimson Tides",
+      [
+       "2"
+      ]
+     ],
+     [
+      "korvaak_lieutenant_01.dbr",
+      108,
+      "Brother Segarius, Vengeance of Kymon",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 92151,
+    "n": 30,
+    "simul": 2,
+    "first": 732.1,
+    "last": 735.0,
+    "ncand": 1,
+    "legal": [
+     [
+      "wendigocannibal_a01.dbr",
+      102,
+      "Ugdenbog Wretch",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 2373673,
+    "n": 22,
+    "simul": 1,
+    "first": 732.8,
+    "last": 736.2,
+    "ncand": 19,
+    "legal": [
+     [
+      "fatherkymon.dbr",
+      108,
+      "Father Kymon, Avatar of Korvaak",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 2924379,
+    "n": 17,
+    "simul": 1,
+    "first": 732.0,
+    "last": 735.7,
+    "ncand": 1,
+    "legal": [
+     [
+      "nemesis_beast_01_p1.dbr",
+      109,
+      "Kubacabra, the Endless Menace",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 205597,
+    "n": 12,
+    "simul": 1,
+    "first": 733.7,
+    "last": 735.6,
+    "ncand": 1,
+    "legal": [
+     [
+      "wendigocannibal_b01.dbr",
+      104,
+      "Ugdenbog Turned",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 94959,
+    "n": 1,
+    "simul": 1,
+    "first": 732.5,
+    "last": 732.5,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 282027,
+    "n": 1,
+    "simul": 1,
+    "first": 735.8,
+    "last": 735.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   }
+  ],
+  "155": [
+   {
+    "max": 1476963,
+    "n": 81,
+    "simul": 2,
+    "first": 745.9,
+    "last": 759.2,
+    "ncand": 4,
+    "legal": [
+     [
+      "aetherialcorruption_intro.dbr",
+      108,
+      "Dralgar, the Keeper of Burrwitch",
+      [
+       "1"
+      ]
+     ],
+     [
+      "humanascendant_mindthief_01.dbr",
+      108,
+      "Allostria, the Mindthief",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 384096,
+    "n": 42,
+    "simul": 1,
+    "first": 746.4,
+    "last": 753.4,
+    "ncand": 2,
+    "legal": [
+     [
+      "eldritchwraith_c01.dbr",
+      105,
+      "Eldritch Spirit ~ Ancient",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 227566,
+    "n": 37,
+    "simul": 1,
+    "first": 747.0,
+    "last": 752.0,
+    "ncand": 2,
+    "legal": [
+     [
+      "eldritchwraith_b01.dbr",
+      105,
+      "Eldritch Spirit ~ Haunt",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 138013,
+    "n": 35,
+    "simul": 2,
+    "first": 746.4,
+    "last": 752.0,
+    "ncand": 3,
+    "legal": [
+     [
+      "eldritchwraith_a01.dbr",
+      103,
+      "Eldritch Spirit",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 429073,
+    "n": 32,
+    "simul": 2,
+    "first": 747.1,
+    "last": 752.2,
+    "ncand": 1,
+    "legal": [
+     [
+      "aetherialcorruption_c01.dbr",
+      103,
+      "Fleshwarped Aberration",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 437859,
+    "n": 28,
+    "simul": 3,
+    "first": 746.9,
+    "last": 749.4,
+    "ncand": 1,
+    "legal": [
+     [
+      "aetherialcorruption_c01.dbr",
+      104,
+      "Fleshwarped Aberration",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 140452,
+    "n": 23,
+    "simul": 2,
+    "first": 746.3,
+    "last": 751.5,
+    "ncand": 3,
+    "legal": [
+     [
+      "eldritchwraith_a01.dbr",
+      104,
+      "Eldritch Spirit",
+      [
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 2061902,
+    "n": 8,
+    "simul": 1,
+    "first": 759.3,
+    "last": 760.0,
+    "ncand": 35,
+    "legal": [
+     [
+      "eldritcharmor_dreegmindreaper_01.dbr",
+      108,
+      "Ishtal, the Mind Reaper",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 334096,
+    "n": 4,
+    "simul": 1,
+    "first": 749.6,
+    "last": 749.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 437359,
+    "n": 1,
+    "simul": 1,
+    "first": 748.3,
+    "last": 748.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.114,
+      437858,
+      "aetherialcorruption_c01.dbr",
+      104
+     ],
+     [
+      0.372,
+      435732,
+      "aetherialbloater_b01_summon.dbr",
+      106
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 429973,
+    "n": 1,
+    "simul": 1,
+    "first": 748.3,
+    "last": 748.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.209,
+      429073,
+      "aetherialcorruption_c01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 4296073,
+    "n": 1,
+    "simul": 1,
+    "first": 752.1,
+    "last": 752.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 2065601,
+    "n": 1,
+    "simul": 1,
+    "first": 760.1,
+    "last": 760.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.179,
+      2061902,
+      "eldritcharmor_dreegmindreaper_01.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": null
+   }
+  ],
+  "156": [
+   {
+    "max": 2022317,
+    "n": 97,
+    "simul": 1,
+    "first": 764.8,
+    "last": 779.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.173,
+      2018819,
+      "basilisk_witchritual.dbr",
+      107
+     ],
+     [
+      0.173,
+      2018819,
+      "direwolf_frozenwastes_01.dbr",
+      107
+     ],
+     [
+      0.173,
+      2018819,
+      "witch_janaxia.dbr",
+      107
+     ]
+    ],
+    "tracker_upper": 2
+   },
+   {
+    "max": 236810,
+    "n": 92,
+    "simul": 2,
+    "first": 770.6,
+    "last": 776.9,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "wraith_b01_summon.dbr",
+      107,
+      "Spiteful Wraith",
+      [
+       "witch_janaxia.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 274977,
+    "n": 86,
+    "simul": 3,
+    "first": 764.0,
+    "last": 770.2,
+    "ncand": 3,
+    "legal": [
+     [
+      "aetherialcorruption_b01.dbr",
+      103,
+      "Fleshwarped Chilled One",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_b02.dbr",
+      103,
+      "Fleshwarped Stormwalker",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_b03.dbr",
+      103,
+      "Fleshwarped Scorcher",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 2065601,
+    "n": 77,
+    "simul": 2,
+    "first": 760.2,
+    "last": 770.1,
+    "ncand": 35,
+    "legal": [
+     [
+      "basilisk_witchritual.dbr",
+      108,
+      "Stone Basilisk",
+      [
+       "2"
+      ]
+     ],
+     [
+      "direwolf_frozenwastes_01.dbr",
+      108,
+      "Siff Icehowl",
+      [
+       "2"
+      ]
+     ],
+     [
+      "witch_janaxia.dbr",
+      108,
+      "Janaxia, the Betrayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "witch_larria.dbr",
+      108,
+      "Larria, the Hexxer",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 1976276,
+    "n": 58,
+    "simul": 1,
+    "first": 764.2,
+    "last": 771.3,
+    "ncand": 35,
+    "legal": [
+     [
+      "basilisk_witchritual.dbr",
+      106,
+      "Stone Basilisk",
+      [
+       "2"
+      ]
+     ],
+     [
+      "direwolf_frozenwastes_01.dbr",
+      106,
+      "Siff Icehowl",
+      [
+       "2"
+      ]
+     ],
+     [
+      "witch_janaxia.dbr",
+      106,
+      "Janaxia, the Betrayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "witch_larria.dbr",
+      106,
+      "Larria, the Hexxer",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 280601,
+    "n": 44,
+    "simul": 3,
+    "first": 764.0,
+    "last": 767.9,
+    "ncand": 6,
+    "legal": [
+     [
+      "aetherialcorruption_b01.dbr",
+      104,
+      "Fleshwarped Chilled One",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_b02.dbr",
+      104,
+      "Fleshwarped Stormwalker",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_b03.dbr",
+      104,
+      "Fleshwarped Scorcher",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 722616,
+    "n": 35,
+    "simul": 1,
+    "first": 762.6,
+    "last": 768.0,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.165,
+      721427,
+      "mindreaper_summon.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": 1
+   },
+   {
+    "max": 426076,
+    "n": 7,
+    "simul": 1,
+    "first": 761.5,
+    "last": 762.7,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.346,
+      427549,
+      "aetherialbloater_b01.dbr",
+      105
+     ],
+     [
+      0.346,
+      427549,
+      "aetherialbloater_b01_summon.dbr",
+      105
+     ]
+    ],
+    "tracker_upper": 2
+   },
+   {
+    "max": 425124,
+    "n": 6,
+    "simul": 1,
+    "first": 761.8,
+    "last": 762.5,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 710131,
+    "n": 6,
+    "simul": 1,
+    "first": 762.4,
+    "last": 763.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.354,
+      707618,
+      "mindreaper_summon.dbr",
+      107
+     ]
+    ],
+    "tracker_upper": 1
+   },
+   {
+    "max": 444150,
+    "n": 6,
+    "simul": 1,
+    "first": 762.6,
+    "last": 764.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.238,
+      445209,
+      "aetherialbloater_b01_summon.dbr",
+      107
+     ]
+    ],
+    "tracker_upper": 2
+   },
+   {
+    "max": 484150,
+    "n": 1,
+    "simul": 1,
+    "first": 764.0,
+    "last": 764.0,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 1976278,
+    "n": 1,
+    "simul": 1,
+    "first": 768.6,
+    "last": 768.6,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.0,
+      1976276,
+      "basilisk_witchritual.dbr",
+      106
+     ],
+     [
+      0.0,
+      1976276,
+      "direwolf_frozenwastes_01.dbr",
+      106
+     ],
+     [
+      0.0,
+      1976276,
+      "witch_janaxia.dbr",
+      106
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 236310,
+    "n": 1,
+    "simul": 1,
+    "first": 770.9,
+    "last": 770.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.212,
+      236810,
+      "wraith_b01_summon.dbr",
+      107
+     ],
+     [
+      0.326,
+      235539,
+      "chthonianservitor_a01_summon.dbr",
+      106
+     ]
+    ],
+    "tracker_upper": null
+   }
+  ],
+  "157": [
+   {
+    "max": 398226,
+    "n": 160,
+    "simul": 2,
+    "first": 784.9,
+    "last": 798.7,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthonianservitor_b01.dbr",
+      104,
+      "Chthonian Servitor",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 457975,
+    "n": 155,
+    "simul": 3,
+    "first": 784.2,
+    "last": 796.9,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialcorruption_h01.dbr",
+      108,
+      "Chillian",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      108,
+      "Naragon the Manhunter",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      108,
+      "Peuglis ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      108,
+      "Tirendal ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h01.dbr",
+      108,
+      "Filnaderzad ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h02.dbr",
+      108,
+      "Noxus ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h03.dbr",
+      108,
+      "Karthallas ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h04.dbr",
+      108,
+      "Porendallos ~ Unstoppable",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h01.dbr",
+      108,
+      "Lagarslin Stormskin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h02.dbr",
+      108,
+      "Venomnius",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h03.dbr",
+      108,
+      "Colplur ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h04.dbr",
+      108,
+      "Volaxius ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h01.dbr",
+      108,
+      "Ishthu'Gal the Dreadblood",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h02.dbr",
+      108,
+      "Lank'Zuul the Torturer",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h03.dbr",
+      108,
+      "Ukog'Dal ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h04.dbr",
+      108,
+      "Unatu'Ukog ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h01.dbr",
+      108,
+      "Urdo ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h02.dbr",
+      108,
+      "Fariim ~ Bramble",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h03.dbr",
+      108,
+      "Gruug ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h04.dbr",
+      108,
+      "Murg ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h01.dbr",
+      108,
+      "Vinmane ~ Bramble",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h02.dbr",
+      108,
+      "Starhorn ~ Celestial",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h03.dbr",
+      108,
+      "Infermane ~ Infernal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h04.dbr",
+      108,
+      "Rimmane ~ Arctic",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h01.dbr",
+      108,
+      "Anorwing ~ Shielded",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h02.dbr",
+      108,
+      "Corrowing ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h03.dbr",
+      108,
+      "Runewing ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h04.dbr",
+      108,
+      "Starwing ~ Celestial",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h01.dbr",
+      108,
+      "Iceclaw",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h02.dbr",
+      108,
+      "Bileclaw",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h03.dbr",
+      108,
+      "Sheldrock ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h04.dbr",
+      108,
+      "Voidshell ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampgolem_h02.dbr",
+      108,
+      "Phanatos ~ Defender",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h02.dbr",
+      108,
+      "Alluc the Thirster ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h03.dbr",
+      108,
+      "Jirro Stormcharger ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h04.dbr",
+      108,
+      "Orbon the Martyr ~ Supporter",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      108,
+      "Soulshreak",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      108,
+      "Oblegon",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      108,
+      "Dolsarr ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      108,
+      "Endearon ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h01.dbr",
+      108,
+      "Blazemaim ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h02.dbr",
+      108,
+      "Runemaim ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h03.dbr",
+      108,
+      "Rotmaim ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h04.dbr",
+      108,
+      "Deathmaim ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h01.dbr",
+      108,
+      "Challdrus the Coldheart",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      108,
+      "Vanallius the Voracious",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      108,
+      "Disallus ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      108,
+      "Chromallus ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h05.dbr",
+      108,
+      "Icallon ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h01.dbr",
+      108,
+      "Phigillius Stormbile",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h02.dbr",
+      108,
+      "Phanolg the Iceborn",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h03.dbr",
+      108,
+      "Wourble ~ Reflective",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h04.dbr",
+      108,
+      "Ghalbar ~ Regenerator",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h05.dbr",
+      108,
+      "Brolbos ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h02.dbr",
+      108,
+      "Alluc the Thirster ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h03.dbr",
+      108,
+      "Jirro Stormcharger ~ Electrified",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h04.dbr",
+      108,
+      "Orbon the Martyr ~ Supporter",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 414837,
+    "n": 67,
+    "simul": 1,
+    "first": 785.2,
+    "last": 796.9,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthonianservitor_b01.dbr",
+      106,
+      "Chthonian Servitor",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 419839,
+    "n": 65,
+    "simul": 1,
+    "first": 782.0,
+    "last": 794.6,
+    "ncand": 4,
+    "legal": [
+     [
+      "aetherialbloater_b01.dbr",
+      104,
+      "Aetherial Bileeater",
+      [
+       "4"
+      ]
+     ],
+     [
+      "yetidire_b01.dbr",
+      104,
+      "Diremane Rager",
+      [
+       "4"
+      ]
+     ],
+     [
+      "yetidire_b02.dbr",
+      104,
+      "Diremane Icebreaker",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [
+     [
+      "aetherialbloater_b01_summon.dbr",
+      104,
+      "Aetherial Bileeater",
+      [
+       "aetherialfleshshaper_h04.dbr",
+       "aetherialfleshshaper_h01.dbr",
+       "aetherialfleshshaper_h03.dbr",
+       "aetherialfleshshaper_h02.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 304994,
+    "n": 52,
+    "simul": 2,
+    "first": 786.0,
+    "last": 793.7,
+    "ncand": 4,
+    "legal": [],
+    "summon": [
+     [
+      "aetherialworm_b01_summon.dbr",
+      108,
+      "Aetherial Rotbellower",
+      [
+       "aetherialbloater_malmouthdocks_01.dbr"
+      ]
+     ],
+     [
+      "aetherialworm_b02_summon.dbr",
+      108,
+      "Aetherial Blazedrinker",
+      [
+       "aetherialbloater_malmouthdocks_01.dbr"
+      ]
+     ],
+     [
+      "aetherialworm_b03_summon.dbr",
+      108,
+      "Aetherial Iceburrower",
+      [
+       "aetherialbloater_malmouthdocks_01.dbr"
+      ]
+     ],
+     [
+      "aetherialworm_b04_summon.dbr",
+      108,
+      "Aetherial Stormdrinker",
+      [
+       "aetherialbloater_malmouthdocks_01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 6
+   },
+   {
+    "max": 411440,
+    "n": 39,
+    "simul": 1,
+    "first": 781.6,
+    "last": 790.6,
+    "ncand": 2,
+    "legal": [
+     [
+      "yetidire_b01.dbr",
+      103,
+      "Diremane Rager",
+      [
+       "4"
+      ]
+     ],
+     [
+      "yetidire_b02.dbr",
+      103,
+      "Diremane Icebreaker",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 447590,
+    "n": 30,
+    "simul": 2,
+    "first": 785.0,
+    "last": 791.5,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialcorruption_h01.dbr",
+      107,
+      "Chillian",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      107,
+      "Naragon the Manhunter",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      107,
+      "Peuglis ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      107,
+      "Tirendal ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h01.dbr",
+      107,
+      "Filnaderzad ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h02.dbr",
+      107,
+      "Noxus ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h03.dbr",
+      107,
+      "Karthallas ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h04.dbr",
+      107,
+      "Porendallos ~ Unstoppable",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h01.dbr",
+      107,
+      "Lagarslin Stormskin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h02.dbr",
+      107,
+      "Venomnius",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h03.dbr",
+      107,
+      "Colplur ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "basilisk_h04.dbr",
+      107,
+      "Volaxius ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h01.dbr",
+      107,
+      "Ishthu'Gal the Dreadblood",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h02.dbr",
+      107,
+      "Lank'Zuul the Torturer",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h03.dbr",
+      107,
+      "Ukog'Dal ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianservitor_h04.dbr",
+      107,
+      "Unatu'Ukog ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h01.dbr",
+      107,
+      "Urdo ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h02.dbr",
+      107,
+      "Fariim ~ Bramble",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h03.dbr",
+      107,
+      "Gruug ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "dranghoul_h04.dbr",
+      107,
+      "Murg ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h01.dbr",
+      107,
+      "Vinmane ~ Bramble",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h02.dbr",
+      107,
+      "Starhorn ~ Celestial",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h03.dbr",
+      107,
+      "Infermane ~ Infernal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rhino_h04.dbr",
+      107,
+      "Rimmane ~ Arctic",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h01.dbr",
+      107,
+      "Anorwing ~ Shielded",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h02.dbr",
+      107,
+      "Corrowing ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h03.dbr",
+      107,
+      "Runewing ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "rok_h04.dbr",
+      107,
+      "Starwing ~ Celestial",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h01.dbr",
+      107,
+      "Iceclaw",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h02.dbr",
+      107,
+      "Bileclaw",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h03.dbr",
+      107,
+      "Sheldrock ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampcrab_h04.dbr",
+      107,
+      "Voidshell ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampgolem_h02.dbr",
+      107,
+      "Phanatos ~ Defender",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h02.dbr",
+      107,
+      "Alluc the Thirster ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h03.dbr",
+      107,
+      "Jirro Stormcharger ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wight_h04.dbr",
+      107,
+      "Orbon the Martyr ~ Supporter",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      107,
+      "Soulshreak",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      107,
+      "Oblegon",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      107,
+      "Dolsarr ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      107,
+      "Endearon ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h01.dbr",
+      107,
+      "Blazemaim ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h02.dbr",
+      107,
+      "Runemaim ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h03.dbr",
+      107,
+      "Rotmaim ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "yetidire_h04.dbr",
+      107,
+      "Deathmaim ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcorruption_h01.dbr",
+      107,
+      "Challdrus the Coldheart",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h02.dbr",
+      107,
+      "Vanallius the Voracious",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h03.dbr",
+      107,
+      "Disallus ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h04.dbr",
+      107,
+      "Chromallus ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialcorruption_h05.dbr",
+      107,
+      "Icallon ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h01.dbr",
+      107,
+      "Phigillius Stormbile",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h02.dbr",
+      107,
+      "Phanolg the Iceborn",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h03.dbr",
+      107,
+      "Wourble ~ Reflective",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h04.dbr",
+      107,
+      "Ghalbar ~ Regenerator",
+      [
+       "5"
+      ]
+     ],
+     [
+      "aetherialimp_h05.dbr",
+      107,
+      "Brolbos ~ Arctic",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h02.dbr",
+      107,
+      "Alluc the Thirster ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h03.dbr",
+      107,
+      "Jirro Stormcharger ~ Electrified",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wight_h04.dbr",
+      107,
+      "Orbon the Martyr ~ Supporter",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 588905,
+    "n": 29,
+    "simul": 1,
+    "first": 785.4,
+    "last": 793.6,
+    "ncand": 99,
+    "legal": [
+     [
+      "aetherialbloater_h01.dbr",
+      108,
+      "Barrthnas the Plagueborn",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialbloater_h02.dbr",
+      108,
+      "Ignos",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialbloater_h03.dbr",
+      108,
+      "Frozdar ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialbloater_h04.dbr",
+      108,
+      "Draklon ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcolossus_h01.dbr",
+      108,
+      "Thunderfist ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcolossus_h02.dbr",
+      108,
+      "Infernox ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcolossus_h03.dbr",
+      108,
+      "Oblaigon ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcolossus_h04.dbr",
+      108,
+      "Speldrakus ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianherald_h01.dbr",
+      108,
+      "Ghol'Zoth ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianherald_h02.dbr",
+      108,
+      "Arum'Zoth ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianherald_h03.dbr",
+      108,
+      "Rugoth'Zoth ~ Shielded",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianherald_h04.dbr",
+      108,
+      "Barl'Zoth ~ Thundering",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianrylok_h01.dbr",
+      108,
+      "Balg'Gawtok the Voidbringer",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianrylok_h02.dbr",
+      108,
+      "Garu'Doth ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianrylok_h03.dbr",
+      108,
+      "Zuuth'Aglathon ~ Vampiric",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianrylok_h04.dbr",
+      108,
+      "Nurdul'Siin ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampgolem_h01.dbr",
+      108,
+      "Swiftrock ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampgolem_h03.dbr",
+      108,
+      "Gigartus ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "swampgolem_h04.dbr",
+      108,
+      "Rawk ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h01.dbr",
+      108,
+      "Hegamon ~ Arcane",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h02.dbr",
+      108,
+      "Colporrus ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h03.dbr",
+      108,
+      "Spiritbane ~ Timewarped",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_h04.dbr",
+      108,
+      "Reapressad ~ Unstoppable",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialcolossus_h01.dbr",
+      108,
+      "Stormfist ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcolossus_h02.dbr",
+      108,
+      "Embrallis ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcolossus_h03.dbr",
+      108,
+      "Hungeron ~ Vampiric",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcolossus_h04.dbr",
+      108,
+      "Archanis ~ Arcane",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialcolossus_h05.dbr",
+      108,
+      "Neverus ~ Celestial",
+      [
+       "6"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 238068,
+    "n": 20,
+    "simul": 2,
+    "first": 782.2,
+    "last": 784.6,
+    "ncand": 1,
+    "legal": [
+     [
+      "yetidire_a01.dbr",
+      103,
+      "Diremane Brute",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 226525,
+    "n": 20,
+    "simul": 1,
+    "first": 786.9,
+    "last": 790.8,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthonianservitor_a01.dbr",
+      104,
+      "Chthonian Drone",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 233250,
+    "n": 18,
+    "simul": 2,
+    "first": 781.5,
+    "last": 783.5,
+    "ncand": 1,
+    "legal": [
+     [
+      "yetidire_a01.dbr",
+      102,
+      "Diremane Brute",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 504193,
+    "n": 16,
+    "simul": 1,
+    "first": 781.7,
+    "last": 786.8,
+    "ncand": 2,
+    "legal": [
+     [
+      "aetherialbloater_c01.dbr",
+      104,
+      "Aetherial Regurgitator",
+      [
+       "4"
+      ]
+     ],
+     [
+      "yetidire_c01.dbr",
+      104,
+      "Diremane Alpha",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 406243,
+    "n": 13,
+    "simul": 1,
+    "first": 785.9,
+    "last": 788.4,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthonianservitor_b02.dbr",
+      105,
+      "Chthonian Harvester",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 547007,
+    "n": 11,
+    "simul": 1,
+    "first": 787.5,
+    "last": 791.2,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthonianservitor_c01.dbr",
+      106,
+      "Chthonian Bloodkeeper",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 2069299,
+    "n": 6,
+    "simul": 1,
+    "first": 785.3,
+    "last": 786.3,
+    "ncand": 35,
+    "legal": [
+     [
+      "aetherialbloater_malmouthdocks_01.dbr",
+      108,
+      "Blugrug the Living Plague",
+      [
+       "1"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 657975,
+    "n": 3,
+    "simul": 1,
+    "first": 789.6,
+    "last": 793.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 393226,
+    "n": 2,
+    "simul": 1,
+    "first": 787.1,
+    "last": 787.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.098,
+      393612,
+      "wraith_c01_summon.dbr",
+      106
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 238668,
+    "n": 1,
+    "simul": 1,
+    "first": 782.1,
+    "last": 782.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.133,
+      238986,
+      "chthonianleech_a01.dbr",
+      103
+     ],
+     [
+      0.251,
+      238068,
+      "yetidire_a01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 233068,
+    "n": 1,
+    "simul": 1,
+    "first": 783.0,
+    "last": 783.0,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.078,
+      233250,
+      "yetidire_a01.dbr",
+      102
+     ],
+     [
+      0.205,
+      232590,
+      "wraith_b01_summon.dbr",
+      106
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 544193,
+    "n": 1,
+    "simul": 1,
+    "first": 786.1,
+    "last": 786.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 957975,
+    "n": 1,
+    "simul": 1,
+    "first": 787.2,
+    "last": 787.2,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   }
+  ],
+  "158": [
+   {
+    "max": 42446,
+    "n": 81,
+    "simul": 4,
+    "first": 803.1,
+    "last": 809.1,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "swampcrab_a00_summon.dbr",
+      106,
+      "Ugdenbog Crabling",
+      [
+       "swampcrab_c01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 7
+   },
+   {
+    "max": 448397,
+    "n": 42,
+    "simul": 3,
+    "first": 805.2,
+    "last": 808.6,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialphantom_h01.dbr",
+      107,
+      "Athraz, the Watcher",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialphantom_h02.dbr",
+      107,
+      "Naladrak, Essence of the Flame",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialphantom_h03.dbr",
+      107,
+      "Idalazius, the Corruptor",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h01.dbr",
+      107,
+      "Gal'Barok",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h02.dbr",
+      107,
+      "Har'Nadiin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h03.dbr",
+      107,
+      "Ellon'Siin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h04.dbr",
+      107,
+      "Udal'Nadal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h05.dbr",
+      107,
+      "Balok'Grot",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h06.dbr",
+      107,
+      "Orudin'Ak",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h02.dbr",
+      107,
+      "Wallan'Siin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianfiend_h03.dbr",
+      107,
+      "Walloth'Dar",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianfiend_h05.dbr",
+      107,
+      "Sen'Udal ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianminion_h01.dbr",
+      107,
+      "Carath'Lud",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianminion_h07.dbr",
+      107,
+      "Shogal'Gargoth ~ Shielded",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h01.dbr",
+      107,
+      "Odellia Lanos",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h02.dbr",
+      107,
+      "Marden Thal ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h04.dbr",
+      107,
+      "Stormbane ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h05.dbr",
+      107,
+      "Baullos Gar ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h06.dbr",
+      107,
+      "Senal Thandris ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h07.dbr",
+      107,
+      "Develos Ondal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h08.dbr",
+      107,
+      "Barrosa Namos",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h09.dbr",
+      107,
+      "Aneria Thandris",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h01.dbr",
+      107,
+      "Direcrix",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h02.dbr",
+      107,
+      "Malocrix ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h03.dbr",
+      107,
+      "Idricrix ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h01.dbr",
+      107,
+      "Elledar Bloodthirster",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h04.dbr",
+      107,
+      "Everon ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h05.dbr",
+      107,
+      "Vengar the Vengeful ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h06.dbr",
+      107,
+      "Rimelord ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h09.dbr",
+      107,
+      "Elagorian Darkmarrow",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h01.dbr",
+      107,
+      "Rexna",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h05.dbr",
+      107,
+      "Wrallan ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h06.dbr",
+      107,
+      "Calladra ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "spider_cave_h01.dbr",
+      107,
+      "Shalloth",
+      [
+       "2"
+      ]
+     ],
+     [
+      "spider_cave_h03.dbr",
+      107,
+      "Waviix ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombie_h02.dbr",
+      107,
+      "Follistad",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombie_h04.dbr",
+      107,
+      "Palleod ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombiemutated_h03.dbr",
+      107,
+      "Vampireon",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombiemutated_h04.dbr",
+      107,
+      "Swiftrot ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h01.dbr",
+      107,
+      "Frenazad ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h02.dbr",
+      107,
+      "Noxraderad ~ Frozen",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h03.dbr",
+      107,
+      "Joxallus ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h04.dbr",
+      107,
+      "Oppressius ~ Unstoppable",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h05.dbr",
+      107,
+      "Omegus ~ Celestial",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h01.dbr",
+      107,
+      "Lurg ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h02.dbr",
+      107,
+      "Jaduum ~ Bramble",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h03.dbr",
+      107,
+      "Strum ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h04.dbr",
+      107,
+      "Chrog ~ Timewarped",
+      [
+       "6"
+      ]
+     ],
+     [
+      "hypporaven_h01.dbr",
+      107,
+      "Covull ~ Swift",
+      [
+       "5"
+      ]
+     ],
+     [
+      "hypporaven_h02.dbr",
+      107,
+      "Corrot ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "hypporaven_h03.dbr",
+      107,
+      "Corvunox ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      107,
+      "Arcanom the Soulthief",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      107,
+      "Obliterus",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      107,
+      "Tildoom ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      107,
+      "Sulvar the Endless Hungerer ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h05.dbr",
+      107,
+      "Tulldar Endbringer ~ Celestial",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 480530,
+    "n": 34,
+    "simul": 2,
+    "first": 805.7,
+    "last": 810.1,
+    "ncand": 7,
+    "legal": [
+     [
+      "sandlizard_c01.dbr",
+      106,
+      "Sandclaw ~ Matriarch",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_c01.dbr",
+      106,
+      "Riftclaw ~ Matriarch",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_c01.dbr",
+      106,
+      "Moltenclaw ~ Matriarch",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 98986,
+    "n": 23,
+    "simul": 3,
+    "first": 800.0,
+    "last": 803.5,
+    "ncand": 3,
+    "legal": [
+     [
+      "chthoniandevourer_b01.dbr",
+      104,
+      "Chthonian Devourer",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ],
+     [
+      "chthoniandevourer_b02.dbr",
+      104,
+      "Chthonian Gorger",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 171897,
+    "n": 23,
+    "simul": 3,
+    "first": 802.2,
+    "last": 804.2,
+    "ncand": 2,
+    "legal": [
+     [
+      "swampcrab_b01.dbr",
+      103,
+      "Ugdenbog Spikeshell",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 39311,
+    "n": 22,
+    "simul": 2,
+    "first": 801.1,
+    "last": 803.3,
+    "ncand": 1,
+    "legal": [
+     [
+      "chthoniandevourer_a01.dbr",
+      102,
+      "Chthonian Hungerer",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 96385,
+    "n": 22,
+    "simul": 2,
+    "first": 802.2,
+    "last": 804.0,
+    "ncand": 2,
+    "legal": [
+     [
+      "swampcrab_a01.dbr",
+      104,
+      "Ugdenbog Crab",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 294361,
+    "n": 18,
+    "simul": 1,
+    "first": 809.1,
+    "last": 810.9,
+    "ncand": 10,
+    "legal": [
+     [
+      "sandlizard_b01.dbr",
+      103,
+      "Sandclaw ~ Flayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_b02.dbr",
+      103,
+      "Sandclaw ~ Nest Guardian",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_b01.dbr",
+      103,
+      "Riftclaw ~ Flayer",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_b02.dbr",
+      103,
+      "Riftclaw ~ Nest Guardian",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_b01.dbr",
+      103,
+      "Moltenclaw ~ Flayer",
+      [
+       "3"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_b02.dbr",
+      103,
+      "Moltenclaw ~ Nest Guardian",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 199111,
+    "n": 17,
+    "simul": 2,
+    "first": 805.8,
+    "last": 807.1,
+    "ncand": 4,
+    "legal": [
+     [
+      "sandlizard_a01.dbr",
+      102,
+      "Sandclaw",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_a01.dbr",
+      102,
+      "Riftclaw",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_a01.dbr",
+      102,
+      "Moltenclaw",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 589958,
+    "n": 16,
+    "simul": 1,
+    "first": 809.5,
+    "last": 811.4,
+    "ncand": 99,
+    "legal": [
+     [
+      "chthoniandreadguard_h03.dbr",
+      108,
+      "Zagal'Udal ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h04.dbr",
+      108,
+      "Rigak'Doth ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h05.dbr",
+      108,
+      "Palloth'Dar ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianmonstrosity_h01.dbr",
+      108,
+      "Chthonian Unraveler",
+      [
+       "2"
+      ]
+     ],
+     [
+      "fleshhulk_h01.dbr",
+      108,
+      "Brognathar",
+      [
+       "2"
+      ]
+     ],
+     [
+      "fleshhulk_h02.dbr",
+      108,
+      "Aethollin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "fleshhulk_h03.dbr",
+      108,
+      "Kollus ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "fleshhulk_h04.dbr",
+      108,
+      "Feseron ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeletalgolem_h01.dbr",
+      108,
+      "Grubwrath ~ Diseased",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeletalgolem_h02.dbr",
+      108,
+      "Icesharn ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeletalgolem_h03.dbr",
+      108,
+      "Flamegore ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeletalgolem_h04.dbr",
+      108,
+      "Aethergore ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeletalgolem_h05.dbr",
+      108,
+      "Voidreach ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h07.dbr",
+      108,
+      "Tenethon",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h08.dbr",
+      108,
+      "Alladon the Flamewatcher",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h10.dbr",
+      108,
+      "Ollegon the Icewatcher",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 94715,
+    "n": 15,
+    "simul": 2,
+    "first": 802.9,
+    "last": 804.1,
+    "ncand": 2,
+    "legal": [
+     [
+      "swampcrab_a01.dbr",
+      103,
+      "Ugdenbog Crab",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 293482,
+    "n": 14,
+    "simul": 1,
+    "first": 802.7,
+    "last": 804.3,
+    "ncand": 3,
+    "legal": [
+     [
+      "swampcrab_c01.dbr",
+      106,
+      "Ugdenbog Stoneshell",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 203230,
+    "n": 14,
+    "simul": 1,
+    "first": 805.7,
+    "last": 807.2,
+    "ncand": 4,
+    "legal": [
+     [
+      "sandlizard_a01.dbr",
+      103,
+      "Sandclaw",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_a01.dbr",
+      103,
+      "Riftclaw",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_a01.dbr",
+      103,
+      "Moltenclaw",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 100948,
+    "n": 10,
+    "simul": 1,
+    "first": 800.3,
+    "last": 801.7,
+    "ncand": 3,
+    "legal": [
+     [
+      "chthoniandevourer_b01.dbr",
+      105,
+      "Chthonian Devourer",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ],
+     [
+      "chthoniandevourer_b02.dbr",
+      105,
+      "Chthonian Gorger",
+      [
+       "1",
+       "3",
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 300375,
+    "n": 8,
+    "simul": 1,
+    "first": 804.3,
+    "last": 805.0,
+    "ncand": 12,
+    "legal": [
+     [
+      "sandlizard_b01.dbr",
+      104,
+      "Sandclaw ~ Flayer",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_b02.dbr",
+      104,
+      "Sandclaw ~ Nest Guardian",
+      [
+       "1"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_b01.dbr",
+      104,
+      "Riftclaw ~ Flayer",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_eldritch_b02.dbr",
+      104,
+      "Riftclaw ~ Nest Guardian",
+      [
+       "4"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_b01.dbr",
+      104,
+      "Moltenclaw ~ Flayer",
+      [
+       "3"
+      ]
+     ],
+     [
+      "sandlizard_volcanic_b02.dbr",
+      104,
+      "Moltenclaw ~ Nest Guardian",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 39811,
+    "n": 3,
+    "simul": 1,
+    "first": 799.8,
+    "last": 800.0,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 171397,
+    "n": 2,
+    "simul": 1,
+    "first": 802.8,
+    "last": 802.9,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.292,
+      171897,
+      "swampcrab_b01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 458794,
+    "n": 2,
+    "simul": 1,
+    "first": 805.5,
+    "last": 805.7,
+    "ncand": 232,
+    "legal": [
+     [
+      "aetherialphantom_h01.dbr",
+      108,
+      "Athraz, the Watcher",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialphantom_h02.dbr",
+      108,
+      "Naladrak, Essence of the Flame",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialphantom_h03.dbr",
+      108,
+      "Idalazius, the Corruptor",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h01.dbr",
+      108,
+      "Gal'Barok",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h02.dbr",
+      108,
+      "Har'Nadiin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h03.dbr",
+      108,
+      "Ellon'Siin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h04.dbr",
+      108,
+      "Udal'Nadal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h05.dbr",
+      108,
+      "Balok'Grot",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandevourer_h06.dbr",
+      108,
+      "Orudin'Ak",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthoniandreadguard_h02.dbr",
+      108,
+      "Wallan'Siin",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianfiend_h03.dbr",
+      108,
+      "Walloth'Dar",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianfiend_h05.dbr",
+      108,
+      "Sen'Udal ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianminion_h01.dbr",
+      108,
+      "Carath'Lud",
+      [
+       "2"
+      ]
+     ],
+     [
+      "chthonianminion_h07.dbr",
+      108,
+      "Shogal'Gargoth ~ Shielded",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h01.dbr",
+      108,
+      "Odellia Lanos",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h02.dbr",
+      108,
+      "Marden Thal ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h04.dbr",
+      108,
+      "Stormbane ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h05.dbr",
+      108,
+      "Baullos Gar ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h06.dbr",
+      108,
+      "Senal Thandris ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h07.dbr",
+      108,
+      "Develos Ondal",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h08.dbr",
+      108,
+      "Barrosa Namos",
+      [
+       "2"
+      ]
+     ],
+     [
+      "ghost_h09.dbr",
+      108,
+      "Aneria Thandris",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h01.dbr",
+      108,
+      "Direcrix",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h02.dbr",
+      108,
+      "Malocrix ~ Voidtouched",
+      [
+       "2"
+      ]
+     ],
+     [
+      "prawncave_h03.dbr",
+      108,
+      "Idricrix ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h01.dbr",
+      108,
+      "Elledar Bloodthirster",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h04.dbr",
+      108,
+      "Everon ~ Burning",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h05.dbr",
+      108,
+      "Vengar the Vengeful ~ Reflective",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h06.dbr",
+      108,
+      "Rimelord ~ Frozen",
+      [
+       "2"
+      ]
+     ],
+     [
+      "skeleton_h09.dbr",
+      108,
+      "Elagorian Darkmarrow",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h01.dbr",
+      108,
+      "Rexna",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h05.dbr",
+      108,
+      "Wrallan ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "slith_h06.dbr",
+      108,
+      "Calladra ~ Corrupted",
+      [
+       "2"
+      ]
+     ],
+     [
+      "spider_cave_h01.dbr",
+      108,
+      "Shalloth",
+      [
+       "2"
+      ]
+     ],
+     [
+      "spider_cave_h03.dbr",
+      108,
+      "Waviix ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombie_h02.dbr",
+      108,
+      "Follistad",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombie_h04.dbr",
+      108,
+      "Palleod ~ Electrified",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombiemutated_h03.dbr",
+      108,
+      "Vampireon",
+      [
+       "2"
+      ]
+     ],
+     [
+      "zombiemutated_h04.dbr",
+      108,
+      "Swiftrot ~ Swift",
+      [
+       "2"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h01.dbr",
+      108,
+      "Frenazad ~ Burning",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h02.dbr",
+      108,
+      "Noxraderad ~ Frozen",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h03.dbr",
+      108,
+      "Joxallus ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h04.dbr",
+      108,
+      "Oppressius ~ Unstoppable",
+      [
+       "6"
+      ]
+     ],
+     [
+      "aetherialfleshshaper_h05.dbr",
+      108,
+      "Omegus ~ Celestial",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h01.dbr",
+      108,
+      "Lurg ~ Swift",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h02.dbr",
+      108,
+      "Jaduum ~ Bramble",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h03.dbr",
+      108,
+      "Strum ~ Electrified",
+      [
+       "6"
+      ]
+     ],
+     [
+      "dranghoul_h04.dbr",
+      108,
+      "Chrog ~ Timewarped",
+      [
+       "6"
+      ]
+     ],
+     [
+      "hypporaven_h01.dbr",
+      108,
+      "Covull ~ Swift",
+      [
+       "5"
+      ]
+     ],
+     [
+      "hypporaven_h02.dbr",
+      108,
+      "Corrot ~ Diseased",
+      [
+       "5"
+      ]
+     ],
+     [
+      "hypporaven_h03.dbr",
+      108,
+      "Corvunox ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h01.dbr",
+      108,
+      "Arcanom the Soulthief",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h02.dbr",
+      108,
+      "Obliterus",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h03.dbr",
+      108,
+      "Tildoom ~ Timewarped",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h04.dbr",
+      108,
+      "Sulvar the Endless Hungerer ~ Vampiric",
+      [
+       "5"
+      ]
+     ],
+     [
+      "wraith_h05.dbr",
+      108,
+      "Tulldar Endbringer ~ Celestial",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 96335,
+    "n": 1,
+    "simul": 1,
+    "first": 803.1,
+    "last": 803.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.052,
+      96385,
+      "swampcrab_a01.dbr",
+      104
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 203239,
+    "n": 1,
+    "simul": 1,
+    "first": 805.6,
+    "last": 805.6,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.004,
+      203230,
+      "sandlizard_a01.dbr",
+      103
+     ],
+     [
+      0.004,
+      203230,
+      "sandlizard_eldritch_a01.dbr",
+      103
+     ],
+     [
+      0.004,
+      203230,
+      "sandlizard_volcanic_a01.dbr",
+      103
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 305539,
+    "n": 1,
+    "simul": 1,
+    "first": 809.4,
+    "last": 809.4,
+    "ncand": 4,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   }
+  ],
+  "159": [
+   {
+    "max": 2029761,
+    "n": 72,
+    "simul": 1,
+    "first": 814.6,
+    "last": 829.5,
+    "ncand": 35,
+    "legal": [
+     [
+      "beetle_maggot01.dbr",
+      107,
+      "Margul the Rotting",
+      [
+       "4"
+      ]
+     ],
+     [
+      "chthonianservitor_lunalvalgoth.dbr",
+      107,
+      "Lunal'Valgoth, Steward of Darkness",
+      [
+       "1"
+      ]
+     ],
+     [
+      "rokwind_01.dbr",
+      107,
+      "Avinnia of the Western Winds",
+      [
+       "2"
+      ]
+     ],
+     [
+      "stonegryphon_templeguardian_01.dbr",
+      107,
+      "Inashkor, Temple Guardian",
+      [
+       "2"
+      ]
+     ],
+     [
+      "wendigo_ancient_namadea.dbr",
+      107,
+      "Namadea, the Screecher",
+      [
+       "4"
+      ]
+     ],
+     [
+      "yeti_rimehorn_01.dbr",
+      107,
+      "Rimehorn",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 102327,
+    "n": 66,
+    "simul": 2,
+    "first": 814.9,
+    "last": 824.8,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "beetle_maggot01_maggotsummon.dbr",
+      107,
+      "Korvan Maggot",
+      [
+       "beetle_maggot01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 6
+   },
+   {
+    "max": 2025309,
+    "n": 47,
+    "simul": 1,
+    "first": 814.8,
+    "last": 837.7,
+    "ncand": 1,
+    "legal": [
+     [
+      "witchgod_finalboss.dbr",
+      107,
+      "The Sentinel",
+      [
+       "3"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 241531,
+    "n": 45,
+    "simul": 2,
+    "first": 825.8,
+    "last": 829.1,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "chthonianservitor_a01_summon.dbr",
+      107,
+      "Chthonian Drone",
+      [
+       "chthonianservitor_lunalvalgoth.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 1599856,
+    "n": 41,
+    "simul": 1,
+    "first": 820.1,
+    "last": 832.1,
+    "ncand": 1,
+    "legal": [
+     [
+      "aetherial_fleshhulk_mine.dbr",
+      106,
+      "Venarius, the Backbreaker",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 403232,
+    "n": 38,
+    "simul": 1,
+    "first": 818.8,
+    "last": 829.5,
+    "ncand": 1,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 2340860,
+    "n": 15,
+    "simul": 1,
+    "first": 816.5,
+    "last": 835.0,
+    "ncand": 19,
+    "legal": [
+     [
+      "chthonianrylok_ekketzul.dbr",
+      107,
+      "Ekket'Zul, Progenitor of Darkness",
+      [
+       "5"
+      ]
+     ],
+     [
+      "korvaakmessenger_02.dbr",
+      107,
+      "Okaloth ~ \"The Messenger\"",
+      [
+       "5"
+      ]
+     ],
+     [
+      "korvaakmessenger_02b.dbr",
+      107,
+      "Okaloth ~ \"The Messenger\"",
+      [
+       "5"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 102027,
+    "n": 1,
+    "simul": 1,
+    "first": 822.6,
+    "last": 822.6,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.294,
+      102327,
+      "beetle_maggot01_maggotsummon.dbr",
+      107
+     ]
+    ],
+    "tracker_upper": null
+   },
+   {
+    "max": 2929761,
+    "n": 1,
+    "simul": 1,
+    "first": 824.8,
+    "last": 824.8,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 241581,
+    "n": 1,
+    "simul": 1,
+    "first": 828.3,
+    "last": 828.3,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [
+     [
+      0.021,
+      241531,
+      "chthonianservitor_a01_summon.dbr",
+      107
+     ],
+     [
+      0.334,
+      242389,
+      "wraith_b01_summon.dbr",
+      108
+     ]
+    ],
+    "tracker_upper": null
+   }
+  ],
+  "160": [
+   {
+    "max": 103912,
+    "n": 151,
+    "simul": 2,
+    "first": 843.8,
+    "last": 864.6,
+    "ncand": 3,
+    "legal": [],
+    "summon": [
+     [
+      "nemesis_chthonian_02_clustersummon.dbr",
+      109,
+      "Obsidian Cluster",
+      [
+       "nemesis_chthonian_02.dbr"
+      ]
+     ],
+     [
+      "nemesis_undead_02b_icecrystalsummon.dbr",
+      109,
+      "Ice Crystal",
+      [
+       "nemesis_undead_02b.dbr"
+      ]
+     ],
+     [
+      "aetherialvanguard_crystal.dbr",
+      109,
+      "Aleksander's Shard",
+      [
+       "nemesis_aetherialvanguard_01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 5
+   },
+   {
+    "max": 3722896,
+    "n": 149,
+    "simul": 2,
+    "first": 841.9,
+    "last": 864.7,
+    "ncand": 17,
+    "legal": [
+     [
+      "nemesis_aetherial_01.dbr",
+      109,
+      "Valdaran, the Storm Scourge",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_aetherialvanguard_01.dbr",
+      109,
+      "Archmage Aleksander",
+      [
+       "3"
+      ]
+     ],
+     [
+      "nemesis_beast_02.dbr",
+      109,
+      "The Underking",
+      [
+       "2"
+      ]
+     ],
+     [
+      "nemesis_chthonian_02.dbr",
+      109,
+      "Benn'Jahr, the Colossal",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_chthonianvoidborn_01.dbr",
+      109,
+      "Grava'Thul, the Voiddrinker",
+      [
+       "2"
+      ]
+     ],
+     [
+      "nemesis_kymon_01.dbr",
+      109,
+      "Curate Ignus",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_kymon_02.dbr",
+      109,
+      "The Iron Maiden",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_orderdeathsvigil_01.dbr",
+      109,
+      "Zantarin, the Immortal",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_orderdeathsvigil_02.dbr",
+      109,
+      "Shriek",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_outlaw_01.dbr",
+      109,
+      "Fabius \"the Unseen\" Gonzar",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_outlaw_02.dbr",
+      109,
+      "Vinn \"the Giant\" Ozmald",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_undead_01.dbr",
+      109,
+      "Raddoth, Lord Hierophant",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_undead_02b.dbr",
+      109,
+      "Moosilauke, the Chillwind",
+      [
+       "1"
+      ]
+     ],
+     [
+      "nemesis_wendigo_01.dbr",
+      109,
+      "Reaper of the Lost",
+      [
+       "2",
+       "3"
+      ]
+     ],
+     [
+      "nemesis_wendigo_02.dbr",
+      109,
+      "Reaper of Rot",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 7
+   },
+   {
+    "max": 2955796,
+    "n": 64,
+    "simul": 1,
+    "first": 840.7,
+    "last": 852.4,
+    "ncand": 1,
+    "legal": [
+     [
+      "nemesis_beast_01_p1.dbr",
+      109,
+      "Kubacabra, the Endless Menace",
+      [
+       "2"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 4
+   },
+   {
+    "max": 41237,
+    "n": 40,
+    "simul": 3,
+    "first": 862.0,
+    "last": 864.7,
+    "ncand": 2,
+    "legal": [],
+    "summon": [
+     [
+      "skeleton_a02_summon.dbr",
+      109,
+      "Skeletal Archer",
+      [
+       "nemesis_orderdeathsvigil_01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 3
+   },
+   {
+    "max": 468504,
+    "n": 19,
+    "simul": 1,
+    "first": 862.9,
+    "last": 864.7,
+    "ncand": 1,
+    "legal": [],
+    "summon": [
+     [
+      "nemesis_orderdeathsvigil_01_revenantsummon.dbr",
+      109,
+      "Death Revenant",
+      [
+       "nemesis_orderdeathsvigil_01.dbr"
+      ]
+     ]
+    ],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 2295755,
+    "n": 14,
+    "simul": 1,
+    "first": 841.7,
+    "last": 853.2,
+    "ncand": 19,
+    "legal": [
+     [
+      "aetherialcolossus_galakros.dbr",
+      106,
+      "Galakros, the Mountain",
+      [
+       "4"
+      ]
+     ],
+     [
+      "statue_korvaaktombguardian.dbr",
+      106,
+      "The Steward",
+      [
+       "4"
+      ]
+     ]
+    ],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 2
+   },
+   {
+    "max": 484095,
+    "n": 14,
+    "simul": 1,
+    "first": 848.3,
+    "last": 850.7,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": 1
+   },
+   {
+    "max": 270005,
+    "n": 1,
+    "simul": 1,
+    "first": 846.1,
+    "last": 846.1,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 207005,
+    "n": 1,
+    "simul": 1,
+    "first": 855.6,
+    "last": 855.6,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   },
+   {
+    "max": 8722896,
+    "n": 1,
+    "simul": 1,
+    "first": 857.5,
+    "last": 857.5,
+    "ncand": 0,
+    "legal": [],
+    "summon": [],
+    "near": [],
+    "tracker_upper": null
+   }
+  ]
+ }
+}
