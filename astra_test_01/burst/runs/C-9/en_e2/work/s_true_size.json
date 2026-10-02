@@ -1,0 +1,33 @@
+{
+ "base_height_m": 2.05,
+ "designed_height_m": 2.3,
+ "reference_record": "statue_a02.dbr",
+ "reference_scale": 2.0,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "statue_a01/statue_a02 (trash)": {
+   "scale": 2.0,
+   "true_height_m": 2.3,
+   "factor": 1.122,
+   "e_bodies": 0.403
+  },
+  "statue_b01/statue_b02 (trash)": {
+   "scale": 2.2,
+   "true_height_m": 2.53,
+   "factor": 1.234,
+   "e_bodies": 0.317
+  },
+  "statue_c01/statue_c02/statue_templeguardian_02/statue_templeguardian_03 (boss/trash)": {
+   "scale": 2.5,
+   "true_height_m": 2.875,
+   "factor": 1.402,
+   "e_bodies": 0.678
+  },
+  "statue_korvaaktombguardian (boss)": {
+   "scale": 3.0,
+   "true_height_m": 3.45,
+   "factor": 1.683,
+   "e_bodies": 0.498
+  }
+ }
+}

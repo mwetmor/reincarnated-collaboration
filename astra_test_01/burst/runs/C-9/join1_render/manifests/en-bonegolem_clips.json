@@ -201,5 +201,32 @@
   "shipped_height_m": 2.2,
   "factor": 0.8462,
   "why": "at 2.60 m the swing and the death fall cleared the canvas; the death fall centred (en42) and the body shipped at 2.20 m (tightest 45 px = 5.9 %). The CONDUCTOR's size call."
+ },
+ "true_size": {
+  "base_height_m": 2.2,
+  "designed_height_m": 2.6,
+  "reference_record": "skeletalgolem_c01.dbr",
+  "reference_scale": 1.399999976158142,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "skeletalgolem_b01 (trash)": {
+    "scale": 1.2,
+    "true_height_m": 2.229,
+    "factor": 1.013,
+    "e_bodies": 0.234
+   },
+   "skeletalgolem_c01/skeletalgolem_stepsoftorment_01 (boss/trash)": {
+    "scale": 1.4,
+    "true_height_m": 2.6,
+    "factor": 1.182,
+    "e_bodies": 0.626
+   },
+   "ro_bounty19/skeletalgolem_h01/skeletalgolem_h02/skeletalgolem_h03/... (champion-hero)": {
+    "scale": 1.5,
+    "true_height_m": 2.786,
+    "factor": 1.266,
+    "e_bodies": 0.277
+   }
+  }
  }
 }

@@ -122,6 +122,51 @@
    "_what": "the top of the head"
   }
  },
+ "true_size": {
+  "base_height_m": 2.2,
+  "designed_height_m": 2.8,
+  "reference_record": "yetidire_a01.dbr",
+  "reference_scale": 0.800000011920929,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "yetidire_a01/yetidire_b01 (trash)": {
+    "scale": 0.8,
+    "true_height_m": 2.8,
+    "factor": 1.273,
+    "e_bodies": 1.125
+   },
+   "yetidire_b02 (trash)": {
+    "scale": 0.92,
+    "true_height_m": 3.22,
+    "factor": 1.464,
+    "e_bodies": 0.393
+   },
+   "ku_bounty_08/yetidire_c01/yetidire_h01/yetidire_h02/... (champion-hero/trash)": {
+    "scale": 1.05,
+    "true_height_m": 3.675,
+    "factor": 1.67,
+    "e_bodies": 0.635
+   },
+   "cw_bounty09 (champion-hero)": {
+    "scale": 1.12,
+    "true_height_m": 3.92,
+    "factor": 1.782,
+    "e_bodies": 0.137
+   },
+   "yeti_rimehorn_01 (boss)": {
+    "scale": 1.25,
+    "true_height_m": 4.375,
+    "factor": 1.989,
+    "e_bodies": 0.251
+   },
+   "nemesis_beast_01_p1 (nemesis)": {
+    "scale": 1.6,
+    "true_height_m": 5.6,
+    "factor": 2.545,
+    "e_bodies": 0.505
+   }
+  }
+ },
  "vfx_runtime": {
   "frost": {
    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_y_frost_atlas.png",

@@ -86,6 +86,8 @@ if g == 'y':
                             why='at 2.80 m the overhead throw and the ground pound cleared the 768 x 768 canvas (edge touch on 8 cells); the 5 % margin gate (38.4 px) '
                                 'allows at most ~2.26 m; shipped at 2.20 m (margin 53 px = 6.9 %). The CONDUCTOR\'s size call (round 5 brief), not the art\'s.',
                             roster_radius_x_scale_m=[1.04, 1.625])
+TS = os.path.join(E, 'work/%s_true_size.json' % g)          # KP-222: the en46 true-size block, in the manifest AND the kit
+if os.path.exists(TS): man['true_size'] = json.load(open(TS))
 mp = os.path.join(J, 'manifests', '%s_clips.json' % KID); json.dump(man, open(mp, 'w'), indent=1)
 st = lambda clip, kind, role, n, samp, **kw: dict(clip=clip, kind=kind, role=role, frames=n, sampling=samp, **kw)
 states = dict(idle=st('idle', 'loop', 'locomotion_idle', 12, 'loop', manifest_entry='clips.idle'),
@@ -122,5 +124,6 @@ kit = dict(kit=KID, **({'size_call': 'DOWNSCALED %.2f -> %.2f m to fit the 768 c
            source=dict(body=body, pieces=[os.path.join(E, 'export/final_s/spear3.glb')] if g == 's' else [], clip_manifest=mp, loadout=dict(main_hand=None, main_side='R', off_hand=None, weapsel=0)),
            h_model=dict(method='rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres', mesh_name_contains='char1'),
            camera={}, morphs={}, states=states, sockets=sockets,
+           **({'true_size': man['true_size']} if 'true_size' in man else {}),
            vfx_runtime={VID.split('_')[-1]: dict(atlas=vfx['atlas'], frames=vfx['frames'], atlas_px=vfx['atlas_px'], sizes_m=vfx['sizes_m'])}, watchdog_s=2400)
 kp = os.path.join(J, 'kits', '%s.json' % KID); json.dump(kit, open(kp, 'w'), indent=1); print('wrote', mp, kp)
