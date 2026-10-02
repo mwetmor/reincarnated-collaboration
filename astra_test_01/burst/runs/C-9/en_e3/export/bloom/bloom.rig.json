@@ -67,6 +67,7 @@
    }
   },
   "mouth_cut_edges": 452,
+  "leaf_tip_pinned_verts": 9901,
   "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
   "weights": {
    "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
@@ -119,12 +120,12 @@
   "attack_bite": {
    "frames": 51,
    "ik_residual_max_m": 0.0,
-   "min_z_m": -0.0029,
+   "min_z_m": -0.003,
    "worst_frame_vertex": [
-    16,
+    14,
     [
      -0.048,
-     -0.138,
+     -0.137,
      -0.003
     ]
    ],
@@ -135,7 +136,7 @@
    "ik_residual_max_m": 0.0,
    "min_z_m": -0.0028,
    "worst_frame_vertex": [
-    11,
+    12,
     [
      -0.131,
      0.353,
@@ -161,12 +162,12 @@
   "death": {
    "frames": 63,
    "ik_residual_max_m": 0.0,
-   "min_z_m": -0.0028,
+   "min_z_m": -0.003,
    "worst_frame_vertex": [
-    54,
+    31,
     [
-     0.292,
-     -1.232,
+     -0.043,
+     -0.135,
      -0.003
     ]
    ],

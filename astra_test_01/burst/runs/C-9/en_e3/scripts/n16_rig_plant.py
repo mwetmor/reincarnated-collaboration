@@ -169,6 +169,16 @@ for j, n in enumerate(bones_w):
     if n in ('Hips', 'stem1', 'stem2', 'neck'):
         g = ~((VW[:, 2] < CFG.get('leaf_zmax', 0.40)) & (np.hypot(VW[:, 0] - sx, VW[:, 1] - sy) > 0.32)) * 1.0   # the curled leaf rims (up to 0.4 m) are leaf, never stem
     Wm[:, j] = g / (dist ** 4 + 1e-6)
+# LEAF-TIP PIN (the conductor's note: tips stretched into dark sticks in bite and death). The curled tips stand above the leaf band
+# and outside the old gate, so they blended with the stem chain and a NEIGHBOUR leaf, and pulled apart when those moved apart.
+# Every vertex farther than tip_r from the stem axis and below the head is now pinned 100 % to ITS OWN leaf's tip bone (by angle).
+_r = np.hypot(VW[:, 0] - sx, VW[:, 1] - sy); _ang = np.arctan2(VW[:, 1] - sy, VW[:, 0] - sx)
+_names = sorted(leaves); _angs = np.array([leaves[k]['ang'] for k in _names])
+_own = np.abs(np.angle(np.exp(1j * (_ang[:, None] - _angs[None])))).argmin(1)
+_tip = (_r > CFG.get('tip_r', 0.55)) & (VW[:, 2] < z_hb - 0.1)
+for i in np.where(_tip)[0]:
+    Wm[i] = 0.0; Wm[i, bones_w.index(_names[_own[i]] + '_2')] = 1.0
+LM['leaf_tip_pinned_verts'] = int(_tip.sum())
 top = np.argsort(-Wm, 1)[:, :4]
 for i in range(len(VW)):
     ws = Wm[i, top[i]]; s_ = ws.sum()

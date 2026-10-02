@@ -10,6 +10,6 @@ exit 0
 exit 1
 == negative control: neg_prose
   release_s checked on 2 cast(s): cast_breath, cast_lob
-  MANIFEST MISMATCH  .clips.run.note_neg says 'run ... 0.9 s' but the GLB says 0.5000 s
+  MANIFEST MISMATCH  .clips.idle.note_neg says 'idle ... 0.9 s' but the GLB says 1.3333 s
   9 clip(s) checked, 1 mismatch(es)
 exit 1

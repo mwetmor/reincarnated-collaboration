@@ -3,8 +3,8 @@
  "creature": "bloom",
  "roster_type_id": "carnivorousplant01a_p1",
  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/bloom/bloom.glb",
- "glb_sha256": "5aebc26d83e14181b1bf53dfc3c26cb6e986f345add3a2345d668224d228e0d0",
- "glb_bytes": 2480952,
+ "glb_sha256": "1a938613316d9accf3b8d9fe2cce9a20cea10e3e39c7478831ebde26369ea4bf",
+ "glb_bytes": 2481092,
  "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
  "h_model_m": 2.0067,
  "length_m": 3.0022,
@@ -57,12 +57,12 @@
    "lint": {
     "frames": 51,
     "ik_residual_max_m": 0.0,
-    "min_z_m": -0.0029,
+    "min_z_m": -0.003,
     "worst_frame_vertex": [
-     16,
+     14,
      [
       -0.048,
-      -0.138,
+      -0.137,
       -0.003
      ]
     ],
@@ -82,7 +82,7 @@
     "ik_residual_max_m": 0.0,
     "min_z_m": -0.0028,
     "worst_frame_vertex": [
-     11,
+     12,
      [
       -0.131,
       0.353,
@@ -124,12 +124,12 @@
    "lint": {
     "frames": 63,
     "ik_residual_max_m": 0.0,
-    "min_z_m": -0.0028,
+    "min_z_m": -0.003,
     "worst_frame_vertex": [
-     54,
+     31,
      [
-      0.292,
-      -1.232,
+      -0.043,
+      -0.135,
       -0.003
      ]
     ],
@@ -344,6 +344,7 @@
    }
   },
   "mouth_cut_edges": 452,
+  "leaf_tip_pinned_verts": 9901,
   "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
   "weights": {
    "method": "geometric: gated inverse-distance^4 to bone segments, top 4",

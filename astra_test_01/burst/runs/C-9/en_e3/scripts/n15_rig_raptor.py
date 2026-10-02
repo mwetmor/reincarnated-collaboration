@@ -421,6 +421,18 @@ def clip_state(name, f):
         return st
     raise KeyError(k)
 
+# MOTION SCALE: the clips' typed body offsets (lunges, the leap's 1.1 m rise, the hit shove) are metres for the 5.47 m build; a
+# creature scaled to fit the canvas scales them with it. Gait offsets are NOT scaled (they are the foot-lock stride, set by speed)
+# and the derived drops (reach, death to the floor) already follow the mesh.
+_clip_state_raw = clip_state
+def clip_state(name, f):
+    st = _clip_state_raw(name, f); ms = CFG.get('motion_scale', 1.0); k = CL[name].get('kind_fn', name)
+    if ms != 1.0 and k not in ('walk', 'run', 'death'):
+        if 'pelvis_loc' in st: st['pelvis_loc'] = tuple(v * ms for v in st['pelvis_loc'])
+        for lg in LEGS:
+            if 'foot_' + lg in st: o = st['foot_' + lg]; st['foot_' + lg] = (o[0] * ms, o[1] * ms, o[2] * ms) + tuple(o[3:])
+    return st
+
 dg = None
 def mesh_minz():
     d = bpy.context.evaluated_depsgraph_get(); e = body.evaluated_get(d); m = e.to_mesh()

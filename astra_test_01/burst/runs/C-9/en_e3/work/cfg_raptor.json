@@ -7,11 +7,11 @@
  "lip_z_frac": 0.4,
  "hinge_frac": 0.8,
  "tail_frac": 0.48,
- "arm_x_min": 0.33,
+ "arm_x_min": 0.2367,
  "arm_y_off": 0.35,
- "hip_x": 0.18,
+ "hip_x": 0.1291,
  "hip_back": 0.05,
- "foot_block_z": 0.1,
+ "foot_block_z": 0.0717,
  "mouth_rgba": [
   0.11,
   0.035,
@@ -79,5 +79,7 @@
    "src": "death_a01 57f"
   }
  },
- "texture": "work/tex_raptor_GT.png"
+ "texture": "work/tex_raptor_GT.png",
+ "motion_scale": 0.7174,
+ "_scale_note": "R-C9-132 conductor ruling (a): scaled x0.7174 (5.47 -> 3.924 m) = the largest scale whose every clip at every heading clears the JOIN-1 canvas with a 5% margin (n17_fit_canvas, iterated twice: the first pass bound on death f56, the second on attack_leap f14); the conductor's size call, not the roster's"
 }
