@@ -1,0 +1,379 @@
+<title>King's Henge Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F2F4F2; --panel:#E6EBEC; --ink:#1D2329; --muted:#5D6873; --rule:#C9D1D6;
+  --lapis:#2E5A86; --brass:#9A7428; --frost:#DCE6EC; --floor:#E3EBF0; --mound:#CBC6B8;
+  --warn:#9B3B2E; --ok:#2F6B4A; --grid:#DCE2E5; --old:#8C96A0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#14181C; --panel:#1C2228; --ink:#E4E8EB; --muted:#9AA5AF; --rule:#2E3740;
+    --lapis:#86AEDB; --brass:#D6AE5C; --frost:#22303A; --floor:#1E2A33; --mound:#3A3A34;
+    --warn:#E08C7C; --ok:#7CC39B; --grid:#212931; --old:#6F7A85;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#14181C; --panel:#1C2228; --ink:#E4E8EB; --muted:#9AA5AF; --rule:#2E3740;
+  --lapis:#86AEDB; --brass:#D6AE5C; --frost:#22303A; --floor:#1E2A33; --mound:#3A3A34;
+  --warn:#E08C7C; --ok:#7CC39B; --grid:#212931; --old:#6F7A85;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:400 16px/1.6 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:20px;padding-block:40px 80px}
+.wrap{max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:44px}
+h1,h2{font-family:"IM Fell English",Georgia,"Times New Roman",serif;font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:2.6rem;letter-spacing:.005em}
+h2{font-size:1.75rem}
+h3{font-size:1.02rem;font-weight:700;margin:0;letter-spacing:.01em}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:600 .74rem/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--lapis)}
+header{display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:28px}
+.lede{font-size:1.12rem;color:var(--muted);max-width:62ch}
+ul.tight{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px}
+.mono,code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.86em}
+a{color:var(--lapis)}
+a:focus-visible{outline:2px solid var(--lapis);outline-offset:2px}
+.answer{display:grid;gap:10px;padding:20px 22px;background:var(--panel);border-radius:4px}
+.answer p{max-width:66ch}
+.answer b{color:var(--ink)}
+.group{display:flex;flex-direction:column;gap:10px}
+.group h3{color:var(--lapis);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.check{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.check li{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start}
+.check li::before{content:"";width:12px;height:12px;border:1.5px solid var(--muted);border-radius:2px;margin-top:6px}
+.check .sup{color:var(--muted)}
+.tablewrap{overflow-x:auto;border-top:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:.94rem;min-width:600px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px 9px 0;border-bottom:1px solid var(--rule)}
+th{font:600 .72rem/1.2 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.size{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.84rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.gate td{color:var(--warn)}
+tr.gate td:first-child{font-weight:600}
+.pill{display:inline-block;font:600 .7rem/1 "JetBrains Mono",ui-monospace,monospace;padding:4px 6px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;vertical-align:1px}
+.pill.matt{background:var(--warn);color:var(--ground)}
+.pill.now{background:var(--ok);color:var(--ground)}
+.ptitle{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.ptitle .est{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.84rem;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.mapbox{background:var(--panel);border-radius:4px;padding:10px;overflow-x:auto}
+svg.map{display:block;width:100%;min-width:520px;height:auto}
+.map .grid{stroke:var(--grid);stroke-width:.15}
+.map .mound{fill:var(--mound);stroke:var(--muted);stroke-width:.25}
+.map .oldring{fill:none;stroke:var(--old);stroke-width:.5;stroke-dasharray:1.4 1}
+.map .oldisl{fill:none;stroke:var(--old);stroke-width:.35;stroke-dasharray:.8 .7}
+.map .floor{fill:var(--floor);stroke:var(--ink);stroke-width:.55;fill-opacity:.9}
+.map .stone{fill:var(--ink)}
+.map .cam{fill:none;stroke:var(--lapis);stroke-width:.35;stroke-dasharray:2 1}
+.map .ray{stroke:var(--brass);stroke-width:.3;stroke-dasharray:.9 .9}
+.map .disc{fill:var(--brass);fill-opacity:.12;stroke:var(--brass);stroke-width:.35}
+.map .anchor{fill:var(--brass)}
+.map .grave{fill:var(--muted)}
+.map .start circle{fill:var(--ground);stroke:var(--ink);stroke-width:.45}
+.map .start line{stroke:var(--ink);stroke-width:.45}
+.map .lab{font:600 2.35px "Source Sans 3",sans-serif;fill:var(--ink)}
+.map .lab.small{font-size:2px}
+.map .sub{font:400 1.85px "JetBrains Mono",monospace;fill:var(--muted)}
+.map .scale line{stroke:var(--ink);stroke-width:.35}
+.map .north path{fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.86rem;color:var(--muted)}
+.legend span{display:inline-flex;gap:7px;align-items:center}
+.sw{width:18px;height:10px;border-radius:2px;display:inline-block}
+.sw.floor{background:var(--floor);border:1.5px solid var(--ink)}
+.sw.old{border:1.5px dashed var(--old)}
+.sw.disc{background:color-mix(in srgb,var(--brass) 18%,transparent);border:1.5px solid var(--brass);border-radius:50%;width:12px;height:12px}
+.sw.mound{background:var(--mound)}
+.sw.cam{border:1.5px dashed var(--lapis)}
+figcaption{font-size:.9rem;color:var(--muted);max-width:66ch}
+.finding{border-left:3px solid var(--warn);padding:2px 0 2px 16px;display:flex;flex-direction:column;gap:8px}
+.finding h3{color:var(--warn)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+@media (max-width:620px){.cols{grid-template-columns:1fr}h1{font-size:2.1rem}}
+.forks{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.fork{display:grid;grid-template-columns:48px 1fr;gap:4px 14px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.fork .id{font:600 .9rem/1.5 "JetBrains Mono",ui-monospace,monospace;color:var(--lapis)}
+.fork .q{font-weight:700}
+.fork .rec{grid-column:2}
+.fork .rec b{color:var(--ok)}
+.fork .alts{grid-column:2;color:var(--muted);font-size:.94rem}
+footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:18px}
+</style>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Run C-9 · Phase 2 · 2026-10-02</span>
+  <h1>King's Henge Brief</h1>
+  <p class="lede">What's waiting for you from the last run, how much work stands between you and each of your four arena playtests, and a design for barrow_v2: the barrow rebuilt to the arena's exact specs.</p>
+</header>
+
+<section>
+  <h2>The short answer</h2>
+  <div class="answer">
+    <p><b>Warlord in the arena:</b> about 4 to 7 specialist sessions to the first dressed build, with one gate on you along the way: an hour-long replay of the graded build. The enemy art lanes are not what's slowing it down.</p>
+    <p><b>Sorceress, then Barbarian:</b> about 7 to 10 sessions after the Warlord build is sealed, then 2 to 3 more for the Barbarian. Their animations are done; what's left is the rules work that makes their kits play correctly.</p>
+    <p><b>barrow_v2:</b> it can match the arena exactly, because the simulation has no floor at all, only six spawn points and a start position. I recommend a stone henge whose floor contains all six spawn areas, with barrow doors as the spawn points. Art is about 4 to 6 lane sessions and can start without touching the simulation.</p>
+    <p><b>Found on the way:</b> the arena's current floor, traced from a minimap, leaves two of the six spawn points 8 to 9 m outside the walls. barrow_v2 fixes that for free.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Now that you're at the Mac</span>
+  <h2>Waiting on you</h2>
+
+  <div class="cols">
+  <div class="group">
+    <h3>Playtest</h3>
+    <ul class="check">
+      <li><span><a href="https://reincarnated-loadout.vercel.app/playtest/barrow-painted/">The barrow select page</a> is deployed at <code>3f1ee3e</code>.</span></li>
+      <li><span><b>Dark knight.</b> Hold C for the Eye of Reckoning spin with the ported whirlwind effect. Compare the red default with <code>eortint=original</code>.</span></li>
+      <li><span><b>Sorceress.</b> Cast Meteor (X) to see the new light smoke puffs. Try crater v5 with <code>v5=a</code>, <code>v5=b</code> and <code>v5=ab</code>, and the fall time with <code>fall=2.4</code> against the default 0.82 s.</span></li>
+      <li><span class="sup"><b>Barbarian.</b> The gladiator armour and stance-width flags are still on the page but are superseded by the Mixamo dual-wield build. Skip them.</span></li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <h3>View</h3>
+    <ul class="check">
+      <li><span><code>wl_e1/film/cape_sim_v1.mp4</code>: the spring-bone cape prototype. The cape is still open.</span></li>
+      <li><span><code>wl_e1/film/O-dk-eor-spin-extended-2x.mp4</code> and <code>O-nb-dual-whirlwind-2x.mp4</code>: the two extended-arm spins, to confirm before the tint call.</span></li>
+      <li><span class="sup">Paths are under <code>astra_test_01/burst/runs/C-9/</code>. The six enemies on provisional textures are being repainted now, so nothing to judge there yet.</span></li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <h3>Decide</h3>
+    <ul class="check">
+      <li><span>Eye of Reckoning tint: red or the original.</span></li>
+      <li><span>The Meteor's new smoke look.</span></li>
+      <li><span>Meteor fall time: 0.82 s or 2.4 s.</span></li>
+      <li><span>Battle-mage texture: painted or the steel pass.</span></li>
+      <li><span>Keep the clock-hour telegraph ring?</span></li>
+      <li><span>Make the collab and loadout repos private?</span></li>
+      <li><span>Download the Creature and Zombie Mixamo packs?</span></li>
+      <li><span>Rulings R-C9-136/137: the lane reorder, and the new lane EN-E4 building the spawn alternates. Both are open to your veto.</span></li>
+      <li><span>The seven barrow_v2 forks at the end of this page.</span></li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <h3>Only you can do</h3>
+    <ul class="check">
+      <li><span>Run cleanup manifest 13 (about 15.9 GiB; the disk has 28 GiB free, above the 20 GiB gate). Say "run manifest 13" and I'll run it.</span></li>
+      <li><span>Run the Sim Session's temp-folder cleanup script (about 16 GB).</span></li>
+      <li><span>Mount the footage share. It blocks the arena re-wire.</span></li>
+      <li><span>Refresh the Vercel CLI login so agents can confirm deploys (T6).</span></li>
+      <li><span class="sup">Still open in the to-do queue: fix the Pi's SMB drive (T22), and two in-game screenshots for arena scale and energy cost (T24, T14).</span></li>
+    </ul>
+  </div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Your four playtests, in your order</span>
+  <h2>The remaining lift</h2>
+  <p>Sizes come from the Sim Session, which runs the arena. A session is one specialist run of a few hours. Rows in red wait on you.</p>
+
+  <div class="ptitle"><h3>1 · Warlord in the arena</h3><span class="est">about 4–7 sessions · Mac Godot app</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Step</th><th>Who</th><th>Size</th></tr></thead>
+    <tbody>
+      <tr><td>Port the latest simulation rules (v3.11) into the arena runtime and match the reference on 25 test cases <span class="pill now">in flight</span></td><td>drax</td><td class="size">1–2 sessions</td></tr>
+      <tr><td>Gate checks on the attempt build</td><td>jack-ryan, gamora</td><td class="size">about 1</td></tr>
+      <tr><td>Graded attempt (a repair and second attempt if it fails)</td><td>drax, jack-ryan</td><td class="size">S, or M if repaired</td></tr>
+      <tr class="gate"><td>Replay the graded build, then seal. It plays with today's placeholder art. <span class="pill matt">you</span></td><td>Matt</td><td class="size">about 1 hour</td></tr>
+      <tr><td>Dress it: hero and enemy sprite packs, release timing, emerge animations, size scaling, camera fix, rebuild</td><td>drax</td><td class="size">1–2 sessions</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sup" style="color:var(--muted)">Unbuilt enemies show placeholders, so the remaining enemy art isn't blocking. The open lanes should finish well before the dressing step.</p>
+
+  <div class="ptitle"><h3>2 · Sorceress in the arena</h3><span class="est">about 7–10 sessions after the Warlord seal</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Step</th><th>Who</th><th>Size</th></tr></thead>
+    <tbody>
+      <tr><td>The shared rulebook for joining a new kit to the arena, kept consistent with the reference</td><td>gamora, star-lord, drax</td><td class="size">2–3 sessions</td></tr>
+      <tr><td>The tuning levers, critical hits first</td><td>drax, gamora</td><td class="size">about 2</td></tr>
+      <tr class="gate"><td>A short owner's-eye check of a capture and the lever changes <span class="pill matt">you</span></td><td>Matt</td><td class="size">S</td></tr>
+      <tr><td>Control test: re-join your own Warlord before grading a new kit</td><td>elrond, gamora</td><td class="size">S–M</td></tr>
+      <tr><td>Her kit: research, an adapter for her source game, kit rows, build. Her fire damage tests the damage tables.</td><td>legolas, gamora, star-lord, drax</td><td class="size">2–3 sessions</td></tr>
+      <tr><td>Wire her 744-cell sprite pack</td><td>drax</td><td class="size">S–M</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="ptitle"><h3>3 · Barbarian in the arena</h3><span class="est">about 2–3 sessions after the Sorceress</span></div>
+  <p>He reuses her rulebook and adapter, extended for Whirlwind (moving while spinning, hitting several targets). Then his 984-cell pack is wired. Your one gate here is the check you already passed for the Sorceress.</p>
+
+  <div class="ptitle"><h3>4 · All three in barrow_v2</h3><span class="est">about 4–6 art sessions + 1–2 arena sessions</span></div>
+  <p>The art can run alongside steps 1 to 3 because it never touches the simulation. Fitting it into the arena runtime comes after the Warlord is dressed. Since this playtest needs all three heroes anyway, the barrow only has to be ready when the Barbarian is.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Playtest 4 · design</span>
+  <h2>barrow_v2: the King's Henge</h2>
+
+  <div class="finding">
+    <h3>What the arena actually requires</h3>
+    <p>The simulation that drives every fight has no floor. It assumes an open plane with nothing blocking movement or sight. Its only geometry is six spawn points, an 8 m scatter circle around each, and your start position at the centre. The walls, the four islands and the six green pools you see in the arena are a drawing traced from your minimap footage, and the simulation never reads it.</p>
+    <p>That drawing doesn't fit the simulation. Measured against the spawn points, p01 (west) and p04 (east) are 8 to 9 m outside the walls with their scatter circles entirely off the floor. p02, p03 and p06 sit on the wall line with half or more of their circles outside. Only the centre ambush point fits.</p>
+  </div>
+
+  <figure>
+    <div class="mapbox"><svg viewBox="-62 -58 124 116" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mapt mapd" class="map">
+<title id="mapt">barrow_v2 footprint over the oracle spawn geometry</title><desc id="mapd">Top-down plan in metres, north up. The proposed barrow_v2 floor is the convex shape containing all six spawn anchors and their 8 m scatter discs. The current arena floor, traced from a minimap, is shown dashed; two anchors fall entirely outside it.</desc>
+<line x1="-50" y1="-52" x2="-50" y2="52" class="grid"/><line x1="-56" y1="-50" x2="56" y2="-50" class="grid"/>
+<line x1="-40" y1="-52" x2="-40" y2="52" class="grid"/><line x1="-56" y1="-40" x2="56" y2="-40" class="grid"/>
+<line x1="-30" y1="-52" x2="-30" y2="52" class="grid"/><line x1="-56" y1="-30" x2="56" y2="-30" class="grid"/>
+<line x1="-20" y1="-52" x2="-20" y2="52" class="grid"/><line x1="-56" y1="-20" x2="56" y2="-20" class="grid"/>
+<line x1="-10" y1="-52" x2="-10" y2="52" class="grid"/><line x1="-56" y1="-10" x2="56" y2="-10" class="grid"/>
+<line x1="0" y1="-52" x2="0" y2="52" class="grid"/><line x1="-56" y1="0" x2="56" y2="0" class="grid"/>
+<line x1="10" y1="-52" x2="10" y2="52" class="grid"/><line x1="-56" y1="10" x2="56" y2="10" class="grid"/>
+<line x1="20" y1="-52" x2="20" y2="52" class="grid"/><line x1="-56" y1="20" x2="56" y2="20" class="grid"/>
+<line x1="30" y1="-52" x2="30" y2="52" class="grid"/><line x1="-56" y1="30" x2="56" y2="30" class="grid"/>
+<line x1="40" y1="-52" x2="40" y2="52" class="grid"/><line x1="-56" y1="40" x2="56" y2="40" class="grid"/>
+<line x1="50" y1="-52" x2="50" y2="52" class="grid"/><line x1="-56" y1="50" x2="56" y2="50" class="grid"/>
+<ellipse cx="-47.90" cy="13.33" rx="9.0" ry="5.0" transform="rotate(254.4 -47.90 13.33)" class="mound"/>
+<ellipse cx="14.05" cy="-46.79" rx="12.15" ry="6.75" transform="rotate(16.7 14.05 -46.79)" class="mound"/>
+<ellipse cx="11.71" cy="45.62" rx="9.0" ry="5.0" transform="rotate(165.6 11.71 45.62)" class="mound"/>
+<ellipse cx="39.56" cy="18.83" rx="15" ry="5.5" transform="rotate(115.5 39.56 18.83)" class="mound"/>
+<polygon points="-43.41,9.57 -43.39,8.99 -43.33,8.40 -43.24,7.82 -43.10,7.25 -42.93,6.68 -42.72,6.13 -42.48,5.59 -42.20,5.08 -41.89,4.58 -41.55,4.10 -41.18,3.64 -40.77,3.21 3.15,-38.07 3.58,-38.47 4.04,-38.85 4.52,-39.19 5.02,-39.50 5.54,-39.78 6.08,-40.02 6.63,-40.23 7.19,-40.40 7.76,-40.53 8.34,-40.63 8.93,-40.69 9.52,-40.71 10.11,-40.69 10.69,-40.63 11.28,-40.53 11.85,-40.40 12.41,-40.23 12.96,-40.02 13.50,-39.78 14.02,-39.50 14.52,-39.19 15.00,-38.85 15.45,-38.47 15.88,-38.07 16.29,-37.64 16.66,-37.19 17.00,-36.71 17.31,-36.21 39.01,2.31 39.29,2.82 39.53,3.36 39.74,3.91 39.91,4.48 40.04,5.05 40.14,5.63 40.20,6.22 40.22,6.80 40.20,7.39 40.14,7.98 40.04,8.56 39.91,9.13 39.74,9.70 39.53,10.25 39.29,10.79 39.01,11.30 38.70,11.80 38.35,12.28 37.98,12.74 14.99,38.00 14.59,38.43 14.16,38.83 13.71,39.20 13.23,39.55 12.73,39.86 12.21,40.13 11.67,40.38 11.12,40.58 10.56,40.76 9.98,40.89 9.40,40.98 8.82,41.04 8.23,41.06 7.64,41.04 7.05,40.98 6.47,40.89 5.90,40.76 5.33,40.58 4.78,40.38 4.25,40.13 -38.39,17.65 -38.91,17.37 -39.41,17.06 -39.89,16.71 -40.34,16.34 -40.77,15.94 -41.18,15.51 -41.55,15.05 -41.89,14.57 -42.20,14.07 -42.48,13.56 -42.72,13.02 -42.93,12.47 -43.10,11.90 -43.24,11.33 -43.33,10.75 -43.39,10.16" class="floor"/>
+<polygon points="-1.14,-41.46 0.28,-40.89 0.57,-40.04 2.56,-41.18 4.56,-40.04 5.98,-41.46 8.55,-40.04 8.83,-39.18 7.98,-32.91 8.26,-28.64 6.27,-28.92 3.70,-27.21 3.70,-25.22 4.84,-24.08 5.13,-22.37 4.84,-18.38 3.70,-17.24 3.70,-14.39 5.41,-12.96 9.40,-13.82 12.54,-11.25 14.82,-12.96 12.54,-16.10 10.83,-17.24 9.40,-16.95 8.55,-17.81 9.40,-18.95 7.69,-19.80 7.98,-23.79 9.12,-24.93 12.82,-24.65 14.82,-22.37 17.10,-22.08 19.38,-19.23 21.37,-18.38 26.22,-12.68 26.50,-10.11 28.21,-8.69 28.21,-7.55 27.07,-6.69 23.37,-6.12 21.09,-4.98 19.95,-6.12 20.23,-7.26 18.81,-8.40 16.53,-6.69 16.81,-4.98 17.95,-4.13 17.67,-2.70 18.24,-1.56 20.80,-0.99 20.23,1.57 21.66,1.29 22.23,1.86 20.80,2.71 21.09,3.57 19.66,4.14 19.95,4.71 21.94,4.42 22.23,6.99 20.80,9.84 19.95,10.12 19.09,12.97 17.10,14.11 14.82,16.96 14.82,17.82 16.53,19.24 19.95,17.25 25.08,18.96 25.93,20.67 21.94,24.37 22.23,24.94 20.80,26.37 18.52,27.51 15.67,30.64 13.11,31.21 10.83,32.64 8.55,31.50 7.12,26.37 7.98,25.23 9.69,24.94 11.97,23.23 9.97,21.52 8.55,22.66 4.56,23.52 3.13,24.94 4.56,26.65 6.84,32.64 5.13,34.35 3.13,33.49 1.42,34.92 -0.28,35.20 -1.99,34.06 -3.70,34.92 -4.27,34.35 -5.98,34.63 -6.84,33.78 -9.97,33.49 -13.39,30.64 -11.40,25.80 -9.40,24.94 -8.55,23.23 -8.83,22.09 -11.68,21.52 -13.68,19.24 -15.10,20.10 -15.96,21.24 -15.10,22.66 -14.25,22.38 -13.68,22.95 -13.68,24.37 -12.82,24.66 -14.25,28.08 -15.67,29.50 -17.38,29.50 -19.66,26.94 -23.08,24.66 -24.51,22.09 -26.22,20.95 -29.07,16.96 -29.07,16.11 -28.21,15.54 -25.36,15.25 -22.80,14.11 -19.95,16.39 -17.67,14.68 -18.81,13.26 -18.52,12.40 -19.66,10.41 -23.08,7.56 -22.80,4.99 -23.94,3.85 -22.51,2.43 -20.80,1.86 -21.66,-0.14 -22.51,-0.14 -23.37,1.29 -23.65,0.72 -21.37,-2.13 -21.66,-2.99 -19.09,-3.84 -16.24,-9.26 -17.67,-10.97 -19.38,-9.54 -19.95,-8.12 -20.80,-8.12 -24.51,-9.26 -27.07,-10.97 -27.36,-11.54 -23.37,-15.53 -23.37,-16.95 -19.09,-20.66 -15.96,-22.08 -12.82,-24.65 -11.97,-24.36 -7.69,-26.36 -5.70,-26.36 -4.84,-25.22 -5.13,-19.52 -9.97,-17.52 -13.39,-14.10 -12.25,-12.68 -11.40,-12.68 -6.84,-15.53 -3.99,-13.82 -2.56,-14.10 -1.99,-15.53 -0.57,-16.38 -2.56,-20.09 -2.28,-22.94 0.28,-27.50 -0.57,-28.64 -2.28,-28.64 -3.70,-29.49 -4.27,-32.91 -3.42,-39.75 -1.14,-41.46" class="oldring"/>
+<polygon points="-15.67,-2.70 -14.53,-2.42 -15.10,-1.28 -14.53,-0.14 -15.67,1.29 -15.39,2.43 -16.24,5.28 -15.10,6.99 -14.82,9.55 -16.53,9.84 -17.38,6.99 -17.38,0.72 -15.67,-2.70" class="oldisl"/>
+<polygon points="13.96,-1.28 15.10,-0.99 15.96,4.14 14.82,10.69 13.39,11.55 12.82,10.41 14.53,7.27 14.25,1.86 13.39,0.43 13.96,-1.28" class="oldisl"/>
+<polygon points="-0.28,24.94 1.42,24.94 1.42,26.37 -0.85,26.94 -1.14,25.51 -0.28,24.94" class="oldisl"/>
+<polygon points="-5.41,23.52 -4.56,23.80 -4.56,25.80 -5.13,26.37 -6.55,25.23 -5.41,23.52" class="oldisl"/>
+<rect x="-36.31" y="-3.98" width="2.6" height="1.1" transform="rotate(-43.2 -35.01 -3.43)" class="stone"/>
+<rect x="-32.14" y="-7.90" width="2.6" height="1.1" transform="rotate(-43.2 -30.84 -7.35)" class="stone"/>
+<rect x="-27.97" y="-11.82" width="2.6" height="1.1" transform="rotate(-43.2 -26.67 -11.27)" class="stone"/>
+<rect x="-23.80" y="-15.74" width="2.6" height="1.1" transform="rotate(-43.2 -22.50 -15.19)" class="stone"/>
+<rect x="-19.63" y="-19.66" width="2.6" height="1.1" transform="rotate(-43.2 -18.33 -19.11)" class="stone"/>
+<rect x="-15.46" y="-23.58" width="2.6" height="1.1" transform="rotate(-43.2 -14.16 -23.03)" class="stone"/>
+<rect x="-11.28" y="-27.50" width="2.6" height="1.1" transform="rotate(-43.2 -9.98 -26.95)" class="stone"/>
+<rect x="-7.11" y="-31.42" width="2.6" height="1.1" transform="rotate(-43.2 -5.81 -30.87)" class="stone"/>
+<rect x="21.80" y="-28.83" width="2.6" height="1.1" transform="rotate(60.6 23.10 -28.28)" class="stone"/>
+<rect x="24.61" y="-23.84" width="2.6" height="1.1" transform="rotate(60.6 25.91 -23.29)" class="stone"/>
+<rect x="27.42" y="-18.86" width="2.6" height="1.1" transform="rotate(60.6 28.72 -18.31)" class="stone"/>
+<rect x="30.23" y="-13.87" width="2.6" height="1.1" transform="rotate(60.6 31.53 -13.32)" class="stone"/>
+<rect x="33.04" y="-8.88" width="2.6" height="1.1" transform="rotate(60.6 34.34 -8.33)" class="stone"/>
+<rect x="-4.62" y="36.92" width="2.6" height="1.1" transform="rotate(-152.2 -3.32 37.47)" class="stone"/>
+<rect x="-9.69" y="34.25" width="2.6" height="1.1" transform="rotate(-152.2 -8.39 34.80)" class="stone"/>
+<rect x="-14.75" y="31.58" width="2.6" height="1.1" transform="rotate(-152.2 -13.45 32.13)" class="stone"/>
+<rect x="-19.82" y="28.90" width="2.6" height="1.1" transform="rotate(-152.2 -18.52 29.45)" class="stone"/>
+<rect x="-24.88" y="26.23" width="2.6" height="1.1" transform="rotate(-152.2 -23.58 26.78)" class="stone"/>
+<rect x="-29.94" y="23.56" width="2.6" height="1.1" transform="rotate(-152.2 -28.64 24.11)" class="stone"/>
+<rect x="-12.7" y="-8.95" width="25.4" height="17.9" class="cam"/>
+<line x1="0" y1="0" x2="-34.409" y2="9.575" class="ray"/>
+<line x1="0" y1="0" x2="9.519" y2="-31.707" class="ray"/>
+<line x1="0" y1="0" x2="8.228" y2="32.062" class="ray"/>
+<line x1="0" y1="0" x2="31.215" y2="6.805" class="ray"/>
+<line x1="0" y1="0" x2="-8.245" y2="-5.825" class="ray"/>
+<line x1="0" y1="0" x2="20.811" y2="17.966" class="ray"/>
+<circle cx="-34.409" cy="9.575" r="8" class="disc"/><circle cx="-34.409" cy="9.575" r="1.1" class="anchor"/>
+<circle cx="9.519" cy="-31.707" r="8" class="disc"/><circle cx="9.519" cy="-31.707" r="1.1" class="anchor"/>
+<circle cx="8.228" cy="32.062" r="8" class="disc"/><circle cx="8.228" cy="32.062" r="1.1" class="anchor"/>
+<circle cx="31.215" cy="6.805" r="8" class="disc"/><circle cx="31.215" cy="6.805" r="1.1" class="anchor"/>
+<circle cx="-8.245" cy="-5.825" r="8" class="disc"/><circle cx="-8.245" cy="-5.825" r="1.1" class="anchor"/>
+<circle cx="20.811" cy="17.966" r="8" class="disc"/><circle cx="20.811" cy="17.966" r="1.1" class="anchor"/>
+<rect x="-12.33" y="-9.28" width="1.8" height="0.7" class="grave"/>
+<rect x="-7.56" y="-11.60" width="1.8" height="0.7" class="grave"/>
+<rect x="-9.50" y="-11.70" width="1.8" height="0.7" class="grave"/>
+<rect x="-6.40" y="-5.67" width="1.8" height="0.7" class="grave"/>
+<rect x="-5.50" y="-7.53" width="1.8" height="0.7" class="grave"/>
+<rect x="-8.59" y="-6.57" width="1.8" height="0.7" class="grave"/>
+<rect x="-10.60" y="-5.89" width="1.8" height="0.7" class="grave"/>
+<rect x="-12.46" y="-7.11" width="1.8" height="0.7" class="grave"/>
+<rect x="-7.85" y="-6.07" width="1.8" height="0.7" class="grave"/>
+<g class="start"><circle cx="0" cy="0" r="1.6"/><line x1="-2.6" y1="0" x2="2.6" y2="0"/><line x1="0" y1="-2.6" x2="0" y2="2.6"/></g>
+<text x="-14" y="-52" text-anchor="end" class="lab">p02 · King's Barrow</text><text x="-14" y="-48.4" text-anchor="end" class="sub">33 m from start</text>
+<text x="-60" y="-4" text-anchor="start" class="lab">p01 · West Barrow</text><text x="-60" y="-0.3999999999999999" text-anchor="start" class="sub">36 m from start</text>
+<text x="8.2" y="53.5" text-anchor="middle" class="lab">p03 · South Barrow</text><text x="8.2" y="57.1" text-anchor="middle" class="sub">33 m from start</text>
+<text x="43" y="-6" text-anchor="start" class="lab">p04 · Twin Barrow</text><text x="43" y="-2.4" text-anchor="start" class="sub">32 m from start</text>
+<text x="32" y="40" text-anchor="start" class="lab">p06 · Twin Barrow</text><text x="32" y="43.6" text-anchor="start" class="sub">27 m from start</text>
+<text x="-44" y="-22" text-anchor="start" class="lab">p05 · the Shallow Graves</text><text x="-44" y="-18.4" text-anchor="start" class="sub">ambush, 10 m from start</text>
+<text x="2.6" y="-3" class="lab small">start (0, 0)</text>
+<text x="-12.4" y="7.9" class="sub">one screen at GD zoom, 25×18 m</text>
+<g class="scale"><line x1="-58" y1="52" x2="-38" y2="52"/><line x1="-58" y1="50.8" x2="-58" y2="53.2"/><line x1="-48" y1="51.2" x2="-48" y2="52.8"/><line x1="-38" y1="50.8" x2="-38" y2="53.2"/></g><text x="-58" y="49.6" class="sub">0</text><text x="-38" y="49.6" text-anchor="end" class="sub">20 m</text>
+<g class="north"><path d="M54 -52 L56.2 -46 L54 -47.4 L51.8 -46 Z"/><text x="54" y="-42.6" text-anchor="middle" class="sub">N</text></g>
+</svg></div>
+    <div class="legend">
+      <span><i class="sw floor"></i>barrow_v2 floor (4,026 m², 84 × 82 m)</span>
+      <span><i class="sw old"></i>current arena floor and islands (2,400 m²)</span>
+      <span><i class="sw disc"></i>spawn scatter, 8 m</span>
+      <span><i class="sw mound"></i>barrow mounds, outside the floor</span>
+      <span><i class="sw cam"></i>one screen at GD zoom</span>
+    </div>
+    <figcaption>Drawn to scale in metres from the simulation's spawn table (v3.8) and the arena's geometry file. North is up. The floor is the convex shape around every spawn circle plus 1 m, so a straight line from any point on it to any other stays on it. That's the open plane the simulation assumes.</figcaption>
+  </figure>
+
+  <h3>The concept</h3>
+  <p>You fight inside a great henge on a snowbound hill. The floor is flat, open snow and ice, ringed by standing stones on a low kerb that marks the edge you can't cross. Outside the stones, five barrow mounds face inward. Their carved doors are the spawn points, so monsters walk out of the dead's own houses. Snow slopes, birch groves and cairns run off beyond them, all outside the floor.</p>
+  <ul class="tight">
+    <li><b>p02, north: the King's Barrow.</b> The largest mound, with the carved lintel door already built for the first barrow. The Barrow King comes from here last.</li>
+    <li><b>p01 west and p03 south:</b> two lesser barrows.</li>
+    <li><b>p04 and p06, east and south-east:</b> one long twin barrow with two doors, since the two points are only 29° apart.</li>
+    <li><b>p05, the ambush 10 m from the start:</b> a field of shallow graves inside the henge. Bodies burst up through the snow, which is exactly what the emerge animations already do.</li>
+    <li><b>Inside the henge</b>, the variety comes from things you can walk over: frozen tarns, toppled stones lying flat, drifts, a worn stone path to the King's door. Nothing inside blocks movement, so what you see and what the simulation computes agree.</li>
+  </ul>
+
+  <h3>Why it fits</h3>
+  <div class="cols">
+    <ul class="tight">
+      <li><b>Same camera.</b> The barrow was already built at the arena's pitch (52.95°) and the arena's plate scale (100.62 px/m). The only change is dropping its 47° yaw to the arena's zero yaw.</li>
+      <li><b>Same characters.</b> The heroes and enemies stay the arena's sprite packs. Nothing is re-rendered.</li>
+    </ul>
+    <ul class="tight">
+      <li><b>Same art kit.</b> The 25 barrow models (stones, lintel, birches, cairns, the raven) carry over. About five new pieces: three mound faces with doors, kerb stones, flat fallen stones.</li>
+      <li><b>No simulation change.</b> It's the first arena floor derived from the simulation's own geometry instead of a minimap trace.</li>
+    </ul>
+  </div>
+
+  <h3>How it would be built</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Step</th><th>Who</th><th>Size</th></tr></thead>
+    <tbody>
+      <tr><td>Floor and greybox from the spawn table, at the arena camera. No spend.</td><td>C-9 drax lane</td><td class="size">S · can start now</td></tr>
+      <tr><td>Art kit: reuse the 25 barrow models, build about 5 new ones</td><td>C-9 drax lane</td><td class="size">S–M · ~$2–3 Tripo, ~10 images</td></tr>
+      <tr><td>Paint-over of the whole site, about 100 × 98 m, at the GD-zoom density</td><td>C-9 drax lane</td><td class="size">M · ~40–60 Astra images</td></tr>
+      <tr><td>Cut the tall pieces (mounds, stones, birches) into plates that sort in depth with the characters</td><td>C-9 drax lane</td><td class="size">M</td></tr>
+      <tr><td>A skin option in the arena runtime: painted ground, depth-sorted pieces, the henge floor as the walkable edge, doors as spawn markers</td><td>arena drax (Sim Session)</td><td class="size">M · after the Warlord dressing</td></tr>
+      <tr><td>Optional: a live 3D ground layer under the sprites for footprints in snow, crater v5 and steam off the ice</td><td>both</td><td class="size">M–L</td></tr>
+    </tbody>
+  </table></div>
+  <p>The paint-over is the cost to watch. It's about five times the first barrow's painting and draws on the same weekly Astra allowance as the enemy lanes. So I'd start the greybox now and the painting once the enemy work for waves 151–156 is done.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Rule with one word each</span>
+  <h2>barrow_v2 forks</h2>
+  <p>Each fork has my recommendation first. "Accept all" takes every recommendation.</p>
+  <div class="forks">
+    <div class="fork"><span class="id">F1</span><span class="q">The floor's shape</span>
+      <p class="rec"><b>Recommend A:</b> the henge shown above. It's convex, contains all six spawn circles, and matches the simulation exactly.</p>
+      <p class="alts">B: a hub with five walled passages out to the doors, which is more enclosed and more barrow-like. But monsters chasing you from another passage would hit the walls where the simulation has none, which counts as a recorded mismatch. C: paint the barrow over the current traced floor, which leaves two spawn points outside the walls.</p></div>
+    <div class="fork"><span class="id">F2</span><span class="q">Obstacles inside the floor</span>
+      <p class="rec"><b>Recommend A:</b> none. The simulation has none.</p>
+      <p class="alts">B: two to four cairns that block only you, an arena-feel choice with a recorded mismatch. C: obstacles that block monsters too, which needs a new reference fight (REFERENT-v2).</p></div>
+    <div class="fork"><span class="id">F3</span><span class="q">The six green pools</span>
+      <p class="rec"><b>Recommend A:</b> drop them. Frozen tarns are walkable decoration, and the crater v5 ice reaction gets a stage.</p>
+      <p class="alts">B: keep six damaging pools re-themed as grave-blight. The footage never measured their damage, so a number would have to be decided.</p></div>
+    <div class="fork"><span class="id">F4</span><span class="q">The theme</span>
+      <p class="rec"><b>Recommend A:</b> the King's Henge, with barrow doors as spawn points and the King's Barrow north.</p>
+      <p class="alts">B: an open snowfield ringed only by standing stones, with no mounds. It's simpler and cheaper, but monsters have nowhere to come from.</p></div>
+    <div class="fork"><span class="id">F5</span><span class="q">How it renders</span>
+      <p class="rec"><b>Recommend A:</b> painted ground and depth-sorted pieces in the arena runtime first, with the live 3D ground layer added afterwards.</p>
+      <p class="alts">B: a full 3D version with the heroes and enemies as 3D models. It's the largest job and leaves the sprite packs behind. C: the painted plate only, never adding the 3D ground.</p></div>
+    <div class="fork"><span class="id">F6</span><span class="q">When to start</span>
+      <p class="rec"><b>Recommend A:</b> greybox now (no spend), painting after the enemy lanes finish waves 151–156.</p>
+      <p class="alts">B: paint now, in parallel, competing for the weekly image allowance. C: wait until the Barbarian is in the arena.</p></div>
+    <div class="fork"><span class="id">F7</span><span class="q">Which monsters fight there</span>
+      <p class="rec"><b>Recommend A:</b> the same roster as the arena reference, which is fixed by the simulation. The Glitch Archive frame lets realms bleed into each other.</p>
+      <p class="alts">B: a barrow-native roster of draugr and the Barrow King. That's a new reference fight (REFERENT-v2), designed and simulated from scratch.</p></div>
+  </div>
+</section>
+
+<footer>
+  Conductor: gandalf (Run C-9 Phase 2). Sources: Sim Session reply on remaining lift and arena specs; <code>reincarnated-engine/data/kc2/kc2_crucible_emitter_geometry_v3p8.csv</code>; <code>reincarnated-godot/kc2_play/data/crucible-arena-geometry-v1.json</code>; <code>runs/C-9/barrow_full/</code>; the C-9 ledger through R-C9-137. Nothing on this page has been started except the enemy lanes you authorized.
+</footer>
+</div>
