@@ -62,7 +62,7 @@ for c, n, sk in ONE:
 states['hit'] = st('hit', 'oneshot', 'oneshot', 8, 'ends', manifest_entry='clips.hit')
 states['death'] = st('death', 'oneshot', 'oneshot_hold', 16, 'ends', hold_last=True, manifest_entry='clips.death')
 if 'emerge' in M['clip_len_s']:
-    states['emerge'] = st('emerge', 'oneshot', 'oneshot', 12, 'ends', manifest_entry='clips.emerge', skill='p05 emergence (the unfold-up approach)')
+    states['emerge'] = st('emerge', 'oneshot', 'oneshot', 16 if M['clip_len_s']['emerge'] > 3 else 12, 'ends', manifest_entry='clips.emerge', skill='p05 emergence (the unfold-up approach)')
 sockets = dict(main_hand=dict(bone='RightHand', along_bone_m=TIP['RightHand'], _what='the right hand\'s TIP (+%.4f m along +Y, measured): the strike / throw hand (en09)%s'
                               % (TIP['RightHand'], '; the brute\'s HUGE right fist' if g == 'b' else '')),
                off_hand=dict(bone='LeftHand', along_bone_m=TIP['LeftHand'], _what='the left hand\'s tip (+%.4f m)' % TIP['LeftHand']),

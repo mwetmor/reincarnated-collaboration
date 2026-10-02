@@ -1,0 +1,15 @@
+{
+ "base": {
+  "pass": "p1",
+  "body_sha256": "(the 6b000fe19 export; every clip but emerge is behaviour-identical: release/loops/speeds measures equal)",
+  "why": "round 4"
+ },
+ "new": {
+  "pass": "p2",
+  "body_sha256": "56d71889ad9297e3b2db6b96ee8dfcd33bb16d44f1bdae245526a762b4a705e7",
+  "kit_sha256": "6083058e1c9657d731633c4b9c3ca0c34a8c80c478aa36625d46388277e9e383",
+  "tool_sha256": "2682e46ed9e418b8c4d539b8bfc3380dc8aa0445e8eb93f6ba6905c8dae3e5e7",
+  "ts": "2026-10-02T07:10:44",
+  "why": "conductor: the LONG emerge (4.933 s, roster window 4.9 s) -- emerge/* only, 16 frames"
+ }
+}

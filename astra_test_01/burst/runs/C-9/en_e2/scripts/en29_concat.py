@@ -1,5 +1,5 @@
 # EN-E2 round 4: build a clip by CONCATENATING two grafted clips on their own keys (pure glTF edit; no resampling inside either part).
-#   python3 scripts/en29_concat.py <in.glb> <out.glb> <new_name> <clipA>@<t0>:<t1> <clipB> [--drop clipA,clipB] [--blend n]
+#   python3 scripts/en29_concat.py <in.glb> <out.glb> <new_name> <clipA>@<t0>:<t1> <clipB>[@<t0>:<t1>] [--drop clipA,clipB] [--blend n]
 # Part A's window [t0, t1] (its own key times inside it), then all of part B shifted to start one key interval (1/30 s) after A's end,
 # with B's first --blend keys (default 4) cross-faded from A's last pose (slerp / lerp), so the joint has no pop. Channels present in only
 # one part are held at that part's value through the other. Used for the brute's EMERGE: crouch idle (held) -> crouch to standing idle.
@@ -13,9 +13,11 @@ DROP = a[a.index('--drop') + 1].split(',') if '--drop' in a else []
 js, b = L.load_glb(IN); bn = bytearray(b)
 an = {x['name']: x for x in js['animations']}
 ca, win = SA.split('@'); t0, t1 = (float(x) for x in win.split(':'))
-TA = G55.tracks(js, bn, an[ca]); TB = G55.tracks(js, bn, an[SB])
+cb, wb = (SB.split('@') + [None])[:2]                       # round 5: part B may carry its own window too (clipB@t0:t1)
+b0, b1 = (float(x) for x in wb.split(':')) if wb else (-1e9, 1e9)
+TA = G55.tracks(js, bn, an[ca]); TB = G55.tracks(js, bn, an[cb])
 keysA = sorted({float(x) for d in TA.values() for t, _, _ in d.values() for x in t if t0 - 1e-6 <= x <= t1 + 1e-6})
-keysB = sorted({float(x) for d in TB.values() for t, _, _ in d.values() for x in t})
+keysB = sorted({float(x) for d in TB.values() for t, _, _ in d.values() for x in t if b0 - 1e-6 <= x <= b1 + 1e-6})
 dt = 1 / 30.0; off = keysA[-1] - keysA[0] + dt - keysB[0]
 times = [k - keysA[0] for k in keysA] + [k + off for k in keysB]
 targets = {(n, p) for d in (TA, TB) for n, dd in d.items() for p in dd}
@@ -46,3 +48,4 @@ for (n, p) in sorted(targets):
 js['animations'] = [x for x in js['animations'] if x['name'] != NEW and x['name'] not in DROP] + [{"name": NEW, "channels": ch, "samplers": sm}]
 js['buffers'][0]['byteLength'] = len(bn); R_.write_glb(OUT, js, bn)
 print('CONCAT %s = %s[%.3f..%.3f] (%d keys) + %s (%d keys, first %d blended): %.4f s; dropped %s' % (NEW, ca, t0, t1, len(keysA), SB, len(keysB), BL, times[-1], DROP))
+if '--json' in a: json.dump(dict(new=NEW, a=SA, b=SB, keys=len(times), length_s=round(times[-1], 4), blend=BL), open(a[a.index('--json') + 1], 'w'), indent=1)

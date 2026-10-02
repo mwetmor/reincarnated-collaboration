@@ -11,12 +11,12 @@
   "indexer": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/index_cells.py",
   "indexer_sha256": "2115ceca44e9060484e8c2e1161c80e6229ae84b38eaf529505eda9ebcd7009e",
   "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-brute.json",
-  "kit_config_sha256": "c70ac75982e0d9f8115143d4b1e4ca82934d5e85fc3b5cb20a2a380d5128fa7d",
-  "ts": "2026-10-02T06:58:00-0400"
+  "kit_config_sha256": "6083058e1c9657d731633c4b9c3ca0c34a8c80c478aa36625d46388277e9e383",
+  "ts": "2026-10-02T07:10:57-0400"
  },
  "source": {
   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_b/en_b_body.glb",
-  "glb_sha256": "0f55fada460416cd0d72241513a0e833a0087da195b9b1b994adff7d264b6162",
+  "glb_sha256": "56d71889ad9297e3b2db6b96ee8dfcd33bb16d44f1bdae245526a762b4a705e7",
   "pieces": [],
   "h_model_m": 2.2996,
   "h_model_method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres (every 7th vertex; sole 0.0003, crown 2.3000)",
@@ -29,7 +29,7 @@
  },
  "clip_manifest": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-brute_clips.json",
-  "sha256": "8ff630c86ca4bc723bf1c4c065f59452d9a78ab9ac3c5948a732e785d1e82ff9"
+  "sha256": "e927c3def9ae38de6b7a0b5624a5d5035fb56f48e7778f0119156752d12dee5f"
  },
  "camera": {
   "projection": "orthographic",
@@ -344,23 +344,27 @@
    "role": "oneshot",
    "clip": {
     "animation": "emerge",
-    "duration_s": 1.633333,
+    "duration_s": 4.933333,
     "manifest_entry": "clips.emerge"
    },
-   "frames": 12,
+   "frames": 16,
    "t_s": [
     0.0,
-    0.148485,
-    0.29697,
-    0.445455,
-    0.593939,
-    0.742424,
-    0.890909,
-    1.039394,
-    1.187879,
-    1.336364,
-    1.484848,
-    1.633333
+    0.328889,
+    0.657778,
+    0.986667,
+    1.315556,
+    1.644444,
+    1.973333,
+    2.302222,
+    2.631111,
+    2.96,
+    3.288889,
+    3.617778,
+    3.946667,
+    4.275556,
+    4.604445,
+    4.933333
    ],
    "root_motion": "stripped",
    "stride_m_per_cycle": null,
@@ -385,7 +389,33 @@
  },
  "morphs": {},
  "runtime_resampling": null,
- "render_passes": null,
+ "render_passes": {
+  "p1": {
+   "pass": "p1",
+   "body_sha256": "(the 6b000fe19 export; every clip but emerge is behaviour-identical: release/loops/speeds measures equal)",
+   "why": "round 4",
+   "cells_in_pack": 64
+  },
+  "p2": {
+   "pass": "p2",
+   "body_sha256": "56d71889ad9297e3b2db6b96ee8dfcd33bb16d44f1bdae245526a762b4a705e7",
+   "kit_sha256": "6083058e1c9657d731633c4b9c3ca0c34a8c80c478aa36625d46388277e9e383",
+   "tool_sha256": "2682e46ed9e418b8c4d539b8bfc3380dc8aa0445e8eb93f6ba6905c8dae3e5e7",
+   "ts": "2026-10-02T07:10:44",
+   "why": "conductor: the LONG emerge (4.933 s, roster window 4.9 s) -- emerge/* only, 16 frames",
+   "cells": [
+    "emerge/E",
+    "emerge/N",
+    "emerge/NE",
+    "emerge/NW",
+    "emerge/S",
+    "emerge/SE",
+    "emerge/SW",
+    "emerge/W"
+   ],
+   "cells_in_pack": 8
+  }
+ },
  "cells": {
   "idle/S": {
    "status": "COMPLETE",
@@ -441,7 +471,7 @@
      "sha256": "bf3499a1743726644b2d39ed0f33b8621872aa161218a33143cee8014be12c6d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6471c2bbdc36db11326001390839bab95e1a4fdf640ca12dfb100c78730154c6",
    "alpha_union_bbox": [
     273,
@@ -758,7 +788,7 @@
      "sha256": "095b0575e2d4c542dd6e8d01f64ebe6ee9dff17fd19d5a0cb41d2e3ae026138b"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "330a7bcd15fbaf4f07b41007f0a8c0af7ca347b98ce155a151c5db2150cc5cd0",
    "alpha_union_bbox": [
     286,
@@ -1075,7 +1105,7 @@
      "sha256": "c363fc9179cc4a4d6f1a59c249651946b61068e84bc076d377f1ca7dc83507b7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "dca1ecdb165fa53a6d4ebf3971ed5018ea26a9235c9b0fd71404d43c883cb76b",
    "alpha_union_bbox": [
     299,
@@ -1392,7 +1422,7 @@
      "sha256": "3468cb8c847e202d118962d2ec033809a633a3c367e9e7690a47efa5bc3a6388"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "f60661cc0edf16ffd09514f7700d7c2be1512fce45a18e516849ab978dfdcf0e",
    "alpha_union_bbox": [
     268,
@@ -1709,7 +1739,7 @@
      "sha256": "a26eb99db189e335922ccbdc6d46e0964dccd4ff369ade6152050b7551620912"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "05c35b5c84d7bc8bb9538a3350bdd1bc59cd35cd9e4e0d66b6c31d20a1a0676a",
    "alpha_union_bbox": [
     281,
@@ -2026,7 +2056,7 @@
      "sha256": "7acf2f3db03a60d52e299fc9b00356fb966fca86e02a1b89a41885c7d1aa513f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ba223cae0d36617f66969baca0bc104ebc433b40e81303fbf7b076bfc7ba2f7d",
    "alpha_union_bbox": [
     300,
@@ -2343,7 +2373,7 @@
      "sha256": "db4f55678eed9f2522a69e5582221e637c70a25f8dca3d283caf9f08a9156ab8"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "bc8e30d8a2969c06ad5de1d0bd932051273d501d44b00952967c56067af958ce",
    "alpha_union_bbox": [
     309,
@@ -2660,7 +2690,7 @@
      "sha256": "7fda9c774d04463d24f08122ff398f557a06be440889d19138e1090f3b34a455"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "53f4dbd070760ad2c57358f6e99e82619b4605244c70dfa38b3a3b46755e248e",
    "alpha_union_bbox": [
     286,
@@ -2977,7 +3007,7 @@
      "sha256": "f077c0c472b5c8a60ccdd43e1684fdd64068fb8050f53939f36b4180788b67ad"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d54d4cb58ba423a1db024ae8cd0adaf395d15a56292385323ef1d5cb51b47ed0",
    "alpha_union_bbox": [
     254,
@@ -3294,7 +3324,7 @@
      "sha256": "d0a70e7fde88aa01fda7467e2f9270a74298f49b74c971e5f3c6a422c0a19b32"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "c5da940600f2a29e139cf231075ce5484190b8f933e8f56234d950730dbb74ad",
    "alpha_union_bbox": [
     255,
@@ -3611,7 +3641,7 @@
      "sha256": "3b8f41e5ff7b83a517d849e8569350d554bb145e23760653d784b0fa856aba85"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "43561c15547ef18448910ba0e38912195a5c5bb2a819edd61129d3a3430670c3",
    "alpha_union_bbox": [
     237,
@@ -3928,7 +3958,7 @@
      "sha256": "da907c23f8e423b97855a1afac291b23de0c27665943e790083e0684c2dc80b6"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "22e8313196dd2911a61fb2eec00ce8032c930edb8b7e9aa344191c845e5c4487",
    "alpha_union_bbox": [
     234,
@@ -4245,7 +4275,7 @@
      "sha256": "4d4a49b5182c402692d811464cdff954cf2934ca716d49bf123746f7484edfc9"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d31a139fe8e7ce9276c3fdd0926dc2fc5448022ab5ade40eff51c8f5a82135e2",
    "alpha_union_bbox": [
     277,
@@ -4562,7 +4592,7 @@
      "sha256": "d55add4004c818175beed8dc1dff69e785e1976e2c50937c158f71b46e755424"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d496df617d05e9a559c68fae37569501d356bda63af75abac29a2e951a63e5b4",
    "alpha_union_bbox": [
     257,
@@ -4879,7 +4909,7 @@
      "sha256": "05453a1a42ca19932faa3dcbcc8d08bbafbf82d873e5e12b812c55cb8d55e25b"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "5acb902ad3243776b81dba21a6e699160d3a0682d0387359ab129ef878477bbe",
    "alpha_union_bbox": [
     265,
@@ -5196,7 +5226,7 @@
      "sha256": "bee705b563847adf2c59eac883b434b1d8b50d07dcd8c8a05c258799c92dd52c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "a8b628ae4e9fe25b0cf702a9ba497aa60b87bdf8980ddec566adb2fe878f96fe",
    "alpha_union_bbox": [
     254,
@@ -5513,7 +5543,7 @@
      "sha256": "568860ba3b43b1110d73bdd189eda40cda9de01d6c0b49c27147e22873bf776d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "5aa9175aca7ceac52730f0122e103432b2cc935c71ebabd858f3d729fde0d87c",
    "alpha_union_bbox": [
     259,
@@ -5830,7 +5860,7 @@
      "sha256": "4a81fefd02581fccbb1e92850cc8bad019dae95ceef5394c11801538a42ac78e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "f3e60ec195cc936babb970e18df23740e4ab9b4005b503d3075c50581f96d7bb",
    "alpha_union_bbox": [
     259,
@@ -6147,7 +6177,7 @@
      "sha256": "1dd5465a26176b7a6597bb555e22c7b18a50d093cf0e75fcc6f8cf15cc9ab6df"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "228abe982770b5160bd24d19c98d2c6d9c82f380ea424224bc2e2bfca3c0f876",
    "alpha_union_bbox": [
     240,
@@ -6464,7 +6494,7 @@
      "sha256": "71f8586e770dd6b13c465e6102068fc4b53ab86c43e60ef989c949ebb399e4f1"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "bb4fe25315473fe1bd64c572a4f723fd872b2f409b69f50766ef3904e449d91f",
    "alpha_union_bbox": [
     255,
@@ -6781,7 +6811,7 @@
      "sha256": "56fcacc780f1ddb6c7f4f8c61bc7dfffe66b17f73ef9b48207f220584a70352c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "4407d59076ebe908ae2b342d8997134d7c5d87a801615d04580079d9bdf63c3f",
    "alpha_union_bbox": [
     274,
@@ -7098,7 +7128,7 @@
      "sha256": "1afa7f8bf815ebc8525c3fbe621461c4c322f0c5b49003bb481441f50e13a9d6"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "1a959d0f2a62c1393e29ed8c54fccfda212faa986dd6496ae66425984f5979c8",
    "alpha_union_bbox": [
     243,
@@ -7415,7 +7445,7 @@
      "sha256": "a1fa1a13aa99c34e76a530291db4f4780fbc5c5eb9f56d40fb00d1f952d06542"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d394b37e4bb73b14b36467b1fd5356fa25d78ed594ad27b3434b169bb640b407",
    "alpha_union_bbox": [
     241,
@@ -7732,7 +7762,7 @@
      "sha256": "f605af6475eb6669c0f702942b53b1ad9cb6a907be85734358b95cfae902ec9e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "030244840d1b1a17e20810b59d75539f2a37b7f5488508c372d7420d906ee8ac",
    "alpha_union_bbox": [
     249,
@@ -8049,7 +8079,7 @@
      "sha256": "4af756f145c7855995c4d5297f3b718360ce0373eaff4fda3dbaf4b1be5616bc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "130ba510362712b013ce6832f63caab448aa808f3a80236fdc209b1f9d477487",
    "alpha_union_bbox": [
     183,
@@ -8366,7 +8396,7 @@
      "sha256": "8269640e41af0505d4d7bb3c3f1c29b4eb20ff1dfedc2b3ca1e21d77fdf09af7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "992590c671679d316c2e0ad514368557416419e13e24f322749027716854293b",
    "alpha_union_bbox": [
     98,
@@ -8683,7 +8713,7 @@
      "sha256": "b300ec9165b8152f766b8375b69b147718e6476187836aa2521a3bb7e126e669"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6adc1149e001f929094e3784437212bb31febe08ecbe6d3c02958b4ba2499e5a",
    "alpha_union_bbox": [
     163,
@@ -9000,7 +9030,7 @@
      "sha256": "d468a82c42c6270f5a33bf23f59b82fd70db403936d4e6a91e4772fe61589fec"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "34a8d600e4698f67cb2da3580828add51c3fedea1b1d627378bd50abbf794307",
    "alpha_union_bbox": [
     165,
@@ -9317,7 +9347,7 @@
      "sha256": "319a4d081fedc4ea6f10995a68afd6a26e38047e2c3898c1ed2e0bc61347f945"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "09c1c4e0087afaa29e8affae76ab5bb20c4785c60924d88cc46807ffa1f049cb",
    "alpha_union_bbox": [
     157,
@@ -9634,7 +9664,7 @@
      "sha256": "0196204a590e454be85f98349e674a022e850530f4195cd7411a5c779b2a7f45"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "2def3164a464a9290b2eab0187e502ace7df0483c6c7db3cb19a9681e60b8f7e",
    "alpha_union_bbox": [
     167,
@@ -9951,7 +9981,7 @@
      "sha256": "ea981b98e7d239754d8bbe9a515f4f5252ee4fd787e9de0c1dfe4b147bcc4320"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "f3b3973198827435dcbdda169c4f66a4b5d23cc1a09e4823b8435f69d7a30735",
    "alpha_union_bbox": [
     140,
@@ -10268,7 +10298,7 @@
      "sha256": "0568f87b76cfec6cd30106ee7e386bcae51042b62796964652f00b2c00683eed"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "92f68aa659400d8d987d602af15c202449da63570ce65cb11243c80bde85f8a7",
    "alpha_union_bbox": [
     99,
@@ -10585,7 +10615,7 @@
      "sha256": "ecede7619276062600a06cfe2e8e3d88c0e4d3edd6d26bac5f7458a81563d597"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d47633a71f131947181f883d007e25e5c021cd6e0a8b4cb6811ebde46166bcad",
    "alpha_union_bbox": [
     219,
@@ -10902,7 +10932,7 @@
      "sha256": "ff520296ef150dd5694c0ff1e3cb4685260d187ecdd3c13a28fa43556944f3d7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "9b5156b3abe5fa4f5f76077b73a789ca409566bb8ff14b72817071d7a61616d6",
    "alpha_union_bbox": [
     208,
@@ -11219,7 +11249,7 @@
      "sha256": "6da8c99291e8623478e8b04902aaaeb8b896cf999ed9a359c764a6d4b4a3be14"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "37f1a8d94155a919cc197d983b5d23d2f1d235a84a2950efc1f2eeb565261a77",
    "alpha_union_bbox": [
     194,
@@ -11536,7 +11566,7 @@
      "sha256": "36141218805a1c692e37dcec70427647137251955de1e397d0f3b66cc19833f3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "81cb4c1a186a270be43a1bf96cab2f42dffe01ef45e11b2d6bde8f3570d7d5c1",
    "alpha_union_bbox": [
     166,
@@ -11853,7 +11883,7 @@
      "sha256": "0f51a59d1f1674c661a9edb6fe8dccdb3f0089d728693ed088307b3d83e21767"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "8b62aa39c3ce4b2014950aef6f3feaebd414fe9cda39e33aedb35e13593f9646",
    "alpha_union_bbox": [
     230,
@@ -12170,7 +12200,7 @@
      "sha256": "41dbf2838e0b6e58f7242b0aede100eed6692ec673b4fd4cd3dce68f698fb2da"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "45bf892b2ba980eb37d7ba323f6488962b0ce177ea4379321b9abd16628242c7",
    "alpha_union_bbox": [
     258,
@@ -12487,7 +12517,7 @@
      "sha256": "b467fca1f82decf199a2710d0278e1d2b81e5c261b04297971d40fa3c2cadde1"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ac36296ae92208c10b6699df0e9ad2d5dfe94972d9f9fbd63ce371d387d37d0a",
    "alpha_union_bbox": [
     227,
@@ -12804,7 +12834,7 @@
      "sha256": "309ddf8e7433aa2071166d8e1376a49a4e361846241387991be3112cc8f4187c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "9a3cccfd10854da56edbe73b5a7e85bf5b56d442de6e19b2479ca392918898a1",
    "alpha_union_bbox": [
     190,
@@ -13137,7 +13167,7 @@
      "sha256": "fd4f8ebd8e404a7af59e1396319b492ea396939b9d00cf30b728c71587eeacab"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "31533321e3532d7b989e74dbd507af68a7c9bbcf34914e6cc2b3a591efb9a23f",
    "alpha_union_bbox": [
     150,
@@ -13550,7 +13580,7 @@
      "sha256": "4358ea68c6c8d00ef98078e36a49df3eaad2f2c3fcb22d14d36ffa70a3aa5723"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d0551522c491a9306397c3aa57e2c17174e4bbcf6fa1ce649c1e76e677907fa1",
    "alpha_union_bbox": [
     189,
@@ -13963,7 +13993,7 @@
      "sha256": "b08c1306fe31c3163bfe256dc9fda289dbf88ccad95d3814fcfd26d7290e506f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "396e6e0af0765c0ac8b410240509accbf059e4ffdd1dd76a8b8e21301874911c",
    "alpha_union_bbox": [
     205,
@@ -14376,7 +14406,7 @@
      "sha256": "fcfae75d8dae89907fe02a29b25654c89f227a422834d4780adf867e9e36c8e3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d214c8f862cb3303e09976afd3eabe2a43f7cf3ba3e86602dfa3625c20b2b9a9",
    "alpha_union_bbox": [
     174,
@@ -14789,7 +14819,7 @@
      "sha256": "5bf4e7aec8154f22a5aad38ab29fa14af021e8c923a49b020afdf2f38218ef06"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "d44329dd9738c1b6af1919f08c27a0463e2e8b5e407129053061aee97e6bc988",
    "alpha_union_bbox": [
     193,
@@ -15202,7 +15232,7 @@
      "sha256": "780cb8e1778f670a98c09efe7c23753318f2df2d3c1ea37b0894eeb2040ed85c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "af2e22a01d68e00ed9edb96d61432cafb7e820e1b6eda39d01ff0b3c4b7da295",
    "alpha_union_bbox": [
     274,
@@ -15615,7 +15645,7 @@
      "sha256": "5fe9248cc1d64598680d9723bca0aa35f653a2d5635e79bba53756e53e277c83"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6e1c6db1400b03f19d3c3f3ec0ac7001b39cbd0892cf7aa4273d59a943b50035",
    "alpha_union_bbox": [
     210,
@@ -16028,7 +16058,7 @@
      "sha256": "6edf6ae254ef407a7cc65f99dd01c922cb8adc26082801e86fb83277a3cc8fbc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "785a7dcffc1026a90369db0ff168d879a3b0cd96df00fd7e80432d16a1f6ac70",
    "alpha_union_bbox": [
     156,
@@ -16409,7 +16439,7 @@
      "sha256": "95c3c679c31207395c1d9f13c30933d2868b14d6d58716b75b7b57bd6a6fe9dc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "703d7550f9db8666a0686c3bd0e06d735b38f191137ae124c5f036a257735993",
    "alpha_union_bbox": [
     202,
@@ -16630,7 +16660,7 @@
      "sha256": "bc0639563167a4719600a388504427dfe6302b57deb5a75fcc7672f6b56280e7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "ae7256e394c01cf3d8e23387a39a4b2dd14327dd281b1fb2662c0505fcab337a",
    "alpha_union_bbox": [
     241,
@@ -16851,7 +16881,7 @@
      "sha256": "60da70f5ef821f52f1395c7a928ee7630a86dd94cf43d5fa55e6412df092c247"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "fe39d64d1989c4be1d13aa6f5bf461fbef5bd862e2d42fc54135f3c611494d69",
    "alpha_union_bbox": [
     227,
@@ -17072,7 +17102,7 @@
      "sha256": "c78864ec3e3841932074b350bd6528bc4fda7bcff643a20a9d6025ed299762a3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e195c70d5438569792152d340334aa3ae2280d636a0375a53731a46d949bbbb8",
    "alpha_union_bbox": [
     240,
@@ -17293,7 +17323,7 @@
      "sha256": "dfafb3569ca92c6142b9071a8c54a7316b8cf3161beba995f5cd3b4b01f4a64e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "536b6552afa332a5169be24edfa3ffd2a29afbf539b64a199d38db356c988079",
    "alpha_union_bbox": [
     300,
@@ -17514,7 +17544,7 @@
      "sha256": "4c0c5d09a9485ce417d6188be532df9bfa04300182e6df109a7d727172aa28c8"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e8f6ffe53529c1d2f09e18bc2ad3fcfbbf2fca683a3be73dcb51809e27e4c300",
    "alpha_union_bbox": [
     310,
@@ -17735,7 +17765,7 @@
      "sha256": "0f3bb6bc8473fa6a428ef2cf7d9fa48e57b0acb4cffa0746eb6ca2c018ea9a10"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "5a3c3fe40f6227d2084f804ada68ad89a1a674378c7fe1fecf87a3a8c400f26a",
    "alpha_union_bbox": [
     243,
@@ -17956,7 +17986,7 @@
      "sha256": "557a04a8a50de809161da6dbe59854be9cb8502e7c325c968aa78a6fb1effb36"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "3aa7b39bc0bbf106aafa13cfc4b9dcc59816ac6cb7cf7a926fc9bbbcef804228",
    "alpha_union_bbox": [
     170,
@@ -18209,7 +18239,7 @@
      "sha256": "76f97370d0e5676ec0151f21a061d3aeb2579e05b8dad488a1ca5a2709b17463"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "a855f19c961d32b1e76742d9b3beb69af1e60fb71018163a08ed30ace201fe1c",
    "alpha_union_bbox": [
     108,
@@ -18622,7 +18652,7 @@
      "sha256": "0860addd461296f33d69682d2760aa2c9cacde007975fa33e1a93dd6ae8ab053"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "14a7aba1048dc4101dfee89d4382a4fa2b7ec888b1335608a911e3e37d442912",
    "alpha_union_bbox": [
     190,
@@ -19035,7 +19065,7 @@
      "sha256": "8683f38b1063cd73f787b2b4b054e0bed5cff437cb8fec2bb4c01c63f6743f07"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "4da07833a8795aaeaef39188f1f73ab18efd8088034424a4c2c733349e78c5cb",
    "alpha_union_bbox": [
     177,
@@ -19448,7 +19478,7 @@
      "sha256": "193347448220874db8d661e63d821641b0e78ae8450bbe77227e1f549b1bd38f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "8a640d074285419b58c88979e3a1aa10f958a7bd1d3ec783816a87f8602689e0",
    "alpha_union_bbox": [
     183,
@@ -19861,7 +19891,7 @@
      "sha256": "2e426b66cd63450bf636128c9fabee4cc2d6afa67a9126e836c12b12304e2d09"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e612412f5f733ec98228099ff6a694a1d9b1a275e4b93e05ebfc8aaa83e10b6c",
    "alpha_union_bbox": [
     173,
@@ -20274,7 +20304,7 @@
      "sha256": "af93141400c64a0fa15cede466ec5b1a341a80d526b913d7ab0e5180acedaebd"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "620c35853a8c629da975dd859b89eed58ce2b5d1823bbf82b8f4be7b6c45f851",
    "alpha_union_bbox": [
     185,
@@ -20687,7 +20717,7 @@
      "sha256": "2eac19f3782661283a68fbddb28384efd5ed69117c87d4136674b864413c91c3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "e16a50704b774698df435b50839df456a62b28a90319a257839af5861b66dde1",
    "alpha_union_bbox": [
     203,
@@ -21100,7 +21130,7 @@
      "sha256": "ed7797e44232213b6d48cc691b8467a8c7ff5ce4c54ce0ea12439b1cf9f6b00c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "p1",
    "cell_sha256": "6daac8d3f3f0e92ae71015419d121c56d147f8151c6783838afb46efafca3ffc",
    "alpha_union_bbox": [
     160,
@@ -21446,63 +21476,79 @@
   "emerge/S": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_S_00.png",
-     "sha256": "f9afd59a19500283f718f4786d34c134fc4c17072c5cdeecaab950a33c30698b"
+     "sha256": "00f62242b84c3e286bfd95739f7954ef58fb3b348a96250c746f4bbaee352b7b"
     },
     {
      "name": "emerge_S_01.png",
-     "sha256": "2ee95f540dba100f3ad284980e63ce01a14c256747a2fa0be4fe14342de1c0dd"
+     "sha256": "abac80253439054c3b58d9ce76b957770f8c712f7193419e808b89f09eefe0db"
     },
     {
      "name": "emerge_S_02.png",
-     "sha256": "b4ea98227a2d99f4787adb855fd09837c570258481df0caea054855d1ef80394"
+     "sha256": "b1135f6844c6d6cc3d811752a7b4497de10f8cf77094aeee60e2b6af30c18a14"
     },
     {
      "name": "emerge_S_03.png",
-     "sha256": "226d00bf4b1f0d7daa62f54908f76c23d362a1353c5d22c3acbd965c9f645c5d"
+     "sha256": "36c0dd368a25a50203cd1ff96a2c2e5363ef104c0d284f70a724b3626317328a"
     },
     {
      "name": "emerge_S_04.png",
-     "sha256": "363b2890b2277ad8c8f87dc4741f2bcb42b15441ed745db546ed4223d5eec6ce"
+     "sha256": "7f65af607288ac895286639c898c93cfabfd86e205e02b1801822846049d75e4"
     },
     {
      "name": "emerge_S_05.png",
-     "sha256": "096a7b90d9481435d0eef4f1732e1ecf10a00e4244371211b51b77baf44fab0b"
+     "sha256": "d77fc092f47f21c32efe7b95e95f561db4be238fe0a2bd763eb79e998908a4f2"
     },
     {
      "name": "emerge_S_06.png",
-     "sha256": "a88281a166234fb24a94203cdc10e65fc37eaac2d1f8ee7e7b8307d77ce96e1b"
+     "sha256": "b574c5210e4366d9237cbf4d9351743540ed111278936738c79958c76c520028"
     },
     {
      "name": "emerge_S_07.png",
-     "sha256": "e7af0e568cd0dfbcca5e78729ba37a0831eb22922c992dc44a73269cc8e6995f"
+     "sha256": "c43d055b20b9235d41c0a844990336db343479b6f4629bdc85976a2a93d6f7e0"
     },
     {
      "name": "emerge_S_08.png",
-     "sha256": "6c814dc5f976a1af57315f6adfb087b38f1c65a7ab659bae5a755030cccb27dd"
+     "sha256": "7e242d1f7f984447c94d88f373e6cd0553e80f1c444e351e765a526318615f0a"
     },
     {
      "name": "emerge_S_09.png",
-     "sha256": "625df38b7e55591a8a8ed610e095459860ab24fb11d06ce85c8fa8ac8eaa1cfa"
+     "sha256": "f76f3a711ea26a455d7719d3d6f517c38500e9a7d748425270ab9b3de3db807d"
     },
     {
      "name": "emerge_S_10.png",
-     "sha256": "2bbf45ec5cdb7762b8db574aa9ecc5792dc102e988a7bf6abd98db11e22f23a4"
+     "sha256": "0b35706c0dd1887bef6dc831cd47ce1178eced06276c11e6c48cbfecb8dff791"
     },
     {
      "name": "emerge_S_11.png",
-     "sha256": "87c21d5644863b5ccafe1f9abc8bb51941b98ed836196bff78f0527aff947e8f"
+     "sha256": "742a0b7fd537c388e5a7d47132327be36180f51eb507e915407783df7c4d1226"
+    },
+    {
+     "name": "emerge_S_12.png",
+     "sha256": "f502dac88d17e4035a50a0a71352265ebbf61d9a4338cc36927a53b2657a344a"
+    },
+    {
+     "name": "emerge_S_13.png",
+     "sha256": "fcb6353e791d5044621234ed7b49a8d8db9570b3fa707e6c46251475a0fa927f"
+    },
+    {
+     "name": "emerge_S_14.png",
+     "sha256": "5b4a9a6d2a60940128b0c292a219f1fb6e3375b68bcf299e5425877f8a2df8d9"
+    },
+    {
+     "name": "emerge_S_15.png",
+     "sha256": "fff3a0010f0fcf6f0cf1a0c7d833dc328f04622f2d0ee5fa834886b159bc9c50"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "9da0e45b400872a1bcf14ce35fdfe87320eb29859220f9ab2407c29e1bdec9d1",
+   "render_pass": "p2",
+   "cell_sha256": "2af433225981215602e944e390e0fb766553930445e2446aaf80bd3379c2224b",
    "alpha_union_bbox": [
     220,
     243,
-    495,
+    520,
     570
    ],
    "edge_touch": false,
@@ -21512,59 +21558,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      -0.90355,
-      -0.1193,
-      0.33345
+      -0.57513,
+      -0.53737,
+      0.28065
      ],
      [
-      -0.91066,
-      -0.12848,
-      0.3312
+      -0.60828,
+      -0.57181,
+      0.29882
      ],
      [
-      -0.93223,
-      -0.15179,
-      0.34425
+      -0.67997,
+      -0.62715,
+      0.38299
      ],
      [
-      -0.96484,
-      -0.18422,
-      0.3731
+      -0.69975,
+      -0.61954,
+      0.4098
      ],
      [
-      -0.99555,
-      -0.21955,
-      0.41962
+      -0.63327,
+      -0.57475,
+      0.32356
      ],
      [
-      -1.01614,
-      -0.24123,
-      0.46718
+      -0.57712,
+      -0.53826,
+      0.28262
      ],
      [
-      -1.02181,
-      -0.24001,
-      0.4885
+      -0.59642,
+      -0.56247,
+      0.28995
      ],
      [
-      -1.00018,
-      -0.213,
-      0.44896
+      -0.66915,
+      -0.61934,
+      0.36453
      ],
      [
-      -1.00569,
-      -0.0533,
-      0.38426
+      -0.70473,
+      -0.62415,
+      0.4205
      ],
      [
-      -1.05078,
-      0.11828,
-      0.52124
+      -0.64603,
+      -0.58413,
+      0.3365
      ],
      [
-      -1.06045,
-      0.23138,
-      0.6619
+      -0.58253,
+      -0.54099,
+      0.28752
+     ],
+     [
+      -0.58841,
+      -0.55464,
+      0.28441
+     ],
+     [
+      -0.65701,
+      -0.60952,
+      0.3471
+     ],
+     [
+      -0.70555,
+      -0.62861,
+      0.42442
+     ],
+     [
+      -1.04195,
+      0.07945,
+      0.48183
      ],
      [
       -1.06355,
@@ -21574,59 +21640,79 @@
     ],
     "off_hand": [
      [
-      0.53076,
-      0.91899,
-      0.3413
+      0.80184,
+      0.57542,
+      0.31214
      ],
      [
-      0.50295,
-      0.91832,
-      0.35274
+      0.75331,
+      0.5934,
+      0.33115
      ],
      [
-      0.49018,
-      0.92177,
-      0.36863
+      0.73269,
+      0.66581,
+      0.36973
      ],
      [
-      0.48667,
-      0.93136,
-      0.38865
+      0.80279,
+      0.69961,
+      0.38418
      ],
      [
-      0.48583,
-      0.95287,
-      0.41555
+      0.85722,
+      0.61747,
+      0.33301
      ],
      [
-      0.50117,
-      0.98452,
-      0.4461
+      0.80702,
+      0.57657,
+      0.31267
      ],
      [
-      0.54024,
-      0.99631,
-      0.451
+      0.75597,
+      0.58626,
+      0.32455
      ],
      [
-      0.56666,
-      0.97589,
-      0.41596
+      0.7374,
+      0.64681,
+      0.36378
      ],
      [
-      0.41392,
-      0.87696,
-      0.42624
+      0.78156,
+      0.70926,
+      0.38816
      ],
      [
-      0.29809,
-      0.94126,
-      0.6311
+      0.85531,
+      0.62934,
+      0.3401
      ],
      [
-      0.28412,
-      0.97225,
-      0.67304
+      0.81961,
+      0.57981,
+      0.31432
+     ],
+     [
+      0.76136,
+      0.58205,
+      0.31962
+     ],
+     [
+      0.74236,
+      0.63148,
+      0.358
+     ],
+     [
+      0.7632,
+      0.71224,
+      0.38902
+     ],
+     [
+      0.31134,
+      0.92322,
+      0.59285
      ],
      [
       0.31385,
@@ -21636,59 +21722,79 @@
     ],
     "chest": [
      [
-      -0.0805,
-      0.11659,
-      1.31766
+      -0.1072,
+      0.14292,
+      1.29059
      ],
      [
-      -0.08248,
-      0.11682,
-      1.3158
+      -0.11308,
+      0.14376,
+      1.29371
      ],
      [
-      -0.08583,
-      0.11787,
-      1.31914
+      -0.10745,
+      0.1425,
+      1.31609
      ],
      [
-      -0.08638,
-      0.1179,
-      1.32752
+      -0.10486,
+      0.14053,
+      1.31417
      ],
      [
-      -0.08127,
-      0.11654,
-      1.33799
+      -0.10251,
+      0.13742,
+      1.29863
      ],
      [
-      -0.07649,
-      0.11818,
-      1.34445
+      -0.10678,
+      0.14288,
+      1.291
      ],
      [
-      -0.07484,
-      0.11724,
-      1.34438
+      -0.11249,
+      0.14373,
+      1.29048
      ],
      [
-      -0.07705,
-      0.11438,
-      1.3366
+      -0.10935,
+      0.14234,
+      1.31277
      ],
      [
-      -0.09974,
-      0.10759,
-      1.46255
+      -0.10425,
+      0.14215,
+      1.31776
      ],
      [
-      -0.11623,
-      0.08509,
-      1.60854
+      -0.10351,
+      0.13674,
+      1.30015
      ],
      [
-      -0.12605,
-      0.06967,
-      1.6489
+      -0.10573,
+      0.14266,
+      1.29205
+     ],
+     [
+      -0.11107,
+      0.14344,
+      1.28891
+     ],
+     [
+      -0.11128,
+      0.14275,
+      1.30872
+     ],
+     [
+      -0.10418,
+      0.14351,
+      1.31989
+     ],
+     [
+      -0.113,
+      0.09013,
+      1.58503
      ],
      [
       -0.12523,
@@ -21698,59 +21804,79 @@
     ],
     "head_top": [
      [
-      -0.13303,
-      0.3079,
-      1.75247
+      -0.26023,
+      0.42165,
+      1.63828
      ],
      [
-      -0.1354,
-      0.31092,
-      1.74863
+      -0.26665,
+      0.42857,
+      1.63607
      ],
      [
-      -0.13814,
-      0.31588,
-      1.7504
+      -0.25469,
+      0.43848,
+      1.6569
      ],
      [
-      -0.139,
-      0.32261,
-      1.75632
+      -0.24919,
+      0.43613,
+      1.65844
      ],
      [
-      -0.12765,
-      0.32609,
-      1.7665
+      -0.25185,
+      0.4216,
+      1.6462
      ],
      [
-      -0.11645,
-      0.3358,
-      1.7709
+      -0.25974,
+      0.42152,
+      1.63892
      ],
      [
-      -0.11216,
-      0.33427,
-      1.77196
+      -0.26554,
+      0.42656,
+      1.63404
      ],
      [
-      -0.11834,
-      0.32208,
-      1.76813
+      -0.25903,
+      0.43574,
+      1.65384
      ],
      [
-      -0.14203,
-      0.279,
-      1.91063
+      -0.24709,
+      0.44081,
+      1.66044
      ],
      [
-      -0.14989,
-      0.25202,
-      2.06007
+      -0.25193,
+      0.42259,
+      1.64753
      ],
      [
-      -0.15439,
-      0.22774,
-      2.10289
+      -0.25846,
+      0.42117,
+      1.64051
+     ],
+     [
+      -0.26419,
+      0.4251,
+      1.6332
+     ],
+     [
+      -0.26353,
+      0.43484,
+      1.6489
+     ],
+     [
+      -0.24629,
+      0.44454,
+      1.66095
+     ],
+     [
+      -0.15073,
+      0.25997,
+      2.03538
      ],
      [
       -0.15586,
@@ -21763,59 +21889,75 @@
   "emerge/SW": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_SW_00.png",
-     "sha256": "0d0adbcfdae9ce0323911ba965c2df795f2213adb3ac9b3267aab40edf31fb3a"
+     "sha256": "e328dbed95e4f46258e68bb671d4c95854784d4589c1b37d69d470893836c197"
     },
     {
      "name": "emerge_SW_01.png",
-     "sha256": "cace0b93f3e97b789d005cb00cc070cbbc76fe7ec9662c4fc3af92034e35e843"
+     "sha256": "8fcb54140d7d349de518c28a9e8aac9aa73cf6c86495f67436cb641dfec6c42f"
     },
     {
      "name": "emerge_SW_02.png",
-     "sha256": "42da2ebbd1be332980176758d91e6dcb652ba1d8790d117a39a98830c913d7b9"
+     "sha256": "8d0a9512557433385227ae9f5ce571858a268bfbc1981ca067498e7fff17303a"
     },
     {
      "name": "emerge_SW_03.png",
-     "sha256": "2dad932643fe4d7a1c8379e9843a99298d6ac0807409b357c855270404b24a60"
+     "sha256": "7a1effed768c02228ed4a57d469bb3174a7cd6caa261d1fe9bf6e34496a28c19"
     },
     {
      "name": "emerge_SW_04.png",
-     "sha256": "041697e99466999ecdf6e65ad509869b4c26f3f298663700c370fef8d128f7fc"
+     "sha256": "4ec17a4061ecbefbbc590b4ea0dfc1cba0bbe53e2ffc2755e8ed7ae8e2f98bbd"
     },
     {
      "name": "emerge_SW_05.png",
-     "sha256": "d1489e7498fd0af61269b9964f15cc8cde067aaa8c4040023c8b42385dfa3d84"
+     "sha256": "0086d9f7ffd28f6f63a492c25e8df109a8fe387b7f3899b3af4533e6e91f2e4a"
     },
     {
      "name": "emerge_SW_06.png",
-     "sha256": "d6f53f938dbeae638aaa3620668c3dd94d4e5de3299a88d7621fb9f5f6c581b1"
+     "sha256": "f50f43ab17b93b1078f7d2fd220cb5e24a535c8648bfdeb8a3529bc9b3df003a"
     },
     {
      "name": "emerge_SW_07.png",
-     "sha256": "77d1a34e0ae51e43935ffde7292769ba0ea460a079f2712f10780b33f6689370"
+     "sha256": "1a84c1d606801ce95e916e9a63818e12481523f2429385e508c66fddb55b1c22"
     },
     {
      "name": "emerge_SW_08.png",
-     "sha256": "84eb30fc2588ce8f86789afeada1a46674c78fb2b03f2cc7f8962cc0f19e7025"
+     "sha256": "6d51696042ab6331fe5c0ba4bd12a7b98039d04ca4f746ca969677be7b6e4313"
     },
     {
      "name": "emerge_SW_09.png",
-     "sha256": "770144b5770901eb705b456c41bf02fb9dec11ba6c21afd56dd128ec0a0e7d87"
+     "sha256": "79dd8cec2c0b23f34c8538a749c393384da9e0be00403b2a6c6a1cff4c122bf4"
     },
     {
      "name": "emerge_SW_10.png",
-     "sha256": "6e0adb05ffa95c5363a6757018602d5a1b801b9f7d48085472181fa29b6bc788"
+     "sha256": "071f974bfc256ab71c22c44ee9ea6bfca70da4153e4d6af1a55dd4b94cff7726"
     },
     {
      "name": "emerge_SW_11.png",
+     "sha256": "c2c94628156b4c672ea9f76985a675e3197cad6d223d33136624dbe514e4e72d"
+    },
+    {
+     "name": "emerge_SW_12.png",
+     "sha256": "c0a27ae6266175bf2b36bdec65aaca3cfdf79278936a7223412a9eb9ab91256c"
+    },
+    {
+     "name": "emerge_SW_13.png",
+     "sha256": "467690a2cfe2ba0742cbce8a3a2a852c54cf97db9c7f6ff718d44a794558215a"
+    },
+    {
+     "name": "emerge_SW_14.png",
+     "sha256": "fa002ac52b3b2ee62652f2c2971bb7ce07fef82aa526edfbbee747a8782a4a42"
+    },
+    {
+     "name": "emerge_SW_15.png",
      "sha256": "c81615f8b26dc09a71ed7db256b1728b0d2c9b39213d3faf5702c6670d4bf83f"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "68e451ca4c7c3e87ed2546f9768c49d9eeba6e701c83fadd7a04cc2e274c40df",
+   "render_pass": "p2",
+   "cell_sha256": "d05415745faaa9476b2b3f3744973c6bd22d6aa8753f69a72844b8f3c54d49b9",
    "alpha_union_bbox": [
     243,
     218,
@@ -21829,59 +21971,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      -0.55455,
-      -0.72326,
-      0.33345
+      -0.0267,
+      -0.78666,
+      0.28065
      ],
      [
-      -0.55309,
-      -0.73478,
-      0.3312
+      -0.02579,
+      -0.83445,
+      0.29882
      ],
      [
-      -0.55185,
-      -0.76652,
-      0.34425
+      -0.03735,
+      -0.92428,
+      0.38299
      ],
      [
-      -0.55199,
-      -0.81251,
-      0.3731
+      -0.05672,
+      -0.93288,
+      0.4098
      ],
      [
-      -0.54871,
-      -0.8592,
-      0.41962
+      -0.04138,
+      -0.8542,
+      0.32356
      ],
      [
-      -0.54794,
-      -0.8891,
-      0.46718
+      -0.02748,
+      -0.7887,
+      0.28262
      ],
      [
-      -0.55282,
-      -0.89224,
-      0.4885
+      -0.02401,
+      -0.81945,
+      0.28995
      ],
      [
-      -0.55662,
-      -0.85785,
-      0.44896
+      -0.03522,
+      -0.9111,
+      0.36453
      ],
      [
-      -0.67344,
-      -0.74882,
-      0.38426
+      -0.05698,
+      -0.93966,
+      0.4205
      ],
      [
-      -0.82665,
-      -0.65938,
-      0.52124
+      -0.04377,
+      -0.86985,
+      0.3365
      ],
      [
-      -0.91346,
-      -0.58625,
-      0.6619
+      -0.02938,
+      -0.79445,
+      0.28752
+     ],
+     [
+      -0.02388,
+      -0.80826,
+      0.28441
+     ],
+     [
+      -0.03357,
+      -0.89557,
+      0.3471
+     ],
+     [
+      -0.05441,
+      -0.94339,
+      0.42442
+     ],
+     [
+      -0.79295,
+      -0.68059,
+      0.48183
      ],
      [
       -0.95377,
@@ -21891,59 +22053,79 @@
     ],
     "off_hand": [
      [
-      -0.27452,
-      1.02513,
-      0.3413
+      0.1601,
+      0.97387,
+      0.31214
      ],
      [
-      -0.29371,
-      1.00499,
-      0.35274
+      0.11308,
+      0.95227,
+      0.33115
      ],
      [
-      -0.30518,
-      0.9984,
-      0.36863
+      0.04729,
+      0.98888,
+      0.36973
      ],
      [
-      -0.31445,
-      1.0027,
-      0.38865
+      0.07296,
+      1.06236,
+      0.38418
      ],
      [
-      -0.33025,
-      1.01731,
-      0.41555
+      0.16952,
+      1.04276,
+      0.33301
      ],
      [
-      -0.34178,
-      1.05055,
-      0.4461
+      0.16295,
+      0.97835,
+      0.31267
      ],
      [
-      -0.32249,
-      1.08651,
-      0.451
+      0.12001,
+      0.9491,
+      0.32455
      ],
      [
-      -0.28937,
-      1.09075,
-      0.41596
+      0.06406,
+      0.97878,
+      0.36378
      ],
      [
-      -0.32742,
-      0.91279,
-      0.42624
+      0.05112,
+      1.05417,
+      0.38816
      ],
      [
-      -0.45479,
-      0.87635,
-      0.6311
+      0.15978,
+      1.0498,
+      0.3401
      ],
      [
-      -0.48658,
-      0.88839,
-      0.67304
+      0.16957,
+      0.98954,
+      0.31432
+     ],
+     [
+      0.12679,
+      0.94994,
+      0.31962
+     ],
+     [
+      0.0784,
+      0.97145,
+      0.358
+     ],
+     [
+      0.03604,
+      1.0433,
+      0.38902
+     ],
+     [
+      -0.43267,
+      0.87297,
+      0.59285
      ],
      [
       -0.44786,
@@ -21953,59 +22135,79 @@
     ],
     "chest": [
      [
-      -0.13937,
+      -0.17686,
+      0.02526,
+      1.29059
+     ],
+     [
+      -0.18161,
+      0.02169,
+      1.29371
+     ],
+     [
+      -0.17674,
+      0.02479,
+      1.31609
+     ],
+     [
+      -0.17351,
+      0.02522,
+      1.31417
+     ],
+     [
+      -0.16966,
+      0.02468,
+      1.29863
+     ],
+     [
+      -0.17654,
       0.02552,
-      1.31766
+      1.291
      ],
      [
-      -0.14093,
-      0.02428,
-      1.3158
+      -0.18118,
+      0.02209,
+      1.29048
      ],
      [
-      -0.14403,
-      0.02266,
-      1.31914
+      -0.17797,
+      0.02333,
+      1.31277
      ],
      [
-      -0.14445,
-      0.02229,
-      1.32752
+      -0.17423,
+      0.0268,
+      1.31776
      ],
      [
-      -0.13987,
-      0.02494,
-      1.33799
+      -0.16989,
+      0.0235,
+      1.30015
      ],
      [
-      -0.13765,
-      0.02948,
-      1.34445
+      -0.17564,
+      0.02611,
+      1.29205
      ],
      [
-      -0.13583,
-      0.02998,
-      1.34438
+      -0.17997,
+      0.02289,
+      1.28891
      ],
      [
-      -0.13536,
-      0.0264,
-      1.3366
+      -0.17963,
+      0.02225,
+      1.30872
      ],
      [
-      -0.14661,
-      0.00555,
-      1.46255
+      -0.17514,
+      0.02781,
+      1.31989
      ],
      [
-      -0.14236,
-      -0.02202,
-      1.60854
-     ],
-     [
-      -0.13839,
-      -0.03987,
-      1.6489
+      -0.14363,
+      -0.01617,
+      1.58503
      ],
      [
       -0.13391,
@@ -22015,59 +22217,79 @@
     ],
     "head_top": [
      [
-      -0.31179,
-      0.12365,
-      1.75247
+      -0.48217,
+      0.11414,
+      1.63828
      ],
      [
-      -0.3156,
-      0.12411,
-      1.74863
+      -0.4916,
+      0.1145,
+      1.63607
      ],
      [
-      -0.32104,
-      0.12568,
-      1.7504
+      -0.49014,
+      0.12995,
+      1.6569
      ],
      [
-      -0.32641,
-      0.12984,
-      1.75632
+      -0.4846,
+      0.13218,
+      1.65844
      ],
      [
-      -0.32084,
-      0.14032,
-      1.7665
+      -0.4762,
+      0.12003,
+      1.6462
      ],
      [
-      -0.31979,
-      0.15511,
-      1.7709
+      -0.48172,
+      0.1144,
+      1.63892
      ],
      [
-      -0.31567,
-      0.15705,
-      1.77196
+      -0.48939,
+      0.11386,
+      1.63404
      ],
      [
-      -0.31142,
-      0.14407,
-      1.76813
+      -0.49128,
+      0.12495,
+      1.65384
      ],
      [
-      -0.29771,
-      0.09685,
-      1.91063
+      -0.48642,
+      0.13698,
+      1.66044
      ],
      [
-      -0.2842,
-      0.07221,
-      2.06007
+      -0.47696,
+      0.12068,
+      1.64753
      ],
      [
-      -0.2702,
-      0.05187,
-      2.10289
+      -0.48058,
+      0.11505,
+      1.64051
+     ],
+     [
+      -0.4874,
+      0.11378,
+      1.6332
+     ],
+     [
+      -0.49382,
+      0.12113,
+      1.6489
+     ],
+     [
+      -0.4885,
+      0.14018,
+      1.66095
+     ],
+     [
+      -0.29041,
+      0.07724,
+      2.03538
      ],
      [
       -0.27717,
@@ -22080,64 +22302,80 @@
   "emerge/W": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_W_00.png",
-     "sha256": "05b868ce3b93d782b7fef0e2b65af007a26ec78f9578663cce542f3123f37ca7"
+     "sha256": "11560b361bb9855809865f6f2203258b9ec530463415107d108041e42b393fb7"
     },
     {
      "name": "emerge_W_01.png",
-     "sha256": "055415d2848024289fbc50b39b6864506810193cd6cdae2ade50a9f5d6668a80"
+     "sha256": "273fb3c18c4d2b53aa1dcca6eb8f232724aea47ac99389bf8d16eaa126ef42f9"
     },
     {
      "name": "emerge_W_02.png",
-     "sha256": "6200cbe5a8635ae4f2029b1c3603a0a5a23000b5329f94a3dd555868857b24a0"
+     "sha256": "de918af7bbcb4f5a8eae41a80c31eb1bdcdfcca4c14d6632ef17cae008609e3c"
     },
     {
      "name": "emerge_W_03.png",
-     "sha256": "e2196694469a5d7de0a91169635827b9b2bd15670e096db86ada2cf3f7204d65"
+     "sha256": "5726630459a3d40f3eee0c6b0d0d20707dab66ceddad055162c456fc5680f120"
     },
     {
      "name": "emerge_W_04.png",
-     "sha256": "f45f471e43d256784a5b003d6d74e06a58be649ae7fdbf6627ce5590a4525e36"
+     "sha256": "e3a90f7ad2e2c2f105571ef3494c38e0622c17baca858c2c45e6f265a67f4b52"
     },
     {
      "name": "emerge_W_05.png",
-     "sha256": "9abaf450c7ac9dfbedf0688d0f85e19ad373bb690965b9afce1741d56452e607"
+     "sha256": "21622f1d82244fce17ebca6928a70b53273091d453ee5e8f710320d1fd284e71"
     },
     {
      "name": "emerge_W_06.png",
-     "sha256": "4aad036849c303b3755e8c887442e748c6eec6e9c26ad565dc23da010635dd97"
+     "sha256": "7dee3e077c35784ec7455b7803e223c1fff3784174b170a9a91b77f431d476b5"
     },
     {
      "name": "emerge_W_07.png",
-     "sha256": "1afcd0bdb3572eb4ceefaaba211431e8e5f13b31673de821d1709f314471d0ab"
+     "sha256": "373d74ff94f215c67ea6537070132207d45766d48932b697da3d56c5ddd8811e"
     },
     {
      "name": "emerge_W_08.png",
-     "sha256": "f23cce3cd8132fc0304b1869e67d152a975b844d82fcd0605c0170b589d78188"
+     "sha256": "9c036e6540e45b054aea56efb1fe5a5807dbdbabcee2edac3a3da8e9b0bfb6d1"
     },
     {
      "name": "emerge_W_09.png",
-     "sha256": "45ac06a400da6254ed86541c8b0c346d69c25766c58c1afa0fcbc5dcb54ef5e6"
+     "sha256": "30df741ec0c5d5e484f714bbb3fa3aa94d06ac403b56e0c8a084e7804afdfed5"
     },
     {
      "name": "emerge_W_10.png",
-     "sha256": "b6206b9ae247bd699655ce6b8bbdb30ded326bd1a24b7582d95a958cf08a26fe"
+     "sha256": "f7e70720e880ced040a83494acef08016f6d76ddcda6a528d544fb7ce158ba37"
     },
     {
      "name": "emerge_W_11.png",
+     "sha256": "af0e6f9869e2001d9ff85e02d254e4e76a3f14d4dca204c65cb5b3bda7f86dbb"
+    },
+    {
+     "name": "emerge_W_12.png",
+     "sha256": "a11aed45911ee0573a95e63a3c68a05683f86454763017269eca49b6d247bcb1"
+    },
+    {
+     "name": "emerge_W_13.png",
+     "sha256": "4f8de5d8c2aef02ca86a28075e858687a242e4848eefbc2cd8e7484fe3f98249"
+    },
+    {
+     "name": "emerge_W_14.png",
+     "sha256": "bdcac69fd2495dee53d1a55338b09e72076f666204f727665acdff0a22e3d908"
+    },
+    {
+     "name": "emerge_W_15.png",
      "sha256": "4954680b73110c715d547b0701b0a5e4377a0bd44295b770fad7252f65ed28ba"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "754c2d280dd587811ebefa8760616496ab0360647ecf2de0152c36abf68f8ef5",
+   "render_pass": "p2",
+   "cell_sha256": "a3c3ec0cb02b64212404bda4e4201a93865e63adae083df134668fc1d3b79b0d",
    "alpha_union_bbox": [
     227,
     211,
-    483,
-    493
+    510,
+    521
    ],
    "edge_touch": false,
    "facing_measured_deg": 180.0,
@@ -22146,59 +22384,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      0.1193,
-      -0.90355,
-      0.33345
+      0.53737,
+      -0.57513,
+      0.28065
      ],
      [
-      0.12848,
-      -0.91066,
-      0.3312
+      0.57181,
+      -0.60828,
+      0.29882
      ],
      [
-      0.15179,
-      -0.93223,
-      0.34425
+      0.62715,
+      -0.67997,
+      0.38299
      ],
      [
-      0.18422,
-      -0.96484,
-      0.3731
+      0.61954,
+      -0.69975,
+      0.4098
      ],
      [
-      0.21955,
-      -0.99555,
-      0.41962
+      0.57475,
+      -0.63327,
+      0.32356
      ],
      [
-      0.24123,
-      -1.01614,
-      0.46718
+      0.53826,
+      -0.57712,
+      0.28262
      ],
      [
-      0.24001,
-      -1.02181,
-      0.4885
+      0.56247,
+      -0.59642,
+      0.28995
      ],
      [
-      0.213,
-      -1.00018,
-      0.44896
+      0.61934,
+      -0.66915,
+      0.36453
      ],
      [
-      0.0533,
-      -1.00569,
-      0.38426
+      0.62415,
+      -0.70473,
+      0.4205
      ],
      [
-      -0.11828,
-      -1.05078,
-      0.52124
+      0.58413,
+      -0.64603,
+      0.3365
      ],
      [
-      -0.23138,
-      -1.06045,
-      0.6619
+      0.54099,
+      -0.58253,
+      0.28752
+     ],
+     [
+      0.55464,
+      -0.58841,
+      0.28441
+     ],
+     [
+      0.60952,
+      -0.65701,
+      0.3471
+     ],
+     [
+      0.62861,
+      -0.70555,
+      0.42442
+     ],
+     [
+      -0.07945,
+      -1.04195,
+      0.48183
      ],
      [
       -0.28528,
@@ -22208,59 +22466,79 @@
     ],
     "off_hand": [
      [
-      -0.91899,
-      0.53076,
-      0.3413
+      -0.57542,
+      0.80184,
+      0.31214
      ],
      [
-      -0.91832,
-      0.50295,
-      0.35274
+      -0.5934,
+      0.75331,
+      0.33115
      ],
      [
-      -0.92177,
-      0.49018,
-      0.36863
+      -0.66581,
+      0.73269,
+      0.36973
      ],
      [
-      -0.93136,
-      0.48667,
-      0.38865
+      -0.69961,
+      0.80279,
+      0.38418
      ],
      [
-      -0.95287,
-      0.48583,
-      0.41555
+      -0.61747,
+      0.85722,
+      0.33301
      ],
      [
-      -0.98452,
-      0.50117,
-      0.4461
+      -0.57657,
+      0.80702,
+      0.31267
      ],
      [
-      -0.99631,
-      0.54024,
-      0.451
+      -0.58626,
+      0.75597,
+      0.32455
      ],
      [
-      -0.97589,
-      0.56666,
-      0.41596
+      -0.64681,
+      0.7374,
+      0.36378
      ],
      [
-      -0.87696,
-      0.41392,
-      0.42624
+      -0.70926,
+      0.78156,
+      0.38816
      ],
      [
-      -0.94126,
-      0.29809,
-      0.6311
+      -0.62934,
+      0.85531,
+      0.3401
      ],
      [
-      -0.97225,
-      0.28412,
-      0.67304
+      -0.57981,
+      0.81961,
+      0.31432
+     ],
+     [
+      -0.58205,
+      0.76136,
+      0.31962
+     ],
+     [
+      -0.63148,
+      0.74236,
+      0.358
+     ],
+     [
+      -0.71224,
+      0.7632,
+      0.38902
+     ],
+     [
+      -0.92322,
+      0.31134,
+      0.59285
      ],
      [
       -0.94722,
@@ -22270,59 +22548,79 @@
     ],
     "chest": [
      [
-      -0.11659,
-      -0.0805,
-      1.31766
+      -0.14292,
+      -0.1072,
+      1.29059
      ],
      [
-      -0.11682,
-      -0.08248,
-      1.3158
+      -0.14376,
+      -0.11308,
+      1.29371
      ],
      [
-      -0.11787,
-      -0.08583,
-      1.31914
+      -0.1425,
+      -0.10745,
+      1.31609
      ],
      [
-      -0.1179,
-      -0.08638,
-      1.32752
+      -0.14053,
+      -0.10486,
+      1.31417
      ],
      [
-      -0.11654,
-      -0.08127,
-      1.33799
+      -0.13742,
+      -0.10251,
+      1.29863
      ],
      [
-      -0.11818,
-      -0.07649,
-      1.34445
+      -0.14288,
+      -0.10678,
+      1.291
      ],
      [
-      -0.11724,
-      -0.07484,
-      1.34438
+      -0.14373,
+      -0.11249,
+      1.29048
      ],
      [
-      -0.11438,
-      -0.07705,
-      1.3366
+      -0.14234,
+      -0.10935,
+      1.31277
      ],
      [
-      -0.10759,
-      -0.09974,
-      1.46255
+      -0.14215,
+      -0.10425,
+      1.31776
      ],
      [
-      -0.08509,
-      -0.11623,
-      1.60854
+      -0.13674,
+      -0.10351,
+      1.30015
      ],
      [
-      -0.06967,
-      -0.12605,
-      1.6489
+      -0.14266,
+      -0.10573,
+      1.29205
+     ],
+     [
+      -0.14344,
+      -0.11107,
+      1.28891
+     ],
+     [
+      -0.14275,
+      -0.11128,
+      1.30872
+     ],
+     [
+      -0.14351,
+      -0.10418,
+      1.31989
+     ],
+     [
+      -0.09013,
+      -0.113,
+      1.58503
      ],
      [
       -0.06414,
@@ -22332,59 +22630,79 @@
     ],
     "head_top": [
      [
-      -0.3079,
-      -0.13303,
-      1.75247
+      -0.42165,
+      -0.26023,
+      1.63828
      ],
      [
-      -0.31092,
-      -0.1354,
-      1.74863
+      -0.42857,
+      -0.26665,
+      1.63607
      ],
      [
-      -0.31588,
-      -0.13814,
-      1.7504
+      -0.43848,
+      -0.25469,
+      1.6569
      ],
      [
-      -0.32261,
-      -0.139,
-      1.75632
+      -0.43613,
+      -0.24919,
+      1.65844
      ],
      [
-      -0.32609,
-      -0.12765,
-      1.7665
+      -0.4216,
+      -0.25185,
+      1.6462
      ],
      [
-      -0.3358,
-      -0.11645,
-      1.7709
+      -0.42152,
+      -0.25974,
+      1.63892
      ],
      [
-      -0.33427,
-      -0.11216,
-      1.77196
+      -0.42656,
+      -0.26554,
+      1.63404
      ],
      [
-      -0.32208,
-      -0.11834,
-      1.76813
+      -0.43574,
+      -0.25903,
+      1.65384
      ],
      [
-      -0.279,
-      -0.14203,
-      1.91063
+      -0.44081,
+      -0.24709,
+      1.66044
      ],
      [
-      -0.25202,
-      -0.14989,
-      2.06007
+      -0.42259,
+      -0.25193,
+      1.64753
      ],
      [
-      -0.22774,
-      -0.15439,
-      2.10289
+      -0.42117,
+      -0.25846,
+      1.64051
+     ],
+     [
+      -0.4251,
+      -0.26419,
+      1.6332
+     ],
+     [
+      -0.43484,
+      -0.26353,
+      1.6489
+     ],
+     [
+      -0.44454,
+      -0.24629,
+      1.66095
+     ],
+     [
+      -0.25997,
+      -0.15073,
+      2.03538
      ],
      [
       -0.23611,
@@ -22397,63 +22715,79 @@
   "emerge/NW": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_NW_00.png",
-     "sha256": "da178c4c60f6a21115c8139dbb2d164d08f2f172631d20ac39752dc757513a4d"
+     "sha256": "d68376c2d83c7596b03a1e9be995fd495e00cd5ff2cece0605624fb8eed1cc07"
     },
     {
      "name": "emerge_NW_01.png",
-     "sha256": "12209ff7f82aa55a29461a46cc19b4bbaeb0e454e27abe4a54225b63ad2eeca6"
+     "sha256": "b423d79f4d996962d12b5dd2a89609bf1784ed22f5c1896ef1bd4f330435e6c8"
     },
     {
      "name": "emerge_NW_02.png",
-     "sha256": "fe87612f942fa840ee47c3ef3a5770cf84a2b7cd17bc10f5ea56863b89f3d67c"
+     "sha256": "e4a2fe94bd4ef657bd9679d3eddc2f8e2810d0704436fb9d8a90d66319970a24"
     },
     {
      "name": "emerge_NW_03.png",
-     "sha256": "7be68dcc0a2b056d48f5c4f0b1460b0850b1eb54fb4fe653b78b9dffff46a9f8"
+     "sha256": "4fbcdb6b57a9333a3d477aa0686ad2c20c8be90292644be6afea55bba79db831"
     },
     {
      "name": "emerge_NW_04.png",
-     "sha256": "01d3a6cec5e61106a69410160e877af857715dc068ed4003964b0db5cbfb1aef"
+     "sha256": "82c896b18242dcb8b071ed7128acd7415c493b7f81cbf79566b9b949506fb7a2"
     },
     {
      "name": "emerge_NW_05.png",
-     "sha256": "81312b93964700ee3b823c758860a61c3674d57f5b8ad2a887d5afa3fe475f0d"
+     "sha256": "6ca727724e7aed8d54ac180dd5d600c9c9b510d895e5108575e5be9e796c6082"
     },
     {
      "name": "emerge_NW_06.png",
-     "sha256": "97a4f5f06a72a3a49673d681bb67df70e20060c63c87687cce3a52296f0b0848"
+     "sha256": "2dfe272278955fd87ca8d3dbaa3e6b77327fb85d878a5e162b6a24f237121705"
     },
     {
      "name": "emerge_NW_07.png",
-     "sha256": "9058a7fd37e48539a5859679764e23d3a739216500e1ee89e4711e7149c93055"
+     "sha256": "f8bfe9fad03a75f6c247390e50b10a6f4e02ae0fff446005fa0041392cc59a0a"
     },
     {
      "name": "emerge_NW_08.png",
-     "sha256": "5f52b700b71728f5ca7436157d418ed5072f518c10d8b2443a0f0e32152b3493"
+     "sha256": "0365ced1970e284194e3b303a9e9faec8d1b87e40a278985168c8245bdfe8e88"
     },
     {
      "name": "emerge_NW_09.png",
-     "sha256": "e0012f9c335dc4b49ebd09a057ea5fdaacb60356e7d0c982dc9ac7574bc7df59"
+     "sha256": "cac194217d8594c59776871e9d68f695f87d38ddac4c5452910ef9bea66dd650"
     },
     {
      "name": "emerge_NW_10.png",
-     "sha256": "ce7c1667f621f5807e32ad211dac1bb962d18ac78def8c33ca64d1bbf6621c72"
+     "sha256": "c8be19578cba207145a4beac4f456df2a8e960641551188143d45536742adf3f"
     },
     {
      "name": "emerge_NW_11.png",
+     "sha256": "6a68608b815aa80a40bec2ddf6c20c864a0837cc550e217b744775b2e67f16f7"
+    },
+    {
+     "name": "emerge_NW_12.png",
+     "sha256": "9329c2464d5362e0b17745d80e6b3ae453e5d72379a67e8a57b277bafcb7406f"
+    },
+    {
+     "name": "emerge_NW_13.png",
+     "sha256": "b988633858be9ebc676f4b1e7fbde547746dbe0007a853085f5e108bcbbe43fd"
+    },
+    {
+     "name": "emerge_NW_14.png",
+     "sha256": "d7468fbbea2900563bb45d58459f821214fac4bbc1fbac51daa1d5003061a9f5"
+    },
+    {
+     "name": "emerge_NW_15.png",
      "sha256": "fa4f1434b352231cf9213c77a171198268db05cfba74e96df684e2c4a49163ff"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "561921f4e2cc263e0f48797ebb93305b12eefa829826ed2038dd6243719c67d2",
+   "render_pass": "p2",
+   "cell_sha256": "541b67a3c1965ab30a85dc18e621026e90bc4b89fd510293cdbc0f4e37a20de5",
    "alpha_union_bbox": [
-    218,
-    208,
-    542,
+    221,
+    209,
+    547,
     482
    ],
    "edge_touch": false,
@@ -22463,59 +22797,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      0.72326,
-      -0.55455,
-      0.33345
+      0.78666,
+      -0.0267,
+      0.28065
      ],
      [
-      0.73478,
-      -0.55309,
-      0.3312
+      0.83445,
+      -0.02579,
+      0.29882
      ],
      [
-      0.76652,
-      -0.55185,
-      0.34425
+      0.92428,
+      -0.03735,
+      0.38299
      ],
      [
-      0.81251,
-      -0.55199,
-      0.3731
+      0.93288,
+      -0.05672,
+      0.4098
      ],
      [
-      0.8592,
-      -0.54871,
-      0.41962
+      0.8542,
+      -0.04138,
+      0.32356
      ],
      [
-      0.8891,
-      -0.54794,
-      0.46718
+      0.7887,
+      -0.02748,
+      0.28262
      ],
      [
-      0.89224,
-      -0.55282,
-      0.4885
+      0.81945,
+      -0.02401,
+      0.28995
      ],
      [
-      0.85785,
-      -0.55662,
-      0.44896
+      0.9111,
+      -0.03522,
+      0.36453
      ],
      [
-      0.74882,
-      -0.67344,
-      0.38426
+      0.93966,
+      -0.05698,
+      0.4205
      ],
      [
-      0.65938,
-      -0.82665,
-      0.52124
+      0.86985,
+      -0.04377,
+      0.3365
      ],
      [
-      0.58625,
-      -0.91346,
-      0.6619
+      0.79445,
+      -0.02938,
+      0.28752
+     ],
+     [
+      0.80826,
+      -0.02388,
+      0.28441
+     ],
+     [
+      0.89557,
+      -0.03357,
+      0.3471
+     ],
+     [
+      0.94339,
+      -0.05441,
+      0.42442
+     ],
+     [
+      0.68059,
+      -0.79295,
+      0.48183
      ],
      [
       0.55032,
@@ -22525,59 +22879,79 @@
     ],
     "off_hand": [
      [
-      -1.02513,
-      -0.27452,
-      0.3413
+      -0.97387,
+      0.1601,
+      0.31214
      ],
      [
-      -1.00499,
-      -0.29371,
-      0.35274
+      -0.95227,
+      0.11308,
+      0.33115
      ],
      [
-      -0.9984,
-      -0.30518,
-      0.36863
+      -0.98888,
+      0.04729,
+      0.36973
      ],
      [
-      -1.0027,
-      -0.31445,
-      0.38865
+      -1.06236,
+      0.07296,
+      0.38418
      ],
      [
-      -1.01731,
-      -0.33025,
-      0.41555
+      -1.04276,
+      0.16952,
+      0.33301
      ],
      [
-      -1.05055,
-      -0.34178,
-      0.4461
+      -0.97835,
+      0.16295,
+      0.31267
      ],
      [
-      -1.08651,
-      -0.32249,
-      0.451
+      -0.9491,
+      0.12001,
+      0.32455
      ],
      [
-      -1.09075,
-      -0.28937,
-      0.41596
+      -0.97878,
+      0.06406,
+      0.36378
      ],
      [
-      -0.91279,
-      -0.32742,
-      0.42624
+      -1.05417,
+      0.05112,
+      0.38816
      ],
      [
-      -0.87635,
-      -0.45479,
-      0.6311
+      -1.0498,
+      0.15978,
+      0.3401
      ],
      [
-      -0.88839,
-      -0.48658,
-      0.67304
+      -0.98954,
+      0.16957,
+      0.31432
+     ],
+     [
+      -0.94994,
+      0.12679,
+      0.31962
+     ],
+     [
+      -0.97145,
+      0.0784,
+      0.358
+     ],
+     [
+      -1.0433,
+      0.03604,
+      0.38902
+     ],
+     [
+      -0.87297,
+      -0.43267,
+      0.59285
      ],
      [
       -0.89172,
@@ -22587,59 +22961,79 @@
     ],
     "chest": [
      [
+      -0.02526,
+      -0.17686,
+      1.29059
+     ],
+     [
+      -0.02169,
+      -0.18161,
+      1.29371
+     ],
+     [
+      -0.02479,
+      -0.17674,
+      1.31609
+     ],
+     [
+      -0.02522,
+      -0.17351,
+      1.31417
+     ],
+     [
+      -0.02468,
+      -0.16966,
+      1.29863
+     ],
+     [
       -0.02552,
-      -0.13937,
-      1.31766
+      -0.17654,
+      1.291
      ],
      [
-      -0.02428,
-      -0.14093,
-      1.3158
+      -0.02209,
+      -0.18118,
+      1.29048
      ],
      [
-      -0.02266,
-      -0.14403,
-      1.31914
+      -0.02333,
+      -0.17797,
+      1.31277
      ],
      [
-      -0.02229,
-      -0.14445,
-      1.32752
+      -0.0268,
+      -0.17423,
+      1.31776
      ],
      [
-      -0.02494,
-      -0.13987,
-      1.33799
+      -0.0235,
+      -0.16989,
+      1.30015
      ],
      [
-      -0.02948,
-      -0.13765,
-      1.34445
+      -0.02611,
+      -0.17564,
+      1.29205
      ],
      [
-      -0.02998,
-      -0.13583,
-      1.34438
+      -0.02289,
+      -0.17997,
+      1.28891
      ],
      [
-      -0.0264,
-      -0.13536,
-      1.3366
+      -0.02225,
+      -0.17963,
+      1.30872
      ],
      [
-      -0.00555,
-      -0.14661,
-      1.46255
+      -0.02781,
+      -0.17514,
+      1.31989
      ],
      [
-      0.02202,
-      -0.14236,
-      1.60854
-     ],
-     [
-      0.03987,
-      -0.13839,
-      1.6489
+      0.01617,
+      -0.14363,
+      1.58503
      ],
      [
       0.0432,
@@ -22649,59 +23043,79 @@
     ],
     "head_top": [
      [
-      -0.12365,
-      -0.31179,
-      1.75247
+      -0.11414,
+      -0.48217,
+      1.63828
      ],
      [
-      -0.12411,
-      -0.3156,
-      1.74863
+      -0.1145,
+      -0.4916,
+      1.63607
      ],
      [
-      -0.12568,
-      -0.32104,
-      1.7504
+      -0.12995,
+      -0.49014,
+      1.6569
      ],
      [
-      -0.12984,
-      -0.32641,
-      1.75632
+      -0.13218,
+      -0.4846,
+      1.65844
      ],
      [
-      -0.14032,
-      -0.32084,
-      1.7665
+      -0.12003,
+      -0.4762,
+      1.6462
      ],
      [
-      -0.15511,
-      -0.31979,
-      1.7709
+      -0.1144,
+      -0.48172,
+      1.63892
      ],
      [
-      -0.15705,
-      -0.31567,
-      1.77196
+      -0.11386,
+      -0.48939,
+      1.63404
      ],
      [
-      -0.14407,
-      -0.31142,
-      1.76813
+      -0.12495,
+      -0.49128,
+      1.65384
      ],
      [
-      -0.09685,
-      -0.29771,
-      1.91063
+      -0.13698,
+      -0.48642,
+      1.66044
      ],
      [
-      -0.07221,
-      -0.2842,
-      2.06007
+      -0.12068,
+      -0.47696,
+      1.64753
      ],
      [
-      -0.05187,
-      -0.2702,
-      2.10289
+      -0.11505,
+      -0.48058,
+      1.64051
+     ],
+     [
+      -0.11378,
+      -0.4874,
+      1.6332
+     ],
+     [
+      -0.12113,
+      -0.49382,
+      1.6489
+     ],
+     [
+      -0.14018,
+      -0.4885,
+      1.66095
+     ],
+     [
+      -0.07724,
+      -0.29041,
+      2.03538
      ],
      [
       -0.05675,
@@ -22714,61 +23128,77 @@
   "emerge/N": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_N_00.png",
-     "sha256": "aad2c7afd4cb6818b84e0860a75ea20311cb747cc6546b7a24b0cd4a956306e7"
+     "sha256": "485abc35a9aef820cfda1d7dae469fc0cd290c40a5fe1f3415d2c88eeeb7a953"
     },
     {
      "name": "emerge_N_01.png",
-     "sha256": "38bb3970036303b5cf40be3ceeac7627889341c893b4e986a311ecdcec60da15"
+     "sha256": "d60d7687a8ce8fb80402ef6bd516ffb1a874b04d1a11c0d2b7a04650562ceda6"
     },
     {
      "name": "emerge_N_02.png",
-     "sha256": "65445d37483291d9aeb1301715ffd228c982b6427034601c60bd2a3b98b2443d"
+     "sha256": "c8f96ce69041136220c74e65928453e5c4251abec530d536bacaf4d878879a58"
     },
     {
      "name": "emerge_N_03.png",
-     "sha256": "aa3c6fea64f5ded90918148d45dda60bccb46d9ff623549cc1e95a75d1038683"
+     "sha256": "3bceea6f3c6a45b9e8b1b0168a93bda702897e9a3af1a9fea7e60d7ecde91091"
     },
     {
      "name": "emerge_N_04.png",
-     "sha256": "82d4657f332f6ce7cb0cdc111acc63876fad23efcd3313b595dde46f79cb34b2"
+     "sha256": "92ed4f15afa772f49ac454cb7ff980a0954bb38d3d6c019b729c483b1d9f4d75"
     },
     {
      "name": "emerge_N_05.png",
-     "sha256": "9a307bf0303d1772d16662e2dfa16617a99b5fa84220525e097a4191c86c958b"
+     "sha256": "b44401f527f9ec34228e70fbf2a4c7391f66d0df7e6525178e3eb1f9a8498b8d"
     },
     {
      "name": "emerge_N_06.png",
-     "sha256": "1c2ff4111d7bb8da001093229800d57f20f2d3de3f2fb79c9a91b6b81247e579"
+     "sha256": "0fec39271ee3f247e9c956d053e8bbe132dbd2de6b40ecfb4bb159c596b2f049"
     },
     {
      "name": "emerge_N_07.png",
-     "sha256": "949f7f5981a1425b34818fdfaed22cf05192dafe4eb959859487e5b8e8ae3760"
+     "sha256": "a522a7186b212f36f44a9c9242f994ea7bde0cc2b843589f004a85aca947307f"
     },
     {
      "name": "emerge_N_08.png",
-     "sha256": "42add542dcd81f51b72e34e3034caf290368647f35b740bc450599e670bb2183"
+     "sha256": "cbb80edbe830a2e9f25d773d657313f4c9880cc1d502c4cfce142c2f4942eb23"
     },
     {
      "name": "emerge_N_09.png",
-     "sha256": "92458f91d0cb3da231f81f74e3f6062bda1127d4b8e44059d85d131598978452"
+     "sha256": "4806fa123bffb48a93302f552f5784bd3e83e61515a25bbc20860d41eac09695"
     },
     {
      "name": "emerge_N_10.png",
-     "sha256": "ee15f05f7687db7504aef7e5cba27a49b4758a8878ee390d2cb5653dced62f9d"
+     "sha256": "814fe68ca51e030628c93fa5682bc32f81e84e610af32c8978b5d33c9f7688de"
     },
     {
      "name": "emerge_N_11.png",
+     "sha256": "4dd13b0d8bac336c2da5272e11d92b46cf6f7446ff5ae9b94f6c517f4a96aa34"
+    },
+    {
+     "name": "emerge_N_12.png",
+     "sha256": "609f210397b967c2724bccd2e8baeb1832dc29bc8eb6f8ddab2870f36940deaa"
+    },
+    {
+     "name": "emerge_N_13.png",
+     "sha256": "1f95706d2778899c545c1145fd710236b48fcf490531267f57bd04cb9ccac387"
+    },
+    {
+     "name": "emerge_N_14.png",
+     "sha256": "13ba1eb7e09adc6ca1dff91bdc0422f6cbb64c8a4a49c1612e6610f3151a56a4"
+    },
+    {
+     "name": "emerge_N_15.png",
      "sha256": "67724c31d9d8105000824643aedc210638c2e33339923abef9b2592043839fda"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "cc6a53cc7295ff649e2dd195d9f2140c297763d911dcf89101304eba5c28f101",
+   "render_pass": "p2",
+   "cell_sha256": "b32bf1ab5d7f53650393dd56d47d965a8c19e4ee6997c111041e051f7adfdbef",
    "alpha_union_bbox": [
-    273,
+    248,
     210,
     548,
     513
@@ -22780,59 +23210,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      0.90355,
-      0.1193,
-      0.33345
+      0.57513,
+      0.53737,
+      0.28065
      ],
      [
-      0.91066,
-      0.12848,
-      0.3312
+      0.60828,
+      0.57181,
+      0.29882
      ],
      [
-      0.93223,
-      0.15179,
-      0.34425
+      0.67997,
+      0.62715,
+      0.38299
      ],
      [
-      0.96484,
-      0.18422,
-      0.3731
+      0.69975,
+      0.61954,
+      0.4098
      ],
      [
-      0.99555,
-      0.21955,
-      0.41962
+      0.63327,
+      0.57475,
+      0.32356
      ],
      [
-      1.01614,
-      0.24123,
-      0.46718
+      0.57712,
+      0.53826,
+      0.28262
      ],
      [
-      1.02181,
-      0.24001,
-      0.4885
+      0.59642,
+      0.56247,
+      0.28995
      ],
      [
-      1.00018,
-      0.213,
-      0.44896
+      0.66915,
+      0.61934,
+      0.36453
      ],
      [
-      1.00569,
-      0.0533,
-      0.38426
+      0.70473,
+      0.62415,
+      0.4205
      ],
      [
-      1.05078,
-      -0.11828,
-      0.52124
+      0.64603,
+      0.58413,
+      0.3365
      ],
      [
-      1.06045,
-      -0.23138,
-      0.6619
+      0.58253,
+      0.54099,
+      0.28752
+     ],
+     [
+      0.58841,
+      0.55464,
+      0.28441
+     ],
+     [
+      0.65701,
+      0.60952,
+      0.3471
+     ],
+     [
+      0.70555,
+      0.62861,
+      0.42442
+     ],
+     [
+      1.04195,
+      -0.07945,
+      0.48183
      ],
      [
       1.06355,
@@ -22842,59 +23292,79 @@
     ],
     "off_hand": [
      [
-      -0.53076,
-      -0.91899,
-      0.3413
+      -0.80184,
+      -0.57542,
+      0.31214
      ],
      [
-      -0.50295,
-      -0.91832,
-      0.35274
+      -0.75331,
+      -0.5934,
+      0.33115
      ],
      [
-      -0.49018,
-      -0.92177,
-      0.36863
+      -0.73269,
+      -0.66581,
+      0.36973
      ],
      [
-      -0.48667,
-      -0.93136,
-      0.38865
+      -0.80279,
+      -0.69961,
+      0.38418
      ],
      [
-      -0.48583,
-      -0.95287,
-      0.41555
+      -0.85722,
+      -0.61747,
+      0.33301
      ],
      [
-      -0.50117,
-      -0.98452,
-      0.4461
+      -0.80702,
+      -0.57657,
+      0.31267
      ],
      [
-      -0.54024,
-      -0.99631,
-      0.451
+      -0.75597,
+      -0.58626,
+      0.32455
      ],
      [
-      -0.56666,
-      -0.97589,
-      0.41596
+      -0.7374,
+      -0.64681,
+      0.36378
      ],
      [
-      -0.41392,
-      -0.87696,
-      0.42624
+      -0.78156,
+      -0.70926,
+      0.38816
      ],
      [
-      -0.29809,
-      -0.94126,
-      0.6311
+      -0.85531,
+      -0.62934,
+      0.3401
      ],
      [
-      -0.28412,
-      -0.97225,
-      0.67304
+      -0.81961,
+      -0.57981,
+      0.31432
+     ],
+     [
+      -0.76136,
+      -0.58205,
+      0.31962
+     ],
+     [
+      -0.74236,
+      -0.63148,
+      0.358
+     ],
+     [
+      -0.7632,
+      -0.71224,
+      0.38902
+     ],
+     [
+      -0.31134,
+      -0.92322,
+      0.59285
      ],
      [
       -0.31385,
@@ -22904,59 +23374,79 @@
     ],
     "chest": [
      [
-      0.0805,
-      -0.11659,
-      1.31766
+      0.1072,
+      -0.14292,
+      1.29059
      ],
      [
-      0.08248,
-      -0.11682,
-      1.3158
+      0.11308,
+      -0.14376,
+      1.29371
      ],
      [
-      0.08583,
-      -0.11787,
-      1.31914
+      0.10745,
+      -0.1425,
+      1.31609
      ],
      [
-      0.08638,
-      -0.1179,
-      1.32752
+      0.10486,
+      -0.14053,
+      1.31417
      ],
      [
-      0.08127,
-      -0.11654,
-      1.33799
+      0.10251,
+      -0.13742,
+      1.29863
      ],
      [
-      0.07649,
-      -0.11818,
-      1.34445
+      0.10678,
+      -0.14288,
+      1.291
      ],
      [
-      0.07484,
-      -0.11724,
-      1.34438
+      0.11249,
+      -0.14373,
+      1.29048
      ],
      [
-      0.07705,
-      -0.11438,
-      1.3366
+      0.10935,
+      -0.14234,
+      1.31277
      ],
      [
-      0.09974,
-      -0.10759,
-      1.46255
+      0.10425,
+      -0.14215,
+      1.31776
      ],
      [
-      0.11623,
-      -0.08509,
-      1.60854
+      0.10351,
+      -0.13674,
+      1.30015
      ],
      [
-      0.12605,
-      -0.06967,
-      1.6489
+      0.10573,
+      -0.14266,
+      1.29205
+     ],
+     [
+      0.11107,
+      -0.14344,
+      1.28891
+     ],
+     [
+      0.11128,
+      -0.14275,
+      1.30872
+     ],
+     [
+      0.10418,
+      -0.14351,
+      1.31989
+     ],
+     [
+      0.113,
+      -0.09013,
+      1.58503
      ],
      [
       0.12523,
@@ -22966,59 +23456,79 @@
     ],
     "head_top": [
      [
-      0.13303,
-      -0.3079,
-      1.75247
+      0.26023,
+      -0.42165,
+      1.63828
      ],
      [
-      0.1354,
-      -0.31092,
-      1.74863
+      0.26665,
+      -0.42857,
+      1.63607
      ],
      [
-      0.13814,
-      -0.31588,
-      1.7504
+      0.25469,
+      -0.43848,
+      1.6569
      ],
      [
-      0.139,
-      -0.32261,
-      1.75632
+      0.24919,
+      -0.43613,
+      1.65844
      ],
      [
-      0.12765,
-      -0.32609,
-      1.7665
+      0.25185,
+      -0.4216,
+      1.6462
      ],
      [
-      0.11645,
-      -0.3358,
-      1.7709
+      0.25974,
+      -0.42152,
+      1.63892
      ],
      [
-      0.11216,
-      -0.33427,
-      1.77196
+      0.26554,
+      -0.42656,
+      1.63404
      ],
      [
-      0.11834,
-      -0.32208,
-      1.76813
+      0.25903,
+      -0.43574,
+      1.65384
      ],
      [
-      0.14203,
-      -0.279,
-      1.91063
+      0.24709,
+      -0.44081,
+      1.66044
      ],
      [
-      0.14989,
-      -0.25202,
-      2.06007
+      0.25193,
+      -0.42259,
+      1.64753
      ],
      [
-      0.15439,
-      -0.22774,
-      2.10289
+      0.25846,
+      -0.42117,
+      1.64051
+     ],
+     [
+      0.26419,
+      -0.4251,
+      1.6332
+     ],
+     [
+      0.26353,
+      -0.43484,
+      1.6489
+     ],
+     [
+      0.24629,
+      -0.44454,
+      1.66095
+     ],
+     [
+      0.15073,
+      -0.25997,
+      2.03538
      ],
      [
       0.15586,
@@ -23031,59 +23541,75 @@
   "emerge/NE": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_NE_00.png",
-     "sha256": "0bda1ec7e5fed62495349043b29c3fd7544c8517c5a0dfb2a6b54fa92361a7de"
+     "sha256": "be7ce87202edca594b11d871fa70300ebd276d71333ff35a14923e94f67f9d9a"
     },
     {
      "name": "emerge_NE_01.png",
-     "sha256": "554b40753580d3e4fcdcd399367a92a61bad87ec4f5e62b98ad93c1aa82d5200"
+     "sha256": "b8c6a118d24f1c9eb6fdab5b2e23b3fc078bdbb29a6c46e4a29bd900490abfc4"
     },
     {
      "name": "emerge_NE_02.png",
-     "sha256": "07795b7ca24ddc1b4b56587e72f565bbf7b6f75cb2fe642ece2aeabdc68ee132"
+     "sha256": "bed93a5c0effcfda34c189d66d908b6fc1e0c2d139e0245e48d73d1dccd031d3"
     },
     {
      "name": "emerge_NE_03.png",
-     "sha256": "26628f82a1694252b98bff3765731d8dc55601127af0099b065345d421fbd9aa"
+     "sha256": "c827a1f3e06f3433368370a21457a112428651305961bf6d71e92238cb64648f"
     },
     {
      "name": "emerge_NE_04.png",
-     "sha256": "cd526595a0621735107bb0794733ed9ff371a52ffd11571e62f288e2e3f0cf63"
+     "sha256": "3a90816ca3f4155583357453671302b3c8ea9c3380c442bcc80e5b0d82784c4b"
     },
     {
      "name": "emerge_NE_05.png",
-     "sha256": "133775701e9f3324354f7b7eaafc2c8be1bce6955380b65b50725bc764965ce7"
+     "sha256": "ce90449d5fd5907f883bc819c0ba40621133fb8ee735ef34026a877be02c5034"
     },
     {
      "name": "emerge_NE_06.png",
-     "sha256": "0d34d40392f979d973bd8f833023b96e5d43d66fa9b26f51f39b7bc8d6493f72"
+     "sha256": "03f85013813d529825505d1f5bedc8f69d13f380cc87caed9e76610a710d8dcb"
     },
     {
      "name": "emerge_NE_07.png",
-     "sha256": "9fed7f8f2ffa43d6e43d2d9cbf40c272c7b6328a1084137ff0d47e7a66bf51c1"
+     "sha256": "e53c938eed9160da6ca69d61280e66ea8a78648aca3a4f7dacce127dae2f7e8d"
     },
     {
      "name": "emerge_NE_08.png",
-     "sha256": "a43560e5029ecfb792041c5f0fafd59cc874eca98117aae5f7629a0f47cd3f60"
+     "sha256": "d95626ada2c85238dc6ffab2a07316ff0c73a036bb09e170409290414fb6da83"
     },
     {
      "name": "emerge_NE_09.png",
-     "sha256": "61f26905cf4705e76a725e05aca1d453208ab2d33724d3c85f363653ac8371d6"
+     "sha256": "0843f59d503f224a8812287027c8e998cecb13afad5c15b6c232fe7443cf2adf"
     },
     {
      "name": "emerge_NE_10.png",
-     "sha256": "357e889cccf1a6d12f41841424e25b3279f41e5d2f96e7bf079bf393b99d40cb"
+     "sha256": "83f78b6185f357006d3eaa993e7d64e87023bec69d535de3395f5f8153274f6c"
     },
     {
      "name": "emerge_NE_11.png",
+     "sha256": "73c0840c2a8ccc327c9f591f409c81fba9d394b62e43cfacb7bbe9a4f4445011"
+    },
+    {
+     "name": "emerge_NE_12.png",
+     "sha256": "eb056932c52eaa21cec7245b5ec915885f09915f4efefbb0ed5fb381ea9c2529"
+    },
+    {
+     "name": "emerge_NE_13.png",
+     "sha256": "50a3188c599b3f2b7498a1224337a5f23412992ee36cf971d2570b38b44d11d4"
+    },
+    {
+     "name": "emerge_NE_14.png",
+     "sha256": "9df01c4463dbce68d052c0fadce79892a6d2b75437cad707c81ea1b695786a65"
+    },
+    {
+     "name": "emerge_NE_15.png",
      "sha256": "ba9c24e28ae14f1cfc34695360d36d2a61d8dc823cd6f380510d23f6501f42aa"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "5c0ca029d40ef00e7e86a4bd533ad094d1b7ec72f9e23af2f1621ddc16bce8f5",
+   "render_pass": "p2",
+   "cell_sha256": "00fc74e390fb847d9f56d12ce1e2c9f5275235d2ab26ba1605181ce279659e8e",
    "alpha_union_bbox": [
     315,
     211,
@@ -23097,59 +23623,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      0.55455,
-      0.72326,
-      0.33345
+      0.0267,
+      0.78666,
+      0.28065
      ],
      [
-      0.55309,
-      0.73478,
-      0.3312
+      0.02579,
+      0.83445,
+      0.29882
      ],
      [
-      0.55185,
-      0.76652,
-      0.34425
+      0.03735,
+      0.92428,
+      0.38299
      ],
      [
-      0.55199,
-      0.81251,
-      0.3731
+      0.05672,
+      0.93288,
+      0.4098
      ],
      [
-      0.54871,
-      0.8592,
-      0.41962
+      0.04138,
+      0.8542,
+      0.32356
      ],
      [
-      0.54794,
-      0.8891,
-      0.46718
+      0.02748,
+      0.7887,
+      0.28262
      ],
      [
-      0.55282,
-      0.89224,
-      0.4885
+      0.02401,
+      0.81945,
+      0.28995
      ],
      [
-      0.55662,
-      0.85785,
-      0.44896
+      0.03522,
+      0.9111,
+      0.36453
      ],
      [
-      0.67344,
-      0.74882,
-      0.38426
+      0.05698,
+      0.93966,
+      0.4205
      ],
      [
-      0.82665,
-      0.65938,
-      0.52124
+      0.04377,
+      0.86985,
+      0.3365
      ],
      [
-      0.91346,
-      0.58625,
-      0.6619
+      0.02938,
+      0.79445,
+      0.28752
+     ],
+     [
+      0.02388,
+      0.80826,
+      0.28441
+     ],
+     [
+      0.03357,
+      0.89557,
+      0.3471
+     ],
+     [
+      0.05441,
+      0.94339,
+      0.42442
+     ],
+     [
+      0.79295,
+      0.68059,
+      0.48183
      ],
      [
       0.95377,
@@ -23159,59 +23705,79 @@
     ],
     "off_hand": [
      [
-      0.27452,
-      -1.02513,
-      0.3413
+      -0.1601,
+      -0.97387,
+      0.31214
      ],
      [
-      0.29371,
-      -1.00499,
-      0.35274
+      -0.11308,
+      -0.95227,
+      0.33115
      ],
      [
-      0.30518,
-      -0.9984,
-      0.36863
+      -0.04729,
+      -0.98888,
+      0.36973
      ],
      [
-      0.31445,
-      -1.0027,
-      0.38865
+      -0.07296,
+      -1.06236,
+      0.38418
      ],
      [
-      0.33025,
-      -1.01731,
-      0.41555
+      -0.16952,
+      -1.04276,
+      0.33301
      ],
      [
-      0.34178,
-      -1.05055,
-      0.4461
+      -0.16295,
+      -0.97835,
+      0.31267
      ],
      [
-      0.32249,
-      -1.08651,
-      0.451
+      -0.12001,
+      -0.9491,
+      0.32455
      ],
      [
-      0.28937,
-      -1.09075,
-      0.41596
+      -0.06406,
+      -0.97878,
+      0.36378
      ],
      [
-      0.32742,
-      -0.91279,
-      0.42624
+      -0.05112,
+      -1.05417,
+      0.38816
      ],
      [
-      0.45479,
-      -0.87635,
-      0.6311
+      -0.15978,
+      -1.0498,
+      0.3401
      ],
      [
-      0.48658,
-      -0.88839,
-      0.67304
+      -0.16957,
+      -0.98954,
+      0.31432
+     ],
+     [
+      -0.12679,
+      -0.94994,
+      0.31962
+     ],
+     [
+      -0.0784,
+      -0.97145,
+      0.358
+     ],
+     [
+      -0.03604,
+      -1.0433,
+      0.38902
+     ],
+     [
+      0.43267,
+      -0.87297,
+      0.59285
      ],
      [
       0.44786,
@@ -23221,59 +23787,79 @@
     ],
     "chest": [
      [
-      0.13937,
+      0.17686,
+      -0.02526,
+      1.29059
+     ],
+     [
+      0.18161,
+      -0.02169,
+      1.29371
+     ],
+     [
+      0.17674,
+      -0.02479,
+      1.31609
+     ],
+     [
+      0.17351,
+      -0.02522,
+      1.31417
+     ],
+     [
+      0.16966,
+      -0.02468,
+      1.29863
+     ],
+     [
+      0.17654,
       -0.02552,
-      1.31766
+      1.291
      ],
      [
-      0.14093,
-      -0.02428,
-      1.3158
+      0.18118,
+      -0.02209,
+      1.29048
      ],
      [
-      0.14403,
-      -0.02266,
-      1.31914
+      0.17797,
+      -0.02333,
+      1.31277
      ],
      [
-      0.14445,
-      -0.02229,
-      1.32752
+      0.17423,
+      -0.0268,
+      1.31776
      ],
      [
-      0.13987,
-      -0.02494,
-      1.33799
+      0.16989,
+      -0.0235,
+      1.30015
      ],
      [
-      0.13765,
-      -0.02948,
-      1.34445
+      0.17564,
+      -0.02611,
+      1.29205
      ],
      [
-      0.13582,
-      -0.02998,
-      1.34438
+      0.17997,
+      -0.02289,
+      1.28891
      ],
      [
-      0.13536,
-      -0.0264,
-      1.3366
+      0.17963,
+      -0.02225,
+      1.30872
      ],
      [
-      0.14661,
-      -0.00555,
-      1.46255
+      0.17514,
+      -0.02781,
+      1.31989
      ],
      [
-      0.14236,
-      0.02202,
-      1.60854
-     ],
-     [
-      0.13839,
-      0.03987,
-      1.6489
+      0.14363,
+      0.01617,
+      1.58503
      ],
      [
       0.13391,
@@ -23283,59 +23869,79 @@
     ],
     "head_top": [
      [
-      0.31179,
-      -0.12365,
-      1.75247
+      0.48217,
+      -0.11414,
+      1.63828
      ],
      [
-      0.3156,
-      -0.12411,
-      1.74863
+      0.4916,
+      -0.1145,
+      1.63607
      ],
      [
-      0.32104,
-      -0.12568,
-      1.7504
+      0.49014,
+      -0.12995,
+      1.6569
      ],
      [
-      0.32641,
-      -0.12984,
-      1.75632
+      0.4846,
+      -0.13218,
+      1.65844
      ],
      [
-      0.32084,
-      -0.14032,
-      1.7665
+      0.4762,
+      -0.12003,
+      1.6462
      ],
      [
-      0.31979,
-      -0.15511,
-      1.7709
+      0.48172,
+      -0.1144,
+      1.63892
      ],
      [
-      0.31567,
-      -0.15705,
-      1.77196
+      0.48939,
+      -0.11386,
+      1.63404
      ],
      [
-      0.31142,
-      -0.14407,
-      1.76813
+      0.49128,
+      -0.12495,
+      1.65384
      ],
      [
-      0.29771,
-      -0.09685,
-      1.91063
+      0.48642,
+      -0.13698,
+      1.66044
      ],
      [
-      0.2842,
-      -0.07221,
-      2.06007
+      0.47696,
+      -0.12068,
+      1.64753
      ],
      [
-      0.2702,
-      -0.05187,
-      2.10289
+      0.48058,
+      -0.11505,
+      1.64051
+     ],
+     [
+      0.4874,
+      -0.11378,
+      1.6332
+     ],
+     [
+      0.49382,
+      -0.12113,
+      1.6489
+     ],
+     [
+      0.4885,
+      -0.14018,
+      1.66095
+     ],
+     [
+      0.29041,
+      -0.07724,
+      2.03538
      ],
      [
       0.27717,
@@ -23348,64 +23954,80 @@
   "emerge/E": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_E_00.png",
-     "sha256": "c3e2cf7c8e8619f5c5b3ed48e011a90f232b8124f61429a524b98e40082ebc79"
+     "sha256": "b5f6a08e4e72c8fda9612286e39646fe1275d8f39a65de5ebc43e66fc217dae6"
     },
     {
      "name": "emerge_E_01.png",
-     "sha256": "db5c4adc9d7862c57f6947dbd6feab907d58d336f5cbe6816af57a5a3386ff0b"
+     "sha256": "2603e54a2d2979e1975471203ed954c30ce7b69f2054546bbca08f039c78af67"
     },
     {
      "name": "emerge_E_02.png",
-     "sha256": "fc72aef298d40e8237ffda6787b0ff331e1830df349c77317b78ee8f58d2a7f8"
+     "sha256": "54ddd8e2113b31b88766458bab9c21c512ffa0d4acfd79d46814bd4dd6c2ed38"
     },
     {
      "name": "emerge_E_03.png",
-     "sha256": "1040ffa721aca6b69c8fb13101ffb95d25d51dd83719091632486f844d5b2bcc"
+     "sha256": "4e8d61e3942a4d4581941c6e8693e9bacb2c5ff977276301c89c62e36169530c"
     },
     {
      "name": "emerge_E_04.png",
-     "sha256": "754576f6feefe3134a02b3ef86ec587d92548b98090beea02b839559e44b8070"
+     "sha256": "4863c63e5388e773c2314e08895538a50f6973346895fd43e14f7a09d70395af"
     },
     {
      "name": "emerge_E_05.png",
-     "sha256": "5fbe4ae8baadd3aab9451e6c5d1e925fc92afa69552af3745a3119112b8ca2ca"
+     "sha256": "42b5e7a4fff09b38f9142eb9eaf27c15daeae885089aba404e35c2cb81c3bf46"
     },
     {
      "name": "emerge_E_06.png",
-     "sha256": "b9839a9df355c886f57f502b664a2442272b018b696b838f3a5176902daa9ba0"
+     "sha256": "da3bd7ad9db28476ca090832b38e53fb59bd365e2bfca70ced951e22840e8fd5"
     },
     {
      "name": "emerge_E_07.png",
-     "sha256": "23a5e59b798fc73d920fb2e4d5b397427dfecdd2b45445ebdc3bd8ee0ed5413c"
+     "sha256": "c1f0b91b71bc17fef50f2792c3d70995fec413bad61d29351c007cc1ac0a3ed4"
     },
     {
      "name": "emerge_E_08.png",
-     "sha256": "4f57f8d09601880cf94431197b84f2d20e95f6fbc5ff8a5418f57a36aa76bc74"
+     "sha256": "8a624e88d41c9a0700c39b26b810924a88a1cc79ed1c9f1f3b8b7ee14761e1d6"
     },
     {
      "name": "emerge_E_09.png",
-     "sha256": "febe30a088c90eca9f3b7089c672c2ee50a3975c7900cabd76d7fc655514bee7"
+     "sha256": "9b4768272ea38d6163492d8258d80e9dbdefb5d93c1382f875f85dba08d87bcb"
     },
     {
      "name": "emerge_E_10.png",
-     "sha256": "73966f16f7e48f2f771230e2f1cddb11afb6db5b9d2184c3827d1dffdf25fddf"
+     "sha256": "94472ef2fa25957e6510eb1217937992223c9f33a2eaed74511d462b28ec1fdc"
     },
     {
      "name": "emerge_E_11.png",
+     "sha256": "19a1a70252263e015dc0db0874f5e1c3de0bccc7e461735da07bbc21d0e59f73"
+    },
+    {
+     "name": "emerge_E_12.png",
+     "sha256": "2e508c6518b4bdfafe464a1d77953818a162aa39c97030a5d7fbf56eb584e4ea"
+    },
+    {
+     "name": "emerge_E_13.png",
+     "sha256": "99e9a1c07e895930da16b14a22d19bf9bc2329b68e15feb525e611e4f6941a1d"
+    },
+    {
+     "name": "emerge_E_14.png",
+     "sha256": "3436d3bfd42dc8d4a964f75f1d603d2d514b37db0861dae3219f9302dff394c0"
+    },
+    {
+     "name": "emerge_E_15.png",
      "sha256": "8a56b905bb96bb49503959dd0c67c07d5f91d3811a5cfdb03a297d79e6682be7"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "5a844b1d5fc0ff2c68b321bbbdc5cf2d8acf07e748a54691ce34f4d4a6fc770c",
+   "render_pass": "p2",
+   "cell_sha256": "e09c7a3c4deee1607632a670686354ef6509b9ed7cbc1cadc1ec182383e9d22a",
    "alpha_union_bbox": [
-    285,
+    258,
     230,
     541,
-    534
+    530
    ],
    "edge_touch": false,
    "facing_measured_deg": 360.0,
@@ -23414,59 +24036,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      -0.1193,
-      0.90355,
-      0.33345
+      -0.53737,
+      0.57513,
+      0.28065
      ],
      [
-      -0.12848,
-      0.91066,
-      0.3312
+      -0.57181,
+      0.60828,
+      0.29882
      ],
      [
-      -0.15179,
-      0.93223,
-      0.34425
+      -0.62715,
+      0.67997,
+      0.38299
      ],
      [
-      -0.18422,
-      0.96484,
-      0.3731
+      -0.61954,
+      0.69975,
+      0.4098
      ],
      [
-      -0.21955,
-      0.99555,
-      0.41962
+      -0.57475,
+      0.63327,
+      0.32356
      ],
      [
-      -0.24123,
-      1.01614,
-      0.46718
+      -0.53826,
+      0.57712,
+      0.28262
      ],
      [
-      -0.24001,
-      1.02181,
-      0.4885
+      -0.56247,
+      0.59642,
+      0.28995
      ],
      [
-      -0.213,
-      1.00018,
-      0.44896
+      -0.61934,
+      0.66915,
+      0.36453
      ],
      [
-      -0.0533,
-      1.00569,
-      0.38426
+      -0.62415,
+      0.70473,
+      0.4205
      ],
      [
-      0.11828,
-      1.05078,
-      0.52124
+      -0.58413,
+      0.64603,
+      0.3365
      ],
      [
-      0.23138,
-      1.06045,
-      0.6619
+      -0.54099,
+      0.58253,
+      0.28752
+     ],
+     [
+      -0.55464,
+      0.58841,
+      0.28441
+     ],
+     [
+      -0.60952,
+      0.65701,
+      0.3471
+     ],
+     [
+      -0.62861,
+      0.70555,
+      0.42442
+     ],
+     [
+      0.07945,
+      1.04195,
+      0.48183
      ],
      [
       0.28528,
@@ -23476,59 +24118,79 @@
     ],
     "off_hand": [
      [
-      0.91899,
-      -0.53076,
-      0.3413
+      0.57542,
+      -0.80184,
+      0.31214
      ],
      [
-      0.91832,
-      -0.50295,
-      0.35274
+      0.5934,
+      -0.75331,
+      0.33115
      ],
      [
-      0.92177,
-      -0.49018,
-      0.36863
+      0.66581,
+      -0.73269,
+      0.36973
      ],
      [
-      0.93136,
-      -0.48667,
-      0.38865
+      0.69961,
+      -0.80279,
+      0.38418
      ],
      [
-      0.95287,
-      -0.48583,
-      0.41555
+      0.61747,
+      -0.85722,
+      0.33301
      ],
      [
-      0.98452,
-      -0.50117,
-      0.4461
+      0.57657,
+      -0.80702,
+      0.31267
      ],
      [
-      0.99631,
-      -0.54024,
-      0.451
+      0.58626,
+      -0.75597,
+      0.32455
      ],
      [
-      0.97589,
-      -0.56666,
-      0.41596
+      0.64681,
+      -0.7374,
+      0.36378
      ],
      [
-      0.87696,
-      -0.41392,
-      0.42624
+      0.70926,
+      -0.78156,
+      0.38816
      ],
      [
-      0.94126,
-      -0.29809,
-      0.6311
+      0.62934,
+      -0.85531,
+      0.3401
      ],
      [
-      0.97225,
-      -0.28412,
-      0.67304
+      0.57981,
+      -0.81961,
+      0.31432
+     ],
+     [
+      0.58205,
+      -0.76136,
+      0.31962
+     ],
+     [
+      0.63148,
+      -0.74236,
+      0.358
+     ],
+     [
+      0.71224,
+      -0.7632,
+      0.38902
+     ],
+     [
+      0.92322,
+      -0.31134,
+      0.59285
      ],
      [
       0.94722,
@@ -23538,59 +24200,79 @@
     ],
     "chest": [
      [
-      0.11659,
-      0.0805,
-      1.31766
+      0.14292,
+      0.1072,
+      1.29059
      ],
      [
-      0.11682,
-      0.08248,
-      1.3158
+      0.14376,
+      0.11308,
+      1.29371
      ],
      [
-      0.11787,
-      0.08583,
-      1.31914
+      0.1425,
+      0.10745,
+      1.31609
      ],
      [
-      0.1179,
-      0.08638,
-      1.32752
+      0.14053,
+      0.10486,
+      1.31417
      ],
      [
-      0.11654,
-      0.08127,
-      1.33799
+      0.13742,
+      0.10251,
+      1.29863
      ],
      [
-      0.11818,
-      0.07649,
-      1.34445
+      0.14288,
+      0.10678,
+      1.291
      ],
      [
-      0.11724,
-      0.07484,
-      1.34438
+      0.14373,
+      0.11249,
+      1.29048
      ],
      [
-      0.11438,
-      0.07705,
-      1.3366
+      0.14234,
+      0.10935,
+      1.31277
      ],
      [
-      0.10759,
-      0.09974,
-      1.46255
+      0.14215,
+      0.10425,
+      1.31776
      ],
      [
-      0.08509,
-      0.11623,
-      1.60854
+      0.13674,
+      0.10351,
+      1.30015
      ],
      [
-      0.06967,
-      0.12605,
-      1.6489
+      0.14266,
+      0.10573,
+      1.29205
+     ],
+     [
+      0.14344,
+      0.11107,
+      1.28891
+     ],
+     [
+      0.14275,
+      0.11128,
+      1.30872
+     ],
+     [
+      0.14351,
+      0.10418,
+      1.31989
+     ],
+     [
+      0.09013,
+      0.113,
+      1.58503
      ],
      [
       0.06414,
@@ -23600,59 +24282,79 @@
     ],
     "head_top": [
      [
-      0.3079,
-      0.13303,
-      1.75247
+      0.42165,
+      0.26023,
+      1.63828
      ],
      [
-      0.31092,
-      0.1354,
-      1.74863
+      0.42857,
+      0.26665,
+      1.63607
      ],
      [
-      0.31588,
-      0.13814,
-      1.7504
+      0.43848,
+      0.25469,
+      1.6569
      ],
      [
-      0.32261,
-      0.139,
-      1.75632
+      0.43613,
+      0.24919,
+      1.65844
      ],
      [
-      0.32609,
-      0.12765,
-      1.7665
+      0.4216,
+      0.25185,
+      1.6462
      ],
      [
-      0.3358,
-      0.11645,
-      1.7709
+      0.42152,
+      0.25974,
+      1.63892
      ],
      [
-      0.33427,
-      0.11216,
-      1.77196
+      0.42656,
+      0.26554,
+      1.63404
      ],
      [
-      0.32208,
-      0.11834,
-      1.76813
+      0.43574,
+      0.25903,
+      1.65384
      ],
      [
-      0.279,
-      0.14203,
-      1.91063
+      0.44081,
+      0.24709,
+      1.66044
      ],
      [
-      0.25202,
-      0.14989,
-      2.06007
+      0.42259,
+      0.25193,
+      1.64753
      ],
      [
-      0.22774,
-      0.15439,
-      2.10289
+      0.42117,
+      0.25846,
+      1.64051
+     ],
+     [
+      0.4251,
+      0.26419,
+      1.6332
+     ],
+     [
+      0.43484,
+      0.26353,
+      1.6489
+     ],
+     [
+      0.44454,
+      0.24629,
+      1.66095
+     ],
+     [
+      0.25997,
+      0.15073,
+      2.03538
      ],
      [
       0.23611,
@@ -23665,63 +24367,79 @@
   "emerge/SE": {
    "status": "COMPLETE",
    "flags": [],
-   "frames": 12,
+   "frames": 16,
    "files": [
     {
      "name": "emerge_SE_00.png",
-     "sha256": "6f05162c93a1f3821056b6ce114488c49139df3ee837741379d684ca31bf3a18"
+     "sha256": "ca0e097becdbcd67ed60c0478da2eda4aff046ce938b7c83169a0c300d40c54d"
     },
     {
      "name": "emerge_SE_01.png",
-     "sha256": "352c5c483a2badbac7c6efa7b4a56e60745cda73e78a217afe079e5cb06b35ef"
+     "sha256": "f60461cade724fea5510637f19a347dbd5ec939d53de300d66f3fec32484a060"
     },
     {
      "name": "emerge_SE_02.png",
-     "sha256": "88ff103131f38b6077e2497dc9ff09952d75600a300da4cbf92b43e87db3c9f5"
+     "sha256": "9a97eab93706389cc5bfdfdc1182e6408fd0321589ef0ab75a1e52801fe3f93e"
     },
     {
      "name": "emerge_SE_03.png",
-     "sha256": "c08fc42ca43a119ef2319a42162061285a4453a64ac8902bc76cb0e29c39c367"
+     "sha256": "924856e9f9bfd6dff5026617dcc37a3f3259322d558489cb7b81e2386d8e746c"
     },
     {
      "name": "emerge_SE_04.png",
-     "sha256": "bfe4e644ba441795505f0d0ee07368b3754a79f190e2efa9675491f28941dbda"
+     "sha256": "d63564d54df98b77e6381193730f6e864dc10c3a531bb0d6225b6a0d0c30cc7f"
     },
     {
      "name": "emerge_SE_05.png",
-     "sha256": "56a61ba2a462a2b9c142e39f0a262ebe96896e907eed1267ad590347dbc04be1"
+     "sha256": "7334b71b8b7713d8ca49d08895140132af25cdde57eb054203860f34ab7c02e8"
     },
     {
      "name": "emerge_SE_06.png",
-     "sha256": "1a55d20dec3a6c6c8794d8334129629dbdc90d4ea3d349c456c8691a1f9cc3a8"
+     "sha256": "8c204c689d2ceea5104a4b0ef47e02bf9d5675e6aaa11f37bd2152c88e72bf1d"
     },
     {
      "name": "emerge_SE_07.png",
-     "sha256": "33be002761a01e4ed70bbf0764875ab1aab0ac2090c926632008ec17e1b948c1"
+     "sha256": "9dc169f55c2aa4cdde76ded4e9e0784e8e8b1b3de561ff7922895e833476af96"
     },
     {
      "name": "emerge_SE_08.png",
-     "sha256": "2bdb97b139c18e467154926dca85ba147e85a916be5062143ac1e46d8a71da6e"
+     "sha256": "79c7e72382fa7487cbbb5d0563e7c53a877db9c1854e57d08fb6a1f9650ea09a"
     },
     {
      "name": "emerge_SE_09.png",
-     "sha256": "ba4a7016d78e1a36e482959b744097c1050284072fce71fbefb842464fd246fd"
+     "sha256": "03a2883663a5ce0522a94007157faff364f45395c7857dddcfcaae665b511184"
     },
     {
      "name": "emerge_SE_10.png",
-     "sha256": "7a447051cbbe969da1d1fb3479b83b34a071a25c27923e67b2bd5925300d7292"
+     "sha256": "90b4432c6ff6872b658170622678e6728f482b698326a49d1b0a7de76470e690"
     },
     {
      "name": "emerge_SE_11.png",
+     "sha256": "76d6f0ab5e30d3f45c126fa397d48cd5337600cd0210c6aee6dd8cbdf99aba89"
+    },
+    {
+     "name": "emerge_SE_12.png",
+     "sha256": "47c41390377c1721dfcfbaa612968b8480b50787e8e57398164d990afd78c617"
+    },
+    {
+     "name": "emerge_SE_13.png",
+     "sha256": "0208dedf3f02a85491ebfa321616b52a04b67be7bc3a227606640a03942f6b11"
+    },
+    {
+     "name": "emerge_SE_14.png",
+     "sha256": "4c11048a30077b224a8993372c15f241d7fc8d02c0b7a3a648116a8246e8b73a"
+    },
+    {
+     "name": "emerge_SE_15.png",
      "sha256": "b997dfe861a71f51bb94b7d70e75bd25aa6348a411aa3d1f62d841597add8a4c"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "3f25bd1c7f90a37929d6e2f010596c429af4af1ea9567fae20b0edbe94c08f8b",
+   "render_pass": "p2",
+   "cell_sha256": "56cff0dff31bd3e8e1808699535e5f0832783eb497b40d9874ff5437e0227f3a",
    "alpha_union_bbox": [
-    226,
+    221,
     238,
-    550,
+    547,
     527
    ],
    "edge_touch": false,
@@ -23731,59 +24449,79 @@
    "sockets_m": {
     "main_hand": [
      [
-      -0.72326,
-      0.55455,
-      0.33345
+      -0.78666,
+      0.0267,
+      0.28065
      ],
      [
-      -0.73478,
-      0.55309,
-      0.3312
+      -0.83445,
+      0.02579,
+      0.29882
      ],
      [
-      -0.76652,
-      0.55185,
-      0.34425
+      -0.92428,
+      0.03735,
+      0.38299
      ],
      [
-      -0.81251,
-      0.55199,
-      0.3731
+      -0.93288,
+      0.05672,
+      0.4098
      ],
      [
-      -0.8592,
-      0.54871,
-      0.41962
+      -0.8542,
+      0.04138,
+      0.32356
      ],
      [
-      -0.8891,
-      0.54794,
-      0.46718
+      -0.7887,
+      0.02748,
+      0.28262
      ],
      [
-      -0.89224,
-      0.55282,
-      0.4885
+      -0.81945,
+      0.02401,
+      0.28995
      ],
      [
-      -0.85785,
-      0.55662,
-      0.44896
+      -0.9111,
+      0.03522,
+      0.36453
      ],
      [
-      -0.74882,
-      0.67344,
-      0.38426
+      -0.93966,
+      0.05698,
+      0.4205
      ],
      [
-      -0.65938,
-      0.82665,
-      0.52124
+      -0.86985,
+      0.04377,
+      0.3365
      ],
      [
-      -0.58625,
-      0.91346,
-      0.6619
+      -0.79445,
+      0.02938,
+      0.28752
+     ],
+     [
+      -0.80826,
+      0.02388,
+      0.28441
+     ],
+     [
+      -0.89557,
+      0.03357,
+      0.3471
+     ],
+     [
+      -0.94339,
+      0.05441,
+      0.42442
+     ],
+     [
+      -0.68059,
+      0.79295,
+      0.48183
      ],
      [
       -0.55032,
@@ -23793,59 +24531,79 @@
     ],
     "off_hand": [
      [
-      1.02513,
-      0.27452,
-      0.3413
+      0.97387,
+      -0.1601,
+      0.31214
      ],
      [
-      1.00499,
-      0.29371,
-      0.35274
+      0.95227,
+      -0.11308,
+      0.33115
      ],
      [
-      0.9984,
-      0.30518,
-      0.36863
+      0.98888,
+      -0.04729,
+      0.36973
      ],
      [
-      1.0027,
-      0.31445,
-      0.38865
+      1.06236,
+      -0.07296,
+      0.38418
      ],
      [
-      1.01731,
-      0.33025,
-      0.41555
+      1.04276,
+      -0.16952,
+      0.33301
      ],
      [
-      1.05055,
-      0.34178,
-      0.4461
+      0.97835,
+      -0.16295,
+      0.31267
      ],
      [
-      1.08651,
-      0.32249,
-      0.451
+      0.9491,
+      -0.12001,
+      0.32455
      ],
      [
-      1.09075,
-      0.28937,
-      0.41596
+      0.97878,
+      -0.06406,
+      0.36378
      ],
      [
-      0.91279,
-      0.32742,
-      0.42624
+      1.05417,
+      -0.05112,
+      0.38816
      ],
      [
-      0.87635,
-      0.45479,
-      0.6311
+      1.0498,
+      -0.15978,
+      0.3401
      ],
      [
-      0.88839,
-      0.48658,
-      0.67304
+      0.98954,
+      -0.16957,
+      0.31432
+     ],
+     [
+      0.94994,
+      -0.12679,
+      0.31962
+     ],
+     [
+      0.97145,
+      -0.0784,
+      0.358
+     ],
+     [
+      1.0433,
+      -0.03604,
+      0.38902
+     ],
+     [
+      0.87297,
+      0.43267,
+      0.59285
      ],
      [
       0.89172,
@@ -23855,59 +24613,79 @@
     ],
     "chest": [
      [
+      0.02526,
+      0.17686,
+      1.29059
+     ],
+     [
+      0.02169,
+      0.18161,
+      1.29371
+     ],
+     [
+      0.02479,
+      0.17674,
+      1.31609
+     ],
+     [
+      0.02522,
+      0.17351,
+      1.31417
+     ],
+     [
+      0.02468,
+      0.16966,
+      1.29863
+     ],
+     [
       0.02552,
-      0.13937,
-      1.31766
+      0.17654,
+      1.291
      ],
      [
-      0.02428,
-      0.14093,
-      1.3158
+      0.02209,
+      0.18118,
+      1.29048
      ],
      [
-      0.02266,
-      0.14403,
-      1.31914
+      0.02333,
+      0.17797,
+      1.31277
      ],
      [
-      0.02229,
-      0.14445,
-      1.32752
+      0.0268,
+      0.17423,
+      1.31776
      ],
      [
-      0.02494,
-      0.13987,
-      1.33799
+      0.0235,
+      0.16989,
+      1.30015
      ],
      [
-      0.02948,
-      0.13765,
-      1.34445
+      0.02611,
+      0.17564,
+      1.29205
      ],
      [
-      0.02998,
-      0.13583,
-      1.34438
+      0.02289,
+      0.17997,
+      1.28891
      ],
      [
-      0.0264,
-      0.13536,
-      1.3366
+      0.02225,
+      0.17963,
+      1.30872
      ],
      [
-      0.00555,
-      0.14661,
-      1.46255
+      0.02781,
+      0.17514,
+      1.31989
      ],
      [
-      -0.02202,
-      0.14236,
-      1.60854
-     ],
-     [
-      -0.03987,
-      0.13839,
-      1.6489
+      -0.01617,
+      0.14363,
+      1.58503
      ],
      [
       -0.0432,
@@ -23917,59 +24695,79 @@
     ],
     "head_top": [
      [
-      0.12365,
-      0.31179,
-      1.75247
+      0.11414,
+      0.48217,
+      1.63828
      ],
      [
-      0.12411,
-      0.3156,
-      1.74863
+      0.1145,
+      0.4916,
+      1.63607
      ],
      [
-      0.12568,
-      0.32104,
-      1.7504
+      0.12995,
+      0.49014,
+      1.6569
      ],
      [
-      0.12984,
-      0.32641,
-      1.75632
+      0.13218,
+      0.4846,
+      1.65844
      ],
      [
-      0.14032,
-      0.32084,
-      1.7665
+      0.12003,
+      0.4762,
+      1.6462
      ],
      [
-      0.15511,
-      0.31979,
-      1.7709
+      0.1144,
+      0.48172,
+      1.63892
      ],
      [
-      0.15705,
-      0.31567,
-      1.77196
+      0.11386,
+      0.48939,
+      1.63404
      ],
      [
-      0.14407,
-      0.31142,
-      1.76813
+      0.12495,
+      0.49128,
+      1.65384
      ],
      [
-      0.09685,
-      0.29771,
-      1.91063
+      0.13698,
+      0.48642,
+      1.66044
      ],
      [
-      0.07221,
-      0.2842,
-      2.06007
+      0.12068,
+      0.47696,
+      1.64753
      ],
      [
-      0.05187,
-      0.2702,
-      2.10289
+      0.11505,
+      0.48058,
+      1.64051
+     ],
+     [
+      0.11378,
+      0.4874,
+      1.6332
+     ],
+     [
+      0.12113,
+      0.49382,
+      1.6489
+     ],
+     [
+      0.14018,
+      0.4885,
+      1.66095
+     ],
+     [
+      0.07724,
+      0.29041,
+      2.03538
      ],
      [
       0.05675,
