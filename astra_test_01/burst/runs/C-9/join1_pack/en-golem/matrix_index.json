@@ -12,11 +12,11 @@
   "indexer_sha256": "2115ceca44e9060484e8c2e1161c80e6229ae84b38eaf529505eda9ebcd7009e",
   "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-golem.json",
   "kit_config_sha256": "edae62b038bef94ad49ad3e271712a4b5b55c3ce4347d985760cbcaa1c6d2499",
-  "ts": "2026-10-02T08:13:22-0400"
+  "ts": "2026-10-02T08:20:07-0400"
  },
  "source": {
   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_g/en_g_body.glb",
-  "glb_sha256": "76b7937ab66e25e441e7d131af6f87fd6381f528d0f37022df9e9866599fff06",
+  "glb_sha256": "29b5c5fafd65e2dfdf92d749e8090ee7b92b5d57ee961fe9b37be10594ca2b7a",
   "pieces": [],
   "h_model_m": 2.2985,
   "h_model_method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres (every 7th vertex; sole 0.0000, crown 2.2985)",
@@ -29,7 +29,7 @@
  },
  "clip_manifest": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-golem_clips.json",
-  "sha256": "37de22990d906b398b377b8381e521be781f1efb3d5d0e84a05fc6906479c47d"
+  "sha256": "c8be7c923e2bbb950d13d74d59a27c85d131ee54e031acf902e28bf2488f7e79"
  },
  "camera": {
   "projection": "orthographic",
@@ -338,27 +338,27 @@
    "role": "oneshot_hold",
    "clip": {
     "animation": "death",
-    "duration_s": 2.4,
+    "duration_s": 3.666667,
     "manifest_entry": "clips.death"
    },
    "frames": 16,
    "t_s": [
     0.0,
-    0.16,
-    0.32,
-    0.48,
-    0.64,
-    0.8,
-    0.96,
-    1.12,
-    1.28,
-    1.44,
-    1.6,
-    1.76,
-    1.92,
-    2.08,
-    2.24,
-    2.4
+    0.244444,
+    0.488889,
+    0.733333,
+    0.977778,
+    1.222222,
+    1.466667,
+    1.711111,
+    1.955556,
+    2.2,
+    2.444444,
+    2.688889,
+    2.933333,
+    3.177778,
+    3.422222,
+    3.666667
    ],
    "root_motion": "stripped",
    "stride_m_per_cycle": null,
@@ -417,7 +417,32 @@
  },
  "morphs": {},
  "runtime_resampling": null,
- "render_passes": null,
+ "render_passes": {
+  "prev": {
+   "pass": "prev",
+   "why": "the pack before this pass",
+   "cells_in_pack": 72
+  },
+  "p2": {
+   "pass": "p2",
+   "body_sha256": "29b5c5fafd65e2dfdf92d749e8090ee7b92b5d57ee961fe9b37be10594ca2b7a",
+   "kit_sha256": "edae62b038bef94ad49ad3e271712a4b5b55c3ce4347d985760cbcaa1c6d2499",
+   "tool_sha256": "2682e46ed9e418b8c4d539b8bfc3380dc8aa0445e8eb93f6ba6905c8dae3e5e7",
+   "ts": "2026-10-02T08:19:54",
+   "why": "conductor: Pro Magic death forward replaces the 2H sword death (joint lint clean)",
+   "cells": [
+    "death/E",
+    "death/N",
+    "death/NE",
+    "death/NW",
+    "death/S",
+    "death/SE",
+    "death/SW",
+    "death/W"
+   ],
+   "cells_in_pack": 8
+  }
+ },
  "cells": {
   "idle/S": {
    "status": "COMPLETE",
@@ -473,7 +498,7 @@
      "sha256": "d74f2528ebf4ebb96a81132689db813ab310e99f49e85c32ee51dd58c74bd325"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "6c940c07da6d2478d78870b6f0e4a2aaf8c97fde97a4855ee8f9c29e53ca5a79",
    "alpha_union_bbox": [
     259,
@@ -790,7 +815,7 @@
      "sha256": "03e862cdf029223767bf68c3d635712ab7b9ff839e67a3bacaa52c93b6107d6e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "c03163e3bbe07cd10ab468721ad3fb851d702f9262212fe4c6056807bc4006bf",
    "alpha_union_bbox": [
     268,
@@ -1107,7 +1132,7 @@
      "sha256": "0f9e9dd0f47a2eb0e3e899acc4f7cbed398e945e6b2134cfe32216378b475c9c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "533c65861ce7dbfe6f4a163553bb6357fd6c7d993fb2ca841433e7d233275995",
    "alpha_union_bbox": [
     297,
@@ -1424,7 +1449,7 @@
      "sha256": "6571b1326bcb1d6fddb731d1f3c2ed34be491bf2688952d0b7479523105149aa"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "bc85c0bb671c9c1c3a05d672205e732887743873cb6e2c660334c8b32a30e099",
    "alpha_union_bbox": [
     273,
@@ -1741,7 +1766,7 @@
      "sha256": "a4151d75d5ccb9b859e3e537b65223d3e15a29945d6a1ea246068cf8cf97f77a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "6dac2eccc7591cbb994946f52cf8255e3393562755f3f9965f33a0d18ff96a5e",
    "alpha_union_bbox": [
     269,
@@ -2058,7 +2083,7 @@
      "sha256": "2f388dfc79f6e7e72dc1024ec48814d41102ec00231b05ff726a88d8116dd007"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "b138647a90c51115301509c5d9db47b05bb49d0e58beaaea1e67b346edc1cc15",
    "alpha_union_bbox": [
     299,
@@ -2375,7 +2400,7 @@
      "sha256": "f61a3c3cb99e550c56a327a594cb4188e61c3176e4050390777f9420159c213a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "f12cfc5460f658e0b0682451af07170e9fc32dd00aed8d289979f3931a66901a",
    "alpha_union_bbox": [
     298,
@@ -2692,7 +2717,7 @@
      "sha256": "6edc3cf104b996ff411a89c2d59467ba4e7812ec4938983b0d1310008b712628"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "651c0ada26303811864641af76c804d7217d0cc29aaf8e4e034b809c90c93d75",
    "alpha_union_bbox": [
     289,
@@ -3009,7 +3034,7 @@
      "sha256": "2b44a663ae338c8ec7e8e662cd671c629bb2c5253d69b00600a09957274c04ac"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "453bf9d482a77ed7366f120eea12466dd9ae8cc61c51e2a5588f3145980c4388",
    "alpha_union_bbox": [
     247,
@@ -3326,7 +3351,7 @@
      "sha256": "36d4f9560af971754ebcb6d224a9786ef4747e96b7e21d2dff0ddce263683e58"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "367ccd999b14ac33399a78e40558fc60d142d0becb52e79858c3e6efaa7935fa",
    "alpha_union_bbox": [
     240,
@@ -3643,7 +3668,7 @@
      "sha256": "614cf4a56b643efa5d268fcba6c8cafbbb444740ef78065dfd3b64092752fd87"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "e0961d2e599eaba6833a9f2addf4cac266b3eb58878b42a389e738beb0550a1e",
    "alpha_union_bbox": [
     231,
@@ -3960,7 +3985,7 @@
      "sha256": "e6e6887f5750606064ef031e575b71c2978a86fcebe392ab2331c598330d4486"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "fbd2a6577d25235d1207a940d7cd9f27b469cef8c11fd1792229ddc76c3ce787",
    "alpha_union_bbox": [
     239,
@@ -4277,7 +4302,7 @@
      "sha256": "75479d175d833cb23c0e09b6b3187596a65bfe946a7ea8b72b161ccaf12a42df"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "79adde72cae9a9b985f45920f225258b7bc0fe0b3086a0259c5be090e511fcc2",
    "alpha_union_bbox": [
     262,
@@ -4594,7 +4619,7 @@
      "sha256": "c2b79c897a7a8571f00570a86270d2f2c53a2ecea76d17341419e3f7746a8fdd"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "2cc75583fedf70fdbd1b22762c4cac1638b277a62be850b5643e72533edacc7b",
    "alpha_union_bbox": [
     254,
@@ -4911,7 +4936,7 @@
      "sha256": "033453af5b0a6885dd2e5b01b4bbc6e1fc5f50f09c0dcb26e48e2430fa8fb923"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "46895c77d01cf8e7c62fcfa19c4b31b4fffedf54b9634c318a4f587dc4b919ad",
    "alpha_union_bbox": [
     273,
@@ -5228,7 +5253,7 @@
      "sha256": "adf39033e18e18dc387983c581f0f102d7c383d7c89fe11e034ab5e125c0f356"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "1f60cbe3a23142704dc71d5a5367e36fd7abe8a021b6347a9e26940ec1763ad3",
    "alpha_union_bbox": [
     253,
@@ -5545,7 +5570,7 @@
      "sha256": "d5ba70d6242abe630655b1cb9e743d220a52d7445356e1e9b7e79ff19035e7a3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "765c39efba58bf6f5b54f18afd124b94246c107b4835c6022b1afa36d8bb137c",
    "alpha_union_bbox": [
     251,
@@ -5862,7 +5887,7 @@
      "sha256": "6478361ed0355dfd7b496c740ea737b82d432b39a7b24188bae3a3b4c6875717"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "d4c013909ab135dca632c2d967ab411e1a72c3fd1038e17b5e4c839ae42c5683",
    "alpha_union_bbox": [
     241,
@@ -6179,7 +6204,7 @@
      "sha256": "51097484a0301d12e4ac83ab4a71ab56f02df941e8b170bffc0b31ba77388747"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "ed7f9ebf62e0f4b7ec184d5142aef952e668489646626aa7127b5b20c269ebe3",
    "alpha_union_bbox": [
     218,
@@ -6496,7 +6521,7 @@
      "sha256": "58705824e4877f0e5625c04c179530aafe2006a2a922b0fd82b8ecfa9d2886c5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "6f23bf5640d6188eea4e52f03d68c88dcfb2878fbb06dcb3680acf7fe0fb86ad",
    "alpha_union_bbox": [
     232,
@@ -6813,7 +6838,7 @@
      "sha256": "2d48b163d418d8adf4746993e21276c372274aeeb5f401bf7eb31fb66e79be4a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "91d3e4eba76566f72f340e846c1766cf445d16b260cb1eb6ff10f6142568dfd0",
    "alpha_union_bbox": [
     267,
@@ -7130,7 +7155,7 @@
      "sha256": "c2d6f945fb81be5e3f4d380ee877f2dfe89c175ec58ddb44df2986072cabb70e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "e56cc286d3c794466e1f4c9dcb1edf2f411c9ba5acedf28036a26a2d9795523e",
    "alpha_union_bbox": [
     267,
@@ -7447,7 +7472,7 @@
      "sha256": "43b5654ad7f2c5964a83956f16ee9203198340e8ed9c79968b0147c22ef627be"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "69294b16b17422446c2cc723521272f4adb69549511c3364423f4dc08450d6b7",
    "alpha_union_bbox": [
     272,
@@ -7764,7 +7789,7 @@
      "sha256": "b2d13fed0d936e4bf2029451c9fe95de336410d294240e572f49838855e0bdc7"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "970b7f8e9fa15db9f7e8bc97b9fe452bc65e2328756151a52e9f966165042a53",
    "alpha_union_bbox": [
     257,
@@ -8081,7 +8106,7 @@
      "sha256": "0f07c0aa4e14c9cd592388ba518652a664461e1d62fc1fddde075f4f865b83bc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "a954edc9a4041b4203285c3a58cf1c1cbfecfbbdb5eea4170d535dedc450c5b4",
    "alpha_union_bbox": [
     217,
@@ -8398,7 +8423,7 @@
      "sha256": "69ddaa8745be6576945a75c62c7e10f078cbc9167c4a6dc5bf50810c892e3cb5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "d86227fa8a9eeaa57306d98c4f46d65f642ccea79bfe8e469bfedd9ec3309f44",
    "alpha_union_bbox": [
     170,
@@ -8715,7 +8740,7 @@
      "sha256": "87c14817d41f9dfe712efffe29092a323562637f068dfc2c5e8d8f115b80844c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "9ccd167356fc439103cb0ad30c24283cc755ccceedced6a26b6898e2318d41a5",
    "alpha_union_bbox": [
     94,
@@ -9032,7 +9057,7 @@
      "sha256": "4fb7a04a45d3e835a308e7e099effa11f1dbfd12b058c8091d4bbfbbf3501036"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "0f417361ccfc16610096296cbb3a3aded9589dc02de6f9121f20920b59218840",
    "alpha_union_bbox": [
     161,
@@ -9349,7 +9374,7 @@
      "sha256": "2ba875542ac21d608bb79f92d5a4bdd1d704c30a701f54eeb8bc1114207e6a77"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "bde0c14215f8d1c75ab163d73767f9468d8d6b76d082f585250e4e998bd1f575",
    "alpha_union_bbox": [
     194,
@@ -9666,7 +9691,7 @@
      "sha256": "efabba173ed58d2e632d245f2adacae3fe5f7f68974b010f20296e050a4c4457"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "3d4570845ca2ca2e9a2044f2c2e52fcf09045b6739e3cdd47a10c481fd496acd",
    "alpha_union_bbox": [
     265,
@@ -9983,7 +10008,7 @@
      "sha256": "3f8b26f09f594d2a436b56929b18dde452fcd7a78832e1f49417a6b7056b361b"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "700b43ca66741e0679ecbb15dbcc6b393924d6212e1635c5f638164e575401f3",
    "alpha_union_bbox": [
     212,
@@ -10300,7 +10325,7 @@
      "sha256": "1ebe08d231feead0451b886e12a6307703ba16860f9121b066298caae57c7119"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "05a13dc38ad920cee63d685eadc8188751fb4b5716209a19c33112eef8a7d7f2",
    "alpha_union_bbox": [
     207,
@@ -10617,7 +10642,7 @@
      "sha256": "86aa39ebcc1a2ff0eaf2a5c3900019e1a9f7f741c9ee0acab525364dfd202c3a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "9dadf1f0a3dc132b67a6ac65db32b3cf33021d595990563cc0f3364dd8a64aee",
    "alpha_union_bbox": [
     188,
@@ -10934,7 +10959,7 @@
      "sha256": "e75e54048ace6536691ed9fc596c8d189e2def955c50ae4ad48c81d8c0f8eac1"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "c39bba480b679b4204abf2b2d13d67235a48ed35893fa72b6df4dd82fc19d980",
    "alpha_union_bbox": [
     98,
@@ -11251,7 +11276,7 @@
      "sha256": "e3d8032d7beed26e8536abf1acf3535d3d998369d97958cf130dc036997d9adc"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "1553834b912cc3d32e2c3ef1e86a5cbcf2d6e0cc527ff84b233f800cb84d6c7d",
    "alpha_union_bbox": [
     137,
@@ -11568,7 +11593,7 @@
      "sha256": "982014c471e79ecd21e41d932d0b7ea5cfa5c8467187ce864534106aab6e5477"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "dee6ce523d23cb253cc048ab263192a1506cb64ce39c3a6b8c73bcb9328d5fd7",
    "alpha_union_bbox": [
     137,
@@ -11885,7 +11910,7 @@
      "sha256": "fcecbe8ec0be51781d43e02b4404247ff0df8bba6cf5d88cfb24123a33397e26"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "b8c19824310165143f47ace0f7d18760a0b3fb672615dbae7fe035085fe9e0d7",
    "alpha_union_bbox": [
     147,
@@ -12202,7 +12227,7 @@
      "sha256": "aaf480acd14d0b9e3caa59c2b15b89919a09526fbe0a435bc8fe456e3a01330d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "a863575a9f3478b59468d23f8651eaa1160b0b23de60e42ba53140d7a4ac1413",
    "alpha_union_bbox": [
     160,
@@ -12519,7 +12544,7 @@
      "sha256": "3f7d039ee0f206c48d56faa079fc0530afae4e020f57c24ed08dad39e140f2c1"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "ed282539dfc8e75da9a147436cd4140f074bbbf185a4894cdf0dd326d8c508c7",
    "alpha_union_bbox": [
     154,
@@ -12836,7 +12861,7 @@
      "sha256": "ccd0601223d3a364ebe410ed567a47148344d59edb055cebc7117b2eb65d359c"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "2c005860c68cd26e37103b6cfe26e2587e57cfa6614427ce4f42c442941e38e5",
    "alpha_union_bbox": [
     120,
@@ -13153,7 +13178,7 @@
      "sha256": "c3c9d19b14485553c59e1d5ab7febe95bba4b98bf066885f0d6c73ce7f7f69c1"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "9ce41a8343b187b7b6d8c137608cdcce30e805143c62cf7eaea0741b3a534ad4",
    "alpha_union_bbox": [
     141,
@@ -13470,7 +13495,7 @@
      "sha256": "17b8e8b55cc89162d099f6443b094354ef832a296a9638c1e58f4bc33fc78a18"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "e5d6861e07f2dd13c2044526b9640a41222f5ea8749e7950b08d63c15868f598",
    "alpha_union_bbox": [
     100,
@@ -13787,7 +13812,7 @@
      "sha256": "63e6adcebe0644ef7a45dd04d13293951819b389d06f2183c07682ba3a6a16c6"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "32cca79bf41a075a8d9e1af0317e9166c9196b583cb8dd8ecabda04593e31ed6",
    "alpha_union_bbox": [
     76,
@@ -14104,7 +14129,7 @@
      "sha256": "d96f48d269c3445ef07b0fc18601f7a9924375e3f40710caf22ff81380b6d81f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "b936c1e4272fc239195287f5262c72f1386406436437064f4f5b1b2735ccd426",
    "alpha_union_bbox": [
     141,
@@ -14421,7 +14446,7 @@
      "sha256": "8d7a0b193f2110a2a4814fb44af5947cae11efb9b51d44ea25f49c7fadae2b52"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "38db22eb916faf91c37bef182b6bffd68b39abea400c52153bca8897d3953ae5",
    "alpha_union_bbox": [
     218,
@@ -14738,7 +14763,7 @@
      "sha256": "4f056d256194afdbb7c4bbc8839a9be9204fdb491e3a9979270689c01a00c2ff"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "65142042e335657e84b4ef5b84bc7d95d84a5916a2ea337137bf518d3df26819",
    "alpha_union_bbox": [
     227,
@@ -15055,7 +15080,7 @@
      "sha256": "7e50f003accf9aa754c898aeced12158c65af67cf53530b2b951aa7ab311d1ce"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "3f753514a0e4be76529ec9fb60b6a3036dec64abb5c66e46d44c3cb727017a96",
    "alpha_union_bbox": [
     261,
@@ -15372,7 +15397,7 @@
      "sha256": "de8d4804fdf0cb4d2e4c4a4e4297f73a19da395b885721459a3fcbeaf00c4825"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "b684a68e1cd9e0b06e9a14f2841f520e1ca935111029e5c6d4d4087688cd1bf6",
    "alpha_union_bbox": [
     204,
@@ -15689,7 +15714,7 @@
      "sha256": "e87ca9b6a2bd0aeb3dd2d148c25d08ecc4148100a6518ea974a902e8fc50a0d5"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "a1c5d06a79b8088618526fd20f5ede32f346998a2fba9e69e15acc12dafa9f8b",
    "alpha_union_bbox": [
     148,
@@ -16006,7 +16031,7 @@
      "sha256": "ba0758c986a9f3c754acd020f53174aeba21b473738a7d81861fa4c274246645"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "57d4d8a5c9cee5c44977fd545d27c409f9bae2fa001074a212a3a6f014cb6321",
    "alpha_union_bbox": [
     161,
@@ -16323,7 +16348,7 @@
      "sha256": "422642996b8939f1dadf27e90fdb697223769547534f3cdc48730f29f1d8a299"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "a67494abf4e1f7cf2020d9abe9cca6c83edbea38b915b752aee74f69766d2af4",
    "alpha_union_bbox": [
     139,
@@ -16640,7 +16665,7 @@
      "sha256": "0369fd11e59039c253232f1e997e8fe04de01b74eef07f5d95cea4e0bbff14a9"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "cc45495434ffb148eea7299cf93deaafee13ce9d9cd78a7661465d00247f0d37",
    "alpha_union_bbox": [
     132,
@@ -16957,7 +16982,7 @@
      "sha256": "72b03d8ee71fd136b6000b123d70589f85d8706ece3ba5e1c3c47e9ceb509103"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "090caa656222771e5e7551de1630e587c55cc5e5156c9342b9f945dc3eacd68c",
    "alpha_union_bbox": [
     208,
@@ -17274,7 +17299,7 @@
      "sha256": "68cec535ea79e9ba72e536757e54e904df6d21fc12de00809b8955c1596d759e"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "b4a83ea6b19a5eab29dfe2be9007011ad4755204598b59de0283470f374a975c",
    "alpha_union_bbox": [
     301,
@@ -17591,7 +17616,7 @@
      "sha256": "4a613a90e2b44445b12db24e2dbcefeacfa0ee8e515a926d890b99ae41de12e9"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "239d9b6475bc5b38cdbbe92201cb28dda21697248a136e317ac8bf55a6420a25",
    "alpha_union_bbox": [
     287,
@@ -17908,7 +17933,7 @@
      "sha256": "c09986310bb5f538d94ae878431043e0e1cb39b613ef19d003b945e7c210a7cb"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "3661e50a4fc5beb2829613bf1c05caee84c79bf27fc10581ad2f2b05a2cae744",
    "alpha_union_bbox": [
     239,
@@ -18209,7 +18234,7 @@
      "sha256": "24977c1ab55d055764d0ab361d5839a408567d05b90aa1b5bd19682e9ec5ee3f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "652083b7c89abcf0a2f2b8fa30cf28413102eba13adf21a9c8599d81ee97ac47",
    "alpha_union_bbox": [
     207,
@@ -18430,7 +18455,7 @@
      "sha256": "01bb17a87853aa529aabf9fc233dd5ebda8d88328eb66fe6adef86285298e654"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "f4c3e6693d79d771fb818cd20d158fbfdb85c564c06fa4dab51be5e355f9a4ef",
    "alpha_union_bbox": [
     244,
@@ -18651,7 +18676,7 @@
      "sha256": "f98fd93cad3287aa8bb59a762180a3cb0c065a49757c6ea11a4b23b7b988e5a3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "96d9fb19f9270f22358af007be67bfb2d6238949927d9d0663d4e01d1c438961",
    "alpha_union_bbox": [
     200,
@@ -18872,7 +18897,7 @@
      "sha256": "fe2bca9b53617af4002eed48f6fd236794fc0059b499451c037460b42af8db4f"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "a08775a8a740e4509ac35a0ce5737ba6bc9e8dc46db042d839b832479ac4d7b9",
    "alpha_union_bbox": [
     221,
@@ -19093,7 +19118,7 @@
      "sha256": "7bdbb416c76286ad6c92932bbecd31e6141f16281895613d32542e6eb43d7b04"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "35d7563c1ab188352e086641603a995adaeb7f1ee9dafe4c1b603d4bf4516ae4",
    "alpha_union_bbox": [
     288,
@@ -19314,7 +19339,7 @@
      "sha256": "cb324341a75a6c3890db638c3e80dd738ee73d298527af3794451deca65c6948"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "16e4b8d3eeb4310dbe25b24201365cbf3c071789277fc4cd84936d09cf227423",
    "alpha_union_bbox": [
     313,
@@ -19535,7 +19560,7 @@
      "sha256": "ece8238467b12529d870e9f8d45e3f230b97283dd081db6de27664717b3b14b4"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "9f375ac8a13c5b52f8bad93104c8408e5cad7338e625ab6b83d8d55b1add9332",
    "alpha_union_bbox": [
     252,
@@ -19756,7 +19781,7 @@
      "sha256": "6ba26538451c128570064fb1b245c44623da9ca5f417706a813275e535efeac8"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "475ba1dceb0b1f41a13f909a87224e780705255862f4b3f088a072e903493dca",
    "alpha_union_bbox": [
     183,
@@ -19946,408 +19971,408 @@
    "files": [
     {
      "name": "death_S_00.png",
-     "sha256": "3eb2dcc2b2a8b4fc0ddcf4bb4c5ccb41262e8896fc85fb399bd5e9d2ff8dacd7"
+     "sha256": "ce68c9f3608abfa4b12a81e48fc2d82d7011538bdb5c26e6981b8357f1d5f11f"
     },
     {
      "name": "death_S_01.png",
-     "sha256": "79f6d10b22d94b93ebf39cd589a2d3a1b366052693c29d18814976e8c595dc9a"
+     "sha256": "b7b7adc64e40139035a217d8fa6b670fcd67658b3c75bf71d5dc9ee284c7d578"
     },
     {
      "name": "death_S_02.png",
-     "sha256": "8e39f36fa551db419dd9f460ea54c375c7ff421a1d784e3d7e60c986c36f5f7a"
+     "sha256": "37ad8428988aabab584c58abfae056b4ca5b45d61d1910cdbaa7bf2fbb853e1f"
     },
     {
      "name": "death_S_03.png",
-     "sha256": "f76924a5dcc94490c8e3c3aa36c3b41cbd1c36c3047b162ce530ed0f603d3e55"
+     "sha256": "36048dba611f20d6f6796f6315e073a196f793dee96c8dc7b4dd04a81bcbd2ac"
     },
     {
      "name": "death_S_04.png",
-     "sha256": "52af64f972382835fecb4a921b845383468ddf68dd639e256b414add96b6d6a4"
+     "sha256": "331cd10d37def45deafce3073a4879ff9b850d2428fdbf1e610db973d5ae514d"
     },
     {
      "name": "death_S_05.png",
-     "sha256": "930882c524c3c07d80dfa0a0adc6c9d2a8c6d9d83b5e166b62d6f1372e4638f7"
+     "sha256": "75de0e5a846f971d914b24224b293289556a7d5d55b86d558609357e9079c56e"
     },
     {
      "name": "death_S_06.png",
-     "sha256": "70e6b57d10a81c1fa4c304008fd94ec81c3420a95ddddceeacc62c0cad51d227"
+     "sha256": "5a54e9bd19bf005e7f3467f4cbd2769610c836f22c708bb2edf3edb68b2e50f1"
     },
     {
      "name": "death_S_07.png",
-     "sha256": "fbd6d58b00fff36a89a62dc457c0d9024665593546e3ab8579f79a19e125114f"
+     "sha256": "3f8a3f571fad52341096d58f5db13ee2358109371e3b46953c634dc065fc832b"
     },
     {
      "name": "death_S_08.png",
-     "sha256": "08cc9e61a0916b06f7ff30572c1d2e6f4f359caa6dc3938179c0d99037c20e66"
+     "sha256": "a5bbcd10b2f9455b3abeeba2c23381c882f40589b46303850cc72068a85a3b44"
     },
     {
      "name": "death_S_09.png",
-     "sha256": "3b44ff4b130f92843a36faa1bf6fc608b4e5b96f784855c32aad992cc6db51d7"
+     "sha256": "94c2e40e80720251d8dd68673fb52473471cb9895d8fb33b9ff9955230baae15"
     },
     {
      "name": "death_S_10.png",
-     "sha256": "9873d97d3521fa109ef86b4b89040e57edbc76f76ba26e2e4db8182f636bb381"
+     "sha256": "ee62c1429aae91297e313a462841e8fe3c23b6babd555010900ef731901177f4"
     },
     {
      "name": "death_S_11.png",
-     "sha256": "4a5c65308f716c903e758987f1b88fc1bee490ad58b284d830583652c4486879"
+     "sha256": "5996e94684d5161eb635a15dea7e0ae5aeea50defda8be51238a64f4579dceee"
     },
     {
      "name": "death_S_12.png",
-     "sha256": "20724ce1da8c24f702fd3cd826f18f569f286bf55031deb447cc8633e52b5048"
+     "sha256": "2da3bd3fde08d1bad739ed375b2662c17f6e2c0e1552918ac18752cd5618ee8b"
     },
     {
      "name": "death_S_13.png",
-     "sha256": "0e87a4a8faac3ecf0910ecf70dc0bd3a46e7a0f8f53a1fc2d00c068b5af3dfe6"
+     "sha256": "fba64a6891798d8feffccd3164223862d4f61fdf83dfb55f90e61f9f7c415104"
     },
     {
      "name": "death_S_14.png",
-     "sha256": "f2faf8fdd3c214c7e88a82af1d62ec694f789e09085492b3b91d8a707d31e98b"
+     "sha256": "035a5b5d801645d9b8264227ba9e3d7a8fcfb380be576235f079fd65628ea4ba"
     },
     {
      "name": "death_S_15.png",
-     "sha256": "1cd3bb374c36573675ef59b58cab2972ed17d82d5bb4e9c990850ea47db533a7"
+     "sha256": "5c8628ba2f520fc69f22fb09ce60d6631d480c71b85c82899c29fb486a953eab"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "cdaa0a920436a216ee27f68f46679fbcef98e1ef0a3a4b9f2b9a4168d4357d46",
+   "render_pass": "p2",
+   "cell_sha256": "1abe57d1ca5ed8a6cdc70ca998d8a0d7d62098661e742cde3dde36a9f528d17e",
    "alpha_union_bbox": [
-    118,
-    235,
-    613,
-    589
+    179,
+    192,
+    558,
+    601
    ],
    "edge_touch": false,
    "facing_measured_deg": 90.0,
-   "facing_hips_frame0_deg": 105.612,
+   "facing_hips_frame0_deg": 149.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      0.09865,
-      1.05286,
-      1.20436
+      -1.03109,
+      0.16451,
+      2.03478
      ],
      [
-      -0.00614,
-      1.04117,
-      0.89606
+      -0.77886,
+      -0.23009,
+      1.98196
      ],
      [
-      0.00285,
-      1.06745,
-      0.4878
+      -0.98824,
+      0.33259,
+      0.42662
      ],
      [
-      -0.08862,
-      0.94447,
-      0.19868
+      -0.3751,
+      0.72852,
+      0.52178
      ],
      [
-      -0.32717,
-      0.80662,
-      0.0808
+      -0.68488,
+      0.57874,
+      0.20912
      ],
      [
-      -0.54229,
-      0.77669,
-      0.08396
+      -0.91158,
+      0.78122,
+      0.35403
      ],
      [
-      -0.69851,
-      0.82452,
-      0.1395
+      -0.47706,
+      -0.06662,
+      0.01356
      ],
      [
-      -0.77259,
-      0.93872,
-      0.26949
+      -0.74074,
+      0.19184,
+      -0.07934
      ],
      [
-      -0.8149,
-      0.99943,
-      0.49162
+      -0.66514,
+      0.9056,
+      0.017
      ],
      [
-      -0.9369,
-      0.75576,
-      0.73505
+      -0.73855,
+      0.06258,
+      -0.12722
      ],
      [
-      -1.184,
-      0.29821,
-      0.43775
+      -0.54566,
+      -0.14154,
+      0.395
      ],
      [
-      -1.41913,
-      0.12176,
-      -0.09873
+      -1.23427,
+      -0.01044,
+      0.43602
      ],
      [
-      -1.58425,
-      -0.02426,
-      -0.29924
+      -1.24399,
+      -0.14891,
+      0.37007
      ],
      [
-      -1.67732,
-      0.01685,
-      -0.25107
+      -1.27108,
+      -0.24553,
+      0.387
      ],
      [
-      -1.68629,
-      0.05199,
-      -0.26903
+      -1.24698,
+      -0.35329,
+      0.39408
      ],
      [
-      -1.69317,
-      0.0976,
-      -0.27189
+      -1.24646,
+      -0.43446,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      -0.30884,
-      0.73978,
-      0.87892
+      -0.05637,
+      1.33677,
+      0.74113
      ],
      [
-      -0.2978,
-      0.92519,
-      0.58509
+      -0.01597,
+      1.27424,
+      1.39783
      ],
      [
-      -0.08948,
-      1.2353,
-      0.29856
+      0.87006,
+      1.16485,
+      1.05533
      ],
      [
-      -0.09358,
-      1.38034,
-      0.33145
+      0.33866,
+      0.28408,
+      0.42556
      ],
      [
-      -0.12048,
-      1.47756,
-      0.39979
+      0.36013,
+      0.36217,
+      0.26912
      ],
      [
-      -0.07391,
-      1.54048,
-      0.47466
+      0.70374,
+      0.83181,
+      0.00859
      ],
      [
-      0.02627,
-      1.53874,
-      0.57136
+      -0.40467,
+      0.87026,
+      0.70814
      ],
      [
-      0.15026,
-      1.38866,
-      0.6444
+      0.08411,
+      0.96282,
+      -0.00713
      ],
      [
-      0.38216,
-      1.19605,
-      0.71254
+      0.66921,
+      0.59573,
+      -0.21598
      ],
      [
-      0.63954,
-      0.79182,
-      0.74208
+      0.59331,
+      0.10178,
+      0.02317
      ],
      [
-      0.68715,
-      0.1166,
-      0.91865
+      0.85292,
+      -0.07617,
+      0.32226
      ],
      [
-      1.43223,
-      -0.08799,
-      0.35954
+      0.90677,
+      0.06724,
+      0.39187
      ],
      [
-      1.33167,
-      -0.27897,
-      0.6931
+      0.97135,
+      -0.0696,
+      0.36748
      ],
      [
-      1.48888,
-      -0.42257,
-      0.45213
+      0.96715,
+      -0.16534,
+      0.38192
      ],
      [
-      1.49604,
-      -0.39553,
-      0.42293
+      0.97452,
+      -0.25434,
+      0.37403
      ],
      [
-      1.48072,
-      -0.24398,
-      0.43115
+      0.97765,
+      -0.35368,
+      0.37321
      ]
     ],
     "chest": [
      [
-      -0.04774,
-      0.21997,
-      1.69494
+      -0.06732,
+      0.12596,
+      1.6834
      ],
      [
-      -0.03662,
-      0.3033,
-      1.644
+      -0.05748,
+      0.03514,
+      1.73646
      ],
      [
-      -0.04922,
-      0.40806,
-      1.43848
+      -0.04646,
+      0.07824,
+      1.74302
      ],
      [
-      -0.05729,
-      0.44063,
-      1.33515
+      -0.03338,
+      0.12879,
+      1.6848
      ],
      [
-      -0.07125,
-      0.45391,
-      1.30167
+      -0.04325,
+      0.17317,
+      1.53335
      ],
      [
-      -0.06238,
-      0.42002,
-      1.3047
+      -0.04091,
+      0.24283,
+      1.20904
      ],
      [
-      -0.04225,
-      0.35371,
-      1.30345
+      -0.00568,
+      0.35354,
+      1.23087
      ],
      [
-      -0.02599,
-      0.2379,
-      1.2246
+      0.02336,
+      0.44663,
+      1.21079
      ],
      [
-      -0.02026,
-      0.03808,
-      1.04299
+      0.02935,
+      0.61521,
+      1.1207
      ],
      [
-      -0.0346,
-      -0.24445,
-      0.73827
+      0.0199,
+      0.91298,
+      0.72153
      ],
      [
-      -0.09939,
-      -0.50202,
-      0.43789
+      -0.01706,
+      1.04966,
+      0.38851
      ],
      [
-      -0.11527,
-      -0.5586,
-      0.31846
+      -0.00793,
+      0.98401,
+      0.37246
      ],
      [
-      -0.15064,
-      -0.51261,
-      0.33219
+      -0.00648,
+      0.82829,
+      0.3912
      ],
      [
-      -0.15777,
-      -0.44656,
-      0.33577
+      0.01258,
+      0.72172,
+      0.37274
      ],
      [
-      -0.16142,
-      -0.3779,
-      0.33885
+      0.00926,
+      0.6284,
+      0.36039
      ],
      [
-      -0.16544,
-      -0.30578,
-      0.3419
+      0.01632,
+      0.53031,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      -0.04813,
-      0.38152,
-      2.1155
+      -0.13487,
+      0.24376,
+      2.11607
      ],
      [
-      -0.06671,
-      0.40829,
-      2.05278
+      -0.01616,
+      -0.12652,
+      2.14481
      ],
      [
-      -0.12475,
-      0.71373,
-      1.71259
+      -0.00827,
+      -0.21197,
+      2.07468
      ],
      [
-      -0.07981,
-      0.87213,
-      1.25521
+      -0.08737,
+      -0.07232,
+      2.08657
      ],
      [
-      -0.14947,
-      0.8765,
-      1.22599
+      -0.07891,
+      0.00406,
+      1.95137
      ],
      [
-      -0.21444,
-      0.82748,
-      1.34573
+      0.00356,
+      0.17948,
+      1.65505
      ],
      [
-      -0.21151,
-      0.72821,
-      1.43778
+      0.02,
+      0.23865,
+      1.6662
      ],
      [
-      -0.10141,
-      0.61855,
-      1.42572
+      0.1538,
+      0.27226,
+      1.5842
      ],
      [
-      0.03264,
-      0.38787,
-      1.30212
+      0.16568,
+      0.46285,
+      1.48884
      ],
      [
-      0.11018,
-      0.02428,
-      1.03972
+      0.07707,
+      0.94137,
+      1.12886
      ],
      [
-      0.07708,
-      -0.76694,
-      0.74477
+      -0.07831,
+      1.49832,
+      0.38233
      ],
      [
-      -0.07454,
-      -0.98855,
-      0.29129
+      -0.04701,
+      1.43645,
+      0.36
      ],
      [
-      -0.12421,
-      -0.9538,
-      0.30606
+      -0.05382,
+      1.27989,
+      0.38808
      ],
      [
-      -0.13902,
-      -0.88701,
-      0.28418
+      -0.07102,
+      1.16479,
+      0.38703
      ],
      [
-      -0.16017,
-      -0.81586,
-      0.2687
+      -0.07096,
+      1.07227,
+      0.38411
      ],
      [
-      -0.16781,
-      -0.73944,
-      0.25741
+      -0.06162,
+      0.97486,
+      0.38346
      ]
     ]
    }
@@ -20359,408 +20384,408 @@
    "files": [
     {
      "name": "death_SW_00.png",
-     "sha256": "5a10ae49b52b64e099e9da63aade28acc564763dbddb8d893159f19360628b6d"
+     "sha256": "cff79012e3fee542981de19e600d1661029196d018234e25809c10e11f8700d5"
     },
     {
      "name": "death_SW_01.png",
-     "sha256": "089b2534d69e4c6990cf3221306b86109516e9fb5b7c49bd8b46218ad1a5381b"
+     "sha256": "16de9f99f968851447217523ef7291081dbee8ac622d087858d9e58146de9785"
     },
     {
      "name": "death_SW_02.png",
-     "sha256": "33f5dc82d0b96a6d04f0ad17e715a1ea8229305bf840fdcd139aa614786700a1"
+     "sha256": "e14802cbbb96f55f6f5182a9bc64d57f8576dc107077bae743cb935be933fb99"
     },
     {
      "name": "death_SW_03.png",
-     "sha256": "d57023e89a1fca5c498062b5563172aff16b1eb9d88437ec7cfbc5ce72b5b79d"
+     "sha256": "53148e53ac837ceb3f9cc09b185b650f81260c7216e359bc56855b0bf9717a0b"
     },
     {
      "name": "death_SW_04.png",
-     "sha256": "7abf9a9eb055f62936ee6751b8bd4af59c3c765147a1aee76f0af657f9e0a521"
+     "sha256": "b5cfad3900378311c677f0de2c58295f98799e89deb10c96a9b6f5027d285159"
     },
     {
      "name": "death_SW_05.png",
-     "sha256": "15dbfade0d25558d8b5405d1cfb7ecc00ca176ca59f81c8f1e68b460b7f6705b"
+     "sha256": "176c1330e7dfbf6d5e152479ad87a896c45ab1f05ab0ef4384e14e6ff4b3d009"
     },
     {
      "name": "death_SW_06.png",
-     "sha256": "069c9baf010e4e8d714481a5fd7f4b07875a7bfb1674e61521efb5824cb7cc81"
+     "sha256": "b6a170c1d46c72162b18e52b262bcd8fea021c3261f59ea9b762ec012d26a2e3"
     },
     {
      "name": "death_SW_07.png",
-     "sha256": "d38178df1493d45a5f26fb745839f6df2577b4db2718cf3de67753382bf4d4dd"
+     "sha256": "895a6b11af2949901a1f3ef9905279610795f41a300ba1a845231afb26c3185c"
     },
     {
      "name": "death_SW_08.png",
-     "sha256": "26cf73bbad78cb5d9083b52cc6285a07f9a5abda338020339441ec005b41d538"
+     "sha256": "f6dea4de18794a35b5db4d251db02bd84fcdb4ce6edd5329a247c1104f4ff747"
     },
     {
      "name": "death_SW_09.png",
-     "sha256": "098a698a8d50f0ecafc26bc827c71a65109f57776fc7d5fe5ff41058fb6ab34e"
+     "sha256": "d108f84212febc7ef6319e0aee51eefcb5d24a8e6ac9a1757dc7351c0b687cef"
     },
     {
      "name": "death_SW_10.png",
-     "sha256": "1fd8f500fe1abce56442da91a21fcc6145a337f83bc4fec01e74f47a450f3ecb"
+     "sha256": "afe25c66b42ce9df601095ea108b39c92573a47a8edae70bd6baccfa76f47fb2"
     },
     {
      "name": "death_SW_11.png",
-     "sha256": "17fda100cc1a7dc62a03ad011815fe162e2be575412c5ac6aa9c543396e709c9"
+     "sha256": "2ffe4d99f2e76ec6f0172f5b72bd38456fd6c97ecb0656806ee91f107fa51eb5"
     },
     {
      "name": "death_SW_12.png",
-     "sha256": "c93ebe918335a7d09d2cf73932dc01dbbede2e4327ec59144231444698a519fe"
+     "sha256": "019da72a5190f01c917f0180f3f0387d420f13305b2d7645bd27e6f251236cb8"
     },
     {
      "name": "death_SW_13.png",
-     "sha256": "11cc17a65381c12ddbee0ae3634b83315caeceb1a8af4c52d88b92da82a9671a"
+     "sha256": "8b1bc38d0832ca9f6d45146a70af8dd35324d71647bb57915c12011d75bad6c8"
     },
     {
      "name": "death_SW_14.png",
-     "sha256": "f1dcc7adf7e0f5501211a04aec5ebfbf1db8f1c8a5c7e8906a140b5c0e474d0b"
+     "sha256": "1cbbef560681f59dcc33428527c56417d98b08d929df190e8de518b27dbad157"
     },
     {
      "name": "death_SW_15.png",
-     "sha256": "c2dfb588969a9162e60616c2ba9c23fe2e06de2ee3dd9624efe7305ec3e10fa8"
+     "sha256": "d634eaf7e36c716245444b51acdd49f08bd76a7e74acd66420eb6e3584d94b9a"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "cd6a48c9b9479f0ac66cc54eacaebd56f47f31cefab489fa684b4b3e394eb38e",
+   "render_pass": "p2",
+   "cell_sha256": "12413c52ce11f70502d854e96eba23e0905cb4487ed28f4974049773684cf225",
    "alpha_union_bbox": [
-    183,
-    225,
-    588,
-    578
+    181,
+    169,
+    565,
+    601
    ],
    "edge_touch": false,
    "facing_measured_deg": 135.0,
-   "facing_hips_frame0_deg": 150.612,
+   "facing_hips_frame0_deg": 194.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      -0.67472,
-      0.81424,
-      1.20436
+      -0.84541,
+      -0.61277,
+      2.03478
      ],
      [
-      -0.74056,
-      0.73187,
-      0.89606
+      -0.38804,
+      -0.71344,
+      1.98196
      ],
      [
-      -0.75279,
-      0.75682,
-      0.4878
+      -0.93397,
+      -0.46361,
+      0.42662
      ],
      [
-      -0.7305,
-      0.60517,
-      0.19868
+      -0.78037,
+      0.2499,
+      0.52178
      ],
      [
-      -0.80171,
-      0.33902,
-      0.0808
+      -0.89351,
+      -0.07505,
+      0.20912
      ],
      [
-      -0.93266,
-      0.16574,
-      0.08396
+      -1.19699,
+      -0.09218,
+      0.35403
      ],
      [
-      -1.07695,
-      0.0891,
-      0.1395
+      -0.29022,
+      -0.38444,
+      0.01356
      ],
      [
-      -1.21008,
-      0.11747,
-      0.26949
+      -0.65943,
+      -0.38813,
+      -0.07934
      ],
      [
-      -1.28292,
-      0.13048,
-      0.49162
+      -1.11068,
+      0.17003,
+      0.017
      ],
      [
-      -1.19689,
-      -0.12809,
-      0.73505
+      -0.56649,
+      -0.47798,
+      -0.12722
      ],
      [
-      -1.04809,
-      -0.62635,
-      0.43775
+      -0.28576,
+      -0.48593,
+      0.395
      ],
      [
-      -1.08957,
-      -0.91738,
-      -0.09873
+      -0.86537,
+      -0.88015,
+      0.43602
      ],
      [
-      -1.10308,
-      -1.13739,
-      -0.29924
+      -0.77434,
+      -0.98493,
+      0.37007
      ],
      [
-      -1.19796,
-      -1.17413,
-      -0.25107
+      -0.72517,
+      -1.0724,
+      0.387
      ],
      [
-      -1.22915,
-      -1.15562,
-      -0.26903
+      -0.63194,
+      -1.13156,
+      0.39408
      ],
      [
-      -1.26627,
-      -1.12824,
-      -0.27189
+      -0.57417,
+      -1.18859,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      -0.74149,
-      0.30472,
-      0.87892
+      -0.9851,
+      0.90538,
+      0.74113
      ],
      [
-      -0.86479,
-      0.44364,
-      0.58509
+      -0.91232,
+      0.88973,
+      1.39783
      ],
      [
-      -0.93677,
-      0.81022,
-      0.29856
+      -0.20845,
+      1.43889,
+      1.05533
      ],
      [
-      -1.04222,
-      0.90988,
-      0.33145
+      0.03859,
+      0.44034,
+      0.42556
      ],
      [
-      -1.12999,
-      0.9596,
-      0.39979
+      -0.00144,
+      0.51075,
+      0.26912
      ],
      [
-      -1.14154,
-      1.03702,
-      0.47466
+      -0.09056,
+      1.0858,
+      0.00859
      ],
      [
-      -1.06948,
-      1.10663,
-      0.57136
+      -0.90151,
+      0.32922,
+      0.70814
      ],
      [
-      -0.87568,
-      1.08818,
-      0.6444
+      -0.62134,
+      0.74029,
+      -0.00713
      ],
      [
-      -0.57551,
-      1.11596,
-      0.71254
+      0.05196,
+      0.89445,
+      -0.21598
      ],
      [
-      -0.10768,
-      1.01212,
-      0.74208
+      0.34756,
+      0.4915,
+      0.02317
      ],
      [
-      0.40344,
-      0.56833,
-      0.91865
+      0.65697,
+      0.54924,
+      0.32226
      ],
      [
-      1.07495,
-      0.95052,
-      0.35954
+      0.59364,
+      0.68873,
+      0.39187
      ],
      [
-      1.13889,
-      0.74437,
-      0.6931
+      0.73606,
+      0.63763,
+      0.36748
      ],
      [
-      1.3516,
-      0.75399,
-      0.45213
+      0.80079,
+      0.56697,
+      0.38192
      ],
      [
-      1.33754,
-      0.77818,
-      0.42293
+      0.86893,
+      0.50924,
+      0.37403
      ],
      [
-      1.21955,
-      0.87451,
-      0.43115
+      0.94139,
+      0.44121,
+      0.37321
      ]
     ],
     "chest": [
      [
-      -0.1893,
-      0.12178,
-      1.69494
+      -0.13667,
+      0.04146,
+      1.6834
      ],
      [
-      -0.24036,
-      0.18857,
-      1.644
+      -0.06549,
+      -0.0158,
+      1.73646
      ],
      [
-      -0.32334,
-      0.25373,
-      1.43848
+      -0.08818,
+      0.02247,
+      1.74302
      ],
      [
-      -0.35208,
-      0.27106,
-      1.33515
+      -0.11467,
+      0.06747,
+      1.6848
      ],
      [
-      -0.37135,
-      0.27058,
-      1.30167
+      -0.15304,
+      0.09187,
+      1.53335
      ],
      [
-      -0.34111,
-      0.25289,
-      1.3047
+      -0.20064,
+      0.14278,
+      1.20904
      ],
      [
-      -0.27999,
-      0.22024,
-      1.30345
+      -0.25401,
+      0.24597,
+      1.23087
      ],
      [
-      -0.1866,
-      0.14985,
-      1.2246
+      -0.29929,
+      0.33233,
+      1.21079
      ],
      [
-      -0.04125,
-      0.0126,
-      1.04299
+      -0.41427,
+      0.45577,
+      1.1207
      ],
      [
-      0.14839,
-      -0.19732,
-      0.73827
+      -0.6315,
+      0.65965,
+      0.72153
      ],
      [
-      0.2847,
-      -0.42526,
-      0.43789
+      -0.75428,
+      0.73016,
+      0.38851
      ],
      [
-      0.31348,
-      -0.47649,
-      0.31846
+      -0.70141,
+      0.6902,
+      0.37246
      ],
      [
-      0.25596,
-      -0.46899,
-      0.33219
+      -0.59027,
+      0.58111,
+      0.3912
      ],
      [
-      0.2042,
-      -0.42733,
-      0.33577
+      -0.50144,
+      0.51923,
+      0.37274
      ],
      [
-      0.15308,
-      -0.38136,
-      0.33885
+      -0.4378,
+      0.4509,
+      0.36039
      ],
      [
-      0.09923,
-      -0.33321,
-      0.3419
+      -0.36345,
+      0.38653,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      -0.30381,
-      0.23574,
-      2.1155
+      -0.26773,
+      0.077,
+      2.11607
      ],
      [
-      -0.33587,
-      0.24153,
-      2.05278
+      0.07803,
+      -0.10089,
+      2.14481
      ],
      [
-      -0.59289,
-      0.41647,
-      1.71259
+      0.14404,
+      -0.15573,
+      2.07468
      ],
      [
-      -0.67312,
-      0.56026,
-      1.25521
+      -0.01064,
+      -0.11292,
+      2.08657
      ],
      [
-      -0.72547,
-      0.51409,
-      1.22599
+      -0.05867,
+      -0.05293,
+      1.95137
      ],
      [
-      -0.73675,
-      0.43348,
-      1.34573
+      -0.12439,
+      0.12943,
+      1.65505
      ],
      [
-      -0.66449,
-      0.36537,
-      1.43778
+      -0.15461,
+      0.18289,
+      1.6662
      ],
      [
-      -0.50909,
-      0.36568,
-      1.42572
+      -0.08376,
+      0.30127,
+      1.5842
      ],
      [
-      -0.25119,
-      0.29734,
-      1.30212
+      -0.21013,
+      0.44444,
+      1.48884
      ],
      [
-      0.06074,
-      0.09508,
-      1.03972
+      -0.61115,
+      0.72015,
+      1.12886
      ],
      [
-      0.59682,
-      -0.48781,
-      0.74477
+      -1.11485,
+      1.0041,
+      0.38233
      ],
      [
-      0.6463,
-      -0.75172,
-      0.29129
+      -1.04897,
+      0.98248,
+      0.36
      ],
      [
-      0.58661,
-      -0.76227,
-      0.30606
+      -0.94308,
+      0.86696,
+      0.38808
      ],
      [
-      0.52891,
-      -0.72551,
-      0.28418
+      -0.87385,
+      0.77341,
+      0.38703
      ],
      [
-      0.46364,
-      -0.69016,
-      0.2687
+      -0.80839,
+      0.70804,
+      0.38411
      ],
      [
-      0.4042,
-      -0.64152,
-      0.25741
+      -0.7329,
+      0.64575,
+      0.38346
      ]
     ]
    }
@@ -20772,408 +20797,408 @@
    "files": [
     {
      "name": "death_W_00.png",
-     "sha256": "8852edf8469303b58c58988151dfe3a27c142e1bb8a53fa644d8b97f39843875"
+     "sha256": "478679f0fbca37cd9e5733757d0a529165c637afc28b2d23b70303e54c8c9d6f"
     },
     {
      "name": "death_W_01.png",
-     "sha256": "a033765fdad024b856587e76d48ce22bdbf5e48b83ae0819c588007eb8087571"
+     "sha256": "0305afd4ab895e6687d6f14257b09a4d4f308bddcdcd0bf1ed97e90a21972dfa"
     },
     {
      "name": "death_W_02.png",
-     "sha256": "58c2f29b993d859fb2d4645a293608240935102e0238320fab8c439d00b4c899"
+     "sha256": "b773ea75b462eacf1fb3b9e5b7cdf6d7e4d691ae36247aeb6fdf89d550ed1cfd"
     },
     {
      "name": "death_W_03.png",
-     "sha256": "4aa0efa03dc58b212b209e70de17efffe4d414c09049b3092365935d817a81d0"
+     "sha256": "ce69aba25f083d3fdd8b42b5af7692eab4d58dea2ef0536d2e26d6960722cc37"
     },
     {
      "name": "death_W_04.png",
-     "sha256": "b7b6b661b86632d7c14151afe47e7ec5e6d00117920a3e463b217477f5d85f39"
+     "sha256": "ff3cc0cb30df396b466fc9c810fa396c66ecd22ea9e0f9451cb3076aa9a17a87"
     },
     {
      "name": "death_W_05.png",
-     "sha256": "ede70789b2007cf37b258b0285f0347c7fcebf8bf0b2f9b8ab168142e428763b"
+     "sha256": "10f5c973ff67ef099d93171eb8f3352f1b964a2747d9388029e8a404b72ebf14"
     },
     {
      "name": "death_W_06.png",
-     "sha256": "e8d73c09e30dfb858ec349f940343eb90d557d13297f89b519bce68cde90b594"
+     "sha256": "5bbf090eff3418b2e3896026df32c0f9bb98ae85d48817449485c270f30795a4"
     },
     {
      "name": "death_W_07.png",
-     "sha256": "2e463c0efe85de9e75c4c8d9993e9c9956663c687e5153e0dd8806b6fd081499"
+     "sha256": "2df7237b118adbb1c994f526b44b65368a78df2da6afc4060df6b721822d7212"
     },
     {
      "name": "death_W_08.png",
-     "sha256": "88f8810ad8578a3278952866f72da48eeab11f258bc30ca3d004846ca3d44d23"
+     "sha256": "2f138cf34021d777b76b039df13ccd81c306fd072723b5be2e0166ec1fe9b47c"
     },
     {
      "name": "death_W_09.png",
-     "sha256": "101d3d5dd6ccb4c784d0124383534021579b5364bcaf7f48d00bd13da984d5c9"
+     "sha256": "ea93f9210e7d484ab939629acfc5353b33503a8ad612187f384258c79652ade5"
     },
     {
      "name": "death_W_10.png",
-     "sha256": "60b9e00d236aedd5d598e2c8ac81c7201a8eb2002d02359e8f8270a4c874c149"
+     "sha256": "0f1c86784a5d1c7f2f2a5c29981e108dc5ddd6caad43213c869e0707c730259f"
     },
     {
      "name": "death_W_11.png",
-     "sha256": "05e3cca3084fa6415eb0e1086125f5d522b07dd1dccead1bd057e1ca68ca3df8"
+     "sha256": "f14572917f0d059d96b4a0e8b2a379fd961738a015c9c35821b416ea952067ab"
     },
     {
      "name": "death_W_12.png",
-     "sha256": "efa3ba5b9c07f4f588ff12be77a0e79bd5825d21fcc6a770d652ce418e12b191"
+     "sha256": "c9588d89ee27c2b9d06729a9aa5f54241d6e44f8f1357a34d21b4be03ff1e485"
     },
     {
      "name": "death_W_13.png",
-     "sha256": "886cd8a69b13f23b26c3e8335f2ab15ceef236c441253a48577608bfa8627c36"
+     "sha256": "6f7689a2ea83db3bbda8a765e7136cbf6a9b5518fc138aecb445d15cbaa63347"
     },
     {
      "name": "death_W_14.png",
-     "sha256": "e2b3a97c6da5ed778c6146ac85ace617a337963ea811e4b5d9de9bde4dfdabfc"
+     "sha256": "9d3a9432279460877f6cacfd671aab2f406f758c6474da13b12d648ed4e9a1b4"
     },
     {
      "name": "death_W_15.png",
-     "sha256": "613fd790e07f02243ccf048b29b05d2e829ca4042cc0a2d06b4874caa2a27333"
+     "sha256": "5b069dcd099d415193b05a0e4cc89868b4ff6b31ccd5089c4bd68ff1373c8983"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "42cdf32865b31d0dbeb09fec9a6a356943b027ebd3a4c3acc1de08f2c3096c3a",
+   "render_pass": "p2",
+   "cell_sha256": "260714c2210d24ed7c6cd4467157f55cf4781ac583e9fb20f5ff6224173b8020",
    "alpha_union_bbox": [
-    147,
-    195,
-    560,
-    607
+    137,
+    135,
+    593,
+    556
    ],
    "edge_touch": false,
    "facing_measured_deg": 180.0,
-   "facing_hips_frame0_deg": 195.612,
+   "facing_hips_frame0_deg": 239.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      -1.05286,
-      0.09865,
-      1.20436
+      -0.16451,
+      -1.03109,
+      2.03478
      ],
      [
-      -1.04117,
-      -0.00614,
-      0.89606
+      0.23009,
+      -0.77886,
+      1.98196
      ],
      [
-      -1.06745,
-      0.00285,
-      0.4878
+      -0.33259,
+      -0.98824,
+      0.42662
      ],
      [
-      -0.94447,
-      -0.08862,
-      0.19868
+      -0.72852,
+      -0.3751,
+      0.52178
      ],
      [
-      -0.80662,
-      -0.32717,
-      0.0808
+      -0.57874,
+      -0.68488,
+      0.20912
      ],
      [
-      -0.77669,
-      -0.54229,
-      0.08396
+      -0.78122,
+      -0.91158,
+      0.35403
      ],
      [
-      -0.82452,
-      -0.69851,
-      0.1395
+      0.06662,
+      -0.47706,
+      0.01356
      ],
      [
-      -0.93872,
-      -0.77259,
-      0.26949
+      -0.19184,
+      -0.74074,
+      -0.07934
      ],
      [
-      -0.99943,
-      -0.8149,
-      0.49162
+      -0.9056,
+      -0.66514,
+      0.017
      ],
      [
-      -0.75576,
-      -0.9369,
-      0.73505
+      -0.06258,
+      -0.73855,
+      -0.12722
      ],
      [
-      -0.29821,
-      -1.184,
-      0.43775
+      0.14154,
+      -0.54566,
+      0.395
      ],
      [
-      -0.12176,
-      -1.41913,
-      -0.09873
+      0.01044,
+      -1.23427,
+      0.43602
      ],
      [
-      0.02426,
-      -1.58425,
-      -0.29924
+      0.14891,
+      -1.24399,
+      0.37007
      ],
      [
-      -0.01685,
-      -1.67732,
-      -0.25107
+      0.24553,
+      -1.27108,
+      0.387
      ],
      [
-      -0.05199,
-      -1.68629,
-      -0.26903
+      0.35329,
+      -1.24698,
+      0.39408
      ],
      [
-      -0.0976,
-      -1.69317,
-      -0.27189
+      0.43446,
+      -1.24646,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      -0.73978,
-      -0.30884,
-      0.87892
+      -1.33677,
+      -0.05637,
+      0.74113
      ],
      [
-      -0.92519,
-      -0.2978,
-      0.58509
+      -1.27424,
+      -0.01597,
+      1.39783
      ],
      [
-      -1.2353,
-      -0.08948,
-      0.29856
+      -1.16485,
+      0.87006,
+      1.05533
      ],
      [
-      -1.38034,
-      -0.09358,
-      0.33145
+      -0.28408,
+      0.33866,
+      0.42556
      ],
      [
-      -1.47756,
-      -0.12048,
-      0.39979
+      -0.36217,
+      0.36013,
+      0.26912
      ],
      [
-      -1.54048,
-      -0.07391,
-      0.47466
+      -0.83181,
+      0.70374,
+      0.00859
      ],
      [
-      -1.53874,
-      0.02627,
-      0.57136
+      -0.87026,
+      -0.40467,
+      0.70814
      ],
      [
-      -1.38866,
-      0.15026,
-      0.6444
+      -0.96282,
+      0.08411,
+      -0.00713
      ],
      [
-      -1.19605,
-      0.38216,
-      0.71254
+      -0.59573,
+      0.66921,
+      -0.21598
      ],
      [
-      -0.79182,
-      0.63954,
-      0.74208
+      -0.10178,
+      0.59331,
+      0.02317
      ],
      [
-      -0.1166,
-      0.68715,
-      0.91865
+      0.07617,
+      0.85292,
+      0.32226
      ],
      [
-      0.08799,
-      1.43223,
-      0.35954
+      -0.06724,
+      0.90677,
+      0.39187
      ],
      [
-      0.27897,
-      1.33167,
-      0.6931
+      0.0696,
+      0.97135,
+      0.36748
      ],
      [
-      0.42257,
-      1.48888,
-      0.45213
+      0.16534,
+      0.96715,
+      0.38192
      ],
      [
-      0.39553,
-      1.49604,
-      0.42293
+      0.25434,
+      0.97452,
+      0.37403
      ],
      [
-      0.24398,
-      1.48072,
-      0.43115
+      0.35368,
+      0.97765,
+      0.37321
      ]
     ],
     "chest": [
      [
-      -0.21997,
-      -0.04774,
-      1.69494
+      -0.12596,
+      -0.06732,
+      1.6834
      ],
      [
-      -0.3033,
-      -0.03662,
-      1.644
+      -0.03514,
+      -0.05748,
+      1.73646
      ],
      [
-      -0.40806,
-      -0.04922,
-      1.43848
+      -0.07824,
+      -0.04646,
+      1.74302
      ],
      [
-      -0.44063,
-      -0.05729,
-      1.33515
+      -0.12879,
+      -0.03338,
+      1.6848
      ],
      [
-      -0.45391,
-      -0.07125,
-      1.30167
+      -0.17317,
+      -0.04325,
+      1.53335
      ],
      [
-      -0.42002,
-      -0.06238,
-      1.3047
+      -0.24283,
+      -0.04091,
+      1.20904
      ],
      [
-      -0.35371,
-      -0.04225,
-      1.30345
+      -0.35354,
+      -0.00568,
+      1.23087
      ],
      [
-      -0.2379,
-      -0.02599,
-      1.2246
+      -0.44663,
+      0.02336,
+      1.21079
      ],
      [
-      -0.03808,
-      -0.02026,
-      1.04299
+      -0.61521,
+      0.02935,
+      1.1207
      ],
      [
-      0.24445,
-      -0.0346,
-      0.73827
+      -0.91298,
+      0.0199,
+      0.72153
      ],
      [
-      0.50202,
-      -0.09939,
-      0.43789
+      -1.04966,
+      -0.01706,
+      0.38851
      ],
      [
-      0.5586,
-      -0.11527,
-      0.31846
+      -0.98401,
+      -0.00793,
+      0.37246
      ],
      [
-      0.51261,
-      -0.15064,
-      0.33219
+      -0.82829,
+      -0.00648,
+      0.3912
      ],
      [
-      0.44656,
-      -0.15777,
-      0.33577
+      -0.72172,
+      0.01258,
+      0.37274
      ],
      [
-      0.3779,
-      -0.16142,
-      0.33885
+      -0.6284,
+      0.00926,
+      0.36039
      ],
      [
-      0.30578,
-      -0.16544,
-      0.3419
+      -0.53031,
+      0.01632,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      -0.38152,
-      -0.04813,
-      2.1155
+      -0.24376,
+      -0.13487,
+      2.11607
      ],
      [
-      -0.40829,
-      -0.06671,
-      2.05278
+      0.12652,
+      -0.01616,
+      2.14481
      ],
      [
-      -0.71373,
-      -0.12475,
-      1.71259
+      0.21197,
+      -0.00827,
+      2.07468
      ],
      [
-      -0.87213,
-      -0.07981,
-      1.25521
+      0.07232,
+      -0.08737,
+      2.08657
      ],
      [
-      -0.8765,
-      -0.14947,
-      1.22599
+      -0.00406,
+      -0.07891,
+      1.95137
      ],
      [
-      -0.82748,
-      -0.21444,
-      1.34573
+      -0.17948,
+      0.00356,
+      1.65505
      ],
      [
-      -0.72821,
-      -0.21151,
-      1.43778
+      -0.23865,
+      0.02,
+      1.6662
      ],
      [
-      -0.61855,
-      -0.10141,
-      1.42572
+      -0.27226,
+      0.1538,
+      1.5842
      ],
      [
-      -0.38787,
-      0.03264,
-      1.30212
+      -0.46285,
+      0.16568,
+      1.48884
      ],
      [
-      -0.02428,
-      0.11018,
-      1.03972
+      -0.94137,
+      0.07707,
+      1.12886
      ],
      [
-      0.76694,
-      0.07708,
-      0.74477
+      -1.49832,
+      -0.07831,
+      0.38233
      ],
      [
-      0.98855,
-      -0.07454,
-      0.29129
+      -1.43645,
+      -0.04701,
+      0.36
      ],
      [
-      0.9538,
-      -0.12421,
-      0.30606
+      -1.27989,
+      -0.05382,
+      0.38808
      ],
      [
-      0.88701,
-      -0.13902,
-      0.28418
+      -1.16479,
+      -0.07102,
+      0.38703
      ],
      [
-      0.81586,
-      -0.16017,
-      0.2687
+      -1.07227,
+      -0.07096,
+      0.38411
      ],
      [
-      0.73944,
-      -0.16781,
-      0.25741
+      -0.97486,
+      -0.06162,
+      0.38346
      ]
     ]
    }
@@ -21185,408 +21210,408 @@
    "files": [
     {
      "name": "death_NW_00.png",
-     "sha256": "0736f5e333924e8cb37c6fa00d0df7e5655f22db4c3d61f808a733ef5f836b78"
+     "sha256": "f74ebcd737ddaa613ad58b7cbc8dd1c9a691a8f88a5d89fb7a173e80b0ccc1c8"
     },
     {
      "name": "death_NW_01.png",
-     "sha256": "63d886c15258863c460a5b34c5bdd6b9164bb9441bcf79434c6b88500fae55a9"
+     "sha256": "6efc460ac1f3b16bd5ce2ab35fa0cff2853dc23e24d99cff16c446b975395c55"
     },
     {
      "name": "death_NW_02.png",
-     "sha256": "3f9035a75797f792a959706049d8b263c5bc74d6736d9a027f4cf553f3b28dae"
+     "sha256": "d3d31876234560b0092842a82e497a1db331782ca28e88b93e8218f4a924541d"
     },
     {
      "name": "death_NW_03.png",
-     "sha256": "734c38f8c063778a54b5d24b774a8965aab6f68b593478a7c02f1cf1d24c2a08"
+     "sha256": "ad717462ccdca5742ba91152df93926b2cd7efaa9604674ad271a0bcde38488a"
     },
     {
      "name": "death_NW_04.png",
-     "sha256": "9a199cbaf41481801e73a732676ed2f27a4f0478047c41d3f61ad81701931934"
+     "sha256": "dee399f471b9dd1be3c41f5f6c062da5f2307225834a8207a2b70a0a266cc730"
     },
     {
      "name": "death_NW_05.png",
-     "sha256": "2db09f5f8e8e6eb0fe913f4263fe73157cd3ee64de7cce3e138ed09db2bded14"
+     "sha256": "781a4b94e07f2869c0ce4fa4411d6b7ac7748adb4e5353b3415152b35ba20ca3"
     },
     {
      "name": "death_NW_06.png",
-     "sha256": "fd7906e9be28acd5d3b63bfcf503f683d5266fae23bda714ac26eb10c15517ee"
+     "sha256": "db1f2001805dcbe04841caa1e198221e6b039269c28362645441e4b1f4370781"
     },
     {
      "name": "death_NW_07.png",
-     "sha256": "a8181acc154fe12cb3e9e29fa727307ed8a57f273a894589b05b1f0346ce1d92"
+     "sha256": "2e37b1608e54a6d6773e842528cc84d5fad253c286f2f5a145b992c6014c4cc9"
     },
     {
      "name": "death_NW_08.png",
-     "sha256": "83d98c738f9622151370203c8e00457fc474484e7f40010bf94bca7aacd6dded"
+     "sha256": "e6ec4b92610da689e118b8b0dc623d69812b62dfcc34e44bf9a2c298618cce7f"
     },
     {
      "name": "death_NW_09.png",
-     "sha256": "21cfc67764c338166ff0bc67832be67ddd795a06f1d6dec753af277f2d0e8a7a"
+     "sha256": "0417b5e3d03b7eadfd627d04abaa7bcd8cb44d61a4488416fc9b15ed8b8dd968"
     },
     {
      "name": "death_NW_10.png",
-     "sha256": "d92392c4631a38661d6709a7f1c8c31cd3901130f3b5e938801fdf706df3dd5b"
+     "sha256": "a9b4c997335765ead9320323f4743d0aaed19bfc65b1b415dfc5095201f4d7be"
     },
     {
      "name": "death_NW_11.png",
-     "sha256": "5eddb0466317ab50cac512533f6562dbe65e7d48519690eee6e32a93115af4ae"
+     "sha256": "52a1ed001100445275ebfd610b1483e257452d5bb7218370715f9eaeceb4419e"
     },
     {
      "name": "death_NW_12.png",
-     "sha256": "2ba7571ff778ff96facd6e469a3edf8eb5d353ddfaf8df71e40ef0fc828d96e5"
+     "sha256": "0a2e9831cbb4e13bb1bc273266141c85930013966883d72d15961e83ee507f3a"
     },
     {
      "name": "death_NW_13.png",
-     "sha256": "5412c7298a50495fae55a59608469cc1da1d79ffda6b96d7329a22ac78036ecc"
+     "sha256": "e26b8fd72ffe4dcac91b3357f5bb620339859efb27bdb3fa123d8043a6a4e5af"
     },
     {
      "name": "death_NW_14.png",
-     "sha256": "4076b1ca580059eea69b571fe56926bda6f82dfe15533e32d56f41e177513ef2"
+     "sha256": "8c806adb4967e94345bfff696f6f780412219cbbc4da5b8616c28e1bfa3455e3"
     },
     {
      "name": "death_NW_15.png",
-     "sha256": "d166989e95cbdff367cd4ab8e82e06df15d774fb477d4d41d9ee3aaab7195a0f"
+     "sha256": "3bd4bf3a8c5165f15a79f93633d44c6f1ecd7ce43d65ba17cf4113e8eb354e58"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "d91a127add08f16c07a860cb7ac6662045d01970fa65976711131587db17278a",
+   "render_pass": "p2",
+   "cell_sha256": "40b4a34c6af222753483115153985fcd18ae436567cac2c3733aa42ba44b4e26",
    "alpha_union_bbox": [
-    193,
-    188,
-    591,
-    589
+    161,
+    160,
+    595,
+    569
    ],
    "edge_touch": false,
    "facing_measured_deg": 225.0,
-   "facing_hips_frame0_deg": 240.612,
+   "facing_hips_frame0_deg": 284.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      -0.81424,
-      -0.67472,
-      1.20436
+      0.61277,
+      -0.84541,
+      2.03478
      ],
      [
-      -0.73187,
-      -0.74056,
-      0.89606
+      0.71344,
+      -0.38804,
+      1.98196
      ],
      [
-      -0.75682,
-      -0.75279,
-      0.4878
+      0.46361,
+      -0.93397,
+      0.42662
      ],
      [
-      -0.60517,
-      -0.7305,
-      0.19868
+      -0.2499,
+      -0.78037,
+      0.52178
      ],
      [
-      -0.33902,
-      -0.80171,
-      0.0808
+      0.07505,
+      -0.89351,
+      0.20912
      ],
      [
-      -0.16574,
-      -0.93266,
-      0.08396
+      0.09218,
+      -1.19699,
+      0.35403
      ],
      [
-      -0.0891,
-      -1.07695,
-      0.1395
+      0.38444,
+      -0.29022,
+      0.01356
      ],
      [
-      -0.11747,
-      -1.21008,
-      0.26949
+      0.38813,
+      -0.65943,
+      -0.07934
      ],
      [
-      -0.13048,
-      -1.28292,
-      0.49162
+      -0.17003,
+      -1.11068,
+      0.017
      ],
      [
-      0.12809,
-      -1.19689,
-      0.73505
+      0.47798,
+      -0.56649,
+      -0.12722
      ],
      [
-      0.62635,
-      -1.04809,
-      0.43775
+      0.48593,
+      -0.28576,
+      0.395
      ],
      [
-      0.91738,
-      -1.08957,
-      -0.09873
+      0.88015,
+      -0.86537,
+      0.43602
      ],
      [
-      1.13739,
-      -1.10308,
-      -0.29924
+      0.98493,
+      -0.77434,
+      0.37007
      ],
      [
-      1.17413,
-      -1.19796,
-      -0.25107
+      1.0724,
+      -0.72517,
+      0.387
      ],
      [
-      1.15562,
-      -1.22915,
-      -0.26903
+      1.13156,
+      -0.63194,
+      0.39408
      ],
      [
-      1.12824,
-      -1.26627,
-      -0.27189
+      1.18859,
+      -0.57417,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      -0.30472,
-      -0.74149,
-      0.87892
+      -0.90538,
+      -0.9851,
+      0.74113
      ],
      [
-      -0.44364,
-      -0.86479,
-      0.58509
+      -0.88973,
+      -0.91232,
+      1.39783
      ],
      [
-      -0.81022,
-      -0.93677,
-      0.29856
+      -1.43889,
+      -0.20845,
+      1.05533
      ],
      [
-      -0.90988,
-      -1.04222,
-      0.33145
+      -0.44034,
+      0.03859,
+      0.42556
      ],
      [
-      -0.9596,
-      -1.12999,
-      0.39979
+      -0.51075,
+      -0.00144,
+      0.26912
      ],
      [
-      -1.03702,
-      -1.14154,
-      0.47466
+      -1.0858,
+      -0.09056,
+      0.00859
      ],
      [
-      -1.10663,
-      -1.06948,
-      0.57136
+      -0.32922,
+      -0.90151,
+      0.70814
      ],
      [
-      -1.08818,
-      -0.87568,
-      0.6444
+      -0.74029,
+      -0.62134,
+      -0.00713
      ],
      [
-      -1.11596,
-      -0.57551,
-      0.71254
+      -0.89445,
+      0.05196,
+      -0.21598
      ],
      [
-      -1.01212,
-      -0.10768,
-      0.74208
+      -0.4915,
+      0.34756,
+      0.02317
      ],
      [
-      -0.56833,
-      0.40344,
-      0.91865
+      -0.54924,
+      0.65697,
+      0.32226
      ],
      [
-      -0.95052,
-      1.07495,
-      0.35954
+      -0.68873,
+      0.59364,
+      0.39187
      ],
      [
-      -0.74437,
-      1.13889,
-      0.6931
+      -0.63763,
+      0.73606,
+      0.36748
      ],
      [
-      -0.75399,
-      1.3516,
-      0.45213
+      -0.56697,
+      0.80079,
+      0.38192
      ],
      [
-      -0.77818,
-      1.33754,
-      0.42293
+      -0.50924,
+      0.86893,
+      0.37403
      ],
      [
-      -0.87451,
-      1.21955,
-      0.43115
+      -0.44121,
+      0.94139,
+      0.37321
      ]
     ],
     "chest": [
      [
-      -0.12178,
-      -0.1893,
-      1.69494
+      -0.04146,
+      -0.13667,
+      1.6834
      ],
      [
-      -0.18857,
-      -0.24036,
-      1.644
+      0.0158,
+      -0.06549,
+      1.73646
      ],
      [
-      -0.25373,
-      -0.32334,
-      1.43848
+      -0.02247,
+      -0.08818,
+      1.74302
      ],
      [
-      -0.27106,
-      -0.35208,
-      1.33515
+      -0.06747,
+      -0.11467,
+      1.6848
      ],
      [
-      -0.27058,
-      -0.37135,
-      1.30167
+      -0.09187,
+      -0.15304,
+      1.53335
      ],
      [
-      -0.25289,
-      -0.34111,
-      1.3047
+      -0.14278,
+      -0.20064,
+      1.20904
      ],
      [
-      -0.22024,
-      -0.27999,
-      1.30345
+      -0.24597,
+      -0.25401,
+      1.23087
      ],
      [
-      -0.14985,
-      -0.1866,
-      1.2246
+      -0.33233,
+      -0.29929,
+      1.21079
      ],
      [
-      -0.0126,
-      -0.04125,
-      1.04299
+      -0.45577,
+      -0.41427,
+      1.1207
      ],
      [
-      0.19732,
-      0.14839,
-      0.73827
+      -0.65965,
+      -0.6315,
+      0.72153
      ],
      [
-      0.42526,
-      0.2847,
-      0.43789
+      -0.73016,
+      -0.75428,
+      0.38851
      ],
      [
-      0.47649,
-      0.31348,
-      0.31846
+      -0.6902,
+      -0.70141,
+      0.37246
      ],
      [
-      0.46899,
-      0.25596,
-      0.33219
+      -0.58111,
+      -0.59027,
+      0.3912
      ],
      [
-      0.42733,
-      0.2042,
-      0.33577
+      -0.51923,
+      -0.50144,
+      0.37274
      ],
      [
-      0.38136,
-      0.15308,
-      0.33885
+      -0.4509,
+      -0.4378,
+      0.36039
      ],
      [
-      0.33321,
-      0.09923,
-      0.3419
+      -0.38653,
+      -0.36345,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      -0.23574,
-      -0.30381,
-      2.1155
+      -0.077,
+      -0.26773,
+      2.11607
      ],
      [
-      -0.24153,
-      -0.33587,
-      2.05278
+      0.10089,
+      0.07803,
+      2.14481
      ],
      [
-      -0.41647,
-      -0.59289,
-      1.71259
+      0.15573,
+      0.14404,
+      2.07468
      ],
      [
-      -0.56026,
-      -0.67312,
-      1.25521
+      0.11292,
+      -0.01064,
+      2.08657
      ],
      [
-      -0.51409,
-      -0.72547,
-      1.22599
+      0.05293,
+      -0.05867,
+      1.95137
      ],
      [
-      -0.43348,
-      -0.73675,
-      1.34573
+      -0.12943,
+      -0.12439,
+      1.65505
      ],
      [
-      -0.36537,
-      -0.66449,
-      1.43778
+      -0.18289,
+      -0.15461,
+      1.6662
      ],
      [
-      -0.36568,
-      -0.50909,
-      1.42572
+      -0.30127,
+      -0.08376,
+      1.5842
      ],
      [
-      -0.29734,
-      -0.25119,
-      1.30212
+      -0.44444,
+      -0.21013,
+      1.48884
      ],
      [
-      -0.09508,
-      0.06074,
-      1.03972
+      -0.72015,
+      -0.61115,
+      1.12886
      ],
      [
-      0.48781,
-      0.59682,
-      0.74477
+      -1.0041,
+      -1.11485,
+      0.38233
      ],
      [
-      0.75172,
-      0.6463,
-      0.29129
+      -0.98248,
+      -1.04897,
+      0.36
      ],
      [
-      0.76227,
-      0.58661,
-      0.30606
+      -0.86696,
+      -0.94308,
+      0.38808
      ],
      [
-      0.72551,
-      0.52891,
-      0.28418
+      -0.77341,
+      -0.87385,
+      0.38703
      ],
      [
-      0.69016,
-      0.46364,
-      0.2687
+      -0.70804,
+      -0.80839,
+      0.38411
      ],
      [
-      0.64152,
-      0.4042,
-      0.25741
+      -0.64575,
+      -0.7329,
+      0.38346
      ]
     ]
    }
@@ -21598,408 +21623,408 @@
    "files": [
     {
      "name": "death_N_00.png",
-     "sha256": "0039364f6cd79ed97dc885dd6ef53ad02fac74bef0b5a7a2145deea934ce3946"
+     "sha256": "59bf5fe51c9c312a52009c5ddc0bb70fbdd5d7c877919c3f395b615b15fe7587"
     },
     {
      "name": "death_N_01.png",
-     "sha256": "09b9291cf4e9fa21da02a81ad6ccdb5a946bd5f783ca43bf950910a3aa086f05"
+     "sha256": "cb1c8f1767d3381eae3e8cb04f2a57e217b544604478aa9164c7b17b0a61d1ea"
     },
     {
      "name": "death_N_02.png",
-     "sha256": "b43d60860cf6a5a3ac0f894128f3b429dca23bce7bcb619954adba3ee740d6f3"
+     "sha256": "45b1ee53a369177a45ed4457ce48d2d34d051e578ff6f6c4c6feedc3042f6b0c"
     },
     {
      "name": "death_N_03.png",
-     "sha256": "55502e11c98b8238b35979a9a1fd398d86c86508af8b23a0d36e98f7864384f2"
+     "sha256": "f83488f3c49eaf7ecccd4a7b906cb33662f62e48bc6cfd282fc94b45b7d611df"
     },
     {
      "name": "death_N_04.png",
-     "sha256": "a2d33254774fee5ea7dd35f887f804c59d65da10da5a3c1b64f0d855482c8618"
+     "sha256": "05f34db4efc5130e34aa43b83bbad4604444fd789bb7aaee0f117d7252a1bd2b"
     },
     {
      "name": "death_N_05.png",
-     "sha256": "0700f4f49db3e61594b1f9ec41859acca144b7e0a03f59e41452090dc1a3bdd0"
+     "sha256": "61803eb4552f8dd7a25810012dee584a08c918f89625342d4fee4c54f9bb29bf"
     },
     {
      "name": "death_N_06.png",
-     "sha256": "a4560481ae2ab09520a695b84fc35aaecf26fcb4bb21e1d5a2b9988e14b6e540"
+     "sha256": "72b56a5c70d2bf92d3d3cba16e31a3978872b01487288457e41e6d87e0394b4f"
     },
     {
      "name": "death_N_07.png",
-     "sha256": "c395a769783be29893bf379617a8ec349c76cee82f0efcca6ad5d4007539595e"
+     "sha256": "77ab84de840809415859f3bbb4bf539ce262a3e9eda6d3742d6feca177e85465"
     },
     {
      "name": "death_N_08.png",
-     "sha256": "f805884d6a17c0b3ec3f57a95ec10f717af655d56138af0a5ab214043b4b5c09"
+     "sha256": "b25990bb263516f73521aabb02289288f8cb9a4a920ab9c55d6311c33e4ab0cc"
     },
     {
      "name": "death_N_09.png",
-     "sha256": "86bf556fa2271420488a3204542794c0f0a454acb26e79cac86368f2e2ebba05"
+     "sha256": "fe85348a383cafe564b2260698bc9f877551f4bd817f193710248bdd86b52bcb"
     },
     {
      "name": "death_N_10.png",
-     "sha256": "05d002d0a264d60ce54d0395d56a4f12fe65a8c32d5fa4ecb313d0b73ff3fe45"
+     "sha256": "81f7e957a8c255ce6d096ce520fd0c33ccd79d891140bdbf4831610d8c75e82f"
     },
     {
      "name": "death_N_11.png",
-     "sha256": "7bf0636080977e0e5e0be4eeabcfd2e1d697d3d475d39507c62c0d2a53c8ebed"
+     "sha256": "e8ec1cbdb4ce5c4cf5dbd8205c1d6ed2d80ce500fcc01a97b03c89e1c0d176de"
     },
     {
      "name": "death_N_12.png",
-     "sha256": "09fea0178841aa5d0013677a5958b02f654e8fea8e19dfd63e9494e70f02c8a6"
+     "sha256": "9e4823f9635dd6fcaeb663694eacf70acaa4255b90f4425e9b6dacf1c3c4e7a8"
     },
     {
      "name": "death_N_13.png",
-     "sha256": "b3c4c9ecc666e1bafa24df1a426b2328084fb8abe359b3284be4d0cd187553b0"
+     "sha256": "66f5bb744436f1013461aa8ac4fc84691891ef19e2ba67537cf438d02fc4e785"
     },
     {
      "name": "death_N_14.png",
-     "sha256": "fd6c0cec3891ed442343714e9251e9f394cb0287f9b575f55a71596570c4562c"
+     "sha256": "8d301466d821682d479675aacb29374f93d49d3d6cb2de631f880d30629f83fb"
     },
     {
      "name": "death_N_15.png",
-     "sha256": "472da6ab66cc1364b0f9c8a4d1dcb38139fc2c997fbcabdf372ff8de2eff7ce5"
+     "sha256": "bab48fb8e1cf06b3f836d365525538a636023867f779556cb3a614eba3041d73"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "6db6184549c054deb42995904506209c31ecda04f70a9a19ad3cfaf72b395fc3",
+   "render_pass": "p2",
+   "cell_sha256": "af7c53cff5bd9c07ea1aa40fc7f0e2d70dd66e31d54d42b4cffca3409b1512e0",
    "alpha_union_bbox": [
-    155,
-    156,
-    650,
-    602
+    210,
+    160,
+    589,
+    589
    ],
    "edge_touch": false,
    "facing_measured_deg": 270.0,
-   "facing_hips_frame0_deg": 285.612,
+   "facing_hips_frame0_deg": 329.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      -0.09865,
-      -1.05286,
-      1.20436
+      1.03109,
+      -0.16451,
+      2.03478
      ],
      [
-      0.00614,
-      -1.04117,
-      0.89606
+      0.77886,
+      0.23009,
+      1.98196
      ],
      [
-      -0.00285,
-      -1.06745,
-      0.4878
+      0.98824,
+      -0.33259,
+      0.42662
      ],
      [
-      0.08862,
-      -0.94447,
-      0.19868
+      0.3751,
+      -0.72852,
+      0.52178
      ],
      [
-      0.32717,
-      -0.80662,
-      0.0808
+      0.68488,
+      -0.57874,
+      0.20912
      ],
      [
-      0.54229,
-      -0.77669,
-      0.08396
+      0.91158,
+      -0.78122,
+      0.35403
      ],
      [
-      0.69851,
-      -0.82452,
-      0.1395
+      0.47706,
+      0.06662,
+      0.01356
      ],
      [
-      0.77259,
-      -0.93872,
-      0.26949
+      0.74074,
+      -0.19184,
+      -0.07934
      ],
      [
-      0.8149,
-      -0.99943,
-      0.49162
+      0.66514,
+      -0.9056,
+      0.017
      ],
      [
-      0.9369,
-      -0.75576,
-      0.73505
+      0.73855,
+      -0.06258,
+      -0.12722
      ],
      [
-      1.184,
-      -0.29821,
-      0.43775
+      0.54566,
+      0.14154,
+      0.395
      ],
      [
-      1.41913,
-      -0.12176,
-      -0.09873
+      1.23427,
+      0.01044,
+      0.43602
      ],
      [
-      1.58425,
-      0.02426,
-      -0.29924
+      1.24399,
+      0.14891,
+      0.37007
      ],
      [
-      1.67732,
-      -0.01685,
-      -0.25107
+      1.27108,
+      0.24553,
+      0.387
      ],
      [
-      1.68629,
-      -0.05199,
-      -0.26903
+      1.24698,
+      0.35329,
+      0.39408
      ],
      [
-      1.69317,
-      -0.0976,
-      -0.27189
+      1.24646,
+      0.43446,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      0.30884,
-      -0.73978,
-      0.87892
+      0.05637,
+      -1.33677,
+      0.74113
      ],
      [
-      0.2978,
-      -0.92519,
-      0.58509
+      0.01597,
+      -1.27424,
+      1.39783
      ],
      [
-      0.08948,
-      -1.2353,
-      0.29856
+      -0.87006,
+      -1.16485,
+      1.05533
      ],
      [
-      0.09358,
-      -1.38034,
-      0.33145
+      -0.33866,
+      -0.28408,
+      0.42556
      ],
      [
-      0.12048,
-      -1.47756,
-      0.39979
+      -0.36013,
+      -0.36217,
+      0.26912
      ],
      [
-      0.07391,
-      -1.54048,
-      0.47466
+      -0.70374,
+      -0.83181,
+      0.00859
      ],
      [
-      -0.02627,
-      -1.53874,
-      0.57136
+      0.40467,
+      -0.87026,
+      0.70814
      ],
      [
-      -0.15026,
-      -1.38866,
-      0.6444
+      -0.08411,
+      -0.96282,
+      -0.00713
      ],
      [
-      -0.38216,
-      -1.19605,
-      0.71254
+      -0.66921,
+      -0.59573,
+      -0.21598
      ],
      [
-      -0.63954,
-      -0.79182,
-      0.74208
+      -0.59331,
+      -0.10178,
+      0.02317
      ],
      [
-      -0.68715,
-      -0.1166,
-      0.91865
+      -0.85292,
+      0.07617,
+      0.32226
      ],
      [
-      -1.43223,
-      0.08799,
-      0.35954
+      -0.90677,
+      -0.06724,
+      0.39187
      ],
      [
-      -1.33167,
-      0.27897,
-      0.6931
+      -0.97135,
+      0.0696,
+      0.36748
      ],
      [
-      -1.48888,
-      0.42257,
-      0.45213
+      -0.96715,
+      0.16534,
+      0.38192
      ],
      [
-      -1.49604,
-      0.39553,
-      0.42293
+      -0.97452,
+      0.25434,
+      0.37403
      ],
      [
-      -1.48072,
-      0.24398,
-      0.43115
+      -0.97765,
+      0.35368,
+      0.37321
      ]
     ],
     "chest": [
      [
-      0.04774,
-      -0.21997,
-      1.69494
+      0.06732,
+      -0.12596,
+      1.6834
      ],
      [
-      0.03662,
-      -0.3033,
-      1.644
+      0.05748,
+      -0.03514,
+      1.73646
      ],
      [
-      0.04922,
-      -0.40806,
-      1.43848
+      0.04646,
+      -0.07824,
+      1.74302
      ],
      [
-      0.05729,
-      -0.44063,
-      1.33515
+      0.03338,
+      -0.12879,
+      1.6848
      ],
      [
-      0.07125,
-      -0.45391,
-      1.30167
+      0.04325,
+      -0.17317,
+      1.53335
      ],
      [
-      0.06238,
-      -0.42002,
-      1.3047
+      0.04091,
+      -0.24283,
+      1.20904
      ],
      [
-      0.04225,
-      -0.35371,
-      1.30345
+      0.00568,
+      -0.35354,
+      1.23087
      ],
      [
-      0.02599,
-      -0.2379,
-      1.2246
+      -0.02336,
+      -0.44663,
+      1.21079
      ],
      [
-      0.02026,
-      -0.03808,
-      1.04299
+      -0.02935,
+      -0.61521,
+      1.1207
      ],
      [
-      0.0346,
-      0.24445,
-      0.73827
+      -0.0199,
+      -0.91298,
+      0.72153
      ],
      [
-      0.09939,
-      0.50202,
-      0.43789
+      0.01706,
+      -1.04966,
+      0.38851
      ],
      [
-      0.11527,
-      0.5586,
-      0.31846
+      0.00793,
+      -0.98401,
+      0.37246
      ],
      [
-      0.15064,
-      0.51261,
-      0.33219
+      0.00648,
+      -0.82829,
+      0.3912
      ],
      [
-      0.15777,
-      0.44656,
-      0.33577
+      -0.01258,
+      -0.72172,
+      0.37274
      ],
      [
-      0.16142,
-      0.3779,
-      0.33885
+      -0.00926,
+      -0.6284,
+      0.36039
      ],
      [
-      0.16544,
-      0.30578,
-      0.3419
+      -0.01632,
+      -0.53031,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      0.04813,
-      -0.38152,
-      2.1155
+      0.13487,
+      -0.24376,
+      2.11607
      ],
      [
-      0.06671,
-      -0.40829,
-      2.05278
+      0.01616,
+      0.12652,
+      2.14481
      ],
      [
-      0.12475,
-      -0.71373,
-      1.71259
+      0.00827,
+      0.21197,
+      2.07468
      ],
      [
-      0.07981,
-      -0.87213,
-      1.25521
+      0.08737,
+      0.07232,
+      2.08657
      ],
      [
-      0.14947,
-      -0.8765,
-      1.22599
+      0.07891,
+      -0.00406,
+      1.95137
      ],
      [
-      0.21444,
-      -0.82748,
-      1.34573
+      -0.00356,
+      -0.17948,
+      1.65505
      ],
      [
-      0.21151,
-      -0.72821,
-      1.43778
+      -0.02,
+      -0.23865,
+      1.6662
      ],
      [
-      0.10141,
-      -0.61855,
-      1.42572
+      -0.1538,
+      -0.27226,
+      1.5842
      ],
      [
-      -0.03264,
-      -0.38787,
-      1.30212
+      -0.16568,
+      -0.46285,
+      1.48884
      ],
      [
-      -0.11018,
-      -0.02428,
-      1.03972
+      -0.07707,
+      -0.94137,
+      1.12886
      ],
      [
-      -0.07708,
-      0.76694,
-      0.74477
+      0.07831,
+      -1.49832,
+      0.38233
      ],
      [
-      0.07454,
-      0.98855,
-      0.29129
+      0.04701,
+      -1.43645,
+      0.36
      ],
      [
-      0.12421,
-      0.9538,
-      0.30606
+      0.05382,
+      -1.27989,
+      0.38808
      ],
      [
-      0.13902,
-      0.88701,
-      0.28418
+      0.07102,
+      -1.16479,
+      0.38703
      ],
      [
-      0.16017,
-      0.81586,
-      0.2687
+      0.07096,
+      -1.07227,
+      0.38411
      ],
      [
-      0.16781,
-      0.73944,
-      0.25741
+      0.06163,
+      -0.97486,
+      0.38346
      ]
     ]
    }
@@ -22011,408 +22036,408 @@
    "files": [
     {
      "name": "death_NE_00.png",
-     "sha256": "0bd5904b95a3c284ed55046345a46b15f4d6cdab54d6b2a5c669e7020843eab6"
+     "sha256": "263fcc14aea1e2e69f9c3e64e2903ba5208328f83663a82d2b0b640ab87f759c"
     },
     {
      "name": "death_NE_01.png",
-     "sha256": "57bb1e65366f1e1c1a4884a1d1b5a1db3807851d759faeaa46a00abda5a79b58"
+     "sha256": "4ed26404113718775d2abbc241988c706b9af428a9b789d9a2ee8b16fbdb0194"
     },
     {
      "name": "death_NE_02.png",
-     "sha256": "9c94c571fec34c2b7ecc6a39418ded7fce334c11082ea0a3be29a154497adc70"
+     "sha256": "6c73d3e6f75d632553df968b8710fc46e7f6bbe76c4ca703ed55bad77e5e46bc"
     },
     {
      "name": "death_NE_03.png",
-     "sha256": "903418a1882b63c9819711e5b37048f40b3598ea8e2abdbd6cb54bf58039d198"
+     "sha256": "fa64363d78e541ddba0f295847d66f2c87f52227b83cae768bc53be6506db4f8"
     },
     {
      "name": "death_NE_04.png",
-     "sha256": "632e200fb023baf99426bbe0768f1b15cfcfd4fa9041821c578a1e912912b9cd"
+     "sha256": "6bddb58435726e9bd970c912796e4646ca8044ea9798d23dfa9fa6e6a6c3a7b8"
     },
     {
      "name": "death_NE_05.png",
-     "sha256": "2fdfe9ad0cd7ad0069abc52d858fbb3f0dbee9ca818dd93c5485463bd6b86c98"
+     "sha256": "dd024dce6fb6c86e1f378d62e6f8164dadb09d90ae0f02ebb646952046982df6"
     },
     {
      "name": "death_NE_06.png",
-     "sha256": "be7815656a5c9862676a0ca423ea69b679e495c0d11e16957e17f999c54dc62f"
+     "sha256": "443ed4ed015259db5f5f8ff996e1fcac689de874d35a5728290c744d826a7e10"
     },
     {
      "name": "death_NE_07.png",
-     "sha256": "8412ca040c0aa9da2858d2813ea098cc72b444d3e220ffa97897ef767c499efa"
+     "sha256": "c5f205d9454748c60625410bba163978a195d5635888eb7a345771a630093326"
     },
     {
      "name": "death_NE_08.png",
-     "sha256": "ad5603bf539b3533520a3fbfa82d178ecc74ab32cdeae5945ad7d2f34e659b7b"
+     "sha256": "f53ae9402e189b19016f18b366c3cfcfbd2f47394a8a2a9d6e4e495b05be0fe6"
     },
     {
      "name": "death_NE_09.png",
-     "sha256": "2aadb6149e2f159c0eccb57b92c814b94872c4b4e89539934c2af7c4b8735469"
+     "sha256": "ffaa39273671a1bd65dac0ab40391612414abcd483cd4f731e10e0e4a9be680f"
     },
     {
      "name": "death_NE_10.png",
-     "sha256": "15020eab1beec683800e22de1a3dcfc2b51bf0843741de9441a4709104763377"
+     "sha256": "9b21cee8621f68510d7956b63e3465879d542e08bb731bfd0204abcf6f037b5e"
     },
     {
      "name": "death_NE_11.png",
-     "sha256": "b59abbe6ecc158d5c0b10376f30ad7aba9f87e339f9d6f6d77d640d0b4592bb2"
+     "sha256": "2c69b860f6338483532a9ece4cb876a67e1498585601474bdaa5990956633cc9"
     },
     {
      "name": "death_NE_12.png",
-     "sha256": "c10abce1bd82405da8e53207b05b864e34afddc3486ad7c109b42f37219776d9"
+     "sha256": "98e798840903e19db15ac68c89f6ebff0d23f183ec4a6ae2843439ed0b927dcd"
     },
     {
      "name": "death_NE_13.png",
-     "sha256": "f8cc5f12a60e434aff86fe0625d0179a4ceb7675a1cd5152b78fc4727ad15c61"
+     "sha256": "bec37c1fa73e5d3e241d888ac0f3bb63ad6317d5963c1841aed0c69b4fa71d5f"
     },
     {
      "name": "death_NE_14.png",
-     "sha256": "52325a78683079652c4ead5e92d852d466f6e2d314b76421e3f37e5a5f2cd288"
+     "sha256": "c0254ee563c47e6a2e280155b20ceab2e0f96b66a4c1435911ebae959f4b4d21"
     },
     {
      "name": "death_NE_15.png",
-     "sha256": "c0ed19a40c52bddc7b7eca3aaca665846e874922c34d4b191a6850e9dfc008b6"
+     "sha256": "1aa246367fe7acfcf9a8d557b405b891a5887ab654e39015aec57ef62e34681e"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "a8a516d00bc2d6b265efb82eebbe6f1dc86b60bdeadd1bf1f6417055f10d9a2a",
+   "render_pass": "p2",
+   "cell_sha256": "52927814b9701e6c744e4b549398983624f6052c8317bf476e0222ba394372d1",
    "alpha_union_bbox": [
-    180,
-    186,
-    585,
-    630
+    203,
+    169,
+    587,
+    592
    ],
    "edge_touch": false,
    "facing_measured_deg": 315.0,
-   "facing_hips_frame0_deg": 330.612,
+   "facing_hips_frame0_deg": 14.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      0.67472,
-      -0.81424,
-      1.20436
+      0.84541,
+      0.61277,
+      2.03478
      ],
      [
-      0.74056,
-      -0.73187,
-      0.89606
+      0.38804,
+      0.71344,
+      1.98196
      ],
      [
-      0.75279,
-      -0.75682,
-      0.4878
+      0.93397,
+      0.46361,
+      0.42662
      ],
      [
-      0.7305,
-      -0.60517,
-      0.19868
+      0.78037,
+      -0.2499,
+      0.52178
      ],
      [
-      0.80171,
-      -0.33902,
-      0.0808
+      0.89351,
+      0.07505,
+      0.20912
      ],
      [
-      0.93266,
-      -0.16574,
-      0.08396
+      1.19699,
+      0.09218,
+      0.35403
      ],
      [
-      1.07695,
-      -0.0891,
-      0.1395
+      0.29022,
+      0.38444,
+      0.01356
      ],
      [
-      1.21008,
-      -0.11747,
-      0.26949
+      0.65943,
+      0.38813,
+      -0.07934
      ],
      [
-      1.28292,
-      -0.13048,
-      0.49162
+      1.11068,
+      -0.17003,
+      0.017
      ],
      [
-      1.19689,
-      0.12809,
-      0.73505
+      0.56649,
+      0.47798,
+      -0.12722
      ],
      [
-      1.04809,
-      0.62635,
-      0.43775
+      0.28576,
+      0.48593,
+      0.395
      ],
      [
-      1.08957,
-      0.91738,
-      -0.09873
+      0.86537,
+      0.88014,
+      0.43602
      ],
      [
-      1.10308,
-      1.13739,
-      -0.29924
+      0.77434,
+      0.98493,
+      0.37007
      ],
      [
-      1.19796,
-      1.17413,
-      -0.25107
+      0.72517,
+      1.0724,
+      0.387
      ],
      [
-      1.22915,
-      1.15562,
-      -0.26903
+      0.63194,
+      1.13156,
+      0.39408
      ],
      [
-      1.26627,
-      1.12824,
-      -0.27189
+      0.57417,
+      1.18859,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      0.74149,
-      -0.30472,
-      0.87892
+      0.9851,
+      -0.90538,
+      0.74113
      ],
      [
-      0.86479,
-      -0.44364,
-      0.58509
+      0.91232,
+      -0.88973,
+      1.39783
      ],
      [
-      0.93677,
-      -0.81022,
-      0.29856
+      0.20845,
+      -1.43889,
+      1.05533
      ],
      [
-      1.04222,
-      -0.90988,
-      0.33145
+      -0.03859,
+      -0.44034,
+      0.42556
      ],
      [
-      1.12999,
-      -0.9596,
-      0.39979
+      0.00144,
+      -0.51075,
+      0.26912
      ],
      [
-      1.14154,
-      -1.03702,
-      0.47466
+      0.09056,
+      -1.0858,
+      0.00859
      ],
      [
-      1.06948,
-      -1.10663,
-      0.57136
+      0.90151,
+      -0.32922,
+      0.70814
      ],
      [
-      0.87568,
-      -1.08818,
-      0.6444
+      0.62134,
+      -0.74029,
+      -0.00713
      ],
      [
-      0.57551,
-      -1.11596,
-      0.71254
+      -0.05196,
+      -0.89445,
+      -0.21598
      ],
      [
-      0.10768,
-      -1.01212,
-      0.74208
+      -0.34756,
+      -0.4915,
+      0.02317
      ],
      [
-      -0.40344,
-      -0.56833,
-      0.91865
+      -0.65697,
+      -0.54924,
+      0.32226
      ],
      [
-      -1.07495,
-      -0.95052,
-      0.35954
+      -0.59364,
+      -0.68873,
+      0.39187
      ],
      [
-      -1.13889,
-      -0.74437,
-      0.6931
+      -0.73606,
+      -0.63763,
+      0.36748
      ],
      [
-      -1.3516,
-      -0.75399,
-      0.45213
+      -0.80079,
+      -0.56697,
+      0.38192
      ],
      [
-      -1.33754,
-      -0.77818,
-      0.42293
+      -0.86893,
+      -0.50924,
+      0.37403
      ],
      [
-      -1.21955,
-      -0.87451,
-      0.43115
+      -0.94139,
+      -0.44121,
+      0.37321
      ]
     ],
     "chest": [
      [
-      0.1893,
-      -0.12178,
-      1.69494
+      0.13667,
+      -0.04146,
+      1.6834
      ],
      [
-      0.24036,
-      -0.18857,
-      1.644
+      0.06549,
+      0.0158,
+      1.73646
      ],
      [
-      0.32334,
-      -0.25373,
-      1.43848
+      0.08818,
+      -0.02247,
+      1.74302
      ],
      [
-      0.35208,
-      -0.27106,
-      1.33515
+      0.11467,
+      -0.06747,
+      1.6848
      ],
      [
-      0.37135,
-      -0.27058,
-      1.30167
+      0.15304,
+      -0.09187,
+      1.53335
      ],
      [
-      0.34111,
-      -0.25289,
-      1.3047
+      0.20064,
+      -0.14278,
+      1.20904
      ],
      [
-      0.27999,
-      -0.22024,
-      1.30345
+      0.25401,
+      -0.24597,
+      1.23087
      ],
      [
-      0.1866,
-      -0.14985,
-      1.2246
+      0.29929,
+      -0.33233,
+      1.21079
      ],
      [
-      0.04125,
-      -0.0126,
-      1.04299
+      0.41427,
+      -0.45577,
+      1.1207
      ],
      [
-      -0.14839,
-      0.19732,
-      0.73827
+      0.6315,
+      -0.65965,
+      0.72153
      ],
      [
-      -0.2847,
-      0.42526,
-      0.43789
+      0.75428,
+      -0.73016,
+      0.38851
      ],
      [
-      -0.31348,
-      0.47649,
-      0.31846
+      0.70141,
+      -0.6902,
+      0.37246
      ],
      [
-      -0.25596,
-      0.46899,
-      0.33219
+      0.59027,
+      -0.58111,
+      0.3912
      ],
      [
-      -0.2042,
-      0.42733,
-      0.33577
+      0.50144,
+      -0.51923,
+      0.37274
      ],
      [
-      -0.15308,
-      0.38136,
-      0.33885
+      0.4378,
+      -0.4509,
+      0.36039
      ],
      [
-      -0.09923,
-      0.33321,
-      0.3419
+      0.36345,
+      -0.38653,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      0.30381,
-      -0.23574,
-      2.1155
+      0.26773,
+      -0.077,
+      2.11607
      ],
      [
-      0.33587,
-      -0.24153,
-      2.05278
+      -0.07803,
+      0.10089,
+      2.14481
      ],
      [
-      0.59289,
-      -0.41647,
-      1.71259
+      -0.14404,
+      0.15573,
+      2.07468
      ],
      [
-      0.67312,
-      -0.56026,
-      1.25521
+      0.01064,
+      0.11292,
+      2.08657
      ],
      [
-      0.72547,
-      -0.51409,
-      1.22599
+      0.05867,
+      0.05293,
+      1.95137
      ],
      [
-      0.73675,
-      -0.43348,
-      1.34573
+      0.12439,
+      -0.12943,
+      1.65505
      ],
      [
-      0.66449,
-      -0.36537,
-      1.43778
+      0.15461,
+      -0.18289,
+      1.6662
      ],
      [
-      0.50909,
-      -0.36568,
-      1.42572
+      0.08376,
+      -0.30127,
+      1.5842
      ],
      [
-      0.25119,
-      -0.29734,
-      1.30212
+      0.21013,
+      -0.44444,
+      1.48884
      ],
      [
-      -0.06074,
-      -0.09508,
-      1.03972
+      0.61115,
+      -0.72015,
+      1.12886
      ],
      [
-      -0.59682,
-      0.48781,
-      0.74477
+      1.11485,
+      -1.0041,
+      0.38233
      ],
      [
-      -0.6463,
-      0.75172,
-      0.29129
+      1.04897,
+      -0.98248,
+      0.36
      ],
      [
-      -0.58661,
-      0.76227,
-      0.30606
+      0.94308,
+      -0.86696,
+      0.38808
      ],
      [
-      -0.5289,
-      0.72551,
-      0.28418
+      0.87385,
+      -0.77341,
+      0.38703
      ],
      [
-      -0.46364,
-      0.69016,
-      0.2687
+      0.80839,
+      -0.70804,
+      0.38411
      ],
      [
-      -0.4042,
-      0.64152,
-      0.25741
+      0.7329,
+      -0.64575,
+      0.38346
      ]
     ]
    }
@@ -22424,408 +22449,408 @@
    "files": [
     {
      "name": "death_E_00.png",
-     "sha256": "605290852655b3a4408e3315d99ed5c7552874c6d43bdacf2dadb037c793d149"
+     "sha256": "ce19d659aa2cf9b7a93de3306645248171fd659636de0ae58f76d70e717c8553"
     },
     {
      "name": "death_E_01.png",
-     "sha256": "8ca4f5236886648abdfe9a36378caf64e9867b19379da933b00cc93aa603ea0b"
+     "sha256": "d4e7c1fb9b34940931558450b49bef18ae771187b30cf037d9b3c96d9ae4d961"
     },
     {
      "name": "death_E_02.png",
-     "sha256": "d5a1c00e0cf79f305376f2319f6ec5a8a02a302bbdbeadcba1180a3008bdcc71"
+     "sha256": "9dbb944627673b786138b006266503dc5ad5721c114f4427050d046cd4f16ed4"
     },
     {
      "name": "death_E_03.png",
-     "sha256": "596e297281e0f40ed8aa3458b1c2af7554294f6a5d71b7b23d3ebae27e161afc"
+     "sha256": "0711c9edc422f938bd7fef3bbaf99d54224ea191f8fcccfb44d9d12f5e2d346c"
     },
     {
      "name": "death_E_04.png",
-     "sha256": "7da0b493d27608d7995195768e54fd7175de8bfb13718342c210d39b701129ae"
+     "sha256": "f9cae4aeaee1038f541a8b27695b088ebef2959e98d4d26f2f07a5291e8b176d"
     },
     {
      "name": "death_E_05.png",
-     "sha256": "977ff2bbf07b71bc512555ce75b2b3f0b0f0481b04736add1cde0750c62700b3"
+     "sha256": "be9ad678896cdc911f39d2f8d565ccc4c833afe30b5998d5b37afabe7f16a213"
     },
     {
      "name": "death_E_06.png",
-     "sha256": "8c7643b5c82108b3eaab6aad8050123f49133ba698790cbc43bf0463f8b8d979"
+     "sha256": "9537d8b12b73e5907a91f7552ff664a0f2e7856ca44d20bdabe639c689dcd8db"
     },
     {
      "name": "death_E_07.png",
-     "sha256": "12b2abfeb78cca3399e92f9bc975b3818e450b56ef9dd85edebc56a777340f76"
+     "sha256": "7b0b7919502eb902e15a54116db3ee3f6431f6ad28350cd5798dad664cdffda3"
     },
     {
      "name": "death_E_08.png",
-     "sha256": "1f634a417f8c6a994411f2f40897a3941061b3593846a9b4ac4959e8f43b0669"
+     "sha256": "acd19df036b8ebcc1543eaf8eec5ba6e803376963598b57dc3b152cb612225af"
     },
     {
      "name": "death_E_09.png",
-     "sha256": "31115f2ac8f67f91ab4033654de729654199b5c9134c9424f88c7f81bbde2bb5"
+     "sha256": "db3c7c5cf01d61437b7db59d251f7fd7f9d3a699eeeaf1e4164120460f39ccff"
     },
     {
      "name": "death_E_10.png",
-     "sha256": "4aa6835c483e0e783ae19b97fc74130b03257a1809984d9451e48540840e0af0"
+     "sha256": "2543eceef30617ff36bfddbbb54981673f9e38624894e9933f5c5bde32cdc639"
     },
     {
      "name": "death_E_11.png",
-     "sha256": "5dbaec1385a8c239c91b3474b644d7201f31b3424aad0ba61a746d48464eec77"
+     "sha256": "d5d3b57b224b53d3c6558b53e311069df7871c3f7d9ee5a3e1127a378af8ed62"
     },
     {
      "name": "death_E_12.png",
-     "sha256": "5e561d69dbf2448d8fab51467880d664cfa3b00907fd3fad8d503b70f99160be"
+     "sha256": "cf0b6a6c82228faaa64b6f4be55470ef627e59871524d423cf326e6335c68921"
     },
     {
      "name": "death_E_13.png",
-     "sha256": "11a40fe84f2b133d1ff2131150f3479f1cdf82d8fbc6b9bfdf524f8bae40f8ea"
+     "sha256": "f7f0c79b9832cd9c1593c428062b9c75d479501148634e4ac2bca14f8ec53301"
     },
     {
      "name": "death_E_14.png",
-     "sha256": "2d9b77448927b79ecc6f6e7cb8bb8e2be619c8c8a7ec5c3d5add9ecb27c3ab72"
+     "sha256": "d7b13b0a1f6b7f7ef9f46b5d3768c64f5d4a80b7b3deb59e22e4eb28abb1b6e5"
     },
     {
      "name": "death_E_15.png",
-     "sha256": "a6bf638e75f2f4d200d2ed5e55db92e9c76d85c6e7c3c7270e3178570e46ad36"
+     "sha256": "d1f676f4e446d9373ddddc746cd3ccd2d29696e00425a94dec98f894d49d590e"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "9c54df73e9d56de6efde53f1f1568f49767719a555721e62ee7db38fe91c876c",
+   "render_pass": "p2",
+   "cell_sha256": "ad5cffc8e2cdd20f495e1cc63ac18415ddb828c103b210189eb8ec225852d9f4",
    "alpha_union_bbox": [
-    208,
+    175,
     199,
-    621,
-    682
+    631,
+    583
    ],
    "edge_touch": false,
    "facing_measured_deg": 360.0,
-   "facing_hips_frame0_deg": 15.612,
+   "facing_hips_frame0_deg": 59.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      1.05286,
-      -0.09865,
-      1.20436
+      0.16451,
+      1.03109,
+      2.03478
      ],
      [
-      1.04117,
-      0.00614,
-      0.89606
+      -0.23009,
+      0.77886,
+      1.98196
      ],
      [
-      1.06745,
-      -0.00285,
-      0.4878
+      0.33259,
+      0.98824,
+      0.42662
      ],
      [
-      0.94447,
-      0.08862,
-      0.19868
+      0.72852,
+      0.3751,
+      0.52178
      ],
      [
-      0.80662,
-      0.32717,
-      0.0808
+      0.57874,
+      0.68488,
+      0.20912
      ],
      [
-      0.77669,
-      0.54229,
-      0.08396
+      0.78122,
+      0.91158,
+      0.35403
      ],
      [
-      0.82452,
-      0.69851,
-      0.1395
+      -0.06662,
+      0.47706,
+      0.01356
      ],
      [
-      0.93872,
-      0.77259,
-      0.26949
+      0.19184,
+      0.74074,
+      -0.07934
      ],
      [
-      0.99943,
-      0.8149,
-      0.49162
+      0.9056,
+      0.66514,
+      0.017
      ],
      [
-      0.75576,
-      0.9369,
-      0.73505
+      0.06258,
+      0.73855,
+      -0.12722
      ],
      [
-      0.29821,
-      1.184,
-      0.43775
+      -0.14154,
+      0.54566,
+      0.395
      ],
      [
-      0.12176,
-      1.41913,
-      -0.09873
+      -0.01044,
+      1.23427,
+      0.43602
      ],
      [
-      -0.02426,
-      1.58425,
-      -0.29924
+      -0.14891,
+      1.24399,
+      0.37007
      ],
      [
-      0.01685,
-      1.67732,
-      -0.25107
+      -0.24553,
+      1.27108,
+      0.387
      ],
      [
-      0.052,
-      1.68629,
-      -0.26903
+      -0.35329,
+      1.24698,
+      0.39408
      ],
      [
-      0.0976,
-      1.69317,
-      -0.27189
+      -0.43446,
+      1.24646,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      0.73978,
-      0.30884,
-      0.87892
+      1.33677,
+      0.05637,
+      0.74113
      ],
      [
-      0.92519,
-      0.2978,
-      0.58509
+      1.27424,
+      0.01597,
+      1.39783
      ],
      [
-      1.2353,
-      0.08948,
-      0.29856
+      1.16485,
+      -0.87006,
+      1.05533
      ],
      [
-      1.38034,
-      0.09358,
-      0.33145
+      0.28408,
+      -0.33866,
+      0.42556
      ],
      [
-      1.47756,
-      0.12048,
-      0.39979
+      0.36217,
+      -0.36013,
+      0.26912
      ],
      [
-      1.54048,
-      0.07391,
-      0.47466
+      0.83181,
+      -0.70374,
+      0.00859
      ],
      [
-      1.53874,
-      -0.02627,
-      0.57136
+      0.87026,
+      0.40467,
+      0.70814
      ],
      [
-      1.38866,
-      -0.15026,
-      0.6444
+      0.96282,
+      -0.08411,
+      -0.00713
      ],
      [
-      1.19605,
-      -0.38216,
-      0.71254
+      0.59573,
+      -0.66921,
+      -0.21598
      ],
      [
-      0.79182,
-      -0.63954,
-      0.74208
+      0.10178,
+      -0.59331,
+      0.02317
      ],
      [
-      0.1166,
-      -0.68715,
-      0.91865
+      -0.07617,
+      -0.85292,
+      0.32226
      ],
      [
-      -0.08799,
-      -1.43223,
-      0.35954
+      0.06724,
+      -0.90677,
+      0.39187
      ],
      [
-      -0.27897,
-      -1.33167,
-      0.6931
+      -0.0696,
+      -0.97135,
+      0.36748
      ],
      [
-      -0.42257,
-      -1.48888,
-      0.45213
+      -0.16534,
+      -0.96715,
+      0.38192
      ],
      [
-      -0.39553,
-      -1.49604,
-      0.42293
+      -0.25434,
+      -0.97452,
+      0.37403
      ],
      [
-      -0.24398,
-      -1.48072,
-      0.43115
+      -0.35368,
+      -0.97765,
+      0.37321
      ]
     ],
     "chest": [
      [
-      0.21997,
-      0.04774,
-      1.69494
+      0.12596,
+      0.06732,
+      1.6834
      ],
      [
-      0.3033,
-      0.03662,
-      1.644
+      0.03514,
+      0.05748,
+      1.73646
      ],
      [
-      0.40806,
-      0.04922,
-      1.43848
+      0.07824,
+      0.04646,
+      1.74302
      ],
      [
-      0.44063,
-      0.05729,
-      1.33515
+      0.12879,
+      0.03338,
+      1.6848
      ],
      [
-      0.45391,
-      0.07125,
-      1.30167
+      0.17317,
+      0.04325,
+      1.53335
      ],
      [
-      0.42002,
-      0.06238,
-      1.3047
+      0.24283,
+      0.04091,
+      1.20904
      ],
      [
-      0.35371,
-      0.04225,
-      1.30345
+      0.35354,
+      0.00568,
+      1.23087
      ],
      [
-      0.2379,
-      0.02599,
-      1.2246
+      0.44663,
+      -0.02336,
+      1.21079
      ],
      [
-      0.03808,
-      0.02026,
-      1.04299
+      0.61521,
+      -0.02935,
+      1.1207
      ],
      [
-      -0.24445,
-      0.0346,
-      0.73827
+      0.91298,
+      -0.0199,
+      0.72153
      ],
      [
-      -0.50202,
-      0.09939,
-      0.43789
+      1.04966,
+      0.01706,
+      0.38851
      ],
      [
-      -0.5586,
-      0.11527,
-      0.31846
+      0.98401,
+      0.00793,
+      0.37246
      ],
      [
-      -0.51261,
-      0.15064,
-      0.33219
+      0.82829,
+      0.00648,
+      0.3912
      ],
      [
-      -0.44656,
-      0.15777,
-      0.33577
+      0.72172,
+      -0.01258,
+      0.37274
      ],
      [
-      -0.3779,
-      0.16142,
-      0.33885
+      0.6284,
+      -0.00926,
+      0.36039
      ],
      [
-      -0.30578,
-      0.16544,
-      0.3419
+      0.53031,
+      -0.01632,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      0.38152,
-      0.04813,
-      2.1155
+      0.24376,
+      0.13487,
+      2.11607
      ],
      [
-      0.40829,
-      0.06671,
-      2.05278
+      -0.12652,
+      0.01616,
+      2.14481
      ],
      [
-      0.71373,
-      0.12475,
-      1.71259
+      -0.21197,
+      0.00827,
+      2.07468
      ],
      [
-      0.87213,
-      0.07981,
-      1.25521
+      -0.07232,
+      0.08737,
+      2.08657
      ],
      [
-      0.8765,
-      0.14947,
-      1.22599
+      0.00406,
+      0.07891,
+      1.95137
      ],
      [
-      0.82748,
-      0.21444,
-      1.34573
+      0.17948,
+      -0.00356,
+      1.65505
      ],
      [
-      0.72821,
-      0.21151,
-      1.43778
+      0.23865,
+      -0.02,
+      1.6662
      ],
      [
-      0.61855,
-      0.10141,
-      1.42572
+      0.27226,
+      -0.1538,
+      1.5842
      ],
      [
-      0.38787,
-      -0.03264,
-      1.30212
+      0.46285,
+      -0.16568,
+      1.48884
      ],
      [
-      0.02428,
-      -0.11018,
-      1.03972
+      0.94137,
+      -0.07707,
+      1.12886
      ],
      [
-      -0.76694,
-      -0.07708,
-      0.74477
+      1.49832,
+      0.07831,
+      0.38233
      ],
      [
-      -0.98855,
-      0.07454,
-      0.29129
+      1.43645,
+      0.04701,
+      0.36
      ],
      [
-      -0.9538,
-      0.12421,
-      0.30606
+      1.27989,
+      0.05382,
+      0.38808
      ],
      [
-      -0.88701,
-      0.13902,
-      0.28418
+      1.16479,
+      0.07102,
+      0.38703
      ],
      [
-      -0.81586,
-      0.16017,
-      0.2687
+      1.07227,
+      0.07096,
+      0.38411
      ],
      [
-      -0.73944,
-      0.16781,
-      0.25741
+      0.97486,
+      0.06162,
+      0.38346
      ]
     ]
    }
@@ -22837,408 +22862,408 @@
    "files": [
     {
      "name": "death_SE_00.png",
-     "sha256": "b743d979b3bc5728661a6d29d7661177d1fb013ec7d45b01d0cf2a8cc98c64fe"
+     "sha256": "b5413f1e692b07f95d3645118a84039216776c128fd405fd11a1b7f7e288489a"
     },
     {
      "name": "death_SE_01.png",
-     "sha256": "a654081f075ba9e05f9a90ad69f954502d12cf5ac50f955b5e9ad797621f1593"
+     "sha256": "d2ad1ba49468d3b1b020807909a9c0f38ac9249f9608db998d6fde3592dd4da4"
     },
     {
      "name": "death_SE_02.png",
-     "sha256": "8980e72423782d6995f3210c058831bac5829961f3005c300f6c1d95410c30d5"
+     "sha256": "ceb3c7bc5d3b45b4f11b287305990944d0b20db0f362d20b2ea6263cbcc5525a"
     },
     {
      "name": "death_SE_03.png",
-     "sha256": "73ef770999454c183257540cb45142e313fde0e8a007bf08c452a8c2c2c594f7"
+     "sha256": "9dad028f81e31609e16c016c56a1fd8b2e0c70ecec4d789dbb0640495573122f"
     },
     {
      "name": "death_SE_04.png",
-     "sha256": "cceea1c101792ac7e72e0edad025fb0dafaea0d6586cca415580d6077f8fc9f5"
+     "sha256": "811e298ed75075b519c30aa84def0e6262a055a2165818e21c3b70ad40bac1b8"
     },
     {
      "name": "death_SE_05.png",
-     "sha256": "eced90b6ed49668fd221f549f893269f128969ae6a1800b9762ba045de19b2ee"
+     "sha256": "d8c55cc9dcafd1a7b08c3fcf73b63ae0cb58cec9a4c4f07f7dc86ea9f1c7ee0f"
     },
     {
      "name": "death_SE_06.png",
-     "sha256": "16308b47f0ab1b3f20b8e820d8ad6dd64b94471733285f1ca3f6f4409f6a5db0"
+     "sha256": "29bcb76bbe5245382b2ccbe1349e215ec40918790f47788983e9806967bf7b88"
     },
     {
      "name": "death_SE_07.png",
-     "sha256": "33f6a875660b5150006e920a603aa6cb6cadc3e28c26285d2a714ce2d4246879"
+     "sha256": "69a35b81e5c77bcb28df3681162cdb4a858a898290b5c7dd8f6df4df25efdae5"
     },
     {
      "name": "death_SE_08.png",
-     "sha256": "5746ae70d2befd80727e8c124da8f18563289e743d70f7cce61e5a88f3428a89"
+     "sha256": "bef550638e8f17969f46d5ffdb17ea0f69081268d4b82d96c8f1a887afa76502"
     },
     {
      "name": "death_SE_09.png",
-     "sha256": "905a5e5dd035ebc0dc1414364c16b2056d9ad00110a28088834cce6fcf6b0555"
+     "sha256": "6b71980e12da96ac1e9fc8b4dfff5fdee8ae4136ebf34ccf18c5e3bfa5b23ef3"
     },
     {
      "name": "death_SE_10.png",
-     "sha256": "50eb92d37ffe0a362ae409803d4347f7a5e9e7b3b7af43d27cc37b9879894340"
+     "sha256": "68e66e982543a8088219e3ca684d004044291adb60c078998f58620438ac8135"
     },
     {
      "name": "death_SE_11.png",
-     "sha256": "a3939537ed8ca51ea5e477ea116462a560471284e72e96fc34d1a7f4e7ea3156"
+     "sha256": "5ca640dc6702b8044e735b4313c46ee7bd92e16b8fa0eb7562408e7d235614b6"
     },
     {
      "name": "death_SE_12.png",
-     "sha256": "02484457e1c15e116bd0716bc29f9f9d0cef42b669198aedd07b49ffcc4f3b37"
+     "sha256": "a73c046a602907a54ae876ff0f2a5ae10ba8f7f376d1c2c679d29d2463455e68"
     },
     {
      "name": "death_SE_13.png",
-     "sha256": "cf875f572c961522607e191cead93ee84b01a56c6c5b6ba17d9852c7f7bbe3b5"
+     "sha256": "3aeeb189c67e2bd3c26fe45abab5961af1b11454eb36b4958782325701cdb09c"
     },
     {
      "name": "death_SE_14.png",
-     "sha256": "cbff16f2227c043da5d0245eae0c1d68e57a598515c1481dfa5000343a0e6dc6"
+     "sha256": "413bbf1ea77be93f917dfba386377119350dda2621181fe61da62baa2a0397e4"
     },
     {
      "name": "death_SE_15.png",
-     "sha256": "cbfd5fc34a683fc52d9cb1bcfddd4c641ad51bfd7a2c74c66493a4c15efd279f"
+     "sha256": "4f673d35d7dc14d88614291961c064a79e9f80e327506357187aed8ed4f3573f"
     }
    ],
-   "render_pass": null,
-   "cell_sha256": "9be68e92c4b1497c3d3c4090e1700c5403f1d8172e482ae45e93033c482216d8",
+   "render_pass": "p2",
+   "cell_sha256": "bf7a7d539889ef0fa50e1b636fb2a60dd0a4300da56e6e490d9fffe864f11e0d",
    "alpha_union_bbox": [
+    173,
     177,
-    219,
-    575,
-    626
+    607,
+    589
    ],
    "edge_touch": false,
    "facing_measured_deg": 45.0,
-   "facing_hips_frame0_deg": 60.612,
+   "facing_hips_frame0_deg": 104.031,
    "anchor_measured_max_dev_px": 0.0,
    "sockets_m": {
     "main_hand": [
      [
-      0.81424,
-      0.67472,
-      1.20436
+      -0.61277,
+      0.84541,
+      2.03478
      ],
      [
-      0.73187,
-      0.74056,
-      0.89606
+      -0.71344,
+      0.38804,
+      1.98196
      ],
      [
-      0.75682,
-      0.75279,
-      0.4878
+      -0.46361,
+      0.93397,
+      0.42662
      ],
      [
-      0.60517,
-      0.7305,
-      0.19868
+      0.2499,
+      0.78037,
+      0.52178
      ],
      [
-      0.33902,
-      0.80171,
-      0.0808
+      -0.07505,
+      0.89351,
+      0.20912
      ],
      [
-      0.16574,
-      0.93266,
-      0.08396
+      -0.09218,
+      1.19699,
+      0.35403
      ],
      [
-      0.0891,
-      1.07695,
-      0.1395
+      -0.38444,
+      0.29022,
+      0.01356
      ],
      [
-      0.11747,
-      1.21008,
-      0.26949
+      -0.38813,
+      0.65943,
+      -0.07934
      ],
      [
-      0.13048,
-      1.28292,
-      0.49162
+      0.17003,
+      1.11068,
+      0.017
      ],
      [
-      -0.12809,
-      1.19689,
-      0.73505
+      -0.47798,
+      0.56649,
+      -0.12722
      ],
      [
-      -0.62635,
-      1.04809,
-      0.43775
+      -0.48593,
+      0.28576,
+      0.395
      ],
      [
-      -0.91738,
-      1.08957,
-      -0.09873
+      -0.88015,
+      0.86537,
+      0.43602
      ],
      [
-      -1.13739,
-      1.10308,
-      -0.29924
+      -0.98493,
+      0.77434,
+      0.37007
      ],
      [
-      -1.17413,
-      1.19796,
-      -0.25107
+      -1.0724,
+      0.72517,
+      0.387
      ],
      [
-      -1.15562,
-      1.22915,
-      -0.26903
+      -1.13156,
+      0.63194,
+      0.39408
      ],
      [
-      -1.12824,
-      1.26627,
-      -0.27189
+      -1.18859,
+      0.57417,
+      0.40591
      ]
     ],
     "off_hand": [
      [
-      0.30472,
-      0.74149,
-      0.87892
+      0.90538,
+      0.9851,
+      0.74113
      ],
      [
-      0.44364,
-      0.86479,
-      0.58509
+      0.88973,
+      0.91232,
+      1.39783
      ],
      [
-      0.81022,
-      0.93677,
-      0.29856
+      1.43889,
+      0.20845,
+      1.05533
      ],
      [
-      0.90988,
-      1.04222,
-      0.33145
+      0.44034,
+      -0.03859,
+      0.42556
      ],
      [
-      0.9596,
-      1.12999,
-      0.39979
+      0.51075,
+      0.00144,
+      0.26912
      ],
      [
-      1.03702,
-      1.14154,
-      0.47466
+      1.0858,
+      0.09056,
+      0.00859
      ],
      [
-      1.10663,
-      1.06948,
-      0.57136
+      0.32922,
+      0.90151,
+      0.70814
      ],
      [
-      1.08818,
-      0.87568,
-      0.6444
+      0.74029,
+      0.62134,
+      -0.00713
      ],
      [
-      1.11596,
-      0.57551,
-      0.71254
+      0.89445,
+      -0.05196,
+      -0.21598
      ],
      [
-      1.01212,
-      0.10768,
-      0.74208
+      0.4915,
+      -0.34756,
+      0.02317
      ],
      [
-      0.56833,
-      -0.40344,
-      0.91865
+      0.54924,
+      -0.65697,
+      0.32226
      ],
      [
-      0.95052,
-      -1.07495,
-      0.35954
+      0.68873,
+      -0.59364,
+      0.39187
      ],
      [
-      0.74437,
-      -1.13889,
-      0.6931
+      0.63763,
+      -0.73606,
+      0.36748
      ],
      [
-      0.75399,
-      -1.3516,
-      0.45213
+      0.56697,
+      -0.80079,
+      0.38192
      ],
      [
-      0.77818,
-      -1.33754,
-      0.42293
+      0.50924,
+      -0.86893,
+      0.37403
      ],
      [
-      0.87451,
-      -1.21955,
-      0.43115
+      0.44121,
+      -0.94139,
+      0.37321
      ]
     ],
     "chest": [
      [
-      0.12178,
-      0.1893,
-      1.69494
+      0.04146,
+      0.13667,
+      1.6834
      ],
      [
-      0.18857,
-      0.24036,
-      1.644
+      -0.0158,
+      0.06549,
+      1.73646
      ],
      [
-      0.25373,
-      0.32334,
-      1.43848
+      0.02247,
+      0.08818,
+      1.74302
      ],
      [
-      0.27106,
-      0.35208,
-      1.33515
+      0.06747,
+      0.11467,
+      1.6848
      ],
      [
-      0.27058,
-      0.37135,
-      1.30167
+      0.09187,
+      0.15304,
+      1.53335
      ],
      [
-      0.25289,
-      0.34111,
-      1.3047
+      0.14278,
+      0.20064,
+      1.20904
      ],
      [
-      0.22024,
-      0.27999,
-      1.30345
+      0.24597,
+      0.25401,
+      1.23087
      ],
      [
-      0.14985,
-      0.1866,
-      1.2246
+      0.33233,
+      0.29929,
+      1.21079
      ],
      [
-      0.0126,
-      0.04125,
-      1.04299
+      0.45577,
+      0.41427,
+      1.1207
      ],
      [
-      -0.19732,
-      -0.14839,
-      0.73827
+      0.65965,
+      0.6315,
+      0.72153
      ],
      [
-      -0.42526,
-      -0.2847,
-      0.43789
+      0.73016,
+      0.75428,
+      0.38851
      ],
      [
-      -0.47649,
-      -0.31348,
-      0.31846
+      0.6902,
+      0.70141,
+      0.37246
      ],
      [
-      -0.46899,
-      -0.25596,
-      0.33219
+      0.58111,
+      0.59027,
+      0.3912
      ],
      [
-      -0.42733,
-      -0.2042,
-      0.33577
+      0.51923,
+      0.50144,
+      0.37274
      ],
      [
-      -0.38136,
-      -0.15308,
-      0.33885
+      0.4509,
+      0.4378,
+      0.36039
      ],
      [
-      -0.33321,
-      -0.09923,
-      0.3419
+      0.38653,
+      0.36345,
+      0.36084
      ]
     ],
     "head_top": [
      [
-      0.23574,
-      0.30381,
-      2.1155
+      0.077,
+      0.26773,
+      2.11607
      ],
      [
-      0.24153,
-      0.33587,
-      2.05278
+      -0.10089,
+      -0.07803,
+      2.14481
      ],
      [
-      0.41647,
-      0.59289,
-      1.71259
+      -0.15573,
+      -0.14404,
+      2.07468
      ],
      [
-      0.56026,
-      0.67312,
-      1.25521
+      -0.11292,
+      0.01064,
+      2.08657
      ],
      [
-      0.51409,
-      0.72547,
-      1.22599
+      -0.05293,
+      0.05867,
+      1.95137
      ],
      [
-      0.43348,
-      0.73675,
-      1.34573
+      0.12943,
+      0.12439,
+      1.65505
      ],
      [
-      0.36537,
-      0.66449,
-      1.43778
+      0.18289,
+      0.15461,
+      1.6662
      ],
      [
-      0.36568,
-      0.50909,
-      1.42572
+      0.30127,
+      0.08376,
+      1.5842
      ],
      [
-      0.29734,
-      0.25119,
-      1.30212
+      0.44444,
+      0.21013,
+      1.48884
      ],
      [
-      0.09508,
-      -0.06074,
-      1.03972
+      0.72015,
+      0.61115,
+      1.12886
      ],
      [
-      -0.48781,
-      -0.59682,
-      0.74477
+      1.0041,
+      1.11485,
+      0.38233
      ],
      [
-      -0.75172,
-      -0.6463,
-      0.29129
+      0.98248,
+      1.04897,
+      0.36
      ],
      [
-      -0.76227,
-      -0.58661,
-      0.30606
+      0.86696,
+      0.94308,
+      0.38808
      ],
      [
-      -0.72551,
-      -0.52891,
-      0.28418
+      0.77341,
+      0.87385,
+      0.38703
      ],
      [
-      -0.69016,
-      -0.46364,
-      0.2687
+      0.70804,
+      0.80839,
+      0.38411
      ],
      [
-      -0.64152,
-      -0.4042,
-      0.25741
+      0.64575,
+      0.7329,
+      0.38346
      ]
     ]
    }
@@ -23313,7 +23338,7 @@
      "sha256": "a80b60cc2eeee32f4b1ef9467d27e44aa2e29aa640ca317591584ef9bb86b4ea"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "d9daa8edeaf38711c1e0268acf8786c6022aa5e141b038e0253517fae04972c3",
    "alpha_union_bbox": [
     217,
@@ -23726,7 +23751,7 @@
      "sha256": "87f794aa3c6c1c434e8f31ad001928c2ec57861a642e8c91b9a1ad4ae10eb0b3"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "5fee62e7b58606f12a19bbf574b6dcd24e18a9c26af86d6d5f9ec3da464e2547",
    "alpha_union_bbox": [
     244,
@@ -24139,7 +24164,7 @@
      "sha256": "66326fb54994284b978dba2596109046738b87a30e5ffa11c5953fbb5c743ee0"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "d663ef679ea110fa0dbda80f15b53c267ad2b84894ebafcfab6291304ab03116",
    "alpha_union_bbox": [
     201,
@@ -24552,7 +24577,7 @@
      "sha256": "d1a9b710b9504baa67c5d9d6f6983bc4179b32a78fc48b521e2b1f99932dce00"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "87c1cf93d2a46a1bb959fe20f149ef235bba553cba6998eb76da680899364b80",
    "alpha_union_bbox": [
     193,
@@ -24965,7 +24990,7 @@
      "sha256": "b0aa0dfbe1945bdb54e437f132a7ee4d1721b165884adaa23fa24e1a9246fc3d"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "4c3e3eb854e4d684bf074ec489a2b515f615703553030710a1adb34ba55b16a2",
    "alpha_union_bbox": [
     263,
@@ -25378,7 +25403,7 @@
      "sha256": "9104fd4aafcc5f583dd7b2d841a81f31e7588b65cc2b83ea55dd0c05a1234070"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "8fa9249563c69bdb231fa5faa5e9640797c4d07353e59e6e8bb846763a8c1774",
    "alpha_union_bbox": [
     314,
@@ -25791,7 +25816,7 @@
      "sha256": "ab5ffb9af896f71e7d4e2b18e81b531f5183b9ff0f4667f4a3f47d2ecbba4118"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "d976d99f55ef35b67aebfdf8cdf3f72d72b8d0c58b590deb6ba0aa37597d6dcb",
    "alpha_union_bbox": [
     292,
@@ -26204,7 +26229,7 @@
      "sha256": "f2a3d1215d5eb834e3116d273867654294c3fa9657c73dbb1b333b2b2631c12a"
     }
    ],
-   "render_pass": null,
+   "render_pass": "prev",
    "cell_sha256": "4358a2cef4d951df977b23edc11201ab3ae6d3f49a15e5c559e13b7ad930ed63",
    "alpha_union_bbox": [
     229,
