@@ -75,8 +75,8 @@
   "over_s": 0.12
  },
  "speed_measured_at_scale": 1.25177951388889,
- "walk_px_s": 152.8,
- "run_px_s": 495.4,
+ "walk_px_s": 108.0,
+ "run_px_s": 408.7,
  "scale_steps": [
   1.0,
   1.1,
@@ -96,9 +96,33 @@
   "_accel_tau_note": "0.08 -> 0.22 for the armed set. The armed gait span is narrow (94 -> 344 px/s against the unarmed 202 -> 648), so the same speed ramp moves the blend weight much further per frame, and walk_armed and run_armed are far less alike than walk and run. w was jumping 0 -> 0.602 in ONE frame. Accel only; the decel constants and therefore the stop times are untouched."
  },
  "foot_lock": false,
- "_note": "R-C9-117: THE DARK KNIGHT (wl_e1/export/final_j2): his clips idle walk run attack hit death warcry; SLASH = the mace attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).",
+ "_note": "R-C9-117: THE DARK KNIGHT (wl_e1/export/final_k_eor2): his clips idle walk run attack hit death warcry; SLASH = the mace attack, CHOP = the war cry, BASH = the Eye of Reckoning (R-C9-128: eor_spin_start + eor_spin_loop, the ported whirlwind). Built in her slot's shape: knight.gd plays him as it plays her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).",
  "roles_knight_lacks": {
   "hit": "hit",
   "death": "death"
+ },
+ "eor_spin": {
+  "recommended": {
+   "start": "eor_spin_start",
+   "loop": "eor_spin_loop"
+  },
+  "recipe": "R-C9-132 extended arm: ONE frame of idle@1.0 with named edits (e52: elbow opening, interior capped at 166 deg; shoulder aim to az 90 deg = his right side, fists at 1.27 m; no solver), turned rigidly CCW about his vertical (e48): start 0.200 s (7 keys, accelerates to 1200 deg/s, turns 120 deg), loop 0.300 s (10 keys, 9 x 40 deg), closes exactly",
+  "reference": "reincarnated-godot scripts/wwcr_whirlwind.gd: R_GRIP_SWEEP 0.8449 m, SWEEP_Y 1.20 m at H_STAND 1.85 -> scaled to his 1.96 m: grip radius 0.8951 m, sweep height 1.2714 m",
+  "measured": {
+   "right_fist_radius_m": 0.804,
+   "right_fist_height_m": 1.3016,
+   "left_fist_radius_m": 0.4162,
+   "left_fist_height_m": 1.3036,
+   "mace_head_far_radius_m": 1.9255,
+   "mace_head_height_m": 1.3068,
+   "arms_min_separation_m": 0.228,
+   "mace_into_body_nonhand_share": 0.0005,
+   "note": "his arm is shorter than the reference rig's: the right fist is REACH-LIMITED at 0.804 m (90% of 0.895) with the elbow 2.7 deg short of straight; the fists sit 3 cm above the scaled sweep height"
+  },
+  "grip_slide": "in the two spin clips ONLY, weapon_r carries a TRANSLATION track: the haft slid 0.20 m outward through his fists (e54), so the pommel clears his chest (without it the pommel sits 0.16 m from his axis, inside the torso). weapon_r's origin is then 0.20 m head-ward of the right fist in these clips; the head = weapon_r origin + its +Y, so the effect's tip read is unchanged in method",
+  "previous": "final_k_eor's eor_spin_* (idle stance, mace near the body) is superseded by this set; final_k_eor is kept unchanged",
+  "moving": "in place: the runtime moves him while channelling",
+  "weapon": "weapon_r keyed on every spin key (rotation: haft through both fists, e12; translation: the slide, e54)",
+  "lint": "21 lint WARN 0 fails (the WARNs are final_k's own); 56 fidelity/grid/seam PASS (spins AUTHORED, loop seam 0.0 m); joint lint PASS 12/12 moves incl. both spins (elbow min 2.7 deg), negative control FAIL-as-designed"
  }
 }

@@ -97,9 +97,12 @@ def rows():
             add(G / f"variants/{v}/{p}.glb", "painted", GS / "barbarian_gladiator/paint" / aimg, "gladiator stage2_results.json paint_pass / s43",
                 [GS / "barbarian_gladiator/paint" / oa])
     # the dark knight: the painted body bake (e42_embed_tex.py); his gear keeps its Tripo textures by design
-    add(G / "warlord/wl_body.glb", "painted", WL / "work/tex_final.png", "wl_e1/scripts/e42_embed_tex.py (tex_final.png)")
+    # R-C9-127: final_k's body is painted AND value-graded (wl_manifest.json _what) -- tex_final_graded.png, nearer it
+    # than the ungraded bake it was graded from (final_j2's)
+    add(G / "warlord/wl_body.glb", "painted", WL / "work/tex_final_graded.png", "wl_e1 final_k wl_manifest.json: painted + value-graded body",
+        [WL / "work/tex_final.png"])
     for p in ("wl_mace", "wl_chest", "wl_pauldrons", "wl_helm", "wl_helm_ice", "wl_cape"):
-        add(G / f"warlord/{p}.glb", "own", WL / f"export/final_j2/{p}.glb", "wl_e1 final_j2 wl_manifest.json: pieces keep their own materials")
+        add(G / f"warlord/{p}.glb", "own", WL / f"export/final_k_eor2/{p}.glb", "wl_e1 final_k_eor2 wl_manifest.json: pieces keep their own materials")
     return R
 
 

@@ -123,6 +123,15 @@ var _no_embers := false
 var v5 := ""
 var scorch = null                   # (a): crater_fx.gd's draped skin, scorch only, depth-tested: hidden where the object stands
 var _no_smoke := false
+var _smoke_sheet := false              # R-C9-128: ?smoke=sheet -- the painted wisp sheet (before)
+## R-C9-128 smoke puffs (wwcr-style dust): count, life, size, peak alpha, the Barrow's shadow grey-lilac
+const SMOKE_PUFFS := 22
+const SMOKE_LIFE_MIN := 0.55
+const SMOKE_LIFE_MAX := 1.30
+const SMOKE_SIZE := 0.70
+const SMOKE_ALPHA := 0.70
+const SMOKE_COLOR := Color(0.91, 0.90, 0.94)    # light: it reads over the dark bowl, a shade under the snow
+const STEAM_COLOR := Color(0.96, 0.97, 1.0)
 
 
 func setup(p_scene, p_cam: Camera3D, noise: Texture2D, level: int = 20) -> bool:
@@ -245,11 +254,16 @@ func _build_particles() -> void:
 	q.material = _sprite_mat(load(DATA + "ember.png"), 1, 1, true)
 	embers.draw_pass_1 = q
 	add_child(embers)
-	# SMOKE: thin wisps from the cracks, the painted smoke sheet played through its frames
+	# SMOKE. R-C9-128 (Matt: "the smoke that is a video of steam/wisps doesn't look good ... it would be much better
+	# if it were light smoke particles, similar to what we had in the original EoR warlord whirlwind"): light, NEUTRAL
+	# puffs built the way the clean-room whirlwind builds its dust (reincarnated-godot wwcr_whirlwind.gd: the shed
+	# quanta and scuffs) -- a soft radial sprite (its _soft_radial_texture: 1 - d, to the power 2.1), no flipbook, each
+	# puff discrete and brief, thrown up with a little drift and DRAG (an exponential slow-down: wwcr's SHED_DRAG_TAU
+	# 0.16 s is damping here), fading as kq^0.55 (wwcr's shed fade), never tinted by the fire. In the Barrow's palette:
+	# the cool grey-lilac of its shadows on snow, not wwcr's tile-grey. ?smoke=sheet keeps the painted wisp sheet.
+	_smoke_sheet = Slots.arg("smoke") == "sheet"
 	smoke = GPUParticles3D.new()
 	smoke.name = "CraterSmoke"
-	smoke.amount = 10
-	smoke.lifetime = 3.2
 	smoke.emitting = false
 	smoke.local_coords = false
 	smoke.visibility_aabb = AABB(Vector3(-3, -1, -3), Vector3(6, 7, 6))
@@ -260,27 +274,87 @@ func _build_particles() -> void:
 	sm.emission_ring_inner_radius = 0.0
 	sm.emission_ring_height = 0.02
 	sm.direction = Vector3.UP
-	sm.spread = 12.0
-	sm.initial_velocity_min = 0.25
-	sm.initial_velocity_max = 0.45
-	sm.gravity = Vector3(0.12, 0.08, 0.05)
-	sm.scale_min = 0.7
-	sm.scale_max = 1.0
-	sm.anim_speed_min = 1.0
-	sm.anim_speed_max = 1.0
-	var sg := Gradient.new()
-	sg.set_color(0, Color(1, 1, 1, 0.0))
-	sg.add_point(0.2, Color(1, 1, 1, 0.8))
-	sg.set_color(sg.get_point_count() - 1, Color(1, 1, 1, 0.0))
-	var st := GradientTexture1D.new()
-	st.gradient = sg
-	sm.color_ramp = st
-	smoke.process_material = sm
 	var sq := QuadMesh.new()
-	sq.size = Vector2(0.6, 1.2)
-	sq.material = _sprite_mat(load(DATA + "smoke_sheet.png"), 4, 2, false)
+	if _smoke_sheet:
+		smoke.amount = 10
+		smoke.lifetime = 3.2
+		sm.spread = 12.0
+		sm.initial_velocity_min = 0.25
+		sm.initial_velocity_max = 0.45
+		sm.gravity = Vector3(0.12, 0.08, 0.05)
+		sm.scale_min = 0.7
+		sm.scale_max = 1.0
+		sm.anim_speed_min = 1.0
+		sm.anim_speed_max = 1.0
+		var sg := Gradient.new()
+		sg.set_color(0, Color(1, 1, 1, 0.0))
+		sg.add_point(0.2, Color(1, 1, 1, 0.8))
+		sg.set_color(sg.get_point_count() - 1, Color(1, 1, 1, 0.0))
+		var st := GradientTexture1D.new()
+		st.gradient = sg
+		sm.color_ramp = st
+		sq.size = Vector2(0.6, 1.2)
+		sq.material = _sprite_mat(load(DATA + "smoke_sheet.png"), 4, 2, false)
+	else:
+		smoke.amount = SMOKE_PUFFS
+		smoke.lifetime = SMOKE_LIFE_MAX
+		smoke.randomness = 0.0
+		sm.lifetime_randomness = 1.0 - SMOKE_LIFE_MIN / SMOKE_LIFE_MAX     # each puff 0.55 .. 1.3 s
+		sm.spread = 35.0
+		sm.initial_velocity_min = 0.40
+		sm.initial_velocity_max = 0.90
+		sm.damping_min = 0.35                # drag: the throw dies out, then the drift carries it
+		sm.damping_max = 0.60
+		sm.gravity = Vector3(0.10, 0.10, 0.04)
+		sm.scale_min = 0.75
+		sm.scale_max = 1.15
+		var sc := Curve.new()                # a puff swells a little as it thins
+		sc.add_point(Vector2(0.0, 0.7))
+		sc.add_point(Vector2(1.0, 1.35))
+		var sct := CurveTexture.new()
+		sct.curve = sc
+		sm.scale_curve = sct
+		var sg2 := Gradient.new()            # wwcr's shed fade: alpha = kq^0.55 of the life left, after a quick rise
+		var offs := PackedFloat32Array([0.0])
+		var cols := PackedColorArray([Color(1, 1, 1, 0.0)])
+		for i in range(0, 9):
+			var u := float(i) / 8.0
+			offs.append(lerpf(0.08, 1.0, u))
+			cols.append(Color(1, 1, 1, SMOKE_ALPHA * pow(1.0 - u, 0.55)))
+		sg2.offsets = offs
+		sg2.colors = cols
+		var st2 := GradientTexture1D.new()
+		st2.gradient = sg2
+		sm.color_ramp = st2
+		sq.size = Vector2(SMOKE_SIZE, SMOKE_SIZE)
+		var pm2 := StandardMaterial3D.new()
+		pm2.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		pm2.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		pm2.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
+		pm2.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		pm2.albedo_texture = _soft_puff_texture()
+		pm2.vertex_color_use_as_albedo = true
+		pm2.albedo_color = SMOKE_COLOR
+		pm2.disable_receive_shadows = true
+		pm2.render_priority = PaintStack.AFTER_POST_PRIORITY
+		sq.material = pm2
+	smoke.process_material = sm
 	smoke.draw_pass_1 = sq
 	add_child(smoke)
+
+
+static func _soft_puff_texture() -> ImageTexture:
+	"""wwcr_whirlwind.gd's _soft_radial_texture, byte for byte: 64 px, alpha (1 - d)^2.1."""
+	var n := 64
+	var img := Image.create(n, n, false, Image.FORMAT_RGBAF)
+	var c := (n - 1) * 0.5
+	for y in range(n):
+		for x in range(n):
+			var d := Vector2(x - c, y - c).length() / c
+			var a: float = clampf(1.0 - d, 0.0, 1.0)
+			a = pow(a, 2.1)
+			img.set_pixel(x, y, Color(1, 1, 1, a))
+	return ImageTexture.create_from_image(img)
 
 
 func _build_debris() -> void:
@@ -381,7 +455,13 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 	var spm := smoke.process_material as ParticleProcessMaterial
 	spm.initial_velocity_min = 0.6 if surf == "ice" else 0.25
 	spm.initial_velocity_max = 0.9 if surf == "ice" else 0.45
-	(smoke.draw_pass_1.surface_get_material(0) as StandardMaterial3D).albedo_color = Color(1.25, 1.25, 1.3, 0.75) if surf == "ice" else Color(1, 1, 1, 1)
+	if _smoke_sheet:
+		(smoke.draw_pass_1.surface_get_material(0) as StandardMaterial3D).albedo_color = Color(1.25, 1.25, 1.3, 0.75) if surf == "ice" else Color(1, 1, 1, 1)
+	else:
+		# ice: steam -- the same puffs, whiter and quicker
+		(smoke.draw_pass_1.surface_get_material(0) as StandardMaterial3D).albedo_color = STEAM_COLOR if surf == "ice" else SMOKE_COLOR
+		spm.initial_velocity_min = 0.6 if surf == "ice" else 0.40
+		spm.initial_velocity_max = 1.0 if surf == "ice" else 0.90
 	deb_mat.set_shader_parameter("shard", 1.0 if surf == "ice" else (0.5 if surf == "earth" else 0.0))
 	embers.restart()
 	smoke.restart()

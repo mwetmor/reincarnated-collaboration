@@ -169,6 +169,10 @@ func _warmups_done() -> bool:
 	var mfx = scene.get("meteor_fx")
 	if mfx != null and not bool(mfx.warmed):
 		return false
+	# R-C9-128: the Eye of Reckoning's layers (whirlwind_channel.gd warms them, PORT 12)
+	var ww = scene.get("whirl")
+	if ww != null and not bool(ww.warmed):
+		return false
 	return true
 
 

@@ -23,6 +23,7 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['sorceress', { s_v5: 'b' }, 'c=sorceress&v5=b'],
     ['warlord', {}, 'c=warlord'],
     ['warlord', { w_eye: 'ice' }, 'c=warlord&eye=ice'],
+    ['warlord', { w_eor: 'original' }, 'c=warlord&eortint=original'],
   ];
   const rows = [];
   let first = true;

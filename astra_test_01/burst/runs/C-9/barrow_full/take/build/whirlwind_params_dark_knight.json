@@ -72,10 +72,12 @@
   "SWEEP_Y": 1.261292
  },
  "rig": "res://models/warlord/wl_body.glb",
+ "rig_note": "",
  "scale_vs_source": 1.051077,
  "source_constants": {
   "ARC_LIGHT_ENERGY": 2.2,
   "ARC_LIGHT_RANGE_M": 2.6,
+  "BARROW_FLOOR_LUMA": 0.934,
   "BODY_ALPHA_MAX": 0.85,
   "BODY_FADE_FRAC": 0.12,
   "BODY_INNER_ALPHA_FRAC": 0.55,
@@ -136,6 +138,7 @@
   "SCOUR_ALPHA_MAX": 0.18,
   "SCOUR_ALPHA_MIN": 0.12,
   "SCOUR_ARC_SPREAD_RAD": 0.22,
+  "SCOUR_DEPTH_LUMA": 0.0847,
   "SCOUR_MAX": 72,
   "SCOUR_PER_PASS": 4,
   "SCOUR_SIZE_CLASSES_M": [
@@ -189,7 +192,7 @@
    "clip_loop": "eor_spin_loop 0.300 s, one CCW revolution (9 x 40 deg keys), closes exactly",
    "clip_start": "eor_spin_start 0.200 s, accelerating to 1200 deg/s, turns 120 deg",
    "omega_deg_s_clip": 1200.0,
-   "source": "wl_e1/export/final_k_eor/wl_manifest.json eor_spin"
+   "source": "wl_e1/export/final_k_eor2/wl_manifest.json eor_spin (R-C9-132 extended arm: fists 0.804 m out at 1.30 m, the haft slid 0.20 m outward through them in these two clips only, the head's far point 1.93 m out at 1.31 m)"
   },
   "direction": "CCW seen from above (+yaw); _spin = the weapon head's bearing about the character, unwrapped, in clip mode",
   "mode": "clip",

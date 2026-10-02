@@ -72,11 +72,12 @@
   "SWEEP_Y": 1.204207
  },
  "rig": "res://models/gear/nb-body.glb",
- "rig_note": "the JOIN body (nb_join/export/nb-body_join.glb: sword on weapon_r, axe on weapon_l) shares the barbarian nb skeleton (26 joints, same names, unit 0.010882 m); bound here on the Barrow's barbarian nb-body (models/gear/nb-body.glb). Re-dump when the bm_mx dual Mixamo export and E1's dual spin land.",
+ "rig_note": "the JOIN dual-whirlwind body (wl_e1/export/nb_dual_ww/nb-body_join_dualww.glb, E1 f734570d2: the JOIN body's 36 clips + whirlwind_dual_start/loop; sword on weapon_r, axe on weapon_l, both keyed on every key) shares the barbarian nb skeleton (26 joints, unit 0.010882 m); bound here on the Barrow's barbarian nb-body (models/gear/nb-body.glb). Re-dump when the bm_mx dual Mixamo export lands.",
  "scale_vs_source": 1.003506,
  "source_constants": {
   "ARC_LIGHT_ENERGY": 2.2,
   "ARC_LIGHT_RANGE_M": 2.6,
+  "BARROW_FLOOR_LUMA": 0.934,
   "BODY_ALPHA_MAX": 0.85,
   "BODY_FADE_FRAC": 0.12,
   "BODY_INNER_ALPHA_FRAC": 0.55,
@@ -137,6 +138,7 @@
   "SCOUR_ALPHA_MAX": 0.18,
   "SCOUR_ALPHA_MIN": 0.12,
   "SCOUR_ARC_SPREAD_RAD": 0.22,
+  "SCOUR_DEPTH_LUMA": 0.0847,
   "SCOUR_MAX": 72,
   "SCOUR_PER_PASS": 4,
   "SCOUR_SIZE_CLASSES_M": [
@@ -187,7 +189,11 @@
  },
  "spin": {
   "clip": {
-
+   "clip_loop": "whirlwind_dual_loop 0.2667 s, 9 keys x 45 deg, 3.75 rev/s, CCW, closes exactly",
+   "clip_start": "whirlwind_dual_start 0.2 s, 7 keys, turns 135 deg",
+   "measured": "sword tip 1.563 m out at 1.248 m; axe tip 1.526 m out at 1.230 m; fists 0.809 / 0.841 m out at 1.22 / 1.21 m; both edges lead (cos 0.84)",
+   "omega_deg_s_clip": 1350.0,
+   "source": "wl_e1/export/nb_dual_ww/dual_ww_manifest.json"
   },
   "direction": "CCW seen from above (+yaw); _spin = the weapon head's bearing about the character, unwrapped, in clip mode",
   "mode": "clip",

@@ -38,6 +38,8 @@ func start(p_scene, n_casts: int, p_first_on := true, p_strike := "slash") -> vo
 	strike = p_strike
 	if strike == "chop":
 		gap_s = 6.0
+	elif strike == "bash":
+		gap_s = 4.6                      # R-C9-128 (?perf=eor): the Eye of Reckoning's 2.30 s channel + 0.80 s spin-down
 	scene = p_scene
 	casts = n_casts
 	first_on = p_first_on
@@ -70,7 +72,7 @@ func _process(_dt: float) -> void:
 		_next = wait_s
 		scene.place_knight(1.5, -1.5, "E")
 		return
-	var fb = (scene.spell_fx.fire_ball if strike == "slash" else scene.spell_fx.meteor_a) if scene.spell_fx != null else null
+	var fb = (scene.spell_fx.fire_ball if strike == "slash" else scene.spell_fx.meteor_a) if (scene.spell_fx != null and strike != "bash") else null
 	var mfx = scene.get("meteor_fx")
 	var fx_us := int(fb.last_us) if fb != null else 0
 	if strike == "chop" and mfx != null:
@@ -89,7 +91,13 @@ func _process(_dt: float) -> void:
 	var t := float(now - _t0) / 1e6
 	if _n < casts and t >= _next and not scene.knight.attacking():
 		var on := (_n % 2 == 0) == first_on
-		scene.spell_fx.fx_off = not on
+		if scene.spell_fx != null:
+			scene.spell_fx.fx_off = not on
+		if strike == "bash" and scene.get("whirl") != null:
+			# R-C9-128: the CONTROL is the source's own "novfx" condition -- the spin clip and the channel run, every
+			# VFX layer hidden (wwcr_whirlwind.gd set_vfx_visible)
+			for f in scene.whirl.fxs:
+				f.set_vfx_visible(on)
 		if scene.get("meteor_fx") != null:
 			scene.meteor_fx.enabled = on      # the mix's (and lane B's) own control switch
 		var ok: bool = scene.knight.try_strike(strike)

@@ -212,12 +212,12 @@ assert OUT["barb_t1211"]["body_md5"] == "3e32a9fc" and OUT["barb_f25l"]["body_md
 
 # ---- THE DARK KNIGHT (c=warlord) --------------------------------------------------------------------------------
 WD = G / "models/warlord"
-FH = C9 / "wl_e1/export/final_j2"      # BIND-ORDER: final_j2 = final_j with every piece reordered to the body node order; R-C9-121: the stage-J ship set (81347c09d): the painted body, the cape fitted, the eye glow, unarmed clips
+FH = C9 / "wl_e1/export/final_k_eor2"  # R-C9-132/133: final_k_eor with the EXTENDED-ARM spin clips (E1 f734570d2: the fists 0.80 m out, the haft slid 0.20 m through them, the head 1.93 m out). Before, R-C9-127/128: final_k (Mixamo Great Sword set on the narrowed base, painted + graded, bind order = the body; 29faf3a42) + the Eye of Reckoning spin clips eor_spin_start / eor_spin_loop (08abac31b). Before: final_j2 (bind-order fix), final_j (stage J)
 for f in ("wl_body.glb", "wl_mace.glb", "wl_chest.glb", "wl_pauldrons.glb", "wl_helm.glb", "wl_helm_ice.glb", "wl_cape.glb"):
     put(FH / f, WD / f)
 wl = jload(C9 / "wl_e1/work/character_wl.json")
 man = copy.deepcopy(herm)
-man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_j2, 1.96 m; R-C9-121: stage J -- the painted body embedded, the cape fitted, the eye-slit glow, the unarmed clip set), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
+man["_note"] = "R-C9-117: the dark knight (wl_e1/export/final_k_eor2, 1.96 m; R-C9-127: final_k, the Mixamo Great Sword set; R-C9-128: the Eye of Reckoning spin; R-C9-121: the painted body, the cape fitted, the eye-slit glow, the unarmed clip set), every piece skinned on his own skeleton (wl_e1 e10/e12: the mace on weapon_r at the fist's grip)"
 man["body"] = "wl_body.glb"
 man["body_sha256"] = ""
 man["height_m"] = 1.96
@@ -226,8 +226,10 @@ man["pieces"] = [{"piece": p, "mode": "skin", "glb": f"{p}.glb", "bones": ["skin
 man["layer_order"] = ["body", "wl_chest", "wl_pauldrons", "wl_helm", "wl_cape", "wl_mace"]
 man["shape_key_rules"] = {}
 # film_cfg_h.json's speeds (the E1 lane's foot-lock on final_h's walk and run)
-man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed", "walk": {"speed_m_s": 1.519},
-                              "run": {"speed_m_s": 4.924}, "_source": "wl_e1/work/film_cfg_h.json (footlock_G2)"}
+WLM = jload(FH / "wl_manifest.json")
+FL = WLM["foot_lock_m_per_s"]          # R-C9-127: final_k's foot-lock speeds (walk 1.073, run 4.062)
+man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed", "walk": {"speed_m_s": FL["walk"]},
+                              "run": {"speed_m_s": FL["run"]}, "_source": "wl_e1/export/final_k_eor2/wl_manifest.json foot_lock_m_per_s"}
 jsave("gear_warlord.json", man)
 # the eye colour (wl_manifest.json eye_variant): ONE helm loaded -- violet (the default) or ice, the piece keeps its name
 mani = copy.deepcopy(man)
@@ -239,8 +241,8 @@ ch = copy.deepcopy(her)
 for k in list(ch.keys()):
     if k.startswith("_") or k in ("casts", "strikes_need_armed", "gear_stack_detail", "layers_knight_lacks", "roles_knight_lacks"):
         ch.pop(k)
-ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_j2): his clips idle walk run attack hit death warcry; SLASH = the mace "
-               "attack, CHOP = the war cry (no Eye of Reckoning VFX yet). Built in her slot's shape: knight.gd plays him as it plays "
+ch["_note"] = ("R-C9-117: THE DARK KNIGHT (wl_e1/export/final_k_eor2): his clips idle walk run attack hit death warcry; SLASH = the mace "
+               "attack, CHOP = the war cry, BASH = the Eye of Reckoning (R-C9-128: eor_spin_start + eor_spin_loop, the ported whirlwind). Built in her slot's shape: knight.gd plays him as it plays "
                "her; the mace is keyed two-handed in every clip, so no carry layer (the layers name idle with no bones).")
 ch["model"] = "res://models/warlord/wl_body.glb"
 ch["model_height_m"] = 1.96
@@ -259,8 +261,9 @@ ch["arm_layer_armed_R"] = {"action": "idle", "bones": [], "weight": 0.0}
 ch["arm_layer_armed"] = {"action": "idle", "bones": []}
 ch["upper_armed"] = {"walk": "walk", "run": "run", "bones": []}
 ch["strike_release"] = {"pose": "idle", "bones": [], "guard_throughout": [], "at_s": {}, "over_s": 0.12}
-ch["walk_px_s"] = round(1.519 * 100.617553710938, 1)
-ch["run_px_s"] = round(4.924 * 100.617553710938, 1)
+ch["walk_px_s"] = round(FL["walk"] * 100.617553710938, 1)
+ch["run_px_s"] = round(FL["run"] * 100.617553710938, 1)
+ch["eor_spin"] = WLM["eor_spin"]      # R-C9-128: played by slot_knight.gd (eor_chan = start + loops) under the ported effect
 ch["foot_lock"] = False
 jsave("warlord.json", ch)
 chi = copy.deepcopy(ch)

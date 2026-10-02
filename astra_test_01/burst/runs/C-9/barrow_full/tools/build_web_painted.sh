@@ -410,6 +410,14 @@ grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord.log" 
 grep -a '^\[barrow_painted\] web:' "$LOG/launch_warlord_ice.log" | head -1 | grep -q "who=warlord slot=warlord_ice eyes=2:59bfff" \
   && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord_ice.log" \
   && ck 0 "?c=warlord&eye=ice: the ice helm from the same pack, two eye-glow nodes, ice" || ck 1 "?c=warlord&eye=ice"
+# R-C9-128: THE EYE OF RECKONING -- the ported whirlwind bound on his spin clip (final_k_eor's eor_spin_start + loop, read
+# by slot_knight.gd), red by default, ?eortint=original the source's own look
+echo "$WLINE" | grep -q "eyes=2:9e4dff ww=red " && ck 0 "?c=warlord: the Eye of Reckoning bound (the ported whirlwind on his spin clip), red" || ck 1 "?c=warlord Eye of Reckoning (got: $(echo "$WLINE" | cut -c1-90))"
+"$GODOT" --main-pack "$W/warlord.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c warlord --eortint original > "$LOG/launch_warlord_eor_orig.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_warlord_eor_orig.log" | head -1 | grep -q "ww=original " \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_warlord_eor_orig.log" \
+  && ck 0 "?c=warlord&eortint=original: the Eye of Reckoning in the source's own colours" || ck 1 "?c=warlord&eortint=original"
 for v in $VARIANTS; do
   case "$v" in so_*) MP=sorceress.pck; C=sorceress; Q="--armor ${v#so_}";; barb_glad*) MP=index.pck; C=barbarian; Q="--armor ${v#barb_}";; *) MP=index.pck; C=barbarian; Q="--hold ${v#barb_}";; esac
   "$GODOT" --main-pack "$W/$MP" --rendering-method gl_compatibility --rendering-driver opengl3_angle \

@@ -1,0 +1,139 @@
+{
+ "_what": "C-9 R-C9-128 (+ R-C9-127/129/132/133): the clean-room whirlwind PORTED into the painted Barrow as the dark knight's Eye of Reckoning, the Meteor's smoke as wwcr-style puffs, final_k_eor2 shipped. drax, 2026-10-02.",
+ "port": {
+  "source": "reincarnated-godot scripts/wwcr_whirlwind.gd + wwcr_pose.gd (WW-AB lap 2)",
+  "generator": "tools/port_whirlwind.py (12 documented binding changes; everything else the source verbatim)",
+  "outputs": [
+   "godot/scripts/whirlwind_fx.gd",
+   "godot/scripts/whirlwind_pose.gd"
+  ],
+  "channel": "godot/scripts/whirlwind_channel.gd (2.30 s tap channel = the source harness's begin..release; hold extends; turn rate x0.35; moves while channelling; one or two blades; tints original/red)",
+  "binding_changes": [
+   "1 lengths scaled to the character (height / 1.85)",
+   "2 heights over his ground",
+   "3 rig spin absolute over knight.gd (rig mode)",
+   "4 blade proxy on the weapon bone",
+   "5 pose bone names mapped",
+   "6 NO LIGHT NODES: the ArcLight whited the whole painted frame on the phone renderer; laid as an additive ground pool instead",
+   "7 drawn after the paint post pass",
+   "8 the 10-sample arc held in TIME (10/60 s): 150 deg at any frame rate",
+   "9 the spin from the clip (the dark knight's eor_spin): no rig turn, no arm pose, no re-seat; _spin off the weapon head",
+   "10 two blades: a ribbon-only second instance (R-C9-133 dual wield)",
+   "11 the scour value re-derived for the Barrow's snow by the source's own rule (0.12 -> 1.413)",
+   "12 every layer warmed under the veil, at him, at real size"
+  ]
+ },
+ "dark_knight": {
+  "export": "wl_e1/export/final_k_eor2 (final_k + E1's extended-arm eor_spin_start/loop, f734570d2)",
+  "input": "C key / EYE OF RECKONING button (his BASH; needs the mace)",
+  "tint": "red (hue 345 so the ramp lands at 4 deg), ?eortint=original",
+  "weapon_head": "mace head read off weapon_r: (-3.28, 14.19, -90.42) bone space, 1.056 m from the grip"
+ },
+ "gladiator": "NOT attached (Matt: the EoR whirlwind is a 2H form). Measured why it could not drive it anyway: his JOIN 'whirlwind' is a 0.8 s single ~200 deg swing, not a spin (godot/tools/probe_ww_clip.gd)",
+ "smoke": {
+  "what": "crater_v4_fx.gd: the painted wisp flipbook replaced by wwcr-style puffs (its _soft_radial_texture, kq^0.55 fade, drag), light grey-lilac (steam whiter and quicker on ice); ?smoke=sheet keeps the old",
+  "params": {
+   "puffs": 22,
+   "life_s": [
+    0.55,
+    1.3
+   ],
+   "size_m": 0.7,
+   "alpha": 0.7,
+   "color": [
+    0.91,
+    0.9,
+    0.94
+   ]
+  }
+ },
+ "budgets_page_chrome": {
+  "eor_first_build_before_warm": "first EoR of a session stalled one frame: 1281-1688 ms cold, 129-164 ms warm; the control (VFX hidden) did not -- bisected on the page with ?wwoff: the ribbon (not the pool, sheds, scuffs or scour); a warm strip 5 m before the lens, then a sub-pixel strip at him, did not warm it; a real-sized strip at him did",
+  "eor_final": {
+   "warm_wl_eor": {
+    "built_ms": 5167,
+    "to_play_ms": 6546,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 18.9, 'over_33ms': 0} warm_on max 22.8 mean on/off 16.664 16.665 delta -0.001"
+   },
+   "cold_wl_eor": {
+    "built_ms": 7011,
+    "to_play_ms": 19027,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 19.3, 'over_33ms': 0} warm_on max 18.8 mean on/off 16.665 16.667 delta -0.002"
+   }
+  },
+  "eor_bisect": {
+   "warm_off_ribbon": {
+    "built_ms": 5460,
+    "to_play_ms": 6708,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 18.6, 'over_33ms': 0} warm_on max 23.9 mean on/off 16.666 16.666 delta 0"
+   },
+   "warm_off_shed": {
+    "built_ms": 4704,
+    "to_play_ms": 5961,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 147.6, 'over_33ms': 1} warm_on max 19.3 mean on/off 16.666 16.666 delta 0"
+   },
+   "warm_off_floor": {
+    "built_ms": 4833,
+    "to_play_ms": 6188,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 183.9, 'over_33ms': 1} warm_on max 19.4 mean on/off 16.664 16.666 delta -0.002"
+   },
+   "warm_off_all": {
+    "built_ms": 4894,
+    "to_play_ms": 6211,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 18.6, 'over_33ms': 0} warm_on max 23.9 mean on/off 16.667 16.666 delta 0.001"
+   }
+  },
+  "steady_state": "vsync-locked 16.67 ms on and off (delta 0.00 +/- 0.04 ms); warm-on max 18.8-22.8 ms",
+  "meteor_new_smoke": {
+   "cold_wl_eor": {
+    "built_ms": 7092,
+    "to_play_ms": 16680,
+    "errors": 0
+   },
+   "warm_wl_eor": {
+    "built_ms": 5129,
+    "to_play_ms": 6277,
+    "errors": 0
+   },
+   "warm_wl_eorc": {
+    "built_ms": 4711,
+    "to_play_ms": 5784,
+    "errors": 0
+   },
+   "warm_wl_eor_orig": {
+    "built_ms": 4670,
+    "to_play_ms": 5790,
+    "errors": 0
+   },
+   "warm_sorc_ma": {
+    "built_ms": 5445,
+    "to_play_ms": 17486,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 18.7, 'over_33ms': 0} warm_on max 18.8 mean on/off 16.666 16.665 delta 0.001"
+   },
+   "warm_sorc_ma_v5": {
+    "built_ms": 5337,
+    "to_play_ms": 8607,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 18.7, 'over_33ms': 0} warm_on max 19.2 mean on/off 16.666 16.666 delta 0"
+   },
+   "cold_sorc_ma": {
+    "built_ms": 7246,
+    "to_play_ms": 27065,
+    "errors": 0,
+    "first_cast_and_warm": "first cast {'max_ms': 19.5, 'over_33ms': 0} warm_on max 19.4 mean on/off 16.667 16.666 delta 0.001"
+   }
+  }
+ },
+ "films": "Desktop/Astra Burst Review - 2026-09-26/C-9 barrow full/R-C9-128 whirlwind and smoke/",
+ "params_for_arena": [
+  "take/build/whirlwind_params_dark_knight.json",
+  "take/build/whirlwind_params_barbarian_dual.json"
+ ]
+}

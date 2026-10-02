@@ -1379,6 +1379,7 @@ func _character_choice() -> String:
 
 
 var eyes = null                    # R-C9-121: the dark knight's eye glow (warlord_eyes.gd)
+var whirl = null                   # R-C9-128: the ported whirlwind channel (whirlwind_channel.gd)
 var slot := ""                     # R-C9-117: the select page's variant (scripts/slots.gd); "" = the page's own character
 var slot_report := {}
 
@@ -1433,17 +1434,38 @@ func _build_knight() -> void:
 		var pa := OS.get_cmdline_user_args()
 		if perf == "" and pa.find("--perf") >= 0 and pa.find("--perf") + 1 < pa.size():
 			perf = String(pa[pa.find("--perf") + 1])
-		if perf in ["fb", "fbc", "ma", "mac"]:
+		if perf in ["fb", "fbc", "ma", "mac", "eor", "eorc"]:
 			var pn = load("res://scripts/perf_fireball.gd").new()
 			pn.name = "PerfFireBall"
 			add_child(pn)
-			pn.start(self, 20, perf == "fb" or perf == "ma", "chop" if perf.begins_with("ma") else "slash")
+			pn.start(self, 20, perf in ["fb", "ma", "eor"], "chop" if perf.begins_with("ma") else ("bash" if perf.begins_with("eor") else "slash"))
 	if who == "warlord" and k.get("_skel") != null:
 		# R-C9-121: his eye glow, runtime nodes on the Head bone (warlord_eyes.gd), the colour by ?eye
 		eyes = load("res://scripts/warlord_eyes.gd").new()
 		eyes.name = "WarlordEyes"
 		add_child(eyes)
 		await eyes.setup(k._skel, Slots.arg("eye"))
+	# R-C9-128: THE EYE OF RECKONING -- the ported whirlwind (reincarnated-godot wwcr_whirlwind.gd, exactly as made;
+	# whirlwind_channel.gd binds it) on the dark knight's spin clip (final_k_eor), his BASH key / EYE OF RECKONING
+	# button. Red (the GD packet's spinredfx) unless ?eortint=original. Only with the spin clip in his pack.
+	if who == "warlord" and "whirl_channel" in k and k.get("_eor_ok"):
+		whirl = load("res://scripts/whirlwind_channel.gd").new()
+		add_child(whirl)
+		var et := Slots.arg("eortint")
+		whirl.setup(self, k, et if et != "" else "red", "clip", "shield_bash")
+		k.whirl_channel = whirl
+		report["whirlwind"] = whirl.report()
+		# THE EYE OF RECKONING'S BUDGET RUN (?perf=eor / eorc on the page, -- --perf eor on desktop): perf_fireball.gd,
+		# his BASH every 4.6 s, ON and the source's own "novfx" CONTROL alternating
+		var wperf := PaintStack.web_query("perf")
+		var wpa := OS.get_cmdline_user_args()
+		if wperf == "" and wpa.find("--perf") >= 0 and wpa.find("--perf") + 1 < wpa.size():
+			wperf = String(wpa[wpa.find("--perf") + 1])
+		if wperf in ["eor", "eorc"]:
+			var wpn = load("res://scripts/perf_fireball.gd").new()
+			wpn.name = "PerfFireBall"
+			add_child(wpn)
+			wpn.start(self, 20, wperf == "eor", "bash")
 	report["character"] = {"who": who, "model": String(k.cfg.get("model", "?")), "figure_scale": 1.0,
 		"height_m": k.cfg.get("model_height_m", 1.85), "gear_stack": k.gear_stack,
 		"meshes_under_ramp": (_char_saved.get("meshes", []) as Array).size(),
@@ -1619,10 +1641,12 @@ func _touch_for_strikes(tc) -> void:
 	CHOP his war cry; BASH and BLOCK hidden -- neither has a shield. GEAR as his."""
 	var keep := []
 	var names := {"SLASH": "ATTACK", "CHOP": "WAR CRY"} if who == "warlord" else {"SLASH": "WHIRLWIND", "CHOP": "WAR CRY"}
+	if who == "warlord" and whirl != null:
+		names["BASH"] = "EYE OF RECKONING"     # R-C9-128: his BASH key carries the Eye of Reckoning (no shield)
 	_her_spell_buttons.clear()
 	for b in tc._buttons:
 		var lb := String(b.get("label", ""))
-		if lb in ["BASH", "BLOCK"]:
+		if lb == "BLOCK" or (lb == "BASH" and not names.has("BASH")):
 			continue
 		if names.has(lb):
 			b["label"] = names[lb]
@@ -2424,7 +2448,7 @@ func _paint_launch_line() -> String:
 		if String(k).begins_with("bakes/") and ok.call(String(k)):
 			bakes_ok += 1
 	var prim := int(n.get("primitives", 0)) + (1 if int(n.get("mound", 0)) > 0 else 0)
-	return ("who=" + who + " slot=" + (slot if slot != "" else "own") + (" eyes=%d:%s" % [eyes.nodes.size(), eyes.colour.to_html(false)] if eyes != null else "") + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
+	return ("who=" + who + " slot=" + (slot if slot != "" else "own") + (" eyes=%d:%s" % [eyes.nodes.size(), eyes.colour.to_html(false)] if eyes != null else "") + (" ww=" + String(whirl.tint) if whirl != null else "") + " " + "loaded_from_pck files_sha_ok=%d/%d painting_ok=%s ground=%s(%s)_ok=%s lit_ok=%s snow_grid_ok=%s "
 		+ "| plates: bakes=%d/25 on the real models, painting on primitives=%d/29 (the mound + 28) "
 		+ "| birches=%d inks_hidden=%d heather=%d snow=%s ms=%d") % [
 		int(paint.get("files_ok", 0)), loads.size(), str(ok.call("painting.bin")),
