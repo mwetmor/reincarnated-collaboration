@@ -1,0 +1,596 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "glutton",
+ "roster_type_id": "aetherialbloater",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton.glb",
+ "glb_sha256": "281ec41bbf26907cb16592e7d496db92d26aaa6653326a5f140e1c41e39de323",
+ "glb_bytes": 2488432,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 2.2002,
+ "length_m": 1.5819,
+ "width_m": 2.287,
+ "skin_joints": 20,
+ "materials": [
+  {
+   "name": "tripo_material_528c8598-6513-4402-aa1f-813ea2074a74",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 45,
+   "duration_s": 1.46667,
+   "fps": 30,
+   "source": "roster combat idle 45f",
+   "lint": {
+    "frames": 45,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0029,
+    "worst_frame_vertex": [
+     36,
+     [
+      -0.859,
+      -0.421,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 44 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 31,
+   "duration_s": 1,
+   "fps": 30,
+   "source": "roster walk_a01 45f; walkSpeed 1 has no stated base -- 1.3 m/s INFERRED",
+   "lint": {
+    "frames": 31,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0028,
+    "worst_frame_vertex": [
+     11,
+     [
+      1.016,
+      -0.595,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.1151,
+    "stance_runs": 3
+   },
+   "loop": "closing key == first key (frames 0..N, N = 30 intervals)",
+   "ground_speed_m_s": 1.3,
+   "stride_m_per_cycle": 1.3
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "roster lead record run 3.53 m/s (characterRunSpeed 1.1 x K4-0), run_a01 31f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0027,
+    "worst_frame_vertex": [
+     5,
+     [
+      1.039,
+      -0.738,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.1335,
+    "stance_runs": 2
+   },
+   "loop": "closing key == first key (frames 0..N, N = 20 intervals)",
+   "ground_speed_m_s": 3.53,
+   "stride_m_per_cycle": 2.3533
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "frames": 31,
+   "duration_s": 1,
+   "fps": 30,
+   "source": "charging bite (melee 2.95-3.08 m, poison): bite_a01 31f rel f14",
+   "lint": {
+    "frames": 31,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0026,
+    "worst_frame_vertex": [
+     12,
+     [
+      -0.405,
+      0.577,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 14,
+   "contact_s": 0.4667
+  },
+  "attack_thrash": {
+   "kind": "oneshot",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "thrash (melee 0-2.95 m): attack_c01 61f rel f13",
+   "lint": {
+    "frames": 61,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0113,
+    "worst_frame_vertex": [
+     15,
+     [
+      0.185,
+      -0.896,
+      -0.011
+     ]
+    ],
+    "penetration_frames": 1
+   },
+   "contact_frame": 13,
+   "contact_s": 0.4333
+  },
+  "cast_vomit": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "barf cone 5 m x 1-2 m, poison field: vomit_a01 51f rel f18",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0028,
+    "worst_frame_vertex": [
+     21,
+     [
+      -0.959,
+      -0.891,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 18,
+   "release_s": 0.6
+  },
+  "cast_vomit3": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "violent barf burst (projectile 20 metres per second; gobbets become worm spawn at runtime): vomittriple_a01 51f rel f15",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0029,
+    "worst_frame_vertex": [
+     44,
+     [
+      0.908,
+      -0.602,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 15,
+   "release_s": 0.5
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 17,
+   "duration_s": 0.53333,
+   "fps": 30,
+   "source": "gethit_a01 17f",
+   "lint": {
+    "frames": 17,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0008,
+    "worst_frame_vertex": [
+     3,
+     [
+      -0.401,
+      0.574,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 50,
+   "duration_s": 1.63333,
+   "fps": 30,
+   "source": "death clip (roster); ours 50f, toppling face-down",
+   "lint": {
+    "frames": 50,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0013,
+    "worst_frame_vertex": [
+     23,
+     [
+      0.401,
+      0.568,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "glutton",
+  "effects": [
+   {
+    "id": "glutton_bite_impact",
+    "atlas": "glutton_bite_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 200.0,
+    "plane": "billboard",
+    "pivot": "centre = the jaw tip at contact",
+    "ability": "aetherialbloater_bite (charging melee 2.95-3.08 m, poison 8 s)",
+    "trigger": "attack_bite contact f14",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_thrash_impact",
+    "atlas": "glutton_thrash_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.7067,
+     1.7067
+    ],
+    "px_per_m": 150.0,
+    "plane": "billboard",
+    "pivot": "centre = between the claws at contact",
+    "ability": "aetherialbloater_thrash (melee 0-2.95 m, poison)",
+    "trigger": "attack_thrash contact f13",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_bile_cone",
+    "atlas": "glutton_bile_cone.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     640,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     5.7436,
+     2.8718
+    ],
+    "px_per_m": 111.429,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "aetherialbloater_barf (aoe wave 5 m, 1 -> 2 m wide; 8 s poison field)",
+    "trigger": "cast_vomit release f18",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_gobbet",
+    "atlas": "glutton_gobbet.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     1.0667,
+     1.0667
+    ],
+    "px_per_m": 180.0,
+    "plane": "billboard",
+    "pivot": "centre = the gobbet in flight (body r 0.8 m)",
+    "ability": "aetherialbloater_violentbarf (projectile burst, 20 metres per second; lands as a worm spawn)",
+    "trigger": "cast_vomit3 release f15, x3",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_gobbet_splat",
+    "atlas": "glutton_gobbet_splat.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     2.1818,
+     2.1818
+    ],
+    "px_per_m": 88.0,
+    "plane": "billboard",
+    "pivot": "centre = the landing point (area 1 m); the worm spawns here",
+    "ability": "violentbarf impact",
+    "trigger": "on gobbet impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_stench_aura",
+    "atlas": "glutton_stench_aura.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 16,
+    "duration_s": 1.0,
+    "cell_m": [
+     8.4211,
+     8.4211
+    ],
+    "px_per_m": 38.0,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 4 m, toggled at spawn; loops)",
+    "ability": "aetherialbloater_chokingpresence (aura, poison)",
+    "trigger": "always on (loop)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 2.1997132301330566,
+  "y_snout": -0.7599895596504211,
+  "z_hip": 0.8798852920532227,
+  "z_chest": 1.8497132301330566,
+  "y_head_base": -0.33998955965042116,
+  "z_lip": 1.7004609107971191,
+  "y_hinge": -0.4239895596504211,
+  "feet": {
+   "L": {
+    "x": 0.5181256532669067,
+    "y": 0.13430935144424438,
+    "toe_y": -0.017035805732011796,
+    "heel_y": 0.603111982345581
+   },
+   "R": {
+    "x": -0.5256262719631195,
+    "y": 0.14165743440389633,
+    "toe_y": -0.02692791447043419,
+    "heel_y": 0.6040947699546813
+   }
+  },
+  "arms": {
+   "L": {
+    "sh": [
+     0.68,
+     -0.11738796830177307,
+     1.8497132301330566
+    ],
+    "el": [
+     1.0479111671447754,
+     -0.10535313934087753,
+     0.6184502966766885
+    ],
+    "wr": [
+     1.0411781072616577,
+     -0.346379816532135,
+     0.21258650930267387
+    ],
+    "tip": [
+     0.9948515892028809,
+     -0.3364271819591522,
+     0.060387589037418365
+    ]
+   },
+   "R": {
+    "sh": [
+     -0.68,
+     -0.11738796830177307,
+     1.8497132301330566
+    ],
+    "el": [
+     -0.9433053731918335,
+     -0.2624410092830658,
+     0.6801365290586866
+    ],
+    "wr": [
+     -1.040460467338562,
+     -0.4100443869829178,
+     0.22945149038338442
+    ],
+    "tip": [
+     -0.9891704320907593,
+     -0.3911573886871338,
+     0.06044460088014603
+    ]
+   }
+  },
+  "legj": {
+   "L": {
+    "K": [
+     0.4581749141216278,
+     0.20258976221084596,
+     0.45718492567539215
+    ],
+    "A": [
+     0.5181256532669067,
+     0.543111982345581,
+     0.13
+    ]
+   },
+   "R": {
+    "K": [
+     -0.46557193994522095,
+     0.2242564082145691,
+     0.4643261134624481
+    ],
+    "A": [
+     -0.5256262719631195,
+     0.5440947699546812,
+     0.13
+    ]
+   }
+  },
+  "leg_L": {
+   "joint": [
+    0.3,
+    0.23798339292407036,
+    0.8298852920532227
+   ],
+   "knee": [
+    0.4581749141216278,
+    0.20258976221084596,
+    0.45718492567539215
+   ],
+   "ankle": [
+    0.5181256532669067,
+    0.543111982345581,
+    0.13
+   ],
+   "toe": [
+    0.5181256532669067,
+    0.012964194267988203,
+    0.03
+   ],
+   "chain_len": 0.8824,
+   "rest_reach": 0.7941,
+   "pole_angle_deg": -64.0,
+   "pole_rest_err": 0.01667
+  },
+  "leg_R": {
+   "joint": [
+    -0.3,
+    0.23798339292407036,
+    0.8298852920532227
+   ],
+   "knee": [
+    -0.46557193994522095,
+    0.2242564082145691,
+    0.4643261134624481
+   ],
+   "ankle": [
+    -0.5256262719631195,
+    0.5440947699546812,
+    0.13
+   ],
+   "toe": [
+    -0.5256262719631195,
+    0.00307208552956581,
+    0.03
+   ],
+   "chain_len": 0.8681,
+   "rest_reach": 0.7965,
+   "pole_angle_deg": -118.0,
+   "pole_rest_err": 0.0076
+  },
+  "mouth_cut_edges": 92,
+  "unweighted_fallback_verts": 703,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 1061,
+   "unweighted_verts": 0,
+   "groups": 20
+  },
+  "texture": {
+   "path": "work/tex_glutton_GT2.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "arm_L_1",
+   "arm_L_2",
+   "arm_L_3",
+   "arm_R_1",
+   "arm_R_2",
+   "arm_R_3",
+   "belly",
+   "leg_L_1",
+   "leg_L_2",
+   "leg_L_3",
+   "leg_R_1",
+   "leg_R_2",
+   "leg_R_3"
+  ]
+ }
+}

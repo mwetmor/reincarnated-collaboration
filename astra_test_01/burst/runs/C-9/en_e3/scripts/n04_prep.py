@@ -68,7 +68,7 @@ if '--yaw' in a: yaw = math.radians(float(a[a.index('--yaw') + 1]))   # explicit
 R = Matrix.Rotation(yaw, 4, 'Z')
 me.transform(R)
 V = np.array([v.co[:] for v in me.vertices])
-s = LEN / (float(max(np.ptp(V[:, 0]), np.ptp(V[:, 1]))) if '--maxext' in a else float(np.ptp(V[:, 1])))
+s = LEN / (float(np.ptp(V[:, 2])) if '--height' in a else float(max(np.ptp(V[:, 0]), np.ptp(V[:, 1]))) if '--maxext' in a else float(np.ptp(V[:, 1])))
 me.transform(Matrix.Scale(s, 4))
 V = np.array([v.co[:] for v in me.vertices])
 # footprint: centre the LOW band (feet) in x/y, ground at min z

@@ -1,0 +1,23 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $1.50 (fal_spend_R-C9-132_r3, lane EN-E3 round 3: the bloater), cap set by the conductor's round-3 message.",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Opened 2026-10-02 after round 2 closed at $1.2069 of its own $2.00 (fal_spend_R-C9-132_r2.json).",
+ "budget_usd": 1.5,
+ "entries": [
+  {
+   "ts": "2026-10-02T12:17:43+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN3 matte EN3-GL_a.png",
+   "usd": 0.00243,
+   "wall_s": 3.04
+  },
+  {
+   "ts": "2026-10-02T12:21:17+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 r3 glutton base Tripo build",
+   "usd": 0.4,
+   "wall_s": 210.6
+  }
+ ],
+ "running_usd": 0.4024
+}

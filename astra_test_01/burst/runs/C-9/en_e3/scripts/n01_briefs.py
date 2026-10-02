@@ -21,6 +21,21 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'glutton': dict(type_id='aetherialbloater', tid='EN3-GL', marker='the brass manacle on its LEFT wrist', body='a hunched two-legged brute',
+   pose=("POSE (for building and rigging a 3D model): standing still on its two legs in a neutral pose, hunched forward as it naturally stands, "
+         "the legs straight-ish and apart under the hips, the feet flat and pointing forward, so a clear gap of green shows between the legs in the "
+         "front and back views. Both long arms hang down and a little OUT from the body, clear of the belly and the legs, the claws open, so a gap of "
+         "green shows between each arm and the body in the front and back views. The head level and facing forward, the MOUTH CLOSED. Nothing overlaps anything."),
+   text="""THE CREATURE, a CRYPT GLUTTON: a hunched, two-legged brute that is mostly GUT. It lumbers, lunges to bite, retches a spray of bile, and coughs up gobbets of half-digested filth that crawl away as worms.
+- SIZE AND BUILD: about 2.3 m tall as it stands hunched; enormously broad and heavy in the middle. Its body is a vast distended BELLY that sags forward and down almost to its knees, the skin stretched tight and veined; the shoulders hunch high and the head sits low and forward between them, below the line of the shoulders.
+- THE HEAD: small for the body, bald and lumpy, mostly a wide lipless jaw with stubby broken yellow teeth, CLOSED in this sheet; small sunken pale eyes; no nose, two slits.
+- THE SKIN: corpse grey going to livid bruise-purple at the joints and on the back; the belly paler, a sickly pale verdigris-grey, with dark veins and a few weeping sores; a few crude black stitches across the belly where it was once sewn shut.
+- THE LEGS: short, thick and bowed, with broad flat three-toed feet.
+- THE ARMS: surprisingly LONG and thin compared with the body, hanging nearly to the ground, each ending in a hand of three long hooked dark claws.
+- ASYMMETRY MARKER: a corroded BRASS MANACLE with a short broken chain clamped around its LEFT wrist ONLY. It shows in every view where the left wrist is visible, never on the right.
+- Nothing else on it: no clothing except a torn grey-brown loincloth rag at the hips, no weapon, no rider.
+"""),
+
  'blightsac': dict(type_id='voidfiend', tid='EN3-BS', marker='the brass hour-ring on its LEFT side', body='a floating creature',
    pose=("POSE (for building and rigging a 3D model): floating still in a neutral pose, the body level, about a metre clear of the ground "
          "(draw NO ground), the mouth CLOSED, the six tendrils hanging straight down and evenly spaced around the underside, not touching each "

@@ -1,0 +1,93 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "walk": {
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "run": {
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's charging bite (melee, poison)"
+  },
+  "attack_thrash": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "claw_L",
+   "skill": "the roster's thrash (double rake)"
+  },
+  "cast_vomit": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's bile cone (5 m x 1-2 m)"
+  },
+  "cast_vomit3": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's violent barf (3 gobbets; they land as worm spawn)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.2998,
+   "_what": "the jaw tip"
+  },
+  "claw_L": {
+   "bone": "arm_L_3",
+   "along_bone_m": 0.1594,
+   "_what": "the left claw tip (wrist -> tip)"
+  },
+  "head_top": {
+   "bone": "chest",
+   "local_m": [
+    0.0,
+    0.0,
+    0.35
+   ],
+   "along_bone_m": 0.0,
+   "_what": "above the shoulder hump (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ }
+}

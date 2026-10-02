@@ -1,0 +1,153 @@
+{
+ "kit": "en-cryptglutton",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the crypt glutton (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-cryptglutton_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_bite": {
+   "clip": "attack_bite",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_bite",
+   "release_from": "attacks.attack_bite.release_s",
+   "release_socket": "maw",
+   "skill": "the roster's charging bite (melee, poison)"
+  },
+  "attack_thrash": {
+   "clip": "attack_thrash",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_thrash",
+   "release_from": "attacks.attack_thrash.release_s",
+   "release_socket": "claw_L",
+   "skill": "the roster's thrash (double rake)"
+  },
+  "cast_vomit": {
+   "clip": "cast_vomit",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_vomit",
+   "release_from": "casts.cast_vomit.release_s",
+   "release_socket": "maw",
+   "skill": "the roster's bile cone (5 m x 1-2 m)"
+  },
+  "cast_vomit3": {
+   "clip": "cast_vomit3",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_vomit3",
+   "release_from": "casts.cast_vomit3.release_s",
+   "release_socket": "maw",
+   "skill": "the roster's violent barf (3 gobbets; they land as worm spawn)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.2998,
+   "_what": "the jaw tip"
+  },
+  "claw_L": {
+   "bone": "arm_L_3",
+   "along_bone_m": 0.1594,
+   "_what": "the left claw tip (wrist -> tip)"
+  },
+  "head_top": {
+   "bone": "chest",
+   "local_m": [
+    0.0,
+    0.0,
+    0.35
+   ],
+   "along_bone_m": 0.0,
+   "_what": "above the shoulder hump (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_bite_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_thrash_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_bile_cone.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_gobbet.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_gobbet_splat.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_stench_aura.png"
+  ]
+ },
+ "watchdog_s": 2400
+}

@@ -1,0 +1,257 @@
+{
+ "what": "JOIN-1 clip manifest for the crypt glutton (crucible creature, roster rig aetherialbloater) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/glutton/glutton.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton.glb",
+  "sha256_16": "281ec41bbf26907c",
+  "height_m": 2.2002,
+  "length_m": 1.5819
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.46667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster combat idle 45f"
+  },
+  "walk": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01 45f; walkSpeed 1 has no stated base -- 1.3 metres per second INFERRED"
+  },
+  "run": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 3.53 metres per second (characterRunSpeed 1.1 x K4-0), run_a01 31f"
+  },
+  "attack_bite": {
+   "seconds": 1,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: charging bite (melee 2.95-3.08 m, poison): bite_a01 31f rel f14"
+  },
+  "attack_thrash": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: thrash (melee 0-2.95 m): attack_c01 61f rel f13"
+  },
+  "cast_vomit": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: barf cone 5 m x 1-2 m, poison field: vomit_a01 51f rel f18"
+  },
+  "cast_vomit3": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: violent barf burst (projectile 20 metres per second; gobbets become worm spawn at runtime): vomittriple_a01 51f rel f15"
+  },
+  "hit": {
+   "seconds": 0.53333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: gethit_a01 17f"
+  },
+  "death": {
+   "seconds": 1.63333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death clip (roster); ours 50f, toppling face-down"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.3,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 3.53,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_bite": {
+   "release_s": 0.4667,
+   "frame": 14,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 14)"
+  },
+  "attack_thrash": {
+   "release_s": 0.4333,
+   "frame": 13,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 13)"
+  }
+ },
+ "casts": {
+  "cast_vomit": {
+   "release_s": 0.6,
+   "frame": 18,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 18)"
+  },
+  "cast_vomit3": {
+   "release_s": 0.5,
+   "frame": 15,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 15)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "glutton_bite_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_bite_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.28,
+     1.28
+    ],
+    "px_per_m": 200.0,
+    "plane": "billboard",
+    "pivot": "centre = the jaw tip at contact",
+    "ability": "aetherialbloater_bite (charging melee 2.95-3.08 m, poison 8000 ms)",
+    "trigger": "attack_bite contact f14",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_thrash_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_thrash_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.7067,
+     1.7067
+    ],
+    "px_per_m": 150.0,
+    "plane": "billboard",
+    "pivot": "centre = between the claws at contact",
+    "ability": "aetherialbloater_thrash (melee 0-2.95 m, poison)",
+    "trigger": "attack_thrash contact f13",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_bile_cone",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_bile_cone.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     640,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     5.7436,
+     2.8718
+    ],
+    "px_per_m": 111.429,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth, projected to the ground)",
+    "ability": "aetherialbloater_barf (aoe wave 5 m, 1 -> 2 m wide; 8000 ms poison field)",
+    "trigger": "cast_vomit release f18",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_gobbet",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_gobbet.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     1.0667,
+     1.0667
+    ],
+    "px_per_m": 180.0,
+    "plane": "billboard",
+    "pivot": "centre = the gobbet in flight (body r 0.8 m)",
+    "ability": "aetherialbloater_violentbarf (projectile burst, 20 metres per second; lands as a worm spawn)",
+    "trigger": "cast_vomit3 release f15, x3",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_gobbet_splat",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_gobbet_splat.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     2.1818,
+     2.1818
+    ],
+    "px_per_m": 88.0,
+    "plane": "billboard",
+    "pivot": "centre = the landing point (area 1 m); the worm spawns here",
+    "ability": "violentbarf impact",
+    "trigger": "on gobbet impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "glutton_stench_aura",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/glutton/glutton_stench_aura.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 16,
+    "duration_s": 1.0,
+    "cell_m": [
+     8.4211,
+     8.4211
+    ],
+    "px_per_m": 38.0,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 4 m, toggled at spawn; loops)",
+    "ability": "aetherialbloater_chokingpresence (aura, poison)",
+    "trigger": "always on (loop)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

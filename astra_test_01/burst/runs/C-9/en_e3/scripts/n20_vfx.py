@@ -129,6 +129,20 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'glutton': [
+  dict(id='glutton_bite_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.6, col=(150, 46, 40), dark=(86, 24, 26),
+       plane='billboard', pivot='centre = the jaw tip at contact', ability='aetherialbloater_bite (charging melee 2.95-3.08 m, poison 8 s)', trigger='attack_bite contact f14'),
+  dict(id='glutton_thrash_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.8, col=(164, 170, 80), dark=(96, 104, 36),
+       plane='billboard', pivot='centre = between the claws at contact', ability='aetherialbloater_thrash (melee 0-2.95 m, poison)', trigger='attack_thrash contact f13'),
+  dict(id='glutton_bile_cone', fn='spray', n=16, fps=24, cols=4, W=640, H=320, length_m=5.0, width_m=2.0, col=(176, 172, 84), dark=(104, 110, 44),
+       plane='ground', pivot='left-middle (the mouth, projected to the ground)', ability='aetherialbloater_barf (aoe wave 5 m, 1 -> 2 m wide; 8 s poison field)', trigger='cast_vomit release f18'),
+  dict(id='glutton_gobbet', fn='orb', n=8, fps=20, cols=4, S=192, radius_m=0.5, col=(150, 120, 96), dark=(96, 60, 52),
+       plane='billboard', pivot='centre = the gobbet in flight (body r 0.8 m)', ability='aetherialbloater_violentbarf (projectile burst, 20 metres per second; lands as a worm spawn)', trigger='cast_vomit3 release f15, x3'),
+  dict(id='glutton_gobbet_splat', fn='impact', n=8, fps=30, cols=4, S=192, radius_m=1.0, col=(150, 120, 96), dark=(96, 60, 52),
+       plane='billboard', pivot='centre = the landing point (area 1 m); the worm spawns here', ability='violentbarf impact', trigger='on gobbet impact'),
+  dict(id='glutton_stench_aura', fn='ring', n=16, fps=16, cols=4, S=320, radius_m=4.0, col=(170, 178, 110), dark=(104, 110, 56),
+       plane='ground', pivot='centre = the root (aura r 4 m, toggled at spawn; loops)', ability='aetherialbloater_chokingpresence (aura, poison)', trigger='always on (loop)'),
+ ],
  'blightsac': [
   dict(id='blightsac_acid_breath', fn='spray', n=16, fps=24, cols=4, W=576, H=192, length_m=3.5, width_m=1.0, col=(176, 172, 84), dark=(104, 110, 44),
        plane='ground', pivot='left-middle (the mouth, projected to the ground)', ability='chthonianwretch_acidbreath (aoe wave 3.5 m x 1 m, poison)', trigger='cast_breath release f19; loop frames 4-11 while it holds (f19-f35)'),

@@ -1,0 +1,173 @@
+{
+ "creature": "glutton",
+ "effects": [
+  {
+   "id": "glutton_bite_impact",
+   "atlas": "glutton_bite_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.28,
+    1.28
+   ],
+   "px_per_m": 200.0,
+   "plane": "billboard",
+   "pivot": "centre = the jaw tip at contact",
+   "ability": "aetherialbloater_bite (charging melee 2.95-3.08 m, poison 8 s)",
+   "trigger": "attack_bite contact f14",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "glutton_thrash_impact",
+   "atlas": "glutton_thrash_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.7067,
+    1.7067
+   ],
+   "px_per_m": 150.0,
+   "plane": "billboard",
+   "pivot": "centre = between the claws at contact",
+   "ability": "aetherialbloater_thrash (melee 0-2.95 m, poison)",
+   "trigger": "attack_thrash contact f13",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "glutton_bile_cone",
+   "atlas": "glutton_bile_cone.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    640,
+    320
+   ],
+   "fps": 24,
+   "duration_s": 0.6667,
+   "cell_m": [
+    5.7436,
+    2.8718
+   ],
+   "px_per_m": 111.429,
+   "plane": "ground",
+   "pivot": "left-middle (the mouth, projected to the ground)",
+   "ability": "aetherialbloater_barf (aoe wave 5 m, 1 -> 2 m wide; 8 s poison field)",
+   "trigger": "cast_vomit release f18",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "glutton_gobbet",
+   "atlas": "glutton_gobbet.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    1.0667,
+    1.0667
+   ],
+   "px_per_m": 180.0,
+   "plane": "billboard",
+   "pivot": "centre = the gobbet in flight (body r 0.8 m)",
+   "ability": "aetherialbloater_violentbarf (projectile burst, 20 metres per second; lands as a worm spawn)",
+   "trigger": "cast_vomit3 release f15, x3",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "glutton_gobbet_splat",
+   "atlas": "glutton_gobbet_splat.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    2.1818,
+    2.1818
+   ],
+   "px_per_m": 88.0,
+   "plane": "billboard",
+   "pivot": "centre = the landing point (area 1 m); the worm spawns here",
+   "ability": "violentbarf impact",
+   "trigger": "on gobbet impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "glutton_stench_aura",
+   "atlas": "glutton_stench_aura.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 16,
+   "duration_s": 1.0,
+   "cell_m": [
+    8.4211,
+    8.4211
+   ],
+   "px_per_m": 38.0,
+   "plane": "ground",
+   "pivot": "centre = the root (aura r 4 m, toggled at spawn; loops)",
+   "ability": "aetherialbloater_chokingpresence (aura, poison)",
+   "trigger": "always on (loop)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}
