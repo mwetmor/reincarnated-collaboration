@@ -121,8 +121,13 @@
  },
  "sockets": {
   "main_grip": {
-   "bone": "weapon_r",
-   "_what": "the mace grip: the weapon_r joint"
+   "bone": "RightHand",
+   "local_m": [
+    0.00207,
+    0.12698,
+    0.00791
+   ],
+   "_what": "the mace grip = the right FIST in every state: RightHand + the weapon_r seat measured at rest in RightHand's normalised frame (metres). Identical to the weapon_r joint in the 7 non-spin clips (weapon_r is fixed in the hand there); in eor_spin_start/loop (final_k_eor2) the haft slide (e54) moves weapon_r 0.2 m off the fist, so weapon_r is no longer the grip. Was bone weapon_r until 2026-10-02"
   },
   "main_tip": {
    "bone": "weapon_r",

@@ -72,7 +72,8 @@
   "b": "NOT SHIPPED: recipe (b) is in the comparison film only (wl_e1/export/spin_film); its loop fails the joint-limit lint (left wrist flexion 92 deg at 2 keys) and its feet slide 55-80 mm",
   "moving": "in place: the runtime moves him while channelling (canUseWhileMoving)",
   "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12; slid 0.20 m outward, e54 -- so in the spin weapon_r sits off the right fist): the effect reads the mace head off the rig",
-  "a": "recipe (a): see clips.eor_spin_start / clips.eor_spin_loop"
+  "a": "recipe (a): see clips.eor_spin_start / clips.eor_spin_loop",
+  "weapon_head_frames": "INFORMATION: this pack's main_tip is weapon_r + 0.9251 m along the bone's +Y (the far point of wl_mace.glb measured in weapon_r's frame; the mace mesh rides weapon_r, so the slide is carried). The integration lane (barrow_full/take/build/r_c9_128.json, dark_knight.weapon_head) reads the mace head at (-3.28, 14.19, -90.42) in weapon_r's unscaled bone space = 1.056 m from the grip at the rig's 0.01153 scale -- a different point and frame (its own runtime attachment); the two are not reconciled here"
  },
  "eyes": {
   "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/eye_sockets.json",
