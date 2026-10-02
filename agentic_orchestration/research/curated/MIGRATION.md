@@ -7,6 +7,39 @@
 
 ---
 
+## join1-js4b-referent-mint-2026-10-02 — JOIN-1 J-S4b: the KC2 referent Warlord's own corpus record (`gd-eor-warlord-referent`) — 2026-10-02 — **APPLIED 2026-10-02T21:20Z**
+
+**Authority:** Matt-approved addition to the launch-frozen § 1 substrate (KC2 ledger KP-237; JOIN-1 charter v0.6.1). Occasioned by jack-ryan J0/J1 Gate-2 (`qa/findings/2026-10-02-join1-j0-j1-gate2.md`) EL-1 (the corpus record is a sibling build), EL-2 (`original_element` semantics + export fields), EL-3 (no numeric rows; in-seam curation, not J-L4). Conductor gandalf. ADR-002 within-seam, **DATA-ONLY, no DDL.**
+
+**Script:** `research/scripts/corpus_js4b_referent_mint_2026_10_02.py` (`--dry-run` on an in-memory copy, then `--apply`). Every value is read from its source at run time; nothing is retyped.
+
+| Step | FILE sha256 | Result |
+|---|---|---|
+| backup | `corpus.db.pre-js4b-referent-20261002T212050Z-backup` = `dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473` (= the J0 post-apply digest, = gamora's J1 pin) | copied, digest asserted |
+| apply | `dffad643…d473` → **`0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07`** | PASS |
+
+**Writes (additive):** `canon_corpus` +1 (590 → 591) · `kit_mapping` +1 (574 → 575; `kit_master` 574 → 575) · `kit_numeric` +104 (458 → 562) · `corpus_schema_meta` +1 (38 → 39). Asserted pre and post; `integrity_check` ok; `foreign_key_check` empty.
+
+**ROWSET pins (J-S4).** Law: for each of `canon_corpus, kit_mapping, kit_numeric, kit_composition, kit_citations, kit_dossier, kit_deviation, kit_delta_t4, kit_acceptance_assert, kit_door_arg, skill_geometry_band, verify_ledger`, every row `WHERE kit_id = ?` ordered by rowid, `json.dumps(dict(row), sort_keys=True, separators=(',',':'), ensure_ascii=False)`, lines `<table>\t<json>` joined by `\n`, sha256.
+- `gd-eor-warlord-referent`: **`66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7`** (dry-run and apply identical).
+- `gd-eor-warlord`: `1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc`, **identical before and after (asserted)**. Its JSON export is untouched (FILE `b82c9a0f…`, gamora's pin).
+
+**The record.** Identity: Soldier + Oathkeeper Warlord L100 `EoRWarlGuts`, build of record `b28gD0KN`, save `player.gdc` FILE `b8e6f510650dad0b12d60115d119b266283eda674c9c1a7186220ec93454bfa5` (recomputed on the legolas scratch copy; the two `/Volumes` copies were unreachable this pass). Sources: KC2 pack of record v3.11 (pack digest `99711727…d788`, recomputed under its own law, all 21 members verified); the pack-source CSVs `pm2_measured_player_sheet.csv` (PRV-PLAYER-SHEET), `pm4g_played_kit.csv`, `pm4l_eor_per_hit.csv`; GD Edition IV `.arz` (build 24825149, expansion-wins precedence); legolas packet 2026-10-01; the save decode `p_gdc.json`.
+- `kit_mapping.mapping_json`: nine bar skills, EoR at ordinal 0 (`whirlwind`); the other tokens (`dash_attack`, `circle`, `self_buff`, `melee_strike`, `totem`) are mapped from each skill's DATAMINED engine class, all inside `VALID_GEOMETRY_TYPES`. `t4_doors = [ELEMENT_CONVERSION_PHYSICAL]`. **Grade NULL** (owed at the J4a deconfound; not a steward call).
+- Lattice: only `range_val = melee` and `commit_val = channel` (derived from DATAMINED class/weapon); the rest NULL.
+- `corpus_class = record`, **`roster_status = parked`** so active-roster and atlas denominators do not double-count the EoR Warlord identity.
+- **`kit_numeric` (104 rows):** `source_value` + `source_scale` + a structured `source_anchor` (`GRADE=… | EVIDENCE: … | PACK <row> = <v> -> AGREES/DISAGREES`). **`rdr_value` and `rule_id` NULL** on every row: rule stamping is the normalization-rule owner's act (gamora). New source scales: `gd_metres, gd_energy, gd_energy_per_second, gd_rank, gd_pct_sheet, gd_per_second, gd_ms_quanta, gd_ratio, gd_flat_damage, gd_count, gd_points, gd_level, gd_hp, gd_hp_per_second, gd_metres_per_second` (+ existing `gd_seconds`, `gd_pct`). No rule covers them yet.
+
+**EL-2, the element (one line):** `original_element` is the **pre-conversion raw element** (the VDM-2 promotion of `elem_raw`); `court` is the **reconciled post-conversion element**. For the referent: `original_element = fire`, `court = physical` (EoR Fire→Physical 100 % via Gutsmasher's `mace2h_d107_eyeofreckoning`, DATAMINED). Both are in the JSON export. The compiler still compiles this record as **fire** because it reads `original_element` when `element_primary` is null — that is KC-1 (gamora), now confirmed on this record too.
+
+**Agreement with the pack of record:** 59 rows carry at least one pack comparison; 45 agree on every check; 45 rows are pack-silent (DATAMINED/FOOTAGE/SAVE only). **15 numeric disagreements + 2 categorical, recorded as findings, none edited:** EoR total rank 26 vs pm4g 16 and pm4l 20 (the oracle's rank; pm4l omits Visor/Chest/Sandreaver +6); EoR %WD 64 vs V1-WD-1 oracle 57 (the pack's own HONEST-FAIL); Vire's Might cooldown 3.6 vs X1-2 3.1; War Cry radius at rank 16: 16.8 vs V13-WARCRY-1 16.0; modifier mana Blindside 5 vs 6, Tectonic Shift 3 vs 5, Break Morale 50 vs 68 (at pm4g ranks); seven celestial-power devotion levels 25/25/20/20/20/20/15 vs `0` on every DP-* row; Vire's Might class AttackPathCharge vs binding_model AttackWeaponCharge. Full list in the export's `agreement_check`.
+
+**Artifacts:** `kits-export/gd-eor-warlord-referent.json` + `kits-export/gd-eor-warlord-referent.manifest.json` (FILE sha256 of every source, the export, corpus.db pre/post; both ROWSET digests).
+
+**Reversibility:** restore the backup (digest above), or `DELETE … WHERE kit_id='gd-eor-warlord-referent'` from `kit_numeric`, `kit_mapping`, `canon_corpus` and the one `corpus_schema_meta` row. **ADR-004:** no engine file written. Owed engine-side, not requested as schema: (1) gamora — rdr rule stamping for the referent's scales, KC-1 (element), KC-3 (radius carry into `geometry_params`; the row is `eor_radius_m`); (2) the oracle owner — ABS-EOR-RANK-OF-RECORD, now with the item attribution.
+
+---
+
 ## join1-j0-2026-10-01 + join1-j0-gv-relabel-2026-10-01 — JOIN-1 J0: GD-SLICE freeze-not-drop + four derived columns; docket-sweep ledger (docket 5 → superseded-by-q86); GV relabel (850 rows) + FoI pin — 2026-10-01 — **APPLIED 2026-10-01T05:04Z** (staged under the disk HALT; applied on gandalf's word, KP-162)
 
 **⚑ APPLIED (amended forward).** Free disk 41.17 / 41.09 GiB at apply. Results:
