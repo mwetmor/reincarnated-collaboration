@@ -30216,6 +30216,12 @@
       "topic": "Q69 step 1 done: telemetry.db archived to the PC (raw + zstd) and the Mac zstd; Mac original removed",
       "note": "PC (mhwet@192.168.1.133) C:\\Users\\mhwet\\reincarnated-archive\\2026-10-01: telemetry.db (35,557,154,816 B, sha256 10c29db7...f3d4) and telemetry.db.zst (sha256 4a3ee0bb...f220), both verified ON THE PC by Get-FileHash; SHA256SUMS beside them. Mac keeps ~/Games/_telemetry_archive/telemetry.db.zst + SHA256SUMS + README. Matt's pre-authorised deletion (verbatim \"I pre-authorize the deletion/removal of the Telemetry DB once it's securely backed up\") executed after verification: rm of engine data/telemetry.db at ~20:05 EDT; disk 20 -> 54 GiB free. The Pi share failed every write (SMB I/O error) and holds a 236 MB partial .zst; the Pi needs a look by Matt.",
       "ts": "2026-10-01T20:02:03"
+    },
+    {
+      "id": "N-C9-BIND-ORDER",
+      "topic": "Gear pieces bound to the wrong bones in Godot: skins bind by bone INDEX in file node order, and Blender-exported pieces differ from the Meshy body",
+      "note": "E1 found that its final_j pieces (Blender export) carry a different joint NODE order from the body (Meshy + binary patches). Skin joint lists matched, so the GLB lint passed; Blender binds by vertex-group name, so every Blender check looked right; Godot binds by index -> 16,293/37,747 (h0) and 21,007/41,687 (h180) figure pixels differ. Likely Matt's \"cape hangs in mid air\". Fixes: e47_node_order.py (final_j2, 0 px difference), and gear.gd bind-by-name for every character, plus a BIND-ORDER fence row on every pack (index vs name render, FAIL on any difference). Every gear-placement judgement made on E1 Godot stills since stage G was made through this defect. Same family as the unpainted body: an instrument that checks a property in a tool that resolves it differently from the runtime.",
+      "ts": "2026-10-01T20:52:32"
     }
   ]
 }
