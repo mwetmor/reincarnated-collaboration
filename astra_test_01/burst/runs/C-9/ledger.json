@@ -34666,9 +34666,199 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN2-H1PB",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "683dd5dc208c72f01bbdf4bb0bcb444e770e88473081c95edde042e5ab922c97",
+      "started": "2026-10-02T23:25:03.902047+00:00",
+      "ended": "2026-10-02T23:32:23.797827+00:00",
+      "minutes": 7.331533677783834,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-4f1a0a2b-4d87-42ae-baaa-b27e10bb53f0.png",
+            "sha256": "27b5b97d52db0bb03f33f733b57c6f9847eaa81997034da8989cd4111d64fc2f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-66ce52be-55b7-40bb-b588-efec842f8049.png",
+            "sha256": "60e148b9460cb44e3a0d9d6db939e21a39c669c778b398ce960113c9d35171e2"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-a3c170a7-a814-431e-9cce-95bafeafa641.png",
+            "sha256": "138b674faa48515541ec1341ef70491ed179b4dbbc605e5c14220c93ec21784e"
+          }
+        ]
+      },
+      "receipt_sha256": "2987e960a76cecccb8e38bda07caf2a9820692c257b776fdcb774feca7afd99f",
+      "artifacts": [
+        {
+          "name": "EN2-H1PB_a.png",
+          "sha256": "60e148b9460cb44e3a0d9d6db939e21a39c669c778b398ce960113c9d35171e2"
+        },
+        {
+          "name": "EN2-H1PB_b.png",
+          "sha256": "27b5b97d52db0bb03f33f733b57c6f9847eaa81997034da8989cd4111d64fc2f"
+        },
+        {
+          "name": "exec-4f1a0a2b-4d87-42ae-baaa-b27e10bb53f0.provenance.json",
+          "sha256": "84e0c0d68b42bfca001a7188b63624d38e1ce8701fc28ebf7caf5fe59f0c86b8"
+        },
+        {
+          "name": "exec-66ce52be-55b7-40bb-b588-efec842f8049.provenance.json",
+          "sha256": "047c122f15da8f41eceec45394bf45e8d4ff06221bd73b03359bf1d231f7b022"
+        },
+        {
+          "name": "exec-a3c170a7-a814-431e-9cce-95bafeafa641.provenance.json",
+          "sha256": "1e5b7895a3cf95b7ba85a3ca1c3822fc6ed8a747952f93fdd41a8fadedbb2502"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-4f1a0a2b-4d87-42ae-baaa-b27e10bb53f0.png",
+          "sha256": "27b5b97d52db0bb03f33f733b57c6f9847eaa81997034da8989cd4111d64fc2f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-66ce52be-55b7-40bb-b588-efec842f8049.png",
+          "sha256": "60e148b9460cb44e3a0d9d6db939e21a39c669c778b398ce960113c9d35171e2"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-76e0-b53a-d44ddae99681/exec-a3c170a7-a814-431e-9cce-95bafeafa641.png",
+          "sha256": "138b674faa48515541ec1341ef70491ed179b4dbbc605e5c14220c93ec21784e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-W1PB",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "91e9af5b21f4a76d76c8cfb6724ca76cdbd3b2daeb0a9508f53a9ae74ba6300a",
+      "started": "2026-10-02T23:25:03.901997+00:00",
+      "ended": "2026-10-02T23:32:32.678015+00:00",
+      "minutes": 7.47952305971703,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-7104d5b3-c2cd-49de-b4ef-e37c4e756b8c.png",
+            "sha256": "d4ab0384a40df589db83081cf6367875869a774d86430f63522d70cff1fbfb20"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-773a6708-9541-4061-82c3-9d30e1fbde5a.png",
+            "sha256": "602a562198b884d2dfb56653882e78b5257409b25a9311b61f8be08da7e4be50"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-8193d1d7-5639-4487-81fc-10b818c241b7.png",
+            "sha256": "a957705131067f06b27ca59cb9c45d1261d1aca26390d33f0e2c4f3f35e9cc8a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-a169ff3c-4e9d-4c7f-b68a-a403b2aa0d8b.png",
+            "sha256": "c05d3db72124f398db7812850b7f24387af7b81acdb9ad34e24a496ce388552d"
+          }
+        ]
+      },
+      "receipt_sha256": "cb789b13c3acd088380888eccbac8438205ad98ebdb6eb6a45ee506021cd4d01",
+      "artifacts": [
+        {
+          "name": "EN2-W1PB_a.png",
+          "sha256": "d4ab0384a40df589db83081cf6367875869a774d86430f63522d70cff1fbfb20"
+        },
+        {
+          "name": "EN2-W1PB_b.png",
+          "sha256": "a957705131067f06b27ca59cb9c45d1261d1aca26390d33f0e2c4f3f35e9cc8a"
+        },
+        {
+          "name": "exec-7104d5b3-c2cd-49de-b4ef-e37c4e756b8c.provenance.json",
+          "sha256": "c43fe20907921c6a153db0e2d1cbc5330c7cf64e68f9b65be0de86a00a05bd6c"
+        },
+        {
+          "name": "exec-773a6708-9541-4061-82c3-9d30e1fbde5a.provenance.json",
+          "sha256": "cf7f0ab256f76c9551418811105ba3021f7958467036fc838f71becf2565aff0"
+        },
+        {
+          "name": "exec-8193d1d7-5639-4487-81fc-10b818c241b7.provenance.json",
+          "sha256": "ad112f9de5f91f1a9f6a303cd75a065ef6c6d291ac31cec6c6166291f5384a66"
+        },
+        {
+          "name": "exec-a169ff3c-4e9d-4c7f-b68a-a403b2aa0d8b.provenance.json",
+          "sha256": "ed3c1e487e749277d6af9abed12eb53000077409da4671b7581878503806c1b8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-7104d5b3-c2cd-49de-b4ef-e37c4e756b8c.png",
+          "sha256": "d4ab0384a40df589db83081cf6367875869a774d86430f63522d70cff1fbfb20"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-773a6708-9541-4061-82c3-9d30e1fbde5a.png",
+          "sha256": "602a562198b884d2dfb56653882e78b5257409b25a9311b61f8be08da7e4be50"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-8193d1d7-5639-4487-81fc-10b818c241b7.png",
+          "sha256": "a957705131067f06b27ca59cb9c45d1261d1aca26390d33f0e2c4f3f35e9cc8a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0feef-8176-7a81-b244-4d7b1c3987a7/exec-a169ff3c-4e9d-4c7f-b68a-a403b2aa0d8b.png",
+          "sha256": "c05d3db72124f398db7812850b7f24387af7b81acdb9ad34e24a496ce388552d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1036,
+  "images_used": 1043,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -36888,6 +37078,15 @@
         "(AskUserQuestion) Off-hand: \"Shield, as ruled\"; Review: \"Barrow page first (Recommended)\""
       ],
       "ts": "2026-10-02T23:31:31Z"
+    },
+    {
+      "id": "R-C9-139",
+      "by": "Matt",
+      "ruling": "All characters in the painted Barrow read too darkly lit (cliffside's Godot sun lit them well). Add character lighting in the Barrow: measure character luminance against the cliffside reference, then add character-only light (cull-masked key/fill/rim on the character layers, same direction as the paint sun so the 'two suns, one direction' register holds) and/or raise the real sun's energy on characters. Ship behind a select-page toggle (current vs lit candidates) so Matt compares A/B. Routed to lane SO (it is already building the Barrow web export for R-C9-138), one combined loadout deploy.",
+      "verbatim": [
+        "Also regarding all characters in the burrow, I think they are all too darkly lit. In the cliffside, Godot had the sun shine on them, but it seems like we may need further character lighting for the barrow."
+      ],
+      "ts": "2026-10-02T23:32:36Z"
     }
   ],
   "grok_calls": [
