@@ -66,11 +66,45 @@ func _ready() -> void:
 	alpha_deg = float(cc.get("pitch_deg", 52.9535411256029))
 	get_tree().create_timer(float(kit.get("watchdog_s", 1800.0))).timeout.connect(func(): push_error("J1 WATCHDOG"); get_tree().quit(3))
 	_scene()
+	if kit.has("eyes"):
+		await _eyes(kit["eyes"])
 	await _render_all()
 	var f := FileAccess.open(OS.get_environment("J1_RAW"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(raw, " ")); f.close()
 	print("[j1] %d frames rendered" % raw["frames"].size())
 	get_tree().quit()
+
+## EYE GLOW (the dark knight, R-C9-132): his eyes are RUNTIME billboards in the game (wl_e1 eye_sockets.json: Head-local,
+## 0.07 m, unshaded, ADDITIVE, depth-tested so the helm hides them from behind). kit.eyes = {sockets: path, color: "#rrggbb"}
+## renders them INTO the cells, the same way wl_e1/film_rt/gear_stills.gd _eyes() draws them (its texture and falloff),
+## at a steady glow -- no flicker in a cell (the flicker, if any, is the runtime's).
+func _eyes(cfg: Dictionary) -> void:
+	var E: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(String(cfg["sockets"])))
+	var col := Color(String(cfg.get("color", "#9e4dff")))
+	var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
+	for y in 64:
+		for x in 64:
+			var r := Vector2(x - 31.5, y - 31.5).length() / 31.5
+			var a := sqrt(clampf(1.0 - r, 0.0, 1.0))
+			var core := clampf(1.0 - r / 0.5, 0.0, 1.0)
+			var c := col.lerp(Color(1, 0.97, 1), core)
+			img.set_pixel(x, y, Color(c.r * a, c.g * a, c.b * a, a))
+	var tex := ImageTexture.create_from_image(img)
+	var att := BoneAttachment3D.new(); att.bone_name = String(E.get("bone", "Head")); skel.add_child(att)
+	var quads := []
+	for k in (E["eyes"] as Dictionary):
+		var p: Array = E["eyes"][k]["head_local"]
+		var n := Node3D.new(); n.position = Vector3(float(p[0]), float(p[1]), float(p[2])); att.add_child(n)
+		var q := MeshInstance3D.new(); n.add_child(q)
+		var m := StandardMaterial3D.new(); m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD; m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED; m.billboard_keep_scale = true; m.albedo_texture = tex
+		q.material_override = m; q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF; quads.append([n, q])
+	await get_tree().process_frame
+	for nq in quads:
+		var sc := (nq[0] as Node3D).global_transform.basis.get_scale().x
+		var qm := QuadMesh.new(); qm.size = Vector2.ONE * float(E.get("sprite_size_m", 0.05)) / maxf(sc, 1e-6); (nq[1] as MeshInstance3D).mesh = qm
+	print("[j1] eye sprites: %d on %s, %.3f m, colour %s" % [quads.size(), String(E.get("bone", "Head")), float(E.get("sprite_size_m", 0.05)), col.to_html()])
 
 func _load_glb(path: String) -> Node3D:
 	var doc := GLTFDocument.new(); var st := GLTFState.new()

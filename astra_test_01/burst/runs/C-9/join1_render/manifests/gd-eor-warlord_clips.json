@@ -1,0 +1,80 @@
+{
+ "what": "JOIN-1 clip manifest for the GD EoR warlord (the dark knight) cell pack -- this lane's (drax nb_join / join1_render), read off wl_e1/export/final_k_eor (E1, R-C9-127/128), the arena push R-C9-132/133",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/wl_body.glb",
+  "sha256_16": "8080fd58d190dd55",
+  "height_m": 1.96
+ },
+ "clips": {
+  "idle": {
+   "seconds": 3.3667,
+   "source": "great sword idle (4), upright, seam-blended loop"
+  },
+  "walk": {
+   "seconds": 1.3667,
+   "source": "great sword walk"
+  },
+  "run": {
+   "seconds": 0.6,
+   "source": "great sword run (2) -- forward"
+  },
+  "attack": {
+   "seconds": 1.8333,
+   "source": "great sword slash (3), contact at 47%"
+  },
+  "warcry": {
+   "seconds": 3.1,
+   "source": "great sword power up"
+  },
+  "hit": {
+   "seconds": 0.8667,
+   "source": "great sword impact"
+  },
+  "death": {
+   "seconds": 2.4,
+   "source": "two handed sword death"
+  },
+  "eor_spin_start": {
+   "seconds": 0.2,
+   "source": "recipe (a), the v7 rule: one frame of idle turned rigidly CCW about his vertical; the START accelerates to 1200 deg/s and turns 120 deg (wl_manifest eor_spin.a)"
+  },
+  "eor_spin_loop": {
+   "seconds": 0.3,
+   "source": "recipe (a), the v7 rule: the LOOP turns 9 x 40 deg at rate 1.0 and closes exactly (wl_manifest eor_spin.a)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.073,
+   "from": "wl_manifest foot_lock_m_per_s"
+  },
+  "run": {
+   "speed_m_s": 4.062,
+   "from": "wl_manifest foot_lock_m_per_s"
+  }
+ },
+ "casts": {
+  "warcry": {
+   "release_s": 1.9,
+   "definition": "the shout, PROPORTIONAL to GD's own War Cry clip (legolas 2026-10-01-eor-warlord-animation-and-gear: hero01_sword2h_spell_warcry_a01, 19 frames, the shout on its frame 11 = 0.611 of that clip) x this clip's length, on its nearest 30 fps key"
+  },
+  "attack": {
+   "release_s": 0.8667,
+   "definition": "the contact (wl_manifest strike.t: the mace head at its lowest in front, 47% of the clip)"
+  }
+ },
+ "eor_spin": {
+  "recommended": {
+   "start": "eor_spin_start",
+   "loop": "eor_spin_loop"
+  },
+  "b": "NOT SHIPPED: recipe (b) is in the comparison film only (wl_e1/export/spin_film); its loop fails the joint-limit lint (left wrist flexion 92 deg at 2 keys) and its feet slide 55-80 mm",
+  "moving": "in place: the runtime moves him while channelling (canUseWhileMoving)",
+  "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12): the effect reads the mace head off the rig",
+  "a": "recipe (a): see clips.eor_spin_start / clips.eor_spin_loop"
+ },
+ "eyes": {
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor/eye_sockets.json",
+  "color": "violet #9e4dff (wl_e1 gear_stills default)"
+ }
+}

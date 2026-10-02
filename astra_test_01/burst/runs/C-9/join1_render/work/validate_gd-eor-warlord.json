@@ -1,0 +1,45 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_gd-eor-warlord.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/gd-eor-warlord.json",
+ "states": {
+  "idle": {
+   "worst_m": 0.00011,
+   "samples": 384
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "eor_spin_start": {
+   "worst_m": 1e-05,
+   "samples": 224
+  },
+  "eor_spin_loop": {
+   "worst_m": 0.00141,
+   "samples": 512
+  },
+  "warcry": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "attack": {
+   "worst_m": 0.00029,
+   "samples": 384
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 256
+  },
+  "death": {
+   "worst_m": 0.00022,
+   "samples": 512
+  }
+ },
+ "samples": 3424,
+ "worst_m": 0.00141
+}
