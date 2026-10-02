@@ -240,6 +240,7 @@ def apply(st):
         r = st.get(n)
         if r: pb[n].rotation_quaternion = wrot(n, *r)
     if 'pelvis_loc' in st: pb['Hips'].location = wloc('Hips', st['pelvis_loc'])
+    if 'grow' in st: pb['Hips'].scale = (st['grow'],) * 3
 for p in pb: p.rotation_mode = 'QUATERNION'
 
 def wave(st, w, amp_z, amp_x=0.0, lift=0.0):
@@ -282,6 +283,14 @@ def clip_state(name, f):
         st['jaw'] = (kf([(0, -2), (a0, -8), (rf - 1, -55), (rf + ho, -50), (rf + ho + 5, -4), (N, -2)], f), 0, 0)
         st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.10), (rf, -0.08), (N, 0)], f), 0)
         return wave(st, w, 3.0)
+    if k == 'emerge':
+        # the burrowed worm RISES (grown from the floor by the Hips scale, as the plant's sprout: a sprite has no floor to hide under),
+        # the front rearing up out of the ground and the maw opening once at the top
+        st['grow'] = kf([(0, 0.04), (int(N * 0.7), 1.05), (N, 1.0)], f)
+        up = kf([(0, 30), (int(N * 0.7), 14), (N, 0)], f)
+        for i, n in enumerate(reversed(FRONT)): st[n] = (up * (0.5 + 0.25 * i), 0, 0)
+        st['jaw'] = (kf([(0, -2), (int(N * 0.75), -2), (int(N * 0.88), -45), (N, -4)], f), 0, 0)
+        return wave(st, w, 4.0)
     if k == 'hit':
         for i, n in enumerate(reversed(FRONT)): st[n] = (kf([(0, 0), (3, 12), (N, 0)], f), 0, kf([(0, 0), (3, 14), (N, 0)], f) * (1 if i % 2 else -1))
         st['jaw'] = (kf([(0, -2), (2, -30), (8, -4), (N, -2)], f), 0, 0)
@@ -395,6 +404,7 @@ for name, frames in BAKED.items():
             prev[n] = q
             p = pb[n]; p.rotation_quaternion = q; p.keyframe_insert('rotation_quaternion', frame=f, group=n)
             if n in ('Hips', 'root'): p.location = l; p.keyframe_insert('location', frame=f, group=n)
+            if n == 'Hips': p.scale = s; p.keyframe_insert('scale', frame=f, group=n)
 
     ad.action = None
     tr = ad.nla_tracks.new(); tr.name = name; tr.strips.new(name, 0, act); tr.mute = False

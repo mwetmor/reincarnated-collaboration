@@ -43,7 +43,8 @@
    "kind_fn": "strike",
    "frames": 30,
    "contact": 12,
-   "src": "a single-scythe sideways slash (melee variant)"
+   "src": "a single-scythe sideways slash (melee variant)",
+   "twist_k": 0.35
   },
   "cast_spit": {
    "kind": "oneshot",
@@ -88,5 +89,6 @@
  "claw_tip_y": -1.3,
  "scythe_rigid": true,
  "texture": "work/tex_voiddrone_V.png",
- "_scale_note": "built at 3.6 m long (n17 s_fit 1.16 with the canvas, binding cast_rear f14); the conductor size call: one base mesh, max-fit; true sizes by record in the kit (true_size block)"
+ "_scale_note": "built at 3.6 m long (n17 s_fit 1.16 with the canvas, binding cast_rear f14); the conductor size call: one base mesh, max-fit; true sizes by record in the kit (true_size block)",
+ "scythe_leg_excl": 0.0
 }

@@ -1,0 +1,171 @@
+{
+ "landmarks": {
+  "H": 0.2359599620103836,
+  "y_snout": -0.42157530784606934,
+  "y_tail": 0.4784640073776245,
+  "z_lip": 0.10502118515432812,
+  "y_hinge": -0.36157530784606934,
+  "centreline": [
+   [
+    0.0006671769660897553,
+    -0.4015753078460693,
+    0.10502118515432812
+   ],
+   [
+    0.0041489992290735245,
+    -0.2940703934431076,
+    0.10668561281636357
+   ],
+   [
+    0.03734171390533447,
+    -0.18656547904014587,
+    0.11449423956219107
+   ],
+   [
+    0.007480654865503311,
+    -0.07906056463718414,
+    0.11891458183526993
+   ],
+   [
+    0.0005166527116671205,
+    0.028444349765777588,
+    0.1170906824991107
+   ],
+   [
+    0.006500934716314077,
+    0.13594926416873931,
+    0.10978293023072183
+   ],
+   [
+    -0.0008709084358997643,
+    0.24345417857170104,
+    0.10457961214706302
+   ],
+   [
+    0.000986082071904093,
+    0.35095909297466277,
+    0.09235657006502151
+   ],
+   [
+    -0.00028524588560685515,
+    0.4584640073776245,
+    0.08129093889147043
+   ]
+  ],
+  "mouth_cut_edges": 100,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 2959,
+   "unweighted_verts": 0,
+   "groups": 11
+  },
+  "texture": {
+   "path": "work/tex_larva_grade.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "seg_f1",
+   "seg_f2",
+   "seg_f3",
+   "head",
+   "jaw",
+   "seg_b1",
+   "seg_b2",
+   "seg_b3",
+   "seg_b4"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 41,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0023,
+   "worst_frame_vertex": [
+    27,
+    [
+     -0.042,
+     -0.381,
+     -0.002
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "crawl": {
+   "frames": 17,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0027,
+   "worst_frame_vertex": [
+    16,
+    [
+     -0.201,
+     -0.342,
+     -0.003
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 0
+  },
+  "attack_bite": {
+   "frames": 25,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.003,
+   "worst_frame_vertex": [
+    17,
+    [
+     -0.071,
+     -0.622,
+     -0.003
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 30,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.003,
+   "worst_frame_vertex": [
+    27,
+    [
+     0.097,
+     -0.208,
+     0.003
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "Korvan larva summon (beetle_maggot01_maggotsummon, r 0.22 m x 1.1; ControllerMonster, run 3.21 m/s); idle: breathing writhe"
+  },
+  "crawl": {
+   "kind": "loop",
+   "kind_fn": "run",
+   "frames": 16,
+   "speed": 3.21,
+   "src": "travelling-wave crawl at the summon's run speed (no feet: no foot-lock)"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "kind_fn": "lunge",
+   "frames": 25,
+   "contact": 11,
+   "src": "a sucker-maw lunge"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "hold_last": true,
+   "ground_solve": true,
+   "src": "writhe, curl, still"
+  }
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "landmarks": {
+  "H": 0.7340976595878601,
+  "y_snout": -1.3115676641464233,
+  "y_tail": 1.4883599281311035,
+  "z_lip": 0.2898429020860931,
+  "y_hinge": -1.1249009974797568,
+  "centreline": [
+   [
+    0.001193895295727998,
+    -1.2915676641464233,
+    0.326732574365451
+   ],
+   [
+    0.011257697362452745,
+    -0.9465767151117325,
+    0.3277212828397751
+   ],
+   [
+    0.11603089421987534,
+    -0.6015857660770416,
+    0.3562042996054515
+   ],
+   [
+    0.02461322583258152,
+    -0.2565948170423509,
+    0.36995648057200015
+   ],
+   [
+    0.0011068389867432415,
+    0.08839613199234009,
+    0.36481165140867233
+   ],
+   [
+    0.020313646644353867,
+    0.43338708102703105,
+    0.3425419218838215
+   ],
+   [
+    -0.0027093421667814255,
+    0.7783780300617216,
+    0.32516834791749716
+   ],
+   [
+    0.006190250627696514,
+    1.1233689790964125,
+    0.2869170596823096
+   ],
+   [
+    -0.0010062376968562603,
+    1.4683599281311035,
+    0.24277187511324883
+   ]
+  ],
+  "mouth_cut_edges": 194,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 2479,
+   "unweighted_verts": 0,
+   "groups": 11
+  },
+  "texture": {
+   "path": "work/tex_worm_grade.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "seg_f1",
+   "seg_f2",
+   "seg_f3",
+   "head",
+   "jaw",
+   "seg_b1",
+   "seg_b2",
+   "seg_b3",
+   "seg_b4"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 41,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0003,
+   "worst_frame_vertex": [
+    28,
+    [
+     -0.145,
+     -1.201,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "emerge": {
+   "frames": 30,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.0007,
+   "worst_frame_vertex": [
+    26,
+    [
+     0.206,
+     -0.318,
+     0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_bite": {
+   "frames": 25,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0029,
+   "worst_frame_vertex": [
+    9,
+    [
+     0.286,
+     -0.972,
+     -0.003
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 30,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.003,
+   "worst_frame_vertex": [
+    29,
+    [
+     0.288,
+     -0.657,
+     0.003
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "aetherial worm summons (aetherialworm_b01-b04, r 0.52 x 1.2; ControllerStationaryMonster: emerges and stays); idle: breathing writhe"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "kind_fn": "emerge",
+   "frames": 30,
+   "src": "stationary: it rises out of its burrow (replaces crawl; the record never travels)",
+   "ground_solve": true
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "kind_fn": "lunge",
+   "frames": 25,
+   "contact": 11,
+   "src": "a sucker-maw lunge"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "hold_last": true,
+   "ground_solve": true,
+   "src": "writhe, curl, still"
+  }
+ }
+}

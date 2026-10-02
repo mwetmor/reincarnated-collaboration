@@ -1,0 +1,53 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 12,
+   "sampling": "ends",
+   "skill": "the stationary worm rises out of its burrow (it never travels)"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "a sucker-maw lunge"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.1671,
+   "_what": "the sucker maw"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.25
+   ],
+   "_what": "above the maw (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "_what": "the body's middle"
+  }
+ }
+}

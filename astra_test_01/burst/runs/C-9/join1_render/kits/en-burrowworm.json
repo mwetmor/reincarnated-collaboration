@@ -1,0 +1,92 @@
+{
+ "kit": "en-burrowworm",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the burrow worm (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/worm/worm.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-burrowworm_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "emerge": {
+   "clip": "emerge",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 12,
+   "sampling": "ends",
+   "manifest_entry": "clips.emerge",
+   "skill": "the stationary worm rises out of its burrow (it never travels)"
+  },
+  "attack_bite": {
+   "clip": "attack_bite",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_bite",
+   "release_from": "attacks.attack_bite.release_s",
+   "release_socket": "maw",
+   "skill": "a sucker-maw lunge"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.1671,
+   "_what": "the sucker maw"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.25
+   ],
+   "_what": "above the maw (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "_what": "the body's middle"
+  }
+ },
+ "vfx_runtime": {
+  "note": "none: the summon arrives with its owner effects (the larva spawns from the owner; the worm from a burrow puff -- reuse the bloom sprout dust)"
+ },
+ "watchdog_s": 2400,
+ "texture_status": "PROVISIONAL: Tripo projection of the parasite sheet + a grade (no D7 paint pass; the Astra limit) -- a paint pass replaces it without a re-rig",
+ "shared_mesh": "ONE mesh (the parked parasite sheet EN3-PZ a_r1, one Tripo build) at two scales with two grades: en-crawlerlarva 0.9 m, en-burrowworm 2.8 m"
+}

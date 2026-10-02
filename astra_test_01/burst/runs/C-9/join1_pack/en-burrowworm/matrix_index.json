@@ -1,0 +1,9002 @@
+{
+ "schema": "join1-sprite-cells/1",
+ "kit": "en-burrowworm",
+ "pack_version": 1,
+ "supersedes": null,
+ "status": "DRAFT -- rendered and linted by C-9; NOT declared COMPLETE as a pack (the conductor declares after Matt's look and moves it to join1_pack/)",
+ "producer": {
+  "run": "C-9",
+  "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/render_cells.gd",
+  "tool_sha256": "2682e46ed9e418b8c4d539b8bfc3380dc8aa0445e8eb93f6ba6905c8dae3e5e7",
+  "indexer": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/index_cells.py",
+  "indexer_sha256": "2115ceca44e9060484e8c2e1161c80e6229ae84b38eaf529505eda9ebcd7009e",
+  "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-burrowworm.json",
+  "kit_config_sha256": "3086a65aa12ff979e3b5934bceee03ab36e2b68ece646a455a6eb46298fb4d67",
+  "ts": "2026-10-02T10:13:33-0400"
+ },
+ "source": {
+  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/worm/worm.glb",
+  "glb_sha256": "e7c06a184dd966630f15e2931c6ef285210c75357719acdd6dee90c5cdecc422",
+  "pieces": [],
+  "h_model_m": 0.732,
+  "h_model_method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres (every 7th vertex; sole 0.0021, crown 0.7341)",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "clip_manifest": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-burrowworm_clips.json",
+  "sha256": "2cf11b6c28e71c21dc9a7f50d7611cb28f3facbca37206609e96283b84f5754a"
+ },
+ "camera": {
+  "projection": "orthographic",
+  "pitch_deg": 52.9535411256029,
+  "ppm_render": 151.33680669505316,
+  "ppm_multiple_of_gd": 2,
+  "canvas_px": [
+   768,
+   768
+  ],
+  "anchor_px": [
+   384,
+   448
+  ],
+  "ortho_size_m": 5.07477,
+  "frame": "port model: x screen-right, y toward camera, z up; origin = character ground origin",
+  "yaw_deg": 0.0,
+  "character_heading": "theta = 90 - bearing about +Y (the model faces +Z); frame-0 root forward measured per cell"
+ },
+ "image": {
+  "format": "png",
+  "mode": "RGBA",
+  "alpha": "straight",
+  "colorspace": "sRGB",
+  "plate": null,
+  "baked_shadow": false,
+  "baked_vfx": false,
+  "lights": "camera-parented",
+  "lights_detail": "the Barrow's winter sun (paint_stack.gd: 55 deg, screen azimuth 305, (1.0, 0.955, 0.885), energy 0.90, shadow blur 1.7) as a child of the camera, ambient 0.30 white; self-shadowing only (no ground)",
+  "antialias": "none: every alpha is 0 or 255"
+ },
+ "directions": {
+  "order": [
+   "S",
+   "SW",
+   "W",
+   "NW",
+   "N",
+   "NE",
+   "E",
+   "SE"
+  ],
+  "facing_ground_bearing_deg": {
+   "S": 90,
+   "SW": 135,
+   "W": 180,
+   "NW": 225,
+   "N": 270,
+   "NE": 315,
+   "E": 0,
+   "SE": 45
+  }
+ },
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "clip": {
+    "animation": "idle",
+    "duration_s": 1.333333,
+    "manifest_entry": "clips.idle"
+   },
+   "frames": 12,
+   "t_s": [
+    0.0,
+    0.111111,
+    0.222222,
+    0.333333,
+    0.444444,
+    0.555556,
+    0.666667,
+    0.777778,
+    0.888889,
+    1.0,
+    1.111111,
+    1.222222
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": null,
+   "release_s": null,
+   "hold_last": false,
+   "closure_mad": 0.0002,
+   "closure_mad_note": "max over the 8 directions of mean |RGBA(T) - RGBA(0)| over the FIGURE's pixels (either frame opaque), 0-255; render(T) is rendered for this and is not in the pack"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "clip": {
+    "animation": "emerge",
+    "duration_s": 0.966667,
+    "manifest_entry": "clips.emerge"
+   },
+   "frames": 12,
+   "t_s": [
+    0.0,
+    0.087879,
+    0.175758,
+    0.263636,
+    0.351515,
+    0.439394,
+    0.527273,
+    0.615151,
+    0.70303,
+    0.790909,
+    0.878788,
+    0.966667
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": null,
+   "release_s": null,
+   "hold_last": false,
+   "closure_mad": null,
+   "skill": "the stationary worm rises out of its burrow (it never travels)"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "clip": {
+    "animation": "attack_bite",
+    "duration_s": 0.8,
+    "manifest_entry": "attacks.attack_bite"
+   },
+   "frames": 12,
+   "t_s": [
+    0.0,
+    0.07334,
+    0.14668,
+    0.22002,
+    0.29336,
+    0.3667,
+    0.438917,
+    0.511133,
+    0.58335,
+    0.655567,
+    0.727783,
+    0.8
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": 5,
+   "release_s": 0.3667,
+   "hold_last": false,
+   "closure_mad": null,
+   "skill": "a sucker-maw lunge",
+   "release_socket": "maw"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "clip": {
+    "animation": "death",
+    "duration_s": 0.966667,
+    "manifest_entry": "clips.death"
+   },
+   "frames": 16,
+   "t_s": [
+    0.0,
+    0.064444,
+    0.128889,
+    0.193333,
+    0.257778,
+    0.322222,
+    0.386667,
+    0.451111,
+    0.515556,
+    0.58,
+    0.644444,
+    0.708889,
+    0.773333,
+    0.837778,
+    0.902222,
+    0.966667
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": null,
+   "release_s": null,
+   "hold_last": true,
+   "closure_mad": null
+  }
+ },
+ "sockets_def": {
+  "maw": "the sucker maw",
+  "head_top": "above the maw (HUD anchor)",
+  "chest": "the body's middle"
+ },
+ "alpha_union_bbox_convention": "[x0, y0, x1, y1), x1/y1 exclusive -- PIL getchannel('A').getbbox(), as stage_art.py crops",
+ "layers": {
+  "layer_specs": [],
+  "layer_list": null,
+  "layer_list_from": null
+ },
+ "morphs": {},
+ "runtime_resampling": null,
+ "render_passes": null,
+ "cells": {
+  "idle/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_S_00.png",
+     "sha256": "09446fbad8aba15d5ba1dd9646d358edda24d691571ab3b75a0ca601befe3bf1"
+    },
+    {
+     "name": "idle_S_01.png",
+     "sha256": "d064017c7fa5f3c44e820b6fadccc320d347fa739ee3c2a179b434357d749a43"
+    },
+    {
+     "name": "idle_S_02.png",
+     "sha256": "cc13ff93ab691c6678639d4711f01f578ed02992b482b5ced7864b2c06c5e1ed"
+    },
+    {
+     "name": "idle_S_03.png",
+     "sha256": "2d053ed081d8bcab03ab682fe4b2e2470848c99a1fb600ed8b01ae62e126a37b"
+    },
+    {
+     "name": "idle_S_04.png",
+     "sha256": "3cb87e50d77be343feb2961a111fa0a9ac77601cfac4b50158c4468f93771fc6"
+    },
+    {
+     "name": "idle_S_05.png",
+     "sha256": "9b5d83ffa93923dc08a8db599221822e4123d225678dfff0f242ea892cdd9ccf"
+    },
+    {
+     "name": "idle_S_06.png",
+     "sha256": "f240d3e170f7eca71828367d2016ba69210c7c6e080f4a9152f53ee9140e9ce0"
+    },
+    {
+     "name": "idle_S_07.png",
+     "sha256": "dfe75923753415e50520e9979b44d3d8507d81800d889f99d6f64b2fd65b9b2d"
+    },
+    {
+     "name": "idle_S_08.png",
+     "sha256": "e735251e07266c01b53baa4e86737e08c29c55eeb0a8fdd39841d6f845f501e9"
+    },
+    {
+     "name": "idle_S_09.png",
+     "sha256": "846ef14efea5b1f33225b697bb1c019ca23088ffc82bf05f33fdf48aacd8e7c7"
+    },
+    {
+     "name": "idle_S_10.png",
+     "sha256": "c3e322b11c206c133c3057a42b916f63fb8e8f2390cef7b5246380a333c4f78c"
+    },
+    {
+     "name": "idle_S_11.png",
+     "sha256": "e2ad3badc1cc3898cbc9280d8ecbf078e9da5e09a823c0a0122387dbdb41957f"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "439b5ccb32777878f4ca2e22300aa91291ef9d03aecb101aa84300a3fd19db44",
+   "alpha_union_bbox": [
+    307,
+    245,
+    461,
+    606
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 91.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.10934,
+      1.26602,
+      0.25473
+     ],
+     [
+      -0.11492,
+      1.27216,
+      0.27254
+     ],
+     [
+      -0.08986,
+      1.27936,
+      0.28581
+     ],
+     [
+      -0.04061,
+      1.28441,
+      0.29096
+     ],
+     [
+      0.01981,
+      1.28451,
+      0.28635
+     ],
+     [
+      0.07464,
+      1.27934,
+      0.27298
+     ],
+     [
+      0.10861,
+      1.26312,
+      0.24153
+     ],
+     [
+      0.11419,
+      1.22795,
+      0.22147
+     ],
+     [
+      0.09161,
+      1.24649,
+      0.22928
+     ],
+     [
+      0.04093,
+      1.25999,
+      0.21806
+     ],
+     [
+      -0.01923,
+      1.2615,
+      0.22481
+     ],
+     [
+      -0.07399,
+      1.26266,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      -0.10853,
+      1.26239,
+      0.62998
+     ],
+     [
+      -0.11171,
+      1.25823,
+      0.64753
+     ],
+     [
+      -0.08532,
+      1.25996,
+      0.66055
+     ],
+     [
+      -0.03562,
+      1.26581,
+      0.66574
+     ],
+     [
+      0.0248,
+      1.273,
+      0.66141
+     ],
+     [
+      0.07933,
+      1.27961,
+      0.6488
+     ],
+     [
+      0.11319,
+      1.28529,
+      0.63106
+     ],
+     [
+      0.11472,
+      1.27604,
+      0.64878
+     ],
+     [
+      0.08714,
+      1.27838,
+      0.63558
+     ],
+     [
+      0.03705,
+      1.28921,
+      0.59469
+     ],
+     [
+      -0.02304,
+      1.28178,
+      0.59954
+     ],
+     [
+      -0.07597,
+      1.27153,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_SW_00.png",
+     "sha256": "709ae913f9dd4099d9f7dd2983b8621c928b239ff8727ff6a697c52c3922c51f"
+    },
+    {
+     "name": "idle_SW_01.png",
+     "sha256": "624523e5c5dca35cb0ed4caafe94beb5d30614b647288a67b78723ba2a1d4dee"
+    },
+    {
+     "name": "idle_SW_02.png",
+     "sha256": "a81f78a1e70c0aea54111ff5a1cca32fd49cb12c56b8bd23e29b4745927a90a9"
+    },
+    {
+     "name": "idle_SW_03.png",
+     "sha256": "4f4a08625470e75812262586c0343f049e4812e9c00ebab20fe005f44ed2cc95"
+    },
+    {
+     "name": "idle_SW_04.png",
+     "sha256": "5fd23ca5a44d69ffaee2dd4ae27b73447f2b4681839d5066dfe759e8abc23a99"
+    },
+    {
+     "name": "idle_SW_05.png",
+     "sha256": "17acc61738fc51dd9ff16b24b24e83e63468c3cf5220b12cdc721f5c09968a18"
+    },
+    {
+     "name": "idle_SW_06.png",
+     "sha256": "d6313989d0d2473720ced609c3d81bfca16691f0de9938eb5eaa195acfb2c6b1"
+    },
+    {
+     "name": "idle_SW_07.png",
+     "sha256": "1648c999eb07e777f78404a86cadc377e9a2f77f5eb0327d654d79ebb662210f"
+    },
+    {
+     "name": "idle_SW_08.png",
+     "sha256": "4fa02a84234234d6d55030fca7de417310203680d4acdf4b20162e2d08d0d2e1"
+    },
+    {
+     "name": "idle_SW_09.png",
+     "sha256": "4135c78af281ceba2a4582c7fcddaa7c909e7be58bc37967645a8ceb6308a1bc"
+    },
+    {
+     "name": "idle_SW_10.png",
+     "sha256": "ff317824ec3d367149bb6090e554cd3fd2152766c01175a33e5e2d65653da4c4"
+    },
+    {
+     "name": "idle_SW_11.png",
+     "sha256": "120a569f2ceac62e142ce0da0c87810c1d79055e2fc86edb7b91ef4b211a32e3"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "955f2fd3524ae670686d4d50929170d13303563d785cf328e34c485fbbe2d38c",
+   "alpha_union_bbox": [
+    191,
+    283,
+    560,
+    581
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 136.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.97252,
+      0.8179,
+      0.25473
+     ],
+     [
+      -0.98082,
+      0.81829,
+      0.27254
+     ],
+     [
+      -0.96819,
+      0.8411,
+      0.28581
+     ],
+     [
+      -0.93693,
+      0.8795,
+      0.29096
+     ],
+     [
+      -0.89428,
+      0.9223,
+      0.28635
+     ],
+     [
+      -0.85186,
+      0.95741,
+      0.27298
+     ],
+     [
+      -0.81637,
+      0.96996,
+      0.24153
+     ],
+     [
+      -0.78755,
+      0.94904,
+      0.22147
+     ],
+     [
+      -0.81662,
+      0.94618,
+      0.22928
+     ],
+     [
+      -0.86201,
+      0.91989,
+      0.21806
+     ],
+     [
+      -0.90561,
+      0.87842,
+      0.22481
+     ],
+     [
+      -0.94515,
+      0.84052,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      -0.96939,
+      0.8159,
+      0.62998
+     ],
+     [
+      -0.96869,
+      0.81071,
+      0.64753
+     ],
+     [
+      -0.95126,
+      0.8306,
+      0.66055
+     ],
+     [
+      -0.92025,
+      0.86988,
+      0.66574
+     ],
+     [
+      -0.88261,
+      0.91769,
+      0.66141
+     ],
+     [
+      -0.84872,
+      0.96091,
+      0.6488
+     ],
+     [
+      -0.8288,
+      0.98888,
+      0.63106
+     ],
+     [
+      -0.82117,
+      0.98341,
+      0.64878
+     ],
+     [
+      -0.84233,
+      0.96557,
+      0.63558
+     ],
+     [
+      -0.88541,
+      0.93781,
+      0.59469
+     ],
+     [
+      -0.92265,
+      0.89007,
+      0.59954
+     ],
+     [
+      -0.95283,
+      0.84539,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_W_00.png",
+     "sha256": "be443956e78f50e1a20642db2972946af35fc094caccd89b513956a9aca49206"
+    },
+    {
+     "name": "idle_W_01.png",
+     "sha256": "2d288c66a99ff8ae8e1d9e7a9e169a1275070f7ce29b7e86275eb189e943532f"
+    },
+    {
+     "name": "idle_W_02.png",
+     "sha256": "a390977c6659eb7da0430fa7cbb7464f658a60be29c88b7a99e16a663fe7dcbd"
+    },
+    {
+     "name": "idle_W_03.png",
+     "sha256": "73e97dc0f7c7a6f7b0047714230c7832b7ff8f417405e677732465f402fb8a0b"
+    },
+    {
+     "name": "idle_W_04.png",
+     "sha256": "fdbef163233b7764bc16398d741ee5b1404ae3470d10e4c371bc7fdb1d4de0d8"
+    },
+    {
+     "name": "idle_W_05.png",
+     "sha256": "aff09be9125260adef695123d5ec37e5e16baf8856c4cc6cf10f16179eb853d6"
+    },
+    {
+     "name": "idle_W_06.png",
+     "sha256": "160adfc10c6527dac7f2937dc583ff01cee646075c033b5cd3dcdfc5ebeb82f2"
+    },
+    {
+     "name": "idle_W_07.png",
+     "sha256": "67579c287e496924829625655e5b3f89502228d9de410c87c93eb737d05a9a0d"
+    },
+    {
+     "name": "idle_W_08.png",
+     "sha256": "efdc378b377cf22ff96f67708141bfb516b21b62fa86c6400b11847073844014"
+    },
+    {
+     "name": "idle_W_09.png",
+     "sha256": "b1838fa027c0673a602bc9ba67144ff80a02156190e07beec688959288e69bfe"
+    },
+    {
+     "name": "idle_W_10.png",
+     "sha256": "d652378eb6aa891d8556d4baa9af4dc7554074e5d593adf893a00d54ce9ec17e"
+    },
+    {
+     "name": "idle_W_11.png",
+     "sha256": "9c368a68c921c7196138cd2c781d2e0fe9a2b27a99bbdc6478d9aec370ec264a"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "32b6b3df17eb23230cf71785b6b025a1c4445317cde3d5ba789fded92c353334",
+   "alpha_union_bbox": [
+    175,
+    341,
+    609,
+    490
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 181.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -1.26602,
+      -0.10934,
+      0.25473
+     ],
+     [
+      -1.27216,
+      -0.11492,
+      0.27254
+     ],
+     [
+      -1.27936,
+      -0.08986,
+      0.28581
+     ],
+     [
+      -1.28441,
+      -0.04061,
+      0.29096
+     ],
+     [
+      -1.28451,
+      0.01981,
+      0.28635
+     ],
+     [
+      -1.27934,
+      0.07464,
+      0.27298
+     ],
+     [
+      -1.26312,
+      0.10861,
+      0.24153
+     ],
+     [
+      -1.22795,
+      0.11419,
+      0.22147
+     ],
+     [
+      -1.24649,
+      0.09161,
+      0.22928
+     ],
+     [
+      -1.25999,
+      0.04093,
+      0.21806
+     ],
+     [
+      -1.2615,
+      -0.01923,
+      0.22481
+     ],
+     [
+      -1.26266,
+      -0.07399,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      -1.26239,
+      -0.10853,
+      0.62998
+     ],
+     [
+      -1.25823,
+      -0.11171,
+      0.64753
+     ],
+     [
+      -1.25996,
+      -0.08532,
+      0.66055
+     ],
+     [
+      -1.26581,
+      -0.03562,
+      0.66574
+     ],
+     [
+      -1.273,
+      0.0248,
+      0.66141
+     ],
+     [
+      -1.27961,
+      0.07933,
+      0.6488
+     ],
+     [
+      -1.28529,
+      0.11319,
+      0.63106
+     ],
+     [
+      -1.27604,
+      0.11472,
+      0.64878
+     ],
+     [
+      -1.27838,
+      0.08714,
+      0.63558
+     ],
+     [
+      -1.28921,
+      0.03705,
+      0.59469
+     ],
+     [
+      -1.28178,
+      -0.02304,
+      0.59954
+     ],
+     [
+      -1.27153,
+      -0.07597,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_NW_00.png",
+     "sha256": "74c7a9468e0ac01208ec00f3224555a24ba5b9dd102646222b9c800c18353809"
+    },
+    {
+     "name": "idle_NW_01.png",
+     "sha256": "5a968bef40fcf5d9fff2e6d898cf4b0f112ed6679ac7b6d27b3f656369bfd7ed"
+    },
+    {
+     "name": "idle_NW_02.png",
+     "sha256": "4016cedebce5c535f146daaa8bb0633fb080893dbbe39b4b7becae59eedfbca2"
+    },
+    {
+     "name": "idle_NW_03.png",
+     "sha256": "e8e500afb6cd58b15e4f08d4bf38b3c00e718b97cdbccd273d2fd6a5de8402f2"
+    },
+    {
+     "name": "idle_NW_04.png",
+     "sha256": "d588066e1f975bb7ac1ddd638bee072342bc8e483c357e38e586c36c2eb6bc38"
+    },
+    {
+     "name": "idle_NW_05.png",
+     "sha256": "9d8c91b3cc464a6e2fb0a2709aa250a9f48f6a3aecf06b54eb35a3479d9d769f"
+    },
+    {
+     "name": "idle_NW_06.png",
+     "sha256": "fa0c532cfc2c5b11407ed4da5f33ef6b795e44e033322f9c8a37ea21f6c7035d"
+    },
+    {
+     "name": "idle_NW_07.png",
+     "sha256": "16ba88b8582184a88519826a7c09e01425574c5ae3d054c2092ad57c5e7c0d1b"
+    },
+    {
+     "name": "idle_NW_08.png",
+     "sha256": "e4f938ec70d28c0cd1899783ae3adcc7d67622da4560a2cca7cca5bac73124b6"
+    },
+    {
+     "name": "idle_NW_09.png",
+     "sha256": "6093757d9f802c0898904810577ac3b3c05baecf4aa2ae4f8a0b62132f6739fb"
+    },
+    {
+     "name": "idle_NW_10.png",
+     "sha256": "36a274c0e603cb0fbfe0c8d475728a8522570c963920c4522c6ff79c3f71ddfe"
+    },
+    {
+     "name": "idle_NW_11.png",
+     "sha256": "4d548ed8c6447f8f7499aae0bd1068a61f273ced3aedb791b89978c0f48aa554"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "23c287fd83b2bb74750e54612171177f82d12dc0e933d74c2ec5e7c65cb665e4",
+   "alpha_union_bbox": [
+    193,
+    248,
+    560,
+    572
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 226.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.8179,
+      -0.97252,
+      0.25473
+     ],
+     [
+      -0.81829,
+      -0.98082,
+      0.27254
+     ],
+     [
+      -0.8411,
+      -0.96819,
+      0.28581
+     ],
+     [
+      -0.8795,
+      -0.93693,
+      0.29096
+     ],
+     [
+      -0.9223,
+      -0.89428,
+      0.28635
+     ],
+     [
+      -0.95741,
+      -0.85186,
+      0.27298
+     ],
+     [
+      -0.96996,
+      -0.81637,
+      0.24153
+     ],
+     [
+      -0.94904,
+      -0.78755,
+      0.22147
+     ],
+     [
+      -0.94618,
+      -0.81662,
+      0.22928
+     ],
+     [
+      -0.91989,
+      -0.86201,
+      0.21806
+     ],
+     [
+      -0.87842,
+      -0.90561,
+      0.22481
+     ],
+     [
+      -0.84052,
+      -0.94515,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      -0.8159,
+      -0.96939,
+      0.62998
+     ],
+     [
+      -0.81071,
+      -0.96869,
+      0.64753
+     ],
+     [
+      -0.8306,
+      -0.95126,
+      0.66055
+     ],
+     [
+      -0.86988,
+      -0.92025,
+      0.66574
+     ],
+     [
+      -0.91769,
+      -0.88261,
+      0.66141
+     ],
+     [
+      -0.96091,
+      -0.84872,
+      0.6488
+     ],
+     [
+      -0.98888,
+      -0.8288,
+      0.63106
+     ],
+     [
+      -0.98341,
+      -0.82117,
+      0.64878
+     ],
+     [
+      -0.96557,
+      -0.84233,
+      0.63558
+     ],
+     [
+      -0.93781,
+      -0.88541,
+      0.59469
+     ],
+     [
+      -0.89007,
+      -0.92265,
+      0.59954
+     ],
+     [
+      -0.84539,
+      -0.95283,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_N_00.png",
+     "sha256": "9e1ce9aeab25fd6f61ef88f56b0584ddf693d9c8e52b550323be298d4cbb5db3"
+    },
+    {
+     "name": "idle_N_01.png",
+     "sha256": "ac5c5f35412879e2a38b0423750f5d4b065daaa8ff58cacc3b407a70c115714c"
+    },
+    {
+     "name": "idle_N_02.png",
+     "sha256": "72643d4a52639e505197de0ede76d3a845ceeee62d7733401c43882df64d45dc"
+    },
+    {
+     "name": "idle_N_03.png",
+     "sha256": "0e1519537c7b80daeaab824c393fb6d0e746b6dadd2755c4168760be258adc1d"
+    },
+    {
+     "name": "idle_N_04.png",
+     "sha256": "d52636f8511cdabf2207c8bcf20975de29afd77519f67aef198ed37c7a54ef2e"
+    },
+    {
+     "name": "idle_N_05.png",
+     "sha256": "9d232a8878ef770d187a011c0be33a60146e28491cd358379fd4a171105438fb"
+    },
+    {
+     "name": "idle_N_06.png",
+     "sha256": "ad57adc725d9cbd6b299a2680b10449bdd98c84d60b7153181d45fe52a291d1d"
+    },
+    {
+     "name": "idle_N_07.png",
+     "sha256": "f69778397dfba65742b45f10c4831516108101a82c2baadb1115bd71f06a2148"
+    },
+    {
+     "name": "idle_N_08.png",
+     "sha256": "72db39b56dc2584acdb76e20d85a9a5888b8afc15e958f52720483cb257b0fcb"
+    },
+    {
+     "name": "idle_N_09.png",
+     "sha256": "1f4c67666a9227fbf53f80ff91c543c87b0ba883e7670da7652398ced3dd4852"
+    },
+    {
+     "name": "idle_N_10.png",
+     "sha256": "eeb273b94f516f4aafa1b2a8598a0cee16cfa73e4e92851256137b9ab3a40e41"
+    },
+    {
+     "name": "idle_N_11.png",
+     "sha256": "6fff96d7ef01fde9e5574e33144288c14756a2c045c2f1d1f2f0ffca2dd5b338"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "1b24a4e7b6ab534884df34460f1a9d59e360d8cd85632f43b4c8d5a0b64a5fd9",
+   "alpha_union_bbox": [
+    307,
+    229,
+    461,
+    611
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 271.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.10934,
+      -1.26602,
+      0.25473
+     ],
+     [
+      0.11492,
+      -1.27216,
+      0.27254
+     ],
+     [
+      0.08986,
+      -1.27936,
+      0.28581
+     ],
+     [
+      0.04061,
+      -1.28441,
+      0.29096
+     ],
+     [
+      -0.01981,
+      -1.28451,
+      0.28635
+     ],
+     [
+      -0.07464,
+      -1.27934,
+      0.27298
+     ],
+     [
+      -0.10861,
+      -1.26312,
+      0.24153
+     ],
+     [
+      -0.11419,
+      -1.22795,
+      0.22147
+     ],
+     [
+      -0.09161,
+      -1.24649,
+      0.22928
+     ],
+     [
+      -0.04093,
+      -1.25999,
+      0.21806
+     ],
+     [
+      0.01923,
+      -1.2615,
+      0.22481
+     ],
+     [
+      0.07399,
+      -1.26266,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      0.10853,
+      -1.26239,
+      0.62998
+     ],
+     [
+      0.11171,
+      -1.25823,
+      0.64753
+     ],
+     [
+      0.08532,
+      -1.25996,
+      0.66055
+     ],
+     [
+      0.03562,
+      -1.26581,
+      0.66574
+     ],
+     [
+      -0.0248,
+      -1.273,
+      0.66141
+     ],
+     [
+      -0.07933,
+      -1.27961,
+      0.6488
+     ],
+     [
+      -0.11319,
+      -1.28529,
+      0.63106
+     ],
+     [
+      -0.11472,
+      -1.27604,
+      0.64878
+     ],
+     [
+      -0.08714,
+      -1.27838,
+      0.63558
+     ],
+     [
+      -0.03705,
+      -1.28921,
+      0.59469
+     ],
+     [
+      0.02304,
+      -1.28178,
+      0.59954
+     ],
+     [
+      0.07597,
+      -1.27153,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_NE_00.png",
+     "sha256": "949c96c7e2b7dc3ef0d86a5c6ba119bd75a95de0b4e32aef6dcd09b4110ebe38"
+    },
+    {
+     "name": "idle_NE_01.png",
+     "sha256": "0817b66523363706cee170ceaf7afe169236e5b01584bc79110a8733281c1dc1"
+    },
+    {
+     "name": "idle_NE_02.png",
+     "sha256": "14234c5a493d41e559c331912c6858a982a5b36c094084430712969f10d28277"
+    },
+    {
+     "name": "idle_NE_03.png",
+     "sha256": "8ded1c09303f506c150d99f949e8ec62180bdcc0b38b8964178c5714bca70730"
+    },
+    {
+     "name": "idle_NE_04.png",
+     "sha256": "903d6c308e005388f3eda81b5ed80a11c244ec050356f410c9ba5224160cc855"
+    },
+    {
+     "name": "idle_NE_05.png",
+     "sha256": "cd562a1df3a491817ede35ff63e80329f443807fce791231cd9c740cfd2a0aa3"
+    },
+    {
+     "name": "idle_NE_06.png",
+     "sha256": "2b8b69148b67a773de4113b7e199129be269933d944048e123ca5562cd07bd9f"
+    },
+    {
+     "name": "idle_NE_07.png",
+     "sha256": "5875ffe5e9dee07f7790a2c524a74a7f4d1b498964de7e1c689ae582db73f653"
+    },
+    {
+     "name": "idle_NE_08.png",
+     "sha256": "fd6bd9dac1716c6d677bd537d9e7ad0caf43b3f5ac217cdfa6f2a25aa4d84aeb"
+    },
+    {
+     "name": "idle_NE_09.png",
+     "sha256": "fb6f38a502be117a315b535720ccb795f4349f9ca181d51484a45f4f6a27f8f1"
+    },
+    {
+     "name": "idle_NE_10.png",
+     "sha256": "1b88995cf5d51fd2dffd0ea3b6fab0ce29ab378c16fe7e37dcc4b45947c66591"
+    },
+    {
+     "name": "idle_NE_11.png",
+     "sha256": "1bec514d55931503ccd45233689b4f74547320e5c6012c869ba4e465a78b15a0"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "c969d53ea0dbd7adc744ca5bf5dddfd6e0821c7efd0dd7000ff2d84cce8f6d1a",
+   "alpha_union_bbox": [
+    208,
+    248,
+    577,
+    572
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 316.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.97252,
+      -0.8179,
+      0.25473
+     ],
+     [
+      0.98082,
+      -0.81829,
+      0.27254
+     ],
+     [
+      0.96819,
+      -0.8411,
+      0.28581
+     ],
+     [
+      0.93693,
+      -0.8795,
+      0.29096
+     ],
+     [
+      0.89428,
+      -0.9223,
+      0.28635
+     ],
+     [
+      0.85186,
+      -0.95741,
+      0.27298
+     ],
+     [
+      0.81637,
+      -0.96996,
+      0.24153
+     ],
+     [
+      0.78755,
+      -0.94904,
+      0.22147
+     ],
+     [
+      0.81662,
+      -0.94618,
+      0.22928
+     ],
+     [
+      0.862,
+      -0.91989,
+      0.21806
+     ],
+     [
+      0.90561,
+      -0.87842,
+      0.22481
+     ],
+     [
+      0.94515,
+      -0.84052,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      0.96939,
+      -0.8159,
+      0.62998
+     ],
+     [
+      0.96869,
+      -0.81071,
+      0.64753
+     ],
+     [
+      0.95126,
+      -0.8306,
+      0.66055
+     ],
+     [
+      0.92025,
+      -0.86988,
+      0.66574
+     ],
+     [
+      0.88261,
+      -0.91769,
+      0.66141
+     ],
+     [
+      0.84872,
+      -0.96091,
+      0.6488
+     ],
+     [
+      0.8288,
+      -0.98888,
+      0.63106
+     ],
+     [
+      0.82117,
+      -0.98341,
+      0.64878
+     ],
+     [
+      0.84233,
+      -0.96557,
+      0.63558
+     ],
+     [
+      0.88541,
+      -0.93781,
+      0.59469
+     ],
+     [
+      0.92265,
+      -0.89007,
+      0.59954
+     ],
+     [
+      0.95283,
+      -0.84539,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_E_00.png",
+     "sha256": "a1842712d6c7fcd2542a543a3ffa32c62e5c77968242a65dc996cd2e148d385f"
+    },
+    {
+     "name": "idle_E_01.png",
+     "sha256": "991cb88a8b83a947c56bc1d78830bc7bf1cf7d9c205247789dd4eeb73ea2977e"
+    },
+    {
+     "name": "idle_E_02.png",
+     "sha256": "a18971b65dafd9599a1078a7307d93e1e1dccbac1b88b2995c4947e09817a406"
+    },
+    {
+     "name": "idle_E_03.png",
+     "sha256": "c9f22ca5e932abb743f03c316eaedb36fbcb83b738f3ddefc0357f5b853d1729"
+    },
+    {
+     "name": "idle_E_04.png",
+     "sha256": "6282498f49eceb4e6c92e27a2140860b6f7f05e434a1491be7eb7d25afd40a14"
+    },
+    {
+     "name": "idle_E_05.png",
+     "sha256": "5eceaa631f66148c37854f5cf262eb9946586401395093fd3c2867b2f53d2cbe"
+    },
+    {
+     "name": "idle_E_06.png",
+     "sha256": "c267bc7e64c437f171abd1348ce8cfb48014999171877753cc723083af4a2324"
+    },
+    {
+     "name": "idle_E_07.png",
+     "sha256": "2ca32b0810d20e6348842b004a134c95c51f63bc82eeaa00265c0bc98641bdde"
+    },
+    {
+     "name": "idle_E_08.png",
+     "sha256": "e3e221397140636adf4bfcfe93fcabe756ca55aa5b18156e8bc4a60a1fce19f3"
+    },
+    {
+     "name": "idle_E_09.png",
+     "sha256": "a9b7ebdd7a4101d7246858b531e2ad502ebd4dbf484ed95328e638c24bd4611c"
+    },
+    {
+     "name": "idle_E_10.png",
+     "sha256": "5ad80e722d9a3f038086cc9af8033174a847a6966351bfdafc14724edf3392f8"
+    },
+    {
+     "name": "idle_E_11.png",
+     "sha256": "cc9c4b9288f4442045e184b8fa779be04588ded314ba97a611b360b37b5323d1"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "f9fbaed36d74c129a2945ab9bd20778717dc0f5f595b9dc67192d3dd095a1ec3",
+   "alpha_union_bbox": [
+    159,
+    341,
+    593,
+    490
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 1.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      1.26602,
+      0.10934,
+      0.25473
+     ],
+     [
+      1.27216,
+      0.11492,
+      0.27254
+     ],
+     [
+      1.27936,
+      0.08986,
+      0.28581
+     ],
+     [
+      1.28441,
+      0.04061,
+      0.29096
+     ],
+     [
+      1.28451,
+      -0.01981,
+      0.28635
+     ],
+     [
+      1.27934,
+      -0.07464,
+      0.27298
+     ],
+     [
+      1.26312,
+      -0.10861,
+      0.24153
+     ],
+     [
+      1.22795,
+      -0.11419,
+      0.22147
+     ],
+     [
+      1.24649,
+      -0.09161,
+      0.22928
+     ],
+     [
+      1.25999,
+      -0.04093,
+      0.21806
+     ],
+     [
+      1.2615,
+      0.01923,
+      0.22481
+     ],
+     [
+      1.26266,
+      0.07399,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      1.26239,
+      0.10853,
+      0.62998
+     ],
+     [
+      1.25823,
+      0.11171,
+      0.64753
+     ],
+     [
+      1.25996,
+      0.08532,
+      0.66055
+     ],
+     [
+      1.26581,
+      0.03562,
+      0.66574
+     ],
+     [
+      1.273,
+      -0.0248,
+      0.66141
+     ],
+     [
+      1.27961,
+      -0.07933,
+      0.6488
+     ],
+     [
+      1.28529,
+      -0.11319,
+      0.63106
+     ],
+     [
+      1.27604,
+      -0.11472,
+      0.64878
+     ],
+     [
+      1.27838,
+      -0.08714,
+      0.63558
+     ],
+     [
+      1.28921,
+      -0.03705,
+      0.59469
+     ],
+     [
+      1.28178,
+      0.02304,
+      0.59954
+     ],
+     [
+      1.27153,
+      0.07597,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "idle/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "idle_SE_00.png",
+     "sha256": "2e9d2b368710f3ff4f359528f67a59840377d49a3a90f90835302079eea6c8f7"
+    },
+    {
+     "name": "idle_SE_01.png",
+     "sha256": "d421885f4a03032594e10d7a409397cd3f66f10cf589249d4fb74e336cc2973a"
+    },
+    {
+     "name": "idle_SE_02.png",
+     "sha256": "bb5a331dd6d28f5ee43c8ed450da46a6c0b530f5e29cd2726a1621b543dca349"
+    },
+    {
+     "name": "idle_SE_03.png",
+     "sha256": "c2e98a5d6251a9eb9295b3a63c17c41bd262a6810a00e68db5fea015518246b5"
+    },
+    {
+     "name": "idle_SE_04.png",
+     "sha256": "5a252b1bde27080332e8ddc13cdf3f68f7b0e2a19e04e9be4d49dd945b462f6b"
+    },
+    {
+     "name": "idle_SE_05.png",
+     "sha256": "fbdd7fe67d4d6bcd5d84191dcb76215377e345930be07f6fb296ca91e3cbec52"
+    },
+    {
+     "name": "idle_SE_06.png",
+     "sha256": "2224f4a4931cd807df10d3b64a552f64635fea9982b279c823f0a4382a701ca7"
+    },
+    {
+     "name": "idle_SE_07.png",
+     "sha256": "b4c47b7d95deeb77f2e82cd694434827942ab1c6f0e0304e21a75390a3606322"
+    },
+    {
+     "name": "idle_SE_08.png",
+     "sha256": "68b8f5ad75afb935be1f922411bfd29abbe89f14eeb8632b062d78ce3cbd3e1e"
+    },
+    {
+     "name": "idle_SE_09.png",
+     "sha256": "9a5bd737011140bee0ea7372dfe9e35ce91681fda7c25578734ab977c66ea0f7"
+    },
+    {
+     "name": "idle_SE_10.png",
+     "sha256": "80ee5600ee6c2e78287f7d9f1bad8e8f559fb6ffded496f8135d94226f5ca6aa"
+    },
+    {
+     "name": "idle_SE_11.png",
+     "sha256": "59f0087f757200d12bfd95054aec6ab7f126e9b485ff713d34ca021454b6e4e7"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "e19f900dae572a3c50d09352c03a7fcc7237f390cee3655beac63f01280ae6b7",
+   "alpha_union_bbox": [
+    208,
+    283,
+    575,
+    582
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 46.282,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.8179,
+      0.97252,
+      0.25473
+     ],
+     [
+      0.81829,
+      0.98082,
+      0.27254
+     ],
+     [
+      0.8411,
+      0.96819,
+      0.28581
+     ],
+     [
+      0.8795,
+      0.93693,
+      0.29096
+     ],
+     [
+      0.9223,
+      0.89428,
+      0.28635
+     ],
+     [
+      0.95741,
+      0.85186,
+      0.27298
+     ],
+     [
+      0.96996,
+      0.81637,
+      0.24153
+     ],
+     [
+      0.94904,
+      0.78755,
+      0.22147
+     ],
+     [
+      0.94618,
+      0.81662,
+      0.22928
+     ],
+     [
+      0.91989,
+      0.86201,
+      0.21806
+     ],
+     [
+      0.87842,
+      0.90561,
+      0.22481
+     ],
+     [
+      0.84052,
+      0.94515,
+      0.23729
+     ]
+    ],
+    "head_top": [
+     [
+      0.8159,
+      0.96939,
+      0.62998
+     ],
+     [
+      0.81071,
+      0.96869,
+      0.64753
+     ],
+     [
+      0.8306,
+      0.95126,
+      0.66055
+     ],
+     [
+      0.86988,
+      0.92025,
+      0.66574
+     ],
+     [
+      0.91769,
+      0.88261,
+      0.66141
+     ],
+     [
+      0.96091,
+      0.84872,
+      0.6488
+     ],
+     [
+      0.98888,
+      0.8288,
+      0.63106
+     ],
+     [
+      0.98341,
+      0.82117,
+      0.64878
+     ],
+     [
+      0.96557,
+      0.84233,
+      0.63558
+     ],
+     [
+      0.93781,
+      0.88541,
+      0.59469
+     ],
+     [
+      0.89007,
+      0.92265,
+      0.59954
+     ],
+     [
+      0.84539,
+      0.95283,
+      0.61245
+     ]
+    ],
+    "chest": [
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_S_00.png",
+     "sha256": "892cdac03e7436be33e0c67b29bc29676fda8bc95a9e5c420b98cdd35d463827"
+    },
+    {
+     "name": "emerge_S_01.png",
+     "sha256": "c3488b768a78c07160f98c4bdc5dd8657345b6d20f440485234e908643398340"
+    },
+    {
+     "name": "emerge_S_02.png",
+     "sha256": "b41cb7c9720e321912d247cae28ba60f1ccea7ece8f99842a0f8951571ff5a62"
+    },
+    {
+     "name": "emerge_S_03.png",
+     "sha256": "b306a1e92fb689a17e1192e2f5faae4584ac00de4129e951a19e29f359959bcd"
+    },
+    {
+     "name": "emerge_S_04.png",
+     "sha256": "a3a028392e8ee89f5064756d7da3745adcb9380d778738cc5d097f62c23f8efc"
+    },
+    {
+     "name": "emerge_S_05.png",
+     "sha256": "a6bc0eff7b8a82ce794e8113b0d663f7e476ae21efdac40dfe2e8baf14f17cf1"
+    },
+    {
+     "name": "emerge_S_06.png",
+     "sha256": "3659508856bb5bf0ead24fb92db3e52d97b36e685ff7798ff868dab3f8a1f3c2"
+    },
+    {
+     "name": "emerge_S_07.png",
+     "sha256": "cb7e53014a6db4ea3b9151411559639b698bce20adde0c69a0146d4f83223816"
+    },
+    {
+     "name": "emerge_S_08.png",
+     "sha256": "7aba653926e0114e73c6ba0189ab23c99573ab668edf4e67da64d675319106f5"
+    },
+    {
+     "name": "emerge_S_09.png",
+     "sha256": "183ed3178b37e21f0af7b6157fbfdcfa6d6066f100fd032540a74b85b020e968"
+    },
+    {
+     "name": "emerge_S_10.png",
+     "sha256": "142b1738dd2b575189be3af4f7d3d177ab09c4b98edc941a6afb690dcc816219"
+    },
+    {
+     "name": "emerge_S_11.png",
+     "sha256": "b1eff27be9ee0fd1b0084cffcb3f37554ed96c5752d2e524f1be399ff8c762aa"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "4e411755147124105f48965b4488f086a0a8fcc865e8e7ff130c9fbac0a71596",
+   "alpha_union_bbox": [
+    303,
+    237,
+    460,
+    604
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 91.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.02495,
+      0.08242,
+      0.48775
+     ],
+     [
+      -0.02305,
+      0.13589,
+      0.5108
+     ],
+     [
+      -0.01967,
+      0.27574,
+      0.56243
+     ],
+     [
+      -0.00072,
+      0.48188,
+      0.6185
+     ],
+     [
+      0.0434,
+      0.72441,
+      0.65721
+     ],
+     [
+      0.10211,
+      0.96511,
+      0.66788
+     ],
+     [
+      0.14331,
+      1.16556,
+      0.65522
+     ],
+     [
+      -0.05101,
+      -0.23387,
+      0.87955
+     ],
+     [
+      -0.03896,
+      -0.22772,
+      0.90873
+     ],
+     [
+      -0.02271,
+      -0.13306,
+      1.06312
+     ],
+     [
+      -0.08713,
+      1.22228,
+      0.22145
+     ],
+     [
+      -0.14494,
+      1.25531,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      0.02762,
+      -0.27718,
+      0.49007
+     ],
+     [
+      0.02083,
+      -0.22291,
+      0.53234
+     ],
+     [
+      0.00363,
+      -0.07617,
+      0.63276
+     ],
+     [
+      -0.00185,
+      0.15043,
+      0.75446
+     ],
+     [
+      0.02327,
+      0.42928,
+      0.86183
+     ],
+     [
+      0.07387,
+      0.71645,
+      0.93227
+     ],
+     [
+      0.11695,
+      0.96203,
+      0.96284
+     ],
+     [
+      -0.01185,
+      -0.06292,
+      0.54901
+     ],
+     [
+      0.00959,
+      -0.07086,
+      0.56981
+     ],
+     [
+      0.0268,
+      -0.07701,
+      0.62231
+     ],
+     [
+      -0.09469,
+      1.261,
+      0.66387
+     ],
+     [
+      -0.14505,
+      1.26152,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.37711
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.38372
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.38044
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_SW_00.png",
+     "sha256": "f976448a1a76222cf35a66bb45b35951acfad17517bebb047db5fb6d45243fd2"
+    },
+    {
+     "name": "emerge_SW_01.png",
+     "sha256": "2afa2b05a60818441e33b68a8cfdeb349b946406fb98ac386857ee8d1a8dd4de"
+    },
+    {
+     "name": "emerge_SW_02.png",
+     "sha256": "431e69f0a6565ca06687399240a1a86743fcd2dd72cb47d7575a6f80cfd354c6"
+    },
+    {
+     "name": "emerge_SW_03.png",
+     "sha256": "42d5f04e9c20e82c6941ab6c98eb639d36564b72b2e7e56987a1c818cbc1bd96"
+    },
+    {
+     "name": "emerge_SW_04.png",
+     "sha256": "802bc0a85d221cc10bc7eba8c935d37c05b704f894a92542c96fa67428dbd0c0"
+    },
+    {
+     "name": "emerge_SW_05.png",
+     "sha256": "17f47f75a303a9cc88932be441bc515c5b789ddc801fafbad47c010f16df658d"
+    },
+    {
+     "name": "emerge_SW_06.png",
+     "sha256": "73f855e1f2e9ea603490ec56f2a81367c78c0865ce2000aa992f7be6509a8819"
+    },
+    {
+     "name": "emerge_SW_07.png",
+     "sha256": "4e3a916a5c3ed55f1c1c220f6e4afe0a131d4a9025772606200fa75eacb00f83"
+    },
+    {
+     "name": "emerge_SW_08.png",
+     "sha256": "96e9095aae86348bcbbc4283b6d0d18cb118707bb83547ecfd76ae40b64d0e53"
+    },
+    {
+     "name": "emerge_SW_09.png",
+     "sha256": "fbc6dcb35e6ae8d1ffabf758133458b74002cf72c8c7a31bd905e00bf1ca2e64"
+    },
+    {
+     "name": "emerge_SW_10.png",
+     "sha256": "b2bb2e56e99664e1f6c2befd85671710e325c96598896647fb793e1d2398a58a"
+    },
+    {
+     "name": "emerge_SW_11.png",
+     "sha256": "40d237106d569c8e7a32025ed23c9408eb8575dec79ad2620814fe897c2ff56e"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "b4773135a66cda2b475783d0d9542d425f422ae72bcd1dedffff39faade5f6dd",
+   "alpha_union_bbox": [
+    196,
+    275,
+    548,
+    564
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 136.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.07593,
+      0.04064,
+      0.48775
+     ],
+     [
+      -0.11239,
+      0.07978,
+      0.5108
+     ],
+     [
+      -0.20889,
+      0.18107,
+      0.56243
+     ],
+     [
+      -0.34124,
+      0.34023,
+      0.6185
+     ],
+     [
+      -0.48154,
+      0.54292,
+      0.65721
+     ],
+     [
+      -0.61023,
+      0.75464,
+      0.66788
+     ],
+     [
+      -0.72284,
+      0.92551,
+      0.65522
+     ],
+     [
+      0.12931,
+      -0.20144,
+      0.87955
+     ],
+     [
+      0.13347,
+      -0.18858,
+      0.90873
+     ],
+     [
+      0.07803,
+      -0.11015,
+      1.06312
+     ],
+     [
+      -0.92589,
+      0.80267,
+      0.22145
+     ],
+     [
+      -0.99013,
+      0.78516,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      0.21552,
+      -0.17647,
+      0.49007
+     ],
+     [
+      0.17235,
+      -0.14289,
+      0.53234
+     ],
+     [
+      0.05643,
+      -0.05129,
+      0.63276
+     ],
+     [
+      -0.10768,
+      0.10506,
+      0.75446
+     ],
+     [
+      -0.28709,
+      0.32001,
+      0.86183
+     ],
+     [
+      -0.45437,
+      0.55884,
+      0.93227
+     ],
+     [
+      -0.59756,
+      0.76295,
+      0.96284
+     ],
+     [
+      0.03611,
+      -0.05287,
+      0.54901
+     ],
+     [
+      0.05689,
+      -0.04332,
+      0.56981
+     ],
+     [
+      0.0734,
+      -0.03551,
+      0.62231
+     ],
+     [
+      -0.95862,
+      0.8247,
+      0.66387
+     ],
+     [
+      -0.9946,
+      0.78947,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.37711
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.38372
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.38044
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_W_00.png",
+     "sha256": "5f07ad66a54a908e10e82b08d85ae46d20d8c417e64bf014b5d0195532796878"
+    },
+    {
+     "name": "emerge_W_01.png",
+     "sha256": "9d1f968878503be9ee29bb9a5d28b557cf9e944b20e622cc101bde32a628438b"
+    },
+    {
+     "name": "emerge_W_02.png",
+     "sha256": "dd393bb8156b8e1c46c3c5013dc0245623452c8f3cc77c4871192714193f3d0d"
+    },
+    {
+     "name": "emerge_W_03.png",
+     "sha256": "be81c4cbfd43b5ec2e92418ff9640c946fcff5933d865ff2199c4488833b0272"
+    },
+    {
+     "name": "emerge_W_04.png",
+     "sha256": "c2005cfa1611c9633807114c93ccbc1b62c5f45baf6a48cf87500717567948a3"
+    },
+    {
+     "name": "emerge_W_05.png",
+     "sha256": "0bd3917d7dbe65d723a8da61c78e2a2690daced60c97cbcde45dba5e9f9f495d"
+    },
+    {
+     "name": "emerge_W_06.png",
+     "sha256": "81e2710aa468b47b981766b01a53efe2ceae8d02604efa85f867c8ff3c5fad3e"
+    },
+    {
+     "name": "emerge_W_07.png",
+     "sha256": "0c395b5f669655b92012288c9afc3f47dd08d5d2421b41cb5402924c6db23d19"
+    },
+    {
+     "name": "emerge_W_08.png",
+     "sha256": "b82abe760a366fc9a2d45366d3d2805e6366c242a16a8aa02c84fd09efac57c5"
+    },
+    {
+     "name": "emerge_W_09.png",
+     "sha256": "4d72f859c2ae742697e54f9448dd24e58060ce1487ccfd84377d94a65bb0d50c"
+    },
+    {
+     "name": "emerge_W_10.png",
+     "sha256": "1284907bcc4b3852dd6709465dda87a565c1c141e9c714fd1c6350ea7e2d28b1"
+    },
+    {
+     "name": "emerge_W_11.png",
+     "sha256": "5f915a98a70e1385615ee8cd48297dc16de6d7e9c27db805855d9f46cc96adaf"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "7c07a56d7c469af3c564302fe754f60425a1fa2994a4c1b6a5a1500f22a2ce4f",
+   "alpha_union_bbox": [
+    180,
+    300,
+    618,
+    492
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 181.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.08242,
+      -0.02495,
+      0.48775
+     ],
+     [
+      -0.13589,
+      -0.02305,
+      0.5108
+     ],
+     [
+      -0.27574,
+      -0.01967,
+      0.56243
+     ],
+     [
+      -0.48188,
+      -0.00072,
+      0.6185
+     ],
+     [
+      -0.72441,
+      0.0434,
+      0.65721
+     ],
+     [
+      -0.96511,
+      0.10211,
+      0.66788
+     ],
+     [
+      -1.16556,
+      0.14331,
+      0.65522
+     ],
+     [
+      0.23387,
+      -0.05101,
+      0.87955
+     ],
+     [
+      0.22772,
+      -0.03896,
+      0.90873
+     ],
+     [
+      0.13306,
+      -0.02271,
+      1.06312
+     ],
+     [
+      -1.22228,
+      -0.08713,
+      0.22145
+     ],
+     [
+      -1.25531,
+      -0.14494,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      0.27718,
+      0.02762,
+      0.49007
+     ],
+     [
+      0.22291,
+      0.02083,
+      0.53234
+     ],
+     [
+      0.07617,
+      0.00363,
+      0.63276
+     ],
+     [
+      -0.15043,
+      -0.00185,
+      0.75446
+     ],
+     [
+      -0.42928,
+      0.02327,
+      0.86183
+     ],
+     [
+      -0.71645,
+      0.07387,
+      0.93227
+     ],
+     [
+      -0.96203,
+      0.11695,
+      0.96284
+     ],
+     [
+      0.06292,
+      -0.01185,
+      0.54901
+     ],
+     [
+      0.07086,
+      0.00959,
+      0.56981
+     ],
+     [
+      0.07701,
+      0.0268,
+      0.62231
+     ],
+     [
+      -1.261,
+      -0.09469,
+      0.66387
+     ],
+     [
+      -1.26152,
+      -0.14505,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.37711
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.38372
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.38044
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_NW_00.png",
+     "sha256": "41e1ee5561277b4d53597d7f74904d989d475e692d045ff8953e1463ac41188b"
+    },
+    {
+     "name": "emerge_NW_01.png",
+     "sha256": "9141ab072b274d1cbb5cfd5c5e941d2d629ae85aaf7bdae0125c8cc36a5c5476"
+    },
+    {
+     "name": "emerge_NW_02.png",
+     "sha256": "92680830402ffc81a4d73d6c451c64d9cb549c0b21f90adb9247be37a6de84d0"
+    },
+    {
+     "name": "emerge_NW_03.png",
+     "sha256": "59fe8ffa8505e883161227aeef155667c597461c7777e79a6ea686bebe4194bb"
+    },
+    {
+     "name": "emerge_NW_04.png",
+     "sha256": "936e24c19301355928de442afa8945d5c3afba5bbecad9c768f8c65f5c9c15d0"
+    },
+    {
+     "name": "emerge_NW_05.png",
+     "sha256": "c09cbc501cafc145624334c34ec37d56cba35f484c0a1b7d088a6724c98deecc"
+    },
+    {
+     "name": "emerge_NW_06.png",
+     "sha256": "47158fab554eca7f085819ec03b4427b67cf5354caef4977b1debb4730e895d6"
+    },
+    {
+     "name": "emerge_NW_07.png",
+     "sha256": "014efdf1b3e2861ca9b72c73af9fddcab370d5bfbe36f0edbaf844ff2d102f4b"
+    },
+    {
+     "name": "emerge_NW_08.png",
+     "sha256": "a41139f6144a82c2ae1adbabf4f7f9d22b5e8e7054b5af649dc8714adede96d3"
+    },
+    {
+     "name": "emerge_NW_09.png",
+     "sha256": "b7e84b417dd47c5c095fc94a32a67c9e9df93634a29f611f3d48771f575c2f69"
+    },
+    {
+     "name": "emerge_NW_10.png",
+     "sha256": "d68515dfab8d9e75fc4d0eb49157b0c798e29ed2abe56107cd5d04f34f9a612f"
+    },
+    {
+     "name": "emerge_NW_11.png",
+     "sha256": "6ca924752779c79e2423b0d69e8e026204d3d58f4eb9701ed7df3a6d5a8913a2"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "5bb45fce32b2d7a24827920576ad17b9fdb0777778b34a3d99bab46c2efb34a9",
+   "alpha_union_bbox": [
+    210,
+    252,
+    569,
+    562
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 226.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.04064,
+      -0.07593,
+      0.48775
+     ],
+     [
+      -0.07978,
+      -0.11239,
+      0.5108
+     ],
+     [
+      -0.18107,
+      -0.20889,
+      0.56243
+     ],
+     [
+      -0.34023,
+      -0.34124,
+      0.6185
+     ],
+     [
+      -0.54292,
+      -0.48154,
+      0.65721
+     ],
+     [
+      -0.75464,
+      -0.61023,
+      0.66788
+     ],
+     [
+      -0.92551,
+      -0.72284,
+      0.65522
+     ],
+     [
+      0.20144,
+      0.12931,
+      0.87955
+     ],
+     [
+      0.18858,
+      0.13347,
+      0.90873
+     ],
+     [
+      0.11015,
+      0.07803,
+      1.06312
+     ],
+     [
+      -0.80267,
+      -0.92589,
+      0.22145
+     ],
+     [
+      -0.78516,
+      -0.99013,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      0.17647,
+      0.21552,
+      0.49007
+     ],
+     [
+      0.14289,
+      0.17235,
+      0.53234
+     ],
+     [
+      0.05129,
+      0.05643,
+      0.63276
+     ],
+     [
+      -0.10506,
+      -0.10768,
+      0.75446
+     ],
+     [
+      -0.32001,
+      -0.28709,
+      0.86183
+     ],
+     [
+      -0.55884,
+      -0.45437,
+      0.93227
+     ],
+     [
+      -0.76295,
+      -0.59756,
+      0.96284
+     ],
+     [
+      0.05287,
+      0.03611,
+      0.54901
+     ],
+     [
+      0.04332,
+      0.05689,
+      0.56981
+     ],
+     [
+      0.03551,
+      0.0734,
+      0.62231
+     ],
+     [
+      -0.8247,
+      -0.95862,
+      0.66387
+     ],
+     [
+      -0.78947,
+      -0.9946,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.37711
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.38372
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.38044
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_N_00.png",
+     "sha256": "63aa1f7914e398113904acf7286cdef4fe62f5a08c3b08f209361c4b1a2da1d9"
+    },
+    {
+     "name": "emerge_N_01.png",
+     "sha256": "163b2af310f58c26475a01411cb62270c2c4f402182c74698dc01b7c3fa54606"
+    },
+    {
+     "name": "emerge_N_02.png",
+     "sha256": "ebd96ee5bd927a941698c08005dba92a376b16b44a5f05f5559fc1c77f162fd2"
+    },
+    {
+     "name": "emerge_N_03.png",
+     "sha256": "3301ad194271cec774d98816a815d87473301e57421cb612d059df9c3e00dde2"
+    },
+    {
+     "name": "emerge_N_04.png",
+     "sha256": "bb4497acd6ab5b3d4f58cd6854d69b5cf9a5dfc461610112bbcec2910b70dc24"
+    },
+    {
+     "name": "emerge_N_05.png",
+     "sha256": "e37c0be957f06b9c018d6f414e11fca0b3e4022b23a686d3fe48ea1347a2e910"
+    },
+    {
+     "name": "emerge_N_06.png",
+     "sha256": "e4f82cb435dde0b3a25992115c644f3b3a8eddde44832043e84cb3b6a5ddaa07"
+    },
+    {
+     "name": "emerge_N_07.png",
+     "sha256": "a25378a693cbe0185f6c3bf42fe8ec8591ab56591f923349cd2a48412e7f6f88"
+    },
+    {
+     "name": "emerge_N_08.png",
+     "sha256": "4deab3d76f66da11f89b1dccbd3e6923a9ed93fac0adb6fc9d69b329be7ea8c6"
+    },
+    {
+     "name": "emerge_N_09.png",
+     "sha256": "926683845a6daab152113f0089884a751c0239d71d041c2aa8a75f377ade264f"
+    },
+    {
+     "name": "emerge_N_10.png",
+     "sha256": "dca30d048d823db0077da772be316f71b8b0a335cb2caa568d62e2add8b7e381"
+    },
+    {
+     "name": "emerge_N_11.png",
+     "sha256": "4bfe3d7bae9652a18840a41f9a2f474393fd2737373f51ef44b08e7f08c16d30"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "743391cb2f8a6bb8ef281aaf2becb280462dfc183d7187a3946c105b49f38dae",
+   "alpha_union_bbox": [
+    308,
+    231,
+    465,
+    617
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 271.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.02495,
+      -0.08242,
+      0.48775
+     ],
+     [
+      0.02305,
+      -0.13589,
+      0.5108
+     ],
+     [
+      0.01967,
+      -0.27574,
+      0.56243
+     ],
+     [
+      0.00072,
+      -0.48188,
+      0.6185
+     ],
+     [
+      -0.0434,
+      -0.72441,
+      0.65721
+     ],
+     [
+      -0.10211,
+      -0.96511,
+      0.66788
+     ],
+     [
+      -0.14331,
+      -1.16556,
+      0.65522
+     ],
+     [
+      0.05101,
+      0.23387,
+      0.87955
+     ],
+     [
+      0.03896,
+      0.22772,
+      0.90873
+     ],
+     [
+      0.02271,
+      0.13306,
+      1.06312
+     ],
+     [
+      0.08713,
+      -1.22228,
+      0.22145
+     ],
+     [
+      0.14494,
+      -1.25531,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      -0.02762,
+      0.27718,
+      0.49007
+     ],
+     [
+      -0.02083,
+      0.22291,
+      0.53234
+     ],
+     [
+      -0.00363,
+      0.07617,
+      0.63276
+     ],
+     [
+      0.00185,
+      -0.15043,
+      0.75446
+     ],
+     [
+      -0.02327,
+      -0.42928,
+      0.86183
+     ],
+     [
+      -0.07387,
+      -0.71645,
+      0.93227
+     ],
+     [
+      -0.11695,
+      -0.96203,
+      0.96284
+     ],
+     [
+      0.01185,
+      0.06292,
+      0.54901
+     ],
+     [
+      -0.00959,
+      0.07086,
+      0.56981
+     ],
+     [
+      -0.0268,
+      0.07701,
+      0.62231
+     ],
+     [
+      0.09469,
+      -1.261,
+      0.66387
+     ],
+     [
+      0.14505,
+      -1.26152,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.37711
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.38372
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.38044
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_NE_00.png",
+     "sha256": "1eff16a58c2fc95927b8f24f4189c576378b537a1883dde7d0fb3583a290329b"
+    },
+    {
+     "name": "emerge_NE_01.png",
+     "sha256": "2ecb1f30e5a7e65ea74dc6fea54780e1b86a89d57cce4fe68a1f967d065244ec"
+    },
+    {
+     "name": "emerge_NE_02.png",
+     "sha256": "9581f1ebe9645e63ff26501b93ee5095f432f313203fe9955056f5070fc0f452"
+    },
+    {
+     "name": "emerge_NE_03.png",
+     "sha256": "0b509f524747d721dc9c3727fc3ecf9b24851e5c4a340908f5357412f1252a7a"
+    },
+    {
+     "name": "emerge_NE_04.png",
+     "sha256": "14df0d2ad5baf583c634d7cf7b0aba4c3f682c37130b5183fbc5cc6af6cb222b"
+    },
+    {
+     "name": "emerge_NE_05.png",
+     "sha256": "2778cae8f56a314117c4cf11483450af4bc772fd76d95ac35b56a59d71ec0b70"
+    },
+    {
+     "name": "emerge_NE_06.png",
+     "sha256": "9a8effaa4c559981cc38dcc6e1e65ce19bbfc4353e68da07f625b39f35c09632"
+    },
+    {
+     "name": "emerge_NE_07.png",
+     "sha256": "ec38499abf64c5cc99d643a74b9b8d79f7ec3dd2e8fe29e6036db6f538c3a0a5"
+    },
+    {
+     "name": "emerge_NE_08.png",
+     "sha256": "f0628586a4e3bfcf7faf8a4bacafd0f2d9acb44cadde12630504603c752fbdbd"
+    },
+    {
+     "name": "emerge_NE_09.png",
+     "sha256": "714b069d51c9e8f7d5508cf312a0bc40075e93fa761acda6f85c0ef64a91a1b3"
+    },
+    {
+     "name": "emerge_NE_10.png",
+     "sha256": "86bad22b1942da5acab83c9fc6c06cff3bf9b386f3aee147d917b21883e4cc58"
+    },
+    {
+     "name": "emerge_NE_11.png",
+     "sha256": "2f1c92c10649af6defa6555a66f16ba4205b4af7fd73b28b460c11286b1b6a73"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "4f3855607461695c006b8fca0322e8b2303a91353db17bbb7028f2296dd84d76",
+   "alpha_union_bbox": [
+    220,
+    246,
+    572,
+    578
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 316.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.07593,
+      -0.04064,
+      0.48775
+     ],
+     [
+      0.11239,
+      -0.07978,
+      0.5108
+     ],
+     [
+      0.20889,
+      -0.18107,
+      0.56243
+     ],
+     [
+      0.34124,
+      -0.34023,
+      0.6185
+     ],
+     [
+      0.48154,
+      -0.54292,
+      0.65721
+     ],
+     [
+      0.61023,
+      -0.75464,
+      0.66788
+     ],
+     [
+      0.72284,
+      -0.92551,
+      0.65522
+     ],
+     [
+      -0.12931,
+      0.20144,
+      0.87955
+     ],
+     [
+      -0.13347,
+      0.18858,
+      0.90873
+     ],
+     [
+      -0.07803,
+      0.11015,
+      1.06312
+     ],
+     [
+      0.92589,
+      -0.80267,
+      0.22145
+     ],
+     [
+      0.99013,
+      -0.78516,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      -0.21552,
+      0.17647,
+      0.49007
+     ],
+     [
+      -0.17235,
+      0.14289,
+      0.53234
+     ],
+     [
+      -0.05643,
+      0.05129,
+      0.63276
+     ],
+     [
+      0.10768,
+      -0.10506,
+      0.75446
+     ],
+     [
+      0.28709,
+      -0.32001,
+      0.86183
+     ],
+     [
+      0.45437,
+      -0.55884,
+      0.93227
+     ],
+     [
+      0.59756,
+      -0.76296,
+      0.96284
+     ],
+     [
+      -0.03611,
+      0.05287,
+      0.54901
+     ],
+     [
+      -0.05689,
+      0.04332,
+      0.56981
+     ],
+     [
+      -0.0734,
+      0.03551,
+      0.62231
+     ],
+     [
+      0.95862,
+      -0.8247,
+      0.66387
+     ],
+     [
+      0.9946,
+      -0.78947,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.37711
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.38372
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.38044
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_E_00.png",
+     "sha256": "af83f0d7c4f8b7f9b64b0b89865e75f77498c4a2fe87a0de23efcc3ec23865e7"
+    },
+    {
+     "name": "emerge_E_01.png",
+     "sha256": "69ac6e1db02e0139e689d0c62cf1ac97ae335be880d58eb8225eb7e1339c39cf"
+    },
+    {
+     "name": "emerge_E_02.png",
+     "sha256": "8773df2771c2ceb5d83a476defb132c16216bd2df9d8590f7c019b66406689ef"
+    },
+    {
+     "name": "emerge_E_03.png",
+     "sha256": "1a8d71ba3d925aa36e7ed5f4161180e1d84d5f7de906efc6ffdc29f4c8019ff6"
+    },
+    {
+     "name": "emerge_E_04.png",
+     "sha256": "d123d5b30a74d5521299823329bdf0e5ba9b76e9ad368439a42f594116034dd1"
+    },
+    {
+     "name": "emerge_E_05.png",
+     "sha256": "f03abbf74765e83e78328b403fcb7b16cd5996a74bf05f9afc30ee80897ab053"
+    },
+    {
+     "name": "emerge_E_06.png",
+     "sha256": "e88985ce0b4523c2d09db89add3753bad683c0da8f9eda17b72f0151cda877e1"
+    },
+    {
+     "name": "emerge_E_07.png",
+     "sha256": "834740a36f631e55a9a505a86b7a4bda2c1b9dc93492fdcb557e7d0afcef4cab"
+    },
+    {
+     "name": "emerge_E_08.png",
+     "sha256": "b4d6e90e90725448eedd4dfedaf4de79741ac3bdeebc9af590162abcb055060a"
+    },
+    {
+     "name": "emerge_E_09.png",
+     "sha256": "ed4bb8570ce861b2eb21d53a867ba8faab6fecdc224ac97de2bae9fa31093d25"
+    },
+    {
+     "name": "emerge_E_10.png",
+     "sha256": "285bdcadf9557cdb9f8ddf0dab8ec6855263fa2027c8a853474f636837adaaaf"
+    },
+    {
+     "name": "emerge_E_11.png",
+     "sha256": "69984ae86365d8a69acee12cb47270b5dc6903fbd74ebf4ea24db22cce1f4025"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "f3e75e6696986ff7dd72b548ae57ae7faaf1d699268d856ef69f510b57c6ad56",
+   "alpha_union_bbox": [
+    150,
+    304,
+    588,
+    492
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 1.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.08242,
+      0.02495,
+      0.48775
+     ],
+     [
+      0.13589,
+      0.02305,
+      0.5108
+     ],
+     [
+      0.27574,
+      0.01967,
+      0.56243
+     ],
+     [
+      0.48188,
+      0.00072,
+      0.6185
+     ],
+     [
+      0.72441,
+      -0.0434,
+      0.65721
+     ],
+     [
+      0.96511,
+      -0.10211,
+      0.66788
+     ],
+     [
+      1.16556,
+      -0.14331,
+      0.65522
+     ],
+     [
+      -0.23387,
+      0.05101,
+      0.87955
+     ],
+     [
+      -0.22772,
+      0.03896,
+      0.90873
+     ],
+     [
+      -0.13306,
+      0.02271,
+      1.06312
+     ],
+     [
+      1.22228,
+      0.08713,
+      0.22145
+     ],
+     [
+      1.25531,
+      0.14494,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      -0.27718,
+      -0.02762,
+      0.49007
+     ],
+     [
+      -0.22291,
+      -0.02083,
+      0.53234
+     ],
+     [
+      -0.07617,
+      -0.00363,
+      0.63276
+     ],
+     [
+      0.15043,
+      0.00185,
+      0.75446
+     ],
+     [
+      0.42928,
+      -0.02327,
+      0.86183
+     ],
+     [
+      0.71645,
+      -0.07387,
+      0.93227
+     ],
+     [
+      0.96203,
+      -0.11695,
+      0.96284
+     ],
+     [
+      -0.06292,
+      0.01185,
+      0.54901
+     ],
+     [
+      -0.07086,
+      -0.00959,
+      0.56981
+     ],
+     [
+      -0.07701,
+      -0.0268,
+      0.62231
+     ],
+     [
+      1.261,
+      0.09469,
+      0.66387
+     ],
+     [
+      1.26152,
+      0.14505,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.37711
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.38372
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.38044
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "emerge/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "emerge_SE_00.png",
+     "sha256": "8ad233d32b7a239c6392fadc6147973c2932c5a4e596ff92d36b771c6e19a30c"
+    },
+    {
+     "name": "emerge_SE_01.png",
+     "sha256": "afd549846bfce6b6b12925c8d6d9c4c70ecec823aeb03efaebf29f17454bbac1"
+    },
+    {
+     "name": "emerge_SE_02.png",
+     "sha256": "7799e625d4128a76f8cea035037d4f6be09b46ce60bc47a0df222f946a3149a4"
+    },
+    {
+     "name": "emerge_SE_03.png",
+     "sha256": "d81f740689ed01a5bcac848800972f46c13ac3092f43b0f93e8cdd53d8aadc9a"
+    },
+    {
+     "name": "emerge_SE_04.png",
+     "sha256": "37d1e9611b8e17bd1c1df947729169ad8b0f53a945f5c4b2d0dfb03b4caa0790"
+    },
+    {
+     "name": "emerge_SE_05.png",
+     "sha256": "e7b9c371b69ea510177d8371faf03bc2571981c5c547a4e9c057f0fd797dbe98"
+    },
+    {
+     "name": "emerge_SE_06.png",
+     "sha256": "997bf15b04afe5768812817962e9ea01b727b2ae3a80f166cd6305766050eac7"
+    },
+    {
+     "name": "emerge_SE_07.png",
+     "sha256": "01cbc3a81cc656a578bd37e8a114389f10770c8100a3d924c614977ea2201d2c"
+    },
+    {
+     "name": "emerge_SE_08.png",
+     "sha256": "10c86bc2465d3b8438fdabf246874c7dc354e1aeaac7666e1fd9d52182cf2754"
+    },
+    {
+     "name": "emerge_SE_09.png",
+     "sha256": "b7955b83c86b2d09c2aff56fb120f5816356a7ed2ce3e85ed004033d97d617db"
+    },
+    {
+     "name": "emerge_SE_10.png",
+     "sha256": "65271bac6552947abaca1aadf908a13a57b0c93111d621fdc0dc28fd33c26425"
+    },
+    {
+     "name": "emerge_SE_11.png",
+     "sha256": "1ab6b92303ebf3312b4aa28ad24d55479753780c67ba0a328d6eae99b3970261"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "744e9ed24c19c3f841cf903b697b514f45059ed0361d4ded8d8dd47033968ddb",
+   "alpha_union_bbox": [
+    199,
+    291,
+    558,
+    584
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 46.71,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.04064,
+      0.07593,
+      0.48775
+     ],
+     [
+      0.07978,
+      0.11239,
+      0.5108
+     ],
+     [
+      0.18107,
+      0.20889,
+      0.56243
+     ],
+     [
+      0.34023,
+      0.34124,
+      0.6185
+     ],
+     [
+      0.54292,
+      0.48154,
+      0.65721
+     ],
+     [
+      0.75464,
+      0.61023,
+      0.66788
+     ],
+     [
+      0.92551,
+      0.72284,
+      0.65522
+     ],
+     [
+      -0.20144,
+      -0.12931,
+      0.87955
+     ],
+     [
+      -0.18858,
+      -0.13347,
+      0.90873
+     ],
+     [
+      -0.11015,
+      -0.07803,
+      1.06312
+     ],
+     [
+      0.80267,
+      0.92589,
+      0.22145
+     ],
+     [
+      0.78516,
+      0.99013,
+      0.23462
+     ]
+    ],
+    "head_top": [
+     [
+      -0.17647,
+      -0.21552,
+      0.49007
+     ],
+     [
+      -0.14289,
+      -0.17235,
+      0.53234
+     ],
+     [
+      -0.05129,
+      -0.05643,
+      0.63276
+     ],
+     [
+      0.10506,
+      0.10768,
+      0.75446
+     ],
+     [
+      0.32001,
+      0.28709,
+      0.86183
+     ],
+     [
+      0.55884,
+      0.45437,
+      0.93227
+     ],
+     [
+      0.76295,
+      0.59756,
+      0.96284
+     ],
+     [
+      -0.05287,
+      -0.03611,
+      0.54901
+     ],
+     [
+      -0.04332,
+      -0.05689,
+      0.56981
+     ],
+     [
+      -0.03551,
+      -0.0734,
+      0.62231
+     ],
+     [
+      0.8247,
+      0.95862,
+      0.66387
+     ],
+     [
+      0.78947,
+      0.9946,
+      0.6124
+     ]
+    ],
+    "chest": [
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.37711
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.38372
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.38044
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_S_00.png",
+     "sha256": "2fcd9a55cabb2fbadd06d63ea240abd249af7ec61113d1faf2b0da2a8d1ab531"
+    },
+    {
+     "name": "attack_bite_S_01.png",
+     "sha256": "314aa0cef23ab027d37f635ea14abf6f7911bdcd87be767b7a7b3924b27f0dec"
+    },
+    {
+     "name": "attack_bite_S_02.png",
+     "sha256": "3f8406e2e854da12ceaed2c5ef647560634fd8b73d4d2541615a88f5481626ae"
+    },
+    {
+     "name": "attack_bite_S_03.png",
+     "sha256": "5e96e1f46dded2b0a240278e86a9bcd4bb813cb7036a6b622dad412595b001a1"
+    },
+    {
+     "name": "attack_bite_S_04.png",
+     "sha256": "fef06210ae124dd220a04e9450c2bdbb314f820f5d608f042db18372ca11139f"
+    },
+    {
+     "name": "attack_bite_S_05.png",
+     "sha256": "4116344dbac590f1c82d00932ba8354150b539f03f9f87daf2fbaea410fe47fb"
+    },
+    {
+     "name": "attack_bite_S_06.png",
+     "sha256": "4ce1f8e1451c87c7881b86d66df76fd0474a38a18bbcf5edcd2382091a22af53"
+    },
+    {
+     "name": "attack_bite_S_07.png",
+     "sha256": "3d3b420f4bd0c4f296f9ecc59a2438c58bac33224e68833436a4b6b8443f90cb"
+    },
+    {
+     "name": "attack_bite_S_08.png",
+     "sha256": "16beef60a18553b7f948a3ab0cf7811f280cde6fa21397a08fd081e739ef2612"
+    },
+    {
+     "name": "attack_bite_S_09.png",
+     "sha256": "f042588fbb6de66774dff11817fec9163f9323bd96d8621972a9d172a3fde9fc"
+    },
+    {
+     "name": "attack_bite_S_10.png",
+     "sha256": "03ae8a23372fdbc2a86b86a5586678b754ebd59c7d948b753559c16ecca5a51f"
+    },
+    {
+     "name": "attack_bite_S_11.png",
+     "sha256": "2fcd9a55cabb2fbadd06d63ea240abd249af7ec61113d1faf2b0da2a8d1ab531"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "d973fed15231a2d79881f65c50f896527e46b8ef3388327f364e38fa380fe199",
+   "alpha_union_bbox": [
+    324,
+    232,
+    444,
+    620
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 90.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.0,
+      1.27568,
+      0.23986
+     ],
+     [
+      0.0,
+      -0.22735,
+      1.09492
+     ],
+     [
+      0.0,
+      -0.20215,
+      1.12047
+     ],
+     [
+      0.0,
+      1.29592,
+      0.40932
+     ],
+     [
+      0.0,
+      1.36386,
+      0.13402
+     ],
+     [
+      0.0,
+      1.48155,
+      0.16008
+     ],
+     [
+      0.0,
+      1.47664,
+      0.16126
+     ],
+     [
+      0.0,
+      1.46304,
+      0.14918
+     ],
+     [
+      0.0,
+      1.46205,
+      0.15748
+     ],
+     [
+      0.0,
+      1.47236,
+      0.19668
+     ],
+     [
+      0.0,
+      1.37706,
+      0.21383
+     ],
+     [
+      0.0,
+      1.27568,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      0.00119,
+      1.27903,
+      0.61253
+     ],
+     [
+      0.00119,
+      -0.18489,
+      0.70849
+     ],
+     [
+      0.00119,
+      -0.17707,
+      0.71265
+     ],
+     [
+      0.00119,
+      1.22314,
+      0.85671
+     ],
+     [
+      0.00119,
+      1.59466,
+      0.55001
+     ],
+     [
+      0.00119,
+      1.69503,
+      0.57081
+     ],
+     [
+      0.00119,
+      1.68016,
+      0.57701
+     ],
+     [
+      0.00119,
+      1.65344,
+      0.5711
+     ],
+     [
+      0.00119,
+      1.61588,
+      0.59407
+     ],
+     [
+      0.00119,
+      1.5569,
+      0.64492
+     ],
+     [
+      0.00119,
+      1.40214,
+      0.61249
+     ],
+     [
+      0.00119,
+      1.27903,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.20729,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.19423,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.02506,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.16753,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.2616,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.25245,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.23354,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.21658,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.19079,
+      0.36481
+     ],
+     [
+      0.00111,
+      0.03199,
+      0.36481
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_SW_00.png",
+     "sha256": "a9804a5addcc97093211a8076e079bc68a819e960ff5595af3e8044dfdcc9137"
+    },
+    {
+     "name": "attack_bite_SW_01.png",
+     "sha256": "ec0ee1ff01dba30db74c8253126d3b0ef9192a6148c2454e71d15e66ff33f1f9"
+    },
+    {
+     "name": "attack_bite_SW_02.png",
+     "sha256": "28c614123cebf7ad4d3246102b6ef3a5d9e231d6f034aae8e1d48690d496b19b"
+    },
+    {
+     "name": "attack_bite_SW_03.png",
+     "sha256": "c419a4ee954d3a9d2a39b33dea420d7c6b17de341a1e29d904f054dfb5a65933"
+    },
+    {
+     "name": "attack_bite_SW_04.png",
+     "sha256": "1eecaba9b039d870397ae58706da80ce65bbd22de03431f9d14cb313447db5a9"
+    },
+    {
+     "name": "attack_bite_SW_05.png",
+     "sha256": "62459476678db3e9ce1ef8e25d64d8fefaeda9fcd872f2c8d8357e3d47498ce4"
+    },
+    {
+     "name": "attack_bite_SW_06.png",
+     "sha256": "2ae8b82a926390becbf96d64f8552cb0ac63cd963cc0418c091cfaaadc1ee32d"
+    },
+    {
+     "name": "attack_bite_SW_07.png",
+     "sha256": "054314375f4b63cad807af1828b6e08805bf14186074bd1a6949da91971b46de"
+    },
+    {
+     "name": "attack_bite_SW_08.png",
+     "sha256": "c38c05978a79bbaafc8192435c054058112351d43bda3238437292ade1905598"
+    },
+    {
+     "name": "attack_bite_SW_09.png",
+     "sha256": "3873b9d9e045a40a4ec22633f401194c9519838457d0d615a0d9abf4988644bc"
+    },
+    {
+     "name": "attack_bite_SW_10.png",
+     "sha256": "5fa403ea97966f74fa18977401c15e32a1315f67dee9c7dc22ea68b30009c33c"
+    },
+    {
+     "name": "attack_bite_SW_11.png",
+     "sha256": "2fccb5fb1ed725e3be8b7971c2558c421e452c332627b431196630361afb0679"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "d9b46a75878dd8c29208ecafbb2f1c38b9c823a7c607929a0f7b6da2c3dec31b",
+   "alpha_union_bbox": [
+    173,
+    288,
+    568,
+    598
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 135.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.90204,
+      0.90204,
+      0.23986
+     ],
+     [
+      0.16076,
+      -0.16076,
+      1.09492
+     ],
+     [
+      0.14294,
+      -0.14294,
+      1.12047
+     ],
+     [
+      -0.91636,
+      0.91636,
+      0.40932
+     ],
+     [
+      -0.96439,
+      0.96439,
+      0.13402
+     ],
+     [
+      -1.04762,
+      1.04762,
+      0.16008
+     ],
+     [
+      -1.04414,
+      1.04414,
+      0.16126
+     ],
+     [
+      -1.03452,
+      1.03452,
+      0.14918
+     ],
+     [
+      -1.03383,
+      1.03383,
+      0.15748
+     ],
+     [
+      -1.04112,
+      1.04112,
+      0.19668
+     ],
+     [
+      -0.97373,
+      0.97373,
+      0.21383
+     ],
+     [
+      -0.90204,
+      0.90204,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      -0.90357,
+      0.90526,
+      0.61253
+     ],
+     [
+      0.13158,
+      -0.12989,
+      0.70849
+     ],
+     [
+      0.12605,
+      -0.12436,
+      0.71265
+     ],
+     [
+      -0.86405,
+      0.86573,
+      0.85671
+     ],
+     [
+      -1.12675,
+      1.12844,
+      0.55001
+     ],
+     [
+      -1.19772,
+      1.19941,
+      0.57081
+     ],
+     [
+      -1.18721,
+      1.1889,
+      0.57701
+     ],
+     [
+      -1.16832,
+      1.17001,
+      0.5711
+     ],
+     [
+      -1.14176,
+      1.14345,
+      0.59407
+     ],
+     [
+      -1.10005,
+      1.10174,
+      0.64492
+     ],
+     [
+      -0.99062,
+      0.99231,
+      0.61249
+     ],
+     [
+      -0.90357,
+      0.90526,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ],
+     [
+      0.14736,
+      -0.1458,
+      0.36481
+     ],
+     [
+      0.13813,
+      -0.13656,
+      0.36481
+     ],
+     [
+      0.0185,
+      -0.01694,
+      0.36481
+     ],
+     [
+      -0.11768,
+      0.11924,
+      0.36481
+     ],
+     [
+      -0.1842,
+      0.18576,
+      0.36481
+     ],
+     [
+      -0.17773,
+      0.17929,
+      0.36481
+     ],
+     [
+      -0.16435,
+      0.16592,
+      0.36481
+     ],
+     [
+      -0.15236,
+      0.15393,
+      0.36481
+     ],
+     [
+      -0.13413,
+      0.13569,
+      0.36481
+     ],
+     [
+      -0.02184,
+      0.0234,
+      0.36481
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_W_00.png",
+     "sha256": "f10b67f23afb2010d55822a7eeb0213a76d567cda7c44fe88239cda2dca6f854"
+    },
+    {
+     "name": "attack_bite_W_01.png",
+     "sha256": "c3fa9173b19072c78f7288df06852b372e41c3312bc83070a14c7564d974db58"
+    },
+    {
+     "name": "attack_bite_W_02.png",
+     "sha256": "d26975b08a7202bce93bf00048f63aaf89d12bb2b7757c91a2455ee3c9045e40"
+    },
+    {
+     "name": "attack_bite_W_03.png",
+     "sha256": "f3ca0a33a94f8ac60af56d93ea21b034baa72653e9096032ad36a697831e9dfa"
+    },
+    {
+     "name": "attack_bite_W_04.png",
+     "sha256": "d6d190848471924018686c2901f8d495504aa147bb88e2e21fc3e02676f70226"
+    },
+    {
+     "name": "attack_bite_W_05.png",
+     "sha256": "0e1618c645068c1b96dfd5f463114be8c9235cb5ba6d102ecb9e0849654635fc"
+    },
+    {
+     "name": "attack_bite_W_06.png",
+     "sha256": "09051d2402d1727ca5e2b35f57e24dd5a2f8c8cbb2f197fdea38850e8792e2c3"
+    },
+    {
+     "name": "attack_bite_W_07.png",
+     "sha256": "a7a00518beca15ff5c9685b7877ce917e0b3eb09a33f835a0b13fd4417b0ea32"
+    },
+    {
+     "name": "attack_bite_W_08.png",
+     "sha256": "afbdbf64e5d138f449f2b8740dd2f1a07cf7c723041e9016e5e3220d29889578"
+    },
+    {
+     "name": "attack_bite_W_09.png",
+     "sha256": "64c93cb45a4fd41ecbb9ee98e48b234fff6349058af0b679034972a64aa67081"
+    },
+    {
+     "name": "attack_bite_W_10.png",
+     "sha256": "f416750990098e46f472db183e14f2cb6c119f2ed998ceab31869614ec86c257"
+    },
+    {
+     "name": "attack_bite_W_11.png",
+     "sha256": "f10b67f23afb2010d55822a7eeb0213a76d567cda7c44fe88239cda2dca6f854"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "4d6c5ef34e82c4a1792fd5cfd482ebb89276d8e68a07b48626b25cd18c59c3ad",
+   "alpha_union_bbox": [
+    128,
+    299,
+    626,
+    490
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 180.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -1.27568,
+      0.0,
+      0.23986
+     ],
+     [
+      0.22735,
+      0.0,
+      1.09492
+     ],
+     [
+      0.20215,
+      0.0,
+      1.12047
+     ],
+     [
+      -1.29592,
+      0.0,
+      0.40932
+     ],
+     [
+      -1.36386,
+      0.0,
+      0.13402
+     ],
+     [
+      -1.48155,
+      0.0,
+      0.16008
+     ],
+     [
+      -1.47664,
+      0.0,
+      0.16126
+     ],
+     [
+      -1.46304,
+      0.0,
+      0.14918
+     ],
+     [
+      -1.46205,
+      0.0,
+      0.15748
+     ],
+     [
+      -1.47236,
+      0.0,
+      0.19668
+     ],
+     [
+      -1.37706,
+      0.0,
+      0.21383
+     ],
+     [
+      -1.27568,
+      0.0,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      -1.27903,
+      0.00119,
+      0.61253
+     ],
+     [
+      0.18489,
+      0.00119,
+      0.70849
+     ],
+     [
+      0.17707,
+      0.00119,
+      0.71265
+     ],
+     [
+      -1.22314,
+      0.00119,
+      0.85671
+     ],
+     [
+      -1.59466,
+      0.00119,
+      0.55001
+     ],
+     [
+      -1.69503,
+      0.00119,
+      0.57081
+     ],
+     [
+      -1.68016,
+      0.00119,
+      0.57701
+     ],
+     [
+      -1.65344,
+      0.00119,
+      0.5711
+     ],
+     [
+      -1.61588,
+      0.00119,
+      0.59407
+     ],
+     [
+      -1.5569,
+      0.00119,
+      0.64492
+     ],
+     [
+      -1.40214,
+      0.00119,
+      0.61249
+     ],
+     [
+      -1.27903,
+      0.00119,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.20729,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.19423,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.02506,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.16753,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.2616,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.25245,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.23354,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.21658,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.19079,
+      0.00111,
+      0.36481
+     ],
+     [
+      -0.03199,
+      0.00111,
+      0.36481
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_NW_00.png",
+     "sha256": "5758d7f7ca497dc665fb3dfe83dd49707c3142f6c224c9001abe772263a246a2"
+    },
+    {
+     "name": "attack_bite_NW_01.png",
+     "sha256": "f66310aae9028a156adae1ff023127e76092ec29d0391641a127e42abdfe8a46"
+    },
+    {
+     "name": "attack_bite_NW_02.png",
+     "sha256": "3f7509afdf2bad3f0e92d84c5a7748c2c48e47d360f0e3b30ea2c2a231ea1139"
+    },
+    {
+     "name": "attack_bite_NW_03.png",
+     "sha256": "3d2e2e0a67dea852834f1f9002c5419847d3962fccf8f91d1f28cd60addc6e56"
+    },
+    {
+     "name": "attack_bite_NW_04.png",
+     "sha256": "c3f53a130b4114b8a85b172f0d8a308bc6bc7fedafc8f6a5f5da534bbc94908d"
+    },
+    {
+     "name": "attack_bite_NW_05.png",
+     "sha256": "c85be668c6a29deda216796c27f0498d309dbbf9726fc6a617e6f8f2839ca47b"
+    },
+    {
+     "name": "attack_bite_NW_06.png",
+     "sha256": "807fbd3e8a06c48aa27244be5ed1e3cbad3925a47bec9e0e0cc599fa75fd94b4"
+    },
+    {
+     "name": "attack_bite_NW_07.png",
+     "sha256": "29173121c508e6906d8ebea522254921b7102a4118d9e051adc1f726b4027307"
+    },
+    {
+     "name": "attack_bite_NW_08.png",
+     "sha256": "caaa7ab732e160be915d2a13d9a28a908cdd96ab81d5c43e5e6c57886867eaaa"
+    },
+    {
+     "name": "attack_bite_NW_09.png",
+     "sha256": "1e247181ac363bdb39dbda430953d4115a5d4b0386e4fa2896a2aabb4d96263a"
+    },
+    {
+     "name": "attack_bite_NW_10.png",
+     "sha256": "a36460588ab1642f9da3d77d75dfc344ed6d10a125ed8e6823645e8790dab375"
+    },
+    {
+     "name": "attack_bite_NW_11.png",
+     "sha256": "324ea4ee773db9421cfaafbd91388730407676f827c11c986e01ba386fd07823"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "d88d37e6723d5a4b005169d8cca6a7fec721d9600a8637a8731b00420c0dbbe9",
+   "alpha_union_bbox": [
+    173,
+    228,
+    552,
+    579
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 225.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.90204,
+      -0.90204,
+      0.23986
+     ],
+     [
+      0.16076,
+      0.16076,
+      1.09492
+     ],
+     [
+      0.14294,
+      0.14294,
+      1.12047
+     ],
+     [
+      -0.91636,
+      -0.91636,
+      0.40932
+     ],
+     [
+      -0.96439,
+      -0.96439,
+      0.13402
+     ],
+     [
+      -1.04762,
+      -1.04762,
+      0.16008
+     ],
+     [
+      -1.04414,
+      -1.04414,
+      0.16126
+     ],
+     [
+      -1.03452,
+      -1.03452,
+      0.14918
+     ],
+     [
+      -1.03383,
+      -1.03383,
+      0.15748
+     ],
+     [
+      -1.04112,
+      -1.04112,
+      0.19668
+     ],
+     [
+      -0.97373,
+      -0.97373,
+      0.21383
+     ],
+     [
+      -0.90204,
+      -0.90204,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      -0.90526,
+      -0.90357,
+      0.61253
+     ],
+     [
+      0.12989,
+      0.13158,
+      0.70849
+     ],
+     [
+      0.12436,
+      0.12605,
+      0.71265
+     ],
+     [
+      -0.86573,
+      -0.86405,
+      0.85671
+     ],
+     [
+      -1.12844,
+      -1.12675,
+      0.55001
+     ],
+     [
+      -1.19941,
+      -1.19772,
+      0.57081
+     ],
+     [
+      -1.1889,
+      -1.18721,
+      0.57701
+     ],
+     [
+      -1.17001,
+      -1.16832,
+      0.5711
+     ],
+     [
+      -1.14345,
+      -1.14176,
+      0.59407
+     ],
+     [
+      -1.10174,
+      -1.10005,
+      0.64492
+     ],
+     [
+      -0.99231,
+      -0.99062,
+      0.61249
+     ],
+     [
+      -0.90526,
+      -0.90357,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ],
+     [
+      0.1458,
+      0.14736,
+      0.36481
+     ],
+     [
+      0.13656,
+      0.13813,
+      0.36481
+     ],
+     [
+      0.01694,
+      0.0185,
+      0.36481
+     ],
+     [
+      -0.11924,
+      -0.11768,
+      0.36481
+     ],
+     [
+      -0.18576,
+      -0.1842,
+      0.36481
+     ],
+     [
+      -0.17929,
+      -0.17773,
+      0.36481
+     ],
+     [
+      -0.16592,
+      -0.16435,
+      0.36481
+     ],
+     [
+      -0.15393,
+      -0.15236,
+      0.36481
+     ],
+     [
+      -0.13569,
+      -0.13413,
+      0.36481
+     ],
+     [
+      -0.0234,
+      -0.02184,
+      0.36481
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_N_00.png",
+     "sha256": "5d04f61f8687179083a19d8c2715954a20d020be7ba75e77a5677b8a6c7a8e86"
+    },
+    {
+     "name": "attack_bite_N_01.png",
+     "sha256": "5c8d2473822b2fce5c66d48a6f4e4696d6c1e8f4452f0372b55ed9cd974dea2d"
+    },
+    {
+     "name": "attack_bite_N_02.png",
+     "sha256": "35a9a98735068047ac97820257e8e8c2fc0f41d17c75c5ce660efdfd7d2a7477"
+    },
+    {
+     "name": "attack_bite_N_03.png",
+     "sha256": "f88beff0d8b1360b5e2630fc820a3cc89659c1aff16562d1ad84269a3ab44a16"
+    },
+    {
+     "name": "attack_bite_N_04.png",
+     "sha256": "c0dfee60328c9c4bc338171548e8a74dca49bcf46a24f0d442706d6c08732037"
+    },
+    {
+     "name": "attack_bite_N_05.png",
+     "sha256": "9e15c08c1d7494733324e23c4d119bf8b493d80f7b139a1c8b0a9f4fa7058818"
+    },
+    {
+     "name": "attack_bite_N_06.png",
+     "sha256": "b46b55310850eca8896b6a7d31c4e4cfa525a21ef5da18ba02c28e1b3066ffaf"
+    },
+    {
+     "name": "attack_bite_N_07.png",
+     "sha256": "1cd3f1aef25d4d332120e6df3ff31d3e89f69f337cfdbf8b7e30b1e8facfa75a"
+    },
+    {
+     "name": "attack_bite_N_08.png",
+     "sha256": "18ad607944b855c7c29578ecb6fa8009f242535b863f84e8aed5f0f6196dd0b1"
+    },
+    {
+     "name": "attack_bite_N_09.png",
+     "sha256": "9ee9352df0c80269455e4e76bf1d01a9400eed901cc8e7b4621f1a26b255f658"
+    },
+    {
+     "name": "attack_bite_N_10.png",
+     "sha256": "72fd7a86826750a9e894a341df88a51e8fc1bda1211df94a01da69021a1b865d"
+    },
+    {
+     "name": "attack_bite_N_11.png",
+     "sha256": "22fe80d9f68b36d1438b9312a83334232f939c81d04ea6bd242508f1aeb3325e"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "316a9431941877d5294063a582f2b553d8dee09d7bc9105fd62e8f5ee500bd0f",
+   "alpha_union_bbox": [
+    324,
+    191,
+    444,
+    624
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 270.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.0,
+      -1.27568,
+      0.23986
+     ],
+     [
+      0.0,
+      0.22735,
+      1.09492
+     ],
+     [
+      0.0,
+      0.20215,
+      1.12047
+     ],
+     [
+      0.0,
+      -1.29592,
+      0.40932
+     ],
+     [
+      0.0,
+      -1.36386,
+      0.13402
+     ],
+     [
+      0.0,
+      -1.48155,
+      0.16008
+     ],
+     [
+      0.0,
+      -1.47664,
+      0.16126
+     ],
+     [
+      0.0,
+      -1.46304,
+      0.14918
+     ],
+     [
+      0.0,
+      -1.46205,
+      0.15748
+     ],
+     [
+      0.0,
+      -1.47236,
+      0.19668
+     ],
+     [
+      0.0,
+      -1.37706,
+      0.21383
+     ],
+     [
+      0.0,
+      -1.27568,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      -0.00119,
+      -1.27903,
+      0.61253
+     ],
+     [
+      -0.00119,
+      0.18489,
+      0.70849
+     ],
+     [
+      -0.00119,
+      0.17707,
+      0.71265
+     ],
+     [
+      -0.00119,
+      -1.22314,
+      0.85671
+     ],
+     [
+      -0.00119,
+      -1.59466,
+      0.55001
+     ],
+     [
+      -0.00119,
+      -1.69503,
+      0.57081
+     ],
+     [
+      -0.00119,
+      -1.68016,
+      0.57701
+     ],
+     [
+      -0.00119,
+      -1.65344,
+      0.5711
+     ],
+     [
+      -0.00119,
+      -1.61588,
+      0.59407
+     ],
+     [
+      -0.00119,
+      -1.5569,
+      0.64492
+     ],
+     [
+      -0.00119,
+      -1.40214,
+      0.61249
+     ],
+     [
+      -0.00119,
+      -1.27903,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.20729,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.19423,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.02506,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.16753,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.2616,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.25245,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.23354,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.21658,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.19079,
+      0.36481
+     ],
+     [
+      -0.00111,
+      -0.03199,
+      0.36481
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_NE_00.png",
+     "sha256": "efb2474587e6852fbb06cb0e7236901b968ce56a7d7e80ac78b0b824e09c9262"
+    },
+    {
+     "name": "attack_bite_NE_01.png",
+     "sha256": "27b4cf56b7313cb8e63fe57b26ebd509521096a633df6922cae665bf795ebea9"
+    },
+    {
+     "name": "attack_bite_NE_02.png",
+     "sha256": "0de30eeb3f6d23cf9791b956e184425ffe752fb76cadcfd6b6534a8e49d824e7"
+    },
+    {
+     "name": "attack_bite_NE_03.png",
+     "sha256": "90f5bab5c792bbd18ce5cb61d505f92b8d2037d84d008b8acc55602c43d990d9"
+    },
+    {
+     "name": "attack_bite_NE_04.png",
+     "sha256": "5e802cf6ba56f01ec46d3f6254cd4451d672eaa89c728645005a6fbb4a14e652"
+    },
+    {
+     "name": "attack_bite_NE_05.png",
+     "sha256": "52325ff4dae97f253e189dbc37ccecaca04a74438fe175ad3dfbbc368743a43a"
+    },
+    {
+     "name": "attack_bite_NE_06.png",
+     "sha256": "34e2e56301cac535c4c8b2bd54d004aeef99a885af210f0c2fb6391e621490af"
+    },
+    {
+     "name": "attack_bite_NE_07.png",
+     "sha256": "8ac1ec85cc3163aaa64494a42c22f5f162f2ad4c2caa21ae6c49a31d73fd530f"
+    },
+    {
+     "name": "attack_bite_NE_08.png",
+     "sha256": "416d63ae31126fea9db47c9005ff189e98d85714e51f726ac3601ca5c0532a64"
+    },
+    {
+     "name": "attack_bite_NE_09.png",
+     "sha256": "5b0cad8c7e383ff22d7c7ba7cc0d9c08f9a240354419fc6d3489f3e1f4b9a69f"
+    },
+    {
+     "name": "attack_bite_NE_10.png",
+     "sha256": "f92628a80075d74cb280fc2dbc404b1ad6bf6a6e9d3f4514df144100c539de1d"
+    },
+    {
+     "name": "attack_bite_NE_11.png",
+     "sha256": "efb2474587e6852fbb06cb0e7236901b968ce56a7d7e80ac78b0b824e09c9262"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "332c16885f0c4908f1f088612d91eddabedfc81300ac2bcfc7ef277b54026d5f",
+   "alpha_union_bbox": [
+    200,
+    228,
+    595,
+    566
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 315.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.90204,
+      -0.90204,
+      0.23986
+     ],
+     [
+      -0.16076,
+      0.16076,
+      1.09492
+     ],
+     [
+      -0.14294,
+      0.14294,
+      1.12047
+     ],
+     [
+      0.91636,
+      -0.91636,
+      0.40932
+     ],
+     [
+      0.96439,
+      -0.96439,
+      0.13402
+     ],
+     [
+      1.04762,
+      -1.04762,
+      0.16008
+     ],
+     [
+      1.04414,
+      -1.04414,
+      0.16126
+     ],
+     [
+      1.03452,
+      -1.03452,
+      0.14918
+     ],
+     [
+      1.03383,
+      -1.03383,
+      0.15748
+     ],
+     [
+      1.04112,
+      -1.04112,
+      0.19668
+     ],
+     [
+      0.97373,
+      -0.97373,
+      0.21383
+     ],
+     [
+      0.90204,
+      -0.90204,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      0.90357,
+      -0.90526,
+      0.61253
+     ],
+     [
+      -0.13158,
+      0.12989,
+      0.70849
+     ],
+     [
+      -0.12605,
+      0.12436,
+      0.71265
+     ],
+     [
+      0.86405,
+      -0.86573,
+      0.85671
+     ],
+     [
+      1.12675,
+      -1.12844,
+      0.55001
+     ],
+     [
+      1.19772,
+      -1.19941,
+      0.57081
+     ],
+     [
+      1.18721,
+      -1.1889,
+      0.57701
+     ],
+     [
+      1.16832,
+      -1.17001,
+      0.5711
+     ],
+     [
+      1.14176,
+      -1.14345,
+      0.59407
+     ],
+     [
+      1.10005,
+      -1.10174,
+      0.64492
+     ],
+     [
+      0.99062,
+      -0.99231,
+      0.61249
+     ],
+     [
+      0.90357,
+      -0.90526,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ],
+     [
+      -0.14736,
+      0.1458,
+      0.36481
+     ],
+     [
+      -0.13813,
+      0.13656,
+      0.36481
+     ],
+     [
+      -0.0185,
+      0.01694,
+      0.36481
+     ],
+     [
+      0.11768,
+      -0.11924,
+      0.36481
+     ],
+     [
+      0.1842,
+      -0.18576,
+      0.36481
+     ],
+     [
+      0.17773,
+      -0.17929,
+      0.36481
+     ],
+     [
+      0.16435,
+      -0.16592,
+      0.36481
+     ],
+     [
+      0.15236,
+      -0.15393,
+      0.36481
+     ],
+     [
+      0.13413,
+      -0.13569,
+      0.36481
+     ],
+     [
+      0.02184,
+      -0.0234,
+      0.36481
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_E_00.png",
+     "sha256": "42c24b0de74337f7c379eec8d3bccd0d9b663a9b6155cffef95789387c21a717"
+    },
+    {
+     "name": "attack_bite_E_01.png",
+     "sha256": "f14aa1b06f518e60fef227a73d5afa0d71db979aeae0522e0a68d63a911613d9"
+    },
+    {
+     "name": "attack_bite_E_02.png",
+     "sha256": "4bbb0c99d8f2f5f1addfaede402a3310ea6a2d237d20c945cda600828411f276"
+    },
+    {
+     "name": "attack_bite_E_03.png",
+     "sha256": "460bd4d96a8d6ad610e78566ba6a9a560cc62b5a81880f7cac41e35741b8db98"
+    },
+    {
+     "name": "attack_bite_E_04.png",
+     "sha256": "0faf992ae01689e51f06a556b077bc094bc405b269400e88f245a1aeafe7ff8c"
+    },
+    {
+     "name": "attack_bite_E_05.png",
+     "sha256": "2ca1bc6f970e42db4f6ddbe97e19b7473d27de7afb0eac533c6040aec27d1f58"
+    },
+    {
+     "name": "attack_bite_E_06.png",
+     "sha256": "804b8669ea1d89f8fcfea842dd538a088eee88bfa6a62e0981045140ebcb0453"
+    },
+    {
+     "name": "attack_bite_E_07.png",
+     "sha256": "a11ddfe43df2a4614eb6ba8569f819ebe34da2fceafda7f019410bc72652ebd2"
+    },
+    {
+     "name": "attack_bite_E_08.png",
+     "sha256": "fd1425bf24d71effd14d59d3e51f418e428800eb46b4940d42e949dc24d81df9"
+    },
+    {
+     "name": "attack_bite_E_09.png",
+     "sha256": "ad39b48bee8770c783fe6451ecd1fa1b31cd48109e04bfdbbd0535056535f608"
+    },
+    {
+     "name": "attack_bite_E_10.png",
+     "sha256": "2d5a9fc1ad75132d9a70cbfcae6a4ad7d8600725185b5f3cdea01c89d1504384"
+    },
+    {
+     "name": "attack_bite_E_11.png",
+     "sha256": "a6a7ccc0b55573de47db2c9957cce2498dbb99035121cf99f3406debfdc3d68a"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "5d18b0506d1987881b962bba535729e4b0ecf1783c2b432de7c6f0e145d4f031",
+   "alpha_union_bbox": [
+    142,
+    299,
+    640,
+    489
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 360.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      1.27568,
+      0.0,
+      0.23986
+     ],
+     [
+      -0.22735,
+      0.0,
+      1.09492
+     ],
+     [
+      -0.20215,
+      0.0,
+      1.12047
+     ],
+     [
+      1.29592,
+      0.0,
+      0.40932
+     ],
+     [
+      1.36386,
+      0.0,
+      0.13402
+     ],
+     [
+      1.48155,
+      0.0,
+      0.16008
+     ],
+     [
+      1.47664,
+      0.0,
+      0.16126
+     ],
+     [
+      1.46304,
+      0.0,
+      0.14918
+     ],
+     [
+      1.46205,
+      0.0,
+      0.15748
+     ],
+     [
+      1.47236,
+      0.0,
+      0.19668
+     ],
+     [
+      1.37706,
+      0.0,
+      0.21383
+     ],
+     [
+      1.27568,
+      0.0,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      1.27903,
+      -0.00119,
+      0.61253
+     ],
+     [
+      -0.18489,
+      -0.00119,
+      0.70849
+     ],
+     [
+      -0.17707,
+      -0.00119,
+      0.71265
+     ],
+     [
+      1.22314,
+      -0.00119,
+      0.85671
+     ],
+     [
+      1.59466,
+      -0.00119,
+      0.55001
+     ],
+     [
+      1.69503,
+      -0.00119,
+      0.57081
+     ],
+     [
+      1.68016,
+      -0.00119,
+      0.57701
+     ],
+     [
+      1.65344,
+      -0.00119,
+      0.5711
+     ],
+     [
+      1.61588,
+      -0.00119,
+      0.59407
+     ],
+     [
+      1.5569,
+      -0.00119,
+      0.64492
+     ],
+     [
+      1.40214,
+      -0.00119,
+      0.61249
+     ],
+     [
+      1.27903,
+      -0.00119,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.20729,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.19423,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.02506,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.16753,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.2616,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.25245,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.23354,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.21658,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.19079,
+      -0.00111,
+      0.36481
+     ],
+     [
+      0.03199,
+      -0.00111,
+      0.36481
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "attack_bite/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "attack_bite_SE_00.png",
+     "sha256": "22a645bbb0d58dfd0d11ff5bf110cd43b40b692b4d8156195566dd49153558d8"
+    },
+    {
+     "name": "attack_bite_SE_01.png",
+     "sha256": "1f9877ef28de0d87a7192ba69c696d7069f7017ee188005b7e74c60c6975e167"
+    },
+    {
+     "name": "attack_bite_SE_02.png",
+     "sha256": "2be41afbaeaa937a1590f7c2de99e226a0723b21f54c34f42112182fbb470d93"
+    },
+    {
+     "name": "attack_bite_SE_03.png",
+     "sha256": "b93dedd7640ff45a73765cb860e97c05c4185c05948a127dbf7ff80842228d3e"
+    },
+    {
+     "name": "attack_bite_SE_04.png",
+     "sha256": "8e0c7009e9e879de02ae28e88f2c1b49110b5c41ae233c68572f63fbdd372008"
+    },
+    {
+     "name": "attack_bite_SE_05.png",
+     "sha256": "9a808ee699fec8bdb5dac24ad9503b8ed5122c1bfcb90a641acb9e512a60b1c0"
+    },
+    {
+     "name": "attack_bite_SE_06.png",
+     "sha256": "3246688ab09f4f9a11d15f615aa555a643b051b26f5c93db5dbfa62386dbaa55"
+    },
+    {
+     "name": "attack_bite_SE_07.png",
+     "sha256": "c53dff5d948d971751da0e1b9ea147d7860d4d647ce208aa68001f63e36b1853"
+    },
+    {
+     "name": "attack_bite_SE_08.png",
+     "sha256": "a2d74dd30ab492137e6cb00285227d787c995e9ceb15be7d9347f4a9fe44978e"
+    },
+    {
+     "name": "attack_bite_SE_09.png",
+     "sha256": "6e2d5924f475d1e6bf1950725df6d00060245001abf5add57e03b3af230cc0b8"
+    },
+    {
+     "name": "attack_bite_SE_10.png",
+     "sha256": "77971a16f46a5bd094bd85f7f5f7c2b96bf2275d027385285dfa674aa83f11ad"
+    },
+    {
+     "name": "attack_bite_SE_11.png",
+     "sha256": "7996dd9aa6fb8a13cd834630d5dbfa7f51fa46aa195549511a6a78ab836ade46"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "e0ee5bcee9d01a212ce114eaeb770e6b1fb77ae436f83eaf48bd0c046f9f4cf0",
+   "alpha_union_bbox": [
+    216,
+    276,
+    595,
+    598
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 45.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.90204,
+      0.90204,
+      0.23986
+     ],
+     [
+      -0.16076,
+      -0.16076,
+      1.09492
+     ],
+     [
+      -0.14294,
+      -0.14294,
+      1.12047
+     ],
+     [
+      0.91636,
+      0.91636,
+      0.40932
+     ],
+     [
+      0.96439,
+      0.96439,
+      0.13402
+     ],
+     [
+      1.04762,
+      1.04762,
+      0.16008
+     ],
+     [
+      1.04414,
+      1.04414,
+      0.16126
+     ],
+     [
+      1.03452,
+      1.03452,
+      0.14918
+     ],
+     [
+      1.03383,
+      1.03383,
+      0.15748
+     ],
+     [
+      1.04112,
+      1.04112,
+      0.19668
+     ],
+     [
+      0.97373,
+      0.97373,
+      0.21383
+     ],
+     [
+      0.90204,
+      0.90204,
+      0.23986
+     ]
+    ],
+    "head_top": [
+     [
+      0.90526,
+      0.90357,
+      0.61253
+     ],
+     [
+      -0.12989,
+      -0.13158,
+      0.70849
+     ],
+     [
+      -0.12436,
+      -0.12605,
+      0.71265
+     ],
+     [
+      0.86573,
+      0.86405,
+      0.85671
+     ],
+     [
+      1.12844,
+      1.12675,
+      0.55001
+     ],
+     [
+      1.19941,
+      1.19772,
+      0.57081
+     ],
+     [
+      1.1889,
+      1.18721,
+      0.57701
+     ],
+     [
+      1.17001,
+      1.16832,
+      0.5711
+     ],
+     [
+      1.14345,
+      1.14176,
+      0.59407
+     ],
+     [
+      1.10174,
+      1.10005,
+      0.64492
+     ],
+     [
+      0.99231,
+      0.99062,
+      0.61249
+     ],
+     [
+      0.90526,
+      0.90357,
+      0.61253
+     ]
+    ],
+    "chest": [
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ],
+     [
+      -0.1458,
+      -0.14736,
+      0.36481
+     ],
+     [
+      -0.13656,
+      -0.13813,
+      0.36481
+     ],
+     [
+      -0.01694,
+      -0.0185,
+      0.36481
+     ],
+     [
+      0.11924,
+      0.11768,
+      0.36481
+     ],
+     [
+      0.18576,
+      0.1842,
+      0.36481
+     ],
+     [
+      0.17929,
+      0.17773,
+      0.36481
+     ],
+     [
+      0.16592,
+      0.16435,
+      0.36481
+     ],
+     [
+      0.15393,
+      0.15236,
+      0.36481
+     ],
+     [
+      0.13569,
+      0.13413,
+      0.36481
+     ],
+     [
+      0.0234,
+      0.02184,
+      0.36481
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.36481
+     ]
+    ]
+   }
+  },
+  "death/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_S_00.png",
+     "sha256": "291b31616c300427d444cf693915a2d168c3a29e55548f403a251f9e2effd92f"
+    },
+    {
+     "name": "death_S_01.png",
+     "sha256": "0b890a449e8314cd6d806ad978d832db67a7af147dbfa2ffaed9642b2d996a23"
+    },
+    {
+     "name": "death_S_02.png",
+     "sha256": "cebd18d0ad50497d7eb4fc285f35f9797044f08c3e66f2e00633db7a5b9bb990"
+    },
+    {
+     "name": "death_S_03.png",
+     "sha256": "056239b2fda95f7ebc4e8b6314ccff4ac988bc2b4cff7a7d6f9323b0016a4d27"
+    },
+    {
+     "name": "death_S_04.png",
+     "sha256": "ff3163b5a5109f52f9b8aed7984d1b0107fb1fae74af66d93265f5be51da7730"
+    },
+    {
+     "name": "death_S_05.png",
+     "sha256": "689fe308b96bc97945e645d6aa6fe50a63a74cd9ef85f318d29cfe18ddab53c1"
+    },
+    {
+     "name": "death_S_06.png",
+     "sha256": "7bee660a7830aaa2435f3565be0f888eab1d6770f185f36aa19293b5f954772d"
+    },
+    {
+     "name": "death_S_07.png",
+     "sha256": "30de656025dabec0a1128aa4e94c022e87f739e260f1985c2c659fc66fe2e31a"
+    },
+    {
+     "name": "death_S_08.png",
+     "sha256": "315dec45f8276a76292a267024e568bf8d601197267e17de5397e98b6bc935b0"
+    },
+    {
+     "name": "death_S_09.png",
+     "sha256": "2bdb5291955616ddad100c790d423af099def6d75837fc1c8ad046da75daa9d9"
+    },
+    {
+     "name": "death_S_10.png",
+     "sha256": "2d785ec7e209f7f381428bd3edb3e2511e0f2ff0db230c13319797de8ddf770e"
+    },
+    {
+     "name": "death_S_11.png",
+     "sha256": "7aebaa69cfc84aeba45f511c38911037e601bfb24b27f9f8809ed4b5c7a96f56"
+    },
+    {
+     "name": "death_S_12.png",
+     "sha256": "571b8945bdfcef60960358c98751605ea83817de66fbd613ffaecf4641145536"
+    },
+    {
+     "name": "death_S_13.png",
+     "sha256": "21d44671795ccf53d5611dc5f091b261f12583454ff1430d99bcf183f58e30fe"
+    },
+    {
+     "name": "death_S_14.png",
+     "sha256": "eb6371240a0b81ad79dfd1feb90f568046dc63cf768b1884bf962a80b5b0485f"
+    },
+    {
+     "name": "death_S_15.png",
+     "sha256": "25067d250980cb843a7281de2c248ec303c3255df0c5f4a0a9eda55b1e9108d3"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "1d161f456af58f15710296ec8a0eb90e8d8c66f98208e2fb8b0d13b474c5b9e7",
+   "alpha_union_bbox": [
+    207,
+    215,
+    529,
+    601
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 90.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.45286,
+      1.10164,
+      0.21329
+     ],
+     [
+      -0.1166,
+      1.24026,
+      0.21544
+     ],
+     [
+      0.43286,
+      1.13508,
+      0.20737
+     ],
+     [
+      0.4825,
+      1.06277,
+      0.19099
+     ],
+     [
+      0.10963,
+      1.13697,
+      0.20064
+     ],
+     [
+      -0.09403,
+      1.14927,
+      0.22344
+     ],
+     [
+      0.20591,
+      1.0891,
+      0.15593
+     ],
+     [
+      0.55468,
+      0.76915,
+      0.1019
+     ],
+     [
+      0.61056,
+      0.72156,
+      0.11126
+     ],
+     [
+      0.34653,
+      1.04271,
+      0.19934
+     ],
+     [
+      0.13849,
+      1.14276,
+      0.21427
+     ],
+     [
+      0.33367,
+      0.99838,
+      0.1435
+     ],
+     [
+      0.49432,
+      0.80072,
+      0.10935
+     ],
+     [
+      0.47122,
+      0.84376,
+      0.1317
+     ],
+     [
+      0.41417,
+      0.90231,
+      0.14229
+     ],
+     [
+      0.41391,
+      0.88774,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      -0.46465,
+      1.12125,
+      0.58527
+     ],
+     [
+      -0.10298,
+      1.27426,
+      0.60444
+     ],
+     [
+      0.51064,
+      1.18125,
+      0.62409
+     ],
+     [
+      0.60672,
+      1.15144,
+      0.62125
+     ],
+     [
+      0.21778,
+      1.26888,
+      0.6379
+     ],
+     [
+      0.06293,
+      1.28059,
+      0.64608
+     ],
+     [
+      0.47952,
+      1.16047,
+      0.52873
+     ],
+     [
+      0.86652,
+      0.75824,
+      0.44695
+     ],
+     [
+      0.92992,
+      0.73914,
+      0.4442
+     ],
+     [
+      0.6321,
+      1.12516,
+      0.54713
+     ],
+     [
+      0.42047,
+      1.22304,
+      0.55953
+     ],
+     [
+      0.64847,
+      1.0253,
+      0.46154
+     ],
+     [
+      0.81811,
+      0.80013,
+      0.41308
+     ],
+     [
+      0.80036,
+      0.85789,
+      0.42382
+     ],
+     [
+      0.74743,
+      0.92163,
+      0.42555
+     ],
+     [
+      0.74987,
+      0.90313,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      0.00111,
+      -0.0884,
+      0.37335
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.3905
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.44702
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.49349
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.47037
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.44334
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.50008
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.64534
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.72143
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.66769
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.56438
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.62799
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.73094
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.77082
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.76247
+     ],
+     [
+      0.00111,
+      -0.0884,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_SW_00.png",
+     "sha256": "8fc0bb001c58c1320232f5cb1c91eb6b6bae134dab2315155112887e9044a0b7"
+    },
+    {
+     "name": "death_SW_01.png",
+     "sha256": "aa998f2c9afa10839dfbc52a905855eeec5016ec6147084be9da1bcd090a28ea"
+    },
+    {
+     "name": "death_SW_02.png",
+     "sha256": "60d3f5601173612b43844c93cf6681785c8b985617bd6df0ac89ba3e1fd37f0c"
+    },
+    {
+     "name": "death_SW_03.png",
+     "sha256": "2a46c11e4e18f87f099e9bf864837650f864dd5305d55f0e0b67c77e2e254ce2"
+    },
+    {
+     "name": "death_SW_04.png",
+     "sha256": "86c4266b177cb3ef471d0e3ad4ad015f1315132dce569aa978265fae503046d5"
+    },
+    {
+     "name": "death_SW_05.png",
+     "sha256": "5e7ef9005a3a675108fdb4c814de241614a85a4ebd0ce9208067529354dfd910"
+    },
+    {
+     "name": "death_SW_06.png",
+     "sha256": "1802a6fd7e3a02b802583a41c606461c889b6c8e284b1746d8ee8f264f5a90ba"
+    },
+    {
+     "name": "death_SW_07.png",
+     "sha256": "9c4bec4f5d9a75f416038bec4616588187450f5242f6755c8986a5c9fd891b72"
+    },
+    {
+     "name": "death_SW_08.png",
+     "sha256": "f47adc148457478b517334328097b82e9cfc38fdc487c26b4ab0d22a2ac51597"
+    },
+    {
+     "name": "death_SW_09.png",
+     "sha256": "7b4d420392e177146e729b36dbc4a046aeba2a75ef5432e30e734bf92df20495"
+    },
+    {
+     "name": "death_SW_10.png",
+     "sha256": "a3a5f4574497d200ed33c2f6422f2a6af98e80d09898e4514e927f147066f84a"
+    },
+    {
+     "name": "death_SW_11.png",
+     "sha256": "ee32a789e119e24b79f73c474379ded79087ae6a42986d5a269ad6e07d041e28"
+    },
+    {
+     "name": "death_SW_12.png",
+     "sha256": "e4efb28a6277e546b15a64388dccea22073c468ae3bd1b41277772c60e860d9b"
+    },
+    {
+     "name": "death_SW_13.png",
+     "sha256": "df0999cc4353b5977418fd642dc8c915cf392d3d92187e1eda7b260066cbdc0b"
+    },
+    {
+     "name": "death_SW_14.png",
+     "sha256": "bdf65af3f0a8711d84ce6ee0fd22189f24b9234df027416a470b6bade4404e7b"
+    },
+    {
+     "name": "death_SW_15.png",
+     "sha256": "def7222090eceb46ea88b5eac28e556c47a087820ff1ec665d67cec2322f7ffa"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "ff62ea84aff621000b08abf9e497f25bd5d8b1694816e5d75b59a0e6fdf09a3b",
+   "alpha_union_bbox": [
+    189,
+    181,
+    582,
+    594
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 135.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -1.09919,
+      0.45876,
+      0.21329
+     ],
+     [
+      -0.95945,
+      0.79455,
+      0.21544
+     ],
+     [
+      -0.49654,
+      1.1087,
+      0.20737
+     ],
+     [
+      -0.41031,
+      1.09267,
+      0.19099
+     ],
+     [
+      -0.72644,
+      0.88148,
+      0.20064
+     ],
+     [
+      -0.87915,
+      0.74617,
+      0.22344
+     ],
+     [
+      -0.62451,
+      0.91571,
+      0.15593
+     ],
+     [
+      -0.15166,
+      0.93609,
+      0.1019
+     ],
+     [
+      -0.07849,
+      0.94195,
+      0.11126
+     ],
+     [
+      -0.49228,
+      0.98234,
+      0.19934
+     ],
+     [
+      -0.71012,
+      0.90598,
+      0.21427
+     ],
+     [
+      -0.47003,
+      0.9419,
+      0.1435
+     ],
+     [
+      -0.21666,
+      0.91573,
+      0.10935
+     ],
+     [
+      -0.26342,
+      0.92983,
+      0.1317
+     ],
+     [
+      -0.34516,
+      0.93089,
+      0.14229
+     ],
+     [
+      -0.33505,
+      0.92041,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      -1.1214,
+      0.46429,
+      0.58527
+     ],
+     [
+      -0.97386,
+      0.82822,
+      0.60444
+     ],
+     [
+      -0.47419,
+      1.19635,
+      0.62409
+     ],
+     [
+      -0.38517,
+      1.2432,
+      0.62125
+     ],
+     [
+      -0.74324,
+      1.05123,
+      0.6379
+     ],
+     [
+      -0.86102,
+      0.95001,
+      0.64608
+     ],
+     [
+      -0.4815,
+      1.15965,
+      0.52873
+     ],
+     [
+      0.07656,
+      1.14888,
+      0.44695
+     ],
+     [
+      0.1349,
+      1.1802,
+      0.4442
+     ],
+     [
+      -0.34865,
+      1.24257,
+      0.54713
+     ],
+     [
+      -0.5675,
+      1.16213,
+      0.55953
+     ],
+     [
+      -0.26646,
+      1.18354,
+      0.46154
+     ],
+     [
+      0.01271,
+      1.14427,
+      0.41308
+     ],
+     [
+      -0.04068,
+      1.17256,
+      0.42382
+     ],
+     [
+      -0.12318,
+      1.1802,
+      0.42555
+     ],
+     [
+      -0.10837,
+      1.16885,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      0.06329,
+      -0.06172,
+      0.37335
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.3905
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.44702
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.49349
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.47037
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.44334
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.50008
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.64534
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.72143
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.66769
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.56438
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.62799
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.73094
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.77082
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.76247
+     ],
+     [
+      0.06329,
+      -0.06172,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_W_00.png",
+     "sha256": "024869f17e01fd48264a2191cef2000d629467c0e3ab5b85a422c09a74ce655a"
+    },
+    {
+     "name": "death_W_01.png",
+     "sha256": "8507a0dae26d0e93b79804e5367ee4dd572317dcbf2cffd6272f2cfa34ceb926"
+    },
+    {
+     "name": "death_W_02.png",
+     "sha256": "ca8dc777e9a34d0deba51539e37699aeb25863e66e9db560b61dc5bb792a170d"
+    },
+    {
+     "name": "death_W_03.png",
+     "sha256": "163f6a843dc9296cdedfe98cc413ab35a0688beb7199c883a316bed201fd5798"
+    },
+    {
+     "name": "death_W_04.png",
+     "sha256": "cff6571d8d94be82bb1b0b9e17fad5e4651caff3496ba05998a44a4124e7f0c2"
+    },
+    {
+     "name": "death_W_05.png",
+     "sha256": "27760be92a847dacb37a9d77dcd521a6dca658d2cfb8db18272ca704bd0f444f"
+    },
+    {
+     "name": "death_W_06.png",
+     "sha256": "0fc444034623a267584bc8f8d1b797fa9e06b8669f0d38b43fb937f6178bce84"
+    },
+    {
+     "name": "death_W_07.png",
+     "sha256": "00fafec6e0e7602c79ba065f9a1c48b276872d73acea3893fef1b82ea6c58b01"
+    },
+    {
+     "name": "death_W_08.png",
+     "sha256": "29e964b77bc639975a1cd857349764938280c7ea4d65e146e75aba7121f5abd4"
+    },
+    {
+     "name": "death_W_09.png",
+     "sha256": "798afc99a55b84a1aaf9773cf0399aa1ba79f5a381dfb2a5efca9b3dcdbd17f3"
+    },
+    {
+     "name": "death_W_10.png",
+     "sha256": "babdda72f7dd614b5d5245895e0157f31b6513b2befa54b6b665f5572b7c7eb4"
+    },
+    {
+     "name": "death_W_11.png",
+     "sha256": "43c24f675f840ea643b3f1e5f8487ee6416a2853de2481a2f15ab9f5fd55c6ea"
+    },
+    {
+     "name": "death_W_12.png",
+     "sha256": "e03894839a107737f825033f0333da5aaabd48a0a0cc02c1b7b7d97b3d98e977"
+    },
+    {
+     "name": "death_W_13.png",
+     "sha256": "5538935d22cd6efa4ebc7cadb971ea381e9abc19c492a424e075166c9a2c555e"
+    },
+    {
+     "name": "death_W_14.png",
+     "sha256": "e9c7ccffb9e3657dcd6c52355540195484bcf50231f51ac74d715b094599b739"
+    },
+    {
+     "name": "death_W_15.png",
+     "sha256": "3c9329773eacb61daa8b9b7fba270db1f86e5b73e4ba06643921d982dbe61683"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "7a662eaaf50ca93e6531f06859ebcff1dabe28f2d077aad03f18243a9718b8c6",
+   "alpha_union_bbox": [
+    164,
+    201,
+    607,
+    534
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 180.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -1.10164,
+      -0.45286,
+      0.21329
+     ],
+     [
+      -1.24026,
+      -0.1166,
+      0.21544
+     ],
+     [
+      -1.13508,
+      0.43286,
+      0.20737
+     ],
+     [
+      -1.06277,
+      0.4825,
+      0.19099
+     ],
+     [
+      -1.13697,
+      0.10963,
+      0.20064
+     ],
+     [
+      -1.14927,
+      -0.09403,
+      0.22344
+     ],
+     [
+      -1.0891,
+      0.20591,
+      0.15593
+     ],
+     [
+      -0.76915,
+      0.55468,
+      0.1019
+     ],
+     [
+      -0.72156,
+      0.61056,
+      0.11126
+     ],
+     [
+      -1.04271,
+      0.34653,
+      0.19934
+     ],
+     [
+      -1.14276,
+      0.13849,
+      0.21427
+     ],
+     [
+      -0.99838,
+      0.33367,
+      0.1435
+     ],
+     [
+      -0.80072,
+      0.49432,
+      0.10935
+     ],
+     [
+      -0.84376,
+      0.47122,
+      0.1317
+     ],
+     [
+      -0.90231,
+      0.41417,
+      0.14229
+     ],
+     [
+      -0.88774,
+      0.41391,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      -1.12125,
+      -0.46465,
+      0.58527
+     ],
+     [
+      -1.27426,
+      -0.10298,
+      0.60444
+     ],
+     [
+      -1.18125,
+      0.51064,
+      0.62409
+     ],
+     [
+      -1.15144,
+      0.60672,
+      0.62125
+     ],
+     [
+      -1.26888,
+      0.21778,
+      0.6379
+     ],
+     [
+      -1.28059,
+      0.06293,
+      0.64608
+     ],
+     [
+      -1.16047,
+      0.47952,
+      0.52873
+     ],
+     [
+      -0.75824,
+      0.86652,
+      0.44695
+     ],
+     [
+      -0.73914,
+      0.92992,
+      0.4442
+     ],
+     [
+      -1.12516,
+      0.6321,
+      0.54713
+     ],
+     [
+      -1.22304,
+      0.42047,
+      0.55953
+     ],
+     [
+      -1.0253,
+      0.64847,
+      0.46154
+     ],
+     [
+      -0.80013,
+      0.81811,
+      0.41308
+     ],
+     [
+      -0.85789,
+      0.80036,
+      0.42382
+     ],
+     [
+      -0.92163,
+      0.74742,
+      0.42555
+     ],
+     [
+      -0.90313,
+      0.74987,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      0.0884,
+      0.00111,
+      0.37335
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.3905
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.44702
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.49349
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.47037
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.44334
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.50008
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.64534
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.72143
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.66769
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.56438
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.62799
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.73094
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.77082
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.76247
+     ],
+     [
+      0.0884,
+      0.00111,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_NW_00.png",
+     "sha256": "8da0cd6ca558199837691d83ddfc332b5fc526ece4515e482e0c932c652268ad"
+    },
+    {
+     "name": "death_NW_01.png",
+     "sha256": "0564490197164fecf57ea4b5dd6086e7f3f791937dbc0708159b468daf3ddf82"
+    },
+    {
+     "name": "death_NW_02.png",
+     "sha256": "2fe63260e2f13b8b12e7b38b43e7d9290535d295faf35fe3f71c8061baeed764"
+    },
+    {
+     "name": "death_NW_03.png",
+     "sha256": "ac601f2848223c0337d704b5389bdbb478901caa74d3cc95c3f56c9b8e1f50a4"
+    },
+    {
+     "name": "death_NW_04.png",
+     "sha256": "bebf9eb0b79c7750777e558d36b0fb7454f10cef57076cc70a583a5988172976"
+    },
+    {
+     "name": "death_NW_05.png",
+     "sha256": "69a3bdd9cf911f51ffe3c73880884c4458799a5a44ca28cdeb6fec306c59252c"
+    },
+    {
+     "name": "death_NW_06.png",
+     "sha256": "60b237befd354a0ab9a773ec39a16f8ea566a0b95d60f2fa038a2a0aa714b109"
+    },
+    {
+     "name": "death_NW_07.png",
+     "sha256": "10821cb71837c4de6932e027df44c937889e5a1de8524b1882fe2bcf98a9eeed"
+    },
+    {
+     "name": "death_NW_08.png",
+     "sha256": "0e2b8f8224d23fbbe1a1b11f0d81a39edc9ec276d2b026413aeee9a5e553892e"
+    },
+    {
+     "name": "death_NW_09.png",
+     "sha256": "e816f766e8cfb76b2bc93905dc91f9a6243fe848344d9d220b7b0243a194ec87"
+    },
+    {
+     "name": "death_NW_10.png",
+     "sha256": "c1982e52493727a6e5dac6d3c27ec7acc8cfd232cd398f958f5367fe44dfa9be"
+    },
+    {
+     "name": "death_NW_11.png",
+     "sha256": "b2f54f8ba8668bf013b98cc5b3c8c92b9c657eaf147e90a1b0dcd7c1043fd1c1"
+    },
+    {
+     "name": "death_NW_12.png",
+     "sha256": "d5fa00ca5589c915bc277e25e2f208955cd5ac53892e7b86435acb19d782b0f7"
+    },
+    {
+     "name": "death_NW_13.png",
+     "sha256": "c0f6210127208dba4a63e6abe78c1182f8b3a2b133b4f22a141b3be972029b39"
+    },
+    {
+     "name": "death_NW_14.png",
+     "sha256": "a512ff22dac5bae95b854671f34ad78b30d3eea6cd7c68f23bd8fe967da51007"
+    },
+    {
+     "name": "death_NW_15.png",
+     "sha256": "4c83b7c53262d642566b92d16b1863e61e1db107b111cf1f9f70c1497a60ea79"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "48e952b1e06b95f0635282e9d033d4b66a42e780c12e4cae3ca622baf6e72013",
+   "alpha_union_bbox": [
+    178,
+    248,
+    603,
+    585
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 225.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      -0.45876,
+      -1.09919,
+      0.21329
+     ],
+     [
+      -0.79455,
+      -0.95945,
+      0.21544
+     ],
+     [
+      -1.1087,
+      -0.49654,
+      0.20737
+     ],
+     [
+      -1.09267,
+      -0.41031,
+      0.19099
+     ],
+     [
+      -0.88148,
+      -0.72644,
+      0.20064
+     ],
+     [
+      -0.74617,
+      -0.87915,
+      0.22344
+     ],
+     [
+      -0.91571,
+      -0.62451,
+      0.15593
+     ],
+     [
+      -0.93609,
+      -0.15166,
+      0.1019
+     ],
+     [
+      -0.94195,
+      -0.07849,
+      0.11126
+     ],
+     [
+      -0.98234,
+      -0.49228,
+      0.19934
+     ],
+     [
+      -0.90598,
+      -0.71012,
+      0.21427
+     ],
+     [
+      -0.9419,
+      -0.47003,
+      0.1435
+     ],
+     [
+      -0.91573,
+      -0.21666,
+      0.10935
+     ],
+     [
+      -0.92983,
+      -0.26342,
+      0.1317
+     ],
+     [
+      -0.93089,
+      -0.34516,
+      0.14229
+     ],
+     [
+      -0.92041,
+      -0.33505,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      -0.46429,
+      -1.1214,
+      0.58527
+     ],
+     [
+      -0.82822,
+      -0.97386,
+      0.60444
+     ],
+     [
+      -1.19635,
+      -0.47419,
+      0.62409
+     ],
+     [
+      -1.2432,
+      -0.38517,
+      0.62125
+     ],
+     [
+      -1.05123,
+      -0.74324,
+      0.6379
+     ],
+     [
+      -0.95001,
+      -0.86102,
+      0.64608
+     ],
+     [
+      -1.15965,
+      -0.4815,
+      0.52873
+     ],
+     [
+      -1.14888,
+      0.07656,
+      0.44695
+     ],
+     [
+      -1.1802,
+      0.1349,
+      0.4442
+     ],
+     [
+      -1.24257,
+      -0.34865,
+      0.54713
+     ],
+     [
+      -1.16213,
+      -0.5675,
+      0.55953
+     ],
+     [
+      -1.18354,
+      -0.26646,
+      0.46154
+     ],
+     [
+      -1.14427,
+      0.01271,
+      0.41308
+     ],
+     [
+      -1.17256,
+      -0.04068,
+      0.42382
+     ],
+     [
+      -1.1802,
+      -0.12318,
+      0.42555
+     ],
+     [
+      -1.16885,
+      -0.10837,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      0.06172,
+      0.06329,
+      0.37335
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.3905
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.44702
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.49349
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.47037
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.44334
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.50008
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.64534
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.72143
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.66769
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.56438
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.62799
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.73094
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.77082
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.76247
+     ],
+     [
+      0.06172,
+      0.06329,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_N_00.png",
+     "sha256": "5fbcc90e6e4a92c8d923478e30912362b6e151df2c6b5177d3fa4a7e7f5ffcae"
+    },
+    {
+     "name": "death_N_01.png",
+     "sha256": "57bb1934a56ea3fafc4328bef3990d84eab666ce20de97d73e3fb44751539bd9"
+    },
+    {
+     "name": "death_N_02.png",
+     "sha256": "ef11bc0d694188e9df98c83f0d7de720018b2eedbb57d507346cac871b5401eb"
+    },
+    {
+     "name": "death_N_03.png",
+     "sha256": "4fe9c1267cc1d7e723b255ee02117fd1efad517d5b0bb4894dafb6430f76d3b2"
+    },
+    {
+     "name": "death_N_04.png",
+     "sha256": "ca549608844552a420561d3fc9e6bff9ac5ff66a83ffef9acf2abb23058afedc"
+    },
+    {
+     "name": "death_N_05.png",
+     "sha256": "084ff1e397051f5b9ac470d47a2eacbb65376a450588f02b55bdd5d7c7497cc1"
+    },
+    {
+     "name": "death_N_06.png",
+     "sha256": "4e17e5913caf99439b25821f60a584dd890c1d87c2590b0bab1924569dd8aac7"
+    },
+    {
+     "name": "death_N_07.png",
+     "sha256": "95dfb891dc00caa1daa0196dcdc5e75a1c041cc992c4b9ab43697f2997089dc8"
+    },
+    {
+     "name": "death_N_08.png",
+     "sha256": "dc150ee773b8220fca491733ac0c9bda31ee683676ef6b44711531d3d48eb298"
+    },
+    {
+     "name": "death_N_09.png",
+     "sha256": "d90d590456d46e6c05de25a089da8d0aeccfa6659471d834e2ea4927525149d7"
+    },
+    {
+     "name": "death_N_10.png",
+     "sha256": "000b413e4276f96dd6619ff46c0a8913d30784e240f4e65a2f95d164e812b7d8"
+    },
+    {
+     "name": "death_N_11.png",
+     "sha256": "a63c162b1a071081af51186122de45f501d1eefa8407fe71f28a45d83b59df50"
+    },
+    {
+     "name": "death_N_12.png",
+     "sha256": "12bbfc229cf2642696941b1f9aefd697a8a6d6924453ad2a5f7ab27951f9b890"
+    },
+    {
+     "name": "death_N_13.png",
+     "sha256": "1f9b05d99e5f939535277a8e560e560ab1b2e4b3fbfc9e0ace8ecee5cea05496"
+    },
+    {
+     "name": "death_N_14.png",
+     "sha256": "bc74866961336b77df457fc0e0b008e09753c926fd9787490d265de312012b07"
+    },
+    {
+     "name": "death_N_15.png",
+     "sha256": "cf65b62b4dc4b5cf07830a348c4a9d02353317d70016247b32b93385355baccf"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "e7df99da1e0079ebd95464ee5e47439a12e14eff6c239c89d881acc466c5ba23",
+   "alpha_union_bbox": [
+    239,
+    219,
+    561,
+    603
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 270.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.45286,
+      -1.10164,
+      0.21329
+     ],
+     [
+      0.1166,
+      -1.24026,
+      0.21544
+     ],
+     [
+      -0.43286,
+      -1.13508,
+      0.20737
+     ],
+     [
+      -0.4825,
+      -1.06277,
+      0.19099
+     ],
+     [
+      -0.10963,
+      -1.13697,
+      0.20064
+     ],
+     [
+      0.09403,
+      -1.14927,
+      0.22344
+     ],
+     [
+      -0.20591,
+      -1.0891,
+      0.15593
+     ],
+     [
+      -0.55468,
+      -0.76915,
+      0.1019
+     ],
+     [
+      -0.61056,
+      -0.72156,
+      0.11126
+     ],
+     [
+      -0.34653,
+      -1.04271,
+      0.19934
+     ],
+     [
+      -0.13849,
+      -1.14276,
+      0.21427
+     ],
+     [
+      -0.33367,
+      -0.99838,
+      0.1435
+     ],
+     [
+      -0.49432,
+      -0.80072,
+      0.10935
+     ],
+     [
+      -0.47122,
+      -0.84376,
+      0.1317
+     ],
+     [
+      -0.41417,
+      -0.90231,
+      0.14229
+     ],
+     [
+      -0.41391,
+      -0.88774,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      0.46465,
+      -1.12125,
+      0.58527
+     ],
+     [
+      0.10298,
+      -1.27426,
+      0.60444
+     ],
+     [
+      -0.51064,
+      -1.18125,
+      0.62409
+     ],
+     [
+      -0.60672,
+      -1.15144,
+      0.62125
+     ],
+     [
+      -0.21778,
+      -1.26888,
+      0.6379
+     ],
+     [
+      -0.06292,
+      -1.28059,
+      0.64608
+     ],
+     [
+      -0.47952,
+      -1.16047,
+      0.52873
+     ],
+     [
+      -0.86652,
+      -0.75824,
+      0.44695
+     ],
+     [
+      -0.92992,
+      -0.73914,
+      0.4442
+     ],
+     [
+      -0.6321,
+      -1.12516,
+      0.54713
+     ],
+     [
+      -0.42047,
+      -1.22304,
+      0.55953
+     ],
+     [
+      -0.64847,
+      -1.0253,
+      0.46154
+     ],
+     [
+      -0.81811,
+      -0.80013,
+      0.41308
+     ],
+     [
+      -0.80036,
+      -0.85789,
+      0.42382
+     ],
+     [
+      -0.74742,
+      -0.92163,
+      0.42555
+     ],
+     [
+      -0.74987,
+      -0.90313,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      -0.00111,
+      0.0884,
+      0.37335
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.3905
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.44702
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.49349
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.47037
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.44334
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.50008
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.64534
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.72143
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.66769
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.56438
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.62799
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.73094
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.77082
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.76247
+     ],
+     [
+      -0.00111,
+      0.0884,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_NE_00.png",
+     "sha256": "11854b24fcad3b3e664dfe08a3df259a37ca83a3995eb380ddbe454d03f7f5b0"
+    },
+    {
+     "name": "death_NE_01.png",
+     "sha256": "64890b86a496cade5a4aebaa94c17d61b9cf4b4efc06ab8d874cda10b7e732c8"
+    },
+    {
+     "name": "death_NE_02.png",
+     "sha256": "a817ef19be299ebcfb13d1ddbefbc8fabc6ec670013bdd67bd3f2bdecc443acc"
+    },
+    {
+     "name": "death_NE_03.png",
+     "sha256": "36ed774d4dcb0ca958311456cacc42af5fd8294983ff5535563224af089ec2b2"
+    },
+    {
+     "name": "death_NE_04.png",
+     "sha256": "6264abafa0286354408e3da08cf3cc6e3f74abf60468d9f9b603ac25813fda12"
+    },
+    {
+     "name": "death_NE_05.png",
+     "sha256": "72d7a612fb012e395352d6c0db18db566360a5c409a17af9d3c32e227adface3"
+    },
+    {
+     "name": "death_NE_06.png",
+     "sha256": "3b1cf6962da507b87dd0f9d0c5f7ca4c0e1c7af7d3a78359bd16a2be4f4fc4ae"
+    },
+    {
+     "name": "death_NE_07.png",
+     "sha256": "921a673cd19e384a7d61b429ddfe3865b2f929b9357807666de3f4bd12cb253a"
+    },
+    {
+     "name": "death_NE_08.png",
+     "sha256": "d85f9f328308ded74048d3116143c48eb3dd0d40c2dfd645bf3a2882e5999c4d"
+    },
+    {
+     "name": "death_NE_09.png",
+     "sha256": "60b7bb65aeab38f1c57a2454da841b90cf0f5a0e5b0a677972ce6517073a4456"
+    },
+    {
+     "name": "death_NE_10.png",
+     "sha256": "5c5c9408003d2f239abf8b550fc55c8daeb21b1be28c0b6ad9b5783365515566"
+    },
+    {
+     "name": "death_NE_11.png",
+     "sha256": "e29d24267b6c5e208e28939fd78f86f59cab2e2f53e56b77cd2571ab6170fac3"
+    },
+    {
+     "name": "death_NE_12.png",
+     "sha256": "3f28e2f5c190eb6e8068e75f8819332836130f6070d7e741081ad15ce2dbf966"
+    },
+    {
+     "name": "death_NE_13.png",
+     "sha256": "a407cc0ac3a564aafca622cc531dc3b414be4b65c19b22e2238c201bd380882b"
+    },
+    {
+     "name": "death_NE_14.png",
+     "sha256": "7daa9dab4621607f1841f91b40c6e5c12e7a08ee07993353b42ec39f27036c33"
+    },
+    {
+     "name": "death_NE_15.png",
+     "sha256": "4e85a9f64964e5214b5b01a318db49834a9ed9c3e97b6712a599f4106258f428"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "8b77eb364fe0861f71241d1762a09fc231ce0b6287046b7cb1a18938ceb0a0da",
+   "alpha_union_bbox": [
+    186,
+    240,
+    579,
+    591
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 315.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      1.09919,
+      -0.45876,
+      0.21329
+     ],
+     [
+      0.95945,
+      -0.79455,
+      0.21544
+     ],
+     [
+      0.49654,
+      -1.1087,
+      0.20737
+     ],
+     [
+      0.41031,
+      -1.09267,
+      0.19099
+     ],
+     [
+      0.72644,
+      -0.88148,
+      0.20064
+     ],
+     [
+      0.87915,
+      -0.74617,
+      0.22344
+     ],
+     [
+      0.62451,
+      -0.91571,
+      0.15593
+     ],
+     [
+      0.15166,
+      -0.93609,
+      0.1019
+     ],
+     [
+      0.07849,
+      -0.94195,
+      0.11126
+     ],
+     [
+      0.49228,
+      -0.98234,
+      0.19934
+     ],
+     [
+      0.71012,
+      -0.90598,
+      0.21427
+     ],
+     [
+      0.47003,
+      -0.9419,
+      0.1435
+     ],
+     [
+      0.21666,
+      -0.91573,
+      0.10935
+     ],
+     [
+      0.26342,
+      -0.92983,
+      0.1317
+     ],
+     [
+      0.34516,
+      -0.93089,
+      0.14229
+     ],
+     [
+      0.33505,
+      -0.92041,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      1.1214,
+      -0.46429,
+      0.58527
+     ],
+     [
+      0.97386,
+      -0.82822,
+      0.60444
+     ],
+     [
+      0.47419,
+      -1.19635,
+      0.62409
+     ],
+     [
+      0.38517,
+      -1.24321,
+      0.62125
+     ],
+     [
+      0.74324,
+      -1.05123,
+      0.6379
+     ],
+     [
+      0.86102,
+      -0.95001,
+      0.64608
+     ],
+     [
+      0.4815,
+      -1.15965,
+      0.52873
+     ],
+     [
+      -0.07656,
+      -1.14888,
+      0.44695
+     ],
+     [
+      -0.1349,
+      -1.1802,
+      0.4442
+     ],
+     [
+      0.34865,
+      -1.24257,
+      0.54713
+     ],
+     [
+      0.5675,
+      -1.16213,
+      0.55953
+     ],
+     [
+      0.26646,
+      -1.18354,
+      0.46154
+     ],
+     [
+      -0.01271,
+      -1.14427,
+      0.41308
+     ],
+     [
+      0.04068,
+      -1.17256,
+      0.42382
+     ],
+     [
+      0.12318,
+      -1.1802,
+      0.42555
+     ],
+     [
+      0.10837,
+      -1.16885,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      -0.06329,
+      0.06172,
+      0.37335
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.3905
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.44702
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.49349
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.47037
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.44334
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.50008
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.64534
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.72143
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.66769
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.56438
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.62799
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.73094
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.77082
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.76247
+     ],
+     [
+      -0.06329,
+      0.06172,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_E_00.png",
+     "sha256": "4900068b5011e47100070bced1a0f968e49f4e8613b9eb6b42cb612e03d70d9a"
+    },
+    {
+     "name": "death_E_01.png",
+     "sha256": "5bf6e21d865005cdddb092893dbecb99c2814a57ffecbe40cffda0b2af3d8aba"
+    },
+    {
+     "name": "death_E_02.png",
+     "sha256": "95965de5c18fc050a60aef490d3214dc978bc2e7d92a761cd3def86a3d5b1128"
+    },
+    {
+     "name": "death_E_03.png",
+     "sha256": "d85dcf086a46884842bf76cb9f1d31d1110333202d73b35fe912602ac5db9fa6"
+    },
+    {
+     "name": "death_E_04.png",
+     "sha256": "48d91d81a307c4bec9517a8d5b990858a9da8333e205ea686b0d3f650cb5302a"
+    },
+    {
+     "name": "death_E_05.png",
+     "sha256": "a939936cd2eba4602dba10f22c077b357254f050feb57b6c8ab819f7e62860c8"
+    },
+    {
+     "name": "death_E_06.png",
+     "sha256": "4d96b4d51d25fbef52c13268782d24e69b2906e8034bfc2baa54f3d10fac2939"
+    },
+    {
+     "name": "death_E_07.png",
+     "sha256": "bfe263335325fceea5ebf40d00879e874497b40e5e46760cd92c01d5e204866c"
+    },
+    {
+     "name": "death_E_08.png",
+     "sha256": "72be01fc0283b06cffd6e158a18fd4ab29d83ab82d016b8e229d58f72450f5c0"
+    },
+    {
+     "name": "death_E_09.png",
+     "sha256": "f136a4db4e7b8cfda5cfddca9d6528ab2c7d6ccfb61cfb333214b0cb8211d9f3"
+    },
+    {
+     "name": "death_E_10.png",
+     "sha256": "176a5bbf9b97f679804d55a16eb74b98556ad54e2fd98bcf6876880429977e45"
+    },
+    {
+     "name": "death_E_11.png",
+     "sha256": "055446406fc6d92723b58075735c198f96e136c05b56c03be2abade4cf85688e"
+    },
+    {
+     "name": "death_E_12.png",
+     "sha256": "f30976e0b580199977e750290183840adf6e24bd4d812751291be73c1d3348af"
+    },
+    {
+     "name": "death_E_13.png",
+     "sha256": "fb35a340cc6a3d7a66861c53490bf81cb22fb9ee0f08475f55bec6cfbf65758e"
+    },
+    {
+     "name": "death_E_14.png",
+     "sha256": "7f20ec6d0c532206e76f1e78dbb9a710fe04f3357478190d394ba98ec42a3f9d"
+    },
+    {
+     "name": "death_E_15.png",
+     "sha256": "99acfee86277b137e7e2dadeecd3e728eb8b67d5cd5dfa1d1b1d0200d2e8aca2"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "e98d0c4edc5ddc0d3b4782b324bc143aa3318d6a241badb2711da340eb1b859f",
+   "alpha_union_bbox": [
+    161,
+    290,
+    604,
+    526
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 360.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      1.10164,
+      0.45286,
+      0.21329
+     ],
+     [
+      1.24026,
+      0.1166,
+      0.21544
+     ],
+     [
+      1.13508,
+      -0.43286,
+      0.20737
+     ],
+     [
+      1.06277,
+      -0.4825,
+      0.19099
+     ],
+     [
+      1.13697,
+      -0.10963,
+      0.20064
+     ],
+     [
+      1.14927,
+      0.09403,
+      0.22344
+     ],
+     [
+      1.0891,
+      -0.20591,
+      0.15593
+     ],
+     [
+      0.76915,
+      -0.55468,
+      0.1019
+     ],
+     [
+      0.72156,
+      -0.61056,
+      0.11126
+     ],
+     [
+      1.04271,
+      -0.34653,
+      0.19934
+     ],
+     [
+      1.14276,
+      -0.13849,
+      0.21427
+     ],
+     [
+      0.99838,
+      -0.33367,
+      0.1435
+     ],
+     [
+      0.80072,
+      -0.49432,
+      0.10935
+     ],
+     [
+      0.84376,
+      -0.47122,
+      0.1317
+     ],
+     [
+      0.90231,
+      -0.41417,
+      0.14229
+     ],
+     [
+      0.88774,
+      -0.41391,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      1.12125,
+      0.46465,
+      0.58527
+     ],
+     [
+      1.27426,
+      0.10298,
+      0.60444
+     ],
+     [
+      1.18125,
+      -0.51064,
+      0.62409
+     ],
+     [
+      1.15144,
+      -0.60672,
+      0.62125
+     ],
+     [
+      1.26888,
+      -0.21778,
+      0.6379
+     ],
+     [
+      1.28059,
+      -0.06293,
+      0.64608
+     ],
+     [
+      1.16047,
+      -0.47952,
+      0.52873
+     ],
+     [
+      0.75824,
+      -0.86652,
+      0.44695
+     ],
+     [
+      0.73914,
+      -0.92992,
+      0.4442
+     ],
+     [
+      1.12516,
+      -0.6321,
+      0.54713
+     ],
+     [
+      1.22304,
+      -0.42047,
+      0.55953
+     ],
+     [
+      1.0253,
+      -0.64847,
+      0.46154
+     ],
+     [
+      0.80013,
+      -0.81811,
+      0.41308
+     ],
+     [
+      0.85789,
+      -0.80036,
+      0.42382
+     ],
+     [
+      0.92163,
+      -0.74743,
+      0.42555
+     ],
+     [
+      0.90313,
+      -0.74987,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      -0.0884,
+      -0.00111,
+      0.37335
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.3905
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.44702
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.49349
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.47037
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.44334
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.50008
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.64534
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.72143
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.66769
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.56438
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.62799
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.73094
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.77082
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.76247
+     ],
+     [
+      -0.0884,
+      -0.00111,
+      0.76573
+     ]
+    ]
+   }
+  },
+  "death/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 16,
+   "files": [
+    {
+     "name": "death_SE_00.png",
+     "sha256": "d2dd419f644576825f18bf975020e413e25383a6b121699b36d1adad05180de7"
+    },
+    {
+     "name": "death_SE_01.png",
+     "sha256": "7b32f6f094d9358b966d4b6749b51b426a425224e3b3ecf4698132e4681d4b61"
+    },
+    {
+     "name": "death_SE_02.png",
+     "sha256": "6141d8df0a3c7a04da10a1af8f43a38be59cbf70140cc58c13692a242fa0a76b"
+    },
+    {
+     "name": "death_SE_03.png",
+     "sha256": "e081d35e8df8ba2b27b348e25bb2257c3f6a39dd7cb21252df54a7a93be02398"
+    },
+    {
+     "name": "death_SE_04.png",
+     "sha256": "bb6c51e81f31f49399811bdbeecf859ce99eaaa4f4b5d0e9fbbdb1a61d8e3dbe"
+    },
+    {
+     "name": "death_SE_05.png",
+     "sha256": "a853d80fc4754ac3d753a863fb1354a4cbec08278e1d4cff68068686db429424"
+    },
+    {
+     "name": "death_SE_06.png",
+     "sha256": "5e27b3dcd2113a23f112d77db8767a501b89058a484c1931c41ba5159e853d90"
+    },
+    {
+     "name": "death_SE_07.png",
+     "sha256": "2fbf55c5d6213785f18b906477eaaa38d74d7fd25da134b9a8f3915e611e48d1"
+    },
+    {
+     "name": "death_SE_08.png",
+     "sha256": "a03f5f9c59dceb4e4b73fe1e02f98daf3c6275276127ad4b2f0cb73a710a1035"
+    },
+    {
+     "name": "death_SE_09.png",
+     "sha256": "1b7d1c4930b4774cdaaa98e5c5c766d7199944c79ab4de39e70f5641c4a8262a"
+    },
+    {
+     "name": "death_SE_10.png",
+     "sha256": "d61d22aec27f615756d699db22f249828b0f0907bf492788bed5e5d13cc9cb35"
+    },
+    {
+     "name": "death_SE_11.png",
+     "sha256": "63d7e0089fc7a58cd9b81b194ccf6b4a757dae62f08c165df307dcc093f65ca9"
+    },
+    {
+     "name": "death_SE_12.png",
+     "sha256": "d584023dede9647e4e819da46303eb6447223bf33ed06ce3ba467aec7460302f"
+    },
+    {
+     "name": "death_SE_13.png",
+     "sha256": "a9f756ac1c2fce6dbe64d08e1e24c0057b8f4716efdb4bb49fe6fe6d356d043d"
+    },
+    {
+     "name": "death_SE_14.png",
+     "sha256": "84a952725ef2c782a3cdc69f1dceb2151054450929f15927789b8047bd9d7fd5"
+    },
+    {
+     "name": "death_SE_15.png",
+     "sha256": "9843ad8e1b76d2c032265f215c959a36e7acb7b088f1da4ac08315af565ad0a3"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "72910a0ff177198360ea4eef710b1c97f21a78b32bcfc4657eb1c701baa2a2b4",
+   "alpha_union_bbox": [
+    165,
+    261,
+    590,
+    588
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 45.0,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "maw": [
+     [
+      0.45876,
+      1.09919,
+      0.21329
+     ],
+     [
+      0.79455,
+      0.95945,
+      0.21544
+     ],
+     [
+      1.1087,
+      0.49654,
+      0.20737
+     ],
+     [
+      1.09267,
+      0.41031,
+      0.19099
+     ],
+     [
+      0.88148,
+      0.72644,
+      0.20064
+     ],
+     [
+      0.74617,
+      0.87915,
+      0.22344
+     ],
+     [
+      0.91571,
+      0.62451,
+      0.15593
+     ],
+     [
+      0.93609,
+      0.15166,
+      0.1019
+     ],
+     [
+      0.94195,
+      0.07849,
+      0.11126
+     ],
+     [
+      0.98234,
+      0.49228,
+      0.19934
+     ],
+     [
+      0.90598,
+      0.71012,
+      0.21427
+     ],
+     [
+      0.9419,
+      0.47003,
+      0.1435
+     ],
+     [
+      0.91573,
+      0.21666,
+      0.10935
+     ],
+     [
+      0.92983,
+      0.26342,
+      0.1317
+     ],
+     [
+      0.93089,
+      0.34516,
+      0.14229
+     ],
+     [
+      0.92041,
+      0.33505,
+      0.13527
+     ]
+    ],
+    "head_top": [
+     [
+      0.46429,
+      1.1214,
+      0.58527
+     ],
+     [
+      0.82822,
+      0.97386,
+      0.60444
+     ],
+     [
+      1.19635,
+      0.47419,
+      0.62409
+     ],
+     [
+      1.2432,
+      0.38517,
+      0.62125
+     ],
+     [
+      1.05123,
+      0.74324,
+      0.6379
+     ],
+     [
+      0.95001,
+      0.86102,
+      0.64608
+     ],
+     [
+      1.15965,
+      0.4815,
+      0.52873
+     ],
+     [
+      1.14888,
+      -0.07656,
+      0.44695
+     ],
+     [
+      1.1802,
+      -0.1349,
+      0.4442
+     ],
+     [
+      1.24257,
+      0.34865,
+      0.54713
+     ],
+     [
+      1.16213,
+      0.5675,
+      0.55953
+     ],
+     [
+      1.18354,
+      0.26646,
+      0.46154
+     ],
+     [
+      1.14427,
+      -0.01271,
+      0.41308
+     ],
+     [
+      1.17256,
+      0.04068,
+      0.42382
+     ],
+     [
+      1.1802,
+      0.12318,
+      0.42555
+     ],
+     [
+      1.16885,
+      0.10837,
+      0.41408
+     ]
+    ],
+    "chest": [
+     [
+      -0.06172,
+      -0.06329,
+      0.37335
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.3905
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.44702
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.49349
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.47037
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.44334
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.50008
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.64534
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.72143
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.66769
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.56438
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.62799
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.73094
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.77082
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.76247
+     ],
+     [
+      -0.06172,
+      -0.06329,
+      0.76573
+     ]
+    ]
+   }
+  }
+ },
+ "expected": 32,
+ "complete": 32
+}

@@ -1,0 +1,10 @@
+== the manifest
+  4 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: neg_release
+  4 clip(s) checked, 0 mismatch(es)
+exit 0
+== negative control: neg_prose
+  MANIFEST MISMATCH  .clips.idle.note_neg says 'idle ... 0.2 s' but the GLB says 1.3333 s
+  4 clip(s) checked, 1 mismatch(es)
+exit 1

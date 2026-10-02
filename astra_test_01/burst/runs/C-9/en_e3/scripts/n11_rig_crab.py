@@ -123,6 +123,14 @@ for n in DEF:
 VW = np.array([(body.matrix_world @ v.co)[:] for v in body.data.vertices])
 bones_w = [n for n in DEF if n != 'root']
 Wm = np.zeros((len(VW), len(bones_w)))
+def _front_leg_d(side):
+    # distance of every vertex to the FRONT leg's thigh + shin chain (the void drone: its front legs run up through the scythe zone,
+    # and their skin there was taken by the rigid scythe -- the kink in slash/impale)
+    dd = np.full(len(VW), 1e9)
+    for k_ in (1, 2):
+        b_ = arm.data.bones['leg_%s1_%d' % (side, k_)]; h_ = np.array(b_.head_local[:]); t_ = np.array(b_.tail_local[:]); d_ = t_ - h_
+        tt = np.clip(((VW - h_) @ d_) / max(d_ @ d_, 1e-9), 0, 1); dd = np.minimum(dd, np.linalg.norm(VW - (h_ + tt[:, None] * d_), axis=1))
+    return dd
 ex, ey = CFG.get('core_ellipse', (0.70, 0.72))
 incore = (((VW[:, 0] / ex) ** 2 + ((VW[:, 1] - cy) / ey) ** 2 < 1.0) & (VW[:, 2] > z_under - 0.05)) | \
          ((np.abs(VW[:, 0]) < CFG.get('eye_x', 0.35)) & (VW[:, 2] > z_under + 0.18) & (VW[:, 1] > cy - ey - 0.45))   # the eye stalks ride the shell
@@ -135,6 +143,7 @@ for j, n in enumerate(bones_w):
     g = ((VW[:, 0] * sgn > 0.0) & ~incore).astype(float)
     if CFG.get('claw_mode') == 'scythe':
         inS = (VW[:, 0] * sgn > CFG.get('claw_xmin', 0.3)) & (((VW[:, 1] < CFG.get('claw_ymax', -0.6)) & (VW[:, 2] > CFG.get('claw_zmin', 0.45))) | ((VW[:, 1] < CFG.get('claw_tip_y', -9.0)) & (VW[:, 2] > 0.15)))
+        inS = inS & (_front_leg_d('L' if sgn > 0 else 'R') > CFG.get('scythe_leg_excl', 0.0))   # the front leg's own skin is never scythe
         g = g * (inS if n.startswith('claw') else ~inS)
     Wm[:, j] = g / (dist ** 4 + 1e-6)
 # WEIGHT SMOOTHING over the mesh edges (n19's fix; the drone tore 1085 edges at gate boundaries)
@@ -150,6 +159,7 @@ if CFG.get('weight_smooth', 0):
 if CFG.get('claw_mode') == 'scythe':
     for side, sgn in (('L', 1), ('R', -1)):
         inS = (VW[:, 0] * sgn > CFG.get('claw_xmin', 0.3)) & (((VW[:, 1] < CFG.get('claw_ymax', -0.6)) & (VW[:, 2] > CFG.get('claw_zmin', 0.45))) | ((VW[:, 1] < CFG.get('claw_tip_y', -9.0)) & (VW[:, 2] > 0.15)))
+        inS = inS & (_front_leg_d('L' if sgn > 0 else 'R') > CFG.get('scythe_leg_excl', 0.0))   # the front leg's own skin is never scythe
         for j, n_ in enumerate(bones_w):
             if n_.startswith('claw_%s' % side): Wm[~inS, j] = 0.0
             elif n_.startswith('leg_%s' % side): Wm[inS, j] = 0.0
@@ -314,7 +324,7 @@ def clip_state(name, f):
     if k == 'strike':
         # a single-claw (LEFT) side-swing thrust: the shell twists, the claw sweeps across the front and stabs at contact
         cf = c['contact']; st = {}
-        st['Hips'] = (kf([(0, 0), (cf - 6, 4), (cf, -4), (N, 0)], f), 0, kf([(0, 0), (cf - 6, 24), (cf, -26), (cf + 5, -20), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (cf - 6, 4), (cf, -4), (N, 0)], f), 0, kf([(0, 0), (cf - 6, 24), (cf, -26), (cf + 5, -20), (N, 0)], f) * c.get('twist_k', 1.0))   # twist_k: a long-legged body twists less (its planted feet out-reach)
         st['pelvis_loc'] = (0, kf([(0, 0), (cf - 6, 0.06), (cf, -0.14), (N, 0)], f), 0)
         claws(st, (kf([(0, 0), (cf - 6, 35), (cf, 5), (N, 0)], f), 0, kf([(0, 0), (cf - 6, 40), (cf, -30), (cf + 5, -25), (N, 0)], f)),
                   (kf([(0, 0), (cf - 6, 20), (cf, -10), (N, 0)], f), 0, 0), (kf([(0, 0), (cf - 6, 20), (cf, -15), (N, 0)], f), 0, 0),

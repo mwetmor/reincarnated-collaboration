@@ -1,0 +1,53 @@
+{
+ "name": "worm",
+ "type_id": "aetherialworm (summon)",
+ "segments": 8,
+ "mouth_depth": 0.18666666666666665,
+ "lip_z_frac": 0.5,
+ "hips_frac": 0.45,
+ "weight_smooth": 12,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_w": [
+  0.25,
+  0.4
+ ],
+ "bag_half_h": 0.055999999999999994,
+ "bag_y0_frac": 0.3,
+ "texture": "work/tex_worm_grade.png",
+ "length_m": 2.8,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "aetherial worm summons (aetherialworm_b01-b04, r 0.52 x 1.2; ControllerStationaryMonster: emerges and stays); idle: breathing writhe"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "kind_fn": "emerge",
+   "frames": 30,
+   "src": "stationary: it rises out of its burrow (replaces crawl; the record never travels)",
+   "ground_solve": true
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "kind_fn": "lunge",
+   "frames": 25,
+   "contact": 11,
+   "src": "a sucker-maw lunge"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "hold_last": true,
+   "ground_solve": true,
+   "src": "writhe, curl, still"
+  }
+ },
+ "texture_status": "PROVISIONAL: Tripo projection of the parasite sheet + a grade (no D7 paint pass; the Astra limit) -- a paint pass replaces it without a re-rig"
+}

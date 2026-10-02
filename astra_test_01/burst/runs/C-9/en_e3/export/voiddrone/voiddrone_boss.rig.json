@@ -407,10 +407,10 @@
   },
   "attack_slash": {
    "frames": 30,
-   "ik_residual_max_m": 0.0046,
+   "ik_residual_max_m": 0.0,
    "min_z_m": -0.0,
    "worst_frame_vertex": [
-    10,
+    22,
     [
      -0.751,
      0.086,
@@ -508,7 +508,8 @@
    "kind_fn": "strike",
    "frames": 30,
    "contact": 12,
-   "src": "a single-scythe sideways slash (melee variant)"
+   "src": "a single-scythe sideways slash (melee variant)",
+   "twist_k": 0.35
   },
   "cast_spit": {
    "kind": "oneshot",

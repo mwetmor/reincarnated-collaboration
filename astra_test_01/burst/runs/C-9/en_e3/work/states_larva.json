@@ -1,0 +1,52 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "crawl": {
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "a sucker-maw lunge"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.0825,
+   "_what": "the sucker maw"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.1
+   ],
+   "_what": "above the maw (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "_what": "the body's middle"
+  }
+ }
+}

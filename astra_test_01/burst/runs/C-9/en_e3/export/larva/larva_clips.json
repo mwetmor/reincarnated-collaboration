@@ -1,0 +1,207 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "larva",
+ "roster_type_id": "maggot01a (summon)",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/larva/larva.glb",
+ "glb_sha256": "f3faa7b86375b8cae9bb8610e7222a01d8abb25345f081c49f5b71f53a791751",
+ "glb_bytes": 3289956,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 0.2361,
+ "length_m": 0.9,
+ "width_m": 0.2537,
+ "skin_joints": 11,
+ "materials": [
+  {
+   "name": "tripo_material_e7020696-5286-4c09-8691-75fb7e9cbbb8",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 41,
+   "duration_s": 1.33333,
+   "fps": 30,
+   "source": "Korvan larva summon (beetle_maggot01_maggotsummon, r 0.22 m x 1.1; ControllerMonster, run 3.21 m/s); idle: breathing writhe",
+   "lint": {
+    "frames": 41,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0023,
+    "worst_frame_vertex": [
+     27,
+     [
+      -0.042,
+      -0.381,
+      -0.002
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 40 intervals)"
+  },
+  "crawl": {
+   "kind": "loop",
+   "frames": 17,
+   "duration_s": 0.53333,
+   "fps": 30,
+   "source": "travelling-wave crawl at the summon's run speed (no feet: no foot-lock)",
+   "lint": {
+    "frames": 17,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0027,
+    "worst_frame_vertex": [
+     16,
+     [
+      -0.201,
+      -0.342,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 16 intervals)",
+   "ground_speed_m_s": 3.21,
+   "stride_m_per_cycle": 1.712
+  },
+  "attack_bite": {
+   "kind": "oneshot",
+   "frames": 25,
+   "duration_s": 0.8,
+   "fps": 30,
+   "source": "a sucker-maw lunge",
+   "lint": {
+    "frames": 25,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.003,
+    "worst_frame_vertex": [
+     17,
+     [
+      -0.071,
+      -0.622,
+      -0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 11,
+   "contact_s": 0.3667
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 30,
+   "duration_s": 0.96667,
+   "fps": 30,
+   "source": "writhe, curl, still",
+   "lint": {
+    "frames": 30,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.003,
+    "worst_frame_vertex": [
+     27,
+     [
+      0.097,
+      -0.208,
+      0.003
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "summon",
+  "effects": []
+ },
+ "landmarks": {
+  "H": 0.2359599620103836,
+  "y_snout": -0.42157530784606934,
+  "y_tail": 0.4784640073776245,
+  "z_lip": 0.10502118515432812,
+  "y_hinge": -0.36157530784606934,
+  "centreline": [
+   [
+    0.0006671769660897553,
+    -0.4015753078460693,
+    0.10502118515432812
+   ],
+   [
+    0.0041489992290735245,
+    -0.2940703934431076,
+    0.10668561281636357
+   ],
+   [
+    0.03734171390533447,
+    -0.18656547904014587,
+    0.11449423956219107
+   ],
+   [
+    0.007480654865503311,
+    -0.07906056463718414,
+    0.11891458183526993
+   ],
+   [
+    0.0005166527116671205,
+    0.028444349765777588,
+    0.1170906824991107
+   ],
+   [
+    0.006500934716314077,
+    0.13594926416873931,
+    0.10978293023072183
+   ],
+   [
+    -0.0008709084358997643,
+    0.24345417857170104,
+    0.10457961214706302
+   ],
+   [
+    0.000986082071904093,
+    0.35095909297466277,
+    0.09235657006502151
+   ],
+   [
+    -0.00028524588560685515,
+    0.4584640073776245,
+    0.08129093889147043
+   ]
+  ],
+  "mouth_cut_edges": 100,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 2959,
+   "unweighted_verts": 0,
+   "groups": 11
+  },
+  "texture": {
+   "path": "work/tex_larva_grade.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "seg_f1",
+   "seg_f2",
+   "seg_f3",
+   "head",
+   "jaw",
+   "seg_b1",
+   "seg_b2",
+   "seg_b3",
+   "seg_b4"
+  ]
+ }
+}
