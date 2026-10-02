@@ -1,0 +1,3139 @@
+{
+ "artifact_class": "NOT-A-GRADED-RUN \u2014 gamora KP-212 v3.9 oracle pass 2 (fixed seed-9 line-up, Q100). Nothing tuned; every configuration named before it ran.",
+ "configs": {
+  "V38-FULL": {
+   "sp": false,
+   "c11b": null,
+   "dec": [],
+   "eng": false,
+   "hunt": false
+  },
+  "F1-SP": {
+   "sp": true,
+   "c11b": null,
+   "dec": [],
+   "eng": false,
+   "hunt": false
+  },
+  "F2-C11B": {
+   "sp": false,
+   "c11b": "BA",
+   "dec": [],
+   "eng": false,
+   "hunt": false
+  },
+  "F3-DEC": {
+   "sp": false,
+   "c11b": null,
+   "dec": [
+    "dot",
+    "init",
+    "lat"
+   ],
+   "eng": false,
+   "hunt": false
+  },
+  "F4-ENG": {
+   "sp": false,
+   "c11b": null,
+   "dec": [],
+   "eng": true,
+   "hunt": false
+  },
+  "F5-HUNT": {
+   "sp": false,
+   "c11b": null,
+   "dec": [],
+   "eng": false,
+   "hunt": true
+  },
+  "V39-FULL": {
+   "sp": true,
+   "c11b": "BA",
+   "dec": [
+    "dot",
+    "init",
+    "lat"
+   ],
+   "eng": true,
+   "hunt": true
+  },
+  "F2-C11B-B": {
+   "sp": false,
+   "c11b": "B",
+   "dec": [],
+   "eng": false,
+   "hunt": false
+  },
+  "F3a-LAT": {
+   "sp": false,
+   "c11b": null,
+   "dec": [
+    "lat"
+   ],
+   "eng": false,
+   "hunt": false
+  },
+  "F3b-DOT": {
+   "sp": false,
+   "c11b": null,
+   "dec": [
+    "dot"
+   ],
+   "eng": false,
+   "hunt": false
+  },
+  "F3c-INIT": {
+   "sp": false,
+   "c11b": null,
+   "dec": [
+    "init"
+   ],
+   "eng": false,
+   "hunt": false
+  },
+  "F1+F4": {
+   "sp": true,
+   "c11b": null,
+   "dec": [],
+   "eng": true,
+   "hunt": false
+  },
+  "V39-NOHUNT": {
+   "sp": true,
+   "c11b": "BA",
+   "dec": [
+    "dot",
+    "init",
+    "lat"
+   ],
+   "eng": true,
+   "hunt": false
+  }
+ },
+ "referent_hp_per_s": 1605.6,
+ "tick_period_s": 0.0816326530612245,
+ "results": {
+  "V38-FULL": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "ratio_vs_referent": 2.3896,
+    "landed_hp_per_s_151_159": 3836.7,
+    "t_s_151_159": 3288.65,
+    "per_salt_ratio": [
+     2.3801,
+     2.3386,
+     2.1895,
+     2.348,
+     2.4169,
+     2.475,
+     2.3918,
+     2.5609,
+     2.4061,
+     2.2744,
+     2.4697,
+     2.4107,
+     2.418,
+     2.5505,
+     2.6167,
+     2.291,
+     2.5194,
+     2.2377,
+     2.3089,
+     2.2297
+    ],
+    "leg_a_terminals": [
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     5.878,
+     6.367,
+     7.347,
+     6.286,
+     8.082,
+     7.51,
+     6.204,
+     8.0,
+     4.327,
+     6.531,
+     8.98,
+     5.959,
+     5.633,
+     6.531,
+     7.918,
+     8.163,
+     6.367,
+     6.776,
+     7.265,
+     8.245
+    ],
+    "mean_leg_a_wave": 160,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 20,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.0,
+    "leg_b_death_waves": [
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 42,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.986,
+      "deaths": 0,
+      "mean_t_s": 22.55
+     },
+     "152": {
+      "ratio": 2.055,
+      "deaths": 0,
+      "mean_t_s": 17.58
+     },
+     "153": {
+      "ratio": 1.638,
+      "deaths": 0,
+      "mean_t_s": 24.9
+     },
+     "154": {
+      "ratio": 3.844,
+      "deaths": 0,
+      "mean_t_s": 20.4
+     },
+     "155": {
+      "ratio": 1.023,
+      "deaths": 0,
+      "mean_t_s": 13.35
+     },
+     "156": {
+      "ratio": 4.061,
+      "deaths": 0,
+      "mean_t_s": 18.66
+     },
+     "157": {
+      "ratio": 1.176,
+      "deaths": 0,
+      "mean_t_s": 15.64
+     },
+     "158": {
+      "ratio": 1.358,
+      "deaths": 0,
+      "mean_t_s": 14.0
+     },
+     "159": {
+      "ratio": 2.503,
+      "deaths": 0,
+      "mean_t_s": 17.36
+     },
+     "160": {
+      "ratio": 3.047,
+      "deaths": 20,
+      "mean_t_s": 6.92
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.603,
+      0.048,
+      0.098,
+      0.161,
+      0.168
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.081,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      853,
+      3571,
+      7277,
+      18631,
+      13915,
+      26308,
+      38406,
+      62385
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.199,
+     "disc_occupancy_by_wave": {
+      "151": 0.987,
+      "152": 2.07,
+      "153": 0.885,
+      "154": 4.514,
+      "155": 1.065,
+      "156": 1.713,
+      "157": 3.316,
+      "158": 1.789,
+      "159": 3.809,
+      "160": 0.064
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 21603,
+       "mean_closing_nearest_m_s": -0.679
+      },
+      "occupied": {
+       "n_ticks": 19651,
+       "mean_closing_nearest_m_s": -0.8418
+      },
+      "disc_empty_fraction": 0.5237,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": {
+     "file": {
+      "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+     },
+     "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+     "band_armed": true,
+     "auras_applied": true,
+     "n_ai_rows": 1816,
+     "n_aura_records": 15,
+     "n_banded_slots": 1210,
+     "n_slots_replaced": 1814,
+     "n_up": 1005,
+     "n_down": 809,
+     "n_same": 0,
+     "n_ai_slots_without_row": 0,
+     "n_aura_slots_replaced": 20,
+     "unloaded_rows": [
+      {
+       "pack_row_id": "V20-236",
+       "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+       "slot": "special3",
+       "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+      },
+      {
+       "pack_row_id": "U1-714",
+       "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+       "slot": "special2",
+       "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+      }
+     ],
+     "band": {
+      "n_evaluations": 6431,
+      "n_refused_max": 1806,
+      "n_refused_min": 486
+     },
+     "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+    },
+    "emergence": {
+     "file": {
+      "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+     },
+     "bound": "D_long",
+     "acquisition_latency_s": "0 (UNKNOWN in GD, am4; DECLARED)",
+     "n_acquisition_delayed": 0,
+     "acquisition_latency_mean_s": 0.0,
+     "acquire_during_emergence": false,
+     "window_override": false,
+     "n_records": 31,
+     "n_ranged_records": 14,
+     "n_bodies_registered": 520,
+     "n_specials_armed": 940,
+     "n_specials_without_timeout_row": 0,
+     "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+     "pets": "VACUOUS: no p05 record carries a pet contract"
+    },
+    "stationary": {
+     "file": {
+      "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+     },
+     "stationary_records": {
+      "records/creatures/enemies/livingplant_a01.dbr": {
+       "max_pursuit_distance_m": 35.0
+      }
+     },
+     "n_bodies_pinned": 100,
+     "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+     "n_mill_superseded_ticks": 1188,
+     "n_waves_with_mill_superseded": 29,
+     "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+    },
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 34570.0,
+      "pre_oracle_inst": 143095640.9,
+      "pre_gd_inst": 98032706.6,
+      "n_phys_unclamped": 8748.0,
+      "n_dot_rows": 6778.0,
+      "pre_oracle_dot": 100140.5,
+      "pre_gd_dot": 5006852.8,
+      "n_phys_clamped_restored": 4031.0,
+      "n_phys_factor_unmapped": 2643.0
+     }
+    },
+    "sp": null,
+    "c11b": null,
+    "init": null,
+    "eng": null,
+    "hunt": {
+     "armed": false,
+     "v_close_m_s": 0.919,
+     "derivation": {
+      "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+     },
+     "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+     "n_drift_ticks": 0,
+     "drift_path_m": 0.0
+    }
+   },
+   "salts_0_4": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.3339,
+    "landed_hp_per_s_151_159": 3747.3,
+    "t_s_151_159": 842.12,
+    "per_salt_ratio": [
+     2.3801,
+     2.3386,
+     2.1895,
+     2.348,
+     2.4169
+    ],
+    "leg_a_terminals": [
+     160,
+     160,
+     160,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     5.878,
+     6.367,
+     7.347,
+     6.286,
+     8.082
+    ],
+    "mean_leg_a_wave": 160,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 5,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.0,
+    "leg_b_death_waves": [
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 8,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.079,
+      "deaths": 0,
+      "mean_t_s": 21.03
+     },
+     "152": {
+      "ratio": 2.007,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "153": {
+      "ratio": 1.613,
+      "deaths": 0,
+      "mean_t_s": 27.8
+     },
+     "154": {
+      "ratio": 3.929,
+      "deaths": 0,
+      "mean_t_s": 20.59
+     },
+     "155": {
+      "ratio": 0.829,
+      "deaths": 0,
+      "mean_t_s": 14.61
+     },
+     "156": {
+      "ratio": 4.034,
+      "deaths": 0,
+      "mean_t_s": 18.61
+     },
+     "157": {
+      "ratio": 1.213,
+      "deaths": 0,
+      "mean_t_s": 15.82
+     },
+     "158": {
+      "ratio": 1.481,
+      "deaths": 0,
+      "mean_t_s": 14.37
+     },
+     "159": {
+      "ratio": 2.202,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "160": {
+      "ratio": 3.456,
+      "deaths": 5,
+      "mean_t_s": 6.79
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.601,
+      0.036,
+      0.092,
+      0.16,
+      0.169
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.072,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      250,
+      905,
+      1856,
+      4654,
+      3533,
+      6555,
+      9262,
+      14931
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.158,
+     "disc_occupancy_by_wave": {
+      "151": 1.04,
+      "152": 2.023,
+      "153": 0.796,
+      "154": 4.613,
+      "155": 0.983,
+      "156": 1.769,
+      "157": 3.342,
+      "158": 1.705,
+      "159": 3.593,
+      "160": 0.113
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 5381,
+       "mean_closing_nearest_m_s": -0.5958
+      },
+      "occupied": {
+       "n_ticks": 5147,
+       "mean_closing_nearest_m_s": -1.0123
+      },
+      "disc_empty_fraction": 0.5111,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   }
+  },
+  "F1-SP": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "ratio_vs_referent": 2.0153,
+    "landed_hp_per_s_151_159": 3235.7,
+    "t_s_151_159": 3292.65,
+    "per_salt_ratio": [
+     1.864,
+     2.0919,
+     1.8021,
+     1.9005,
+     2.039,
+     2.0664,
+     2.0318,
+     2.1694,
+     1.9464,
+     1.9245,
+     2.0257,
+     2.0628,
+     2.0695,
+     2.1004,
+     2.1408,
+     2.0173,
+     2.1419,
+     1.856,
+     1.9759,
+     2.1196
+    ],
+    "leg_a_terminals": [
+     null,
+     null,
+     null,
+     160,
+     null,
+     160,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     160,
+     null,
+     160,
+     160,
+     160,
+     160,
+     null,
+     null
+    ],
+    "leg_a_t_into_wave_s": [
+     null,
+     null,
+     null,
+     8.49,
+     null,
+     7.592,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     7.592,
+     null,
+     10.367,
+     9.469,
+     8.98,
+     8.735,
+     null,
+     null
+    ],
+    "mean_leg_a_wave": 160.65,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 7,
+    "n_survive_160": 13,
+    "leg_b_deaths_per_salt": 0.35,
+    "leg_b_death_waves": [
+     [],
+     [],
+     [],
+     [
+      160
+     ],
+     [],
+     [
+      160
+     ],
+     [],
+     [],
+     [],
+     [],
+     [],
+     [],
+     [
+      160
+     ],
+     [],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [],
+     []
+    ],
+    "p05_killed_while_emerging": 35,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.598,
+      "deaths": 0,
+      "mean_t_s": 22.5
+     },
+     "152": {
+      "ratio": 2.057,
+      "deaths": 0,
+      "mean_t_s": 17.53
+     },
+     "153": {
+      "ratio": 1.564,
+      "deaths": 0,
+      "mean_t_s": 25.1
+     },
+     "154": {
+      "ratio": 2.975,
+      "deaths": 0,
+      "mean_t_s": 20.3
+     },
+     "155": {
+      "ratio": 0.962,
+      "deaths": 0,
+      "mean_t_s": 13.35
+     },
+     "156": {
+      "ratio": 2.823,
+      "deaths": 0,
+      "mean_t_s": 18.56
+     },
+     "157": {
+      "ratio": 1.102,
+      "deaths": 0,
+      "mean_t_s": 15.64
+     },
+     "158": {
+      "ratio": 0.9,
+      "deaths": 0,
+      "mean_t_s": 13.8
+     },
+     "159": {
+      "ratio": 2.392,
+      "deaths": 0,
+      "mean_t_s": 17.85
+     },
+     "160": {
+      "ratio": 5.179,
+      "deaths": 7,
+      "mean_t_s": 17.57
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.595,
+      0.038,
+      0.095,
+      0.166,
+      0.168
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.075,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      985,
+      4324,
+      8041,
+      20605,
+      15307,
+      27135,
+      38899,
+      62406
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.193,
+     "disc_occupancy_by_wave": {
+      "151": 0.991,
+      "152": 2.045,
+      "153": 0.879,
+      "154": 4.521,
+      "155": 1.069,
+      "156": 1.72,
+      "157": 3.316,
+      "158": 1.824,
+      "159": 3.691,
+      "160": 2.853
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 21754,
+       "mean_closing_nearest_m_s": -0.5717
+      },
+      "occupied": {
+       "n_ticks": 22111,
+       "mean_closing_nearest_m_s": -0.85
+      },
+      "disc_empty_fraction": 0.4959,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": {
+     "file": {
+      "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+     },
+     "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+     "band_armed": true,
+     "auras_applied": true,
+     "n_ai_rows": 1816,
+     "n_aura_records": 15,
+     "n_banded_slots": 1210,
+     "n_slots_replaced": 1814,
+     "n_up": 1005,
+     "n_down": 809,
+     "n_same": 0,
+     "n_ai_slots_without_row": 0,
+     "n_aura_slots_replaced": 20,
+     "unloaded_rows": [
+      {
+       "pack_row_id": "V20-236",
+       "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+       "slot": "special3",
+       "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+      },
+      {
+       "pack_row_id": "U1-714",
+       "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+       "slot": "special2",
+       "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+      }
+     ],
+     "band": {
+      "n_evaluations": 6881,
+      "n_refused_max": 1820,
+      "n_refused_min": 487
+     },
+     "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+    },
+    "emergence": {
+     "file": {
+      "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+     },
+     "bound": "D_long",
+     "acquisition_latency_s": "0 (UNKNOWN in GD, am4; DECLARED)",
+     "n_acquisition_delayed": 0,
+     "acquisition_latency_mean_s": 0.0,
+     "acquire_during_emergence": false,
+     "window_override": false,
+     "n_records": 31,
+     "n_ranged_records": 14,
+     "n_bodies_registered": 520,
+     "n_specials_armed": 940,
+     "n_specials_without_timeout_row": 0,
+     "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+     "pets": "VACUOUS: no p05 record carries a pet contract"
+    },
+    "stationary": {
+     "file": {
+      "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+     },
+     "stationary_records": {
+      "records/creatures/enemies/livingplant_a01.dbr": {
+       "max_pursuit_distance_m": 35.0
+      }
+     },
+     "n_bodies_pinned": 100,
+     "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+     "n_mill_superseded_ticks": 1183,
+     "n_waves_with_mill_superseded": 29,
+     "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+    },
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 33109.0,
+      "pre_oracle_inst": 133007623.0,
+      "pre_gd_inst": 93817744.9,
+      "n_phys_unclamped": 8403.0,
+      "n_dot_rows": 6151.0,
+      "pre_oracle_dot": 91204.4,
+      "pre_gd_dot": 4622736.7,
+      "n_phys_clamped_restored": 3997.0,
+      "n_phys_factor_unmapped": 1980.0
+     }
+    },
+    "sp": {
+     "file": {
+      "kc2_swing_pause_v3p9.json": "30403348b5623cdf2962438dca0d3e9eb047b9b5afbafc49ada6ef5b9fca5c19"
+     },
+     "rule": "next swing at max(animation, U{min..max} ms), rerolled per swing (Game.dll IV, grade A; legolas R4; star-lord sp2)",
+     "n_records_with_pause": 124,
+     "n_swings": 14321,
+     "n_pause_binds": 5548,
+     "n_no_pause_record": 0,
+     "auras": "not swing-gated (an aura is not a swing)",
+     "pack": "V4-ANTI-1 retired by star-lord v3.9 corrigendum sp3"
+    },
+    "c11b": null,
+    "init": null,
+    "eng": null,
+    "hunt": {
+     "armed": false,
+     "v_close_m_s": 0.919,
+     "derivation": {
+      "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+     },
+     "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+     "n_drift_ticks": 0,
+     "drift_path_m": 0.0
+    }
+   },
+   "salts_0_4": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 1.9394,
+    "landed_hp_per_s_151_159": 3113.8,
+    "t_s_151_159": 842.12,
+    "per_salt_ratio": [
+     1.864,
+     2.0919,
+     1.8021,
+     1.9005,
+     2.039
+    ],
+    "leg_a_terminals": [
+     null,
+     null,
+     null,
+     160,
+     null
+    ],
+    "leg_a_t_into_wave_s": [
+     null,
+     null,
+     null,
+     8.49,
+     null
+    ],
+    "mean_leg_a_wave": 160.8,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 1,
+    "n_survive_160": 4,
+    "leg_b_deaths_per_salt": 0.2,
+    "leg_b_death_waves": [
+     [],
+     [],
+     [],
+     [
+      160
+     ],
+     []
+    ],
+    "p05_killed_while_emerging": 8,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.651,
+      "deaths": 0,
+      "mean_t_s": 21.03
+     },
+     "152": {
+      "ratio": 2.032,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "153": {
+      "ratio": 1.514,
+      "deaths": 0,
+      "mean_t_s": 27.8
+     },
+     "154": {
+      "ratio": 2.841,
+      "deaths": 0,
+      "mean_t_s": 20.59
+     },
+     "155": {
+      "ratio": 0.802,
+      "deaths": 0,
+      "mean_t_s": 14.61
+     },
+     "156": {
+      "ratio": 2.718,
+      "deaths": 0,
+      "mean_t_s": 18.61
+     },
+     "157": {
+      "ratio": 1.146,
+      "deaths": 0,
+      "mean_t_s": 15.82
+     },
+     "158": {
+      "ratio": 0.93,
+      "deaths": 0,
+      "mean_t_s": 13.98
+     },
+     "159": {
+      "ratio": 2.238,
+      "deaths": 0,
+      "mean_t_s": 18.19
+     },
+     "160": {
+      "ratio": 5.202,
+      "deaths": 1,
+      "mean_t_s": 20.1
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.579,
+      0.032,
+      0.087,
+      0.157,
+      0.168
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.067,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      288,
+      1103,
+      2022,
+      5316,
+      3858,
+      6734,
+      9401,
+      15014
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.156,
+     "disc_occupancy_by_wave": {
+      "151": 1.04,
+      "152": 2.016,
+      "153": 0.796,
+      "154": 4.613,
+      "155": 0.983,
+      "156": 1.769,
+      "157": 3.334,
+      "158": 1.752,
+      "159": 3.508,
+      "160": 2.925
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 5398,
+       "mean_closing_nearest_m_s": -0.4093
+      },
+      "occupied": {
+       "n_ticks": 5925,
+       "mean_closing_nearest_m_s": -1.1076
+      },
+      "disc_empty_fraction": 0.4767,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   }
+  },
+  "F2-C11B": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "ratio_vs_referent": 2.602,
+    "landed_hp_per_s_151_159": 4177.7,
+    "t_s_151_159": 3255.59,
+    "per_salt_ratio": [
+     2.3527,
+     2.5976,
+     2.3043,
+     2.3336,
+     2.6609,
+     2.7409,
+     2.6572,
+     2.7913,
+     2.665,
+     2.5378,
+     2.7381,
+     2.6834,
+     2.6515,
+     2.7994,
+     2.7364,
+     2.4962,
+     2.7954,
+     2.4819,
+     2.5501,
+     2.4643
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     156,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     151,
+     160,
+     160,
+     160,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     9.469,
+     5.796,
+     9.469,
+     8.49,
+     7.429,
+     7.429,
+     6.122,
+     7.673,
+     4.735,
+     6.776,
+     8.327,
+     5.959,
+     5.633,
+     6.857,
+     13.959,
+     7.265,
+     6.367,
+     6.204,
+     7.51,
+     7.755
+    ],
+    "mean_leg_a_wave": 158.95,
+    "n_die_in_151": 1,
+    "n_first_death_in_160": 16,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.2,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      151,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 35,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.184,
+      "deaths": 1,
+      "mean_t_s": 22.14
+     },
+     "152": {
+      "ratio": 2.264,
+      "deaths": 0,
+      "mean_t_s": 17.43
+     },
+     "153": {
+      "ratio": 1.812,
+      "deaths": 0,
+      "mean_t_s": 25.6
+     },
+     "154": {
+      "ratio": 4.319,
+      "deaths": 0,
+      "mean_t_s": 20.3
+     },
+     "155": {
+      "ratio": 1.154,
+      "deaths": 0,
+      "mean_t_s": 13.4
+     },
+     "156": {
+      "ratio": 4.422,
+      "deaths": 3,
+      "mean_t_s": 17.18
+     },
+     "157": {
+      "ratio": 1.27,
+      "deaths": 0,
+      "mean_t_s": 15.82
+     },
+     "158": {
+      "ratio": 1.443,
+      "deaths": 0,
+      "mean_t_s": 13.66
+     },
+     "159": {
+      "ratio": 2.8,
+      "deaths": 0,
+      "mean_t_s": 17.25
+     },
+     "160": {
+      "ratio": 3.05,
+      "deaths": 20,
+      "mean_t_s": 6.75
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.598,
+      0.044,
+      0.097,
+      0.162,
+      0.169
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.079,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      836,
+      3505,
+      7087,
+      18207,
+      13656,
+      26022,
+      38090,
+      62155
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.186,
+     "disc_occupancy_by_wave": {
+      "151": 0.986,
+      "152": 2.056,
+      "153": 0.862,
+      "154": 4.523,
+      "155": 1.063,
+      "156": 1.597,
+      "157": 3.305,
+      "158": 1.832,
+      "159": 3.803,
+      "160": 0.034
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 21695,
+       "mean_closing_nearest_m_s": -0.6616
+      },
+      "occupied": {
+       "n_ticks": 19137,
+       "mean_closing_nearest_m_s": -0.8951
+      },
+      "disc_empty_fraction": 0.5313,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": {
+     "file": {
+      "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+     },
+     "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+     "band_armed": true,
+     "auras_applied": true,
+     "n_ai_rows": 1816,
+     "n_aura_records": 15,
+     "n_banded_slots": 1210,
+     "n_slots_replaced": 1814,
+     "n_up": 1005,
+     "n_down": 809,
+     "n_same": 0,
+     "n_ai_slots_without_row": 0,
+     "n_aura_slots_replaced": 20,
+     "unloaded_rows": [
+      {
+       "pack_row_id": "V20-236",
+       "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+       "slot": "special3",
+       "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+      },
+      {
+       "pack_row_id": "U1-714",
+       "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+       "slot": "special2",
+       "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+      }
+     ],
+     "band": {
+      "n_evaluations": 6345,
+      "n_refused_max": 1774,
+      "n_refused_min": 502
+     },
+     "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+    },
+    "emergence": {
+     "file": {
+      "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+     },
+     "bound": "D_long",
+     "acquisition_latency_s": "0 (UNKNOWN in GD, am4; DECLARED)",
+     "n_acquisition_delayed": 0,
+     "acquisition_latency_mean_s": 0.0,
+     "acquire_during_emergence": false,
+     "window_override": false,
+     "n_records": 31,
+     "n_ranged_records": 14,
+     "n_bodies_registered": 520,
+     "n_specials_armed": 940,
+     "n_specials_without_timeout_row": 0,
+     "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+     "pets": "VACUOUS: no p05 record carries a pet contract"
+    },
+    "stationary": {
+     "file": {
+      "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+     },
+     "stationary_records": {
+      "records/creatures/enemies/livingplant_a01.dbr": {
+       "max_pursuit_distance_m": 35.0
+      }
+     },
+     "n_bodies_pinned": 100,
+     "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+     "n_mill_superseded_ticks": 1297,
+     "n_waves_with_mill_superseded": 29,
+     "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+    },
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 33752.0,
+      "pre_oracle_inst": 151072867.1,
+      "pre_gd_inst": 101700087.9,
+      "n_phys_unclamped": 8587.0,
+      "n_dot_rows": 6729.0,
+      "pre_oracle_dot": 100037.5,
+      "pre_gd_dot": 5401454.8,
+      "n_phys_clamped_restored": 3849.0,
+      "n_phys_factor_unmapped": 2489.0
+     }
+    },
+    "sp": null,
+    "c11b": {
+     "b": 1.1,
+     "a_mean": 1.01,
+     "basis": "C-11b B monsterAttributePak Ultimate/1p +10% dex+int (DB-SOURCED-EXACT); A = charLevel equation, C-11b mean x1.010 (DECLARED)",
+     "n_distinct_terms_scaled": 1232,
+     "n_distinct_terms_inert": 14
+    },
+    "init": null,
+    "eng": null,
+    "hunt": {
+     "armed": false,
+     "v_close_m_s": 0.919,
+     "derivation": {
+      "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+     },
+     "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+     "n_drift_ticks": 0,
+     "drift_path_m": 0.0
+    }
+   },
+   "salts_0_4": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.4549,
+    "landed_hp_per_s_151_159": 3941.6,
+    "t_s_151_159": 810.12,
+    "per_salt_ratio": [
+     2.3527,
+     2.5976,
+     2.3043,
+     2.3336,
+     2.6609
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     156,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     9.469,
+     5.796,
+     9.469,
+     8.49,
+     7.429
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 8,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.266,
+      "deaths": 0,
+      "mean_t_s": 21.03
+     },
+     "152": {
+      "ratio": 2.255,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "153": {
+      "ratio": 1.779,
+      "deaths": 0,
+      "mean_t_s": 27.8
+     },
+     "154": {
+      "ratio": 4.38,
+      "deaths": 0,
+      "mean_t_s": 20.59
+     },
+     "155": {
+      "ratio": 0.922,
+      "deaths": 0,
+      "mean_t_s": 14.61
+     },
+     "156": {
+      "ratio": 3.738,
+      "deaths": 3,
+      "mean_t_s": 13.08
+     },
+     "157": {
+      "ratio": 1.302,
+      "deaths": 0,
+      "mean_t_s": 16.33
+     },
+     "158": {
+      "ratio": 1.414,
+      "deaths": 0,
+      "mean_t_s": 13.4
+     },
+     "159": {
+      "ratio": 2.688,
+      "deaths": 0,
+      "mean_t_s": 17.39
+     },
+     "160": {
+      "ratio": 3.031,
+      "deaths": 5,
+      "mean_t_s": 6.84
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.597,
+      0.038,
+      0.092,
+      0.161,
+      0.167
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.074,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      218,
+      857,
+      1700,
+      4246,
+      3224,
+      6364,
+      9125,
+      14771
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.136,
+     "disc_occupancy_by_wave": {
+      "151": 1.04,
+      "152": 2.023,
+      "153": 0.796,
+      "154": 4.613,
+      "155": 0.983,
+      "156": 1.083,
+      "157": 3.305,
+      "158": 1.83,
+      "159": 3.649,
+      "160": 0.039
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 5416,
+       "mean_closing_nearest_m_s": -0.5397
+      },
+      "occupied": {
+       "n_ticks": 4744,
+       "mean_closing_nearest_m_s": -1.0423
+      },
+      "disc_empty_fraction": 0.5331,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   }
+  },
+  "F3-DEC": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "ratio_vs_referent": 2.3064,
+    "landed_hp_per_s_151_159": 3703.1,
+    "t_s_151_159": 3320.73,
+    "per_salt_ratio": [
+     2.3032,
+     2.3073,
+     2.2877,
+     2.4207,
+     2.096,
+     2.3909,
+     2.3255,
+     2.5266,
+     2.2987,
+     2.324,
+     2.2742,
+     2.2167,
+     2.2189,
+     2.4041,
+     2.2775,
+     2.2044,
+     2.3802,
+     2.1996,
+     2.5006,
+     2.1843
+    ],
+    "leg_a_terminals": [
+     160,
+     160,
+     160,
+     160,
+     156,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     null,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     9.959,
+     7.429,
+     8.082,
+     6.531,
+     9.551,
+     8.082,
+     6.286,
+     9.878,
+     7.755,
+     7.429,
+     6.776,
+     7.918,
+     null,
+     6.776,
+     8.898,
+     8.0,
+     7.102,
+     7.184,
+     7.265,
+     7.918
+    ],
+    "mean_leg_a_wave": 159.85,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 18,
+    "n_survive_160": 1,
+    "leg_b_deaths_per_salt": 1.0,
+    "leg_b_death_waves": [
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 43,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 2.883,
+      "deaths": 0,
+      "mean_t_s": 22.6
+     },
+     "152": {
+      "ratio": 2.116,
+      "deaths": 0,
+      "mean_t_s": 17.78
+     },
+     "153": {
+      "ratio": 1.741,
+      "deaths": 0,
+      "mean_t_s": 25.1
+     },
+     "154": {
+      "ratio": 3.11,
+      "deaths": 0,
+      "mean_t_s": 20.7
+     },
+     "155": {
+      "ratio": 1.461,
+      "deaths": 0,
+      "mean_t_s": 13.84
+     },
+     "156": {
+      "ratio": 3.983,
+      "deaths": 1,
+      "mean_t_s": 18.38
+     },
+     "157": {
+      "ratio": 0.833,
+      "deaths": 0,
+      "mean_t_s": 16.47
+     },
+     "158": {
+      "ratio": 1.513,
+      "deaths": 0,
+      "mean_t_s": 13.55
+     },
+     "159": {
+      "ratio": 2.521,
+      "deaths": 0,
+      "mean_t_s": 17.61
+     },
+     "160": {
+      "ratio": 3.594,
+      "deaths": 19,
+      "mean_t_s": 8.18
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.599,
+      0.047,
+      0.104,
+      0.157,
+      0.187
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.084,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      889,
+      3993,
+      7008,
+      18292,
+      14027,
+      26545,
+      38648,
+      62607
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.17,
+     "disc_occupancy_by_wave": {
+      "151": 0.982,
+      "152": 2.095,
+      "153": 0.873,
+      "154": 4.385,
+      "155": 1.023,
+      "156": 1.625,
+      "157": 3.232,
+      "158": 1.855,
+      "159": 3.752,
+      "160": 0.547
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 21822,
+       "mean_closing_nearest_m_s": -0.8377
+      },
+      "occupied": {
+       "n_ticks": 20152,
+       "mean_closing_nearest_m_s": -0.7575
+      },
+      "disc_empty_fraction": 0.5199,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": {
+     "file": {
+      "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+     },
+     "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+     "band_armed": true,
+     "auras_applied": true,
+     "n_ai_rows": 1816,
+     "n_aura_records": 15,
+     "n_banded_slots": 1210,
+     "n_slots_replaced": 1814,
+     "n_up": 1005,
+     "n_down": 809,
+     "n_same": 0,
+     "n_ai_slots_without_row": 0,
+     "n_aura_slots_replaced": 20,
+     "unloaded_rows": [
+      {
+       "pack_row_id": "V20-236",
+       "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+       "slot": "special3",
+       "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+      },
+      {
+       "pack_row_id": "U1-714",
+       "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+       "slot": "special2",
+       "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+      }
+     ],
+     "band": {
+      "n_evaluations": 6551,
+      "n_refused_max": 1697,
+      "n_refused_min": 511
+     },
+     "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+    },
+    "emergence": {
+     "file": {
+      "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+     },
+     "bound": "D_long",
+     "acquisition_latency_s": "DECODED: first FindEnemyUpdate scan on the 0.2 s grid from construction (KP-212 fold 3a)",
+     "n_acquisition_delayed": 520,
+     "acquisition_latency_mean_s": 0.09476923076923152,
+     "acquire_during_emergence": false,
+     "window_override": false,
+     "n_records": 31,
+     "n_ranged_records": 14,
+     "n_bodies_registered": 520,
+     "n_specials_armed": 940,
+     "n_specials_without_timeout_row": 0,
+     "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+     "pets": "VACUOUS: no p05 record carries a pet contract"
+    },
+    "stationary": {
+     "file": {
+      "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+     },
+     "stationary_records": {
+      "records/creatures/enemies/livingplant_a01.dbr": {
+       "max_pursuit_distance_m": 35.0
+      }
+     },
+     "n_bodies_pinned": 100,
+     "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+     "n_mill_superseded_ticks": 1228,
+     "n_waves_with_mill_superseded": 28,
+     "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+    },
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "int/200 + 1 (decoded, KP-212 fold 3b)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 33665.0,
+      "pre_oracle_inst": 144344973.2,
+      "pre_gd_inst": 97266384.0,
+      "n_phys_unclamped": 8480.0,
+      "n_dot_rows": 6154.0,
+      "pre_oracle_dot": 77694.1,
+      "pre_gd_dot": 3527520.1,
+      "n_phys_clamped_restored": 3605.0,
+      "n_phys_factor_unmapped": 2494.0
+     }
+    },
+    "sp": null,
+    "c11b": null,
+    "init": {
+     "rule": "initial = one self-cast at Startup End (UseInitialSkillIfSet 0x0feb90; legolas lead 6; star-lord dc1): non-aura initial removed from the attack set; gr3 aura initial -> toggled aura at its GD radius; roster only (pets untouched, declared)",
+     "n_initial_removed": 65,
+     "n_initial_to_aura": 15,
+     "n_aura_profiles_left_without_slots": 0,
+     "to_aura": [
+      {
+       "record": "records/creatures/enemies/aetherialcorruption_c01.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/bossskills/dralgar_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/boss&quest/beetle_maggot01.dbr",
+       "skill": "records/skills/nonplayerskillsgdx2/bossskills/scarabmaggot_toxicpresence.dbr",
+       "radius_m": 5.0
+      },
+      {
+       "record": "records/creatures/enemies/boss&quest/theoutcast_03.dbr",
+       "skill": "records/skills/nonplayerskills/bossskills/angela_aetherform03.dbr",
+       "radius_m": 3.0
+      },
+      {
+       "record": "records/creatures/enemies/boss&quest/wendigo_turned_yuvoll.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigofire_burningpresence.dbr",
+       "radius_m": 3.0
+      },
+      {
+       "record": "records/creatures/enemies/bounties/pm_bounty07.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigofire_burningpresence.dbr",
+       "radius_m": 3.0
+      },
+      {
+       "record": "records/creatures/enemies/devotion/aetherialcorruption_h01.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/devotion/aetherialcorruption_h02.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/devotion/aetherialcorruption_h03.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/devotion/basilisk_h03.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigoaether_aetherpresence.dbr",
+       "radius_m": 3.0
+      },
+      {
+       "record": "records/creatures/enemies/devotion/chthonianservitor_h04.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/bossskills/wendigostorm_stormpresence.dbr",
+       "radius_m": 3.0
+      },
+      {
+       "record": "records/creatures/enemies/hero/aetherialcorruption_h01.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/hero/aetherialcorruption_h02.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/hero/aetherialcorruption_h03.dbr",
+       "skill": "records/skills/nonplayerskillsgdx1/buffattackradius/aetherialcorruption_aetherorbitalretaliation.dbr",
+       "radius_m": 3.5
+      },
+      {
+       "record": "records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr",
+       "skill": "records/skills/nonplayerskillsgdx3/bossskills/nemesis/outlaw2_burningaether.dbr",
+       "radius_m": 4.5
+      }
+     ]
+    },
+    "eng": null,
+    "hunt": {
+     "armed": false,
+     "v_close_m_s": 0.919,
+     "derivation": {
+      "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+     },
+     "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+     "n_drift_ticks": 0,
+     "drift_path_m": 0.0
+    }
+   },
+   "salts_0_4": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.2828,
+    "landed_hp_per_s_151_159": 3665.3,
+    "t_s_151_159": 826.2,
+    "per_salt_ratio": [
+     2.3032,
+     2.3073,
+     2.2877,
+     2.4207,
+     2.096
+    ],
+    "leg_a_terminals": [
+     160,
+     160,
+     160,
+     160,
+     156
+    ],
+    "leg_a_t_into_wave_s": [
+     9.959,
+     7.429,
+     8.082,
+     6.531,
+     9.551
+    ],
+    "mean_leg_a_wave": 159.2,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 4,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.2,
+    "leg_b_death_waves": [
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 3,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.08,
+      "deaths": 0,
+      "mean_t_s": 21.22
+     },
+     "152": {
+      "ratio": 2.125,
+      "deaths": 0,
+      "mean_t_s": 17.81
+     },
+     "153": {
+      "ratio": 1.76,
+      "deaths": 0,
+      "mean_t_s": 25.99
+     },
+     "154": {
+      "ratio": 3.196,
+      "deaths": 0,
+      "mean_t_s": 20.82
+     },
+     "155": {
+      "ratio": 1.476,
+      "deaths": 0,
+      "mean_t_s": 14.38
+     },
+     "156": {
+      "ratio": 3.631,
+      "deaths": 1,
+      "mean_t_s": 17.71
+     },
+     "157": {
+      "ratio": 0.806,
+      "deaths": 0,
+      "mean_t_s": 16.29
+     },
+     "158": {
+      "ratio": 1.359,
+      "deaths": 0,
+      "mean_t_s": 13.99
+     },
+     "159": {
+      "ratio": 2.586,
+      "deaths": 0,
+      "mean_t_s": 17.01
+     },
+     "160": {
+      "ratio": 2.995,
+      "deaths": 5,
+      "mean_t_s": 7.66
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.611,
+      0.036,
+      0.07,
+      0.121,
+      0.181
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.058,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      244,
+      923,
+      1806,
+      4414,
+      3389,
+      6239,
+      9029,
+      15686
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.172,
+     "disc_occupancy_by_wave": {
+      "151": 1.041,
+      "152": 2.116,
+      "153": 0.841,
+      "154": 4.516,
+      "155": 1.003,
+      "156": 1.451,
+      "157": 3.275,
+      "158": 1.803,
+      "159": 3.807,
+      "160": 0.105
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 5423,
+       "mean_closing_nearest_m_s": -0.8425
+      },
+      "occupied": {
+       "n_ticks": 4979,
+       "mean_closing_nearest_m_s": -0.6419
+      },
+      "disc_empty_fraction": 0.5213,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   }
+  },
+  "F2-C11B-B": {
+   "all": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "ratio_vs_referent": 2.5768,
+    "landed_hp_per_s_151_159": 4137.4,
+    "t_s_151_159": 3259.59,
+    "per_salt_ratio": [
+     2.332,
+     2.5748,
+     2.2801,
+     2.3117,
+     2.6346,
+     2.714,
+     2.6305,
+     2.7645,
+     2.6388,
+     2.5093,
+     2.711,
+     2.6557,
+     2.6251,
+     2.794,
+     2.7093,
+     2.4707,
+     2.768,
+     2.457,
+     2.5234,
+     2.4381
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     156,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     160,
+     151,
+     160,
+     160,
+     160,
+     160,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     9.469,
+     5.796,
+     9.551,
+     8.49,
+     7.755,
+     7.429,
+     6.122,
+     7.673,
+     4.735,
+     6.776,
+     8.327,
+     5.959,
+     5.633,
+     6.857,
+     13.959,
+     6.694,
+     6.367,
+     6.204,
+     7.51,
+     7.755
+    ],
+    "mean_leg_a_wave": 158.95,
+    "n_die_in_151": 1,
+    "n_first_death_in_160": 16,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.2,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      151,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 35,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.165,
+      "deaths": 1,
+      "mean_t_s": 22.14
+     },
+     "152": {
+      "ratio": 2.237,
+      "deaths": 0,
+      "mean_t_s": 17.43
+     },
+     "153": {
+      "ratio": 1.793,
+      "deaths": 0,
+      "mean_t_s": 25.6
+     },
+     "154": {
+      "ratio": 4.273,
+      "deaths": 0,
+      "mean_t_s": 20.3
+     },
+     "155": {
+      "ratio": 1.141,
+      "deaths": 0,
+      "mean_t_s": 13.4
+     },
+     "156": {
+      "ratio": 4.383,
+      "deaths": 3,
+      "mean_t_s": 17.18
+     },
+     "157": {
+      "ratio": 1.254,
+      "deaths": 0,
+      "mean_t_s": 15.87
+     },
+     "158": {
+      "ratio": 1.44,
+      "deaths": 0,
+      "mean_t_s": 13.71
+     },
+     "159": {
+      "ratio": 2.767,
+      "deaths": 0,
+      "mean_t_s": 17.35
+     },
+     "160": {
+      "ratio": 3.183,
+      "deaths": 20,
+      "mean_t_s": 7.0
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.597,
+      0.044,
+      0.097,
+      0.163,
+      0.17
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.079,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      824,
+      3500,
+      7094,
+      18305,
+      13696,
+      25982,
+      38036,
+      61917
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.185,
+     "disc_occupancy_by_wave": {
+      "151": 0.986,
+      "152": 2.056,
+      "153": 0.862,
+      "154": 4.523,
+      "155": 1.063,
+      "156": 1.597,
+      "157": 3.299,
+      "158": 1.827,
+      "159": 3.793,
+      "160": 0.114
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 21662,
+       "mean_closing_nearest_m_s": -0.6516
+      },
+      "occupied": {
+       "n_ticks": 19276,
+       "mean_closing_nearest_m_s": -0.9145
+      },
+      "disc_empty_fraction": 0.5291,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   },
+   "fold_reports": {
+    "fire_range": {
+     "file": {
+      "kc2_gd_fire_range_v3p8.csv": "55d90c8d98f5142429bb4e8317f65eac0b4e3ce351f2acea9155f6aa02d1d916"
+     },
+     "operating_limb": "gd_use_range_m_HI (radii x scale); LO in the file, unused",
+     "band_armed": true,
+     "auras_applied": true,
+     "n_ai_rows": 1816,
+     "n_aura_records": 15,
+     "n_banded_slots": 1210,
+     "n_slots_replaced": 1814,
+     "n_up": 1005,
+     "n_down": 809,
+     "n_same": 0,
+     "n_ai_slots_without_row": 0,
+     "n_aura_slots_replaced": 20,
+     "unloaded_rows": [
+      {
+       "pack_row_id": "V20-236",
+       "record": "records/creatures/enemies/bounties/ro_bounty11.dbr",
+       "slot": "special3",
+       "skill": "records/skills/nonplayerskills/heroskills/raglis_toxicweaponsaura_buff.dbr"
+      },
+      {
+       "pack_row_id": "U1-714",
+       "record": "records/creatures/enemies/devotion/prawncave_h03.dbr",
+       "slot": "special2",
+       "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura_buff.dbr"
+      }
+     ],
+     "band": {
+      "n_evaluations": 6354,
+      "n_refused_max": 1775,
+      "n_refused_min": 498
+     },
+     "halt_distance": "UNCHANGED 2.4 m (D_ENGAGE_M) \u2014 GD's stop rule not established; math note \u00a7 2.2"
+    },
+    "emergence": {
+     "file": {
+      "kc2_p05_emergence_v3p8.csv": "2f7b202c94f475ec414df19233e1ae57c2ca754307357ac0233752ce05b7ad61"
+     },
+     "bound": "D_long",
+     "acquisition_latency_s": "0 (UNKNOWN in GD, am4; DECLARED)",
+     "n_acquisition_delayed": 0,
+     "acquisition_latency_mean_s": 0.0,
+     "acquire_during_emergence": false,
+     "window_override": false,
+     "n_records": 31,
+     "n_ranged_records": 14,
+     "n_bodies_registered": 520,
+     "n_specials_armed": 940,
+     "n_specials_without_timeout_row": 0,
+     "cc_and_hit_reactions": "VACUOUS: the oracle has no player->monster CC or monster hit-reaction mechanism (math note \u00a7 3)",
+     "pets": "VACUOUS: no p05 record carries a pet contract"
+    },
+    "stationary": {
+     "file": {
+      "pm2_tg2_monster_timing.csv": "58205679e36f0e0361ccd41c844d6bc254ada034447dd1f80e2a46a2b47c7aca"
+     },
+     "stationary_records": {
+      "records/creatures/enemies/livingplant_a01.dbr": {
+       "max_pursuit_distance_m": 35.0
+      }
+     },
+     "n_bodies_pinned": 100,
+     "pilot_rule": "JC-G9 lifted to K-MILL: every live on-board body stationary + none to spawn + no live pet -> the mill's step is superseded, the DrivePolicy step stands (math note \u00a7 4.1)",
+     "n_mill_superseded_ticks": 1297,
+     "n_waves_with_mill_superseded": 29,
+     "contact_solver": "push-apart still applies to a stationary body (declared limit)"
+    },
+    "composition": {
+     "rule": "row = base * max(0, a + P/100) (GD Game.dll; legolas Leg 2, grade A)",
+     "phys_limb": "f_unmapped = min(measured)",
+     "f_unmapped": -0.44,
+     "files": {
+      "pm4m_candidate_table.csv": "5af996789064870486c44d49e9686a8f5245e37b54f11d294456568f3254e0d3",
+      "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+     },
+     "slowchaos_slowaether_a_dur": "1.0 (divisor UNDECODED; DECLARED)",
+     "reduced_damage_debuffs": "MAX rule satisfied: one reduction applied (War Cry), none summed",
+     "telemetry": {
+      "n_inst_rows": 33872.0,
+      "pre_oracle_inst": 150376348.7,
+      "pre_gd_inst": 101433444.0,
+      "n_phys_unclamped": 8600.0,
+      "n_dot_rows": 6758.0,
+      "pre_oracle_dot": 99640.5,
+      "pre_gd_dot": 5330462.5,
+      "n_phys_clamped_restored": 3877.0,
+      "n_phys_factor_unmapped": 2490.0
+     }
+    },
+    "sp": null,
+    "c11b": {
+     "b": 1.1,
+     "a_mean": 1.0,
+     "basis": "C-11b B monsterAttributePak Ultimate/1p +10% dex+int (DB-SOURCED-EXACT); A = charLevel equation, C-11b mean x1.010 (DECLARED)",
+     "n_distinct_terms_scaled": 1233,
+     "n_distinct_terms_inert": 14
+    },
+    "init": null,
+    "eng": null,
+    "hunt": {
+     "armed": false,
+     "v_close_m_s": 0.919,
+     "derivation": {
+      "pilot_derivation_referent.json": "fd3f6585b3a89843953f44dcb356334bb06a10105ae28ba80f8418e1433feb48"
+     },
+     "rule": "nearest live body; only while the 3.0 m disc is empty (start-of-tick); player + K-MILL anchor translate at v_close; re-read every tick; live = alive and spawned",
+     "n_drift_ticks": 0,
+     "drift_path_m": 0.0
+    }
+   },
+   "salts_0_4": {
+    "salts": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "ratio_vs_referent": 2.4309,
+    "landed_hp_per_s_151_159": 3903.1,
+    "t_s_151_159": 814.12,
+    "per_salt_ratio": [
+     2.332,
+     2.5748,
+     2.2801,
+     2.3117,
+     2.6346
+    ],
+    "leg_a_terminals": [
+     156,
+     160,
+     156,
+     156,
+     160
+    ],
+    "leg_a_t_into_wave_s": [
+     9.469,
+     5.796,
+     9.551,
+     8.49,
+     7.755
+    ],
+    "mean_leg_a_wave": 157.6,
+    "n_die_in_151": 0,
+    "n_first_death_in_160": 2,
+    "n_survive_160": 0,
+    "leg_b_deaths_per_salt": 1.6,
+    "leg_b_death_waves": [
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      156,
+      160
+     ],
+     [
+      160
+     ]
+    ],
+    "p05_killed_while_emerging": 8,
+    "raised": {},
+    "per_wave": {
+     "151": {
+      "ratio": 3.249,
+      "deaths": 0,
+      "mean_t_s": 21.03
+     },
+     "152": {
+      "ratio": 2.229,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "153": {
+      "ratio": 1.763,
+      "deaths": 0,
+      "mean_t_s": 27.8
+     },
+     "154": {
+      "ratio": 4.334,
+      "deaths": 0,
+      "mean_t_s": 20.59
+     },
+     "155": {
+      "ratio": 0.912,
+      "deaths": 0,
+      "mean_t_s": 14.61
+     },
+     "156": {
+      "ratio": 3.703,
+      "deaths": 3,
+      "mean_t_s": 13.09
+     },
+     "157": {
+      "ratio": 1.273,
+      "deaths": 0,
+      "mean_t_s": 16.51
+     },
+     "158": {
+      "ratio": 1.444,
+      "deaths": 0,
+      "mean_t_s": 13.6
+     },
+     "159": {
+      "ratio": 2.648,
+      "deaths": 0,
+      "mean_t_s": 17.8
+     },
+     "160": {
+      "ratio": 3.666,
+      "deaths": 5,
+      "mean_t_s": 7.93
+     }
+    },
+    "instruments": {
+     "still_frac_by_H2_band_151_160": [
+      1.0,
+      1.0,
+      1.0,
+      0.591,
+      0.038,
+      0.093,
+      0.168,
+      0.172
+     ],
+     "still_frac_referent_H2": [
+      0.201,
+      0.229,
+      0.283,
+      0.279,
+      0.336,
+      0.346,
+      0.243,
+      0.145
+     ],
+     "still_frac_2p46_4p92m": 0.074,
+     "still_frac_2p46_4p92m_referent": 0.343,
+     "body_steps_by_band": [
+      206,
+      852,
+      1707,
+      4344,
+      3264,
+      6329,
+      9073,
+      14547
+     ],
+     "disc_occupancy_mean_bodies_per_tick_151_159": 2.134,
+     "disc_occupancy_by_wave": {
+      "151": 1.04,
+      "152": 2.023,
+      "153": 0.796,
+      "154": 4.613,
+      "155": 0.983,
+      "156": 1.083,
+      "157": 3.282,
+      "158": 1.811,
+      "159": 3.615,
+      "160": 0.313
+     },
+     "pilot_closing": {
+      "empty": {
+       "n_ticks": 5390,
+       "mean_closing_nearest_m_s": -0.4975
+      },
+      "occupied": {
+       "n_ticks": 4883,
+       "mean_closing_nearest_m_s": -1.1148
+      },
+      "disc_empty_fraction": 0.5247,
+      "n_drift_ticks": 0,
+      "drift_path_m": 0.0,
+      "referent": {
+       "empty": 0.919,
+       "occupied": 0.129,
+       "disc_empty_fraction_plate_frames": 0.142
+      }
+     },
+     "wave_s_referent": {
+      "151": 15.6,
+      "152": 16.3,
+      "153": 14.9,
+      "154": 14.2,
+      "155": 16.2,
+      "156": 20.2,
+      "157": 19.3,
+      "158": 13.0,
+      "159": 26.3,
+      "160": 25.0
+     }
+    }
+   }
+  }
+ },
+ "wall_s": 778.9
+}
