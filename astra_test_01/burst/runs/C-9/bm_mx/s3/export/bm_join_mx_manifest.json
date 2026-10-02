@@ -2,7 +2,7 @@
  "kit": "d2-ww-barb (R-C9-133: dual wield of record -- sword main hand R, axe off hand L)",
  "body": {
   "file": "nb-body_join_mx.glb",
-  "sha256": "6a144e93b1c04ceaf1c4bf3a50b171b79788ff18898bbf163604ef67e451773d",
+  "sha256": "d68f03d701834af6055beb9766b81591626d036ad382b805382acfffae1c5acc",
   "from": "nb_join/export/nb-body_join.glb (its mesh, skin, morphs, texture byte-identical; its clips replaced)"
  },
  "pieces": {
@@ -19,7 +19,8 @@
    "clip": "idle",
    "kind": "loop",
    "role": "locomotion_idle",
-   "length_s": 1.8
+   "length_s": 1.8,
+   "_note": "seam-blended (58 offset a0 b54 w8): last key == first key on every node incl. weapons"
   },
   "walk": {
    "clip": "walk",
@@ -88,7 +89,8 @@
    "clip": "death",
    "kind": "oneshot",
    "role": "oneshot_hold",
-   "length_s": 2.3
+   "length_s": 2.3,
+   "_note": "de-rooted + recentred (bm14; cell gate EDGE_TOUCH): hips track within 0.18 m of the origin, blades within 1.77 m at every heading; axe floor clamp kept"
   },
   "whirlwind": {
    "clip": "whirlwind_dual_loop",
@@ -100,5 +102,6 @@
    "_note": "E1 recipe (e52 + e48, f734570d2) on this set's idle@1.0"
   }
  },
- "clip_sources": "clip_sources.json"
+ "clip_sources": "clip_sources.json",
+ "revision": "b (2026-10-02): death de-root, idle seam -- the D2 lane re-renders idle and death"
 }

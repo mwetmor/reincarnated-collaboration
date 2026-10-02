@@ -1,0 +1,38 @@
+{
+ "clips": {
+  "idle": {
+   "footlock_m_s": -0.0038,
+   "support_pairs": 50,
+   "probe_pairs": 50,
+   "blend_support_max_mm": 0.29,
+   "blend_support_med_mm": 0.28,
+   "blend_support_pairs": 8,
+   "loop_slide_med_mm": 0.2,
+   "loop_slide_p95_mm": 0.36,
+   "loop_slide_max_mm": 0.47,
+   "blend_intervals": 8,
+   "a": 0,
+   "b": 54,
+   "w": 8,
+   "mode": "offset",
+   "L": 54,
+   "seconds": 1.8,
+   "gait": "walk",
+   "source_keys": [
+    0.0,
+    1.8
+   ],
+   "keys": 55,
+   "retime": 1.0,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": []
+ }
+}

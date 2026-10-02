@@ -17,11 +17,13 @@
     "deroot",
     "recentre",
     "reground",
-    "arm_hold"
+    "arm_hold",
+    "loop_blend"
    ],
    "loop": true,
    "arm_hold": "bm09_mirror arm --frame chest: the LEFT arm chain = the RIGHT arm mirrored through the CHEST's sagittal plane, per key (the off-hand carry). DEFECT found and fixed: the first build mirrored through the ROOT plane while the axe pack walks bladed (chest 14-23 deg turned) -> shoulder width 0.48-0.64 of rest; chest-frame: 0.96-0.99, hands symmetric within 1.2 cm",
-   "weapon_l": "bm12_weapon_mirror --frame root: weapon_l keyed per key so the axe is the sword reflected through his facing plane (the kit seat WL pointed it ACROSS him on the mirrored carry: walk bearing -98 deg, blades 2.6% overlapping)"
+   "weapon_l": "bm12_weapon_mirror --frame root: weapon_l keyed per key so the axe is the sword reflected through his facing plane (the kit seat WL pointed it ACROSS him on the mirrored carry: walk bearing -98 deg, blades 2.6% overlapping)",
+   "loop_blend": "58_loop_blend offset a 0 b 54 w 8 (cell gate closure MAD 7.81: hands/weapons 0.54-0.73 deg, 4 mm, from the mirror/arm hold) -> every node incl. weapons 0.0 m / 0.0 deg"
   },
   "walk": {
    "source": "mixamo2/glb/ax_standing_walk_forward.glb",
@@ -168,10 +170,12 @@
    "edits": [
     "recentre",
     "reground",
-    "weapon_clamp"
+    "weapon_clamp",
+    "deroot"
    ],
    "loop": false,
-   "weapon_clamp": "nb_join j_weapon_clamp (no layers): axe_l turned in its grip at 25 keys, floor tol 2 mm, 0 inside; 4 keys 1.87-1.97 s left raw (no clear blade: axe head to -0.178 m)"
+   "weapon_clamp": "nb_join j_weapon_clamp (no layers): axe_l turned in its grip at 25 keys, floor tol 2 mm, 0 inside; 4 keys 1.87-1.97 s left raw (no clear blade: axe head to -0.178 m)",
+   "deroot": "bm14_deroot (D5 rule + 49 recentre; cell gate EDGE_TOUCH, pack ca3adf370): hips travel -1.187 m removed, track centred (x -0.07..0.06, z -0.17..0.18); rotations and the clamp weapon keys untouched"
   },
   "whirlwind_dual_start": {
    "source": null,

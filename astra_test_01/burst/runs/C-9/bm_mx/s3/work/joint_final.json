@@ -1,6 +1,6 @@
 {
  "instrument": "scripts/j_joint_lint.py",
- "body": "c8.glb",
+ "body": "d2.glb",
  "limits_deg": {
   "elbow": {
    "flex": [
@@ -113,7 +113,7 @@
     "elbow_L": {
      "flex_min": {
       "deg": 48.7,
-      "t": 0.0
+      "t": 1.8
      },
      "lateral_worst": {
       "deg": 2.1,
@@ -149,7 +149,7 @@
      },
      "flex_max": {
       "deg": 48.0,
-      "t": 0.0
+      "t": 1.8
      }
     },
     "knee_R": {
@@ -163,17 +163,17 @@
      },
      "flex_max": {
       "deg": 57.2,
-      "t": 0.0
+      "t": 1.8
      }
     },
     "wrist_L": {
      "dev_worst": {
       "deg": -19.3,
-      "t": 0.0
+      "t": 1.8
      },
      "flex_worst": {
       "deg": 27.2,
-      "t": 0.0
+      "t": 1.8
      },
      "twist_worst": {
       "deg": -20.8,
