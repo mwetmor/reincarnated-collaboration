@@ -1,0 +1,272 @@
+{
+ "id": "en2_f_acolyte",
+ "what": "possessed acolyte of the Keepers of Hours, female trash caster (R-C9-132/133, lane EN-E2)",
+ "body": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_f/en_f_body.glb",
+  "sha256": "8fe18345ebe67856466743cb6497afca942fd2e68b0fb2520c5138490b920455",
+  "height_m": 1.8,
+  "export_scale": 1.058823,
+  "forward": "+Z",
+  "up": "+Y",
+  "joints": 26,
+  "skeleton": "Meshy 24 + weapon_r/weapon_l (52_weapon_bones), skeleton identity PASS",
+  "texture": "painted (D7 method: sheet A 19.77 deg + sheet B 52.95 deg over A) EMBEDDED in the GLB (e42); ashen skin grade (en11) per the conductor",
+  "gear": "none (one body; nothing to bind, so no node-order rewrite applies)"
+ },
+ "roster": {
+  "rig": "heroine01_unarmed",
+  "tier1_rank": 15,
+  "bodies_151_160": 4.29,
+  "lead_trash_record_size": {
+   "actorRadius_m": 0.35,
+   "scale": 1.0,
+   "radius_x_scale_m": 0.35
+  },
+  "radius_x_scale_range_m": [
+   0.35,
+   0.68
+  ],
+  "run_m_per_s_range": [
+   1.93,
+   3.53
+  ],
+  "attack_style": "projectile 74% / aoe 13%",
+  "p05": false,
+  "projectile_ref": {
+   "rows": [
+    "necroticmissiles (20 m/s, body r 0.1, explosion r 1.5, 16.3 m)",
+    "arcanemissile (33 m/s, r 0.3, expl 0.5)"
+   ],
+   "speed_mps": 20.0,
+   "body_r_m": 0.1,
+   "explosion_r_m": 1.5,
+   "fire_range_m": 16.3
+  },
+  "aoe_ref": {
+   "rows": [
+    "goregeyser (r 2.5)",
+    "skysharddevastation (2.2 within 8 m)"
+   ],
+   "ring_r_m": 2.5,
+   "target_radius_m": 8.0
+  }
+ },
+ "clips": {
+  "walk": {
+   "length_s": 1.1333,
+   "loop": true,
+   "source": "standing_walk_forward (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "loop_seam_m": 0.0,
+   "ground_speed_m_per_s": 1.528,
+   "speed_basis": "source root travel over the clip (graft json) x export scale / shipped clip length",
+   "extent_m": {
+    "x": [
+     -0.352,
+     0.184
+    ],
+    "y_top": 1.705,
+    "z": [
+     -0.485,
+     0.567
+    ]
+   }
+  },
+  "run": {
+   "length_s": 0.7333,
+   "loop": true,
+   "source": "standing_run_forward (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "loop_seam_m": 0.0,
+   "ground_speed_m_per_s": 3.595,
+   "speed_basis": "source root travel over the clip (graft json) x export scale / shipped clip length",
+   "extent_m": {
+    "x": [
+     -0.399,
+     0.24
+    ],
+    "y_top": 1.704,
+    "z": [
+     -0.59,
+     0.597
+    ]
+   }
+  },
+  "cast_bolt": {
+   "length_s": 2.2,
+   "loop": false,
+   "source": "standing_1h_magic_attack_02 (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot"
+   ],
+   "release_s": 0.5333,
+   "release_hand": "RightHand",
+   "release_rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed",
+   "extent_m": {
+    "x": [
+     -0.676,
+     0.542
+    ],
+    "y_top": 1.703,
+    "z": [
+     -0.459,
+     0.746
+    ]
+   }
+  },
+  "cast_area": {
+   "length_s": 3.1333,
+   "loop": false,
+   "source": "standing_2h_magic_area_attack_02 (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot"
+   ],
+   "release_s": 1.8,
+   "release_hand": "RightHand",
+   "release_rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed",
+   "extent_m": {
+    "x": [
+     -0.743,
+     0.598
+    ],
+    "y_top": 1.779,
+    "z": [
+     -0.366,
+     0.53
+    ]
+   }
+  },
+  "hit": {
+   "length_s": 1.1667,
+   "loop": false,
+   "source": "standing_react_small_from_front (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot"
+   ],
+   "extent_m": {
+    "x": [
+     -0.482,
+     0.163
+    ],
+    "y_top": 1.702,
+    "z": [
+     -0.381,
+     0.468
+    ]
+   }
+  },
+  "death": {
+   "length_s": 3.6667,
+   "loop": false,
+   "source": "standing_react_death_forward (Mixamo Pro Magic Pack)",
+   "flags": [],
+   "root_travel_note": "NOT de-rooted: the fall travels (lint WARN); extent {'x': [-0.697, 0.425], 'y_top': 1.717, 'z': [-0.367, 2.092]} m",
+   "extent_m": {
+    "x": [
+     -0.697,
+     0.425
+    ],
+    "y_top": 1.717,
+    "z": [
+     -0.367,
+     2.092
+    ]
+   }
+  },
+  "idle": {
+   "length_s": 1.8,
+   "loop": true,
+   "source": "standing_idle (Mixamo Pro Magic Pack)",
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "loop_seam_m": 0.0,
+   "extent_m": {
+    "x": [
+     -0.416,
+     0.207
+    ],
+    "y_top": 1.68,
+    "z": [
+     -0.314,
+     0.494
+    ]
+   }
+  }
+ },
+ "sockets": {
+  "cast_hand": "RightHand bone (the measured release hand of both casts)",
+  "off_hand": "LeftHand"
+ },
+ "vfx": {
+  "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_f_cold_atlas.png",
+  "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_f_cold_frames.json",
+  "atlas_sha256": "f2460cc8101cc4feb7ae51e1263e6449d18c5c1272069a5a4a37dd274cb9ee7d",
+  "px_per_m": 100.617553710938,
+  "blend": "premultiplied: out = rgb + ground * (1 - a)",
+  "params_m": {
+   "bolt_body_r_m": 0.18,
+   "burst_r_m": 1.5,
+   "ring_r_m": 2.5,
+   "seed": 11
+  },
+  "phases": {
+   "bolt": {
+    "fps": 20,
+    "n": 8,
+    "plane": "billboard",
+    "loop": true
+   },
+   "cast": {
+    "fps": 20,
+    "n": 6,
+    "plane": "billboard",
+    "loop": false
+   },
+   "burst": {
+    "fps": 20,
+    "n": 10,
+    "plane": "billboard",
+    "loop": false
+   },
+   "ring_tele": {
+    "fps": 15,
+    "n": 12,
+    "plane": "ground",
+    "loop": false
+   },
+   "ring_burst": {
+    "fps": 20,
+    "n": 10,
+    "plane": "ground",
+    "loop": false
+   },
+   "ring_smoke": {
+    "fps": 12,
+    "n": 10,
+    "plane": "billboard",
+    "loop": false
+   }
+  },
+  "runtime_needs": {
+   "bolt": "billboard quad at the cast hand at release_s, flying along the facing at the ROSTER speed (20 m/s) to the fire range (16.3 m) or a hit; rotate the quad to the screen-space travel; burst (r 1.5 m) where it stops",
+   "area": "ring_tele drawn ON THE FLOOR (ground quad, metres) at the target point from release_s - 0.80 s; ring_burst + ring_smoke at release_s; ring radius 2.5 m (baked at that radius: scale the quad by r/2.5 for another row)",
+   "collision": "the bolt BODY radius is the roster number (0.1 m); the painted bolt is drawn larger for legibility",
+   "render_as": "runtime effects (quads over the cell layer), not baked into the character cells"
+  }
+ },
+ "deliverables": {
+  "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-F/EN2-F_a.png",
+  "stills8": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/artifacts/en_f_stills8.png",
+  "film_playscale": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/film/en_f_playscale.mp4",
+  "film_2x": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/film/en_f_2x.mp4"
+ },
+ "emergence": "none: the roster marks the type p05 = 0 (ring trash, appears at t=0 with no spawn clip); a rise clip exists if wanted (Pro Magic \"Crouch To Standing Idle\", converted, not grafted)"
+}

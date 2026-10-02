@@ -1,0 +1,137 @@
+{
+ "body": "export/f/en_f_body.glb",
+ "export_scale": 1.0,
+ "release": {
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.5333,
+   "key": 16,
+   "speed_mps": 6.431,
+   "hand_pos_m": [
+    -0.605,
+    0.996,
+    0.374
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  },
+  "cast_area": {
+   "hand": "RightHand",
+   "release_s": 1.8,
+   "key": 54,
+   "speed_mps": 7.376,
+   "hand_pos_m": [
+    -0.701,
+    1.3,
+    0.07
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "idle": 0.0269,
+  "walk": 0.0,
+  "run": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.635,
+   "loop_s": 1.1333,
+   "m_per_s": 1.443,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.4896,
+   "loop_s": 0.7333,
+   "m_per_s": 3.395,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "idle": {
+   "x": [
+    -0.393,
+    0.195
+   ],
+   "y_top": 1.587,
+   "z": [
+    -0.297,
+    0.468
+   ]
+  },
+  "walk": {
+   "x": [
+    -0.332,
+    0.173
+   ],
+   "y_top": 1.611,
+   "z": [
+    -0.458,
+    0.536
+   ]
+  },
+  "run": {
+   "x": [
+    -0.377,
+    0.227
+   ],
+   "y_top": 1.61,
+   "z": [
+    -0.557,
+    0.564
+   ]
+  },
+  "cast_bolt": {
+   "x": [
+    -0.638,
+    0.512
+   ],
+   "y_top": 1.609,
+   "z": [
+    -0.433,
+    0.704
+   ]
+  },
+  "cast_area": {
+   "x": [
+    -0.701,
+    0.565
+   ],
+   "y_top": 1.68,
+   "z": [
+    -0.346,
+    0.5
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.455,
+    0.154
+   ],
+   "y_top": 1.608,
+   "z": [
+    -0.36,
+    0.442
+   ]
+  },
+  "death": {
+   "x": [
+    -0.659,
+    0.401
+   ],
+   "y_top": 1.622,
+   "z": [
+    -0.346,
+    1.976
+   ]
+  }
+ },
+ "clip_len_s": {
+  "idle": 1.8,
+  "walk": 1.1333,
+  "run": 0.7333,
+  "cast_bolt": 2.2,
+  "cast_area": 3.1333,
+  "hit": 1.1667,
+  "death": 3.6667
+ }
+}

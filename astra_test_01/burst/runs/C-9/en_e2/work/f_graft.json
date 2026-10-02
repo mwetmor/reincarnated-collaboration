@@ -1,0 +1,185 @@
+{
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/standing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.8333333730697632
+   ],
+   "keys": 55,
+   "length_s": 1.800000037997961,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0007,
+    0.001
+   ],
+   "grounded_by_m": 0.02279,
+   "feet_span_m": [
+    0.0,
+    0.0047
+   ]
+  },
+  "walk": {
+   "source": "mixamo/glb/standing_walk_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.1666666269302368
+   ],
+   "keys": 35,
+   "length_s": 1.1333332918584347,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    1.635
+   ],
+   "grounded_by_m": 0.00966,
+   "feet_span_m": [
+    0.0,
+    0.0161
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/standing_run_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.7666666507720947
+   ],
+   "keys": 23,
+   "length_s": 0.7333333157002926,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    2.4896
+   ],
+   "grounded_by_m": 0.01766,
+   "feet_span_m": [
+    0.0,
+    0.066
+   ]
+  },
+  "cast_bolt": {
+   "source": "mixamo/glb/standing_1h_magic_attack_02.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    2.2333333492279053
+   ],
+   "keys": 67,
+   "length_s": 2.200000014156103,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.02553,
+   "feet_span_m": [
+    0.0,
+    0.0166
+   ]
+  },
+  "cast_area": {
+   "source": "mixamo/glb/standing_2h_magic_area_attack_02.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.1666667461395264
+   ],
+   "keys": 95,
+   "length_s": 3.1333334110677242,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0002,
+    -0.0
+   ],
+   "grounded_by_m": 0.02858,
+   "feet_span_m": [
+    0.0,
+    0.0223
+   ]
+  },
+  "hit": {
+   "source": "mixamo/glb/standing_react_small_from_front.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.2000000476837158
+   ],
+   "keys": 36,
+   "length_s": 1.1666667126119137,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0001,
+    0.0003
+   ],
+   "grounded_by_m": 0.02327,
+   "feet_span_m": [
+    0.0,
+    0.0041
+   ]
+  },
+  "death": {
+   "source": "mixamo/glb/standing_react_death_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    3.700000047683716
+   ],
+   "keys": 111,
+   "length_s": 3.6666667126119137,
+   "joints": 22,
+   "rest_match": 0.97711,
+   "hip_ratio": 0.8647,
+   "flags": [],
+   "source_travel_m": [
+    -0.0543,
+    1.1876
+   ],
+   "grounded_by_m": 0.02509,
+   "feet_span_m": [
+    0.0,
+    0.6856
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 8
+ }
+}

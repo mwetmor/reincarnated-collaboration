@@ -1,0 +1,137 @@
+{
+ "body": "export/m/en_m_body.glb",
+ "export_scale": 1.0,
+ "release": {
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.8,
+   "key": 24,
+   "speed_mps": 6.385,
+   "hand_pos_m": [
+    -0.458,
+    1.218,
+    0.571
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  },
+  "cast_area": {
+   "hand": "RightHand",
+   "release_s": 1.2667,
+   "key": 38,
+   "speed_mps": 10.002,
+   "hand_pos_m": [
+    -0.386,
+    0.615,
+    0.228
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "idle": 0.0267,
+  "walk": 0.0,
+  "run": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.6219,
+   "loop_s": 1.1333,
+   "m_per_s": 1.431,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.4697,
+   "loop_s": 0.7333,
+   "m_per_s": 3.368,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "idle": {
+   "x": [
+    -0.389,
+    0.206
+   ],
+   "y_top": 1.579,
+   "z": [
+    -0.293,
+    0.472
+   ]
+  },
+  "walk": {
+   "x": [
+    -0.339,
+    0.185
+   ],
+   "y_top": 1.604,
+   "z": [
+    -0.461,
+    0.528
+   ]
+  },
+  "run": {
+   "x": [
+    -0.376,
+    0.241
+   ],
+   "y_top": 1.602,
+   "z": [
+    -0.557,
+    0.563
+   ]
+  },
+  "cast_bolt": {
+   "x": [
+    -0.492,
+    0.493
+   ],
+   "y_top": 1.582,
+   "z": [
+    -0.423,
+    0.833
+   ]
+  },
+  "cast_area": {
+   "x": [
+    -0.552,
+    0.434
+   ],
+   "y_top": 1.738,
+   "z": [
+    -0.478,
+    0.519
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.444,
+    0.168
+   ],
+   "y_top": 1.603,
+   "z": [
+    -0.356,
+    0.446
+   ]
+  },
+  "death": {
+   "x": [
+    -0.699,
+    0.582
+   ],
+   "y_top": 1.597,
+   "z": [
+    -1.679,
+    0.489
+   ]
+  }
+ },
+ "clip_len_s": {
+  "idle": 1.8,
+  "walk": 1.1333,
+  "run": 0.7333,
+  "cast_bolt": 2.3,
+  "cast_area": 2.9667,
+  "hit": 1.1667,
+  "death": 3.5333
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "body": "export/final_f/en_f_body.glb",
+ "export_scale": 1.058823,
+ "release": {
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.5333,
+   "key": 16,
+   "speed_mps": 6.809,
+   "hand_pos_m": [
+    -0.641,
+    1.055,
+    0.396
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  },
+  "cast_area": {
+   "hand": "RightHand",
+   "release_s": 1.8,
+   "key": 54,
+   "speed_mps": 7.81,
+   "hand_pos_m": [
+    -0.743,
+    1.376,
+    0.074
+   ],
+   "rule": "bolt: peak forward (+Z) hand speed; area: peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "walk": 0.0,
+  "run": 0.0,
+  "idle": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.7312,
+   "loop_s": 1.1333,
+   "m_per_s": 1.528,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.636,
+   "loop_s": 0.7333,
+   "m_per_s": 3.595,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "walk": {
+   "x": [
+    -0.352,
+    0.184
+   ],
+   "y_top": 1.705,
+   "z": [
+    -0.485,
+    0.567
+   ]
+  },
+  "run": {
+   "x": [
+    -0.399,
+    0.24
+   ],
+   "y_top": 1.704,
+   "z": [
+    -0.59,
+    0.597
+   ]
+  },
+  "cast_bolt": {
+   "x": [
+    -0.676,
+    0.542
+   ],
+   "y_top": 1.703,
+   "z": [
+    -0.459,
+    0.746
+   ]
+  },
+  "cast_area": {
+   "x": [
+    -0.743,
+    0.598
+   ],
+   "y_top": 1.779,
+   "z": [
+    -0.366,
+    0.53
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.482,
+    0.163
+   ],
+   "y_top": 1.702,
+   "z": [
+    -0.381,
+    0.468
+   ]
+  },
+  "death": {
+   "x": [
+    -0.697,
+    0.425
+   ],
+   "y_top": 1.717,
+   "z": [
+    -0.367,
+    2.092
+   ]
+  },
+  "idle": {
+   "x": [
+    -0.416,
+    0.207
+   ],
+   "y_top": 1.68,
+   "z": [
+    -0.314,
+    0.494
+   ]
+  }
+ },
+ "clip_len_s": {
+  "walk": 1.1333,
+  "run": 0.7333,
+  "cast_bolt": 2.2,
+  "cast_area": 3.1333,
+  "hit": 1.1667,
+  "death": 3.6667,
+  "idle": 1.8
+ }
+}

@@ -1,0 +1,17 @@
+{"ev": "start", "step": "S0-setup", "t": 1790911341.021344, "note": "lane folder, wl_e1 tooling copied, ledgers opened, briefs written, sheet wave fired 23:21, Pro Magic staged"}
+{"ev": "end", "step": "S0-setup", "t": 1790911535.492036, "note": ""}
+{"ev": "start", "step": "S2-cutouts", "t": 1790911535.513328, "note": "BiRefNet matte (sheets came back on the dark gradient, not green) + 03_slice_views body"}
+{"ev": "end", "step": "S2-cutouts", "t": 1790911598.6482759, "note": "BiRefNet x2 $0.005; picks M_a F_a by marker sidedness across views (b variants each drift)"}
+{"ev": "start", "step": "S3-tripo", "t": 1790911598.671468, "note": "Tripo H3.1 multiview, both bodies concurrent, order front,left,back,right"}
+{"ev": "wait", "step": "S3-tripo", "s": 159.0, "what": "tripo queue+build (concurrent pair)"}
+{"ev": "end", "step": "S3-tripo", "t": 1790911765.401998, "note": "M 158.5 s 46.6 MB, F 130.5 s 43.6 MB, $0.80"}
+{"ev": "start", "step": "S4-facing-prep-rig", "t": 1790911765.4227169, "note": ""}
+{"ev": "end", "step": "S4-facing-prep-rig", "t": 1790912676.4236858, "note": "facing +X both (marker + toes agree), prepped 1.88/1.80 m, 290k faces, 1 island; heavy-lock queue ~13 min"}
+{"ev": "start", "step": "S5-rig", "t": 1790912676.447883, "note": ""}
+{"ev": "start", "step": "S6-clips-m", "t": 1790912778.5230231, "note": "Pro Magic graft (e40b) + joint lint/fix"}
+{"ev": "end", "step": "S5-rig", "t": 1790912814.680604, "note": "Meshy rig 5+5 credits; both returned at 1.70 m (rescaled at export)"}
+{"ev": "end", "step": "S6-clips-m", "t": 1790913712.722473, "note": "both bodies grafted (7 clips each), joint lint 1 fix (M cast_bolt 4 keys); Pro Magic source stance verified in Blender on the FBX itself (right hand raised at head height = the pack's caster guard, not a retarget fault)"}
+{"ev": "start", "step": "S7-texture", "t": 1790913712.7511091, "note": "D7 method: sheet A (19.77 deg ring + 2 face close-ups) EDIT, bake, sheet B at 52.95 over A's projection, bake"}
+{"ev": "end", "step": "S7-texture", "t": 1790916081.3501608, "note": "A: M b / F a by registration (0.961 / 0.915); B: M b / F b (0.985 / 0.913); F ashen grade (conductor note), 422k texels"}
+{"ev": "start", "step": "S8-final", "t": 1790916081.369927, "note": ""}
+{"ev": "end", "step": "S8-final", "t": 1790917260.295121, "note": "idle seam offset-blended (0 m), texture embedded, 1.88/1.80 m, measures, lint WARN 0 FAIL; Godot stills + films + VFX"}
