@@ -28215,6 +28215,11 @@
       "id": "M-C9-E1-FINAL-K-EOR",
       "note": "final_k (29faf3a42): the approved Mixamo set, shippable (idle 4 seam-looped, run (2) forward, slash 3, power up, impact, two-handed death, unarmed set; lint all PASS). final_k_eor (08abac31b): + eor_spin_start (0.200 s) and eor_spin_loop (0.300 s, one CCW revolution, closes exactly) by the v7 rigid-spin recipe from his approved idle; the Mixamo high-spin alternative failed the joint lint (92 deg wrist) and slid 55-80 mm. One rm -rf denial in the lane (not retried; mkdir/cp used). Combined deploy pushed (loadout 34298c1): crater v5 behind ?v5=ab (plant burning DROPPED per R-C9-125), dark knight final_j2 + eye glow, gear bound by name, sorceress robe/props.",
       "ts": "2026-10-01T22:14:06"
+    },
+    {
+      "id": "M-C9-BM-MX-S1",
+      "note": "Barbarian Mixamo stage 1 (42482933a, local): champion graded body + great maul two-handed on the Great Sword set, ORIGINAL stance; idle (4) + arm-hold (it let go of the haft), forward walk/run (2), slash 3, power up, impact, death; whirlwind_start 0.2 s + whirlwind_loop 0.2667 s (3.75 rev/s rigid spin) with weapon_r keyed; maul head roll -33.2 deg so the face leads (|cos| 0.796 -> 0.945); bind order fixed (e47), textures embedded and verified, bone-direction fidelity 0.0. Sheet + 1x film sent to Matt. Bind-order positive control not run (an rm -rf was denied; not retried). 2x film stalled holding the heavy lock; the lane killed its own job.",
+      "ts": "2026-10-01T22:42:45"
     }
   ],
   "halts": [
@@ -30287,6 +30292,12 @@
       "topic": "Bind-order probe: the SHIPPED web build was never misbound (named skins on import); the defect lived only in the E1 lane's own Godot film harness",
       "note": "probe_bind_order.gd over 84 pieces in 13 packs: pre-fix index-vs-name FAILS only on the warlord mace/chest/pauldrons/helm (cape passes); every armour-lane piece, the sorceress default and the Viking set match their bodies exactly. Shipped-vs-name = 0 px for all 84, because the web imports use skins/use_named_skins=true. So Matt's live play was NOT misbound, and the conductor's \"likely the floating cape\" attribution was wrong: the floating cape is the cape itself (rigid skin), now addressed by the spring-bone prototype. The E1 lane's own film harness (gear_stills.gd) bound by index, so its stills since stage G were misbound. Post-fix (final_j2 + gear.gd bind-by-name): 84/84. Instrument caveat caught by the lane: the first probe run read 84/84 PASS on EMPTY frames; a positive control and an empty-frame check now make that fail.",
       "ts": "2026-10-01T21:45:39"
+    },
+    {
+      "id": "N-C9-VERCEL-ROOT-CAUSE",
+      "topic": "The Vercel \"rate limited\" failures are caused by the collaboration repo auto-deploying the reincarnated-glance project on every push",
+      "note": "Loadout 34298c1 (the combined deploy) FAILED: \"Deployment rate limited - retry in 24 hours\"; live remains d7a7378. Root cause: reincarnated-collaboration (PUBLIC) is git-linked to Vercel project reincarnated-glance (rootDirectory glance/app); every collab push created a Production deployment -- 95 on 2026-10-01 alone -- exhausting the account's daily deployment quota, which the loadout playtest shares. The same cause likely explains the 2026-09-30 limit (R-C9-91). Conductor action: collab pushes HELD (commits stay local) until Matt chooses a fix (disable git auto-deploy for reincarnated-glance via glance/app/vercel.json git.deploymentEnabled=false, or disconnect it in the Vercel dashboard, or an ignoreCommand). Also: my curl polling of the site triggered a Vercel firewall challenge (403 x-vercel-mitigated: challenge) for scripted requests.",
+      "ts": "2026-10-01T22:42:45"
     }
   ]
 }
