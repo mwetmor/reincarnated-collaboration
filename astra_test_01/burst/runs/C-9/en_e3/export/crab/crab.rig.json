@@ -1,0 +1,472 @@
+{
+ "landmarks": {
+  "H": 1.7297519445419312,
+  "cy": -0.734093427658081,
+  "z_under": 0.736285787820816,
+  "z_top": 1.652901133298874,
+  "feet": {
+   "L1": {
+    "x": 1.0618165731430054,
+    "y": -0.9542219638824463,
+    "n": 33
+   },
+   "L2": {
+    "x": 1.3937348127365112,
+    "y": 0.30646878480911255,
+    "n": 35
+   },
+   "L3": {
+    "x": 0.7975876033306122,
+    "y": 0.9591975212097168,
+    "n": 30
+   },
+   "R1": {
+    "x": -1.0630606412887573,
+    "y": -0.9550460875034332,
+    "n": 36
+   },
+   "R2": {
+    "x": -1.3952761888504028,
+    "y": 0.3016224205493927,
+    "n": 34
+   },
+   "R3": {
+    "x": -0.7980442643165588,
+    "y": 0.9591511785984039,
+    "n": 26
+   }
+  },
+  "leg_L1": {
+   "joint": [
+    0.5385486744513018,
+    -0.8457416486324687,
+    0.816285787820816
+   ],
+   "knee": [
+    0.7478558339279833,
+    -0.8891337747324597,
+    1.1155362582206725
+   ],
+   "ankle": [
+    0.9885590673261668,
+    -0.9390347197474495,
+    0.25
+   ],
+   "toe": [
+    1.0618165731430054,
+    -0.9542219638824463,
+    0.02
+   ],
+   "chain_len": 1.2675,
+   "rest_reach": 0.7293,
+   "pole_angle_deg": -26.0,
+   "pole_rest_err": 0.13782
+  },
+  "leg_L2": {
+   "joint": [
+    0.44071823713831393,
+    -0.4050532546492265,
+    0.816285787820816
+   ],
+   "knee": [
+    0.8219248673775928,
+    -0.12044443886589085,
+    1.244767031669617
+   ],
+   "ankle": [
+    1.2603124921527638,
+    0.20685569928494507,
+    0.9402552247047424
+   ],
+   "toe": [
+    1.3937348127365112,
+    0.30646878480911255,
+    0.02
+   ],
+   "chain_len": 1.2664,
+   "rest_reach": 1.0303,
+   "pole_angle_deg": 112.0,
+   "pole_rest_err": 0.01584
+  },
+  "leg_L3": {
+   "joint": [
+    0.23436753256519224,
+    -0.23652749265116807,
+    0.816285787820816
+   ],
+   "knee": [
+    0.4596555608713602,
+    0.2417625128931859,
+    1.3415735101699828
+   ],
+   "ankle": [
+    0.7187367934234533,
+    0.7917960192691929,
+    0.6752272844314575
+   ],
+   "toe": [
+    0.7975876033306122,
+    0.9591975212097168,
+    0.02
+   ],
+   "chain_len": 1.6473,
+   "rest_reach": 1.1454,
+   "pole_angle_deg": 100.0,
+   "pole_rest_err": 0.04952
+  },
+  "leg_R1": {
+   "joint": [
+    -0.5384915942080708,
+    -0.8460166288598445,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.7483192130403454,
+    -0.88962841231728,
+    1.10846031665802
+   ],
+   "ankle": [
+    -0.9896209746974611,
+    -0.9397819632933309,
+    0.25
+   ],
+   "toe": [
+    -1.0630606412887573,
+    -0.9550460875034332,
+    0.02
+   ],
+   "chain_len": 1.2555,
+   "rest_reach": 0.7301,
+   "pole_angle_deg": -154.0,
+   "pole_rest_err": 0.04044
+  },
+  "leg_R2": {
+   "joint": [
+    -0.441626517117446,
+    -0.4062733255003362,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.8230863858106288,
+    -0.12311502708044464,
+    1.2670686578750612
+   ],
+   "ankle": [
+    -1.2617652348077888,
+    0.2025170161024306,
+    0.9244683980941772
+   ],
+   "toe": [
+    -1.3952761888504028,
+    0.3016224205493927,
+    0.02
+   ],
+   "chain_len": 1.2998,
+   "rest_reach": 1.0271,
+   "pole_angle_deg": 68.0,
+   "pole_rest_err": 0.055
+  },
+  "leg_R3": {
+   "joint": [
+    -0.2344825883397682,
+    -0.2365817034088099,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.45990725873048444,
+    0.24171144939407568,
+    1.3283783054351808
+   ],
+   "ankle": [
+    -0.7191456296798082,
+    0.7917485751173942,
+    0.6662697792053223
+   ],
+   "toe": [
+    -0.7980442643165588,
+    0.9591511785984039,
+    0.02
+   ],
+   "chain_len": 1.635,
+   "rest_reach": 1.1467,
+   "pole_angle_deg": 80.0,
+   "pole_rest_err": 0.03255
+  },
+  "claw_L": {
+   "shoulder": [
+    0.28,
+    -1.174093427658081,
+    0.786285787820816
+   ],
+   "elbow": [
+    0.3885427713394165,
+    -1.4714344487190245,
+    0.7400265336036682
+   ],
+   "wrist": [
+    0.3528629243373871,
+    -1.700811807823181,
+    0.5456886887550354
+   ],
+   "tip": [
+    0.09314201772212982,
+    -2.02363920211792,
+    0.3621689975261688
+   ]
+  },
+  "claw_R": {
+   "shoulder": [
+    -0.28,
+    -1.174093427658081,
+    0.786285787820816
+   ],
+   "elbow": [
+    -0.32786980271339417,
+    -1.4718206391334534,
+    0.7355825901031494
+   ],
+   "wrist": [
+    -0.35611848533153534,
+    -1.701495916557312,
+    0.5129760503768921
+   ],
+   "tip": [
+    -0.0964381992816925,
+    -2.024742603302002,
+    0.3554936945438385
+   ]
+  },
+  "weights": {
+   "method": "rigid shell core (ellipse 0.82 x 0.86 m) + gated inverse-distance^4, top 3",
+   "core_verts": 15229
+  },
+  "texture": {
+   "path": "work/tex_crab_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "leg_L1_1",
+   "leg_L1_2",
+   "leg_L1_3",
+   "leg_L2_1",
+   "leg_L2_2",
+   "leg_L2_3",
+   "leg_L3_1",
+   "leg_L3_2",
+   "leg_L3_3",
+   "leg_R1_1",
+   "leg_R1_2",
+   "leg_R1_3",
+   "leg_R2_1",
+   "leg_R2_2",
+   "leg_R2_3",
+   "leg_R3_1",
+   "leg_R3_2",
+   "leg_R3_3",
+   "claw_L_1",
+   "claw_L_2",
+   "claw_L_3",
+   "claw_R_1",
+   "claw_R_2",
+   "claw_R_3"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 41,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    18,
+    [
+     -1.386,
+     0.304,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 25,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    2,
+    [
+     -1.386,
+     0.179,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 9
+  },
+  "run": {
+   "frames": 16,
+   "ik_residual_max_m": 0.0047,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    3,
+    [
+     -1.386,
+     0.392,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0047,
+   "stance_runs": 8
+  },
+  "attack_slam": {
+   "frames": 21,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    3,
+    [
+     -1.386,
+     0.304,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_strike": {
+   "frames": 30,
+   "ik_residual_max_m": 0.0089,
+   "min_z_m": -0.0009,
+   "worst_frame_vertex": [
+    12,
+    [
+     1.383,
+     0.295,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_breath": {
+   "frames": 50,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    6,
+    [
+     -1.386,
+     0.304,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_lob": {
+   "frames": 27,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0023,
+   "worst_frame_vertex": [
+    9,
+    [
+     -0.253,
+     -1.953,
+     -0.002
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "hit": {
+   "frames": 14,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    10,
+    [
+     -1.386,
+     0.304,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 21,
+   "ik_residual_max_m": 0.2014,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    1,
+    [
+     -1.386,
+     0.304,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 40,
+   "src": "roster combat idle 21f; ours 40f: shell breathing, claw sway and one snap, restless toe-taps"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 1.4,
+   "duty": 0.55,
+   "src": "roster walk_a01 31f; walkSpeed 0.7 has no stated base -- 1.4 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 15,
+   "speed": 3.21,
+   "duty": 0.45,
+   "src": "roster run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 16f"
+  },
+  "attack_slam": {
+   "kind": "oneshot",
+   "kind_fn": "slam",
+   "frames": 21,
+   "contact": 12,
+   "src": "clawslam: attack_d01 21f rel f12"
+  },
+  "attack_strike": {
+   "kind": "oneshot",
+   "kind_fn": "strike",
+   "frames": 30,
+   "contact": 12,
+   "src": "waterspout strike / shell spin: attack_b01 35f x0.85 rel f12"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 50,
+   "release": 14,
+   "src": "freezing breath cone 3.5 m x 1 m, cold: breathice_b01 50f rel f14"
+  },
+  "cast_lob": {
+   "kind": "oneshot",
+   "kind_fn": "lob",
+   "frames": 27,
+   "release": 19,
+   "src": "lobbed spout, area r 3 m: attack_c01 27f rel f19"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "src": "gethit_a01 14f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 21,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01 21f"
+  }
+ }
+}

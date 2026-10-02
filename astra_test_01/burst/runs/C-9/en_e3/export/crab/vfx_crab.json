@@ -1,0 +1,145 @@
+{
+ "creature": "crab",
+ "effects": [
+  {
+   "id": "crab_frost_breath",
+   "atlas": "crab_frost_breath.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    640,
+    256
+   ],
+   "fps": 20,
+   "duration_s": 0.8,
+   "cell_m": [
+    4.0205,
+    1.6082
+   ],
+   "px_per_m": 159.184,
+   "plane": "ground",
+   "pivot": "left-middle (the mouth plates, projected to the ground)",
+   "ability": "ghostcrab_waterbreath (aoe wave 3.5 m long x 1 m wide, cold 6 s)",
+   "trigger": "cast_breath release f14; plays 0.8 s, may loop frames 4-11 while the breath holds (the clip holds its pose f14-f36)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "crab_slam_ring",
+   "atlas": "crab_slam_ring.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 30,
+   "duration_s": 0.4,
+   "cell_m": [
+    2.3158,
+    2.3158
+   ],
+   "px_per_m": 138.182,
+   "plane": "ground",
+   "pivot": "centre = between the two claw tips at contact",
+   "ability": "swampcrab_clawslam (melee 0-3.09 m)",
+   "trigger": "attack_slam contact f12",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "crab_strike_impact",
+   "atlas": "crab_strike_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.1733,
+    1.1733
+   ],
+   "px_per_m": 218.182,
+   "plane": "billboard",
+   "pivot": "centre = the left claw tip at contact",
+   "ability": "swampcrab_waterspoutstrike / shellspin (melee 0-3.09 m)",
+   "trigger": "attack_strike contact f12",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "crab_spout_orb",
+   "atlas": "crab_spout_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    160,
+    160
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    1.0811,
+    1.0811
+   ],
+   "px_per_m": 148.0,
+   "plane": "billboard",
+   "pivot": "centre = the projectile body (r 0.5 m), loops in flight",
+   "ability": "swampcrab_waterspout (lobbed area projectile)",
+   "trigger": "cast_lob release f19 at the claw tips",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "crab_spout_splash",
+   "atlas": "crab_spout_splash.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    6.2609,
+    6.2609
+   ],
+   "px_per_m": 61.333,
+   "plane": "ground",
+   "pivot": "centre = the landing point (area r 3 m; the 5 s field is a runtime tint, not baked)",
+   "ability": "swampcrab_waterspout landing",
+   "trigger": "on projectile landing",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

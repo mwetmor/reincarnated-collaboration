@@ -34,7 +34,8 @@ for f in bm.faces:
             for h in e.link_faces:
                 if h.index not in seen: seen.add(h.index); st.append(h)
     islands.append(isl)
-drop = [isl for isl in islands if len(isl) < 0.005 * n0]
+MINI = float(a[a.index('--minisland') + 1]) if '--minisland' in a else 0.005   # the crab's legs and shell plates are separate shells: keep them
+drop = [isl for isl in islands if len(isl) < MINI * n0]
 bmesh.ops.delete(bm, geom=[f for isl in drop for f in isl], context='FACES')
 bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)
 bm.to_mesh(me); bm.free()
@@ -51,10 +52,11 @@ if '--flip' in a: head_at_lo = not head_at_lo   # measured override: the volume 
 # rotation so the head points to -Y
 if ax == 1: yaw = 0.0 if head_at_lo else math.pi
 else: yaw = (-math.pi / 2) if head_at_lo else (math.pi / 2)   # x-axis: head at -x -> rotate -90 so -x -> -y
+if '--yaw' in a: yaw = math.radians(float(a[a.index('--yaw') + 1]))   # explicit, for bodies with no head/tail asymmetry (the crab)
 R = Matrix.Rotation(yaw, 4, 'Z')
 me.transform(R)
 V = np.array([v.co[:] for v in me.vertices])
-s = LEN / float(np.ptp(V[:, 1]))
+s = LEN / (float(max(np.ptp(V[:, 0]), np.ptp(V[:, 1]))) if '--maxext' in a else float(np.ptp(V[:, 1])))
 me.transform(Matrix.Scale(s, 4))
 V = np.array([v.co[:] for v in me.vertices])
 # footprint: centre the LOW band (feet) in x/y, ground at min z

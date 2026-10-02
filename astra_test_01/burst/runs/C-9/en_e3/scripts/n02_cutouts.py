@@ -15,9 +15,30 @@ src, tag = sys.argv[1], sys.argv[2]
 im = np.asarray(Image.open(src).convert('RGB')).astype(np.float32)
 R, G, B = im[..., 0], im[..., 1], im[..., 2]
 spill = G - np.maximum(R, B)
-alpha = 1.0 - np.clip((spill - 30.0) / 90.0, 0.0, 1.0)
-Gd = np.minimum(G, np.maximum(R, B) + 6.0)
-rgba = np.dstack([np.stack([R, Gd, B], -1).clip(0, 255).astype(np.uint8), (alpha * 255).astype(np.uint8)])
+green_share = float(np.mean(spill > 60))
+MATTE = 'chroma' if green_share > 0.2 else 'birefnet'
+if MATTE == 'chroma':
+    alpha = 1.0 - np.clip((spill - 30.0) / 90.0, 0.0, 1.0)
+    Gd = np.minimum(G, np.maximum(R, B) + 6.0)
+    rgba = np.dstack([np.stack([R, Gd, B], -1).clip(0, 255).astype(np.uint8), (alpha * 255).astype(np.uint8)])
+else:
+    # the plate came back DARK (the crab sheet: all four variants), so a chroma key has nothing to key: BiRefNet on fal,
+    # THROUGH THE LEDGER (check before, record after; the N-C9-FAL-CAP rule), the D7/EN-E2 call unchanged.
+    import os, time, subprocess
+    HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
+    os.environ.setdefault('FAL_LEDGER', os.path.join(ROOT, 'fal_spend_R-C9-132.json')); os.environ.setdefault('FAL_BUDGET', '3.00')
+    sys.path.insert(0, os.path.join(os.path.dirname(ROOT), 't10_barrow'))
+    import fal_ledger as FL, fal_client
+    FL.check('fal-ai/birefnet/v2')
+    url = fal_client.upload_file(src); t0 = time.time()
+    r = fal_client.subscribe('fal-ai/birefnet/v2', arguments={'image_url': url, 'model': 'General Use (Heavy)', 'operating_resolution': '2048x2048',
+                                                            'output_format': 'png', 'refine_foreground': True})
+    FL.record('fal-ai/birefnet/v2', 'EN3 matte %s' % os.path.basename(src), time.time() - t0)
+    tmp = 'work/_matte_%s.png' % tag
+    subprocess.run(['curl', '-s', '-L', '-o', tmp, r['image']['url']], check=True)
+    rgba = np.asarray(Image.open(tmp).convert('RGBA')).copy()
+    alpha = rgba[..., 3].astype(np.float32) / 255.0
+print('  plate green share %.3f -> matte %s' % (green_share, MATTE))
 m = alpha > 0.5
 lab, n = ndimage.label(ndimage.binary_closing(m, iterations=3))
 sizes = ndimage.sum(m, lab, range(1, n + 1))
@@ -49,7 +70,7 @@ for i, (nm, (L, x0, y0, x1, y1)) in enumerate(views.items()):
     print('  %-6s box %s  w %d h %d' % (nm, meta[nm]['src_box'], x1 - x0, y1 - y0))
 strip.save('work/cv_%s_views_check.jpg' % tag, quality=88)
 json.dump(dict(sheet=src, sha256=hashlib.sha256(open(src, 'rb').read()).hexdigest(), scale=round(S, 4),
-               matte='chroma key + despill (no fal spend)', views=meta,
+               matte=MATTE, views=meta,
                height_spread_px=int(max(v['h_px'] for v in meta.values()) - min(v['h_px'] for v in meta.values())),
                side_length_spread_px=abs(meta['left']['w_px'] - meta['right']['w_px']),
                frontback_width_spread_px=abs(meta['front']['w_px'] - meta['back']['w_px'])),

@@ -47,7 +47,7 @@ for s, d in st_spec['states'].items():
     if s in man['locomotion_in_place']: rec['stride_from'] = 'locomotion_in_place.' + s
     if d['sampling'] == 'release':
         blk = 'attacks' if d.get('clip', s) in man['attacks'] else 'casts'
-        rec['release_from'] = '%s.%s.release_s' % (blk, d.get('clip', s)); rec['release_socket'] = 'maw'; rec['manifest_entry'] = '%s.%s' % (blk, d.get('clip', s))
+        rec['release_from'] = '%s.%s.release_s' % (blk, d.get('clip', s)); rec['release_socket'] = d.get('release_socket', 'maw'); rec['manifest_entry'] = '%s.%s' % (blk, d.get('clip', s))
     if d.get('hold_last'): rec['hold_last'] = True
     if d.get('skill'): rec['skill'] = d['skill']
     kit['states'][s] = rec

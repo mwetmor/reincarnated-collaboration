@@ -1,0 +1,163 @@
+{
+ "kit": "en-ossuarycrab",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the ossuary crab (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-ossuarycrab_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_slam": {
+   "clip": "attack_slam",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_slam",
+   "release_from": "attacks.attack_slam.release_s",
+   "release_socket": "claw_L_tip",
+   "skill": "the roster's claw slam (melee 0-3.09 m); release = both claws striking the ground"
+  },
+  "attack_strike": {
+   "clip": "attack_strike",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_strike",
+   "release_from": "attacks.attack_strike.release_s",
+   "release_socket": "claw_L_tip",
+   "skill": "the roster's spout strike / shell spin (melee); release = the left claw's stab"
+  },
+  "cast_breath": {
+   "clip": "cast_breath",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_breath",
+   "release_from": "casts.cast_breath.release_s",
+   "release_socket": "mouth",
+   "skill": "the roster's freezing breath (aoe wave 3.5 m x 1 m, cold)"
+  },
+  "cast_lob": {
+   "clip": "cast_lob",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_lob",
+   "release_from": "casts.cast_lob.release_s",
+   "release_socket": "claw_L_tip",
+   "skill": "the roster's lobbed spout (projectile, area r 3 m)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "mouth": {
+   "bone": "Hips",
+   "along_bone_m": 0.9,
+   "local_m": [
+    0.0,
+    0.0,
+    -0.12
+   ],
+   "_what": "the mouth plates under the shell's front edge (shell bone rear->front 0.70 m, +0.20 m beyond, 0.12 m down)"
+  },
+  "claw_L_tip": {
+   "bone": "claw_L_3",
+   "along_bone_m": 0.4532,
+   "_what": "the LEFT pincer tip (wrist -> tip, measured)"
+  },
+  "claw_R_tip": {
+   "bone": "claw_R_3",
+   "along_bone_m": 0.4435,
+   "_what": "the RIGHT pincer tip"
+  },
+  "head_top": {
+   "bone": "Hips",
+   "along_bone_m": 0.35,
+   "local_m": [
+    0.0,
+    0.0,
+    0.45
+   ],
+   "_what": "the top of the shell (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "along_bone_m": 0.35,
+   "_what": "the shell's centre"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab_frost_breath.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab_slam_ring.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab_strike_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab_spout_orb.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab_spout_splash.png"
+  ]
+ },
+ "watchdog_s": 2400
+}

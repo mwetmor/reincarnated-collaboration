@@ -1,0 +1,655 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "crab",
+ "roster_type_id": "crabmonstrosity",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/crab/crab.glb",
+ "glb_sha256": "cb1947c1a4f36dd20d8cfe5359165e14ed9c49843d88a89a163e69ed0fd9fcf3",
+ "glb_bytes": 2813368,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 1.7304,
+ "length_m": 2.999,
+ "width_m": 3.0009,
+ "skin_joints": 26,
+ "materials": [
+  {
+   "name": "tripo_material_34c5d294-0939-4f2b-80b7-a1beef834536",
+   "double_sided": true,
+   "has_texture": true
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 41,
+   "duration_s": 1.33333,
+   "fps": 30,
+   "source": "roster combat idle 21f; ours 40f: shell breathing, claw sway and one snap, restless toe-taps",
+   "lint": {
+    "frames": 41,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     18,
+     [
+      -1.386,
+      0.304,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 40 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 25,
+   "duration_s": 0.8,
+   "fps": 30,
+   "source": "roster walk_a01 31f; walkSpeed 0.7 has no stated base -- 1.4 m/s INFERRED",
+   "lint": {
+    "frames": 25,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     2,
+     [
+      -1.386,
+      0.179,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 9
+   },
+   "loop": "closing key == first key (frames 0..N, N = 24 intervals)",
+   "ground_speed_m_s": 1.4,
+   "stride_m_per_cycle": 1.12
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 16,
+   "duration_s": 0.5,
+   "fps": 30,
+   "source": "roster run 3.209 m/s (characterRunSpeed 1.0 x K4-0), run_a01 16f",
+   "lint": {
+    "frames": 16,
+    "ik_residual_max_m": 0.0047,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     3,
+     [
+      -1.386,
+      0.392,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0047,
+    "stance_runs": 8
+   },
+   "loop": "closing key == first key (frames 0..N, N = 15 intervals)",
+   "ground_speed_m_s": 3.21,
+   "stride_m_per_cycle": 1.605
+  },
+  "attack_slam": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "clawslam: attack_d01 21f rel f12",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     3,
+     [
+      -1.386,
+      0.304,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 12,
+   "contact_s": 0.4
+  },
+  "attack_strike": {
+   "kind": "oneshot",
+   "frames": 30,
+   "duration_s": 0.96667,
+   "fps": 30,
+   "source": "waterspout strike / shell spin: attack_b01 35f x0.85 rel f12",
+   "lint": {
+    "frames": 30,
+    "ik_residual_max_m": 0.0089,
+    "min_z_m": -0.0009,
+    "worst_frame_vertex": [
+     12,
+     [
+      1.383,
+      0.295,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 12,
+   "contact_s": 0.4
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "frames": 50,
+   "duration_s": 1.63333,
+   "fps": 30,
+   "source": "freezing breath cone 3.5 m x 1 m, cold: breathice_b01 50f rel f14",
+   "lint": {
+    "frames": 50,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     6,
+     [
+      -1.386,
+      0.304,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 14,
+   "release_s": 0.4667
+  },
+  "cast_lob": {
+   "kind": "oneshot",
+   "frames": 27,
+   "duration_s": 0.86667,
+   "fps": 30,
+   "source": "lobbed spout, area r 3 m: attack_c01 27f rel f19",
+   "lint": {
+    "frames": 27,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0023,
+    "worst_frame_vertex": [
+     9,
+     [
+      -0.253,
+      -1.953,
+      -0.002
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 19,
+   "release_s": 0.6333
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "duration_s": 0.43333,
+   "fps": 30,
+   "source": "gethit_a01 14f",
+   "lint": {
+    "frames": 14,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     10,
+     [
+      -1.386,
+      0.304,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "death_a01 21f",
+   "lint": {
+    "frames": 21,
+    "ik_residual_max_m": 0.2014,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     1,
+     [
+      -1.386,
+      0.304,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "crab",
+  "effects": [
+   {
+    "id": "crab_frost_breath",
+    "atlas": "crab_frost_breath.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     640,
+     256
+    ],
+    "fps": 20,
+    "duration_s": 0.8,
+    "cell_m": [
+     4.0205,
+     1.6082
+    ],
+    "px_per_m": 159.184,
+    "plane": "ground",
+    "pivot": "left-middle (the mouth plates, projected to the ground)",
+    "ability": "ghostcrab_waterbreath (aoe wave 3.5 m long x 1 m wide, cold 6 s)",
+    "trigger": "cast_breath release f14; plays 0.8 s, may loop frames 4-11 while the breath holds (the clip holds its pose f14-f36)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "crab_slam_ring",
+    "atlas": "crab_slam_ring.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 30,
+    "duration_s": 0.4,
+    "cell_m": [
+     2.3158,
+     2.3158
+    ],
+    "px_per_m": 138.182,
+    "plane": "ground",
+    "pivot": "centre = between the two claw tips at contact",
+    "ability": "swampcrab_clawslam (melee 0-3.09 m)",
+    "trigger": "attack_slam contact f12",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "crab_strike_impact",
+    "atlas": "crab_strike_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.1733,
+     1.1733
+    ],
+    "px_per_m": 218.182,
+    "plane": "billboard",
+    "pivot": "centre = the left claw tip at contact",
+    "ability": "swampcrab_waterspoutstrike / shellspin (melee 0-3.09 m)",
+    "trigger": "attack_strike contact f12",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "crab_spout_orb",
+    "atlas": "crab_spout_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     160,
+     160
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     1.0811,
+     1.0811
+    ],
+    "px_per_m": 148.0,
+    "plane": "billboard",
+    "pivot": "centre = the projectile body (r 0.5 m), loops in flight",
+    "ability": "swampcrab_waterspout (lobbed area projectile)",
+    "trigger": "cast_lob release f19 at the claw tips",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "crab_spout_splash",
+    "atlas": "crab_spout_splash.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     6.2609,
+     6.2609
+    ],
+    "px_per_m": 61.333,
+    "plane": "ground",
+    "pivot": "centre = the landing point (area r 3 m; the 5 s field is a runtime tint, not baked)",
+    "ability": "swampcrab_waterspout landing",
+    "trigger": "on projectile landing",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 1.7297519445419312,
+  "cy": -0.734093427658081,
+  "z_under": 0.736285787820816,
+  "z_top": 1.652901133298874,
+  "feet": {
+   "L1": {
+    "x": 1.0618165731430054,
+    "y": -0.9542219638824463,
+    "n": 33
+   },
+   "L2": {
+    "x": 1.3937348127365112,
+    "y": 0.30646878480911255,
+    "n": 35
+   },
+   "L3": {
+    "x": 0.7975876033306122,
+    "y": 0.9591975212097168,
+    "n": 30
+   },
+   "R1": {
+    "x": -1.0630606412887573,
+    "y": -0.9550460875034332,
+    "n": 36
+   },
+   "R2": {
+    "x": -1.3952761888504028,
+    "y": 0.3016224205493927,
+    "n": 34
+   },
+   "R3": {
+    "x": -0.7980442643165588,
+    "y": 0.9591511785984039,
+    "n": 26
+   }
+  },
+  "leg_L1": {
+   "joint": [
+    0.5385486744513018,
+    -0.8457416486324687,
+    0.816285787820816
+   ],
+   "knee": [
+    0.7478558339279833,
+    -0.8891337747324597,
+    1.1155362582206725
+   ],
+   "ankle": [
+    0.9885590673261668,
+    -0.9390347197474495,
+    0.25
+   ],
+   "toe": [
+    1.0618165731430054,
+    -0.9542219638824463,
+    0.02
+   ],
+   "chain_len": 1.2675,
+   "rest_reach": 0.7293,
+   "pole_angle_deg": -26.0,
+   "pole_rest_err": 0.13782
+  },
+  "leg_L2": {
+   "joint": [
+    0.44071823713831393,
+    -0.4050532546492265,
+    0.816285787820816
+   ],
+   "knee": [
+    0.8219248673775928,
+    -0.12044443886589085,
+    1.244767031669617
+   ],
+   "ankle": [
+    1.2603124921527638,
+    0.20685569928494507,
+    0.9402552247047424
+   ],
+   "toe": [
+    1.3937348127365112,
+    0.30646878480911255,
+    0.02
+   ],
+   "chain_len": 1.2664,
+   "rest_reach": 1.0303,
+   "pole_angle_deg": 112.0,
+   "pole_rest_err": 0.01584
+  },
+  "leg_L3": {
+   "joint": [
+    0.23436753256519224,
+    -0.23652749265116807,
+    0.816285787820816
+   ],
+   "knee": [
+    0.4596555608713602,
+    0.2417625128931859,
+    1.3415735101699828
+   ],
+   "ankle": [
+    0.7187367934234533,
+    0.7917960192691929,
+    0.6752272844314575
+   ],
+   "toe": [
+    0.7975876033306122,
+    0.9591975212097168,
+    0.02
+   ],
+   "chain_len": 1.6473,
+   "rest_reach": 1.1454,
+   "pole_angle_deg": 100.0,
+   "pole_rest_err": 0.04952
+  },
+  "leg_R1": {
+   "joint": [
+    -0.5384915942080708,
+    -0.8460166288598445,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.7483192130403454,
+    -0.88962841231728,
+    1.10846031665802
+   ],
+   "ankle": [
+    -0.9896209746974611,
+    -0.9397819632933309,
+    0.25
+   ],
+   "toe": [
+    -1.0630606412887573,
+    -0.9550460875034332,
+    0.02
+   ],
+   "chain_len": 1.2555,
+   "rest_reach": 0.7301,
+   "pole_angle_deg": -154.0,
+   "pole_rest_err": 0.04044
+  },
+  "leg_R2": {
+   "joint": [
+    -0.441626517117446,
+    -0.4062733255003362,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.8230863858106288,
+    -0.12311502708044464,
+    1.2670686578750612
+   ],
+   "ankle": [
+    -1.2617652348077888,
+    0.2025170161024306,
+    0.9244683980941772
+   ],
+   "toe": [
+    -1.3952761888504028,
+    0.3016224205493927,
+    0.02
+   ],
+   "chain_len": 1.2998,
+   "rest_reach": 1.0271,
+   "pole_angle_deg": 68.0,
+   "pole_rest_err": 0.055
+  },
+  "leg_R3": {
+   "joint": [
+    -0.2344825883397682,
+    -0.2365817034088099,
+    0.816285787820816
+   ],
+   "knee": [
+    -0.45990725873048444,
+    0.24171144939407568,
+    1.3283783054351808
+   ],
+   "ankle": [
+    -0.7191456296798082,
+    0.7917485751173942,
+    0.6662697792053223
+   ],
+   "toe": [
+    -0.7980442643165588,
+    0.9591511785984039,
+    0.02
+   ],
+   "chain_len": 1.635,
+   "rest_reach": 1.1467,
+   "pole_angle_deg": 80.0,
+   "pole_rest_err": 0.03255
+  },
+  "claw_L": {
+   "shoulder": [
+    0.28,
+    -1.174093427658081,
+    0.786285787820816
+   ],
+   "elbow": [
+    0.3885427713394165,
+    -1.4714344487190245,
+    0.7400265336036682
+   ],
+   "wrist": [
+    0.3528629243373871,
+    -1.700811807823181,
+    0.5456886887550354
+   ],
+   "tip": [
+    0.09314201772212982,
+    -2.02363920211792,
+    0.3621689975261688
+   ]
+  },
+  "claw_R": {
+   "shoulder": [
+    -0.28,
+    -1.174093427658081,
+    0.786285787820816
+   ],
+   "elbow": [
+    -0.32786980271339417,
+    -1.4718206391334534,
+    0.7355825901031494
+   ],
+   "wrist": [
+    -0.35611848533153534,
+    -1.701495916557312,
+    0.5129760503768921
+   ],
+   "tip": [
+    -0.0964381992816925,
+    -2.024742603302002,
+    0.3554936945438385
+   ]
+  },
+  "weights": {
+   "method": "rigid shell core (ellipse 0.82 x 0.86 m) + gated inverse-distance^4, top 3",
+   "core_verts": 15229
+  },
+  "texture": {
+   "path": "work/tex_crab_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "leg_L1_1",
+   "leg_L1_2",
+   "leg_L1_3",
+   "leg_L2_1",
+   "leg_L2_2",
+   "leg_L2_3",
+   "leg_L3_1",
+   "leg_L3_2",
+   "leg_L3_3",
+   "leg_R1_1",
+   "leg_R1_2",
+   "leg_R1_3",
+   "leg_R2_1",
+   "leg_R2_2",
+   "leg_R2_3",
+   "leg_R3_1",
+   "leg_R3_2",
+   "leg_R3_3",
+   "claw_L_1",
+   "claw_L_2",
+   "claw_L_3",
+   "claw_R_1",
+   "claw_R_2",
+   "claw_R_3"
+  ]
+ }
+}

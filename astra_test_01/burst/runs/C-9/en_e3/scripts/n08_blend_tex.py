@@ -10,7 +10,8 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage
 GLB, NPZ, TA, OUT = sys.argv[1:5]
-nz0, nz1 = (float(sys.argv[5]), float(sys.argv[6])) if len(sys.argv) > 6 else (0.30, 0.60)
+_num = [x for x in sys.argv[5:] if not x.startswith('--')]
+nz0, nz1 = (float(_num[0]), float(_num[1])) if len(_num) > 1 else (0.30, 0.60)
 b = open(GLB, 'rb').read(); n = struct.unpack('<I', b[12:16])[0]; js = json.loads(b[20:20 + n]); off = 20 + n + 8
 bv = js['bufferViews'][js['images'][0]['bufferView']]
 T0 = Image.open(io.BytesIO(b[off + bv.get('byteOffset', 0): off + bv.get('byteOffset', 0) + bv['byteLength']])).convert('RGB')
@@ -22,7 +23,7 @@ d = np.load(NPZ); N = d['tex_nrm']; on = d['tex_tri'] >= 0
 nz = N[..., 2]
 if np.mean(on[::-1] == (M > 0.5)) > np.mean(on == (M > 0.5)): nz = nz[::-1]; on = on[::-1]
 up = np.clip((nz - nz0) / (nz1 - nz0), 0, 1); up = up * up * (3 - 2 * up)
-w = M * (1 - up)
+w = M * (1 - up) if '--all' not in sys.argv else M   # --all: an elevated sheet (52.95 deg) saw the tops properly; trust its own mask
 w = ndimage.gaussian_filter(w, 2.0)
 s2l = lambda x: np.where(x <= 0.04045, x / 12.92, ((x + 0.055) / 1.055) ** 2.4); l2s = lambda x: np.where(x <= 0.0031308, x * 12.92, 1.055 * x ** (1 / 2.4) - 0.055)
 out = l2s(s2l(A / 255) * w[..., None] + s2l(T0 / 255) * (1 - w[..., None])) * 255

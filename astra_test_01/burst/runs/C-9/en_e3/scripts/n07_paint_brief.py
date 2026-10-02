@@ -23,16 +23,16 @@ man = json.load(open(G / "manifest.json")); man[dst.name] = hashlib.sha256(dst.r
 json.dump(man, open(G / "manifest.json", "w"), indent=1)
 n = len(L["cells"]); cw, ch = L["canvas"]
 text = ("GENERATE BURST {t} -- Run C-9 Phase 2 (Matt R-C9-132): the PAINTED TEXTURE of a 3D CREATURE, sheet 1. task_id \"{t}\".\n\n"
-        "IMAGE 1 is a sheet of {n} renders of ONE 3D model of a four-legged creature standing still, on flat pure #00ff00. " + desc +
+        "IMAGE 1 is a sheet of {n} renders of ONE 3D model of " + os.environ.get("EN3_BODY", "a four-legged creature") + " standing still, seen from " + ("above, looking down at %.0f degrees" % L["elevation_deg"] if L["elevation_deg"] > 30 else "a low angle") + ", on flat pure #00ff00. " + desc +
         " They are renders of the model: every OUTLINE, POSE, POSITION and SIZE is correct and must not change; the surface is flat, smooth and blurry.\n"
         "IMAGE 2 is the creature's approved model sheet: " + LOOKW + ". IMAGE 3 is a STYLE reference ONLY: copy its HAND (the dark ink line that varies "
         "in weight, transparent watercolour washes that pool and granulate, fine hatching, cream paper highlights); copy nothing else from it -- it shows a person.\n"
         "Use image_gen in EDIT mode on IMAGE 1 and deliver ONE {cw}x{ch} sheet in which EVERY view is repainted as the creature of IMAGE 2 seen from that "
         "direction, in IMAGE 3's hand, inside exactly that view's outline, position and size.\n"
         "THIS PAINTING BECOMES THE MODEL'S TEXTURE: it is projected back onto the 3D model from these cameras and blended into one texture. So: ONE creature "
-        "in {n} views, not {n} creatures -- the same hide, the same teeth, the same spurs and claws in every view; any disagreement between views becomes a seam.\n"
+        "in {n} views, not {n} creatures -- the same surface, the same plates, joints and claws in every view; any disagreement between views becomes a seam.\n"
         "Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no shading that belongs to one viewpoint. Tone "
-        "comes from its own colours, the pen hatching and the washes. Stay inside every outline; change no outline, leg, tail or tooth position. Add NOTHING "
+        "comes from its own colours, the pen hatching and the washes. Stay inside every outline; change no outline, leg, claw, tail or tooth position. Add NOTHING "
         "IMAGE 2 does not show.\n" + MARK + "\n"
         "BACKGROUND: keep the background flat pure #00ff00, as in IMAGE 1. If the image model returns a darker or gradient background anyway, DO NOT spend a "
         "retry on it and still deliver the image: the views are cut out afterwards by their exact 3D outlines. Spend retries ONLY on the faults named below.\n\n"
@@ -41,7 +41,7 @@ text = ("GENERATE BURST {t} -- Run C-9 Phase 2 (Matt R-C9-132): the PAINTED TEXT
         "to out/{t}_a.png and out/{t}_b.png with sha256. No code. No other files. No web.\n"
         "RETURN: receipt task_id \"{t}\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen "
         "calls; status; concerns. Never PASS/FAIL.").format(t=T, n=n, cw=cw, ch=ch)
-refs = [dict(path=str(dst), role="IMAGE 1 -- the sheet to EDIT (%d views at 19.77 deg of the 3D creature at rest; outlines correct, surface flat)" % n),
+refs = [dict(path=str(dst), role="IMAGE 1 -- the sheet to EDIT (%d views at %.2f deg of the 3D creature at rest; outlines correct, surface flat)" % (n, L["elevation_deg"])),
         dict(path=LOOKP, role="IMAGE 2 -- the creature's approved model sheet: the look"),
         dict(B.STYLE, role="IMAGE 3 -- STYLE reference ONLY (Matt-supplied): the HAND to copy; never its character, costume, staff, bag or pose")]
 B.lane_guard(text)

@@ -129,6 +129,19 @@ def puff(n, S, radius_m, col, dark, blobs=9, rise=0.4):
     return out, ppm
 
 PRESETS = {
+ 'crab': [
+  dict(id='crab_frost_breath', fn='spray', n=16, fps=20, cols=4, W=640, H=256, length_m=3.5, width_m=1.0, col=(214, 226, 232), dark=(112, 142, 164),
+       plane='ground', pivot='left-middle (the mouth plates, projected to the ground)', ability='ghostcrab_waterbreath (aoe wave 3.5 m long x 1 m wide, cold 6 s)',
+       trigger='cast_breath release f14; plays 0.8 s, may loop frames 4-11 while the breath holds (the clip holds its pose f14-f36)'),
+  dict(id='crab_slam_ring', fn='ring', n=12, fps=30, cols=4, S=320, radius_m=1.1, col=(196, 186, 164), dark=(112, 102, 90),
+       plane='ground', pivot='centre = between the two claw tips at contact', ability='swampcrab_clawslam (melee 0-3.09 m)', trigger='attack_slam contact f12'),
+  dict(id='crab_strike_impact', fn='impact', n=8, fps=30, cols=4, S=256, radius_m=0.55, col=(150, 46, 40), dark=(86, 24, 26),
+       plane='billboard', pivot='centre = the left claw tip at contact', ability='swampcrab_waterspoutstrike / shellspin (melee 0-3.09 m)', trigger='attack_strike contact f12'),
+  dict(id='crab_spout_orb', fn='orb', n=8, fps=20, cols=4, S=160, radius_m=0.5, col=(150, 182, 196), dark=(78, 108, 128),
+       plane='billboard', pivot='centre = the projectile body (r 0.5 m), loops in flight', ability='swampcrab_waterspout (lobbed area projectile)', trigger='cast_lob release f19 at the claw tips'),
+  dict(id='crab_spout_splash', fn='ring', n=12, fps=24, cols=4, S=384, radius_m=3.0, col=(160, 190, 200), dark=(84, 116, 134),
+       plane='ground', pivot='centre = the landing point (area r 3 m; the 5 s field is a runtime tint, not baked)', ability='swampcrab_waterspout landing', trigger='on projectile landing'),
+ ],
  'maw': [
   dict(id='maw_bile_spray', fn='spray', n=16, fps=30, cols=4, W=576, H=256, length_m=3.0, width_m=1.0, col=(176, 172, 84), dark=(104, 110, 44),
        plane='ground', pivot='left-middle (the mouth, projected to the ground)', ability='chthoniandevourer_vomit (aoe wave 3 m long x 1 m wide, poison 3 s)',
