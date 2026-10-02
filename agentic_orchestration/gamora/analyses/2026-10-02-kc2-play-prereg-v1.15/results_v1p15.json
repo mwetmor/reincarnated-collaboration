@@ -1,0 +1,1506 @@
+{
+ "STOP": [],
+ "TA-X-29(b')": {
+  "families": {
+   "dot:dot": 14084,
+   "dot:dot_leech_type": 134,
+   "instant:instant_nonphys": 66538,
+   "instant:phys_clamped": 3097,
+   "instant:phys_clamped_unmapped(LO)": 1895,
+   "instant:phys_unclamped": 19297
+  },
+  "holds": true,
+  "instances": {
+   "dot|limb=LO|divisor=True": 14218,
+   "instant|limb=LO|divisor=True": 90827
+  },
+  "n_pass": 25,
+  "rows_where_the_Z5_form_differs": 43819
+ },
+ "TA-X-30(a')": {
+  "clipped": 0,
+  "held": 53888,
+  "holds": true,
+  "n_pass": 25,
+  "op_classes": {
+   "ATTACK": 253753,
+   "DEFAULT(no state)": 4212,
+   "PET:incumbent_walk(op=2.4)": 203859,
+   "PET:pet_target(op=0.0)": 469072,
+   "PET:reach=gr2_row": 132680,
+   "PET:reach=no_gr2_row(packed)": 336392,
+   "WAYPOINT(op=0)": 572104,
+   "WAYPOINT:pursue_reach=default_attack": 111429,
+   "WAYPOINT:pursue_reach=gr2_row": 156909
+  },
+  "pet_moved_clipped_shorter": 0,
+  "pet_moved_exact": 528696,
+  "pet_moved_unobserved": 0,
+  "pet_no_travel_by_law": 144235,
+  "pet_steps": 672931,
+  "steps_checked": 830069,
+  "unclipped": 776181,
+  "waypoint": 572104
+ },
+ "TA-X-30(b)": {
+  "holds": true,
+  "n_pass": 25,
+  "vacuous_cells": [
+   "M0|0",
+   "M0|1",
+   "M0|2",
+   "M0|3",
+   "M0|4",
+   "M-POL-2|0",
+   "M-POL-2|1",
+   "M-POL-2|2",
+   "M-POL-2|3",
+   "M-POL-2|4",
+   "M-POL-2-NULL|0",
+   "M-POL-2-NULL|1",
+   "M-POL-2-NULL|2",
+   "M-POL-2-NULL|3",
+   "M-POL-2-NULL|4",
+   "W1-NULL|0",
+   "W1-NULL|1",
+   "W1-NULL|2",
+   "W1-NULL|3",
+   "W1-NULL|4"
+  ]
+ },
+ "cells": {
+  "M-POL-2-NULL|0": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 518,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2262,
+     "instant:phys_clamped": 110,
+     "instant:phys_clamped_unmapped(LO)": 57,
+     "instant:phys_unclamped": 685
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 522,
+     "instant|limb=LO|divisor=True": 3114
+    },
+    "rows_where_the_Z5_form_differs": 1525
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2236,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9416,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 7212,
+     "PET:pet_target(op=0.0)": 11631,
+     "PET:reach=gr2_row": 5460,
+     "PET:reach=no_gr2_row(packed)": 6171,
+     "WAYPOINT(op=0)": 21756,
+     "WAYPOINT:pursue_reach=default_attack": 5326,
+     "WAYPOINT:pursue_reach=gr2_row": 5620
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 13180,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5663,
+    "pet_steps": 18843,
+    "steps_checked": 31340,
+    "unclipped": 29104,
+    "waypoint": 21756
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2-NULL|1": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 527,
+     "dot:dot_leech_type": 3,
+     "instant:instant_nonphys": 2541,
+     "instant:phys_clamped": 139,
+     "instant:phys_clamped_unmapped(LO)": 105,
+     "instant:phys_unclamped": 797
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 530,
+     "instant|limb=LO|divisor=True": 3582
+    },
+    "rows_where_the_Z5_form_differs": 1855
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1089,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9632,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 6349,
+     "PET:pet_target(op=0.0)": 16995,
+     "PET:reach=gr2_row": 6226,
+     "PET:reach=no_gr2_row(packed)": 10769,
+     "WAYPOINT(op=0)": 20717,
+     "WAYPOINT:pursue_reach=default_attack": 3466,
+     "WAYPOINT:pursue_reach=gr2_row": 5892
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17962,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5382,
+    "pet_steps": 23344,
+    "steps_checked": 30518,
+    "unclipped": 29429,
+    "waypoint": 20717
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2-NULL|2": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 558,
+     "dot:dot_leech_type": 9,
+     "instant:instant_nonphys": 2524,
+     "instant:phys_clamped": 143,
+     "instant:phys_clamped_unmapped(LO)": 99,
+     "instant:phys_unclamped": 752
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 567,
+     "instant|limb=LO|divisor=True": 3518
+    },
+    "rows_where_the_Z5_form_differs": 1820
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 3144,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 10413,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 6759,
+     "PET:pet_target(op=0.0)": 16159,
+     "PET:reach=gr2_row": 6357,
+     "PET:reach=no_gr2_row(packed)": 9802,
+     "WAYPOINT(op=0)": 22630,
+     "WAYPOINT:pursue_reach=default_attack": 4559,
+     "WAYPOINT:pursue_reach=gr2_row": 6245
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17501,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5417,
+    "pet_steps": 22918,
+    "steps_checked": 33212,
+    "unclipped": 30068,
+    "waypoint": 22630
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2-NULL|3": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 600,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2322,
+     "instant:phys_clamped": 95,
+     "instant:phys_clamped_unmapped(LO)": 37,
+     "instant:phys_unclamped": 703
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 604,
+     "instant|limb=LO|divisor=True": 3157
+    },
+    "rows_where_the_Z5_form_differs": 1419
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2841,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9798,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 8379,
+     "PET:pet_target(op=0.0)": 24025,
+     "PET:reach=gr2_row": 3557,
+     "PET:reach=no_gr2_row(packed)": 20468,
+     "WAYPOINT(op=0)": 25233,
+     "WAYPOINT:pursue_reach=default_attack": 4615,
+     "WAYPOINT:pursue_reach=gr2_row": 7373
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 26845,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5559,
+    "pet_steps": 32404,
+    "steps_checked": 35199,
+    "unclipped": 32358,
+    "waypoint": 25233
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": 160
+  },
+  "M-POL-2-NULL|4": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 596,
+     "dot:dot_leech_type": 3,
+     "instant:instant_nonphys": 2945,
+     "instant:phys_clamped": 126,
+     "instant:phys_clamped_unmapped(LO)": 104,
+     "instant:phys_unclamped": 889
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 599,
+     "instant|limb=LO|divisor=True": 4064
+    },
+    "rows_where_the_Z5_form_differs": 1975
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1449,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11958,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 8877,
+     "PET:pet_target(op=0.0)": 21029,
+     "PET:reach=gr2_row": 6397,
+     "PET:reach=no_gr2_row(packed)": 14632,
+     "WAYPOINT(op=0)": 22153,
+     "WAYPOINT:pursue_reach=default_attack": 4115,
+     "WAYPOINT:pursue_reach=gr2_row": 5918
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 22730,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 7176,
+    "pet_steps": 29906,
+    "steps_checked": 34280,
+    "unclipped": 32831,
+    "waypoint": 22153
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2|0": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 518,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2410,
+     "instant:phys_clamped": 100,
+     "instant:phys_clamped_unmapped(LO)": 69,
+     "instant:phys_unclamped": 673
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 522,
+     "instant|limb=LO|divisor=True": 3252
+    },
+    "rows_where_the_Z5_form_differs": 1503
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1846,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9032,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 7596,
+     "PET:pet_target(op=0.0)": 14033,
+     "PET:reach=gr2_row": 4620,
+     "PET:reach=no_gr2_row(packed)": 9413,
+     "WAYPOINT(op=0)": 22573,
+     "WAYPOINT:pursue_reach=default_attack": 5214,
+     "WAYPOINT:pursue_reach=gr2_row": 6123
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 16076,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5553,
+    "pet_steps": 21629,
+    "steps_checked": 31773,
+    "unclipped": 29927,
+    "waypoint": 22573
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2|1": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 604,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3720,
+     "instant:phys_clamped": 166,
+     "instant:phys_clamped_unmapped(LO)": 92,
+     "instant:phys_unclamped": 936
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 611,
+     "instant|limb=LO|divisor=True": 4914
+    },
+    "rows_where_the_Z5_form_differs": 2274
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1356,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11185,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9995,
+     "PET:pet_target(op=0.0)": 22279,
+     "PET:reach=gr2_row": 6930,
+     "PET:reach=no_gr2_row(packed)": 15349,
+     "WAYPOINT(op=0)": 21386,
+     "WAYPOINT:pursue_reach=default_attack": 3642,
+     "WAYPOINT:pursue_reach=gr2_row": 5989
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 26256,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6018,
+    "pet_steps": 32274,
+    "steps_checked": 32739,
+    "unclipped": 31383,
+    "waypoint": 21386
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2|2": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 577,
+     "dot:dot_leech_type": 5,
+     "instant:instant_nonphys": 2246,
+     "instant:phys_clamped": 104,
+     "instant:phys_clamped_unmapped(LO)": 64,
+     "instant:phys_unclamped": 644
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 582,
+     "instant|limb=LO|divisor=True": 3058
+    },
+    "rows_where_the_Z5_form_differs": 1467
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2526,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9325,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 8065,
+     "PET:pet_target(op=0.0)": 22108,
+     "PET:reach=gr2_row": 4812,
+     "PET:reach=no_gr2_row(packed)": 17296,
+     "WAYPOINT(op=0)": 25247,
+     "WAYPOINT:pursue_reach=default_attack": 5125,
+     "WAYPOINT:pursue_reach=gr2_row": 6792
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 25103,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5070,
+    "pet_steps": 30173,
+    "steps_checked": 34741,
+    "unclipped": 32215,
+    "waypoint": 25247
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": 160
+  },
+  "M-POL-2|3": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 641,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3170,
+     "instant:phys_clamped": 135,
+     "instant:phys_clamped_unmapped(LO)": 103,
+     "instant:phys_unclamped": 898
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 648,
+     "instant|limb=LO|divisor=True": 4306
+    },
+    "rows_where_the_Z5_form_differs": 2040
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2872,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11880,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9844,
+     "PET:pet_target(op=0.0)": 22858,
+     "PET:reach=gr2_row": 3029,
+     "PET:reach=no_gr2_row(packed)": 19829,
+     "WAYPOINT(op=0)": 24857,
+     "WAYPOINT:pursue_reach=default_attack": 4562,
+     "WAYPOINT:pursue_reach=gr2_row": 6939
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 27104,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5598,
+    "pet_steps": 32702,
+    "steps_checked": 36905,
+    "unclipped": 34033,
+    "waypoint": 24857
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M-POL-2|4": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 519,
+     "dot:dot_leech_type": 6,
+     "instant:instant_nonphys": 2296,
+     "instant:phys_clamped": 120,
+     "instant:phys_clamped_unmapped(LO)": 47,
+     "instant:phys_unclamped": 747
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 525,
+     "instant|limb=LO|divisor=True": 3210
+    },
+    "rows_where_the_Z5_form_differs": 1649
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2190,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9065,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 7851,
+     "PET:pet_target(op=0.0)": 15755,
+     "PET:reach=gr2_row": 5349,
+     "PET:reach=no_gr2_row(packed)": 10406,
+     "WAYPOINT(op=0)": 21920,
+     "WAYPOINT:pursue_reach=default_attack": 4056,
+     "WAYPOINT:pursue_reach=gr2_row": 5747
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17220,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6386,
+    "pet_steps": 23606,
+    "steps_checked": 31154,
+    "unclipped": 28964,
+    "waypoint": 21920
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M0|0": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 518,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2262,
+     "instant:phys_clamped": 110,
+     "instant:phys_clamped_unmapped(LO)": 57,
+     "instant:phys_unclamped": 685
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 522,
+     "instant|limb=LO|divisor=True": 3114
+    },
+    "rows_where_the_Z5_form_differs": 1525
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2236,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9416,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 7212,
+     "PET:pet_target(op=0.0)": 11631,
+     "PET:reach=gr2_row": 5460,
+     "PET:reach=no_gr2_row(packed)": 6171,
+     "WAYPOINT(op=0)": 21756,
+     "WAYPOINT:pursue_reach=default_attack": 5326,
+     "WAYPOINT:pursue_reach=gr2_row": 5620
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 13180,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5663,
+    "pet_steps": 18843,
+    "steps_checked": 31340,
+    "unclipped": 29104,
+    "waypoint": 21756
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M0|1": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 527,
+     "dot:dot_leech_type": 3,
+     "instant:instant_nonphys": 2541,
+     "instant:phys_clamped": 139,
+     "instant:phys_clamped_unmapped(LO)": 105,
+     "instant:phys_unclamped": 797
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 530,
+     "instant|limb=LO|divisor=True": 3582
+    },
+    "rows_where_the_Z5_form_differs": 1855
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1089,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9632,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 6349,
+     "PET:pet_target(op=0.0)": 16995,
+     "PET:reach=gr2_row": 6226,
+     "PET:reach=no_gr2_row(packed)": 10769,
+     "WAYPOINT(op=0)": 20717,
+     "WAYPOINT:pursue_reach=default_attack": 3466,
+     "WAYPOINT:pursue_reach=gr2_row": 5892
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17962,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5382,
+    "pet_steps": 23344,
+    "steps_checked": 30518,
+    "unclipped": 29429,
+    "waypoint": 20717
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M0|2": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 558,
+     "dot:dot_leech_type": 9,
+     "instant:instant_nonphys": 2524,
+     "instant:phys_clamped": 143,
+     "instant:phys_clamped_unmapped(LO)": 99,
+     "instant:phys_unclamped": 752
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 567,
+     "instant|limb=LO|divisor=True": 3518
+    },
+    "rows_where_the_Z5_form_differs": 1820
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 3144,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 10413,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 6759,
+     "PET:pet_target(op=0.0)": 16159,
+     "PET:reach=gr2_row": 6357,
+     "PET:reach=no_gr2_row(packed)": 9802,
+     "WAYPOINT(op=0)": 22630,
+     "WAYPOINT:pursue_reach=default_attack": 4559,
+     "WAYPOINT:pursue_reach=gr2_row": 6245
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17501,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5417,
+    "pet_steps": 22918,
+    "steps_checked": 33212,
+    "unclipped": 30068,
+    "waypoint": 22630
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "M0|3": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 600,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2322,
+     "instant:phys_clamped": 95,
+     "instant:phys_clamped_unmapped(LO)": 37,
+     "instant:phys_unclamped": 703
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 604,
+     "instant|limb=LO|divisor=True": 3157
+    },
+    "rows_where_the_Z5_form_differs": 1419
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2841,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9798,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 8379,
+     "PET:pet_target(op=0.0)": 24025,
+     "PET:reach=gr2_row": 3557,
+     "PET:reach=no_gr2_row(packed)": 20468,
+     "WAYPOINT(op=0)": 25233,
+     "WAYPOINT:pursue_reach=default_attack": 4615,
+     "WAYPOINT:pursue_reach=gr2_row": 7373
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 26845,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5559,
+    "pet_steps": 32404,
+    "steps_checked": 35199,
+    "unclipped": 32358,
+    "waypoint": 25233
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": 160
+  },
+  "M0|4": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 596,
+     "dot:dot_leech_type": 3,
+     "instant:instant_nonphys": 2945,
+     "instant:phys_clamped": 126,
+     "instant:phys_clamped_unmapped(LO)": 104,
+     "instant:phys_unclamped": 889
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 599,
+     "instant|limb=LO|divisor=True": 4064
+    },
+    "rows_where_the_Z5_form_differs": 1975
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1449,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11958,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 8877,
+     "PET:pet_target(op=0.0)": 21029,
+     "PET:reach=gr2_row": 6397,
+     "PET:reach=no_gr2_row(packed)": 14632,
+     "WAYPOINT(op=0)": 22153,
+     "WAYPOINT:pursue_reach=default_attack": 4115,
+     "WAYPOINT:pursue_reach=gr2_row": 5918
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 22730,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 7176,
+    "pet_steps": 29906,
+    "steps_checked": 34280,
+    "unclipped": 32831,
+    "waypoint": 22153
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 0,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1-NULL|0": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 518,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2410,
+     "instant:phys_clamped": 100,
+     "instant:phys_clamped_unmapped(LO)": 69,
+     "instant:phys_unclamped": 673
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 522,
+     "instant|limb=LO|divisor=True": 3252
+    },
+    "rows_where_the_Z5_form_differs": 1503
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1846,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9032,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 7596,
+     "PET:pet_target(op=0.0)": 14033,
+     "PET:reach=gr2_row": 4620,
+     "PET:reach=no_gr2_row(packed)": 9413,
+     "WAYPOINT(op=0)": 22573,
+     "WAYPOINT:pursue_reach=default_attack": 5214,
+     "WAYPOINT:pursue_reach=gr2_row": 6123
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 16076,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5553,
+    "pet_steps": 21629,
+    "steps_checked": 31773,
+    "unclipped": 29927,
+    "waypoint": 22573
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 32822,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1-NULL|1": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 604,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3720,
+     "instant:phys_clamped": 166,
+     "instant:phys_clamped_unmapped(LO)": 92,
+     "instant:phys_unclamped": 936
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 611,
+     "instant|limb=LO|divisor=True": 4914
+    },
+    "rows_where_the_Z5_form_differs": 2274
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1356,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11185,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9995,
+     "PET:pet_target(op=0.0)": 22279,
+     "PET:reach=gr2_row": 6930,
+     "PET:reach=no_gr2_row(packed)": 15349,
+     "WAYPOINT(op=0)": 21386,
+     "WAYPOINT:pursue_reach=default_attack": 3642,
+     "WAYPOINT:pursue_reach=gr2_row": 5989
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 26256,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6018,
+    "pet_steps": 32274,
+    "steps_checked": 32739,
+    "unclipped": 31383,
+    "waypoint": 21386
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 33744,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1-NULL|2": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 577,
+     "dot:dot_leech_type": 5,
+     "instant:instant_nonphys": 2246,
+     "instant:phys_clamped": 104,
+     "instant:phys_clamped_unmapped(LO)": 64,
+     "instant:phys_unclamped": 644
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 582,
+     "instant|limb=LO|divisor=True": 3058
+    },
+    "rows_where_the_Z5_form_differs": 1467
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2526,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9325,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 8065,
+     "PET:pet_target(op=0.0)": 22108,
+     "PET:reach=gr2_row": 4812,
+     "PET:reach=no_gr2_row(packed)": 17296,
+     "WAYPOINT(op=0)": 25247,
+     "WAYPOINT:pursue_reach=default_attack": 5125,
+     "WAYPOINT:pursue_reach=gr2_row": 6792
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 25103,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5070,
+    "pet_steps": 30173,
+    "steps_checked": 34741,
+    "unclipped": 32215,
+    "waypoint": 25247
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 35780,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": 160
+  },
+  "W1-NULL|3": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 641,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3170,
+     "instant:phys_clamped": 135,
+     "instant:phys_clamped_unmapped(LO)": 103,
+     "instant:phys_unclamped": 898
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 648,
+     "instant|limb=LO|divisor=True": 4306
+    },
+    "rows_where_the_Z5_form_differs": 2040
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2872,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11880,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9844,
+     "PET:pet_target(op=0.0)": 22858,
+     "PET:reach=gr2_row": 3029,
+     "PET:reach=no_gr2_row(packed)": 19829,
+     "WAYPOINT(op=0)": 24857,
+     "WAYPOINT:pursue_reach=default_attack": 4562,
+     "WAYPOINT:pursue_reach=gr2_row": 6939
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 27104,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5598,
+    "pet_steps": 32702,
+    "steps_checked": 36905,
+    "unclipped": 34033,
+    "waypoint": 24857
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 37924,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1-NULL|4": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 519,
+     "dot:dot_leech_type": 6,
+     "instant:instant_nonphys": 2296,
+     "instant:phys_clamped": 120,
+     "instant:phys_clamped_unmapped(LO)": 47,
+     "instant:phys_unclamped": 747
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 525,
+     "instant|limb=LO|divisor=True": 3210
+    },
+    "rows_where_the_Z5_form_differs": 1649
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2190,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9065,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 7851,
+     "PET:pet_target(op=0.0)": 15755,
+     "PET:reach=gr2_row": 5349,
+     "PET:reach=no_gr2_row(packed)": 10406,
+     "WAYPOINT(op=0)": 21920,
+     "WAYPOINT:pursue_reach=default_attack": 4056,
+     "WAYPOINT:pursue_reach=gr2_row": 5747
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17220,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6386,
+    "pet_steps": 23606,
+    "steps_checked": 31154,
+    "unclipped": 28964,
+    "waypoint": 21920
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 0,
+    "arena_clamp_calls": 32173,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": true
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1|0": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 518,
+     "dot:dot_leech_type": 4,
+     "instant:instant_nonphys": 2410,
+     "instant:phys_clamped": 100,
+     "instant:phys_clamped_unmapped(LO)": 69,
+     "instant:phys_unclamped": 673
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 522,
+     "instant|limb=LO|divisor=True": 3252
+    },
+    "rows_where_the_Z5_form_differs": 1503
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1846,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9032,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 7596,
+     "PET:pet_target(op=0.0)": 14033,
+     "PET:reach=gr2_row": 4620,
+     "PET:reach=no_gr2_row(packed)": 9413,
+     "WAYPOINT(op=0)": 22573,
+     "WAYPOINT:pursue_reach=default_attack": 5214,
+     "WAYPOINT:pursue_reach=gr2_row": 6123
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 16076,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5553,
+    "pet_steps": 21629,
+    "steps_checked": 31773,
+    "unclipped": 29927,
+    "waypoint": 22573
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 10,
+    "arena_clamp_calls": 32822,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": false
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1|1": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 604,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3720,
+     "instant:phys_clamped": 166,
+     "instant:phys_clamped_unmapped(LO)": 92,
+     "instant:phys_unclamped": 936
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 611,
+     "instant|limb=LO|divisor=True": 4914
+    },
+    "rows_where_the_Z5_form_differs": 2274
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 1356,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11185,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9995,
+     "PET:pet_target(op=0.0)": 22279,
+     "PET:reach=gr2_row": 6930,
+     "PET:reach=no_gr2_row(packed)": 15349,
+     "WAYPOINT(op=0)": 21386,
+     "WAYPOINT:pursue_reach=default_attack": 3642,
+     "WAYPOINT:pursue_reach=gr2_row": 5989
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 26256,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6018,
+    "pet_steps": 32274,
+    "steps_checked": 32739,
+    "unclipped": 31383,
+    "waypoint": 21386
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 10,
+    "arena_clamp_calls": 33744,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": false
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1|2": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 530,
+     "dot:dot_leech_type": 6,
+     "instant:instant_nonphys": 2063,
+     "instant:phys_clamped": 91,
+     "instant:phys_clamped_unmapped(LO)": 64,
+     "instant:phys_unclamped": 648
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 536,
+     "instant|limb=LO|divisor=True": 2866
+    },
+    "rows_where_the_Z5_form_differs": 1404
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2526,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9223,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 6876,
+     "PET:pet_target(op=0.0)": 19476,
+     "PET:reach=gr2_row": 4812,
+     "PET:reach=no_gr2_row(packed)": 14664,
+     "WAYPOINT(op=0)": 25429,
+     "WAYPOINT:pursue_reach=default_attack": 5051,
+     "WAYPOINT:pursue_reach=gr2_row": 6730
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 21656,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 4696,
+    "pet_steps": 26352,
+    "steps_checked": 34821,
+    "unclipped": 32295,
+    "waypoint": 25429
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 10,
+    "arena_clamp_calls": 35860,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": false
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": 160
+  },
+  "W1|3": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 597,
+     "dot:dot_leech_type": 7,
+     "instant:instant_nonphys": 3177,
+     "instant:phys_clamped": 144,
+     "instant:phys_clamped_unmapped(LO)": 69,
+     "instant:phys_unclamped": 845
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 604,
+     "instant|limb=LO|divisor=True": 4235
+    },
+    "rows_where_the_Z5_form_differs": 1935
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2872,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 11840,
+     "DEFAULT(no state)": 168,
+     "PET:incumbent_walk(op=2.4)": 9687,
+     "PET:pet_target(op=0.0)": 23785,
+     "PET:reach=gr2_row": 5495,
+     "PET:reach=no_gr2_row(packed)": 18290,
+     "WAYPOINT(op=0)": 23852,
+     "WAYPOINT:pursue_reach=default_attack": 4106,
+     "WAYPOINT:pursue_reach=gr2_row": 7044
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 27534,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 5938,
+    "pet_steps": 33472,
+    "steps_checked": 35860,
+    "unclipped": 32988,
+    "waypoint": 23852
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 10,
+    "arena_clamp_calls": 36879,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": false
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  },
+  "W1|4": {
+   "TA-X-29(b')": {
+    "fails": {},
+    "families": {
+     "dot:dot": 519,
+     "dot:dot_leech_type": 6,
+     "instant:instant_nonphys": 2296,
+     "instant:phys_clamped": 120,
+     "instant:phys_clamped_unmapped(LO)": 47,
+     "instant:phys_unclamped": 747
+    },
+    "holds": true,
+    "instances": {
+     "dot|limb=LO|divisor=True": 525,
+     "instant|limb=LO|divisor=True": 3210
+    },
+    "rows_where_the_Z5_form_differs": 1649
+   },
+   "TA-X-30(a')": {
+    "clipped": 0,
+    "fails": {},
+    "held": 2190,
+    "holds": true,
+    "op_classes": {
+     "ATTACK": 9065,
+     "DEFAULT(no state)": 169,
+     "PET:incumbent_walk(op=2.4)": 7851,
+     "PET:pet_target(op=0.0)": 15755,
+     "PET:reach=gr2_row": 5349,
+     "PET:reach=no_gr2_row(packed)": 10406,
+     "WAYPOINT(op=0)": 21920,
+     "WAYPOINT:pursue_reach=default_attack": 4056,
+     "WAYPOINT:pursue_reach=gr2_row": 5747
+    },
+    "pet_moved_clipped_shorter": 0,
+    "pet_moved_exact": 17220,
+    "pet_moved_unobserved": 0,
+    "pet_no_travel_by_law": 6386,
+    "pet_steps": 23606,
+    "steps_checked": 31154,
+    "unclipped": 28964,
+    "waypoint": 21920
+   },
+   "TA-X-30(b) R-G4-V311": {
+    "arena_armed_waves": 10,
+    "arena_clamp_calls": 32173,
+    "holds": true,
+    "n_bodies_halted_beyond_d_engage": 0,
+    "vacuous": false
+   },
+   "complete": true,
+   "examples": {
+    "t29": [],
+    "t30": []
+   },
+   "terminal": "cleared_w160"
+  }
+ },
+ "constants": {
+  "F_LO (min measured)": -0.44,
+  "LADDER_MELEE(pack gr1)": 1.25,
+  "PLAYER_RADIUS_M(oracle)": 0.336,
+  "TOLERANCE(pack gr1)": 0.5,
+  "gr2_rows": 1816,
+  "pet_motion_write_line(run.py)": 2023
+ }
+}
