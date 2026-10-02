@@ -105,6 +105,70 @@
    "_what": "the top of the head"
   }
  },
+ "true_size": {
+  "base_height_m": 1.7992,
+  "designed_height_m": 1.8,
+  "reference_record": "ghost_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "ghost_a01/ghost_a01_summon/ghost_b01_summon/ghost_b02_summon/... (champion-hero/summon/trash)": {
+    "scale": 1.0,
+    "true_height_m": 1.8,
+    "factor": 1.0,
+    "e_bodies": 3.146,
+    "records": [
+     "ghost_a01",
+     "ghost_a01_summon",
+     "ghost_b01_summon",
+     "ghost_b02_summon",
+     "kc_bounty08"
+    ],
+    "referent_lineup": []
+   },
+   "ku_bounty_06 (champion-hero)": {
+    "scale": 1.15,
+    "true_height_m": 2.07,
+    "factor": 1.151,
+    "e_bodies": 0.082,
+    "records": [
+     "ku_bounty_06"
+    ],
+    "referent_lineup": [
+     "ku_bounty_06"
+    ]
+   },
+   "bl_bounty18/exile_bounty14/exile_bounty15/nemesis_kymon_02/... (champion-hero/nemesis)": {
+    "scale": 1.2,
+    "true_height_m": 2.16,
+    "factor": 1.201,
+    "e_bodies": 0.405,
+    "records": [
+     "bl_bounty18",
+     "exile_bounty14",
+     "exile_bounty15",
+     "nemesis_kymon_02",
+     "odv_bounty06"
+    ],
+    "referent_lineup": []
+   },
+   "nemesis_orderdeathsvigil_02 (nemesis)": {
+    "scale": 1.35,
+    "true_height_m": 2.43,
+    "factor": 1.351,
+    "e_bodies": 0.101,
+    "records": [
+     "nemesis_orderdeathsvigil_02"
+    ],
+    "referent_lineup": []
+   }
+  },
+  "basis": [
+   "designed = the EN-E2 build target (en_e2/export/final_f/height.json target_m 1.80; no canvas downscale)",
+   "reference = the roster type lead_record ghost_a01",
+   "records with their own pack, NOT served here: humanascendant_mindthief_01 -> en-mindtaker, witch_janaxia -> en-witch, witch_larria -> en-witch"
+  ]
+ },
  "vfx_runtime": {
   "manifest_block": "vfx_runtime",
   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_f_cold_atlas.png",

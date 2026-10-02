@@ -131,6 +131,91 @@
    "_what": "the left claw tip (+0.2645 m along +Y): the claw lunge strikes with both hands"
   }
  },
+ "true_size": {
+  "base_height_m": 1.8487,
+  "designed_height_m": 1.85,
+  "reference_record": "wraith_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "eldritchwraith_a01/wraith_a01/wraith_a01_summon (summon/trash)": {
+    "scale": 1.0,
+    "true_height_m": 1.85,
+    "factor": 1.001,
+    "e_bodies": 5.74,
+    "records": [
+     "eldritchwraith_a01",
+     "wraith_a01",
+     "wraith_a01_summon"
+    ],
+    "referent_lineup": [
+     "eldritchwraith_a01",
+     "wraith_a01"
+    ]
+   },
+   "eldritchwraith_b01/wraith_b01/wraith_b01_summon (summon/trash)": {
+    "scale": 1.15,
+    "true_height_m": 2.127,
+    "factor": 1.151,
+    "e_bodies": 5.92,
+    "records": [
+     "eldritchwraith_b01",
+     "wraith_b01",
+     "wraith_b01_summon"
+    ],
+    "referent_lineup": [
+     "eldritchwraith_b01",
+     "wraith_b01",
+     "wraith_b01_summon"
+    ]
+   },
+   "cw_bounty07/cw_bounty08/devotion/wraith_h01/devotion/wraith_h02/... (champion-hero/summon/trash)": {
+    "scale": 1.25,
+    "true_height_m": 2.312,
+    "factor": 1.251,
+    "e_bodies": 5.858,
+    "records": [
+     "cw_bounty07",
+     "cw_bounty08",
+     "devotion/wraith_h01",
+     "devotion/wraith_h02",
+     "devotion/wraith_h03",
+     "devotion/wraith_h04",
+     "eldritchwraith_c01",
+     "wraith_c01",
+     "wraith_c01_summon",
+     "wraith_h01",
+     "wraith_h02",
+     "wraith_h03",
+     "wraith_h04",
+     "wraith_h05"
+    ],
+    "referent_lineup": [
+     "eldritchwraith_c01",
+     "wraith_c01",
+     "wraith_h01",
+     "wraith_h02",
+     "wraith_h03",
+     "wraith_h04",
+     "wraith_h05"
+    ]
+   },
+   "nemesis_wendigo_02 (nemesis)": {
+    "scale": 1.32,
+    "true_height_m": 2.442,
+    "factor": 1.321,
+    "e_bodies": 0.2,
+    "records": [
+     "nemesis_wendigo_02"
+    ],
+    "referent_lineup": []
+   }
+  },
+  "basis": [
+   "designed = the EN-E2 build target (en_e2/export/final_w/height.json target_m 1.85; no canvas downscale)",
+   "reference = the roster type lead_record wraith_a01"
+  ]
+ },
  "vfx_runtime": {
   "spirit": {
    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_w_spirit_atlas.png",

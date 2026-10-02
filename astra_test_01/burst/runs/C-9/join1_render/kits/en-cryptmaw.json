@@ -122,6 +122,72 @@
    "_what": "the chest bone's head (between the shoulders)"
   }
  },
+ "true_size": {
+  "base_height_m": 1.341,
+  "designed_height_m": 1.341,
+  "reference_record": "chthoniandevourer_a01.dbr",
+  "reference_scale": 0.8999999761581421,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "chthoniandevourer_a01/chthoniandevourer_a01_summon (summon/trash)": {
+    "scale": 0.9,
+    "true_height_m": 1.341,
+    "factor": 1.0,
+    "e_bodies": 5.809,
+    "records": [
+     "chthoniandevourer_a01",
+     "chthoniandevourer_a01_summon"
+    ],
+    "referent_lineup": [
+     "chthoniandevourer_a01"
+    ]
+   },
+   "chthoniandevourer_b01/chthoniandevourer_b02 (trash)": {
+    "scale": 1.2,
+    "true_height_m": 1.788,
+    "factor": 1.333,
+    "e_bodies": 6.869,
+    "records": [
+     "chthoniandevourer_b01",
+     "chthoniandevourer_b02"
+    ],
+    "referent_lineup": [
+     "chthoniandevourer_b01",
+     "chthoniandevourer_b02"
+    ]
+   },
+   "bl_bounty08/odv_bounty12 (champion-hero)": {
+    "scale": 1.25,
+    "true_height_m": 1.863,
+    "factor": 1.389,
+    "e_bodies": 0.158,
+    "records": [
+     "bl_bounty08",
+     "odv_bounty12"
+    ],
+    "referent_lineup": []
+   },
+   "devotion/chthoniandevourer_h01/devotion/chthoniandevourer_h02/devotion/chthoniandevourer_h03/devotion/chthoniandevourer_h04/... (champion-hero)": {
+    "scale": 1.6,
+    "true_height_m": 2.384,
+    "factor": 1.778,
+    "e_bodies": 0.218,
+    "records": [
+     "devotion/chthoniandevourer_h01",
+     "devotion/chthoniandevourer_h02",
+     "devotion/chthoniandevourer_h03",
+     "devotion/chthoniandevourer_h04",
+     "devotion/chthoniandevourer_h05",
+     "devotion/chthoniandevourer_h06"
+    ],
+    "referent_lineup": []
+   }
+  },
+  "basis": [
+   "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_maw.json)",
+   "reference = the roster type lead_record chthoniandevourer_a01"
+  ]
+ },
  "vfx_runtime": {
   "manifest_block": "vfx_runtime",
   "atlases": [

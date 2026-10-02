@@ -121,6 +121,96 @@
    "_what": "the top of the head"
   }
  },
+ "true_size": {
+  "base_height_m": 2.3986,
+  "designed_height_m": 2.4,
+  "reference_record": "wendigo_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "wendigo_a01 (trash)": {
+    "scale": 1.0,
+    "true_height_m": 2.4,
+    "factor": 1.001,
+    "e_bodies": 1.353,
+    "records": [
+     "wendigo_a01"
+    ],
+    "referent_lineup": [
+     "wendigo_a01"
+    ]
+   },
+   "wendigo_b01/wendigo_b02 (trash)": {
+    "scale": 1.15,
+    "true_height_m": 2.76,
+    "factor": 1.151,
+    "e_bodies": 1.315,
+    "records": [
+     "wendigo_b01",
+     "wendigo_b02"
+    ],
+    "referent_lineup": [
+     "wendigo_b01",
+     "wendigo_b02"
+    ]
+   },
+   "cu_bounty09/devotion/wendigo_h01/devotion/wendigo_h02/devotion/wendigo_h03/... (champion-hero)": {
+    "scale": 1.2,
+    "true_height_m": 2.88,
+    "factor": 1.201,
+    "e_bodies": 1.772,
+    "records": [
+     "cu_bounty09",
+     "devotion/wendigo_h01",
+     "devotion/wendigo_h02",
+     "devotion/wendigo_h03",
+     "devotion/wendigo_h04",
+     "wendigo_h01",
+     "wendigo_h02",
+     "wendigo_h03",
+     "wendigo_h04",
+     "wendigo_h05"
+    ],
+    "referent_lineup": []
+   },
+   "wendigo_c01 (trash)": {
+    "scale": 1.22,
+    "true_height_m": 2.928,
+    "factor": 1.221,
+    "e_bodies": 0.655,
+    "records": [
+     "wendigo_c01"
+    ],
+    "referent_lineup": [
+     "wendigo_c01"
+    ]
+   },
+   "wendigo_ancient_namadea (boss)": {
+    "scale": 1.25,
+    "true_height_m": 3.0,
+    "factor": 1.251,
+    "e_bodies": 0.248,
+    "records": [
+     "wendigo_ancient_namadea"
+    ],
+    "referent_lineup": []
+   },
+   "nemesis_wendigo_01 (nemesis)": {
+    "scale": 1.4,
+    "true_height_m": 3.36,
+    "factor": 1.401,
+    "e_bodies": 0.702,
+    "records": [
+     "nemesis_wendigo_01"
+    ],
+    "referent_lineup": []
+   }
+  },
+  "basis": [
+   "designed = the EN-E2 build target (en_e2/export/final_n/height.json target_m 2.40; no canvas downscale)",
+   "reference = the roster type lead_record wendigo_a01 (= the manifest roster.lead \"Wendigo\")"
+  ]
+ },
  "vfx_runtime": {
   "frost": {
    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_n_frost_atlas.png",

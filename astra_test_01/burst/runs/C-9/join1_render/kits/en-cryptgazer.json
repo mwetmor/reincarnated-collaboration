@@ -153,6 +153,79 @@
    "_what": "the R eye's centre (n09b, from the painted eye on the surface), head-bone rest frame"
   }
  },
+ "true_size": {
+  "base_height_m": 1.6115,
+  "designed_height_m": 1.8333,
+  "reference_record": "basilisk_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "basilisk_a01 (trash)": {
+    "scale": 1.0,
+    "true_height_m": 1.833,
+    "factor": 1.138,
+    "e_bodies": 1.545,
+    "records": [
+     "basilisk_a01"
+    ],
+    "referent_lineup": [
+     "basilisk_a01"
+    ]
+   },
+   "basilisk_b01 (trash)": {
+    "scale": 1.22,
+    "true_height_m": 2.237,
+    "factor": 1.388,
+    "e_bodies": 1.209,
+    "records": [
+     "basilisk_b01"
+    ],
+    "referent_lineup": [
+     "basilisk_b01"
+    ]
+   },
+   "basilisk_c01/basilisk_witchritual (boss/trash)": {
+    "scale": 1.35,
+    "true_height_m": 2.475,
+    "factor": 1.536,
+    "e_bodies": 1.266,
+    "records": [
+     "basilisk_c01",
+     "basilisk_witchritual"
+    ],
+    "referent_lineup": [
+     "basilisk_c01",
+     "basilisk_witchritual"
+    ]
+   },
+   "basilisk_h01/basilisk_h02/basilisk_h03/basilisk_h04/... (champion-hero)": {
+    "scale": 1.42,
+    "true_height_m": 2.603,
+    "factor": 1.615,
+    "e_bodies": 1.762,
+    "records": [
+     "basilisk_h01",
+     "basilisk_h02",
+     "basilisk_h03",
+     "basilisk_h04",
+     "basilisk_h05",
+     "cu_bounty07",
+     "devotion/basilisk_h01",
+     "devotion/basilisk_h02",
+     "devotion/basilisk_h03",
+     "devotion/basilisk_h04"
+    ],
+    "referent_lineup": [
+     "basilisk_h02",
+     "basilisk_h05"
+    ]
+   }
+  },
+  "basis": [
+   "designed = shipped / cfg motion_scale 0.8790 (en_e3/work/cfg_gazer.json; fit-to-canvas from the start (conductor): built at 3.516 m = 4.0 m x 0.879 from n17 on the 4.0 m first rig (binding cast_breath f7 heading 6); final s_fit 1.050)",
+   "reference = the roster type lead_record basilisk_a01"
+  ]
+ },
  "vfx_runtime": {
   "manifest_block": "vfx_runtime",
   "atlases": [

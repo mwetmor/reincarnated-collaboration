@@ -141,6 +141,77 @@
    "_what": "the top of the head"
   }
  },
+ "true_size": {
+  "base_height_m": 2.2985,
+  "designed_height_m": 2.3,
+  "reference_record": "swampgolem_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "swampgolem_a01 (trash)": {
+    "scale": 1.0,
+    "true_height_m": 2.3,
+    "factor": 1.001,
+    "e_bodies": 4.188,
+    "records": [
+     "swampgolem_a01"
+    ],
+    "referent_lineup": [
+     "swampgolem_a01"
+    ]
+   },
+   "swampgolem_b01 (trash)": {
+    "scale": 1.15,
+    "true_height_m": 2.645,
+    "factor": 1.151,
+    "e_bodies": 0.951,
+    "records": [
+     "swampgolem_b01"
+    ],
+    "referent_lineup": []
+   },
+   "swampgolem_c01 (trash)": {
+    "scale": 1.28,
+    "true_height_m": 2.944,
+    "factor": 1.281,
+    "e_bodies": 0.482,
+    "records": [
+     "swampgolem_c01"
+    ],
+    "referent_lineup": []
+   },
+   "cu_bounty06/cw_bounty06/devotion/swampgolem_h01/devotion/swampgolem_h02/... (champion-hero)": {
+    "scale": 1.32,
+    "true_height_m": 3.036,
+    "factor": 1.321,
+    "e_bodies": 3.407,
+    "records": [
+     "cu_bounty06",
+     "cw_bounty06",
+     "devotion/swampgolem_h01",
+     "devotion/swampgolem_h02",
+     "devotion/swampgolem_h03",
+     "devotion/swampgolem_h04",
+     "swampgolem_h01",
+     "swampgolem_h02",
+     "swampgolem_h03",
+     "swampgolem_h04",
+     "swampgolem_h05"
+    ],
+    "referent_lineup": [
+     "swampgolem_h01",
+     "swampgolem_h02",
+     "swampgolem_h03",
+     "swampgolem_h04",
+     "swampgolem_h05"
+    ]
+   }
+  },
+  "basis": [
+   "designed = the EN-E2 build target (en_e2/export/final_g/height.json target_m 2.30; no canvas downscale)",
+   "reference = the roster type lead_record swampgolem_a01 (= the manifest roster.lead \"Ugdenbog Golem\")"
+  ]
+ },
  "vfx_runtime": {
   "mud": {
    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_g_mud_atlas.png",

@@ -141,6 +141,102 @@
    "_what": "the top of the head"
   }
  },
+ "true_size": {
+  "base_height_m": 2.5999,
+  "designed_height_m": 2.6,
+  "reference_record": "chthonianrylok_ekketzul.dbr",
+  "reference_scale": 1.600000023841858,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+  "records": {
+   "chthonianrylok_a01/gargoyle_a01 (trash)": {
+    "scale": 1.0,
+    "true_height_m": 1.625,
+    "factor": 0.625,
+    "e_bodies": 0.713,
+    "records": [
+     "chthonianrylok_a01",
+     "gargoyle_a01"
+    ],
+    "referent_lineup": []
+   },
+   "chthonianrylok_b01/gargoyle_b01 (trash)": {
+    "scale": 1.2,
+    "true_height_m": 1.95,
+    "factor": 0.75,
+    "e_bodies": 0.467,
+    "records": [
+     "chthonianrylok_b01",
+     "gargoyle_b01"
+    ],
+    "referent_lineup": []
+   },
+   "chthonianrylok_c01/gargoyle_c01 (trash)": {
+    "scale": 1.32,
+    "true_height_m": 2.145,
+    "factor": 0.825,
+    "e_bodies": 0.334,
+    "records": [
+     "chthonianrylok_c01",
+     "gargoyle_c01"
+    ],
+    "referent_lineup": []
+   },
+   "cw_bounty04/devotion/chthonianrylok_h01/devotion/chthonianrylok_h02/devotion/chthonianrylok_h03/... (champion-hero)": {
+    "scale": 1.4,
+    "true_height_m": 2.275,
+    "factor": 0.875,
+    "e_bodies": 0.273,
+    "records": [
+     "cw_bounty04",
+     "devotion/chthonianrylok_h01",
+     "devotion/chthonianrylok_h02",
+     "devotion/chthonianrylok_h03",
+     "devotion/chthonianrylok_h04"
+    ],
+    "referent_lineup": []
+   },
+   "chthonianrylok_gabalthunn (boss)": {
+    "scale": 1.44,
+    "true_height_m": 2.34,
+    "factor": 0.9,
+    "e_bodies": 0.496,
+    "records": [
+     "chthonianrylok_gabalthunn"
+    ],
+    "referent_lineup": [
+     "chthonianrylok_gabalthunn"
+    ]
+   },
+   "chthonianrylok_ekketzul/nemesis_chthonianvoidborn_01 (boss/nemesis)": {
+    "scale": 1.6,
+    "true_height_m": 2.6,
+    "factor": 1.0,
+    "e_bodies": 0.699,
+    "records": [
+     "chthonianrylok_ekketzul",
+     "nemesis_chthonianvoidborn_01"
+    ],
+    "referent_lineup": [
+     "chthonianrylok_ekketzul"
+    ]
+   },
+   "korvaakmessenger_02/korvaakmessenger_02b (boss)": {
+    "scale": 1.75,
+    "true_height_m": 2.844,
+    "factor": 1.094,
+    "e_bodies": 0.498,
+    "records": [
+     "korvaakmessenger_02",
+     "korvaakmessenger_02b"
+    ],
+    "referent_lineup": []
+   }
+  },
+  "basis": [
+   "designed = the EN-E2 build target (en_e2/export/final_v/height.json target_m 2.60; no canvas downscale)",
+   "reference = chthonianrylok_ekketzul (scale 1.6): the clip manifest roster.lead names it (the BOSS, \"Ekket'Zul, Progenitor of Darkness\"); the roster type lead_record is chthonianrylok_a01 (scale 1.0)"
+  ]
+ },
  "vfx_runtime": {
   "void": {
    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_v_void_atlas.png",

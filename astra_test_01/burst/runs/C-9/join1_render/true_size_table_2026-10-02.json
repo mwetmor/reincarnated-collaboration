@@ -1,0 +1,2273 @@
+{
+ "what": "True-size table for every JOIN-1 enemy pack (lane SZ, C-9 Phase 2, 2026-10-02): pack -> roster rig -> records -> scale -> true height -> factor = true / shipped h_model. KC2 (KP-222) may either accept the shipped size or scale each record at runtime by factor; every pack is cut at camera.ppm_render 151.337.",
+ "ppm_render_contract": 151.33680669505316,
+ "roster": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/2026-10-02-crucible-enemy-roster-packet/roster.json",
+ "referent": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/2026-10-02-kc2-footage-reads/BUILD_PRIORITY.md",
+ "unresolved": [],
+ "flags_outside_0p7_1p3": [
+  "en-acolyte-f nemesis_orderdeathsvigil_02 (nemesis) factor 1.351 [roster only]",
+  "en-acolyte-m eldritcharmor_a01/eldritcharmor_a01_summon/nemesis_kymon_01 (nemesis/summon/trash) factor 1.350 [roster only]",
+  "en-acolyte-m nemesis_outlaw_02 (nemesis) factor 1.480 [roster only]",
+  "en-acolyte-m eldritcharmor_b01 (trash) factor 1.500 [roster only]",
+  "en-acolyte-m eldritcharmor_c01 (trash) factor 1.650 [roster only]",
+  "en-acolyte-m eldritcharmor_dreegmindreaper_01/mindreaper_summon (boss/summon) factor 1.900 [roster only]",
+  "en-blightsac devotion/chthonianfiend_h06 (champion-hero) factor 1.364 [roster only]",
+  "en-cinderstalker sandlizard_a01/sandlizard_eldritch_a01/sandlizard_volcanic_a01 (trash) factor 1.394 [REFERENT: sandlizard_a01]",
+  "en-cinderstalker sandlizard_b01/sandlizard_b02/sandlizard_eldritch_b01/sandlizard_eldritch_b02/... (trash) factor 1.603 [REFERENT: sandlizard_b01]",
+  "en-cinderstalker sandlizard_c01/sandlizard_eldritch_c01/sandlizard_volcanic_c01 (trash) factor 1.742 [REFERENT: sandlizard_c01]",
+  "en-cryptgazer basilisk_b01 (trash) factor 1.388 [REFERENT: basilisk_b01]",
+  "en-cryptgazer basilisk_c01/basilisk_witchritual (boss/trash) factor 1.536 [REFERENT: basilisk_c01,basilisk_witchritual]",
+  "en-cryptgazer basilisk_h01/basilisk_h02/basilisk_h03/basilisk_h04/... (champion-hero) factor 1.615 [REFERENT: basilisk_h02,basilisk_h05]",
+  "en-cryptglutton aetherialbloater_c01 (trash) factor 1.302 [REFERENT: aetherialbloater_c01]",
+  "en-cryptglutton cu_bounty04/devotion/aetherialbloater_h01/devotion/aetherialbloater_h02/devotion/aetherialbloater_h03/... (champion-hero) factor 1.385 [roster only]",
+  "en-cryptglutton aetherialbloater_malmouthdocks_01 (boss) factor 1.594 [REFERENT: aetherialbloater_malmouthdocks_01]",
+  "en-cryptmaw chthoniandevourer_b01/chthoniandevourer_b02 (trash) factor 1.333 [REFERENT: chthoniandevourer_b01,chthoniandevourer_b02]",
+  "en-cryptmaw bl_bounty08/odv_bounty12 (champion-hero) factor 1.389 [roster only]",
+  "en-cryptmaw devotion/chthoniandevourer_h01/devotion/chthoniandevourer_h02/devotion/chthoniandevourer_h03/devotion/chthoniandevourer_h04/... (champion-hero) factor 1.778 [roster only]",
+  "en-gaunt nemesis_wendigo_01 (nemesis) factor 1.401 [roster only]",
+  "en-golem cu_bounty06/cw_bounty06/devotion/swampgolem_h01/devotion/swampgolem_h02/... (champion-hero) factor 1.321 [REFERENT: swampgolem_h01,swampgolem_h02,swampgolem_h03,swampgolem_h04,swampgolem_h05]",
+  "en-icebrute yetidire_b02 (trash) factor 1.464",
+  "en-icebrute ku_bounty_08/yetidire_c01/yetidire_h01/yetidire_h02/... (champion-hero/trash) factor 1.670",
+  "en-icebrute cw_bounty09 (champion-hero) factor 1.782",
+  "en-icebrute yeti_rimehorn_01 (boss) factor 1.989",
+  "en-icebrute nemesis_beast_01_p1 (nemesis) factor 2.545",
+  "en-imp aetherialimp_h01/aetherialimp_h02/aetherialimp_h03/aetherialimp_h04/... (champion-hero) factor 1.308 [REFERENT: aetherialimp_h01,aetherialimp_h02,aetherialimp_h03,aetherialimp_h04,aetherialimp_h05]",
+  "en-ossuarycrab springscrab_a00_summon/swampcrab_a00_summon (summon) factor 0.500 [REFERENT: springscrab_a00_summon,swampcrab_a00_summon]",
+  "en-ossuarycrab swampcrab_c01/swampcrab_c01_summon (summon/trash) factor 1.350 [REFERENT: swampcrab_c01]",
+  "en-ossuarycrab cu_bounty08/devotion/swampcrab_h01/devotion/swampcrab_h02/devotion/swampcrab_h03/... (champion-hero) factor 1.450 [REFERENT: devotion/swampcrab_h01,devotion/swampcrab_h02,devotion/swampcrab_h03,devotion/swampcrab_h04]",
+  "en-ossuarycrab ghostcrab_h01/ghostcrab_h02/ghostcrab_h03/ghostcrab_h04/... (champion-hero) factor 2.000 [REFERENT: swampcrab_h01,swampcrab_h02,swampcrab_h03,swampcrab_h04,swampcrab_h05]",
+  "en-ossuarycrab swampcrab_ugdenbog_01 (boss) factor 2.800 [roster only]",
+  "en-rimethorn thornedhorrorfrost_b01 (trash) factor 1.308 [roster only]",
+  "en-rimethorn thornedhorrorfrost_c01/thornedhorrorfrost_h01/thornedhorrorfrost_h02/thornedhorrorfrost_h03/... (champion-hero/trash) factor 1.723 [roster only]",
+  "en-rimethorn bl_bounty10 (champion-hero) factor 1.769 [roster only]",
+  "en-statue statue_c01/statue_c02/statue_templeguardian_02/statue_templeguardian_03 (boss/trash) factor 1.402",
+  "en-statue statue_korvaaktombguardian (boss) factor 1.683",
+  "en-voiddrone chthonianservitor_b01/b02 factor 1.709",
+  "en-voiddrone chthonianservitor_c01 factor 2.197",
+  "en-voiddrone hero records h01-h04 factor 2.320",
+  "en-voiddrone chthonianservitor_lunalvalgoth (boss) factor 2.442",
+  "en-voiddrone_boss chthonianservitor_b01/b02 factor 1.709",
+  "en-voiddrone_boss chthonianservitor_c01 factor 2.197",
+  "en-voiddrone_boss hero records h01-h04 factor 2.320",
+  "en-voiddrone_boss chthonianservitor_lunalvalgoth (boss) factor 2.442",
+  "en-voidlord chthonianrylok_a01/gargoyle_a01 (trash) factor 0.625 [roster only]",
+  "en-wraith nemesis_wendigo_02 (nemesis) factor 1.321 [roster only]",
+  "en-wretch wendigocannibal_h01/wendigocannibal_h02/wendigocannibal_h03/wendigocannibal_h04/... (boss/champion-hero) factor 1.389 [roster only]"
+ ],
+ "packs": [
+  {
+   "pack": "en-acolyte-f",
+   "roster_rig": "heroine01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7992,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7992,
+    "designed_height_m": 1.8,
+    "reference_record": "ghost_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "ghost_a01/ghost_a01_summon/ghost_b01_summon/ghost_b02_summon/... (champion-hero/summon/trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.8,
+      "factor": 1.0,
+      "e_bodies": 3.146,
+      "records": [
+       "ghost_a01",
+       "ghost_a01_summon",
+       "ghost_b01_summon",
+       "ghost_b02_summon",
+       "kc_bounty08"
+      ],
+      "referent_lineup": []
+     },
+     "ku_bounty_06 (champion-hero)": {
+      "scale": 1.15,
+      "true_height_m": 2.07,
+      "factor": 1.151,
+      "e_bodies": 0.082,
+      "records": [
+       "ku_bounty_06"
+      ],
+      "referent_lineup": [
+       "ku_bounty_06"
+      ]
+     },
+     "bl_bounty18/exile_bounty14/exile_bounty15/nemesis_kymon_02/... (champion-hero/nemesis)": {
+      "scale": 1.2,
+      "true_height_m": 2.16,
+      "factor": 1.201,
+      "e_bodies": 0.405,
+      "records": [
+       "bl_bounty18",
+       "exile_bounty14",
+       "exile_bounty15",
+       "nemesis_kymon_02",
+       "odv_bounty06"
+      ],
+      "referent_lineup": []
+     },
+     "nemesis_orderdeathsvigil_02 (nemesis)": {
+      "scale": 1.35,
+      "true_height_m": 2.43,
+      "factor": 1.351,
+      "e_bodies": 0.101,
+      "records": [
+       "nemesis_orderdeathsvigil_02"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_f/height.json target_m 1.80; no canvas downscale)",
+     "reference = the roster type lead_record ghost_a01",
+     "records with their own pack, NOT served here: humanascendant_mindthief_01 -> en-mindtaker, witch_janaxia -> en-witch, witch_larria -> en-witch"
+    ]
+   },
+   "referent_detail": {
+    "ku_bounty_06": [
+     "row 25 w153 0.30 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-acolyte-m",
+   "roster_rig": "hero01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.8797,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.8797,
+    "designed_height_m": 1.88,
+    "reference_record": "ghost_a02.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "ghost_a02/ghost_b03_summon/ghost_b04_summon/kc_bounty07 (champion-hero/summon/trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.88,
+      "factor": 1.0,
+      "e_bodies": 2.208,
+      "records": [
+       "ghost_a02",
+       "ghost_b03_summon",
+       "ghost_b04_summon",
+       "kc_bounty07"
+      ],
+      "referent_lineup": []
+     },
+     "cultist_cultleader_01 (boss)": {
+      "scale": 1.1,
+      "true_height_m": 2.068,
+      "factor": 1.1,
+      "e_bodies": 0.502,
+      "records": [
+       "cultist_cultleader_01"
+      ],
+      "referent_lineup": []
+     },
+     "dc_bounty06/dc_bounty07/dc_bounty10/dc_bounty11/... (boss/champion-hero/nemesis)": {
+      "scale": 1.2,
+      "true_height_m": 2.256,
+      "factor": 1.2,
+      "e_bodies": 0.795,
+      "records": [
+       "dc_bounty06",
+       "dc_bounty07",
+       "dc_bounty10",
+       "dc_bounty11",
+       "dc_bounty15",
+       "kc_bounty10",
+       "korvaak_lieutenant_01",
+       "nemesis_outlaw_01"
+      ],
+      "referent_lineup": []
+     },
+     "eldritcharmor_a01/eldritcharmor_a01_summon/nemesis_kymon_01 (nemesis/summon/trash)": {
+      "scale": 1.35,
+      "true_height_m": 2.538,
+      "factor": 1.35,
+      "e_bodies": 1.73,
+      "records": [
+       "eldritcharmor_a01",
+       "eldritcharmor_a01_summon",
+       "nemesis_kymon_01"
+      ],
+      "referent_lineup": []
+     },
+     "nemesis_outlaw_02 (nemesis)": {
+      "scale": 1.48,
+      "true_height_m": 2.782,
+      "factor": 1.48,
+      "e_bodies": 0.099,
+      "records": [
+       "nemesis_outlaw_02"
+      ],
+      "referent_lineup": []
+     },
+     "eldritcharmor_b01 (trash)": {
+      "scale": 1.5,
+      "true_height_m": 2.82,
+      "factor": 1.5,
+      "e_bodies": 0.807,
+      "records": [
+       "eldritcharmor_b01"
+      ],
+      "referent_lineup": []
+     },
+     "eldritcharmor_c01 (trash)": {
+      "scale": 1.65,
+      "true_height_m": 3.102,
+      "factor": 1.65,
+      "e_bodies": 0.508,
+      "records": [
+       "eldritcharmor_c01"
+      ],
+      "referent_lineup": []
+     },
+     "eldritcharmor_dreegmindreaper_01/mindreaper_summon (boss/summon)": {
+      "scale": 1.9,
+      "true_height_m": 3.572,
+      "factor": 1.9,
+      "e_bodies": 1.012,
+      "records": [
+       "eldritcharmor_dreegmindreaper_01",
+       "mindreaper_summon"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_m/height.json target_m 1.88; no canvas downscale)",
+     "reference = the roster type lead_record ghost_a02",
+     "records with their own pack, NOT served here: nemesis_aetherialvanguard_01 -> en-magister, witchgod_finalboss -> en-warden",
+     "the referent line-up uses NO record this pack serves (roster-only coverage)"
+    ]
+   },
+   "referent_detail": {}
+  },
+  {
+   "pack": "en-blightsac",
+   "roster_rig": "voidfiend",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.4584,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.4584,
+    "designed_height_m": 1.4584,
+    "reference_record": "chthonianwretch_b01.dbr",
+    "reference_scale": 1.100000023841858,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "chthonianfiend_a01_summon/chthonianwretch_a01/chthonianwretch_b01 (summon/trash)": {
+      "scale": 1.1,
+      "true_height_m": 1.458,
+      "factor": 1.0,
+      "e_bodies": 3.038,
+      "records": [
+       "chthonianfiend_a01_summon",
+       "chthonianwretch_a01",
+       "chthonianwretch_b01"
+      ],
+      "referent_lineup": []
+     },
+     "chthonianfiend_c01_summon/chthonianwretch_c01 (summon/trash)": {
+      "scale": 1.2,
+      "true_height_m": 1.591,
+      "factor": 1.091,
+      "e_bodies": 1.466,
+      "records": [
+       "chthonianfiend_c01_summon",
+       "chthonianwretch_c01"
+      ],
+      "referent_lineup": []
+     },
+     "chthonianfiend_h01/chthonianfiend_h02/chthonianfiend_h03/chthonianfiend_h04/... (champion-hero)": {
+      "scale": 1.35,
+      "true_height_m": 1.79,
+      "factor": 1.227,
+      "e_bodies": 0.265,
+      "records": [
+       "chthonianfiend_h01",
+       "chthonianfiend_h02",
+       "chthonianfiend_h03",
+       "chthonianfiend_h04",
+       "chthonianfiend_h05",
+       "devotion/chthonianfiend_h01",
+       "devotion/chthonianfiend_h02",
+       "devotion/chthonianfiend_h03",
+       "devotion/chthonianfiend_h04",
+       "devotion/chthonianfiend_h05",
+       "kc_bounty09"
+      ],
+      "referent_lineup": [
+       "chthonianfiend_h01",
+       "kc_bounty09"
+      ]
+     },
+     "devotion/chthonianfiend_h06 (champion-hero)": {
+      "scale": 1.5,
+      "true_height_m": 1.989,
+      "factor": 1.364,
+      "e_bodies": 0.036,
+      "records": [
+       "devotion/chthonianfiend_h06"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_blightsac.json; a floater sized to 1.6 m max horizontal extent (body ~1.4 m, hover 0.15 m); the roster box (3.0 x 2.74 x 2.62 mesh units x 1.1) reads as the GD mesh incl. its e)",
+     "reference = the roster type lead_record chthonianwretch_b01"
+    ]
+   },
+   "referent_detail": {
+    "kc_bounty09": [
+     "row 26 w153 0.20 bodies"
+    ],
+    "chthonianfiend_h01": [
+     "row 26 w153 0.20 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-bonegolem",
+   "roster_rig": "golembone_phase01",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.1965,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.2,
+    "designed_height_m": 2.6,
+    "reference_record": "skeletalgolem_c01.dbr",
+    "reference_scale": 1.399999976158142,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "skeletalgolem_b01 (trash)": {
+      "scale": 1.2,
+      "true_height_m": 2.229,
+      "factor": 1.013,
+      "e_bodies": 0.234
+     },
+     "skeletalgolem_c01/skeletalgolem_stepsoftorment_01 (boss/trash)": {
+      "scale": 1.4,
+      "true_height_m": 2.6,
+      "factor": 1.182,
+      "e_bodies": 0.626
+     },
+     "ro_bounty19/skeletalgolem_h01/skeletalgolem_h02/skeletalgolem_h03/... (champion-hero)": {
+      "scale": 1.5,
+      "true_height_m": 2.786,
+      "factor": 1.266,
+      "e_bodies": 0.277
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-brute",
+   "roster_rig": "aetherialcorruption",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.2996,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 2.2996,
+    "designed_height_m": 2.3,
+    "reference_record": "aetherialcorruption_c01.dbr",
+    "reference_scale": 1.600000023841858,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "aetherialcorruption_a01 (trash)": {
+      "scale": 1.25,
+      "true_height_m": 1.797,
+      "factor": 0.781,
+      "e_bodies": 0.557,
+      "records": [
+       "aetherialcorruption_a01"
+      ],
+      "referent_lineup": []
+     },
+     "aetherialcorruption_b01/aetherialcorruption_b01_summon/aetherialcorruption_b02/aetherialcorruption_b02_summon/... (summon/trash)": {
+      "scale": 1.48,
+      "true_height_m": 2.127,
+      "factor": 0.925,
+      "e_bodies": 8.372,
+      "records": [
+       "aetherialcorruption_b01",
+       "aetherialcorruption_b01_summon",
+       "aetherialcorruption_b02",
+       "aetherialcorruption_b02_summon",
+       "aetherialcorruption_b03",
+       "aetherialcorruption_b03_summon"
+      ],
+      "referent_lineup": [
+       "aetherialcorruption_b01"
+      ]
+     },
+     "aetherialcorruption_c01/aetherialcorruption_c01_summon (summon/trash)": {
+      "scale": 1.6,
+      "true_height_m": 2.3,
+      "factor": 1.0,
+      "e_bodies": 5.605,
+      "records": [
+       "aetherialcorruption_c01",
+       "aetherialcorruption_c01_summon"
+      ],
+      "referent_lineup": [
+       "aetherialcorruption_c01",
+       "aetherialcorruption_c01_summon"
+      ]
+     },
+     "aetherialcorruption_h01/aetherialcorruption_h02/aetherialcorruption_h03/aetherialcorruption_h04/... (champion-hero)": {
+      "scale": 1.65,
+      "true_height_m": 2.372,
+      "factor": 1.031,
+      "e_bodies": 4.122,
+      "records": [
+       "aetherialcorruption_h01",
+       "aetherialcorruption_h02",
+       "aetherialcorruption_h03",
+       "aetherialcorruption_h04",
+       "aetherialcorruption_h05",
+       "devotion/aetherialcorruption_h01",
+       "devotion/aetherialcorruption_h02",
+       "devotion/aetherialcorruption_h03",
+       "devotion/aetherialcorruption_h04"
+      ],
+      "referent_lineup": [
+       "aetherialcorruption_h01",
+       "aetherialcorruption_h02",
+       "aetherialcorruption_h03",
+       "aetherialcorruption_h04",
+       "aetherialcorruption_h05",
+       "devotion/aetherialcorruption_h01",
+       "devotion/aetherialcorruption_h02",
+       "devotion/aetherialcorruption_h03",
+       "devotion/aetherialcorruption_h04"
+      ]
+     },
+     "aetherialcorruption_intro (boss)": {
+      "scale": 2.05,
+      "true_height_m": 2.947,
+      "factor": 1.281,
+      "e_bodies": 1.0,
+      "records": [
+       "aetherialcorruption_intro"
+      ],
+      "referent_lineup": [
+       "aetherialcorruption_intro"
+      ]
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_b/height.json target_m 2.30; no canvas downscale)",
+     "reference = aetherialcorruption_c01 (scale 1.6) = the roster type lead_record; the manifest roster.lead text says \"aetherialcorruption_a01: scale 1.6\" but a01 is scale 1.25 in the roster, c01 is the 1.6 record (a label slip in the manifest)"
+    ]
+   },
+   "referent_detail": {
+    "aetherialcorruption_h01": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "aetherialcorruption_h04": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "aetherialcorruption_h05": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "aetherialcorruption_h03": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "aetherialcorruption_h02": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/aetherialcorruption_h03": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/aetherialcorruption_h04": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/aetherialcorruption_h01": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/aetherialcorruption_h02": [
+     "row 9 w152 aetherialcorruption_h0x (hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "aetherialcorruption_c01_summon": [
+     "row 14 w152 2.00 bodies"
+    ],
+    "aetherialcorruption_intro": [
+     "row 34 w155 1.00 bodies"
+    ],
+    "aetherialcorruption_c01": [
+     "row 38 w155 5.00 bodies"
+    ],
+    "aetherialcorruption_b01": [
+     "row 43 w156 6.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-burrowworm",
+   "roster_rig": "aetherialworm",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 0.732,
+   "status": "lane EN-E3 is repainting it: kit untouched, table row only",
+   "true_size": {
+    "base_height_m": 0.732,
+    "designed_height_m": 0.732,
+    "reference_record": "aetherialworm_b01_summon.dbr",
+    "reference_scale": 1.2000000476837158,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "aetherialworm_b01_summon/aetherialworm_b02_summon/aetherialworm_b03_summon/aetherialworm_b04_summon (summon)": {
+      "scale": 1.2,
+      "true_height_m": 0.732,
+      "factor": 1.0,
+      "e_bodies": 1.34,
+      "records": [
+       "aetherialworm_b01_summon",
+       "aetherialworm_b02_summon",
+       "aetherialworm_b03_summon",
+       "aetherialworm_b04_summon"
+      ],
+      "referent_lineup": [
+       "aetherialworm_b01_summon",
+       "aetherialworm_b02_summon",
+       "aetherialworm_b03_summon",
+       "aetherialworm_b04_summon"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_worm.json)",
+     "reference = the summon rig's only/most-used record"
+    ]
+   },
+   "referent_detail": {
+    "aetherialworm_b01_summon": [
+     "row 59 w157 aetherialworm_b0x_summon (class row, 2.00 bodies over 4 records)"
+    ],
+    "aetherialworm_b02_summon": [
+     "row 59 w157 aetherialworm_b0x_summon (class row, 2.00 bodies over 4 records)"
+    ],
+    "aetherialworm_b03_summon": [
+     "row 59 w157 aetherialworm_b0x_summon (class row, 2.00 bodies over 4 records)"
+    ],
+    "aetherialworm_b04_summon": [
+     "row 59 w157 aetherialworm_b0x_summon (class row, 2.00 bodies over 4 records)"
+    ]
+   }
+  },
+  {
+   "pack": "en-cinderstalker",
+   "roster_rig": "sandlizard",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7695,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7695,
+    "designed_height_m": 2.4665,
+    "reference_record": "sandlizard_volcanic_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "sandlizard_a01/sandlizard_eldritch_a01/sandlizard_volcanic_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 2.467,
+      "factor": 1.394,
+      "e_bodies": 2.913,
+      "records": [
+       "sandlizard_a01",
+       "sandlizard_eldritch_a01",
+       "sandlizard_volcanic_a01"
+      ],
+      "referent_lineup": [
+       "sandlizard_a01"
+      ]
+     },
+     "sandlizard_b01/sandlizard_b02/sandlizard_eldritch_b01/sandlizard_eldritch_b02/... (trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.837,
+      "factor": 1.603,
+      "e_bodies": 3.187,
+      "records": [
+       "sandlizard_b01",
+       "sandlizard_b02",
+       "sandlizard_eldritch_b01",
+       "sandlizard_eldritch_b02",
+       "sandlizard_volcanic_b01",
+       "sandlizard_volcanic_b02"
+      ],
+      "referent_lineup": [
+       "sandlizard_b01"
+      ]
+     },
+     "sandlizard_c01/sandlizard_eldritch_c01/sandlizard_volcanic_c01 (trash)": {
+      "scale": 1.25,
+      "true_height_m": 3.083,
+      "factor": 1.742,
+      "e_bodies": 1.359,
+      "records": [
+       "sandlizard_c01",
+       "sandlizard_eldritch_c01",
+       "sandlizard_volcanic_c01"
+      ],
+      "referent_lineup": [
+       "sandlizard_c01"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 0.7174 (en_e3/work/cfg_raptor.json; R-C9-132 conductor ruling (a): scaled x0.7174 (5.47 -> 3.924 m) = the largest scale whose every clip at every heading clears the JOIN-1 canvas with a 5% margin )",
+     "reference = the roster type lead_record sandlizard_volcanic_a01"
+    ]
+   },
+   "referent_detail": {
+    "sandlizard_a01": [
+     "row 60 w158 3.00 bodies"
+    ],
+    "sandlizard_b01": [
+     "row 61 w158 2.00 bodies"
+    ],
+    "sandlizard_c01": [
+     "row 62 w158 1.20 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-crawlerlarva",
+   "roster_rig": "maggot01a",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 0.2347,
+   "status": "lane EN-E3 is repainting it: kit untouched, table row only",
+   "true_size": {
+    "base_height_m": 0.2347,
+    "designed_height_m": 0.2347,
+    "reference_record": "beetle_maggot01_maggotsummon.dbr",
+    "reference_scale": 1.100000023841858,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "beetle_maggot01_maggotsummon (summon)": {
+      "scale": 1.1,
+      "true_height_m": 0.235,
+      "factor": 1.0,
+      "e_bodies": 0.25,
+      "records": [
+       "beetle_maggot01_maggotsummon"
+      ],
+      "referent_lineup": [
+       "beetle_maggot01_maggotsummon"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_larva.json)",
+     "reference = the summon rig's only/most-used record"
+    ]
+   },
+   "referent_detail": {
+    "beetle_maggot01_maggotsummon": [
+     "row 76 w159 2.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-cryptgazer",
+   "roster_rig": "basilisk",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.6115,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.6115,
+    "designed_height_m": 1.8333,
+    "reference_record": "basilisk_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "basilisk_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.833,
+      "factor": 1.138,
+      "e_bodies": 1.545,
+      "records": [
+       "basilisk_a01"
+      ],
+      "referent_lineup": [
+       "basilisk_a01"
+      ]
+     },
+     "basilisk_b01 (trash)": {
+      "scale": 1.22,
+      "true_height_m": 2.237,
+      "factor": 1.388,
+      "e_bodies": 1.209,
+      "records": [
+       "basilisk_b01"
+      ],
+      "referent_lineup": [
+       "basilisk_b01"
+      ]
+     },
+     "basilisk_c01/basilisk_witchritual (boss/trash)": {
+      "scale": 1.35,
+      "true_height_m": 2.475,
+      "factor": 1.536,
+      "e_bodies": 1.266,
+      "records": [
+       "basilisk_c01",
+       "basilisk_witchritual"
+      ],
+      "referent_lineup": [
+       "basilisk_c01",
+       "basilisk_witchritual"
+      ]
+     },
+     "basilisk_h01/basilisk_h02/basilisk_h03/basilisk_h04/... (champion-hero)": {
+      "scale": 1.42,
+      "true_height_m": 2.603,
+      "factor": 1.615,
+      "e_bodies": 1.762,
+      "records": [
+       "basilisk_h01",
+       "basilisk_h02",
+       "basilisk_h03",
+       "basilisk_h04",
+       "basilisk_h05",
+       "cu_bounty07",
+       "devotion/basilisk_h01",
+       "devotion/basilisk_h02",
+       "devotion/basilisk_h03",
+       "devotion/basilisk_h04"
+      ],
+      "referent_lineup": [
+       "basilisk_h02",
+       "basilisk_h05"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 0.8790 (en_e3/work/cfg_gazer.json; fit-to-canvas from the start (conductor): built at 3.516 m = 4.0 m x 0.879 from n17 on the 4.0 m first rig (binding cast_breath f7 heading 6); final s_fit 1.050)",
+     "reference = the roster type lead_record basilisk_a01"
+    ]
+   },
+   "referent_detail": {
+    "basilisk_h05": [
+     "row 9 w152 0.60 bodies"
+    ],
+    "basilisk_h02": [
+     "row 9 w152 0.60 bodies"
+    ],
+    "basilisk_a01": [
+     "row 10 w152 3.00 bodies"
+    ],
+    "basilisk_b01": [
+     "row 11 w152 3.00 bodies"
+    ],
+    "basilisk_c01": [
+     "row 12 w152 1.00 bodies"
+    ],
+    "basilisk_witchritual": [
+     "row 41 w156 0.30 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-cryptglutton",
+   "roster_rig": "aetherialbloater",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.1864,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 2.1864,
+    "designed_height_m": 2.2775,
+    "reference_record": "aetherialbloater_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "aetherialbloater_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 2.277,
+      "factor": 1.042,
+      "e_bodies": 1.125,
+      "records": [
+       "aetherialbloater_a01"
+      ],
+      "referent_lineup": []
+     },
+     "aetherialbloater_b01/aetherialbloater_b01_summon (summon/trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.619,
+      "factor": 1.198,
+      "e_bodies": 1.724,
+      "records": [
+       "aetherialbloater_b01",
+       "aetherialbloater_b01_summon"
+      ],
+      "referent_lineup": [
+       "aetherialbloater_b01",
+       "aetherialbloater_b01_summon"
+      ]
+     },
+     "aetherialbloater_c01 (trash)": {
+      "scale": 1.25,
+      "true_height_m": 2.847,
+      "factor": 1.302,
+      "e_bodies": 0.447,
+      "records": [
+       "aetherialbloater_c01"
+      ],
+      "referent_lineup": [
+       "aetherialbloater_c01"
+      ]
+     },
+     "cu_bounty04/devotion/aetherialbloater_h01/devotion/aetherialbloater_h02/devotion/aetherialbloater_h03/... (champion-hero)": {
+      "scale": 1.33,
+      "true_height_m": 3.029,
+      "factor": 1.385,
+      "e_bodies": 0.425,
+      "records": [
+       "cu_bounty04",
+       "devotion/aetherialbloater_h01",
+       "devotion/aetherialbloater_h02",
+       "devotion/aetherialbloater_h03",
+       "devotion/aetherialbloater_h04",
+       "pm_bounty05"
+      ],
+      "referent_lineup": []
+     },
+     "aetherialbloater_malmouthdocks_01 (boss)": {
+      "scale": 1.53,
+      "true_height_m": 3.485,
+      "factor": 1.594,
+      "e_bodies": 0.335,
+      "records": [
+       "aetherialbloater_malmouthdocks_01"
+      ],
+      "referent_lineup": [
+       "aetherialbloater_malmouthdocks_01"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 0.9600 (en_e3/work/cfg_glutton.json; 2.3 m tall sheet design, built at 2.2 m (x0.957) so every clip clears the JOIN-1 canvas with >=5% margin (n17; binding attack_thrash f4))",
+     "reference = the roster type lead_record aetherialbloater_a01"
+    ]
+   },
+   "referent_detail": {
+    "aetherialbloater_malmouthdocks_01": [
+     "row 48 w157 1.00 bodies"
+    ],
+    "aetherialbloater_b01": [
+     "row 56 w157 0.24 bodies"
+    ],
+    "aetherialbloater_c01": [
+     "row 57 w157 0.18 bodies"
+    ],
+    "aetherialbloater_b01_summon": [
+     "row 85 w160 0.30 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-cryptmaw",
+   "roster_rig": "devourer",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.341,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.341,
+    "designed_height_m": 1.341,
+    "reference_record": "chthoniandevourer_a01.dbr",
+    "reference_scale": 0.8999999761581421,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "chthoniandevourer_a01/chthoniandevourer_a01_summon (summon/trash)": {
+      "scale": 0.9,
+      "true_height_m": 1.341,
+      "factor": 1.0,
+      "e_bodies": 5.809,
+      "records": [
+       "chthoniandevourer_a01",
+       "chthoniandevourer_a01_summon"
+      ],
+      "referent_lineup": [
+       "chthoniandevourer_a01"
+      ]
+     },
+     "chthoniandevourer_b01/chthoniandevourer_b02 (trash)": {
+      "scale": 1.2,
+      "true_height_m": 1.788,
+      "factor": 1.333,
+      "e_bodies": 6.869,
+      "records": [
+       "chthoniandevourer_b01",
+       "chthoniandevourer_b02"
+      ],
+      "referent_lineup": [
+       "chthoniandevourer_b01",
+       "chthoniandevourer_b02"
+      ]
+     },
+     "bl_bounty08/odv_bounty12 (champion-hero)": {
+      "scale": 1.25,
+      "true_height_m": 1.863,
+      "factor": 1.389,
+      "e_bodies": 0.158,
+      "records": [
+       "bl_bounty08",
+       "odv_bounty12"
+      ],
+      "referent_lineup": []
+     },
+     "devotion/chthoniandevourer_h01/devotion/chthoniandevourer_h02/devotion/chthoniandevourer_h03/devotion/chthoniandevourer_h04/... (champion-hero)": {
+      "scale": 1.6,
+      "true_height_m": 2.384,
+      "factor": 1.778,
+      "e_bodies": 0.218,
+      "records": [
+       "devotion/chthoniandevourer_h01",
+       "devotion/chthoniandevourer_h02",
+       "devotion/chthoniandevourer_h03",
+       "devotion/chthoniandevourer_h04",
+       "devotion/chthoniandevourer_h05",
+       "devotion/chthoniandevourer_h06"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_maw.json)",
+     "reference = the roster type lead_record chthoniandevourer_a01"
+    ]
+   },
+   "referent_detail": {
+    "chthoniandevourer_a01": [
+     "row 65 w158 2.00 bodies"
+    ],
+    "chthoniandevourer_b01": [
+     "row 66 w158 1.20 bodies"
+    ],
+    "chthoniandevourer_b02": [
+     "row 66 w158 1.20 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-gaunt",
+   "roster_rig": "wendigo",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.3986,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 2.3986,
+    "designed_height_m": 2.4,
+    "reference_record": "wendigo_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "wendigo_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 2.4,
+      "factor": 1.001,
+      "e_bodies": 1.353,
+      "records": [
+       "wendigo_a01"
+      ],
+      "referent_lineup": [
+       "wendigo_a01"
+      ]
+     },
+     "wendigo_b01/wendigo_b02 (trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.76,
+      "factor": 1.151,
+      "e_bodies": 1.315,
+      "records": [
+       "wendigo_b01",
+       "wendigo_b02"
+      ],
+      "referent_lineup": [
+       "wendigo_b01",
+       "wendigo_b02"
+      ]
+     },
+     "cu_bounty09/devotion/wendigo_h01/devotion/wendigo_h02/devotion/wendigo_h03/... (champion-hero)": {
+      "scale": 1.2,
+      "true_height_m": 2.88,
+      "factor": 1.201,
+      "e_bodies": 1.772,
+      "records": [
+       "cu_bounty09",
+       "devotion/wendigo_h01",
+       "devotion/wendigo_h02",
+       "devotion/wendigo_h03",
+       "devotion/wendigo_h04",
+       "wendigo_h01",
+       "wendigo_h02",
+       "wendigo_h03",
+       "wendigo_h04",
+       "wendigo_h05"
+      ],
+      "referent_lineup": []
+     },
+     "wendigo_c01 (trash)": {
+      "scale": 1.22,
+      "true_height_m": 2.928,
+      "factor": 1.221,
+      "e_bodies": 0.655,
+      "records": [
+       "wendigo_c01"
+      ],
+      "referent_lineup": [
+       "wendigo_c01"
+      ]
+     },
+     "wendigo_ancient_namadea (boss)": {
+      "scale": 1.25,
+      "true_height_m": 3.0,
+      "factor": 1.251,
+      "e_bodies": 0.248,
+      "records": [
+       "wendigo_ancient_namadea"
+      ],
+      "referent_lineup": []
+     },
+     "nemesis_wendigo_01 (nemesis)": {
+      "scale": 1.4,
+      "true_height_m": 3.36,
+      "factor": 1.401,
+      "e_bodies": 0.702,
+      "records": [
+       "nemesis_wendigo_01"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_n/height.json target_m 2.40; no canvas downscale)",
+     "reference = the roster type lead_record wendigo_a01 (= the manifest roster.lead \"Wendigo\")"
+    ]
+   },
+   "referent_detail": {
+    "wendigo_a01": [
+     "row 16 w153 2.00 bodies"
+    ],
+    "wendigo_b01": [
+     "row 17 w153 0.60 bodies"
+    ],
+    "wendigo_b02": [
+     "row 17 w153 0.60 bodies"
+    ],
+    "wendigo_c01": [
+     "row 18 w153 2.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-golem",
+   "roster_rig": "golemswamp_phase01",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.2985,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 2.2985,
+    "designed_height_m": 2.3,
+    "reference_record": "swampgolem_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "swampgolem_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 2.3,
+      "factor": 1.001,
+      "e_bodies": 4.188,
+      "records": [
+       "swampgolem_a01"
+      ],
+      "referent_lineup": [
+       "swampgolem_a01"
+      ]
+     },
+     "swampgolem_b01 (trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.645,
+      "factor": 1.151,
+      "e_bodies": 0.951,
+      "records": [
+       "swampgolem_b01"
+      ],
+      "referent_lineup": []
+     },
+     "swampgolem_c01 (trash)": {
+      "scale": 1.28,
+      "true_height_m": 2.944,
+      "factor": 1.281,
+      "e_bodies": 0.482,
+      "records": [
+       "swampgolem_c01"
+      ],
+      "referent_lineup": []
+     },
+     "cu_bounty06/cw_bounty06/devotion/swampgolem_h01/devotion/swampgolem_h02/... (champion-hero)": {
+      "scale": 1.32,
+      "true_height_m": 3.036,
+      "factor": 1.321,
+      "e_bodies": 3.407,
+      "records": [
+       "cu_bounty06",
+       "cw_bounty06",
+       "devotion/swampgolem_h01",
+       "devotion/swampgolem_h02",
+       "devotion/swampgolem_h03",
+       "devotion/swampgolem_h04",
+       "swampgolem_h01",
+       "swampgolem_h02",
+       "swampgolem_h03",
+       "swampgolem_h04",
+       "swampgolem_h05"
+      ],
+      "referent_lineup": [
+       "swampgolem_h01",
+       "swampgolem_h02",
+       "swampgolem_h03",
+       "swampgolem_h04",
+       "swampgolem_h05"
+      ]
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_g/height.json target_m 2.30; no canvas downscale)",
+     "reference = the roster type lead_record swampgolem_a01 (= the manifest roster.lead \"Ugdenbog Golem\")"
+    ]
+   },
+   "referent_detail": {
+    "swampgolem_h02": [
+     "row 5 w151 0.07 bodies"
+    ],
+    "swampgolem_h01": [
+     "row 6 w151 0.30 bodies"
+    ],
+    "swampgolem_h03": [
+     "row 6 w151 0.30 bodies"
+    ],
+    "swampgolem_h04": [
+     "row 6 w151 0.30 bodies"
+    ],
+    "swampgolem_h05": [
+     "row 6 w151 0.30 bodies"
+    ],
+    "swampgolem_a01": [
+     "row 23 w153 3.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-icebrute",
+   "roster_rig": "yeti",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.1984,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.2,
+    "designed_height_m": 2.8,
+    "reference_record": "yetidire_a01.dbr",
+    "reference_scale": 0.800000011920929,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "yetidire_a01/yetidire_b01 (trash)": {
+      "scale": 0.8,
+      "true_height_m": 2.8,
+      "factor": 1.273,
+      "e_bodies": 1.125
+     },
+     "yetidire_b02 (trash)": {
+      "scale": 0.92,
+      "true_height_m": 3.22,
+      "factor": 1.464,
+      "e_bodies": 0.393
+     },
+     "ku_bounty_08/yetidire_c01/yetidire_h01/yetidire_h02/... (champion-hero/trash)": {
+      "scale": 1.05,
+      "true_height_m": 3.675,
+      "factor": 1.67,
+      "e_bodies": 0.635
+     },
+     "cw_bounty09 (champion-hero)": {
+      "scale": 1.12,
+      "true_height_m": 3.92,
+      "factor": 1.782,
+      "e_bodies": 0.137
+     },
+     "yeti_rimehorn_01 (boss)": {
+      "scale": 1.25,
+      "true_height_m": 4.375,
+      "factor": 1.989,
+      "e_bodies": 0.251
+     },
+     "nemesis_beast_01_p1 (nemesis)": {
+      "scale": 1.6,
+      "true_height_m": 5.6,
+      "factor": 2.545,
+      "e_bodies": 0.505
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-imp",
+   "roster_rig": "aetherialimp",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.1499,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.1499,
+    "designed_height_m": 1.15,
+    "reference_record": "aetherialimp_a01.dbr",
+    "reference_scale": 0.6499999761581421,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "aetherialimp_a01 (trash)": {
+      "scale": 0.65,
+      "true_height_m": 1.15,
+      "factor": 1.0,
+      "e_bodies": 3.27,
+      "records": [
+       "aetherialimp_a01"
+      ],
+      "referent_lineup": []
+     },
+     "aetherialimp_b01 (trash)": {
+      "scale": 0.72,
+      "true_height_m": 1.274,
+      "factor": 1.108,
+      "e_bodies": 1.701,
+      "records": [
+       "aetherialimp_b01"
+      ],
+      "referent_lineup": []
+     },
+     "aetherialimp_h01/aetherialimp_h02/aetherialimp_h03/aetherialimp_h04/... (champion-hero)": {
+      "scale": 0.85,
+      "true_height_m": 1.504,
+      "factor": 1.308,
+      "e_bodies": 1.008,
+      "records": [
+       "aetherialimp_h01",
+       "aetherialimp_h02",
+       "aetherialimp_h03",
+       "aetherialimp_h04",
+       "aetherialimp_h05"
+      ],
+      "referent_lineup": [
+       "aetherialimp_h01",
+       "aetherialimp_h02",
+       "aetherialimp_h03",
+       "aetherialimp_h04",
+       "aetherialimp_h05"
+      ]
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_i/height.json target_m 1.15; no canvas downscale)",
+     "reference = the roster type lead_record aetherialimp_a01 (= the manifest roster.lead \"Aetherial Scamp\")"
+    ]
+   },
+   "referent_detail": {
+    "aetherialimp_h01": [
+     "row 58 w157 1.00 bodies",
+     "row 58 w157 aetherialimp_h0x (2 more imp heroes) (class row, 1.20 bodies over 5 records)"
+    ],
+    "aetherialimp_h05": [
+     "row 58 w157 aetherialimp_h0x (2 more imp heroes) (class row, 1.20 bodies over 5 records)"
+    ],
+    "aetherialimp_h02": [
+     "row 58 w157 aetherialimp_h0x (2 more imp heroes) (class row, 1.20 bodies over 5 records)"
+    ],
+    "aetherialimp_h04": [
+     "row 58 w157 aetherialimp_h0x (2 more imp heroes) (class row, 1.20 bodies over 5 records)"
+    ],
+    "aetherialimp_h03": [
+     "row 58 w157 aetherialimp_h0x (2 more imp heroes) (class row, 1.20 bodies over 5 records)"
+    ]
+   }
+  },
+  {
+   "pack": "en-magister",
+   "roster_rig": "hero01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.5395,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.54,
+    "designed_height_m": 1.88,
+    "reference_record": "ghost_a02.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "nemesis_aetherialvanguard_01 (nemesis)": {
+      "scale": 1.35,
+      "true_height_m": 2.538,
+      "factor": 0.999,
+      "e_bodies": 0.5
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-mindtaker",
+   "roster_rig": "heroine01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.799,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 1.8,
+    "designed_height_m": 1.8,
+    "reference_record": "ghost_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "humanascendant_mindthief_01 (boss)": {
+      "scale": 1.0,
+      "true_height_m": 1.8,
+      "factor": 1.0,
+      "e_bodies": 0.494
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-ossuarybloom",
+   "roster_rig": "carnivorousplant01a_p1",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.9844,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.9844,
+    "designed_height_m": 1.9844,
+    "reference_record": "livingplant_a01.dbr",
+    "reference_scale": 0.699999988079071,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "livingplant_a01/livingplant_a01_summon (summon/trash)": {
+      "scale": 0.7,
+      "true_height_m": 1.984,
+      "factor": 1.0,
+      "e_bodies": 9.761,
+      "records": [
+       "livingplant_a01",
+       "livingplant_a01_summon"
+      ],
+      "referent_lineup": [
+       "livingplant_a01",
+       "livingplant_a01_summon"
+      ]
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_bloom.json)",
+     "reference = the roster type lead_record livingplant_a01"
+    ]
+   },
+   "referent_detail": {
+    "livingplant_a01": [
+     "row 7 w151 4.00 bodies",
+     "row 22 w153 2.00 bodies"
+    ],
+    "livingplant_a01_summon": [
+     "row 8 w151 2.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-ossuarycrab",
+   "roster_rig": "crabmonstrosity",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7246,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7246,
+    "designed_height_m": 1.7246,
+    "reference_record": "swampcrab_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "springscrab_a00_summon/swampcrab_a00_summon (summon)": {
+      "scale": 0.5,
+      "true_height_m": 0.862,
+      "factor": 0.5,
+      "e_bodies": 3.922,
+      "records": [
+       "springscrab_a00_summon",
+       "swampcrab_a00_summon"
+      ],
+      "referent_lineup": [
+       "springscrab_a00_summon",
+       "swampcrab_a00_summon"
+      ]
+     },
+     "swampcrab_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.725,
+      "factor": 1.0,
+      "e_bodies": 3.35,
+      "records": [
+       "swampcrab_a01"
+      ],
+      "referent_lineup": [
+       "swampcrab_a01"
+      ]
+     },
+     "swampcrab_b01/swampcrab_b01_summon (summon/trash)": {
+      "scale": 1.2,
+      "true_height_m": 2.07,
+      "factor": 1.2,
+      "e_bodies": 3.236,
+      "records": [
+       "swampcrab_b01",
+       "swampcrab_b01_summon"
+      ],
+      "referent_lineup": [
+       "swampcrab_b01"
+      ]
+     },
+     "swampcrab_c01/swampcrab_c01_summon (summon/trash)": {
+      "scale": 1.35,
+      "true_height_m": 2.328,
+      "factor": 1.35,
+      "e_bodies": 1.896,
+      "records": [
+       "swampcrab_c01",
+       "swampcrab_c01_summon"
+      ],
+      "referent_lineup": [
+       "swampcrab_c01"
+      ]
+     },
+     "cu_bounty08/devotion/swampcrab_h01/devotion/swampcrab_h02/devotion/swampcrab_h03/... (champion-hero)": {
+      "scale": 1.45,
+      "true_height_m": 2.501,
+      "factor": 1.45,
+      "e_bodies": 0.276,
+      "records": [
+       "cu_bounty08",
+       "devotion/swampcrab_h01",
+       "devotion/swampcrab_h02",
+       "devotion/swampcrab_h03",
+       "devotion/swampcrab_h04"
+      ],
+      "referent_lineup": [
+       "devotion/swampcrab_h01",
+       "devotion/swampcrab_h02",
+       "devotion/swampcrab_h03",
+       "devotion/swampcrab_h04"
+      ]
+     },
+     "ghostcrab_h01/ghostcrab_h02/ghostcrab_h03/ghostcrab_h04/... (champion-hero)": {
+      "scale": 2.0,
+      "true_height_m": 3.449,
+      "factor": 2.0,
+      "e_bodies": 3.0,
+      "records": [
+       "ghostcrab_h01",
+       "ghostcrab_h02",
+       "ghostcrab_h03",
+       "ghostcrab_h04",
+       "ghostcrab_h05",
+       "springscrab_h01",
+       "springscrab_h02",
+       "springscrab_h03",
+       "springscrab_h04",
+       "swampcrab_h01",
+       "swampcrab_h02",
+       "swampcrab_h03",
+       "swampcrab_h04",
+       "swampcrab_h05"
+      ],
+      "referent_lineup": [
+       "swampcrab_h01",
+       "swampcrab_h02",
+       "swampcrab_h03",
+       "swampcrab_h04",
+       "swampcrab_h05"
+      ]
+     },
+     "swampcrab_ugdenbog_01 (boss)": {
+      "scale": 2.8,
+      "true_height_m": 4.829,
+      "factor": 2.8,
+      "e_bodies": 0.247,
+      "records": [
+       "swampcrab_ugdenbog_01"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_crab.json)",
+     "reference = the roster type lead_record swampcrab_a01"
+    ]
+   },
+   "referent_detail": {
+    "swampcrab_h03": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "swampcrab_h01": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "swampcrab_h05": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "swampcrab_h02": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "swampcrab_h04": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/swampcrab_h01": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/swampcrab_h02": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/swampcrab_h03": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "devotion/swampcrab_h04": [
+     "row 9 w152 swampcrab_h0x (crab hero class) (class row, 1.20 bodies over 9 records)"
+    ],
+    "swampcrab_a00_summon": [
+     "row 15 w152 1.50 bodies",
+     "row 70 w158 4.00 bodies"
+    ],
+    "springscrab_a00_summon": [
+     "row 15 w152 1.50 bodies"
+    ],
+    "swampcrab_a01": [
+     "row 67 w158 4.00 bodies"
+    ],
+    "swampcrab_b01": [
+     "row 68 w158 3.00 bodies"
+    ],
+    "swampcrab_c01": [
+     "row 69 w158 1.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-revenant",
+   "roster_rig": "skeleton_01a",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7993,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7993,
+    "designed_height_m": 1.8,
+    "reference_record": "skeleton_c03.dbr",
+    "reference_scale": 1.159999966621399,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "skeleton_a01_summon/skeleton_a02_summon (summon)": {
+      "scale": 1.0,
+      "true_height_m": 1.552,
+      "factor": 0.862,
+      "e_bodies": 1.111,
+      "records": [
+       "skeleton_a01_summon",
+       "skeleton_a02_summon"
+      ],
+      "referent_lineup": [
+       "skeleton_a02_summon"
+      ]
+     },
+     "skeleton_b01_archer_summon (summon)": {
+      "scale": 1.08,
+      "true_height_m": 1.676,
+      "factor": 0.931,
+      "e_bodies": 0.101,
+      "records": [
+       "skeleton_b01_archer_summon"
+      ],
+      "referent_lineup": []
+     },
+     "skeleton_b02_knight/skeleton_b02_knight_summon (summon/trash)": {
+      "scale": 1.12,
+      "true_height_m": 1.738,
+      "factor": 0.966,
+      "e_bodies": 1.239,
+      "records": [
+       "skeleton_b02_knight",
+       "skeleton_b02_knight_summon"
+      ],
+      "referent_lineup": []
+     },
+     "devotion/skeleton_h09/skeleton_c01/skeleton_c01_summon/skeleton_c02/... (champion-hero/summon/trash)": {
+      "scale": 1.16,
+      "true_height_m": 1.8,
+      "factor": 1.0,
+      "e_bodies": 4.506,
+      "records": [
+       "devotion/skeleton_h09",
+       "skeleton_c01",
+       "skeleton_c01_summon",
+       "skeleton_c02",
+       "skeleton_c02_summon",
+       "skeleton_c03",
+       "skeleton_d01"
+      ],
+      "referent_lineup": [
+       "devotion/skeleton_h09",
+       "skeleton_c01",
+       "skeleton_c02",
+       "skeleton_c03",
+       "skeleton_d01"
+      ]
+     },
+     "devotion/skeleton_h01/devotion/skeleton_h02/devotion/skeleton_h03/devotion/skeleton_h04/... (champion-hero)": {
+      "scale": 1.2,
+      "true_height_m": 1.862,
+      "factor": 1.035,
+      "e_bodies": 0.313,
+      "records": [
+       "devotion/skeleton_h01",
+       "devotion/skeleton_h02",
+       "devotion/skeleton_h03",
+       "devotion/skeleton_h04",
+       "devotion/skeleton_h05",
+       "devotion/skeleton_h06",
+       "devotion/skeleton_h08",
+       "devotion/skeleton_h10"
+      ],
+      "referent_lineup": [
+       "devotion/skeleton_h01",
+       "devotion/skeleton_h02",
+       "devotion/skeleton_h03",
+       "devotion/skeleton_h04",
+       "devotion/skeleton_h05",
+       "devotion/skeleton_h06",
+       "devotion/skeleton_h08",
+       "devotion/skeleton_h10"
+      ]
+     },
+     "devotion/skeleton_h07 (champion-hero)": {
+      "scale": 1.3,
+      "true_height_m": 2.017,
+      "factor": 1.121,
+      "e_bodies": 0.037,
+      "records": [
+       "devotion/skeleton_h07"
+      ],
+      "referent_lineup": [
+       "devotion/skeleton_h07"
+      ]
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_r/height.json target_m 1.80; no canvas downscale)",
+     "reference = the roster type lead_record skeleton_c03"
+    ]
+   },
+   "referent_detail": {
+    "skeleton_c01": [
+     "row 19 w153 1.00 bodies"
+    ],
+    "skeleton_c02": [
+     "row 19 w153 1.00 bodies"
+    ],
+    "skeleton_c03": [
+     "row 19 w153 1.00 bodies"
+    ],
+    "skeleton_d01": [
+     "row 20 w153 1.00 bodies"
+    ],
+    "skeleton_a02_summon": [
+     "row 21 w153 4.00 bodies",
+     "row 84 w160 3.00 bodies"
+    ],
+    "devotion/skeleton_h04": [
+     "row 63 w158 1.00 bodies (the record exists only as devotion/skeleton_h04)",
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h03": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h06": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h01": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h10": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h02": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h09": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h08": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h05": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ],
+    "devotion/skeleton_h07": [
+     "row 63 w158 skeleton_h0x (2 more, hero HP class) (class row, 0.60 bodies over 10 records)"
+    ]
+   }
+  },
+  {
+   "pack": "en-rimethorn",
+   "roster_rig": "thornedhorrora01",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7339,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7339,
+    "designed_height_m": 1.7339,
+    "reference_record": "thornedhorrorfrost_a01.dbr",
+    "reference_scale": 0.6499999761581421,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "thornedhorrorfrost_a01 (trash)": {
+      "scale": 0.65,
+      "true_height_m": 1.734,
+      "factor": 1.0,
+      "e_bodies": 1.849,
+      "records": [
+       "thornedhorrorfrost_a01"
+      ],
+      "referent_lineup": []
+     },
+     "thornedhorrorfrost_b01 (trash)": {
+      "scale": 0.85,
+      "true_height_m": 2.267,
+      "factor": 1.308,
+      "e_bodies": 0.921,
+      "records": [
+       "thornedhorrorfrost_b01"
+      ],
+      "referent_lineup": []
+     },
+     "thornedhorrorfrost_c01/thornedhorrorfrost_h01/thornedhorrorfrost_h02/thornedhorrorfrost_h03/... (champion-hero/trash)": {
+      "scale": 1.12,
+      "true_height_m": 2.988,
+      "factor": 1.723,
+      "e_bodies": 2.227,
+      "records": [
+       "thornedhorrorfrost_c01",
+       "thornedhorrorfrost_h01",
+       "thornedhorrorfrost_h02",
+       "thornedhorrorfrost_h03",
+       "thornedhorrorfrost_h04"
+      ],
+      "referent_lineup": []
+     },
+     "bl_bounty10 (champion-hero)": {
+      "scale": 1.15,
+      "true_height_m": 3.068,
+      "factor": 1.769,
+      "e_bodies": 0.073,
+      "records": [
+       "bl_bounty10"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = shipped / cfg motion_scale 1.0000 (en_e3/work/cfg_rimethorn.json; built at the roster lead record size: AABB depth 5.12 x scale 0.65 = 3.33 m; n17 s_fit 1.29 (fits the canvas with 29% margin))",
+     "reference = the roster type lead_record thornedhorrorfrost_a01",
+     "the referent line-up uses NO record this pack serves (roster-only coverage)"
+    ]
+   },
+   "referent_detail": {}
+  },
+  {
+   "pack": "en-statue",
+   "roster_rig": "possessedstatue",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.0494,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.05,
+    "designed_height_m": 2.3,
+    "reference_record": "statue_a02.dbr",
+    "reference_scale": 2.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "statue_a01/statue_a02 (trash)": {
+      "scale": 2.0,
+      "true_height_m": 2.3,
+      "factor": 1.122,
+      "e_bodies": 0.403
+     },
+     "statue_b01/statue_b02 (trash)": {
+      "scale": 2.2,
+      "true_height_m": 2.53,
+      "factor": 1.234,
+      "e_bodies": 0.317
+     },
+     "statue_c01/statue_c02/statue_templeguardian_02/statue_templeguardian_03 (boss/trash)": {
+      "scale": 2.5,
+      "true_height_m": 2.875,
+      "factor": 1.402,
+      "e_bodies": 0.678
+     },
+     "statue_korvaaktombguardian (boss)": {
+      "scale": 3.0,
+      "true_height_m": 3.45,
+      "factor": 1.683,
+      "e_bodies": 0.498
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-voiddrone",
+   "roster_rig": "chthonianservitor",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.9362,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_length_m": 3.6,
+    "roster_box_depth_at_scale1": 8.79,
+    "note": "conductor size call: one max-fit base mesh; the runtime scales each record by factor = true/base when the per-kit ppm allows (KC2 side)",
+    "records": {
+     "chthonianservitor_a01 (drone summon)": {
+      "scale": 0.5,
+      "true_length_m": 4.39,
+      "factor": 1.221
+     },
+     "chthonianservitor_b01/b02": {
+      "scale": 0.7,
+      "true_length_m": 6.15,
+      "factor": 1.709
+     },
+     "chthonianservitor_c01": {
+      "scale": 0.9,
+      "true_length_m": 7.91,
+      "factor": 2.197
+     },
+     "hero records h01-h04": {
+      "scale": 0.95,
+      "true_length_m": 8.35,
+      "factor": 2.32
+     },
+     "chthonianservitor_lunalvalgoth (boss)": {
+      "scale": 1.0,
+      "true_length_m": 8.79,
+      "factor": 2.442
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-voiddrone_boss",
+   "roster_rig": "chthonianservitor",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.9362,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_length_m": 3.6,
+    "roster_box_depth_at_scale1": 8.79,
+    "note": "conductor size call: one max-fit base mesh; the runtime scales each record by factor = true/base when the per-kit ppm allows (KC2 side)",
+    "records": {
+     "chthonianservitor_a01 (drone summon)": {
+      "scale": 0.5,
+      "true_length_m": 4.39,
+      "factor": 1.221
+     },
+     "chthonianservitor_b01/b02": {
+      "scale": 0.7,
+      "true_length_m": 6.15,
+      "factor": 1.709
+     },
+     "chthonianservitor_c01": {
+      "scale": 0.9,
+      "true_length_m": 7.91,
+      "factor": 2.197
+     },
+     "hero records h01-h04": {
+      "scale": 0.95,
+      "true_length_m": 8.35,
+      "factor": 2.32
+     },
+     "chthonianservitor_lunalvalgoth (boss)": {
+      "scale": 1.0,
+      "true_length_m": 8.79,
+      "factor": 2.442
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-voidlord",
+   "roster_rig": "chthonianrylok",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.5999,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 2.5999,
+    "designed_height_m": 2.6,
+    "reference_record": "chthonianrylok_ekketzul.dbr",
+    "reference_scale": 1.600000023841858,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "chthonianrylok_a01/gargoyle_a01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.625,
+      "factor": 0.625,
+      "e_bodies": 0.713,
+      "records": [
+       "chthonianrylok_a01",
+       "gargoyle_a01"
+      ],
+      "referent_lineup": []
+     },
+     "chthonianrylok_b01/gargoyle_b01 (trash)": {
+      "scale": 1.2,
+      "true_height_m": 1.95,
+      "factor": 0.75,
+      "e_bodies": 0.467,
+      "records": [
+       "chthonianrylok_b01",
+       "gargoyle_b01"
+      ],
+      "referent_lineup": []
+     },
+     "chthonianrylok_c01/gargoyle_c01 (trash)": {
+      "scale": 1.32,
+      "true_height_m": 2.145,
+      "factor": 0.825,
+      "e_bodies": 0.334,
+      "records": [
+       "chthonianrylok_c01",
+       "gargoyle_c01"
+      ],
+      "referent_lineup": []
+     },
+     "cw_bounty04/devotion/chthonianrylok_h01/devotion/chthonianrylok_h02/devotion/chthonianrylok_h03/... (champion-hero)": {
+      "scale": 1.4,
+      "true_height_m": 2.275,
+      "factor": 0.875,
+      "e_bodies": 0.273,
+      "records": [
+       "cw_bounty04",
+       "devotion/chthonianrylok_h01",
+       "devotion/chthonianrylok_h02",
+       "devotion/chthonianrylok_h03",
+       "devotion/chthonianrylok_h04"
+      ],
+      "referent_lineup": []
+     },
+     "chthonianrylok_gabalthunn (boss)": {
+      "scale": 1.44,
+      "true_height_m": 2.34,
+      "factor": 0.9,
+      "e_bodies": 0.496,
+      "records": [
+       "chthonianrylok_gabalthunn"
+      ],
+      "referent_lineup": [
+       "chthonianrylok_gabalthunn"
+      ]
+     },
+     "chthonianrylok_ekketzul/nemesis_chthonianvoidborn_01 (boss/nemesis)": {
+      "scale": 1.6,
+      "true_height_m": 2.6,
+      "factor": 1.0,
+      "e_bodies": 0.699,
+      "records": [
+       "chthonianrylok_ekketzul",
+       "nemesis_chthonianvoidborn_01"
+      ],
+      "referent_lineup": [
+       "chthonianrylok_ekketzul"
+      ]
+     },
+     "korvaakmessenger_02/korvaakmessenger_02b (boss)": {
+      "scale": 1.75,
+      "true_height_m": 2.844,
+      "factor": 1.094,
+      "e_bodies": 0.498,
+      "records": [
+       "korvaakmessenger_02",
+       "korvaakmessenger_02b"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_v/height.json target_m 2.60; no canvas downscale)",
+     "reference = chthonianrylok_ekketzul (scale 1.6): the clip manifest roster.lead names it (the BOSS, \"Ekket'Zul, Progenitor of Darkness\"); the roster type lead_record is chthonianrylok_a01 (scale 1.0)"
+    ]
+   },
+   "referent_detail": {
+    "chthonianrylok_gabalthunn": [
+     "row 30 w154 1.00 bodies"
+    ],
+    "chthonianrylok_ekketzul": [
+     "row 75 w159 1.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-warden",
+   "roster_rig": "hero01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.6298,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.63,
+    "designed_height_m": 1.88,
+    "reference_record": "ghost_a02.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "witchgod_finalboss (boss)": {
+      "scale": 1.4,
+      "true_height_m": 2.632,
+      "factor": 1.001,
+      "e_bodies": 1.0
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-witch",
+   "roster_rig": "heroine01_unarmed",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 2.0698,
+   "status": "existing block (read in, unchanged)",
+   "true_size": {
+    "base_height_m": 2.07,
+    "designed_height_m": 1.8,
+    "reference_record": "ghost_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+    "records": {
+     "witch_larria (boss)": {
+      "scale": 1.0,
+      "true_height_m": 1.8,
+      "factor": 0.87,
+      "e_bodies": 0.5
+     },
+     "witch_janaxia (boss)": {
+      "scale": 1.15,
+      "true_height_m": 2.07,
+      "factor": 1.0,
+      "e_bodies": 1.0
+     }
+    }
+   }
+  },
+  {
+   "pack": "en-wraith",
+   "roster_rig": "wraith",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.8487,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.8487,
+    "designed_height_m": 1.85,
+    "reference_record": "wraith_a01.dbr",
+    "reference_scale": 1.0,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "eldritchwraith_a01/wraith_a01/wraith_a01_summon (summon/trash)": {
+      "scale": 1.0,
+      "true_height_m": 1.85,
+      "factor": 1.001,
+      "e_bodies": 5.74,
+      "records": [
+       "eldritchwraith_a01",
+       "wraith_a01",
+       "wraith_a01_summon"
+      ],
+      "referent_lineup": [
+       "eldritchwraith_a01",
+       "wraith_a01"
+      ]
+     },
+     "eldritchwraith_b01/wraith_b01/wraith_b01_summon (summon/trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.127,
+      "factor": 1.151,
+      "e_bodies": 5.92,
+      "records": [
+       "eldritchwraith_b01",
+       "wraith_b01",
+       "wraith_b01_summon"
+      ],
+      "referent_lineup": [
+       "eldritchwraith_b01",
+       "wraith_b01",
+       "wraith_b01_summon"
+      ]
+     },
+     "cw_bounty07/cw_bounty08/devotion/wraith_h01/devotion/wraith_h02/... (champion-hero/summon/trash)": {
+      "scale": 1.25,
+      "true_height_m": 2.312,
+      "factor": 1.251,
+      "e_bodies": 5.858,
+      "records": [
+       "cw_bounty07",
+       "cw_bounty08",
+       "devotion/wraith_h01",
+       "devotion/wraith_h02",
+       "devotion/wraith_h03",
+       "devotion/wraith_h04",
+       "eldritchwraith_c01",
+       "wraith_c01",
+       "wraith_c01_summon",
+       "wraith_h01",
+       "wraith_h02",
+       "wraith_h03",
+       "wraith_h04",
+       "wraith_h05"
+      ],
+      "referent_lineup": [
+       "eldritchwraith_c01",
+       "wraith_c01",
+       "wraith_h01",
+       "wraith_h02",
+       "wraith_h03",
+       "wraith_h04",
+       "wraith_h05"
+      ]
+     },
+     "nemesis_wendigo_02 (nemesis)": {
+      "scale": 1.32,
+      "true_height_m": 2.442,
+      "factor": 1.321,
+      "e_bodies": 0.2,
+      "records": [
+       "nemesis_wendigo_02"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_w/height.json target_m 1.85; no canvas downscale)",
+     "reference = the roster type lead_record wraith_a01"
+    ]
+   },
+   "referent_detail": {
+    "wraith_a01": [
+     "row 1 w151 4.00 bodies"
+    ],
+    "wraith_b01": [
+     "row 2 w151 4.00 bodies"
+    ],
+    "wraith_c01": [
+     "row 3 w151 2.00 bodies"
+    ],
+    "wraith_h03": [
+     "row 4 w151 1.00 bodies"
+    ],
+    "wraith_h01": [
+     "row 4 w151 1.00 bodies"
+    ],
+    "wraith_h02": [
+     "row 5 w151 0.07 bodies"
+    ],
+    "wraith_h04": [
+     "row 5 w151 0.07 bodies"
+    ],
+    "wraith_h05": [
+     "row 5 w151 0.07 bodies"
+    ],
+    "eldritchwraith_a01": [
+     "row 35 w155 4.00 bodies"
+    ],
+    "eldritchwraith_b01": [
+     "row 36 w155 1.00 bodies"
+    ],
+    "eldritchwraith_c01": [
+     "row 37 w155 1.00 bodies"
+    ],
+    "wraith_b01_summon": [
+     "row 46 w156 2.00 bodies"
+    ]
+   }
+  },
+  {
+   "pack": "en-wretch",
+   "roster_rig": "cannibal",
+   "ppm_render": 151.33680669505316,
+   "h_model_m": 1.7996,
+   "status": "NEW block written to the kit",
+   "true_size": {
+    "base_height_m": 1.7996,
+    "designed_height_m": 1.8,
+    "reference_record": "wendigocannibal_a01.dbr",
+    "reference_scale": 0.8999999761581421,
+    "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F). base_height_m = the pack's measured h_model (rest crown-to-sole); cut at ppm_render 151.337 (camera.ppm_render). records = every roster record on the rig this pack serves (waves 151-160 roster packet, incl. its summons); referent_lineup = those the referent line-up uses (BUILD_PRIORITY.md section 6). Lane SZ, C-9 Phase 2, 2026-10-02.",
+    "records": {
+     "wendigocannibal_a01 (trash)": {
+      "scale": 0.9,
+      "true_height_m": 1.8,
+      "factor": 1.0,
+      "e_bodies": 2.714,
+      "records": [
+       "wendigocannibal_a01"
+      ],
+      "referent_lineup": [
+       "wendigocannibal_a01"
+      ]
+     },
+     "wendigocannibal_b01 (trash)": {
+      "scale": 1.0,
+      "true_height_m": 2.0,
+      "factor": 1.111,
+      "e_bodies": 2.107,
+      "records": [
+       "wendigocannibal_b01"
+      ],
+      "referent_lineup": [
+       "wendigocannibal_b01"
+      ]
+     },
+     "wendigocannibal_c01 (trash)": {
+      "scale": 1.15,
+      "true_height_m": 2.3,
+      "factor": 1.278,
+      "e_bodies": 0.498,
+      "records": [
+       "wendigocannibal_c01"
+      ],
+      "referent_lineup": []
+     },
+     "wendigocannibal_h01/wendigocannibal_h02/wendigocannibal_h03/wendigocannibal_h04/... (boss/champion-hero)": {
+      "scale": 1.25,
+      "true_height_m": 2.5,
+      "factor": 1.389,
+      "e_bodies": 0.332,
+      "records": [
+       "wendigocannibal_h01",
+       "wendigocannibal_h02",
+       "wendigocannibal_h03",
+       "wendigocannibal_h04",
+       "wendigocannibal_h05",
+       "wendigocannibal_packla"
+      ],
+      "referent_lineup": []
+     }
+    },
+    "basis": [
+     "designed = the EN-E2 build target (en_e2/export/final_c/height.json target_m 1.80; no canvas downscale)",
+     "reference = the roster type lead_record wendigocannibal_a01 (= the manifest roster.lead \"Ugdenbog Wretch\")"
+    ]
+   },
+   "referent_detail": {
+    "wendigocannibal_a01": [
+     "row 32 w154 5.00 bodies"
+    ],
+    "wendigocannibal_b01": [
+     "row 33 w154 3.00 bodies"
+    ]
+   }
+  }
+ ]
+}
