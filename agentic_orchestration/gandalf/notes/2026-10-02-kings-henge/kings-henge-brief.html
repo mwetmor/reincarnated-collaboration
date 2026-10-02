@@ -88,6 +88,8 @@ svg.map{display:block;width:100%;min-width:520px;height:auto}
 .sw.disc{background:color-mix(in srgb,var(--brass) 18%,transparent);border:1.5px solid var(--brass);border-radius:50%;width:12px;height:12px}
 .sw.mound{background:var(--mound)}
 .sw.cam{border:1.5px dashed var(--lapis)}
+.sw.ray{height:0;border-top:2px dashed var(--brass);border-radius:0}
+.legend{flex-direction:column;gap:6px}
 figcaption{font-size:.9rem;color:var(--muted);max-width:66ch}
 .finding{border-left:3px solid var(--warn);padding:2px 0 2px 16px;display:flex;flex-direction:column;gap:8px}
 .finding h3{color:var(--warn)}
@@ -298,13 +300,14 @@ footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--rule);padd
 <g class="north"><path d="M54 -52 L56.2 -46 L54 -47.4 L51.8 -46 Z"/><text x="54" y="-42.6" text-anchor="middle" class="sub">N</text></g>
 </svg></div>
     <div class="legend">
-      <span><i class="sw floor"></i>barrow_v2 floor (4,026 m², 84 × 82 m)</span>
-      <span><i class="sw old"></i>current arena floor and islands (2,400 m²)</span>
-      <span><i class="sw disc"></i>spawn scatter, 8 m</span>
-      <span><i class="sw mound"></i>barrow mounds, outside the floor</span>
-      <span><i class="sw cam"></i>one screen at GD zoom</span>
+      <span><i class="sw floor"></i><b>Walkable floor</b>, 84 × 82 m. Its black edge is the stone ring: you can't cross it.</span>
+      <span><i class="sw mound"></i><b>Barrow mounds</b>, outside the ring. Impassable; monsters come out of their doors.</span>
+      <span><i class="sw disc"></i><b>Spawn areas</b> (8 m). Ordinary floor, walkable.</span>
+      <span><i class="sw ray"></i><b>Monster paths</b> from each door to the start. Markers only, walkable.</span>
+      <span><i class="sw old"></i><b>Today's arena floor</b>, for comparison only. Not part of barrow_v2.</span>
+      <span><i class="sw cam"></i><b>One screen</b> at the arena's zoom. Not geometry.</span>
     </div>
-    <figcaption>Drawn to scale in metres from the simulation's spawn table (v3.8) and the arena's geometry file. North is up. The floor is the convex shape around every spawn circle plus 1 m, so a straight line from any point on it to any other stays on it. That's the open plane the simulation assumes.</figcaption>
+    <figcaption>Everything inside the black edge is open, walkable snow; nothing inside it blocks you. Drawn to scale in metres from the simulation's spawn table (v3.8) and the arena's geometry file. North is up. The floor is the convex shape around every spawn circle plus 1 m, so a straight line from any point on it to any other stays on it. That's the open plane the simulation assumes.</figcaption>
   </figure>
 
   <h3>The concept</h3>
@@ -316,6 +319,8 @@ footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--rule);padd
     <li><b>p05, the ambush 10 m from the start:</b> a field of shallow graves inside the henge. Bodies burst up through the snow, which is exactly what the emerge animations already do.</li>
     <li><b>Inside the henge</b>, the variety comes from things you can walk over: frozen tarns, toppled stones lying flat, drifts, a worn stone path to the King's door. Nothing inside blocks movement, so what you see and what the simulation computes agree.</li>
   </ul>
+
+  <p><b>Each barrow will look different.</b> Seven loose concept sketches are being drawn to choose from: the King's Barrow, a broken barrow, an ice-sealed barrow, a stone-ship barrow, a cairn barrow, a burnt barrow and a chained twin barrow.</p>
 
   <h3>Why it fits</h3>
   <div class="cols">
