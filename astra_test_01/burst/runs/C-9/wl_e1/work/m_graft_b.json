@@ -1,0 +1,34 @@
+{
+ "clips": {
+  "eor_spin_b": {
+   "source": "mixamo/glb/great_sword_high_spin_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    1.899999976158142
+   ],
+   "keys": 57,
+   "length_s": 1.86666664108634,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    0.0075,
+    2.1671
+   ],
+   "grounded_by_m": 0.05045,
+   "feet_span_m": [
+    0.0,
+    0.0475
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "m_c1.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)"
+  ],
+  "warns": 4
+ }
+}

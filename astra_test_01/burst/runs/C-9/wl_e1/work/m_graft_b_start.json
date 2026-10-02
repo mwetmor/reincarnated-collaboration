@@ -1,0 +1,35 @@
+{
+ "clips": {
+  "eor_spin_start_b": {
+   "source": "mixamo/glb/great_sword_high_spin_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033,
+    0.233
+   ],
+   "keys": 6,
+   "length_s": 0.1666666679084301,
+   "joints": 22,
+   "rest_match": 0.98677,
+   "hip_ratio": 0.90945,
+   "flags": [],
+   "source_travel_m": [
+    -0.0356,
+    0.4285
+   ],
+   "grounded_by_m": 0.04632,
+   "feet_span_m": [
+    0.0,
+    0.0434
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "FAIL",
+  "fails": [
+   "m_c3.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)",
+   "m_c3.glb: clip 'eor_spin_b' stands 0.639 m from the rest position and never comes nearer than 0.519 m -- a consumer stands the body at the origin, so this clip is drawn away from its own capsule and every blend in or out of it drags the figure across the ground"
+  ],
+  "warns": 4
+ }
+}

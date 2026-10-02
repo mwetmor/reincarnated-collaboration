@@ -1,0 +1,132 @@
+{
+ "tolerance_m": 0.25,
+ "metres_per_unit": 0.01,
+ "rest_units": [
+  0.3667285665869713,
+  98.4230637550354,
+  -5.938780307769775
+ ],
+ "clips": {
+  "Armature|clip0|baselayer": {
+   "closest_m": 0.0,
+   "mean_m": 0.0,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle_lean": {
+   "closest_m": 0.0017,
+   "mean_m": 0.007,
+   "first_m": 0.0097,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk": {
+   "closest_m": 0.0028,
+   "mean_m": 0.0422,
+   "first_m": 0.0428,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run": {
+   "closest_m": 0.0077,
+   "mean_m": 0.0267,
+   "first_m": 0.0227,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "attack": {
+   "closest_m": 0.0,
+   "mean_m": 0.2793,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "warcry": {
+   "closest_m": 0.0,
+   "mean_m": 0.148,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "hit": {
+   "closest_m": 0.0,
+   "mean_m": 0.0094,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "death": {
+   "closest_m": 0.0,
+   "mean_m": 0.4422,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle_unarmed": {
+   "closest_m": 0.0003,
+   "mean_m": 0.0011,
+   "first_m": 0.0004,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "walk_unarmed": {
+   "closest_m": 0.004,
+   "mean_m": 0.0205,
+   "first_m": 0.0206,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "run_unarmed": {
+   "closest_m": 0.0009,
+   "mean_m": 0.0163,
+   "first_m": 0.0009,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "idle": {
+   "closest_m": 0.0103,
+   "mean_m": 0.0556,
+   "first_m": 0.0275,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "eor_spin_start": {
+   "closest_m": 0.0885,
+   "mean_m": 0.0885,
+   "first_m": 0.0885,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "eor_spin_loop": {
+   "closest_m": 0.0885,
+   "mean_m": 0.0885,
+   "first_m": 0.0885,
+   "action": "none -- passes within 0.25 m of the rest position"
+  },
+  "eor_spin_loop_b": {
+   "closest_m": 0.5187,
+   "mean_m": 0.6392,
+   "first_m": 0.5187,
+   "action": "recentred on its MEAN (loop)",
+   "shift_m": 0.6389,
+   "shift_units": [
+    -6.1771,
+    0.0,
+    63.5935
+   ],
+   "after": {
+    "closest_m": 0.0092,
+    "mean_m": 0.0628,
+    "first_m": 0.1214
+   },
+   "keys": 27
+  },
+  "eor_spin_start_b": {
+   "closest_m": 0.0,
+   "mean_m": 0.2055,
+   "first_m": 0.0,
+   "action": "none -- passes within 0.25 m of the rest position"
+  }
+ },
+ "accessors_patched": 1,
+ "bin_bytes_changed": 214,
+ "bin_bytes_changed_outside_patches": 0,
+ "lint_verdict": "FAIL",
+ "lint_fails": [
+  "m_c3r.glb: WEAPON REST -- weapon_r's rest is 0.165 m from the recorded mount (tolerance 1 um)"
+ ],
+ "lint_warns": [
+  "m_c3r.glb: clip 'run' starts root 'Hips' at 91.831 against rest 98.423 (6.7% > 5%)",
+  "m_c3r.glb: clip 'hit' starts root 'Hips' at 76.346 against rest 98.423 (22.4% > 5%)",
+  "m_c3r.glb: clip 'death' drifts 0.790 m horizontally over its own length (79.0 units) and is not locomotion -- a clip that walks away from where it started",
+  "m_c3r.glb: clip 'eor_spin_start_b' drifts 0.430 m horizontally over its own length (43.0 units) and is not locomotion -- a clip that walks away from where it started"
+ ]
+}

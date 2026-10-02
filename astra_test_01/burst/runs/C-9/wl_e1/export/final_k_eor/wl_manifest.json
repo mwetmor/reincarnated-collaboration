@@ -1,0 +1,138 @@
+{
+ "_what": "E1 dark knight FINAL K (R-C9-127): narrowed base (rig 3), Mixamo Great Sword set, mace in the two-hand grip, painted + value-graded body, cape fitted to the back, eye glow, unarmed set; bind order matched to the body (e47). Scale 1.96 m. + the EYE OF RECKONING spin (R-C9-128).",
+ "files": {
+  "wl_body.glb": {
+   "lint": "WARN",
+   "fails": [],
+   "mb": 16.23,
+   "clips": [
+    "idle_lean",
+    "walk",
+    "run",
+    "attack",
+    "warcry",
+    "hit",
+    "death",
+    "idle_unarmed",
+    "walk_unarmed",
+    "run_unarmed",
+    "idle"
+   ],
+   "sha256_16": "8080fd58d190dd55"
+  },
+  "wl_cape.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 5.36,
+   "clips": [],
+   "sha256_16": "f57b4370f6d9b24f"
+  },
+  "wl_chest.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 5.24,
+   "clips": [],
+   "sha256_16": "4d9c0c54113ae867"
+  },
+  "wl_helm.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 5.12,
+   "clips": [],
+   "sha256_16": "ec2604f5d3c47f35"
+  },
+  "wl_helm_ice.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 5.12,
+   "clips": [],
+   "sha256_16": "a05acdade1697742"
+  },
+  "wl_mace.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 2.47,
+   "clips": [],
+   "sha256_16": "9eef420b0480dfea"
+  },
+  "wl_pauldrons.glb": {
+   "lint": "PASS",
+   "fails": [],
+   "mb": 5.01,
+   "clips": [],
+   "sha256_16": "35d59b282f7b4b43"
+  }
+ },
+ "clips": {
+  "idle": "great sword idle (4), upright, seam-blended loop",
+  "idle_lean": "great sword idle (leaning) -- kept, unused",
+  "walk": "great sword walk",
+  "run": "great sword run (2) -- forward",
+  "attack": "great sword slash (3), contact at 47%",
+  "warcry": "great sword power up",
+  "hit": "great sword impact",
+  "death": "two handed sword death",
+  "idle_unarmed": "Idle 1 (Meshy 11)",
+  "walk_unarmed": "rig 3's free walking",
+  "run_unarmed": "rig 3's free running"
+ },
+ "weapon_state": {
+  "flag": "armed",
+  "armed_when_pieces": [
+   "wl_mace"
+  ],
+  "armed_clips": {
+   "idle": "idle",
+   "walk": "walk",
+   "run": "run",
+   "attack": "attack",
+   "warcry": "warcry",
+   "hit": "hit",
+   "death": "death"
+  },
+  "unarmed_clips": {
+   "idle": "idle_unarmed",
+   "walk": "walk_unarmed",
+   "run": "run_unarmed",
+   "hit": "hit",
+   "death": "death"
+  },
+  "strikes_need_armed": [
+   "attack",
+   "warcry"
+  ]
+ },
+ "foot_lock_m_per_s": {
+  "walk": 1.073,
+  "run": 4.062
+ },
+ "strike": {
+  "t": 0.8667,
+  "head_height_m": 0.386,
+  "head_from_hips_m": 1.065,
+  "head_bearing_deg": 60.7,
+  "two_handed_w": 1.0,
+  "ASSERT": true
+ },
+ "eye_variant": {
+  "param": "eye",
+  "default": "violet",
+  "values": {
+   "violet": "wl_helm.glb",
+   "ice": "wl_helm_ice.glb"
+  },
+  "sprites": "eye_sockets.json (Head-local; 0.07 m additive billboards, see wl_e1/film_rt/gear_stills.gd _eyes())"
+ },
+ "binding": "pieces share the body joint-node order (e47); binding by bone name in gear.gd is still recommended",
+ "source_note": "Mixamo animation is retargeted into wl_body.glb; the raw Mixamo FBX are not redistributed (wl_e1/mixamo is gitignored)",
+ "eor_spin": {
+  "recommended": {
+   "start": "eor_spin_start",
+   "loop": "eor_spin_loop"
+  },
+  "a": "recipe (a), the v7 rule: one frame of idle turned rigidly CCW about his vertical; start 0.200 s (7 keys, accelerates to 1200 deg/s, turns 120 deg), loop 0.300 s (10 keys, 9 x 40 deg) at rate 1.0; closes exactly",
+  "b": "NOT SHIPPED: recipe (b) is in the comparison film only (wl_e1/export/spin_film); its loop fails the joint-limit lint (left wrist flexion 92 deg at 2 keys) and its feet slide 55-80 mm",
+  "moving": "in place: the runtime moves him while channelling (canUseWhileMoving)",
+  "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12): the effect reads the mace head off the rig"
+ }
+}
