@@ -1,0 +1,21 @@
+{
+ "base_height_m": 3.0,
+ "designed_height_m": 3.0,
+ "reference_record": "aetherial_fleshhulk_mine.dbr",
+ "reference_scale": 1.5199999809265137,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "fleshhulk_h01/fleshhulk_h02/fleshhulk_h03/fleshhulk_h04 (champion-hero)": {
+   "scale": 1.45,
+   "true_height_m": 2.862,
+   "factor": 0.954,
+   "e_bodies": 0.153
+  },
+  "aetherial_fleshhulk_mine (boss)": {
+   "scale": 1.52,
+   "true_height_m": 3.0,
+   "factor": 1.0,
+   "e_bodies": 0.249
+  }
+ }
+}

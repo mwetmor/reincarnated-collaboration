@@ -1,0 +1,27 @@
+{
+ "base_height_m": 2.3,
+ "designed_height_m": 2.3,
+ "reference_record": "aetherialfleshshaper_haraxis.dbr",
+ "reference_scale": 1.399999976158142,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "aetherialfleshshaper_h01/aetherialfleshshaper_h02/aetherialfleshshaper_h03/aetherialfleshshaper_h04/... (champion-hero)": {
+   "scale": 1.36,
+   "true_height_m": 2.234,
+   "factor": 0.971,
+   "e_bodies": 0.27
+  },
+  "aetherialfleshshaper_haraxis/aetherialfleshshaper_hinissius (boss)": {
+   "scale": 1.4,
+   "true_height_m": 2.3,
+   "factor": 1.0,
+   "e_bodies": 0.503
+  },
+  "aetherial_fleshweaverkrieg/aetherial_fleshweaverkriegb (boss)": {
+   "scale": 1.5,
+   "true_height_m": 2.464,
+   "factor": 1.071,
+   "e_bodies": 0.249
+  }
+ }
+}

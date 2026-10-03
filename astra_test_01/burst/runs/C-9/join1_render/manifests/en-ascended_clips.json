@@ -1,0 +1,217 @@
+{
+ "what": "JOIN-1 clip manifest for the ASCENDED ZEALOT (w154 quest boss: fire caster; may hover in the source, built standing; the sun-disc pauldron is costume) (crucible boss mesh, roster rig korvaaksascended01a) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133) + C-9 Phase 2 paint pass, read off en_e2/export/final_u",
+ "painted_texture": {
+  "status": "PAINTED (D7 method)",
+  "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
+  "sheet_A": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-UPA/EN2-UPA_b.png",
+  "sheet_B": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-UPB/EN2-UPB_b.png",
+  "picked_by": "05_register (mean at-zero/peak ratio, higher wins)",
+  "atlas": "en_e2/work/u_tex_final.png",
+  "grade": "none"
+ },
+ "rig": {
+  "method": "Meshy auto-rig (5 credits, the R-C9-135 ledger)",
+  "task": "01a0ff25-3202-777f-b31e-29cb5907b22f"
+ },
+ "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-U/EN2-U_a_r1.png",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_u/en_u_body.glb",
+  "sha256_16": "9d1bb75fe9a366ab",
+  "height_m": 2.4
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "unarmed walk forward (Mixamo Pro Melee Axe Pack, unarmed)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "unarmed run forward (Mixamo Pro Melee Axe Pack, unarmed)"
+  },
+  "cast_bolt": {
+   "seconds": 2.2,
+   "source": "standing 1h magic attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "cast_area": {
+   "seconds": 2.9667,
+   "source": "standing 2h magic area attack 01 (Mixamo Pro Magic Pack)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo Pro Magic Pack)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo Pro Magic Pack)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "unarmed idle (Mixamo Pro Melee Axe Pack, unarmed)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.228,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.297,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.5333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 16"
+  },
+  "cast_area": {
+   "release_s": 1.2667,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 38"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.483 m from the origin, ends 0.111 m"
+ },
+ "roster": {
+  "rig": "korvaaksascended01a",
+  "attack_mix": "projectile 62 % / aoe 25 % / melee 12 % (BUILD_PRIORITY.md)",
+  "melee": "the rig's melee share has no clip in this caster set (as the acolytes); the runtime may play cast_bolt"
+ },
+ "vfx_runtime": {
+  "flame": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_u_flame_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_u_flame_frames.json",
+   "atlas_px": [
+    4096,
+    5823
+   ],
+   "atlas_sha256": "e6773fa197a74de7432aff2043fe7d6b2c878027f20cfe15152c13706fe4611c",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.35,
+    "burst_r_m": 3.0,
+    "ring_r_m": 4.8,
+    "seed": 181,
+    "palette": "flame",
+    "aura_r_m": 8.0,
+    "slash_r_m": 0.9
+   },
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      153,
+      92
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      694,
+      694
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      540,
+      543
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      543,
+      543
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      568,
+      304
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      117,
+      70
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      865,
+      865
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax."
+  }
+ },
+ "true_size": {
+  "base_height_m": 2.4,
+  "designed_height_m": 2.4,
+  "reference_record": "fatherkymon.dbr",
+  "reference_scale": 1.4500000476837158,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "fatherkymon (boss)": {
+    "scale": 1.45,
+    "true_height_m": 2.4,
+    "factor": 1.0,
+    "e_bodies": 0.246
+   },
+   "nemesis_eldritch_01 (nemesis)": {
+    "scale": 1.5,
+    "true_height_m": 2.483,
+    "factor": 1.034,
+    "e_bodies": 0.12
+   }
+  }
+ }
+}

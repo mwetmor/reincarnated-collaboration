@@ -1,0 +1,137 @@
+{
+ "body": "export/final_x/en_x_body.glb",
+ "export_scale": 1.264706,
+ "release": {
+  "cast_bolt": {
+   "hand": "RightHand",
+   "release_s": 0.7333,
+   "key": 22,
+   "speed_mps": 6.972,
+   "hand_pos_m": [
+    -0.703,
+    0.718,
+    0.54
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "cast_area": {
+   "hand": "RightHand",
+   "release_s": 0.6333,
+   "key": 19,
+   "speed_mps": 8.993,
+   "hand_pos_m": [
+    -0.768,
+    0.927,
+    0.2
+   ],
+   "rule": "peak 3D hand speed"
+  }
+ },
+ "loops": {
+  "walk": 0.0001,
+  "run": 0.0001,
+  "idle": 0.0
+ },
+ "speeds": {
+  "walk": {
+   "travel_m": 1.6014,
+   "loop_s": 1.3667,
+   "m_per_s": 1.172,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  },
+  "run": {
+   "travel_m": 2.5175,
+   "loop_s": 0.8,
+   "m_per_s": 3.147,
+   "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
+  }
+ },
+ "extent": {
+  "walk": {
+   "x": [
+    -0.518,
+    0.464
+   ],
+   "y_top": 2.101,
+   "z": [
+    -0.427,
+    0.615
+   ]
+  },
+  "run": {
+   "x": [
+    -0.501,
+    0.472
+   ],
+   "y_top": 2.104,
+   "z": [
+    -0.733,
+    0.597
+   ]
+  },
+  "cast_bolt": {
+   "x": [
+    -0.891,
+    0.572
+   ],
+   "y_top": 2.318,
+   "z": [
+    -0.668,
+    1.082
+   ]
+  },
+  "cast_area": {
+   "x": [
+    -0.781,
+    0.555
+   ],
+   "y_top": 2.439,
+   "z": [
+    -0.423,
+    0.801
+   ]
+  },
+  "hit": {
+   "x": [
+    -0.714,
+    0.175
+   ],
+   "y_top": 2.033,
+   "z": [
+    -0.455,
+    0.692
+   ]
+  },
+  "death": {
+   "x": [
+    -0.803,
+    0.937
+   ],
+   "y_top": 2.023,
+   "z": [
+    -1.508,
+    1.296
+   ]
+  },
+  "idle": {
+   "x": [
+    -0.435,
+    0.437
+   ],
+   "y_top": 2.111,
+   "z": [
+    -0.109,
+    0.344
+   ]
+  }
+ },
+ "clip_len_s": {
+  "walk": 1.3667,
+  "run": 0.8,
+  "cast_bolt": 2.3,
+  "cast_area": 2.1667,
+  "hit": 1.1667,
+  "death": 3.5333,
+  "idle": 1.8
+ }
+}

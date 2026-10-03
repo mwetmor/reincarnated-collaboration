@@ -1,0 +1,184 @@
+{
+ "kit": "en-colossus",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the en-colossus (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, 3.20 m. No layers, no morphs.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_e/en_e_body.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-colossus_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "lob": {
+   "clip": "lob",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.lob.release_s",
+   "release_socket": "main_hand",
+   "manifest_entry": "casts.lob",
+   "skill": "the crystal grenade lob (projectile 56 %)"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.attack.release_s",
+   "release_socket": "main_hand",
+   "manifest_entry": "casts.attack",
+   "skill": "the strike (melee 18 %)"
+  },
+  "slam": {
+   "clip": "slam",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.slam.release_s",
+   "release_socket": "main_hand",
+   "manifest_entry": "casts.slam",
+   "skill": "the slam (aoe 14 %)"
+  },
+  "roar": {
+   "clip": "roar",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_from": "casts.roar.release_s",
+   "release_socket": "chest",
+   "manifest_entry": "casts.roar",
+   "skill": "the roar (r 8 m)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "sockets": {
+  "main_hand": {
+   "bone": "RightHand",
+   "along_bone_m": 0.5856,
+   "_what": "the right hand's TIP (+0.5856 m along +Y, measured): the strike / throw hand (en09)"
+  },
+  "off_hand": {
+   "bone": "LeftHand",
+   "along_bone_m": 0.6076,
+   "_what": "the left hand's tip (+0.6076 m)"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest (Meshy \"Spine\" = the top spine joint)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  }
+ },
+ "true_size": {
+  "base_height_m": 3.2,
+  "designed_height_m": 3.2,
+  "reference_record": "aetherialcolossus_galakros.dbr",
+  "reference_scale": 1.7999999523162842,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "aetherialcolossus_h01/aetherialcolossus_h02/aetherialcolossus_h03/aetherialcolossus_h04/... (champion-hero)": {
+    "scale": 1.6,
+    "true_height_m": 2.844,
+    "factor": 0.889,
+    "e_bodies": 0.417
+   },
+   "aetherialcolossus_galakros (boss)": {
+    "scale": 1.8,
+    "true_height_m": 3.2,
+    "factor": 1.0,
+    "e_bodies": 0.501
+   }
+  }
+ },
+ "painted_texture": {
+  "status": "PAINTED (D7 method)",
+  "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
+  "sheet_A": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-EPA/EN2-EPA_b.png",
+  "sheet_B": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-EPB/EN2-EPB_b.png",
+  "picked_by": "05_register (mean at-zero/peak ratio, higher wins)",
+  "atlas": "en_e2/work/e_tex_final.png",
+  "grade": "none"
+ },
+ "vfx_runtime": {
+  "aether": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_e_aether_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_e_aether_frames.json",
+   "atlas_px": [
+    4096,
+    2286
+   ],
+   "sizes_m": {
+    "bolt_body_r_m": 0.5,
+    "burst_r_m": 2.5,
+    "ring_r_m": 4.0,
+    "seed": 211,
+    "palette": "aether",
+    "slash_r_m": 0.9
+   }
+  }
+ },
+ "watchdog_s": 2400
+}

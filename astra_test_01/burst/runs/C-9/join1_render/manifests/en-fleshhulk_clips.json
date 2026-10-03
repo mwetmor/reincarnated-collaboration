@@ -1,0 +1,226 @@
+{
+ "what": "JOIN-1 clip manifest for the en-fleshhulk (crucible, roster rig fleshhulk_unarmed) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_d",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_d/en_d_body.glb",
+  "sha256_16": "70db275e9c6a734c",
+  "height_m": 3.0
+ },
+ "roster": {
+  "rig": "fleshhulk_unarmed",
+  "referent_rank": 9,
+  "bodies": "1.0 referent (w159 quest boss)",
+  "lead": "the w159 quest boss (scale 1.52, actorRadius 0.75 -> 1.14 m; heroes 1.45)",
+  "style": "aoe 44 % / melee 26 % / projectile 22 % (charge -> aether stomp r 9 m; aether smash; aether field aura; dying explosion r 3 m)",
+  "p05_bodies": 0.0,
+  "box": "H/D 3.2 (BUILD_PRIORITY.md)"
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "axe unarmed walk forward (Mixamo)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "axe unarmed run forward (Mixamo)"
+  },
+  "slam": {
+   "seconds": 2.2667,
+   "source": "axe standing melee attack downward (Mixamo)"
+  },
+  "attack": {
+   "seconds": 2.4,
+   "source": "axe standing melee attack horizontal (Mixamo)"
+  },
+  "lob": {
+   "seconds": 2.6667,
+   "source": "standing 2h magic attack 01 (Mixamo)"
+  },
+  "hit": {
+   "seconds": 1.4667,
+   "source": "axe standing react large gut (Mixamo)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "axe unarmed idle (Mixamo)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.451,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.896,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "slam": {
+   "release_s": 0.8333,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 25"
+  },
+  "attack": {
+   "release_s": 0.8667,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
+  },
+  "lob": {
+   "release_s": 1.1333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 34"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.462 m from the origin, ends 0.027 m"
+ },
+ "vfx_runtime": {
+  "aether": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_d_aether_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_d_aether_frames.json",
+   "atlas_px": [
+    4096,
+    4788
+   ],
+   "atlas_sha256": "c212c86324e6ffa5180f01faa1a21111ca2093d4983dfbe8a90a1ba4be24dfce",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.3,
+    "burst_r_m": 3.0,
+    "ring_r_m": 4.5,
+    "seed": 201,
+    "palette": "aether",
+    "aura_r_m": 7.0,
+    "slash_r_m": 0.9
+   },
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.",
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      132,
+      78
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      694,
+      694
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      506,
+      508
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      509,
+      509
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      528,
+      279
+     ]
+    },
+    "slash": {
+     "fps": 24,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      118,
+      71
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      757,
+      757
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "use": "slash = the aether smash / charge; ring_* (r 4.5 m) = the aether stomp; bolt + burst = the lobbed aether glob; aura (r 7 m) = the aether field"
+  }
+ },
+ "painted_texture": {
+  "status": "PAINTED (D7 method)",
+  "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
+  "sheet_A": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-DPA/EN2-DPA_b.png",
+  "sheet_B": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-DPB/EN2-DPB_a.png",
+  "picked_by": "05_register (mean at-zero/peak ratio, higher wins)",
+  "atlas": "en_e2/work/d_tex_final.png",
+  "grade": "none"
+ },
+ "true_size": {
+  "base_height_m": 3.0,
+  "designed_height_m": 3.0,
+  "reference_record": "aetherial_fleshhulk_mine.dbr",
+  "reference_scale": 1.5199999809265137,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "fleshhulk_h01/fleshhulk_h02/fleshhulk_h03/fleshhulk_h04 (champion-hero)": {
+    "scale": 1.45,
+    "true_height_m": 2.862,
+    "factor": 0.954,
+    "e_bodies": 0.153
+   },
+   "aetherial_fleshhulk_mine (boss)": {
+    "scale": 1.52,
+    "true_height_m": 3.0,
+    "factor": 1.0,
+    "e_bodies": 0.249
+   }
+  }
+ }
+}

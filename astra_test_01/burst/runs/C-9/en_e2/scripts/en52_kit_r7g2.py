@@ -10,17 +10,23 @@ import json, os, sys, hashlib
 import numpy as np
 g = sys.argv[1]; E = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = os.path.join(os.path.dirname(E), 'join1_render')
 sys.path.insert(0, os.path.join(E, 'scripts')); C = __import__('s17_loop_closure')
-PAINTED = '--painted' in sys.argv
-KID0 = dict(h='en-warden', k='en-magister', j='en-witch', q='en-mindtaker')[g]; KID = KID0 + ('_p' if PAINTED else '')
+NEW = g in 'lux'                                   # C-9 Phase 2 new casters: painted from birth, no provisional root to supersede
+PAINTED = '--painted' in sys.argv or NEW
+KID0 = dict(h='en-warden', k='en-magister', j='en-witch', q='en-mindtaker', l='en-fleshshaper', u='en-ascended', x='en-vigillord')[g]; KID = KID0 + ('_p' if PAINTED and not NEW else '')
 WHO = dict(h='the WARDEN (armoured champion of the order; the clock-face shield is costume, rigged unarmed)',
            k='the ARCH-MAGISTER (scholar-mage; the robe is weighted to the thighs and shins and travels as a skirt)',
            j='the BETRAYER WITCH (the two w156 witches share this mesh; the bone-hand pauldron is costume)',
-           q='the MIND-TAKER (gaunt sorceress; the needle bracelet is costume)')[g]
-RIG = dict(h='hero01_unarmed', k='hero01_unarmed', j='heroine01_unarmed', q='heroine01_unarmed')[g]
+           q='the MIND-TAKER (gaunt sorceress; the needle bracelet is costume)',
+           l='the FLESH-SHAPER (w152 quest boss: aether caster; the grafted left forearm is costume)',
+           u='the ASCENDED ZEALOT (w154 quest boss: fire caster; may hover in the source, built standing; the sun-disc pauldron is costume)',
+           x='the VIGIL-LORD (w160 nemesis + its revenant summon + the w153 bounty hero: skeletal caster; the wrist lantern is costume, standing in for the record\'s off-hand focus)')[g]
+RIG = dict(h='hero01_unarmed', k='hero01_unarmed', j='heroine01_unarmed', q='heroine01_unarmed', l='aetherialfleshshaper', u='korvaaksascended01a', x='skeleton_01a_b')[g]
 MIX = dict(hero01_unarmed='projectile 44 % / aoe 24 % / melee 24 % (the rig, BUILD_PRIORITY.md)',
-           heroine01_unarmed='projectile 65 % / aura 12 % / melee 12 % (the rig, BUILD_PRIORITY.md)')[RIG]
-VID = dict(h='en_h_pale', k='en_k_aether', j='en_j_blight', q='en_q_storm')[g]
-SHEET = dict(h='artifacts/EN2-H1/EN2-H1_a.png', k='artifacts/EN2-H2/EN2-H2_a.png', j='artifacts/EN2-W1/EN2-W1_a.png', q='artifacts/EN2-W2/EN2-W2_a_r1.png')[g]
+           heroine01_unarmed='projectile 65 % / aura 12 % / melee 12 % (the rig, BUILD_PRIORITY.md)',
+           aetherialfleshshaper='aoe 45 % / projectile 39 % / aura 14 % (BUILD_PRIORITY.md)', korvaaksascended01a='projectile 62 % / aoe 25 % / melee 12 % (BUILD_PRIORITY.md)',
+           skeleton_01a_b='projectile 60 % / aoe 20 % / buff 10 % (BUILD_PRIORITY.md)')[RIG]
+VID = dict(h='en_h_pale', k='en_k_aether', j='en_j_blight', q='en_q_storm', l='en_l_aether', u='en_u_flame', x='en_x_pale')[g]
+SHEET = dict(h='artifacts/EN2-H1/EN2-H1_a.png', k='artifacts/EN2-H2/EN2-H2_a.png', j='artifacts/EN2-W1/EN2-W1_a.png', q='artifacts/EN2-W2/EN2-W2_a_r1.png', l='artifacts/EN2-L/EN2-L_a_r1.png', u='artifacts/EN2-U/EN2-U_a_r1.png', x='artifacts/EN2-X/EN2-X_a_r1.png')[g]
 body = os.path.join(E, 'export/final_%s/en_%s_body.glb' % (g, g))
 M = json.load(open(os.path.join(E, 'export/final_%s/en_%s_measure.json' % (g, g))))
 H = json.load(open(os.path.join(E, 'export/final_%s/height.json' % g)))
@@ -30,7 +36,14 @@ sha16 = hashlib.sha256(open(body, 'rb').read()).hexdigest()[:16]
 m = C.model(body); hi = [i for i in m['joints'] if m['nodes'][i].get('name') == 'Hips'][0]
 ts = sorted({float(t) for v in m['anims']['death'].values() for t in v[0]}); P = np.array([C.globals_at(m, 'death', t)[hi][:3, 3] for t in ts])
 dtrack = np.hypot(P[:, 0], P[:, 2])
-if g == 'q':
+if g == 'x':
+    WT = json.load(open(os.path.join(E, 'work/wt_x.json')))
+    rig = dict(method='FREE weight transfer (en49, no Meshy credit) from the REVENANT\'s Meshy rig (builds/en_r_rigged.glb) onto this mesh: k=%d inverse-distance weights, leg side rule (midline gap %.2f), joints refit by the displacement field' % (WT['k'], WT['side_gap']),
+               why='the conductor\'s route for the skeleton nemesis (same skeleton family as the built revenant; the roster: same clip directory and 39-bone count)',
+               report=os.path.join(E, 'work/wt_x.json'))
+    if os.path.exists(os.path.join(E, 'work/x_bridge_cut.json')):
+        BC = json.load(open(os.path.join(E, 'work/x_bridge_cut.json'))); rig['bridge_cut'] = dict(tool='en55 (after en10_final)', faces_removed=BC['cut'], vertices_unblended=BC['verts_unblended'])
+elif g == 'q':
     WT = json.load(open(os.path.join(E, 'work/wt_q.json')))
     rig = dict(method='FREE weight transfer (en49, no Meshy credit) from the female acolyte\'s Meshy rig (builds/en_f_rigged.glb, heroine01 skeleton) '
                       'onto this mesh: k=%d inverse-distance weights, leg side rule (midline gap %.2f), joints refit by the displacement field' % (WT['k'], WT['side_gap']),
@@ -44,14 +57,14 @@ if g == 'q':
                                  'After the cut the longest torn sliver is 0.27 m (the Meshy-rigged witch: 0.43 m)')
 else:
     RR = json.load(open(os.path.join(E, 'work/res_rig_%s.json' % g)))
-    rig = dict(method='Meshy auto-rig (5 credits, round-7 ledger)', task=RR['id'])
+    rig = dict(method='Meshy auto-rig (5 credits, %s ledger)' % ('the R-C9-135' if NEW else 'round-7'), task=RR['id'])
 prov = dict(status='PROVISIONAL TEXTURE', texture='Tripo H3.1 own texture (work/%s_tripo_tex.png), embedded; no paint pass, no grade' % g,
             why='the Astra image limit: the D7 paint (sheets A/B, register, region grade) waits for the reset, 2026-10-03 20:32 local',
             replace='paint A/B (en08 + en32 bake) -> en17/en19 grade -> en10_final -> en21 cells -> index; geometry, rig and clips stay')
 if PAINTED:
     PJ = json.load(open(os.path.join(E, 'work/%s_paint.json' % g)))
     prov = None
-    painted = dict(status='PAINTED (D7 method)', supersedes='join1_pack/%s (provisional Tripo texture; source body kept at export/final_%s_v1)' % (KID0, g), **PJ)
+    painted = dict(status='PAINTED (D7 method)', **({} if NEW else dict(supersedes='join1_pack/%s (provisional Tripo texture; source body kept at export/final_%s_v1)' % (KID0, g))), **PJ)
 casts = {c: dict(release_s=v['release_s'], hand=v['hand'], definition='%s, the key that ENDS the fastest interval, on the clip\'s own 30 fps key %d' % (v['rule'], v['key']))
          for c, v in M['release'].items()}
 def src(c):
@@ -93,7 +106,7 @@ sockets = dict(cast_hand=dict(bone='RightHand', along_bone_m=TIP, _what='the rig
                chest=dict(bone='Spine', _what='the chest: Meshy\'s "Spine" is the TOP spine joint (Spine02 is the lowest)'),
                head_top=dict(bone='head_end', _what='the top of the head'))
 kit = dict(kit=KID, _what='Per-kit config for the JOIN-1 sprite-cell renderer: %s; one body, no gear, %.2f m. No layers, no morphs. %s'
-           % (WHO, H['target_m'], 'PAINTED (D7 paint pass, C-9 Phase 2); supersedes %s.' % KID0 if PAINTED else 'PROVISIONAL TEXTURE (Tripo\'s own) until the Astra reset.'),
+           % (WHO, H['target_m'], ('PAINTED (D7 paint pass, C-9 Phase 2).' if NEW else 'PAINTED (D7 paint pass, C-9 Phase 2); supersedes %s.' % KID0) if PAINTED else 'PROVISIONAL TEXTURE (Tripo\'s own) until the Astra reset.'),
            **(dict(painted_texture=painted) if PAINTED else dict(provisional_texture=prov)),
            contract=dict(doc='reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md', commit='d95e1df', schema='join1-sprite-cells/1'),
            source=dict(body=body, pieces=[], clip_manifest=mp, loadout=dict(main_hand=None, main_side='R', off_hand=None, weapsel=0)),

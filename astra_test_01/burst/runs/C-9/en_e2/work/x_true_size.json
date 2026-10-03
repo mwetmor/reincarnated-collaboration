@@ -1,0 +1,21 @@
+{
+ "base_height_m": 2.15,
+ "designed_height_m": 2.15,
+ "reference_record": "nemesis_orderdeathsvigil_01.dbr",
+ "reference_scale": 1.2000000476837158,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "odv_bounty13 (champion-hero)": {
+   "scale": 1.16,
+   "true_height_m": 2.078,
+   "factor": 0.967,
+   "e_bodies": 0.085
+  },
+  "nemesis_orderdeathsvigil_01/ro_bounty12 (champion-hero/nemesis)": {
+   "scale": 1.2,
+   "true_height_m": 2.15,
+   "factor": 1.0,
+   "e_bodies": 0.184
+  }
+ }
+}

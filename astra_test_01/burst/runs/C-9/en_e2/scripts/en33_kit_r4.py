@@ -5,8 +5,8 @@ import json, os, sys, hashlib
 import numpy as np
 g = sys.argv[1]; E = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = os.path.join(os.path.dirname(E), 'join1_render')
 sys.path.insert(0, os.path.join(E, 'scripts')); C = __import__('s17_loop_closure')
-KID = dict(b='en-brute', c='en-wretch', i='en-imp', g='en-golem', n='en-gaunt', y='en-icebrute', v='en-voidlord', s='en-statue', o='en-bonegolem')[g]
-VID = dict(b='en_b_blight', c='en_c_blood', i='en_i_aether', g='en_g_mud', n='en_n_frost', y='en_y_frost', v='en_v_void', s='en_s_stone', o='en_o_bone')[g]
+KID = dict(b='en-brute', c='en-wretch', i='en-imp', g='en-golem', n='en-gaunt', y='en-icebrute', v='en-voidlord', s='en-statue', o='en-bonegolem', d='en-fleshhulk', e='en-colossus')[g]
+VID = dict(b='en_b_blight', c='en_c_blood', i='en_i_aether', g='en_g_mud', n='en_n_frost', y='en_y_frost', v='en_v_void', s='en_s_stone', o='en_o_bone', d='en_d_aether', e='en_e_aether')[g]
 body = os.path.join(E, 'export/final_%s/en_%s_body.glb' % (g, g))
 M = json.load(open(os.path.join(E, 'export/final_%s/en_%s_measure.json' % (g, g))))
 H = json.load(open(os.path.join(E, 'export/final_%s/height.json' % g)))
@@ -36,7 +36,11 @@ ROSTER = dict(
     s=dict(rig='possessedstatue', referent_rank=2, bodies='2.4 referent (w156, 4 raw)', lead='The Steward (BOSS; scale 3.0, actorRadius 0.75 -> 2.25 m) / statue_a01-b02 trash; range 0.6-2.25',
            run_m_per_s=[3.209, 3.53], style='melee 49 % / aoe 38 % / projectile 13 %', p05_bodies=0.0, weapon='Spear2h (a prop: join1 piece spear3.glb on weapon_r)'),
     o=dict(rig='golembone_phase01', referent_rank=10, bodies='1.0 referent (w158 hero)', lead='Skeletal Monstrosity (scale 1.4, actorRadius 0.75 -> 1.05 m; range 0.9-1.125)',
-           run_m_per_s=[4.33, 4.97], style='aoe 46 % / buff 45 % (bone prison) / summons on 22 %', p05_bodies=0.0))[g]
+           run_m_per_s=[4.33, 4.97], style='aoe 46 % / buff 45 % (bone prison) / summons on 22 %', p05_bodies=0.0),
+    d=dict(rig='fleshhulk_unarmed', referent_rank=9, bodies='1.0 referent (w159 quest boss)', lead='the w159 quest boss (scale 1.52, actorRadius 0.75 -> 1.14 m; heroes 1.45)',
+           style='aoe 44 % / melee 26 % / projectile 22 % (charge -> aether stomp r 9 m; aether smash; aether field aura; dying explosion r 3 m)', p05_bodies=0.0, box='H/D 3.2 (BUILD_PRIORITY.md)'),
+    e=dict(rig='aetherialcolossus', referent_rank=8, bodies='1.0 referent (w160 quest boss)', lead='the w160 quest boss (scale 1.8, actorRadius 0.75 -> 1.35 m; heroes 1.6)',
+           style='projectile 56 % / melee 18 % / aoe 14 % (grenade burst r 2.5 m @ 16 m/s; slam r 8 m; roar r 8 m; charge; strike)', p05_bodies=0.0, box='H/D 2.5 (BUILD_PRIORITY.md)'))[g]
 def src(c):
     if c in GR: return os.path.basename(GR[c]['source']).replace('.glb', '').replace('_', ' ') + ' (Mixamo)'
     return dict(emerge='en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded')[c]
@@ -47,7 +51,9 @@ vfx = dict(atlas=os.path.join(E, 'vfx', V['atlas']), frames=os.path.join(E, 'vfx
            phases={k: dict(fps=v['fps'], frames=v['n'], plane=v['plane'], loop=v['loop'], px_per_m=v.get('px_per_m', V['px_per_m']),
                            max_frame_px=[max(f['rect'][2] for f in v['frames']), max(f['rect'][3] for f in v['frames'])]) for k, v in V['phases'].items()},
            telegraph_lead_s=round(V['phases']['ring_tele']['n'] / V['phases']['ring_tele']['fps'], 4),
-           use=dict(s='slash = the sweep / strike arcs; ring_* (r 4.5 m) = the thrust impact (mega-punch row); burst = the strike impact',
+           use=dict(d='slash = the aether smash / charge; ring_* (r 4.5 m) = the aether stomp; bolt + burst = the lobbed aether glob; aura (r 7 m) = the aether field',
+                    e='bolt + burst (r 2.5 m) = the crystal grenade lob (projectile 56 %); slash = the strike; ring_* (r 4.0 m) = the slam / roar',
+                    s='slash = the sweep / strike arcs; ring_* (r 4.5 m) = the thrust impact (mega-punch row); burst = the strike impact',
                     o='slash = the heavy swing; ring_* (r 3.0 m) = the slam / bone prison; aura (r 4.0 m) = the disease cloud (hero rows)',
                     v='slash = the claw sweep; bolt + burst (r 1.8 m) = the chaos bolt; ring_* (r 4.0 m) = the eruption; aura (r 8.0 m) = the dying chaos blast (roster r 8-9 m)',
                     g='slash = the heavy swing; ring_* = the SLAM shock ring (r 4.0 m); bolt + burst (r 2.0 m) = the mud lob (the vine nova row: see roster_projectile)',
@@ -81,6 +87,10 @@ SIZE_CALLS = dict(
            why='at 2.60 m the swing and the death fall cleared the canvas; the death fall centred (en42) and the body shipped at 2.20 m (tightest 45 px = 5.9 %). '
                'The CONDUCTOR\'s size call.'))
 if g in SIZE_CALLS: man['size_call'] = SIZE_CALLS[g]
+SCJ = os.path.join(E, 'work/%s_size_call.json' % g)          # C-9 Phase 2: a max-fit size call recorded as JSON (d, e)
+if os.path.exists(SCJ): man['size_call'] = json.load(open(SCJ))
+PJ = os.path.join(E, 'work/%s_paint.json' % g)              # C-9 Phase 2: the D7 paint record
+if os.path.exists(PJ) and g in 'de': man['painted_texture'] = dict(status='PAINTED (D7 method)', **json.load(open(PJ)))
 if g == 'y':
     man['size_call'] = dict(designed_height_m=2.80, shipped_height_m=H['target_m'], factor=round(H['target_m'] / 2.80, 4),
                             why='at 2.80 m the overhead throw and the ground pound cleared the 768 x 768 canvas (edge touch on 8 cells); the 5 % margin gate (38.4 px) '
@@ -102,6 +112,8 @@ ONE = dict(b=[('attack', 12, 'the heavy unarmed swing (melee 59 %)'), ('hurl', 1
            y=[('throw', 12, 'the boulder / ice throw (projectile 39 %)'), ('pound', 16, 'the ground pound (aoe 37 %)'), ('roar', 16, 'the roar (aura 14 %)')],
            s=[('attack', 12, 'the overwhelming two-handed strike (melee 49 %)'), ('thrust', 12, 'the spear thrust (the mega-punch row, r 4.5 m)'),
               ('sweep', 16, 'the leaping slam (aoe 38 %: double swipe; the spin attack cleared the canvas)')],
+           d=[('slam', 12, 'the aether stomp / smash (aoe 44 %)'), ('attack', 12, 'the charging swing (melee 26 %)'), ('lob', 12, 'the lobbed aether glob (projectile 22 %)')],
+           e=[('lob', 12, 'the crystal grenade lob (projectile 56 %)'), ('attack', 12, 'the strike (melee 18 %)'), ('slam', 12, 'the slam (aoe 14 %)'), ('roar', 16, 'the roar (r 8 m)')],
            o=[('slam', 12, 'the double strike slam (aoe 46 %)'), ('attack', 12, 'the heavy swing'), ('buff', 16, 'the bone prison call (buff 45 %)')],
            v=[('attack', 12, 'the brutal downward strike (melee 42 %)'), ('sweep', 12, 'the chaos claw sweep (aoe swipe)'), ('cast_bolt', 12, 'the chaos bolt (projectile 28 %)'),
               ('cast_area', 16, 'the eruption (aoe 27 %)')])[g]
@@ -124,6 +136,6 @@ kit = dict(kit=KID, **({'size_call': 'DOWNSCALED %.2f -> %.2f m to fit the 768 c
            source=dict(body=body, pieces=[os.path.join(E, 'export/final_s/spear3.glb')] if g == 's' else [], clip_manifest=mp, loadout=dict(main_hand=None, main_side='R', off_hand=None, weapsel=0)),
            h_model=dict(method='rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres', mesh_name_contains='char1'),
            camera={}, morphs={}, states=states, sockets=sockets,
-           **({'true_size': man['true_size']} if 'true_size' in man else {}),
+           **({'true_size': man['true_size']} if 'true_size' in man else {}), **({'painted_texture': man['painted_texture']} if 'painted_texture' in man else {}),
            vfx_runtime={VID.split('_')[-1]: dict(atlas=vfx['atlas'], frames=vfx['frames'], atlas_px=vfx['atlas_px'], sizes_m=vfx['sizes_m'])}, watchdog_s=2400)
 kp = os.path.join(J, 'kits', '%s.json' % KID); json.dump(kit, open(kp, 'w'), indent=1); print('wrote', mp, kp)

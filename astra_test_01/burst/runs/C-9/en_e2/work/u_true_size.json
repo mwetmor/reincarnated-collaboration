@@ -1,0 +1,21 @@
+{
+ "base_height_m": 2.4,
+ "designed_height_m": 2.4,
+ "reference_record": "fatherkymon.dbr",
+ "reference_scale": 1.4500000476837158,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "fatherkymon (boss)": {
+   "scale": 1.45,
+   "true_height_m": 2.4,
+   "factor": 1.0,
+   "e_bodies": 0.246
+  },
+  "nemesis_eldritch_01 (nemesis)": {
+   "scale": 1.5,
+   "true_height_m": 2.483,
+   "factor": 1.034,
+   "e_bodies": 0.12
+  }
+ }
+}

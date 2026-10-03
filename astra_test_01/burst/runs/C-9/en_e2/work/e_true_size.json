@@ -1,0 +1,21 @@
+{
+ "base_height_m": 3.2,
+ "designed_height_m": 3.2,
+ "reference_record": "aetherialcolossus_galakros.dbr",
+ "reference_scale": 1.7999999523162842,
+ "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+ "records": {
+  "aetherialcolossus_h01/aetherialcolossus_h02/aetherialcolossus_h03/aetherialcolossus_h04/... (champion-hero)": {
+   "scale": 1.6,
+   "true_height_m": 2.844,
+   "factor": 0.889,
+   "e_bodies": 0.417
+  },
+  "aetherialcolossus_galakros (boss)": {
+   "scale": 1.8,
+   "true_height_m": 3.2,
+   "factor": 1.0,
+   "e_bodies": 0.501
+  }
+ }
+}

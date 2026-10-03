@@ -1,0 +1,211 @@
+{
+ "what": "JOIN-1 clip manifest for the VIGIL-LORD (w160 nemesis + its revenant summon + the w153 bounty hero: skeletal caster; the wrist lantern is costume, standing in for the record's off-hand focus) (crucible boss mesh, roster rig skeleton_01a_b) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133) + C-9 Phase 2 paint pass, read off en_e2/export/final_x",
+ "painted_texture": {
+  "status": "PAINTED (D7 method)",
+  "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
+  "sheet_A": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-XPA/EN2-XPA_b.png",
+  "sheet_B": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-XPB/EN2-XPB_b.png",
+  "picked_by": "05_register (mean at-zero/peak ratio, higher wins)",
+  "atlas": "en_e2/work/x_tex_final.png",
+  "grade": "none"
+ },
+ "rig": {
+  "method": "FREE weight transfer (en49, no Meshy credit) from the REVENANT's Meshy rig (builds/en_r_rigged.glb) onto this mesh: k=8 inverse-distance weights, leg side rule (midline gap 0.04), joints refit by the displacement field",
+  "why": "the conductor's route for the skeleton nemesis (same skeleton family as the built revenant; the roster: same clip directory and 39-bone count)",
+  "report": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/work/wt_x.json",
+  "bridge_cut": {
+   "tool": "en55 (after en10_final)",
+   "faces_removed": 806,
+   "vertices_unblended": 112
+  }
+ },
+ "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-X/EN2-X_a_r1.png",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_x/en_x_body.glb",
+  "sha256_16": "657db7ab8308bb98",
+  "height_m": 2.15
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.3667,
+   "source": "unarmed walk forward (Mixamo Pro Melee Axe Pack, unarmed)"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "unarmed run forward (Mixamo Pro Melee Axe Pack, unarmed)"
+  },
+  "cast_bolt": {
+   "seconds": 2.3,
+   "source": "standing 1h magic attack 03 (Mixamo Pro Magic Pack)"
+  },
+  "cast_area": {
+   "seconds": 2.1667,
+   "source": "standing 2h cast spell 01 (Mixamo Pro Magic Pack)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo Pro Magic Pack)"
+  },
+  "death": {
+   "seconds": 3.5333,
+   "source": "standing react death backward (Mixamo Pro Magic Pack)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "unarmed idle (Mixamo Pro Melee Axe Pack, unarmed)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.172,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 3.147,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.7333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 22"
+  },
+  "cast_area": {
+   "release_s": 0.6333,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 19"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.376 m from the origin, ends 0.012 m"
+ },
+ "roster": {
+  "rig": "skeleton_01a_b",
+  "attack_mix": "projectile 60 % / aoe 20 % / buff 10 % (BUILD_PRIORITY.md)",
+  "melee": "the rig's melee share has no clip in this caster set (as the acolytes); the runtime may play cast_bolt"
+ },
+ "vfx_runtime": {
+  "pale": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_x_pale_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_x_pale_frames.json",
+   "atlas_px": [
+    4096,
+    2483
+   ],
+   "atlas_sha256": "4571eb75780d62d1beed42f48745e4f8f696dfc1114b124bf6658557d97b5612",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.25,
+    "burst_r_m": 1.5,
+    "ring_r_m": 3.0,
+    "seed": 191,
+    "palette": "pale",
+    "aura_r_m": 6.0
+   },
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      109,
+      64
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      347,
+      347
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      334,
+      335
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      340,
+      340
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      356,
+      176
+     ]
+    },
+    "aura": {
+     "fps": 8,
+     "frames": 12,
+     "plane": "ground",
+     "loop": true,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      648,
+      648
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax."
+  }
+ },
+ "true_size": {
+  "base_height_m": 2.15,
+  "designed_height_m": 2.15,
+  "reference_record": "nemesis_orderdeathsvigil_01.dbr",
+  "reference_scale": 1.2000000476837158,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "odv_bounty13 (champion-hero)": {
+    "scale": 1.16,
+    "true_height_m": 2.078,
+    "factor": 0.967,
+    "e_bodies": 0.085
+   },
+   "nemesis_orderdeathsvigil_01/ro_bounty12 (champion-hero/nemesis)": {
+    "scale": 1.2,
+    "true_height_m": 2.15,
+    "factor": 1.0,
+    "e_bodies": 0.184
+   }
+  }
+ }
+}
