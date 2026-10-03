@@ -1,0 +1,128 @@
+{
+ "capture": "kc2-v3p11-JR-capture-M-POL-2-hs0-jr1.json",
+ "consumed_cols": {
+  "data/kc2/pm2_tg2_monster_timing.csv": {
+   "cols": [
+    "basic_swing_period_s",
+    "controller_class",
+    "ctrl_MaxPursuitDistance",
+    "level_min",
+    "record"
+   ],
+   "rows_yielded": 338,
+   "all": false,
+   "sites": [
+    "simulation/kc2/stationary.py:51",
+    "simulation/kc2/threat.py:611"
+   ],
+   "by_recency": false
+  },
+  "data/kc2/pm4i_wave_damage_modifier.csv": {
+   "cols": [
+    "D_characterAttackSpeedModifier_pct",
+    "D_characterOffensiveAbilityModifier_pct",
+    "D_characterOffensiveAbility_pct",
+    "D_characterSpellCastSpeedModifier_pct",
+    "D_offensivePhysicalModifier_pct",
+    "D_offensiveSlowBleedingModifier_pct",
+    "D_offensiveSlowColdModifier_pct",
+    "D_offensiveSlowFireModifier_pct",
+    "D_offensiveSlowLifeModifier_pct",
+    "D_offensiveSlowLightningModifier_pct",
+    "D_offensiveSlowPhysicalModifier_pct",
+    "D_offensiveSlowPoisonModifier_pct",
+    "D_offensiveTotalDamageModifier_pct",
+    "D_skillCooldownReduction_pct",
+    "G_characterLifeModifier_pct",
+    "U_characterAttackSpeedModifier_pct",
+    "U_characterOffensiveAbilityModifier_pct",
+    "U_characterOffensiveAbility_pct",
+    "U_characterSpellCastSpeedModifier_pct",
+    "U_offensivePhysicalModifier_pct",
+    "U_offensiveSlowAllTypes_pct",
+    "U_offensiveTotalDamageModifier_pct",
+    "content_tier",
+    "damage_grade",
+    "sum_total_damage_modifier_pct",
+    "wave"
+   ],
+   "rows_yielded": 150,
+   "all": false,
+   "sites": [
+    "simulation/kc2/gd_composition.py:96",
+    "simulation/kc2/offense.py:468"
+   ],
+   "by_recency": false
+  }
+ },
+ "A_untampered_every_image": {
+  "V-127p1_violations": 35,
+  "multi_image_rows": {
+   "data/kc2/pm2_tg2_monster_timing.csv": {
+    "status": "IN PACK",
+    "row": "IC7-F-V311-04",
+    "why": null,
+    "how": "strict: verbatim image, 169 rows; the 5 consumed columns ⊆ its 104 columns, every consumed cell equal (SUBSET law) [one of 2 images of the path]"
+   },
+   "data/kc2/pm4i_wave_damage_modifier.csv": {
+    "status": "IN PACK",
+    "row": "IC7-F-V311-05",
+    "why": null,
+    "how": "strict: verbatim image, 50 rows; the 26 consumed columns ⊆ its 34 columns, every consumed cell equal (SUBSET law) [one of 2 images of the path]"
+   }
+  }
+ },
+ "B_untampered_v3p7p1_literal_first_image": {
+  "V-127p1_violations": 42,
+  "multi_image_rows": {
+   "data/kc2/pm2_tg2_monster_timing.csv": {
+    "status": "NOT IN PACK",
+    "row": null,
+    "why": "image IC7-F-22 lacks consumed columns ['controller_class', 'ctrl_MaxPursuitDistance']",
+    "how": null
+   },
+   "data/kc2/pm4i_wave_damage_modifier.csv": {
+    "status": "NOT IN PACK",
+    "row": null,
+    "why": "image IC7-F-37 lacks consumed columns ['D_offensivePhysicalModifier_pct', 'U_offensivePhysicalModifier_pct']",
+    "how": null
+   }
+  }
+ },
+ "C_second_image_lacks_consumed_column": {
+  "dropped": "controller_class",
+  "V-127p1_violations": 36,
+  "multi_image_rows": {
+   "data/kc2/pm2_tg2_monster_timing.csv": {
+    "status": "NOT IN PACK",
+    "row": null,
+    "why": "image IC7-F-22 lacks consumed columns ['controller_class', 'ctrl_MaxPursuitDistance'] | image IC7-F-V311-04 lacks consumed columns ['controller_class']",
+    "how": null
+   },
+   "data/kc2/pm4i_wave_damage_modifier.csv": {
+    "status": "IN PACK",
+    "row": "IC7-F-V311-05",
+    "why": null,
+    "how": "strict: verbatim image, 50 rows; the 26 consumed columns ⊆ its 34 columns, every consumed cell equal (SUBSET law) [one of 2 images of the path]"
+   }
+  }
+ },
+ "D_second_image_one_consumed_cell_altered": {
+  "column": "D_offensivePhysicalModifier_pct",
+  "V-127p1_violations": 36,
+  "multi_image_rows": {
+   "data/kc2/pm2_tg2_monster_timing.csv": {
+    "status": "IN PACK",
+    "row": "IC7-F-V311-04",
+    "why": null,
+    "how": "strict: verbatim image, 169 rows; the 5 consumed columns ⊆ its 104 columns, every consumed cell equal (SUBSET law) [one of 2 images of the path]"
+   },
+   "data/kc2/pm4i_wave_damage_modifier.csv": {
+    "status": "NOT IN PACK",
+    "row": null,
+    "why": "image IC7-F-37 lacks consumed columns ['D_offensivePhysicalModifier_pct', 'U_offensivePhysicalModifier_pct'] | image IC7-F-V311-05 cell differs at CSV line 5",
+    "how": null
+   }
+  }
+ }
+}

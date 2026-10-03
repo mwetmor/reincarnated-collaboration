@@ -1,0 +1,784 @@
+{
+ "normalisation": {
+  "W1+M-POL-2|0": {
+   "pyc_temp_opens_dropped": 34,
+   "constants_rewritten": 72
+  },
+  "W1+M-POL-2|1": {
+   "pyc_temp_opens_dropped": 37,
+   "constants_rewritten": 72
+  },
+  "W1|0": {
+   "pyc_temp_opens_dropped": 35,
+   "constants_rewritten": 72
+  },
+  "W1|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2|0": {
+   "pyc_temp_opens_dropped": 35,
+   "constants_rewritten": 72
+  },
+  "M-POL-2|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M0|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M0|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2-NULL|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2-NULL|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "W1-NULL|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "W1-NULL|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "WALK|0": {
+   "pyc_temp_opens_dropped": 1,
+   "constants_rewritten": 72
+  },
+  "WALK|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  }
+ },
+ "RAW_V127p1_violations_before_normalisation": {
+  "W1+M-POL-2|0": 39,
+  "W1+M-POL-2|1": 41,
+  "W1|0": 39,
+  "W1|1": 7,
+  "M-POL-2|0": 35,
+  "M-POL-2|1": 7,
+  "M0|0": 7,
+  "M0|1": 7,
+  "M-POL-2-NULL|0": 7,
+  "M-POL-2-NULL|1": 7,
+  "W1-NULL|0": 7,
+  "W1-NULL|1": 7,
+  "WALK|0": 6,
+  "WALK|1": 6
+ },
+ "RAW_sites": {
+  "W1+M-POL-2|0": [
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/arrival.cpython-312.pyc.4420625456: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/arrival_order.cpython-312.pyc.4424017712: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/deferred_arrival.cpython-312.pyc.4420625456: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/engagement.cpython-312.pyc.4424850992: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/hunt_pilot.cpython-312.pyc.4426122288: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/measured_board.cpython-312.pyc.4420628272: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/mech_lift.cpython-312.pyc.4419122480: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/p05_emergence.cpython-312.pyc.4426575920: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/pet_specials.cpython-312.pyc.4426563888: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/regrade.cpython-312.pyc.4426568240: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/stationary.cpython-312.pyc.4426578224: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/summon_offense.cpython-312.pyc.4420617776: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_nine_winner_surface_rows_2026_09_29.cpython-312.pyc.4425720016: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_c11a_fold_rows_2026_09_30.cpython-312.pyc.4425726064: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p2_lift_tier1_2026_09_20.cpython-312.pyc.4425721168: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p3_monster_offense_2026_09_20.cpython-312.pyc.4425724048: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p9_oracle_2026_10_02.cpython-312.pyc.4426319888: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i10_arrival_variance_2026_08_14.cpython-312.pyc.4423275632: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i11_player_offense_2026_08_14.cpython-312.pyc.4423277360: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i12_secondary_streams_2026_08_14.cpython-312.pyc.4423279664: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i13_discrete_volley_2026_08_14.cpython-312.pyc.4423280528: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i14_global_magnitude_2026_08_14.cpython-312.pyc.4423282544: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i16_measured_board_2026_08_14.cpython-312.pyc.4423285136: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i17_sustain_fold_2026_08_14.cpython-312.pyc.4420750480: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i1_ehp_fold_2026_08_13.cpython-312.pyc.4420758256: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i26_spawn_structure_fold_2026_08_16.cpython-312.pyc.4424869120: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i3_body_geometry_fold_2026_08_13.cpython-312.pyc.4422136528: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i4_match_and_fold_2026_08_13.cpython-312.pyc.4422135376: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i7_offense_completion_2026_08_13.cpython-312.pyc.4423273328: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i9_sustain_actuation_2026_08_14.cpython-312.pyc.4423274192: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm5_regrade_2026_08_25.cpython-312.pyc.4424515088: NOT IN PACK (no row cites the file)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b63290fe44186115: NOT IN PACK (no IC7-A row carries this call)",
+   "composition A|W1|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b668de100725e989: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "W1+M-POL-2|1": [
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/arena_fold.cpython-312.pyc.4353059888: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/arrival_order.cpython-312.pyc.4360053040: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/defenses.cpython-312.pyc.4353061680: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/deferred_arrival.cpython-312.pyc.4354056240: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/engagement.cpython-312.pyc.4358673968: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/gd_composition.cpython-312.pyc.4360529712: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/gd_fire_range.cpython-312.pyc.4360530480: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/measured_board.cpython-312.pyc.4354059056: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/p05_emergence.cpython-312.pyc.4360530480: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/patrol.cpython-312.pyc.4358668848: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/pursuit.cpython-312.pyc.4358668848: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/roster.cpython-312.pyc.4358668848: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/summon_offense.cpython-312.pyc.4354048560: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p2_lift_tier1_2026_09_20.cpython-312.pyc.4359236912: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p3_monster_offense_2026_09_20.cpython-312.pyc.4359239216: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i10_arrival_variance_2026_08_14.cpython-312.pyc.4357738192: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i11_player_offense_2026_08_14.cpython-312.pyc.4357739920: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i13_discrete_volley_2026_08_14.cpython-312.pyc.4357743088: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i14_global_magnitude_2026_08_14.cpython-312.pyc.4357745104: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i16_measured_board_2026_08_14.cpython-312.pyc.4357748848: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i17_sustain_fold_2026_08_14.cpython-312.pyc.4354443568: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i18_locomotion_fold_2026_08_14.cpython-312.pyc.4357989712: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i1_ehp_fold_2026_08_13.cpython-312.pyc.4354451344: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i24_fold_2026_08_16.cpython-312.pyc.4357982512: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i26_spawn_structure_fold_2026_08_16.cpython-312.pyc.4358270288: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i2_pet_life_fold_2026_08_13.cpython-312.pyc.4356155280: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i3_body_geometry_fold_2026_08_13.cpython-312.pyc.4356157296: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i4_match_and_fold_2026_08_13.cpython-312.pyc.4356156432: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i5_tick_order_2026_08_13.cpython-312.pyc.4356158736: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i6_offense_fold_2026_08_13.cpython-312.pyc.4356160464: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i7_offense_completion_2026_08_13.cpython-312.pyc.4357735888: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i9_sustain_actuation_2026_08_14.cpython-312.pyc.4357736752: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm5_regrade_2026_08_25.cpython-312.pyc.4359225968: NOT IN PACK (no row cites the file)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b63290fe44186115: NOT IN PACK (no IC7-A row carries this call)",
+   "composition A|W1|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b668de100725e989: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "W1|0": [
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/arrival_order.cpython-312.pyc.4363182128: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/calibration.cpython-312.pyc.4357638960: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/engagement.cpython-312.pyc.4360508976: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/gate_model.cpython-312.pyc.4363188784: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/mutators.cpython-312.pyc.4363799344: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/pet_specials.cpython-312.pyc.4363600688: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/regrade.cpython-312.pyc.4363602992: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/roster.cpython-312.pyc.4360508464: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_actor_path_knots_2026_08_08.cpython-312.pyc.4358167632: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_nine_winner_surface_rows_2026_09_29.cpython-312.pyc.4362065872: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_phase_e_seeded_batch_2026_08_08.cpython-312.pyc.4358162448: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_c11a_fold_rows_2026_09_30.cpython-312.pyc.4362071920: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p2_lift_tier1_2026_09_20.cpython-312.pyc.4362067024: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p3_monster_offense_2026_09_20.cpython-312.pyc.4362069904: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p9_oracle_2026_10_02.cpython-312.pyc.4362074800: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i10_arrival_variance_2026_08_14.cpython-312.pyc.4360603664: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i11_player_offense_2026_08_14.cpython-312.pyc.4360605392: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i12_secondary_streams_2026_08_14.cpython-312.pyc.4360607696: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i13_discrete_volley_2026_08_14.cpython-312.pyc.4360608560: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i14_global_magnitude_2026_08_14.cpython-312.pyc.4360610576: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i16_measured_board_2026_08_14.cpython-312.pyc.4360614320: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i18_locomotion_fold_2026_08_14.cpython-312.pyc.4360804880: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i26_spawn_structure_fold_2026_08_16.cpython-312.pyc.4360820720: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i2_pet_life_fold_2026_08_13.cpython-312.pyc.4358168784: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i3_body_geometry_fold_2026_08_13.cpython-312.pyc.4358171376: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i4_match_and_fold_2026_08_13.cpython-312.pyc.4358170512: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i5_tick_order_2026_08_13.cpython-312.pyc.4358172816: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i6_offense_fold_2026_08_13.cpython-312.pyc.4358174544: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i7_offense_completion_2026_08_13.cpython-312.pyc.4358174256: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i8_converging_solver_2026_08_14.cpython-312.pyc.4358175696: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i9_sustain_actuation_2026_08_14.cpython-312.pyc.4360602224: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm5_regrade_2026_08_25.cpython-312.pyc.4360812080: NOT IN PACK (no row cites the file)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|W1|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b668de100725e989: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "W1|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|W1|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b668de100725e989: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M-POL-2|0": [
+   "files reincarnated-engine:src/reincarnated/export/__pycache__/baton_v1_emitter.cpython-312.pyc.4377807152: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/deferred_arrival.cpython-312.pyc.4376273200: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/engagement.cpython-312.pyc.4383940144: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/gd_composition.cpython-312.pyc.4384353072: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/gd_fire_range.cpython-312.pyc.4384353840: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/hunt_pilot.cpython-312.pyc.4385653552: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/mutators.cpython-312.pyc.4385656368: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/pet_specials.cpython-312.pyc.4384342320: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/referent_lineup.cpython-312.pyc.4385656368: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/ring.cpython-312.pyc.4375539472: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/kc2/__pycache__/summon_offense.cpython-312.pyc.4376265520: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p3_monster_offense_2026_09_20.cpython-312.pyc.4384630384: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_play_v3p9_oracle_2026_10_02.cpython-312.pyc.4385636688: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i10_arrival_variance_2026_08_14.cpython-312.pyc.4382330864: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i11_player_offense_2026_08_14.cpython-312.pyc.4382332592: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i12_secondary_streams_2026_08_14.cpython-312.pyc.4382334896: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i13_discrete_volley_2026_08_14.cpython-312.pyc.4382335760: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i14_global_magnitude_2026_08_14.cpython-312.pyc.4382337776: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i16_measured_board_2026_08_14.cpython-312.pyc.4382341520: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i17_sustain_fold_2026_08_14.cpython-312.pyc.4376218192: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i18_locomotion_fold_2026_08_14.cpython-312.pyc.4383056080: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i26_spawn_structure_fold_2026_08_16.cpython-312.pyc.4383352672: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i3_body_geometry_fold_2026_08_13.cpython-312.pyc.4378488976: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i4_match_and_fold_2026_08_13.cpython-312.pyc.4378487824: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i5_tick_order_2026_08_13.cpython-312.pyc.4378490416: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i6_offense_fold_2026_08_13.cpython-312.pyc.4378492144: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i7_offense_completion_2026_08_13.cpython-312.pyc.4382328560: NOT IN PACK (no row cites the file)",
+   "files reincarnated-engine:src/reincarnated/simulation/scripts/__pycache__/gamora_kc2_pm4_i9_sustain_actuation_2026_08_14.cpython-312.pyc.4382329424: NOT IN PACK (no row cites the file)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b63290fe44186115: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M-POL-2|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|b63290fe44186115: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M0|0": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M0|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|5126ff26643defd5: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M0|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M0|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|5126ff26643defd5: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M-POL-2-NULL|0": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2-NULL|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|3d7e03b98206f23e: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "M-POL-2-NULL|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|M-POL-2-NULL|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|3d7e03b98206f23e: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "W1-NULL|0": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|W1-NULL|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|e0199765a85be2ee: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "W1-NULL|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_nine_winner_surface_rows_2026_09_29.W1_GLOB: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|W1-NULL|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|e0199765a85be2ee: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "WALK|0": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|WALK|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|d83edc47f9871201: NOT IN PACK (no IC7-A row carries this call)"
+  ],
+  "WALK|1": [
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.ENGINE_SRC: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.HERE: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.OUT_DIR: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.REPO: NOT IN PACK (None)",
+   "constants reincarnated.simulation.scripts.gamora_kc2_play_v3p2_lift_tier1_2026_09_20.SIM: NOT IN PACK (None)",
+   "composition A|WALK|reincarnated.simulation.kc2.winner_surface.WinnerSurfaceFold.from_x8|d83edc47f9871201: NOT IN PACK (no IC7-A row carries this call)"
+  ]
+ },
+ "packs": {
+  "model": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+  "reference": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c"
+ },
+ "validation": {
+  "V-152_additive_over_v3p8": {
+   "n_violations": 0,
+   "sites": []
+  },
+  "V-153_hand_rows_fresh_and_checked": {
+   "n_violations": 0,
+   "sites": [],
+   "checks": {
+    "n_violations": 0,
+    "sites": [],
+    "sp1_cross_check": {
+     "n_records": 124,
+     "pm2_timing_agrees": 77,
+     "pack_controller_rows_both_agree": 96,
+     "pack_controller_rows_disagree": 0
+    },
+    "n_ids": 168
+   }
+  },
+  "V-154_closure_rowsets_fresh": {
+   "n_violations": 0,
+   "sites": []
+  },
+  "V-155_closure_ids": {
+   "n_violations": 0,
+   "sites": [],
+   "n_ids": 1035
+  },
+  "V-156_closure_v3p7p1_law": {
+   "n_violations": 0,
+   "per_capture": {
+    "W1+M-POL-2|0": {
+     "n_items": 2657,
+     "n_violations": 0,
+     "sites": []
+    },
+    "W1+M-POL-2|1": {
+     "n_items": 2657,
+     "n_violations": 0,
+     "sites": []
+    },
+    "W1|0": {
+     "n_items": 2448,
+     "n_violations": 0,
+     "sites": []
+    },
+    "W1|1": {
+     "n_items": 2448,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M-POL-2|0": {
+     "n_items": 2414,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M-POL-2|1": {
+     "n_items": 2414,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M0|0": {
+     "n_items": 2366,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M0|1": {
+     "n_items": 2366,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M-POL-2-NULL|0": {
+     "n_items": 2421,
+     "n_violations": 0,
+     "sites": []
+    },
+    "M-POL-2-NULL|1": {
+     "n_items": 2421,
+     "n_violations": 0,
+     "sites": []
+    },
+    "W1-NULL|0": {
+     "n_items": 2449,
+     "n_violations": 0,
+     "sites": []
+    },
+    "W1-NULL|1": {
+     "n_items": 2449,
+     "n_violations": 0,
+     "sites": []
+    },
+    "WALK|0": {
+     "n_items": 1159,
+     "n_violations": 0,
+     "sites": []
+    },
+    "WALK|1": {
+     "n_items": 1159,
+     "n_violations": 0,
+     "sites": []
+    }
+   },
+   "static_sweep": {
+    "0": {
+     "n_bindings": 1048,
+     "covered": {
+      "k3": 629,
+      "k12": 413,
+      "e13": 6
+     },
+     "n_violations": 0,
+     "sites": []
+    },
+    "1": {
+     "n_bindings": 1048,
+     "covered": {
+      "k3": 629,
+      "k12": 413,
+      "e13": 6
+     },
+     "n_violations": 0,
+     "sites": []
+    }
+   },
+   "mutation_gate_clean": true
+  },
+  "V-157_face_census_digests": {
+   "n_violations": 0,
+   "sites": [],
+   "census": {
+    "f1_file_images_v3p11": 5,
+    "p2_reader_products_v3p11": 5,
+    "k3_code_constants_v3p11": 84,
+    "d4_defaults_via_omission_v3p11": 91,
+    "c5_class_constants_v3p11": 0,
+    "a8_composition_calls_v3p11": 835,
+    "r9_read_absent_columns_v3p11": 0,
+    "s10_run_state_v3p11": 0,
+    "k12_static_sweep_constants_v3p11": 10,
+    "e13_static_sweep_exemptions_v3p11": 0,
+    "w14_supersessions_v3p11": 5
+   },
+   "hand_census": {
+    "model/arena.json:cg1_scope_pointers": 1,
+    "model/config_of_record.json:cg1_scope_pointers": 4,
+    "model/math_rules.json:cg1_scope_pointers": 1,
+    "model/math_rules.json:dc1_decoded_constants": 3,
+    "model/monster_kinematics.json:cg1_scope_pointers": 2,
+    "model/monster_kinematics.json:sp1_swing_pause": 124,
+    "model/monster_kinematics.json:sp2_swing_pause_rule": 1,
+    "model/monster_kinematics.json:sp3_corrigenda": 1,
+    "model/monster_offense.json:cg1_scope_pointers": 1,
+    "model/oracle_inputs_v3p11.json:oi1_oracle_input_files": 7,
+    "model/rng_contract.json:rg1_fold_draw_sites": 19,
+    "model/waves.json:cg2_p05_corrigenda": 2,
+    "model/waves.json:il1_inline_literals": 2
+   },
+   "⚑ ROWSET_sha256": {
+    "model/arena.json:cg1_scope_pointers": "dc4293534250519b93674c6f4d9bde619fbfe062b3a033b42cfea55d3a3985ae",
+    "model/config_of_record.json:cg1_scope_pointers": "fcba76d144fbff4e97c30c4dbb0a304487050170ac2b3bd7ba73074d50358793",
+    "model/math_rules.json:cg1_scope_pointers": "af1f9b626721dc29e8ca5b50e8461cbeb5c308024550a71d245c293f2d650366",
+    "model/math_rules.json:dc1_decoded_constants": "09e1d6c3d642db05bd911db878d6b00818da14d3162d6f281596dc2cc403d70f",
+    "model/monster_kinematics.json:cg1_scope_pointers": "63e89f2dbacd20715208ec88e3df7e95717227ad605de7ca8aed20da1ca8b4a8",
+    "model/monster_kinematics.json:sp1_swing_pause": "7e12c706074c30188de13b9b3b39d41e958d64abcd55b055078e04a21f2e932d",
+    "model/monster_kinematics.json:sp2_swing_pause_rule": "dd850f3adc078b5532de66a6733bf812b752edcc6ae1d75066a168ab93a2252f",
+    "model/monster_kinematics.json:sp3_corrigenda": "4ed12424653b314cde2f4c6644d3316215e8b62d6691a67d16170ad82e09d83b",
+    "model/monster_offense.json:cg1_scope_pointers": "30dbac464403efc0fad737c4afcb869be717e1579436d792740d2e3f2a749131",
+    "model/oracle_inputs_v3p11.json:oi1_oracle_input_files": "df1336782fe14689bc0e6e245d072d0b9671de9d8cca4a52488472524fc2339a",
+    "model/rng_contract.json:rg1_fold_draw_sites": "d2400c203d621ebd35bb4e35f6356eeb8983d8f22009ac770bed84cfa7e9aa6d",
+    "model/waves.json:cg2_p05_corrigenda": "8280200132125715cdb84e3dbb7b2e3e6ef6d84df4d6ec42c3dcfb1b1a79ddca",
+    "model/waves.json:il1_inline_literals": "d8fa73c7ccff271eab1204f345f7e447fd40df0fb3bd71d767902414e93e107f",
+    "model/input_closure_v3p11.json:a8_composition_calls_v3p11": "6cd822db394e88cbe509f793016ef19e2ec595c1257ac2ab6bd72e63a18bacf3",
+    "model/input_closure_v3p11.json:c5_class_constants_v3p11": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "model/input_closure_v3p11.json:d4_defaults_via_omission_v3p11": "02219078a91541b1433c276661c08c7889bf5a559957c7035bee4e0a93b86c92",
+    "model/input_closure_v3p11.json:e13_static_sweep_exemptions_v3p11": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "model/input_closure_v3p11.json:f1_file_images_v3p11": "069564ac32e2d3c010fd2eeeb0050c5b1c5747346a1a13ef2cf984b9280f0169",
+    "model/input_closure_v3p11.json:k12_static_sweep_constants_v3p11": "889bd492cb8cf2b433377cca6cd3802e7ef0ee36607087c9848be74cfe88c0d5",
+    "model/input_closure_v3p11.json:k3_code_constants_v3p11": "038d17c3ca23ec03e3bd935cf5eea27a344b49f45b61783c7432f70478c3e82a",
+    "model/input_closure_v3p11.json:p2_reader_products_v3p11": "a98df3428e761c86fa1ee0a79807f98c458941c1590e66586a39b8f5970198af",
+    "model/input_closure_v3p11.json:r9_read_absent_columns_v3p11": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "model/input_closure_v3p11.json:s10_run_state_v3p11": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "model/input_closure_v3p11.json:w14_supersessions_v3p11": "06525a57148dee7efc1e2ecd3711eea70a76988c2b266d22c018a8b03199333a",
+    "v3p11_closure_all": "00786a3d83670f97f37fa6a8b3181afdff475b78c1796d51d1d7f14350f53d71",
+    "v3p11_hand_all": "5b7a6a53a27dbc3bb9b4d0f498a4fd8aa1cc8cf7d0b9b5d2ea1e3faf08144052",
+    "v3p11_all": "8dad7a2d9e3081699ebf22d997be798e9e532ccbc8506352b3eeb43a17aa418d"
+   }
+  },
+  "⚑ v3p11_gate_violations": {
+   "n": 0,
+   "gates": []
+  },
+  "verdict": "PASS"
+ },
+ "inertness_all": true,
+ "recon_equals_face": true,
+ "recon_blocking": [],
+ "hash_seeds_agree": {
+  "W1+M-POL-2": true,
+  "W1": true,
+  "M-POL-2": true,
+  "M0": true,
+  "M-POL-2-NULL": true,
+  "W1-NULL": true,
+  "WALK": true
+ },
+ "static_sweeps_agree_seeds": true,
+ "static_sweep_modules": 72,
+ "static_sweep_n_bindings": 1048,
+ "predecessors_untouched": {
+  "v3.8 model": true,
+  "v3.8 reference": true
+ },
+ "K-7": {
+  "pre": true,
+  "post": true
+ },
+ "NOT_IN_PACK_strict_per_capture": {
+  "W1+M-POL-2|0": 0,
+  "W1+M-POL-2|1": 0,
+  "W1|0": 0,
+  "W1|1": 0,
+  "M-POL-2|0": 0,
+  "M-POL-2|1": 0,
+  "M0|0": 0,
+  "M0|1": 0,
+  "M-POL-2-NULL|0": 0,
+  "M-POL-2-NULL|1": 0,
+  "W1-NULL|0": 0,
+  "W1-NULL|1": 0,
+  "WALK|0": 0,
+  "WALK|1": 0
+ },
+ "mutation_gate_verdicts": {
+  "E7": 36,
+  "E6": 12
+ },
+ "mutation_gate_keys": {
+  "E7": [
+   "reincarnated.simulation.kc2.alert._INCIDENCE",
+   "reincarnated.simulation.kc2.alert._ROWS",
+   "reincarnated.simulation.kc2.alert._TABLE"
+  ],
+  "E6": [
+   "reincarnated.simulation.kc2.locomotion._FALLBACK_HITS"
+  ]
+ },
+ "exempt_census": {
+  "constants|E1-DUNDER-OR-HOST-PATH": 4276,
+  "constants|E2-IMPORT-SIDE-EFFECT": 868,
+  "constants|E6-RUN-STATE-ACCUMULATOR": 12,
+  "constants|E7-LAZY-LOAD-CACHE": 36,
+  "defaults|E5-STATE-INITIALISER": 1862,
+  "files|E2-IMPORT-SIDE-EFFECT": 2516,
+  "files|E3-HASH-ONLY-PIN-GUARD": 172
+ },
+ "vs_starlord_POST_tables": {
+  "W1+M-POL-2|0": {
+   "n_rows_mine": 2657,
+   "n_rows_theirs": 2656,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "W1+M-POL-2|1": {
+   "n_rows_mine": 2657,
+   "n_rows_theirs": 2656,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "W1|0": {
+   "n_rows_mine": 2448,
+   "n_rows_theirs": 2447,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "W1|1": {
+   "n_rows_mine": 2448,
+   "n_rows_theirs": 2447,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M-POL-2|0": {
+   "n_rows_mine": 2414,
+   "n_rows_theirs": 2413,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M-POL-2|1": {
+   "n_rows_mine": 2414,
+   "n_rows_theirs": 2413,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M0|0": {
+   "n_rows_mine": 2366,
+   "n_rows_theirs": 2365,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M0|1": {
+   "n_rows_mine": 2366,
+   "n_rows_theirs": 2365,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M-POL-2-NULL|0": {
+   "n_rows_mine": 2421,
+   "n_rows_theirs": 2420,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "M-POL-2-NULL|1": {
+   "n_rows_mine": 2421,
+   "n_rows_theirs": 2420,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "W1-NULL|0": {
+   "n_rows_mine": 2449,
+   "n_rows_theirs": 2448,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "W1-NULL|1": {
+   "n_rows_mine": 2449,
+   "n_rows_theirs": 2448,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "WALK|0": {
+   "n_rows_mine": 1159,
+   "n_rows_theirs": 1158,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  },
+  "WALK|1": {
+   "n_rows_mine": 1159,
+   "n_rows_theirs": 1158,
+   "summary_equal": false,
+   "keys_only_one_side": [
+    "files|:/Users/admin/Games/reincarnated-engine/src"
+   ],
+   "n_keys_only_one_side": 1,
+   "value_diffs": [],
+   "n_value_diffs": 0
+  }
+ },
+ "inputs_equal_starlord_POST_captures": {
+  "W1+M-POL-2|0": false,
+  "W1+M-POL-2|1": false,
+  "W1|0": false,
+  "W1|1": false,
+  "M-POL-2|0": false,
+  "M-POL-2|1": false,
+  "M0|0": false,
+  "M0|1": false,
+  "M-POL-2-NULL|0": false,
+  "M-POL-2-NULL|1": false,
+  "W1-NULL|0": false,
+  "W1-NULL|1": false,
+  "WALK|0": false,
+  "WALK|1": false
+ },
+ "capture_files_sha256": {
+  "kc2-v3p11-JR-capture-W1+M-POL-2-hs0-jr1.json": "c1d0d54393209ea6e1cee6041ba9f91bc1ecdc650b93dbdeb4903d91c3bafb14",
+  "kc2-v3p11-JR-capture-W1+M-POL-2-hs1-jr1.json": "a9dd7cf96931bc240b26ffefcd4938f21ae7a74615fd13b8a422157bdaf01570",
+  "kc2-v3p11-JR-capture-W1-hs0-jr1.json": "95f778a348e44cb6ed288cccf40e7b83b8ff76c2966c3545dbd8566eeb3b94f3",
+  "kc2-v3p11-JR-capture-W1-hs1-jr1.json": "acaa7653756b0e1f5175e56a7046b78a7c2eeba565a67913de99ebfbc5b0475a",
+  "kc2-v3p11-JR-capture-M-POL-2-hs0-jr1.json": "221263cf061b1f14712d3aad169f9b0eb92c7330dbc531363b2aaf0c7254f8aa",
+  "kc2-v3p11-JR-capture-M-POL-2-hs1-jr1.json": "594944a606824c0345cc23f470761530f77e2a02aaf582ec4ca9434d88941b83",
+  "kc2-v3p11-JR-capture-M0-hs0-jr1.json": "09272ec774d15bda5e05e499bcbde72f72a69b0ccf4fd38f0cd4a8a783e56f96",
+  "kc2-v3p11-JR-capture-M0-hs1-jr1.json": "85ea5594a8048c860002b511d1f9cff8c886b7e020e8dd64ae9a9b0fa7cc99ab",
+  "kc2-v3p11-JR-capture-M-POL-2-NULL-hs0-jr1.json": "5c559533606836146d4f2ce96e5ac4cdf6ed338fa9c123980aab144479cc3b92",
+  "kc2-v3p11-JR-capture-M-POL-2-NULL-hs1-jr1.json": "8ecf2dbf2035b8a4dc04beafdb3da89f5598f012c04d46df49445ec5d8041a05",
+  "kc2-v3p11-JR-capture-W1-NULL-hs0-jr1.json": "398577473329f771268097618cc422d07121bfc11bedc9a0ec11b55c238e5aca",
+  "kc2-v3p11-JR-capture-W1-NULL-hs1-jr1.json": "517272c846d17c929c938b272e1ef1f31bd1b6fe03ee016db21c3d6d9998e9e5",
+  "kc2-v3p11-JR-capture-WALK-hs0-jr1.json": "12c0bb8267e00810a267a04e222f991db2c08f0051fb348fc81416ca4920ad8c",
+  "kc2-v3p11-JR-capture-WALK-hs1-jr1.json": "ddcf54c50fa041d79cd17267f9b254d6ab9fd5e6a45ddc665d1b6b7c408db717",
+  "kc2-v3p11-JR-bare-W1-jr1.json": "9ca1057c2754c3dbc7d9bc653e1cd81891b02cc66c3548d6a0d0a966452fc657",
+  "kc2-v3p11-JR-bare-M-POL-2-jr1.json": "afd687e77552f35bdbea60b9c1c5c7872fff53daeb37731a3f152acaf4774f3c",
+  "kc2-v3p11-JR-bare-M0-jr1.json": "1fd399de30db0c522ed291c6504fafb5b1830ab94ddafa6e332998e8b24827e1",
+  "kc2-v3p11-JR-bare-M-POL-2-NULL-jr1.json": "3cfc69c9ce4442884103558c11205007b9731ef29af97ce62b69fb4625a8fb40",
+  "kc2-v3p11-JR-bare-W1-NULL-jr1.json": "a2d36f28178c7e5ca2a0b1b795709cb62084130ddd4ab8edb1c41eea288484d4",
+  "kc2-v3p11-JR-bare-WALK-jr1.json": "d34ca5cbd217989cd561cf59f76bf03caa231fdaa6bc2637bd756253e7645a31",
+  "kc2-v3p11-JR-static-sweep-hs0-jr1.json": "09a2e66843da502e961e3c57ca246b7913a6fbded8e002b9e86d58bb204536cb",
+  "kc2-v3p11-JR-static-sweep-hs1-jr1.json": "e1effa9c667379024da888a9d2633ea6e96903857877f048cf025ac2a4308b16"
+ }
+}

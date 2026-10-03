@@ -1,0 +1,26 @@
+{
+ "root": "kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+ "n_members": 21,
+ "member_mismatches": [],
+ "unlisted_files": [],
+ "missing_files": [],
+ "recomputed_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+ "manifest_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+ "agrees": true,
+ "cross_pin": null
+}
+{
+ "root": "kc2-reference-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+ "n_members": 7,
+ "member_mismatches": [],
+ "unlisted_files": [],
+ "missing_files": [],
+ "recomputed_pack_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+ "manifest_pack_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+ "agrees": true,
+ "cross_pin": {
+  "law": "a TWIN-TEST HARNESS loads model/ and reference/ TOGETHER and must verify this digest before grading.",
+  "model_pack": "kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+  "model_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788"
+ }
+}

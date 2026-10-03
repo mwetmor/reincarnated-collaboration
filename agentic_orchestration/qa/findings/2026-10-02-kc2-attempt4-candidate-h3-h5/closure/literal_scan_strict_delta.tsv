@@ -1,0 +1,153 @@
+sim/kc2rt_arm_config.gd	276	5	if rc.size() != 5:
+sim/kc2rt_arm_config.gd	293	5	if not chan_present or ch_init.size() != 5:
+sim/kc2rt_board.gd	468	8	String(r8.sg4_file_sha256).substr(0, 8), r8.bound_archive, r8.bound_map]
+sim/kc2rt_board.gd	672	6	body["is_ambush"] = bool(e[6])
+sim/kc2rt_board.gd	673	6	body["spawn_t_s"] = ambush_release_s if bool(e[6]) else 0.0
+sim/kc2rt_composition.gd	111	9	(sets[rec] as Dictionary)[v.substr(9, v.length() - 10)] = true
+sim/kc2rt_composition.gd	111	10	(sets[rec] as Dictionary)[v.substr(9, v.length() - 10)] = true
+sim/kc2rt_composition.gd	201	100.0	f = f + (wp_w - float(wave_phys[lapm_wave])) / 100.0
+sim/kc2rt_composition.gd	205	100.0	+ ((float(wave_phys[wave]) if wave_phys.has(wave) else float(wave_phys[lapm_wave])) - float(wave_phys[lapm_wave])) / 100.0
+sim/kc2rt_composition.gd	210	100.0	v = m * maxf(0.0, a_mult + p + float(wave_phys.get(wave, 0.0)) / 100.0)
+sim/kc2rt_composition.gd	212	100.0	_fam("phys_unclamped", v, m * maxf(0.0, (a_mult + (om - 1.0)) + float(wave_phys[wave]) / 100.0))
+sim/kc2rt_composition.gd	247	100.0	own = float(t["own_pct"]) / 100.0
+sim/kc2rt_composition.gd	277	-0.44	and float(b.get("f_unmapped", NAN)) == -0.44 and b.get("chaos_aether_dot_divisor") == true \
+sim/kc2rt_composition.gd	278	160	and int(b.get("lapm_wave", -1)) == 160 and eq and tot > 0 and ex.get("pcl_rows_untouched") == true
+sim/kc2rt_fight.gd	1380	8	v3p8.sg4_file_sha256).substr(0, 8)
+sim/kc2rt_fight.gd	3411	1e-9	const EMERGE_TICK_EPS := 1e-9
+sim/kc2rt_fight.gd	5488	100.0	var pct_added := (legacy - 1.0) * 100.0
+sim/kc2rt_fight.gd	5489	100.0	_banner_bfac = (1.0 + (banner_sheet_pct + pct_added) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5489	100.0	_banner_bfac = (1.0 + (banner_sheet_pct + pct_added) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5493	100.0	var pct_added2 := (legacy - 1.0) * 100.0 if legacy != 1.0 else 0.0
+sim/kc2rt_fight.gd	5494	100.0	f = (1.0 + (banner_sheet_pct + pct_added2 + mpa) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5494	100.0	f = (1.0 + (banner_sheet_pct + pct_added2 + mpa) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5496	100.0	f = legacy * (1.0 + (banner_sheet_pct + mpa) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5496	100.0	f = legacy * (1.0 + (banner_sheet_pct + mpa) / 100.0) / (1.0 + banner_sheet_pct / 100.0)
+sim/kc2rt_fight.gd	5656	3	var p := float(rh[3])
+sim/kc2rt_fight.gd	5863	3	mag = comp_fold.instant(rec, wave, dtype, mag, float(ft[1]), om_f, float(ft[3])) * hit_mult
+sim/kc2rt_fight.gd	6092	100.0	return minf(minf(float(player_resist[dtype]) + rb, player_resist_cap + mr), 100.0)
+sim/kc2rt_fight.gd	7392	4	if ref.size() != 4 or nat.size() != 4:
+sim/kc2rt_fight.gd	7392	4	if ref.size() != 4 or nat.size() != 4:
+sim/kc2rt_fight.gd	7394	3	for c in range(3):
+sim/kc2rt_fight.gd	7397	3	if typeof(ref[3]) != TYPE_BOOL or typeof(nat[3]) != TYPE_BOOL or bool(ref[3]) != bool(nat[3]):
+sim/kc2rt_fight.gd	7397	3	if typeof(ref[3]) != TYPE_BOOL or typeof(nat[3]) != TYPE_BOOL or bool(ref[3]) != bool(nat[3]):
+sim/kc2rt_fight.gd	7397	3	if typeof(ref[3]) != TYPE_BOOL or typeof(nat[3]) != TYPE_BOOL or bool(ref[3]) != bool(nat[3]):
+sim/kc2rt_fight.gd	7397	3	if typeof(ref[3]) != TYPE_BOOL or typeof(nat[3]) != TYPE_BOOL or bool(ref[3]) != bool(nat[3]):
+sim/kc2rt_fight.gd	7398	3	return "[3] gdscript %s native %s" % [var_to_str(ref[3]), var_to_str(nat[3])]
+sim/kc2rt_fight.gd	7398	3	return "[3] gdscript %s native %s" % [var_to_str(ref[3]), var_to_str(nat[3])]
+sim/kc2rt_fight.gd	7555	151	for w in range(151, 161):
+sim/kc2rt_fight.gd	7555	161	for w in range(151, 161):
+sim/kc2rt_fight.gd	7592	1000.0	if float(d1.get("scan_period_ms", NAN)) / 1000.0 != float(sc):
+sim/kc2rt_gd_engage.gd	82	1e-9	const EPS_CEIL := 1e-9                   # math.ceil(x - 1e-9) in pause_ticks / RECHOOSE
+sim/kc2rt_gd_engage.gd	83	1e-9	const HALT_SHRINK := 1e-9                # A["S"].reach_m * (1.0 - 1e-9) in halt_for
+sim/kc2rt_gd_engage.gd	84	1e-9	const UNIT_EPS := 1e-9                   # _stop_where_close_enough L < 1e-9; pet / player moved > 1e-9
+sim/kc2rt_gd_engage.gd	312	256	_crc_table.resize(256)
+sim/kc2rt_gd_engage.gd	313	256	for n in range(256):
+sim/kc2rt_gd_engage.gd	315	8	for _k in range(8):
+sim/kc2rt_gd_engage.gd	316	0xEDB88320	c = (0xEDB88320 ^ (c >> 1)) if (c & 1) != 0 else (c >> 1)
+sim/kc2rt_gd_engage.gd	318	0xFFFFFFFF	var crc := 0xFFFFFFFF
+sim/kc2rt_gd_engage.gd	320	0xFF	crc = _crc_table[(crc ^ byte) & 0xFF] ^ (crc >> 8)
+sim/kc2rt_gd_engage.gd	320	8	crc = _crc_table[(crc ^ byte) & 0xFF] ^ (crc >> 8)
+sim/kc2rt_gd_engage.gd	321	0xFFFFFFFF	return crc ^ 0xFFFFFFFF
+sim/kc2rt_gd_engage.gd	334	1000.0	return int(ceil(float(ms) / 1000.0 * float(fight.ticks_per_s) - EPS_CEIL))
+sim/kc2rt_gd_engage.gd	385	100.0	if g.randf_range_at(SITE_CHOOSE, 0.0, 100.0) > chance:
+sim/kc2rt_gd_engage.gd	424	1e9	var d := float(b.get("ge_dist", 1e9))
+sim/kc2rt_gd_engage.gd	537	0.05	p = "Melee" if absf(ld - MELEE_LADDER) < 0.05 else "Other"
+sim/kc2rt_gd_engage.gd	572	-10	return int(_last.get(aid, -10)) >= _tick - 1
+sim/kc2rt_gd_engage.gd	580	99	return float(_rng(b, purpose).randi_range_at(SITE_ROLL, 0, 99)) < pct
+sim/kc2rt_gd_engage.gd	725	1e-9	dd = 1e-9                     # the oracle's `or 1e-9` (a division guard)
+sim/kc2rt_gd_engage.gd	820	4	if j == aid or not _alive(j) or bool(bl[4]):
+sim/kc2rt_gd_engage.gd	824	3	var jr := float(bl[3])
+sim/kc2rt_gd_engage.gd	844	-9223372036854775807	const PB_EXCLUDED := -9223372036854775807
+sim/kc2rt_gd_engage.gd	872	3	_pb_r[i] = float(e[3])
+sim/kc2rt_gd_engage.gd	873	4	_pb_g[i] = 1 if bool(e[4]) else 0
+sim/kc2rt_gd_engage.gd	874	-10	_pb_last[i] = int(_last.get(id, -10))
+sim/kc2rt_gd_engage.gd	922	1e9	var d := float(b.get("ge_dist", 1e9))
+sim/kc2rt_gd_engage.gd	1327	0.001	if dd > 0.001:
+sim/kc2rt_gd_engage.gd	1330	3	au[1] += kk * float(pair[3])
+sim/kc2rt_gd_engage.gd	1332	0.001	au[0] += 0.001 * (1.0 if u < v else -1.0)   # the oracle's coincident-centre nudge (a guard)
+sim/kc2rt_gd_engage.gd	1342	0.0001	if c > 0.0001:                                  # the oracle's count guard
+sim/kc2rt_lineup.gd	231	3	keyed.append([int(out[i][1]), 0 if bool(out[i][3]) else 1, i, out[i]])
+sim/kc2rt_lineup.gd	240	3	sorted_out.append(e[3])
+sim/kc2rt_mutators.gd	185	100.0	return pierce_pct / 100.0
+sim/kc2rt_mutators.gd	188	100.0	return chaos_pct / 100.0
+sim/kc2rt_mutators.gd	222	100.0	f *= 1.0 - cruel_pct / 100.0
+sim/kc2rt_mutators.gd	224	100.0	f *= 1.0 + asc_pct / 100.0
+sim/kc2rt_mutators.gd	236	100.0	var want := leech_pct / 100.0 * leech_multiplier * applied
+loader/kc2rt_v3p11.gd	48	835	const EXPECT_CLOSURE := {A8: 835, "c5_class_constants_v3p11": 0, D4: 91, "e13_static_sweep_exemptions_v3p11": 0,
+loader/kc2rt_v3p11.gd	48	91	const EXPECT_CLOSURE := {A8: 835, "c5_class_constants_v3p11": 0, D4: 91, "e13_static_sweep_exemptions_v3p11": 0,
+loader/kc2rt_v3p11.gd	49	5	F1: 5, K12: 10, K3: 84, P2: 5, "r9_read_absent_columns_v3p11": 0, "s10_run_state_v3p11": 0, W14: 5}
+loader/kc2rt_v3p11.gd	49	10	F1: 5, K12: 10, K3: 84, P2: 5, "r9_read_absent_columns_v3p11": 0, "s10_run_state_v3p11": 0, W14: 5}
+loader/kc2rt_v3p11.gd	49	84	F1: 5, K12: 10, K3: 84, P2: 5, "r9_read_absent_columns_v3p11": 0, "s10_run_state_v3p11": 0, W14: 5}
+loader/kc2rt_v3p11.gd	49	5	F1: 5, K12: 10, K3: 84, P2: 5, "r9_read_absent_columns_v3p11": 0, "s10_run_state_v3p11": 0, W14: 5}
+loader/kc2rt_v3p11.gd	49	5	F1: 5, K12: 10, K3: 84, P2: 5, "r9_read_absent_columns_v3p11": 0, "s10_run_state_v3p11": 0, W14: 5}
+loader/kc2rt_v3p11.gd	50	1035	const EXPECT_CLOSURE_TOTAL := 1035
+loader/kc2rt_v3p11.gd	53	4	"model/arena.json:cg1_scope_pointers": 1, "model/config_of_record.json:cg1_scope_pointers": 4,
+loader/kc2rt_v3p11.gd	54	3	"model/math_rules.json:cg1_scope_pointers": 1, "model/math_rules.json:dc1_decoded_constants": 3,
+loader/kc2rt_v3p11.gd	55	124	"model/monster_kinematics.json:cg1_scope_pointers": 2, "model/monster_kinematics.json:sp1_swing_pause": 124,
+loader/kc2rt_v3p11.gd	57	7	"model/monster_offense.json:cg1_scope_pointers": 1, "model/oracle_inputs_v3p11.json:oi1_oracle_input_files": 7,
+loader/kc2rt_v3p11.gd	58	19	"model/rng_contract.json:rg1_fold_draw_sites": 19, "model/waves.json:cg2_p05_corrigenda": 2,
+loader/kc2rt_v3p11.gd	60	168	const EXPECT_HAND_TOTAL := 168
+loader/kc2rt_v3p11.gd	314	64	if typeof(now) == TYPE_STRING and String(now).length() == 64 and String(rv) != String(now):
+loader/kc2rt_v3p11.gd	458	1000.0	var lo_ms := int(float(lo) * 1000.0)
+loader/kc2rt_v3p11.gd	459	1000.0	var hi_ms := int(float(hi) * 1000.0)
+loader/kc2rt_v3p11.gd	477	1000.0	var lo2 := int(float(v.get("minSwingPause_s", NAN)) * 1000.0)
+loader/kc2rt_v3p11.gd	478	1000.0	var hi2 := maxi(lo2, int(float(v.get("maxSwingPause_s", NAN)) * 1000.0))
+loader/kc2rt_v3p11.gd	521	92	if c == 92:
+loader/kc2rt_v3p11.gd	524	34	if c == 34:
+loader/kc2rt_v3p11.gd	526	127	elif c > 127:
+loader/kc2rt_v3p11.gd	528	0xFFFF	if c > 0xFFFF:
+loader/kc2rt_v3p11.gd	529	0x10000	var o := c - 0x10000
+loader/kc2rt_v3p11.gd	530	0xD800	parts.append("\\u%04x\\u%04x" % [0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)])
+loader/kc2rt_v3p11.gd	530	10	parts.append("\\u%04x\\u%04x" % [0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)])
+loader/kc2rt_v3p11.gd	530	0xDC00	parts.append("\\u%04x\\u%04x" % [0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)])
+loader/kc2rt_v3p11.gd	530	0x3FF	parts.append("\\u%04x\\u%04x" % [0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)])
+loader/kc2rt_v3p11.gd	536	32	if c == 32 or c == 10 or c == 13 or c == 9:
+loader/kc2rt_v3p11.gd	536	10	if c == 32 or c == 10 or c == 13 or c == 9:
+loader/kc2rt_v3p11.gd	536	13	if c == 32 or c == 10 or c == 13 or c == 9:
+loader/kc2rt_v3p11.gd	536	9	if c == 32 or c == 10 or c == 13 or c == 9:
+loader/kc2rt_v3p11.gd	545	93	if c == 93:
+loader/kc2rt_v3p11.gd	547	44	if c == 44:
+loader/kc2rt_v3p11.gd	551	34	if c == 34:
+loader/kc2rt_v3p11.gd	553	91	elif c == 91 or c == 123:
+loader/kc2rt_v3p11.gd	553	123	elif c == 91 or c == 123:
+loader/kc2rt_v3p11.gd	555	93	elif c == 93 or c == 125:
+loader/kc2rt_v3p11.gd	555	125	elif c == 93 or c == 125:
+loader/kc2rt_v3p11.gd	664	9	if cg1_by_prior.size() != 9:
+loader/kc2rt_v3p11.gd	670	124	if sp1_checked != 124:
+loader/kc2rt_v3p11.gd	672	7	if a8_by_job.size() != 7:
+loader/kc2rt_v3p7.gd	52	612	const EXPECT_K3_BY_REVISION := {"v3.7": 612, "v3.7.1": 608, "v3.8": 608, "v3.11": 608}   # v3.8: input_closure.json unchanged (KP-227)
+loader/kc2rt_v3p7.gd	52	608	const EXPECT_K3_BY_REVISION := {"v3.7": 612, "v3.7.1": 608, "v3.8": 608, "v3.11": 608}   # v3.8: input_closure.json unchanged (KP-227)
+loader/kc2rt_v3p7.gd	52	608	const EXPECT_K3_BY_REVISION := {"v3.7": 612, "v3.7.1": 608, "v3.8": 608, "v3.11": 608}   # v3.8: input_closure.json unchanged (KP-227)
+loader/kc2rt_v3p7.gd	52	608	const EXPECT_K3_BY_REVISION := {"v3.7": 612, "v3.7.1": 608, "v3.8": 608, "v3.11": 608}   # v3.8: input_closure.json unchanged (KP-227)
+loader/kc2rt_v3p7.gd	416	4	if (pack_revision == "v3.7.1" or pack_revision == "v3.8" or pack_revision == "v3.11") and withdrawn.size() != 4:
+loader/kc2rt_v3p8.gd	62	6	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	62	6	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	62	220	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	62	13	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	62	1816	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	62	15	const EXPECT := {SG1: 6, SG2: 1, SG3: 6, SG4: 1, SG5: 220, GR1: 13, GR2: 1816, GR3: 15, AM1: 1, AM2: 1,
+loader/kc2rt_v3p8.gd	63	31	AM3: 31, AM4: 1, AM5: 84, AM6: 1, ST1: 1, ST2: 1}
+loader/kc2rt_v3p8.gd	63	84	AM3: 31, AM4: 1, AM5: 84, AM6: 1, ST1: 1, ST2: 1}
+loader/kc2rt_v3p8.gd	64	2199	const EXPECT_TOTAL := 2199
+loader/kc2rt_v3p8.gd	253	1e-9	if absf(x - _nn(v.get("x"))) > 1e-9 or absf(y - _nn(v.get("y"))) > 1e-9:
+loader/kc2rt_v3p8.gd	253	1e-9	if absf(x - _nn(v.get("x"))) > 1e-9 or absf(y - _nn(v.get("y"))) > 1e-9:
+loader/kc2rt_v3p8.gd	481	6	if s.contains("e") or dot < 0 or s.length() - dot - 1 > 6:
+loader/kc2rt_v3p8.gd	554	8	pack_revision, sg4_csv_rows.size(), sg4_file_sha256.substr(0, 8), bound_archive, bound_map, bound_tier_p01,
+native/src/kc2rt_contact_native.cpp	42	1e-9	constexpr double EPS = 1e-9;
+native/src/kc2rt_contact_native.cpp	43	1e-12	constexpr double TOL = 1e-12;
+native/src/kc2rt_contact_native.cpp	68	134217729.0	const double c = 134217729.0 * a;
+native/src/kc2rt_contact_native.cpp	71	134217729.0	const double d = 134217729.0 * b;
+native/src/kc2rt_contact_native.cpp	100	52	const int64_t be = (bits >> 52) & 0x7FF;
+native/src/kc2rt_contact_native.cpp	100	0x7FF	const int64_t be = (bits >> 52) & 0x7FF;
+native/src/kc2rt_contact_native.cpp	104	1022	const int64_t max_e = be - 1022;
+native/src/kc2rt_contact_native.cpp	105	1023	const double scale = double_of(static_cast<uint64_t>((1023 - max_e) << 52));
+native/src/kc2rt_contact_native.cpp	105	52	const double scale = double_of(static_cast<uint64_t>((1023 - max_e) << 52));
+native/src/kc2rt_contact_native.cpp	134	32	return (static_cast<uint64_t>(static_cast<uint32_t>(kx)) << 32) | static_cast<uint64_t>(static_cast<uint32_t>(ky));
+native/src/kc2rt_contact_native.cpp	210	1e-9	if (pen > 1e-9) {
+native/src/kc2rt_contact_native.cpp	249	3.1415926535897932384626433833	constexpr double GD_PI = 3.1415926535897932384626433833;
+native/src/kc2rt_contact_native.cpp	531	3	bl.push_back({ String(b[0]), double(b[1]), double(b[2]), double(b[3]) });
+native/src/kc2rt_contact_native.cpp	566	3	const int64_t i = (probe_fault == 3) ? (n_m - 1 - ii) : ii;
+native/src/kc2rt_contact_native.cpp	569	4	if (probe_fault == 4) {
+native/src/kc2rt_contact_native.cpp	600	-2	return -2;
+native/src/kc2rt_contact_native.cpp	608	5	const int64_t j = (probe_fault == 5) ? (n - 1 - t) : t;
+native/src/kc2rt_contact_native.cpp	609	6	if (j == self_index || pl[j] < alive_min || (pg[j] != 0 && probe_fault != 6)) {

@@ -1,0 +1,179 @@
+[
+ {
+  "cell": "M0|0",
+  "trace_mine_sha256": "7f150b21481d0ae95a9ee439de93896f443c8cb837e9324d7b27c77dfc91ac30",
+  "trace_filed_sha256": "c4875e7f803513f0321092f24c78368aeb486c1525497bf58b9aa86c87a0e628",
+  "trace_byte_equal": false,
+  "trace_equal_mod_engine_src": true,
+  "summary_mine_sha256": "c4e2b81e87301933db542e379d3924b84d7b27c99d34733e2eeb07421d553394",
+  "summary_filed_sha256": "12172209e57a668e90dca847b07582825714cbbdaf888dce023ac03fc77f64fb",
+  "summary_byte_equal": false,
+  "summary_equal_mod_trace_sha": true,
+  "summary_differing_keys": [
+   "trace_sha256"
+  ],
+  "decision_divergences": 0,
+  "draw_mismatches": 0,
+  "death": {
+   "equal": true,
+   "oracle": null,
+   "oracle_survived_to": 160,
+   "port": [
+    160,
+    576
+   ],
+   "port_reason": "cleared"
+  },
+  "oracle_complete": true,
+  "census_equal": true,
+  "control_term_equal": true,
+  "contact": {
+   "contact_solver": "shadow",
+   "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+   "shadow_ticks_compared": 0,
+   "shadow_mismatch_ticks": 0,
+   "place_shadow_calls": 378,
+   "place_shadow_mismatch_calls": 0,
+   "petpath_shadow_calls": 30381,
+   "petpath_shadow_mismatch_calls": 0,
+   "petpath_shadow_goal_hits": 131
+  },
+  "injected": [],
+  "port_only_streams": []
+ },
+ {
+  "cell": "W1|2",
+  "trace_mine_sha256": "42810346c7357fc7d36bba5260ae1fdc614cdfaebacf7d118a7c9e237c019e96",
+  "trace_filed_sha256": "94496de077cf28df71247a3fd4a57be797f5b66d5858a9d8eb60a9d2af3ae314",
+  "trace_byte_equal": false,
+  "trace_equal_mod_engine_src": true,
+  "summary_mine_sha256": "7d08796f21bd9006eb4df6b1be393e2bd6e868ebf4353d0dafdcfc42c7b4ea92",
+  "summary_filed_sha256": "b23124ff45834566c0af2dc4c710833fdaf2cd8bdac80d20e6107471b125e8a0",
+  "summary_byte_equal": false,
+  "summary_equal_mod_trace_sha": true,
+  "summary_differing_keys": [
+   "trace_sha256"
+  ],
+  "decision_divergences": 0,
+  "draw_mismatches": 0,
+  "death": {
+   "equal": true,
+   "oracle": [
+    160,
+    161
+   ],
+   "oracle_survived_to": null,
+   "port": [
+    160,
+    161
+   ],
+   "port_reason": "death"
+  },
+  "oracle_complete": true,
+  "census_equal": true,
+  "control_term_equal": true,
+  "contact": {
+   "contact_solver": "shadow",
+   "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+   "shadow_ticks_compared": 0,
+   "shadow_mismatch_ticks": 0,
+   "place_shadow_calls": 342,
+   "place_shadow_mismatch_calls": 0,
+   "petpath_shadow_calls": 41332,
+   "petpath_shadow_mismatch_calls": 0,
+   "petpath_shadow_goal_hits": 136
+  },
+  "injected": [],
+  "port_only_streams": []
+ },
+ {
+  "cell": "M-POL-2|2",
+  "trace_mine_sha256": "a3566c21660fd1b7c3efdce14d276aa403f8c62607df80f327d69382c3c4aef2",
+  "trace_filed_sha256": "b708fdf6522538eeb2aa3da80059c8b4efc5aa844cf28d2be26d18abfbd96e87",
+  "trace_byte_equal": false,
+  "trace_equal_mod_engine_src": true,
+  "summary_mine_sha256": "3037f9b1531b7d13a697e7f6c137ce5805b9cc526bfadf988961aa64cb73b83a",
+  "summary_filed_sha256": "d471b1000f8439d604c541ffae32f15071070530e10b6169c87252d8eed40e35",
+  "summary_byte_equal": false,
+  "summary_equal_mod_trace_sha": true,
+  "summary_differing_keys": [
+   "trace_sha256"
+  ],
+  "decision_divergences": 0,
+  "draw_mismatches": 0,
+  "death": {
+   "equal": true,
+   "oracle": [
+    160,
+    221
+   ],
+   "oracle_survived_to": null,
+   "port": [
+    160,
+    221
+   ],
+   "port_reason": "death"
+  },
+  "oracle_complete": true,
+  "census_equal": true,
+  "control_term_equal": true,
+  "contact": {
+   "contact_solver": "shadow",
+   "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+   "shadow_ticks_compared": 0,
+   "shadow_mismatch_ticks": 0,
+   "place_shadow_calls": 385,
+   "place_shadow_mismatch_calls": 0,
+   "petpath_shadow_calls": 43657,
+   "petpath_shadow_mismatch_calls": 0,
+   "petpath_shadow_goal_hits": 204
+  },
+  "injected": [],
+  "port_only_streams": []
+ },
+ {
+  "cell": "M0|3",
+  "trace_mine_sha256": "cd4761123fc71126e83a51aa92e81fc7242d243afc67b96e3be3188287ddaabb",
+  "trace_filed_sha256": "69cbfb4d5637ec631a9d909fb719e94e01af96f48ca0a1d4e6b6469c2cbcdf6a",
+  "trace_byte_equal": false,
+  "trace_equal_mod_engine_src": true,
+  "summary_mine_sha256": "e89273fd54763f9ed139a8abc8bc3584872c1501df19f2d22b0b29d6252b80d6",
+  "summary_filed_sha256": "b69064f02a3377914032e4a9efe3ac012f2ede512b0b0dee19e20b8fb04ae2a0",
+  "summary_byte_equal": false,
+  "summary_equal_mod_trace_sha": true,
+  "summary_differing_keys": [
+   "trace_sha256"
+  ],
+  "decision_divergences": 0,
+  "draw_mismatches": 0,
+  "death": {
+   "equal": true,
+   "oracle": [
+    160,
+    225
+   ],
+   "oracle_survived_to": null,
+   "port": [
+    160,
+    225
+   ],
+   "port_reason": "death"
+  },
+  "oracle_complete": true,
+  "census_equal": true,
+  "control_term_equal": true,
+  "contact": {
+   "contact_solver": "shadow",
+   "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+   "shadow_ticks_compared": 0,
+   "shadow_mismatch_ticks": 0,
+   "place_shadow_calls": 449,
+   "place_shadow_mismatch_calls": 0,
+   "petpath_shadow_calls": 44707,
+   "petpath_shadow_mismatch_calls": 0,
+   "petpath_shadow_goal_hits": 277
+  },
+  "injected": [],
+  "port_only_streams": []
+ }
+]

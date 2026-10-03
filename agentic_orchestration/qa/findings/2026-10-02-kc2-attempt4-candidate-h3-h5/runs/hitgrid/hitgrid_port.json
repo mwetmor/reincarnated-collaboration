@@ -1,0 +1,59 @@
+{
+ "base": {
+  "draw_mismatches": 0,
+  "draws_served": 440,
+  "error": "",
+  "first_mismatch": {
+
+  },
+  "oracle_rowset": "eaf31884149423907e1182946d4f7af44b0793fd3f80b7b32ef6eef7393f077e",
+  "rows": 440,
+  "rowset": "eaf31884149423907e1182946d4f7af44b0793fd3f80b7b32ef6eef7393f077e",
+  "rowset_equal": true
+ },
+ "constants": {
+  "NORMAL_PTH_DIVISOR": 70.0,
+  "PTH_MINIMUM": 55.0,
+  "PTH_MULTIPLIERS": [
+   1.0,
+   1.1,
+   1.2,
+   1.3,
+   1.4,
+   1.5
+  ],
+  "PTH_THRESHOLDS": [
+   70.0,
+   90.0,
+   105.0,
+   120.0,
+   130.0,
+   135.0
+  ],
+  "source": "the pack, bound by kc2rt_fight.bind_to_hit (H1-CONST cross-checked against CM-THRESHOLD-TABLE)"
+ },
+ "control_NC_H1": {
+  "hit_flips": 20,
+  "multiplier_only": 43,
+  "patch": "pth_minimum = 5.0",
+  "predicted": {
+   "hit_flips": 20,
+   "multiplier_only": 43,
+   "pth_effective_only": 77,
+   "return_differs": 63,
+   "rows_red": 140
+  },
+  "pth_effective_only": 77,
+  "red_at_pth_in_eq_55": 0,
+  "red_at_pth_in_ge_55": 0,
+  "red_exactly_as_predicted": true,
+  "return_differs": 63,
+  "rows_red": 140
+ },
+ "draws_sha256": "26ddd42305e199f22c1a6a69404ec013a34f626f843359baf0f9901c252bd723",
+ "grid": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/h3h5/g3/hitgrid/src/reincarnated/simulation/output/join1-hitchance-grid-v1",
+ "inputs_sha256": "88c95a423966633a51d53810f74a10ace901f98c276616be6c85229336fb6016",
+ "manifest_sha256": "6b491d5bc1e4a7b0fe91129fb7cdb5113e73027eeb6838f56d18f6026c566a93",
+ "pass": true,
+ "port_rowset_lines_sha256": "525c61fc4607c0c369933725f589319b0b6606a8e3b674a6f58daef6fa0d0603"
+}

@@ -1,0 +1,223 @@
+{
+ "verdict": "PASS",
+ "gates": {
+  "n": 0,
+  "gates": []
+ },
+ "V156": {
+  "W1+M-POL-2|0": 0,
+  "W1+M-POL-2|1": 0,
+  "W1|0": 0,
+  "W1|1": 0,
+  "M-POL-2|0": 0,
+  "M-POL-2|1": 0,
+  "M0|0": 0,
+  "M0|1": 0,
+  "M-POL-2-NULL|0": 0,
+  "M-POL-2-NULL|1": 0,
+  "W1-NULL|0": 0,
+  "W1-NULL|1": 0,
+  "WALK|0": 0,
+  "WALK|1": 0
+ },
+ "static": {
+  "0": 0,
+  "1": 0
+ },
+ "mg_clean": true,
+ "mg": {
+  "E7": 36,
+  "E6": 12
+ },
+ "inert": true,
+ "seeds": true,
+ "sweeps": true,
+ "modules": 72,
+ "preds": {
+  "v3.8 model": true,
+  "v3.8 reference": true
+ },
+ "K7": {
+  "pre": true,
+  "post": true
+ },
+ "NIP": {
+  "W1+M-POL-2|0": 0,
+  "W1+M-POL-2|1": 0,
+  "W1|0": 0,
+  "W1|1": 0,
+  "M-POL-2|0": 0,
+  "M-POL-2|1": 0,
+  "M0|0": 0,
+  "M0|1": 0,
+  "M-POL-2-NULL|0": 0,
+  "M-POL-2-NULL|1": 0,
+  "W1-NULL|0": 0,
+  "W1-NULL|1": 0,
+  "WALK|0": 0,
+  "WALK|1": 0
+ },
+ "recon_eq_face": true,
+ "cmp": {
+  "W1+M-POL-2|0": [
+   false,
+   1,
+   0
+  ],
+  "W1+M-POL-2|1": [
+   false,
+   1,
+   0
+  ],
+  "W1|0": [
+   false,
+   1,
+   0
+  ],
+  "W1|1": [
+   false,
+   1,
+   0
+  ],
+  "M-POL-2|0": [
+   false,
+   1,
+   0
+  ],
+  "M-POL-2|1": [
+   false,
+   1,
+   0
+  ],
+  "M0|0": [
+   false,
+   1,
+   0
+  ],
+  "M0|1": [
+   false,
+   1,
+   0
+  ],
+  "M-POL-2-NULL|0": [
+   false,
+   1,
+   0
+  ],
+  "M-POL-2-NULL|1": [
+   false,
+   1,
+   0
+  ],
+  "W1-NULL|0": [
+   false,
+   1,
+   0
+  ],
+  "W1-NULL|1": [
+   false,
+   1,
+   0
+  ],
+  "WALK|0": [
+   false,
+   1,
+   0
+  ],
+  "WALK|1": [
+   false,
+   1,
+   0
+  ]
+ },
+ "same_inputs": {
+  "W1+M-POL-2|0": false,
+  "W1+M-POL-2|1": false,
+  "W1|0": false,
+  "W1|1": false,
+  "M-POL-2|0": false,
+  "M-POL-2|1": false,
+  "M0|0": false,
+  "M0|1": false,
+  "M-POL-2-NULL|0": false,
+  "M-POL-2-NULL|1": false,
+  "W1-NULL|0": false,
+  "W1-NULL|1": false,
+  "WALK|0": false,
+  "WALK|1": false
+ },
+ "raw_viol": {
+  "W1+M-POL-2|0": 39,
+  "W1+M-POL-2|1": 41,
+  "W1|0": 39,
+  "W1|1": 7,
+  "M-POL-2|0": 35,
+  "M-POL-2|1": 7,
+  "M0|0": 7,
+  "M0|1": 7,
+  "M-POL-2-NULL|0": 7,
+  "M-POL-2-NULL|1": 7,
+  "W1-NULL|0": 7,
+  "W1-NULL|1": 7,
+  "WALK|0": 6,
+  "WALK|1": 6
+ },
+ "norm": {
+  "W1+M-POL-2|0": {
+   "pyc_temp_opens_dropped": 34,
+   "constants_rewritten": 72
+  },
+  "W1+M-POL-2|1": {
+   "pyc_temp_opens_dropped": 37,
+   "constants_rewritten": 72
+  },
+  "W1|0": {
+   "pyc_temp_opens_dropped": 35,
+   "constants_rewritten": 72
+  },
+  "W1|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2|0": {
+   "pyc_temp_opens_dropped": 35,
+   "constants_rewritten": 72
+  },
+  "M-POL-2|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M0|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M0|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2-NULL|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "M-POL-2-NULL|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "W1-NULL|0": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "W1-NULL|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  },
+  "WALK|0": {
+   "pyc_temp_opens_dropped": 1,
+   "constants_rewritten": 72
+  },
+  "WALK|1": {
+   "pyc_temp_opens_dropped": 0,
+   "constants_rewritten": 72
+  }
+ }
+}

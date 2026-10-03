@@ -1,0 +1,44 @@
+gd_engagement.py:158	1000000000.0	d = eng._ge_dist.get(actor_id, 1e9)
+gd_engagement.py:212	1e-09	return A["S"].reach_m * (1.0 - 1e-9)
+gd_engagement.py:130	100.0	if r.uniform(0.0, 100.0) > s.chance_pct:
+gd_engagement.py:162	1e-09	A["next_choose"] = tick + max(1, int(math.ceil(RECHOOSE_S * eng.ticks_per_s - 1e-9)))
+gd_reposition.py:360	1e-09	dd = math.hypot(dx, dy) or 1e-9
+gd_reposition.py:454	1000000000.0	d = eng._ge_dist.get(aid, 1e9)
+gd_reposition.py:661	1e-09	if L < 1e-9:
+gd_reposition.py:248	100	return self._rng(eng, aid, purpose).randrange(100) < pct
+gd_reposition.py:774	1e-09	abs(pxy[0] - self._player_prev[0]) + abs(pxy[1] - self._player_prev[1]) > 1e-9)
+gd_reposition.py:829	0.0001	if c > 0.0001:
+gd_reposition.py:205	0.05	p = "Melee" if abs(ld - MELEE_LADDER) < 0.05 else "Other"
+gd_reposition.py:238	10	return self._last.get(aid, -10) >= self._tick - 1
+gd_reposition.py:455	1e-09	rch = max(1, int(math.ceil(ge.RECHOOSE_S * tps - 1e-9)))
+gd_reposition.py:789	1e-09	mov[i] = pv is not None and (abs(live[i][0] - pv[0]) + abs(live[i][1] - pv[1]) > 1e-9)
+gd_reposition.py:817	0.001	if dd > 0.001:
+gd_reposition.py:822	0.001	acc[u][0] += 0.001 * (1.0 if u < v else -1.0)
+swing_pause.py:91	1e-09	return int(math.ceil(ms / 1000.0 * engine.ticks_per_s - 1e-9))
+swing_pause.py:73	1000.0	lo_ms, hi_ms = int(float(lo) * 1000.0), int(float(hi) * 1000.0)   # cvttss2si: truncate
+swing_pause.py:73	1000.0	lo_ms, hi_ms = int(float(lo) * 1000.0), int(float(hi) * 1000.0)   # cvttss2si: truncate
+swing_pause.py:91	1000.0	return int(math.ceil(ms / 1000.0 * engine.ticks_per_s - 1e-9))
+pilot_move.py:77	80.0	sane_bound_m: float = 80.0
+pilot_move.py:184	4	"commanded_moving_fraction": (round(sum(t["n_move_ticks"].values()) / n_on, 4) if n_on else None),
+pilot_move.py:105	8	self._rng = random.Random(int.from_bytes(hashlib.sha256(mat.encode()).digest()[:8], "big"))
+mutators.py:140	100.0	return self._pierce_pct / 100.0
+mutators.py:143	100.0	return self._chaos_pct / 100.0
+mutators.py:202	4	t["cruel_active_tick_fraction"] = (round(t["cruel_ticks"] / t["player_ticks"], 4)
+mutators.py:175	100.0	f *= 1.0 - self._cruel_pct / 100.0
+mutators.py:177	100.0	f *= 1.0 + self._asc_pct / 100.0
+mutators.py:191	100.0	want = self._leech_pct / 100.0 * LEECH_MULTIPLIER * applied
+gd_composition.py:142	100.0	- self._wave_phys[LAPM_WAVE]) / 100.0
+gd_composition.py:169	200.0	d = 1.0 if v_int is None else float(v_int) / 200.0 + 1.0
+gd_composition.py:147	100.0	v = m * max(0.0, a_mult + P + self._wave_phys.get(w, 0.0) / 100.0)
+p05_emergence.py:60	1e-09	return int(math.ceil(t_s / period_s - 1e-9))
+p05_emergence.py:138	1e-09	ta = float(mover.spawn_t_s) + math.ceil(d / g - 1e-9) * g
+global_magnitude.py:821	83.0	def chain_positive_control(*, wave_total_pct: float = 83.0,
+global_magnitude.py:822	0.0011	rel_tolerance: float = 1.1e-3) -> Dict[str, Any]:
+global_magnitude.py:261	100.0	return 0.0 if not self.folds_own else float(self.own_total_damage_modifier_pct) / 100.0
+global_magnitude.py:710	1e-09	dis = [p for p in pairs if abs(p[1] - p[2]) > 1e-9]
+global_magnitude.py:738	1e-09	dis = [p2 for p2 in pairs if abs(p2[1] - p2[2]) > 1e-9]
+global_magnitude.py:862	100.0	m_tot = 1.0 + (wave_total_pct + float(_f(c, "own_total_damage_modifier_pct"))) / 100.0
+global_magnitude.py:880	3	round(mine, 3), rawf, round(budget, 3))
+global_magnitude.py:880	3	round(mine, 3), rawf, round(budget, 3))
+global_magnitude.py:180	3	f"the physical clamp is MIXED within {len(mixed)} bodies ({mixed[:3]}). I-14 folds a "
+hunt_pilot.py:131	3	"n_drift_ticks": self.n_drift_ticks, "drift_path_m": round(self.drift_path_m, 3)}

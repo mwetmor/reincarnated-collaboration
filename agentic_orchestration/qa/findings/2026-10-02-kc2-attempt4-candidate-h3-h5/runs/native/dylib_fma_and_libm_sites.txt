@@ -1,0 +1,12 @@
+474:0000000000000eec	fmadd	d20, d4, d7, d27
+475:0000000000000ef0	fmadd	d7, d5, d7, d17
+476:0000000000000ef4	fmsub	d2, d4, d3, d2
+477:0000000000000ef8	fmsub	d1, d5, d3, d1
+2581:0000000000002fd8	bl	0x27b8c ; symbol stub for: _atan2
+2785:0000000000003308	bl	0x27ba4 ; symbol stub for: _cos
+2788:0000000000003314	fmadd	d13, d11, d0, d10
+2790:000000000000331c	bl	0x27bf8 ; symbol stub for: _sin
+2791:0000000000003320	fmadd	d12, d11, d0, d9
+2916:0000000000003514	bl	0x27bf8 ; symbol stub for: _sin
+3091:00000000000037d0	bl	0x27ba4 ; symbol stub for: _cos
+3094:00000000000037dc	bl	0x27bf8 ; symbol stub for: _sin
