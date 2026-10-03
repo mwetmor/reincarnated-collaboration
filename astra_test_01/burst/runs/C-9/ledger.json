@@ -40325,6 +40325,16 @@
       "ts": "2026-10-03T15:11:28Z",
       "topic": "barrow_v2 greybox: halted by Matt, method under review (lane BX drax; R-C9-155 pass stopped mid-flight)",
       "result": "Committed what existed at 25def6a77: layout v6 with lanes[] (5 exit lanes), clean floor (flat marks + 63 tufts <= 0.15 m), models[] (29 slots, REUSE v1 GLB or BUILD by lane BVP); validator 66/66 (R12 lanes, R13 clean floor) + negative control caught. The in-flight Godot views run failed on 3 GDScript type-inference parse errors in the new slot loader; I stopped my hung job and fixed the errors by inspection, with no re-render (per the halt). The V-stills on disk are v5; plan_topdown.png is v6. Nothing else started."
+    },
+    {
+      "id": "M-C9-EN2-P2-VIGILLORD",
+      "ts": "2026-10-03T15:13:36Z",
+      "note": "EN-E2 Phase 2 (collab 36ec21b24): join1_pack/en-vigillord -- 56/56 COMPLETE, 2.15 m (h_model 2.1491), margin 15.1 % (fit x1.234). true_size: nemesis_orderdeathsvigil_01 / ro_bounty12 1.0, odv_bounty13 0.967. Releases: cast_bolt r=4 at 0.7333 s, cast_area r=4 at 0.6333 s (2H cast spell 01, 2.1667 s). Sockets <= 0.24 mm (2112), manifest lint exit 0 + both negative controls exit 1, runtime resample 0.000 deg. KP-256 radius: drawn half-width 0.472 m vs actor radius 0.406-0.42 m, ratio 1.12-1.13 PASS. Rig: free weight transfer from the revenant (en49) + en55 bridge cut. stills8 en_e2/artifacts/en_x_stills8.png. Output ~47 MB. Also: the KP-256 check (en62) run on en-fleshshaper (0.56-0.79, krieg records FLAG-narrow) and en-ascended (0.42-0.48 FLAG-narrow) for a ruling; en60/en61 MX adoption scripts."
+    },
+    {
+      "id": "M-C9-EN3-WORM-P",
+      "ts": "2026-10-03T15:13:46Z",
+      "note": "EN-E3 PACK en-burrowworm_p (R-C9-157; aetherialworm_b01-b04 summons; supersedes en-burrowworm, index sha 08bdc4fc4d13 pinned): painted (EN3-PZPG a + worm grade), n22 emerge fix in. 32/32 cells, 416 PNG, 32 MiB; h_model 0.7346 m, length 2.80 m; true_size scale 1.2, factor 1.0. Releases: attack_bite r=5 0.3667 s; emerge 0.9667 s (12 frames), idle 1.3333 s (MAD 0.000), death 0.9667 s. Sockets worst 0.00006 m / 1248; resample 4/4; lint manifest 0, neg_release(attack) 0 = known gap, neg_prose 1. KP-256 radius: roster actorRadius 0.52 x 1.2 = 0.62 m vs drawn rest half-width 0.39 m / half-length 1.40 m (a long body over a round collider; ratio within GD presentation). Emerge E-heading AFTER still: en_e3/artifacts/strip_worm_emerge_E_after.png (no fold-back at f20/f25)."
     }
   ],
   "halts": [

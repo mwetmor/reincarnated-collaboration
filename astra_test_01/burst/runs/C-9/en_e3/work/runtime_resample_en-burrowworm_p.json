@@ -1,0 +1,192 @@
+{
+ "godot": "4.6.3-stable (official)",
+ "call": "GLTFDocument.append_from_file + generate_scene(state) -- render_cells.gd's own, no editor import",
+ "gltf_state_bake_fps": 30.0,
+ "glb": "worm.glb",
+ "clips": {
+  "idle": {
+   "length_glb": 1.33333,
+   "length_godot": 1.33333,
+   "tracks": 33,
+   "exact": 10,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "root.translation",
+    "root.rotation",
+    "root.scale",
+    "Hips.translation",
+    "Hips.scale",
+    "seg_b1.translation",
+    "seg_b1.scale",
+    "seg_b2.translation",
+    "seg_b2.scale",
+    "seg_b3.translation",
+    "seg_b3.scale",
+    "seg_b4.translation",
+    "seg_b4.scale",
+    "seg_f1.translation",
+    "seg_f1.scale",
+    "seg_f2.translation",
+    "seg_f2.scale",
+    "seg_f3.translation",
+    "seg_f3.scale",
+    "head.translation",
+    "head.scale",
+    "jaw.translation",
+    "jaw.scale"
+   ]
+  },
+  "emerge": {
+   "length_glb": 0.96667,
+   "length_godot": 0.96667,
+   "tracks": 33,
+   "exact": 11,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "root.translation",
+    "root.rotation",
+    "root.scale",
+    "seg_b1.translation",
+    "seg_b1.scale",
+    "seg_b2.translation",
+    "seg_b2.scale",
+    "seg_b3.translation",
+    "seg_b3.scale",
+    "seg_b4.translation",
+    "seg_b4.scale",
+    "seg_f1.translation",
+    "seg_f1.scale",
+    "seg_f2.translation",
+    "seg_f2.scale",
+    "seg_f3.translation",
+    "seg_f3.scale",
+    "head.translation",
+    "head.rotation",
+    "head.scale",
+    "jaw.translation",
+    "jaw.scale"
+   ]
+  },
+  "attack_bite": {
+   "length_glb": 0.8,
+   "length_godot": 0.8,
+   "tracks": 33,
+   "exact": 10,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "root.translation",
+    "root.rotation",
+    "root.scale",
+    "Hips.rotation",
+    "Hips.scale",
+    "seg_b1.translation",
+    "seg_b1.scale",
+    "seg_b2.translation",
+    "seg_b2.scale",
+    "seg_b3.translation",
+    "seg_b3.scale",
+    "seg_b4.translation",
+    "seg_b4.scale",
+    "seg_f1.translation",
+    "seg_f1.scale",
+    "seg_f2.translation",
+    "seg_f2.scale",
+    "seg_f3.translation",
+    "seg_f3.scale",
+    "head.translation",
+    "head.scale",
+    "jaw.translation",
+    "jaw.scale"
+   ]
+  },
+  "death": {
+   "length_glb": 0.96667,
+   "length_godot": 0.96667,
+   "tracks": 33,
+   "exact": 10,
+   "two_key": 0,
+   "resampled": [],
+   "dropped": [
+    "root.translation",
+    "root.rotation",
+    "root.scale",
+    "Hips.scale",
+    "seg_b1.translation",
+    "seg_b1.scale",
+    "seg_b2.translation",
+    "seg_b2.scale",
+    "seg_b3.translation",
+    "seg_b3.scale",
+    "seg_b4.translation",
+    "seg_b4.scale",
+    "seg_f1.translation",
+    "seg_f1.scale",
+    "seg_f2.translation",
+    "seg_f2.scale",
+    "seg_f3.translation",
+    "seg_f3.scale",
+    "head.translation",
+    "head.rotation",
+    "head.scale",
+    "jaw.translation",
+    "jaw.scale"
+   ]
+  }
+ },
+ "at_pack_frames": {
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-burrowworm_p/matrix_index.json",
+  "states": {
+   "idle": {
+    "clip": "idle",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "emerge": {
+    "clip": "emerge",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   },
+   "attack_bite": {
+    "clip": "attack_bite",
+    "frames": 12,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null,
+    "release_frame": {
+     "index": 5,
+     "t_s": 0.3667,
+     "forearms_deg": {
+      "LeftForeArm": null,
+      "RightForeArm": null
+     },
+     "worst_deg": 0.0,
+     "worst_track": "seg_b1"
+    }
+   },
+   "death": {
+    "clip": "death",
+    "frames": 16,
+    "worst_deg": 0.0,
+    "worst_track": null,
+    "worst_at_t": null,
+    "worst_translation_units": 0.0,
+    "worst_translation_track": null
+   }
+  },
+  "what": "per state, over the pack's own t_s: the largest angle between the GLB's curve and the baked one on any rotation track, and the largest translation difference (the GLB's units)"
+ },
+ "reading": "the runtime path DOES re-sample: generate_scene bakes every transform track at GLTFState.bake_fps (30.0) -- keys at 1/30 steps plus one at the clip's end. A track already on that grid comes through key-for-key; a 2-key track is re-keyed along its own line; only a multi-key track off the grid changes (listed under resampled, with the worst angle between the GLB's curve and the baked one). 'dropped' = a rest-valued track removed by the importer (remove_immutable_tracks), which is why the layers filter from all_clips."
+}

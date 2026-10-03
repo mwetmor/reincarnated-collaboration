@@ -1,0 +1,30 @@
+#!/bin/zsh
+# EN-E3 R-C9-135 resume (conductor: disk cleared): the worm half of chain_pz_d.sh from the cell render onward (R-C9-157) -- the surfaces + painted textures + cfg_*_p
+# are already made (larva via n25 transfer: tex_larva_PG2.png; worm tex_worm_PG.png). Disk guard: HALT below 21 GiB.
+cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3; C9=$(cd .. && pwd)
+export EN3_TMP=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/60f6998b-1e28-4199-bab2-9be52893d328/scratchpad
+H=../../C-7/conductor_scripts/heavy_lock.py
+gate() { local g=$(df -k /System/Volumes/Data | tail -1 | awk '{print int($4/1048576)}'); echo "df ${g} GiB"; if [ $g -lt 21 ]; then echo "HALT disk ${g} GiB < 21"; exit 3; fi; }
+N=worm; K0=en-burrowworm; K=${K0}_p; NM='burrow worm'
+  gate
+  mkdir -p $C9/join1_pack/$K work/closure_$K
+  python3 $H C-9 -- zsh -c "J1_KIT=$C9/join1_render/kits/$K.json J1_OUT=$C9/join1_pack/$K J1_RAW=$PWD/work/raw_$K.json J1_CLOSURE=$PWD/work/closure_$K perl -e 'alarm shift; exec @ARGV' 2700 /Applications/Godot.app/Contents/MacOS/Godot --path $C9/join1_render --resolution 320x180 res://render_cells.tscn 2>&1 | grep -E '\[j1\]|ERROR|SCRIPT|WATCHDOG' | tail -2"
+  python3 $C9/join1_render/scripts/index_cells.py $C9/join1_render/kits/$K.json $C9/join1_pack/$K work/raw_$K.json work/closure_$K --sheet $C9/join1_pack/${K}_contact_sheet_1x.png 2>&1 | tail -4
+  python3 $C9/join1_render/scripts/validate_sockets.py work/raw_$K.json $C9/join1_render/kits/$K.json work/validate_sockets_$K.json 2>&1 | tail -1
+  CL=idle,attack_bite,death,$( [ $N = larva ] && echo crawl || echo emerge )
+  echo "resample exact: $(python3 scripts/j_runtime_resample.py export/${N}_p/$N.glb --clips $CL --out work/runtime_resample_$K.json --index $C9/join1_pack/$K/matrix_index.json 2>&1 | grep -c 'worst 0.000') of 4"
+  python3 - $C9/join1_render/manifests/${K}_clips.json ${N}_p <<'PY'
+import json, sys
+m=json.load(open(sys.argv[1])); n=sys.argv[2]
+a=json.loads(json.dumps(m)); a['attacks']['attack_bite']['release_s']=4.0; json.dump(a,open('work/_neg_release_%s.json'%n,'w'))
+b=json.loads(json.dumps(m)); b['clips']['idle']['note_neg']='idle lasts 0.2 s'; json.dump(b,open('work/_neg_prose_%s.json'%n,'w'))
+PY
+  { echo "== the manifest"; python3 scripts/48_manifest_lint.py $C9/join1_render/manifests/${K}_clips.json export/${N}_p/$N.glb; echo "exit $?"; for n in release prose; do echo "== negative control: neg_$n"; python3 scripts/48_manifest_lint.py work/_neg_${n}_${N}_p.json export/${N}_p/$N.glb; echo "exit $?"; done; } > work/manifest_lint_$K.txt 2>&1; echo $K lint $(grep exit work/manifest_lint_$K.txt | tr '\n' ' ')
+  python3 $H C-9 -- zsh -c "
+blender -b -noaudio --python scripts/n05_render.py -- export/${N}_p/$N.glb sheet film/${N}_p_stills_8heading.png 'idle:idle:0,$( [ $N = larva ] && echo crawl:crawl:4 || echo emerge:emerge:20 ),bite:attack_bite:11,death:death:29' 2>&1 | grep -i 'error\|sheet'
+blender -b -noaudio --python scripts/n05_render.py -- export/${N}_p/$N.glb film film/${N}_p_playspeed.mp4 '$( [ $N = larva ] && echo idle:1:SE,crawl:6:SW || echo emerge:1:S,idle:1:SE ),attack_bite:1:S,death:1:SE' $( [ $N = larva ] && echo --speeds crawl=3.21 ) 2>&1 | grep -i 'error\|film'
+"
+
+python3 $H C-9 -- blender -b -noaudio --python scripts/n05_render.py -- export/worm_p/worm.glb strip work/strip_worm_emerge_E_after.png "E|emerge:10,emerge:15,emerge:20,emerge:25,idle:0" 2>&1 | grep -i 'error\|sheet'
+cp work/strip_worm_emerge_E_after.png artifacts/
+echo CHAIN_PZ_E_DONE
