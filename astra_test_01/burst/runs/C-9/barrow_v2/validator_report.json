@@ -1,6 +1,6 @@
 {
   "layout": "layout_v2.json",
-  "layout_sha256": "58d59ed97e0994b55dd7af2d2a8fa7ea502addf71802efec6af839c88d87da99",
+  "layout_sha256": "12f308901a93297033478f388399614062368c71e99ad5100fe6ca56dfe0c5f2",
   "pass": true,
   "checks": [
     {
@@ -28,16 +28,22 @@
       "PASS": true
     },
     {
+      "rule": "R1",
+      "check": "scatter law = polar disc: spawn_structure.py:295 is POLAR_UNIFORM_RHO and its sha matches",
+      "PASS": true,
+      "line_295": "scatter: ScatterLaw = ScatterLaw.POLAR_UNIFORM_RHO"
+    },
+    {
       "rule": "R4",
       "check": "floor polygon is convex",
       "PASS": true,
-      "n_vertices": 104
+      "n_vertices": 364
     },
     {
       "rule": "R4",
       "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
       "PASS": true,
-      "area_m2": 4670.81,
+      "area_m2": 4026.59,
       "width_x_m": 83.624,
       "depth_y_m": 81.769,
       "x": [
@@ -53,98 +59,111 @@
       "rule": "R4",
       "check": "floor contains the hull of the six discs + 1 m (every vertex of that hull inside)",
       "PASS": true,
-      "worst_vertex_clearance_m": -0.0,
+      "worst_vertex_clearance_m": -0.0004,
       "hull_min_area_m2": 4026.52
     },
     {
+      "rule": "R4",
+      "check": "floor is the EXACT bound: no larger than the disc hull + 1 m (area within 1 m2)",
+      "PASS": true,
+      "floor_area_m2": 4026.59,
+      "excess_m2": 0.074
+    },
+    {
       "rule": "R2",
-      "check": "p01 8 m disc 100% on the floor",
+      "check": "p01 8 m disc 100% on the floor with >= 1 m clearance",
       "PASS": true,
       "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 1.0
+      "edge_clearance_m": 0.9996
     },
     {
       "rule": "R2",
-      "check": "p01 8 m scatter BOX (the pack's model) 100% on the floor",
+      "check": "p01 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
-      "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 0.9994
+      "severity": "INFO",
+      "box_on_floor_pct": 95.441,
+      "corner_clearance_m": -2.3137
     },
     {
       "rule": "R2",
-      "check": "p02 8 m disc 100% on the floor",
-      "PASS": true,
-      "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 1.0
-    },
-    {
-      "rule": "R2",
-      "check": "p02 8 m scatter BOX (the pack's model) 100% on the floor",
-      "PASS": true,
-      "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 0.9994
-    },
-    {
-      "rule": "R2",
-      "check": "p03 8 m disc 100% on the floor",
+      "check": "p02 8 m disc 100% on the floor with >= 1 m clearance",
       "PASS": true,
       "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 1.0
+      "edge_clearance_m": 0.9996
     },
     {
       "rule": "R2",
-      "check": "p03 8 m scatter BOX (the pack's model) 100% on the floor",
+      "check": "p02 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
-      "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 0.9994
+      "severity": "INFO",
+      "box_on_floor_pct": 95.506,
+      "corner_clearance_m": -2.3137
     },
     {
       "rule": "R2",
-      "check": "p04 8 m disc 100% on the floor",
-      "PASS": true,
-      "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 1.0
-    },
-    {
-      "rule": "R2",
-      "check": "p04 8 m scatter BOX (the pack's model) 100% on the floor",
-      "PASS": true,
-      "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 0.9994
-    },
-    {
-      "rule": "R2",
-      "check": "p05 8 m disc 100% on the floor",
+      "check": "p03 8 m disc 100% on the floor with >= 1 m clearance",
       "PASS": true,
       "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 11.0032
+      "edge_clearance_m": 0.9996
     },
     {
       "rule": "R2",
-      "check": "p05 8 m scatter BOX (the pack's model) 100% on the floor",
+      "check": "p03 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
-      "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 7.6949
+      "severity": "INFO",
+      "box_on_floor_pct": 96.203,
+      "corner_clearance_m": -2.3137
     },
     {
       "rule": "R2",
-      "check": "p06 8 m disc 100% on the floor",
+      "check": "p04 8 m disc 100% on the floor with >= 1 m clearance",
       "PASS": true,
       "disc_on_floor_pct": 100.0,
-      "edge_clearance_m": 4.483
+      "edge_clearance_m": 0.9996
     },
     {
       "rule": "R2",
-      "check": "p06 8 m scatter BOX (the pack's model) 100% on the floor",
+      "check": "p04 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 96.206,
+      "corner_clearance_m": -2.3013
+    },
+    {
+      "rule": "R2",
+      "check": "p05 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 7.6954
+    },
+    {
+      "rule": "R2",
+      "check": "p05 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
       "box_on_floor_pct": 100.0,
-      "corner_clearance_m": 1.1818
+      "corner_clearance_m": 4.3871
+    },
+    {
+      "rule": "R2",
+      "check": "p06 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 1.1819
+    },
+    {
+      "rule": "R2",
+      "check": "p06 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 98.238,
+      "corner_clearance_m": -2.1193
     },
     {
       "rule": "R3",
       "check": "the start (0, 0) is on the floor",
       "PASS": true,
-      "clearance_m": 28.8943
+      "clearance_m": 25.5865
     },
     {
       "rule": "R3",
@@ -152,7 +171,7 @@
       "PASS": true,
       "length_m": 35.716,
       "nearest_blocker": "wreck_hull",
-      "nearest_blocker_gap_m": 11.915
+      "nearest_blocker_gap_m": 10.475
     },
     {
       "rule": "R3",
@@ -160,31 +179,31 @@
       "PASS": true,
       "length_m": 33.105,
       "nearest_blocker": "barrow_door",
-      "nearest_blocker_gap_m": 10.197
+      "nearest_blocker_gap_m": 9.8
     },
     {
       "rule": "R3",
       "check": "line (0,0) -> p03 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 33.101,
-      "nearest_blocker": "cliff_spur",
-      "nearest_blocker_gap_m": 9.032
+      "nearest_blocker": "stair_wall_rock",
+      "nearest_blocker_gap_m": 9.0
     },
     {
       "rule": "R3",
       "check": "line (0,0) -> p04 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 31.948,
-      "nearest_blocker": "hall_great_door",
-      "nearest_blocker_gap_m": 10.473
+      "nearest_blocker": "longhall",
+      "nearest_blocker_gap_m": 10.5
     },
     {
       "rule": "R3",
       "check": "line (0,0) -> p05 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 10.095,
-      "nearest_blocker": "shore_rock_3",
-      "nearest_blocker_gap_m": 36.301
+      "nearest_blocker": "palisade_1",
+      "nearest_blocker_gap_m": 34.203
     },
     {
       "rule": "R3",
@@ -192,17 +211,17 @@
       "PASS": true,
       "length_m": 27.493,
       "nearest_blocker": "fallen_gable",
-      "nearest_blocker_gap_m": 13.787
+      "nearest_blocker_gap_m": 10.5
     },
     {
       "rule": "R5",
       "check": "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
       "PASS": true,
-      "n_blockers": 25,
-      "worst_overlap_m2": 0.0,
-      "worst_id": null,
+      "n_blockers": 24,
+      "worst_overlap_m2": 2e-06,
+      "worst_id": "stair_wall_rock",
       "closest_blocker_gap_m": 0.0,
-      "closest_blocker": "cliff_spur"
+      "closest_blocker": "sea_cave_mouth"
     },
     {
       "rule": "R5",
@@ -235,37 +254,38 @@
     },
     {
       "rule": "R6",
-      "check": "stair slope walkable: <= 30 deg (and under Godot's default floor_max_angle 45 deg)",
+      "check": "stair slope walkable: <= 35 deg (and under Godot's default floor_max_angle 45 deg)",
       "PASS": true,
-      "slope_deg": 21.25,
-      "run_m": 18.0,
-      "drop_m": 7.0,
-      "grade_pct": 38.89
+      "slope_deg": 26.565,
+      "run_m": 8.4,
+      "drop_m": 4.2,
+      "grade_pct": 50.0
     },
     {
       "rule": "R6",
       "check": "steps: rise x count = drop, tread x count = run, 2R+T in 0.60-0.65 m",
       "PASS": true,
-      "n_steps": 50,
-      "rise_m": 0.14,
-      "tread_m": 0.36,
-      "two_r_plus_t_m": 0.64
+      "n_steps": 28,
+      "rise_m": 0.15,
+      "tread_m": 0.3,
+      "two_r_plus_t_m": 0.6
     },
     {
       "rule": "R6",
-      "check": "the run is aligned toward the centre (climbing direction vs the bearing to (0,0))",
+      "check": "the run's angle to the centre (climbers turn on the top landing; the alignment rule was dropped by R-C9-148)",
       "PASS": true,
-      "misalignment_deg": 0.0001
+      "severity": "INFO",
+      "turn_on_landing_deg": 91.27
     },
     {
       "rule": "R6",
-      "check": "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 patch across the 1 m margin",
+      "check": "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 disc across the 1 m margin",
       "PASS": true,
-      "north_edge_off_boundary_m": 0.0,
+      "north_edge_off_boundary_m": 3.1e-05,
       "landing_overlap_m2": 0.0,
-      "gap_to_p03_box_m": 1.0,
-      "gap_to_p03_disc_m": 1.0321,
-      "landing_north_edge_len_m": 3.097
+      "gap_to_p03_disc_m": 0.9998,
+      "gap_to_p03_box_m_info": 0.0,
+      "landing_north_edge_len_m": 2.259
     },
     {
       "rule": "R6",
@@ -287,31 +307,55 @@
     },
     {
       "rule": "R6",
-      "check": "one side open: no blocker within 1 m of the east edge; the cliff spur forms the west wall",
+      "check": "one side open: no blocker within 1 m of the sea-side edge; the cliff face is the wall on the other side",
       "PASS": true,
-      "east_nearest": "cliff_spur",
-      "east_gap_m": 3.0,
-      "west_wall": "cliff_spur",
-      "west_gap_m": 1.5e-05
+      "sea_side_nearest": "stair_wall_rock",
+      "sea_side_gap_m": 3.0,
+      "wall": "stair_wall_rock",
+      "wall_gap_m": 0.0
     },
     {
       "rule": "R6",
-      "check": "nothing stands on the flight or the landings",
+      "check": "nothing stands on the flight or the top landing",
       "PASS": true,
       "offenders": []
+    },
+    {
+      "rule": "R6",
+      "check": "the flight climbs FROM the ledge: its foot edge is on the sea-level ledge, at the ledge's z",
+      "PASS": true,
+      "foot_mid_clearance_in_ledge_m": 0.0,
+      "ledge_z_m": -4.2
+    },
+    {
+      "rule": "R6",
+      "check": "the cave is at the stair's foot: on the ledge, within 4 m of the foot, at the ledge's z, in the cliff face under the lip (<= 0.5 m out)",
+      "PASS": true,
+      "cave_to_foot_m": 0.409,
+      "cave_to_lip_m": 0.0,
+      "cave_z_m": [
+        -4.2,
+        -1.4000000000000004
+      ]
     },
     {
       "rule": "R7",
       "check": "the mere covers p05's 8 m disc 100%",
       "PASS": true,
-      "disc_edge_clearance_m": 0.6678,
+      "disc_edge_clearance_m": 0.6678
+    },
+    {
+      "rule": "R7",
+      "check": "p05's box (stale prose) under the mere",
+      "PASS": true,
+      "severity": "INFO",
       "p05_box_covered_pct": 93.75
     },
     {
       "rule": "R7",
       "check": "the mere is on the floor (walkable ice, flush)",
       "PASS": true,
-      "mere_area_m2": 505.65,
+      "mere_area_m2": 439.76,
       "mere_on_floor_pct": 100.0
     },
     {
@@ -325,8 +369,8 @@
       "rule": "R7",
       "check": "the stream runs from outside the edge (the barrow slope) into the mere",
       "PASS": true,
-      "source_outside_floor_m": 14.302,
-      "mouth_inside_mere_m": 1.566
+      "source_outside_floor_m": 15.802,
+      "mouth_inside_mere_m": 1.193
     },
     {
       "rule": "R8",
@@ -356,35 +400,35 @@
       "check": "p02: barrow_door is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 0.306
+      "gap_to_floor_m": 0.8
     },
     {
       "rule": "R10",
       "check": "p01: wreck_hull is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 1.426
+      "gap_to_floor_m": 1.475
     },
     {
       "rule": "R10",
       "check": "p04: hall_great_door is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 1.459
+      "gap_to_floor_m": 2.397
     },
     {
       "rule": "R10",
       "check": "p06: fallen_gable is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 1.208
+      "gap_to_floor_m": 1.298
     },
     {
       "rule": "R10",
       "check": "p03: sea_cave_mouth is outside the walkable edge and within 22.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 20.751
+      "gap_to_floor_m": 0.0
     }
   ]
 }

@@ -26,6 +26,7 @@ ROOT = os.path.dirname(HERE)                                   # runs/C-9/barrow
 ENGINE = os.path.expanduser("~/Games/reincarnated-engine")
 PACK_GLOB = "src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p11-*/model/arena.json"
 CSV = "data/kc2/kc2_crucible_emitter_geometry_v3p8.csv"
+SPAWN = "src/reincarnated/simulation/kc2/spawn_structure.py"
 PROJ = os.path.expanduser("~/Games/reincarnated-godot/kc2_runtime/play/kc2play_projection.gd")
 
 # ---- the projection law's four constants (kc2play_projection.gd; re-read and asserted below) ----
@@ -37,7 +38,9 @@ PPM_PLATE = 100.617553710938
 
 FLOOR_MARGIN_M = 1.0          # the brief: hull of the spawn regions + 1 m
 WALKOVER_MAX_H_M = 0.40       # an interior feature at or under this reads (and plays) as walk-over
-STAIR = {"width_m": 3.0, "drop_m": 7.0, "step_rise_m": 0.14, "step_tread_m": 0.36,
+# R-C9-148: the cliff is lowered (sea at -4.5 m, ledge top -4.2 m); the stair climbs the face from the ledge.
+STAIR = {"width_m": 3.0, "drop_m": 4.2, "step_rise_m": 0.15, "step_tread_m": 0.30, "sea_z_m": -4.5,
+         "tangent_beta_deg": 70.0, "cave_beta_deg": 106.0,   # beta from +x toward +y about p03; p03's own arc is 41.8..117.8 deg
          "top_landing_depth_m": 2.0, "bottom_landing_depth_m": 3.0}
 
 
@@ -135,14 +138,22 @@ def along(o, d, t, n=None, s=0.0):
 
 
 def main():
+    global SPAWN_SHA
+    src = open(os.path.join(ENGINE, SPAWN)).read().splitlines()
+    assert "scatter: ScatterLaw = ScatterLaw.POLAR_UNIFORM_RHO" in src[294], "spawn_structure.py:295 moved; re-cite the scatter law"
+    SPAWN_SHA = sha256(os.path.join(ENGINE, SPAWN))
     anchors, h, prov = read_anchors()
     cam = check_projection()
     A = {a["id"]: (a["x"], a["y"]) for a in anchors}
 
     # ---------------- floor: hull of every sim placement + 1 m ----------------
     box_corners = [(x + sx * h, y + sy * h) for (x, y) in A.values() for sx in (-1, 1) for sy in (-1, 1)]
-    floor = G.offset_hull(box_corners, FLOOR_MARGIN_M, n=96)
-    disc_floor = G.offset_hull(list(A.values()), h + FLOOR_MARGIN_M, n=192)
+    # R-C9-BX conductor ruling (2026-10-03): the floor of record is the EXACT bound, the convex hull of
+    # the six 8 m scatter DISCS + 1 m. The oracle rolls a polar disc (spawn_structure.py:295,
+    # ScatterLaw.POLAR_UNIFORM_RHO: theta = 2 pi u1, rho = 8 u2); the pack's box prose is a logged erratum.
+    # n = 360 keeps the chord sag at 9 * (1 - cos 0.5 deg) = 0.00034 m.
+    floor = G.offset_hull(list(A.values()), h + FLOOR_MARGIN_M, n=360)
+    box_floor = G.offset_hull(box_corners, FLOOR_MARGIN_M, n=96)
 
     # ---------------- the edge features, each placed on its anchor's ray ----------------
     feats = []
@@ -181,7 +192,7 @@ def main():
     # W, p01: the wreck. Hull outside the edge, rail toward the floor; shore ice beyond.
     d1 = rays["p01"]
     e1 = exits["p01"]
-    hull_c = along((0, 0), d1, e1 + 4.9)
+    hull_c = along((0, 0), d1, e1 + 3.8)   # v2: 3.8 (was 4.9) so the hull sits ~1.4 m off the curved disc-hull edge
     feat("wreck_hull", "wreck", G.rect_poly(*hull_c, 17.0, 4.6, 90.0 - 12.0), -0.4, 3.4, True,
          "the wreck: a beached longship heeled toward the floor, its rail the floor-side gunwale (p01: up through the shore ice / over the rail)",
          heel_deg=18.0, rail_side="east (toward the floor)")
@@ -191,110 +202,169 @@ def main():
         c = (hull_c[0] + dx, hull_c[1] + dy)
         feat(f"shore_rock_{i + 1}", "rock", G.ellipse_poly(*c, r, r * 0.8, 20 * i, 16), -0.4, 1.1, True, "shore rock, outside the edge")
 
-    # E, p04 + SE, p06: the burnt longhall yard
+    # E, p04 + SE, p06: the burnt longhall yard -- ONE building (R-C9-148). The hall runs parallel to
+    # the floor edge between p04 and p06 (the two discs' common tangent), its long west wall facing the
+    # floor 1.5 m beyond that edge; the great door is on p04's ray, and the hall's own collapsed
+    # south-west end (the fallen gable) is on p06's ray.
     d4 = rays["p04"]
     e4 = exits["p04"]
-    hall_w = along((0, 0), d4, e4 + 1.8)            # the hall's west wall crossing on p04's ray
-    hall_x0 = hall_w[0]
-    hall_poly = [(hall_x0, -10.0), (hall_x0 + 8.5, -10.0), (hall_x0 + 8.5, 13.0), (hall_x0, 13.0)]
-    feat("longhall", "hall", hall_poly, 0.0, 6.5, True,
-         "the burnt longhall, long axis N-S, roof half fallen; its west wall 1.8 m beyond the floor edge on p04's ray")
-    feat("hall_great_door", "door", G.rect_poly(hall_x0, hall_w[1], 0.6, 3.6, 0.0), 0.0, 3.8, True,
-         "the hall's great door (p04: out of smoke), in the west wall on p04's ray",
-         faces_deg=270.0)
     d6 = rays["p06"]
-    n6 = (-d6[1], d6[0])
     e6 = exits["p06"]
-    gable_c = along((0, 0), d6, e6 + 2.6)
-    rot6 = math.degrees(math.atan2(n6[1], n6[0]))
-    feat("fallen_gable", "gable", G.rect_poly(*gable_c, 7.0, 2.6, rot6), 0.0, 2.8, True,
-         "the fallen gable end (p06: up out of ash), leaning on its own rubble; 1.3 m beyond the floor edge on p06's ray")
-    hut_c = along((0, 0), d6, e6 + 8.6)
-    feat("gable_hut", "hall", G.rect_poly(*hut_c, 8.0, 6.0, rot6), 0.0, 4.2, True, "the byre the gable fell from")
-    # the palisade, pulled back: it wraps the hall and byre from OUTSIDE; its arms stop 1.5 m short of the floor edge
+    p4, p6 = A["p04"], A["p06"]
+    ax_sw = unit(p6[0] - p4[0], p6[1] - p4[1])                  # along the hall, NE -> SW
+    nT = (-ax_sw[1], ax_sw[0])
+    if nT[0] * p4[0] + nT[1] * p4[1] < 0:
+        nT = (-nT[0], -nT[1])                                   # outward (away from the start)
+    c_edge = nT[0] * p4[0] + nT[1] * p4[1] + h + FLOOR_MARGIN_M  # the floor's straight edge p04 <-> p06
+    c_wall = c_edge + 1.5                                       # the hall's west (floor-facing) wall line
+    HALL_D = 8.0
+
+    def on_wall(dray):
+        return along((0, 0), dray, c_wall / (dray[0] * nT[0] + dray[1] * nT[1]))
+    D = on_wall(d4)                                             # the great door
+    Gp = on_wall(d6)                                            # the gable's centre on the wall line
+    ax_ne = (-ax_sw[0], -ax_sw[1])
+
+    def hall_rect(s0, s1, base):
+        """wall-line stretch from base + s0*ax_ne to base + s1*ax_ne, HALL_D deep outward."""
+        a0 = along(base, ax_ne, s0)
+        a1 = along(base, ax_ne, s1)
+        return [a0, a1, along(a1, nT, HALL_D), along(a0, nT, HALL_D)]
+    GABLE_BACK, GABLE_FWD, NE_PAST_DOOR = 2.0, 4.0, 6.0
+    L_GD = math.dist(Gp, D)
+    rot_ax = math.degrees(math.atan2(ax_ne[1], ax_ne[0]))
+    feat("longhall", "hall", hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp), 0.0, 6.5, True,
+         "the burnt longhall: ONE building angled NE -> SW along the floor edge between p04 and p06; its long west wall faces the floor 1.5 m beyond the edge; roof half fallen",
+         axis_compass_deg_sw=G.rnd(G.compass_deg(*ax_sw), 2), length_m=G.rnd(L_GD + NE_PAST_DOOR + GABLE_BACK, 2), depth_m=HALL_D)
+    feat("hall_great_door", "door", G.rect_poly(*along(D, nT, 0.3), 3.6, 0.6, rot_ax), 0.0, 3.8, True,
+         "the hall's great door (p04: out of smoke), in the long west wall on p04's ray",
+         faces_deg=G.rnd(G.compass_deg(-nT[0], -nT[1]), 2))
+    feat("fallen_gable", "gable", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), 0.0, 2.8, True,
+         "the hall's OWN collapsed south-west end (p06: up out of ash): the gable fallen outward, leaning on its rubble; on p06's ray, 1.5 m beyond the floor edge")
+    # the palisade, pulled back: it wraps the hall from OUTSIDE; its arms stop 1.5 m short of the floor edge
     pal = []
-    north_arm_start = along((0, 0), unit(math.sin(math.radians(62)), -math.cos(math.radians(62))),
-                            ray_exit(floor, unit(math.sin(math.radians(62)), -math.cos(math.radians(62)))) + 1.5)
-    south_arm_end = along((0, 0), unit(math.sin(math.radians(158)), -math.cos(math.radians(158))),
-                          ray_exit(floor, unit(math.sin(math.radians(158)), -math.cos(math.radians(158)))) + 1.5)
-    pts = [north_arm_start, (hall_x0 + 13.0, north_arm_start[1] - 1.0), (hall_x0 + 15.5, 8.0),
-           (hall_x0 + 13.5, 30.0), (hut_c[0] + 3.0, hut_c[1] + 8.5), south_arm_end]
-    gaps = {2, 4}   # two burnt-through gaps (segment index); the yard itself stays open to the floor
+
+    def arm(deg):
+        u_ = unit(math.sin(math.radians(deg)), -math.cos(math.radians(deg)))
+        return along((0, 0), u_, ray_exit(floor, u_) + 1.5)
+    north_arm_start = arm(62.0)
+    south_arm_end = arm(140.0)
+    pts = [north_arm_start, along(D, ax_ne, NE_PAST_DOOR + 5.0), along(along(D, ax_ne, NE_PAST_DOOR + 5.0), nT, HALL_D + 3.5),
+           along(along(Gp, ax_ne, -GABLE_BACK - 4.0), nT, HALL_D + 3.5), along(Gp, ax_ne, -GABLE_BACK - 4.0), south_arm_end]
+    gaps = {2, 3}   # two burnt-through gaps (segment index); the yard itself stays open to the floor
     for i in range(len(pts) - 1):
         a, b = pts[i], pts[i + 1]
         L = math.hypot(b[0] - a[0], b[1] - a[1])
         dirv = unit(b[0] - a[0], b[1] - a[1])
-        if i in gaps:
-            segs = [(0.0, 0.42), (0.62, 1.0)]
-        else:
-            segs = [(0.0, 1.0)]
+        segs = [(0.0, 0.42), (0.62, 1.0)] if i in gaps else [(0.0, 1.0)]
         for j, (f0, f1) in enumerate(segs):
             c = along(a, dirv, L * (f0 + f1) / 2)
             pal.append(feat(f"palisade_{i + 1}{'ab'[j] if len(segs) > 1 else ''}", "palisade",
                             G.rect_poly(*c, L * (f1 - f0), 0.35, math.degrees(math.atan2(dirv[1], dirv[0]))),
                             0.0, 3.0, True, "palisade run, pulled back outside the edge"))
 
-    # S/SSE, p03: the headland cliff, the sea cave and the STRAIGHT stair (R-C9-145)
+    # S/SSE, p03: the headland cliff, the sea cave and the STRAIGHT stair (R-C9-145, rebuilt R-C9-148).
+    # The cave is in the MAIN south cliff face directly below the floor edge under p03's patch, a rock
+    # ledge at sea level in front of it; the stair climbs FROM that ledge UP the face (wall = the cliff on
+    # its north side, open to the sea on its south side) to a top landing flush with the floor edge at
+    # p03's patch. Its run angles across the face; climbers turn toward the centre on the landing.
     d3 = rays["p03"]
-    n3 = (-d3[1], d3[0])                    # left-hand normal of the run going down = EAST-ish? (checked below)
-    # make n3 point WEST-ish (the cliff spur side); the open side is east
-    if n3[0] > 0:
-        n3 = (-n3[0], -n3[1])
-    w = STAIR["width_m"]
     e3 = exits["p03"]
-    top_mid = along((0, 0), d3, e3)
-    # the landing's north edge follows the floor boundary exactly (flush): each side line's exit point
-    sideW = along((0, 0), n3, w / 2)
-    sideE = along((0, 0), n3, -w / 2)
-    tW = ray_exit(floor, d3, start=sideW)
-    tE = ray_exit(floor, d3, start=sideE)
-    lip_W = along(sideW, d3, tW)
-    lip_E = along(sideE, d3, tE)
-    # floor vertices strictly between the two side lines on this stretch of lip, W -> E
-    between = [v for v in floor
-               if abs(v[0] * n3[0] + v[1] * n3[1]) < w / 2 - 1e-9 and (v[0] * d3[0] + v[1] * d3[1]) > e3 - 3.0]
-    between.sort(key=lambda v: -(v[0] * n3[0] + v[1] * n3[1]))
-    tl = STAIR["top_landing_depth_m"]
-    t_land = max(tW, tE) + tl
-    land_W = along(sideW, d3, t_land)
-    land_E = along(sideE, d3, t_land)
+    p3 = A["p03"]
+    w = STAIR["width_m"]
+    R9 = h + FLOOR_MARGIN_M
+    bm = math.radians(STAIR["tangent_beta_deg"])                 # where the flight's wall line touches p03's arc
+    nh = (math.cos(bm), math.sin(bm))                           # outward normal there
+    u = (math.sin(bm), -math.cos(bm))                           # along the face, UP-stair = toward the east/north-east
+    if u[0] < 0:
+        u = (-u[0], -u[1])
+    M = along(p3, nh, R9 + 0.02)
     n_steps = int(round(STAIR["drop_m"] / STAIR["step_rise_m"]))
     run = n_steps * STAIR["step_tread_m"]
-    foot_W = along(land_W, d3, run)
-    foot_E = along(land_E, d3, run)
-    bl = STAIR["bottom_landing_depth_m"]
-    bot_W = along(foot_W, d3, bl)
-    bot_E = along(foot_E, d3, bl)
+    B_n = along(M, u, -run / 2)            # foot, wall side
+    T_n = along(M, u, run / 2)             # top, wall side
+    B_s = along(B_n, nh, w)                # foot, sea side
+    T_s = along(T_n, nh, w)                # top, sea side
+
+    def first_hit(start, d):
+        best = None
+        n = len(floor)
+        for i in range(n):
+            ax_, ay_ = floor[i]
+            bx_, by_ = floor[(i + 1) % n]
+            ex_, ey_ = bx_ - ax_, by_ - ay_
+            den = d[0] * ey_ - d[1] * ex_
+            if abs(den) < 1e-12:
+                continue
+            t = ((ax_ - start[0]) * ey_ - (ay_ - start[1]) * ex_) / den
+            sg = ((ax_ - start[0]) * d[1] - (ay_ - start[1]) * d[0]) / den
+            if t > 0 and -1e-9 <= sg <= 1 + 1e-9:
+                best = t if best is None else min(best, t)
+        return along(start, d, best)
+    inward = (-nh[0], -nh[1])
+    TL = STAIR["top_landing_depth_m"]
+    E_s = along(T_s, u, TL)
+    T_b = first_hit(T_n, inward)
+    E_b = first_hit(E_s, inward)
+    B_b = first_hit(B_n, inward)
+
+    def arc_between(sA, sB):
+        """floor vertices near this stretch of lip whose position along u lies strictly in (sA, sB), by s descending."""
+        vs = [v for v in floor
+              if sA + 1e-6 < (v[0] - M[0]) * u[0] + (v[1] - M[1]) * u[1] < sB - 1e-6
+              and (v[0] - M[0]) * nh[0] + (v[1] - M[1]) * nh[1] > -4.0]
+        return sorted(vs, key=lambda v: -((v[0] - M[0]) * u[0] + (v[1] - M[1]) * u[1]))
+
+    def s_of(P):
+        return (P[0] - M[0]) * u[0] + (P[1] - M[1]) * u[1]
+    landing = [T_s, E_s, E_b] + arc_between(s_of(T_b), s_of(E_b)) + [T_b]
+    landing_bd = [E_b] + arc_between(s_of(T_b), s_of(E_b)) + [T_b]
+    wall_rock = [B_n, T_n, T_b] + arc_between(s_of(B_b), s_of(T_b)) + [B_b]
+    ledge_z = -STAIR["drop_m"]
+    # the ledge: from beyond the cave (west) to the stair's foot, 4.5 m deep, its north side on the cliff foot
+    cave_beta = math.radians(STAIR["cave_beta_deg"])
+    cave_at = along(p3, (math.cos(cave_beta), math.sin(cave_beta)), R9 + 0.35)
+    cave_t = (math.sin(cave_beta), -math.cos(cave_beta))
+    # the ledge: the cliff foot from just west of the cave to the flight's foot, 4.5 m out to sea.
+    # (Its west end stays on p03's own arc, beta <= 117 deg < the 117.8 deg tangent to p01's disc, so the
+    # arc points are outside the floor.)
+    betas = []
+    bb = cave_beta + math.radians(11.0)
+    while s_of(along(p3, (math.cos(bb), math.sin(bb)), R9)) < s_of(B_n) - 0.05:
+        betas.append(bb)
+        bb -= math.radians(1.5)
+    ledge = [along(p3, (math.cos(b_), math.sin(b_)), R9 + 0.02) for b_ in betas] + [B_n, B_s] + \
+        [along(p3, (math.cos(b_), math.sin(b_)), R9 + 4.5) for b_ in reversed(betas)]
     slope_deg = math.degrees(math.atan2(STAIR["drop_m"], run))
+    run_up = u
+    to_c = unit(-T_n[0], -T_n[1])
     stair = {
         "id": "sea_cave_stair", "kind": "stair",
-        "_ruling": "R-C9-145 (Matt): B's straighter stair, one side open to the cliff edge, wide, run aligned toward the centre, top landing flush with the p03 patch; monsters must climb it without getting stuck",
-        "axis_unit_down": G.rnd(d3, 6), "axis_compass_deg_down": G.rnd(G.compass_deg(*d3), 3),
-        "axis_points_at": "the origin (0, 0): the run is ON the ray origin -> p03, so climbing monsters face the centre",
+        "_ruling": "R-C9-145 (Matt) + R-C9-148 (Matt, from the walk film: 'the stairs seem to be below the sea cave which doesnt make alot of sense'): the cave sits in the MAIN south cliff face under p03's patch with a ledge at sea level; a straight stair, 3.0 m wide, climbs FROM that ledge UP the face to a top landing flush with the floor edge at p03's patch; open on the sea side; its run angles across the face (the 'aligned to centre' rule is dropped by R-C9-148); climbers turn toward the centre on the landing",
+        "axis_unit_up": G.rnd(run_up, 6), "axis_compass_deg_up": G.rnd(G.compass_deg(*run_up), 3),
+        "turn_on_landing_deg_info": G.rnd(math.degrees(math.acos(max(-1, min(1, run_up[0] * to_c[0] + run_up[1] * to_c[1])))), 2),
         "width_m": w,
-        "top_landing": {"polygon": G.rnd([lip_W] + between + [lip_E, land_E, land_W]), "z_m": 0.0,
-                        "north_edge": "follows the floor boundary vertex-for-vertex between the two side lines (flush, same z as the floor)",
-                        "depth_m_min": tl},
-        "flight": {"polygon": G.rnd([land_W, land_E, foot_E, foot_W]), "z_top_m": 0.0, "z_bottom_m": -STAIR["drop_m"],
+        "top_landing": {"polygon": G.rnd(landing), "boundary_edge": G.rnd(landing_bd), "z_m": 0.0,
+                        "north_edge": "follows the floor boundary vertex-for-vertex (flush, same z as the floor) at p03's patch",
+                        "depth_along_run_m": TL},
+        "flight": {"polygon": G.rnd([T_n, T_s, B_s, B_n]), "polygon_order": "top wall-side, top sea-side, foot sea-side, foot wall-side",
+                   "z_top_m": 0.0, "z_bottom_m": ledge_z,
                    "n_steps": n_steps, "step_rise_m": STAIR["step_rise_m"], "step_tread_m": STAIR["step_tread_m"],
                    "run_m": run, "drop_m": STAIR["drop_m"], "slope_deg": slope_deg, "grade_pct": 100 * STAIR["drop_m"] / run,
                    "walk_model": "a REAL RAMP: one plane under the step nosings, the same slope as the treads' pitch line; the steps are a visual on it. Godot CharacterBody3D floor_max_angle default 45 deg > the slope, so a body walks it without a step-up solver",
                    "stair_rule_check": "2R + T = %.3f m (the comfortable band is 0.60-0.65 m)" % (2 * STAIR["step_rise_m"] + STAIR["step_tread_m"])},
-        "bottom_landing": {"polygon": G.rnd([foot_W, foot_E, bot_E, bot_W]), "z_m": -STAIR["drop_m"],
-                           "note": "the shelf at the sea-cave mouth, just above the water"},
-        "open_side": "EAST: no wall, no rail -- the cliff drop is beside the treads the whole way down",
-        "wall_side": "WEST: the headland spur's rock face (cliff_spur)",
-        "placement": "OUTSIDE the floor polygon (it descends the cliff). The sim never reads it; it is the visible delivery path from the cave to the p03 patch.",
+        "bottom_landing": {"polygon": G.rnd(ledge), "z_m": ledge_z,
+                           "note": "the rock ledge at sea level in front of the cave; the flight's foot stands on it"},
+        "open_side": "SOUTH (the sea side): no wall, no rail",
+        "wall_side": "NORTH: the main cliff face (stair_wall_rock fills the face between the straight flight and the curved lip)",
+        "placement": "OUTSIDE the floor polygon (it climbs the cliff face). The sim never reads it; it is the visible delivery path from the cave to the p03 patch.",
     }
-    spur_W0 = along(lip_W, n3, 4.5)
-    spur = [lip_W, bot_W, along(bot_W, n3, 4.0), spur_W0]
-    feat("cliff_spur", "cliff", spur, -STAIR["drop_m"], 0.0, True,
-         "the headland spur the stair is cut into; its east face is the stair's wall; its top is land (z 0) outside the edge")
-    cave_c = along(along(foot_W, n3, 2.3), d3, 1.2)
-    feat("sea_cave_mouth", "cave", G.rect_poly(*cave_c, 3.4, 1.4, math.degrees(math.atan2(n3[1], n3[0]))),
-         -STAIR["drop_m"], -STAIR["drop_m"] + 3.6, True,
-         "the sea-cave mouth in the spur's south-facing foot (p03: climb the cliff lip / steps); faces the camera",
-         faces_deg=G.rnd(G.compass_deg(*d3), 2))
+    feat("stair_wall_rock", "cliff", wall_rock, STAIR["sea_z_m"], 0.0, True,
+         "the main cliff face between the curved lip and the straight flight: the stair's wall (outside the edge)")
+    feat("sea_cave_mouth", "cave", G.rect_poly(*cave_at, 3.0, 0.7, math.degrees(math.atan2(cave_t[1], cave_t[0]))),
+         ledge_z, ledge_z + 2.8, True,
+         "the sea-cave mouth in the MAIN south cliff face, directly below the floor edge under p03's patch; faces the camera; the ledge in front of it",
+         faces_deg=G.rnd(G.compass_deg(math.cos(cave_beta), math.sin(cave_beta)), 2))
 
     # ---------------- interior: walk-over features only ----------------
     # the stone circle (centre, small and broken), 8 stones: 6 fallen flat, 2 low stumps
@@ -354,23 +424,38 @@ def main():
     # The cliff lip runs from the floor's westmost vertex, round the south, to the east end of its
     # flat south edge (y = y_max, beneath p03); east of that the edge is the hall yard, and the land
     # carries on outward (SE) under the gable and the byre.
+    # (v2, disc hull: no flat south edge any more) the lip ends at the floor vertex nearest compass
+    # 150 deg, between p03 (166) and p06 (131): east of the stair, where the hall yard begins.
     iw = min(range(len(floor)), key=lambda i: (floor[i][0], -floor[i][1]))
     ymax = max(p[1] for p in floor)
-    ie = max((i for i in range(len(floor)) if floor[i][1] >= ymax - 1e-6), key=lambda i: floor[i][0])
-
-    def chain(i0, i1, step):
-        out = [floor[i0]]
-        i = i0
-        while i != i1:
+    # (R-C9-148) the lip runs from the westmost vertex round the south to Q, the floor edge at compass
+    # 145 deg: east of the stair's top landing, west of the hall's fallen gable. East of Q the land
+    # carries on outward under the hall yard.
+    uq = unit(math.sin(math.radians(145.0)), -math.cos(math.radians(145.0)))
+    Q = along((0, 0), uq, ray_exit(floor, uq))
+    lip = [floor[iw]]
+    i = iw
+    for step in (1, -1):
+        out = [floor[iw]]
+        i = iw
+        ok = False
+        for _ in range(len(floor)):
             i = (i + step) % len(floor)
-            out.append(floor[i])
-        return out
-    c1 = chain(iw, ie, 1)
-    c2 = chain(iw, ie, -1)
-    lip = c1 if max(p[1] for p in c1) >= ymax - 1e-6 and len(c1) <= len(c2) else c2
+            v = floor[i]
+            if v[1] > 0 and G.compass_deg(*v) < 145.0:
+                ok = True
+                break
+            out.append(v)
+        if ok and max(p[1] for p in out) >= ymax - 1e-6:
+            lip = out + [Q]
+            break
     xw, yw = lip[0]
     xe, ye = lip[-1]
-    land = lip + [(xe + 7.0, ye + 7.0), (66.0, ye + 7.0), (66.0, -74.0), (-46.0, -74.0), (-46.0, yw)]
+    n36 = unit(-(A["p06"][1] - A["p03"][1]), A["p06"][0] - A["p03"][0])
+    if n36[0] * Q[0] + n36[1] * Q[1] < 0:
+        n36 = (-n36[0], -n36[1])
+    q_out = along(Q, n36, 9.0)
+    land = lip + [q_out, (66.0, q_out[1]), (66.0, -74.0), (-46.0, -74.0), (-46.0, yw)]
     # the cliff lip is the S part of that chain (compass 100..250 from the origin), the shore W of it
     shore_ice = [(-46.0, -60.0), (-46.0, yw), (xw, yw)] + [p for p in lip if G.compass_deg(*p) >= 235.0] + \
         [(-30.0, 46.0), (-62.0, 46.0), (-62.0, -60.0)]
@@ -403,7 +488,7 @@ def main():
         {"id": "V4_p04_hall_door", "target": G.rnd(along((0, 0), d4, e4 - 4.0)), "what": "p04's patch in the hall yard and the great door"},
         {"id": "V5_p06_fallen_gable", "target": G.rnd(along((0, 0), d6, e6 - 4.0)), "what": "p06's patch in the ash and the fallen gable"},
         {"id": "V6_p05_mere", "target": G.rnd((A["p05"][0] - 3.0, A["p05"][1] - 3.0)), "what": "the frozen mere over p05, the stream mouth, the circle's W stones"},
-        {"id": "V7_p03_stair_top", "target": G.rnd(along((0, 0), d3, e3 + 1.0)), "what": "p03's patch edge, the top landing flush with the floor, the stair down"},
+        {"id": "V7_p03_stair_top", "target": G.rnd(along(M, nh, 1.5)), "what": "the sea cave at the stair's foot, the stair rising up the cliff face to the top landing flush with p03's patch"},
     ]
     for v in views:
         v["window_m"] = G.rnd(win)
@@ -417,16 +502,22 @@ def main():
             "N-C9-BV2-FLOOR-WHOLE": "Sim Session option (c): the floor is whole; feel-smaller by art only; a flat/walk-over central feature at (0, 0)",
             "N-C9-KP253-ANCHORS": "the floor contains all six anchor scatter regions and the open lines to origin",
         },
-        "version": 1,
+        "version": 3,
+        "_v3": "R-C9-148 (Matt, from the walk film): the sea cave moved into the main south face under p03 with a sea-level ledge; the stair climbs the face from the ledge to a flush top landing (cliff lowered, sea -4.5 m); the hall is ONE angled building, the fallen gable its own collapsed SW end; the byre removed; the palisade re-fitted",
+        "_v2": "conductor ruling 2026-10-03: floor tightened from the box hull (v1, 4,670.8 m2) to the exact disc hull + 1 m; everything on the edge re-fitted by construction (deliverers, palisade, stair landing, mere clamp, views are all placed off the floor polygon)",
         "frame": {"units": "m", "x": "east", "y": "SOUTH", "z": "up (presentation only)", "origin": "player start (0, 0)",
                   "compass": "bearing clockwise from north = atan2(x, -y)",
                   "godot_axes": "X = x, Y = z (up), Z = y; the camera sits at +Z (south) looking north"},
         "camera": cam,
         "anchors": {
             "provenance": prov,
-            "scatter": {"model": "BOX (per-axis U(-h, +h) about the anchor)", "half_width_m": h,
-                        "disc_radius_m_brief": h,
-                        "⚑ finding": "The pack's presentation_defaults.scatter_model says the sim rolls a per-axis BOX of half-width 8 m, NOT an 8 m disc (box corner 11.31 m from the anchor). The brief's 8 m disc is contained in the box. This floor contains every BOX (+1 m), so every body the sim can place is on the floor; it therefore also contains every disc (+1 m) and the brief's ~4,026 m2 disc hull."},
+            "scatter": {"model": "DISC: polar, theta = 2 pi u1, rho = 8 u2 (ScatterLaw.POLAR_UNIFORM_RHO, the default)",
+                        "disc_radius_m": h, "half_width_m": h, "disc_radius_m_brief": h,
+                        "law_provenance": {"file": "engine:src/reincarnated/simulation/kc2/spawn_structure.py",
+                                           "lines": "268-330, default at 295 (`scatter: ScatterLaw = ScatterLaw.POLAR_UNIFORM_RHO`)",
+                                           "sha256": SPAWN_SHA, "runtime": "the arena runtime matches it bit for bit (drax G3)",
+                                           "confirmed_by": "KC2 conductor via the C-9 conductor (lane BX ruling, 2026-10-03)"},
+                        "⚑ pack_erratum": "The pack's arena.json presentation_defaults.scatter_model describes a per-axis BOX; that prose is stale (the oracle rolls the polar disc above). Logged as a pack erratum for star-lord. Layout v1 had built its floor on the box (4,670.8 m2); v2 uses the disc hull, as ruled."},
             "points": [dict(a, compass_deg=G.rnd(G.compass_deg(a["x"], a["y"]), 2),
                             dist_from_start_m=G.rnd(math.hypot(a["x"], a["y"]), 3),
                             delivered_by={"p01": "the wreck (up through the shore ice / over the rail)",
@@ -438,22 +529,22 @@ def main():
                        for a in anchors],
         },
         "floor": {
-            "rule": "WHOLE and convex: the convex hull of the six 8 m scatter BOXES + 1 m (Minkowski sum with a 1 m disc, sampled at 3.75 deg)",
+            "rule": "WHOLE and convex: EXACTLY the convex hull of the six 8 m scatter discs + 1 m (each anchor buffered 9 m, sampled at 1 deg)",
             "polygon": G.rnd(floor),
             "z_m": 0.0,
             "area_m2": G.rnd(G.area(floor), 2),
             "extents": {k: G.rnd(v, 3) for k, v in G.extents(floor).items()},
-            "min_disc_hull_reference": {"rule": "the brief's minimum: hull of the six 8 m discs + 1 m",
-                                        "polygon": G.rnd(disc_floor, 3), "area_m2": G.rnd(G.area(disc_floor), 2),
-                                        "extents": {k: G.rnd(v, 3) for k, v in G.extents(disc_floor).items()}},
+            "superseded_box_hull_info": {"rule": "layout v1's floor (hull of the 8 m boxes + 1 m), superseded; INFO only",
+                                         "area_m2": G.rnd(G.area(box_floor), 2),
+                                         "extents": {k: G.rnd(v, 3) for k, v in G.extents(box_floor).items()}},
             "edge_by_biome": {"N": "the barrow slope (mound toe, door, standing stones)", "W": "the shore: shingle into shore ice, the wreck",
                               "S/SSE": "the cliff lip (the floor edge IS the lip); the sea cave below, the stair", "E/SE": "the hall yard: hall wall, palisade (pulled back), the fallen gable"},
             "walkover_max_h_m": WALKOVER_MAX_H_M,
         },
-        "land": {"polygon": G.rnd(land), "z_top_m": 0.0, "z_cliff_foot_m": -STAIR["drop_m"],
+        "land": {"polygon": G.rnd(land), "z_top_m": 0.0, "z_cliff_foot_m": STAIR["sea_z_m"],
                  "cliff_lip": G.rnd(lip), "note": "the headland: the floor's southern chain is the cliff lip; land continues N (barrow) and E (hall yard) outside the walkable edge"},
         "shore_ice": {"polygon": G.rnd(shore_ice), "z_m": -0.4, "note": "shore ice W and SW of the land, outside the edge"},
-        "sea": {"z_m": -STAIR["drop_m"] - 0.3, "extent": [[-90.0, -90.0], [90.0, 90.0]]},
+        "sea": {"z_m": STAIR["sea_z_m"], "extent": [[-90.0, -90.0], [90.0, 90.0]]},
         "mere": {"polygon": G.rnd(mere), "z_m": 0.0, "walkable": True, "surface": "ice, flush with the floor",
                  "covers": "p05's 8 m disc + 0.7 m; reaches the stone circle", "area_m2": G.rnd(G.area(mere), 2)},
         "stream": {"polyline": G.rnd(stream), "width_m": 2.6, "z_m": 0.0, "walkable": True,

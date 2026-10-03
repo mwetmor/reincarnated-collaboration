@@ -143,8 +143,6 @@ def main():
     h = L["anchors"]["scatter"]["half_width_m"]
     for a in L["anchors"]["points"]:
         c = (a["x"], a["y"])
-        bx = [px((c[0] - h, c[1] - h)), px((c[0] + h, c[1] + h))]
-        dr.rectangle(bx, outline=(200, 150, 40, 90), width=2)
         r = L["anchors"]["scatter"]["disc_radius_m_brief"] * ppm
         cp = px(c)
         dr.ellipse([cp[0] - r, cp[1] - r, cp[0] + r, cp[1] + r], fill=(235, 180, 60, 34), outline=(205, 140, 30, 120), width=3)
@@ -179,12 +177,10 @@ def main():
         b = [fl3[1][0] + t * (fl3[2][0] - fl3[1][0]), fl3[1][1] + t * (fl3[2][1] - fl3[1][1])]
         ax.plot([a[0], b[0]], [a[1], b[1]], color="#5a4020", lw=0.4)
     ax.add_patch(MPoly(L["floor"]["polygon"], closed=True, fill=False, ec="black", lw=2.2))
-    ax.add_patch(MPoly(L["floor"]["min_disc_hull_reference"]["polygon"], closed=True, fill=False, ec="#555", lw=0.8, ls=(0, (2, 3))))
     ax.plot(*zip(*L["land"]["cliff_lip"]), color="#3a2c20", lw=1.0, ls="-")
     for a in L["anchors"]["points"]:
         ax.plot([0, a["x"]], [0, a["y"]], color="#a06010", lw=0.9, ls=(0, (4, 3)))
         ax.add_patch(Circle((a["x"], a["y"]), 8.0, fill=False, ec="#b07010", lw=1.2))
-        ax.add_patch(Rectangle((a["x"] - h, a["y"] - h), 2 * h, 2 * h, fill=False, ec="#b07010", lw=0.6, ls=":"))
         ax.plot(a["x"], a["y"], "o", color="#8a4a00", ms=5)
         ax.annotate(f"{a['id']}  {a['compass_deg']:.0f}°  {a['dist_from_start_m']:.1f} m\n{a['delivered_by'].split(' (')[0]}",
                     (a["x"], a["y"]), xytext=(6, -14), textcoords="offset points", fontsize=8.5, color="#3a2000",
@@ -197,15 +193,15 @@ def main():
         ax.add_patch(Rectangle((tx - w / 2, ty - hh / 2), w, hh, fill=False, ec="#2050a0", lw=0.9, ls=(0, (6, 3))))
         ax.annotate(v["id"], (tx - w / 2, ty - hh / 2), xytext=(2, 9), textcoords="offset points", fontsize=7, color="#2050a0")
     labels = {"barrow_mound": "the King's barrow (outside)", "wreck_hull": "the wreck (outside)", "longhall": "burnt longhall",
-              "fallen_gable": "fallen gable", "cliff_spur": "cliff spur", "sea_cave_mouth": "sea cave"}
+              "fallen_gable": "fallen gable (hall SW end)", "sea_cave_mouth": "sea cave"}
     for f in L["features"]:
         if f["id"] in labels:
             xs = [p[0] for p in f["footprint"]]
             ys = [p[1] for p in f["footprint"]]
             ax.annotate(labels[f["id"]], (sum(xs) / len(xs), sum(ys) / len(ys)), fontsize=8, ha="center", color="white",
                         bbox=dict(boxstyle="round,pad=0.2", fc="#000", ec="none", alpha=0.55))
-    ax.annotate("stair: 3.0 m wide, 50 x (0.14 rise / 0.36 tread)\n21.25° ramp, 7 m drop, open E side",
-                (S["flight"]["polygon"][1][0] + 1, S["flight"]["polygon"][1][1] + 6), fontsize=7.5,
+    ax.annotate("stair: 3.0 m wide, 28 x (0.15 rise / 0.30 tread)\n26.6° ramp, 4.2 m climb from the ledge, open sea side",
+                (S["flight"]["polygon"][2][0] - 14, S["flight"]["polygon"][2][1] + 9), fontsize=7.5,
                 bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.85))
     ax.annotate("frozen mere", (-14, -16), fontsize=8.5, color="#183050", ha="center")
     ax.annotate("stream from the barrow", tuple(L["stream"]["polyline"][2]), fontsize=7.5, color="#183050")
@@ -221,8 +217,8 @@ def main():
     ax.set_ylabel("y (m, SOUTH)  -- north is up")
     fa = L["floor"]
     ax.set_title(f"barrow_v2 'Fjord Headland' greybox plan -- walkable floor {fa['extents']['width_x']:.1f} x {fa['extents']['depth_y']:.1f} m, "
-                 f"{fa['area_m2']:.0f} m2 (black; the brief's disc-hull minimum {fa['min_disc_hull_reference']['area_m2']:.0f} m2 dashed)\n"
-                 "gold: the 8 m scatter discs (dotted: the pack's 8 m BOX), dashed lines: open lines to the start; blue dashed: the 25 x 18 m camera windows",
+                 f"{fa['area_m2']:.0f} m2 (black) = exactly the hull of the six 8 m discs + 1 m (layout v2)\n"
+                 "gold: the 8 m scatter discs (the oracle's polar law), dashed lines: open lines to the start; blue dashed: the 25 x 18 m camera windows",
                  fontsize=9.5)
     fig.tight_layout()
     p_plan = os.path.join(ROOT, "greybox", "plan_topdown.png")

@@ -8,13 +8,16 @@
 
 The rules (oracle + KC2 KP-253 + R-C9-145):
   R1  the anchors are the pack of record's, byte-for-byte (sha + values)
-  R2  every 8 m scatter disc is 100% on the floor (and every 8 m scatter BOX, the pack's model)
+  R2  every 8 m scatter disc (the oracle's polar law, spawn_structure.py:295) is 100% on the floor with
+      >= 1 m clearance (v2). The 8 m box (the pack's stale prose) is reported as INFO only.
   R3  the open straight line from (0, 0) to every anchor is on the floor and touches no blocker
-  R4  the floor is WHOLE and convex, and contains the hull of the six discs + 1 m
+  R4  the floor is WHOLE and convex, and IS the hull of the six discs + 1 m (contains it; no larger than it)
   R5  no interior blocker: every movement/sight blocker has ZERO area inside the floor; every
       interior feature is walk-over (z_top <= walkover_max_h_m)
-  R6  the stair: width >= 2.5 m; a walkable slope (<= 30 deg, under Godot's 45 deg floor limit);
-      run aligned to the centre; top landing flush with the floor at the p03 patch; one side open
+  R6  the stair (R-C9-148): width >= 2.5 m; a walkable slope (<= 35 deg, under Godot's 45 deg floor
+      limit); top landing flush with the floor at the p03 patch; open on the sea side, the cliff face its
+      wall; it climbs FROM the sea-level ledge, and the cave is at its foot (the run's angle to the
+      centre is INFO only: climbers turn on the landing)
   R7  the mere covers p05's disc, is walkable, reaches the stone circle, and the stream joins it
   R8  the stone circle: 7-9 stones, all walk-over
   R9  the camera is the projection law (pitch, zero yaw, plate scale)
@@ -35,7 +38,8 @@ import bv2_geom as G  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
 ENGINE = os.path.expanduser("~/Games/reincarnated-engine")
-TOL = 1e-6
+TOL = 1e-3   # m2 for areas, m for z: layout coordinates are rounded to 0.1 mm, so polygons that SHARE an edge
+             # (spur | flight, landing | floor arc) overlap by < 1 cm2 of pure rounding (measured 1e-6 .. 9e-5 m2)
 
 
 def sha256(path):
@@ -98,6 +102,9 @@ class Report:
         self.rows.append({"rule": rule, "check": name, "PASS": bool(ok), **nums})
         return ok
 
+    def info(self, rule, name, **nums):
+        self.rows.append({"rule": rule, "check": name, "PASS": True, "severity": "INFO", **nums})
+
     @property
     def ok(self):
         return all(r["PASS"] for r in self.rows)
@@ -130,6 +137,11 @@ def validate(L, check_provenance=True):
         R.check("R1", "scatter half-width equals the pack's placement_extents_m",
                 h == arena["placement_extents_m"]["value"], half_width_m=h)
         R.check("R1", "CSV sha256 matches", sha256(os.path.join(ENGINE, prov["csv"])) == prov["csv_sha256"])
+        lp = L["anchors"]["scatter"]["law_provenance"]
+        sp = os.path.join(ENGINE, lp["file"].split(":", 1)[1])
+        line = open(sp).read().splitlines()[294]
+        R.check("R1", "scatter law = polar disc: spawn_structure.py:295 is POLAR_UNIFORM_RHO and its sha matches",
+                "ScatterLaw.POLAR_UNIFORM_RHO" in line and sha256(sp) == lp["sha256"], line_295=line.strip())
 
     # ---------------- R4 the floor ----------------
     R.check("R4", "floor polygon is convex", G.is_convex(floor), n_vertices=len(floor))
@@ -143,6 +155,8 @@ def validate(L, check_provenance=True):
     worst = min(G.signed_clearance(p, floor) for p in hull_min)
     R.check("R4", "floor contains the hull of the six discs + 1 m (every vertex of that hull inside)",
             worst >= -1e-3, worst_vertex_clearance_m=round(worst, 4), hull_min_area_m2=round(G.area(hull_min), 2))
+    R.check("R4", "floor is the EXACT bound: no larger than the disc hull + 1 m (area within 1 m2)",
+            ar <= G.area(hull_min) + 1.0, floor_area_m2=round(ar, 2), excess_m2=round(ar - G.area(hull_min), 3))
 
     # ---------------- R2 discs and boxes ----------------
     for a in anchors:
@@ -150,14 +164,13 @@ def validate(L, check_provenance=True):
         clr = G.disc_clearance(c, r_disc, floor)
         dp = disc_poly(c, r_disc)
         frac = overlap_area(dp, floor) / G.area(dp)
-        R.check("R2", f"{a['id']} 8 m disc 100% on the floor", clr >= 0.0 and frac >= 1.0 - 1e-9,
+        R.check("R2", f"{a['id']} 8 m disc 100% on the floor with >= 1 m clearance", clr >= 1.0 - 1e-3 and frac >= 1.0 - 1e-9,
                 disc_on_floor_pct=round(100 * frac, 6), edge_clearance_m=round(clr, 4))
         box = [(c[0] + sx * h, c[1] + sy * h) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
         bclr = min(G.signed_clearance(p, floor) for p in box)
         bfrac = overlap_area(box, floor) / G.area(box)
-        R.check("R2", f"{a['id']} 8 m scatter BOX (the pack's model) 100% on the floor",
-                bclr >= 0.0 and bfrac >= 1.0 - 1e-9 and G.is_convex(floor),
-                box_on_floor_pct=round(100 * bfrac, 6), corner_clearance_m=round(bclr, 4))
+        R.info("R2", f"{a['id']} 8 m box (the pack's stale prose; not the oracle's law) coverage",
+               box_on_floor_pct=round(100 * bfrac, 3), corner_clearance_m=round(bclr, 4))
 
     blockers = [f for f in feats if f["blocks_movement"] or f["blocks_sight"] or f["z_top_m"] > wmax]
 
@@ -193,15 +206,15 @@ def validate(L, check_provenance=True):
 
     # ---------------- R6 the stair ----------------
     S = L["stair"]
-    fl = [tuple(p) for p in S["flight"]["polygon"]]          # W_top, E_top, E_foot, W_foot
+    fl = [tuple(p) for p in S["flight"]["polygon"]]          # top wall-side, top sea-side, foot sea-side, foot wall-side
     land = [tuple(p) for p in S["top_landing"]["polygon"]]
     w_meas = min(math.dist(fl[0], fl[1]), math.dist(fl[3], fl[2]))
     run_meas = (math.dist(fl[0], fl[3]) + math.dist(fl[1], fl[2])) / 2
     drop = S["flight"]["z_top_m"] - S["flight"]["z_bottom_m"]
     slope = math.degrees(math.atan2(drop, run_meas))
     R.check("R6", "stair width >= 2.5 m (measured off the flight polygon)", w_meas >= 2.5, width_m=round(w_meas, 4))
-    R.check("R6", "stair slope walkable: <= 30 deg (and under Godot's default floor_max_angle 45 deg)",
-            slope <= 30.0, slope_deg=round(slope, 3), run_m=round(run_meas, 3), drop_m=drop,
+    R.check("R6", "stair slope walkable: <= 35 deg (and under Godot's default floor_max_angle 45 deg)",
+            slope <= 35.0, slope_deg=round(slope, 3), run_m=round(run_meas, 3), drop_m=drop,
             grade_pct=round(100 * drop / run_meas, 2))
     rise, tread = S["flight"]["step_rise_m"], S["flight"]["step_tread_m"]
     R.check("R6", "steps: rise x count = drop, tread x count = run, 2R+T in 0.60-0.65 m",
@@ -213,37 +226,55 @@ def validate(L, check_provenance=True):
     up = (mid_top[0] - mid_foot[0], mid_top[1] - mid_foot[1])
     to_c = (-mid_top[0], -mid_top[1])
     ang = math.degrees(math.acos(max(-1, min(1, (up[0] * to_c[0] + up[1] * to_c[1]) / (math.hypot(*up) * math.hypot(*to_c))))))
-    R.check("R6", "the run is aligned toward the centre (climbing direction vs the bearing to (0,0))", ang <= 2.0,
-            misalignment_deg=round(ang, 4))
+    R.info("R6", "the run's angle to the centre (climbers turn on the top landing; the alignment rule was dropped by R-C9-148)",
+           turn_on_landing_deg=round(ang, 2))
     p3 = next(a for a in anchors if a["id"] == "p03")
-    north = land[:len(land) - 2]
+    north = [tuple(p) for p in S["top_landing"]["boundary_edge"]]
     on_bd = max(G.dist_to_boundary(p, floor) for p in north)
     in_floor = overlap_area(land, floor)
     box3 = [(p3["x"] + sx * h, p3["y"] + sy * h) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
     to_patch = min(G.seg_poly_dist(north[i], north[i + 1], box3) for i in range(len(north) - 1))
     to_disc = min(G.dist_point_seg((p3["x"], p3["y"]), north[i], north[i + 1]) for i in range(len(north) - 1)) - r_disc
-    R.check("R6", "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 patch across the 1 m margin",
-            abs(S["top_landing"]["z_m"] - L["floor"]["z_m"]) <= TOL and on_bd <= 1e-3 and in_floor <= TOL and to_patch <= 1.0 + 1e-3,
+    R.check("R6", "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 disc across the 1 m margin",
+            abs(S["top_landing"]["z_m"] - L["floor"]["z_m"]) <= TOL and on_bd <= 1e-3 and in_floor <= TOL and to_disc <= 1.0 + 1e-3,
             north_edge_off_boundary_m=round(on_bd, 6), landing_overlap_m2=round(in_floor, 6),
-            gap_to_p03_box_m=round(to_patch, 4), gap_to_p03_disc_m=round(to_disc, 4),
+            gap_to_p03_disc_m=round(to_disc, 4), gap_to_p03_box_m_info=round(to_patch, 4),
             landing_north_edge_len_m=round(sum(math.dist(north[i], north[i + 1]) for i in range(len(north) - 1)), 3))
     for part in ("top_landing", "flight", "bottom_landing"):
         poly = [tuple(p) for p in S[part]["polygon"]]
         R.check("R6", f"stair {part} lies OUTSIDE the floor (zero overlap)", overlap_area(poly, floor) <= TOL,
                 overlap_m2=round(overlap_area(poly, floor), 6))
-    # open side: nothing blocking within 1.0 m of the flight's EAST edge (outside the flight)
+    # open side: nothing blocking within 1.0 m of the flight's SEA-side edge (outside the flight)
     east_edge = (fl[1], fl[2])
     near_e = [(G.seg_poly_dist(east_edge[0], east_edge[1], [tuple(p) for p in f["footprint"]]), f["id"]) for f in blockers]
     near_e = min(near_e) if near_e else (float("inf"), None)
     west_edge = (fl[0], fl[3])
     near_w = [(G.seg_poly_dist(west_edge[0], west_edge[1], [tuple(p) for p in f["footprint"]]), f["id"]) for f in blockers if f["kind"] == "cliff"]
     near_w = min(near_w) if near_w else (float("inf"), None)
-    R.check("R6", "one side open: no blocker within 1 m of the east edge; the cliff spur forms the west wall",
-            near_e[0] > 1.0 and near_w[0] <= 1e-3, east_nearest=near_e[1], east_gap_m=round(near_e[0], 3),
-            west_wall=near_w[1], west_gap_m=round(near_w[0], 6))
+    R.check("R6", "one side open: no blocker within 1 m of the sea-side edge; the cliff face is the wall on the other side",
+            near_e[0] > 1.0 and near_w[0] <= 1e-3, sea_side_nearest=near_e[1], sea_side_gap_m=round(near_e[0], 3),
+            wall=near_w[1], wall_gap_m=round(near_w[0], 6))
     # the flight must not cross any blocker (a monster climbing it is never stuck on geometry)
-    hit = [f["id"] for f in blockers if overlap_area([tuple(p) for p in f["footprint"]], fl) > TOL]
-    R.check("R6", "nothing stands on the flight or the landings", not hit, offenders=hit)
+    hit = [f["id"] for f in blockers if overlap_area([tuple(p) for p in f["footprint"]], fl) > TOL
+           or overlap_area([tuple(p) for p in f["footprint"]], land) > TOL]
+    R.check("R6", "nothing stands on the flight or the top landing", not hit, offenders=hit)
+    ledge = [tuple(p) for p in S["bottom_landing"]["polygon"]]
+    foot_mid = ((fl[2][0] + fl[3][0]) / 2, (fl[2][1] + fl[3][1]) / 2)
+    foot_on = G.signed_clearance(foot_mid, ledge)
+    R.check("R6", "the flight climbs FROM the ledge: its foot edge is on the sea-level ledge, at the ledge's z",
+            foot_on >= -1e-3 and abs(S["flight"]["z_bottom_m"] - S["bottom_landing"]["z_m"]) <= TOL,
+            foot_mid_clearance_in_ledge_m=round(foot_on, 4), ledge_z_m=S["bottom_landing"]["z_m"])
+    cave = next((f for f in feats if f["kind"] == "cave"), None)
+    if cave is None:
+        R.check("R6", "the sea cave exists", False)
+    else:
+        cp = [tuple(p) for p in cave["footprint"]]
+        g_foot = G.seg_poly_dist(fl[2], fl[3], cp)
+        on_ledge = overlap_area(cp, ledge) > 0.0 or G.poly_poly_gap(cp, ledge) <= 0.05
+        to_lip = G.poly_poly_gap(cp, floor)
+        R.check("R6", "the cave is at the stair's foot: on the ledge, within 4 m of the foot, at the ledge's z, in the cliff face under the lip (<= 0.5 m out)",
+                on_ledge and g_foot <= 4.0 and abs(cave["z_bottom_m"] - S["bottom_landing"]["z_m"]) <= TOL and to_lip <= 0.5,
+                cave_to_foot_m=round(g_foot, 3), cave_to_lip_m=round(to_lip, 3), cave_z_m=[cave["z_bottom_m"], cave["z_top_m"]])
 
     # ---------------- R7 the mere and the stream ----------------
     mere = [tuple(p) for p in L["mere"]["polygon"]]
@@ -258,8 +289,8 @@ def validate(L, check_provenance=True):
         for y in [p5["y"] - h + k / 2 + j * k for j in range(int(2 * h / k))]:
             n_all += 1
             n_in += G.point_in_poly((x, y), mere)
-    R.check("R7", "the mere covers p05's 8 m disc 100%", clr5 >= 0.0, disc_edge_clearance_m=round(clr5, 4),
-            p05_box_covered_pct=round(100 * n_in / n_all, 2))
+    R.check("R7", "the mere covers p05's 8 m disc 100%", clr5 >= 0.0, disc_edge_clearance_m=round(clr5, 4))
+    R.info("R7", "p05's box (stale prose) under the mere", p05_box_covered_pct=round(100 * n_in / n_all, 2))
     mere_in_floor = overlap_area(mere, floor) / G.area(mere)
     R.check("R7", "the mere is on the floor (walkable ice, flush)", mere_in_floor >= 0.999,
             mere_area_m2=round(G.area(mere), 2), mere_on_floor_pct=round(100 * mere_in_floor, 3))
@@ -344,9 +375,12 @@ def print_report(R, title):
     print(f"== {title}")
     for r in R.rows:
         nums = {k: v for k, v in r.items() if k not in ("rule", "check", "PASS")}
-        print(f"  {'PASS' if r['PASS'] else 'FAIL'}  {r['rule']:<4} {r['check']}  {json.dumps(nums, ensure_ascii=False)}")
+        nums.pop("severity", None)
+        tag = "INFO" if r.get("severity") == "INFO" else ("PASS" if r["PASS"] else "FAIL")
+        print(f"  {tag}  {r['rule']:<4} {r['check']}  {json.dumps(nums, ensure_ascii=False)}")
     n_fail = sum(not r["PASS"] for r in R.rows)
-    print(f"== {len(R.rows)} checks, {len(R.rows) - n_fail} PASS, {n_fail} FAIL -> {'PASS' if R.ok else 'FAIL'}")
+    n_info = sum(r.get("severity") == "INFO" for r in R.rows)
+    print(f"== {len(R.rows) - n_info} checks, {len(R.rows) - n_info - n_fail} PASS, {n_fail} FAIL, plus {n_info} INFO -> {'PASS' if R.ok else 'FAIL'}")
 
 
 def main():
