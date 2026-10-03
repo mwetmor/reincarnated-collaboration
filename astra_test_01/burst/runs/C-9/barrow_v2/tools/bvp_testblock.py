@@ -18,9 +18,12 @@ Image.MAX_IMAGE_PIXELS = None
 CW, CH, SX, SY = 1536, 1024, 1280, 768; OV = CW - SX
 
 
+PFX = os.environ.get("PFX", "BVR")
+
+
 def src(k):
-    for d in (f"BVP-{k}-r3", f"BVP-{k}-r2", f"BVP-{k}-r1", f"BVP-{k}"):
-        p = os.path.join(A9, d, f"BVP-{k}.png")
+    for d in (f"{PFX}-{k}-r3", f"{PFX}-{k}-r2", f"{PFX}-{k}-r1", f"{PFX}-{k}"):
+        p = os.path.join(A9, d, f"{PFX}-{k}.png")
         if os.path.exists(p):
             return p
 

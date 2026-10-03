@@ -10,8 +10,9 @@ B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst; C=$B/runs/C
 T=$B/runs/C-9/barrow_v2/tools; CFG=$B/runs/C-9/barrow_v2/paint/cfg_barrow_v2.json
 L=$HOME/astra-burst/logs/C-9; mkdir -p $L; LOG=$L/bvp_drive.log
 CAP=${CAP:-150}; WAVE_MAX=${WAVE_MAX:-8}; MAXW=${1:-999}
+PFX=$(python3 -c "import json;print(json.load(open('$CFG'))['prefix'])")
 cd $B; echo "$(date -u +%FT%TZ) BVP DRIVE START cap=$CAP" >> $LOG; typeset -A tried; w=0
-used() { python3 -c "import json;d=json.load(open('$B/runs/C-9/ledger.json'));print(sum(b.get('image_calls',0) for b in d['bursts'] if b['id'].startswith('BVP-')))"; }
+used() { python3 -c "import json;d=json.load(open('$B/runs/C-9/ledger.json'));print(sum(b.get('image_calls',0) for b in d['bursts'] if b['id'].split('-')[0] in ('BVP','BVR','BVS')))"; }
 while [ $w -lt $MAXW ]; do
   FREE=$(df -g /System/Volumes/Data | tail -1 | awk '{print $4}')
   [ $FREE -lt 21 ] && { echo "$(date -u +%FT%TZ) HALT disk ${FREE} GiB < 21" >> $LOG; exit 9; }
@@ -22,10 +23,10 @@ while [ $w -lt $MAXW ]; do
   specs=()
   for k in $ready; do suf=""; [ -n "${tried[$k]}" ] && suf="-r${tried[$k]}"
     SUF=$suf python3 $T/bvp_paint.py $CFG stage $k >> $LOG 2>&1; SUF=$suf python3 $T/bvp_paint.py $CFG brief $k >> $LOG 2>&1
-    python3 $C/refs_guard.py briefs/C-9/BVP-$k$suf.task.json >> $LOG 2>&1 || { echo "$(date -u +%FT%TZ) HALT H-guard BVP-$k$suf" >> $LOG; exit 3; }
-    specs+=("BVP-$k$suf:GENERATE"); done
+    python3 $C/refs_guard.py briefs/C-9/$PFX-$k$suf.task.json >> $LOG 2>&1 || { echo "$(date -u +%FT%TZ) HALT H-guard $PFX-$k$suf" >> $LOG; exit 3; }
+    specs+=("$PFX-$k$suf:GENERATE"); done
   zsh $C/wave.sh bvp_w$(date +%s) ${specs[@]}; w=$((w+1))
-  for s in $specs; do bid=${s%%:*}; k=${bid#BVP-}; k=${k%-r[0-9]}
+  for s in $specs; do bid=${s%%:*}; k=${bid#$PFX-}; k=${k%-r[0-9]}
     ex=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['exit'])" $L/${bid}_run.json 2>/dev/null)
     echo "$(date -u +%FT%TZ) $bid exit=$ex used=$(used)" >> $LOG
     if grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null; then

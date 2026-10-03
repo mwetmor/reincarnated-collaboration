@@ -67,6 +67,9 @@ MARKS = {   # structure kind -> (fill, outline) flat colours
     "cave":           ((18, 18, 22), (18, 18, 22)),
     "stair":          ((186, 172, 150), (140, 126, 104)),
     "fallen_stone":   ((150, 150, 156), (150, 150, 156)),
+    "forecourt":      ((176, 172, 164), (150, 146, 138)),
+    "apron":          ((176, 172, 164), (150, 146, 138)),
+    "brazier":        ((60, 44, 36), (230, 120, 30)),
 }
 
 
@@ -176,6 +179,9 @@ def main():
     rgb = rgb * (1 - 0.22 * tint) + np.array([190, 200, 216], np.float32) * 0.22 * tint
     im = Image.fromarray(rgb.clip(0, 255).astype(np.uint8)).resize((W, H), Image.NEAREST).filter(ImageFilter.GaussianBlur(1.2))
     dr = ImageDraw.Draw(im)
+    # ---- R-C9-154 DENSITY LAYER: ground cover at sketch A's density, as flat speckles (darker tints of each zone);
+    # LOW scatter on the floor, bigger and denser masses outside; plus the layout's own scatter + vegetation marks
+    density(dr, zk, floor)
     # ---- structures: flat footprint at its base + a thin outline of how high it rises on screen
     order = []
     for f in L["features"]:
@@ -226,6 +232,60 @@ def main():
                "dotted_grey": "the walkable floor's edge (not to be painted)", "dotted_gold": "the six 8 m spawn discs (not to be painted)",
                "zonemap": os.path.relpath(out, BV2), "sha256": sha}, open(os.path.join(PAINT, "zonemap_legend.json"), "w"), indent=1)
     print(out, im.size, "sha256", sha)
+
+
+# zone -> (speckles per ground m2, radius range m, rgb) ; the floor's cover is LOW walk-over scatter
+DENS_IN = {"grave_ground": (1.6, (0.12, 0.30), (170, 104, 86)), "shore_shingle": (1.5, (0.08, 0.22), (140, 134, 128)),
+           "cliff_top_rock": (1.0, (0.10, 0.28), (150, 146, 140)), "hall_yard_ash": (1.6, (0.10, 0.30), (112, 100, 92)),
+           "floor_snow": (0.55, (0.10, 0.26), (196, 186, 170)), "snow_field": (0.55, (0.10, 0.26), (196, 186, 170)),
+           "circle": (0.6, (0.10, 0.22), (186, 178, 166)), "path": (0.25, (0.08, 0.16), (200, 190, 176)),
+           "mere_ice": (0.12, (0.10, 0.25), (120, 160, 196)), "stream_ice": (0.12, (0.10, 0.25), (120, 160, 196))}
+DENS_OUT = {"land_snow": (0.45, (0.25, 0.7), (168, 150, 140)), "barrow_mound": (1.1, (0.2, 0.55), (150, 120, 92)),
+            "grave_ground": (1.4, (0.2, 0.5), (164, 100, 82)), "shore_shingle": (1.2, (0.15, 0.4), (140, 134, 128)),
+            "cliff_top_rock": (0.9, (0.2, 0.5), (140, 136, 130)), "hall_yard_ash": (1.2, (0.2, 0.5), (110, 98, 90)),
+            "beach_shingle": (1.0, (0.12, 0.35), (132, 126, 120)), "rock_face": (0.4, (0.2, 0.5), (120, 114, 108))}
+VEG = {"rock": ((150, 147, 142), (110, 106, 100)), "juniper": ((74, 98, 76), (54, 74, 56)), "tree": ((176, 156, 132), (120, 100, 80)),
+       "heather": ((176, 108, 92), None), "ash_heap": ((104, 94, 88), None), "pebble": ((150, 146, 140), None),
+       "scree": ((158, 154, 148), None), "shingle_tongue": ((170, 164, 156), None), "rock_slab": ((176, 172, 166), None),
+       "drift_berm": ((236, 238, 244), None), "grave_marker": ((120, 116, 110), None), "beam": ((70, 56, 46), None),
+       "driftwood": ((150, 130, 108), None), "floe": ((236, 244, 250), (190, 210, 226))}
+
+
+def density(dr, zk, floor):
+    rng = np.random.default_rng(154)
+    zl = list(ZONES)
+    a_px = (K / P) * (K / (P * S))                       # ground m2 per half-res pixel
+    n = 0
+    for tab, where in ((DENS_IN, floor), (DENS_OUT, ~floor)):
+        for name, (d, (r0, r1), col) in tab.items():
+            m = (zk == zl.index(name)) & where
+            ys, xs = np.nonzero(m)
+            if xs.size == 0:
+                continue
+            take = rng.random(xs.size) < d * a_px
+            for x, y in zip(xs[take], ys[take]):
+                r = rng.uniform(r0, r1) * P
+                cx, cy = x * K + rng.uniform(0, K), y * K + rng.uniform(0, K)
+                rx, ry = r * rng.uniform(0.8, 1.6), r * S * rng.uniform(0.6, 1.0)
+                c = tuple(int(v * rng.uniform(0.92, 1.06)) for v in col)
+                dr.ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=c)
+                n += 1
+    # the layout's own scatter and vegetation, flat, at their footprints
+    for f in L["features"]:
+        if f["kind"] not in VEG:
+            continue
+        fill, line = VEG[f["kind"]]
+        z0 = float(f["z_bottom_m"]) if not str(f.get("placement", "")).startswith("INSIDE") else 0.0
+        pts = [px(q[0], q[1], z0) for q in f["footprint"]]
+        if f["kind"] == "tree":
+            cx = sum(p[0] for p in pts) / len(pts); cy = sum(p[1] for p in pts) / len(pts)
+            top = float(f["z_top_m"]) - z0
+            dr.line([(cx, cy), (cx, cy - P * C * top)], fill=line, width=5)           # the trunk, rising on screen
+            rr = 1.6 * P
+            dr.ellipse([cx - rr, cy - P * C * top * 0.75 - rr * 0.8, cx + rr, cy - P * C * top * 0.75 + rr * 0.8], outline=line, width=3)
+            continue
+        dr.polygon(pts, fill=fill, outline=line)
+    print("density speckles", n)
 
 
 def hull2(pts):

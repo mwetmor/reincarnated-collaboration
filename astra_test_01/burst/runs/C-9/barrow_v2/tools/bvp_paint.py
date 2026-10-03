@@ -53,7 +53,26 @@ for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1), (c+1, r), (c, r+1),
         kept.append({(-1, 0): 'its LEFT 256 columns', (0, -1): 'its TOP 256 rows', (1, -1): 'its top-right 256x256 corner', (-1, -1): 'its top-left 256x256 corner',
                      (1, 0): 'its RIGHT 256 columns', (0, 1): 'its BOTTOM 256 rows', (-1, 1): 'its bottom-left 256x256 corner', (1, 1): 'its bottom-right 256x256 corner'}[(nc - c, nr - r)])
 cp = S/f'{P}-{k}{SUF}_canvas.png'
-if cmd == 'stage': canvas.save(cp); manifest_add(cp); print(k, 'staged', kept); sys.exit()
+# R-C9-154: a DETAIL of sketch A around this panel's place in the site, enlarged toward the panel's scale, so the
+# painter matches sketch A's DENSITY of ground cover. Sketch A is not to scale: its place is found by inverse-distance
+# interpolation between the six anchors + the start, read off the spawn plan (sites/BV3r2-A_spawns.png).
+SKA = cfg.get('sketch_detail')
+dp = S/f'{P}-{k}{SUF}_skA.png'
+def sketch_detail():
+    import math
+    sk = Image.open(SKA['image']).convert('RGB'); fr = json.load(open(SKA['frame']))
+    Pp = fr['px_per_m']; X0, Y0 = fr['origin_px']; a = math.radians(fr['pitch_deg'])
+    cx = (ox + 768 - X0) / Pp; cy = (oy + 512 - Y0) / (Pp * math.sin(a))
+    ws = [(1.0 / ((cx - q[0]) ** 2 + (cy - q[1]) ** 2 + 4.0), q) for q in SKA['ties']]
+    tw = sum(w for w, _ in ws)
+    u = sum(w * q[2] for w, q in ws) / tw; v = sum(w * q[3] for w, q in ws) / tw
+    cw, ch = SKA['crop_px']
+    u = min(max(u, cw / 2), sk.width - cw / 2); v = min(max(v, ch / 2), sk.height - ch / 2)
+    return sk.crop((int(u - cw / 2), int(v - ch / 2), int(u + cw / 2), int(v + ch / 2))).resize((1536, 1024), Image.LANCZOS)
+if cmd == 'stage':
+    canvas.save(cp); manifest_add(cp)
+    if SKA: sketch_detail().save(dp); manifest_add(dp)
+    print(k, 'staged', kept); sys.exit()
 bid = f'{P}-{k}{SUF}'; geo = cfg['geo']; rules = cfg['rules']
 # per-chunk notes: which named pieces fall in this chunk (cfg['chunk_notes'][k]), so the painter knows what it is looking at
 note = cfg.get('chunk_notes', {}).get(k, '')
@@ -67,6 +86,7 @@ if kept:
 else:
     text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + geo + where + "Use image_gen in EDIT mode on IMAGE 1 and " + FILL + ". " + rules
 refs = [{"path": str(cp), "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + layout guide)"}] + [{"path": p, "role": f"IMAGE {i+2} — {role}"} for i, (p, role) in enumerate(cfg['refs'])]
+if SKA: refs.append({"path": str(dp), "role": f"IMAGE {len(refs)+1} — " + SKA['role']})
 text += (f"\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, anything appears that the guide does not put there (an extra building, landmark, ship, figure or creature), {RETRY_EXTRA}or {UNPAINTED} — name the reason. "
          f"Copy the output to out/{P}-{k}.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"{bid}\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.")
 json.dump({"text": text, "references": refs, "image_cap": 2, "minutes_cap": 15, "tool_call_cap": 20, "outputs": [f"out/{P}-{k}.png"], "effort": "high", "add_dirs": [], "experiment": cfg['experiment']},

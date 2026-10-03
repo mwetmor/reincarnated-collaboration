@@ -32,18 +32,22 @@ WORDS = {
     "tree": "a few bare, wind-bent birches",
     "juniper": "low dark juniper scrub",
     "hall": "part of the BURNT LONGHALL (dark brown slab): a long ruined timber hall, roof half fallen in, charred rafters showing, snow on what roof is left; its long west wall faces the open ground",
-    "porch": "the hall's GREAT DOOR PORCH: a small gabled timber porch built out from the hall's west wall toward the open ground, its own steep snow-covered roof clearly visible from above; its great double doors stand OPEN and dark smoke rolls out of the doorway and up over the porch roof, with a faint ember glow inside",
+    "porch": "the hall's GRAND PORCH (orange): a tall gabled timber porch built out from the hall's west wall toward the open ground, its steep snowy ridge rising ABOVE the hall roof, carved finials crossed at its gable peak; its great double doors (4.5 m high and wide) stand OPEN, dark smoke rolls out of the doorway and up over the porch roof, an ember glow inside; two iron braziers burn on a flagged stone apron in front",
     "gable": "the hall's own COLLAPSED SOUTH-WEST END: the gable wall fallen outward onto its rubble, charred beams and planks in a heap, ash drifting out of it",
     "palisade": "a broken, half-burned timber palisade: leaning sharpened stakes with gaps, some fallen, snow against the bases",
     "cliff": "the sea cliff's face: layered dark wet rock with snow on the ledges, dropping to the sea",
-    "cave": "the SEA CAVE: a dark cave mouth in the cliff face at the water, waves and ice at its foot",
+    "cave": "the SEA CAVE: a HUGE dark cave mouth (about 9 m wide, 7 m high) in the cliff face at the water, waves and ice at its foot",
     "fallen_stone": "an old circle stone fallen flat and half buried in snow, rimed, with old carving",
     "grave_marker": "a low old grave marker, half sunk",
     "driftwood": "a grey driftwood log on the shingle",
     "beam": "a charred roof beam lying flat in the ash",
 }
-DOOR = {"barrow_door": "the BARROW DOOR: a stone-lined cutting into the mound's front with two massive carved door posts and a carved lintel, the dark passage behind; it faces the open ground and is the grandest thing here",
+DOOR = {"barrow_door": "the BARROW DOOR, monumental (over 6.5 m high, 5 m wide): a stone-lined forecourt cutting into the mound's front, two colossal carved door posts and a massive carved lintel, the deep dark passage behind; it faces the open ground and is the grandest thing in the whole site",
         "hall_great_door": "the hall's great double door (inside the porch)"}
+
+
+SK_TIES = {"p01": [160, 399], "p02": [814, 134], "p03": [636, 612], "p04": [1289, 420], "p05": [649, 366],
+           "p06": [1421, 561], "start": [783, 452]}
 
 
 def hull(pts):
@@ -119,23 +123,30 @@ GEO = ("a FLAT COLOUR-CODED ZONE MAP of a real game level, seen from the game's 
        "deep wind-drifted snow); grey-brown bands = steep rock faces and broken rocky slopes; grey-tan = a shingle beach; very "
        "pale blue = shore ice and broken sea ice; dark slate blue = open sea far below the cliffs. FLAT MARKS: the DARK BROWN "
        "slab = the footprint of the BURNT LONGHALL (a ruined timber hall stands on it and rises to the thin brown outline above "
-       "it: charred posts and rafters, half its roof fallen in, snow on what roof is left); ORANGE = the hall's gabled ENTRANCE "
-       "PORCH on its west side (its own steep snowy roof clearly visible from above; its great double doors stand OPEN and dark "
-       "smoke rolls out of the doorway and up over the porch roof, a faint ember glow inside); the LIGHTER BROWN block at the "
+       "it: charred posts and rafters, half its roof fallen in, snow on what roof is left); ORANGE = the hall's grand gabled ENTRANCE "
+       "PORCH on its west side, the tallest thing on the hall: its steep snowy ridge rises ABOVE the hall roof, carved finials cross at its "
+       "gable peak, its great double doors (4.5 m high and wide) stand OPEN with dark smoke rolling out and up over the porch roof and an "
+       "ember glow inside, two iron braziers burn on a flagged stone apron in front of it; the LIGHTER BROWN block at the "
        "hall's south-west end = its COLLAPSED END, the gable wall fallen outward onto a heap of charred beams and rubble; thin "
        "brown lines = a broken, half-burned PALISADE of leaning sharpened stakes with gaps; the MID BROWN long block at the west "
        "shore = an old wooden longship WRECK beached and frozen into the shore ice, heeled over toward the open ground, its low "
-       "broken rail on that side; the NEARLY BLACK bar in the mound's front = the BARROW DOOR: a stone-lined cutting, two massive "
-       "carved door posts and a carved lintel, a dark passage behind; small grey marks out on the slopes = tall weathered "
+       "broken rail on that side; the NEARLY BLACK bar in the mound's front = the BARROW DOOR, MONUMENTAL (over 6.5 m high and 5 m wide, a giant could walk out of it): "
+       "a stone-lined forecourt cutting, two colossal carved door posts and a massive carved lintel, a deep dark passage behind; small grey marks out on the slopes = tall weathered "
        "standing stones; small grey marks inside the open ground = old circle stones FALLEN FLAT and half buried; the tan stair "
-       "shape in the south cliff = a rough stone STAIR climbing the cliff face from a rock ledge at the sea up to the cliff top, "
-       "and the black slot beside its foot = a dark SEA-CAVE mouth in the cliff. A thin outline above a mark shows how high that "
+       "shape in the south cliff = a broad rough stone STAIR (5 m wide) climbing the cliff face from a rock ledge at the sea up to the cliff top, "
+       "and the black shape beside its foot = a HUGE dark SEA-CAVE mouth in the cliff (about 9 m wide and 7 m high). SMALL DARKER SPECKLES = "
+       "GROUND COVER, one clump per speckle: rust heather and dry-grass clumps on the pink, pebbles, kelp and driftwood bits on the shingle, "
+       "ash, charred debris and embers in the yard, tufts, low drifts and footprints on the snow; dark green blobs = juniper bushes; grey "
+       "blobs = rocks and boulders; a thin brown stroke with a ring = a bare birch. A thin outline above a mark shows how high that "
        "thing rises. The faint DOTTED grey line and the faint DOTTED gold ellipses are measuring marks only: do NOT paint them.")
 RULES = ("Paint the scene this map describes, in the hand, palette, mood and composition of IMAGE 2 (the chosen sketch of this "
          "same site; it shows the whole site, so this panel is a small part of it seen much closer: paint at THIS scale). INVENT "
          "every shape: organic rocks with fractured strata, wind-scalloped drifts and snow banks; a barrow mound with a real "
          "silhouette and kerb stones; a ruined, charred hall; a broken old ship; real sea cliffs with ledges. No flat colour of "
-         "the map may remain, and nothing may look like a block or a box. Keep every structure at its place and size on the map, "
+         "the map may remain, and nothing may look like a block or a box. DENSITY: match IMAGE 2 and the detail in the last image -- the "
+         "ground is RICH and BUSY everywhere, never bare: on the open ground a dense carpet of LOW heather and dry-grass clumps, scattered "
+         "pebbles and small flat stones, drift ripples, footprints, ash and charred debris in the yard, heather thick on the grave-ground; "
+         "outside the open ground denser still: boulders, rock clusters, juniper bushes, bare birches, kerb stones, heather banks. Keep every structure at its place and size on the map, "
          "and every opening (the barrow door, the porch doorway, the cave mouth, the stair, the ship's low rail) where the map "
          "puts it. THE OPEN GROUND (inside the dotted line: snow, heather ground, shingle, cliff-top rock, ash yard, the frozen "
          "mere, the path) STAYS OPEN, WALKABLE GROUND: low texture only (snow, small tufts, pebbles, cracks, embers, footprints) "
@@ -149,7 +160,7 @@ RULES = ("Paint the scene this map describes, in the hand, palette, mood and com
 
 def main():
     cfg = {
-        "prefix": "BVP",
+        "prefix": os.environ.get("BVP_PREFIX", "BVR"),   # BVP = chunk test 1 (layout v4); BVR = layout v5 + density (R-C9-154)
         "name": "barrow_v2 Fjord Headland, whole site: guided paint-over at the arena camera (plate density)",
         "guide": GUIDE, "cols": FR["chunk"]["cols"], "rows": FR["chunk"]["rows"], "skip": FR["skipped_chunks"],
         "experiment": "R-C9-147-barrow-v2-paintover", "run_tag": "Run C-9 Phase 2 lane BVP", "ruling": "R-C9-145/147/148/151",
@@ -161,6 +172,14 @@ def main():
         "fill_phrase": "paint the scene the zone map describes, replacing every flat map colour and mark with painting",
         "unpainted_phrase": "any flat map colour or mark (a dotted line, a flat block) remains unpainted",
         "retry_extra": "something tall stands on the open ground, ",
+        "sketch_detail": {
+            "image": os.path.join(A9, "BV3r2-A", "BV3r2-A.png"), "frame": os.path.join(BV2, "paint", "frame_bvp.json"),
+            "_ties": "sim (x, y) -> sketch A px (1536 x 1024), read off sites/BV3r2-A_spawns.png (the same picture, annotated) at the six anchors and the start",
+            "ties": [[a["x"], a["y"]] + SK_TIES[a["id"]] for a in L["anchors"]["points"]] + [[0.0, 0.0] + SK_TIES["start"]],
+            "crop_px": [384, 256],
+            "role": ("a DETAIL of the chosen sketch (IMAGE 2) around this panel's place in the site, enlarged: match its DENSITY "
+                     "of ground cover and small detail -- heather and dry-grass clumps, scattered stones, drifts, footprints, debris -- "
+                     "and its finish; NOT its exact shapes, layout or scale")},
         "chunk_notes": notes(),
     }
     out = os.path.join(BV2, "paint", "cfg_barrow_v2.json")
