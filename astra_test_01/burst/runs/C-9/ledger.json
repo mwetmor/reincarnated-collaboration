@@ -39606,6 +39606,16 @@
         "(AskUserQuestion) Approach: \"Paint from sketch + zone map (Recommended)\""
       ],
       "ts": "2026-10-03T03:08:28Z"
+    },
+    {
+      "id": "R-C9-152",
+      "by": "Matt",
+      "ruling": "Barrow playtest notes on d069c4b: (1) The sorceress's new wand + shield animation is GREAT, but the hood_hair morph (R-C9-140) made the top of the head and back of the hood read transparent. R-C9-140 is SUPERSEDED: do not hide or move the face / front hair; tuck only the back and top hair under the hood/armour so the hair is worn under the hood (no holes), with the alternative of the braid coming out of the hood to the front/side if clipping persists. Fix in the Barrow kit (so_bm134) and re-render the JOIN-1 sorceress pack as a new root (v4 superseded). (2) The EoR whirlwind is good, but REMOVE all red VFX (the red-orange arc cuts and the red-hot rims); instead tint the smoke/haze slightly red while keeping it translucent, and add spark particles. Applies to the Barrow EoR and to the 2D arena overlay atlas. Supersedes R-C9-146's red rims and the arc ramp for the dark knight.",
+      "verbatim": [
+        "THe new wand and shield animation is great, but the top of the head and back of the hood have become transparent.. telling you to make the hair invisible was a poor choice of words.. We dont want to change the face/front of hair, and we only want to paint over the back of hair with the hood/body armor so the hair is worn under the hood.. or change it so the braid comes out of the hood to the front/side.",
+        "The whirlwind is good but remove all of the red VFX from it.. istead just color the smole a bit red while leaving it translucent and add some spark particles to it."
+      ],
+      "ts": "2026-10-03T03:16:34Z"
     }
   ],
   "grok_calls": [
