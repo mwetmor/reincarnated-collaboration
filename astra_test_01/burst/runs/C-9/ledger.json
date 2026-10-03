@@ -40319,6 +40319,12 @@
       "ts": "2026-10-03T14:58:36Z",
       "topic": "lane BVP halted by Matt, method under review",
       "result": "R-C9-155 hero models: 7 Astra sheets BVM-* (28 images; lane total 63/220), cells + scores, 9 Tripo builds in barrow_v2/models/builds (hall, porch, gable, barrow, wreck, cavecliff, staircliff, cliffplain, crag; fal $3.63 of $5, ledger models/fal_spend_R-C9-155.json). Reduce/normalise/stills NOT run; nothing handed to BX. Nothing in flight."
+    },
+    {
+      "id": "M-C9-BX-GREYBOX-V6-HALTED",
+      "ts": "2026-10-03T15:11:28Z",
+      "topic": "barrow_v2 greybox: halted by Matt, method under review (lane BX drax; R-C9-155 pass stopped mid-flight)",
+      "result": "Committed what existed at 25def6a77: layout v6 with lanes[] (5 exit lanes), clean floor (flat marks + 63 tufts <= 0.15 m), models[] (29 slots, REUSE v1 GLB or BUILD by lane BVP); validator 66/66 (R12 lanes, R13 clean floor) + negative control caught. The in-flight Godot views run failed on 3 GDScript type-inference parse errors in the new slot loader; I stopped my hung job and fixed the errors by inspection, with no re-render (per the halt). The V-stills on disk are v5; plan_topdown.png is v6. Nothing else started."
     }
   ],
   "halts": [
