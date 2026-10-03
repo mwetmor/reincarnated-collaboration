@@ -1,0 +1,2561 @@
+{
+ "_what": "MX audition (R-C9-149, C-9 Phase 2 lane MX): Mixamo Creature / Zombie packs grafted onto COPIES of shipped bodies next to the clips of record; measures per clip; ONE recommendation per body. No pack root, kit or manifest changed; Matt picks from the sheets.",
+ "method": {
+  "graft": "en_e2 e40a (FBX -> rig-named GLB) + e40b (55_clip_graft world-space transfer + T->A rest alignment), window [1/30 s, end], loops +loop+deroot, one-shots +deroot -- the EN-E2 convention; self-check: re-grafting axe_unarmed_walk_forward onto final_d reproduces the shipped walk to 0.0000 m",
+  "joint_lint": "nb_join/scripts/j_joint_lint.py, ref = the body's own hit of record; FAIL = any frame past elbow/knee -5 deg hyperextension or wrist flex 80 / dev 40 deg (EN-E2 fixes such frames with 63_joint_fix --dev-max 38)",
+  "foot_slide": "en_e2 s6 estimator (planted ankle = bottom 25 % of its height range, median backward speed, 60 Hz) vs the drive speed (record: manifest locomotion_in_place; graft: source root travel / length); foot_creep = a planted ankle's largest horizontal travel in one contact (non-locomotion)",
+  "arm_elevation": "upper arm from hanging straight down (deg), mean / max over every key (en56_arm_calm, world up)",
+  "camera": "stills + films: play camera ortho, pitch 52.9535 deg, yaw 47 deg, 100.617 px/m (en_e2 film_rt copy)"
+ },
+ "bodies": {
+  "en-fleshhulk": {
+   "height_m": 3.0,
+   "sheet": "sheets/fleshhulk_stills8_current_vs_mixamo.png",
+   "film": "film/fleshhulk_sbs_1x.mp4",
+   "recommendation": {
+    "recommend": "HYBRID: Creature Pack locomotion + idle + punch; keep the record slam / lob / hit / death",
+    "map": {
+     "idle": "mx_idle_breath (mutant breathing idle)",
+     "walk": "mx_walk (mutant walking)",
+     "run": "mx_run (mutant run)",
+     "attack": "mx_punch (mutant punch)",
+     "slam": "KEEP record",
+     "lob": "KEEP record",
+     "hit": "KEEP record",
+     "death": "KEEP record"
+    },
+    "why": [
+     "idle: breathing idle holds the arms out at 40/42 deg (record 15/16) with the head at 0.92 of rest (record 1.02): a hunched, wide, heavy stance; lint PASS, seam 0.000, creep 0.003 m",
+     "walk: slide 5.0 % vs 8.8 %; lint PASS; own speed 1.87 m/s (record 1.45: 0.78x playback at the record speed); seam 0.019 m (EN-E2 58 loop blend closes it)",
+     "run: slide 16.6 % vs 18.8 %; lint PASS; 3.39 m/s own (record 3.90)",
+     "attack: punch lint PASS 0/34, creep 0.17 m vs the record swing 0.53 m, stays on the anchor (hips 0.24 m); swipe FAILS 7/73 (wrist dev 50) and lunges 1.05 m off the anchor",
+     "slam: mutant jump attack FAILS 34/112, leaves the anchor 1.38 m and peaks at 5.61 m (1.87x its standing 3.0 m, so a max-fit kit would shrink the whole body to fit the leap): reject; record slam PASS",
+     "death: mutant dying FAILS 2/105 and sinks 0.37 m under the floor (record 0.21): keep the record"
+    ]
+   },
+   "clips": {
+    "walk": {
+     "clip": "walk",
+     "source": "axe unarmed walk forward (Mixamo)",
+     "length_s": 1.3667,
+     "lint": "PASS 0/42",
+     "arm_elev_mean_LR": [
+      26.3,
+      25.3
+     ],
+     "arm_elev_max_LR": [
+      39.6,
+      36.4
+     ],
+     "hips_excursion_m": 0.104,
+     "top_m": 3.127,
+     "lowest_m": 0.031,
+     "t0": {
+      "low_m": 0.031,
+      "top_m": 3.078,
+      "head_ratio": 1.027,
+      "hips_ratio": 1.06
+     },
+     "drive_m_s": 1.451,
+     "stance_foot_m_s": 1.324,
+     "slide_pct": 8.8,
+     "seam_m": 0.0002
+    },
+    "run": {
+     "clip": "run",
+     "source": "axe unarmed run forward (Mixamo)",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      34.6,
+      37.7
+     ],
+     "arm_elev_max_LR": [
+      50.2,
+      52.0
+     ],
+     "hips_excursion_m": 0.07,
+     "top_m": 3.146,
+     "lowest_m": 0.036,
+     "t0": {
+      "low_m": 0.04,
+      "top_m": 3.023,
+      "head_ratio": 1.009,
+      "hips_ratio": 1.04
+     },
+     "drive_m_s": 3.896,
+     "stance_foot_m_s": 3.163,
+     "slide_pct": 18.8,
+     "seam_m": 0.0002
+    },
+    "slam": {
+     "clip": "slam",
+     "source": "axe standing melee attack downward (Mixamo)",
+     "length_s": 2.2667,
+     "lint": "PASS 0/69",
+     "arm_elev_mean_LR": [
+      53.4,
+      52.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      121.9
+     ],
+     "hips_excursion_m": 0.244,
+     "top_m": 4.011,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.04,
+      "top_m": 2.914,
+      "head_ratio": 0.953,
+      "hips_ratio": 0.946
+     },
+     "foot_creep_m": 0.126
+    },
+    "attack": {
+     "clip": "attack",
+     "source": "axe standing melee attack horizontal (Mixamo)",
+     "length_s": 2.4,
+     "lint": "PASS 0/73",
+     "arm_elev_mean_LR": [
+      57.9,
+      66.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      100.2
+     ],
+     "hips_excursion_m": 0.227,
+     "top_m": 3.004,
+     "lowest_m": 0.01,
+     "t0": {
+      "low_m": 0.08,
+      "top_m": 2.954,
+      "head_ratio": 0.968,
+      "hips_ratio": 0.971
+     },
+     "foot_creep_m": 0.533
+    },
+    "lob": {
+     "clip": "lob",
+     "source": "standing 2h magic attack 01 (Mixamo)",
+     "length_s": 2.6667,
+     "lint": "PASS 0/81",
+     "arm_elev_mean_LR": [
+      59.9,
+      75.2
+     ],
+     "arm_elev_max_LR": [
+      103.9,
+      134.9
+     ],
+     "hips_excursion_m": 0.26,
+     "top_m": 3.878,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.048,
+      "top_m": 2.984,
+      "head_ratio": 0.978,
+      "hips_ratio": 0.985
+     },
+     "foot_creep_m": 0.135
+    },
+    "hit": {
+     "clip": "hit",
+     "source": "axe standing react large gut (Mixamo)",
+     "length_s": 1.4667,
+     "lint": "PASS 0/45",
+     "arm_elev_mean_LR": [
+      35.8,
+      70.0
+     ],
+     "arm_elev_max_LR": [
+      45.8,
+      97.9
+     ],
+     "hips_excursion_m": 0.13,
+     "top_m": 2.906,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.015,
+      "top_m": 2.889,
+      "head_ratio": 0.943,
+      "hips_ratio": 0.93
+     },
+     "foot_creep_m": 0.063
+    },
+    "death": {
+     "clip": "death",
+     "source": "standing react death backward (Mixamo)",
+     "length_s": 3.5333,
+     "lint": "PASS 0/107",
+     "arm_elev_mean_LR": [
+      64.7,
+      51.8
+     ],
+     "arm_elev_max_LR": [
+      110.5,
+      102.4
+     ],
+     "hips_excursion_m": 0.462,
+     "top_m": 3.241,
+     "lowest_m": -0.212,
+     "t0": {
+      "low_m": 0.03,
+      "top_m": 2.966,
+      "head_ratio": 0.971,
+      "hips_ratio": 0.974
+     },
+     "foot_creep_m": 0.469
+    },
+    "idle": {
+     "clip": "idle",
+     "source": "axe unarmed idle (Mixamo)",
+     "length_s": 1.8,
+     "lint": "PASS 0/55",
+     "arm_elev_mean_LR": [
+      15.4,
+      16.0
+     ],
+     "arm_elev_max_LR": [
+      17.8,
+      17.6
+     ],
+     "hips_excursion_m": 0.034,
+     "top_m": 3.065,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 3.056,
+      "head_ratio": 1.023,
+      "hips_ratio": 1.04
+     },
+     "foot_creep_m": 0.005,
+     "seam_m": 0.0
+    },
+    "mx_idle_breath": {
+     "clip": "mx_idle_breath",
+     "source": "Creature Pack / mutant breathing idle",
+     "length_s": 4.0333,
+     "lint": "PASS 0/122",
+     "arm_elev_mean_LR": [
+      40.0,
+      42.0
+     ],
+     "arm_elev_max_LR": [
+      40.7,
+      43.1
+     ],
+     "hips_excursion_m": 0.038,
+     "top_m": 2.875,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 2.842,
+      "head_ratio": 0.916,
+      "hips_ratio": 0.952
+     },
+     "foot_creep_m": 0.003,
+     "seam_m": 0.0
+    },
+    "mx_idle": {
+     "clip": "mx_idle",
+     "source": "Creature Pack / mutant idle (2)",
+     "length_s": 5.2333,
+     "lint": "PASS 0/158",
+     "arm_elev_mean_LR": [
+      63.0,
+      67.4
+     ],
+     "arm_elev_max_LR": [
+      89.6,
+      89.1
+     ],
+     "hips_excursion_m": 0.063,
+     "top_m": 3.063,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.002,
+      "top_m": 2.844,
+      "head_ratio": 0.917,
+      "hips_ratio": 0.953
+     },
+     "foot_creep_m": 0.011,
+     "seam_m": 0.0092
+    },
+    "mx_walk": {
+     "clip": "mx_walk",
+     "source": "Creature Pack / mutant walking",
+     "length_s": 1.4333,
+     "lint": "PASS 0/44",
+     "arm_elev_mean_LR": [
+      43.8,
+      62.7
+     ],
+     "arm_elev_max_LR": [
+      70.4,
+      72.6
+     ],
+     "hips_excursion_m": 0.111,
+     "top_m": 3.135,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.093,
+      "top_m": 3.121,
+      "head_ratio": 1.036,
+      "hips_ratio": 1.092
+     },
+     "drive_m_s": 1.867,
+     "stance_foot_m_s": 1.774,
+     "slide_pct": 5.0,
+     "seam_m": 0.019
+    },
+    "mx_run": {
+     "clip": "mx_run",
+     "source": "Creature Pack / mutant run",
+     "length_s": 0.8667,
+     "lint": "PASS 0/27",
+     "arm_elev_mean_LR": [
+      56.8,
+      45.4
+     ],
+     "arm_elev_max_LR": [
+      81.1,
+      57.0
+     ],
+     "hips_excursion_m": 0.063,
+     "top_m": 2.948,
+     "lowest_m": 0.012,
+     "t0": {
+      "low_m": 0.012,
+      "top_m": 2.772,
+      "head_ratio": 0.87,
+      "hips_ratio": 0.973
+     },
+     "drive_m_s": 3.393,
+     "stance_foot_m_s": 2.829,
+     "slide_pct": 16.6,
+     "seam_m": 0.0034
+    },
+    "mx_swipe": {
+     "clip": "mx_swipe",
+     "source": "Creature Pack / mutant swiping",
+     "length_s": 2.4,
+     "lint": "FAIL 7/73",
+     "arm_elev_mean_LR": [
+      59.3,
+      83.2
+     ],
+     "arm_elev_max_LR": [
+      143.3,
+      139.8
+     ],
+     "hips_excursion_m": 1.05,
+     "top_m": 3.081,
+     "lowest_m": 0.008,
+     "t0": {
+      "low_m": 0.057,
+      "top_m": 2.9,
+      "head_ratio": 0.939,
+      "hips_ratio": 0.988
+     },
+     "foot_creep_m": 0.234
+    },
+    "mx_punch": {
+     "clip": "mx_punch",
+     "source": "Creature Pack / mutant punch",
+     "length_s": 1.1,
+     "lint": "PASS 0/34",
+     "arm_elev_mean_LR": [
+      39.2,
+      60.8
+     ],
+     "arm_elev_max_LR": [
+      60.4,
+      82.6
+     ],
+     "hips_excursion_m": 0.242,
+     "top_m": 2.925,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.082,
+      "top_m": 2.925,
+      "head_ratio": 0.948,
+      "hips_ratio": 1.003
+     },
+     "foot_creep_m": 0.166
+    },
+    "mx_jumpatk": {
+     "clip": "mx_jumpatk",
+     "source": "Creature Pack / mutant jump attack",
+     "length_s": 3.7,
+     "lint": "FAIL 34/112",
+     "arm_elev_mean_LR": [
+      64.0,
+      70.9
+     ],
+     "arm_elev_max_LR": [
+      120.7,
+      133.6
+     ],
+     "hips_excursion_m": 1.375,
+     "top_m": 5.607,
+     "lowest_m": -0.165,
+     "t0": {
+      "low_m": 0.064,
+      "top_m": 2.906,
+      "head_ratio": 0.941,
+      "hips_ratio": 0.992
+     },
+     "foot_creep_m": 0.785
+    },
+    "mx_roar": {
+     "clip": "mx_roar",
+     "source": "Creature Pack / mutant roaring",
+     "length_s": 5.3667,
+     "lint": "PASS 0/162",
+     "arm_elev_mean_LR": [
+      69.6,
+      65.6
+     ],
+     "arm_elev_max_LR": [
+      87.2,
+      106.6
+     ],
+     "hips_excursion_m": 0.485,
+     "top_m": 2.868,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.024,
+      "top_m": 2.866,
+      "head_ratio": 0.925,
+      "hips_ratio": 0.966
+     },
+     "foot_creep_m": 0.164
+    },
+    "mx_flex": {
+     "clip": "mx_flex",
+     "source": "Creature Pack / mutant flexing muscles",
+     "length_s": 4.4,
+     "lint": "PASS 0/133",
+     "arm_elev_mean_LR": [
+      50.3,
+      50.4
+     ],
+     "arm_elev_max_LR": [
+      99.1,
+      91.3
+     ],
+     "hips_excursion_m": 0.179,
+     "top_m": 2.924,
+     "lowest_m": 0.006,
+     "t0": {
+      "low_m": 0.013,
+      "top_m": 2.855,
+      "head_ratio": 0.921,
+      "hips_ratio": 0.96
+     },
+     "foot_creep_m": 0.167
+    },
+    "mx_dying": {
+     "clip": "mx_dying",
+     "source": "Creature Pack / mutant dying",
+     "length_s": 3.4667,
+     "lint": "FAIL 2/105",
+     "arm_elev_mean_LR": [
+      66.4,
+      60.1
+     ],
+     "arm_elev_max_LR": [
+      111.5,
+      116.7
+     ],
+     "hips_excursion_m": 0.515,
+     "top_m": 2.852,
+     "lowest_m": -0.368,
+     "t0": {
+      "low_m": 0.006,
+      "top_m": 2.848,
+      "head_ratio": 0.919,
+      "hips_ratio": 0.955
+     },
+     "foot_creep_m": 0.75
+    }
+   }
+  },
+  "en-colossus": {
+   "height_m": 3.2,
+   "sheet": "sheets/colossus_stills8_current_vs_mixamo.png",
+   "film": "film/colossus_sbs_1x.mp4",
+   "recommendation": {
+    "recommend": "HYBRID: the fleshhulk set (Creature Pack idle / walk / run / punch) + mutant roaring for roar; keep record slam / lob / hit / death",
+    "map": {
+     "idle": "mx_idle_breath",
+     "walk": "mx_walk",
+     "run": "mx_run",
+     "attack": "mx_punch",
+     "roar": "mx_roar (mutant roaring)",
+     "slam": "KEEP record",
+     "lob": "KEEP record",
+     "hit": "KEEP record",
+     "death": "KEEP record"
+    },
+    "why": [
+     "same graft geometry as the fleshhulk (one rig family): walk slide 4.6 % vs 6.0 %, run 21.1 % vs 19.7 % (a wash), every pick lint PASS",
+     "roar: mutant roaring lint PASS 0/162, creep 0.08 m, reads as a creature roar (record = axe battlecry); natural 5.37 s vs record 2.83 s -- KC2 warps one-shots, so it compresses ~1.9x into the same window",
+     "flex FAILS 1/133; swipe FAILS 6/73 and lunges 1.09 m; jump attack FAILS 23/112, 5.77 m tall"
+    ]
+   },
+   "clips": {
+    "walk": {
+     "clip": "walk",
+     "source": "axe unarmed walk forward (Mixamo)",
+     "length_s": 1.3667,
+     "lint": "PASS 0/42",
+     "arm_elev_mean_LR": [
+      26.3,
+      25.3
+     ],
+     "arm_elev_max_LR": [
+      39.6,
+      36.4
+     ],
+     "hips_excursion_m": 0.166,
+     "top_m": 3.156,
+     "lowest_m": 0.011,
+     "t0": {
+      "low_m": 0.039,
+      "top_m": 3.127,
+      "head_ratio": 1.012,
+      "hips_ratio": 1.03
+     },
+     "drive_m_s": 1.646,
+     "stance_foot_m_s": 1.547,
+     "slide_pct": 6.0,
+     "seam_m": 0.0002
+    },
+    "run": {
+     "clip": "run",
+     "source": "axe unarmed run forward (Mixamo)",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      34.6,
+      37.7
+     ],
+     "arm_elev_max_LR": [
+      50.2,
+      52.0
+     ],
+     "hips_excursion_m": 0.117,
+     "top_m": 3.212,
+     "lowest_m": 0.033,
+     "t0": {
+      "low_m": 0.051,
+      "top_m": 3.087,
+      "head_ratio": 0.995,
+      "hips_ratio": 1.01
+     },
+     "drive_m_s": 4.421,
+     "stance_foot_m_s": 3.551,
+     "slide_pct": 19.7,
+     "seam_m": 0.0001
+    },
+    "lob": {
+     "clip": "lob",
+     "source": "standing 2h magic attack 01 (Mixamo)",
+     "length_s": 2.6667,
+     "lint": "PASS 0/81",
+     "arm_elev_mean_LR": [
+      59.9,
+      75.2
+     ],
+     "arm_elev_max_LR": [
+      103.9,
+      134.9
+     ],
+     "hips_excursion_m": 0.247,
+     "top_m": 3.668,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.041,
+      "top_m": 2.966,
+      "head_ratio": 0.966,
+      "hips_ratio": 0.965
+     },
+     "foot_creep_m": 0.109
+    },
+    "attack": {
+     "clip": "attack",
+     "source": "axe standing melee attack horizontal (Mixamo)",
+     "length_s": 2.4,
+     "lint": "PASS 0/73",
+     "arm_elev_mean_LR": [
+      57.9,
+      66.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      100.2
+     ],
+     "hips_excursion_m": 0.253,
+     "top_m": 3.084,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.048,
+      "top_m": 2.991,
+      "head_ratio": 0.945,
+      "hips_ratio": 0.938
+     },
+     "foot_creep_m": 0.516
+    },
+    "slam": {
+     "clip": "slam",
+     "source": "axe standing melee attack downward (Mixamo)",
+     "length_s": 2.2667,
+     "lint": "PASS 0/69",
+     "arm_elev_mean_LR": [
+      53.4,
+      52.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      121.9
+     ],
+     "hips_excursion_m": 0.185,
+     "top_m": 3.783,
+     "lowest_m": 0.003,
+     "t0": {
+      "low_m": 0.02,
+      "top_m": 2.963,
+      "head_ratio": 0.934,
+      "hips_ratio": 0.923
+     },
+     "foot_creep_m": 0.108
+    },
+    "roar": {
+     "clip": "roar",
+     "source": "axe standing taunt battlecry (Mixamo)",
+     "length_s": 2.8333,
+     "lint": "PASS 0/86",
+     "arm_elev_mean_LR": [
+      38.7,
+      43.8
+     ],
+     "arm_elev_max_LR": [
+      60.7,
+      76.6
+     ],
+     "hips_excursion_m": 0.247,
+     "top_m": 3.089,
+     "lowest_m": 0.01,
+     "t0": {
+      "low_m": 0.01,
+      "top_m": 2.953,
+      "head_ratio": 0.93,
+      "hips_ratio": 0.917
+     },
+     "foot_creep_m": 0.064
+    },
+    "hit": {
+     "clip": "hit",
+     "source": "axe standing react large gut (Mixamo)",
+     "length_s": 1.4667,
+     "lint": "PASS 0/45",
+     "arm_elev_mean_LR": [
+      35.8,
+      70.0
+     ],
+     "arm_elev_max_LR": [
+      45.8,
+      97.9
+     ],
+     "hips_excursion_m": 0.251,
+     "top_m": 2.979,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.022,
+      "top_m": 2.965,
+      "head_ratio": 0.935,
+      "hips_ratio": 0.924
+     },
+     "foot_creep_m": 0.047
+    },
+    "death": {
+     "clip": "death",
+     "source": "standing react death backward (Mixamo)",
+     "length_s": 3.5333,
+     "lint": "PASS 0/107",
+     "arm_elev_mean_LR": [
+      64.7,
+      51.8
+     ],
+     "arm_elev_max_LR": [
+      110.5,
+      102.4
+     ],
+     "hips_excursion_m": 0.591,
+     "top_m": 3.313,
+     "lowest_m": -0.079,
+     "t0": {
+      "low_m": 0.059,
+      "top_m": 2.984,
+      "head_ratio": 0.974,
+      "hips_ratio": 0.976
+     },
+     "foot_creep_m": 0.397
+    },
+    "idle": {
+     "clip": "idle",
+     "source": "axe unarmed idle (Mixamo)",
+     "length_s": 1.8,
+     "lint": "PASS 0/55",
+     "arm_elev_mean_LR": [
+      15.4,
+      16.0
+     ],
+     "arm_elev_max_LR": [
+      17.8,
+      17.6
+     ],
+     "hips_excursion_m": 0.102,
+     "top_m": 3.231,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.004,
+      "top_m": 3.226,
+      "head_ratio": 1.016,
+      "hips_ratio": 1.024
+     },
+     "foot_creep_m": 0.007,
+     "seam_m": 0.0
+    },
+    "mx_idle_breath": {
+     "clip": "mx_idle_breath",
+     "source": "Creature Pack / mutant breathing idle",
+     "length_s": 4.0333,
+     "lint": "PASS 0/122",
+     "arm_elev_mean_LR": [
+      40.0,
+      42.0
+     ],
+     "arm_elev_max_LR": [
+      40.7,
+      43.1
+     ],
+     "hips_excursion_m": 0.113,
+     "top_m": 2.782,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 2.709,
+      "head_ratio": 0.907,
+      "hips_ratio": 0.933
+     },
+     "foot_creep_m": 0.004,
+     "seam_m": 0.0
+    },
+    "mx_idle": {
+     "clip": "mx_idle",
+     "source": "Creature Pack / mutant idle (2)",
+     "length_s": 5.2333,
+     "lint": "PASS 0/158",
+     "arm_elev_mean_LR": [
+      63.0,
+      67.4
+     ],
+     "arm_elev_max_LR": [
+      89.6,
+      89.1
+     ],
+     "hips_excursion_m": 0.147,
+     "top_m": 3.062,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 2.71,
+      "head_ratio": 0.908,
+      "hips_ratio": 0.933
+     },
+     "foot_creep_m": 0.009,
+     "seam_m": 0.0082
+    },
+    "mx_walk": {
+     "clip": "mx_walk",
+     "source": "Creature Pack / mutant walking",
+     "length_s": 1.4333,
+     "lint": "PASS 0/44",
+     "arm_elev_mean_LR": [
+      43.8,
+      62.7
+     ],
+     "arm_elev_max_LR": [
+      70.4,
+      72.6
+     ],
+     "hips_excursion_m": 0.204,
+     "top_m": 3.184,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.063,
+      "top_m": 3.181,
+      "head_ratio": 1.026,
+      "hips_ratio": 1.063
+     },
+     "drive_m_s": 2.119,
+     "stance_foot_m_s": 2.021,
+     "slide_pct": 4.6,
+     "seam_m": 0.0165
+    },
+    "mx_run": {
+     "clip": "mx_run",
+     "source": "Creature Pack / mutant run",
+     "length_s": 0.8667,
+     "lint": "PASS 0/27",
+     "arm_elev_mean_LR": [
+      56.8,
+      45.4
+     ],
+     "arm_elev_max_LR": [
+      81.1,
+      57.0
+     ],
+     "hips_excursion_m": 0.115,
+     "top_m": 2.907,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.023,
+      "top_m": 2.65,
+      "head_ratio": 0.883,
+      "hips_ratio": 0.952
+     },
+     "drive_m_s": 3.851,
+     "stance_foot_m_s": 3.037,
+     "slide_pct": 21.1,
+     "seam_m": 0.0037
+    },
+    "mx_swipe": {
+     "clip": "mx_swipe",
+     "source": "Creature Pack / mutant swiping",
+     "length_s": 2.4,
+     "lint": "FAIL 6/73",
+     "arm_elev_mean_LR": [
+      59.3,
+      83.2
+     ],
+     "arm_elev_max_LR": [
+      143.3,
+      139.8
+     ],
+     "hips_excursion_m": 1.089,
+     "top_m": 2.939,
+     "lowest_m": 0.009,
+     "t0": {
+      "low_m": 0.051,
+      "top_m": 2.76,
+      "head_ratio": 0.927,
+      "hips_ratio": 0.961
+     },
+     "foot_creep_m": 0.227
+    },
+    "mx_punch": {
+     "clip": "mx_punch",
+     "source": "Creature Pack / mutant punch",
+     "length_s": 1.1,
+     "lint": "PASS 0/34",
+     "arm_elev_mean_LR": [
+      39.2,
+      60.8
+     ],
+     "arm_elev_max_LR": [
+      60.4,
+      82.6
+     ],
+     "hips_excursion_m": 0.172,
+     "top_m": 2.82,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.074,
+      "top_m": 2.783,
+      "head_ratio": 0.936,
+      "hips_ratio": 0.974
+     },
+     "foot_creep_m": 0.158
+    },
+    "mx_jumpatk": {
+     "clip": "mx_jumpatk",
+     "source": "Creature Pack / mutant jump attack",
+     "length_s": 3.7,
+     "lint": "FAIL 23/112",
+     "arm_elev_mean_LR": [
+      64.0,
+      70.9
+     ],
+     "arm_elev_max_LR": [
+      120.7,
+      133.6
+     ],
+     "hips_excursion_m": 1.458,
+     "top_m": 5.767,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.051,
+      "top_m": 2.76,
+      "head_ratio": 0.927,
+      "hips_ratio": 0.961
+     },
+     "foot_creep_m": 0.559
+    },
+    "mx_roar": {
+     "clip": "mx_roar",
+     "source": "Creature Pack / mutant roaring",
+     "length_s": 5.3667,
+     "lint": "PASS 0/162",
+     "arm_elev_mean_LR": [
+      69.6,
+      65.6
+     ],
+     "arm_elev_max_LR": [
+      87.2,
+      106.6
+     ],
+     "hips_excursion_m": 0.473,
+     "top_m": 2.91,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.047,
+      "top_m": 2.756,
+      "head_ratio": 0.925,
+      "hips_ratio": 0.959
+     },
+     "foot_creep_m": 0.077
+    },
+    "mx_flex": {
+     "clip": "mx_flex",
+     "source": "Creature Pack / mutant flexing muscles",
+     "length_s": 4.4,
+     "lint": "FAIL 1/133",
+     "arm_elev_mean_LR": [
+      50.3,
+      50.4
+     ],
+     "arm_elev_max_LR": [
+      99.1,
+      91.3
+     ],
+     "hips_excursion_m": 0.154,
+     "top_m": 2.952,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.014,
+      "top_m": 2.722,
+      "head_ratio": 0.912,
+      "hips_ratio": 0.94
+     },
+     "foot_creep_m": 0.179
+    },
+    "mx_dying": {
+     "clip": "mx_dying",
+     "source": "Creature Pack / mutant dying",
+     "length_s": 3.4667,
+     "lint": "FAIL 2/105",
+     "arm_elev_mean_LR": [
+      66.4,
+      60.1
+     ],
+     "arm_elev_max_LR": [
+      111.5,
+      116.7
+     ],
+     "hips_excursion_m": 0.608,
+     "top_m": 2.758,
+     "lowest_m": -0.155,
+     "t0": {
+      "low_m": 0.043,
+      "top_m": 2.752,
+      "head_ratio": 0.924,
+      "hips_ratio": 0.957
+     },
+     "foot_creep_m": 0.902
+    }
+   }
+  },
+  "en-revenant": {
+   "height_m": 1.8,
+   "sheet": "sheets/revenant_stills8_current_vs_mixamo.png",
+   "film": "film/revenant_sbs_1x.mp4",
+   "recommendation": {
+    "recommend": "KEEP the record set; adopt ONLY Scary Zombie \"zombie idle\" for idle",
+    "map": {
+     "idle": "mx_idle_sz (zombie idle)",
+     "walk": "KEEP record",
+     "run": "KEEP record",
+     "cast_bolt": "KEEP record",
+     "cast_area": "KEEP record",
+     "hit": "KEEP record",
+     "death": "KEEP record"
+    },
+    "why": [
+     "idle: zombie idle lint PASS, arms 26/14 deg (record 34/62: the caster idle's raised right arm), creep 0.004 m, seam 0.001 m, 4.27 s",
+     "walk: the zombie walks carry their own 0.33 m/s (Scary) / 0.54 m/s (Not So Scary); the record drives at 1.61 m/s, so they need 4.9x / 3.0x playback or skate; stumbling travels SIDEWAYS 2.75 m (slide 86 %, lint FAIL 5/116)",
+     "run: zombie run is a wash (slide 18.6 % vs 22.9 %, own 2.98 vs 3.78 m/s), no read gain on a caster",
+     "attack/death: zombie attack FAILS 7/76, zombie death FAILS 3/85; zombie dying PASSES here but FAILS 11/100 on the wretch -- not adopted; the revenant is a caster (cast_bolt / cast_area) and no zombie clip casts"
+    ]
+   },
+   "clips": {
+    "walk": {
+     "clip": "walk",
+     "source": "standing walk forward (Mixamo Pro Magic Pack)",
+     "length_s": 1.1333,
+     "lint": "PASS 0/35",
+     "arm_elev_mean_LR": [
+      43.2,
+      76.4
+     ],
+     "arm_elev_max_LR": [
+      45.7,
+      82.2
+     ],
+     "hips_excursion_m": 0.062,
+     "top_m": 1.726,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.009,
+      "top_m": 1.703,
+      "head_ratio": 0.939,
+      "hips_ratio": 0.915
+     },
+     "drive_m_s": 1.606,
+     "stance_foot_m_s": 1.384,
+     "slide_pct": 13.9,
+     "seam_m": 0.0
+    },
+    "run": {
+     "clip": "run",
+     "source": "standing run forward (Mixamo Pro Magic Pack)",
+     "length_s": 0.7333,
+     "lint": "PASS 0/23",
+     "arm_elev_mean_LR": [
+      48.9,
+      84.7
+     ],
+     "arm_elev_max_LR": [
+      52.5,
+      91.0
+     ],
+     "hips_excursion_m": 0.059,
+     "top_m": 1.738,
+     "lowest_m": 0.008,
+     "t0": {
+      "low_m": 0.008,
+      "top_m": 1.658,
+      "head_ratio": 0.91,
+      "hips_ratio": 0.895
+     },
+     "drive_m_s": 3.78,
+     "stance_foot_m_s": 2.914,
+     "slide_pct": 22.9,
+     "seam_m": 0.0
+    },
+    "cast_bolt": {
+     "clip": "cast_bolt",
+     "source": "standing 1h magic attack 02 (Mixamo Pro Magic Pack)",
+     "length_s": 2.2,
+     "lint": "PASS 0/67",
+     "arm_elev_mean_LR": [
+      59.0,
+      76.1
+     ],
+     "arm_elev_max_LR": [
+      86.6,
+      100.4
+     ],
+     "hips_excursion_m": 0.152,
+     "top_m": 1.731,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.011,
+      "top_m": 1.707,
+      "head_ratio": 0.942,
+      "hips_ratio": 0.918
+     },
+     "foot_creep_m": 0.067
+    },
+    "cast_area": {
+     "clip": "cast_area",
+     "source": "standing 2h magic area attack 01 (Mixamo Pro Magic Pack)",
+     "length_s": 2.9667,
+     "lint": "PASS 0/90",
+     "arm_elev_mean_LR": [
+      55.5,
+      58.7
+     ],
+     "arm_elev_max_LR": [
+      102.8,
+      129.2
+     ],
+     "hips_excursion_m": 0.148,
+     "top_m": 1.984,
+     "lowest_m": 0.009,
+     "t0": {
+      "low_m": 0.04,
+      "top_m": 1.736,
+      "head_ratio": 0.961,
+      "hips_ratio": 0.946
+     },
+     "foot_creep_m": 0.055
+    },
+    "hit": {
+     "clip": "hit",
+     "source": "standing react small from front (Mixamo Pro Magic Pack)",
+     "length_s": 1.1667,
+     "lint": "PASS 0/36",
+     "arm_elev_mean_LR": [
+      42.2,
+      51.7
+     ],
+     "arm_elev_max_LR": [
+      49.3,
+      56.1
+     ],
+     "hips_excursion_m": 0.028,
+     "top_m": 1.721,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 1.697,
+      "head_ratio": 0.935,
+      "hips_ratio": 0.909
+     },
+     "foot_creep_m": 0.009
+    },
+    "death": {
+     "clip": "death",
+     "source": "standing react death backward (Mixamo Pro Magic Pack)",
+     "length_s": 3.5333,
+     "lint": "PASS 0/107",
+     "arm_elev_mean_LR": [
+      64.7,
+      51.8
+     ],
+     "arm_elev_max_LR": [
+      110.5,
+      102.4
+     ],
+     "hips_excursion_m": 0.317,
+     "top_m": 1.766,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.004,
+      "top_m": 1.7,
+      "head_ratio": 0.938,
+      "hips_ratio": 0.912
+     },
+     "foot_creep_m": 0.124
+    },
+    "idle": {
+     "clip": "idle",
+     "source": "standing idle (Mixamo Pro Magic Pack)",
+     "length_s": 1.8,
+     "lint": "PASS 0/55",
+     "arm_elev_mean_LR": [
+      34.3,
+      62.1
+     ],
+     "arm_elev_max_LR": [
+      37.9,
+      67.7
+     ],
+     "hips_excursion_m": 0.045,
+     "top_m": 1.709,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.008,
+      "top_m": 1.704,
+      "head_ratio": 0.94,
+      "hips_ratio": 0.916
+     },
+     "foot_creep_m": 0.012,
+     "seam_m": 0.0
+    },
+    "mx_idle_sz": {
+     "clip": "mx_idle_sz",
+     "source": "Scary Zombie / zombie idle",
+     "length_s": 4.2667,
+     "lint": "PASS 0/129",
+     "arm_elev_mean_LR": [
+      26.0,
+      14.1
+     ],
+     "arm_elev_max_LR": [
+      26.4,
+      15.0
+     ],
+     "hips_excursion_m": 0.028,
+     "top_m": 1.71,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 1.71,
+      "head_ratio": 0.942,
+      "hips_ratio": 0.924
+     },
+     "foot_creep_m": 0.004,
+     "seam_m": 0.0014
+    },
+    "mx_idle_nsz": {
+     "clip": "mx_idle_nsz",
+     "source": "Not So Scary Zombie / zombie idle (2)",
+     "length_s": 4.0,
+     "lint": "PASS 0/121",
+     "arm_elev_mean_LR": [
+      23.9,
+      20.7
+     ],
+     "arm_elev_max_LR": [
+      27.3,
+      25.7
+     ],
+     "hips_excursion_m": 0.06,
+     "top_m": 1.625,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 1.625,
+      "head_ratio": 0.89,
+      "hips_ratio": 0.899
+     },
+     "foot_creep_m": 0.004,
+     "seam_m": 0.0
+    },
+    "mx_walk_sz": {
+     "clip": "mx_walk_sz",
+     "source": "Scary Zombie / zombie walk",
+     "length_s": 4.0333,
+     "lint": "PASS 0/122",
+     "arm_elev_mean_LR": [
+      74.5,
+      76.6
+     ],
+     "arm_elev_max_LR": [
+      90.9,
+      90.5
+     ],
+     "hips_excursion_m": 0.192,
+     "top_m": 1.714,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.024,
+      "top_m": 1.714,
+      "head_ratio": 0.957,
+      "hips_ratio": 0.963
+     },
+     "drive_m_s": 0.329,
+     "stance_foot_m_s": 0.316,
+     "slide_pct": 4.0,
+     "seam_m": 0.0
+    },
+    "mx_walk_nsz": {
+     "clip": "mx_walk_nsz",
+     "source": "Not So Scary Zombie / walking",
+     "length_s": 1.5333,
+     "lint": "PASS 0/47",
+     "arm_elev_mean_LR": [
+      61.1,
+      61.3
+     ],
+     "arm_elev_max_LR": [
+      71.3,
+      68.9
+     ],
+     "hips_excursion_m": 0.114,
+     "top_m": 1.634,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.002,
+      "top_m": 1.495,
+      "head_ratio": 0.848,
+      "hips_ratio": 0.891
+     },
+     "drive_m_s": 0.541,
+     "stance_foot_m_s": 0.527,
+     "slide_pct": 2.7,
+     "seam_m": 0.0
+    },
+    "mx_stumble": {
+     "clip": "mx_stumble",
+     "source": "Not So Scary Zombie / zombie stumbling",
+     "length_s": 3.8333,
+     "lint": "FAIL 5/116",
+     "arm_elev_mean_LR": [
+      78.2,
+      80.0
+     ],
+     "arm_elev_max_LR": [
+      138.9,
+      122.2
+     ],
+     "hips_excursion_m": 0.699,
+     "top_m": 1.741,
+     "lowest_m": -0.097,
+     "t0": {
+      "low_m": -0.0,
+      "top_m": 1.586,
+      "head_ratio": 0.869,
+      "hips_ratio": 0.875
+     },
+     "drive_m_s": 0.725,
+     "stance_foot_m_s": 0.102,
+     "slide_pct": 86.0,
+     "seam_m": 1.5862
+    },
+    "mx_run": {
+     "clip": "mx_run",
+     "source": "Scary Zombie / zombie run",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      50.0,
+      34.7
+     ],
+     "arm_elev_max_LR": [
+      65.6,
+      41.8
+     ],
+     "hips_excursion_m": 0.049,
+     "top_m": 1.643,
+     "lowest_m": -0.0,
+     "t0": {
+      "low_m": 0.014,
+      "top_m": 1.552,
+      "head_ratio": 0.842,
+      "hips_ratio": 0.857
+     },
+     "drive_m_s": 2.98,
+     "stance_foot_m_s": 2.425,
+     "slide_pct": 18.6,
+     "seam_m": 0.0011
+    },
+    "mx_attack_sz": {
+     "clip": "mx_attack_sz",
+     "source": "Scary Zombie / zombie attack",
+     "length_s": 2.5,
+     "lint": "FAIL 7/76",
+     "arm_elev_mean_LR": [
+      65.6,
+      30.9
+     ],
+     "arm_elev_max_LR": [
+      122.9,
+      79.8
+     ],
+     "hips_excursion_m": 0.139,
+     "top_m": 1.745,
+     "lowest_m": 0.005,
+     "t0": {
+      "low_m": 0.015,
+      "top_m": 1.724,
+      "head_ratio": 0.951,
+      "hips_ratio": 0.938
+     },
+     "foot_creep_m": 0.038
+    },
+    "mx_attack_nsz": {
+     "clip": "mx_attack_nsz",
+     "source": "Not So Scary Zombie / zombie attack",
+     "length_s": 4.6333,
+     "lint": "FAIL 3/140",
+     "arm_elev_mean_LR": [
+      43.6,
+      34.7
+     ],
+     "arm_elev_max_LR": [
+      169.8,
+      177.6
+     ],
+     "hips_excursion_m": 0.214,
+     "top_m": 1.916,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.019,
+      "top_m": 1.702,
+      "head_ratio": 0.938,
+      "hips_ratio": 0.945
+     },
+     "foot_creep_m": 0.055
+    },
+    "mx_punch": {
+     "clip": "mx_punch",
+     "source": "Not So Scary Zombie / zombie punching",
+     "length_s": 0.9667,
+     "lint": "PASS 0/30",
+     "arm_elev_mean_LR": [
+      57.1,
+      46.5
+     ],
+     "arm_elev_max_LR": [
+      93.1,
+      94.6
+     ],
+     "hips_excursion_m": 0.156,
+     "top_m": 1.732,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.005,
+      "top_m": 1.664,
+      "head_ratio": 0.914,
+      "hips_ratio": 0.925
+     },
+     "foot_creep_m": 0.035
+    },
+    "mx_bite": {
+     "clip": "mx_bite",
+     "source": "Scary Zombie / zombie biting",
+     "length_s": 6.6,
+     "lint": "FAIL 16/199",
+     "arm_elev_mean_LR": [
+      55.7,
+      46.2
+     ],
+     "arm_elev_max_LR": [
+      91.4,
+      65.9
+     ],
+     "hips_excursion_m": 0.623,
+     "top_m": 1.745,
+     "lowest_m": 0.013,
+     "t0": {
+      "low_m": 0.035,
+      "top_m": 1.745,
+      "head_ratio": 0.964,
+      "hips_ratio": 0.958
+     },
+     "foot_creep_m": 0.307
+    },
+    "mx_hit": {
+     "clip": "mx_hit",
+     "source": "Not So Scary Zombie / zombie reaction hit",
+     "length_s": 1.5,
+     "lint": "PASS 0/46",
+     "arm_elev_mean_LR": [
+      53.7,
+      58.1
+     ],
+     "arm_elev_max_LR": [
+      82.5,
+      99.0
+     ],
+     "hips_excursion_m": 0.091,
+     "top_m": 1.685,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 1.673,
+      "head_ratio": 0.92,
+      "hips_ratio": 0.912
+     },
+     "foot_creep_m": 0.032
+    },
+    "mx_death": {
+     "clip": "mx_death",
+     "source": "Scary Zombie / zombie death",
+     "length_s": 2.8,
+     "lint": "FAIL 3/85",
+     "arm_elev_mean_LR": [
+      81.6,
+      73.8
+     ],
+     "arm_elev_max_LR": [
+      170.7,
+      139.6
+     ],
+     "hips_excursion_m": 0.304,
+     "top_m": 1.719,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.005,
+      "top_m": 1.714,
+      "head_ratio": 0.944,
+      "hips_ratio": 0.928
+     },
+     "foot_creep_m": 0.246
+    },
+    "mx_dying": {
+     "clip": "mx_dying",
+     "source": "Scary Zombie / zombie dying",
+     "length_s": 3.3,
+     "lint": "PASS 0/100",
+     "arm_elev_mean_LR": [
+      54.3,
+      46.3
+     ],
+     "arm_elev_max_LR": [
+      86.3,
+      86.5
+     ],
+     "hips_excursion_m": 0.362,
+     "top_m": 1.718,
+     "lowest_m": -0.05,
+     "t0": {
+      "low_m": 0.008,
+      "top_m": 1.718,
+      "head_ratio": 0.947,
+      "hips_ratio": 0.932
+     },
+     "foot_creep_m": 0.188
+    },
+    "mx_standup1": {
+     "clip": "mx_standup1",
+     "source": "",
+     "length_s": 3.1,
+     "lint": "FAIL 2/94",
+     "arm_elev_mean_LR": [
+      65.3,
+      54.5
+     ],
+     "arm_elev_max_LR": [
+      96.2,
+      106.9
+     ],
+     "hips_excursion_m": 0.091,
+     "top_m": 1.628,
+     "lowest_m": 0.037,
+     "t0": {
+      "low_m": 0.056,
+      "top_m": 0.486,
+      "head_ratio": 0.124,
+      "hips_ratio": 0.236
+     },
+     "foot_creep_m": 0.227
+    },
+    "mx_standup2": {
+     "clip": "mx_standup2",
+     "source": "",
+     "length_s": 5.8,
+     "lint": "FAIL 2/175",
+     "arm_elev_mean_LR": [
+      53.1,
+      49.7
+     ],
+     "arm_elev_max_LR": [
+      137.0,
+      124.6
+     ],
+     "hips_excursion_m": 0.152,
+     "top_m": 1.578,
+     "lowest_m": -0.021,
+     "t0": {
+      "low_m": 0.061,
+      "top_m": 0.593,
+      "head_ratio": 0.169,
+      "hips_ratio": 0.239
+     },
+     "foot_creep_m": 0.778
+    },
+    "mx_standup3": {
+     "clip": "mx_standup3",
+     "source": "",
+     "length_s": 6.0,
+     "lint": "FAIL 37/181",
+     "arm_elev_mean_LR": [
+      47.2,
+      58.1
+     ],
+     "arm_elev_max_LR": [
+      101.0,
+      122.8
+     ],
+     "hips_excursion_m": 0.554,
+     "top_m": 1.464,
+     "lowest_m": -0.105,
+     "t0": {
+      "low_m": -0.105,
+      "top_m": 0.401,
+      "head_ratio": 0.122,
+      "hips_ratio": 0.17
+     },
+     "foot_creep_m": 0.652
+    },
+    "mx_crawl": {
+     "clip": "mx_crawl",
+     "source": "",
+     "length_s": 5.1333,
+     "lint": "FAIL 42/155",
+     "arm_elev_mean_LR": [
+      58.1,
+      57.5
+     ],
+     "arm_elev_max_LR": [
+      123.9,
+      134.9
+     ],
+     "hips_excursion_m": 0.135,
+     "top_m": 0.823,
+     "lowest_m": -0.163,
+     "t0": {
+      "low_m": -0.148,
+      "top_m": 0.774,
+      "head_ratio": 0.338,
+      "hips_ratio": 0.174
+     },
+     "drive_m_s": 0.417,
+     "stance_foot_m_s": 0.037,
+     "slide_pct": 91.2,
+     "seam_m": 0.0275
+    }
+   },
+   "emerge_sheet": "sheets/revenant_emerge_stills8_mixamo.png",
+   "emerge_film": "film/revenant_em_sbs_1x.mp4"
+  },
+  "en-wretch": {
+   "height_m": 1.8,
+   "sheet": "sheets/wretch_stills8_current_vs_mixamo.png",
+   "film": "film/wretch_sbs_1x.mp4",
+   "recommendation": {
+    "recommend": "HYBRID: zombie idle + zombie attack + zombie reaction hit; keep the record walk / run / throw / buff / death",
+    "map": {
+     "idle": "mx_idle_sz (zombie idle)",
+     "swipe": "mx_attack_sz (Scary zombie attack)",
+     "hit": "mx_hit (zombie reaction hit)",
+     "walk": "KEEP record",
+     "run": "KEEP record",
+     "throw": "KEEP record",
+     "buff": "KEEP record",
+     "death": "KEEP record"
+    },
+    "why": [
+     "attack: Scary zombie attack lint PASS 0/76 on this body, creep 0.05 m vs the record backhand 0.21 m, stays on the anchor (hips 0.11 m vs 0.67 m), 2.50 s vs 3.17 s, strike R hand at 1.00 s",
+     "idle: zombie idle PASS, natively hunched (head 0.94 of rest) without the en31 hunch edit; creep 0.004 m",
+     "hit: zombie reaction hit PASS 0/46, creep 0.03 m",
+     "walk: Not So Scary \"walking\" grips best (slide 1.1 %) but its own speed is 0.52 m/s vs the record 0.947 -> 1.8x playback or 82 % slide at the record speed: NOT adopted unless the record speed drops (engine side)",
+     "death: zombie death FAILS 4/85, zombie dying FAILS 11/100: keep the record"
+    ]
+   },
+   "clips": {
+    "walk": {
+     "clip": "walk",
+     "source": "axe unarmed walk forward (Mixamo)",
+     "length_s": 1.3667,
+     "lint": "PASS 0/42",
+     "arm_elev_mean_LR": [
+      41.4,
+      41.5
+     ],
+     "arm_elev_max_LR": [
+      66.5,
+      59.1
+     ],
+     "hips_excursion_m": 0.061,
+     "top_m": 1.73,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.02,
+      "top_m": 1.708,
+      "head_ratio": 0.955,
+      "hips_ratio": 0.982
+     },
+     "drive_m_s": 0.947,
+     "stance_foot_m_s": 0.856,
+     "slide_pct": 9.6,
+     "seam_m": 0.0001
+    },
+    "run": {
+     "clip": "run",
+     "source": "axe unarmed run forward (Mixamo)",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      55.8,
+      54.3
+     ],
+     "arm_elev_max_LR": [
+      76.4,
+      74.8
+     ],
+     "hips_excursion_m": 0.033,
+     "top_m": 1.713,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.017,
+      "top_m": 1.658,
+      "head_ratio": 0.922,
+      "hips_ratio": 0.944
+     },
+     "drive_m_s": 2.545,
+     "stance_foot_m_s": 2.074,
+     "slide_pct": 18.5,
+     "seam_m": 0.0001
+    },
+    "swipe": {
+     "clip": "swipe",
+     "source": "axe standing melee attack backhand (Mixamo)",
+     "length_s": 3.1667,
+     "lint": "PASS 0/96",
+     "arm_elev_mean_LR": [
+      61.2,
+      68.2
+     ],
+     "arm_elev_max_LR": [
+      155.9,
+      123.0
+     ],
+     "hips_excursion_m": 0.672,
+     "top_m": 1.693,
+     "lowest_m": 0.005,
+     "t0": {
+      "low_m": 0.009,
+      "top_m": 1.6,
+      "head_ratio": 0.891,
+      "hips_ratio": 0.89
+     },
+     "foot_creep_m": 0.214
+    },
+    "throw": {
+     "clip": "throw",
+     "source": "standing 1h magic attack 01 (Mixamo)",
+     "length_s": 2.3,
+     "lint": "PASS 0/70",
+     "arm_elev_mean_LR": [
+      73.1,
+      69.0
+     ],
+     "arm_elev_max_LR": [
+      102.6,
+      106.8
+     ],
+     "hips_excursion_m": 0.143,
+     "top_m": 1.64,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.01,
+      "top_m": 1.637,
+      "head_ratio": 0.91,
+      "hips_ratio": 0.921
+     },
+     "foot_creep_m": 0.073
+    },
+    "buff": {
+     "clip": "buff",
+     "source": "axe standing taunt chest thump (Mixamo)",
+     "length_s": 2.5333,
+     "lint": "PASS 0/77",
+     "arm_elev_mean_LR": [
+      52.0,
+      42.6
+     ],
+     "arm_elev_max_LR": [
+      66.4,
+      65.5
+     ],
+     "hips_excursion_m": 0.072,
+     "top_m": 1.746,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 1.593,
+      "head_ratio": 0.886,
+      "hips_ratio": 0.883
+     },
+     "foot_creep_m": 0.037
+    },
+    "hit": {
+     "clip": "hit",
+     "source": "axe standing react large gut (Mixamo)",
+     "length_s": 1.4667,
+     "lint": "PASS 0/45",
+     "arm_elev_mean_LR": [
+      49.7,
+      91.1
+     ],
+     "arm_elev_max_LR": [
+      61.6,
+      118.0
+     ],
+     "hips_excursion_m": 0.109,
+     "top_m": 1.598,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.003,
+      "top_m": 1.594,
+      "head_ratio": 0.887,
+      "hips_ratio": 0.884
+     },
+     "foot_creep_m": 0.016
+    },
+    "death": {
+     "clip": "death",
+     "source": "standing react death forward (Mixamo)",
+     "length_s": 3.6667,
+     "lint": "PASS 0/111",
+     "arm_elev_mean_LR": [
+      62.8,
+      64.7
+     ],
+     "arm_elev_max_LR": [
+      110.5,
+      115.8
+     ],
+     "hips_excursion_m": 0.447,
+     "top_m": 1.756,
+     "lowest_m": -0.125,
+     "t0": {
+      "low_m": -0.0,
+      "top_m": 1.627,
+      "head_ratio": 0.903,
+      "hips_ratio": 0.911
+     },
+     "foot_creep_m": 0.114
+    },
+    "idle": {
+     "clip": "idle",
+     "source": "axe unarmed idle (Mixamo)",
+     "length_s": 1.8,
+     "lint": "PASS 0/55",
+     "arm_elev_mean_LR": [
+      34.6,
+      36.7
+     ],
+     "arm_elev_max_LR": [
+      38.8,
+      39.6
+     ],
+     "hips_excursion_m": 0.017,
+     "top_m": 1.748,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 1.736,
+      "head_ratio": 0.977,
+      "hips_ratio": 0.986
+     },
+     "foot_creep_m": 0.006,
+     "seam_m": 0.0
+    },
+    "mx_idle_sz": {
+     "clip": "mx_idle_sz",
+     "source": "Scary Zombie / zombie idle",
+     "length_s": 4.2667,
+     "lint": "PASS 0/129",
+     "arm_elev_mean_LR": [
+      26.0,
+      14.1
+     ],
+     "arm_elev_max_LR": [
+      26.4,
+      15.0
+     ],
+     "hips_excursion_m": 0.023,
+     "top_m": 1.709,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 1.707,
+      "head_ratio": 0.94,
+      "hips_ratio": 0.931
+     },
+     "foot_creep_m": 0.004,
+     "seam_m": 0.0014
+    },
+    "mx_idle_nsz": {
+     "clip": "mx_idle_nsz",
+     "source": "Not So Scary Zombie / zombie idle (2)",
+     "length_s": 4.0,
+     "lint": "PASS 0/121",
+     "arm_elev_mean_LR": [
+      23.9,
+      20.7
+     ],
+     "arm_elev_max_LR": [
+      27.3,
+      25.7
+     ],
+     "hips_excursion_m": 0.061,
+     "top_m": 1.606,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 1.602,
+      "head_ratio": 0.885,
+      "hips_ratio": 0.901
+     },
+     "foot_creep_m": 0.004,
+     "seam_m": 0.0
+    },
+    "mx_walk_sz": {
+     "clip": "mx_walk_sz",
+     "source": "Scary Zombie / zombie walk",
+     "length_s": 4.0333,
+     "lint": "PASS 0/122",
+     "arm_elev_mean_LR": [
+      74.5,
+      76.6
+     ],
+     "arm_elev_max_LR": [
+      90.9,
+      90.5
+     ],
+     "hips_excursion_m": 0.182,
+     "top_m": 1.689,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.018,
+      "top_m": 1.689,
+      "head_ratio": 0.952,
+      "hips_ratio": 0.967
+     },
+     "drive_m_s": 0.318,
+     "stance_foot_m_s": 0.308,
+     "slide_pct": 3.2,
+     "seam_m": 0.0
+    },
+    "mx_walk_nsz": {
+     "clip": "mx_walk_nsz",
+     "source": "Not So Scary Zombie / walking",
+     "length_s": 1.5333,
+     "lint": "PASS 0/47",
+     "arm_elev_mean_LR": [
+      61.1,
+      61.3
+     ],
+     "arm_elev_max_LR": [
+      71.3,
+      68.9
+     ],
+     "hips_excursion_m": 0.107,
+     "top_m": 1.614,
+     "lowest_m": 0.011,
+     "t0": {
+      "low_m": 0.013,
+      "top_m": 1.493,
+      "head_ratio": 0.85,
+      "hips_ratio": 0.903
+     },
+     "drive_m_s": 0.524,
+     "stance_foot_m_s": 0.518,
+     "slide_pct": 1.1,
+     "seam_m": 0.0
+    },
+    "mx_stumble": {
+     "clip": "mx_stumble",
+     "source": "Not So Scary Zombie / zombie stumbling",
+     "length_s": 3.8333,
+     "lint": "FAIL 20/116",
+     "arm_elev_mean_LR": [
+      78.2,
+      80.0
+     ],
+     "arm_elev_max_LR": [
+      138.9,
+      122.2
+     ],
+     "hips_excursion_m": 0.68,
+     "top_m": 1.724,
+     "lowest_m": -0.131,
+     "t0": {
+      "low_m": 0.005,
+      "top_m": 1.567,
+      "head_ratio": 0.867,
+      "hips_ratio": 0.882
+     },
+     "drive_m_s": 0.702,
+     "stance_foot_m_s": 0.1,
+     "slide_pct": 85.7,
+     "seam_m": 1.5886
+    },
+    "mx_run": {
+     "clip": "mx_run",
+     "source": "Scary Zombie / zombie run",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      50.0,
+      34.7
+     ],
+     "arm_elev_max_LR": [
+      65.6,
+      41.8
+     ],
+     "hips_excursion_m": 0.057,
+     "top_m": 1.635,
+     "lowest_m": 0.005,
+     "t0": {
+      "low_m": 0.013,
+      "top_m": 1.543,
+      "head_ratio": 0.843,
+      "hips_ratio": 0.868
+     },
+     "drive_m_s": 2.883,
+     "stance_foot_m_s": 2.325,
+     "slide_pct": 19.4,
+     "seam_m": 0.001
+    },
+    "mx_attack_sz": {
+     "clip": "mx_attack_sz",
+     "source": "Scary Zombie / zombie attack",
+     "length_s": 2.5,
+     "lint": "PASS 0/76",
+     "arm_elev_mean_LR": [
+      65.6,
+      30.9
+     ],
+     "arm_elev_max_LR": [
+      122.9,
+      79.8
+     ],
+     "hips_excursion_m": 0.112,
+     "top_m": 1.743,
+     "lowest_m": 0.001,
+     "t0": {
+      "low_m": 0.01,
+      "top_m": 1.716,
+      "head_ratio": 0.945,
+      "hips_ratio": 0.94
+     },
+     "foot_creep_m": 0.046
+    },
+    "mx_attack_nsz": {
+     "clip": "mx_attack_nsz",
+     "source": "Not So Scary Zombie / zombie attack",
+     "length_s": 4.6333,
+     "lint": "FAIL 26/140",
+     "arm_elev_mean_LR": [
+      43.6,
+      34.7
+     ],
+     "arm_elev_max_LR": [
+      169.8,
+      177.6
+     ],
+     "hips_excursion_m": 0.187,
+     "top_m": 1.838,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.019,
+      "top_m": 1.684,
+      "head_ratio": 0.931,
+      "hips_ratio": 0.946
+     },
+     "foot_creep_m": 0.054
+    },
+    "mx_punch": {
+     "clip": "mx_punch",
+     "source": "Not So Scary Zombie / zombie punching",
+     "length_s": 0.9667,
+     "lint": "PASS 0/30",
+     "arm_elev_mean_LR": [
+      57.1,
+      46.5
+     ],
+     "arm_elev_max_LR": [
+      93.1,
+      94.6
+     ],
+     "hips_excursion_m": 0.131,
+     "top_m": 1.75,
+     "lowest_m": 0.003,
+     "t0": {
+      "low_m": 0.007,
+      "top_m": 1.669,
+      "head_ratio": 0.913,
+      "hips_ratio": 0.935
+     },
+     "foot_creep_m": 0.057
+    },
+    "mx_bite": {
+     "clip": "mx_bite",
+     "source": "Scary Zombie / zombie biting",
+     "length_s": 6.6,
+     "lint": "FAIL 30/199",
+     "arm_elev_mean_LR": [
+      55.7,
+      46.2
+     ],
+     "arm_elev_max_LR": [
+      91.4,
+      65.9
+     ],
+     "hips_excursion_m": 0.581,
+     "top_m": 1.735,
+     "lowest_m": 0.015,
+     "t0": {
+      "low_m": 0.029,
+      "top_m": 1.735,
+      "head_ratio": 0.958,
+      "hips_ratio": 0.959
+     },
+     "foot_creep_m": 0.303
+    },
+    "mx_hit": {
+     "clip": "mx_hit",
+     "source": "Not So Scary Zombie / zombie reaction hit",
+     "length_s": 1.5,
+     "lint": "PASS 0/46",
+     "arm_elev_mean_LR": [
+      53.7,
+      58.1
+     ],
+     "arm_elev_max_LR": [
+      82.5,
+      99.0
+     ],
+     "hips_excursion_m": 0.089,
+     "top_m": 1.685,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 1.655,
+      "head_ratio": 0.918,
+      "hips_ratio": 0.919
+     },
+     "foot_creep_m": 0.032
+    },
+    "mx_death": {
+     "clip": "mx_death",
+     "source": "Scary Zombie / zombie death",
+     "length_s": 2.8,
+     "lint": "FAIL 4/85",
+     "arm_elev_mean_LR": [
+      81.6,
+      73.8
+     ],
+     "arm_elev_max_LR": [
+      170.7,
+      139.6
+     ],
+     "hips_excursion_m": 0.316,
+     "top_m": 1.712,
+     "lowest_m": -0.031,
+     "t0": {
+      "low_m": 0.006,
+      "top_m": 1.712,
+      "head_ratio": 0.942,
+      "hips_ratio": 0.936
+     },
+     "foot_creep_m": 0.263
+    },
+    "mx_dying": {
+     "clip": "mx_dying",
+     "source": "Scary Zombie / zombie dying",
+     "length_s": 3.3,
+     "lint": "FAIL 11/100",
+     "arm_elev_mean_LR": [
+      54.3,
+      46.3
+     ],
+     "arm_elev_max_LR": [
+      86.3,
+      86.5
+     ],
+     "hips_excursion_m": 0.328,
+     "top_m": 1.753,
+     "lowest_m": -0.064,
+     "t0": {
+      "low_m": 0.015,
+      "top_m": 1.721,
+      "head_ratio": 0.949,
+      "hips_ratio": 0.945
+     },
+     "foot_creep_m": 0.19
+    }
+   }
+  },
+  "en-golem": {
+   "height_m": 2.3,
+   "sheet": "sheets/golem_emerge_stills8_current_vs_mixamo.png",
+   "film": "film/golem_em_sbs_1x.mp4",
+   "recommendation": {
+    "recommend": "Not So Scary \"zombie stand up\" (the first, 3.10 s) for BOTH the golem p05 emerge and the revenant barrow-door rise",
+    "map": {
+     "en-golem emerge": "mx_standup1 (replaces the en29 crouch-hold + crouch-to-stand, which never touches the ground)",
+     "en-revenant emerge (new state)": "mx_standup1"
+    },
+    "why": [
+     "starts LYING at the snow line: t0 head at 0.12 (revenant) / 0.18 (golem) of standing, lowest point +0.06 / -0.20 m -- on or under the ground, never floating",
+     "lint: golem PASS 0/94, revenant FAIL 2/94 (wrist, the EN-E2 63_joint_fix class); stand up (2) FAILS 2-8/175, stand up (3) 37-72/181, crawl 42-85/155",
+     "length: natural 3.133 s (3.100 s windowed) vs am3 window D 3.533 s (golem) / 3.467 s (voidlord): a 1.12-1.14x stretch, the least of the three (stand up (2) 5.833 s / (3) 6.033 s need ~0.6x)",
+     "zombie crawl is locomotion on the belly (slide 91-93 % in place), not a rise: reject as an emerge"
+    ]
+   },
+   "clips": {
+    "walk": {
+     "clip": "walk",
+     "source": "",
+     "length_s": 1.3667,
+     "lint": "PASS 0/42",
+     "arm_elev_mean_LR": [
+      26.3,
+      25.3
+     ],
+     "arm_elev_max_LR": [
+      39.6,
+      36.4
+     ],
+     "hips_excursion_m": 0.15,
+     "top_m": 2.491,
+     "lowest_m": 0.014,
+     "t0": {
+      "low_m": 0.038,
+      "top_m": 2.491,
+      "head_ratio": 1.043,
+      "hips_ratio": 1.073
+     },
+     "drive_m_s": 1.103,
+     "stance_foot_m_s": 1.041,
+     "slide_pct": 5.6,
+     "seam_m": 0.0001
+    },
+    "run": {
+     "clip": "run",
+     "source": "",
+     "length_s": 0.8,
+     "lint": "PASS 0/25",
+     "arm_elev_mean_LR": [
+      34.6,
+      37.7
+     ],
+     "arm_elev_max_LR": [
+      50.2,
+      52.0
+     ],
+     "hips_excursion_m": 0.135,
+     "top_m": 2.571,
+     "lowest_m": 0.015,
+     "t0": {
+      "low_m": 0.043,
+      "top_m": 2.513,
+      "head_ratio": 1.028,
+      "hips_ratio": 1.056
+     },
+     "drive_m_s": 2.962,
+     "stance_foot_m_s": 2.382,
+     "slide_pct": 19.6,
+     "seam_m": 0.0001
+    },
+    "slam": {
+     "clip": "slam",
+     "source": "",
+     "length_s": 2.2667,
+     "lint": "PASS 0/69",
+     "arm_elev_mean_LR": [
+      53.4,
+      52.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      121.9
+     ],
+     "hips_excursion_m": 0.28,
+     "top_m": 3.028,
+     "lowest_m": 0.002,
+     "t0": {
+      "low_m": 0.03,
+      "top_m": 2.335,
+      "head_ratio": 0.969,
+      "hips_ratio": 0.967
+     },
+     "foot_creep_m": 0.105
+    },
+    "attack": {
+     "clip": "attack",
+     "source": "",
+     "length_s": 2.4,
+     "lint": "PASS 0/73",
+     "arm_elev_mean_LR": [
+      57.9,
+      66.7
+     ],
+     "arm_elev_max_LR": [
+      86.0,
+      100.2
+     ],
+     "hips_excursion_m": 0.249,
+     "top_m": 2.407,
+     "lowest_m": 0.005,
+     "t0": {
+      "low_m": 0.044,
+      "top_m": 2.349,
+      "head_ratio": 0.977,
+      "hips_ratio": 0.979
+     },
+     "foot_creep_m": 0.419
+    },
+    "lob": {
+     "clip": "lob",
+     "source": "",
+     "length_s": 2.6667,
+     "lint": "PASS 0/81",
+     "arm_elev_mean_LR": [
+      59.9,
+      75.2
+     ],
+     "arm_elev_max_LR": [
+      103.9,
+      134.9
+     ],
+     "hips_excursion_m": 0.265,
+     "top_m": 2.812,
+     "lowest_m": 0.006,
+     "t0": {
+      "low_m": 0.045,
+      "top_m": 2.387,
+      "head_ratio": 1.005,
+      "hips_ratio": 1.017
+     },
+     "foot_creep_m": 0.105
+    },
+    "summon": {
+     "clip": "summon",
+     "source": "",
+     "length_s": 2.1667,
+     "lint": "PASS 0/66",
+     "arm_elev_mean_LR": [
+      75.7,
+      74.4
+     ],
+     "arm_elev_max_LR": [
+      139.6,
+      123.9
+     ],
+     "hips_excursion_m": 0.266,
+     "top_m": 3.327,
+     "lowest_m": 0.003,
+     "t0": {
+      "low_m": 0.06,
+      "top_m": 2.402,
+      "head_ratio": 1.013,
+      "hips_ratio": 1.029
+     },
+     "foot_creep_m": 0.086
+    },
+    "hit": {
+     "clip": "hit",
+     "source": "",
+     "length_s": 1.4667,
+     "lint": "PASS 0/45",
+     "arm_elev_mean_LR": [
+      35.8,
+      70.0
+     ],
+     "arm_elev_max_LR": [
+      45.8,
+      97.9
+     ],
+     "hips_excursion_m": 0.116,
+     "top_m": 2.401,
+     "lowest_m": 0.004,
+     "t0": {
+      "low_m": 0.015,
+      "top_m": 2.319,
+      "head_ratio": 0.961,
+      "hips_ratio": 0.955
+     },
+     "foot_creep_m": 0.043
+    },
+    "emerge": {
+     "clip": "emerge",
+     "source": "",
+     "length_s": 3.5333,
+     "lint": "PASS 0/107",
+     "arm_elev_mean_LR": [
+      42.5,
+      64.6
+     ],
+     "arm_elev_max_LR": [
+      46.9,
+      69.4
+     ],
+     "hips_excursion_m": 0.13,
+     "top_m": 2.315,
+     "lowest_m": -0.0,
+     "t0": {
+      "low_m": 0.001,
+      "top_m": 2.025,
+      "head_ratio": 0.785,
+      "hips_ratio": 0.716
+     },
+     "foot_creep_m": 0.022
+    },
+    "death": {
+     "clip": "death",
+     "source": "",
+     "length_s": 3.6667,
+     "lint": "PASS 0/111",
+     "arm_elev_mean_LR": [
+      53.1,
+      51.1
+     ],
+     "arm_elev_max_LR": [
+      92.5,
+      95.4
+     ],
+     "hips_excursion_m": 0.634,
+     "top_m": 2.395,
+     "lowest_m": -0.186,
+     "t0": {
+      "low_m": 0.053,
+      "top_m": 2.395,
+      "head_ratio": 1.009,
+      "hips_ratio": 1.023
+     },
+     "foot_creep_m": 0.196
+    },
+    "idle": {
+     "clip": "idle",
+     "source": "",
+     "length_s": 1.8,
+     "lint": "PASS 0/55",
+     "arm_elev_mean_LR": [
+      15.4,
+      16.0
+     ],
+     "arm_elev_max_LR": [
+      17.8,
+      17.6
+     ],
+     "hips_excursion_m": 0.114,
+     "top_m": 2.415,
+     "lowest_m": 0.0,
+     "t0": {
+      "low_m": 0.0,
+      "top_m": 2.415,
+      "head_ratio": 1.041,
+      "hips_ratio": 1.058
+     },
+     "foot_creep_m": 0.002,
+     "seam_m": 0.0
+    },
+    "mx_standup1": {
+     "clip": "mx_standup1",
+     "source": "",
+     "length_s": 3.1,
+     "lint": "PASS 0/94",
+     "arm_elev_mean_LR": [
+      65.3,
+      54.5
+     ],
+     "arm_elev_max_LR": [
+      96.2,
+      106.9
+     ],
+     "hips_excursion_m": 0.181,
+     "top_m": 2.345,
+     "lowest_m": -0.203,
+     "t0": {
+      "low_m": -0.203,
+      "top_m": 0.839,
+      "head_ratio": 0.183,
+      "hips_ratio": 0.327
+     },
+     "foot_creep_m": 1.004
+    },
+    "mx_standup2": {
+     "clip": "mx_standup2",
+     "source": "",
+     "length_s": 5.8,
+     "lint": "FAIL 8/175",
+     "arm_elev_mean_LR": [
+      53.1,
+      49.7
+     ],
+     "arm_elev_max_LR": [
+      137.0,
+      124.6
+     ],
+     "hips_excursion_m": 0.263,
+     "top_m": 2.308,
+     "lowest_m": -0.235,
+     "t0": {
+      "low_m": -0.075,
+      "top_m": 1.04,
+      "head_ratio": 0.242,
+      "hips_ratio": 0.351
+     },
+     "foot_creep_m": 0.846
+    },
+    "mx_standup3": {
+     "clip": "mx_standup3",
+     "source": "",
+     "length_s": 6.0,
+     "lint": "FAIL 72/181",
+     "arm_elev_mean_LR": [
+      47.2,
+      58.1
+     ],
+     "arm_elev_max_LR": [
+      101.0,
+      122.8
+     ],
+     "hips_excursion_m": 0.532,
+     "top_m": 2.173,
+     "lowest_m": -0.133,
+     "t0": {
+      "low_m": 0.011,
+      "top_m": 1.015,
+      "head_ratio": 0.223,
+      "hips_ratio": 0.324
+     },
+     "foot_creep_m": 0.733
+    },
+    "mx_crawl": {
+     "clip": "mx_crawl",
+     "source": "",
+     "length_s": 5.1333,
+     "lint": "FAIL 85/155",
+     "arm_elev_mean_LR": [
+      58.1,
+      57.5
+     ],
+     "arm_elev_max_LR": [
+      123.9,
+      134.9
+     ],
+     "hips_excursion_m": 0.188,
+     "top_m": 1.451,
+     "lowest_m": -0.332,
+     "t0": {
+      "low_m": -0.163,
+      "top_m": 1.451,
+      "head_ratio": 0.446,
+      "hips_ratio": 0.335
+     },
+     "drive_m_s": 0.47,
+     "stance_foot_m_s": 0.034,
+     "slide_pct": 92.7,
+     "seam_m": 0.0447
+    }
+   }
+  }
+ },
+ "emerge": {
+  "recommendation": {
+   "recommend": "Not So Scary \"zombie stand up\" (the first, 3.10 s) for BOTH the golem p05 emerge and the revenant barrow-door rise",
+   "map": {
+    "en-golem emerge": "mx_standup1 (replaces the en29 crouch-hold + crouch-to-stand, which never touches the ground)",
+    "en-revenant emerge (new state)": "mx_standup1"
+   },
+   "why": [
+    "starts LYING at the snow line: t0 head at 0.12 (revenant) / 0.18 (golem) of standing, lowest point +0.06 / -0.20 m -- on or under the ground, never floating",
+    "lint: golem PASS 0/94, revenant FAIL 2/94 (wrist, the EN-E2 63_joint_fix class); stand up (2) FAILS 2-8/175, stand up (3) 37-72/181, crawl 42-85/155",
+    "length: natural 3.133 s (3.100 s windowed) vs am3 window D 3.533 s (golem) / 3.467 s (voidlord): a 1.12-1.14x stretch, the least of the three (stand up (2) 5.833 s / (3) 6.033 s need ~0.6x)",
+    "zombie crawl is locomotion on the belly (slide 91-93 % in place), not a rise: reject as an emerge"
+   ]
+  },
+  "natural_length_s": {
+   "zombie stand up": 3.1333,
+   "zombie stand up (2)": 5.8333,
+   "zombie stand up (3)": 6.0333,
+   "zombie crawl": 5.1667,
+   "running crawl": 0.6667
+  },
+  "windowed_length_s": {
+   "zombie stand up": 3.1,
+   "zombie stand up (2)": 5.8,
+   "zombie stand up (3)": 6.0,
+   "zombie crawl": 5.1333
+  },
+  "am3_window_D_s": {
+   "en-golem": 3.5333,
+   "en-voidlord": 3.4667
+  }
+ }
+}

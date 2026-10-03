@@ -1,0 +1,14 @@
+; EN-E2 (R-C9-132) copy of wl_e1 film_rt. R-C9-98 copy of the so_d7 runtime stills sandbox -- her GEAR STACKS at the play camera. A separate lean project: runtime glTF only
+; (nothing imported, no .godot import cache of the 2.3 GB film folder), nothing in barrow_full/ or cliffside3d/.
+config_version=5
+
+[application]
+config/name="en_e2_stills"
+run/main_scene="res://gear_stills.tscn"
+
+[display]
+window/size/viewport_width=320
+window/size/viewport_height=180
+
+[rendering]
+renderer/rendering_method="forward_plus"

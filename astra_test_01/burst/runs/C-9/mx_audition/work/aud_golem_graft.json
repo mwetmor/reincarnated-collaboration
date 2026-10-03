@@ -1,0 +1,110 @@
+{
+ "clips": {
+  "mx_standup1": {
+   "source": "../mx_audition/mxglb/nsz__zombie_stand_up.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    3.133333
+   ],
+   "keys": 94,
+   "length_s": 3.1000001095235348,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 1.08433,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0965,
+    0.0605
+   ],
+   "grounded_by_m": 0.16686,
+   "feet_span_m": [
+    0.0,
+    0.1581
+   ]
+  },
+  "mx_standup2": {
+   "source": "../mx_audition/mxglb/nsz__zombie_stand_up_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    5.833333
+   ],
+   "keys": 175,
+   "length_s": 5.800000157207251,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 1.08433,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.1306,
+    0.2127
+   ],
+   "grounded_by_m": 0.18027,
+   "feet_span_m": [
+    0.0,
+    0.2153
+   ]
+  },
+  "mx_standup3": {
+   "source": "../mx_audition/mxglb/nsz__zombie_stand_up_3.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    6.033333
+   ],
+   "keys": 181,
+   "length_s": 5.999999966472387,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 1.08433,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.1964,
+    -1.304
+   ],
+   "grounded_by_m": 0.1778,
+   "feet_span_m": [
+    0.0,
+    0.0915
+   ]
+  },
+  "mx_crawl": {
+   "source": "../mx_audition/mxglb/sz__zombie_crawl.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    5.166667
+   ],
+   "keys": 155,
+   "length_s": 5.133333172649145,
+   "joints": 22,
+   "rest_match": 1.10162,
+   "hip_ratio": 1.08433,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0035,
+    2.4113
+   ],
+   "grounded_by_m": 0.14829,
+   "feet_span_m": [
+    0.0,
+    0.1136
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 8
+ }
+}

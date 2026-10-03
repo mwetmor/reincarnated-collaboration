@@ -1,0 +1,340 @@
+{
+ "clips": {
+  "mx_idle_sz": {
+   "source": "../mx_audition/mxglb/sz__zombie_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.3
+   ],
+   "keys": 129,
+   "length_s": 4.266666855663061,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0003,
+    -0.0009
+   ],
+   "grounded_by_m": 0.02474,
+   "feet_span_m": [
+    0.0,
+    0.0011
+   ]
+  },
+  "mx_idle_nsz": {
+   "source": "../mx_audition/mxglb/nsz__zombie_idle_2.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.033333
+   ],
+   "keys": 121,
+   "length_s": 3.9999999664723873,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.02914,
+   "feet_span_m": [
+    0.0,
+    0.0023
+   ]
+  },
+  "mx_walk_sz": {
+   "source": "../mx_audition/mxglb/sz__zombie_walk.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.066667
+   ],
+   "keys": 122,
+   "length_s": 4.033333268016577,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.2843
+   ],
+   "grounded_by_m": 0.03475,
+   "feet_span_m": [
+    0.0,
+    0.0245
+   ]
+  },
+  "mx_walk_nsz": {
+   "source": "../mx_audition/mxglb/nsz__walking.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.566667
+   ],
+   "keys": 47,
+   "length_s": 1.5333333872258663,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    0.8032
+   ],
+   "grounded_by_m": 0.0443,
+   "feet_span_m": [
+    0.0,
+    0.0283
+   ]
+  },
+  "mx_stumble": {
+   "source": "../mx_audition/mxglb/nsz__zombie_stumbling.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    3.866667
+   ],
+   "keys": 116,
+   "length_s": 3.833333220332861,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -2.6629,
+    0.3849
+   ],
+   "grounded_by_m": 0.0292,
+   "feet_span_m": [
+    0.0,
+    0.5255
+   ]
+  },
+  "mx_run": {
+   "source": "../mx_audition/mxglb/sz__zombie_run.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    0.833333
+   ],
+   "keys": 25,
+   "length_s": 0.7999999783933163,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    2.3066
+   ],
+   "grounded_by_m": 0.03602,
+   "feet_span_m": [
+    0.0,
+    0.0298
+   ]
+  },
+  "mx_attack_sz": {
+   "source": "../mx_audition/mxglb/sz__zombie_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    2.533333
+   ],
+   "keys": 76,
+   "length_s": 2.4999999664723873,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0044,
+    0.0057
+   ],
+   "grounded_by_m": 0.03338,
+   "feet_span_m": [
+    0.0,
+    0.0226
+   ]
+  },
+  "mx_attack_nsz": {
+   "source": "../mx_audition/mxglb/nsz__zombie_attack.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.666667
+   ],
+   "keys": 140,
+   "length_s": 4.633333172649145,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0463,
+    -0.0249
+   ],
+   "grounded_by_m": 0.04137,
+   "feet_span_m": [
+    0.0,
+    0.0292
+   ]
+  },
+  "mx_punch": {
+   "source": "../mx_audition/mxglb/nsz__zombie_punching.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.0
+   ],
+   "keys": 30,
+   "length_s": 0.9666666649281979,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0135,
+    0.0153
+   ],
+   "grounded_by_m": 0.02819,
+   "feet_span_m": [
+    0.0,
+    0.021
+   ]
+  },
+  "mx_bite": {
+   "source": "../mx_audition/mxglb/sz__zombie_biting.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    6.633333
+   ],
+   "keys": 199,
+   "length_s": 6.599999871104956,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    0.0106,
+    -0.0006
+   ],
+   "grounded_by_m": 0.05257,
+   "feet_span_m": [
+    0.0,
+    0.1061
+   ]
+  },
+  "mx_hit": {
+   "source": "../mx_audition/mxglb/nsz__zombie_reaction_hit.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.533333
+   ],
+   "keys": 46,
+   "length_s": 1.4999999664723873,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0076,
+    -0.0161
+   ],
+   "grounded_by_m": 0.0118,
+   "feet_span_m": [
+    0.0,
+    0.0179
+   ]
+  },
+  "mx_death": {
+   "source": "../mx_audition/mxglb/sz__zombie_death.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    2.833333
+   ],
+   "keys": 85,
+   "length_s": 2.7999999187886715,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.138,
+    -0.9712
+   ],
+   "grounded_by_m": 0.02908,
+   "feet_span_m": [
+    0.0,
+    0.1124
+   ]
+  },
+  "mx_dying": {
+   "source": "../mx_audition/mxglb/sz__zombie_dying.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    3.333333
+   ],
+   "keys": 100,
+   "length_s": 3.2999999187886715,
+   "joints": 22,
+   "rest_match": 0.98974,
+   "hip_ratio": 0.93147,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.155,
+    1.1343
+   ],
+   "grounded_by_m": 0.03807,
+   "feet_span_m": [
+    0.0,
+    0.5054
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 17
+ }
+}

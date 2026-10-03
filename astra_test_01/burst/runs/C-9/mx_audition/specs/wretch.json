@@ -1,0 +1,68 @@
+{
+ "kit": "en-wretch",
+ "body": "../en_e2/export/final_c/en_c_body.glb",
+ "crop_w": 320,
+ "crop_h": 340,
+ "sources": {
+  "walk": "axe unarmed walk forward (Mixamo)",
+  "run": "axe unarmed run forward (Mixamo)",
+  "swipe": "axe standing melee attack backhand (Mixamo)",
+  "throw": "standing 1h magic attack 01 (Mixamo)",
+  "buff": "axe standing taunt chest thump (Mixamo)",
+  "hit": "axe standing react large gut (Mixamo)",
+  "death": "standing react death forward (Mixamo)",
+  "idle": "axe unarmed idle (Mixamo)",
+  "mx_idle_sz": "Scary Zombie / zombie idle",
+  "mx_idle_nsz": "Not So Scary Zombie / zombie idle (2)",
+  "mx_walk_sz": "Scary Zombie / zombie walk",
+  "mx_walk_nsz": "Not So Scary Zombie / walking",
+  "mx_stumble": "Not So Scary Zombie / zombie stumbling",
+  "mx_run": "Scary Zombie / zombie run",
+  "mx_attack_sz": "Scary Zombie / zombie attack",
+  "mx_attack_nsz": "Not So Scary Zombie / zombie attack",
+  "mx_punch": "Not So Scary Zombie / zombie punching",
+  "mx_bite": "Scary Zombie / zombie biting",
+  "mx_hit": "Not So Scary Zombie / zombie reaction hit",
+  "mx_death": "Scary Zombie / zombie death",
+  "mx_dying": "Scary Zombie / zombie dying"
+ },
+ "pairs": [
+  [
+   "idle",
+   "idle",
+   "mx_idle_sz",
+   "mx_idle_nsz"
+  ],
+  [
+   "walk",
+   "walk",
+   "mx_walk_sz",
+   "mx_walk_nsz",
+   "mx_stumble"
+  ],
+  [
+   "run",
+   "run",
+   "mx_run"
+  ],
+  [
+   "attack",
+   "swipe",
+   "mx_attack_sz",
+   "mx_punch"
+  ],
+  [
+   "hit",
+   "hit",
+   "mx_hit"
+  ],
+  [
+   "death",
+   "death",
+   "mx_death",
+   "mx_dying"
+  ]
+ ],
+ "tag": "wretch",
+ "_what": "MX audition (R-C9-149) spec: rows per state = the clip of record first, then Mixamo candidates grafted onto a COPY of the shipped body (work/aud_wretch.glb). No pack root, kit or manifest is touched."
+}

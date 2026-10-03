@@ -1,0 +1,33 @@
+{
+ "kit": "en-revenant",
+ "glb": "revenant",
+ "body": "../en_e2/export/final_r/en_r_body.glb",
+ "crop_w": 320,
+ "crop_h": 340,
+ "sources": {
+  "walk": "standing walk forward (Mixamo Pro Magic Pack)",
+  "run": "standing run forward (Mixamo Pro Magic Pack)",
+  "cast_bolt": "standing 1h magic attack 02 (Mixamo Pro Magic Pack)",
+  "cast_area": "standing 2h magic area attack 01 (Mixamo Pro Magic Pack)",
+  "hit": "standing react small from front (Mixamo Pro Magic Pack)",
+  "death": "standing react death backward (Mixamo Pro Magic Pack)",
+  "idle": "standing idle (Mixamo Pro Magic Pack)",
+  "mx_standup1": "Not So Scary Zombie / zombie stand up",
+  "mx_standup2": "Not So Scary Zombie / zombie stand up (2)",
+  "mx_standup3": "Not So Scary Zombie / zombie stand up (3)",
+  "mx_crawl": "Scary Zombie / zombie crawl"
+ },
+ "pairs": [
+  [
+   "emerge",
+   "",
+   "mx_standup1",
+   "mx_standup2",
+   "mx_standup3",
+   "mx_crawl"
+  ]
+ ],
+ "fallback_idle": "idle",
+ "tag": "revenant_em",
+ "_what": "MX audition (R-C9-149) spec: rows per state = the clip of record first, then Mixamo candidates grafted onto a COPY of the shipped body (work/aud_revenant.glb). No pack root, kit or manifest is touched."
+}

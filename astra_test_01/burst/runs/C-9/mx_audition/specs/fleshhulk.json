@@ -1,0 +1,62 @@
+{
+ "kit": "en-fleshhulk",
+ "body": "../en_e2/export/final_d/en_d_body.glb",
+ "pairs": [
+  [
+   "idle",
+   "idle",
+   "mx_idle_breath",
+   "mx_idle"
+  ],
+  [
+   "walk",
+   "walk",
+   "mx_walk"
+  ],
+  [
+   "run",
+   "run",
+   "mx_run"
+  ],
+  [
+   "attack",
+   "attack",
+   "mx_swipe",
+   "mx_punch"
+  ],
+  [
+   "slam",
+   "slam",
+   "mx_jumpatk"
+  ],
+  [
+   "death",
+   "death",
+   "mx_dying"
+  ]
+ ],
+ "crop_w": 600,
+ "crop_h": 700,
+ "sources": {
+  "walk": "axe unarmed walk forward (Mixamo)",
+  "run": "axe unarmed run forward (Mixamo)",
+  "slam": "axe standing melee attack downward (Mixamo)",
+  "attack": "axe standing melee attack horizontal (Mixamo)",
+  "lob": "standing 2h magic attack 01 (Mixamo)",
+  "hit": "axe standing react large gut (Mixamo)",
+  "death": "standing react death backward (Mixamo)",
+  "idle": "axe unarmed idle (Mixamo)",
+  "mx_idle_breath": "Creature Pack / mutant breathing idle",
+  "mx_idle": "Creature Pack / mutant idle (2)",
+  "mx_walk": "Creature Pack / mutant walking",
+  "mx_run": "Creature Pack / mutant run",
+  "mx_swipe": "Creature Pack / mutant swiping",
+  "mx_punch": "Creature Pack / mutant punch",
+  "mx_jumpatk": "Creature Pack / mutant jump attack",
+  "mx_roar": "Creature Pack / mutant roaring",
+  "mx_flex": "Creature Pack / mutant flexing muscles",
+  "mx_dying": "Creature Pack / mutant dying"
+ },
+ "tag": "fleshhulk",
+ "_what": "MX audition (R-C9-149) spec: rows per state = the clip of record first, then Mixamo candidates grafted onto a COPY of the shipped body (work/aud_fleshhulk.glb). No pack root, kit or manifest is touched."
+}

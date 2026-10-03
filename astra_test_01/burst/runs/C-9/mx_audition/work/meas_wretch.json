@@ -1,0 +1,583 @@
+{
+ "glb": "aud_wretch.glb",
+ "rest": {
+  "top_m": 1.8,
+  "head_m": 1.528,
+  "hips_m": 1.007
+ },
+ "clips": {
+  "walk": {
+   "length_s": 1.3667,
+   "keys": 42,
+   "arm_L": {
+    "mean": 41.4,
+    "max": 66.5
+   },
+   "arm_R": {
+    "mean": 41.5,
+    "max": 59.1
+   },
+   "loop": true,
+   "seam_m": 0.0001,
+   "drive_m_s": 0.947,
+   "foot_m_s": 0.856,
+   "slide_pct": 9.6,
+   "t0": {
+    "low_m": 0.02,
+    "top_m": 1.708,
+    "head_ratio": 0.955,
+    "hips_ratio": 0.982
+   },
+   "top_m": 1.73,
+   "low_min_m": 0.001,
+   "hips_excursion_m": 0.061
+  },
+  "run": {
+   "length_s": 0.8,
+   "keys": 25,
+   "arm_L": {
+    "mean": 55.8,
+    "max": 76.4
+   },
+   "arm_R": {
+    "mean": 54.3,
+    "max": 74.8
+   },
+   "loop": true,
+   "seam_m": 0.0001,
+   "drive_m_s": 2.545,
+   "foot_m_s": 2.074,
+   "slide_pct": 18.5,
+   "t0": {
+    "low_m": 0.017,
+    "top_m": 1.658,
+    "head_ratio": 0.922,
+    "hips_ratio": 0.944
+   },
+   "top_m": 1.713,
+   "low_min_m": 0.0,
+   "hips_excursion_m": 0.033
+  },
+  "swipe": {
+   "length_s": 3.1667,
+   "keys": 96,
+   "arm_L": {
+    "mean": 61.2,
+    "max": 155.9
+   },
+   "arm_R": {
+    "mean": 68.2,
+    "max": 123.0
+   },
+   "loop": false,
+   "foot_creep_m": 0.214,
+   "t0": {
+    "low_m": 0.009,
+    "top_m": 1.6,
+    "head_ratio": 0.891,
+    "hips_ratio": 0.89
+   },
+   "top_m": 1.693,
+   "low_min_m": 0.005,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 11.42,
+    "at_s": 1.0333
+   },
+   "hips_excursion_m": 0.672
+  },
+  "throw": {
+   "length_s": 2.3,
+   "keys": 70,
+   "arm_L": {
+    "mean": 73.1,
+    "max": 102.6
+   },
+   "arm_R": {
+    "mean": 69.0,
+    "max": 106.8
+   },
+   "loop": false,
+   "foot_creep_m": 0.073,
+   "t0": {
+    "low_m": 0.01,
+    "top_m": 1.637,
+    "head_ratio": 0.91,
+    "hips_ratio": 0.921
+   },
+   "top_m": 1.64,
+   "low_min_m": 0.0,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 7.39,
+    "at_s": 0.6333
+   },
+   "hips_excursion_m": 0.143
+  },
+  "buff": {
+   "length_s": 2.5333,
+   "keys": 77,
+   "arm_L": {
+    "mean": 52.0,
+    "max": 66.4
+   },
+   "arm_R": {
+    "mean": 42.6,
+    "max": 65.5
+   },
+   "loop": false,
+   "foot_creep_m": 0.037,
+   "t0": {
+    "low_m": 0.001,
+    "top_m": 1.593,
+    "head_ratio": 0.886,
+    "hips_ratio": 0.883
+   },
+   "top_m": 1.746,
+   "low_min_m": 0.001,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 3.87,
+    "at_s": 0.7
+   },
+   "hips_excursion_m": 0.072
+  },
+  "hit": {
+   "length_s": 1.4667,
+   "keys": 45,
+   "arm_L": {
+    "mean": 49.7,
+    "max": 61.6
+   },
+   "arm_R": {
+    "mean": 91.1,
+    "max": 118.0
+   },
+   "loop": false,
+   "foot_creep_m": 0.016,
+   "t0": {
+    "low_m": 0.003,
+    "top_m": 1.594,
+    "head_ratio": 0.887,
+    "hips_ratio": 0.884
+   },
+   "top_m": 1.598,
+   "low_min_m": 0.001,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 4.04,
+    "at_s": 0.2
+   },
+   "hips_excursion_m": 0.109
+  },
+  "death": {
+   "length_s": 3.6667,
+   "keys": 111,
+   "arm_L": {
+    "mean": 62.8,
+    "max": 110.5
+   },
+   "arm_R": {
+    "mean": 64.7,
+    "max": 115.8
+   },
+   "loop": false,
+   "foot_creep_m": 0.114,
+   "t0": {
+    "low_m": -0.0,
+    "top_m": 1.627,
+    "head_ratio": 0.903,
+    "hips_ratio": 0.911
+   },
+   "top_m": 1.756,
+   "low_min_m": -0.125,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 2.55,
+    "at_s": 0.2
+   },
+   "hips_excursion_m": 0.447
+  },
+  "idle": {
+   "length_s": 1.8,
+   "keys": 55,
+   "arm_L": {
+    "mean": 34.6,
+    "max": 38.8
+   },
+   "arm_R": {
+    "mean": 36.7,
+    "max": 39.6
+   },
+   "loop": true,
+   "seam_m": 0.0,
+   "foot_creep_m": 0.006,
+   "t0": {
+    "low_m": 0.0,
+    "top_m": 1.736,
+    "head_ratio": 0.977,
+    "hips_ratio": 0.986
+   },
+   "top_m": 1.748,
+   "low_min_m": 0.0,
+   "hips_excursion_m": 0.017
+  },
+  "mx_idle_sz": {
+   "length_s": 4.2667,
+   "keys": 129,
+   "arm_L": {
+    "mean": 26.0,
+    "max": 26.4
+   },
+   "arm_R": {
+    "mean": 14.1,
+    "max": 15.0
+   },
+   "loop": true,
+   "seam_m": 0.0014,
+   "foot_creep_m": 0.004,
+   "drive_m_s": 0.0,
+   "t0": {
+    "low_m": 0.001,
+    "top_m": 1.707,
+    "head_ratio": 0.94,
+    "hips_ratio": 0.931
+   },
+   "top_m": 1.709,
+   "low_min_m": 0.0,
+   "hips_excursion_m": 0.023
+  },
+  "mx_idle_nsz": {
+   "length_s": 4.0,
+   "keys": 121,
+   "arm_L": {
+    "mean": 23.9,
+    "max": 27.3
+   },
+   "arm_R": {
+    "mean": 20.7,
+    "max": 25.7
+   },
+   "loop": true,
+   "seam_m": 0.0,
+   "foot_creep_m": 0.004,
+   "drive_m_s": 0.0,
+   "t0": {
+    "low_m": 0.0,
+    "top_m": 1.602,
+    "head_ratio": 0.885,
+    "hips_ratio": 0.901
+   },
+   "top_m": 1.606,
+   "low_min_m": 0.0,
+   "hips_excursion_m": 0.061
+  },
+  "mx_walk_sz": {
+   "length_s": 4.0333,
+   "keys": 122,
+   "arm_L": {
+    "mean": 74.5,
+    "max": 90.9
+   },
+   "arm_R": {
+    "mean": 76.6,
+    "max": 90.5
+   },
+   "loop": true,
+   "seam_m": 0.0,
+   "drive_m_s": 0.318,
+   "foot_m_s": 0.308,
+   "slide_pct": 3.2,
+   "t0": {
+    "low_m": 0.018,
+    "top_m": 1.689,
+    "head_ratio": 0.952,
+    "hips_ratio": 0.967
+   },
+   "top_m": 1.689,
+   "low_min_m": 0.0,
+   "hips_excursion_m": 0.182
+  },
+  "mx_walk_nsz": {
+   "length_s": 1.5333,
+   "keys": 47,
+   "arm_L": {
+    "mean": 61.1,
+    "max": 71.3
+   },
+   "arm_R": {
+    "mean": 61.3,
+    "max": 68.9
+   },
+   "loop": true,
+   "seam_m": 0.0,
+   "drive_m_s": 0.524,
+   "foot_m_s": 0.518,
+   "slide_pct": 1.1,
+   "t0": {
+    "low_m": 0.013,
+    "top_m": 1.493,
+    "head_ratio": 0.85,
+    "hips_ratio": 0.903
+   },
+   "top_m": 1.614,
+   "low_min_m": 0.011,
+   "hips_excursion_m": 0.107
+  },
+  "mx_stumble": {
+   "length_s": 3.8333,
+   "keys": 116,
+   "arm_L": {
+    "mean": 78.2,
+    "max": 138.9
+   },
+   "arm_R": {
+    "mean": 80.0,
+    "max": 122.2
+   },
+   "loop": true,
+   "seam_m": 1.5886,
+   "drive_m_s": 0.702,
+   "foot_m_s": 0.1,
+   "slide_pct": 85.7,
+   "t0": {
+    "low_m": 0.005,
+    "top_m": 1.567,
+    "head_ratio": 0.867,
+    "hips_ratio": 0.882
+   },
+   "top_m": 1.724,
+   "low_min_m": -0.131,
+   "hips_excursion_m": 0.68
+  },
+  "mx_run": {
+   "length_s": 0.8,
+   "keys": 25,
+   "arm_L": {
+    "mean": 50.0,
+    "max": 65.6
+   },
+   "arm_R": {
+    "mean": 34.7,
+    "max": 41.8
+   },
+   "loop": true,
+   "seam_m": 0.001,
+   "drive_m_s": 2.883,
+   "foot_m_s": 2.325,
+   "slide_pct": 19.4,
+   "t0": {
+    "low_m": 0.013,
+    "top_m": 1.543,
+    "head_ratio": 0.843,
+    "hips_ratio": 0.868
+   },
+   "top_m": 1.635,
+   "low_min_m": 0.005,
+   "hips_excursion_m": 0.057
+  },
+  "mx_attack_sz": {
+   "length_s": 2.5,
+   "keys": 76,
+   "arm_L": {
+    "mean": 65.6,
+    "max": 122.9
+   },
+   "arm_R": {
+    "mean": 30.9,
+    "max": 79.8
+   },
+   "loop": false,
+   "foot_creep_m": 0.046,
+   "drive_m_s": 0.003,
+   "t0": {
+    "low_m": 0.01,
+    "top_m": 1.716,
+    "head_ratio": 0.945,
+    "hips_ratio": 0.94
+   },
+   "top_m": 1.743,
+   "low_min_m": 0.001,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 7.92,
+    "at_s": 1.0
+   },
+   "hips_excursion_m": 0.112
+  },
+  "mx_attack_nsz": {
+   "length_s": 4.6333,
+   "keys": 140,
+   "arm_L": {
+    "mean": 43.6,
+    "max": 169.8
+   },
+   "arm_R": {
+    "mean": 34.7,
+    "max": 177.6
+   },
+   "loop": false,
+   "foot_creep_m": 0.054,
+   "drive_m_s": 0.011,
+   "t0": {
+    "low_m": 0.019,
+    "top_m": 1.684,
+    "head_ratio": 0.931,
+    "hips_ratio": 0.946
+   },
+   "top_m": 1.838,
+   "low_min_m": 0.0,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 6.02,
+    "at_s": 0.8
+   },
+   "hips_excursion_m": 0.187
+  },
+  "mx_punch": {
+   "length_s": 0.9667,
+   "keys": 30,
+   "arm_L": {
+    "mean": 57.1,
+    "max": 93.1
+   },
+   "arm_R": {
+    "mean": 46.5,
+    "max": 94.6
+   },
+   "loop": false,
+   "foot_creep_m": 0.057,
+   "drive_m_s": 0.021,
+   "t0": {
+    "low_m": 0.007,
+    "top_m": 1.669,
+    "head_ratio": 0.913,
+    "hips_ratio": 0.935
+   },
+   "top_m": 1.75,
+   "low_min_m": 0.003,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 5.49,
+    "at_s": 0.6333
+   },
+   "hips_excursion_m": 0.131
+  },
+  "mx_bite": {
+   "length_s": 6.6,
+   "keys": 199,
+   "arm_L": {
+    "mean": 55.7,
+    "max": 91.4
+   },
+   "arm_R": {
+    "mean": 46.2,
+    "max": 65.9
+   },
+   "loop": false,
+   "foot_creep_m": 0.303,
+   "drive_m_s": 0.002,
+   "t0": {
+    "low_m": 0.029,
+    "top_m": 1.735,
+    "head_ratio": 0.958,
+    "hips_ratio": 0.959
+   },
+   "top_m": 1.735,
+   "low_min_m": 0.015,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 4.83,
+    "at_s": 0.7667
+   },
+   "hips_excursion_m": 0.581
+  },
+  "mx_hit": {
+   "length_s": 1.5,
+   "keys": 46,
+   "arm_L": {
+    "mean": 53.7,
+    "max": 82.5
+   },
+   "arm_R": {
+    "mean": 58.1,
+    "max": 99.0
+   },
+   "loop": false,
+   "foot_creep_m": 0.032,
+   "drive_m_s": 0.012,
+   "t0": {
+    "low_m": 0.001,
+    "top_m": 1.655,
+    "head_ratio": 0.918,
+    "hips_ratio": 0.919
+   },
+   "top_m": 1.685,
+   "low_min_m": 0.0,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 1.89,
+    "at_s": 0.4667
+   },
+   "hips_excursion_m": 0.089
+  },
+  "mx_death": {
+   "length_s": 2.8,
+   "keys": 85,
+   "arm_L": {
+    "mean": 81.6,
+    "max": 170.7
+   },
+   "arm_R": {
+    "mean": 73.8,
+    "max": 139.6
+   },
+   "loop": false,
+   "foot_creep_m": 0.263,
+   "drive_m_s": 0.35,
+   "t0": {
+    "low_m": 0.006,
+    "top_m": 1.712,
+    "head_ratio": 0.942,
+    "hips_ratio": 0.936
+   },
+   "top_m": 1.712,
+   "low_min_m": -0.031,
+   "strike": {
+    "hand": "RightHand",
+    "peak_m_s": 6.51,
+    "at_s": 1.8333
+   },
+   "hips_excursion_m": 0.316
+  },
+  "mx_dying": {
+   "length_s": 3.3,
+   "keys": 100,
+   "arm_L": {
+    "mean": 54.3,
+    "max": 86.3
+   },
+   "arm_R": {
+    "mean": 46.3,
+    "max": 86.5
+   },
+   "loop": false,
+   "foot_creep_m": 0.19,
+   "drive_m_s": 0.347,
+   "t0": {
+    "low_m": 0.015,
+    "top_m": 1.721,
+    "head_ratio": 0.949,
+    "hips_ratio": 0.945
+   },
+   "top_m": 1.753,
+   "low_min_m": -0.064,
+   "strike": {
+    "hand": "LeftHand",
+    "peak_m_s": 3.4,
+    "at_s": 0.8667
+   },
+   "hips_excursion_m": 0.328
+  }
+ }
+}

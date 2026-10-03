@@ -1,0 +1,35 @@
+{
+ "kit": "en-golem",
+ "glb": "golem",
+ "body": "../en_e2/export/final_g/en_g_body.glb",
+ "crop_w": 380,
+ "crop_h": 420,
+ "sources": {
+  "walk": "axe unarmed walk forward (Mixamo)",
+  "run": "axe unarmed run forward (Mixamo)",
+  "slam": "axe standing melee attack downward (Mixamo)",
+  "attack": "axe standing melee attack horizontal (Mixamo)",
+  "lob": "standing 2h magic attack 01 (Mixamo)",
+  "summon": "standing 2h cast spell 01 (Mixamo)",
+  "hit": "axe standing react large gut (Mixamo)",
+  "emerge": "en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded",
+  "death": "two handed sword death (Mixamo)",
+  "idle": "axe unarmed idle (Mixamo)",
+  "mx_standup1": "Not So Scary Zombie / zombie stand up",
+  "mx_standup2": "Not So Scary Zombie / zombie stand up (2)",
+  "mx_standup3": "Not So Scary Zombie / zombie stand up (3)",
+  "mx_crawl": "Scary Zombie / zombie crawl"
+ },
+ "pairs": [
+  [
+   "emerge",
+   "emerge",
+   "mx_standup1",
+   "mx_standup2",
+   "mx_standup3",
+   "mx_crawl"
+  ]
+ ],
+ "tag": "golem_em",
+ "_what": "MX audition (R-C9-149) spec: rows per state = the clip of record first, then Mixamo candidates grafted onto a COPY of the shipped body (work/aud_golem.glb). No pack root, kit or manifest is touched."
+}
