@@ -1,0 +1,24 @@
+; C-9 Phase 2 lane BX: barrow_v2 'Fjord Headland' GREYBOX (R-C9-145). Simple primitives built at
+; run time from ../layout_v2.json (sim frame +x east, +y south; Godot X = x, Y = up, Z = y).
+; Camera law: orthographic, pitch 52.9535411256029 deg, ZERO yaw, plate scale 100.617553710938 px/m
+; (the arena's projection, kc2play_projection.gd). Z toggles to ZOOM-GD (the 25 x 18 m window).
+; No imported assets: the ground texture is loaded with Image.load_from_file, so no import cache is needed.
+config_version=5
+
+[application]
+config/name="C-9 barrow_v2 greybox"
+run/main_scene="res://scenes/barrow_v2_greybox.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+renderer/rendering_method="forward_plus"
+anti_aliasing/quality/msaa_3d=2
+
+[editor]
+movie_writer/mjpeg_quality=0.85
