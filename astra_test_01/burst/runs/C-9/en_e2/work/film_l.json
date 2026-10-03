@@ -1,0 +1,65 @@
+{
+ "shots": [],
+ "headings": [],
+ "scales": [],
+ "watchdog_s": 2000,
+ "film_plan": [
+  {
+   "clip": "idle",
+   "seconds": 2.4,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "walk",
+   "seconds": 3.0,
+   "speed": 1.244,
+   "heading_deg": 100
+  },
+  {
+   "clip": "run",
+   "seconds": 2.0,
+   "speed": 3.34,
+   "heading_deg": 100
+  },
+  {
+   "clip": "idle",
+   "seconds": 0.6,
+   "speed": 0.0,
+   "heading_deg": 100
+  },
+  {
+   "clip": "cast_bolt",
+   "seconds": 2.3,
+   "speed": 0.0,
+   "heading_deg": 100,
+   "release_s": 0.8,
+   "hand": "RightHand",
+   "vfx": "bolt",
+   "speed_vfx": 12.0,
+   "range": 4.0
+  },
+  {
+   "clip": "cast_area",
+   "seconds": 3.1333,
+   "speed": 0.0,
+   "heading_deg": 100,
+   "release_s": 1.8,
+   "hand": "RightHand",
+   "vfx": "area",
+   "dist": 4.0
+  },
+  {
+   "clip": "hit",
+   "seconds": 1.1667,
+   "speed": 0.0,
+   "heading_deg": 25
+  },
+  {
+   "clip": "death",
+   "seconds": 4.6667000000000005,
+   "speed": 0.0,
+   "heading_deg": 25
+  }
+ ]
+}
