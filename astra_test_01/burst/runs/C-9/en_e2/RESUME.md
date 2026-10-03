@@ -1,4 +1,8 @@
-# EN-E2 — RESUME point (paused under R-C9-147, 2026-10-03 ~02:10Z)
+# EN-E2 — RESUME point
+
+**UPDATE 2026-10-03 (R-C9-157): the three packs below are DONE** -- en-vigillord 36ec21b24, en-fleshhulk 90ddfdd61 (Mixamo mutant set, max-fit 2.10 m), en-colossus f2726ef91 (mutant set + roar, max-fit 2.50 m). The "Next" list is closed; nothing is in flight. Superseded scratch for Matt: `runs/C-9/cleanup/manifest_en_e2_p2_superseded_scratch.txt`.
+
+## History: paused under R-C9-147, 2026-10-03 ~02:10Z
 
 Paused by the conductor: Matt moved barrow_v2 ahead of the remaining bosses. Resume after the barrow_v2 paint lands.
 
