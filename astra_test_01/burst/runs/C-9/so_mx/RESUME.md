@@ -39,7 +39,7 @@ The rejected option A is `export/ss152a`: the cap also covered the braid. It rea
 
 ### Interrupted when the pause landed
 
-- **A Barrow build pinned to EOR2 `e98bda6bf`** was mid-run. I let it finish (log `barrow_full/work/r152_build.log`). It staged into `reincarnated-loadout/public/playtest/barrow-painted/`, so the loadout working tree is dirty, but **nothing is committed in loadout**. That staged state is NOT the one to ship: the conductor then asked for `b4de84e65`.
+- **A Barrow build pinned to EOR2 `e98bda6bf`** was mid-run. I let it finish (EXIT 0, every fence ok; log `barrow_full/work/r152_build.log`). It staged into loadout, and I then reverted loadout's `public/playtest/barrow-painted/` to HEAD (`git checkout --`, = the live `d069c4b`). So loadout is clean apart from the two old untracked n25/n40 packs, and **nothing is committed in loadout**. `barrow_full/web_painted/build/web` still holds that e98bda6bf build; it is NOT the one to ship (the conductor then asked for `b4de84e65`).
 - **The JOIN-1 v5 render never started.** It was still waiting for the heavy lock when I stopped it. But `join1_pack_v5/d2-fire-sorc-bm/` was already created, empty. `scripts/r152_05_join_v5.sh` refuses to run while that path exists, so Matt needs to delete that empty directory first (lanes don't delete).
 
 ## Next, in order, on resume
