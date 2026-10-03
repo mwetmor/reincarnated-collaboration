@@ -1,0 +1,167 @@
+{
+ "kit": "en-woollyrhino",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the frosthorn (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-woollyrhino_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_gore": {
+   "clip": "attack_gore",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_gore",
+   "release_from": "attacks.attack_gore.release_s",
+   "release_socket": "horn",
+   "skill": "the roster's gore (melee 0-2.99 m, bleed): the horn toss; release = the hook-up contact"
+  },
+  "attack_butt": {
+   "clip": "attack_butt",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_butt",
+   "release_from": "attacks.attack_butt.release_s",
+   "release_socket": "horn",
+   "skill": "the basic melee lunge (attack_a01)"
+  },
+  "attack_charge": {
+   "clip": "attack_charge",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_charge",
+   "release_from": "attacks.attack_charge.release_s",
+   "release_socket": "horn",
+   "skill": "the charge special: coil then drive; the runtime moves the body"
+  },
+  "cast_roar": {
+   "clip": "cast_roar",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_roar",
+   "release_from": "casts.cast_roar.release_s",
+   "release_socket": "claw_FL",
+   "skill": "the roar clip every cast fires on (novas, rings, fields): rear and stamp"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "horn": {
+   "bone": "head",
+   "along_bone_m": 0.7445,
+   "_what": "the front horn's tip end of the head (the gore lands here)"
+  },
+  "claw_FL": {
+   "bone": "leg_FL_3",
+   "along_bone_m": 0.2191,
+   "_what": "the left forefoot (the stamp)"
+  },
+  "head_top": {
+   "bone": "chest",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.7
+   ],
+   "_what": "the shoulder hump (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_gore_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_charge_dust.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_frost_ring.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_death_burst.png"
+  ]
+ },
+ "watchdog_s": 2400,
+ "texture_status": "PAINTED (D7): sheet EN3-FHPG a at the game pitch",
+ "true_size": {
+  "base_length_m": 3.1,
+  "designed_length_m": 4.0,
+  "reference_record": "rhino_h02.dbr",
+  "reference_scale": 1.2,
+  "note": "conductor size call (KP-222): max-fit base mesh (n17: every clip clears the 768 canvas with 5% margin at 3.1 m); the runtime scales by factor = true/base when the per-kit ppm allows. true = designed length (the sheet brief: horn tip to tail, 4.0 m; shoulder hump 2.0 m = the record actorHeight) x scale(record) / scale(reference). The roster mesh box (8.01 x 4.46 mesh units) is not used (Lap F).",
+  "records": {
+   "rhino_h01/rhino_h02/rhino_h03/rhino_h04 (champion-hero; w157 rolls 2)": {
+    "scale": 1.2,
+    "true_length_m": 4.0,
+    "factor": 1.29,
+    "e_bodies": 0.329
+   }
+  }
+ }
+}

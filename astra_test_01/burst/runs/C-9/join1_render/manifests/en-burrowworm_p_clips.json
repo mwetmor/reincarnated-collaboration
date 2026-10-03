@@ -1,0 +1,43 @@
+{
+ "what": "JOIN-1 clip manifest for the burrow worm (crucible creature, roster rig aetherialworm (summon)) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/worm_p/worm.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/worm_p/worm.glb",
+  "sha256_16": "e4c5d4a7f3aff241",
+  "height_m": 0.7346,
+  "length_m": 2.7999
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: aetherial worm summons (aetherialworm_b01-b04, r 0.52 x 1.2; ControllerStationaryMonster: emerges and stays); idle: breathing writhe"
+  },
+  "emerge": {
+   "seconds": 0.96667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: stationary: it rises out of its burrow (replaces crawl; the record never travels)"
+  },
+  "attack_bite": {
+   "seconds": 0.8,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: a sucker-maw lunge"
+  },
+  "death": {
+   "seconds": 0.96667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: writhe, curl, still"
+  }
+ },
+ "locomotion_in_place": {},
+ "attacks": {
+  "attack_bite": {
+   "release_s": 0.3667,
+   "frame": 11,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 11)"
+  }
+ },
+ "casts": {},
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": []
+ }
+}

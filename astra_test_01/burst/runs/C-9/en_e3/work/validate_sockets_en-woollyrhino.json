@@ -1,0 +1,45 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/work/raw_en-woollyrhino.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-woollyrhino.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "run": {
+   "worst_m": 0.0004,
+   "samples": 384
+  },
+  "attack_gore": {
+   "worst_m": 1e-05,
+   "samples": 512
+  },
+  "attack_butt": {
+   "worst_m": 0.00093,
+   "samples": 384
+  },
+  "attack_charge": {
+   "worst_m": 0.0013,
+   "samples": 512
+  },
+  "cast_roar": {
+   "worst_m": 0.00018,
+   "samples": 512
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 256
+  },
+  "death": {
+   "worst_m": 1e-05,
+   "samples": 512
+  }
+ },
+ "samples": 3840,
+ "worst_m": 0.0013
+}

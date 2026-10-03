@@ -1,0 +1,201 @@
+{
+ "what": "JOIN-1 clip manifest for the frosthorn (crucible creature, roster rig woollyrhino) -- lane EN-E3 (drax, R-C9-132), read off en_e3/export/frosthorn/frosthorn.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn.glb",
+  "sha256_16": "ab7222324c9bc148",
+  "height_m": 1.4933,
+  "length_m": 3.102
+ },
+ "clips": {
+  "idle": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster idle_a01; ours 60f"
+  },
+  "walk": {
+   "seconds": 0.8,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster walk_a01; walkSpeed 1.2 has no stated base -- 1.5 metres per second INFERRED"
+  },
+  "run": {
+   "seconds": 0.53333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roster lead record run 2.568 metres per second (characterRunSpeed 0.8 x K4-0), run_a01"
+  },
+  "attack_gore": {
+   "seconds": 1.53333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: horn toss (gore, melee 0-2.99 m, bleed): gore_a01 47f rel f19 (633 ms)"
+  },
+  "attack_butt": {
+   "seconds": 0.8,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: basic melee lunge: attack_a01 25f rel f7 (233 ms)"
+  },
+  "attack_charge": {
+   "seconds": 1.5,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: the CHARGE special (special anim ref; no timing in the roster): coil then drive; the travel is the runtime's"
+  },
+  "cast_roar": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: roar_a01 41f rel f18 (600 ms): the frost/ember/star casts (rings, novas, pools) all fire on this clip; rendered as a rear-and-stamp"
+  },
+  "hit": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: gethit 21f"
+  },
+  "death": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e3/scripts/n10); roster ref: death_a01; ours 61f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.5,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 2.57,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_gore": {
+   "release_s": 0.6333,
+   "frame": 19,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 19)"
+  },
+  "attack_butt": {
+   "release_s": 0.2333,
+   "frame": 7,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 7)"
+  },
+  "attack_charge": {
+   "release_s": 0.6667,
+   "frame": 20,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 20)"
+  }
+ },
+ "casts": {
+  "cast_roar": {
+   "release_s": 0.6,
+   "frame": 18,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 18)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "frosthorn_gore_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_gore_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.7067,
+     1.7067
+    ],
+    "px_per_m": 150.0,
+    "plane": "billboard",
+    "pivot": "centre = the front horn tip at contact",
+    "ability": "rhino_gore (melee 0-2.99 m, bleed)",
+    "trigger": "attack_gore contact f19",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "frosthorn_charge_dust",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_charge_dust.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     2.0984,
+     2.0984
+    ],
+    "px_per_m": 122.0,
+    "plane": "billboard",
+    "pivot": "bottom-centre = between the forefeet",
+    "ability": "the charge (drive through the contact)",
+    "trigger": "attack_charge f14 to f24 (one per 200 ms while the runtime moves it)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "frosthorn_frost_ring",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_frost_ring.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     6.2609,
+     6.2609
+    ],
+    "px_per_m": 61.333,
+    "plane": "ground",
+    "pivot": "centre = the forefeet at the stamp (area r 3 m)",
+    "ability": "the roar casts (frost/ember/star novas and fields, r 1-4 m; tint per record)",
+    "trigger": "cast_roar release f18",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "frosthorn_death_burst",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/frosthorn/frosthorn_death_burst.png",
+    "frames": 10,
+    "grid": [
+     5,
+     2
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.4167,
+    "cell_m": [
+     2.5263,
+     2.5263
+    ],
+    "px_per_m": 126.667,
+    "plane": "billboard",
+    "pivot": "centre = the chest",
+    "ability": "the dying ember ring (projectile ring, 8 m)",
+    "trigger": "death start",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

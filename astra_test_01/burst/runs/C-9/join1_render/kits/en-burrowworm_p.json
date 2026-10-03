@@ -1,0 +1,113 @@
+{
+ "kit": "en-burrowworm_p",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the burrow worm (crucible creature, lane EN-E3, R-C9-132). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/worm_p/worm.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-burrowworm_p_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "emerge": {
+   "clip": "emerge",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 12,
+   "sampling": "ends",
+   "manifest_entry": "clips.emerge",
+   "skill": "the stationary worm rises out of its burrow (it never travels)"
+  },
+  "attack_bite": {
+   "clip": "attack_bite",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_bite",
+   "release_from": "attacks.attack_bite.release_s",
+   "release_socket": "maw",
+   "skill": "a sucker-maw lunge"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.1671,
+   "_what": "the sucker maw"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.25
+   ],
+   "_what": "above the maw (HUD anchor)"
+  },
+  "chest": {
+   "bone": "Hips",
+   "_what": "the body's middle"
+  }
+ },
+ "vfx_runtime": {
+  "note": "none: the summon arrives with its owner effects (the larva spawns from the owner; the worm from a burrow puff -- reuse the bloom sprout dust)"
+ },
+ "watchdog_s": 2400,
+ "texture_status": "PAINTED (D7): sheet EN3-PZPG a baked at the game pitch (52.95 deg, 8 views), Tripo projection only where no camera saw the surface, then the worm grade (n09d, luminance-preserving: the paint ink/hatching kept)",
+ "supersedes": {
+  "pack": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-burrowworm",
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-burrowworm/matrix_index.json",
+  "index_sha256": "08bdc4fc4d1319fe8f9d24982d4977b175dd1693d274288c35f1f2b7e9e4e121",
+  "body_glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e3/export/worm/worm.glb",
+  "body_sha256": "e7c06a184dd966630f15e2931c6ef285210c75357719acdd6dee90c5cdecc422",
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-burrowworm_clips.json",
+  "why": "PROVISIONAL Tripo-projection texture replaced by the D7 paint pass + the emerge f20 head-end curl fixed (n22)"
+ },
+ "shared_mesh": "ONE mesh (the parasite sheet EN3-PZ a_r1, one Tripo build) at two scales: en-crawlerlarva_p 0.9 m, en-burrowworm_p 2.8 m; one painted sheet (EN3-PZPG a), two grades",
+ "true_size": {
+  "base_length_m": 2.8,
+  "designed_length_m": 2.8,
+  "note": "conductor size call (R-C9-132): built at the record true size (summon r 0.52 m x scale 1.2, all four records one scale); factor 1.0 -- no runtime scale needed",
+  "records": {
+   "aetherialworm_b01/b02/b03/b04_summon (summons of aetherialbloater)": {
+    "scale": 1.2,
+    "true_length_m": 2.8,
+    "factor": 1.0
+   }
+  }
+ }
+}
