@@ -1,0 +1,128 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $5.00 (fal_spend_R-C9-155).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "lane BVP hero models under R-C9-155 (Matt: fal up to $5)",
+ "budget_usd": 5.0,
+ "entries": [
+  {
+   "ts": "2026-10-03T14:40:41+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "porch_a_band0.png",
+   "usd": 0.00432,
+   "wall_s": 5.4
+  },
+  {
+   "ts": "2026-10-03T14:40:45+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "porch_a_band1.png",
+   "usd": 0.00299,
+   "wall_s": 3.74
+  },
+  {
+   "ts": "2026-10-03T14:40:52+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "porch_b_band0.png",
+   "usd": 0.00522,
+   "wall_s": 6.52
+  },
+  {
+   "ts": "2026-10-03T14:40:56+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "porch_b_band1.png",
+   "usd": 0.00302,
+   "wall_s": 3.78
+  },
+  {
+   "ts": "2026-10-03T14:41:03+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "barrow_a_band0.png",
+   "usd": 0.00353,
+   "wall_s": 4.41
+  },
+  {
+   "ts": "2026-10-03T14:41:08+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "barrow_a_band1.png",
+   "usd": 0.00306,
+   "wall_s": 3.83
+  },
+  {
+   "ts": "2026-10-03T14:41:12+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "barrow_b_band0.png",
+   "usd": 0.00339,
+   "wall_s": 4.24
+  },
+  {
+   "ts": "2026-10-03T14:41:18+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "barrow_b_band1.png",
+   "usd": 0.00388,
+   "wall_s": 4.86
+  },
+  {
+   "ts": "2026-10-03T14:45:39+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build hall",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:46:26+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build porch",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:46:31+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build gable",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:46:37+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build wreck",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:47:12+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build cliffplain",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:47:18+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build cavecliff",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:47:26+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build staircliff",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:47:30+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build barrow",
+   "usd": 0.4,
+   "wall_s": null
+  },
+  {
+   "ts": "2026-10-03T14:47:58+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build crag",
+   "usd": 0.4,
+   "wall_s": null
+  }
+ ],
+ "running_usd": 3.6294
+}
