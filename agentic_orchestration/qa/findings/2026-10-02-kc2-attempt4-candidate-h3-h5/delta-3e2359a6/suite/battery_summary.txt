@@ -1,0 +1,18 @@
+[kc2rt] PURITY GREEN | files=90 lines=51384 violations=0 | negatives=4
+[kc2rt] LOADER SMOKE GREEN | checks=135 failures=0
+[kc2rt] RULES SMOKE GREEN | checks=58 failures=0
+[kc2rt] HOLE PROBES GREEN | checks=56 failures=0 | negative controls 13/13 RED as required
+[kc2rt] v3.6 PROBES GREEN | checks=37 failures=0 | negative controls 9/9 RED as required
+[kc2rt] COMPLETION PROBES GREEN | checks=48 failures=0 | negative controls 18/18 RED as required
+[kc2rt] LOOP PROBES GREEN | checks=25 failures=0 | negative controls 12/12 RED as required
+[kc2rt] V3P7 PROBES GREEN | checks=71 failures=0 | negative controls 16/16 RED as required
+[kc2rt] V3P7P1 PROBES GREEN | checks=57 failures=0 | negative controls 15/15 RED as required
+[kc2rt] v3.8 PROBES GREEN | checks=31 failures=0 | negative controls 15/15 RED as required
+[kc2rt] v3.11 PROBES GREEN | checks=80 failures=0 | negative controls 28/28 RED as required
+[kc2rt] CONTACT-NATIVE PROBES GREEN | checks=31 failures=0 | negative controls 11/11 RED as required
+[kc2rt] H-4 PROBE GREEN | checks=34 failures=0 | negative controls 31/31 RED as required
+[kc2rt]   (T8 fixture: M-POL-2 / salt 3 dies in w157)
+[kc2rt]   FAIL runtime_header: READ BY RUNNING the .app (exit <null>; model … reference …) and its pack digests equal P-4  no exported binary at /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/h3h5b/rt/desktop/KC2Play/build/desktop/KC2Play.app/Contents/MacOS/KC2Play
+[kc2rt]   FAIL runtime_header: the .app's vendored runtime == this runtime_digest (vendored_runtime_equals_runtime_digest <null>)  re-vendor and rebuild the .app at this tree
+[kc2rt] ATTEMPT-2 PROBES RED | checks=54 failures=2 | negative controls 16/16 RED as required
+[kc2rt] SUITE RED

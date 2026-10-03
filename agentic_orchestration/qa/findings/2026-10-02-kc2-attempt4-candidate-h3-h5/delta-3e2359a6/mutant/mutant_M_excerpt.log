@@ -1,0 +1,5 @@
+[kc2rt] === PACK-v3.11 PROBES (KP-235 seal pipeline: the port on pack v3.11) ===
+[kc2rt]   ok   (M1) Cruel off at the tick's start: the snapshot is 1.0, and a dying hit in the disc then opens the window (fresh read 0.92)
+[kc2rt]   FAIL (M2) the bleed applied this tick uses the SNAPSHOT: dps = bleed_dps_total·(1 − res/100)·1.0 (the oracle's ×1.0)  got 1091.52 want 1186.4347826087
+[kc2rt]   FAIL ⚑ NEGATIVE CONTROL DID NOT RED — (M3) the bleed applied this tick equals the FRESH read (×0.92, the defect H-3 BLOCK-1 read)  got 1091.52 fresh 1091.52
+[kc2rt] v3.11 PROBES RED | checks=81 failures=2 | negative controls 27/28 RED as required

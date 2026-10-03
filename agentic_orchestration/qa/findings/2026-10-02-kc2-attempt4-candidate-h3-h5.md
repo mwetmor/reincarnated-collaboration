@@ -437,3 +437,149 @@ I will do 1 and 2 in the delta Gate-2. drax files 3, and I re-run a sample.
   - prereg v1.14 (§ C.9, § G, § H), v1.15, notes;
   - my prior `2026-10-01-kc2-play-h3-delta-gate2-d03ca891.md` and `2026-10-01-kc2-play-h5-hole-closure-d03ca891.md`.
 - **Instruments:** `2026-10-02-kc2-attempt4-candidate-h3-h5/{runs,closure,review}/` (each with `SHA256SUMS` or README).
+
+---
+---
+
+# ⚑ DELTA · 2026-10-03 · the KP-274 repair candidate `3e2359a6` (conductor dispatch KP-275)
+
+**Severity:**
+- **H-3 delta: PASS** (0 BLOCK · 0 WARN · 4 INFO). **BLOCK-1 is discharged.**
+- **H-5 re-confirm at `3e2359a6`: PASS-WITH-FINDINGS stands.** WARN-A is discharged. WARN-B is reduced to INFO.
+- **Corrigendum to § 6 above:** the control total I printed as "236 / 236" was an addition error. The correct sum of the listed batteries at `fd799b63` was **164**, or **180** with attempt-2's 16. No battery figure was wrong, only the total.
+
+**Target:** runtime FILE **`3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057`** (107 members).
+- I re-derived it with `make_manifest.py` over `git archive 66605a1`; `MANIFEST.json` is byte-equal.
+- `kc2_runtime/` is identical at `66605a1` and `c64c192` (main).
+- Native library unchanged: `74360ffa…`, re-hashed in the archive and in the rebuilt `.app`'s `Frameworks/`.
+- Delta `96fc0cc..66605a1 -- kc2_runtime`: **d7b4846**, **b87e233** (MANIFEST), **b1d2c9e**, **66605a1** (MANIFEST). 16 files, +716 / −134.
+- Evidence: godot `evidence/kc2-play/2026-10-03-g3-25cell-kp274-V311FULL-66605a1/` (summaries + logs). It reuses the committed KP-261 oracle traces: the filed W1 s2 summary's `trace_sha256` `94496de0…` equals the gunzipped `…-kp261-…/oracle_traces/W1_s2.json.gz`.
+
+**Instruments:** `2026-10-02-kc2-attempt4-candidate-h3-h5/delta-3e2359a6/` (with `SHA256SUMS`).
+
+## D.1 · H-3 delta, per commit
+
+| commit | what | verdict |
+|---|---|---|
+| **d7b4846** | H-7 BLOCK-1 + WARN-3: TA-X-25 (b)/(c) spawn class from `Kc2RtFight.v3p11_can_swing`; `ta_x_29_b_c_d["(b)"]` = the CompositionFold block | **FAITHFUL, labels only.** `_make_body` (`kc2rt_board.gd:909-918`) changes only `sbr_class` and the two counters. Disposition, draws and positions are untouched; G3 summaries are byte-equal to filed except `trace_sha256`. One predicate, `v3p11_can_swing` = `_swing_period_of(rec) > 0 and live_slots(rec)` non-empty, now feeds both the wave-open re-arm (`fight.gd:7730, 7734`, previously two inline copies of the same expression) and the board label. The gate is bound only when a v3.11 slot fold re-arms (`v3p11_gate_on`) and is cleared at every re-bind (`:7546`). Probe (K) K1–K3, K5 and must-RED control K4 (gate unbound → 10 records differ) re-ran GREEN. The TA-X-25 grading itself is the H-7 session's |
+| **b1d2c9e** | BLOCK-1 + WARN-1/3/4 + INFO-1/2/3/5/6 | **BLOCK-1 FIXED, FAITHFUL.** Detail below |
+| **5b525ec** | `kc2_play/tools/kc2p_probe.gd` expectations | **OUTSIDE THE DIGEST, verified.** It touches one file, `kc2_play/tools/kc2p_probe.gd`. No `kc2_play/` path is among the 107 MANIFEST members (all are `kc2_runtime/`-relative), so it cannot move `3e2359a6`. INFO-D3 |
+| b87e233 · 66605a1 | MANIFEST regenerations | digests re-derived (`a38e2913…` intermediate, `3e2359a6…` final) |
+
+### The BLOCK-1 fix, checked against the oracle
+
+**Oracle** (`run.py:2945-2953`): `_mut_f = mutator_fold.player_factor(k)` once per tick, before the disc. It is handed to `player_offense.mutator_factor` and `secondary_streams.mutator_factor`, and Soulfire and bleed multiply by `self.mutator_factor` (`secondary_streams.py:277, 293`).
+
+**Port at `66605a1`:**
+- `_mut_snapshot()` (`fight.gd:7518-7519`) sets `mut_tick_factor = mut_fold.player_factor(run_tick − _wave_start_tick)` (or 1.0).
+- It is called once per tick in `_tick` (`:1965`), **before `_disc_hit_list()` and the disc**. It comes after `_pursue` / `_drive` / `_pet_motion` / `_contact_solve`, none of which resolves a monster hit.
+- Soulfire (`:3834`), bleed (`:3854`) and the disc's banner factor (`_banner_factor_now`, `:5489`) all read `mut_tick_factor`.
+- **No other `player_factor` read remains in `sim/`** (grep).
+- The association is unchanged: `(…·(1−res/100)·crit) * f` and `(dps·(1−res/100)) * f`, as in the oracle.
+
+**Probe (M).**
+- Fixture: Cruel off at the tick's start → snapshot 1.0; then `note_monster_hit` (the dying hit in the disc) → fresh read 0.92; then `_secondary_streams([b])` on a surviving body.
+- M1 asserts snapshot 1.0 and fresh 0.92. M2 asserts the bleed `dps == base × snapshot`. Control M3 (`dps == base × fresh`) must go RED.
+- **I ran a mutant in scratch.** I reverted `:3834` / `:3854` to the pre-fix fresh read and ran the v3.11 probes. **M2 FAILS** (got 1091.52, want 1186.43), **and M3 does not RED** (27/28 controls). So the probe discriminates the defect it was written for (`delta-3e2359a6/mutant/`).
+
+**Fail-first of the other new probes, read and re-run.** All are GREEN, with every control RED as required, at `66605a1`:
+- **(N)** u5 arming. Control N3, "at V38-FULL it still swings", is a real discriminator: with `_hf_on()` false the period is 0.
+- **(O)** O0–O10 with controls O1c, O2c, O3c, O4c, O5c, O7c, O8c, O9c, O10c. Each control removes the mechanism: a free slot, an occupant on its slot, not flagged lost, a dead blocker, timer−1, rfa off, persist off, pets out of the system, the Pursue state.
+
+**The carried items:**
+
+| item | at `66605a1` |
+|---|---|
+| WARN-3(a) | R-6 (ii) is now `n_lethal_floor_ticks > 0` without a death, or `> 1` (`kc2rt_ta_emit.gd`) |
+| WARN-3(b) | `player_summon_hits` reports `{modelled, n_hits, site}` off the bound summons fold (`fight.gd:7121`); the "HALTED" comment and the U-5 rationale are corrected |
+| WARN-4 | T8 takes the first dying cell of a declared list (M-POL-2 s3, dies w157) and checks identity 2 **as v1.13 restated it**, with the control term. **This explains my earlier deficit of 4:** the legacy v1.1 text omits `n_control_suppressed_channelling`, and the probe now asserts that the legacy gap equals that term exactly. T8 is GREEN |
+| INFO-1 | H-4 `shadow_ok` requires `place_shadow_calls > 0` and `petpath_shadow_calls > 0`, and prints "contact solver: not reached at this level". New must-RED control: a shadow cell with zero comparisons |
+| INFO-2 | `run_cell` selects `contact=shadow` (ORACLE refuses without the library), and each cell emits `contact_solver_report`. The verdict face gets `_contact_face()` with `zero_mismatches_with_comparisons`. **So the graded attempt now executes the native library in shadow on every cell, and § C.9.8's per-arm fresh shadow is satisfied by the attempt emission itself, at the attempt digest, on its face.** PLAY's session selects `native` and falls back to the exact reference with a header note. The bridge verifies the pin on the exported bundle's `Frameworks/` copy |
+| INFO-3 | `f2h_b_holds` moved to `tests/kc2rt_ta.gd`. The literal count in `sim/loader/native` went from 752 to 750 |
+| INFO-5 | partial; see INFO-D4 |
+| INFO-6 | per-leg deadline 2,400 s; the hole leg now completes inside the suite |
+| WARN-1 | discharged by (N), (O) and `ge_fold.report()` in G3 summaries (present in my summaries) |
+
+**WARN-2, checked read-only on disk; I did not run it.**
+- `kc2_play/vendor/kc2_runtime/MANIFEST.json` reads `tree_digest` **`3e2359a6…`** and pins model `99711727…`.
+- `desktop/KC2Play/build/desktop/KC2Play.app` was built 2026-10-03 02:06, with `Frameworks/libkc2rt_contact.macos.arm64.dylib` = `74360ffa…`.
+- drax's commit reports the attempt-2 `.app` header checks true.
+- My archive has no `.app`, so my suite's 2 `runtime_header` reds are the environment, as before.
+
+## D.2 · Independent runs at `66605a1`
+
+**G3, contact=shadow, port side, on my own oracle traces.** The oracle is frozen at `969fbd8d`; I generated these traces from my own archive in the first pass. I also produced **one fresh oracle trace with the new tool** (W1 s2). With `engine_src` blanked, it is byte-equal to my earlier trace.
+
+| cell | decision div. | draw mism. | death oracle / port | census · ctrl · x08 · x16 | placement mism. | blocker scans / mism. / goals | oracle_complete |
+|---|---|---|---|---|---|---|---|
+| **M0 s3** | 0 | 0 | [160,225] / [160,225] | ✓ ✓ ✓ ✓ | 0 | 44,707 / 0 / 277 | ✓ |
+| **W1 s2** | 0 | 0 | [160,161] / [160,161] | ✓ ✓ ✓ ✓ | 0 | 41,332 / 0 / 136 | ✓ |
+| M-POL-2 s2 | 0 | 0 | [160,221] / [160,221] | ✓ ✓ ✓ ✓ | 0 | 43,657 / 0 / 204 | ✓ |
+| M0 s0 | 0 | 0 | survived / [160,576] cleared | ✓ ✓ ✓ ✓ | 0 | 30,381 / 0 / 131 | ✓ |
+| W1 s2 (fresh oracle) | 0 | 0 | [160,161] / [160,161] | ✓ ✓ ✓ ✓ | 0 | 41,332 / 0 / 136 | ✓ |
+
+- All 4 summaries equal drax's filed `…-kp274-…-66605a1/summaries/` **in every key except `trace_sha256`**: different oracle-trace files, same content modulo the path field.
+- They are also equal to my `fd799b63` summaries on every comparison count. BLOCK-1's state is not reached on these cells, as predicted.
+
+**Suite** (`run_kc2_runtime_suite.sh`, 2,400 s deadline):
+
+| battery | checks / failures | controls RED |
+|---|---|---|
+| loader | 135 / 0 | — |
+| rules | 58 / 0 | — |
+| purity | 0 violations | — |
+| hole | 56 / 0 | 13 / 13 |
+| v3.6 | 37 / 0 | 9 / 9 |
+| completion | 48 / 0 | 18 / 18 |
+| loop | 25 / 0 | 12 / 12 |
+| v3.7 | 71 / 0 | 16 / 16 |
+| v3.7.1 | 57 / 0 | 15 / 15 |
+| v3.8 | 31 / 0 | 15 / 15 |
+| **v3.11** | **80 / 0** | **28 / 28** |
+| contact-native | 31 / 0 | 11 / 11 |
+| H-4 | 34 / 0 | 31 / 31 |
+| **attempt-2** | **54 / 2** | 16 / 16 |
+| emission (run separately) | 30 / 0 | 9 / 9 |
+
+- Attempt-2's two failures are `runtime_header` only (no `.app` in my archive). T8 is GREEN.
+- **Controls: 193 / 193 RED** (177 without attempt-2).
+
+## D.3 · H-5 re-confirm at `3e2359a6`, per § 7
+
+1. **Runtime-side pin, keys and literals.**
+   - The pin is unchanged: `kc2rt_pack_of_record.gd:46/48`, model `99711727…` and reference `af58ef40…`; the suite prints `PACK PASS | DIGEST PASS`.
+   - Pack-key check: **268 found / 39 non-key labels**, identical to `fd799b63`.
+   - Literal scan over `sim/`, `loader/` and `native/src`: **0 rows on lines added or changed in `96fc0cc..66605a1`** (`scan/scan_delta.tsv` is empty). Total 750, down 2 with the INFO-3 move.
+2. **Suite:** per D.2. Every legacy battery keeps its size; v3.11 gained 19 checks and 12 controls. No assertion was weakened: the T8 change replaces an ill-posed fixture and **adds** a legacy-gap assertion.
+3. **G3:** drax's 25/25 at `66605a1`, plus my 5-cell sample, plus the attempt emission's own per-cell shadow (INFO-2).
+
+**Oracle-side closure:** unaffected. The oracle and pack are unchanged, so § 5's 14-capture proof stands.
+
+**The H-5 WARNs:**
+- **WARN-A is discharged.** The GD half of holes 4, 6 and 14 and the chance-gate path now have probe pins with must-RED controls: (O) slot choice and stealing, pets taking slots and suppression, plus (N).
+- **WARN-B is reduced to INFO.** The sub-states have fixture probes, and G3 summaries carry `ge_fold.report()`. Their *reach on graded cells* is now readable from telemetry; carry it on the seal record.
+
+**Re-opened holes: none.**
+
+## D.4 · INFO (delta)
+
+- **INFO-D1 · (M) pins the bleed path and the consumption, not the tick-order placement.** Soulfire and `_mut_snapshot()`'s position in `_tick` (before the disc) are verified by reading only. A future edit that moves the snapshot after the disc would pass (M). Optional: a tick-level fixture that runs one real `_tick` with a dying slot in reach. (drax)
+- **INFO-D2 · (O6), the RFA exit on arrival, has no control.** Every other (O) item does. (drax, optional)
+- **INFO-D3 · 5b525ec's new statue expectation is a self-consistency check.** It asserts the maximum of the pack's `gr2` rows equals `_max_reach`, where it used to assert an independent 10 m literal. This is correct under the v3.8 fire-range law and PLAY-gate-only, but weaker as an instrument. (drax, record only)
+- **INFO-D4 · INFO-5 is only half fixed.** `engine_src` is now recorded as the last two path components (`engine/src` for me, `eng311/src` for drax), so traces are still not byte-equal across checkouts whose directories are named differently. Record a fixed token, or omit the field. (drax, non-blocking)
+
+## Delta verdict
+
+**H-3 (delta on d7b4846 + b1d2c9e; 5b525ec outside the digest): PASS.**
+- BLOCK-1 is fixed term for term against `run.py:2945-2953` / `secondary_streams.py:277, 293`, and its probe is shown to discriminate by mutation.
+- WARN-1/3/4 and INFO-1/2/3/6 are discharged; INFO-5 is partial.
+
+**H-5 at `3e2359a6`: PASS-WITH-FINDINGS, re-confirmed per § 7.** The closure proof stands, the runtime-side scans are clean on the delta, every control is RED, and no hole has re-opened.
+
+**From my side, `3e2359a6` is clear for the attempt**, subject to the parallel session's H-2 / H-7 at this digest and to the `.app` header checks reading true at launch.
+
+## Delta action
+
+- [ ] **gandalf:** record H-3 PASS (BLOCK-1 discharged) and H-5 PASS-WITH-FINDINGS re-confirmed at `3e2359a6`, plus the § 6 total corrigendum (164 / 180, not 236).
+- [ ] **drax (non-blocking, next change):** INFO-D1, D2, D4.
+- [ ] **H-7 session:** the deficit-4 reading is explained (the control-suppressed term); T8 now checks the restated identity.
