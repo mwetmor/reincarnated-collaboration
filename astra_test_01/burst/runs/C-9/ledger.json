@@ -36866,9 +36866,110 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN3-FHPG",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "6827cb067a74270b474f7878b644cedd7fdd77c0e21777b7552c8369bce84553",
+      "started": "2026-10-03T01:09:54.290552+00:00",
+      "ended": "2026-10-03T01:14:38.783539+00:00",
+      "minutes": 4.741491602083745,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-1ee400e2-7d35-4825-8e77-1c435b941323.png",
+            "sha256": "b018c82c3818bebbdbdad5a9ba935c0712632d79600250550337ef241b447c1a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-513e8513-4d90-4726-838e-931996719581.png",
+            "sha256": "db7d5791062bde024b8d86e26fbcfc3d3084a4ee1c0dcc87e4f82a87d3ec49ef"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-5cf4c97a-f441-48d0-bd0e-d9be0e907a23.png",
+            "sha256": "5f3af916c8abe3854c2e77387fbeef4e2c49e654c402cc17a2cbc12973cbcdbf"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-5d6afcae-ee0e-43bc-9e92-e28ac36cfa19.png",
+            "sha256": "c0495ecf5d7641ba00cfac660d820e1a745aacfbdbdbc16b686e788fb7dfa6f5"
+          }
+        ]
+      },
+      "receipt_sha256": "736616c9d8fd65af85719fa8d4dc81a0c0c6ca5301a0beb83ac78dca08005807",
+      "artifacts": [
+        {
+          "name": "EN3-FHPG_a.png",
+          "sha256": "c0495ecf5d7641ba00cfac660d820e1a745aacfbdbdbc16b686e788fb7dfa6f5"
+        },
+        {
+          "name": "EN3-FHPG_b.png",
+          "sha256": "b018c82c3818bebbdbdad5a9ba935c0712632d79600250550337ef241b447c1a"
+        },
+        {
+          "name": "exec-1ee400e2-7d35-4825-8e77-1c435b941323.provenance.json",
+          "sha256": "0522384a7025e317ea91eb7271ffe011cdcf83cc1d1d60b044de7b0a00dbeb23"
+        },
+        {
+          "name": "exec-513e8513-4d90-4726-838e-931996719581.provenance.json",
+          "sha256": "dadbfd30903b8387b07e30c344a0df57dab5871401f935a604da058689fff802"
+        },
+        {
+          "name": "exec-5cf4c97a-f441-48d0-bd0e-d9be0e907a23.provenance.json",
+          "sha256": "5ace2994c848766523338406211cde5d051e9f878827a0d4996371ca582525d1"
+        },
+        {
+          "name": "exec-5d6afcae-ee0e-43bc-9e92-e28ac36cfa19.provenance.json",
+          "sha256": "4fb7d384fd985c93026a1c2ba96e8a918935f90655778048ae44d1452cca313c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-1ee400e2-7d35-4825-8e77-1c435b941323.png",
+          "sha256": "b018c82c3818bebbdbdad5a9ba935c0712632d79600250550337ef241b447c1a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-513e8513-4d90-4726-838e-931996719581.png",
+          "sha256": "db7d5791062bde024b8d86e26fbcfc3d3084a4ee1c0dcc87e4f82a87d3ec49ef"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-5cf4c97a-f441-48d0-bd0e-d9be0e907a23.png",
+          "sha256": "5f3af916c8abe3854c2e77387fbeef4e2c49e654c402cc17a2cbc12973cbcdbf"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff4f-a3fc-7e10-a658-dffc0d0f1e2d/exec-5d6afcae-ee0e-43bc-9e92-e28ac36cfa19.png",
+          "sha256": "c0495ecf5d7641ba00cfac660d820e1a745aacfbdbdbc16b686e788fb7dfa6f5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1100,
+  "images_used": 1104,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -37974,6 +38075,11 @@
       "id": "M-C9-EN2-P2-NEW5-BUILT",
       "ts": "2026-10-03T01:11:45Z",
       "note": "EN-E2 Phase 2 (collab bf5091beb): five new crucible bodies built through paint, clips, final export and kits, cells NOT yet rendered: en-fleshshaper (w152, 2.30 m), en-ascended (w154, 2.40 m), en-vigillord (w160 skeleton nemesis, free transfer from the revenant rig + bridge cut, 2.15 m), en-fleshhulk (w159, 3.00 m designed, max-fit pending), en-colossus (w160, 3.20 m designed, max-fit pending). Lane spend: Astra 68 / 85 images, Meshy 20 / 200, fal $2.01 / $3.00. HALTED at the disk gate (18 GiB < 20 GiB) before the cell render; reclaim list cleanup/manifest_en_e2_p2_bake_intermediates.txt (3.81 GiB, lane intermediates, not deleted)."
+    },
+    {
+      "id": "M-C9-EN3-P2-INTERIM",
+      "ts": "2026-10-03T01:17:20Z",
+      "note": "EN-E3 Phase 2 (conductor aab928, R-C9-135/137) interim, halted on the disk gate. RHINO (frosthorn): sheet EN3-FH2 a_r1 (EN3-FH had died on the old weekly usage limit, re-fired under a fresh id), Tripo build, Tripo built the side views' far legs as a SECOND hind pair under the belly -> culled (n04b_cull_box), n10 rig with neck_k 0.6 + jaw_locked (the coat streaked on full neck swings; a red mouth bag showed on a closed-mouthed beast); clips idle/walk/run/attack_gore (toss, rel f19)/attack_butt (rel f7)/attack_charge (rel f20)/cast_roar (rel f18)/hit/death; n17 at 3.2 m s_with_margin 0.973 -> base 3.1 m (designed 4.0 m); paint sheet EN3-FHPG delivered (a, b). ABOMINATION (rift horror, R-C9-137 order item 2): brief EN3-RH (generic, refs_guard OK), sheet a_r1, Tripo, prep 2.4 m, new rig n24 (n19 + impale/cast/drain kinds), rig v1 lint clean, n17 s_with_margin 0.846 (binding attack_impale f31). HELLHOUND (rime wolf): brief EN3-RW, sheet b_r1 (right-profile band on the near foreleg: to fix in paint), Tripo, prep 4.4 m. LARVA/WORM paint: canvas + EN3-PZPG (a, b) delivered; worm baked (sheetA share 0.63); larva via n25 surface transfer from the worm bake (the worm-scaled cameras smeared a direct larva bake). WORM EMERGE CHECK: DEFECT, not foreshortening -- n22's floor loop fought the emerge grow (belly under the floor), ran 60 passes and curled the head end back over the body; measured (n23_stretch) front-25% rose 0.29->0.96 m, dorsal edges to 0.58 of bind, 659 collapsed edges; fix (ground-solved clips skip the loop) -> front 0.41 m, 139 collapsed (head bin, the jaw cut); before/after strips work/strip_worm_emerge_{S,E}_{before,after}.png. Spend: Astra 20 images (lane), Meshy 0, fal $1.21 of $2.00."
     }
   ],
   "halts": [
@@ -37997,6 +38103,13 @@
       "status": "open",
       "what": "EN-E2 lane halted heavy work: df /System/Volumes/Data 18 GiB free < 20 GiB gate (R-C9-88). Next step on resume: en21 cells for en-fleshshaper, en-ascended, en-vigillord, en-fleshhulk, en-colossus; max-fit d/e; index/lint/sockets/resample; stills8.",
       "reclaim": "runs/C-9/cleanup/manifest_en_e2_p2_bake_intermediates.txt (72 files, 3.81 GiB; Matt runs it)"
+    },
+    {
+      "id": "H-C9-EN3-P2-DISK",
+      "ts": "2026-10-03T01:17:20Z",
+      "status": "open",
+      "what": "EN-E3 lane halted heavy work (Blender/Godot): df /System/Volumes/Data 17.6 GiB free < 20 GiB gate (R-C9-88), measured 01:13Z. Queued Blender/Godot chains stopped (no job was mid-write). Next on resume: (1) frosthorn: bake EN3-FHPG (06a under the lock) -> export -> pack en-woollyrhino; (2) larva/worm: n22 export with the painted textures (work/tex_larva_PG2.png, work/tex_worm_PG.png, cfg_*_p.json written) -> packs en-crawlerlarva_p / en-burrowworm_p; (3) rift horror: verify the impale arm swing at W, canvas + paint brief; (4) rime wolf: look + rig v1.",
+      "reclaim": "EN-E3 own superseded intermediates are only ~0.27 GiB (builds/*_rig_v*.glb, worm_rig_fix1, frosthorn_prep/_c/32/32_c); the gate needs manifest 13 (15.9 GiB, Matt) or EN-E2 bake manifest (3.81 GiB, Matt)"
     }
   ],
   "rulings": [

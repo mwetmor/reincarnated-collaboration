@@ -353,8 +353,12 @@ for name, c in CL.items():
         ikmax = max(ikmax, ikerr) if f else ikerr
         mz, co = mesh_minz()
         # FLOOR SOLVE (floater): curl the tendril that touches the floor; never lift the sac (its hover is the clip's)
+        # (n22 fix, EN-E3 2026-10-02, the worm emerge f20 "head-end bunch"): a GROUND-SOLVED clip lifts the Hips instead (below). Before
+        # this, the emerge's grow (Hips scale > 1 about the Hips pivot) put the BELLY under the floor, this loop could not clear it by
+        # lifting the front, ran all 60 passes, and curled the head end back over the body (+60 deg per front bone) -- a solver defect,
+        # not foreshortening (n23_stretch: front 25 % rose 0.29 -> 0.96 m, dorsal edges collapsed to 0.58 of bind).
         for _ in range(60):
-            if mz >= -0.003 or CL[name].get('kind_fn', name) == 'death': break
+            if mz >= -0.003 or CL[name].get('kind_fn', name) == 'death' or c.get('ground_solve'): break
             st = floor_fix(st, co); apply(st); bpy.context.view_layer.update(); mz, co = mesh_minz()
         for _ in range(4):
             if not (c.get('ground_solve') and mz < 0.0): break

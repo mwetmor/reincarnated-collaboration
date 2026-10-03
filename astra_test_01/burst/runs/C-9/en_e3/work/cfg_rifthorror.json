@@ -1,0 +1,98 @@
+{
+ "name": "rifthorror",
+ "type_id": "abomination",
+ "foot_band": 0.05,
+ "foot_x_max": 0.8,
+ "hip_z_frac": 0.4,
+ "leg_col_r": 0.24,
+ "ankle_z": 0.13,
+ "hip_x": 0.3,
+ "hip_back": 0.1,
+ "head_band": 0.62,
+ "head_len": 0.42,
+ "lip_z_frac": 0.4,
+ "hinge_frac": 0.8,
+ "chest_drop": 0.35,
+ "arm_x_min": 0.8,
+ "shoulder_x": 0.68,
+ "belly_fwd": 0.7,
+ "foot_block_z": 0.1,
+ "mouth_rgba": [
+  0.11,
+  0.035,
+  0.03,
+  1.0
+ ],
+ "mouth_texture": "work/tex_maw_mouth.png",
+ "bag_w": [
+  0.25,
+  0.4
+ ],
+ "bag_half_h": 0.025,
+ "bag_y0_frac": 0.3,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 44,
+   "src": "roster combatidle_a01; ours 44f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 30,
+   "speed": 1.3,
+   "src": "roster walk_a01; walkSpeed 1.0 has no stated base -- 1.3 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 20,
+   "speed": 3.21,
+   "src": "roster run = the walk clip played at the lead record run 3.209 m/s (characterRunSpeed 1.0 x K4-0); ours a faster lumber"
+  },
+  "attack_swipe": {
+   "kind": "oneshot",
+   "kind_fn": "thrash",
+   "frames": 41,
+   "contact": 16,
+   "src": "basic melee (attack_a01/b01; no hit frame in the packet -- contact f16 INFERRED)"
+  },
+  "attack_impale": {
+   "kind": "oneshot",
+   "kind_fn": "impale",
+   "frames": 76,
+   "contact": 45,
+   "hold": 6,
+   "src": "impale (melee 0-2.59 m, slow): attack_impale_a01 76f rel f45 (1500 ms)"
+  },
+  "cast_rift": {
+   "kind": "oneshot",
+   "kind_fn": "cast",
+   "frames": 87,
+   "release": 35,
+   "hold": 12,
+   "src": "rift vortex (projectile aoe 3.75 m radius, range 16.3 m): cast_aoe_a01 87f rel f35 (1167 ms)"
+  },
+  "cast_drain": {
+   "kind": "oneshot",
+   "kind_fn": "drain",
+   "frames": 61,
+   "release": 48,
+   "hold": 8,
+   "src": "life-drain nova (4 m radius around itself; also the tentacle summon): cast_curse_a01 61f rel f48 (1600 ms)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 17,
+   "src": "gethit 17f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 50,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01; ours 50f, a collapse in place"
+  }
+ },
+ "weight_smooth": 20,
+ "arm_r": 0.22,
+ "hand_r": 0.36
+}

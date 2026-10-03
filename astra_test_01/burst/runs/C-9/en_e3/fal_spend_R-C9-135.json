@@ -1,0 +1,44 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $2.00 (fal_spend_R-C9-135).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "Opened 2026-10-02 for EN-E3 lane R-C9-135 (conductor aab928 dispatch: rhino, abomination, giant wolf, larva/worm paint), cap $2.00.",
+ "budget_usd": 2.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T23:14:36+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 R-C9-135 frosthorn (rhino) base Tripo build",
+   "usd": 0.4,
+   "wall_s": 159.19
+  },
+  {
+   "ts": "2026-10-02T23:25:52+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN3 matte EN3-RH_a_r1.png",
+   "usd": 0.0054,
+   "wall_s": 6.75
+  },
+  {
+   "ts": "2026-10-02T23:26:12+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN3 matte EN3-RW_b_r1.png",
+   "usd": 0.00413,
+   "wall_s": 5.16
+  },
+  {
+   "ts": "2026-10-02T23:30:36+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 R-C9-135 rift horror (abomination) base Tripo build",
+   "usd": 0.4,
+   "wall_s": 218.47
+  },
+  {
+   "ts": "2026-10-02T23:33:24+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN3 R-C9-135 rime wolf (giant wolf) base Tripo build",
+   "usd": 0.4,
+   "wall_s": 160.45
+  }
+ ],
+ "running_usd": 1.2095
+}

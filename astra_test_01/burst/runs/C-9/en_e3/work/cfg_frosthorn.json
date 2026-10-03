@@ -1,0 +1,91 @@
+{
+ "name": "frosthorn",
+ "type_id": "woollyrhino",
+ "head_len_frac": 0.24,
+ "lip_z_frac": 0.12,
+ "hinge_frac": 0.9,
+ "tail_frac": 0.08,
+ "joint_frac": 0.5,
+ "ankle_z": 0.2,
+ "mouth_rgba": [
+  0.32,
+  0.28,
+  0.23,
+  1.0
+ ],
+ "bag_w": [
+  0.12,
+  0.2
+ ],
+ "bag_half_h": 0.015,
+ "bag_y0_frac": 0.45,
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 60,
+   "src": "roster idle_a01; ours 60f"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 1.5,
+   "src": "roster walk_a01; walkSpeed 1.2 has no stated base -- 1.5 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 16,
+   "speed": 2.57,
+   "duty": 0.35,
+   "src": "roster lead record run 2.568 m/s (characterRunSpeed 0.8 x K4-0), run_a01"
+  },
+  "attack_gore": {
+   "kind": "oneshot",
+   "kind_fn": "toss",
+   "frames": 47,
+   "contact": 19,
+   "src": "horn toss (gore, melee 0-2.99 m, bleed): gore_a01 47f rel f19 (633 ms)"
+  },
+  "attack_butt": {
+   "kind": "oneshot",
+   "kind_fn": "charge",
+   "frames": 25,
+   "contact": 7,
+   "src": "basic melee lunge: attack_a01 25f rel f7 (233 ms)"
+  },
+  "attack_charge": {
+   "kind": "oneshot",
+   "kind_fn": "charge",
+   "frames": 46,
+   "contact": 20,
+   "src": "the CHARGE special (special anim ref; no timing in the roster): coil then drive; the travel is the runtime's"
+  },
+  "cast_roar": {
+   "kind": "oneshot",
+   "kind_fn": "stomp",
+   "frames": 41,
+   "release": 18,
+   "src": "roar_a01 41f rel f18 (600 ms): the frost/ember/star casts (rings, novas, pools) all fire on this clip; rendered as a rear-and-stamp"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "gethit 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 61,
+   "ground_solve": true,
+   "hold_last": true,
+   "src": "death_a01; ours 61f"
+  }
+ },
+ "jaw_rest": 0.0,
+ "jaw_work": 1.0,
+ "foot_block_dz": 0.03,
+ "leg_gate_y": 0.4,
+ "tail_gate_z": 0.35,
+ "foot_band": 0.05,
+ "neck_k": 0.6,
+ "jaw_locked": true,
+ "_scale_note": "designed 4.0 m horn-tip to tail tip (sheet brief); built at 3.1 m (x0.775) so every clip clears the JOIN-1 canvas with >=5% margin (n17 rig_v3 at 3.2 m: s_with_margin 0.973, binding attack_butt f12)"
+}

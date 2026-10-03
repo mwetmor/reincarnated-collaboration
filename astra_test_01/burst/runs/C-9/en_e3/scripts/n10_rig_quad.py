@@ -396,6 +396,25 @@ def clip_state(name, f):
             fr = lg[0] == 'F'; cur = kf([(0, 0), (c0, 0), (c1, 1), (N, 1.1)], f)
             st['fk_' + lg] = (infl, (-35 if fr else 30) * cur, (60 if fr else -55) * cur, (-30) * cur)
         return st
+    if k == 'toss':
+        # the HORN TOSS: the head drops low and back, then FLICKS up and forward through the contact (the horn hooks up), recovers
+        cf = c['contact']; st = {}; a0 = max(3, cf - 7)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.06), (cf, -0.18), (cf + 6, -0.10), (N, 0)], f), kf([(0, 0), (a0, -0.06), (cf, 0.04), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (a0, -4), (cf, 6), (N, 0)], f), 0, 0)
+        st['chest'] = (kf([(0, 0), (a0, -10), (cf, 12), (cf + 6, 6), (N, 0)], f), 0, 0)
+        st['neck'] = (kf([(0, 0), (a0, -22), (cf, 28), (cf + 6, 14), (N, 0)], f), 0, kf([(0, 0), (a0, -6), (cf, 10), (N, 0)], f))
+        st['head'] = (kf([(0, 0), (a0, -14), (cf, 20), (cf + 6, 8), (N, 0)], f), kf([(0, 0), (cf, 12), (N, 0)], f), 0)
+        return st
+    if k == 'charge':
+        # the CHARGE (in place; the travel is the runtime's): the head drops, horn levelled, the body coils back then drives forward
+        # hard through the contact, the hind legs bracing; a heavy recovery
+        cf = c['contact']; st = {}; a0 = max(3, cf - 9)
+        st['pelvis_loc'] = (0, kf([(0, 0), (a0, 0.16), (cf, -0.38), (cf + 8, -0.30), (N, 0)], f), kf([(0, 0), (a0, -0.08), (cf, -0.04), (N, 0)], f))
+        st['Hips'] = (kf([(0, 0), (a0, 6), (cf, -8), (N, 0)], f), 0, 0)
+        st['chest'] = (kf([(0, 0), (a0, -6), (cf, -10), (N, 0)], f), 0, 0)
+        st['neck'] = (kf([(0, 0), (a0, -20), (cf, -16), (cf + 8, -6), (N, 0)], f), 0, 0)
+        st['head'] = (kf([(0, 0), (a0, -12), (cf, -6), (N, 0)], f), 0, kf([(0, 0), (cf, 0), (cf + 2, 6), (cf + 4, -6), (cf + 6, 0), (N, 0)], f))
+        return st
     if k == 'stomp':
         # the GROUND IMPALE: the forequarters rear (both front feet lift high and forward, the body pitches up on the hind legs), then
         # SLAM both forefeet down at the release -- the ice spikes erupt ahead (runtime VFX); a heavy settle, then recover
@@ -467,6 +486,13 @@ def clip_state(name, f):
 _clip_state_raw = clip_state
 def clip_state(name, f):
     st = _clip_state_raw(name, f); ms = CFG.get('motion_scale', 1.0); k = CL[name].get('kind_fn', name)
+    # (frosthorn, R-C9-135) neck_k: a long-haired coat hangs across the neck/chest joints, and a full neck swing streaks it -- scale the
+    # chest/neck/head rotations of the action clips; jaw_locked: a closed-mouthed beast never shows its mouth bag
+    nk = CFG.get('neck_k', 1.0)
+    if nk != 1.0 and k not in ('walk', 'run', 'idle'):
+        for b_ in ('chest', 'neck', 'head'):
+            if b_ in st: st[b_] = tuple(v * nk for v in st[b_])
+    if CFG.get('jaw_locked'): st['jaw'] = (CFG.get('jaw_rest', 0.0), 0, 0)
     if ms != 1.0 and k not in ('walk', 'run', 'death', 'idle'):
         if 'pelvis_loc' in st: st['pelvis_loc'] = tuple(v * ms for v in st['pelvis_loc'])
         for lg in LEGS:

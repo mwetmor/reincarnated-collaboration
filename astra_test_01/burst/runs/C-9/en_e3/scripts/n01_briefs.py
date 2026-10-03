@@ -21,6 +21,45 @@ WORLD = ("THE WORLD: the great cathedral of the Keepers of Hours, an order of ti
 
 CREATURES = {
 
+ 'frosthorn': dict(type_id='woollyrhino', tid='EN3-FH', marker='the brass ring on its LEFT horn', body='a huge four-legged shaggy beast',
+   text="""THE CREATURE, a FROSTHORN: a huge, heavy, shaggy four-legged beast of the frozen crypt-tundra, like a mammoth-sized rhinoceros. It charges, tosses with its horns and stamps the ground so that frost cracks out around it.
+- SIZE AND BUILD: massive and low-slung: about 4 m from the tip of the horn to the rump, its shoulder hump about 2 m high, the back sloping down to the hips. The head is huge and held LOW, below the line of the shoulders.
+- THE HEAD: long and heavy, armoured with a thick plate of grey horn across the brow; TWO great HORNS on the nose, the front one long (about 1 m), sweeping forward and up, the second shorter behind it; small deep-set pale ice-blue eyes; mouth closed.
+- THE COAT: a thick, long, matted SHAGGY COAT of dark grey-brown and ash-white hair hanging from the hump, the flanks and the belly down to the knees, clotted with frost and icicles at the ends; the face, legs below the knees and the horn plate bare grey hide.
+- THE LEGS: four short, thick, pillar-like legs, the feet broad and round with three blunt hooves.
+- THE TAIL: short, thick and tufted.
+- ASYMMETRY MARKER: a corroded BRASS RING engraved with hour-marks clamped around the base of the LEFT side of the great front horn ONLY -- a brass band showing on the LEFT side of the horn's base, never on the right.
+- Nothing else on it: no rider, no saddle, no chains, no harness.
+"""),
+
+ 'rifthorror': dict(type_id='abomination', tid='EN3-RH', marker='the brass collar-ring on its LEFT great arm', body='a hunched many-limbed two-legged horror',
+   pose=("POSE (for building and rigging a 3D model): standing still on its two legs in a neutral pose, hunched forward as it naturally stands, "
+         "the legs apart under the hips, the feet flat and pointing forward, so a clear gap of green shows between the legs in the front and back views. "
+         "The two GREAT ARMS hang down and a little OUT from the body, clear of the torso and the legs, the bone spikes pointing at the ground and clear "
+         "of it, so a gap of green shows between each arm and the body in the front and back views. The tentacles on its back rise UP and BACK, clear of "
+         "the arms and of each other. The head level and facing forward, the MOUTH CLOSED. Nothing overlaps anything."),
+   text="""THE CREATURE, a RIFT HORROR: a hulking, hunched thing of the deep crypt, stitched together out of too many limbs, that walks up out of the broken floor. It impales prey on the spikes of its great arms, opens small whirling rifts that drag and tear, drains the life of everything around it, and calls grasping tentacles up out of the floor.
+- SIZE AND BUILD: about 2.4 m tall as it stands hunched; a massive humped torso and shoulders on two short, thick, bowed legs; the head sits low and forward between the shoulders, below the line of the hump. Seen from above it reads as a broad hump with two long arms and a crown of tentacles.
+- THE HEAD: small, eyeless and smooth-skulled, mostly a vertical slit of a mouth fringed with small pale hooked teeth, CLOSED in this sheet; a cluster of four small dull violet eyes high on the brow.
+- THE GREAT ARMS: TWO very long, heavy arms that hang nearly to the ground, each forearm ending not in a hand but in a single long curved SPIKE of pale bone, as long as a forearm.
+- THE TENTACLES: from its back and the top of its hump grow SIX thick, tapering, fleshy TENTACLES, about 1 m long, that rise up and curl back over it like a crown, each ringed with paler sucker-bands.
+- THE SKIN: tight, ashen grey-violet hide like an old bruise, darker violet-black on the back and the tentacles, paler sickly grey-ivory on the belly and the inner arms; thick seams of crude black stitching across the chest and shoulders where limbs were joined on; a few dull crimson veins.
+- THE LEGS: short, thick and bowed, with broad flat feet of three blunt dark claws.
+- ASYMMETRY MARKER: a corroded BRASS COLLAR-RING engraved with hour-marks clamped around the upper LEFT great arm ONLY, just below the shoulder. It shows in every view where the left arm is visible, never on the right.
+- Nothing else on it: no clothing, no armour, no weapon other than its own bone spikes, no rider, no chains.
+"""),
+
+ 'rimewolf': dict(type_id='hellhound', tid='EN3-RW', marker='the brass collar-band on its LEFT foreleg', body='a giant four-legged wolf',
+   text="""THE CREATURE, a RIME WOLF: a giant wolf of the frozen lower crypt, the leader of a pack, as big as a draught horse. It lunges with a huge rending bite and breathes a freezing cone of frost that cracks across the floor.
+- SIZE AND BUILD: about 3.2 m from the tip of the nose to the rump (the tail more), its shoulders about 1.7 m from the ground; deep-chested and long-legged, the back level, lean in the waist.
+- THE HEAD: long, heavy wolf's head carried level, the ears up and back, a thick mane-ruff of fur around the neck and shoulders; small pale ice-blue eyes; the jaw long, the mouth CLOSED, two long pale fangs showing over the lower lip.
+- THE COAT: thick, long, shaggy fur, dark slate-grey and ash on the back, paler frost-white on the ruff, the throat, the belly and the legs; along the spine and the shoulders the fur is clotted into stiff points crusted with frost and small icicles; a few pale scars across the muzzle.
+- THE LEGS: four long, strong legs, the paws broad with dark claws.
+- THE TAIL: long, thick and bushy, held straight out behind.
+- ASYMMETRY MARKER: a corroded BRASS BAND engraved with hour-marks clamped around its LEFT foreleg ONLY, just above the paw. It shows in every view where the left foreleg is visible, never on any other leg.
+- Nothing else on it: no rider, no saddle, no collar, no chains, no harness.
+"""),
+
  'voiddrone': dict(type_id='chthonianservitor', tid='EN3-VD', marker='the brass band on its LEFT scythe-arm', body='a huge many-legged insect',
    pose=("POSE (for building and rigging a 3D model): standing still and level on its SIX walking legs in a neutral pose, the legs spread evenly, "
          "three on each side, each rising to a high bent knee and down to a point on the ground, with clear gaps of green between neighbouring legs "
