@@ -35527,9 +35527,131 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV3r2-B",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "78619706804aff251d9d7547f09ff0159bd149087556256994e1d55e7b0c0ac8",
+      "started": "2026-10-03T00:30:34.370634+00:00",
+      "ended": "2026-10-03T00:32:46.739745+00:00",
+      "minutes": 2.2061282812501304,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2b-8832-77c0-8993-439038dff54e/exec-cb9d1507-47b4-4d5e-9b40-f191eb3131b3.png",
+            "sha256": "caba0352aaa7a4519cff92bf4ef82d4298b0edba9fb6b1619a2b913c1d15cefe"
+          }
+        ]
+      },
+      "receipt_sha256": "8e35f56619a9ea1670bf9be3919a085d4f9b6505efce33896a08e0a35279d97b",
+      "artifacts": [
+        {
+          "name": "BV3r2-B.png",
+          "sha256": "caba0352aaa7a4519cff92bf4ef82d4298b0edba9fb6b1619a2b913c1d15cefe"
+        },
+        {
+          "name": "exec-cb9d1507-47b4-4d5e-9b40-f191eb3131b3.provenance.json",
+          "sha256": "a48b44578ea5013f7b46e80ce58ed921bf1bd08dff71d78092ee3e56db7db685"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2b-8832-77c0-8993-439038dff54e/exec-cb9d1507-47b4-4d5e-9b40-f191eb3131b3.png",
+          "sha256": "caba0352aaa7a4519cff92bf4ef82d4298b0edba9fb6b1619a2b913c1d15cefe"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV3r2-A",
+      "type": "GENERATE",
+      "experiment": "BV3-barrow-v2-sites",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a9acfa0f45165bd5a220aa8c72b0897d61a1c2cf7be023d58de7a83c16b396e7",
+      "started": "2026-10-03T00:30:34.370268+00:00",
+      "ended": "2026-10-03T00:34:00.199098+00:00",
+      "minutes": 3.43045435276775,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2b-887e-76f0-b5d0-8e5ab59d672b/exec-d6451efa-8f2e-4a42-b52d-4a06bdc6070e.png",
+            "sha256": "72afc875fa5c8fbf2c93249b204e5a99d6380a46b4b4f389d4bcfa46f9ed3b8a"
+          }
+        ]
+      },
+      "receipt_sha256": "6750b63b6169253186b50e28c69409aaa26dd51acf870551725d0708191a0b0a",
+      "artifacts": [
+        {
+          "name": "BV3r2-A.png",
+          "sha256": "72afc875fa5c8fbf2c93249b204e5a99d6380a46b4b4f389d4bcfa46f9ed3b8a"
+        },
+        {
+          "name": "exec-d6451efa-8f2e-4a42-b52d-4a06bdc6070e.provenance.json",
+          "sha256": "1b38a00ad052cce5eaaefc4f3920fd0e877d8548683dc579a792808c71eb0911"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2b-887e-76f0-b5d0-8e5ab59d672b/exec-d6451efa-8f2e-4a42-b52d-4a06bdc6070e.png",
+          "sha256": "72afc875fa5c8fbf2c93249b204e5a99d6380a46b4b4f389d4bcfa46f9ed3b8a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1054,
+  "images_used": 1056,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -36583,6 +36705,12 @@
       "ts": "2026-10-03T00:31:16Z",
       "ruling": "R-C9-141",
       "note": "Hand-back (b). NEW pack root join1_pack/gd-eor-warlord-eor3 (kit join1_render/kits/gd-eor-warlord-eor3.json: kit id gd-eor-warlord, pack_version 2, supersedes join1_pack/gd-eor-warlord pinned by index sha d44c3626c00a; manifest join1_render/manifests/gd-eor-warlord-eor3_clips.json; config otherwise identical apart from the source). 72/72 cells COMPLETE, 856 frames, no flags; h_model 1.9599 m (= eor2). Release times IDENTICAL to eor2: attack contact r=5 at 0.8667 s, warcry r=7 at 1.9 s, eor_spin_start 7 frames / 0.2 s, eor_spin_loop 16 frames / 0.3 s (closure MAD 0.002); every state's t_s, durations and strides equal; every socket sample equal to eor2 (max diff 0). validate_sockets worst 0.00262 m over 3424 samples (= eor2); runtime resample exact on every clip; manifest lint 0 mismatches, negative controls (release, prose, spin prose) FAIL as designed. Pixels: 848 of 856 frames change, max 89 px/frame, all on the helm crown / head. Contact sheet join1_pack/gd-eor-warlord-eor3_contact_sheet_1x.png. The eor2 pack root is untouched (immutable). Observation, not changed: a violet speck at the left horn tip is in eor2 and eor3 alike (helm emission texture)."
+    },
+    {
+      "id": "M-C9-BV3R2-FJORD",
+      "lane": "BV3 (drax)",
+      "ts": "2026-10-03T00:40:00Z",
+      "note": "R-C9-144 round 2 on the Fjord Headland (BV3-2), 2 bursts BV3r2-A/B (GENERATE, 1 image each, 0 retries; Astra 2 of a 4 cap). No ring around the site; the edges are the land itself (N barrow slope, W shingle/wreck shore into sea ice, S cliff-top with sea-cave steps, E/SE half-burned palisade around the burnt hall yard); a small broken 7-9 stone circle near the centre; a large irregular frozen mere NW with reeds and cracks; blended mini-biomes. A = one continuous floor; B = with bites (SW sea inlet between wreck and cave, rock outcrop between cave and hall, mere bank toward the barrow). Both on-brief. Weak points: A's mere stream comes in from the NW edge rather than clearly off the barrow, and its sea cave sits SSW; B still reads mostly as one plaza with bites at its rim, not fully separate areas; the barrow's north edge shows little deep drift in both. refs_guard OK; ref = artifacts/T10BF-2_0 (style only). Outputs: runs/C-9/barrow_v2/sites/BV3r2-{A,B}.png + BV3r2_contact.png."
     }
   ],
   "halts": [
