@@ -42,6 +42,7 @@ ROSTER = dict(
     e=dict(rig='aetherialcolossus', referent_rank=8, bodies='1.0 referent (w160 quest boss)', lead='the w160 quest boss (scale 1.8, actorRadius 0.75 -> 1.35 m; heroes 1.6)',
            style='projectile 56 % / melee 18 % / aoe 14 % (grenade burst r 2.5 m @ 16 m/s; slam r 8 m; roar r 8 m; charge; strike)', p05_bodies=0.0, box='H/D 2.5 (BUILD_PRIORITY.md)'))[g]
 def src(c):
+    if c in GR and GR[c].get('adopted'): return os.path.basename(GR[c]['source']).replace('.glb', '').replace('cr__', '').replace('_', ' ') + ' (Mixamo Creature Pack; ' + GR[c]['adopted'] + ')'
     if c in GR: return os.path.basename(GR[c]['source']).replace('.glb', '').replace('_', ' ') + ' (Mixamo)'
     return dict(emerge='en29: crouch idle (its first 31 keys) then crouch to standing idle (Pro Melee Axe), first 4 keys cross-faded')[c]
 casts = {c: dict(release_s=v['release_s'], hand=v['hand'], definition='%s, the key that ENDS the fastest interval, on the clip\'s own 30 fps key %d' % (v['rule'], v['key']))
