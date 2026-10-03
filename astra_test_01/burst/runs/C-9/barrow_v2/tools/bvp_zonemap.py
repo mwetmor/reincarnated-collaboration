@@ -199,9 +199,7 @@ def main():
         if z1 - z0 > 0.6 and k not in ("palisade",):
             dr.line(hull + [hull[0]], fill=line, width=3)
         dr.polygon([px(q[0], q[1], z0) for q in fp], fill=fill)
-        if k == "palisade":
-            # a stake line: the run's base, plus its top as a thin line
-            dr.line([px(q[0], q[1], z1) for q in fp] + [px(fp[0][0], fp[0][1], z1)], fill=line, width=2)
+        # (a palisade is its base line only: the chunk test read a base + top double line as a roofed wall)
     for poly, zs in ((st["top_landing"]["polygon"], None), (st["bottom_landing"]["polygon"], float(st["bottom_landing"]["z_m"]))):
         dr.polygon([px(q[0], q[1], zs if zs is not None else 0.0) for q in poly], fill=MARKS["stair"][0])
     dr.polygon([px(q[0], q[1], z) for q, z in zip(fl, zf)], fill=MARKS["stair"][0], outline=MARKS["stair"][1])

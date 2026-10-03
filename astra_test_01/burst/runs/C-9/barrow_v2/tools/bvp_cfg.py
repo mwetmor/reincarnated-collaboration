@@ -80,6 +80,7 @@ def notes():
     items.append(("mere", "mere", "the FROZEN MERE: a large irregular frozen shallow lake, flat lapis ice with dark cracks, frozen reeds along its edges", [px(p[0], p[1]) for p in m]))
     items.append(("stream", "stream", "the frozen STREAM winding down from the barrow slope into the mere", [px(p[0], p[1]) for p in L["stream"]["polyline"]]))
     masks = {}
+    cen = {fid: (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)) for fid, kind, w, pts in items}
     for ch in FR["chunks"]:
         x0, y0, x1, y1 = ch["px"]
         names, seen = [], set()
@@ -95,10 +96,15 @@ def notes():
                 m = masks[fid] = np.asarray(im)
             if not m[y0 // 16:y1 // 16 + 1, x0 // 16:x1 // 16 + 1].any():
                 continue
+            own = (min(int(cen[fid][0] // 1280), FR["chunk"]["cols"] - 1), min(int(cen[fid][1] // 768), FR["chunk"]["rows"] - 1))
+            if kind in ("door", "porch", "cave") and own != (x0 // 1280, y0 // 768):
+                continue          # a one-of-a-kind opening is named ONLY in the panel holding its centre (chunk test: 8_6 grew a 2nd door)
             if w in seen:
                 continue
             seen.add(w); names.append(w)
-        out[ch["key"]] = ("it shows " + "; ".join(names) + ".") if names else "open land and its ground cover only."
+        out[ch["key"]] = (("it shows " + "; ".join(names) + ".") if names else "open land and its ground cover only.") + (
+            " The whole site has exactly ONE barrow door, ONE hall porch with its open double doors, ONE sea cave and ONE stair: "
+            "if a painted strip already shows one of them, continue it and never paint a second.")
     return out
 
 
