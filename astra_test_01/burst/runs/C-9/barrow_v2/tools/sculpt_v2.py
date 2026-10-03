@@ -24,7 +24,7 @@ import bv2_geom as G
 TAU = 2 * math.pi
 EXT = {"x0": -62.0, "x1": 66.0, "y0": -74.0, "y1": 62.0}
 HF_PPM = 2.0                    # heightfield samples per metre (0.5 m grid)
-SEA_FLOOR_Z = -4.8              # under the sea plane (-4.5)
+SEA_FLOOR_Z = -7.8              # under the sea plane (-7.5, R-C9-154)
 WALKOVER = 0.35                 # interior ground detail never exceeds this (the validator's limit is 0.40)
 
 
@@ -275,6 +275,12 @@ class Builder:
         dv = (X - pd["c"][0]) * pd["v"][0] + (Y - pd["c"][1]) * pd["v"][1]
         cut = (np.abs(dv) <= pd["half_w"]) & (du >= -0.6) & (du <= pd["len"])
         H = np.where(cut, np.minimum(H, 0.0), H)
+        # (R-C9-154) the forecourt before the door: levelled flat, the full width of the portal + kerb
+        fc = (np.abs(dv) <= pd.get("forecourt_half_w", 0)) & (du >= -pd.get("forecourt_back", 0)) & (du <= 0.4)
+        H = np.where(fc & land, np.minimum(H, 0.0), H)
+        # the mound's face either side of the portal is cut back to a steep revetted face
+        face = (np.abs(dv) <= pd.get("forecourt_half_w", 0) + 4.0) & (du > 0.4) & (du < 2.5)
+        H = np.where(face & land & ~cut, np.minimum(H, 1.2 + (du - 0.4) * 2.6), H)
         # the hall stands on a levelled yard
         hall = poly_mask(c["hall_pad"], X, Y)
         H = np.where(hall & land, np.minimum(H, 0.05), H)
@@ -283,20 +289,23 @@ class Builder:
         ice_poly = L["shore_ice"]["polygon"]
         d_ice_edge = dist_to_poly_edges(ice_poly, X, Y)
         d_land_edge = dist_to_poly_edges(L["land"]["polygon"], X, Y)
-        ice_h = -0.45 + 0.05 * n3(X, Y) - 3.9 * (1 - smoothstep(0.0, 7.0, d_ice_edge)) * smoothstep(1.5, 4.0, d_land_edge)
+        ice_h = -0.45 + 0.05 * n3(X, Y) + (SEA_FLOOR_Z + 0.45) * (1 - smoothstep(0.0, 9.0, d_ice_edge)) * smoothstep(1.5, 4.0, d_land_edge)
         H = np.where(ice, ice_h, H)
         coast = land & ~inF & ~((cmp_ > 140) & (cmp_ < 220))
         H = np.where(coast, SEA_FLOOR_Z + (H - SEA_FLOOR_Z) * smoothstep(0.0, 7.0, d_land_edge), H)
         # the south: a broken cliff. Sea cells near the lip get ledges at random tiers (fractured faces)
         sea_near = (~land) & (~ice) & (dout < 2.2) & (cmp_ > 105) & (cmp_ < 250)
+        # (R-C9-154) no ledge tiers in front of the cave, the ledge or the stair: they must read clear
+        for zq in c.get("clear_zones", []):
+            sea_near &= ~(poly_mask(zq, X, Y) | (dist_to_poly_edges(zq, X, Y) < 3.0))
         tier = n2(X * 0.6, Y * 0.6) + 0.25 * n3(X * 0.5, Y * 0.5)      # broad, contiguous ledges (not per-cell teeth)
-        ledge_h = np.where(tier > 0.35, -1.3, np.where(tier > -0.1, -2.7, SEA_FLOOR_Z))
-        ledge_h = np.where(dout < 1.2, ledge_h, np.where(tier > 0.55, -3.4, SEA_FLOOR_Z))
+        ledge_h = np.where(tier > 0.35, -2.0, np.where(tier > -0.1, -4.3, SEA_FLOOR_Z))
+        ledge_h = np.where(dout < 1.2, ledge_h, np.where(tier > 0.55, -5.6, SEA_FLOOR_Z))
         H = np.where(sea_near, ledge_h, H)
         # the stair: the ledge at sea level, the flight and landing carved out (their own geometry fills them)
         st = L["stair"]
         led = poly_mask(st["bottom_landing"]["polygon"], X, Y)
-        H = np.where(led, st["bottom_landing"]["z_m"], H)
+        H = np.where(led, st["bottom_landing"]["z_m"] - 0.15, H)        # just under the ledge prism (no z-fight)
         for part in ("flight", "top_landing"):
             msk = poly_mask(st[part]["polygon"], X, Y)
             H = np.where(msk, SEA_FLOOR_Z, H)
@@ -355,6 +364,21 @@ class Builder:
             if self.outside_ok((px, py), s_ * 1.3, 0.3) and clear_of_stair((px, py), s_ * 1.3):
                 k += 1
                 self.rock((px, py), s_, 0.8, ROCK, f"rock_{k}", "fallen boulder at the cliff foot", z0=-4.5)
+        # -- the sea-cave mouth's rock frame (R-C9-154): rough jambs at both ends and a broken rock brow
+        #    across the top, hugging the face, so the dark opening reads as a mouth in the cliff --
+        fr = c.get("cave_frame", [])
+        if fr:
+            zl = L["stair"]["bottom_landing"]["z_m"]
+            for end in (fr[0], fr[-1]):
+                (px, py), (nx, ny) = end
+                for k in range(3):
+                    q = (px + nx * (0.75 + 0.2 * k), py + ny * (0.75 + 0.2 * k))
+                    self.blob("rock", q, 0.7, 0.55, zl + 2.4 * (k + 1), zl - 0.3 + 2.2 * k, float(rng.uniform(0, 180)), ROCK, "rock")
+            for i in range(2, len(fr) - 2, 5):              # a broken brow of a few long, flat slabs
+                (px, py), (nx, ny) = fr[i]
+                q = (px + nx * 0.75, py + ny * 0.75)
+                ang = math.degrees(math.atan2(nx, -ny))
+                self.blob("rock", q, 1.6, 0.55, -0.05, -0.85, ang + float(rng.normal(0, 6)), tuple(np.array(ROCK) * 0.9), "slab")
         # -- ice floes off the shelf --
         for i, (px, py) in enumerate(c["floes"]):
             self.blob("floe", (px, py), rng.uniform(1.0, 2.6), rng.uniform(0.8, 2.0), -4.25, -4.6, float(rng.uniform(0, 180)),
@@ -386,23 +410,56 @@ class Builder:
                     self.blob("juniper", p, cr_, cr_ * rng.uniform(0.7, 1.0), z0 + ht, z0 - 0.2, float(rng.uniform(0, 180)),
                               (0.20, 0.27, 0.20), "crown", f"juniper_{t}", True, "juniper mass, outside the edge")
         # -- the barrow: stone door (posts + lintel), the dark passage, kerb stones, standing stones --
+        # (R-C9-154) the King's door, MONUMENTAL: massive uprights + lintel framing the clear opening, the
+        # deep dark passage, a paved forecourt and a stepped kerb either side
         pd = c["passage"]
         dc = pd["door"]
         u, v = pd["u"], pd["v"]
+        BW = pd["barrow"]
+        STONE = (0.47, 0.46, 0.43)
+        hw_o = BW["open_w"] / 2
         for sgn in (-1, 1):
-            b0 = (dc[0] + v[0] * sgn * 1.25, dc[1] + v[1] * sgn * 1.25)
-            self.beam((b0[0], b0[1], -0.2), (b0[0] + u[0] * 0.15, b0[1] + u[1] * 0.15, 2.9), 0.7, 0.6, (0.46, 0.45, 0.42), "stone")
-        l0 = (dc[0] - v[0] * 1.9, dc[1] - v[1] * 1.9, 3.15)
-        l1 = (dc[0] + v[0] * 1.9, dc[1] + v[1] * 1.9, 3.05)
-        self.beam(l0, l1, 0.8, 0.7, (0.42, 0.41, 0.38), "stone")
-        self.blob("dark", (dc[0] + u[0] * 1.6, dc[1] + u[1] * 1.6), 1.0, 1.6, 2.6, -0.1, math.degrees(math.atan2(u[1], u[0])), DARK, "box")
+            off = sgn * (hw_o + BW["post_w"] / 2 + 0.003)
+            b0 = (dc[0] + v[0] * off + u[0] * BW["post_d"] / 2, dc[1] + v[1] * off + u[1] * BW["post_d"] / 2)
+            self.beam((b0[0], b0[1], -0.4), (b0[0], b0[1], BW["open_h"] + 0.05), BW["post_w"], BW["post_d"], STONE, "door_post", xh=v)
+        lz = BW["open_h"] + BW["lintel_t"] / 2
+        lc = (dc[0] + u[0] * BW["post_d"] / 2, dc[1] + u[1] * BW["post_d"] / 2)
+        span = hw_o + BW["post_w"] + 0.4
+        self.beam((lc[0] - v[0] * span, lc[1] - v[1] * span, lz), (lc[0] + v[0] * span, lc[1] + v[1] * span, lz),
+                  BW["post_d"] + 0.3, BW["lintel_t"], (0.43, 0.42, 0.39), "lintel")
+        # a capstone course above the lintel, stepped back
+        self.beam((lc[0] - v[0] * (span - 0.8) + u[0] * 0.5, lc[1] - v[1] * (span - 0.8) + u[1] * 0.5, lz + 1.05),
+                  (lc[0] + v[0] * (span - 0.8) + u[0] * 0.5, lc[1] + v[1] * (span - 0.8) + u[1] * 0.5, lz + 1.05),
+                  BW["post_d"], 0.8, (0.45, 0.44, 0.41), "capstone")
+        plen = BW["passage_len"] + BW["post_d"] - 0.3
+        pdc = (dc[0] + u[0] * (0.3 + plen / 2), dc[1] + u[1] * (0.3 + plen / 2))
+        self.blob("dark", pdc, plen / 2, hw_o + 0.05, BW["open_h"], -0.1, math.degrees(math.atan2(u[1], u[0])), DARK, "box")
+        # forecourt flagstones (flush) and the stepped kerb: two courses curving back either side
+        fb = pd.get("forecourt_back", 2.0)
+        for i in range(int(pd["forecourt_half_w"] * 2 / 1.1)):
+            for j in range(int(fb / 1.0)):
+                q = (dc[0] - u[0] * (j + 0.5) + v[0] * (-pd["forecourt_half_w"] + 0.55 + i * 1.1) + rng.normal(0, 0.05),
+                     dc[1] - u[1] * (j + 0.5) + v[1] * (-pd["forecourt_half_w"] + 0.55 + i * 1.1) + rng.normal(0, 0.05))
+                if self.outside_ok(q, 0.5, 0.0):
+                    self.blob("flag", q, 0.5, 0.45, 0.10, -0.1, math.degrees(math.atan2(u[1], u[0])) + rng.normal(0, 4),
+                              (0.55 + rng.normal(0, 0.03),) * 3, "slab")
+        for sgn in (-1, 1):
+            for tier, (back, ht) in enumerate(((0.2, 0.55), (1.3, 1.15))):
+                for k in range(6):
+                    lat0 = sgn * (pd["forecourt_half_w"] - 0.2 + k * 1.55 + tier * 0.3)
+                    q0 = (dc[0] + u[0] * (back + k * 0.55) + v[0] * lat0, dc[1] + u[1] * (back + k * 0.55) + v[1] * lat0)
+                    q1 = (q0[0] + v[0] * sgn * 1.45, q0[1] + v[1] * sgn * 1.45)
+                    z0 = min(self.hz(*q0), self.hz(*q1))
+                    if self.outside_ok(q0, 0.8, 0.2) and self.outside_ok(q1, 0.8, 0.2):
+                        self.beam((q0[0], q0[1], z0 - 0.2 + ht / 2), (q1[0], q1[1], z0 - 0.2 + ht / 2), 0.9, ht + 0.4,
+                                  (0.48 + rng.normal(0, 0.02),) * 3, "kerb_step")
         m = c["mound"]
         for i in range(22):
             th = TAU * i / 22 + rng.normal(0, 0.05)
             cr_, sr_ = math.cos(math.radians(m["rot"])), math.sin(math.radians(m["rot"]))
             uu, vv = math.cos(th) * m["a"] * 1.0, math.sin(th) * m["b"] * 1.0
             p = (m["c"][0] + uu * cr_ - vv * sr_, m["c"][1] + uu * sr_ + vv * cr_)
-            if self.outside_ok(p, 0.8, 0.8) and math.dist(p, dc) > 2.6:
+            if self.outside_ok(p, 0.8, 0.8) and math.dist(p, dc) > pd["forecourt_half_w"] + 6.0:
                 self.rock(p, rng.uniform(0.5, 0.8), 0.9, (0.47, 0.47, 0.45), f"kerb_{i + 1}", "kerb stone round the mound's toe")
         for i, (p, ht) in enumerate(c["standing_stones"]):
             z0 = self.hz(*p)
@@ -491,31 +548,59 @@ class Builder:
                 continue
             ht = rng.uniform(1.4, 3.1)
             self.beam(hp(s_, Dd + 0.05, -0.1), hp(s_, Dd + 0.05, ht), 0.5, 0.12, (0.20, 0.16, 0.13), "plank", xh=ane)
-        # the porch on the great door (folded in from lane BVP's bvp_porch.py spec): a gabled porch 3.6 x 2.4 m,
-        # centred 0.8 m NE of the door station, eaves 3.4 m, ridge 5.0 m running OUT from the wall toward
-        # p04's patch so the roof clears the hall's silhouette on screen; the double doors stand open at the wall.
+        # the porch on the great door (BVP's form, GROWN by R-C9-154): front posts frame the clear opening;
+        # eaves above it; the ridge runs OUT toward p04's patch and rises above the hall's roofline; carved
+        # crossed finials on its outer gable; the doors stand open; braziers either side of a stone apron
         nin = (-nT[0], -nT[1])
         pc = hl["porch"]
         s_p = hl["door_s"] + pc["shift_ne"]
         hw, dep = pc["width"] / 2, pc["depth"]
-        for sv in (-hw, hw):
-            for dd in (0.25, dep - 0.2):
-                b0 = hp(s_p + sv * 0.92, -dd, 0.0)
-                self.beam((b0[0], b0[1], -0.1), (b0[0], b0[1], pc["eave"]), 0.34, 0.34, TIMBER, "porch_post")
-            fr = hp(s_p + sv * 0.92, -(dep - 0.2), 0.0)
-            self.blob("finial", (fr[0], fr[1]), 0.26, 0.26, pc["eave"] + 0.75, pc["eave"] - 0.05, 0, (0.30, 0.21, 0.13), "rock")
-            self.beam(hp(s_p + sv, 0.0, pc["eave"]), hp(s_p + sv, -dep - 0.3, pc["eave"]), 0.22, 0.26, TIMBER, "porch_eave")
-        self.beam(hp(s_p, 0.0, pc["ridge"]), hp(s_p, -dep - 0.3, pc["ridge"]), 0.26, 0.28, TIMBER, "porch_ridge")
+        PW = 0.42
         for sv in (-1, 1):
-            for dd in np.linspace(0.0, dep + 0.3, 6):
-                self.beam(hp(s_p + sv * hw, -dd, pc["eave"]), hp(s_p, -dd, pc["ridge"]), 0.52, 0.06, (0.31, 0.23, 0.15), "porch_board")
-        # the doorway in the wall, dark, and the two door leaves swung open into the porch
+            off = sv * (pc["open_w"] / 2 + PW / 2)
+            for dd, role in ((0.25, "porch_post"), (dep - 0.25, "porch_post_front")):
+                b0 = hp(s_p + off, -dd, 0.0)
+                self.beam((b0[0], b0[1], -0.1), (b0[0], b0[1], pc["eave"]), PW, PW, TIMBER, role, xh=ane)
+            self.beam(hp(s_p + sv * hw, 0.0, pc["eave"] + 0.15), hp(s_p + sv * hw, -dep - 0.5, pc["eave"] + 0.15), 0.26, 0.3, TIMBER, "porch_eave_side")
+        fe = hp(s_p - hw, -dep + 0.25, pc["eave"] + 0.15)
+        fe2 = hp(s_p + hw, -dep + 0.25, pc["eave"] + 0.15)
+        self.beam(fe, fe2, 0.3, 0.3, TIMBER, "porch_eave")              # the front lintel beam over the opening
+        self.beam(hp(s_p, 0.3, pc["ridge"]), hp(s_p, -dep - 0.5, pc["ridge"]), 0.3, 0.32, TIMBER, "porch_ridge")
+        for sv in (-1, 1):
+            for dd in np.linspace(0.0, dep + 0.5, 8):
+                self.beam(hp(s_p + sv * (hw + 0.3), -dd, pc["eave"] + 0.05), hp(s_p, -dd, pc["ridge"] + 0.05), 0.5, 0.07, (0.31, 0.23, 0.15), "porch_board")
+            # carved crossed finials: the barge boards cross at the apex and rise ~1.2 m above the ridge
+            a_ = hp(s_p + sv * (hw + 0.3), -dep - 0.5, pc["eave"])
+            b_ = hp(s_p - sv * 0.9, -dep - 0.5, pc["ridge"] + 1.25)
+            self.beam(a_, b_, 0.18, 0.42, (0.28, 0.19, 0.12), "finial")
+            hd = hp(s_p - sv * 1.0, -dep - 0.5, 0.0)
+            self.blob("finial_head", (hd[0], hd[1]), 0.32, 0.22, pc["ridge"] + 1.55, pc["ridge"] + 1.05, 0, (0.30, 0.20, 0.12), "rock")
+        # gable infill above the opening (planks between the eave beam and the barge boards)
+        for k in range(5):
+            f0 = (k + 0.5) / 5
+            z_ = pc["eave"] + 0.3 + (pc["ridge"] - pc["eave"] - 0.4) * f0
+            half = hw * (1 - f0)
+            self.beam(hp(s_p - half, -dep + 0.3, z_), hp(s_p + half, -dep + 0.3, z_), 0.08, 0.5, (0.33, 0.24, 0.16), "gable_plank")
+        # the doorway in the wall (dark, the full clear opening) and the two leaves swung open into the porch
         dd_ = hp(s_p, 0.02, 0.0)
-        self.blob("dark", (dd_[0], dd_[1]), 1.15, 0.10, 3.0, -0.1, math.degrees(math.atan2(ane[1], ane[0])), DARK, "box")
+        self.blob("dark", (dd_[0], dd_[1]), pc["open_w"] / 2, 0.10, pc["open_h"], -0.1, math.degrees(math.atan2(ane[1], ane[0])), DARK, "box")
         for sv in (-1, 1):
-            hinge = hp(s_p + sv * 1.15, -0.05, 0.0)
-            leaf_end = hp(s_p + sv * 1.25, -1.1, 0.0)
-            self.beam((hinge[0], hinge[1], 1.5), (leaf_end[0], leaf_end[1], 1.5), 0.10, 2.9, (0.36, 0.25, 0.15), "door_leaf")
+            hinge = hp(s_p + sv * pc["open_w"] / 2, -0.05, 0.0)
+            leaf_end = hp(s_p + sv * (pc["open_w"] / 2 + 0.25), -pc["open_w"] / 2 + 0.1, 0.0)
+            self.beam((hinge[0], hinge[1], pc["open_h"] / 2), (leaf_end[0], leaf_end[1], pc["open_h"] / 2), 0.14, pc["open_h"] - 0.1, (0.36, 0.25, 0.15), "door_leaf")
+        # the stone apron (flush flags) and the braziers
+        apron = c["apron"]
+        ax0, ax1, bx1 = apron[0], apron[1], apron[2]
+        for i in range(6):
+            for j in range(2):
+                fi, fj = (i + 0.5) / 6, (j + 0.5) / 2
+                q = (ax0[0] + (ax1[0] - ax0[0]) * fi + (bx1[0] - ax1[0]) * fj, ax0[1] + (ax1[1] - ax0[1]) * fi + (bx1[1] - ax1[1]) * fj)
+                self.blob("flag", q, 0.52, 0.34, 0.12, -0.1, math.degrees(math.atan2(ane[1], ane[0])) + rng.normal(0, 5),
+                          (0.52 + rng.normal(0, 0.03),) * 3, "slab")
+        for bc in c["braziers"]:
+            self.beam((bc[0], bc[1], -0.1), (bc[0], bc[1], 1.5), 0.28, 0.28, (0.15, 0.13, 0.12), "brazier_stand")
+            self.blob("bowl", bc, 0.55, 0.55, 1.85, 1.35, 0, (0.18, 0.16, 0.15), "slab")
+            self.blob("flame", bc, 0.38, 0.38, 2.3, 1.7, 0, (0.98, 0.55, 0.15), "crown")
         # the fallen gable: the hall's own SW end, the A-frame fallen outward and lying on its rubble
         gl = hl["gable_len"]
         for d_ in (0.4, Dd - 0.4):

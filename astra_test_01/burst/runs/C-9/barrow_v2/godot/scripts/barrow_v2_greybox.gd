@@ -237,13 +237,14 @@ func _build_terrain() -> void:
 			verts[j * cols + i] = Vector3(x, H[j * cols + i], y)
 			uvs[j * cols + i] = _uv(Vector2(x, y))
 	var idx := PackedInt32Array()
+	var sea_cut := float(layout["sea"]["z_m"]) - 0.2
 	for j in rows - 1:
 		for i in cols - 1:
 			var a := j * cols + i
 			var b := a + 1
 			var c := a + cols
 			var d := c + 1
-			if H[a] < -4.7 and H[b] < -4.7 and H[c] < -4.7 and H[d] < -4.7:
+			if H[a] < sea_cut and H[b] < sea_cut and H[c] < sea_cut and H[d] < sea_cut:
 				continue
 			idx.append_array(PackedInt32Array([a, b, c, b, d, c]))
 	var nrm := PackedVector3Array()

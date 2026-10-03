@@ -42,9 +42,18 @@ PPM_PLATE = 100.617553710938
 FLOOR_MARGIN_M = 1.0          # the brief: hull of the spawn regions + 1 m
 WALKOVER_MAX_H_M = 0.40       # an interior feature at or under this reads (and plays) as walk-over
 # R-C9-148: the cliff is lowered (sea at -4.5 m, ledge top -4.2 m); the stair climbs the face from the ledge.
-STAIR = {"width_m": 3.0, "drop_m": 4.2, "step_rise_m": 0.15, "step_tread_m": 0.30, "sea_z_m": -4.5,
-         "tangent_beta_deg": 70.0, "cave_beta_deg": 106.0,   # beta from +x toward +y about p03; p03's own arc is 41.8..117.8 deg
+# R-C9-154 (Matt): every deliverer opening sized to the largest monster it delivers. The sea cave must be
+# ~7 m high x 9 m wide, so the cliff goes back to ~7.5 m (sea -7.5, ledge -7.2); the stair widens to 5 m and
+# steepens to 34.7 deg (still <= 35) so the flight + the 9 m mouth fit along the face under p03's patch.
+STAIR = {"width_m": 5.0, "drop_m": 7.2, "step_rise_m": 0.18, "step_tread_m": 0.26, "sea_z_m": -7.5,
+         "tangent_beta_deg": 78.0,   # beta from +x toward +y about p03; p03's own arc is 41.8..117.8 deg
+         "cave_w_m": 9.0, "cave_h_m": 6.9, "cave_gap_m": 0.4,
          "top_landing_depth_m": 2.0, "bottom_landing_depth_m": 3.0}
+BARROW = {"open_w": 5.0, "open_h": 6.5, "post_w": 1.4, "post_d": 1.8, "lintel_t": 1.3, "forecourt": 2.6,
+          "mound_a": 20.0, "mound_b": 13.5, "rise": 10.5, "passage_len": 9.0,
+          "sized_for": "yeti nemesis, ~5.6 m tall (the bosses' door)"}
+PORCH = {"open_w": 4.5, "open_h": 4.5, "width": 6.4, "depth": 3.0, "eave": 5.1, "ridge": 7.8, "apron": 1.4,
+         "sized_for": "colossus 3.2 m; statues ~3.5 m; crab heroes up to ~3.4 m wide"}
 
 
 def sha256(path):
@@ -175,10 +184,33 @@ def main():
     def _onedge(pid):
         d_ = unit(*A[pid])
         return along((0, 0), d_, _cw / (d_[0] * _nT[0] + d_[1] * _nT[1]))
-    protect = [(*_arc(STAIR["tangent_beta_deg"]), 7.5, 0.0), (*_arc(106.0), 3.5, 0.0), (*_arc(110.0), 4.0, 0.0),
+    # (R-C9-154) the great door + porch move NE along the hall wall to where the p04 arc has fallen away
+    # far enough for the grown porch + its stone apron to stay outside the floor: the first station from
+    # p04's ray at which the porch+apron clears the disc hull by >= 0.75 m (0.35 m bulge cap + 0.4 m)
+    _ane = (-_ax[0], -_ax[1])
+    _wall = _cw + 1.5
+    _d4 = unit(*A["p04"])
+    _D0 = along((0, 0), _d4, _wall / (_d4[0] * _nT[0] + _d4[1] * _nT[1]))
+    _nin0 = (-_nT[0], -_nT[1])
+    PORCH["station"] = None
+    for k_ in range(0, 80):
+        st_ = k_ * 0.25
+        pc_ = along(_D0, _ane, st_)
+        hw_ = PORCH["width"] / 2
+        dd_ = PORCH["depth"] + PORCH["apron"]
+        fp_ = [along(pc_, _ane, -hw_), along(pc_, _ane, hw_), along(along(pc_, _ane, hw_), _nin0, dd_), along(along(pc_, _ane, -hw_), _nin0, dd_)]
+        clr_ = min(-G.signed_clearance(q, disc_hull) for q in fp_ + [along(fp_[2], _ane, -t_) for t_ in (1.0, 2.0, 3.0, 4.0, 5.0)])
+        if clr_ >= 0.75:
+            PORCH["station"] = st_
+            PORCH["centre0"] = pc_
+            break
+    assert PORCH["station"] is not None, "no station on the hall wall clears the grown porch"
+    _p3arc = lambda b_: _arc(b_)
+    protect = [(*_arc(STAIR["tangent_beta_deg"]), 6.5, 0.0), (*_arc(46.0), 2.5, 0.0), (*_arc(121.0), 7.0, 0.6),
+               (*along(PORCH["centre0"], _nin0, 2.0), 6.5, 0.35),
                (*along((0, 0), unit(*A["p02"]), ray_exit(disc_hull, unit(*A["p02"]))), 9.0, 0.5),
                (*along((0, 0), unit(*A["p01"]), ray_exit(disc_hull, unit(*A["p01"]))), 4.0, 0.5),
-               (*_onedge("p04"), 4.5, 0.35), (*_onedge("p06"), 4.0, 0.4)]
+               (*_onedge("p06"), 4.0, 0.4)]
     floor, bulge, organic_info = SC.organic_floor(disc_hull, protect, _p3)
 
     # ---------------- the edge features, each placed on its anchor's ray ----------------
@@ -200,23 +232,33 @@ def main():
     d2 = rays["p02"]
     n2 = (-d2[1], d2[0])
     e2 = exits["p02"]
-    door_c = along((0, 0), d2, e2 + 1.4)
-    mound_c = along((0, 0), d2, e2 + 1.5 + 10.0)
+    # (R-C9-154) a MONUMENTAL door: a clear opening of open_w x open_h between massive uprights under a
+    # lintel, set back behind a paved forecourt, a deep passage cut into a larger mound, a stepped kerb
+    door_plane = e2 + 0.3 + BARROW["forecourt"]                    # the uprights' front face, on p02's ray
+    door_c = along((0, 0), d2, door_plane + BARROW["post_d"] / 2)
+    mound_c = along((0, 0), d2, door_plane - 0.6 + BARROW["mound_b"])
     rot2 = math.degrees(math.atan2(n2[1], n2[0]))
     _cr, _sr = math.cos(math.radians(rot2)), math.sin(math.radians(rot2))
     mound_outline = []
     for k in range(96):
         th = G.TAU * k / 96
         rr = 1.0 + 0.07 * math.sin(3 * th + 0.4) + 0.05 * math.sin(5 * th + 1.9) + 0.03 * math.sin(9 * th)
-        uu, vv = rr * math.cos(th) * 15.0, rr * math.sin(th) * 10.0
+        uu, vv = rr * math.cos(th) * BARROW["mound_a"], rr * math.sin(th) * BARROW["mound_b"]
         mound_outline.append((mound_c[0] + uu * _cr - vv * _sr, mound_c[1] + uu * _sr + vv * _cr))
-    feat("barrow_mound", "mound", mound_outline, 0.0, 7.0, True,
-         "the King's barrow: grass/heather mound, kerbed; its near toe 1.5 m beyond the floor edge on p02's ray",
-         shape={"type": "ellipsoid_cap", "centre": G.rnd(mound_c), "semi_axes_m": [15.0, 10.0], "rot_deg": G.rnd(rot2), "rise_m": 7.0})
-    feat("barrow_door", "door", G.rect_poly(*door_c, 3.2, 1.2, rot2), 0.0, 3.2, True,
-         "carved lintel door (p02, bosses: mist + rise from the grave-ground); threshold 0.8 m beyond the floor edge on the ray (its outer corners clear the edge too)",
-         faces_deg=G.rnd(G.compass_deg(-d2[0], -d2[1]), 2))
-    for i, (t, s, ht) in enumerate(((e2 + 4.0, -11.0, 2.6), (e2 + 3.0, 10.5, 2.2), (e2 + 13.0, -16.0, 2.0), (e2 + 12.0, 15.5, 2.4))):
+    feat("barrow_mound", "mound", mound_outline, 0.0, BARROW["rise"], True,
+         "the King's barrow: a large grassy mound, kerbed; the passage is cut deep into it behind the door",
+         shape={"type": "ellipsoid_cap", "centre": G.rnd(mound_c), "semi_axes_m": [BARROW["mound_a"], BARROW["mound_b"]], "rot_deg": G.rnd(rot2), "rise_m": BARROW["rise"]})
+    _bw = BARROW["open_w"] + 2 * BARROW["post_w"] + 0.8
+    feat("barrow_door", "door", G.rect_poly(*door_c, _bw, BARROW["post_d"], rot2), 0.0, BARROW["open_h"] + BARROW["lintel_t"], True,
+         "the King's door, MONUMENTAL (R-C9-154): two massive uprights and a lintel framing a %.1f m wide x %.1f m high clear opening (sized for the %s), behind a %.1f m paved forecourt; the passage runs %.0f m into the mound (p02, bosses: mist + rise from the grave-ground)" % (
+             BARROW["open_w"], BARROW["open_h"], BARROW["sized_for"], BARROW["forecourt"], BARROW["passage_len"]),
+         faces_deg=G.rnd(G.compass_deg(-d2[0], -d2[1]), 2),
+         opening={"clear_w_m": BARROW["open_w"], "clear_h_m": BARROW["open_h"], "sized_for": BARROW["sized_for"],
+                  "required": {"h_min_m": 6.5, "w_min_m": 5.0}})
+    feat("barrow_forecourt", "forecourt", [along(along((0, 0), d2, e2 + 0.35), n2, -_bw / 2 - 0.6), along(along((0, 0), d2, e2 + 0.35), n2, _bw / 2 + 0.6),
+                                           along(along((0, 0), d2, door_plane), n2, _bw / 2 + 0.6), along(along((0, 0), d2, door_plane), n2, -_bw / 2 - 0.6)],
+         0.0, 0.12, True, "the paved forecourt before the King's door (flush flagstones), outside the walkable edge", blocks=False)
+    for i, (t, s, ht) in enumerate(((e2 + 4.5, -13.5, 2.6), (e2 + 4.0, 13.0, 2.2), (e2 + 15.0, -21.5, 2.0), (e2 + 14.0, 21.0, 2.4))):
         c = along((0, 0), d2, t, n2, s)
         feat(f"barrow_standing_stone_{i + 1}", "standing_stone", G.rect_poly(*c, 0.9, 0.6, rot2 + 17 * i), 0.0, ht, True,
              "standing stone on the barrow slope (stands up, so it lives outside the edge)")
@@ -263,27 +305,45 @@ def main():
         a0 = along(base, ax_ne, s0)
         a1 = along(base, ax_ne, s1)
         return [a0, a1, along(a1, nT, HALL_D), along(a0, nT, HALL_D)]
-    GABLE_BACK, GABLE_FWD, NE_PAST_DOOR = 2.0, 4.0, 6.0
+    GABLE_BACK, GABLE_FWD = 2.0, 4.0
+    D_ray = D                                                   # where p04's ray meets the wall (v4's door)
+    D = along(D, ax_ne, PORCH["station"])                         # (R-C9-154) the great door's station
+    NE_PAST_DOOR = PORCH["width"] / 2 + 3.5
     L_GD = math.dist(Gp, D)
     rot_ax = math.degrees(math.atan2(ax_ne[1], ax_ne[0]))
     feat("longhall", "hall", hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp), 0.0, 6.5, True,
          "the burnt longhall: ONE building angled NE -> SW along the floor edge between p04 and p06; its long west wall faces the floor 1.5 m beyond the edge; roof half fallen",
          axis_compass_deg_sw=G.rnd(G.compass_deg(*ax_sw), 2), length_m=G.rnd(L_GD + NE_PAST_DOOR + GABLE_BACK, 2), depth_m=HALL_D)
-    feat("hall_great_door", "door", G.rect_poly(*along(D, nT, 0.3), 3.6, 0.6, rot_ax), 0.0, 3.8, True,
-         "the hall's great door (p04: out of smoke), in the long west wall on p04's ray",
-         faces_deg=G.rnd(G.compass_deg(-nT[0], -nT[1]), 2))
-    # the great door's gabled PORCH (folded in from lane BVP's tools/bvp_porch.py: 3.6 x 2.4 m, centred
-    # 0.8 m NE of the door station, projecting toward p04's patch; eaves 3.4 m, ridge 5.0 m running OUT)
-    PORCH = {"width": 3.6, "depth": 2.4, "shift_ne": 0.8, "eave": 3.4, "ridge": 5.0}
-    _pc = along(D, ax_ne, PORCH["shift_ne"])
+    feat("hall_great_door", "door", G.rect_poly(*along(D, nT, 0.3), PORCH["open_w"] + 0.6, 0.6, rot_ax), 0.0, PORCH["open_h"] + 0.3, True,
+         "the hall's GREAT door (R-C9-154): a %.1f m wide x %.1f m high clear opening (sized for the %s), in the long west wall %.2f m NE of p04's ray, where the p04 arc falls away enough for the grown porch (p04: out of smoke)" % (
+             PORCH["open_w"], PORCH["open_h"], PORCH["sized_for"], PORCH["station"]),
+         faces_deg=G.rnd(G.compass_deg(-nT[0], -nT[1]), 2),
+         opening={"clear_w_m": PORCH["open_w"], "clear_h_m": PORCH["open_h"], "sized_for": PORCH["sized_for"],
+                  "required": {"h_min_m": 4.5, "w_min_m": 4.5}}, station_ne_of_p04_ray_m=PORCH["station"])
+    # the great door's gabled PORCH (BVP's bvp_porch.py form, GROWN by R-C9-154): it rises above the hall's
+    # roofline (ridge 7.8 m vs the hall's ~6.4 m), carved gable finials, braziers either side, a stone apron
+    PORCH["shift_ne"] = 0.0
+    _pc = D
     _nin = (-nT[0], -nT[1])
     _hw = PORCH["width"] / 2
     porch_fp = [along(_pc, ax_ne, -_hw), along(_pc, ax_ne, _hw), along(along(_pc, ax_ne, _hw), _nin, PORCH["depth"]),
                 along(along(_pc, ax_ne, -_hw), _nin, PORCH["depth"])]
-    feat("hall_porch", "porch", porch_fp, 0.0, PORCH["ridge"], True,
-         "the great door's gabled porch (conductor ruling; spec from lane BVP's bvp_porch.py): at zero yaw the hall's floor-facing wall faces away from the camera, so the porch's own roof, its ridge running OUT toward p04's patch, marks the entrance above the hall's silhouette; the double doors stand open; smoke rolls out (p04: out of smoke)",
+    feat("hall_porch", "porch", porch_fp, 0.0, PORCH["ridge"] + 1.2, True,
+         "the great door's gabled porch, GROWN (R-C9-154): %.1f x %.1f m, eaves %.1f m, ridge %.1f m running OUT toward p04's patch, ABOVE the hall's roofline; carved finials on its gable; the double doors stand open; smoke rolls out (p04: out of smoke)" % (
+             PORCH["width"], PORCH["depth"], PORCH["eave"], PORCH["ridge"]),
+         opening={"clear_w_m": PORCH["open_w"], "clear_h_m": PORCH["open_h"], "between": "the front posts, under the eave beam"},
          eave_z_m=PORCH["eave"], ridge_z_m=PORCH["ridge"], mouth_centre=G.rnd(along(_pc, _nin, PORCH["depth"])),
          faces_deg=G.rnd(G.compass_deg(*_nin), 2), source="lane BVP tools/bvp_porch.py (folded in by BX, option a)")
+    _ap0 = along(_pc, _nin, PORCH["depth"])
+    apron_fp = [along(_ap0, ax_ne, -_hw), along(_ap0, ax_ne, _hw), along(along(_ap0, ax_ne, _hw), _nin, PORCH["apron"]),
+                along(along(_ap0, ax_ne, -_hw), _nin, PORCH["apron"])]
+    feat("hall_apron", "apron", apron_fp, 0.0, 0.15, True, "the porch's short stone apron (flush), outside the walkable edge", blocks=False)
+    braziers = []
+    for sv in (-1, 1):
+        bc_ = along(along(_pc, ax_ne, sv * (_hw + 0.9)), _nin, PORCH["depth"] * 0.55)
+        braziers.append(bc_)
+        feat(f"brazier_{'sw' if sv < 0 else 'ne'}", "brazier", G.ellipse_poly(*bc_, 0.55, 0.55, 0, 12), 0.0, 2.3, True,
+             "a fire brazier beside the porch")
     feat("fallen_gable", "gable", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), 0.0, 2.8, True,
          "the hall's OWN collapsed south-west end (p06: up out of ash): the gable fallen outward, leaning on its rubble; on p06's ray, 1.5 m beyond the floor edge")
     # the palisade, pulled back: it wraps the hall from OUTSIDE; its arms stop 1.5 m short of the floor edge
@@ -366,26 +426,43 @@ def main():
     landing_bd = [E_b] + arc_between(s_of(T_b), s_of(E_b)) + [T_b]
     wall_rock = [B_n, T_n, T_b] + arc_between(s_of(B_b), s_of(T_b)) + [B_b]
     ledge_z = -STAIR["drop_m"]
-    # the ledge: from beyond the cave (west) to the stair's foot, 4.5 m deep, its north side on the cliff foot
-    cave_beta = math.radians(STAIR["cave_beta_deg"])
-    cave_at = along(p3, (math.cos(cave_beta), math.sin(cave_beta)), R9 + 0.35)
-    cave_t = (math.sin(cave_beta), -math.cos(cave_beta))
-    # the ledge: the cliff foot from just west of the cave to the flight's foot, 4.5 m out to sea.
-    # (Its west end stays on p03's own arc, beta <= 117 deg < the 117.8 deg tangent to p01's disc, so the
-    # arc points are outside the floor.)
-    betas = []
-    bb = cave_beta + math.radians(11.0)
-    while s_of(along(p3, (math.cos(bb), math.sin(bb)), R9)) < s_of(B_n) - 0.05:
-        betas.append(bb)
-        bb -= math.radians(1.5)
-    ledge = [along(p3, (math.cos(b_), math.sin(b_)), R9 + 0.02) for b_ in betas] + [B_n, B_s] + \
-        [along(p3, (math.cos(b_), math.sin(b_)), R9 + 4.5) for b_ in reversed(betas)]
+    # (R-C9-154) the cave mouth (9 m wide, ~7 m high) and the ledge follow the ACTUAL floor boundary
+    # westward from the stair's foot: offsets along the boundary's outward normals, so they stay outside
+    # the (organic) floor however the lip bites.
+    nF = len(floor)
+    i_foot = min(range(nF), key=lambda i: math.dist(floor[i], B_b))
+    cmp_next = G.compass_deg(*floor[(i_foot + 1) % nF]) - G.compass_deg(*floor[i_foot])
+    step_w = 1 if cmp_next > 0 else -1                          # walk toward increasing compass (west)
+
+    def walk(L0, L1):
+        """(point, outward normal) samples along the boundary from arc length L0 to L1 west of the foot."""
+        out_, Lacc, i = [], 0.0, i_foot
+        while Lacc <= L1 + 1e-9:
+            if Lacc >= L0 - 1e-9:
+                a_, b_ = floor[(i - step_w) % nF], floor[(i + step_w) % nF]
+                tx_, ty_ = b_[0] - a_[0], b_[1] - a_[1]
+                Lt = math.hypot(tx_, ty_) or 1.0
+                nx_, ny_ = ty_ / Lt, -tx_ / Lt
+                if nx_ * floor[i][0] + ny_ * floor[i][1] < 0:
+                    nx_, ny_ = -nx_, -ny_
+                out_.append((floor[i], (nx_, ny_)))
+            j = (i + step_w) % nF
+            Lacc += math.dist(floor[i], floor[j])
+            i = j
+        return out_
+    gap = STAIR["cave_gap_m"]
+    cave_s = walk(gap, gap + STAIR["cave_w_m"] + 1.0)
+    cave_poly = [along(p_, n_, 0.06) for p_, n_ in cave_s] + [along(p_, n_, 0.45) for p_, n_ in reversed(cave_s)]
+    led_s = walk(0.0, gap + STAIR["cave_w_m"] + 1.6)
+    ledge = [along(p_, n_, 0.03) for p_, n_ in reversed(led_s)] + [B_n, B_s] + [along(p_, n_, 5.5) for p_, n_ in led_s[1:]]
+    cave_mid = cave_s[len(cave_s) // 2][0]
+    cave_w_meas = sum(math.dist(cave_s[i][0], cave_s[i + 1][0]) for i in range(len(cave_s) - 1))
     slope_deg = math.degrees(math.atan2(STAIR["drop_m"], run))
     run_up = u
     to_c = unit(-T_n[0], -T_n[1])
     stair = {
         "id": "sea_cave_stair", "kind": "stair",
-        "_ruling": "R-C9-145 (Matt) + R-C9-148 (Matt, from the walk film: 'the stairs seem to be below the sea cave which doesnt make alot of sense'): the cave sits in the MAIN south cliff face under p03's patch with a ledge at sea level; a straight stair, 3.0 m wide, climbs FROM that ledge UP the face to a top landing flush with the floor edge at p03's patch; open on the sea side; its run angles across the face (the 'aligned to centre' rule is dropped by R-C9-148); climbers turn toward the centre on the landing",
+        "_ruling": "R-C9-145 (Matt) + R-C9-148 (Matt, from the walk film: 'the stairs seem to be below the sea cave which doesnt make alot of sense'): the cave sits in the MAIN south cliff face under p03's patch with a ledge at sea level; a straight stair (5.0 m wide since R-C9-154) climbs FROM that ledge UP the face to a top landing flush with the floor edge at p03's patch; open on the sea side; its run angles across the face (the 'aligned to centre' rule is dropped by R-C9-148); climbers turn toward the centre on the landing",
         "axis_unit_up": G.rnd(run_up, 6), "axis_compass_deg_up": G.rnd(G.compass_deg(*run_up), 3),
         "turn_on_landing_deg_info": G.rnd(math.degrees(math.acos(max(-1, min(1, run_up[0] * to_c[0] + run_up[1] * to_c[1])))), 2),
         "width_m": w,
@@ -406,10 +483,12 @@ def main():
     }
     feat("stair_wall_rock", "cliff", wall_rock, STAIR["sea_z_m"], 0.0, True,
          "the main cliff face between the curved lip and the straight flight: the stair's wall (outside the edge)")
-    feat("sea_cave_mouth", "cave", G.rect_poly(*cave_at, 3.0, 0.7, math.degrees(math.atan2(cave_t[1], cave_t[0]))),
-         ledge_z, ledge_z + 2.8, True,
-         "the sea-cave mouth in the MAIN south cliff face, directly below the floor edge under p03's patch; faces the camera; the ledge in front of it",
-         faces_deg=G.rnd(G.compass_deg(math.cos(cave_beta), math.sin(cave_beta)), 2))
+    feat("sea_cave_mouth", "cave", cave_poly, ledge_z, ledge_z + STAIR["cave_h_m"], True,
+         "the sea-cave mouth (R-C9-154): %.1f m wide x %.1f m high in the MAIN south cliff face under p03's patch, at the stair's foot, on the sea-level ledge; it follows the lip; a %.1f m rock lintel stays above it (sized for the servitor insectoids 4-8 m long and the 5.6 m nemesis)" % (
+             cave_w_meas, STAIR["cave_h_m"], STAIR["drop_m"] - STAIR["cave_h_m"]),
+         faces_deg=G.rnd(G.compass_deg(*cave_mid), 2),
+         opening={"clear_w_m": G.rnd(cave_w_meas, 3), "clear_h_m": STAIR["cave_h_m"], "sized_for": "servitor insectoids 4-8 m long; the 5.6 m nemesis",
+                  "required": {"h_min_m": 6.5, "w_min_m": 9.0}})
 
     # ---------------- interior: walk-over features only ----------------
     # the stone circle (centre, small and broken), 8 stones: 6 fallen flat, 2 low stumps
@@ -540,12 +619,12 @@ def main():
     # window (centred on the anchor, the 16 m patch fills the frame and the door is cut off).
     views = [
         {"id": "V1_start", "target": [0.0, 0.0], "what": "the start inside the broken circle; the mere's edge W"},
-        {"id": "V2_p02_barrow_door", "target": G.rnd(along((0, 0), d2, e2 - 5.0)), "what": "p02's patch and the King's door"},
+        {"id": "V2_p02_barrow_door", "target": G.rnd(along((0, 0), d2, e2 + 2.5)), "what": "p02's patch and the King's door"},
         {"id": "V3_p01_wreck", "target": G.rnd(along((0, 0), d1, e1 - 5.0)), "what": "p01's patch on the shingle and the wreck's rail"},
-        {"id": "V4_p04_hall_door", "target": G.rnd(along((0, 0), d4, e4 - 4.0)), "what": "p04's patch in the hall yard and the great door"},
+        {"id": "V4_p04_hall_door", "target": G.rnd(along(_pc, _nin, PORCH["depth"] + 4.0)), "what": "p04's patch in the hall yard and the great door"},
         {"id": "V5_p06_fallen_gable", "target": G.rnd(along((0, 0), d6, e6 - 4.0)), "what": "p06's patch in the ash and the fallen gable"},
         {"id": "V6_p05_mere", "target": G.rnd((A["p05"][0] - 3.0, A["p05"][1] - 3.0)), "what": "the frozen mere over p05, the stream mouth, the circle's W stones"},
-        {"id": "V7_p03_stair_top", "target": G.rnd(along(M, nh, 1.5)), "what": "the sea cave at the stair's foot, the stair rising up the cliff face to the top landing flush with p03's patch"},
+        {"id": "V7_p03_stair_top", "target": G.rnd(along(((M[0] + cave_mid[0]) / 2, (M[1] + cave_mid[1]) / 2), nh, 3.0)), "what": "the sea cave at the stair's foot, the stair rising up the cliff face to the top landing flush with p03's patch"},
     ]
     for v in views:
         v["window_m"] = G.rnd(win)
@@ -635,8 +714,13 @@ def main():
         _foot.append(along((0, 0), uu, ray_exit(floor, uu) + 3.6))
     ctx = {
         "bank_gaps": [along(_pc, _nin, PORCH["depth"]), along(Gp, ax_ne, 1.0)],
-        "mound": {"c": mound_c, "a": 15.0, "b": 10.0, "rot": rot2, "rise": 7.0},
-        "passage": {"c": door_c, "door": door_c, "u": d2, "v": n2, "half_w": 1.1, "len": 5.0},
+        "mound": {"c": mound_c, "a": BARROW["mound_a"], "b": BARROW["mound_b"], "rot": rot2, "rise": BARROW["rise"]},
+        "passage": {"c": along((0, 0), d2, door_plane), "door": along((0, 0), d2, door_plane), "u": d2, "v": n2,
+                    "half_w": BARROW["open_w"] / 2 + 0.1, "len": BARROW["passage_len"] + BARROW["post_d"],
+                    "forecourt_back": BARROW["forecourt"] + 0.3, "forecourt_half_w": _bw / 2 + 0.6, "barrow": BARROW},
+        "braziers": braziers, "apron": apron_fp,
+        "clear_zones": [ledge, cave_poly, [T_n, T_s, B_s, B_n], landing],
+        "cave_frame": [(G.rnd(p_), G.rnd(n_)) for p_, n_ in cave_s],
         "hall_pad": _pad,
         "wall_rock": wall_rock,
         "rock_clusters": [(-25, -40, 6, 1.2), (30, -38, 5, 1.4), (-8, -57, 4, 1.6), (41, -23, 5, 1.1), (52, -48, 6, 1.5),
@@ -675,7 +759,7 @@ def main():
             B.blob("rock", (cx_, cy_), r_, r_ * 0.8, f["z_top_m"], -0.5, float(B.rng.uniform(0, 180)), (0.50, 0.49, 0.47), "rock")
     gd_counts = B.ground_detail()
     SCULPT_KINDS = {"mound", "door", "standing_stone", "wreck", "mast", "rock", "hall", "gable", "palisade", "fallen_stone",
-                    "grave_marker", "driftwood", "beam", "porch"}
+                    "grave_marker", "driftwood", "beam", "porch", "forecourt", "apron", "brazier"}
     for f in feats:
         f["render"] = "sculpt" if f["kind"] in SCULPT_KINDS else "prism"
     feats.extend(B.features)

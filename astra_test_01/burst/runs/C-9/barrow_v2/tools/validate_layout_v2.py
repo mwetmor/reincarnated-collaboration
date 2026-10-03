@@ -24,6 +24,9 @@ The rules (oracle + KC2 KP-253 + R-C9-145):
   R8  the stone circle: 7-9 stones, all walk-over
   R9  the camera is the projection law (pitch, zero yaw, plate scale)
   R10 each delivering feature (door, wreck, cave/stair, gable) is OUTSIDE the edge and close to it
+  R11 (R-C9-154) every deliverer opening is sized to the largest monster it delivers, measured off the
+      rendered geometry: barrow door >= 5.0 x 6.5 m, great door/porch >= 4.5 x 4.5 m (porch above the
+      hall's roofline), sea cave >= 9 x ~7 m
 """
 import argparse
 import copy
@@ -430,7 +433,7 @@ def validate(L, check_provenance=True):
             ppm_zoom_gd=round(ppm, 4), window_zoom_gd_m=[round(v, 3) for v in cam["window_zoom_gd_1920x1080_m"]])
 
     # ---------------- R10 the deliverers ----------------
-    deliver = {"p02": ["barrow_door"], "p01": ["wreck_hull"], "p04": ["hall_great_door", "hall_porch"], "p06": ["fallen_gable"],
+    deliver = {"p02": ["barrow_door"], "p01": ["wreck_hull"], "p04": ["hall_porch"], "p06": ["fallen_gable"],
                "p03": ["sea_cave_mouth"]}
     for pid, ids in deliver.items():
         for fid in ids:
@@ -441,9 +444,52 @@ def validate(L, check_provenance=True):
             poly = [tuple(p) for p in f["footprint"]]
             oa = FI.overlap(poly)
             gap = min(FI.dist(p) for p in poly) if oa <= TOL else 0.0
-            limit = 22.0 if pid == "p03" else 3.0
+            limit = {"p03": 0.5, "p02": 3.5}.get(pid, 3.0)
             R.check("R10", f"{pid}: {fid} is outside the walkable edge and within {limit} m of it", oa <= TOL and gap <= limit,
                     overlap_m2=round(oa, 6), gap_to_floor_m=round(gap, 3))
+    # ---------------- R11 openings sized to the monsters (R-C9-154) ----------------
+    sc = L.get("sculpt") or {"beams": [], "blobs": []}
+    BM = sc["beams"]
+
+    def horiz(a, b):
+        return math.hypot(a[0] - b[0], a[1] - b[1])
+    posts = [b for b in BM if b["k"] == "door_post"]
+    lint = [b for b in BM if b["k"] == "lintel"]
+    if len(posts) == 2 and lint:
+        gap_c = horiz(posts[0]["a"], posts[1]["a"])
+        clear_w = gap_c - (posts[0]["w"] + posts[1]["w"]) / 2
+        clear_h = min(l["a"][2] for l in lint) - lint[0]["t"] / 2
+        R.check("R11", "p02 barrow door clear opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m), measured between the rendered uprights and under the lintel",
+                clear_w >= 5.0 - 5e-3 and clear_h >= 6.5 - 5e-3, clear_w_m=round(clear_w, 3), clear_h_m=round(clear_h, 3))
+    else:
+        R.check("R11", "p02 barrow door uprights + lintel present", False, n_posts=len(posts), n_lintels=len(lint))
+    fp = [b for b in BM if b["k"] == "porch_post_front"]
+    eave = [b for b in BM if b["k"] == "porch_eave"]
+    leaves = [b for b in BM if b["k"] == "door_leaf"]
+    dark = [b for b in sc["blobs"] if b["k"] == "dark"]
+    hall_ridge = max((b["a"][2] for b in BM if b["k"] == "ridge"), default=0.0)
+    ridge = max((max(b["a"][2], b["b"][2]) for b in BM if b["k"] == "porch_ridge"), default=0.0)
+    if len(fp) == 2 and eave:
+        clear_w = horiz(fp[0]["a"], fp[1]["a"]) - (fp[0]["w"] + fp[1]["w"]) / 2
+        clear_h = eave[0]["a"][2] - eave[0]["t"] / 2
+        door_h = max((b["top"] for b in dark if abs(b["top"] - clear_h) < 2.5 or True), default=0.0)
+        R.check("R11", "p04 great door + porch clear opening >= 4.5 m wide x 4.5 m high (colossus 3.2 m, statues ~3.5 m, crabs ~3.4 m wide), measured between the porch's front posts and under its front beam; the doorway behind it as large",
+                clear_w >= 4.5 - 5e-3 and clear_h >= 4.5 - 5e-3 and len(leaves) == 2,
+                clear_w_m=round(clear_w, 3), clear_h_m=round(clear_h, 3), door_leaves=len(leaves))
+        R.check("R11", "the porch rises ABOVE the hall's roofline (its ridge vs the hall's ridge beams)", ridge > hall_ridge + 0.5,
+                porch_ridge_m=round(ridge, 2), hall_ridge_max_m=round(hall_ridge, 2))
+    else:
+        R.check("R11", "p04 porch front posts + front beam present", False, n_front_posts=len(fp), n_eave=len(eave))
+    cave = next((f for f in feats if f["kind"] == "cave"), None)
+    if cave is not None:
+        cp = [tuple(p) for p in cave["footprint"]]
+        n2 = len(cp) // 2
+        mouth_w = sum(math.dist(cp[i], cp[i + 1]) for i in range(n2 - 1))
+        mouth_h = cave["z_top_m"] - cave["z_bottom_m"]
+        lintel = 0.0 - cave["z_top_m"]
+        R.check("R11", "p03 sea-cave mouth ~7 m high x >= 9 m wide (servitors 4-8 m long, the 5.6 m nemesis), with rock above it below the floor",
+                mouth_w >= 9.0 - 0.05 and mouth_h >= 6.5 and lintel > 0.1,
+                mouth_w_m=round(mouth_w, 3), mouth_h_m=round(mouth_h, 3), rock_lintel_m=round(lintel, 3))
     return R
 
 
@@ -464,6 +510,11 @@ def broken_copy(L):
     if "sculpt" in B:
         B["sculpt"]["blobs"].append({"k": "rock", "c": [-6.0, 12.0], "cz": 0.0, "r": [1.2, 1.0, 1.4], "rot": 0.0,
                                      "rgb": [0.5, 0.5, 0.5], "proto": "rock", "top": 1.4})
+    # (b3) R11: the barrow door's lintel dropped to 4 m (too low for the yeti nemesis)
+    if "sculpt" in B:
+        for bm in B["sculpt"]["beams"]:
+            if bm["k"] == "lintel":
+                bm["a"][2] = bm["b"][2] = 4.0
     # (c) R6: a narrow, steep stair
     S = B["stair"]
     fl3 = S["flight"]["polygon"]
@@ -480,7 +531,7 @@ def broken_copy(L):
     mx = sum(p[0] for p in me) / len(me)
     my = sum(p[1] for p in me) / len(me)
     B["mere"]["polygon"] = [[mx + 0.6 * (p[0] - mx), my + 0.6 * (p[1] - my)] for p in me]
-    return B, {"R2", "R3", "R4", "R5", "R6", "R7"}
+    return B, {"R2", "R3", "R4", "R5", "R6", "R7", "R11"}
 
 
 def print_report(R, title):

@@ -1,6 +1,6 @@
 {
   "layout": "layout_v2.json",
-  "layout_sha256": "ee7d3b1c8d6a00c8825b376fb7424f70d9a788c721c9bfe46bff35feeb19016a",
+  "layout_sha256": "179027af65b1b13024b0e5aada8b93ebd53c95d3aba7d605bcfef7cd470039a2",
   "pass": true,
   "checks": [
     {
@@ -44,7 +44,7 @@
       "rule": "R4",
       "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
       "PASS": true,
-      "area_m2": 4222.58,
+      "area_m2": 4225.12,
       "width_x_m": 84.628,
       "depth_y_m": 82.269,
       "x": [
@@ -63,7 +63,7 @@
       "worst_hull_vertex_clearance_m": -0.0004,
       "deepest_floor_vertex_inside_hull_m": 0.0,
       "hull_min_area_m2": 4026.52,
-      "floor_minus_hull_m2": 196.06
+      "floor_minus_hull_m2": 198.6
     },
     {
       "rule": "R4",
@@ -77,7 +77,7 @@
       "bulge_m": {
         "min": 0.0,
         "max": 3.602,
-        "mean": 0.674
+        "mean": 0.682
       }
     },
     {
@@ -122,7 +122,7 @@
       "check": "p03 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
       "severity": "INFO",
-      "box_on_floor_pct": 96.252,
+      "box_on_floor_pct": 96.94,
       "corner_clearance_m": -2.3137
     },
     {
@@ -137,7 +137,7 @@
       "check": "p04 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
       "severity": "INFO",
-      "box_on_floor_pct": 97.315,
+      "box_on_floor_pct": 97.265,
       "corner_clearance_m": -2.1675
     },
     {
@@ -190,7 +190,7 @@
       "PASS": true,
       "length_m": 33.105,
       "nearest_blocker": "barrow_door",
-      "nearest_blocker_gap_m": 9.95
+      "nearest_blocker_gap_m": 12.05
     },
     {
       "rule": "R3",
@@ -205,8 +205,8 @@
       "check": "line (0,0) -> p04 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 31.948,
-      "nearest_blocker": "hall_porch",
-      "nearest_blocker_gap_m": 9.643
+      "nearest_blocker": "longhall",
+      "nearest_blocker_gap_m": 10.5
     },
     {
       "rule": "R3",
@@ -228,8 +228,8 @@
       "rule": "R5",
       "check": "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
       "PASS": true,
-      "n_blockers": 180,
-      "worst_overlap_m2": 2e-06,
+      "n_blockers": 179,
+      "worst_overlap_m2": 0.0,
       "worst_id": "stair_wall_rock",
       "closest_blocker_gap_m": 0.0,
       "closest_blocker": "stair_wall_rock"
@@ -261,71 +261,71 @@
       "rule": "R5",
       "check": "sculpt: every blob taller than walk-over (0.4 m) lies outside the floor",
       "PASS": true,
-      "n_blobs": 472,
-      "n_tall": 180,
+      "n_blobs": 511,
+      "n_tall": 181,
       "offenders": []
     },
     {
       "rule": "R5",
       "check": "sculpt: no beam rises above walk-over (0.4 m) over the floor",
       "PASS": true,
-      "n_beams": 318,
+      "n_beams": 390,
       "offenders": []
     },
     {
       "rule": "R5",
       "check": "terrain: the heightfield is exactly 0 at every sample on the floor (the sim's plane); relief only outside",
       "PASS": true,
-      "samples_on_floor": 16885,
+      "samples_on_floor": 16895,
       "max_abs_z_on_floor_m": 0.0,
-      "relief_outside_max_m": 7.316
+      "relief_outside_max_m": 10.75
     },
     {
       "rule": "R6",
       "check": "stair width >= 2.5 m (measured off the flight polygon)",
       "PASS": true,
-      "width_m": 3.0
+      "width_m": 5.0
     },
     {
       "rule": "R6",
       "check": "stair slope walkable: <= 35 deg (and under Godot's default floor_max_angle 45 deg)",
       "PASS": true,
-      "slope_deg": 26.565,
-      "run_m": 8.4,
-      "drop_m": 4.2,
-      "grade_pct": 50.0
+      "slope_deg": 34.695,
+      "run_m": 10.4,
+      "drop_m": 7.2,
+      "grade_pct": 69.23
     },
     {
       "rule": "R6",
       "check": "steps: rise x count = drop, tread x count = run, 2R+T in 0.60-0.65 m",
       "PASS": true,
-      "n_steps": 28,
-      "rise_m": 0.15,
-      "tread_m": 0.3,
-      "two_r_plus_t_m": 0.6
+      "n_steps": 40,
+      "rise_m": 0.18,
+      "tread_m": 0.26,
+      "two_r_plus_t_m": 0.62
     },
     {
       "rule": "R6",
       "check": "the run's angle to the centre (climbers turn on the top landing; the alignment rule was dropped by R-C9-148)",
       "PASS": true,
       "severity": "INFO",
-      "turn_on_landing_deg": 91.27
+      "turn_on_landing_deg": 98.4
     },
     {
       "rule": "R6",
       "check": "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 disc across the 1 m margin",
       "PASS": true,
-      "north_edge_off_boundary_m": 3.5e-05,
-      "landing_overlap_m2": 0.0,
-      "gap_to_p03_disc_m": 0.9998,
+      "north_edge_off_boundary_m": 3.2e-05,
+      "landing_overlap_m2": 6e-06,
+      "gap_to_p03_disc_m": 0.9997,
       "gap_to_p03_box_m_info": 0.0,
-      "landing_north_edge_len_m": 2.259
+      "landing_north_edge_len_m": 2.413
     },
     {
       "rule": "R6",
       "check": "stair top_landing lies OUTSIDE the floor (zero overlap)",
       "PASS": true,
-      "overlap_m2": 0.0
+      "overlap_m2": 6e-06
     },
     {
       "rule": "R6",
@@ -344,7 +344,7 @@
       "check": "one side open: no blocker within 1 m of the sea-side edge; the cliff face is the wall on the other side",
       "PASS": true,
       "sea_side_nearest": "stair_wall_rock",
-      "sea_side_gap_m": 3.0,
+      "sea_side_gap_m": 5.0,
       "wall": "stair_wall_rock",
       "wall_gap_m": 0.0
     },
@@ -358,18 +358,18 @@
       "rule": "R6",
       "check": "the flight climbs FROM the ledge: its foot edge is on the sea-level ledge, at the ledge's z",
       "PASS": true,
-      "foot_mid_clearance_in_ledge_m": 0.0,
-      "ledge_z_m": -4.2
+      "foot_mid_clearance_in_ledge_m": -0.0,
+      "ledge_z_m": -7.2
     },
     {
       "rule": "R6",
       "check": "the cave is at the stair's foot: on the ledge, within 4 m of the foot, at the ledge's z, in the cliff face under the lip (<= 0.5 m out)",
       "PASS": true,
-      "cave_to_foot_m": 0.409,
-      "cave_to_lip_m": 0.124,
+      "cave_to_foot_m": 1.69,
+      "cave_to_lip_m": 0.059,
       "cave_z_m": [
-        -4.2,
-        -1.4000000000000004
+        -7.2,
+        -0.2999999999999998
       ]
     },
     {
@@ -431,10 +431,10 @@
     },
     {
       "rule": "R10",
-      "check": "p02: barrow_door is outside the walkable edge and within 3.0 m of it",
+      "check": "p02: barrow_door is outside the walkable edge and within 3.5 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 0.578
+      "gap_to_floor_m": 3.294
     },
     {
       "rule": "R10",
@@ -445,17 +445,10 @@
     },
     {
       "rule": "R10",
-      "check": "p04: hall_great_door is outside the walkable edge and within 3.0 m of it",
-      "PASS": true,
-      "overlap_m2": 0.0,
-      "gap_to_floor_m": 2.125
-    },
-    {
-      "rule": "R10",
       "check": "p04: hall_porch is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 0.31
+      "gap_to_floor_m": 1.479
     },
     {
       "rule": "R10",
@@ -466,10 +459,40 @@
     },
     {
       "rule": "R10",
-      "check": "p03: sea_cave_mouth is outside the walkable edge and within 22.0 m of it",
+      "check": "p03: sea_cave_mouth is outside the walkable edge and within 0.5 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 0.124
+      "gap_to_floor_m": 0.059
+    },
+    {
+      "rule": "R11",
+      "check": "p02 barrow door clear opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m), measured between the rendered uprights and under the lintel",
+      "PASS": true,
+      "clear_w_m": 5.006,
+      "clear_h_m": 6.5
+    },
+    {
+      "rule": "R11",
+      "check": "p04 great door + porch clear opening >= 4.5 m wide x 4.5 m high (colossus 3.2 m, statues ~3.5 m, crabs ~3.4 m wide), measured between the porch's front posts and under its front beam; the doorway behind it as large",
+      "PASS": true,
+      "clear_w_m": 4.5,
+      "clear_h_m": 5.1,
+      "door_leaves": 2
+    },
+    {
+      "rule": "R11",
+      "check": "the porch rises ABOVE the hall's roofline (its ridge vs the hall's ridge beams)",
+      "PASS": true,
+      "porch_ridge_m": 7.8,
+      "hall_ridge_max_m": 6.12
+    },
+    {
+      "rule": "R11",
+      "check": "p03 sea-cave mouth ~7 m high x >= 9 m wide (servitors 4-8 m long, the 5.6 m nemesis), with rock above it below the floor",
+      "PASS": true,
+      "mouth_w_m": 9.457,
+      "mouth_h_m": 6.9,
+      "rock_lintel_m": 0.3
     }
   ]
 }
