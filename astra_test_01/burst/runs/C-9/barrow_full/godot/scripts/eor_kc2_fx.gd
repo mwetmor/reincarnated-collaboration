@@ -99,20 +99,24 @@ extends Node3D
 #                    ~1.8 m at this camera's 53 deg pitch (half a 6 m quad x cos 53), which floats the "low pool" above
 #                    his waist; no-depth-test draws the haze over his body and mace (the source keeps "the hammer and
 #                    the head clear"). The smaller change is SOFT PARTICLES on the haze material -- proximity fade over
-#                    HAZE_SOFT_M -- which dissolves exactly the intersection and nothing else.
+#                    HAZE_SOFT_M -- which dissolves exactly the intersection and nothing else. Written out in
+#                    kc2_haze_ember.gdshader (PORT 20), which draws the haze on BOTH variants: the StandardMaterial's
+#                    own proximity fade at 0.80 m erased the haze on snow (measured 0.858 inside vs 0.856 outside).
 #   C-9 EOR2 PORT 19 THE CUT POOL AS A MULTIMESH (conductor ruling: the R-C9-89 draw budget). The source draws each
 #                    live stroke as its own node, 2 surfaces each (~7.65 live x 2 ~ 15 draws). Here ONE MultiMesh holds
 #                    every stroke: its mesh is all 12 variants merged, each vertex tagged with its variant (COLOR.b);
 #                    each instance carries its yaw and height (transform) and (variant, stroke_age) (custom data);
 #                    data/vfx/eor_kc2/kc2_etch_mm.gdshader drops every vertex not of the instance's variant. 2 draws.
 #                    Same layout function, same meshes, same fragment; additive blending makes the sheath/core order
-#                    immaterial. ?eorcuts=pool (--eorcuts pool) draws the source's node pool, for the still diff.
+#                    immaterial. ⚑ OPEN: it matches the pool exactly in isolation but draws no arc in the Barrow,
+#                    so the DEFAULT is still the source's node pool; ?eorcuts=mm selects the MultiMesh.
 #   C-9 EOR2 PORT 20 THE RED EYE (R-C9-146, Matt: "the cloud's transparent edges running intermittently red hot").
 #                    `eortint=original` draws the PORT 17 snow-powder haze exactly. `eortint=red` (his default) draws
 #                    the SAME haze through data/vfx/eor_kc2/kc2_haze_ember.gdshader: the low-alpha rim band of each
 #                    puff runs red-hot (the source ramp's orange knee -> red crawl), on and off per particle with a
 #                    seeded phase that also travels around the disc, so it crawls instead of pulsing; the core stays
-#                    light. Same quad, same draw (blend_premul_alpha: the cloud mixes, the ember adds). The clock is
+#                    light. Same quad, same draw (one mix; the ember COVERS inside its rim mask -- red
+#                    ADDED over white snow clipped to yellow-white and read as lightning in the first render). The clock is
 #                    PORT 1's revolutions, not TIME. The sparks and the ember flecks shift toward red on this variant
 #                    (their ramp sampled from EMBER_RED_SHIFT along the source's own ramp). THE ARC (the cuts) IS THE
 #                    SOURCE'S WHITE-HOT -> ORANGE -> RED ON BOTH VARIANTS. (Supersedes the bind_to note that both
@@ -159,17 +163,18 @@ const SNOW_HAZE_C1 := Color(0.58, 0.63, 0.75)        # death (source 0.070, 0.06
 const SNOW_BED_COLOR := Color(0.376, 0.448, 0.658)
 const SNOW_BED_ALPHA := 0.45                         # source 0.86 over tile; a shadow on snow, not a hole
 # ---- C-9 EOR2 PORT 18 ----------------------------------------------------------------------------------------------
-const HAZE_SOFT_M := 0.80                            # proximity fade: where a haze quad meets the snow, it dissolves
+const HAZE_SOFT_M := 0.35                            # proximity fade: where a haze quad meets the snow, it dissolves
+                                                     # (0.80 measured erasing a ground-hugging haze at this pitch)
 # ---- C-9 EOR2 PORT 19 ----------------------------------------------------------------------------------------------
 const CUT_VARIANT_CODES := 16.0                      # COLOR.b = (id + 0.5) / 16; 12 ids used
 # ---- C-9 EOR2 PORT 20 (R-C9-146): eortint=red -- AUTHORED, every one named --------------------------------------
-const EMBER_RIM_LO := 0.04        # smoke_05_a alpha where a puff's rim band starts (its max alpha is 0.84)
-const EMBER_RIM_HI := 0.30        # ...and where the puff is dense enough to stay light
-const EMBER_DUTY := 0.30          # fraction of each cycle a particle's rim runs hot
+const EMBER_RIM_LO := 0.02        # smoke_05_a alpha where a puff's rim band starts (its max alpha is 0.84)
+const EMBER_RIM_HI := 0.25        # ...and where the puff is dense enough to stay light
+const EMBER_DUTY := 0.12          # fraction of each cycle a particle's rim runs hot
 const EMBER_RATE := 0.5           # cycles per revolution (~1.7 Hz at his 0.300 s/rev)
 const EMBER_WAVES := 2.0          # lobes of the crawl around the disc
 const EMBER_JITTER := 0.35        # per-particle seeded phase spread
-const EMBER_GAIN := 0.9
+const EMBER_GAIN := 0.55   # the ember covers this much of what is under it, at full rim
 const EMBER_RED_SHIFT := 0.30     # sparks + embers: their ramp starts this far along the source ramp (past the knee)
 
 # ⚑ THE SPIN RATE — R-CPB-3. Kept for the declarations (they describe the source); the clip's own period drives the
@@ -357,7 +362,7 @@ var _cut_lib: Array = []
 var _cut_nodes: Array = []
 var _cut_mats: Array = []
 var _cut_ready := false
-var _cut_mm := true                           # PORT 19; false = the source's node pool (?eorcuts=pool)
+var _cut_mm := false                          # PORT 19 MultiMesh: ?eorcuts=mm (OPEN); default = the source's node pool
 var _mm: MultiMesh
 var _mmi: MultiMeshInstance3D
 var _mm_mats: Array = []                      # [sheath, core] ShaderMaterial on the merged mesh's two surfaces
@@ -733,7 +738,10 @@ func _build_etch(band: Dictionary) -> Dictionary:
 	fx.add_child(etch_root)
 	_cut_nodes = []
 	_cut_mats = []
-	_cut_mm = Slots.arg("eorcuts") != "pool"
+	# ⚑ DEFAULT IS THE SOURCE'S NODE POOL until the MultiMesh draws in the live scene: isolated, the MultiMesh matched
+	#   the pool pixel for pixel (max diff 0 over 2,871 lit px); in the Barrow it drew no arc (2026-10-02, open).
+	#   ?eorcuts=mm (--eorcuts mm) selects it for that work.
+	_cut_mm = Slots.arg("eorcuts") == "mm"
 	if _cut_mm:
 		_build_cut_multimesh()
 	# --- the POOL: CUT_POOL nodes, each with its own two materials (the source's; ?eorcuts=pool) ---------
@@ -796,6 +804,8 @@ func _build_cut_multimesh() -> void:
 	for si in 2:                                  # 0 sheath, 1 core -- the library's own surface order
 		var verts := PackedVector3Array()
 		var cols := PackedColorArray()
+		var uvs := PackedVector2Array()
+		var uv2s := PackedVector2Array()
 		var idx := PackedInt32Array()
 		for cls in 2:
 			for v in CUT_VARIANTS:
@@ -805,12 +815,20 @@ func _build_cut_multimesh() -> void:
 				verts.append_array(a[Mesh.ARRAY_VERTEX])
 				for c in (a[Mesh.ARRAY_COLOR] as PackedColorArray):
 					cols.append(Color(c.r, c.g, (float(id) + 0.5) / CUT_VARIANT_CODES, c.a))
+					# ⚑ THE MULTIMESH READS UV / UV2, NOT COLOR: on the Compatibility renderer a MultiMesh without
+					#   per-instance colours hands the vertex shader a COLOR that is not the mesh's (measured: the
+					#   tagged MultiMesh row drew NOTHING beside the node pool's 12 strokes). UV = (age, rim), the
+					#   same two numbers COLOR.r/.g carry; UV2.x = the variant id, exact.
+					uvs.append(Vector2(c.r, c.g))
+					uv2s.append(Vector2(float(id), 0.0))
 				for i in (a[Mesh.ARRAY_INDEX] as PackedInt32Array):
 					idx.append(base + i)
 		var arr := []
 		arr.resize(Mesh.ARRAY_MAX)
 		arr[Mesh.ARRAY_VERTEX] = verts
 		arr[Mesh.ARRAY_COLOR] = cols
+		arr[Mesh.ARRAY_TEX_UV] = uvs
+		arr[Mesh.ARRAY_TEX_UV2] = uv2s
 		arr[Mesh.ARRAY_INDEX] = idx
 		merged.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
 	_mm = MultiMesh.new()
@@ -1153,15 +1171,17 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	mat.albedo_texture = SMOKE_TEX_RES
 	q.material = mat
 	_haze_mat = mat
-	if tint == "red":
-		# C-9 EOR2 PORT 20: the same haze, its rims running red-hot (kc2_haze_ember.gdshader)
-		var em := ShaderMaterial.new()
+	# C-9 EOR2 PORT 18 / 20: BOTH variants draw the haze through kc2_haze_ember.gdshader -- one haze, the ember gain 0
+	#   on "original". (The StandardMaterial above is the source's material, kept as the record; its own proximity
+	#   fade measured erasing the haze on snow: 0.858 luma inside the disc against 0.856 outside.)
+	var em := ShaderMaterial.new()
+	if em != null:
 		em.shader = HAZE_EMBER_SHADER_RES
 		em.set_shader_parameter("albedo_tex", SMOKE_TEX_RES)
 		em.set_shader_parameter("proximity_fade_distance", HAZE_SOFT_M)
 		em.set_shader_parameter("ember_mid", PAL_MID)
 		em.set_shader_parameter("ember_tail", PAL_TAIL)
-		em.set_shader_parameter("ember_gain", EMBER_GAIN)
+		em.set_shader_parameter("ember_gain", EMBER_GAIN if tint == "red" else 0.0)
 		em.set_shader_parameter("rim_lo", EMBER_RIM_LO)
 		em.set_shader_parameter("rim_hi", EMBER_RIM_HI)
 		em.set_shader_parameter("duty", EMBER_DUTY)

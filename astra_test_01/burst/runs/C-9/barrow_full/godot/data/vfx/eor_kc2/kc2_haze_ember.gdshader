@@ -10,15 +10,14 @@ shader_type spatial;
 // same draw. One thing is added: the LOW-ALPHA RIM BAND of each puff (the texture's thin outer alpha) runs
 // red-hot, on and off, per particle.
 //
-// ⚑ ONE DRAW, MIX AND ADD AT ONCE: blend_premul_alpha. The cloud is premultiplied (colour x alpha, exactly the mix
-//   the StandardMaterial drew); the ember is ADDED on top without adding alpha, so it glows over the snow instead
-//   of painting it. The core stays light: the ember mask is zero where the puff is dense.
+// ⚑ ONE DRAW, one MIX: the cloud is the StandardMaterial's mix; the ember, inside its rim mask only, is emissive red
+//   that covers what is under it (see fragment). The core stays light: the ember mask is zero where the puff is dense.
 // ⚑ IT CRAWLS, IT DOES NOT PULSE: each particle's on/off window is a phase of (its own seeded offset, its angle
 //   around the cloud's centre, the clock), so a lit band travels around the disc and breaks up.
 // ⚑ NO WALL CLOCK. `ember_clock` is the effect's own revolution clock (PORT 1), written per frame -- the source's
 //   determinism law (FG-10) holds; INSTANCE_ID is the particle's slot, stable under the pinned seed.
 // ============================================================================
-render_mode unshaded, blend_premul_alpha, depth_draw_never, cull_back, shadows_disabled;
+render_mode unshaded, blend_mix, depth_draw_never, cull_back, shadows_disabled;
 
 uniform sampler2D albedo_tex : source_color, filter_linear, repeat_disable;
 uniform sampler2D depth_texture : hint_depth_texture, filter_nearest, repeat_disable;
@@ -77,6 +76,16 @@ void fragment() {
 	float rim = smoothstep(rim_lo, rim_lo + 0.06, tex.a) * (1.0 - smoothstep(rim_hi - 0.12, rim_hi, tex.a));
 	float glow = rim * v_on * fade * prox * smoothstep(0.0, 0.05, COLOR.a);
 	vec3 hot = mix(ember_mid, ember_tail, v_heat);
-	ALBEDO = COLOR.rgb * tex.rgb * a + hot * glow * ember_gain;   // premultiplied cloud + added ember
-	ALPHA = a;
+	// ⚑ ON SNOW THE EMBER MUST COVER, NOT ADD. Red ADDED over 0.96 snow clips to pale yellow-white (first render,
+	//   2026-10-02): it read as lightning, not heat. So inside its own rim mask the ember is emissive red that
+	//   REPLACES what is under it by `ge` -- premultiplied: colour (1 - ge) of the cloud plus ge of hot red, alpha
+	//   a + ge(1 - a). Outside the mask (ge = 0) this is exactly the cloud.
+	float ge = clamp(glow * ember_gain, 0.0, 1.0);
+	// The pixel wanted is, premultiplied, cloud x a x (1 - ge) + hot x ge over alpha A = a + ge(1 - a). It is written
+	// as an ordinary MIX (colour = that / A): blend_premul_alpha measured darkening the cloud on Compatibility, and
+	// PREMUL_ALPHA_FACTOR does not exist there (fragment compile failure). With ge = 0 this is exactly the
+	// StandardMaterial's mix: colour = cloud, alpha = a.
+	float A = a + ge * (1.0 - a);
+	ALBEDO = (COLOR.rgb * tex.rgb * a * (1.0 - ge) + hot * ge) / max(A, 1e-4);
+	ALPHA = A;
 }

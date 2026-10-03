@@ -1,6 +1,6 @@
 shader_type spatial;
 // kc2_etch_mm.gdshader — C-9 R-C9-143 EOR2 PORT 19: kc2_etch.gdshader (below, verbatim) drawn as a MULTIMESH.
-//   ONE mesh holds all 12 stroke variants; each vertex carries its variant in COLOR.b ((id + 0.5) / 16). Each
+//   ONE mesh holds all 12 stroke variants; each vertex carries its variant in UV2.x (and its age/rim in UV). Each
 //   instance carries INSTANCE_CUSTOM = (variant id, stroke_age, 0, 0); a vertex of any other variant collapses to
 //   the origin (degenerate, no fragments). stroke_age moves from a per-material uniform to that per-instance
 //   value. The fragment is unchanged. Blend is ADD with depth_draw_never, so the order sheaths-then-cores
@@ -74,10 +74,12 @@ varying float v_age;                  // this vertex's OWN age behind the leadin
 varying float v_rim;                  // 0 on the stroke's axis, 1 at its edge
 
 void vertex() {
-	v_age = COLOR.r;
-	v_rim = COLOR.g;
+	// UV = (age, rim) and UV2.x = the variant id: on Compatibility a MultiMesh does not hand the vertex shader the
+	// mesh's own COLOR (eor_kc2_fx.gd _build_cut_multimesh)
+	v_age = UV.x;
+	v_rim = UV.y;
 	stroke_age = INSTANCE_CUSTOM.y;
-	if (abs(floor(COLOR.b * 16.0) - INSTANCE_CUSTOM.x) > 0.5) {
+	if (abs(UV2.x - INSTANCE_CUSTOM.x) > 0.5) {
 		VERTEX = vec3(0.0);
 	}
 }
