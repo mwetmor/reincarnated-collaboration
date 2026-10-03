@@ -121,6 +121,19 @@ extends Node3D
 #                    (their ramp sampled from EMBER_RED_SHIFT along the source's own ramp). THE ARC (the cuts) IS THE
 #                    SOURCE'S WHITE-HOT -> ORANGE -> RED ON BOTH VARIANTS. (Supersedes the bind_to note that both
 #                    tints draw the same: that was true until R-C9-146.)
+#   ⚑ C-9 EOR2 PORT 21 / R-C9-152 (Matt, on the live Barrow): "The whirlwind is good but remove all of the red VFX
+#                    from it.. instead just color the smoke a bit red while leaving it translucent and add some spark
+#                    particles to it." SUPERSEDES PORT 19's role, PORT 20's rims and red shift, and the arc:
+#                    - THE ARC CUTS ARE NOT BUILT (ARC_CUTS = false; the code stays, unbuilt, as the record).
+#                    - THE RIM EMBER IS OFF (gain 0 on every variant); the haze shader stays for its soft fade.
+#                    - THE HAZE takes a SLIGHT dusty-red tint on its colour stops only (alphas, overlap, soft fade
+#                      unchanged): SMOKE_RED_STRENGTHS, ?eorsmoke=1|2|3 (default 2). eortint=red (his default) =
+#                      the tinted haze; eortint=original = the untinted PORT 17 haze.
+#                    - SPARKS: the source's three emitters and ember flecks on the SOURCE ramp (white-hot -> orange,
+#                      no red shift), plus a FOURTH emitter riding the mace head, so sparks are thrown off its path.
+#                      All sparks and embers MIX-blended, not added: warm-white ADDED over 0.96 snow is invisible
+#                      (the same finding as the rims), mixed it reads as a spark.
+#                    - THE BED stays the soft trodden-snow shadow.
 # ============================================================================
 
 const PAL_SRC := "reincarnated-godot scripts/kc2_player_channel.gd @ 34dcd41"
@@ -151,6 +164,16 @@ const SRC_EMBER_SCALE := 1.910876
 const FADE_OUT_S := 0.80
 const FADE_IN_S := 0.10                               # = slot_knight.gd EOR_FADE_S: the bed arrives as his spin does
 const MEASURE_PHASES := 12                            # PORT 4: the source's `phases` default
+# ---- C-9 EOR2 PORT 21 (R-C9-152) ----------------------------------------------------------------------------------
+const ARC_CUTS := false                              # Matt: "remove all of the red VFX" -- the etch is not built
+# the haze's slight red: each colour stop lerped this far toward SMOKE_RED (linear) -- ?eorsmoke=1|2|3
+const SMOKE_RED := Color(0.84, 0.46, 0.32)           # a dusty brick red, not fire, not blood (0.78/0.36/0.30 read mauve over the blue bed)
+const SMOKE_RED_STRENGTHS := [0.18, 0.30, 0.45]
+const SMOKE_RED_DEFAULT := 1                         # index: 0.30
+# the fourth spark emitter, on the mace head: the source's _sparks() with these
+const HEAD_SPARK_AMOUNT := 32
+const HEAD_SPARK_LIFETIME_S := 0.35
+const HEAD_SPARK_QUAD := Vector2(0.07, 0.50)         # the source's 0.045 x 0.30 streak barely shows at the Barrow camera
 
 # ---- C-9 EOR2 PORT 17: the snow retint (AUTHORED against the Barrow's measured snow and shadow) --------------------
 # Haze stops, LINEAR (vertex colours are linear; the source's 0.205 shows as sRGB ~0.49): the source's alpha stops,
@@ -169,12 +192,14 @@ const HAZE_SOFT_M := 0.35                            # proximity fade: where a h
 const CUT_VARIANT_CODES := 16.0                      # COLOR.b = (id + 0.5) / 16; 12 ids used
 # ---- C-9 EOR2 PORT 20 (R-C9-146): eortint=red -- AUTHORED, every one named --------------------------------------
 const EMBER_RIM_LO := 0.02        # smoke_05_a alpha where a puff's rim band starts (its max alpha is 0.84)
-const EMBER_RIM_HI := 0.25        # ...and where the puff is dense enough to stay light
-const EMBER_DUTY := 0.12          # fraction of each cycle a particle's rim runs hot
+const EMBER_RIM_HI := 0.35        # ...and where the puff is dense enough to stay light
+const EMBER_DUTY := 0.07          # fraction of each cycle a particle's rim runs hot
 const EMBER_RATE := 0.5           # cycles per revolution (~1.7 Hz at his 0.300 s/rev)
 const EMBER_WAVES := 2.0          # lobes of the crawl around the disc
 const EMBER_JITTER := 0.35        # per-particle seeded phase spread
-const EMBER_GAIN := 0.55   # the ember covers this much of what is under it, at full rim
+const EMBER_GAIN := 0.75   # the ember covers this much of what is under it, at full rim (0.55 read pink, 0.90 worms)
+const EMBER_RIM_R_IN := 0.58     # the puff's outer radial band (0 = its centre, 1 = its quad edge)
+const EMBER_RIM_R_OUT := 0.92
 const EMBER_RED_SHIFT := 0.30     # sparks + embers: their ramp starts this far along the source ramp (past the knee)
 
 # ⚑ THE SPIN RATE — R-CPB-3. Kept for the declarations (they describe the source); the clip's own period drives the
@@ -351,6 +376,8 @@ var spark_root: Node3D                         # turns with his steel (PORT 3)
 var etch_root: Node3D                          # does NOT spin — R-CPB-12
 var _emitters: Array[GPUParticles3D] = []
 var _trail_node: GPUParticles3D
+var _head_spark_root: Node3D                  # PORT 21: the fourth emitter's frame, on the mace head
+var _head_sparks: GPUParticles3D
 var _trail_mount: Node3D
 var _ember_local := Vector3.ZERO
 var _haze: GPUParticles3D
@@ -385,6 +412,12 @@ var _fade := 0.0                              # 0..1, the haze and the bed (PORT
 var _fall_t := 0.0
 var _vfx := true                              # set_vfx_visible: the perf CONTROL hides every layer
 var _warming := false
+# ---- the 2D arena overlay atlas (tools/render_eor_overlay.gd): the same effect, driven from the eor3 cells' sockets
+var synthetic := false
+var syn_station := Vector3.ZERO
+var syn_head := Vector3.ZERO                  # the mace head (main_tip), world
+var syn_ember := Vector3.ZERO                 # the ember point, world
+var syn_axis := Vector3.UP                    # grip -> head, world
 var _snow: Node = null                        # PORT 2: the snow field, whose surface is the floor he visibly stands on
 
 
@@ -417,6 +450,33 @@ func bind_to(rig: Node3D, skel: Skeleton3D, knight: Node, head_local: Vector3, t
 	_build_aura(band)
 	set_physics_process(false)
 	process_priority = 10                       # after his AnimationTree has posed him this frame
+
+
+## THE ARENA OVERLAY (C-9 R-C9-146 follow-on, kc2_play): the same effect with no knight. The render tool supplies the
+## steel (head, ember point, haft axis) per frame from the eor3 cells' own sockets, and the weapon-truth numbers the
+## sockets give (radius = mean |main_tip.xy| over the loop, height = mean main_tip.z). Under (bed, haze) and over
+## (cuts, sparks, embers) go to separate render layers; the haze soft-fades against a flat ground (no floor drawn).
+func bind_synthetic(radius_m: float, height_m: float, rev_period_s: float, tint_name: String,
+		under_layer: int, over_layer: int) -> void:
+	synthetic = true
+	tint = tint_name
+	_rev_period = rev_period_s
+	_spark_r = radius_m
+	var band := {"measured": true, "radius_m": radius_m, "height_m": height_m, "half_extent_m": SRC_CONTACT_HALF_EXTENT_M,
+		"basis": "synthetic: the eor3 cells' main_tip sockets"}
+	report["band"] = band
+	_build_aura(band)
+	if _haze_ember != null:
+		_haze_ember.set_shader_parameter("ground_mode", 1.0)
+		_haze_ember.set_shader_parameter("ground_y", 0.0)
+	for n in smoke_root.find_children("*", "VisualInstance3D", true, false):
+		(n as VisualInstance3D).layers = under_layer
+	for root in [spark_root, etch_root, _trail_mount, _head_spark_root]:
+		if root == null:
+			continue
+		for n in (root as Node).find_children("*", "VisualInstance3D", true, false):
+			(n as VisualInstance3D).layers = over_layer
+	process_priority = 10
 
 
 func _loop_animation() -> Animation:
@@ -644,10 +704,10 @@ func _build_aura(band: Dictionary) -> void:
 		_emitters.append(e)
 
 	# --- LAYER ONE: THE ETCH (R-CPB-7) ---------------------------------------
-	var etch := _build_etch(band)
+	var etch: Dictionary = _build_etch(band) if ARC_CUTS else {"built": false, "removed": "R-C9-152 (PORT 21)"}
 
 	# --- LAYER ONE-b: the EMBER GARNISH off the hammer head (PORT 11) ---------
-	var head_pt := _ember_point()
+	var head_pt := Vector3.ZERO if synthetic else _ember_point()
 	_ember_local = head_pt
 	_trail_mount = Node3D.new()
 	_trail_mount.name = "EorKc2EmberMount"
@@ -657,6 +717,19 @@ func _build_aura(band: Dictionary) -> void:
 	t.emitting = false
 	_trail_mount.add_child(t)
 	_trail_node = t
+
+	# PORT 21: the FOURTH spark emitter, on the mace head (the source's _sparks(), at the head, continuous)
+	_head_spark_root = Node3D.new()
+	_head_spark_root.name = "HeadSparkRoot"
+	_head_spark_root.top_level = true
+	add_child(_head_spark_root)
+	_head_sparks = _sparks(r, SPARK_EMITTER_OFFSETS_DEG.size())
+	_head_sparks.name = "Sparks_head"
+	_head_sparks.position = Vector3.ZERO
+	_head_sparks.amount = HEAD_SPARK_AMOUNT
+	_head_sparks.lifetime = HEAD_SPARK_LIFETIME_S
+	(_head_sparks.draw_pass_1 as QuadMesh).size = HEAD_SPARK_QUAD
+	_head_spark_root.add_child(_head_sparks)
 
 	report["channel_fx"] = {
 		"source": PAL_SRC, "etch": etch, "spark_radius_m": r, "spark_radius_basis": "PORT 4 (weapon truth, mean reach)",
@@ -693,7 +766,7 @@ func _set_priorities() -> void:
 	_bed_mat.render_priority = after
 	for m in [(_haze.draw_pass_1 as QuadMesh).material, (_trail_node.draw_pass_1 as QuadMesh).material]:
 		(m as Material).render_priority = after + 1
-	for e in _emitters:
+	for e in _emitters + [_head_sparks]:
 		((e.draw_pass_1 as QuadMesh).material as Material).render_priority = after + 1
 	for pair in _cut_mats:
 		for m in (pair as Array):
@@ -1051,7 +1124,7 @@ func _trail() -> GPUParticles3D:
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX            # PORT 21 (source: ADD)
 	mat.vertex_color_use_as_albedo = true
 	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
 	mat.albedo_texture = SPARK_TEX_RES
@@ -1105,7 +1178,7 @@ func _sparks(radius: float, idx: int) -> GPUParticles3D:
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX            # PORT 21 (source: ADD)
 	mat.vertex_color_use_as_albedo = true
 	mat.disable_receive_shadows = true
 	mat.albedo_texture = SPARK_TEX_RES
@@ -1145,11 +1218,17 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	#   each, the density is wherever the quads happen to stack. The DARKNESS is the bed's job; the haze's job is to
 	#   stop the bed being a disc.
 	# C-9 EOR2 PORT 17: the colours are the snow retint; the ALPHAS are the source's, stop for stop
+	# PORT 21: eortint=red lerps each colour stop toward SMOKE_RED by the chosen strength (alphas untouched)
+	var k := _smoke_red()
+	var c0 := SNOW_HAZE_C0.lerp(SMOKE_RED, k)
+	var c16 := SNOW_HAZE_C16.lerp(SMOKE_RED, k)
+	var c70 := SNOW_HAZE_C70.lerp(SMOKE_RED, k)
+	var c1 := SNOW_HAZE_C1.lerp(SMOKE_RED, k)
 	var g := Gradient.new()
-	g.set_color(0, Color(SNOW_HAZE_C0.r, SNOW_HAZE_C0.g, SNOW_HAZE_C0.b, 0.0))
-	g.set_color(1, Color(SNOW_HAZE_C1.r, SNOW_HAZE_C1.g, SNOW_HAZE_C1.b, 0.0))
-	g.add_point(0.16, Color(SNOW_HAZE_C16.r, SNOW_HAZE_C16.g, SNOW_HAZE_C16.b, 0.30))
-	g.add_point(0.70, Color(SNOW_HAZE_C70.r, SNOW_HAZE_C70.g, SNOW_HAZE_C70.b, 0.22))
+	g.set_color(0, Color(c0.r, c0.g, c0.b, 0.0))
+	g.set_color(1, Color(c1.r, c1.g, c1.b, 0.0))
+	g.add_point(0.16, Color(c16.r, c16.g, c16.b, 0.30))
+	g.add_point(0.70, Color(c70.r, c70.g, c70.b, 0.22))
 	var gt := GradientTexture1D.new()
 	gt.gradient = g
 	m.color_ramp = gt
@@ -1181,13 +1260,15 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 		em.set_shader_parameter("proximity_fade_distance", HAZE_SOFT_M)
 		em.set_shader_parameter("ember_mid", PAL_MID)
 		em.set_shader_parameter("ember_tail", PAL_TAIL)
-		em.set_shader_parameter("ember_gain", EMBER_GAIN if tint == "red" else 0.0)
+		em.set_shader_parameter("ember_gain", 0.0)            # PORT 21: the rim ember is off (R-C9-152)
 		em.set_shader_parameter("rim_lo", EMBER_RIM_LO)
 		em.set_shader_parameter("rim_hi", EMBER_RIM_HI)
 		em.set_shader_parameter("duty", EMBER_DUTY)
 		em.set_shader_parameter("rate", EMBER_RATE)
 		em.set_shader_parameter("waves", EMBER_WAVES)
 		em.set_shader_parameter("jitter", EMBER_JITTER)
+		em.set_shader_parameter("rim_r_in", EMBER_RIM_R_IN)
+		em.set_shader_parameter("rim_r_out", EMBER_RIM_R_OUT)
 		q.material = em
 		_haze_ember = em
 	p.draw_pass_1 = q
@@ -1268,6 +1349,8 @@ func begin() -> void:
 	_haze.emitting = true
 	_trail_node.emitting = true
 	_trail_node.visible = _vfx
+	_head_sparks.emitting = true
+	_head_sparks.visible = _vfx
 
 
 func end() -> void:
@@ -1277,6 +1360,7 @@ func end() -> void:
 		_fall_t = 0.0
 		_haze.emitting = false
 		_trail_node.emitting = false
+		_head_sparks.emitting = false
 
 
 func state_name() -> String:
@@ -1294,6 +1378,8 @@ func set_vfx_visible(v: bool) -> void:
 		fx.visible = v and _state != S.IDLE
 	if _trail_node != null:
 		_trail_node.visible = v
+	if _head_sparks != null:
+		_head_sparks.visible = v
 
 
 func _process(dt: float) -> void:
@@ -1302,6 +1388,7 @@ func _process(dt: float) -> void:
 	_place_station()
 	_place_embers()
 	var b := _head_bearing()
+	_place_head_sparks(b)
 	if _state == S.SUSTAIN:
 		_revs += wrapf(b - _prev_b, -PI, PI) / TAU
 		_fade = minf(1.0, _fade + dt / FADE_IN_S)
@@ -1330,7 +1417,15 @@ func _process(dt: float) -> void:
 
 
 func _red_shift() -> float:
-	return EMBER_RED_SHIFT if tint == "red" else 0.0
+	return 0.0                                     # PORT 21: no red shift -- the source ramp (R-C9-152)
+
+
+func _smoke_red() -> float:
+	if tint != "red":
+		return 0.0
+	var q := Slots.arg("eorsmoke")
+	var i := (int(q) - 1) if q in ["1", "2", "3"] else SMOKE_RED_DEFAULT
+	return float(SMOKE_RED_STRENGTHS[i])
 
 
 func _apply_fade(f: float) -> void:
@@ -1342,6 +1437,9 @@ func _apply_fade(f: float) -> void:
 
 func _place_station() -> void:
 	"""C-9 EOR2 PORT 2: the non-spinning layers stand where he stands -- his ground position, never his yaw."""
+	if synthetic:
+		fx.global_transform = Transform3D(Basis(), syn_station)
+		return
 	var o := _rig.global_transform.origin
 	fx.global_transform = Transform3D(Basis(), o)
 	# the smoke's floor is the SNOW he stands in, not the ground under it (his origin is floor_y; the snow is up to
@@ -1354,6 +1452,15 @@ func _place_station() -> void:
 func _place_embers() -> void:
 	"""C-9 EOR2 PORT 15: the ember mount at the mace's ember point, +Y along grip -> head (the source's haft axis),
 	scaled by the source emitter's own measured scale."""
+	if synthetic:
+		var ys := syn_axis.normalized()
+		var xs := ys.cross(Vector3.UP)
+		if xs.length() < 1e-4:
+			xs = Vector3.RIGHT
+		xs = xs.normalized()
+		_trail_mount.global_transform = Transform3D(
+			Basis(xs, ys, xs.cross(ys).normalized()).orthonormalized().scaled(Vector3.ONE * SRC_EMBER_SCALE), syn_ember)
+		return
 	var wx := _skel.global_transform * _skel.get_bone_global_pose(_wb)
 	var g := wx.origin
 	var hd := wx * _head_local
@@ -1368,8 +1475,23 @@ func _place_embers() -> void:
 	_trail_mount.global_transform = Transform3D(bs, wx * _ember_local)
 
 
+func _place_head_sparks(b: float) -> void:
+	"""PORT 21: the fourth emitter at the mace head, its frame turned as the source's pivots are -- local +X radial
+	(outward), +Z the source's 'direction of travel' axis -- so its sparks leave the head the way the source's leave
+	their pivots."""
+	var hd: Vector3
+	if synthetic:
+		hd = syn_head
+	else:
+		hd = _skel.global_transform * _skel.get_bone_global_pose(_wb) * _head_local
+	# the source pivot at bearing beta has local +X at beta: rotation.y = beta - PI/2
+	_head_spark_root.global_transform = Transform3D(Basis(Vector3.UP, b - PI * 0.5), hd)
+
+
 func _head_bearing() -> float:
 	"""C-9 EOR2 PORT 13: the bearing of the mace head about his spin axis (atan2(x, z), the source's convention)."""
+	if synthetic:
+		return atan2(syn_head.x - syn_station.x, syn_head.z - syn_station.z)
 	var o := _rig.global_transform.origin
 	var hd := _skel.global_transform * _skel.get_bone_global_pose(_wb) * _head_local
 	return atan2(hd.x - o.x, hd.z - o.z)
@@ -1463,6 +1585,7 @@ func warm(on: bool, _at: Vector3) -> void:
 		for e in _emitters:
 			e.emitting = true
 		_trail_node.emitting = true
+		_head_sparks.emitting = true
 		if _cut_ready and _cut_mm:
 			for i in 2:                          # a sword and a claw instance, mid-life
 				_mm.set_instance_transform(i, Transform3D(Basis(), Vector3(0.0, _cut_y, 0.0)))
@@ -1482,5 +1605,6 @@ func warm(on: bool, _at: Vector3) -> void:
 		for e in _emitters:
 			e.emitting = false
 		_trail_node.emitting = false
+		_head_sparks.emitting = false
 		_drive_cuts(0.0, false)
 		_apply_fade(0.0)

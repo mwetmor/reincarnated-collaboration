@@ -34,6 +34,13 @@ uniform float waves = 2.0;                      // lobes of the crawl around the
 uniform float jitter = 0.35;                    // per-particle seeded phase spread
 uniform float ember_clock = 0.0;                // revolutions (PORT 1 clock)
 uniform vec3 ember_centre = vec3(0.0);          // the cloud's centre, world space
+// the rim of the PUFF, not its wisps: the outer band of each quad (radius from its centre, 0 = centre, 1 = edge)
+uniform float rim_r_in = 0.48;
+uniform float rim_r_out = 0.92;
+// 1 = soft-fade against a flat ground at ground_y (world metres) instead of the depth buffer: the 2D arena overlay
+// atlas renders the haze with no floor (eor_kc2_fx.gd bind_synthetic)
+uniform float ground_mode = 0.0;
+uniform float ground_y = 0.0;
 
 varying float v_on;
 varying float v_heat;
@@ -71,9 +78,17 @@ void fragment() {
 	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
 	view.xyz /= view.w;
 	float prox = clamp(1.0 - smoothstep(view.z + proximity_fade_distance, view.z, VERTEX.z), 0.0, 1.0);
+	if (ground_mode > 0.5) {
+		float wy = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).y;
+		prox = smoothstep(ground_y, ground_y + proximity_fade_distance, wy);
+	}
 	a *= prox;
 	// the rim: the puff's thin outer alpha, not its dense core
-	float rim = smoothstep(rim_lo, rim_lo + 0.06, tex.a) * (1.0 - smoothstep(rim_hi - 0.12, rim_hi, tex.a));
+	// the puff's EDGE: its outer radial band, where its alpha is thin (tuned 2026-10-02: the texture's alpha band
+	// alone traced the smoke's internal wisps and read as pink veins)
+	float rr = length(UV - vec2(0.5)) * 2.0;
+	float rim = smoothstep(rim_r_in, rim_r_in + 0.18, rr) * (1.0 - smoothstep(rim_r_out - 0.12, rim_r_out, rr))
+		* smoothstep(rim_lo, rim_lo + 0.06, tex.a) * (1.0 - smoothstep(rim_hi - 0.12, rim_hi, tex.a));
 	float glow = rim * v_on * fade * prox * smoothstep(0.0, 0.05, COLOR.a);
 	vec3 hot = mix(ember_mid, ember_tail, v_heat);
 	// ⚑ ON SNOW THE EMBER MUST COVER, NOT ADD. Red ADDED over 0.96 snow clips to pale yellow-white (first render,
