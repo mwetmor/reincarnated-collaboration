@@ -83,12 +83,37 @@ extends Node3D
 #                    metres under a skeleton in centimetres. Its vertices go to weapon_r's space by the skin's own bind
 #                    pose. (The R-C9-128 port's `_weapon_head_local` used the bone's rest instead and folded the mace to
 #                    a point -- the skeleton's origin seen from his hand; that is why this file does not take it.)
+#   C-9 EOR2 PORT 17 VENUE RETINT: PERCEIVED CONTRAST HELD, NOT ABSOLUTE LUMA (conductor ruling on R-C9-143, the
+#                    same kind of call as whirlwind_fx.gd PORT 11). Matt asked for "light smoke particles" (R-C9-128),
+#                    and the source haze reads light grey because it sits over a 0.42-luma tile; ported unchanged onto
+#                    0.96 snow it measured 0.44 -- soot. So on snow the haze is translucent kicked-up snow powder, a cool
+#                    white with a faint blue-grey in its shadowed core, and the dark bed is a soft trodden-snow shadow
+#                    in the Barrow's OWN shadow colour (sampled off his film: sRGB 0.647/0.700/0.832 under the standing
+#                    stones). Kept from the source: every alpha stop of the haze (the cloud-is-variance law), the bed's
+#                    soft-edge profile and radius. Changed: the haze's four colour stops, the bed's colour, and the bed's
+#                    peak alpha (0.86 -> SNOW_BED_ALPHA, so it reads as a shadow and not a hole). The arc, heads, sparks
+#                    and embers are untouched; they never read the smoke's colours.
+#   C-9 EOR2 PORT 18 THE BANDS. The source haze is 2.3 m camera-facing quads (x0.9..2.6) on the floor: each one cuts
+#                    the ground along a screen-horizontal line, which the source's dark tile hid and white snow does
+#                    not. Neither ruled option removes it without a bigger change: a lift clear of the surface is
+#                    ~1.8 m at this camera's 53 deg pitch (half a 6 m quad x cos 53), which floats the "low pool" above
+#                    his waist; no-depth-test draws the haze over his body and mace (the source keeps "the hammer and
+#                    the head clear"). The smaller change is SOFT PARTICLES on the haze material -- proximity fade over
+#                    HAZE_SOFT_M -- which dissolves exactly the intersection and nothing else.
+#   C-9 EOR2 PORT 19 THE CUT POOL AS A MULTIMESH (conductor ruling: the R-C9-89 draw budget). The source draws each
+#                    live stroke as its own node, 2 surfaces each (~7.65 live x 2 ~ 15 draws). Here ONE MultiMesh holds
+#                    every stroke: its mesh is all 12 variants merged, each vertex tagged with its variant (COLOR.b);
+#                    each instance carries its yaw and height (transform) and (variant, stroke_age) (custom data);
+#                    data/vfx/eor_kc2/kc2_etch_mm.gdshader drops every vertex not of the instance's variant. 2 draws.
+#                    Same layout function, same meshes, same fragment; additive blending makes the sheath/core order
+#                    immaterial. ?eorcuts=pool (--eorcuts pool) draws the source's node pool, for the still diff.
 # ============================================================================
 
 const PAL_SRC := "reincarnated-godot scripts/kc2_player_channel.gd @ 34dcd41"
 const SPARK_TEX_RES := preload("res://data/vfx/eor_kc2/spark_04_a.png")
 const SMOKE_TEX_RES := preload("res://data/vfx/eor_kc2/smoke_05_a.png")
 const ETCH_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_etch.gdshader")
+const ETCH_MM_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_etch_mm.gdshader")   # PORT 19
 
 # ---- the source's measured anchors (a2f shot-B manifest, the clip's own build) ----------------------------------
 const SRC_HAMMER_BEARING_RAD := -0.981523709878878   # contact_band.angle_rad: where the steel sits in the body frame
@@ -111,6 +136,21 @@ const SRC_EMBER_SCALE := 1.910876
 const FADE_OUT_S := 0.80
 const FADE_IN_S := 0.10                               # = slot_knight.gd EOR_FADE_S: the bed arrives as his spin does
 const MEASURE_PHASES := 12                            # PORT 4: the source's `phases` default
+
+# ---- C-9 EOR2 PORT 17: the snow retint (AUTHORED against the Barrow's measured snow and shadow) --------------------
+# Haze stops, LINEAR (vertex colours are linear; the source's 0.205 shows as sRGB ~0.49): the source's alpha stops,
+# cool white at the light end, blue-grey in the shadowed core.
+const SNOW_HAZE_C0 := Color(0.84, 0.87, 0.92)        # birth (source 0.215, 0.205, 0.235; alpha 0 kept)
+const SNOW_HAZE_C16 := Color(0.80, 0.84, 0.90)       # 0.16 of life (source 0.205, 0.195, 0.225; alpha 0.30 kept)
+const SNOW_HAZE_C70 := Color(0.62, 0.67, 0.78)       # 0.70, the shadowed core (source 0.105, 0.100, 0.128; 0.22 kept)
+const SNOW_HAZE_C1 := Color(0.58, 0.63, 0.75)        # death (source 0.070, 0.066, 0.085; alpha 0 kept)
+# The bed: the Barrow's own snow-shadow colour, sRGB (0.647, 0.700, 0.832) sampled off his film -> linear.
+const SNOW_BED_COLOR := Color(0.376, 0.448, 0.658)
+const SNOW_BED_ALPHA := 0.45                         # source 0.86 over tile; a shadow on snow, not a hole
+# ---- C-9 EOR2 PORT 18 ----------------------------------------------------------------------------------------------
+const HAZE_SOFT_M := 0.80                            # proximity fade: where a haze quad meets the snow, it dissolves
+# ---- C-9 EOR2 PORT 19 ----------------------------------------------------------------------------------------------
+const CUT_VARIANT_CODES := 16.0                      # COLOR.b = (id + 0.5) / 16; 12 ids used
 
 # ⚑ THE SPIN RATE — R-CPB-3. Kept for the declarations (they describe the source); the clip's own period drives the
 #   clock and the sparks here (PORT 1, PORT 10).
@@ -294,6 +334,10 @@ var _cut_lib: Array = []
 var _cut_nodes: Array = []
 var _cut_mats: Array = []
 var _cut_ready := false
+var _cut_mm := true                           # PORT 19; false = the source's node pool (?eorcuts=pool)
+var _mm: MultiMesh
+var _mmi: MultiMeshInstance3D
+var _mm_mats: Array = []                      # [sheath, core] ShaderMaterial on the merged mesh's two surfaces
 var _cut_r := 0.0
 var _cut_y := 0.0
 var _cut_a0 := 0.0
@@ -623,6 +667,8 @@ func _set_priorities() -> void:
 	for pair in _cut_mats:
 		for m in (pair as Array):
 			(m as Material).render_priority = after + 1
+	for m in _mm_mats:
+		(m as Material).render_priority = after + 1
 
 
 # ============================================================================
@@ -655,14 +701,17 @@ func _build_etch(band: Dictionary) -> Dictionary:
 					as PackedInt32Array).size() / 3
 		_cut_lib.append(row)
 
-	# --- the POOL: CUT_POOL nodes, each with its own two materials ------------
 	# ⚑ NOT A CHILD OF THE SPINNING FRAME. See the header: the cuts do not spin.
 	etch_root = Node3D.new()
 	etch_root.name = "Etch"
 	fx.add_child(etch_root)
 	_cut_nodes = []
 	_cut_mats = []
-	for i in CUT_POOL:
+	_cut_mm = Slots.arg("eorcuts") != "pool"
+	if _cut_mm:
+		_build_cut_multimesh()
+	# --- the POOL: CUT_POOL nodes, each with its own two materials (the source's; ?eorcuts=pool) ---------
+	for i in (0 if _cut_mm else CUT_POOL):
 		var mi := MeshInstance3D.new()
 		mi.name = "Cut_%02d" % i
 		mi.mesh = (_cut_lib[0] as Array)[0]
@@ -705,11 +754,80 @@ func _build_etch(band: Dictionary) -> Dictionary:
 	out["sheath_half_width_m"] = sheath_w
 	out["planes"] = ETCH_PLANES
 	out["library_meshes"] = 2 * CUT_VARIANTS
+	out["draw"] = "multimesh (2 draws)" if _cut_mm else "node pool (2 draws per live stroke)"
 	out["library_triangles"] = lib_tris
 	out["pool"] = CUT_POOL
 	out["undulating"] = CUT_UNDULATE_DEFAULT
 	out["alive_expected"] = CUT_PERSIST_REVS * float(CUT_PER_REV)
 	return out
+
+
+# C-9 EOR2 PORT 19: the twelve library meshes merged into ONE two-surface mesh (each vertex tagged with its variant
+# id in COLOR.b), drawn by one MultiMesh of CUT_POOL instances. The library itself is untouched (the node pool and
+# the warm-up still use it).
+func _build_cut_multimesh() -> void:
+	var merged := ArrayMesh.new()
+	for si in 2:                                  # 0 sheath, 1 core -- the library's own surface order
+		var verts := PackedVector3Array()
+		var cols := PackedColorArray()
+		var idx := PackedInt32Array()
+		for cls in 2:
+			for v in CUT_VARIANTS:
+				var id := cls * CUT_VARIANTS + v
+				var a: Array = ((_cut_lib[cls] as Array)[v] as ArrayMesh).surface_get_arrays(si)
+				var base := verts.size()
+				verts.append_array(a[Mesh.ARRAY_VERTEX])
+				for c in (a[Mesh.ARRAY_COLOR] as PackedColorArray):
+					cols.append(Color(c.r, c.g, (float(id) + 0.5) / CUT_VARIANT_CODES, c.a))
+				for i in (a[Mesh.ARRAY_INDEX] as PackedInt32Array):
+					idx.append(base + i)
+		var arr := []
+		arr.resize(Mesh.ARRAY_MAX)
+		arr[Mesh.ARRAY_VERTEX] = verts
+		arr[Mesh.ARRAY_COLOR] = cols
+		arr[Mesh.ARRAY_INDEX] = idx
+		merged.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	_mm = MultiMesh.new()
+	_mm.transform_format = MultiMesh.TRANSFORM_3D
+	_mm.use_custom_data = true
+	_mm.mesh = merged
+	_mm.instance_count = CUT_POOL
+	_mm.visible_instance_count = 0
+	var reach := _cut_r + 1.0
+	_mm.custom_aabb = AABB(Vector3(-reach, -1.0, -reach), Vector3(2.0 * reach, _cut_y + CUT_VERT_BAND_M + 2.0, 2.0 * reach))
+	_mmi = MultiMeshInstance3D.new()
+	_mmi.name = "Cuts"
+	_mmi.multimesh = _mm
+	_mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_mm_mats = []
+	for shell in _cut_shells():
+		_mm_mats.append(_cut_material(ETCH_MM_SHADER_RES, shell))
+	merged.surface_set_material(0, _mm_mats[0])
+	merged.surface_set_material(1, _mm_mats[1])
+	etch_root.add_child(_mmi)
+
+
+func _cut_shells() -> Array:
+	return [{"e": ETCH_CORE_ENERGY * ETCH_SHEATH_ENERGY_FRAC,
+			"t": ETCH_TAIL_ENERGY * ETCH_SHEATH_ENERGY_FRAC, "sharp": 1.15},
+		{"e": ETCH_CORE_ENERGY, "t": ETCH_TAIL_ENERGY, "sharp": 2.6}]
+
+
+func _cut_material(sh: Shader, shell: Dictionary) -> ShaderMaterial:
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	mat.set_shader_parameter("head_energy", float(shell["e"]))
+	mat.set_shader_parameter("tail_energy", float(shell["t"]))
+	mat.set_shader_parameter("edge_sharpness", float(shell["sharp"]))
+	mat.set_shader_parameter("core_color", PAL_HEAD)
+	mat.set_shader_parameter("mid_color", PAL_MID)
+	mat.set_shader_parameter("tail_color", PAL_TAIL)
+	mat.set_shader_parameter("mid_energy", CUT_MID_ENERGY
+		* (1.0 if shell["sharp"] > 2.0 else ETCH_SHEATH_ENERGY_FRAC))
+	mat.set_shader_parameter("mid_at", PAL_KNEE_AT)
+	mat.set_shader_parameter("decay_gamma", PAL_GAMMA)
+	mat.set_shader_parameter("tail_fade", CUT_TAIL_FADE)
+	return mat
 
 
 # ============================================================================
@@ -982,11 +1100,12 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	# ⚑ LOW PER-PARTICLE ALPHA IS WHAT MAKES IT CLOUDY. Cloud is VARIANCE, and variance comes from overlap: at 0.26
 	#   each, the density is wherever the quads happen to stack. The DARKNESS is the bed's job; the haze's job is to
 	#   stop the bed being a disc.
+	# C-9 EOR2 PORT 17: the colours are the snow retint; the ALPHAS are the source's, stop for stop
 	var g := Gradient.new()
-	g.set_color(0, Color(0.215, 0.205, 0.235, 0.0))
-	g.set_color(1, Color(0.070, 0.066, 0.085, 0.0))
-	g.add_point(0.16, Color(0.205, 0.195, 0.225, 0.30))
-	g.add_point(0.70, Color(0.105, 0.100, 0.128, 0.22))
+	g.set_color(0, Color(SNOW_HAZE_C0.r, SNOW_HAZE_C0.g, SNOW_HAZE_C0.b, 0.0))
+	g.set_color(1, Color(SNOW_HAZE_C1.r, SNOW_HAZE_C1.g, SNOW_HAZE_C1.b, 0.0))
+	g.add_point(0.16, Color(SNOW_HAZE_C16.r, SNOW_HAZE_C16.g, SNOW_HAZE_C16.b, 0.30))
+	g.add_point(0.70, Color(SNOW_HAZE_C70.r, SNOW_HAZE_C70.g, SNOW_HAZE_C70.b, 0.22))
 	var gt := GradientTexture1D.new()
 	gt.gradient = g
 	m.color_ramp = gt
@@ -1002,6 +1121,9 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	mat.vertex_color_use_as_albedo = true
 	mat.disable_receive_shadows = true
 	mat.no_depth_test = false
+	# C-9 EOR2 PORT 18: soft particles -- the quad fades out where it meets the snow, so it draws no line there
+	mat.proximity_fade_enabled = true
+	mat.proximity_fade_distance = HAZE_SOFT_M
 	mat.albedo_texture = SMOKE_TEX_RES
 	q.material = mat
 	_haze_mat = mat
@@ -1019,15 +1141,17 @@ func _smoke_bed(outer_r: float) -> MeshInstance3D:
 	var verts := PackedVector3Array()
 	var cols := PackedColorArray()
 	var idx := PackedInt32Array()
+	# C-9 EOR2 PORT 17: the Barrow's snow-shadow colour at SNOW_BED_ALPHA; the profile (lo, rim, smoothstep) is the source's
+	var bc := SNOW_BED_COLOR
 	verts.append(Vector3.ZERO)
-	cols.append(Color(SMOKE_BED_COLOR.r, SMOKE_BED_COLOR.g, SMOKE_BED_COLOR.b, SMOKE_BED_ALPHA))
+	cols.append(Color(bc.r, bc.g, bc.b, SNOW_BED_ALPHA))
 	for i in SMOKE_BED_RINGS:
 		var r: float = rim * float(i + 1) / float(SMOKE_BED_RINGS)
-		var a: float = SMOKE_BED_ALPHA * (1.0 - smoothstep(lo, rim, r))
+		var a: float = SNOW_BED_ALPHA * (1.0 - smoothstep(lo, rim, r))
 		for j in SMOKE_BED_SEGMENTS:
 			var th: float = TAU * float(j) / float(SMOKE_BED_SEGMENTS)
 			verts.append(Vector3(sin(th) * r, 0.0, cos(th) * r))
-			cols.append(Color(SMOKE_BED_COLOR.r, SMOKE_BED_COLOR.g, SMOKE_BED_COLOR.b, a))
+			cols.append(Color(bc.r, bc.g, bc.b, a))
 	for j in SMOKE_BED_SEGMENTS:
 		idx.append_array([0, 1 + j, 1 + ((j + 1) % SMOKE_BED_SEGMENTS)])
 	for i in (SMOKE_BED_RINGS - 1):
@@ -1191,6 +1315,18 @@ func _drive_cuts(revs: float, on: bool) -> void:
 			if live.has(k):
 				continue
 			live[k] = r
+	if _cut_mm:
+		# PORT 19: the live strokes in pool-slot order (deterministic), one instance each; the rest not drawn
+		var keys := live.keys()
+		keys.sort()
+		for n in keys.size():
+			var r: Dictionary = live[keys[n]]
+			var xf := Transform3D(Basis(Vector3.UP, float(r["angle_rad"])), Vector3(0.0, _cut_y + float(r["y_off_m"]), 0.0))
+			_mm.set_instance_transform(n, xf)
+			_mm.set_instance_custom_data(n, Color(float(int(r["claw"]) * CUT_VARIANTS + int(r["variant"])),
+				float(r["age_frac"]), 0.0, 0.0))
+		_mm.visible_instance_count = keys.size()
+		return
 	# ⚑ EVERY SLOT IS WRITTEN EVERY TICK, INCLUDING THE DARK ONES.
 	for i in CUT_POOL:
 		var mi: MeshInstance3D = _cut_nodes[i]
@@ -1255,7 +1391,12 @@ func warm(on: bool, _at: Vector3) -> void:
 		for e in _emitters:
 			e.emitting = true
 		_trail_node.emitting = true
-		if _cut_ready:
+		if _cut_ready and _cut_mm:
+			for i in 2:                          # a sword and a claw instance, mid-life
+				_mm.set_instance_transform(i, Transform3D(Basis(), Vector3(0.0, _cut_y, 0.0)))
+				_mm.set_instance_custom_data(i, Color(float(i * CUT_VARIANTS), 0.5, 0.0, 0.0))
+			_mm.visible_instance_count = 2
+		elif _cut_ready:
 			for i in 2:
 				var mi: MeshInstance3D = _cut_nodes[i]
 				mi.mesh = (_cut_lib[i] as Array)[0]
