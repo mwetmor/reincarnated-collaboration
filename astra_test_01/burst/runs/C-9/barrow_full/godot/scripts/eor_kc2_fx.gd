@@ -132,7 +132,8 @@ extends Node3D
 #                    - SPARKS: the source's three emitters and ember flecks on the SOURCE ramp (white-hot -> orange,
 #                      no red shift), plus a FOURTH emitter riding the mace head, so sparks are thrown off its path.
 #                      All sparks and embers MIX-blended, not added: warm-white ADDED over 0.96 snow is invisible
-#                      (the same finding as the rims), mixed it reads as a spark.
+#                      (the same finding as the rims), mixed it reads as a spark. PORT 21b: the four spark emitters draw
+#                      a generated soft streak instead of spark_04_a (a faint lightning tendril, mostly empty in a streak).
 #                    - THE BED stays the soft trodden-snow shadow.
 # ============================================================================
 
@@ -1181,10 +1182,34 @@ func _sparks(radius: float, idx: int) -> GPUParticles3D:
 	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX            # PORT 21 (source: ADD)
 	mat.vertex_color_use_as_albedo = true
 	mat.disable_receive_shadows = true
-	mat.albedo_texture = SPARK_TEX_RES
+	# PORT 21b: a generated STREAK, not spark_04_a -- that texture is a faint lightning tendril (mean alpha 0.07), and
+	#   squeezed into a 0.045 x 0.30 m streak quad it is mostly empty: the source's sparks never read as sparks
+	mat.albedo_texture = _streak_texture()
 	q.material = mat
 	p.draw_pass_1 = q
 	return p
+
+
+static var _streak_cache: ImageTexture = null
+
+
+static func _streak_texture() -> ImageTexture:
+	"""PORT 21b: a soft streak, 16 x 64: a bright core, gaussian across (sigma 0.30 of the half-width), tapered along
+	(full over the middle, smoothstepped to nothing in the last 20 % at each end). White: the ramp colours it."""
+	if _streak_cache != null:
+		return _streak_cache
+	var w := 16
+	var h := 64
+	var img := Image.create(w, h, false, Image.FORMAT_RGBA8)
+	for y in h:
+		var v := (float(y) + 0.5) / float(h)
+		var along := smoothstep(0.0, 0.2, v) * (1.0 - smoothstep(0.8, 1.0, v))
+		for x in w:
+			var u := ((float(x) + 0.5) / float(w) - 0.5) * 2.0
+			var across := exp(-(u * u) / (2.0 * 0.30 * 0.30))
+			img.set_pixel(x, y, Color(1.0, 1.0, 1.0, clampf(across * along, 0.0, 1.0)))
+	_streak_cache = ImageTexture.create_from_image(img)
+	return _streak_cache
 
 
 func _smoke(outer_r: float) -> GPUParticles3D:
