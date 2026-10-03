@@ -1,0 +1,65 @@
+== IDENTITY / PINS ==
+  preregs {'v1.14': '5bbe7ae5f0c3f73c77ee7cc3e21870ed8523b6d19fa1eae977dff451ef6b2d92', 'v1.15': 'd1c4a75ae2d35b2c27ddd127b18ef0066664eb54926e8466f2fe522a1ca34593', 'notes': '7797ff17e5096b893aed3d041d8244165aebf34421a4252d1bfd9f91ab7ec752'} ok=True committed-clean=True
+  emission 9756c31: MANIFEST 5ed4a0268f41c0b4 members=28 fail=[] tree=51dc9d6815030ac56917d7ddab90bf58cfda79b40f88b9e6f2faa67333ebf597 ta_verdict=03f20be4694e01218141086f6e0c94046d3ccfb05fd65be941e39208f5dc3e16 ta_manifest=4ec6fdc35ae39026f291686c1761275d2227c7f4d4693815107d3fe88faa6b87 filing.all=True ok=True
+  runtime 3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057 (107) native 74360ffae1a434ba ok=True
+  G3 folder 425f384d103afaa2 n=50 fail=[] ok=True
+  pre-read finding {'file_sha256': '76667f56d037d97c4326bedc96d65d26a94259e1013c932415fe9f4ed060e492', 'commit': '531cbfc1d', 'blob_sha256': '76667f56d037d97c4326bedc96d65d26a94259e1013c932415fe9f4ed060e492'} ok=True ; packs ok=True ; engine HEAD 102c28e0
+  POOL-466 466 33c886a11f91db11 module==969fbd8d True
+  emission identity ok=True
+== PRECONDITIONS / C1 ==
+  P-1: GREEN :: {"mapped": 89, "total": 89, "unmapped": 0, "counts": {"DIVERGENCE": 8, "IMPLEMENTED": 65, "OUT-OF-SCOPE": 3, "RUNTIME-CHOICE": 13, "UNMAPPED": 0}, "refusals": 3}
+  P-2: GREEN :: {"(1)": true, "(2)": true, "(3)": true, "(4) controls a/a0/b": {"(a) own + shared draw": "NOT RUN", "(a0) shared draw only (own counter 0)": "RED", "(b) one extra draw at a live site (V9-SITE-13, root)": "RED"}, "(5)": true, "digest": "c4e35ed526e3be24ff231ae0
+  P-3: GREEN :: {"population": "POOL-466", "cardinality": 466, "law": {"alternative": "WEIGHTED:pool_weight", "name": "UNIFORM:randrange"}}
+  P-4: GREEN :: {"P4 blocks (25 cells + manifest)": true, "runtime_header": true, "binary_sha256": "5a65c5e1fc81bb7816b03e1be1f902de58c1ff4b71b9a83973665f35d4f4e737"}
+  P-5: GREEN :: {"carried settings": {"winner_surface": "ARMED", "insufficient_energy_policy": "REFUSE", "regen_ungated": true, "global_magnitude": "ARMED_UNCONDITIONAL", "per_cast_energy_column": "PARENT_PLUS_MODIFIER", "monster_march_base_m_per_s": 3.209466, "pcl_limb": "MU
+  C1: CONFORMING :: {"G3 cells conforming": 25, "native lib (runtime member) sha": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f", "T-A run contact=shadow on 25/25 with 0 mismatches (C.9.8 fresh run per arm)": true, "declared_ungradeable": ["TA-X-06"], "G3 con
+== EXACT ROWS ==
+  TA-X-01: GREEN :: {"run_1": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c", "run_2": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c", "M0|2 cell digest": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c"}
+  TA-X-02: GREEN :: "89/89, unmapped 0"
+  TA-X-03: GREEN :: {"compares": "M-POL-2-NULL vs M0", "digest_identical_per_salt": [true, true, true, true, true], "subject_identical_per_salt (gamora)": [true, true, true, true, true]}
+  TA-X-04: GREEN :: {"compares": "W1-NULL vs M-POL-2", "digest_identical_per_salt": [true, true, true, true, true], "subject_identical_per_salt (gamora)": [true, true, true, true, true]}
+  TA-X-05: GREEN :: {"compares": "M-POL-2 vs M0", "digest_identical_per_salt": [false, false, false, false, false], "subject_identical_per_salt (gamora)": [false, false, false, false, false]}
+  TA-X-07: GREEN :: {"(a) max rho_hat": 2.21152564364915e-16, "(a) cells at 0.0": 23, "(b) max |residual|": 5.96046447753906e-08, "(c) gamora (L2) exact": {"all_25": true, "worst": "W1|4", "beta": 5.364366596868262e-14, "margin": 18.641529842196167}, "(c) harness r11_bound.all_25_hold (printed)": true, "max n_terms_accumulated (stale 4,500 label; budget retired v1.12)": 15238}
+  TA-X-08: GREEN :: {"fails": [], "control term Σ (port realisation)": 122}
+  TA-X-09: GREEN :: {"rowset (gamora)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78", "n": 9}
+  TA-X-10: GREEN :: {"W1 max_body_radius_m": {"0": 43.0183436421578, "1": 43.0445433552371, "2": 43.0445433552371, "3": 43.0445433552371, "4": 43.0707430839325}, "W1 max_spawn_radius_m (printed)": {"0": 43.2541411379521, "1": 43.2541411379521, "2": 43.2541411379521, "3": 43.2541411379521, "4": 43.2541411379521}, "bound": 43.71638147965161, "emitted bound": 43.7163814796516, "emitted bound == prereg bound (bit)": false}
+  TA-X-11: GREEN :: {"W1|0": [0, 0], "W1|1": [0, 0], "W1|2": [0, 0], "W1|3": [0, 0], "W1|4": [0, 0], "W1-NULL|0": [0, 0], "W1-NULL|1": [0, 0], "W1-NULL|2": [0, 0], "W1-NULL|3": [0, 0], "W1-NULL|4": [0, 0]}
+  TA-X-12: GREEN :: [0.0]
+  TA-X-13: GREEN :: {"(crits, crit rows, player rows, vacuous)": {"M0|0": [0, 0, 11578, false], "M0|1": [0, 0, 16458, false], "M0|2": [0, 0, 14301, false], "M0|3": [0, 0, 12756, false], "M0|4": [0, 0, 13878, false], "M-POL-2|0": [0, 0, 13301, false], "M-POL-2|1": [0, 0, 13885, false], "M-POL-2|2": [0, 0, 15649, false], "M-POL-2|3": [0, 0, 9035, false], "M-POL-2|4": [0, 0, 14384, false], "M-POL-2-NULL|0": [0, 0, 11578, false], "M-POL-2-N
+  TA-X-14: GREEN :: {"M0|0": [0, []], "M0|1": [0, []], "M0|2": [0, []], "M0|3": [0, []], "M0|4": [0, []], "M-POL-2|0": [0, ["type_a", "type_b"]], "M-POL-2|1": [0, ["type_a", "type_b"]], "M-POL-2|2": [0, ["type_a", "type_b"]], "M-POL-2|3": [0, ["type_a", "type_b"]], "M-POL-2|4": [0, ["type_a", "type_b"]], "M-POL-2-NULL|0": [0, []], "M-POL-2-NULL|1": [0, []], "M-POL-2-NULL|2": [0, []], "M-POL-2-NULL|3": [0, []], "M-POL-2-NULL|4": [0, []],
+  TA-X-15: GREEN :: {"(wave, point) rows": 1133, "(a)": true, "(b)": "GREEN-BY-CONSTRUCTION", "p05 waves (M0|0, printed)": [151, 152, 153, 156, 157, 158, 159]}
+  TA-X-16: GREEN :: {"fails": [], "LU-KEYS": [5, 5, 5, 4, 4, 5, 5, 5, 5, 4], "LU sets == pools_for(w, False) from waves.json": true, "P06-KEY (waves.json) == pin": true, "LU == derive_v1p14.json": true}
+  TA-X-17: GREEN :: {"max offset per cell (max over 25)": 7.95483016967773, "anchor = v3.8 GD emitter": true, "source law + pack extents 8.0": true}
+  TA-X-18: GREEN :: {"emitted": ["-3.999999999999985", "-3.49691120014899e-07"], "gamora parsed bits": ["c00fffffffffffde", "be9777a5cf72cec6"]}
+  TA-X-19: GREEN :: {"packet keys": ["seq", "b", "rec", "direct", "pcl", "fams", "cast", "n_rows"], "position reads in arrival path": {"_defer_arrivals": [], "_cp_absorb": [], "_land": []}}
+  TA-X-20: GREEN :: {"radius_m": 3.0, "cases": {"2.99 m ahead — HIT": [true, true, true], "3.01 m ahead — MISS": [false, false, true], "3.0 m BEHIND — HIT (no angular gate)": [true, true, true], "3.0 m to the side — HIT (no corridor)": [true, true, true], "12 bodies inside -> 12 hits (target cap MEASURED-ABSENT 4/4)": [12, 12, true]}}
+  TA-X-21: GREEN :: {"quantisation rows": 12, "rows ok (got == expect == python round)": true, "every round( line in the 6 modules @969fbd8d (gamora)": 17, "= notes' 17 (14 live int(round( + 3 dead), emitted list equal": true, "port bare round( (harness / gamora)": [0.0, []], "gd files scanned (gamora)": 90}
+  TA-X-22: GREEN :: [0]
+  TA-X-24: GREEN :: {"phase_model": {"precedence": "DRIVER-OF-RECORD", "value": "PhaseModel.ENGAGE"}, "sha256(actor_id) sites (gamora scan)": []}
+  TA-X-25: GREEN :: {"POOL-466 (gamora, export law)": [466, "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b"], "face": true, "bodies per cell": {"M0|0": 169, "M0|1": 168, "M0|2": 168, "M0|3": 168, "M0|4": 169, "M-POL-2|0": 169, "M-POL-2|1": 168, "M-POL-2|2": 168, "M-POL-2|3": 126, "M-POL-2|4": 169, "M-POL-2-NULL|0": 169, "M-POL-2-NULL|1": 168, "M-POL-2-NULL|2": 168, "M-POL-2-NULL|3": 168, "M-POL-2-NULL|4": 169, "W1|0":
+  TA-X-26: GREEN :: {"(b)": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e", "(c)": {"multipliers": 5, "records": 790, "rows": 7900, "tiers": 8, "wave_invariant": 790}, "(e)": {"max": 0.35, "mean": 0.246896551724137, "median": 0.25, "min": 0.0, "n": 464, "n_zero": 17, "population": "ARMED-464 := POOL-466 ∩ (v20 ∪ w40 ∪ w41 ∪ w44 ∪ w45)", "records_without_a_P-i_row": 0}}
+  TA-X-27: GREEN :: {"(a)": true, "(b) gamora replay, 16 seeds (python 3.12.0)": true, "(c)": true, "(d) gamora from waves.json": [139, 97]}
+  TA-X-28: GREEN :: "caps 0/0, ALL_BODIES_IN_DISC, 0.57 on 25/25"
+  TA-X-29: GREEN :: {"(a)": true, "(b′)": true, "(b′) families Σ25 (n, n_equal)": {"instant_nonphys": [66766, 66766], "phys_clamped": [2453, 2453], "phys_clamped_unmapped": [2121, 2121], "phys_unclamped": [21209, 21209], "dot": [14958, 14958], "dot_leech_type": [162, 162], "dot_chaos_aether": [0, 0]}, "(b′) per-cell blocks ok": 25, "(c)": true, "(d)": true, "(e)": {"w159": 3.197066, "w160": 4.935649, "rec159": {"n": 16, "missing": [], "
+  TA-X-30: GREEN :: {"fails": [], "manifest ring_halt_m from arena.json, nan test": true, "(b′) vacuous cells": 25}
+  TA-X-06: UNGRADEABLE-declared (Q83(b), KP-110) :: "port W1 vs M-POL-2 identical on salts [2, 3]; oracle (v1.14): salts [0, 1, 4]"
+== COUNTS == {'GREEN': 28} {}
+== FACE ==
+  cl14 declared_residuals verbatim: true
+  cl15 per-cell terminal_reason + lethal-tick reason: true
+  port OBS-1 completeness 25/25, no STALL: true
+  notes 3.1 (b′) vacuity printed where n_clamp_stops == 0: true
+  notes 3.2 reference collapse printed: true
+  port distinct trajectories (gamora): {"n": 13, "clear": 4, "die": 9, "emitted": "25 cells / 13 distinct trajectories (4 clear, 9 die)"}
+  notes 3.3 unexercised printed: true
+  notes 3.4 clip flags (port clipped steps): {"emitted": [], "gamora": []}
+  notes 3.5 lethal tick face: "exercised on 9 distinct dying trajectories (reference: 3), inapplicable on the clearing cells (§ F.5 cl. 15)"
+  notes 4 divisor UNREACHABLE-IN-PACK printed: true
+  KP-248 TA-X-13 scope printed: "player rows only (source == player); player-summon ps_ rows out of scope (KP-248) — the port emits no ps_ row class"
+  § G.3 prereg_carried_from (v1.15 says {v1.14, 5bbe7ae5}): {"emitted": {"version": "v1.12", "sha256": "a0454776"}, "conforms": false}
+  § G.3 prereg_set_of_record: true
+  § F.5 cl. 11 holes sentence label: ["v1.12"]
+  hole_closure: "PENDING (H-5)"
+  § C.9.8 native shadow cited (lib sha, evidence): {"lib": ["74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f"], "evidence_dir": "kc2-play/2026-10-03-g3-25cell-kp274-V311FULL-66605a1/summaries"}
+  r6_invariants: {"(i) killer_id set and terminal_reason cleared": 0, "(ii) in-tick resurrections (lethal floor reached without a death, or more than once)": 0, "(iii) cells where a PCL row landed and PercentCurrentLife intake is not > 0": 0}
+== VERDICT == PASS | identity ok: True

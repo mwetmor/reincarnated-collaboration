@@ -1,0 +1,2929 @@
+{
+ "identity": {
+  "preregs": {
+   "v1.14": "5bbe7ae5f0c3f73c77ee7cc3e21870ed8523b6d19fa1eae977dff451ef6b2d92",
+   "v1.15": "d1c4a75ae2d35b2c27ddd127b18ef0066664eb54926e8466f2fe522a1ca34593",
+   "notes": "7797ff17e5096b893aed3d041d8244165aebf34421a4252d1bfd9f91ab7ec752"
+  },
+  "preregs_ok": true,
+  "preregs_committed_clean": true,
+  "emission": {
+   "MANIFEST_sha256": "5ed4a0268f41c0b420ced5f660c123d069ef1526cb9b7a9ff6a1d23b83b1d0f7",
+   "members": 28,
+   "member_failures": [],
+   "tree_recomputed": "51dc9d6815030ac56917d7ddab90bf58cfda79b40f88b9e6f2faa67333ebf597",
+   "tree_manifest": "51dc9d6815030ac56917d7ddab90bf58cfda79b40f88b9e6f2faa67333ebf597",
+   "tracked_minus_members": [
+    "MANIFEST.json"
+   ],
+   "members_minus_tracked": [],
+   "pinned_harness_files": {
+    "ta_manifest.json": "4ec6fdc35ae39026f291686c1761275d2227c7f4d4693815107d3fe88faa6b87",
+    "ta_verdict.json": "03f20be4694e01218141086f6e0c94046d3ccfb05fd65be941e39208f5dc3e16"
+   },
+   "filing_checks": {
+    "pinned: ta_manifest.json": true,
+    "pinned: ta_verdict.json": true,
+    "ta_verdict.json parses": true,
+    "ta_verdict.ta_manifest_sha256 == the pinned ta_manifest.json": true,
+    "runtime_header.read_by_running": true,
+    "runtime_header.equals_P4": true,
+    "runtime_header.vendored_runtime_equals_runtime_digest": true,
+    "runtime_digest.unchanged_through_the_run": true,
+    "runtime_digest.value present (64 hex)": true,
+    "pre_attempt_read.expected_runtime_digest == runtime_digest.value (the boot-checked candidate)": true,
+    "all": true,
+    "copy: source before == destination == source after, every file": true
+   },
+   "identity": {
+    "runtime_digest": "3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057",
+    "runtime_digest_unchanged_through_the_run": true,
+    "expected_runtime_digest": "3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057",
+    "prereg_version": "v1.15",
+    "prereg_sha256": "d1c4a75ae2d35b2c27ddd127b18ef0066664eb54926e8466f2fe522a1ca34593",
+    "prereg_carried_from": {
+     "law": "a value the prereg of record does not restate is read off the version that last stated it",
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-ta-prereg-v1.12.md",
+     "sha256": "a0454776ab91d85f37fadffcb8886a498e1f498f208e0eb33b9d5a9797fc7854",
+     "version": "v1.12",
+     "via": "v1.15 → v1.14 → v1.13 → v1.12 (each link the successor's own citation, FILE-checked)"
+    },
+    "model_pack": {
+     "digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+     "dir": "kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+     "files_verified": 21
+    },
+    "reference_pack": {
+     "digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+     "dir": "kc2-reference-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+     "files_verified": 7
+    },
+    "substrate_epoch": "v3.11 / model 99711727… / reference af58ef40…",
+    "run_kind": "attempt",
+    "attempt": "attempt 1 of 2, overall 4",
+    "attempt_previewed": null,
+    "verdict": null,
+    "lifted_from": "ta_verdict.json (pinned above); copied, not interpreted"
+   },
+   "run_record": {
+    "command": "Godot --headless --path . --script kc2_runtime/tests/kc2rt_ta.gd -- expect_runtime=3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057 g3=evidence/kc2-play/2026-10-03-g3-25cell-kp274-V311FULL-66605a1/summaries run_kind=attempt pre_read_finding=agentic_orchestration/qa/findings/2026-10-03-kc2-attempt4-candidate-h2-h7-reread-3e2359a6.md",
+    "started_utc": "2026-10-03T07:20:12Z",
+    "ended_utc": "2026-10-03T07:38:55Z",
+    "exit_code": "0",
+    "godot_head": "c64c192"
+   },
+   "ta_verdict_sha256": "03f20be4694e01218141086f6e0c94046d3ccfb05fd65be941e39208f5dc3e16",
+   "ta_manifest_sha256": "4ec6fdc35ae39026f291686c1761275d2227c7f4d4693815107d3fe88faa6b87"
+  },
+  "emission_ok": true,
+  "emission_commit_subject": "9756c3175265102c3fc36fa97f5e94ebe8b2d350 drax(KP-278): T-A GRADED ATTEMPT \"attempt 1 of 2, overall 4\" EMITTED at runtime 3e2359a6 -- prereg v1.15 (d1c4a75a) + v1.14 (5bbe7ae5) + notes (7797ff17), cont",
+  "runtime_tree": {
+   "recomputed": "3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057",
+   "manifest_says": "3e2359a6d46c78029f7994a0f600434894dc8916d580b81732c20278257d3057",
+   "n_members": 107,
+   "member_failures": [],
+   "member_not_tracked": [],
+   "unchanged_run_head_c64c192_to_9756c31": true,
+   "unchanged_g3_66605a1_to_9756c31": true,
+   "native_lib_is_member": true,
+   "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f"
+  },
+  "runtime_ok": true,
+  "g3_folder": {
+   "MANIFEST_sha256": "4fa771c6edb69f7b77507db167d8c79bd7fa4cad889b1165237595d7c6e6f11c",
+   "tree_recomputed": "425f384d103afaa233416f7b2c73ab0319b27fd2c663e1095027251c5c5060a9",
+   "tree_manifest": "425f384d103afaa233416f7b2c73ab0319b27fd2c663e1095027251c5c5060a9",
+   "member_failures": [],
+   "n": 50,
+   "oracle_level": "V311-FULL",
+   "runtime_commit": "66605a1",
+   "all_25_zero_divergence": true
+  },
+  "g3_folder_ok": true,
+  "preread_finding": {
+   "file_sha256": "76667f56d037d97c4326bedc96d65d26a94259e1013c932415fe9f4ed060e492",
+   "commit": "531cbfc1d",
+   "blob_sha256": "76667f56d037d97c4326bedc96d65d26a94259e1013c932415fe9f4ed060e492"
+  },
+  "preread_ok": true,
+  "model_pack": {
+   "digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "manifest_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "n": 21,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": null
+  },
+  "reference_pack": {
+   "digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "manifest_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "n": 7,
+   "failures": [],
+   "disk_equals_manifest": true,
+   "cross_pin": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788"
+  },
+  "files": {
+   "math_rules": "af2b0c52f9c7472febfea4f86413a8d088a6cb6efee8b099c4e56973fdf721de",
+   "arena_json": "f06f3a64ae9d5a88b3b163433c494dc6881c9f1f0f8195c211867b708aac4c3b",
+   "player_kit": "2b68af939b6c795c1b4c9f0411aa037fb4d0332f983fa942aa307c85329eeac6",
+   "derive_v1p14_json": "7e9c28bd25b1406b7dd5f879f3ae9f5ed7cfc24c3b4cb7a670d1dd58ba2f7a1b"
+  },
+  "packs_ok": true,
+  "engine": {
+   "HEAD": "102c28e0eb53a6b7e5061f53265fcb90c1b6489d",
+   "oracle_rev_reachable": true
+  }
+ },
+ "pack_derivations": {
+  "off_sets": {
+   "151": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "152": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "153": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "154": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "155": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "156": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "157": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "158": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "159": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "160": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  "LU_equals_pools_for_off": true,
+  "LU_vector_from_sets": [
+   5,
+   5,
+   5,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "P06-KEY": [
+   0,
+   1,
+   1,
+   0,
+   1,
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "P06_equals_pin": true,
+  "LU_equals_derive14": true,
+  "n_pairs": 139,
+  "n_degenerate": 97,
+  "ta09_rowset": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+  "ta09_n": 9,
+  "z3_M_inst": {
+   "151": 1.82,
+   "152": 1.82,
+   "153": 1.82,
+   "154": 1.82,
+   "155": 1.82,
+   "156": 1.83,
+   "157": 1.83,
+   "158": 1.83,
+   "159": 1.83,
+   "160": 1.83
+  },
+  "arena_placement_extents_m": 8.0,
+  "arena_d_engage_m": 2.4,
+  "kit_channel_radius_m": 3.0,
+  "sets_v311 (derive_v1p14.json)": {
+   "FALLBACK": {
+    "digest": "e8114efaa8fa678db6a26bb6e4ffb926fc2c1a15a978e3d589cf918ff17ae6cb",
+    "n": 158
+   },
+   "NONSWING (v3.11 graded loader)": {
+    "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "members": [],
+    "n": 0
+   },
+   "POOL-466": {
+    "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+    "n": 466,
+    "routes_agree": true
+   },
+   "SWING (v3.11 graded loader)": {
+    "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+    "n": 466
+   },
+   "equals_v1.13": {
+    "FALLBACK-158": true,
+    "NONSWING-10": false,
+    "POOL-466": true,
+    "SWING-456": false
+   },
+   "march_base": 3.209466,
+   "partition": {
+    "BANDA-DB-CITED": 180,
+    "FALLBACK": 158,
+    "LAPR-MEASURED": 128
+   }
+  }
+ },
+ "pool466": {
+  "module_equals_969fbd8d": true,
+  "n": 466,
+  "digest": "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b",
+  "routes_agree": true
+ },
+ "oracle_reads": {
+  "TA-X-21": {
+   "threat.py": {
+    "sha256": "18b2500e7c429f67e82e489637212b3f1148762ac7f865d340b2a64f51a2d8a3",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      1613,
+      "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+     ],
+     [
+      1774,
+      "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+     ],
+     [
+      1813,
+      "1, int(round(cd * self.ticks_per_s)))"
+     ],
+     [
+      2182,
+      "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+     ]
+    ]
+   },
+   "deferred_arrival.py": {
+    "sha256": "0a6b579b78aaf748732afadce50558c6f00eb2eb916ea7d9b5def7a69243557a",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      329,
+      "return int(round(raw))"
+     ]
+    ]
+   },
+   "dot_timeline.py": {
+    "sha256": "b4a3bb8268c71005b4d2f317cbd9a7b20e505193f09e78924712258ed92cbe37",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      380,
+      "n_ticks = int(exact) if TRUNCATE_NTICKS else int(round(exact))"
+     ]
+    ]
+   },
+   "control_application.py": {
+    "sha256": "c0b0cc73bea6fb860cf49b2602a507a2a57b6242728cf520bc6a4960b3405643",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      591,
+      "n = max(0, int(exact) if TRUNCATE_BUCKETS else int(round(exact)))"
+     ]
+    ]
+   },
+   "gd_engagement.py": {
+    "sha256": "776e7048427bbd47bbf9ffb36f9a3d162a990b182fd71e3f207a41c0cafee920",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      121,
+      "gate = max(1, int(round(s.delay_s * tps))) if s.delay_s else 0"
+     ],
+     [
+      187,
+      "eng._cooldown_until[key] = tick + max(1, int(round(cd * eng.ticks_per_s)))"
+     ]
+    ]
+   },
+   "gd_reposition.py": {
+    "sha256": "28c2031ddbdd8f30eeaefd10467a81353dfe9004163fd1f18f82f8164fab3c1c",
+    "equals_notes": true,
+    "round_lines": [
+     [
+      364,
+      "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+     ],
+     [
+      365,
+      "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+     ],
+     [
+      519,
+      "if tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= S.reach_m:"
+     ],
+     [
+      530,
+      "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+     ],
+     [
+      554,
+      "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+     ],
+     [
+      726,
+      "if arrived or (tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= reach):"
+     ],
+     [
+      731,
+      "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+     ],
+     [
+      739,
+      "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+     ]
+    ]
+   }
+  }
+ },
+ "source_reads": {
+  "TA-X-17": {
+   "law_line": [
+    [
+     306,
+     "var rho := extents_m * u2"
+    ]
+   ],
+   "f64_returns": [
+    [
+     307,
+     "return PackedFloat64Array([rho * cos(theta), rho * sin(theta)])"
+    ]
+   ],
+   "placement_sites": [
+    [
+     668,
+     "var off := Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+    ],
+    [
+     889,
+     "off64 = Kc2RtLaws.scatter_polar_uniform_rho_f64(u1, u2, placement_extents_m, facing_span_rad)"
+    ]
+   ],
+   "extents_halt": [
+    [
+     528,
+     "if r.is_missing(pe) or float(pe) != placement_extents_m:"
+    ]
+   ]
+  },
+  "TA-X-19": {
+   "_defer_arrivals_line": [
+    [
+     4566,
+     "func _defer_arrivals() -> void:"
+    ]
+   ],
+   "packet_build_lines": [
+    "(_defer_queue[at] as Array).append({\"seq\": _defer_seq, \"b\": b, \"rec\": rec, \"direct\": _pkt_direct,"
+   ],
+   "packet_keys": [
+    "seq",
+    "b",
+    "rec",
+    "direct",
+    "pcl",
+    "fams",
+    "cast",
+    "n_rows"
+   ],
+   "position_keys_in_packet": [],
+   "position_reads_in_arrival_path": {
+    "_defer_arrivals": [],
+    "_cp_absorb": [],
+    "_land": []
+   }
+  },
+  "TA-X-21_port_scan": {
+   "gd_files": 90,
+   "exempt": "sim/kc2rt_quant.gd",
+   "bare_round_sites": []
+  },
+  "TA-X-24_sha256_mod_sites": []
+ },
+ "rows": {
+  "P-1": {
+   "verdict": "GREEN",
+   "values": {
+    "mapped": 89,
+    "total": 89,
+    "unmapped": 0,
+    "counts": {
+     "DIVERGENCE": 8,
+     "IMPLEMENTED": 65,
+     "OUT-OF-SCOPE": 3,
+     "RUNTIME-CHOICE": 13,
+     "UNMAPPED": 0
+    },
+    "refusals": 3
+   }
+  },
+  "P-2": {
+   "verdict": "GREEN",
+   "values": {
+    "(1)": true,
+    "(2)": true,
+    "(3)": true,
+    "(4) controls a/a0/b": {
+     "(a) own + shared draw": "NOT RUN",
+     "(a0) shared draw only (own counter 0)": "RED",
+     "(b) one extra draw at a live site (V9-SITE-13, root)": "RED"
+    },
+    "(5)": true,
+    "digest": "c4e35ed526e3be24ff231ae026b71ccb0fa8ac228aef89c50ae317707778d0c0",
+    "arm/salt": [
+     "M-POL-2",
+     0
+    ],
+    "control (c)": "not built by the T-A harness; carried as H-3/H-7's (as at attempt 3)"
+   }
+  },
+  "P-3": {
+   "verdict": "GREEN",
+   "values": {
+    "population": "POOL-466",
+    "cardinality": 466,
+    "law": {
+     "alternative": "WEIGHTED:pool_weight",
+     "name": "UNIFORM:randrange"
+    }
+   },
+   "note": "v1.14 § L.2: P-3 is the INCUMBENT roll's law; the FOUGHT roll is the line-up fold's (covered by G3/TA-X-16/25/27)"
+  },
+  "P-4": {
+   "verdict": "GREEN",
+   "values": {
+    "P4 blocks (25 cells + manifest)": true,
+    "runtime_header": true,
+    "binary_sha256": "5a65c5e1fc81bb7816b03e1be1f902de58c1ff4b71b9a83973665f35d4f4e737"
+   }
+  },
+  "P-5": {
+   "verdict": "GREEN",
+   "values": {
+    "carried settings": {
+     "winner_surface": "ARMED",
+     "insufficient_energy_policy": "REFUSE",
+     "regen_ungated": true,
+     "global_magnitude": "ARMED_UNCONDITIONAL",
+     "per_cast_energy_column": "PARENT_PLUS_MODIFIER",
+     "monster_march_base_m_per_s": 3.209466,
+     "pcl_limb": "MULTIPLICATIVE @ 26.0 %",
+     "monster_run_speed_population": "LAPR-MEASURED 128 · BANDA-DB-CITED 180 · FALLBACK 158"
+    },
+    "a8 rowsets = § B.1a, configured from a8, P-MOVE": {
+     "M0": true,
+     "M-POL-2": true,
+     "M-POL-2-NULL": true,
+     "W1": true,
+     "W1-NULL": true
+    },
+    "setup partition C/T, 0 applied": true
+   },
+   "face": "the P5 block's pool_lift label still reads 'SWING-456 · NONSWING-10' (v1.13 sets); v1.14 TA-X-25 re-derived SWING = POOL-466 / NONSWING = ∅. The per-arm fold list § B.6 says the harness prints is not printed; the folds are carried by the a8 ROWSET equality (graded) -- face note, not a P-5 criterion I can fail"
+  },
+  "C1": {
+   "verdict": "CONFORMING",
+   "values": {
+    "G3 cells conforming": 25,
+    "native lib (runtime member) sha": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+    "T-A run contact=shadow on 25/25 with 0 mismatches (C.9.8 fresh run per arm)": true,
+    "declared_ungradeable": [
+     "TA-X-06"
+    ],
+    "G3 control term port/oracle": [
+     80,
+     80
+    ],
+    "oracle_only stream labels": [
+     "player_kit_residual.py:286",
+     "spawn_structure.py:344"
+    ]
+   }
+  },
+  "TA-X-01": {
+   "verdict": "GREEN",
+   "values": {
+    "run_1": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c",
+    "run_2": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c",
+    "M0|2 cell digest": "d5f76d79c4ef529629bf172c5fa0ceff98aa905beecd20544325586793b0f92c"
+   }
+  },
+  "TA-X-02": {
+   "verdict": "GREEN",
+   "values": "89/89, unmapped 0"
+  },
+  "TA-X-03": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2-NULL vs M0",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-04": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "W1-NULL vs M-POL-2",
+    "digest_identical_per_salt": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "subject_identical_per_salt (gamora)": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "TA-X-05": {
+   "verdict": "GREEN",
+   "values": {
+    "compares": "M-POL-2 vs M0",
+    "digest_identical_per_salt": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "subject_identical_per_salt (gamora)": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "TA-X-06": {
+   "verdict": "UNGRADEABLE-declared (Q83(b), KP-110)",
+   "values": "port W1 vs M-POL-2 identical on salts [2, 3]; oracle (v1.14): salts [0, 1, 4]"
+  },
+  "TA-X-07": {
+   "verdict": "GREEN",
+   "values": {
+    "(a) max rho_hat": 2.21152564364915e-16,
+    "(a) cells at 0.0": 23,
+    "(b) max |residual|": 5.96046447753906e-08,
+    "(c) gamora (L2) exact": {
+     "all_25": true,
+     "worst": "W1|4",
+     "beta": 5.364366596868262e-14,
+     "margin": 18.641529842196167
+    },
+    "(c) harness r11_bound.all_25_hold (printed)": true,
+    "max n_terms_accumulated (stale 4,500 label; budget retired v1.12)": 15238
+   }
+  },
+  "TA-X-08": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "per_cell": {
+     "M0|0": {
+      "terminal": "death",
+      "observed": 4317,
+      "PF": 10,
+      "D": 4307,
+      "n_channelling": 4307,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M0|1": {
+      "terminal": "cleared",
+      "observed": 5378,
+      "PF": 10,
+      "D": 5368,
+      "n_channelling": 5368,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M0|2": {
+      "terminal": "cleared",
+      "observed": 4729,
+      "PF": 10,
+      "D": 4719,
+      "n_channelling": 4707,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 12,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M0|3": {
+      "terminal": "death",
+      "observed": 5454,
+      "PF": 10,
+      "D": 5444,
+      "n_channelling": 5444,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M0|4": {
+      "terminal": "death",
+      "observed": 5079,
+      "PF": 10,
+      "D": 5069,
+      "n_channelling": 5068,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 1,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2|0": {
+      "terminal": "death",
+      "observed": 4706,
+      "PF": 10,
+      "D": 4696,
+      "n_channelling": 4434,
+      "n_released": 258,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2|1": {
+      "terminal": "death",
+      "observed": 5135,
+      "PF": 10,
+      "D": 5125,
+      "n_channelling": 4791,
+      "n_released": 326,
+      "n_control_suppressed_channelling": 8,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2|2": {
+      "terminal": "cleared",
+      "observed": 5292,
+      "PF": 10,
+      "D": 5282,
+      "n_channelling": 4991,
+      "n_released": 279,
+      "n_control_suppressed_channelling": 12,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2|3": {
+      "terminal": "death",
+      "observed": 3591,
+      "PF": 7,
+      "D": 3584,
+      "n_channelling": 3433,
+      "n_released": 147,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2|4": {
+      "terminal": "death",
+      "observed": 4539,
+      "PF": 10,
+      "D": 4529,
+      "n_channelling": 4309,
+      "n_released": 216,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2-NULL|0": {
+      "terminal": "death",
+      "observed": 4317,
+      "PF": 10,
+      "D": 4307,
+      "n_channelling": 4307,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2-NULL|1": {
+      "terminal": "cleared",
+      "observed": 5378,
+      "PF": 10,
+      "D": 5368,
+      "n_channelling": 5368,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2-NULL|2": {
+      "terminal": "cleared",
+      "observed": 4729,
+      "PF": 10,
+      "D": 4719,
+      "n_channelling": 4707,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 12,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2-NULL|3": {
+      "terminal": "death",
+      "observed": 5454,
+      "PF": 10,
+      "D": 5444,
+      "n_channelling": 5444,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 0,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "M-POL-2-NULL|4": {
+      "terminal": "death",
+      "observed": 5079,
+      "PF": 10,
+      "D": 5069,
+      "n_channelling": 5068,
+      "n_released": 0,
+      "n_control_suppressed_channelling": 1,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1|0": {
+      "terminal": "death",
+      "observed": 4818,
+      "PF": 10,
+      "D": 4808,
+      "n_channelling": 4541,
+      "n_released": 263,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1|1": {
+      "terminal": "cleared",
+      "observed": 5525,
+      "PF": 10,
+      "D": 5515,
+      "n_channelling": 5174,
+      "n_released": 333,
+      "n_control_suppressed_channelling": 8,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1|2": {
+      "terminal": "cleared",
+      "observed": 5292,
+      "PF": 10,
+      "D": 5282,
+      "n_channelling": 4991,
+      "n_released": 279,
+      "n_control_suppressed_channelling": 12,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1|3": {
+      "terminal": "death",
+      "observed": 3591,
+      "PF": 7,
+      "D": 3584,
+      "n_channelling": 3433,
+      "n_released": 147,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1|4": {
+      "terminal": "death",
+      "observed": 4792,
+      "PF": 10,
+      "D": 4782,
+      "n_channelling": 4540,
+      "n_released": 238,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1-NULL|0": {
+      "terminal": "death",
+      "observed": 4706,
+      "PF": 10,
+      "D": 4696,
+      "n_channelling": 4434,
+      "n_released": 258,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1-NULL|1": {
+      "terminal": "death",
+      "observed": 5135,
+      "PF": 10,
+      "D": 5125,
+      "n_channelling": 4791,
+      "n_released": 326,
+      "n_control_suppressed_channelling": 8,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1-NULL|2": {
+      "terminal": "cleared",
+      "observed": 5292,
+      "PF": 10,
+      "D": 5282,
+      "n_channelling": 4991,
+      "n_released": 279,
+      "n_control_suppressed_channelling": 12,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1-NULL|3": {
+      "terminal": "death",
+      "observed": 3591,
+      "PF": 7,
+      "D": 3584,
+      "n_channelling": 3433,
+      "n_released": 147,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     },
+     "W1-NULL|4": {
+      "terminal": "death",
+      "observed": 4539,
+      "PF": 10,
+      "D": 4529,
+      "n_channelling": 4309,
+      "n_released": 216,
+      "n_control_suppressed_channelling": 4,
+      "id1": true,
+      "id2": true,
+      "id2p": true,
+      "no-fold arms release nothing": true,
+      "conv": {
+       "one PRE_FIGHT per wave played": true,
+       "cleared => 10 PRE_FIGHT, 10 waves": true,
+       "no DEAD": true,
+       "lethal tick censused alive (death only)": true,
+       "cleared: no lethal tick": true,
+       "states ⊆ tally + PRE_FIGHT": true,
+       "counters = census": true
+      }
+     }
+    },
+    "control term Σ (port realisation)": 122
+   }
+  },
+  "TA-X-09": {
+   "verdict": "GREEN",
+   "values": {
+    "rowset (gamora)": "0e826ee093b98767901271c95e918a19e1c6d5b8a8663c99c87d8ced17086e78",
+    "n": 9
+   }
+  },
+  "TA-X-10": {
+   "verdict": "GREEN",
+   "values": {
+    "W1 max_body_radius_m": {
+     "0": 43.0183436421578,
+     "1": 43.0445433552371,
+     "2": 43.0445433552371,
+     "3": 43.0445433552371,
+     "4": 43.0707430839325
+    },
+    "W1 max_spawn_radius_m (printed)": {
+     "0": 43.2541411379521,
+     "1": 43.2541411379521,
+     "2": 43.2541411379521,
+     "3": 43.2541411379521,
+     "4": 43.2541411379521
+    },
+    "bound": 43.71638147965161,
+    "emitted bound": 43.7163814796516,
+    "emitted bound == prereg bound (bit)": false
+   }
+  },
+  "TA-X-11": {
+   "verdict": "GREEN",
+   "values": {
+    "W1|0": [
+     0,
+     0
+    ],
+    "W1|1": [
+     0,
+     0
+    ],
+    "W1|2": [
+     0,
+     0
+    ],
+    "W1|3": [
+     0,
+     0
+    ],
+    "W1|4": [
+     0,
+     0
+    ],
+    "W1-NULL|0": [
+     0,
+     0
+    ],
+    "W1-NULL|1": [
+     0,
+     0
+    ],
+    "W1-NULL|2": [
+     0,
+     0
+    ],
+    "W1-NULL|3": [
+     0,
+     0
+    ],
+    "W1-NULL|4": [
+     0,
+     0
+    ]
+   }
+  },
+  "TA-X-12": {
+   "verdict": "GREEN",
+   "values": [
+    0.0
+   ]
+  },
+  "TA-X-13": {
+   "verdict": "GREEN",
+   "values": {
+    "(crits, crit rows, player rows, vacuous)": {
+     "M0|0": [
+      0,
+      0,
+      11578,
+      false
+     ],
+     "M0|1": [
+      0,
+      0,
+      16458,
+      false
+     ],
+     "M0|2": [
+      0,
+      0,
+      14301,
+      false
+     ],
+     "M0|3": [
+      0,
+      0,
+      12756,
+      false
+     ],
+     "M0|4": [
+      0,
+      0,
+      13878,
+      false
+     ],
+     "M-POL-2|0": [
+      0,
+      0,
+      13301,
+      false
+     ],
+     "M-POL-2|1": [
+      0,
+      0,
+      13885,
+      false
+     ],
+     "M-POL-2|2": [
+      0,
+      0,
+      15649,
+      false
+     ],
+     "M-POL-2|3": [
+      0,
+      0,
+      9035,
+      false
+     ],
+     "M-POL-2|4": [
+      0,
+      0,
+      14384,
+      false
+     ],
+     "M-POL-2-NULL|0": [
+      0,
+      0,
+      11578,
+      false
+     ],
+     "M-POL-2-NULL|1": [
+      0,
+      0,
+      16458,
+      false
+     ],
+     "M-POL-2-NULL|2": [
+      0,
+      0,
+      14301,
+      false
+     ],
+     "M-POL-2-NULL|3": [
+      0,
+      0,
+      12756,
+      false
+     ],
+     "M-POL-2-NULL|4": [
+      0,
+      0,
+      13878,
+      false
+     ],
+     "W1|0": [
+      0,
+      0,
+      13067,
+      false
+     ],
+     "W1|1": [
+      0,
+      0,
+      16396,
+      false
+     ],
+     "W1|2": [
+      0,
+      0,
+      15649,
+      false
+     ],
+     "W1|3": [
+      0,
+      0,
+      9035,
+      false
+     ],
+     "W1|4": [
+      0,
+      0,
+      13140,
+      false
+     ],
+     "W1-NULL|0": [
+      0,
+      0,
+      13301,
+      false
+     ],
+     "W1-NULL|1": [
+      0,
+      0,
+      13885,
+      false
+     ],
+     "W1-NULL|2": [
+      0,
+      0,
+      15649,
+      false
+     ],
+     "W1-NULL|3": [
+      0,
+      0,
+      9035,
+      false
+     ],
+     "W1-NULL|4": [
+      0,
+      0,
+      14384,
+      false
+     ]
+    },
+    "scope": "source == player (KP-248)"
+   }
+  },
+  "TA-X-14": {
+   "verdict": "GREEN",
+   "values": {
+    "M0|0": [
+     0,
+     []
+    ],
+    "M0|1": [
+     0,
+     []
+    ],
+    "M0|2": [
+     0,
+     []
+    ],
+    "M0|3": [
+     0,
+     []
+    ],
+    "M0|4": [
+     0,
+     []
+    ],
+    "M-POL-2|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "M-POL-2|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "M-POL-2|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "M-POL-2|3": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "M-POL-2|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "M-POL-2-NULL|0": [
+     0,
+     []
+    ],
+    "M-POL-2-NULL|1": [
+     0,
+     []
+    ],
+    "M-POL-2-NULL|2": [
+     0,
+     []
+    ],
+    "M-POL-2-NULL|3": [
+     0,
+     []
+    ],
+    "M-POL-2-NULL|4": [
+     0,
+     []
+    ],
+    "W1|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1|3": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1-NULL|0": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1-NULL|1": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1-NULL|2": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1-NULL|3": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ],
+    "W1-NULL|4": [
+     0,
+     [
+      "type_a",
+      "type_b"
+     ]
+    ]
+   }
+  },
+  "TA-X-15": {
+   "verdict": "GREEN",
+   "values": {
+    "(wave, point) rows": 1133,
+    "(a)": true,
+    "(b)": "GREEN-BY-CONSTRUCTION",
+    "p05 waves (M0|0, printed)": [
+     151,
+     152,
+     153,
+     156,
+     157,
+     158,
+     159
+    ]
+   }
+  },
+  "TA-X-16": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "LU-KEYS": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "LU sets == pools_for(w, False) from waves.json": true,
+    "P06-KEY (waves.json) == pin": true,
+    "LU == derive_v1p14.json": true,
+    "per_cell": {
+     "M0|0": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M0|1": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M0|2": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M0|3": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M0|4": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2|0": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2|1": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2|2": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2|3": {
+      "T": 157,
+      "n_waves": 7,
+      "n_pool_picks": 33,
+      "expected": 33,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2|4": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2-NULL|0": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2-NULL|1": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2-NULL|2": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2-NULL|3": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "M-POL-2-NULL|4": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1|0": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1|1": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1|2": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1|3": {
+      "T": 157,
+      "n_waves": 7,
+      "n_pool_picks": 33,
+      "expected": 33,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1|4": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1-NULL|0": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1-NULL|1": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1-NULL|2": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1-NULL|3": {
+      "T": 157,
+      "n_waves": 7,
+      "n_pool_picks": 33,
+      "expected": 33,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     },
+     "W1-NULL|4": {
+      "T": 160,
+      "n_waves": 10,
+      "n_pool_picks": 47,
+      "expected": 47,
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "harness holds": true,
+      "every fought key carried a body (printed)": true
+     }
+    }
+   }
+  },
+  "TA-X-17": {
+   "verdict": "GREEN",
+   "values": {
+    "max offset per cell (max over 25)": 7.95483016967773,
+    "anchor = v3.8 GD emitter": true,
+    "source law + pack extents 8.0": true
+   }
+  },
+  "TA-X-18": {
+   "verdict": "GREEN",
+   "values": {
+    "emitted": [
+     "-3.999999999999985",
+     "-3.49691120014899e-07"
+    ],
+    "gamora parsed bits": [
+     "c00fffffffffffde",
+     "be9777a5cf72cec6"
+    ]
+   }
+  },
+  "TA-X-19": {
+   "verdict": "GREEN",
+   "values": {
+    "packet keys": [
+     "seq",
+     "b",
+     "rec",
+     "direct",
+     "pcl",
+     "fams",
+     "cast",
+     "n_rows"
+    ],
+    "position reads in arrival path": {
+     "_defer_arrivals": [],
+     "_cp_absorb": [],
+     "_land": []
+    }
+   }
+  },
+  "TA-X-20": {
+   "verdict": "GREEN",
+   "values": {
+    "radius_m": 3.0,
+    "cases": {
+     "2.99 m ahead — HIT": [
+      true,
+      true,
+      true
+     ],
+     "3.01 m ahead — MISS": [
+      false,
+      false,
+      true
+     ],
+     "3.0 m BEHIND — HIT (no angular gate)": [
+      true,
+      true,
+      true
+     ],
+     "3.0 m to the side — HIT (no corridor)": [
+      true,
+      true,
+      true
+     ],
+     "12 bodies inside -> 12 hits (target cap MEASURED-ABSENT 4/4)": [
+      12,
+      12,
+      true
+     ]
+    }
+   }
+  },
+  "TA-X-21": {
+   "verdict": "GREEN",
+   "values": {
+    "quantisation rows": 12,
+    "rows ok (got == expect == python round)": true,
+    "every round( line in the 6 modules @969fbd8d (gamora)": 17,
+    "= notes' 17 (14 live int(round( + 3 dead), emitted list equal": true,
+    "port bare round( (harness / gamora)": [
+     0.0,
+     []
+    ],
+    "gd files scanned (gamora)": 90
+   },
+   "face": "quantisation.live_sites still labels the 12 test rows with the v1.13 threat.py list (incl. the two dead sites 1813 / 2182); the graded site list (oracle_live_sites) is the notes' -- label only"
+  },
+  "TA-X-22": {
+   "verdict": "GREEN",
+   "values": [
+    0
+   ]
+  },
+  "TA-X-24": {
+   "verdict": "GREEN",
+   "values": {
+    "phase_model": {
+     "precedence": "DRIVER-OF-RECORD",
+     "value": "PhaseModel.ENGAGE"
+    },
+    "sha256(actor_id) sites (gamora scan)": []
+   }
+  },
+  "TA-X-25": {
+   "verdict": "GREEN",
+   "values": {
+    "POOL-466 (gamora, export law)": [
+     466,
+     "33c886a11f91db1143c791ffcf9d95f7e7614e423373235231733c994c5c157b"
+    ],
+    "face": true,
+    "bodies per cell": {
+     "M0|0": 169,
+     "M0|1": 168,
+     "M0|2": 168,
+     "M0|3": 168,
+     "M0|4": 169,
+     "M-POL-2|0": 169,
+     "M-POL-2|1": 168,
+     "M-POL-2|2": 168,
+     "M-POL-2|3": 126,
+     "M-POL-2|4": 169,
+     "M-POL-2-NULL|0": 169,
+     "M-POL-2-NULL|1": 168,
+     "M-POL-2-NULL|2": 168,
+     "M-POL-2-NULL|3": 168,
+     "M-POL-2-NULL|4": 169,
+     "W1|0": 169,
+     "W1|1": 168,
+     "W1|2": 168,
+     "W1|3": 126,
+     "W1|4": 169,
+     "W1-NULL|0": 169,
+     "W1-NULL|1": 168,
+     "W1-NULL|2": 168,
+     "W1-NULL|3": 126,
+     "W1-NULL|4": 169
+    },
+    "failing clauses": {}
+   }
+  },
+  "TA-X-26": {
+   "verdict": "GREEN",
+   "values": {
+    "(b)": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+    "(c)": {
+     "multipliers": 5,
+     "records": 790,
+     "rows": 7900,
+     "tiers": 8,
+     "wave_invariant": 790
+    },
+    "(e)": {
+     "max": 0.35,
+     "mean": 0.246896551724137,
+     "median": 0.25,
+     "min": 0.0,
+     "n": 464,
+     "n_zero": 17,
+     "population": "ARMED-464 := POOL-466 ∩ (v20 ∪ w40 ∪ w41 ∪ w44 ∪ w45)",
+     "records_without_a_P-i_row": 0
+    }
+   }
+  },
+  "TA-X-27": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": true,
+    "(b) gamora replay, 16 seeds (python 3.12.0)": true,
+    "(c)": true,
+    "(d) gamora from waves.json": [
+     139,
+     97
+    ]
+   },
+   "face": "cell.draw_sites still prints sites_live 29 (the V9 count); the row's registry count (41) is in ta_x_27_c"
+  },
+  "TA-X-28": {
+   "verdict": "GREEN",
+   "values": "caps 0/0, ALL_BODIES_IN_DISC, 0.57 on 25/25"
+  },
+  "TA-X-29": {
+   "verdict": "GREEN",
+   "values": {
+    "(a)": true,
+    "(b′)": true,
+    "(b′) families Σ25 (n, n_equal)": {
+     "instant_nonphys": [
+      66766,
+      66766
+     ],
+     "phys_clamped": [
+      2453,
+      2453
+     ],
+     "phys_clamped_unmapped": [
+      2121,
+      2121
+     ],
+     "phys_unclamped": [
+      21209,
+      21209
+     ],
+     "dot": [
+      14958,
+      14958
+     ],
+     "dot_leech_type": [
+      162,
+      162
+     ],
+     "dot_chaos_aether": [
+      0,
+      0
+     ]
+    },
+    "(b′) per-cell blocks ok": 25,
+    "(c)": true,
+    "(d)": true,
+    "(e)": {
+     "w159": 3.197066,
+     "w160": 4.935649,
+     "rec159": {
+      "n": 16,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     },
+     "rec160": {
+      "n": 23,
+      "missing": [],
+      "extra": [],
+      "max_dev": 0.0,
+      "ok": true
+     }
+    }
+   },
+   "face": "the divisor clause is UNREACHABLE-IN-PACK (notes § 4); port composed 0 such rows, so no RED-on-presence. (e)'s emitted provenance still cites the v3.7.1 WALK rows (IC7-A-0379…0432) and 'carried to v1.12'; the values are the v3.11 walk's (they equal v1.15 to 6 dp) -- provenance label stale"
+  },
+  "TA-X-30": {
+   "verdict": "GREEN",
+   "values": {
+    "fails": [],
+    "manifest ring_halt_m from arena.json, nan test": true,
+    "(b′) vacuous cells": 25,
+    "per_cell": {
+     "M0|0": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32721,
+       31093,
+       1628
+      ],
+      "pets steps / exact / no-travel": [
+       23903,
+       18501,
+       5402
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M0|1": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       33310,
+       31648,
+       1662
+      ],
+      "pets steps / exact / no-travel": [
+       31120,
+       23884,
+       7236
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M0|2": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32100,
+       29797,
+       2303
+      ],
+      "pets steps / exact / no-travel": [
+       25511,
+       19338,
+       6173
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M0|3": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32578,
+       28998,
+       3580
+      ],
+      "pets steps / exact / no-travel": [
+       23058,
+       16944,
+       6114
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M0|4": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       33414,
+       32269,
+       1145
+      ],
+      "pets steps / exact / no-travel": [
+       30847,
+       23015,
+       7832
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2|0": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       31897,
+       30628,
+       1269
+      ],
+      "pets steps / exact / no-travel": [
+       28441,
+       21792,
+       6649
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2|1": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       37019,
+       32168,
+       4851
+      ],
+      "pets steps / exact / no-travel": [
+       30539,
+       25091,
+       5448
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2|2": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       35506,
+       33425,
+       2081
+      ],
+      "pets steps / exact / no-travel": [
+       28556,
+       22254,
+       6302
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2|3": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       25925,
+       23560,
+       2365
+      ],
+      "pets steps / exact / no-travel": [
+       12851,
+       8777,
+       4074
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2|4": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       31803,
+       30583,
+       1220
+      ],
+      "pets steps / exact / no-travel": [
+       31797,
+       25240,
+       6557
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2-NULL|0": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32721,
+       31093,
+       1628
+      ],
+      "pets steps / exact / no-travel": [
+       23903,
+       18501,
+       5402
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2-NULL|1": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       33310,
+       31648,
+       1662
+      ],
+      "pets steps / exact / no-travel": [
+       31120,
+       23884,
+       7236
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2-NULL|2": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32100,
+       29797,
+       2303
+      ],
+      "pets steps / exact / no-travel": [
+       25511,
+       19338,
+       6173
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2-NULL|3": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32578,
+       28998,
+       3580
+      ],
+      "pets steps / exact / no-travel": [
+       23058,
+       16944,
+       6114
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "M-POL-2-NULL|4": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       33414,
+       32269,
+       1145
+      ],
+      "pets steps / exact / no-travel": [
+       30847,
+       23015,
+       7832
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1|0": {
+      "a′": true,
+      "b′": true,
+      "armed": true,
+      "clamp calls/stops": [
+       32425,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       31511,
+       30242,
+       1269
+      ],
+      "pets steps / exact / no-travel": [
+       28934,
+       22468,
+       6466
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1|1": {
+      "a′": true,
+      "b′": true,
+      "armed": true,
+      "clamp calls/stops": [
+       38259,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       37303,
+       32452,
+       4851
+      ],
+      "pets steps / exact / no-travel": [
+       36293,
+       30496,
+       5797
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1|2": {
+      "a′": true,
+      "b′": true,
+      "armed": true,
+      "clamp calls/stops": [
+       36545,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       35506,
+       33425,
+       2081
+      ],
+      "pets steps / exact / no-travel": [
+       28556,
+       22254,
+       6302
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1|3": {
+      "a′": true,
+      "b′": true,
+      "armed": true,
+      "clamp calls/stops": [
+       26860,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       25925,
+       23560,
+       2365
+      ],
+      "pets steps / exact / no-travel": [
+       12851,
+       8777,
+       4074
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1|4": {
+      "a′": true,
+      "b′": true,
+      "armed": true,
+      "clamp calls/stops": [
+       33079,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       32153,
+       30933,
+       1220
+      ],
+      "pets steps / exact / no-travel": [
+       26512,
+       20421,
+       6091
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1-NULL|0": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       31897,
+       30628,
+       1269
+      ],
+      "pets steps / exact / no-travel": [
+       28441,
+       21792,
+       6649
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1-NULL|1": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       37019,
+       32168,
+       4851
+      ],
+      "pets steps / exact / no-travel": [
+       30539,
+       25091,
+       5448
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1-NULL|2": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       35506,
+       33425,
+       2081
+      ],
+      "pets steps / exact / no-travel": [
+       28556,
+       22254,
+       6302
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1-NULL|3": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       25925,
+       23560,
+       2365
+      ],
+      "pets steps / exact / no-travel": [
+       12851,
+       8777,
+       4074
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     },
+     "W1-NULL|4": {
+      "a′": true,
+      "b′": true,
+      "armed": false,
+      "clamp calls/stops": [
+       0,
+       0
+      ],
+      "(b′) vacuous (notes § 3.1)": true,
+      "face prints it": true,
+      "steps / law-exact / held": [
+       31803,
+       30583,
+       1220
+      ],
+      "pets steps / exact / no-travel": [
+       31797,
+       25240,
+       6557
+      ],
+      "clipped (roster, pets)": [
+       0,
+       0
+      ],
+      "non-waypoint pursue steps": 0
+     }
+    }
+   }
+  }
+ },
+ "face": {
+  "cl14 declared_residuals verbatim": true,
+  "cl15 per-cell terminal_reason + lethal-tick reason": true,
+  "port OBS-1 completeness 25/25, no STALL": true,
+  "notes 3.1 (b′) vacuity printed where n_clamp_stops == 0": true,
+  "notes 3.2 reference collapse printed": true,
+  "port distinct trajectories (gamora)": {
+   "n": 13,
+   "clear": 4,
+   "die": 9,
+   "emitted": "25 cells / 13 distinct trajectories (4 clear, 9 die)"
+  },
+  "notes 3.3 unexercised printed": true,
+  "notes 3.4 clip flags (port clipped steps)": {
+   "emitted": [],
+   "gamora": []
+  },
+  "notes 3.5 lethal tick face": "exercised on 9 distinct dying trajectories (reference: 3), inapplicable on the clearing cells (§ F.5 cl. 15)",
+  "notes 4 divisor UNREACHABLE-IN-PACK printed": true,
+  "KP-248 TA-X-13 scope printed": "player rows only (source == player); player-summon ps_ rows out of scope (KP-248) — the port emits no ps_ row class",
+  "§ G.3 prereg_carried_from (v1.15 says {v1.14, 5bbe7ae5})": {
+   "emitted": {
+    "version": "v1.12",
+    "sha256": "a0454776"
+   },
+   "conforms": false
+  },
+  "§ G.3 prereg_set_of_record": true,
+  "§ F.5 cl. 11 holes sentence label": [
+   "v1.12"
+  ],
+  "hole_closure": "PENDING (H-5)",
+  "§ C.9.8 native shadow cited (lib sha, evidence)": {
+   "lib": [
+    "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f"
+   ],
+   "evidence_dir": "kc2-play/2026-10-03-g3-25cell-kp274-V311FULL-66605a1/summaries"
+  },
+  "r6_invariants": {
+   "(i) killer_id set and terminal_reason cleared": 0,
+   "(ii) in-tick resurrections (lethal floor reached without a death, or more than once)": 0,
+   "(iii) cells where a PCL row landed and PercentCurrentLife intake is not > 0": 0
+  }
+ },
+ "counts": {
+  "GREEN": 28
+ },
+ "by_class": {
+  "GREEN": [
+   "TA-X-01",
+   "TA-X-02",
+   "TA-X-03",
+   "TA-X-04",
+   "TA-X-05",
+   "TA-X-07",
+   "TA-X-08",
+   "TA-X-09",
+   "TA-X-10",
+   "TA-X-11",
+   "TA-X-12",
+   "TA-X-13",
+   "TA-X-14",
+   "TA-X-15",
+   "TA-X-16",
+   "TA-X-17",
+   "TA-X-18",
+   "TA-X-19",
+   "TA-X-20",
+   "TA-X-21",
+   "TA-X-22",
+   "TA-X-24",
+   "TA-X-25",
+   "TA-X-26",
+   "TA-X-27",
+   "TA-X-28",
+   "TA-X-29",
+   "TA-X-30"
+  ]
+ },
+ "preconditions_not_green": [],
+ "verdict": "PASS",
+ "identity_ok": true
+}
