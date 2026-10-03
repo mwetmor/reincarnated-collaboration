@@ -1,0 +1,11 @@
+{
+ "designed_height_m": 3.0,
+ "shipped_height_m": 2.1,
+ "factor": 0.7,
+ "why": "MAX-FIT (KP-222): the record SLAM and LOB raise both arms overhead (up to 1.9x the standing height on screen) and the record death falls sideways. Death centred (en42; the fall still travels, it ends on the anchor). At 3.00 m and 2.60 m the slam/lob/death cleared the 768 canvas (20 then 9 of 64 cells edge-touched); en63 (the skinned mesh through the play camera, calibrated within 4 px of a rendered union) gives fit x0.822 at 2.60 m, so the body ships at 2.10 m. The true_size block gives each record its factor back to the true height.",
+ "binding_clips": [
+  "slam",
+  "lob"
+ ],
+ "method": "en42 death centre + en63 geometric fit + en53 on the rendered pack"
+}

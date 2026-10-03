@@ -1,0 +1,41 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/work/raw_en-fleshhulk.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-fleshhulk.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "run": {
+   "worst_m": 4e-05,
+   "samples": 384
+  },
+  "slam": {
+   "worst_m": 7e-05,
+   "samples": 384
+  },
+  "attack": {
+   "worst_m": 0.00097,
+   "samples": 384
+  },
+  "lob": {
+   "worst_m": 2e-05,
+   "samples": 384
+  },
+  "hit": {
+   "worst_m": 6e-05,
+   "samples": 256
+  },
+  "death": {
+   "worst_m": 0.00012,
+   "samples": 512
+  }
+ },
+ "samples": 3072,
+ "worst_m": 0.00097
+}

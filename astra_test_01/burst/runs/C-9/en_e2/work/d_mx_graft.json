@@ -1,0 +1,112 @@
+{
+ "clips": {
+  "__mx_idle": {
+   "source": "../mx_audition/mxglb/cr__mutant_breathing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.066667
+   ],
+   "keys": 122,
+   "length_s": 4.033333268016577,
+   "joints": 22,
+   "rest_match": 1.03745,
+   "hip_ratio": 0.8081,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.06256,
+   "feet_span_m": [
+    0.0,
+    0.0008
+   ]
+  },
+  "__mx_walk": {
+   "source": "../mx_audition/mxglb/cr__mutant_walking.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.466667
+   ],
+   "keys": 44,
+   "length_s": 1.4333333633840084,
+   "joints": 22,
+   "rest_match": 1.03745,
+   "hip_ratio": 0.8081,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    1.5166
+   ],
+   "grounded_by_m": 0.09897,
+   "feet_span_m": [
+    0.0,
+    0.0559
+   ]
+  },
+  "__mx_run": {
+   "source": "../mx_audition/mxglb/cr__mutant_run.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    0.9
+   ],
+   "keys": 27,
+   "length_s": 0.86666664108634,
+   "joints": 22,
+   "rest_match": 1.03745,
+   "hip_ratio": 0.8081,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    1.6665
+   ],
+   "grounded_by_m": 0.0866,
+   "feet_span_m": [
+    0.0,
+    0.063
+   ]
+  },
+  "__mx_attack": {
+   "source": "../mx_audition/mxglb/cr__mutant_punch.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.133333
+   ],
+   "keys": 34,
+   "length_s": 1.0999999903142452,
+   "joints": 22,
+   "rest_match": 1.03745,
+   "hip_ratio": 0.8081,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.10903,
+   "feet_span_m": [
+    0.0,
+    0.0501
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 4
+ }
+}

@@ -1,6 +1,7 @@
 {
  "kit": "en-fleshhulk",
- "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the en-fleshhulk (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, 3.00 m. No layers, no morphs.",
+ "size_call": "DOWNSCALED 3.00 -> 2.10 m to fit the 768 canvas with a >= 5 % margin; see the manifest size_call (the conductor's call)",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the en-fleshhulk (crucible; lane EN-E2 round 4, R-C9-132/133), one body, no gear, 2.10 m. No layers, no morphs.",
  "contract": {
   "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
   "commit": "d95e1df",
@@ -104,13 +105,13 @@
  "sockets": {
   "main_hand": {
    "bone": "RightHand",
-   "along_bone_m": 0.7179,
-   "_what": "the right hand's TIP (+0.7179 m along +Y, measured): the strike / throw hand (en09)"
+   "along_bone_m": 0.5025,
+   "_what": "the right hand's TIP (+0.5025 m along +Y, measured): the strike / throw hand (en09)"
   },
   "off_hand": {
    "bone": "LeftHand",
-   "along_bone_m": 0.6792,
-   "_what": "the left hand's tip (+0.6792 m)"
+   "along_bone_m": 0.4755,
+   "_what": "the left hand's tip (+0.4755 m)"
   },
   "chest": {
    "bone": "Spine",
@@ -122,7 +123,7 @@
   }
  },
  "true_size": {
-  "base_height_m": 3.0,
+  "base_height_m": 2.1,
   "designed_height_m": 3.0,
   "reference_record": "aetherial_fleshhulk_mine.dbr",
   "reference_scale": 1.5199999809265137,
@@ -131,13 +132,13 @@
    "fleshhulk_h01/fleshhulk_h02/fleshhulk_h03/fleshhulk_h04 (champion-hero)": {
     "scale": 1.45,
     "true_height_m": 2.862,
-    "factor": 0.954,
+    "factor": 1.363,
     "e_bodies": 0.153
    },
    "aetherial_fleshhulk_mine (boss)": {
     "scale": 1.52,
     "true_height_m": 3.0,
-    "factor": 1.0,
+    "factor": 1.429,
     "e_bodies": 0.249
    }
   }

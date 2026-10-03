@@ -5,7 +5,7 @@ setopt NULL_GLOB
 g=$1; K=$2; SUBJ=$3; NOTE=$4; C=~/Games/reincarnated-collaboration; R=astra_test_01/burst/runs/C-9; E=$R/en_e2
 P=($R/join1_pack/$K/matrix_index.json $R/join1_render/kits/$K.json $R/join1_render/manifests/${K}_clips.json $E/work/raw_$K.json $E/work/sockets_$K.json
    $E/work/runtime_resample_$K.json $E/work/manifest_lint_$K.txt $E/work/stills_$g.json $E/work/film_$g.json $E/scripts/en58_pack.sh $E/scripts/en59_commit_pack.sh
-   $E/work/radius_$K.json $E/scripts/en60_mx_adopt.py $E/scripts/en61_merge_graft.py $E/scripts/en62_radius_check.py $E/work/radius_en-fleshshaper.json $E/work/radius_en-ascended.json $E/work/wt_x.json $E/work/x_bridge_cut.json $E/work/${g}_mx_graft.json $E/work/${g}_graft.json $E/work/${g}_graft_rec.json $E/work/${g}_joint_mx.json $E/work/${g}_idle_blend.json
+   $E/work/radius_$K.json $E/scripts/en60_mx_adopt.py $E/scripts/en61_merge_graft.py $E/scripts/en62_radius_check.py $E/work/radius_en-fleshshaper.json $E/work/radius_en-ascended.json $E/work/wt_x.json $E/work/x_bridge_cut.json $E/work/${g}_mx_graft.json $E/work/${g}_graft.json $E/work/${g}_graft_rec.json $E/work/${g}_joint_mx.json $E/work/${g}_idle_blend.json $E/work/${g}_death_centre.json $E/scripts/en63_fit_estimate.py
    $E/export/final_$g/en_${g}_measure.json $E/export/final_$g/height.json $E/work/${g}_tips.json $E/work/${g}_true_size.json $E/work/${g}_size_call.json $E/scripts/en33_kit_r4.py)
 Q=(); for f in $P; do [ -e $C/$f ] && Q+=($f); done
 git -C $C status --porcelain -- $Q

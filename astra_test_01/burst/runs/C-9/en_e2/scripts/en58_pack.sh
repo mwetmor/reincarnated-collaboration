@@ -15,5 +15,5 @@ zsh scripts/en22_manifest_lint.sh $g $K 2>&1 | grep -E "^exit|exit [0-9]" | tr '
 ${=HL} python3 scripts/j_runtime_resample.py export/final_$g/en_${g}_body.glb --clips $CL --out work/runtime_resample_$K.json --index ../join1_pack/$K/matrix_index.json 2>&1 | grep -E "worst [1-9]|wrote" | cut -c1-90
 python3 scripts/en35_film_cfg.py $g "$FC" $FS >/dev/null
 ${=HL} zsh scripts/en12_godot_all.sh $g $V 2>&1 | grep -cE "film /"
-python3 scripts/en13_stills_sheet.py views/stills_$g artifacts/en_${g}_stills8.png "$TI" 2>&1 | tail -1
+python3 scripts/en13_stills_sheet.py views/stills_$g artifacts/en_${g}_stills8.png "$TI" $FS 2>&1 | tail -1
 du -sh ../join1_pack/$K views/stills_$g film/en_${g}_*.mp4 | tr '\n' ' '; echo

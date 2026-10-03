@@ -2,8 +2,8 @@
  "what": "JOIN-1 clip manifest for the en-fleshhulk (crucible, roster rig fleshhulk_unarmed) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_d",
  "body": {
   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_d/en_d_body.glb",
-  "sha256_16": "70db275e9c6a734c",
-  "height_m": 3.0
+  "sha256_16": "cf393bb092e684fe",
+  "height_m": 2.1
  },
  "roster": {
   "rig": "fleshhulk_unarmed",
@@ -15,21 +15,9 @@
   "box": "H/D 3.2 (BUILD_PRIORITY.md)"
  },
  "clips": {
-  "walk": {
-   "seconds": 1.3667,
-   "source": "axe unarmed walk forward (Mixamo)"
-  },
-  "run": {
-   "seconds": 0.8,
-   "source": "axe unarmed run forward (Mixamo)"
-  },
   "slam": {
    "seconds": 2.2667,
    "source": "axe standing melee attack downward (Mixamo)"
-  },
-  "attack": {
-   "seconds": 2.4,
-   "source": "axe standing melee attack horizontal (Mixamo)"
   },
   "lob": {
    "seconds": 2.6667,
@@ -43,18 +31,30 @@
    "seconds": 3.5333,
    "source": "standing react death backward (Mixamo)"
   },
+  "attack": {
+   "seconds": 1.1,
+   "source": "mutant punch (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
   "idle": {
-   "seconds": 1.8,
-   "source": "axe unarmed idle (Mixamo)"
+   "seconds": 4.0333,
+   "source": "mutant breathing idle (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
+  "walk": {
+   "seconds": 1.4333,
+   "source": "mutant walking (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
+  "run": {
+   "seconds": 0.8667,
+   "source": "mutant run (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
   }
  },
  "locomotion_in_place": {
   "walk": {
-   "speed_m_s": 1.451,
+   "speed_m_s": 1.307,
    "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
   },
   "run": {
-   "speed_m_s": 3.896,
+   "speed_m_s": 2.375,
    "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
   }
  },
@@ -64,19 +64,19 @@
    "hand": "RightHand",
    "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 25"
   },
-  "attack": {
-   "release_s": 0.8667,
-   "hand": "RightHand",
-   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
-  },
   "lob": {
    "release_s": 1.1333,
    "hand": "RightHand",
    "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 34"
+  },
+  "attack": {
+   "release_s": 0.2333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 7"
   }
  },
  "death": {
-  "root": "de-rooted at source (+deroot); hips ground track max 0.462 m from the origin, ends 0.027 m"
+  "root": "de-rooted at source (+deroot); hips ground track max 0.550 m from the origin, ends 0.550 m"
  },
  "vfx_runtime": {
   "aether": {
@@ -193,6 +193,17 @@
    "use": "slash = the aether smash / charge; ring_* (r 4.5 m) = the aether stomp; bolt + burst = the lobbed aether glob; aura (r 7 m) = the aether field"
   }
  },
+ "size_call": {
+  "designed_height_m": 3.0,
+  "shipped_height_m": 2.1,
+  "factor": 0.7,
+  "why": "MAX-FIT (KP-222): the record SLAM and LOB raise both arms overhead (up to 1.9x the standing height on screen) and the record death falls sideways. Death centred (en42; the fall still travels, it ends on the anchor). At 3.00 m and 2.60 m the slam/lob/death cleared the 768 canvas (20 then 9 of 64 cells edge-touched); en63 (the skinned mesh through the play camera, calibrated within 4 px of a rendered union) gives fit x0.822 at 2.60 m, so the body ships at 2.10 m. The true_size block gives each record its factor back to the true height.",
+  "binding_clips": [
+   "slam",
+   "lob"
+  ],
+  "method": "en42 death centre + en63 geometric fit + en53 on the rendered pack"
+ },
  "painted_texture": {
   "status": "PAINTED (D7 method)",
   "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
@@ -203,7 +214,7 @@
   "grade": "none"
  },
  "true_size": {
-  "base_height_m": 3.0,
+  "base_height_m": 2.1,
   "designed_height_m": 3.0,
   "reference_record": "aetherial_fleshhulk_mine.dbr",
   "reference_scale": 1.5199999809265137,
@@ -212,13 +223,13 @@
    "fleshhulk_h01/fleshhulk_h02/fleshhulk_h03/fleshhulk_h04 (champion-hero)": {
     "scale": 1.45,
     "true_height_m": 2.862,
-    "factor": 0.954,
+    "factor": 1.363,
     "e_bodies": 0.153
    },
    "aetherial_fleshhulk_mine (boss)": {
     "scale": 1.52,
     "true_height_m": 3.0,
-    "factor": 1.0,
+    "factor": 1.429,
     "e_bodies": 0.249
    }
   }
