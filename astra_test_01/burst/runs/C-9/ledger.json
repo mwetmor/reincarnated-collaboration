@@ -39596,6 +39596,16 @@
         "(AskUserQuestion) Mixamo: \"Accept all (Recommended)\""
       ],
       "ts": "2026-10-03T03:04:20Z"
+    },
+    {
+      "id": "R-C9-151",
+      "by": "Matt",
+      "ruling": "barrow_v2 paint approach: drop the 3D greybox as the paint guide (it imposes primitive shapes -- the first Barrow's paint kept the greybox's tiered-cake rocks). The arena is 2D, so: Astra paints the site at the game camera from sketch A (style + composition), constrained only by a flat 2D ZONE MAP rendered from layout_v2.json (walkable floor, the six spawn discs, door/deliverer positions and footprints, biome areas, mere, stream, stair/cave, coast). Shapes come from the painter. layout_v2 + its validator remain the rules of record (floor polygon, discs, open lines); tall pieces are cut out of the painting afterwards (segmentation) with ground-contact anchors. A small chunk test (seams/consistency) goes to Matt before the full paint. The greybox stays only as layout/validation tooling.",
+      "verbatim": [
+        "(AskUserQuestion) Maybe grey box is the wrong approach. How did we make the current barrow?",
+        "(AskUserQuestion) Approach: \"Paint from sketch + zone map (Recommended)\""
+      ],
+      "ts": "2026-10-03T03:08:28Z"
     }
   ],
   "grok_calls": [
