@@ -1,0 +1,158 @@
+{
+ "kit": "gd-eor-warlord",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the GD EoR WARLORD (the dark knight, E1 FINAL K): a two-handed mace in the Mixamo great-sword grip, 1.96 m. Arena push R-C9-132/133. Blitz uses the run cell; buffs and summons use the warcry cell. Rev eor2: body re-pointed to wl_e1/export/final_k_eor2 (the extended-arm spin); eor_spin_start/* and eor_spin_loop/* re-rendered (pass p2), the other 56 cells carried (their clips byte-identical). Rev eor3 (R-C9-141): body re-pointed to wl_e1/export/final_k_eor3 (the helm-crown notch removed: the body's crown tucked under the helm shell); a NEW pack root join1_pack/gd-eor-warlord-eor3, every cell re-rendered; pack roots are immutable, so join1_pack/gd-eor-warlord (eor2) stands as declared.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_body.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_chest.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_pauldrons.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_cape.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_helm.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_mace.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/gd-eor-warlord-eor3_clips.json",
+  "loadout": {
+   "main_hand": "mace (two-handed)",
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "eor_spin_start": {
+   "clip": "eor_spin_start",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 7,
+   "sampling": "ends",
+   "manifest_entry": "clips.eor_spin_start",
+   "skill": "EoR (Eye of Reckoning) spin, the start: 0.2 s, accelerates to 1200 deg/s through 120 deg"
+  },
+  "eor_spin_loop": {
+   "clip": "eor_spin_loop",
+   "kind": "loop",
+   "role": "channel_loop",
+   "frames": 16,
+   "sampling": "loop",
+   "manifest_entry": "clips.eor_spin_loop",
+   "skill": "EoR (Eye of Reckoning) spin, the loop: one CCW revolution in 0.3 s, in place"
+  },
+  "warcry": {
+   "clip": "warcry",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.warcry.release_s",
+   "release_socket": "head_top",
+   "manifest_entry": "casts.warcry",
+   "skill": "War Cry (power up); buffs and summons use this cell"
+  },
+  "attack": {
+   "clip": "attack",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.attack.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.attack",
+   "skill": "the one swing cell (great sword slash 3)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "morphs": {},
+ "eyes": {
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/eye_sockets.json",
+  "color": "#9e4dff",
+  "_what": "his runtime eye billboards rendered INTO the cells (render_cells.gd _eyes); steady, no flicker"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "RightHand",
+   "local_m": [
+    0.00207,
+    0.12698,
+    0.00791
+   ],
+   "_what": "the mace grip = the right FIST in every state: RightHand + the weapon_r seat measured at rest in RightHand's normalised frame (metres). Identical to the weapon_r joint in the 7 non-spin clips (weapon_r is fixed in the hand there); in eor_spin_start/loop (final_k_eor2) the haft slide (e54) moves weapon_r 0.2 m off the fist, so weapon_r is no longer the grip. Was bone weapon_r until 2026-10-02"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.9251,
+   "_what": "the mace head's far point: weapon_r + 0.9251 m along +Y (measured off wl_mace.glb in the bone's frame)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest: Meshy's \"Spine\" is the TOP spine joint (parent of neck and both shoulders; Spine02 is the LOWEST, child of Hips). Was Spine02 (belly height) until the socket fix of 2026-10-02"
+  }
+ },
+ "watchdog_s": 2400,
+ "cape": "the cape's spring-bone secondary motion (gear_stills.gd _cape_sim) is a runtime simulation and is NOT in the cells: the cape rides its bind (rigid chain)",
+ "pack_version": 2,
+ "supersedes": {
+  "pack": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/gd-eor-warlord",
+  "index": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/gd-eor-warlord/matrix_index.json",
+  "index_sha256": "d44c3626c00a08d8bd2ff12f29eae9504dc2187a5912486f75be6d86945893f8",
+  "body_glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/wl_body.glb",
+  "body_sha256": "492b9e99641e5f8eab2157d0b87ea8b34ece9222969b4491bbe03fd0adc8af40",
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/gd-eor-warlord_clips.json",
+  "why": "R-C9-141 (Matt): the notch on the top of his helmet read as a second eye slit at play distance. Cause: the body mesh's own head (dark brown) pierced the helm piece's crown by up to ~12 mm in a crescent across the front of the dome just above the brow. eor3 tucks the body's crown under the helm shell (positions only); every clip, socket and piece is byte-identical, so the release times are unchanged. The declared eor2 pack is immutable."
+ }
+}

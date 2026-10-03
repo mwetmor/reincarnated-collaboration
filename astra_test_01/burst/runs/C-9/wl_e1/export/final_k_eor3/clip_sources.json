@@ -1,0 +1,264 @@
+{
+ "body_rig": {
+  "meshy_rig_task": "01a0f9eb-7187-7681-8854-a11d04f38bb0",
+  "glb": "builds/wl_rigged3.glb",
+  "note": "R-C9-123 pass 2: the narrowed base (e41 x2), re-rigged via model_url"
+ },
+ "clips": {
+  "idle": {
+   "source": "mixamo/glb/great_sword_idle_4.glb",
+   "path": "e40b_mixamo_graft -> 58_loop_blend",
+   "action": "Mixamo Great Sword Pack \"great sword idle (4)\", the upright idle (R-C9-127)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "seam_blend",
+    "joint_fix"
+   ],
+   "loop": true,
+   "window": [
+    0.3333333333333333,
+    3.7
+   ],
+   "seam_blend": {
+    "mode": "pre",
+    "a": 10,
+    "b": 111,
+    "w": 10,
+    "blend_s": 0.3333333333333333
+   },
+   "note": "not periodic at source: the seam is BLENDED on its own keys (58_loop_blend pre, window keys 10..111, blend 10 intervals)"
+  },
+  "walk": {
+   "source": "mixamo/glb/great_sword_walk.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword walk\" (Matt R-C9-123; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "run": {
+   "source": "mixamo/glb/great_sword_run_2.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword run (2)\" -- the FORWARD run. \"great sword run\" (used in the first stage-K candidate) is a BACKWARD run: source hips travel -1.74 m while facing +Z (found when the film foot-lock read the planted foot sliding forward at +2.5 m/s)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": true
+  },
+  "attack": {
+   "source": "mixamo/glb/great_sword_slash_3.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword slash (3)\" -- the heavy downward two-handed strike (contact 47%), chosen over \"great sword attack\" (a high horizontal sweep: head never below 1.5 m) by e12 head trajectories of 8 candidates",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false
+  },
+  "warcry": {
+   "source": "mixamo/glb/great_sword_power_up.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword power up\" (Matt R-C9-123; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "hit": {
+   "source": "mixamo/glb/great_sword_impact.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword impact\" (Matt R-C9-123; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": false
+  },
+  "death": {
+   "source": "mixamo/glb/two_handed_sword_death.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"two handed sword death\" (Matt R-C9-123; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [],
+   "edits": [
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": false
+  },
+  "idle_unarmed": {
+   "source": "anims/idle11r3.glb",
+   "path": "55_clip_graft",
+   "action": "Meshy library 11 \"Idle 1\" on rig 3",
+   "rig": "01a0f9eb-7187-7681-8854-a11d04f38bb0",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "walk_unarmed": {
+   "source": "anims/free3_walking.glb",
+   "path": "55_clip_graft",
+   "action": "rig 3's free walking",
+   "rig": "01a0f9eb-7187-7681-8854-a11d04f38bb0",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true
+  },
+  "run_unarmed": {
+   "source": "anims/free3_running.glb",
+   "path": "55_clip_graft",
+   "action": "rig 3's free running",
+   "rig": "01a0f9eb-7187-7681-8854-a11d04f38bb0",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground",
+    "joint_fix"
+   ],
+   "loop": true
+  },
+  "idle_lean": {
+   "source": "mixamo/glb/great_sword_idle.glb",
+   "path": "e40b_mixamo_graft",
+   "action": "Mixamo Great Sword Pack \"great sword idle\" (Matt R-C9-123; source gitignored)",
+   "retarget": "mixamo_aligned",
+   "flags": [
+    "loop",
+    "deroot"
+   ],
+   "edits": [
+    "deroot",
+    "recentre",
+    "reground"
+   ],
+   "loop": true,
+   "note": "the leaning great sword idle (torso 17.8 deg), kept, unused (R-C9-127)"
+  },
+  "eor_spin_start": {
+   "source": null,
+   "path": "e52_spin_pose -> e48_spin -> e12 -> e54_grip_slide (R-C9-132 extended arm)",
+   "note": "AUTHORED: one frame of idle (great sword idle (4)) @1.0 s with named edits (e52: elbow opening, interior capped 166 deg; shoulder aim to az 90; no solver) turned rigidly CCW, accelerating to 1200 deg/s over 0.2 s; haft slid 0.20 m outward through the fists (e54)"
+  },
+  "eor_spin_loop": {
+   "source": null,
+   "path": "e52_spin_pose -> e48_spin -> e12 -> e54_grip_slide (R-C9-132 extended arm)",
+   "loop": true,
+   "grid_source": "mixamo/glb/great_sword_idle_4.glb",
+   "note": "AUTHORED: the same extended-arm frame, one CCW revolution per 0.300 s (9 x 40 deg); closes exactly; haft slid 0.20 m outward (e54)",
+   "grid_window": [
+    0.03333333333333333,
+    0.3333333333333333
+   ],
+   "grid_note": "built on one frame of great sword idle (4); keyed on that source's 30 fps grid (10 keys)"
+  },
+  "eor_spin_loop_b": {
+   "source": "mixamo/glb/great_sword_high_spin_attack.glb",
+   "path": "e40b -> 58_loop_blend (offset)",
+   "retarget": "mixamo_aligned",
+   "edits": [
+    "seam_blend",
+    "joint_fix",
+    "recentre"
+   ],
+   "loop": true,
+   "window": [
+    0.23333333333333334,
+    1.1
+   ],
+   "seam_blend": {
+    "mode": "offset",
+    "a": 6,
+    "b": 32,
+    "w": 8,
+    "blend_s": 0.26666666666666666
+   },
+   "note": "recipe b: the revolution window of \"great sword high spin attack\" (340 deg, pose mismatch 14 cm) closed by an offset blend"
+  },
+  "eor_spin_start_b": {
+   "source": "mixamo/glb/great_sword_high_spin_attack.glb",
+   "path": "e40b",
+   "retarget": "mixamo_aligned",
+   "edits": [
+    "joint_fix"
+   ],
+   "window": [
+    0.033,
+    0.233
+   ]
+  }
+ },
+ "_note": "PROVENANCE OF EVERY CLIP IN THE E1 (dark knight) BODY GLB; the source-fidelity / source-grid / loop-seam lint's input (nb_d2's rules, copied unchanged). Paths relative to wl_e1/.",
+ "edits": {
+  "deroot": "the hips' first-to-last horizontal line removed (45_deroot_trim's rule); hips translation only, not measured",
+  "recentre": "hips over the rest position -- loops on their mean, one-shots on their first frame (49_recentre's rule); hips translation only",
+  "reground": "one constant so the deepest foot vertex over the clip is on the floor (43_reground_all / gearlib.reground_from_feet mode 'min'); hips translation only",
+  "trim": "a window of the source, re-timed to start at 0; the measure aligns on it",
+  "wrist_lock": "36/38/44: the wrists slerped toward a carry angle; the hands are excluded from the measure"
+ },
+ "_loop_rule": "\"loop\": true marks the scene's looping clips: 21_lint_export.py's SOURCE GRID (keys on the source's own key times -- GLB or FBX, no exceptions) and LOOP SEAM (pose(0) vs pose(T) within 5 mm / 1 deg -- a source that is not periodic is blended, 58_loop_blend.py) judge them",
+ "body_rig_v1": {
+  "meshy_rig_task": "01a0f5ec-46c5-74c0-9bb6-e1d62413e7ac",
+  "glb": "builds/wl_rigged.glb",
+  "note": "E1 base body, Meshy rigging via model_url data URI (08_meshy rigfile)"
+ },
+ "body_rig_v2": {
+  "meshy_rig_task": "01a0f9a2-874b-731d-a3ea-65f3e16fce43",
+  "glb": "builds/wl_rigged2.glb",
+  "note": "R-C9-123: the NARROWED base (e41), re-rigged via model_url"
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "what": "JOIN-1 clip manifest for the GD EoR warlord (the dark knight) cell pack -- this lane's (drax nb_join / join1_render), read off wl_e1/export/final_k_eor3 (E1, R-C9-127/128), the arena push R-C9-132/133",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_body.glb",
+  "sha256_16": "7dca71221bafc976",
+  "height_m": 1.96,
+  "revision": "eor3 (wl_e1/export/final_k_eor3, R-C9-141): the helm-crown notch removed -- the body mesh's own head no longer pierces the helm crown (e59 crown tuck: 3566 Head-weighted crown vertices pulled under the helm shell by <= 11.9 mm). ONLY vertex POSITIONS differ from eor2: every clip, the skin, UVs, normals, texture and every piece GLB byte-identical. Previous: eor2 (wl_e1/export/final_k_eor2, E1 f734570d2): the extended-arm spin -- only the two spin clips' channels differ from final_k_eor; every other clip byte-identical, the piece meshes, skins and textures byte-identical (the glTF JSON differs only in accessor/bufferView numbering)"
+ },
+ "clips": {
+  "idle": {
+   "seconds": 3.3667,
+   "source": "great sword idle (4), upright, seam-blended loop"
+  },
+  "walk": {
+   "seconds": 1.3667,
+   "source": "great sword walk"
+  },
+  "run": {
+   "seconds": 0.6,
+   "source": "great sword run (2) -- forward"
+  },
+  "attack": {
+   "seconds": 1.8333,
+   "source": "great sword slash (3), contact at 47%"
+  },
+  "warcry": {
+   "seconds": 3.1,
+   "source": "great sword power up"
+  },
+  "hit": {
+   "seconds": 0.8667,
+   "source": "great sword impact"
+  },
+  "death": {
+   "seconds": 2.4,
+   "source": "two handed sword death"
+  },
+  "eor_spin_start": {
+   "seconds": 0.2,
+   "source": "the extended-arm recipe (R-C9-132): one frame of idle with named edits (elbow opened, interior capped 166 deg; shoulder aimed to az 90; no solver), turned rigidly CCW, accelerating to 1200 deg/s and turning 120 deg; the haft slid 0.20 m outward through the fists (e54) -- clip_sources.json"
+  },
+  "eor_spin_loop": {
+   "seconds": 0.3,
+   "source": "the same extended-arm frame, 9 x 40 deg CCW at rate 1.0, closes exactly; the haft slid 0.20 m outward (e54) -- clip_sources.json"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.073,
+   "from": "wl_manifest foot_lock_m_per_s"
+  },
+  "run": {
+   "speed_m_s": 4.062,
+   "from": "wl_manifest foot_lock_m_per_s"
+  }
+ },
+ "casts": {
+  "warcry": {
+   "release_s": 1.9,
+   "definition": "the shout, PROPORTIONAL to GD's own War Cry clip (legolas 2026-10-01-eor-warlord-animation-and-gear: hero01_sword2h_spell_warcry_a01, 19 frames, the shout on its frame 11 = 0.611 of that clip) x this clip's length, on its nearest 30 fps key"
+  },
+  "attack": {
+   "release_s": 0.8667,
+   "definition": "the contact (wl_manifest strike.t: the mace head at its lowest in front, 47% of the clip)"
+  }
+ },
+ "eor_spin": {
+  "recommended": {
+   "start": "eor_spin_start",
+   "loop": "eor_spin_loop"
+  },
+  "b": "NOT SHIPPED: recipe (b) is in the comparison film only (wl_e1/export/spin_film); its loop fails the joint-limit lint (left wrist flexion 92 deg at 2 keys) and its feet slide 55-80 mm",
+  "moving": "in place: the runtime moves him while channelling (canUseWhileMoving)",
+  "weapon": "weapon_r carries a channel on every spin key (haft through both fists, e12; slid 0.20 m outward, e54 -- so in the spin weapon_r sits off the right fist): the effect reads the mace head off the rig",
+  "a": "recipe (a): see clips.eor_spin_start / clips.eor_spin_loop",
+  "weapon_head_frames": "INFORMATION: this pack's main_tip is weapon_r + 0.9251 m along the bone's +Y (the far point of wl_mace.glb measured in weapon_r's frame; the mace mesh rides weapon_r, so the slide is carried). The integration lane (barrow_full/take/build/r_c9_128.json, dark_knight.weapon_head) reads the mace head at (-3.28, 14.19, -90.42) in weapon_r's unscaled bone space = 1.056 m from the grip at the rig's 0.01153 scale -- a different point and frame (its own runtime attachment); the two are not reconciled here"
+ },
+ "eyes": {
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor2/eye_sockets.json",
+  "color": "violet #9e4dff (wl_e1 gear_stills default)"
+ }
+}
