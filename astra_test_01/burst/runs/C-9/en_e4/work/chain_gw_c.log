@@ -1,0 +1,15 @@
+heavy_lock: waiting — held by {"pid": 69571, "run": "C-9", "ts": "2026-10-03T00:55:46Z", "cmd": "zsh -c zsh scripts/en32_tex.sh l canvasB /Users/admin
+heavy_lock: acquired after 319s (C-9)
+clip idle           {'frames': 49, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (28, [0.198, -0.789, 0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk           {'frames': 29, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0957, 'worst_frame_vertex': (19, [-0.205, -0.669, -0.096]), 'penetration_frames': 3, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.0, 'stance_runs': 6}
+clip run            {'frames': 25, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0929, 'worst_frame_vertex': (18, [-0.212, -0.623, -0.093]), 'penetration_frames': 4, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.1, 'stance_runs': 5}
+clip attack_claw    {'frames': 22, 'ik_residual_max_m': 0.0001, 'min_z_m': 0.0, 'worst_frame_vertex': (20, [0.198, -0.789, 0.0]), 'penetration_frames': 0}
+clip attack_peck    {'frames': 26, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0, 'worst_frame_vertex': (8, [0.198, -0.789, -0.0]), 'penetration_frames': 0}
+clip cast_breath    {'frames': 101, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (16, [0.198, -0.789, 0.0]), 'penetration_frames': 0}
+clip cast_roar      {'frames': 46, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (12, [0.198, -0.823, 0.0]), 'penetration_frames': 0}
+clip emerge         {'frames': 51, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0046, 'worst_frame_vertex': (26, [-0.201, -0.878, -0.005]), 'penetration_frames': 0}
+clip hit            {'frames': 14, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0, 'worst_frame_vertex': (3, [0.198, -0.789, -0.0]), 'penetration_frames': 0}
+clip death          {'frames': 31, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.007, 'worst_frame_vertex': (8, [-0.416, 0.66, -0.007]), 'penetration_frames': 0}
+wrote builds/gloamwing_rig_v3.glb
+{"glb": "builds/gloamwing_rig_v3.glb", "s_fit": 1.0094, "s_with_margin": 0.9613, "binding": "emerge f0 heading6", "margin": 0.05}
+sheet work/strip_gloamwing_v3.png (2400, 864)

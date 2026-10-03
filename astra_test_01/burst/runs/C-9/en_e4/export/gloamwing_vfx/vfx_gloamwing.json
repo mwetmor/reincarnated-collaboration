@@ -1,0 +1,201 @@
+{
+ "creature": "gloamwing",
+ "effects": [
+  {
+   "id": "gloamwing_claw_impact",
+   "atlas": "gloamwing_claw_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.4933,
+    1.4933
+   ],
+   "px_per_m": 171.429,
+   "plane": "billboard",
+   "pivot": "centre = between the talons at contact",
+   "ability": "talon rake (melee; also the record SpellAttack clip)",
+   "trigger": "attack_claw contact f12",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_breath_spark",
+   "atlas": "gloamwing_breath_spark.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    128,
+    128
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    0.5517,
+    0.5517
+   ],
+   "px_per_m": 232.0,
+   "plane": "billboard",
+   "pivot": "centre = the shadow spark in flight (body r 0.1 m; 2-3 per burst fanned over 55 deg; 13 metres per second)",
+   "ability": "dark breath (projectile burst, area 1 m)",
+   "trigger": "cast_breath releases f26, f50, f70 at the beak (maw)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_breath_puff",
+   "atlas": "gloamwing_breath_puff.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    512,
+    256
+   ],
+   "fps": 24,
+   "duration_s": 0.6667,
+   "cell_m": [
+    3.4684,
+    1.7342
+   ],
+   "px_per_m": 147.619,
+   "plane": "ground",
+   "pivot": "left-middle (the beak, projected to the ground)",
+   "ability": "dark breath: the gout at the beak",
+   "trigger": "cast_breath f26, f50, f70",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_breath_impact",
+   "atlas": "gloamwing_breath_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    2.1818,
+    2.1818
+   ],
+   "px_per_m": 88.0,
+   "plane": "billboard",
+   "pivot": "centre = the impact point (area 1 m)",
+   "ability": "dark breath impact",
+   "trigger": "on spark impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_dark_aura",
+   "atlas": "gloamwing_dark_aura.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 12,
+   "duration_s": 1.3333,
+   "cell_m": [
+    4.5714,
+    4.5714
+   ],
+   "px_per_m": 70.0,
+   "plane": "ground",
+   "pivot": "centre = the root (the self-loop haze; the debuff radius 20 m is data, not drawn)",
+   "ability": "dark aura (toggled radius debuff, every record h01-h04)",
+   "trigger": "always on (loop), from spawn / cast_roar release",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_dark_wisps",
+   "atlas": "gloamwing_dark_wisps.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 12,
+   "duration_s": 1.3333,
+   "cell_m": [
+    3.3574,
+    3.3574
+   ],
+   "px_per_m": 76.25,
+   "plane": "billboard",
+   "pivot": "bottom-centre = the root (wisps rising off the body)",
+   "ability": "dark aura: the body smokes",
+   "trigger": "always on (loop), layered over the ground haze",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "gloamwing_land_dust",
+   "atlas": "gloamwing_land_dust.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    2.9377,
+    2.9377
+   ],
+   "px_per_m": 87.143,
+   "plane": "billboard",
+   "pivot": "bottom-centre = the landing point (root)",
+   "ability": "p05 drop-in landing",
+   "trigger": "emerge f27 (touch-down)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

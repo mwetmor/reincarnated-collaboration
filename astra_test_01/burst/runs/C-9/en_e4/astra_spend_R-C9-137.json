@@ -1,0 +1,31 @@
+{
+ "_what": "Astra (codex image CLI) images under the lane cap of 30 (EN-E4, R-C9-137); weekly baseline 987 per N-C9-ASTRA-WEEKLY. One row per burst, image_calls from the run_burst audit.",
+ "cap_images": 30,
+ "entries": [
+  {
+   "burst": "EN4-SL",
+   "image_calls": 4,
+   "ts": "2026-10-02T23:08:06Z",
+   "kept": "EN4-SL_a"
+  },
+  {
+   "burst": "EN4-GR",
+   "image_calls": 4,
+   "ts": "2026-10-02T23:08:28Z",
+   "kept": "EN4-GR_a (right view mirrored)"
+  },
+  {
+   "burst": "EN4-SLPG",
+   "image_calls": 4,
+   "ts": "2026-10-03T01:02:17Z",
+   "kept": "EN4-SLPG_b (registration 0.915 vs a 0.861)"
+  },
+  {
+   "burst": "EN4-GRPG",
+   "image_calls": 4,
+   "ts": "2026-10-03T01:03:16Z",
+   "kept": "EN4-GRPG_b (marker corrected on the NW foreleg; a kept an extra band)"
+  }
+ ],
+ "used": 16
+}

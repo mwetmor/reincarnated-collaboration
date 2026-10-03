@@ -1,0 +1,448 @@
+{
+ "landmarks": {
+  "H": 2.883023500442505,
+  "y_snout": -2.205408811569214,
+  "y_tail": 3.394832134246826,
+  "z_belly": 0.29444150269031527,
+  "z_shoulder": 1.2614185293912887,
+  "z_hip": 1.0160742815732957,
+  "y_head_base": -1.365372669696808,
+  "z_lip": 2.3414563059806826,
+  "y_hinge": -1.533379898071289,
+  "feet": {
+   "FL": {
+    "x": 0.34086111187934875,
+    "y": -0.9848343729972839,
+    "toe_y": -1.1838245630264281,
+    "heel_y": -0.5094372272491455
+   },
+   "BL": {
+    "x": 0.47133731842041016,
+    "y": 1.1754295825958252,
+    "toe_y": 0.949687066078186,
+    "heel_y": 1.3135761499404908
+   },
+   "FR": {
+    "x": -0.34511563181877136,
+    "y": -1.19032621383667,
+    "toe_y": -1.3865605294704437,
+    "heel_y": -0.8347849994897842
+   },
+   "BR": {
+    "x": -0.4613366723060608,
+    "y": 1.166170358657837,
+    "toe_y": 0.9477823734283447,
+    "heel_y": 1.3114805936813354
+   }
+  },
+  "leg_FL": {
+   "joint": [
+    0.25564583390951157,
+    -0.9648343729972839,
+    1.2614185293912887
+   ],
+   "knee": [
+    0.31359222292900085,
+    -0.9148343729972839,
+    0.6907092646956444
+   ],
+   "ankle": [
+    0.34086111187934875,
+    -0.9548343729972839,
+    0.12
+   ],
+   "toe": [
+    0.34086111187934875,
+    -1.1638245630264281,
+    0.03
+   ],
+   "chain_len": 1.1486,
+   "rest_reach": 1.1446,
+   "pole_angle_deg": 94.0,
+   "pole_rest_err": 0.02284
+  },
+  "leg_FR": {
+   "joint": [
+    -0.2588367238640785,
+    -1.17032621383667,
+    1.2614185293912887
+   ],
+   "knee": [
+    -0.3175063812732697,
+    -1.1203262138366699,
+    0.6907092646956444
+   ],
+   "ankle": [
+    -0.34511563181877136,
+    -1.16032621383667,
+    0.12
+   ],
+   "toe": [
+    -0.34511563181877136,
+    -1.3665605294704437,
+    0.03
+   ],
+   "chain_len": 1.1487,
+   "rest_reach": 1.1447,
+   "pole_angle_deg": 86.0,
+   "pole_rest_err": 0.02115
+  },
+  "leg_BL": {
+   "joint": [
+    0.3535029888153076,
+    1.1554295825958252,
+    1.0160742815732957
+   ],
+   "knee": [
+    0.4336303329467774,
+    1.1054295825958251,
+    0.5680371407866478
+   ],
+   "ankle": [
+    0.47133731842041016,
+    1.2054295825958252,
+    0.12
+   ],
+   "toe": [
+    0.47133731842041016,
+    0.969687066078186,
+    0.03
+   ],
+   "chain_len": 0.9185,
+   "rest_reach": 0.9052,
+   "pole_angle_deg": -76.0,
+   "pole_rest_err": 0.03717
+  },
+  "leg_BR": {
+   "joint": [
+    -0.3460025042295456,
+    1.146170358657837,
+    1.0160742815732957
+   ],
+   "knee": [
+    -0.42442973852157595,
+    1.0961703586578369,
+    0.5680371407866478
+   ],
+   "ankle": [
+    -0.4613366723060608,
+    1.196170358657837,
+    0.12
+   ],
+   "toe": [
+    -0.4613366723060608,
+    0.9677823734283447,
+    0.03
+   ],
+   "chain_len": 0.9181,
+   "rest_reach": 0.9048,
+   "pole_angle_deg": -102.0,
+   "pole_rest_err": 0.04538
+  },
+  "wing_L": [
+   [
+    0.18,
+    -0.8053485751152039,
+    2.2269412994384767
+   ],
+   [
+    0.613054277896881,
+    0.02628720533847806,
+    2.2790051460266114
+   ],
+   [
+    0.4569529914855957,
+    0.85792298579216,
+    2.122754526138306
+   ],
+   [
+    0.25230299472808854,
+    1.714759850502014,
+    1.6949336051940918
+   ]
+  ],
+  "wing_R": [
+   [
+    -0.18,
+    -0.8053485751152039,
+    2.2525093078613283
+   ],
+   [
+    -0.6038366281986236,
+    0.02628720533847806,
+    2.2827460289001467
+   ],
+   [
+    -0.455834540128708,
+    0.85792298579216,
+    2.120150375366211
+   ],
+   [
+    -0.2695379102230072,
+    1.714759850502014,
+    1.6475239992141724
+   ]
+  ],
+  "mouth_cut_edges": 83,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 611,
+   "unweighted_verts": 0,
+   "groups": 28
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "leg_FL_1",
+   "leg_FL_2",
+   "leg_FL_3",
+   "leg_FR_1",
+   "leg_FR_2",
+   "leg_FR_3",
+   "wing_L_1",
+   "wing_L_2",
+   "wing_L_3",
+   "wing_R_1",
+   "wing_R_2",
+   "wing_R_3",
+   "tail1",
+   "tail2",
+   "tail3",
+   "leg_BL_1",
+   "leg_BL_2",
+   "leg_BL_3",
+   "leg_BR_1",
+   "leg_BR_2",
+   "leg_BR_3"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 49,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": 0.0,
+   "worst_frame_vertex": [
+    34,
+    [
+     0.292,
+     -1.16,
+     0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 29,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.2104,
+   "worst_frame_vertex": [
+    18,
+    [
+     -0.533,
+     -0.803,
+     -0.21
+    ]
+   ],
+   "penetration_frames": 25,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 6
+  },
+  "run": {
+   "frames": 25,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.3448,
+   "worst_frame_vertex": [
+    16,
+    [
+     -0.526,
+     -0.612,
+     -0.345
+    ]
+   ],
+   "penetration_frames": 24,
+   "loop_seam_max_vert_m": 0.0,
+   "footlock_max_slide_m": 0.0,
+   "stance_runs": 5
+  },
+  "attack_claw": {
+   "frames": 22,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": 0.0,
+   "worst_frame_vertex": [
+    21,
+    [
+     0.292,
+     -1.16,
+     0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_peck": {
+   "frames": 26,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.0978,
+   "worst_frame_vertex": [
+    8,
+    [
+     -0.524,
+     -0.598,
+     -0.098
+    ]
+   ],
+   "penetration_frames": 10
+  },
+  "cast_breath": {
+   "frames": 101,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0031,
+   "worst_frame_vertex": [
+    17,
+    [
+     -0.524,
+     -0.871,
+     -0.003
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_roar": {
+   "frames": 46,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.0197,
+   "worst_frame_vertex": [
+    12,
+    [
+     -0.524,
+     -1.036,
+     -0.02
+    ]
+   ],
+   "penetration_frames": 13
+  },
+  "emerge": {
+   "frames": 51,
+   "ik_residual_max_m": 0.0,
+   "min_z_m": -0.0748,
+   "worst_frame_vertex": [
+    27,
+    [
+     -0.524,
+     -0.708,
+     -0.075
+    ]
+   ],
+   "penetration_frames": 5
+  },
+  "hit": {
+   "frames": 14,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.0733,
+   "worst_frame_vertex": [
+    3,
+    [
+     -0.021,
+     -0.398,
+     -0.073
+    ]
+   ],
+   "penetration_frames": 7
+  },
+  "death": {
+   "frames": 31,
+   "ik_residual_max_m": 0.0001,
+   "min_z_m": -0.0114,
+   "worst_frame_vertex": [
+    8,
+    [
+     -0.612,
+     0.963,
+     -0.011
+    ]
+   ],
+   "penetration_frames": 1
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 48,
+   "src": "roster idle_a01 79f; ours 48 intervals: breathing, a head turn, one beak snap, the wings settling"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 28,
+   "speed": 1.6,
+   "src": "roster walk_a01 28f; walkSpeed 1.4 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 3.21,
+   "duty": 0.35,
+   "src": "roster run_a01 31f; characterRunSpeed 1.0 x K4-0 = 3.209 m/s (h01-h04)"
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "kind_fn": "crossswipe",
+   "frames": 22,
+   "contact": 12,
+   "src": "attack_a01 22f RightHandHit f12 (also the SpellAttack clip)"
+  },
+  "attack_peck": {
+   "kind": "oneshot",
+   "kind_fn": "bite",
+   "frames": 26,
+   "contact": 13,
+   "src": "attack_b01 26f RightHandHit f13"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 101,
+   "release": 26,
+   "hold": 50,
+   "bursts": [
+    26,
+    50,
+    70
+   ],
+   "src": "attackspecial_b01 (BreathShadow) 101f, *Hit f26 / f50 / f70"
+  },
+  "cast_roar": {
+   "kind": "oneshot",
+   "kind_fn": "roar",
+   "frames": 46,
+   "release": 12,
+   "hold": 10,
+   "src": "attackspecial_a01 (BuffSelf) 46f RightHandHit f12"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "frames": 51,
+   "land_frac": 0.55,
+   "rise_m": 1.2,
+   "src": "spawn_b01 51f (p05 emergence 1.667 s; show f1, mortal f50)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "src": "no take-hit clip in the record's anim table; ours 14f for the runtime"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 31,
+   "hold_last": true,
+   "ground_solve": true,
+   "src": "death_a01 31f"
+  }
+ }
+}

@@ -1,0 +1,2594 @@
+{
+ "type_id": "gryphon01a",
+ "rig_key_clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+ "rig_family_dir": "creatures/enemies/gryphon/anm",
+ "display_name": "Corvunox ~ Vampiric / Corrot ~ Diseased / Covull ~ Swift / Corvulux ~ Supporter",
+ "lead_record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+ "classification_mix_e_bodies": {
+  "Hero": 1.594,
+  "Quest": 0.248
+ },
+ "e_bodies_151_160_p06_off": 1.842,
+ "e_bodies_151_160_p06_on": 1.842,
+ "role_mix_e_bodies": {
+  "champion-hero": 1.594,
+  "boss": 0.248
+ },
+ "family": "Beast",
+ "family_mix": [
+  "Beast",
+  "Construct + Eldritch"
+ ],
+ "n_records": 6,
+ "n_meshes": 5,
+ "meshes": [
+  {
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b.msh",
+   "e_bodies": 0.46,
+   "records": [
+    "records/creatures/enemies/hero/hypporaven_h04.dbr",
+    "records/creatures/enemies/bounties/ku_bounty_05.dbr"
+   ]
+  },
+  {
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_vitality.msh",
+   "e_bodies": 0.379,
+   "records": [
+    "records/creatures/enemies/hero/hypporaven_h03.dbr"
+   ]
+  },
+  {
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_diseased.msh",
+   "e_bodies": 0.378,
+   "records": [
+    "records/creatures/enemies/hero/hypporaven_h02.dbr"
+   ]
+  },
+  {
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_swift.msh",
+   "e_bodies": 0.377,
+   "records": [
+    "records/creatures/enemies/hero/hypporaven_h01.dbr"
+   ]
+  },
+  {
+   "mesh": "creatures/enemies/gryphon/gryphonstatue01a_aetherboss.msh",
+   "e_bodies": 0.248,
+   "records": [
+    "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr"
+   ]
+  }
+ ],
+ "anim_tables": [
+  "records/creatures/enemies/anm/anm_gryphon.dbr",
+  "records/creatures/enemies/anm/anm_hypporaven.dbr"
+ ],
+ "size": {
+  "actorRadius_m": [
+   0.75,
+   1.0
+  ],
+  "scale": [
+   1.15,
+   1.6
+  ],
+  "radius_x_scale_m": [
+   1.15,
+   1.25
+  ],
+  "actorHeight_m": [
+   2.0
+  ],
+  "lead": {
+   "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+   "actorRadius_m": 1.0,
+   "scale": 1.15,
+   "radius_x_scale_m": 1.15,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": 3.7255
+  }
+ },
+ "locomotion": {
+  "stationary": false,
+  "character_run_speed": [
+   1.0,
+   1.1
+  ],
+  "run_m_per_s": [
+   3.209,
+   3.53
+  ],
+  "walk_speed": [
+   1.0,
+   1.4
+  ],
+  "basis": "m/s = characterRunSpeed x K4-0 (3.209466 m/s, PACK INFERRED-WITH-EVIDENCE); the oracle applies the same product"
+ },
+ "attack_style": {
+  "summary": "ranged projectile / summoner",
+  "weapons": {
+   "unarmed": 6
+  },
+  "ai_ability_kinds": {
+   "projectile": 7,
+   "aoe": 2,
+   "buff": 1,
+   "melee": 1,
+   "aura": 1
+  },
+  "grade": "INFERRED (share of AI-initiated slots by skill class; weapon from equipped loot table)"
+ },
+ "abilities": [
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+   "skill_class": "Skill_AttackProjectileBurst",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 10.986,
+   "gd_fire_range_row": "V38-GR2-V20-454",
+   "gd_band_centre_m": [
+    null,
+    5.486
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    5.486
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    4.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "V20-454",
+   "pack_reach_m_as_packed": 24.0,
+   "projectile_record": "records/fx/skillsothergdx3/projectile/shadowbreath_sparkprojectilefx01.dbr",
+   "projectile_speed_mps": 13.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 24.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 1.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowLifeDurationMin": 3.0,
+    "projectile.projectileDuration": 3.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'BreathShadow' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+   "anim_frames": 101,
+   "anim_dur_s": 3.3333,
+   "anim_speed": 1.0,
+   "release_frame": 26,
+   "release_s": 0.8667,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    26,
+    50,
+    70
+   ],
+   "vfx_records": [
+    "records/fx/skillsothergdx3/projectile/shadowbreath_sparkprojectilefx01.dbr",
+    "fx/meshfx/projectile_skull01a_shadow.msh",
+    "records/fx/skillsothergdx3/projectile/shadowbreath_flight_fx.dbr",
+    "fx/particlesystems/skillsothergdx3/projectiles/pfx_shadowbreath_flight01.pfx",
+    "records/fx/skillsothergdx3/projectile/shadowbreath_impact_fx01.dbr",
+    "fx/particlesystems/skillsothergdx3/projectiles/pfx_shadowbreath_impact01.pfx",
+    "records/fx/fxtrails/swordcelestial_fxtrail.dbr"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsothergdx3/path/shadowbreathfx01.dbr",
+    "records/fx/skillsothergdx3/path/shadowbreathfx01.dbr",
+    "records/fx/skillsothergdx3/path/shadowbreathfx01.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 4.0,
+    "timeout_s": 1.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h03.dbr",
+    "records/creatures/enemies/hero/hypporaven_h02.dbr",
+    "records/creatures/enemies/hero/hypporaven_h01.dbr",
+    "records/creatures/enemies/hero/hypporaven_h04.dbr",
+    "records/creatures/enemies/bounties/ku_bounty_05.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    5.586
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 1.5936,
+   "gd_fire_range_m_span": [
+    10.986,
+    11.086
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_vampireaura.dbr",
+   "skill_class": "Skill_BuffRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": null,
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 12.0,
+   "aura_radius_row": null,
+   "pack_row": "V20-453",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "buffSkillName.skillTargetRadius": 12.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+   "anim_frames": 46,
+   "anim_dur_s": 1.5,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsothergdx1/buff/vampiricaura_selfloop_chfxpak01.dbr",
+    "records/fx/skillsothergdx1/buff/vampiricaura_selfloop_fx01.dbr",
+    "fx/particlesystems/skillsothergdx1/buff/pfx_vampiricaura_self01.pfx",
+    "records/fx/skillsothergdx1/buff/vampiricaura_otherloop_fx01.dbr",
+    "fx/particlesystems/skillsothergdx1/buff/pfx_vampiricaura_other01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h03.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.379,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_vitalitywave.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.986,
+   "gd_fire_range_row": "V38-GR2-V20-455",
+   "gd_band_centre_m": [
+    null,
+    5.486
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    5.486
+   ],
+   "distance_profile": "Long",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    4.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "V20-455",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": {
+    "waveDistance": 16.0,
+    "waveStartWidth": 2.0,
+    "waveEndWidth": 3.5,
+    "waveTime": 1.7000000476837158
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 1.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+   "anim_frames": 22,
+   "anim_dur_s": 0.7,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/path/spectralwave_fx01.dbr",
+    "fx/particlesystems/skillsother/path/pfx_spectralwave_path01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 4.0,
+    "timeout_s": 0.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h03.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    5.486
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.379,
+   "gd_fire_range_m_span": [
+    16.986,
+    16.986
+   ]
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_bloodlink.dbr",
+   "skill_class": "Skill_AttackBuff",
+   "kind": "buff",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 3.236,
+   "gd_fire_range_row": "V38-GR2-V20-456",
+   "gd_band_centre_m": [
+    null,
+    10.486
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    3.236
+   ],
+   "distance_profile": null,
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    0.0,
+    9.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "V20-456",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "buffSkillName.offensiveSlowBleedingDurationMin": 1.0,
+    "buffSkillName.skillActiveDuration": 5.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+   "anim_frames": 46,
+   "anim_dur_s": 1.5,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buff/groble_bloodlust_selfloop_chfxpak01.dbr",
+    "records/fx/skillsother/buff/groble_bloodlust_selfloop_fx01.dbr",
+    "fx/particlesystems/skillsother/buff/pfx_groblebloodlust_self01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 10.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h03.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    3.236
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.379,
+   "gd_fire_range_m_span": [
+    3.236,
+    3.236
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_diseasecloud.dbr",
+   "skill_class": "Skill_BuffAttackRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": "Short",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 4.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-1236",
+   "pack_reach_m_as_packed": 4.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 4.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": 15.0,
+   "durations_s": {
+    "offensiveSlowPoisonDurationMin": 2.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+   "anim_frames": 46,
+   "anim_dur_s": 1.5,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buffoffensive/zombie_poisonaura_self_chfxpak01.dbr",
+    "records/fx/skillsother/buffoffensive/zombie_poisonaura_self_fx01.dbr",
+    "fx/particlesystems/skillsother/buffoffensive/pfx_zombie_poisonaura01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h02.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.378,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_gascloud.dbr",
+   "skill_class": "Skill_AttackProjectileAreaEffect",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.986,
+   "gd_fire_range_row": "V38-GR2-U1-1238",
+   "gd_band_centre_m": [
+    null,
+    null
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    16.986
+   ],
+   "distance_profile": "Long",
+   "special_band": "AnyRange",
+   "band_edge_m": [
+    null,
+    null
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-1238",
+   "pack_reach_m_as_packed": 20.0,
+   "projectile_record": "records/fx/skillsother/projectile_aoe/fx_poisoncloud_projectile01.dbr",
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 20.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 3.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowOffensiveAbilityDurationMin": 2.0,
+    "offensiveSlowPoisonDurationMin": 2.0,
+    "skillActiveDuration": 10.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+   "anim_frames": 22,
+   "anim_dur_s": 0.7,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile_aoe/fx_poisoncloud_projectile01.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsother/projectile_aoe/fx_poisoncloud01.dbr",
+    "fx/particlesystems/skillsother/aoe/pfx_poisoncloud_01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 9.0,
+    "timeout_s": 3.0,
+    "range_band": "AnyRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/hero/hypporaven_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    16.986
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.378,
+   "gd_fire_range_m_span": [
+    16.986,
+    16.986
+   ]
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_soulclaws.dbr",
+   "skill_class": "Skill_AttackWeapon",
+   "kind": "melee",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 3.286,
+   "gd_fire_range_row": "V38-GR2-U1-96",
+   "gd_band_centre_m": [
+    null,
+    4.536
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    3.286
+   ],
+   "distance_profile": "Melee",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    3.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-96",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": 25.0,
+   "target_number": 1,
+   "cooldown_s": null,
+   "durations_s": {
+    "autoCastSkill.spawnObjectsTimeToLive": 60.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'DoubleClawVitality' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_vitality.anm",
+   "anim_frames": 36,
+   "anim_dur_s": 1.1667,
+   "anim_speed": 1.0,
+   "release_frame": 15,
+   "release_s": 0.5,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    15,
+    24
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/attackmelee/bloodstrike01_fxpak.dbr",
+    "records/fx/skillsother/attackmelee/bloodstrike01_fx.dbr",
+    "fx/particlesystems/skillsother/attackmelee/pfx_bloodstrike.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/vitality_cast_fx.dbr",
+    "records/fx/skillsother/castfx/vitality_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 3.0,
+    "timeout_s": 1.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    3.286
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.2481,
+   "gd_fire_range_m_span": [
+    3.286,
+    3.286
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_aetherbreath.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 11.036,
+   "gd_fire_range_row": "V38-GR2-U1-97",
+   "gd_band_centre_m": [
+    null,
+    8.536
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    8.536
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    0.0,
+    7.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-97",
+   "pack_reach_m_as_packed": 19.0,
+   "projectile_record": "records/fx/skillsothergdx1/aoe/aetherfirelarge_projectile01.dbr",
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 19.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "autoCastSkill.projectileExplosionRadius": 4.0
+   },
+   "wave_geometry_m": {
+    "waveDistance": 6.0,
+    "waveStartWidth": 3.0,
+    "waveEndWidth": 4.0,
+    "waveTime": 1.0
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowDefensiveAbilityDurationMin": 3.0,
+    "offensiveSlowFireDurationMin": 5.0,
+    "autoCastSkill.skillActiveDuration": 6.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'BreathAether' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+   "anim_frames": 101,
+   "anim_dur_s": 3.3333,
+   "anim_speed": 1.0,
+   "release_frame": 26,
+   "release_s": 0.8667,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    26,
+    50,
+    70
+   ],
+   "vfx_records": [
+    "records/fx/skillsothergdx1/aoe/aetherfirelarge_projectile01.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsothergdx1/aoe/aetherfirelarge_fx.dbr",
+    "records/fx/decals/decal_aetherburn_lrg.dbr",
+    "fx/particlesystems/skillsothergdx1/aoe/pfx_aetherfire_large.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsothergdx1/path/aetherbreathfx01.dbr",
+    "records/fx/skillsothergdx1/path/aetherbreathfx01.dbr",
+    "records/fx/skillsothergdx1/path/aetherbreathfx01.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 6.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    8.536
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.2481,
+   "gd_fire_range_m_span": [
+    11.036,
+    11.036
+   ]
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_avalanche.dbr",
+   "skill_class": "Skill_BuffAttackRadiusDrop",
+   "kind": "aura",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 11.036,
+   "gd_fire_range_row": "V38-GR2-U1-98",
+   "gd_band_centre_m": [
+    null,
+    null
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    11.036
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "AnyRange",
+   "band_edge_m": [
+    null,
+    null
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-98",
+   "pack_reach_m_as_packed": 24.0,
+   "projectile_record": "records/fx/skillsother/projectile/avalanche_dropprojectilefx01.dbr",
+   "projectile_speed_mps": 12.0,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 24.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 8.0,
+    "projectileExplosionRadius": 1.600000023841858
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowDamageMultDurationMin": 3.0,
+    "skillActiveDuration": 12.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+   "anim_frames": 46,
+   "anim_dur_s": 1.5,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/avalanche_dropprojectilefx01.dbr",
+    "fx/meshfx/rockchunk01.msh",
+    "records/fx/skillsother/projectile/avalanche_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_rockthrow_flight01.pfx",
+    "records/fx/skillsother/projectile/avalanche_impact_fx.dbr",
+    "records/fx/decals/decal_groundimpact_crackedearth01.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_rockthrow_impact01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 9.0,
+    "timeout_s": 5.0,
+    "range_band": "AnyRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    11.036
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.2481,
+   "gd_fire_range_m_span": [
+    11.036,
+    11.036
+   ]
+  },
+  {
+   "slot": "tree_attack",
+   "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_aetherblazesecondary.dbr",
+   "skill_class": "Skill_AttackProjectileAreaEffect",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill)",
+   "gd_fire_range_m": 6.786,
+   "gd_fire_range_row": "V38-GR2-U1-99",
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": [
+    0.0,
+    6.786
+   ],
+   "distance_profile": "Short",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-99",
+   "pack_reach_m_as_packed": 19.0,
+   "projectile_record": "records/fx/skillsothergdx1/aoe/aetherfirelarge_projectile01.dbr",
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 19.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 4.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "skillActiveDuration": 6.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+   "anim_frames": 22,
+   "anim_dur_s": 0.7,
+   "anim_speed": null,
+   "release_frame": 12,
+   "release_s": 0.4,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    12
+   ],
+   "vfx_records": [
+    "records/fx/skillsothergdx1/aoe/aetherfirelarge_projectile01.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsothergdx1/aoe/aetherfirelarge_fx.dbr",
+    "records/fx/decals/decal_aetherburn_lrg.dbr",
+    "fx/particlesystems/skillsothergdx1/aoe/pfx_aetherfire_large.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    6.786
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.2481,
+   "gd_fire_range_m_span": [
+    6.786,
+    6.786
+   ]
+  }
+ ],
+ "waves": {
+  "153": 0.083,
+  "158": 1.51,
+  "159": 0.248
+ },
+ "spawn_points": {
+  "p02": 0.248,
+  "p04": 0.083,
+  "p05": 1.51
+ },
+ "rank": 25,
+ "cum_share": 0.8825,
+ "tier": "T2 (95%)",
+ "spawn_notes": {
+  "ring_e_bodies": 0.331,
+  "p05_e_bodies": 1.51,
+  "p06_bonus_e_bodies_off": 0.0,
+  "waves": {
+   "153": 0.083,
+   "158": 1.51,
+   "159": 0.248
+  },
+  "p05_members": [
+   {
+    "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+    "display_name": "Corvunox ~ Vampiric",
+    "spawn_clip": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn_anim_speed": 1.0,
+    "v38_emergence_row": "V38-AM3-19",
+    "v38_emergence": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corvunox ~ Vampiric",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   {
+    "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+    "display_name": "Corrot ~ Diseased",
+    "spawn_clip": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn_anim_speed": 1.0,
+    "v38_emergence_row": "V38-AM3-18",
+    "v38_emergence": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corrot ~ Diseased",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   {
+    "record": "records/creatures/enemies/hero/hypporaven_h01.dbr",
+    "display_name": "Covull ~ Swift",
+    "spawn_clip": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn_anim_speed": 1.0,
+    "v38_emergence_row": "V38-AM3-17",
+    "v38_emergence": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Covull ~ Swift",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h01.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   {
+    "record": "records/creatures/enemies/hero/hypporaven_h04.dbr",
+    "display_name": "Corvulux ~ Supporter",
+    "spawn_clip": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn_anim_speed": 1.0,
+    "v38_emergence_row": "V38-AM3-20",
+    "v38_emergence": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corvulux ~ Supporter",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h04.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   }
+  ],
+  "ring_release": "ring points p01-p04 (and p06 when ON) are plain `Proxy`: bodies appear at t=0 with NO spawn animation (EnableSpawnAnimation is never called on that path; DATAMINED, ambush-semantics packet Q1)"
+ },
+ "summons": [
+  {
+   "owner": "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr",
+   "owner_e_bodies": 0.2481,
+   "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_summonarmorsecondary.dbr",
+   "skill_class": "Skill_SpawnPet",
+   "surface": "granted tree skill skillName11",
+   "pet_record": "records/creatures/enemies/eldritcharmor_a01_summon.dbr",
+   "petLimit": 6,
+   "petBurstSpawn": {
+    "rank_dependent": true,
+    "min": 1,
+    "max": 2,
+    "n_ranks": 60
+   },
+   "petPeriod_s": null,
+   "spawnObjectsTimeToLive_s": 60.0,
+   "skillCooldownTime_s": null,
+   "special_anim": null,
+   "grade": "DATAMINED (Ed IV skill record)"
+  }
+ ],
+ "members_detail": [
+  {
+   "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+   "display_name": "Corvunox ~ Vampiric",
+   "description_tag": "tagGDX3Hypporaven_H03",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm3",
+   "e_bodies_151_160_p06_off": 0.379,
+   "e_bodies_by_wave_spawnpoint": {
+    "158-p05": 0.379
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsherogdx3/hypporaven_hero.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "HERO"
+     ]
+    }
+   ],
+   "racial_profile": "Race012",
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_vitality.msh",
+   "scale": 1.149999976158142,
+   "actorRadius_m": 1.0,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": 3.7255,
+   "mesh_aabb_half_xz_meshspace": [
+    7.26681,
+    3.90963
+   ],
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.0,
+   "run_m_per_s": 3.209,
+   "walk_speed": 1.399999976158142,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "V3-SPEED-REC-116",
+    1.0,
+    "MEASURED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_hypporaven.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_hypporaven.anm",
+    "BreathShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm",
+    "BreathFire": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathfire.anm",
+    "GustChannelDarkness": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01_darkness.anm",
+    "RoarShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01_shadow.anm"
+   },
+   "abilities": [
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_vampireaura.dbr",
+     "pack_row": "V20-453",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 12.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+     "pack_row": "V20-454",
+     "gd_fire_range_m": 10.986,
+     "gd_fire_range_row": "V38-GR2-V20-454",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_vitalitywave.dbr",
+     "pack_row": "V20-455",
+     "gd_fire_range_m": 16.986,
+     "gd_fire_range_row": "V38-GR2-V20-455",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 0.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskillsgdx1/heroskills/archetypes/vampiric_bloodlink.dbr",
+     "pack_row": "V20-456",
+     "gd_fire_range_m": 3.236,
+     "gd_fire_range_row": "V38-GR2-V20-456",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      9.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 10.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": {
+    "id": "V38-AM3-19",
+    "value": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corvunox ~ Vampiric",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   "p05_special_timeout_rows": [
+    {
+     "id": "V38-AM5-44",
+     "value": {
+      "band": "ShortRange",
+      "delay_s": 4.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special1",
+      "timeout_s": 1.0,
+      "timeout_s_on_wire": 1.0
+     }
+    },
+    {
+     "id": "V38-AM5-45",
+     "value": {
+      "band": "ShortRange",
+      "delay_s": 4.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special2",
+      "timeout_s": 0.0,
+      "timeout_s_on_wire": 0.0
+     }
+    },
+    {
+     "id": "V38-AM5-46",
+     "value": {
+      "band": "MediumRange",
+      "delay_s": 10.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h03.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special3",
+      "timeout_s": 3.0,
+      "timeout_s_on_wire": 3.0
+     }
+    }
+   ],
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+   "display_name": "Corrot ~ Diseased",
+   "description_tag": "tagGDX3Hypporaven_H02",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm3",
+   "e_bodies_151_160_p06_off": 0.378,
+   "e_bodies_by_wave_spawnpoint": {
+    "158-p05": 0.378
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsherogdx3/hypporaven_hero.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "HERO"
+     ]
+    }
+   ],
+   "racial_profile": "Race012",
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_diseased.msh",
+   "scale": 1.149999976158142,
+   "actorRadius_m": 1.0,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.0,
+   "run_m_per_s": 3.209,
+   "walk_speed": 1.399999976158142,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K2-SPEED-FALLBACK-111",
+    1.0,
+    "DEFAULT-VIA-ABSENCE"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_hypporaven.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_hypporaven.anm",
+    "BreathShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm",
+    "BreathFire": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathfire.anm",
+    "GustChannelDarkness": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01_darkness.anm",
+    "RoarShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01_shadow.anm"
+   },
+   "abilities": [
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_diseasecloud.dbr",
+     "pack_row": "U1-1236",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 4.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+     "pack_row": "U1-1237",
+     "gd_fire_range_m": 10.986,
+     "gd_fire_range_row": "V38-GR2-U1-1237",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_gascloud.dbr",
+     "pack_row": "U1-1238",
+     "gd_fire_range_m": 16.986,
+     "gd_fire_range_row": "V38-GR2-U1-1238",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 9.0,
+      "timeout_s": 3.0,
+      "range_band": "AnyRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": {
+    "id": "V38-AM3-18",
+    "value": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corrot ~ Diseased",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   "p05_special_timeout_rows": [
+    {
+     "id": "V38-AM5-42",
+     "value": {
+      "band": "ShortRange",
+      "delay_s": 4.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special1",
+      "timeout_s": 1.0,
+      "timeout_s_on_wire": 1.0
+     }
+    },
+    {
+     "id": "V38-AM5-43",
+     "value": {
+      "band": "AnyRange",
+      "delay_s": 9.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h02.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special2",
+      "timeout_s": 3.0,
+      "timeout_s_on_wire": 3.0
+     }
+    }
+   ],
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/hero/hypporaven_h01.dbr",
+   "display_name": "Covull ~ Swift",
+   "description_tag": "tagGDX3Hypporaven_H01",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm3",
+   "e_bodies_151_160_p06_off": 0.3768,
+   "e_bodies_by_wave_spawnpoint": {
+    "158-p05": 0.3768
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsherogdx3/hypporaven_hero.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "HERO"
+     ]
+    }
+   ],
+   "racial_profile": "Race012",
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b_swift.msh",
+   "scale": 1.149999976158142,
+   "actorRadius_m": 1.0,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": 3.7255,
+   "mesh_aabb_half_xz_meshspace": [
+    7.26681,
+    3.90963
+   ],
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.0,
+   "run_m_per_s": 3.209,
+   "walk_speed": 1.399999976158142,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "V3-SPEED-REC-115",
+    1.0,
+    "MEASURED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_hypporaven.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_hypporaven.anm",
+    "BreathShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm",
+    "BreathFire": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathfire.anm",
+    "GustChannelDarkness": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01_darkness.anm",
+    "RoarShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01_shadow.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+     "pack_row": "V20-452",
+     "gd_fire_range_m": 10.986,
+     "gd_fire_range_row": "V38-GR2-V20-452",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": {
+    "id": "V38-AM3-17",
+    "value": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Covull ~ Swift",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h01.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   "p05_special_timeout_rows": [
+    {
+     "id": "V38-AM5-41",
+     "value": {
+      "band": "ShortRange",
+      "delay_s": 4.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h01.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special1",
+      "timeout_s": 1.0,
+      "timeout_s_on_wire": 1.0
+     }
+    }
+   ],
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/hero/hypporaven_h04.dbr",
+   "display_name": "Corvulux ~ Supporter",
+   "description_tag": "tagGDX3Hypporaven_H04",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm3",
+   "e_bodies_151_160_p06_off": 0.3767,
+   "e_bodies_by_wave_spawnpoint": {
+    "158-p05": 0.3767
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsherogdx3/hypporaven_hero.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "HERO"
+     ]
+    }
+   ],
+   "racial_profile": "Race012",
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b.msh",
+   "scale": 1.149999976158142,
+   "actorRadius_m": 1.0,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.0,
+   "run_m_per_s": 3.209,
+   "walk_speed": 1.399999976158142,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K2-SPEED-FALLBACK-112",
+    1.0,
+    "DEFAULT-VIA-ABSENCE"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_hypporaven.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_hypporaven.anm",
+    "BreathShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm",
+    "BreathFire": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathfire.anm",
+    "GustChannelDarkness": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01_darkness.anm",
+    "RoarShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01_shadow.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+     "pack_row": "U1-1239",
+     "gd_fire_range_m": 10.986,
+     "gd_fire_range_row": "V38-GR2-U1-1239",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": {
+    "id": "V38-AM3-20",
+    "value": {
+     "D_long_s": 1.667,
+     "D_short_s": 1.667,
+     "also_seats_on_ring": false,
+     "applies": "ONLY when this record is released by a p05 ProxyAmbush; zero on a ring release",
+     "audit_single_value_s": 1.6667,
+     "clip_basis": "(frames - 1) / 30 off the shipped Ed-III .anm header",
+     "controller_class": "ControllerMonster",
+     "declared_range": null,
+     "display_name": "Corvulux ~ Supporter",
+     "exact": true,
+     "grade": "DATAMINED clip length; speed composition UNKNOWN where a range is given",
+     "p05_seats": [
+      "w08p05"
+     ],
+     "record": "records/creatures/enemies/hero/hypporaven_h04.dbr",
+     "spawn_clips": "gryphon01a_spawn_b01.anm(51fr,anmspeed=1.0)"
+    }
+   },
+   "p05_special_timeout_rows": [
+    {
+     "id": "V38-AM5-47",
+     "value": {
+      "band": "ShortRange",
+      "delay_s": 4.0,
+      "grade": "DATAMINED",
+      "record": "records/creatures/enemies/hero/hypporaven_h04.dbr",
+      "semantics": "a special is ARMED once its Timeout has elapsed, counted from ACQUISITION (D-11), so not before emergence end + acquisition; the oracle's wave-clock `delay_s` first-cast gate (R-PM2-1) is falsified by D-11 and its Timeout arm is disarmed (special_gate_fold = null). Arming is gamora's call.",
+      "slot": "special1",
+      "timeout_s": 1.0,
+      "timeout_s_on_wire": 1.0
+     }
+    }
+   ],
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr",
+   "display_name": "Inashkor, Temple Guardian",
+   "description_tag": "tagGDX2Quest_StoneGryphon_TempleGuard_02",
+   "role": "boss",
+   "monster_classification": "Quest",
+   "archive_winner": "sm2",
+   "e_bodies_151_160_p06_off": 0.2481,
+   "e_bodies_by_wave_spawnpoint": {
+    "159-p02": 0.2481
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsbossgdx2/gryphonstone.dbr",
+     "family": "normal",
+     "pool_kind": [
+      "BOSS"
+     ]
+    }
+   ],
+   "racial_profile": [
+    "Race010",
+    "Race007"
+   ],
+   "mesh": "creatures/enemies/gryphon/gryphonstatue01a_aetherboss.msh",
+   "scale": 1.600000023841858,
+   "actorRadius_m": 0.75,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_boss_gryphonstatue.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.100000023841858,
+   "run_m_per_s": 3.53,
+   "walk_speed": 1.0,
+   "character_attack_speed": 1.149999976158142,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K2-SPEED-FALLBACK-015",
+    1.0,
+    "DEFAULT-VIA-ABSENCE"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_gryphon.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_a01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "BreathSand": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathsand.anm",
+    "BreathEldritch": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breatheldritch.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "DoubleClaw": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_vitality.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "DoubleClawAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_acid.anm",
+    "DoubleClawGold": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_gold.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_soulclaws.dbr",
+     "pack_row": "U1-96",
+     "gd_fire_range_m": 3.286,
+     "gd_fire_range_row": "V38-GR2-U1-96",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      3.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 3.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_aetherbreath.dbr",
+     "pack_row": "U1-97",
+     "gd_fire_range_m": 11.036,
+     "gd_fire_range_row": "V38-GR2-U1-97",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      7.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_avalanche.dbr",
+     "pack_row": "U1-98",
+     "gd_fire_range_m": 11.036,
+     "gd_fire_range_row": "V38-GR2-U1-98",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 9.0,
+      "timeout_s": 5.0,
+      "range_band": "AnyRange"
+     }
+    },
+    {
+     "slot": "tree_attack",
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_aetherblazesecondary.dbr",
+     "pack_row": "U1-99",
+     "gd_fire_range_m": 6.786,
+     "gd_fire_range_row": "V38-GR2-U1-99",
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    }
+   ],
+   "summons": [
+    {
+     "skill": "records/skills/nonplayerskillsgdx2/bossskills/inashkor_summonarmorsecondary.dbr",
+     "skill_class": "Skill_SpawnPet",
+     "surface": "granted tree skill skillName11",
+     "pet_record": "records/creatures/enemies/eldritcharmor_a01_summon.dbr",
+     "petLimit": 6,
+     "petBurstSpawn": {
+      "rank_dependent": true,
+      "min": 1,
+      "max": 2,
+      "n_ranks": 60
+     },
+     "petPeriod_s": null,
+     "spawnObjectsTimeToLive_s": 60.0,
+     "skillCooldownTime_s": null,
+     "special_anim": null,
+     "grade": "DATAMINED (Ed IV skill record)"
+    }
+   ],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/bounties/ku_bounty_05.dbr",
+   "display_name": "Corridius",
+   "description_tag": "tagGDX3BountyKU01",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm3",
+   "e_bodies_151_160_p06_off": 0.0831,
+   "e_bodies_by_wave_spawnpoint": {
+    "153-p04": 0.0831
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsbountygdx3/bounty_heroes01.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "BOUNTY"
+     ]
+    }
+   ],
+   "racial_profile": "Race012",
+   "mesh": "creatures/enemies/hypporaven/hypporaven01b.msh",
+   "scale": 1.25,
+   "actorRadius_m": 1.0,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_hypporaven.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 1.0,
+   "run_m_per_s": 3.209,
+   "walk_speed": 1.399999976158142,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K2-SPEED-FALLBACK-019",
+    1.0,
+    "DEFAULT-VIA-ABSENCE"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_hypporaven.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_idle_a01.anm",
+     "frames": 79,
+     "dur_s": 2.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_walk_a01.anm",
+     "frames": 28,
+     "dur_s": 0.9,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_run_a01.anm",
+     "frames": 31,
+     "dur_s": 1.0,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_spawn_b01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": null,
+    "stun": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_stun_a01.anm",
+     "frames": 100,
+     "dur_s": 3.3,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+     "frames": 22,
+     "dur_s": 0.7,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+     "frames": 46,
+     "dur_s": 1.5,
+     "hit_frames": [
+      12
+     ],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_death_a01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_a01.anm",
+      "frames": 22,
+      "dur_s": 0.7,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_b01.anm",
+      "frames": 26,
+      "dur_s": 0.8333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/gryphon/anm/gryphon01a_attack_c01.anm",
+      "frames": 31,
+      "dur_s": 1.0,
+      "hit_frames": [
+       12
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "Gust": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_e01.anm",
+    "GustChannel": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01.anm",
+    "Roar": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01.anm",
+    "DoubleClawVitality": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_c01_hypporaven.anm",
+    "BreathShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathshadow.anm",
+    "BreathAether": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathaether.anm",
+    "Slam": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_d01.anm",
+    "RoarBuff": "creatures/enemies/gryphon/anm/gryphon01a_roarbuff_a01.anm",
+    "BreathLightning": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathlightning.anm",
+    "BreathAcid": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathacid.anm",
+    "BreathIce": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathice.anm",
+    "BreathFire": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_b01_breathfire.anm",
+    "GustChannelDarkness": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_f01_darkness.anm",
+    "RoarShadow": "creatures/enemies/gryphon/anm/gryphon01a_attackspecial_a01_shadow.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr",
+     "pack_row": "U1-268",
+     "gd_fire_range_m": 11.086,
+     "gd_fire_range_row": "V38-GR2-U1-268",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  }
+ ],
+ "rig_bone_count": 68,
+ "rig_bone_count_grade": "DATAMINED (Ed III .anm header bone count of the rig clip, census 2026-08-08)"
+}

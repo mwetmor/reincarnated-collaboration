@@ -1,0 +1,18 @@
+heavy_lock: waiting — held by {"pid": 53735, "run": "C-9", "ts": "2026-10-03T00:35:23Z", "cmd": "blender -b -noaudio --python scripts/n05_render.py --
+heavy_lock: acquired after 596s (C-9)
+tail_compress k=0.6157 (tip 3.580 -> 2.300 m)
+{"src": "builds/coilseer_tripo.glb", "faces_in": 1452562, "islands": 222, "islands_dropped": 40, "faces_out": 40000, "verts_out": 20286, "yaw_deg": -90.0, "head_end_volume": [0.003, 0.182], "scale": 4.39144, "bbox_m": {"x": [-0.8627, 0.8297], "y": [-0.8115, 2.3005], "z": [-0.0002, 2.2004]}, "materials": ["tripo_material_c901be01-4d3a-4b64-b0c4-9619c3a168d8"]}
+sheet work/look_coilseer_prep.png (2048, 1088)
+clip idle             {'frames': 57, 'min_z_m': -0.0002, 'worst_frame_vertex': (43, [-0.078, 0.229, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk             {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (18, [0.002, 0.232, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1689), 'path_slip_body_m': np.float64(0.1689), 'path_slip_ramp_m': np.float64(0.1012), 'ramp_len_m': 0.803, 'wa
+clip run              {'frames': 25, 'min_z_m': -0.0002, 'worst_frame_vertex': (3, [-0.058, 0.223, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1888), 'path_slip_body_m': np.float64(0.1439), 'path_slip_ramp_m': np.float64(0.1715), 'ramp_len_m': 0.803, 'wa
+clip attack_claw      {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (39, [-0.077, 0.225, -0.0]), 'penetration_frames': 0}
+clip cast_bolt        {'frames': 51, 'min_z_m': -0.0002, 'worst_frame_vertex': (50, [-0.077, 0.226, -0.0]), 'penetration_frames': 0}
+clip cast_nova        {'frames': 61, 'min_z_m': -0.0007, 'worst_frame_vertex': (59, [-0.077, 0.226, -0.001]), 'penetration_frames': 0}
+clip attack_taillash  {'frames': 79, 'min_z_m': -0.0002, 'worst_frame_vertex': (27, [-0.059, 0.227, -0.0]), 'penetration_frames': 0}
+clip hit              {'frames': 21, 'min_z_m': -0.0002, 'worst_frame_vertex': (4, [-0.096, 0.321, -0.0]), 'penetration_frames': 0}
+clip death            {'frames': 37, 'min_z_m': -0.0002, 'worst_frame_vertex': (14, [-0.054, 0.226, -0.0]), 'penetration_frames': 0}
+wrote builds/coilseer_rig_v2.glb
+{"glb": "builds/coilseer_rig_v2.glb", "s_fit": 1.0786, "s_with_margin": 1.0272, "binding": "hit f3 heading6", "margin": 0.05}
+sheet work/strip_coilseer_v2.png (2400, 1282)
+sheet work/strip_coilseer_v2_side.png (2400, 864)

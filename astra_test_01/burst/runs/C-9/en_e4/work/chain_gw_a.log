@@ -1,0 +1,18 @@
+heavy_lock: waiting — held by {"pid": 54137, "run": "KC2-PLAY-g3-port", "ts": "2026-10-03T00:35:26Z", "cmd": "/Applications/Godot.app/Contents/MacOS/G
+heavy_lock: acquired after 608s (C-9)
+{"src": "builds/gloamwing_tripo.glb", "faces_in": 1420904, "islands": 661, "islands_dropped": 164, "faces_out": 45000, "verts_out": 23923, "yaw_deg": -90.0, "head_end_volume": [0.02, 0.0662], "scale": 5.60042, "bbox_m": {"x": [-0.794, 0.7919], "y": [-2.2054, 3.3948], "z": [0.0, 2.883]}, "materials": ["tripo_material_dd33b41f-6e95-4ae1-ba2f-89f519898448"]}
+sheet work/look_gloamwing_prep.png (2048, 1088)
+clip idle           {'frames': 49, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (34, [0.292, -1.16, 0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk           {'frames': 29, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.2104, 'worst_frame_vertex': (18, [-0.533, -0.803, -0.21]), 'penetration_frames': 25, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.0, 'stance_runs': 6}
+clip run            {'frames': 25, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.3448, 'worst_frame_vertex': (16, [-0.526, -0.612, -0.345]), 'penetration_frames': 24, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.0, 'stance_runs': 5}
+clip attack_claw    {'frames': 22, 'ik_residual_max_m': 0.0001, 'min_z_m': 0.0, 'worst_frame_vertex': (21, [0.292, -1.16, 0.0]), 'penetration_frames': 0}
+clip attack_peck    {'frames': 26, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0978, 'worst_frame_vertex': (8, [-0.524, -0.598, -0.098]), 'penetration_frames': 10}
+clip cast_breath    {'frames': 101, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0031, 'worst_frame_vertex': (17, [-0.524, -0.871, -0.003]), 'penetration_frames': 0}
+clip cast_roar      {'frames': 46, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0197, 'worst_frame_vertex': (12, [-0.524, -1.036, -0.02]), 'penetration_frames': 13}
+clip emerge         {'frames': 51, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0748, 'worst_frame_vertex': (27, [-0.524, -0.708, -0.075]), 'penetration_frames': 5}
+clip hit            {'frames': 14, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0733, 'worst_frame_vertex': (3, [-0.021, -0.398, -0.073]), 'penetration_frames': 7}
+clip death          {'frames': 31, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0114, 'worst_frame_vertex': (8, [-0.612, 0.963, -0.011]), 'penetration_frames': 1}
+wrote builds/gloamwing_rig_v1.glb
+{"glb": "builds/gloamwing_rig_v1.glb", "s_fit": 0.717, "s_with_margin": 0.6829, "binding": "attack_peck f8 heading6", "margin": 0.05}
+sheet work/strip_gloamwing_v1.png (2400, 1282)
+sheet work/strip_gloamwing_v1_side.png (2400, 864)

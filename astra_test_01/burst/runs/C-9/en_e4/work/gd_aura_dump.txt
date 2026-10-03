@@ -1,0 +1,22 @@
+=== records/skills/nonplayerskillsgdx3/buffoffensive/hypporaven_darkaura.dbr GDX3.arz
+  Class 'Skill_BuffRadiusToggled'
+  buffSkillName 'records/skills/nonplayerskillsgdx3/buffoffensive/hypporaven_darkaura_buff.dbr'
+  instantCast True
+  templateName 'database/templates/skill_buffradiustoggled.tpl'
+=== records/skills/nonplayerskillsgdx3/buffoffensive/hypporaven_darkaura_buff.dbr GDX3.arz
+  Class 'SkillBuff_Debuf'
+  cameraShakeAmplitude 0.11999999731779099
+  charFxPakOtherNames 'records/fx/skillsothergdx3/buff/buffaura_teal_otherloop_chfxpak01.dbr'
+  charFxPakSelfNames 'records/fx/skillsothergdx3/buff/buffaura_teal_selfloop_chfxpak01.dbr'
+  characterBaseAttackSpeedTag 'CharacterAttackSpeedAverage'
+  characterOffensiveAbility [-15.0, -25.0, -35.0, -45.0, -55.0, -65.0, -75.0, -85.0, -95.0, -105.0, -115.0, -125.0, -135.0, -145.0, -155.0, -165.0, -175.0, -185.0, -195.0, -205.0, -215.0, -225.0, -235.0, -245
+  debufSkill True
+  distanceProfile 'Moderate'
+  skillBaseDescription 'tagGDX3EnemySkillA07_Desc'
+  skillDisplayName 'tagGDX3EnemySkillA07'
+  skillDownBitmapName 'ui/skills/icons/itemskills/skillicon_asterkarndebuff_teal_down.tex'
+  skillMaxLevel 60
+  skillTargetRadius 20.0
+  skillUpBitmapName 'ui/skills/icons/itemskills/skillicon_asterkarndebuff_teal_up.tex'
+  templateName 'database/templates/skillbuff_debuf.tpl'
+=== records/creatures/enemies/hero/hypporaven_h01.dbr {'skillName1': 'records/skills/nonplayerskills/passive/damage_totaladjuster.dbr', 'skillName10': 'records/skills/nonplayerskills/heroskills/archetypes/swift_passivestatmodifier.dbr', 'skillName2': 'records/skills/nonplayerskills/passive/damagebase_physical04.dbr', 'skillName3': 'records/skills/nonplayerskills/passive/armorbase04.dbr', 'skillName4': 'records/skills/nonplayerskills/passive/resists_heroboss.dbr', 'skillName5': 'records/skills/nonplayerskills/heroskills/hero loot chests/hero_chest_all_01.dbr', 'skillName6': 'records/skills/nonplayerskillsgdx3/passive/passiveproperties_hypporaven.dbr', 'skillName7': 'records/skills/nonplayerskillsgdx3/attackprojectile/hypporaven_darkbreath.dbr', 'skillName8': 'records/skills/nonplayerskillsgdx3/buffoffensive/hypporaven_darkaura.dbr', 'skillName9': 'records/skills/nonplayerskills/heroskills/archetypes/swift_frenzyaura.dbr'}

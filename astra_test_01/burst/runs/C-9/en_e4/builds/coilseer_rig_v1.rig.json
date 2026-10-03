@@ -1,0 +1,323 @@
+{
+ "landmarks": {
+  "H": 2.199814796447754,
+  "y_snout": 1.3819997310638428,
+  "y_tail": 1.8172667026519775,
+  "z_base": 0.3,
+  "z_shoulder": 1.5838666534423826,
+  "z_lip": 1.918832278251648,
+  "y_hinge": 1.6219997310638428,
+  "y_col": 1.5878986120224,
+  "arms": {
+   "L": {
+    "sh": [
+     0.2,
+     1.5878986120224,
+     1.5538666534423826
+    ],
+    "el": [
+     0.24816540145874025,
+     1.2983061838150025,
+     0.966452665901184
+    ],
+    "wr": [
+     0.315372496843338,
+     1.5152254104614258,
+     0.5267947018146515
+    ],
+    "tip": [
+     0.3003445863723755,
+     0.9845810532569885,
+     0.3300875127315521
+    ]
+   },
+   "R": {
+    "sh": [
+     -0.2,
+     1.5878986120224,
+     1.5538666534423826
+    ],
+    "el": [
+     -0.49417421221733093,
+     1.6111418008804321,
+     0.9664968848228455
+    ],
+    "wr": [
+     -0.7620716989040375,
+     1.6531563997268677,
+     0.5009343922138214
+    ],
+    "tip": [
+     -0.8256883025169373,
+     1.5970216989517212,
+     0.3301587402820587
+    ]
+   }
+  },
+  "centreline": [
+   [
+    0.0,
+    0.0,
+    0.3
+   ],
+   [
+    0.005689785350114107,
+    0.2234083378314972,
+    0.2656370420008898
+   ],
+   [
+    0.02627859916538,
+    0.4468166756629944,
+    0.2715968228876591
+   ],
+   [
+    -0.006204000674188137,
+    0.6702250134944916,
+    0.284827827475965
+   ],
+   [
+    0.0724758580327034,
+    0.8936333513259888,
+    0.2843196727335453
+   ],
+   [
+    0.032458821311593056,
+    1.117041689157486,
+    0.27751788450405
+   ],
+   [
+    -0.05025344900786877,
+    1.3404500269889832,
+    0.27282207636744715
+   ],
+   [
+    -0.05817415937781334,
+    1.5638583648204802,
+    0.27754805353470147
+   ],
+   [
+    -0.020516935735940933,
+    1.7872667026519775,
+    0.31092988327145576
+   ]
+  ],
+  "mouth_cut_edges": 54,
+  "unweighted_fallback_verts": 0,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, edge-smoothed, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, edge-smoothed, top 4",
+   "jaw_verts": 459,
+   "unweighted_verts": 0,
+   "groups": 21
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "arm_L_1",
+   "arm_L_2",
+   "arm_L_3",
+   "arm_R_1",
+   "arm_R_2",
+   "arm_R_3",
+   "seg_b1",
+   "seg_b2",
+   "seg_b3",
+   "seg_b4",
+   "seg_b5",
+   "seg_b6",
+   "seg_b7",
+   "seg_b8"
+  ]
+ },
+ "lint": {
+  "idle": {
+   "frames": 57,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    48,
+    [
+     0.045,
+     1.322,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0
+  },
+  "walk": {
+   "frames": 41,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    8,
+    [
+     0.143,
+     1.238,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "path_slip_m": 0.2625,
+   "wavelength_m": 1.3333
+  },
+  "run": {
+   "frames": 25,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    10,
+    [
+     -0.131,
+     1.248,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0,
+   "loop_seam_max_vert_m": 0.0,
+   "path_slip_m": 0.2595,
+   "wavelength_m": 2.056
+  },
+  "attack_claw": {
+   "frames": 41,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    12,
+    [
+     0.11,
+     1.146,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_bolt": {
+   "frames": 51,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    50,
+    [
+     0.077,
+     1.337,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "cast_nova": {
+   "frames": 61,
+   "min_z_m": -0.0007,
+   "worst_frame_vertex": [
+    59,
+    [
+     0.077,
+     1.337,
+     -0.001
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "attack_taillash": {
+   "frames": 79,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    45,
+    [
+     -0.458,
+     1.242,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "hit": {
+   "frames": 21,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    17,
+    [
+     0.074,
+     1.346,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  },
+  "death": {
+   "frames": 37,
+   "min_z_m": -0.0002,
+   "worst_frame_vertex": [
+    0,
+    [
+     0.32,
+     1.263,
+     -0.0
+    ]
+   ],
+   "penetration_frames": 0
+  }
+ },
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 56,
+   "src": "roster idle_01 57f; ours 56 intervals: a weave on the coil, one tongue-taste jaw flick"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 40,
+   "speed": 1.0,
+   "amp": 0.16,
+   "src": "roster walk_01 49f; walkSpeed 0.6 has no stated base -- 1.0 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 2.57,
+   "amp": 0.2,
+   "src": "roster run_01 35f; lead record characterRunSpeed 0.8 x K4-0 3.209 = 2.57 m/s"
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "kind_fn": "claw",
+   "frames": 41,
+   "contact": 13,
+   "src": "attack_01 41f RightHandHit f13"
+  },
+  "cast_bolt": {
+   "kind": "oneshot",
+   "kind_fn": "bolt",
+   "frames": 51,
+   "release": 25,
+   "src": "cast_attack_01 51f RightHandHit f25 (bolts, spittle, chain lightning)"
+  },
+  "cast_nova": {
+   "kind": "oneshot",
+   "kind_fn": "nova",
+   "frames": 61,
+   "release": 30,
+   "src": "cast_buff_01 / cast_roarpoison_01 61f hit f30 (poison nova, auras, frost ring)"
+  },
+  "attack_taillash": {
+   "kind": "oneshot",
+   "kind_fn": "taillash",
+   "frames": 79,
+   "release": 23,
+   "src": "attack_special_01 (TailLash) 79f hit f23 (the black-water wave)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "hit_react_01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 37,
+   "hold_last": true,
+   "src": "death_01 37f"
+  }
+ }
+}

@@ -1,0 +1,17 @@
+heavy_lock: waiting — held by {"pid": 30269, "run": "C-9", "ts": "2026-10-02T23:38:55Z", "cmd": "zsh -c for p in \"h en-warden_p\" \"k en-magister_p\"
+heavy_lock: acquired after 963s (C-9)
+clip idle             {'frames': 57, 'min_z_m': -0.0002, 'worst_frame_vertex': (48, [0.045, 1.322, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk             {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (8, [0.143, 1.238, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.2625), 'wavelength_m': 1.3333}
+clip run              {'frames': 25, 'min_z_m': -0.0002, 'worst_frame_vertex': (10, [-0.131, 1.248, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.2595), 'wavelength_m': 2.056}
+clip attack_claw      {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (12, [0.11, 1.146, -0.0]), 'penetration_frames': 0}
+clip cast_bolt        {'frames': 51, 'min_z_m': -0.0002, 'worst_frame_vertex': (50, [0.077, 1.337, -0.0]), 'penetration_frames': 0}
+clip cast_nova        {'frames': 61, 'min_z_m': -0.0007, 'worst_frame_vertex': (59, [0.077, 1.337, -0.001]), 'penetration_frames': 0}
+clip attack_taillash  {'frames': 79, 'min_z_m': -0.0002, 'worst_frame_vertex': (45, [-0.458, 1.242, -0.0]), 'penetration_frames': 0}
+clip hit              {'frames': 21, 'min_z_m': -0.0002, 'worst_frame_vertex': (17, [0.074, 1.346, -0.0]), 'penetration_frames': 0}
+clip death            {'frames': 37, 'min_z_m': -0.0002, 'worst_frame_vertex': (0, [0.32, 1.263, -0.0]), 'penetration_frames': 0}
+wrote builds/coilseer_rig_v1.glb
+{"glb": "builds/coilseer_rig_v1.glb", "s_fit": 0.8047, "s_with_margin": 0.7664, "binding": "death f28 heading3", "margin": 0.05}
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/env', 'python3', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/scripts/n06_compose.py', '/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/60f6998b-1e28-4199-bab2-9be52893d328/scratchpad/en3r_yleic60z/spec.json']' returned non-zero exit status 2.
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/env', 'python3', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/scripts/n06_compose.py', '/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/60f6998b-1e28-4199-bab2-9be52893d328/scratchpad/en3r_rrflcf7k/spec.json']' returned non-zero exit status 2.

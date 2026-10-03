@@ -1,0 +1,81 @@
+{
+ "name": "coilseer",
+ "type_id": "slith01",
+ "low_band_z": 0.55,
+ "base_z": 0.3,
+ "arm_x_min": 0.3,
+ "head_band": 0.82,
+ "head_len": 0.3,
+ "segments": 8,
+ "coil_gate_y": 0.12,
+ "mouth_rgba": [
+  0.16,
+  0.05,
+  0.06,
+  1.0
+ ],
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 56,
+   "src": "roster idle_01 57f; ours 56 intervals: a weave on the coil, one tongue-taste jaw flick"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 40,
+   "speed": 1.0,
+   "amp": 0.13,
+   "src": "roster walk_01 49f; walkSpeed 0.6 has no stated base -- 1.0 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 2.57,
+   "amp": 0.16,
+   "src": "roster run_01 35f; lead record characterRunSpeed 0.8 x K4-0 3.209 = 2.57 m/s"
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "kind_fn": "claw",
+   "frames": 41,
+   "contact": 13,
+   "src": "attack_01 41f RightHandHit f13"
+  },
+  "cast_bolt": {
+   "kind": "oneshot",
+   "kind_fn": "bolt",
+   "frames": 51,
+   "release": 25,
+   "src": "cast_attack_01 51f RightHandHit f25 (bolts, spittle, chain lightning)"
+  },
+  "cast_nova": {
+   "kind": "oneshot",
+   "kind_fn": "nova",
+   "frames": 61,
+   "release": 30,
+   "src": "cast_buff_01 / cast_roarpoison_01 61f hit f30 (poison nova, auras, frost ring)"
+  },
+  "attack_taillash": {
+   "kind": "oneshot",
+   "kind_fn": "taillash",
+   "frames": 79,
+   "release": 23,
+   "src": "attack_special_01 (TailLash) 79f hit f23 (the black-water wave)"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "src": "hit_react_01 21f"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 37,
+   "hold_last": true,
+   "src": "death_01 37f"
+  }
+ },
+ "hand_r": 0.24,
+ "_hand_r_note": "EN-E4 resume: v2 left 29-37 inner-palm verts per hand outside the 0.16 m hand gate (max hand-zone distance to the arm chain 0.171 m), so they took Hips/spine/seg_b1 weight and stayed behind as shards/spikes when the hand moved. 0.22+ admits every hand vert and no torso/coil vert (measured on coilseer_prep.glb).",
+ "_amp_note": "EN-E4 resume: v2 walk amp 0.16 path_slip 0.169 m (body past the ramp) / 0.101 (ramp); run 0.20 -> 0.144/0.172. The ramp is not the dominant term: a fixed-length segment chain on a steep sine shortens axially, so joints do not track the path. Amplitude lowered to cut the slope term; v3 re-measures.",
+ "texture": "work/tex_coilseer_GT.png"
+}

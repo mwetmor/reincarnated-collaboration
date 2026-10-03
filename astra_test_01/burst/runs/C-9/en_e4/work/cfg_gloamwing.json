@@ -1,0 +1,115 @@
+{
+ "name": "gloamwing",
+ "type_id": "gryphon01a",
+ "foot_band": 0.06,
+ "joint_frac": 0.4,
+ "head_len_frac": 0.15,
+ "lip_z_frac": 0.45,
+ "hinge_frac": 0.8,
+ "tail_frac": 0.36,
+ "long_neck": true,
+ "neck_root_fwd": 0.15,
+ "tail_gate_z": 0.9,
+ "wings": {
+  "root_y_frac": 0.25,
+  "tip_y_frac": 0.7,
+  "root_x": 0.18,
+  "inset": 0.06,
+  "drop": 0.05,
+  "gate_x": 0.12,
+  "gate_dz": 0.4,
+  "tip_over": 0.2,
+  "mantle_deg": [
+   12.0,
+   20.0,
+   8.0
+  ]
+ },
+ "mouth_rgba": [
+  0.14,
+  0.08,
+  0.1,
+  1.0
+ ],
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 48,
+   "src": "roster idle_a01 79f; ours 48 intervals: breathing, a head turn, one beak snap, the wings settling"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 28,
+   "speed": 1.6,
+   "src": "roster walk_a01 28f; walkSpeed 1.4 has no stated base -- 1.6 m/s INFERRED"
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 24,
+   "speed": 3.21,
+   "duty": 0.3,
+   "src": "roster run_a01 31f; characterRunSpeed 1.0 x K4-0 = 3.209 m/s (h01-h04)"
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "kind_fn": "crossswipe",
+   "frames": 22,
+   "contact": 12,
+   "src": "attack_a01 22f RightHandHit f12 (also the SpellAttack clip)"
+  },
+  "attack_peck": {
+   "kind": "oneshot",
+   "kind_fn": "bite",
+   "frames": 26,
+   "contact": 13,
+   "src": "attack_b01 26f RightHandHit f13"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "kind_fn": "breath",
+   "frames": 101,
+   "release": 26,
+   "hold": 50,
+   "bursts": [
+    26,
+    50,
+    70
+   ],
+   "src": "attackspecial_b01 (BreathShadow) 101f, *Hit f26 / f50 / f70"
+  },
+  "cast_roar": {
+   "kind": "oneshot",
+   "kind_fn": "roar",
+   "frames": 46,
+   "release": 12,
+   "hold": 10,
+   "src": "attackspecial_a01 (BuffSelf) 46f RightHandHit f12"
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "frames": 51,
+   "land_frac": 0.55,
+   "rise_m": 1.2,
+   "src": "spawn_b01 51f (p05 emergence 1.667 s; show f1, mortal f50)",
+   "wing_open": 0.85
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "src": "no take-hit clip in the record's anim table; ours 14f for the runtime"
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 31,
+   "hold_last": true,
+   "ground_solve": true,
+   "src": "death_a01 31f"
+  }
+ },
+ "leg_gate_y": 0.52,
+ "_leg_gate_note": "EN-E4 resume: v1 fore-foot low verts span y -1.20..-0.46 around the ankle at -0.955 (the hind talon reaches 0.49 m back), so 23/28 talon verts per fore-foot sat outside the 0.32 gate and rode the spine (shards; walk/run min_z -0.21/-0.34). 0.52 admits the whole foot.",
+ "motion_scale": 0.68,
+ "_motion_scale_note": "EN-E4 resume: v1 at 5.6 m (beak to tail tip; beak to rump = the designed 3.6 m) gave n17 s_fit 0.717 / 0.683 with 5% margin (binding attack_peck f8 heading 6). Max-fit: re-prep at 5.6 x 0.68 = 3.808 m and scale the typed clip offsets by 0.68.",
+ "_v3_note": "EN-E4 resume v3: emerge rise 1.2 -> 0.95 (no change in s_fit: rise was not the binder, reverted to 1.2 in v4); v4 narrows the drop-in wing spread to 0.85 (v2 binding emerge f0 h6, s_with_margin 0.961); run duty 0.35 -> 0.30 (v2 run footlock slide 0.106 m and min_z -0.129 m over 3 frames: the 0.68-scale legs could not reach the full stance sweep at 3.21 metres per second).",
+ "texture": "work/tex_gloamwing_GT.png"
+}

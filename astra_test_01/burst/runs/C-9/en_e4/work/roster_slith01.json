@@ -1,0 +1,4643 @@
+{
+ "type_id": "slith01",
+ "rig_key_clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+ "rig_family_dir": "creatures/enemies/slith/anm",
+ "display_name": "Slathra, the Plagued / Wrallan ~ Electrified / Lunorius / Balladra Stormscion",
+ "lead_record": "records/creatures/enemies/bounties/dc_bounty08.dbr",
+ "classification_mix_e_bodies": {
+  "Hero": 0.381
+ },
+ "e_bodies_151_160_p06_off": 0.381,
+ "e_bodies_151_160_p06_on": 0.723,
+ "role_mix_e_bodies": {
+  "champion-hero": 0.38
+ },
+ "family": "Beastkin",
+ "family_mix": [
+  "Beastkin"
+ ],
+ "n_records": 9,
+ "n_meshes": 1,
+ "meshes": [
+  {
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "e_bodies": 0.38,
+   "records": [
+    "records/creatures/enemies/bounties/dc_bounty08.dbr",
+    "records/creatures/enemies/devotion/slith_h05.dbr",
+    "records/creatures/enemies/devotion/slith_h08.dbr",
+    "records/creatures/enemies/devotion/slith_h02.dbr",
+    "records/creatures/enemies/devotion/slith_h03.dbr",
+    "records/creatures/enemies/devotion/slith_h06.dbr",
+    "records/creatures/enemies/devotion/slith_h07.dbr",
+    "records/creatures/enemies/devotion/slith_h04.dbr",
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ]
+  }
+ ],
+ "anim_tables": [
+  "records/creatures/enemies/anm/anm_slith.dbr"
+ ],
+ "size": {
+  "actorRadius_m": [
+   0.45,
+   0.9
+  ],
+  "scale": [
+   1.05,
+   1.2
+  ],
+  "radius_x_scale_m": [
+   0.54,
+   0.945
+  ],
+  "actorHeight_m": [
+   2.0
+  ],
+  "lead": {
+   "record": "records/creatures/enemies/bounties/dc_bounty08.dbr",
+   "actorRadius_m": 0.72,
+   "scale": 1.2,
+   "radius_x_scale_m": 0.864,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null
+  }
+ },
+ "locomotion": {
+  "stationary": false,
+  "character_run_speed": [
+   0.6,
+   0.85
+  ],
+  "run_m_per_s": [
+   1.926,
+   2.728
+  ],
+  "walk_speed": [
+   0.6
+  ],
+  "basis": "m/s = characterRunSpeed x K4-0 (3.209466 m/s, PACK INFERRED-WITH-EVIDENCE); the oracle applies the same product"
+ },
+ "attack_style": {
+  "summary": "ranged projectile / AoE caster",
+  "weapons": {
+   "unarmed": 9
+  },
+  "ai_ability_kinds": {
+   "aoe": 9,
+   "projectile": 12,
+   "aura": 6,
+   "projectile (chain)": 2,
+   "melee": 3
+  },
+  "grade": "INFERRED (share of AI-initiated slots by skill class; weapon from equipped loot table)"
+ },
+ "abilities": [
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 10.7,
+   "gd_fire_range_row": "V38-GR2-U1-190",
+   "gd_band_centre_m": [
+    null,
+    4.2
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    4.2
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    3.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-190",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": {
+    "waveDistance": 10.0,
+    "waveStartWidth": 2.0,
+    "waveEndWidth": 3.0,
+    "waveTime": 2.799999952316284
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 1.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'TailLash' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+   "anim_frames": 79,
+   "anim_dur_s": 2.6,
+   "anim_speed": 0.8999999761581421,
+   "release_frame": 23,
+   "release_s": 0.7667,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    23
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/path/tidalwave_fxpak01.dbr",
+    "records/fx/skillsother/path/tidalwave_fx01.dbr",
+    "fx/particlesystems/skillsother/path/pfx_tidalwave_path01.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 8.0,
+    "timeout_s": 1.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/bounties/dc_bounty08.dbr",
+    "records/creatures/enemies/devotion/slith_h08.dbr",
+    "records/creatures/enemies/devotion/slith_h03.dbr",
+    "records/creatures/enemies/devotion/slith_h07.dbr",
+    "records/creatures/enemies/devotion/slith_h04.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    10.781
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.2258,
+   "gd_fire_range_m_span": [
+    10.376,
+    10.781
+   ]
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskills/heroskills/bolvaris_howlingwind.dbr",
+   "skill_class": "Skill_BuffAttackRadiusDuration",
+   "kind": "aura",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 6.126,
+   "gd_fire_range_row": "V38-GR2-U1-838",
+   "gd_band_centre_m": [
+    null,
+    4.876
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    4.876
+   ],
+   "distance_profile": "Short",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    4.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-838",
+   "pack_reach_m_as_packed": 4.5,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 4.5
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": 1.0,
+   "durations_s": {
+    "offensiveSlowTotalSpeedDurationMin": 2.0,
+    "skillActiveDuration": 6.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buffoffensive/howlingwind_self_chfxpak01.dbr",
+    "records/fx/skillsother/buffoffensive/howlingwind_self_fx01.dbr",
+    "fx/particlesystems/skillsother/buffoffensive/pfx_howlingwind.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 14.0,
+    "timeout_s": 5.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h08.dbr",
+    "records/creatures/enemies/devotion/slith_h01.dbr",
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    6.342
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.1151,
+   "gd_fire_range_m_span": [
+    6.126,
+    6.342
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_diseasecloud.dbr",
+   "skill_class": "Skill_BuffAttackRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": "Short",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 4.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-189",
+   "pack_reach_m_as_packed": 4.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 4.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": 15.0,
+   "durations_s": {
+    "offensiveSlowPoisonDurationMin": 2.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buffoffensive/zombie_poisonaura_self_chfxpak01.dbr",
+    "records/fx/skillsother/buffoffensive/zombie_poisonaura_self_fx01.dbr",
+    "fx/particlesystems/skillsother/buffoffensive/pfx_zombie_poisonaura01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/bounties/dc_bounty08.dbr",
+    "records/creatures/enemies/devotion/slith_h07.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.1099,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskills/bossskills/viloth_poisonnova.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 6.45,
+   "gd_fire_range_row": "V38-GR2-U1-191",
+   "gd_band_centre_m": [
+    null,
+    13.2
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    6.45
+   ],
+   "distance_profile": "Short",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    0.0,
+    12.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-191",
+   "pack_reach_m_as_packed": 18.0,
+   "projectile_record": "records/fx/skillsother/projectile/waterpoisonorb_fxprojectile.dbr",
+   "projectile_speed_mps": 14.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 18.0,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowPoisonDurationMin": 5.0,
+    "offensiveSlowRunSpeedDurationMin": 3.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'RoarPoison' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": 1.25,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/waterpoisonorb_fxprojectile.dbr",
+    "fx/meshfx/spinebone01.msh",
+    "records/fx/skillsother/projectile/waterpoisonorb_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_waterpoisonorb_impact.pfx",
+    "records/fx/skillsother/projectile/waterpoisonorb_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_waterpoisonorb_flight.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/poison_cast_fx.dbr",
+    "records/fx/skillsother/castfx/poison_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 8.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/bounties/dc_bounty08.dbr",
+    "records/creatures/enemies/devotion/slith_h07.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    6.45
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.1099,
+   "gd_fire_range_m_span": [
+    6.126,
+    6.45
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura.dbr",
+   "skill_class": "Skill_BuffRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": null,
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 12.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-822",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "buffSkillName.skillTargetRadius": 12.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/rifthound_buffelectrical_looping_chfxpak01.dbr",
+    "records/fx/skillsother/rifthound_buffelectrical_loopingfx01.dbr",
+    "fx/particlesystems/skillsother/pfx_rifthound_buffelectrical_looping.pfx",
+    "records/fx/skillsother/generic_electricalhandbuff01_fx.dbr",
+    "fx/particlesystems/skillsother/pfx_generic_electricalhandbuff01.pfx",
+    "records/fx/skillsother/componentskills/lightningaura_otherloop_fx01.dbr",
+    "fx/particlesystems/skillsother/itemcomponents/pfx_lightningaura_other01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h05.dbr",
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0782,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningfield.dbr",
+   "skill_class": "Skill_BuffAttackRadiusDuration",
+   "kind": "aura",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 6.342,
+   "gd_fire_range_row": "V38-GR2-U1-823",
+   "gd_band_centre_m": [
+    null,
+    null
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    6.342
+   ],
+   "distance_profile": "Short",
+   "special_band": "AnyRange",
+   "band_edge_m": [
+    null,
+    null
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-823",
+   "pack_reach_m_as_packed": 2.5,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 2.5
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "skillActiveDuration": 5.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buffoffensive/lightningfield_self_chfxpak01.dbr",
+    "records/fx/skillsother/buffoffensive/lightningfield_self_fx01.dbr",
+    "fx/particlesystems/skillsother/buffoffensive/pfx_lightningaura01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 8.0,
+    "timeout_s": 2.0,
+    "range_band": "AnyRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h05.dbr",
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    6.342
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0782,
+   "gd_fire_range_m_span": [
+    6.342,
+    6.342
+   ]
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_lightningnova.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-825",
+   "gd_band_centre_m": [
+    null,
+    11.092
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    11.092
+   ],
+   "distance_profile": "Long",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    10.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-825",
+   "pack_reach_m_as_packed": 20.0,
+   "projectile_record": "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+   "projectile_speed_mps": 16.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 20.0,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": 1.0,
+   "durations_s": null,
+   "anim_ref": "skillSpecialAnimationName 'Nova' is NOT satisfied by this record's anim table; -> the record's SpellAttack clip",
+   "anim_binding": "UNKNOWN (ref unsatisfied; engine fallback not decoded -- class-default clip shown, INFERRED)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+    "fx/meshfx/spinebone01.msh",
+    "records/fx/skillsother/projectile/lightningorb_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb01.pfx",
+    "records/fx/skillsother/projectile/lightningorb_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb_impact01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 7.0,
+    "timeout_s": 2.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h05.dbr",
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    11.092
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0782,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  },
+  {
+   "slot": "dying",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/corrupted_aetherconflagration.dbr",
+   "skill_class": "Skill_AttackProjectileAreaEffect",
+   "kind": "projectile",
+   "delivery": "DYING (not AI-gated; fires at death)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": "Short",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-830",
+   "pack_reach_m_as_packed": 3.0,
+   "projectile_record": "records/fx/skillsother/aoe/aetherring_projectilefx01.dbr",
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 3.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 3.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "skillActiveDuration": 6.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/aoe/aetherring_projectilefx01.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsother/aoe/aetherring_radius_fx01.dbr",
+    "records/fx/decals/decal_aetherburn_lrg.dbr",
+    "fx/particlesystems/skillsother/aoe/pfx_aetherring_warden_01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h06.dbr",
+    "records/creatures/enemies/devotion/slith_h06.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    7.092,
+    6.342
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.077,
+   "gd_fire_range_m_span": [
+    6.342,
+    6.342
+   ]
+  },
+  {
+   "slot": "chain_initial",
+   "skill": "records/skills/nonplayerskills/heroskills/bolvaris_glacialcharge.dbr",
+   "skill_class": "Skill_AttackWeaponCharge",
+   "kind": "melee",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill)",
+   "gd_fire_range_m": 2.842,
+   "gd_fire_range_row": "V38-GR2-U1-804",
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": [
+    0.0,
+    2.842
+   ],
+   "distance_profile": "Melee",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-804",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": 25.0,
+   "target_number": 1,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 0.25
+   },
+   "anim_ref": "no skillSpecialAnimationName; weapon skill -> the record's basic attack clips",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+   "anim_frames": 41,
+   "anim_dur_s": 1.3333,
+   "anim_speed": null,
+   "release_frame": 13,
+   "release_s": 0.4333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    13
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/attackmelee/icestrike01_fxpak.dbr",
+    "records/fx/skillsother/attackmelee/icestrike01_fx.dbr",
+    "fx/particlesystems/skillsother/attackmelee/pfx_chillingtouch_impact.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h01.dbr",
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    2.842
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.076,
+   "gd_fire_range_m_span": [
+    2.842,
+    2.842
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/heroskills/stormtail_chainlightning.dbr",
+   "skill_class": "Skill_AttackChain",
+   "kind": "projectile (chain)",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-824",
+   "gd_band_centre_m": [
+    6.092,
+    23.092
+   ],
+   "gd_effective_window_m": [
+    6.092,
+    16.592
+   ],
+   "distance_profile": "Long",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    5.0,
+    22.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-824",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/rangeddirect/chainlightning1.dbr"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 10.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h05.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    6.092,
+    16.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0394,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/bossskills/primordian_frigidring.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.376,
+   "gd_fire_range_row": "V38-GR2-U1-837",
+   "gd_band_centre_m": [
+    3.876,
+    12.876
+   ],
+   "gd_effective_window_m": [
+    3.876,
+    12.876
+   ],
+   "distance_profile": "Long",
+   "special_band": "LongRange",
+   "band_edge_m": [
+    3.0,
+    12.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-837",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": "records/fx/skillsother/projectile/icebolt_nova_fxprojectile.dbr",
+   "projectile_speed_mps": 14.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 12.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 1.5
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowColdDurationMin": 2.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'Roar' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": 1.25,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/icebolt_nova_fxprojectile.dbr",
+    "fx/meshfx/frostorb01.msh",
+    "records/fx/skillsother/projectile/icebolt_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_icebolt_flight01.pfx",
+    "records/fx/skillsother/projectile/icebolt_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_icebolt_impact01.pfx",
+    "records/fx/fxtrails/swordfrost_fxtrail.dbr"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 75.0,
+    "delay_s": 6.0,
+    "timeout_s": 3.0,
+    "range_band": "LongRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h08.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    3.876,
+    12.876
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0391,
+   "gd_fire_range_m_span": [
+    16.376,
+    16.376
+   ]
+  },
+  {
+   "slot": "special4",
+   "skill": "records/skills/nonplayerskills/heroskills/chillbane_blizzard.dbr",
+   "skill_class": "Skill_BuffAttackRadiusDrop",
+   "kind": "aura",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 19.376,
+   "gd_fire_range_row": "V38-GR2-U1-839",
+   "gd_band_centre_m": [
+    null,
+    null
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    19.376
+   ],
+   "distance_profile": "Maximum",
+   "special_band": "AnyRange",
+   "band_edge_m": [
+    null,
+    null
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-839",
+   "pack_reach_m_as_packed": 24.0,
+   "projectile_record": "records/fx/skillsother/projectile/blizzard_projectilefx.dbr",
+   "projectile_speed_mps": 24.0,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 24.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 8.0,
+    "projectileExplosionRadius": 1.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowTotalSpeedDurationMin": 5.0,
+    "skillActiveDuration": 8.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/blizzard_projectilefx.dbr",
+    "fx/meshfx/frostorb01.msh",
+    "records/fx/skillsother/projectile/icebolt_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_icebolt_flight01.pfx",
+    "records/fx/skillsother/projectile/blizzard_impact_fx01.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_blizzard_impact.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 100.0,
+    "timeout_s": 5.0,
+    "range_band": "AnyRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h08.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    19.376
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0391,
+   "gd_fire_range_m_span": [
+    19.376,
+    19.376
+   ]
+  },
+  {
+   "slot": "basic",
+   "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningorb.dbr",
+   "skill_class": "Skill_AttackProjectileBurst",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-810",
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": [
+    0.0,
+    16.592
+   ],
+   "distance_profile": "Long",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-810",
+   "pack_reach_m_as_packed": 20.0,
+   "projectile_record": "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+   "projectile_speed_mps": 16.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 20.0,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+    "fx/meshfx/spinebone01.msh",
+    "records/fx/skillsother/projectile/lightningorb_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb01.pfx",
+    "records/fx/skillsother/projectile/lightningorb_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb_impact01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    16.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0388,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningbarrage.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 19.592,
+   "gd_fire_range_row": "V38-GR2-U1-812",
+   "gd_band_centre_m": [
+    5.092,
+    16.092
+   ],
+   "gd_effective_window_m": [
+    5.092,
+    16.092
+   ],
+   "distance_profile": "Maximum",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    4.0,
+    15.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-812",
+   "pack_reach_m_as_packed": 20.0,
+   "projectile_record": "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+   "projectile_speed_mps": 16.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 20.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 1.5
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/lightningorbnova_fxprojectile.dbr",
+    "fx/meshfx/spinebone01.msh",
+    "records/fx/skillsother/projectile/lightningorb_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb01.pfx",
+    "records/fx/skillsother/projectile/lightningorb_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_lightningorb_impact01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 80.0,
+    "delay_s": 6.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    5.092,
+    16.092
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0388,
+   "gd_fire_range_m_span": [
+    19.592,
+    19.592
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningbolt.dbr",
+   "skill_class": "Skill_AttackRadiusLightning",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 19.592,
+   "gd_fire_range_row": "V38-GR2-U1-813",
+   "gd_band_centre_m": [
+    9.092,
+    21.092
+   ],
+   "gd_effective_window_m": [
+    9.092,
+    19.592
+   ],
+   "distance_profile": "Maximum",
+   "special_band": "LongRange",
+   "band_edge_m": [
+    8.0,
+    20.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-813",
+   "pack_reach_m_as_packed": 2.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 2.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 0.5
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/rangeddirect/lightning1.dbr",
+    "records/fx/skillsother/rangeddirect/lightningbolt1_impact01_fxpak.dbr",
+    "records/fx/skillsother/rangeddirect/lightningbolt1_impact01_fx.dbr",
+    "records/fx/decals/decal_blackcharlrg.dbr",
+    "fx/particlesystems/skillsother/rangeddirect/pfx_lightningbolt_impact01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 8.0,
+    "timeout_s": 2.0,
+    "range_band": "LongRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h02.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    9.092,
+    19.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0388,
+   "gd_fire_range_m_span": [
+    19.592,
+    19.592
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/bossskills/ellena_wave.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 10.781,
+   "gd_fire_range_row": "V38-GR2-U1-817",
+   "gd_band_centre_m": [
+    null,
+    13.281
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    10.781
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    12.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-817",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": {
+    "waveDistance": 18.0,
+    "waveStartWidth": 2.0,
+    "waveEndWidth": 2.0,
+    "waveTime": 1.600000023841858
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 1.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/path/tidalwave_fx01.dbr",
+    "fx/particlesystems/skillsother/path/pfx_tidalwave_path01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 6.0,
+    "timeout_s": 3.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h03.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    10.781
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0386,
+   "gd_fire_range_m_span": [
+    10.781,
+    10.781
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/corrupted_aetheraura.dbr",
+   "skill_class": "Skill_BuffRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": null,
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 12.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-826",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "buffSkillName.skillTargetRadius": 12.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buff/aethercorruptionaura_selfloop_chfxpak01.dbr",
+    "records/fx/skillsother/buff/aethercorruptionaura_selfloop_fx01.dbr",
+    "fx/particlesystems/skillsother/buff/pfx_aethercorruptedaura_self01.pfx",
+    "records/fx/skillsother/buff/aethercorruptionaura_otherloop_fx01.dbr",
+    "fx/particlesystems/skillsother/buff/pfx_aethercorruptedaura_other01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h06.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0385,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskills/heroskills/aetheros_aetherballnova.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-827",
+   "gd_band_centre_m": [
+    null,
+    16.092
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    16.092
+   ],
+   "distance_profile": "Long",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    0.0,
+    15.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-827",
+   "pack_reach_m_as_packed": 18.0,
+   "projectile_record": "records/fx/skillsother/projectile/aether_fireball_projectile_burstfx01.dbr",
+   "projectile_speed_mps": 9.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 18.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 1.5
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "skillSpecialAnimationName 'Roar' -> unarmedSpecialAnimRef",
+   "anim_binding": "DATAMINED",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": 1.25,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/aether_fireball_projectile_burstfx01.dbr",
+    "fx/meshfx/fragmentcrystal01.msh",
+    "records/fx/skillsother/projectile/aether_fireball_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_aether_fireball_flight01.pfx",
+    "records/fx/skillsother/projectile/aether_fireball_impact_fx01.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_aether_fireball_impact01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 6.0,
+    "timeout_s": 1.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h06.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    16.092
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0385,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/heroskills/aetheros_aethersmash.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 10.592,
+   "gd_fire_range_row": "V38-GR2-U1-828",
+   "gd_band_centre_m": [
+    null,
+    11.092
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    10.592
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    10.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-828",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": {
+    "waveDistance": 15.0,
+    "waveStartWidth": 2.0,
+    "waveEndWidth": 2.5,
+    "waveTime": 0.6499999761581421
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": 5.0,
+   "durations_s": {
+    "cameraShakeDurationSecs": 0.30000001192092896,
+    "offensiveSlowTotalSpeedDurationMin": 3.0
+   },
+   "anim_ref": "skillSpecialAnimationName 'Slam' is NOT satisfied by this record's anim table; -> the record's SpellAttack clip",
+   "anim_binding": "UNKNOWN (ref unsatisfied; engine fallback not decoded -- class-default clip shown, INFERRED)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/path/aetherhulk_pathsmash_fx01.dbr",
+    "fx/particlesystems/skillsother/path/pfx_aetherhulk_pathsmash.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 6.0,
+    "timeout_s": 2.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h06.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    10.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0385,
+   "gd_fire_range_m_span": [
+    10.592,
+    10.592
+   ]
+  },
+  {
+   "slot": "basic",
+   "skill": "records/skills/nonplayerskills/heroskills/gastris_toxicspittle.dbr",
+   "skill_class": "Skill_AttackProjectileBurst",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill)",
+   "gd_fire_range_m": 19.376,
+   "gd_fire_range_row": "V38-GR2-U1-831",
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": [
+    0.0,
+    19.376
+   ],
+   "distance_profile": "Maximum",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-831",
+   "pack_reach_m_as_packed": 18.0,
+   "projectile_record": "records/fx/skillsother/componentskills/poisonbomb_projectilefx02.dbr",
+   "projectile_speed_mps": 30.0,
+   "projectile_body_radius_m": 0.5,
+   "projectile_flight_cap_m": 18.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 3.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowPoisonDurationMin": 5.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillclass03/evileye4_fxprojectile_fragment.dbr",
+    "fx/meshfx/gib02.msh",
+    "records/fx/skillclass03/evileye1_flight_fx.dbr",
+    "fx/particlesystems/skillsclass03/pfx_poisonbolt_01.pfx",
+    "records/fx/skillclass03/evileye1_fragmentimpact_fx.dbr",
+    "fx/particlesystems/skillsclass03/pfx_evileye_fragment_impact01.pfx",
+    "records/fx/skillsother/componentskills/poisonbomb_projectilefx02.dbr",
+    "records/fx/skillsother/componentskills/poisonbomb_aoe_projectile02.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsother/componentskills/poisonbomb_aoe_fx02.dbr",
+    "records/fx/decals/decal_acidpool01.dbr",
+    "fx/particlesystems/skillsother/itemcomponents/pfx_poisonbomb_aoe02.pfx",
+    "fx/meshfx/gib03.msh",
+    "records/fx/skillsother/componentskills/poisonbomb_flight_fx02.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_groble_poisonorb_large_flight01.pfx",
+    "records/fx/skillsother/componentskills/poisonbomb_impact_fx02.dbr",
+    "fx/particlesystems/skillsother/itemcomponents/pfx_poisonbomb_impact02.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h07.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    19.376
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0384,
+   "gd_fire_range_m_span": [
+    19.376,
+    19.376
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/bossskills/viloth_festeringpool.dbr",
+   "skill_class": "Skill_AttackProjectileAreaEffect",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.376,
+   "gd_fire_range_row": "V38-GR2-U1-834",
+   "gd_band_centre_m": [
+    4.876,
+    22.876
+   ],
+   "gd_effective_window_m": [
+    4.876,
+    16.376
+   ],
+   "distance_profile": "Long",
+   "special_band": "LongRange",
+   "band_edge_m": [
+    4.0,
+    22.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-834",
+   "pack_reach_m_as_packed": 20.0,
+   "projectile_record": "records/fx/skillsother/projectile_aoe/fx_attackradius_festeringpool_projectile01.dbr",
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": 2.0,
+   "projectile_flight_cap_m": 20.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 3.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "skillActiveDuration": 8.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile_aoe/fx_attackradius_festeringpool_projectile01.dbr",
+    "fx/meshfx/sphere.msh",
+    "records/fx/skillsother/projectile_aoe/fx_attackradius_festeringpool01.dbr",
+    "fx/particlesystems/skillsother/aoe/pfx_festeringpool_radius.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 10.0,
+    "timeout_s": 1.0,
+    "range_band": "LongRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h07.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    4.876,
+    16.376
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0384,
+   "gd_fire_range_m_span": [
+    16.376,
+    16.376
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaosform.dbr",
+   "skill_class": "Skill_BuffAttackRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": "Short",
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 5.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-818",
+   "pack_reach_m_as_packed": 5.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "skillTargetRadius": 5.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buff/voidtouched_chaosaura_selfloop_chfxpak01.dbr",
+    "records/fx/skillsother/buff/voidtouched_chaosaura_selfloop_fx01.dbr",
+    "fx/particlesystems/skillsother/buff/pfx_voidtouched_chaosaura_self01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h04.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0382,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaosstrike.dbr",
+   "skill_class": "Skill_AttackWeaponBlink",
+   "kind": "melee",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 2.842,
+   "gd_fire_range_row": "V38-GR2-U1-819",
+   "gd_band_centre_m": [
+    9.092,
+    21.092
+   ],
+   "gd_effective_window_m": [
+    9.092,
+    2.842
+   ],
+   "distance_profile": "Melee",
+   "special_band": "LongRange",
+   "band_edge_m": [
+    8.0,
+    20.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-819",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": 1,
+   "cooldown_s": null,
+   "durations_s": {
+    "offensiveSlowTotalSpeedDurationMin": 2.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; weapon skill -> the record's basic attack clips",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+   "anim_frames": 41,
+   "anim_dur_s": 1.3333,
+   "anim_speed": null,
+   "release_frame": 13,
+   "release_s": 0.4333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    13
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/attackmelee/chaosblink_fxpak.dbr",
+    "records/fx/skillsother/attackmelee/chaosblink_fx.dbr",
+    "fx/particlesystems/skillsother/attackmelee/pfx_chaosblink.pfx"
+   ],
+   "clip_vfx": null,
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 5.0,
+    "timeout_s": 1.0,
+    "range_band": "LongRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h04.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    9.092,
+    2.842
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0382,
+   "gd_fire_range_m_span": [
+    2.842,
+    2.842
+   ]
+  },
+  {
+   "slot": "special3",
+   "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaoschainlightning.dbr",
+   "skill_class": "Skill_AttackChain",
+   "kind": "projectile (chain)",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-821",
+   "gd_band_centre_m": [
+    null,
+    null
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    16.592
+   ],
+   "distance_profile": "Long",
+   "special_band": "AnyRange",
+   "band_edge_m": [
+    null,
+    null
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-821",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/rangeddirect/deathbolt1_chain.dbr"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 9.0,
+    "timeout_s": 3.0,
+    "range_band": "AnyRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h04.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    16.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.0382,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  },
+  {
+   "slot": "initial",
+   "skill": "records/skills/nonplayerskills/heroskills/igrixx_chilledweapons.dbr",
+   "skill_class": "Skill_BuffRadiusToggled",
+   "kind": "aura",
+   "delivery": "AURA/INITIAL (radius around caster)",
+   "gd_fire_range_m": null,
+   "gd_fire_range_row": null,
+   "gd_band_centre_m": null,
+   "gd_effective_window_m": null,
+   "distance_profile": null,
+   "special_band": null,
+   "band_edge_m": null,
+   "aura_radius_m": 12.0,
+   "aura_radius_row": null,
+   "pack_row": "U1-803",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "buffSkillName.skillTargetRadius": 12.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; toggled aura / buff -> BuffSelf clip (a toggled aura may play none)",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+   "anim_frames": 61,
+   "anim_dur_s": 2.0,
+   "anim_speed": null,
+   "release_frame": 30,
+   "release_s": 1.0,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    30
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/buff/chilledweapons_selfloop_chfxpak01.dbr",
+    "records/fx/skillsother/buff/chilledweapons_selfloop_fx01.dbr",
+    "fx/particlesystems/skillsother/buff/pfx_frostaura01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": null,
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ],
+   "gd_effective_window_m_span": null,
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.038,
+   "gd_fire_range_m_span": null
+  },
+  {
+   "slot": "special1",
+   "skill": "records/skills/nonplayerskills/heroskills/igrixx_chillingfront.dbr",
+   "skill_class": "Skill_AttackWave",
+   "kind": "aoe",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 10.592,
+   "gd_fire_range_row": "V38-GR2-U1-806",
+   "gd_band_centre_m": [
+    5.092,
+    19.092
+   ],
+   "gd_effective_window_m": [
+    5.092,
+    10.592
+   ],
+   "distance_profile": "Moderate",
+   "special_band": "MediumRange",
+   "band_edge_m": [
+    4.0,
+    18.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-806",
+   "pack_reach_m_as_packed": 2.4,
+   "projectile_record": null,
+   "projectile_speed_mps": null,
+   "projectile_body_radius_m": null,
+   "projectile_flight_cap_m": null,
+   "num_projectiles": null,
+   "aoe_radius_m": null,
+   "wave_geometry_m": {
+    "waveDistance": 15.0,
+    "waveStartWidth": 4.0,
+    "waveEndWidth": 8.0,
+    "waveTime": 1.75
+   },
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": {
+    "cameraShakeDurationSecs": 1.0,
+    "offensiveSlowRunSpeedDurationMin": 3.0
+   },
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/path/icewave_fxpak01.dbr",
+    "records/fx/skillsother/path/icewave_fx01.dbr",
+    "fx/particlesystems/skillsother/path/pfx_icewave_path01.pfx"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 6.0,
+    "timeout_s": 3.0,
+    "range_band": "MediumRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    5.092,
+    10.592
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.038,
+   "gd_fire_range_m_span": [
+    10.592,
+    10.592
+   ]
+  },
+  {
+   "slot": "special2",
+   "skill": "records/skills/nonplayerskills/heroskills/igrixx_frigidring.dbr",
+   "skill_class": "Skill_AttackProjectileRing",
+   "kind": "projectile",
+   "delivery": "AI-INITIATED (CloseEnoughToUseSkill + IsSkillInProperRange)",
+   "gd_fire_range_m": 16.592,
+   "gd_fire_range_row": "V38-GR2-U1-807",
+   "gd_band_centre_m": [
+    null,
+    5.092
+   ],
+   "gd_effective_window_m": [
+    0.0,
+    5.092
+   ],
+   "distance_profile": "Long",
+   "special_band": "ShortRange",
+   "band_edge_m": [
+    0.0,
+    4.0
+   ],
+   "aura_radius_m": null,
+   "aura_radius_row": null,
+   "pack_row": "U1-807",
+   "pack_reach_m_as_packed": 12.0,
+   "projectile_record": "records/fx/skillsother/projectile/icebolt_nova_fxprojectile.dbr",
+   "projectile_speed_mps": 14.0,
+   "projectile_body_radius_m": 0.10000000149011612,
+   "projectile_flight_cap_m": 12.0,
+   "num_projectiles": null,
+   "aoe_radius_m": {
+    "projectileExplosionRadius": 2.0
+   },
+   "wave_geometry_m": null,
+   "target_angle_deg": null,
+   "target_number": null,
+   "cooldown_s": null,
+   "durations_s": null,
+   "anim_ref": "no skillSpecialAnimationName; -> the record's SpellAttack clip",
+   "anim_binding": "INFERRED (engine default, as the 2026-08-08 census)",
+   "anim_clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+   "anim_frames": 51,
+   "anim_dur_s": 1.6667,
+   "anim_speed": null,
+   "release_frame": 25,
+   "release_s": 0.8333,
+   "release_basis": "first *Hit callback",
+   "hit_frames": [
+    25
+   ],
+   "vfx_records": [
+    "records/fx/skillsother/projectile/icebolt_nova_fxprojectile.dbr",
+    "fx/meshfx/frostorb01.msh",
+    "records/fx/skillsother/projectile/icebolt_flight_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_icebolt_flight01.pfx",
+    "records/fx/skillsother/projectile/icebolt_impact_fx.dbr",
+    "fx/particlesystems/skillsother/projectiles/pfx_icebolt_impact01.pfx",
+    "records/fx/fxtrails/swordfrost_fxtrail.dbr"
+   ],
+   "clip_vfx": [
+    "records/fx/skillsother/castfx/ice_cast_fx.dbr"
+   ],
+   "slot_gates": {
+    "chance_pct": 100.0,
+    "delay_s": 10.0,
+    "timeout_s": 3.0,
+    "range_band": "ShortRange"
+   },
+   "summons": null,
+   "used_by": [
+    "records/creatures/enemies/devotion/slith_h01.dbr"
+   ],
+   "gd_effective_window_m_span": [
+    0.0,
+    5.092
+   ],
+   "gd_effective_window_grade": "INFERRED: [band min (centre) if it binds, min(operating fire range, band max centre)] over DATAMINED terms on the V38-GR2 row; AnyRange / no band -> [0, operating range]",
+   "e_bodies_of_users": 0.038,
+   "gd_fire_range_m_span": [
+    16.592,
+    16.592
+   ]
+  }
+ ],
+ "waves": {
+  "153": 0.072,
+  "158": 0.309
+ },
+ "spawn_points": {
+  "p02": 0.348,
+  "p04": 0.032,
+  "p06": 0.342
+ },
+ "rank": 44,
+ "cum_share": 0.976,
+ "tier": "T3 (tail)",
+ "spawn_notes": {
+  "ring_e_bodies": 0.38,
+  "p05_e_bodies": 0.0,
+  "p06_bonus_e_bodies_off": 0.342,
+  "waves": {
+   "153": 0.072,
+   "158": 0.309
+  },
+  "p05_members": [],
+  "ring_release": "ring points p01-p04 (and p06 when ON) are plain `Proxy`: bodies appear at t=0 with NO spawn animation (EnableSpawnAnimation is never called on that path; DATAMINED, ambush-semantics packet Q1)"
+ },
+ "summons": [],
+ "members_detail": [
+  {
+   "record": "records/creatures/enemies/bounties/dc_bounty08.dbr",
+   "display_name": "Slathra, the Plagued",
+   "description_tag": "tagBountyDC08",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0715,
+   "e_bodies_by_wave_spawnpoint": {
+    "153-p02": 0.0393,
+    "153-p04": 0.0322,
+    "155-p06": 0.0394
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsbounty/bounty_heroes01.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "BOUNTY"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.2000000476837158,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_ranged.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.800000011920929,
+   "run_m_per_s": 2.568,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-026",
+    0.800000011920929,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_diseasecloud.dbr",
+     "pack_row": "U1-189",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 4.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+     "pack_row": "U1-190",
+     "gd_fire_range_m": 10.7,
+     "gd_fire_range_row": "V38-GR2-U1-190",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      3.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 1.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/bossskills/viloth_poisonnova.dbr",
+     "pack_row": "U1-191",
+     "gd_fire_range_m": 6.45,
+     "gd_fire_range_row": "V38-GR2-U1-191",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      12.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h05.dbr",
+   "display_name": "Wrallan ~ Electrified",
+   "description_tag": "tagDevotion_SlithH05",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0394,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0393,
+    "158-p02": 0.0394
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_melee.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.699999988079071,
+   "run_m_per_s": 2.247,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-124",
+    0.699999988079071,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura.dbr",
+     "pack_row": "U1-822",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 12.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningfield.dbr",
+     "pack_row": "U1-823",
+     "gd_fire_range_m": 6.342,
+     "gd_fire_range_row": "V38-GR2-U1-823",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 2.0,
+      "range_band": "AnyRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/stormtail_chainlightning.dbr",
+     "pack_row": "U1-824",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-824",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      5.0,
+      22.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 10.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_lightningnova.dbr",
+     "pack_row": "U1-825",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-825",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      10.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 7.0,
+      "timeout_s": 2.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h08.dbr",
+   "display_name": "Lunorius",
+   "description_tag": "tagDevotion_SlithH08",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0391,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0381,
+    "158-p02": 0.0391
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.2000000476837158,
+   "actorRadius_m": 0.44999998807907104,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_boss_viloth.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.8500000238418579,
+   "run_m_per_s": 2.728,
+   "walk_speed": null,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-127",
+    0.8500000238418579,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+     "pack_row": "U1-836",
+     "gd_fire_range_m": 10.376,
+     "gd_fire_range_row": "V38-GR2-U1-836",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      10.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 2.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/bossskills/primordian_frigidring.dbr",
+     "pack_row": "U1-837",
+     "gd_fire_range_m": 16.376,
+     "gd_fire_range_row": "V38-GR2-U1-837",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      3.0,
+      12.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 75.0,
+      "delay_s": 6.0,
+      "timeout_s": 3.0,
+      "range_band": "LongRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/bolvaris_howlingwind.dbr",
+     "pack_row": "U1-838",
+     "gd_fire_range_m": 6.126,
+     "gd_fire_range_row": "V38-GR2-U1-838",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 14.0,
+      "timeout_s": 5.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special4",
+     "skill": "records/skills/nonplayerskills/heroskills/chillbane_blizzard.dbr",
+     "pack_row": "U1-839",
+     "gd_fire_range_m": 19.376,
+     "gd_fire_range_row": "V38-GR2-U1-839",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 100.0,
+      "timeout_s": 5.0,
+      "range_band": "AnyRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h02.dbr",
+   "display_name": "Balladra Stormscion",
+   "description_tag": "tagDevotion_SlithH02",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0388,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0378,
+    "158-p02": 0.0388
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_ranged.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.800000011920929,
+   "run_m_per_s": 2.568,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-121",
+    0.800000011920929,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "basic",
+     "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningorb.dbr",
+     "pack_row": "U1-810",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-810",
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_bonus_lightningdmgaura.dbr",
+     "pack_row": "U1-811",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 12.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningbarrage.dbr",
+     "pack_row": "U1-812",
+     "gd_fire_range_m": 19.592,
+     "gd_fire_range_row": "V38-GR2-U1-812",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      4.0,
+      15.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 80.0,
+      "delay_s": 6.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningbolt.dbr",
+     "pack_row": "U1-813",
+     "gd_fire_range_m": 19.592,
+     "gd_fire_range_row": "V38-GR2-U1-813",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      8.0,
+      20.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 2.0,
+      "range_band": "LongRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/jaron_lightningfield.dbr",
+     "pack_row": "U1-814",
+     "gd_fire_range_m": 6.342,
+     "gd_fire_range_row": "V38-GR2-U1-814",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 3.0,
+      "range_band": "AnyRange"
+     }
+    },
+    {
+     "slot": "special4",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/electrified_lightningnova.dbr",
+     "pack_row": "U1-815",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-815",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      10.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 7.0,
+      "timeout_s": 0.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h03.dbr",
+   "display_name": "Sharath",
+   "description_tag": "tagDevotion_SlithH03",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0386,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0379,
+    "158-p02": 0.0386
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.8999999761581421,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_melee.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.800000011920929,
+   "run_m_per_s": 2.568,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-122",
+    0.800000011920929,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+     "pack_row": "U1-816",
+     "gd_fire_range_m": 10.781,
+     "gd_fire_range_row": "V38-GR2-U1-816",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      4.0,
+      16.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 12.0,
+      "timeout_s": 6.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/bossskills/ellena_wave.dbr",
+     "pack_row": "U1-817",
+     "gd_fire_range_m": 10.781,
+     "gd_fire_range_row": "V38-GR2-U1-817",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      12.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 3.0,
+      "range_band": "ShortRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h06.dbr",
+   "display_name": "Calladra ~ Corrupted",
+   "description_tag": "tagDevotion_SlithH06",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0385,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0371,
+    "158-p02": 0.0385
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_melee.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.699999988079071,
+   "run_m_per_s": 2.247,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-125",
+    0.699999988079071,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "dying",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/corrupted_aetherconflagration.dbr",
+     "pack_row": "U1-830",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/corrupted_aetheraura.dbr",
+     "pack_row": "U1-826",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 12.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/heroskills/aetheros_aetherballnova.dbr",
+     "pack_row": "U1-827",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-827",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      15.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 1.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/aetheros_aethersmash.dbr",
+     "pack_row": "U1-828",
+     "gd_fire_range_m": 10.592,
+     "gd_fire_range_row": "V38-GR2-U1-828",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      10.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 2.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/corrupted_aetherconflagration.dbr",
+     "pack_row": "U1-829",
+     "gd_fire_range_m": 6.342,
+     "gd_fire_range_row": "V38-GR2-U1-829",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      6.0,
+      20.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 4.0,
+      "timeout_s": 2.0,
+      "range_band": "LongRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h07.dbr",
+   "display_name": "Bliegna",
+   "description_tag": "tagDevotion_SlithH07",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0384,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0382,
+    "158-p02": 0.0384
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.2000000476837158,
+   "actorRadius_m": 0.44999998807907104,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_boss_viloth.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.6000000238418579,
+   "run_m_per_s": 1.926,
+   "walk_speed": null,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-126",
+    0.6000000238418579,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "basic",
+     "skill": "records/skills/nonplayerskills/heroskills/gastris_toxicspittle.dbr",
+     "pack_row": "U1-831",
+     "gd_fire_range_m": 19.376,
+     "gd_fire_range_row": "V38-GR2-U1-831",
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/diseased_diseasecloud.dbr",
+     "pack_row": "U1-832",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 4.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+     "pack_row": "U1-833",
+     "gd_fire_range_m": 10.376,
+     "gd_fire_range_row": "V38-GR2-U1-833",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      12.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 8.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/bossskills/viloth_festeringpool.dbr",
+     "pack_row": "U1-834",
+     "gd_fire_range_m": 16.376,
+     "gd_fire_range_row": "V38-GR2-U1-834",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      4.0,
+      22.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 10.0,
+      "timeout_s": 1.0,
+      "range_band": "LongRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/bossskills/viloth_poisonnova.dbr",
+     "pack_row": "U1-835",
+     "gd_fire_range_m": 6.126,
+     "gd_fire_range_row": "V38-GR2-U1-835",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      0.0,
+      12.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 70.0,
+      "delay_s": 6.0,
+      "timeout_s": 2.0,
+      "range_band": "MediumRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h04.dbr",
+   "display_name": "Traglodan ~ Voidtouched",
+   "description_tag": "tagDevotion_SlithH04",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.0382,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0377,
+    "158-p02": 0.0382
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes05.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_melee.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.699999988079071,
+   "run_m_per_s": 2.247,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-123",
+    0.699999988079071,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaosform.dbr",
+     "pack_row": "U1-818",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 5.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaosstrike.dbr",
+     "pack_row": "U1-819",
+     "gd_fire_range_m": 2.842,
+     "gd_fire_range_row": "V38-GR2-U1-819",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      8.0,
+      20.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 5.0,
+      "timeout_s": 1.0,
+      "range_band": "LongRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/path/slith_tidalwave.dbr",
+     "pack_row": "U1-820",
+     "gd_fire_range_m": 10.592,
+     "gd_fire_range_row": "V38-GR2-U1-820",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      10.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 10.0,
+      "timeout_s": 3.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/archetypes/voidtouched_chaoschainlightning.dbr",
+     "pack_row": "U1-821",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-821",
+     "special_band": "AnyRange",
+     "band_edge_m": [
+      null,
+      null
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 9.0,
+      "timeout_s": 3.0,
+      "range_band": "AnyRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  },
+  {
+   "record": "records/creatures/enemies/devotion/slith_h01.dbr",
+   "display_name": "Rexna",
+   "description_tag": "tagDevotion_SlithH01",
+   "role": "champion-hero",
+   "monster_classification": "Hero",
+   "archive_winner": "sm_mod",
+   "e_bodies_151_160_p06_off": 0.038,
+   "e_bodies_by_wave_spawnpoint": {
+    "152-p06": 0.0365,
+    "158-p02": 0.038
+   },
+   "pools": [
+    {
+     "pool": "records/proxies/poolsdevotion/devotion_heroes06.dbr",
+     "family": "champion",
+     "pool_kind": [
+      "DEVOTION"
+     ]
+    }
+   ],
+   "racial_profile": "Race002",
+   "mesh": "creatures/enemies/slith/slith01.msh",
+   "scale": 1.0499999523162842,
+   "actorRadius_m": 0.7200000286102295,
+   "actorHeight_m": 2.0,
+   "mesh_aabb_height_meshspace": null,
+   "mesh_aabb_half_xz_meshspace": null,
+   "pathing_size": "Medium",
+   "controller": "records/controllers/enemy/controller_slith_melee.dbr",
+   "controller_class": "ControllerMonster",
+   "disallow_rotation": 0,
+   "character_run_speed": 0.699999988079071,
+   "run_m_per_s": 2.247,
+   "walk_speed": 0.6000000238418579,
+   "character_attack_speed": 1.0,
+   "character_spellcast_speed": 1.0,
+   "pack_speed_row": [
+    "K1-SPEED-BANDA-120",
+    0.699999988079071,
+    "DB-CITED"
+   ],
+   "equipped": {},
+   "anim_table": "records/creatures/enemies/anm/anm_slith.dbr",
+   "anim_prefix": "unarmed",
+   "anim_prefix_grade": "DATAMINED (no weapon equipped -> unarmed set)",
+   "clips": {
+    "idle": {
+     "clip": "creatures/enemies/slith/anm/slith01_idle_01.anm",
+     "frames": 57,
+     "dur_s": 1.8667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "walk": {
+     "clip": "creatures/enemies/slith/anm/slith01_walk_01.anm",
+     "frames": 49,
+     "dur_s": 1.6,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "run": {
+     "clip": "creatures/enemies/slith/anm/slith01_run_01.anm",
+     "frames": 35,
+     "dur_s": 1.1333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spawn": {
+     "clip": "creatures/enemies/slith/anm/slith01_spawn_01.anm",
+     "frames": 47,
+     "dur_s": 1.5333,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "take_hit": {
+     "clip": "creatures/enemies/slith/anm/slith01_hit_react_01.anm",
+     "frames": 21,
+     "dur_s": 0.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "stun": {
+     "clip": "creatures/enemies/slith/anm/slith01_stun_01.anm",
+     "frames": 81,
+     "dur_s": 2.6667,
+     "hit_frames": [],
+     "ps_start_frames": [],
+     "clip_fx": []
+    },
+    "spell_attack": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+     "frames": 51,
+     "dur_s": 1.6667,
+     "hit_frames": [
+      25
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      }
+     ]
+    },
+    "buff_self": {
+     "clip": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+     "frames": 61,
+     "dur_s": 2.0,
+     "hit_frames": [
+      30
+     ],
+     "ps_start_frames": [],
+     "clip_fx": [
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "R Hand"
+      },
+      {
+       "frame": 4,
+       "entity": "records/fx/skillsother/castfx/ice_cast_fx.dbr",
+       "attach": "L Hand"
+      }
+     ]
+    },
+    "die": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_death_01.anm",
+      "frames": 37,
+      "dur_s": 1.2,
+      "hit_frames": [],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ],
+    "attack": [
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_02.anm",
+      "frames": 51,
+      "dur_s": 1.6667,
+      "hit_frames": [
+       20
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     },
+     {
+      "clip": "creatures/enemies/slith/anm/slith01_attack_01.anm",
+      "frames": 41,
+      "dur_s": 1.3333,
+      "hit_frames": [
+       13
+      ],
+      "ps_start_frames": [],
+      "clip_fx": []
+     }
+    ]
+   },
+   "special_anim_refs": {
+    "TailLash": "creatures/enemies/slith/anm/slith01_attack_special_01.anm",
+    "RoarPoison": "creatures/enemies/slith/anm/slith01_cast_roarpoison_01.anm",
+    "Roar": "creatures/enemies/slith/anm/slith01_cast_buff_01.anm",
+    "BuffQuick": "creatures/enemies/slith/anm/slith01_cast_attack_01.anm",
+    "TailLashSunder": "creatures/enemies/slith/anm/slith01_attack_special_sunder.anm"
+   },
+   "abilities": [
+    {
+     "slot": "chain_initial",
+     "skill": "records/skills/nonplayerskills/heroskills/bolvaris_glacialcharge.dbr",
+     "pack_row": "U1-804",
+     "gd_fire_range_m": 2.842,
+     "gd_fire_range_row": "V38-GR2-U1-804",
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "chain_next",
+     "skill": "records/skills/nonplayerskills/heroskills/bolvaris_howlingwind.dbr",
+     "pack_row": "U1-805",
+     "gd_fire_range_m": 6.342,
+     "gd_fire_range_row": "V38-GR2-U1-805",
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "initial",
+     "skill": "records/skills/nonplayerskills/heroskills/igrixx_chilledweapons.dbr",
+     "pack_row": "U1-803",
+     "gd_fire_range_m": null,
+     "gd_fire_range_row": null,
+     "special_band": null,
+     "band_edge_m": null,
+     "aura_radius_m": 12.0,
+     "aura_radius_row": null,
+     "slot_gates": null
+    },
+    {
+     "slot": "special1",
+     "skill": "records/skills/nonplayerskills/heroskills/igrixx_chillingfront.dbr",
+     "pack_row": "U1-806",
+     "gd_fire_range_m": 10.592,
+     "gd_fire_range_row": "V38-GR2-U1-806",
+     "special_band": "MediumRange",
+     "band_edge_m": [
+      4.0,
+      18.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 3.0,
+      "range_band": "MediumRange"
+     }
+    },
+    {
+     "slot": "special2",
+     "skill": "records/skills/nonplayerskills/heroskills/igrixx_frigidring.dbr",
+     "pack_row": "U1-807",
+     "gd_fire_range_m": 16.592,
+     "gd_fire_range_row": "V38-GR2-U1-807",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 10.0,
+      "timeout_s": 3.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special3",
+     "skill": "records/skills/nonplayerskills/heroskills/bolvaris_howlingwind.dbr",
+     "pack_row": "U1-808",
+     "gd_fire_range_m": 6.342,
+     "gd_fire_range_row": "V38-GR2-U1-808",
+     "special_band": "ShortRange",
+     "band_edge_m": [
+      0.0,
+      4.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 16.0,
+      "timeout_s": 4.0,
+      "range_band": "ShortRange"
+     }
+    },
+    {
+     "slot": "special4",
+     "skill": "records/skills/nonplayerskills/heroskills/bolvaris_glacialcharge.dbr",
+     "pack_row": "U1-809",
+     "gd_fire_range_m": 2.842,
+     "gd_fire_range_row": "V38-GR2-U1-809",
+     "special_band": "LongRange",
+     "band_edge_m": [
+      8.0,
+      20.0
+     ],
+     "aura_radius_m": null,
+     "aura_radius_row": null,
+     "slot_gates": {
+      "chance_pct": 100.0,
+      "delay_s": 6.0,
+      "timeout_s": 1.0,
+      "range_band": "LongRange"
+     }
+    }
+   ],
+   "summons": [],
+   "p05_emergence_row": null,
+   "p05_special_timeout_rows": null,
+   "ambush_dissolve_time": 0
+  }
+ ],
+ "rig_bone_count": 27,
+ "rig_bone_count_grade": "DATAMINED (Ed III .anm header bone count of the rig clip, census 2026-08-08)"
+}

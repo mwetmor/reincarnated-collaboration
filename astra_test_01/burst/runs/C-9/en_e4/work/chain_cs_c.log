@@ -1,0 +1,16 @@
+heavy_lock: waiting — held by {"pid": 63582, "run": "C-9", "ts": "2026-10-03T00:49:09Z", "cmd": "zsh work/r142/chain2.sh"}
+heavy_lock: acquired after 343s (C-9)
+clip idle             {'frames': 57, 'min_z_m': -0.0002, 'worst_frame_vertex': (43, [-0.078, 0.229, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk             {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (4, [-0.096, 0.222, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1367), 'path_slip_body_m': np.float64(0.1367), 'path_slip_ramp_m': np.float64(0.0897), 'ramp_len_m': 0.803, 'wavelength_m': 1.3333}
+clip run              {'frames': 25, 'min_z_m': -0.0002, 'worst_frame_vertex': (23, [-0.108, 0.215, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1679), 'path_slip_body_m': np.float64(0.0986), 'path_slip_ramp_m': np.float64(0.1306), 'ramp_len_m': 0.803, 'wavelength_m': 2.056}
+clip attack_claw      {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (39, [-0.077, 0.225, -0.0]), 'penetration_frames': 0}
+clip cast_bolt        {'frames': 51, 'min_z_m': -0.0002, 'worst_frame_vertex': (50, [-0.077, 0.226, -0.0]), 'penetration_frames': 0}
+clip cast_nova        {'frames': 61, 'min_z_m': -0.0007, 'worst_frame_vertex': (59, [-0.077, 0.226, -0.001]), 'penetration_frames': 0}
+clip attack_taillash  {'frames': 79, 'min_z_m': -0.0002, 'worst_frame_vertex': (27, [-0.059, 0.227, -0.0]), 'penetration_frames': 0}
+clip hit              {'frames': 21, 'min_z_m': -0.0002, 'worst_frame_vertex': (4, [-0.096, 0.321, -0.0]), 'penetration_frames': 0}
+clip death            {'frames': 37, 'min_z_m': -0.0002, 'worst_frame_vertex': (14, [-0.054, 0.226, -0.0]), 'penetration_frames': 0}
+wrote builds/coilseer_rig_v3.glb
+{"glb": "builds/coilseer_rig_v3.glb", "s_fit": 1.0786, "s_with_margin": 1.0272, "binding": "hit f3 heading6", "margin": 0.05}
+sheet work/strip_coilseer_v3.png (2400, 1282)
+PAINT SHEET packed: base px/m 140.92, 8 cells, canvas 1536x1024
+   SW        coverage  33.9%   edge touch   0.0%

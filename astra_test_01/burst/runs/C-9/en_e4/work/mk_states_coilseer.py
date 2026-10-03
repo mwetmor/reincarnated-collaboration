@@ -1,0 +1,22 @@
+import json, math
+d = json.load(open('export/coilseer/coilseer.rig.json'))['landmarks']
+L = lambda a, b: round(math.dist(a, b), 4)
+aR = d['arms']['R']; cl = d['centreline']
+st = {"states": {
+  "idle": {"kind": "loop", "role": "locomotion_idle", "frames": 12, "sampling": "loop"},
+  "walk": {"kind": "loop", "role": "locomotion_walk", "frames": 12, "sampling": "loop"},
+  "run": {"kind": "loop", "role": "locomotion_run", "frames": 12, "sampling": "loop"},
+  "attack_claw": {"kind": "oneshot", "role": "oneshot_release", "frames": 12, "sampling": "release", "release_socket": "claw_R", "skill": "the roster's basic claw rake (melee); release = the right hand's contact (RightHandHit)"},
+  "cast_bolt": {"kind": "oneshot", "role": "oneshot_release", "frames": 16, "sampling": "release", "release_socket": "cast_hand_R", "skill": "the record family's bolts (lightning orb, toxic spittle, chain bolts); the bolt leaves the right palm"},
+  "cast_nova": {"kind": "oneshot", "role": "oneshot_release", "frames": 16, "sampling": "release", "release_socket": "chest", "skill": "poison nova / aura toggles / frost ring (the buff-cast clip); the ring leaves the body"},
+  "attack_taillash": {"kind": "oneshot", "role": "oneshot_release", "frames": 16, "sampling": "release", "release_socket": "tail_tip", "skill": "the tail lash: the black-water wave (10 m x 2-3 m) rolls out at the slam"},
+  "hit": {"kind": "oneshot", "role": "oneshot", "frames": 8, "sampling": "ends"},
+  "death": {"kind": "oneshot", "role": "oneshot_hold", "frames": 16, "sampling": "ends", "hold_last": True}},
+ "sockets": {
+  "maw": {"bone": "jaw", "along_bone_m": round(0.8 * L((0, d['y_hinge'], d['z_lip']), (0, d['y_snout'], d['z_lip'])), 4), "_what": "near the jaw tip"},
+  "claw_R": {"bone": "arm_R_3", "along_bone_m": L(aR['wr'], aR['tip']), "_what": "the RIGHT hand's claw tips (wrist -> tip, measured)"},
+  "cast_hand_R": {"bone": "arm_R_3", "along_bone_m": round(0.5 * L(aR['wr'], aR['tip']), 4), "_what": "the RIGHT palm (the bolt spawn)"},
+  "tail_tip": {"bone": "seg_b%d" % (len(cl) - 1), "along_bone_m": L(cl[-2], cl[-1]), "_what": "the serpent body's tip"},
+  "head_top": {"bone": "head", "along_bone_m": 0.05, "local_m": [0.0, 0.0, 0.08], "_what": "the crown (HUD anchor)"},
+  "chest": {"bone": "chest", "_what": "the chest bone's head"}}}
+json.dump(st, open('work/states_coilseer.json', 'w'), indent=1); print('states_coilseer ok')
