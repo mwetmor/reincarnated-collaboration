@@ -25,7 +25,7 @@ L = json.load(open(os.path.join(ROOT, "layout_v2.json")))
 EXT = {"x0": -62.0, "x1": 66.0, "y0": -74.0, "y1": 62.0}      # sim frame, the land/sea texture extent
 
 CLASSES = ["outside_sea", "outside_shore_ice", "outside_land", "grave_ground", "shore_shingle", "cliff_top_rock",
-           "hall_yard_ash", "snow_field", "mere_ice", "stream_ice", "circle", "path"]
+           "hall_yard_ash", "snow_field", "mere_ice", "stream_ice", "circle", "path", "lane"]
 OUT_RGB = {"outside_sea": (0.20, 0.27, 0.34), "outside_shore_ice": (0.62, 0.70, 0.77), "outside_land": (0.62, 0.61, 0.58)}
 
 
@@ -90,10 +90,14 @@ def classify(ppm):
     cls[floor & circ] = CLASSES.index("circle")
     cls[stream & (floor | land)] = CLASSES.index("stream_ice")
     cls[mere] = CLASSES.index("mere_ice")
+    for ln in L.get("lanes", []):                                    # R-C9-155: the exit lanes, trodden ground
+        cls[poly_mask(ln["polygon"], X, Y)] = CLASSES.index("lane")
     return cls, X, Y, floor
 
 
 def rgb_of(name):
+    if name == "lane":
+        return (0.70, 0.64, 0.56)
     if name in OUT_RGB:
         return OUT_RGB[name]
     return tuple(L["zones"]["classes"][name]["rgb"])
@@ -120,7 +124,7 @@ def main():
             "png": "greybox/ground_class_map.png", "png_sha256": sha256(p_cls), "px_per_m": 4.0,
             "extent_sim_m": EXT, "row0": "y = y0 (north edge); col0 = x0 (west edge)",
             "classes": {i: nm for i, nm in enumerate(CLASSES)},
-            "surface": {nm: L["zones"]["classes"][nm]["surface"] for nm in CLASSES if nm in L["zones"]["classes"]},
+            "surface": dict({nm: L["zones"]["classes"][nm]["surface"] for nm in CLASSES if nm in L["zones"]["classes"]}, lane="trodden_ground"),
             "area_m2_by_class": counts}
     json.dump(meta, open(os.path.join(ROOT, "greybox", "ground_class_map.json"), "w"), indent=2, ensure_ascii=False)
     open(os.path.join(ROOT, "greybox", "ground_class_map.json"), "a").write("\n")
@@ -231,6 +235,15 @@ def main():
         a = [fl3[0][0] + t * (fl3[3][0] - fl3[0][0]), fl3[0][1] + t * (fl3[3][1] - fl3[0][1])]
         b = [fl3[1][0] + t * (fl3[2][0] - fl3[1][0]), fl3[1][1] + t * (fl3[2][1] - fl3[1][1])]
         ax.plot([a[0], b[0]], [a[1], b[1]], color="#5a4020", lw=0.4)
+    for ln in L.get("lanes", []):
+        ax.add_patch(MPoly(ln["polygon"], closed=True, fc="#c8a878", ec="#6a4a20", lw=1.0, alpha=0.75, hatch="..."))
+        ax.annotate(ln["id"].replace("lane_", "lane "), tuple(ln["centreline"][len(ln["centreline"]) // 2]), fontsize=6.5, color="#4a2a00",
+                    ha="center", bbox=dict(boxstyle="round,pad=0.15", fc="#f5e6c8", ec="none", alpha=0.8))
+    for m in L.get("models", []):
+        ax.add_patch(MPoly(m["footprint"], closed=True, fill=False, ec="#1040c0", lw=0.9, ls=(0, (3, 2))))
+        if m["kind"] not in ("outcrop", "grove") or m["id"].endswith("_1"):
+            ax.annotate(m["id"], tuple(m["pos"]), fontsize=6.5, color="#0a2a80", ha="center", va="bottom",
+                        bbox=dict(boxstyle="round,pad=0.12", fc="white", ec="none", alpha=0.7))
     ax.add_patch(MPoly(L["floor"]["polygon"], closed=True, fill=False, ec="black", lw=2.0))
     ax.add_patch(MPoly(L["floor"]["min_disc_hull"]["polygon"], closed=True, fill=False, ec="#666", lw=0.7, ls=(0, (1, 2))))
     ax.plot(*zip(*L["land"]["cliff_lip"]), color="#3a2c20", lw=1.0, ls="-")
@@ -256,7 +269,9 @@ def main():
             ys = [p[1] for p in f["footprint"]]
             ax.annotate(labels[f["id"]], (sum(xs) / len(xs), sum(ys) / len(ys)), fontsize=8, ha="center", color="white",
                         bbox=dict(boxstyle="round,pad=0.2", fc="#000", ec="none", alpha=0.55))
-    ax.annotate("stair: 3.0 m wide, 28 x (0.15 rise / 0.30 tread)\n26.6° ramp, 4.2 m climb from the ledge, open sea side",
+    _f = S["flight"]
+    ax.annotate("stair: %.1f m wide, %d x (%.2f rise / %.2f tread)\n%.1f° ramp, %.1f m climb from the ledge, open sea side" % (
+                    S["width_m"], _f["n_steps"], _f["step_rise_m"], _f["step_tread_m"], _f["slope_deg"], _f["drop_m"]),
                 (S["flight"]["polygon"][2][0] - 14, S["flight"]["polygon"][2][1] + 9), fontsize=7.5,
                 bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.85))
     ax.annotate("frozen mere", (-14, -16), fontsize=8.5, color="#183050", ha="center")
@@ -274,7 +289,7 @@ def main():
     fa = L["floor"]
     ax.set_title(f"barrow_v2 'Fjord Headland' greybox plan -- walkable floor {fa['extents']['width_x']:.1f} x {fa['extents']['depth_y']:.1f} m, "
                  f"{fa['area_m2']:.0f} m2 (black, ORGANIC edge, R-C9-149a) around the disc-hull minimum {fa['min_disc_hull']['area_m2']:.0f} m2 (grey dotted)\n"
-                 "gold: the 8 m scatter discs (the oracle's polar law), dashed lines: open lines to the start; blue dashed: the 25 x 18 m camera windows",
+                 "gold: 8 m spawn discs; tan hatched: EXIT LANES (R-C9-155); blue dashed: MODEL SLOTS; blue long-dash: the 25 x 18 m camera windows",
                  fontsize=9.5)
     fig.tight_layout()
     p_plan = os.path.join(ROOT, "greybox", "plan_topdown.png")

@@ -24,6 +24,9 @@ The rules (oracle + KC2 KP-253 + R-C9-145):
   R8  the stone circle: 7-9 stones, all walk-over
   R9  the camera is the projection law (pitch, zero yaw, plate scale)
   R10 each delivering feature (door, wreck, cave/stair, gable) is OUTSIDE the edge and close to it
+  R12 (R-C9-155) an exit lane from every deliverer opening to its disc, >= the opening's clear width,
+      with NOTHING standing or lying in it; the porch door opens straight onto its lane
+  R13 (R-C9-155) clean floor: only flat marks and sparse small tufts on the walkable floor
   R11 (R-C9-154) every deliverer opening is sized to the largest monster it delivers, measured off the
       rendered geometry: barrow door >= 5.0 x 6.5 m, great door/porch >= 4.5 x 4.5 m (porch above the
       hall's roofline), sea cave >= 9 x ~7 m
@@ -447,39 +450,22 @@ def validate(L, check_provenance=True):
             limit = {"p03": 0.5, "p02": 3.5}.get(pid, 3.0)
             R.check("R10", f"{pid}: {fid} is outside the walkable edge and within {limit} m of it", oa <= TOL and gap <= limit,
                     overlap_m2=round(oa, 6), gap_to_floor_m=round(gap, 3))
-    # ---------------- R11 openings sized to the monsters (R-C9-154) ----------------
-    sc = L.get("sculpt") or {"beams": [], "blobs": []}
-    BM = sc["beams"]
-
-    def horiz(a, b):
-        return math.hypot(a[0] - b[0], a[1] - b[1])
-    posts = [b for b in BM if b["k"] == "door_post"]
-    lint = [b for b in BM if b["k"] == "lintel"]
-    if len(posts) == 2 and lint:
-        gap_c = horiz(posts[0]["a"], posts[1]["a"])
-        clear_w = gap_c - (posts[0]["w"] + posts[1]["w"]) / 2
-        clear_h = min(l["a"][2] for l in lint) - lint[0]["t"] / 2
-        R.check("R11", "p02 barrow door clear opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m), measured between the rendered uprights and under the lintel",
-                clear_w >= 5.0 - 5e-3 and clear_h >= 6.5 - 5e-3, clear_w_m=round(clear_w, 3), clear_h_m=round(clear_h, 3))
-    else:
-        R.check("R11", "p02 barrow door uprights + lintel present", False, n_posts=len(posts), n_lintels=len(lint))
-    fp = [b for b in BM if b["k"] == "porch_post_front"]
-    eave = [b for b in BM if b["k"] == "porch_eave"]
-    leaves = [b for b in BM if b["k"] == "door_leaf"]
-    dark = [b for b in sc["blobs"] if b["k"] == "dark"]
-    hall_ridge = max((b["a"][2] for b in BM if b["k"] == "ridge"), default=0.0)
-    ridge = max((max(b["a"][2], b["b"][2]) for b in BM if b["k"] == "porch_ridge"), default=0.0)
-    if len(fp) == 2 and eave:
-        clear_w = horiz(fp[0]["a"], fp[1]["a"]) - (fp[0]["w"] + fp[1]["w"]) / 2
-        clear_h = eave[0]["a"][2] - eave[0]["t"] / 2
-        door_h = max((b["top"] for b in dark if abs(b["top"] - clear_h) < 2.5 or True), default=0.0)
-        R.check("R11", "p04 great door + porch clear opening >= 4.5 m wide x 4.5 m high (colossus 3.2 m, statues ~3.5 m, crabs ~3.4 m wide), measured between the porch's front posts and under its front beam; the doorway behind it as large",
-                clear_w >= 4.5 - 5e-3 and clear_h >= 4.5 - 5e-3 and len(leaves) == 2,
-                clear_w_m=round(clear_w, 3), clear_h_m=round(clear_h, 3), door_leaves=len(leaves))
-        R.check("R11", "the porch rises ABOVE the hall's roofline (its ridge vs the hall's ridge beams)", ridge > hall_ridge + 0.5,
-                porch_ridge_m=round(ridge, 2), hall_ridge_max_m=round(hall_ridge, 2))
-    else:
-        R.check("R11", "p04 porch front posts + front beam present", False, n_front_posts=len(fp), n_eave=len(eave))
+    # ---------------- R11 openings sized to the monsters (R-C9-154), read off the MODEL SLOTS (R-C9-155) ----------------
+    M = {m["id"]: m for m in L.get("models", [])}
+    lanes = {ln["opening"]: ln for ln in L.get("lanes", [])}
+    if M:
+        bf = M.get("barrow_front", {}).get("opening", {})
+        R.check("R11", "p02 barrow_front slot opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m)",
+                bf.get("w", 0) >= 5.0 and bf.get("h", 0) >= 6.5, w_m=bf.get("w"), h_m=bf.get("h"))
+        lh = M.get("longhall", {}).get("opening", {})
+        gd = (lh.get("openings") or [{}])[0]
+        po = M.get("hall_porch", {})
+        R.check("R11", "p04: the longhall slot has EXACTLY ONE great door, >= 4.5 x 4.5 m, inside the porch; the porch opening >= 4.5 x 4.5 m",
+                lh.get("count") == 1 and len(lh.get("openings", [])) == 1 and gd.get("w", 0) >= 4.5 and gd.get("h", 0) >= 4.5
+                and gd.get("in") == "hall_porch" and po.get("opening", {}).get("w", 0) >= 4.5 and po.get("opening", {}).get("h", 0) >= 4.5,
+                great_doors=lh.get("count"), door_w_m=gd.get("w"), door_h_m=gd.get("h"), porch_opening=[po.get("opening", {}).get("w"), po.get("opening", {}).get("h")])
+        R.check("R11", "the porch rises ABOVE the hall's roofline (slot heights)", po.get("size_m", {}).get("h", 0) > M["longhall"]["size_m"]["h"] + 0.5,
+                porch_h_m=po.get("size_m", {}).get("h"), hall_h_m=M["longhall"]["size_m"]["h"])
     cave = next((f for f in feats if f["kind"] == "cave"), None)
     if cave is not None:
         cp = [tuple(p) for p in cave["footprint"]]
@@ -490,6 +476,142 @@ def validate(L, check_provenance=True):
         R.check("R11", "p03 sea-cave mouth ~7 m high x >= 9 m wide (servitors 4-8 m long, the 5.6 m nemesis), with rock above it below the floor",
                 mouth_w >= 9.0 - 0.05 and mouth_h >= 6.5 and lintel > 0.1,
                 mouth_w_m=round(mouth_w, 3), mouth_h_m=round(mouth_h, 3), rock_lintel_m=round(lintel, 3))
+
+    # ---------------- R12 the exit lanes (R-C9-155, the v1 method) ----------------
+    FLAT = 0.15
+    sc = L.get("sculpt") or {"beams": [], "blobs": []}
+    need = {"barrow_front": 5.0, "hall_porch": 4.5, "fallen_gable": 4.0, "sea_cave_stair": 5.0, "wreck": 4.0}
+    R.check("R12", "a lane exists for each of the five deliverers (barrow door, great door, gable breach, stair landing, wreck rail)",
+            set(need) <= set(lanes), lanes=sorted(lanes))
+    import numpy as np
+    Hh = None
+    if sc.get("heightfield"):
+        hf = sc["heightfield"]
+        Hh = np.fromfile(os.path.join(ROOT, hf["file"]), dtype="<f4").reshape(hf["shape"])
+    for op, wmin in need.items():
+        ln = lanes.get(op)
+        if ln is None:
+            continue
+        poly = [tuple(p) for p in ln["polygon"]]
+        cl = [tuple(p) for p in ln["centreline"]]
+        # width: at every centreline sample, the distance to the left side + the distance to the right side
+        lsd, rsd = [tuple(p) for p in ln["left"]], [tuple(p) for p in ln["right"]]
+
+        def dpl(p, pl):
+            return min(G.dist_point_seg(p, pl[i], pl[i + 1]) for i in range(len(pl) - 1))
+        half = min(dpl(p, lsd) + dpl(p, rsd) for p in cl) / 2
+        st = tuple(ln["mouth"])
+        st_in = G.point_in_poly(st, poly) or G.dist_to_boundary(st, poly) <= 0.8
+        anc = next(a for a in anchors if a["id"] == ln["point"])
+        disc = disc_poly((anc["x"], anc["y"]), r_disc, 128)
+        on_disc = overlap_area(poly, disc)
+        end_in = math.dist(tuple(ln["end"]), (anc["x"], anc["y"])) <= r_disc - 1.5
+        mo = M.get(op, {}).get("opening", {})
+        mw = mo.get("w", wmin) if op in ("barrow_front", "hall_porch") else wmin
+        # what stands or lies in it
+        hits = []
+        for f in feats:
+            if f["z_top_m"] <= FLAT and not f["blocks_movement"]:
+                continue
+            if overlap_area([tuple(q) for q in f["footprint"]], poly) > TOL:
+                hits.append(("feature", f["id"]))
+        for m in M.values():
+            insts = m.get("instances") or []
+            for ins in insts:
+                if ins["type"] == "box":
+                    w_, d_, h_ = ins["size_m"]
+                    top = ins["z"] + h_
+                    if top <= FLAT or ins["z"] >= 4.0:      # flush, or OVERHEAD (a lintel above the opening's clear height)
+                        continue
+                    fp_ = G.rect_poly(ins["pos"][0], ins["pos"][1], w_, d_, -ins["godot_rot_y_deg"])
+                    if overlap_area(fp_, poly) > TOL:
+                        hits.append(("model", m["id"]))
+                else:
+                    a_, b_ = ins["a"], ins["b"]
+                    for k in range(11):
+                        t = k / 10
+                        q = (a_[0] + t * (b_[0] - a_[0]), a_[1] + t * (b_[1] - a_[1]))
+                        if G.point_in_poly(q, poly):
+                            hits.append(("model", m["id"]))
+                            break
+            if not insts and m.get("placeholder") != "procedural" and overlap_area([tuple(q) for q in m["footprint"]], poly) > TOL:
+                hits.append(("model", m["id"]))
+        for bm in sc["beams"]:
+            a_, b_ = bm["a"], bm["b"]
+            for k in range(11):
+                t = k / 10
+                q = (a_[0] + t * (b_[0] - a_[0]), a_[1] + t * (b_[1] - a_[1]))
+                if G.point_in_poly(q, poly) or G.dist_to_boundary(q, poly) < max(bm["w"], bm["t"]) / 2 and G.point_in_poly(q, poly):
+                    hits.append(("beam", bm["k"]))
+                    break
+        for bb in sc["blobs"]:
+            if bb["top"] <= FLAT and bb["k"] in ("footprint", "ripple", "crack", "flag"):
+                continue
+            fp_ = G.ellipse_poly(bb["c"][0], bb["c"][1], bb["r"][0], bb["r"][1], bb["rot"], 12)
+            if overlap_area(fp_, poly) > TOL:
+                hits.append(("blob", bb["k"]))
+        hmax = None
+        if Hh is not None:
+            hf = sc["heightfield"]
+            ex_ = hf["extent_sim_m"]
+            xs = [p[0] for p in poly]
+            ys = [p[1] for p in poly]
+            i0 = max(0, int((min(xs) - ex_["x0"]) * hf["px_per_m"]))
+            i1 = min(Hh.shape[1] - 1, int((max(xs) - ex_["x0"]) * hf["px_per_m"]) + 1)
+            j0 = max(0, int((min(ys) - ex_["y0"]) * hf["px_per_m"]))
+            j1 = min(Hh.shape[0] - 1, int((max(ys) - ex_["y0"]) * hf["px_per_m"]) + 1)
+            hmax = -99.0
+            for j in range(j0, j1 + 1):
+                for i in range(i0, i1 + 1):
+                    q = (ex_["x0"] + i / hf["px_per_m"], ex_["y0"] + j / hf["px_per_m"])
+                    if G.point_in_poly(q, poly) and G.dist_to_boundary(q, poly) > 0.5:
+                        hmax = max(hmax, float(Hh[j, i]))
+        R.check("R12", f"{ln['id']}: >= {max(wmin, mw)} m wide, starts at the {op} opening, reaches {ln['point']}'s disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > {FLAT} m, terrain)",
+                2 * half >= max(wmin, mw) - 1e-3 and st_in and on_disc >= 5.0 and end_in and not hits and (hmax is None or hmax <= FLAT),
+                width_min_m=round(2 * half, 3), required_m=max(wmin, mw), length_m=ln["length_m"], starts_at_opening=st_in,
+                on_disc_m2=round(on_disc, 2), obstructions=hits[:6], terrain_max_z_m=None if hmax is None else round(hmax, 3))
+    # the porch's door opens straight onto its lane
+    po = M.get("hall_porch")
+    ln = lanes.get("hall_porch")
+    if po and ln:
+        fx = math.sin(math.radians(po["faces_compass_deg"]))
+        fy = -math.cos(math.radians(po["faces_compass_deg"]))
+        cl = ln["centreline"]
+        dx, dy = cl[1][0] - cl[0][0], cl[1][1] - cl[0][1]
+        ang = math.degrees(math.acos(max(-1, min(1, (fx * dx + fy * dy) / (math.hypot(dx, dy) or 1)))))
+        dmouth = math.dist(po["opening"]["centre"], ln["mouth"])
+        R.check("R12", "the porch's door opens STRAIGHT onto its lane (lane starts at the porch mouth; first heading within 5 deg of the porch's facing)",
+                dmouth <= 0.05 and ang <= 5.0, mouth_to_lane_start_m=round(dmouth, 3), heading_vs_facing_deg=round(ang, 1))
+
+    # ---------------- R13 the clean floor (R-C9-155: the v1 Barrow's rule) ----------------
+    FLATK = {"footprint", "ripple", "crack", "tuft", "flag"}
+    bad = []
+    tufts = 0
+    for bb in sc["blobs"]:
+        fp_ = G.ellipse_poly(bb["c"][0], bb["c"][1], bb["r"][0], bb["r"][1], bb["rot"], 12)
+        if FI.overlap(fp_) <= TOL or bb["top"] <= 0.0:          # (below the floor's surface: the cliff face)
+            continue
+        if bb["k"] == "tuft":
+            tufts += 1
+        if bb["k"] not in FLATK or bb["top"] > FLAT:
+            bad.append((bb["k"], bb["c"], bb["top"]))
+    over_floor_beams = [bm["k"] for bm in sc["beams"] if any(FI.inside((bm["a"][0] + t / 10 * (bm["b"][0] - bm["a"][0]), bm["a"][1] + t / 10 * (bm["b"][1] - bm["a"][1]))) for t in range(11))]
+    tall_feats = [(f["id"], f["z_top_m"]) for f in feats if f["z_top_m"] > FLAT and FI.overlap(f["footprint"]) > TOL]
+    model_on_floor = []
+    for m in M.values():
+        for ins in (m.get("instances") or []):
+            if ins["type"] == "box" and ins["z"] + ins["size_m"][2] > FLAT and FI.overlap(G.rect_poly(ins["pos"][0], ins["pos"][1], ins["size_m"][0], ins["size_m"][1], -ins["godot_rot_y_deg"])) > TOL:
+                model_on_floor.append(m["id"])
+            if ins["type"] == "beam" and any(FI.inside((ins["a"][0] + t / 10 * (ins["b"][0] - ins["a"][0]), ins["a"][1] + t / 10 * (ins["b"][1] - ins["a"][1]))) for t in range(11)):
+                model_on_floor.append(m["id"])
+        if not m.get("instances") and m.get("placeholder") != "procedural" and FI.overlap(m["footprint"]) > TOL:
+            model_on_floor.append(m["id"])
+    cap = 0.015 * G.area(floor)
+    R.check("R13", f"CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= {FLAT} m) on the floor; no beams, no taller features or model slots",
+            not bad and not over_floor_beams and not tall_feats and not model_on_floor,
+            offenders=(bad + [("beam", k) for k in over_floor_beams] + tall_feats + [("model", k) for k in model_on_floor])[:6])
+    R.check("R13", "tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)", tufts <= cap,
+            tufts=tufts, cap=int(cap), per_100m2=round(100 * tufts / G.area(floor), 3))
     return R
 
 
@@ -510,11 +632,16 @@ def broken_copy(L):
     if "sculpt" in B:
         B["sculpt"]["blobs"].append({"k": "rock", "c": [-6.0, 12.0], "cz": 0.0, "r": [1.2, 1.0, 1.4], "rot": 0.0,
                                      "rgb": [0.5, 0.5, 0.5], "proto": "rock", "top": 1.4})
-    # (b3) R11: the barrow door's lintel dropped to 4 m (too low for the yeti nemesis)
-    if "sculpt" in B:
-        for bm in B["sculpt"]["beams"]:
-            if bm["k"] == "lintel":
-                bm["a"][2] = bm["b"][2] = 4.0
+    # (b3) R11: the barrow door's opening dropped to 4 m (too low for the yeti nemesis)
+    for m in B.get("models", []):
+        if m["id"] == "barrow_front":
+            m["opening"]["h"] = 4.0
+    # (b4) R12: a beam lying across the hall's lane; R13: a tall tuft on the floor
+    if "sculpt" in B and B.get("lanes"):
+        ln = next(l for l in B["lanes"] if l["opening"] == "hall_porch")
+        c0, c1 = ln["centreline"][1], ln["centreline"][-2]
+        B["sculpt"]["beams"].append({"k": "fallen", "a": [c0[0], c0[1], 0.2], "b": [c1[0], c1[1], 0.3], "w": 0.3, "t": 0.3, "rgb": [0.2, 0.2, 0.2]})
+        B["sculpt"]["blobs"].append({"k": "tuft", "c": [-5.0, 15.0], "cz": 0.0, "r": [0.4, 0.4, 0.6], "rot": 0.0, "rgb": [0.5, 0.4, 0.3], "proto": "crown", "top": 0.6})
     # (c) R6: a narrow, steep stair
     S = B["stair"]
     fl3 = S["flight"]["polygon"]
@@ -531,7 +658,7 @@ def broken_copy(L):
     mx = sum(p[0] for p in me) / len(me)
     my = sum(p[1] for p in me) / len(me)
     B["mere"]["polygon"] = [[mx + 0.6 * (p[0] - mx), my + 0.6 * (p[1] - my)] for p in me]
-    return B, {"R2", "R3", "R4", "R5", "R6", "R7", "R11"}
+    return B, {"R2", "R3", "R4", "R5", "R6", "R7", "R11", "R12", "R13"}
 
 
 def print_report(R, title):

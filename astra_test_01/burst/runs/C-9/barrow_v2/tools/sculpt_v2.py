@@ -26,6 +26,13 @@ EXT = {"x0": -62.0, "x1": 66.0, "y0": -74.0, "y1": 62.0}
 HF_PPM = 2.0                    # heightfield samples per metre (0.5 m grid)
 SEA_FLOOR_Z = -7.8              # under the sea plane (-7.5, R-C9-154)
 WALKOVER = 0.35                 # interior ground detail never exceeds this (the validator's limit is 0.40)
+FLAT_MAX = 0.15                 # R-C9-155: the floor (and the exit lanes) carry only flat marks + sparse tufts <= this
+TUFT_CAP_PER_M2 = 0.015         # R-C9-155: sparse -- at most 1.5 tufts per 100 m2 of floor
+STRUCT_BEAMS = {"door_post", "lintel", "capstone", "kerb_step", "keel", "rib", "plank", "rail", "stem", "mast", "post", "rafter",
+                "fallen", "plate", "ridge", "board", "porch_post", "porch_post_front", "porch_eave_side", "porch_eave",
+                "porch_ridge", "porch_board", "finial", "gable_plank", "door_leaf", "gable_rafter", "gable_collar",
+                "brazier_stand", "stake", "birch"}
+STRUCT_BLOBS = {"head", "finial_head", "door_dark", "rubble", "bowl", "flame", "crown", "stone"}
 
 
 # ------------------------------------------------------------------ small helpers
@@ -181,6 +188,11 @@ class Builder:
         self.beams = []
         self.features = []
         self.rng = np.random.default_rng(1491)
+        # R-C9-155 ("v1 method"): structures are MODEL SLOTS now (layout["models"]). Their procedural beams and
+        # blobs are no longer rendered; the few that carry placement (stakes, birches, stones) are CAPTURED
+        # as slot instances instead.
+        self.captured = {}
+        self.cluster_rocks = {}
         w = int(round((EXT["x1"] - EXT["x0"]) * HF_PPM)) + 1
         hgt = int(round((EXT["y1"] - EXT["y0"]) * HF_PPM)) + 1
         self.gx = EXT["x0"] + np.arange(w) / HF_PPM
@@ -199,6 +211,10 @@ class Builder:
     def blob(self, kind, c, rx, ry, top, base, rot, rgb, proto="rock", fid=None, blocks=None, note=""):
         """An ellipsoid (rx, ry horizontal) whose visible part runs from `base` to `top`; centre sits
         so the ellipsoid's equator is at max(base, top - 2*rz) (half-buried for low ground detail)."""
+        if kind in STRUCT_BLOBS:
+            self.captured.setdefault(kind, []).append({"c": [round(c[0], 3), round(c[1], 3)], "r": [round(rx, 3), round(ry, 3)],
+                                                       "top": round(float(top), 3), "base": round(float(base), 3), "rot": round(float(rot), 2)})
+            return None
         rz = max(0.02, (top - base))
         cz = top - rz if kind not in ("crown",) else top - rz
         b = {"k": kind, "c": [round(c[0], 3), round(c[1], 3)], "cz": round(float(cz), 3), "r": [round(rx, 3), round(ry, 3), round(float(rz), 3)],
@@ -214,6 +230,9 @@ class Builder:
         the hint `xh` for vertical members), t the remaining (roughly vertical) extent."""
         d = {"k": kind, "a": [round(v, 3) for v in a], "b": [round(v, 3) for v in b], "w": round(w, 3), "t": round(t, 3),
              "rgb": [round(v, 3) for v in rgb]}
+        if kind in STRUCT_BEAMS:
+            self.captured.setdefault(kind, []).append(d)
+            return
         if xh is not None:
             d["xh"] = [round(xh[0], 4), round(xh[1], 4)]
         self.beams.append(d)
@@ -311,6 +330,10 @@ class Builder:
             H = np.where(msk, SEA_FLOOR_Z, H)
         wall = poly_mask(c["wall_rock"], X, Y)
         H = np.where(wall, SEA_FLOOR_Z, H)
+        # (R-C9-155) the exit lanes are trodden flat ground where they run outside the floor
+        for ln in L.get("lanes", []):
+            lm = poly_mask(ln["polygon"], X, Y) | (dist_to_poly_edges(ln["polygon"], X, Y) < 0.6)
+            H = np.where(lm & ~inF & (H > -1.0), np.minimum(H, 0.05), H)
         # the floor and a 0.35 m apron are exactly flat at 0 (the sim's plane)
         flat = inF | (dF <= 0.35)
         H = np.where(flat & (land | inF), 0.0, H)
@@ -332,8 +355,14 @@ class Builder:
     def outside_ok(self, c, r, margin=1.0):
         """True when a disc of radius r + margin at c is clear of the floor."""
         floor = self.L["floor"]["polygon"]
-        return G.disc_clearance(c, r + margin, floor) < 0 and not G.point_in_poly(c, floor) and \
+        ok = G.disc_clearance(c, r + margin, floor) < 0 and not G.point_in_poly(c, floor) and \
             G.dist_to_boundary(c, floor) > r + margin
+        for ln in self.L.get("lanes", []):
+            if not ok:
+                break
+            q = ln["polygon"]
+            ok = (not G.point_in_poly(c, q)) and G.dist_to_boundary(c, q) > r + 0.6
+        return ok
 
     def dressing(self):
         L, c, rng = self.L, self.ctx, self.rng
@@ -344,7 +373,7 @@ class Builder:
         CHAR = (0.13, 0.11, 0.10)
         # -- rock outcrops and boulder clusters on the slopes (outside the floor) --
         k = 0
-        for (cx, cy, n, size) in c["rock_clusters"]:
+        for ci, (cx, cy, n, size) in enumerate(c["rock_clusters"]):
             for j in range(n):
                 p = (cx + rng.normal(0, size * 1.3), cy + rng.normal(0, size * 1.3))
                 s_ = size * rng.uniform(0.45, 1.1)
@@ -353,6 +382,7 @@ class Builder:
                 k += 1
                 self.rock(p, s_, rng.uniform(0.5, 1.1), tuple(np.clip(np.array(ROCK) + rng.normal(0, 0.035), 0, 1)),
                           f"rock_{k}", "rock outcrop / boulder cluster on the slopes, outside the edge")
+                self.cluster_rocks.setdefault(ci, []).append(self.blobs[-1])
         # -- the cliff foot: fallen boulders at sea level --
         st = L["stair"]
         keep = [st[k]["polygon"] for k in ("flight", "top_landing", "bottom_landing")]
@@ -385,7 +415,7 @@ class Builder:
                       (0.80, 0.86, 0.92), "slab", f"floe_{i + 1}", True, "ice floe on the open water")
         # -- groves: birch (pale trunks, twiggy crowns) and juniper masses --
         t = 0
-        for (gx_, gy_, kind, n, spread) in c["groves"]:
+        for gi, (gx_, gy_, kind, n, spread) in enumerate(c["groves"]):
             for j in range(n):
                 p = (gx_ + rng.normal(0, spread), gy_ + rng.normal(0, spread))
                 cr_ = 1.8 if kind == "birch" else rng.uniform(0.9, 1.6)
@@ -397,6 +427,7 @@ class Builder:
                     ht = rng.uniform(6.0, 9.0)
                     lean = rng.normal(0, 0.25, 2)
                     self.beam((p[0], p[1], z0 - 0.3), (p[0] + lean[0], p[1] + lean[1], z0 + ht), 0.28, 0.28, (0.86, 0.84, 0.80), "birch")
+                    self.captured["birch"][-1]["grove"] = gi
                     for q in range(3):
                         zc = z0 + ht * rng.uniform(0.62, 0.95)
                         o = rng.normal(0, 0.5, 2)
@@ -583,7 +614,7 @@ class Builder:
             self.beam(hp(s_p - half, -dep + 0.3, z_), hp(s_p + half, -dep + 0.3, z_), 0.08, 0.5, (0.33, 0.24, 0.16), "gable_plank")
         # the doorway in the wall (dark, the full clear opening) and the two leaves swung open into the porch
         dd_ = hp(s_p, 0.02, 0.0)
-        self.blob("dark", (dd_[0], dd_[1]), pc["open_w"] / 2, 0.10, pc["open_h"], -0.1, math.degrees(math.atan2(ane[1], ane[0])), DARK, "box")
+        self.blob("door_dark", (dd_[0], dd_[1]), pc["open_w"] / 2, 0.10, pc["open_h"], -0.1, math.degrees(math.atan2(ane[1], ane[0])), DARK, "box")
         for sv in (-1, 1):
             hinge = hp(s_p + sv * pc["open_w"] / 2, -0.05, 0.0)
             leaf_end = hp(s_p + sv * (pc["open_w"] / 2 + 0.25), -pc["open_w"] / 2 + 0.1, 0.0)
@@ -632,116 +663,68 @@ class Builder:
 
     # ---- walk-over ground detail inside the floor ----
     def ground_detail(self):
-        L, c, rng = self.L, self.ctx, self.rng
+        """R-C9-155 CLEAN FLOOR (the v1 Barrow's rule): the walkable floor carries only FLAT marks --
+        footprint trails along the lanes and the path, wind ripples, cracks in the stream/mere ice -- and a
+        SPARSE scatter of small tufts (<= FLAT_MAX, under TUFT_CAP_PER_M2, never in a lane)."""
+        L, rng = self.L, self.rng
         floor = L["floor"]["polygon"]
         mere = L["mere"]["polygon"]
-        stream = L["stream"]["polyline"]
-        Z = L["zones"]["classes"]
-        names = ["grave_ground", "shore_shingle", "cliff_top_rock", "hall_yard_ash", "snow_field"]
-
-        def zone(p):
-            if G.point_in_poly(p, mere):
-                return "mere_ice"
-            if polyline_dist(stream, np.array([p[0]]), np.array([p[1]]))[0] <= 1.3:
-                return "stream_ice"
-            cc = Z["circle"]["disc"]
-            if math.dist(p, cc["centre"]) <= cc["r_m"]:
-                return "circle"
-            best, bn = 1e9, None
-            for nm in names:
-                for sx, sy in Z[nm]["seeds"]:
-                    d = math.dist(p, (sx, sy)) * (1.25 if nm == "snow_field" else 1.0)
-                    if d < best:
-                        best, bn = d, nm
-            return bn
-        x0, x1 = min(q[0] for q in floor), max(q[0] for q in floor)
-        y0, y1 = min(q[1] for q in floor), max(q[1] for q in floor)
+        lanes = [ln["polygon"] for ln in L.get("lanes", [])]
         counts = {}
         k = 0
-        tries = 0
-        target = 230
-        WIND = 28.0                                   # drifts and ridges align with the prevailing wind
-        while k < target and tries < 20000:
-            tries += 1
-            p = (rng.uniform(x0, x1), rng.uniform(y0, y1))
-            if not G.point_in_poly(p, floor) or G.dist_to_boundary(p, floor) < 0.8:
-                continue
-            if math.hypot(*p) < 1.2:
-                continue                          # the start stays clean
-            zn = zone(p)
-            rot = float(rng.uniform(0, 180))
-            if zn == "snow_field":
-                r_ = rng.uniform(1.5, 4.0)
-                spec = ("drift_berm", r_, r_ * rng.uniform(0.22, 0.38), rng.uniform(0.12, 0.30), (0.92, 0.92, 0.90), "drift", "blob")
-                rot = WIND + float(rng.normal(0, 12))
-            elif zn == "grave_ground":
-                if rng.uniform() < 0.6:
-                    r_ = rng.uniform(0.4, 0.9)
-                    spec = ("heather", r_, r_ * 0.8, rng.uniform(0.15, 0.28), (0.45, 0.30, 0.33), "heather/grass clump", "crown")
-                else:
-                    r_ = rng.uniform(1.2, 2.5)
-                    spec = ("drift_berm", r_, r_ * 0.35, rng.uniform(0.10, 0.22), (0.90, 0.88, 0.88), "drift", "blob")
-                    rot = WIND + float(rng.normal(0, 12))
-            elif zn == "shore_shingle":
-                if rng.uniform() < 0.55:
-                    r_ = rng.uniform(1.2, 3.0)
-                    spec = ("shingle_tongue", r_, r_ * 0.35, rng.uniform(0.05, 0.12), (0.58, 0.60, 0.62), "shingle tongue", "slab")
-                else:
-                    r_ = rng.uniform(0.2, 0.45)
-                    spec = ("pebble", r_, r_ * 0.8, rng.uniform(0.08, 0.2), (0.48, 0.49, 0.50), "shore cobble", "rock")
-            elif zn == "cliff_top_rock":
-                u_ = rng.uniform()
-                if u_ < 0.4:
-                    r_ = rng.uniform(1.0, 2.6)
-                    spec = ("rock_slab", r_, r_ * rng.uniform(0.5, 0.9), rng.uniform(0.08, 0.2), (0.56, 0.55, 0.52), "exposed rock slab", "slab")
-                else:
-                    r_ = rng.uniform(0.15, 0.4)
-                    spec = ("scree", r_, r_ * 0.8, rng.uniform(0.06, 0.18), (0.50, 0.49, 0.47), "scree", "rock")
-            elif zn == "hall_yard_ash":
-                u_ = rng.uniform()
-                if u_ < 0.45:
-                    r_ = rng.uniform(0.7, 1.8)
-                    spec = ("ash_heap", r_, r_ * 0.8, rng.uniform(0.12, 0.30), (0.36, 0.34, 0.32), "ash heap", "blob")
-                else:
-                    r_ = rng.uniform(0.6, 1.4)
-                    spec = ("trodden_snow", r_, r_ * 0.6, rng.uniform(0.05, 0.12), (0.72, 0.70, 0.68), "trodden snow ridge", "blob")
-            elif zn == "mere_ice":
-                r_ = rng.uniform(1.5, 4.0)
-                spec = ("pressure_ridge", r_, 0.22, rng.uniform(0.08, 0.20), (0.80, 0.88, 0.95), "ice pressure ridge", "slab")
-                rot = WIND + 90 + float(rng.normal(0, 25))
-            elif zn == "stream_ice":
-                r_ = rng.uniform(0.5, 1.0)
-                spec = ("stream_bank", r_, r_ * 0.6, rng.uniform(0.12, 0.25), (0.88, 0.89, 0.88), "the frozen stream's bank", "blob")
-            else:          # circle
-                r_ = rng.uniform(0.3, 0.6)
-                spec = ("trodden_snow", r_, r_ * 0.7, 0.06, (0.80, 0.78, 0.74), "trodden snow", "blob")
-            kind, rx, ry, top, rgb, note, proto = spec
-            top = min(top, WALKOVER)
-            if not all(G.point_in_poly(q, floor) for q in G.ellipse_poly(p[0], p[1], rx, ry, rot, 8)):
-                continue
+
+        def on_floor(p, r):
+            return G.point_in_poly(p, floor) and G.dist_to_boundary(p, floor) > r + 0.3
+
+        def mark(kind, p, rx, ry, top, rot, rgb, proto="slab"):
+            nonlocal k
             k += 1
             counts[kind] = counts.get(kind, 0) + 1
-            # tinted toward the biome's own ground colour so detail reads as relief, not confetti
-            zrgb = np.array(Z[zn]["rgb"]) if zn in Z else np.array(rgb)
-            if kind in ("drift_berm", "trodden_snow", "stream_bank", "pressure_ridge"):
-                mix = 0.55 * np.clip(zrgb + 0.07, 0, 1) + 0.45 * np.array(rgb)
-            else:
-                mix = 0.45 * zrgb + 0.55 * np.array(rgb)
-            self.blob(kind, p, rx, ry, top, -0.15, rot, tuple(np.clip(mix + rng.normal(0, 0.015), 0, 1)), proto,
-                      f"gd_{k}", False, note)
-        # the frozen stream's banks: low snow-and-reed berms on both sides wherever it crosses the floor
-        for (ax_, ay_), (bx_, by_) in zip(stream[:-1], stream[1:]):
-            Ls = math.dist((ax_, ay_), (bx_, by_))
-            tx_, ty_ = (bx_ - ax_) / Ls, (by_ - ay_) / Ls
-            for t_ in np.arange(0.6, Ls, 1.3):
-                for side in (-1, 1):
-                    p = (ax_ + tx_ * t_ - ty_ * side * 1.75, ay_ + ty_ * t_ + tx_ * side * 1.75)
-                    if not G.point_in_poly(p, floor) or G.point_in_poly(p, mere) or G.dist_to_boundary(p, floor) < 0.8:
-                        continue
-                    k += 1
-                    counts["stream_bank"] = counts.get("stream_bank", 0) + 1
-                    self.blob("stream_bank", p, rng.uniform(0.7, 1.1), rng.uniform(0.35, 0.55), rng.uniform(0.15, 0.28), -0.15,
-                              math.degrees(math.atan2(ty_, tx_)), (0.86, 0.86, 0.82), "blob", f"gd_{k}", False, "the frozen stream's bank")
+            self.blob(kind, p, rx, ry, top, -0.05, rot, rgb, proto, f"gd_{k}", False, "flat mark (R-C9-155 clean floor)")
+        # footprint trails: down every lane and along the worn path
+        trails = [ln["centreline"] for ln in L.get("lanes", [])] + [L["path"]["polyline"]]
+        for tr in trails:
+            for (ax_, ay_), (bx_, by_) in zip(tr[:-1], tr[1:]):
+                Ls = math.dist((ax_, ay_), (bx_, by_))
+                if Ls < 1e-6:
+                    continue
+                tx_, ty_ = (bx_ - ax_) / Ls, (by_ - ay_) / Ls
+                for t_ in np.arange(0.4, Ls, 0.75):
+                    side = 1 if int(t_ / 0.75) % 2 else -1
+                    p = (ax_ + tx_ * t_ - ty_ * side * 0.18 + rng.normal(0, 0.12), ay_ + ty_ * t_ + tx_ * side * 0.18 + rng.normal(0, 0.12))
+                    if on_floor(p, 0.2):
+                        mark("footprint", p, 0.16, 0.08, 0.015, math.degrees(math.atan2(ty_, tx_)), (0.80, 0.80, 0.80))
+        # wind ripples on the open snow (long, thin, aligned with the prevailing wind)
+        x0, x1 = min(q[0] for q in floor), max(q[0] for q in floor)
+        y0, y1 = min(q[1] for q in floor), max(q[1] for q in floor)
+        for _ in range(900):
+            p = (rng.uniform(x0, x1), rng.uniform(y0, y1))
+            if not on_floor(p, 1.5) or G.point_in_poly(p, mere):
+                continue
+            if counts.get("ripple", 0) >= 120:
+                break
+            mark("ripple", p, rng.uniform(1.2, 2.8), 0.1, 0.03, 28.0 + rng.normal(0, 6), (0.95, 0.95, 0.94))
+        # cracks in the mere ice
+        for _ in range(400):
+            p = (rng.uniform(x0, x1), rng.uniform(y0, y1))
+            if counts.get("crack", 0) >= 45:
+                break
+            if G.point_in_poly(p, mere) and on_floor(p, 1.0):
+                mark("crack", p, rng.uniform(1.0, 3.2), 0.04, 0.012, float(rng.uniform(0, 180)), (0.62, 0.72, 0.82))
+        # sparse tufts: <= FLAT_MAX tall, under the density cap, never in a lane or on the ice
+        cap = int(TUFT_CAP_PER_M2 * G.area(floor))
+        tries = 0
+        while counts.get("tuft", 0) < cap and tries < 5000:
+            tries += 1
+            p = (rng.uniform(x0, x1), rng.uniform(y0, y1))
+            if not on_floor(p, 0.4) or G.point_in_poly(p, mere) or math.hypot(*p) < 3.0:
+                continue
+            if any(G.point_in_poly(p, q) or G.dist_to_boundary(p, q) < 0.6 for q in lanes):
+                continue
+            r_ = rng.uniform(0.15, 0.3)
+            mark("tuft", p, r_, r_ * 0.8, rng.uniform(0.08, FLAT_MAX), float(rng.uniform(0, 180)),
+                 tuple(np.clip(np.array((0.55, 0.47, 0.36)) + rng.normal(0, 0.04), 0, 1)), "crown")
+        counts["_tuft_cap"] = cap
         return counts
 
 

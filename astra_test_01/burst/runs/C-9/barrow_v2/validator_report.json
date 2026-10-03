@@ -1,6 +1,6 @@
 {
   "layout": "layout_v2.json",
-  "layout_sha256": "179027af65b1b13024b0e5aada8b93ebd53c95d3aba7d605bcfef7cd470039a2",
+  "layout_sha256": "caeab5f9b04f45a0afdad319c49c1f71b5c7775c7e0f8f39cdacff6774778fb7",
   "pass": true,
   "checks": [
     {
@@ -44,7 +44,7 @@
       "rule": "R4",
       "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
       "PASS": true,
-      "area_m2": 4225.12,
+      "area_m2": 4224.91,
       "width_x_m": 84.628,
       "depth_y_m": 82.269,
       "x": [
@@ -63,7 +63,7 @@
       "worst_hull_vertex_clearance_m": -0.0004,
       "deepest_floor_vertex_inside_hull_m": 0.0,
       "hull_min_area_m2": 4026.52,
-      "floor_minus_hull_m2": 198.6
+      "floor_minus_hull_m2": 198.39
     },
     {
       "rule": "R4",
@@ -77,7 +77,7 @@
       "bulge_m": {
         "min": 0.0,
         "max": 3.602,
-        "mean": 0.682
+        "mean": 0.681
       }
     },
     {
@@ -181,16 +181,16 @@
       "check": "line (0,0) -> p01 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 35.716,
-      "nearest_blocker": "wreck_hull",
-      "nearest_blocker_gap_m": 10.974
+      "nearest_blocker": "driftwood_3",
+      "nearest_blocker_gap_m": 10.801
     },
     {
       "rule": "R3",
       "check": "line (0,0) -> p02 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 33.105,
-      "nearest_blocker": "barrow_door",
-      "nearest_blocker_gap_m": 12.05
+      "nearest_blocker": "grave_marker_1",
+      "nearest_blocker_gap_m": 10.801
     },
     {
       "rule": "R3",
@@ -213,8 +213,8 @@
       "check": "line (0,0) -> p05 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 10.095,
-      "nearest_blocker": "rock_38",
-      "nearest_blocker_gap_m": 32.038
+      "nearest_blocker": "grave_marker_5",
+      "nearest_blocker_gap_m": 31.644
     },
     {
       "rule": "R3",
@@ -228,7 +228,7 @@
       "rule": "R5",
       "check": "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
       "PASS": true,
-      "n_blockers": 179,
+      "n_blockers": 191,
       "worst_overlap_m2": 0.0,
       "worst_id": "stair_wall_rock",
       "closest_blocker_gap_m": 0.0,
@@ -238,8 +238,8 @@
       "rule": "R5",
       "check": "every interior feature is walk-over (z_top <= 0.4 m, blocks nothing)",
       "PASS": true,
-      "n_interior": 256,
-      "tallest_interior_m": 0.35,
+      "n_interior": 356,
+      "tallest_interior_m": 0.1483,
       "offenders": []
     },
     {
@@ -261,15 +261,15 @@
       "rule": "R5",
       "check": "sculpt: every blob taller than walk-over (0.4 m) lies outside the floor",
       "PASS": true,
-      "n_blobs": 511,
-      "n_tall": 181,
+      "n_blobs": 512,
+      "n_tall": 96,
       "offenders": []
     },
     {
       "rule": "R5",
       "check": "sculpt: no beam rises above walk-over (0.4 m) over the floor",
       "PASS": true,
-      "n_beams": 390,
+      "n_beams": 0,
       "offenders": []
     },
     {
@@ -315,17 +315,17 @@
       "rule": "R6",
       "check": "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 disc across the 1 m margin",
       "PASS": true,
-      "north_edge_off_boundary_m": 3.2e-05,
-      "landing_overlap_m2": 6e-06,
+      "north_edge_off_boundary_m": 2.1e-05,
+      "landing_overlap_m2": 1e-06,
       "gap_to_p03_disc_m": 0.9997,
       "gap_to_p03_box_m_info": 0.0,
-      "landing_north_edge_len_m": 2.413
+      "landing_north_edge_len_m": 6.492
     },
     {
       "rule": "R6",
       "check": "stair top_landing lies OUTSIDE the floor (zero overlap)",
       "PASS": true,
-      "overlap_m2": 6e-06
+      "overlap_m2": 1e-06
     },
     {
       "rule": "R6",
@@ -411,7 +411,7 @@
       "check": "stone circle: 7-9 stones, all walk-over",
       "PASS": true,
       "n": 8,
-      "tallest_m": 0.35
+      "tallest_m": 0.12
     },
     {
       "rule": "R8",
@@ -466,25 +466,29 @@
     },
     {
       "rule": "R11",
-      "check": "p02 barrow door clear opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m), measured between the rendered uprights and under the lintel",
+      "check": "p02 barrow_front slot opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m)",
       "PASS": true,
-      "clear_w_m": 5.006,
-      "clear_h_m": 6.5
+      "w_m": 5.0,
+      "h_m": 6.5
     },
     {
       "rule": "R11",
-      "check": "p04 great door + porch clear opening >= 4.5 m wide x 4.5 m high (colossus 3.2 m, statues ~3.5 m, crabs ~3.4 m wide), measured between the porch's front posts and under its front beam; the doorway behind it as large",
+      "check": "p04: the longhall slot has EXACTLY ONE great door, >= 4.5 x 4.5 m, inside the porch; the porch opening >= 4.5 x 4.5 m",
       "PASS": true,
-      "clear_w_m": 4.5,
-      "clear_h_m": 5.1,
-      "door_leaves": 2
+      "great_doors": 1,
+      "door_w_m": 4.5,
+      "door_h_m": 4.5,
+      "porch_opening": [
+        4.5,
+        4.5
+      ]
     },
     {
       "rule": "R11",
-      "check": "the porch rises ABOVE the hall's roofline (its ridge vs the hall's ridge beams)",
+      "check": "the porch rises ABOVE the hall's roofline (slot heights)",
       "PASS": true,
-      "porch_ridge_m": 7.8,
-      "hall_ridge_max_m": 6.12
+      "porch_h_m": 9.0,
+      "hall_h_m": 6.5
     },
     {
       "rule": "R11",
@@ -493,6 +497,99 @@
       "mouth_w_m": 9.457,
       "mouth_h_m": 6.9,
       "rock_lintel_m": 0.3
+    },
+    {
+      "rule": "R12",
+      "check": "a lane exists for each of the five deliverers (barrow door, great door, gable breach, stair landing, wreck rail)",
+      "PASS": true,
+      "lanes": [
+        "barrow_front",
+        "fallen_gable",
+        "hall_porch",
+        "sea_cave_stair",
+        "wreck"
+      ]
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p02_barrow: >= 5.0 m wide, starts at the barrow_front opening, reaches p02's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 5.6,
+      "required_m": 5.0,
+      "length_m": 6.0,
+      "starts_at_opening": true,
+      "on_disc_m2": 11.57,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p04_hall: >= 4.5 m wide, starts at the hall_porch opening, reaches p04's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.6,
+      "required_m": 4.5,
+      "length_m": 9.526,
+      "starts_at_opening": true,
+      "on_disc_m2": 10.83,
+      "obstructions": [],
+      "terrain_max_z_m": 0.05
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p06_gable: >= 4.0 m wide, starts at the fallen_gable opening, reaches p06's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.1,
+      "required_m": 4.0,
+      "length_m": 4.586,
+      "starts_at_opening": true,
+      "on_disc_m2": 9.62,
+      "obstructions": [],
+      "terrain_max_z_m": 0.008
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p03_stair: >= 5.0 m wide, starts at the sea_cave_stair opening, reaches p03's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 5.1,
+      "required_m": 5.0,
+      "length_m": 3.061,
+      "starts_at_opening": true,
+      "on_disc_m2": 11.13,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p01_wreck: >= 4.0 m wide, starts at the wreck opening, reaches p01's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.1,
+      "required_m": 4.0,
+      "length_m": 4.969,
+      "starts_at_opening": true,
+      "on_disc_m2": 9.92,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "the porch's door opens STRAIGHT onto its lane (lane starts at the porch mouth; first heading within 5 deg of the porch's facing)",
+      "PASS": true,
+      "mouth_to_lane_start_m": 0.0,
+      "heading_vs_facing_deg": 0.0
+    },
+    {
+      "rule": "R13",
+      "check": "CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots",
+      "PASS": true,
+      "offenders": []
+    },
+    {
+      "rule": "R13",
+      "check": "tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)",
+      "PASS": true,
+      "tufts": 63,
+      "cap": 63,
+      "per_100m2": 1.491
     }
   ]
 }

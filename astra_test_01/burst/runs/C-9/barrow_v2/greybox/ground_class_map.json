@@ -1,7 +1,7 @@
 {
   "_what": "barrow_v2 ground class map: one palette index per ground class (paint + crater-v5 surface driver)",
   "png": "greybox/ground_class_map.png",
-  "png_sha256": "2ec1e755155c8909383a320b872ccdee0012a7db5c954eb79ad3652b25dc57e0",
+  "png_sha256": "9a6c27b7897b45b5b9c01bab3650da7a8127a1ab5d0696b0a58a7b58184d9fd9",
   "px_per_m": 4.0,
   "extent_sim_m": {
     "x0": -62.0,
@@ -22,7 +22,8 @@
     "8": "mere_ice",
     "9": "stream_ice",
     "10": "circle",
-    "11": "path"
+    "11": "path",
+    "12": "lane"
   },
   "surface": {
     "grave_ground": "heather_snow",
@@ -33,20 +34,22 @@
     "mere_ice": "ice",
     "stream_ice": "ice",
     "circle": "trodden_snow_stone",
-    "path": "trodden_snow"
+    "path": "trodden_snow",
+    "lane": "trodden_ground"
   },
   "area_m2_by_class": {
-    "outside_sea": 3377.2,
+    "outside_sea": 3377.1,
     "outside_shore_ice": 2019.4,
-    "outside_land": 7689.1,
-    "grave_ground": 726.4,
-    "shore_shingle": 649.5,
-    "cliff_top_rock": 573.3,
-    "hall_yard_ash": 938.5,
+    "outside_land": 7623.8,
+    "grave_ground": 709.9,
+    "shore_shingle": 631.8,
+    "cliff_top_rock": 554.8,
+    "hall_yard_ash": 900.7,
     "snow_field": 647.6,
     "mere_ice": 468.2,
     "stream_ice": 99.9,
     "circle": 105.8,
-    "path": 112.9
+    "path": 107.7,
+    "lane": 161.3
   }
 }

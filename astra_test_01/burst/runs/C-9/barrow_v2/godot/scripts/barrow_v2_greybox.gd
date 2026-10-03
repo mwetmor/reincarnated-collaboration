@@ -55,6 +55,8 @@ func _ready() -> void:
 	if layout.has("sculpt"):
 		_build_terrain()
 		_build_sculpt()
+	if layout.has("models"):
+		_build_models()
 	else:
 		_build_ground()
 	_build_features()
@@ -370,6 +372,200 @@ func _build_sculpt() -> void:
 		mi2.transform = Transform3D(Basis(x * float(bm["w"]), y * float(bm["t"]), z * ln), (a + b) / 2.0)
 		add_child(mi2)
 	print("[bv2] sculpt: %d blobs, %d beams, %d prototypes, %d materials" % [sc["blobs"].size(), sc["beams"].size(), _protos.size(), _mats.size()])
+
+
+# ---------------------------------------------------------------- R-C9-155: MODEL SLOTS (the v1 method)
+var _glb_cache := {}
+var model_report := {"loaded": 0, "placeholders": 0, "missing": []}
+
+
+func _resolve(p: String) -> String:
+	var bv2 := ProjectSettings.globalize_path("res://").path_join("..").simplify_path()
+	if p.begins_with("runs/"):
+		return bv2.path_join("../..").path_join(p.substr(5)).simplify_path()
+	return bv2.path_join(p).simplify_path()
+
+
+func _load_glb(p: String) -> Node3D:
+	if p == "" or p == "<null>":
+		return null
+	var path := _resolve(p)
+	if not FileAccess.file_exists(path):
+		if not model_report["missing"].has(p):
+			model_report["missing"].append(p)
+		return null
+	if not _glb_cache.has(path):
+		var doc := GLTFDocument.new()
+		var st := GLTFState.new()
+		if doc.append_from_file(path, st) != OK:
+			model_report["missing"].append(p + " (load failed)")
+			return null
+		_glb_cache[path] = doc.generate_scene(st)
+	return (_glb_cache[path] as Node3D).duplicate()
+
+
+func _aabb_of(n: Node, xf: Transform3D) -> AABB:
+	var out := AABB()
+	var first := true
+	var t := xf
+	if n is Node3D:
+		t = xf * (n as Node3D).transform
+	if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+		var a := t * (n as MeshInstance3D).mesh.get_aabb()
+		out = a
+		first = false
+	for ch in n.get_children():
+		var b := _aabb_of(ch, t)
+		if b.size == Vector3.ZERO:
+			continue
+		out = b if first else out.merge(b)
+		first = false
+	return out
+
+
+func _place_box(model: Node3D, pos: Vector2, z: float, yaw_deg: float, size: Vector3) -> Node3D:
+	# size = (w along local X, h, d along local Z); the model's AABB is fitted per axis, its base on z
+	var ab := _aabb_of(model, Transform3D.IDENTITY.inverse() * model.transform.affine_inverse())
+	var holder := Node3D.new()
+	var sc := Vector3(size.x / maxf(ab.size.x, 1e-3), size.y / maxf(ab.size.y, 1e-3), size.z / maxf(ab.size.z, 1e-3))
+	holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(yaw_deg)) * Basis.from_scale(sc), Vector3(pos.x, z, pos.y))
+	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
+	holder.add_child(model)
+	add_child(holder)
+	return holder
+
+
+func _place_beam(model: Node3D, a: Vector3, b: Vector3, th: float, fit_height := false) -> void:
+	var ab := _aabb_of(model, model.transform.affine_inverse())
+	var holder := Node3D.new()
+	var d := b - a
+	var ln := d.length()
+	if fit_height:
+		var s := ln / maxf(ab.size.y, 1e-3)
+		holder.transform = Transform3D(Basis(Vector3.UP, randf() * TAU).scaled(Vector3(s, s, s)), a)
+		model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
+	else:
+		var k := 0
+		if ab.size.y > ab.size[k]:
+			k = 1
+		if ab.size.z > ab.size[k]:
+			k = 2
+		var z := d / maxf(ln, 1e-3)
+		var x := Vector3.UP.cross(z)
+		x = Vector3.RIGHT if x.length() < 0.05 else x.normalized()
+		var y := z.cross(x).normalized()
+		var axes := [x, y, z]
+		var cols := [Vector3.ZERO, Vector3.ZERO, Vector3.ZERO]
+		var others := [0, 1, 2]
+		others.erase(k)
+		cols[k] = z * (ln / maxf(ab.size[k], 1e-3))
+		cols[others[0]] = x * (th / maxf(ab.size[others[0]], 1e-3))
+		cols[others[1]] = y * (th / maxf(ab.size[others[1]], 1e-3))
+		holder.transform = Transform3D(Basis(cols[0], cols[1], cols[2]), (a + b) / 2.0)
+		model.position = -(ab.position + ab.size / 2.0)
+	holder.add_child(model)
+	add_child(holder)
+
+
+const SLOT_RGB := {"building": Color(0.45, 0.33, 0.22, 0.6), "porch": Color(0.55, 0.38, 0.22, 0.6), "ruin": Color(0.30, 0.24, 0.20, 0.6),
+	"portal": Color(0.5, 0.5, 0.48, 0.6), "wreck": Color(0.45, 0.32, 0.2, 0.6), "prop": Color(0.3, 0.25, 0.2, 0.7),
+	"stones": Color(0.5, 0.5, 0.48, 0.7), "debris": Color(0.45, 0.36, 0.26, 0.7), "palisade": Color(0.4, 0.3, 0.2, 0.7),
+	"grove": Color(0.8, 0.78, 0.72, 0.6)}
+
+
+func _placeholder_box(sid: String, kind: String, pos: Vector2, z: float, yaw_deg: float, size: Vector3, opening: Dictionary) -> void:
+	var m := StandardMaterial3D.new()
+	m.albedo_color = SLOT_RGB.get(kind, Color(0.5, 0.5, 0.5, 0.6))
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var holder := Node3D.new()
+	holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(yaw_deg)), Vector3(pos.x, z, pos.y))
+	var bx := BoxMesh.new()
+	bx.size = size
+	var mi := MeshInstance3D.new()
+	mi.mesh = bx
+	mi.material_override = m
+	mi.position = Vector3(0, size.y / 2.0, 0)
+	holder.add_child(mi)
+	if opening.has("w") and opening.has("h"):
+		var ob := BoxMesh.new()
+		ob.size = Vector3(float(opening["w"]), float(opening["h"]), 0.15)
+		var om := MeshInstance3D.new()
+		om.mesh = ob
+		om.material_override = _mat(Color(0.05, 0.04, 0.04), true)
+		om.position = Vector3(0, float(opening["h"]) / 2.0, size.z / 2.0 + 0.05)
+		holder.add_child(om)
+	add_child(holder)
+	model_report["placeholders"] += 1
+
+
+func _slot_label(sid: String, pos: Vector2, h: float, status: String) -> void:
+	var lb := Label3D.new()
+	lb.text = "%s\n[%s]" % [sid, status.split(" ")[0]]
+	lb.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lb.no_depth_test = true
+	lb.fixed_size = true
+	lb.pixel_size = 0.0007
+	lb.font_size = 44
+	lb.outline_size = 12
+	lb.modulate = Color(0.1, 0.15, 0.35)
+	lb.outline_modulate = Color(1, 1, 1, 0.85)
+	lb.position = Vector3(pos.x, h + 0.6, pos.y)
+	add_child(lb)
+	labels.append(lb)
+
+
+func _build_models() -> void:
+	for m in layout["models"]:
+		var sid: String = m["id"]
+		var kind: String = m["kind"]
+		var glb_slot: String = str(m.get("glb", ""))
+		var insts: Array = m.get("instances", [])
+		var pos := Vector2(float(m["pos"][0]), float(m["pos"][1]))
+		var sz: Dictionary = m["size_m"]
+		if insts.is_empty():
+			var node := _load_glb(glb_slot)
+			if node != null:
+				_place_box(node, pos, float(m["z"]), float(m["godot_rot_y_deg"]), Vector3(float(sz["w_local_x"]), float(sz["h"]), float(sz["d_local_z"])))
+				model_report["loaded"] += 1
+			elif String(m.get("placeholder", "massing")) != "procedural":
+				_placeholder_box(sid, kind, pos, float(m["z"]), float(m["godot_rot_y_deg"]),
+					Vector3(float(sz["w_local_x"]), float(sz["h"]), float(sz["d_local_z"])), m.get("opening", {}))
+		else:
+			for ins in insts:
+				var g: String = str(ins.get("glb", glb_slot))
+				if String(ins["type"]) == "box":
+					var ip := Vector2(float(ins["pos"][0]), float(ins["pos"][1]))
+					var s3 := Vector3(float(ins["size_m"][0]), float(ins["size_m"][2]), float(ins["size_m"][1]))
+					var node2 := _load_glb(g)
+					if node2 != null:
+						_place_box(node2, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3)
+						model_report["loaded"] += 1
+					elif String(m.get("placeholder", "massing")) != "procedural":
+						_placeholder_box(sid, kind, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3, {})
+				else:
+					var a := Vector3(float(ins["a"][0]), float(ins["a"][2]), float(ins["a"][1]))
+					var b := Vector3(float(ins["b"][0]), float(ins["b"][2]), float(ins["b"][1]))
+					var node3 := _load_glb(g)
+					if node3 != null:
+						_place_beam(node3, a, b, float(ins["thickness_m"]), String(ins.get("fit", "")) == "height")
+						model_report["loaded"] += 1
+					else:
+						var bm := BoxMesh.new()
+						bm.size = Vector3.ONE
+						var mi := MeshInstance3D.new()
+						mi.mesh = bm
+						mi.material_override = _mat(SLOT_RGB.get(kind, Color(0.5, 0.5, 0.5)))
+						var zz := (b - a).normalized()
+						var xx := Vector3.UP.cross(zz)
+						xx = Vector3.RIGHT if xx.length() < 0.05 else xx.normalized()
+						var yy := zz.cross(xx).normalized()
+						var th := float(ins["thickness_m"])
+						mi.transform = Transform3D(Basis(xx * th, yy * th, zz * (b - a).length()), (a + b) / 2.0)
+						add_child(mi)
+						model_report["placeholders"] += 1
+		_slot_label(sid, pos, float(sz["h"]) + float(m["z"]), String(m["status"]))
+	print("[bv2] models: %d GLB instances loaded, %d placeholders, missing %s" % [model_report["loaded"], model_report["placeholders"], str(model_report["missing"])])
 
 
 func _centroid(poly: Array) -> Vector2:

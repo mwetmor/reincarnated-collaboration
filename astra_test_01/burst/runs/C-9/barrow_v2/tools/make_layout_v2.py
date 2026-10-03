@@ -48,7 +48,7 @@ WALKOVER_MAX_H_M = 0.40       # an interior feature at or under this reads (and 
 STAIR = {"width_m": 5.0, "drop_m": 7.2, "step_rise_m": 0.18, "step_tread_m": 0.26, "sea_z_m": -7.5,
          "tangent_beta_deg": 78.0,   # beta from +x toward +y about p03; p03's own arc is 41.8..117.8 deg
          "cave_w_m": 9.0, "cave_h_m": 6.9, "cave_gap_m": 0.4,
-         "top_landing_depth_m": 2.0, "bottom_landing_depth_m": 3.0}
+         "top_landing_depth_m": 5.4, "bottom_landing_depth_m": 3.0}   # R-C9-155: the landing's floor edge >= the 5 m exit lane
 BARROW = {"open_w": 5.0, "open_h": 6.5, "post_w": 1.4, "post_d": 1.8, "lintel_t": 1.3, "forecourt": 2.6,
           "mound_a": 20.0, "mound_b": 13.5, "rise": 10.5, "passage_len": 9.0,
           "sized_for": "yeti nemesis, ~5.6 m tall (the bosses' door)"}
@@ -206,7 +206,7 @@ def main():
             break
     assert PORCH["station"] is not None, "no station on the hall wall clears the grown porch"
     _p3arc = lambda b_: _arc(b_)
-    protect = [(*_arc(STAIR["tangent_beta_deg"]), 6.5, 0.0), (*_arc(46.0), 2.5, 0.0), (*_arc(121.0), 7.0, 0.6),
+    protect = [(*_arc(STAIR["tangent_beta_deg"]), 6.5, 0.0), (*_arc(46.0), 2.5, 0.0), (*_arc(22.0), 4.0, 0.3), (*_arc(121.0), 7.0, 0.6),
                (*along(PORCH["centre0"], _nin0, 2.0), 6.5, 0.35),
                (*along((0, 0), unit(*A["p02"]), ray_exit(disc_hull, unit(*A["p02"]))), 9.0, 0.5),
                (*along((0, 0), unit(*A["p01"]), ray_exit(disc_hull, unit(*A["p01"]))), 4.0, 0.5),
@@ -422,8 +422,32 @@ def main():
 
     def s_of(P):
         return (P[0] - M[0]) * u[0] + (P[1] - M[1]) * u[1]
-    landing = [T_s, E_s, E_b] + arc_between(s_of(T_b), s_of(E_b)) + [T_b]
-    landing_bd = [E_b] + arc_between(s_of(T_b), s_of(E_b)) + [T_b]
+    def bd_between(P, Q):
+        """the floor's own boundary vertices strictly between boundary points P and Q, walked from Q back to P
+        (in boundary order, so an organic wiggle can never cut a chord across the floor)"""
+        nF_ = len(floor)
+
+        def seg_of(X):
+            return min(range(nF_), key=lambda i: G.dist_point_seg(X, floor[i], floor[(i + 1) % nF_]))
+        iP, iQ = seg_of(P), seg_of(Q)
+        # walk direction: the one that reaches Q's segment first
+        fwd = (iQ - iP) % nF_
+        bwd = (iP - iQ) % nF_
+        out_ = []
+        if fwd <= bwd:
+            i = iP
+            while i != iQ:
+                i = (i + 1) % nF_
+                out_.append(floor[i])
+        else:
+            i = iP
+            while i != iQ:
+                out_.append(floor[i])
+                i = (i - 1) % nF_
+        return list(reversed(out_))         # Q -> P order
+    _bd = bd_between(T_b, E_b)
+    landing = [T_s, E_s, E_b] + _bd + [T_b]
+    landing_bd = [E_b] + _bd + [T_b]
     wall_rock = [B_n, T_n, T_b] + arc_between(s_of(B_b), s_of(T_b)) + [B_b]
     ledge_z = -STAIR["drop_m"]
     # (R-C9-154) the cave mouth (9 m wide, ~7 m high) and the ledge follow the ACTUAL floor boundary
@@ -498,21 +522,16 @@ def main():
     for i in range(8):
         ang = math.radians(15 + i * 45 + (7 if i % 2 else -9))
         c = (circ_c[0] + circ_r * math.cos(ang), circ_c[1] + circ_r * math.sin(ang))
+        # R-C9-155 clean floor: the circle's stones are weathered and SUNK nearly flush (top 0.12 m)
         if i in (2, 5):
-            poly, ht, form = G.rect_poly(*c, 0.6, 0.5, i * 23), 0.35, "low stump (snapped off at the base)"
+            poly, ht, form = G.rect_poly(*c, 0.6, 0.5, i * 23), 0.12, "snapped stump, sunk flush"
         else:
-            poly, ht, form = G.rect_poly(*c, 1.8, 0.75, math.degrees(ang) + 90 + 25 * ((i % 3) - 1)), 0.30, "fallen, lying flat"
+            poly, ht, form = G.rect_poly(*c, 1.8, 0.75, math.degrees(ang) + 90 + 25 * ((i % 3) - 1)), 0.12, "fallen, sunk flush in the turf"
         stones.append(feat(f"circle_stone_{i + 1}", "fallen_stone", poly, 0.0, ht, False, form, blocks=False,
                            sculpt_stone={"c": G.rnd(c), "len": 0.6 if i in (2, 5) else 1.8, "wid": 0.5 if i in (2, 5) else 0.75,
                                          "rot": G.rnd(i * 23 if i in (2, 5) else math.degrees(ang) + 90 + 25 * ((i % 3) - 1), 2)}))
-    # grave-ground markers, low
-    for i, (x, y) in enumerate(((2.0, -24.0), (5.5, -21.5), (13.5, -22.5), (17.0, -25.0), (-2.5, -28.0), (6.5, -27.0), (19.5, -20.0))):
-        feat(f"grave_marker_{i + 1}", "grave_marker", G.rect_poly(x, y, 0.5, 0.25, 8 * i - 20), 0.0, 0.30, False,
-             "low grave marker, half sunk", blocks=False)
-    for i, (x, y, L, r) in enumerate(((-30.0, 14.0, 3.2, 70), (-37.5, 1.0, 2.6, 110), (-27.5, 4.5, 2.0, 30), (-35.0, 16.5, 1.8, 150))):
-        feat(f"driftwood_{i + 1}", "driftwood", G.rect_poly(x, y, L, 0.35, r), 0.0, 0.30, False, "driftwood on the shingle", blocks=False)
-    for i, (x, y, L, r) in enumerate(((29.0, 1.0, 4.0, 15), (34.0, 12.0, 3.5, 80), (25.0, 13.5, 3.0, 140), (21.5, 23.5, 3.8, 35), (27.5, 20.0, 2.8, 100))):
-        feat(f"yard_beam_{i + 1}", "beam", G.rect_poly(x, y, L, 0.4, r), 0.0, 0.25, False, "fallen roof beam, flat in the ash", blocks=False)
+    # (R-C9-155) grave markers, driftwood and fallen beams no longer lie on the floor: they are placed
+    # OUTSIDE it (and outside the exit lanes) once the lanes exist -- see "the exit lanes" below.
 
     # ---------------- the mere (p05), irregular, fed by the stream ----------------
     p5 = A["p05"]
@@ -701,6 +720,109 @@ def main():
                                 G.rnd(along((0, 0), d3, e3 - 1.0)), [18.0, 18.0], G.rnd(along(A["p04"], d4, -2.0)), [0.0, 0.0]],
                       "speed_mps": 8.0, "camera": "ZOOM-GD window, following the walker"},
     }
+    # ================= R-C9-155: THE EXIT LANES (the v1 method: clear cuttings from every door) =================
+    # From each deliverer's opening to its spawn disc: trodden ground with a natural edge, at least the
+    # opening's clear width, with NOTHING standing or lying in it (validator R12).
+    lane_rng = np.random.default_rng(155)
+
+    def make_lane(lid, pid, opening, mouth, face, width, note, inset=0.05, straight=3.0):
+        """mouth: the opening's centre on its mouth line; face: the opening's outward facing. The lane leaves
+        the opening STRAIGHT along its facing for `straight` m, then runs to a point 2 m inside the disc."""
+        anc = A[pid]
+        face = unit(*face)
+        start = along(mouth, face, inset)
+        knee = along(start, face, straight)
+        end_dir = unit(anc[0] - knee[0], anc[1] - knee[1])
+        end = along(anc, end_dir, -(h - 2.0))                  # 2 m inside the 8 m disc
+        # round the turn: a mid point on the bisector of the straight leg and the leg to the disc
+        d_end = unit(end[0] - knee[0], end[1] - knee[1])
+        mid_dir = unit(face[0] + d_end[0], face[1] + d_end[1])
+        k2 = along(knee, mid_dir, min(2.5, 0.45 * math.dist(knee, end)))
+        legs = [(start, knee), (knee, k2), (k2, end)]
+        ph_ = lane_rng.uniform(0, G.TAU, 4)
+        bow = lane_rng.uniform(-0.5, 0.5)
+        cl, left, right = [], [], []
+        acc = 0.0
+        for li, (p0, p1) in enumerate(legs):
+            Ls = math.dist(p0, p1)
+            dv = unit(p1[0] - p0[0], p1[1] - p0[1])
+            nv = (-dv[1], dv[0])
+            n_ = max(2, int(Ls / 0.8))
+            for i in range(0 if li == 0 else 1, n_ + 1):
+                t = i / n_
+                off = bow * math.sin(math.pi * t) if li == len(legs) - 1 else 0.0
+                c_ = along(along(p0, dv, Ls * t), nv, off)
+                s_ = (acc + Ls * t) / 3.0
+                eL = width / 2 + 0.3 + 0.35 * abs(math.sin(2.3 * s_ + ph_[0])) + 0.15 * abs(math.sin(5.1 * s_ + ph_[1]))
+                eR = width / 2 + 0.3 + 0.35 * abs(math.sin(2.1 * s_ + ph_[2])) + 0.15 * abs(math.sin(4.7 * s_ + ph_[3]))
+                if li == 0 and i == 0:
+                    eL = eR = width / 2 + 0.05             # the lane meets the opening square, at its full width
+                if i == n_ and li < len(legs) - 1:         # a junction: offset along the bisector of the two normals
+                    q0, q1 = legs[li + 1]
+                    d2v = unit(q1[0] - q0[0], q1[1] - q0[1])
+                    nb = unit(nv[0] - d2v[1], nv[1] + d2v[0])
+                    cosb = max(0.5, nb[0] * nv[0] + nb[1] * nv[1])
+                    cl.append(c_)
+                    left.append(along(c_, nb, eL / cosb))
+                    right.append(along(c_, nb, -eR / cosb))
+                    continue
+                cl.append(c_)
+                left.append(along(c_, nv, eL))
+                right.append(along(c_, nv, -eR))
+            acc += Ls
+        Ltot = acc
+        poly = left + list(reversed(right))
+        return {"id": lid, "point": pid, "opening": opening, "width_min_m": width, "mouth": G.rnd(mouth), "start": G.rnd(start),
+                "end": G.rnd(end), "centreline": G.rnd(cl), "left": G.rnd(left), "right": G.rnd(right), "polygon": G.rnd(poly),
+                "length_m": G.rnd(Ltot, 3), "leaves_opening_straight_m": straight, "surface": "trodden ground (natural edge)", "note": note}
+    _lat_w = unit(math.cos(math.radians(90.0 - 12.0 + 90.0)), math.sin(math.radians(90.0 - 12.0 + 90.0)))
+    if _lat_w[0] < 0:
+        _lat_w = (-_lat_w[0], -_lat_w[1])
+    _gable_front = along(Gp, ax_ne, (GABLE_FWD - GABLE_BACK) / 2)
+    _land_mid = ((landing_bd[0][0] + landing_bd[-1][0]) / 2, (landing_bd[0][1] + landing_bd[-1][1]) / 2)
+    _land_in = unit(A["p03"][0] - _land_mid[0], A["p03"][1] - _land_mid[1])
+    lanes = [
+        make_lane("lane_p02_barrow", "p02", "barrow_front", along((0, 0), d2, door_plane), (-d2[0], -d2[1]), max(5.0, BARROW["open_w"]) + 0.5,
+                  "from the King's door, straight out across the forecourt, to p02's disc"),
+        make_lane("lane_p04_hall", "p04", "hall_porch", along(_pc, _nin, PORCH["depth"]), _nin, max(4.5, PORCH["open_w"]),
+                  "the porch's door opens STRAIGHT onto it (3 m straight out), then across the yard to p04's disc"),
+        make_lane("lane_p06_gable", "p06", "fallen_gable", _gable_front, _nin, 4.0,
+                  "from the breach of the fallen gable end to p06's disc"),
+        make_lane("lane_p03_stair", "p03", "sea_cave_stair", _land_mid, _land_in, STAIR["width_m"],
+                  "from the stair's top landing (its 5 m floor edge) to p03's disc", inset=0.6, straight=1.5),
+        make_lane("lane_p01_wreck", "p01", "wreck", along(hull_c, _lat_w, 2.3), _lat_w, 4.0,
+                  "from the wreck's broken rail, over the shingle, to p01's disc"),
+    ]
+    layout["lanes"] = lanes
+    layout["lanes_rule"] = ("R-C9-155 (Matt approved the v1 method): from each deliverer opening to its spawn disc a lane at least the "
+                            "opening's clear width; trodden ground with a natural edge; NOTHING stands or lies in it (validator R12)")
+
+    def _in_lane(p_, r_):
+        return any(G.point_in_poly(p_, ln["polygon"]) or G.dist_to_boundary(p_, ln["polygon"]) < r_ + 0.8 for ln in lanes)
+
+    def _outside(c0, r_, extra):
+        """push a point out along its ray from the start until it clears the floor and every lane"""
+        u_ = unit(*c0)
+        t_ = max(math.hypot(*c0), ray_exit(floor, u_) + extra)
+        for _ in range(60):
+            p_ = along((0, 0), u_, t_)
+            if (not G.point_in_poly(p_, floor)) and G.dist_to_boundary(p_, floor) > r_ + 0.8 and not _in_lane(p_, r_):
+                return p_
+            t_ += 0.6
+        return p_
+    # grave markers on the grave-ground beyond the floor, flanking the barrow; driftwood on the beach;
+    # the hall's fallen beams out in the yard -- all outside the floor and the lanes
+    for i, (x, y) in enumerate(((2.0, -24.0), (5.5, -21.5), (13.5, -22.5), (17.0, -25.0), (-2.5, -28.0), (6.5, -27.0), (19.5, -20.0))):
+        c_ = _outside((x, y), 0.4, 2.0 + 0.7 * (i % 3))
+        feat(f"grave_marker_{i + 1}", "grave_marker", G.rect_poly(*c_, 0.5, 0.25, 8 * i - 20), 0.0, 0.55, True,
+             "grave marker (a weathered shield-stone), outside the walkable edge (R-C9-155)")
+    for i, (x, y, Lg, r) in enumerate(((-30.0, 14.0, 3.2, 70), (-37.5, 1.0, 2.6, 110), (-27.5, 4.5, 2.0, 30), (-35.0, 16.5, 1.8, 150))):
+        c_ = _outside((x, y), Lg / 2, 1.5)
+        feat(f"driftwood_{i + 1}", "driftwood", G.rect_poly(*c_, Lg, 0.35, r), -0.2, 0.30, True, "driftwood on the beach, outside the edge (R-C9-155)")
+    for i, (x, y, Lg, r) in enumerate(((29.0, 1.0, 4.0, 15), (34.0, 12.0, 3.5, 80), (25.0, 13.5, 3.0, 140), (21.5, 23.5, 3.8, 35), (27.5, 20.0, 2.8, 100))):
+        c_ = _outside((x, y), Lg / 2, 3.0)
+        feat(f"yard_beam_{i + 1}", "beam", G.rect_poly(*c_, Lg, 0.4, r), 0.0, 0.35, True, "a fallen roof beam out in the yard, clear of the lanes (R-C9-155)")
+
     # ================= R-C9-149a BIOME-SCULPT: terrain, rocks, groves, ruined man-made pieces, ground detail =================
     def _rect_mid(fp):
         return (((fp[0][0] + fp[3][0]) / 2, (fp[0][1] + fp[3][1]) / 2), ((fp[1][0] + fp[2][0]) / 2, (fp[1][1] + fp[2][1]) / 2))
@@ -743,18 +865,12 @@ def main():
     hf_rel = "godot/data/terrain_h.f32"
     SC.write_heightfield(B.H, os.path.join(ROOT, hf_rel))
     B.dressing()
-    # the simple interior pieces re-made organic (their validator footprints are unchanged)
+    # shore rocks stay procedural (dressing); the rest of the simple pieces are model slots (R-C9-155)
     for f in feats:
-        fp = f["footprint"]
-        cx_ = sum(q[0] for q in fp) / len(fp)
-        cy_ = sum(q[1] for q in fp) / len(fp)
-        if f["kind"] == "grave_marker":
-            B.blob("stone", (cx_, cy_), 0.32, 0.17, f["z_top_m"], -0.2, float(B.rng.uniform(0, 180)), (0.46, 0.44, 0.41), "rock")
-        elif f["kind"] in ("driftwood", "beam"):
-            (a_, b_) = _rect_mid(fp)
-            col = (0.55, 0.47, 0.37) if f["kind"] == "driftwood" else (0.14, 0.12, 0.11)
-            B.beam((a_[0], a_[1], 0.12), (b_[0], b_[1], 0.14), 0.32, 0.22, col, f["kind"])
-        elif f["kind"] == "rock":
+        if f["kind"] == "rock":
+            fp = f["footprint"]
+            cx_ = sum(q[0] for q in fp) / len(fp)
+            cy_ = sum(q[1] for q in fp) / len(fp)
             r_ = max(math.dist(fp[0], (cx_, cy_)), 0.6) * 0.9
             B.blob("rock", (cx_, cy_), r_, r_ * 0.8, f["z_top_m"], -0.5, float(B.rng.uniform(0, 180)), (0.50, 0.49, 0.47), "rock")
     gd_counts = B.ground_detail()
@@ -763,6 +879,121 @@ def main():
     for f in feats:
         f["render"] = "sculpt" if f["kind"] in SCULPT_KINDS else "prism"
     feats.extend(B.features)
+    # ================= R-C9-155: MODEL SLOTS (the v1 method: REAL 3D models for every structure, painted over) =================
+    V1 = "runs/C-9/barrow_full/web_painted/models/barrow/"
+
+    def _cen(poly):
+        return (sum(q[0] for q in poly) / len(poly), sum(q[1] for q in poly) / len(poly))
+
+    def _yaw(face):
+        """Godot rotation.y (deg) that turns a model's local +Z (its front / opening side) to face `face` (sim vector)."""
+        return round(math.degrees(math.atan2(face[0], face[1])), 3)
+
+    def slot(sid, kind, footprint, size, face, status, glb, opening=None, instances=None, placeholder="massing", z=0.0, **kw):
+        c_ = _cen(footprint)
+        d = {"id": sid, "kind": kind, "pos": G.rnd(c_), "z": z, "faces_compass_deg": G.rnd(G.compass_deg(*face), 2),
+             "godot_rot_y_deg": _yaw(face), "size_m": {"w_local_x": G.rnd(size[0], 3), "d_local_z": G.rnd(size[1], 3), "h": G.rnd(size[2], 3)},
+             "footprint": G.rnd(footprint), "status": status, "glb": glb, "placeholder": placeholder}
+        if opening:
+            d["opening"] = opening
+        if instances is not None:
+            d["instances"] = instances
+        d.update(kw)
+        return d
+
+    def box_inst(c_, yaw_face, w, d_, ht, z0=0.0, glb=None):
+        return {"type": "box", "pos": G.rnd(c_), "z": G.rnd(z0, 3), "godot_rot_y_deg": _yaw(yaw_face),
+                "size_m": [G.rnd(w, 3), G.rnd(d_, 3), G.rnd(ht, 3)]}
+
+    def beam_inst(a_, b_, th):
+        return {"type": "beam", "a": G.rnd(a_, 3), "b": G.rnd(b_, 3), "thickness_m": G.rnd(th, 3)}
+    body_fp = hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp)
+    _door_c = along(D, nT, 0.0)
+    models = [
+        slot("longhall", "building", body_fp, (L_GD + NE_PAST_DOOR - GABLE_FWD, HALL_D, 6.5), _nin, "BUILD (lane BVP: Astra sheet -> Tripo)",
+             "godot/models/build/longhall.glb",
+             opening={"count": 1, "openings": [{"id": "great_door", "w": PORCH["open_w"], "h": PORCH["open_h"], "centre": G.rnd(_door_c),
+                                                "faces_compass_deg": G.rnd(G.compass_deg(*_nin), 2), "in": "hall_porch",
+                                                "station_from_sw_end_m": G.rnd(math.dist(_door_c, along(Gp, ax_ne, GABLE_FWD)), 3)}]},
+             brief="the burnt longhall: charred, sagging timber frame, roof half fallen; EXACTLY ONE great door, inside the porch; the long west wall faces the floor"),
+        slot("hall_porch", "porch", porch_fp, (PORCH["width"], PORCH["depth"], PORCH["ridge"] + 1.2), _nin, "BUILD (lane BVP)",
+             "godot/models/build/hall_porch.glb",
+             opening={"w": PORCH["open_w"], "h": PORCH["open_h"], "centre": G.rnd(along(_pc, _nin, PORCH["depth"])),
+                      "faces_compass_deg": G.rnd(G.compass_deg(*_nin), 2), "opens_onto": "lane_p04_hall"},
+             brief="gabled porch, eaves %.1f m, ridge %.1f m running OUT (above the hall's roofline), carved crossed finials; the great door's two leaves stand OPEN against the porch walls, not across the lane" % (PORCH["eave"], PORCH["ridge"])),
+        slot("fallen_gable", "ruin", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), (GABLE_BACK + GABLE_FWD, HALL_D, 2.8), _nin, "BUILD (lane BVP)",
+             "godot/models/build/fallen_gable.glb",
+             opening={"w": 4.0, "h": 2.8, "centre": G.rnd(_gable_front), "kind": "breach", "opens_onto": "lane_p06_gable"},
+             brief="the hall's own collapsed SW end: the A-frame fallen outward on its rubble; a clear breach on the floor side"),
+        slot("barrow_front", "portal", [along(along((0, 0), d2, door_plane), n2, -_bw / 2), along(along((0, 0), d2, door_plane), n2, _bw / 2),
+                                       along(along((0, 0), d2, door_plane + BARROW["post_d"]), n2, _bw / 2), along(along((0, 0), d2, door_plane + BARROW["post_d"]), n2, -_bw / 2)],
+             (_bw, BARROW["post_d"], BARROW["open_h"] + BARROW["lintel_t"] + 0.8), (-d2[0], -d2[1]),
+             "REUSE v1 parts (post.glb x2 + lintel.glb, rescaled) -- or BUILD a single monumental front", None,
+             opening={"w": BARROW["open_w"], "h": BARROW["open_h"], "centre": G.rnd(along((0, 0), d2, door_plane)),
+                      "faces_compass_deg": G.rnd(G.compass_deg(-d2[0], -d2[1]), 2), "opens_onto": "lane_p02_barrow"},
+             instances=[dict(box_inst(along(along((0, 0), d2, door_plane + BARROW["post_d"] / 2), n2, sg * (BARROW["open_w"] / 2 + BARROW["post_w"] / 2 + 0.003)),
+                                      (-d2[0], -d2[1]), BARROW["post_w"], BARROW["post_d"], BARROW["open_h"] + 0.4, -0.4), glb=V1 + "post.glb", part="upright")
+                        for sg in (-1, 1)] +
+                       [dict(box_inst(along((0, 0), d2, door_plane + BARROW["post_d"] / 2), (-d2[0], -d2[1]), _bw, BARROW["post_d"],
+                                      BARROW["lintel_t"], BARROW["open_h"]), glb=V1 + "lintel.glb", part="lintel")],
+             placeholder="parts", mound_behind="terrain heightfield (not a model): the mound, the 9 m passage cut and the forecourt",
+             brief="monumental King's door: massive uprights and lintel, stepped kerb either side, forecourt in front"),
+        slot("wreck", "wreck", [tuple(q) for q in next(f for f in feats if f["id"] == "wreck_hull")["footprint"]], (17.0, 4.6, 3.4), _lat_w,
+             "BUILD (lane BVP)", "godot/models/build/wreck.glb",
+             opening={"w": 4.0, "h": 1.4, "kind": "the broken rail (floor side)", "centre": G.rnd(along(hull_c, _lat_w, 2.3)), "opens_onto": "lane_p01_wreck"},
+             heel_deg_toward_floor=18.0, brief="beached longship heeled 18 deg toward the floor, broken stern, ice-locked; mast raked; the rail on the floor side broken open"),
+        slot("sea_cave_stair", "cliff", cave_poly, (G.rnd(cave_w_meas, 3), 0.5, STAIR["cave_h_m"]), cave_mid and unit(*cave_mid),
+             "BUILD (lane BVP: rock kit -- cave-mouth arch + stair-cut rock); the walkable stair geometry stays procedural", None,
+             opening={"w": G.rnd(cave_w_meas, 3), "h": STAIR["cave_h_m"], "kind": "sea-cave mouth", "z_bottom_m": ledge_z},
+             placeholder="procedural", z=ledge_z, stair={"flight": stair["flight"]["polygon"], "top_landing": stair["top_landing"]["polygon"],
+                                                         "ledge": stair["bottom_landing"]["polygon"], "wall_rock": G.rnd(wall_rock), "width_m": STAIR["width_m"]},
+             brief="the cave mouth in the south cliff face at the stair's foot + the rock the 5 m stair is cut into"),
+    ]
+    _ss = [f for f in feats if f["kind"] == "standing_stone"]
+    models.append(slot("standing_stones", "stones", [tuple(q) for q in _ss[0]["footprint"]], (0.9, 0.6, 2.6), (0, -1),
+                       "REUSE v1 stone_tall / stone_mid", None,
+                       instances=[dict(box_inst(_cen(f["footprint"]), (math.cos(i), math.sin(i)), 0.9, 0.6, f["z_top_m"], 0.0),
+                                       glb=V1 + ("stone_tall.glb" if i % 2 == 0 else "stone_mid.glb")) for i, f in enumerate(_ss)]))
+    _cs = [f for f in feats if "sculpt_stone" in f]
+    models.append(slot("circle_stones", "stones", [tuple(q) for q in _cs[0]["footprint"]], (1.8, 0.75, 0.12), (0, -1),
+                       "REUSE v1 stone_short (laid flat, sunk flush: top 0.12 m)", None,
+                       instances=[dict(box_inst(f["sculpt_stone"]["c"], (math.cos(math.radians(f["sculpt_stone"]["rot"])), math.sin(math.radians(f["sculpt_stone"]["rot"]))),
+                                                f["sculpt_stone"]["len"], f["sculpt_stone"]["wid"], 0.5, f["z_top_m"] - 0.5), glb=V1 + "stone_short.glb", lying=True)
+                                  for f in _cs]))
+    _gm = [f for f in feats if f["kind"] == "grave_marker"]
+    models.append(slot("grave_markers", "stones", [tuple(q) for q in _gm[0]["footprint"]], (0.5, 0.25, 0.55), (0, -1), "REUSE v1 kit/shield", None,
+                       instances=[dict(box_inst(_cen(f["footprint"]), (0, -1), 0.5, 0.25, 0.55, 0.0), glb=V1 + "kit/shield.glb") for f in _gm]))
+    _logs = [f for f in feats if f["kind"] in ("driftwood", "beam")]
+    models.append(slot("logs_and_beams", "debris", [tuple(q) for q in _logs[0]["footprint"]], (3.0, 0.35, 0.35), (0, -1), "REUSE v1 kit/log", None,
+                       instances=[dict(beam_inst((*_rect_mid(f["footprint"])[0], 0.15), (*_rect_mid(f["footprint"])[1], 0.18), 0.35), glb=V1 + "kit/log.glb", of=f["id"])
+                                  for f in _logs]))
+    _stk = B.captured.get("stake", [])
+    models.append(slot("palisade", "palisade", [tuple(q) for q in next(f for f in feats if f["kind"] == "palisade")["footprint"]], (0.22, 0.22, 3.0), (0, -1),
+                       "REUSE v1 kit/log as leaning stakes", None,
+                       instances=[dict(beam_inst(b_["a"], b_["b"], b_["w"]), glb=V1 + "kit/log.glb") for b_ in _stk]))
+    _brz = [f for f in feats if f["kind"] == "brazier"]
+    models.append(slot("braziers", "prop", [tuple(q) for q in _brz[0]["footprint"]], (1.1, 1.1, 2.3), (0, -1), "BUILD (lane BVP, small prop)",
+                       "godot/models/build/brazier.glb", instances=[box_inst(_cen(f["footprint"]), (0, -1), 1.1, 1.1, 2.3, 0.0) for f in _brz]))
+    for gi, (gx_, gy_, kind_, n_, sp_) in enumerate(ctx["groves"]):
+        if kind_ != "birch":
+            continue
+        trees = [b_ for b_ in B.captured.get("birch", []) if b_.get("grove") == gi]
+        if not trees:
+            continue
+        fpts = [(t_["a"][0], t_["a"][1]) for t_ in trees]
+        models.append(slot(f"birch_grove_{gi + 1}", "grove", G.offset_hull(fpts, 2.4, n=16), (2 * sp_, 2 * sp_, 9.0), (0, -1), "REUSE v1 birch.glb", None,
+                           instances=[dict(beam_inst(t_["a"], t_["b"], 2.4), glb=V1 + "birch.glb", fit="height") for t_ in trees]))
+    for ci, rocks in sorted(B.cluster_rocks.items()):
+        fpts = [tuple(r_["c"]) for r_ in rocks]
+        models.append(slot(f"rock_outcrop_{ci + 1}", "outcrop", G.offset_hull(fpts, max(r_["r"][0] for r_ in rocks) + 0.3, n=16),
+                           (0, 0, max(r_["top"] for r_ in rocks)), (0, -1), "BUILD (lane BVP rock kit); placeholder = the procedural boulders", None,
+                           placeholder="procedural",
+                           instances=[box_inst(r_["c"], (math.cos(math.radians(r_["rot"])), math.sin(math.radians(r_["rot"]))), 2 * r_["r"][0], 2 * r_["r"][1],
+                                               r_["top"] - r_["cz"] + r_["r"][2], r_["cz"] - r_["r"][2]) for r_ in rocks]))
+    layout["models"] = models
+    layout["models_rule"] = ("R-C9-155: every structure is a REAL 3D model in a slot (id, kind, pos, z, faces/yaw, size, footprint, opening); "
+                             "REUSE names a v1 Barrow GLB; BUILD = lane BVP (Astra sheet -> Tripo) hands BX the GLB at `glb`. "
+                             "Godot: local +Z is the model's front (its opening side); rotation.y = godot_rot_y_deg; until a GLB exists a labelled placeholder stands in.")
     layout["sculpt"] = {
         "_what": "R-C9-149a BIOME-SCULPT (tools/sculpt_v2.py): the greybox's real shape. Rendered by godot/scripts/barrow_v2_greybox.gd; proved by tools/validate_layout_v2.py (beams/blobs taller than walk-over lie outside the floor; the heightfield is exactly 0 on it).",
         "heightfield": {"file": hf_rel, "format": "float32 little-endian, row-major, rows y0 -> y1 (north -> south), cols x0 -> x1",
