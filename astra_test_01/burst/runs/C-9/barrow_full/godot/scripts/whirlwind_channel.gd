@@ -29,6 +29,12 @@ var _t := -1.0
 var _k: Node = null
 var _proxy: Node3D
 var _tau0 := -1.0
+## C-9 R-C9-143 (lane EOR2): WHICH EFFECT the dark knight's Eye of Reckoning draws. ?eorfx= (page) / --eorfx (desktop):
+##   ""      (the default) eor_kc2_fx.gd -- the effect Matt watched: reincarnated-godot kc2_player_channel.gd's VFX
+##           layers (smoke haze + dark bed, the cut pattern, three spark emitters, the ember garnish), exactly as made
+##   "wwcr"  whirlwind_fx.gd -- R-C9-128's port of wwcr_whirlwind.gd, kept for comparison
+## Only for a character carrying the EoR spin clip (_eor_ok) with one blade; the barbarian's whirlwind binds as before.
+var kind := "wwcr"
 
 
 func setup(scene: Node3D, k: Node, tint_name: String, spin_mode: String, hold_action: String,
@@ -45,7 +51,14 @@ func setup(scene: Node3D, k: Node, tint_name: String, spin_mode: String, hold_ac
 		top = sk.find_bone("Head")
 	var h: float = (sk.global_transform * sk.get_bone_global_rest(top).origin).y - rig.global_transform.origin.y
 	tint = tint_name if TINTS.has(tint_name) else "original"
-	for ti in tips.size():
+	if mode == "clip" and bool(k.get("_eor_ok")) and tips.size() == 1 and Slots.arg("eorfx") != "wwcr":
+		kind = "kc2"
+		var kf = load("res://scripts/eor_kc2_fx.gd").new()
+		kf.name = "EorKc2"
+		scene.add_child(kf)
+		kf.bind_to(rig, sk, k, _weapon_head_local(k, sk, String(tips[0])), tint, scene.get("snow"))
+		fxs.append(kf)
+	for ti in (tips.size() if kind == "wwcr" else 0):
 		var proxy := Node3D.new()
 		proxy.name = "WhirlwindBlade%d" % ti
 		scene.add_child(proxy)
@@ -95,7 +108,7 @@ func _process(_dt: float) -> void:
 func _apply_off(spec: String) -> void:
 	"""?wwoff=ribbon,pool,shed,scuff,scour,residue,spark -- a DIAGNOSTIC: those layers never drawn (cull layer 0), to
 	find which one a cost belongs to. Not a look; not on the select page."""
-	if spec == "":
+	if spec == "" or kind != "wwcr":
 		return
 	var off := spec.split(",")
 	for f in fxs:
@@ -201,6 +214,9 @@ func _physics_process(dt: float) -> void:
 func report() -> Dictionary:
 	if fx == null:
 		return {}
-	return {"tint": tint, "mode": mode, "h_char": float(fx.get("_s")) * 1.85, "scale": fx.get("_s"),
+	if kind == "kc2":
+		return {"fx": "kc2", "tint": tint, "mode": mode, "tips": tips, "channel_s": CHANNEL_S,
+			"weapon_head_local": str(fx.get("_head_local")), "kc2": fx.report}
+	return {"fx": "wwcr", "tint": tint, "mode": mode, "h_char": float(fx.get("_s")) * 1.85, "scale": fx.get("_s"),
 		"r_engage": fx.get("R_ENGAGE"), "r_trail_source": fx.get("R_TRAIL"),
 		"tips": tips, "weapon_head_local": fxs.map(func(f): return str(f.get("blade_head_local"))), "channel_s": CHANNEL_S}

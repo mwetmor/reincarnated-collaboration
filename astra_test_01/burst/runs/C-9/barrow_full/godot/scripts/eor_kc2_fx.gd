@@ -1,0 +1,1273 @@
+extends Node3D
+# ============================================================================
+# eor_kc2_fx.gd — C-9 R-C9-143 (lane EOR2, drax, 2026-10-02). THE EYE OF RECKONING THAT MATT WATCHED, PORTED.
+#
+# ⚑ SOURCE: reincarnated-godot scripts/kc2_player_channel.gd (sha256 e8c0c4ac3cdd...2f5dda3, last touched
+#   34dcd41 2026-08-13 "A2f item 1: THE RAISE") + scripts/kc2_etch.gdshader (sha256 bbff4063...881e898), the
+#   whirlwind drawn in Matt's reference clip ww7-gate2-cadence-ab-plk0665-1920x1080.mp4 (rendered by
+#   scripts/run_ww7_gate2_clip.sh -> kc2_cpb_clip.gd; SEGMENT B = `--undulate on`, the shipped default).
+#   R-C9-128 ported scripts/wwcr_whirlwind.gd instead -- the S2 clean-room mint, which has no smoke and no disc by
+#   design. That was the wrong source; this file is the right one. The wwcr port stays behind ?eorfx=wwcr.
+#
+# ⚑ WHAT IS PORTED: ONLY WHAT DRAWS. The source file is 4,217 lines; ~3,300 of them are the player's body
+#   (assembly, channel pose, IK, occlusion and sole laws) and the arena wire. None of that moves here: the Barrow
+#   has its own dark knight and his own spin clip (Matt, R-C9-143: "the animation of the warlord looks good").
+#   The VFX layers, their constants, comments, seeds, gradients and hashes are copied VERBATIM below; every place
+#   the Barrow forces a difference carries a "C-9 EOR2 PORT n" note, and the list is here:
+#
+#   LAYER MAP (visual element in the clip -> source -> here)
+#     light-grey cloudy haze, ~3 m disc      SmokeHaze  `_smoke`      src 3400-3462 -> `_smoke`      (GPUParticles3D, smoke_05_a)
+#     its dark ground half, soft edge        SmokeDarkBed `_smoke_bed` src 3481-3536 -> `_smoke_bed`  (ArrayMesh disc)
+#     red-orange arcs at the steel's reach,  THE CUTS   `_build_etch` src 2849-3011, `cut_layout_at` 3024-3081,
+#       white-hot heads, sword + claw          `_cut_mesh`/`_cut_ribbon` 3210-3279, `_drive_cuts` 3606-3647,
+#                                              kc2_etch.gdshader -> the same functions here + data/vfx/eor_kc2/kc2_etch.gdshader
+#     thin streak sparks flying off          Sparks_0..2 `_sparks` src 3339-3397, `emitter_open` 3667-3680 -> same
+#     orange ember flecks off the hammer     HammerTrail `_trail` src 3282-3336 -> `_trail`
+#     the one thermal ramp all four share    `palette_*` src 415-515 -> verbatim
+#     (warm OmniLight "ForgeLight")          src 2738-2746 -> NOT PORTED (PORT 6)
+#
+#   C-9 EOR2 PORT 1  THE CLOCK. Source: revolutions = sim tick x tick_period / player_rev_period_s, a perfectly
+#                    uniform spin of a pinned body. Here: revolutions = the mace head's ACCUMULATED BEARING since the
+#                    cast, / TAU -- his clip spins him (0.300 s/rev, one closed CCW turn per loop), so a cut born at
+#                    `birth` revs still sits at `a0 + TAU * birth`, i.e. exactly where his steel was. That identity is
+#                    the reason the source's cuts are world-fixed; it is kept, not approximated. After release the
+#                    clock runs on at the clip's measured rate so the last cuts and sparks finish their lives.
+#   C-9 EOR2 PORT 2  THE STATION. Source: the body is pinned (R-CPB-4); the bed, haze emitter and cuts sit at one
+#                    point. He WALKS while channelling here (the GD packet: canUseWhileMoving), so those non-spinning
+#                    layers ride his ground position -- translation only, never his yaw. The haze particles keep the
+#                    source's world coords, so when he walks they drift behind him as smoke does. The smoke's floor
+#                    (bed + haze) is the SNOW SURFACE under him (snow_field floor_y + depth_at): his origin is the
+#                    ground beneath ~0.3 m of snow, and the source's floor is the surface the body visibly stands on.
+#                    The cuts and sparks keep their heights from his feet, as the source measured them.
+#   C-9 EOR2 PORT 3  THE SPIN FRAME. Source: the spark ring is a child of the spinning body holder. Here its yaw is
+#                    set every frame from the head's bearing so the hammer sits at the SAME body-frame angle the source
+#                    measured (contact band angle -0.981523709878878 rad, a2f shot-B manifest): the three emitters keep
+#                    their source bearings relative to the steel (146.2 / 105.2 / 49.2 deg ahead of it).
+#   C-9 EOR2 PORT 4  WEAPON TRUTH, BY THE SOURCE'S OWN RULE. The source never types a radius: the cuts and the
+#                    sparks sit at the MEASURED reach of the weapon (`measure_contact_band`, frac 0.99;
+#                    `measure_weapon_sweep`). Here the same two rules run on the dark knight's mace. His pose is
+#                    NOT frozen (the source's was), so they run over 12 phases of his spin loop -- the source's own
+#                    `phases` default, from A2b when its pose still moved -- sampled from the clip's bone tracks, and
+#                    the ring is drawn at the MEAN, as the source says. No character-height scaling: the source has
+#                    none, so every other length below is the source's metres.
+#   C-9 EOR2 PORT 5  DAMAGE TRUTH. Source: the smoke disc reaches the wire's `circle_sweep.radius_m`, 3.000 m. The
+#                    Barrow carries no EoR damage radius, so the source's number is kept: 3.000 m.
+#   C-9 EOR2 PORT 6  NO LIGHT NODE. The source's ForgeLight (warm OmniLight3D, energy 1.15) is not built: a light
+#                    node whites the Barrow out on the phone renderer (whirlwind_fx.gd PORT 6). Every layer of this
+#                    effect is unshaded, so the light only warmed his body and the floor under the bed.
+#   C-9 EOR2 PORT 7  DRAW ORDER. Everything draws after the Barrow's paint post pass (PaintStack.AFTER_POST_PRIORITY)
+#                    or the paint covers it. The source's one ordering rule is kept inside that: the bed draws FIRST
+#                    (source render_priority -8 -> AFTER_POST), every other layer after it (source 0 -> AFTER_POST + 1).
+#   C-9 EOR2 PORT 8  NO GLOW. The source's HOT is an HDR claim -- a 9.0 core bloomed by the arena's glow pass
+#                    (kc2_arena.gd, threshold 1.0). The Barrow's environment has glow OFF and a linear tonemap
+#                    (PaintStack.barrow_environment; not this lane's), and the phone renderer has no HDR buffer. The
+#                    shader and every energy are unchanged; the core clips to white and does not bloom. Not
+#                    compensated -- named, and shown side by side in the R-C9-143 stills.
+#   C-9 EOR2 PORT 9  THE LIFECYCLE. Source: the aura is gated by one wire bit that is on for the whole clip, and it
+#                    pops. Here a cast BEGINS (instant, as the source: the haze restarts with its own 5.5 s preprocess,
+#                    "the bed exists before frame one") and RELEASES: births and emission stop, the cuts finish their
+#                    0.45 rev on PORT 1's clock, and the haze and the bed fade out over FADE_OUT_S. 0.80 s is AUTHORED
+#                    -- the old port's spin-down, so the channel stays busy exactly as long as it did.
+#   C-9 EOR2 PORT 10 THE SPARKS' LAUNCH SPEED. Source: v = TAU * r / player_rev_period_s -- the steel's own speed.
+#                    His steel turns at the clip's 0.300 s/rev, so that is the period used; 0.36 stays in the
+#                    declarations, which describe the source.
+#   C-9 EOR2 PORT 11 THE EMBERS' HEAD POINT. Source: 0.93 up the weapon's AABB along its haft, in grip space. The
+#                    mace here is bone-driven (weapon_r), so: 0.93 along the mace's own pommel->head extent on the
+#                    grip->head axis, in the bone's space -- the same fraction of the same steel.
+#   C-9 EOR2 PORT 12 WARM-UP. Every layer drawn once under the veil (warm()), or the first cast compiles its
+#                    shaders and the particle process materials mid-spin (whirlwind_fx.gd PORT 12).
+#   C-9 EOR2 PORT 13 THE BEARING is the mace head's (the vertex farthest from the grip), not the per-frame centroid of
+#                    the contact band: re-sweeping every mace vertex every frame is a cost the phone should not pay.
+#                    The two are measured against each other once (report.bearing_head_vs_band_deg).
+#   C-9 EOR2 PORT 14 THE MACE, THROUGH ITS SKIN. His mace is a skinned mesh (every vertex weight 1.0 to weapon_r) in
+#                    metres under a skeleton in centimetres. Its vertices go to weapon_r's space by the skin's own bind
+#                    pose. (The R-C9-128 port's `_weapon_head_local` used the bone's rest instead and folded the mace to
+#                    a point -- the skeleton's origin seen from his hand; that is why this file does not take it.)
+# ============================================================================
+
+const PAL_SRC := "reincarnated-godot scripts/kc2_player_channel.gd @ 34dcd41"
+const SPARK_TEX_RES := preload("res://data/vfx/eor_kc2/spark_04_a.png")
+const SMOKE_TEX_RES := preload("res://data/vfx/eor_kc2/smoke_05_a.png")
+const ETCH_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_etch.gdshader")
+
+# ---- the source's measured anchors (a2f shot-B manifest, the clip's own build) ----------------------------------
+const SRC_HAMMER_BEARING_RAD := -0.981523709878878   # contact_band.angle_rad: where the steel sits in the body frame
+const SRC_CONTACT_RADIUS_M := 2.20034735019359       # for the report only: the source hammer's reach
+const SRC_WIRE_RADIUS_M := 3.000
+# C-9 EOR2 PORT 16: the source hammer's contact band half-extent (a2f manifest, 16 of 1,958 vertices at reach, a flat
+# head 0.30 m tall). His mace's 0.99 band is a SPIKE TIP -- 0.0075 m half-extent, which would draw every cut as a
+# 1.6 mm hairline -- so the rule's radius and height are his, and the stroke's THICKNESS is the source's number:
+# the stroke Matt watched (core 0.0329 m, sheath 0.0954 m half-width).
+const SRC_CONTACT_HALF_EXTENT_M := 0.149611979722977                     # tracks.circle_sweep.radius_m  (PORT 5)
+const SRC_DRAWN_HEIGHT_M := 1.7097
+# C-9 EOR2 PORT 15: the source's ember emitter hangs off its Weapon node, whose GLOBAL scale is 1.910876
+# (WEAPON_SCALE 1.95 x body 0.979937, measured by building the source body headless). A world-space GPUParticles3D
+# takes its emitter's scale into the emission sphere, the launch speed and the quad, so the source's embers were
+# drawn 1.91x their constants. The mount here carries that one measured number, and nothing of his skeleton's
+# centimetre scale (0.0115), which would shrink them to dust.
+const SRC_EMBER_SCALE := 1.910876
+
+# ---- C-9 EOR2 PORT 9 / 12 ----------------------------------------------------------------------------------------
+const FADE_OUT_S := 0.80
+const FADE_IN_S := 0.10                               # = slot_knight.gd EOR_FADE_S: the bed arrives as his spin does
+const MEASURE_PHASES := 12                            # PORT 4: the source's `phases` default
+
+# ⚑ THE SPIN RATE — R-CPB-3. Kept for the declarations (they describe the source); the clip's own period drives the
+#   clock and the sparks here (PORT 1, PORT 10).
+const player_rev_period_s := 0.36
+
+# ============================================================================
+# FROM HERE TO `_hash2`, THE SOURCE'S VFX CONSTANTS AND FUNCTIONS, VERBATIM (comments and all) unless a PORT note says.
+# ============================================================================
+
+# --- the aura (R-CPB-2) ------------------------------------------------------
+# Three emitters. The hammer LEADS at offset 0 (the sparks come off the steel);
+# two unseen strikers TRAIL it. The offsets are deliberately NOT evenly spaced —
+# 120/120/120 would read as a rotating tripod, which is a shape, and a shape is
+# the thing R-BR-17's discriminator keeps out of a core beat.
+# ⚑ LAYER ONE — THE ETCH (R-CPB-7). Matt's ruling, five ratified properties:
+#   CONTINUOUS · DENSE · PERSISTENT · SHARP-EDGED · HOT. It is the DOMINANT
+#   element of the aura from this cell forward; the particle families below are
+#   accents around it.
+const ETCH_CONTACT_FRAC := 0.99   # of max radius: which vertices ARE "the steel at reach"
+const ETCH_CORE_FRAC := 0.22      # core half-width, as a fraction of the contact band's half-extent
+const ETCH_SHEATH_MULT := 2.9     # the bloom sheath, as a multiple of the core
+const ETCH_PLANES := 3            # crossed ribbons through the stroke's axis
+const ETCH_TAIL_TAPER := 0.42     # the stroke thins as it cools
+const ETCH_CORE_ENERGY := 9.0     # HDR at the steel
+const ETCH_TAIL_ENERGY := 0.30    # HDR one full persistence back
+const ETCH_SHEATH_ENERGY_FRAC := 0.22   # the sheath is the halo, never the line
+
+# THE CUT PATTERN — R-CPB-12. Five clauses, all Matt-ruled, all constants.
+const CUT_PERSIST_REVS := 0.45    # clause 1, inside the ruled 0.40-0.50 band
+const CUT_SEED := 20260813        # clause 5: THE declared seed. One number.
+const CUT_PER_REV := 17           # cut births per revolution — DERIVED (R-CPB-15; the source's table, src 148-191)
+const CUT_DENSITY_TARGET := 11.0  # cuts/rev — the RATIFIED density (R-CPB-15)
+const CUT_DENSITY_TOL := 0.5      # the band R-CPB-15 states, in cuts/rev
+# ⚑ THE JITTER IS BIN-BOUNDED ON PURPOSE. Each slot's birth stays inside its own
+#   1/CUT_PER_REV bin, so births are strictly increasing in time and can never
+#   reorder — which is what lets the pool assignment be `g mod POOL` with no
+#   bookkeeping, and what makes the layout comparable across builds.
+const CUT_JITTER := 0.55          # +/- of a bin, seeded per stroke
+const CUT_ARC_REVS_LO := 0.055    # a cut's own drawn length, low  (19.8 deg)
+const CUT_ARC_REVS_HI := 0.140    # ...and high                    (50.4 deg)
+const CUT_VERT_BAND_M := 0.36     # clause 3: the vertical band, centred on contact height
+const CUT_VERT_LEVELS := 5        # above / high / at / low / below
+const CUT_VARIANTS := 6           # pre-built stroke meshes PER CLASS
+const CUT_POOL := 24              # stroke nodes. Asserted never to overflow.
+const CUT_SEG_PER_REV := 288      # segment density, if a stroke spanned a whole rev
+# CLAW family (clause 2) — "as if a hand with different sized fingers laser-
+# scraped the metal".
+const CLAW_LINES_LO := 3
+const CLAW_LINES_HI := 4
+const CLAW_GAP_M := 0.040         # vertical stacking between the fingers
+const CLAW_WIDTH_LO := 0.26       # per-line half-width, as a fraction of the sword core
+const CLAW_WIDTH_HI := 0.62
+const CLAW_STAGGER_REVS := 0.030  # per-line leading/trailing edge offset, max
+
+# ⚑ THE UNDULATION — R-CPB-14. The shipped default (SEGMENT B of Matt's clip) is ON, and only ON is ported: the
+#   stationary A2d cadence was segment A, the comparison's reference half, not the effect.
+const CUT_UNDULATE_DEFAULT := true
+const CUT_EPOCH_LEN_LO := 5
+const CUT_EPOCH_LEN_HI := 13
+# The silence after a sequence ends, in REVOLUTIONS (NOTE-38: revs, never
+# seconds — retuning the spin must not retune the cadence).
+#       silence <= CUT_EPOCH_GAP_HI_REVS + (1 + CUT_JITTER) / CUT_PER_REV
+#       dark    <= max(silence - CUT_PERSIST_REVS, 0) revs
+const CUT_EPOCH_GAP_LO_REVS := 0.10
+const CUT_EPOCH_GAP_HI_REVS := 0.40
+const CUT_EPOCH_WALK_MAX := 20000
+
+# ⚑ THE PARTICLE SEEDS — the second clock, found by the FG-10 gate. One declared base, one offset per emitter.
+const FX_SEED := 20260813
+const FX_SEED_SMOKE := 11
+const FX_SEED_TRAIL := 23
+const FX_SEED_SPARK := 37        # + the emitter index
+
+
+# Pin a particle system to a declared seed. Called on EVERY GPUParticles3D this
+# file builds; there is no second place they are constructed.
+static func _pin_seed(p: GPUParticles3D, offset: int) -> void:
+	p.use_fixed_seed = true
+	p.seed = FX_SEED + offset
+
+# ⚑ THE THERMAL RAMP — R-CPB-13's IMPLEMENTATION LAW, AND IT IS ONE BLOCK.
+#   ONE RAMP AND FOUR CONSUMERS (sword, claw, bursts, embers); `PAL_TAIL` alone reverts the red extension
+#   everywhere. SMOKE IS DELIBERATELY NOT A CONSUMER. R-CPB-13: "Smoke stays OUT (darkness, not heat)."
+const PAL_HEAD := Color(1.00, 0.97, 0.90)   # white-hot, at the steel
+const PAL_MID := Color(1.00, 0.42, 0.06)    # orange, at the knee
+const PAL_TAIL := Color(0.98, 0.07, 0.02)   # RED, in the crawl  <-- THE REVERT POINT
+const PAL_KNEE_AT := 0.56         # where the knee sits on the DECAYED age axis
+const PAL_GAMMA := 0.55           # BELOW 1: fast off the steel, then a long crawl
+const CUT_MID_ENERGY := 1.70      # HDR at the orange knee
+const CUT_TAIL_FADE := 0.28       # the last fraction, smoothstepped to nothing
+const PAL_SAMPLES := 32
+
+
+#   a = life^PAL_GAMMA                        (gamma < 1 => fast, then a crawl)
+#   a < knee : head -> mid                    (white-hot into orange)
+#   a >= knee: mid  -> tail                   (orange into RED, in the crawl)
+static func palette_rgb(life: float) -> Color:
+	var a: float = pow(clampf(life, 0.0, 1.0), PAL_GAMMA)
+	if a < PAL_KNEE_AT:
+		return PAL_HEAD.lerp(PAL_MID, a / maxf(PAL_KNEE_AT, 1e-4))
+	return PAL_MID.lerp(PAL_TAIL, (a - PAL_KNEE_AT) / maxf(1.0 - PAL_KNEE_AT, 1e-4))
+
+
+static func palette_knee_life() -> float:
+	return pow(PAL_KNEE_AT, 1.0 / PAL_GAMMA)
+
+
+static func palette_gradient(alpha_head: float, alpha_tail: float) -> Gradient:
+	var ts: Array[float] = []
+	for i in PAL_SAMPLES:
+		# even on the DECAYED axis, which is dense exactly where the ramp is steep
+		ts.append(pow(float(i) / float(PAL_SAMPLES - 1), 1.0 / PAL_GAMMA))
+	ts.append(palette_knee_life())          # the corner gets its own stop
+	ts.sort()
+	var offs := PackedFloat32Array()
+	var cols := PackedColorArray()
+	var last := -1.0
+	for t in ts:
+		if t - last < 1e-7:                 # a duplicate stop is not a stop
+			continue
+		last = t
+		var c := palette_rgb(t)
+		c.a = lerpf(alpha_head, alpha_tail, t)
+		offs.append(t)
+		cols.append(c)
+	# assigned wholesale, never add_point()ed onto the two default stops a fresh
+	# Gradient is born with — those would survive at 0 and 1 and paint the head
+	# black
+	var g := Gradient.new()
+	g.offsets = offs
+	g.colors = cols
+	return g
+
+# LAYER ONE-b constants (the EMBER GARNISH). These touch the garnish and NOTHING else.
+const TRAIL_HEAD_FRAC := 0.93     # up the weapon: where the head is (PORT 11)
+const TRAIL_AMOUNT := 110         # was 260, when this layer had to carry the streak alone
+const TRAIL_LIFETIME_S := 0.20    # ~0.56 of a revolution: a streak, not a ring
+const TRAIL_SPREAD_M := 0.09
+const TRAIL_QUAD_M := 0.11        # was 0.16 — garnish does not compete with the line
+
+# LAYER TWO constants (discrete contact bursts).
+const SPARK_EMITTER_OFFSETS_DEG := [0.0, -41.0, -97.0]
+const SPARK_LIFETIME_S := 0.42
+const SPARK_EMITTER_Y_M := 0.85   # the source's `Vector3(radius, 0.85, 0.0)`, named here only so the report can cite it
+# ⚑ THE SMOKE BED (R-CPB-2 + R-CPB-5c). Matt asked for "cloudy/smoky DARKNESS" as the contrast bed under the sparks.
+# ⚑ AND ITS EDGE IS SOFT ON PURPOSE, WHICH IS A LAW AND NOT A LOOK (R-CPB-5b). The falloff STRADDLES the radius —
+#   full density inside, gone outside, exactly HALF at it — and there is no locatable line anywhere in it.
+# ⚑ GL-15: THE BED AND THE HAZE ARE ONE READ, NOT TWO. The dark ground bed carries the extent and the soft edge; the
+#   particle haze carries the CLOUD.
+const SMOKE_INNER_FRAC := 0.0         # the bed is a DISC now, not a ring: "filling the disc"
+const SMOKE_TOP_M := 1.25             # below the torso: the hammer and the head stay clear
+const SMOKE_AMOUNT := 170             # see _smoke(): more than this SATURATES into a plate
+const SMOKE_LIFETIME_S := 5.5
+const SMOKE_EDGE_SOFT_FRAC := 0.22    # the falloff band, +/- of the wire radius
+const SMOKE_BED_ALPHA := 0.86
+const SMOKE_BED_COLOR := Color(0.031, 0.029, 0.038)
+const SMOKE_BED_RINGS := 56
+const SMOKE_BED_SEGMENTS := 96
+const SMOKE_BED_LIFT_M := 0.02        # off the floor, so the bed is not z-fighting it
+
+# ============================================================================
+# state
+# ============================================================================
+enum S { IDLE, SUSTAIN, FALLING }
+var _state: int = S.IDLE
+var tint := "red"
+var report: Dictionary = {}
+var fx: Node3D                                 # the aura assembly root (source name kept)
+var smoke_root: Node3D                         # does NOT spin: a bed is not a rotor
+var spark_root: Node3D                         # turns with his steel (PORT 3)
+var etch_root: Node3D                          # does NOT spin — R-CPB-12
+var _emitters: Array[GPUParticles3D] = []
+var _trail_node: GPUParticles3D
+var _trail_mount: Node3D
+var _ember_local := Vector3.ZERO
+var _haze: GPUParticles3D
+var _haze_mat: StandardMaterial3D
+var _bed: MeshInstance3D
+var _bed_mat: StandardMaterial3D
+var _cut_lib: Array = []
+var _cut_nodes: Array = []
+var _cut_mats: Array = []
+var _cut_ready := false
+var _cut_r := 0.0
+var _cut_y := 0.0
+var _cut_a0 := 0.0
+var _spark_r := 0.0
+var _wire_r := SRC_WIRE_RADIUS_M
+var _rig: Node3D
+var _skel: Skeleton3D
+var _k: Node = null
+var _wb := -1
+var _head_local := Vector3.ZERO               # the mace head in weapon_r's space (PORT 14: through the skin)
+var _mace_cache := PackedVector3Array()
+var _rev_period := 0.30                       # the clip's measured loop length, s/rev (PORT 1, PORT 10)
+var _revs := 0.0                              # PORT 1: the accumulated head bearing since the cast, in revolutions
+var _end_revs := INF                          # no birth at or after this (PORT 9)
+var _prev_b := 0.0
+var _fade := 0.0                              # 0..1, the haze and the bed (PORT 9)
+var _fall_t := 0.0
+var _vfx := true                              # set_vfx_visible: the perf CONTROL hides every layer
+var _warming := false
+var _snow: Node = null                        # PORT 2: the snow field, whose surface is the floor he visibly stands on
+
+
+# ============================================================================
+# binding
+# ============================================================================
+func bind_to(rig: Node3D, skel: Skeleton3D, knight: Node, head_local: Vector3, tint_name: String, snow: Node = null) -> void:
+	_snow = snow
+	_rig = rig
+	_skel = skel
+	_k = knight
+	report["channel_head_local_r_c9_128"] = str(head_local)   # whirlwind_channel._weapon_head_local: NOT used (PORT 14)
+	# ⚑ THE TINT (R-C9-128's ?eortint). The source arc is ALREADY red-orange: white-hot -> orange -> RED, R-CPB-13's
+	#   ratified red extension, and it is what Matt's clip shows. So both "red" (the default) and "original" draw the
+	#   source's ramp, unchanged -- there is nothing to tint toward that the source does not already carry, and
+	#   inventing a second ramp would be authoring, not porting. The value is recorded so the page reports it.
+	tint = tint_name
+	_wb = skel.find_bone("weapon_r")
+	_head_local = _farthest_from_grip(_mace_points())
+	report["head_local"] = str(_head_local)
+	var loop := _loop_animation()
+	if loop != null:
+		_rev_period = loop.length
+	var band := measure_band_over_loop()
+	report["band"] = band
+	if bool(band.get("measured", false)):
+		_spark_r = float(band["radius_m"])
+	_build_aura(band)
+	set_physics_process(false)
+	process_priority = 10                       # after his AnimationTree has posed him this frame
+
+
+func _loop_animation() -> Animation:
+	var anim: AnimationPlayer = _k.get("_anim") if _k != null else null
+	if anim == null:
+		return null
+	var nm := "eor_spin_loop" if anim.has_animation("eor_spin_loop") else "eor_spin"
+	return anim.get_animation(nm) if anim.has_animation(nm) else null
+
+
+# ============================================================================
+# C-9 EOR2 PORT 4: the source's two weapon-truth rules, run on his mace over his spin loop.
+#
+# `measure_weapon_sweep` (src 2427) -> radius = max horizontal distance from the spin axis to any weapon vertex,
+#   at each phase; the ring at the MEAN.
+# `measure_contact_band` (src 2539) -> of the vertices within ETCH_CONTACT_FRAC of that max: the mean height and the
+#   half-extent (the stroke's thickness comes from it). Averaged over the phases the same way.
+# The bone poses come off the loop clip's own tracks (rest where a bone has none), composed up the parent chain --
+# the source's `_bone_global_from_locals`, which needs no processed frame either.
+# ============================================================================
+func measure_band_over_loop() -> Dictionary:
+	var out := {"measured": false, "basis": ""}
+	if _skel == null or _wb < 0:
+		out["basis"] = "NO weapon_r bone -- there is no steel to measure"
+		return out
+	var pts := _mace_points()
+	out["verts_total"] = pts.size()
+	if pts.is_empty():
+		out["basis"] = "no mace vertices in his gear"
+		return out
+	var loop := _loop_animation()
+	var anim: AnimationPlayer = _k.get("_anim")
+	var tr := {}                                  # bone index -> [pos track, rot track, scale track]
+	if loop != null:
+		var root_node: Node = anim.get_node_or_null(anim.root_node)
+		for ti in loop.get_track_count():
+			var p := loop.track_get_path(ti)
+			if p.get_subname_count() < 1 or root_node == null:
+				continue
+			if root_node.get_node_or_null(NodePath(String(p.get_concatenated_names()))) != _skel:
+				continue
+			var bi := _skel.find_bone(String(p.get_concatenated_subnames()))
+			if bi < 0:
+				continue
+			if not tr.has(bi):
+				tr[bi] = [-1, -1, -1]
+			match loop.track_get_type(ti):
+				Animation.TYPE_POSITION_3D: tr[bi][0] = ti
+				Animation.TYPE_ROTATION_3D: tr[bi][1] = ti
+				Animation.TYPE_SCALE_3D: tr[bi][2] = ti
+	var sk_basis := _skel.global_transform.basis
+	var sk_off := _skel.global_transform.origin - _rig.global_transform.origin
+	var radii := []
+	var heights := []
+	var halves := []
+	var head_vs_band := []
+	for ph in MEASURE_PHASES:
+		var t := (loop.length * float(ph) / float(MEASURE_PHASES)) if loop != null else 0.0
+		var wx := _bone_pose_at(loop, tr, _wb, t)
+		var to_rig := Transform3D(sk_basis, sk_off) * wx
+		var r_max := 0.0
+		var qs: Array[Vector3] = []
+		for p in pts:
+			var q: Vector3 = to_rig * p
+			qs.append(q)
+			r_max = maxf(r_max, Vector2(q.x, q.z).length())
+		var n := 0
+		var sy := 0.0
+		var sx := 0.0
+		var sz := 0.0
+		var y_lo := 1e9
+		var y_hi := -1e9
+		for q in qs:
+			if Vector2(q.x, q.z).length() < r_max * ETCH_CONTACT_FRAC:
+				continue
+			n += 1
+			sy += q.y
+			sx += q.x
+			sz += q.z
+			y_lo = minf(y_lo, q.y)
+			y_hi = maxf(y_hi, q.y)
+		if n < 3:
+			continue
+		radii.append(r_max)
+		heights.append(sy / float(n))
+		halves.append(0.5 * (y_hi - y_lo))
+		var hd: Vector3 = to_rig * _head_local
+		head_vs_band.append(rad_to_deg(wrapf(atan2(hd.x, hd.z) - atan2(sx / n, sz / n), -PI, PI)))
+	if radii.is_empty():
+		out["basis"] = "fewer than 3 vertices at reach in every phase -- the cuts REFUSE rather than guess a radius"
+		return out
+	var mean := func(a: Array) -> float:
+		var s := 0.0
+		for v in a:
+			s += float(v)
+		return s / float(a.size())
+	out["measured"] = true
+	out["phases"] = radii.size()
+	out["radius_m"] = mean.call(radii)
+	out["radius_min_m"] = radii.min()
+	out["radius_max_m"] = radii.max()
+	out["height_m"] = mean.call(heights)
+	out["half_extent_m"] = mean.call(halves)
+	out["bearing_head_vs_band_deg"] = mean.call(head_vs_band)
+	out["loop_s"] = loop.length if loop != null else 0.0
+	out["basis"] = ("PORT 4: the source's measure_contact_band (frac %.2f) and measure_weapon_sweep, on the dark "
+		+ "knight's mace (%d vertices, weapon_r space), over %d phases of %s (%.3f s/rev), bone poses composed from the "
+		+ "clip's own tracks. Ring at the MEAN reach.") % [ETCH_CONTACT_FRAC, pts.size(), radii.size(),
+		"his spin loop" if loop != null else "his REST pose (no loop clip!)", _rev_period]
+	return out
+
+
+func _bone_pose_at(loop: Animation, tr: Dictionary, bone: int, t: float) -> Transform3D:
+	var xf := Transform3D()
+	var i := bone
+	while i >= 0:
+		var rest := _skel.get_bone_rest(i)
+		var pos := rest.origin
+		var rot := rest.basis.get_rotation_quaternion()
+		var scl := rest.basis.get_scale()
+		if loop != null and tr.has(i):
+			var ix: Array = tr[i]
+			if int(ix[0]) >= 0:
+				pos = loop.position_track_interpolate(int(ix[0]), t)
+			if int(ix[1]) >= 0:
+				rot = loop.rotation_track_interpolate(int(ix[1]), t)
+			if int(ix[2]) >= 0:
+				scl = loop.scale_track_interpolate(int(ix[2]), t)
+		xf = Transform3D(Basis(rot).scaled(scl), pos) * xf
+		i = _skel.get_bone_parent(i)
+	return xf
+
+
+func _mace_points() -> PackedVector3Array:
+	"""Every vertex of the mace he holds in weapon_r, in that bone's own space. C-9 EOR2 PORT 14: through the SKIN's
+	bind pose for weapon_r (`skin.get_bind_pose(i) * v`), and only the vertices the skin gives to weapon_r. The mace
+	is a skinned mesh in METRES under a skeleton in CENTIMETRES (scale 0.0115); `rest.affine_inverse() * v` -- the
+	R-C9-128 port's way -- reads metres as centimetres and folds the whole mace onto one point."""
+	if not _mace_cache.is_empty():
+		return _mace_cache
+	var out := PackedVector3Array()
+	var pieces: Dictionary = (_k.get("gear") as Dictionary).get("_pieces", {})
+	for nm in pieces:
+		var s := String(nm)
+		if not (s.contains("mace") or s.contains("maul") or s.contains("hammer") or s.contains("axe") or s.contains("sword")):
+			continue
+		if not (pieces[nm] is Array):
+			continue
+		for mi in (pieces[nm] as Array):
+			var m := mi as MeshInstance3D
+			if m == null or m.mesh == null or m.skin == null:
+				continue
+			var bi := -1
+			for b in m.skin.get_bind_count():
+				if String(m.skin.get_bind_name(b)) == "weapon_r" or m.skin.get_bind_bone(b) == _wb:
+					bi = b
+			if bi < 0:
+				continue
+			var bind := m.skin.get_bind_pose(bi)
+			for si in m.mesh.get_surface_count():
+				var arr: Array = m.mesh.surface_get_arrays(si)
+				var vs: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+				var bones = arr[Mesh.ARRAY_BONES]
+				var ws = arr[Mesh.ARRAY_WEIGHTS]
+				var per: int = (bones as PackedInt32Array).size() / maxi(vs.size(), 1) if bones != null else 0
+				for vi in vs.size():
+					if per > 0:
+						var wsum := 0.0
+						for j in per:
+							if int(bones[vi * per + j]) == bi:
+								wsum += float(ws[vi * per + j])
+						if wsum < 0.5:
+							continue
+					out.append(bind * vs[vi])
+	_mace_cache = out
+	return out
+
+
+func _farthest_from_grip(pts: PackedVector3Array) -> Vector3:
+	"""The mace head: its vertex farthest from the grip (weapon_r's origin), in weapon_r's space."""
+	var best := Vector3.ZERO
+	var bd := -1.0
+	for p in pts:
+		var d := p.length_squared()
+		if d > bd:
+			bd = d
+			best = p
+	return best
+
+
+# ============================================================================
+# THE AURA — R-CPB-2 (source `_build_aura`, src 2648). The arena's ribbon and the ForgeLight are not here (PORT 6).
+# ============================================================================
+func _build_aura(band: Dictionary) -> void:
+	var wire_r: float = _wire_r
+	fx = Node3D.new()
+	fx.name = "ChannelFX"
+	fx.top_level = true
+	add_child(fx)
+	fx.visible = false
+
+	# --- the smoke bed: does NOT spin ---------------------------------------
+	smoke_root = Node3D.new()
+	smoke_root.name = "SmokeBed"
+	fx.add_child(smoke_root)
+	# GL-15: ONE read, TWO halves. The bed carries the extent and the soft edge;
+	# the haze carries the cloud. Neither is a second damage source.
+	_bed = _smoke_bed(wire_r)
+	smoke_root.add_child(_bed)
+	_haze = _smoke(wire_r)
+	smoke_root.add_child(_haze)
+
+	# --- the spark ring: turns WITH his steel (PORT 3) ----------------------
+	spark_root = Node3D.new()
+	spark_root.name = "SparkRing"
+	fx.add_child(spark_root)
+	var r: float = _spark_r if _spark_r > 0.05 else 0.0
+	for i in SPARK_EMITTER_OFFSETS_DEG.size():
+		var pivot := Node3D.new()
+		pivot.name = "SparkPivot_%d" % i
+		pivot.rotation.y = deg_to_rad(float(SPARK_EMITTER_OFFSETS_DEG[i]))
+		spark_root.add_child(pivot)
+		var e := _sparks(r, i)
+		pivot.add_child(e)
+		_emitters.append(e)
+
+	# --- LAYER ONE: THE ETCH (R-CPB-7) ---------------------------------------
+	var etch := _build_etch(band)
+
+	# --- LAYER ONE-b: the EMBER GARNISH off the hammer head (PORT 11) ---------
+	var head_pt := _ember_point()
+	_ember_local = head_pt
+	_trail_mount = Node3D.new()
+	_trail_mount.name = "EorKc2EmberMount"
+	_trail_mount.top_level = true
+	add_child(_trail_mount)
+	var t := _trail()
+	t.emitting = false
+	_trail_mount.add_child(t)
+	_trail_node = t
+
+	report["channel_fx"] = {
+		"source": PAL_SRC, "etch": etch, "spark_radius_m": r, "spark_radius_basis": "PORT 4 (weapon truth, mean reach)",
+		"smoke_radius_m": wire_r, "smoke_radius_basis": "PORT 5 (the source's wire radius, kept)",
+		"source_contact_radius_m": SRC_CONTACT_RADIUS_M, "source_drawn_height_m": SRC_DRAWN_HEIGHT_M,
+		"trail_head_point_bone_space": [head_pt.x, head_pt.y, head_pt.z], "rev_period_s": _rev_period,
+		"emitters": SPARK_EMITTER_OFFSETS_DEG.size(), "tint": tint, "ember_mount_scale": SRC_EMBER_SCALE,
+		"tint_basis": "the source ramp for both red and original -- the source arc is already white-hot -> orange -> RED",
+	}
+	_set_priorities()
+	_apply_fade(0.0)
+
+
+func _ember_point() -> Vector3:
+	"""C-9 EOR2 PORT 11: TRAIL_HEAD_FRAC of the way from the mace's pommel end to its head end, along grip -> head."""
+	var ax := _head_local.normalized()
+	if ax.length() < 0.5:
+		return Vector3.ZERO
+	var lo := INF
+	var hi := -INF
+	for p in _mace_points():
+		var d := p.dot(ax)
+		lo = minf(lo, d)
+		hi = maxf(hi, d)
+	if not is_finite(lo):
+		return _head_local
+	return ax * (lo + (hi - lo) * TRAIL_HEAD_FRAC)
+
+
+func _set_priorities() -> void:
+	"""C-9 EOR2 PORT 7: after the paint post pass; the bed first, as the source ordered it."""
+	var after := PaintStack.AFTER_POST_PRIORITY
+	_bed_mat.render_priority = after
+	for m in [(_haze.draw_pass_1 as QuadMesh).material, (_trail_node.draw_pass_1 as QuadMesh).material]:
+		(m as Material).render_priority = after + 1
+	for e in _emitters:
+		((e.draw_pass_1 as QuadMesh).material as Material).render_priority = after + 1
+	for pair in _cut_mats:
+		for m in (pair as Array):
+			(m as Material).render_priority = after + 1
+
+
+# ============================================================================
+# THE CUTS — R-CPB-7's five properties, R-CPB-12's five clauses (source `_build_etch`, src 2849). The arena's
+# station becomes his (PORT 2); `_cut_a0` is set at each cast from where his steel is (PORT 1).
+# ============================================================================
+func _build_etch(band: Dictionary) -> Dictionary:
+	var out := {"built": false}
+	if not bool(band.get("measured", false)):
+		out["refusal"] = ("NO CONTACT BAND — %s. The cuts are not drawn at a guessed radius."
+			% String(band.get("basis", "?")))
+		return out
+	var sh := ETCH_SHADER_RES as Shader
+	_cut_r = band["radius_m"]
+	_cut_y = band["height_m"]
+	# C-9 EOR2 PORT 16: the stroke's thickness from the SOURCE's measured band (see the constant)
+	var core_w: float = SRC_CONTACT_HALF_EXTENT_M * ETCH_CORE_FRAC
+	var sheath_w: float = core_w * ETCH_SHEATH_MULT
+
+	# --- the MESH LIBRARY: built once, never rebuilt, never mutated -----------
+	_cut_lib = []
+	var lib_tris := 0
+	for cls in 2:
+		var row: Array = []
+		for v in CUT_VARIANTS:
+			var m := _cut_mesh(cls, v, _cut_r, core_w, sheath_w)
+			row.append(m)
+			for si in m.get_surface_count():
+				lib_tris += (m.surface_get_arrays(si)[Mesh.ARRAY_INDEX]
+					as PackedInt32Array).size() / 3
+		_cut_lib.append(row)
+
+	# --- the POOL: CUT_POOL nodes, each with its own two materials ------------
+	# ⚑ NOT A CHILD OF THE SPINNING FRAME. See the header: the cuts do not spin.
+	etch_root = Node3D.new()
+	etch_root.name = "Etch"
+	fx.add_child(etch_root)
+	_cut_nodes = []
+	_cut_mats = []
+	for i in CUT_POOL:
+		var mi := MeshInstance3D.new()
+		mi.name = "Cut_%02d" % i
+		mi.mesh = (_cut_lib[0] as Array)[0]
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.extra_cull_margin = _cut_r * 2.0
+		mi.visible = false
+		var pair: Array = []
+		for shell in [
+				{"e": ETCH_CORE_ENERGY * ETCH_SHEATH_ENERGY_FRAC,
+					"t": ETCH_TAIL_ENERGY * ETCH_SHEATH_ENERGY_FRAC, "sharp": 1.15},
+				{"e": ETCH_CORE_ENERGY, "t": ETCH_TAIL_ENERGY, "sharp": 2.6}]:
+			var mat := ShaderMaterial.new()
+			mat.shader = sh
+			mat.set_shader_parameter("head_energy", float(shell["e"]))
+			mat.set_shader_parameter("tail_energy", float(shell["t"]))
+			mat.set_shader_parameter("edge_sharpness", float(shell["sharp"]))
+			mat.set_shader_parameter("stroke_age", 0.0)
+			mat.set_shader_parameter("core_color", PAL_HEAD)
+			mat.set_shader_parameter("mid_color", PAL_MID)
+			mat.set_shader_parameter("tail_color", PAL_TAIL)
+			mat.set_shader_parameter("mid_energy", CUT_MID_ENERGY
+				* (1.0 if shell["sharp"] > 2.0 else ETCH_SHEATH_ENERGY_FRAC))
+			mat.set_shader_parameter("mid_at", PAL_KNEE_AT)
+			mat.set_shader_parameter("decay_gamma", PAL_GAMMA)
+			mat.set_shader_parameter("tail_fade", CUT_TAIL_FADE)
+			pair.append(mat)
+		mi.set_surface_override_material(0, pair[0])
+		mi.set_surface_override_material(1, pair[1])
+		etch_root.add_child(mi)
+		_cut_nodes.append(mi)
+		_cut_mats.append(pair)
+	_cut_ready = true
+
+	out["built"] = true
+	out["radius_m"] = _cut_r
+	out["height_m"] = _cut_y
+	out["persist_revs"] = CUT_PERSIST_REVS
+	out["core_half_width_m"] = core_w
+	out["measured_half_extent_m_not_used"] = band["half_extent_m"]
+	out["sheath_half_width_m"] = sheath_w
+	out["planes"] = ETCH_PLANES
+	out["library_meshes"] = 2 * CUT_VARIANTS
+	out["library_triangles"] = lib_tris
+	out["pool"] = CUT_POOL
+	out["undulating"] = CUT_UNDULATE_DEFAULT
+	out["alive_expected"] = CUT_PERSIST_REVS * float(CUT_PER_REV)
+	return out
+
+
+# ============================================================================
+# THE LAYOUT — one function, and everything reads it (source `cut_layout_at`, src 3024). Its argument is now
+# REVOLUTIONS directly (PORT 1); the stationary branch is not ported (segment A was the comparison's reference).
+# One addition: no birth at or after `_end_revs` (PORT 9: a released channel inscribes nothing new).
+# ============================================================================
+func cut_layout_at(revs: float) -> Array:
+	var out: Array = []
+	if not _cut_ready:
+		return out
+	# ---- THE UNDULATING CADENCE (R-CPB-14) ---------------------------------
+	# ⚑ THE WALK STARTS AT EPOCH ZERO ON EVERY CALL, AND THAT IS THE POINT.
+	var s := 0.0                   # this epoch's start, in revs
+	var n := 0                     # global birth index, across all epochs
+	var k := 0
+	while s <= revs and k < CUT_EPOCH_WALK_MAX:
+		var lk := _epoch_len(k)
+		var occ: float = float(lk) / float(CUT_PER_REV)
+		if s + occ >= revs - CUT_PERSIST_REVS:
+			for i in lk:
+				var g: int = n + i
+				var birth: float = s + (float(i) + 0.5 + _cut_jitter(k, g)) / float(CUT_PER_REV)
+				var age: float = revs - birth
+				if age < 0.0 or age >= CUT_PERSIST_REVS or birth >= _end_revs:
+					continue
+				out.append(_cut_row(k, g, k, i, birth, age))
+		n += lk
+		s += occ + _epoch_gap_revs(k)
+		k += 1
+	return out
+
+
+func _cut_row(k: int, g: int, rev: int, slot: int, birth: float, age: float) -> Dictionary:
+	var level: int = _cut_h(0x2C93, k, g) % CUT_VERT_LEVELS
+	return {
+		"g": g, "rev": rev, "slot": slot, "epoch": k,
+		"claw": absi(g) % 2,
+		"variant": _cut_h(0x51ED, k, g) % CUT_VARIANTS,
+		"level": level,
+		"y_off_m": (float(level) / float(CUT_VERT_LEVELS - 1) - 0.5) * CUT_VERT_BAND_M,
+		"birth_revs": birth, "age_revs": age,
+		"age_frac": age / CUT_PERSIST_REVS,
+		# ⚑ THE ANGLE IS NOT A FREE PARAMETER. A cut is a mark left where the
+		#   steel was, so its angle is the head's angle AT ITS BIRTH.
+		"angle_rad": fposmod(_cut_a0 + TAU * birth, TAU),
+		"pool": absi(g) % CUT_POOL,
+	}
+
+
+static func _cut_h(salt: int, k: int, g: int) -> int:
+	if k < 0:
+		return _hash2(CUT_SEED ^ salt, g)
+	return _hash2(_hash2(CUT_SEED ^ salt, k), g)
+
+
+func _cut_jitter(k: int, g: int) -> float:
+	return (float(_cut_h(0, k, g) % 10000) / 10000.0 - 0.5) * CUT_JITTER
+
+
+static func _epoch_len(k: int) -> int:
+	return CUT_EPOCH_LEN_LO + _hash2(CUT_SEED ^ 0x1E90, k) % (CUT_EPOCH_LEN_HI - CUT_EPOCH_LEN_LO + 1)
+
+
+static func _epoch_gap_revs(k: int) -> float:
+	return lerpf(CUT_EPOCH_GAP_LO_REVS, CUT_EPOCH_GAP_HI_REVS,
+		float(_hash2(CUT_SEED ^ 0x6A17, k) % 10000) / 10000.0)
+
+
+# ============================================================================
+# ONE STROKE MESH (source `_cut_mesh`, src 3210). Two surfaces: 0 the bloom sheath, 1 the crisp core.
+# ============================================================================
+func _cut_mesh(cls: int, variant: int, r: float, core_w: float, sheath_w: float) -> ArrayMesh:
+	var m := ArrayMesh.new()
+	var h := _hash2(CUT_SEED ^ 0x7A11, cls * 131 + variant)
+	var arc_revs: float = lerpf(CUT_ARC_REVS_LO, CUT_ARC_REVS_HI,
+		float(h % 1000) / 1000.0)
+	for shell in [sheath_w, core_w]:
+		var verts := PackedVector3Array()
+		var cols := PackedColorArray()
+		var idx := PackedInt32Array()
+		if cls == 0:
+			_cut_ribbon(verts, cols, idx, r, 0.0, 0.0, arc_revs, shell, 0.0)
+		else:
+			var lines: int = CLAW_LINES_LO + int((h >> 10) % (CLAW_LINES_HI - CLAW_LINES_LO + 1))
+			for j in lines:
+				var hj := _hash2(CUT_SEED ^ 0x3B0D, (cls * 131 + variant) * 17 + j)
+				var lead: float = CLAW_STAGGER_REVS * float(hj % 1000) / 1000.0
+				var tail: float = CLAW_STAGGER_REVS * float((hj >> 10) % 1000) / 1000.0
+				var w: float = shell * lerpf(CLAW_WIDTH_LO, CLAW_WIDTH_HI,
+					float((hj >> 20) % 1000) / 1000.0)
+				var y: float = (float(j) - 0.5 * float(lines - 1)) * CLAW_GAP_M
+				_cut_ribbon(verts, cols, idx, r, y, lead,
+					maxf(arc_revs - lead + tail, 0.02), w, lead)
+		var arr := []
+		arr.resize(Mesh.ARRAY_MAX)
+		arr[Mesh.ARRAY_VERTEX] = verts
+		arr[Mesh.ARRAY_COLOR] = cols
+		arr[Mesh.ARRAY_INDEX] = idx
+		m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	return m
+
+
+func _cut_ribbon(verts: PackedVector3Array, cols: PackedColorArray, idx: PackedInt32Array,
+		r_center: float, y: float, a_lead: float, arc_revs: float, half_w: float,
+		age0: float) -> void:
+	var rows := [-1.0, -0.5, 0.0, 0.5, 1.0]
+	var per_ring := rows.size()
+	var seg: int = maxi(6, int(round(CUT_SEG_PER_REV * arc_revs)))
+	var arc := TAU * arc_revs
+	var a0 := -TAU * a_lead
+	for p in ETCH_PLANES:
+		# planes are spread over 180 deg, not 360: a ribbon is two-sided, so a
+		# fourth plane at 180 would be a duplicate of the first.
+		var psi := PI * float(p) / float(ETCH_PLANES)
+		var base := verts.size()
+		for i in (seg + 1):
+			var u := float(i) / float(seg)
+			var ang := a0 - arc * u
+			var sa := sin(ang)
+			var ca := cos(ang)
+			var centre := Vector3(sa * r_center, y, ca * r_center)
+			var radial := Vector3(sa, 0.0, ca)                 # outward, in the ring's plane
+			var d := (radial * cos(psi) + Vector3.UP * sin(psi)).normalized()
+			var w: float = half_w * lerpf(1.0, ETCH_TAIL_TAPER, u)
+			var age: float = (age0 + arc_revs * u) / CUT_PERSIST_REVS
+			for j in per_ring:
+				var t: float = rows[j]
+				verts.append(centre + d * (t * w))
+				cols.append(Color(clampf(age, 0.0, 1.0), absf(t), 0.0, 1.0))
+			if i < seg:
+				for j in (per_ring - 1):
+					var a := base + i * per_ring + j
+					var b := a + per_ring
+					idx.append_array([a, b, a + 1, a + 1, b, b + 1])
+
+
+# LAYER ONE-b — the EMBER GARNISH (source `_trail`, src 3282). Rides the hammer head; emits in WORLD space
+# so what it leaves behind is where the steel actually was.
+func _trail() -> GPUParticles3D:
+	var p := GPUParticles3D.new()
+	p.name = "HammerTrail"
+	_pin_seed(p, FX_SEED_TRAIL)
+	p.amount = TRAIL_AMOUNT
+	p.lifetime = TRAIL_LIFETIME_S
+	p.explosiveness = 0.0
+	p.randomness = 0.25
+	p.local_coords = false
+	p.transform_align = GPUParticles3D.TRANSFORM_ALIGN_Z_BILLBOARD
+	p.emitting = true               # CONTINUOUS — that is the layer's whole job
+
+	var m := ParticleProcessMaterial.new()
+	m.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+	m.emission_sphere_radius = TRAIL_SPREAD_M
+	m.direction = Vector3(0.0, 1.0, 0.0)
+	m.spread = 12.0
+	m.initial_velocity_min = 0.0
+	m.initial_velocity_max = 0.35
+	m.gravity = Vector3(0.0, -1.2, 0.0)
+	m.damping_min = 2.0
+	m.damping_max = 4.0
+	m.scale_min = 0.6
+	m.scale_max = 1.0
+	var sc := CurveTexture.new()
+	var cu := Curve.new()
+	cu.add_point(Vector2(0.0, 1.0))
+	cu.add_point(Vector2(1.0, 0.05))
+	sc.curve = cu
+	m.scale_curve = sc
+	# ⚑ THE EMBER GARNISH IS THE FOURTH CONSUMER of the one ramp (R-CPB-13).
+	m.color_ramp = GradientTexture1D.new()
+	(m.color_ramp as GradientTexture1D).gradient = palette_gradient(0.85, 0.0)
+	p.process_material = m
+
+	var q := QuadMesh.new()
+	q.size = Vector2(TRAIL_QUAD_M, TRAIL_QUAD_M)
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.vertex_color_use_as_albedo = true
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.albedo_texture = SPARK_TEX_RES
+	q.material = mat
+	p.draw_pass_1 = q
+	return p
+
+
+func _sparks(radius: float, idx: int) -> GPUParticles3D:
+	var p := GPUParticles3D.new()
+	p.name = "Sparks_%d" % idx
+	_pin_seed(p, FX_SEED_SPARK + idx)
+	p.amount = 40
+	p.lifetime = SPARK_LIFETIME_S
+	p.explosiveness = 0.0
+	p.randomness = 0.55
+	p.local_coords = false          # the trail stays where it was thrown
+	p.transform_align = GPUParticles3D.TRANSFORM_ALIGN_Z_BILLBOARD_Y_TO_VELOCITY
+	p.position = Vector3(radius, SPARK_EMITTER_Y_M, 0.0)
+	p.emitting = false              # the gate opens in _process, per revolution
+
+	var m := ParticleProcessMaterial.new()
+	m.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	m.emission_box_extents = Vector3(0.04, 0.10, 0.04)
+	# tangential: +Z in the pivot's local frame is the direction of travel
+	m.direction = Vector3(0.0, 0.25, 1.0)
+	m.spread = 26.0
+	# C-9 EOR2 PORT 10: his steel's period, not the source's 0.36
+	var v: float = TAU * maxf(radius, 0.4) / _rev_period
+	m.initial_velocity_min = v * 0.35
+	m.initial_velocity_max = v * 0.85
+	m.gravity = Vector3(0.0, -7.5, 0.0)
+	m.damping_min = 1.5
+	m.damping_max = 3.5
+	m.scale_min = 0.55
+	m.scale_max = 1.25
+	var sc := CurveTexture.new()
+	var cu := Curve.new()
+	cu.add_point(Vector2(0.0, 1.0))
+	cu.add_point(Vector2(1.0, 0.15))
+	sc.curve = cu
+	m.scale_curve = sc
+	# ⚑ R-CPB-13: THE BURSTS NOW DIE RED, BECAUSE THEY READ THE SAME RAMP.
+	var gt := GradientTexture1D.new()
+	gt.gradient = palette_gradient(1.0, 0.0)
+	m.color_ramp = gt
+	p.process_material = m
+
+	var q := QuadMesh.new()
+	q.size = Vector2(0.045, 0.30)
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.vertex_color_use_as_albedo = true
+	mat.disable_receive_shadows = true
+	mat.albedo_texture = SPARK_TEX_RES
+	q.material = mat
+	p.draw_pass_1 = q
+	return p
+
+
+func _smoke(outer_r: float) -> GPUParticles3D:
+	var p := GPUParticles3D.new()
+	p.name = "SmokeHaze"
+	_pin_seed(p, FX_SEED_SMOKE)
+	p.amount = SMOKE_AMOUNT
+	p.lifetime = SMOKE_LIFETIME_S
+	p.preprocess = SMOKE_LIFETIME_S   # the bed exists before frame one
+	p.randomness = 0.7
+	p.local_coords = false
+	p.position = Vector3(0.0, 0.10, 0.0)
+	p.emitting = false                # PORT 9: restarted at each cast
+
+	var m := ParticleProcessMaterial.new()
+	m.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_RING
+	m.emission_ring_axis = Vector3.UP
+	m.emission_ring_radius = outer_r
+	m.emission_ring_inner_radius = outer_r * SMOKE_INNER_FRAC
+	m.emission_ring_height = 0.30
+	m.direction = Vector3(0.0, 1.0, 0.0)
+	m.spread = 14.0
+	m.initial_velocity_min = 0.04
+	m.initial_velocity_max = 0.18
+	m.gravity = Vector3.ZERO
+	m.angular_velocity_min = -22.0
+	m.angular_velocity_max = 22.0
+	m.scale_min = 0.9
+	m.scale_max = 2.6
+	# ⚑ LOW PER-PARTICLE ALPHA IS WHAT MAKES IT CLOUDY. Cloud is VARIANCE, and variance comes from overlap: at 0.26
+	#   each, the density is wherever the quads happen to stack. The DARKNESS is the bed's job; the haze's job is to
+	#   stop the bed being a disc.
+	var g := Gradient.new()
+	g.set_color(0, Color(0.215, 0.205, 0.235, 0.0))
+	g.set_color(1, Color(0.070, 0.066, 0.085, 0.0))
+	g.add_point(0.16, Color(0.205, 0.195, 0.225, 0.30))
+	g.add_point(0.70, Color(0.105, 0.100, 0.128, 0.22))
+	var gt := GradientTexture1D.new()
+	gt.gradient = g
+	m.color_ramp = gt
+	p.process_material = m
+
+	var q := QuadMesh.new()
+	q.size = Vector2(2.3, 2.3)
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.vertex_color_use_as_albedo = true
+	mat.disable_receive_shadows = true
+	mat.no_depth_test = false
+	mat.albedo_texture = SMOKE_TEX_RES
+	q.material = mat
+	_haze_mat = mat
+	p.draw_pass_1 = q
+	# the bed is a low pool, not a column
+	p.visibility_aabb = AABB(Vector3(-outer_r * 1.6, -0.2, -outer_r * 1.6),
+		Vector3(outer_r * 3.2, SMOKE_TOP_M + 0.6, outer_r * 3.2))
+	return p
+
+
+# THE DARK BED (source `_smoke_bed`, src 3481) — the ground half of the smoke read; owns the SOFT EDGE (R-CPB-5b).
+func _smoke_bed(outer_r: float) -> MeshInstance3D:
+	var lo := outer_r * (1.0 - SMOKE_EDGE_SOFT_FRAC)
+	var rim := outer_r * (1.0 + SMOKE_EDGE_SOFT_FRAC)
+	var verts := PackedVector3Array()
+	var cols := PackedColorArray()
+	var idx := PackedInt32Array()
+	verts.append(Vector3.ZERO)
+	cols.append(Color(SMOKE_BED_COLOR.r, SMOKE_BED_COLOR.g, SMOKE_BED_COLOR.b, SMOKE_BED_ALPHA))
+	for i in SMOKE_BED_RINGS:
+		var r: float = rim * float(i + 1) / float(SMOKE_BED_RINGS)
+		var a: float = SMOKE_BED_ALPHA * (1.0 - smoothstep(lo, rim, r))
+		for j in SMOKE_BED_SEGMENTS:
+			var th: float = TAU * float(j) / float(SMOKE_BED_SEGMENTS)
+			verts.append(Vector3(sin(th) * r, 0.0, cos(th) * r))
+			cols.append(Color(SMOKE_BED_COLOR.r, SMOKE_BED_COLOR.g, SMOKE_BED_COLOR.b, a))
+	for j in SMOKE_BED_SEGMENTS:
+		idx.append_array([0, 1 + j, 1 + ((j + 1) % SMOKE_BED_SEGMENTS)])
+	for i in (SMOKE_BED_RINGS - 1):
+		var b0 := 1 + i * SMOKE_BED_SEGMENTS
+		var b1 := b0 + SMOKE_BED_SEGMENTS
+		for j in SMOKE_BED_SEGMENTS:
+			var j2 := (j + 1) % SMOKE_BED_SEGMENTS
+			idx.append_array([b0 + j, b1 + j, b0 + j2, b0 + j2, b1 + j, b1 + j2])
+	var arr := []
+	arr.resize(Mesh.ARRAY_MAX)
+	arr[Mesh.ARRAY_VERTEX] = verts
+	arr[Mesh.ARRAY_COLOR] = cols
+	arr[Mesh.ARRAY_INDEX] = idx
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+
+	var mi := MeshInstance3D.new()
+	mi.name = "SmokeDarkBed"
+	mi.mesh = mesh
+	mi.position = Vector3(0.0, SMOKE_BED_LIFT_M, 0.0)
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX
+	mat.vertex_color_use_as_albedo = true
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat.disable_receive_shadows = true
+	# ⚑ THE BED DRAWS FIRST, AND IT HAS TO BE SAID EXPLICITLY (source: render_priority -8; PORT 7 sets it).
+	mi.material_override = mat
+	_bed_mat = mat
+	return mi
+
+
+# ============================================================================
+# per frame (source `apply_tick`, src 3564, on PORT 1's clock)
+# ============================================================================
+func begin() -> void:
+	if _state != S.IDLE:
+		return
+	_state = S.SUSTAIN
+	_revs = 0.0
+	_end_revs = INF
+	_fall_t = 0.0
+	_prev_b = _head_bearing()
+	_cut_a0 = _prev_b                            # the steel's own angle at the cast (source: band angle at tick 0)
+	_place_station()
+	_place_embers()
+	fx.visible = _vfx
+	_haze.restart()                              # PORT 9: with its own preprocess -- "the bed exists before frame one"
+	_haze.emitting = true
+	_trail_node.emitting = true
+	_trail_node.visible = _vfx
+
+
+func end() -> void:
+	if _state == S.SUSTAIN:
+		_state = S.FALLING
+		_end_revs = _revs
+		_fall_t = 0.0
+		_haze.emitting = false
+		_trail_node.emitting = false
+
+
+func state_name() -> String:
+	return ["IDLE", "SUSTAIN", "FALLING"][_state]
+
+
+func channel_weight() -> float:
+	return _fade
+
+
+## The perf CONTROL (perf_fireball.gd, the source's "novfx" condition): every layer hidden, the clock still running.
+func set_vfx_visible(v: bool) -> void:
+	_vfx = v
+	if fx != null:
+		fx.visible = v and _state != S.IDLE
+	if _trail_node != null:
+		_trail_node.visible = v
+
+
+func _process(dt: float) -> void:
+	if _warming or _state == S.IDLE:
+		return
+	_place_station()
+	_place_embers()
+	var b := _head_bearing()
+	if _state == S.SUSTAIN:
+		_revs += wrapf(b - _prev_b, -PI, PI) / TAU
+		_fade = minf(1.0, _fade + dt / FADE_IN_S)
+	else:
+		# PORT 9: released -- the clock runs on at his measured rate; the haze and the bed fade
+		_revs += dt / maxf(_rev_period, 1e-3)
+		_fall_t += dt
+		_fade = maxf(0.0, 1.0 - _fall_t / FADE_OUT_S)
+	_prev_b = b
+	_apply_fade(_fade)
+	# PORT 3: the spark ring turns with his steel, the hammer at the source's body-frame angle
+	spark_root.rotation.y = b - SRC_HAMMER_BEARING_RAD
+	var on := _state == S.SUSTAIN
+	for i in _emitters.size():
+		var want: bool = on and emitter_open(i, _revs)
+		if _emitters[i].emitting != want:
+			_emitters[i].emitting = want
+	_drive_cuts(_revs, true)
+	if _state == S.FALLING and _fall_t >= FADE_OUT_S and _revs - _end_revs >= CUT_PERSIST_REVS:
+		_state = S.IDLE
+		fx.visible = false
+		_drive_cuts(_revs, false)
+
+
+func _apply_fade(f: float) -> void:
+	_haze_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
+	_bed_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
+
+
+func _place_station() -> void:
+	"""C-9 EOR2 PORT 2: the non-spinning layers stand where he stands -- his ground position, never his yaw."""
+	var o := _rig.global_transform.origin
+	fx.global_transform = Transform3D(Basis(), o)
+	# the smoke's floor is the SNOW he stands in, not the ground under it (his origin is floor_y; the snow is up to
+	# ~0.3 m deep): the bed at the source's 0.02 m lift and the haze's lower half would otherwise be buried
+	if _snow != null and _snow.has_method("depth_at"):
+		var top: float = float(_snow.get("floor_y")) + float(_snow.depth_at(Vector2(o.x, o.z)))
+		smoke_root.position.y = maxf(top - o.y, 0.0)
+
+
+func _place_embers() -> void:
+	"""C-9 EOR2 PORT 15: the ember mount at the mace's ember point, +Y along grip -> head (the source's haft axis),
+	scaled by the source emitter's own measured scale."""
+	var wx := _skel.global_transform * _skel.get_bone_global_pose(_wb)
+	var g := wx.origin
+	var hd := wx * _head_local
+	var y := (hd - g).normalized()
+	if y.length() < 0.5:
+		y = Vector3.UP
+	var x := y.cross(Vector3.UP)
+	if x.length() < 1e-4:
+		x = Vector3.RIGHT
+	x = x.normalized()
+	var bs := Basis(x, y, x.cross(y).normalized()).orthonormalized().scaled(Vector3.ONE * SRC_EMBER_SCALE)
+	_trail_mount.global_transform = Transform3D(bs, wx * _ember_local)
+
+
+func _head_bearing() -> float:
+	"""C-9 EOR2 PORT 13: the bearing of the mace head about his spin axis (atan2(x, z), the source's convention)."""
+	var o := _rig.global_transform.origin
+	var hd := _skel.global_transform * _skel.get_bone_global_pose(_wb) * _head_local
+	return atan2(hd.x - o.x, hd.z - o.z)
+
+
+# Position, age and reveal every live cut (source `_drive_cuts`, src 3606). Pure in `revs`.
+func _drive_cuts(revs: float, on: bool) -> void:
+	if not _cut_ready:
+		return
+	var live := {}
+	if on:
+		for row in cut_layout_at(revs):
+			var r: Dictionary = row
+			var k: int = r["pool"]
+			if live.has(k):
+				continue
+			live[k] = r
+	# ⚑ EVERY SLOT IS WRITTEN EVERY TICK, INCLUDING THE DARK ONES.
+	for i in CUT_POOL:
+		var mi: MeshInstance3D = _cut_nodes[i]
+		var vis: bool = live.has(i)
+		var want_mesh: Mesh = (_cut_lib[0] as Array)[0]
+		var yaw := 0.0
+		var y := _cut_y
+		var age := 1.0
+		if vis:
+			var r: Dictionary = live[i]
+			want_mesh = (_cut_lib[int(r["claw"])] as Array)[int(r["variant"])]
+			yaw = float(r["angle_rad"])
+			y = _cut_y + float(r["y_off_m"])
+			age = float(r["age_frac"])
+		if mi.mesh != want_mesh:
+			mi.mesh = want_mesh
+		mi.rotation.y = yaw
+		mi.position.y = y
+		for mat in (_cut_mats[i] as Array):
+			(mat as ShaderMaterial).set_shader_parameter("stroke_age", age)
+		if mi.visible != vis:
+			mi.visible = vis
+
+
+# ⚑ THE BROKEN RING, AND IT IS A PURE FUNCTION OF THE CLOCK (source `emitter_open`, src 3667, on revolutions:
+#   rev = floor(revs), phase = frac(revs) -- the source's t_s / player_rev_period_s, PORT 1).
+static func emitter_open(idx: int, revs: float) -> bool:
+	var rev := floori(revs)
+	var ph: float = fposmod(revs, 1.0)
+	var h := _hash2(idx * 7919, rev)
+	var bursts := 1 + int(h % 2)                       # once or twice this circle
+	for k in bursts:
+		var hk := _hash2(idx * 7919 + 131 * (k + 1), rev)
+		var start := float(hk % 1000) / 1000.0
+		var span := 0.10 + float((hk >> 10) % 130) / 1000.0   # 0.10 .. 0.23 of a circle
+		var d: float = fposmod(ph - start, 1.0)
+		if d < span:
+			return true
+	return false
+
+
+static func _hash2(a: int, b: int) -> int:
+	var x := (a * 73856093) ^ (b * 19349663)
+	x = (x ^ (x >> 13)) * 1274126177
+	return absi(x ^ (x >> 16))
+
+
+# ============================================================================
+# C-9 EOR2 PORT 12: WARM-UP. Every layer drawn once, at him, under the veil: the haze restarted (its preprocess
+# path), all three spark emitters and the embers emitting, two cut slots (sword + claw) shown mid-life.
+# ============================================================================
+func warm(on: bool, _at: Vector3) -> void:
+	_warming = on
+	if on:
+		_place_station()
+		_place_embers()
+		fx.visible = true
+		_apply_fade(0.04)
+		if not _haze.emitting:
+			_haze.restart()
+		_haze.emitting = true
+		for e in _emitters:
+			e.emitting = true
+		_trail_node.emitting = true
+		if _cut_ready:
+			for i in 2:
+				var mi: MeshInstance3D = _cut_nodes[i]
+				mi.mesh = (_cut_lib[i] as Array)[0]
+				mi.position.y = _cut_y
+				mi.visible = true
+				for mat in (_cut_mats[i] as Array):
+					(mat as ShaderMaterial).set_shader_parameter("stroke_age", 0.5)
+	else:
+		fx.visible = false
+		_haze.emitting = false
+		for e in _emitters:
+			e.emitting = false
+		_trail_node.emitting = false
+		_drive_cuts(0.0, false)
+		_apply_fade(0.0)
