@@ -1,0 +1,753 @@
+{
+ "what": "R-C9-138/140 measurements, kit of record ss134f (before) vs ss138a (after); glTF world, her facing +Z; instruments scripts/r138_01_grip_measure.py, e30_posture.py, so07 (parity), nb_join j_joint_lint.py",
+ "clips": {
+  "idle": {
+   "before": {
+    "orb_elev": {
+     "med": 41.27,
+     "min": 41.27,
+     "max": 41.27
+    },
+    "orb_az": {
+     "med": -2.4,
+     "min": -2.4,
+     "max": -2.4
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": -5.91,
+     "min": -6.5,
+     "max": -5.36
+    },
+    "chest_pitch": {
+     "med": -2.25,
+     "min": -5.31,
+     "max": 0.17
+    },
+    "pelvis_pitch": {
+     "med": -8.63,
+     "min": -10.66,
+     "max": -7.18
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 30.0,
+     "min": 30.0,
+     "max": 30.0
+    },
+    "orb_az": {
+     "med": 0.0,
+     "min": -0.0,
+     "max": 0.0
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 2.81,
+     "min": 2.22,
+     "max": 3.37
+    },
+    "chest_pitch": {
+     "med": 9.75,
+     "min": 6.69,
+     "max": 12.17
+    },
+    "pelvis_pitch": {
+     "med": -2.62,
+     "min": -4.65,
+     "max": -1.17
+    }
+   }
+  },
+  "idle_ss4": {
+   "after": {
+    "orb_elev": {
+     "med": 30.0,
+     "min": 30.0,
+     "max": 30.0
+    },
+    "orb_az": {
+     "med": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 6.88,
+     "min": 6.56,
+     "max": 7.34
+    },
+    "chest_pitch": {
+     "med": 6.52,
+     "min": 5.73,
+     "max": 7.24
+    },
+    "pelvis_pitch": {
+     "med": 7.2,
+     "min": 6.93,
+     "max": 7.64
+    }
+   }
+  },
+  "walk": {
+   "before": {
+    "orb_elev": {
+     "med": 48.33,
+     "min": 43.26,
+     "max": 51.99
+    },
+    "orb_az": {
+     "med": 49.81,
+     "min": 35.93,
+     "max": 59.75
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.53,
+     "max": 11.24
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 9.03,
+     "min": 7.03,
+     "max": 10.03
+    },
+    "chest_pitch": {
+     "med": 13.18,
+     "min": 10.82,
+     "max": 14.18
+    },
+    "pelvis_pitch": {
+     "med": 5.25,
+     "min": 3.91,
+     "max": 6.68
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 38.45,
+     "min": 30.0,
+     "max": 44.03
+    },
+    "orb_az": {
+     "med": 5.49,
+     "min": 0.0,
+     "max": 8.36
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.53,
+     "max": 11.24
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 9.03,
+     "min": 7.03,
+     "max": 10.03
+    },
+    "chest_pitch": {
+     "med": 13.18,
+     "min": 10.82,
+     "max": 14.18
+    },
+    "pelvis_pitch": {
+     "med": 5.25,
+     "min": 3.91,
+     "max": 6.68
+    }
+   }
+  },
+  "run": {
+   "before": {
+    "orb_elev": {
+     "med": 52.15,
+     "min": 37.19,
+     "max": 61.25
+    },
+    "orb_az": {
+     "med": 74.75,
+     "min": 58.69,
+     "max": 89.16
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 12.22
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 31.73,
+     "min": 28.4,
+     "max": 35.33
+    },
+    "chest_pitch": {
+     "med": 37.29,
+     "min": 34.16,
+     "max": 42.54
+    },
+    "pelvis_pitch": {
+     "med": 27.05,
+     "min": 23.74,
+     "max": 30.41
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 39.65,
+     "min": 36.43,
+     "max": 48.36
+    },
+    "orb_az": {
+     "med": -1.22,
+     "min": -8.61,
+     "max": 4.49
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 12.22
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 31.73,
+     "min": 28.4,
+     "max": 35.33
+    },
+    "chest_pitch": {
+     "med": 37.29,
+     "min": 34.16,
+     "max": 42.54
+    },
+    "pelvis_pitch": {
+     "med": 27.05,
+     "min": 23.74,
+     "max": 30.41
+    }
+   }
+  },
+  "hit": {
+   "before": {
+    "orb_elev": {
+     "med": -20.3,
+     "min": -25.51,
+     "max": -13.07
+    },
+    "orb_az": {
+     "med": -31.15,
+     "min": -42.43,
+     "max": -19.34
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 5.04,
+     "min": -5.08,
+     "max": 12.91
+    },
+    "chest_pitch": {
+     "med": 7.51,
+     "min": -4.16,
+     "max": 17.53
+    },
+    "pelvis_pitch": {
+     "med": 3.06,
+     "min": -6.13,
+     "max": 9.32
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 1.39,
+     "min": -7.49,
+     "max": 12.18
+    },
+    "orb_az": {
+     "med": -8.83,
+     "min": -15.81,
+     "max": -4.9
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 5.04,
+     "min": -5.08,
+     "max": 12.91
+    },
+    "chest_pitch": {
+     "med": 7.51,
+     "min": -4.16,
+     "max": 17.53
+    },
+    "pelvis_pitch": {
+     "med": 3.06,
+     "min": -6.13,
+     "max": 9.32
+    }
+   }
+  },
+  "block": {
+   "before": {
+    "orb_elev": {
+     "med": -20.93,
+     "min": -24.65,
+     "max": 41.27
+    },
+    "orb_az": {
+     "med": -37.86,
+     "min": -39.62,
+     "max": -2.4
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": -6.37,
+     "min": -6.5,
+     "max": -6.1
+    },
+    "chest_pitch": {
+     "med": -3.31,
+     "min": -5.3,
+     "max": -1.11
+    },
+    "pelvis_pitch": {
+     "med": -8.86,
+     "min": -10.14,
+     "max": -7.4
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 4.67,
+     "min": 2.46,
+     "max": 30.0
+    },
+    "orb_az": {
+     "med": -34.06,
+     "min": -37.59,
+     "max": 0.0
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 2.35,
+     "min": 2.22,
+     "max": 2.62
+    },
+    "chest_pitch": {
+     "med": 8.69,
+     "min": 6.7,
+     "max": 10.89
+    },
+    "pelvis_pitch": {
+     "med": -2.85,
+     "min": -4.13,
+     "max": -1.39
+    }
+   }
+  },
+  "block_idle": {
+   "before": {
+    "orb_elev": {
+     "med": -24.65,
+     "min": -24.65,
+     "max": -24.65
+    },
+    "orb_az": {
+     "med": -39.62,
+     "min": -39.62,
+     "max": -39.62
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": -5.91,
+     "min": -6.5,
+     "max": -5.36
+    },
+    "chest_pitch": {
+     "med": -2.25,
+     "min": -5.31,
+     "max": 0.17
+    },
+    "pelvis_pitch": {
+     "med": -8.63,
+     "min": -10.66,
+     "max": -7.18
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 2.46,
+     "min": 2.46,
+     "max": 2.46
+    },
+    "orb_az": {
+     "med": -37.59,
+     "min": -37.59,
+     "max": -37.59
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": 2.81,
+     "min": 2.22,
+     "max": 3.37
+    },
+    "chest_pitch": {
+     "med": 9.75,
+     "min": 6.69,
+     "max": 12.17
+    },
+    "pelvis_pitch": {
+     "med": -2.62,
+     "min": -4.65,
+     "max": -1.17
+    }
+   }
+  },
+  "cast_fireball_m": {
+   "before": {
+    "orb_elev": {
+     "med": 3.99,
+     "min": -26.37,
+     "max": 67.54
+    },
+    "orb_az": {
+     "med": 100.83,
+     "min": 76.05,
+     "max": 172.21
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 5.9,
+     "max": 19.44
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.41
+    },
+    "torso_pitch": {
+     "med": 5.99,
+     "min": 5.01,
+     "max": 8.34
+    },
+    "chest_pitch": {
+     "med": 4.12,
+     "min": 2.61,
+     "max": 9.64
+    },
+    "pelvis_pitch": {
+     "med": 7.34,
+     "min": 6.95,
+     "max": 7.73
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 45.94,
+     "min": 45.0,
+     "max": 70.44
+    },
+    "orb_az": {
+     "med": -0.0,
+     "min": -21.63,
+     "max": 172.21
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 5.9,
+     "max": 19.44
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.41
+    },
+    "torso_pitch": {
+     "med": 5.99,
+     "min": 5.01,
+     "max": 8.34
+    },
+    "chest_pitch": {
+     "med": 4.12,
+     "min": 2.61,
+     "max": 9.64
+    },
+    "pelvis_pitch": {
+     "med": 7.34,
+     "min": 6.95,
+     "max": 7.73
+    }
+   },
+   "at_release": {
+    "before": {
+     "t": 0.2667,
+     "orb_elev": -1.83,
+     "orb_az": 77.71
+    },
+    "after": {
+     "t": 0.2667,
+     "orb_elev": 46.41,
+     "orb_az": -0.24
+    }
+   }
+  },
+  "cast_meteor": {
+   "before": {
+    "orb_elev": {
+     "med": 29.36,
+     "min": -20.75,
+     "max": 79.29
+    },
+    "orb_az": {
+     "med": 37.25,
+     "min": 18.47,
+     "max": 154.47
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 4.54,
+     "max": 14.93
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.33
+    },
+    "torso_pitch": {
+     "med": 9.79,
+     "min": 1.51,
+     "max": 43.59
+    },
+    "chest_pitch": {
+     "med": 11.11,
+     "min": 0.0,
+     "max": 51.46
+    },
+    "pelvis_pitch": {
+     "med": 8.83,
+     "min": 2.52,
+     "max": 37.24
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 29.96,
+     "min": -20.75,
+     "max": 85.45
+    },
+    "orb_az": {
+     "med": 25.82,
+     "min": -8.46,
+     "max": 149.14
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 4.54,
+     "max": 14.93
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.26,
+     "max": 0.33
+    },
+    "torso_pitch": {
+     "med": 9.79,
+     "min": 1.51,
+     "max": 43.59
+    },
+    "chest_pitch": {
+     "med": 11.11,
+     "min": 0.0,
+     "max": 51.46
+    },
+    "pelvis_pitch": {
+     "med": 8.83,
+     "min": 2.52,
+     "max": 37.24
+    }
+   },
+   "at_release": {
+    "before": {
+     "t": 1.8,
+     "orb_elev": 1.28,
+     "orb_az": 36.64
+    },
+    "after": {
+     "t": 1.8,
+     "orb_elev": 1.28,
+     "orb_az": -0.0
+    }
+   }
+  },
+  "death": {
+   "before": {
+    "orb_elev": {
+     "med": 8.85,
+     "min": -67.06,
+     "max": 54.4
+    },
+    "orb_az": {
+     "med": 18.57,
+     "min": -179.9,
+     "max": 179.37
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": -18.59,
+     "min": -97.96,
+     "max": 6.92
+    },
+    "chest_pitch": {
+     "med": -22.78,
+     "min": -97.61,
+     "max": 7.17
+    },
+    "pelvis_pitch": {
+     "med": -18.76,
+     "min": -98.66,
+     "max": 7.02
+    }
+   },
+   "after": {
+    "orb_elev": {
+     "med": 8.85,
+     "min": -67.06,
+     "max": 54.4
+    },
+    "orb_az": {
+     "med": 18.57,
+     "min": -179.9,
+     "max": 179.37
+    },
+    "haft_palm": {
+     "med": 8.81,
+     "min": 8.81,
+     "max": 8.81
+    },
+    "off_cm": {
+     "med": 0.27,
+     "min": 0.27,
+     "max": 0.27
+    },
+    "torso_pitch": {
+     "med": -18.59,
+     "min": -97.96,
+     "max": 6.92
+    },
+    "chest_pitch": {
+     "med": -22.78,
+     "min": -97.61,
+     "max": 7.17
+    },
+    "pelvis_pitch": {
+     "med": -18.76,
+     "min": -98.66,
+     "max": 7.02
+    }
+   }
+  }
+ },
+ "grip_note": "haft_palm in r138_01 is the angle to the hand's WIDTH axis (thumb-pinky, the SVD 2nd axis) -- the fist's channel: 1.4 deg off at rest (8.8 in that instrument's morph-derived frame), 89.9 deg to the palm normal, haft line 0.3 cm from the fist centre, in every state, before and after: the haft runs THROUGH THE FIST, not the palm. The battle-mage wand variant (bm119 + wand) reads the same geometry (1.9 deg), so Matt's 'through the palm' there is a pose effect (its carry layer points the wand down), not the mount."
+}

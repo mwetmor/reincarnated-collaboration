@@ -1,5 +1,5 @@
 # so_mx R-C9-131 (copy of sorceress_battlemage/scripts/s55_prop_checks.py, parameterised: --colliders a,b --props x,y --body-out
-# keeps --clips; staff carry over idle/walk/run as before; the book layer only when the grimoire is a prop).
+# keeps --clips; staff carry over idle/walk/run as before (--no-carry: none, the R-C9-134/138 kits); the book layer only when the grimoire is a prop).
 # R-C9-119 checks: the book and the wand against her BODY and her worn pieces (hood, breastplate, gauntlets) in every clip,
 # with the book hold applied as the scene applies it -- book_carry_L REPLACING exactly LeftArm/LeftForeArm/LeftHand
 # (an NLA strip of an action holding only those bones' curves) over each clip -- and the staff carry over idle/walk/run on
@@ -76,7 +76,7 @@ for clip in CLIPS:
     arm.animation_data.action = None
     t0 = arm.animation_data.nla_tracks.new(); s0 = t0.strips.new("clip", int(act.frame_range[0]), act); s0.blend_type = 'REPLACE'
     if hasattr(s0, "action_slot") and act.slots: s0.action_slot = act.slots[0]
-    if clip in ("idle", "walk", "run"):
+    if clip in ("idle", "walk", "run") and "--no-carry" not in a:   # R-C9-138: the sword-and-shield kits carry no layer
         t1 = arm.animation_data.nla_tracks.new(); s1 = t1.strips.new("carry", 0, carry_act); s1.blend_type = 'REPLACE'
         if hasattr(s1, "action_slot") and carry_act.slots: s1.action_slot = carry_act.slots[0]
     if book_act is not None:
