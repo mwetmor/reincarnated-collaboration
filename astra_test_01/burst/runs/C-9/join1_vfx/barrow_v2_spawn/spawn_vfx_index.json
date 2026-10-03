@@ -1,0 +1,146 @@
+{
+  "what": "barrow_v2 per-source SPAWN-DELIVERY VFX (Run C-9 Phase 2, lane DV, drax; R-C9-145 spawn plan, R-C9-147 priority)",
+  "binding": "KC2: every segment keys off a runtime ORACLE EVENT below -- never a free-running timer. Fixed tails ('+ 0.8 s', 'fade over 1.0 s') are measured FROM those events.",
+  "events": {
+    "EV_POINT_RELEASE(point)": "the oracle's wave release at a ring point (p01, p02, p03, p04, p06). Starts the point's door intro and ground loop/reveal.",
+    "EV_BODY_SPAWN(point, body, x, y)": "a ring body appears at its rolled landing point (theta = 2 pi u1, rho = 8 u2 about the anchor; NO emergence on ring points). Starts that body's arrival one-shot.",
+    "EV_POINT_RELEASE_DONE(point)": "the point's release has finished (its last EV_BODY_SPAWN under the runtime's two-segment release warp). If the runtime has no such event, derive it as the LAST EV_BODY_SPAWN of that point's release (the count is known from the wave row). Door + ground hold to this + 0.8 s, then fade.",
+    "EV_AMBUSH_HOLD_START(p05)": "the p05 ProxyAmbush release = am1 start (bodies absent 0 -> 4.0 s, P05_FIRST_ARRIVAL_S). Starts the hold-crack reveal: progress = (t - t0) / 4.0.",
+    "EV_AMBUSH_ARRIVAL(body, x, y)": "a p05 body's spawn at t0 + 4.0 s (it stands, hittable, for its record's am3 window). Starts p05_burst (over) and p05_hole (under) at the body.",
+    "EV_AM5_TIMEOUT(body)": "arrival + D_long_s(record) (am3 window end; specials arm). Ends that body's p05_hole (1.0 s fade). The LAST p05 body's timeout starts the hold-crack field's 2.0 s fade."
+  },
+  "camera": {
+    "projection": "orthographic",
+    "pitch_deg": 52.9535411256029,
+    "yaw_deg": 0.0,
+    "law": "screen_x = ppm*x ; screen_y = ppm*sin(a)*y - ppm*cos(a)*z (sim frame: x east, y SOUTH, z up)",
+    "source": "reincarnated-godot/kc2_runtime/play/kc2play_projection.gd",
+    "ppm_render_join1": 151.33680669505316,
+    "runtime_scale_rule": "draw each cell UNROTATED with its pivot_px on the projected pivot point, scaled by s = proj.ppm / px_per_m (the JOIN rule; at ZOOM-GD proj.ppm = 75.668)"
+  },
+  "draw_layers": {
+    "ground": "ground: above the painted floor, BELOW every y-sorted actor",
+    "ysort": "y-sorted with the actors by the named ground point (the projection law's draw order)"
+  },
+  "stretch": "door + ground segments are intro-once-then-loop (or loop-only) with whole loops repeated while the event window lasts; the p05 hole is parameterised by D = value.D_long_s of the body's record; the p05 crack build is fixed at exactly 4.0 s",
+  "modulate": "fades are the runtime's CanvasItem modulate.a (or the reveal shader's 'fade' uniform), never baked frames",
+  "import": "colour atlases: Godot 2D import, filter linear, no mipmaps (VRAM-compressed is acceptable for the soft door/ground atlases); *_reveal.png: LOSSLESS, no sRGB conversion, no mipmaps (it is data)",
+  "shader": "shaders/spawn_crack_reveal.gdshader",
+  "sources": {
+    "p01": {
+      "manifest": "p01_wreck/vfx_p01.json",
+      "deliverer": "the wreck (up through the shore ice / over the rail)",
+      "segments": {
+        "p01_door": {
+          "layer": "ysort",
+          "start_event": "EV_POINT_RELEASE(p01)"
+        },
+        "p01_ground_cracks": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_POINT_RELEASE(p01)"
+        },
+        "p01_arrival": {
+          "layer": "ysort",
+          "start_event": "EV_BODY_SPAWN(p01, body, x, y)"
+        }
+      },
+      "vram_MiB": 10.32
+    },
+    "p02": {
+      "manifest": "p02_barrow_door/vfx_p02.json",
+      "deliverer": "the barrow door (bosses: mist + rise from the grave-ground)",
+      "segments": {
+        "p02_door": {
+          "layer": "ysort",
+          "start_event": "EV_POINT_RELEASE(p02)"
+        },
+        "p02_ground": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_POINT_RELEASE(p02)"
+        },
+        "p02_arrival": {
+          "layer": "ysort",
+          "start_event": "EV_BODY_SPAWN(p02, body, x, y)"
+        }
+      },
+      "vram_MiB": 21.09
+    },
+    "p03": {
+      "manifest": "p03_sea_cave/vfx_p03.json",
+      "deliverer": "the sea cave (climb the stair to the top landing)",
+      "segments": {
+        "p03_door": {
+          "layer": "ysort",
+          "start_event": "EV_POINT_RELEASE(p03)"
+        },
+        "p03_ground": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_POINT_RELEASE(p03)"
+        },
+        "p03_arrival": {
+          "layer": "ysort",
+          "start_event": "EV_BODY_SPAWN(p03, body, x, y)"
+        }
+      },
+      "vram_MiB": 21.62
+    },
+    "p04": {
+      "manifest": "p04_hall_door/vfx_p04.json",
+      "deliverer": "the hall's great door (out of smoke)",
+      "segments": {
+        "p04_door": {
+          "layer": "ysort",
+          "start_event": "EV_POINT_RELEASE(p04)"
+        },
+        "p04_ground": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_POINT_RELEASE(p04)"
+        },
+        "p04_arrival": {
+          "layer": "ysort",
+          "start_event": "EV_BODY_SPAWN(p04, body, x, y)"
+        }
+      },
+      "vram_MiB": 27.31
+    },
+    "p05": {
+      "manifest": "p05_mere_ambush/vfx_p05.json",
+      "deliverer": "the frozen mere (4 s of cracks, then burst through the ice)",
+      "segments": {
+        "p05_hold_cracks": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_AMBUSH_HOLD_START(p05) = the p05 ProxyAmbush release (am1"
+        },
+        "p05_burst": {
+          "layer": "ysort",
+          "start_event": "EV_AMBUSH_ARRIVAL(body, x, y) = the body's p05 spawn at t0 + 4.0 s"
+        },
+        "p05_hole": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_AMBUSH_ARRIVAL(body, x, y)"
+        }
+      },
+      "vram_MiB": 12.66
+    },
+    "p06": {
+      "manifest": "p06_fallen_gable/vfx_p06.json",
+      "deliverer": "the fallen gable (up out of ash)",
+      "segments": {
+        "p06_door": {
+          "layer": "ysort",
+          "start_event": "EV_POINT_RELEASE(p06)"
+        },
+        "p06_ground": {
+          "layer": "ground: above the painted floor, BELOW every y-sorted actor",
+          "start_event": "EV_POINT_RELEASE(p06)"
+        },
+        "p06_arrival": {
+          "layer": "ysort",
+          "start_event": "EV_BODY_SPAWN(p06, body, x, y)"
+        }
+      },
+      "vram_MiB": 11.41
+    }
+  },
+  "vram_MiB_total_rgba8": 104.42
+}

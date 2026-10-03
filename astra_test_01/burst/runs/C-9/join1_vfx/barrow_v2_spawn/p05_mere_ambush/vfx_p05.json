@@ -1,0 +1,240 @@
+{
+  "source": "p05",
+  "deliverer": "the frozen mere (4 s of cracks, then burst through the ice)",
+  "anchor_world_m": [
+    -8.245000000000005,
+    -5.825000000000003
+  ],
+  "scatter": "polar disc r 8 m about the anchor (oracle: theta = 2 pi u1, rho = 8 u2); every 'ground' segment covers it",
+  "layout": "barrow_v2/layout_v2.json sha256_16 12f308901a932970",
+  "camera": {
+    "projection": "orthographic",
+    "pitch_deg": 52.9535411256029,
+    "yaw_deg": 0.0,
+    "law": "screen_x = ppm*x ; screen_y = ppm*sin(a)*y - ppm*cos(a)*z (sim frame: x east, y SOUTH, z up)",
+    "source": "reincarnated-godot/kc2_runtime/play/kc2play_projection.gd",
+    "ppm_render_join1": 151.33680669505316,
+    "runtime_scale_rule": "draw each cell UNROTATED with its pivot_px on the projected pivot point, scaled by s = proj.ppm / px_per_m (the JOIN rule; at ZOOM-GD proj.ppm = 75.668)"
+  },
+  "segments": [
+    {
+      "id": "p05_hold_cracks",
+      "atlas": "p05_hold_cracks.png",
+      "reveal_map": "p05_hold_cracks_reveal.png",
+      "frames": 1,
+      "grid": [
+        1,
+        1
+      ],
+      "atlas_px": [
+        1310,
+        1048
+      ],
+      "cell_px": [
+        1310,
+        1048
+      ],
+      "png_bytes": 361814,
+      "vram_bytes": 5491520,
+      "reveal_vram_bytes": 1372880,
+      "px_per_m": 75.668403,
+      "build_s": 4.0,
+      "shader": "../shaders/spawn_crack_reveal.gdshader",
+      "playback": {
+        "reveal": "uniform progress = clamp((t_now - t_event) / build_s, 0, 1); hold at 1"
+      },
+      "loop": false,
+      "draw_layer": "ground: above the painted floor, BELOW every y-sorted actor",
+      "pivot_px": [
+        654.75,
+        523.39
+      ],
+      "pivot_world_m": [
+        -8.245,
+        -5.825,
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -8.6,
+          8.6
+        ],
+        "y": [
+          -8.6,
+          8.6
+        ],
+        "z": [
+          0.0,
+          0.0
+        ]
+      },
+      "cell_m": [
+        17.3124,
+        13.8499
+      ],
+      "events": {
+        "start": "EV_AMBUSH_HOLD_START(p05) = the p05 ProxyAmbush release (am1: bodies absent 0 -> 4.0 s, P05_FIRST_ARRIVAL_S): progress = (t - t0) / 4.0",
+        "hold": "progress held at 1 from t0 + 4.0 (the cracks are fully open as the bodies burst)",
+        "end": "fade 1 -> 0 over 2.0 s from the LAST p05 body's EV_AM5_TIMEOUT; then free"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix)",
+      "reveal_encoding": "reveal_map.r = arrival / build_s (0..1, 8-bit; 1.0 = never); a pixel shows once progress passes it; the front carries a short pale glint",
+      "build_s_fixed": "EXACTLY 4.0 s (am1 P05_FIRST_ARRIVAL_S) -- not stretchable",
+      "build_curve": "slow hairlines from the middle (0-1 s), the rim joins (1.1-2 s), spreading (2.3-3.1 s), a flurry of short cracks everywhere (3.3-3.9 s)"
+    },
+    {
+      "id": "p05_burst",
+      "atlas": "p05_burst.png",
+      "grid": [
+        4,
+        5
+      ],
+      "atlas_px": [
+        1008,
+        1250
+      ],
+      "png_bytes": 494942,
+      "vram_bytes": 5040000,
+      "frames": 18,
+      "cell_px": [
+        252,
+        250
+      ],
+      "px_per_m": 75.668403,
+      "fps": 24,
+      "duration_s": 0.75,
+      "playback": {
+        "oneshot": [
+          0,
+          17
+        ]
+      },
+      "loop": "one-shot",
+      "draw_layer": {
+        "mode": "ysort",
+        "ysort_ground_m": "the body's own landing point + 0.05 m south (drawn just in front of its own body)"
+      },
+      "pivot_px": [
+        122.9,
+        156.83
+      ],
+      "pivot_world_m": [
+        "body.x",
+        "body.y",
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -2.1,
+          2.1
+        ],
+        "y": [
+          -2.1,
+          2.1
+        ],
+        "z": [
+          0.0,
+          3.4
+        ]
+      },
+      "cell_m": [
+        3.3303,
+        3.3039
+      ],
+      "events": {
+        "start": "EV_AMBUSH_ARRIVAL(body, x, y) = the body's p05 spawn at t0 + 4.0 s: frame 0 on that tick (dense: it covers the pop-in; the health bar shows from the same frame per the Sim Session's footage read)",
+        "end": "free on the last frame (0.75 s; fits inside the shortest am3 window, D_long 0.867 s)",
+        "scale": "x max(1, record_radius_m / 0.8) for wide bodies"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    },
+    {
+      "id": "p05_hole",
+      "atlas": "p05_hole.png",
+      "grid": [
+        4,
+        4
+      ],
+      "atlas_px": [
+        640,
+        536
+      ],
+      "png_bytes": 114316,
+      "vram_bytes": 1372160,
+      "frames": 15,
+      "cell_px": [
+        160,
+        134
+      ],
+      "px_per_m": 75.668403,
+      "fps": 10,
+      "duration_s": 1.5,
+      "playback": {
+        "intro": [
+          0,
+          2
+        ],
+        "loop": [
+          3,
+          14
+        ]
+      },
+      "loop": "intro once, then loop",
+      "draw_layer": "ground: above the painted floor, BELOW every y-sorted actor",
+      "pivot_px": [
+        84.15,
+        71.53
+      ],
+      "pivot_world_m": [
+        "body.x",
+        "body.y",
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -1.35,
+          1.35
+        ],
+        "y": [
+          -1.35,
+          1.35
+        ],
+        "z": [
+          0.0,
+          0.0
+        ]
+      },
+      "cell_m": [
+        2.1145,
+        1.7709
+      ],
+      "events": {
+        "start": "EV_AMBUSH_ARRIVAL(body, x, y): intro from frame 0 (under the body; the burst plays over it)",
+        "hold": "loop for the record's am3 window D: until EV_AM5_TIMEOUT(body) = arrival + D_long_s(record) (STRETCHABLE: D is per RECORD -- engine pack v3.11 model/waves.json '⚑ v3p8_rows'.am3_emergence_window, key monster.p05_emergence_window_s, value.D_long_s; 31 rows V38-AM3-*; 0.867 .. 4.9 s; ticks ceil(t / period - 1e-9))",
+        "end": "at EV_AM5_TIMEOUT(body) (the body starts moving) fade modulate.a 1 -> 0 over 1.0 s; then free",
+        "parameter": "D = value.D_long_s of the body's record (NOT D_short_s)"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    }
+  ],
+  "generator": "join1_vfx/barrow_v2_spawn/tools/make_spawn_vfx.py (procedural; no paid calls, no Godot/Blender)",
+  "deliverer_world_m": null,
+  "deliverer_feature": "none: the mere itself delivers (the ambush)",
+  "ambush": {
+    "hold_s": 4.0,
+    "hold_source": "kc2_runtime/sim/kc2rt_fight.gd am1 P05_FIRST_ARRIVAL_S (via the conductor relay)",
+    "am3_D_source": "engine pack kc2-model-pack-v3-E-s09-cp150-mech-v3p11 model/waves.json '⚑ v3p8_rows'.am3_emergence_window value.D_long_s",
+    "am3_D_long_range_s": [
+      0.867,
+      4.9
+    ],
+    "only_p05_emerges": "p01-p04 and p06 release ring bodies with NO emergence; their arrivals are a cover-the-pop one-shot"
+  },
+  "vram_bytes_total": 13276560
+}

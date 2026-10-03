@@ -1,0 +1,238 @@
+{
+  "source": "p02",
+  "deliverer": "the barrow door (bosses: mist + rise from the grave-ground)",
+  "anchor_world_m": [
+    9.518999999999991,
+    -31.707
+  ],
+  "scatter": "polar disc r 8 m about the anchor (oracle: theta = 2 pi u1, rho = 8 u2); every 'ground' segment covers it",
+  "layout": "barrow_v2/layout_v2.json sha256_16 12f308901a932970",
+  "camera": {
+    "projection": "orthographic",
+    "pitch_deg": 52.9535411256029,
+    "yaw_deg": 0.0,
+    "law": "screen_x = ppm*x ; screen_y = ppm*sin(a)*y - ppm*cos(a)*z (sim frame: x east, y SOUTH, z up)",
+    "source": "reincarnated-godot/kc2_runtime/play/kc2play_projection.gd",
+    "ppm_render_join1": 151.33680669505316,
+    "runtime_scale_rule": "draw each cell UNROTATED with its pivot_px on the projected pivot point, scaled by s = proj.ppm / px_per_m (the JOIN rule; at ZOOM-GD proj.ppm = 75.668)"
+  },
+  "segments": [
+    {
+      "id": "p02_door",
+      "atlas": "p02_door.png",
+      "grid": [
+        5,
+        5
+      ],
+      "atlas_px": [
+        1220,
+        1300
+      ],
+      "png_bytes": 618595,
+      "vram_bytes": 6344000,
+      "frames": 24,
+      "cell_px": [
+        244,
+        260
+      ],
+      "px_per_m": 37.834202,
+      "fps": 8,
+      "duration_s": 3.0,
+      "playback": {
+        "intro": [
+          0,
+          11
+        ],
+        "loop": [
+          12,
+          23
+        ]
+      },
+      "loop": "intro once, then loop",
+      "draw_layer": {
+        "mode": "ysort",
+        "ysort_ground_m": [
+          12.3656,
+          -41.1886
+        ],
+        "note": "the barrow door is NORTH of the patch, so the door mist y-sorts BEHIND bodies on the patch"
+      },
+      "pivot_px": [
+        157.09,
+        74.35
+      ],
+      "pivot_world_m": [
+        12.3656,
+        -41.1886,
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -5.5,
+          5.5
+        ],
+        "y": [
+          -1.5,
+          8.5
+        ],
+        "z": [
+          0.0,
+          3.6
+        ]
+      },
+      "cell_m": [
+        6.4492,
+        6.8721
+      ],
+      "events": {
+        "start": "EV_POINT_RELEASE(p02): play 'intro' once from its frame 0",
+        "hold": "then repeat 'loop' until EV_POINT_RELEASE_DONE(p02) + 0.8 s (STRETCHABLE: whole loops; the release window comes from the runtime's two-segment release warp)",
+        "min_hold": "intro + one full loop, even if the release is instantaneous",
+        "end": "fade modulate.a 1 -> 0 over 1.0 s while the loop keeps playing; then free"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    },
+    {
+      "id": "p02_ground",
+      "atlas": "p02_ground.png",
+      "grid": [
+        3,
+        4
+      ],
+      "atlas_px": [
+        1656,
+        1816
+      ],
+      "png_bytes": 1146878,
+      "vram_bytes": 12029184,
+      "frames": 12,
+      "cell_px": [
+        552,
+        454
+      ],
+      "px_per_m": 30.267361,
+      "fps": 6,
+      "duration_s": 2.0,
+      "playback": {
+        "loop": [
+          0,
+          11
+        ]
+      },
+      "loop": "loop (seamless)",
+      "draw_layer": "ground: above the painted floor, BELOW every y-sorted actor",
+      "pivot_px": [
+        290.67,
+        221.75
+      ],
+      "pivot_world_m": [
+        9.519,
+        -31.707,
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -10.0,
+          10.0
+        ],
+        "y": [
+          -10.0,
+          10.0
+        ],
+        "z": [
+          0.0,
+          1.6
+        ]
+      },
+      "cell_m": [
+        18.2375,
+        14.9997
+      ],
+      "events": {
+        "start": "EV_POINT_RELEASE(p02): start the loop at frame 0 and fade modulate.a 0 -> 1 over 0.6 s",
+        "hold": "loop until EV_POINT_RELEASE_DONE(p02) + 0.8 s (stretchable)",
+        "end": "fade modulate.a 1 -> 0 over 1.5 s; then free"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    },
+    {
+      "id": "p02_arrival",
+      "atlas": "p02_arrival.png",
+      "grid": [
+        4,
+        4
+      ],
+      "atlas_px": [
+        1000,
+        936
+      ],
+      "png_bytes": 434060,
+      "vram_bytes": 3744000,
+      "frames": 16,
+      "cell_px": [
+        250,
+        234
+      ],
+      "px_per_m": 75.668403,
+      "fps": 24,
+      "duration_s": 0.6667,
+      "playback": {
+        "oneshot": [
+          0,
+          15
+        ]
+      },
+      "loop": "one-shot",
+      "draw_layer": {
+        "mode": "ysort",
+        "ysort_ground_m": "the body's own landing point + 0.05 m south (drawn just in front of its own body)"
+      },
+      "pivot_px": [
+        132.64,
+        129.2
+      ],
+      "pivot_world_m": [
+        "body.x",
+        "body.y",
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -1.7,
+          1.7
+        ],
+        "y": [
+          -1.7,
+          1.7
+        ],
+        "z": [
+          0.0,
+          2.6
+        ]
+      },
+      "cell_m": [
+        3.3039,
+        3.0924
+      ],
+      "events": {
+        "start": "EV_BODY_SPAWN(p02, body, x, y): one-shot at the body's rolled landing point (theta = 2 pi u1, rho = 8 u2 about the anchor), frame 0 on the spawn tick -- frame 0 is dense on purpose: it covers the body's pop-in",
+        "end": "free on the last frame",
+        "scale": "x max(1, record_radius_m / 0.8) for bodies wider than 1.6 m (true_size packs)"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    }
+  ],
+  "generator": "join1_vfx/barrow_v2_spawn/tools/make_spawn_vfx.py (procedural; no paid calls, no Godot/Blender)",
+  "deliverer_world_m": [
+    12.3656,
+    -41.1886
+  ],
+  "deliverer_feature": "barrow_door (centre + 0.5 m along its facing, 196.71 deg)",
+  "vram_bytes_total": 22117184
+}

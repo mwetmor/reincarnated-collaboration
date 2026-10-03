@@ -1,0 +1,238 @@
+{
+  "source": "p04",
+  "deliverer": "the hall's great door (out of smoke)",
+  "anchor_world_m": [
+    31.21499999999999,
+    6.804999999999993
+  ],
+  "scatter": "polar disc r 8 m about the anchor (oracle: theta = 2 pi u1, rho = 8 u2); every 'ground' segment covers it",
+  "layout": "barrow_v2/layout_v2.json sha256_16 12f308901a932970",
+  "camera": {
+    "projection": "orthographic",
+    "pitch_deg": 52.9535411256029,
+    "yaw_deg": 0.0,
+    "law": "screen_x = ppm*x ; screen_y = ppm*sin(a)*y - ppm*cos(a)*z (sim frame: x east, y SOUTH, z up)",
+    "source": "reincarnated-godot/kc2_runtime/play/kc2play_projection.gd",
+    "ppm_render_join1": 151.33680669505316,
+    "runtime_scale_rule": "draw each cell UNROTATED with its pivot_px on the projected pivot point, scaled by s = proj.ppm / px_per_m (the JOIN rule; at ZOOM-GD proj.ppm = 75.668)"
+  },
+  "segments": [
+    {
+      "id": "p04_door",
+      "atlas": "p04_door.png",
+      "grid": [
+        5,
+        5
+      ],
+      "atlas_px": [
+        1830,
+        2040
+      ],
+      "png_bytes": 1399090,
+      "vram_bytes": 14932800,
+      "frames": 24,
+      "cell_px": [
+        366,
+        408
+      ],
+      "px_per_m": 50.445602,
+      "fps": 8,
+      "duration_s": 3.0,
+      "playback": {
+        "intro": [
+          0,
+          11
+        ],
+        "loop": [
+          12,
+          23
+        ]
+      },
+      "loop": "intro once, then loop",
+      "draw_layer": {
+        "mode": "ysort",
+        "ysort_ground_m": [
+          42.9256,
+          9.2013
+        ],
+        "note": "the great door is EAST of the patch; the smoke rolls WEST out of it toward the bodies"
+      },
+      "pivot_px": [
+        310.9,
+        382.73
+      ],
+      "pivot_world_m": [
+        42.9256,
+        9.2013,
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -11.0,
+          1.0
+        ],
+        "y": [
+          -4.5,
+          4.5
+        ],
+        "z": [
+          0.0,
+          6.5
+        ]
+      },
+      "cell_m": [
+        7.2553,
+        8.0879
+      ],
+      "events": {
+        "start": "EV_POINT_RELEASE(p04): play 'intro' once from its frame 0",
+        "hold": "then repeat 'loop' until EV_POINT_RELEASE_DONE(p04) + 0.8 s (STRETCHABLE: whole loops; the release window comes from the runtime's two-segment release warp)",
+        "min_hold": "intro + one full loop, even if the release is instantaneous",
+        "end": "fade modulate.a 1 -> 0 over 1.0 s while the loop keeps playing; then free"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    },
+    {
+      "id": "p04_ground",
+      "atlas": "p04_ground.png",
+      "grid": [
+        3,
+        4
+      ],
+      "atlas_px": [
+        1608,
+        1808
+      ],
+      "png_bytes": 1176245,
+      "vram_bytes": 11629056,
+      "frames": 12,
+      "cell_px": [
+        536,
+        452
+      ],
+      "px_per_m": 30.267361,
+      "fps": 6,
+      "duration_s": 2.0,
+      "playback": {
+        "loop": [
+          0,
+          11
+        ]
+      },
+      "loop": "loop (seamless)",
+      "draw_layer": "ground: above the painted floor, BELOW every y-sorted actor",
+      "pivot_px": [
+        262.67,
+        217.75
+      ],
+      "pivot_world_m": [
+        31.215,
+        6.805,
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -10.0,
+          10.0
+        ],
+        "y": [
+          -10.0,
+          10.0
+        ],
+        "z": [
+          0.0,
+          1.6
+        ]
+      },
+      "cell_m": [
+        17.7088,
+        14.9336
+      ],
+      "events": {
+        "start": "EV_POINT_RELEASE(p04): start the loop at frame 0 and fade modulate.a 0 -> 1 over 0.6 s",
+        "hold": "loop until EV_POINT_RELEASE_DONE(p04) + 0.8 s (stretchable)",
+        "end": "fade modulate.a 1 -> 0 over 1.5 s; then free"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    },
+    {
+      "id": "p04_arrival",
+      "atlas": "p04_arrival.png",
+      "grid": [
+        4,
+        4
+      ],
+      "atlas_px": [
+        720,
+        720
+      ],
+      "png_bytes": 262657,
+      "vram_bytes": 2073600,
+      "frames": 16,
+      "cell_px": [
+        180,
+        180
+      ],
+      "px_per_m": 75.668403,
+      "fps": 24,
+      "duration_s": 0.6667,
+      "playback": {
+        "oneshot": [
+          0,
+          15
+        ]
+      },
+      "loop": "one-shot",
+      "draw_layer": {
+        "mode": "ysort",
+        "ysort_ground_m": "the body's own landing point + 0.05 m south (drawn just in front of its own body)"
+      },
+      "pivot_px": [
+        101.64,
+        138.32
+      ],
+      "pivot_world_m": [
+        "body.x",
+        "body.y",
+        0.0
+      ],
+      "footprint_m": {
+        "x": [
+          -1.7,
+          1.7
+        ],
+        "y": [
+          -1.7,
+          1.7
+        ],
+        "z": [
+          0.0,
+          2.8
+        ]
+      },
+      "cell_m": [
+        2.3788,
+        2.3788
+      ],
+      "events": {
+        "start": "EV_BODY_SPAWN(p04, body, x, y): one-shot at the body's rolled landing point (theta = 2 pi u1, rho = 8 u2 about the anchor), frame 0 on the spawn tick -- frame 0 is dense on purpose: it covers the body's pop-in",
+        "end": "free on the last frame",
+        "scale": "x max(1, record_radius_m / 0.8) for bodies wider than 1.6 m (true_size packs)"
+      },
+      "alpha": "straight",
+      "colorspace": "sRGB",
+      "blend": "normal (mix; no additive)"
+    }
+  ],
+  "generator": "join1_vfx/barrow_v2_spawn/tools/make_spawn_vfx.py (procedural; no paid calls, no Godot/Blender)",
+  "deliverer_world_m": [
+    42.9256,
+    9.2013
+  ],
+  "deliverer_feature": "hall_great_door (centre + 0.6 m along its facing, 270 deg)",
+  "vram_bytes_total": 28635456
+}
