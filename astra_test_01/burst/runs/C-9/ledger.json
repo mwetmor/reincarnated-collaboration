@@ -38108,6 +38108,16 @@
       "id": "M-C9-EN3-P2-PACKS-1",
       "ts": "2026-10-03T01:55:04Z",
       "note": "EN-E3 resumed after the disk clear (H-C9-EN3-P2-DISK resolved by the conductor's resume, df 28 -> 44 GiB), paused again under R-C9-147 (barrow_v2 first). PACK en-woollyrhino (frosthorn, rhino_h02): 72/72 cells, 960 PNG, 132 MiB; base 3.1 m (n17 s_with_margin 1.0005, binding attack_butt f12), true_size rhino_h01-h04 scale 1.2, true 4.0 m, factor 1.29; releases attack_gore r=6 0.6333 s, attack_butt r=3 0.2333 s, attack_charge r=7 0.6667 s, cast_roar r=7 0.6000 s; sockets worst 0.0013 m / 3840; resample 9/9 exact; lint manifest 0, neg_prose 1, neg_release(attack) 0 = the known attack gap, neg_release(cast_roar) 1; paint EN3-FHPG a (sheetA share 0.61). PACK en-crawlerlarva_p (supersedes en-crawlerlarva, index sha 567115366c21): 32/32 cells, 416 PNG, painted (EN3-PZPG via n25 transfer + larva grade), true_size factor 1.0; attack_bite r=5 0.3667 s; sockets worst 0.00002 m / 1248; resample 4/4. Kit supersedes blocks rewritten to index_cells' schema (index + index_sha256 + body pin; the first form crashed index_cells with KeyError). en-burrowworm_p: export + kit done, cell render NOT run (paused). Abomination rig v2 at 2.0 m + paint canvas ready; hellhound rig v1 (rebuild at 4.2 m owed). VFX atlases (n20) for frosthorn/rifthorror/rimewolf. Next steps: en_e3/RESUME.md. Spend: Astra 20 (lane), Meshy 0, fal $1.21. Lane new output since resume ~0.37 GiB of 1.2."
+    },
+    {
+      "id": "M-C9-EN2-P2-ASCENDED",
+      "ts": "2026-10-03T02:06:26Z",
+      "note": "EN-E2 Phase 2 (collab a59eebce3): join1_pack/en-ascended -- 56/56 COMPLETE, 2.40 m (h_model 2.3972), margin 12.2 % (fit x1.192), true_size: boss 1.0 / nemesis 1.034. Releases: cast_bolt r=3 at 0.5333 s, cast_area r=6 at 1.2667 s. Sockets <= 0.09 mm (2112), manifest lint exit 0 + both negative controls exit 1, runtime resample 0.000 deg. stills8 en_e2/artifacts/en_u_stills8.png. Output ~55 MB. Lane PAUSED after this pack (R-C9-147: barrow_v2 first)."
+    },
+    {
+      "id": "M-C9-EN2-P2-PAUSE",
+      "ts": "2026-10-03T02:06:59Z",
+      "note": "EN-E2 PAUSED under R-C9-147 (barrow_v2 first) after en-ascended (a59eebce3); nothing in flight. Next: en-vigillord, en-fleshhulk (+max-fit, size_call), en-colossus (+max-fit, size_call) -- commands in en_e2/RESUME.md. Disk halt H-C9-EN2-P2-DISK cleared by Matt (28 -> 44 GiB free)."
     }
   ],
   "halts": [
@@ -38130,9 +38140,10 @@
     {
       "id": "H-C9-EN2-P2-DISK",
       "ts": "2026-10-03T01:11:45Z",
-      "status": "open",
+      "status": "closed",
       "what": "EN-E2 lane halted heavy work: df /System/Volumes/Data 18 GiB free < 20 GiB gate (R-C9-88). Next step on resume: en21 cells for en-fleshshaper, en-ascended, en-vigillord, en-fleshhulk, en-colossus; max-fit d/e; index/lint/sockets/resample; stills8.",
-      "reclaim": "runs/C-9/cleanup/manifest_en_e2_p2_bake_intermediates.txt (72 files, 3.81 GiB; Matt runs it)"
+      "reclaim": "runs/C-9/cleanup/manifest_en_e2_p2_bake_intermediates.txt (72 files, 3.81 GiB; Matt runs it)",
+      "closed": "Matt cleared disk (conductor: df 28 GiB); lane resumed and rendered en-fleshshaper + en-ascended"
     },
     {
       "id": "H-C9-EN3-P2-DISK",
