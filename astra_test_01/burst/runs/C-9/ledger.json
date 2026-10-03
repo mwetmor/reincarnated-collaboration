@@ -38118,6 +38118,12 @@
       "id": "M-C9-EN2-P2-PAUSE",
       "ts": "2026-10-03T02:06:59Z",
       "note": "EN-E2 PAUSED under R-C9-147 (barrow_v2 first) after en-ascended (a59eebce3); nothing in flight. Next: en-vigillord, en-fleshhulk (+max-fit, size_call), en-colossus (+max-fit, size_call) -- commands in en_e2/RESUME.md. Disk halt H-C9-EN2-P2-DISK cleared by Matt (28 -> 44 GiB free)."
+    },
+    {
+      "id": "M-C9-BX-GREYBOX-V3",
+      "ts": "2026-10-03T02:08:23Z",
+      "topic": "barrow_v2 greybox, layout_v2.json v3 (lane BX drax): conductor ruling floor = DISC hull + 1 m; R-C9-148 (Matt, from the walk film) sea cave + stair rebuilt, hall + gable made one building",
+      "result": "FLOOR (conductor ruling): exactly the convex hull of the six 8 m discs + 1 m, 4026.59 m2, 83.624 x 81.769 m (x -43.409..40.215, y -40.707..41.062); scatter law cited engine:src/reincarnated/simulation/kc2/spawn_structure.py:295 ScatterLaw.POLAR_UNIFORM_RHO (theta 2 pi u1, rho 8 u2; sha 431539ffd670b785); the pack's presentation_defaults box prose recorded as a pack erratum for star-lord (v1's box-hull floor 4,670.8 m2 superseded). R-C9-148 STAIR: the sea cave is in the MAIN south face under p03's patch on a sea-level rock ledge (z -4.2; sea -4.5, cliff lowered from 7.3); a straight 3.0 m stair climbs FROM the ledge up the face, 28 x 0.15 rise / 0.30 tread, 8.4 m run, 4.2 m, 26.57 deg (ramp), the cliff face its wall, open on the sea side; top landing flush (north edge on the floor boundary, 1.0 m from p03's disc); run compass 70.0 deg up, climbers turn 91.3 deg toward the centre on the landing (alignment rule dropped by R-C9-148). R-C9-148 HALL: one longhall angled NE->SW along the floor edge p04<->p06 (axis 222.99 deg SW), long west wall facing the floor 1.5 m beyond the edge, great door on p04's ray, the fallen gable = the hall's own collapsed SW end on p06's ray; byre removed; palisade re-fitted outside the edge (arms at 62 and 140 deg). Validator 50/50 PASS + 8 INFO (box coverage, the run's turn angle) -> validator_report.json; negative control CAUGHT (R2 R3 R4 R5 R6 R7 R10). Godot stills V0..V7 + plan_topdown.png + barrow_v2_greybox_walk.mp4 (26.6 s, 4.0 MB) re-rendered under the heavy lock (df 45 GiB). FINDING: at zero yaw the great door faces NW, away from the camera, and is hidden by the hall's own mass; the paint needs a door cue on the visible faces."
     }
   ],
   "halts": [
