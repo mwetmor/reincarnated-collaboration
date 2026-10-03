@@ -37202,9 +37202,301 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BVP-7_6",
+      "type": "GENERATE",
+      "experiment": "R-C9-147-barrow-v2-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "634c13508fde0d79dad39c33ffe5285cbea0024184b0c804a3f9d2ac05fd79a4",
+      "started": "2026-10-03T03:30:09.124865+00:00",
+      "ended": "2026-10-03T03:34:13.701007+00:00",
+      "minutes": 4.076257946532375,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffcf-e2d1-7b20-8c92-8b71de7b2117/exec-1d6b5cbf-5b8f-408f-be3a-0a54ef46d758.png",
+            "sha256": "35d09f1b8dd7be5ae8cf56e80a5778d53ffc08d48fa7089df4941e74e86a602b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffcf-e2d1-7b20-8c92-8b71de7b2117/exec-372b16d4-e7d0-44b0-a0b5-bb91b4202eb3.png",
+            "sha256": "ed91870319b0d2afe8688e9b0bf8c2473b8beb865cd6040e56e9df7f4bc4399f"
+          }
+        ]
+      },
+      "receipt_sha256": "7dbd2c1b11e7db2e9caf9d8150ec874b2a75dc04341fe4dc95c0fd00d2684a4d",
+      "artifacts": [
+        {
+          "name": "BVP-7_6.png",
+          "sha256": "ed91870319b0d2afe8688e9b0bf8c2473b8beb865cd6040e56e9df7f4bc4399f"
+        },
+        {
+          "name": "exec-1d6b5cbf-5b8f-408f-be3a-0a54ef46d758.provenance.json",
+          "sha256": "0cbd92274ab698bf0181e2c4cf4ead9b30e412e1b3f47668cf9faa3925f231d1"
+        },
+        {
+          "name": "exec-372b16d4-e7d0-44b0-a0b5-bb91b4202eb3.provenance.json",
+          "sha256": "fc3c4dc6b37da57c6b7e48da1ee8b5b7f23609cf0abe7c0689665aebb13b8615"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffcf-e2d1-7b20-8c92-8b71de7b2117/exec-1d6b5cbf-5b8f-408f-be3a-0a54ef46d758.png",
+          "sha256": "35d09f1b8dd7be5ae8cf56e80a5778d53ffc08d48fa7089df4941e74e86a602b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffcf-e2d1-7b20-8c92-8b71de7b2117/exec-372b16d4-e7d0-44b0-a0b5-bb91b4202eb3.png",
+          "sha256": "ed91870319b0d2afe8688e9b0bf8c2473b8beb865cd6040e56e9df7f4bc4399f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BVP-8_6",
+      "type": "GENERATE",
+      "experiment": "R-C9-147-barrow-v2-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ea181956acb0b2f9e8f374e3e8376e93400379f29a0eaa15636f57a039d0b61a",
+      "started": "2026-10-03T03:34:20.767019+00:00",
+      "ended": "2026-10-03T03:38:13.465469+00:00",
+      "minutes": 3.878305402083788,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffd3-b9b9-7da1-a8f6-063b279f3574/exec-4929fb87-fda7-4e97-b06d-319f3025daed.png",
+            "sha256": "82e5232a073edeed356ad143ac0c3d1432d4d5101938a869a5619c2f293b4d7c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffd3-b9b9-7da1-a8f6-063b279f3574/exec-df91ebbe-3318-44ae-899f-8b93ded95fcd.png",
+            "sha256": "cbafcd3bdff64fd5769b1cd71f3990441d3fdc062a1ca695c4b92635456d7a9b"
+          }
+        ]
+      },
+      "receipt_sha256": "0cea9d664ad6e23505d8a925ec3be5f4eb7eb9f6cd1258535e163d79c8c4704e",
+      "artifacts": [
+        {
+          "name": "BVP-8_6.png",
+          "sha256": "82e5232a073edeed356ad143ac0c3d1432d4d5101938a869a5619c2f293b4d7c"
+        },
+        {
+          "name": "exec-4929fb87-fda7-4e97-b06d-319f3025daed.provenance.json",
+          "sha256": "7f8f934b6046369bedf4a83ac357902a2c81c7818d91a67bebae56a20d04142c"
+        },
+        {
+          "name": "exec-df91ebbe-3318-44ae-899f-8b93ded95fcd.provenance.json",
+          "sha256": "606ebe5b878dc4c288ff7999644dde607d438b0c0af38c05e38c6363b182362f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffd3-b9b9-7da1-a8f6-063b279f3574/exec-4929fb87-fda7-4e97-b06d-319f3025daed.png",
+          "sha256": "82e5232a073edeed356ad143ac0c3d1432d4d5101938a869a5619c2f293b4d7c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffd3-b9b9-7da1-a8f6-063b279f3574/exec-df91ebbe-3318-44ae-899f-8b93ded95fcd.png",
+          "sha256": "cbafcd3bdff64fd5769b1cd71f3990441d3fdc062a1ca695c4b92635456d7a9b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BVP-7_7",
+      "type": "GENERATE",
+      "experiment": "R-C9-147-barrow-v2-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f0169076eb81948af1afcc072c7aecc9351e29b4fe8ca0d8c94538b1cf5ec310",
+      "started": "2026-10-03T03:38:20.355082+00:00",
+      "ended": "2026-10-03T03:42:14.992795+00:00",
+      "minutes": 3.910616668065389,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffd7-6176-7243-9c2e-e6e2e2260a1b/exec-26d802c7-8101-4d1c-b636-080cde8e9ca5.png",
+            "sha256": "ba436b62b29cb6c04986f9b4b09d71ffc9eeef229a96f532347f8e5162e97965"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffd7-6176-7243-9c2e-e6e2e2260a1b/exec-823f644e-de77-4b3e-80ff-bff9415a690f.png",
+            "sha256": "e18a4c2ee24da0881b693e94037abffd7ff44f362eaba95e72c2a83c86d56cc0"
+          }
+        ]
+      },
+      "receipt_sha256": "32611becb9aa71c7bdd12ff4be37a915f42088a72924541c83ebe267fe5fc80c",
+      "artifacts": [
+        {
+          "name": "BVP-7_7.png",
+          "sha256": "e18a4c2ee24da0881b693e94037abffd7ff44f362eaba95e72c2a83c86d56cc0"
+        },
+        {
+          "name": "exec-26d802c7-8101-4d1c-b636-080cde8e9ca5.provenance.json",
+          "sha256": "700c67a4887b8bf2929c33b5a73058a2c2b5905bdb927249cc293b20b44a92e0"
+        },
+        {
+          "name": "exec-823f644e-de77-4b3e-80ff-bff9415a690f.provenance.json",
+          "sha256": "252528d6b813ff3f2ac06551a48927ac211dab16055bd12477dddb9c2b46be8d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffd7-6176-7243-9c2e-e6e2e2260a1b/exec-26d802c7-8101-4d1c-b636-080cde8e9ca5.png",
+          "sha256": "ba436b62b29cb6c04986f9b4b09d71ffc9eeef229a96f532347f8e5162e97965"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffd7-6176-7243-9c2e-e6e2e2260a1b/exec-823f644e-de77-4b3e-80ff-bff9415a690f.png",
+          "sha256": "e18a4c2ee24da0881b693e94037abffd7ff44f362eaba95e72c2a83c86d56cc0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BVP-8_7",
+      "type": "GENERATE",
+      "experiment": "R-C9-147-barrow-v2-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "e1e8d783b8fb25ca34752bde2c97d5a81a8539e45431d75871bd0f257ddb2ca5",
+      "started": "2026-10-03T03:42:21.927279+00:00",
+      "ended": "2026-10-03T03:46:31.514957+00:00",
+      "minutes": 4.159782757633366,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffdb-1121-7b42-b1fa-afd848f814fd/exec-5aa8cd0e-b62f-45e0-828c-62df6652c1d2.png",
+            "sha256": "c8b487b372924d524cf5f040cca6b761ac6ea6978bc6b46978c5987c003e26d4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ffdb-1121-7b42-b1fa-afd848f814fd/exec-c370108d-cfd7-40bc-950a-364ca0b93688.png",
+            "sha256": "51c8831f5c4a2a13ed8837854ac93c5c200f8fdd663fdad333c8c03c2b6112d4"
+          }
+        ]
+      },
+      "receipt_sha256": "8551ee82fd155be9e9b68326b3bf794e87469f099a509074b302eccf5310be4b",
+      "artifacts": [
+        {
+          "name": "BVP-8_7.png",
+          "sha256": "c8b487b372924d524cf5f040cca6b761ac6ea6978bc6b46978c5987c003e26d4"
+        },
+        {
+          "name": "exec-5aa8cd0e-b62f-45e0-828c-62df6652c1d2.provenance.json",
+          "sha256": "dc86bc389546e0f7a11e4491cd887e63f918399dde047e154c4fa98cb6b259b2"
+        },
+        {
+          "name": "exec-c370108d-cfd7-40bc-950a-364ca0b93688.provenance.json",
+          "sha256": "a3114d594ae1d2814ad6519fde2e49545b2cb15c5d15b64e69962631d1d14a9f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffdb-1121-7b42-b1fa-afd848f814fd/exec-5aa8cd0e-b62f-45e0-828c-62df6652c1d2.png",
+          "sha256": "c8b487b372924d524cf5f040cca6b761ac6ea6978bc6b46978c5987c003e26d4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ffdb-1121-7b42-b1fa-afd848f814fd/exec-c370108d-cfd7-40bc-950a-364ca0b93688.png",
+          "sha256": "51c8831f5c4a2a13ed8837854ac93c5c200f8fdd663fdad333c8c03c2b6112d4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1111,
+  "images_used": 1119,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -37967,7 +38259,7 @@
     {
       "id": "M-C9-JOIN1-SORC-DECLARED",
       "topic": "The sorceress's JOIN-1 sprite-cell pack DECLARED COMPLETE after Matt's look ('The sorceress looks great also'): moved to runs/C-9/join1_pack/d2-fire-sorc/",
-      "result": "Moved from join1_pack_draft/ unchanged; re-verified in place: 56 cells, 704 frame files, 0 sha256 mismatches against matrix_index.json, every cell COMPLETE, expected/complete 56/56, no mirror_of; the index (schema join1-sprite-cells/1) carries the run and walk re-cuts, the hit staff layer, the per-state cut-window notes and per-cell provenance. Per the contract (godot d95e1df, § 3.1) the pack is now C-9's and IMMUTABLE: the port copies out of it read-only; any change is a new pack version, not an edit.",
+      "result": "Moved from join1_pack_draft/ unchanged; re-verified in place: 56 cells, 704 frame files, 0 sha256 mismatches against matrix_index.json, every cell COMPLETE, expected/complete 56/56, no mirror_of; the index (schema join1-sprite-cells/1) carries the run and walk re-cuts, the hit staff layer, the per-state cut-window notes and per-cell provenance. Per the contract (godot d95e1df, \u00a7 3.1) the pack is now C-9's and IMMUTABLE: the port copies out of it read-only; any change is a new pack version, not an edit.",
       "conductor": "Declared by the conductor. The JOIN-1 conductor (Sim Session) is told the path and the index sha. The PNGs are gitignored (as the draft's were); matrix_index.json with its per-frame sha256 is the committed record. The barbarian's pack (d2-ww-barb) follows when his JOIN moves are rebased onto the JOIN hold body b5371921 and pass Matt's look.",
       "ts": "2026-09-30T06:34:51"
     },
@@ -38337,7 +38629,7 @@
       "id": "M-C9-BX-GREYBOX-V1",
       "ts": "2026-10-03T01:43:13Z",
       "topic": "R-C9-145: barrow_v2 'Fjord Headland' walkable GREYBOX at the arena's exact geometry (lane BX drax; no image/model spend)",
-      "result": "barrow_v2/layout_v2.json (sha256_16 58d59ed97e0994b5) built by tools/make_layout_v2.py from the pack of record (engine v3.11 model/arena.json sha256 f06f3a64ae9d5a88..., both cut copies identical; field ⚑ v3p8_rows.sg1_spawn_points_gd, values exact) and proved by tools/validate_layout_v2.py: 53/53 PASS (validator_report.json); negative control negative_control/layout_v2_broken.json FAILS on R2 R3 R4 R5 R6 R7 R10 as required. FLOOR: convex hull of the six 8 m scatter BOXES + 1 m (the pack's presentation_defaults.scatter_model is a per-axis box of half-width 8 m, NOT a disc; corner 11.31 m) = 83.62 x 81.77 m, 4,670.8 m2 (the brief's disc-hull minimum 4,026.5 m2 is contained; every disc 100% on the floor at >= 1.0 m clearance, every box 100% at >= 0.999 m); every origin->anchor line clear (nearest blocker gap >= 9.0 m); 25 blockers, 0 m2 inside the floor; 25 interior features all walk-over (<= 0.35 m; threshold 0.40). STAIR (p03, SSE 165.6 deg): straight, 3.0 m wide, run on the origin->p03 ray (misalignment 0.0001 deg), 50 steps x 0.14 rise / 0.36 tread (2R+T 0.64), 18.0 m run, 7.0 m drop, 21.25 deg (38.9% grade) modelled as a real ramp (< Godot's 45 deg floor limit); top landing z 0 with its north edge ON the floor boundary, 1.0 m from the p03 box; east side open to the drop, the cliff spur is the west wall; sea cave at the foot. MERE: 505.7 m2, 100% on the floor, covers p05's disc (+0.67 m; 93.75% of its box), reaches the 8-stone circle (2.9 m from its centre); stream from the barrow's west flank into it. Ground class map greybox/ground_class_map.png (12 classes, 4 px/m). Godot greybox barrow_v2/godot/ (runtime-built from the json; zero yaw, pitch 52.9535411256029, plate 100.6176 px/m default, Z = ZOOM-GD); stills greybox/V0..V7 (7 ZOOM-GD 25.4 x 17.9 m windows + 1 plate-scale), plan greybox/plan_topdown.png, film greybox/barrow_v2_greybox_walk.mp4 (26.6 s, 4.0 MB, Movie Maker -> x264; .avi intermediate 36 MB in the session scratch, not deleted). Python projection-law previews greybox/preview_*.png + barrow_v2_walk_preview.mp4 were made while the disk was under the gate (17.6 GiB) and are superseded by the Godot renders. Ledger not committed by BX (other lanes' uncommitted appends present)."
+      "result": "barrow_v2/layout_v2.json (sha256_16 58d59ed97e0994b5) built by tools/make_layout_v2.py from the pack of record (engine v3.11 model/arena.json sha256 f06f3a64ae9d5a88..., both cut copies identical; field \u2691 v3p8_rows.sg1_spawn_points_gd, values exact) and proved by tools/validate_layout_v2.py: 53/53 PASS (validator_report.json); negative control negative_control/layout_v2_broken.json FAILS on R2 R3 R4 R5 R6 R7 R10 as required. FLOOR: convex hull of the six 8 m scatter BOXES + 1 m (the pack's presentation_defaults.scatter_model is a per-axis box of half-width 8 m, NOT a disc; corner 11.31 m) = 83.62 x 81.77 m, 4,670.8 m2 (the brief's disc-hull minimum 4,026.5 m2 is contained; every disc 100% on the floor at >= 1.0 m clearance, every box 100% at >= 0.999 m); every origin->anchor line clear (nearest blocker gap >= 9.0 m); 25 blockers, 0 m2 inside the floor; 25 interior features all walk-over (<= 0.35 m; threshold 0.40). STAIR (p03, SSE 165.6 deg): straight, 3.0 m wide, run on the origin->p03 ray (misalignment 0.0001 deg), 50 steps x 0.14 rise / 0.36 tread (2R+T 0.64), 18.0 m run, 7.0 m drop, 21.25 deg (38.9% grade) modelled as a real ramp (< Godot's 45 deg floor limit); top landing z 0 with its north edge ON the floor boundary, 1.0 m from the p03 box; east side open to the drop, the cliff spur is the west wall; sea cave at the foot. MERE: 505.7 m2, 100% on the floor, covers p05's disc (+0.67 m; 93.75% of its box), reaches the 8-stone circle (2.9 m from its centre); stream from the barrow's west flank into it. Ground class map greybox/ground_class_map.png (12 classes, 4 px/m). Godot greybox barrow_v2/godot/ (runtime-built from the json; zero yaw, pitch 52.9535411256029, plate 100.6176 px/m default, Z = ZOOM-GD); stills greybox/V0..V7 (7 ZOOM-GD 25.4 x 17.9 m windows + 1 plate-scale), plan greybox/plan_topdown.png, film greybox/barrow_v2_greybox_walk.mp4 (26.6 s, 4.0 MB, Movie Maker -> x264; .avi intermediate 36 MB in the session scratch, not deleted). Python projection-law previews greybox/preview_*.png + barrow_v2_walk_preview.mp4 were made while the disk was under the gate (17.6 GiB) and are superseded by the Godot renders. Ledger not committed by BX (other lanes' uncommitted appends present)."
     },
     {
       "id": "M-C9-EN3-P2-PACKS-1",
@@ -38385,7 +38677,7 @@
     {
       "id": "M-C9-SO-R138-B",
       "topic": "R-C9-138/139/140/141/142 (b): the combined Barrow web build -- sorceress arena kit option, character-light toggle, meteor scorch, dark knight eor3 + EOR2's EoR re-port -- loadout 973edfb COMMITTED, NOT PUSHED (lane SO drax + two forks)",
-      "result": "Every build_web_painted.sh fence ok (incl. new: variant so_bm134, ?soidle=ss4, ?v5=b scorch on/off, ?charlight a/b/c on all three, texture provenance 66/66, bind order 72/72). SELECT PAGE: sorceress Armour 'Battle mage · orb-staff + shield (arena kit)' = ?armor=bm134 (variant_so_bm134.pck 33.4 MB); 'Arena kit idle': 'Calm standing (fixed lean)' (default) / 'Sword-and-shield stance' = &soidle=ss4; she starts hood ON (hair off), G reaches 'armed, hood off'. Shared row 'Character light (all three)': Current / Brighter sun / Sun + fill / Ambient lift = charlight= / a / b / c (default current; the fork recommends b). Crater v5: one checkbox 'Ice / earth craters + scorch on stones & trees' = v5=b (part (a) retired). select_check 18/18 at phone size. R-C9-139 numbers (ratio body/ground, the real cliffside3d barbarian 0.455): barbarian current 0.340 / a 0.425 / b 0.457 / c 0.407; sorceress 0.276/0.344/0.372/0.330; dark knight 0.237/0.297/0.316/0.280; 0 px differ outside the silhouette; b - current -0.23/-0.005/-0.09 ms/frame (noise 0.65). R-C9-142: meteor always lands on the target; scorch shell on up to 6 pieces within 2.2 m, embers+chips, 3.5 cm/0.2 s shake on birches/cairns/posts only; 4 meteors by stones and birches +0.134 ms/frame, worst 12.87 ms, 0 frames > 20 ms (one cold run had a single 23.0 ms frame not at a cast). R-C9-141: warlord body final_k_eor3 (7dca71221bafc976), stills violet + ice. EOR2: its eor_kc2 data added to the warlord pack's include filter (preloads were not followed; warlord.pck had failed to parse). OPEN: EOR2 had UNCOMMITTED edits to eor_kc2_fx.gd + two shaders at build time; the conductor decides rebuild-then-push or push as is.",
+      "result": "Every build_web_painted.sh fence ok (incl. new: variant so_bm134, ?soidle=ss4, ?v5=b scorch on/off, ?charlight a/b/c on all three, texture provenance 66/66, bind order 72/72). SELECT PAGE: sorceress Armour 'Battle mage \u00b7 orb-staff + shield (arena kit)' = ?armor=bm134 (variant_so_bm134.pck 33.4 MB); 'Arena kit idle': 'Calm standing (fixed lean)' (default) / 'Sword-and-shield stance' = &soidle=ss4; she starts hood ON (hair off), G reaches 'armed, hood off'. Shared row 'Character light (all three)': Current / Brighter sun / Sun + fill / Ambient lift = charlight= / a / b / c (default current; the fork recommends b). Crater v5: one checkbox 'Ice / earth craters + scorch on stones & trees' = v5=b (part (a) retired). select_check 18/18 at phone size. R-C9-139 numbers (ratio body/ground, the real cliffside3d barbarian 0.455): barbarian current 0.340 / a 0.425 / b 0.457 / c 0.407; sorceress 0.276/0.344/0.372/0.330; dark knight 0.237/0.297/0.316/0.280; 0 px differ outside the silhouette; b - current -0.23/-0.005/-0.09 ms/frame (noise 0.65). R-C9-142: meteor always lands on the target; scorch shell on up to 6 pieces within 2.2 m, embers+chips, 3.5 cm/0.2 s shake on birches/cairns/posts only; 4 meteors by stones and birches +0.134 ms/frame, worst 12.87 ms, 0 frames > 20 ms (one cold run had a single 23.0 ms frame not at a cast). R-C9-141: warlord body final_k_eor3 (7dca71221bafc976), stills violet + ice. EOR2: its eor_kc2 data added to the warlord pack's include filter (preloads were not followed; warlord.pck had failed to parse). OPEN: EOR2 had UNCOMMITTED edits to eor_kc2_fx.gd + two shaders at build time; the conductor decides rebuild-then-push or push as is.",
       "stills": [
         "barrow_full/take/build/r138_barrow_arena_kit.jpg",
         "barrow_full/take/build/charlight_sidebyside.jpg",
@@ -38412,6 +38704,12 @@
       "ts": "2026-10-03T02:53:36Z",
       "topic": "R-C9-149a BIOME-SCULPT (Matt): barrow_v2 greybox carries the land's real shape before any painting (lane BX drax); BVP porch folded in (option a)",
       "result": "Floor ORGANIC around the disc-hull minimum (4,026.5 m2, the inner bound): 4222.6 m2, 84.63 x 82.27 m, bulge 0-3.60 m by biome (N barrow toe/drifts, W ragged shingle/ice shore, S broken cliff lip with bites/spurs, E/SE trodden yard edge), flush at the stair landing and cave; longest straight edge run 5.98 m. Terrain heightfield godot/data/terrain_h.f32 (0.5 m grid; exactly 0 on all 16885 floor samples): rolling snow slopes + wind drifts to ~6 m, the barrow as an irregular grassy mound with a cut passage, organic coastline, shingle beach into shore ice breaking down to the water, broad cliff ledges, snowbanks against the yard. Dressing (tools/sculpt_v2.py): 472 blobs + 318 beams -- boulder clusters, birch + juniper groves, kerb + standing stones, charred sagging half-fallen hall frame with the great-door porch (BVP bvp_porch.py spec 3.6 x 2.4 m, eaves 3.4, ridge 5.0 running out, doors open; V4 shows roof + open leaves), the hall's collapsed SW gable on rubble, leaning gapped palisade stakes, heeled broken ice-locked wreck, sunken circle stones, rough-cut 3 m stair; walk-over ground detail inside the floor {\"drift_berm\": 58, \"pebble\": 21, \"pressure_ridge\": 36, \"shingle_tongue\": 16, \"trodden_snow\": 29, \"ash_heap\": 24, \"rock_slab\": 16, \"heather\": 11, \"scree\": 19, \"stream_bank\": 2} (all <= 0.35 m). Validator 54/54 PASS + 8 INFO (R4 now: simple + organic + contains the disc hull; R5 adds sculpt blobs, beams and heightfield) -> validator_report.json; negative control CAUGHT (R2 R3 R4 R5 R6 R7 R10, incl. a tall blob on the floor). Re-rendered plan, V0-V7, E0_establishing.png (1800x1440, whole site) + E0_establishing_vs_sketchA.png, walk film 26.5 s 6.0 MB. Known limit: the 0.5 m heightfield leaves sawtooth teeth along the south cliff face (V7); a cliff mesh/kit would fix it."
+    },
+    {
+      "id": "M-C9-BVP-CHUNKTEST-1",
+      "ts": "2026-10-03T03:47:35Z",
+      "topic": "R-C9-151 (Matt): barrow_v2 paint lane BVP (drax) -- flat 2D ZONE MAP at the game camera + a 2x3 chunk test (hall + porch + gable + palisade, seams both ways) for Matt's look before the full paint",
+      "result": "ZONE MAP paint/barrow_v2_zonemap.png (11776 x 8704, plate grid paint/frame_bvp.json: 100.6176 px/m, pitch 52.9535, zero yaw, sim (0,0) at px [6049, 4338]; envelope = floor + ZOOM-GD half window + 1.5 m -> 9 x 11 chunks, 89 painted / 10 skipped) by tools/bvp_zonemap.py from layout_v2.json v4: heightfield ray-cast per column, FLAT zones (floor biomes from the class map, carried ~6 m past the edge; mound, rock faces, beach, shore ice, sea, land with a soft height tint), flat structure footprints + thin height outlines, faint dotted floor edge + spawn discs. CHUNK TEST: BVP-7_5, 8_5, 7_6, 8_6, 7_7, 8_7 (sketch A as the only reference) all exit 0; stitched paint/test/T1_hall_stitched.png, compare paint/test/T1_hall_compare.jpg (zone map | painted | sketch A), seams T1_hall_seams.jpg. Astra 12 images for 6 chunks (every chunk used its one retry). Look: sketch A's hand holds at true scale, no visible seams. Placement deviations: a SECOND open doorway appeared in 8_6 (the per-chunk note named the porch in both rows it spans), the palisade's base+top double line was read as a roofed wall; both are brief/zone-map fixes for the full run. Projected full run at this retry rate ~166 more images vs 138 left under the 150 cap."
     }
   ],
   "halts": [
@@ -38454,7 +38752,7 @@
       "veto_open": false,
       "topic": "C-9 launch + rulings drained live 2026-09-26",
       "ruling": "Matt verbatim: \"Ok, go.\" then \"you are a run conductor.. please design the run and conduct it. Add appropriate Matt gates\". Carried rulings (refs README): merge rule (painted book = subject/composition/iconography/palette; FFT watercolor = rendering; characters AND scenes); A = Keeper, B = Lalaing knight fol.129v right-hand, skirt removed, poleaxe; EoR Warlord dropped; cathedral style = Belles Heures choir, architecture = Spinola f.185, building = Antwerp on the Crucible footprint; cliffside scenery = TRH calendar + Belles Heures; FFT refs LOOK-ONLY (FFT carried in text); first A/B without Matt Astra images (fallback arm); brief amendments: rich colour at moderate value, hatching permitted as a variable, designed imperfection, #00ff00 plate.",
-      "source": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md § 2",
+      "source": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md \u00a7 2",
       "ts": "2026-09-26T21:51:52"
     },
     {
@@ -38502,7 +38800,7 @@
       "class": "conductor",
       "veto_open": true,
       "topic": "CORRECTION: C-9 cathedral = the KC2-PLAY burning nave; drax Antwerp grey room superseded; M2 collapses",
-      "ruling": "Matt: \"I think we already covered all of these in the prior arena/cathedral work.\" He is right. FINDING F-C9-4 (conductor, slate-freshness failure, OP § 4.10 guardrail 3): the C-9 dispatch re-derived a cathedral layout for the Crucible arena without reading KC2-PLAY, where Matt had already ruled it: KP-14 interior burning Gothic nave (ring = nave walls, islands = fallen pillar bases, pools = something burning through the floor); KP-18 h_fig 1.9 m, cathedral as wall faces; KP-19 ART LEADS THE BOUNDARY (mask-from-paint; ring is a suggestion); KP-28/29 fallen glass cross centre, crater off-centre, crypt spawns with blue fire, hazard aprons. RULING: C-9 cathedral substrate = the KC2-PLAY nave design and its arena guide (drax 9c947ffe / KC2-PLAY guide lineage), painted in BOTH registers for the A/B; C-9 writes only its own run dir, never KC2-PLAY. drax C-9 grey room (3f9ae23c) is SUPERSEDED, kept as record (his contradictions list stands as evidence). M2 as posed is WITHDRAWN: its four forks are answered by KP-14/18/19 (rot/pools = KC2-PLAY pools; 1.9 m = KP-18a; boundary = art-led); only the chunk scale remains, and it follows KC2-PLAY method when the cathedral paint is scheduled.",
+      "ruling": "Matt: \"I think we already covered all of these in the prior arena/cathedral work.\" He is right. FINDING F-C9-4 (conductor, slate-freshness failure, OP \u00a7 4.10 guardrail 3): the C-9 dispatch re-derived a cathedral layout for the Crucible arena without reading KC2-PLAY, where Matt had already ruled it: KP-14 interior burning Gothic nave (ring = nave walls, islands = fallen pillar bases, pools = something burning through the floor); KP-18 h_fig 1.9 m, cathedral as wall faces; KP-19 ART LEADS THE BOUNDARY (mask-from-paint; ring is a suggestion); KP-28/29 fallen glass cross centre, crater off-centre, crypt spawns with blue fire, hazard aprons. RULING: C-9 cathedral substrate = the KC2-PLAY nave design and its arena guide (drax 9c947ffe / KC2-PLAY guide lineage), painted in BOTH registers for the A/B; C-9 writes only its own run dir, never KC2-PLAY. drax C-9 grey room (3f9ae23c) is SUPERSEDED, kept as record (his contradictions list stands as evidence). M2 as posed is WITHDRAWN: its four forks are answered by KP-14/18/19 (rot/pools = KC2-PLAY pools; 1.9 m = KP-18a; boundary = art-led); only the chunk scale remains, and it follows KC2-PLAY method when the cathedral paint is scheduled.",
       "ts": "2026-09-26T23:24:05"
     },
     {
@@ -38510,7 +38808,7 @@
       "class": "conductor",
       "veto_open": true,
       "topic": "CORRECTION 2: the full KC2-PLAY cathedral design governs, incl. the spawn/entrance design; S1/S4/S5 stay parked with Matt",
-      "ruling": "Matt: \"you are missing an entire session of work ... one spawn would be flame, another blue flames of enemies coming from beneath, two more walled areas where enemies descend from above.. the goal being to decide how to build the arena based on the needs of the art.\" R-C9-6 read only the KC2-PLAY charter rows; the design lives in gandalf/notes/2026-09-20-kc2-play-cathedral-reframe-and-crack-law.md (Diablo-register militant-faith cathedral, RECENT desecration; crack law as a PRINCIPLE in the prompt (CF-3); entrances are hazards + ONE-WAY broken stairs: real-fire entrance (p05 ambush), BLUE FIRE crypt mouths from beneath, west siege breach + north chancel breach + east gallery stair where enemies come down; FUNNEL TO THE MIDDLE (CF-4); player enters from the SOUTH facade (CF-2)) and gandalf/notes/2026-09-20-kc2-play-arena-scene-plan.md (layers beyond the walls; sunset from the west; BARE FIRST; the fallen stained-glass window/cross as hero object; the Keepers domed temple stays in the far layer). Per skill_handoff_2026-09-24 § 3, Matt deliberately PARKED the cathedral art on S1 (arena layout) / S4 (the six pools) / S5 (the world beyond the walls) for a sitting. RULING: C-9 adopts that design whole for the cathedral A/B (only the rendering register differs in arm B); C-9 does not re-open or pre-empt S1/S4/S5; cathedral paint (P6) waits on that sitting. Recorded as conductor failure F-C9-5 (a second, deeper slate-freshness miss in one session).",
+      "ruling": "Matt: \"you are missing an entire session of work ... one spawn would be flame, another blue flames of enemies coming from beneath, two more walled areas where enemies descend from above.. the goal being to decide how to build the arena based on the needs of the art.\" R-C9-6 read only the KC2-PLAY charter rows; the design lives in gandalf/notes/2026-09-20-kc2-play-cathedral-reframe-and-crack-law.md (Diablo-register militant-faith cathedral, RECENT desecration; crack law as a PRINCIPLE in the prompt (CF-3); entrances are hazards + ONE-WAY broken stairs: real-fire entrance (p05 ambush), BLUE FIRE crypt mouths from beneath, west siege breach + north chancel breach + east gallery stair where enemies come down; FUNNEL TO THE MIDDLE (CF-4); player enters from the SOUTH facade (CF-2)) and gandalf/notes/2026-09-20-kc2-play-arena-scene-plan.md (layers beyond the walls; sunset from the west; BARE FIRST; the fallen stained-glass window/cross as hero object; the Keepers domed temple stays in the far layer). Per skill_handoff_2026-09-24 \u00a7 3, Matt deliberately PARKED the cathedral art on S1 (arena layout) / S4 (the six pools) / S5 (the world beyond the walls) for a sitting. RULING: C-9 adopts that design whole for the cathedral A/B (only the rendering register differs in arm B); C-9 does not re-open or pre-empt S1/S4/S5; cathedral paint (P6) waits on that sitting. Recorded as conductor failure F-C9-5 (a second, deeper slate-freshness miss in one session).",
       "ts": "2026-09-26T23:41:41"
     },
     {
@@ -38542,7 +38840,7 @@
       "class": "matt",
       "veto_open": false,
       "topic": "Knight master REJECTED by Matt; method changes to the fidelity ladder (EDIT on the source)",
-      "ruling": "Matt verbatim: \"The knight master doesn’t look great.. it looks like he’s wearing a t shirt instead of a banner.. can Astra not keep exactly to the image? Where is the imperfection? Astra is generating images instead of copying them. On the other hand the scene looks good.\" Conductor diagnosis: KT-S is two generate-with-reference hops from the manuscript (manuscript -> K1 -> KT); each hop regresses to the generator default (clean, smooth); the conductor also attached the H1 Keeper as camera reference (its clean rendering bled) and dropped the manuscript texture patch. KT-S_b and the KT-{7 dirs} wave built on it are SUPERSEDED (kept as evidence, not presented at M3). Method change (within the hypothesis; conductor authority): the brief T3 FIDELITY LADDER in EDIT mode on the source itself -- step 1 COPY (KL-1-copy: background -> green, skirt removed, nothing else), then re-pose, then turn, measuring the hand at each step; the step where it breaks sets how far sprites can go. The scene (P5) continues unchanged.",
+      "ruling": "Matt verbatim: \"The knight master doesn\u2019t look great.. it looks like he\u2019s wearing a t shirt instead of a banner.. can Astra not keep exactly to the image? Where is the imperfection? Astra is generating images instead of copying them. On the other hand the scene looks good.\" Conductor diagnosis: KT-S is two generate-with-reference hops from the manuscript (manuscript -> K1 -> KT); each hop regresses to the generator default (clean, smooth); the conductor also attached the H1 Keeper as camera reference (its clean rendering bled) and dropped the manuscript texture patch. KT-S_b and the KT-{7 dirs} wave built on it are SUPERSEDED (kept as evidence, not presented at M3). Method change (within the hypothesis; conductor authority): the brief T3 FIDELITY LADDER in EDIT mode on the source itself -- step 1 COPY (KL-1-copy: background -> green, skirt removed, nothing else), then re-pose, then turn, measuring the hand at each step; the step where it breaks sets how far sprites can go. The scene (P5) continues unchanged.",
       "ts": "2026-09-27T00:04:58"
     },
     {
@@ -38582,7 +38880,7 @@
       "class": "matt",
       "veto_open": false,
       "topic": "M3 alignment + walkability + Grok",
-      "ruling": "Matt verbatim: \"Regarding M4, can I walk it yet and see the motion/parralax? Regarding M3, some of the head positions and feet positions don’t quite match.. is that ok? Grok has fully available credits.\" Conductor audit: S helm turned screen-right (body faces camera; S reads like SE); N/NW/NE feet point toward the viewer in back views. Fixes fired: KL-7-{S (helm faces camera), N, NW, NE (feet point away)} by targeted EDIT. drax dispatched (named agent) for a local walkable cliffside A/B with a T style toggle (B = C-9 plate + parallax; H1 props hidden in B; Keeper as the walker). Grok credits available -> P7 motion unblocked after M3.",
+      "ruling": "Matt verbatim: \"Regarding M4, can I walk it yet and see the motion/parralax? Regarding M3, some of the head positions and feet positions don\u2019t quite match.. is that ok? Grok has fully available credits.\" Conductor audit: S helm turned screen-right (body faces camera; S reads like SE); N/NW/NE feet point toward the viewer in back views. Fixes fired: KL-7-{S (helm faces camera), N, NW, NE (feet point away)} by targeted EDIT. drax dispatched (named agent) for a local walkable cliffside A/B with a T style toggle (B = C-9 plate + parallax; H1 props hidden in B; Keeper as the walker). Grok credits available -> P7 motion unblocked after M3.",
       "ts": "2026-09-27T04:23:54"
     },
     {
@@ -38606,7 +38904,7 @@
       "class": "matt",
       "veto_open": false,
       "topic": "KL-9 result + NE tabard + S stance",
-      "ruling": "Matt verbatim: \"Also, NE’s tabard slightly differs from the rest in it’s pattern\" and \"And South’s stance/gait slightly differs.. this may confuse from during video gen\". KL-9: W and S helms now correct (rounded visor, one row of holes); SW did NOT take (still a beak visor). Wave KL-10: SW re-derived from KL-9-W turned 45 deg toward the viewer (the method that worked before, now from a correct-helm source); S legs only to the planted rest stance (ref SE); NE tabard back only to the N layout.",
+      "ruling": "Matt verbatim: \"Also, NE\u2019s tabard slightly differs from the rest in it\u2019s pattern\" and \"And South\u2019s stance/gait slightly differs.. this may confuse from during video gen\". KL-9: W and S helms now correct (rounded visor, one row of holes); SW did NOT take (still a beak visor). Wave KL-10: SW re-derived from KL-9-W turned 45 deg toward the viewer (the method that worked before, now from a correct-helm source); S legs only to the planted rest stance (ref SE); NE tabard back only to the N layout.",
       "ts": "2026-09-27T08:26:30"
     },
     {
@@ -39286,7 +39584,7 @@
       "class": "matt",
       "veto_open": false,
       "topic": "Meteor mix v3: a dark heavy fire-ball core instead of a visible rock; a crater that changes the painted floor, with burning fault lines; a near-imperceptible gravitational distortion at impact",
-      "ruling": "Matt verbatim: \"1) the rock is outside of the flames during the fall. It needs to be inside the flames. It is the ball that is falling and that the fire surrounds.. so we may not want to use the rock at all, but instead add a darkness and “weight” to the meteor so that it feels like a darker and deeper fire than the rest of the fireball. It's more of a differentiation between the fiery tail and the ball of fire that surrounds the meteor itself. 2) the painted 2D impact is perfect, but instead of leaving smokdering flames, rather randomly, let's have it leave an impact crater with a smoldering center and have fault lines/cracks that actually truly change the painted 3D floor and alter it as a crater would with lines of fire across the cracks.. similar size to the smoldering flames now, but all of that detail in that radius, and maybe a random line or two extending beyond, mostly perceptible by the fact that it's burning. Lastly, at the impact moment it should feel like a nearly imperceptible gravitational distortion happens and you should see a very momentary distortion field during the strike, starting just prior to impact.\" Disposition (integration drax, after the cold-load veil fix): mix v3 as her default -- the head a dense fire ball with a deep crimson-to-black core (no rock), the tail lighter; A's painted burst unchanged; a real crater (depression, scorched rim, smouldering centre, radial cracks burning and cooling over 4-6 s, one or two cracks beyond the rim; the cooled crater persists, pooled to 4); a radial lens-warp from ~0.1 s before impact to ~+0.15 s, a few px at most, folded into the existing post pass.",
+      "ruling": "Matt verbatim: \"1) the rock is outside of the flames during the fall. It needs to be inside the flames. It is the ball that is falling and that the fire surrounds.. so we may not want to use the rock at all, but instead add a darkness and \u201cweight\u201d to the meteor so that it feels like a darker and deeper fire than the rest of the fireball. It's more of a differentiation between the fiery tail and the ball of fire that surrounds the meteor itself. 2) the painted 2D impact is perfect, but instead of leaving smokdering flames, rather randomly, let's have it leave an impact crater with a smoldering center and have fault lines/cracks that actually truly change the painted 3D floor and alter it as a crater would with lines of fire across the cracks.. similar size to the smoldering flames now, but all of that detail in that radius, and maybe a random line or two extending beyond, mostly perceptible by the fact that it's burning. Lastly, at the impact moment it should feel like a nearly imperceptible gravitational distortion happens and you should see a very momentary distortion field during the strike, starting just prior to impact.\" Disposition (integration drax, after the cold-load veil fix): mix v3 as her default -- the head a dense fire ball with a deep crimson-to-black core (no rock), the tail lighter; A's painted burst unchanged; a real crater (depression, scorched rim, smouldering centre, radial cracks burning and cooling over 4-6 s, one or two cracks beyond the rim; the cooled crater persists, pooled to 4); a radial lens-warp from ~0.1 s before impact to ~+0.15 s, a few px at most, folded into the existing post pass.",
       "ts": "2026-09-30T21:42:38"
     },
     {
@@ -39348,7 +39646,7 @@
       "by": "Matt",
       "ruling": "Whirlwind v6 rejected (arms). v7 = no solver: one frame of the approved JOIN hold v3 battle stance, both arms extended by a mirrored shoulder flexion + elbow opening (A +15/+15 main, B +25/+25), the whole body spun rigid about the root at 3.75 rev/s (8-frame loop). Checks measure only; no tuning loop.",
       "verbatim": [
-        "The arms are crazy in the whirlwind v6. Please ultra think through how we can simply use a slightly extended version of the current battle stance… this shouldn't be so complex and difficult."
+        "The arms are crazy in the whirlwind v6. Please ultra think through how we can simply use a slightly extended version of the current battle stance\u2026 this shouldn't be so complex and difficult."
       ],
       "ts": "2026-09-30T23:18:01"
     },
@@ -39440,7 +39738,7 @@
       "ruling": "From the live select page: Fire Ball c75 is \"perfect\" -> her default (angular pieces kept). Crater v4 liked -> her default; crater v5 asked: stop the fall on 3D objects (burst on the object, char it, no bowl), surface-aware craters (snow keeps v4; ice and rock/earth variants), plants char and crumble over the fire field. Dark knight: the conductor's notes agreed (long cape; fix the idle chin, mace height, cape poke). Sorceress Q95 (Sim Session): all key items, FCR 105 -> 8-tick cast (0.32 s), action tick 5, final.",
       "verbatim": [
         "Agreed on your notes for the dark knight.",
-        "I like the smaller fireball. It’s perfect.",
+        "I like the smaller fireball. It\u2019s perfect.",
         "I like the v4 meteor crater. The only issue is that it passes through 3D objects and hits the ground only (hidden beneath the onjects).. it may not be possible to resolve that though. Also it seems to gain snow when it hits the snow, but it looks no different in ice or on plants.. also, the plants do not burn or disintegrate.. maybe that is asking for too much also."
       ],
       "ts": "2026-10-01T16:52:41"
@@ -39450,7 +39748,7 @@
       "by": "Matt",
       "ruling": "Battle-mage armour approved. Props redone: the grimoire becomes an OPEN spell-book held in her LEFT (off) hand through every clip (Fire Ball cast mirrored so the wand hand throws; Meteor led by the wand with the book raised open); the wand rebuilt larger (~0.50-0.55 m, thicker, a 6-7 cm crystal) and seated through her closed fist.",
       "verbatim": [
-        "The sorceress looks good in her new gear, but not the wand or the book.. is the book attached to her?? It’s supposed to be a weapon in her off hand (and it should be held open so they can read spells off of it as needed).. also the wand is so small it limits like a needle sitting atop her palm…"
+        "The sorceress looks good in her new gear, but not the wand or the book.. is the book attached to her?? It\u2019s supposed to be a weapon in her off hand (and it should be held open so they can read spells off of it as needed).. also the wand is so small it limits like a needle sitting atop her palm\u2026"
       ],
       "ts": "2026-10-01T16:55:22"
     },
@@ -39513,7 +39811,7 @@
       "by": "Matt",
       "ruling": "Barbarian stance: leans N25 (-25%); wants to see it with NO gear and in idle before deciding (ungeared idle/walk sheet + film requested). Considering replacing the barbarian's idle with a Mixamo idle, contingent on the dark knight's Mixamo great-sword result; not started.",
       "verbatim": [
-        "I think the middle one looks good but I’ll need to see it without gear and during idle as well. By the way I would like to think about replacing the idle with a Mixamo idle, depending on how the dark knight worm turns out."
+        "I think the middle one looks good but I\u2019ll need to see it without gear and during idle as well. By the way I would like to think about replacing the idle with a Mixamo idle, depending on how the dark knight worm turns out."
       ],
       "ts": "2026-10-01T20:48:25"
     },
@@ -39522,7 +39820,7 @@
       "by": "Matt",
       "ruling": "(1) Dark knight Mixamo set APPROVED (\"amazing ... better than the barbarian now\"); finalize as final_k with the conductor's picks (upright idle 4, slash 3, power up, mace as is, no third narrowing, violet default). Cape \"still not right\" -> runtime secondary motion (spring-bone cape with collision) prototyped by the E1 lane. (2) Barbarian stance: ORIGINAL width preferred over -25%; T12_12d parked, its toggles dropped from the deploy. (3) Barbarian on Mixamo sets: 2H hammer (champion + maul, Great Sword pack, started now in new lane bm_mx), axe + shield (needs the Sword And Shield Pack from Matt), axe + sword (dual; pack availability unknown).",
       "verbatim": [
-        "The Mixamo animations for the dark knight are amazing. It’s better than the barbarian now. The only thing is that the cape is still not right.",
+        "The Mixamo animations for the dark knight are amazing. It\u2019s better than the barbarian now. The only thing is that the cape is still not right.",
         "Also, I have decided that I prefer the original stance width for the barbarian versus the -25% width. I would like to see the barbarian with Mixamo though for the axe/shield, axe/sword and 2H hammer."
       ],
       "ts": "2026-10-01T21:45:05"
@@ -39534,7 +39832,7 @@
       "verbatim": [
         "Will I be able to see all of that in vercel on my phone?",
         "Should I also gather Mixamo packs for the sorceress? How about other states like idle? Maybe we should run a research probe into the Mixamo library to plan?",
-        "Also I have a note on meteor: the smoke that is a video of steam/wisps doesn’t look good. I think it would be much better if it were light smoke particles, similar to what we had in the original Synty EOR warlord whirlwind animation. By the way I really want to bring the rest of that animation into our scenes.. exactly as we had it made for that warlord, but now for the barbarian and also warlord."
+        "Also I have a note on meteor: the smoke that is a video of steam/wisps doesn\u2019t look good. I think it would be much better if it were light smoke particles, similar to what we had in the original Synty EOR warlord whirlwind animation. By the way I really want to bring the rest of that animation into our scenes.. exactly as we had it made for that warlord, but now for the barbarian and also warlord."
       ],
       "ts": "2026-10-01T21:54:13"
     },
@@ -39728,7 +40026,7 @@
       "by": "Matt",
       "ruling": "(1) The barrow_v2 greybox reads man-made and square and ignores the biomes that will cover it. Ruled: a BIOME-SCULPT pass (lane BX) before any painting -- organic walkable edge (disc hull + 1 m is the inner minimum; the edge may bulge outward), real terrain relief outside, walk-over ground variation inside per biome, ruined/organic man-made pieces, the great-door porch for camera visibility; validator rules unchanged. Paint lane BVP held until it lands; the paint guide takes composition/mood from sketch A, geometry from the sculpted greybox. (2) Astra budget: 'no need to worry about transcending picture render count. It has plenty for the week' -- BVP cap raised to 150, paint at plate density 100.6 px/m; usage-limit HALT still applies. (Mixamo Creature x2 + Zombie x2 packs added by Matt: audition lane MX, R-C9-149.)",
       "verbatim": [
-        "I'm concerned about the grey box.. it doesn't seem to take into account the biomes that will be covering it… everything looks man made and square.",
+        "I'm concerned about the grey box.. it doesn't seem to take into account the biomes that will be covering it\u2026 everything looks man made and square.",
         "Also, no need to worry about transcending picture render count. It has plenty for the week.",
         "I added two creature packs and two zombie packs to Mixamo animations"
       ],
@@ -40053,7 +40351,7 @@
       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
       "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
       "prompt_sha256": "b58ce0cf333adec2b8b625d9989c12e8112953a34e2755250bdc6860fd1344f4",
-      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes \u2014 never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
       "clip": "runs/C-9/xvideo/in/SE_walk-r1.mp4",
       "clip_sha256": "3b0e6556e719f51b1c28575e9ad89deb1558898b34b1acbe6605b50ae7a8da32",
       "ok": true,
@@ -40070,7 +40368,7 @@
       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_N.png",
       "still_sha256": "56b528a4c3627ff8210b71e4bf4b78e37111e7f862c862549728a8e3d2765a21",
       "prompt_sha256": "81acf1303865cc6b026b89d10c08de64997c91962f9d056f72e7f20b3780ef77",
-      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes \u2014 never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
       "clip": "runs/C-9/xvideo/in/N_idle-r1.mp4",
       "clip_sha256": "c3e7dc2a89fb2cc990a985037059158fda971df7c717d65463f06440b82f3be6",
       "ok": true,
@@ -40087,7 +40385,7 @@
       "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
       "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
       "prompt_sha256": "918db5a9ba94c210dac6b22c42d5a967439d7456935dce60c741a177d73ddf03",
-      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes \u2014 never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
       "clip": "runs/C-9/xvideo/in/SE_idle-r1.mp4",
       "clip_sha256": "4a16d5803e977690aa56931819b0144ad5a7ed847b89a61c80d3a9bb5bfaafa1",
       "ok": true,
@@ -40361,7 +40659,7 @@
   "notes": [
     {
       "id": "N-C9-1",
-      "note": "Correction to M-C9-KL1: the poleaxe head was NOT cut by the crop. In fol. 129v the knight grips the haft high; the small curved axe blade sits by his shoulder, and step 1 kept it. Step 2 (KL-2-repose) fired: EDIT on KL-1-copy_a, rest stance, poleaxe grounded, same view; IMAGE 2 = the source miniature for the hand. Matt: \"Yes please. I’m interested to see how it goes.\"",
+      "note": "Correction to M-C9-KL1: the poleaxe head was NOT cut by the crop. In fol. 129v the knight grips the haft high; the small curved axe blade sits by his shoulder, and step 1 kept it. Step 2 (KL-2-repose) fired: EDIT on KL-1-copy_a, rest stance, poleaxe grounded, same view; IMAGE 2 = the source miniature for the hand. Matt: \"Yes please. I\u2019m interested to see how it goes.\"",
       "ts": "2026-09-27T00:18:15"
     },
     {
