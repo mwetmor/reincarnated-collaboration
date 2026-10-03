@@ -107,10 +107,21 @@ extends Node3D
 #                    data/vfx/eor_kc2/kc2_etch_mm.gdshader drops every vertex not of the instance's variant. 2 draws.
 #                    Same layout function, same meshes, same fragment; additive blending makes the sheath/core order
 #                    immaterial. ?eorcuts=pool (--eorcuts pool) draws the source's node pool, for the still diff.
+#   C-9 EOR2 PORT 20 THE RED EYE (R-C9-146, Matt: "the cloud's transparent edges running intermittently red hot").
+#                    `eortint=original` draws the PORT 17 snow-powder haze exactly. `eortint=red` (his default) draws
+#                    the SAME haze through data/vfx/eor_kc2/kc2_haze_ember.gdshader: the low-alpha rim band of each
+#                    puff runs red-hot (the source ramp's orange knee -> red crawl), on and off per particle with a
+#                    seeded phase that also travels around the disc, so it crawls instead of pulsing; the core stays
+#                    light. Same quad, same draw (blend_premul_alpha: the cloud mixes, the ember adds). The clock is
+#                    PORT 1's revolutions, not TIME. The sparks and the ember flecks shift toward red on this variant
+#                    (their ramp sampled from EMBER_RED_SHIFT along the source's own ramp). THE ARC (the cuts) IS THE
+#                    SOURCE'S WHITE-HOT -> ORANGE -> RED ON BOTH VARIANTS. (Supersedes the bind_to note that both
+#                    tints draw the same: that was true until R-C9-146.)
 # ============================================================================
 
 const PAL_SRC := "reincarnated-godot scripts/kc2_player_channel.gd @ 34dcd41"
 const SPARK_TEX_RES := preload("res://data/vfx/eor_kc2/spark_04_a.png")
+const HAZE_EMBER_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_haze_ember.gdshader")   # PORT 20
 const SMOKE_TEX_RES := preload("res://data/vfx/eor_kc2/smoke_05_a.png")
 const ETCH_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_etch.gdshader")
 const ETCH_MM_SHADER_RES := preload("res://data/vfx/eor_kc2/kc2_etch_mm.gdshader")   # PORT 19
@@ -151,6 +162,15 @@ const SNOW_BED_ALPHA := 0.45                         # source 0.86 over tile; a 
 const HAZE_SOFT_M := 0.80                            # proximity fade: where a haze quad meets the snow, it dissolves
 # ---- C-9 EOR2 PORT 19 ----------------------------------------------------------------------------------------------
 const CUT_VARIANT_CODES := 16.0                      # COLOR.b = (id + 0.5) / 16; 12 ids used
+# ---- C-9 EOR2 PORT 20 (R-C9-146): eortint=red -- AUTHORED, every one named --------------------------------------
+const EMBER_RIM_LO := 0.04        # smoke_05_a alpha where a puff's rim band starts (its max alpha is 0.84)
+const EMBER_RIM_HI := 0.30        # ...and where the puff is dense enough to stay light
+const EMBER_DUTY := 0.30          # fraction of each cycle a particle's rim runs hot
+const EMBER_RATE := 0.5           # cycles per revolution (~1.7 Hz at his 0.300 s/rev)
+const EMBER_WAVES := 2.0          # lobes of the crawl around the disc
+const EMBER_JITTER := 0.35        # per-particle seeded phase spread
+const EMBER_GAIN := 0.9
+const EMBER_RED_SHIFT := 0.30     # sparks + embers: their ramp starts this far along the source ramp (past the knee)
 
 # ⚑ THE SPIN RATE — R-CPB-3. Kept for the declarations (they describe the source); the clip's own period drives the
 #   clock and the sparks here (PORT 1, PORT 10).
@@ -258,7 +278,9 @@ static func palette_knee_life() -> float:
 	return pow(PAL_KNEE_AT, 1.0 / PAL_GAMMA)
 
 
-static func palette_gradient(alpha_head: float, alpha_tail: float) -> Gradient:
+static func palette_gradient(alpha_head: float, alpha_tail: float, shift: float = 0.0) -> Gradient:
+	# C-9 EOR2 PORT 20: `shift` > 0 (eortint=red only) samples the ramp from `shift` onward -- the same ramp, entered
+	# hotter-red; 0 is the source exactly
 	var ts: Array[float] = []
 	for i in PAL_SAMPLES:
 		# even on the DECAYED axis, which is dense exactly where the ramp is steep
@@ -272,7 +294,7 @@ static func palette_gradient(alpha_head: float, alpha_tail: float) -> Gradient:
 		if t - last < 1e-7:                 # a duplicate stop is not a stop
 			continue
 		last = t
-		var c := palette_rgb(t)
+		var c := palette_rgb(shift + (1.0 - shift) * t)
 		c.a = lerpf(alpha_head, alpha_tail, t)
 		offs.append(t)
 		cols.append(c)
@@ -328,6 +350,7 @@ var _trail_mount: Node3D
 var _ember_local := Vector3.ZERO
 var _haze: GPUParticles3D
 var _haze_mat: StandardMaterial3D
+var _haze_ember: ShaderMaterial                # PORT 20: eortint=red draws the haze with this instead
 var _bed: MeshInstance3D
 var _bed_mat: StandardMaterial3D
 var _cut_lib: Array = []
@@ -373,6 +396,8 @@ func bind_to(rig: Node3D, skel: Skeleton3D, knight: Node, head_local: Vector3, t
 	#   ratified red extension, and it is what Matt's clip shows. So both "red" (the default) and "original" draw the
 	#   source's ramp, unchanged -- there is nothing to tint toward that the source does not already carry, and
 	#   inventing a second ramp would be authoring, not porting. The value is recorded so the page reports it.
+	#   ⚑ SUPERSEDED BY R-C9-146 (PORT 20): "red" now runs the haze's rims red-hot and shifts the sparks and embers
+	#   red; "original" is the light haze. The ARC is the source ramp on both.
 	tint = tint_name
 	_wb = skel.find_bone("weapon_r")
 	_head_local = _farthest_from_grip(_mace_points())
@@ -634,7 +659,8 @@ func _build_aura(band: Dictionary) -> void:
 		"source_contact_radius_m": SRC_CONTACT_RADIUS_M, "source_drawn_height_m": SRC_DRAWN_HEIGHT_M,
 		"trail_head_point_bone_space": [head_pt.x, head_pt.y, head_pt.z], "rev_period_s": _rev_period,
 		"emitters": SPARK_EMITTER_OFFSETS_DEG.size(), "tint": tint, "ember_mount_scale": SRC_EMBER_SCALE,
-		"tint_basis": "the source ramp for both red and original -- the source arc is already white-hot -> orange -> RED",
+		"tint_basis": ("R-C9-146 / PORT 20: red = haze rims run red-hot + sparks/embers shifted %.2f along the ramp; "
+			+ "original = the light haze; the arc is the source ramp on both") % EMBER_RED_SHIFT,
 	}
 	_set_priorities()
 	_apply_fade(0.0)
@@ -999,7 +1025,7 @@ func _trail() -> GPUParticles3D:
 	m.scale_curve = sc
 	# ⚑ THE EMBER GARNISH IS THE FOURTH CONSUMER of the one ramp (R-CPB-13).
 	m.color_ramp = GradientTexture1D.new()
-	(m.color_ramp as GradientTexture1D).gradient = palette_gradient(0.85, 0.0)
+	(m.color_ramp as GradientTexture1D).gradient = palette_gradient(0.85, 0.0, _red_shift())
 	p.process_material = m
 
 	var q := QuadMesh.new()
@@ -1052,7 +1078,7 @@ func _sparks(radius: float, idx: int) -> GPUParticles3D:
 	m.scale_curve = sc
 	# ⚑ R-CPB-13: THE BURSTS NOW DIE RED, BECAUSE THEY READ THE SAME RAMP.
 	var gt := GradientTexture1D.new()
-	gt.gradient = palette_gradient(1.0, 0.0)
+	gt.gradient = palette_gradient(1.0, 0.0, _red_shift())
 	m.color_ramp = gt
 	p.process_material = m
 
@@ -1127,6 +1153,23 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	mat.albedo_texture = SMOKE_TEX_RES
 	q.material = mat
 	_haze_mat = mat
+	if tint == "red":
+		# C-9 EOR2 PORT 20: the same haze, its rims running red-hot (kc2_haze_ember.gdshader)
+		var em := ShaderMaterial.new()
+		em.shader = HAZE_EMBER_SHADER_RES
+		em.set_shader_parameter("albedo_tex", SMOKE_TEX_RES)
+		em.set_shader_parameter("proximity_fade_distance", HAZE_SOFT_M)
+		em.set_shader_parameter("ember_mid", PAL_MID)
+		em.set_shader_parameter("ember_tail", PAL_TAIL)
+		em.set_shader_parameter("ember_gain", EMBER_GAIN)
+		em.set_shader_parameter("rim_lo", EMBER_RIM_LO)
+		em.set_shader_parameter("rim_hi", EMBER_RIM_HI)
+		em.set_shader_parameter("duty", EMBER_DUTY)
+		em.set_shader_parameter("rate", EMBER_RATE)
+		em.set_shader_parameter("waves", EMBER_WAVES)
+		em.set_shader_parameter("jitter", EMBER_JITTER)
+		q.material = em
+		_haze_ember = em
 	p.draw_pass_1 = q
 	# the bed is a low pool, not a column
 	p.visibility_aabb = AABB(Vector3(-outer_r * 1.6, -0.2, -outer_r * 1.6),
@@ -1249,6 +1292,9 @@ func _process(dt: float) -> void:
 		_fade = maxf(0.0, 1.0 - _fall_t / FADE_OUT_S)
 	_prev_b = b
 	_apply_fade(_fade)
+	if _haze_ember != null:
+		_haze_ember.set_shader_parameter("ember_clock", _revs)
+		_haze_ember.set_shader_parameter("ember_centre", smoke_root.global_position)
 	# PORT 3: the spark ring turns with his steel, the hammer at the source's body-frame angle
 	spark_root.rotation.y = b - SRC_HAMMER_BEARING_RAD
 	var on := _state == S.SUSTAIN
@@ -1263,8 +1309,14 @@ func _process(dt: float) -> void:
 		_drive_cuts(_revs, false)
 
 
+func _red_shift() -> float:
+	return EMBER_RED_SHIFT if tint == "red" else 0.0
+
+
 func _apply_fade(f: float) -> void:
 	_haze_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
+	if _haze_ember != null:
+		_haze_ember.set_shader_parameter("fade", f)
 	_bed_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
 
 
