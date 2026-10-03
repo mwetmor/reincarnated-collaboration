@@ -1,0 +1,11 @@
+{
+ "designed_height_m": 3.2,
+ "shipped_height_m": 2.5,
+ "factor": 0.7812,
+ "why": "MAX-FIT (KP-222): the record LOB and SLAM raise both arms overhead, and the record fall-to-the-ground clip ends lying out to one side (centred by en42, so it ends on the anchor). en63 (the skinned mesh through the play camera, calibrated within 4 px of a rendered union) gives fit x0.975 at 2.60 m, so the body ships at 2.50 m. The roar is not binding (fit x1.283 at 2.60 m). The true_size block gives each record its factor back to the true height.",
+ "binding_clips": [
+  "lob",
+  "slam"
+ ],
+ "method": "en42 death centre + en63 geometric fit + en53 on the rendered pack"
+}

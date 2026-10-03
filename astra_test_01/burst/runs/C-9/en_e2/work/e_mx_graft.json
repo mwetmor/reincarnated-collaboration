@@ -1,0 +1,137 @@
+{
+ "clips": {
+  "__mx_idle": {
+   "source": "../mx_audition/mxglb/cr__mutant_breathing_idle.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    4.066667
+   ],
+   "keys": 122,
+   "length_s": 4.033333268016577,
+   "joints": 22,
+   "rest_match": 1.23548,
+   "hip_ratio": 0.85978,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    0.0
+   ],
+   "grounded_by_m": 0.0493,
+   "feet_span_m": [
+    0.0,
+    0.0008
+   ]
+  },
+  "__mx_walk": {
+   "source": "../mx_audition/mxglb/cr__mutant_walking.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.466667
+   ],
+   "keys": 44,
+   "length_s": 1.4333333633840084,
+   "joints": 22,
+   "rest_match": 1.23548,
+   "hip_ratio": 0.85978,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0001,
+    1.6135
+   ],
+   "grounded_by_m": 0.07678,
+   "feet_span_m": [
+    0.0,
+    0.034
+   ]
+  },
+  "__mx_run": {
+   "source": "../mx_audition/mxglb/cr__mutant_run.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    0.9
+   ],
+   "keys": 27,
+   "length_s": 0.86666664108634,
+   "joints": 22,
+   "rest_match": 1.23548,
+   "hip_ratio": 0.85978,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    -0.0,
+    1.7731
+   ],
+   "grounded_by_m": 0.07224,
+   "feet_span_m": [
+    0.0,
+    0.05
+   ]
+  },
+  "__mx_attack": {
+   "source": "../mx_audition/mxglb/cr__mutant_punch.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    1.133333
+   ],
+   "keys": 34,
+   "length_s": 1.0999999903142452,
+   "joints": 22,
+   "rest_match": 1.23548,
+   "hip_ratio": 0.85978,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0,
+    -0.0
+   ],
+   "grounded_by_m": 0.08836,
+   "feet_span_m": [
+    0.0,
+    0.0404
+   ]
+  },
+  "__mx_roar": {
+   "source": "../mx_audition/mxglb/cr__mutant_roaring.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.033333,
+    5.4
+   ],
+   "keys": 162,
+   "length_s": 5.3666667602956295,
+   "joints": 22,
+   "rest_match": 1.23548,
+   "hip_ratio": 0.85978,
+   "flags": [
+    "deroot"
+   ],
+   "source_travel_m": [
+    -0.0026,
+    0.0
+   ],
+   "grounded_by_m": 0.07392,
+   "feet_span_m": [
+    0.0,
+    0.0408
+   ]
+  }
+ },
+ "lint": {
+  "verdict": "WARN",
+  "fails": [],
+  "warns": 6
+ }
+}

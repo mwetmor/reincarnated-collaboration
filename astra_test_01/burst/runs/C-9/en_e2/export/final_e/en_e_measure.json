@@ -1,28 +1,16 @@
 {
  "body": "export/final_e/en_e_body.glb",
- "export_scale": 1.882353,
+ "export_scale": 1.470588,
  "release": {
   "lob": {
    "hand": "RightHand",
    "release_s": 1.1333,
    "key": 34,
-   "speed_mps": 22.188,
+   "speed_mps": 17.334,
    "hand_pos_m": [
-    -1.442,
-    2.333,
-    0.553
-   ],
-   "rule": "peak forward (+Z) hand speed"
-  },
-  "attack": {
-   "hand": "RightHand",
-   "release_s": 0.8667,
-   "key": 26,
-   "speed_mps": 18.025,
-   "hand_pos_m": [
-    -0.997,
-    1.82,
-    1.03
+    -1.126,
+    1.822,
+    0.432
    ],
    "rule": "peak forward (+Z) hand speed"
   },
@@ -30,156 +18,168 @@
    "hand": "RightHand",
    "release_s": 0.8333,
    "key": 25,
-   "speed_mps": 18.893,
+   "speed_mps": 14.76,
    "hand_pos_m": [
-    -0.177,
-    1.993,
-    1.585
+    -0.138,
+    1.557,
+    1.238
    ],
    "rule": "peak 3D hand speed"
   },
-  "roar": {
-   "hand": "LeftHand",
-   "release_s": 0.5,
-   "key": 15,
-   "speed_mps": 20.153,
+  "attack": {
+   "hand": "RightHand",
+   "release_s": 0.2333,
+   "key": 7,
+   "speed_mps": 14.27,
    "hand_pos_m": [
-    1.266,
-    1.772,
-    0.463
+    -0.717,
+    1.288,
+    0.474
+   ],
+   "rule": "peak forward (+Z) hand speed"
+  },
+  "roar": {
+   "hand": "RightHand",
+   "release_s": 0.9,
+   "key": 27,
+   "speed_mps": 4.878,
+   "hand_pos_m": [
+    -0.283,
+    1.141,
+    0.513
    ],
    "rule": "peak 3D hand speed"
   }
  },
  "loops": {
-  "walk": 0.0002,
-  "run": 0.0001,
-  "idle": 0.0
+  "idle": 0.0,
+  "walk": 0.0,
+  "run": 0.0
  },
  "speeds": {
   "walk": {
-   "travel_m": 2.25,
-   "loop_s": 1.3667,
-   "m_per_s": 1.646,
+   "travel_m": 2.3728,
+   "loop_s": 1.4333,
+   "m_per_s": 1.655,
    "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
   },
   "run": {
-   "travel_m": 3.5371,
-   "loop_s": 0.8,
-   "m_per_s": 4.421,
+   "travel_m": 2.6075,
+   "loop_s": 0.8667,
+   "m_per_s": 3.009,
    "basis": "source root travel over the clip (graft json) x export scale / shipped clip length"
   }
  },
  "extent": {
-  "walk": {
-   "x": [
-    -0.851,
-    0.763
-   ],
-   "y_top": 2.756,
-   "z": [
-    -0.771,
-    0.822
-   ]
-  },
-  "run": {
-   "x": [
-    -0.808,
-    0.759
-   ],
-   "y_top": 2.782,
-   "z": [
-    -1.198,
-    0.739
-   ]
-  },
   "lob": {
    "x": [
-    -1.466,
-    1.21
+    -1.146,
+    0.945
    ],
-   "y_top": 3.321,
+   "y_top": 2.595,
    "z": [
-    -1.144,
-    1.685
-   ]
-  },
-  "attack": {
-   "x": [
-    -1.327,
-    1.595
-   ],
-   "y_top": 2.581,
-   "z": [
-    -1.569,
-    1.5
+    -0.894,
+    1.316
    ]
   },
   "slam": {
    "x": [
-    -1.026,
-    1.304
+    -0.801,
+    1.019
    ],
-   "y_top": 3.344,
+   "y_top": 2.613,
    "z": [
-    -1.161,
-    1.585
-   ]
-  },
-  "roar": {
-   "x": [
-    -1.151,
-    1.36
-   ],
-   "y_top": 2.809,
-   "z": [
-    -1.055,
-    0.963
+    -0.907,
+    1.238
    ]
   },
   "hit": {
    "x": [
-    -1.005,
-    0.609
+    -0.785,
+    0.476
    ],
-   "y_top": 2.532,
+   "y_top": 1.978,
    "z": [
-    -1.171,
-    0.881
+    -0.915,
+    0.688
    ]
   },
   "death": {
    "x": [
-    -1.224,
-    1.506
+    -1.199,
+    0.955
    ],
-   "y_top": 2.945,
+   "y_top": 2.301,
    "z": [
-    -2.419,
-    1.819
+    -1.586,
+    1.78
+   ]
+  },
+  "attack": {
+   "x": [
+    -0.854,
+    0.971
+   ],
+   "y_top": 1.944,
+   "z": [
+    -0.664,
+    0.899
+   ]
+  },
+  "roar": {
+   "x": [
+    -0.853,
+    1.063
+   ],
+   "y_top": 2.052,
+   "z": [
+    -0.607,
+    0.963
    ]
   },
   "idle": {
    "x": [
-    -0.735,
-    0.763
+    -0.622,
+    0.639
    ],
-   "y_top": 2.75,
+   "y_top": 1.936,
    "z": [
-    -0.28,
-    0.339
+    -0.093,
+    0.43
+   ]
+  },
+  "walk": {
+   "x": [
+    -0.763,
+    0.792
+   ],
+   "y_top": 2.16,
+   "z": [
+    -0.799,
+    0.703
+   ]
+  },
+  "run": {
+   "x": [
+    -0.704,
+    0.775
+   ],
+   "y_top": 2.029,
+   "z": [
+    -0.808,
+    0.664
    ]
   }
  },
  "clip_len_s": {
-  "walk": 1.3667,
-  "run": 0.8,
   "lob": 2.6667,
-  "attack": 2.4,
   "slam": 2.2667,
-  "roar": 2.8333,
   "hit": 1.4667,
   "death": 3.5333,
-  "idle": 1.8
+  "attack": 1.1,
+  "roar": 5.3667,
+  "idle": 4.0333,
+  "walk": 1.4333,
+  "run": 0.8667
  }
 }

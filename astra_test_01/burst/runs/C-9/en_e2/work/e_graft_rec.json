@@ -1,14 +1,14 @@
 {
  "clips": {
   "idle": {
-   "source": "../mx_audition/mxglb/cr__mutant_breathing_idle.glb",
+   "source": "mixamo/glb/axe_unarmed_idle.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
-    0.033333,
-    4.066667
+    0.03333333507180214,
+    1.8333333730697632
    ],
-   "keys": 122,
-   "length_s": 4.033333268016577,
+   "keys": 55,
+   "length_s": 1.800000037997961,
    "joints": 22,
    "rest_match": 1.23548,
    "hip_ratio": 0.85978,
@@ -17,25 +17,24 @@
     "loop"
    ],
    "source_travel_m": [
-    -0.0,
-    0.0
+    0.0004,
+    -0.0013
    ],
-   "grounded_by_m": 0.0493,
+   "grounded_by_m": 0.04988,
    "feet_span_m": [
     0.0,
-    0.0008
-   ],
-   "adopted": "R-C9-150 MX audition pick (en60)"
+    0.0019
+   ]
   },
   "walk": {
-   "source": "../mx_audition/mxglb/cr__mutant_walking.glb",
+   "source": "mixamo/glb/axe_unarmed_walk_forward.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
-    0.033333,
-    1.466667
+    0.03333333507180214,
+    1.399999976158142
    ],
-   "keys": 44,
-   "length_s": 1.4333333633840084,
+   "keys": 42,
+   "length_s": 1.36666664108634,
    "joints": 22,
    "rest_match": 1.23548,
    "hip_ratio": 0.85978,
@@ -44,25 +43,24 @@
     "loop"
    ],
    "source_travel_m": [
-    0.0001,
-    1.6135
+    0.0,
+    1.1953
    ],
-   "grounded_by_m": 0.07678,
+   "grounded_by_m": 0.0693,
    "feet_span_m": [
     0.0,
-    0.034
-   ],
-   "adopted": "R-C9-150 MX audition pick (en60)"
+    0.0386
+   ]
   },
   "run": {
-   "source": "../mx_audition/mxglb/cr__mutant_run.glb",
+   "source": "mixamo/glb/axe_unarmed_run_forward.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
-    0.033333,
-    0.9
+    0.03333333507180214,
+    0.8333333134651184
    ],
-   "keys": 27,
-   "length_s": 0.86666664108634,
+   "keys": 25,
+   "length_s": 0.7999999783933163,
    "joints": 22,
    "rest_match": 1.23548,
    "hip_ratio": 0.85978,
@@ -72,14 +70,13 @@
    ],
    "source_travel_m": [
     -0.0,
-    1.7731
+    1.8791
    ],
-   "grounded_by_m": 0.07224,
+   "grounded_by_m": 0.07308,
    "feet_span_m": [
     0.0,
-    0.05
-   ],
-   "adopted": "R-C9-150 MX audition pick (en60)"
+    0.0528
+   ]
   },
   "lob": {
    "source": "mixamo/glb/standing_2h_magic_attack_01.glb",
@@ -107,14 +104,14 @@
    ]
   },
   "attack": {
-   "source": "../mx_audition/mxglb/cr__mutant_punch.glb",
+   "source": "mixamo/glb/axe_standing_melee_attack_horizontal.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
-    0.033333,
-    1.133333
+    0.03333333507180214,
+    2.433333396911621
    ],
-   "keys": 34,
-   "length_s": 1.0999999903142452,
+   "keys": 73,
+   "length_s": 2.400000061839819,
    "joints": 22,
    "rest_match": 1.23548,
    "hip_ratio": 0.85978,
@@ -122,15 +119,14 @@
     "deroot"
    ],
    "source_travel_m": [
-    -0.0,
-    -0.0
+    -0.0049,
+    -0.0014
    ],
-   "grounded_by_m": 0.08836,
+   "grounded_by_m": 0.07919,
    "feet_span_m": [
     0.0,
-    0.0404
-   ],
-   "adopted": "R-C9-150 MX audition pick (en60)"
+    0.0332
+   ]
   },
   "slam": {
    "source": "mixamo/glb/axe_standing_melee_attack_downward.glb",
@@ -158,14 +154,14 @@
    ]
   },
   "roar": {
-   "source": "../mx_audition/mxglb/cr__mutant_roaring.glb",
+   "source": "mixamo/glb/axe_standing_taunt_battlecry.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
-    0.033333,
-    5.4
+    0.03333333507180214,
+    2.866666555404663
    ],
-   "keys": 162,
-   "length_s": 5.3666667602956295,
+   "keys": 86,
+   "length_s": 2.833333220332861,
    "joints": 22,
    "rest_match": 1.23548,
    "hip_ratio": 0.85978,
@@ -173,15 +169,14 @@
     "deroot"
    ],
    "source_travel_m": [
-    -0.0026,
+    0.0,
     0.0
    ],
-   "grounded_by_m": 0.07392,
+   "grounded_by_m": 0.05893,
    "feet_span_m": [
     0.0,
-    0.0408
-   ],
-   "adopted": "R-C9-150 MX audition pick (en60)"
+    0.0142
+   ]
   },
   "hit": {
    "source": "mixamo/glb/axe_standing_react_large_gut.glb",
@@ -238,15 +233,5 @@
   "verdict": "WARN",
   "fails": [],
   "warns": 4
- },
- "mx_adoption": {
-  "record": "e_mx_graft.json",
-  "replaced": [
-   "attack",
-   "idle",
-   "roar",
-   "run",
-   "walk"
-  ]
  }
 }

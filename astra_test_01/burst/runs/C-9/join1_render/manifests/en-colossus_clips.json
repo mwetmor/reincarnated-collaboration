@@ -2,8 +2,8 @@
  "what": "JOIN-1 clip manifest for the en-colossus (crucible, roster rig aetherialcolossus) -- lane EN-E2 round 4 (drax, R-C9-132/133), read off en_e2/export/final_e",
  "body": {
   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_e/en_e_body.glb",
-  "sha256_16": "ef1624abb87e344f",
-  "height_m": 3.2
+  "sha256_16": "fa64a29e4c36669b",
+  "height_m": 2.5
  },
  "roster": {
   "rig": "aetherialcolossus",
@@ -15,29 +15,13 @@
   "box": "H/D 2.5 (BUILD_PRIORITY.md)"
  },
  "clips": {
-  "walk": {
-   "seconds": 1.3667,
-   "source": "axe unarmed walk forward (Mixamo)"
-  },
-  "run": {
-   "seconds": 0.8,
-   "source": "axe unarmed run forward (Mixamo)"
-  },
   "lob": {
    "seconds": 2.6667,
    "source": "standing 2h magic attack 01 (Mixamo)"
   },
-  "attack": {
-   "seconds": 2.4,
-   "source": "axe standing melee attack horizontal (Mixamo)"
-  },
   "slam": {
    "seconds": 2.2667,
    "source": "axe standing melee attack downward (Mixamo)"
-  },
-  "roar": {
-   "seconds": 2.8333,
-   "source": "axe standing taunt battlecry (Mixamo)"
   },
   "hit": {
    "seconds": 1.4667,
@@ -47,18 +31,34 @@
    "seconds": 3.5333,
    "source": "standing react death backward (Mixamo)"
   },
+  "attack": {
+   "seconds": 1.1,
+   "source": "mutant punch (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
+  "roar": {
+   "seconds": 5.3667,
+   "source": "mutant roaring (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
   "idle": {
-   "seconds": 1.8,
-   "source": "axe unarmed idle (Mixamo)"
+   "seconds": 4.0333,
+   "source": "mutant breathing idle (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
+  "walk": {
+   "seconds": 1.4333,
+   "source": "mutant walking (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
+  },
+  "run": {
+   "seconds": 0.8667,
+   "source": "mutant run (Mixamo Creature Pack; R-C9-150 MX audition pick (en60))"
   }
  },
  "locomotion_in_place": {
   "walk": {
-   "speed_m_s": 1.646,
+   "speed_m_s": 1.655,
    "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
   },
   "run": {
-   "speed_m_s": 4.421,
+   "speed_m_s": 3.009,
    "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
   }
  },
@@ -68,24 +68,24 @@
    "hand": "RightHand",
    "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 34"
   },
-  "attack": {
-   "release_s": 0.8667,
-   "hand": "RightHand",
-   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 26"
-  },
   "slam": {
    "release_s": 0.8333,
    "hand": "RightHand",
    "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 25"
   },
+  "attack": {
+   "release_s": 0.2333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 7"
+  },
   "roar": {
-   "release_s": 0.5,
-   "hand": "LeftHand",
-   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 15"
+   "release_s": 0.9,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 27"
   }
  },
  "death": {
-  "root": "de-rooted at source (+deroot); hips ground track max 0.591 m from the origin, ends 0.092 m"
+  "root": "de-rooted at source (+deroot); hips ground track max 0.436 m from the origin, ends 0.383 m"
  },
  "vfx_runtime": {
   "aether": {
@@ -190,6 +190,17 @@
    "use": "bolt + burst (r 2.5 m) = the crystal grenade lob (projectile 56 %); slash = the strike; ring_* (r 4.0 m) = the slam / roar"
   }
  },
+ "size_call": {
+  "designed_height_m": 3.2,
+  "shipped_height_m": 2.5,
+  "factor": 0.7812,
+  "why": "MAX-FIT (KP-222): the record LOB and SLAM raise both arms overhead, and the record fall-to-the-ground clip ends lying out to one side (centred by en42, so it ends on the anchor). en63 (the skinned mesh through the play camera, calibrated within 4 px of a rendered union) gives fit x0.975 at 2.60 m, so the body ships at 2.50 m. The roar is not binding (fit x1.283 at 2.60 m). The true_size block gives each record its factor back to the true height.",
+  "binding_clips": [
+   "lob",
+   "slam"
+  ],
+  "method": "en42 death centre + en63 geometric fit + en53 on the rendered pack"
+ },
  "painted_texture": {
   "status": "PAINTED (D7 method)",
   "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
@@ -200,7 +211,7 @@
   "grade": "none"
  },
  "true_size": {
-  "base_height_m": 3.2,
+  "base_height_m": 2.5,
   "designed_height_m": 3.2,
   "reference_record": "aetherialcolossus_galakros.dbr",
   "reference_scale": 1.7999999523162842,
@@ -209,13 +220,13 @@
    "aetherialcolossus_h01/aetherialcolossus_h02/aetherialcolossus_h03/aetherialcolossus_h04/... (champion-hero)": {
     "scale": 1.6,
     "true_height_m": 2.844,
-    "factor": 0.889,
+    "factor": 1.138,
     "e_bodies": 0.417
    },
    "aetherialcolossus_galakros (boss)": {
     "scale": 1.8,
     "true_height_m": 3.2,
-    "factor": 1.0,
+    "factor": 1.28,
     "e_bodies": 0.501
    }
   }
