@@ -12,14 +12,16 @@ All heavy work goes through `runs/C-7/conductor_scripts/heavy_lock.py C-9 -- <cm
 - **en-crawlerlarva_p**: pack `join1_pack/en-crawlerlarva_p`, 32/32 cells, 416 PNG, true_size factor 1.0. Supersedes
   `join1_pack/en-crawlerlarva` (index sha 567115366c21, pinned in the kit).
 
-## Next, in order
+- **en-abomination** (rift horror, kc_bounty13): pack `join1_pack/en-abomination`, 72/72, true_size factor 1.2 (base 2.0 m). Chain `work/chain_rh_c.sh`. DONE 2026-10-03 (abomination-only resume).
+
+## Next, in order (hellhound + worm_p still PAUSED by the conductor)
 1. **en-burrowworm_p** — everything up to the kit is done (`export/worm_p/worm.glb` with the n22 emerge fix and the
    painted `work/tex_worm_PG.png`; kit + manifest written; the kit's `supersedes` pins `join1_pack/en-burrowworm`
    index sha 08bdc4fc4d13). Remaining: the Godot cell render + index_cells + validate_sockets + j_runtime_resample +
    48 lint + stills/film — run the worm half of `work/chain_pz_d.sh` from its `gate`/`mkdir -p $C9/join1_pack/$K` line
    (K=en-burrowworm_p, N=worm), then its final step: the E-heading "after" emerge strip
    `work/strip_worm_emerge_E_after.png` -> copy to `artifacts/`.
-2. **Abomination (rifthorror, kc_bounty13 -> pack en-abomination)** — arm check done (W/S strips `work/strip_rh_v1_{W,S}.png`:
+2. ~~Abomination~~ DONE above. (Old notes: **Abomination (rifthorror, kc_bounty13 -> pack en-abomination)** — arm check done (W/S strips `work/strip_rh_v1_{W,S}.png`:
    both arms rise in the impale windup and drive down at f45; accepted). Built at 2.0 m (`builds/rifthorror_prep20.glb`,
    rig v2 n17 s_with_margin 1.013). Paint canvas ready: `work/canvas_rifthorror_G.png` + `work/layout_rifthorror_G.json`.
    Remaining: **(Astra, needs the conductor's go)** `EN3_BODY="a hunched many-limbed two-legged horror" python3 scripts/n07_paint_brief.py
